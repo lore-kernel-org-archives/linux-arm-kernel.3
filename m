@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A647ACA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6A6CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ojX3hkGfX4or6LXO9A1AxAUN8SUQm9XePAgC0Ad/Cog=; b=J4ISWALQUob4sE6HmcrRbly+O4
-	LfOAe2mOrfCtqWSN12fL3bdlxcI3/ga2/vqRxlMdDLVv08reSt7sTJSP2JaVdWNZPOi+krPit005+
-	qF/EKwKUEoUH/UISYVXWLojNfO203/lWEqsRLhcSyRbxheUN4T5yrdrV8Wz1cPFbpUqzOlu5gUtpV
-	/yObWUm93au7PDxP3yG4MbHtdj66NfkvkhHDVLV/TJBzLwV/yPpJ5mGVr2I9YYllBVdFfk2p9etIU
-	EvXH04hRvzXpg4MzMZK8J+2qQmFXd3yt8yEpimmoOnvfSrE2/UJcTYwbN7yS/cNdOB6NgTwLIlUba
-	IwxxAwAg==;
+	bh=lK+qV6ACE+ZIC7/SKRa3Jojmx9oqGAXfttgxOcfCiug=; b=JETfnnEVUryK34WGcVrgV+rvDh
+	iPya/C3/nEbka+6r5erWEFauwr77HWpBEyELLdh7gH6l9hLWsx+IgZjX2QE7/CUfKpBa7EpBtUIuq
+	ZcOkeK5tYMQhqIBJYzBXaUyX1yiPG8nBBTxhVGWB7N5DkIwQbDxrqnodzjHtnNMmofEUQ+CqFUsvQ
+	mpaOyt7wxUhWaoMJ0GcWPASSaV0xXmFdT/+29Hmb2CHo4upn8GCIQyPuZSLk2kCgt1p6WgNGNVedG
+	qdF4dhXOip3VTJ73c3UqQLlAAawjyEcjTZd0jRyGSqhxT+29xhryWrQti9qvG9nH7gh9Hu4V7SfCA
+	LIzUYLDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGE35-0000000AKu4-1wlA;
-	Mon, 12 Oct 2026 11:18:31 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xGE3U-0000000AKyI-2QN9;
+	Mon, 12 Oct 2026 11:18:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGE32-0000000AKte-091y
+	id 1xGE3T-0000000AKy1-3Wbn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:18:31 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a16af2a232so14329215e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 04:18:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791803906; x=1792408706; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ojX3hkGfX4or6LXO9A1AxAUN8SUQm9XePAgC0Ad/Cog=;
-        b=ZaYjlKneI7Y1qW98uREcYb2JPjqJRQU/G/g1apZ3LiO6Z+EftkYABqTUwu8qI/89Qg
-         wizg1TJYAB0MOMf8cXUrEufdWh7Eg9g2zrhrFLEHyc4lYivtYMbYMFaIYETj9hd0QvPr
-         X9BiM5pqWA5+2uwoJW3exax2N6Q81tLnCKrb0lO3Z8cS7IkorcXtQ6D0j1NYtCAS7PNB
-         GcdLwjV7oPfKk2ztwNoX/S55b88vqWHBFEoXiJ2HsAFqoBMlGOZ2WzvTYr+z2e61abCe
-         eld3QhRyEompYCqi/xU+KPMRU6BUtCpHoBq89rT3RruXgLgfmGqhaMjYLSl72IMdKV5Q
-         5gjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791803906; x=1792408706;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ojX3hkGfX4or6LXO9A1AxAUN8SUQm9XePAgC0Ad/Cog=;
-        b=YvObe+f8veZZYWVVd3+nb5zRMN/YTGRV68YICngR2tp6MBU611RMOgFv7RUsTNrcc6
-         4Kw0U7wtghpjceshr2LNwOpMdSJuFfidUDOArq4xqI7K65qfIu8ZGkbeewiF/wC9DPV1
-         KFqHmY4AC+CwMLxAm24vrdITdjzfZJyey8JpjK/2dGeUneCRCf4/s+Kt1FoU7KLhneAp
-         MW0H/eA9IRNz97WtGFaFjGICGVB4/etW+bCgm3TPWpeg7hvLA6WjeK8+Xj9nOxBCrRmA
-         4Mjgy3HsMCqcuazbowCMOmqaIgJ15WqibFHx5eUQ7+5Tho1mxMm0aO5vwQdVq3bGtIf9
-         dydQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwenPCyS08OBtm4FNzi1n5JXKNCJ5AC02hKj4EpeR+kgwOPfMxKrYB6lL4Ee6J2LqEfBb0aMuiyaMZovPRDVnIj@lists.infradead.org
-X-Gm-Message-State: AFq9FYKJI/vD+tB2jn5q+3cEUOHZpTdzwfnGmibbcai5uGEhOjBfYf9p
-	wv8jqoTwH9v76HaOjL4Z7sabwlUP521IhvQ5WHrXwh3qdXIXFPU3KO46Z3QnknNHdvI=
-X-Gm-Gg: AYBFou2UJVhctIP+m+OlBMWhBQA9eqsq6r6UdDGgNRkYWkRuo1s9FbX1Dx7c06DF9lh
-	Wmz17gUz/omCmC0Mtuk6cXyy1olfeMa2bu/wmiwTB5H13dBL46TctE89O11KH3dUuctgtoyYQOL
-	i5vV5ujQwrFs+k6p8Zg7joGyVgJsxP7EeKorees8t1eZtlcakAhIazU27skswee6R3xS9zrRgqo
-	BE6J2mUTlfpQQQKjpZLzlOwIxwqQTH1Bvx/NEXVd31bguLot8jZMyzhPXVdU8ICqd+nPhUY2Y4L
-	I/LoXdFRDrhTXenA7oCFj03fjEdQFVXF/nYAJYJX6L/f7xXfGeeFaj1/CpvZ4OMHTkSoP/pNhUR
-	bI1NVlGwqdNAB9nF8hO1r6uiabzlayHgkD4tM/gHhGziFvUjxxvsL1XxjonSJmYok2AqLwEhq+V
-	OcQ5cnjP7u62X4Qu+Ia6jQbVvqd5vak6+LX9ekcFnyTKyDEOsM7NQqVtLsXn+xmmkqwYLN3KwRM
-	T9LGguvmufF12GbTzkPBBC45qFwsrPvksURBOXZb1BIUgc6xwvXkMVjwJRhGw==
-X-Received: by 2002:a05:600c:6384:b0:4a1:7741:ec43 with SMTP id 5b1f17b1804b1-4a18e4b8966mr159157835e9.26.1791803904585;
-        Mon, 12 Oct 2026 04:18:24 -0700 (PDT)
-Received: from localhost (p200300f65f19a904ade4f69ba751c34c.dip0.t-ipconnect.de. [2003:f6:5f19:a904:ade4:f69b:a751:c34c])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a18bb68abfsm311754435e9.0.2026.10.12.04.18.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 04:18:21 -0700 (PDT)
-Date: Mon, 12 Oct 2026 13:18:21 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Ying Liu <victor.liu@nxp.com>, Frank Li <frank.li@oss.nxp.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v10 5/9] drm/imx: Add support for i.MX94 DCIF
-Message-ID: <aszBIkBXoFIkkeiL@monoceros>
-References: <20261006-dcif-upstreaming-v10-0-bcfb28de0aae@oss.nxp.com>
- <20261006-dcif-upstreaming-v10-5-bcfb28de0aae@oss.nxp.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cdga4qrbhoxcfsbx"
-Content-Disposition: inline
-In-Reply-To: <20261006-dcif-upstreaming-v10-5-bcfb28de0aae@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_041829_443087_35E887AC 
-X-CRM114-Status: GOOD (  15.20  )
+	Mon, 12 Oct 2026 11:18:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 036C9601FE;
+	Mon, 12 Oct 2026 11:18:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB2221F0089B;
+	Mon, 12 Oct 2026 11:18:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791803934;
+	bh=lK+qV6ACE+ZIC7/SKRa3Jojmx9oqGAXfttgxOcfCiug=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GCxHvs/X+x/620NMpUjYsEgKKYPzCd8nvloW+GB/wUHrYBgnzpkeqkqknm4IAy1C9
+	 oZSTQViurCAm2XPhplhdaVVuWflpOeU1vPArVp92GEWGoWdnfihy7FghMtsTnSbFcf
+	 5AkJDD4NaXQtK/efkWAt430AdYv2bSI1AB5OIyq6GVCBbnkaNQcyplMnMvpD7JQI5s
+	 OoaeYKmsqddZCUa3o83Uz/QuGKYKAueN+qLX+JvYz39qkKpgImLnofvwdRhFnOZN5v
+	 reefTqZh70dZwB57nq2q+mS/0ojfJJD+xPMKHZOuz63/Wt1IL6oYjGrlrf3Pv5r13b
+	 SkEze+R0ZC08g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xGE3Q-00000001qdE-21hE;
+	Mon, 12 Oct 2026 11:18:52 +0000
+Date: Mon, 12 Oct 2026 12:18:51 +0100
+Message-ID: <8633ub2mlg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v1] KVM: arm64: vgic-v4: Don't forward an LPI with no target vCPU
+In-Reply-To: <20261012084743.2228612-1-fuad.tabba@linux.dev>
+References: <20261012084743.2228612-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,60 +90,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---cdga4qrbhoxcfsbx
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v10 5/9] drm/imx: Add support for i.MX94 DCIF
-MIME-Version: 1.0
-
-On Tue, Oct 06, 2026 at 12:22:00PM +0000, Laurentiu Palcu wrote:
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/platform_device.h>
-
-Please rely on linux/platform_device.h to provide of_device_id and drop
-linux/mod_devicetable.h.
-
-> +static const struct of_device_id dcif_dt_ids[] = {
-> +	{ .compatible = "nxp,imx94-dcif", },
-
-No , before } please.
-
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, dcif_dt_ids);
+On Mon, 12 Oct 2026 09:47:43 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> KVM keeps one vgic_irq per LPI. The MAPTI that creates it sets its
+> target vCPU from that MAPTI's collection, and a later MAPTI of the same
+> LPI leaves the target alone. Mapping one LPI from two events is
+> UNPREDICTABLE (IHI 0069H.b, 5.2.10), but nothing stops a guest doing
+> it. If the first MAPTI names a collection the guest never maps and the
+> second a mapped one, the LPI translates through the second event with
+> a NULL target vCPU.
+> 
+> When the VMM routes an assigned device's MSI to that event on a host
+> with GICv4 enabled, kvm_vgic_v4_set_forwarding() takes the vPE from the
+> NULL target vCPU and the host oopses:
+> 
+>   Unable to handle kernel paging request at virtual address 0000000000001980
+>   [...]
+>   Call trace:
+>    its_build_vmapti_cmd (drivers/irqchip/irq-gic-v3-its.c:943) (P)
+>    its_irq_set_vcpu_affinity (drivers/irqchip/irq-gic-v3-its.c:1380)
+>    irq_set_vcpu_affinity (kernel/irq/manage.c:670)
+>    its_map_vlpi (drivers/irqchip/irq-gic-v4.c:326)
+>    kvm_vgic_v4_set_forwarding (arch/arm64/kvm/vgic/vgic-v4.c:485)
+>    kvm_arch_irq_bypass_add_producer (arch/arm64/kvm/arm.c:2977)
+>    irq_bypass_register_consumer (virt/lib/irqbypass.c:44)
+>    kvm_irqfd (arch/arm64/kvm/../../../virt/kvm/eventfd.c:496)
+>    kvm_vm_ioctl (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:5270)
+> 
+> Leave such an LPI to the software path, which copes with a NULL target,
+> as kvm_vgic_v4_set_forwarding() already does when the MSI doesn't
+> translate.
+> 
+> Fixes: 196b136498b35 ("KVM: arm/arm64: GICv4: Wire mapping/unmapping of VLPIs in VFIO irq bypass")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> Tested on QEMU, which emulates the GICv4 ITS, with a local reproducer
+> that sets up the two MAPTIs and forwards a vfio-pci MSI to the LPI. It
+> oopses without the fix and passes with it. Not tested on GICv4 hardware.
+> 
+> Based on v7.3-rc3.
+> 
+>  arch/arm64/kvm/vgic/vgic-v4.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
+> index ed236f083f0d7..545e55317c863 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v4.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v4.c
+> @@ -466,6 +466,13 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
+>  	if (irq->hw)
+>  		goto out_unlock_irq;
+>  
+> +	/*
+> +	 * Silently exit if the LPI has no target vCPU, as one mapped by
+> +	 * multiple ITEs (UNPREDICTABLE) can have.
+> +	 */
+> +	if (!irq->target_vcpu)
+> +		goto out_unlock_irq;
 > +
-> +static struct platform_driver dcif_platform_driver = {
-> +	.probe	= dcif_probe,
-> +	.remove	= dcif_remove,
-> +	.shutdown = dcif_shutdown,
-> +	.driver	= {
-> +		.name		= "imx-dcif-drm",
-> +		.of_match_table	= dcif_dt_ids,
-> +		.pm		= pm_ptr(&dcif_pm_ops),
-> +	},
+>  	/*
+>  	 * Emit the mapping request. If it fails, the ITS probably
+>  	 * isn't v4 compatible, so let's silently bail out. Holding
+> 
 
-I generally don't like the effort to keep the = aligned in such
-structures and don't recommend to even try it. Still more if it's
-inconsitent from the start. Just use a single space before the =.
+Isn't the core problem that we don't correctly handle the UNPRED
+double mapping of the same LPI? I'd rather we attack the issue at the
+source instead of papering over the consequences.
 
-Best regards
-Uwe
+I hacked the following, which is obviously untested. Can you give it a
+go?
 
---cdga4qrbhoxcfsbx
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks,
 
------BEGIN PGP SIGNATURE-----
+	M.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrMwfoACgkQj4D7WH0S
-/k616wgAm56cItlrtTGYJGQMifXXyKIZEbNaNh8obfuoDdC9KTfL6OrQDbETA8n/
-83AtYbd6RkC4JP7NX3SK5DlSDS/oLGmxynxAfceKMBWsUcqR4oEpGee8ZRkIFMYn
-BL355LaaGTv56+1iWN/tYDLNYYgKV+jwUYXmDJferAy0J0I1aTlYgEYMNoCJGGxb
-ciaSMXRD1FzuAb3vpJpUvWltH2+boMSdeaKoj6ZblcP2sHWtw4UWN3b1YEcrSVcl
-zMXusjBfMNf3S6BQ3GHOW5axtmRXjnPsqxXPCouSaEqqAahemWk+g7rA/4XF+Xax
-302ZWP3FujxCr3/FFyysMyUncNGZnw==
-=Kiiw
------END PGP SIGNATURE-----
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index e5657cb603567..f0a1a879d9ac1 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -73,14 +73,16 @@ static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
+  * If this is a "new" LPI, we allocate and initialize a new struct vgic_irq.
+  * This function returns a pointer to the _unlocked_ structure.
+  */
+-static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+-				     struct kvm_vcpu *vcpu)
++static struct vgic_irq *__vgic_add_lpi(struct kvm *kvm, u32 intid,
++				       struct kvm_vcpu *vcpu, bool *created)
+ {
+ 	struct vgic_dist *dist = &kvm->arch.vgic;
+ 	struct vgic_irq *irq = vgic_get_irq(kvm, intid), *oldirq;
+ 	unsigned long flags;
+ 	int ret;
+ 
++	*created = false;
++
+ 	/* In this case there is no put, since we keep the reference. */
+ 	if (irq)
+ 		return irq;
+@@ -133,6 +135,8 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 
+ 		if (oldirq && !WARN_ON_ONCE(refcount_read(&oldirq->refcount)))
+ 			kfree_rcu(oldirq, rcu);
++
++		*created = true;
+ 	}
+ 
+ 	xa_unlock_irqrestore(&dist->lpi_xa, flags);
+@@ -160,6 +164,25 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 	return irq;
+ }
+ 
++static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, int lpi_nr, struct kvm_vcpu *vcpu)
++{
++	struct vgic_irq *irq;
++	bool created;
++
++	irq = __vgic_add_lpi(kvm, lpi_nr, vcpu, &created);
++
++	/*
++	 * Mapping an LPI twice is UNPREDICTIBLE. Drop mapping an
++	 * existing LPI on the floor and convert it into an error.
++	 */
++	if (irq && !IS_ERR(irq) && !created) {
++		vgic_put_irq(kvm, irq);
++		irq = ERR_PTR(-EEXIST);
++	}
++
++	return irq;
++}
++
+ /**
+  * struct vgic_its_abi - ITS abi ops and settings
+  * @cte_esz: collection table entry size
 
---cdga4qrbhoxcfsbx--
+-- 
+Without deviation from the norm, progress is not possible.
 
