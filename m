@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56045CA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1F8CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AH2UirJCWDjtQ8R32qv313a+sS+NLZo8fy7CiVjRpSU=; b=vNEOEghjy5M1qvOBgBOOJ5NzQW
-	xK6Ji71nSrREqigFcqMI7rlGcCPL13zyo2awrDX21apUkfu2dgDdXeGqTXnmh4UCfs2rBZFbO2jVb
-	hSFioZdnE3egnKXUQHWWJS8Ym9Kw+D9j9dJ0fi975btLRXdKgBbB0rd7+0RnCqEiSxL/Jx/5Dj9x5
-	0TlHUZgnlhSKwVZ2XxE/3wDcKRtT57glsNuWhxyxdp4atQswNRoTb48vu9qOgZIKGehmqdsdygM53
-	dmxbIKe2jprte95353l944sz7LapTvI6yNzX5pRKw3JBLCsLqf7Tu9DZQ/DWHLo4Bm9b/H/Sykdov
-	A2tTrArA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aps8kHLqi/8jFYidGtO0vryj1o6o4s/CXu0xm5bD3hI=; b=VJmKAFMaK7V2fcrWBQeRq7FuzX
+	nT5VhIPgb4o3af+GfWXZeLVn0UzKcwsSuKdscROAT8ai+NraYSv1QHMgQaAXpKMOE3LTokgDgiz64
+	DQGE2pJcjdF9og1IE177zxEVpFW3VjLlpMlUdps6hlzqxwdKF9gaYV2Q0KN0Tc9iFI8Jj0wj9Qwdd
+	ynEZFiEPSztFrLazZTWCx0rUBdcIPLcEWBV2LTunD/Pnl6mCAg7B5enxlf95m6fEk91e02zMMhjVG
+	Lt5AvmPloFQyUXCkLs/Qsaojc967ThD4Xxr4ytBY/KrqDBKUmaBKuSdMvyLp4g61LT7zUDqCOzQpc
+	QxoqH8/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLOJ-0000000BMEK-487V;
-	Mon, 12 Oct 2026 19:08:55 +0000
+	id 1xGLSv-0000000BMYr-3e3P;
+	Mon, 12 Oct 2026 19:13:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLOI-0000000BMDz-3OWQ
+	id 1xGLSu-0000000BMYh-2yTe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:08:54 +0000
+	Mon, 12 Oct 2026 19:13:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D08842E5F;
-	Mon, 12 Oct 2026 19:08:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40A31F0089B;
-	Mon, 12 Oct 2026 19:08:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 277AE43E2D
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 19:13:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F2C21F00901
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 19:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791832134;
-	bh=AH2UirJCWDjtQ8R32qv313a+sS+NLZo8fy7CiVjRpSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kQ+QH3abMyKT2hbftVxX9XFZgH/GiMSWph9bG9HxraLBUjQ0N+StNB9KsQYvvkwiV
-	 Pg5zYOmXvvYa3Pav0CLHRkwPPtTepSUXakhiy+ISkksn3WlIRe6epE3tuPBsZD9E4+
-	 T4UVCCqYso81hQAHLKcsK2wPvigYccynGcCJo7c/Uqw0lyw2X0CPRH3fr4jJgQtmjQ
-	 OUL4qwzUOKo3LY1N/bmEAKbXPpAD99z/H59Ll/FIYaLMbHm8xTH515OFgUxmPdgPPr
-	 lhv91rM7LpVaGtuyhW96p//w/btde2nlH81Bun4BOAP31gSqHn8Q52bsNA6PamT9c3
-	 scX6AQLgNr2wQ==
-Date: Mon, 12 Oct 2026 20:08:47 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Leonardo Costa <leoreis.costa@gmail.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 1/3] dt-bindings: display: bridge: simple: Add the
- Toradex Apalis iMX6 VGA DAC bridge
-Message-ID: <20261012-overtly-powdered-c8c2869e4319@spud>
-References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
- <20261012-v1-apalis-imx6-enable-vga-v1-1-8905d8746504@toradex.com>
+	s=k20260515; t=1791832420;
+	bh=Aps8kHLqi/8jFYidGtO0vryj1o6o4s/CXu0xm5bD3hI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OjdhSnf4FOwgU1/owe4/c9lkF6KZrXUW4MF9tPs6ZnU7YNaqeQ7iUEyCNrdu7UYtC
+	 TVAf3qP2tsN6Fcm3vCBb7k0rwS6zSdcnFTWVbabTpgj/fMzWkFDhqrGpDSs+k48r36
+	 hlSfVvF1nWgjvCnC0/Kso4niOkHHFQgGJek9KrgKaUOGFEiciJmQNA8wXSA3KLDZnT
+	 MjbuSmXC/dlUrrWiubn/tMKkLmopAWm3CzrfF8UO/ieloGGEwsv+3CBwh9+PZSa7/3
+	 JngoX6XjiYQdYsQj5yQhPVFUoQvkTMnk4ElaUriBMFPBlcycWno277oWC6wz7O6c+w
+	 fC7CqIFZYN2HA==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5ba35c0df4fso1754191e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 12:13:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxQhbb+kdCLSEEnOiaRbhKzXu53JmC2RAUv2ZXRa8V1T8P8nUllZ+aUNKLvAxcDMc633q8srVs8IQcRqvPeQvnm@lists.infradead.org
+X-Gm-Message-State: AFq9FYIsucjfX+os2vFTxCybgAvoYvuf4LhmBbevP0B9AaZtetLg4W0x
+	cmvWqaAdTECUrPU/wZHB5yPKCIs7VYA3BwHRQNwQO2ZR5c0xFzLteT5BZcyFlSM2ZE6DSBHlT0I
+	NbILjQj9GjZLN8+HwcyhJRxOyUUMnyS4=
+X-Received: by 2002:a05:6512:3042:b0:5b8:f125:f48 with SMTP id
+ 2adb3069b0e04-5bcde8e2d0cmr3421626e87.57.1791832418176; Mon, 12 Oct 2026
+ 12:13:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cfz7Ef1U0dsCKRCm"
-Content-Disposition: inline
-In-Reply-To: <20261012-v1-apalis-imx6-enable-vga-v1-1-8905d8746504@toradex.com>
+References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
+ <20261002061507.1600269-8-suzuki.poulose@arm.com> <ar-PiBQGye4_hQa6@arm.com>
+In-Reply-To: <ar-PiBQGye4_hQa6@arm.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Mon, 12 Oct 2026 21:11:34 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0gqSsA=tdKuQB1uExYas8F0BaxUm+eh8xaxxP6YAFB6cg@mail.gmail.com>
+X-Gm-Features: AclHuK92lB5NiS5iBnplzk_ORuBnuUMmcADY6EqE6mt-4e6s6zZBLocPPGyqu5E
+Message-ID: <CAJZ5v0gqSsA=tdKuQB1uExYas8F0BaxUm+eh8xaxxP6YAFB6cg@mail.gmail.com>
+Subject: Re: [PATCH v22 07/10] kernel: hibernate: Add an arch hook for
+ preventing hiberation
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, maz@kernel.org, will@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, 
+	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, 
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, 
+	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, 
+	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, 
+	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com, 
+	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, linux-pm@vger.kernel.org, 
+	Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +90,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---cfz7Ef1U0dsCKRCm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Fri, Oct 2, 2026 at 1:03=E2=80=AFPM Catalin Marinas <catalin.marinas@arm=
+.com> wrote:
+>
+> On Fri, Oct 02, 2026 at 07:15:03AM +0100, Suzuki K Poulose wrote:
+> > Add a hook to allow arch code disable hibernation. On arm64, with an RM=
+M active,
+> > there could be pages that are delegated to the "Realm" security state. =
+Any
+> > access to them are fatal (e.g., hibernate save image or restoring an im=
+age to
+> > a delegated page). pKVM host also has its restrictions on enabling hibe=
+rnation.
+> >
+> > Add a weak arch hook to let the architectures have a say.
+> >
+> > Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> > Cc: Len Brown <lenb@kernel.org>
+> > Cc: Pavel Machek <pavel@kernel.org>
+> > Cc: linux-pm@vger.kernel.org
+> > Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> > Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>
+> Nit: the subject prefix for kernel/power/ usually is
+>
+>         PM: hibernate: ....
+>
+> I can fix it locally, no need to respin (and probably the wrap the long
+> lines in the commit log, we tend to keep them shorter).
+>
+> > ---
+> >  include/linux/suspend.h  | 1 +
+> >  kernel/power/hibernate.c | 8 +++++++-
+> >  2 files changed, 8 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/include/linux/suspend.h b/include/linux/suspend.h
+> > index b02876f1ae38a..a3815027773c5 100644
+> > --- a/include/linux/suspend.h
+> > +++ b/include/linux/suspend.h
+> > @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), v=
+oid *data);
+> >  int hibernate_resume_nonboot_cpu_disable(void);
+> >  int arch_hibernation_header_save(void *addr, unsigned int max_size);
+> >  int arch_hibernation_header_restore(void *addr);
+> > +bool arch_hibernation_available(void);
+> >
+> >  #else /* CONFIG_HIBERNATION */
+> >  static inline void register_nosave_region(unsigned long b, unsigned lo=
+ng e) {}
+> > diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
+> > index d2479c69d71a4..9d9d53828542f 100644
+> > --- a/kernel/power/hibernate.c
+> > +++ b/kernel/power/hibernate.c
+> > @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
+> >       return !atomic_read(&hibernate_atomic);
+> >  }
+> >
+> > +__weak bool arch_hibernation_available(void)
+> > +{
+> > +     return true;
+> > +}
+> > +
+> >  bool hibernation_available(void)
+> >  {
+> >       return nohibernate =3D=3D 0 &&
+> >               !security_locked_down(LOCKDOWN_HIBERNATION) &&
+> > -             !secretmem_active() && !cxl_mem_active();
+> > +             !secretmem_active() && !cxl_mem_active() &&
+> > +             arch_hibernation_available();
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>
+> Raphael, any objection to this patch going in through the arm64 tree? It
+> matches the style of other __weak functions in this file.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+No objection, and feel free to add an ACK from me to this one.
 
---cfz7Ef1U0dsCKRCm
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0wPwAKCRB4tDGHoIJi
-0jlnAP4yIPeZyDrdvqTGaV/8ySZ5uj9SUbamP+03AnBdo4AXpQEAzZ00qNI8KiIV
-oDO4vZxCIctnH5UQGVexvOnOtgOWYA0=
-=W8Vk
------END PGP SIGNATURE-----
-
---cfz7Ef1U0dsCKRCm--
+Thanks!
 
