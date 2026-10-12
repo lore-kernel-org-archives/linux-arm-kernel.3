@@ -4,62 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227DCCA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10439CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fAUfWWTxjwqCeuukrWQxTgwGQa9QftroT/t4wDZYVVw=; b=OFCSzrtfznSAMJLznfF6rWZiEB
-	1CAF5cQikR0C+3TxI/2ZwcvDMc0WFUSOP1aDJ9dQKOix8QSfGTaEZtdLqpQISRb3i434dvZBcIYu2
-	SF9hBWGl/QZEuWtrEWZ7en5QsZqG85B8VbOcTE38qVAjEJEE2IPUqST7RRrquOIIT1SzTYfhQhWsU
-	uuj9xvcjwaQE3QqH0q9lNDqAFTLkHLs/UxXu77P0jsgf1AtqkN8pNNt/Ba/9oAdMFChtcAZKFsdUY
-	elVHM4+pF3PwPIz5Cghh5SISJ8bXtMeNJLwNVlhVgJhmPjqbfTIcuLiCm7r5esLnZISafn4DMLT+F
-	gxAVKERw==;
+	bh=DDWukZBejfQ2ZFdkMHCZT3V+b5ucaEBgGqV7bbEcWm4=; b=ASuWq9RXGL1kIIS7pYCU+xcN8m
+	umpSR8afUeGeakxIYtxLC5tesqSJdZGVY2aH2+7TAnuUGKQrnLjgpdG92wUkyQ6PCht4T8yv4C0dJ
+	xfGILTkk9EGxUXsdam0DHSTkluVR+clTbmbpJREqkX32CPb9DE+FZABgMVwvHw6dqk3Dw4klvFiAm
+	0dGjMi7St8iy41cwE195H1fhYFzz7GZIhi/3uAXbv0vwY90wAtMiGQTGV+7MgNZP5iAalC9CM23CJ
+	gzok/3bTYDV7aneP2Fykc0UwNJKpNrw+jOqhtOOgwgt63dBrRnf0tF/U8/t/+DGgh1irBkSvJ7N6p
+	QFg/NZ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLNK-0000000BLzI-2Xxt;
-	Mon, 12 Oct 2026 19:07:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGLNW-0000000BM34-34o5;
+	Mon, 12 Oct 2026 19:08:06 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLNJ-0000000BLyy-11pC
+	id 1xGLNU-0000000BM1T-14sH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:07:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2C5B4141B;
-	Mon, 12 Oct 2026 19:07:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 936811F0089B;
-	Mon, 12 Oct 2026 19:07:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791832072;
-	bh=fAUfWWTxjwqCeuukrWQxTgwGQa9QftroT/t4wDZYVVw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BoLzz8NuAjzMywAPstQCH3qnS5gIf3tWURdDM4XY1syXbT1LSQySctZ2fppM7RtHP
-	 rLwcvb8DmcMBAi9bzzhDvyWJctQWBb5jK/GMi8ckeBx7ROBH4BreVfHRvBEYRCUPtZ
-	 Yq5KVAauL+xGSkYdujPrKKiKfywCV1UrI4Lr9XSu12tAosK30XTbV+fWR4Q3Cu1TAr
-	 3oq2oF34wQb5Z09u1hj2fueQtHI+nbRDxDm9ZvHdbDzP0QvnU6pZ3a8mctQVx+/xAd
-	 letnpc5qmYQSbQXDeazBiMKGPpN62CT+RKhUOK82KzJDphDOoW0zdH73RH60m0byXo
-	 guZc0TDwEdUqw==
-Date: Mon, 12 Oct 2026 20:07:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, robin.murphy@arm.com,
-	devicetree@vger.kernel.org, Frank.Li@kernel.org,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/6] arm64: dts: cix: Describe the Sky1 DMA-350 bus
- integration
-Message-ID: <20261012-rural-undermost-b4817ebd4740@spud>
-References: <20261012084155.2547480-1-Jelly.Jia@cixtech.com>
- <20261012084155.2547480-7-Jelly.Jia@cixtech.com>
+	Mon, 12 Oct 2026 19:08:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FfQB9GZ7OH6LUOuf17Y6b0GDw05bhbl1CNGQ1rxNgsB+qOM3rSBNDHwfb+dxNMQC0D2XaGK7a/PpCKWNIW7NRPktc0tRRYsFVeHSjQxgfSyHlwp+hAGA3pmC+a1dpNO8RNONTq6hvHcOJ7E0oEJVqMXy/nYiu4+p71qA5bzBbh+9oxTGjznBuliYShQ8xXi/TRAt3CkG7rci9C1wL3978L3g5bt07Nzmz1io83pL2LBsRefHAmM5pJWuZ1Xxa7xC3fjZefCIVdXIs3Ob6WYnhSfR1W5ZdIdajDwxQ8uzWRxlddI+tqyE1GVLsxMniMv5yKrowadO/BWMvkbsef+UaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DDWukZBejfQ2ZFdkMHCZT3V+b5ucaEBgGqV7bbEcWm4=;
+ b=JC+/XwaPq7ZePXLRy/5qxLVqHsGINXP/RO2oPYW1oJrz1kSL/o30U1ka9VnvJlI2ZNjOVlK8H00r1t84WriiLZu36KCzCu/+tRFoesg24yBH34JD8hI7khzWkjBdHJERNuVb3np/eCpxlLjqwEoILruWzGnLy90SciqejRoAFEEUlZB2jdzRzSMIpYkjdwdMmU8J96blsYnA/PzmqLmaAMW4sI2+rX+mV5XPqvNv7y37nU5LIeU0j2gUkLosI3xloPOQOLAgxKW0WX/e1Sh4SThn137J+B7Hw6jSDsJypOgoTaWsue8ZWPRS+6kNlbEbHB6Dd7MkY8bl3Em7ajwZlg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DDWukZBejfQ2ZFdkMHCZT3V+b5ucaEBgGqV7bbEcWm4=;
+ b=ga4U+1HnqMqdRkCIRYDvykYslVcRzZBrY7eGjEYSb7dlwht9zpvg06qq3+dnZ9YcBRBZ6aMDLlKK3UZte9VwWvncenXUOmszXs5F0bb1aMGXEvbeBzxDYYp1iVLk4y+5G33eS8BR+xUDwtGY7STlys6chorQnmn/H1Qh5IanoH9V6cGdntT9+p/cEVmOeC65ozaJ3nlZ/rNW3tuBreczX/SI/78uaqcuajnHhsl+NTUvyK1RisRdSGcbU6JH5jk72FgSuN51oB9NIawEepsNBjG3n/oehPxOYY+mH7rlutEK9wZo+ng1y5FUbrUx9MTLDe88ieJplwXFx79iGpYG/Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SA0PR12MB7090.namprd12.prod.outlook.com (2603:10b6:806:2d5::16)
+ by PH7PR12MB6907.namprd12.prod.outlook.com (2603:10b6:510:1b9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Mon, 12 Oct
+ 2026 19:07:58 +0000
+Received: from SA0PR12MB7090.namprd12.prod.outlook.com
+ ([fe80::de78:df30:c2e6:7adc]) by SA0PR12MB7090.namprd12.prod.outlook.com
+ ([fe80::de78:df30:c2e6:7adc%3]) with mapi id 15.21.0472.015; Mon, 12 Oct 2026
+ 19:07:58 +0000
+Message-ID: <b7cf63b3-5994-4eea-a53e-5cedacf056ba@nvidia.com>
+Date: Mon, 12 Oct 2026 22:07:50 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 3/3] net/mlx5e: use skb_share_check() in the
+ loopback selftest hook
+To: Nicolai Buchwitz <nb@tipi-net.de>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Mark Bloch <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
+ Dragos Tatulea <dtatulea@nvidia.com>, Alexei Lazar <alazar@nvidia.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
+References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+ <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
+Content-Language: en-US
+From: Tariq Toukan <tariqt@nvidia.com>
+In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-3-458369bfa1ba@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TLZP290CA0002.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::8)
+ To SA0PR12MB7090.namprd12.prod.outlook.com (2603:10b6:806:2d5::16)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eZMYkGYe2LFIW0E9"
-Content-Disposition: inline
-In-Reply-To: <20261012084155.2547480-7-Jelly.Jia@cixtech.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA0PR12MB7090:EE_|PH7PR12MB6907:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f8ccbbe-2926-48a0-a5c5-08df28942055
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|921020|56012099006|11063799006|4143699003|261009223027099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 6zS7iiTs1R0GqPZEmkq6s9tWU+8lY8j1JiyXAspmvPOrQwrsUD9jyIpRo93xg8e9Z/2/otpMtroFhG4H81s/zgHYQJcderGGHhqRoDYJmhkzHQbXn4e2uNE7LRLfvDJvP8o8IyEWieX6YyMNwFGwCU3rSJ/wtQT/YhxMMDQmBQNIhuv2tM8nMddRqt6C54hRoogZa2q6mB/Mk4+NdIH8E7WEJt2r99DmzaU7CY76r99KqtC/MfjGQKDn0abkaE6fReCfJ0xX2P4/TwFBGYdtT3qhdqXstOnZafQjTBmW+F4VkwM3v6+K1CWa3Bi/RV60xJU6l2hi44vcYmbFxc8Y7pxRUeFVzBjDlNk3FpNZJxtd3bF/ku9A7cRvCEbQDANjfU5BY3cnUZ5xbLd7TUJ21OJ/O+WQKANmP3fqdgTd7cWTOFUiZWpAaTi2CA6k9LFlZnwiQZH9UIAY3agTue0Vpfdsrj/HpOEoKPrGsXOVFYKhpep60td+6UYNU445ha22/eiBVdKfGY+uSA8JUruIEAYSAyZ+wQzJWXc8OtJWJJtnA0T7EGV7VXGjWL5Y+Aa5mbHrcrOTCWJrycQHQ/WfDsS1Q8kaRG8Uyu99bVKByAzYogZ46FREctwEbGsmktkuTVCCSebDMw4CcnHSNI6gWcXEBxzbUOJlEbCg7Q96C/UHtio+TYT4JDrD6IziiAuZscTcMF6kBiIAi3eZzf+tUQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB7090.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(921020)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2szVGVQSTEvWFZzYVV5ZWdxVFRIWW5GRlFyemlPM0pSaGpjTjZ0VUYySy8z?=
+ =?utf-8?B?a3NQUkliaVRjUUxKQ0tIWkNDdStpVzUrOXJ3ajVQSis4dm5Bc0hzOEMzTDdW?=
+ =?utf-8?B?dG1waitubDRxUzRLZkhUR2tWRTljY2NqL1hGNFBaaGtMcTRuOGxVY1lYT2Jl?=
+ =?utf-8?B?VStYVHZiMzZrWnNlWjA2ZjlvUE1LazlvOURDWk93ZlNyM0hJWk8wRzVuRHdZ?=
+ =?utf-8?B?RlFNVEpHZXZFVm10RitxYjZZbWZsUkFaR2Q0bml5Z1VGWXlVMkdSNm0xbENk?=
+ =?utf-8?B?NnFxWVN3RWZDakl2Y0pzVndqMFZmOGJJNzhzUGhFN2xjNWpxU0R2RVhxOVEv?=
+ =?utf-8?B?bWI3OHpYL1REQ3doVzE4VlRJdGxRWVZTVmxhUkFLY1VSOXFZWlZoeFR4Ni84?=
+ =?utf-8?B?OWlIeXgrczVwSXNac0F6cXNaYmE5YzFpSjhka2xnMlNxSCsxWkVKOVlKU2Uy?=
+ =?utf-8?B?VVdZSjFZaSt5VDJxaStRQmorZVNnSTBpcURzbkFGdVlBc3NWZkIzTVF3VWF2?=
+ =?utf-8?B?a1lVbnlmaDJobVhXUW9XaHBiNTl6Q01zV2NuVC8zRFZNMmZLNDlRQjVoNHV6?=
+ =?utf-8?B?bHNUUUFmVXpYYTdob2FQeUVDbXFvSGdyTVBEZnFERjdiay9BWVNLL29GcVlp?=
+ =?utf-8?B?SFMxMmxQRGJXeXN2VzdoTVRuN2JscjZVaml6U3hHc1FYajV6Ui80UllHanBt?=
+ =?utf-8?B?WG05WkZFaWliV0QrR0NJOHNNVFFLSHhjU2llYXB1VTc4Uit1VU5MVlM3THlC?=
+ =?utf-8?B?RTZRWFRtT2FWMWNRdWY4OTRhN3VwR0oza1RZRUxDbVdid3BObk9tbjZFdzUv?=
+ =?utf-8?B?K3oyOTk4T0J6S2RBMFA1L1FGMmtDc09oRzBMeXc0NlFQUHNKUDdveWFsdEx4?=
+ =?utf-8?B?TnZMWWN0b2pQMzhrK3RDQjRJYVBHMzNURjZSb09vTFl3YzJpZkE0RThXRjBF?=
+ =?utf-8?B?VHlxcnlzRkRXaTNjTWVBYnhOZnUvMTNBV090NTE0UjV0YUFvalhqNWxVNlUr?=
+ =?utf-8?B?UVdSaWZXNUQydmZPZ244NDFxWTlMaUVjVjNHMjBDYlF6TXRDOGV0cU1wcGxN?=
+ =?utf-8?B?VEFhdTRxZEpWd1EySGlCNjY2MWdxQ1pXbTFGZXducHBuSmVoZkJ5THo5eGEv?=
+ =?utf-8?B?OGN3dzlEaXE5anFTNUgyaG5MVHo4ZnRaRkU3Si80SkM3UlBqRHU5WEd6Z2Rt?=
+ =?utf-8?B?aUwyVlFkaFZYSVVrQnhXVklKS3kzR2JVeWlxWkRXTW5kUUduRkI5WWMvUWNC?=
+ =?utf-8?B?TE1UbWxWc09wMEF1dkxpaUFKWVg4eGR2dDhZYU1BZHVoeVFIWWVwK0ZlWDc4?=
+ =?utf-8?B?VFBJKy9UaC9UQkJWb2gxbllyNDZqYVZCY1RINWxiamJHalFyWFBZWGxIakpR?=
+ =?utf-8?B?S2tqL2EwclBHS2V4NEU0SVNlSzk5RmV6R2VqT3ZOZGZsaXBTZ1ZhQlY3Vmk5?=
+ =?utf-8?B?eWREUndqRkFSdUtVZm53bEpvK0JNLzJNalFKazZ2RHJ2OVJSYS9nd0xxT0pX?=
+ =?utf-8?B?VHplOTNOSjR0NzNuZHdrbGZmUlorOWZvQm1ROWJ1Z0tCOElHblBiMEFIellX?=
+ =?utf-8?B?L1ViWGVoK20raVIwQ3p0YU40VWg2SEJUcEhVRVdUZWFZVjZYem41dmFoSkZR?=
+ =?utf-8?B?QW8vWGZOR01zMk5STm80K1lRZ1MvcXlxU3kvQUkrcUVvSGpJeDNwRjBWWmxn?=
+ =?utf-8?B?dkc3RnM0RzBESEVQMTRMQ2s1cGdoM0d3T1hNR2tlZ3JHdGR4WWJaRGlaMHgx?=
+ =?utf-8?B?eCtBMmlyelNkS0xZdjdESU85NTFMaHg4YUcvOC9KdnRBdDJzeUhIZkkrcnZa?=
+ =?utf-8?B?SkdhUENpMmpsb05ZVGx1Ym5Kd1dwNDQ3NDR5b2xTNjBrcTVaNzVOcThSaDZs?=
+ =?utf-8?B?NldNbjFuM1QyMmEzYzFhM1FXaDZmenoxL3JNcEJWdytpK3R4SDg4eEo4clBp?=
+ =?utf-8?B?bVNjYmR6azNSekg2NTdIU2ZpZzZYUUxabDlocHZEOHFrTThoazZoY0pHcVFw?=
+ =?utf-8?B?YlVDbXNHODFHTHZST3RWU3FGWEFxRWVXQ2ZuL3NSTytBRHc0L0JaeU0vcldX?=
+ =?utf-8?B?ZUZMUU1wdU5xeVVCZHJ4T3BrSzg1cVUrNS85WG5MNmh5amNXNVhIbWFpUVJT?=
+ =?utf-8?B?K0ZRRFRWUzhRMDd6b2JiNzNYZjhZSXpnRzlvWDFlUEttNG1PbmdabUFENGVM?=
+ =?utf-8?B?bk9NOXc2WDB6d21hdlpHWFM5UkFsT09VejZjOC9WOW90UDIreUc4U3JvQTJY?=
+ =?utf-8?B?bllxV1VEM2M5ZDdPb000QlFSY2Q5NCtqLzRNT2ErUklTSGRPYmtFUG9mK2RE?=
+ =?utf-8?B?OWtaOW42M0V5d3RrT2Y4SjFzSGlsbElPK1B4NjJrUlJKd3QvQmtyUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f8ccbbe-2926-48a0-a5c5-08df28942055
+X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB7090.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 19:07:57.5250
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /0fWFqzzAcPJ/TnHSIjKpjM3EMlUUAq5gXsmkEsJjvw7pIOpshQpBSvV1EwwQnRcFMhJ7Pxnh6kWqSyMh+2amQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6907
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_120804_305827_0A0C95A2 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,191 +158,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---eZMYkGYe2LFIW0E9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 12, 2026 at 04:41:55PM +0800, Jelly Jia wrote:
-> The FCH DMA-350 controller sits behind an interconnect window, so the
-> addresses its DMA master uses differ from the CPU physical addresses.
-> Describe the integration as a bus node carrying the dma-ranges of that
-> window, with the controller itself as a child, and give the controller
-> the SoC compatible and the clock feeding it.
->=20
-> The AUDSS DMA-350 controller is described the same way, with its clock
-> and reset. It has no consumer in the SoC dtsi yet: the audio controllers
-> that use it are not described upstream.
->=20
-> The bus nodes are address domains, not devices: they have no reg, so
-> they carry no unit-address in their node names.
->=20
 
-> v1 -> v2:
-> - The DMA-350 nodes are no longer wrappers with the generic controller
->   as a child: each Sky1 DMA-350 is a single device node with the
->   "cix,sky1-dma350", "arm,dma-350" compatible, its real MMIO region and
->   the integration resources (clock, reset) that v1 kept on the wrapper.
->   The integration and the block are one device, and the MMIO is the same
->   as the generic node it replaces.
-> - The FCH and AUDSS DMA-350 masters sit behind SoC interconnect windows
->   in a static DMA address domain: the AUDSS masters see the audio
->   register and FIFO block at 0x20000000 and the DRAM window at
->   0x30000000, which the CPU sees at 0x07010000 and 0xc0000000, and the
->   FCH masters see the 0x040b0000 window at 0x040a0000. Their DMA view of
->   the address space is not the CPU physical view.
-> - The windows are static hardware configuration, set up before Linux
->   starts by the boot firmware / secure world: they are not programmable
->   from Linux and must not be reconfigured by it. There is nothing for a
->   Linux interconnect provider to manage here, so the translation cannot
->   be modeled as one; it is a fixed property of the bus.
-> - It is described the standard devicetree way instead: a generic
->   "simple-bus" parent with an identity "ranges;" and the "dma-ranges" of
->   the window. This is not the rejected v1 wrapper and not a separate DMA
->   wrapper/integration device: the parent has no device-specific or
->   vendor wrapper compatible, only the generic "simple-bus" compatible,
->   no reg, no clocks, no resets, no driver and no private address
->   translation. Its only job is to carry the static translation, so it is
->   only a generic bus/address-domain node.
-> - The "dma-ranges" have to sit on that parent for the OF core to build
->   dev->dma_range_map: of_dma_configure_id() starts the lookup at the
->   device's parent (bus_np =3D __of_get_dma_parent(np) in
->   drivers/of/device.c), so a "dma-ranges" on the controller node itself
->   would be ignored. The translation is applied by the DMA API, not by
->   driver code: the driver maps slave resources with dma_map_resource()
->   and contains no address parser.
-> - Mainline has similar bus nodes: the Agilex5 DMA bus (dma-bus@10db0000,
->   a simple-bus with dma-ranges whose controller carries
->   "altr,agilex5-axi-dma", "snps,axi-dma-1.01a") and the Marvell AC5
->   buses (bus@80500000 with "ranges;" and "dma-ranges", and
->   behind-32bit-controller@7f000000, whose only purpose is the DMA
->   mapping of the devices below it).
->=20
-> v2 -> v3:
-> - The AUDSS interrupt gate is set up by the boot firmware and is not
->   configured by Linux, so the cix,irq-router property is gone.
-> - The bus nodes carry no unit-address in their names: they have no reg,
->   which made dtc warn (unit_address_vs_reg).
-
-None of this should be in the commit message.
-
->=20
-> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
-> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+On 07/10/2026 21:29, Nicolai Buchwitz wrote:
+> The loopback hook gets a shared skb when another ETH_P_IP handler is
+> bound to the device. skb_linearize() on a non-linear frame then hits
+> BUG_ON(skb_shared()).
+> 
+> Call skb_share_check() before linearizing the skb.
+> 
+> Fixes: 95b9606b15bb ("net/mlx5: Extend Ethtool loopback selftest to support non-linear SKB")
+> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 > ---
->  arch/arm64/boot/dts/cix/sky1.dtsi | 68 +++++++++++++++++++++++++------
->  1 file changed, 56 insertions(+), 12 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/=
-sky1.dtsi
-> index 0a820f45feb9..1262f34794d2 100644
-> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -518,18 +518,33 @@ iomuxc: pinctrl@4170000 {
->  			reg =3D <0x0 0x04170000 0x0 0x1000>;
->  		};
-> =20
-> -		fch_dmac: dma-controller@4190000 {
-> -			compatible =3D "arm,dma-350";
-> -			reg =3D <0x0 0x4190000 0x0 0x10000>;
-> -			interrupts =3D <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>;
-> -			#dma-cells =3D <1>;
-> +		/*
-> +		 * The FCH DMA-350 master sits behind an interconnect window;
-> +		 * the dma-ranges below are its view of the address space.
-> +		 */
-> +		fch-dma-bus {
-> +			compatible =3D "simple-bus";
-> +			#address-cells =3D <2>;
-> +			#size-cells =3D <2>;
-> +			ranges;
-> +			dma-ranges =3D <0x0 0x040a0000 0x0 0x040b0000 0x0 0x00040000>,
-> +				     <0x0 0x80000000 0x0 0x80000000 0x8 0x00000000>,
-> +				     <0x80 0x00000000 0x80 0x00000000 0x80 0x00000000>;
+>   drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
+> index 1dcdb86690bb..8eb9a9469549 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_selftest.c
+> @@ -166,6 +166,10 @@ mlx5e_test_loopback_validate(struct sk_buff *skb,
+>   	struct udphdr *udph;
+>   	struct iphdr *iph;
+>   
+> +	skb = skb_share_check(skb, GFP_ATOMIC);
+> +	if (!skb)
+> +		goto out;
 > +
-> +			fch_dmac: dma-controller@4190000 {
-> +				compatible =3D "cix,sky1-dma350", "arm,dma-350";
-> +				reg =3D <0x0 0x04190000 0x0 0x10000>;
-> +				clocks =3D <&scmi_clk CLK_TREE_FCH_DMA_ACLK>;
-> +				interrupts =3D <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>;
+>   	if (skb_linearize(skb))
+>   		goto out;
+>   
+> 
 
-As I said on v2 an hour or so ago, I don't think this is correct, and
-you should put an interrupt-map node into the syscon that contains the
-irq routing registers, and have the syscon be the interrupt parent for
-this node.
+Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
 
-Thanks,
-Conor.
-
-> +				#dma-cells =3D <1>;
-> +			};
->  		};
-> =20
->  		mbox_ap2se: mailbox@5060000 {
-> @@ -576,6 +591,35 @@ mbox_pm2ap: mailbox@65a0080 {
->  			cix,mbox-dir =3D "rx";
->  		};
-> =20
-> +		/*
-> +		 * The AUDSS DMA-350 master sits behind an interconnect window;
-> +		 * the dma-ranges below are its view of the address space.
-> +		 */
-> +		audss-dma-bus {
-> +			compatible =3D "simple-bus";
-> +			#address-cells =3D <2>;
-> +			#size-cells =3D <2>;
-> +			ranges;
-> +			dma-ranges =3D <0x0 0x20000000 0x0 0x07010000 0x0 0x00100000>,
-> +				     <0x0 0x30000000 0x0 0xc0000000 0x0 0x20000000>;
-> +
-> +			audss_dmac: dma-controller@7010000 {
-> +				compatible =3D "cix,sky1-dma350", "arm,dma-350";
-> +				reg =3D <0x0 0x07010000 0x0 0x10000>;
-> +				clocks =3D <&audss_cru CLK_DMAC_AXI>;
-> +				resets =3D <&audss_cru AUDSS_DMAC_SW_RST>;
-> +				interrupts =3D <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
-> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>;
-> +				#dma-cells =3D <1>;
-> +			};
-> +		};
-> +
->  		audss_cru: clock-controller@7110000 {
->  			compatible =3D "cix,sky1-audss-cru";
->  			reg =3D <0x0 0x07110000 0x0 0x10000>;
-> --=20
-> 2.54.0
->=20
-
---eZMYkGYe2LFIW0E9
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0wBAAKCRB4tDGHoIJi
-0tZvAQCSHmcnTV6jgT2PsmPzk+KiLw1d4u3fGARAiQ3YfXvDuwEA8WYfrMKQNIA4
-jHJrD7aA6U3SwLq7B48xBdfJ5ZPT8wA=
-=zOqj
------END PGP SIGNATURE-----
-
---eZMYkGYe2LFIW0E9--
 
