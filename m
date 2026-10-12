@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA1ECA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774EECA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R17cvAYx5n+2t7QO4oy03VUEubeAV3RNvz9xwe9MG9g=; b=BwChvHKX0MNJxouu9AceQ6LH9o
-	IGthBtBhYI2SuGEpp7aoeqDLaF+Zev0CVvWmz7enFQ+T+4BJi/eo255FNINkreIYdZpGZxhHzzdqz
-	6C7kDfH9I+tlD9XgRBOhJ7kr/Kdb2HSf9u0VJZZxOT4JEiDAAjNP1umYAG57+DcLwPutMCIJwgiwv
-	R6LSC0DAtbVljM57amcoA8Xy0YkwFV6YhdwDHGc790LjmGhgcHmaplR4QvsKpGVY4UB9W/trIFC5S
-	E4Rm+8cuxyCoDybhhvaYeUOhO5YIKXKVZ/g3dYHFH7VmUzgZvoi7E1HyyQlMDTTG05warsPmFgeXy
-	GFRYH+LQ==;
+	bh=p/9CUmDFbrCucNd3kWT0eYJSCJxWLPHWPqV9kk2CL0Y=; b=uIcAzLmVbbdc+Lw5OeF9vpSn+c
+	3jaDJSgUNDW47fLfX4yk7+obOaX6sVotZG06FYetvoB2KoggYfDs58tuOJD790PspfcExC90l19Vu
+	EAAP1wcs0NALMqVFyqbyWVRPyHttQbUEp3s6W5zRe06IJ2Xser8cspEOoL2jsGZCRX9EYt0rldY1/
+	XpYuWBTe43FvntDCWArrlQQpfflRFJ6d9kEAjO5drM2xH6PyfdgD9YRHQm0k4XAblWaNP27XwZhKw
+	l52onji/2OKrYY/CqjSQebVTXsn1CAB8rKtfImWMc5pdLiKXU7tER6jsexrBbeb+irsbeg3qi5R6Z
+	NrAIrdmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDpM-0000000AJ2s-3tNC;
-	Mon, 12 Oct 2026 11:04:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDpK-0000000AJ1X-2oUD
+	id 1xGDpm-0000000AJ8l-0V5O;
+	Mon, 12 Oct 2026 11:04:46 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGDph-0000000AJ7r-3lmE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:04:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F2BB1A00;
-	Mon, 12 Oct 2026 04:04:12 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 196FF3F882;
-	Mon, 12 Oct 2026 04:04:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791803055; bh=GCUhwqR9gUHDDQkSnLEoqzzvzh0xq7rUr9tQxJpA+Tk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F++r00nmSoucDHHIsuKWsEv8xVrypp0HtBNdtRJkDKmLkBuJP64zRrb/xJIShO22H
-	 uzo9MhZARvb/XeMwbi4x6xH3NT4IvmY4wF11YylB9B5Dtu48YuFY4E4Wms0ChMknp5
-	 vAcbnxdzzKSKleLIyoOeqv3IWqJ/z9HrDI5yVhac=
-Date: Mon, 12 Oct 2026 12:04:11 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH V3 1/4] arm64/mm: Use pmdp_get() for PMD accesses
-Message-ID: <asy-q5SBnrBQSadP@arm.com>
-References: <20260924062214.1635078-1-anshuman.khandual@arm.com>
- <20260924062214.1635078-2-anshuman.khandual@arm.com>
- <asPCv5Icdm7Z9mWF@arm.com>
- <lqjq64vw6mlm27kp6ffms6auerj67avecc4ongedouumsrspjh@2f2eblm7wi4u>
+	Mon, 12 Oct 2026 11:04:44 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a180fbeef5so16003945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 04:04:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1791803080; x=1792407880; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=p/9CUmDFbrCucNd3kWT0eYJSCJxWLPHWPqV9kk2CL0Y=;
+        b=aDmt9xhfG9ElHqgQtemiIBbgVWLO4gTbFRhSjERIBq75GTTNPYwfDvvgFb8hzK2Gia
+         4Vm/Y4hXF9SPKV3zmvFF9vG9f3CpHagRnkJkPLCLFwJTYylcKss1gIM2loISKgmJQ6sA
+         t8W1tosz6moX5oizF6YZjtRD0gwcp56SZWPRlLvwwVKWacqf74DxLRPzUECA/9c3P0SA
+         YReAAH06ttJmvHOYEjwoxQk5ChdIilCRlqW1TX0BFMsBdA5/umUDzKuUN4cNJ8GBBhR0
+         JPTSnj1n3B2lwbqhSWVg6nldzRAb8D7QCYPPKTqbgW3awvkkzmfi43g8N35nbyC2oGkT
+         /qBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791803080; x=1792407880;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=p/9CUmDFbrCucNd3kWT0eYJSCJxWLPHWPqV9kk2CL0Y=;
+        b=LND9hxh+A0IQ9c3pKsItzEC5xpNzhMJuoJtq8i/YGOWZMX+TVTCJqRQt/15essEzoF
+         PhuBOL48vO3PSF8MnMdH4AupG0b6VGPPixJeJVS/ZGqhMsvgqhN2++oMOcvYFMO6wpYZ
+         80ZQYMlnnI0ZtVqyb+GXVQPSb58cB6r1DDqRpXORbbsQZtjbjzmI5Q9gZ87U55MlVS6o
+         riv2n3XjVb/mzBzkwzDwe0rjZwCko/59BYOVSOZ21ecdDzxV3xEe5MwoNoMPJawtFOCe
+         yVPztpIF2UoI0oB0TtzuEogyU+20Q5efgm+NAlukkZIwXwYf+y/aT4op/p7OrzkIFYAr
+         L8NQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw+k6rexUvL2eN1V0srQQeg8CcF5PuoPRrLcSD0L5g3npGJz+4ngtRdNYlimgsUtQ2lNhJ9V5bSQcV5PrzLXQRo@lists.infradead.org
+X-Gm-Message-State: AFq9FYIPxkJDM1eEjHs9e/+bXJVVE6MaG2oe//VRSESxM6HQZv3c+xG4
+	3jfxcCLyfmM2CX/Gg9kCBU3DIQk+TkRT6U2fR4U2OkII/syVcSz8Au019X0u/TMzHJE=
+X-Gm-Gg: AYBFou02lTv2WNyQ51pI3Zu6I+mMe3Xnff0nHJ+N5MGJbJze3uU2K42IBicgYJHQuyq
+	R1rvmcjy/HZujXBQGXVxUNrCsoScJn/Z/RU34HXVqESEZvAn7J2fHBITo8M0JyQ+2Dq+LNNy8/3
+	aiHlbOe8sOH8B1JHGNEr3rhi87tys09fWzh0UdGEyBDAaGry3Enn2y/rveoz534oA8uVuXcKEXk
+	9fQ+3ReIk6ojGTr/gbM2V0OXklpqRea8SIEQPBFvPzyKSUUiTQwq9p/+ZgfT4YfFQfWQ0DpELdt
+	EiL4ryYvxJ438EcBD1l+mY8H1Ri8JQ+NP1o2SOGy7LYSAsrpRUs5ShemfnRqmq7kVBmr4uhDNbm
+	kB0oayUqqSKt91tI6UO9woAER3WMppVcJHIv8gBVRPP9ccU/Jn7UKOfcCxmdx4dGBWrQkzfpk13
+	9JsbRW4enKzf5xxOFnn78ZFGn9wx6g1m4N/pcokP5OHWoU6Cj4RK1RxfkFQx9d0pM/DOiQhPBwI
+	mf5tcHXDl+M2nLHKCblsrKnePZQ4k6pRs6HWoOYffyCW0dChYL833MuhdY4GA==
+X-Received: by 2002:a05:600c:3b99:b0:4a0:1ea2:10c6 with SMTP id 5b1f17b1804b1-4a18e48eeb6mr223563165e9.17.1791803079382;
+        Mon, 12 Oct 2026 04:04:39 -0700 (PDT)
+Received: from localhost (p200300f65f19a904ade4f69ba751c34c.dip0.t-ipconnect.de. [2003:f6:5f19:a904:ade4:f69b:a751:c34c])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a18c198134sm280374685e9.15.2026.10.12.04.04.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 04:04:37 -0700 (PDT)
+Date: Mon, 12 Oct 2026 13:04:36 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Lukas Timmermann <foss@timmermann.space>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 2/7] Input: s6sy761 - split into core and I2C modules
+Message-ID: <asy92cwqv8Xjc2PX@monoceros>
+References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
+ <20261011-lat3st-google-raven-touch-upstream-v1-2-2a9f55159b9e@timmermann.space>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eblkicd243zh2pgk"
 Content-Disposition: inline
-In-Reply-To: <lqjq64vw6mlm27kp6ffms6auerj67avecc4ongedouumsrspjh@2f2eblm7wi4u>
+In-Reply-To: <20261011-lat3st-google-raven-touch-upstream-v1-2-2a9f55159b9e@timmermann.space>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_040418_792791_A20D3FC4 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20261012_040442_116782_C196002C 
+X-CRM114-Status: GOOD (  37.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +107,638 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 08:11:52AM +0530, Anshuman Khandual wrote:
-> On Mon, Oct 05, 2026 at 04:31:28PM +0100, Catalin Marinas wrote:
-> > On Thu, Sep 24, 2026 at 11:52:11AM +0530, Anshuman Khandual wrote:
-> > > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> > > index 763c5a411d64..9ad2d03e86ad 100644
-> > > --- a/arch/arm64/include/asm/pgtable.h
-> > > +++ b/arch/arm64/include/asm/pgtable.h
-> > > @@ -84,6 +84,12 @@ static inline void arch_leave_lazy_mmu_mode(void)
-> > >  	arch_flush_lazy_mmu_mode();
-> > >  }
-> > >  
-> > > +#define pmdp_get pmdp_get
-> > > +static inline pmd_t pmdp_get(pmd_t *pmdp)
-> > > +{
-> > > +	return READ_ONCE(*pmdp);
-> > > +}
-> > 
-> > This is the same as the generic version. Does it need redefining?
-> 
-> Without this pmdp_get() override, replacing READ_ONCE() in pmdp_test_and_clear_young()
-> with pmdp_get() causes a build failure as pmpd_get() which is defined in the generic
-> pgtable header is not visible from inside platform specific pgtable header, even with
-> a forward declaration.
-> 
-> Earlier had moved pmdp_test_and_clear_young() inside arch/arm64/mm/mmu.c to avoid the
-> above described dependency problem. But then realised that pmdp_get() gets eventually
-> overridden on arm64 platform for D128, why not just redefine here it now as standard
-> READ_ONCE() to avoid the current build problem and the code movement.
-> 
-> Please find some context here from earlier discussions during V2.
-> 
-> https://lore.kernel.org/all/212067fe-1b16-4b87-87a7-4ce50847eb24@arm.com/
 
-Thanks for link summary of the past discussion. I agree, for D128 we'll
-have to define our p*d_get() but I haven't decided D128 is worth merging
-yet (it depends on future hardware availability, I need to get more
-visibility into this).
+--eblkicd243zh2pgk
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/7] Input: s6sy761 - split into core and I2C modules
+MIME-Version: 1.0
 
-For the time being, I'd keep the p*d_get() accessors generic and move
-pmdp_test_and_clear_young() to mmu.c.
+On Sun, Oct 11, 2026 at 02:44:57PM +0200, Lukas Timmermann wrote:
+> Split this driver into a bus-agnostic core and I2C transport part in
+> preparation for adding SPI support. Also add a mutex because the
+> driver now has a transfer buffer shared between IRQ, sysfs
+> and PM threads.
+>=20
+> The Kconfig is backwards-compatible and should work on boards with an
+> S6SY761 touchscreen as before. The I2C transfers of the driver should be
+> byte by byte identical.
+>=20
+> The modules are now called s6sy761_core and s6sy761_i2c.
+>=20
+> Signed-off-by: Lukas Timmermann <foss@timmermann.space>
+> ---
+>  drivers/input/touchscreen/Kconfig                  |   8 +-
+>  drivers/input/touchscreen/Makefile                 |   3 +-
+>  .../touchscreen/{s6sy761.c =3D> s6sy761_core.c}      | 214 +++++++++----=
+--------
+>  drivers/input/touchscreen/s6sy761_core.h           |  34 ++++
+>  drivers/input/touchscreen/s6sy761_i2c.c            | 112 +++++++++++
+>  5 files changed, 245 insertions(+), 126 deletions(-)
+>=20
+> diff --git a/drivers/input/touchscreen/Kconfig b/drivers/input/touchscree=
+n/Kconfig
+> index 9b9ae8ac3f7f..76651a61324f 100644
+> --- a/drivers/input/touchscreen/Kconfig
+> +++ b/drivers/input/touchscreen/Kconfig
+> @@ -535,8 +535,12 @@ config TOUCHSCREEN_S6SY761
+> =20
+>  	  If unsure, say N
+> =20
+> -	  To compile this driver as module, choose M here: the
+> -	  module will be called s6sy761.
+> +	  To compile this driver as a module, choose M here: the
+> +	  modules will be called s6sy761_core and s6sy761_i2c.
+> +	select TOUCHSCREEN_S6SY761_I2C if I2C
+> +
+> +config TOUCHSCREEN_S6SY761_I2C
+> +	tristate
+> =20
+>  config TOUCHSCREEN_GUNZE
+>  	tristate "Gunze AHL-51S touchscreen"
+> diff --git a/drivers/input/touchscreen/Makefile b/drivers/input/touchscre=
+en/Makefile
+> index bfd9de83389d..24b8fb1e38d3 100644
+> --- a/drivers/input/touchscreen/Makefile
+> +++ b/drivers/input/touchscreen/Makefile
+> @@ -77,7 +77,8 @@ obj-$(CONFIG_TOUCHSCREEN_USB_COMPOSITE)	+=3D usbtouchsc=
+reen.o
+>  obj-$(CONFIG_TOUCHSCREEN_PENMOUNT)	+=3D penmount.o
+>  obj-$(CONFIG_TOUCHSCREEN_PIXCIR)	+=3D pixcir_i2c_ts.o
+>  obj-$(CONFIG_TOUCHSCREEN_RM_TS)		+=3D raydium_i2c_ts.o
+> -obj-$(CONFIG_TOUCHSCREEN_S6SY761)	+=3D s6sy761.o
+> +obj-$(CONFIG_TOUCHSCREEN_S6SY761)	+=3D s6sy761_core.o
+> +obj-$(CONFIG_TOUCHSCREEN_S6SY761_I2C)	+=3D s6sy761_i2c.o
+>  obj-$(CONFIG_TOUCHSCREEN_SILEAD)	+=3D silead.o
+>  obj-$(CONFIG_TOUCHSCREEN_SIS_I2C)	+=3D sis_i2c.o
+>  obj-$(CONFIG_TOUCHSCREEN_ST1232)	+=3D st1232.o
+> diff --git a/drivers/input/touchscreen/s6sy761.c b/drivers/input/touchscr=
+een/s6sy761_core.c
+> similarity index 71%
+> rename from drivers/input/touchscreen/s6sy761.c
+> rename to drivers/input/touchscreen/s6sy761_core.c
+> index 899c179fb2d3..0e455060dbc0 100644
+> --- a/drivers/input/touchscreen/s6sy761.c
+> +++ b/drivers/input/touchscreen/s6sy761_core.c
+> @@ -3,18 +3,21 @@
+>  //
+>  // Copyright (c) 2017 Samsung Electronics Co., Ltd.
+>  // Copyright (c) 2017 Andi Shyti <andi@etezian.org>
+> +// Copyright (c) 2026 Lukas Timmermann <foss@timmermann.space>
+> =20
+>  #include <linux/unaligned.h>
+>  #include <linux/delay.h>
+> -#include <linux/i2c.h>
+>  #include <linux/input/mt.h>
+>  #include <linux/input/touchscreen.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/irq.h>
+>  #include <linux/module.h>
+> +#include <linux/mutex.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/regulator/consumer.h>
+> =20
+> +#include "s6sy761_core.h"
+> +
+>  /* commands */
+>  #define S6SY761_SENSE_ON		0x10
+>  #define S6SY761_SENSE_OFF		0x11
+> @@ -84,22 +87,18 @@
+>  #define S6SY761_APP_FLASH		0x3
+>  #define S6SY761_APP_SLEEP		0x4
+> =20
+> -#define S6SY761_EVENT_SIZE		8
+> -#define S6SY761_EVENT_COUNT		32
+>  #define S6SY761_DEVID_SIZE		3
+>  #define S6SY761_PANEL_ID_SIZE		11
+>  #define S6SY761_TS_STATUS_SIZE		5
+>  #define S6SY761_MAX_FINGERS		10
+> =20
+> -#define S6SY761_DEV_NAME	"s6sy761"
+> -
+> -enum s6sy761_regulators {
+> -	S6SY761_REGULATOR_VDD,
+> -	S6SY761_REGULATOR_AVDD,
+> -};
+> -
+>  struct s6sy761_data {
+> -	struct i2c_client *client;
+> +	struct device *dev;
+> +	const struct s6sy761_bus_ops *bus_ops;
+> +	u8 *xfer_buf;
+> +	/* serializes bus access and protects xfer_buf */
+> +	struct mutex xfer_lock;
+> +	int irq;
+>  	struct regulator_bulk_data regulators[2];
+>  	struct input_dev *input;
+>  	struct touchscreen_properties prop;
+> @@ -110,33 +109,21 @@ struct s6sy761_data {
+>  	u8 tx_channel;
+>  };
+> =20
+> -/*
+> - * We can't simply use i2c_smbus_read_i2c_block_data because we
+> - * need to read more than 255 bytes
+> - */
+> -static int s6sy761_read_events(struct s6sy761_data *sdata, u16 n_events)
+> -{
+> -	u8 cmd =3D S6SY761_READ_ALL_EVENT;
+> -	struct i2c_msg msgs[2] =3D {
+> -		{
+> -			.addr	=3D sdata->client->addr,
+> -			.len	=3D 1,
+> -			.buf	=3D &cmd,
+> -		},
+> -		{
+> -			.addr	=3D sdata->client->addr,
+> -			.flags	=3D I2C_M_RD,
+> -			.len	=3D (n_events * S6SY761_EVENT_SIZE),
+> -			.buf	=3D sdata->data + S6SY761_EVENT_SIZE,
+> -		},
+> -	};
+> -	int ret;
+> +enum s6sy761_regulators {
+> +	S6SY761_REGULATOR_VDD,
+> +	S6SY761_REGULATOR_AVDD,
+> +};
+> =20
+> -	ret =3D i2c_transfer(sdata->client->adapter, msgs, ARRAY_SIZE(msgs));
+> -	if (ret < 0)
+> -		return ret;
+> +static int s6sy761_read(struct s6sy761_data *sdata, u8 cmd, size_t len, =
+void *buf)
+> +{
+> +	guard(mutex)(&sdata->xfer_lock);
+> +	return sdata->bus_ops->read(sdata->dev, sdata->xfer_buf, cmd, len, buf);
+> +}
+> =20
+> -	return ret =3D=3D ARRAY_SIZE(msgs) ? 0 : -EIO;
+> +static int s6sy761_write(struct s6sy761_data *sdata, u8 cmd, size_t len,=
+ const void *buf)
+> +{
+> +	guard(mutex)(&sdata->xfer_lock);
+> +	return sdata->bus_ops->write(sdata->dev, sdata->xfer_buf, cmd, len, buf=
+);
+>  }
+> =20
+>  static void s6sy761_report_coordinates(struct s6sy761_data *sdata,
+> @@ -226,12 +213,10 @@ static irqreturn_t s6sy761_irq_handler(int irq, voi=
+d *dev)
+>  	int ret;
+>  	u8 n_events;
+> =20
+> -	ret =3D i2c_smbus_read_i2c_block_data(sdata->client,
+> -					    S6SY761_READ_ONE_EVENT,
+> -					    S6SY761_EVENT_SIZE,
+> -					    sdata->data);
+> +	ret =3D s6sy761_read(sdata, S6SY761_READ_ONE_EVENT,
+> +			   S6SY761_EVENT_SIZE, sdata->data);
+>  	if (ret < 0) {
+> -		dev_err(&sdata->client->dev, "failed to read events\n");
+> +		dev_err(sdata->dev, "failed to read events\n");
+>  		return IRQ_HANDLED;
+>  	}
+> =20
+> @@ -243,9 +228,11 @@ static irqreturn_t s6sy761_irq_handler(int irq, void=
+ *dev)
+>  		return IRQ_HANDLED;
+> =20
+>  	if (n_events) {
+> -		ret =3D s6sy761_read_events(sdata, n_events);
+> +		ret =3D s6sy761_read(sdata, S6SY761_READ_ALL_EVENT,
+> +				   n_events * S6SY761_EVENT_SIZE,
+> +				   sdata->data + S6SY761_EVENT_SIZE);
+>  		if (ret < 0) {
+> -			dev_err(&sdata->client->dev, "failed to read events\n");
+> +			dev_err(sdata->dev, "failed to read events\n");
+>  			return IRQ_HANDLED;
+>  		}
+>  	}
+> @@ -259,7 +246,7 @@ static int s6sy761_input_open(struct input_dev *dev)
+>  {
+>  	struct s6sy761_data *sdata =3D input_get_drvdata(dev);
+> =20
+> -	return i2c_smbus_write_byte(sdata->client, S6SY761_SENSE_ON);
+> +	return s6sy761_write(sdata, S6SY761_SENSE_ON, 0, NULL);
+>  }
+> =20
+>  static void s6sy761_input_close(struct input_dev *dev)
+> @@ -267,9 +254,9 @@ static void s6sy761_input_close(struct input_dev *dev)
+>  	struct s6sy761_data *sdata =3D input_get_drvdata(dev);
+>  	int ret;
+> =20
+> -	ret =3D i2c_smbus_write_byte(sdata->client, S6SY761_SENSE_OFF);
+> +	ret =3D s6sy761_write(sdata, S6SY761_SENSE_OFF, 0, NULL);
+>  	if (ret)
+> -		dev_err(&sdata->client->dev, "failed to turn off sensing\n");
+> +		dev_err(sdata->dev, "failed to turn off sensing\n");
+>  }
+> =20
+>  static ssize_t s6sy761_sysfs_devid(struct device *dev,
+> @@ -286,12 +273,23 @@ static struct attribute *s6sy761_sysfs_attrs[] =3D {
+>  	&dev_attr_devid.attr,
+>  	NULL
+>  };
+> -ATTRIBUTE_GROUPS(s6sy761_sysfs);
+> +
+> +static const struct attribute_group s6sy761_sysfs_group =3D {
+> +	.attrs =3D s6sy761_sysfs_attrs,
+> +};
+> +
+> +const struct attribute_group *s6sy761_sysfs_groups[] =3D {
+> +	&s6sy761_sysfs_group,
+> +	NULL,
+> +};
+> +EXPORT_SYMBOL_NS_GPL(s6sy761_sysfs_groups, "S6SY761");
+> =20
+>  static int s6sy761_power_on(struct s6sy761_data *sdata)
+>  {
+> +	__le16 touch_func;
+>  	u8 buffer[S6SY761_EVENT_SIZE];
+>  	u8 event;
+> +	u8 status;
+>  	int ret;
+> =20
+>  	ret =3D regulator_bulk_enable(ARRAY_SIZE(sdata->regulators),
+> @@ -302,10 +300,7 @@ static int s6sy761_power_on(struct s6sy761_data *sda=
+ta)
+>  	msleep(140);
+> =20
+>  	/* double check whether the touch is functional */
+> -	ret =3D i2c_smbus_read_i2c_block_data(sdata->client,
+> -					    S6SY761_READ_ONE_EVENT,
+> -					    S6SY761_EVENT_SIZE,
+> -					    buffer);
+> +	ret =3D s6sy761_read(sdata, S6SY761_READ_ONE_EVENT, S6SY761_EVENT_SIZE,=
+ buffer);
+>  	if (ret < 0)
+>  		return ret;
+> =20
+> @@ -317,18 +312,17 @@ static int s6sy761_power_on(struct s6sy761_data *sd=
+ata)
+>  		return -ENODEV;
+>  	}
+> =20
+> -	ret =3D i2c_smbus_read_byte_data(sdata->client, S6SY761_BOOT_STATUS);
+> +	ret =3D s6sy761_read(sdata, S6SY761_BOOT_STATUS, 1, &status);
+>  	if (ret < 0)
+>  		return ret;
+> =20
+>  	/* for some reasons the device might be stuck in the bootloader */
+> -	if (ret !=3D S6SY761_BS_APPLICATION)
+> +	if (status !=3D S6SY761_BS_APPLICATION)
+>  		return -ENODEV;
+> =20
+>  	/* enable touch functionality */
+> -	ret =3D i2c_smbus_write_word_data(sdata->client,
+> -					S6SY761_TOUCH_FUNCTION,
+> -					S6SY761_MASK_TOUCH);
+> +	touch_func =3D cpu_to_le16(S6SY761_MASK_TOUCH);
+> +	ret =3D s6sy761_write(sdata, S6SY761_TOUCH_FUNCTION, sizeof(touch_func)=
+, &touch_func);
+>  	if (ret)
+>  		return ret;
+> =20
+> @@ -339,25 +333,20 @@ static int s6sy761_hw_init(struct s6sy761_data *sda=
+ta,
+>  			   unsigned int *max_x, unsigned int *max_y)
+>  {
+>  	u8 buffer[S6SY761_PANEL_ID_SIZE]; /* larger read size */
+> +	u8 integrity;
+>  	int ret;
+> =20
+>  	ret =3D s6sy761_power_on(sdata);
+>  	if (ret)
+>  		return ret;
+> =20
+> -	ret =3D i2c_smbus_read_i2c_block_data(sdata->client,
+> -					    S6SY761_DEVICE_ID,
+> -					    S6SY761_DEVID_SIZE,
+> -					    buffer);
+> +	ret =3D s6sy761_read(sdata, S6SY761_DEVICE_ID, S6SY761_DEVID_SIZE, buff=
+er);
+>  	if (ret < 0)
+>  		return ret;
+> =20
+>  	sdata->devid =3D get_unaligned_be16(buffer + 1);
+> =20
+> -	ret =3D i2c_smbus_read_i2c_block_data(sdata->client,
+> -					    S6SY761_PANEL_INFO,
+> -					    S6SY761_PANEL_ID_SIZE,
+> -					    buffer);
+> +	ret =3D s6sy761_read(sdata, S6SY761_PANEL_INFO, S6SY761_PANEL_ID_SIZE, =
+buffer);
+>  	if (ret < 0)
+>  		return ret;
+> =20
+> @@ -367,11 +356,10 @@ static int s6sy761_hw_init(struct s6sy761_data *sda=
+ta,
+>  	/* if no tx channels defined, at least keep one */
+>  	sdata->tx_channel =3D max_t(u8, buffer[8], 1);
+> =20
+> -	ret =3D i2c_smbus_read_byte_data(sdata->client,
+> -				       S6SY761_FIRMWARE_INTEGRITY);
+> +	ret =3D s6sy761_read(sdata, S6SY761_FIRMWARE_INTEGRITY, 1, &integrity);
+>  	if (ret < 0)
+>  		return ret;
+> -	else if (ret !=3D S6SY761_FW_OK)
+> +	else if (integrity !=3D S6SY761_FW_OK)
+>  		return -ENODEV;
+> =20
+>  	return 0;
+> @@ -381,38 +369,44 @@ static void s6sy761_power_off(void *data)
+>  {
+>  	struct s6sy761_data *sdata =3D data;
+> =20
+> -	disable_irq(sdata->client->irq);
+> +	disable_irq(sdata->irq);
+>  	regulator_bulk_disable(ARRAY_SIZE(sdata->regulators),
+>  						sdata->regulators);
+>  }
+> =20
+> -static int s6sy761_probe(struct i2c_client *client)
+> +int s6sy761_probe(struct device *dev, const struct s6sy761_bus_ops *bus_=
+ops, int irq)
+>  {
+>  	struct s6sy761_data *sdata;
+>  	unsigned int max_x, max_y;
+>  	int err;
+> =20
+> -	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C |
+> -						I2C_FUNC_SMBUS_BYTE_DATA |
+> -						I2C_FUNC_SMBUS_I2C_BLOCK))
+> -		return -ENODEV;
+> -
+> -	sdata =3D devm_kzalloc(&client->dev, sizeof(*sdata), GFP_KERNEL);
+> +	sdata =3D devm_kzalloc(dev, sizeof(*sdata), GFP_KERNEL);
+>  	if (!sdata)
+>  		return -ENOMEM;
+> =20
+> -	i2c_set_clientdata(client, sdata);
+> -	sdata->client =3D client;
+> +	sdata->xfer_buf =3D devm_kzalloc(dev, S6SY761_XFER_BUFFER_SIZE, GFP_KER=
+NEL);
+> +	if (!sdata->xfer_buf)
+> +		return -ENOMEM;
+> +
+> +	dev_set_drvdata(dev, sdata);
+> +
+> +	sdata->bus_ops =3D bus_ops;
+> +	sdata->dev =3D dev;
+> +	sdata->irq =3D irq;
+> +
+> +	err =3D devm_mutex_init(dev, &sdata->xfer_lock);
+> +	if (err)
+> +		return err;
+> =20
+>  	sdata->regulators[S6SY761_REGULATOR_VDD].supply =3D "vdd";
+>  	sdata->regulators[S6SY761_REGULATOR_AVDD].supply =3D "avdd";
+> -	err =3D devm_regulator_bulk_get(&client->dev,
+> +	err =3D devm_regulator_bulk_get(dev,
+>  				      ARRAY_SIZE(sdata->regulators),
+>  				      sdata->regulators);
+>  	if (err)
+>  		return err;
+> =20
+> -	err =3D devm_add_action_or_reset(&client->dev, s6sy761_power_off, sdata=
+);
+> +	err =3D devm_add_action_or_reset(dev, s6sy761_power_off, sdata);
+>  	if (err)
+>  		return err;
+> =20
+> @@ -420,12 +414,12 @@ static int s6sy761_probe(struct i2c_client *client)
+>  	if (err)
+>  		return err;
+> =20
+> -	sdata->input =3D devm_input_allocate_device(&client->dev);
+> +	sdata->input =3D devm_input_allocate_device(dev);
+>  	if (!sdata->input)
+>  		return -ENOMEM;
+> =20
+>  	sdata->input->name =3D S6SY761_DEV_NAME;
+> -	sdata->input->id.bustype =3D BUS_I2C;
+> +	sdata->input->id.bustype =3D bus_ops->bustype;
+>  	sdata->input->open =3D s6sy761_input_open;
+>  	sdata->input->close =3D s6sy761_input_close;
+> =20
+> @@ -441,7 +435,7 @@ static int s6sy761_probe(struct i2c_client *client)
+> =20
+>  	if (!input_abs_get_max(sdata->input, ABS_X) ||
+>  	    !input_abs_get_max(sdata->input, ABS_Y)) {
+> -		dev_warn(&client->dev, "the axis have not been set\n");
+> +		dev_warn(dev, "the axis have not been set\n");
+>  	}
+> =20
+>  	err =3D input_mt_init_slots(sdata->input, sdata->tx_channel,
+> @@ -455,37 +449,39 @@ static int s6sy761_probe(struct i2c_client *client)
+>  	if (err)
+>  		return err;
+> =20
+> -	err =3D devm_request_threaded_irq(&client->dev, client->irq, NULL,
+> +	err =3D devm_request_threaded_irq(dev, sdata->irq, NULL,
+>  					s6sy761_irq_handler,
+>  					IRQF_TRIGGER_LOW | IRQF_ONESHOT,
+>  					"s6sy761_irq", sdata);
+>  	if (err)
+>  		return err;
+> =20
+> -	pm_runtime_enable(&client->dev);
+> +	pm_runtime_enable(dev);
+> =20
+>  	return 0;
+>  }
+> +EXPORT_SYMBOL_NS_GPL(s6sy761_probe, "S6SY761");
+> =20
+> -static void s6sy761_remove(struct i2c_client *client)
+> +void s6sy761_remove(struct device *dev)
+>  {
+> -	pm_runtime_disable(&client->dev);
+> +	pm_runtime_disable(dev);
+>  }
+> +EXPORT_SYMBOL_NS_GPL(s6sy761_remove, "S6SY761");
+> =20
+>  static int s6sy761_runtime_suspend(struct device *dev)
+>  {
+>  	struct s6sy761_data *sdata =3D dev_get_drvdata(dev);
+> +	u8 mode =3D S6SY761_APP_SLEEP;
+> =20
+> -	return i2c_smbus_write_byte_data(sdata->client,
+> -				S6SY761_APPLICATION_MODE, S6SY761_APP_SLEEP);
+> +	return s6sy761_write(sdata, S6SY761_APPLICATION_MODE, 1, &mode);
+>  }
+> =20
+>  static int s6sy761_runtime_resume(struct device *dev)
+>  {
+>  	struct s6sy761_data *sdata =3D dev_get_drvdata(dev);
+> +	u8 mode =3D S6SY761_APP_NORMAL;
+> =20
+> -	return i2c_smbus_write_byte_data(sdata->client,
+> -				S6SY761_APPLICATION_MODE, S6SY761_APP_NORMAL);
+> +	return s6sy761_write(sdata, S6SY761_APPLICATION_MODE, 1, &mode);
+>  }
+> =20
+>  static int s6sy761_suspend(struct device *dev)
+> @@ -506,51 +502,23 @@ static int s6sy761_resume(struct device *dev)
+>  	if (err)
+>  		return err;
+> =20
+> -	enable_irq(sdata->client->irq);
+> +	enable_irq(sdata->irq);
+> =20
+>  	guard(mutex)(&sdata->input->mutex);
+> =20
+>  	if (!input_device_enabled(sdata->input))
+>  		return 0;
+> =20
+> -	err =3D i2c_smbus_write_byte(sdata->client, S6SY761_SENSE_ON);
+> +	err =3D s6sy761_write(sdata, S6SY761_SENSE_ON, 0, NULL);
+> =20
+>  	return err;
+>  }
+> =20
+> -static const struct dev_pm_ops s6sy761_pm_ops =3D {
+> +EXPORT_NS_GPL_DEV_PM_OPS(s6sy761_pm_ops, S6SY761) =3D {
+>  	SYSTEM_SLEEP_PM_OPS(s6sy761_suspend, s6sy761_resume)
+>  	RUNTIME_PM_OPS(s6sy761_runtime_suspend, s6sy761_runtime_resume, NULL)
+>  };
+> =20
+> -#ifdef CONFIG_OF
+> -static const struct of_device_id s6sy761_of_match[] =3D {
+> -	{ .compatible =3D "samsung,s6sy761", },
+> -	{ },
+> -};
+> -MODULE_DEVICE_TABLE(of, s6sy761_of_match);
+> -#endif
+> -
+> -static const struct i2c_device_id s6sy761_id[] =3D {
+> -	{ .name =3D "s6sy761" },
+> -	{ }
+> -};
+> -MODULE_DEVICE_TABLE(i2c, s6sy761_id);
+> -
+> -static struct i2c_driver s6sy761_driver =3D {
+> -	.driver =3D {
+> -		.name =3D S6SY761_DEV_NAME,
+> -		.dev_groups =3D s6sy761_sysfs_groups,
+> -		.of_match_table =3D of_match_ptr(s6sy761_of_match),
+> -		.pm =3D pm_ptr(&s6sy761_pm_ops),
+> -	},
+> -	.probe =3D s6sy761_probe,
+> -	.remove =3D s6sy761_remove,
+> -	.id_table =3D s6sy761_id,
+> -};
+> -
+> -module_i2c_driver(s6sy761_driver);
+> -
+>  MODULE_AUTHOR("Andi Shyti <andi.shyti@samsung.com>");
+> -MODULE_DESCRIPTION("Samsung S6SY761 Touch Screen");
+> -MODULE_LICENSE("GPL v2");
+> +MODULE_DESCRIPTION("Samsung S6SY761 Touch Screen core");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/input/touchscreen/s6sy761_core.h b/drivers/input/tou=
+chscreen/s6sy761_core.h
+> new file mode 100644
+> index 000000000000..059cd5a36a34
+> --- /dev/null
+> +++ b/drivers/input/touchscreen/s6sy761_core.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _S6SY761_H
+> +#define _S6SY761_H
+> +
+> +#include <linux/align.h>
+> +#include <linux/types.h>
+> +
+> +#define S6SY761_EVENT_SIZE			8
+> +#define S6SY761_EVENT_COUNT			32
+> +/* largest SPI read: reply header + all events + checksum */
+> +#define S6SY761_XFER_BUFFER_SIZE	ALIGN(7 + S6SY761_EVENT_SIZE * S6SY761_=
+EVENT_COUNT + 1, 4)
+> +
+> +#define S6SY761_DEV_NAME	"s6sy761"
+> +
+> +struct device;
+> +struct dev_pm_ops;
+> +struct attribute_group;
+> +
+> +struct s6sy761_bus_ops {
+> +	u16 bustype;
+> +	int (*write)(struct device *dev, u8 *xfer_buf,
+> +		     u8 cmd, size_t length, const void *values);
+> +	int (*read)(struct device *dev, u8 *xfer_buf,
+> +		    u8 cmd, size_t length, void *values);
+> +};
+> +
+> +extern const struct dev_pm_ops s6sy761_pm_ops;
+> +
+> +extern const struct attribute_group *s6sy761_sysfs_groups[];
+> +
+> +int s6sy761_probe(struct device *dev, const struct s6sy761_bus_ops *bus_=
+ops, int irq);
+> +void s6sy761_remove(struct device *dev);
+> +
+> +#endif
+> diff --git a/drivers/input/touchscreen/s6sy761_i2c.c b/drivers/input/touc=
+hscreen/s6sy761_i2c.c
+> new file mode 100644
+> index 000000000000..b5cbebfd722a
+> --- /dev/null
+> +++ b/drivers/input/touchscreen/s6sy761_i2c.c
+> @@ -0,0 +1,112 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Samsung S6SY761 I2C Touchscreen device driver
+> +//
+> +// Copyright (c) 2017 Samsung Electronics Co., Ltd.
+> +// Copyright (c) 2017 Andi Shyti <andi@etezian.org>
+> +// Copyright (c) 2026 Lukas Timmermann <foss@timmermann.space>
+> +
+> +#include <linux/input.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mod_devicetable.h>
 
-> > >  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> > >  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> > >  
-> > > @@ -811,7 +817,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
-> > >  }
-> > >  
-> > >  /* Find an entry in the third-level page table. */
-> > > -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
-> > > +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
-> > > +					 pte_index(addr) * sizeof(pte_t))
-> > 
-> > Why not make this change in the generic version?
-> 
-> Could you please elaborate on this ? pte_offset_phys() is arm64 specific helper which
-> is also local to this header file. AFAICT there is no generic version for this helper.
+Please don't add new usages of <linux/mod_devicetable.h>. <linux/i2c.h>
+is enough to get the definition of of_device_id and i2c_device_id.
 
-You are right, I got confused.
+I didn't look into the other patches of this series in detail, but I
+suspect that the same holds true in your spi patch. <linux/spi/spi.h>
+provides of_device_id and spi_device_id, so don't add
+<linux/mod_devicetable.h> there either.
 
-Anyway, I'd push this series post -rc1. It depends on the mm tree and
-it's getting pretty close to the merging window.
+(If you want to go full iwyu, use the subsystem specific headers below
+linux/device-id/.
 
--- 
-Catalin
+> +static const struct of_device_id s6sy761_of_match[] =3D {
+> +	{ .compatible =3D "samsung,s6sy761", },
+> +	{ },
+
+No trailing comma after the list terminator please.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, s6sy761_of_match);
+> +
+> +static const struct i2c_device_id s6sy761_id[] =3D {
+> +	{ "s6sy761" },
+
+please make this: { .name =3D "s6sy761" }
+
+Best regards
+Uwe
+
+--eblkicd243zh2pgk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrMvsEACgkQj4D7WH0S
+/k5Shgf+IsmMZaet7PbB2OnQ9hd7mrfIqEfg/OB8ToTjp8rW26Kov8zQKsgaj9QO
+aHCArCuZUkJpbqCwnKkmPsEuropi0LqZ/19i07lEYy/RAq1PD2w7q50zX3ipF/VO
+g1wnMs7x8zwNq6Kt99YtO8wWdC2enPtwQxwelgstVRGdGPcuZAseg+GMpQ1Qoqz4
+sfthr/hktJUEUI89PfrbbS/mO6GGHUkHzj2SXD+RVBIvDV80CSrh/LeLXMmYtZ5h
++IoK7/JsAYOYn6BLblaZDrTG2P09YJIxwMYmvPbDuhlpbBqY317G4lRotBaOTk0J
+IXH/mrSdNwOCOCGV9GTpPAQIJTKmuw==
+=ADAt
+-----END PGP SIGNATURE-----
+
+--eblkicd243zh2pgk--
 
