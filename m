@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A753CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC38CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5DUbNHbfdO2NvLPpm9JhksvV3MQmLBoMqotanmPHU4=; b=OfC//VRL7lQVQOGjDAH3OwkAir
-	H9pHOZTlrXLxnrt/ZpwsNUzmcLYv74APn9IqrP1GRXnSFp9G3P7T9/Iry7ywIqnjiQ0IP3StjcYgX
-	PeTdb3VwLXWGDOGm/sPPenzEVvkTy6Lzb2KBSpyLNEc+AC9lEaQlpnONzdQhq2MBde8e0Mrhr+4XO
-	sptnOAt7Vd4221UM23PIXxjmoKdU7Lk5ctvTqu+4+OQCJnkSrw1Ie18GTjsa4TcxBPaN+DXBvBBbk
-	1Npt1HZfrKPYFrrwUsq4vF8SaQJ9fu2E5gdHFsVkmpjLXzv/0dQRY4jIGl+iqlozMFez1Ljpb2d5L
-	iXOBvl/g==;
+	bh=hBwh44fL/gjgfNRTCrTc1OzzJYt8b8Lxx/wkIXrk3BE=; b=OfQ0zPy9I/ftLQz356Ik6bnQUm
+	tLmCRseF+OhGFqT3j7ocVJ+hxUYyJzoQsMDQFJZ+iiyXTDEVlZGZ0/gxzFCdINKGUnQ9zI72BrGx9
+	C3VXnoBSDR/s8fQCSEMBgSNeFJmx6Fcs2hpGILZ1mGfOIxkkOAklY39RWdLH3xmC2i+4fQ3iN4QNU
+	RxmB4wL8UFuZ1CjiMI486+jdJ1TGOQ1ddWmnh2SuPJoJje6g9h3/35b4ujy1aeOORQIesmpKIVJfS
+	P8mjgtPD/mMEb9qV6BUXko2Vow1BzP+zwBFt4Ym2kpoiqBVuZKevKVVJllAUDP+GEC/7XSrxI0vc4
+	s9/Z/HZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9Pm-00000009imj-4Bg5;
-	Mon, 12 Oct 2026 06:21:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xG9QB-00000009iqY-0XXt;
+	Mon, 12 Oct 2026 06:22:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9Pl-00000009imW-37QW
+	id 1xG9Q8-00000009iq0-4772
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 06:21:37 +0000
+	Mon, 12 Oct 2026 06:22:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F03C409A3;
-	Mon, 12 Oct 2026 06:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC4D61F0089B;
-	Mon, 12 Oct 2026 06:21:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4541E60AB0;
+	Mon, 12 Oct 2026 06:22:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B061F0089B;
+	Mon, 12 Oct 2026 06:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791786096;
-	bh=c5DUbNHbfdO2NvLPpm9JhksvV3MQmLBoMqotanmPHU4=;
+	s=k20260515; t=1791786120;
+	bh=hBwh44fL/gjgfNRTCrTc1OzzJYt8b8Lxx/wkIXrk3BE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OQyIGVRZn9vqhuhSndfwp2Gq3htsPqYpG7dQEZuvmGihJ+mlreBMokPpZSatwgxM4
-	 iDawDbeIy36rJuZOq30rk/m58c2eewSQTDT8ugyJfehQ2tb696/7Hr4Bya7O447k5m
-	 MQ52mYcrKvxOj7qtXqwH4DpIIr+ofRXYtnEy6u3GXLePpBPIOaW7MphezlU1Gd7vBm
-	 8YeODqif1ACa3S+RKloVlp+9IcxwHasRfbEeCII0qUWEz8G1tHSG05j5lDcP3BVtkK
-	 WzPSw/+J8S3kg0fNRioSp1Wr3/zmoL5puqI0FThM39vuITvb9s/Z4xA89aavE70p0Z
-	 itsyiiJGLfJ7Q==
-Date: Mon, 12 Oct 2026 08:21:33 +0200
+	b=M2y/TdHEddwpZzLkvsfs1kvuqz7H4h+T3zY9qSkl2oiaZM/MO0GaO+z/Tk+l0BV3o
+	 qG043hAD5UX37fkmNSuhyJIp79Np9K6mMJlsy8FhsInWIQLFX6W3hOrp4LzHgmbiQd
+	 X47tjdOHmt6tByLBIcwcUwaEsfGIRahQucFFNJYNA0dKwsv4WXSvBdCpTzFgBlOOaN
+	 DC2YqnuawFVDFueQdCF0mZqzJXkmS2eiflj28NCoBMpkeHzoXDQPT2SiAl8hHrcDFM
+	 Rjd1jFzHVhdYHuuHKhsUbSFlt7JAbl8qXvjSvE2k+YzfV2vAFwMTNh3xHOT7tIhNfl
+	 UsTXs/tPLqPtA==
+Date: Mon, 12 Oct 2026 08:21:57 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Raghav Sharma <raghav.s@samsung.com>
 Cc: s.nawrocki@samsung.com, cw00.choi@samsung.com, 
@@ -51,16 +51,16 @@ Cc: s.nawrocki@samsung.com, cw00.choi@samsung.com,
 	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, is.gandhi@samsung.com, 
 	ts.amit@samsung.com, pokala.reddy@samsung.com
-Subject: Re: [PATCH v2 02/14] dt-bindings: clock: exynos8855: add top & peric
- clock definitions
-Message-ID: <20261012-gleeful-stimulating-skunk-ae1db9@quoll>
+Subject: Re: [PATCH v2 03/14] dt-bindings: clock: exynos8855: add peris clock
+ definitions
+Message-ID: <20261012-inescapable-tactful-sawfish-0fd72b@quoll>
 References: <20261009120137.2801911-1-raghav.s@samsung.com>
- <CGME20261009114337epcas5p4493d8845a2ecd69331a415c1c7fee50c@epcas5p4.samsung.com>
- <20261009120137.2801911-3-raghav.s@samsung.com>
+ <CGME20261009114339epcas5p46cb1f966de38c2156edb15955f0c7fc2@epcas5p4.samsung.com>
+ <20261009120137.2801911-4-raghav.s@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261009120137.2801911-3-raghav.s@samsung.com>
+In-Reply-To: <20261009120137.2801911-4-raghav.s@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 05:31:25PM +0530, Raghav Sharma wrote:
-> Add device tree clock binding definitions for CMU_TOP & CMU_PERIC
+On Fri, Oct 09, 2026 at 05:31:26PM +0530, Raghav Sharma wrote:
+> Add device tree clock binding definitions for CMU_PERIS
 > 
 > Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
 > ---
->  .../clock/samsung,exynos8855-clock.yaml       | 115 ++++++++++
->  .../dt-bindings/clock/samsung,exynos8855.h    | 206 ++++++++++++++++++
->  2 files changed, 321 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos8855-clock.yaml
->  create mode 100644 include/dt-bindings/clock/samsung,exynos8855.h
+>  .../clock/samsung,exynos8855-clock.yaml       | 21 +++++++++++++++++++
+>  .../dt-bindings/clock/samsung,exynos8855.h    | 11 ++++++++++
+>  2 files changed, 32 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
