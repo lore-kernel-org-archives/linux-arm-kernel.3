@@ -4,101 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6BDCA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572E4CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g3lVCKwz3m+1Qgdbpu0enxVKwE6OpVLIOQB3rCyKQnc=; b=MCq7P3ChluROFd
-	Bv3MnGMEsVmAx2UMAGbrsIkc2tCIG1h6JrbFOCrHWLIqX57HlMw+O3Yp4qUajP+utviI9JxC3Gk43
-	uRze3x62vAbXHNzzTrjmXqbCVs3kMJtkI+zHsofnSAaMrhcooDVdG+L1sumUZL3IXkPZhV4NzuRRr
-	utg/TM1wYpTQl79+CaJfIhT3gN2AG1VzW7KCTru3LhmUamVmLSGGW731dS/fV4Yp1E2z0aeuxq30p
-	bKGGboAYadMDQZy7W0np9C9VjqC0A9gmNYQz5DNtV/4c9Ffi1umdQs0kroTN3b2R9PgDQNb8E9Q6L
-	8rE7F+UCqOCc8SAzWdlQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AV9tmVKum9YrJoJWP0QRLd4eRfkv0CgfW6YzK0/bKew=; b=RXEkMtLMJMTcizyECqrZDkd7ms
+	G9JXpHWnIBHAD9Z2ijarGYLmE+WdCl/DipdK2TSJvzXo/No6aIRtytV5ZkcXd3XA+pRaN4v27H0xs
+	LZhR/dgVB2Fd+xHC2rk/pW+8rmZOpIpU0ifHbro5XqUbaHT4RgowLfzwkkLyrzdMdb4Cy31t+QnDp
+	x1Lo/B++CTPR/7wqWQWcC+7Kn9m/xF1C5NSrkSvn/Cn8MLhMP/hdtXdr5k7vO3Lq6PSZi9epSFGDu
+	buXyFKgbuLjc6XnKRnxusEqUBqA+GqNPnCPURxREEhlGSrJKzdngPdyYz1om2Xo4XlU8GI4aSMRCe
+	0Rbrbf9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHty-0000000AnGJ-41Yd;
-	Mon, 12 Oct 2026 15:25:22 +0000
+	id 1xGHu4-0000000AnIX-0sn7;
+	Mon, 12 Oct 2026 15:25:28 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHtw-0000000AnFX-2pSp
+	id 1xGHtx-0000000AnFo-41Ha
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 15:25:21 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CC0JT31686600
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:20 GMT
+	Mon, 12 Oct 2026 15:25:23 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CBxx86800868
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=g3lVCKwz3m+1Qgdbpu0enx
-	VKwE6OpVLIOQB3rCyKQnc=; b=I1bG2YNx5jnaa1O7dGKuJIoyEDR3xy4PkZQFyK
-	KwRDYeS7uxzflVZpXFChySjV6bHq/+W3tarnYnresBAvSEqlu97WjnSq9LUCoF6V
-	sINHBWy36I8l2GU014nOZPluVKuCi3SYzxBbo0Sn7FHwdtvM21Enp3xsrNC2Vbyy
-	ulJbQESBxrqkeIvXPQ43vuON5l658vhuXk8T5ZEzf4pPJT5PaALW7SRf+Hdlt5Ko
-	XR3BrYEtvSBYfpRsKi1BrRonCmECYEQ6dMcY7vy2OS4LSf3aEdDwgEJ4izVm4YOM
-	9lS37cXrpDck6JHZMMXkzBnuEHCBZzh3sNstK4gTbKKiAWpw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8wbc1fgq-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	AV9tmVKum9YrJoJWP0QRLd4eRfkv0CgfW6YzK0/bKew=; b=hHLA21iUdjNz59Nh
+	73E+yS0r7blRxp1lxC0B0sWq6LVx4m7LMpj67NlHHwlhFHoYSrX+edzOT3GmsroU
+	EjUp/rnIz+4V0tZKr++Pejkfhyc08666ZtzvM8YiStTGgu2TSFRDSbGRje9jttPT
+	GOU4aPI6IQlVaPFB4ZgQzbvD668ClYIzEexBe8JwNv1YMnAZnzrTTOrqJCJQ4VeC
+	5ASP5QGVktP2JMBC0XkZ/Hrp7q0PQNwDGgA1c/UqvI0ydKe5zzavWeVNmQ6oUxpR
+	WfbBC3husBUay9Hspyruf8/PejTFg2dNsovVlPiMAdwdMncsVlm427YGF+CEn0X2
+	mdgC1A==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8wfcsd58-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:19 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cc40759b2so464887885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 08:25:19 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:21 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93dea1b6c89so396372785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 08:25:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791818719; x=1792423519; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=g3lVCKwz3m+1Qgdbpu0enxVKwE6OpVLIOQB3rCyKQnc=;
-        b=Uubmy8rpYsSC/GLp4Q4WFiamu3Y0jQXdJRhrSSF97kpBZ5aNRX5smRJs6mYPhg3ggc
-         lYyimM2VFcsJK3QHRjlHR0WcZwRc9ECFoauIT/XDgih/YVqGvEM3FO/b7DxCP+0fy1Cs
-         fkCyWLQ+gSknFoQ5O7e0kXpOg6awKK2Bc1mPQB/klh+lhbD4/UBC/36xu6llqlPHxz7b
-         Jm7dbxmdwDFF+8o+0R01dj7H96eWRMRjuGjeDREfCTjRCVSg/bPdp4WFkSqhESucufPC
-         bEYKsub3JHyBrueopC9ULc7Yd1d+fwvRPnLOOzpC6rFnratKLx5pTowifSeUHtUgPiro
-         q+Dw==
+        d=oss.qualcomm.com; s=google; t=1791818720; x=1792423520; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AV9tmVKum9YrJoJWP0QRLd4eRfkv0CgfW6YzK0/bKew=;
+        b=PhtYAnhwsVDVdCzhefQUk2NPHKCqGu4T3Jv8sScrQkhzctdDyLoj0HiivLaJm/+2B7
+         Mf2tWOPr17w6IK9jihy/uXgZR7ggkTMZ4YJeeiCCjnW5fyU05x99uA0S2Np47cUgBKFU
+         uFmiKHREz6ZuTg4dALKhILzkqHeDjA3Y5//uwJmfXjDVxau5w52tJdIF2DL82mLDrZBQ
+         5cqQ9Eeh9e9MK7w+a5wKykjRVnxAWWhMLVzkEu+hanDzC0s2w+4MGhFR1ycwaruT09Pu
+         RWY5LH7F2CGYAgXs7HUu66n/w2f+YY2hgc6sLeks580oa9c8Bmjr/WAmNXJw89N3Bw5u
+         dnSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791818719; x=1792423519;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=g3lVCKwz3m+1Qgdbpu0enxVKwE6OpVLIOQB3rCyKQnc=;
-        b=GtCytMpHusqi1bZBjW4M2cxqderh/WwXk4N0VfkiYC+f69Jxl0s/9jYbwjtypc8yx/
-         yXNBfsg1OBf9UwYgEo9MZWPhaytqB3mHoDhBnHcj3tixbrXPr0yvE6u5LHnLIoeiP5yC
-         m6CWUIHmkG/aLhlhoUbB0qJqmB5Xhgn7SsfaVMzzPxRbCYH5+HQL4DAuUKPQkHTIz4ix
-         bMSAZ7GrmS4ku3SJTRuhk4XC+Z94aScSe2sxtUXXHfBrH1ekFHYSasRmMXAPK4fMUp2i
-         2DWvdEJukeyKs1FgNBVDpHjrc+K8utigr8qP6hWy+9Nsx3rFHt+pOB2YaI6SEqNFUMqg
-         29ow==
-X-Forwarded-Encrypted: i=1; AKwUvBzIq6+sfr5Ye3CjYnMmGxPrVCmo3nanUkCW8/xuBH9PrsQNnFTOtZXP4ZfIvIDzu1onw9OUwEYIq7R16iKiRUjZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYIAarT522fRtqaC1EZAWSXhbPB1LkMs/Kml1oU9bpZXBqL5a6Ha
-	aZxN4QgPqE+Y+Yq6trNtZ+MwU793Ph6agjKtu5MxyMuvBQ7nQddKTvjjyYoPgy4Ds7VDt8Ar8W0
-	PPq2DrqHv7u6Exb6Zq1XP9Lbr8Nh8A+1lH8zzGWB22FFlfNfESr3tExrQ7B63M8/qTKm6ZD4TIY
-	mhrQ==
-X-Gm-Gg: AYBFou0jqvfwWVOrfNlZsCAmqe/9tT7YcY5VKYn675n1rI8nHAgzCLMCJYJ7uVq8mHb
-	ElhSGnf0gLIzIeTdh8x5/AGK9sb+Cm9Uz40l/jCRC3nFLxid2D6bfdr8L3SVL2jUAHp4Fg0aWJU
-	O1ZIL5VDSH1Vm3FoQ9OqtnoBr92c3vG6B6/d20TRCAf3puT7vxMi+UZHqVAjiUgysFovmtirqxI
-	qX7vpkijWlteVR7CHMsSU0vfCq8Rzst0ez3YKd7R7KkXFAiidfHYBLvGuRr3G8boBFUnYg+P4+W
-	JHpo516+1nRwnF0sN0jd/QwX8eTrYbRZ9uDei+mEGgmr5KO3/cbaMGO4sN5SmTY4deyYzasBxfS
-	Uebm++JVbGrXRPA==
-X-Received: by 2002:a05:620a:4552:b0:93c:6abf:c8ae with SMTP id af79cd13be357-93ebd231201mr1728165485a.50.1791818718433;
-        Mon, 12 Oct 2026 08:25:18 -0700 (PDT)
-X-Received: by 2002:a05:620a:4552:b0:93c:6abf:c8ae with SMTP id af79cd13be357-93ebd231201mr1728157785a.50.1791818717740;
-        Mon, 12 Oct 2026 08:25:17 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791818720; x=1792423520;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AV9tmVKum9YrJoJWP0QRLd4eRfkv0CgfW6YzK0/bKew=;
+        b=bkM5o2EUfJbuYKwc9gjQo2Sb3B5mn34lHql/3MJr/8XSnfjzEQmxkSMswOmh11V7wR
+         s7T/4mNZn0LgN0ElSQaR8yrIZ9HepyueAsfqsSFjrymYaDSYXHdLdGQO79ZFvAXxeg12
+         l817EUqKIlq0rWMY+gOPTmQbGHUoCGNBf803SThd+InsXkIClTxWN8nL+KK37R6EaMDV
+         7asN9wOOcFr5pTjGj2pNKJHRAOA5ora42PhWbo+KhMbwAX2GfFhMNBeLCZ57k0vqKx8a
+         AD/jLeer0M5QmX0vlfBmsRl8hs0fKDjRoCmjxjhIdHJXMvtP330oEFssNnqZnnjWe5P8
+         jTSg==
+X-Forwarded-Encrypted: i=1; AKwUvBxhK07X6H7JaXkEfDqjNEOleT8msxas87TP4NUgX0/uwSWqRTJfBOXYZ35So0SKkixkIKJbQ9Wl4iJTrEqxaL8B@lists.infradead.org
+X-Gm-Message-State: AFq9FYLxzyu7LJhrT7qjur8RlerpJ/MXuIGaZYt8oelmZ25Dio3+90pB
+	3+9nSY+lt/TaLfWwddvsLcjy8hMJOZ066yWIW6DwBIl9P4tvNkwtCU8EmRJKKGGNom005+KQBv7
+	4rc69olgzMU7OXFsTo7hGiRxrvMQ29tLWNdy8SK7cW6Mc2HgfJwWjPZ5+O0du/SgzHXJcAAqhpk
+	NEEQ==
+X-Gm-Gg: AYBFou0foWzK44UaXD3m7sXuNZGT63EFU67omjkniQUzVB+WwTWczCy6MC3GLUws6UZ
+	/2Wp1SZOkv4NxfXmE12ydD/D4eICQUDJ7FosD0dLh/I44Z/CLXCmTCNRbGBTr1af2JbUSDClkYC
+	2lrJ2eD/3DyYy+WG9u2SSe6NRjkopV5HQCKwC5rnAeBoiC3HX7vsL1z43lcUdWQEsqnL+PPBKo9
+	wG4VJWEWclTTOH6VEgx5PD/YlrokRZv7V7KRLK3eC0GxI4kdtMvjvBRP/6o7gPdu1hydiNzLuMF
+	9HkcAUOZzliGfCnb795bfwThzP6kIA8jGJnjVr/Q3JhNcuwQVf8uknFKw3p5AkJhoTtGQwpmDQS
+	o8d2kx+lB1z+RkQ==
+X-Received: by 2002:a05:620a:3728:b0:93e:c12c:43f6 with SMTP id af79cd13be357-93ec12c490cmr1632981485a.67.1791818719996;
+        Mon, 12 Oct 2026 08:25:19 -0700 (PDT)
+X-Received: by 2002:a05:620a:3728:b0:93e:c12c:43f6 with SMTP id af79cd13be357-93ec12c490cmr1632976585a.67.1791818719393;
+        Mon, 12 Oct 2026 08:25:19 -0700 (PDT)
 Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18e49792bsm475483735e9.4.2026.10.12.08.25.16
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ac35dfsm33381f8f.33.2026.10.12.08.25.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 08:25:17 -0700 (PDT)
+        Mon, 12 Oct 2026 08:25:18 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net-next 0/2] stmmac: some XDP fixes in XDP_TX path
-Date: Mon, 12 Oct 2026 17:24:38 +0200
-Message-Id: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+Date: Mon, 12 Oct 2026 17:24:39 +0200
+Subject: [PATCH net-next 1/2] net: stmmac: fix XDP TX DMA address for
+ compound RX pages
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LQQqEMAxA0atI1gbajqh4FXFR2ziThVWaIgXx7
- hNcfh7/BqHMJDA1N2S6WPhIGrZtIPx8+hJy1AZnXG+NdShl333AGk8sFc9MuHElwc+wxW40Zh2
- 6AHqrvKDzDIkKJqoFluf5A04NlRdzAAAA
-X-Change-ID: 20261012-stmmac-xdp-tx-pre-fixes-37fd4800b74c
+Message-Id: <20261012-stmmac-xdp-tx-pre-fixes-v1-1-05fd0c90f7e1@oss.qualcomm.com>
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Andrew Lunn <andrew+netdev@lunn.ch>,
         "David S. Miller" <davem@davemloft.net>,
@@ -116,36 +117,36 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         bpf@vger.kernel.org,
         Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX6JeqFj7pK5sw
- va2owJgpaHvfZR1XMcamlKa0h0hjsYokKoILuE4qkuudTxCa+Srlmc+66U+zC+9Q3VvVS0bu4kg
- n9rXmrXpMSz4uUEoQAWS0mWzT5KoJqg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX/8z+wO/PXzAA
- BPcqafyJ4eRcO4Fa3fw16ocK6YobqUz/ifHnrcj2z9zL/HlsIM2Va3KUtt1pYgIdRvuZD+VSZWI
- xETf9a1eg1C4U0VChSpdM88QGRr3zWzPk3DUBd4E1DujWEkvddCwpsf61xeh5k8KCx659bcL7zp
- lAqv5ucldySL3JXcPs1Pqe0bZ830XvACRJbgryOnaFOCXiCAnMtI7OMs0LgnTT1B1FuFxWKv7rR
- TZQmc4in8PcbyZrHvhrTRB8kLgosdYZgbhSD6xjc8JF1m9Z8kkBE3sda7eUqG/gQW4YyA3ltL3O
- KTlarqjr8Rr0zO0XppokogYl1PJMsl2NPHP0Mkob/1waSGyoeSiZR178zkj5IuqrTmIERT8XIAt
- KvkVZyIC50282pdbEmXKMkR3hxSbE3s6M+p8JiWomZcVeiFnchkk/ioLDSC6qUV4PDHm75N8Dh4
- 4Dx9G4B76Oiq6ty6RtA==
-X-Authority-Analysis: v=2.4 cv=C4p8WgP+ c=1 sm=1 tr=0 ts=6accfbdf cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+X-Proofpoint-GUID: ejPIHnAOKC7JxdoPWF-szHalSs8KUIX6
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX4rcCRQLwYdSw
+ 623RqpnwPFPtEPwECa6y1Fzc0drueQU7XAxQQddSTtAgcYnV+w8gmbD/f7zKbEVImSJqx8Lx4FQ
+ qut26qI9n+h637ZPKe+Z6GavRVGavMU=
+X-Proofpoint-ORIG-GUID: ejPIHnAOKC7JxdoPWF-szHalSs8KUIX6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX+Icb+B6VmPGc
+ S6rYJV7NBkTmg+tkw77YkxMv/KeGc03NbPdLyKAeDhyUCfKaunIu9qx+JknovCQ8EcuTOTk5N25
+ gqIlwkfHko5hak+1lpuR/LQt+VCDywbBBLYzc+SIe4KizPF8I1rP143SRRMeiSF6sruh9lgI65e
+ xgvtiXD1abA8EhT2OkvpAg1/A8yQrIMtxMLsl43gtcV68TA29rT2P741ITBZ4x9asVRBw5fyGYk
+ zLk3VQNxGkzKKa8V0Px205MRQOApY777VQdngu7M3vz0+FM0bRP8LGMzKSKRD4I2CNa8zZ1uDXa
+ z+0zZMgsWTIbs5oFNPfz5S2yfqIFmdsPkqlwoFRVMkdP6nvrrdcvK5zF2xoMDMfYmifby+DIkaI
+ 8929slPx0fnW9+s9MLMMhoWtVYBGd7H73aTM+S7mY4Y3toHm0I8rDZYf1LVjMQblqiEFdh/njA2
+ db/n/EWuGj5Bj/yWpxQ==
+X-Authority-Analysis: v=2.4 cv=PbhqFShd c=1 sm=1 tr=0 ts=6accfbe1 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=e8Hy17V4MP4qKruQfKwA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-ORIG-GUID: -VvHmxe4NGhgQrjr4mN5W60C_RuaQ-mK
-X-Proofpoint-GUID: -VvHmxe4NGhgQrjr4mN5W60C_RuaQ-mK
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=X7MBymmcuZ5hxvlvhugA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-12_04,2026-10-09_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0
- malwarescore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 phishscore=0
+ lowpriorityscore=0 bulkscore=0 clxscore=1015 impostorscore=0 spamscore=0
+ phishscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610120061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_082520_728417_90354A6F 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20261012_082522_006819_8A68E280 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,22 +161,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Fix page address lookup for compound pages in XDP_TX path.
-- Disable TX checksum offload for jumbo frames in XDP_TX path.
+When RX buffers are compound pages (order > 0), only the head page
+carries the DMA address programmed by the page pool
+(page_pool_get_dma_addr()). stmmac_xdp_xmit_xdpf() computed the head
+buffer's bus address from the page that happens to contain the data:
 
+	page = frag ? skb_frag_page(frag)
+		    : virt_to_page(xdpf->data);
+	dma_addr = page_pool_get_dma_addr(page);
+	...
+
+RX pages become compound as soon as dma_buf_sz needs more than one page
+(pp_params.order = order_base_2(num_pages) > 0), which happens from an
+MTU around 3000 bytes once dma_buf_sz reaches 4096. If an XDP program
+moves the data forward with bpf_xdp_adjust_head() by more than about a
+page, xdpf->data points into a tail page whose struct page has no DMA
+address: page_pool_get_dma_addr() then returns a bogus bus address, and
+dma_sync_single_for_device() together with the TX descriptor transmit
+from the wrong location.
+
+Use virt_to_head_page() to read the DMA base of the buffer and keep the
+offset relative to the head page (sizeof(*xdpf) + xdpf->headroom), which
+is correct no matter which page the data ends up in.
+
+Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
-Lorenzo Bianconi (2):
-      net: stmmac: fix XDP TX DMA address for compound RX pages
-      net: stmmac: disable TX checksum offload for jumbo frames on bugged cores
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
----
-base-commit: 29f144016f03608abfddcd6ebaeabafd7aeaadd2
-change-id: 20261012-stmmac-xdp-tx-pre-fixes-37fd4800b74c
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b8b4de4c5b1a..ca61ab449e32 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5301,7 +5301,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ 			struct page *page;
+ 
+ 			page = frag ? skb_frag_page(frag)
+-				    : virt_to_page(xdpf->data);
++				    : virt_to_head_page(xdpf->data);
+ 			dma_addr = page_pool_get_dma_addr(page);
+ 			if (frag)
+ 				dma_addr += skb_frag_off(frag);
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.56.0
 
 
