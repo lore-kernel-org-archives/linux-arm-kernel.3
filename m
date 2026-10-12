@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062EBCA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733C5CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 08:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19boBTCsjzigUNehuNnbCAd0sjXKxyv/w6iDQ2Y4Fdc=; b=XBKW8X38nfwO/1akl896Ib13c2
-	dIB8wnTiEq2L6wRYNKSoB+oiZqIXk6ZAh/6e/NvxAG+rG5UR8xAQrtvPef4wCpx+pmcbp+Jxzt6V/
-	bpc4PI99VSxAORBCorjG7rcEB1ZPHtI7u0noMbcc4MT/cwGwMpBrgt8fzeAuA13RH+V1mi4DTZhX+
-	y1zsFcQ/KffYpZ6ZmBI7ecYhBE6SLLe/+lAZkPkEY/nrs/tzuGDB4r3+zVi4l4yO2tm6CDCV2E6lr
-	iRFbZRhE/F5YoYMD/spd+8uS8pVS0lRJ5SzhAdukbC50xjhJkP29XUtmcI4E4+C82ONHVf+IxnN5v
-	8+q63TIw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bqDOAwSMJoESa7IGvpvNsqYJH+0SnO+WSGpdq05dVb0=; b=nYQ2gquXzYtmj6SF7bHuBXr+tP
+	ACo+qmXJhy7tY/hOB8M3kHRwzPyeVc0z8JXbJXgLZWUPPODWBVuOAWPnShi2HKg1L7Df4CYYrUk1T
+	JVoIefRk3cpZ7+8kj/ezJiCoTtC9MxTWIjdn3+ceG2dPdortoSRfGyixsEgR9CeINhLsbfFITIhRU
+	EXF1g338SePB55D1IC7KqQBTaIkJemj6s2WAfYubhH8/tqreXjzHxKhs/Ll8sWpgMjcTBZLCOHB4q
+	Et1OwrAnrRML7CM/KU6j2DW2h2tE8oHrLVKIyGWG8fgMkI+yPejRtmfiJe7VOENuhMi45u7LBrZEQ
+	bZpa3Cag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBfy-00000009yvC-1GKk;
-	Mon, 12 Oct 2026 08:46:30 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1xGBhI-00000009z7v-22dG;
+	Mon, 12 Oct 2026 08:47:52 +0000
+Received: from out-53.mta1.migadu.com ([2001:41d0:203:375::35] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGBfv-00000009ytY-0lpD
+	id 1xGBhF-00000009z6x-3PKV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 08:46:28 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 957A53EB8E;
-	Mon, 12 Oct 2026 08:46:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
-	t=1791794782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=19boBTCsjzigUNehuNnbCAd0sjXKxyv/w6iDQ2Y4Fdc=;
-	b=AAz8ZPAZyEpuFA2hg1GD2suLLmvBqd0ODa7hc1UL+saONfjIxVSk6G/tnsQe2ISC1P0G4y
-	VfxTMHDMvQ0SZdF0yzIY/jsdYFHuCL2MQyvJFMaWhQm9liejE3gEDXTWRaJYvrtY6XxDTY
-	QeVKWrkiKVYFh8wizEQb7r8XBHtku4LDZ4ZwEiIndpKFQaTH7DIpd3jqTHzBuTH7olquCm
-	HUb/Zl1H7kEfZa5DEizrslSK8++usYILUQQIMp6BKUNSzVEKh+aFJ+ehl/oZFk6NR2R63V
-	nudiPNLAPLX9rUQkjM56gpuhxlvy2Vvo5vSA8vmwDlfzD9bBEl+/zdF274qzUQ==
-Message-ID: <ee54b08f-b3d8-4a62-bc43-0117a9b11102@yoseli.org>
-Date: Mon, 12 Oct 2026 10:46:16 +0200
+	Mon, 12 Oct 2026 08:47:51 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=SEZ6etcTUGf9RNiXMMSRKfIgUoYwJmmBOcXlKCaLB1c=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791794866; v=1; x=1792399666;
+ b=LifUpA1OiIiDsoTE2x+/KfBOlpw5lBYJmid7KmgnX26wU7RSeNLTCIwLjTY3ssOWJWLi1PBX
+ u35Uy39rnR0B6wIACwpoR99Q/bFmB+dCdWDXXN3/YZ0JoJU+rz0uVM1bm2ch7364Yazc9LiOyeI
+ fQdoCSbveYyVF2dbY2DrY7oQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id ea7dd119e4327306;
+	Mon, 12 Oct 2026 08:47:46 +0000
+X-Mizu-Trace-ID: ea7dd119e4327306
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v1] KVM: arm64: vgic-v4: Don't forward an LPI with no target vCPU
+Date: Mon, 12 Oct 2026 09:47:43 +0100
+Message-Id: <20261012084743.2228612-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] m68k: coldfire: Add RNG support for MCF54418
-To: Greg Ungerer <gerg@linux-m68k.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Olivia Mackall <olivia@selenic.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Frank Li <Frank.Li@nxp.com>, Herbert Xu <herbert@gondor.apana.org.au>
-References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
- <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
- <bd25e903-30fc-4905-986c-96d1b42e9f02@linux-m68k.org>
- <ddf0ab32-5b66-453e-b7aa-1722aeaf2aa0@yoseli.org>
- <9ba1ebd8-61cc-4e1a-b68d-906b20dd4999@polyxeno.com>
- <asn8e5puc3I01Lva@gondor.apana.org.au>
- <8be9c875-68a9-4bb5-b581-501a0a6819f4@linux-m68k.org>
-Content-Language: fr-FR, en-US, en-GB
-From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-In-Reply-To: <8be9c875-68a9-4bb5-b581-501a0a6819f4@linux-m68k.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-GND-Sasl: jeanmichel.hautbois@yoseli.org
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: dmFkZTEPWrJqe016L8I3chHHuK71fvLMlYu+6IrNfxrvD/MyQtgB2kOmSroRn5pztNxyoPXTsP3v9st2xoK0cTKVkCkEXnzk+tyydkEnZa3BeDOpN+lBo3VSfju+U2Tk5DFLr2QTf3rS7cF70bZN6RCshXOZ6HVSfbaHlah6rgF+S1ghDvtrdNc33ylG978pFkIVKZAjrHrrK4lzsId4ZikSGWG++dyZRIZYSLuxWGOy6uWwFvRqYp7eHk+F8lCkqQkRzDYLf/PNuPs9yHrHnCbSXcwXnUuKid+zR4eyu85684+A5SFc3yxeSVSajXUtZMboFqBEssGGUH2TBR8Yk1f07MSZJgLkJ/dO+CwPvwngLjI92MEv73dMHbbBqJibq0do1B0Lz0Zo4mzA4OezcBN5mVpeb0VThW9sEYznRUJeYGoRvkCbWRdrYkcknQFhqJwUI1dRKs9JjHOG0kHLDHZ8rpKjMT14YRCg/zYDN9c5wK/DOOHXEvlA1ipL+b+3rKxzP3fnDw63p4Y44/pyd0xok+TQxEAM35f5EE+5btGH4X2G7kPlNHHh5Ik+e2cJFW/1kSa3D12NjWBUnaHClNFyhqUsOcUOJZDYAZk3O5uHc2Xx45m7gaOtKGgKEbDe1QC01g3/kF2lnlW+BO6+ah4NHNgEER4kazqxwF5roUA2tzhB1w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_014627_394342_487C2E0D 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20261012_014749_991078_8BA38C92 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,71 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+KVM keeps one vgic_irq per LPI. The MAPTI that creates it sets its
+target vCPU from that MAPTI's collection, and a later MAPTI of the same
+LPI leaves the target alone. Mapping one LPI from two events is
+UNPREDICTABLE (IHI 0069H.b, 5.2.10), but nothing stops a guest doing
+it. If the first MAPTI names a collection the guest never maps and the
+second a mapped one, the LPI translates through the second event with
+a NULL target vCPU.
 
-Le 11/10/2026 à 17:28, Greg Ungerer a écrit :
-> Hi JM,
-> 
-> On 10/10/26 18:51, Herbert Xu wrote:
->> On Wed, Aug 19, 2026 at 07:36:36AM +1000, Greg Ungerer wrote:
->>> Hi JM,
->>>
->>> On 19/8/26 01:09, Jean-Michel Hautbois wrote:
->>>> Hi Greg,
->>>>
->>>> Sorry for the very long silence on this one, it fell off my radar...
->>>>
->>>> Le 03/12/2025 à 13:15, Greg Ungerer a écrit :
->>>>> Hi Jean-Michel,
->>>>>
->>>>> On 26/11/25 17:08, Jean-Michel Hautbois via B4 Relay wrote:
->>>>>> From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>>>>>
->>>>>> Add support for the hardware Random Number Generator (RNGB) found on
->>>>>> MCF54418 ColdFire processors with clock enabled at platform
->>>>>> initialization.
->>>>>>
->>>>>> The RNGB block is compatible with the imx-rngc driver.
->>>>>>
->>>>>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->>>>>> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>>>>> ---
->>>>>>    arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
->>>>>>    arch/m68k/coldfire/m5441x.c       |  2 +-
->>>>>>    arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
->>>>>>    drivers/char/hw_random/Kconfig    |  3 ++-
->>>>>>    drivers/char/hw_random/imx-rngc.c |  7 +++++++
->>>>>>    5 files changed, 47 insertions(+), 2 deletions(-)
->>>>>
->>>>> I am happy with the ColdFire arch parts, so from me:
->>>>>
->>>>>       Acked-by: Greg Ungerer <gerg@linux-m68k.org>
->>>>>
->>>>> I don't mind taking this commit via the m68knommu git tree if the hw_rng
->>>>> maintainers are ok with that. Otherwise if you break out the arch/m68k
->>>>> parts I can apply those on their own.
->>>>
->>>> I think Herbert acked ?
->>>> Do you need another ack ?
->>>
->>> I would like to see an acknowledgement that taking this patch via the
->>> m68knommu git tree (to Linus) is ok with the RNG maintainers.
->>
->> I have no objections to this.
-> 
-> Thanks Herbert.
-> 
-> JM: I have applied this to the for-next branch of the m68knommu git tree.
-> I didn't quite go on cleanly, so please double check it for me.
+When the VMM routes an assigned device's MSI to that event on a host
+with GICv4 enabled, kvm_vgic_v4_set_forwarding() takes the vPE from the
+NULL target vCPU and the host oopses:
 
-Thanks, I think you missed 1/2 ?
-Or did I miss something ?
+  Unable to handle kernel paging request at virtual address 0000000000001980
+  [...]
+  Call trace:
+   its_build_vmapti_cmd (drivers/irqchip/irq-gic-v3-its.c:943) (P)
+   its_irq_set_vcpu_affinity (drivers/irqchip/irq-gic-v3-its.c:1380)
+   irq_set_vcpu_affinity (kernel/irq/manage.c:670)
+   its_map_vlpi (drivers/irqchip/irq-gic-v4.c:326)
+   kvm_vgic_v4_set_forwarding (arch/arm64/kvm/vgic/vgic-v4.c:485)
+   kvm_arch_irq_bypass_add_producer (arch/arm64/kvm/arm.c:2977)
+   irq_bypass_register_consumer (virt/lib/irqbypass.c:44)
+   kvm_irqfd (arch/arm64/kvm/../../../virt/kvm/eventfd.c:496)
+   kvm_vm_ioctl (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:5270)
 
-Thanks !
-JM
+Leave such an LPI to the software path, which copes with a NULL target,
+as kvm_vgic_v4_set_forwarding() already does when the MSI doesn't
+translate.
 
-> 
-> Regards
-> Greg
+Fixes: 196b136498b35 ("KVM: arm/arm64: GICv4: Wire mapping/unmapping of VLPIs in VFIO irq bypass")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+Tested on QEMU, which emulates the GICv4 ITS, with a local reproducer
+that sets up the two MAPTIs and forwards a vfio-pci MSI to the LPI. It
+oopses without the fix and passes with it. Not tested on GICv4 hardware.
+
+Based on v7.3-rc3.
+
+ arch/arm64/kvm/vgic/vgic-v4.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
+index ed236f083f0d7..545e55317c863 100644
+--- a/arch/arm64/kvm/vgic/vgic-v4.c
++++ b/arch/arm64/kvm/vgic/vgic-v4.c
+@@ -466,6 +466,13 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
+ 	if (irq->hw)
+ 		goto out_unlock_irq;
+ 
++	/*
++	 * Silently exit if the LPI has no target vCPU, as one mapped by
++	 * multiple ITEs (UNPREDICTABLE) can have.
++	 */
++	if (!irq->target_vcpu)
++		goto out_unlock_irq;
++
+ 	/*
+ 	 * Emit the mapping request. If it fails, the ITS probably
+ 	 * isn't v4 compatible, so let's silently bail out. Holding
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
 
 
