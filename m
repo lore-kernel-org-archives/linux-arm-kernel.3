@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CB3CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 05:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB4DCA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PothssnYOQBqU06oPmf6jtHUTyL9DrHCtzHqtSv9s2A=; b=jmxBoDXlb0sdliYGJN7gz4Ehpb
-	eQZt6X3sXrCekqvPZhuB6PIITFhVC73RfwAgVpGXnhhSKcBYvI6ec1YlwKMUy6ls6vHk5ENlg928m
-	cOqqyIs1ooXEXD2g08/aJ5K1BKr7zEv6TjjLJKZnbnc+jhznG3T6DKAm1jmUMABnMrfOEYA8VqAor
-	BCar8mU1FuUWToYPIdG2afE6i7b2MBNRnGYRV/Fh5QS8uOBkdJM+jhI5AIB3iDTpkC7l9PfA0W9tr
-	61YrMd8KefMVdoiJkzbmM5JkJD0euSVe8AIzODJVzCkFabHrz8CeoSLCb2PchtGYHbTVIW4RwS/mq
-	yRPdLQCQ==;
+	bh=gwemR1GkI6CxI+NqYHV23kvRhrEctXnUuljsqo+KfWI=; b=iSqcFko8QS8gc9Qtr64QgI5XlW
+	f5SA/bwGg57IEx1i3Zwk+wlJ6dmyCZoWMYBJ/BLaQKIV4uFtg57gKWZSQ0ZGXsYol2KcwWWUv/yoz
+	qlYFFETgpSvpG1CpL092UKzd98DifKv2hPZ1k9qHboFcSBZhakKLCvLisXBJtMQYgWdT009cS5ipj
+	sFWLGtpezLNSHlVBfUShctBaVTNU7QyooiDYVAhec37/lDgm93dttox+2WSUXvG2MSDHAIXwHgA7Z
+	NWs3JQsm77R9iKv58tOfjBaLCsJ3JNRe1PCGjTgS/YaT2nnQ5rVeAwJxUNrsoJUWu1j3JaqzNf958
+	Y0OOMgMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG8ys-00000009het-3q0b;
-	Mon, 12 Oct 2026 05:53:51 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xG98x-00000009iHZ-2vQj;
+	Mon, 12 Oct 2026 06:04:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG8yp-00000009heR-2Rsh
+	id 1xG98w-00000009iHT-2c3E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 05:53:48 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a018dc1f98so11270475e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 22:53:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791784425; x=1792389225; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PothssnYOQBqU06oPmf6jtHUTyL9DrHCtzHqtSv9s2A=;
-        b=VwkI4Osa5qpzExqqE9C36Dveso/DSjfRXjxByX2uFYptCkAM8E6UkjYQWfE6bn5B08
-         hlXJKFcSPRgMsWdhIBu4XugUhiFaqJTzGugo/LgnSyNk5Wn/IIIHEm5sbA7UfzsjHpDN
-         plHdlMdF4+aXR2A/Qi7QyHErhf5lSl4UKKWIlMcluqnb6EUMzntO3JMgzj03342Catyo
-         gufLgS7QgVK1oJfbeF7t1+7PFfjFc7pKP85R/DvR7TdW64Ca3+dsajw5niOuig8rLAqw
-         lvnNYuCxHLdOnmBYguJ4gyTZMvevhKPv+P0uB+SMdcauGhKZW+LHRA4yxBqudcTefkIf
-         ElGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791784425; x=1792389225;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PothssnYOQBqU06oPmf6jtHUTyL9DrHCtzHqtSv9s2A=;
-        b=TCHNoayi+7WOKelNlTcWnr9HPTDIphgw5xOfk4+W/OHmP7WwoT93aEEhS6IN/n41XH
-         Ehu8Ug6c38rxrnCNcaN25XIFJlnPVXAPyiRKo3LbYiOorIDhfOrxBdnRKsnbk/rU8bL0
-         yEZ7QjeH5dDNlYsSpkOpytyh712GwuwCTvjqYVPFlhiR0qJNWoIGPIlHFff3t1Geff2P
-         px8ue7mB4WHq3BX5clzjvTl2qgSDL2jql2anitoREcXLZu3SeBOrodys4jUL5KJrng/s
-         /xmPaMNoygO62x5ErLIpTKgyrEMi8EPn3G9ob6KspG0TQh6mpJbdaPF2/cAhkIpd3hLD
-         /P9g==
-X-Forwarded-Encrypted: i=1; AKwUvBwrd4akHlR6OLiuHK/uB/rs+Z46vmVMgHb+2mmVG1GOhKaRRvOgK/jFWCvCvr85ag63fNu4mOcM4QPobqIig05s@lists.infradead.org
-X-Gm-Message-State: AFq9FYKqt5OCzTb2nrSa5zYM3BWX5HkoKQyzV28IJ65dWuL696A8AHCF
-	URWazoXpeebGMa7Q2o6bkaUqDSDfEM/kF04gV4QWYLsni/7se9OGelpH
-X-Gm-Gg: AYBFou2gwRtohgxwND9R/DLf/GvpIOushGVro3hHtrq1oDyTNgsijZXHL+Tp9nEJcZT
-	cdjJZTGNKlyolpmDqYIyH/dsFF8FfVL5ZM0uS+sH3Va1x4HGk1h+TCX98k+Y4GDQqrs2ncLmLJ8
-	cnAZpTtt8dKnywfmPeI2OcB+Zt/1eyJJLnO/BX65mszM/1ZwFgbKuGLVZmIxte9HvSD4/8FIFrR
-	RSEx+59RO3mswNb4s+ozHvapFJhwWAKgVZ218GpJDuBfeKRF+S1e/7XtuiR+c/lYGfCpXmAHGVS
-	Cm1rBvRt8TLmyPw290KRuLHKt1NkKxmSHvh0cL1qdCnzZdcEMZ1g8EZTZTz2RhpE86Ypoyt8lGJ
-	IPiL1asv8tEtAhzEzps35FDKBLt1Uc6FY+fOd538y0EtizvNEN/xoeBaxxb9mYqv0VqoAQ0IO27
-	YPyL0QZPffcBVEjWficG5Fre7gczYMk+n0L5lm6RhL+0aZn8PvaDabMkfyJxJnxWYS7wT12UYgv
-	8HNfx4BCxhQf9H+eHIy1NtG01QaeVq8eZFKW/rJK8EncaPLiK89JC4hjyiKOoaI9gH1X2FL++xV
-	sLcusTc2N30d7KbSyuXEDopPdXLvHnA7P8153YuzBrI6uCOIhhMBU7xtjxpYdRocuh5d0Qudz6Y
-	=
-X-Received: by 2002:a05:600c:6207:b0:49f:ff73:9971 with SMTP id 5b1f17b1804b1-4a18e4aff66mr150789045e9.18.1791784424879;
-        Sun, 11 Oct 2026 22:53:44 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a8ab-0f01-016a-c770-797f-eaee.310.pool.telefonica.de. [2a02:3100:a8ab:f01:16a:c770:797f:eaee])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18e49792bsm417935035e9.4.2026.10.11.22.53.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 11 Oct 2026 22:53:44 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] serial: ma35d1: Do not force-enable an unselected console
-Date: Mon, 12 Oct 2026 07:53:40 +0200
-Message-Id: <20261012055340.16719-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Mon, 12 Oct 2026 06:04:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 92DA860AA1;
+	Mon, 12 Oct 2026 06:04:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 404CFC2BCC7;
+	Mon, 12 Oct 2026 06:04:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791785053;
+	bh=M7BMcVNH/mm93fZwim0d1Iep0hgAxA/nR3wZsPb6tOY=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=m4VsCcsKvrVOdQxWY9HNU8QyZHf1JpZtmOnmCLU5YvZLUzWUZs+HyfbIC4PNSzfGB
+	 Go5tZ8s+ExdKArfCvehYzrAWNZ+67OqV1fUdwLZH8h8V+tWFQcHNCHb6g9ph9VbD9c
+	 7KXyr2zV/61eYclLN3gKzRt51bnVRYDPcAGmPSotlQgiPFIinttdKGTcaX+JzxNJF9
+	 CZh1HhNifsZizA4t688ceJuzlm0t5h0IRq7LOl6pG94X+E0J8TEMGvYWnVhvYyyPu/
+	 B/qSFpl9Z3nA6d7ECtwX11QbVnwevlLXZ4qLRevrrXWCHfw7k7D0OYJAswb4/ojoMF
+	 f8n2vPWOU7mUA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B269CA9EC5;
+	Mon, 12 Oct 2026 06:04:13 +0000 (UTC)
+From: Demeter Barna via B4 Relay <devnull+me.fromdisposition.org@kernel.org>
+Date: Mon, 12 Oct 2026 06:04:13 +0000
+Subject: [PATCH] iommu/arm-smmu-qcom: Add SM8350 MDSS compatible
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_225347_657953_304322FD 
-X-CRM114-Status: GOOD (  12.09  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261012-arm-smmu-qcom-sm8350-mdss-v1-1-deae44695301@fromdisposition.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMyw6CQAyF4VchXdtkpoi3VzEuhmnRmgzIVAwJ4
+ d0ddHe+xfkXMMkqBpdqgSwfNR36Ar+rID5CfxdULgZydPDOE4ac0FKacIzDtk514zCxGZ5539V
+ HZqImQPm/snQ6/9rX2982tU+J7y0I6/oFhuIVvn0AAAA=
+X-Change-ID: 20261012-arm-smmu-qcom-sm8350-mdss-9d4f37dd225a
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Demeter Barna <me@fromdisposition.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791785057; l=1459;
+ i=me@fromdisposition.org; s=20261012; h=from:subject:message-id;
+ bh=g1QXs8w3o+qcZcGg/r4biOtnY2Etr8byKo19QjIIQdY=;
+ b=rMMwu5/9HX4Syb5ShzURIreiL99EnXfdA0EEVWrjImfRhuJKBmFuA7eqgvYSj1mnJCdzstwSu
+ zb58pWwpyyPAGu8/zwrsa8EmzhE/SHmMVNgL95MF1CERhwGoSFqN/jh
+X-Developer-Key: i=me@fromdisposition.org; a=ed25519;
+ pk=S0QFlGq1BQEaAtPPdAH8YKEOXMeRuSkTgctXuvtU+1Y=
+X-Endpoint-Received: by B4 Relay for me@fromdisposition.org/20261012 with
+ auth_id=1163
+X-Original-From: Demeter Barna <me@fromdisposition.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +83,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: me@fromdisposition.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When another console is selected and there is no matching ttyNVT console
-argument, the core accepts the MA35D1 console without calling its setup
-function because it has CON_ENABLED set before registration.  Its index
-remains -1 and printk repeatedly reports an invalid port, flooding the
-console and preventing boot.
+From: Demeter Barna <me@fromdisposition.org>
 
-Let the console core enable it after successful setup.
+SM8150, SM8250 and SM8450 MDSS are in the list of identity clients;
+SM8350 looks to have been missed.
 
-Fixes: 930cbf92db01 ("tty: serial: Add Nuvoton ma35d1 serial driver support")
+Without it, the framebuffer left by the bootloader takes unhandled
+context faults (SID 0xc20) as soon as arm-smmu probes, and the panel
+shows no picture.
+
 Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Demeter Barna <me@fromdisposition.org>
 ---
- drivers/tty/serial/ma35d1_serial.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Tested on a Razer Edge 5G, whose board support is not upstream yet:
+without this patch there are 10 context faults and the panel stays
+black; with it there are none and the picture is there. This is the
+same change as d149c8b2c014 for SM8450.
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-index 0809655f4395..3be30fb05513 100644
---- a/drivers/tty/serial/ma35d1_serial.c
-+++ b/drivers/tty/serial/ma35d1_serial.c
-@@ -639,7 +639,7 @@ static struct console ma35d1serial_console = {
- 	.write   = ma35d1serial_console_write,
- 	.device  = uart_console_device,
- 	.setup   = ma35d1serial_console_setup,
--	.flags   = CON_PRINTBUFFER | CON_ENABLED,
-+	.flags   = CON_PRINTBUFFER,
- 	.index   = -1,
- 	.data    = &ma35d1serial_reg,
- };
--- 
-2.53.0
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 795e8ec7e..3dd8335c4 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -425,6 +425,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
+ 	{ .compatible = "qcom,sm6375-mdss" },
+ 	{ .compatible = "qcom,sm8150-mdss" },
+ 	{ .compatible = "qcom,sm8250-mdss" },
++	{ .compatible = "qcom,sm8350-mdss" },
+ 	{ .compatible = "qcom,sm8450-mdss" },
+ 	{ .compatible = "qcom,x1e80100-mdss" },
+ 	{ }
+
+---
+base-commit: 2888520bdcbe0599cfc77b2fad8dc6c95505a3cb
+change-id: 20261012-arm-smmu-qcom-sm8350-mdss-9d4f37dd225a
+
+Best regards,
+--  
+Demeter Barna <me@fromdisposition.org>
+
 
 
