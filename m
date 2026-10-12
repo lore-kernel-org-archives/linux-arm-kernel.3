@@ -4,76 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95BACA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9CBCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4/ZTJaP4yY9IoQfe/c3kmXqIGwi++6HDb5teONlaps=; b=qmoP4dOYus5hmlZNsDhqf/czBB
-	jg5dWkzqK1e3fVqBXzXMQovvdEYcN4eZ2LUQRwHySHGBNkn9uEqVAFrPn6+cie1DoFq4Sa6J67FIB
-	mXM7di2JUXmVXigktrso6VwtUuVbic79VWhd8T7Cm9vxQ2kCH+80Ua4oKngQlyT4z17OIRU8nHJ0E
-	q/QnRZbwzud7VZOEa+Zro6SkBvQfn3lH5cKwDqrvcvspTgXwTrvYZZrX23n0PqKSkmHboRGiC97aL
-	8K0X0vgFNStfjAMnJzATuUGTO/fHzyIUNmQynuj4x7wCFX83bMAXnbsDwoMN1u6i+BeEmGVTXJBAH
-	wIg00wmA==;
+	bh=IgcW+mBezfmaVemco2WC7GasvmmjoylpddtvtSsj0OQ=; b=sqQ4owZ3p/az4nZoL6sm7jVtL/
+	RAVKBWc5Hj/KE1FYZ1AYxCC7MY2j+piBz2hjku1pVuHyHcvlMPylzC0PjCX1p12YcPK0Y55BmjVE1
+	LsZVbWQBrE45lPysIQ6K2v2kCKpOHJAOZsyTnQppqOZF93FzvLfFsxu7aDG8VX4QjwbSbKwP3jjoH
+	74HEP8YjQSO5sG5jlMnqw+y3voEVelt0BIqutwfr8bfGcMmMnLSn8pf7ckwJBq2wanSJu19GwCT0Z
+	4dwfdhCttICMqkArb44UpLBitAsFcYGtsWx8nc36jFksGh/hA+0kTES/N5/1ugKgFD6bQa4lYjySG
+	4GmE+SuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcK-0000000BXo4-2EQ4;
-	Mon, 12 Oct 2026 21:31:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGNoY-0000000BZYd-24Xa;
+	Mon, 12 Oct 2026 21:44:10 +0000
+Received: from mail-vs1-xe2e.google.com ([2607:f8b0:4864:20::e2e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNcE-0000000BXi7-1agN;
-	Mon, 12 Oct 2026 21:31:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 575D2602BE;
-	Mon, 12 Oct 2026 21:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0351FC2BD05;
-	Mon, 12 Oct 2026 21:31:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791840685;
-	bh=mBu7Oq1ksHKrEeE3KFUtGY0v5te7tndDJiHHavVhxtY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=DwiXslqLQhT2H4iV2jX95r4uiJB+cjSUfLV7ND/NsW/yDUt2lr4C+Gc/hdrpsIjUx
-	 qvxumJXNJjt60XuIJMymXD06avfyE00TWST/8Qt3pJ+62m0MgDrB1+R+FmkJpc6Jg9
-	 bTfAfbVPsahbVnCg1QLGL1t2y6gd9yVo+iRWviDycwUtHi+bzJ/LmsFD8DFM8OxH2T
-	 5SU33W8YygPFjY5ciDkC6GtFLvCcCrPpy9lM1AJtXFPp6mF70RUu+JxQmz8oH2VXh6
-	 jIsGG5N05FcUxl5IZh7fYDuujdut4c2+ya85AD5SXziIWnlywHrRksT5xDvxL8OIbx
-	 MsNbjHQm2gZpA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DED7ECA9EDC;
-	Mon, 12 Oct 2026 21:31:24 +0000 (UTC)
-From: Vladimir Kukharenko via B4 Relay <devnull+vladimir.genproof.com@kernel.org>
-Date: Mon, 12 Oct 2026 21:31:21 +0000
-Subject: [PATCH 4/5] lib/crypto: poly1305: Take a size_t length in
- poly1305_update()
+	id 1xGNoV-0000000BZXl-0kOg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 21:44:08 +0000
+Received: by mail-vs1-xe2e.google.com with SMTP id ada2fe7eead31-7c19c6721a3so1526377137.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:44:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791841446; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Cg5AtY62HLO+hg8hgIc9qwkA3LhnZnYRg3vQdsxSN/wOKjJf+OVjP1qTA30a7rdC5M
+         8r0dZfni6zfaOb+KbK1u5tkDcQxCNFJy/q10AqgOhaKMqH8ZUcPQZga1FAnOA1S19fBx
+         sFrhCZoMkMdi5Ojmrji3bCnPpwaDBLArGixsW7DOXgxYnSsflRgiuRicXvpEM+nSxtD/
+         fXVeY3gTzuDACrom/7buVY6el1aVnO0amKgoc7k0y2MZQYAYiOkBJf2I6MQvJP1qZshK
+         WlKPgF7tabVZVhumU4CB4tccQmbPyh1+8e2BqYsMR7F9106yYHlfPT/q2kJqTSGf2IZi
+         ReOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IgcW+mBezfmaVemco2WC7GasvmmjoylpddtvtSsj0OQ=;
+        fh=hW+FffRsyw4sQd/lHVy6tPUwZc1EsO0oQsnkyxE0VAE=;
+        b=GJ0oycyXGq8zt5T8Z8KIP+MwxtBe0tgRLU22xk7UA16sqiyCBDSHpMut7MmIdgLHQZ
+         SPKoyYTkgbtR7k1VTMLS7pf+jpXMclAGljI/aWwj7GfrPUW2uAN5lJok2TS507/XLCfk
+         XiR1CyteahqOb1MjD6dX4E5g1paX6WFmzhBc2gvH5yCb5/6sYQ7PT2slb7c0r86hh/sx
+         zEMJrpL6XbKn81eHiZsgMIqxyh93M5PS3TkizaBB/Iy1I2BakXQOxnRPXNNgQjW41M73
+         /tIwr9PsmLucn3GZdWa4ss87av8YPz8qpZJkVRlwoJ+hnRg8U4D17U4PM2OeXO6D9sUR
+         zyGw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791841446; x=1792446246; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IgcW+mBezfmaVemco2WC7GasvmmjoylpddtvtSsj0OQ=;
+        b=A56WKw+xK2LnMkcL7VfBfKHtnm39Y/UlvZuOCOaGU91nObMDEG1WemgpsSVf0Irzdz
+         QYMdFAHp58nOfpd7K13b63lapXER3rIdRxEeGJaHhnnmL5/sT8RdOOpU5astochVhkRC
+         7MGbsmj5XM0gQEe3vZoLxoaOMhvht8KdCQsIvgLSA6wqs1lCrPDOV1Z0XcfQSzUu/2dL
+         kTGQ/qDmJ4gjmE6HOx5L0m+8DVg7SF7ex00c3Yn8Gu2REnBTBTnz7eSWN4vlvDrB7cXQ
+         KCyGksE48Sa0cFYbTxCkXNtsrwFh2MknRoCSMvhe8Qn2meNGl8mWc8CzHYbazy52mhz+
+         m5WQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791841446; x=1792446246;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IgcW+mBezfmaVemco2WC7GasvmmjoylpddtvtSsj0OQ=;
+        b=2sRrj+SsZdmQcVR7re1FTwMn5qyzCvWiq2lpdt6H0Ja/xs89cQ2pB1tO+CoqmZpRiE
+         6eypHTuLzg9twWoVD+sr4npMbV4dImWzlnSPI05T2u4pOfsesGdNp1O0mXXZFvk5wkfy
+         SnjYvTEjlul35xXfVB35DxXTGSRDuk2EM/X586NbuXue7RUwB0AyFbuyCfgxj6gMrpjK
+         iFMYUauoQTMbVgxep4MbqED6V4UDMvHh8+VD9/+iTMDcNVCXpdOVpManlteTq8aPxLI7
+         gk7S2XScp2v4wRLLU0T46eCNm9QHOsFKUFr4TAn65G+sTVy36BiCUp1xMwD3aCXBHM46
+         +Cmg==
+X-Forwarded-Encrypted: i=1; AKwUvBxH1IdW9Pn/ehTT518we6vFTvDf5dmqSl268RcZ5Y56qDnI012RmLFnoa09CRkjddGYguUyILJT83nz5+tL9S5p@lists.infradead.org
+X-Gm-Message-State: AFq9FYLB859SyKe4rDQ2SOGyI+CgdZvdnbM00l3ovwA4v6Bx+STvqmIW
+	yWdjLSTZYrrUy+JJsk2DZBIDMeuwQicyGpxMcu0yld2y8HQMMYEuMKYfDeFRwelLJq3Aa5l1WK+
+	N2T04vvnF8p4F6MI8rzKSfn32CH1+xpI=
+X-Gm-Gg: AYBFou2dsjpiJR+4ZREtfPCYUtjC62eLAnKyaSAJt9retRlkaRP8tkaaAy91uByHXZz
+	J/OvxG59ODS+28Z3raYKwqCt5sIMBtO+Wr8NJND3sH+eq9JXO9vtRtKnTV3PWyLXYqDQJRAN/l1
+	oXbSwC3Kry0rzv6BCEDRlioNZLui4xWPBIhzC2+fy7TBv+ZTxOMMtAcuij8JIBQlxMvcqg+VueF
+	Sh+pQVVUEPjHSf5tE38AUrjvtpU+tGHf4mBo7OM3KXzpgz/gDQl/xBPncyluUFroegmoZZGGADg
+	Z22SpsaqHaZjJ9/OqhqZj3zniyAlbPBmV/xZO3Hp6FVWNLriPGyhFmD8d66vq5tCEW+3kf7s0yo
+	3YMYG1FkhrVgO09Hjwj0IdDrRSKYtVYgdSnKHviuUmaXJvlWBtYAf3LVGuGkJj+ja7SDjgIJgkj
+	kVjcsLWGZ03yd9ozCiuVsYTyJLIMDPMRxgPxK2E4a4VcgwD8dwJK3HTsM=
+X-Received: by 2002:a05:6102:5814:b0:79e:2b00:b4da with SMTP id
+ ada2fe7eead31-7cb3a0059admr2967326137.6.1791841445569; Mon, 12 Oct 2026
+ 14:44:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-libcrypto-4gib-lengths-v1-4-ea566c129a2e@genproof.com>
-References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
-In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, Eric Biggers <ebiggers@kernel.org>, 
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Vladimir Kukharenko <vladimir@genproof.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791840683; l=3486;
- i=vladimir@genproof.com; s=20261012; h=from:subject:message-id;
- bh=irCOLOTna2CXuGsURd0U3lbRTs2zb4VOPdikvUV7L0c=;
- b=jY+PQ0zlS+9OJjn9T3kdcCRBgGV28HNvJjB2ixzkfeUmh+Ma4InANaqzMq+kuvcWyMZO/wWEi
- cx/WIK1ifXcDSrHbzVx5E5Hbcu4s1B8Z2UT5NVvAj72UHqIMj8RKzrI
-X-Developer-Key: i=vladimir@genproof.com; a=ed25519;
- pk=EqOzBSKBgFn7ExzKj5f9T8u+1yTrGVlLBwf3fj/sdHM=
-X-Endpoint-Received: by B4 Relay for vladimir@genproof.com/20261012 with
- auth_id=1169
-X-Original-From: Vladimir Kukharenko <vladimir@genproof.com>
+References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
+ <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-1-2fb084fe0751@gmail.com>
+ <8733ua23xs.fsf@bootlin.com> <CADvTj4pmtGZ4c04q+5AE3trrfshToD7BPtF-8kPxPRZ25hOTRw@mail.gmail.com>
+ <877bjmzqkr.fsf@bootlin.com> <CADvTj4ppQannShF+dkLreST94g_vSAg4QdMqxhNORzkvci3O1A@mail.gmail.com>
+ <87pkxey725.fsf@bootlin.com>
+In-Reply-To: <87pkxey725.fsf@bootlin.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 12 Oct 2026 15:43:54 -0600
+X-Gm-Features: AclHuK9S8X-EJbG6Jz0l1nDWbI3paRApUkydjtgW5vHKMROEOTWMTqhZBvuvO68
+Message-ID: <CADvTj4p-o=EQMq-6E1q2=NOmQbscAVGMUbwX+Wh4R0v5kbXe_w@mail.gmail.com>
+Subject: Re: [PATCH v6 01/18] mtd: rawnand: sunxi: drain interrupts before
+ reusing the completion
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, Boris Brezillon <bbrezillon@kernel.org>, 
+	Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_144407_243051_24D991DB 
+X-CRM114-Status: GOOD (  31.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,102 +128,105 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vladimir@genproof.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vladimir Kukharenko <vladimir@genproof.com>
+On Mon, Oct 12, 2026 at 2:53=E2=80=AFPM Miquel Raynal <miquel.raynal@bootli=
+n.com> wrote:
+>
+>
+> >> >> commit log, I now disagree with the first part of:
+> >> >>
+> >> >> >The old handler can also complete the new wait or restore an obsol=
+ete interrupt mask.
+> >> >>
+> >> >> "complete the new wait"? I don't see how a stale handler completes =
+the
+> >> >> next wait given the handler is a hard IRQ and the interrupt enable
+> >> >> register is cleared on timeout.
+> >> >
+> >> > The case I had in mind is an already-running handler on another CPU:
+> >> >
+> >> > CPU 0: Read st and ien for operation A.
+> >> > CPU 1: Time out operation A, mask/acknowledge its interrupts,
+> >> >        then eventually reinitialize the completion for operation B.
+> >> > CPU 0: Call complete() based on the saved st and ien from operation =
+A.
+> >>
+> >> For this to fire, the hard IRQ handler on CPU0 would have to be stoppe=
+d
+> >> between reading st/ien and calling complete() long enough to span:
+> >> - A's timeout
+> >> - A's cleanup
+> >> - B's wait being rearmed
+> >> On this hardware, how is this reachable?
+> >
+> > CONFIG_PREEMPT_RT provides a concrete mechanism. The driver requests th=
+is
+> > IRQ with flags =3D 0, without IRQF_NO_THREAD, so the handler is
+> > forced-threaded. A higher-priority task can preempt that IRQ thread
+> > after it reads st/ien:
+>
+> That argument only appears in this reply. It is not in the commit log
+> nor in the diff, both of which reason about a hard IRQ, no? I'll happily
+> take the PREEMPT_RT case into account: in that configuration the case is
+> reachable, but it reads as a justification added after the fact.
 
-poly1305_update() adds desc->buflen and nbytes as unsigned int values
-to check for a full block.  With 1 to 15 bytes in the buffer and
-nbytes >= 2^32 - desc->buflen, the sum wraps.  The tail path then copies
-nbytes bytes into the 16-byte desc->buf.
+Yes, PREEMPT_RT was a later concrete explanation of how the race
+could occur. I should have made that distinction explicit.
 
-For example, these calls trigger the bug:
+The original rationale for disable_irq() was to establish a clear
+boundary between the old handler and timeout cleanup.
 
-    poly1305_update(&desc, p, 1);
-    poly1305_update(&desc, p + 1, 0xffffffff);
+Simply masking the controller interrupts does not stop an already
+running handler. A partial-event handler can subsequently restore
+an obsolete remaining-event mask. A handler whose saved status
+satisfies the wait can instead signal the completion after the
+waiter has moved on.
 
-Commit b646b782e522 ("lib/crypto: poly1305: Consolidate into single
-module") introduced this addition.  The previous BLOCK_HASH_UPDATE()
-code used size_t for the addition.
+disable_irq() prevents further IRQ dispatch and waits for existing
+handling to finish. Cleanup can then mask and acknowledge the controller
+events without the old handler modifying that state afterwards. The
+register readback flushes those writes before re-enabling the IRQ.
 
-The unsigned int nbytes parameter also truncates the size_t lengths
-from lib/crypto/chacha20poly1305.c.  For associated data or messages of
-4 GiB or more, poly1305_update() authenticates only the first
-(length mod 2^32) bytes.  Other hash-like library functions, including
-sha256_update() and blake2s_update(), take size_t lengths.
+This also keeps the additional synchronization on the timeout path,
+without introducing a driver lock into every successful interrupt and
+wait setup. The checks at the time established that the caller could
+sleep, the handler did not require the NAND controller mutex held by
+the caller, and the IRQ was not registered as shared.
 
-Change nbytes to size_t and compare it with the space left in the
-buffer.  poly1305_blocks() takes an unsigned int length, so pass it at
-most UINT_MAX bytes per call, rounded down to a whole number of blocks.
-On 64-bit MIPS and RISC-V, this relies on the preceding patches, which
-make their assembly handle lengths of 2 GiB or more.
+Sashiko's report[0] was the starting point and mentioned both
+synchronize_irq() and disable_irq(). The ordering above was the
+reasoning for the implementation, rather than the suggestion alone.
+It was not based on an RT priority-inheritance analysis or a measured
+performance comparison with a spinlock.
 
-No in-tree caller passes inputs this large, so this is an ABI robustness
-improvement.  I found the bugs while writing a Coq/VST proof of this
-code with LLM agents.  I reproduced the overflow in userspace with
-AddressSanitizer, and the truncation by comparing MACs with OpenSSL.
+[0] https://lore.kernel.org/all/20260909085434.C8F201F00A3A@smtp.kernel.org=
+/
 
-Assisted-by: LLM
-Signed-off-by: Vladimir Kukharenko <vladimir@genproof.com>
----
- include/crypto/poly1305.h |  2 +-
- lib/crypto/poly1305.c     | 14 +++++++-------
- 2 files changed, 8 insertions(+), 8 deletions(-)
+> Then, I'm curious to know how the AI justifies the use of disable_irq()
+> as the RT-appropriate choice: doesn't it block without a timeout on the
+> very IRQ thread the scenario relies on being starved (and gives no
+> priority inheritance)?
 
-diff --git a/include/crypto/poly1305.h b/include/crypto/poly1305.h
-index 190beb427c6d..bf53b1df9aa3 100644
---- a/include/crypto/poly1305.h
-+++ b/include/crypto/poly1305.h
-@@ -61,7 +61,7 @@ struct poly1305_desc_ctx {
- void poly1305_init(struct poly1305_desc_ctx *desc,
- 		   const u8 key[at_least POLY1305_KEY_SIZE]);
- void poly1305_update(struct poly1305_desc_ctx *desc,
--		     const u8 *src, unsigned int nbytes);
-+		     const u8 *src, size_t nbytes);
- void poly1305_final(struct poly1305_desc_ctx *desc, u8 *digest);
- 
- #endif
-diff --git a/lib/crypto/poly1305.c b/lib/crypto/poly1305.c
-index f313ccc4b4dd..f04c4cc2f55c 100644
---- a/lib/crypto/poly1305.c
-+++ b/lib/crypto/poly1305.c
-@@ -35,11 +35,9 @@ void poly1305_init(struct poly1305_desc_ctx *desc,
- EXPORT_SYMBOL(poly1305_init);
- 
- void poly1305_update(struct poly1305_desc_ctx *desc,
--		     const u8 *src, unsigned int nbytes)
-+		     const u8 *src, size_t nbytes)
- {
--	if (desc->buflen + nbytes >= POLY1305_BLOCK_SIZE) {
--		unsigned int bulk_len;
--
-+	if (nbytes >= POLY1305_BLOCK_SIZE - desc->buflen) {
- 		if (desc->buflen) {
- 			unsigned int l = POLY1305_BLOCK_SIZE - desc->buflen;
- 
-@@ -52,12 +50,14 @@ void poly1305_update(struct poly1305_desc_ctx *desc,
- 			desc->buflen = 0;
- 		}
- 
--		bulk_len = round_down(nbytes, POLY1305_BLOCK_SIZE);
--		nbytes %= POLY1305_BLOCK_SIZE;
-+		while (nbytes >= POLY1305_BLOCK_SIZE) {
-+			/* poly1305_blocks() takes an unsigned int length. */
-+			unsigned int bulk_len = round_down(min(nbytes, UINT_MAX),
-+							   POLY1305_BLOCK_SIZE);
- 
--		if (bulk_len) {
- 			poly1305_blocks(&desc->state, src, bulk_len, 1);
- 			src += bulk_len;
-+			nbytes -= bulk_len;
- 		}
- 	}
- 	if (nbytes) {
+Yes, it waits without a timeout and does not provide priority
+inheritance. I would not present it as the better choice for bounded
+RT recovery latency.
 
--- 
-2.43.0
+A spinlock_t-based implementation can provide priority inheritance on
+RT, provided the handler holds it from the status/enable reads through
+the register updates and complete(), with corresponding protection in
+the waiter. That improves recovery under priority inversion, but adds
+locking to normal interrupt handling and wait setup/cleanup.
 
+There is a real limitation: if the IRQ thread remains starved, recovery
+cannot finish, and other NAND operations can remain blocked behind the
+controller lock. So the operation timeout does not bound the entire
+cleanup. The argument for this implementation is the straightforward
+handler-lifetime boundary and absence of additional normal-path
+locking, not that error-path latency can never matter.
 
+>
+> Thanks,
+> Miqu=C3=A8l
 
