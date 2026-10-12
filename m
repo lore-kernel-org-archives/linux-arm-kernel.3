@@ -4,60 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4807DCA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A498CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=d9tpJLzz1kOLSftpAE/8ZpMKaHae1W61puA/y0/qc1M=; b=v4cmKmRxLV43fH
-	ARAoqGPBRVvmJY/omOi3U7/l398TxtqUv5KreUieSuBEYo4BvzHt5RebTccTGXK+1+HGaklZcfkQn
-	eUzVnOSP4uNLtq+DHK1j7OZ2PRY1GfGi+o0NolSlSYQHOCaKpry/woJfvCIb1VGoyCzBBXNmaGkKN
-	4krAiZjk9nntHJcXLfeSOpJXE8o6tXIjiOX527uaLdLrX21bL9qgRaWOWU5Y5dq9Ud09PRBONjfov
-	CTrdDNkk2MdxChrA/vAjQ9EW7ymMhUPTPj910UH1bscZs0Zls9imDQmly5Q4GuZ3yBUSokn6etF8A
-	dLUPmDiUJ24rwGiTwvdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uS0kC1tZmKLnFAc3gpM2J8lvwjycam1N7G0nExBvzCY=; b=nIJG8e7U1vjv+PHBXXxFo4engg
+	eaBODDfbllxO1iVFJOMUDfG2zMso4KBT7t/ym/3ov70JM+76RUSD3RdDmiyLeWMmL7k0lzHTDlG8X
+	rHuniD2WooA9zLpY2CYk78aGWCZz0w4EcokrUlHxOKiinpl1DmhseTpL0eOdMjuNnvHHhAAEwBLCe
+	98BzdxBk83NBcTG/H/dtRqT130C8YohnN8eawJzQ7zWh4P27ka4a7RxjXyrDXFP9COokOQQ5FfvrD
+	FsXeqetkmweqY4GS/ZsO9DsUOPdd037QiWWatrZGTvOpnpMn2ouomSk/62w33z8hpP/dlUk7y0CFT
+	Fmm9uNFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKZl-0000000BCYL-0Txe;
-	Mon, 12 Oct 2026 18:16:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGKj1-0000000BEBQ-2sQU;
+	Mon, 12 Oct 2026 18:26:15 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKZi-0000000BCXF-3XDb
+	id 1xGKiz-0000000BEAI-0nCI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:16:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95BC5438C9;
-	Mon, 12 Oct 2026 18:16:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E3C61F008A1;
-	Mon, 12 Oct 2026 18:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791828998;
-	bh=d9tpJLzz1kOLSftpAE/8ZpMKaHae1W61puA/y0/qc1M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=OTq8ue5Dmf4bVRJO2IfDWOlDk2E3BtsTvdyVuain2qcnz2ih+RtBYEkSZ4T97Rxzd
-	 MllC/HrDirI0Bm9VipYyY0H74zq0bo7vx1Ostm9v3/oqVcI8tZ9NXpAD+0bJ/2rAJ1
-	 ISIWOprqhQBjTV/XoCYu2RRQYhXO5YBbLYNUGnubIRyRBsml/klJahLWBm0f7WEcw8
-	 5f0ziJjyfcYJSfbyNQoqL8opcmH6D1BV921HyW+Uqs8A/OkF4hfbTe25CcEuLWzaGI
-	 NylsFdtXgAMSyeVA/Nhh2Ti1FvuOibJKooRFJR0aaiOnLq4Wc3dUCfDfVMFOR1vyn8
-	 SH/wL3I4YOkBQ==
-Date: Mon, 12 Oct 2026 13:16:37 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Semih Baskan <strst.gs@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, rjui@broadcom.com, sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com, rafal@milecki.pl,
-	zajec5@gmail.com, florian.fainelli@broadcom.com, arnd@arndb.de,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, rosenp@gmail.com, rani.hod@gmail.com
-Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
-Message-ID: <20261012181637.GA1313446@bhelgaas>
+	Mon, 12 Oct 2026 18:26:14 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-78fb1fb9508so3757637137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 11:26:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791829572; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sY3Zjk3zGNfuXg7EfiQrVkuoR3NkrEmUHKL9MqWWKboibPI6ATxeIBlyfmIOSAdRJ/
+         grRf6rnOusVOTdyiYPjHwyz8TYP68l8gF4iVHmep5s33njJOFAlM4quqm+tfl8KtaMq6
+         Ye+FH7c8D6UFVA7W8DdzYUVUUCNL353uPQHXbsOMJp8KFc3tk36bdMTq5+fJnl/MYVYJ
+         KeUdcFHt5mdaF2Btkvq6bmK2QkY+rtGWCOCUuTCvQftNEep96xW1f8PJOcsBc4bsnhu9
+         xLfr2qQxP2q9BcQVxcOoWXxjRDq+YaMGgAFc8B5ui/HLl+zWsTl1Nvt8BdvNS/wq9HU4
+         euZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=uS0kC1tZmKLnFAc3gpM2J8lvwjycam1N7G0nExBvzCY=;
+        fh=XNwJmNttPznPlkJdW5uOrQ8JMbgN3U0s4AJm8fGjn+k=;
+        b=V2CpgMEERj/UvRAbuCypLpwIdylETs0ZsmFiwnTLzSFx2hY+PCs632eZ/Sq/avCGWs
+         12mtoTQMj4AFL1EcGmVQhgUB2PYhxQDir2Ed9fyvl4ba5dKqqVUbJEpOp5f0GA145gPP
+         qBYZ4usKUQPYZlwqehgzsFY3IcLM2gLUSywBVEk0LL/JXoyXTJnbn7iaGkpu2k1k5mpf
+         dW0+dknUAg/YltEOw4cOOn1qk4Oqlp2fjAqy33Uls0h2g+Sf8C1796i9cSnQCR99+iyp
+         Z0uhoz/n7oszUyP9B2+6n6pvOEM8wqAENu0je1np1vDUB5h65trjmzRmdA+QWzxmQ/fF
+         2bdg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791829572; x=1792434372; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uS0kC1tZmKLnFAc3gpM2J8lvwjycam1N7G0nExBvzCY=;
+        b=VcI0MkVdN8a7DSww9jnTv9fx+ZNa56aI3011lIheW6togsat4whoXd9tCDPBbTJT0E
+         wDh2V1PX1kxkDifbY2LIp+bcobp6NpYpt9TBANvVYea087VWiheRMteams51HLhmGzi4
+         mS/TCHiGdP9VNrA0fJX9PyHJuCqei9W9y1Xj6juVlYgifZrQiDWs/nzav/p8gOp58/97
+         mcrTClgMT2N4iYufZMlBZRV8GLigQ43nelwq4p5bx8S2LtgL/o+2BR5td6oBsvetcw6l
+         Gy8urMZUcUyd9yONJrgyhM+LZy+bQtwXHAoAdN0gotUAKfIPevE1klgn8H7vXT62JywP
+         Dk+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791829572; x=1792434372;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uS0kC1tZmKLnFAc3gpM2J8lvwjycam1N7G0nExBvzCY=;
+        b=hd3/m5xx+gtCg3B5U9VDvsOw6FchTaF+9t2inX5HfhEpZIPwxdwDXP74Dxw1W8jyFg
+         ctV95gvoLxWNSO7iqiTTGs0LosUxUJ7i+lwCmaYWg3UtFjUIjoA0IJnY5Kw36enxIIsO
+         GURVDkpPVWl6CXcf/l/vCUCgD7/1JTdjDxOKAMXRaE4wCk2IXABr7139GzTD+MqRqO0M
+         Gqiu/tQ4m1mgA8gZ/kKE5DbXHKOeMhofBqbZJ66ficnbHZEwe96cKoaK2sfybqG0GVSi
+         KfXZnOOdn0XB1znvJJZ4KaIgUWQu8Szw4s3K/YBRYjoazxza0w0QUHZZPruNQtQ3jkij
+         s0NQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz3svmrd6PARGIk1ot1z8rwdahUMTCXXeQ3ZyWFykGq2rq0xBvBn5blalTlhR0V10MGNMYo0r7sNNOkAFeYA67G@lists.infradead.org
+X-Gm-Message-State: AFq9FYI+CIqzXuN2P+pgpJiBLBgSXZaqHtTYsUoRZb747iDmu6sj8NWa
+	/t+PH4AduH5bzc9Yb+vZ9n3Ji+0+CfWkr2/v8mcxD9aYoDV0rTeIGcaGCoLllKUPwVws3EX1NmK
+	/dVC32zzppRdryHZ8u3/fDS7u35Jp5W0=
+X-Gm-Gg: AYBFou301nRxXbc9IMJnvJmmUpvsgWnLAfF64xzLEEMvkTpxE3BXWcI3WOtUG8vaUp3
+	NjN4zL3mNfgwLzNpgDuXyoH5yIDc2A5W6H5HudTITMmrp0Iu50DjmJaT6DG8lyj1Dtu2SXhbWSG
+	isGlgMRqzsjpCMAXgNMvAjXNeREHirCEnAoa7Q5GI6XWs+SiMc57qrzGNk7Z2DG29yu7KhRsykf
+	FI3zugH53RpQXA7ed6X//DZ14B845vBoKDfFZjnnAIJ6QWy1yfgyT3lNHqSpW88ukKJkXVvtPAZ
+	/U9Jbl4cLT/4btNzCrsRXJt8EUaPRTL7ViSPgLsBbGXAMMy9oSYwuy6//o77bUEcmLfKwX+9h/K
+	G+udkwIwwbXtbXC0mKiu/5aSuuUMRSCMtI82z8YmXk5wlGvQjzAxbPfSzgd3dVbBAxqT3Pygro1
+	yQnJjrnFUpEEtSW603o/D3aTl1fI75JKKVVJiIT2XH8dgz
+X-Received: by 2002:a05:6102:370f:b0:798:24e8:23f4 with SMTP id
+ ada2fe7eead31-7cb42a03e2dmr2294757137.7.1791829571647; Mon, 12 Oct 2026
+ 11:26:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260912043626.437-1-strst.gs@gmail.com>
+References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
+ <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-1-2fb084fe0751@gmail.com> <8733ua23xs.fsf@bootlin.com>
+In-Reply-To: <8733ua23xs.fsf@bootlin.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 12 Oct 2026 12:26:00 -0600
+X-Gm-Features: AclHuK-YE9EZvdISkdO2ItcawmmP4G9wFY0yyJFRi71wZBtPLVkiWianJdKsR5A
+Message-ID: <CADvTj4pmtGZ4c04q+5AE3trrfshToD7BPtF-8kPxPRZ25hOTRw@mail.gmail.com>
+Subject: Re: [PATCH v6 01/18] mtd: rawnand: sunxi: drain interrupts before
+ reusing the completion
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, Boris Brezillon <bbrezillon@kernel.org>, 
+	Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_112613_255001_6E616AEE 
+X-CRM114-Status: GOOD (  42.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,136 +128,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[cc->to: Mani]
+On Mon, Oct 12, 2026 at 12:02=E2=80=AFPM Miquel Raynal
+<miquel.raynal@bootlin.com> wrote:
+>
+> Hi James,
+>
+> On 14/09/2026 at 15:09:47 -06, James Hilliard <james.hilliard1@gmail.com>=
+ wrote:
+>
+> > A timed-out wait can return while the interrupt handler is still using
+> > the previous operation's interrupt status and enable mask. Starting the
+> > next wait calls init_completion() on the same object, which can reset i=
+ts
+> > waitqueue lock while the old handler calls complete(). The old handler
+> > can also complete the new wait or restore an obsolete interrupt mask.
+> >
+> > Initialize the completion once in probe and use reinit_completion() for
+> > each interrupt-driven wait. On timeout, disable and synchronize the IRQ
+> > before masking controller interrupts and acknowledging the waited-for
+> > events. Draining the handler first also prevents a partial-event handle=
+r
+> > from rewriting the enable mask after it has been cleared. Flush these
+> > register writes before re-enabling the IRQ line, leaving the controller=
+'s
+> > interrupt sources masked.
+> >
+> > For successful waits, move complete() after the handler's register upda=
+tes
+> > so that the next operation cannot race with those updates. Keep polling
+> > unchanged and leave controller and DMA abort handling to the existing
+> > callers.
+> >
+> > Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller suppor=
+t")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> > ---
+>
+> So from the commit log I understand that you are fixing a race. The
+> problem seems legitimate.
+>
+> >  drivers/mtd/nand/raw/sunxi_nand.c | 26 ++++++++++++++++++++------
+> >  1 file changed, 20 insertions(+), 6 deletions(-)
+> >
+>
+> ...
+>
+> > @@ -414,12 +416,13 @@ static irqreturn_t sunxi_nfc_interrupt(int irq, v=
+oid *dev_id)
+> >       if (!(ien & st))
+> >               return IRQ_NONE;
+> >
+> > -     if ((ien & st) =3D=3D ien)
+> > -             complete(&nfc->complete);
+> > -
+> > +     /* Finish updating the interrupt state before waking the next ope=
+ration. */
+> >       writel(st & NFC_INT_MASK, nfc->regs + NFC_REG_ST);
+> >       writel(~st & ien & NFC_INT_MASK, nfc->regs + NFC_REG_INT);
+> >
+> > +     if ((ien & st) =3D=3D ien)
+> > +             complete(&nfc->complete);
+> > +
+> >       return IRQ_HANDLED;
+> >  }
+> >
+> > @@ -435,16 +438,19 @@ static int sunxi_nfc_wait_events(struct sunxi_nfc=
+ *nfc, u32 events,
+> >               timeout_ms =3D NFC_DEFAULT_TIMEOUT_MS;
+> >
+> >       if (!use_polling) {
+> > -             init_completion(&nfc->complete);
+> > +             reinit_completion(&nfc->complete);
+>
+> The whole change around (re)init_completion looks relevant (here and in t=
+he handler).
+>
+> >
+> >               writel(events, nfc->regs + NFC_REG_INT);
+> >               ret =3D wait_for_completion_timeout(&nfc->complete,
+> >                                               msecs_to_jiffies(timeout_=
+ms));
+> > -             if (!ret)
+> > +             if (!ret) {
+> > +                     /* Drain the handler before it can restore an old=
+ IRQ mask. */
+> > +                     disable_irq(nfc->irq);
+>
+> disable_irq() for serializing accesses to a single register?
 
-On Sat, Sep 12, 2026 at 07:36:26AM +0300, Semih Baskan wrote:
-> The BCMA driver takes its register base and, since commit 552aa843e4c5
-> ("PCI: iproc: Use the EROM outbound window on BCMA"), its outbound
-> window from what bcma read out of the enumeration ROM. It still
-> allocates its host bridge with devm_pci_alloc_host_bridge(), which since
-> commit 669cbc708122 ("PCI: Move DT resource setup into
-> devm_pci_alloc_host_bridge()") parses ranges, dma-ranges and bus-range
-> from the device's OF node and requests the windows it finds. None of
-> that reaches the hardware here: need_ob_cfg is only ever set by the
-> platform driver, so iproc_pcie_setup() never maps the parsed windows,
-> and the EROM commit above had to throw them away again to keep them
-> from colliding with its own window.
-> 
-> Allocate the bridge with pci_alloc_host_bridge() instead, so nothing
-> from the devicetree is requested or handed to the PCI core, and free it
-> on the error paths and in remove(). The driver now sets
-> bridge->dev.parent itself, as devm_pci_alloc_host_bridge() did, since
-> the wifi nodes under pcie_bridge0 in bcm4709-netgear-r8000.dts are
-> resolved through the root bus. The window request
-> moves from devm to request_resource() and release_resource() because
-> the resource lives inside the bridge allocation and has to be released
-> before the bridge is freed.
-> 
-> The ranges property is still read, but only to compare. bcm-ns.dtsi
-> describes the same window for the platform driver, and on core revision
-> 0x01 it points at an address the hardware does not decode. The warning
-> from the EROM commit stays for that reason: a wrong dts is visible on
-> BCMA boots, where nothing else would show it. Without bus-range the
-> root bus also logs "No busn resource found for root bus, will use
-> [bus 00-ff]" again, which changes nothing else.
-> 
-> With PCIE_IPROC_PLATFORM and PCIE_IPROC_BCMA both enabled, the platform
-> driver binds the same nodes first and claims the devicetree window. On
-> core revision 0x07 that is the EROM window, so this driver's request
-> still fails and the probe backs out as before. On revision 0x01 the
-> devicetree window is elsewhere, so this driver now probes as well, next
-> to a platform driver instance whose window the hardware does not decode.
-> That instance does not work either; the only difference is that the
-> second probe is no longer stopped by the collision.
-> 
-> Tested on an ASUS RT-N18U (BCM47081, core revision 0x01): the warning
-> lines are identical to the applied version, /proc/iomem and the
-> enumerated devices are unchanged.
+The intention was to drain an in-flight handler before cleaning up the
+timed-out wait, rather than just serialize the register write.
+disable_irq() provides that synchronization as well as masking the line.
+It is only used on timeout, and this IRQ is requested without IRQF_SHARED.
 
-What do you think about this, Mani?
+A spinlock could also address this, provided it covers the handler's
+status/enable reads through complete(), together with the waiter's
+cleanup and rearming. Protecting only the register writes would leave
+the handler able to act on an old snapshot.
 
-I still don't quite understand the issue with the DT and discovering
-this via both platform and bcma bus drivers, but we should make
-progress.
+> It
+> certainly works but I don't think it is so common to use it like that,
+> for such simple cases. Typically in this case I would have used a
+> spinlock maybe? Or even better, why not just avoid the race entirely
+> and handle the register in the waiter?
 
-I *think* that if we squash this patch into 552aa843e4c5 ("PCI: iproc:
-Use the EROM outbound window on BCMA") and use
-devm_add_action_or_reset(), it will simplify down to this, which is
-less intrusive and would need less explanation:
+One detail to account for is that the MBUS DMA path waits for both
+NFC_CMD_INT_FLAG and NFC_DMA_INT_FLAG. The handler currently acknowledges
+and masks each event as it arrives, leaving the remaining event enabled
+until both have completed.
 
+Moving the register handling to the waiter would therefore need to
+preserve partial-event tracking and avoid leaving an asserted interrupt
+source enabled while waiting for the task to run.
 
-diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
-index 593418c2bc3a..73f2b6c424cc 100644
---- a/drivers/pci/controller/pcie-iproc-bcma.c
-+++ b/drivers/pci/controller/pcie-iproc-bcma.c
-@@ -11,6 +11,7 @@
- #include <linux/phy/phy.h>
- #include <linux/bcma/bcma.h>
- #include <linux/ioport.h>
-+#include <linux/of_address.h>
- 
- #include "pcie-iproc.h"
- 
-@@ -31,6 +32,34 @@ static int iproc_bcma_pcie_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)
- 	return bcma_core_irq(bdev, 5);
- }
- 
-+static void iproc_bcma_pcie_check_dt_window(struct iproc_pcie *pcie)
-+{
-+	struct device_node *np = pcie->dev->of_node;
-+	struct of_pci_range_parser parser;
-+	struct of_pci_range range;
-+	struct resource res;
-+
-+	if (!np || of_pci_range_parser_init(&parser, np))
-+		return;
-+
-+	for_each_of_pci_range(&parser, &range) {
-+		if ((range.flags & IORESOURCE_TYPE_BITS) != IORESOURCE_MEM)
-+			continue;
-+
-+		if (of_pci_range_to_resource(&range, np, &res))
-+			continue;
-+
-+		if (res.start != pcie->mem.start || res.end != pcie->mem.end)
-+			dev_warn(pcie->dev, "DT window %pR does not match EROM window %pR, using EROM\n",
-+				 &res, &pcie->mem);
-+	}
-+}
-+
-+static void devm_pci_alloc_host_bridge_release(void *data)
-+{
-+	pci_free_host_bridge(data);
-+}
-+
- static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- {
- 	struct device *dev = &bdev->dev;
-@@ -38,10 +67,17 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	struct pci_host_bridge *bridge;
- 	int ret;
- 
--	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-+	bridge = pci_alloc_host_bridge(sizeof(*pcie));
- 	if (!bridge)
- 		return -ENOMEM;
- 
-+	bridge->dev.parent = dev;
-+
-+	ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
-+				       bridge);
-+	if (ret)
-+		return -ENOMEM;
-+
- 	pcie = pci_host_bridge_priv(bridge);
- 
- 	pcie->dev = dev;
-@@ -59,6 +95,7 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
- 	pcie->mem.name = "PCIe MEM space";
- 	pcie->mem.flags = IORESOURCE_MEM;
-+	iproc_bcma_pcie_check_dt_window(pcie);
- 	pci_add_resource(&bridge->windows, &pcie->mem);
- 	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
- 	if (ret)
+> You certainly don't need to write
+> it in the IRQ handler. You can handle the IRQ configuration at the
+> device level, which will also prevent the need for your extra
+> readl "barrier" before enabling the IRQ.
+>
+> Furthermore, now that I have a better understanding, re-reading the
+> commit log, I now disagree with the first part of:
+>
+> >The old handler can also complete the new wait or restore an obsolete in=
+terrupt mask.
+>
+> "complete the new wait"? I don't see how a stale handler completes the
+> next wait given the handler is a hard IRQ and the interrupt enable
+> register is cleared on timeout.
+
+The case I had in mind is an already-running handler on another CPU:
+
+CPU 0: Read st and ien for operation A.
+CPU 1: Time out operation A, mask/acknowledge its interrupts,
+       then eventually reinitialize the completion for operation B.
+CPU 0: Call complete() based on the saved st and ien from operation A.
+
+Clearing the device's enable register does not invalidate those local
+values or wait for the running handler to finish. Hard-IRQ context
+prevents this overlap on the same CPU, but not across CPUs.
+
+That distinction was not explicit enough in the commit message. I'm
+open to a different implementation; the requirement I wanted to preserve
+is that the old handler cannot update the mask or signal the completion
+after the waiter has cleaned up and reused it.
+
+>
+> Thanks,
+> Miqu=C3=A8l
 
