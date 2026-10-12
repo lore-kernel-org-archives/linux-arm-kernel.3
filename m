@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B4ECA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A28CC6B01
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POkVfR/b/1RzCnGqW0t5gkMNapGqIQN4P0nRMmAK4No=; b=EhN1k3yup/V2lD+WcPJTU3ACCZ
-	gK3FaE/gWABXLsoCxJvOMBO87BtZXh5gCme3xy4Yn6opOdTXkT0DlQjXjJ+bzvHsfurpiwe0/udq9
-	BcznRGRHL/W0Bs2CAAJ5v/cm5bWC+ZW8h1nUrfFPJzq/ro4osHclmG1/wP2ZRVKJUkFKvcBFs5uZs
-	Xmyrly94M5fi3T1/ltzyrks5aOtN+P/9a1+kbA4aQfvCLCcXLCs6WjbntTQbLmYn9zjc3jzr7o2Su
-	H8TxBqQgl8WMcSLsaCmMC9H5L/Fvbuh1y6kOLwu9TGQ69xp4U9M+4YKQDtJ1eDN+suq9XHG075h3m
-	MfXTKIGQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=62DZO/wZRYsFG63f7Eo1sIVQ7FNIR3x3vcz2pVGRVCI=; b=aZUQ/jTf+570hIYwXOsNnxqBdc
+	amlD27pa2szs2ryY29rPPD4OxFvTLhF23lJVBjTq9YpKZZbWGm0S8qc+3F1VUov+8lTOh1mQb03bt
+	za9nYF2YqVtelLbCych8vPl6/XEbNX1yewmfpkEWNyyiv1PDIMWX2BmGxx2LBZn21Tg362UxiYeFT
+	4JpWRyspfa1IvPnsrNOlbnDn6aYlD9xrirMZTHyJRIe9OOwuBTuSi78OdHGh+NLOF4DQo1NgYm8nv
+	o+yHJOMAgyK6UwDZe4fDhdj7FZwDRL8CLCpNtrCYPKX55+ym8RP/eugeR8vTNad/ZqKjZBB/l27lO
+	+903J3Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtt-0000000B6mx-41O1;
-	Mon, 12 Oct 2026 17:33:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGJtu-0000000B6o7-1Rde;
+	Mon, 12 Oct 2026 17:33:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtT-0000000B6WK-063x
+	id 1xGJtT-0000000B6WA-0f11
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Oct 2026 17:32:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECC624379E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5367560142;
 	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C4F8FC2BD01;
-	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB7DCC2BCC7;
+	Mon, 12 Oct 2026 17:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791826378;
-	bh=fH9Kfvz9BxN/X6lf8vavcMwm5AFooycimNuX17Ck7qg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=DrdPlbVpK9xyvtpJqjZRGZmTtPV9RAy7bnHE6Z+LkPPcfflC4CmOHfnOpMXKeJOfM
-	 jOrjq5A2NdHa+lTNtv/MZK4mjaUWk0cnEkCjlak2TSJd0gpUonJIKq0b0tlm6j0wMO
-	 qpo4RkeS8tT8RjgKHvBfXr0PInwo1H/JQi3Zn/eFQgVCPAoR5czCyHf7BRq8PMrUsc
-	 lZ0RWnpAi0iWgcEeAU/8JUSYo9zYDoPATYtpBdOmmLt+fhels0bCxqgQgmyZiMlwmz
-	 gc6dnMwd1e6W3tc8wW4abdt5gaiJA1fxioX+dGxuH8WGPwzOsazERZsM6AZ5zw31GO
-	 UQKKULMue/2OQ==
+	bh=bblr4iJ7bFYxTuBV4u7to5ZuAY4HVOaNlZrTUeaXdpY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=SgiPSqWI1iPW3pkiDjPqDpC3A7tlJrOG0rW58LUoHVQUkXlpP9cBm7fupw1y5J72l
+	 6t0wMPNylVMio1F4d+EzTfRQLKVLcUNPH33PgB5j1cG8omJ6EqRYg7fzdE983mtftA
+	 wFcgtlFR3sSjDV7T8JWMuq898zMyRzuu35f3MID3PU7uoZi1dTfGR0XBDiZNwz+OTU
+	 m/Pkwp+vxHYnIQEx7qOZMLfwwyL779V7xdelkFH39YmyWwQD6XTdBqnWKLH9zY+cz6
+	 AtTTj0iO+PjNlTB7+RkpU22kmyZ5HxgMhJKsSjGpmENNB60KOGMb8v3WgsJ9i68hTd
+	 W9FFYA0p2VsOg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ACCE4CA9EDE;
-	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D1078CA9EC5;
+	Mon, 12 Oct 2026 17:32:57 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 12 Oct 2026 20:33:05 +0300
-Subject: [PATCH 10/11] ARM: multi_v7_defconfig: Enable Cortina Systems
- CS75xx GPIO, I2C and TWD watchdog
+Subject: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller, GPIO,
+ I2C and TWD watchdog
+Date: Mon, 12 Oct 2026 20:32:55 +0300
+Message-Id: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-cs75xx-s2-v1-10-8a7641b7b79c@gmail.com>
-References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
-In-Reply-To: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw7CIBBFf6VhLWagULAxxv8wLhg6KMb66FTTx
+ Pjv4mPp8iT3nvMQTEMmFm31EAPdM+fzqYCaVSLuw2lHMneFhQbdKFBaopGRnZ0myVraZI03C52
+ sIlEul4FSnj66zfbLfMMDxfHt+C0Gut5KZ/zORE/M4dNpq+WfzN1IkF3SFroF1I3X610f8nEez
+ /3qbcTAJAv0eWyrxjiTAjhIGj2oGg16V1tA5yz6WCM15EOIYvt8vgAMdjPc/AAAAA==
+X-Change-ID: 20261012-b4-cs75xx-s2-5f548492f51e
 To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
@@ -67,11 +70,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, 
  Fil Dunsky <filipp.dunsky@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791826375; l=1224;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791826375; l=9559;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=MUeH/IRw5kyuG0JD1ac38OtCmIzMZqOUsJQbjBgyrHs=;
- b=SNf8wEToz4B2uynbNl9qa7UzIlGMp+SMQVfnf+94Fi+2mxpSi4lBHy0gcQ5GKXY7oCcGjAMFA
- N8mizfMeqI0CSOBviXEUbceoF5rj6Q1ZrwGpRiqkbxAJHp64U7Sm/qy
+ bh=bblr4iJ7bFYxTuBV4u7to5ZuAY4HVOaNlZrTUeaXdpY=;
+ b=7QoafjQdXqzp2JAbEA04w6GuyuVqp/xTLTZbQgaMomy2D+QTOlp6mf7CYyim3woyAtY5Sw2tO
+ VEGHT4qYpfsDUtfkVgZTDN89GxwCrQbYkJo0/VpEh8p3uCrmU+SUmR3
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -92,48 +95,188 @@ Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+This is the second step of the Cortina Systems CS75xx ("Goldengate G2")
+/ Securifi Almond+ support. It applies on top of the platform series
+"ARM: Add support for Cortina Systems CS75xx and Securifi Almond+"
+v4 [1] and adds:
 
-Enable the GPIO and I2C drivers of the Cortina Systems CS75xx SoCs and
-the ARM TWD watchdog driver, which is needed on the Securifi Almond+
-because its bootloader starts the watchdog.
+  - a driver for the per-CPU private watchdog of the ARM11 MPCore,
+    Cortex-A5 and Cortex-A9 ("arm,cortex-a9-twd-wdt"),
+  - the peripheral interrupt controller that combines the interrupts of
+    the low speed peripherals into one GIC interrupt,
+  - the GPIO banks,
+  - the I2C controller,
+  - the device tree nodes, including the reset button of the Almond+,
+    and the multi_v7_defconfig and MAINTAINERS updates.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+As in the first series there is no public documentation; register
+layouts come from the GPL vendor kernels (2.6.36 for the Almond+, 4.9
+for the Verizon FiOS G1100 with the same SoC) and were checked on the
+board with the out-of-tree OpenWrt port these drivers are based on.
+
+The patches go to different trees and only depend on each other through
+the device tree: the irqchip (1-2), GPIO (3-4), I2C (5-6) and watchdog
+(7) patches can be picked up independently, the dts, defconfig and
+MAINTAINERS patches (8-11) need the platform series.
+
+TWD watchdog:
+
+The binding "arm,cortex-a9-twd-wdt" (watchdog/arm,twd-wdt.yaml) exists
+and several dtsi files use it, but there has been no driver since
+mpcore_wdt was deleted in v3.11 ("watchdog: delete mpcore_wdt driver").
+The reasons given then were that the watchdog is banked per CPU while
+the driver only programmed the CPU that happened to run the ioctl, that
+it used request_irq() for a per-CPU interrupt, and that it had no users.
+
+This driver does not use the interrupt at all (the watchdog runs in
+reset mode) and programs, pings and stops the watchdogs of all online
+CPUs with on_each_cpu() under cpus_read_lock(). A CPU hotplug state
+arms the watchdog of a CPU coming online while the device is active and
+stops it on a CPU going offline, since an offline CPU cannot ping it.
+A watchdog found running at probe time on any CPU is reported as
+WDOG_HW_RUNNING and reprogrammed with the driver's timeout without
+being stopped; the reset flag sets WDIOF_CARDRESET.
+
+On the Almond+ the stock U-Boot arms the watchdog and the board resets
+after ~300 s unless it is serviced. With this driver the watchdog core
+pings it until userspace takes over.
+
+The driver also registers a restart handler: the CPU that restarts the
+system lets its own watchdog expire right away. The platform series has
+no other way to restart the CS75xx, so without it "reboot" hangs.
+
+Interrupt controller:
+
+A status register shows the level of 15 sources and an enable register
+masks them; the sources are acknowledged in the peripherals. The driver
+uses a generic chip on a linear domain and a chained handler. There is
+a second status/enable pair right behind it whose purpose I do not know;
+it is not described.
+
+GPIO and pin muxing:
+
+Each pin is either a GPIO line or belongs to a peripheral (NAND,
+Ethernet, UART, I2C, PCIe reset, ...). The choice is made per pin in one
+GPIO_MUX register per bank, and these registers live in the global
+control block at 0xf0000000, which also holds the boot straps, the
+clock and PLL settings, peripheral resets and the other pin mux
+registers.
+
+In this version the GPIO node gets its bank's GPIO_MUX register as a
+second reg entry. A line is switched to GPIO when it is requested as a
+GPIO or as an interrupt and switched back to the setting found at probe
+time when it is released. This keeps the driver self-contained, but it
+means that requesting a line that is in use by a peripheral silently
+takes the pin away from it; on this board exporting all lines through
+sysfs hangs it (NAND and Ethernet pins lose their function). Boards can
+list such lines in gpio-reserved-ranges.
+
+I think the proper model is a pin controller for the global control
+block: the block becomes a syscon (it is also needed by the clock driver
+that will replace the fixed-clock), a pinctrl driver on top of it
+describes the pins, the GPIO function and the peripheral groups, the
+GPIO nodes get gpio-ranges and the GPIO driver uses
+gpiochip_generic_request()/gpiochip_generic_free(). Pinmux ownership
+then refuses GPIO requests for pins claimed by a peripheral's pinctrl
+state. The remaining pin mux registers of the block are only partially
+understood, which is why I did not start with that. Would you accept
+the GPIO driver in this form first, with the pinctrl conversion (and a
+binding change to gpio-ranges) later, or should the pin controller come
+first?
+
+I2C:
+
+The controller transfers one byte per command with an OpenCores-like
+command register. The driver supports plain I2C and emulated SMBus
+without quick commands (every message carries at least one data byte)
+and without 10-bit addresses.
+
+Testing:
+
+Tested on a Securifi Almond+ with next-20260929 plus series 1 v4 and
+this series, both CPUs online. The watchdog found the TWD armed by the boot
+loader on both CPUs and took it over ("running on CPU0-1, taking
+over"); pinged for 60 s from userspace and then left alone, it reset
+the board when timeleft reached zero. The I2C and GPIO interrupts are
+delivered through the new peripheral interrupt controller; the reset
+button (GPIO 37) is claimed by gpio-keys as an active-low input and
+reports KEY_RESTART; an I2C read of the touch controller at 0x48 is
+ACKed and an empty address returns -ENXIO without timeouts. reboot(2)
+issued from CPU1 restarted the board through the restart handler.
+The same drivers also run in an OpenWrt image on Linux 6.18 booted from
+NAND through the stock U-Boot, where the SX8650 touchscreen uses a
+level-triggered GPIO interrupt.
+
+Build tested with multi_v7_defconfig (GCC 14 and Clang 21, W=1),
+dt_binding_check and dtbs_check. Not tested: CPU hotplug of the
+watchdog (the platform has no cpu_die yet), repeated START between
+messages on I2C (only single-message transfers were run), GPIO
+interrupts with real edges.
+
+Open questions:
+
+1. GPIO muxing, see above.
+2. The TWD watchdog binding marks clocks as optional, the driver
+   requires them (the rate is needed to compute the timeout). Should
+   the binding be tightened, or should the driver fall back to
+   something when there is no clock?
+3. Is a separate MAINTAINERS entry for the TWD watchdog driver the
+   right thing, or should it be listed under the watchdog subsystem?
+
+[1] https://lore.kernel.org/all/20261012-b4-cs75xx-v4-0-df250d903682@gmail.com/
+
 ---
- arch/arm/configs/multi_v7_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+Fil Dunsky (11):
+      dt-bindings: interrupt-controller: Add Cortina Systems CS7542 peripheral interrupt controller
+      irqchip: Add Cortina Systems CS75xx peripheral interrupt controller
+      dt-bindings: gpio: Add Cortina Systems CS7542 GPIO controller
+      gpio: Add Cortina Systems CS75xx GPIO driver
+      dt-bindings: i2c: Add Cortina Systems CS7542 I2C controller
+      i2c: Add Cortina Systems CS75xx I2C controller driver
+      watchdog: Add ARM TWD (MPCore private) watchdog driver
+      ARM: dts: cortina: cs7542: Add interrupt controller, GPIO and I2C
+      ARM: dts: cortina: almondplus: Add reset button and enable I2C
+      ARM: multi_v7_defconfig: Enable Cortina Systems CS75xx GPIO, I2C and TWD watchdog
+      MAINTAINERS: Add Cortina Systems CS75xx interrupt controller, GPIO and I2C
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 23f144359..9a161f8bd 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -423,6 +423,7 @@ CONFIG_I2C_ASPEED=m
- CONFIG_I2C_AT91=m
- CONFIG_I2C_BCM2835=y
- CONFIG_I2C_CADENCE=y
-+CONFIG_I2C_CS75XX=y
- CONFIG_I2C_DAVINCI=y
- CONFIG_I2C_DESIGNWARE_CORE=y
- CONFIG_I2C_DIGICOLOR=m
-@@ -492,6 +493,7 @@ CONFIG_PINCTRL_QCOM_SSBI_PMIC=y
- CONFIG_PINCTRL_RZA2=y
- CONFIG_PINCTRL_RZN1=y
- CONFIG_GPIO_ASPEED_SGPIO=y
-+CONFIG_GPIO_CS75XX=y
- CONFIG_GPIO_DAVINCI=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_EM=y
-@@ -568,6 +570,7 @@ CONFIG_UNIPHIER_THERMAL=y
- CONFIG_DA9063_WATCHDOG=m
- CONFIG_XILINX_WATCHDOG=y
- CONFIG_ARM_SP805_WATCHDOG=y
-+CONFIG_ARM_TWD_WATCHDOG=y
- CONFIG_AT91SAM9X_WATCHDOG=y
- CONFIG_SAMA5D4_WATCHDOG=y
- CONFIG_S3C2410_WATCHDOG=m
+ .../bindings/gpio/cortina,cs7542-gpio.yaml         |  68 ++++
+ .../bindings/i2c/cortina,cs7542-i2c.yaml           |  56 +++
+ .../interrupt-controller/cortina,cs7542-intc.yaml  |  57 +++
+ MAINTAINERS                                        |  12 +
+ .../dts/cortina/cs7542-securifi-almondplus.dts     |  19 +
+ arch/arm/boot/dts/cortina/cs7542.dtsi              |  75 ++++
+ arch/arm/configs/multi_v7_defconfig                |   3 +
+ drivers/gpio/Kconfig                               |  12 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-cs75xx.c                         | 332 ++++++++++++++++++
+ drivers/i2c/busses/Kconfig                         |  11 +
+ drivers/i2c/busses/Makefile                        |   1 +
+ drivers/i2c/busses/i2c-cs75xx.c                    | 354 +++++++++++++++++++
+ drivers/irqchip/Kconfig                            |  12 +
+ drivers/irqchip/Makefile                           |   1 +
+ drivers/irqchip/irq-cs75xx.c                       | 103 ++++++
+ drivers/watchdog/Kconfig                           |  15 +
+ drivers/watchdog/Makefile                          |   1 +
+ drivers/watchdog/arm_twd_wdt.c                     | 387 +++++++++++++++++++++
+ 19 files changed, 1520 insertions(+)
+---
+base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
+change-id: 20261012-b4-cs75xx-s2-5f548492f51e
+prerequisite-message-id: <20261012-b4-cs75xx-v4-0-df250d903682@gmail.com>
+prerequisite-patch-id: 104c6fb668f30ac8c2c5b3b6c524c18caa8808c4
+prerequisite-patch-id: e7d503348cbec7558cd084162133f8e34df1c1bc
+prerequisite-patch-id: 1d5770db02b983d012f6c58806fbf3f5291a06c9
+prerequisite-patch-id: c2815f506d2df1c84cd50111220b938a41d29050
+prerequisite-patch-id: 6c0137d52f201d8ec085ee6cc7b2d49af15583d8
+prerequisite-patch-id: 24e110f3c8c008deffdda079bdc27db729b5014d
+prerequisite-patch-id: cb09693a5d51be6b24bdf66e112b9dd40fc25dbe
+prerequisite-patch-id: 15c11a668a1a281649fa0713371e7f07ee44917e
+prerequisite-patch-id: 9b4a468b7b74861017ef533ba0a5574bc14b212e
+prerequisite-patch-id: 1f232c94dd3fc0d862203b7c0c1449e6ba9a6859
 
--- 
-2.53.0
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
 
 
 
