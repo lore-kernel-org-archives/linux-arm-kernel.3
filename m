@@ -4,101 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D90CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A2FCA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=; b=QzFl87gqICHgcsPbCuocvp/TtO
-	2JFGFHxTa78bOGH4YBcYzyKaUjKnKThUaGz6qhxSVuXgq7HXuAaYeqOI3tlFJIc79G7bhRTqbWapb
-	z7BgbIyOvfjlwyDYVsZZ4yvIwbjNecOATxze/SNUoPGIF2B5V2YGsdlnvMHiluMZVadTRGRFXxwwf
-	u4PGMa3cc0euwArrXJgNGjoOUoV5JdK6I5qAkgDdeAdDJNTKYz9PDqK9pwBc+z85YyfT+y78/azeZ
-	+uawer9njr7u71D2v/CGm0a1kesxgkGO1A71fYfXRUHx6E9dRK86mmowgKPRpEDwfcBQ0e/wBG3DZ
-	7GWr32sg==;
+	bh=7jqF+qYHICj5HER0svNlKUByr8EgTf60Xnpf6q1p3Hc=; b=fx/oJDw/aUIFEBdvzSqWiVj2Kf
+	02g1FX0tfAURAs62IlYIcp29LfwngtxT77S2SyoapD+AMCIny97OfS/WvGoXkOfgtGVQSCJ4ictCC
+	zWiyrW7TW+PmipDarjW7/P6IuIAiOQqcTw3AWiwLVYDWOAbFs69eM+JSbDIzhHFIvqXVcGG3eQuAT
+	aASEDTTux1bGIYyx/g0Fi5KqwkJtdgawiuJqoYuJ+11PtCzEn6TVO9K6fJ1ilaOXajNM1+esIowhY
+	LJEpPq5JPJr42zAz/k/PM3CRk2BENXJG/EhjD6hkKEuv3Ew50eW8WR7VYZzc69w6+bm60UYJ7uC0/
+	QPRYxxGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHjB-0000000AmTM-4BSY;
-	Mon, 12 Oct 2026 15:14:14 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1xGHu4-0000000AnIr-1H5i;
+	Mon, 12 Oct 2026 15:25:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHj9-0000000AmSU-1AkO
+	id 1xGHtz-0000000AnGL-3LQm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 15:14:13 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48b9d8055dfso1540696f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 08:14:10 -0700 (PDT)
+	Mon, 12 Oct 2026 15:25:25 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CC0QlR2088624
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	7jqF+qYHICj5HER0svNlKUByr8EgTf60Xnpf6q1p3Hc=; b=dxwrcQebicojW1Xq
+	PvOE0VKUDwurCLfgVIQiiiAvDaOwAT6uZLscLJp12Q13kt5w00QoXCQo8sAF9vye
+	vq5K1qF/8UY/sU50zGgiEg2soAPpj5g4vo01zdoS5dsdm2GohCjjCTyzu8MirCbi
+	Ee3QFV/FCMX9abRkzAUqwK73+zUQfz10TK5vmPuzyRV1DnhET8oVkffRiNtlI7PC
+	d2oFa9LMbLl0HYYhIjWIOuVEG1z3U/WOQzMgHC+IDbupdHEDHJ9FkAZs/uwaiKkv
+	jxefz+3X14wlRHFW7mv1EXLYhTzRVXX3I+24G3pkt32OfSeGE3qAhcRmI52yuGry
+	2kr9zg==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8sgu2kwx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 15:25:22 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5339732335dso35425321cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 08:25:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791818049; x=1792422849; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=;
-        b=Y6edLW1VKbrPuw1iRz+buBfkMqymlcPQ4as3k1w1V1jfusJmB1Upsao+uUcWUoaHiB
-         nf7t1BbR09xLWRvK+WSmiLA88SDJy9zUzs2hgrh6M441QrQJ+qGdJVqa1zHwEpMyLH5l
-         WR2OsvHChUZE/v2lWPO2M9QFUfDN+c1Fu5Uqtj0nIT2wqMs3ucXC2sYDEazS4SBwlD9E
-         8GT2T9YWj22T9jstFmm1bg3L5PpL0LlB4p2syOvMv1+lDeeDliNsV4GsbxYrrc7O1wyV
-         +VuXR1FBWxuEyiqOGeU/SMu2YosqCwECv3xJr7dBQLEBbA3gdtELu7nSvn92uu6nzeBj
-         iMGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791818049; x=1792422849;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1791818722; x=1792423522; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=O90jitIO3s38c8EG4VvKygaj1zarOwk0tQIHj8nVOYg=;
-        b=euKpabQE8xi6RQ0OplQ1nrfeB88WAHOw2c7GXKu6D+mGRm6L97LmG4+S2LlLkdrMC4
-         IufVkVTGMhqCVZcIwpU0xGFQyQSAfpUeuqUs+xLMf8NLskEAI4dHKvEY6T7J/rE2+f4k
-         KSqVJQkGkKlArN8HmiPX4AizAmlb1PlcyMdFGGh/HGTsqf5Uut6IbDpofwoA35ZtojKX
-         +yW4bFaG/vi1GFJg6yORFrbFZav6hTTBP5C97M/RPRQlWkgIGHSczEHxBdv3aNfD3Yyi
-         yfS42OzTcZb8hMGR+apTCia33sInJjrHV6yQlMqSoObzwFLZAqEys6hkzcN4mGVOovdA
-         nxiA==
-X-Forwarded-Encrypted: i=1; AKwUvByC6bkryuM1wb91BPdXTCJ4vA6/uTWO9d7aUaTbUNWIt4zvdDm8zizJvYan+bnGJXH6L6rCvN07c9LHw0P+HwZ/@lists.infradead.org
-X-Gm-Message-State: AFq9FYKJ6HMQmmzmA5QLsqd3ZViBwIC0rpok2hjux70Q4XgRTZATgzL1
-	/REnuhCyo26vUsOc1WPanDT3eEZCJxTI9VKyiSrm6I6CP65JX4l3oOQv+YbKXk3DdHA=
-X-Gm-Gg: AYBFou1/PTvaemJJxak9SsqzleyFzGp6UMMwQzjQDwyw5AI+J9VrbmAbEdQaemux+4I
-	R/yOgnwdfypYaARJ+LXMVzqDZq97oyfWf18LErDZdoEyztVt4oUpZIYCj2QtVIi0VmJc/zuQT17
-	xBGLUeQGSegUvkq6Y0RvZ6twH8ys2JP5k5DkhiX76j8Tl68+Gc9ee2goi6EXw+eW9u++dJ6JEy/
-	hMcq4JTsSYmVNeZh9l8jCAD0p6K3jqNiNlSoJvSPwSJC1jM2hv6CYXvG0nme71WHX+/QxFBk7ky
-	wBcld9NE+gGuymjxtRevo0P7eZkwBRXYnZctTyGO7DxlCzGPkJq9qNTiZ6vAg8kG7wWBvVV5USt
-	2qTXbTuFz42zWdMtXzgOtczrFU0XxihXOtx7FfUXXpCM1lMTdwk6X3xStpwQ92PrcDvgQPsBvLr
-	EBqEsQNgVfQwW6PMH2tx4tDzqwLLWRhdDQgcb4t05ImvTqoiliZvE8LNh5yJnxlDyFkIMSki1ge
-	g==
-X-Received: by 2002:a5d:6f17:0:b0:485:a394:58ef with SMTP id ffacd0b85a97d-48dbaaed22bmr16768322f8f.30.1791818048717;
-        Mon, 12 Oct 2026 08:14:08 -0700 (PDT)
-Received: from [192.168.3.100] ([37.103.126.255])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0aaabc3sm3653f8f.16.2026.10.12.08.14.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2026 08:14:08 -0700 (PDT)
-Message-ID: <d90324be-c43d-4d28-9f1a-e28e437031e8@baylibre.com>
-Date: Mon, 12 Oct 2026 17:14:07 +0200
+        bh=7jqF+qYHICj5HER0svNlKUByr8EgTf60Xnpf6q1p3Hc=;
+        b=i0isVRukNZleMauOv3TacWzyh/QBabGJuvxmipML25gnOh8gmYHU5t4Y0zaqoyvKyV
+         TAdz1kZ2/CINQWpCqhg71EIvxZm+IKE/HbM31Zx/7RQ/3TxLHU1wG29CRoVJukAyC/zF
+         OpvpcPqwWT58px2D0vX30fZxLMh7K3rhgkxTELWaVUFl+FcP7/0sqFquPWYPKa/ZSNxg
+         Jh5bW/tV6obFbxj+8+ppAXFDFp1Y4CkbZ9JSE9XnilvKFb8tQywwCjXI/yfqz/ZZUVaS
+         l1Xq6tGSW8oQVZILgWMtRFltpdGr89/4avkICnEcc/A6gZ4rzCPbisFf10XT03p9MbUp
+         opjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791818722; x=1792423522;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7jqF+qYHICj5HER0svNlKUByr8EgTf60Xnpf6q1p3Hc=;
+        b=g30j8BMouxeNT3JpBQ0CbZ4QrP3/x4hcTpKRdTNqmRSz3wk95DGg9dhtLmJyHJeIcu
+         9a7R+m0FnjlzkcAVIXWmHqdeCSEBgPmJH/a7vNU+a5qjCtCgBkVkPhbPS2CfE3Zjo1Ar
+         4f8lbo4qfAQ7DEjvmTHwnDCr5GdN7DDAzIwi0p1Xhx0rlVhj/B9OoyDQ+JwXKxCGzOTK
+         bVmR2grX49QVIxnWDlTPSR4A4/CJJWshAs2r2DmZfHFs9JyONDqpKGkSURXYDTX/bE9x
+         ZtFZqprl7GLADDdTRKp95ZsvI1B8TSAh+wQ5OEhulRUpPBSWcBl3ib8ZXsDGrhF2plHz
+         8Rrg==
+X-Forwarded-Encrypted: i=1; AKwUvBynmYjkLAtsnSzKrXvF2m+tE+Ig2JTdMXv29Ku7pVuCh0TxuFT700H68+98Deyfp8PjcWcd02BuvI3rVTQHY2x+@lists.infradead.org
+X-Gm-Message-State: AFq9FYJgT3E1vSv2o4SHQopzDdz5f3y9qdy2tCxdqihoHzOfd/FDksEK
+	BuO24+WQluvRRtL0G8sVtmtImvBWnHdTs4rGJfx5z1TXHUrJwdPYNWhFRwuSYfahiPowsHpMSIn
+	qxaBc3CZ7DqSTrrqzaEnvTE2teTaiTP4YZag0Q8fYfdwC8Dclg4LUSn1449DB/rJpZuu1zdVWhz
+	CuQQ==
+X-Gm-Gg: AYBFou2d9Nfek7Sv7zJRBB0D77W8HXs9OZN/ViFTtpJhsBpTOn7+VvBp55nJsnPTMoX
+	yrqMashqQSZ+pvTf19hbLfo9sp+p4qEyH5/AJYZ24yS/ZGQVEKxx4g5qbPE3Rb4Jdap3KJgbJrE
+	RaI0s0PVPLDi1bDhUPEHgJG5BRNUcoU61OKRRQd4IEJCocUr4GjeWyvBOq2DXBdx9PHyGAM/ZfH
+	cYEw0jq9ivoP3FBNpDBbS3rvlsI0maZXtAu8xL2jyn4XHJc+d4gKkUwKEQ5FMHs0iaKNfPUVGSH
+	9HBfcYZ9mk62sX78BIEx1wuKpebp/9E4dGGffNQ067m4BfQdMlKfPZxkB7U6lAWveFubCZun5+D
+	PX1SRZLLXx/WSTg==
+X-Received: by 2002:a05:620a:2a0f:b0:93b:d7a0:d9e1 with SMTP id af79cd13be357-93ebd2445b1mr1566454285a.59.1791818721723;
+        Mon, 12 Oct 2026 08:25:21 -0700 (PDT)
+X-Received: by 2002:a05:620a:2a0f:b0:93b:d7a0:d9e1 with SMTP id af79cd13be357-93ebd2445b1mr1566447285a.59.1791818721037;
+        Mon, 12 Oct 2026 08:25:21 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a199e5db12sm177527835e9.2.2026.10.12.08.25.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 08:25:20 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 12 Oct 2026 17:24:40 +0200
+Subject: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload for
+ jumbo frames on bugged cores
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/7] ASoC: meson: aiu-encoder-i2s: ensure clk divider
- gets disabled in hw_free
-Content-Language: en-US
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261001-audin-v4-0-2476646118b5@baylibre.com>
- <20261001-audin-v4-3-2476646118b5@baylibre.com>
- <1j5wzdzyqm.fsf@starbuckisacylon.baylibre.com>
-From: Valerio Setti <vsetti@baylibre.com>
-In-Reply-To: <1j5wzdzyqm.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Ong Boon Leong <boon.leong.ong@intel.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=QdzzLcbv c=1 sm=1 tr=0 ts=6accfbe2 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=IBDDDhxC7lntIW3zH5MA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX8EH1oiljv05+
+ 4zCjqRyWrA9vzrDWvpQzwhP0Eftb0g+T0zoAMue4RO2dOjDZFsS4PxM2O4hMx4GlXn+iF04s0//
+ bT/apOU93AmW7UzPq/dTQOLpDV0/hD94608RLKiTnrrUJt9lVn4DCWXkp7Hx6biNLnEsURjr0qy
+ M6BgWtR1Uj/TDfPrHBEa1RsudGC/Pe1Cq/eADKhyFW0FMd26D60VWcztFyPHgqF9N0Gcto3cN/9
+ 4a//cgFpEUO3A39FBl2hwloQ4kO//46v4XU5BS1HXTNY5aejII/sCCHGM9N1hDpwYBcINFb7S6P
+ Qx4AZf0czcz/ucaPBeAb4XG2InHEAoOZkGvUorz+uDkhBW06wb0N1yqX0I8NPI/HJ21R5V//RKE
+ XhgZ5cmQMndbstphDR9kfwMy3tu6THOM6VfvpIe6wllNCzN5EGk+2AYr4I84ixCtKhh5v2eH4jC
+ 6w00yFWNW3DOlA2cbmQ==
+X-Proofpoint-ORIG-GUID: aIB_6Gsd-00KbjBM40sDoTkBCMgJhkAT
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2MSBTYWx0ZWRfX+iwrhe+v7c2b
+ NaIN7SfaM32Jw+w8E75EmBnnkQaKQwm2jGvIgSCgjmilQ47RFiyla+b0/rnqvS5nhEObo3KB+bs
+ 7Ixr5LBzWdxAL/cwhAwb9aP8kuUEvs0=
+X-Proofpoint-GUID: aIB_6Gsd-00KbjBM40sDoTkBCMgJhkAT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-12_04,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 phishscore=0 spamscore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610120061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_081411_356664_DA77DE25 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20261012_082523_969344_3E479BCE 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,64 +162,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, thanks for the feedback and sorry for the late reply.
+stmmac_xdp_xmit_xdpf() decides TX checksum insertion from the queue COE
+capability only:
 
->> diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
->> index 58dce9f08c9d..70ea39c77b32 100644
->> --- a/sound/soc/meson/aiu-encoder-i2s.c
->> +++ b/sound/soc/meson/aiu-encoder-i2s.c
->> @@ -219,16 +219,14 @@ static int aiu_encoder_i2s_hw_free(struct snd_pcm_substream *substream,
->>   				   struct snd_soc_dai *dai)
->>   {
->>   	struct gx_stream *ts = snd_soc_dai_get_dma_data(dai, substream);
->> +	struct gx_stream *other = snd_soc_dai_dma_data_get(dai, !substream->stream);
-> 
-> Not sure about peeking on the other path like this :/
+	csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
 
-Yeah, I know this is perhaps not the nicest approach, but it's the same 
-one I used for the bs-quirk handling (see the "startup()" and 
-"hw_params()" callbacks). Since there can only be the playback and the 
-capture stream, checking the other stream's "clk_enabled" is equivalent 
-to a user counter in "gx_iface", without adding a second piece of state 
-that has to be kept in sync with it.
-Is that acceptable to you?
+and lets the enhanced descriptor set TX_CIC_FULL accordingly. On the
+bugged_jumbo cores (snps,dwmac-3.40a, snps,dwmac-3.610 and
+snps,dwmac-3.710) hardware checksum insertion is broken for jumbo
+frames; the skb path works around it by clearing NETIF_F_CSUM_MASK in
+stmmac_fix_features() when the MTU exceeds ETH_DATA_LEN, so skbs are
+never marked CHECKSUM_PARTIAL and no checksum is inserted. The XDP TX
+path bypasses that workaround, so once XDP is allowed at MTU >
+ETH_DATA_LEN, jumbo frames sent via XDP_TX or redirected into the
+device would leave the interface with a full checksum insertion enabled
+on those cores - exactly what the workaround is meant to avoid.
 
->>   	struct snd_soc_component *component = dai->component;
->>   
->> -	/*
->> -	 * If this is the last substream being closed then disable the i2s
->> -	 * clock divider.
->> -	 */
->> -	if (snd_soc_dai_active(dai) <= 1)
->> -		aiu_encoder_i2s_divider_enable(component, 0);
->> -
->>   	if (ts->clk_enabled) {
->> +		/* Disable the clk divider only if also the other stream is not using it */
->> +		if (!other || !other->clk_enabled)
->> +			aiu_encoder_i2s_divider_enable(component, false);
->> +
-> 
-> Looks like a race condition is possible here if one stream closes while
-> the other one starts.
-> 
-> I think you need a common structure between the 2 paths (with a counter
-> possibly) and it needs to be protected by a lock.
-> 
+Disable checksum insertion for oversized frames on bugged_jumbo cores in
+the XDP TX path too.
 
-I might be wrong, but I'm not sure a race condition can happen while 
-managing these 2 clocks. Here's what I found:
-- "iface->mclk" and "i2s_divider" are enabled/disabled on 
-"prepare()"/"hw_free()" respectively.
-- when "prepare()"/"hw_free()" are called the framework holds the 
-"card->pcm_mutex".
+Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-So when one stream performs one operation, either "prepare()" or 
-"hw_free()", it can read and modify (if needed) "ts->clk_enabled" both 
-for itself and for the other stream safely.
-
-Am I missing something?
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index ca61ab449e32..0e29c5d04714 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5276,6 +5276,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ 		return STMMAC_XDP_CONSUMED;
+ 	}
+ 
++	/* Disable TX checksum offload for jumbo frames on cores where
++	 * checksum insertion is broken for oversized frames, matching the
++	 * stmmac_fix_features() workaround used by the skb path.
++	 */
++	if (priv->plat->bugged_jumbo &&
++	    xdp_get_frame_len(xdpf) > ETH_FRAME_LEN)
++		csum = false;
++
+ 	while (true) {
+ 		skb_frag_t *frag = i ? &sinfo->frags[i - 1] : NULL;
+ 		int len = frag ? skb_frag_size(frag) : xdpf->len;
 
 -- 
-Valerio
+2.56.0
 
 
