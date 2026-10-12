@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E33CCA9ED6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4393CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8fEydYQ9ABesQI0CRxDNvPg0eyljVYmUDFMToCw+i0=; b=srxxQXdD2OxiO/EtYz5pCwk6Lo
-	bbsFtoItf1T4THwV5ld4ucDuZUABa4X/pvElc9d+XW5u0QMIdWS4SFPSucoeoUriTkT6RGF9Iet3U
-	dEhJt3yjCEzDm2R5Qa0/HZ0/dV/K36aNADMvGdADshv1/OPEtJhI0lodsVQkvtZwLstSJv/xb9+jV
-	w7fOsA7n+yBog5rMwi1slVtPOKA5Ak2oX7v1hX7JEn1K/Enu7y+r13dwE/OO8KHz5DUE5WCb0dKiV
-	oB3tCtZbixCjkzrG5mc3uFR9C3NJf9dI7VskKt5ZR5WHxAViYi5Utag9usK4RZ2N2HRSiCaGvgYb6
-	1teOwpDw==;
+	bh=6yPRjrVeVs50xXn24OzzYBPzR66HKp/3Lz4kqyKtgTw=; b=PIEZi/hw+BHNQmlI4qkLQkWGEe
+	k1GqYVkw7A/9aEr3TVKs7FzdizotA9wTIz3TBRJb3qYQ6iv+B5uJmosh9OaTPjxImzUuqM4qscx7Q
+	n5okWEFq85T0tJxGO7EYTRqmnkrvQsQVbQNrbmHivuMgZa5IPIikwy23wJaro9YJI8puN93XEy6Te
+	80EgeV/mkg3xFzrwBrPkIFp1tAOO2ZjhyWJ4Pey7YuMMIZlir3sR3oBGrYnLJBm6gEmcWW7+txW2S
+	1m48oZT9kpYfSs42f4MbIjP4PMMYd8kpqbPZWemqHzTpYrgk6UgJ/qfXzBWOssJfde4JLMshH3pUk
+	94GVaRYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9wJ-00000009mKR-1Tgu;
-	Mon, 12 Oct 2026 06:55:15 +0000
-Received: from mail-m128239.netease.com ([103.209.128.239])
+	id 1xG9zX-00000009mZ3-0wJd;
+	Mon, 12 Oct 2026 06:58:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9wG-00000009mJW-0Axl;
-	Mon, 12 Oct 2026 06:55:14 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50b00267e;
-	Mon, 12 Oct 2026 14:55:04 +0800 (GMT+08:00)
-Message-ID: <5c8a2985-e1aa-4062-bca8-fb05809b0d3c@rock-chips.com>
-Date: Mon, 12 Oct 2026 14:55:03 +0800
+	id 1xG9zV-00000009mX8-4351
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 06:58:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7835D44865;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4F798C2BD04;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791788313;
+	bh=8gR7BhNXPoHr5C+6JPztbmGwaJrI/VU6fS5GUB1Vw7A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=fpAzsDjk+ZHwNAlSuYV2TnEzPnvT6BDsd3CjzHV8si1W0zbJ/oTErtAv7Yeo9snAB
+	 uTouipbBCIo9yEOYxF9GV8qnr6AIgSMBDRn61AQRxyULhezN4QLFcNu9seCQ0OVJqM
+	 5yFeJ3IPU+xV7s3Wm67khZfMfjG/5XYNLFreTzyhIzanFRNjgTTFaOdJObg5i+yZS+
+	 sWlbCOwYeRTUddG/F8MsYTDCzIgsNxIBrNWDtKp+VrW/U2te6yTuCRKvtQO1FaIduG
+	 JEQb4pyshY4UK1VhwsDn9f8yzdAHVblL/dshqSIiZSBPdamx34qw+2GJ+fV5Ls/zrQ
+	 kEAbH+yxgbXpQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D4B7CA9ED1;
+	Mon, 12 Oct 2026 06:58:33 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Mon, 12 Oct 2026 09:58:36 +0300
+Subject: [PATCH RFC v3 06/10] dt-bindings: serial: Add Cortina Systems
+ CS7542 UART
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, conor+dt@kernel.org,
- devicetree@vger.kernel.org, heiko@sntech.de, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Radxa E54C
-To: Chukun Pan <amadeus@jmu.edu.cn>
-References: <4903cefa-4926-4bae-93e9-1165bb9ae646@rock-chips.com>
- <20261012064010.1837103-1-amadeus@jmu.edu.cn>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261012064010.1837103-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa12ee4bb9903a4kunm5e92b5b71addac
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTxlOVh8aTk1JT0IaGUsaSlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=dcu/8CbeQxrj27k75dgmHMQK6ZG4pjwsRnfgVTy3VCZnsY8P+MDVlGNRuoNvTij7L2dO5fIOYhNEptPmKWbplAQGYt3St/9nEpH4XpkDG9TgqtyYd0ditS0+jwqoM4+h2f2afFrULgkuZqTjvgtqXrQko6tLcWoL8JYuUpGgOaU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=d8fEydYQ9ABesQI0CRxDNvPg0eyljVYmUDFMToCw+i0=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_235512_634074_635443D6 
-X-CRM114-Status: GOOD (  12.01  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261012-b4-cs75xx-v3-6-0e0d17a098cf@gmail.com>
+References: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
+In-Reply-To: <20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Jason Li <jason.li@cortina-access.com>, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788310; l=1934;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=DBYjTP1f13Z8VgqM2RKT5FXuSk8m/3+wuQ5DQ1oXB5o=;
+ b=HUigNlg2ACJkObBmT7q2zSAUKyp3fRgdT6YtD7gatlSOgqmcFhb2zG31kYUwqN6IISkjXEI0k
+ xTLK8PTazEwDZVACJQLLrxSGBTVDg+zQBrMdJUOv0DaD3HTGgAB0wXN
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,34 +90,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-在 2026/10/12 星期一 14:40, Chukun Pan 写道:
-> Hi,
-> 
->> I was checking all PCIe part of rockchip dts files and wondered why it's
->> marked as an always-on regulator. But if it's actually not, it'd be
->> better to improve it later. That would make reset rootport mechanism
->> work better.
-> 
-> Please refer to page 21 of the schematic[1]. The 3V3_PCIE regulator
-> is enabled by the PMIC and cannot be controlled by the kernel. So I
-> think it's correct to mark it as always-on.
-> 
-> [1] https://dl.radxa.com/e/e54c/hw/radxa_e54c_v1.2_schematic.pdf
-> 
+Add the binding for the UART found in the Cortina Systems CS75xx
+(Goldengate G2) SoCs such as the CS7542.
 
-Thank you for providing the schematic. It does appear to be in an
-uncontrolled state. Theoretically, PCIe control timing requires a
-controllable power supply. The current design may cause trouble
-enumerating certain devices due to always-on power. Unfortunately, this
-board already has always-on power, so let's just leave it as is.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../bindings/serial/cortina,cs7542-uart.yaml       | 52 ++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-> Thanks,
-> Chukun
-> 
+diff --git a/Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml b/Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml
+new file mode 100644
+index 000000000..2879a7188
+--- /dev/null
++++ b/Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml
+@@ -0,0 +1,52 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/serial/cortina,cs7542-uart.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina UART
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The UART found in the Cortina Systems CS7542 (Goldengate G2) SoC. It has
++  transmit and receive FIFOs and a 24-bit baud rate divider running from the
++  peripheral (APB) clock. Other SoCs with the same block, the rest of the
++  CS75xx family and the Cortina Access parts, are to be added with their own
++  compatible string and "cortina,cs7542-uart" as the fallback.
++
++allOf:
++  - $ref: serial.yaml#
++
++properties:
++  compatible:
++    const: cortina,cs7542-uart
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    serial@f0070110 {
++        compatible = "cortina,cs7542-uart";
++        reg = <0xf0070110 0x30>;
++        interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&apb_clk>;
++    };
+
+-- 
+2.53.0
+
 
 
