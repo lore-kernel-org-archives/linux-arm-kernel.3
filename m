@@ -4,108 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D267DCA9ECF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 01:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB05CA9EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 01:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yy605aOeAHaRRlQZ49hSeMe89YDd8h55bKBGCHpbQWs=; b=RuQJL/ow9vaalT6PaRu9CbWjU7
-	sO6Bib2GTsZZBLU7HHYH/DEzs2Tj5fXsBbf28sSL91BDoQf+hlwABTR96wRtWJsjO8jbnthh1fNuV
-	k1Zi/bFyIeWenUyPGQzaCbCZBnumAkM7dKuLVXjTaDvgmHPRuXCur7gBSOddON7kLJlonA3q1wYEP
-	DTqsux3GUIaYA0x79b0/CSZPk7m/cvzuX/P6gP6TvSvo6XHBjnUo1KlAepn/q38fo9hPWM8Rn5/vF
-	KGiXG/DAzgM2COf63jyjs1KLDZVvpXPUf6uqTEMrRUeVXwZtY+7gqX1kPUs9sBYFn07K9uWETjKrE
-	Xr1m5Ryg==;
+	bh=5SdnfbVL9pFpAWd31O9CWnKNvkrdORI7jh1LOwMsM0M=; b=M2N6PPO9ZjWgBWxmT3oIkzN5Su
+	gG71Vw26qTFLRvF9q92vKpQGPYdKsZmm6IKM9//N3VoeeEEpBJicRMWlHl44IknI9oeMiv5xiJXvE
+	b827biISAnjR2tsl4HMi0KpATdAllOlsvpfUGNAkXlsFZ83A3Tse1GxE/oAZZBoOBZ5JISQ2eFpqe
+	/iqok9mN5SVnYqzfRRYFcU4IADZG6oy0FI+GGiMobNheitEcqFoRx/akPQWY6tkka92TmSbdzdvo1
+	bTnyDMDDG4h0LRxrrO2d029xnycxdZY2GkFhyISW6PfI2LPSJLgdqto23jWsvrgc6vEWBm7LZaiJc
+	LpJa8n1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG4ug-00000009YWA-1eVp;
-	Mon, 12 Oct 2026 01:33:14 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1xG4y2-00000009YmW-3y31;
+	Mon, 12 Oct 2026 01:36:42 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG4ue-00000009YVQ-1dhZ
+	id 1xG4y0-00000009Ylk-00uH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 01:33:13 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-8198a3a54d7so3499680a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 18:33:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791768791; cv=none;
+	Mon, 12 Oct 2026 01:36:42 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6afafc89b48so1906516a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 18:36:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791768998; cv=none;
         d=google.com; s=arc-20260327;
-        b=RVWd/kKZQ9vdFbjleG0V+MFxUEmIB2O3iuGsWyFlPkPg3D4gSDcoVKJn9GDxlCaWac
-         SGjNLRsV0+tQGNsruXkDfbnNvqPAbakc06YdDp8XElHqG8AQGooWs2o966zomrQ7r7bB
-         7mbRmGaESiBaVL+JtoLxgWs6PqdAhQmcDcDpJ4y9OBKUsS8uOfPC7G7XMrNMEdp8UNPO
-         nkXK+iVGHs47SgBSSe5dEF0M4XjXbYHy9qulQZdI2CJ57b3XovtJ2K0ayTjm8Md9/lA2
-         d6Wg21SJSI/WBubxRUs6sKN4p/w/Qj0ywxgjabKReFdlBVQqOcYL76MDY0YYTQd0BKsG
-         +4iA==
+        b=GirYCfURLkEQD2EyPNufcm5mH4FiHOfxOillUSJ6blbt34ahpJ04NVI1z9hIJ30b+F
+         1ZlzykgXI5IlYoDJSmX1xJb19kUpIjfnZzXHr664PccgyVviNCR/oDxu9PxABwuR6xA6
+         yf7oe0bm8QMwnrbIHhwksvDFbJ5AVKTU2CAo386O07PK4HF5H22UdPcB8zYwZocq+B0b
+         47JEHgjh1tFPROv/h4yBPcOy44+b1nqE6ZWW/fY3yaWZbB/jwS3nfcOf5QwMA05f5iYm
+         /SlX/VtjuIzY3NeNHZ4XqHb+5ygROBMuOeWOfSjD1dHAICO+YXUm2wEk7U+pmZY72w6z
+         MEnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=yy605aOeAHaRRlQZ49hSeMe89YDd8h55bKBGCHpbQWs=;
-        fh=3zp540jJpuFXs4dXOsaUm55pALAJ1RxeS6zMH9pGcHg=;
-        b=U/dM/geScYWhde05J1gxMXdt9ah0stWdPpe9vzfpgwy/JPdqWH8rJymr7cDI7F0ome
-         WYvRVyjoxUTbUWXZUI25sAovxwIJ2lUEDmtm0Quv4gRjICl1UsFAgQCSfe1rgcBbqsgm
-         7J1tn438LWZLtzib5IxeV2VSua/lbAYYw0mCwFP47od+Miytiu9IwYkRfhV2427gL8ly
-         EOjDhBK8sNFoLF35CKM3zC9NO1PQgqrOhuZQNCjeV2RnPAeKoxx/EG4BwFZaVEzWuRKA
-         Ei3c6RjeUp6wGa6G/A+tQ5C3laQd68cv3PHCZV+RWB8JRZOU+0kOax1h7yi9a7NJUerA
-         BNjA==;
+        bh=5SdnfbVL9pFpAWd31O9CWnKNvkrdORI7jh1LOwMsM0M=;
+        fh=DgFH1Bqdqy/ejOoECrwUi36TnzHUBjNm0urt5U5KdHc=;
+        b=QBdtIn8GH+AEGSHPOeD1U6XTbU8gYUdsU9qqznkscEUdXgFyVaMs4ldT/dHIAktdCO
+         E3L2rI0pU2bLzI/o8ki56hk9qWeXlCLCs/YK09b3TfC/wEcUy8cSnvBUwc4iXQAL1Y1w
+         OXO3GxPjl57zujuwRGKLV6jQXZAPcne/waeNQFmSZs+dp9d4/tHxYcoRQ/uqJ9CMwrVC
+         tQ5usihiD/RN3oeK2uDHNK31DTlJi6uuGrzWyDRJSxD7wKEn8HejlP1kLCbbytVlSUs+
+         WWekB2nUgziI/W0nV7nbuqVK7Olc9w1WnBZjIj6NJp4Q9V73Dg/Y0zVTXicpUjswW1xQ
+         89bQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791768791; x=1792373591; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791768998; x=1792373798; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=yy605aOeAHaRRlQZ49hSeMe89YDd8h55bKBGCHpbQWs=;
-        b=gbuVWBUaXO+KaB6572DxdPDTbHHd7DQKiCEZxVSv2loOMneyhOly/xS3FiXvkoOkSx
-         VQcwtsAxrnH/0HcrChjSfvNNme6bVt9H5ZGd8FButk78hpxkgNn1ES8yK/JceoIxucOm
-         TaSQMgvi80ITRcF8ADQsxHRhB0NUtMwWmJogEEMJjsAscOiiwd2+DV8Y8Q5/fQqxvVkG
-         Z0tuODvdQv7JDQRV6J+HuS3hS9gHe/gcWhTlICnGZ6+EX4CihDCBcBS06a6Wh/jNprQK
-         MHkkW+1fFnslupuYTRN1iWz2yQg1J9d0wCwuS+lHAPZrGvsdznXxzRqIC8ImiczbENM1
-         Mz8w==
+        bh=5SdnfbVL9pFpAWd31O9CWnKNvkrdORI7jh1LOwMsM0M=;
+        b=pJsq8GtWeYu2NEziHIUA1HwV5tzfbqJWay+77ZJux2SN1dyEw0Z8VvrsqTVVwyCj/Z
+         //OMAzgNGruj++ryspncdb6CIWj1ZJJk9I097uCOXqfGBhsamKNqX5DliMn7Wz9dkMUq
+         pgY8AsUXJsv/gSyzg2ltFhJPE39qg4HR7QNwvAhCHShGhDKr/sBbMRviz75/UiCbZS3o
+         PBCoSpvfyS0R35vSDp4Hsczi+hI58zNl1z1XCflHosPDBdkOMViRbDXqfd/oBE60/l62
+         gXQzMb4JEQpRInI2i45wN2+6JgvWZIxl+0qTXM9hAzEq+4qMP6kSc6FRFhTxYzhhEbTq
+         dNPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791768791; x=1792373591;
+        d=1e100.net; s=20260707; t=1791768998; x=1792373798;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=yy605aOeAHaRRlQZ49hSeMe89YDd8h55bKBGCHpbQWs=;
-        b=niPJFJd/iwTdJYxsKhx8iJ08isRrJf8Y0rMtXwjWgOOJEZdhHLiSGorYs3i8sd2Mtg
-         LAthy2TmO4Wifgz0qxcPoYZ0zVE/9uXP4jTWYONqAlrjd+CjFU24xH6P8JT6V5wgthea
-         zZnUnnHM4wTEi+2LzSWsTEuJZ1o3QyDcw91oEnQLSIiqu1R99PFLURP1NkfSbn1LblQk
-         SFZB0qxkEwsnD4TWeu7rllc3CgqEwC6+NWBNdkcvFh1ERtil+e5vj9FA3iWfGTZP/YDC
-         kvNqI8N3MmyZYJzTJXnzXaifDXpMht6aLuUzPdunsCN+TiQ70YEzfns/VsNgPNUPg3iN
-         sqaw==
-X-Forwarded-Encrypted: i=1; AKwUvBzgULYmX+dfsQpCJR3s5oZI0+PvuBTid4v3IlJuKZR4QFeYl2Yo3Vt8WGGnL6xMrdBDzZ4l+M/AmMQd9MRWvub9@lists.infradead.org
-X-Gm-Message-State: AFq9FYIbK6AnUlpexIstNEy5s5XzWpe3fTZ1LatVZw49Pv5p6UaL8hj+
-	TpTlZcD2XVTbDRNeSFOb5Lqy8mD2jzhEbI2RRwd/NAImyQm5F7k0eNYDDwBCotHpJKcGEsUKYgh
-	AZ/DpfcTEuALnqOENCJTyS4rNvFt2ECQ=
-X-Gm-Gg: AYBFou3HJH03RSSeLt9N4B9B782zlXoR50FIMaYwfB1DbYpesd5UgXThEc9kxCzwDVG
-	7oZYVpKfO1vtr8ghgA/aCELjdlqxNvrcHkS+2Cl3s01D65jK4BjiEUFEsDJeN7BfHPAcKF0qcRw
-	TTbfe8qkZFTXLCO77gRisd9tj/ARFfuNEg0e/F82iJjg3qcbVK/GhSdabCe3n4ZEcO4IjRZBmtw
-	nGHdtEvBOPRU5l3x6zNpfuyXtm+RDdDwUK475SOfsArJFJVqp3DxfhEKvl3K65tc6t2u/EA+7Ka
-	CM+v03/G/BkSF4eNYhHp73y38QcuEjZH+D2LKbYM3JNDGpZoCm71sPA=
-X-Received: by 2002:a05:6870:31a9:b0:462:ef7d:2a4c with SMTP id
- 586e51a60fabf-4a2a894fad5mr5424931fac.8.1791768791364; Sun, 11 Oct 2026
- 18:33:11 -0700 (PDT)
+        bh=5SdnfbVL9pFpAWd31O9CWnKNvkrdORI7jh1LOwMsM0M=;
+        b=B+sdN+0TqhwOlbrNLbYyNt/aLm6zBnP4TgF6+9WjtZ/t45IUCaJ691N2eEDdJ5bC8T
+         2i2b6cs/K5KljvXjClEp0L1iSEJj3nRfZ8K14U7NQI1F0d8ge3of8agnTfXjRWSvS1/E
+         og3cGia3f+4L+IhsGFq5DFnqJ61Myp1Nv09h+FhuRG2ZUPgU68Sqzd5/x5TPPnsLIiEo
+         iBc0ptBoyp5lcw5cqXbxOk8MklqgPE8/C3CF1vA8YAbyVfe/UJ030SoyThi6Bgho39/Q
+         KxvDDkG5b50BJuzrY3quVuh9OKRiaAeeG1zGKDEpNeYCPC70KJVr0ZBwRxydSfuHAlVp
+         aPng==
+X-Forwarded-Encrypted: i=1; AKwUvBz21krfVUeDmZ2GsWiEqz8dGQHUfgL53zD5dQt18tLMLB+e9QfiMJaOf1vz3uHKZ4XKcm0xFrx+dwKN5on5x65K@lists.infradead.org
+X-Gm-Message-State: AFq9FYLg/e0oHwZGGNlIEZ1rE3979gDSI0/eW7/ojzLu/oI90Kd6dEw3
+	+tVrWvPejpFhkEhSP8pQ46ShFBIWaYfTPAjWVwKsNiIjT42jjXPmbb9CzUj5xJFHeFo0UOK+XNP
+	5S80JJjwwIwa8fEfRjnl+klDa8POXpQO85z8vE8c=
+X-Gm-Gg: AYBFou1UBzXPRSle8n7YiGLqdDbOYfK6cXOHWiuKcYTRxmnSCiLSrTlM6P2h99eHohJ
+	8KuActmXWPFHKlHf2hrqVDXFsBphyLNmyo00mCc/yoIrWtIDbDoq/AxTldwA8C3S8WEN4/05gFN
+	AXucLpL3Fb3MGikt+1cA9YafRHsnVSC6/WQt7FrHZ6mHt28POEeF51Z4qOddbdtp70kpC0h36zD
+	5np4KxF6HMybEFhj7CIzMDysXo6tLm4MVA7u8mrjPFKo6VHQBoaibXC/WwvAGlpSVU3+mhfYg0j
+	rI0P/tK/xILMpashN6jN5xrAXMfXvQwj/V+AFdHfZLyBaZO0hNlrmog1
+X-Received: by 2002:a05:6402:4512:b0:6ac:7d0c:2cb8 with SMTP id
+ 4fb4d7f45d1cf-6b17c26e26cmr7148152a12.30.1791768997999; Sun, 11 Oct 2026
+ 18:36:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261008030214.368347-1-finley.xiao@rock-chips.com>
-In-Reply-To: <20261008030214.368347-1-finley.xiao@rock-chips.com>
+References: <20260917093923.2145007-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260917093923.2145007-1-vulab@iscas.ac.cn>
 From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 11 Oct 2026 20:32:59 -0500
-X-Gm-Features: AclHuK_QmkadvsvdD-zCdomyYwJKXc2L9BPDK2A4NqNEwXXLVrtwrCa7y00XQ18
-Message-ID: <CABb+yY38GBk=OHZQ9GbDHhFr3Ny8+tavMdyK9qpRHg1yAw+jyQ@mail.gmail.com>
-Subject: Re: [PATCH v2] mailbox: arm_mhuv3: Keep the combined IRQ enabled
- during system suspend
-To: Finley Xiao <finley.xiao@rock-chips.com>
-Cc: heiko@sntech.de, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	tony.xie@rock-chips.com, huangtao@rock-chips.com, frank.wang@rock-chips.com
+Date: Sun, 11 Oct 2026 20:36:24 -0500
+X-Gm-Features: AclHuK8Xsk6vNaWsbsfsc6m-jN-PLUBFBJUyFrXzBO7nFbW8E4MZEEKbb4KwlQY
+Message-ID: <CABb+yY2ZnisPFR1mXU-E-KEa6SWz2pKicYMeo13PCeHwpW6oAg@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: mtk-cmdq: Fix runtime PM leak in cmdq_mbox_flush()
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: angelogioacchino.delregno@collabora.com, bibby.hsieh@mediatek.com, 
+	ck.hu@mediatek.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	matthias.bgg@gmail.com, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_183312_430589_EF16CFC2 
-X-CRM114-Status: GOOD (  24.77  )
+X-CRM114-CacheID: sfid-20261011_183640_059968_E9DD740E 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,78 +119,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 7, 2026 at 10:03=E2=80=AFPM Finley Xiao <finley.xiao@rock-chips=
-.com> wrote:
+On Thu, Sep 17, 2026 at 4:39=E2=80=AFAM Wentao Liang <vulab@iscas.ac.cn> wr=
+ote:
 >
-> When MHUv3 is used as the SCMI mailbox transport (arm,scmi-mailbox),
-> SCMI clock and power-domain operations still need to work in the noirq
-> phase of system suspend: genpd may power off a device's parent domain
-> from genpd_suspend_noirq(), which issues scmi_clock_config_set() /
-> scmi_power_state_set() and waits for the firmware reply via the mailbox
-> RX IRQ.
+> pm_runtime_get_sync() leaves the runtime PM usage counter incremented
+> even when it fails, but cmdq_mbox_flush() returns the error without
+> dropping it.  The same happens when the GCE thread does not drain in
+> time and the function bails out with -EFAULT.
 >
-> However, dpm_suspend_noirq() calls suspend_device_irqs() before running
-> the suspend_noirq callbacks, so the combined interrupts are already
-> masked at that point and the SCMI transfer times out while waiting for
-> the reply.
+> Undo the reference on both error paths.
 >
-> Both the PBX and MBX combined interrupts are requested as threaded
-> IRQs with only IRQF_ONESHOT. The MBX combined IRQ must stay enabled so
-> that firmware replies are delivered, and the PBX combined IRQ, used
-> for txdone by IRQ when not in polling mode, needs the same treatment.
->
-> IRQ threads are not frozen during system suspend, so with
-> IRQF_NO_SUSPEND the threaded combined-IRQ handlers still run in the
-> noirq phase.
->
-> Add IRQF_NO_SUSPEND to the MHUv3 combined IRQ registrations so that
-> SCMI remains functional throughout the suspend/resume cycle. Note that
-> this only keeps the IRQs functional during the suspend/resume cycle and
-> does not make the mailbox a wakeup source.
->
-> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+> Fixes: b0524f7c9635 ("mailbox: mediatek: implement flush function")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
+>  drivers/mailbox/mtk-cmdq-mailbox.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 >
-> Changes in v2:
-> - Add Sudeep's Reviewed-by tag
-> - Clarify that this does not make the mailbox a wakeup source
+> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmd=
+q-mailbox.c
+> index eadd340f8fee..07a8c2382c93 100644
+> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
+> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+> @@ -565,8 +565,10 @@ static int cmdq_mbox_flush(struct mbox_chan *chan, u=
+nsigned long timeout)
+>         int ret;
 >
->  drivers/mailbox/arm_mhuv3.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+>         ret =3D pm_runtime_get_sync(cmdq->mbox.dev);
+> -       if (ret < 0)
+> +       if (ret < 0) {
+> +               pm_runtime_put_noidle(cmdq->mbox.dev);
+>                 return ret;
+> +       }
 >
-> diff --git a/drivers/mailbox/arm_mhuv3.c b/drivers/mailbox/arm_mhuv3.c
-> index a1c528be47f3..04998e1346c5 100644
-> --- a/drivers/mailbox/arm_mhuv3.c
-> +++ b/drivers/mailbox/arm_mhuv3.c
-> @@ -980,7 +980,8 @@ static int mhuv3_setup_pbx(struct mhuv3 *mhu)
+>         spin_lock_irqsave(&thread->chan->lock, flags);
+>         if (list_empty(&thread->task_busy_list))
+> @@ -603,6 +605,9 @@ static int cmdq_mbox_flush(struct mbox_chan *chan, un=
+signed long timeout)
+>                 dev_err(cmdq->mbox.dev, "Fail to wait GCE thread 0x%x don=
+e\n",
+>                         (u32)(thread->base - cmdq->base));
 >
->                 ret =3D devm_request_threaded_irq(dev, mhu->cmb_irq, NULL=
-,
->                                                 mhuv3_pbx_comb_interrupt,
-> -                                               IRQF_ONESHOT, "mhuv3-pbx"=
-, mhu);
-> +                                               IRQF_ONESHOT | IRQF_NO_SU=
-SPEND,
-> +                                               "mhuv3-pbx", mhu);
->                 if (ret)
->                         return dev_err_probe(dev, ret,
->                                              "Failed to request PBX IRQ\n=
-");
-> @@ -1017,7 +1018,8 @@ static int mhuv3_setup_mbx(struct mhuv3 *mhu)
->                                      "MBX combined IRQ is missing !\n");
->
->         ret =3D devm_request_threaded_irq(dev, mhu->cmb_irq, NULL,
-> -                                       mhuv3_mbx_comb_interrupt, IRQF_ON=
-ESHOT,
-> +                                       mhuv3_mbx_comb_interrupt,
-> +                                       IRQF_ONESHOT | IRQF_NO_SUSPEND,
->                                         "mhuv3-mbx", mhu);
->         if (ret)
->                 return dev_err_probe(dev, ret, "Failed to request MBX IRQ=
-\n");
+> +               pm_runtime_mark_last_busy(cmdq->mbox.dev);
+> +               pm_runtime_put_autosuspend(cmdq->mbox.dev);
+> +
+>                 return -EFAULT;
+>         }
+>         pm_runtime_mark_last_busy(cmdq->mbox.dev);
 > --
-> 2.43.0
+> 2.34.1
 >
 Applied to mailbox/for-next
 
