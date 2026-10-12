@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 931BCCA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C80CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G4FoOdOatVsgAmxetyPEwa2/gwnBhvGjHCPnwiX3txg=; b=KqjZn5FAm1j2mK1aKaFjSYdFAo
-	rCVqw9MY+0J5hEnxsAUryNdO1R/4cHfZSN9yg/sunBXbFrlXaAed9/ebzUAAfQB8F6ipdutlR1veU
-	fmNWOlybgt507XDpT7840ldkJg/SMvcKHEukQWg0y3XphuaJJ73OTKt3S6l2JxiqbJk0ADvtGb/dt
-	vsNQq5LhODEbSMOoaeVS/qynVueqqyKbos3UUQii3Q7EjIsIpO6jq9vk9zrJOCHpI3iBkniNDs6kk
-	dFZyOeq0iftoIn/1PU1KkFpgv10wI0pr+XT0kofSKEdQE9e1aBCt66saTSv90JVRFe3NP2VfTU0RS
-	va5t3VDg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RhQVc6VvFYWCpxVpDP/fd8AVbTliFGntUSogB9WmMF4=; b=xiJFpk2oe+3TBmvlEHfQwjR+T2
+	H4AiuCFioejZqfFPZJFjxDjyVK1U1UJyU6mq7YWynea2K2VeyaqnNTgBBNUJAE0Cc2+rKYHN9g/lp
+	t1QUr+XJJsPMIsVVPGmiCkpSTUEcjEwvhUe90dMEZxfd46ueOBpvzypNGaHPr1sLSxkEz/ID93nfd
+	Qma0LKJtlctemGh/5NGQlD/V6Z6s9C9r1sL6awa4S1rFsGeiODCEhluL1J0oilgQNztQVgk4/zPgE
+	yXb7sHwCrG5m7fXTHddzOMB1PA+AjUwb1/jKfTUEuo/JrMIRYkEfgLWrioGpJLpZP+On7rv/+h0DB
+	c773wLJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIgW-0000000Aw2t-27Bs;
-	Mon, 12 Oct 2026 16:15:32 +0000
-Received: from out-65.mta0.migadu.com ([2001:41d0:1004:224b::41] helo=mta0.migadu.com)
+	id 1xGIgh-0000000Aw59-2Zgs;
+	Mon, 12 Oct 2026 16:15:46 +0000
+Received: from out-73.mta0.migadu.com ([2001:41d0:1004:224b::49] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGIgS-0000000Aw1E-0LhA
+	id 1xGIgf-0000000Aw4M-18l9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:15:31 +0000
+	Mon, 12 Oct 2026 16:15:42 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=g6cSCDmIiMeFVv+t4Y6Wg9H08beduiIxXPLZlypaYk8=;
+DKIM-Signature: a=rsa-sha256; bh=8gCu4rhChE8WNWy4D5zHkBnBqB6ebjExaCX/l1sJrV4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791821725; v=1; x=1792426525;
- b=EcnNG0ySDPJM6Yhx3IcShUu7OXspr8PWmxfYi0iRmo0KAzvgxh7ERUNbvcWuShtJjBNr0bad
- vWWKz3D22RpAfdTVKose/1UPb+1vGDZ1T6hV47XO546sHvY9xevN6/bjzUDJpHyr8EzD8GjN1pF
- I7c/5mXBiliszHvHh5LX+YQA=
+ t=1791821739; v=1; x=1792426539;
+ b=YMmjyTND2tmeKbrXTACknnhjDs9WR9bPA0EZhhEgNanjxTRDbg6vjc/8KfWxMzR+DMH24JtC
+ Bl6vbL1hxFgBFl9b6CCiWE85UQrV3EIW84GhWHzqKw4z9WFGj28PMbBSXGXF94LVJDn2ZIzvYlA
+ lMYiHSIFWb+MqF1+/nzba0g4=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7c027d74522afa10;
-	Mon, 12 Oct 2026 16:15:24 +0000
-X-Mizu-Trace-ID: 7c027d74522afa10
+Received: by smtp.migadu.com with ESMTPS id 78425c6ac2fc2bac;
+	Mon, 12 Oct 2026 16:15:38 +0000
+X-Mizu-Trace-ID: 78425c6ac2fc2bac
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -58,15 +58,18 @@ Cc: catalin.marinas@arm.com,
 	Sascha.Bischoff@arm.com,
 	steven.price@arm.com,
 	tabba@google.com
-Subject: [PATCH v3 0/5] KVM: arm64: pKVM host hypercall and GICv5 CPU interface fixes
-Date: Mon, 12 Oct 2026 17:15:19 +0100
-Message-Id: <20261012161524.4016464-1-fuad.tabba@linux.dev>
+Subject: [PATCH v3 1/5] KVM: arm64: Reject the GICv5 CPU interface hypercalls under pKVM
+Date: Mon, 12 Oct 2026 17:15:20 +0100
+Message-Id: <20261012161524.4016464-2-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261012161524.4016464-1-fuad.tabba@linux.dev>
+References: <20261012161524.4016464-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_091529_794878_C7E0A6C5 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20261012_091541_446751_2AE1F5BF 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +84,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+__vgic_v5_save_apr() and __vgic_v5_restore_vmcr_apr() remain callable
+once pKVM has finalised. pKVM never registers a GICv5 vgic, so neither
+has a valid caller in protected mode, and on a GICv3 machine both reach
+a register that is UNDEFINED at EL2 and panic the hypervisor.
 
-Changes since v2 [1]:
-  - Patch 4 now allows only GICv2 from EL1 and requires VHE for every
-    other CPU interface, instead of adding GICv5 to the VHE list. Same
-    behaviour; I kept Sascha's Reviewed-by. (Marc)
-  - Added Suzuki's Reviewed-by on patches 1-3.
+Move both into the band the dispatcher rejects once pKVM has finalised.
 
-Thanks Suzuki for the reviews.
+Fixes: af325e87af5da ("KVM: arm64: gic-v5: Add vgic-v5 save/restore hyp interface")
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_asm.h   | 4 ++--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Patches 1 and 2 move the GICv5 CPU interface save/restore and the
-stage-2 flushes into the band the dispatcher rejects once pKVM has
-finalised, since the host has no use for them in protected mode.
-Patch 3 validates the vgic model EL2 copies from the host. Patch 4
-stops nVHE from accessing the GICv5 CPU interface from EL1, and patch
-5 fixes two stale comments.
-
-The GICv5 residency and VDPEND hypercalls in kvmarm/next still check
-for pKVM in each handler. I'll move them into the same band once this
-lands.
-
-Based on Linux 7.3-rc3 (fd73f4a665989). On kvmarm/next, patches 1 and
-2 have a minor conflict: new hypercall IDs sit next to the ones they
-move.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20261011143648.211337-1-fuad.tabba@linux.dev/
-
-Fuad Tabba (5):
-  KVM: arm64: Reject the GICv5 CPU interface hypercalls under pKVM
-  KVM: arm64: Reject the stage-2 flush hypercalls under pKVM
-  KVM: arm64: Validate the host-provided vgic model in pKVM
-  KVM: arm64: vgic: Do not access the GICv5 CPU interface from EL1
-  KVM: arm64: Fix stale VGICv3 comments in the nVHE world switch
-
- arch/arm64/include/asm/kvm_asm.h   | 16 ++++++++--------
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 15 ++++++++-------
- arch/arm64/kvm/hyp/nvhe/pkvm.c     | 10 ++++++++--
- arch/arm64/kvm/hyp/nvhe/switch.c   |  4 ++--
- arch/arm64/kvm/vgic/vgic.c         |  7 +++----
- 5 files changed, 29 insertions(+), 23 deletions(-)
-
-
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index e5b92ac09e69e..ea319c496bb26 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -62,6 +62,8 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___kvm_enable_ssbs,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
++	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
++	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+ 
+ 	MARKER(__KVM_HOST_SMCCC_FUNC_MIN_PKVM),
+ 
+@@ -87,8 +89,6 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+-	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+-	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+ 
+ 	MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 9a3b92e626adb..7c939baf9c1ba 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -911,6 +911,8 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__kvm_enable_ssbs),
+ 	HANDLE_FUNC(__vgic_v3_init_lrs),
+ 	HANDLE_FUNC(__vgic_v3_get_gic_config),
++	HANDLE_FUNC(__vgic_v5_save_apr),
++	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+ 	HANDLE_FUNC(__pkvm_prot_finalize),
+ 
+ 	HANDLE_FUNC(__kvm_adjust_pc),
+@@ -932,8 +934,6 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__tracing_write_event),
+ 	HANDLE_FUNC(__vgic_v3_save_aprs),
+ 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+-	HANDLE_FUNC(__vgic_v5_save_apr),
+-	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+ 
+ 	HANDLE_FUNC(__pkvm_host_share_hyp),
+ 	HANDLE_FUNC(__pkvm_host_unshare_hyp),
 -- 
 2.39.5
 
