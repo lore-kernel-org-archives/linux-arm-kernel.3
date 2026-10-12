@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661A6CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F181CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uSr6m5IUUmdJMVXqWyhLpSygHVE/kttYLhxfsdJVqg=; b=VOOX/5oMV+RpiReG8+TwFG3kS5
-	p3iKKJJtK7Pb4ufYxLDxip1UYoDy0c69BTe+9e7mdCYt0dXCXVvsD2JKysHQwnYKm3CYFAYWbQRig
-	tMP36DUTYzIMf4qtoRq8uXGC9pmUASMJuOBhFvKELj+Zy1PqIRc5TmttIRWeDY7DBapgHLxoUzv2M
-	HCT7YTUdbeJp0+DfDxp6JleN2EOSt3GTDYEE5+ZrxugO5mHeKshlX93N/HJX35zwCNoIw5j8xJ8/d
-	EhPquBWlHRBriP5GLl3L8Wc5CzXer9Gb8B3BnGQ0ftPyphlIuzyLKkElRiFUnGCT0DQWVDRz66zKN
-	vjZpgPKQ==;
+	bh=2UF1g1L39b0T2WSsLrDGz3aAt7ouAKhUKqYELSYbPgY=; b=IohyHZGTblGJ0kQg0/yNrBPVaz
+	wIrkPqPIVmvOuLK6KF7OUPRcrn5axBr3MeFgqrVFSqrWNTjSiS6KILSWnsqQ+m6Yn3YNUOmVBfDqL
+	Cj+xtS7vhD3rALxFj6/dro6QRRu8V9xlRhU0A5h3STLRjG5uCk7MPzhkGGErE0+sATSpAPTkjbcJO
+	J8YkTN0rDwosM71vazW1eaLX83ihpUSXAQo6f3pBKWcR+69H+D5ZXPHdEp7u5iPLVQBLO3RDAyuD9
+	e717uO0s6ZRWxBu+MGvu8NnO0ol4mhyHKaioDCIhCLk+rttgIFygYU3Sie7G//ANs6UNciTaedgJ/
+	FxuA59FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEaS-0000000ANnG-1eMm;
-	Mon, 12 Oct 2026 11:53:00 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1xGEdG-0000000AOU6-3fft;
+	Mon, 12 Oct 2026 11:55:54 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEaH-0000000ANj0-3GYz
+	id 1xGEdD-0000000AOSp-3gkC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:52:53 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
+	Mon, 12 Oct 2026 11:55:53 +0000
+Message-ID: <19b5306a-2783-408a-b649-5d9ad63eb9f9@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1791805963;
+	s=mail; t=1791806149;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2uSr6m5IUUmdJMVXqWyhLpSygHVE/kttYLhxfsdJVqg=;
-	b=Wp7KX2VLLuZAs3LTcrC7KEjIJ4XLO/WSyu1zfa9D5A8/o46sENRr4dQ8ijiZBhAFRbpg1+
-	/rkv6TjIIeJ3O4oGzZXvfglHiqsgO5KT85VMFhuWKC2wAaUxXyCKv6QvG1uDFI3f8MVMpn
-	abTQ36GvOj81eXhH57dgy+geFgtDmJo=
-Date: Mon, 12 Oct 2026 13:52:36 +0200
-Subject: [PATCH 5/5] arm64: dts: apple: t8140: Add i2c nodes
+	bh=2UF1g1L39b0T2WSsLrDGz3aAt7ouAKhUKqYELSYbPgY=;
+	b=s+Z6LiEGyZRFaNqa7pb2KvrwYCgskAFK3nJCcAv44Q1kMo2O8OQN8OZlchAchsnoRo7bry
+	J+Ri8bVkcGl1tgkYb5EJCeAXScypFlURD/t5/tIRCiH3wvoUxrzScV37RWRKbyggcEXbMD
+	ocQwQBxhGe6IjXAzmNwlkN5vmfiscQE=
+Date: Mon, 12 Oct 2026 13:55:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH 07/10] dt-bindings: pinctrl: apple,pinctrl: Add t6041
+ compatible
+To: Yureka Lilian <yureka@cyberchaos.dev>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hector Martin <marcan@marcan.st>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <ukleinek@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>,
+ Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>,
+ Andi Shyti <andi.shyti@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20261010-apple-m4-pro-max-initial-devicetrees-v1-0-781fb3f2d9f6@cyberchaos.dev>
+ <20261010-apple-m4-pro-max-initial-devicetrees-v1-7-781fb3f2d9f6@cyberchaos.dev>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <20261010-apple-m4-pro-max-initial-devicetrees-v1-7-781fb3f2d9f6@cyberchaos.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-5-6c757966a99e@cyberchaos.dev>
-References: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
-In-Reply-To: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-i2c@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_045250_036834_8907716F 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261012_045552_080491_D460A566 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,68 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the i2c nodes in the Apple Silicon T8140 (A18 Pro) SoC. In the
-MacBook Neo, i2c0 is used for the audio chip while the internal USB hub
-and mux are connected to i2c2.
+On 10/10/26 18:59, Yureka Lilian wrote:
+> The pin controller on the Apple Silicon T604x (M4 Pro/Max) SoCs is
+> compatible with t8103. Add "apple,t6041-pinctrl" as SoC specific
+> compatible under "apple,t8103-pinctrl".
+> ---
+>   Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+> index bc6d41b63b5d..faef287309f8 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+> @@ -22,6 +22,7 @@ properties:
+>                 - apple,t6020-pinctrl
+>                 - apple,t6030-pinctrl
+>                 - apple,t6031-pinctrl
+> +              - apple,t6041-pinctrl
+>                 - apple,t8122-pinctrl
+>                 - apple,t8132-pinctrl
+>             - const: apple,t8103-pinctrl
+
+As Linus noted, the sign-off was missing. So here it is:
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
- arch/arm64/boot/dts/apple/t8140.dtsi | 40 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/apple/t8140.dtsi b/arch/arm64/boot/dts/apple/t8140.dtsi
-index 339a6b4f283d..3b4f7695552b 100644
---- a/arch/arm64/boot/dts/apple/t8140.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8140.dtsi
-@@ -297,6 +297,46 @@ pinctrl_ap: pinctrl@31a000000 {
- 			             <AIC_IRQ 269 IRQ_TYPE_LEVEL_HIGH>;
- 
- 			apple,npins = <216>;
-+
-+			i2c0_pins: i2c0-pins {
-+				pinmux = <APPLE_PINMUX(171, 1)>,
-+				         <APPLE_PINMUX(170, 1)>;
-+			};
-+
-+			i2c2_pins: i2c2-pins {
-+				pinmux = <APPLE_PINMUX(165, 1)>,
-+				         <APPLE_PINMUX(164, 1)>;
-+			};
-+		};
-+
-+		i2c0: i2c@385010000 {
-+			compatible = "apple,t8140-i2c", "apple,t8103-i2c";
-+			reg = <0x3 0x85010000 0x0 0x4000>;
-+			clocks = <&clkref>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 1108 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-0 = <&i2c0_pins>;
-+			pinctrl-names = "default";
-+			#address-cells = <0x1>;
-+			#size-cells = <0x0>;
-+			power-domains = <&ps_i2c0>;
-+
-+			status = "disabled";
-+		};
-+
-+		i2c2: i2c@385018000 {
-+			compatible = "apple,t8140-i2c", "apple,t8103-i2c";
-+			reg = <0x3 0x85018000 0x0 0x4000>;
-+			clocks = <&clkref>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 1110 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-0 = <&i2c2_pins>;
-+			pinctrl-names = "default";
-+			#address-cells = <0x1>;
-+			#size-cells = <0x0>;
-+			power-domains = <&ps_i2c2>;
-+
-+			status = "disabled";
- 		};
- 
- 		serial0: serial@385200000 {
-
--- 
-2.55.0
 
 
