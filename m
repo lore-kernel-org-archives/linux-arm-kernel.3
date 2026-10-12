@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7CDCA9EC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F11CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 15:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=38kCfEsA3n1r4yaseZkXBQU6ws
-	Mroh4DeZ+mXKFVhdrtIaSOJCtfSnEKWzb0l6DznRJpoA64y81ICuiVlEjnUyf0QSG+f4y3cWw5q47
-	Ci3Ckf0jwAYvePctZlqhbOzV4W3VxCNsbI/SwrGab+f2uRDopFCKMd1uh7upbd8pt/PyhiHqeHmR4
-	+54Hm0dcbxF6zXHCqsrVYZg8+M6GRKjdqDj7kMOjf+UUgY780/ymcnyx75XDEJ9962XH29eUE0cJq
-	DvK99FkwfPZkoaRHLkg4GyZGW7pS1aRdMBcMk/9DjVpb1oBlxy5LBWVRoYD+VtY/zCGJhmE6qDy+p
-	CwaibbUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9RalS/cTcqwsvzfIqCagLYWCk6dkc4dqFyKF+MlULZ8=; b=i/hBRNCOY0gSivy9ERUDL+YGWe
+	8hTr2SzA8f7Yr+OMQzd8iOee7l3qwooZrTZmmxHPzo21w69TprrDeT7ynCdPVEPMZ4habhydelo84
+	IoCYfU5nGINkYzg/VZGlAAGw9qnVOaRPah7ME2Z3vs6+WHl1+4O2Zb61ZCI+JduOU3cT3fBCEqqvW
+	WtdfLh+g0T0W0hnDn8j6f81p5c7kdHfG5YpxEVq1ufjn42fGoK7yzKNlS6H2zdQmhwOtE7psvMI05
+	PAY991yiI9JL0NoKHlQ/8x7XDbxzYDi9CL/PK8aEgY3gW5bnvP/tNQ4sH5AACsHVxGCqmIQA+nzs7
+	oj+T34eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHzG-0000000AoAk-1rt1;
-	Mon, 12 Oct 2026 15:30:50 +0000
+	id 1xGI0r-0000000AoOj-42W3;
+	Mon, 12 Oct 2026 15:32:29 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHzF-0000000AoAV-2UNV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 15:30:49 +0000
+	id 1xGI0q-0000000AoON-1LCJ;
+	Mon, 12 Oct 2026 15:32:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C0DF602D1;
-	Mon, 12 Oct 2026 15:30:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D41501F0089C;
-	Mon, 12 Oct 2026 15:30:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDC2A6020F;
+	Mon, 12 Oct 2026 15:32:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 932731F0089C;
+	Mon, 12 Oct 2026 15:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791819048;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hKkW2znF0TQvi5ugzZKk3qwCJSKhgDn4ZbnNdIwbIibdCq/pKY99M/ZLYeb8txmQM
-	 GNGFiFMtmBC43gCUqrptLkqvs5u3CyTnRk5huMQq7q0iP9e6oLxiCyrxpdNqtTE1WD
-	 PQMXUU6UP3Iv54/gGqCM22HbgQ9Bm4Pxd90ix+6wRvtJuXCBzDEGt7P/5dlRtxvUfJ
-	 YNEIAPB4bcpNdgVP4Mj5o7YsVadjXVyGY7yrjSl5ifvumoCaFWJKX+vT0ZIFnbmfMJ
-	 k/7H6CzeFz8HxCfvW/NtEtwNjwphmiYvsfHq+/MYs+tNV5h8ViAnxnG/x2mz6z1US1
-	 Hl6itQDYej2rw==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>,
- Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 0/2] stmmac: some XDP fixes in XDP_TX path
-Date: Mon, 12 Oct 2026 15:30:47 +0000
-Message-ID: <179181904740.2527009.16307700795539761723@kernel.org>
-In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
-References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1791819147;
+	bh=9RalS/cTcqwsvzfIqCagLYWCk6dkc4dqFyKF+MlULZ8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=BLfowVUDFCXLcBE+jUBEJcCE17njSGG/cEAXjI9SvlCmRgJ0RrMUebOvIcBAL22BB
+	 A5D1Ri6caBnDzMOyvw37AhfMKib7RzMuriZqCSELM5q15v3sxBzfQ8n7TqBMg1MALg
+	 f3P+U+A9SBVHtbrlZkYfADTjPQJMACeNex5p7EwJsb/Q6fyY5ByM1kTOML9DLEjduS
+	 vg1xLLhUq2LLv9TqJQ7596pdNj928fQNhattCPpvQEci98nbFuNBOI20aOTmMGRjbI
+	 iabjxCy/wtzovR4naUlpBT1NouVwoL8cfFW609Er4QIxLWEecFqpPCxGaIiRJ9emGT
+	 3iz/OYxGy2RzQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Muchun Song <songmuchun@bytedance.com>, Andrew Morton
+ <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>, Oscar Salvador
+ <osalvador@suse.de>, Dave Hansen <dave.hansen@intel.com>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, =?utf-8?B?Qmo=?=
+ =?utf-8?B?w7ZybiBUw7ZwZWw=?=
+ <bjorn@rivosinc.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Kevin
+ Brodsky <kevin.brodsky@arm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alistair Popple <apopple@nvidia.com>,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>, Muchun Song
+ <songmuchun@bytedance.com>
+Subject: Re: [PATCH v2 2/4] riscv/mm: fix hotplug page-table destructor
+ handling
+In-Reply-To: <20261010112457.49485-3-songmuchun@bytedance.com>
+References: <20261010112457.49485-1-songmuchun@bytedance.com>
+ <20261010112457.49485-3-songmuchun@bytedance.com>
+Date: Mon, 12 Oct 2026 17:32:15 +0200
+Message-ID: <87ik37aq9s.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+Muchun Song <songmuchun@bytedance.com> writes:
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+> RISC-V uses the same memory-hotplug teardown code for linear-map and
+> vmemmap page tables. Late linear-map allocations run page-table
+> constructors, while vmemmap and early allocations may not.
+>
+> free_pte_table() unconditionally calls pagetable_dtor(), corrupting
+> NR_PAGETABLE accounting for constructor-free tables. free_pmd_table()
+> avoids that for vmemmap using is_vmemmap, but mapping type is not a
+> reliable proxy for constructor state. In particular, it becomes invalid
+> once runtime vmemmap tables use the normal pgalloc helpers.
+>
+> Introduce free_pgtable_page() to select free_reserved_page() for reserved
+> pages and pagetable_free() otherwise. The latter runs the destructor only
+> when PageTable() is set, handling both constructor-backed and
+> constructor-free tables.
+>
+> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Nice!
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
 
