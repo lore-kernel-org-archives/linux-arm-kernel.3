@@ -4,161 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10BCA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575D6CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=; b=h2Ut9YJdJDV5SJh+BV9N/2aLQO
-	hSScHsi9BfuY7uGvE3XwWqNwiM9lZTkP8mt+1EWOp4HOt9MQ4Mrz25zhQAp+ORdRL7u1pLLdW8u7P
-	eHDMQ9S3hV3/DCHg1OxtZ0mL0/hzkXm2mMO4XM2VYHZvmvmgz7Q1/wkUFf91WRcKeAZtBZRXqUOmy
-	Gm0FX/o1vgRsz92AO5jgbTKcUHy0HP9+ljWtnQ2oFBgGSpB7Ubd87JtdnDT7sLgrKpmc3Jo3R/JP8
-	ZUbqpKHY9vXfAUv7SeR/DIbI6lQVcBEy2y9n2JxAwBOvyl0ojPAuIsQiHkhESEXhEs3UlNlyguU1S
-	c9tf8Rfg==;
+	bh=bvdITlXxXRs9+bE1z27dUqm2hDNvQ4h8RL3okI6zm0k=; b=zUackAPRs6g98SVj97KY6Tdern
+	HftP0NQBv0OJk2ZM4IRIWFOijvHJbWM/11GqIllAoq+GXTjh3AY6cmoaBikh4KoKPW5WD/wl8YQAB
+	DIKrN5WzDid0Wa5wyNGtMbWY29hk4pCLtS+7QmEgQLRfeD+VtPrKpC3ge2RrasVfuFg/g9Qw3Ztle
+	XdmRDH4P7s7prbLonBuvB8LPpg6RKcXwNR6JEE2mIdqEd6ybudTSLAQXAY02vQlFQ2vxjhyMQXgTE
+	NTS1pjsYzB+xaU8csYv30FTczrwrzKfPRyDo5ZN/LlF/nGAgL0OojMQ/tGOidlku8+gfmESUF2T+m
+	/i9kr2yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKzo-0000000BGxd-2pMk;
-	Mon, 12 Oct 2026 18:43:36 +0000
-Received: from mail-westeuropeazon11010046.outbound.protection.outlook.com ([52.101.69.46] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xGL0A-0000000BH4P-3lnf;
+	Mon, 12 Oct 2026 18:43:58 +0000
+Received: from mail-southcentralusazon11012016.outbound.protection.outlook.com ([40.93.195.16] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGKzj-0000000BGvo-2SUn;
-	Mon, 12 Oct 2026 18:43:32 +0000
+	id 1xGL05-0000000BH2X-3O5z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 18:43:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cM880S8+V+EZ14Vo4OUN3gVrvLrpFXKP6410kY5pjaxZ2xpW7xvcR5/8XQxxSSmZhDgSbOdCcMOtfkw+1m5FjlOQdojGNtbH6clqDFpCNOmcDNZPLFGEzbilN6GlOLalow9U39H/XAm4Ity5bmlfA1rtKXvMxs+zBYd0Im9YxW9Ex8PjVMxWZiC8RDUV8UaHyVkeP/fM/XAkVXK1PtIv3gOEwBJxBjihR/RUbwJyK5qE0AbMKLjgtBz6WazvDhN0/Yxe6YPvthdt0PVd65nsR8Y3nvM8NpmJaQFs393cFOVsoKITvQdtfAZr2laSmaRffrkUGlmOVBOeXYOFYfm0XQ==
+ b=UrgV7xdQ1c9P7ZzYSvudENuWrgQvt9pZs0yBmt3TB9oFPkkllRnKrHbVaAQ9o7iJrK5htPt8SdayuQOGGsrjY6gqRbIFU2i5GcMbSk+COnzm+4fdquYdCb3Nf9n8684y4XIJ3VMJx2VmF8ptgoiQRQRSnqw+Aq+bP0rQ+z46TIqW9R7cUZ5UtnJF648LslXGXmo7VTbqzCn1g+tQa/i2FIgX/gZA1en0KiRqtiowySFKXdMwxYWXI+R0pCWXz48+MFe/Q7jxULXmusk+XzjjyHikL64Om/+X5YedF7DomW4BqBJIIg08Ev1fN3rZqRHkpNay03HvtyTjAawPTJFRfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=;
- b=SjAGfPWrdZ8J55eQKE7nh48jiQVI6r1Zu7CxxTIbd0bXWvy3MRgevbgh/kDzoC2rIlINElkXaJuDO7D9901JOhEfrRV4DGL+3PZQJ558t6eKn3qX/2bqfGaxkBJ2nihY+VYYE2FkRx0O/46tYcRqdBf+GJwNRqcHmPckmshuEsVIz3PQPOoZ/gjAwEqPmroWqRCkkbnwqXn7U6Qj+hGSb8Er5OdEqsOivyyLIh3Uwsn66aIeumbJ+letC7uvnKaD9Wg5lpy17wtYzv6/0XxvzUGZ193ic+h6HsWSDt8Z9O0jqTrMWwb35Qcaqkg6KBmK51S4IkCjz5+55lSHvc8hjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=bvdITlXxXRs9+bE1z27dUqm2hDNvQ4h8RL3okI6zm0k=;
+ b=QZ73VwpH0IsLcJ2G8KfBakGDcjrtdmN/PfmYJRkNIENN9PJIA5tYf/ja02AhlYGYxnLVnVk8FC9WPzqZ2B8eGXhJXAzou4dOfX7S8N4hJE5r7GVtdI512mG5iTT6FxO/TopJpXOPDAUnHmX3LTcoZ7jWtS/Y6kR16Bxd/7xmlKxgPdzaOP0pjl+NjJnh9K8jDMqFTsO/mIUda246Fo41cM69B4QCz3wBRbbJWozMCVFKUYaIsqLwtaNAKLMpxW0gyrsGMy9VVinz58n5YjJl3igARB80t8oV0AhTV+CwqejyvXiyGtPneHrCQl1qPilgWxgfVtRJbCIGNwxA3kwGcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YwQBedko8sbySKXN9Elm9cJu8dLKGldjjgM4x8UNyd4=;
- b=ozXjTQPdmyOUR6461ZWwzxKdXN8xkZJelM0ZnVnJQM/62oo/M8MRPeHdJtf9U753IP9rEv0zxiIQjpQUXstcV2coBFUAWzhxJkHRgK+y80ewPTSxN6BX4pQ3SNHtA6vGvvrP6PB6YPmEuD0hSLM8oz3cNFF2sMMVIL5XjDp6LcCr5t9lAQ51E7fhmWp4wF/VtewmTe0pb5FKUM8V94MLtsI/UbE/GS0/ftcsxmdzSVxFlPEEfXT8+vQaRn1qiox6wFhgNgeENVx167DCkxCC5T/7KRCVnXm7bw6PRWiR3S1cXFcBE6aHkjE15RSAlZ4qJTxDpnPnhASZcYPsFnGPlQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB10716.eurprd04.prod.outlook.com (2603:10a6:800:270::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 18:43:21 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
- 18:43:21 +0000
-Date: Mon, 12 Oct 2026 13:43:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: jan.petrous@oss.nxp.com
-Cc: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
-	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	imx@lists.linux.dev, linux-pci@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: Re: [PATCH RFC v3 03/12] dt-bindings: PCI: nxp,s32g-pcie: Fix SerDes
- PHY phandle in example
-Message-ID: <as0qORxP0Roh9ktO@SMW015318>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
- <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
-X-ClientProxiedBy: CY5PR19CA0006.namprd19.prod.outlook.com
- (2603:10b6:930:15::29) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+ bh=bvdITlXxXRs9+bE1z27dUqm2hDNvQ4h8RL3okI6zm0k=;
+ b=NauwYn5bgz0HUZ+qqQKjlO355S7DBVkUUgP+pukr75y8SRkOW18yZ/oNrBsPK26/TN3daGj12tANJCHrOr0DulSrcKu82MZ9seUq5vb9aFb/EgN3zLfFoo9BUKlf5BkRi6D6WqJZ3Jf9frLJc0Ql3UWM/88B3Icj+J6l6iElh2nUhLftqrOLfrZAQ8ZSNVuNLXaQBeVlPCcIsHpawuN5EjwbJFnJ0gT3DtRIQlWKP+sWv0zsv/fJHmiKkLy5pBmfDrcYq3qJoHLRzj3MeC9pqvAqE4sYj7InjECHYW8ngAMdDuzGXbHCV34YBh/su1aFRdDK8oeaNHaBkuk7zfbVJA==
+Received: from DS7PR05CA0062.namprd05.prod.outlook.com (2603:10b6:8:57::8) by
+ SJ2PR12MB9239.namprd12.prod.outlook.com (2603:10b6:a03:55e::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.20; Mon, 12 Oct 2026 18:43:38 +0000
+Received: from DS8PEPF000000E1.namprd05.prod.outlook.com
+ (2603:10b6:8:57:cafe::a3) by DS7PR05CA0062.outlook.office365.com
+ (2603:10b6:8:57::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Mon, 12
+ Oct 2026 18:43:38 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS8PEPF000000E1.mail.protection.outlook.com (10.167.23.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Mon, 12 Oct 2026 18:43:38 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 12 Oct
+ 2026 11:43:13 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 12 Oct
+ 2026 11:43:13 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Mon, 12 Oct 2026 11:43:13 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+CC: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Dat Mach
+	<dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Mon, 12 Oct 2026 11:43:12 -0700
+Message-ID: <20261012184312.3177093-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260924-private-bobcat-from-wonderland-0db8f6@sudeepholla>
+References: <20260901192906.133670-1-jamien@nvidia.com> <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla> <20260922155211.676134-1-jamien@nvidia.com> <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla> <20260923124050.3270801-1-jamien@nvidia.com> <20260923-lurking-pony-of-fascination-ac6c49@sudeepholla> <20260923173240.3710620-1-jamien@nvidia.com> <20260924-tall-oryx-of-attraction-23ada5@sudeepholla> <20260924152321.3864148-1-jamien@nvidia.com> <20260924-private-bobcat-from-wonderland-0db8f6@sudeepholla>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10716:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1c945f3-de41-4a5f-0422-08df2890afc8
+X-MS-TrafficTypeDiagnostic: DS8PEPF000000E1:EE_|SJ2PR12MB9239:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6d9e58b-5c4c-4e44-1d4a-08df2890bade
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|23010399003|1800799024|11063799006|4143699003|56012099006|22082099003|18002099003|6133799003|261009223027099003|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: IfcSg5xQsvaevAib+loyfoVr1DihwvkYT+CsxLCSyfHHN37z5Ip7fdPT59Rls8wqxmX/2DSwkbwZ6DzIGlP3qSlXn9ymB8YrGjCvr7ym5z1YWno8a2wUs3p7IodTj6H4pxVGNiCQ8z75YfNZ6PLpltsgodLj6fOXowT7zjcFsZ6KCuY3ADQitfkjwOwJIuAjHsqBXjEz76kz5hcYCHdm+tAxnPsEzFrmoJd+Oap6345kExfXHZsPc21ZUa4nhnf75NgFSYAfdnKjvQBSqjz/TW4CaPb3jyGE0os9RUtfGk5WTx/AB2Juw7mCzaKb0eSAaw8msn6DU6vKGSn0S0CFGRzKhUyVXK3U8HoNCcTkOInx/0CNkOta00ees1z40ndwz4RNezYfu5nmPHYAJVImSdVmDeYUiJJOTJtjy9MyquwE9qKE3keRaOCnaO8cDQVxAKsLVmBClJGgxr+7LWu1a1cEcs7lKb2Q6HI7jzmUO0MoLLxlV8ZWLsL/QmkTXMeuWiiBm+6kmrLdeySRQFZf2wCVLQJ8BGpAUgdhbqKRu7ng4gfD0lv7Hl7prWW8LbcN2JtXrsKZDME3CUKiaDYwdRbMZDdup2SMTrTJGdfnB9Yv/oGivEEv/r+R3xnDCgSLQwD3wEuSgapFgc6W2xEPztR8gBoqz71ArOudIuOqvgQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(23010399003)(1800799024)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|36860700016|7416014|82310400026|376014|10067099003|261009223027099003|4143699003|11063799006|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: BMrwyFMx10nfsL4OTzNDwuKImqSHS+tSKPkNOYD7aCWLcBMsH5ELk2I1bLB3v78TgKj6kAAzdI840HDNpoQQ/OrzMI5n2b1Jf1wJxUJrOUlRM/oLrlQ6qHWjnjLWFKdBezCpGnMNZjgeQdgcQI9aoXSh2+TniM4dGZ6pLaiyDNuMhgFoYbdovee3H2uQtwFioRpm/ivEbeHVxf8ILapAg1Tu9gq0vdCXbieuU5DV3e+42M7q/mpYd6ZOtyzk+xqGzMmXO05VN1i5o3D+W3tuMDyy9a5PX6BPRgJVURYen/ab1QE/B49AWW61JHf7DR49tUfU8ST5HH95FwWGH6hPF1VJfZOusO5cp4WbBbLdZjYdPYpdatcUhOGWDmdgslrM1DAF9hWoToD4xn/1MLTOw0PPsPyK6zAcE9XfnVp71XwyRR1nGdT4SnjmyKs5Et25uI2tlmRW9fLk9y6oB0Fwz9LgVssaYvC0Sw5uwWXnYkB8hju2dHSBWNmGna7Vb5XhQtfJUCtXbum5I1pBa8uH0xc48TMJQxI6dQ2RGArvK1ggwfMn3ia3ZmJz09GHRxr33ZqIq3F5vqEXht4gnlw/PoFakK2h+rAOo6MhqIA9191z9V0hMtjp/w7TThFHrH62ozGmW+X83CBXTybomqWN9EAlEMQ3dXDuPZEjkgukbTfR1GrfZb/5v+Dai4K4xQgcvARrazK/fXb52EPnhSWDxw==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(36860700016)(7416014)(82310400026)(376014)(10067099003)(261009223027099003)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rk2aNl7bzMpTYd31cOd/KYyfy/q534R99OObTr08wW02VMUdtC+33fjXrzoL?=
- =?us-ascii?Q?9L+0Uu+C+5hOKVfJeaUBFKj0reRugVGmTiYaNZHXgxfSbunR+4vwdy1WrxMn?=
- =?us-ascii?Q?fdaKqEwg8Vuy+uCz5emmlq2Ougg2jJzTKz/hZ8EyINMqJ1yEDEbCuxjPj4/E?=
- =?us-ascii?Q?7hh5cHR89eDKNV/ecIk2fp5V59x/VFPw3wt1K8ScFaWuSd362W5NWTx2meGj?=
- =?us-ascii?Q?U0OqhaTvTneYTKiomF7ANILR4JfP6pGNqLJev/n8jLxAeZ+Tf3ViIDoxxDXB?=
- =?us-ascii?Q?Dzc+Skw//FhK07APkxEpKHVbFj9zCMdPQ8HxwHkR6y2FeM6Wm08vVS/LwG4V?=
- =?us-ascii?Q?nldMFGKcwNBoSdmtAxec+IM1TGOe2O8aKXR4a4lixNU9knVRCV4dNtcEVK+A?=
- =?us-ascii?Q?pnd8H4RIJxSuFFz0ow+9DgID9+KZxMQ9RpoiPRzc7qUv8Mj2jfuYv5j5yR8S?=
- =?us-ascii?Q?Nmcfqb9Cie6Sp+96CUvWn7nrUGIMAh2+O7bb0FWm1jDOFWcSr7sO7itjC+pn?=
- =?us-ascii?Q?6EetS51Stub3z68RLge8oSDPm1uz7azHYCCCa/3susKXJ6ufYYAa5/VeHwsx?=
- =?us-ascii?Q?1by60Dk+cxHzF4wW/6QQ96OQW7sAHT51CYbrVsUGKKsU8r6z1BW/jB/tksFR?=
- =?us-ascii?Q?tpIsFCgQA+asjq2cYdmQrj5Imbsmty6epY+66VOYZfYJrc1WByMm8B7E1hz3?=
- =?us-ascii?Q?aIUVYF7r9BWG0IjZ8DxR+w4p19UKLmlJyc9l6hRrAPyxnsjvZ/eRXSuiwbAg?=
- =?us-ascii?Q?QyRkhjQULi8X9esz7dLwdnMMwy2t+fubnCHtaTtsDySFleYOfc8cAqfMGIkJ?=
- =?us-ascii?Q?S1BRE/Ply65PSk5YlIPc5z0K7+N6DVcq+fXOGj2TtObqDvMiQIc62sEZ8LNH?=
- =?us-ascii?Q?3cv7d3dP6Nq6Ish9PXISf4CVeZymm39URzBTCech2cGvhwUp18LFHGaceH4A?=
- =?us-ascii?Q?6DcwIdK5tEjBj0MRdyNWbXzH35CF1cZT/m3OKC01uEdMjLswdwmMK/7oigW8?=
- =?us-ascii?Q?9nz9onDFrjJP7/UcAPolR4Ayg/pfHoglyD4vtInb04ip9CJXs2tUowr6Xyvb?=
- =?us-ascii?Q?9tc8wu3Y+V+t+6kZhiLZIW3wLpFsjuZ/Aj31xXWijlgwZPv2cYiKPV3lMuAS?=
- =?us-ascii?Q?FcHq/HRSLI50EQDFRd0UwxtQfo91rMR23FZzEqc8hmYO9VjGej5k0H6L5lwQ?=
- =?us-ascii?Q?NQXn1FCUpfQqp9ZGiHrKU22mXnXiOh3OLWrfd/CNtSKwrJRKB7KWgYRF1af3?=
- =?us-ascii?Q?K1J3DnZET2beLaifysSg3+Dfx3DIlthqMyMEvhFKlRmwizQy2otFlhQ+cnir?=
- =?us-ascii?Q?j/+e7+s6pwKnhqCu2P6Lv1UXDdW0SfEec6JeedM835rbEgznmmDI1AcwOlmF?=
- =?us-ascii?Q?5s9RMU1wK5HzRc7oSrKe8D32HgN611QxUHgCpI1398FCIBuoHCUs51ba7xTX?=
- =?us-ascii?Q?7oiVAM49lpL73+1Fz/vbznDbztANcw7ULd4puQymDI6tFKA7Y7dXQnRCcmIj?=
- =?us-ascii?Q?eNgg3qh6gZQoQgO5jr9ju6XPvtCwZUyRbI693BT2W6LFddq4drzXRQvfSO5p?=
- =?us-ascii?Q?SyAVwF8XI2rG5to+KxO+Q39vNw74WSNT1tKiFpju6HkMwouv6zw+X/o2a9SN?=
- =?us-ascii?Q?NS12kEdxEUousN0S9Lt1B0C0wne8m2YS5mq+f8vHmBmSN6M++7E+xt3Cn/yS?=
- =?us-ascii?Q?EKQB5R6iTA7REOkfwBDZ31Lk3SrAVAPq0HoX7HdL7IX2I7/pATlZg3vklSEL?=
- =?us-ascii?Q?MJ6fdS3asJIzSCoDcI/ftkJfBsPDjK82J5vtkOWgAkdl/NHP3Mkj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1c945f3-de41-4a5f-0422-08df2890afc8
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 18:43:21.0372
+X-MS-Exchange-AntiSpam-MessageData-0: tg0rldpDK5Ys+YxQWL8khRoCbBXKnvcaWcVRFr+57/a/oumTfGtRqDkZUeF3YEP5k4dFQLTH2fIwYnWp4SqFoe49ygQpMUhLkh1ylyKjUeFrL1WyZUd+siVAJjiIx85nDlLgZiMQsZrNnOqUE9hOBd7FCbP5SBkePXcvIV2RpshExKKn/VVrKCAtMrAtXKIjiN7Q1+4yIoJRBDef8NRwUJTTG8vkRx0I+dkJIzmvSx1j25sJmSekt763saGV4Pg8boTfY8BNRCuQDAgq6zYCoDbXDCQ2sz2KsBQ0g1qZEuvUv6PY3QX6lgdjxU69HtOYTRFngB/NfCJMSxhvOfgVyZCJfY28+cXz2ZjVkOxHmtgdtg8oLoU8KsZjKhIuWJB1sdG/FwIfJfyoknSf8WR5EjKdpijiyQZVctDmXgJ/ixrfeCcA3pJ1h/dSb9tR0hZc
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 18:43:38.4049
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T5gZC/1In5jn/bS2coyS5CjgQEMGFPdj425ZuT4T8pR4L+/LzXrzT9FIEz5wTLOZsGIv8FpWSy1RwoXH9Lna9aLOjgnMH5rH+b28X+t45NeMAPLhj+EKqK+Rx+hjduo5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10716
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6d9e58b-5c4c-4e44-1d4a-08df2890bade
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS8PEPF000000E1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_114331_635753_4C740013 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20261012_114353_862302_6E7DB63D 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,66 +131,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 19, 2026 at 08:54:31AM +0200, Jan Petrous via B4 Relay wrote:
-> [You don't often get email from devnull+jan.petrous.oss.nxp.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
->
-> The example references the SerDes PHY as
->
->   phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
->
-> i.e. the SerDes node itself with three PHY cells. That does not match
-> the SerDes binding: the per-lane child node is the generic PHY
-> provider and carries '#phy-cells = <0>', while the SerDes node itself
-> has no '#phy-cells' at all.
->
-> Point the example at the PCIe lane child instead, which is also what
-> the S32G3 board device trees use. The dt-bindings/phy/phy.h include is
-> dropped along with the now-unused PHY_TYPE_PCIE constant.
->
-> The schema itself is unchanged; 'phys: maxItems: 1' already describes
-> the corrected form.
->
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
->  Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> index 66a050028278..29323e50bd8b 100644
-> --- a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> @@ -82,7 +82,6 @@ unevaluatedProperties: false
->  examples:
->    - |
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
-> -    #include <dt-bindings/phy/phy.h>
->
->      bus {
->          #address-cells = <2>;
-> @@ -124,7 +123,7 @@ examples:
->                  ranges;
->
->                  device_type = "pci";
-> -                phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> +                phys = <&serdes0_pcie0>;
+On Thu, Sep 24, 2026 at 05:07:04PM +0100, Sudeep Holla wrote:
+> Thanks, will think a bit on this and see what is the best way to progress.
 
-I don't think it fix somethings. The "serdes0" just a label, point to
-provider, which is not neccsary that "#phy-cells" is 0.
-
-Examples just show need how many phys and don't care about phy provider's
-arguments
-
-Frank
-
->              };
->          };
->      };
->
-> --
-> 2.55.0
->
->
->
+One further data point: our platforms using offset 2 for a TPM DSM have
+an FF-A 1.2 SPMC. I'd like to keep 1.2 support if possible, since
+FFA_MSG_SEND_DIRECT_REQ2 was added in 1.2. How would you handle version
+negotiation in ffh.c when the transport may already have negotiated a
+version?
 
