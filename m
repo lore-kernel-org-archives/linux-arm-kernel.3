@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442A9CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D87CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=Dwj6mokjwGBiiIIVXaUjmOS0WS
-	Jb0VrwMD9kdjKpFBgYomduT8Iw/fCi1vWt4FTVD3ND9rxVAdNnGpizXekTKzhWBB/ZTY3wOwopoaU
-	ilHs0BCJ35wxGO06eFIxFqg2OQXN26PHCFxWptVoW6e5LQFnXY2Hmkro3wEF4LkCjQaq8Kk57NEVy
-	Z3jXHeF9mgpdc+dH5ZVOpoyjnpCFW4k+rNV2WeBa2QFHlWm/zGwW2OmnzZPz8xr/jewIGNHzL9L2N
-	3Wb4BtOapVa83FXhjlZferFwPmNYT3YhbspEs613G9eS6DNw0LBjEJD7dc8wWdT8WZ+Gcs83V1eoP
-	xQV2c+VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/P9KONt2lHIBvkAwdoMeixvu5Zm+mO0D7DF6TXvNXik=; b=0tKBtF1PMnMsgFHcQFrRZS1ycd
+	KtpTFpUEK9KwOpE3pQbjb5MC4FrH4FjHwwwWHGW9NPDOO0Pc5MVXRSACg70JGQJ0PRYjruW+KkIKD
+	IDZPvC9Ag/V4LNJyENuZqcWYWbe1+OFV6zpllK0bD55AcGdJJMYfy/rClPaOlYb2EkX6OMfHNwZLV
+	Df0kq1nU03BiWYAmg6CfL/to0FsxR3J9+q294fKdA5IUCLiC6o/rk+0d1+cgUR4+SS/MwMr1lQ1nr
+	0zwO0JUTC6gFb5L7xpSUWtAFFwV8xViYpvsGV/fFrN4SDLO974f2tRw8nQsqfS28VZL66onL8Wxz4
+	YpCJPdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJEl-0000000B1Mm-0x8R;
-	Mon, 12 Oct 2026 16:50:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJEk-0000000B1Mf-10Xi
+	id 1xGJEx-0000000B1Ou-1OIZ;
+	Mon, 12 Oct 2026 16:51:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGJEu-0000000B1OB-1z52
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:50:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF34743445;
-	Mon, 12 Oct 2026 16:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA6481F0089B;
-	Mon, 12 Oct 2026 16:50:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791823851;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nQ1Ha96IJ566DWSumPsm1fyyjKEDtuXzozQ1iJe7SbD1KDMygCf4W1woZIHznWIjO
-	 mJC54gMuDBlxFQZ+uDbv/XbuDfOoZunVXfPoNQei0A+nRXncJCbaaO4s9dmIK11zp1
-	 PxpGrunoEh0Nt4mQ3ENx7K1aYEVjLX5VSw+4KwBPUJfuNW10cY9jZpKUkduSAF5frd
-	 9z4zqRI1NWXHUhMlpeEvu9CpS6hX76Cw9ERdb7tg+6vMRwYg/eLPdfgTxcEAD8fkia
-	 UZC70MBEnc48sL9wfxZUH7ftANv/qCwOnwdQxhbrIQnNY34XgCdSQq3epqNQnFlzRB
-	 wu10JHFkTvT9Q==
-From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- James Hilliard <james.hilliard1@gmail.com>
-Subject: Re: [PATCH net-next v6 0/4] net: stmmac: introduce XDP rx multi-buff support
-Date: Mon, 12 Oct 2026 16:50:50 +0000
-Message-ID: <179182385023.2527009.17648648661045341604@kernel.org>
-In-Reply-To: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
-References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	Mon, 12 Oct 2026 16:51:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EECF91650;
+	Mon, 12 Oct 2026 09:50:59 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 758203F673;
+	Mon, 12 Oct 2026 09:51:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791823863; bh=D+EWCyvU5lM3bpyjoskEyi+nYvM+Cu4MsxC5akYkFug=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hgH3yg7k5nLsFckquZBVNyD/rrEj0Hp+/Lx9q7hs9XYsZlYeJZph/6QmyB1y9DUgk
+	 72m0STX7+R2vcFbip7Iuqc/2XkF61poZN+1EUcU4IJtKmsuFftBBNDE9WXqQ6IxMvR
+	 9fXgR2Hf7X5oBYYY4A/U9XhZmRYRPoHg9Ocqe2uc=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Ivan T. Ivanov" <iivanov@suse.de>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Franz Schnyder <franz.schnyder@toradex.com>,
+	Frank Li <frank.li@nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v5 0/2] arm64: errata: Add NXP iMX8QM workaround for A53 cache coherency issue
+Date: Mon, 12 Oct 2026 17:50:53 +0100
+Message-ID: <179182359007.897996.12846127704007429935.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261010-imx8qm-cache-coherency-v5-v5-0-c9d6cd60c0c2@nxp.com>
+References: <20261010-imx8qm-cache-coherency-v5-v5-0-c9d6cd60c0c2@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_095105_044407_6CE90D04 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+On Sat, 10 Oct 2026 01:19:44 +0800, Peng Fan (OSS) wrote:
+> This picks up the work originally done by Ivan T. Ivanov in 2023 [1],
+> reworked to address review feedback from Will Deacon and Mark Rutland,
+> and rebased onto linux-next (next-20261008).
+> 
+> According to NXP errata document IMX8_1N94W [2], the i.MX8QuadMax and
+> i.MX8QuadPlus SoCs suffer from a cache coherency issue (ERR050104).
+> The upper bits, above bit 35, of the ARADDR and ACADDR buses within
+> the Arm A53 subsystem have been incorrectly connected, corrupting some
+> TLBI and IC maintenance operations exchanged between the A53 and A72
+> core clusters.
+> 
+> [...]
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Applied to arm64 (for-next/cpu-errata), thanks!
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+I tweaked a few bits in here: commit, Kconfig and errata description
+texts, some code comments.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
-
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+[1/2] arm64: cpufeature: add ARM64_CPUCAP_SOC_ERRATUM for SoC-level errata
+      https://git.kernel.org/arm64/c/cea68e7489a0
+[2/2] arm64: errata: Add NXP iMX8QM workaround for A53 cache coherency issue
+      https://git.kernel.org/arm64/c/d44e08dab27d
 
