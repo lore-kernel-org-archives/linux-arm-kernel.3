@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A902CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23D5CA9EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=; b=ydhFlDUSFcqVUc20F4f7pCP0ik
-	NaUFPBp11Lq+qpTB3bN2G+TAWVvyYleB2VwQ+r4mCLcAbXXP3Lbnlc8RWwwlsUNsrmUqbliVG9Kbr
-	qIci1RtlAYnZLlB7Z/QIgBs8TWeYVZaNBy/g+JAjjvMj1FZ447HpX6wimJ0xrnln0NGU4h6Z7Ibt0
-	x7aX2myrUMlSW7+vUBm+dik2WYDRInFQ9r+6MP1fmInjfz7Hfch0P2uhkGgYMbJ7IUCglzCJVflmJ
-	hykbxTgu3bitsZ8qwbbHvhuoWnxmwlC31VPctHQbt5dhEccduQgJW4ka/fOBHc10Vpq71CAWLz0lP
-	TI7E7aAg==;
+	bh=IbKQHaL15IUAgz6gMc8xEIM/r+aSlaz4R8KarTD/aas=; b=cdmSXChq7HliY/WJ4PU21atDpU
+	Jn0CEuoEt8OIaWfOcZQqKzaApVdYfj7RoWzJQi28cCvYTj/2eC0yboFxKvXEjrzQJMUgo/oqjD2fO
+	OUsjGsnezg30NnSpjZQIhjOAUb0/Pzy8qNrfyq1atgtZj2l+VsNbRkFRpayu5P4YXsMfaduW66HnU
+	DkzDyVQApx3/KtNEisYBCWtp3Md/7u4LuloSdZEeNxtLlgwB/GVP0wnaKLDw+W8x43dzE0BiENUAl
+	qtBM4/HzHXU4ESzvYW5C8nRLHGrSC/dp0sa65w2FnnVjH8nOGGRYdJYRwPGgYpcZOO1ZAKV5xWeWb
+	EEzeURnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNFv-0000000BWWu-050O;
-	Mon, 12 Oct 2026 21:08:23 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1xGNI9-0000000BWiL-1wSC;
+	Mon, 12 Oct 2026 21:10:41 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNFs-0000000BWWX-2AVT
+	id 1xGNI6-0000000BWhx-3Oww
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 21:08:22 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5bcb3726952so569796e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:08:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791839298; x=1792444098; darn=lists.infradead.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=;
-        b=KfIGoAoYX7R5rmRopfgg/aXy5sWiAlZCx8XBIez/s3dhfsglGJemZL38j+H1UUlqVd
-         jXzcBXR4g7DOtkl3YORahJIeMEEU8DwaO8WZdOBP4SYP0t+ZfAbf35EZkOF2pv8NZNHL
-         EsFGcwNHii0vIFYA0A1gObY/sQy684YU1k05pw6P0VKScuas6YAqn5K7AncnXwAN+Bgn
-         McoMIwvV/5v8GfpgFZOIHumKCdXr2pnr6Kf9y2Yb6FnUl6/pNt1MIEFTZsuau/sUFNts
-         AZ8KR8AJNDhJm9fhGQ/QjiQKlkg5LqSGA0cUZMRHuAuAqUhcx2OFGjFwDVHQ3ObN6SWO
-         s45g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791839298; x=1792444098;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BODH/PDG1/mEjAzfIXwGyZaoRCgBSiqwtAvUwN/rUG4=;
-        b=IoNgfC8qFWpW43XaGob9GCJaZN1Zyfe+cumIskT48FaxYICLy3abV8IzNJKK9sCASS
-         b5nzYOceBRmgNChVLQqHVEdSbaE3Od+93g7fLMQ6wL+SBwnN746z4tlayD40vE8LYXFw
-         /reM1Yy8teV+6Yb80UmHiPzK67OG8wzaG+wHflsa/dJInZbbvi6anilTdBXvDqLSVRmw
-         5J9vDwBSLGly5zzx/NsaDhg9ecK3EiuZLryffU3k6c5+ZGag39rB8Mw3ocEvBDeGkXEn
-         a4d5QZS1BupJGR+L8JmjXgL59yQpFTKgO6lLQTZsMm+ogfqqZoqjFObpJiOlsWJKKp5V
-         XeZw==
-X-Forwarded-Encrypted: i=1; AKwUvBxuTrd8MZItlk2Hy1g5ysmBzJXBlKH7ch+3V+JnR+1+gwjpHaZ3Mc/guzOviSdoCyuqvcZ1ueaLL2bOUgRm98j3@lists.infradead.org
-X-Gm-Message-State: AFq9FYIhyZVhbh1vlGi2mIOjSUJI1RU5BJvm6EaQggsEHJ2IKWFeXVkP
-	kAdESn5FKGqNUnk6V/+DbzVTpKzwttzDk1ElHut/fQcnfkX9qclpKiGZ
-X-Gm-Gg: AYBFou3FCX6dMiVYVKuIViRZfEeri1iwxUNI2Ihh5aiMfaJbKf2jgTtcyA3S3nkzDls
-	eP+QOMP94x6toBA2Mqp/RNGNMnLIWb76Z4XKolyBzuBrlAPi5syfPidvLNUmo3ebI8IyyIlTnNt
-	HxAGKgZXInGsB5sHHwfHRhKx2rIdB/LSSePRearN13cPX0nsUgCZvxg5NhdPZ2uLfDnSTuXAsN6
-	KM9WGdMhJxywNFatBCralhm/sLJoyWNLlPQwpk9ARVa7cs3NkRTX9yFVzGvPoS47kbq7aq2QDpp
-	Wz3tNEZBG0WSmdTzbjGfC7fUwF5uotmejudgoNERdF8J1x2goLE8Pl0SHMKo+0kdJLQ9q5hmMeI
-	3N2yNEZ1WaBKGJMz2mQ3+ZXXTmnvjnnqsxuC6hxqKdA2CtcNtNgD43LK9UeIrP0P2klwoUy97K+
-	N7iQvmNtlWaEDLQxE7S+1KDje3jduFYefeMVShLuFHJQYBXZXJRlcFpqpgr18V2HM8l6d43FLer
-	fo9+BEdcGVRnQnhVnNNLWIm9fAleRn0eHlGvt7KMZnNWyQfdveSSzdx
-X-Received: by 2002:a05:6512:3e20:b0:5bc:ddab:b793 with SMTP id 2adb3069b0e04-5bcde8cb6d0mr3744622e87.53.1791839297959;
-        Mon, 12 Oct 2026 14:08:17 -0700 (PDT)
-Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bcddecc3d7sm3083561e87.81.2026.10.12.14.08.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 14:08:17 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 04/11] gpio: Add Cortina Systems CS75xx GPIO driver
-In-Reply-To: <as1Dl08DwxOu-boF@monoceros>
-References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
- <20261012-b4-cs75xx-s2-v1-4-8a7641b7b79c@gmail.com>
- <as1Dl08DwxOu-boF@monoceros>
-Date: Mon, 12 Oct 2026 23:57:33 +0300
-Message-ID: <179183865387.2445720.12278001692808149938@gmail.com>
-Content-Transfer-Encoding: 8bit
+	Mon, 12 Oct 2026 21:10:40 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60030A1552;
+	Mon, 12 Oct 2026 23:10:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1791839435; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=IbKQHaL15IUAgz6gMc8xEIM/r+aSlaz4R8KarTD/aas=;
+	b=exsQC4Fz62WtG3a/PE/+jGyO1V/xpDMuZusuTaHMGUHVgP0hxZqAX+pQ1+2cALZuZdAZ3K
+	zAq2XQaWU/4wq0QVFVJTajOO+zkhol+rVkJMYkclagjWTTmkfGlTv6SgurqyPPj2c/Jcc5
+	5dzaIs9d8p1N5Xh2iqjlbafIq5iJJxDSWq2Joci+7gCn7KN80rXT8RcKiGySIYPJWNnX9C
+	deqEZU12zDht7G6VHfAGpnT1hNbL1w1SD74DdaOB7W3OQ9xU7sX4ubCPJaTgIswNnr/dHc
+	/moY5t52JcC0sp+ivSdYEuqDV7AG5CSNsfgQRLxjo8fLsGmp2JFYGE9AGpu9Vw==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
+Date: Mon, 12 Oct 2026 23:10:30 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
+ <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
+ Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next v6 4/4] net: stmmac: rework stmmac_rx to support
+ XDP rx multi-buff
+In-Reply-To: <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
+References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
+ <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
+Message-ID: <9bf19616bc6fd8680e65272f45d14239@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_140820_563038_684B9CB2 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20261012_141039_174605_481735AA 
+X-CRM114-Status: GOOD (  31.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,27 +80,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Uwe,
+Hi Lorenzo
 
-On Mon, Oct 12, 2026 at 10:32:58PM +0200, Uwe Kleine-König wrote:
-> On Mon, Oct 12, 2026 at 08:32:59PM +0300, Fil Dunsky wrote:
-> > +#include <linux/mod_devicetable.h>
->
-> Please don't include this file. It contains a plethora of defines for
-> subsystems not in use here.
->
-> > [...]
-> > +#include <linux/platform_device.h>
->
-> You can rely on <linux/platform_device.h> to yield definitions for
-> of_device_id and so drop <linux/mod_devicetable.h> without a
-> replacement.
->
-> The same applies to patches 6 and 7.
+On 12.10.2026 18:44, Lorenzo Bianconi wrote:
+> Build the xdp_buff by accumulating all the descriptors that make up a
+> frame, so the XDP program runs on the full (possibly fragmented) packet
+> instead of just the first buffer. When the frame is not consumed by the
+> program, assemble the skb from the head buffer and the collected
+> fragments via napi_build_skb()/xdp_update_skb_frags_info().
+> 
+> Note that XDP still rejects an MTU larger than ETH_DATA_LEN
+> (stmmac_xdp_set_prog(), stmmac_change_mtu()) and disables SPH, so an
+> ordinary frame fits in a single buffer. This path is therefore 
+> exercised
+> by frames that do span several descriptors (for example jumbo frames 
+> the
+> MAC admits through its jumbo-enable bit) and is groundwork for 
+> extending
+> XDP to jumbo/SPH; it does not enable XDP jumbo support by itself.
+> 
+> For those multi-descriptor frames the old code was buggy as well: it 
+> ran
+> the XDP program once per descriptor buffer, so for a multi-descriptor
+> frame the program was also invoked on continuation buffers holding
+> mid-frame payload. It also subtracted ETH_FCS_LEN from the first buffer
+> even when it was not the last descriptor (its second buffer empty),
+> dropping four bytes from the middle of the frame while marking the FCS 
+> as
+> already stripped and skipping the final pskb_trim(). Accumulating the
+> whole frame before running XDP fixes both.
 
-Thanks, dropped from the GPIO, I2C and watchdog drivers for v2.
+With patch 3/4 applied, these frames are already dropped in XDP mode,
+so this paragraph no longer matches the code this patch changes?
 
-Best regards,
-Fil
+> 
+> To do so, store the in-progress xdp_buff in rx_q->state instead of the
+> partially built skb, so the accumulated head and fragments survive a
+> NAPI poll boundary (mid-frame dma_own or dirty_rx break). The state is
+> saved only while a frame is in progress and cleared once it completes,
+> leaving it untouched when the poll does not process anything (e.g.
+> netpoll invoked with a zero budget).
+> 
+> In addition:
+> - advertise NETDEV_XDP_ACT_RX_SG, since the RX path can now deliver
+>   non-linear buffers to XDP;
+> - drop multi-buffer frames when the attached program was not loaded 
+> with
+>   BPF_F_XDP_HAS_FRAGS, since a single-buffer program must not be handed 
+> a
+>   non-linear xdp_buff;
+> - build the skb head with napi_build_skb() passing xdp->frame_sz, so
+>   skb_shinfo() lands on the same shared_info the fragments were
+>   accumulated into;
+> - carry the XDP metadata written with bpf_xdp_adjust_meta() into the 
+> skb
+>   via skb_metadata_set(), so it is no longer dropped and TC/BPF 
+> programs
+>   can read it through data_meta;
+> - attach fragments with xdp_buff_add_frag(), which initializes all the
+>   shared_info fields and takes care of the pfmemalloc bit;
+> - release the buffers collected in the xdp_buff when a frame is dropped
+>   on RX errors; the previous code relied on dev_kfree_skb() recycling 
+> the
+>   skb frags, which no longer applies now that the head and fragments 
+> live
+>   in an xdp_buff rather than a partially built skb;
+> - drop the whole frame when it would exceed MAX_SKB_FRAGS, where the
+>   previous skb_add_rx_frag() calls were unbounded;
+> - strip the Ethernet FCS from the accumulated xdp_buff with a
+>   driver-local tail shrink (stmmac_xdp_shrink_tail()) for both linear
+>   and fragmented frames, instead of trimming the skb or the first
+>   descriptor length.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> ---
 
+> [...]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c 
+> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+> [...]
+
+> +static void
+> +stmmac_xdp_put_buff(struct stmmac_rx_queue *rx_q, struct xdp_buff 
+> *xdp,
+> +		    int sync_len, bool allow_direct)
+
+This looks like xdp_return_buff(), apart from the sync length of the
+first buffer. Could the NAPI paths (XDP_CONSUMED and error_free_frag)
+use xdp_return_buff() instead? The teardown paths need allow_direct =
+false, so they would still need something local.
+
+> +{
+> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
+> +	int i;
+> +
+> +	if (likely(!xdp_buff_has_frags(xdp)))
+> +		goto out;
+> +
+> +	for (i = 0; i < sinfo->nr_frags; i++)
+> +		page_pool_put_full_page(rx_q->page_pool,
+> +					skb_frag_page(&sinfo->frags[i]),
+> +					allow_direct);
+> +out:
+> +	page_pool_put_page(rx_q->page_pool, virt_to_head_page(xdp->data),
+> +			   sync_len, allow_direct);
+> +}
+> +
+> +static struct sk_buff *stmmac_build_skb(struct xdp_buff *xdp)
+> +{
+
+This is very close to xdp_build_skb_from_buff(). Have you checked if 
+this might
+be a fit?
+
+> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
+> +	u32 metasize = xdp->data - xdp->data_meta;
+> +	struct sk_buff *skb;
+> +	u8 num_frags = 0;
+> +
+> +	if (unlikely(xdp_buff_has_frags(xdp)))
+> +		num_frags = sinfo->nr_frags;
+> +
+> +	skb = napi_build_skb(xdp->data_hard_start, xdp->frame_sz);
+> +	if (!skb)
+> +		return NULL;
+> +
+> +	skb_mark_for_recycle(skb);
+> +	skb_reserve(skb, xdp->data - xdp->data_hard_start);
+> +	skb_put(skb, xdp->data_end - xdp->data);
+> +	if (metasize)
+> +		skb_metadata_set(skb, metasize);
+> +
+> +	if (unlikely(xdp_buff_has_frags(xdp)))
+> +		xdp_update_skb_frags_info(skb, num_frags, sinfo->xdp_frags_size,
+> +					  num_frags * xdp->frame_sz,
+> +					  xdp_buff_get_skb_flags(xdp));
+> +	return skb;
+> +}
+
+> [...]
+
+> +static int stmmac_xdp_shrink_tail(struct stmmac_rx_queue *rx_q,
+> +				  struct xdp_buff *xdp, int offset)
+
+This is only used to drop the FCS. On the last descriptor we already
+know the frame length, so could the 4 bytes be taken off buf1_len /
+buf2_len before the buffers are added? Then only the rare case where
+the last buffer has fewer than 4 bytes would need to trim the previous
+frag, and this helper could go away.
+
+> [...]
+
+Thanks,
+Nicolai
 
