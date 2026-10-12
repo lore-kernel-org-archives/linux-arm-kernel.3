@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6D6CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD675CA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URiF75PNgbvs4L4xvvh1xNL2wlNAAM0wHsaHCGFK9LE=; b=FOD8/X0b8RxVcbt9kDwE/FWcBX
-	k9AMy1smNqdeA6rFf2roPAtj8DIE1WnzmFR4iFgr0cmCepz3/vJm4bC/wKf5C6tsQV5tgRkf0xN7U
-	cKLltzZa//cncUQryzTUnCoZeT33kFmMqTfU5/tlZCnyvRlPGWna1QdmngavKH331i6oHfsMZytA6
-	mNA7jJBvJpp3PUKiY0soeMRdcR1cly+xthXhI5O7xXHaoTb2WPiyYCJTcycPYOJPUcHppUFs0uZ0w
-	rSjPFbRzEwkR07WU19PerXFgLcKFqHwYwK26FYAZ34ddZg6HY/ItzYs+n/w+CLj42DLk0ZPeKET0w
-	OcDoDF5w==;
+	bh=tyhbkljY4YB96tI15ZEUsoVzTQcGnGt9wn4/bmEh82w=; b=BijbrNBuYhhG43trcZV9wLAxS6
+	vUFZGXnxO7ioaSurZxGatfZy+xt9cd6kVYaLIQJQZtePM4UlWSc0SKpJbKCt+Il3LJm1Fl3pvpszr
+	NFK6UAV8zuy0sbuYu5CmU+xuiCJp4A2REkrBrMu0fpRMbZAEBOTH3qsnbLvFGtQrvIu/3nQpTyLSm
+	xvSBeRuw4NWU8elKUDce4DvZSe9qY6meEnTjyG16Hh0pT0AvVwHSArs6tzYKKKmTzMqsg/4S8JD55
+	u3AgS2/vegtpWjJdJMxZDdG5U5zs4+mJi05jt5kY74RAaAOsSQYBrKrGqhi1ZXVtT0NioK3foh9Il
+	kVMXOCnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGA7J-00000009nzX-27de;
+	id 1xGA7J-00000009nyn-1IRY;
 	Mon, 12 Oct 2026 07:06:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGA7C-00000009nuf-0CPT;
+	id 1xGA7C-00000009nuq-09M2;
 	Mon, 12 Oct 2026 07:06:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5161260D9B;
+	by sea.source.kernel.org (Postfix) with ESMTP id A608244834;
 	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F0B50C2BCC7;
-	Mon, 12 Oct 2026 07:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FB43C2BCFC;
+	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791788789;
-	bh=PynJ5xo9Sdp/Ik69/y60OZIBerQ/6DJ4h2lEOta72bc=;
+	bh=oU7OSGsGCChxtb0imBFJs3qamuS58txChbo4oafcXSU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OShEHpcSfOgatEsFpHxARApYwR1HN2T5cHij8j08LA/E8JqTMNVwp1ZepNRqx8Pqe
-	 +09YWGEcfRZgXBRl1JSB7oHwxK5YBWlU2tUb0h09o31uek8Yl+G/B8Etad39j3IGuX
-	 5PfvHH8npEZUnitnoK2h8RrA7jkCNl4XO0bQbLNKVH4hDHLsy9EtbjAwiSPFpfSR2R
-	 CYTISJuj0xABhrRnLigcfGEmkPp9RbeBlW0epEzQnKAGSDeirczLh3sUu7GSi/akiK
-	 5EhB4Rj0WZipLq/MXv4/wNSjlKbvyX0WU8bzPqrgOHqueh8ZPC07f+nzzqEGaImPJq
-	 dQd4F8sVKnZxg==
+	b=mp+klYBAMaWAWfcey/L7zaWD/C2dR7z7LrLqnb0g+674eBjSSXfEK7cDHJceWDtkG
+	 duIZl0pOLfuKza7+ju7S3ezSKdhijNZHwCl44uDgUOVFzg3Mj7FMRpMZJIKM7Ud+4I
+	 wPrBObJBbYbr1OGmsp+UuxHBkzLaCpNUvq2VsoHLgbvHbyufHhrket7dHtT5Km+H+x
+	 ZOav8f8grIgeBfOWTp2LpZvt/BcTHHQMFhhNYepeZtWllt4DbDonQ6l0FwK3Ak0EX6
+	 kK6FhC+gIDSzoVTHe3exziYriYu4SCBOkRqshjg4qvFAHDaHk3N5tYTX+bXBgB6+r5
+	 boRjK9I0RZhog==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD336CA9ED1;
-	Mon, 12 Oct 2026 07:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6CCBFCA9EDC;
+	Mon, 12 Oct 2026 07:06:29 +0000 (UTC)
 From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
-Date: Mon, 12 Oct 2026 15:06:10 +0800
-Subject: [PATCH v11 1/6] firmware: meson: sm: video firmware loading via
- secure monitor
+Date: Mon, 12 Oct 2026 15:06:15 +0800
+Subject: [PATCH v11 6/6] arm64: defconfig: Enable CONFIG_VIDEO_AMLOGIC_VDEC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-s4-vdec-upstream-v11-1-25939f85ada5@amlogic.com>
+Message-Id: <20261012-b4-s4-vdec-upstream-v11-6-25939f85ada5@amlogic.com>
 References: <20261012-b4-s4-vdec-upstream-v11-0-25939f85ada5@amlogic.com>
 In-Reply-To: <20261012-b4-s4-vdec-upstream-v11-0-25939f85ada5@amlogic.com>
 To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
@@ -65,11 +64,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
  devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788786; l=670;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791788786; l=804;
  i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=ioNPQiZsvUfM7WHdEfF4xb07l7H3o3hVIdC2XZUtO1g=;
- b=MfVA2Hhvbv19+YUUotHRzLshVSLumIPGiBlhV2F8dhshuQVzzlteLfkBo5SRBB92PgWrm8vNi
- /bj0EhwIxDJAOIZ9M/Wg7o0+4XDZapWG7bWTU+K9rkwEpB70WQAm9hT
+ bh=JWQCGjDWj4OlMHRQFRIjAM7LOPDvpPJR+CoIv/avXVE=;
+ b=1o5Q9JSQKVn9zZDCHaAK4UyabPQ0AmoJV/Y90IaWa5Xc02Guf0pJqPZio0apOvVSjpDljLVYE
+ 7RhTu8piZoED2fzQU+G3V3Ko4SA1V+/QinbHDwGDOA6oKoqjJLbMyAw
 X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
  pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
 X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
@@ -92,27 +91,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Zhentao Guo <zhentao.guo@amlogic.com>
 
-Add SM_LOAD_VIDEO_FW to the secure monitor command enum
-to allow decoder drivers to load firmware through the meson_sm
-interface.
+Enable the Amlogic V4L2 stateless video decoder driver as a module
+in the arm64 defconfig to support stateless video decoder on Amlogic
+SoCs. The driver is used by Amlogic S4 platform, such as S805X2
+board.
 
 Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 ---
- include/linux/firmware/meson/meson_sm.h | 1 +
+ arch/arm64/configs/defconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/firmware/meson/meson_sm.h
-index 3ebc2bd9a976..3b90b49d0552 100644
---- a/include/linux/firmware/meson/meson_sm.h
-+++ b/include/linux/firmware/meson/meson_sm.h
-@@ -15,6 +15,7 @@ enum {
- 	SM_THERMAL_CALIB_READ,
- 	SM_A1_PWRC_SET,
- 	SM_A1_PWRC_GET,
-+	SM_LOAD_VIDEO_FW,
- };
- 
- struct meson_sm_firmware;
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 50d6357727af..46f2bd71aa31 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -930,6 +930,7 @@ CONFIG_USB_VIDEO_CLASS=m
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+ CONFIG_SDR_PLATFORM_DRIVERS=y
+ CONFIG_V4L_MEM2MEM_DRIVERS=y
++CONFIG_VIDEO_AMLOGIC_VDEC=m
+ CONFIG_VIDEO_AMPHION_VPU=m
+ CONFIG_VIDEO_CADENCE_CSI2RX=m
+ CONFIG_VIDEO_WAVE_VPU=m
 
 -- 
 2.42.0
