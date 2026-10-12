@@ -4,112 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC5ECA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4B5CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L70Ii9x5C+z302d/Psn2CqblJNvQ2CMmeLwkxN/XibM=; b=PO/hAHJVysfPXixag5amYgsfEM
-	KmTHimyjm/WJZVZtaRfuihQlAUqwFjUQmV4VUNyU62dmcnvPKUa2i4DsTdI6eA63LeEBZlLxIyR6+
-	Wbwo4Y9G5gGf2+F0QXNr9g8NzGJU0euj8wVk6fnYGPc+3wmUMVoEuosFnCVMXhqr01m/6RajW+3Xr
-	427FFLQhNwW6TnA6KG8yViWDAQzA+P+a0IHcrYF8qZWD2u6MUF6DZu50Pgx4PZiVXk9YWnacq32uL
-	8B9VE6n4c2RpduTbGY9YA8U+2lk5DbYXItBEjuLqOoKwAiWDtYrVsLX7YPrjiAGwfl7VUjOAB4pgk
-	Rkl24MYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pzv9eFNmPtJkvdMd78DKZgtphAhbPINCrQmyzcmuA1g=; b=GPEJDBgEXdF8PzVLyVfVjzDYBS
+	/382iCZyUKC02KHeKxJ9j00AsgUS1kWFsYf+rFmLCtrKLIf6+ydzPcNsIlsL7XOkPX89uP6GpOxkz
+	+CvX9x2wFXENbJIT0WDR5MpE30brTFhZJVxXInpX2V64UoxgKR8HTYweeccCztKYIwUnx+ZeeBTRc
+	MY0cWCrHQ99Rybe3t/aGKJnXk4merlNV53a2ORKheOs9zzY6h4dU+321NkRM+EtZr0EcpPFLoZ7Q0
+	af6V+AhdvqTsAfwZJuMOFYM1CueTJjU8S4I/KY/UTP7rvzG/XuLlh/VraFiPc5PSWcCfQ/FY3mI4I
+	bHEM+vdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLe4-0000000BNnH-0dM3;
-	Mon, 12 Oct 2026 19:25:12 +0000
-Received: from mail-ej2-x0b.google.com ([2a00:1450:4864:34::b])
+	id 1xGLem-0000000BNux-1GSY;
+	Mon, 12 Oct 2026 19:25:56 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLe1-0000000BNmB-0SxU
+	id 1xGLek-0000000BNuI-0uiM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:25:10 +0000
-Received: by mail-ej2-x0b.google.com with SMTP id a640c23a62f3a-c3184a307cbso105042366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 12:25:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791833107; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VPN0A8+8tHPP3U3igvOWIaOD0qwPO0Gk7RDvZl5zJtkfw/VyEG36ltTi2gcG1Z38iG
-         x9MD+6A5YFo7TkvGxE+R8c0g6MHZRVL98itWia00A8dn4Zi/mtSj40+x+sGRvF+MdlYV
-         bOKmaIyyz1++q7T6UZt7xXsPsgR2xwQ+vO3rKtKC5GGl3T8w+bvUw3RtkbbYbxtDQIvn
-         6UB/PPi7nxTypIcSy8tDO1+3Ni531TmtDccBhJreKABK4ZXYoiAmxz+o8B+dsW3OyS2e
-         8St5aJViySUenIlsRJJOliqGJlMNplV2ZE/HiXJW/IixLwn9Mk/n+qU9kqP0Jud5df/M
-         hejg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=L70Ii9x5C+z302d/Psn2CqblJNvQ2CMmeLwkxN/XibM=;
-        fh=VLhj47uD5pP11NIElhg4PbykhTeeVXSms6hYWXwDv5s=;
-        b=iGcgiZAC5JFNnYQj2633kxzsfwgwn++MVYS6AJChIrjZUZ8rPLBRJ2UYM25pd+oLBU
-         0XdLwGMo+Mj1EkUj9bjTLYhMnxETjIomdRQhnN2UoIbW8uXkfgIaes6GB3HMxBdpSoV/
-         fuuCxHzRf0HzUXHUYJ1C1QnQLF0XHaDDi0k7G4jusDA3994ihnOZypzcan6LPEg6Wzwe
-         SbJqSPpomq8qZsteUML3I4QfTEH0S6gmIPm/hvJ43IcgIA2UhJCCJ6zxfGW+pQ+nVRV/
-         BhbJhB5fGYmGz+yhs5i8lh4Y1Zt9FxDopbLz35DshJ77d2XpqjARdr88CPG4P5W9ThU2
-         LqTg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791833107; x=1792437907; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=L70Ii9x5C+z302d/Psn2CqblJNvQ2CMmeLwkxN/XibM=;
-        b=hwwYiCiGjJLPspNWcWAgyY1ipMQcSlLPBRrdwXvcu6jkZX0mbiTGc8Ag0SqU95ADvb
-         2RNRcM+oR5+Z2hEQXA/805vNF7R0rO3FLGXKOWn62+d587BAOFUTGrcc53yvLGr3pCCo
-         4Q8LqloJh77ILbdOv8bg1f1Ubw1vNKdyEf0JqceU+9OqVLX18scRiVov9ZQzZZMU7Qf+
-         OW5O9uubyygYSdERFoPiGfkaesohpPw7yEHSTeEwMv4O8lupT3IAVRo5OIvmq20qQWZL
-         0bCXWlHF+MZdY23tvokSKKTIS+sJN62m7VcDHXhk4H63vC6bxGMFTOiQZxQ/oAjlT+cF
-         QFMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791833107; x=1792437907;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L70Ii9x5C+z302d/Psn2CqblJNvQ2CMmeLwkxN/XibM=;
-        b=PEJ0Y/VHGTDnuz6zBZGU2R3UXANrLM9phIjE5ypGBrJS8miev1Db0c7OjZV0YbF/6D
-         tlsHj7LpqJH6Bwa4bKzfWgEtzpc7kmajFFgbgKXF4YVdeuvzFTmGwXBemfZZxyC6Jsuw
-         nzjNul/P/kS4E187NzrvL7mNzo4kFWCkZu3xFwfqMCLgp+1hKgZD6lmcOmw8L2tMugeh
-         za262MW6ykF9tcJ8ucBQUwlQG0uIxH4Wa7dMub2FD81KkvLqSfavsOgfWwBh8+f8Og6l
-         DnlLELmLHoJKAmtn392bRfcBMG3uW86Z1mnNZAkq9MNC0SlKBz26A6/oAMmsUJnA5IX0
-         woLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxLOq56ksVew1Us0QQ724J21hkIqc+tt5vsVp+4dKPs2QOflp7H0R3xm2ZL0Po7+T4Tgh08mOt2E3TpFLcx1bEX@lists.infradead.org
-X-Gm-Message-State: AFq9FYKedGezlKMhSUA9DsdB9g0IL1XdX8hJLx0R24GdwvR4v34lvttr
-	U/MDdDbgJds4WvgYps7szfEQ3TiP22j1bnrjo2gmyOW50/LM4p1jcw1eOcAO6VOMk8JIgUF/N5O
-	IIgc4K5K6M9sDi1uWjt/Eh2jxf8TW+Vg=
-X-Gm-Gg: AYBFou2KzPfgTt061pcC7FI2tKE4i+uaPWqSC4DdPa8cGKjAjJnv0Fr6yKwucBZ7Pz1
-	T8vWXMl1cA0TzflqxKZVYHc3koYyC97kziFR8oH8a15LfEGbwmOeT2K8qRwyXydZvFd/pus6f02
-	c/cf45kwg5kJRfJr/3KEvnkntztavpMX9vOTxFZqOlBUSM0pWrS7JnzJyMXvm+xAWsUtk53uIY8
-	QpgmfU94xpvdecmMtmq6Bn6D/XoCE0mL8p9osdPyO5oTBQUgSkWZxZyluzH1XQszKGA/b+aE5rP
-	5O3FESqxi7UsYFruEh3MyUr1C19OcweLXGErmWknq7yFrsCr8RYTmjA8wA==
-X-Received: by 2002:a17:906:7948:b0:c29:60b7:3f14 with SMTP id
- a640c23a62f3a-c31aa02b449mr966426866b.46.1791833106527; Mon, 12 Oct 2026
- 12:25:06 -0700 (PDT)
+	Mon, 12 Oct 2026 19:25:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R2+ld3FF7AQUpeyJw9TEGWgu2iFU5ysA4HJOM4C+ydjS85ms7p1c4moh8+o1nX1I14P0WBvF6A062X9RN0lii+iQFBTrMSiahjHkVCs3spIIJ9RCvJ889k5vpcpk1Kz265KUwx/ZRvFU4QAF/ej//x+UY8In8uiX74dKzPY6vF28imLuU2433z97Fw2tbpin7xwOe2l3yXF5k8cyQi1cjKy+dvOBlS3YvzYrZAvT3l5KT1SHoqkhnEnnmvXJYJpxOhXH0HGoqBtQBTjQmJg2mDzVgNuzipF4lGcMV8qiTjsS+FV5T6A8GKOxEopkGnkqzLSEKxzVQhMD2NndRMJCww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pzv9eFNmPtJkvdMd78DKZgtphAhbPINCrQmyzcmuA1g=;
+ b=ZPhP7Zn+1UOfwmQkGJsLmOfLme4jmRLzdA5zLpjCqGGyjNxq0Vv2Tm7qdDV0jJdrLbePS+vgZa6pyPmo+VO7qRDkocAl1NST3xJelykaa+vXI81MrpMJ9m/Y1cMOxPk0Vb5suqldHRwaTSZJflVYEUIrfhyUi2641eo/zye+9qcEWfnEDVEfnwYSuqb1rtgLqK8+xDgQ8namRgFi285zra7OgiQj70lsnNIAfAMEVBzbYgLZVUOqiE9PsXYinURyj+nusqQusr39sZHmpeItIFNXuK2185Beg5KsKxeagS818tGhI7NlIZnKp94K5CqZ850VbQn8IkqpBWUONW3GWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pzv9eFNmPtJkvdMd78DKZgtphAhbPINCrQmyzcmuA1g=;
+ b=aGvu8hPAwh0+/fJppwVstCLq743MT1lCdy89H6DzHOrb+Hy596ITZFEfk1Cu+cuqWQZX0Nqf9X59vFp5hGlAOBcfzpdQeu5YuLCtPsz4aAlZaq8Whsc39CA3cSbowMWDVqloTH9yZLibVh3raDJ4KRaS2pPX2JuaQgw49dqKp1HGaqWRjXu4O4ujMIv04OSkgUXeTtKHVGRwsvj2JtgoKPWFMT/psdMqvBlDU34GPMlow3oAhe9rxQ6kus1y5T2yJerrcSJnSI+E8CSofYUMAKWbXx3RLzGX2iXI/abRdKEPfLRB2INQ+/l+Hf7kbc5STZjgGP68fl17Y3SgQ/LyIA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB8PR04MB7162.eurprd04.prod.outlook.com (2603:10a6:10:12c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Mon, 12 Oct
+ 2026 19:25:49 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
+ 19:25:49 +0000
+Date: Mon, 12 Oct 2026 14:25:40 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Frank Li <frank.li@nxp.com>, Radu Rendec <radu@rendec.net>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>,
+	Xuegang Liu <xuegang.liu@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v6 4/9] irqchip/imx-irqsteer: Convert to
+ devm_pm_runtime_set_active_enabled()
+Message-ID: <as00NCc7ISmSlpIp@SMW015318>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+ <20261008090231.796511-5-Zhipeng.wang_1@oss.nxp.com>
+ <asf_9lgB-ULFooH9@SMW015318>
+ <VI0PR04MB12350BD5EF98B9EC922D797F0EB912@VI0PR04MB12350.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <VI0PR04MB12350BD5EF98B9EC922D797F0EB912@VI0PR04MB12350.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: PH7P223CA0027.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:338::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20261008175225.3375274-2-coiaprant@gmail.com> <179183168522.434549.14619345397319265452@kernel.org>
-In-Reply-To: <179183168522.434549.14619345397319265452@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 13 Oct 2026 03:24:59 +0800
-X-Gm-Features: AclHuK_IK-J3xdjBLHul-e3CTuwWO6mo07_5PjrwMDoCpvY_M9ekvq5ssPY4yMg
-Message-ID: <CALj3r0jTq+wztO=-TMDkNTM7OFkB4UHMpugTnQ+YPiuWYD9MFA@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 1/6] net: pcs: xpcs: add ANRESTART support
- for SGMII link recovery
-To: netdev-bot+sashiko@kernel.org
-Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch, 
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, hkallweit1@gmail.com, linux@armlinux.org.uk, 
-	david.wu@rock-chips.com, linux-rockchip@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7162:EE_
+X-MS-Office365-Filtering-Correlation-Id: b15d9279-6b83-40a1-86a9-08df28969f42
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|19092799006|23010399003|56012099006|5023799004|11063799006|4143699003|261009220027099003|261009221227099003|261009223027099003|261009221727099003|261009223327099003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: Opn9gWwN/wdfSuUIrmwa+ASc3SddZjMixZ3QjJ7oHXBAyhx6/n+cITrthpIDgiiOEtXhknhe777tGYcNxKd6B18AfWvAAlORBF8XmZ5Kd38ynvtjUZhD67+tH7Lth1hqrHkh8pXqgv1rCg6v6qfmHmixUbIlxqPZvxD2Ty9pK9GEW/FRM3qws3Qnq4DWoPiBjE5sEGaoTb6sBnmcKQNsQCr6k9fwKvTzKMsLHj5dO1eof+T80m7g2VEp/Yz6LCjC+zR2w8hJe6R1JwQ4J+HP66xS0DHVaeIqmtVMa3fkDw9hGsmKeNtfDluRKYESKRqbnCWhljuSZWXnc4FIVbQQZuNOnUIg+QG4KaTEa1m+Kud9CWtoQN4i4PZJS2fdEEaB3UyXH/vXLt1PqWpMVCRMJmfYUl3Cr26sJ6vkFmzHRoujUepvrhCzcVY2GuPk+jnZKmj9wECn5DBCVjQXiK0HUHAAceOJXSbDg1U62LJW+6uwBgzWOYx7rKC52Ll+N37aoLrzowbq6vW4yRuWtKV63cLvN86fY17sY+c4/QLhn+d5o81A6jmJE43tfirhoXi92748tUio8avptabtb9rMZK/fiZmRTGMxsmH/JFqfAboC+umjCqmem6homI27I3E/rxA2L4Vx1dm2JZbnMiVYuexc4dkxwDaO/eE+DjxqjKs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(19092799006)(23010399003)(56012099006)(5023799004)(11063799006)(4143699003)(261009220027099003)(261009221227099003)(261009223027099003)(261009221727099003)(261009223327099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tZYP/qz5u9+lUsHmv17E8QyHYJHt7aIefAEdg3et3JfbvUgoLsQAGXKzxk+R?=
+ =?us-ascii?Q?g1ESsJ/mEdp262S3CymygpZoSrOryUCOReCo3bVAZcD7dAEWBqWirP+I/Ial?=
+ =?us-ascii?Q?7zPTf/tNfJ7g6hP3k3g9wWJvl2dOfwNVQprNCzFi6VGHBPhNBwNs8Ij7Q5jT?=
+ =?us-ascii?Q?lj2nVBovK99m/a9C/GxSQBc5rz2OsMSlepr71UsfzzhzUWz1DYwVtv+KX9ek?=
+ =?us-ascii?Q?6a2UXZPwO1hcwR6yMdC0JImuCyxXSvfhKDfDqsKxvFy+mhHU1mzjFrndh043?=
+ =?us-ascii?Q?yR1XAoX6ra3nZKkTtkwZFkdKCLjfwBUb9zZrUB5+DbeCGasciiw2eJ8e/aQ1?=
+ =?us-ascii?Q?ZuqH//27aZNLazWQs7pb8B0cA/n49ze/y/V5Cj6yzsEfG7knri3AYbOk1ceI?=
+ =?us-ascii?Q?xMHYpNVOFqu7Vo/Z5p565jVrpTOO89QKh/Uvb/8P8u2dxc93NYWWFRkFnlEP?=
+ =?us-ascii?Q?LYoL3SRkT2i1ngMJNSk6XxSCKRN0+wOE+4w1z8KPOcdOIlfo6vrHEZY7HvQI?=
+ =?us-ascii?Q?6d+1BIHfht0R91B/lrNaw8MvxrjCag79ayTuWFDVxtFPFYLYv0ax2zQHOaM4?=
+ =?us-ascii?Q?Ans8y0awZfgGgVM5M7cbvhRy6lf1JlU2j1GGBQrIszEBK+2AqsjlD265EbjE?=
+ =?us-ascii?Q?+DR2LeFJo506dB1sjH/qBPTpAMSKNzIk2oqbfr7Ej5uS1KbAEO4ba8g9Fo0a?=
+ =?us-ascii?Q?c8zMsBrvwa41TG+4FGM2eIri6zIVXj4Pp6VESjmD0fphjszY+20cg1IUMfrt?=
+ =?us-ascii?Q?QmGyegCSzEdWdDcFitUswb3fVspBhoN9r4Dmhlv2xIA+0+e3UcD2/XKQ8Zlz?=
+ =?us-ascii?Q?IS+pBGx5HmGwn7FGzNINH7L0Naj8FLSuKl/8+4hRO6iucZ8dtimHK8Hyej/j?=
+ =?us-ascii?Q?J/1EbpwNu6HzxQvdewJdHclB33Im5NFbg2DGR9LPBd/0fVDKiJUeoldEPB9/?=
+ =?us-ascii?Q?+m8ddmK6Ub56vIyKOJRv6F/ZK+YqKJSLR8fuHhMisLSVksnUra50A1Y+bSSa?=
+ =?us-ascii?Q?b7KyacF9RYxrgSDMknYOloafTOsEOyeydLnlYiCSMLgxK0a7k+3fphGvnRXV?=
+ =?us-ascii?Q?Ch8iYXKgmHIUO27LaSIOK1yYpF4Ppf/ekSElKXZZDo50XVjzztNtzQgieDPI?=
+ =?us-ascii?Q?z0aGKIJcSf1qp/tkKSXAAJz9XOFd/1DcqgF4qJ9ODj/kp+T+QCHmLvr68kE2?=
+ =?us-ascii?Q?WTTGSJpYbhmlFmFaEAhUjUbIJVekGlIU21jVPm/OWPPr/wrL0mfvA2nTBP15?=
+ =?us-ascii?Q?X6DZ64Dyz/GS+w5j7rjA41janO5pHeNOBzXFz3ZkdycaOhYIPRIoyNvllJa9?=
+ =?us-ascii?Q?9483J306SX57QKM89f2+efAxLknQ/cB9x/mjXkcuV0yw8vaGzSMlqFnzxStE?=
+ =?us-ascii?Q?rbwvz9PIss9GFlkVQNI4ewD/5/F1ABZPsmsiiXkMhSW49C8OTBDr3PNFEUTH?=
+ =?us-ascii?Q?yWkgVq+vs6WiSM5q8gUxaNNEg6831EXAWlRJ4udieaIAMwG4E5rzD/A3eT+s?=
+ =?us-ascii?Q?7Z9gyqYzT9KIJ+JYMoLj/+mlyAVNjTNh9IAfP9LVq21OyC3ZnHSmCRpExyUv?=
+ =?us-ascii?Q?/sbgEeLlumyrS4Rd/7LKgBxqk6LrEI8vqgy70WoL7SkAU1J6jSf4vhFm88+/?=
+ =?us-ascii?Q?VgB1J5qvSfikZlSKPPk6o6hORTX1crseM7Dt5sW7j7HUqSYNB6Yy+UKlcuUr?=
+ =?us-ascii?Q?9GjkVLmOWKFhtr83Gx3V7TGngkf2zWIIxnT/2oxDLtYZrmdB94LIamGjBZj7?=
+ =?us-ascii?Q?aScwD5cw7kzJBfXztha3D556nn40imehrulMdLiP6RBYOItPP+RZ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b15d9279-6b83-40a1-86a9-08df28969f42
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 19:25:49.5793
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mJjPu10eH0GCyJo2KzQir2R/dd6X/E3FDxjLMWM16jtmQk/IE8A5YGOwQKkME2IUnD9NQvQ1NXiMFhvqGsgqvThmm5IOWFGY71Eoh+kZi+u9gRIDr6x6LVpkWLJOTM4N
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_122509_194310_9F4F5AC0 
-X-CRM114-Status: GOOD (  40.47  )
+X-CRM114-CacheID: sfid-20261012_122554_299159_529FEF22 
+X-CRM114-Status: GOOD (  35.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,169 +147,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks. Both points were raised in earlier versions and are intentional
-for this hardware.
-
-<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=8813=E6=97=
-=A5=E5=91=A8=E4=BA=8C 03:01=E5=86=99=E9=81=93=EF=BC=9A
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] xpcs_get_state_c37_sgmii() now does a non-atomic read -> act
->   sequence.
-> - [Low] Concern: in xpcs_get_state_c37_sgmii() the ANCMPLT latch is
->   cleared (pcs-xpcs.c:1112) before BMCR_ANRESTART is issued (pcs-=E2=80=
-=A6
->
-> --
->
-> net: pcs: xpcs: add ANRESTART support for SGMII link recovery
->
-> This patch sets BMCR_ANRESTART alongside BMCR_ANENABLE when configuring
-> C37 SGMII AN. It also clears DW_VR_MII_AN_INTR_STS before AN starts. In
-> xpcs_get_state_c37_sgmii(), when AN completion is seen with the link down=
-,
-> it clears the ANCMPLT latch and restarts AN, so that parts such as RK3568
-> can recover the link.
->
-> > diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-> > index b415b93d77c15..6466e0ff2a98b 100644
-> > --- a/drivers/net/pcs/pcs-xpcs.c
-> > +++ b/drivers/net/pcs/pcs-xpcs.c
->
-> [ ... ]
->
-> > @@ -1093,9 +1107,18 @@ static int xpcs_get_state_c37_sgmii(struct dw_xp=
-cs *xpcs,
-> >               return 0;
-> >       }
+On Sat, Oct 10, 2026 at 08:26:44AM +0000, Zhipeng Wang (OSS) wrote:
+> > Subject: Re: [PATCH v6 4/9] irqchip/imx-irqsteer: Convert to
+> > devm_pm_runtime_set_active_enabled()
 > >
-> > -     /* Clear AN complete status or interrupt */
-> > -     if (state->an_complete)
-> > -             xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0=
-);
-> > +     if (state->an_complete) {
-> > +             /* Clear AN complete status or interrupt */
-> > +             ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INT=
-R_STS, 0);
-> > +             if (ret < 0)
-> > +                     return ret;
-> > +
-> > +             /* Initiate the next round of AN */
-> > +             ret =3D xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_=
-ANRESTART,
-> > +                               BMCR_ANRESTART);
-> > +             if (ret < 0)
-> > +                     return ret;
 >
-> [Severity: Medium]
-> Can two callers of .pcs_get_state() race here and restart a negotiation
-> that has just finished with the link up?
->
-> The read of DW_VR_MII_AN_INTR_STS at the top of the function and the
-> clear and restart here are not atomic. phylink calls .pcs_get_state()
-> from contexts that do not share a lock:
->
->   phylink_resolve()                   holds pl->state_mutex, not RTNL
->   phylink_ethtool_ksettings_get()     holds RTNL only (MLO_AN_INBAND,
->                                       no phydev)
->   phylink_mii_ioctl()->phylink_mii_read()   holds RTNL only
->
-> struct dw_xpcs has no lock of its own, and the MDIO bus lock only covers
-> each single access.
->
-> A possible interleaving:
->
-> CPU1 (ethtool get)                  CPU0 (phylink_resolve)
-> xpcs_read(INTR_STS)
->   link=3D0, ANCMPLT=3D1
->                                     xpcs_read(INTR_STS)
->                                       link=3D0, ANCMPLT=3D1
->                                     xpcs_write(INTR_STS, 0)
->                                     xpcs_modify(BMCR, ANRESTART)
->                                     ... AN completes, link up ...
-> xpcs_write(INTR_STS, 0)
-> xpcs_modify(BMCR, ANRESTART)
->
-> CPU1 acts on its stale sample. It clears the newly latched ANCMPLT and
-> restarts AN on a link that has just come up.
->
-> Before this patch, a concurrent caller could only clear the latch. The
-> extra restart is new. Unprivileged users can issue ethtool get link
-> settings.
->
-> The commit message's reason for clearing the latch before the restart
-> assumes that get_state calls are serialized. Does phylink actually
-> guarantee that for these callers?
-
-The C37 SGMII path needs to restart AN from xpcs_get_state() because
-phylink does not call .pcs_an_restart for SGMII. On RK3568 the PCS does
-not restart AN by itself, so a link that goes down would stay down
-without this. The same pattern is already used by xpcs_get_state_c73(),
-which calls xpcs_soft_reset() and xpcs_do_config() from the same
-callback.
-
-On the non-atomic read-act sequence: the concurrent caller can only
-come from ethtool or mii_read, which do not hold pl->state_mutex. So
-yes, the sequence is not strictly serialized against the normal poll
-path.
-
-The consequence is a possible extra AN restart on a link that just
-came up. On this hardware an AN restart is idempotent and safe: if the
-link is already up, the PCS re-negotiates and comes back up. There is
-no state corruption, no register left in a bad state, and no way for
-the concurrent caller to observe a torn value, since each MDIO access
-is individually locked.
-
-Before this patch a concurrent caller could clear the latch; the extra
-restart is new, but its only effect is to shorten the window in which
-a stale sample can be acted upon.
-
-> [Severity: Low]
-> What retries the restart if the xpcs_write() of DW_VR_MII_AN_INTR_STS
-> succeeds and then this xpcs_modify() of MII_BMCR fails?
->
-> The latched ANCMPLT that triggers this path has already been cleared. No
-> restart is pending, and xpcs_get_state() only logs the error:
->
-> phylink_resolve()
->   xpcs_get_state()
->     xpcs_get_state_c37_sgmii()
->       xpcs_write(DW_VR_MII_AN_INTR_STS, 0)    succeeds
->       xpcs_modify(MII_BMCR, BMCR_ANRESTART)   fails
->     dev_err(..., "xpcs_get_state_c37_sgmii", ...)
->
-> On parts that do not restart AN by themselves, the link would then stay
-> down until the interface is reconfigured.
->
-> The commit message covers this case:
->
->   "If an MDIO access fails at this point, it indicates an unrecoverable
->   hardware condition until reset."
->
-> On RK3568, the MMIO-based MDIO back end added later in the series seems
-> to fail only through pm_runtime_resume_and_get(). That failure is not
-> transient. On other XPCS platforms the databook says AN restarts on its
-> own. So the documented behaviour may be fine as it is.
->
-> > +     }
+> NXP Confidential
+> > On Thu, Oct 08, 2026 at 06:02:26PM +0900, Zhipeng.wang_1@oss.nxp.com
+> > wrote:
+> > > From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > >
+> > > imx_irqsteer_probe() enables runtime PM with pm_runtime_enable(), but
+> > > imx_irqsteer_remove() never disables it. Runtime PM therefore stays
+> > > enabled after the device is unbound, and rebinding it triggers:
+> > >
+> > >   Unbalanced pm_runtime_enable!
+> > >
+> > > Use devm_pm_runtime_set_active_enabled() so the driver core marks the
+> > > device active (matching the enabled clock) and disables runtime PM
+> > > again on unbind, keeping the enable balanced across unbind/rebind.
+> > >
+> > > This becomes reachable once the driver can be unbound and reloaded,
+> > > but the imbalance already exists today on unbind, so fix it separately
+> > > with a Fixes tag for stable.
+> > >
+> > > Fixes: 4730d2233311 ("irqchip/imx-irqsteer: Add runtime PM support")
+> > > Suggested-by: Fabio Estevam <festevam@nabladev.com>
+> > > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > > ---
+> > >  drivers/irqchip/irq-imx-irqsteer.c | 10 ++++++----
+> > >  1 file changed, 6 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/irqchip/irq-imx-irqsteer.c
+> > > b/drivers/irqchip/irq-imx-irqsteer.c
+> > > index d05de3d26fb2..5acc04504e52 100644
+> > > --- a/drivers/irqchip/irq-imx-irqsteer.c
+> > > +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> > > @@ -239,6 +239,10 @@ static int imx_irqsteer_probe(struct
+> > platform_device *pdev)
+> > >     if (irqsteer_has_chanctrl(data->devtype_data))
+> > >             writel_relaxed(BIT(data->channel), data->regs + CHANCTRL);
+> > >
+> > > +   ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
+> > > +   if (ret)
+> > > +           goto out;
+> > > +
+> > >     data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev),
+> > data->reg_num * 32,
+> > >                                             &imx_irqsteer_domain_ops, data);
+> > >     if (!data->domain) {
+> > > @@ -260,9 +264,6 @@ static int imx_irqsteer_probe(struct
+> > > platform_device *pdev)
+> > >
+> > >     platform_set_drvdata(pdev, data);
+> > >
+> > > -   pm_runtime_set_active(&pdev->dev);
+> > > -   pm_runtime_enable(&pdev->dev);
+> > > -
+> > >     return 0;
+> > >  out:
+> > >     clk_disable_unprepare(data->ipg_clk);
+> > > @@ -285,7 +286,8 @@ static void imx_irqsteer_remove(struct
+> > > platform_device *pdev)
+> > >
+> > >     irq_domain_remove(irqsteer_data->domain);
+> > >
+> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
+> > > +   if (!pm_runtime_status_suspended(&pdev->dev))
+> > > +           clk_disable_unprepare(irqsteer_data->ipg_clk);
 > >
-> >       return 0;
-> >  }
+> > Are you sure need do this? suppose runtime_pm tear down call runtime pm
+> > susped to disable clock.
+> >
+> > Frank
+> >
+> Hi Frank,
+>
+> I don't think the devres teardown disables the clock here.
+>
+> devm_pm_runtime_set_active_enabled() registers two devres actions that
+> run on unbind: pm_runtime_disable() and pm_runtime_set_suspended().
+> pm_runtime_set_suspended() only sets the status to RPM_SUSPENDED via
+> __pm_runtime_set_status(); it does not invoke the ->runtime_suspend
+> callback. So imx_irqsteer_suspend() is not called at teardown and the
+> clock is not disabled by runtime PM.
+>
+> At this patch the clock is still managed by hand (devm_clk_get() plus
+> clk_prepare_enable() in probe()), so remove() has to clk_disable_unprepare()
+> to balance it. The pm_runtime_status_suspended() guard is there for the
+> case where the device is already runtime-suspended at unbind: the runtime
+> suspend callback has then already dropped the clock, so remove() must not
+> disable it a second time, otherwise the enable count underflows.
+>
+> The later patch "Let devres own the clock" switches to
+> devm_clk_get_enabled(), and at that point this manual clk_disable_unprepare()
+> (and the guard) is removed, replaced by a pm_runtime_resume_and_get() /
+> pm_runtime_put_noidle() pair.
 
-The latch ordering is deliberate: clearing it after the restart would
-discard a freshly latched ANCMPLT from the new negotiation. An MDIO
-failure at that point means the transport is gone, so there is nothing
-to retry.
+Okay
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+> Thanks,
+> Zhipeng
+>
+> > >  }
+> > >
+> > >  #ifdef CONFIG_PM
+> > > --
+> > > 2.34.1
+> > >
+> > >
 
