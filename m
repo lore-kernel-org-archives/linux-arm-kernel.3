@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F0ACA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 20:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367CDCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaoUskc8feZSg15SFM0v3Zd5QJMwrh9CubC02jWIJuE=; b=o5Q+yvCCNPKiWOoc4kb8ARfDjo
-	Zrwicr7UO2laWCQ5zymQvs+bYMvpgvXLZy+Rdo6LKRLHYANRGhpNkpKtufwBnUj6DwpLOlqJSHC4n
-	cOGPBXZLQfG/WdxSXPWufK40lx0ALAHfo5phePbVwgy9mcYJDz5EFZwunc3QfuOmA5W5jMbdfkUZ/
-	TG7Sk7i99asStrJ/uVIosWQGEyCzZYVGpOqT9L2EmjIoXtFC020ebzGIJsu8eRaJ7vhqDtfH75LHk
-	J6TGa6vJ+Ubc7UlnMuGAu9BlW7xqgtT7pThtqk5jeaZGRNomKy19Rt8/amHA9pL8V5VYGMCSXWDgN
-	1TFOe1DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J1K9cFaiA4WeVIvdyYVARYkF7eOkO9wkC9WMcKkqHRg=; b=m8DH1qlwbwUfPLJQL4lEXl2Hyj
+	C/uzEpT+RM4bG3raQpe9qMAiXyX997ZHohN/Y4hrB8X30UtaRPwDee4cfC1tG7StWZeMXXu/UVCBo
+	oExGnhs++6qVjU069uEmiqVgIESj/F7BqirJ0/bkJz+gCUYej9v5V3fy52y6vUkP2CjZX904wZ5F8
+	knNMne+LQi/cf800NX+zMhxZce8cNMAJgW07osF//F0pa8MiV8ZRhh63NWsIB33pBN39KZfhWpxoo
+	Rc9FQMxVc1AIfSjQ2wx4iYK/zfrnlxqE2zCqc53lizMYESJh9PXBdtQzPyZEuqV+vmoaQeRL8b4tm
+	Fg08fUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGN7J-0000000BVwM-3g7L;
-	Mon, 12 Oct 2026 20:59:29 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1xGNB0-0000000BWD3-1266;
+	Mon, 12 Oct 2026 21:03:18 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGN7G-0000000BVvR-20C3
+	id 1xGNAx-0000000BWCh-0hUU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 20:59:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 79E20A1552;
-	Mon, 12 Oct 2026 22:59:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791838763; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=vaoUskc8feZSg15SFM0v3Zd5QJMwrh9CubC02jWIJuE=;
-	b=wN+s3QTHwrwRNofUuZHoJjX0YjT021I+RyJYFpDy9DMMECvd07aLIJ/bGIIWjMxceryAPJ
-	vcnPBC8QJ+HIYkptQ/8jJ37C+aLbzsoq/J7q9ru5kStE9Azi0JzgR/3XCrSKFEw5IjSjpk
-	krEbMTM0VaCTEWLkWQyMjrkQorkhkwVnbiAApyZyvLnhxZUHVuXmoGEKaHLi9IZVEzP7aG
-	Eumk5FPOFKaSHP3slCSTJYMuSEJKrop2HuA+kCGD4m1B3L2uMk6vGW6/nkbYITo3qhiYGz
-	IY8xUxKWgzgnCWWsaAK7s+TMwftpk3fO3nrTJuHcYIkygAmEZU7apOK4BapIDw==
+	Mon, 12 Oct 2026 21:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791838995; x=1823374995;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RSFsJAtlDvmcdluKq98Yyik3AX0ndCZVuFsLEkW0ECI=;
+  b=PMArgGV/fYRmQaWDKyrTPjXh1RqgNWPqUoT8wos6i+0KCItx1W7QfwlG
+   31Slmwok8SyVDEaiT73oPsHc18gFP984LjsK8DwHPkjRRs+rS3hxlbou3
+   zVzGOXG9GcXEivN6nO3mB61fxfp9Si09YvSQZAeaBo0kYrwbApJHtQW4x
+   xGt8uEy44h7zrjlISuk0H37DDSKpczCF+4jmdXN8naIXIw4K/2Koint98
+   4oHTwxFNti7FKe/Ej71wAMIqjDIOoALiXrnxVYgVaOY1pDLQseRxw3yhP
+   Gv4ChB3VWtEVUVMp3xIESUn8IDPlX7aRPhdrV+hc/Ba8IrRS3BGeTswYs
+   g==;
+X-CSE-ConnectionGUID: 6CPCbf5vQweOy+7ZkD7Wvg==
+X-CSE-MsgGUID: xiQJokhTRYq/VxspPInw+g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="453687"
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="453687"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 14:03:11 -0700
+X-CSE-ConnectionGUID: RztuPPXFQ3a0Yapghe5rPQ==
+X-CSE-MsgGUID: 0OqWiq0uRrSFu+ieXpcVng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="964159"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.179])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 14:03:07 -0700
+Date: Tue, 13 Oct 2026 00:03:04 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	Marek Vasut <marex@nabladev.com>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 05/15] iio: adc: stm32-adc: rework internal channels
+ data
+Message-ID: <as1LCL3y2MN204OB@ashevche-desk.local>
+References: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
+ <20261006-adc-stm32mp25-v1-v4-5-d31ec75aecf3@foss.st.com>
 MIME-Version: 1.0
-Date: Mon, 12 Oct 2026 22:59:23 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
- <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
- Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v6 2/4] net: stmmac: drop split frames on AF_XDP
- zero-copy RX
-In-Reply-To: <20261012-stmmac-rx-mb-v6-2-2225050915c1@oss.qualcomm.com>
-References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
- <20261012-stmmac-rx-mb-v6-2-2225050915c1@oss.qualcomm.com>
-Message-ID: <c5b6cd354d32c5b84c146943ce00b3d6@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261006-adc-stm32mp25-v1-v4-5-d31ec75aecf3@foss.st.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_135926_677178_F48B6D64 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20261012_140315_250411_95510640 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +98,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12.10.2026 18:44, Lorenzo Bianconi wrote:
-> stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
-> XSK pool buffer and drops any frame that spans more than one RX
-> descriptor:
+On Tue, Oct 06, 2026 at 09:57:36AM +0200, Fabrice Gasnier wrote:
+> Diversity in internal channels data array lead to have zeroed data.
+> To facilitate addition of new internal channels, without touching
+> all array initializers, only focus on exiting channels on each
+> supported ADC variant (e.g. each SoC).
 > 
->         /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
->         if (likely(status & rx_not_ls)) {
->                 xsk_buff_free(buf->xdp);
->                 buf->xdp = NULL;
->                 rx_dropped++;
->                 error = 1;
->                 dirty++;
->                 goto read_again;
->         }
+> This also allows to get rid of static_assert() checks.
 > 
-> The non-last descriptors are freed and dropped, but the frame is not
-> marked as errored. When the poll reaches the last descriptor of the
-> same frame, error is still 0, so the fragment is handled as a complete
-> frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
-> or converted for XDP_TX. The tail starts in the middle of the original
-> payload at a predictable offset and, parsed as a fresh frame (len == 
-> 0),
-> stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
-> though the DMA engine only wrote the tail remainder into that buffer, 
-> so
-> the reads extend past the received bytes and can reach beyond the end 
-> of
-> the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
-> in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
-> when the interface MTU is left at 1500.
-> 
-> Set error when the 1:1 mapping check drops a descriptor, so the
-> remaining descriptors of the frame - including the last one - are
-> drained and released with xsk_buff_free() instead of being processed as
-> a new frame. Account every freed buffer with dirty and count the
-> dropped frame once in the poll budget / rx_pkt_n, and once in
-> rx_dropped.
-> 
-> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
+> No functional change intended.
+> Cosmetic update: remove comma on STM32_ADC_INT_CH_NB as it should
+> always be the last element.
 
-> [...]
+...
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+> static int stm32_adc_populate_int_ch(struct iio_dev *indio_dev, const char *ch_n
 
-Thanks,
-Nicolai
+>  	int i, ret;
+>  
+>  	for (i = 0; i < STM32_ADC_INT_CH_NB; i++) {
+> -		if (!strncmp(stm32_adc_ic[i].name, ch_name, STM32_ADC_CH_SZ)) {
+> +		if (!strncmp(stm32_adc_ic[i], ch_name, STM32_ADC_CH_SZ)) {
+
+So, now this can be converted to use match_string() I believe. However, if you
+are going to do that, it might be a separate patch. OTOH, this is not fix
+anyway, so might be also integrated (but makes a huge change). Up to you.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
