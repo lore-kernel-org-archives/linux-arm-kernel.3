@@ -4,68 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23D5CA9EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E117ECA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 21:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbKQHaL15IUAgz6gMc8xEIM/r+aSlaz4R8KarTD/aas=; b=cdmSXChq7HliY/WJ4PU21atDpU
-	Jn0CEuoEt8OIaWfOcZQqKzaApVdYfj7RoWzJQi28cCvYTj/2eC0yboFxKvXEjrzQJMUgo/oqjD2fO
-	OUsjGsnezg30NnSpjZQIhjOAUb0/Pzy8qNrfyq1atgtZj2l+VsNbRkFRpayu5P4YXsMfaduW66HnU
-	DkzDyVQApx3/KtNEisYBCWtp3Md/7u4LuloSdZEeNxtLlgwB/GVP0wnaKLDw+W8x43dzE0BiENUAl
-	qtBM4/HzHXU4ESzvYW5C8nRLHGrSC/dp0sa65w2FnnVjH8nOGGRYdJYRwPGgYpcZOO1ZAKV5xWeWb
-	EEzeURnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ErFr+tQW2NzUZN/muqWAyknar+olI/llznWFgISvSBE=; b=zXO0u77haSFKMbUlNOCadpAkHg
+	wyQ96b+2idyrK/1rVRZzdGZjDbFOM83Fv6nLCfLPYhUBRDq+QuUWMMBLbF3iWmgJoNEFDxJMXYwjc
+	Pd/lYqVQspkJCc1HGN+eHUznY+28RhIofAaGoAY1vp4AHr9TBZ0/t9EMwL61mNAG8Bav/C69uYiZ5
+	HW6ussTH9iisL/tSjSdJQleb7jgiMAgvmquh5ypudQZPgFnoEhHu1V289Df15U9jYKXtNQ88bQipB
+	ROwjc32iCNbjYAyw6F21RasECABNZ3RAW6zWftW0ycwjc4PB/HCxD353WupfRmnpUU5i8Fi3qH4xi
+	NBdEdCSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNI9-0000000BWiL-1wSC;
-	Mon, 12 Oct 2026 21:10:41 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1xGNLs-0000000BWtm-3ebt;
+	Mon, 12 Oct 2026 21:14:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGNI6-0000000BWhx-3Oww
+	id 1xGNLq-0000000BWtP-1jUN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 21:10:40 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60030A1552;
-	Mon, 12 Oct 2026 23:10:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1791839435; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IbKQHaL15IUAgz6gMc8xEIM/r+aSlaz4R8KarTD/aas=;
-	b=exsQC4Fz62WtG3a/PE/+jGyO1V/xpDMuZusuTaHMGUHVgP0hxZqAX+pQ1+2cALZuZdAZ3K
-	zAq2XQaWU/4wq0QVFVJTajOO+zkhol+rVkJMYkclagjWTTmkfGlTv6SgurqyPPj2c/Jcc5
-	5dzaIs9d8p1N5Xh2iqjlbafIq5iJJxDSWq2Joci+7gCn7KN80rXT8RcKiGySIYPJWNnX9C
-	deqEZU12zDht7G6VHfAGpnT1hNbL1w1SD74DdaOB7W3OQ9xU7sX4ubCPJaTgIswNnr/dHc
-	/moY5t52JcC0sp+ivSdYEuqDV7AG5CSNsfgQRLxjo8fLsGmp2JFYGE9AGpu9Vw==
+	Mon, 12 Oct 2026 21:14:31 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CJMl21079967
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 21:14:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=ErFr+tQW2NzUZN/muqWAyk
+	nar+olI/llznWFgISvSBE=; b=cJ4edZc/Fi06mbdf/WbGGhh3RzqU0Ljyu4H5zu
+	1LtYqGJHY/OGuW+xeDgtzKzlpXMFP8kSgeA8GZ/PmaIuKu3B1fs+T9Px7FQ5QjFH
+	yI7C5kpT9Ssr1tC2yNtzi76MloPJMBUmQh8RPuGiZwUvSDNeXCmfHm00tbMB2nP6
+	wskQnkFTKQ1/P5naOPEj5J905SrIJUfcyGd3mis+cPHudpkGdGehtSD4AGeKtQuR
+	gcSey1FFaq8Rfgyy5ZHT2A76VCAwgHhr6v5lGPKI+CZvH4titlg/QDob5ZzxEsJL
+	LU4S9WF/9Z/bBzct3M1FLxvMpnmrdUnm7/Cs6U1bK7B/JwDQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8uh3kfd3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 21:14:29 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93e49a1d3b1so554547485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:14:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791839669; x=1792444469; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ErFr+tQW2NzUZN/muqWAyknar+olI/llznWFgISvSBE=;
+        b=Rwt9EBHQnsTz2bCj9UUG9X9tSpwLRQ6J+qO6wXH0oDAnTBhZ61eB3prQ6u/Lq88vc0
+         u3O1iIaG0tTAgaCqAeo4kiFiq/2hzJyA4jkOt0hhZLENoEo0ci2YwIULXhMKjm70qlz3
+         Fj+dAmC1HYz6S1FwHQ40tX5QGECPgocSkITTTxYeYSNLxTRNxz47vyI97+CM9WOy7pju
+         QNklxTPV5d4WNtir6cmpPIhKBwljo780eEst6Hw5OuuWso0d69kgJEbZ3U5GszS+6iKI
+         RTFYK0r61/gjMb4UBk7mHRiHwGhnpzYZKSkXcbUcmmMrlW8Uc3Ul/nfIcF23HzNKEXVx
+         +Gfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791839669; x=1792444469;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ErFr+tQW2NzUZN/muqWAyknar+olI/llznWFgISvSBE=;
+        b=zL8lSBbt+etzplOROqE8qeqTmRnuAkLIT/0n/z9UfRKAckx73OSXr81PDmOmGzHiWG
+         2EQ4kwFf94mKLFDyF4ROS9h1GNLzpn28320bToiDIL5H+3WdvMMPjGsC8djWskTmPS3/
+         Sd8orS+TYnzqpfj/QxXpMGY8e8jDIP3ONCV8UhJ0fSKMlRcnZwDk7a4baZYMMeoQ2q0Q
+         kWlgmBRGkUbW6qNaTyD7VVggjfu96GV70MmO1GpEI2K212Enrg5BUuyzrDKg19IZPTlO
+         P3qjUZj4aZ3sQacb6FWlF8mAb34BXIJUJpsGHPaENuc/H+uQt2v8Fy44JeJywQjiLXVS
+         NMjw==
+X-Forwarded-Encrypted: i=1; AKwUvByQpTttLjZPst1yZfn3qQOPb62fcMLI3rlxuLRCnREqmawV1Sl5s6kg0zwfAvVxZfju7s1cbTIvqIN17+1jw38t@lists.infradead.org
+X-Gm-Message-State: AFq9FYLh84Zr+7r/KMZDFZI/sTPnEwCqAJM9cjm7yUUYzvgE4Rmby/Tm
+	h0mtY6QEx1q+1oIUq/p+ZkcjkIWHFokynAwwppgdL8y/x+YVHGSA+TXv2KHhtPoATi+CrEjkQGP
+	TyMIiVi9QvJeixGaSkQZbGSVkeuaYh/7cefTn69RZzefJddVObZlzTYaODjQElQq4JmOYwQ+Gxn
+	l0Gw==
+X-Gm-Gg: AYBFou0uofcaoa7vXbQC5DJgGETfUUUTxUDhpMYsaEO7daHcyirkKCoaRVLbUfwARYj
+	BgdK7QJTDi+m/rerZq/QIxpCN2wI+nLcpLQRgzsLW0LDE3Ec+x2dwiEtX18HsExl5AZb0kHziff
+	SZlfEpvRftpJ/SInAZXGbV0H60rOsuUL9WUMDxVtRT3UlQ+q4Adhab8xAU98DCui4RxZ/hNnfSC
+	ObiErbytD0IlqMajMANkkDc7AixPa/R2iaqM/OmlRPIqkMnJoipDKm0PG6FZMyAXdSaDO71hv1l
+	lbiHcX3lFjx1hnGpZ73yBnNDiNOBV/BkN5y1vnl7Gv7M6VttqUaJziBDOezB/HS9u35KOdFCOsl
+	OiLhilgKVBCHqfw==
+X-Received: by 2002:a05:620a:444a:b0:93e:c12c:f13d with SMTP id af79cd13be357-93ec12d05e2mr1648439485a.71.1791839668520;
+        Mon, 12 Oct 2026 14:14:28 -0700 (PDT)
+X-Received: by 2002:a05:620a:444a:b0:93e:c12c:f13d with SMTP id af79cd13be357-93ec12d05e2mr1648437285a.71.1791839668048;
+        Mon, 12 Oct 2026 14:14:28 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18f3b43efsm366484935e9.1.2026.10.12.14.14.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 14:14:26 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 12 Oct 2026 23:14:06 +0200
+Subject: [PATCH net-next] net: stmmac: fix mqprio and cbs combination
 MIME-Version: 1.0
-Date: Mon, 12 Oct 2026 23:10:30 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
- <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
- Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v6 4/4] net: stmmac: rework stmmac_rx to support
- XDP rx multi-buff
-In-Reply-To: <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
-References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
- <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
-Message-ID: <9bf19616bc6fd8680e65272f45d14239@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDQAxA0atI1g2YKC16ldKFprHNYmbsZBBBv
+ LtDl2/x/wGu2dRhbA7IuplbihV0a0C+U/wo2rsauOU7tcToJYRJMPzWbAlldpQU5oRdTwvxox9
+ EGWq9Zl1s/5+fELVg1L3A6zwvSwLX6XMAAAA=
+X-Change-ID: 20261012-stmmac-mqprio-cbs-combo-341f12749ce2
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Davide Caratti <dcaratti@redhat.com>,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Daniel Thompson <daniel@riscstar.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA4NCBTYWx0ZWRfX6IvYvV6TBtq8
+ qX2TihbT/zCmzd9dWkLtjR9C+2qP5tvs1tjGHzws+rJDU4ywIRYxybRsr6sdioBPl16JpIyT0XV
+ Aa7pEYk0yWdqGGYC4dp3K2TtV2+coFZ8VaOgSaAmDxzfOwbILpEG0cc1S8+LXobk5xUhSVLg2eq
+ XBiT0di4/tgCH4c+78noYL3d3dlX0JNBjKrbJBuRrLfjCnYAInznlfv3LdUfU7tNp+Acr1aJ2B1
+ 1MhGnSKwBte6RdZC8Qi9N5FJQK/KD9T9rZQrMq20DpQQpPsrBIAzhxl9sLW+6KBGvqHmPttyTpC
+ zXiDBnZxrUKrCOiehbkpNdEDm6ctMeXOOX4T+2ha0nktWbmfeDIf0N7axPoHiIEPYLtiB3kkL8Q
+ ODBixV6t9QUVQGGkj9waUIAtm+iza+3HlNw/vcdAYER8m0k86seCV+CWYiXmhi8TqSohpUzG5Nr
+ 7T1PTHnD/njYWY4/goA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA4NCBTYWx0ZWRfX0vPynLph27Wh
+ GW9eGCg0n7OLDYHzuNrojAl18v9BbS+XV7Hwc3U3ElJp4ZhWnttmEo+eL6+JmYuE11XYcseO7cm
+ htCdVNg+MoOlU101H6Va8afivVE+4qc=
+X-Authority-Analysis: v=2.4 cv=QO391QLL c=1 sm=1 tr=0 ts=6acd4db5 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=ee_2aqc6AAAA:8 a=EUspDBNiAAAA:8 a=RGP7YYwxf8wD1rvbjroA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=VOpmJXOdbJOWo2YY3GeN:22
+X-Proofpoint-ORIG-GUID: NZj44cCwHT5UZeDesOXVnYootBRwxYn7
+X-Proofpoint-GUID: NZj44cCwHT5UZeDesOXVnYootBRwxYn7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-12_06,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 adultscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610120084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_141039_174605_481735AA 
-X-CRM114-Status: GOOD (  31.67  )
+X-CRM114-CacheID: sfid-20261012_141430_488511_15BB4B20 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,159 +155,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo
+The channel-mode mqprio offload and the CBS offload can currently not be
+enabled at the same time. tc_mqprio_validate_chan_mode() refuses the
+mqprio offload as soon as any TX queue is configured in AVB mode, and
+tc_setup_cbs() refuses to enable CBS while the strict-priority scheduler
+is active. As a result the combination is rejected whichever order the
+two are configured in.
 
-On 12.10.2026 18:44, Lorenzo Bianconi wrote:
-> Build the xdp_buff by accumulating all the descriptors that make up a
-> frame, so the XDP program runs on the full (possibly fragmented) packet
-> instead of just the first buffer. When the frame is not consumed by the
-> program, assemble the skb from the head buffer and the collected
-> fragments via napi_build_skb()/xdp_update_skb_frags_info().
-> 
-> Note that XDP still rejects an MTU larger than ETH_DATA_LEN
-> (stmmac_xdp_set_prog(), stmmac_change_mtu()) and disables SPH, so an
-> ordinary frame fits in a single buffer. This path is therefore 
-> exercised
-> by frames that do span several descriptors (for example jumbo frames 
-> the
-> MAC admits through its jumbo-enable bit) and is groundwork for 
-> extending
-> XDP to jumbo/SPH; it does not enable XDP jumbo support by itself.
-> 
-> For those multi-descriptor frames the old code was buggy as well: it 
-> ran
-> the XDP program once per descriptor buffer, so for a multi-descriptor
-> frame the program was also invoked on continuation buffers holding
-> mid-frame payload. It also subtracted ETH_FCS_LEN from the first buffer
-> even when it was not the last descriptor (its second buffer empty),
-> dropping four bytes from the middle of the frame while marking the FCS 
-> as
-> already stripped and skipping the final pskb_trim(). Accumulating the
-> whole frame before running XDP fixes both.
+The strict-priority scheduler selected by the channel-mode mqprio
+offload and the per-queue CBS shaper are independent MTL settings and do
+not conflict, so drop the checks and let the combination be offloaded.
+The following configuration, which was previously refused, now works:
 
-With patch 3/4 applied, these frames are already dropped in XDP mode,
-so this paragraph no longer matches the code this patch changes?
+  $ tc qdisc replace dev eth0 handle 100 parent root mqprio num_tc 4 \
+        map  0  0  0  0  0  1  2  3  0  0  0  0  0  0  0  0 \
+        queues 1@0 1@1 1@2 1@3 mode channel hw 1
+  $ tc qdisc replace dev eth0 parent 100:2 handle 102: cbs \
+        idleslope 800000 sendslope -1700000 hicredit 494 locredit -1049 offload 0
+  $ tc qdisc replace dev eth0 parent 100:3 handle 103: cbs \
+        idleslope 400000 sendslope -2100000 hicredit 247 locredit -1296 offload 1
+  $ tc qdisc replace dev eth0 parent 100:4 handle 104: cbs \
+        idleslope 200000 sendslope -2300000 hicredit 124 locredit -1419 offload 1
 
-> 
-> To do so, store the in-progress xdp_buff in rx_q->state instead of the
-> partially built skb, so the accumulated head and fragments survive a
-> NAPI poll boundary (mid-frame dma_own or dirty_rx break). The state is
-> saved only while a frame is in progress and cleared once it completes,
-> leaving it untouched when the poll does not process anything (e.g.
-> netpoll invoked with a zero budget).
-> 
-> In addition:
-> - advertise NETDEV_XDP_ACT_RX_SG, since the RX path can now deliver
->   non-linear buffers to XDP;
-> - drop multi-buffer frames when the attached program was not loaded 
-> with
->   BPF_F_XDP_HAS_FRAGS, since a single-buffer program must not be handed 
-> a
->   non-linear xdp_buff;
-> - build the skb head with napi_build_skb() passing xdp->frame_sz, so
->   skb_shinfo() lands on the same shared_info the fragments were
->   accumulated into;
-> - carry the XDP metadata written with bpf_xdp_adjust_meta() into the 
-> skb
->   via skb_metadata_set(), so it is no longer dropped and TC/BPF 
-> programs
->   can read it through data_meta;
-> - attach fragments with xdp_buff_add_frag(), which initializes all the
->   shared_info fields and takes care of the pfmemalloc bit;
-> - release the buffers collected in the xdp_buff when a frame is dropped
->   on RX errors; the previous code relied on dev_kfree_skb() recycling 
-> the
->   skb frags, which no longer applies now that the head and fragments 
-> live
->   in an xdp_buff rather than a partially built skb;
-> - drop the whole frame when it would exceed MAX_SKB_FRAGS, where the
->   previous skb_add_rx_frag() calls were unbounded;
-> - strip the Ethernet FCS from the accumulated xdp_buff with a
->   driver-local tail shrink (stmmac_xdp_shrink_tail()) for both linear
->   and fragmented frames, instead of trimming the skb or the first
->   descriptor length.
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
+Fixes: 47891d501e34 ("net: stmmac: add tc mqprio hw queue priority offload")
+Tested-by: Daniel Thompson <daniel@riscstar.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  8 --------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 16 ----------------
+ 2 files changed, 24 deletions(-)
 
-> [...]
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 56d89a696272..51d502930219 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -7740,14 +7740,6 @@ int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
+ 	    tx_cnt < priv->xmit_qdisc.num_tx_queues)
+ 		return -EINVAL;
+ 
+-	if (priv->xmit_qdisc.prio_offload) {
+-		for (i = priv->plat->tx_queues_to_use; i < tx_cnt; i++) {
+-			if (priv->plat->tx_queues_cfg[i].mode_to_use ==
+-			    MTL_QUEUE_AVB)
+-				return -EINVAL;
+-		}
+-	}
+-
+ 	if (netif_running(dev))
+ 		stmmac_release(dev);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index ea1f97d6f0bd..175236ba379d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -346,9 +346,6 @@ static int tc_setup_cbs(struct stmmac_priv *priv,
+ 	if (!priv->dma_cap.av)
+ 		return -EOPNOTSUPP;
+ 
+-	if (qopt->enable && priv->xmit_qdisc.prio_offload)
+-		return -EOPNOTSUPP;
+-
+ 	port_transmit_rate_kbps = qopt->idleslope - qopt->sendslope;
+ 
+ 	if (qopt->enable) {
+@@ -1340,7 +1337,6 @@ static void tc_mqprio_config_queue_prio(struct stmmac_priv *priv,
+ static int tc_mqprio_validate_chan_mode(struct stmmac_priv *priv,
+ 					struct tc_mqprio_qopt_offload *mqprio)
+ {
+-	struct plat_stmmacenet_data *pdata = priv->plat;
+ 	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
+ 	int i;
+ 
+@@ -1350,18 +1346,6 @@ static int tc_mqprio_validate_chan_mode(struct stmmac_priv *priv,
+ 		return -EOPNOTSUPP;
+ 	}
+ 
+-	/* Forcing strict priority conflicts with the CBS algorithm
+-	 * of AVB queues, so reject the offload when any queue is
+-	 * configured as AVB.
+-	 */
+-	for (i = 0; i < pdata->tx_queues_to_use; i++) {
+-		if (pdata->tx_queues_cfg[i].mode_to_use == MTL_QUEUE_AVB) {
+-			NL_SET_ERR_MSG_MOD(mqprio->extack,
+-					   "SP conflicts with AVB queues");
+-			return -EOPNOTSUPP;
+-		}
+-	}
+-
+ 	for (i = 0; i < qopt->num_tc; i++) {
+ 		/* The offload switches the MTL scheduler to strict
+ 		 * priority, which only supports a 1:1 TC to TX queue
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c 
-> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+---
+base-commit: d0bd617658ddfa5a115e64d1ab687bf155f6331f
+change-id: 20261012-stmmac-mqprio-cbs-combo-341f12749ce2
 
-> [...]
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-> +static void
-> +stmmac_xdp_put_buff(struct stmmac_rx_queue *rx_q, struct xdp_buff 
-> *xdp,
-> +		    int sync_len, bool allow_direct)
-
-This looks like xdp_return_buff(), apart from the sync length of the
-first buffer. Could the NAPI paths (XDP_CONSUMED and error_free_frag)
-use xdp_return_buff() instead? The teardown paths need allow_direct =
-false, so they would still need something local.
-
-> +{
-> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
-> +	int i;
-> +
-> +	if (likely(!xdp_buff_has_frags(xdp)))
-> +		goto out;
-> +
-> +	for (i = 0; i < sinfo->nr_frags; i++)
-> +		page_pool_put_full_page(rx_q->page_pool,
-> +					skb_frag_page(&sinfo->frags[i]),
-> +					allow_direct);
-> +out:
-> +	page_pool_put_page(rx_q->page_pool, virt_to_head_page(xdp->data),
-> +			   sync_len, allow_direct);
-> +}
-> +
-> +static struct sk_buff *stmmac_build_skb(struct xdp_buff *xdp)
-> +{
-
-This is very close to xdp_build_skb_from_buff(). Have you checked if 
-this might
-be a fit?
-
-> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
-> +	u32 metasize = xdp->data - xdp->data_meta;
-> +	struct sk_buff *skb;
-> +	u8 num_frags = 0;
-> +
-> +	if (unlikely(xdp_buff_has_frags(xdp)))
-> +		num_frags = sinfo->nr_frags;
-> +
-> +	skb = napi_build_skb(xdp->data_hard_start, xdp->frame_sz);
-> +	if (!skb)
-> +		return NULL;
-> +
-> +	skb_mark_for_recycle(skb);
-> +	skb_reserve(skb, xdp->data - xdp->data_hard_start);
-> +	skb_put(skb, xdp->data_end - xdp->data);
-> +	if (metasize)
-> +		skb_metadata_set(skb, metasize);
-> +
-> +	if (unlikely(xdp_buff_has_frags(xdp)))
-> +		xdp_update_skb_frags_info(skb, num_frags, sinfo->xdp_frags_size,
-> +					  num_frags * xdp->frame_sz,
-> +					  xdp_buff_get_skb_flags(xdp));
-> +	return skb;
-> +}
-
-> [...]
-
-> +static int stmmac_xdp_shrink_tail(struct stmmac_rx_queue *rx_q,
-> +				  struct xdp_buff *xdp, int offset)
-
-This is only used to drop the FCS. On the last descriptor we already
-know the frame length, so could the 4 bytes be taken off buf1_len /
-buf2_len before the buffers are added? Then only the rare case where
-the last buffer has fewer than 4 bytes would need to trim the previous
-frag, and this helper could go away.
-
-> [...]
-
-Thanks,
-Nicolai
 
