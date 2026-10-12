@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D49CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E67DCA9EDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jCEnnIXq+wscEvAbwOlCsu2gpg65/OuZHD1QbNIMziw=; b=L5feiLdgAdUcMkxU4UD8A0LajT
-	8mTHBQMW3c0w9eLi6+ZOwbpruiUOagS1vvTxWAiW69UM7oEZcwdX6EoYezQcH1Vc4/SPtaHzyPt5Q
-	tQTYuIgZA8hiPTBlnliikECO7AtNiqpnALAIK0LjxN4eK8BZRvd6HgJOv6TcQ0Kj7z1b3dw/ZW0MI
-	5VprEXxB8Bg/KFZeUm9CdtX+LagIB0ByU68uO2a/s/5OlUPVMHBrNkPDNLm6eC9Jdn6v+lmzdASYk
-	Ula0CaDktFd70lxKEB0tvQ+NoB/U2B0J965raj7lKf/SIo2h6Hdt1QH0cYaBbb8g4P3UPtot6CR7D
-	iThzWDnw==;
+	bh=L1u0TTK6mlFZT6VLHFzxqw1NWE5qUPMphCAjj5bHCrQ=; b=pME/Pb/gBfymBFAYLp65L3+C2u
+	Z1si+lcWpULO6HZobe2UOpL0cFAfQx74BZqkqcVfJ73LWuj4EJWoovyzcPAMc2DY18TyxKLQKDP1S
+	YpPRIHRC8dUGkuNiK44V6DagOaXN+jxThnTmSvGK3F9nlQy6dM4S1eTP9VJOKCBEhg/icW3HwmyFi
+	tSb+ZRzm899XY25ngBbK1xYVDW2Zo3hCYogk+FpnI+GviNxQhwCHGRrc1i307rdJNdvng1CIYS3ks
+	7yaCGhZp8zcichqv3ftJ3WoHbS1iUHD4k7zeniT5Xo0Q79qYBgHhwJBmUoCsLqxZS/ekLoT/ykc1s
+	0ls0NAWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ7q-0000000Azwk-0UTn;
-	Mon, 12 Oct 2026 16:43:46 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ7o-0000000AzvT-0Bjx
+	id 1xGJ7t-0000000AzzF-1LPI;
+	Mon, 12 Oct 2026 16:43:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGJ7q-0000000Azwz-1atw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:43:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791823424; x=1823359424;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Qp8ehQlKBEpYMpNpbGBobCp0JbCv+zToa4qq8WFMcAk=;
-  b=U3qhk5OoiMGE4Ev4mAKeEAmgmIOogg/7DiJcrzp/kRIUvwVdiQnySdox
-   5OKkHjtEop8qx48+ouUHohIkhaWXqXCSrgRQRG53L/TPkZUQMMjPJSQPO
-   nXI3EMg8oVQxU5rMPmP+pgWDeb4nZxuxAx47T/ZKStGZ41Wpx2x3vc3sx
-   aha6zXvRaeXLnfybCg7hVu6unT1K39PnVZKbPHP6IJfdSygZfR7W/+mib
-   GNJgfWm2NIdEsfXfdr2LmCgQuOusr+RumtUqW+xhx5CHV/kAi5TIlMlnF
-   RhW5hsw+5MosjbrmYhkNXPW3iYoIBKtFKY6ylavv/XH3zd/0JWW1x0v8/
-   w==;
-X-CSE-ConnectionGUID: d34xQooiSiKrVZVRf5sa5g==
-X-CSE-MsgGUID: kwvIe+LFSyef4UmqAm3LDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="410087"
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="410087"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:43 -0700
-X-CSE-ConnectionGUID: asXuhYDSTKqumKcmgKmFqQ==
-X-CSE-MsgGUID: 35YRVcKoQ7yCpmP4X9cXyw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="1004936"
-Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:42 -0700
-From: Dawid Glazik <dawid.glazik@linux.intel.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	dawid.glazik@linux.intel.com,
-	maciej.lawniczak@intel.com
-Subject: [PATCH v2 1/3] dt-bindings: arm: aspeed: Add Intel AVCRP and JNCRP boards
-Date: Mon, 12 Oct 2026 19:39:05 +0200
-Message-ID: <0b8fbf07323894a48a777ea531713a0285e319d4.1791825961.git.dawid.glazik@linux.intel.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1791825961.git.dawid.glazik@linux.intel.com>
-References: <cover.1791825961.git.dawid.glazik@linux.intel.com>
+	Mon, 12 Oct 2026 16:43:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A994D169E;
+	Mon, 12 Oct 2026 09:43:41 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CF133F673;
+	Mon, 12 Oct 2026 09:43:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791823425; bh=clp9MA9YZuEI5EtCokrIl6KhbsQK09KkMkQbTQwBPsE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BEmzAGvfOEoLDUDmLFTS6rJgfAIalRcOEBWFjwcr7tELaaPi9+5TdYQDj843gO3ej
+	 xuuuQpSTnAe1p2B1tl0jRfSpPulZuNyoBOQb/lS0z5e5Z+Mzc/odtqgDtqpqikqvH5
+	 /uaLxmrc0WjTtXJYX9ldTfBg7jhgg2tpHkUdIK3g=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] firmware: smccc: Pass only the required device probe arguments
+Date: Mon, 12 Oct 2026 17:43:33 +0100
+Message-ID: <179182341292.872409.17228247622943344974.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261010100249.643327-1-aneesh.kumar@kernel.org>
+References: <20261010100249.643327-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_094344_130498_B0796D41 
-X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-CacheID: sfid-20261012_094346_467925_183D09E4 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,33 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible strings for the Intel AVCRP and JNCRP BMC boards.
+On Sat, 10 Oct 2026 15:32:49 +0530, Aneesh Kumar K.V (Arm) wrote:
+> The device probe passes zeroes for all seven argument registers to
+> arm_smccc_1_1_invoke(). On ARM32 Thumb-2, this binds an input to r7 and
+> GCC 8.5 reports "r7 cannot be used in asm here".
+> 
+> The current smccc_devices entries need at most one argument after the
+> function ID: TRNG_VERSION has none and RSI_ABI_VERSION takes a requested
+> version. Pass zero for that argument and omit the unused arguments,
+> avoiding the r7 constraint. Check argument requirements when adding new
+> probe functions to smccc_devices.
+> 
+> [...]
 
-Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
----
-v2:
- - Squash the separate AVCRP and JNCRP commits from v1 into a single
-   commit, since the changes are small and closely related
- - Fix compatible string ordering so the new entries stay in
-   alphabetical order within the enum
----
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Applied to arm64 (for-next/smccc-bus), thanks!
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 8ec7a3e74a21..60e8e73da3f5 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -107,6 +107,8 @@ properties:
-               - ibm,sbp1-bmc
-               - ibm,system1-bmc
-               - ibm,tacoma-bmc
-+              - intel,avcrp-bmc
-+              - intel,jncrp-bmc
-               - inventec,starscream-bmc
-               - inventec,transformer-bmc
-               - jabil,rbp-bmc
--- 
-2.43.0
-
+[1/1] firmware: smccc: Pass only the required device probe arguments
+      https://git.kernel.org/arm64/c/c6e78a4080a3
 
