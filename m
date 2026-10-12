@@ -4,95 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FE3CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EDBCA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Ym9pmTvHGCvGzIEIbpXI+Ln1kCI6J80Q0tQm6YawUg=; b=CNxISuU99d3fLqL5n3uQTALxRf
-	DlQVMrqG/ZOxkbkmumaiLzIGgx50tTMtGaZsTc1GywdwMPZuwGY1ibhrePT0L0592ZGq2dBTcysW5
-	ORozKbxjvJWIJ4uCg0PE3JAVaufEieSd3jz5rlFQfTx7iCuK5xKIgadorrXzH0eWuG4dsbJMDwbjl
-	k0G+nqD7FtzyChYong9QvD6psr3kQ50zIGk3Xb8eQ35GC9W1JhhZRn4e4W4R9sYV5b9Q5w4VeldKF
-	SyDXeAOjCclFgHIBu89qlYySfQk77J0RhOaNbnzqRbUszBo5NLkDtaS5bhuhsTiU4oOXfzweaPes5
-	yqldi4+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b4Qvrcwgu9I6f+1f4CHY/F3cNNpArFkZBjt+WcNGphI=; b=Ln9rxHsuVb4kNS
+	I7OC0SVIFRO7ZaDVrGWSlrjAnEQH+LBHq+X9Jr051jHlvJ1FHGoCZ0dNKbFqLsCIx17TsIh1BJ0w8
+	jwTr1wY84K6BfrMBfC/1tpjz8rwdRYaNlETMIr8L3kHVx5FBLNkPaCP/hh1w4CRkgUWxuutsqR6ae
+	3vRMnLpW1NlN8mvbjjOFVzUoolI5WNpcdwNCGLXkjm6KifDveufCGlDsrK2sFKwToH1O9Kr9s/fz3
+	Vs5zjM8DGQhmVlkSa9ODxq5HMu35TFIzxeXlweCBo6pS5IuwZzSlyA681yZWc5a3Cq0FHyvI18Qa8
+	0Bmjr9oG9nywxkdnYsNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9YY-00000009jZ4-3Cpb;
-	Mon, 12 Oct 2026 06:30:42 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1xG9ZI-00000009jr3-0Ijo;
+	Mon, 12 Oct 2026 06:31:28 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9YW-00000009jXd-2hxm
+	id 1xG9ZD-00000009jn5-2Mgk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 06:30:41 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2e836252e1dso12624725ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Oct 2026 23:30:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791786640; x=1792391440; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0Ym9pmTvHGCvGzIEIbpXI+Ln1kCI6J80Q0tQm6YawUg=;
-        b=IBVg1hKZmiiZJDE2SBBFGuPO4uPbFoxNsl0UnKHkusWnBF1l7xIgBkSl8EtbsF4INY
-         4vYlyN5R7qtGFO+nYE7B2lWtI87cugaGi3Oparu3UPne3GUOXufhQOMJSCSMuWd6hTOX
-         ThG24dL+8AFQ3GbRcDqZuAl7llwsQO8bfpUD9icnlFlfJOvkLuKZtnvR6mGTYKKOgFkf
-         ab7RO8h6wWyT6i5vdgpgizZGscwsaKCqu5BLXWuTb03lLlhSYE4DAmff4m9ZxCHDzuNn
-         PxDChub5cr6YgRTq/vUhpRMN3JZSsFr2Ik0g7NqVDiNqrljiGlmkMlEFEYFaTOeTklWk
-         2qUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791786640; x=1792391440;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0Ym9pmTvHGCvGzIEIbpXI+Ln1kCI6J80Q0tQm6YawUg=;
-        b=gcXrjF5mV8qYqm/pbVxeRs5/hYxEOmPoHZnzKvapcbEOMBCJzc9NgdaD1SXS1OzD2n
-         wwcHKf5v64awt4tgs7G8ZYSc7pDsYyEVo8BmY/fv47uOj03ghg2C/KJipFHlKRnAUojM
-         xQ3BeGv0COqA+FssemggY0atDZ/xz2t5GAazZpJnPhT9wnUVghIm4WUx0o0mfHyS6Zjj
-         lbkEKqbZwz1FCyvBRKVd1py/uMdZZStT1SKjgzHPpVGOBEIZVfZcyvcKB+IH2xGjrI44
-         iyyPb8DX33wI13iFaeFbQqHo+05bq6NGiy++mkJTiu6AzYsYHnF+CFZZg0Wv/+UwS2lL
-         WXoA==
-X-Forwarded-Encrypted: i=1; AKwUvBww+7RKRp4Nego0t5ybLQ0QmHOKJeIsdEbtMuGm2oE5NX+ClQRAKp58dUAsfTQVfSvMcSQu6GZoPmPBhNIODKM7@lists.infradead.org
-X-Gm-Message-State: AFq9FYIJrhnm0UPt/DE6F42OD2Cg6VzYtQDE7feKPdPxaEoP8daDWTwK
-	8wnGnVHDk4XReta0Eot5mvwKGhw6uVXqp+TXrIOBtRpR5KVhfnRk3wgK
-X-Gm-Gg: AYBFou1ZCjJYfdJDj2JTogWX4/yhN3vu7QkdOxmKxk5FPrvpcqIQBh2xAqDDSTTARVk
-	tMZTpUSyOl4ezwhhMtx284v9FwYAgpkNs9bsB1/TxK3hvF2r8u436RJTvBf/IusOp/rMCATLKoF
-	QkHrBdki11sCbjvVDubbNkDtMpdBMuATfc20YDLZQYC99uAaVO4vOX4ByoHaSCQ1bEUAqLw3RYx
-	1Afq+MHdehJ4eBq2JqtOszMvsrz2AMzXS50m9tMgFLOtfAt7yn7WC6HD/f23HasUmaLbUcsLiNw
-	LoFoDmyDHXo0OAp1JMgSErPr5srGMhZcunO9i43NNCanCmWwSHdSJY1Gr0+FF7jI6i7R/NsDcww
-	k06DWx44axoeMqvgl4mIfdaNW8F/9Tbx6X/i6EfZsIH1+58EoAwuXO03Y0RK2i1SXHFxNLrsNqC
-	1/rYuOsZhHvYp/eN0MVY9bOKSU/8cei05M+acEMUzdcR7fFcgmW0sL1N9a69CTnVqDVBQ2EJ/4x
-	tnjhpVEyw/tsd8rp6u9lJGO57w0ub1FtWi3/LC1zPaOyclLGA2A7VQ6Mfe2lwE=
-X-Received: by 2002:a17:903:15c8:b0:2e2:dc6c:a6d6 with SMTP id d9443c01a7336-2e842aa60cbmr66919225ad.16.1791786639721;
-        Sun, 11 Oct 2026 23:30:39 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e8422da9b1sm39071745ad.66.2026.10.11.23.30.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Oct 2026 23:30:39 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: sboyd@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	arnd@arndb.de,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH 3/3] clk: nuvoton: ma35d1: remove the unused ADC divider driver
-Date: Mon, 12 Oct 2026 14:30:20 +0800
-Message-ID: <20261012063020.3331443-4-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261012063020.3331443-1-a0987203069@gmail.com>
-References: <20261012063020.3331443-1-a0987203069@gmail.com>
+	Mon, 12 Oct 2026 06:31:26 +0000
+Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0CB02200073;
+	Mon, 12 Oct 2026 08:31:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791786679;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b4Qvrcwgu9I6f+1f4CHY/F3cNNpArFkZBjt+WcNGphI=;
+	b=O10tlFPTf+hrOW2UHCdoV8hV99JAzcxybcmSLrG8vbv9LcQh5PGBZZY24oEviD3qVWFhaK
+	nDblnZdpli4OfMiCoKLqb7vcrSXux11zm6+QWGONXFs/+ywDVFRlAsPIscuvFsRUjVgUSV
+	DeC27JrTlLlNVNFNgtZhAJ8wjGnkBvI0p8rRxUo3RyLIDas9XftFXtV68+9ZRyidhYYz/G
+	u4/e7BEZ7la3QIoUHDD9vRvZSZyRxpIFlyWCIPnb5reG89qiOIu4YRLGWDC/IkmVtzl4X0
+	h65JnlF2dyefbL6jtc5SCLy8rTuDh4TDob0J8KCinFJ5/IvfrR2JkB1d2qFAfA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791786679; a=rsa-sha256;
+	cv=none;
+	b=VIPoaprsfdu3fAhw3VBh5+Y+Xm1bJ/2RKzNWw+sKrsJl3ph3lJJeOJ1rrm0oUedAKoBWjn
+	PMjzebHjmAJXPWn324Z7XurLFfRm0zfF7M9c22Cb0HtrHe6+YxzvUHnMctkx7a/IdEBIf3
+	rSuj1ervuY19P5/ymHVA14kfYu34nNg2jAkKI6oPXjR/2hAHJvcXQw4uHV+dQ7OkFBv45M
+	6J5GqDIWxTv/1Xjbi7ASiiC2wlXxdDIOri/WBgqF5mTr8x8+UiqLXbORoVwTFvYtbRz2Un
+	wxqZdRVEBWG8G6v4QsyMyIPfA4LyiKDA/Z4yVNeOCGrpaJvox9+/CFoxkZ+lCw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791786679;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b4Qvrcwgu9I6f+1f4CHY/F3cNNpArFkZBjt+WcNGphI=;
+	b=NTpd09FIsikTzkvs174+SHq5dfFQW9XWeU7qRaLNNhsIVN4PdG8xkvzFUPS8CwxBSlyhuN
+	SU4U+B18+cPCqA0ga4//B58S39lPygRYwdJNe4q/0CoiKVmSd25YhsR9ukeb7J4ToOT/I0
+	kWaOZgoW/UL+YQZ0Ib4SHC4Bskkgb+V0VQei60Ulkq6dvsV38s82uVJtUAaBGbyNC9jEA5
+	LY5fmvWMTbdlBAwe0WmBUDU5jq4uj07bDQ/F3NlDG6MTczlZ6ZWZtmE0uBjxdTtsfHW1Q5
+	yVw8oDyog9eBsz1+mjuTecKD+043Xfaqw72fATSwb+QTpdkJpjKAXAKpcBtD2A==
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: [PATCH v10 0/4] arm64: dts: imx8mp-skov: add new 7" variant
+Date: Mon, 12 Oct 2026 08:30:29 +0200
+Message-Id: <20261012-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v10-0-0906e57486a3@pengutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/53Su2rDMBQG4FcJmqtydJcztXTp2KFb6SDLUqKU2
+ MayTUrIu1d2oQlUi7IIdPj5ji7njKIbgotouzmjwc0hhq5NGwIPG2T3pt05HJpUQBSoBEYFnhU
+ GPHZ9sDgcT/rY4/jVzbgZIz5MYzfZPVahTStraltzAYZVFiWuH5wPp7XXB3p7fn95RZ+/5TjVB
+ 2fHpc0S3Ic4dsP3eqaZrPHy7jNJQQJUiIYyyVn11Lt2N41D14bTY+PW3jO96pyqAp2moKO1qry
+ lCSdZnV11BaRAZynYKO6VY17TimV1fqvLAp0vurdgtabKAs3q4kYvehmRglJ5Y4RzUHuZ1eW9u
+ kxBb7RXJN1ASJ/V1b36ErRGG+BcEilNVtdXXbOSX9XrzDjJBBe0NvmJrP50AqAL9GqZd+JNBV4
+ w4u0//XK5/AC8yyyr7wMAAA==
+X-Change-ID: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
+ =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3658;
+ i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
+ bh=8afguFn9yCXQFLb7LXj2fhjSLNZL3S+XDu9Q+mLI4AI=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9aZuq2ZdceZ9aduUxbw/N3OfPNI7rSAs9bHLppHB93gV
+ bETKXnSUcrCIMbFICumyKKysIJP1OODZ+Q0ES6YOaxMIEMYuDgFYCLX+xn+ZzeeNrz/yzNI88OD
+ xUd/iWkY95+bGnvWzy5G48rTH/ImBxj+2U3dHNV7Sk51p8Xr848W6VSG6tlV+Rt2l/w8Ga56qyq
+ SCQA=
+X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
+ fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261011_233040_717723_D0AAAECF 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20261011_233124_126394_2917DAF7 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,182 +116,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ADC divider is now registered with the generic clk divider, so
-clk-ma35d1-divider.c and its ma35d1_reg_adc_clkdiv() prototype have no
-users. Remove them, including the divider table it built with one entry
-per possible divider value.
+Add a new board variant for the Skov i.MX8MP based family of boards.
 
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+This variant uses a different 7" panel than the existing ones.
+As the already upstream boards and this new one are almost identical,
+convert the other device trees to a base devicetree and apply the touch
+controllers and panels via overlays.
+
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 ---
- drivers/clk/nuvoton/Makefile             |   1 -
- drivers/clk/nuvoton/clk-ma35d1-divider.c | 133 -----------------------
- drivers/clk/nuvoton/clk-ma35d1.h         |   5 -
- 3 files changed, 139 deletions(-)
- delete mode 100644 drivers/clk/nuvoton/clk-ma35d1-divider.c
+Changes in v10:
+- rebase onto imx-dt64-7.4
+- rearrange binding and code patches
+- Link to v9: https://patch.msgid.link/20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de
 
-diff --git a/drivers/clk/nuvoton/Makefile b/drivers/clk/nuvoton/Makefile
-index c3c59dd9f2aaa..3d95466e69b9c 100644
---- a/drivers/clk/nuvoton/Makefile
-+++ b/drivers/clk/nuvoton/Makefile
-@@ -1,4 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-$(CONFIG_CLK_MA35D1) += clk-ma35d1.o
--obj-$(CONFIG_CLK_MA35D1) += clk-ma35d1-divider.o
- obj-$(CONFIG_CLK_MA35D1) += clk-ma35d1-pll.o
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-divider.c b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-deleted file mode 100644
-index e992e7c303419..0000000000000
---- a/drivers/clk/nuvoton/clk-ma35d1-divider.c
-+++ /dev/null
-@@ -1,133 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Copyright (C) 2023 Nuvoton Technology Corp.
-- * Author: Chi-Fang Li <cfli0@nuvoton.com>
-- */
--
--#include <linux/clk-provider.h>
--#include <linux/device.h>
--#include <linux/regmap.h>
--#include <linux/spinlock.h>
--
--#include "clk-ma35d1.h"
--
--struct ma35d1_adc_clk_div {
--	struct clk_hw hw;
--	void __iomem *reg;
--	u8 shift;
--	u8 width;
--	u32 mask;
--	const struct clk_div_table *table;
--	/* protects concurrent access to clock divider registers */
--	spinlock_t *lock;
--};
--
--static inline struct ma35d1_adc_clk_div *to_ma35d1_adc_clk_div(struct clk_hw *_hw)
--{
--	return container_of(_hw, struct ma35d1_adc_clk_div, hw);
--}
--
--static unsigned long ma35d1_clkdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
--{
--	unsigned int val;
--	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
--
--	val = readl_relaxed(dclk->reg) >> dclk->shift;
--	val &= clk_div_mask(dclk->width);
--	val += 1;
--	return divider_recalc_rate(hw, parent_rate, val, dclk->table,
--				   CLK_DIVIDER_ROUND_CLOSEST, dclk->width);
--}
--
--static int ma35d1_clkdiv_determine_rate(struct clk_hw *hw,
--					struct clk_rate_request *req)
--{
--	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
--
--	return divider_determine_rate(hw, req, dclk->table, dclk->width,
--				      CLK_DIVIDER_ROUND_CLOSEST);
--}
--
--static int ma35d1_clkdiv_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
--{
--	int value;
--	unsigned long flags = 0;
--	u32 data;
--	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
--
--	value = divider_get_val(rate, parent_rate, dclk->table,
--				dclk->width, CLK_DIVIDER_ROUND_CLOSEST);
--
--	spin_lock_irqsave(dclk->lock, flags);
--
--	data = readl_relaxed(dclk->reg);
--	data &= ~(clk_div_mask(dclk->width) << dclk->shift);
--	data |= (value - 1) << dclk->shift;
--	data |= dclk->mask;
--	writel_relaxed(data, dclk->reg);
--
--	spin_unlock_irqrestore(dclk->lock, flags);
--	return 0;
--}
--
--static const struct clk_ops ma35d1_adc_clkdiv_ops = {
--	.recalc_rate = ma35d1_clkdiv_recalc_rate,
--	.determine_rate = ma35d1_clkdiv_determine_rate,
--	.set_rate = ma35d1_clkdiv_set_rate,
--};
--
--struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
--				     struct clk_hw *parent_hw, spinlock_t *lock,
--				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit)
--{
--	struct ma35d1_adc_clk_div *div;
--	struct clk_init_data init;
--	struct clk_div_table *table;
--	struct clk_parent_data pdata = { .index = 0 };
--	u32 max_div, min_div;
--	struct clk_hw *hw;
--	int ret;
--	int i;
--
--	div = devm_kzalloc(dev, sizeof(*div), GFP_KERNEL);
--	if (!div)
--		return ERR_PTR(-ENOMEM);
--
--	max_div = clk_div_mask(width) + 1;
--	min_div = 1;
--
--	table = devm_kcalloc(dev, max_div + 1, sizeof(*table), GFP_KERNEL);
--	if (!table)
--		return ERR_PTR(-ENOMEM);
--
--	for (i = 0; i < max_div; i++) {
--		table[i].val = min_div + i;
--		table[i].div = 2 * table[i].val;
--	}
--	table[max_div].val = 0;
--	table[max_div].div = 0;
--
--	memset(&init, 0, sizeof(init));
--	init.name = name;
--	init.ops = &ma35d1_adc_clkdiv_ops;
--	init.flags |= flags;
--	pdata.hw = parent_hw;
--	init.parent_data = &pdata;
--	init.num_parents = 1;
--
--	div->reg = reg;
--	div->shift = shift;
--	div->width = width;
--	div->mask = mask_bit ? BIT(mask_bit) : 0;
--	div->lock = lock;
--	div->hw.init = &init;
--	div->table = table;
--
--	hw = &div->hw;
--	ret = devm_clk_hw_register(dev, hw);
--	if (ret)
--		return ERR_PTR(ret);
--	return hw;
--}
--EXPORT_SYMBOL_GPL(ma35d1_reg_adc_clkdiv);
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.h b/drivers/clk/nuvoton/clk-ma35d1.h
-index 3adee440f60a3..06300511987ae 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.h
-+++ b/drivers/clk/nuvoton/clk-ma35d1.h
-@@ -10,9 +10,4 @@
- struct clk_hw *ma35d1_reg_clk_pll(struct device *dev, u32 id, u8 u8mode, const char *name,
- 				  struct clk_hw *parent_hw, void __iomem *base);
- 
--struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
--				     struct clk_hw *parent_hw, spinlock_t *lock,
--				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit);
--
- #endif /* __DRV_CLK_NUVOTON_MA35D1_H */
--- 
-2.43.0
+Changes in v9:
+- fix dtbscheck error
+- squash new compatible into 7" devicetree patch
+- Link to v8: https://patch.msgid.link/20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de
+
+Changes in v8:
+- add #address-cells and #size-cells to i2c2
+- fix touchscreen resolution
+- add missing binding includes
+- Link to v7: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v7-0-ca8a0446166a@pengutronix.de
+
+Changes in v7:
+- address more of sashikos rightful feedback
+- Link to v6: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de
+
+Changes in v6:
+- address sashikos rightful feedback
+- Link to v5: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de
+
+Changes in v5:
+- convert to overlays
+- Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
+
+Changes in v4:
+- fix Makefile sort order
+- add touchscreen fallback compatible
+- fix lvds_bridge comment
+- Link to v3: https://patch.msgid.link/20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de
+
+Changes in v3:
+- rebase to v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260427-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v2-0-e2b79fc24391@pengutronix.de
+
+Changes in v2:
+- rebase to v7.1-rc1
+- Link to v1: https://patch.msgid.link/20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: Søren Andersen <san@skov.dk>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Steffen Trumtrar (4):
+      arm64: dts: freescale: imx8mp: skov: fix sort order
+      dt-bindings: arm: fsl: add compatibles for Skov i.MX8MP boards
+      arm64: dts: imx8mp-skov-revc: convert to overlays
+      arm64: dts: imx8mp-skov: support new 7inch panel board
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |  2 +
+ arch/arm64/boot/dts/freescale/Makefile             | 10 ++-
+ .../imx8mp-skov-revc-jutouch-jt070tm041.dtso       | 38 ++++++++++
+ .../imx8mp-skov-revc-jutouch-jt101tm023.dtso       | 38 ++++++++++
+ .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ----------------------
+ .../freescale/imx8mp-skov-revc-tian-g07017.dtso    | 40 +++++++++++
+ ...h-jt101tm023.dts => imx8mp-skov-revc-touch.dts} | 26 +++----
+ 7 files changed, 135 insertions(+), 100 deletions(-)
+---
+base-commit: 7f47e8eafbf55a2ad0697e5d28f5e6cff2fa42f9
+change-id: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+
+Best regards,
+--  
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
 
