@@ -4,134 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DB9CA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEA6CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFx7q2gw969qniP021RhhbzLfMyq69zDXvyzx/KYCbM=; b=iFYvu3h1RZnWyoW5ek6nXFAu8y
-	fRorm3K2JnYrOXRhGewhcmIopYla9BoriQ5dexWe8/m3Mg0A/qbqBLTENKJ6DOWfB4lZ7LrXh+/iN
-	GFLbIGHi4n/KoatehRuMn///TfiyZuPG1I3krPJuyIMEmX9G8pixluREnF0IAof92ockr+eef7rLq
-	aY2B3gY921LObXWni9M9lGOj1PuuZ1bKV6K6Lu50RfDcdhr8Qw9GolBGlteot57edi6NOFYEQ2/kl
-	4xVc7yjLL3LMuzNtrAVnJz7/s4TdAyHTyQz5BXY33aiD6STkCJOARUZBsJ6oFAJNMh5dKgAsfT+V8
-	HQ8J4UQw==;
+	bh=sTGQLtk2Sz9sJZfxveMtPbe8gYcHCytlxvM4OEIC5Oc=; b=m6aZmR/GkRacVjmBhQOAHCfV1h
+	oBaBCia3KJR23Jdw+d8N3/AOiz6EY6jt5l5V4sBNwZKpfxVD5UlKvdpXAOOsyTRKJDD1mwBp6235B
+	9rUqHLdjP9iSN0XoYgddRliwdi42FzdtQFEX7hT/JWLSt+p2P3sYzWoD0nWFJag1V0thQvrZ11aPU
+	CLxu4hInfA2JUbAfT73t4OY2o+HNS0cKx9b7ANl7mjiQsi3+tEJsNCXmzAeral6vXy+Dqpcx8bGrh
+	bWOLmlbmguXEz4VJE2CxMS/BUBpnYzIjOu4i+H4JEJKIWBJtPZDbZvJw70WtZWie/uBaWr1njCQ+5
+	Dt2mRDMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLqh-0000000BOky-2XHO;
-	Mon, 12 Oct 2026 19:38:15 +0000
-Received: from mail-northeuropeazon11012062.outbound.protection.outlook.com ([52.101.66.62] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xGLvi-0000000BPAk-0wd9;
+	Mon, 12 Oct 2026 19:43:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLqe-0000000BOkL-1Q7F
+	id 1xGLve-0000000BP9t-47L0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:38:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gvzS00S/c966HO54GlOU3uC+NGULZw5oyzcAKEjI1golDM4zwBxB3WSjB3V+NCkXUMK5xn/oSB1qgA6TMI8SD5LsskuPI9Nj0Qq24PKXjdjOXA/ugr02t/rz09V1Wm82RubnwgpBzvkWe2LL6x2d6wMQ4OW1s/7om/HDkdzskP4TjIc+EPmDSdDx3MDCYsE3tt11j/ScGwn+3UMIQ2ocJzxi3GGhA/J8TKC6oV/pK5P11n5o1BNsBMicu+4t2hV5Ji5xOgIQRuFbfy2nfvBBRAcqh0tvVNqYexjHTECDaA67boPqwbETTVD6S1Xsaicmj5El29YVrIo+lBMk+Z6wmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dFx7q2gw969qniP021RhhbzLfMyq69zDXvyzx/KYCbM=;
- b=Le1HtPxtT/gI9eaAKmjkXKmnfOMDD9kjIvGRuGjFXpaW+KMvWBHUyKpAeoJWYv+spSw+WUD8M+JJSt6LthyncNYuucojfce21L4nbYtCWG+aMkA1um3xcXpmemC8FxsL+gOGcO18R5X8Tuve4h8TckA3pmN8I97yx8MIZCGuQGUmck1wyMhvn/4UzmiqTw5glO7GwVwwpP3W6Jp9UaSNMbsnvkCDAkVw+nITygamj5Y5UtJJMvL9VzhMzH8ghxvWPLT37ldN1LzgG66ESeWfVzRgVObknNJl/tFcQS95QIXPC+TFu9Yk/typhKiAvJPyye8bMVkRKAGaiEXq+MAZkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dFx7q2gw969qniP021RhhbzLfMyq69zDXvyzx/KYCbM=;
- b=JbuA5irYB80cqE0PuEJ41/b1dxWDokyq+qxhV50btZJv/D8tY2Sz9YT2kxIAcSVRLA6zCd3TijbSL5KzbOe2yJQwT3Vz8L5qLTQ6ZVRVR5zMKvbqWi/K+libK1NkUdAObVEgVhxIfhignf/uuTsWnKK1ivqiMSzCz6Qnz98L7wbYQCD9j0u2QaQruy3aLRlC0Ly2BgdaXODJZQeN/GnI2QxBlnpB/TOAUY3Lcwv+s9Dn11AgZittn9kegjjfmZHQ4sd4Y+yMsLe5c6qLzhg5hAItIVygH7MdtJuWPD3hwOqKro+DfOxK5GzAbrRItP+StV5k6G6L7BJP7zrnk1melw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI3PR04MB213044.eurprd04.prod.outlook.com (2603:10a6:800:375::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
- 2026 19:38:07 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0496.021; Mon, 12 Oct 2026
- 19:38:07 +0000
-Date: Mon, 12 Oct 2026 14:37:57 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: guoniu.zhou@oss.nxp.com
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
-Subject: Re: [PATCH] media: imx-mipi-csis: add support for
- MEDIA_BUS_FMT_YUYV8_1X16
-Message-ID: <as03FYJTi__INJZL@SMW015318>
-References: <20261009-csis_sam-v1-1-81f2b0fb76ef@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261009-csis_sam-v1-1-81f2b0fb76ef@oss.nxp.com>
-X-ClientProxiedBy: PH7P222CA0024.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 12 Oct 2026 19:43:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791834204; x=1823370204;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=46e1U6DavjbOemIRYpekVuACQIQhaJ1HQ/H/m0zwm8Y=;
+  b=YrZ/LvGctT8SpELxuehys1Ll8mGcHVrWJswWFxP4MJYXbBOAtiK1Qu2k
+   +bdfROJJTQmEyGbBDFv3VKPJ3VepwfluntCbwg8+pPlnMRY0pyqoz0YfR
+   S8a/evSOEpUwSZHEtQZdfbhu8H9O8yG1mSU539TiVgcBJZkCdfLRiHg8e
+   PnJ+U9r8BKXn+QGXZdEQtGdSpfG2G0kJ6qy1JnpjElcnc95vSz7QvrHoP
+   RpAtY0PrclGKeuOOMKLvV/ECgEXZRXFbG6Ka6DPQVqUe2FX6njnd5/th7
+   9kzK1LF7vFcOCU5Ajo3KOStKKSYZvSHTUuINOjE9WL5IWTHjEqJxC34GU
+   g==;
+X-CSE-ConnectionGUID: Z5px7yJ/SWqdbS/RQmR7RQ==
+X-CSE-MsgGUID: ri7xwyZNQO+xB8N1XTZv9A==
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="75255144"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 12:43:22 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Mon, 12 Oct 2026 12:43:21 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 12 Oct 2026 12:43:18 -0700
+Date: Mon, 12 Oct 2026 21:43:17 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+CC: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
+	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Ong Boon Leong <boon.leong.ong@intel.com>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<bpf@vger.kernel.org>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: fix XDP TX DMA address for
+ compound RX pages
+Message-ID: <20261012194317.o642ym7ddsmny25x@DEN-DL-M70577.microsemi.net>
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+ <20261012-stmmac-xdp-tx-pre-fixes-v1-1-05fd0c90f7e1@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI3PR04MB213044:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c1c441f-912a-4b77-ea8a-08df28985704
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|1800799024|366016|376014|10067099003|22082099003|18002099003|3023799007|11063799006|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: hV9KGk+j+cG8/DCN3/4wB9mkr4+1XseJYJljQ3oLpRh3MvwTB+kRRhO83eNxIQ0bbODI3JJ33voCiSFm3xE/gMO3O69pDPASl2Bppg4prWHJWezz0k2uLl2J4h1u7boEZ3URANoGCiVmYyvk+RDkA8nwwFk2o29GRz6U8uUBdY8I/r9XcCqr4IA6d5iEJ22aA7fv10BdgyCJvr+gbRdI4yCzcAAjU3KqIoFWmVv90RPUvJWQVdTuHLoVA8+faD5gefM+YsDFqSXLpGXZQVVLtalUjFWSnbG3gfffNrL4lH0zFKzufPyWn0kG2mtzP4vdynuKQPcuEShqN50pWqJD0ORBTellUp1ejGYEBAwnhC5Mz4pkF4jbGrIf46EtQvfYMkojssceZRJO7SdTFxtNOu55FyzIjsGYzvn+Ltd+zN+Bw0+h0i2ZJFJXyehwZ7Tcd+3G3xEKf0Xlzzwre2ojfLxSrdouG/lpsJCjED/jb+C4FnA4P/ISei9Jwd2y9Wl0BEmjPv4E1uqYt28tL2DAWsfnGU16J2DnIyvDp4KhzDiDQuKsBeTneKtGFhtLNcKCluCKtwZoHrDwCTHqcB+7m1SgUhlC2FgKlrm96gztb4K8ghEEBABRmz9WgWNV7hw6EcLGDMql3vz7CdI11BDwJXjUUKiHEM0Z6ucegdIIKOY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(1800799024)(366016)(376014)(10067099003)(22082099003)(18002099003)(3023799007)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6lrl6liDvOl8kpbXOfNFyoiYXFAnhMLwU50eI+6OJb15f3MJpyaNHy9hu3i8?=
- =?us-ascii?Q?MbKGyrw/s98Iu4Kg2wtf+lJapcioJPBYQKp3a+Sr/Iy59qx1z5MT4pU0fLrs?=
- =?us-ascii?Q?xIdPLH/UsQ1fK1sc1iFG0PC1CAki6+LtHONjahLhd8IzIAGiHpagCNmNoPJP?=
- =?us-ascii?Q?2zHHJSmpPMi6IF0M3E7T/03FmMplM+1mVxy84hVEuHoJ7JhIHdgrYqzlydpE?=
- =?us-ascii?Q?Ok+j/0HPHGMAaeI4MwVgfnp9CpiL1GU50duRr1XVH747FhO6JM5B6fuBybUG?=
- =?us-ascii?Q?MLov3pDG+oYRQR0IMTZmF8dAv9jJrCe3Vz/5GUHewX4bMPnyjNiBDVBmgSKr?=
- =?us-ascii?Q?uzZ7UtBUxAmMyXc7vJS5emxJJ8GKYrhR/YwGYO7tlC9fKBIhEZVzLkOCYk8X?=
- =?us-ascii?Q?f5x8yiucw5RwlnpjGni/DN1BmrcdGh1KvzyH5wxOuoxliguAokcBQUjLIIVE?=
- =?us-ascii?Q?r7R8Whno+YQm7HDft8ErH2kXdGr0FoZbNX1P3KORldWjgWtNDD76zTcy+a8W?=
- =?us-ascii?Q?drLM6v7ud6yRLWi1LwUL4pyS8gUZvH4DdZm99vwabs2efirajbgGQkqPQfs0?=
- =?us-ascii?Q?QlRIgt8LHsDs2EaeKr7LrzdMCvU8+RIpzDmztAv/ZXn1TI62ydTNGlEhPxKK?=
- =?us-ascii?Q?5m1f0vz8XHjSoxtRfRY02wEYemZJcTAGhzHguhJvTL/MMTO7dZYouvXP2WUW?=
- =?us-ascii?Q?614Vmd9IN5ylLRA2lOZn8/SDJEmL5drs4Ygz8VRCBWOFGy/35IQytRJ2zB6q?=
- =?us-ascii?Q?NKjxlImjsAHXNBnWrKPIT4aDXvUw4iT61ZHlcKGoVPFq4kyQabL5jkE6a8n1?=
- =?us-ascii?Q?u8UHs6JtGw51pJLuAGX4A3gcYmfWp9N8nWJBHZEEF6T1QgdYzFlj/vEPkKeH?=
- =?us-ascii?Q?HyUnoF2/wToP4A72YifeLlo8oZbGZMU1biE5sSkep4olulHJB5iQMspTNEw8?=
- =?us-ascii?Q?ZuxiKChivwjASgUFsXwSRjOC0O0jJZpMeel36/Xm/lvBCVcnqt7cZ3GLPvWu?=
- =?us-ascii?Q?oZg9N8Fip3uYf8kMk9zKu8vZQnfuj9m2yLdUKQtLpUMhWjI33EMUk9CZwMaz?=
- =?us-ascii?Q?w4IdCvHMLTr989XutE+RpHwxkCrWAc/sB8TA6M4hU9UNIevk3TbpeRHT1bH0?=
- =?us-ascii?Q?2i014b0rYfgNywd3ZJzcCyK0e4jqxennc6XLtPNc1USmt0gvv7r+XbAUDypB?=
- =?us-ascii?Q?Gx/7bqwGPt9wsknvnoamLLIHSoOWC6BRG4/6kqdUvVEEcqVdP3dBQKxqn3Qc?=
- =?us-ascii?Q?aoltt5PZsUp++08J9APQM8YvjFRDQwWnKDTqpBEL52fqMSjo6WJIMRZCq7IC?=
- =?us-ascii?Q?3VRiPqgCtuWCUaL5yak4HNoxwLa2e8wsjt808hHIsYNxJrdc/rJ7E6zg7xKs?=
- =?us-ascii?Q?iy+2EIjent4XX5Fp4RJ2tj7dRKUZUOFG179Z3k+mmXwBOBJm5+UvX2miuHsT?=
- =?us-ascii?Q?DRJF6MKWe+bpjDlu4yBTJbbIpF9EW7d1KlwcQnbaC+0C8TWVydHa1EaM8LZj?=
- =?us-ascii?Q?DYWBsAumrGlWP+rIVnOWl8WyxqufGT6GbAMZC2kMk7vWWVXvEod2Osf0yvqE?=
- =?us-ascii?Q?pddy3Pl7ciKOPKj4WJVm3llOHqzxfh7wlGysGpR/hE3wo0Ipo2dEafTJfwJD?=
- =?us-ascii?Q?hOxgZGy+OOH7E+smVXgI9EVVxHuaFJlXQlPdgWYY9rGRt6v6HtbbS95x+lTS?=
- =?us-ascii?Q?BNW+u4oKfgmEjcC1NKMxG3HR/9rgPIPtCzr4eQ3EZsAL7jRCQoPv1977flcD?=
- =?us-ascii?Q?13wYq8gTTzJGc0h0LO6uuzbMsWzxITl9ZNpLjzT5twe1zIBVo2y8?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c1c441f-912a-4b77-ea8a-08df28985704
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 19:38:07.2866
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X6Symnd84yFwnEuSAwAcPxZMyV2C9QNjE38H/MWUoHLkZB6ZaWrHUmrlDmAaUGJzB4cSYbUxabd5ApmFHODdVP5sScik8aQIbNwwqm8a+kz3FhmGQjRqOITZ2i+hfMoC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR04MB213044
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-1-05fd0c90f7e1@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_123812_384487_4D53DF2D 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20261012_124323_252280_72E9AAA1 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,50 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 06:58:41PM +0800, guoniu.zhou@oss.nxp.com wrote:
-> From: Alice Yuan <alice.yuan@nxp.com>
->
-> Add MEDIA_BUS_FMT_YUYV8_1X16 to the list of supported bus formats.
->
-> The format uses the same CSI-2 YUV422 8-bit data type and 16-bit
-> parallel bus width as MEDIA_BUS_FMT_UYVY8_1X16, but with a different
-> component ordering. Supporting YUYV allows sensors and bridge devices
-> that output YUYV formatted YUV422 data to be used with the i.MX MIPI
-> CSIS driver without requiring format conversion.
->
-> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
+Hi Lorenzo,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> When RX buffers are compound pages (order > 0), only the head page
+> carries the DMA address programmed by the page pool
+> (page_pool_get_dma_addr()). stmmac_xdp_xmit_xdpf() computed the head
+> buffer's bus address from the page that happens to contain the data:
+> 
+> 	page = frag ? skb_frag_page(frag)
+> 		    : virt_to_page(xdpf->data);
+> 	dma_addr = page_pool_get_dma_addr(page);
+> 	...
+> 
+> RX pages become compound as soon as dma_buf_sz needs more than one page
+> (pp_params.order = order_base_2(num_pages) > 0), which happens from an
+> MTU around 3000 bytes once dma_buf_sz reaches 4096. If an XDP program
+> moves the data forward with bpf_xdp_adjust_head() by more than about a
+> page, xdpf->data points into a tail page whose struct page has no DMA
+> address: page_pool_get_dma_addr() then returns a bogus bus address, and
+> dma_sync_single_for_device() together with the TX descriptor transmit
+> from the wrong location.
 
->  drivers/media/platform/nxp/imx-mipi-csis.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 5f9691d76434..14a00b9fcedf 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -382,6 +382,11 @@ static const struct csis_pix_format mipi_csis_formats[] = {
->  		.output = MEDIA_BUS_FMT_UYVY8_1X16,
->  		.data_type = MIPI_CSI2_DT_YUV422_8B,
->  		.width = 16,
-> +	}, {
-> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.output = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.data_type = MIPI_CSI2_DT_YUV422_8B,
-> +		.width = 16,
->  	},
->  	/* RGB formats. */
->  	{
->
+Looks to me like mtu > ETH_DATA_LAN is rejected when setting a prog, and also
+on mtu change when a prog is attached. So can this even happen today?
+
+> 
+> Use virt_to_head_page() to read the DMA base of the buffer and keep the
+> offset relative to the head page (sizeof(*xdpf) + xdpf->headroom), which
+> is correct no matter which page the data ends up in.
+
+I think the fix looks correct.
+
+> 
+> Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 > ---
-> base-commit: b38d06ad1e13c32970d58039c154f009b81a3368
-> change-id: 20261009-csis_sam-c5c10ed12322
->
-> Best regards,
-> --
-> Guoniu Zhou <guoniu.zhou@oss.nxp.com>
->
->
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b8b4de4c5b1a..ca61ab449e32 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5301,7 +5301,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+>  			struct page *page;
+>  
+>  			page = frag ? skb_frag_page(frag)
+> -				    : virt_to_page(xdpf->data);
+> +				    : virt_to_head_page(xdpf->data);
+>  			dma_addr = page_pool_get_dma_addr(page);
+>  			if (frag)
+>  				dma_addr += skb_frag_off(frag);
+> 
+> -- 
+> 2.56.0
+> 
+
+/Daniel
 
