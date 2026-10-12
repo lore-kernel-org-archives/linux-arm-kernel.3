@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCA7CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F10DCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 09:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIdQC/igpl1nz8ot81cLXJwNaA5/Di/1/53YpNpdmRM=; b=otjyVoN0Fw7LqBbqZa5Yxfvma8
-	DASRnFozIxdtYWGDWkQ2wIWpV0wR5fe2JnSs6uWkZvXB/rJzO38itLEvqZ4k/OaMdLd99Ll2RmUNH
-	Vof64e0GYbY8QjQnzyUx4829JpKPpxS2WjYdf+pjoFTiJ2vymy9jg4tRVh2qtZ0ysD/8fEH5mAytF
-	Imw5p54o2h5GVjtKlWl83WFVVW5aggmU2si8sprCkGpmuPbSu+/b0x4jpG2FMKi+lP0SYqP0LMhGA
-	SnNyr8LGnkOuNfSmwHMypx6PLg8vIS3SHa+ijFrXtOu08bafjjyQMmWKkdP/EFkBwbIfFQ5jEISuA
-	N37bNuOw==;
+	bh=z9+4BbO9ibDxBWVau+TMbeg/ZMgTtPx2Di1N+vz6DeE=; b=sP9SGoFP5l4yCEwhHfQ7Iv7rUU
+	4Q7EWjgAJpC0zWXr8qBVoeKSGq4Fl1zQ9uEIZ9MZHtj8J91JuAK6MHwlqaKj4xlBaE51rmxu4WfE6
+	n6Vnq6WAlQXqt85bT+fCSLvTYXbddoY1rTiHubjzYRPwkHKoPiA1QggfHkVZDisvYBP7QxQ8b9dXN
+	Wp6b2KN//rmnGhzwE+HXkTTdI462D95OIMWR4JpeS1bSxRLdSCn+//qxK+jWcGlCbTCiZTiAYrKp3
+	uMDbU2HqRGp9cD1PrRUFgtZa3BNjnFNQz+bcws8jXDHUPLIKraWfq3hGMbwxZuVQnZfIO4adbu6fE
+	xyV6c1Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCZ3-0000000A5rk-2Cou;
-	Mon, 12 Oct 2026 09:43:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGCaV-0000000A67Q-0HrP;
+	Mon, 12 Oct 2026 09:44:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCZ2-0000000A5rW-1IUh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 09:43:24 +0000
+	id 1xGCaU-0000000A678-2Rq7;
+	Mon, 12 Oct 2026 09:44:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65232600E2;
-	Mon, 12 Oct 2026 09:43:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DC81F0089B;
-	Mon, 12 Oct 2026 09:43:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2ABC343ACF;
+	Mon, 12 Oct 2026 09:44:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98BF81F0089B;
+	Mon, 12 Oct 2026 09:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791798203;
-	bh=xIdQC/igpl1nz8ot81cLXJwNaA5/Di/1/53YpNpdmRM=;
+	s=k20260515; t=1791798294;
+	bh=z9+4BbO9ibDxBWVau+TMbeg/ZMgTtPx2Di1N+vz6DeE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QJj8tMACfnSPnxPNlScBAT/wjfch/GQtzPrsPM0sPuZFeV5mXe2KoUY+HiU7P6mBw
-	 kDt7To4qpJ+u82DGRK9iUh768v+rj9M3DW5g7g3ytynQeiIHJ5tXwjOjJMlmcLXsiZ
-	 rdStoU6pIRO2jdgW9mq6k86xdeuv3hfUpISZ9PKqcOCJVTCo7TBv6/mH3gLEbzQvlO
-	 pL2JVK1gEo++ge158shQqQhwF47FeygVYKDH2EffL7lwRQa3A4uAizYgdp9tvZMDHH
-	 1JQH0poe8r/Frq1zViIRLFdzuoPLjhehDi+wiPXPhYuQ+qGy9/+tRU7qOij1dwV2iJ
-	 mb1k6fFKw0czw==
-Date: Mon, 12 Oct 2026 11:43:19 +0200
+	b=BVa/HCKLeVdW5UdRtj2DJEeLg6z1EyDf5HeeP6TLrn2MrtVdmAungKcieZ44zcC9X
+	 SSDVoxBpowXpwC28cT7Dm/O/S/xFSbUHk1hVsWMdQdiRcjC5OVTwyEwSaZ1EuJ0OmP
+	 JDuV4j+JCgsYz/tXYbevN3zgQqr5ERXT4C1vPCu/g7zgQ4Rr798ZvaF2JEcN0+Jca/
+	 nF5Ns+vDDtlcSw5t7NygtlpAK1HUvcFtUf765JFx7KH9tty2xVzNdD90/qIsq+DDpQ
+	 esO8rIGHAxNT/p+iH08Zuto19FZBuXVt6mfOw8xTuXa3Qir+dA8PYOjW9VHdg6WeL2
+	 9eYa4ruhAkIOg==
+Date: Mon, 12 Oct 2026 11:44:49 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arnd@arndb.de, linux@armlinux.org.uk, stefandoesinger@gmail.com, 
-	robh@kernel.org
-Subject: Re: [PATCH 01/24] dt-bindings: cache: l2c2x0: Describe ZTE
- device-read serialization
-Message-ID: <20261012-eggplant-nyala-of-mathematics-5005e8@quoll>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-2-ghahramani.navid@gmail.com>
+To: Miotsuki Mizuno <founder@crepuse.com>
+Cc: "heiko@sntech.de" <heiko@sntech.de>, 
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, "airlied@gmail.com" <airlied@gmail.com>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "jesszhan0024@gmail.com" <jesszhan0024@gmail.com>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, 
+	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>, "mripard@kernel.org" <mripard@kernel.org>, 
+	"noralf@tronnes.org" <noralf@tronnes.org>, "robh@kernel.org" <robh@kernel.org>, 
+	"simona@ffwll.ch" <simona@ffwll.ch>, "tzimmermann@suse.de" <tzimmermann@suse.de>
+Subject: Re: [PATCH 1/2] dt-bindings: display: panel-mipi-dbi-spi: Add
+ UNIHIKER M10 display
+Message-ID: <20261012-wondrous-pronghorn-of-potency-aa0cf1@quoll>
+References: <20261010232857.26950-1-founder@crepuse.com>
+ <20261010232857.26950-2-founder@crepuse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261010130024.177503-2-ghahramani.navid@gmail.com>
+In-Reply-To: <20261010232857.26950-2-founder@crepuse.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,22 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 10, 2026 at 01:59:39PM +0100, Navid Ghahremani wrote:
-> Describe the observed interconnect deadlock workaround separately from
-> the ARM implementation. This property and API remain an RFC requiring
-> ARM and DT review.
+On Sat, Oct 10, 2026 at 11:28:59PM +0000, Miotsuki Mizuno wrote:
+> The DFRobot UNIHIKER M10 V1.2 has a 240x320 SPI display with an
+> ILI9341-compatible command interface. Its initialization sequence can
+> be supplied to the existing panel-mipi-dbi driver as firmware.
 > 
-> Assisted-by: LLM
-> Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
-> ---
->  Documentation/devicetree/bindings/cache/l2c2x0.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
+> Add dfrobot,unihiker-m10-display as the panel-specific compatible,
+> with panel-mipi-dbi-spi as the fallback.
+> 
+> Signed-off-by: Mizuno Miotsuki <founder@crepuse.com>
 
-Please organize your work per respective subsystems and then CC actual
-maintainers.
-
-If this was intentional due to RFC, then it's fine. I am dropping
-everything from DT patchwork as it is marked as RFC.
+Same issues as with all your patches.
 
 Best regards,
 Krzysztof
