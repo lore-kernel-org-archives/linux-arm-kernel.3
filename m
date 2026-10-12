@@ -4,80 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E6BCCA9EDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AF0CA9EDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uL3/CsskW3K3F0sW8iRc0s0wKypTZi0oVbyEWoSNd70=; b=Tzv7m2KnnXfgbZOgRpFVl+3z8E
-	IXk2ejLXWTPwO2NJS0DQB0X4iy0QG8r+hUPcJ6wsZLMMYjccO9ZhXYDL/rtadP6k1PSXdXaurna7J
-	GVF0BgCCuOafmGlDg06lByKtX1cdFK94k/OFTbG6v6msGEpQEek5I6KP6oNG4WDXth3Qm8Oidrv+m
-	cOCmjn2Wll4oGchDF0coj4OTKHcBJQysdz+7GxV0a6zpBOnLbYseYm5iW3xDiXcRokZ2J+vBKEx7/
-	zTAVnTPVAN1Tu8HrKg0jmYNHB3+O6ttBY/LxPszKJzc8vdjYRkPM3x+Ka47CnZCU/AqoAReuxuema
-	2/7KviUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=64A0NSLF+RhR7KJefaxknO3D/6HTCylIyUlf60T2HYE=; b=0eVbrgTcB0Fj0R
+	RfL1FANDkbseFXUR+7FttQX2K013myiDiW9g8EQO3lmyq+z8RfTzoAaGkRpt827ktsRy+6XpIrPOn
+	9Qu8GZhuzJsd59SU5Jc1KMPKs6qFIKe1Z9X5/PQ9Y//YAl22bd69Omab5UTTcBUCfEuNUVnsE15Xb
+	1Jc+krr85+MFlogvstZSg+B71s/aaMinY3rhsUetjd6j7vSTMbYe16rFHXYh6go2dKhZdrvArULFr
+	QANdPe221rdorNmq3aeVbn+KzT08lKN7kbFz292VtZPN1AbLBFz296voP2MphYb3lBTvP/6DnP1xS
+	zGrwLyamLDp1/pxNqBGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ82-0000000B05W-2F4T;
-	Mon, 12 Oct 2026 16:43:58 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1xGJ8m-0000000B0Oq-3UtD;
+	Mon, 12 Oct 2026 16:44:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ7x-0000000AzvT-1d6J
+	id 1xGJ8j-0000000B0N2-1zn8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:43:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791823433; x=1823359433;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=mjLbYWvXUmK1LylURo0MhiTbNk1TbsrpkKtnRsA0gDo=;
-  b=PbavrD7wRWBTShk7xcBzoLhKNe0YkuClPINrYKKeB6fvLjhpsOf1FqcW
-   ZbPfqmanBi13U33NIrurFMAr/MyXbJyzBTluGGGEdJ1B9q2eKdLgYLRMf
-   6GlJHEfVjm4qBCMkZ2yJr5uUsfncWKXPS0/y5cYU7pZsOYtC70FDNKmqZ
-   6xgAhsfGCK+7lycxQwE0mwgEh9UwLdC49QvwCtH+neGa0cQ89WLL8xQ0Z
-   MpeCRNSuDyBbCxI5ruJ/ep/UIoTglYh5qp2eegdpHKlmEoJXPPn4FuH3W
-   VAkBU34/meVRfQiG0eJXhXpyyjUvv+x7Fv9ugpflGcTTJCNQr6DWli+Tg
-   Q==;
-X-CSE-ConnectionGUID: anyxKMNmRVyrJ/pE1pqe8Q==
-X-CSE-MsgGUID: PeoJftNHSGKx/Iin/wdnng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="410130"
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="410130"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:53 -0700
-X-CSE-ConnectionGUID: TuAkskG2ROCdmH/lGED0gQ==
-X-CSE-MsgGUID: FVN6CfYpROW+miCti8QLPA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
-   d="scan'208";a="1004953"
-Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:51 -0700
-From: Dawid Glazik <dawid.glazik@linux.intel.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	dawid.glazik@linux.intel.com,
-	maciej.lawniczak@intel.com
-Subject: [PATCH v2 3/3] ARM: dts: aspeed: add Intel JNCRP BMC
-Date: Mon, 12 Oct 2026 19:39:07 +0200
-Message-ID: <bf1ceb78c8b544d6fe8ce0e6980d75b0ab78430d.1791825961.git.dawid.glazik@linux.intel.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1791825961.git.dawid.glazik@linux.intel.com>
-References: <cover.1791825961.git.dawid.glazik@linux.intel.com>
+	Mon, 12 Oct 2026 16:44:42 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CFfSNd2768440
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=64A0NSLF+RhR7KJefaxknO
+	3D/6HTCylIyUlf60T2HYE=; b=C74kC4stmosWAflzTj8xlB+5cXLSEfqQFmx+W2
+	NzmmGeiknym4AXBILTt/5h576z5z/RLQkxOKlipJPIqPo+HnuRh7h+PuqcLF036b
+	jICrv43i+d15WVXEv2kTwqXCrRPIKZXKsho/UPDjVRjSHaXN96BQaStR/a+I7aV2
+	13Cco/23nuhbiYICbxCY1uhPDyUxjBhuvXkh9+2tZu+KYuxeOmjjqosemcVrZFE2
+	s9uBNBrw1dUq/w4SVv2sbZdD6wfAw8qnGZDQ7CCmm8nVcrPIexzPEs6mEXrYd+GY
+	fQK06Y/7qhfw9jUy6o5sH1PbyqIaTomHyEZmaLVPqlnD6uRQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8udq2e7n-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 16:44:40 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93a3f673221so633460985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 09:44:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791823480; x=1792428280; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=64A0NSLF+RhR7KJefaxknO3D/6HTCylIyUlf60T2HYE=;
+        b=KVI/qcf7vERF8ptmzAne2TEqDPOsMMjo04YVCJxeos7iNwsHznsVZobzgk79OUt1bH
+         clwa/wNqwnp4S/DJuD+V5vEit3SCaHAP3CwEA+zq2H//3gNAwe3cRzp5nnw2W09cTh9i
+         2zRj5tZaWWbgBXZcwJJTaMiL7ZbrCJkS6ZwMWmVAfavQveOSU/j6XtKqnj6vynu5TA3q
+         E2G59rGsltjc6e3J2hwmm4jnMrrxciQ4w/YoZOAJSca+aFNuxAo4vROC7+dUUP0iKrXQ
+         Hc4Vmm087mJKa5suSViBNgIP7CIiPO+Ntz+BHNKJIQCTF6wlSZtGbAsuSRedKWKk9o7U
+         u6sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791823480; x=1792428280;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=64A0NSLF+RhR7KJefaxknO3D/6HTCylIyUlf60T2HYE=;
+        b=U/tGgH2N8FeN6seQ9UShC3b4HA81mpvwhKn5lYKAF65Coc0XiMAQSIoGJdT47Y/Uex
+         fyldkBY0FoI0TG0ujHJb+QBq4SJPRMdKoiGwFdyUOpgW1a6L2ex7rXWcDBwuSzgJu0H4
+         yU8Ie68phOVq52UVHkMKJDSjS6UuIbFYfESKyqqSfMd9+WCbSoZAFfMsmdP0kg1hW030
+         vRyoLskKOgQfs6O59HcpZVJGEIXKnhrr4BNEVag+/tiQv6jDj1h+qa8qFYvfP4vpUUaP
+         vcW5LKEFQ21g+2c41a0JDRXT8iSVdXrTqKnT8/TKowhdO53ZmIAMUtvO+b29pDa9Ie/i
+         LqjA==
+X-Forwarded-Encrypted: i=1; AKwUvBwD0va9ZYkpn0wW6lExL0ZCBX395qoFWSVEsKGROkr7GvRqTZkMbijIjB3T77yaoexPaBUX3kOHB2DDBI1rofJE@lists.infradead.org
+X-Gm-Message-State: AFq9FYJf3FbpWHeZpDQ5mRp45+MGp2i9XtuK+KR8m849OMJgpIbHQRCu
+	mv66ZxmR8XRxYGlE/Qlt7Jk6SrinJp389Gr47ihyGd16EQ/pZYs/2fnt0ZGnsHIFTfH3gUUROgp
+	0xvNzUH0dCB5JCxXmXMxPp6dP4DYmLEUwzZwsZNBiwjAzJYBfY+THrf4lP9gQVO+cIOEJRtgWB2
+	E9jw==
+X-Gm-Gg: AYBFou2aeQayy104EdL1NzMXYvq41US1L10V+uh/EIiUF3jI6U7ZpEXmwFf1DhHCoiO
+	9ZjdM6xxJChvZXmYxp/PCSH2cbwmwmZ5tzh9Pm2qIaICUjSmA3z7xPWNQtZwRJSLAoJH3Fc1rlj
+	TVnJj9TpHcJSTYOZPEDgLSuGQZaRlv4RY7T/P7hoAWJI8+uQsroDo+P7H78X/2fcvDn0VIUsUJ5
+	qh3xI06NHtve1E6bELbld2EU9a9oT+d1xJl/RfyABkyRFTBmkEesoa8OuVXYTr4j4C3lsJzcuqE
+	k7IQV7kWMeWD0uTCFAInUKGfg/EGtPcMOHJ8j8nJLHTjX5EAY+dUDCHqkVsRk62ZE7O0K2bNik4
+	heTyNFp5eZxDFlw==
+X-Received: by 2002:a05:620a:1d01:b0:93e:8542:4f4d with SMTP id af79cd13be357-93ebd2923c0mr1685102685a.57.1791823479292;
+        Mon, 12 Oct 2026 09:44:39 -0700 (PDT)
+X-Received: by 2002:a05:620a:1d01:b0:93e:8542:4f4d with SMTP id af79cd13be357-93ebd2923c0mr1685096985a.57.1791823478730;
+        Mon, 12 Oct 2026 09:44:38 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18be96549sm419749845e9.6.2026.10.12.09.44.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 09:44:37 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Subject: [PATCH net-next v6 0/4] net: stmmac: introduce XDP rx multi-buff
+ support
+Date: Mon, 12 Oct 2026 18:44:22 +0200
+Message-Id: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
 MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNQWrDMBAF0KsEraugkcay3VXvUbKYyKNGUNmp5
+ BiX4LtXeFGMiTcDn89/8xSZU+As3k9PkXgKOQx9CfbtJNyN+i+WoStZaKWtaqGReYyRnEyzjFc
+ JFm1LugZkEmVyT+zDvHKfoudR9jyP4lKaW8jjkH7XPxOs/WtyAglSXbGCukOF5D+GnM8/D/p2Q
+ 4znclZv0htDw87QxbDcaMvgvVH2wDD/BiiFO8NIJSvlCWog37I7MHBr2J2BxWBP6KitkU13YFR
+ bo90ZVTGcaYrCRGCaF8ayLH/2Dm6ByQEAAA==
+X-Change-ID: 20260918-stmmac-rx-mb-16469a2714ea
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        Ong Boon Leong <boon.leong.ong@intel.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=evJKXYpX c=1 sm=1 tr=0 ts=6acd0e79 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=e9kd2x7fyNmJAygvsboA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfX0nTPqQfxmmHE
+ DsiAxuhjkc1PCN3sY84Gwyg06Q+TLXpVhaa6HsI5FcDWkupPC/e3z4a5EE1XIzc/5cGO7B22ISD
+ CdMtqIa0oLX1+f0zCLLKi0egYg9oEz0=
+X-Proofpoint-GUID: EBlU8CpGXOQbMJL8K1oSlZYXx99vVOKN
+X-Proofpoint-ORIG-GUID: EBlU8CpGXOQbMJL8K1oSlZYXx99vVOKN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA2NiBTYWx0ZWRfX4XgBaJARqQD9
+ 6ekXPiJaVsdufAiSDnQ4cNd1PpfaBsfndRwA4J9Pza+1yJS4El0n2bDAWDdlV2CtF08cW9TCwYF
+ /rLLi0OlmovSZKPWjfZSKfnmEVZCLF/2ONmNccL6z+sH1H4iAsjYjmRNyN8ckEMxZwNCOUpDqHF
+ W63/662FLFx9GMN/JRFWFUA2BYd2RgHTR4pim0Gfg07C8S+2gt5eGfMZwVwRxJ/D/c248wir0B9
+ cHTUTeywyHZsWpIyqu6DZu7IAot7kp7W9vyNDky7Jgn7pz8V45Gy/DqMxwy/OdvOaeNMe3UD50v
+ abFEGDT3S4DF+hIiIJP/gr1hd0EP6VQzNUJPRFWoN8LPJ8hfjIctIlRItRJ2GKLVxgRcdkZBeL7
+ vA6Zg1M+8nt59FIVAlvemxrN3pDwpcDtFaloYnkqVZei1R/01YK3gXPeshXubNZSPBUxsarqyqQ
+ ep6qxw2j78IMWE1JniA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-12_05,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0
+ phishscore=0 adultscore=0 suspectscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610120066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_094353_470350_92AD3F38 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20261012_094441_609207_0AE546AF 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,295 +164,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the initial AST2600 device tree for the Intel JNCRP BMC platform.
+Rework stmmac_rx() to build the xdp_buff from all the descriptors that make
+up a frame, so the XDP program runs on the whole (possibly fragmented)
+packet instead of the first buffer only. Fix possible rx_q state leaks
+when closing/opening the interface.
 
-Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
 ---
-v2:
- - Replace bootargs console=ttyS4,115200n8 with stdout-path = &uart5
----
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 258 ++++++++++++++++++
- 2 files changed, 259 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
+Changes in v6:
+- Drop patch 'net: stmmac: allow non-linear xdp_buff in XDP mode' since
+  it requires some XDP fixes.
+- Introduce patch 'net: stmmac: drop split frames on AF_XDP zero-copy
+  RX' to always drop XDP multi-buff frames for AF_XDP mode since it not
+  yet supported there.
+- Introduce patch 'net: stmmac: drop multi-buffer frames in XDP mode' to
+  fix pending bugs due to missing XDP multi-buffer support before patch
+  'net: stmmac: rework stmmac_rx to support XDP rx multi-buff'
+- Link to v5: https://lore.kernel.org/r/20261009-stmmac-rx-mb-v5-0-c38fa4eaa138@oss.qualcomm.com
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index ea4645ef9872..f0d665b3dcee 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -55,6 +55,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ibm-sbp1.dtb \
- 	aspeed-bmc-ibm-system1.dtb \
- 	aspeed-bmc-intel-avcrp.dtb \
-+	aspeed-bmc-intel-jncrp.dtb \
- 	aspeed-bmc-intel-s2600wf.dtb \
- 	aspeed-bmc-inspur-fp5280g2.dtb \
- 	aspeed-bmc-inspur-nf5280m6.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
-new file mode 100644
-index 000000000000..018647588c27
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
-@@ -0,0 +1,258 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+// Copyright 2025 Intel Corporation
-+
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+
-+/ {
-+	model = "Intel JNCRP BMC";
-+	compatible = "intel,jncrp-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		serial4 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart5;
-+		bootargs = "earlycon";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x40000000>;
-+	};
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&fmc {
-+	status = "okay";
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "bmc";
-+		spi-rx-bus-width = <4>;
-+		spi-max-frequency = <50000000>;
-+#include "openbmc-flash-layout-64.dtsi"
-+	};
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	status = "okay";
-+
-+	ethphy1: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpio0 ASPEED_GPIO(C, 1) GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <50000>;
-+	};
-+};
-+
-+&mac1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii2_default>;
-+	clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>,
-+		 <&syscon ASPEED_CLK_MAC2RCLK>;
-+	clock-names = "MACCLK", "RCLK";
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy1>;
-+};
-+
-+&lpc {
-+	lpc_snoop: lpc-snoop@80 {
-+		snoop-ports = <0x80>;
-+		status = "okay";
-+	};
-+};
-+
-+&gpio0 {
-+	status = "okay";
-+	gpio-line-names =
-+		/*A0-A7*/ "", "", "", "", "", "", "", "",
-+		/*B0-B7*/ "PWRGD_AUX_PWRGD_BMC_CPU", "", "", "", "", "", "",
-+				"FP_ID_LED_N",
-+		/*C0-C7*/ "FM_FORCE_BMC_UPDATE_N", "RST_RGMII_PHYRST_N",
-+				"FM_TPM_EN_PULSE", "", "", "",
-+				"DBP_HOOK3_CPU_FBRK_OUT_R_N", "DBP_PRSNT_IN_N",
-+		/*D0-D7*/ "CPU_ERR0_N", "CPU_ERR1_N", "CPU_ERR2_N", "DBP_ASD_BMC_PRDY_N",
-+				"FM_SPD_SWITCH_CTRL_N", "", "", "",
-+		/*E0-E7*/ "", "", "", "ID_BUTTON", "", "", "", "",
-+		/*F0-F7*/ "", "", "FM_AGGREGATOR_MODE_N", "", "", "",
-+				"FP_LED_STATUS_GREEN_R_N", "FP_LED_STATUS_AMBER_R_N",
-+		/*G0-G7*/ "", "", "", "", "", "", "", "",
-+		/*H0-H7*/ "", "", "", "", "", "", "", "",
-+		/*I0-I7*/ "", "", "", "", "", "", "", "",
-+		/*J0-J7*/ "", "", "", "", "", "", "", "",
-+		/*K0-K7*/ "", "", "", "", "", "", "", "",
-+		/*L0-L7*/ "", "", "", "", "PREQ_N", "FM_P3V3_SW_ENA", "", "",
-+		/*M0-M7*/ "", "", "", "", "", "", "", "",
-+		/*N0-N7*/ "", "", "", "", "", "", "", "",
-+		/*O0-O7*/ "", "", "", "", "", "", "NMI_BUTTON", "",
-+		/*P0-P7*/ "RESET_BUTTON", "RESET_OUT", "POWER_BUTTON", "POWER_OUT",
-+				"", "", "", "LED_BMC_HB_LED_N",
-+		/*Q0-Q7*/ "", "", "", "", "", "", "", "",
-+		/*R0-R7*/ "", "", "", "", "", "", "", "",
-+		/*S0-S7*/ "CPU_CATERR_IERR_N", "CPU_CATERR_MCERR_N", "FM_BMC_FRU_WP_N",
-+				"FM_INTRUSION_CABLE_PRES_N", "PWRGD_CPU_AUXPWRGD",
-+				"FM_P3V_BAT_SCALED_EN", "REMOTE_DEBUG_ENABLE", "",
-+		/*T0-T7*/ "", "", "", "", "", "", "", "",
-+		/*U0-U7*/ "", "", "", "", "", "", "", "",
-+		/*V0-V7*/ "SIO_S3", "SIO_S5", "", "SIO_ONCONTROL",
-+				"SIO_POWER_GOOD", "", "", "",
-+		/*W0-W7*/ "", "", "", "", "", "", "", "",
-+		/*X0-X7*/ "", "", "POST_COMPLETE", "", "", "", "", "",
-+		/*Y0-Y7*/ "FM_BMC_CMOS_CLR_R_N", "PLTRST_N", "FM_BMC_SAFS_EN",
-+				"IRQ_PSU_ALERT_LVC3_N", "", "", "", "",
-+		/*Z0-Z7*/ "", "", "", "", "", "", "", "";
-+
-+	spd-switch-cpu-hog {
-+		gpio-hog;
-+		gpios = <ASPEED_GPIO(D, 4) GPIO_ACTIVE_HIGH>;
-+		output-low;
-+	};
-+};
-+
-+&sgpiom0 {
-+	ngpios = <128>;
-+	bus-frequency = <2000000>;
-+	status = "okay";
-+	gpio-line-names =
-+		/*A, 0-7*/ "CPU0_VRHOT_N", "LED_POSTCODE_0_LSB",
-+				"CPU0_THERMTRIP_N", "LED_POSTCODE_1",
-+				"CPU0_MEMTRIP_N", "LED_POSTCODE_2",
-+				"CPU0_MEM_VRHOT_N", "LED_POSTCODE_3",
-+				"CPU0_MEM_HOT_N", "LED_POSTCODE_4",
-+				"CPU0_MON_FAIL_N", "LED_POSTCODE_5",
-+				"CPU1_VRHOT_N", "LED_POSTCODE_6",
-+				"CPU1_THERMTRIP_N", "LED_POSTCODE_7_MSB",
-+		/*B, 8-15*/ "CPU1_MEMTRIP_N", "FM_ASYNC_WARM_RESET_REQ",
-+				"CPU1_MEM_VRHOT_N", "HPM_FRU_READ_DONE",
-+				"CPU1_MEM_HOT_N", "FM_ASYNC_GLOBAL_RESET_REQ",
-+				"CPU1_MON_FAIL_N", "BMC_BOOT_DONE",
-+				"CPU2_VRHOT_N", "NMI_OUT",
-+				"CPU2_THERMTRIP_N", "AGGREGATOR_MODE",
-+				"CPU2_MEMTRIP_N", "RST_I3C_PCIE_HUB_N",
-+				"CPU2_MEM_VRHOT_N", "",
-+		/*C, 16-23*/ "CPU2_MEM_HOT_N", "HPM0_PRESENT",
-+				"CPU2_MON_FAIL_N", "HPM1_PRESENT",
-+				"CPU3_VRHOT_N", "HPM2_PRESENT",
-+				"CPU3_THERMTRIP_N", "HPM3_PRESENT",
-+				"CPU3_MEMTRIP_N", "HPM0_SOURCE_TO_DESTINATION_FAIL",
-+				"CPU3_MEM_VRHOT_N", "HPM1_SOURCE_TO_DESTINATION_FAIL",
-+				"CPU3_MEM_HOT_N", "HPM2_SOURCE_TO_DESTINATION_FAIL",
-+				"CPU3_MON_FAIL_N", "HPM3_SOURCE_TO_DESTINATION_FAIL",
-+		/*D, 24-31*/ "FM_BMC_VAL_EN", "HPM0_FRU_VALID",
-+				"FM_SERIAL_BOOT", "HPM1_FRU_VALID",
-+				"FM_INTRUSION_CABLE_PRES_N", "HPM2_FRU_VALID",
-+				"USB_OC_P2_3_N", "HPM3_FRU_VALID",
-+				"FM_SYSTEM_COOLING_MODE0", "FM_S2D_DISCOVERY_DONE",
-+				"FM_SYSTEM_COOLING_MODE1", "", "", "", "", "",
-+		/*E, 32-39*/ "DBP_PMODE_S0_PWROK", "", "DBP_PMODE_PLTRST", "",
-+				"DBP_PMODE_GLOBALRESET", "", "DBP_PMODE_CPU_PWRGD", "",
-+				"FM_SMBUS_RDY", "", "FM_LEAK_DETECTION", "",
-+				"FM_LEAK_CBL_PRSNT_N", "", "FM_LEAK_CBL_FAULT_N", "",
-+		/*F, 40-47*/ "CPU0_SKTOCC1_N", "CPU0_SKT_FAULT_LED",
-+				"CPU0_SKTOCC2_N", "CPU1_SKT_FAULT_LED",
-+				"CPU0_MISMATCH", "CPU2_SKT_FAULT_LED",
-+				"CPU1_SKTOCC1_N", "CPU3_SKT_FAULT_LED",
-+				"CPU1_SKTOCC2_N", "", "CPU1_MISMATCH", "",
-+				"CPU2_SKTOCC1_N", "", "CPU2_SKTOCC2_N", "",
-+		/*G, 48-55*/ "CPU2_MISMATCH", "", "CPU3_SKTOCC1_N", "",
-+				"CPU3_SKTOCC2_N", "", "CPU3_MISMATCH", "",
-+				"HPM0_PRSNT_N", "", "HPM1_PRSNT_N", "",
-+				"HPM2_PRSNT_N", "", "HPM3_PRSNT_N", "",
-+		/*H, 56-63*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*I, 64-71*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*J, 72-79*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*K, 80-87*/ "FM_BOARD_REV_ID0", "", "FM_BOARD_REV_ID1", "",
-+				"FM_BOARD_REV_ID2", "", "FM_BOARD_SKU_ID0", "",
-+				"FM_BOARD_SKU_ID1", "", "FM_BOARD_SKU_ID2", "",
-+				"FM_BOARD_SKU_ID3", "", "FM_BOARD_SKU_ID4", "",
-+		/*L, 88-95*/ "FM_BOARD_SKU_ID5", "", "FM_BOARD_SKU_ID6", "",
-+				"FM_BOARD_SKU_ID7", "", "", "", "", "", "", "",
-+				"", "", "", "",
-+		/*M, 96-103*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*N, 104-111*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*O, 112-119*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-+		/*P, 120-127*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
-+};
-+
-+&i3c_global {
-+	status = "okay";
-+};
-+
-+&i3c1 {
-+	status = "okay";
-+	mctp-controller;
-+	i2c-scl-hz = <1000000>;
-+};
-+
-+&i2c4 {
-+	status = "okay";
-+};
-+
-+&i2c5 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c6 {
-+	status = "okay";
-+};
-+
-+&i2c7 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c8 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c9 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c10 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+};
-+
-+&i2c12 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c13 {
-+	multi-master;
-+	status = "okay";
-+};
-+
-+&i2c14 {
-+	status = "okay";
-+};
-+
-+&i2c15 {
-+	multi-master;
-+	status = "okay";
-+};
+Changes in v5:
+- Fix possible read after bound issue in patch 1/3.
+- Do not allow parsing non-linear XDP buffers if the program loaded does
+  not support frags.
+- Add patch 3/3 to remove MTU constraint for XDP prog.
+- Link to v4: https://lore.kernel.org/r/20261006-stmmac-rx-mb-v4-0-efa4ca974e3d@oss.qualcomm.com
+
+Changes in v4:
+- Reset in_progress flag when the packet is fully consumed.
+- Advetise NETDEV_XDP_ACT_RX_SG capability.
+- Link to v3: https://lore.kernel.org/r/20261004-stmmac-rx-mb-v3-0-50fa171af9ec@oss.qualcomm.com
+
+Changes in v3:
+- Return secondary page in case of error.
+- Introduce stmmac_xdp_shrink_tail() to remove the ethernet FCS.
+- Add patch 'net: stmmac: take ownership of saved RX state at poll
+  entry' from James.
+- Link to v2: https://lore.kernel.org/r/20260921-stmmac-rx-mb-v2-1-6e826e1ff306@oss.qualcomm.com
+
+Changes in v2:
+- Rely on xdp_buff_add_frag() to create xdp fragments
+- Fix bugs in rx_q state recording
+- Fix the corner case where we receive more than MAX_SKB_FRAGS fragments
+- Cosmetics
+- Link to v1: https://lore.kernel.org/r/20260918-stmmac-rx-mb-v1-1-0b4517d404af@oss.qualcomm.com
+
+---
+James Hilliard (1):
+      net: stmmac: take ownership of saved RX state at poll entry
+
+Lorenzo Bianconi (3):
+      net: stmmac: drop split frames on AF_XDP zero-copy RX
+      net: stmmac: drop multi-buffer frames in XDP mode
+      net: stmmac: rework stmmac_rx to support XDP rx multi-buff
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 407 ++++++++++++++--------
+ 2 files changed, 257 insertions(+), 153 deletions(-)
+---
+base-commit: 29f144016f03608abfddcd6ebaeabafd7aeaadd2
+change-id: 20260918-stmmac-rx-mb-16469a2714ea
+
+Best regards,
 -- 
-2.43.0
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
 
