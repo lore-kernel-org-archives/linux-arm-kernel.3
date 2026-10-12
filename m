@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381B4CC6B01
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338A6CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESNHhZVsQYn2AOHmULvyvX5RGO+mMmtnmWqOXIw6AB8=; b=VXZyMTzNJXSE0gZU46qZvOJk5/
-	oXK/C4BL1FUQcib8st2RGQHR7qrNGA7BirnBC9cuEUPkPrQ4VPLKCgKf1b1i+Km/TQV0PwJ2SlfSc
-	lTwarR6obcggYaE+70X2Fr2yAP3PW905EFR/IXfl0VD+8nXlZtm379V0BSoDRXAjFV9i6jS2HWTnH
-	8kWiJ7DAtVzwP5rg8byzNZ6RMZkpObsAe4COuZpKBpPRjC5jSnMCRPu1krzvQ42legFYWZ5ckC1ta
-	KzzftvucA45HbwJcAwEBKZ5AgAIz3jnHYPzm3SCpxUhpEGSf1EW8ZYtkomrS8AE6w8JLWvab/9dTI
-	XLX4NAEA==;
+	bh=YOy/dOpoBafqGK5/qCqut1ohPP87T977IurV7U9ByV0=; b=PQ6D7tlFyQXyVYtvhctyaF/wXt
+	2hi2zs+oMarjXzhlGB9iw1xM23EB0HfqHN0Wj7/VStN/tWOMExAvIKp65vyeoUauqZY746J+IfIiI
+	RbwZ7QSiNZr+f2KRhoILHkyH+ulLpV52jxmeii7kYkzOlKF+uhkcfNUyP8HF77++sspYcGtlvfsQn
+	JBLffcOBUYMAvWTEpcwaV0Yzer74WPzRJTXobqmNkE2OKDSVuTFwgf/q/+jlds21fyqFAwNNboI1a
+	c6Ew5aX8zrH66x5nKboNuV4Y7fPT294yfqq0tJuPui+UVCxXTJjeedQlX0DGtI6Gxc+jCFnxHDpoY
+	lCaQe1VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtu-0000000B6nC-0E2I;
+	id 1xGJtu-0000000B6nd-0qQQ;
 	Mon, 12 Oct 2026 17:33:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtT-0000000B6Wc-0Q3w
+	id 1xGJtT-0000000B6WM-0aK8
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Oct 2026 17:32:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D3650444E7;
-	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AB237C2BCC7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1780E43FD4;
+	Mon, 12 Oct 2026 17:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D8F3AC2BCFB;
 	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791826378;
-	bh=2K57Ukhh2ZtD8p9cC8o3YJWWaJ88JHj5YgPFCwXr2bY=;
+	s=k20201202; t=1791826379;
+	bh=Fc3v+sAfUFif61yc1m5RkBfsjoDptWTKM2sW8+Rf9hA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=I8PjPJRGRTdAZvGIq5e/tseE1Rn3L0aEiLkuZIzEcj0ta7YSTHHqUQdZuT7EuplLf
-	 sjq8Ahc2Q5fBuEF2HU5RiUVHsKG2P9pEuyG4FEL9VeJGHEk8sxvPVqtHX4kZpFHCyz
-	 oi76LreSbH93y/4ZYypP6p2TOJkzOZlLvzwcvIC/lLnF7EAjLK8r4X5TqLpzvB55oF
-	 apQIsaw8upMLYpSryWotvd3jWvD25Exhs9ITRZV7ryu7mcf1lX1yEcxSMQto2j1Cbe
-	 W1J9pvEkLoO1n+uc8IshALSiEObv8TAF/NHpFS2YcuLrFrBqsWgAL+aeTB+EqAAWCZ
-	 R1T4Jj4FCStvQ==
+	b=gNUFeczc+9TzA+ux0eI/hC/MI40ioo1/ng3ALdqcO0dcvoiI2LdaKR7OsBx9Tnbqa
+	 jXvicBe4Tj1g7+XozbxRwMB95vjlwm3d4p5+ZX0gF7dohWhAxEj67fmlqmGN87V2mM
+	 Hugg570l2GZgbSCVp16qcn07Erx3EhUi65SRpcJ3Q8wkllPqqza+zsS9q5BWVbukZR
+	 8zw6MHMD464g115JoJNLpOhjcKQMdYeShrgz2Cf94FirTUkkCv/Bjgkje+59p6Wiho
+	 ECbu7xuUpCssWWWEBG36toA6XlIkGlqSsWReNYFetg6jc3GyT0OlgndmNkIbq7d9+h
+	 8aep2IUn8BqWw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 97D07CA9ED0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0F4CCC6B02;
 	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 12 Oct 2026 20:33:04 +0300
-Subject: [PATCH 09/11] ARM: dts: cortina: almondplus: Add reset button and
- enable I2C
+Date: Mon, 12 Oct 2026 20:33:06 +0300
+Subject: [PATCH 11/11] MAINTAINERS: Add Cortina Systems CS75xx interrupt
+ controller, GPIO and I2C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-b4-cs75xx-s2-v1-9-8a7641b7b79c@gmail.com>
+Message-Id: <20261012-b4-cs75xx-s2-v1-11-8a7641b7b79c@gmail.com>
 References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
 In-Reply-To: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
 To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
@@ -67,11 +67,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, 
  Fil Dunsky <filipp.dunsky@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791826375; l=1441;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791826375; l=1164;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=2Dx/b8/3JsG/5KBFCzsSYSUq7LHO1maolj27mYLmFbc=;
- b=XWXbANLAClu8iyD8TTsgycP74bTBmdKiyDLudB2hH8j1YjH5+rTRpJOhQFTQTtmjisBqTZn1r
- ikhfSV3SYYgAxpwOP/Igf7+GbMZursjO7mDSWY2rjY8Vzx6VmgWbZCm
+ bh=8born+lqbJWHHfA9yx4+qhsEyHSP/MdbnsbUcNAg5HU=;
+ b=McX5VFVIBMEiKok3MNRRKjOItUON1F9LNasVxMYv86Pj+kozqtVEJCdHF5REZibrZjO8sS/CK
+ mQ3cEN0aUEVBZjXPo+BjmQZPwkBEMXH7/RcgqvzzXDb3kku788v0bzF
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -94,62 +94,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-The pinhole button on the back of the Almond+ is connected to GPIO 37
-(bank 1, line 5), active low. The stock firmware uses it for restart
-and factory reset.
-
-Enable the I2C bus, which has the touchscreen controller on it; the
-touchscreen itself will be added together with its driver changes.
+List the new Cortina Systems CS75xx interrupt controller, GPIO and I2C
+drivers and their bindings in the CS75xx entry.
 
 Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
- .../boot/dts/cortina/cs7542-securifi-almondplus.dts   | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/cortina/cs7542-securifi-almondplus.dts b/arch/arm/boot/dts/cortina/cs7542-securifi-almondplus.dts
-index e2988c687..0619bd754 100644
---- a/arch/arm/boot/dts/cortina/cs7542-securifi-almondplus.dts
-+++ b/arch/arm/boot/dts/cortina/cs7542-securifi-almondplus.dts
-@@ -5,6 +5,9 @@
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 53f6fa1c5..604993705 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2925,10 +2925,16 @@ M:	Fil Dunsky <filipp.dunsky@gmail.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/arm/cortina.yaml
++F:	Documentation/devicetree/bindings/gpio/cortina,cs7542-gpio.yaml
++F:	Documentation/devicetree/bindings/i2c/cortina,cs7542-i2c.yaml
++F:	Documentation/devicetree/bindings/interrupt-controller/cortina,cs7542-intc.yaml
+ F:	Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml
+ F:	arch/arm/boot/dts/cortina/
+ F:	arch/arm/include/debug/cs75xx.S
+ F:	arch/arm/mach-goldengate/
++F:	drivers/gpio/gpio-cs75xx.c
++F:	drivers/i2c/busses/i2c-cs75xx.c
++F:	drivers/irqchip/irq-cs75xx.c
+ F:	drivers/tty/serial/cortina-uart.c
  
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
- #include "cs7542.dtsi"
- 
- / {
-@@ -19,6 +22,16 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	keys {
-+		compatible = "gpio-keys";
-+
-+		button-reset {
-+			label = "reset";
-+			gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_RESTART>;
-+		};
-+	};
-+
- 	memory@0 {
- 		device_type = "memory";
- 		reg = <0x00000000 0x20000000>;
-@@ -50,6 +63,12 @@ &apb_clk {
- 	clock-frequency = <150000000>;
- };
- 
-+&i2c {
-+	clock-frequency = <400000>;
-+
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
+ ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
 
 -- 
 2.53.0
