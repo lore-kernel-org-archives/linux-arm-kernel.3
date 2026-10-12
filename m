@@ -4,110 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AA2CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9FACA9EDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TB1tvVpc7k0BKK/tU4j4YuTf01twWs+L2M2upFeIsNA=; b=YZv8p74M5OCV3pwNyyqCZTafpT
-	aUE+LYPA9KyvvJB929wsAgMRIPd/gt44WFEYbeqX78oz4Tbpo6336mSUM3ZaeT2d6w8WVGwlYD9AT
-	6VLQA5hLZH80d7ts3uobR16BEJOSynQk2Ly2+6j8oAuAVk7ztUq+//zS3iJPyEZENiU3Zi8q4TeRi
-	XOA7BBS/yIAMCn9rGCoIDm6mgK7yNVqxmzZsOne/CmUNy+LlcSgqZkDyFdphIS0sLatwmnh7xsj0L
-	O3jpP2uyirwpdbkLMazdRWkJH9umLswc3KBAEcFKYQi/39S/oR1ppYJMmu2Np/Fd/RU+MXRxbT3Tx
-	lL/DWz0g==;
+	bh=+DMRKqfXgKn0yChTCHhUfBwuVKVVAsKSydkPpQYozO4=; b=vcA6zKphmTfufeWiOp+MGNOe4I
+	J8rt1vIdbLBYO3XTdXEHwXIC5NC0rIZ3rak3jDFE6MrxMxXsp1NswqoGRxTHmdy7l00kYF7d+nQyN
+	7gqd6fcQozkS65afXP/KGU9SaNIThCmrHmdWWYyMKPpHNlW/Jb1GvqTAxIcsTOWkAOri2Q3RXnbFD
+	F1gqF4wN48G7KUYeHrjbI0OKsX7M3lv/dsajp1uvLUZs7UWdrRpenlkxUzVyMfisj/X9aaLxBLLWe
+	mbx9wFxQGZaCrDpXaQYbRxTG1pDlz0isSE0Jnhi6e04aasNRyNrWhNJpTF5OHNgib/uHu6lk+S8vy
+	I8CzCMaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAY7-00000009qeU-1taz;
-	Mon, 12 Oct 2026 07:34:19 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xGAYa-00000009qmI-2mbW;
+	Mon, 12 Oct 2026 07:34:48 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAY5-00000009qdr-2mWJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 07:34:18 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48b03f23305so1282768f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 00:34:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791790455; cv=none;
-        d=google.com; s=arc-20260327;
-        b=htPlgnNdBxbG0Aae1p9/7/+nsVJ+EmSIwZjk8nSM0G95AZH4DYzBJHLWz0LkNN7MZr
-         4gpGxLUtghIf/kZQPzAu0dIl5X3ZAJuXgwmHnOKc6Idr74XDKcL23lAZ+msz+oMyBTWN
-         xKbnqJLUbHbQazXL9EC0BCeVdFqBiXqguP0GgslPW5waNfdyhQqhbJvjhpFxWR3TvHiX
-         1jpx4nrDRpRFQvAnAOgAjFbyHXXTUISgTJPA/tBc8ns4M2JD7PMq32HJoXtrsMzCdwYN
-         66rjzNffU6TwsQrTKszTK6+CSeNaiMcVtT5jowae7y6lTj9HvUAes/OW0orwKf7RYa2P
-         9Nng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=TB1tvVpc7k0BKK/tU4j4YuTf01twWs+L2M2upFeIsNA=;
-        fh=7X5BNKzBUHeoDBFU3mrFZ15QXhUBvZb+vXZRAu8uVnI=;
-        b=nHE/wTSOkLiLfH0Otub0azYHqh7VGxVKomFaQMGa75PtNnNwMSQOtbuZ0PgTzstr5l
-         vGdpsM9uVvBAsCpIsYP/4gnaruq7d3hP5cSIBogvwq3szQdHmuMVSEajSNNNuSqLj641
-         z3xfXWMrGduE6x2vlzEb/Tg88XXrc6Kh1Nrn5OalLgUuH21z7roEn5RLOOp/fRRr6w4Q
-         /AsAXuSHdd6t1CiuuI0OozloW1z27sBoqQpbVrsKKVFepsggkGPkJwL9tBISqRu0yfpd
-         759uT1kx4fvN56QR76/GxTep83J2QB19eS3Sy0JgDGfnhMggcuE+TgST1O7vx6B9wFRZ
-         PsAg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	id 1xGAYY-00000009qkg-2mWz;
+	Mon, 12 Oct 2026 07:34:47 +0000
+X-UUID: 62a86cf6c60f11f1acbe4559397dec65-20261012
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=+DMRKqfXgKn0yChTCHhUfBwuVKVVAsKSydkPpQYozO4=;
+	b=gmueJOQuQUKNKyvfn6cgtmcx9walNAr7BgTbeljnxM9Cngtdnr5q5N0idPi2GI2ZlSgz0Tb4IWZu1HkZc9Gvv33UV7C7gWoOrUNOSSrC/RFwukn7ey/O+1TE2yufGz6rnWsHKtmX4CmmWbxfMk/ez4Men5MMbJElla4cLUbpNSk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:83eafe5f-2361-42a6-bb01-0a313f100135,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:291e20b,CLOUDID:3b9a3e95-3103-4fdb-b79c-08de0e281a5d,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-
+	1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 62a86cf6c60f11f1acbe4559397dec65-20261012
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 941380490; Mon, 12 Oct 2026 00:34:40 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 12 Oct 2026 15:34:37 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 12 Oct 2026 15:34:37 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i/dnqSBQ8vLlk6c0aOvYteJ/P4TkJyw/voMPcmppMfsr3q088GfFphn+27bAeug/DlNOHHd7mUbHlzEfghIJKn6VsMcZoqPnP3ldS3P/M+tYkGMISH+nmeIaFBrhfW4UfJihiMqw82NpyY0xhLYXLYRo6+GlBGLRKlOdWu7GVPxxjv2IKJn/HjqKRLxJ9+k1BKhjRMoxJh4VtjtImo1GZCflMwnTFbFA2og6BAov8ZA+C2Cnr1A2IRF3u5fzoJUaPYgUMPIGL+7z0udkkcgCLlm2JlOYDIknBEqwvF6xpxp0nmASMAr3GFH6yWu9/D2O9Yd/c0YhAPGRR004vVsCAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+DMRKqfXgKn0yChTCHhUfBwuVKVVAsKSydkPpQYozO4=;
+ b=uIIbHcyv/3U0Pi392BtJ2ucQBkfMIr3x7GYCyExsJfdo6aHnHJADqQzphHOKR7sDRtLs+NV6vxptPYVJjVfMnPNtQ04vGvc5J1yqHqS4a9AdJfLf+H5/+KkXBwlIgcwucATn2ZuMFjKvWR7PHpe3Jti+ID9NQUxihFNsYujxosIv8jqNfs8lxcNaZx4SxGYCDdF2r6XrO4Tlz/EnwNM/HoxGHCndR7Vy9i2WMyFi6fWmcX2cPOhkufjUFiGsTeYty89/e5Lftq10P+sdLEJpD9NbZQxo/CrnM3ZADSCJz6hPuBa8ONox1oCEQsGClIcU4iEStBlj6ErmapqmF34ZBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791790455; x=1792395255; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TB1tvVpc7k0BKK/tU4j4YuTf01twWs+L2M2upFeIsNA=;
-        b=cUsRU2z+lCm2ssGSZUShDBAs/V2rMedGhtunD6FERlYVTyqSVKWvnYxkCUwrhKXL3s
-         nDzAfaC9Ip4kqRdtWCG5mVTxOhmmcTCLdzyJkHQCEboggNiZT5sdt4WTOGuSBBGHa+4H
-         i4F90mtVwDocpg+wWgFRwOkhNhoaHOZZHE6iz2/UJsl7EL5OIOstuA9qKNzPNr38MQX9
-         AieRJOFZCkVIP6kNo3qpASvgH1UEyFCuJZo6fYOesn++z+wbIZbwIUi5eyWZ2YIRTx2j
-         vxwLNxn7+LegJ7yTEyS82LLlom8h0EgsjN13lHaFsgq/3L+tm6QSCru8ItBj9wt388Dn
-         0btA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791790455; x=1792395255;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=TB1tvVpc7k0BKK/tU4j4YuTf01twWs+L2M2upFeIsNA=;
-        b=qykQrWTByABr+aAplxE1YlP6TtklzNqI5FUe3XhqW9UQUZ6TZwH9ULobgG5jkvD9Dv
-         rCsim3PxmQikCEBQCWh46qjmjCDbGbNs9Fs7fzGmDPOoo0fd+D18MaAwKqMP7dHlIU1J
-         0JrU6lVrjGGuy5Yyl4z5S5jYNH+V9jnrlTMzs/mJ3DnhKwOzTTWTF6D5ZPjcSNiNCRMJ
-         J4Bb+a84kpN2sTUgn4W6NrIPJnXixFNddwxntX6aVujwRk2/ZdxH8/nSmDRzLwYR6rgg
-         +RiSGZGKDAXC5z80w/gQe315Md0ek+9IHR7etJYJFp1WKBgejvfuk2mK3ser27wTMtCq
-         QKGA==
-X-Forwarded-Encrypted: i=1; AKwUvBxf+fY6pVEuLquLzFgokZRQM0Gq/yiVEwzCbbiUACfpFC7bDrC1VpzpfGzxA1gFMvK0GH7Owv6hUfsgVXQkwWC1@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ4OqTsNvbl+pMMEYXVrqN7S0TjrjBi7Y+uLrWDWVD8oIMtsN1N
-	xpdOW16DwGiilN0WmgxAw09cWbrjh2dot/I5X51WH+DOXiKhhXqSvceI+mn5r6K4usW2RJvxfFm
-	pVjavlSZtOugGdKo4TlfKbLlDyaQ4aA4=
-X-Gm-Gg: AYBFou1i9UcBt4+wpAmMzdbHUpD0ogjJz0rAqyBLMliIvOTkI4Pd700I7zd++szk7rx
-	obiaHHvX4MkJQFNB3I4u8mAIQnRKuiYpsnID+c0qrMQXtJEqxYtJmBokWZ021GEqxFh1O2tjrzv
-	bnvJbeqWkjLTHyAr/0SWS0wRM1utARF+Ggq8sL8KO7yozp+duPd0SfK8kncqQZzXLlriJ96qJk2
-	2qLpCAqGEoh0fvbzHjIcIqAZM8+fyilPFTiwqlSC3qJ3bF7h1fJPB2GPvpohOkq/iHox0D/iHUQ
-	/HU+X8mAMqVpw+gMdJdphwrZEaLDaeudrpZqfjQd5724zL5Pe4DaG+C+
-X-Received: by 2002:a05:600c:154b:b0:49c:fed6:cd3f with SMTP id
- 5b1f17b1804b1-4a18e4d0be2mr158510455e9.23.1791790455069; Mon, 12 Oct 2026
- 00:34:15 -0700 (PDT)
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+DMRKqfXgKn0yChTCHhUfBwuVKVVAsKSydkPpQYozO4=;
+ b=i5jDmRCckPDpb8AxLVDmRPEpcmlMulnM27cG+GsK9rcSyPto/wzcZ8UspG5A3Jt4bvcLZlzlBPSd/IdajS3WsN7pfYxW3no/tQ4SQp1UAWzapXN8hqCZmAg+CYZSogNymLdjRgVFE/ZdPo5XoOgHtcSM8kq3kBHSulDC2CR1hwU=
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
+ by SG2PR03MB6633.apcprd03.prod.outlook.com (2603:1096:4:1dd::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 07:34:34 +0000
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 07:34:34 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "chunkuang.hu@kernel.org"
+	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "airlied@gmail.com"
+	<airlied@gmail.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"simona@ffwll.ch" <simona@ffwll.ch>
+CC: "peng.fan@nxp.com" <peng.fan@nxp.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] drm/mediatek: hdmi: use regmap_assign_bits() for
+ conditional set/clear
+Thread-Topic: [PATCH] drm/mediatek: hdmi: use regmap_assign_bits() for
+ conditional set/clear
+Thread-Index: AQHdTAAFD0vspj/P706TOdPmONKhDrb5oEAA
+Date: Mon, 12 Oct 2026 07:34:34 +0000
+Message-ID: <57deb2ae1a6235e9e0b84458ee228b1ce8ed418a.camel@mediatek.com>
+References: <20260924083456.461815-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20260924083456.461815-1-peng.fan@oss.nxp.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|SG2PR03MB6633:EE_
+x-ms-office365-filtering-correlation-id: 8772536f-e9db-4642-8227-08df28334331
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|42112799006|366016|1800799024|23010399003|11063799006|38070700021|56012099006|22082099003|18002099003|10067099003;
+x-microsoft-antispam-message-info: 15wJdlPeBKeZHr+IfBH4+mH0eY47DM7p+IFhPvDo159djr4HODce6ebmaHekMD58+CERHTT6biT/+dFO+xjFSsUJ1yVJTW6VHPwUcCLQuS5bC1Pelr0+2VoM6eLbnFJ3BdGAZ3WUorfqsuvKWLE0yJjwCx7cJqnfrrs5Jp2GXOs/S4YjU0+UKDhtlO82msLnzgGKF4R0VEA4C/Rhbfuo8kcuYlK5/Bv/DA4YG+6MF0/qfnOXVzQRUqTKV2qW53oxx1VujL6z/KJYo/h2vXKikCNieZDQH2gTbCNopoeJIz8KhIVbuhapM+8E2MdjhY4yTCBpjooW71A0RRlpOqFu4FKwuf8/6QtcoBaFeRED4MLV7B20X9svPq484QTPK5w1wN0B6wEz71nlgQ3gdq7XrsKY4oHaqtAQ+uFRamysQuUFblvXQo0xpdNIaY8Dj8oKMInTCbW1A9a6GPeEDo7rdJV/ysEU8g6Fh6iQKN0DdF4l7BBNjN67UNlMNxJTKYG5nTQpAwymkJdN3UxYIJeAfNceHVbpwGkNVkvso59XW5tl3qExeUJEafGzzCgBywO++q+YoBiYECwx7gMEawSV+MC6l69JJcP3e7Ba2WZ5BLiTHP9E0jVmwz8v9/QuSr+tfoPVKU5ArHgRS65Y7+IJGVOjydBGQoxypm+hRtgVy+40nRZrYIOYebi69ZCuJV+HFWFiyUHBjrYxSfhwcTuz+uQBDiX8xoR9jfY5SrE6T+k=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(42112799006)(366016)(1800799024)(23010399003)(11063799006)(38070700021)(56012099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?L2J0VFg1VFk2dnJNTWZUOFM3SXR3MTVPZjNvNFdLeXlqREhmZnhFbDFuTHp1?=
+ =?utf-8?B?emZyaU5tRUFQZTluYWp3OEdUbFBUdnB3QUFNdS9yVFlVaEhqNFFPaXBNL0lI?=
+ =?utf-8?B?aklpY21pbmxNNkFKUTJ4NTlZU3BaUzdyQnRSYXIwamM2WlY2TXZTMjBGRW5u?=
+ =?utf-8?B?L2lHS1BSWFFIaEdrVzYvcnVlR2w0SURZYUt1cUJGMXgzeXB0RStYa2V1blpM?=
+ =?utf-8?B?ZTZmeUFmeHRYSHg4cUhSZWZZYTQzckFyZkFKVXozTjl3ZmtJaXdqTy9NSmkr?=
+ =?utf-8?B?bWFhWXJoM2oxQTJIdzJzR3U0dGJhdUtEQ1QvWkgyMy9iRER6MlhpSHRDSU0v?=
+ =?utf-8?B?RGtpTWk1VW42WXZvWjFjYjlEWG9sQmZuaVB6b3NvMFI2UGRyWHVDNDNkeEVH?=
+ =?utf-8?B?MFI2SVJ3MGlkZFdRSWs3MWNic0NtM1haTTRqNXdTN3pTd3lPRXN3S0hscXc1?=
+ =?utf-8?B?RjdsVGRuV3QvL1ljcFVIM1VqUVNYUVNNTUR2SWNWV2RBYm0vQXdZRUx5YjZz?=
+ =?utf-8?B?OTgwd1JYbHB4N2Z6SXRaOGVLUXYxWlZxaEd4YStiV0prblE0QXhTdUR2cmxI?=
+ =?utf-8?B?dUhjRUVqb3VMenVQY2ZqZjJtR1NqRkttY2dLUGRZVFMrZkp3NHhCcWEySDZi?=
+ =?utf-8?B?VFZ4WUNPNGJCaWdzOWp4UHJ5Qm9VWGlTd0svM2RTYXFYUjNGVzdQMHZZN0g0?=
+ =?utf-8?B?Wm5Dek9CV1pON0s2cGF6czJhbnYyaTRkS3VIMmtaM1psSzdQN1p3aU9PUHpT?=
+ =?utf-8?B?V0l6Z0VOQkhBOWpUVFVZNzdBWmNvNlE1RldWdmMrZGpHZytOV1ZhZzlHcENJ?=
+ =?utf-8?B?QUJXOVpxalAwMStqa2xYdVZRWkxMUzVRclJCZXdKVjBKWStiZ05sM1BhTmdr?=
+ =?utf-8?B?a2g5azlyZ2VkOFkvVEYwcHFEdmNLY3hDeHNyWUo3Kyt2T1I0L21HM1grR3d0?=
+ =?utf-8?B?aG5ETXNQd1gvZFdsSHU5WHlaeUR5cmFIOWRabkFRK0loaVY5Q1l1bUg4MWdX?=
+ =?utf-8?B?UkxXS1lDaTlhWXc5bUk1T2xkNFRoU05KUHI3ajdPcDZVbkp0VWNNZnlaNEho?=
+ =?utf-8?B?T1M0ZFdRWVBUSEhZY1VEWmNYYTRrR0c3NDNYK1piejZ0aGpVbXFGNExKd2dT?=
+ =?utf-8?B?WHI3QXNYSy9SU3VXdlVYbS9rajUwai9MMDA2d25oRjl5TUlnVlVZMGJTa2wy?=
+ =?utf-8?B?Zi9YYTdmbHQ2dWpjbkZuRTRWWXA4Tko4b0tHMVkvTUxUSkRpOXZPWGdIRWFK?=
+ =?utf-8?B?dEt6QnpBZkcwa0J5WXUyZVlrSDNoaVN6MEI1VUxqVFFKdXkzZ3JmZ05YQkxR?=
+ =?utf-8?B?UmM4bWJjTXRGbGhtTHlGb2dxZDVuNHhEVVNRMCt0MVJyVmNad21LSHRsakNm?=
+ =?utf-8?B?WXRZd3RIdDUvVC9Xc1pIN0JCRXl2RzNYY0xUZThPbnV0R0pURTZMTGl0S0FG?=
+ =?utf-8?B?QXNGMzV0SWpUaGJQMng0aEdxU1M2dkhWQ3A4eVlta1ZNTlNBNFh0WFV0MUxi?=
+ =?utf-8?B?aHllb3VPSFNsT0JXbzM0UTBpU1AvUldMbkd2bytjMCs0WGZURFRGQ0Y2bmE2?=
+ =?utf-8?B?OWJhc1E1ak5NZHBYbE1CeCt0N1JBNlZORjdPT3JsTXdoczhsKzFPUklFVXZj?=
+ =?utf-8?B?TCtETC9FeW1FampRS0NYc1FiTDl3T2FOK05CVklpUHVVL2RCQURBMnVwZERU?=
+ =?utf-8?B?NTROSkRLRmpudkQ3Z1A4TkYzbW1kb1pJSS9vUGZ2NnJhRGtVdEwvR1BNK3NM?=
+ =?utf-8?B?b2k1a1Q2ZGhPeEMzQVJnZ1lWWWMrNTJYU240clhWcWN0MzR0Y1Y5YlRhYXVr?=
+ =?utf-8?B?WFo0TXMwcjAvU2dzN1dWeDdnWWRGMVZaTkdTZFNoMVpqNW9saGRsWkpibDdU?=
+ =?utf-8?B?cU9OYWZCVW15T2U3WmpwcVZHUHJQMkkxYXJXQStYR05MVm53OGVST016VWVs?=
+ =?utf-8?B?RkRkV2V4VWNVb1JWeENnUHZ3dkl6eTQ2cjA3ZnZoYWJSOUpGdDBPQ284Nmk3?=
+ =?utf-8?B?ZklDUGdiQWFnNlBCazdXQjdqMnNXdWVyNXZzQ3BjSE9RTVc5bUExU0ZBVjNX?=
+ =?utf-8?B?V1g1eXYwN1Fob2lMUWw0ZUtXR0lMb3NCSnpXd0h0anRTQjh5Yk04aURUYzRM?=
+ =?utf-8?B?a0xjdXpvYi85RGxGOVNkd1RJRExVanpPeXA5Q2pSb0k2dlhCZGVFR1Q1cTZy?=
+ =?utf-8?B?NENqdklkajA4U0VaMnpaQ3ZGcHQ4MkkyRHh5ejJoOEw0SGJlR1hmQnF6S2M1?=
+ =?utf-8?B?ZWNUVkhLOFR1Wmc1Qk9nR1pVc3ExWTVrTDMyN09sNUJNWlBtYlMxdUhpTEFZ?=
+ =?utf-8?B?T295TTNQdTFvTzBlSjBmaHE2YnVzVkN6akl4ZkxPU1AxU0Fzam9Hdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E8B7D9881C964246BC87A200C19A5AFB@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20261002090947.869220-1-jiangwen6@xiaomi.com> <20261002090947.869220-4-jiangwen6@xiaomi.com>
- <asudY_EhrT5fZGmZ@milan>
-In-Reply-To: <asudY_EhrT5fZGmZ@milan>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Mon, 12 Oct 2026 15:34:02 +0800
-X-Gm-Features: AclHuK_LlxXaCmKE3CgA4amsUlg18qyTu4ifi545sZ2ZwusM-AnLpZx1y3tgmDI
-Message-ID: <CAHKocdH9Cmjb4oEVvZnxDhYRKfK+b00k3mm_YwWmSnO4fZ+qyg@mail.gmail.com>
-Subject: Re: [PATCH v10 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
- for PTE-level block mappings
-To: Uladzislau Rezki <urezki@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
-	will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, 
-	anshuman.khandual@arm.com, baohua@kernel.org, chleroy@kernel.org, 
-	david@kernel.org, dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au, 
-	npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
-Content-Type: text/plain; charset="UTF-8"
+X-Exchange-RoutingPolicyChecked: nBVpohTqvmUrdnRx/rye/YJJFch/L0cDxUTl9PtSj9WUNimU+Ug30GzivbGLTr39XFRM1emjYSIDt1BLDlabMHAAElHp7EEMH8MMCQH2CIGQrZnfwyOFlFv6tPU3DihF7/pFlmk814CIILzB7bz3dRjrwwIwSllSqT3Y2rMVIp+us18EIRQgKbl8SXyKhiX/ucJFG1mTipDVQwAXCkYZC4ECXqzJBrELbmJej/ODIPjSNYC1D7euwRQFBHCvjADp589CNtP13a9pWOulJxHmZyH4MZz0/8gxifQ0QkTnfS93kK7CT/7bcvJgxzQal9gOnpJRX1qvMFczatF5RrErtw==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8772536f-e9db-4642-8227-08df28334331
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Oct 2026 07:34:34.5322
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: HMFJuSz90oXg8LyZVFhE8sFNc4IrEBJCeghP+Q/T7p7JC4pUvmdqczkS/vul76JnBGiCSwFQ9+3M5P9vsfZ8CA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6633
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_003417_742647_F67D39E9 
-X-CRM114-Status: GOOD (  30.88  )
+X-CRM114-CacheID: sfid-20261012_003446_738056_F4A43061 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,125 +189,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 11 Oct 2026 at 22:29, Uladzislau Rezki <urezki@gmail.com> wrote:
->
-> On Fri, Oct 02, 2026 at 05:09:40PM +0800, Wen Jiang wrote:
-> > vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
-> > huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
-> > the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
-> > couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
-> >
-> > Now that arm64 and powerpc/8xx provide pte_set_huge() and
-> > pte_clear_huge(), add the generic fallbacks next to the existing
-> > pmd/pud_set_huge() family and convert vmap_pte_range() and
-> > vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
-> > around the block-mapping paths are dropped, so PTE-level block mappings
-> > now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
-> > longer includes <linux/hugetlb.h>.
-> >
-> > The fallbacks exist only to keep the build working on architectures
-> > without PTE-level block mapping support. They are unreachable there:
-> > the callers only run when arch_vmap_pte_range_map_size() or
-> > arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
-> > which requires an arch implementation. BUILD_BUG() makes that
-> > explicit rather than silently doing nothing.
-> >
-> > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> > Reviewed-by: Barry Song <baohua@kernel.org>
-> > ---
-> >  include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
-> >  mm/vmalloc.c            | 19 ++++++-------------
-> >  2 files changed, 35 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> > index 8c093c119e5a8..a7fd51fec8a17 100644
-> > --- a/include/linux/pgtable.h
-> > +++ b/include/linux/pgtable.h
-> > @@ -2204,6 +2204,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-> >  }
-> >  #endif       /* CONFIG_HAVE_ARCH_HUGE_VMAP */
-> >
-> > +/*
-> > + * PTE-level block mappings for vmap.
-> > + *
-> > + * pte_set_huge() only has to be implemented by architectures whose
-> > + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
-> > + */
-> > +#ifndef __HAVE_ARCH_PTE_SET_HUGE
-> > +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
-> > +                             phys_addr_t phys, pgprot_t prot,
-> > +                             unsigned long size)
-> > +{
-> > +     BUILD_BUG();
-> > +}
-> > +#endif
-> > +
-> > +/*
-> > + * Likewise, pte_clear_huge() only has to be implemented by architectures
-> > + * whose arch_vmap_pte_range_unmap_size() can return a size other than
-> > + * PAGE_SIZE.
-> > + */
-> > +#ifndef __HAVE_ARCH_PTE_CLEAR_HUGE
-> > +static inline pte_t pte_clear_huge(pte_t *ptep, unsigned long addr,
-> > +                                unsigned long size)
-> > +{
-> > +     BUILD_BUG();
-> > +     return __pte(0);
-> > +}
-> > +#endif
-> > +
-> >  #ifndef __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> >  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> >  /*
-> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > index bea9f76ed7e74..fb757d95bde25 100644
-> > --- a/mm/vmalloc.c
-> > +++ b/mm/vmalloc.c
-> > @@ -38,7 +38,6 @@
-> >  #include <linux/rbtree_augmented.h>
-> >  #include <linux/overflow.h>
-> >  #include <linux/pgtable.h>
-> > -#include <linux/hugetlb.h>
-> >  #include <linux/sched/mm.h>
-> >  #include <asm/tlbflush.h>
-> >  #include <asm/shmparam.h>
-> > @@ -100,7 +99,7 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
-> >       pte_t *pte;
-> >       u64 pfn;
-> >       struct page *page;
-> > -     unsigned long size = PAGE_SIZE;
-> > +     unsigned long size;
-> >
-> >       if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
-> >               return -EINVAL;
-> > @@ -121,17 +120,12 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
-> >                       BUG();
-> >               }
-> >
-> > -#ifdef CONFIG_HUGETLB_PAGE
-> >               size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
-> >               if (size != PAGE_SIZE) {
-> > -                     pte_t entry = pfn_pte(pfn, prot);
-> > -
-> > -                     entry = arch_make_huge_pte(entry, ilog2(size), 0);
-> > -                     set_huge_pte_at(&init_mm, addr, pte, entry, size);
-> > +                     pte_set_huge(pte, addr, PFN_PHYS(pfn), prot, size);
-> >
-> As far as i understand, X86_64 arches do not use this path. This
-> specifically is only for ARM64 or powerpc. pte_set_huge() makes me
-> thinking about huge-page mappings(PMD/PUD/hugetlb). This helper is
-> about mutli page mapping on the PTE level.
->
-> Better naming? pte_set_large()?
->
-> Any thoughts?
->
-
-Agreed, "huge" is misleading here: on arm64 these are CONT_PTE entries
-and the helper writes a range of PTEs rather than a single leaf, so it
-is not a PMD/PUD/hugetlb huge mapping. I'll rename them to
-pte_set_large()/pte_clear_large() in v11.
-
-Thanks,
-Wen
+T24gVGh1LCAyMDI2LTA5LTI0IGF0IDE2OjM0ICswODAwLCBQZW5nIEZhbiAoT1NTKSB3cm90ZToN
+Cj4gRnJvbTogUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+DQo+IA0KPiBSZXBsYWNlIG11bHRp
+cGxlIGlmL2Vsc2UgYmxvY2tzIHVzaW5nIHJlZ21hcF9zZXRfYml0cygpL3JlZ21hcF9jbGVhcl9i
+aXRzKCkNCj4gd2l0aCB0aGUgc2ltcGxlciByZWdtYXBfYXNzaWduX2JpdHMoKSBjYWxscyB0aHJv
+dWdob3V0IHRoZSBIRE1JIHYyIGRyaXZlci4NCg0KUmV2aWV3ZWQtYnk6IENLIEh1IDxjay5odUBt
+ZWRpYXRlay5jb20+DQoNCj4gDQo+IFNpZ25lZC1vZmYtYnk6IFBlbmcgRmFuIDxwZW5nLmZhbkBu
+eHAuY29tPg0KPiAtLS0NCg==
 
