@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D472CCA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227DCCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 19:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw7bv2pnfae4cMWiRM1MW1DbGUPZqrWolE0VMUTTkds=; b=TNpB8KtF0HjaKwnT4fSXtjZnSP
-	WseB9e2ENRNyVW2pDEIhj+3z+xVdoDOgwYHsQ3dPwGpLsHbfFrhv0CljcfvOTIwhwBVPptYnUUMh1
-	yuYkNlZ2DpMjgpFBeQUMS53Ald405vqwgna1moFWkXQU1xyha1/GELMmwrY2LLnh7w8sQDXcck2X7
-	Utth/91b1eiC+fDgcphTfRV+uCLyMam96SrMjb7NgiVuakhUpuC2qyu4Wd1V7Dth9M0O7AB7pFP0j
-	VMr5o2aASKgOGLVAnYLGWal7iOzo9gCZAu/jCTR4xPz9oIoeUPZS8sfRrqdojKH4JAnM9RuA9Yff7
-	1mGpL1QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fAUfWWTxjwqCeuukrWQxTgwGQa9QftroT/t4wDZYVVw=; b=OFCSzrtfznSAMJLznfF6rWZiEB
+	1CAF5cQikR0C+3TxI/2ZwcvDMc0WFUSOP1aDJ9dQKOix8QSfGTaEZtdLqpQISRb3i434dvZBcIYu2
+	SF9hBWGl/QZEuWtrEWZ7en5QsZqG85B8VbOcTE38qVAjEJEE2IPUqST7RRrquOIIT1SzTYfhQhWsU
+	uuj9xvcjwaQE3QqH0q9lNDqAFTLkHLs/UxXu77P0jsgf1AtqkN8pNNt/Ba/9oAdMFChtcAZKFsdUY
+	elVHM4+pF3PwPIz5Cghh5SISJ8bXtMeNJLwNVlhVgJhmPjqbfTIcuLiCm7r5esLnZISafn4DMLT+F
+	gxAVKERw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLMI-0000000BLn0-1phH;
-	Mon, 12 Oct 2026 19:06:50 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xGLNK-0000000BLzI-2Xxt;
+	Mon, 12 Oct 2026 19:07:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGLME-0000000BLli-1dYq
+	id 1xGLNJ-0000000BLyy-11pC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 19:06:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7E1D24E411FE;
-	Mon, 12 Oct 2026 19:06:42 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2603C601A6;
-	Mon, 12 Oct 2026 19:06:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EFFD411D70CA7;
-	Mon, 12 Oct 2026 21:06:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791831996; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Bw7bv2pnfae4cMWiRM1MW1DbGUPZqrWolE0VMUTTkds=;
-	b=vS3NyB/2AQirlZc3zwonhlMtCW4/+Tm5UyQ7Um01rVmMrRno6RPzmzdCh8FU2cjHcaW3Th
-	5uHwUXZRnhNN+3Cnipgeglik203ebVueIHnAIS4Hdssa3eZ9OSIENz9o4BHC3Pl0W9YKh1
-	ne1qHRrPxjWs35WdViC8YO02zulN+MPqxYAUsTBHzZdQnrFaJL8K6+Dq6Wtr283XK1AFos
-	WWDG4W+AMdAIsRWfVef557tOkwe5WQNGfxMhePfq0y2CeEusWB8KA6k1vUaPBkidP1enHT
-	iPPJK8u8FDOfHxS8g3M7M0oVbJvFQ52fVNjzQIIX4EsLCpXM82TAyDtK9a84Gw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
- Holland <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,
-  Richard Genoud <richard.genoud@bootlin.com>,  Masahiro Yamada
- <yamada.masahiro@socionext.com>,  Boris Brezillon <bbrezillon@kernel.org>,
-  Brian Norris <computersforpeace@gmail.com>,
-  linux-mtd@lists.infradead.org,  devicetree@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-sunxi@lists.linux.dev,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v6 01/18] mtd: rawnand: sunxi: drain interrupts before
- reusing the completion
-In-Reply-To: <CADvTj4pmtGZ4c04q+5AE3trrfshToD7BPtF-8kPxPRZ25hOTRw@mail.gmail.com>
-	(James Hilliard's message of "Mon, 12 Oct 2026 12:26:00 -0600")
-References: <20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-0-2fb084fe0751@gmail.com>
-	<20260914-submit-sunxi-nand-vendor-oob-layout-v1-v6-1-2fb084fe0751@gmail.com>
-	<8733ua23xs.fsf@bootlin.com>
-	<CADvTj4pmtGZ4c04q+5AE3trrfshToD7BPtF-8kPxPRZ25hOTRw@mail.gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Mon, 12 Oct 2026 21:06:28 +0200
-Message-ID: <877bjmzqkr.fsf@bootlin.com>
+	Mon, 12 Oct 2026 19:07:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F2C5B4141B;
+	Mon, 12 Oct 2026 19:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 936811F0089B;
+	Mon, 12 Oct 2026 19:07:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791832072;
+	bh=fAUfWWTxjwqCeuukrWQxTgwGQa9QftroT/t4wDZYVVw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BoLzz8NuAjzMywAPstQCH3qnS5gIf3tWURdDM4XY1syXbT1LSQySctZ2fppM7RtHP
+	 rLwcvb8DmcMBAi9bzzhDvyWJctQWBb5jK/GMi8ckeBx7ROBH4BreVfHRvBEYRCUPtZ
+	 Yq5KVAauL+xGSkYdujPrKKiKfywCV1UrI4Lr9XSu12tAosK30XTbV+fWR4Q3Cu1TAr
+	 3oq2oF34wQb5Z09u1hj2fueQtHI+nbRDxDm9ZvHdbDzP0QvnU6pZ3a8mctQVx+/xAd
+	 letnpc5qmYQSbQXDeazBiMKGPpN62CT+RKhUOK82KzJDphDOoW0zdH73RH60m0byXo
+	 guZc0TDwEdUqw==
+Date: Mon, 12 Oct 2026 20:07:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, robin.murphy@arm.com,
+	devicetree@vger.kernel.org, Frank.Li@kernel.org,
+	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 6/6] arm64: dts: cix: Describe the Sky1 DMA-350 bus
+ integration
+Message-ID: <20261012-rural-undermost-b4817ebd4740@spud>
+References: <20261012084155.2547480-1-Jelly.Jia@cixtech.com>
+ <20261012084155.2547480-7-Jelly.Jia@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_120646_717000_44841A1E 
-X-CRM114-Status: GOOD (  38.38  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eZMYkGYe2LFIW0E9"
+Content-Disposition: inline
+In-Reply-To: <20261012084155.2547480-7-Jelly.Jia@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,153 +74,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/10/2026 at 12:26:00 -06, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+--eZMYkGYe2LFIW0E9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On Mon, Oct 12, 2026 at 12:02=E2=80=AFPM Miquel Raynal
-> <miquel.raynal@bootlin.com> wrote:
->>
->> Hi James,
->>
->> On 14/09/2026 at 15:09:47 -06, James Hilliard <james.hilliard1@gmail.com=
-> wrote:
->>
->> > A timed-out wait can return while the interrupt handler is still using
->> > the previous operation's interrupt status and enable mask. Starting the
->> > next wait calls init_completion() on the same object, which can reset =
-its
->> > waitqueue lock while the old handler calls complete(). The old handler
->> > can also complete the new wait or restore an obsolete interrupt mask.
->> >
->> > Initialize the completion once in probe and use reinit_completion() for
->> > each interrupt-driven wait. On timeout, disable and synchronize the IRQ
->> > before masking controller interrupts and acknowledging the waited-for
->> > events. Draining the handler first also prevents a partial-event handl=
-er
->> > from rewriting the enable mask after it has been cleared. Flush these
->> > register writes before re-enabling the IRQ line, leaving the controlle=
-r's
->> > interrupt sources masked.
->> >
->> > For successful waits, move complete() after the handler's register upd=
-ates
->> > so that the next operation cannot race with those updates. Keep polling
->> > unchanged and leave controller and DMA abort handling to the existing
->> > callers.
->> >
->> > Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller suppo=
-rt")
->> > Cc: stable@vger.kernel.org
->> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
->> > ---
->>
->> So from the commit log I understand that you are fixing a race. The
->> problem seems legitimate.
->>
->> >  drivers/mtd/nand/raw/sunxi_nand.c | 26 ++++++++++++++++++++------
->> >  1 file changed, 20 insertions(+), 6 deletions(-)
->> >
->>
->> ...
->>
->> > @@ -414,12 +416,13 @@ static irqreturn_t sunxi_nfc_interrupt(int irq, =
-void *dev_id)
->> >       if (!(ien & st))
->> >               return IRQ_NONE;
->> >
->> > -     if ((ien & st) =3D=3D ien)
->> > -             complete(&nfc->complete);
->> > -
->> > +     /* Finish updating the interrupt state before waking the next op=
-eration. */
->> >       writel(st & NFC_INT_MASK, nfc->regs + NFC_REG_ST);
->> >       writel(~st & ien & NFC_INT_MASK, nfc->regs + NFC_REG_INT);
->> >
->> > +     if ((ien & st) =3D=3D ien)
->> > +             complete(&nfc->complete);
->> > +
->> >       return IRQ_HANDLED;
->> >  }
->> >
->> > @@ -435,16 +438,19 @@ static int sunxi_nfc_wait_events(struct sunxi_nf=
-c *nfc, u32 events,
->> >               timeout_ms =3D NFC_DEFAULT_TIMEOUT_MS;
->> >
->> >       if (!use_polling) {
->> > -             init_completion(&nfc->complete);
->> > +             reinit_completion(&nfc->complete);
->>
->> The whole change around (re)init_completion looks relevant (here and in =
-the handler).
->>
->> >
->> >               writel(events, nfc->regs + NFC_REG_INT);
->> >               ret =3D wait_for_completion_timeout(&nfc->complete,
->> >                                               msecs_to_jiffies(timeout=
-_ms));
->> > -             if (!ret)
->> > +             if (!ret) {
->> > +                     /* Drain the handler before it can restore an ol=
-d IRQ mask. */
->> > +                     disable_irq(nfc->irq);
->>
->> disable_irq() for serializing accesses to a single register?
->
-> The intention was to drain an in-flight handler before cleaning up the
-> timed-out wait, rather than just serialize the register write.
+On Mon, Oct 12, 2026 at 04:41:55PM +0800, Jelly Jia wrote:
+> The FCH DMA-350 controller sits behind an interconnect window, so the
+> addresses its DMA master uses differ from the CPU physical addresses.
+> Describe the integration as a bus node carrying the dma-ranges of that
+> window, with the controller itself as a child, and give the controller
+> the SoC compatible and the clock feeding it.
+>=20
+> The AUDSS DMA-350 controller is described the same way, with its clock
+> and reset. It has no consumer in the SoC dtsi yet: the audio controllers
+> that use it are not described upstream.
+>=20
+> The bus nodes are address domains, not devices: they have no reg, so
+> they carry no unit-address in their node names.
+>=20
 
-I guess here you relate to the race explained below.
+> v1 -> v2:
+> - The DMA-350 nodes are no longer wrappers with the generic controller
+>   as a child: each Sky1 DMA-350 is a single device node with the
+>   "cix,sky1-dma350", "arm,dma-350" compatible, its real MMIO region and
+>   the integration resources (clock, reset) that v1 kept on the wrapper.
+>   The integration and the block are one device, and the MMIO is the same
+>   as the generic node it replaces.
+> - The FCH and AUDSS DMA-350 masters sit behind SoC interconnect windows
+>   in a static DMA address domain: the AUDSS masters see the audio
+>   register and FIFO block at 0x20000000 and the DRAM window at
+>   0x30000000, which the CPU sees at 0x07010000 and 0xc0000000, and the
+>   FCH masters see the 0x040b0000 window at 0x040a0000. Their DMA view of
+>   the address space is not the CPU physical view.
+> - The windows are static hardware configuration, set up before Linux
+>   starts by the boot firmware / secure world: they are not programmable
+>   from Linux and must not be reconfigured by it. There is nothing for a
+>   Linux interconnect provider to manage here, so the translation cannot
+>   be modeled as one; it is a fixed property of the bus.
+> - It is described the standard devicetree way instead: a generic
+>   "simple-bus" parent with an identity "ranges;" and the "dma-ranges" of
+>   the window. This is not the rejected v1 wrapper and not a separate DMA
+>   wrapper/integration device: the parent has no device-specific or
+>   vendor wrapper compatible, only the generic "simple-bus" compatible,
+>   no reg, no clocks, no resets, no driver and no private address
+>   translation. Its only job is to carry the static translation, so it is
+>   only a generic bus/address-domain node.
+> - The "dma-ranges" have to sit on that parent for the OF core to build
+>   dev->dma_range_map: of_dma_configure_id() starts the lookup at the
+>   device's parent (bus_np =3D __of_get_dma_parent(np) in
+>   drivers/of/device.c), so a "dma-ranges" on the controller node itself
+>   would be ignored. The translation is applied by the DMA API, not by
+>   driver code: the driver maps slave resources with dma_map_resource()
+>   and contains no address parser.
+> - Mainline has similar bus nodes: the Agilex5 DMA bus (dma-bus@10db0000,
+>   a simple-bus with dma-ranges whose controller carries
+>   "altr,agilex5-axi-dma", "snps,axi-dma-1.01a") and the Marvell AC5
+>   buses (bus@80500000 with "ranges;" and "dma-ranges", and
+>   behind-32bit-controller@7f000000, whose only purpose is the DMA
+>   mapping of the devices below it).
+>=20
+> v2 -> v3:
+> - The AUDSS interrupt gate is set up by the boot firmware and is not
+>   configured by Linux, so the cix,irq-router property is gone.
+> - The bus nodes carry no unit-address in their names: they have no reg,
+>   which made dtc warn (unit_address_vs_reg).
 
-> disable_irq() provides that synchronization as well as masking the line.
-> It is only used on timeout, and this IRQ is requested without
-> IRQF_SHARED.
+None of this should be in the commit message.
 
-This is clearly debatable, since we can identify the IRQ, that flag
-could (should, maybe) have been set. With your approach it would have
-been even more impacting. But that's not the point.
+>=20
+> Assisted-by: LLM checkpatch sparse dt_binding_check dtbs_check
+> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+> ---
+>  arch/arm64/boot/dts/cix/sky1.dtsi | 68 +++++++++++++++++++++++++------
+>  1 file changed, 56 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/=
+sky1.dtsi
+> index 0a820f45feb9..1262f34794d2 100644
+> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> @@ -518,18 +518,33 @@ iomuxc: pinctrl@4170000 {
+>  			reg =3D <0x0 0x04170000 0x0 0x1000>;
+>  		};
+> =20
+> -		fch_dmac: dma-controller@4190000 {
+> -			compatible =3D "arm,dma-350";
+> -			reg =3D <0x0 0x4190000 0x0 0x10000>;
+> -			interrupts =3D <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> -				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>;
+> -			#dma-cells =3D <1>;
+> +		/*
+> +		 * The FCH DMA-350 master sits behind an interconnect window;
+> +		 * the dma-ranges below are its view of the address space.
+> +		 */
+> +		fch-dma-bus {
+> +			compatible =3D "simple-bus";
+> +			#address-cells =3D <2>;
+> +			#size-cells =3D <2>;
+> +			ranges;
+> +			dma-ranges =3D <0x0 0x040a0000 0x0 0x040b0000 0x0 0x00040000>,
+> +				     <0x0 0x80000000 0x0 0x80000000 0x8 0x00000000>,
+> +				     <0x80 0x00000000 0x80 0x00000000 0x80 0x00000000>;
+> +
+> +			fch_dmac: dma-controller@4190000 {
+> +				compatible =3D "cix,sky1-dma350", "arm,dma-350";
+> +				reg =3D <0x0 0x04190000 0x0 0x10000>;
+> +				clocks =3D <&scmi_clk CLK_TREE_FCH_DMA_ACLK>;
+> +				interrupts =3D <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>;
 
-> A spinlock could also address this, provided it covers the handler's
-> status/enable reads through complete(), together with the waiter's
-> cleanup and rearming. Protecting only the register writes would leave
-> the handler able to act on an old snapshot.
+As I said on v2 an hour or so ago, I don't think this is correct, and
+you should put an interrupt-map node into the syscon that contains the
+irq routing registers, and have the syscon be the interrupt parent for
+this node.
 
-I'm not sure what you call "only the register writes", you can call
-complete() from within the lock if that makes sense for this case,
-yes. complete() does not block so it is fine.
+Thanks,
+Conor.
 
-...
+> +				#dma-cells =3D <1>;
+> +			};
+>  		};
+> =20
+>  		mbox_ap2se: mailbox@5060000 {
+> @@ -576,6 +591,35 @@ mbox_pm2ap: mailbox@65a0080 {
+>  			cix,mbox-dir =3D "rx";
+>  		};
+> =20
+> +		/*
+> +		 * The AUDSS DMA-350 master sits behind an interconnect window;
+> +		 * the dma-ranges below are its view of the address space.
+> +		 */
+> +		audss-dma-bus {
+> +			compatible =3D "simple-bus";
+> +			#address-cells =3D <2>;
+> +			#size-cells =3D <2>;
+> +			ranges;
+> +			dma-ranges =3D <0x0 0x20000000 0x0 0x07010000 0x0 0x00100000>,
+> +				     <0x0 0x30000000 0x0 0xc0000000 0x0 0x20000000>;
+> +
+> +			audss_dmac: dma-controller@7010000 {
+> +				compatible =3D "cix,sky1-dma350", "arm,dma-350";
+> +				reg =3D <0x0 0x07010000 0x0 0x10000>;
+> +				clocks =3D <&audss_cru CLK_DMAC_AXI>;
+> +				resets =3D <&audss_cru AUDSS_DMAC_SW_RST>;
+> +				interrupts =3D <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>,
+> +					     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>;
+> +				#dma-cells =3D <1>;
+> +			};
+> +		};
+> +
+>  		audss_cru: clock-controller@7110000 {
+>  			compatible =3D "cix,sky1-audss-cru";
+>  			reg =3D <0x0 0x07110000 0x0 0x10000>;
+> --=20
+> 2.54.0
+>=20
 
->> commit log, I now disagree with the first part of:
->>
->> >The old handler can also complete the new wait or restore an obsolete i=
-nterrupt mask.
->>
->> "complete the new wait"? I don't see how a stale handler completes the
->> next wait given the handler is a hard IRQ and the interrupt enable
->> register is cleared on timeout.
->
-> The case I had in mind is an already-running handler on another CPU:
->
-> CPU 0: Read st and ien for operation A.
-> CPU 1: Time out operation A, mask/acknowledge its interrupts,
->        then eventually reinitialize the completion for operation B.
-> CPU 0: Call complete() based on the saved st and ien from operation A.
+--eZMYkGYe2LFIW0E9
+Content-Type: application/pgp-signature; name=signature.asc
 
-For this to fire, the hard IRQ handler on CPU0 would have to be stopped
-between reading st/ien and calling complete() long enough to span:
-- A's timeout
-- A's cleanup
-- B's wait being rearmed
-On this hardware, how is this reachable?
+-----BEGIN PGP SIGNATURE-----
 
-> Clearing the device's enable register does not invalidate those local
-> values or wait for the running handler to finish. Hard-IRQ context
-> prevents this overlap on the same CPU, but not across CPUs.
->
-> That distinction was not explicit enough in the commit message. I'm
-> open to a different implementation; the requirement I wanted to preserve
-> is that the old handler cannot update the mask or signal the completion
-> after the waiter has cleaned up and reused it.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0wBAAKCRB4tDGHoIJi
+0tZvAQCSHmcnTV6jgT2PsmPzk+KiLw1d4u3fGARAiQ3YfXvDuwEA8WYfrMKQNIA4
+jHJrD7aA6U3SwLq7B48xBdfJ5ZPT8wA=
+=zOqj
+-----END PGP SIGNATURE-----
 
-Miqu=C3=A8l
+--eZMYkGYe2LFIW0E9--
 
