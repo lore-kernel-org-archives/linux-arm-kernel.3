@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D0ECA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40593CA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 13:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BOpnPGRX1FKxiqzjaIPtWpIasLIfmMrpv8oGxmnN7to=; b=ypHjBCSL1iKZ4fz4XQ7DstjKj6
-	XPUXHvhDy2brwhwsLt08PmgyT8drnRbYUeP/B6n0eIXmErdE7mM0ZnN7wyugAxO0/t17dcin1/lmZ
-	rL0ixntApkt9UjJLF9BAtjqe7egqVB3hGma3fQ7BizWPKul9FZuJEyM6ZBtwmCXk231MJsc4mFaya
-	043UWs/DqE9xGQYsAQm2vsu3nxw5SLJRWA12/S6bdYQMmzSNMHpbjgxL+wUD65ZbgHv9JF0yNebP5
-	FN+ztbg/FIHAAu9fM0fETFYOwYp349z+DqFP1l5zms1Q69Xmv/pE25O05yRu7XOfhmoEdh4ugVYbP
-	HxXKW+PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C6MtMH1ZS7/LqdONAPmFEgAIkbcber8e91yV+8NWqx4=; b=Xe0SXZOGa86OCuOJIze5BCn++B
+	+05++OVkYfkkGv+cmNS9kH0BFqbA6JlgS6Z8kFK6kibsH95ulls77fh08KRWTCmjCCK6hJnY55anA
+	yV8/Ng5VgeZZGAPjTz37nk4mfuDaq3ClupTSiFv4OZsa/RzlSwpUJkRVMNcHyMUDyrfURceWdaLmF
+	he3iYVuPbp6+wR6ex272ENi1+eJgD7KP7WqQ/9gxfcJRgUpDvpHgxj/RkZWxPJCSbqIUq5RNIHh5S
+	7XmdmO2GrTTju1SDgMItwUFykStpEsflqQNsr/E7aSF5/k6VYO/HFUOw9uWGL3HXYsYywARoIqvHT
+	yM1TgQQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFiR-0000000AWnA-37IU;
-	Mon, 12 Oct 2026 13:05:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGFiP-0000000AWmK-44gs
+	id 1xGFt9-0000000AXhn-2HCU;
+	Mon, 12 Oct 2026 13:16:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGFt8-0000000AXhN-1mYh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 13:05:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 702391655;
-	Mon, 12 Oct 2026 06:05:11 -0700 (PDT)
-Received: from [10.57.57.201] (unknown [10.57.57.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F2503F882;
-	Mon, 12 Oct 2026 06:05:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791810314; bh=TJeQAN9KqZ2HQFMyvgo2CldFEYJ/Aevze9HuTjW/Msc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IfiXllgLUFnPwL1ik/aVjn/fqzAmj8Z1QCvTOC8vsF6oIi4fXTdRxIaAqQWv52U2M
-	 1Gk4BmMEq9QtnWNQsI4/QExZU5+i5aQUAebFRpOJCyjysWhtlrApdaplP3B0CBN20s
-	 wyiKH2Oq72Y0FWAt4XiIUlCLJJorj+LEJAKXX/BI=
-Message-ID: <f15d35a3-9378-4363-b12b-f5c082331400@arm.com>
-Date: Mon, 12 Oct 2026 14:05:03 +0100
+	Mon, 12 Oct 2026 13:16:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8770C60AB0;
+	Mon, 12 Oct 2026 13:16:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B841F0089B;
+	Mon, 12 Oct 2026 13:16:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791810981;
+	bh=C6MtMH1ZS7/LqdONAPmFEgAIkbcber8e91yV+8NWqx4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QmH38l1eV9DBt1+KQ53uym1LwwTyqmzwyRg5m0pDoIA+Xrz+rbRz0g8YFzsm4MF9N
+	 XbwOJQCf3U6kkC/HsagR/7Att8ry12jX99u5FxJnmKyyg2De3Tkck93okliih2fgwn
+	 dKfqhPMmplROMRTaYG1e0dC3PJcsdvVN9k9lNzvX9ISOhZhmTY+v8muLWGx+uiKw3v
+	 8Fu6FPeoeWRFW3U0dU1ioLThmk/JDD84XAngLZKerCOHjEkki9HAtJ8MKRz7tbIHYL
+	 dB33D1+wT1lCYN3KK/vZLGZ+PXSESGjx3A6aSNlzctXGWmYxWqvkA7E7FhHnJVDzel
+	 vdHcVqx3qBODQ==
+Date: Mon, 12 Oct 2026 18:46:12 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
+	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
+	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
+	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
+	david@kernel.org, danielmentz@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sumit.garg@kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <aszdnInyJxLhSQRp@sumit-xelite>
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
+ <are21BjeS1O3RYE3@sumit-xelite>
+ <aruh86rd5FMv2i9G@willie-the-truck>
+ <ar5TPvANFUoosxGW@sumit-xelite>
+ <asOAYODGZa-7EIV1@google.com>
+ <asOD31rTX6dNfD1o@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v6 4/5] iommu/arm-smmu-v3: Group aliasing devices into
- the same IOMMU group
-To: Peng Fan <peng.fan@oss.nxp.com>, Will Deacon <will@kernel.org>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Thierry Reding <thierry.reding@kernel.org>,
- Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>
-References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
- <20261011-smmu-shared-sid-v6-4-cb76b89dc612@nxp.com>
- <aszRgehfo5emwCt+@shlinux89>
-Content-Language: en-GB
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <aszRgehfo5emwCt+@shlinux89>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_060518_107113_746F5FBB 
-X-CRM114-Status: GOOD (  22.77  )
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <asOD31rTX6dNfD1o@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +81,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-12 1:24 pm, Peng Fan wrote:
-> On Sun, Oct 11, 2026 at 07:31:28PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->>
->> Devices sharing a SID must share a single IOMMU domain (and
->> therefore a single cd_table) because the STE can only point to one
->> cd_table at a time.
->>
->> Detect SID aliasing at group-assignment time by looking up the RB
->> tree for existing owners.  arm_smmu_device_group() is called before
->> arm_smmu_insert_master(), so any RB tree hit belongs to a
->> different, already-probed master.
-> As Sashiko pointed, I need correct as below:
-> 
-> Detect SID aliasing at group-assignment time by looking up the RB
-> tree for existing owners. Since probe_device() inserts the master
-> before device_group() is called, skip the device's own stream and
-> look for a different, already-probed master that shares the same
-> SID.
-> 
->>
->> Assisted-by: LLM
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 33 ++++++++++++++++++++---------
->> 1 file changed, 23 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> index 351ccdfa765b4..328d580935b96 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> @@ -4572,19 +4572,32 @@ static int arm_smmu_set_dirty_tracking(struct iommu_domain *domain,
->>
->> static struct iommu_group *arm_smmu_device_group(struct device *dev)
->> {
->> -	struct iommu_group *group;
->> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
->> +	struct arm_smmu_device *smmu = master->smmu;
->> +	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
->> +	struct iommu_group *group = NULL;
->> +	int i;
->> +
->> +	mutex_lock(&smmu->streams_mutex);
->> +	for (i = 0; i < fwspec->num_ids; i++) {
->> +		struct arm_smmu_stream *stream;
->> +
->> +		stream = arm_smmu_find_stream(smmu, fwspec->ids[i]);
->> +		if (!stream)
->> +			continue;
-> 
-> Not very sure here, should I use below as check condition?
->    if (!stream || stream->master == master)
->        continue?
+On Mon, 05 Oct 2026 at 12:02:55 +0100, Vincent Donnefort wrote:
+>Sorry, not sure why Sumit's email was dropped...
 
-By this point, we must always find a valid stream for every ID, or 
-probe_device() hasn't done its job correctly. The difference is if it 
-only belongs to this device then it doesn't represent a group yet, 
-otherwise if it is shared then the other device(s) must already have a 
-group (since we're within the serialised part of probing) and we need to 
-return that.
+The problem was with my mutt config, it should be fixed now.
 
-Thanks,
-Robin.
-
-> Per my understanding stream->master will never equals to master,
-> but Sashiko concerns: Could this logic be adjusted to better handle the
-> device's own stream?
-> 
-> Thanks
-> Peng
-> 
->> +
->> +		group = iommu_group_get(stream->master->dev);
->> +		break;
->> +	}
->> +	mutex_unlock(&smmu->streams_mutex);
->> +
->> +	if (group)
->> +		return group;
+>
+>On Mon, Oct 05, 2026 at 11:48:00AM +0100, Vincent Donnefort wrote:
+>> On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
+>> > On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
+>> > > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
+>> > > > Looks like you dropped me from your reply.
+>> > >
+>> > > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
+>> > > CC list to To: and drops you. I suspect the same thing happened to Thierry
+>> > > when he replied here:
+>> > >
+>> > > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
+>> > >
+>> > > I can't figure out why that's happening :/
+>> > > I manually tried to fix the To: and Cc: lines in this message.
+>> >
+>> > Thanks.
+>> >
+>> > >
+>> > > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+>> > > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
+>> > > > > for arm64 because it relies on being able to unmap arbitrary parts of
+>> > > > > the linear map, which isn't generally possible unless you force pte-level
+>> > > > > mappings for everything, which is prohibitive for perf/power.
+>> > > >
+>> > > > As per the cover letter it's about allocating pages that are not present
+>> > > > in the direct map. This essentially fits the protected DMABufs use-case
+>> > > > where we don't want any kernel mapping to exist at any time. Bufers
+>> > > > allocated from protected DMABufs are only meant to be accessed by the
+>> > > > TEE implementation or HW accelerators like in the secure media pipeline.
+>> > >
+>> > > That sounds like it should probably build on top of this series, then.
+>> >
+>> > The main problem I see with this series is it tries to move from the generic
+>> > CMA allocator to a reserved FF-A CMA pool which again comes from the
+>> > DT. We already support reserved pool allocations via "no-map" which are
+>> > discovered dynamically from OP-TEE.
 >>
->> -	/*
->> -	 * We don't support devices sharing stream IDs other than PCI RID
->> -	 * aliases, since the necessary ID-to-device lookup becomes rather
->> -	 * impractical given a potential sparse 32-bit stream ID space.
->> -	 */
->> 	if (dev_is_pci(dev))
->> -		group = pci_device_group(dev);
->> -	else
->> -		group = generic_device_group(dev);
->> +		return pci_device_group(dev);
->>
->> -	return group;
->> +	return generic_device_group(dev);
->> }
->>
->> static int arm_smmu_of_xlate(struct device *dev,
->>
->> -- 
->> 2.34.1
->>
+>> I can't think of a way around a DT declaration. We need to know what region is
+>> PTE-level before the direct map is installed and of_reserved_mem is very handy
+>> for that purpose. And as this PTE-level mapping is costly we certainly only want
+>> to enable it for platforms that absolutely need it.
 >>
 
+I am rather thinking of a way to turn the default CMA allocator to be
+PTE-level mapped. Since the overall idea for this dynamic protected
+buffers was to reuse memory efficiently, otherwise the reserved buffer
+approach is already there to use as "no-map" via DT.
+
+If we can have "cma_unmap" cmdline option alongside "cma" then it can
+turn the existing default CMA allocator to support unmapping buffers.
+Not requiring a DT change at all, although we can have the DT property
+for the default pool too if platforms want to opt for.
+
+>> >
+>> > If we can rather support a generic CMA like allocator for arm64 which
+>> > can support unmapped allocations then I am all for it. These platform
+>> > specific reserved pools isn't a scalable solution.
+>>
+>> What do you mean by generic CMA allocator here? An extension to
+>> shared-dma-pool? Or having the CMA automatically doing the unmap/map on
+>> cma_alloc() cma_release()?
+>>
+>> Right now I have created an API for the unmapping/remapping part. It adds a
+>> burden on the caller, but the alternative solution is introducing post-alloc
+>> pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
+>> the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
+>>
+
+I am not too worried about where the actual implementation lives but
+looks like CMA driver to be the better place. I think use-cases like
+guest_memfd proposed as a user for __GFP_UNMAPPED on arm64 will also be
+looking for this feature.
+
+-Sumit
+
+>>
+>> >
+>> > > You could allocate the DMABufs from a CMA region that has no linear alias.
+>> >
+>> > Allocation from generic CMA pool is already the case here:
+>> >
+>> > tee_shm_alloc_dma_mem() ->
+>> >   dma_alloc_pages()
+>> >
+>> > Do you mean it's just fine to unmap buffers allocated from generic CMA
+>> > region since it doesn't have any linear alias?
+>> >
+>> > >
+>> > > > > Vincent's series tackles that by using a pool so that only that part of
+>> > > > > memory requires the pte-level mappings in the linear map. That's the
+>> > > > > whole point of it, so I don't think it makes sense to drop it in favour
+>> > > > > of Brendan's approach (which doesn't work).
+>> > > > >
+>> > > >
+>> > > > For protected DMABufs, we even don't require any pte-level mappings in
+>> > > > linear map. The whole idea of mapping and unmapping is just a bottleneck
+>> > > > for performance sensitive secure media pipeline use-cases. That's why if
+>> > > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+>> > > > be the best fit for this use-case.
+>> > >
+>> > > The point is that you will require pte-level mappings for the linear map
+>> > > if you want to unmap from it at runtime on arm64. If you don't, then you
+>> > > can end up needing to split a block mapping (e.g. pmd-level) when you
+>> > > decide to unmap only part of it and there isn't a safe way to do that on
+>> > > arm64 without transiently unmapping the entire block, which can lead to
+>> > > fatal translation faults during that window.
+>> >
+>> > I agree with you here, what I am rather trying to find if on arm64 there
+>> > is any possibilty to have a generic allocator for unmapped pages. That's
+>> > the use-case here as well as what Brendan't patch-set was trying to address.
+>> >
+>> > >
+>> > > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+>> > > > how Brendan is doing it for x86?
+>> > >
+>> > > Because arm64 != x86? Presumably x86 doesn't have the strict
+>> > > break-before-make requirements we have on arm64.
+>> > >
+>> >
+>> > Sure, sounds like you are eluding to that the generic MM flag
+>> > __GFP_UNMAPPED being proposed can't be supported on arm64, right?
+>> >
+>> > -Sumit
+>
+>-- 
+>Vincent
 
