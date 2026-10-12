@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BBB0CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2F5CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQ2oq80yH5XQds0RQCfgwBDydG/0Fm+DI7GhsmlI6Hk=; b=zOXoIcKwdeHIVwsmiMFiePR0Ju
-	JuKUnK9mwfk45GYIDWvZixr6+2KbqJW/koC3T5RrENb4ysTiUvVQSRGRNJqDG4C43SvWwX+3KAHXW
-	dtwvboe6C9fNByJr7WNa9FGwI6ksR5F/m9bpp2pzR/qvVsZF8jVXx31PYJTtxQhYAy1iTh1qPmFO2
-	TpZOMAsopkcu/Qp/C/+aEzV3Wl/sIsc8GhL7W/fLZzPITgzkEMGDwpY5Vx9ge58/vKtlfARvvkEPJ
-	2PcHl842SPVpabmzl2wdPMinHctzt/H3qI2xMPoq5jDRRuvT3YEvK4gtu6Xw0Rc1VxZNAJwRhFxWD
-	Af1wl7Dw==;
+	bh=N7Sjga0JGNejRHdwGG55kl0k5rSb2MvKolAPg+a2x6M=; b=TxzoafHsfcMyyfQRo3IwLIoV49
+	8QbtQY4mrLXmR7vwTzwkYBBEBlju6Vp0uc0tpbTz5+hgyNZfcbEBBlm6FhYgTAck7TksUy5jbILLS
+	/4Q61bJs0a+mqji8LhyunYDQbN94dLLDj7RtMPIo6rhvfR2WIPtGAcUeGVZMAZBZV1e6uf/PdDIz6
+	1ZSzJ5xA+ulvAdyeYZAvqifjuikLy8Ke7KCevjktY7urxj4A9K9UEHR/kN3Mm3uFySKWzKrNKz0V0
+	mlovV265wmBaEkw5Y7gZ9oWlKeHhjb3GCeeKRS9ux8qPr0zH0wy2DYbhuecvxlmiGXYUkxKM/VkKE
+	3pRk4tkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDvj-0000000AJzj-0eMV;
-	Mon, 12 Oct 2026 11:10:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDve-0000000AJzQ-3o0Q
+	id 1xGDvt-0000000AK39-1AaJ;
+	Mon, 12 Oct 2026 11:11:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGDvo-0000000AK01-0JD1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 11:10:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1AE67601FE;
-	Mon, 12 Oct 2026 11:10:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 950421F0089B;
-	Mon, 12 Oct 2026 11:10:46 +0000 (UTC)
-Message-ID: <d2a8ae3b-779d-42c2-8a36-2770ab7ce19c@linux-m68k.org>
-Date: Mon, 12 Oct 2026 21:10:29 +1000
+	Mon, 12 Oct 2026 11:11:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D39011655;
+	Mon, 12 Oct 2026 04:10:53 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E3ADB3F882;
+	Mon, 12 Oct 2026 04:10:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791803457; bh=EuhGFyfDPuJeXZiHjuHL7QF5dqQy0HkQsqlo1Kmryz8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SP1FofXQDtL1YvrgZH9s5r9gVZFBCYSW0WkHTHvA0Fqu9uhmI0wEWVopWSIAzZg7A
+	 Ni8AvttICf0V2oEgTLk4h+eCtZsqIcFHRntRB2imqgdfZtFxY3fib/VYNMaiGQB4A6
+	 TMB6t/dZ13wWhaQyLlb1GuwPIDXX9mhSwtJJ4JG8=
+Message-ID: <ded76345-d09f-44d1-8f62-1d9c6ebd4272@arm.com>
+Date: Mon, 12 Oct 2026 12:10:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] m68k: coldfire: Add RNG support for MCF54418
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Olivia Mackall <olivia@selenic.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Frank Li <Frank.Li@nxp.com>, Herbert Xu <herbert@gondor.apana.org.au>
-References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
- <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
- <bd25e903-30fc-4905-986c-96d1b42e9f02@linux-m68k.org>
- <ddf0ab32-5b66-453e-b7aa-1722aeaf2aa0@yoseli.org>
- <9ba1ebd8-61cc-4e1a-b68d-906b20dd4999@polyxeno.com>
- <asn8e5puc3I01Lva@gondor.apana.org.au>
- <8be9c875-68a9-4bb5-b581-501a0a6819f4@linux-m68k.org>
- <ee54b08f-b3d8-4a62-bc43-0117a9b11102@yoseli.org>
+Subject: Re: [PATCH v2 08/23] arm64: cpufeature: Store every ID register with
+ its overrides applied
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
+ =?UTF-8?Q?=C8=98tefania_Ion?= <stefion@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Pankaj Patil <pankaj.patil@oss.qualcomm.com>, Borislav Petkov
+ <bp@alien8.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Jinjie Ruan <ruanjinjie@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
+ Tarun Sahu <tarunsahu@google.com>, David Woodhouse <dwmw@amazon.co.uk>,
+ Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>
+References: <20261009100738.31288-1-will@kernel.org>
+ <20261009100738.31288-9-will@kernel.org>
+ <814a1d78-73df-4b8c-b596-65fb82f7cceb@arm.com>
+ <CA+EHjTwgfGzS92thiGFcJ1NgoA732RBqv3gJUWF1gJAE-jANFA@mail.gmail.com>
 Content-Language: en-US
-From: Greg Ungerer <gerg@linux-m68k.org>
-In-Reply-To: <ee54b08f-b3d8-4a62-bc43-0117a9b11102@yoseli.org>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <CA+EHjTwgfGzS92thiGFcJ1NgoA732RBqv3gJUWF1gJAE-jANFA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_041100_162500_CE086821 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +81,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi JM,
+Hi Fuad,
 
-On 12/10/26 18:46, Jean-Michel Hautbois wrote:
-> Le 11/10/2026 à 17:28, Greg Ungerer a écrit :
->> On 10/10/26 18:51, Herbert Xu wrote:
->>> On Wed, Aug 19, 2026 at 07:36:36AM +1000, Greg Ungerer wrote:
->>>> On 19/8/26 01:09, Jean-Michel Hautbois wrote:
->>>>> Sorry for the very long silence on this one, it fell off my radar...
->>>>>
->>>>> Le 03/12/2025 à 13:15, Greg Ungerer a écrit :
->>>>>> Hi Jean-Michel,
->>>>>>
->>>>>> On 26/11/25 17:08, Jean-Michel Hautbois via B4 Relay wrote:
->>>>>>> From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>>>>>>
->>>>>>> Add support for the hardware Random Number Generator (RNGB) found on
->>>>>>> MCF54418 ColdFire processors with clock enabled at platform
->>>>>>> initialization.
->>>>>>>
->>>>>>> The RNGB block is compatible with the imx-rngc driver.
->>>>>>>
->>>>>>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->>>>>>> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>>>>>> ---
->>>>>>>    arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
->>>>>>>    arch/m68k/coldfire/m5441x.c       |  2 +-
->>>>>>>    arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
->>>>>>>    drivers/char/hw_random/Kconfig    |  3 ++-
->>>>>>>    drivers/char/hw_random/imx-rngc.c |  7 +++++++
->>>>>>>    5 files changed, 47 insertions(+), 2 deletions(-)
->>>>>>
->>>>>> I am happy with the ColdFire arch parts, so from me:
->>>>>>
->>>>>>       Acked-by: Greg Ungerer <gerg@linux-m68k.org>
->>>>>>
->>>>>> I don't mind taking this commit via the m68knommu git tree if the hw_rng
->>>>>> maintainers are ok with that. Otherwise if you break out the arch/m68k
->>>>>> parts I can apply those on their own.
->>>>>
->>>>> I think Herbert acked ?
->>>>> Do you need another ack ?
->>>>
->>>> I would like to see an acknowledgement that taking this patch via the
->>>> m68knommu git tree (to Linus) is ok with the RNG maintainers.
->>>
->>> I have no objections to this.
->>
->> Thanks Herbert.
->>
->> JM: I have applied this to the for-next branch of the m68knommu git tree.
->> I didn't quite go on cleanly, so please double check it for me.
+On 11/10/2026 08:34, Fuad Tabba wrote:
+> Hi Ben,
 > 
-> Thanks, I think you missed 1/2 ?
-> Or did I miss something ?
+> On Fri, 09 Oct 2026 16:51:14 +0100, Ben Horgan <ben.horgan@arm.com> wrote:
+> [...]
+>>> the same way. Everything read with read_cpuid() goes through
+>>> read_cpuid_with_overrides(). CTR_EL0 and CNTFRQ_EL0, which are read
+> [...]
+>> For completeness shouldn't read_cpuid(SMIDR_EL1) change to
+>> read_cpuid_with_overrides(SMIDR_EL1)?
+> 
+> "Everything" should have said every register in arm64_ftr_regs[], and
+> SMIDR_EL1 isn't one of them, so read_cpuid_with_overrides() would hit
+> the WARN_ON() in get_arm64_ftr_reg() whenever SME is enabled.
 
-I assumed patch 1/2 would go via the RNG maintainers directly since it has
-no dependency on, and contains no arch code for, m68knommu. Is the expectation
-that I should push that too?
+Thanks for the explanation. If I understand correctly, SMIDR_EL1 isn't in arm64_ftr_regs[] because
+there is no need to sanitize SMIDR_EL1 to give a consistent view across cpus. If and when support
+for sme priority is added then a unified view of the SMIDR_EL1.HIP, highest implement priority,
+would be needed and so at that point deserve a place in arm64_ftr_regs[].
 
-Regards
-Greg
+Cheers,
+Ben
 
-
+> 
+> Thanks,
+> /fuad
 
 
