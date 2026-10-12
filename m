@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E925CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4BBCA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQyn13FvDSEzRYwvK6acuY5FUVZPqAwaJjsc3VK6GTc=; b=oF725TRi1LC2pkAB5Hjr++tPIv
-	OtRIvPcvtmKHECOnN3FkqVJ//DadzwMPHS+6V/6U5uwfVIDbOu0sDLUK5jAPYowZbPIhdT++5sfkV
-	bJrR335xYUTcNr4Lgai3g0CECbUQKCdM9oNb6ABf5nNikYmVVsorsUTwhIm0ltZt0FwD2fAH95uqK
-	JAXWP4xKVFuvL0i/XtUiXz3cBPWuwbcvNrFPTr89hk56QnpIAkOzU35KNtimLZYspPRx7F3l2Mj18
-	LUshP/S0E/BOE4VUEBn+1d4HSeYjcTiSlS5VO91s3ctuXuyWpegASvgVtN3KBapaKQrLthV8+Ecpo
-	useXGlzw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ffd6U0ud/BZgtTg0q0JYVe7wVelt+yEgyu9d4S2SN0M=; b=uzSTMOHxsQudct
+	UscyUEGUK+oQv23VHXkPVucJU6aVUTl8bHn1buvUi5ssC+qQm0BE9vfe5nmAaM3frcYkt3cPVMasY
+	FGrhL8zYuncL1az6bshiLdIGsir5wWssSpaSM3mUDU3cZJysH1IB4td1L4AWG1OojyYu+f2puUHxf
+	EKxCLkjaeUb46vMMo11laUItAF1Wd8CfFs0cz++AnNQItz4OSlQEmsJP1zBNK7oQlKxj/jPUlYtX4
+	KbxKf4ErB7ad8ltPh6I3qxlgBlx9vyVK5UTdfCatz7xhRCL01kaEp6mKFV3/QsWP7Rzq2vi1e5iwp
+	z0b3+bhJ2moEmwct5N5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEaG-0000000ANj5-3izw;
+	id 1xGEaG-0000000ANjO-49LJ;
 	Mon, 12 Oct 2026 11:52:48 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGEaE-0000000ANhJ-3FUw
+	id 1xGEaE-0000000ANhI-3EpX
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Oct 2026 11:52:48 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1791805961;
+	s=mail; t=1791805960;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XQyn13FvDSEzRYwvK6acuY5FUVZPqAwaJjsc3VK6GTc=;
-	b=QRIn5kuD4Ot1gHvrq7H2NFtzsiWpUIggAbXDGdquPxy1iEqmONJR/vvMZq/c+ynmlUH9Mk
-	yTMj41LNtkAkqDnYjPty6wO/mHXyGKneKDUQ9Nke7Of57aUE9rwW1gQMwhISnjCgox4W1Q
-	azD8+FYu4iwb1ZlCQ99D9j3OK5SAP2g=
-Date: Mon, 12 Oct 2026 13:52:32 +0200
-Subject: [PATCH 1/5] arm64: dts: apple: t8140-j700: Fix property ordering
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Ffd6U0ud/BZgtTg0q0JYVe7wVelt+yEgyu9d4S2SN0M=;
+	b=dPcqrA74FmgwBDpXRUvCVdmUIB6qOUwNl8EFHoBSAQqkpUPDJhjRI0R2WQEeiUQHJ2uCxm
+	LWyJdps+s/wXUv+iE+fIAYpPzcO5nF9VgzAAKsk5D+kq0sp9DjgRdPD9ooZDa0Vg8TfNYC
+	s9rg80TW8oy7Xo8fSTPj95T5J66u9h8=
+Subject: [PATCH 0/5] I2C and pinctrl support for Apple A18 Pro devices
+Date: Mon, 12 Oct 2026 13:52:31 +0200
+Message-Id: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-1-6c757966a99e@cyberchaos.dev>
-References: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
-In-Reply-To: <20261012-apple-a18-pro-dt-pinctrl-i2c-v1-0-6c757966a99e@cyberchaos.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQrCMAwA0F8ZORtYAmrxV8RD10aNjC6kVYSxf
+ 7fq8V3eClVcpcJpWMHlpVWX0kG7AdI9lpug5m7gkQ80EmM0mwUjBTRfMDc0Lan5jMoJ5RhoH6a
+ ciQP0wlyu+v7158vf9Tk9JLXvCdv2AbuWsziAAAAA
+X-Change-ID: 20261012-apple-a18-pro-dt-pinctrl-i2c-e78158bdd128
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -54,8 +55,8 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-i2c@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_045247_046631_50970389 
-X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-CacheID: sfid-20261012_045247_052258_256908A7 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,31 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ordering requirements changed between 7.3 and 7.4.
-The original t8140-j700.dtsi was developed against the 7.3
-dt-check-style rules. Adjust it to the new ordering.
+Hi,
+
+this series contains two small formatting fixes for the A18 Pro device
+trees, and adds the required dt-binding for i2c as well as the dt nodes
+for pinctrl and i2c controllers used on the MacBook Neo.
+The pinctrl dt-binding was already picked up from the previous series
+regarding this topic [1]. The dtbs_check passes when this is applied on
+top of linux-next or otherwise combined with said change.
+
+Merge strategy:
+The only change in this series outside of the device tree itself is the
+apple,t8140-i2c dt-binding. There are no other pending changes to this
+file, so it could simply go through the apple-soc tree provided Acked-by
+from the respective maintainer.
+
+Link[1]: https://lore.kernel.org/asahi/20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev/
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- arch/arm64/boot/dts/apple/t8140-j700.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yureka Lilian (5):
+      arm64: dts: apple: t8140-j700: Fix property ordering
+      arm64: dts: apple: t8140: Group cache-related properties of cpus
+      dt-bindings: i2c: apple,i2c: Add t8140-i2c compatible
+      arm64: dts: apple: t8140: Add pinctrl nodes
+      arm64: dts: apple: t8140: Add i2c nodes
 
-diff --git a/arch/arm64/boot/dts/apple/t8140-j700.dts b/arch/arm64/boot/dts/apple/t8140-j700.dts
-index 227b58a7ce64..15c21c9e3f2b 100644
---- a/arch/arm64/boot/dts/apple/t8140-j700.dts
-+++ b/arch/arm64/boot/dts/apple/t8140-j700.dts
-@@ -12,8 +12,8 @@
- #include "t8140.dtsi"
- 
- / {
--	compatible = "apple,j700", "apple,t8140", "apple,arm-platform";
- 	model = "Apple MacBook Neo (A18 Pro, 2026)";
-+	compatible = "apple,j700", "apple,t8140", "apple,arm-platform";
- 
- 	aliases {
- 		serial0 = &serial0;
+ .../devicetree/bindings/i2c/apple,i2c.yaml         |   1 +
+ arch/arm64/boot/dts/apple/t8140-j700.dts           |   2 +-
+ arch/arm64/boot/dts/apple/t8140.dtsi               | 172 ++++++++++++++++++++-
+ 3 files changed, 168 insertions(+), 7 deletions(-)
+---
+base-commit: becb95e45ef0dda9ffb35156d909d3da7a2789c3
+change-id: 20261012-apple-a18-pro-dt-pinctrl-i2c-e78158bdd128
 
--- 
-2.55.0
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
