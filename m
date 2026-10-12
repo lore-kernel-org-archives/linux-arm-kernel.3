@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8A4CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B575CCA9ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 06:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TyV2Bq43Wm2rxT+bE3tLJ32jLGwD2lcUogYKBq5cy/8=; b=OmqQH61q0a6spzHbHzwv8lzMF7
-	j3JuJJzHxbyZH7Xq9DQH7PZMX8HL6LeVoK0G9lZmE4FltVJRGvThlvbvLttXvNHTGcm1aQqZyLk3h
-	MGM2h+rK/JB5+b7YCtR5zkQ4OGHIHrZFYIvV3DmpMUfzWMvm2vr+fE6DjpZiWVcotNqax2Nj41PHs
-	w1Wh7ZRlbbhuAMmiu/albAgFi7SCXNTvLPLCQs7DQtsaoW+gsJSVDh8drXJ+KovLO6Z8BAzcr3Rkv
-	ox2A9C3kb0p7OtoWpOmxA8ZgRgNlQsdqw2rMDoTExHPDxe8spQRHtGOcqQwkc383fSegGj9iYUVTr
-	TS5zXekQ==;
+	bh=vPTVfQX0lP4O9dxbl1gVroQOSOKrj2GjFIjLYc/2qPA=; b=lZIh8hBlFP71TH4X2z6w6P4KW4
+	Kv24SccstZSzUo5FkUyU02yXn0RvtoGpmuew/bCRlCFcf0jr3hfmafXYenRc1HQ5tA+GKYs17aXuT
+	iUaFX1JHyVT90uGSUR6Nv+n0vyIEaXHt/V84ojQDflqdREbYZHi88Rw8Rj6RQlvSg1+N01iHAh94R
+	WnNhP5xzVXbe0SHfEispAq2uNUg/ydg3uJq8L19Ol10Z6ozDjC/zpGsyHfN/ggIlpo4RxkDUUp1QC
+	D6WMVAlG4HGoHZULyK7SMvVMm7dVVdlf2B2l1xGCIpFcD6qVOTohKEisDIeTlIOsW3ubLrN6YOqDg
+	3HcUV0pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9kv-00000009lCf-0EYD;
-	Mon, 12 Oct 2026 06:43:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xG9l9-00000009lHP-0fMc;
+	Mon, 12 Oct 2026 06:43:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xG9kt-00000009lCW-3sWq
+	id 1xG9l4-00000009lG6-32Ba
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 06:43:28 +0000
+	Mon, 12 Oct 2026 06:43:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BD53412AE;
-	Mon, 12 Oct 2026 06:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940931F0089B;
-	Mon, 12 Oct 2026 06:43:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FF2660AA1;
+	Mon, 12 Oct 2026 06:43:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13A21F0089B;
+	Mon, 12 Oct 2026 06:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791787407;
-	bh=TyV2Bq43Wm2rxT+bE3tLJ32jLGwD2lcUogYKBq5cy/8=;
+	s=k20260515; t=1791787416;
+	bh=vPTVfQX0lP4O9dxbl1gVroQOSOKrj2GjFIjLYc/2qPA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XPlEDgfrGsawaCitpHCKcfoiGlP7rKo81yQcvdQfpYzFZNdj7ko5+T/GJKwG2i8qF
-	 i8LbUS1pNSmP6xRSZBZGkHD807B0T2qgXLxk5km7LuC+6axQ0O/X9T0GX/N1PfBOzV
-	 GW/WoFKhJ5KvIkXbb6zUDpQw1FCs25qXRjoXjlINNL5FWYa2KhlT3jdhbrBe4K+xL3
-	 ossYs4IQnsR15l1F3pH6pLuFmfMhntlptxRcGcQQpAdBXuOIbI8LXaBphhnnNX0Tyd
-	 m7czfXKv6BiIHjFH76RuMB4DVwZPmwm82USl6oU3An7nwnm8GaAB3Z1DHZLBOI0twz
-	 G/n/h+SPzQTnA==
-Date: Mon, 12 Oct 2026 08:43:24 +0200
+	b=kUegjVzcYrvWsI+bjoCIh8UMRt6HTYK0eHjhU9kMK8zCs95X0/uXu2ndLtEDGppvo
+	 2C7Eum9cjZSbs46GKbeVyU0UY7WihNSs8NsmbzuCbdme3fSqXB+B7VloZbfcvSxpU9
+	 Yi/k9I9dNF7hhmomDqYjNusxkhgNxantpn8LXY+19rzqdJKRiOz26IkV5Bfob48Q4Z
+	 T1HJpGQB+JdFAfX/gDh3Vha1AVQuQ7kkBBR1vEiU1mnHhs//j4pdeQ9ahveP+xNTAY
+	 SvI91HHSamxOAP8kP6Qnq3SLIf2sFmpzISbdFDk31sV/UksyusXcUuVF8iTIlILr2N
+	 6h3xVcrX33tLQ==
+Date: Mon, 12 Oct 2026 08:43:33 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Mikhail Kalashnikov <iuncuim@gmail.com>
 Cc: Chen-Yu Tsai <wens@kernel.org>, 
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
 	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add vendor prefix
- for Teclast
-Message-ID: <20261012-worthy-terrific-sunfish-3acbab@quoll>
+Subject: Re: [PATCH v2 2/4] dt-bindings: arm: sunxi: Add Teclast P85T tablet
+Message-ID: <20261012-inquisitive-python-of-competence-a2bbf1@quoll>
 References: <20261001022415.913959-1-iuncuim@gmail.com>
- <20261001022415.913959-2-iuncuim@gmail.com>
+ <20261001022415.913959-3-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261001022415.913959-2-iuncuim@gmail.com>
+In-Reply-To: <20261001022415.913959-3-iuncuim@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +71,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 10:24:12AM +0800, Mikhail Kalashnikov wrote:
-> Teclast is a Chinese consumer-electronics brand. Add its vendor prefix
-> so that board compatible strings can use it.
+On Thu, Oct 01, 2026 at 10:24:13AM +0800, Mikhail Kalashnikov wrote:
+> Document the compatible for the Teclast P85T tablet, which is based on
+> the Allwinner A523 SoC.
 > 
 > Assisted-by: OpenCode:DeepSeek-V4.1-Flash
 > Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
