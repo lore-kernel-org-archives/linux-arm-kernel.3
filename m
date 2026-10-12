@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C63CA9ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B087CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 07:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=; b=vGa5tz9kQUOoDZ
-	/lFeGIwP9UNUEFt9dgx8JlI7j1djTqv4FYXuWu+eVcidvFG9shEe4iBuqlncOmoKWievKBqX6YxXb
-	ZcIddaGxOl/a8bmqivlQb6/rjjVAMB6Bj4WfDjyKwo1fNo23jDDf0+cF0mdDrhQGOPuvQWKdqWtUQ
-	RZVDn85upftAKgWZAkJfU7ksMK1BcgIUTw1TE0oWg/oHlaMzLWIEdN0nEXoWuwm5Ceg3EnbZkGNcm
-	AWmSktZoLV64kD3UHXtlO3/FUXI7AnBGFX82XeLcx6qHX/Swl9zKc2A9VXZdTVVvyBxVGExzxPbV8
-	iYzyZ6r/xQV4cIKGcqpg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0X2fplabp5QOh4xkFzr/FigCgPmHhH9f7OOGboLoAI=; b=yniKc8XAkoNF4NW3oosIeK/Oll
+	VMXv/0WzE1YGvL+Zv2d7L2HSV1zdMiRsOu/8M3wHrWpHtL5YV2Obf8iLXBzUB5MItnZ9jxWzHoUnw
+	vVj19I+6myi4bn01SECMZUSWREz/ks6M1y9yJfnixWUEgXQ2MvwOujklbV/SVFSRIP6wdFo/zZqXl
+	hIJUvGWjf5jFhlGj/REMcF9o30tRerj8bCxpeZ22/F1NuxVkSN8GM6T8Fx1ZekT/uCmcfXEfIYHzK
+	HM4eKVpV0cNXvramfA61qqOzEnwGMh8XDEeUClergKqROjh+SxcBmjp6kP6TfgTbEES8XEQ0jISnd
+	Y5QHskkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAPt-00000009pn4-2Qd2;
+	id 1xGAPt-00000009pnE-2qEh;
 	Mon, 12 Oct 2026 07:25:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGAPo-00000009pkw-1HOc
+	id 1xGAPo-00000009pl8-3ZLx
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Oct 2026 07:25:45 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a161d9b8c7so9669205e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 00:25:43 -0700 (PDT)
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48c4d99c32bso1475656f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 00:25:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791789942; x=1792394742; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=;
-        b=AM3A/dvQ8gaNaK0b3EYEVXL6CPhimCQPY9Eds8+eE0vMN6iYD6AdxwGv1PpcvKv07c
-         Lgrnrnv+d0xhLS5bc5zo+7jdP6Krm57i2DjB5P+PM2XrvLw0LZ+1xkTZ/O0u4NLN1p32
-         Lu/rXzalZxNnUq87uEiDeKFQdE479/dulBeyYxCPWMFKOAsxLpLBnupGLhmFfN2hMzeO
-         UQkY8Z9mPhGNjuArVlePeg0GTm7ZXbaUmIP/21r0nWm3GXLsK8yyRd8/A7OiHFN8ye7K
-         3Mvnvs7QPOoMEiL4mpDKeptHQAQ3cz0IgfY/iwEM9HArQDGSAgTan0w+WxPBbs9ER//t
-         gXhA==
+        d=gmail.com; s=20251104; t=1791789943; x=1792394743; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=u0X2fplabp5QOh4xkFzr/FigCgPmHhH9f7OOGboLoAI=;
+        b=OOkU+pfDmB9yCL2ZH72k9adKJuEX/haQAOTZhERHFnF9R79uPMxP7phajIOIPOiLH/
+         HLwHnF2WkodULGtDwA8D5UmSeG/Z4MOJ4xXUbvSXlnj7ndA2ZEa3LYDl5IQUxpZhbNeu
+         Efgoqzt3/ROh9BsXhSVaNNLusvVCq+T1sUsvNSiFC/9NF5khUrfSzP45ReOEolJL4jo4
+         ITJLh/bPkpDX6MdXCjKzVwpKVEFmA2jZ4QpUJEDw/7trBqSZX5xoYV+qiCqn+24EglQJ
+         pIJ57w3t0R3YOCn3BMsdYjR41ljiJD7Jb8pkhLJ1lFryVd6vceckMSWw5Z9h+BUHY48u
+         pQAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791789942; x=1792394742;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=d1QWTDb/oOVddYpnAN188VwUYCPxgfGwS1G3xLd3LyU=;
-        b=NLY3Q9sTslPjtjnsnYOUwZ1eNy8LfNuULmozvNY9Fo0tRb/8plqxPlWnXg7ZodZmRL
-         /XEfYVMu8rJdgE8sJ8gHObSLT16jvMHLELCmW9liQJZYNJu1nm0ozS3pq50/PEXXfLbf
-         Ax/bt8XmCYSn3SsuazcV0GzdVlaU5/ATWS/10ET3chSkMefI0SrTZlBLG/gzCI95IrsN
-         Ya4RyAoBsrIDF1VnOeqWxSbj4LHQF7GblpUnNuFq7aN3zkYlQKiFf93a33jaKukZ+E3k
-         zZsqc3EPi0k4pJuvduDiETcA2+d8bJAHjIdDNP5sD8t55XS+UJrYs9/FQq9DkLkCyExk
-         lTog==
-X-Forwarded-Encrypted: i=1; AKwUvBznwR5y7tOPIMSyaLM+0ir18MECEeFm6Z/8LmPiNCrCAOBGSk7WzQuflrBX+yNG3UfD91EK4J0n7AOm1aI23Tms@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFaG3Xr4+JBQi0nFU6cOm1ycp6yr1wrOjDKAKwLyKsTuWhczm9
-	GYaTYxJIbfNa0GVQQrIfJRJ+RybfiJNwFfwWmlDoR9kBassmEsfrQuf6
-X-Gm-Gg: AYBFou1lOXgjusugLS/6ElLzK6IgAFzvv7+kHyNNSW38AXEuoNcCH4RLS5VbZJKuA5T
-	E78z/Ablhn9VGsb0kOsUfEA36ZtH1mncv6N0APXxe7D3A12lMdq4WWEXhyblK4gXIxDBl5NByG6
-	paePnTcqMHAsxyP78FdFHH5Nw6U9nRWv0atfUmfmS6y6IIrYmnYvEXxm5TQXxn0GIe5aDv3oukc
-	WNxlK2oTqybfbAsSp5SpqDHNuKy4hyL2pvjzXlxmFxnves8aPKVFxDmS+6tVjjGc5hh0tt7mVm0
-	Z1NnsbnCcKlW92jyT4r/MIwrRI6YM4bwTg7MGAaWma//A39PgFKKUqvGQbYiHytE978UUy3Yma7
-	CltWMc9wKTyBm3prhG2sFIortNyR8VNETsOPxCRNTZM9j9sB3MzmPNvkVM+PzZHYmtGYxY6IQoV
-	nS94B3tSHxb/loxGnP1jMdqDxjF5AcPOU+oMp8QJAu3D94oPNHdeDNK78/WZTWVSqVBzj1AmWYo
-	dL7+MIg7RgrMc9t1ByYmKsX/dopts9h7THmkRKb9hATWhF9c38qPoPVWJLnb9ID
-X-Received: by 2002:a05:600c:19ca:b0:4a1:7e76:d02f with SMTP id 5b1f17b1804b1-4a18e4ac650mr158677175e9.14.1791789941611;
-        Mon, 12 Oct 2026 00:25:41 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791789943; x=1792394743;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=u0X2fplabp5QOh4xkFzr/FigCgPmHhH9f7OOGboLoAI=;
+        b=pg4VGCrQ6rZc2mot31gs5/JU5A9OZeQkKprbqV7rW4C8Q357cmSIx6zw+UD2nQ29LI
+         ZN9uhkcBl3qJlmmIkQEBGmUzO5yMMf2MNMJFf/G0Vzy5nMdM136u267KnwIIq4GiVSQj
+         H8sWfw3Baejd/fBiCqnrN6/jI+BfaIF5uDGlQFXPBpl9D2kD2P55qTKPqftEsK3N+7Xh
+         5EnKyYkxEk629ItoMD4UKw+H8kPlknQtnoUltwCWGftTOUCNC09XLJlcF3j9c75KT6x4
+         cBCoH94xRUO2bJgdaAb9IJ3kBcm2dok94zORiy20Osgq6hPaNXM6BWfamcWjipLF2jWn
+         wKrA==
+X-Forwarded-Encrypted: i=1; AKwUvBxGlNzH4iLwBT5l06eVbeTVfQOQXu7TLH72zVK9CiWiiNwyoCWUQHPQI8dWMIBfjmma/7QOr1cXbOJ+oOGHOc1L@lists.infradead.org
+X-Gm-Message-State: AFq9FYIITQIohJ/sUW6FNACso8LlbG9cHufumLYZ45Z0ybrn23W9KuG7
+	hquK8UejDMebSPALKTlwCdAWOGwzmnSOfkaXINRuQhBjqT5i+v+ULhwj
+X-Gm-Gg: AYBFou1+E9hQHgOYBjEyOebJy5eCHYqEWgEy3gBgob4dysONWDmy3UM7y74fUN7qHBm
+	XWR3H49VJDrJAz3mS7blS+gFi4RuTCrPySuZYQpIg1/tu0dD6rsLoWfEXZi03Nv4S0Og/7nribM
+	eG4iAOSOzeAvPex9bZUBiQWG3Z8qkhoPXulQgr/SHCbTW+7UfzGlS7HXBmsLsFDlSgIAPN4Q0FD
+	O5Q/FQ4BZirf9NlbOabh0Ds2D6KKgZ3Re18NIT1vrByodqQsurMpdUQ43qhCeBzFRxdAv4uL1gF
+	7xXpS4yR7VKfm0mEgoXqJpyqb7BdQsGwQmkM4wnZS0qmZsDWs/WBhbUPdNOfIC72FcM4UHvggLM
+	zoOFxB5tOssCJpXng4F25nOwA08Q4dbttg5vnX+7HsTFS2TWiGEU6VZ+axeTwYguUpHnjtk1JrZ
+	ZhR2mZM5TMH8dF964Ujytc910B0pFauZcqEKlUQWb5LbimjD4EFFp3V8g91gWKR601ni+dc/55U
+	R4+tMLE1Xi22GBaGTz97mcuH8CZ8I4/ygI3nXrrv+8iFs66CB3G446yNdmg3ekM
+X-Received: by 2002:a5d:43c4:0:b0:48d:ba3b:af36 with SMTP id ffacd0b85a97d-48dbaae8e33mr12493470f8f.37.1791789942797;
+        Mon, 12 Oct 2026 00:25:42 -0700 (PDT)
 Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aadf9bsm17523377f8f.29.2026.10.12.00.25.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48db9aadf9bsm17523377f8f.29.2026.10.12.00.25.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 00:25:41 -0700 (PDT)
+        Mon, 12 Oct 2026 00:25:42 -0700 (PDT)
 From: Leonardo Costa <leoreis.costa@gmail.com>
-Subject: [PATCH 0/3] Add VGA support for Apalis iMX6
-Date: Mon, 12 Oct 2026 04:25:22 -0300
-Message-Id: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
+Date: Mon, 12 Oct 2026 04:25:23 -0300
+Subject: [PATCH 1/3] dt-bindings: display: bridge: simple: Add the Toradex
+ Apalis iMX6 VGA DAC bridge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGKLzGoC/x3MTQqAIBBA4avErBtII/u5SrQYa6oBs1CQILp70
- vJbvPdA5CAcYSgeCJwkyukzVFnAvJPfGGXJBl1pU/W6w6SQLnISUY7bIHuyjjFthM3cWjK2brq
- VIfdX4FXu/z1O7/sBKq18SGsAAAA=
+Message-Id: <20261012-v1-apalis-imx6-enable-vga-v1-1-8905d8746504@toradex.com>
+References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
+In-Reply-To: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -98,16 +99,17 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Leonardo Costa <leonardo.costa@toradex.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791789940; l=1908;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791789940; l=1045;
  i=leonardo.costa@toradex.com; s=20261001; h=from:subject:message-id;
- bh=oIehZcPpAbqiwfIqG1W31kjdUe0imO5csyH1FVDoC4g=;
- b=6Na6Gpe9E1PvitnwV+dpCDK0x8whlxg3tt6LUG+45ePWH6KHyR7uTPCZpXJvoHbTKeZQq5b6z
- YhrD1XfpN2gDC54bNXQKOrMjPmqjFju0acH+K48bnab3b0Eu3MBtE5u
+ bh=O9xo6x/Vsususv0Ua2eMzb6/yhBucutOa+18ozmEW8s=;
+ b=37sR/q4rsvp8/0G2BU7g+IBhwPmrrzyaZ1/VxQrnHcJjiWbLbf2XnbzLTPJEjCxDGsQuZuSjh
+ HbRJlB47ZlZCC13TAqoR4wM22Qy2GtPBeeyW86uPQBEWd2NKM0i3WS6
 X-Developer-Key: i=leonardo.costa@toradex.com; a=ed25519;
  pk=4xvoVLDt+NxIz9D8BJHhT0fD43Ig6XgSDw4jRN/gHzk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_002544_372119_D1244B16 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20261012_002544_913580_6BB2641F 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,48 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds a device tree overlay that enables the VGA output on Apalis
-iMX6, which is driven from a parallel RGB interface passing through a
-non-programmable video DAC.
+From: Leonardo Costa <leonardo.costa@toradex.com>
 
-The video DAC is a simple resistor network gated by an active-low
-data-enable signal. For the bridge to work properly, this series also
-changes the following in the dt-bindings and simple-bridge driver:
+The VGA bridge on Apalis iMX6 consists of a simple resistor ladder that
+converts a digital 16-bit RGB signal to VGA. The VGA output is gated by
+an active-low data-enable signal.
 
-- dt-bindings: Add a new compatible for the bridge in the simple-bridge
-  binding. This is necessary because the existing dumb-vga-dac compatible
-  doesn't describe a data-enable signal polarity.
-
-- simple-bridge: Add the VGA bridge match-table entry and timings
-  struct, setting the DRM_BUS_FLAG_DE_LOW flag for the bridge.
-
-This change depends on another patch, and should be applied after it:
-
-- https://lore.kernel.org/all/20261002-v1-simple-bridge-atomic-check-v1-1-ef5d8332b078@toradex.com/T/#u
-
-  Adds the atomic_check function to the simple-bridge driver, which
-  allows the data-enable bus flag to be propagated through the DRM
-  pipeline. This is necessary for the VGA to work correctly on the
-  Apalis iMX6.
+Add a dedicated compatible for the bridge, since the generic
+dumb-vga-dac doesn't describe a data-enable signal.
 
 Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
 ---
-Leonardo Costa (3):
-      dt-bindings: display: bridge: simple: Add the Toradex Apalis iMX6 VGA DAC bridge
-      drm/bridge: simple-bridge: Add Toradex RGB to VGA DAC bridge
-      ARM: dts: imx6q-apalis: Add VGA overlay
+ Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../bindings/display/bridge/simple-bridge.yaml     |  1 +
- arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
- .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 79 ++++++++++++++++++++++
- drivers/gpu/drm/bridge/simple-bridge.c             | 10 +++
- 4 files changed, 111 insertions(+)
----
-base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
-change-id: 20260928-v1-apalis-imx6-enable-vga-5c7ba6b358fe
+diff --git a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
+index 7636c24906ba..a86231a4a908 100644
+--- a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
+@@ -37,6 +37,7 @@ properties:
+           - ti,opa362
+           - ti,ths8134
+           - ti,ths8135
++          - toradex,apalis-imx6-vga-dac
+ 
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
 
-Best regards,
 -- 
-Leonardo Costa <leonardo.costa@toradex.com>
+2.43.0
 
 
