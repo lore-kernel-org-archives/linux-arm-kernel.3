@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E062CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA1ECA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 11:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSsw6zA66lq/cz/yvfdISdQChtg2krHbE9Q+XinaKPg=; b=0GkxnTu+kmuHq7fnD5Znv+l0t0
-	0YU04AWkDbgNyy9i8BIJESs5DgwmpUyb51XjozAF7t6fgQUqSyywnQA4gzYnZ/3ZuHKe+z0Ybk/BO
-	Wq8th9XqfUR12MUGQUhDBHxeF9Xksqz2OTwowGeVCBWj6eau6BeSAzje+ahKw9B/KOo1KesQhnCt5
-	rE8YnP3ckL6a1lpBqUXG1Srt7xz7jn6QjWHxYEhjo/+vJeFT8MPR8UHJ9DFxBDgfq1uD75mi37rAL
-	QCbyAFfM+hgWADFhq9iEXTECjk4Qu4HhDws7NYTc4E0CBxCFChi5bBfOwquA+fvzBN5zCHxAQe9T0
-	h42kEkSg==;
+	bh=R17cvAYx5n+2t7QO4oy03VUEubeAV3RNvz9xwe9MG9g=; b=BwChvHKX0MNJxouu9AceQ6LH9o
+	IGthBtBhYI2SuGEpp7aoeqDLaF+Zev0CVvWmz7enFQ+T+4BJi/eo255FNINkreIYdZpGZxhHzzdqz
+	6C7kDfH9I+tlD9XgRBOhJ7kr/Kdb2HSf9u0VJZZxOT4JEiDAAjNP1umYAG57+DcLwPutMCIJwgiwv
+	R6LSC0DAtbVljM57amcoA8Xy0YkwFV6YhdwDHGc790LjmGhgcHmaplR4QvsKpGVY4UB9W/trIFC5S
+	E4Rm+8cuxyCoDybhhvaYeUOhO5YIKXKVZ/g3dYHFH7VmUzgZvoi7E1HyyQlMDTTG05warsPmFgeXy
+	GFRYH+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDkb-0000000AIaC-1SAb;
-	Mon, 12 Oct 2026 10:59:25 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGDkY-0000000AIZE-1pc4
+	id 1xGDpM-0000000AJ2s-3tNC;
+	Mon, 12 Oct 2026 11:04:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGDpK-0000000AJ1X-2oUD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 10:59:24 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48b042c0728so320087f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 03:59:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791802760; x=1792407560; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sSsw6zA66lq/cz/yvfdISdQChtg2krHbE9Q+XinaKPg=;
-        b=olU5Uyo0w+TFVPh9iV3UlQ1xUcVmHjCVB5L1xxxkuJxsihUnMYRhq2vYXnQjOR0wir
-         8PQZfiPA1ko7nhh5OJ5RIbqgBsf0DpH3BjPldrHp7useXZjjfa5GJURizgRvbk9qyyRL
-         ksAM/kNEBLdbxPQ+DUapsXIfLh7dpTDPSezfm9qQGEJvKh+pWWtT7X54mJdP+ar/a3n9
-         qTIggEZ3ava9rKjSYKJ1cqj9Dl7vwG2e+d0Xx5Q0AR0+mXELYBpi1kqU523r+CzIWTLL
-         30sjyojIfBnL99RUDBj7qoA2pWwquMtyoQfTLvSR1PhvZ6R6L/It3n2fEdbFtiRAiscz
-         8xDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791802760; x=1792407560;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sSsw6zA66lq/cz/yvfdISdQChtg2krHbE9Q+XinaKPg=;
-        b=PxVOkXt0tHH1QVZIBiqaRkSst0E3zfWz8IO2ouRxNTCFx9ajAX6uuBfUWcMA/XGpqo
-         FEfKw+1Vke1QBAArAqgKA4JBdEZU3TkBwE79w8Mi4JFO1knpQYwkJC2YLMhzVeIerlBU
-         e61ypBIde/Goh/VnoPpZRS0wzmVX+7Qoa5zzPa7Tza/iWZ2oQaV0E80Mi56lrHJe12h6
-         GKiQQ86K1HtOmPx7f91TnCE3G4HiX9REv3KAJaXd4DfnSfZua2tB0wqBTfwM4iYQ2Ast
-         BEAbg5QHUlUU2QyWKWtQehkYtTOa0App037gRIcqaqjVSBUcP7PgdpF52myX8um6TxRB
-         /GjA==
-X-Gm-Message-State: AFq9FYL+Z1/3FeoRnLHmjstol7xs17j4OtLtvrbq1fiPyeH+1hnHMhRo
-	OU8ZuRp5L37SfYGl91ocsu4EJHBngfCKrndmCPzBbWbgmqPJy9u6QwgJhgVWlY7akH8=
-X-Gm-Gg: AYBFou14B/YTGz769nCiPSKz87VZGPvISmURGS0UCAMZUAMqaSZjnQDfRq9IokjVfyF
-	596AM0uooI8YlInhKRgEQdzXwH7PNNuwmODrJYOo5c9b6A8khi5qVtReVquYnd2a5HD0SvZnCTu
-	9KsICD8J8s/GJIbGACl2n5K6QKwoB+0BFBLGrhXMEC1ImQ/50zyRWpYMscb56POULyQsyUxhlFz
-	QQqqA0pAT/zkSML7VMxWpibEAp8mdbNvlaxxWRcDXp66aTmC6y7oJo3joAB7XiyxAu5u41/+kEN
-	SdmpiFgUPjlXU2LOYmr97zbUKeQW/76i4AnXX/bFzu8sj8z1LCT1HXdCMH2Lmcr2uA+/ohc1imk
-	vEps1uFaygXLaMhTpk2GgOPgxu9lkYsRBcVQeW7kP/OjKkfUK1EDjzjhS2AgpyJHxGBytorgkeo
-	vIzDmxIWa3NGvnr01TQO9Eg6RL5//jBsdvwvBqnEoROLH2NoIRAN7nI4126n0VgCa8kF4D70DDe
-	+GltscCrnq6halTnbccrBH2538g0gss65zoW6Uxe/ZBAbKYmerkfpdhMO4HPyTAkbtO1nSL
-X-Received: by 2002:adf:e001:0:20b0:48b:efb:4a66 with SMTP id ffacd0b85a97d-48dba7b405bmr11892966f8f.6.1791802760381;
-        Mon, 12 Oct 2026 03:59:20 -0700 (PDT)
-Received: from localhost (p200300f65f19a904ade4f69ba751c34c.dip0.t-ipconnect.de. [2003:f6:5f19:a904:ade4:f69b:a751:c34c])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-48db9463a9dsm19504613f8f.6.2026.10.12.03.59.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 03:59:19 -0700 (PDT)
-Date: Mon, 12 Oct 2026 12:59:18 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arnd@arndb.de, linux@armlinux.org.uk, stefandoesinger@gmail.com, 
-	robh@kernel.org, krzk@kernel.org
-Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
-Message-ID: <asy9K6Gqygrl492D@monoceros>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com>
- <20261010130024.177503-10-ghahramani.navid@gmail.com>
+	Mon, 12 Oct 2026 11:04:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F2BB1A00;
+	Mon, 12 Oct 2026 04:04:12 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 196FF3F882;
+	Mon, 12 Oct 2026 04:04:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791803055; bh=GCUhwqR9gUHDDQkSnLEoqzzvzh0xq7rUr9tQxJpA+Tk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F++r00nmSoucDHHIsuKWsEv8xVrypp0HtBNdtRJkDKmLkBuJP64zRrb/xJIShO22H
+	 uzo9MhZARvb/XeMwbi4x6xH3NT4IvmY4wF11YylB9B5Dtu48YuFY4E4Wms0ChMknp5
+	 vAcbnxdzzKSKleLIyoOeqv3IWqJ/z9HrDI5yVhac=
+Date: Mon, 12 Oct 2026 12:04:11 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH V3 1/4] arm64/mm: Use pmdp_get() for PMD accesses
+Message-ID: <asy-q5SBnrBQSadP@arm.com>
+References: <20260924062214.1635078-1-anshuman.khandual@arm.com>
+ <20260924062214.1635078-2-anshuman.khandual@arm.com>
+ <asPCv5Icdm7Z9mWF@arm.com>
+ <lqjq64vw6mlm27kp6ffms6auerj67avecc4ongedouumsrspjh@2f2eblm7wi4u>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q2hmm3keht6hv76x"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261010130024.177503-10-ghahramani.navid@gmail.com>
+In-Reply-To: <lqjq64vw6mlm27kp6ffms6auerj67avecc4ongedouumsrspjh@2f2eblm7wi4u>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_035922_488625_7190C6D9 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261012_040418_792791_A20D3FC4 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,42 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 07, 2026 at 08:11:52AM +0530, Anshuman Khandual wrote:
+> On Mon, Oct 05, 2026 at 04:31:28PM +0100, Catalin Marinas wrote:
+> > On Thu, Sep 24, 2026 at 11:52:11AM +0530, Anshuman Khandual wrote:
+> > > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > > index 763c5a411d64..9ad2d03e86ad 100644
+> > > --- a/arch/arm64/include/asm/pgtable.h
+> > > +++ b/arch/arm64/include/asm/pgtable.h
+> > > @@ -84,6 +84,12 @@ static inline void arch_leave_lazy_mmu_mode(void)
+> > >  	arch_flush_lazy_mmu_mode();
+> > >  }
+> > >  
+> > > +#define pmdp_get pmdp_get
+> > > +static inline pmd_t pmdp_get(pmd_t *pmdp)
+> > > +{
+> > > +	return READ_ONCE(*pmdp);
+> > > +}
+> > 
+> > This is the same as the generic version. Does it need redefining?
+> 
+> Without this pmdp_get() override, replacing READ_ONCE() in pmdp_test_and_clear_young()
+> with pmdp_get() causes a build failure as pmpd_get() which is defined in the generic
+> pgtable header is not visible from inside platform specific pgtable header, even with
+> a forward declaration.
+> 
+> Earlier had moved pmdp_test_and_clear_young() inside arch/arm64/mm/mmu.c to avoid the
+> above described dependency problem. But then realised that pmdp_get() gets eventually
+> overridden on arm64 platform for D128, why not just redefine here it now as standard
+> READ_ONCE() to avoid the current build problem and the code movement.
+> 
+> Please find some context here from earlier discussions during V2.
+> 
+> https://lore.kernel.org/all/212067fe-1b16-4b87-87a7-4ce50847eb24@arm.com/
 
---q2hmm3keht6hv76x
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 09/24] gpio: Add ZTE ZX279128S GPIO driver
-MIME-Version: 1.0
+Thanks for link summary of the past discussion. I agree, for D128 we'll
+have to define our p*d_get() but I haven't decided D128 is worth merging
+yet (it depends on future hardware availability, I need to get more
+visibility into this).
 
-Hello,
+For the time being, I'd keep the p*d_get() accessors generic and move
+pmdp_test_and_clear_young() to mmu.c.
 
-On Sat, Oct 10, 2026 at 01:59:47PM +0100, Navid Ghahremani wrote:
-> +#include <linux/mod_devicetable.h>
-> [...]
-> +#include <linux/platform_device.h>
+> > >  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> > >  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+> > >  
+> > > @@ -811,7 +817,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+> > >  }
+> > >  
+> > >  /* Find an entry in the third-level page table. */
+> > > -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
+> > > +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
+> > > +					 pte_index(addr) * sizeof(pte_t))
+> > 
+> > Why not make this change in the generic version?
+> 
+> Could you please elaborate on this ? pte_offset_phys() is arm64 specific helper which
+> is also local to this header file. AFAICT there is no generic version for this helper.
 
-Please don't use <linux/mod_devicetable.h>. That header creates a lot of
-useless build dependencies. Either rely on <linux/platform_device.h> to
-provide of_device_id (preferred), or use <linux/device-id/of.h> if you
-want to go full iwyu.
+You are right, I got confused.
 
-Best regards
-Uwe
+Anyway, I'd push this series post -rc1. It depends on the mm tree and
+it's getting pretty close to the merging window.
 
---q2hmm3keht6hv76x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrMvYQACgkQj4D7WH0S
-/k5D5gf8CiIw5ZmHa/4qhjWhI9bOHEYttUfLI5E9sTpo3TR8gSP3wq21tpb9ywRb
-nvEYlAntKnE5j1YV7okO47JWOPy2FlFSIYfB+bl+MBanR4v7h5vaVIzlFDQvZI3x
-4/s9TDLNdORgidiC3wYjnlvk/BYGYeV3Xcz3Edd10vTvXY1nkcWX047ClGlweYLQ
-0KRRSVKza1fIczofidCe4h3TDpDFsG65SOK/OfVjl7Ao2wOK/RPk2P++gNgzstkq
-7FBEgasH+SDPqmohBCxOC5y+hbfVkRO9TtxPaTtCyPXjy7bo3RVXFSBI/NrgNEoX
-lBI6nUELanucYbUs3YpLmyfwX2p/fA==
-=QMtx
------END PGP SIGNATURE-----
-
---q2hmm3keht6hv76x--
+-- 
+Catalin
 
