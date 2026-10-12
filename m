@@ -4,156 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBA1CA9ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 14:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F76CA9EC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 14:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpOndlgPfv1kdWQOBM72wFH+Lnf26uksnJykK9/Hdy0=; b=zfnyClG60vfHcmoDb+8w2i5jev
-	N7s1941A54HUEmk3kUTOYOj0iY0hTT22qIgW7IQrjOUXer4OYQP7DRexFqt7pOE0LCcufBDDcY4T2
-	dA0NK9p+g78dll68ij531n8zv1+8YvX3JYwAle1p8RTIiX0WpHPIXpEHPg3QUImwKpyezn3AaD5v3
-	cGSg4ahrYhFlplVVMEbr/iLn7aUnMGZCe53vt8kMbuF9IFzf0XJXuU4jmKlpiMdi4lTcj0sQa1MQG
-	+a2l6WwE66lxIGy/2J8HH2x8ourqVWwYsa8IN27Z/o966nV+WPO2dRp4PnFP2UGh0itv+co+EGx0f
-	XauZFpeQ==;
+	bh=ARDFzRcSX9tlNYnz3QhLpND0+k4nm4lAwCr2NId5MtI=; b=woNOZeJriJOdlRVrdPNjCM76SA
+	RhsBJ+Dsrs/eK+L++BguD9G1U5pTwdX1lNfo4Ei3h7W+KGmS9ZRbVPNgCmUocU+0gu4KOjifbUgam
+	h0jUNfoLwn3ihmS8O5Df7R1R/EjPcP3wvsXQmGSK1XJFSzaMBu9d/OnmEO7BIKsitmqbaWD4wbowX
+	lS+5zb5tbW5q3MY8/T7aBt7+zF3NCYVL3nAovVSHxkv3NEZb8yG2rz4835e0gtXgyGToqWO7HOFrp
+	fYkJgZccQr5L9jDoHUCN5wuGXEpMaFZ4k8PeYUVJQnuqH6l3ozf5LPGkg1d1XH+xdYOOEyeC4fmdK
+	mu8gncyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHKY-0000000AitY-1VAV;
-	Mon, 12 Oct 2026 14:48:46 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGHLp-0000000AjHr-2cjV;
+	Mon, 12 Oct 2026 14:50:07 +0000
+Received: from sender5-op-o12.zoho.com ([165.173.182.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGHKU-0000000AirI-471H
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 14:48:45 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69CC08uT1933178
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:48:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=bpOndlgPfv1kdWQOBM72wFH+
-	Lnf26uksnJykK9/Hdy0=; b=leQ3bD+g5c4VwVA6byRTH+0bNQu9f658P3LBrm0T
-	OeuBlhUzGR7Ak7FXaNvBsYmbvOCx4iV/fyfr7g2TBld1Ih9q5tdgxeH4Zrof98pY
-	yer49v/uHQp/PuurFmz/HVauIFCeyCmNVC/UZQ3jRqT09sGtEI58x+P2uRzRufva
-	CR0Npj6JR4C31oqsUyLrqhqGA6FhBT4LJondzTSWoOOwl8JrTrYTSQW0CIP7++hE
-	XC13s1ELe1gMVTM48x+eMKyN+20CrBsX1zL+ninXNBmkvBRSoQtSIfugCPaVBVI4
-	ukHpmfzp7qGfeT6y8elgPZ7KAmFFIntQNJSm4G+aJvO6/Q==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h8qtkjqfh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 14:48:41 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-917bab67568so68058606d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 07:48:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791816521; x=1792421321; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bpOndlgPfv1kdWQOBM72wFH+Lnf26uksnJykK9/Hdy0=;
-        b=EiuvBguNna9NqFDPcs84n1+vNG4Pd+C/mHJj+dfoV6EX1/0KL/r+2dT71c0jaCrn2E
-         gQcO6hyUD3r7q9uf3apgvOj1eB/Oxyl7em9bps1aTmD9fHuMfYsMi1lfZvEd1MaXFkR9
-         aIVZ1UaJFccFGr/ElDJJRVia4JRO2UJDu6vmuy110P2Pm+IEYOrE48Fd5ydu0rAeLthR
-         0wUE7S4V4FEpdi+KyMDb1fytBrjzdxHYBfi7k1k6ky7i2ucdKAczBNIbbzuQvAHPY/7b
-         8SdlzNNZzN7mQHz0P0ntaFFcqj3j5DhBz2DER2F8H5q5a7NfVmwJXlHR7CmBBGPlGT+r
-         WJxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791816521; x=1792421321;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bpOndlgPfv1kdWQOBM72wFH+Lnf26uksnJykK9/Hdy0=;
-        b=NYmWXOsWnWZKBJdZrerZH4ugN8jcw2UhBazdRqW0uDGCWetUGyuwahqZm4nPb1CZdN
-         sdlQ6m/AeYWCsGtuFJ0jga/h912EXVkX5aq8JXzQ/vFOcJMbqZUtilRSyv7r6rqIjDX5
-         HEIWoAFRHCLlQpvfnmVLiiA9nD2buNBXwc5ywiLmJEHEavPwuBGHguHQKrsiXPNgfI24
-         y4oV2UfPHbF6hIloT38YSsD01sIMk2taS7juStjRNbEEZ95iQgYy/MsOpIQlmiWv7pbH
-         e+EexNl/5OvBTh/7ubXMw637mk/dAnvUw25myQ3YeHFf3XtGbYIH6ECs8g7k2JYkkiU5
-         QTdA==
-X-Forwarded-Encrypted: i=1; AKwUvBwMXBarWw/8O/PPrOVTiit9gfJjOthgc+djuiKNhKI2XXZUUTmnuKTeQLYv/dKxhsJKqjqrNDRcVKumcD+6Y9Zr@lists.infradead.org
-X-Gm-Message-State: AFq9FYKkflgbHAUM4+2S/6OZ23RrIodvxomLIgqMrSH2uUy3YyQwszHm
-	suDZIhGOynlO9wh/Rg0kM6vFJQ9FbALPBS7657oVzCa9oNrZ0/mnxlFe95pwm3mNyKc8obkwBPq
-	hj1qWzuCv/zwqFvsYbjtA3sEj9LmPMuI/PIgn15UIsAjLD2T3LmFVEuqrDB/P3oVTpnE8CWxfvt
-	BN1Q==
-X-Gm-Gg: AYBFou2iTxMgaDMcZYXJepQeNU2Zchrb5TSjMEuhwsuVOaJ0akuMvV83yIy0Hx+Qs74
-	ndiV5wdA8wCo4LxxxGLK0jccjjwe8lS0aMcCa679Av6SpN6Iq+5FOXDV2QooqTkWAF+7MOQHJ2F
-	sF0Dr6p/v0Nw/xYA394OcpaqrfBWzYUZ4erPCmi9vLvJ10WCfQec3u3/eMUPhX8fg8Fs66lZSzb
-	CktVVhGpaFVf9AqnS5C5eOkRoDrG5iiauF8Ckp/YI4IpiA+uK+lfEl3yK89AS97z3N/aEggwFIP
-	n5LG4dJ9wUP7EPfyBrrDPukykeVeDcJAyEUVhaqwj8ntg4AU+IZ3KYWBmpVX/Ib5Ybj+YvGM8kd
-	XfQJ+sHfe/Cl+x+3nDe+smDpslAw7qymbVhHI4U/KtG443RqK29UFMbRAReI0ccYr3+qVhVPFJd
-	yKaod9HZEZiPIS
-X-Received: by 2002:a05:620a:4694:b0:93e:d1d0:67f with SMTP id af79cd13be357-93ed1d01a42mr1036814285a.51.1791816520911;
-        Mon, 12 Oct 2026 07:48:40 -0700 (PDT)
-X-Received: by 2002:a05:620a:4694:b0:93e:d1d0:67f with SMTP id af79cd13be357-93ed1d01a42mr1036807885a.51.1791816520206;
-        Mon, 12 Oct 2026 07:48:40 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a9c3cc7689sm32134791fa.24.2026.10.12.07.48.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2026 07:48:38 -0700 (PDT)
-Date: Mon, 12 Oct 2026 17:48:36 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Xilin Wu <sophon@radxa.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        dragon@radxa.com, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 18/20] drm/msm/dp: Signal BT.2020 RGB on DP and eDP
-Message-ID: <kjt7k6nrlctvykvqrlvl7ftjeul6woarmjcotlvdasd4u5jb6k@oc246xwutq4h>
-References: <20261009-msm-dp-hdr10-v2-0-1835d4966da3@radxa.com>
- <20261009-msm-dp-hdr10-v2-18-1835d4966da3@radxa.com>
+	id 1xGHLm-0000000AjHM-2GMK;
+	Mon, 12 Oct 2026 14:50:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1791816584; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dgXdmKngHhM318qjfVMYC74gMXGc+fVdLti7iaDwNAcMcB3a5zwQJOik7Wp4aFMi4tacvl3UURXkM4e7Oc26MTPZ+Z00w4QDK3KjHrV+wqi7dHrh/s8S/W27DQsrM+TIiWwaGxOcf66YwJl+ToXBCOGPIBvxUzzeez/ktRUtpbc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1791816584; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ARDFzRcSX9tlNYnz3QhLpND0+k4nm4lAwCr2NId5MtI=; 
+	b=b9u5Bca9K9oBoLiH5naAS8C3AXYHMV1+15EqYHygDl1zAOhsDmtwBUSG59FApnANcBkioBS7/4QZGZj519i5BBInp+Eh4NcRC0bV0IcIMNzgN8xOMNihrnH2t18yvvuMUJUyAYLaWrc5cNFsFiJ7bfa8+7ANkfSPPyi1uL8qe/U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1791816584;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=ARDFzRcSX9tlNYnz3QhLpND0+k4nm4lAwCr2NId5MtI=;
+	b=T7Vc/dRGYaDXRQGVuvc+Y/eeiZjc1MZXWW4dkOriDDZ02Sw7GyWfNjW35slqbLh/
+	A2JtRd4QzJhJVsPNv/CtTeV+L1EOzG/LoB9KlqZedk5xmEmidSfR+MaHT1lEV3xNliY
+	31rcXmI4FFYUwcYwPrGTEHMMFQQMwFOmx6rrmjcOPS3NnJ55PnfuFXRVIMbUzkFtjYi
+	LSq1TNSKSgtAZpTEk4d2+eFP0QLrwJuMY+SX4C8467MmHI0tkCaZmIug/eqp2uHm4oU
+	karVUVAD+hUcefpumZT43yTtV8myiwOCm7nkvTHPzlI0fp8DijqnI5F5MrFUS56oKj+
+	WiFC5qA8xA==
+Received: by smtp.zohomail.com with SMTPS id 1791816582175167.0189182002764;
+	Mon, 12 Oct 2026 07:49:42 -0700 (PDT)
+Message-ID: <6b6b99fcd1c5f032a0b20d928bf7fa2e59ac5c87.camel@icenowy.me>
+Subject: Re: [PATCH 0/2] Add SPI display support for UNIHIKER M10 V1.2
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Miotsuki Mizuno <founder@crepuse.com>, "heiko@sntech.de"
+ <heiko@sntech.de>,  "neil.armstrong@linaro.org"	 <neil.armstrong@linaro.org>
+Cc: "airlied@gmail.com" <airlied@gmail.com>, "conor+dt@kernel.org"	
+ <conor+dt@kernel.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>,  "dri-devel@lists.freedesktop.org"	
+ <dri-devel@lists.freedesktop.org>, "jesszhan0024@gmail.com"	
+ <jesszhan0024@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"	
+ <linux-kernel@vger.kernel.org>, "linux-rockchip@lists.infradead.org"	
+ <linux-rockchip@lists.infradead.org>, "maarten.lankhorst@linux.intel.com"	
+ <maarten.lankhorst@linux.intel.com>, "mripard@kernel.org"
+ <mripard@kernel.org>,  "noralf@tronnes.org"	 <noralf@tronnes.org>,
+ "robh@kernel.org" <robh@kernel.org>, "simona@ffwll.ch"	 <simona@ffwll.ch>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>
+Date: Mon, 12 Oct 2026 22:49:34 +0800
+In-Reply-To: <20261010232857.26950-1-founder@crepuse.com>
+References: <20261010232857.26950-1-founder@crepuse.com>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261009-msm-dp-hdr10-v2-18-1835d4966da3@radxa.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEyMDA1OCBTYWx0ZWRfX3S+/d9UyEr1z
- pPSlCt68cUB/OIf4VbrWnenyyqlzI2mkZS79XFMM7W37N4KLZuOwWuCG64tP2mMJG61pHUNA0gx
- grOmht7b/rud90xsw482gMmCCb8Aoj5K3R7qk2noGYQaJQFLCZbD2DjxaxVa5c1/RZJGL+EDeQr
- rv4e5XdYzuviZbGls3ConbXppekeo/Wfot9T0jZLNFzBlQU66cW8ggrBbwOMWpY0PmVDkS4bcWT
- hWmk1QsnScqhRB0+CDdnRl946/TPUhUTapEL/4iMnQWmJ5ZFneW4AO81vTwI8hG0vefSqcunKm4
- b5ymrYJW9ZOs3nzGcfA+IZ3/PZDYOTUIFrumerQuKc0X5ZM/4+25yozW4zHAiTJ4rJhvrTzXe1o
- ZzsPvc8VI+HZHGXQtzSNo2ePCboqGY/eujzt3KC1L+JX6QJS1cn03YtCDQR2A5FUlcY0+4PTnF+
- bX/ZotAXFzum8Xox66w==
-X-Authority-Analysis: v=2.4 cv=c8U+0h9l c=1 sm=1 tr=0 ts=6accf349 cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=ksxQWNrZAAAA:8
- a=EidWXHX74OIilm-ZvMoA:9 a=CjuIK1q_8ugA:10 a=1HOtulTD9v-eNWfpl4qZ:22
- a=l7WU34MJF0Z5EO9KEJC3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEyMDA1OCBTYWx0ZWRfX89YXz5g8SP7l
- acUwlk+M6raEtXfPiyEfrjiyV0K81ybC3/BVzemQ52kDm3wOZ/tmhqyS/JPzchlXBBwR4AmCsuf
- SdJUFduYbAL3bOiLP2hKNy2MYzaKWiI=
-X-Proofpoint-ORIG-GUID: DLoFrpI7d2mKe93D_OJpun-xckNYX0FN
-X-Proofpoint-GUID: DLoFrpI7d2mKe93D_OJpun-xckNYX0FN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-12_04,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 spamscore=0 impostorscore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610120058
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_074843_275550_C7017F63 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20261012_075002_663843_6759E835 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,50 +93,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 09, 2026 at 11:16:10AM +0800, Xilin Wu wrote:
-> Expose the standard DP Colorspace property with BT2020_RGB support and
-> carry the selected colorspace in bridge atomic state. Force a modeset
-> when it changes so the stream receives the corresponding VSC packet.
-> 
-> Signal full-range RGB to match the existing pixel path and retain CTA
-> range for YUV420. Reject BT2020_RGB with a YUV420-only mode. Reuse the
-> preceding VSC state, update and PSR handling for the new colorimetry.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Xilin Wu <sophon@radxa.com>
-> ---
->  drivers/gpu/drm/msm/dp/dp_ctrl.c    |  2 +-
->  drivers/gpu/drm/msm/dp/dp_display.c |  6 ++++--
->  drivers/gpu/drm/msm/dp/dp_drm.c     |  9 ++++++++-
->  drivers/gpu/drm/msm/dp/dp_drm.h     |  1 +
->  drivers/gpu/drm/msm/dp/dp_utils.c   | 12 ++++++++++++
->  drivers/gpu/drm/msm/dp/dp_utils.h   |  3 +++
->  6 files changed, 29 insertions(+), 4 deletions(-)
-> 
-> @@ -456,11 +456,18 @@ struct drm_connector *msm_dp_drm_connector_init(struct msm_dp *msm_dp_display,
->  					    struct drm_encoder *encoder)
->  {
->  	struct drm_connector *connector = NULL;
-> +	int ret;
->  
->  	connector = drm_bridge_connector_init(msm_dp_display->drm_dev, encoder);
->  	if (IS_ERR(connector))
->  		return connector;
->  
-> +	ret = drm_mode_create_dp_colorspace_property(connector,
-> +						     BIT(DRM_MODE_COLORIMETRY_BT2020_RGB));
+=E5=9C=A8 2026-10-10=E5=85=AD=E7=9A=84 23:28 +0000=EF=BC=8CMiotsuki Mizuno=
+=E5=86=99=E9=81=93=EF=BC=9A
+> Describe the onboard 240x320 RGB565 display with panel-mipi-dbi.
+> The series adds the panel compatible and enables SPI2, GPIO reset/D-C
+> and the PWM1 backlight. It uses the existing DRM and SPI drivers.
+>=20
+> This series is based on the separate board I2C2 preparation commit.
+> The prerequisite board patch was submitted separately:
+> https://lore.kernel.org/r/20261010232831.26908-1-founder@crepuse.com
+> It does not depend on the pending NS2009 driver or binding.
 
-Don't we also need BIT(DP_COLORIMETRY_DEFAULT) here?
+I just came across here via mailing list.
 
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +	drm_connector_attach_colorspace_property(connector);
-> +
->  	if (!msm_dp_display->is_edp)
->  		drm_connector_attach_dp_subconnector_property(connector);
->  
+It seems that NS2009 is designed to be mostly compatible with TI
+TSC2007, and the TSC2007 driver should be able to made work with
+minimal effort.
 
--- 
-With best wishes
-Dmitry
+Thanks,
+Icenowy
+
+>=20
+> The 132-byte initialization firmware is available from:
+> https://github.com/mio-tsuki/panel-mipi-dbi-firmware/releases/tag/v1.0.0
+> Required filename: dfrobot,unihiker-m10-display.bin
+> SHA256:
+> 50412ae6d29c5bbfb7fac585528a761fb249d7944011a1b19c5e0f80a0418e5f
+> The test kernel embeds it with CONFIG_EXTRA_FIRMWARE. Public release
+> does not imply linux-firmware acceptance.
+>=20
+> The nominal active area is 43.2 x 57.6 mm, represented as 43 x 58 mm.
+> The published V1.3 schematic is not used as evidence for V1.2 supply
+> connections; optional power/io supply properties are omitted.
+>=20
+> SPI2 input is assigned 100 MHz. Active transfer register readback
+> showed BAUDR=3D2, corresponding to 50 MHz. No oscilloscope measurement
+> is claimed. GPIO_ACTIVE_HIGH reset matches the existing DRM helper
+> and leaves the physical reset pin HIGH after initialization.
+>=20
+> Built against Rockchip v7.4-armsoc/dts64, commit
+> ae965b9856f033145e292b0c29082a26bcc45efd. Target DTS/schema, binding
+> examples and strict checkpatch checks passed.=20
+> The exact display DTS booted through normal U-Boot three times in
+> this
+> retest with the original test kernel, without pstore instrumentation,
+> clk_ignore_unused or regulator_ignore_unused. Physical corner
+> patterns
+> were confirmed; full and partial updates and five DRM disable/enable
+> cycles completed. The exact display/touch combination also booted and
+> its physical output was confirmed.
+>=20
+> Earlier boots reset during early userspace; one partial USB log
+> recorded
+> an instruction abort. This was not reproduced in the latest retest.
+> The resets may have resulted from accidental contact with a loose
+> jumper wire during reboot. The cause has not been established, and no
+> software fix is claimed.
+> Exact-DTS cold boot and deep suspend/resume have not been tested.
+>=20
+> Mizuno Miotsuki (2):
+> =C2=A0 dt-bindings: display: panel-mipi-dbi-spi: Add UNIHIKER M10 display
+> =C2=A0 arm64: dts: rockchip: Enable display on UNIHIKER M10 V1.2
+>=20
+> =C2=A0.../display/panel/panel-mipi-dbi-spi.yaml=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 1 +
+> =C2=A0.../dts/rockchip/rk3308-unihiker-m10-v1.2.dts | 53
+> +++++++++++++++++++
+> =C2=A02 files changed, 54 insertions(+)
+>=20
+>=20
+> base-commit: f4f7ecd2e0e8debcbab4789717cc79d570d665e3
 
