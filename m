@@ -4,82 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A28CC6B01
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A3BCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 17:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=62DZO/wZRYsFG63f7Eo1sIVQ7FNIR3x3vcz2pVGRVCI=; b=aZUQ/jTf+570hIYwXOsNnxqBdc
-	amlD27pa2szs2ryY29rPPD4OxFvTLhF23lJVBjTq9YpKZZbWGm0S8qc+3F1VUov+8lTOh1mQb03bt
-	za9nYF2YqVtelLbCych8vPl6/XEbNX1yewmfpkEWNyyiv1PDIMWX2BmGxx2LBZn21Tg362UxiYeFT
-	4JpWRyspfa1IvPnsrNOlbnDn6aYlD9xrirMZTHyJRIe9OOwuBTuSi78OdHGh+NLOF4DQo1NgYm8nv
-	o+yHJOMAgyK6UwDZe4fDhdj7FZwDRL8CLCpNtrCYPKX55+ym8RP/eugeR8vTNad/ZqKjZBB/l27lO
-	+903J3Gw==;
+	bh=yF/Iy3Hd3jJ7PHeSixb0MK6yhBJ3J2UORZlYHvOyz9w=; b=PDedcXOLlKLw+2qQsdHrOSPe3r
+	Wz1L8rGgvau8MlKgr7CkwFKDca1wskNeiOH97PLHlcy0mwJeA/RTgh98fefb4S99EsnzADr8onnqk
+	SJPznCSynFn3LTkKDa/afeJZG7sV7BPVEIr6ezw10Uu/y72N3lkaBgyFpNz3XJw2dJglwuUJhVcfb
+	zbq8m+ubAUVD917O3Ml+YtRRw3NKMb+PWMWZODgZZoAjeeAPJhhfKBEZNqp0aMJniuDKjrqDRnLN5
+	xTzgftb1ID3pb7KGNXXXNOyqoELRO5SCK+Wka0LVTvgCaKH5w4RnDhIayEvdOJ2o3zXy5qhuu9x4+
+	slwFzCWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtu-0000000B6o7-1Rde;
-	Mon, 12 Oct 2026 17:33:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGJuf-0000000B7J1-06kk;
+	Mon, 12 Oct 2026 17:34:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJtT-0000000B6WA-0f11
+	id 1xGJuc-0000000B7Hq-3xMo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 12 Oct 2026 17:34:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=yF/Iy3Hd3jJ7PHeSixb0MK6yhBJ3J2UORZlYHvOyz9w=; b=k7CN9oAZZ7sneaiEwsPvA70FuM
+	JDYuz1SI8lEIs7I2lzM8RGCb2Yd6cImxn/OCxskZiAbMaEAOjpSHzw+lL6m+mBZXRAjkGODNhlRvW
+	MIjzI7i5AKngzRrdgn0IZ8O2eoZeo/mDnVyOlQQDgqcHRt1HyrihOMZ+b4reftYXtqeIpKQmSWdKM
+	sRfMV2MX0RxgRSJGVwGmPBgSxEPX1WNsuUgQdjZtyLLzOJFXLl4oQz9eXUQj9VSJHOfDR7pz2F9/e
+	M+925GpNsP0wqm5LCk3XR0FAtEc3s4uK+EiWbmd3j5YjvdhuEEys0bE5u7gM1FD4booo56iSR3+F6
+	Q31nBzcQ==;
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGJuZ-0000000Ehml-1UAV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 17:32:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5367560142;
-	Mon, 12 Oct 2026 17:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EB7DCC2BCC7;
-	Mon, 12 Oct 2026 17:32:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791826378;
-	bh=bblr4iJ7bFYxTuBV4u7to5ZuAY4HVOaNlZrTUeaXdpY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=SgiPSqWI1iPW3pkiDjPqDpC3A7tlJrOG0rW58LUoHVQUkXlpP9cBm7fupw1y5J72l
-	 6t0wMPNylVMio1F4d+EzTfRQLKVLcUNPH33PgB5j1cG8omJ6EqRYg7fzdE983mtftA
-	 wFcgtlFR3sSjDV7T8JWMuq898zMyRzuu35f3MID3PU7uoZi1dTfGR0XBDiZNwz+OTU
-	 m/Pkwp+vxHYnIQEx7qOZMLfwwyL779V7xdelkFH39YmyWwQD6XTdBqnWKLH9zY+cz6
-	 AtTTj0iO+PjNlTB7+RkpU22kmyZ5HxgMhJKsSjGpmENNB60KOGMb8v3WgsJ9i68hTd
-	 W9FFYA0p2VsOg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1078CA9EC5;
-	Mon, 12 Oct 2026 17:32:57 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Subject: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller, GPIO,
- I2C and TWD watchdog
-Date: Mon, 12 Oct 2026 20:32:55 +0300
-Message-Id: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
+	Mon, 12 Oct 2026 17:34:09 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-88b7d853b11so1229234b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 10:34:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791826445; x=1792431245; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yF/Iy3Hd3jJ7PHeSixb0MK6yhBJ3J2UORZlYHvOyz9w=;
+        b=E45cnrxnQlGouqqTueDGUsE14BUz04uDz5DalDoiIA9x98lvsL12b/6W6H2nW9zKC5
+         k7zosc19eZPF3bPWlj1RUuuPH/fVhsdEDT33j+w3Ixyqu3+N63/sOSyDhWgKSy6YZtFF
+         9SUMkD18RKFHLtlNRej5xQ16tDRgIhar1Zhdt3UHNjmO147znPTPKYbLyb48+rL54BrO
+         B8XyqN9S2betAPz2J5t+FQ8SrLbQMyt6oONGtspUjWjwDprmC+e4z/b7kblMqgd2e1Nw
+         4ALhOWIuvvshU8/KqWA4+G9MeLRqQidGELkPZpgR7JqZPaPQPHa8IZHEmkhLOo4r7CFp
+         OfeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791826445; x=1792431245;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yF/Iy3Hd3jJ7PHeSixb0MK6yhBJ3J2UORZlYHvOyz9w=;
+        b=m+k+jHn3vWQmSI6lN2SQnrns4uFZFY+08A1GJ4vOWrEaqCZTo5Qeflasbyzbr86AI4
+         OFgv7ekCkUpaAg/4Dnlod5mSVZJyG2AAslVDnNOZPWkJqV+LJjqZ/mEhvEmYiPWl06X7
+         H6P0mDw5VzMKioQIGltleS38qzNBUdFH8vcrAkTUurt7/7bQad6VCfswo8uIV2HfCKXC
+         rx/1Q9JKrYBW7www9ylVhpa+Xm3mO5m/BLon6NsbsuMQMVmlsUdsVe0KDsvgeHXosCQP
+         IlsZ80VpWcMFrEcHXXjvpbJUTtiA5wwPHaA5Ham5q1N2JO6RvEarTQTpsAX18hkfmK1c
+         VbCw==
+X-Forwarded-Encrypted: i=1; AKwUvByKICJa51a3jHg/ozY2ZfA1+PHbYjmsYjwBaOkeDNq/ia0/N1unaYq/YR3ZCP+GehYtb8XDhoy9B721gEhobxyg@lists.infradead.org
+X-Gm-Message-State: AFq9FYJoUZDgcoGk44YBmP3z5YWI5OXkc2lKLODJw7H2q22Ov1Trq7eJ
+	tuHY2ajuZnJliQJpGNnh66P0xsiQq+xoG1JH+qge1BsfjEZJs07Wm5WnmJaAWnrz
+X-Gm-Gg: AYBFou3nUPA5uqvCbm0m5JEZYucWG6NF31UGSctU/jlx/ywISkcPuqSYT3z7pDkOOuA
+	eah/fhStUOLbCA1Vf1Ss6uaaTjd/1i9Sn0dZaJ1QtLQZ+hU3qhl8sg4qNrSovg0DoS+0xBfgIvH
+	UOBj7/mqIHQnPtanPmE2cq73th9tJwmmfdIprYutJ9tdzBw+QAnBjf/8aVdMHkLoAkradjfXVZO
+	rW9H7PQh6ikbFCD9t04zSBHwgwFgUaHfW7lXbAQnD54kCQlnn785WmrtQZ57o5uYf//qGhh1d0m
+	sXSwkbJcpBvMl6tNiLXNHzjolg0QxixANLv8dMfAbm7pE5FcYJviEa9iYxMlCp/2nOPDUSnyIYt
+	KdqIIaSrMqenW43bZdmEi3ISBlYt3xcezA3CmvuNDbxm4EyKKucjZLOplrRTh7RUMRvK92fK1XE
+	R5mEW4vtKNgBc1+Lg8JTqqQqTXbun4KzQaAZHSyY4v6Z0pD5ZUyW4QJ3VTuynNqHQBZJ0MkE1hV
+	Umj6u57fEbkIZHZeI0kPXdWiFCVoyeGY2z5y7fuDvJeYqEnofx4SzHRfqzTSW4XIYxkFDrfiodj
+	cJJTbCSdXnxdj75qG5J8NnvWiidIo+9Khiy5vJjnjkL2CB1NUQ==
+X-Received: by 2002:a05:6a00:e0a:b0:88d:4b30:1c11 with SMTP id d2e1a72fcca58-897c3efd912mr8494544b3a.6.1791826444565;
+        Mon, 12 Oct 2026 10:34:04 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-896c49901fesm4166886b3a.57.2026.10.12.10.34.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 10:34:03 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-phy@lists.infradead.org
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be|_ptr)?\b)
+Subject: [PATCH v3] phy: mediatek: tphy: simplify main allocation
+Date: Mon, 12 Oct 2026 10:34:02 -0700
+Message-ID: <20261012173402.24568-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw7CIBBFf6VhLWagULAxxv8wLhg6KMb66FTTx
- Pjv4mPp8iT3nvMQTEMmFm31EAPdM+fzqYCaVSLuw2lHMneFhQbdKFBaopGRnZ0myVraZI03C52
- sIlEul4FSnj66zfbLfMMDxfHt+C0Gut5KZ/zORE/M4dNpq+WfzN1IkF3SFroF1I3X610f8nEez
- /3qbcTAJAv0eWyrxjiTAjhIGj2oGg16V1tA5yz6WCM15EOIYvt8vgAMdjPc/AAAAA==
-X-Change-ID: 20261012-b4-cs75xx-s2-5f548492f51e
-To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>, 
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791826375; l=9559;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=bblr4iJ7bFYxTuBV4u7to5ZuAY4HVOaNlZrTUeaXdpY=;
- b=7QoafjQdXqzp2JAbEA04w6GuyuVqp/xTLTZbQgaMomy2D+QTOlp6mf7CYyim3woyAtY5Sw2tO
- VEGHT4qYpfsDUtfkVgZTDN89GxwCrQbYkJo0/VpEh8p3uCrmU+SUmR3
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_183407_476804_255501D2 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,192 +119,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the second step of the Cortina Systems CS75xx ("Goldengate G2")
-/ Securifi Almond+ support. It applies on top of the platform series
-"ARM: Add support for Cortina Systems CS75xx and Securifi Almond+"
-v4 [1] and adds:
+Use a flexible array member to replace kzalloc + kcalloc with a single
+kzalloc.
 
-  - a driver for the per-CPU private watchdog of the ARM11 MPCore,
-    Cortex-A5 and Cortex-A9 ("arm,cortex-a9-twd-wdt"),
-  - the peripheral interrupt controller that combines the interrupts of
-    the low speed peripherals into one GIC interrupt,
-  - the GPIO banks,
-  - the I2C controller,
-  - the device tree nodes, including the reset button of the Almond+,
-    and the multi_v7_defconfig and MAINTAINERS updates.
+Shuffled some code around as __counted_by requires the counting variable
+to be assigned before any array access.
 
-As in the first series there is no public documentation; register
-layouts come from the GPL vendor kernels (2.6.36 for the Almond+, 4.9
-for the Verizon FiOS G1100 with the same SoC) and were checked on the
-board with the out-of-tree OpenWrt port these drivers are based on.
-
-The patches go to different trees and only depend on each other through
-the device tree: the irqchip (1-2), GPIO (3-4), I2C (5-6) and watchdog
-(7) patches can be picked up independently, the dts, defconfig and
-MAINTAINERS patches (8-11) need the platform series.
-
-TWD watchdog:
-
-The binding "arm,cortex-a9-twd-wdt" (watchdog/arm,twd-wdt.yaml) exists
-and several dtsi files use it, but there has been no driver since
-mpcore_wdt was deleted in v3.11 ("watchdog: delete mpcore_wdt driver").
-The reasons given then were that the watchdog is banked per CPU while
-the driver only programmed the CPU that happened to run the ioctl, that
-it used request_irq() for a per-CPU interrupt, and that it had no users.
-
-This driver does not use the interrupt at all (the watchdog runs in
-reset mode) and programs, pings and stops the watchdogs of all online
-CPUs with on_each_cpu() under cpus_read_lock(). A CPU hotplug state
-arms the watchdog of a CPU coming online while the device is active and
-stops it on a CPU going offline, since an offline CPU cannot ping it.
-A watchdog found running at probe time on any CPU is reported as
-WDOG_HW_RUNNING and reprogrammed with the driver's timeout without
-being stopped; the reset flag sets WDIOF_CARDRESET.
-
-On the Almond+ the stock U-Boot arms the watchdog and the board resets
-after ~300 s unless it is serviced. With this driver the watchdog core
-pings it until userspace takes over.
-
-The driver also registers a restart handler: the CPU that restarts the
-system lets its own watchdog expire right away. The platform series has
-no other way to restart the CS75xx, so without it "reboot" hangs.
-
-Interrupt controller:
-
-A status register shows the level of 15 sources and an enable register
-masks them; the sources are acknowledged in the peripherals. The driver
-uses a generic chip on a linear domain and a chained handler. There is
-a second status/enable pair right behind it whose purpose I do not know;
-it is not described.
-
-GPIO and pin muxing:
-
-Each pin is either a GPIO line or belongs to a peripheral (NAND,
-Ethernet, UART, I2C, PCIe reset, ...). The choice is made per pin in one
-GPIO_MUX register per bank, and these registers live in the global
-control block at 0xf0000000, which also holds the boot straps, the
-clock and PLL settings, peripheral resets and the other pin mux
-registers.
-
-In this version the GPIO node gets its bank's GPIO_MUX register as a
-second reg entry. A line is switched to GPIO when it is requested as a
-GPIO or as an interrupt and switched back to the setting found at probe
-time when it is released. This keeps the driver self-contained, but it
-means that requesting a line that is in use by a peripheral silently
-takes the pin away from it; on this board exporting all lines through
-sysfs hangs it (NAND and Ethernet pins lose their function). Boards can
-list such lines in gpio-reserved-ranges.
-
-I think the proper model is a pin controller for the global control
-block: the block becomes a syscon (it is also needed by the clock driver
-that will replace the fixed-clock), a pinctrl driver on top of it
-describes the pins, the GPIO function and the peripheral groups, the
-GPIO nodes get gpio-ranges and the GPIO driver uses
-gpiochip_generic_request()/gpiochip_generic_free(). Pinmux ownership
-then refuses GPIO requests for pins claimed by a peripheral's pinctrl
-state. The remaining pin mux registers of the block are only partially
-understood, which is why I did not start with that. Would you accept
-the GPIO driver in this form first, with the pinctrl conversion (and a
-binding change to gpio-ranges) later, or should the pin controller come
-first?
-
-I2C:
-
-The controller transfers one byte per command with an OpenCores-like
-command register. The driver supports plain I2C and emulated SMBus
-without quick commands (every message carries at least one data byte)
-and without 10-bit addresses.
-
-Testing:
-
-Tested on a Securifi Almond+ with next-20260929 plus series 1 v4 and
-this series, both CPUs online. The watchdog found the TWD armed by the boot
-loader on both CPUs and took it over ("running on CPU0-1, taking
-over"); pinged for 60 s from userspace and then left alone, it reset
-the board when timeleft reached zero. The I2C and GPIO interrupts are
-delivered through the new peripheral interrupt controller; the reset
-button (GPIO 37) is claimed by gpio-keys as an active-low input and
-reports KEY_RESTART; an I2C read of the touch controller at 0x48 is
-ACKed and an empty address returns -ENXIO without timeouts. reboot(2)
-issued from CPU1 restarted the board through the restart handler.
-The same drivers also run in an OpenWrt image on Linux 6.18 booted from
-NAND through the stock U-Boot, where the SX8650 touchscreen uses a
-level-triggered GPIO interrupt.
-
-Build tested with multi_v7_defconfig (GCC 14 and Clang 21, W=1),
-dt_binding_check and dtbs_check. Not tested: CPU hotplug of the
-watchdog (the platform has no cpu_die yet), repeated START between
-messages on I2C (only single-message transfers were run), GPIO
-interrupts with real edges.
-
-Open questions:
-
-1. GPIO muxing, see above.
-2. The TWD watchdog binding marks clocks as optional, the driver
-   requires them (the rate is needed to compute the timeout). Should
-   the binding be tightened, or should the driver fall back to
-   something when there is no clock?
-3. Is a separate MAINTAINERS entry for the TWD watchdog driver the
-   right thing, or should it be listed under the watchdog subsystem?
-
-[1] https://lore.kernel.org/all/20261012-b4-cs75xx-v4-0-df250d903682@gmail.com/
-
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
-Fil Dunsky (11):
-      dt-bindings: interrupt-controller: Add Cortina Systems CS7542 peripheral interrupt controller
-      irqchip: Add Cortina Systems CS75xx peripheral interrupt controller
-      dt-bindings: gpio: Add Cortina Systems CS7542 GPIO controller
-      gpio: Add Cortina Systems CS75xx GPIO driver
-      dt-bindings: i2c: Add Cortina Systems CS7542 I2C controller
-      i2c: Add Cortina Systems CS75xx I2C controller driver
-      watchdog: Add ARM TWD (MPCore private) watchdog driver
-      ARM: dts: cortina: cs7542: Add interrupt controller, GPIO and I2C
-      ARM: dts: cortina: almondplus: Add reset button and enable I2C
-      ARM: multi_v7_defconfig: Enable Cortina Systems CS75xx GPIO, I2C and TWD watchdog
-      MAINTAINERS: Add Cortina Systems CS75xx interrupt controller, GPIO and I2C
+ v3: remove of_device_get_match_data message as it's now stale
+ v2: add back NULL check
+ drivers/phy/mediatek/phy-mtk-tphy.c | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
 
- .../bindings/gpio/cortina,cs7542-gpio.yaml         |  68 ++++
- .../bindings/i2c/cortina,cs7542-i2c.yaml           |  56 +++
- .../interrupt-controller/cortina,cs7542-intc.yaml  |  57 +++
- MAINTAINERS                                        |  12 +
- .../dts/cortina/cs7542-securifi-almondplus.dts     |  19 +
- arch/arm/boot/dts/cortina/cs7542.dtsi              |  75 ++++
- arch/arm/configs/multi_v7_defconfig                |   3 +
- drivers/gpio/Kconfig                               |  12 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-cs75xx.c                         | 332 ++++++++++++++++++
- drivers/i2c/busses/Kconfig                         |  11 +
- drivers/i2c/busses/Makefile                        |   1 +
- drivers/i2c/busses/i2c-cs75xx.c                    | 354 +++++++++++++++++++
- drivers/irqchip/Kconfig                            |  12 +
- drivers/irqchip/Makefile                           |   1 +
- drivers/irqchip/irq-cs75xx.c                       | 103 ++++++
- drivers/watchdog/Kconfig                           |  15 +
- drivers/watchdog/Makefile                          |   1 +
- drivers/watchdog/arm_twd_wdt.c                     | 387 +++++++++++++++++++++
- 19 files changed, 1520 insertions(+)
----
-base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
-change-id: 20261012-b4-cs75xx-s2-5f548492f51e
-prerequisite-message-id: <20261012-b4-cs75xx-v4-0-df250d903682@gmail.com>
-prerequisite-patch-id: 104c6fb668f30ac8c2c5b3b6c524c18caa8808c4
-prerequisite-patch-id: e7d503348cbec7558cd084162133f8e34df1c1bc
-prerequisite-patch-id: 1d5770db02b983d012f6c58806fbf3f5291a06c9
-prerequisite-patch-id: c2815f506d2df1c84cd50111220b938a41d29050
-prerequisite-patch-id: 6c0137d52f201d8ec085ee6cc7b2d49af15583d8
-prerequisite-patch-id: 24e110f3c8c008deffdda079bdc27db729b5014d
-prerequisite-patch-id: cb09693a5d51be6b24bdf66e112b9dd40fc25dbe
-prerequisite-patch-id: 15c11a668a1a281649fa0713371e7f07ee44917e
-prerequisite-patch-id: 9b4a468b7b74861017ef533ba0a5574bc14b212e
-prerequisite-patch-id: 1f232c94dd3fc0d862203b7c0c1449e6ba9a6859
-
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
-
+diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
+index acf506529507..e9b9e667b319 100644
+--- a/drivers/phy/mediatek/phy-mtk-tphy.c
++++ b/drivers/phy/mediatek/phy-mtk-tphy.c
+@@ -340,10 +340,10 @@ struct mtk_tphy {
+ 	struct device *dev;
+ 	void __iomem *sif_base;	/* only shared sif */
+ 	const struct mtk_phy_pdata *pdata;
+-	struct mtk_phy_instance **phys;
+-	int nphys;
+ 	int src_ref_clk; /* MHZ, reference clock for slew rate calibrate */
+ 	int src_coef; /* coefficient for slew rate calibrate */
++	int nphys;
++	struct mtk_phy_instance *phys[] __counted_by(nphys);
+ };
+ 
+ #if IS_ENABLED(CONFIG_DEBUG_FS)
+@@ -1572,22 +1572,19 @@ static int mtk_tphy_probe(struct platform_device *pdev)
+ 	struct mtk_tphy *tphy;
+ 	struct resource res;
+ 	int port, ret;
++	size_t nphys;
+ 
+-	tphy = devm_kzalloc(dev, sizeof(*tphy), GFP_KERNEL);
++	nphys = of_get_child_count(np);
++	tphy = devm_kzalloc(dev, struct_size(tphy, phys, nphys), GFP_KERNEL);
+ 	if (!tphy)
+ 		return -ENOMEM;
+ 
++	tphy->nphys = nphys;
++	tphy->dev = dev;
+ 	tphy->pdata = of_device_get_match_data(dev);
+ 	if (!tphy->pdata)
+ 		return -EINVAL;
+ 
+-	tphy->nphys = of_get_child_count(np);
+-	tphy->phys = devm_kcalloc(dev, tphy->nphys,
+-				       sizeof(*tphy->phys), GFP_KERNEL);
+-	if (!tphy->phys)
+-		return -ENOMEM;
+-
+-	tphy->dev = dev;
+ 	platform_set_drvdata(pdev, tphy);
+ 
+ 	sif_res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-- 
+2.56.0
 
 
