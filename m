@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38977CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666A3CA9ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 16:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnsoT4LwxhHpK10iwpPqoGgddfrAn6nLMP11jJmhq0Y=; b=B7riQ3gvBqudBsLO5B7ylJQ/qX
-	ppZPkE7KUbb8cRo/iivulN0Tlw7DU/xM15XkXtXiJHrisT7vCMXbaE8Y2TlDSm/JfrJ3WU8SoC3fX
-	PLBEnibhG7yYpg5YKMPWPcBplHgFNj1m+v+xR1FOM3T9Vb0FffQ2zXHKkiHp/OIP6cin/xbCPONd2
-	9rNWla7QIaPYO4DlMLD3sg8rIsee/4JroTSLNNQy7XgaNSCB4/ojPXtEefFQGZtd53tV97AYJwycE
-	p6E7uaLleotPFib+CM0poU/egyd+IYSaEZVryDx3/14xyWfzL5GLSYXc/G5IGOU5kL68J80rDYF+Z
-	XhIhWaRg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wX2YvpH7DdQdsajdJe3TNhQ1nhuMxlfbSIyqkAE8Z7E=; b=3p9CSMC9iDtA3jGYjMvVoMAOkb
+	4TkaW4b/IZWW5tJ5TJaxsbWzvEPNA5M6H0iYMSgYKscUH4vfwo6zFc4lRsU53gAe+RYOg2nkYLZ2C
+	kZkYNBiPtcKLEPHqNMacRMVpnNEstb5a/E4rdBQd1CbyuwJJGu0Zi1+RR/IUxJiTYy37v3p7HH5iF
+	fXGiNyqP+KDBn5ioBGHrUfqNi7wjlvTk4XfEzGID33DkrQMa3dPJrqoJGbBKyJgK7tXtCDdV9Oz2r
+	UeR7cOWrc+nDTUdGS1DTC2SVeK5BFXmxjtCh0VNegPfvPxkoVn4T4jFjMj4HDP3phHKMVETASijRi
+	10/y8lZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ7e-0000000AzsT-3opf;
-	Mon, 12 Oct 2026 16:43:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGJ7b-0000000Azrf-09Iw
+	id 1xGJ7m-0000000Azue-057r;
+	Mon, 12 Oct 2026 16:43:42 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGJ7g-0000000Azsr-0wwz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 16:43:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0459169E;
-	Mon, 12 Oct 2026 09:43:25 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 079303F673;
-	Mon, 12 Oct 2026 09:43:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791823409; bh=YwbP5Ioi7QwUqGx5taKPNQkBBbrznqq1ofQNaKTuS/E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Rio1seCHQBt4Te7t4RhbcNCHJ3d+n/oUIqVJElm8wqt2Vu7MiE+o9C4rVwFuckg+D
-	 BhxZfbmrGe8wWr/Kb7BqThw/hD3gmUijMMWXIvmLshUbS1gkBYkXb40rlvFMlU7d7C
-	 EZswfpLt+Gm7//g8HwbvUncdkQBNVLef5HioVugQ=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: ben.horgan@arm.com,
-	Sasha Levin <sashal@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	andre.przywara@arm.com,
-	bot@kernelci.org,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	justinstitt@google.com,
+	Mon, 12 Oct 2026 16:43:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791823416; x=1823359416;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=cv0YOCl67A2bSUYRl7ofUt87v7F05LKG20xnzj4vBDQ=;
+  b=etABn+zreZG82UHdUj8viJwI/aaDxUxVPVJd+dLJ/Fr8E+g4OJwgSD5h
+   TmhICwW/DQCRrSplgmrYJ5jcJHj1gJ+9N65bzndrGS1NhAlHndYC5UQLl
+   3IalA/cPhpxum/xUwz4NNzUStVDGhlBZBaYOrWVOGBaLduqslZvvkv0x3
+   Lq/VmhPZKx+NhCjyOEBszRchxW4vVe19+Q+afDuOzriYE8L0rkSH+pn1w
+   2KaaBp3uCDSdqz1s6HHuFxIxqmk2sbq79MaOne/1nB6/jV5U5qdM8xi5D
+   Bqr26L0bvEYqLaaxFXZOF4TFF8YEqSbeypdl2UqN+FBDLIUN0UI2MF4uv
+   g==;
+X-CSE-ConnectionGUID: lCsQL7uER3qe14uzIyLOtA==
+X-CSE-MsgGUID: OmYrY7gAR5egU8sDyWBsAA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="410050"
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="410050"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:35 -0700
+X-CSE-ConnectionGUID: xpmaf2bASx++l5FWpus8sw==
+X-CSE-MsgGUID: r/lN0FUZQY2Znx5r3hSaZQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,154,1787036400"; 
+   d="scan'208";a="1004908"
+Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 09:43:33 -0700
+From: Dawid Glazik <dawid.glazik@linux.intel.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	morbo@google.com,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	reinette.chatre@intel.com
-Subject: Re: [PATCH v2] arm_mpam: make the mon_sel guard conditional only
-Date: Mon, 12 Oct 2026 17:43:19 +0100
-Message-ID: <179182339913.870867.13095111660955040727.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261009163235.3-1-sashal@kernel.org>
-References: <20261009163235.3-1-sashal@kernel.org>
+	dawid.glazik@linux.intel.com,
+	maciej.lawniczak@intel.com
+Subject: [PATCH v2 0/3] arm: dts: aspeed: add Intel AVCRP and JNCRP BMC platforms
+Date: Mon, 12 Oct 2026 19:39:04 +0200
+Message-ID: <cover.1791825961.git.dawid.glazik@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_094332_466471_6A951799 
-X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-CacheID: sfid-20261012_094336_320787_556B69AE 
+X-CRM114-Status: UNSURE (   9.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,18 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 Oct 2026 12:32:35 -0400, Sasha Levin wrote:
-> Building arm64 allmodconfig with clang fails:
-> 
->   drivers/resctrl/mpam_internal.h:207:7: error: ignoring return value
->   of function declared with 'warn_unused_result' attribute
->   [-Werror,-Wunused-result]
->     207 |              mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
-> 
-> [...]
+This series adds initial upstream support for the Intel AVCRP and JNCRP
+BMC platforms based on the ASPEED AST2600.
 
-Applied to arm64 (for-next/mpam), thanks!
+The first two patches extend the ASPEED board binding to describe the new
+Intel platform compatibles. The remaining patches add the corresponding
+board DTS files and register them in the ASPEED DTB build list.
 
-[1/1] arm_mpam: make the mon_sel guard conditional only
-      https://git.kernel.org/arm64/c/8ea457f746d9
+Dawid Glazik (3):
+  dt-bindings: arm: aspeed: Add Intel AVCRP and JNCRP boards
+  ARM: dts: aspeed: add Intel AVCRP BMC
+  ARM: dts: aspeed: add Intel JNCRP BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |   2 +
+ arch/arm/boot/dts/aspeed/Makefile             |   2 +
+ .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 315 ++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 258 ++++++++++++++
+ 4 files changed, 577 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
+
+
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+prerequisite-patch-id: 3af4bd880f896c97741b54ee18845b305a4bd061
+prerequisite-patch-id: 23091b539ec7723a865d82da7703bf70c6ed0222
+prerequisite-patch-id: ac42a7a373fdc407f6377d0b1c74d728af50ba42
+-- 
+2.43.0
+
 
