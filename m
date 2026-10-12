@@ -4,57 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C30FCA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBDECA9ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 10:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pOOHCwPYM2BW6pFsz1VPyDKQK/ppxdFhtSXZN1wVsc=; b=JJuhvlFIvW/AKY+pzUW41Horcc
-	4O+DKvpOINswxCo4hp1FcTHhL9PyFUrbuWhYgo58yb3y2oAhrNqdPoe5BHIj1W49JvQCe5vO8Hxst
-	AYiPocwUOjJ/69Y6ZG8PnT/eOpYJHXsBhp18fBl0sB3UEQRruyjWukBx9aLSyu0WpJL2xWvRwCa/0
-	nHzTc/dJpuNa9LJcLT2oUt6pV25wqJkKkyRMwF9YfZcZZ54KxF0hTu/av01XFUquAXlrzFdAzhwNd
-	xqaLUURGgYmbpjLShIQW3v0IvAqStVYcqFUiIS/vwz5CUshssJ6GZtEIgSWMWqfTweR+/N3sdH/96
-	AcreUWYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=; b=1TSwQGhG9zi+V0AzRxvFo1Om13
+	KY3PEKrLROcx7UDHaklNZfLbrav7KzE5tdkPApRgWvZMwqEZPdHxgy0lKkdq9pz23kzdoRVObChdV
+	y5QHduH6WbY8EIG5TTEmQIUUauf5UYK/FUCWEzC/SZURsD4LsnJpQAOdtr6QLXwWSGPDD3GqKSYjj
+	Gzhh/1Sz0HKoNWV/NcDlkVyrd2IK70vgR+3K82a96ghOTzAnq1utd3BBTIo10XyRJXbA8L7fbwq2e
+	WFM0gUBvgUf9aYZ7S1ipQd1SYVu/C3fKgkaP/pyUPgKXV0/oRT/m/xv04waPGU9LGNZ657oZnvz9O
+	Y9Pi5DMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCur-0000000A9nl-24sS;
-	Mon, 12 Oct 2026 10:05:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGCvK-0000000A9t2-3WK7;
+	Mon, 12 Oct 2026 10:06:26 +0000
+Received: from mail-norwayeastazon11013055.outbound.protection.outlook.com ([40.107.159.55] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGCup-0000000A9nb-1lYZ;
-	Mon, 12 Oct 2026 10:05:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF00060213;
-	Mon, 12 Oct 2026 10:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F26EA1F0089B;
-	Mon, 12 Oct 2026 10:05:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791799554;
-	bh=9pOOHCwPYM2BW6pFsz1VPyDKQK/ppxdFhtSXZN1wVsc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cYWk47xs5RcH0WdPcyffx7nRb+ajPrkjs6zI9A3RWdvCk2xK0T9k+8Yw+fgWZyH/W
-	 sGufyZ08PberHcU1pKmCqFnBnafpo2J8dK8+kiI4adlCSM7TEnr+QRHiNaBSweXrYC
-	 L/wC9BMa3I75WVWCAxGZfwGz2o7z4Yucym2l4osGe+tD/iGF/5OyAK/TqPgrgUpAG2
-	 O2TOEmJGbmjlrcq5J6Sr74Y8EGl7HlDxHPGMxaYz5qOYp8Uiv37/3Wyvz/SetaFk4i
-	 Kuy8xX3cv/rWgQJWEIVzJZkMVorrmBNNfDHBGbOzfmBzyUSCo97WRCPPfT+QHl4MuH
-	 stuaZOqA5s66w==
-Subject: Re: [PATCH net] net: airoha: keep PPE offload when NPU refuses flow stats
-From: netdev-bot+sashiko@kernel.org
-To: sayantann11@gmail.com
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, andrew+netdev@lunn.ch,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- bread.hsu@airoha.com, sayantan.nandy@airoha.com, kuba@kernel.org
-Date: Mon, 12 Oct 2026 10:05:53 +0000
-Message-ID: <179179955348.434549.1772581551578097881@kernel.org>
-In-Reply-To: <20261008094828.15458-1-sayantann11@gmail.com>
-References: <20261008094828.15458-1-sayantann11@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
+	id 1xGCvI-0000000A9sV-1LwR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Oct 2026 10:06:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oLGIYc8LKLIF0v3CyKkoaxhPJB7enbCpUKzJ4w3qpv/0g30I2J30CCBTg9t5Nfx+sXvVc91daMLda+MrFGTssuMOc9bINOAW4H6oD2fwy/PPY+psE3/lRZaxAJ0AcI6AZddcpx/DwohJRu/pSYiaFbSToH0r+RWQIi6QzNxkz6QdkIFNsjQPbnqW03dpJMY6kicrGmUqxD98QsdSPphoQqPUsTXpoy3GGLnEKB6SZ3aDy9hS5ouvtseUR4FmzTei7wkea1tzNoO3eSZXULGj38Nj3mCydBHFxgrSvtYcQzo4wVzKsmDz0lqfcfXEAsQR/ylB+xoNJlRhx508Ca1EZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=;
+ b=rTNj0TWKoMG4Y4Ze41YwszgnKO/1wAdML9hMcU70gF39WCMaQVdcO36bD+sEAy0MeojdGfOj8OT+W77VPJChXC8xsdB3fgUy//7Q7xa+GLsshQjscVfDLv6aeY0XMiKBg9V5fbcd400A31pNo8EZuYSYuozWI8z8/PMdZYudgbT/71PGYDXMOcPWfv6jfPlGuJvPqfXGrApwE9x/KWCCoNbGn31NX0d/EnarAMM/Y92FtqJ00Z42njJEnlMeu6EPL54E2VE+6n8rVITulzVCv35IjnBNJL1JBQFyFrMCBW2yQY96aULSvjFPKoduV9mgljkQ1giEoUWm/FnfD1GjeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Sok95GciyzUvGBtrlehOqwsOaqRKAHTLKsgerOv8MWY=;
+ b=w1DZykypTunsxpZPX+7z5dL3bJGLNIOiyFewYm+JiJWJpSdDVuxYCRDRXRl6r4DoVcofeXAHF3QSyvreBJDJOU7ugOTkYHVZMuBeoymdcb/3HFz8VgJM2rEUPFB7LyziqT3FrNzY951RxuwlfwZ48NfPvbeJ+JE25Qm1vOLhmd+ehs7xu6D7t9FDnqxu9zKP52PHrswj1a2wSsDTvk9RNT5j3bCx0qMacUL3GMq41jYJPNeMhCI5XD+KyytcgTCYx3vRcI3tC06v0vmmk2/Wjg71p7SmSkFrg99f5cRaPYlYrnDWdZbETv8IJdjsRN2J0kHJ1tM72Yib0sBED2g/oA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by DBAPR04MB7317.eurprd04.prod.outlook.com (2603:10a6:10:1b3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.21; Mon, 12 Oct
+ 2026 10:06:18 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0496.020; Mon, 12 Oct 2026
+ 10:06:18 +0000
+Date: Mon, 12 Oct 2026 18:10:52 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v6 09/13] gpio: mxc: use cleanup guard for
+ pm_runtime_get_noresume() balance
+Message-ID: <asyyLJ3nOUxJ8TKq@shlinux89>
+References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
+ <20261011-gpio-mxc-cleanup-v6-9-cb47ce2ad758@nxp.com>
+ <CAHp75VcktnQVpqLADs5AccUj6U7KLjAatPaSzMX8SXDrbbs6Ng@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHp75VcktnQVpqLADs5AccUj6U7KLjAatPaSzMX8SXDrbbs6Ng@mail.gmail.com>
+X-ClientProxiedBy: MA5P287CA0024.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:179::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DBAPR04MB7317:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9cd57fad-be64-43e5-dfa1-08df2848752c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|19092799006|11063799006|56012099006|4143699003|261009221227099003|261009223027099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: LCWp5LIRuRkhoqSDDiDTrmBcX/VQY+xsK1LLHqqYBZrZF5BVgw7EXsL2lQmQ8cMak3bRftAT89BloGLalmklRP/XwY/lceiJqn4DXu7jjHrXWXIqmE9r1uUkVC+yq+g0xy1uft2u/3xeiuwbS+465yv9DhvOZziobXjKXxoDLNmQ9a4pi9DhQpC3xSBjJD0hMZk4Nej39i3IbRchLPYe8WwKDTRv0eKw9kLalBlRJz0R2dnLH4UcYk6mWRjw15l/ap7yBW8uiCbXc/k5ub70UZRfFHV9xnb34P0/G2zvnT7LLh0LF3ewlRp4a/hP9GIsTu7KptewFpv5/OKRItuQaI1SGBGEzBzRmHuNz0xr4MC0Rp0PsdIX5APzdOo7BdZEi1wDSB//dxhnYcV95sOVPGAatK50Eor4o3SJ5ieMz1iGwWFE4vGo5viJld5T4L7AXrtkE+aeqRcB8fW00r+WNrW2jcWB9VDNtL0mQhMlfEtF2Ob84pLmzTmZqho1IMEFs8eqtw6Gd6nZyk2BAdRipQe/jOD967e2t4X4TCJTrXeWj1X5hRRGuD3KTNs8znMWnvUR6YLd5a8InV25gvLF/Y7Tq6c3iNZjjW8bUpc0f715Q/d0bDQrEYJVCsXuoKxUiM2Uu54Y2kR7EZedbpC0QyXJuOtfxm1wWZmU42TUBQY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(19092799006)(11063799006)(56012099006)(4143699003)(261009221227099003)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWZ1SEpTZDlUOVJEcWR3UEVYb1hhcUd1OU90L2dXRkdyUk5WN29YRE9PSCsw?=
+ =?utf-8?B?WXlqSVM2VzN2dGlzWGhlK1Jxck5Vbks0amh2OFFYWk9ablg3OElzbEEzNHJS?=
+ =?utf-8?B?YnI4eFJjY3VRMjN4MXVHaVcrWnZaVGFMeXRFT2lmMXB5VUF3VUZIN1dEam44?=
+ =?utf-8?B?TUgrMGdRVnBkUU9haGl3emFzY2l4V0hicWhFYnRKYVdocVdHcktuNi9FOFZ6?=
+ =?utf-8?B?TnZqemkvVlltV1RFc3NCdXd3cGRVMnFFQkdVcmNIcnpDWE9ucnFNSjFPTTlH?=
+ =?utf-8?B?U3dsTWcwOTZHaWI2VVEralQ0eVZXSmVlMlZ3TEhHcmNpL0tuWkVHNjRxWUJs?=
+ =?utf-8?B?OE1GNEF5UnM4Rmh0Y3V6MDgzWjBjTmxFV1k5SzRpNmMzZmpIank2bHQ0N2Ns?=
+ =?utf-8?B?SDV6aW5PdWRMWSszclBMV0ZlRGRyK3hWYU9DR3oxbXBSeHg5eE1yTHc2QmxF?=
+ =?utf-8?B?RFAxK05wYTZ5UjNJUCt4RTVyMVkzeWpTeldXM2FacStFWmVRLzdTQk9VZXMx?=
+ =?utf-8?B?WE01SUdVdlAwblBySW9heUNQNFo4N3FnS25ZazdlcXBqQkhzeHZFQkJwblpu?=
+ =?utf-8?B?UkRkQks0R1pQSUwwWVh2c2U1dlo4WkpVT1JLRm4zc25pVTU0WlVOWGltcXho?=
+ =?utf-8?B?TzE2enM4ZjczNnFIUXR3U1pXK1hYUVgzK1JEcFFudkhqMWV6WlFYUy9tem9I?=
+ =?utf-8?B?endjZlA1QXEzT3lMY3JrWlBsKytNSFVTUWluMWZoN0JCZUx1VWZIemJrV0d6?=
+ =?utf-8?B?U1lEYnB3c0pGWmF2M200MlRWY3dTcStIb1FBdEFJMkRQNHJoVmlVUkpvd05l?=
+ =?utf-8?B?V05oeGJ2YXFoWWZJK2FxM01MVDQ4MzQwRzgvckJHSC9PbHBwajF2UTJCR2VR?=
+ =?utf-8?B?N1hDNFRCcDdBdVJKOTVTUUU0SWR5aWZsVUVwTmh5U25qd3pHRjlHRjJlcnF5?=
+ =?utf-8?B?cFRwM1lVbFJVcnRseWkzOVdrN3JUNGwwVCt5cTFONTRGcHBiZUw1K21oaDAv?=
+ =?utf-8?B?YTYrTjc0K0pWTG9iSFlHL3pEN0lPY1V6TStPOE96dnpjTGtKcHg1dUxCVVRU?=
+ =?utf-8?B?MGZIRG03YW1wMW4ycUtHRnVlZGJxbkppRmlnaHhDTmVJQnBmRjJIek5oVVp1?=
+ =?utf-8?B?dThDS3Q5QnArNzZKSzBmNm1TVk5MbGg2UlRqR01aUEVkOWd4a2paczhBOStG?=
+ =?utf-8?B?TU1nNTErbGszLzlncFNuS2xrZ2tSV0tocXFiMk1RalpZWGJMY2hSY0YvQ0J3?=
+ =?utf-8?B?MzFQT3hvRUUraUsvdWNyWFlYUDh4bjlaSmF5Y2xEaWNuRHd5N1ZWSW1veG9Y?=
+ =?utf-8?B?cXRaV0U2dzhXdmhrNGt1SGZNUS9BRnY0Rm5tZTRHNmkzZUpkM0VUV3hXbzh5?=
+ =?utf-8?B?NXdyMjBSVzlNRDJIc0ttZklZM1VITk04Y1AvS0JISXhXa241TUJLUGpvZ3Mw?=
+ =?utf-8?B?ZExnT3g2TTFNWHVGNDVTM1N1anI4YzA5UlZnR2lvTDlhOW44My9EeHJVNDEv?=
+ =?utf-8?B?eGJKYUFYM0ZacXJlK0h0VWtscVJ5MnNnNnNTUzFEamo2R1JRS3BSdndLTEp1?=
+ =?utf-8?B?bVpZSGxPelhvOGRvYmtTaTNpREFQYzBPV2swQ2l4UXJyQ3pyWEQ1TXhQdUov?=
+ =?utf-8?B?R2ZIWXZuVXQ3OHN4bGo5YmM3Zk4wNFNyZmdSdWFuQ3BSZzJ6RGFNQmo2dlhW?=
+ =?utf-8?B?VmxrNWp0V3Q3VlhxUEIxVUQwNGY1L2ZSYnYrbCtxRGpabEtJL3d0U1hyZlg5?=
+ =?utf-8?B?Tjg0c3I4V08zeC8zK1VXQ0lYQ2wwcUJNdk1Bd0szeXpLZTJNaFcvdnU4YW51?=
+ =?utf-8?B?bjlzUktuSktrR0V6Qy92T0tsdzYvWkhTL0VMN3k4RGgvLzd1TGI4ajVZd2Qy?=
+ =?utf-8?B?ZDhHTnU4dU1XajBkSFpsTmhJNHY5M0JUbzZYM0tqb1pwSXBDK1lYanpidnJS?=
+ =?utf-8?B?TE0vOWc2L1UycUUvN2k5NElKZS9tSDRVL0ZkczN4Vnk5T2pabFF3eWlJaHlW?=
+ =?utf-8?B?M3ovS1h2emFaTnJrTm9Mdi9iMXAxUmVSTnVnRzlNaktHU0kzU1hQTnc2SXVv?=
+ =?utf-8?B?OHprd3J5eGxoMDVzcDBTcjFZcisrYjJKRUZ0VTNzQXRqUnhsRmlIRkx5K3FQ?=
+ =?utf-8?B?eUlRR3pxNWlQamM1aVF5SEErblozSVUrSzYwTzU5MlJLb1VNOWNyakl4Ykl5?=
+ =?utf-8?B?WXowK3luSmRsd3lPVjlncWxWTnJyL05yOHVSZnpHZktESDhkbnJ1Z0RJemJp?=
+ =?utf-8?B?blYvUnY4bmxiR2ovbE90RGlpMUFadTN6OHYyZ29ickhmRmZIYjV3T1ZNa1hX?=
+ =?utf-8?B?WU9DMENCM3QxQ3hEeGhZL2oxZ2hmMFZxK2tLK0w2amtSdlllNmVERUUzOGRK?=
+ =?utf-8?Q?ACqOLjrM3UMdzTdfuGlRNrg2FnlhX2I1n6hpU?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cd57fad-be64-43e5-dfa1-08df2848752c
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2026 10:06:18.1586
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Aj6ESxe7C5yxxwWyKDIkoOtcPLKgIZjG8o5QkrfdGS3DrKc5Ff3WiX6Cl4dqB+l10x2PwUOB4XhVdsEFlMjpRHZUzXSbBA1bgV2X6NEItF5+jFa3JlLKhll/8W5Giyof
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7317
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_030624_362831_70215519 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,210 +155,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Mon, Oct 12, 2026 at 12:38:37PM +0300, Andy Shevchenko wrote:
+>On Sun, Oct 11, 2026 at 2:54 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+>>
+>> pm_runtime_get_noresume() in probe must be balanced by
+>> pm_runtime_put_noidle() on error paths, or pm_runtime_put_autosuspend()
+>> on success. devm_pm_runtime_get_noresume() cannot be used here because
+>> its devres action (pm_runtime_put_noidle()) would fire on unbind in
+>> addition to the success-path pm_runtime_put_autosuspend(), causing a
+>> usage counter underflow.
+>>
+>> Use a __free guard to automatically call pm_runtime_put_noidle() on
+>> error paths, and disarm it with no_free_ptr() before the success-path
+>> pm_runtime_put_autosuspend().
+>
+>...
+>
+>> +DEFINE_FREE(pm_runtime_put_noidle, struct device *, if (_T) pm_runtime_put_noidle(_T))
+>
+>Please, split this to a separate patch and move it directly to pm_runtime.h.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+Frank raised same suggestion in V5.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I tend to avoid introducing cross-subsystem dependency and use a follow-up
+patch to move it to pm_runtime.h
 
-- [High] The patch introduces a NULL-based MMIO dereference race through
-  the new mutable ppe->flow_stats flag.
-- [Medium] The patch makes an undocumented PSE hardware change that is
-  unrelated to the stated fix.
-- [Medium] airoha_ppe_offload_setup() (airoha_ppe.c:1456-1466) treats
-  every non-zero return from npu->ops.ppe_init_stats() as a firmware…
+But since you both vote for pm_runtime.h, let me separate it in V7.
 
---
+Thanks
+Peng
 
-net: airoha: keep PPE offload when NPU refuses flow stats
-
-This patch makes NPU flow statistics optional for PPE offload. A new
-ppe->flow_stats flag records whether flow counters are available. If
-ppe_init_stats() fails, offload setup logs a warning, clears the flag and
-continues instead of aborting. A zero npu_stats_addr returned by the
-firmware is also treated as a refusal (-ENOSPC).
-
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-> index 92611802801ea..fbc200614de3f 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-
-[ ... ]
-
-> @@ -144,6 +141,10 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  	sram_ppe_num_data_entries =
->  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
->  
-> +	if (ppe->flow_stats)
-> +		airoha_fe_rmw(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS,
-> +			      FIELD_PREP(PSE_PORT6_SHARE_DIS, 0));
-
-[Severity: Medium]
-Is this write meant to be part of this patch? It clears
-PSE_PORT6_SHARE_DIS in PSE_FC_CFG, which turns on shared buffer use for
-PSE port 6 (CDM3). The commit message only covers the NPU refusal fallback
-and the zero address check, and it doesn't mention this register.
-
-The write runs on every system where flow stats work, not on the refusal
-path the commit message describes. Port 6 is the port that
-airoha_ppe_foe_flow_stats_update() sends stats-enabled flows to:
-
-	*ib2 |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, 6) |
-		FIELD_PREP(AIROHA_FOE_IB2_NBQ, nbq);
-
-Also, airoha_fe_pse_ports_init() gives that port's queues zero reserved
-pages. If this bit resets to 1, this hunk would be quietly fixing drops
-on the existing flow stats datapath. Should that go in a separate patch,
-with its own reasoning and Fixes tag?
-
-When flow_stats is false, nothing writes the bit, so it stays at whatever
-value reset or firmware left. Is that intended?
-
-In airoha_regs.h, the new defines sit between PSE_FQ_CFG and its field
-mask, and ahead of REG_FE_PSE_BUF_SET (0x0090):
-
- #define PSE_FQ_CFG			0x008c
-+#define PSE_FC_CFG			0x0098
-+#define PSE_PORT6_SHARE_DIS		BIT(22)
- #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
-
-That makes PSE_FQ_LIMIT_MASK look like a field of PSE_FC_CFG, but
-airoha_fe_set_pse_oq_rsv() reads it from PSE_FQ_CFG. Could these defines
-be moved so the register addresses stay in order?
-
-> +
->  	for (i = 0; i < eth->soc->num_ppe; i++) {
->  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
->  			     ppe->foe_dma + sram_tb_size);
-> @@ -1456,10 +1457,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
->  	if (ppe_num_stats_entries > 0) {
->  		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
->  					      ppe_num_stats_entries);
-> -		if (err)
-> -			goto error_npu_put;
-> +		if (err) {
-> +			dev_warn(eth->dev,
-> +				 "NPU firmware refused flow stats setup (%d), offload runs without flow counters\n",
-> +				 err);
-> +			ppe->flow_stats = false;
-> +		}
-
-[Severity: Medium]
-Is every error from ppe_init_stats() really a firmware refusal? Only two
-cases look like refusals: -EINVAL from a mailbox status other than
-NPU_MBOX_SUCCESS, and the new -ENOSPC. But airoha_npu_ppe_stats_setup()
-and airoha_npu_send_msg() can also return:
-
-  - -ENOMEM from the GFP_ATOMIC kzalloc_obj()
-  - an error code from dma_mapping_error()
-  - -ETIMEDOUT from regmap_read_poll_timeout_atomic() if the mailbox
-    never completes
-  - -ENOMEM from devm_ioremap()
-
-Before this patch, these errors made airoha_ppe_offload_setup() fail, and
-the next tc block callback tried again. Now a short-lived allocation
-failure turns off flow counters for the lifetime of the device. A stuck
-NPU mailbox is also reported as "NPU firmware refused flow stats setup".
-
-In the -ENOSPC and devm_ioremap() cases, the firmware has already
-accepted PPE_FUNC_SET_WAIT_FLOW_STATS_SETUP with foe_stats_addr set to
-ppe->foe_stats_dma:
-
-	err = airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-				  sizeof(*ppe_data));
-	if (err)
-		goto out;
-	...
-	npu->stats = devm_ioremap(npu->dev,
-				  ppe_data->stats_info.npu_stats_addr,
-				  size);
-	if (!npu->stats)
-		err = -ENOMEM;
-
-Nothing tells the firmware to stop using stats. Meanwhile,
-airoha_ppe_hw_init() switches to the no-stats layout: it drops the
-PPE_STATS_NUM_ENTRIES SRAM reservation and programs SRAM_TB_NUM_ENTRY
-with the full PPE_SRAM_NUM_ENTRIES. Can the driver and the firmware end
-up disagreeing about whether stats are active?
-
-Would it make sense to fall back to no stats only for the refusal codes,
-and keep failing setup for the other errors?
-
->  	}
-> -
->  	airoha_ppe_hw_init(ppe);
->  	airoha_ppe_foe_flow_stats_reset(ppe, npu);
-
-[Severity: High]
-Can this lead to an MMIO access through a NULL npu->stats in
-airoha_ppe_foe_entry_get_stats()?
-
-Before this patch, a failed ppe_init_stats() aborted setup. So whenever
-eth->npu was published, npu->stats was a valid mapping. Now the rest of
-airoha_ppe_offload_setup() publishes the npu while npu->stats is still
-NULL:
-
-	rcu_assign_pointer(eth->npu, npu);
-	synchronize_rcu();
-
-After that, only the plain ppe->flow_stats bool keeps readers away from
-npu->stats. airoha_ppe_foe_entry_get_stats() checks that bool before it
-enters the RCU section, and afterwards it only checks npu:
-
-	ppe_num_stats_entries = airoha_ppe_get_total_num_stats_entries(ppe);
-	if (ppe_num_stats_entries < 0)
-		return;
-	...
-	rcu_read_lock();
-
-	npu = rcu_dereference(eth->npu);
-	if (npu) {
-		...
-		memcpy_fromio(&npu_stats, &npu->stats[index],
-			      sizeof(*npu->stats));
-
-airoha_ppe_debugfs_foe_show() (ppe/entries and ppe/bind) calls this
-without holding flow_offload_mutex. Those files exist from
-airoha_ppe_init() onwards:
-
-CPU0 (debugfs read)
-airoha_ppe_foe_entry_get_stats()
-  sees flow_stats == true (initial value from airoha_ppe_init())
-  <preempted before rcu_read_lock()>
-
-CPU1
-airoha_ppe_setup_tc_block_cb()
-  airoha_ppe_offload_setup()
-    ppe_init_stats() fails
-    ppe->flow_stats = false
-    rcu_assign_pointer(eth->npu, npu)
-    synchronize_rcu()   <- returns, CPU0 is not in a read section
-
-CPU0
-  rcu_read_lock()
-  npu = rcu_dereference(eth->npu)   <- non-NULL
-  memcpy_fromio(&npu_stats, &npu->stats[index], ...)   <- stats is NULL
-
-There is a similar case on the NAPI path,
-airoha_ppe_foe_commit_entry()->airoha_ppe_foe_flow_stats_update(). It
-reads flow_stats after rcu_dereference(eth->npu), with no dependency
-ordering between the two loads. It then calls memset_io() on
-npu->stats[index] through airoha_ppe_foe_flow_stat_entry_reset(). On
-arm64, can the flow_stats load be reordered against the npu load?
-
-The flow_stats store and loads are plain accesses from different
-contexts, so this also looks like a data race that KCSAN would flag.
-
-Would it be more robust to check npu->stats inside the RCU section, or to
-take flow_offload_mutex on the debugfs path?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261008094828.15458-1-sayantann11%40gmail.com
+>
+>-- 
+>With Best Regards,
+>Andy Shevchenko
+>
+>
 
