@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50491CA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1F0CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Oct 2026 18:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/MEr9TnYRLEADPm5dzJuPJHXku6tQFEe33VUaq9byuA=; b=BGQaY1zIFXs22iUwEzFVV3fL0F
-	WbYLAn0xWUygpAJzDEcZIkcZS3+32VWPgGbMb2tJDB6XtEFe93NteaMT0cPeXsdZ2mOVgwZcV8+Z/
-	mVi573dHZBmBJXXXRCk4550hRNH8UNAP0IbiUJyiro2uBUfY1L09WvCfKpIr41bpu1lHnPsYS8Wyk
-	+0VLAZMFpPqZvPehFjPdXXqE2XLUqY+Gz6RXUHMoy1RGNJv8n7SidvVHlFp/OoPB7ZwN3QZgYAdTn
-	fVyuThbGRjtknq3VOmi7V/7gVZJzQkEYMc1gX1628w1T8Ad6OpN8IXfoS18G75NUC+4uisr0+vc1n
-	qhfOUFQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v7JcOS9mRrHiosrahbddQDMnaSYmC8RhnJcuti4UL30=; b=b1TdE/jg/9bGo6RiZxkz/5fbO5
+	lk+Bb9nOwppUbW6fhwewY8xDyHixEKBhOkLwv+OX1CJAHPLTJT+/126IJggoyZKwAsxjl8vIy6dMy
+	k5uMuRBPq3zT/ySOqnrK0K5x537/UlsiEKIRy1UPLIDDskKVr+riFBc8syEToVxR+3toAGAHqdqU/
+	ZGIdhxGBNvniQlvTCiYJwmqv8cuAId5yS6IajzLL38YIkOkVXhkap7bwVQppV6IRCIcpURbDzrvtU
+	Rd7L/5mUhQ46UV7Ir02jAAzztaMDrDRXCE1CF3WoHDFtQoAY3Qe+rl1/iO8dIZm6K/bsOwLiTVebm
+	fgwwTpNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGL2F-0000000BHSx-42Gy;
-	Mon, 12 Oct 2026 18:46:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGL4T-0000000BHpo-2OWZ;
+	Mon, 12 Oct 2026 18:48:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGL2E-0000000BHRl-1eVA
+	id 1xGL4S-0000000BHpP-02La
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Oct 2026 18:46:07 +0000
+	Mon, 12 Oct 2026 18:48:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3BD16025F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 18:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFC81F008BF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 18:46:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6133B419E8;
+	Mon, 12 Oct 2026 18:48:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940531F008A1;
+	Mon, 12 Oct 2026 18:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791830765;
-	bh=/MEr9TnYRLEADPm5dzJuPJHXku6tQFEe33VUaq9byuA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fhNT1XW5NUlRnPw2Fivx9Ih549qwrcSW7eJTooUp25OG4U85bx6y89U9yu2QZezoY
-	 VYoo4RGdZ6fSJH/oRLNPTdWosFIZecXQLfy/s3P+kr0gaMAqFeFRxOoYDDZSWPIo8r
-	 PMoE4XuJwzcX0Jip3GzH1i69yARx2MqavXPoGexxo6Uffc9PqLsd4/JVyJOx/1BqTH
-	 fxi5he5vJ0kwD+zUpA8Qwdh1Ydjtz0rPtA4GQEUQx2yljoU19u8sKkcNSiWzb42gJL
-	 mpWT8s5HfHE0EKb/II9Ec0U82pY4wU0wLeCLlEZpHuPn47kcbwAb24z9OEwjntz2wU
-	 O6jKN4SiBHveg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bc18f54abbso507789e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 11:46:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx2B3Wi/fJCF97sV4R3k1LyjBSuhPEFhMlXh/DgP8OsQ+cpEw1mMgSLPy2jVz8C5bh8hRxycEgxDYtu/vvYm142@lists.infradead.org
-X-Gm-Message-State: AFq9FYKS95UtjD6N107n/cv1nEddRjMvcN+G1C618ao59j//ONCjsZUV
-	oOioJYSHLs/q9aIT385pj987PpuWv40oDSG4sUFbkAES1Zc6Z5Sq0GHPT8+MEq0sSfpXlwcqmqf
-	OBSrxDRCkpDwKzi+Do9PCOZb4MXkpxxM=
-X-Received: by 2002:a05:6512:3a92:b0:5b8:eb3a:759b with SMTP id
- 2adb3069b0e04-5bcde8bdabdmr3719119e87.42.1791830763879; Mon, 12 Oct 2026
- 11:46:03 -0700 (PDT)
+	s=k20260515; t=1791830903;
+	bh=v7JcOS9mRrHiosrahbddQDMnaSYmC8RhnJcuti4UL30=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iTD15HLXJmnzSHQh1R3/yXxpegiLHAHc8UsCkeN2JxBC23LYmIvckjkhAEs9yFv9T
+	 UeSTYHnpOtVW0B203oNVkfna5csKKJ04HC7F0WS4Xix8xdHKjRAhwkcP/OQ9Urb4F2
+	 kp8jQzo938ibXm66lrQBvXVu4V0gVQUdOC9GrQIW/8mBfTgrsn/6ce1bMceLX31F+H
+	 7Zq/UOGu8hGibZVxB5tTH3OOP61FXO7HxwKu4w9BP/5FcrFbmh81oyz5ZUPOGJRM2L
+	 BL4JQYoWdBNBlcTTKhzLwJ0hjNpGtgOHKfH+8hFB/GqlYnM+H9HZCDGZj+qXcwmSKF
+	 Smm/HBtMGu1gQ==
+Date: Mon, 12 Oct 2026 19:48:17 +0100
+From: Conor Dooley <conor@kernel.org>
+To: filipp.dunsky@gmail.com
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller,
+ GPIO, I2C and TWD watchdog
+Message-ID: <20261012-dreamlike-hazily-19bb60326f0a@spud>
+References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
 MIME-Version: 1.0
-References: <20261009-adma-pm-fix-and-per-channel-reset-v4-0-55f5fe409c55@amd.com>
- <20261009-adma-pm-fix-and-per-channel-reset-v4-2-55f5fe409c55@amd.com>
-In-Reply-To: <20261009-adma-pm-fix-and-per-channel-reset-v4-2-55f5fe409c55@amd.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Mon, 12 Oct 2026 20:44:00 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0iLOJ49Zn_vPbpbqhPQ_F3W5PCpFN1VnxOzoxL7Y4PN+A@mail.gmail.com>
-X-Gm-Features: AclHuK_xrLBr4L5nslTfPR7n5tDlLGvjFUHFyA86wwCkbsTjUQQ1gKk2AD2PTHM
-Message-ID: <CAJZ5v0iLOJ49Zn_vPbpbqhPQ_F3W5PCpFN1VnxOzoxL7Y4PN+A@mail.gmail.com>
-Subject: Re: [PATCH v4 2/6] PM: runtime: Add pm_runtime_if_active guard and
- conditional variant
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
-	Michal Simek <michal.simek@amd.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Kedareswara rao Appana <appana.durga.rao@xilinx.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Tretter <m.tretter@pengutronix.de>, Harini Katakam <harini.katakam@amd.com>, 
-	Shyam Pandey <radhey.shyam.pandey@amd.com>, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, git@amd.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3WAP39xI/QLnZ2cB"
+Content-Disposition: inline
+In-Reply-To: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,101 +82,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 9, 2026 at 6:00=E2=80=AFAM Golla Nagendra <nagendra.golla@amd.c=
-om> wrote:
->
-> Add a pm_runtime_if_active base guard and its _try conditional variant
-> to pm_runtime.h for drivers that need to conditionally acquire a runtime
-> PM reference only when the device is already active.
->
-> The base guard must not be used directly via guard()/scoped_guard()
-> because pm_runtime_get_if_active() only acquires a reference when it
-> returns 1; the destructor unconditionally calls pm_runtime_put(), which
-> would underflow usage_count on a suspended device. The base guard
-> exists solely to back the DEFINE_GUARD_COND _try variant.
->
-> The _try variant (used via PM_RUNTIME_ACQUIRE_IF_ACTIVE) satisfies the
-> _try API contract that guards must not produce an error when runtime PM
-> is disabled for the device. When pm_runtime_get_if_active() returns
-> -EINVAL (runtime PM disabled), the expression calls
-> pm_runtime_get_noresume() to pre-balance the destructor's unconditional
-> pm_runtime_put(), then returns 1 so the guard condition succeeds
-> (bypass). This mirrors the behaviour of pm_runtime_active_try which
-> uses RPM_TRANSPARENT for the same purpose. When the device is genuinely
-> runtime-suspended (return value 0), the guard condition fails and
-> ACQUIRE_ERR returns true, allowing callers such as interrupt handlers to
-> skip MMIO accesses.
->
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+--3WAP39xI/QLnZ2cB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Oct 12, 2026 at 08:32:55PM +0300, Fil Dunsky via B4 Relay wrote:
+> This is the second step of the Cortina Systems CS75xx ("Goldengate G2")
+> / Securifi Almond+ support. It applies on top of the platform series
+> "ARM: Add support for Cortina Systems CS75xx and Securifi Almond+"
+> v4 [1] and adds:
+>=20
+>   - a driver for the per-CPU private watchdog of the ARM11 MPCore,
+>     Cortex-A5 and Cortex-A9 ("arm,cortex-a9-twd-wdt"),
+>   - the peripheral interrupt controller that combines the interrupts of
+>     the low speed peripherals into one GIC interrupt,
+>   - the GPIO banks,
+>   - the I2C controller,
+>   - the device tree nodes, including the reset button of the Almond+,
+>     and the multi_v7_defconfig and MAINTAINERS updates.
+>=20
+> As in the first series there is no public documentation; register
+> layouts come from the GPL vendor kernels (2.6.36 for the Almond+, 4.9
+> for the Verizon FiOS G1100 with the same SoC) and were checked on the
+> board with the out-of-tree OpenWrt port these drivers are based on.
+>=20
+> The patches go to different trees and only depend on each other through
+> the device tree: the irqchip (1-2), GPIO (3-4), I2C (5-6) and watchdog
+> (7) patches can be picked up independently, the dts, defconfig and
+> MAINTAINERS patches (8-11) need the platform series.
+>=20
+> TWD watchdog:
+>=20
+> The binding "arm,cortex-a9-twd-wdt" (watchdog/arm,twd-wdt.yaml) exists
+> and several dtsi files use it, but there has been no driver since
+> mpcore_wdt was deleted in v3.11 ("watchdog: delete mpcore_wdt driver").
+> The reasons given then were that the watchdog is banked per CPU while
+> the driver only programmed the CPU that happened to run the ioctl, that
+> it used request_irq() for a per-CPU interrupt, and that it had no users.
+>=20
+> This driver does not use the interrupt at all (the watchdog runs in
+> reset mode) and programs, pings and stops the watchdogs of all online
+> CPUs with on_each_cpu() under cpus_read_lock(). A CPU hotplug state
+> arms the watchdog of a CPU coming online while the device is active and
+> stops it on a CPU going offline, since an offline CPU cannot ping it.
+> A watchdog found running at probe time on any CPU is reported as
+> WDOG_HW_RUNNING and reprogrammed with the driver's timeout without
+> being stopped; the reset flag sets WDIOF_CARDRESET.
+>=20
+> On the Almond+ the stock U-Boot arms the watchdog and the board resets
+> after ~300 s unless it is serviced. With this driver the watchdog core
+> pings it until userspace takes over.
+>=20
+> The driver also registers a restart handler: the CPU that restarts the
+> system lets its own watchdog expire right away. The platform series has
+> no other way to restart the CS75xx, so without it "reboot" hangs.
+>=20
+> Interrupt controller:
+>=20
+> A status register shows the level of 15 sources and an enable register
+> masks them; the sources are acknowledged in the peripherals. The driver
+> uses a generic chip on a linear domain and a chained handler. There is
+> a second status/enable pair right behind it whose purpose I do not know;
+> it is not described.
+>=20
+> GPIO and pin muxing:
+>=20
+> Each pin is either a GPIO line or belongs to a peripheral (NAND,
+> Ethernet, UART, I2C, PCIe reset, ...). The choice is made per pin in one
+> GPIO_MUX register per bank, and these registers live in the global
+> control block at 0xf0000000, which also holds the boot straps, the
+> clock and PLL settings, peripheral resets and the other pin mux
+> registers.
+>=20
+> In this version the GPIO node gets its bank's GPIO_MUX register as a
+> second reg entry. A line is switched to GPIO when it is requested as a
+> GPIO or as an interrupt and switched back to the setting found at probe
+> time when it is released. This keeps the driver self-contained, but it
+> means that requesting a line that is in use by a peripheral silently
+> takes the pin away from it; on this board exporting all lines through
+> sysfs hangs it (NAND and Ethernet pins lose their function). Boards can
+> list such lines in gpio-reserved-ranges.
+>=20
+> I think the proper model is a pin controller for the global control
+> block: the block becomes a syscon (it is also needed by the clock driver
+> that will replace the fixed-clock), a pinctrl driver on top of it
+> describes the pins, the GPIO function and the peripheral groups, the
+> GPIO nodes get gpio-ranges and the GPIO driver uses
+> gpiochip_generic_request()/gpiochip_generic_free(). Pinmux ownership
+> then refuses GPIO requests for pins claimed by a peripheral's pinctrl
+> state. The remaining pin mux registers of the block are only partially
+> understood, which is why I did not start with that. Would you accept
+> the GPIO driver in this form first, with the pinctrl conversion (and a
+> binding change to gpio-ranges) later, or should the pin controller come
+> first?
+
+I think what's here looks really suspect - regions of two registers
+wide, interlaced between devices etc.
+You mention syscons here, and really that's where I think that this
+should go. The region at 0xf007_0000 looks exactly like a syscon to me
+and should be modelled as one.
+
+The regions in the first reg property of the GPIOs I dunno about, it's
+hard to say without a full picture of what's around them - but this
+device does seem to /love/ smushing devices in in a compact memory map
+so modelling them as individal devices is probably correct, unless it
+could all be considered to be one big GPIO controller with 4 banks. Hard
+to say really, and not very important IMO.
+
+The second register region would have to be looked up via a syscon
+phandle, but even that seems incorrect to do in the face of your
+explanation of how they're really pinmuxing between gpio and some other
+feature, not an internal of the GPIO functionality.
+
+I think it's fine to make a GPIO controller at this point, and leave
+pinctrl to later, but I don't think that it is acceptable to pretend
+that the mux registers are part of the GPIO controller. The pinctrl-less
+GPIO controller would have to either rely on something else (e.g.
+firmware) setting the mux registers or be not entirely functional until
+the pinctrl arrives - IMO that kind of thing isn't abnormal, it's just
+how things can sometimes be. For example, if you submitted a SPI driver,
+but no board exposed SPI without pinmuxing changes that were not
+possible as the driver for that was not yet upstream, that's not
+something that would block the SPI driver. It might, on the other hand,
+block adding the SPI node to the devicetree.
+
+Thanks,
+Conor.
+
+>=20
+> I2C:
+>=20
+> The controller transfers one byte per command with an OpenCores-like
+> command register. The driver supports plain I2C and emulated SMBus
+> without quick commands (every message carries at least one data byte)
+> and without 10-bit addresses.
+>=20
+> Testing:
+>=20
+> Tested on a Securifi Almond+ with next-20260929 plus series 1 v4 and
+> this series, both CPUs online. The watchdog found the TWD armed by the bo=
+ot
+> loader on both CPUs and took it over ("running on CPU0-1, taking
+> over"); pinged for 60 s from userspace and then left alone, it reset
+> the board when timeleft reached zero. The I2C and GPIO interrupts are
+> delivered through the new peripheral interrupt controller; the reset
+> button (GPIO 37) is claimed by gpio-keys as an active-low input and
+> reports KEY_RESTART; an I2C read of the touch controller at 0x48 is
+> ACKed and an empty address returns -ENXIO without timeouts. reboot(2)
+> issued from CPU1 restarted the board through the restart handler.
+> The same drivers also run in an OpenWrt image on Linux 6.18 booted from
+> NAND through the stock U-Boot, where the SX8650 touchscreen uses a
+> level-triggered GPIO interrupt.
+>=20
+> Build tested with multi_v7_defconfig (GCC 14 and Clang 21, W=3D1),
+> dt_binding_check and dtbs_check. Not tested: CPU hotplug of the
+> watchdog (the platform has no cpu_die yet), repeated START between
+> messages on I2C (only single-message transfers were run), GPIO
+> interrupts with real edges.
+>=20
+> Open questions:
+>=20
+> 1. GPIO muxing, see above.
+> 2. The TWD watchdog binding marks clocks as optional, the driver
+>    requires them (the rate is needed to compute the timeout). Should
+>    the binding be tightened, or should the driver fall back to
+>    something when there is no clock?
+> 3. Is a separate MAINTAINERS entry for the TWD watchdog driver the
+>    right thing, or should it be listed under the watchdog subsystem?
+>=20
+> [1] https://lore.kernel.org/all/20261012-b4-cs75xx-v4-0-df250d903682@gmai=
+l.com/
+>=20
 > ---
->  include/linux/pm_runtime.h | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
->
-> diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
-> index 64921b10ac74..ae2a8740ffb3 100644
-> --- a/include/linux/pm_runtime.h
-> +++ b/include/linux/pm_runtime.h
-> @@ -609,6 +609,13 @@ DEFINE_GUARD(pm_runtime_active, struct device *,
->              pm_runtime_get_sync(_T), pm_runtime_put(_T));
->  DEFINE_GUARD(pm_runtime_active_auto, struct device *,
->              pm_runtime_get_sync(_T), pm_runtime_put_autosuspend(_T));
-> +/*
-> + * Do not use directly -- the destructor calls pm_runtime_put()
-> + * unconditionally, which underflows if no reference was acquired.
-> + * Use only via the _try variant below.
-> + */
-> +DEFINE_GUARD(pm_runtime_if_active, struct device *,
-> +            pm_runtime_get_if_active(_T), pm_runtime_put(_T));
->  /*
->   * Use the following guards with ACQUIRE()/ACQUIRE_ERR().
->   *
-> @@ -624,6 +631,23 @@ DEFINE_GUARD_COND(pm_runtime_active_auto, _try,
->                   pm_runtime_get_active(_T, RPM_TRANSPARENT), _RET =3D=3D=
- 0)
->  DEFINE_GUARD_COND(pm_runtime_active_auto, _try_enabled,
->                   pm_runtime_resume_and_get(_T), _RET =3D=3D 0)
-> +/*
-> + * The _try contract is that no error is produced when runtime PM is dis=
-abled,
-> + * so bypass the guard when pm_runtime_get_if_active() returns -EINVAL: =
-take a
-> + * reference with pm_runtime_get_noresume() to pre-balance the destructo=
-r's
-> + * pm_runtime_put() and return 1 so the guard condition succeeds. Interr=
-upt
-> + * handlers then keep servicing interrupts when runtime PM is disabled f=
-or the
-> + * device or CONFIG_PM is not enabled.
-> + */
-> +DEFINE_GUARD_COND(pm_runtime_if_active, _try,
-> +                 ({
-> +                       int _r =3D pm_runtime_get_if_active(_T);
-> +
-> +                       if (_r =3D=3D -EINVAL)
-> +                               pm_runtime_get_noresume(_T);
-> +                       _r =3D=3D -EINVAL ? 1 : (_r ?: -EAGAIN);
-> +                 }),
-> +                 _RET =3D=3D 1)
->
->  /* ACQUIRE() wrapper macros for the guards defined above. */
->
-> @@ -639,6 +663,9 @@ DEFINE_GUARD_COND(pm_runtime_active_auto, _try_enable=
-d,
->  #define PM_RUNTIME_ACQUIRE_IF_ENABLED_AUTOSUSPEND(_dev, _var)  \
->         ACQUIRE(pm_runtime_active_auto_try_enabled, _var)(_dev)
->
-> +#define PM_RUNTIME_ACQUIRE_IF_ACTIVE(_dev, _var)       \
-> +       ACQUIRE(pm_runtime_if_active_try, _var)(_dev)
-> +
->  /*
->   * ACQUIRE_ERR() wrapper macro for guard pm_runtime_active.
->   *
->
-> --
+> Fil Dunsky (11):
+>       dt-bindings: interrupt-controller: Add Cortina Systems CS7542 perip=
+heral interrupt controller
+>       irqchip: Add Cortina Systems CS75xx peripheral interrupt controller
+>       dt-bindings: gpio: Add Cortina Systems CS7542 GPIO controller
+>       gpio: Add Cortina Systems CS75xx GPIO driver
+>       dt-bindings: i2c: Add Cortina Systems CS7542 I2C controller
+>       i2c: Add Cortina Systems CS75xx I2C controller driver
+>       watchdog: Add ARM TWD (MPCore private) watchdog driver
+>       ARM: dts: cortina: cs7542: Add interrupt controller, GPIO and I2C
+>       ARM: dts: cortina: almondplus: Add reset button and enable I2C
+>       ARM: multi_v7_defconfig: Enable Cortina Systems CS75xx GPIO, I2C an=
+d TWD watchdog
+>       MAINTAINERS: Add Cortina Systems CS75xx interrupt controller, GPIO =
+and I2C
+>=20
+>  .../bindings/gpio/cortina,cs7542-gpio.yaml         |  68 ++++
+>  .../bindings/i2c/cortina,cs7542-i2c.yaml           |  56 +++
+>  .../interrupt-controller/cortina,cs7542-intc.yaml  |  57 +++
+>  MAINTAINERS                                        |  12 +
+>  .../dts/cortina/cs7542-securifi-almondplus.dts     |  19 +
+>  arch/arm/boot/dts/cortina/cs7542.dtsi              |  75 ++++
+>  arch/arm/configs/multi_v7_defconfig                |   3 +
+>  drivers/gpio/Kconfig                               |  12 +
+>  drivers/gpio/Makefile                              |   1 +
+>  drivers/gpio/gpio-cs75xx.c                         | 332 +++++++++++++++=
++++
+>  drivers/i2c/busses/Kconfig                         |  11 +
+>  drivers/i2c/busses/Makefile                        |   1 +
+>  drivers/i2c/busses/i2c-cs75xx.c                    | 354 +++++++++++++++=
+++++
+>  drivers/irqchip/Kconfig                            |  12 +
+>  drivers/irqchip/Makefile                           |   1 +
+>  drivers/irqchip/irq-cs75xx.c                       | 103 ++++++
+>  drivers/watchdog/Kconfig                           |  15 +
+>  drivers/watchdog/Makefile                          |   1 +
+>  drivers/watchdog/arm_twd_wdt.c                     | 387 +++++++++++++++=
+++++++
+>  19 files changed, 1520 insertions(+)
+> ---
+> base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
+> change-id: 20261012-b4-cs75xx-s2-5f548492f51e
+> prerequisite-message-id: <20261012-b4-cs75xx-v4-0-df250d903682@gmail.com>
+> prerequisite-patch-id: 104c6fb668f30ac8c2c5b3b6c524c18caa8808c4
+> prerequisite-patch-id: e7d503348cbec7558cd084162133f8e34df1c1bc
+> prerequisite-patch-id: 1d5770db02b983d012f6c58806fbf3f5291a06c9
+> prerequisite-patch-id: c2815f506d2df1c84cd50111220b938a41d29050
+> prerequisite-patch-id: 6c0137d52f201d8ec085ee6cc7b2d49af15583d8
+> prerequisite-patch-id: 24e110f3c8c008deffdda079bdc27db729b5014d
+> prerequisite-patch-id: cb09693a5d51be6b24bdf66e112b9dd40fc25dbe
+> prerequisite-patch-id: 15c11a668a1a281649fa0713371e7f07ee44917e
+> prerequisite-patch-id: 9b4a468b7b74861017ef533ba0a5574bc14b212e
+> prerequisite-patch-id: 1f232c94dd3fc0d862203b7c0c1449e6ba9a6859
+>=20
+> Best regards,
+> -- =20
+> Fil Dunsky <filipp.dunsky@gmail.com>
+>=20
+>=20
 
-For the record, I'm still unconvinced about the guard definitions above.
+--3WAP39xI/QLnZ2cB
+Content-Type: application/pgp-signature; name=signature.asc
 
-Please try to reimplement the series without them for the time being.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks!
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas0rcQAKCRB4tDGHoIJi
+0h/1AP42+nhb5OTFfizZPxymGqzai/6Wu4FmQZkq2wjB9h2WVAD5AeL9i/KO+0HY
+30N4sc/BZ+73908yaxdCBoJxRpde6gY=
+=/ZEi
+-----END PGP SIGNATURE-----
+
+--3WAP39xI/QLnZ2cB--
 
