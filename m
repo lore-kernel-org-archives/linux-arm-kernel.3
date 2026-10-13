@@ -4,114 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA576CC6B08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55945CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApdHT9jlstoFu3E8M4KUrdFK8TNXHrk50WUdd+Ue74E=; b=mke7rGpCzc5/Sm11ytw9lWlfcu
-	R5zLPpeZnrAUquziZkhvs2a2WZ1It7AJ2U9b16Nx259YLq+U3E9Y3aPZPC78WRtjEPzc9u4YDmOiB
-	pjWsmDzN+UlhsWZR0D2xDRzvw+ZrRAaAkDJfBSSAgI4XmbGr0Z4Pa0yt0Tl0w6chZ8GGVBmu20y7Y
-	X12YgP5hf5nyAoEnH4Y+rbtE55xVGyRoLPv/Ak/92RD8RlOZkm7XQgZWQfTL/SuwEAeWxXnrz+G4F
-	KNzOEiq3YpCE/fTRB4HrGFLsB4mLuwQWV1xQJtTGxiwvxSIQrJrbb2qrAUGOHxDp1dOtDSevlldca
-	6S6dGQ7g==;
+	bh=3pLo9lY+u75xnHcjIomzvUwdQblmUnS1Jvrgunj3Jzg=; b=ww4uw5TAvzsOc+svAilZD95i+s
+	uWqQnwwQYYB60mf9Tg/WKpW2YCkyVILFVTOjClJAfYPx8vtq5BCjdNKLIXHH4EJTzSLXaGq4VY9m+
+	frI1h4358rMEOp/hO6nvzUypwLAUpck6CHwOoQSv5oIE8IzJ4bnH159ksQT7LvcM8wYtbUOc02grV
+	eTlYmmklGbtyDGAvnSekMEbuzFQjnDxwcgRv0njTzHrTbNqhHkfariqkv1ehmH+fXOJ2pNZgxGbR9
+	9l1d1OPePOYR369ItS1TVoGrJGf65NbXmZm/oEiFo6x7RYdzdW93dUcUFCiLK3b7vWHDmdZV1bUl5
+	bd3vm/tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdTT-0000000D5gy-49mR;
-	Tue, 13 Oct 2026 14:27:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGdUm-0000000D67r-2stI;
+	Tue, 13 Oct 2026 14:28:48 +0000
+Received: from mail-northeuropeazon11010040.outbound.protection.outlook.com ([52.101.84.40] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdTR-0000000D5fI-1x4Z;
-	Tue, 13 Oct 2026 14:27:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ApdHT9jlstoFu3E8M4KUrdFK8TNXHrk50WUdd+Ue74E=; b=beK6GkdQy1NZ4PQecms08ATFrl
-	kSS+/POC5xGJIYGlVy0bc14YW4vezfpxbldFQ8R53Jdw68eBuV3P65FwDtUIlPFhIYV+URkdJ/TiH
-	b7Q+wSdDo39FL9/whKJ9aM+FlZKOuosk2xxJVMLnGPh/Lo0BSCkKqsaM6HaAif+cSdTdK7DDrPDHI
-	29UoUC4tanqgDKFu1VvSllaLPZqnF1AqIP4UnUWF9O4V9gMVshnZD/NkDLh2gNpIIxKfFcDCTMD5h
-	SalpfbaEzOhZzzdHURgpnTUGkUzOa7OwBGHjprvxjZriFs1L29Gy9Xk4B5wK7gWHLuBsrA+jBW3gP
-	Mh1J9KHg==;
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGdTL-0000000Fdty-3o5Z;
-	Tue, 13 Oct 2026 14:27:24 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 805422018C1;
-	Tue, 13 Oct 2026 16:27:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791901637;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ApdHT9jlstoFu3E8M4KUrdFK8TNXHrk50WUdd+Ue74E=;
-	b=gmAViN1StYgezRvrnW2kU8LQG8nMplvHkIg+MierkaxjevnZyfzwz2xBT3bQZ/Lx2On66e
-	CxZEqSRp7QUJczqg6DXtuwRFjWeUrdY9yxtUsaNcvLXqkBXvfekIH5AXc8P5+EoBIO/cCR
-	CLMiMhVkysMTlrD5KKWKWyxlB317sBBB69hXj/EfsbTvMeldaOAc/qFbkT+sB/7gIh1I1s
-	IrEgx+oQ8a03xHgo4L/dYoxwcSEGq1gxQ1OSl19BJ3FOAFfVFw6QbGscuqQ2siuorLz8tI
-	DOm9vTThYYK8qVtXI/CkZlMfYsvXF1GLy5frs94qdDe3W/zF6nT9VVTfFKRaTQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791901637; a=rsa-sha256;
-	cv=none;
-	b=BDXTtdWUkb9ZmZKI6YGH0IyAPrPSXhaar59i2sS6xaP2XB3PAz9yy/y+eEYlzp/3kKG3Lb
-	/GHldNmy/YDouinmqqgbO5+qvEwMf37IWsHG60/cvIGFunGXArKj+y0zmUtARQbf5oEw2g
-	aOX8ok8x+G7ujGhJnTOyBCggpNnMk8fZuruZ74RAwT0rl+mS5CB8OK3PeHgh7dW+Eh928z
-	QDB3FdSTFBff8M/pWw2CI8saJnAK0/4OPtea59luZ5UnNvsU3EqP6QU3ikOx82H+Ye2l1E
-	sHF29Jj1xEbX51X652LMo81vWn4NZfEw3OfSxPtV63h+lUrjRzGglIkeQGN8Ug==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791901637;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ApdHT9jlstoFu3E8M4KUrdFK8TNXHrk50WUdd+Ue74E=;
-	b=f1QeBoW0Ze/ClU7CMtKhrNIi3ByiryX7MiewNu1+Sdzb+h3dJ9+7RT7HD1Z4Fu2PLkn8ND
-	T8zWl1BCf6IZCvaiIN1vAWqtvpmvHBhx89nvOv1w6SHBNd7UIKKb2Bxxqjut93IJE3w4Oz
-	n9uUASxmUnDTHoMIzEoYr9mdPTrVQH8/TrzqNoQx8Xdey7KU+DGe+618tczic++uLL8fQ2
-	SuevtlTvbvVPLKsjW0P1Lzd9qaj9jDf68eqI3sqVQvbe2kF/nUGF7dNE6j0pJ4zvjeebRg
-	kPr2tp8PUecAK1nDJF5VX2KeahtdWU018s7EAwvdyFDDF0t913j+l1uLgjAFUQ==
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xGdTJ-005hqR-1L;
-	Tue, 13 Oct 2026 16:27:17 +0200
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 191795C31D7;
-	Tue, 13 Oct 2026 14:27:17 +0000 (UTC)
-Date: Tue, 13 Oct 2026 16:27:16 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, linux-can <linux-can@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, kernel <kernel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-rockchip <linux-rockchip@lists.infradead.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, stable <stable@vger.kernel.org>
-Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
- closing the device
-Message-ID: <20261013-tricky-piculet-of-ampleness-cada4c-mkl@pengutronix.de>
-References: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
- <20261013-hissing-saiga-of-endeavor-ef5e03-mkl@pengutronix.de>
- <tencent_F9D491A400474428BFE7262F1A1799A88407@qq.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p2fdgwty2yztquzs"
+	id 1xGdUj-0000000D66q-3Mo3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 14:28:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JIbNuozZ8/HsN0Td2/jzG4zDTOggDIr7OIvNS83hjwaisiJSDMc52pfzxtOzkkLFhheTwCZf7mUuQY8M6tm80uKr3gfNko2PjuvQjtY3eo6qMVZYpW9ENCFfu2bbRM2vFk+w0UqyI4zZpgJt8ZXhR2y+wPdqZWFVfJ435tD1MILsIXIPkjXDZTCS3s+EewR16YCZFHnyyUbAih32VN/3bN6Y/EHmNBEKSIIl83eV+VlGP6GZG/04otVrAx4KyEGyT1cKwiTsUA9YonOaws/IaXcTVccl/nHLRA4lHbVXl6OHQGXinuKyjyPaybEB6qG/dBwn821WfQ15Gnoy4kQNkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3pLo9lY+u75xnHcjIomzvUwdQblmUnS1Jvrgunj3Jzg=;
+ b=KlH8mv5vcHCNk60TqtD4+wxIFSl9o1m9J7DZJvXOwFCsvaZPOHR3EN6hGNAUAtycTMPIcSjAPb0q5ZbQBHN6/bv5kvr/yxP+sbjf5EJdHWoX95mMv5k25ooO/PuXKfTvgXwtYomOHZAdTgTwHFhssiuhpDnyO5iSFWLZAO1w3sVuzAf1kpLOVH6PFWCCeBIF7nwfxLoyAHmjuSd+rjkQk+oeqSNTcP3iewfx7H+qjz21o/F/vGgPP1v1qRrfDql5p6LIPUGl1+S4gGUgXvdnUg3I5H6BMKubuSa43oWER8LpsP+RU3DnF3bFRT3d0i2Ze8yuMto6Kt7jFIqidwzU0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3pLo9lY+u75xnHcjIomzvUwdQblmUnS1Jvrgunj3Jzg=;
+ b=FiBAWxYsb1N56FsLF4qAExkbLO1IK9IkkPEYu/vJ4/b+rDsAPIAKNsLk4cbFfBLW7IrNo1o0lpEi9fpy5smHL+dTmuswMD1i5rLpKXtJ+5pfyegCTEIzjvdg7xlIFV2B7aJ+o2fmkkcuT/iGqNPyOxgj5Cr+vdFcY2Gg5z7yxCY/lTCgm837rzANOc9djtU+IqarJtqUdbS/vcdZGmOJ7nJ7y0unZrSfApo9W1t+0Gc3DQbEsjytX5RDnyO2oywk079H6c5noFe+16W74OQTIjXH81QDfIaSsI3MsjY6eklJQg2pTaAx//OfSToor5OBKFiXluwHFo88fmTqs99xug==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB6863.eurprd04.prod.outlook.com (2603:10a6:803:12f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 14:28:40 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
+ 14:28:39 +0000
+Date: Tue, 13 Oct 2026 09:28:20 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Ajay Neeli <ajay.neeli@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Pedro Sousa <pedrom.sousa@synopsys.com>,
+	Hannes Reinicke <hare@suse.de>,
+	Joao Pinto <Joao.Pinto@synopsys.com>, linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, clizzi@redhat.com,
+	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com
+Subject: Re: [PATCH v8 12/12] MAINTAINERS: Add NXP S32N7 UFS host controller
+ entry
+Message-ID: <as5ABOqo2MTgQBs3@SMW015318>
+References: <20261013103003.373156-1-larisa.grigore@oss.nxp.com>
+ <20261013103003.373156-13-larisa.grigore@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <tencent_F9D491A400474428BFE7262F1A1799A88407@qq.com>
+In-Reply-To: <20261013103003.373156-13-larisa.grigore@oss.nxp.com>
+X-ClientProxiedBy: PH0PR07CA0120.namprd07.prod.outlook.com
+ (2603:10b6:510:4::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB6863:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15557135-2374-4eba-a70a-08df2936462b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|7416014|376014|366016|10067099003|261009223027099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ZWJ5c10TcZrduaEG3g+j0dDoz7YkU11GluaxpQ1bqEssNKHvZ65OhPUH3/C6xxhsEv8mDJEQ8CotdgbYlonnHPtVDZ8S9PFt/srgrZkCgrCVrCw1T5Zlizx4Y08EPkEozBXml6jaZXbp04P0pOv1TxW6rGD1OtgsL9HlNfL3cOm17FFQbB4mT9b2mWsPXJh4EQceSS0d6TJ7PUpISyl9j/eICv1zNBFmoTEgSDg+SXIgD+9E+5OQyEvUKfLUkA5RF3UcGWQr4h/ihrtdqOE8mgn36oU/HSjkpQGaTi5S+GTKOgRrkrzG8Gb6Hd5jF5QXl/JqRD/9eTMLqd0jeL0u0gWTwoZuRAaybcPTvY9TjjXogqgW1CW4vPV3L0XCkmODfI5+pqjhfrG4v3RklIknHONph1E9nrumA10/Gri0E5m+qNu5j0qQSc7cYbmiXt6/8lwrDJIDo9qoh7/rbS9nCl/d3e9MTwTDaHRJ8Pxkc0Jy49BuDotB6g7QP6mRwUDhAYY9y4BorE0LrUtAMGwvWo2S6tNCKa8qyBm0t4sajjqpo+kF+Xq1aNF4INAsGiWV1hyjgOvBqRulVldt74QsKA7Mdw02qeizNcWBiW5Go/Eorbt46LpWNWdfrPMYKeBGXI1ZBkIZNTdXkIrzEvn0L8KaImTkU1+iLKB0Pg7iR+o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(7416014)(376014)(366016)(10067099003)(261009223027099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bODZqI6lWaUeW2hph4HbaUEs7kFd9zRQnwuvL1E4YsAq7NnGf4J85uOPwiCa?=
+ =?us-ascii?Q?CwkMcotRNgZGYNsYUnZ5VaQDB6UtU6WEjSA6dln3npoTGpAjxIWinaPyiq9s?=
+ =?us-ascii?Q?oGUrj35vgZPiecDHGxuijfQomrZ8fzfi23uT9fPC4wBwmWAjz+reGwMZH0wO?=
+ =?us-ascii?Q?YakbraskMolJXwPHwkj4IrrFm/hDWOJDquKXRYf9hzspgU6EFk+Qdh2HGPIV?=
+ =?us-ascii?Q?vU/At8WtgnONkwZiTCi5Vd6D9InFiJXkZSBfOuf5X+z5JYu9X8Jlo6T5rj0b?=
+ =?us-ascii?Q?3VIwiRGMNxwjA3RlHG0akEVSxddPT7DmoElwBDeh8E2pU2kR1ioT3H5d96cQ?=
+ =?us-ascii?Q?AibMa9oddym0QjlBYQprLCcFURVyRr1bFBRh07C/VrgdIoTuYPAD8IzsJ7dB?=
+ =?us-ascii?Q?uCkiQmMD3z4oE5vyvPqyC8cPCeLDswC1QfvEIjBb4mHVX0Z16Yz3zBf6yNEf?=
+ =?us-ascii?Q?6RI3oiyr4KLYloRsN9D4/JsU0mODybEJf/0mb+YzOneFF0frn5EmnQiRPs0N?=
+ =?us-ascii?Q?F1qaomCXevlZMtglES8hxJZd9ZXRcmeCtMOJ7PKxx8wTmVyZMgoH9vOvAsJ7?=
+ =?us-ascii?Q?/LuCIOOFd6Q2GvYhNspQgOfJJmVVFjCKuof2dzrCXnDYzZwgfh3i6M3HJf7f?=
+ =?us-ascii?Q?1LPZf7+/xQL3sjpPQp+eSkB0ONI2S+y59CtuJOpjU4dG3GIOxTpVgfD10PAJ?=
+ =?us-ascii?Q?HOrbOC57KlZ8m0tN6WKSifc096l33TCivAe065uMtu28KtGFIHnRwJOF4Q1U?=
+ =?us-ascii?Q?fUF02p9oHnn0Tdax8gKxk9cDNe+gbEwFsc43cTR/n/fOtzYS9Q6Sg2zXybTp?=
+ =?us-ascii?Q?KoOt45nsx+KK6/tv/6elOnQQWnxvTIdsRrG2kiqK1DlOyUchqXyVvpVEvN7+?=
+ =?us-ascii?Q?+KnKExyEW2eD/isih9VRr/lsHmy+2RL0XCgYQ7OWj7nfSTi9vSxxI+1ivMu+?=
+ =?us-ascii?Q?v4JCr7TFbXuv97eB7GkU6aKUhA1f8xYZgO3viPNGP7s87W6vjjC/Tp3kdfIu?=
+ =?us-ascii?Q?jjfOr5gTzQVL/CVYYLQbDbjpPTiCnGMaS0AuiNtKll+aInw6Z0kV8+p2Fvnw?=
+ =?us-ascii?Q?7dNd+Eon98eqbHJU7p3M0MtPZcjRRHDocuHu7e5XShz8FDAslbxH/jVqIOsv?=
+ =?us-ascii?Q?AJFAov1Qe90CFkImlNvMSxajnBVzpfooywV67qgmB2XBXFD43uozr9r6XLmr?=
+ =?us-ascii?Q?FdWcKiI+B/9GEASyblnUNyRyBB8MIL+Ru+GXkno2HLTTzueteL71yI9KhPWe?=
+ =?us-ascii?Q?67Zp4EEN7QoAdpLiiI3QPbY0if8jjcCdo8Jti7qOK/cA0iTXVyRnANRrLYRa?=
+ =?us-ascii?Q?BG4XBsQnfxjPvKgIV02ehJoDYYXkoBN2TNlnCe8dXDT+92WGQiYF/G77f2Mq?=
+ =?us-ascii?Q?Z4BVePcZrzn1snXrBWCxLoMAW2qfRcbWCbnrb+X7QllU1h91+rl0yXzWFXBF?=
+ =?us-ascii?Q?6xZc96q7EaCzDWzoZF5Ld241OBPu1CMMOS3Fv+K2hmsKAMqAGXAi48Mdogdc?=
+ =?us-ascii?Q?vr/X51zF/phV+zg1/wD1bXHxRrfEQ3KcpfCL+ssmEzmf+n8OIMKsxhJHa9+I?=
+ =?us-ascii?Q?0v3cxC/m3k8qKgJsxAAQCgArKtsYe55wsF6m8Uipo7hFyeIVdGfVRDjvVmc0?=
+ =?us-ascii?Q?9q3ewVgwztQTn5q3hIOZtOCGNNyStSI2kZnONM24leTOntrBjnXmPso1ao62?=
+ =?us-ascii?Q?481RadHJVmnUex/f2RLIGWT58D4GYjNxc1WRYlhxUSoEPZ/RpZaScT/Mkior?=
+ =?us-ascii?Q?tqYGD+pPfWTm7wtgSrbdxXc7BN/sGN7kAUgBzyhGWhKlhWom6d3U?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15557135-2374-4eba-a70a-08df2936462b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 14:28:39.8063
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k3AP3EX9c6Ciq11Mg30GIjO6/vU0bAN94cWVDXPE4JeiCuH5GGwG2hPlQnc+cOC4Elatdb22c7ffJGroDhmA8YnMDxfWgI5Gl8C9FgpsStPu2/jW9K3LmXHONtQPDa4q
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_152722_133572_90B18D20 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20261013_072845_845713_156015BD 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,96 +156,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---p2fdgwty2yztquzs
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
- closing the device
-MIME-Version: 1.0
-
-On 13.10.2026 21:06:21, Cunhao Lu wrote:
-> Hi Marc,
+On Tue, Oct 13, 2026 at 12:30:03PM +0200, Larisa Grigore wrote:
+> Add maintainer for S32N7 UFS host controller driver.
 >
-> > AFAICS this is a systematic problem and should IMHO not worked around in
-> > one driver only.
+> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+> ---
+>  MAINTAINERS | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 >
-> Agreed. I initially only noticed the problem in the Rockchip CAN-FD
-> driver and did not consider the common CAN code.
-
-Thanks to your analysis, it was easy to reach that conclusion. :)
-
-> > netif_running() tests __LINK_STATE_START, which is removed in
-> > __dev_close_many() prior to calling the driver's ndo_stop().
-> >
-> > Can we make use of netif_running() prior to calling do_set_mode(dev,
-> > CAN_MODE_START)? from can_restart()?
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index f53047aa8d3c..16f1dbb763cd 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -28119,6 +28119,14 @@ L:	linux-scsi@vger.kernel.org
+>  S:	Maintained
+>  F:	drivers/ufs/host/ufs-renesas.c
 >
-> If you have no objections, I think it would be better to put the
-> netif_running() check after the existing !priv->do_set_mode check and
-> before netif_carrier_ok():
+> +UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER S32N7 HOOKS
+> +M:	Larisa Grigore <larisa.grigore@oss.nxp.com>
+> +R:	NXP S32 Linux Team <s32@nxp.com>
+> +L:	linux-scsi@vger.kernel.org
+
+Please add imx@lists.linux.dev
+
+Frank
+
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/ufs/nxp,s32n79-ufshc.yaml
+> +F:	drivers/ufs/host/ufs-nxp-s32n7.c
+> +
+>  UNIWILL LAPTOP DRIVER
+>  M:	Armin Wolf <W_Armin@gmx.de>
+>  L:	platform-driver-x86@vger.kernel.org
+> --
+> 2.43.0
 >
->         if (!priv->do_set_mode)
->                 return -EOPNOTSUPP;
 >
->         if (!netif_running(dev))
->                 return -ENETDOWN;
->
-> This would preserve the existing error precedence for devices that do
-> not support restart.
-
-ACK
-
-> > can_bus_off() should not schedule_delayed_work() if !netif_running().
->
-> Agreed. Although this would change the behavior of some drivers, I think
-> it should help improve stability.
-
-ok
-
-> > We still have to call cancel_delayed_work_sync(&priv->can.restart_work)
-> > from each driver, though.
-
-Let's wrap that into a function and put this into linux/can/dev.h. It's
-name could be something like close_candev_cancel_restart_sync().
-
-> I can make changes to the other drivers. However, I do not have the
-> corresponding hardware and would not be able to test the changes on
-> real devices, so I am concerned about the risk. I would like to confirm:
-> do I need to audit and fix the restart behavior of every CAN device
-> driver?
-
-I think it's OK to fix the rockchip driver only.
-
-> > What do you think?
->
-> I will address these comments in v2. Thanks for your review.
-
-Please split the changes into several patches:
-- fix the existing infrastructure
-- add new close_candev_cancel_restart_sync() function
-- use this function in the rockchip driver
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---p2fdgwty2yztquzs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCas4/wQAKCRDMOmT6rpmt
-0sMkAP9SLysRPyc/bN1kfprQlX5GQAMSIsfWuKXrKvknT5XDYQD/fce1XVIeVE/g
-Wu3BWgWdmmI0Sq7/V4pT4SEDHKDXXQM=
-=J0Bg
------END PGP SIGNATURE-----
-
---p2fdgwty2yztquzs--
 
