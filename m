@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6F8CC6B08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B372CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0zH0Wnlh/sO6ZQbr+1OS83JkdmxfQFaqrYbJIXwek0=; b=Go3IeosQr/5GaiJmDbVIKPqqRu
-	Yb1S35txAtQ0kIuREB3tMutXwdo1f8khjlNH4LhjOqMZzsBcUrKbUZaLwgoVBH3zW3YbgI+yhWUiP
-	bhxPWygwDZ4RVL/HFU9PoPnVk9ATfqz5BixAtW5OKTkEPhn/E8vpufIf17wkc0DuduRWG9VnWsV5G
-	MkjEYXtlIKzkc6PxteMp3Y8/cUDqDCDiMkx8RNwvqD/s4ymiJTiulwytXPuu7D/yntFpG2b+PlSs+
-	xbmkUeoRp9Vjp5r2ZTOxPUgLWKabT7JzlVluxm7AQy9MBvTUA1EVszsG/baNn46iBLUY84UemGWeD
-	1nf1wruA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRAFrg0S3ftbqJris0YLjBJevSM7MXf6TdgqLUs4uK4=; b=AVGcfUyZTvBlB2hARiYVBRZAT7
+	j/wBILbUmLcd+VfB0aORkEBrKq/hQaXTx5kjtG+R3xmGVA3fhD9RXwNoRjbqieEWKfeAXDjXFhIis
+	IA/9VeqnPvicMT3Q0f1pardVYohJcP8qCDgZbFoTTg1mebnwka5+vaHFdJHsYII2UwatuoDYazfX5
+	at00r2y/5zwmEVZSmne9S1HuGbFxdd6ANE0+R+kYiSQy599MvEXR/r1YlBIKUTq+OrGWpUyCo7pUy
+	AavDQR/QFrS5W3vfrIYYgHiPuan7xr+w1ZgiL/8FO8HmteOWE6hgxwxrVs4q6WKftB4IjHCgDboYJ
+	sO0cUcDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaUQ-0000000Cg7v-3h1O;
-	Tue, 13 Oct 2026 11:16:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGaW0-0000000CgHt-3gs5;
+	Tue, 13 Oct 2026 11:17:52 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaUP-0000000Cg7o-1s9S
+	id 1xGaVy-0000000CgFz-2KXC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:16:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 915E4600D1;
-	Tue, 13 Oct 2026 11:16:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45EFE1F000FF;
-	Tue, 13 Oct 2026 11:16:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791890172;
-	bh=k0zH0Wnlh/sO6ZQbr+1OS83JkdmxfQFaqrYbJIXwek0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=V1uIN3ayhOIYE1p9Qg95iKfyIODI2N3VGPlSnAjihXP1edyiVdww2p4n/LmCPoACD
-	 Kg+IRNwuy7PogVLswRSIHLmP++sV5vEmijTIYulBJ4oiOCPFV/cBg7LCzNk1QaZ615
-	 E7EBOu/ZPpGOG2eYCxMIH3sOYXSyhU9Egwwut3ZOLZooI7jRzReaywth3YT1oewH25
-	 9vzRzWpjRFfvUiA6L7MnKdNqSC1X36Dw12SFxF4X6tz7NKtQCBE+/aiQHW8vdwdAZE
-	 9pRS0pnX88hjYCfRvEU/rCRYna2j9U3a94QjiXWqnNnzj2Mqn2gkwYUDzFo8IXqPu5
-	 vI+jN2wDm+ruQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xGaUL-00000002KbM-3wmH;
-	Tue, 13 Oct 2026 11:16:10 +0000
-Date: Tue, 13 Oct 2026 12:16:09 +0100
-Message-ID: <86v77526me.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
+	Tue, 13 Oct 2026 11:17:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=CRAFrg0S3ftbqJris0YLjBJevSM7MXf6TdgqLUs4uK4=; b=lXmX1J4GPRqUcA3WWirPX0cgtB
+	/eo89izqWWRNIr0a5mtDG7zGN3xjYdeUPFUuiWJBYab8qbQSjuwfSy2J7/zQKw/clUP70eCKK+g6j
+	Lt8O4z+CLW9koSQodc4d42/JQ/I6eR/W9liWmhCSi046yBsRbSfw73eTSw8ur90z3ump7EOprA6BI
+	xRljqXABDj1p5i2MPZAld7iXa1ocG5o7AwBC6d2qmOeGnk0cRJgk/J976PPqNkMAi2kTZ3HFPcdiY
+	J9et/h/JGPc1bXjaaGZy9tjpM5IoPD+E1+Wi9YznwcQo7Br6ViUWSxDsYLUF85N0TDq8YiGLgCCGx
+	Zw5Ga7ww==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xGaVq-000OBu-31;
+	Tue, 13 Oct 2026 13:17:42 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xGaVq-0005it-1B;
+	Tue, 13 Oct 2026 13:17:42 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>
+Cc: Liu Ying <victor.liu@nxp.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
-In-Reply-To: <CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
-References: <20261013081646.933312-1-fuad.tabba@linux.dev>
-	<as3_NKT20MNdqaJR@kernel.org>
-	<86wlrl2a2f.wl-maz@kernel.org>
-	<CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/5] dt-bindings: firmware: imx: Add SCU controlled display pixel link nodes
+Date: Tue, 13 Oct 2026 13:17:25 +0200
+Message-ID: <20261013111737.998282-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261013111737.998282-1-alexander.stein@ew.tq-group.com>
+References: <20261013111737.998282-1-alexander.stein@ew.tq-group.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28152/Tue Oct 13 08:26:14 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_041750_689825_6124C278 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 11:50:09 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Marc,
-> 
-> On Tue, 13 Oct 2026 11:01:44 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > Yeah, I now have a series that has the counting pause, your single
-> > vcpu pause (fixed to DTRT), and the LPI disabling fix. Patch #2 of
-> > this series can probably make use of the single-vcpu stunning.
-> 
-> I'll rebase the series on that once it's out, with patch 2 using the
-> single-vcpu stunning.
-> 
-> > As for the OUTSIDE_GUEST discussion, I've had a long discussion with
-> > Will where we reversed engineered the synchronisation requirements,
-> > and concluded that there was nothing to fix on that front (the logic
-> > is incredibly subtle and counter-intuitive, but overall sound). This
-> > patch is therefore dropped.
-> 
-> The first [High] issue Sashiko found on patch 2 [1] holds for DISCARD,
-> because the fold writes back the pending_latch that DISCARD clears.
-> With a 2ms delay after the exit to widen the window, and the DISCARD
-> sent at a varying time, the guest in my DISCARD reproducer takes the
-> discarded LPI in 13 of 20 runs on v2.
-> 
-> A vCPU on its way into the guest does the same: it loads its LRs in
-> kvm_vgic_flush_hwstate() while it's still OUTSIDE_GUEST_MODE, so
-> kvm_arm_halt_guest() doesn't wait for it. With the delay after the
-> flush instead, on v2 plus your 1/7 and 2/7 [2] and both changes from
-> your reply to 1/7 [3], the guest takes it in 9 of 20 runs.
+From: Liu Ying <victor.liu@nxp.com>
 
-Does this mean we still need OUTSIDE_GUEST_MODE to be a store-release
-past the point where we resync the state?
+Document SCU controlled display pixel link child nodes.
 
-> Once DISCARD waits for irq->on_lr to clear before clearing
-> pending_latch, the guest takes it in none of 20 runs in either case.
-> I'll add that to v3, unless the single-vcpu stunning already waits for
-> it.
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ .../devicetree/bindings/firmware/fsl,scu.yaml | 20 +++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-Polling for on_lr feels very dodgy, and I'd like to avoid this. If the
-OUTSIDE_GUEST release addresses it, I'd rather do that.
-
-Thanks,
-
-	M.
-
+diff --git a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
+index 307f1c6278532..cd6cda1192a89 100644
+--- a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
++++ b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
+@@ -30,6 +30,26 @@ properties:
+       Clock controller node that provides the clocks controlled by the SCU
+     $ref: /schemas/clock/fsl,scu-clk.yaml
+ 
++  dc0-pixel-link0:
++    description:
++      Display pixel link0 in display controller subsystem0 controlled by the SCU
++    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
++
++  dc0-pixel-link1:
++    description:
++      Display pixel link1 in display controller subsystem0 controlled by the SCU
++    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
++
++  dc1-pixel-link0:
++    description:
++      Display pixel link0 in display controller subsystem1 controlled by the SCU
++    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
++
++  dc1-pixel-link1:
++    description:
++      Display pixel link1 in display controller subsystem1 controlled by the SCU
++    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
++
+   gpio:
+     description:
+       Control the GPIO PINs on SCU domain over the firmware APIs
 -- 
-Without deviation from the norm, progress is not possible.
+2.55.0
+
 
