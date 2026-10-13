@@ -4,115 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37497CC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1D4CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=; b=yJh/9qF4SBz+08ooDT+4EGkMro
-	Bp3jBG42UO+zMyUFaV1fLZ0Z9RZSv5u0PYm8WEAhYAU/oSA4UnFZaMRyNjvTuDMRiFOtsVB8kSYvl
-	lzUxzUt0wTrm6wUG4/ODWa254qREYTDMqfZmenBpry11CXkpcMnwaESZyy73wJjsWNwnQM4UFG5P9
-	+ULcxXdy6ISINuVXN1/oaiz1j0yCDGBVwS1I/N7Eg8hRX7VpDAwU4FQ7D61o8J9gtVi682ND1ja01
-	DV5SmfrRhtpM3yldiPty5aBsc+TUrvLrwc6CPrW2mmmzA0HFu5qJjtKcvR2z4M4ZR7q5alPFATRaw
-	MVV4/11A==;
+	bh=SvaIBb8eShlEtCC/Ab3b8/Z6rxM8bwQTp9G8b5F7vDQ=; b=jcjtT2qaDkruWN1NvlNV4L/Bcy
+	2dB4FPYCscYM94bJomfSh8sxmPFjjmXrMRQZZFTuhbhOj6eNzSUgC5tDAmZY91Blm6yc9CBQpsxOW
+	QwYLOiKQQDBNwrwWQt3bN3ze9eMFAlEbJ5kQK6tvqlBQ1nHv5C+eUBsQ9oNh48SYAWxgumVRQFDrL
+	HfGvTxZQZlVgrvOBVPsqAZIBITRZ1rai9lxmY/dYOelPv8qlWw3LAoUCRZCCzy+/Iydj4FjQ4pV3b
+	blW94W+rAW4YTSQV42mta66dtIN4GfSCfxXA0i3qa4oPDlckdardIuDl3kwZSh0Qkt7ShdBK0dr73
+	TlMHixxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcgm-0000000Cxve-25SC;
-	Tue, 13 Oct 2026 13:37:08 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1xGclz-0000000Cyxo-41Qo;
+	Tue, 13 Oct 2026 13:42:31 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcgk-0000000Cxv1-03NC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:37:07 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-93e56c287b3so237281085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 06:37:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1791898625; x=1792503425; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=;
-        b=njbOPFbLJqflIJv9qXvMGsipsBJh9Q9r4Gb4RmODQGBWxG+pqaSl11pHWoZ8UAZaUV
-         LRXrRiiGvCdtDFW11/6DsmsLu+WW//Xrm+Sv3oYwm2jlyw7OD6FkH2shE3DPEZvG3V/D
-         19zVbi9JnJV79ElbT4/jmitpvk2QKqNvU0iUhqIoPxjdmrOoDDhY92ZwhPRnc5gT147A
-         hVlamHs5zFTAyNwFbcb7B6UMdMyj6CO2RnjoOxrIt3UWBF+UbHuZ18rHqm2DO8Fl6ctY
-         MVg5253ujxvYPAvCtRG8NXRg/pxlVHtFA8DTZhP+9B3j0n0cKwZTUdYyIp1plBhK2NJG
-         1+0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791898625; x=1792503425;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=;
-        b=2nUMONN3mU236QuWkT79dpKMRgylDNtyQ1a5H8INt/BTsXS6UYBqXJauJhSrF1I1Ut
-         18cLom9ezNLBLHknOTu7j5RfqjM1iqSYKtdL3cH/6ZkKVZgPSQ/iVB8cP/KjXoeaxuS3
-         VCbrcSPepcgZhqvH1TePTRpkpmiRWsLMuNMBF4WcqPAxcF0DFH5CFBq/kmAOwcjcwSc4
-         Wh/wVyvcadVMXQQrhdhfxJPB+AmIktKdy47pynBaQNjwnjXe2a37JRO9vDesjJTLt5lQ
-         3rnC47AeaAZzy0kkGko0rBvIKE4IxzWQDb3rDe1xEDOFLpVTmvDrgszBcHnlQQPL9NT6
-         GlVA==
-X-Forwarded-Encrypted: i=1; AKwUvBxSQp/4YP406KPzU6ft7FzEYkr/thiaa/A2GP1jVVwH2Xp+Rr3VU0cktILuDujvCS99n7uyLpbR922Z9SDmOu+W@lists.infradead.org
-X-Gm-Message-State: AFq9FYL4yZGxG8zY62u6rLsTuFEjVMoJDz5znIhAE/PAw6gv+KPLCZP/
-	qXIKLbCx1d8dEiOnfYkgkVpmZ9Rse/FV02y1JPSmyxJh5KLHw9AcUXvsZhbYKb90yao=
-X-Gm-Gg: AYBFou3GG/jy2PQWVuvQ6atv5Jehu5NtWWF3Kw8Pz5M2lpUUNJXGQPqKipQni5VjCEF
-	8hV7yUAU6A5Jb4ysdzEOV/fn1V7XIWpuaSoUwpkWp1c0a//NnLYBtOzKSUoApavILbcE/+/B7vI
-	vHr1zkC7lnCveOp8hyCf2s9IgbP4hUbrdrozDNAmFk8GCA19ZXL0q2iXhCh5a8PMjJTlSBSHCy2
-	o+A8Oqb/OZAe2YKi0dTEYHqbvn393ZPbdVeqw+lAE/barAsmbuB7022mHzchdt2WGiYTzPllevM
-	m9ckTpggA8o+JBvqRrDzaar0xReL5NQR1kcOqxFOZvO4WkLShtuI6ouTaMrTh9rTNaJS5qT2+Vd
-	tifFXrOQ+Vbw4jzwaE266p6KqhJqxhyd/STgz/RUwF7FIflWG6b/uUWRnEVm4cNzNcDUu3saBS2
-	5gFfHitRGZXfX9gFZnqYx8AQyQOdrqzK3jl4qi7Hq+PdKrQRyiiiciQrx4mzDbU7nTs53aejXHf
-	oVFNQArjen8XdxG58121nZltVXDE408WHQggjo6Sfa66r+gxdx8l47xUPeLhX4B2IE=
-X-Received: by 2002:a05:620a:1a03:b0:93c:ba44:673d with SMTP id af79cd13be357-93ebd1b7173mr2238297585a.23.1791898624601;
-        Tue, 13 Oct 2026 06:37:04 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93ef50295a7sm238844085a.23.2026.10.13.06.37.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 06:37:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xGcgh-00000009eSN-12xH;
-	Tue, 13 Oct 2026 10:37:03 -0300
-Date: Tue, 13 Oct 2026 10:37:03 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: GONG Ruiqi <gongruiqi1@huawei.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
-	Roberto Sassu <roberto.sassu@huaweicloud.com>,
-	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Eric Snowberg <eric.snowberg@oracle.com>,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
-	Roberto Sassu <roberto.sassu@huawei.com>,
-	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Jiri Pirko <jiri@resnulli.us>
-Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
-Message-ID: <20261013133703.GJ14213@ziepe.ca>
-References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
- <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
- <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
- <ar5tOUor0bp3MtQ6@e129823.arm.com>
- <9e74ff9d-e8a3-425e-bf7c-f973d06e6cdf@huawei.com>
- <as3uzQ7L6tJ-Lu-Q@e129823.arm.com>
- <1451a49c-f37a-486f-ac47-e2ff86fef28a@huawei.com>
+	id 1xGclu-0000000Cywp-1JnY;
+	Tue, 13 Oct 2026 13:42:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791898946; x=1823434946;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=47Ugmu/MXcINVLz36piL1JROl9v9e1tY83Sfw+DVcuU=;
+  b=KkUp03N+ITvZEvt2JAuPCCybFBGCkdRtXBXDYlrZ+6gD87wEG7eAt7sM
+   I+s3cdnOIDztVRAFke+CYsjYH0SfBCYP/LFDgEM8iZjvYXdIIKZZKQ58q
+   Nkw9cd5yW9drpikYmdiKAVCR52UKs/LTn2plees+CQdZpScXt8QtzIwII
+   rIKTKTy0mJxP1u5X71bqFCINu6tdjrPI7wv2IimNyJZIGuan5dTRKx6M2
+   AVcnmVhjH+WthNxG9QQWytHnjxYTlfnWXwBu8OW1dIZPpGoIwvxmF2dK2
+   S54AOxsWt+Dui0E1YWXgLmxfIx4b1rbIiTjtGxEZ+BP6uTiVqav4BxmXx
+   A==;
+X-CSE-ConnectionGUID: f3ls9+oUT9WeHgh240fKdw==
+X-CSE-MsgGUID: JYRiyNkaT86XWNsXm1i1CQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="633435"
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="633435"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 06:42:25 -0700
+X-CSE-ConnectionGUID: 1rsirYx7QQWSpEQLINJRXw==
+X-CSE-MsgGUID: c9T0gSdUTQCfhwUxRTS5/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="1090773"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 06:42:16 -0700
+Date: Tue, 13 Oct 2026 16:42:13 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: Alejandro Colomar <alx+linux-hardening@kernel.org>,
+	gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <ray.jui@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-parisc@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
+ uart_8250_port
+Message-ID: <as41NVTyPHp8cMS-@ashevche-desk.local>
+References: <cover.1791873876.git.jirislaby@kernel.org>
+ <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
+ <as3etnbZatn4sbfx@ashevche-desk.local>
+ <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
+ <as31PsESOgLUhMB6@ashevche-desk.local>
+ <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
+ <as4JDXOIGvCbAnE_@debian>
+ <f808883b-464e-4de8-a0c1-f799fd3d755e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1451a49c-f37a-486f-ac47-e2ff86fef28a@huawei.com>
+In-Reply-To: <f808883b-464e-4de8-a0c1-f799fd3d755e@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_063706_058739_6CEB1B50 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20261013_064229_480897_F8209968 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +127,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 09:05:37PM +0800, GONG Ruiqi wrote:
-> I'd rather not base our work on Jiri's patch at this stage: it is
-> a pre-RFC draft of the new attestation subsystem, whose design is
-> itself still in progress. Building upon it instead of current
-> mainline would be quite risky — we would be rebasing on a moving
-> target, and merging would be blocked until the whole framework
-> lands, which is realistically far off.
+On Tue, Oct 13, 2026 at 01:06:41PM +0200, Jiri Slaby wrote:
+> On 13. 10. 26, 12:51, Alejandro Colomar wrote:
+> > 	alx@debian:~/src/linux/linux/master$ time rg -n ARRAY_SIZE | wc -l
+> > 	58957
+> > 
+> > 	real	0m0.512s
+> > 	user	0m0.490s
+> > 	sys	0m0.974s
+> > 
+> > It's around 50% faster, which I wouldn't call orders of magnitude.
+> 
+> If you pipe rg's output somewhere, it no longer works in parallel.
 
-I'm going to be strongly against any work to try and put a ROT
-multiplexor into IMA. This is architecturally the wrong direction and
-is clearly very a short term project that will expose uABI that will
-be difficult to unwind later.
+Ha-ha! It means it's useless, as it outputs (as of your example) directly to
+the console without any pager, so one can't simply look backwards (it's limited
+by the terminal emulator scroll-back buffer).
 
-If you want this to go faster please work with Jiri.
+> Are we really about to discuss this?
 
-> I'd suggest we develop the proposal on current mainline, and
-> switch to the new attestation subsystem once it lands. As I
-> understand it, for us that is mostly just a matter of switching
-> to a different set of APIs.
+Up to you, I think `git grep` wins anyway by several reasons (at lest for me).
 
-It isn't, one activity is moving the policy and ROT multiplexer into a
-shared subsystem, the other is building a ROT multiplexer into IMA for
-only IMA to use.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Jaon
+
 
