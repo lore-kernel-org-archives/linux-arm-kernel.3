@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0765CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 20:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E32CC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 20:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSRlsCJ/5tvpWWe5VR84qQBeBhF4B6Pki9zDFnj6lNc=; b=AQGPtjiz2HRlzRFV3+Z5Wh/smQ
-	F/MDtJw9gaCaZ+wDDc1iLh3cUdfGsxs3A9hBcu5uYFlT8gEklhwy1oiQN7Oicdxu9ghwuZuaaLOC6
-	Gm4WoIBtPB7NrLf5i9PBPrlOd+OptI95EuJcYk+et9nQknITp/vTVoHqlLNY/plLXC/uC3m2cA4gu
-	eToUpSrvT9qJKeWFe8/6DWk9EaKwdJ2NQVSjpntIdfWlwSmGbMXEH2hUqhOKUv4WklkSthc70o1Vo
-	NHkMZ/6YVRF5DqhbTmsIXwZcbxsIxnUNpbDxh5NcerCmI6BBS34ESTWsjnu/CHUEfbcTp+DTsNty0
-	dztMFduA==;
+	bh=FsH0cWn1LlvsmNG6WCJYq22XE9O6pVl1IRSuRFpVGDU=; b=cvQK1hFJLpENcASYWwlFumM85g
+	LJCtyV4eEsmwzrojRipy8V8Ow1CJU+u0A9sSbIJ1FWv8q+rNdmniIviB6k4Xf5xOWWcXFvd47y7EL
+	mBqUuFlBk7dFmVFNlhIi8WngJlG2JDRjEttAc6W0s7mYe9EtuPIP7o/ysGdM9A99wvROIHRd5lvtI
+	3vg3DF+dBHDu9L3sWt5/nBmRpqlPIMxwntqa3o+YlcFA7iUin7X4t0/tDdRt1BJuI9exSFqtzf2fE
+	heB2vBG/UUAfve0oqmyfpU1vgkCQBA8LfeGUNT+cvw25m66KEHqSM1jxm0cli8F8LgZAiaIevIG5H
+	L/NiZHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjAG-0000000E0P5-2wA3;
-	Tue, 13 Oct 2026 20:32:00 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xGjAK-0000000E0R3-3OUd;
+	Tue, 13 Oct 2026 20:32:04 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjAF-0000000E0OF-04uE
+	id 1xGjAG-0000000E0Ov-3yIv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 20:32:00 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a02718da81so27260305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:31:58 -0700 (PDT)
+	Tue, 13 Oct 2026 20:32:02 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a01933b584so30153715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:32:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791923517; x=1792528317; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791923519; x=1792528319; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dSRlsCJ/5tvpWWe5VR84qQBeBhF4B6Pki9zDFnj6lNc=;
-        b=Mj/PTmv8RAU+BcEV2Bj1pT5cXJTAjVS2CMilnsE0XwjtDfECo7oF6BsFJhxZeWAvMv
-         QLgXysiw3QIeIRz91H6ZrdLZJ4DO6jkHJ5OxAnDHEt7fYDzNcqX1x5k21XcdWhMDrKIW
-         goafl/fHNVqzes9HA5FJO/7N+6yd7hqJFiMKCR+4j6ujbGZXJyyCJu9+t1lt6nL/3Miv
-         jwDHuU1DUh78q2Bc5jlc8BawPBZmIPL+28wbnQTG65pJ5j1dXf43gaX+cI3PoDsUDGHf
-         ZqBZ71ITvURB7Yr7wdGk7kdoEGpV/50BdWxv5vtfaCOLQT4aMytXsWk619JLw5eZJ9sU
-         j0qw==
+        bh=FsH0cWn1LlvsmNG6WCJYq22XE9O6pVl1IRSuRFpVGDU=;
+        b=r2jCEpR34JIEouLi+0geC7b0xcNsDdFNCifEfvQ8dSxNogQr8m/X2sd3bNxHlEWe8M
+         scETo5Y1dyEXAOu+sbvKmEWypY0EX2MjoLwA8z+Y/O3jEOCoP9AyPdZFcGLwcDVrRHZA
+         ixGa9fJYv4Z0e00DGLLKTtx85aVvYSC7COSbdyOXQIsua6FP7N9gLYV1borq9iL47dz6
+         +mZ1OHWvC32VeJ6D0SFuFufx6/PizYP2ozAG75jJrOASe0maxqUNhVPqnKgbBk45ArOM
+         UEnPr0dzCG+b3atnpo26iZi/u4Z02UmB9FfbWnsZUqY/7qizar1IrwZDjVCzOaERWVrq
+         fxHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791923517; x=1792528317;
+        d=1e100.net; s=20260707; t=1791923519; x=1792528319;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dSRlsCJ/5tvpWWe5VR84qQBeBhF4B6Pki9zDFnj6lNc=;
-        b=zGhzI69LLrwmDUoPWm/Ysn5fp3KZ6AEvXsBsdpDs2Ybq7wbf+5aSfwd9xObpZlDVwz
-         Hwp02fX45JT6+aqXgFPv11sz0NsmgLVOXITkjx4ocbUB3irjWuwMbpJTFvjvzvTyx5KK
-         XEJdxVezDoZDrblbVYL1SY9d70o4FDLGLb7QT3a16GyE2Jxndq+sjrQT7DQKK1rjfocq
-         +oT0pSmEk6bRXweHoMpPfm4yjYlCvmkaSzjxs6FL5qgXGFx0yctzfQDMxxpKF3gwwY1Z
-         dgfAglalEaU0/Y0jnwlAhMmd2B7hus50W6iAaOZBT1OXP/A2+DrmSBhaKVz/hR7gE+8J
-         /DsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw3VBOLl0q6Qi+VEOOePYbNGa1J1TpGr+0lidF3Yr9J3m+h73vCV6sMp8rRid3X4a4UhFA9L/m+mM3Vj2sJUtig@lists.infradead.org
-X-Gm-Message-State: AFq9FYIbje+veCAzREwIKDO7eE5t7UTlnpJ6HPDi35gO4rAeUmgAipBv
-	zpps5fLH96pw1xWLHmpP3KMJ9YDNRBjmRQtIjIuH0iYbLCNYer1yF1yk
-X-Gm-Gg: AYBFou1ZSv0paeuhnZ8TXtqGVFbjEVQrTQnOpN3pMuPMCICWDJ6VFKZnSsBvAUkLxIF
-	VEdj5AQ5YUqwJfw0Fzffpwlb8et/6nIS1sgA88i7WRyWeCCZ9ItfJ+KIbHTqMlElezNv6v3PkWj
-	BxTYsxic66TQMppiNSCHtVjebOh4w8uZ3sicN77fa99qQ5lgmJ7ActGodp50hOPJL+9Brh7nXtj
-	OFfw1OcmDsaxDB1PfwGfTQ3HXmbEM3zHtun7yv5DX5tPFYWTqtvM8L1nA1Cl4VR0xVkZaaDKL/n
-	0KUUyFdZxmRXXLoSqP/vz1S/19178HnR4/F/MFEug7YDiga1Twd4IodtiqgcrJIFCnb4Ritek9Y
-	gtPu5ok9PzGSHf/Nc27H2P+T0VvslXmOmoF/JX59RxHT23X1+oZneP+bNlY/01HdcE/e1d1f2gK
-	AmW0uva+/yIpNP4pPdLG/yQ0z+7V8ftBED1Yhe/On6a4tvU+jHJjibe+ClX+EQ8WH3PNIP4uRNk
-	ApKeXnQGy+8joi092vUzJhQ729joI+HTJDDlQvz4fof44cyJ6yaKCip4LNQqbOWavfoOVTjpNUq
-	+9cf+b6VLpTZqESYoCM42EB7Q2iFryXQKouyzMWgqMAbSKzv/72DpruEGTAo8LA82eTEb2VNvZm
-	WYeiN0eqk+V39uyt9
-X-Received: by 2002:a05:600c:34d4:b0:4a0:108:3b54 with SMTP id 5b1f17b1804b1-4a18e4d67d6mr260625985e9.32.1791923516977;
-        Tue, 13 Oct 2026 13:31:56 -0700 (PDT)
+        bh=FsH0cWn1LlvsmNG6WCJYq22XE9O6pVl1IRSuRFpVGDU=;
+        b=n2eMmmTB6B0jdG8GTg8ozKCDz0/UjdX+EEXlg67qH/Ogq6/jTcOGgQJkkfISH5eCSG
+         Nyoq5LZf3b/TFirBAzYYJqaYSM4wzkqZrNaTgb5EuKnyD1Mlf3ftFDXahfb2p0lYsv4y
+         8lSKf+rKvfOCFVRt+VVwQTl4RVUOaXa9W4fLOdksoXiu5cB33puZD+2VE31IkcEmYnPA
+         LcoPeIWG7x7uIsQ/ojGkUztDLbypTiOPqaEpcSjA/3DjHMZqdYcSM34zok6Xb1fLbmyO
+         sxscEDgMPEtI+rvB+II8DhHPOUuUBuuEJm9EveIwxex3s6p1Fu0D4BeF0th4CICeajAI
+         QdtA==
+X-Forwarded-Encrypted: i=1; AKwUvByS6Vmew39nC58/mommVPAyb6WoMOvp1Xptr3iq18frnnjjPegpQzUswbZN1ayYUWpGIfnm8M9aLIi6oswDEtWD@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ03DqXAoBwPCsr4DMCRdN1tyJailO3N9JeFWl6IpEVbnCB26IA
+	uuqHN4Gc5R7McFco39r10SuFIJEnLerMKPaLi45rXK7X6KIGY3m6J5Ih
+X-Gm-Gg: AYBFou2HeS2U0xwIAC0dCDhPSMIbxMEcETIpY83mEz4IwrCCCDMPfKzoJSEokvw8B1d
+	7gUJuKMH/yGId4uoMlSL5cSvjudTCQ5gzVBS3wIrLzZANB9qlqOcNsd1nBIbLDW4rmzR9ppOyUy
+	Gs8LgZxT0usmvO0EUr6bO5CE+ucTOahxyjhGTCcIO8/Y50LwXpIUgZMInZgQOMKasEmvVuINAqt
+	rXfVPYFwLp1ucEi/507FWpHFImEzw/o7C4IEeSlds24BomANCaDYL8ArrgLf/RRORrEjLuBgNiY
+	ryJvQDwD96Q1ipWdVKjLASkOGXhczK9dAz8XG5t9OdNXlxg2ac3ZmvBenvYmXRIU4/WKlov7oCa
+	vBKd9mTXswMpgNfA9oVq3j0uL1999Yv70XlT2irUkUZDMRJQt8tWgj79Gj0jkYtueKcMwvIT129
+	gsIMFqaqNz4x1yqIm5itM1EbrgfoS5KE6pMNsM0GcS/RMIcAhNyXdHgMrZ4xta1kjsMg3fdgopJ
+	u86xps18OhncSmAFc2MTBik11izkDRM+YwO0Q9TXu/nFOs3MP3LJ7H+iSakmHBtnjMpH3DXisGg
+	cZiBhMpPVqflfUJZRyy/vQsuu8Pn9GgSB0osDs6wgQr2xhGXLQrH3/p2HTN4Tb6w7YEgRW41YSe
+	vwIxzag==
+X-Received: by 2002:a05:600c:4ecb:b0:4a0:c01:1902 with SMTP id 5b1f17b1804b1-4a18e43a29fmr276884405e9.2.1791923518889;
+        Tue, 13 Oct 2026 13:31:58 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a189-2701-8c58-155a-0279-7389.310.pool.telefonica.de. [2a02:3100:a189:2701:8c58:155a:279:7389])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1b481b7f8sm5237345e9.3.2026.10.13.13.31.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1b481b7f8sm5237345e9.3.2026.10.13.13.31.57
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 13 Oct 2026 13:31:52 -0700 (PDT)
+        Tue, 13 Oct 2026 13:31:58 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Russell King <linux@armlinux.org.uk>,
 	Miguel Ojeda <ojeda@kernel.org>
@@ -104,17 +104,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	llvm@lists.linux.dev,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/6] ARM: cmpxchg: always inline __arch_xchg() and __cmpxchg()
-Date: Tue, 13 Oct 2026 22:31:35 +0200
-Message-Id: <20261013203140.31741-2-kmehltretter@gmail.com>
+Subject: [PATCH v3 2/6] ARM: cmpxchg: support 2-byte xchg() on pre-ARMv6 CPUs
+Date: Tue, 13 Oct 2026 22:31:36 +0200
+Message-Id: <20261013203140.31741-3-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20261013203140.31741-1-kmehltretter@gmail.com>
 References: <20261013203140.31741-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_133159_076592_3243D24C 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20261013_133201_003887_FB8AF75A 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,67 +129,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__arch_xchg(), __cmpxchg() and __cmpxchg_local() rely on inlining to
-remove their undefined-function calls for unsupported sizes.
+Pre-ARMv6 CPUs have no halfword swp, so __arch_xchg() only handles 1-
+and 4-byte exchanges there and turns any other size into a link error
+via __bad_xchg().
 
-With gcc 8.1.0 and CC_OPTIMIZE_FOR_SIZE, bcm2835_defconfig with RUST=y
-fails to link. The compiler emits out-of-line copies for the many
-callers in rust/helpers/helpers.c, retaining those calls:
+No C code needs a 16-bit xchg() on these CPUs, but the Rust atomic
+helpers in rust/helpers/atomic_ext.c provide xchg() for Atomic<i16>
+unconditionally, so building with CONFIG_RUST=y for ARMv5 fails:
 
-  helpers.c:(.text+0x424): undefined reference to `__bad_xchg'
-  helpers.c:(.text+0x4ac): undefined reference to `__bad_cmpxchg'
+  ld.lld: error: undefined symbol: __bad_xchg
+  >>> referenced by helpers.c
+  >>>               rust/helpers/helpers.o:(rust_helper_atomic_i16_xchg)
 
-Mark the functions __always_inline so the compiler can remove the
-unsupported-size path for each caller's constant size.
+Implement the 2-byte case with interrupts disabled, as the pre-ARMv6
+atomic_t operations already do. This is safe because a kernel built
+for ARMv5 or older is never SMP.
 
-Fixes: ab717dd98bee ("rust: helpers: Add i8/i16 atomic xchg_acquire helpers")
-Fixes: ac8f06ade38a ("rust: sync: atomic: Add Atomic<*{mut,const} T> support")
-Cc: stable@vger.kernel.org
+ARMv6 before ARMv6K (ARM1136r0) has no 16-bit exclusive access either.
+It is not handled here. Rust stays disabled for those kernels, and
+they cannot be SMP since commit d70242427110 ("ARM: rework ARM11 CPU
+selection logic").
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 Reviewed-by: Bradley Morgan <brads@mainlining.org>
-Reviewed-by: Gary Guo <gary@garyguo.net>
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- arch/arm/include/asm/cmpxchg.h | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm/include/asm/cmpxchg.h | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm/include/asm/cmpxchg.h b/arch/arm/include/asm/cmpxchg.h
-index 9beb64d30586..0ce5225af442 100644
+index 0ce5225af442..18555ae22893 100644
 --- a/arch/arm/include/asm/cmpxchg.h
 +++ b/arch/arm/include/asm/cmpxchg.h
-@@ -26,7 +26,7 @@
- #define swp_is_buggy
- #endif
- 
--static inline unsigned long
-+static __always_inline unsigned long
- __arch_xchg(unsigned long x, volatile void *ptr, int size)
+@@ -31,11 +31,10 @@ __arch_xchg(unsigned long x, volatile void *ptr, int size)
  {
  	extern void __bad_xchg(volatile void *, int);
-@@ -155,8 +155,8 @@ extern void __bad_cmpxchg(volatile void *ptr, int size);
-  * cmpxchg only support 32-bits operands on ARMv6.
-  */
- 
--static inline unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
--				      unsigned long new, int size)
-+static __always_inline unsigned long
-+__cmpxchg(volatile void *ptr, unsigned long old, unsigned long new, int size)
- {
- 	unsigned long oldval, res;
- 
-@@ -220,9 +220,9 @@ static inline unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
- 				      sizeof(*(ptr)));			\
- })
- 
--static inline unsigned long __cmpxchg_local(volatile void *ptr,
--					    unsigned long old,
--					    unsigned long new, int size)
-+static __always_inline unsigned long
-+__cmpxchg_local(volatile void *ptr, unsigned long old, unsigned long new,
-+		int size)
- {
  	unsigned long ret;
+-#ifdef swp_is_buggy
+-	unsigned long flags;
+-#endif
+ #if __LINUX_ARM_ARCH__ >= 6
+ 	unsigned int tmp;
++#else
++	unsigned long flags;
+ #endif
  
+ 	prefetchw((const void *)ptr);
+@@ -106,6 +105,15 @@ __arch_xchg(unsigned long x, volatile void *ptr, int size)
+ 			: "r" (x), "r" (ptr)
+ 			: "memory", "cc");
+ 		break;
++#endif
++#if __LINUX_ARM_ARCH__ < 6
++	case 2:
++		/* swp has no halfword form. Pre-ARMv6 is never SMP. */
++		raw_local_irq_save(flags);
++		ret = *(volatile unsigned short *)ptr;
++		*(volatile unsigned short *)ptr = x;
++		raw_local_irq_restore(flags);
++		break;
+ #endif
+ 	default:
+ 		/* Cause a link-time error, the xchg() size is not supported */
 -- 
 2.39.5 (Apple Git-154)
 
