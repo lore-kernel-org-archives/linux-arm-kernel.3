@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45C4CC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E58CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jCSgEGxqrKkW4tQWVEb2obBRfbgXfhgd/LNbZr68fQU=; b=Ns1N0p+s3VSU/SKtFxgOnvapSq
-	fjRoFPl36w471D6f94R/mjCZu2Xv/SvZNpbcBTzksD1gWfWp7Dbbwlr+65usA1TtiVzkmxCgj+Y2f
-	cG5et1iEG8LX9LalFF9GkaAdZ/c4qL/ibvSwDVEYrmhnAfg1Ax35FqcYVcId2SbVGNl6d6WEyWSZP
-	z36eWYPJuaD3aFCmvVZm977cqkya1JwsAc78gZAxMJ8ETBOR7EdKTyLzO/15Z2vv1FqgszEi0UZ6Z
-	hHSDDRf8LgUAQGb0H99RawoaQI5WSE9N+t8xGVjpbt02OiL3dpu/xoi+Ia9lhNVmzOIEyVruaUtY1
-	3y3WZDxA==;
+	bh=Enh1BgV8DvDb4ZSPlacGLgy4oQZV+vRQpyjeCEh6XLg=; b=WfyeVEb6m1knE8L29uqOpz+F95
+	Oc2xesF/SwcqrkHXBM0Uy39Nzn83yMJkU6yJHxsXazP0QQ4fzStDQ3Gb9lG+zYJBqb9DtOHnO5t1e
+	3JTiDjdwICEz9lyS77/06TSR1Txu0E1+I8qL9I3OYFfGUW38Y/CaZCsA0NQItPhiBrIvuvNj7n7TJ
+	7Vu/4hRrqJAp6/8KW7eCfZkrhFdUXlKZWH2NFtk6V6d5ViWcgCwLycGYqsGwEfBGVOqzd0Qg0lLb2
+	DtVU7Nc82+Ka7cjsdIpgYmJvyTuHhEEqQe3pfkovgqEsqRdRBSKQuzMxd4DhPATJCq+WuLPNoqNrD
+	x0owAe8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkc6-0000000E7B4-2ciE;
-	Tue, 13 Oct 2026 22:04:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkc5-0000000E7Ag-2FfN
+	id 1xGkl2-0000000E7e4-0rxZ;
+	Tue, 13 Oct 2026 22:14:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGkkt-0000000E7dN-3lU4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 22:04:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E2AFA60214;
-	Tue, 13 Oct 2026 22:04:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D4091F00898;
-	Tue, 13 Oct 2026 22:04:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791929088;
-	bh=jCSgEGxqrKkW4tQWVEb2obBRfbgXfhgd/LNbZr68fQU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BN+4oJ02D0ywdFvJsLoN0AZeasbdwaRZALns4Gp/E/6dhp55FMwxlEzqXc+pCNpBI
-	 MNFDdBozSYdFJthvwqSaj3pYp5kCj2qoUqGg/HnMK5qTvsRuCmDN7P8uT3INiiK/5l
-	 hlLthbK7AYGAYMhLopqCs9HIah7cJ2TuzAti7DRNNXHLTJLNz8Oso++Tunh77hXnPG
-	 J6RPHdJ7twpeE2saZHosSMCLXuPglg37Q30BevonXhotN696a/3ge1JGUPslGNVvJz
-	 pomKqU4e/OALAW2hwmT24001gqKte1QSQ4VGGH6m8PWYw4RjuR8JYXzYWGWlXZa0e1
-	 /bMC7kJCgp6nQ==
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Semih Baskan <strst.gs@gmail.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rosen Penev <rosenp@gmail.com>,
-	Rani Hod <rani.hod@gmail.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH v4 2/2] PCI: iproc: Use the EROM outbound window on BCMA
-Date: Tue, 13 Oct 2026 17:04:21 -0500
-Message-ID: <20261013220421.1588051-3-bhelgaas@google.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261013220421.1588051-1-bhelgaas@google.com>
-References: <20261013220421.1588051-1-bhelgaas@google.com>
+	Tue, 13 Oct 2026 22:14:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE8101688;
+	Tue, 13 Oct 2026 15:13:50 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D28A93F871;
+	Tue, 13 Oct 2026 15:13:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791929634; bh=b9BtCWGkJHn0bMKGND0IyL2uVXPmtmkcN+nYesDBUN0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=C1rfY83BkHnie2RRXlgSM0spEEod8PgaPuxpFHc0TfWCkwwT6A+J9lbPVQbi8/Zob
+	 ds7qUjs0sZ6cvcThatuxZSggPOanDyou4n0L/87Y0HuAIEiVR1Tc0g8g8GPkxnWb+f
+	 wWG5VvHpBfAHhVr89J/Rly0sMuxkD70ypumHEPhs=
+Date: Wed, 14 Oct 2026 00:13:34 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Jerome Brunet <jbrunet@baylibre.com>, Yixun Lan
+ <dlan@gentoo.org>, Enzo Adriano <enzo.adriano.code@gmail.com>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFT] pinctrl: sunxi: Fix A733 withstand programming
+Message-ID: <20261014001334.54dcf0b5@ryzen.lan>
+In-Reply-To: <20261013172427.328177-1-vinicius.eduardo.pedrosa@gmail.com>
+References: <20261013142351.771229-1-andre.przywara@arm.com>
+	<20261013172427.328177-1-vinicius.eduardo.pedrosa@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_151358_844107_3B7E0F06 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,141 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
-revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
-controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
-0x20000000 and 0x28000000. Broadcom's own driver branches on the core
-revision for exactly this reason.
+On Tue, 13 Oct 2026 14:23:38 -0300
+Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> wrote:
 
-bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
-that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
-Describe PCIe controllers fully") gave the controllers a ranges property.
-The commit shipped in v7.1.
+Hi Vinicius,
 
-With that property present, two things go wrong with this driver:
+thanks for having a look and testing it!
 
-  1) devm_pci_alloc_host_bridge() parses those ranges and requests them,
-     then this driver adds its own window and requests the whole list a
-     second time, so every controller fails to probe with -EBUSY.
+> Thanks for the RFT. I found two things when checking it against the A733
+> manual and my Cubie A7Z.
+> 
+> PB is an exception to bank * 2: its VCC-IO field is at bits 25:24, while
+> bits 3:2 are reserved.
 
-  2) The DT window itself is only correct on core revision 0x07. On
-     revision 0x01 it points at an address the hardware does not decode,
-     and the first MMIO access to a BAR takes an imprecise external abort.
+So PortB has no supply of its own, instead it's always supplied by
+VCC-IO. That was even more common on older SoCs, with also PortH and
+PortF being supplied by that. Which somewhat means that this is broken
+there as well?
 
-The enumeration ROM reports the correct base for the revision actually
-present, and bcma already provides it as addr_s[0].
+> With the board's SEL value (0x01155550), a 3.3 V
 
-To solve 1), use pci_alloc_host_bridge() directly to avoid the request of
-all the DT resources done in pci_parse_request_of_pci_ranges(). Instead,
-request the memory window from the EROM.
+What do you mean with "the board's SEL value"? That's not the SoC reset
+value, is it? So who programs that value, and why?
 
-To solve 2), parse the memory resources from DT and emit a warning if it
-describes a window that doesn't match the window from the EROM.  The
-mismatch means the devicetree describes a window the hardware does not
-decode, and that should be fixed in the dts rather than ignored silently.
+> request produces 0x01155558, leaving VCC-IO untouched.
 
-The driver is correct whether or not the DT describes a window.
+... naturally, because nothing in mainline sets VCC-IO, which is beyond
+the SoC's GPIO bank offset.
 
-The same commit also added compatible = "brcm,iproc-pcie", so these
-nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
-enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
-first and this driver's probe fails inside devm_pci_alloc_host_bridge().
-This commit fixes the configurations where the BCMA driver is the one in
-use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
-platform path takes the DT window as-is and has the same wrong address
-on core revision 0x01, so that side needs a devicetree fix either way.
+> I also think we should preserve AUTO (01). On my A7Z with vendor 5.15,
+> PF=10 resulted in 22 SDR104 read timeouts and no rootfs, while PF=01 and
+> PF=11 reached login.
 
-Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
+So this means you hacked the register in the vendor kernel, for the
+sake of an experiment? And I guess this just means that the vendor
+kernel uses UHS, and uses register 0x70 to switch PortF to 1.8V? So you
+need either auto or 1.8V for it to work, the same problem we hit with
+PortC on the A523.
 
-Based on:
-  https://patch.msgid.link/20260807160526.379-1-strst.gs@gmail.com
-  https://patch.msgid.link/20260912043626.437-1-strst.gs@gmail.com
----
- drivers/pci/controller/pcie-iproc-bcma.c | 40 ++++++++++++++++++++++--
- 1 file changed, 37 insertions(+), 3 deletions(-)
+> This was one run per setting with one card, not a
+> mainline before/after test. In my mainline setup, MMC0 already requests PF
+> with a fixed 3.3 V supply, so the RFT would replace AUTO with 10 even
+> without voltage switching. Preserving AUTO requires no special case for PF.
 
-diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
-index 593418c2bc3a..1e258cd8fed4 100644
---- a/drivers/pci/controller/pcie-iproc-bcma.c
-+++ b/drivers/pci/controller/pcie-iproc-bcma.c
-@@ -11,7 +11,9 @@
- #include <linux/phy/phy.h>
- #include <linux/bcma/bcma.h>
- #include <linux/ioport.h>
-+#include <linux/of_address.h>
- 
-+#include "../pci.h"
- #include "pcie-iproc.h"
- 
- 
-@@ -31,6 +33,29 @@ static int iproc_bcma_pcie_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)
- 	return bcma_core_irq(bdev, 5);
- }
- 
-+static void iproc_bcma_pcie_check_dt_window(struct iproc_pcie *pcie)
-+{
-+	struct device_node *np = pcie->dev->of_node;
-+	struct of_pci_range_parser parser;
-+	struct of_pci_range range;
-+	struct resource res;
-+
-+	if (!np || of_pci_range_parser_init(&parser, np))
-+		return;
-+
-+	for_each_of_pci_range(&parser, &range) {
-+		if ((range.flags & IORESOURCE_TYPE_BITS) != IORESOURCE_MEM)
-+			continue;
-+
-+		if (of_pci_range_to_resource(&range, np, &res))
-+			continue;
-+
-+		if (res.start != pcie->mem.start || res.end != pcie->mem.end)
-+			dev_warn(pcie->dev, "DT window %pR does not match EROM window %pR, using EROM\n",
-+				 &res, &pcie->mem);
-+	}
-+}
-+
- static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- {
- 	struct device *dev = &bdev->dev;
-@@ -38,10 +63,20 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	struct pci_host_bridge *bridge;
- 	int ret;
- 
--	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-+	bridge = pci_alloc_host_bridge(sizeof(*pcie));
- 	if (!bridge)
- 		return -ENOMEM;
- 
-+	bridge->dev.parent = dev;
-+
-+	ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
-+				       bridge);
-+	if (ret)
-+		return -ENOMEM;
-+
-+	bridge->swizzle_irq = pci_common_swizzle;
-+	bridge->map_irq = iproc_bcma_pcie_map_irq;
-+
- 	pcie = pci_host_bridge_priv(bridge);
- 
- 	pcie->dev = dev;
-@@ -59,13 +94,12 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
- 	pcie->mem.name = "PCIe MEM space";
- 	pcie->mem.flags = IORESOURCE_MEM;
-+	iproc_bcma_pcie_check_dt_window(pcie);
- 	pci_add_resource(&bridge->windows, &pcie->mem);
- 	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
- 	if (ret)
- 		return ret;
- 
--	bridge->map_irq = iproc_bcma_pcie_map_irq;
--
- 	bcma_set_drvdata(bdev, pcie);
- 
- 	return iproc_pcie_setup(pcie, &bridge->windows);
--- 
-2.53.0
+So can you say whether you observed a real problem with either the
+current (broken) code, or with one the fixes? I am still confused about
+your reports, whether they are just experiments, and comparing to the
+BSP, or looking at the manual, or whether there is an actually observed
+problem.
 
+> I boot-tested your RFT with two small fixups for PB and AUTO on my Cubie
+> A7Z (rev B). UART0 and MMC0 work, and GPIO_POW_MOD_SEL remains at
+> 0x01155550. No voltage-field writes were expected with this DT. I haven't
+> tested the RFT as posted.
+> 
+> I agree the full table and PI exclusion aren't needed, and found no
+> evidence for restricting the encoding to revision B.
+
+Thanks for the confirmation, and just curious where this revB
+restriction came from, originally?
+
+> A733-R still needs its own descriptor for the two-bit PL/PM fields. I'm
+> happy for your RFT to supersede my patch 1 once PB and AUTO are addressed,
+> and I'll rebase the A733-R fix on it.
+> 
+> I have the PB/AUTO fixups and the A733-R patch ready, and can send them if
+> useful.
+
+Well, this is getting really messy, isn't it? I never understood why
+the IP even allows manual programming if there is an automatic setting.
+Did you find any recommendation? IIRC manuals for other SoCs did
+recommend one or the other method. If AUTO works, and is used by the
+BSP, then we can just use that, but in a much simpler way: either use 
+BIAS_VOLTAGE_NONE, or create a new AUTO name (better), and then skip
+the whole action in sunxi_pinctrl_set_io_bias_cfg(). Instead just once
+program the GPIO_POW_MOD_SEL to "all auto", once at init time.
+Curious what others think about this.
+
+Cheers,
+Andre
 
