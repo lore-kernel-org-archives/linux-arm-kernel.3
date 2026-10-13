@@ -4,111 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659D9CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5B0CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfdLP83mHPHFMso2iF2XtpyrYtYAJ695PtbO2PEHxYc=; b=IOOf9QVlPtP2/zLmGfK8Zd3cai
-	A9i/KS8/UET+0YQf46xLpQk7Jcr1a+fVUXMju6RbR2V+hyFQxVrTqnm+5PlexOem+TLK5pW2KM+PF
-	uLt40T1KEhKMXiSO7WFPgIY79zXF+7shkjatPonW62TsZQ6VcXj6MbpwuOZUVorMofwFaPfPghy5O
-	4Z5Y661vwtnEQAWGLuM4o9YR6Ckri+0Yaka5EyHRdPqnNdkodxh0CDlH0eeSkJkWbZOpvVDqeTinW
-	RltzAsdm0+4dW4Slu4H0MoxQpf7ogVkEZ8b/H1gjskj2mbvxXllnm2ZsZ41mQU0hd09tNWeefhL1k
-	ZnZYTXvw==;
+	bh=B3KRNL7AZbCA4kJkWYYfzsHXsy+q+1VNr95bneYpC6w=; b=o5bRRGiHJFzR3nJky0b4nJ2qQD
+	gLZ7mI4Cn9v+A0mXrMzSzV/6RbM/UKbX81H5KHFQgUGDY2jx65kqm7p+inbj0hTcjq5VTmp8m3RQg
+	FVHpQB5up2a/eZElVM6a+syYvB+xNcK7hdQeYSwBIpkzctSimn9v/AeJ6vJJIaGQGJekbp5/OYhju
+	9KUxgCZdnawZZCDp+aHcsYrkGXsKMmo/oCxSpJfaJWwQn0kiW+Ng3aE0BwhKlnZZ5IG8QpnXQ2YFG
+	XV/FLr8fww/pfydc+aEYFDNIX5MAm74GmZ/XkHr2aP5Ygmy6V/iKn1JpJd1K2pQogRqDb24k/OlcX
+	K9yFAdXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZJH-0000000CVzv-0j0v;
-	Tue, 13 Oct 2026 10:00:40 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1xGZKS-0000000CW9j-3X7u;
+	Tue, 13 Oct 2026 10:01:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZJB-0000000CVyp-1rI5;
-	Tue, 13 Oct 2026 10:00:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791885633; x=1823421633;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fTGeNaBIaLCVqoO0T9Dn+Yn3xOiEnsjDiubugzTxCX0=;
-  b=N79QuZTnTwcUOhG7c86B8A4dx6iFEk0JgJI2hRtm8HwwZCdgg67hYw9P
-   BxMBgJG6XnUajEMInzV/AfBeJHH7RaCKR3v9VpfEccTat+fR4Ui2vnH21
-   fxB7YJ1fJ85T+SqevGyXoMadGVStwRkGJg5csLNvVu8OwtlXnH5u/cGHf
-   88CET2JrqWyfpFURmR0VkfZpt0oBP9TAHAvD1/qqpv8rxu2/vsW6E3hud
-   xHZZBWQ7JzOfxTFpZUVH9WvyDbib4EgcQZz4uwgQnOxoj64ycB1Q2iM7o
-   JPEQvBNTitdblOvwNEPmrIMozjC85ss0Y2xv9iIfxp6W+t2Tggw4QVZLO
-   w==;
-X-CSE-ConnectionGUID: /M0I8sbRTO2l2F1cWQU2ag==
-X-CSE-MsgGUID: rF4qhaTFR4qUNAuH3h2G7w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="700904"
-X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
-   d="scan'208";a="700904"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 03:00:31 -0700
-X-CSE-ConnectionGUID: 1iNYISSoTuuhs5glB6ekBw==
-X-CSE-MsgGUID: SGL4lvnmTw63CNrOzbER/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
-   d="scan'208";a="1174167"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 03:00:18 -0700
-Date: Tue, 13 Oct 2026 13:00:16 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Jiri Slaby <jirislaby@kernel.org>
-Cc: gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <ray.jui@broadcom.com>,
-	Scott Branden <scott.branden@broadcom.com>,
-	Al Cooper <alcooperx@gmail.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-parisc@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
- uart_8250_port
-Message-ID: <as4BML-VUC9xUgOf@ashevche-desk.local>
-References: <cover.1791873876.git.jirislaby@kernel.org>
- <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
- <as3etnbZatn4sbfx@ashevche-desk.local>
- <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
- <as31PsESOgLUhMB6@ashevche-desk.local>
- <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_030033_521471_2FF6B6D8 
-X-CRM114-Status: GOOD (  29.67  )
+	id 1xGZKO-0000000CW9E-3TRy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 10:01:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56ED541388;
+	Tue, 13 Oct 2026 10:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36BE41F000FF;
+	Tue, 13 Oct 2026 10:01:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791885708;
+	bh=B3KRNL7AZbCA4kJkWYYfzsHXsy+q+1VNr95bneYpC6w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Jk06kKyGuoFy0AuuOAsyqvfTgqMKECiFMOf1bs2MPbwGXZieDzgOQAQs2UNXxvD88
+	 8vMjHuhX9elbcatCkfpq1iYO9Np4DoLH6Y8+hQWMOVPS/JzNMfqaLfN+erUKJZuOlL
+	 aBFVCgFdlHJlCi8o2Uyy5/d0uoy8n+RjPR2Ddzeh8o4Qv+6SIqKbWKHx1N0y9tAUNi
+	 Z1V0GueI2c/3mAJBgZXeMwHQqGc0zo1BJhX0Kvm3xvtURuT5tzNN72V8TeaI3eXiMz
+	 wzH3ZK+ZjkC8SG9cJHaFoKYh14U+EWcNNMIwRb8lPzirQrJeawfxJfCrkZ4dCbDDV7
+	 +Df3VL8Up+mXg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xGZKL-00000002IE3-2eKc;
+	Tue, 13 Oct 2026 10:01:45 +0000
+Date: Tue, 13 Oct 2026 11:01:44 +0100
+Message-ID: <86wlrl2a2f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
+In-Reply-To: <as3_NKT20MNdqaJR@kernel.org>
+References: <20261013081646.933312-1-fuad.tabba@linux.dev>
+	<as3_NKT20MNdqaJR@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,82 +92,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 11:39:00AM +0200, Jiri Slaby wrote:
-> On 13. 10. 26, 11:09, Andy Shevchenko wrote:
-> > On Tue, Oct 13, 2026 at 09:53:26AM +0200, Jiri Slaby wrote:
-> > > On 13. 10. 26, 9:33, Andy Shevchenko wrote:
-> > > > On Tue, Oct 13, 2026 at 08:48:51AM +0200, Jiri Slaby (SUSE) wrote:
-
-...
-
-> > > > > -	rc = serial8250_register_8250_port(&port);
-> > > > > -	if (rc < 0)
-> > > > > +	struct uart_8250_port *uport = serial8250_register_8250_port(&port);
-> > > > > +	if (IS_ERR(uport)) {
-> > > > > +		rc = PTR_ERR(uport);
-> > > > >    		goto err_sysfs_remove;
-> > > > > +	}
-> > > 
-> > > > Also do not define
-> > > > variables in the middle of the code (it's only allowed for auto cleanup
-> > > > variables and for-loop iterators).
-> > > 
-> > > Why, actually?
-> > 
-> > Because it's the style.
+On Tue, 13 Oct 2026 10:51:48 +0100,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> There is no hard style though. It varies across subsystems.
-
-The keyword is *slightly*. I do not see much of deviation in style in the
-subsystem maintainer-XXX.rst. Do you?
-
-> > Linus also told it many times
-> 
-> Which is neither an argument. Linus is wrong at times ("Link:" use as an
-> example).
-
-Link is different, it wasn't about the code. So, for coding style we have stricter
-rules.
-
-> All in all, I do not insist on this at all. It's easier to read and follow
-> the code for me. Not necessarily the case for others...
-
-> > > First, it is used in the kernel quite a few times already
-> > > [1]. Second, while it is sort of c++ism (and I like to use modern c++), it
-> > > makes the life of the variable a lot more obvious.
-> > > 
-> > > [1] eg. see output of: rg -U -C 5 '}\n+\s+struct .*\*.*=' drivers/
+> On Tue, Oct 13, 2026 at 09:16:44AM +0100, Fuad Tabba wrote:
+> > Hi folks,
 > > 
-> > (you made me to install something I haven't heard about, it's better to use
-> >   `git grep` though)
-> 
-> rg is order of magnitude faster (searches in parallel). More importantly in
-> this case, supports multiline matches. (And respects .git ignores.)
-
-Isn't `git grep` fast enough due to looking into index and not into the files?
-`rg` may not look at the Git index, right? So I may not to use an arbitrary
-hash without checking it out first.
-
-> > Note excluded __free() if I get regexp correctly
+> > Changes since v1 [1]:
+> >   - Dropped the second mapping of an LPI at MAPTI, instead of keeping a
+> >     doubly mapped LPI out of GICv4 forwarding. (Marc)
+> >   - Keyed that check on whether an ITE maps the LPI, not on whether its
+> >     vgic_irq exists.
+> >   - Added a patch that makes DISCARD remove the pending state. (Marc)
 > > 
-> > $ rg -U -l '}\n+\s+struct .*\*[^)]*=' drivers/ | less
-> > drivers/ufs/host/ufs-qcom.c
-> ...
-> > drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+> > Two fixes to the ITS emulation. The first stops a guest from mapping
+> > one LPI from two events, which can oops a GICv4 host when the VMM then
+> > routes an assigned device's MSI to the second event. The second makes
+> > DISCARD remove the LPI's pending state, as the spec requires.
 > > 
-> > So, less than dozen of drivers doing wrong is not an argument, try something
-> > better. But thanks, I will check and address this in some of the above.
+> > Tested on QEMU, which emulates a GICv4 ITS. A local reproducer with two
+> > vCPUs DISCARDs an LPI that's pending in the other vCPU's list register.
+> > On rc3, and with patch 2 but without its halt, the guest still takes
+> > the LPI. With the series applied, it doesn't.
+> > 
+> > Based on Linux 7.3-rc3 (fd73f4a665989).
+> > 
+> > Cheers,
+> > /fuad
+> > 
+> > [1] https://lore.kernel.org/all/20261012084743.2228612-1-fuad.tabba@linux.dev/
+> > 
+> > Fuad Tabba (2):
+> >   KVM: arm64: vgic-its: Don't map an LPI from more than one event
+> >   KVM: arm64: vgic-its: Remove the pending state of a discarded LPI
 > 
-> Well, it's only an example of a declaration after a previous opening brace
-> "{" -- this one turned out to be easy to search for. There is a lot of more,
-> of course. kernel/ included.
+> Looks good. As all of these VGIC fixes depend on reliably synchronizing
+> hwstate I'll assume Marc will apply this patchset after his own series.
 
-Please, provide a better search line, I will look at that. For now it's just
-a hypothetical assumption, I am afraid.
+Yeah, I now have a series that has the counting pause, your single
+vcpu pause (fixed to DTRT), and the LPI disabling fix. Patch #2 of
+this series can probably make use of the single-vcpu stunning.
+
+As for the OUTSIDE_GUEST discussion, I've had a long discussion with
+Will where we reversed engineered the synchronisation requirements,
+and concluded that there was nothing to fix on that front (the logic
+is incredibly subtle and counter-intuitive, but overall sound). This
+patch is therefore dropped.
+
+I'll post that today, and we can assemble a series.
+
+Thanks,
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
