@@ -4,79 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE0BCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37497CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQreSMZcizUiDdYivY39+NvIk9xrh+GNkFREYZHeZBA=; b=IXXF2DLOgGhs2tlJwv3gQh7LG3
-	Xv0fVTbu++eUli7g0HAAZEYjsr2IUgZwFFyx4NzRu2oIvOi3vcWDUHcy2f29PaO736fsLz7Cv+lwd
-	PDNSjn2NVZ3gHmGFMoqqZMGscqu7VewWbMftUPU3rq8SgKqagn+fZ9ijmRJStdHaVL6ELW7MVGaVe
-	QmG1kgXHsPBE7fpNPde8oLSOFHBWfLHRCOS5+02r2ULIeVc16KAHNMZbOROe4NDR6H4wGj++mDqoo
-	S0L9MazBB6mh21mSfP3ACMBJn6gI8DYq25+xAIbeD5YfJiOsmLTGz3zVmvL050izoq+sFeitXd5FB
-	tUDbFixQ==;
+	bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=; b=yJh/9qF4SBz+08ooDT+4EGkMro
+	Bp3jBG42UO+zMyUFaV1fLZ0Z9RZSv5u0PYm8WEAhYAU/oSA4UnFZaMRyNjvTuDMRiFOtsVB8kSYvl
+	lzUxzUt0wTrm6wUG4/ODWa254qREYTDMqfZmenBpry11CXkpcMnwaESZyy73wJjsWNwnQM4UFG5P9
+	+ULcxXdy6ISINuVXN1/oaiz1j0yCDGBVwS1I/N7Eg8hRX7VpDAwU4FQ7D61o8J9gtVi682ND1ja01
+	DV5SmfrRhtpM3yldiPty5aBsc+TUrvLrwc6CPrW2mmmzA0HFu5qJjtKcvR2z4M4ZR7q5alPFATRaw
+	MVV4/11A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcfY-0000000Cxlo-0yiF;
-	Tue, 13 Oct 2026 13:35:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGcgm-0000000Cxve-25SC;
+	Tue, 13 Oct 2026 13:37:08 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcfW-0000000CxlB-1sob
+	id 1xGcgk-0000000Cxv1-03NC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:35:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A073F602C3
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:35:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 586331F00898
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:35:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791898549;
-	bh=OQreSMZcizUiDdYivY39+NvIk9xrh+GNkFREYZHeZBA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=iAXWEmq4fOp7iufBpwIRZp8Q/oZpUVrRQ9UZAUOeJiGuV6c0h3Ya8Mafdcgz/drBa
-	 22bRmdygV4uvvsyHt0c5TsL5UyDeBDSWTA6TffIBd4GmeP4ZhhuAjoHrOB7xbcPYcE
-	 eoer6fEuWwR+I3HwV7IYrbg1Zgk1UxpOmTG3QRpwzujN7EFQPWPvTXpPiT1lNXAiBE
-	 hoMnegD3N3xcSwmRI8TwiMKXxMx/UIE0rNMY8H3yf3NWdENi0IVdzd4e3HyHCp7gc3
-	 gjdMTtPsnpIs3DeS9M5ERUkyUmwN/FsE2Y+3kaoo81X3uKLRLnFvlEKeZTtvzUr8U0
-	 9N9CW0WGoUB8g==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5ba3b1199f6so2601767e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 06:35:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBz8XrqhSRB0avFMyeEkNovmPSbGRxINXGEdWNN6iKeREw5B902DuAm5m2HEBVgHQeqkaw3U1ybn9r2rbbjQH7gA@lists.infradead.org
-X-Gm-Message-State: AFq9FYICTjZiDmz4QaDc78xSyp161ZK6vEIfEoIKhSn9717C2ZnnB47k
-	jLQYFAGW8533ldnXFfKYU/7ghYWl+LO9Y8c7YGltVpFLpPmCrCrFN3CLW40SxYYXkVXbvRd840d
-	ziAnIm22nvu9vpfppEDv3EryIDyWFpMkG+JstVbgAQA==
-X-Received: by 2002:a05:6512:3f21:b0:5ba:4472:75d4 with SMTP id
- 2adb3069b0e04-5bcde6afa8cmr4940944e87.10.1791898548042; Tue, 13 Oct 2026
- 06:35:48 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 13 Oct 2026 09:35:43 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 13 Oct 2026 09:35:43 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <as4tep73cAI57Yk7@ashevche-desk.local>
+	Tue, 13 Oct 2026 13:37:07 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-93e56c287b3so237281085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 06:37:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1791898625; x=1792503425; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=;
+        b=njbOPFbLJqflIJv9qXvMGsipsBJh9Q9r4Gb4RmODQGBWxG+pqaSl11pHWoZ8UAZaUV
+         LRXrRiiGvCdtDFW11/6DsmsLu+WW//Xrm+Sv3oYwm2jlyw7OD6FkH2shE3DPEZvG3V/D
+         19zVbi9JnJV79ElbT4/jmitpvk2QKqNvU0iUhqIoPxjdmrOoDDhY92ZwhPRnc5gT147A
+         hVlamHs5zFTAyNwFbcb7B6UMdMyj6CO2RnjoOxrIt3UWBF+UbHuZ18rHqm2DO8Fl6ctY
+         MVg5253ujxvYPAvCtRG8NXRg/pxlVHtFA8DTZhP+9B3j0n0cKwZTUdYyIp1plBhK2NJG
+         1+0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791898625; x=1792503425;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/hCU9eM+EAM+gbO2WZ1UL5JdVd2fGYoXa+LQjApjQ9A=;
+        b=2nUMONN3mU236QuWkT79dpKMRgylDNtyQ1a5H8INt/BTsXS6UYBqXJauJhSrF1I1Ut
+         18cLom9ezNLBLHknOTu7j5RfqjM1iqSYKtdL3cH/6ZkKVZgPSQ/iVB8cP/KjXoeaxuS3
+         VCbrcSPepcgZhqvH1TePTRpkpmiRWsLMuNMBF4WcqPAxcF0DFH5CFBq/kmAOwcjcwSc4
+         Wh/wVyvcadVMXQQrhdhfxJPB+AmIktKdy47pynBaQNjwnjXe2a37JRO9vDesjJTLt5lQ
+         3rnC47AeaAZzy0kkGko0rBvIKE4IxzWQDb3rDe1xEDOFLpVTmvDrgszBcHnlQQPL9NT6
+         GlVA==
+X-Forwarded-Encrypted: i=1; AKwUvBxSQp/4YP406KPzU6ft7FzEYkr/thiaa/A2GP1jVVwH2Xp+Rr3VU0cktILuDujvCS99n7uyLpbR922Z9SDmOu+W@lists.infradead.org
+X-Gm-Message-State: AFq9FYL4yZGxG8zY62u6rLsTuFEjVMoJDz5znIhAE/PAw6gv+KPLCZP/
+	qXIKLbCx1d8dEiOnfYkgkVpmZ9Rse/FV02y1JPSmyxJh5KLHw9AcUXvsZhbYKb90yao=
+X-Gm-Gg: AYBFou3GG/jy2PQWVuvQ6atv5Jehu5NtWWF3Kw8Pz5M2lpUUNJXGQPqKipQni5VjCEF
+	8hV7yUAU6A5Jb4ysdzEOV/fn1V7XIWpuaSoUwpkWp1c0a//NnLYBtOzKSUoApavILbcE/+/B7vI
+	vHr1zkC7lnCveOp8hyCf2s9IgbP4hUbrdrozDNAmFk8GCA19ZXL0q2iXhCh5a8PMjJTlSBSHCy2
+	o+A8Oqb/OZAe2YKi0dTEYHqbvn393ZPbdVeqw+lAE/barAsmbuB7022mHzchdt2WGiYTzPllevM
+	m9ckTpggA8o+JBvqRrDzaar0xReL5NQR1kcOqxFOZvO4WkLShtuI6ouTaMrTh9rTNaJS5qT2+Vd
+	tifFXrOQ+Vbw4jzwaE266p6KqhJqxhyd/STgz/RUwF7FIflWG6b/uUWRnEVm4cNzNcDUu3saBS2
+	5gFfHitRGZXfX9gFZnqYx8AQyQOdrqzK3jl4qi7Hq+PdKrQRyiiiciQrx4mzDbU7nTs53aejXHf
+	oVFNQArjen8XdxG58121nZltVXDE408WHQggjo6Sfa66r+gxdx8l47xUPeLhX4B2IE=
+X-Received: by 2002:a05:620a:1a03:b0:93c:ba44:673d with SMTP id af79cd13be357-93ebd1b7173mr2238297585a.23.1791898624601;
+        Tue, 13 Oct 2026 06:37:04 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93ef50295a7sm238844085a.23.2026.10.13.06.37.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Oct 2026 06:37:03 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xGcgh-00000009eSN-12xH;
+	Tue, 13 Oct 2026 10:37:03 -0300
+Date: Tue, 13 Oct 2026 10:37:03 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: GONG Ruiqi <gongruiqi1@huawei.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	Roberto Sassu <roberto.sassu@huaweicloud.com>,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Eric Snowberg <eric.snowberg@oracle.com>,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
+	Roberto Sassu <roberto.sassu@huawei.com>,
+	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Jiri Pirko <jiri@resnulli.us>
+Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
+Message-ID: <20261013133703.GJ14213@ziepe.ca>
+References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
+ <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
+ <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
+ <ar5tOUor0bp3MtQ6@e129823.arm.com>
+ <9e74ff9d-e8a3-425e-bf7c-f973d06e6cdf@huawei.com>
+ <as3uzQ7L6tJ-Lu-Q@e129823.arm.com>
+ <1451a49c-f37a-486f-ac47-e2ff86fef28a@huawei.com>
 MIME-Version: 1.0
-References: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
- <CAD++jL=prd1KDZQawqsRmW3qp1-cJ=18-yhp861CQirOOjE5Ag@mail.gmail.com> <as4tep73cAI57Yk7@ashevche-desk.local>
-Date: Tue, 13 Oct 2026 09:35:43 -0400
-X-Gmail-Original-Message-ID: <CAMRc=Mcc2b2Z0zrkNQ80NpV-H1MsihgeNtPD5dD5g9xcbiLg4w@mail.gmail.com>
-X-Gm-Features: AclHuK8ITRAMzeZzyYNFuZDUAjI2-0MeXgfOXBannT48q8bMwCyFujpuburhehY
-Message-ID: <CAMRc=Mcc2b2Z0zrkNQ80NpV-H1MsihgeNtPD5dD5g9xcbiLg4w@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] gpiolib: kill gpio_request_one()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Linus Walleij <linusw@kernel.org>, Bradford Love <brad@nextdimension.cc>, linux-gpio@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-media@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
-	Robert Jarzmik <robert.jarzmik@free.fr>, Russell King <linux@armlinux.org.uk>, 
-	Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Mauro Carvalho Chehab <mchehab@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1451a49c-f37a-486f-ac47-e2ff86fef28a@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_063706_058739_6CEB1B50 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +127,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 15:09:14 +0200, Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> said:
-> On Fri, Jul 24, 2026 at 11:40:59PM +0200, Linus Walleij wrote:
->> On Wed, Jul 15, 2026 at 8:51=E2=80=AFPM Andy Shevchenko
->> <andriy.shevchenko@linux.intel.com> wrote:
->>
->> > This is the finilazation of the work announced in the commit 61e1fd2ab=
-ca4
->> > ("gpiolib: legacy: Make sure we kill gpio_request_one() first"). With =
-this
->> > small series we kill gpio_request_one() and leave only two legacy call=
-s
->> > devm_gpio_request_one() and gpio_request(), where the managed one has =
-only
->> > a few users and high chances to be killed soon as well.
->> >
->> > The series is supposed to go via GPIO tree (due to nature of the last =
-patch)
->> > with possible immutable branch for others. Please, ack.
->>
->> The kernel is clearly a better place after these patches than before it,=
- so:
->> Reviewed-by: Linus Walleij <linusw@kernel.org>
->
-> Thanks!
-> Bart, anything needs to be done for this series to go in?
->
+On Tue, Oct 13, 2026 at 09:05:37PM +0800, GONG Ruiqi wrote:
+> I'd rather not base our work on Jiri's patch at this stage: it is
+> a pre-RFC draft of the new attestation subsystem, whose design is
+> itself still in progress. Building upon it instead of current
+> mainline would be quite risky — we would be rebasing on a moving
+> target, and merging would be blocked until the whole framework
+> lands, which is realistically far off.
 
-We don't have Acks from MIPS maintainers. :(
+I'm going to be strongly against any work to try and put a ROT
+multiplexor into IMA. This is architecturally the wrong direction and
+is clearly very a short term project that will expose uABI that will
+be difficult to unwind later.
 
-Bart
+If you want this to go faster please work with Jiri.
+
+> I'd suggest we develop the proposal on current mainline, and
+> switch to the new attestation subsystem once it lands. As I
+> understand it, for us that is mostly just a matter of switching
+> to a different set of APIs.
+
+It isn't, one activity is moving the policy and ROT multiplexer into a
+shared subsystem, the other is building a ROT multiplexer into IMA for
+only IMA to use.
+
+Jaon
 
