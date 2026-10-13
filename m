@@ -4,64 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B00CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B679CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvOEPFtPzQzKLUYMK93ocRj37FpDFeyR1MEc3ztTr0s=; b=xrJOOLIvlG7crNOHdCFosms9+F
-	8ruw8KOUiV/Q1clOQLW9NgBk6q3IydExxxWR59cGN19mEEYkPO0y1PFdS+JvqtS9L/lbgXNRg6plZ
-	gkDms4NgtgeihD2oqki7alRr5x9KJ6ScQCs/oibX6HcNQIrSy4R65fG7rYG/QktqxOR2tpfsDS/gZ
-	EO8QX6YXs0KsKdoTZyD/J8GsGL37IGVJGnI9yRmEcuFdlP3KHbW+AzRyXQY8VkxXcOgg2QaTsq9J8
-	4ILzFBLsR6B4HzECRvwANxjBMtk3FJq32Wmbg5JKiU0c2Ig3X+IhM1m9Zmpx9kPfKeEypG7ADBiGz
-	FkKTBm0g==;
+	bh=Zyab/DTAR9jhfJIBsm1z8Es4blkN8hawSJWx0kJHmZ8=; b=fHTcj9SuvlXjssqTC9fudF04fV
+	R3MAxmiKvqx9nbvPvvsm0ijOg9juDn3bTEYijVq6Mt8pWcaZvogXeowx3fAOJvJTjQBy5T3MMdVRP
+	F5zZg+/c+PUzBXePUEBgJ5x5rRZY3qrw1L2kZEFVy4iEkXF6OWd5pzZMvcqJSiNeTP4CKAl2csG87
+	qoY3/04zTy/VQY8DEThV9sECKQf3vUJsNsIx/LLnM1kah6T9oGFK851w0CNYT5TYbyQR+Qfw1AMMY
+	fE7+qd3S4PxAtuWSi1Q0UKv/jLoE9u7kE6yrRpJIgaPDKzUe8COcbAEmE0lU5qwcYUR6KMuOzH7ei
+	SOMqimXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGb36-0000000CkeS-2PWR;
+	id 1xGb36-0000000CkeB-1nHf;
 	Tue, 13 Oct 2026 11:52:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGb34-0000000CkbP-3yRO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 11:52:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=KvOEPFtPzQzKLUYMK93ocRj37FpDFeyR1MEc3ztTr0s=; b=J9BmGA5o4ho7KwfLQ4WlxSGyyY
-	XWLkYg7cZhOsRNSHvkKojdMGTgnRfQutQO1ByLuz1kDqVwpNdaYHLsqUwGOK3ZgTFk4zAzBFXcolL
-	T5plfct3q3D01CniC9gdU6BBgo/VP3in/d8T1LEelzgwST/KG5OKEqxh5UR0zDIXePaAlpaE6Y0HV
-	a5vkFUS1slAbtgoS78/HobPDsZ74BvoZKJY6ZHCetxo5JzQh11NXA41NtLkRUJV1H0APbV9GfnOrQ
-	7UeGPWv+Zb5h/FK6sVvQvBipR5P700P+LH8Ud1LplnKdPq5wWEC8aOkYzbyQyr7nlJiPqGZ+TPXSm
-	Ep9mYy9A==;
 Received: from mail.fris.de ([116.203.77.234])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGb31-0000000FV2d-4Axl
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGb33-0000000CkZc-1ZxK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:52:01 +0000
+	Tue, 13 Oct 2026 11:52:02 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1791892305;
+	t=1791892306;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KvOEPFtPzQzKLUYMK93ocRj37FpDFeyR1MEc3ztTr0s=;
-	b=0hLHGN4Euaz+k8H8mT+zSljroDdM6C/aycHOEYzzrhczz4jEtpUxTrt3qjYD9T/JoJOCQf
-	e6bhmNl+YV0ZdyB/K1gyERjptuN1FnQqF+Qhs7VSy5ibcrb27ldRKSTKenqczxk1mVQQ5B
-	Yk+7Y0yz6Mw1ZhWBIUn1DdgPq+DwvFp3QC4RFt/cUbI3KstX+AcVa/qrq5z0w8SQJwDKPZ
-	osxWUaUKDxW8292FYshsLIQ10c4tOp7bGBIp5PKOBUAe4cCG0Kphwp9ZcYommPYqC+TCeW
-	8teETg2u34WPSH4hFDN59OryAgRwfoUcxIXfXmoUz+SeJLaVrgHv7yH2I1zy7w==
-Date: Tue, 13 Oct 2026 13:51:11 +0200
-Subject: [PATCH v2 6/9] arm64: dts: imx8mm-kontron: Fix GPIO label for
- PCIe_SM_ALERT#
+	bh=Zyab/DTAR9jhfJIBsm1z8Es4blkN8hawSJWx0kJHmZ8=;
+	b=bLqmeGjL4ncxPL9Y/WU2s3PFTuAm2wBGGHxur8rGe5CSetvhDNQssGfI+CqTq7qmubvZ06
+	VmukKc+pqlWerDhaDK7VXx5zEWiJCA7QVHlte4dFopCGwIhAs/2GDfkS0VDftwCqDVWIo3
+	Xsm4dGROTK5FC4O7S6rUl06O5sMaisJyeDo2Dl2DBWW9N8OpdBTApaZSSNSu7fQjIz7mWR
+	xsyCFH2/dDYQ1TikorjYJjZY2hjBu+GB1ed/hMtP1sNFDq3N2jdKNrVOjA0V9B6CfAOeWk
+	7vRnO3VAfWdrCK/odYlOeZVcXJqScj8nVC5cgY+GHG6lG17yW0xjsUrIFmWRTQ==
+Date: Tue, 13 Oct 2026 13:51:13 +0200
+Subject: [PATCH v2 8/9] arm64: dts: imx93-kontron: Fix UART RTS/CTS pad
+ names
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-upstreaming-gpio-label-fixes-v2-6-d464ca652c91@kontron.de>
+Message-Id: <20261013-upstreaming-gpio-label-fixes-v2-8-d464ca652c91@kontron.de>
 References: <20261013-upstreaming-gpio-label-fixes-v2-0-d464ca652c91@kontron.de>
 In-Reply-To: <20261013-upstreaming-gpio-label-fixes-v2-0-d464ca652c91@kontron.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -73,18 +58,18 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Eberhard Stoll <eberhard.stoll@kontron.de>, devicetree@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2405;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2604;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=aaxRKaOe/mV9rDuv1flggH0cjtsajMFJy+hs4E1+4IQ=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIeuctJ/7+vON3fliDdIr/m+7YVD46MvW1St88tb1njixQ
- 255/bVLHaUsDGJcDLJiiixS/Bavbc1ifeSPVUfBzGFlAhnCwMUpABN5dJORYW1sN6/1oYfhmz8Z
- f9WT03QLDD4qrnqyZ8rraXJyFvptKxkZnj1ddCBtwmLRCoeu3T7t9rdiAzpKeGqCD5mkV79LXlD
- NDgA=
+ bh=4bKC16o5GKSU948TfhevL5l/gtf8VzrNd538OkRdtV8=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIeuctJ/5tjVm++d+n3Dq/AmntI//RP8/XnTse4eG8re+g
+ 9FNT+xKO0pZGMS4GGTFFFmk+C1e25rF+sgfq46CmcPKBDKEgYtTACai3cvI8Dn3ecaPrzerDwr2
+ V617MfUj7+qC9qXFSbFTH0so7WQPV2P4XzFRzPv6hUdP1qX6eb7XuXzsvmvmItE2xpupWrJvUwo
+ WcQAA
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_125200_191971_C70A3C39 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20261013_045201_582477_7EC33D98 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eberhard Stoll <eberhard.stoll@kontron.de>
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-The OSM specification provides generic names for all pads. Fix the
-GPIO label for PCIe_SM_ALERT# to use the correct pad name in order
-to align the label with the spec and with other OSM module
-devicetrees.
+On i.MX93 the LPUART RTS_B signal is an output and CTS_B is an input,
+so they connect directly to the OSM-S UART_x_RTS and UART_x_CTS pads.
+The naming used for the Gpio labels and pinmux comments was carried
+over from i.MX8M, where the UART RTS/CTS signals have the opposite
+direction.
 
-Also fix the label in the BL board devicetree that overrides the GPIO
-labels of the SoM.
+Fix the naming to match the hardware:
 
-Fixes: 6f5e6d7306c0 ("arm64: dts: imx8mm-kontron: Refactor devicetree for OSM-S module and board")
-Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+  GPIO_IO06 (LPUART6_CTS_B) -> UART_B_CTS
+  GPIO_IO07 (LPUART6_RTS_B) -> UART_B_RTS
+  GPIO_IO10 (LPUART7_CTS_B) -> UART_A_CTS
+  GPIO_IO11 (LPUART7_RTS_B) -> UART_A_RTS
+
+Fixes: 2b52fd6035b7 ("arm64: dts: Add support for Kontron i.MX93 OSM-S SoM and BL carrier board")
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi   | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
-index 3a166cf0afcb7..8d17701233876 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
-@@ -156,7 +156,7 @@ &gpio4 {
- 			  "DIO4_IN", "SPI_A_/WP_(IO2)", "SPI_A_/HOLD_(IO3)", "GPIO_C_6",
- 			  "I2S_MCLK", "UART_A_TX", "UART_A_RX", "UART_A_CTS",
- 			  "UART_A_RTS", "", "", "",
--			  "PCIe_SM_ALERT", "UART_B_RTS", "UART_B_CTS", "UART_B_RX";
-+			  "PCIe_SM_ALERT#", "UART_B_RTS", "UART_B_CTS", "UART_B_RX";
- };
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+index a6b6128f22ddf..850a92dd9b9ba 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+@@ -59,8 +59,8 @@ &gpio2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio2>;
+ 	gpio-line-names = "I2C_B_SDA", "I2C_B_SCL", "GPIO_B_1", "GPIO_A_2",
+-			  "UART_B_TX", "UART_B_RX", "UART_B_RTS", "UART_B_CTS",
+-			  "UART_A_TX", "UART_A_RX", "UART_A_RTS", "UART_A_CTS",
++			  "UART_B_TX", "UART_B_RX", "UART_B_CTS", "UART_B_RTS",
++			  "UART_A_TX", "UART_A_RX", "UART_A_CTS", "UART_A_RTS",
+ 			  "SPI_B_CS0", "SPI_B_SDI", "SPI_B_SDO", "SPI_B_SCK",
+ 			  "I2S_BITCLK", "I2S_MCLK", "GPIO_A_1", "I2S_A_DATA_OUT",
+ 			  "I2S_A_DATA_IN", "PWM_2", "GPIO_A_3", "PWM_1",
+@@ -423,8 +423,8 @@ pinctrl_lpuart6: lpuart6grp {
+ 		fsl,pins = <
+ 			MX93_PAD_GPIO_IO05__LPUART6_RX			0x31e /* UART_B_RX */
+ 			MX93_PAD_GPIO_IO04__LPUART6_TX			0x31e /* UART_B_TX */
+-			MX93_PAD_GPIO_IO07__LPUART6_RTS_B		0x31e /* UART_B_CTS */
+-			MX93_PAD_GPIO_IO06__LPUART6_CTS_B		0x31e /* UART_B_RTS */
++			MX93_PAD_GPIO_IO07__LPUART6_RTS_B		0x31e /* UART_B_RTS */
++			MX93_PAD_GPIO_IO06__LPUART6_CTS_B		0x31e /* UART_B_CTS */
+ 		>;
+ 	};
  
- &i2c3 {
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
-index 35b76cd02b1df..9fb229815c1fe 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi
-@@ -223,7 +223,7 @@ &gpio4 {
- 			  "GPIO_B_7", "SPI_A_/WP_(IO2)", "SPI_A_/HOLD_(IO3)", "GPIO_C_6",
- 			  "I2S_MCLK", "UART_A_TX", "UART_A_RX", "UART_A_CTS",
- 			  "UART_A_RTS", "", "", "",
--			  "PCIe_SM_ALERT", "UART_B_RTS", "UART_B_CTS", "UART_B_RX";
-+			  "PCIe_SM_ALERT#", "UART_B_RTS", "UART_B_CTS", "UART_B_RX";
- };
- 
- &gpio5 {
-@@ -614,7 +614,7 @@ pinctrl_pcie: pciegrp {
- 			MX8MM_IOMUXC_SAI5_RXD1_GPIO3_IO22		0x19 /* PCIe_CLKREQ# */
- 			MX8MM_IOMUXC_SAI5_RXD2_GPIO3_IO23		0x19 /* PCIe_A_PERST# */
- 			MX8MM_IOMUXC_SAI5_RXD3_GPIO3_IO24		0x19 /* PCIe_WAKE# */
--			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28		0x19 /* PCIe_SM_ALERT */
-+			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28		0x19 /* PCIe_SM_ALERT# */
+@@ -432,8 +432,8 @@ pinctrl_lpuart7: lpuart7grp {
+ 		fsl,pins = <
+ 			MX93_PAD_GPIO_IO09__LPUART7_RX			0x31e /* UART_A_RX */
+ 			MX93_PAD_GPIO_IO08__LPUART7_TX			0x31e /* UART_A_TX */
+-			MX93_PAD_GPIO_IO11__LPUART7_RTS_B		0x31e /* UART_A_CTS */
+-			MX93_PAD_GPIO_IO10__LPUART7_CTS_B		0x31e /* UART_A_RTS */
++			MX93_PAD_GPIO_IO11__LPUART7_RTS_B		0x31e /* UART_A_RTS */
++			MX93_PAD_GPIO_IO10__LPUART7_CTS_B		0x31e /* UART_A_CTS */
  		>;
  	};
  
