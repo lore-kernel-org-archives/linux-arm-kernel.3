@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1CCCC6B16
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE173CC6B08
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 12:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qsgnaJ8HgUwsD9AqhRnuRILZRtDgVlSZGoEjMwRkn1s=; b=HFnP3vM8wpzJ2h8rRGXySt0wVe
-	SS9KKDTAC3nVELJUz/0/n+vQ6W93NOw9QQ6z/qhKdc3cN6EM2fcwf2ryisCtUPkhBZlja1Rv4dzyw
-	LT2wc4KTXMIf5HFTMdhq9EsHBiTKiv5iU0WJXuJsZ/ktRTS4mFDGEpxjrdMaSbANTkmEwDSomL1/F
-	bt0iLmZaf6tTEbbJavYG1741IQ567P5O3GE01J/Y9cN4E+wcK46juWDVHahF9vmNusB5cLwvTaR+t
-	bIlKyqXcB24Dt3OBuC4SUyIE+hPftO6ah9CPa00wMtfmEc/X/Crem8LoLj1w12Z1XlOJai+GMMfiG
-	Lb/TcqCQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0DlQ/xf40TjrEq/cqhW2BlOW/2RL9CDbLOchel23Qo=; b=Pxbf/jrNMAR46+Tva1gg3YpOOC
+	NxULSB86aebmfELZEczZ0VxB61cDro5SciRUMKfXbHz7p5qing6dytExsbNZWj/c+ymeRoNXv+8Vu
+	bLGilWSstV92joN2rZp6a/z+q9+gaRMUPrQ2Ul4DobWL5wLDmNYVE9O9Bu+KDT1K7CPnQT9WnF1+S
+	Ojns/IKehJPsdUJq7nMWQxX/x8wLWLe9z0AOfxnPzHsy5U4qPjA/kEwy1HCw8Hg5GHAONFh2NmxaC
+	Vf7+Ly5mxFQTmARvncYYFZ+vgxgc1BfIyeIZN0+PmQAxO+r8RQt5ASpBpSxvj2lIm5FlR9fwpxp0T
+	Y1fBTT5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGbxR-0000000CrfU-2lhE;
-	Tue, 13 Oct 2026 12:50:17 +0000
-Received: from mail-m17209.xmail.ntesmail.com ([45.195.17.209])
+	id 1xGbxQ-0000000Crcs-3DDt;
+	Tue, 13 Oct 2026 12:50:16 +0000
+Received: from mail-m82213676.xmail.ntesmail.com ([8.221.36.76])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGbxE-0000000CrRp-1XI2;
+	id 1xGbxF-0000000CrSM-3v9B;
 	Tue, 13 Oct 2026 12:50:10 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50e2b9409;
-	Tue, 13 Oct 2026 20:49:52 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 50e2b9417;
+	Tue, 13 Oct 2026 20:49:59 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Sandy Huang <hjc@rock-chips.com>,
 	Heiko Stuebner <heiko@sntech.de>,
@@ -58,25 +58,28 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v1 0/6] Add eDP support for RK3568
-Date: Tue, 13 Oct 2026 20:49:40 +0800
-Message-Id: <20261013124946.1807886-1-damon.ding@rock-chips.com>
+Subject: [PATCH v1 6/6] arm64: dts: rockchip: rk356x: Add eDP controller and phy nodes
+Date: Tue, 13 Oct 2026 20:49:46 +0800
+Message-Id: <20261013124946.1807886-7-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261013124946.1807886-1-damon.ding@rock-chips.com>
+References: <20261013124946.1807886-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1354febbb03a8kunm2e7c128b3001
+X-HM-Tid: 0aa13550074b03a8kunm2e7c128b301c
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSRoYVktJGR8eHhgfGR5OTlYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZS0pIVhlJHR1KHxodSUpOTFYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=Z5bIQIAvlHI95Bg0MV8RLH59wzyVXSY9zR3sHlD4R7SKAAI5DFyYYyxcZgwLbzW5DvKdT/YPvYzBZ2EgJOL3ps9az40v8TtyH2tCvldwSgFNWHBArBL1eA8hIGIZeYNaiG5ekfTAwE4/3gZn1nUtHttW6l5UolPMYOpQ3E51qMI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=qsgnaJ8HgUwsD9AqhRnuRILZRtDgVlSZGoEjMwRkn1s=;
+	b=aMrkd1w3cOMiKQR592KKTSf8/Xz+rXFqkIdE5hn8Rm8zrg785Tlf48qPwLc/ZkLfqinhKQJRDAc7ffodadXmJ65XQJkjhRQqiaILyk+HIVPftpjDxU+8uVTcbLoYe3Noj13fCyXC/0KpWFbhQJeFkkp7JNdyE7QFwRVbmtwm9ko=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=u0DlQ/xf40TjrEq/cqhW2BlOW/2RL9CDbLOchel23Qo=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_055005_782637_6FE8EF28 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20261013_055006_661078_B1B9EE0A 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,88 +94,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rebased after:
-https://lore.kernel.org/all/20260928081418.3605775-1-damon.ding@rock-chips.com/
+Add the eDP PHY GRF (with the eDP PHY child node) and the eDP
+controller nodes for the RK3568/RK3566 SoCs.
 
-PATCH 1 is to document the "rockchip,rk3568-edp" compatible in the
-        Rockchip Analogix DP binding.
-PATCH 2 is to add the binding for the RK3568 eDP PHY with NaNeng IP block.
-PATCH 3 is to add the RK3568 support for the Analogix DP bridge driver.
-PATCH 4 is to add the driver for the Rockchip eDP Transmitter PHY with
-        NaNeng IP block.
-PATCH 5 is to add the RK3568 support for the Rockchip Analogix DP driver.
-PATCH 6 is to add the eDP controller and eDP PHY nodes for the RK3568
-        SoCs.
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+---
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-Tested on RK3568 EVB1 baord with LG eDP panel LP079QX1-SP0V.
-
-&edp {
-  avdd-0v9-supply = <&vdda0v9_image>;
-  avdd-1v8-supply = <&vcca1v8_image>;
-  force-hpd;
-  status = "okay";
-
-  aux-bus {
-    panel {
-      compatible = "edp-panel";
-      backlight = <&backlight>;
-      power-supply = <&vcc3v3_lcd0_n>;
-      no-hpd;
-
-      port {
-        panel_in_edp: endpoint {
-          remote-endpoint = <&edp_out_panel>;
-        };
-      };
-    };
-  };
-};
-
-&edp_in {
-  edp_in_vp0: endpoint {
-    remote-endpoint = <&vp0_out_edp>;
-  };
-};
-
-&edp_out {
-  edp_out_panel: endpoint {
-    remote-endpoint = <&panel_in_edp>;
-  };
-};
-
-&edp_phy {
-  status = "okay";
-};
-
-&vp0 {
-  vp0_out_edp: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
-    reg = <ROCKCHIP_VOP2_EP_EDP0>;
-    remote-endpoint = <&edp_in_vp0>;
-  };
-};
-
-Damon Ding (6):
-  dt-bindings: display: rockchip: analogix-dp: Add support for RK3568
-  dt-bindings: phy: Add rockchip,rk3568-edp-phy
-  drm/bridge: analogix_dp: Add support for RK3568
-  phy: rockchip: Add support for Naneng eDP phy
-  drm/rockchip: analogix_dp: Add support for RK3568
-  arm64: dts: rockchip: rk356x: Add eDP controller and phy nodes
-
- .../rockchip/rockchip,analogix-dp.yaml        |  25 +-
- .../bindings/phy/rockchip,rk3568-edp-phy.yaml |  59 +++
- .../devicetree/bindings/soc/rockchip/grf.yaml |  15 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  41 ++
- .../drm/bridge/analogix/analogix_dp_core.c    |   1 +
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  20 +-
- drivers/phy/rockchip/Kconfig                  |  10 +
- drivers/phy/rockchip/Makefile                 |   1 +
- .../phy/rockchip/phy-rockchip-naneng-edp.c    | 435 ++++++++++++++++++
- include/drm/bridge/analogix_dp.h              |   2 +
- 10 files changed, 607 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
- create mode 100644 drivers/phy/rockchip/phy-rockchip-naneng-edp.c
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index a5832895bd39..3b60e4355ad8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -403,6 +403,20 @@ usb2phy1_grf: syscon@fdca8000 {
+ 		reg = <0x0 0xfdca8000 0x0 0x8000>;
+ 	};
+ 
++	edp_phy_grf: syscon@fdcb0000 {
++		compatible = "rockchip,rk3568-edp-phy-grf", "syscon", "simple-mfd";
++		reg = <0x0 0xfdcb0000 0x0 0x100>;
++		clocks = <&cru PCLK_EDPPHY_GRF>;
++
++		edp_phy: edp-phy {
++			compatible = "rockchip,rk3568-edp-phy";
++			clocks = <&pmucru XIN_OSC0_EDPPHY_G>;
++			clock-names = "refclk";
++			#phy-cells = <0>;
++			status = "disabled";
++		};
++	};
++
+ 	pmucru: clock-controller@fdd00000 {
+ 		compatible = "rockchip,rk3568-pmucru";
+ 		reg = <0x0 0xfdd00000 0x0 0x1000>;
+@@ -879,6 +893,33 @@ hdmi_out: port@1 {
+ 		};
+ 	};
+ 
++	edp: edp@fe0c0000 {
++		compatible = "rockchip,rk3568-edp";
++		reg = <0x0 0xfe0c0000 0x0 0x10000>;
++		clocks = <&pmucru XIN_OSC0_EDPPHY_G>, <&cru PCLK_EDP_CTRL>, <&cru HCLK_VO>;
++		clock-names = "dp", "pclk", "hclk";
++		interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
++		phys = <&edp_phy>;
++		phy-names = "dp";
++		power-domains = <&power RK3568_PD_VO>;
++		resets = <&cru SRST_EDP_24M>, <&cru SRST_P_EDP_CTRL>;
++		reset-names = "dp", "apb";
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			edp_in: port@0 {
++				reg = <0>;
++			};
++
++			edp_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	qos_gpu: qos@fe128000 {
+ 		compatible = "rockchip,rk3568-qos", "syscon";
+ 		reg = <0x0 0xfe128000 0x0 0x20>;
 -- 
 2.34.1
+
 
