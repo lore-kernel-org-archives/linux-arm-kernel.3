@@ -4,98 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333DECA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9377CCC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=; b=d8HL8tm4BwmitVGenUF3wkv2Qb
-	+LevkqZsDdPTUlnLlAypgXrVqSCGiSV3QoEFBZivlW0754OJH0Y4jhbreh0Ci5sh3SSqIoxLMmrTh
-	6gROynIt4ckKqfAI1c+v5EmDuabkrbOyL0loUTNNOl8aJvHF1N7TYBoG1wU1oe9USbV8A3tcrtopi
-	djFJGGMFLl9kQHUNHZdXxGmGSzGxsi18odIG6iZM+riDsEq1YBAge8SMuBjH5cMbm8lP5+heuBmBD
-	46oI1eiqXrYbsOZMeTATNM3XpS7KeVibDA9x0aa5MfehnC0opV38KAa1H3GRHlaLAniDYl3zuWps1
-	oQ3WXRVw==;
+	bh=JIlwWl9VvuRB7lZ2V3SV5Hbe0z7vUL7H28qfYAitlI4=; b=hu9AUmxT2WlzNprGet4dt5XS5y
+	jZpm6/2e5ykfxvoJ+DUIHyrfu9NA5BJ8l8uT8azGXuxKNezVuKfHg032iyVyKQ0lXegRMoXpA4oFr
+	zAyhwME3pUgMmXZSq09iIUKzmg7xP4hVGFpDC65mI+yZZPvdj5TX0PK7Cp0X8T6XbAWy7wAnkBhn1
+	yz6SYInjmLirYF6Q6MOllLKBoVYz3IHHwV1X7A6Dn7+e6H2bTcqRMxtumO8mMtyqY8Xgj9fZUcLFe
+	AyKTm5IHeFYIz7o9SzQRjCtwr05FB4JqVPTtv9cgy00RNVe5y4A/N6Z898NHJVsirG5aGlkqmHNa/
+	SOMQLhig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaDX-0000000CeJL-2EUM;
-	Tue, 13 Oct 2026 10:58:47 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1xGaG4-0000000CecM-050E;
+	Tue, 13 Oct 2026 11:01:24 +0000
+Received: from mail-westeuropeazon11011011.outbound.protection.outlook.com ([52.101.70.11] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaDT-0000000CeG8-175b;
-	Tue, 13 Oct 2026 10:58:46 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D89D5200582;
-	Tue, 13 Oct 2026 12:58:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791889118;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=;
-	b=Ft9dEqdSqJcAUHVzPIc2Eix4ACSvnxYrBByJWx/dmOdIVRCmu/EeYRQP2CINQ7tuAtTN+/
-	Zys067Vs7HBtwPQyJNyvNv5Lh3hyUWpXmcILku2mXqsz46MNws2gfJI1O586Urlfo58qcU
-	9VyHc37+7jpex2p0wrt3C/wQGOE0+MD7inDL+q46sOhf40AiTKpiR7EAsDBK0ZvAinfgJO
-	9jmDQWCWriqusDxw0q/KDv7YeAYMFEvNGVYeaRpZtEXTe2CNP+BD4FSrTlmXR4ex56m0jM
-	tkb9dNyrp9togtfNL9QlKlskYUkqlbO2ZC264rzgmFZIV/gTvoxAX1sc9PT9dA==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791889118; a=rsa-sha256;
-	cv=none;
-	b=H6lGdFXLC8FRo8ALFR+JY+10yIo5YK/+Ss/C/5Ge0Z7lmrzl0BemHysBpEXjjul0JMaCc3
-	Z/+L6EbsYtN9aakUCGvzNn7csRXqyyQmi9vsDWidakbgfQ2jPLFI5bJHKIHZ5fsouuL9Bi
-	Uz44QfRUT9PsyLJ6E0FRuvhDFXdh84ESkpZ9ti7Ev2wwZ6r3+G8lE0SB386d8cKhoZFaJU
-	0Zllheq8FeQVD8dMfKrZkkcJUs9fXBL+77v8pii+b7cRycZND4E/1/dPjhYDJutal28nic
-	GidRYbn9ynscfXEylHWlXhTdl5MzjPBItgQcpb0Hzrw47nPHLFSWdf0mllwGQA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791889118;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=;
-	b=COiVH5dzxNsq4sj3ao+H39OF5fYjChNz/VJalg6MCyepxFLn+CCrFd2APcgYSxdwDl158h
-	3Ydjmn8PeKtThSxC1pOTzEp5JeWk4MA0fyMVE2xqX/DAduXGMv+Snd22wWXQKNTmxGMoij
-	295cJh1BqBtYuiP7cE26uELPkPrxCkw0cNDqiCmg+9SN6eELvKvjTGZgXVrGkfI0HjsPSp
-	OZD7EUe97EMR77WC6Hynn2RwG99GJBXSHN49JEGEAwwZCqC1MChtevdwuW4NGEvg1GzfhO
-	j/xP3UStSs9sAwhWExXm+v8Q0FmXqXKjvRNA5/QoslsFv/2qZOTSHoap4bHiGw==
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xGaDO-005g8E-2X;
-	Tue, 13 Oct 2026 12:58:38 +0200
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 6C2E45C2F46;
-	Tue, 13 Oct 2026 10:58:38 +0000 (UTC)
-Date: Tue, 13 Oct 2026 12:58:37 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
-	kernel@pengutronix.de, Heiko Stuebner <heiko@sntech.de>, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
- closing the device
-Message-ID: <20261013-hissing-saiga-of-endeavor-ef5e03-mkl@pengutronix.de>
-References: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
+	id 1xGaFq-0000000CeaW-2Y3Y
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 11:01:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KRSmipK/pkCi205sR79kdAYlpQQWNHrqcYM8gXHjhtulv3jF80Mj3UASvx3F3Zr4p27ng1GBjcMn8FyTSJrgdcgn6pnlFBNOhBek/zMqZehlsvZfH15OCcCiEqtigM1/skX2gTcvaQ4Se/B9KlfwapwGP375LoBzoSyTtvmNNe/k1Pol63OiR5xLzyPzWI23HrrUwSACs9sbLt8DP8ubLCw2aH+Jph5awJyaDKxb5BZ3baPeNvoNaUwvqIvfvrLPoW0HowJ0EOq/Ux0FWF2s9ZCbWQSC8yB+jpsJ323idg9KuSr/HDz9z0izddHR1aMCl5RZYEne45pi3kbr4GM80A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JIlwWl9VvuRB7lZ2V3SV5Hbe0z7vUL7H28qfYAitlI4=;
+ b=uSfLO7tLa08CnDJ4JsOXv+KFEaRIb86F8pNGx6q1I6WUq4y247BDWIosOmpguuzLG2EYsqmcdmBvcaUeK7SidJWzyKWKTDg+tS830avBpMa8d98wVhXOg95AEqeIJGGGY/Qso3B/A4LChRgdtK+XpUMLkATT/+2LVNYcaJyhQIbqvgCESnNEBmYL57dFhvBifrxk5239EqoIG/I19pCGOuq5J1XpKokONqdRcetqNMa9KgYV8YAVFnq95WtxBuntx2wIXdKUX0cNprwvk45QERKc9k2IOlEqXjcssNcwDWvl+VZo+PT3O7GA9rZpyto3HBCkPSfMs2RJhWKyukSM4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JIlwWl9VvuRB7lZ2V3SV5Hbe0z7vUL7H28qfYAitlI4=;
+ b=GirZ5AAj3iq1U1q47Vdn1ynyjiamo4eHw75YRI0fYLiNcasoHAsLhIJ+GVYz2zNTIw5fNn4q9I2OHZv1NKNJthfqtMY89LjkhPmYW1eZB0D7mAghIhm9x7FCwxBQ8FEVuGDJkdg15P09fcKkWGm1O3Rtdzt4BqIeg6NH/KgUUxHShInWwkt8y8KZ26akgPTm7zG6FQwyQmTK0qJNq/J8Ryj51ImU5rztAQebE2K4HPZStQKCRPx1lPYknmvnl78Fq0RcGEx4oues2WbeYgfrhVuu8sZ3u4f+NPxhEEE6ckA/TUakqMdH221HkuulSD3a55ZvSel4uEHAVi1BGknc0w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AMBPR04MB021426.eurprd04.prod.outlook.com
+ (2603:10a6:20b:78c::16) by AMDPR04MB11607.eurprd04.prod.outlook.com
+ (2603:10a6:20b:71e::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Tue, 13 Oct
+ 2026 11:01:03 +0000
+Received: from AMBPR04MB021426.eurprd04.prod.outlook.com
+ ([fe80::1cb3:7fae:cd68:6de]) by AMBPR04MB021426.eurprd04.prod.outlook.com
+ ([fe80::1cb3:7fae:cd68:6de%4]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
+ 11:01:03 +0000
+Message-ID: <54e1f3fb-136b-45e4-9ca9-6c73383851ab@oss.nxp.com>
+Date: Tue, 13 Oct 2026 14:01:02 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clocksource/drivers/nxp-stm: Register sched_clock once
+To: Juhee Kang <juhee.kang@redhat.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Dustin Black <dblack@redhat.com>,
+ stable@vger.kernel.org
+References: <20260913133645.1102997-1-juhee.kang@redhat.com>
+Content-Language: en-GB
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <20260913133645.1102997-1-juhee.kang@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM9P250CA0019.EURP250.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21c::24) To AMBPR04MB021426.eurprd04.prod.outlook.com
+ (2603:10a6:20b:78c::16)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="25w3tbmyskksrjyb"
-Content-Disposition: inline
-In-Reply-To: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR04MB021426:EE_|AMDPR04MB11607:EE_
+X-MS-Office365-Filtering-Correlation-Id: 186615d7-5e05-4b6a-f43d-08df291945be
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|366016|376014|22082099003|260925021911599003|260925022911599003|260925021311599003|10067099003|18002099003|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: gaAhXNS1eK7bKPtZbkNGMArM/hGV5TGvFSLrxfCyfBnX9cHMyqvNPR1DXPKF996gCKvG3lU3k8SHFBu3IFr/BB6rnUEYXX2KF1AGkwh0rTEo83kBHluciFaptBl+ypBReeU85pFOx+7yJ/Iwzk9B50IKCIJfyCLX8++tQ74mdo6B8lnAq/59TV+DrMO/iIhxPiDmvtwMYS2x40pVvrt/IR1VkHnFAK29kSkRhrcizWGryhE4s8iu3r1Pw52jjVMns58LW0eLRynFdxlF/l6DlwaaqbP2Yv2BqlQPVqFWptdY2pY1xwXJQ66HyUr6WVO78/C2GKACQNjkh2lSMvCilGltI2fKKhqhGVik8j8LCf5P/tDVIHVHJ7hv0UQTI2Cf6AbRaMeSrgJOj84eAOKwZQvbw8J1k+lk2+RFHyhC2puxLMWThLEUMisnh05gP3fExdVFNklhhuPZ2VrVebdCqkYxUuLRlR7Z+Od0rLjSwESZnDykrrIlQZ9Pvv7RwKeEZXXAuV22PzzNEXu3zUWNswiJQG0TVINKJoJlZiZ9uEcvevR+YYnKb+rABtwHdzlbF+jSUjE3EPtuP5lSO+eJ/1Zwb82iFpAZWMrCvi/FiCUncCnRtjO128bzOG1Zf5KIk2j1/m3LVHiqODBRJ/I4NCUgupNhul/smRnjqbNv/ZM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB021426.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(366016)(376014)(22082099003)(260925021911599003)(260925022911599003)(260925021311599003)(10067099003)(18002099003)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3ZxQzB2YjJ5ajFTeGpMemFHdUtlTmRYTWZab2dOc0NIVjRvZ3ZoOU1lVXNW?=
+ =?utf-8?B?RzkxZGNTZVJ2cE84T1kwWitGQ0ZQaGYwRU1tY0dua0JGclYvalhPQ3BSUVJv?=
+ =?utf-8?B?MXdzcUp5czVXR1VNMnFaL3VhaWxiYkF0ZkFDeFdTdk9tUG9CdVY5QUFkYmd1?=
+ =?utf-8?B?VjRXczJJQ2NFRmU5bGpidGlHelBCc1o2OWorY3NXaFMyYXArS2dmZklnOStK?=
+ =?utf-8?B?YjBpSTQ5QzBjajUzVkU2bjNSTXhsNHh4VzA5RDYwRm1UejlLbXpSWFo0U3FX?=
+ =?utf-8?B?UEtKeGxWdVJpakNlYlg5YzBVdUhSTXZrcUk0MnQyQWpzNk5vYkdzZTFjQ0Iy?=
+ =?utf-8?B?QlNyNVF1QjQ3b2FoTFRXTTZvOEZpcFpUVWdSWWxLZjY4MnNER0pRbmNPbGZ5?=
+ =?utf-8?B?NkphODBQaGFBY0VPR01oYVVkMW1YRGFkRmJHeTY5Y2RWVlNBSFl6aFVkdVVT?=
+ =?utf-8?B?dmVJMGNKSGFxbjV0cFJxeW0rUjNWTm90MDRVODRiSzZaLzc3RmdtZWxDSUpN?=
+ =?utf-8?B?N0Z5S1pXdzdRdk5WaXltZ0YwVlpMZTNBU09iYU1Hc1IzNWRWMWlmR2ZqODF2?=
+ =?utf-8?B?TWZXdzZyTTdubVU0a2U0b3gwYXpoWnMzcVBQYUV1WnNSYzVBN1FVNkF4RFd5?=
+ =?utf-8?B?NTRKb0w5VDlQS3VXbTBuZWxCeE80WDRSckxrRnVFQm1oZkJHU2ZFQk4xVUZv?=
+ =?utf-8?B?MTViOW9TMWJOYmxzeExheWJwQXBucCs0K1E2ZGt5ZDVOLzE0RENEclBYOHgw?=
+ =?utf-8?B?UDEwaCtDN3ZqUmZaQnY1QktYSkwrNGZua1NZMkt3ZEVCOFU5QTJtbVBEVHlr?=
+ =?utf-8?B?SFB2N2tYb09DTTFjRzZPNk9uNy85RjJlZm1WTE11ZEJ1S0lzRGwzNlZvT0Fi?=
+ =?utf-8?B?QmJScUpFNjdYOVVydWFtQ0pqbllub1BPUE1Qc1pwL0hCRWhRU3BiM085UVB5?=
+ =?utf-8?B?d2dtSXNKb3Y1VUlsWEFMN1dvYnRtWEVvbGtqWkdPRnd6MHd4UTRtOWtuRWtz?=
+ =?utf-8?B?VGowbEdYQWVWZ2orWU1rRzdBU1kzWTBNZlg4dTIxVjY0WVdPTUxBekxnZWVI?=
+ =?utf-8?B?NVdudkI4czh3a3VLRXAyVXdGbkMwa2dpbWN4T0ZHcWRLWlJEVzZkdlhwSTBn?=
+ =?utf-8?B?NVdIcDBJdm0yUE13VXgyV2ZhZ2hiN3diYXFJalpWQjNLN0thR2cxaDhlckZl?=
+ =?utf-8?B?b3ZCZlA5ZEQzMTVEaGhVdUlWUDVHaWtxN1c1Q05sdnN3VGN6cEc4U0hybDA3?=
+ =?utf-8?B?Nml2ZEw2ZEErN29QcXZubmY1alltbnljK0VFN0ppcGR2Si9wbWdzOFBobGp5?=
+ =?utf-8?B?TENFbXNsWkZoQXZrNGwyVVc0Qzdnc0ZSQzIrTmNxRk5taVBJczEybkt0VTFU?=
+ =?utf-8?B?d3ZLNG10YTJZYSt6Y1ZlQVRGdGFOZVNEWSt1SURTQnJWL1I3N3JHNGtuWFE3?=
+ =?utf-8?B?YnNKSEpoRnVHRitkRWlJR1k0Um9KclhkdmprVTdaSDUvemE4a3VReU1VUFMr?=
+ =?utf-8?B?d3JYVTVsbUZrK0NHK2FvU2hpRW1OMVNRb2swWjB4K1I2TkU1M1YvTGo3TTVO?=
+ =?utf-8?B?b3Jvczh4Z2tiWFZFMi9OLzNYV0Rud29SMTFoZWRKQWsvakJRYy9PcmVwaS8x?=
+ =?utf-8?B?Qm1UWHhzbkV3aXhOVUx3cS94Tlg0bENvT0gxeHlyUmxqakNsMDA3cllqd2NT?=
+ =?utf-8?B?N2tnVnZSQ0E3SVhXRUtMYnNRL2RTLzRML0lQRGhqYVlYaXJHbGh0MDZXWXU4?=
+ =?utf-8?B?R2dNUk0wdzhzNy9EVURYcmFndG04TkxtMjFHU0MwRkNDYlQ3c2MvM1dnMVdP?=
+ =?utf-8?B?aTQwUnZtbHF1M1prS2JFeXIrSG5SRkE1K0VjUWNSa3BWRW84V0xjK0VlRTg1?=
+ =?utf-8?B?cXpueW5xSkwrdzJCNzg0RGJLNWJIQWZ4aE5EMEQ3STR2RnZGZ3JsRHhpWUNC?=
+ =?utf-8?B?bGxkQkJoVUlYWE5zYkNsR3lQemlHOWczUWNBK2c0MjdpWjJGTkVMNDIwZW5J?=
+ =?utf-8?B?Y0F4V0UzRXV1NTdiSnNZcUpsaDd6Mlo3QmdNLzZNUkZYVWJOdGhWWXdNa08z?=
+ =?utf-8?B?bVlXNXJJUy8yQTNlVTZLTDF4ay9ycnAxZFZ5eXQyQUNwTFFkeElXN1R4aGR3?=
+ =?utf-8?B?TVBWT2lNVStoR2d1NGhVRzU1MUNBUHBNanJzWmx1MGpFUGgyWDVmNUNLM0hR?=
+ =?utf-8?B?cmlrMGlNaXBUeC9XZTVxU214VlE2QW0yMnM3bmtzSmR6OGFCMGhpbU1ZOHp4?=
+ =?utf-8?B?T1RPZXNzaWVhMlRETGJtYTErckE2RTB6U3lzYW5TY3AvcjBRZnpPWWorbGht?=
+ =?utf-8?B?MVFncTRYb2drekhBL25hcXZxZmJHbzJFN2ZYLzEvZVRXU0FVUDl0ajJZYWd1?=
+ =?utf-8?Q?xCr36tThpF6+UjFM=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 186615d7-5e05-4b6a-f43d-08df291945be
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB021426.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:01:03.1910
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mr3NbeSCp6qSJ09fjfRfX1OvXelSQXQksLxyH2sxLxt0heIbuGB1QRMFUbxc0qEfZb3UUQJCDzELMHYqWaCCehP9h8WKsNkOzQyDUPuZFkQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11607
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_035843_459089_AF40FC1D 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20261013_040118_722010_4A601F70 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +151,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---25w3tbmyskksrjyb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
- closing the device
-MIME-Version: 1.0
-
-On 13.10.2026 11:22:37, Cunhao Lu wrote:
-> The close path cancels restart_work after freeing the IRQ and stopping
-> hardware. A queued bus-off restart can therefore enable the controller
-> and interrupts after teardown. It can also restart timestamp work before
-> runtime suspend.
+On 9/13/2026 4:36 PM, Juhee Kang wrote:
+> 
+> Each probe updates stm_sched_clock before calling sched_clock_register()
+> again. The call then subtracts the counter value saved during the
+> previous registration from the new STM's counter. If the new counter is
+> smaller, the subtraction wraps and the timestamp jumps forward.
+> (e.g. from 0.4 to 32.9 seconds below)
+> 
+>   [    0.403653] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every 16243448316ns
+>   [    0.404056] clocksource: timer@40120000: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 14456668980 ns
+>   [   32.890509] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every 16243448316ns
+>   [   32.890882] clocksource: timer@40124000: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 14456668980 ns
+> 
+> To fix this, register sched_clock once at the end of the first
+> successful probe. Clocksource and per-CPU clockevent registration
+> remain unchanged.
+> 
+> Fixes: cec32ac75827 ("clocksource/drivers/nxp-timer: Add the System Timer Module for the s32gx platforms")
+> Reported-by: Dustin Black <dblack@redhat.com>
+> Signed-off-by: Juhee Kang <juhee.kang@redhat.com>
+> ---
+>  drivers/clocksource/timer-nxp-stm.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
+> index 6fe098a4a33f..7572cd20732f 100644
+> --- a/drivers/clocksource/timer-nxp-stm.c
+> +++ b/drivers/clocksource/timer-nxp-stm.c
+> @@ -211,10 +211,6 @@ static int nxp_stm_clocksource_init(struct device *dev, struct stm_timer *stm_ti
+>         if (ret)
+>                 return ret;
+> 
+> -       stm_sched_clock = stm_timer;
+> -
+> -       sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
+> -
+>         dev_dbg(dev, "Registered clocksource %s\n", name);
+> 
+>         return 0;
+> @@ -473,6 +469,11 @@ static int nxp_stm_timer_probe(struct platform_device *pdev)
+>                         return ret;
+>         }
+> 
+> +       if (!stm_sched_clock) {
+> +               stm_sched_clock = stm_timer;
+> +               sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
+> +       }
+> +
+>         return 0;
+>  }
 >
-> Serialize restart with the close transition using a mutex. Mark the
-> device closing and mask its interrupts before synchronizing the IRQ.
-> Release the mutex before cancelling restart_work, so a queued restart
-> can observe the closing state without deadlocking.
->
-> Exclude the IRQ handler while reinitializing the hardware on restart.
-> Do not disable the shared IRQ line while waiting for work to finish.
->
-> Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD=
- controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
 
-AFAICS this is a systematic problem and should IMHO not worked around in
-one driver only.
+One optional nit: a short comment above the block would help future
+readers understand why it runs only once, e.g.:
 
-netif_running() tests __LINK_STATE_START, which is removed in
-__dev_close_many() prior to calling the driver's ndo_stop().
+/*
+ * The STM instances are independent counters running at the same
+ * rate. Only one of them can back sched_clock, use the first one
+ * probed.
+ */
 
-Can we make use of netif_running() prior to calling do_set_mode(dev,
-CAN_MODE_START)? from can_restart()?
+With or without it:
 
-can_bus_off() should not schedule_delayed_work() if !netif_running().
+Reviewed-by: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
 
-We still have to call cancel_delayed_work_sync(&priv->can.restart_work)
-=66rom each driver, though.
-
-What do you think?
-
-Marc
-
---
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---25w3tbmyskksrjyb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCas4O2wAKCRDMOmT6rpmt
-0q+pAPwIF8wpYL7J1/gk9g6RXhUr5SARSzzpYTyGVX3yt2JlIQEAxgkwnBhMJin5
-BgazUeZQAgL09GXx7TEVzKpH1RZCUw0=
-=mEzK
------END PGP SIGNATURE-----
-
---25w3tbmyskksrjyb--
+-- 
+Regards,
+Ghennadi
 
