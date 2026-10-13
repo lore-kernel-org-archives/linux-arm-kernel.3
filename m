@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BB5CC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD41ACC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFxI5PRgVTs6YimYg/7rWn3Qmlj2MBU5yHt4uG0uFpM=; b=ytBKeRX0hgzjT1O3wi9uaJH3Bs
-	K/jFYQVOHWv+nZD7V2Uut/7fvb87oNVxv1npYCqCepw+qLYM4voRODKzZF8oKxt1Cp38OZMsj5+QK
-	QEuTD8iC7rxKKO7AMsXcRAPwQH+1UJpTkRXvBwCqrEbttXVfm9AcKBScmOReGRfZdpjZqe/sWbNM9
-	4+voVILFV4IumSbqkcXBprel2EzID0whK2BnR+J7t3NA75LC0VbAB8ck8JU/hhTkUb4hxiGzO86Hn
-	02qJA8+K+LrUEP2SOp+VYnolQMkqFtDGqZI9YyBHxv7rLwYpsesJRllR+B+w2HU3f3y4Pn5rmI3qt
-	wOqgzWBQ==;
+	bh=Zzl1UNbZYfPkuBiML1g2cd4yCJ2kJPWNd6yg6ywwQhk=; b=HX8uHfLtG7FKy2xt8HOS5J5ch5
+	RtJMJ8o1VZlp5QQpf2Ys2HJq0ZqRYeZeykc8W8ZI5ge98ieflhi+5eRSj7HWEhm2aDEgM/OOHQYiZ
+	bnjIQGRsSLBI3UhvoQjSetiPs/h7DZUF24xV22TGPykWVFFVyueG6wgTbIhogpMQPz/LIvBM1Dd6z
+	kcWLhO6hDVTJaQ5HNAPvjwEUv2+Iw8VLh31GmPvF9ivzP8cPrs2Z51RFHOwczigAQI0fg1BNOt1kb
+	I555xvbkZj6MvQ22kbJIMVxrq3iWnJQp5JuqPPdrqlTI+/cWcAjmR4AnwqIZ8O2qUReseMJYxjAPP
+	jXpUCJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGbxQ-0000000Crbc-1X6j;
-	Tue, 13 Oct 2026 12:50:16 +0000
-Received: from mail-m20521016483.xmail.ntesmail.com ([205.210.164.83])
+	id 1xGdOK-0000000D4hD-2N5X;
+	Tue, 13 Oct 2026 14:22:08 +0000
+Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGbxF-0000000CrRt-18gl;
-	Tue, 13 Oct 2026 12:50:10 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 50e2b9413;
-	Tue, 13 Oct 2026 20:49:57 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Dave Jones <s.dave.jones@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v1 4/6] phy: rockchip: Add support for Naneng eDP phy
-Date: Tue, 13 Oct 2026 20:49:44 +0800
-Message-Id: <20261013124946.1807886-5-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261013124946.1807886-1-damon.ding@rock-chips.com>
-References: <20261013124946.1807886-1-damon.ding@rock-chips.com>
+	id 1xGdOH-0000000D4dH-3mWU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 14:22:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4j3x5y1tQjzRhRS;
+	Tue, 13 Oct 2026 22:09:10 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 380DB40538;
+	Tue, 13 Oct 2026 22:21:24 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
+ (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 13 Oct
+ 2026 22:21:23 +0800
+Message-ID: <07877e67-4cb0-4391-9d63-bbf73b40bee3@hisilicon.com>
+Date: Tue, 13 Oct 2026 22:21:22 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1354ffdff03a8kunm2e7c128b3016
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCT00fVh9PGkhOSEtJHUtLQ1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=NcmsN45HTsHeGhImb0I1tdINDsgvVFxQfcZgJk+25mpSh9bl5m8bslBAc972Mjk/r5nwLPYUFM02gLbZ9fICWQDMgkDC+HHtsfolo4Sp/QhDeie8psj8tpjrJeQ8K+/E4JplyAV8Zp0IQrTiCur8hIIJUSTvspPGkmWRgr59oLo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=MFxI5PRgVTs6YimYg/7rWn3Qmlj2MBU5yHt4uG0uFpM=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] devfreq: Add refcounts for governor modules
+To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
+	<zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>,
+	<lihuisong@huawei.com>, <prime.zeng@hisilicon.com>
+References: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_055005_784955_F771ACDD 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20261013_072206_269915_0AB3EBC5 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,499 +75,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the Rockchip eDP transmitter PHY with NaNeng IP
-block, as found on the RK3568 SoC.
+Hi Chanwoo,
 
-The PHY registers live in the eDP PHY GRF, of which the PHY is a
-child node, so accesses are performed through the parent syscon
-regmap. The PHY supports 1/2/4 lanes at 1.62 Gbps and 2.7 Gbps,
-optional spread spectrum clocking, as well as per-lane voltage swing
-and pre-emphasis tuning, all exposed through the generic PHY
-DisplayPort configuration interface.
+Can we get some feedback on this series to move things forward?
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- drivers/phy/rockchip/Kconfig                  |  10 +
- drivers/phy/rockchip/Makefile                 |   1 +
- .../phy/rockchip/phy-rockchip-naneng-edp.c    | 435 ++++++++++++++++++
- 3 files changed, 446 insertions(+)
- create mode 100644 drivers/phy/rockchip/phy-rockchip-naneng-edp.c
+Thanks!
+Jie
 
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 14698571b607..202a6973e20b 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -74,6 +74,16 @@ config PHY_ROCKCHIP_NANENG_COMBO_PHY
- 	  Enable this to support the Rockchip PCIe/USB3.0/SATA/QSGMII
- 	  combo PHY with NaNeng IP block.
- 
-+config PHY_ROCKCHIP_NANENG_EDP
-+	tristate "Rockchip Naneng eDP Transmitter PHY driver"
-+	depends on ARCH_ROCKCHIP && OF
-+	select GENERIC_PHY
-+	help
-+	  Enable this to support the Rockchip eDP Transmitter PHY with
-+	  NaNeng IP block. The PHY, which is controlled through the eDP
-+	  PHY GRF, provides 1/2/4 lanes running at 1.62/2.7 Gbps per lane
-+	  for the eDP controller found on the RK3568 SoC.
-+
- config PHY_ROCKCHIP_PCIE
- 	tristate "Rockchip PCIe PHY Driver"
- 	depends on (ARCH_ROCKCHIP && OF) || COMPILE_TEST
-diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makefile
-index 117aaffd037d..260a10157461 100644
---- a/drivers/phy/rockchip/Makefile
-+++ b/drivers/phy/rockchip/Makefile
-@@ -7,6 +7,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY)	+= phy-rockchip-inno-dsidphy.o
- obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI)	+= phy-rockchip-inno-hdmi.o
- obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2)	+= phy-rockchip-inno-usb2.o
- obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY)	+= phy-rockchip-naneng-combphy.o
-+obj-$(CONFIG_PHY_ROCKCHIP_NANENG_EDP)	+= phy-rockchip-naneng-edp.o
- obj-$(CONFIG_PHY_ROCKCHIP_PCIE)		+= phy-rockchip-pcie.o
- obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_DCPHY)	+= phy-rockchip-samsung-dcphy.o
- obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX)	+= phy-rockchip-samsung-hdptx.o
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-edp.c b/drivers/phy/rockchip/phy-rockchip-naneng-edp.c
-new file mode 100644
-index 000000000000..a407714f639a
---- /dev/null
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-edp.c
-@@ -0,0 +1,435 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2026 Rockchip Electronics Co., Ltd.
-+ *
-+ * Author: Damon Ding <damon.ding@rock-chips.com>
-+ */
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/hw_bitfield.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define EDP_PHY_GRF_CON0		0x0000
-+#define EDP_PHY_TX_IDLE_MASK		GENMASK(11, 8)
-+#define EDP_PHY_TX_PD_MASK		GENMASK(7, 4)
-+#define EDP_PHY_IDDQ_EN_MASK		BIT(1)
-+#define EDP_PHY_PD_PLL_MASK		BIT(0)
-+
-+#define EDP_PHY_GRF_CON1		0x0004
-+#define EDP_PHY_PLL_DIV_MASK		GENMASK(14, 0)
-+
-+#define EDP_PHY_GRF_CON2		0x0008
-+#define EDP_PHY_TX_RTERM_MASK		GENMASK(10, 8)
-+#define EDP_PHY_RATE_MASK		GENMASK(5, 4)
-+#define EDP_PHY_REF_DIV_MASK		GENMASK(3, 0)
-+
-+#define EDP_PHY_GRF_CON3		0x000c
-+#define EDP_PHY_TX3_EMP_MASK		GENMASK(15, 12)
-+#define EDP_PHY_TX2_EMP_MASK		GENMASK(11, 8)
-+#define EDP_PHY_TX1_EMP_MASK		GENMASK(7, 4)
-+#define EDP_PHY_TX0_EMP_MASK		GENMASK(3, 0)
-+
-+#define EDP_PHY_GRF_CON4		0x0010
-+#define EDP_PHY_TX3_AMP_MASK		GENMASK(14, 12)
-+#define EDP_PHY_TX2_AMP_MASK		GENMASK(10, 8)
-+#define EDP_PHY_TX1_AMP_MASK		GENMASK(6, 4)
-+#define EDP_PHY_TX0_AMP_MASK		GENMASK(2, 0)
-+
-+#define EDP_PHY_GRF_CON5		0x0014
-+#define EDP_PHY_TX_MODE_MASK		GENMASK(9, 8)
-+#define EDP_PHY_TX3_AMP_SCALE_MASK	GENMASK(7, 6)
-+#define EDP_PHY_TX2_AMP_SCALE_MASK	GENMASK(5, 4)
-+#define EDP_PHY_TX1_AMP_SCALE_MASK	GENMASK(3, 2)
-+#define EDP_PHY_TX0_AMP_SCALE_MASK	GENMASK(1, 0)
-+
-+#define EDP_PHY_GRF_CON6		0x0018
-+#define EDP_PHY_SSC_DEPTH_MASK		GENMASK(15, 12)
-+#define EDP_PHY_SSC_EN_MASK		BIT(11)
-+#define EDP_PHY_SSC_CNT_MASK		GENMASK(9, 0)
-+
-+#define EDP_PHY_GRF_CON7		0x001c
-+
-+#define EDP_PHY_GRF_CON8		0x0020
-+#define EDP_PHY_PLL_CTL_H_MASK		GENMASK(15, 0)
-+
-+#define EDP_PHY_GRF_CON9		0x0024
-+#define EDP_PHY_TX_CTL_MASK		GENMASK(15, 0)
-+
-+#define EDP_PHY_GRF_CON10		0x0028
-+#define EDP_PHY_AUX_RCV_PD_SEL_MASK	BIT(5)
-+#define EDP_PHY_AUX_DRV_PD_SEL_MASK	BIT(4)
-+#define EDP_PHY_AUX_IDLE_MASK		BIT(2)
-+#define EDP_PHY_AUX_RCV_PD_MASK		BIT(1)
-+#define EDP_PHY_AUX_DRV_PD_MASK		BIT(0)
-+
-+#define EDP_PHY_GRF_CON11		0x002c
-+#define EDP_PHY_AUX_RCV_VCM_MASK	GENMASK(14, 12)
-+#define EDP_PHY_AUX_MODE_MASK		GENMASK(11, 10)
-+#define EDP_PHY_AUX_AMP_SCALE_MASK	GENMASK(9, 8)
-+#define EDP_PHY_AUX_AMP_MASK		GENMASK(6, 4)
-+#define EDP_PHY_AUX_RTERM_MASK		GENMASK(2, 0)
-+
-+#define EDP_PHY_GRF_STATUS0		0x0030
-+#define PLL_RDY				BIT(0)
-+
-+#define EDP_PHY_GRF_STATUS1		0x0034
-+
-+struct rockchip_edp_phy {
-+	struct regmap *grf;
-+	struct device *dev;
-+	struct clk *refclk;
-+};
-+
-+static struct {
-+	int amp;
-+	int amp_scale;
-+	int emp;
-+} swing_pre_emph_table[4][4] = {
-+	{ {0x1, 0x1, 0x0}, {0x2, 0x1, 0x4}, {0x3, 0x1, 0x8}, {0x4, 0x1, 0xd} },
-+	{ {0x3, 0x1, 0x0}, {0x5, 0x1, 0x7}, {0x6, 0x1, 0x6}, { -1,  -1,  -1} },
-+	{ {0x5, 0x1, 0x0}, {0x7, 0x1, 0x4}, { -1,  -1,  -1}, { -1,  -1,  -1} },
-+	{ {0x7, 0x1, 0x0}, { -1,  -1,  -1}, { -1,  -1,  -1}, { -1,  -1,  -1} },
-+};
-+
-+static void rockchip_edp_phy_set_voltage(struct rockchip_edp_phy *edpphy,
-+					 struct phy_configure_opts_dp *dp,
-+					 u8 lane)
-+{
-+	u32 amp, amp_scale, emp;
-+
-+	amp = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].amp;
-+	amp_scale = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].amp_scale;
-+	emp = swing_pre_emph_table[dp->voltage[lane]][dp->pre[lane]].emp;
-+
-+	switch (lane) {
-+	case 0:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON3,
-+			     FIELD_PREP_WM16(EDP_PHY_TX0_EMP_MASK, emp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON4,
-+			     FIELD_PREP_WM16(EDP_PHY_TX0_AMP_MASK, amp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON5,
-+			     FIELD_PREP_WM16(EDP_PHY_TX0_AMP_SCALE_MASK, amp_scale));
-+		break;
-+	case 1:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON3,
-+			     FIELD_PREP_WM16(EDP_PHY_TX1_EMP_MASK, emp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON4,
-+			     FIELD_PREP_WM16(EDP_PHY_TX1_AMP_MASK, amp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON5,
-+			     FIELD_PREP_WM16(EDP_PHY_TX1_AMP_SCALE_MASK, amp_scale));
-+		break;
-+	case 2:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON3,
-+			     FIELD_PREP_WM16(EDP_PHY_TX2_EMP_MASK, emp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON4,
-+			     FIELD_PREP_WM16(EDP_PHY_TX2_AMP_MASK, amp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON5,
-+			     FIELD_PREP_WM16(EDP_PHY_TX2_AMP_SCALE_MASK, amp_scale));
-+		break;
-+	case 3:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON3,
-+			     FIELD_PREP_WM16(EDP_PHY_TX3_EMP_MASK, emp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON4,
-+			     FIELD_PREP_WM16(EDP_PHY_TX3_AMP_MASK, amp));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON5,
-+			     FIELD_PREP_WM16(EDP_PHY_TX3_AMP_SCALE_MASK, amp_scale));
-+		break;
-+	}
-+}
-+
-+static int rockchip_edp_phy_set_voltages(struct rockchip_edp_phy *edpphy,
-+					 struct phy_configure_opts_dp *dp)
-+{
-+	u8 lane;
-+
-+	for (lane = 0; lane < dp->lanes; lane++)
-+		rockchip_edp_phy_set_voltage(edpphy, dp, lane);
-+
-+	return 0;
-+}
-+
-+static int rockchip_edp_phy_set_rate(struct rockchip_edp_phy *edpphy,
-+				     struct phy_configure_opts_dp *dp)
-+{
-+	u32 value;
-+	int ret;
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0,
-+		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
-+		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf));
-+	usleep_range(100, 101);
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x3));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
-+
-+	switch (dp->link_rate) {
-+	case 1620:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON1,
-+			     FIELD_PREP_WM16(EDP_PHY_PLL_DIV_MASK, 0x4380));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON2,
-+			     FIELD_PREP_WM16(EDP_PHY_TX_RTERM_MASK, 0x1) |
-+			     FIELD_PREP_WM16(EDP_PHY_RATE_MASK, 0x1) |
-+			     FIELD_PREP_WM16(EDP_PHY_REF_DIV_MASK, 0x0));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON8,
-+			     FIELD_PREP_WM16(EDP_PHY_PLL_CTL_H_MASK, 0x0800));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON9,
-+			     FIELD_PREP_WM16(EDP_PHY_TX_CTL_MASK, 0x0000));
-+		break;
-+	case 2700:
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON1,
-+			     FIELD_PREP_WM16(EDP_PHY_PLL_DIV_MASK, 0x3840));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON2,
-+			     FIELD_PREP_WM16(EDP_PHY_TX_RTERM_MASK, 0x1) |
-+			     FIELD_PREP_WM16(EDP_PHY_RATE_MASK, 0x0) |
-+			     FIELD_PREP_WM16(EDP_PHY_REF_DIV_MASK, 0x0));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON8,
-+			     FIELD_PREP_WM16(EDP_PHY_PLL_CTL_H_MASK, 0x0800));
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON9,
-+			     FIELD_PREP_WM16(EDP_PHY_TX_CTL_MASK, 0x0000));
-+		break;
-+	}
-+
-+	if (dp->ssc)
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON6,
-+			     FIELD_PREP_WM16(EDP_PHY_SSC_DEPTH_MASK, 0x9) |
-+			     FIELD_PREP_WM16(EDP_PHY_SSC_EN_MASK, 0x1) |
-+			     FIELD_PREP_WM16(EDP_PHY_SSC_CNT_MASK, 0x17d));
-+	else
-+		regmap_write(edpphy->grf, EDP_PHY_GRF_CON6,
-+			     FIELD_PREP_WM16(EDP_PHY_SSC_EN_MASK, 0x0));
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0,
-+		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, ~GENMASK(dp->lanes - 1, 0)));
-+	ret = regmap_read_poll_timeout(edpphy->grf, EDP_PHY_GRF_STATUS0,
-+				       value, value & PLL_RDY, 100, 1000);
-+	if (ret) {
-+		dev_err(edpphy->dev, "Failed to wait for PHY PLL ready: %d\n", ret);
-+		return ret;
-+	}
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x0));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0,
-+		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, ~GENMASK(dp->lanes - 1, 0)));
-+
-+	return 0;
-+}
-+
-+static int rockchip_edp_phy_verify_config(struct rockchip_edp_phy *edpphy,
-+					  struct phy_configure_opts_dp *dp)
-+{
-+	int i;
-+
-+	/* If changing link rate was required, verify it's supported. */
-+	if (dp->set_rate) {
-+		switch (dp->link_rate) {
-+		case 1620:
-+		case 2700:
-+			/* valid bit rate */
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	}
-+
-+	if (dp->set_lanes) {
-+		/* Verify lane count. */
-+		switch (dp->lanes) {
-+		case 1:
-+		case 2:
-+		case 4:
-+			/* valid lane count. */
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	}
-+
-+	/*
-+	 * If changing voltages is required, check swing and pre-emphasis
-+	 * levels, per-lane.
-+	 */
-+	if (dp->set_voltages) {
-+		/* Lane count verified previously. */
-+		for (i = 0; i < dp->lanes; i++) {
-+			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
-+				return -EINVAL;
-+
-+			/*
-+			 * Sum of voltage swing and pre-emphasis levels cannot
-+			 * exceed 3.
-+			 */
-+			if (dp->voltage[i] + dp->pre[i] > 3)
-+				return -EINVAL;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int rockchip_edp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
-+{
-+	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
-+	int ret;
-+
-+	ret = rockchip_edp_phy_verify_config(edpphy, &opts->dp);
-+	if (ret) {
-+		dev_err(edpphy->dev, "Invalid params for phy configure\n");
-+		return ret;
-+	}
-+
-+	if (opts->dp.set_rate) {
-+		ret = rockchip_edp_phy_set_rate(edpphy, &opts->dp);
-+		if (ret) {
-+			dev_err(edpphy->dev, "Failed to set rate\n");
-+			return ret;
-+		}
-+	}
-+
-+	if (opts->dp.set_voltages) {
-+		ret = rockchip_edp_phy_set_voltages(edpphy, &opts->dp);
-+		if (ret) {
-+			dev_err(edpphy->dev, "Failed to set voltages\n");
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static bool rockchip_edp_phy_enabled(struct rockchip_edp_phy *edpphy)
-+{
-+	u32 val;
-+
-+	regmap_read(edpphy->grf, EDP_PHY_GRF_STATUS0, &val);
-+
-+	return FIELD_GET(PLL_RDY, val);
-+}
-+
-+static int rockchip_edp_phy_power_on(struct phy *phy)
-+{
-+	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
-+	int ret;
-+
-+	ret = clk_prepare_enable(edpphy->refclk);
-+	if (ret < 0) {
-+		dev_err(edpphy->dev, "Failed to prepare_enable refclk [%d]\n", ret);
-+		return ret;
-+	}
-+
-+	if (rockchip_edp_phy_enabled(edpphy))
-+		return 0;
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON10,
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x1));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0,
-+		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
-+		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf) |
-+		     FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
-+	usleep_range(100, 101);
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON11,
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_VCM_MASK, 0x4) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_MODE_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_AMP_SCALE_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_AMP_MASK, 0x3) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_RTERM_MASK, 0x1));
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON10,
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x0) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x0));
-+	usleep_range(100, 101);
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON10, FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x0));
-+	usleep_range(10000, 11000);
-+
-+	return 0;
-+}
-+
-+static int rockchip_edp_phy_power_off(struct phy *phy)
-+{
-+	struct rockchip_edp_phy *edpphy = phy_get_drvdata(phy);
-+
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0,
-+		     FIELD_PREP_WM16(EDP_PHY_TX_IDLE_MASK, 0xf) |
-+		     FIELD_PREP_WM16(EDP_PHY_TX_PD_MASK, 0xf));
-+	usleep_range(100, 101);
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON5, FIELD_PREP_WM16(EDP_PHY_TX_MODE_MASK, 0x3));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON0, FIELD_PREP_WM16(EDP_PHY_PD_PLL_MASK, 0x1));
-+	regmap_write(edpphy->grf, EDP_PHY_GRF_CON10,
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_RCV_PD_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_DRV_PD_MASK, 0x1) |
-+		     FIELD_PREP_WM16(EDP_PHY_AUX_IDLE_MASK, 0x1));
-+
-+	clk_disable_unprepare(edpphy->refclk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops rockchip_edp_phy_ops = {
-+	.power_on = rockchip_edp_phy_power_on,
-+	.power_off = rockchip_edp_phy_power_off,
-+	.configure = rockchip_edp_phy_configure,
-+	.owner = THIS_MODULE,
-+};
-+
-+static int rockchip_edp_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rockchip_edp_phy *edpphy;
-+	struct phy *phy;
-+	struct phy_provider *phy_provider;
-+
-+	edpphy = devm_kzalloc(dev, sizeof(*edpphy), GFP_KERNEL);
-+	if (!edpphy)
-+		return -ENOMEM;
-+
-+	edpphy->dev = dev;
-+
-+	edpphy->grf = syscon_node_to_regmap(dev->parent->of_node);
-+	if (IS_ERR(edpphy->grf))
-+		return dev_err_probe(dev, PTR_ERR(edpphy->grf), "Failed to get GRF syscon\n");
-+
-+	edpphy->refclk = devm_clk_get(dev, "refclk");
-+	if (IS_ERR(edpphy->refclk))
-+		return dev_err_probe(dev, PTR_ERR(edpphy->refclk), "Failed to get refclk\n");
-+
-+	phy = devm_phy_create(dev, NULL, &rockchip_edp_phy_ops);
-+	if (IS_ERR(phy))
-+		return dev_err_probe(dev, PTR_ERR(phy), "Failed to create PHY\n");
-+
-+	phy_set_drvdata(phy, edpphy);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+	if (IS_ERR(phy_provider))
-+		return dev_err_probe(dev, PTR_ERR(phy_provider),
-+				     "Failed to register PHY provider\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id rockchip_edp_phy_of_match[] = {
-+	{ .compatible = "rockchip,rk3568-edp-phy", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, rockchip_edp_phy_of_match);
-+
-+static struct platform_driver rockchip_edp_phy_driver = {
-+	.driver = {
-+		.name = "rockchip-edpphy-naneng",
-+		.of_match_table	= of_match_ptr(rockchip_edp_phy_of_match),
-+	},
-+	.probe = rockchip_edp_phy_probe,
-+};
-+module_platform_driver(rockchip_edp_phy_driver);
-+
-+MODULE_AUTHOR("Damon Ding <damon.ding@rock-chips.com>");
-+MODULE_DESCRIPTION("Rockchip Naneng eDP Transmitter PHY driver");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
-
+On 7/29/2026 6:23 PM, Jie Zhan wrote:
+> A governor module can be dynamically inserted or removed if compiled as a
+> kernel module.  'devfreq->governor' would become NULL if the governor
+> module is removed when it's in use.
+> 
+> For user-friendliness, get and put the module refcount of a governor module
+> when it's in use.  As a result, unloading a governor module in use returns
+> an error, e.g.:
+> 
+> $ cat governor
+> performance
+> $ rmmod governor_performance
+> rmmod: ERROR: Module governor_performance is in use
+> 
+> Note that this can't stop force unload, so it's more of a
+> user-friendliness improvement rather than strict protection.  The
+> existing code that keeps devfreq working when 'devfreq->governor' is
+> NULL should still be there.
+> 
+> Patch 1-3 clean up mutex with guards and factor out a common governor
+> setting function, so as to prepare for implementing governor reference
+> counting.  They can be applied separately.
+> 
+> Patch 4 adds the reference counting mechanism for devfreq governor
+> modules.
+> 
+> This set is based on devfreq-next of 7.1-rc1.
+> 
+> Changelog
+> ---------
+> v4:
+> - Patch 3: Return an error if starting new governor fails and restoring
+>   old governor succeeds, such that the caller won't get misled.
+> 
+> v3:
+> - Link: https://lore.kernel.org/all/20260519113251.3745140-1-zhanjie9@hisilicon.com/
+> - Rework patch 4 to make the 'owner' field assignment optional in the
+>   governor code.  This prevents device-driver-bundled governors (such as
+>   those in hisi_uncore_freq and tegra30-devfreq) from causing
+>   self-reference issues that block module removal. Additionally, merge
+>   patches 4 and 5 to clearly present the new 'owner' member alongside
+>   its usage.
+> - Drop patch 6 because it's no longer needed since v2.
+> - Update commit logs of patch 3 and 4 to clarify background and
+>   motivation.
+> - Pick up 2 tags from Yaxiong (thanks!).
+> - Trivial cleanups.
+> 
+> v2:
+> - Link: https://lore.kernel.org/all/20260513093832.1645890-1-zhanjie9@hisilicon.com/
+> - Rebase on devfreq-next of 7.1-rc1.
+> - Drop the patches related to the NULL pointer deference issue of
+>   'devfreq->governor', which has been solved and merged recently.
+> - Remove the dedicated mutex for 'devfreq_governor_list' because the
+>   refcount changes don't depend on that.
+> - Some minor cleanups and fixes.
+> 
+> v1:
+> - Link: https://lore.kernel.org/all/20260326123428.800407-1-zhanjie9@hisilicon.com/
+> 
+> Jie Zhan (4):
+>   devfreq: Use mutex guard in governor_store()
+>   devfreq: Use mutex guard in devfreq_add/remove_governor()
+>   devfreq: Factor out devfreq_set_governor()
+>   devfreq: Refcount governor modules while in use
+> 
+>  drivers/devfreq/devfreq.c                 | 185 +++++++++++-----------
+>  drivers/devfreq/governor_passive.c        |   1 +
+>  drivers/devfreq/governor_performance.c    |   1 +
+>  drivers/devfreq/governor_powersave.c      |   1 +
+>  drivers/devfreq/governor_simpleondemand.c |   1 +
+>  drivers/devfreq/governor_userspace.c      |   1 +
+>  include/linux/devfreq-governor.h          |  11 ++
+>  7 files changed, 112 insertions(+), 89 deletions(-)
+> 
 
