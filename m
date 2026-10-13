@@ -4,133 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AF3CC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892F6CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMN+B6uwONdfvvp0L9MxHkML0M7ALOxVPDnmddi8vNI=; b=iEjhMD+o2hS2Z6Z8alZtDDwXdu
-	uVwnJutZSTjqUlEw/eF7OtW+Mk3icues7Mhue3sQeHoFe0c4NYPTk36DVX7uAsFY62/Rdme0RsKK9
-	EuEojqRhCjntWElE/B8rlkJOoKHGaSZeB1fGzn1ukppLNV2wVGlAIQP9ERWfwAv3XecdSMLZT0505
-	QoYj90bEl71o/GberjMLm64xAtfBgHaAdyTE/cZRf/mxoSk2IpFNTCO+VhJHD4Ym9ypIe2QFA86jE
-	HZXHVtZLNM/qwtqLIPmuE3DtUwq0QVIzoQHzCTaotmDdf5HJ69UycBrIVQNWGoJhobNqSths1NH1G
-	3aatP0/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/YOqxGlLfUnOc6Yx8cld+aJVHshZXI4bRKRZq6BJB5E=; b=2CrtTxQO/7vjHTFk7hu5CRvzDG
+	1GULeo5SX58YAI5v2LR/I5ZfPxlze0w4kA6KzEfZPUe2GqpL1xCi6pvNYRAMwgZIxYkHsrkJkL7ck
+	biEaN0KnUqk3dyW45DDognrfTqAhhtvz1h37o/UmlcgSHySV3IVeaetJf9vQ/+rIgAPuNGEFVY88B
+	iURhdWwAx9a4QW9W1QfiIslnGHoPhM/YUmGb2k37gpcvoawto3NpcNQ9rv+MRVBIFEYZfzC9fYg/R
+	3cmBV7mNlufq2oCVqaWyoXLEwkFDCGERcVEs/UttlIX0GnIa2EYAaNUQuST1n7zcL66jWcgbT20Vr
+	quzjI5dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdW8-0000000D6R5-1HQv;
-	Tue, 13 Oct 2026 14:30:12 +0000
-Received: from mail-westeuropeazon11013016.outbound.protection.outlook.com ([52.101.72.16] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xGdXl-0000000D6oq-0Le6;
+	Tue, 13 Oct 2026 14:31:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGdW5-0000000D6QW-3TWo
+	id 1xGdXh-0000000D6np-1j1h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 14:30:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dXPjtMH7QROR76aKjNpfmHAJqW4rgi5KAGGlJkVNAYhP3iehdbsoKR1ox8g+d/zBbvowTpzYDGgEm+5h2Z4V5CF4ALrLt3+NcsKdQsuf4BP4M/QvIRGQTCPaw8ed3RUoLagismiJ8bPQIKiAWY3Fgav9tGhaCIuy9fxz9tzp/awTkZaLbcNIwfNiCwBxGUgEFwhATqaXBv0+P1VEqezwGvjTrn+mKHowRlp7MjkFaaXgRJ2AKu7B04OBkhy2NTvc9UYyT+ltB/upVaVbm9N6Mxd22d2L8z5OWD4R4GO8wh7S6mjQDJ26yPOrxZPtFF+i/o+Xc5JMpVjWyrnw4TVdBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FMN+B6uwONdfvvp0L9MxHkML0M7ALOxVPDnmddi8vNI=;
- b=UELBVg5sd3MVWjtv5XEyzUGqkT4jVRSjAOTV+Q5l981JqXCnPua3ZWwQ/nrz8fB/IGWG30Twu137zA+VnOK28L2Pbkk2oRAmzYzS24UNaZMyReFU3anTVt8AvGv/fJlIijaor8iGHYQeoLGIFK5j9ML0bQbl2UDw0gUfnj+JzbhspofZeNuiq4e5oaL4bVUsnuL5ZyyCDfvEu8c8hsyvOaU2SnRPSiZlXpKLDbUjlwnZUGAHYTwrnVDFNetJHmXtvF9UZeQ+ekhRBwDve20TCtbe7U7vylWJgOckdfvB8/bNuezsFhB8OL1xY7uS1/l/BQJt4JLvAHyMkIV67D29/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FMN+B6uwONdfvvp0L9MxHkML0M7ALOxVPDnmddi8vNI=;
- b=dwSUpT5zz+TLJDxBn+ADwvSzJOKm2uhP2hrmOuSksEjaA/tDDUBPXUyAdKEn9kUCBJeVBZnpRK7Crki6QBDMTlVJ4Z+EcQSpbtjmyzntWFXdOSGZXMuHDExlser326ciqhebNsKiAmpMgfdeX0pHqZiza+EHK7eF4yEYuMZCsmRaIiCQbcRvLGvMnBAfrEU3IsCUAMeqV4SN4UH0HTR9f7Q3Q7xUgnUrX4dcZpHKwVy9OisdF4TmVseOW0WCnQasFgcl8MivKqM1mHPLNwOynJpYfeXtH8gyKeRyhjE5Eai6Hd1fnEKfDAkUNebtoFhZbSt6IrVYycjuJ5j2ZNOGdg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by CPH1PF2D6E07479.eurprd04.prod.outlook.com (2603:10a6:388::3c6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 14:30:06 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
- 14:30:06 +0000
-Date: Tue, 13 Oct 2026 09:29:55 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v7 4/4] gpio: mxc: fix race between gpiochip registration
- and IRQ domain setup
-Message-ID: <as5AY6M5ZJK__qKR@SMW015318>
-References: <20261013-gpio-mxc-cleanup-v7-0-c4d769587d3e@nxp.com>
- <20261013-gpio-mxc-cleanup-v7-4-c4d769587d3e@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261013-gpio-mxc-cleanup-v7-4-c4d769587d3e@nxp.com>
-X-ClientProxiedBy: PH7P221CA0055.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 13 Oct 2026 14:31:52 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69DE4UPI1298843
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 14:31:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/YOqxGlLfUnOc6Yx8cld+aJVHshZXI4bRKRZq6BJB5E=; b=WLZIH1D4gmyHOg/k
+	cBYXf1jWGHJIcH9nlqKa/CSOjlWL6EDg0uiE6jPkwbcE2szL5VWIFy73EM8UDLdI
+	Jkz8PVhdPQY2daA5dW2FHefgwewHjmh8PpVKN2aKgRQ/v/ObUCJSY8jwoN75aA08
+	yw6tBPiJYpflQn+kXKugwDIjlU7OyrYDVWDG3ck7P0b0Cqs4uPkCORrC4iVlN/pm
+	jqDoDj7eExStvPkiVWY2oE23F+oxOMIpK/PbYamPnvsNrvb3jk40vlq6b4ZXGkXw
+	aOXpUnFV6JTuVgmg4OdpMM1TabUilDCXQthS/Y/68nALCHrizB1lF/WLEzIWpfWY
+	07BOPg==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h95xqv1np-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 14:31:47 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5d6d5ea0757so3713814e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 07:31:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791901907; x=1792506707; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/YOqxGlLfUnOc6Yx8cld+aJVHshZXI4bRKRZq6BJB5E=;
+        b=ffPj2FqoN8+1x3nSRMtKoEao6DBg2Lk8CJuyLEXmwmGi0Upl81liv627JGcpZ/hc1c
+         TFB0/VZNJi4MwOTizGsN7LWEOHqIuFq5hDPfkNVD9aRPIjiPBoMwHi8ZJT6X49PCaC6e
+         oUlo0fYdKVeeMh7evaz6uEuxv7TjlMuQD/pGdGgFe5E+W9jjKDLZQgDYu2jMTXNez/ZD
+         RKb4f1WLR9F1g6msAiJe00NT++Th/YlBFa9ZHLhof//tUE7PYwQc8tr+enxn25IsReHp
+         Ve1I+uy3DYbQYg1Fb7gMVHksEkkXywlP4bdqmeQjA0RXwtAfRTwyynePq/PqxKcIebVb
+         bVcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791901907; x=1792506707;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/YOqxGlLfUnOc6Yx8cld+aJVHshZXI4bRKRZq6BJB5E=;
+        b=Je70QtsExU325rHH9QLSq0apWupBT9tfZPSGPL83SYpKR+H2OKCqG6f81iJUDi+uTb
+         LYB4NAgcroIw8+s/HLPxLxw+2Nyg7HyPD0Q05tO6zvFghaDyxNr9YD300dC7kdgelSGa
+         iXzatgan9Zb6cC53yq8qclza8Wto0bi0NG22qnP8MzHH3sgIhnFZNbPh8ZH4uMIQwE12
+         XKXMzmh9coi6JY+eNbWnV5U5EZZYb5Aos+V3HwqD+4OeYdOjER4YZR/ue7OKgjrrMvEL
+         rIucfDh+KXZZkVtO8tTMJECmd0bp0IEAU/Fg0EI6YmNYPrzmOUjtye47yVLwmerYgH/1
+         srDw==
+X-Forwarded-Encrypted: i=1; AKwUvByR3LAdgDEEeOd95hKeL1nxUn7U7jyIofI208iVRb9CJjOi/WTDXVorfF03yj7GvM6FpyxVyBDnnL8/A1GBKdLC@lists.infradead.org
+X-Gm-Message-State: AFq9FYI1/Yl0aJKG3cgaRTs+pvt8hyqDqANHPQ2aoK1PtD4ZF8yGpibg
+	H/I15GCmXhR0suSP6mka3Iv3lGh6GlAniOk3fve3Vve5YtNVmUpRycl1vouezDtFehn0K1NCbRt
+	qALP/f24Nl1z8H9qwiz8sPY628vf7VlotjJgw6DN1ottKaNDpDwxz7qe9kCPdXgEO2CsXIPlAEK
+	AotQ==
+X-Gm-Gg: AYBFou2HxJ631kVBXRxZcdGYkFF0tA6cIMBdfL8MxW9MhBeiHYdRb+wvGUbtRjAQkRG
+	qtOYlXJ1r4in9nbfrwhWB1rylfpCiDD5s5DDuDiHK/+ys3c4CDh7XPlsWtXVpauw1Ck90pvC3Xd
+	K5WBmDfabrUJBzMRmQoAc0mRv/SgIKD5DYDYVW7qm4TipEtmqVXMd/oiI+/oRwJf76cX0O7F0rI
+	9bYyRbfuF6d367UzfslcDRF1THM8fFjb4gEWc/T50za5EhWvib/aA8/fU6ecinjpPBRvEnMEJ7s
+	nKLUGL597ahsxrAzoWbyydRb82f7e9v0Y3AVdqwiVIUTXBs/Ldj+0h/zoNlCGtOoAoXsABsFGnT
+	TQQ9Z21LzhiEuWKpX
+X-Received: by 2002:a05:6122:6161:b0:5c9:a60c:2732 with SMTP id 71dfb90a1353d-5e91f44e07cmr4248152e0c.10.1791901907064;
+        Tue, 13 Oct 2026 07:31:47 -0700 (PDT)
+X-Received: by 2002:a05:6122:6161:b0:5c9:a60c:2732 with SMTP id 71dfb90a1353d-5e91f44e07cmr4248001e0c.10.1791901905853;
+        Tue, 13 Oct 2026 07:31:45 -0700 (PDT)
+Received: from [192.168.10.46] ([37.167.4.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18beacd2csm401121635e9.14.2026.10.13.07.31.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 Oct 2026 07:31:44 -0700 (PDT)
+Message-ID: <04a1331f-1375-471e-a674-87039aeb0328@oss.qualcomm.com>
+Date: Tue, 13 Oct 2026 16:31:41 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|CPH1PF2D6E07479:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd5a7aab-a0fe-4c3d-f16b-08df293679a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|7416014|376014|366016|10067099003|261009223027099003|11063799006|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 16PeUdeOFmtziu51eb5iaYBLUmOmZV1Age5aK7bm72LQnQx2ddXi2SIkaaGGjUP1aFMa/frBR0zM8KaDyyblOZiR0VN+npDsxG+Yyq/vIggQ/41BVdoxlls0VbrGOkWexXS+Ed533EWV17wpmGU9JCqnzVsNCGltFHLTHzk1c0wpjhQyecqYsgI1z/E9A3c6j2fqj832nXG2M7YkeXzP+yxW7J86YUdUX550ecyfCRy82AhQZuTJ6Cf/UkiC/F1PKIztxLabczSgoaI0Cl/0YL1KFHyO5MQDkBtzG7a19s6VWBmCp1qhKp01+dfvJ6QbGtGACxSjkC8KxA9x1nLGJftLWbY4NB3tWqflWSW13AWNr5N8XYjrbu8QMLNyoW03TMo9cmqkERbUB04PZVzL/hDX4wbKZwYhagx/sFgiwO6qfkfQRoFk0AL/v9zFHxmC5Zru4Aq6DlHNxlCGYOKhikIGQoMG8al0Twe8lIdxrwxJQ5JFNqfsh0hYvBGT5GVgcWy00ovS1/sr7uM+NwLgtj7v6wH9WspMq/0VJVsYbHH/inX9xz9VRlTjtif2GzAs90OFX1QdOCs14WMJF5+5+noI7PrhE41gmCTnWaJdhdBQ6EXJfTu8neYqI5X5eBe0w7bsvBcwos1e5oSfx/FiQ0Os4fgs/aWNc7XQAVmEGIk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(7416014)(376014)(366016)(10067099003)(261009223027099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EQ2ZFsXu3QLFMgdS+FDhc2MYF4JD5mEsfUpMuBy0vyeK9AC10ak1ENQB37l+?=
- =?us-ascii?Q?phrKpHeMpnssCybRww+wxUndm5T7usJIosAz1Zviidv7NoY6If6jNY8gvRoF?=
- =?us-ascii?Q?gBitycKhwo6X6UzH5Cxwv6mAqIh9CsukbAMeywKATBebpaKCnZmLSBrVqq46?=
- =?us-ascii?Q?n1zobqhIafY+3zC501uVo4dN7lj1glb4kMj/M9imwTApMl3OhcX1nP6Qsw+8?=
- =?us-ascii?Q?oozXbTd9idOr4C5vJInm9/PT/nc3TD6yKNDR8cKxHZa/s2crG14XWwreD7Qc?=
- =?us-ascii?Q?6KJTvHs1NA+X9+FY/4q6sasub99mOxStJdVNZL/YW5NMITm5g5fKn/D0eY8L?=
- =?us-ascii?Q?XAhYb5FgHZ+gKEGUMj70RQI98mHvfENogVm1oovRi7c/PqUiqEDzH0RaLbYZ?=
- =?us-ascii?Q?g0PBbwIp8F58LGgRoi/qz+G8+o6HbNWXIW4Y1W2VU4rHgxNNoQ66R2rAi15h?=
- =?us-ascii?Q?kP5BNfmj+u9mrNVTaFweOUZYiapY/+ehphVHyX7w3YJAwoMsUe4QkgQ6Nvb/?=
- =?us-ascii?Q?PTmB3XbKEAqUT56YuSbvoltm1gVL3JjmG0ZaT0mJ8mAQmnM85kHZ1WhcjSXd?=
- =?us-ascii?Q?ZmDlWsMH5UUzpF2ngupo99xkgpmVoRwFl8Q+oZyFxk3Ogwr27upJfQ/R/eKX?=
- =?us-ascii?Q?QAXptGxQEcm+8/D8wNq6i3uS6MPky+/J5ZZigFfWIRCGeZowHpixGSdcub5d?=
- =?us-ascii?Q?5fhgwv2Sdbh3L+QDBVGwBjBJ3M1oOq+cZKjIZrgurtLz/e/67pv7OdcamAjh?=
- =?us-ascii?Q?7/9RilDDIK2tOsoQwN24zZKz6I7OBfnPdImnZpEtv0OX9I8GncBUsfnBDv5l?=
- =?us-ascii?Q?qYV6OtoJyUUD9IMF9KPkkFzBEzoDMrx5qDXYO5jFo591GoY2x60PJbDtb2yy?=
- =?us-ascii?Q?XIvRfSHpX699xKSIIrByKxZIODXJf5uPUee75PkAr6idOMmtaQ+Ik7KJWJfe?=
- =?us-ascii?Q?mClLp6f3F7dAAl6tvBDRpH2A7/p5rtdRoouqfGvKs2K904bLz8gBiRVWbbKS?=
- =?us-ascii?Q?jTFhwbOSLh/rUFzCSWfOyc3hLx8dchbWusxUMU8l1Yaww/qSllV3EkjPlBTV?=
- =?us-ascii?Q?sgK6o8gssDFAbk/XeKjACmab6OIZdIuTxw4ucsbWh8NNgQ8MI55E4pu5RH2g?=
- =?us-ascii?Q?RtTBdNLsvHCvGHHtrKBfqCGA6X9D84/NY5hID3I6rPmkv8y/UoEsve+FTUVz?=
- =?us-ascii?Q?HcvjyJFyjNu5oWqOE3hhysbShmO6VnIP7MBtDPIN3h7GHG2wZ9K8ogiB4r2k?=
- =?us-ascii?Q?DYbFmqjLGA7zpQOb+9esLxUhyLp3L5oxzE5y4DFgCZe2sPMTTiltWckurTOY?=
- =?us-ascii?Q?c5uzZW9JKalfKIdN9zVYGPJxY5ZAuljc+EtkFl+gJstnGv9/DLV3wcP+gDGd?=
- =?us-ascii?Q?+0gR/leRW7hhV/SXQA7+aOCnp39A+SSd7yGuEBXG9vRED1O7Tpc/cnOSgC0z?=
- =?us-ascii?Q?Fql2p+ebFp71RYloLuE4G3pjXAJy4mKb322cQaRi3A44Q3qdRYZN4yXoInT2?=
- =?us-ascii?Q?stXxl2hxPLLW9HOT/uNa1//6b6nj4QliUu7hug1R3XOP0couJFNuc4P7/kuL?=
- =?us-ascii?Q?Q38s2v9ArBqmqBWmC/C4gny+DENiKxlNyUFeqfRJfIvc1nKG+MJmcG6rCSba?=
- =?us-ascii?Q?njM1UcW9du6C8Ca5F8uuGeD7hBrXIYLtnt/78TOQDrk+0zIaI9PSwHfI6k/E?=
- =?us-ascii?Q?O03YGlhP89QeTRkJEgki6SnW6SeMd+vR8NkwGmzCb9DCo0uZ6un3NFgX/lNd?=
- =?us-ascii?Q?PkowZB1ogl3bmU4V89GFAQaHkmYFvgrgD29LNRmGFoek52SmK3ZR?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd5a7aab-a0fe-4c3d-f16b-08df293679a5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 14:30:05.9601
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MWYAggku53mk1BKHtJ9uHgDhPw3ylmQ/k/onx6RqOE/zpVK+HJXMN+rQFVX29wLJ5aNngZ5/6pdRQvNuxodWnYKI4hkuN/v+dMwiXMaAFBvvG1J2jaLUDT57XSXWm3SW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPH1PF2D6E07479
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/5] thermal: samsung: Add support for Google GS101 TMU
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>
+Cc: jyescas@google.com, linux-kernel@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-hardening@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org>
+ <8142519a-0062-4f0f-b978-980e049f99c1@oss.qualcomm.com>
+ <fe159792-c58a-46a9-950b-6c21d2172601@linaro.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <fe159792-c58a-46a9-950b-6c21d2172601@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA1NyBTYWx0ZWRfX/0Z+jPKiOUpl
+ 428xtRweSM4HERDA3OEsY/bZ4CuV5Fp6aJjU0RHSkLn4jS2EJ92CWvV0DRIf7c0zOUIF6ZyEfRd
+ o1PE1Uv2VnJPEz65MIas5Sy51AgquQ0j7UbuBs2DGtrHfaj4LNLxJ92DTB94Rb2+7J/Wf20yt3T
+ yQM6ydetL3MCak4Nf+VaZJ/fdHrJij7dIgpTMfEwUUPO3ICXic85G2lRJU8yfmxa6xe1KLcHzDA
+ eBSO5p2qo0UhBcDamM/g2OfGXPWYbMAJlRYXMWm/M+m1HPt8eKgrPlp6RDHMmSfdtV5mGIuYQc5
+ YGNo673wgvZUdnSmvN4N4ZZdKz+Ue3AS00ej/FSr2PxP3EppW7ljy47wSQygv6OvVV+ztFIJjle
+ AV7i4dNoHj0FUWqpkqgkOOzgK/pg/AwjJX77IK7J+t+aEyLua08uENie2FDepj4YXB/jQWss2/u
+ vC0vVgZ1iQnubhZLtdg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA1NyBTYWx0ZWRfX8hpmKpRnCWOk
+ hj7BPzLLuVvMgZjRHKjmUaAJP4c44riksqjUCVW1t4dIZNxRcUeWQeuwzfWu4vYjmDoMVzw/cOi
+ +FBeliOdCjxTqllzaLMUKp18UPkiy4A=
+X-Proofpoint-ORIG-GUID: cOeNGDWjzcu56rjutFUBmcEcIdpicpMS
+X-Authority-Analysis: v=2.4 cv=EP+TQFZC c=1 sm=1 tr=0 ts=6ace40d3 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=Pwpi88Ktxb2v7RWwfB9ReQ==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=GpSJM9idUVmPmik-TdoA:9 a=QEXdDO2ut3YA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-GUID: cOeNGDWjzcu56rjutFUBmcEcIdpicpMS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 phishscore=0 clxscore=1015 spamscore=0
+ malwarescore=0 priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_073009_871852_87018E9F 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20261013_073150_930786_F821DC23 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,62 +166,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 02:01:12PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> devm_gpiochip_add_data() makes the GPIO chip visible to consumers
-> immediately. Since the chip sets .to_irq = mxc_gpio_to_irq, which calls
-> irq_find_mapping(port->domain, offset), any to_irq() call between
-> gpiochip registration and IRQ domain creation will operate on a NULL
-> domain.
->
-> Fix by moving devm_gpiochip_add_data() after the IRQ domain and generic
-> irq chip are fully initialized, ensuring port->domain and the irq chip
-> handlers are ready before the chip becomes visible to consumers.
->
-> Fixes: d37a65bb4663 ("gpio/mxc: Move Freescale MXC gpio driver to drivers/gpio")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-> ---
->  drivers/gpio/gpio-mxc.c | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-> index e3a80f17d041..32ded7b548fb 100644
-> --- a/drivers/gpio/gpio-mxc.c
-> +++ b/drivers/gpio/gpio-mxc.c
-> @@ -500,10 +500,6 @@ static int mxc_gpio_probe(struct platform_device *pdev)
->  	else /* silence boot time warning */
->  		port->gen_gc.gc.base = -1;
->
-> -	err = devm_gpiochip_add_data(&pdev->dev, &port->gen_gc.gc, port);
-> -	if (err)
-> -		goto out_bgio;
-> -
->  	irq_base = devm_irq_alloc_descs(&pdev->dev, -1, 0, 32, numa_node_id());
->  	if (irq_base < 0) {
->  		err = irq_base;
-> @@ -524,6 +520,15 @@ static int mxc_gpio_probe(struct platform_device *pdev)
->  	if (err < 0)
->  		goto out_irqdomain_remove;
->
-> +	/*
-> +	 * Register the GPIO chip last: devm_gpiochip_add_data() makes the
-> +	 * chip visible to consumers immediately, so the IRQ domain and
-> +	 * generic irq chip must be ready before any to_irq() call.
-> +	 */
-> +	err = devm_gpiochip_add_data(&pdev->dev, &port->gen_gc.gc, port);
-> +	if (err)
-> +		goto out_irqdomain_remove;
-> +
->  	list_add_tail(&port->node, &mxc_gpio_ports);
->
->  	mxc_update_irq_chained_handler(port, true);
->
-> --
-> 2.51.0
->
->
+On 10/13/26 16:26, Tudor Ambarus wrote:
+> 
+> 
+> On 10/13/26 4:33 PM, Daniel Lezcano wrote:
+>> Hi Tudor,
+> 
+> Hi!
+> 
+>>
+>> I noticed I picked up your series without notifying you
+>>
+>> However, I did not pay attention but picked also the dts files.
+>>
+>> Shall I drop them ? (AFAICS there is one comment) and let you handle them separately ?
+>>
+> 
+> Yes, please. dts and defconfig patches shall go via the Samsung SoC tree.
+> 
+> About the driver itself, I was about to send a v9, where I addressed
+> some issues sashiko spotted. Do you prefer to drop everything and wait
+> for my v9? Otherwise I can do incremental patches.
+Well the v8 is in my tree since a while now and I'm about to send a PR. 
+The patches can be dropped but the v9 will have to wait for the next 
+release. If you want this v8 in, it depends on the sashiko report. Is it 
+minor or major ?
 
