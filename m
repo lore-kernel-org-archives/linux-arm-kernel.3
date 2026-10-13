@@ -4,110 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C53CC6B16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6E2CC6B16
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWoddL2aeqwWck75D7tYMRLTpBryElggLirImAgRC5s=; b=1R6tNbEse9OL/wf+FBYcLkqjit
-	ESgD8APXZMPv16mlhJV/Gl4rDhE42CZGzp9pU1m3Wf7huNPYV8hF1oR3J6GCZqYIdFuTu8N3Konmu
-	IuW8ZqJ7sTxSF7llGfySyCmnd+Gnk0ta7cT3rE2xqWRHdhWCSZEBrvjzY0eMoZxJR8e4u8CiO391K
-	TCZSu/uUZVntMX8NudJLmBw45jeCw9EfCfFj3nOnKkYxf1KDXRrY4Md/JgY62+YMAKRdgINYa8OO2
-	u0TJ8RTFCKZhkDvMrCK6oAACvXcV8+qqLyzmMsWJQM7cJVmu/GEYj6nC3nsVXDe6fpf4554rumdui
-	K9PdOoxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=; b=T/n8P3JjaW+dRpGs3W7Rv6zBPj
+	UFs+HGERGow5LmAvCKDClBctIDtMMxiKnCk5HJ+SO3uRxT+ZHnp835uE36aiw25pX+mufF6N7hX8X
+	h9oVMuXoqmGHZsguZ+H0eTClxQyDUAd/GjFtZjXHGf3l9rqbg9SFB/x/hY4Li+RpoZvMP1Mms09PF
+	pOAchzqlmeSA5gfh22nCulzVtdEBITVQNckWcQ+pkdgFTlcpOrLREBPmv6GS93Fyy4xVgVlfiejHR
+	l/4M6uBRO2piKWUCovcZVO422Prn1bxmkHp4Zh2ahwzoIFLQxHkyYcqZ/EIKeX+BuIc655Yym09ww
+	7IkCjisA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeKd-0000000DJJt-0gmp;
-	Tue, 13 Oct 2026 15:22:23 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1xGeVi-0000000DMBW-0Hyn;
+	Tue, 13 Oct 2026 15:33:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeJT-0000000DIXZ-1fjl
+	id 1xGeVf-0000000DM9a-3wsx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:21:23 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-cc1cf287ef8so1663946a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:21:10 -0700 (PDT)
+	Tue, 13 Oct 2026 15:33:49 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69DE40xf615484
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 15:33:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=HGeBD3r78PRe46uI+kLHVwNa
+	muj8NRza/V5oim/8S1s=; b=J2h8XG1wsM86CpohKwAVsMYjQidPsCgLchU5wXx8
+	NpEJHWAUg4xi+UmBNYdkc6TKf7j6BobzE47cQ/gdVXUuo+15j8kMGjhCeU9Vi+RL
+	ajEGJqmbP8s/EqvZbU/XqzgMSrXLbN1EgicPh0xdiMlmVnXAZjo9gHJ5Fan19llx
+	yr/Tz67OaktrxJszSPhUeYt5/qjEvjPLG7G4Yy8BpxYQLaL8Y9QsvSEZnMmH9TuN
+	nXCeCE4QxTtBFb6p+w0Zik3fCFZC8W7a+G8/cUHvzKom7ERk52fdIEhOtAy96X6F
+	Qo8TTT1tDONigKD3kIDhlDJZu73HdbpnS7tOzx5TDeccBw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9d7jauhy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 15:33:45 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93cb7f9bb86so619322285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:33:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791904870; x=1792509670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SWoddL2aeqwWck75D7tYMRLTpBryElggLirImAgRC5s=;
-        b=s8UMY9JwFEMq715+1K+QFVmv0yycI23sZEQpoZPpB1yTXq8Fa/bmALPwkU2IBSU9vJ
-         9+yMDIQI01wYjnR406kLlBBkqeR53cj5ylO+SD448WBoYgyMJ0McROetwaPlx/UtgNQ0
-         4GOWJgin6A2K9bjpDbtBMfqbojfj71rQeGo5qduQKPzslrmX1KvQS/GIMkYTpJy5cn/n
-         bSN3WI3I98CgnbH8pfI4VjJD010zQfYM56Q5dagCLnrSn0aaGw7R7zpAH+fCAyHiuMO1
-         xxXLN9xBTHF5OR0p3xZPkgbupeg8m47CkigKF/uduwTcqGvjGWFziGYMNxLWrY1vR8QN
-         65pA==
+        d=oss.qualcomm.com; s=google; t=1791905624; x=1792510424; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=;
+        b=cFDVHr4/wWeRzjZneP2k/FDarr75qGw+4JwioczxiKKhkr7FlvivTfnE38sw6dXMfW
+         w0QRFjEkZXvPN9GdmloQc410di2KNKRugpSuD8lxHzDgYD/G04dtyta6FRu7d67CyOZm
+         HNgLtxbk3O26bS6mWBOhMMMJU3TK5KhpEye0IubHQPSQpU7DzuGTqVVYFkYcMBI3RE6u
+         fA7tGXQvEkhG/CwIlurWe2W00qdZyL47nG7I9/uGHWjUKScT8lL4jcconZxBfsuUb8Qt
+         cQ3Dmzf/iBf6ZM8HHcSRnYCtXrsaXalrBDdyPvMxjAG2V+yqAu3xne7zU5ytH0/XLmoq
+         IEVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791904870; x=1792509670;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SWoddL2aeqwWck75D7tYMRLTpBryElggLirImAgRC5s=;
-        b=xZmNejr8EjLpvpTS4gCExJL4kNWF7O1m7Y43OzWR152mCNrHnVengmoJcuIM5UcUqV
-         hLAjh/jg0Y+VAij6uLVaGnBUyEyh2VZ9+CHCiYtWjGirn0M0GN7gaPyfM99xHCRbuKW5
-         0h9IdE0OLYsQVFMWDcBRoJF7o6+X8Yoe7i4SgV1wN1bKwYZwjBbGLH+q5xZL1QveHsAE
-         Bl1eHrxcpKDdzEdK1kyWJ1ihvD5suNui9BZQ5kNpXT8rQgd6WOq5gg2GwIsGUB3/UoMB
-         OWxx0ItUQ+JWGLDdNxNQ5gqCWeA+EJtYXRu9oE6M4Z1dCh5/re1IQR48ku7J4TkLigwf
-         p8eQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxHS8IRpXOQuMRk95CEBuhSozgn+jORtMq8r5GGZwrP0xHOtcjeF6sKoXM5KqvL1qYY5eqDkqL3a41JiTpjXdAC@lists.infradead.org
-X-Gm-Message-State: AFq9FYJIgMW2eAEKtkCZzPkGHXH7nOXc63M4VoNOh0uhIakSHCz44wDm
-	50B8TGg1c6ySGyS0aHin64gybYuGg6ldi8msfvg0RbSD7NtteS/vajjU
-X-Gm-Gg: AYBFou1g7dzDFt9ZEVnWNodwQtxaEJ31QnYFHbwl9Ir6njFO0Y9PiyKGWomJ9JsR3W5
-	8OuliPXqM/d8arvO2nqYKu7Y8ho7N3MNNo6C9oOAlFZv/NzHUKL8FJYzFqZTocJ3Rz+2hUqB9EH
-	rkQ3/GgcTxKzq2AnIXX5iBwBNLxwj5IYmP+0pABBeOG2jqxq3qh7BWgIZ099JDZ7tRogrLo/9i9
-	XADrihS1avdLQ26C51Y2zcXC0oaKuIjJMg/kp7of6wMuVskqDkE1vyveWV5aWwW1y7YGiFrgPwT
-	knl6x7J80oFZ3ufWzx7v3XVTpxSuTuqt0y8o1fqbr8PqgskDtIvE1vUPXJXt2IaYCkLvBGYuJvy
-	WMJ8KFP+iWLMqI5AH/JneZHsajW7BR08tTt3X3D5lbSB/CZ10M+292o1E4WYXf/VkVE64AEHVFu
-	FPRnPJfvDQ65b8XA8JquIBpX6KsjkSG0twtJ6t/Qip7Dh70SP0IrCg7C2yYMlPgcBtY6zP9w8sN
-	zOCqDddoJRjDBaxWWJSk7Jb7/0c
-X-Received: by 2002:a05:6a21:329a:b0:3e0:df21:9df1 with SMTP id adf61e73a8af0-3e16be5f9e4mr10904187637.45.1791904870106;
-        Tue, 13 Oct 2026 08:21:10 -0700 (PDT)
-Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd3da04596dsm5759888a12.29.2026.10.13.08.21.05
+        d=1e100.net; s=20260707; t=1791905624; x=1792510424;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=;
+        b=UBXtB7D4nQEWq3JHR+e3B2dm92EEcVe/GNpW44QvKjUTgL+2QhaQwcVxLqri1iwmSH
+         7TGA6DzaKQ4lRK/UyD44gyHvOBIzKryjxXhdjJ0SubkgdH1R0qADhZLVzFXOhQF5dd9P
+         OeY7q1Ll7V+Mhu8yrKYKXgya8+/tyiW0xTgKYv2uE9U0l35CigwIQ9Xxm20CQp5WQ0C3
+         zxbfSOV4Oo50g8qUkRDXZZhq2QTXZkMd2HW3qMSxyvTi9aMnJtBrlhDLyI8v8etMBLnD
+         emYZKO+HS+j4KMqXEs5p4SKDktaVwX7PCQ2EPuxhgI9oqg/C9x2PQkHkyUqia7l2uqPh
+         TAGg==
+X-Forwarded-Encrypted: i=1; AKwUvBwiAk/dK1gbnx66SqKZx8YArH8n7IDepm+4LIQSAqRsb8f7RNsp28nplbmjFJtsybIPmGSp/K48JKUseHhAwRmY@lists.infradead.org
+X-Gm-Message-State: AFq9FYK8tty8nRxCv7jBl+noYpIN9+a/tP96dfEkztNYnP5z2BPurKc6
+	MD8/cq7BP4UPwmS6rgcxq1MShpgj6gsj6vPEk6cVGKf5hdQsyDdAFeDa1Qu5NLSW2ClN98rynKv
+	0NYE7pUNP7BlouSKtbVBjVVGHVx9RM6WXFo+lAI2+JtTBu0Gut+2mfQR1fcxLFhl7EzQXaUAFqN
+	rggw67fXQRegtM
+X-Gm-Gg: AYBFou1o8OSWj1QdMN5+KV3wRPTrtBiRhjyG5HlH3/MC8OLTw3a0B9XUeP93vNjMHgW
+	l33qEwUq2nQ80bb+iGp/V4kuNjMhqrq76ploc+TxtskL+EeYy2lqJNehDtivkshwGyhWGJ+7pt9
+	cPJ5LYE4Yd79yqRt/yjKtEhqIgrpFD7WO0u3XlpZkQUF/ZkiZlw0+i2vrc3oeMsUUhUH2vRmFrE
+	IXhdTgkfYqswYu/tz3fPRwgXmECX6SVhK9eo7j58APvm3K4jnP4KUZabtxqac29Kdgm8Ta27210
+	c25tCnmpYAYiVwO2tKl1TjstR5yTBZXFQnpFW25XfksrgFzy568x+y6UstWdoxb2SHA2CWYplgs
+	ZRlKLY1XX7h1LQw==
+X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr2039604685a.3.1791905623798;
+        Tue, 13 Oct 2026 08:33:43 -0700 (PDT)
+X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr2039594885a.3.1791905622602;
+        Tue, 13 Oct 2026 08:33:42 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0aaabb8sm6621534f8f.15.2026.10.13.08.33.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 08:21:09 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Kees Cook <kees@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Haotian Zhang <vulab@iscas.ac.cn>,
-	Miles Chen <miles.chen@mediatek.com>,
-	Sam Shih <sam.shih@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
-	Laura Nao <laura.nao@collabora.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH v2 33/35] clk: mediatek: mt8195: Switch to common probe/remove helpers
-Date: Wed, 14 Oct 2026 00:17:32 +0900
-Message-ID: <20261013151734.3177690-34-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261013151734.3177690-1-akkun11.open@gmail.com>
-References: <20261013151734.3177690-1-akkun11.open@gmail.com>
+        Tue, 13 Oct 2026 08:33:41 -0700 (PDT)
+Date: Tue, 13 Oct 2026 17:33:41 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+        john.fastabend@gmail.com, sdf@fomichev.me, boon.leong.ong@intel.com,
+        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload
+ for jumbo frames on bugged cores
+Message-ID: <as5PVATLFOcTHbkV@lore-desk>
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
+ <179190522792.434549.2113659711683261245@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LxLLuhv1acDbnu1W"
+Content-Disposition: inline
+In-Reply-To: <179190522792.434549.2113659711683261245@kernel.org>
+X-Proofpoint-GUID: yzaTu8cziV2EjOjCTFRjsnnL8RCQs8RH
+X-Proofpoint-ORIG-GUID: yzaTu8cziV2EjOjCTFRjsnnL8RCQs8RH
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA2MSBTYWx0ZWRfXyqQpDRPJonCH
+ vakeaifX7AX3SkDlT+GZ9RPmj8zjlf88SICObYK1uWuA/XALzOqEOJ3H3O3lM4/Ue0a+4Y/BYes
+ G8G23H2MWOMqQndx+zzTk1/sdkg4pt0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA2MSBTYWx0ZWRfXzO7XqVJuedvf
+ 8HSPLqe68a2K71sRADZp9LEX0RFfh5nBLIiI08+8QxKBUjRAYtudJUO1LgVJ+2f4mBYsrO1kjnD
+ 4mz/5vHLKJA5zy3Jv41hb7QNHDTyszx0L3mhOLNI7J79JtufH2XBRR/S5eiI+CEoWJs7fNtW0oA
+ SBjEw17Ei77oqwMaCbhw5QbmNLySJOoo2uUUd3pM3nwwp0rH30nMTWSlaCLzXk6wRpxxL85fWHU
+ s96eYNYE6ppFLtLgec1Ob+Q8YlFb/FwxwsAn6zfAxzsxgSJulzqzARcuzVmT2r7zLP9xDL1yZoO
+ uWLhVi7nFam89B1mSPkI5Fl1IMS4d0kmgn8imxMVZfnxKCHj292O2TgPZBh6vxroTeTdyY1Pq2u
+ PBEWHqbikGvlAJbwp/9hUPkM3kopSiBF8ZNwQUkxGstV6YZS7K50cC9om2byxo/87Hd63xFo1St
+ fJZSFAzrOe6ZuEn+d/w==
+X-Authority-Analysis: v=2.4 cv=PMGaavqC c=1 sm=1 tr=0 ts=6ace4f59 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=9R54UkLUAAAA:8
+ a=EUspDBNiAAAA:8 a=cRO2Fxw6IMYKndE-NWIA:9 a=QEXdDO2ut3YA:10
+ a=R2sLeNz3RpVDkO3zkzYA:9 a=IoWCM6iH3mJn3m4BftBB:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 clxscore=1015 adultscore=0 spamscore=0 phishscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610130061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_082111_478934_9B9D6CD4 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20261013_083348_018912_F294B43E 
+X-CRM114-Status: GOOD (  43.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,213 +154,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8195 apmixedsys driver previously needed custom probe/remove
-callbacks to configure FHCTL and register/unregister FHCTL clocks.
-The apusys_pll driver also needed custom callbacks to register and
-unregister regular PLLs. With FHCTL and PLL registration supported
-by the common helpers, both drivers can use
-mtk_clk_simple_probe() and mtk_clk_simple_remove().
+--LxLLuhv1acDbnu1W
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Note that the topckgen driver is excluded from this conversion because
-it requires devm_mtk_clk_mux_notifier_register(), which is not
-currently supported by the common simple probe helper.
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>=20
+> Low priority / nit picks for your consideration:
+>=20
+> - [Low] The commit message's premise doesn't match the tree.
+>=20
+> Pre-existing issues:
+> - [Medium] This problem wasn't introduced by this patch, but
+>   stmmac_xdp_xmit_xdpf() never looks at priv->plat->tx_coe when deciding=
+=E2=80=A6
+>=20
+> --
+>=20
+> net: stmmac: disable TX checksum offload for jumbo frames on bugged cores
+>=20
+> This patch turns off TX checksum insertion in stmmac_xdp_xmit_xdpf() for
+> frames longer than ETH_FRAME_LEN on bugged_jumbo cores. It is meant to
+> match the stmmac_fix_features() workaround that the skb path already uses.
+>=20
+> > The XDP TX
+> > path bypasses that workaround, so once XDP is allowed at MTU >
+> > ETH_DATA_LEN, jumbo frames sent via XDP_TX or redirected into the
+> > device would leave the interface with a full checksum insertion enabled
+> > on those cores - exactly what the workaround is meant to avoid.
+>=20
+> [Severity: Low]
+> Can this scenario happen in the current tree? XDP still can't be used with
+> a jumbo MTU. stmmac_xdp_set_prog() refuses to attach a program when the M=
+TU
+> is above ETH_DATA_LEN:
 
-Enable module builds by changing the Kconfig setting to "tristate".
+This is actually a preliminary fix needed to remove the MTU limitation when=
+ the
+device is running in XDP mode.
 
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
----
-Changes in v2:
-- Improvement of commit messages
-- Add missing `.data = &apmixed_desc` entry to the OF match table.
----
- drivers/clk/mediatek/Kconfig                 | 12 ++--
- drivers/clk/mediatek/clk-mt8195-apmixedsys.c | 75 +++++---------------
- drivers/clk/mediatek/clk-mt8195-apusys_pll.c | 49 ++-----------
- 3 files changed, 31 insertions(+), 105 deletions(-)
+>=20
+> drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
+>     ...
+> 	if (prog && dev->mtu > ETH_DATA_LEN) {
+> 		/* For now, the driver doesn't support XDP functionality with
+> 		 * jumbo frames so we return error.
+> 		 */
+> 		NL_SET_ERR_MSG_MOD(extack, "Jumbo frames not supported");
+> 		return -EOPNOTSUPP;
+> 	}
+>     ...
+> }
+>=20
+> stmmac_change_mtu() also refuses a jumbo MTU while XDP is enabled:
+>=20
+> 	if (stmmac_xdp_is_enabled(priv) && new_mtu > ETH_DATA_LEN) {
+> 		netdev_dbg(priv->dev, "Jumbo frames not supported for XDP\n");
+> 		return -EINVAL;
+> 	}
+>=20
+> The redirect case looks limited too. Devmap checks every frame with
+> xdp_ok_fwd_dev(dev, xdp_get_frame_len(xdpf)), which caps the length at
+> mtu + hard_header_len + VLAN_HLEN. At MTU 1500 that is 1518 bytes.
+> Redirected frames therefore reach the new ETH_FRAME_LEN check only when
+> they are 1515 to 1518 bytes long, which is VLAN-tagged normal-size
+> traffic, not jumbo.
+>=20
+> The one path that seems to reach the new check today is XDP_TX after the
+> program grows the frame. At MTU 1500, stmmac_rx() still sets frame_sz to
+> at least PAGE_SIZE:
+>=20
+> 	bufsz =3D DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
+>=20
+> A program can therefore use bpf_xdp_adjust_tail() to grow a frame past
+> 1514 bytes and return XDP_TX. stmmac_xdp_xmit_xdpf() never checks that
+> length against the MTU.
+>=20
+> Could the commit message describe the trigger that exists today, and say
+> whether the bugged_jumbo erratum covers it? If this patch depends on a
+> separate change that allows XDP at a jumbo MTU, could the message say so?
+> The Fixes: tag reads as if the problem can be hit now.
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index ca61ab449e32b..0e29c5d04714c 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -5276,6 +5276,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_pr=
+iv *priv, int queue,
+> >  		return STMMAC_XDP_CONSUMED;
+> >  	}
+> > =20
+> > +	/* Disable TX checksum offload for jumbo frames on cores where
+> > +	 * checksum insertion is broken for oversized frames, matching the
+> > +	 * stmmac_fix_features() workaround used by the skb path.
+> > +	 */
+> > +	if (priv->plat->bugged_jumbo &&
+> > +	    xdp_get_frame_len(xdpf) > ETH_FRAME_LEN)
+> > +		csum =3D false;
+>=20
+> [Severity: Medium]
+> This is a pre-existing issue, not one introduced by this patch. The
+> comment says this matches stmmac_fix_features(), but that function also
+> turns off TX checksum offload when tx_coe is unset:
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 54ecf2692607..2a25cf6991fc 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -919,13 +919,13 @@ config COMMON_CLK_MT8192_VENCSYS
- 	  This driver supports MediaTek MT8192 vencsys clocks.
- 
- config COMMON_CLK_MT8195
--        bool "Clock driver for MediaTek MT8195"
--        depends on ARM64 || COMPILE_TEST
--        select COMMON_CLK_MEDIATEK
-+	tristate "Clock driver for MediaTek MT8195"
-+	depends on ARM64 || COMPILE_TEST
-+	select COMMON_CLK_MEDIATEK
- 	select COMMON_CLK_MEDIATEK_FHCTL
--        default ARCH_MEDIATEK
--        help
--          This driver supports MediaTek MT8195 clocks.
-+	default ARCH_MEDIATEK
-+	help
-+	  This driver supports MediaTek MT8195 clocks.
- 
- config COMMON_CLK_MT8195_APUSYS
- 	tristate "Clock driver for MediaTek MT8195 apusys"
-diff --git a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
-index a120c3305547..b79a423d25f8 100644
---- a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
-@@ -161,68 +161,29 @@ static struct mtk_pllfh_data pllfhs[] = {
- 	FH(CLK_APMIXED_TVDPLL2, FH_TVDPLL1, 0x154),
- };
- 
-+static const struct mtk_clk_desc apmixed_desc = {
-+	.clks = apmixed_clks,
-+	.num_clks = ARRAY_SIZE(apmixed_clks),
-+	.plls = plls,
-+	.num_plls = ARRAY_SIZE(plls),
-+	.fhctl_node = "mediatek,mt8195-fhctl",
-+	.pllfhs = pllfhs,
-+	.num_pllfhs = ARRAY_SIZE(pllfhs),
-+};
-+
- static const struct of_device_id of_match_clk_mt8195_apmixed[] = {
--	{ .compatible = "mediatek,mt8195-apmixedsys", },
--	{}
-+	{
-+		.compatible = "mediatek,mt8195-apmixedsys",
-+		.data = &apmixed_desc,
-+	}, {
-+		/* sentinel */
-+	},
- };
- MODULE_DEVICE_TABLE(of, of_match_clk_mt8195_apmixed);
- 
--static int clk_mt8195_apmixed_probe(struct platform_device *pdev)
--{
--	struct clk_hw_onecell_data *clk_data;
--	struct device_node *node = pdev->dev.of_node;
--	const u8 *fhctl_node = "mediatek,mt8195-fhctl";
--	int r;
--
--	clk_data = mtk_alloc_clk_data(CLK_APMIXED_NR_CLK);
--	if (!clk_data)
--		return -ENOMEM;
--
--	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
--
--	r = mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
--				    pllfhs, ARRAY_SIZE(pllfhs), clk_data);
--	if (r)
--		goto free_apmixed_data;
--
--	r = mtk_clk_register_gates(&pdev->dev, node, apmixed_clks,
--				   ARRAY_SIZE(apmixed_clks), clk_data);
--	if (r)
--		goto unregister_plls;
--
--	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
--	if (r)
--		goto unregister_gates;
--
--	platform_set_drvdata(pdev, clk_data);
--
--	return r;
--
--unregister_gates:
--	mtk_clk_unregister_gates(apmixed_clks, ARRAY_SIZE(apmixed_clks), clk_data);
--unregister_plls:
--	mtk_clk_unregister_pllfhs(plls, ARRAY_SIZE(plls), pllfhs,
--				  ARRAY_SIZE(pllfhs), clk_data);
--free_apmixed_data:
--	mtk_free_clk_data(clk_data);
--	return r;
--}
--
--static void clk_mt8195_apmixed_remove(struct platform_device *pdev)
--{
--	struct device_node *node = pdev->dev.of_node;
--	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
--
--	of_clk_del_provider(node);
--	mtk_clk_unregister_gates(apmixed_clks, ARRAY_SIZE(apmixed_clks), clk_data);
--	mtk_clk_unregister_pllfhs(plls, ARRAY_SIZE(plls), pllfhs,
--				  ARRAY_SIZE(pllfhs), clk_data);
--	mtk_free_clk_data(clk_data);
--}
--
- static struct platform_driver clk_mt8195_apmixed_drv = {
--	.probe = clk_mt8195_apmixed_probe,
--	.remove = clk_mt8195_apmixed_remove,
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
- 	.driver = {
- 		.name = "clk-mt8195-apmixed",
- 		.of_match_table = of_match_clk_mt8195_apmixed,
-diff --git a/drivers/clk/mediatek/clk-mt8195-apusys_pll.c b/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-index a2d98ed58e34..36d358141ecb 100644
---- a/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-+++ b/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-@@ -56,55 +56,20 @@ static const struct mtk_pll_data apusys_plls[] = {
- 	PLL(CLK_APUSYS_PLL_APUPLL2, "apusys_pll_apupll2", 0x038, 0x044, 0x03c, 0x03c),
- };
- 
--static int clk_mt8195_apusys_pll_probe(struct platform_device *pdev)
--{
--	struct clk_hw_onecell_data *clk_data;
--	struct device_node *node = pdev->dev.of_node;
--	int r;
--
--	clk_data = mtk_alloc_clk_data(CLK_APUSYS_PLL_NR_CLK);
--	if (!clk_data)
--		return -ENOMEM;
--
--	r = mtk_clk_register_plls(&pdev->dev, apusys_plls,
--				  ARRAY_SIZE(apusys_plls), clk_data);
--	if (r)
--		goto free_apusys_pll_data;
--
--	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
--	if (r)
--		goto unregister_plls;
--
--	platform_set_drvdata(pdev, clk_data);
--
--	return r;
--
--unregister_plls:
--	mtk_clk_unregister_plls(apusys_plls, ARRAY_SIZE(apusys_plls), clk_data);
--free_apusys_pll_data:
--	mtk_free_clk_data(clk_data);
--	return r;
--}
--
--static void clk_mt8195_apusys_pll_remove(struct platform_device *pdev)
--{
--	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
--	struct device_node *node = pdev->dev.of_node;
--
--	of_clk_del_provider(node);
--	mtk_clk_unregister_plls(apusys_plls, ARRAY_SIZE(apusys_plls), clk_data);
--	mtk_free_clk_data(clk_data);
--}
-+static const struct mtk_clk_desc apu_pll_desc = {
-+	.plls = apusys_plls,
-+	.num_plls = ARRAY_SIZE(apusys_plls),
-+};
- 
- static const struct of_device_id of_match_clk_mt8195_apusys_pll[] = {
--	{ .compatible = "mediatek,mt8195-apusys_pll", },
-+	{ .compatible = "mediatek,mt8195-apusys_pll", .data = &apu_pll_desc },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, of_match_clk_mt8195_apusys_pll);
- 
- static struct platform_driver clk_mt8195_apusys_pll_drv = {
--	.probe = clk_mt8195_apusys_pll_probe,
--	.remove = clk_mt8195_apusys_pll_remove,
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
- 	.driver = {
- 		.name = "clk-mt8195-apusys_pll",
- 		.of_match_table = of_match_clk_mt8195_apusys_pll,
--- 
-2.56.0
+since this issue has not been introduced by this patch, it needs to be fixed
+with a dedicated patch.
 
+Regards,
+Lorenzo
+
+>=20
+> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_fix_features() {
+>     ...
+> 	if (!priv->plat->tx_coe)
+> 		features &=3D ~NETIF_F_CSUM_MASK;
+>     ...
+> }
+>=20
+> In stmmac_xdp_xmit_xdpf(), csum comes only from the per-queue flag:
+>=20
+> 	bool csum =3D !priv->plat->tx_queues_cfg[queue].coe_unsupported;
+>=20
+> stmmac_hw_init() clears tx_coe when threshold DMA mode is forced:
+>=20
+> 		/* TXCOE doesn't work in thresh DMA mode */
+> 		if (priv->plat->force_thresh_dma_mode)
+> 			priv->plat->tx_coe =3D false;
+>=20
+> stmmac_dma_operation_mode() then runs TX in threshold mode
+> (txmode =3D tc).
+>=20
+> On platforms with snps,force_thresh_dma_mode, do XDP_TX and ndo_xdp_xmit
+> frames still request full checksum insertion through
+> stmmac_prepare_tx_desc() in a DMA mode where the driver treats TX COE as
+> broken? Should the XDP path also check priv->plat->tx_coe here?
+>=20
+> >  	while (true) {
+> >  		skb_frag_t *frag =3D i ? &sinfo->frags[i - 1] : NULL;
+> >  		int len =3D frag ? skb_frag_size(frag) : xdpf->len;
+>=20
+> --=20
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1%40oss.qualcomm.com
+
+--LxLLuhv1acDbnu1W
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas5PVAAKCRA6cBh0uS2t
+rBh4AP9zsPqcy5v4MxxUTWhZ0mz6mxVY53by/yLBAIv2hnvqoAD+NV1ihtRAqalp
+oG98y0xYkm4wcIjB5r1EF/ebj3Ig1go=
+=LEQo
+-----END PGP SIGNATURE-----
+
+--LxLLuhv1acDbnu1W--
 
