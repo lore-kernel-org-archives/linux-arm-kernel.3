@@ -4,138 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592D3CC6B09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01452CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89Lh5xWWd8/BsPzN3WIOfc6+rC2H0Quu6iPV35kIXT8=; b=M5iLhv3f9v/mJSWpfxTtN7+TJo
-	eZgfT2L6F+b6933eamOYaNamXr6W3ytpbA0E2nn0PpvKmRZJ7s70yqHpeXcvS79EPS6ug33tAEyDZ
-	BOljwVudquOvJf9T1OYF+r90boZ3UqqdEoJzumpNTltvib/OviLtfXfyWe2j7jwqU/AzOxZ/COKLP
-	0knjh+QTGsq7AC3zgWImwnXX/x1G6qMBDIeuiopJw3mmUm1NhS0IwNoxBhDqOnNSm60Bop+SgU3oj
-	vAg/S4HurLE/GAw67AlzNaWkM/5liMDtjGvCjrdLOxkMsHFvfv81dGw2K0bgTiWNJ4LTK6/90gm0/
-	1hGsTC3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=86gac5+JjgPTNXaK6IWVl+N92A2dD5Z6znKgZ0OtgkA=; b=Jj/snoqVqjuKEiS4f1S9PKn06E
+	1sCl2jxdSumt/wwrct2jG05oy5N2DcswuNgnhRq4V8OdPJjj7qyYLmT8SXHnC31Dr4CpvB0sdJ9c7
+	iaz6dUKN2EKSNed2nN1AoHM98O0gIFiIQ937kEpoMYwH49qgoiWX5ASsVBAVhlWBXi1O7Au5oFb+b
+	5CgoJw5k6wm/QMq62Y1W3BMrxB+RXFE9K6Knxdz3DL8LyTrtg8lYg+iI5ig5usL56ugRB7jFCHEnr
+	HLYgzb9ovuWE9LPiW0WkHBXF8Y1BKnQU85Aj6yaxxQmp/U+R5WfoxomN2dfRm+/vAFsoeniyqrmZY
+	hsZrVN0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVcn-0000000C4sF-14Wu;
-	Tue, 13 Oct 2026 06:04:33 +0000
-Received: from mail-eastus2azon11011038.outbound.protection.outlook.com ([52.101.57.38] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1xGVeH-0000000C5GV-3ZKH;
+	Tue, 13 Oct 2026 06:06:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVcj-0000000C4nZ-3UUP
+	id 1xGVeG-0000000C5Fa-3JVP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:04:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nmzc1ZhBmy+sKZ19UEGY/8Kthoh9xd3UtnDpZMZDQBHzoA8x3AajTgy26RSv1n4TmQF8nTE02xVNEZBOIKoc52oboivtglHlatuPAU7TBS0+qJT68eU7FOiuLyv//0r1iVft7BbKLNG+thh/3Lzg0o/MhqPOBKHzGVtbeKSV3KVP5f9TaxOVWazgzzo1Y4o8T8a14ybEz43bazJ4lyjXc+RY/teaw6ZL9nwpsGGmCWnLReH8ie/4d0NKmQvO1BBoG8uHQY/Hp/qaBoM9DaFX4a+m+snzqq+Sjh8ZzfH7erVuvq62KUObi9nGow4TPqpQLyMcH5zDzTnNBTpifwvT5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=89Lh5xWWd8/BsPzN3WIOfc6+rC2H0Quu6iPV35kIXT8=;
- b=AegRAE9N2UvrCKo/nvXby1zFmnh/w7vr2DX8dV0mvpNNrw6G15XaIc7YGzF1xDWtnTMk5GIkZwtAhGcb7cpNPntMsr3Kt3JGDMCYATi5IfHtydFm+XMTvA7eqcOao22EZ2GjnpeNFmqIYqNNyFm22ZwAjky7gjVZ/KgkZWjyMeg8vgGI8eLrtVqwxrmp/yykHUpVYhpEU8KoxOKV7dL7X4lw7Vs4RiUiNZbU3CQ+mnq9hWXnp1pmOLePcp1TJcHGJg5yl80T6zsiPmDhKc+mlp4KfD2gTiBd9IfJMiCF6NxrInrniVmppQY8oayWJ3/bzev/DEaROADIYbTUkVqHLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=89Lh5xWWd8/BsPzN3WIOfc6+rC2H0Quu6iPV35kIXT8=;
- b=iMkxOpu4pYkmZIuYNTPhSqRAJmTUIy2NYi4+AyHRlae/UQMKbu0P52g6rqXgGBe2patAF49knEvqHpdDU6kVD2K1YASkdiJAM48VihLIj3SZDX5sA6xWH3t24lZSugPAUwpk1ZD3Zz8DUHoW2SUZIsCQfRldGPB0DFx1clICFxI=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by DS0PR12MB6463.namprd12.prod.outlook.com (2603:10b6:8:c5::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 06:04:21 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54%5]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
- 06:04:21 +0000
-Message-ID: <770cd345-98f1-4068-a706-c4e7e8b10ccd@amd.com>
-Date: Tue, 13 Oct 2026 11:34:06 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
- Xilinx XXV 10G/25G Ethernet
-To: netdev-bot+sashiko@kernel.org
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261006110550.1990213-3-suraj.gupta2@amd.com>
- <179163334293.434549.14718764476813490489@kernel.org>
-Content-Language: en-US
-From: "Gupta, Suraj" <suraj.gupta2@amd.com>
-In-Reply-To: <179163334293.434549.14718764476813490489@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN4P287CA0121.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:2b2::8) To SA1PR12MB6798.namprd12.prod.outlook.com
- (2603:10b6:806:25a::22)
+	Tue, 13 Oct 2026 06:06:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DB54444EA;
+	Tue, 13 Oct 2026 06:06:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1BBD9C2BD00;
+	Tue, 13 Oct 2026 06:06:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791871564;
+	bh=kbzWEJG3RS0uRhAVKboubU+SQaTYUAE0pi1FzWvqMkI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=mdrGo1O9oOYDxeUyEa8vpsnrzJvMew9fw3oMrtgrLQX4HPEPHZ23LmL6vru0Cu3xQ
+	 sv4cx1LPsgBh7+Q1vauuAZoKlfIFCrjse5ZTsmXdZ6BcSUXJbiTFTwI94lGT0irz59
+	 lA+nrSYbmvj3rLZ2qlj7oDzGAOpn2EEkCeWAJV4okOMWL5kFer3QmuG+9tB7QcKl/w
+	 0pCVUVlFdxLoQKj5wwYunja1ElBtuNvtCXfjsTlzdKexUvYmoY8mq6C0j/TyhxkkwE
+	 sbuadP9alZLPQ+Phi5yIxjMYkFmPLm1fbdOCMFzfrKD1cSnmiQCaG69yTb9Bzsn6Ba
+	 t11DCbTQx+asg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02D3BCC6B0E;
+	Tue, 13 Oct 2026 06:06:04 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Tue, 13 Oct 2026 09:06:04 +0300
+Subject: [PATCH v6 03/10] dt-bindings: arm: cpus: Add Cortina Systems
+ CS7542 enable method
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|DS0PR12MB6463:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1cf08dd-a01b-4bc0-68b9-08df28efd2e6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|6133799003|10067099003|18002099003|22082099003|3023799007|11063799006|5023799004|4143699003|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: ngRN3gn+f294NTEoacAvCqIk1sKp75D6Sxngcid+E6xPTkGduc8imQNnsHAW9VgwR8lTmC/kekYuGvGX9wSkyWvnohVMdRpuHEjFYM0Htg/JGy8ASl93CsuvY/5xqq42BZ5q4RXGrqtOmo1cUWQxEsZ6PDTgmZVUpJSHMdS14OhmSyh/tjyIqEhCCK2cLF7FUD9EjjAjrxdwoS+jM4Spi8/2bwHFIwX7QYf2lGHnYSyTPJiKjBS+zq10VI4hutsJVnuXqgCA2S/JoHr1k5UyTPEqs+Y7LacKsBzOxslVba8fArYVbXL8rbp7l3tew5n7KiROsZtyGHR00ILOW86Rj3hXoS/ePwh2nbFnV5como32N/QmvcTHnh7lqeUavNPV1BHuh54qIkxrEeMYb6mMdqC6YUiKeAAu764+Brg2RI0/teGRiY6g1dAgu1kVha7vHauNMNEzQlLFNLdtjSUUo6Q9n+6h4EU1EJywbD/r5+O5RzRnFdC6yy4YFVegi3TdXrwWc70gcnUooCBWp1r/do9npGbn4/AJtPBPEcBTIL8OcaXRAKib2JBt2KfNtOmZxfx0O02QkdZsKPyyS1lX3VaqyDe3Zut3c3Bf/Y4FktpP+buvmIUAXVoapgRORmlvu+r0GeMX8WWBdbrMpwu7tZ45jrdktO0syFm+ueTYbxA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(6133799003)(10067099003)(18002099003)(22082099003)(3023799007)(11063799006)(5023799004)(4143699003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Tm1JOElzQ0pGWlNnNHVxSEwzcFVHQUljVmxOa2NQWHlJaFhHbDZ5aGI0T2hr?=
- =?utf-8?B?dlc5Q1VoTUlVK1NmK2psMVNUSmtTUkZWOWVqWEhWYlRkSCtHYzcwOXUybEZG?=
- =?utf-8?B?MWVITEo2VVBrakdPMjFVNHlYMVRDbkUxRG5pN3pPbm5vTG9rVXp4RmZUTytW?=
- =?utf-8?B?NDZHb0FrLy9talFRbUM0RzI0ZFlMdDcyUGlxbHRkbGJTRFlreG41WTR3RDNN?=
- =?utf-8?B?Q01URE1nK2laMkZOd1dRb25KT0g4bTZmeDNlR1ZiSXhMZXJxMjdjN1VoYW5V?=
- =?utf-8?B?M3dENG5SZHQvU1ZOSnlGOXhHb0pacDArSFI2VE5MaW9raVljZ2Z0bEs0SCtM?=
- =?utf-8?B?T2dTcTQ5ZGNvN2FLTnhnTWwyTXN5OFFMUzlGUlNweXNQUi9oMjBJUGM2Mk5I?=
- =?utf-8?B?dXlvdGdLQ0trcWVzQUFPcFVtcGJXOWhjZHF0OXlNc0JZS1JndkN4d3ZFTTRB?=
- =?utf-8?B?UlFpZ1hjMUZKVHh3TTNJL3IwR0ZQR083VWlSbFUyTG5JT1krZkhYYURtQnFm?=
- =?utf-8?B?ME9tUjRWNjA5MEYvUjczVnMwRjA3ZUdCc0oxbXE1MlRuaVF1MUtsMFcrRGNp?=
- =?utf-8?B?cVBOWFZQT1VTc3JWOS9rN3FqbHlvQTdFdkpZbVlIbFFwSnhLdDVWVDRyaG05?=
- =?utf-8?B?VThUOTZWWGF2aDArcUsrQmR3NHpDWWhNQkNCWXVBMk91Q2QvNVhvNERXOTg3?=
- =?utf-8?B?RVlmSVRwaStHSmJVKzlMYjdyQ0xnNmg4MWJDcWx3S3UvOGJzMWllaFVtNWoz?=
- =?utf-8?B?Q3E0R2g1WFo3c1lFUkNhbE5mVmkrQ01wcTlMLzZQYXVRcCtQL0xsSEFIZUVW?=
- =?utf-8?B?VHo4b3BNeG5XTFZxWjhXZUE2YVdjWi9laXpPSlVQZTRBUTlJZyt6eDF2Nlda?=
- =?utf-8?B?WWFYbWtGNlUySWtjYk01a1VDR0RoS1lZejZaeG43ZlZYUnRHd2FxQnR0Vk02?=
- =?utf-8?B?VzVrZ0YxYXd4MXZSSi9ZQnNBMGVNbFJNUkxhN3lFWlJESEl2VWpMaWJoSmJx?=
- =?utf-8?B?WVlSSEdmdmRLb2NqdWRMR2ZoSDJvcjRSS0xjYWg0Y1pYdDJ5TUw3ZUFNR2h3?=
- =?utf-8?B?Mm1jcGlzdTNtZFFEU084bkMveDRlWFg0Q1V0d2ZyY0RPeDA5NzNoYlQ0SXpT?=
- =?utf-8?B?OTRDR09IK1JQUVdRQVBlYzhWUjVvaWlBMjJjaCtiakUvZkhTV3pwVC8wVDRj?=
- =?utf-8?B?OTRvZWs4WURIam8rMjl0bjBiaE42MjJZeEdVK2lUczdTSGxld3V2anM5Qkxy?=
- =?utf-8?B?UTJJL3FLbVRONmhIYjBoZS96NjJGRVVYQm5RZWFPVGMrekRYVWpZOXp2cUdq?=
- =?utf-8?B?eFAvY1lIcDA3VkxNUjAycUhMWEJKMlVVVWI1dWhWdy9IRnErVTBwN3FuYXRH?=
- =?utf-8?B?VnpEK05qOFJIQjBlSHZJSDBnYlZ0aFgzb0dYK0pKc1NzSXVKRFFraTFHN3Zv?=
- =?utf-8?B?L0dVYmFjMlJIemZxd0hoRC84NVROeVBuYnBoa1JJaEtKSXZBckFLbjVZVUxB?=
- =?utf-8?B?R3BNZFpVanEzYUZjTjdlVSswMWRIcEFxTDdlajZwaUNOTEdwb2YwVmJVUVk1?=
- =?utf-8?B?QUhhTXozWW9tTE83Q0tWYlZ0cW9XRVR3d0Zkeld3S2RLdkdlTzFpMldQOTlS?=
- =?utf-8?B?TGZXNDh5U0pBeWl4U3dncHpLQmNGQTdhZUpDTTUxWE0yaGQ4M0EzVnpJN0J2?=
- =?utf-8?B?OG1md1dHaisxZU83Z29VSkxTOXFKL3pPcityREg0ZndiVllHVjlFaCtNMDBx?=
- =?utf-8?B?b09GK2IxZkFZK0tlVWluV3JtaVNaVW1qMEc0RmNiaFcxWkllTWoxSHVKSHRz?=
- =?utf-8?B?NGJIaXBhaS9ERVN4WkNESk9TZmVYRmZwZVdkTkF6NnpzZE12amJMRkhCajIz?=
- =?utf-8?B?NGJYSDg3N21YV21LV1J6NkVhcGhEa3ZDWnEvbldpdlQ0T1JPSFMwelJvUUdE?=
- =?utf-8?B?RG9wamo1dG4yeWFWdkxFRXdoVnorcVlZZWdCVDg3WTlLRzdvSXBwcVZVK1Zl?=
- =?utf-8?B?L0ZTL2ZtNFZmOTM3S29QZll6RFg1SVVaK3ZwSHJqb2MrSy9oZEJlZ2dmQ1pM?=
- =?utf-8?B?RGZLQXc5eU1ZSkJsSk1DeGVka1Jsell5VVB2RE83NnZORi9VOUtoSHNqUkl6?=
- =?utf-8?B?aHZTWXhRa3M5aGdFckxtckVyMUpQV2RleUhqVmx3MXlJeFhLSEVxTEVFT1RQ?=
- =?utf-8?B?cjUwZVFDTG1oa0h2cHBpbXFna2NMaXRtQWpkVGhwVWwzTUFyTzBPK0Q4OUkv?=
- =?utf-8?B?YWVhWjkxNHQ4cmtBcFZwYVJRSFp3N2UwanY1Q2VqTlFNeVgwMXJ2MDJsdHVM?=
- =?utf-8?B?QlZ1WmJUT1hlOEFQNW1BTDVKQUNVWW5TSUtPQmR4aDVLVG9JcHRRZz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1cf08dd-a01b-4bc0-68b9-08df28efd2e6
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 06:04:21.1746
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wJ0IG5tedOGdosrN5COTOEjgDMhXW3rXmcxqw9+n6fgO2aH9kiAuWsGom1zt7UlWkB1RsKj8JzTsva1CS0jVnw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6463
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_230429_956829_9D02FB52 
-X-CRM114-Status: GOOD (  35.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-b4-cs75xx-v6-3-37e8f3969b7c@gmail.com>
+References: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
+In-Reply-To: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Jason Li <jason.li@cortina-access.com>, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791871561; l=1280;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=zDmn+esXces7eieK+stPpF5FV5ebbgc0xe7in2CfHQ8=;
+ b=9LGV7UgybgYGhg9nQi5GUVPfuZp9V7a/Cqtl9cvzDgbBb/Jc4JXv+/2Ua8QzB1LXudinIMakB
+ rvdu2GaHUV5AnjQh+QO6DqnSxONV2fgQ5PwFjGTskREcpb95NzKT22j
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,185 +90,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
+On the CS7542 the bootloader parks the secondary Cortex-A9 core in a loop
+that waits for an event and then jumps to the address found in a global
+software register. Add the "cortina,cs7542-smp" enable method for it and,
+as with the other release-address based methods, require cpu-release-addr
+to point at that register.
 
-On 10/10/2026 5:25 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The XXV binding never says how link management works, so a node
->    that passes the schema, including both examples in the binding, cannot…
-> - [Medium] The binding has no way to describe the XXV transceiver (GT)
->    reference clock.
-> - [Low] The new XXV binding's `dma-names` schema only checks a per-item
->    pattern (`^[tr]x_chan([0-9]|1[0-5])$`) and a count of 2 to 32.
-> 
-> --
-> 
-> dt-bindings: net: xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet
-> 
-> This adds a new DT binding schema for the Xilinx XXV 10G/25G Ethernet IP.
-> The IP has an in-core PCS/PMA and uses an external AXI DMA or MCDMA. The
-> binding covers the 10gbase-r/25gbase-r phy-modes, the rx_core/drp/s_axi
-> clocks and the dmas/dma-names properties.
-> 
->> diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
->> new file mode 100644
->> index 0000000000000..cf31ab677a4bc
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
->> @@ -0,0 +1,110 @@
-> 
-> [ ... ]
-> 
->> +description:
->> +  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
->> +  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
->> +  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
->> +  Ethernet Consortium specification. Because the PCS/PMA is integrated into
->> +  the IP, the subsystem has no MDIO bus master and is not managed through an
->> +  external MDIO PHY; link state is read from the MAC's own status registers.
-> 
-> [Severity: High]
-> The binding says there is no external MDIO PHY. It does not require or
-> show managed = "in-band-status" or a fixed-link node, though. Neither
-> example has phy-handle, fixed-link or managed.
-> 
-> The XXV support added later in this series sets only mac_capabilities and
-> supported_interfaces in axienet_xxv_phylink_set_capabilities(). It does
-> not set phylink_config.default_an_inband, so cfg_link_an_mode stays at
-> MLO_AN_PHY.
-> 
-> On open this gives:
-> 
-> axienet_open()
->    phylink_fwnode_phy_connect(lp->phylink, dev_fwnode(lp->dev), 0)
->      fwnode_get_phy_node() fails, since there is no phy-handle
->      if (pl->cfg_link_an_mode == MLO_AN_PHY)
->          return -ENODEV;
-> 
-> A node that matches this binding, including either example, would then
-> fail ndo_open with "phylink_of_phy_connect() failed". Is that expected?
-> 
-> Also, phylink_pcs_poll_start() only polls the internal PCS when
-> cfg_link_an_mode == MLO_AN_INBAND.
-> 
-> Should the binding require managed: const: in-band-status? The other
-> option is for the XXV phylink_set_caps to set default_an_inband = true.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Correct. The XXV subsystem has an integrated PCS/PMA and no external 
-PHY, so link is managed in-band from the MAC status registers. The 
-driver should therefore default to in-band mode.
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index 96136b70d..7a394c500 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -269,6 +269,7 @@ properties:
+           - brcm,bcm63138
+           - brcm,bcm-nsp-smp
+           - brcm,brahma-b15
++          - cortina,cs7542-smp
+           - marvell,armada-375-smp
+           - marvell,armada-380-smp
+           - marvell,armada-390-smp
+@@ -484,6 +485,7 @@ allOf:
+         enable-method:
+           enum:
+             - spin-table
++            - cortina,cs7542-smp
+             - renesas,r9a06g032-smp
+       required:
+         - enable-method
 
-> Either way, could the binding document the chosen mode?
-> 
->> +  Any SFP module management (e.g. I2C) is handled by separate IP outside this
->> +  binding. Its payload is moved by an external AXI DMA (or multichannel DMA)
->> +  controller referenced through the "dmas" property.
-> 
-> [ ... ]
-> 
->> +  clocks:
->> +    items:
->> +      - description: RX AXI4-Stream clock.
->> +      - description: GT DRP clock.
->> +      - description: AXI4-Lite register clock.
->> +
->> +  clock-names:
->> +    items:
->> +      - const: rx_core
->> +      - const: drp
->> +      - const: s_axi
-> 
-> [Severity: Medium]
-> How would a DT describe the transceiver (GT) reference clock here? The
-> description says the in-core PCS/PMA drives a high-speed serial
-> transceiver, and that transceiver has its own reference clock input.
-> 
-> The clocks/clock-names list is fixed at three entries, and
-> unevaluatedProperties is false. A DT that also lists the GT refclk would
-> fail validation. xlnx,axi-ethernet.yaml already documents mgt_clk for its
-> optional internal PCS/PMA PHY.
-> 
-> Later in the series, axienet_10g25g_clk_init() claims only s_axi, rx_core
-> and drp. axienet_xxv_poll_link_ready() then fails open when GT reset-done
-> times out:
-> 
->      netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
-> 
-> On boards where a Linux-managed, gateable clock provider supplies the GT
-> refclk, nothing claims that clock. Unused clock cleanup could then gate
-> it. This depends on the board.
-> 
-> Could an optional trailing clock (minItems: 3) be added now?
-> writing-bindings.rst asks for complete bindings even when the driver does
-> not use every feature.
-> 
-Agreed. The three current clocks (rx_core -> rx_core_clk, drp -> dclk, 
-s_axi -> s_axi_aclk) are correct, but per PG210 the GT has a dedicated 
-differential reference clock (refclk_p0/refclk_n0 -> tx_serdes_refclk) 
-that the list cannot express today.
-I'll add an optional trailing clock, mirroring mgt_clk in 
-xlnx,axi-ethernet.yaml
+-- 
+2.53.0
 
-> [ ... ]
-> 
->> +  dma-names:
->> +    items:
->> +      pattern: "^[tr]x_chan([0-9]|1[0-5])$"
->> +    description:
->> +      Should be "tx_chan0", "tx_chan1" ... "tx_chan15" for DMA Tx channel and
->> +      "rx_chan0", "rx_chan1" ... "rx_chan15" for DMA Rx channel.
->> +    minItems: 2
->> +    maxItems: 32
-> 
-> [Severity: Low]
-> This checks the name pattern and the count. It does not require
-> "tx_chan0" and "rx_chan0", or even one TX and one RX entry. Both of these
-> pass dt_binding_check:
-> 
->      dma-names = "tx_chan1", "rx_chan1";
->      dma-names = "tx_chan0", "tx_chan1";
-> 
-> The driver requests fixed names, though:
-> 
-> axienet_probe()
->      tx_chan = dma_request_chan(lp->dev, "tx_chan0");
->      if (IS_ERR(tx_chan))
->          return dev_err_probe(lp->dev, PTR_ERR(tx_chan), "No Ethernet DMA (TX) channel found\n");
-> 
-> axienet_init_dmaengine()
->      lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0");
->      ...
->      lp->rx_chan = dma_request_chan(lp->dev, "rx_chan0");
-> 
-> Since dmas is required, XXV always takes this path. Could contains
-> constraints for "tx_chan0" and "rx_chan0" be added? Another option is to
-> fix the leading entries with items/additionalItems.
-> 
-> The pattern came from xlnx,axi-ethernet.yaml, but this patch creates a
-> new binding with it.
-> 
-
-Agreed, the driver hard-requests "tx_chan0"/"rx_chan0". For v5 I'll add 
-contains constraints so at least one tx_chan0 and one rx_chan0 are 
-required, while still allowing the additional MCDMA channels.
-
-Thanks,
-Suraj
-
-> [ ... ]
-> 
 
 
