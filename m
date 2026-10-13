@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F3ACC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19980CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PyCzwXp6skk6xuTNd5K7xv+NS33CqBs/aqCiNCjofPU=; b=qqYAg5GHf2pEHrQAWc9AE4MCHT
-	rxBcrqTjz77+ziLwo1nc1rHjuju1FrT57hgVffXoqet6MShkrDSVCTWI/FCfgoOpwDqfgGPgCGun5
-	WjWiH/DakoWQ+OE4kbGt0N/dbz/u8xFxVSu8Npzr6OfKTqFg2MAcSODfCbISJRM6Q/4IqVpuK5ACa
-	nNyasQaef/4tbKIai8GW88eY627RHfkvRYou62twY0TI43EdeI4/m7s1EojPbhujBlgiyPb5dxbNX
-	JoruZ8WyoIANvBWBvmJoPqd1AxCq+cZwlhm8GvIvEq6LjvNmskIjYgwLy6zYWU1gBRcKLAMEWvW08
-	sE88RO1A==;
+	bh=Q7fj9Vp+tJj7vJqMJATzo0vyG2yGkhzhjEgsT39DDVI=; b=vbbW4m6nz+DKU8r7rff2mbNlO5
+	u7pX3r+Jl/Hj6R4qNa60E5v++rnunTM2TYzx9E/muDD2JeTMop6UPw/iXjzgmTNKLCcfwZXWAl+2W
+	w9lanE+GSkeLUFyf1vXgAAEXXyExNr6akEGvQEHeeVn9jfGlra6ZgIPyxvwAvqa6tN3pQRSVfA4e2
+	6OVmqDdwGjBqbvBXcEi8L/d+NtnkSV6l+hLh7/YzLyBHNzA3IYvncculIkrYMJn9yjB1xULP64rz5
+	KdeWOf+mprd04VktU3rc/srTOiYobd5JyVivM+WXywaTf0N5St2o61qKV/tmOqiKt7PFb82Gk/GLC
+	IOXlijgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZAs-0000000CTlK-1dIE;
-	Tue, 13 Oct 2026 09:51:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGZFR-0000000CUE1-3YW5;
+	Tue, 13 Oct 2026 09:56:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZAq-0000000CTku-3rMc
+	id 1xGZFQ-0000000CUDu-0u47
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 09:51:57 +0000
+	Tue, 13 Oct 2026 09:56:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E8F5600D1;
-	Tue, 13 Oct 2026 09:51:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E8D11F000FF;
-	Tue, 13 Oct 2026 09:51:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 433E1600D1;
+	Tue, 13 Oct 2026 09:56:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55F31F000FF;
+	Tue, 13 Oct 2026 09:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791885115;
-	bh=PyCzwXp6skk6xuTNd5K7xv+NS33CqBs/aqCiNCjofPU=;
+	s=k20260515; t=1791885399;
+	bh=Q7fj9Vp+tJj7vJqMJATzo0vyG2yGkhzhjEgsT39DDVI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D+RdwBM9UNxHRLePRTKBR9LdQwEtGhFzrPCerxIXBjRJcRKecovsPLJDZf1Wo/A0e
-	 DVAOJcbY54iNO3N24ta5Mb34ynrLmDJllTvriiN+45+xPf+B08wwGD3iHsQc5a8ZfI
-	 C5GXwXL2/Qc9MLL4FJ8DRWz8MgAw2ZYcIQ9z713vjPsS2LMNak6J04CbMVRIlMKg/9
-	 mEnhAZB3z+TjgEeOuok2njcVeiisvuoFNo7zM2CfSar7SCrLAeUNxR4e7M+eOzQB9L
-	 dhe5J7ep9XjoNsnZnXrc/As1NDC6dL25BMfsEr7L4tYfvcDpLenhuJQ1wcNzr4vqtV
-	 2p4w25BGmaHHw==
-Date: Tue, 13 Oct 2026 02:51:48 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and
- DISCARD
-Message-ID: <as3_NKT20MNdqaJR@kernel.org>
-References: <20261013081646.933312-1-fuad.tabba@linux.dev>
+	b=FL6bAAK1wmdEJY0kUnZUcDtzMSWohJp9SOCaOF43QWDUhT0/iL+EQrzkosR+1+gbK
+	 n3CYnRul7jUIP5IfLrkv+P8pOPh2mpHNS0Uk7wGHOYoV0XS1R0aERG9phPvMAFz/m5
+	 QcZdYbCJMmhUbrAflNX57QafmAdlmP34KxetYLnLS9rdkS7h4MXNYvwBtSTDHXg93c
+	 LXsP/R+zgGNL6f6XUxUQk4JWLfXvGkhLVMFwJUUaIpFMyzcLic/mA0L8NUYvPS8sHb
+	 2QPEtRlQjY4pusEYwNfnlZ8LI5GQyhY4CKycn3vvy+P2KTQn0xXPvmjqDkcMg8QP74
+	 qEjGgM633sPKg==
+Date: Tue, 13 Oct 2026 15:26:30 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Sumit Garg <sumit.garg@kernel.org>, Will Deacon <will@kernel.org>,
+	brendan.jackman@linux.dev, catalin.marinas@arm.com, rppt@kernel.org,
+	akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <as4ATqhp0bPI03PA@sumit-xelite>
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
+ <are21BjeS1O3RYE3@sumit-xelite>
+ <aruh86rd5FMv2i9G@willie-the-truck>
+ <ar5TPvANFUoosxGW@sumit-xelite>
+ <asOAYODGZa-7EIV1@google.com>
+ <asOD31rTX6dNfD1o@google.com>
+ <aszdnInyJxLhSQRp@sumit-xelite>
+ <as3798SFCfKFirag@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20261013081646.933312-1-fuad.tabba@linux.dev>
+In-Reply-To: <as3798SFCfKFirag@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +83,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 09:16:44AM +0100, Fuad Tabba wrote:
-> Hi folks,
-> 
-> Changes since v1 [1]:
->   - Dropped the second mapping of an LPI at MAPTI, instead of keeping a
->     doubly mapped LPI out of GICv4 forwarding. (Marc)
->   - Keyed that check on whether an ITE maps the LPI, not on whether its
->     vgic_irq exists.
->   - Added a patch that makes DISCARD remove the pending state. (Marc)
-> 
-> Two fixes to the ITS emulation. The first stops a guest from mapping
-> one LPI from two events, which can oops a GICv4 host when the VMM then
-> routes an assigned device's MSI to the second event. The second makes
-> DISCARD remove the LPI's pending state, as the spec requires.
-> 
-> Tested on QEMU, which emulates a GICv4 ITS. A local reproducer with two
-> vCPUs DISCARDs an LPI that's pending in the other vCPU's list register.
-> On rc3, and with patch 2 but without its halt, the guest still takes
-> the LPI. With the series applied, it doesn't.
-> 
-> Based on Linux 7.3-rc3 (fd73f4a665989).
-> 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/20261012084743.2228612-1-fuad.tabba@linux.dev/
-> 
-> Fuad Tabba (2):
->   KVM: arm64: vgic-its: Don't map an LPI from more than one event
->   KVM: arm64: vgic-its: Remove the pending state of a discarded LPI
+On Tue, 13 Oct 2026 at 10:37:59 +0100, Vincent Donnefort wrote:
+>On Mon, Oct 12, 2026 at 06:46:12PM +0530, Sumit Garg wrote:
+>> On Mon, 05 Oct 2026 at 12:02:55 +0100, Vincent Donnefort wrote:
+>> > Sorry, not sure why Sumit's email was dropped...
+>>
+>> The problem was with my mutt config, it should be fixed now.
+>>
+>> >
+>> > On Mon, Oct 05, 2026 at 11:48:00AM +0100, Vincent Donnefort wrote:
+>> > > On Thu, Oct 01, 2026 at 06:04:06PM +0530, Sumit Garg wrote:
+>> > > > On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
+>> > > > > On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
+>> > > > > > Looks like you dropped me from your reply.
+>> > > > >
+>> > > > > Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
+>> > > > > CC list to To: and drops you. I suspect the same thing happened to Thierry
+>> > > > > when he replied here:
+>> > > > >
+>> > > > > https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
+>> > > > >
+>> > > > > I can't figure out why that's happening :/
+>> > > > > I manually tried to fix the To: and Cc: lines in this message.
+>> > > >
+>> > > > Thanks.
+>> > > >
+>> > > > >
+>> > > > > > On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+>> > > > > > > I spoke to Brendan at LPC (?) last year but this doesn't really work
+>> > > > > > > for arm64 because it relies on being able to unmap arbitrary parts of
+>> > > > > > > the linear map, which isn't generally possible unless you force pte-level
+>> > > > > > > mappings for everything, which is prohibitive for perf/power.
+>> > > > > >
+>> > > > > > As per the cover letter it's about allocating pages that are not present
+>> > > > > > in the direct map. This essentially fits the protected DMABufs use-case
+>> > > > > > where we don't want any kernel mapping to exist at any time. Bufers
+>> > > > > > allocated from protected DMABufs are only meant to be accessed by the
+>> > > > > > TEE implementation or HW accelerators like in the secure media pipeline.
+>> > > > >
+>> > > > > That sounds like it should probably build on top of this series, then.
+>> > > >
+>> > > > The main problem I see with this series is it tries to move from the generic
+>> > > > CMA allocator to a reserved FF-A CMA pool which again comes from the
+>> > > > DT. We already support reserved pool allocations via "no-map" which are
+>> > > > discovered dynamically from OP-TEE.
+>> > >
+>> > > I can't think of a way around a DT declaration. We need to know what region is
+>> > > PTE-level before the direct map is installed and of_reserved_mem is very handy
+>> > > for that purpose. And as this PTE-level mapping is costly we certainly only want
+>> > > to enable it for platforms that absolutely need it.
+>> > >
+>>
+>> I am rather thinking of a way to turn the default CMA allocator to be
+>> PTE-level mapped. Since the overall idea for this dynamic protected
+>> buffers was to reuse memory efficiently, otherwise the reserved buffer
+>> approach is already there to use as "no-map" via DT.
+>
+>When the default CMA allocator is setup, it is already too late
+>(dma_contiguous_reserve() is called after map_mem()). I am not sure this can be
+>reordered easily due to the dependency on dma_limits_init().
 
-Looks good. As all of these VGIC fixes depend on reliably synchronizing
-hwstate I'll assume Marc will apply this patchset after his own series.
+Yeah I saw that constraint too, let's leave it for future extension
+then although having this reordering dependency fixed will be ideal.
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+>
+>So the only case it would work would be when a reserved memory has set
+>"linux,cma-default".
+>
 
-Thanks,
-Oliver
+Let's rather just turn DT based default CMA pool to support PTE-level
+mapping and keep it configurable via Kconfig or cmdline or DT.
+
+-Sumit
+
+>>
+>> If we can have "cma_unmap" cmdline option alongside "cma" then it can
+>> turn the existing default CMA allocator to support unmapping buffers.
+>> Not requiring a DT change at all, although we can have the DT property
+>> for the default pool too if platforms want to opt for.
+>>
+>> > > >
+>> > > > If we can rather support a generic CMA like allocator for arm64 which
+>> > > > can support unmapped allocations then I am all for it. These platform
+>> > > > specific reserved pools isn't a scalable solution.
+>> > >
+>> > > What do you mean by generic CMA allocator here? An extension to
+>> > > shared-dma-pool? Or having the CMA automatically doing the unmap/map on
+>> > > cma_alloc() cma_release()?
+>> > >
+>> > > Right now I have created an API for the unmapping/remapping part. It adds a
+>> > > burden on the caller, but the alternative solution is introducing post-alloc
+>> > > pre-dealloc callbacks in the CMA, which looked a bit overkilled to me when
+>> > > the users of that "ffa-pool" are only optee and the nvidia video dma-buf heap.
+>> > >
+>>
+>> I am not too worried about where the actual implementation lives but
+>> looks like CMA driver to be the better place. I think use-cases like
+>> guest_memfd proposed as a user for __GFP_UNMAPPED on arm64 will also be
+>> looking for this feature.
+>>
+>> -Sumit
+>>
+>> > >
+>> > > >
+>> > > > > You could allocate the DMABufs from a CMA region that has no linear alias.
+>> > > >
+>> > > > Allocation from generic CMA pool is already the case here:
+>> > > >
+>> > > > tee_shm_alloc_dma_mem() ->
+>> > > >   dma_alloc_pages()
+>> > > >
+>> > > > Do you mean it's just fine to unmap buffers allocated from generic CMA
+>> > > > region since it doesn't have any linear alias?
+>> > > >
+>> > > > >
+>> > > > > > > Vincent's series tackles that by using a pool so that only that part of
+>> > > > > > > memory requires the pte-level mappings in the linear map. That's the
+>> > > > > > > whole point of it, so I don't think it makes sense to drop it in favour
+>> > > > > > > of Brendan's approach (which doesn't work).
+>> > > > > > >
+>> > > > > >
+>> > > > > > For protected DMABufs, we even don't require any pte-level mappings in
+>> > > > > > linear map. The whole idea of mapping and unmapping is just a bottleneck
+>> > > > > > for performance sensitive secure media pipeline use-cases. That's why if
+>> > > > > > we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+>> > > > > > be the best fit for this use-case.
+>> > > > >
+>> > > > > The point is that you will require pte-level mappings for the linear map
+>> > > > > if you want to unmap from it at runtime on arm64. If you don't, then you
+>> > > > > can end up needing to split a block mapping (e.g. pmd-level) when you
+>> > > > > decide to unmap only part of it and there isn't a safe way to do that on
+>> > > > > arm64 without transiently unmapping the entire block, which can lead to
+>> > > > > fatal translation faults during that window.
+>> > > >
+>> > > > I agree with you here, what I am rather trying to find if on arm64 there
+>> > > > is any possibilty to have a generic allocator for unmapped pages. That's
+>> > > > the use-case here as well as what Brendan't patch-set was trying to address.
+>> > > >
+>> > > > >
+>> > > > > > Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+>> > > > > > how Brendan is doing it for x86?
+>> > > > >
+>> > > > > Because arm64 != x86? Presumably x86 doesn't have the strict
+>> > > > > break-before-make requirements we have on arm64.
+>> > > > >
+>> > > >
+>> > > > Sure, sounds like you are eluding to that the generic MM flag
+>> > > > __GFP_UNMAPPED being proposed can't be supported on arm64, right?
+>> > > >
+>> > > > -Sumit
+>> >
+>> > --
+>> > Vincent
+>
 
