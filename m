@@ -4,122 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2361CCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B01CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dLuRhyxP4nwjlLQAHA1PhTS/cikBl46Qd8VTWlXOfc=; b=qu6lisDKBKTxwa9NDRMb/zlDD9
-	I2Kox4t1rFAEccHZDq9RHR7t3kcuUAPw4GOhEebhsuFMz0kkhrtpKgPORbS4kdA3mDjB/8zIw+apY
-	EAkCnTWqa4dXeJcbUWwRNRJzruVU1RNBLeEHHZ6R08MdZwmyt4Kw8nD88SvpcaN5OOjM+rWo8egul
-	iPRdj8ffLRPj1+HylY/5RjbNYKvsXBQ8YXb1jgVHAUMeywKUULoA/oIj7to/p+HftnEWNK5LSTl3e
-	0qGC0Lm+FwZ6d+ZCQrOtsW/Mcg5Sy7EoteK9Pu7cDylS3O+EqJ0XUiAw7/BOv8uiDtlSd6qZ8sNyA
-	znaIVedQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eXWwLO4f27zLzjYaywvcUXu0PszcUzOkRGtDDmJg/mY=; b=Chmea6gy+WJmZSoa9JYAIVDKUv
+	0zMb122ejWDzE48JnIZWhdrXkLBgznOYXRN/sMwggPXLJ4MkC68JkpDIlmW3pS8nD6TjzQovkh8SP
+	RTU3FkjzAvt+n1t9Z+g4uTaCwDgAc5FF+A98SQOEx1uYcccz3G2H+YUIk0OVMSuskwhWWSJoBbbjV
+	oR9UX4Bu4TF3pJ0xn+J0s4Ft4Z3PX5M16rTf5avQA3uQpsy/r/pkrnxwMzq+8O8znYPEk4gippKo7
+	XAS3tVMJVvdOpR1tqWw6ls85OmRlgwU1eCKNiGLjOtrHY4yHgxbAu9GTOE3A5Bb2tT1UoH7gS2JEZ
+	YNWhiLEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYj2-0000000CQGt-1ZqN;
-	Tue, 13 Oct 2026 09:23:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGYsj-0000000CR3X-3q0q;
+	Tue, 13 Oct 2026 09:33:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYj0-0000000CQGi-0DvQ
+	id 1xGYsi-0000000CR3N-2sQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 09:23:11 +0000
+	Tue, 13 Oct 2026 09:33:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FB0C40683;
-	Tue, 13 Oct 2026 09:23:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 608E61F000FF;
-	Tue, 13 Oct 2026 09:22:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C4B7A60A7F;
+	Tue, 13 Oct 2026 09:33:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64D11F000FF;
+	Tue, 13 Oct 2026 09:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791883389;
-	bh=7dLuRhyxP4nwjlLQAHA1PhTS/cikBl46Qd8VTWlXOfc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=YNEhL49syqeDz9UxO2iRTohsddBwkDSOmONbNUTTwQb8W+2yBiuXEdJHLLgs6TbC+
-	 HgPMOJfoS407xu8tcYfDZS/DpmFkMGv8dir5K6NTkhw6AQySNyfKWmkFxLJs1qm0rZ
-	 TCHpDbojAethdw7LxlRHYJfYOGy1l6+fE/+QQO9qhj1cMFCU+hVK7mg1pLPRpV4xa2
-	 TUyH23m00MjeY7B7z++AVGEDsICxPPCNLpnaFfIe22sckAv4hda7ZnhCBTdsANYsCC
-	 ux0dLAh5wFBy9sH3N4Smf9a8iPGC2pzkT96xorZZr+wuPcjA8TIncDmvk0bDSzcwxR
-	 Z3CP4N5Ug4Yjg==
-Message-ID: <56dc6c05-7fd6-43de-bc62-c353ae1dbcc3@kernel.org>
-Date: Tue, 13 Oct 2026 11:22:56 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/18] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
-To: Linus Walleij <linusw@kernel.org>
-Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>,
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
- <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com>
- <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
- <b2256847-3ec1-47e8-ac79-ceca86eb09e7@kernel.org>
- <CAD++jLkrXXg9xrhAZ8HETc5Qcv5BbkY-ibjvzBmE5WZVqDEGWQ@mail.gmail.com>
- <a0eca34d-5eb2-4730-b8c7-0f2302bcf265@kernel.org>
- <CAD++jLm=T-U07vAVCogMnfOfkDf=i9QhGGc8ok2N-ZUh50WLNA@mail.gmail.com>
+	s=k20260515; t=1791883991;
+	bh=eXWwLO4f27zLzjYaywvcUXu0PszcUzOkRGtDDmJg/mY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BpGJpECmnc5GxGubaFlWpDQl4qaGSZ2UveCm+TNNzJZWXRKayz4Rmf+L2QFacrirh
+	 YnR8BFP6LodCdz8smZSQYduJjU2p3dbVcw9LuZFURwfnaUAGYaSWTXrXBCXQmVzviX
+	 lIWY45DPbKXmvNrAQvS9BrnJgWNJW7bszssvjnI2eCf1Chsd3g6vMQ0aaJV7np+N9C
+	 OQoM2vAXUqL/nhb5fV6ybacrvnn+ds/EL2B4kT08NC4mHHmMCLPosZxU0tngS06mkM
+	 J5PIvAcNMD4TnkFlXk2foyPEl0VdDGAWrMQ3qW/Pyh5rdAYalfuZOI8VyMGAe+0jZ1
+	 xlvI0HnD5+iWw==
+Date: Tue, 13 Oct 2026 11:33:08 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAD++jLm=T-U07vAVCogMnfOfkDf=i9QhGGc8ok2N-ZUh50WLNA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+To: Dawid Glazik <dawid.glazik@linux.intel.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, maciej.lawniczak@intel.com
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: aspeed: Add Intel AVCRP and
+ JNCRP boards
+Message-ID: <20261013-sincere-lemur-of-unity-ede6a7@quoll>
+References: <cover.1791825961.git.dawid.glazik@linux.intel.com>
+ <0b8fbf07323894a48a777ea531713a0285e319d4.1791825961.git.dawid.glazik@linux.intel.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <0b8fbf07323894a48a777ea531713a0285e319d4.1791825961.git.dawid.glazik@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,82 +73,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2026 10:44, Linus Walleij wrote:
-> On Mon, Oct 12, 2026 at 9:08 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On 12/10/2026 09:06, Linus Walleij wrote:
->>> On Fri, Oct 9, 2026 at 8:17 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>> On 01/10/2026 09:03, Linus Walleij wrote:
->>>
->>>>> On Mon, Sep 21, 2026 at 6:23 AM Long Zhao via B4 Relay
->>>>> <devnull+longzhao.ambarella.com@kernel.org> wrote:
->>>>>
->>>>>> From: Long Zhao <longzhao@ambarella.com>
->>>>>>
->>>>>> Document the CV75 pin controller binding using generic function and
->>>>>> groups properties for pinmux configuration.
->>>>>>
->>>>>> Reviewed-by: Linus Walleij <linusw@kernel.org>
->>>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>>>>> Signed-off-by: Long Zhao <longzhao@ambarella.com>
->>>>>
->>>>> This patch 4/18 applied to the pinctrl tree.
->>>>
->>>> There is a dependency, you cannot take this patch alone.
->>>
->>> Oops, but is it a DTS dependency so if none of the other patches go in through
->>
->> No, it is a bindings dependency, introducing new DT bindings warning for
->> both your tree and next.
+On Mon, Oct 12, 2026 at 07:39:05PM +0200, Dawid Glazik wrote:
+> Add compatible strings for the Intel AVCRP and JNCRP BMC boards.
 > 
-> Is there a problem with the bindings patch itself?
-> 
-> In that case Long can just send an incremental patch to
-> fix it right?
-> 
->> Your tree is fine in this case as long as next
->> is also fine... but next is not, because that patch did not make it there.
-> 
-> But the patch is in -next?
-> 
-> ~/linux-next$ ls
-> Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
-> Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
-> 
->> We cannot have any new DT bindings warnings in next.
-> 
-> I guess I just don't get it :D
-> 
-> To me it seems like a fairly normal situation: ACKed bindings merged
-> together with the driver, no dependence on anything.
+> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+> ---
+> v2:
+>  - Squash the separate AVCRP and JNCRP commits from v1 into a single
+>    commit, since the changes are small and closely related
+>  - Fix compatible string ordering so the new entries stay in
+>    alphabetical order within the enum
+> ---
+>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-But there is a dependency. Your commit uses undocumented vendor prefix
-which introduces warnings.
-
-New warnings:
-Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.example.dtb:
-pinctrl@e4010000 (ambarella,cv75-pinctrl):
-'ambarella,drive-strength-syscon', 'ambarella,pull-syscon' do not match
-any of the regexes: '^#.*',
-https://gitlab.com/robherring/linux-dt/-/jobs/17038310909
-
-
-
-BTW, this commit of yours:
-9c2932badcd3e3c0fc630eac5ff2bfd5fadf93f1
-
-does not even build, so a make error.
-
-> 
-> But if you tell me "revert the patch" I will simply revert the patch
-> because I trust you, it doesn't really matter why.
-
-I think Ambarella won't be picked up, because of total mess with
-patchsets, thus Rob should just take the vendor prefix... except there
-is no vendor prefix patch to take, since it is squashed with other work.
-
-I don't get why this became so messy and have no clue how this should be
-fixed, except revert which is sad churn-type of work.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
+
 
