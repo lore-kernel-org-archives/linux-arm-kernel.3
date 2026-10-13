@@ -4,82 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36FF1CC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB983CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3TJ+nLYXw+aqTgNhbnY0u+0hp8FGUc5AIcm44+MuiU=; b=lqT3LSuUupa5Fc3SriHreh6xtf
-	Ionq/WxcU42N02DR0422WeW7e+ICDm4ygL47wlbLA1U+p2TKRoZedHc9zuK14Cwg/AymxPEZVKXbo
-	nEQjvV4/1VFbx1PlChAdWYF6Mni2qKQooY8989wBRUS8kHY9jhpYYikKpaDf8DpYW4pmPyS67OQBM
-	eWdfrrj+pggBS33UaAZNfKniZF6+h1qOOYFpHPTvnpdRBTkfAbhloXunzjuR5vyoc0kCMuT4HrczO
-	TyiDvm9D3NuGLmsaj+/XdvgRNbgQmdrEw47UHtlgssiT9pQbrtchcj9x7ltjYdPm5HQUS0dmCRx3J
-	khKfvyJw==;
+	bh=1/TE8jVp1mgIX3w95Qd56lz15ABuBS61Pi2gCb8R3Ds=; b=VaYqvuAgH+WLIq6GIIo38lXkvJ
+	n2Mo8RJMY3pF3jfd59UJwYyUEzNpqSa3pCPNjI9U9c9NWf7nKtVhA3i3hoYwKLCuiMhQYiu6ZHXsp
+	5iMScXNwiBlW5WhVKQLgHM9V5hQCUr82rxVzvM7VguGFFrT4W1WUt+bdKfOQ9fOHZLERRI2xxAOWa
+	ta2TzrZtPlk4xDnRTFpv+MSC1bPn8ZMVMt56ux+Xhr3miBcIVM337Dj8Ao8IUWqvbNx8aLvWo7egC
+	Qnhu8LGaWyUxFTROspbWFASlWiUAbLeCSHwlqKGVQ8gLH4DL/XGMRrbkevWubj176qBMVAYnJBUGb
+	4jwBsUOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGW5Y-0000000C9Zs-3t3t;
-	Tue, 13 Oct 2026 06:34:16 +0000
-Received: from out-37.mta0.migadu.com ([2001:41d0:1004:224b::25] helo=mta0.migadu.com)
+	id 1xGW8Z-0000000C9oF-0uVY;
+	Tue, 13 Oct 2026 06:37:23 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGW5U-0000000C9Yc-0VhG
+	id 1xGW8V-0000000C9nl-33yB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:34:14 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=x3TJ+nLYXw+aqTgNhbnY0u+0hp8FGUc5AIcm44+MuiU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1791873249; v=1; x=1792478049;
- b=jPEz53G9zFtMf7S7MMA3ep20v99EcICky/EP9W6meqhELt5OpbuudGf6WopZUAQNGX9cbUKp
- oL5ue2WlC4wtiqVIRa6KGdXuVmtzRp5adDL+7FzQKnKieXPXu4d223bjJvrQA680vlem2AgFhI7
- Sdrm3rr1ohq7fHe9xPgdcgq0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4af039548b386c01;
-	Tue, 13 Oct 2026 06:34:09 +0000
-X-Mizu-Trace-ID: 4af039548b386c01
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.100.1.1.12\))
-Subject: Re: [PATCH v2 1/4] mm: fix missing page-table destructor in
- pagetable_free()
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <3ab63358-8bbe-4457-b21c-bb81bca804cc@gmail.com>
-Date: Tue, 13 Oct 2026 14:33:49 +0800
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <songmuchun@bytedance.com>,
- David Hildenbrand <david@kernel.org>,
- Oscar Salvador <osalvador@suse.de>,
- Dave Hansen <dave.hansen@intel.com>,
- Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Alistair Popple <apopple@nvidia.com>,
- linux-mm@kvack.org,
- linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <2B2F2818-9309-450B-A2A4-9F53D802F1C6@linux.dev>
-References: <20261010112457.49485-1-songmuchun@bytedance.com>
- <20261010112457.49485-2-songmuchun@bytedance.com>
- <asy-b7_C3SjnmSaS@gmail.com> <145CD5DC-6457-4E1E-8B9D-AE7D1EDB0AB8@linux.dev>
- <3ab63358-8bbe-4457-b21c-bb81bca804cc@gmail.com>
-To: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
-X-Mailer: Apple Mail (2.3901.100.1.1.12)
+	Tue, 13 Oct 2026 06:37:21 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a16aaf2067so30867375e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 23:37:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791873438; x=1792478238; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1/TE8jVp1mgIX3w95Qd56lz15ABuBS61Pi2gCb8R3Ds=;
+        b=sw8imxsgguDQfvo8yV3KDZm+JJnHBTDOyobDPGYepLNwyrb3a6TJNMTEMFSMV5JWn6
+         KeVQNMKmDTZHaIovhtwrPtonkIMZGwYp6MJE4svEnA5JJpQtX54eM3nAor6PsUY7QqW8
+         AX82cBStUw7N3wFjQPi4Ovo36ZhBeGD85CX5IBYIzq3naW+MkzassurCQ9MZ4meXlpzC
+         /a8mI+OtLdnblFajtFhZzXiAClIkIhd9aApxy9yQhq3xrzHSwxeARfbeCKtKs6ZecoXx
+         6vEYDaDojIhLuIOIGTlI1SNxhXCpWMWWUfNnQgRNh89YmlU3T5PBkV55fa9AJhMW7Wup
+         t+gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791873438; x=1792478238;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1/TE8jVp1mgIX3w95Qd56lz15ABuBS61Pi2gCb8R3Ds=;
+        b=2vGnrLLBLv1BKvqJ5jenAUWBWSV6iqbjbbLT7LJRKKj09XTEGGD2xnzq4GncJxxGNW
+         Gb7Nkk7Xt/nJKxMNXI/HTMNTRdoh8xPpgNQEMkO9pp1HVpnDBq/WdC0sxZTZerXiJzEM
+         gVINVnL/HEpTN4nzAq9swx014GmfabqWf9I/V56ZcOer2HOBeMP+iC0IH08FAXi+p9UQ
+         YUnTr7bLIdvoDKPIuc1bsaVxC9Ovigue8Z/bCov7RlNmItmH6pwY5YoPIsDk+yzEtM8o
+         +4gFeFft3jO0Ch9amdMshBbAZcWMD2Y1+zxpyDJgWzRq3llf+9j/KcVLeo4iPYNO/0Wa
+         UCmA==
+X-Forwarded-Encrypted: i=1; AKwUvBzLIOxGGxX2U7jP3aXfx4QyAOab6suv3YsaK+nDZHEYDzadJT5SdzY5ghZYrgwzD7sdVz2vHBatT1vBanFhQ2w4@lists.infradead.org
+X-Gm-Message-State: AFq9FYL4s76mYcW4+rXmr8MYncrBkx7yz8OqXmYrQlwZf9KnwDJV1mL5
+	VJHNLuoXCGLnmmfWZgMOIkbMnzleI26UKxxY0yW1/HKtcVehNHj0lPje2nGiGzyPO8hmUg==
+X-Gm-Gg: AYBFou2kxpz6KYsXC1fPpCvWoXFZv0as6j5oaLjxozR3WCl9BFWkYvqVrzcdHwRyOmI
+	q2Ay2Hf6KpTD19XUAtah6mzOyDzB8+aFp7VwU4uptdAGwmYyE7W03vCeqwUmXD+Kt1oqlBET7nF
+	EMFCkwLW1Whw/QRvEJFLcW6sYS3CRGCJhZVTm78WSxUOFRv0jbEU20maOddMq6/pX7W1YuI1qj+
+	AnfXtak6I4BsFSR/V/lGL1gPwNo6RcLF85y5jSbBWtxonPGRP87SqdAfLNJkf34sIJhYjJOO04Y
+	1DuxN3iuW+jLYb0erT+csbA4wUMldbqT6eyMsnwqfeYu/m5S9KYjdt8TNXhW1lCmyyxOEirO9mU
+	6mQTq+GT0tb3RLiIqfFO6bSX3HNkcQl+llS3BE99idu1CloO0LlnHQ3GFF4OjtJqs55Cb7SVqcD
+	Blu2bMvbjBdtKP1wN1qBySCD1U8K6Bljo/v38vm7krb5RQTrx3rkab+6HGQhn/icXlh0GHtKQpu
+	BQMdVqLZackhCA9bF0IHyZ+rxUrXCMuct7bsEYyNFWOMF6kwMzgGuAIww==
+X-Received: by 2002:a05:600c:348f:b0:49c:fc6e:8caf with SMTP id 5b1f17b1804b1-4a18e4c05e5mr229014865e9.19.1791873437754;
+        Mon, 12 Oct 2026 23:37:17 -0700 (PDT)
+Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19471edd5sm434795675e9.11.2026.10.12.23.37.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 23:37:17 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ Jason Li <jason.li@cortina-access.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v6 00/10] ARM: Add support for Cortina Systems CS75xx and
+ Securifi Almond+
+In-Reply-To: <971b67a9-7e3a-4fde-a8a1-e5a78f8d6436@kernel.org>
+References: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
+ <971b67a9-7e3a-4fde-a8a1-e5a78f8d6436@kernel.org>
+Date: Tue, 13 Oct 2026 09:37:14 +0300
+Message-ID: <179187343453.3124451.12229499654368455627@gmail.com>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_233412_292822_79A3A5EA 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20261012_233719_777819_28073FAF 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +112,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 13/10/2026 08:18, Krzysztof Kozlowski wrote:
+> Way too many versions of huge patchsets. I already counted 4 today.
 
+Sorry about that, my mistake. I will leave this series alone for at
+least 48 hours now and collect all comments before the next version.
 
-> On Oct 13, 2026, at 01:21, Jose A. Perez de Azpillaga =
-<azpijr@gmail.com> wrote:
->=20
-> On 10/12/26 2:55 PM, Muchun Song wrote:
->>=20
->>=20
->>> On Oct 12, 2026, at 19:15, Jose A. Perez de Azpillaga =
-<azpijr@gmail.com> wrote:
->>>=20
->>> On Sat, Oct 10, 2026 at 07:24:54PM +0800, Muchun Song wrote:
->>>> Since commit 49f599666420 ("mm: call ctor/dtor for kernel PTEs"),
->>>> pte_alloc_one_kernel() runs the page-table constructor for kernel =
-PTE
->>>> tables.
->>>>=20
->>>> HVO (HugeTLB Vmemmap Optimization) uses pte_alloc_one_kernel() when
->>>> splitting a PMD. Restoring the vmemmap backing pages does not =
-collapse
->>>> the PTE table, so a later memory hot-remove eventually frees it =
-through
->>>> pagetable_free() on x86-64. That releases the page without running =
-the
->>>> matching destructor and leaves NR_PAGETABLE elevated.
->>>>=20
->>>> Make pagetable_free() detect constructor-backed pages and run the
->>>> destructor before releasing their memory to fix the problem.
->>>>=20
->>>> Fixes: 49f599666420 ("mm: call ctor/dtor for kernel PTEs")
->>>> Cc: stable@vger.kernel.org
->>>=20
->>> is the x86 case covered for 6.16-6.18? as far as I can see, x86
->>> free_pagetable() only uses pagetable_free() since bf9e4e30f353
->>> ("x86/mm: use pagetable_free()") in v6.19, so the backport wouldn't
->>> change anything there. or am I missing something?
->>=20
->> Yes, you are absolutely right =E2=80=94 thanks for catching this.
->>=20
->> I double-checked and indeed x86's free_pagetable() only starts using
->> pagetable_free() since bf9e4e30f353 ("x86/mm: use pagetable_free()"),
->> which landed in v6.19. So for 6.16-6.18 the prerequisite is not =
-present
->> and the backport would be a no-op there.
->>=20
->> The correct trailer is:
->>=20
->> Cc: <stable@vger.kernel.org> # 6.16-6.18: bf9e4e30f353: x86/mm: use =
-pagetable_free()
->=20
-> also, bf9e4e30f353 alone leaks PMD-sized vmemmap pages on those trees,
-> it needs 39406c05f8f1 ("x86/mm: Fix freeing of PMD-sized vmemmap =
-pages")
-> as well :)
-
-Yeah, you are so meticulous.
-
->=20
-> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
->=20
-
-Thanks.
-
-> --=20
-> cheers,
-> jose a. p-a
+Thanks,
+Fil
 
 
