@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C143CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0EECC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwbHtHTp0gwZwOZd0t1ftlUDIs+ANxTV8ILN56eSQvE=; b=3FWcc5MFh7gQ+U1AB2Hgi/Vi6V
-	xPkhkkTPW6b9+03OwvwgLMF88jtM+3sSTanUmNmZocQG85D2gH8b1sMcdlSkcqpco56VA313CdGr1
-	oWcmUaG97peAHch+aLbn/o0a0eyQcsQp9PHqNDhxkBs2KA4skK79qRX8gxgcqVvx5AEKQC/febkzN
-	BKZMNdkS4Yf0tCkJhkpwvNTBJia6hzt23XlZ7ueWOMP8Eu8gEcHthPFVGv+Kop9OpfEuPkdPuToop
-	LpATBcbTWab+irHf+V6GuEu4g3WcQQ8jTUE2bSfU77vEa9RefqF5A4xE4j3927jukSOM6VQ4DxHJX
-	eeqL2EsA==;
+	bh=PwLxNOFwoQXW7+W+m9Z6B9NLRJR3CBuEEpDCbi6SBic=; b=ko5egjRa+znmuKN6amznFNizga
+	1WTfA/dYyaB2AJF1D7T7tEpXKQWlDMN2zF6catg2ZbaZsmcAuGk2hEm0ZMJCqHvDETi2U3+gTDuX6
+	6PJJX3J1Rh2plGQWWjCdxcqH1TM4INVptHYGRZaq02Eg3xaZwCpEi2uVM3+6mqOEbRAOSpKDa3c1I
+	ykGAHLHoEmXETJkLO2ETYj/zPnEzKOHxIXIKmKdFTBJuFe8RJghMW0bsPDF82vCwsWOEhJnkiS/5a
+	JeDT+Xi7nkmcFkYU49wSK8vaeIg9CUPZN+Heru4bzSirH/DIDZS5xgBvNutSnp5W+/n1PJElG22/B
+	u2/UQBrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcOi-0000000Cw56-2rSW;
-	Tue, 13 Oct 2026 13:18:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGcVH-0000000CwcL-1Nt0;
+	Tue, 13 Oct 2026 13:25:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcOV-0000000Cw4P-0ReZ
+	id 1xGcVF-0000000CwcE-3W4i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:18:16 +0000
+	Tue, 13 Oct 2026 13:25:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8255A4369D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:18:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679C31F00898
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 13:18:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A59260A5E;
+	Tue, 13 Oct 2026 13:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E0E1F00893;
+	Tue, 13 Oct 2026 13:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791897494;
-	bh=lwbHtHTp0gwZwOZd0t1ftlUDIs+ANxTV8ILN56eSQvE=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=mUOf4h3UTtn5qube9iKl1gSQX3Hd7Zn+7Tu1HV/nDUxMzUVlAvuBYvicarfDusVgO
-	 INeP+5xUHHB1UYpkhUKyS3dIPFzqk79yL4f8IHQIxZTpy5BgFxv8OerbErt/5ja57X
-	 G3gx4dAoZcdEdUBWtqcjaAFIWHGZ9CoFcAvnWiu5q4CSrlMuZw9sneuCgEFTx19GK1
-	 d07fkKc2QjC/JNcijoebWo92eB0SNzuKCo0cImuhtlTxaiVBOrdgFp5gtm2N4V+Dax
-	 vX2DaocuVce6N+bCEtOhiqrsH/z0zZ6uh0VzH6wPp2iHnqXvCeV+mP5bUv6G5knwfl
-	 vOenDnuYFI+eQ==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5bb7ae22913so1816675e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 06:18:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw6+JENjzP8NfldwXzGy9RaLgU3KetzrbkPJPW0eAGZDqizYjcp3BMBd+9VW9zAhPzyI55rCnRU61zVqZKYde2V@lists.infradead.org
-X-Gm-Message-State: AFq9FYKyL4QrJHKF0NZaCzk5r1PKc+hjLw9C60AozyF4BNU5yuBk/6aI
-	tFl0e1KI7vpO+iJ9mzNQ9qFXRz9sS+N04+6nk+YTYBlGE7yqBgiAOiHLvCIjU3pcOqCiw/Kw+tH
-	or4x8Eb0p/WHP2afWU9iJeojE1t14wMfChGKOvmUq/w==
-X-Received: by 2002:a05:6512:6696:20b0:5bc:e47d:3ce4 with SMTP id
- 2adb3069b0e04-5bce47d3d2dmr2367059e87.16.1791897493128; Tue, 13 Oct 2026
- 06:18:13 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 13 Oct 2026 14:18:11 +0100
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 13 Oct 2026 14:18:11 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260925-arm64-have-shared-gpios-v1-1-57fed3fae35c@oss.qualcomm.com>
-MIME-Version: 1.0
-References: <20260925-arm64-have-shared-gpios-v1-1-57fed3fae35c@oss.qualcomm.com>
-Date: Tue, 13 Oct 2026 14:18:11 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfJR==AiSOjaCFHhiY_nsp0LhNckTYZw4eGeDMx_c7SqA@mail.gmail.com>
-X-Gm-Features: AclHuK8s4-NI7PYNkfIoRQUiKC4lZufEZRfgVawvM-TRXBlHCp205JIZBqlkoHc
-Message-ID: <CAMRc=MfJR==AiSOjaCFHhiY_nsp0LhNckTYZw4eGeDMx_c7SqA@mail.gmail.com>
-Subject: Re: [PATCH RESEND] arm64: enable HAVE_SHARED_GPIOS for all ARM64 platforms
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Frank Li <Frank.Li@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+	s=k20260515; t=1791897912;
+	bh=PwLxNOFwoQXW7+W+m9Z6B9NLRJR3CBuEEpDCbi6SBic=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dSbKGPNRxJPPOMFpbge1zMm1SfL13jy9ENTnh7KtZIMFidWfOFhgk2FptTGUif2ao
+	 LRJ5aaaSGLKTbZQ0bLZYyjELXZ4VsJBGm1labQHWOdZdWyWX7TjqKPRaLV5WuF/yU7
+	 MiUQ5TWevmPBZZWkn0bzqsPjo1k+WxmRk/HajK6Uh6skEuC+nTMa01/d7SO7yL1jM8
+	 IMpBXQxLRSR188YW8t7tjCaLzCeQ4mf1cQuj2S3aICIaRmFJoHbnScEz3oPqG8ZyJK
+	 jsKTHbTy7C/wtsHDTkd1fKGX025mpXe571dZF7vMESZLpr8TNdTOhZXMmQQz0U0TvW
+	 yDf01FORPI5eg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xGcVC-00000002NMW-1eHk;
+	Tue, 13 Oct 2026 13:25:10 +0000
+Date: Tue, 13 Oct 2026 14:25:09 +0100
+Message-ID: <86tsmp20ne.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
+In-Reply-To: <CA+EHjTyZA6VL6EjhkB2bf9fDk4fUWpc=iXsu+sR1B+_YbR-nOQ@mail.gmail.com>
+References: <20261013081646.933312-1-fuad.tabba@linux.dev>
+	<as3_NKT20MNdqaJR@kernel.org>
+	<86wlrl2a2f.wl-maz@kernel.org>
+	<CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
+	<86v77526me.wl-maz@kernel.org>
+	<CA+EHjTyZA6VL6EjhkB2bf9fDk4fUWpc=iXsu+sR1B+_YbR-nOQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +95,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 09:43:17 +0200, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> said:
-> Shared GPIO management provided by the GPIO shared proxy module has been
-> enabled for Qualcomm platforms for some time. By extension of the
-> defconfig, it's been effectively enabled for all ARM64 platforms when
-> using the default configuration. Bugs discovered initially after the
-> feature was first enabled, were fixed and I haven't seen any new reports
-> for several months. Make the feature enabled by default for all ARM64
-> platforms officially, which will allow us to continue the removal of the
-> deprecated GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from the kernel.
->
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
+On Tue, 13 Oct 2026 13:59:22 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> On Tue, 13 Oct 2026 12:16:09 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > > A vCPU on its way into the guest does the same: it loads its LRs in
+> > > kvm_vgic_flush_hwstate() while it's still OUTSIDE_GUEST_MODE, so
+> > > kvm_arm_halt_guest() doesn't wait for it. With the delay after the
+> > > flush instead, on v2 plus your 1/7 and 2/7 [2] and both changes from
+> > > your reply to 1/7 [3], the guest takes it in 9 of 20 runs.
+> >
+> > Does this mean we still need OUTSIDE_GUEST_MODE to be a store-release
+> > past the point where we resync the state?
+> 
+> Not for the 9 of 20: that run already had the release. The halt reads
+> the OUTSIDE_GUEST_MODE the vCPU published at its previous exit, so it
+> doesn't wait for the early exit that folds the LPI back.
+> 
+> We do still need it for the window after the exit: with the delay
+> there and the same patches applied, the guest takes it in none of 20
+> runs, against 13 of 20 on v2.
 
-Gentle ping. Can this go directly through the ARM-SoC tree?
+I don't understand what these probabilities represent. Either it works
+or it doesn't. And given that I have no idea what you are testing
+with, I can't really make head or tail of the above.
 
-Bart
+> 
+> > > Once DISCARD waits for irq->on_lr to clear before clearing
+> > > pending_latch, the guest takes it in none of 20 runs in either case.
+> > > I'll add that to v3, unless the single-vcpu stunning already waits for
+> > > it.
+> >
+> > Polling for on_lr feels very dodgy, and I'd like to avoid this. If the
+> > OUTSIDE_GUEST release addresses it, I'd rather do that.
+> 
+> I'd rather avoid the polling too, but the release alone doesn't close
+> this one. The vCPU would also need to store IN_GUEST_MODE and check
+> its requests before kvm_vgic_flush_hwstate(), so that it never loads
+> its LRs while it's OUTSIDE_GUEST_MODE. The existing check after the
+> flush would still be needed, for the KVM_REQ_GUEST_HYP_IRQ_PENDING
+> request kvm_vgic_flush_hwstate() makes in a nested state. With that
+> and the release, the guest takes it in none of 20 runs with the delay
+> after the flush, and herd7 finds no LKMM execution that leaves it
+> pending.
+
+If you have a herd litmus test, how about posting it? It would really
+avoid a lot of that back and forth where the S/N ratio is pretty poor.
+
+> The IN_GUEST_MODE change would also cover vgic_mmio_change_active(),
+> which depends on the same halt (the comment above
+> vgic_access_active_prepare()). Would you be OK folding it into your
+> series, on top of your OUTSIDE_GUEST_MODE changes? Patch 2 then
+> wouldn't need the on_lr wait.
+
+Is the hack below what you are asking for? I can't tell. If it isn't,
+please post your own version.
+
+Thanks,
+
+	M.
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 0576c2022ef57..f1449b08531eb 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1321,10 +1321,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		local_irq_disable();
+ 
+-		kvm_vgic_flush_hwstate(vcpu);
+-
+-		kvm_pmu_update_vcpu_events(vcpu);
+-
+ 		/*
+ 		 * Ensure we set mode to IN_GUEST_MODE after we disable
+ 		 * interrupts and before the final VCPU requests check.
+@@ -1333,14 +1329,18 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		 */
+ 		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
+ 
++		kvm_vgic_flush_hwstate(vcpu);
++
++		kvm_pmu_update_vcpu_events(vcpu);
++
+ 		if (ret <= 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
+-			vcpu->mode = OUTSIDE_GUEST_MODE;
+ 			isb(); /* Ensure work in x_flush_hwstate is committed */
+ 			if (kvm_vcpu_has_pmu(vcpu))
+ 				kvm_pmu_sync_hwstate(vcpu);
+ 			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 				kvm_timer_sync_user(vcpu);
+ 			kvm_vgic_sync_hwstate(vcpu);
++			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+ 			local_irq_enable();
+ 			preempt_enable();
+ 			continue;
+@@ -1356,7 +1356,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		ret = kvm_arm_vcpu_enter_exit(vcpu);
+ 
+-		vcpu->mode = OUTSIDE_GUEST_MODE;
+ 		vcpu->stat.exits++;
+ 		/*
+ 		 * Back from guest
+@@ -1390,6 +1389,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+ 
++		/*
++		 * All the state has been synchronised, let advertise
++		 * we're outside of the guest.
++		 */
++		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
++
+ 		/*
+ 		 * We must ensure that any pending interrupts are taken before
+ 		 * we exit guest timing so that timer ticks are accounted as
+
+-- 
+Without deviation from the norm, progress is not possible.
 
