@@ -4,101 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95757CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377A8CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHv62jhll6vjCk7xDTGv3L9j7vvvleMv+b8f2f75tno=; b=WXNX2pYzAxpM8CLbrEAiNHwZ4p
-	KdqFCyMmOjhaJQJGCymxpSICfCaIHlALejYUArM+ZiLn5xFoVoRvmNUfsz33kJ0iCmQWiDG2qtTxl
-	SHsJBc+qvO49cb88AivlchVQmr2595Rz3vMcGGXN7c9r+7BnMQ7KARXQzOSHmDl0ascZpHt+eMt9i
-	B49r0VBjheYX0H2MrWwJvUiqmA5MCFIxdFTeDnDHtvp2h2F5N2G3DtR5QMUsye6JBUsPQED/fjANE
-	C8EWTYCK/QQu7aZTWWSLkFKkQavIGuPPxafhTmijCktr8NJwoLm8/mjGSXH2vR8zJe62wrDQ+KNn9
-	Mn2s+xtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6lw22XAqi3McYHdECP3iKpzl9Y1OVpdjtKD9ZynF7cY=; b=23wzWJtlZ1Ri6fMG+U3DMLBXAH
+	R11ctMD/faoUDdPVbC6gtp5koDZZx6++FANIflx1CoPGwamM4Q16H0i3skZhm1cUqZSeUFnCG/hqX
+	ueITYBYIUP7gPgjqQ7okRiq02Y50jg+ZCD96030GCrQgpsxfaFKMYGtFst/pivruU1AvryfA6JW81
+	L+4zcfgM8XXcic2E4I2l+lzJ5dj4qWktFd13eU83k0e25nV86TCpRgil6abb3pcWRHs9Mg+jUWU64
+	Bf7cBSeiFxdbtkKyGoSKkLNOkh6IDKSR1xthfh3nGxycQ9Rh9koB0NpYlBt9Ggu+otSMUjZUhEJ3k
+	rhJNGOog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYTt-0000000CP6g-0aEZ;
-	Tue, 13 Oct 2026 09:07:33 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xGYVr-0000000CPGN-1kQh;
+	Tue, 13 Oct 2026 09:09:35 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGYTq-0000000CP6C-3FTc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 09:07:31 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a1698ea378so22113065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 02:07:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791882449; x=1792487249; darn=lists.infradead.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EHv62jhll6vjCk7xDTGv3L9j7vvvleMv+b8f2f75tno=;
-        b=Nwp3VX7DRdCg+UB36eQs396NqT+9XuoEWex9Zlb3Hp0GS64y1hVzGuCvm1RiMLP4Jm
-         CQ+tEE0yd9GCVtwmUlQs8Un0Hy4kLO6H4yx4KWJD1Oqgdp6KxQL8o5YJ5GlDI8jMbALR
-         fqDUfCP58GcZ0Pff1K106bq+u+FnLjPU1t9tgJinZkz8f/BXLsR4vkfeJOQfWMue54PM
-         LTKIiw4s64RWZHc0R9yWpWDvO7XHT+9R6UKLQoTYHAuc6+pZf/cIt7k/SDNON+rNRXUZ
-         IqCohOHmRs9R53L2ZxJVGc5V3eax7rhAwsyVuW06zqbas0Kp1e1MUuCRNGdpWzsFaPK5
-         mH9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791882449; x=1792487249;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EHv62jhll6vjCk7xDTGv3L9j7vvvleMv+b8f2f75tno=;
-        b=RWkm0bPK9jxF5KwH+0aXbyN/uR7wIV6TUc3edfXrsyp5OpjUj81r+DZay5Fvo1WAvj
-         Pd9Q6cY8zjdtM08qg684SpgQQ5gKwhH5FLdnLQbcV3GVLN5sY8B3qWmGnO25GxlFQzoW
-         HRaShmMRRsthAJsrwRwCvdJ/Qre0LaWf0zT5ZHXh/GD/7OG1S1wcFEaXRt5oXFPcoK55
-         Oq6v42zDCA5i6K0PFeCaE/DzMSHcCApvDQid/61hLzOpq2MPPVAaYwk717p4YPDQ40ih
-         ny74/YMo7GIkLxtAfXTvmG3VAU2yYEPxcr/KwTqc84LWS7UAbjLkVk+km9CaHif/t+wa
-         hnQw==
-X-Forwarded-Encrypted: i=1; AKwUvByFxvX82mR42dkj5T3LZLsm2ABcRv05rttXD2BsvD6k33tigfunieJgPo+tx8Grp2Lqkb99Gi15ZWAMzIHmPSoi@lists.infradead.org
-X-Gm-Message-State: AFq9FYKh6LITZ+o8zXLSzFZZse6k+FwheRaf8vD8Ajz1YJzTVH02zimG
-	toC8K5f+CbwRWZMekci8OUtfnrLi6KBundJ3hMMfk2p8/oLZNpx4Nbtf
-X-Gm-Gg: AYBFou1O/tkXC0qnEncfnisCrYyUmxlN3szKlST/cU4OhC0nkgdbZU2hhiXf4tYkn6y
-	f+qnsFEVjjHAxt2IW+CZ0RbOlnVWQ6+R7ScoxpAIdjr9gp/eVOnJMOB9+e6c+W81xbqw8S6gm6p
-	slS82+g+6ujqrQVbww3FZJNIvf87M0tJYm86sHySvWSzAmXDsrd92MZ/2FC0Em+2jacDA4G+BIo
-	5q63PfNvGhCX4ujka4RDHrHWHMCMOUS2gxomMxpHqCQ3afQPEKgDYFBcz2eZQpAmalxq2EpAroh
-	dzsovjYcofJz7Wj+6qvrmyVQp1XrbXoz95YZXUoWIJwLuV7VkkcKZ1LSzhp01oHqG5/DJegCtE/
-	CclZ64DJyQViZWZcKopMuZWGOqziLqBZuEMcG3jIvt7K0KqWapU2yeGbXqXWG0TuYc08YMfyCO9
-	4Y0btSL8nNfXzIidZrgBrerDiV/Z6qFbNbb+4jRhu0CzzfRmywdarintFoZaQmqNsZH6YNR68ul
-	7Kwyf4pV5ZkKlWmrbt7nfHmD3ED+CQPhZ2hoq/m8mBtaF4HycU2VvcjuQ==
-X-Received: by 2002:a05:600c:3e07:b0:4a1:a009:9724 with SMTP id 5b1f17b1804b1-4a1a00997f1mr85302755e9.7.1791882448859;
-        Tue, 13 Oct 2026 02:07:28 -0700 (PDT)
-Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf31b83sm360478255e9.12.2026.10.13.02.07.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 02:07:28 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- Jason Li <jason.li@cortina-access.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>
-Subject: Re: [PATCH v6 00/10] ARM: Add support for Cortina Systems CS75xx and
- Securifi Almond+
-In-Reply-To: <192a1f7f-79e6-403f-9910-d46b871cae2b@app.fastmail.com>
-References: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
- <971b67a9-7e3a-4fde-a8a1-e5a78f8d6436@kernel.org>
- <179187343453.3124451.12229499654368455627@gmail.com>
- <192a1f7f-79e6-403f-9910-d46b871cae2b@app.fastmail.com>
-Date: Tue, 13 Oct 2026 12:07:25 +0300
-Message-ID: <179188244540.3423842.17952003148776663506@gmail.com>
-Content-Transfer-Encoding: 8bit
+	id 1xGYVn-0000000CPFX-0HdM;
+	Tue, 13 Oct 2026 09:09:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791882571; x=1823418571;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IQ/UNuFHURdJ5ziTLh4qZrD8MOsGX3B11CY5vdjd4ZM=;
+  b=hwG7vtZ6YBR7AfXPt3DffO1F6MMLYFDQchc4k9T2NfR2dDokx/8E9Mej
+   ZHpA6HCI6U+FsX+rNWpqN8HVMBYL1IJJqtIqtKP9RWXrWgzp8N/CNJ7E9
+   OFgovNi5Z3U6KINz9JdhtblHU8BlUk3mfkw4VloBFmDxf359h+iSaYlCS
+   ORL36WNZT0nN37qSpJxxP8O+L8qk79jC5wCopYVdKxnVhxhlKMxL+pnCa
+   IN77ybNQBHPPrveoNRrnyfbd4IroAJaDMTg2Jlt55g2RTvuioon8OHA4A
+   2EkAqVjd4dYmS3RjmGnYuFlFZ//dcUZYt5BXm6wq7pW8gcYXw3E1LDRJe
+   w==;
+X-CSE-ConnectionGUID: EsWk9UMFQui0u/1zW3YPIg==
+X-CSE-MsgGUID: dgC5APgHTsaqQPLkQA+Lgw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="595197"
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="595197"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 02:09:30 -0700
+X-CSE-ConnectionGUID: BgXYAbCpQMSPY4ai3EmgtQ==
+X-CSE-MsgGUID: Z+SacHifQmOu6wFBhA0rHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="1196513"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 02:09:20 -0700
+Date: Tue, 13 Oct 2026 12:09:18 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <ray.jui@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-parisc@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
+ uart_8250_port
+Message-ID: <as31PsESOgLUhMB6@ashevche-desk.local>
+References: <cover.1791873876.git.jirislaby@kernel.org>
+ <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
+ <as3etnbZatn4sbfx@ashevche-desk.local>
+ <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_020730_821672_0959FBAA 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20261013_020931_147834_8EF11754 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,15 +121,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026, at 11:04, Arnd Bergmann wrote:
-> Please just wait until all soc patches for the 7.4 merge window are
-> upstream, I don't think anyone is going to look at this before
-> then anyway.
+On Tue, Oct 13, 2026 at 09:53:26AM +0200, Jiri Slaby wrote:
+> On 13. 10. 26, 9:33, Andy Shevchenko wrote:
+> > On Tue, Oct 13, 2026 at 08:48:51AM +0200, Jiri Slaby (SUSE) wrote:
 
-Will do, I will rebase on v7.4-rc1 and send the next version after
-that, with all the comments collected until then.
+...
 
-Thanks,
-Fil
+> > > -	rc = serial8250_register_8250_port(&port);
+> > > -	if (rc < 0)
+> > > +	struct uart_8250_port *uport = serial8250_register_8250_port(&port);
+> > > +	if (IS_ERR(uport)) {
+> > > +		rc = PTR_ERR(uport);
+> > >   		goto err_sysfs_remove;
+> > > +	}
+> 
+> > Also do not define
+> > variables in the middle of the code (it's only allowed for auto cleanup
+> > variables and for-loop iterators).
+> 
+> Why, actually?
+
+Because it's the style. Linus also told it many times (I am tired to repeat
+this, I leave it to you to find his words on lore.kernel.org).
+
+> First, it is used in the kernel quite a few times already
+> [1]. Second, while it is sort of c++ism (and I like to use modern c++), it
+> makes the life of the variable a lot more obvious.
+> 
+> [1] eg. see output of: rg -U -C 5 '}\n+\s+struct .*\*.*=' drivers/
+
+(you made me to install something I haven't heard about, it's better to use
+ `git grep` though)
+
+Note excluded __free() if I get regexp correctly
+
+$ rg -U -l '}\n+\s+struct .*\*[^)]*=' drivers/ | less
+drivers/ufs/host/ufs-qcom.c
+drivers/dma/xilinx/xilinx_dma.c
+drivers/dma/idxd/init.c
+drivers/media/platform/raspberrypi/rp1-cfe/csi2.c
+drivers/gpib/agilent_82357a/agilent_82357a.c
+drivers/gpib/ni_usb/ni_usb_gpib.c
+drivers/tty/serial/samsung_tty.c
+drivers/s390/scsi/zfcp_scsi.c
+drivers/gpio/gpiolib-shared.c
+drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_irq.c
+drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_dmub.c
+drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c
+drivers/gpu/drm/msm/msm_gem_vma.c
+drivers/gpu/drm/amd/display/dc/clk_mgr/clk_mgr.c
+drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+
+So, less than dozen of drivers doing wrong is not an argument, try something
+better. But thanks, I will check and address this in some of the above.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
