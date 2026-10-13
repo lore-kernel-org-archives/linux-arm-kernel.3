@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060FACA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 02:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738DBCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 02:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Py5W+zOf8jcv9SphAVIYRIsYaiROXNPiORfkJ1reQcA=; b=PeVBuMNGR5riQYPDzzIQvCegUe
-	mV7ZHHcwwG7Jlncq/leIT2dgCZhVECV0NLUvpgujgQVJZI/hG0mLER4bDcjvFM1yHGsdqjWyqK+UJ
-	Ee7Ya4405/XzgLXj+gCQOU+R5mT4ZbT9Q6iDabqnmjt2yE1qn3XBdRQYV5ku6w3nND0B/TvPYRXTn
-	GZj70Ofw6jnq+znqLe7/epwXv0GUtTSNVwdQ/6OohxjoS9ecOXcwlb/uj2shrtEuPuB6+koUZyg9W
-	04srvfSW5NTegDhrEYo1YTQR6UTYFCK+Ra/I5Ks+1GvE2Rd83GGZabyR/3kfzlZsMCWGd2pWfyGoU
-	ewXtP0Ag==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S/CQGMpBuy/7FJjcfHtn4Lxv99je/uyA1AfUbEVnRss=; b=KgWiUjOCiUBtSx1yeumVHrfXG+
+	sWlsahYSx9Msqaj4/VLte8SU2SlPaxIKELo2Gdh1k9OXwhC0xW9j/WAbMAppX0TceHYJSEIYhnhXy
+	cPdyP9wsWXJJvbGpynQQeO49FpHHDn5IWkgS8VEU0q0nA21k6gl+v5xVslAO9ewfxwimYI2PMERtB
+	DflzI/g14fZXa5T7T+cB18UNOyu8hJ3m5ifVjMN4n+IAVDIgGh8QzRNunucHHB8kNUQ8inW14FeMI
+	3FaEHaYn5/yz5Fpqhu5Pa7Q2USzzoHJl7fGxCFy7wsxnX8kz3SBTvzdMbTYqyfQOGuq6NREikTz5B
+	oZMI6j+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGSY1-0000000Bpl4-2B4x;
-	Tue, 13 Oct 2026 02:47:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGSYh-0000000BpqP-2zhC;
+	Tue, 13 Oct 2026 02:48:07 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGSXo-0000000Bpia-25t2
+	id 1xGSYf-0000000Bpq3-2EC3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 02:47:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB9AC41A9D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 02:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02281F00898
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 02:47:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791859631;
-	bh=Py5W+zOf8jcv9SphAVIYRIsYaiROXNPiORfkJ1reQcA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HbLdQSZ7lUz9oL05RWz6k+V6Qv3JS5sb152wnuh9/C7fqzhiLnol9W4Zo/AYHud5+
-	 G9kAB19LQKv+cDKB7IHLRfqSBGQmXA5Zjuv8mZFFEkFrZaCX93O2qHj9diPwd7wT/o
-	 iQxSjMRoHzmyMWaMQng0yWVlJzy3frz4iMdaiYe0qKzQcNccon0pYeugOwWqt63NKk
-	 CvskBZhjH7jFs18BsTCEE/HnXlyziHvOoW2FIvNg/52GfWxYuRgsYprVUK5/LSneiD
-	 nUyyAsuRweVt25aLYJHkWXWRZ6RYIZ/Ppmq8Ce0nTi6sOXlUmqso/KpyfuXJcscrNw
-	 d9zzw0VVzbABw==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6ac76a02368so2252639a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 19:47:11 -0700 (PDT)
-X-Gm-Message-State: AFq9FYJH5r4e29tBLsSTr4ERWUdsq+jeMzMq7XfKh/rttS3+Y5fisEIl
-	DyHCi0rE2yBAxOzh+s0FGvD4cocMpXQDQmysGUR4YyFWd+JSfdmKPWaTs6dfQPmcdCXVfv5SmgQ
-	0o2Ico1c6qz59X437XZ+jmG8bQWZz2f0=
-X-Received: by 2002:a05:6402:1d49:b0:6b1:c327:a9d0 with SMTP id
- 4fb4d7f45d1cf-6b1c327b8acmr3296104a12.40.1791859630439; Mon, 12 Oct 2026
- 19:47:10 -0700 (PDT)
+	Tue, 13 Oct 2026 02:48:06 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-88bd2b44f3aso1065824b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Oct 2026 19:48:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791859684; x=1792464484; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=S/CQGMpBuy/7FJjcfHtn4Lxv99je/uyA1AfUbEVnRss=;
+        b=Rn2w6DLmOW7X3yt2T5KQUdGKB5Pf0IByPxY/HSaUqvnCVEI2u1Ys+tWkR3I1hCfN0Z
+         zRyFidSbRm6RHdxT7Lqn7uaeva1EEcOaIGP8dGNk5lzJa0UAmq889lYtvv4jy6VgPJ3t
+         1FL4OkvDvWLl/wgrBOEcziqQ1gSBjvkkRj4o3WJGSgmjjHoT+vdas9uaoDt3/kiZOB4m
+         oxcdt37qiu8zhRh838B2xrAxBwOq8EOWDT9U7m9l7h2dfbc/0GkCWHwGcqC/0uC3Q5/m
+         DIuzv4m0F4H0p7a1gQZfadle/8A1O1fIGb+EOr17rzFq0RtHdFB9ldJscHYLKcPPNaTY
+         o12w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791859684; x=1792464484;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=S/CQGMpBuy/7FJjcfHtn4Lxv99je/uyA1AfUbEVnRss=;
+        b=bHxteOWdzJh8NGDWzi/+SYdtcnh+HsvDaPxaZJiuDXC1KlbOTy2i3TDxsKekjsjBm4
+         ng8GBTSkHorw7GSGmHnUZX9sOsA7dXa57xoXIlCDgjQ4Skx4RoIGKZz47vtivpDD+p6u
+         mdJSyUwSOvRvWsTxrCVlqLt73XmYWM30rp7+n/m9LVhMG5BOQ/go7/tdcg1pZuWv14Ya
+         8aZZaeaRNIepITrn2rcIqXuw2pyEHtGHLiU4gEV8GdBrkrSp22W91oNgwIfRUobl576G
+         RzP3vqAS66U4hi+aGd/f5aTzlzsKhcU0P7C82hyCvWGKVpR4YGWfkINRp0d2yPK7g88A
+         0fNA==
+X-Forwarded-Encrypted: i=1; AKwUvByg7lOXK1MrP8on69rVqv+neEwblQ4SE2P7Ou0/uGBog0F7ZB4ZZR1dP+8VCUFpIde1KRbmBu9UEebhz1E7BLqh@lists.infradead.org
+X-Gm-Message-State: AFq9FYJIiHMM+mYgIRDnai5Npeumb5dZwlKjVjxWTjg66HfpW5LHQJQE
+	ln+Q0s4XdJa9kQ5IODvZI9k5hs2AT4N7Ru3HcC5/i8sQtZcwiPINMqsW
+X-Gm-Gg: AYBFou18O8kPDwfVSsfG4UKRmn/DPPQGCL3doNLmF+nKzKwVvbPGceVnpd0od8maQ57
+	a2cJLa3r8AVvE9yAd6CtNszKIsm8QbX+hmpPsg+GUwxEUBfP3PMZKsZG5dRtOaIV6UN2RK3WZC0
+	S+ibcXN1CPDZKqiuBhVE+vjCqvSvW3o4DgPaaq09HwJAkDIXPr9B+nohbegCnuO93Q0ugIMnkn8
+	QoqgHo+F3uLUUGVrILq3pEQ6iOOspk0YX2FFzqiHr8cWJs5I21NOYbhzAvfn1Xg3Dm1fV591D1c
+	9hbzZ0crjE9e7aZxWyRl7Lt1BQelmLYBMxr+yAAxC1qzPv88nMRakd2P5V1oDmp9TfWBHUoPhh/
+	R7gkFrPqpyqbXBlh6LZTfL6Cmjt8/cgHUJQ43nUBbKXpo0drNAjZOi9U27biLjX/YBhKLktKEuh
+	xsCp8awErSqKSiW7AJqRRdHipjXUIb4KSOl9vU8G8y4dNUSSfbI1TkmLAoFLdzlKYowzNDRPqKM
+	mD/CfPZSZo=
+X-Received: by 2002:a05:6a00:951a:b0:882:2b16:c314 with SMTP id d2e1a72fcca58-897c7cd1127mr9507515b3a.52.1791859684155;
+        Mon, 12 Oct 2026 19:48:04 -0700 (PDT)
+Received: from online.mioffice.cn ([2408:8607:1b00:8:5e2a:b6c:f432:a6f3])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-896c42b4549sm4466018b3a.44.2026.10.12.19.47.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2026 19:48:03 -0700 (PDT)
+From: Pengfei Zhang <zhangfeionline@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Jose Abreu <joabreu@synopsys.com>,
+	EricChan <chenchuangyu@xiaomi.com>,
+	Simon Horman <horms@kernel.org>,
+	zhangpengfei16@xiaomi.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] net: stmmac: xgmac: do not treat TBU as a TX event
+Date: Tue, 13 Oct 2026 10:47:47 +0800
+Message-ID: <20261013024747.2688984-1-zhangfeionline@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20261012090431.TF3iVDsk@linutronix.de> <CAAhV-H4=nnhbJS4srmt7dNdgpkEZ8_RQ5Z+0baYMiXF1UrJ3KA@mail.gmail.com>
- <20261012102143.lpVrHb9R@linutronix.de>
-In-Reply-To: <20261012102143.lpVrHb9R@linutronix.de>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Tue, 13 Oct 2026 10:46:59 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7xME-UrgMHcfY41793yxWyvgEMAufwgcboEL2q3Jg+VA@mail.gmail.com>
-X-Gm-Features: AclHuK-5nGNIjnalns2TTYeuiR7MEop7yTmsqLsf4e42_RR9QXEQZeMe2PdFpnw
-Message-ID: <CAAhV-H7xME-UrgMHcfY41793yxWyvgEMAufwgcboEL2q3Jg+VA@mail.gmail.com>
-Subject: Re: [PATCH v4] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP notification
- to task_work()
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>, 
-	Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Oleg Nesterov <oleg@redhat.com>, 
-	WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ingo Molnar <mingo@redhat.com>, 
-	Waiman Long <longman@redhat.com>, Clark Williams <clrkwllms@kernel.org>, 
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>, James Clark <james.clark@linaro.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Chris Zankel <chris@zankel.net>, 
-	Max Filippov <jcmvbkbc@gmail.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Jiri Olsa <jolsa@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261012_194805_574089_7F362315 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 6:21=E2=80=AFPM Sebastian Andrzej Siewior
-<bigeasy@linutronix.de> wrote:
->
-> On 2026-10-12 18:15:51 [+0800], Huacai Chen wrote:
-> > Hi, Sebastian,
-> Hi Huacai,
->
-> > > diff --git a/include/linux/hw_breakpoint.h b/include/linux/hw_breakpo=
-int.h
-> > > index db199d653dd1a..91e8d80220c54 100644
-> > > --- a/include/linux/hw_breakpoint.h
-> > > +++ b/include/linux/hw_breakpoint.h
-> > > @@ -85,6 +85,9 @@ extern int register_perf_hw_breakpoint(struct perf_=
-event *bp);
-> > >  extern void unregister_hw_breakpoint(struct perf_event *bp);
-> > >  extern void unregister_wide_hw_breakpoint(struct perf_event * __perc=
-pu *cpu_events);
-> > >  extern bool hw_breakpoint_is_used(void);
-> > > +extern void perf_arch_hwbp_send_sig(struct perf_event *bp);
-> > > +extern void perf_hwbp_notify(struct perf_event *bp, struct perf_samp=
-le_data *data,
-> > > +                            struct pt_regs *regs);
-> > Maybe this declaration can be put in one line because there is no 80
-> > characters limit now.
->
-> We don't save much, do we? It looks more readable. Maybe if the perf
-> maintainer requests it. Looks like waste to repost it just for that.
->
-> Any comments on the looong bits?
-Others look good to me.
-Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
+Commit 8d07a7930434 ("net: stmmac: xgmac: Do not enable TBU interrupt")
+removed TBUE from the default DMA interrupt mask, but did not remove the
+TBU check from dwxgmac2_dma_interrupt().
 
->
-> > Huacai
->
-> Sebastian
+TBU is set whenever a TX channel runs out of descriptors. Since TBUE is
+not enabled and only enabled bits are cleared, the TBU status bit is
+never cleared. As a result, TBU stays set on every idle TX channel,
+regardless of whether there is any TX traffic.
+
+With a shared interrupt, stmmac_dma_interrupt() checks all channels,
+so every interrupt from any source schedules TX NAPI on every idle TX
+channel.
+
+Only use TI to trigger TX processing.
+
+Fixes: 8d07a7930434 ("net: stmmac: xgmac: Do not enable TBU interrupt")
+Signed-off-by: Pengfei Zhang <zhangfeionline@gmail.com>
+---
+Tested on a board with 8 RX/TX DMA channels behind one shared
+interrupt. A peer sends 10k UDP packets/s to the board and the board
+sends nothing back, so there should be almost no TX work. Every idle
+channel reads DMA_CH_STATUS 0x4 (TBU only).
+
+Per second, averaged over 10 s:
+
+                       before    after
+  hw interrupts          9071     8580
+  tx_normal_irq_n       72572        1
+  tx_clean             ~73000        9
+
+- hw interrupts: the shared interrupt line, from /proc/interrupts.
+  Unchanged, the RX watchdog sets the rate.
+- tx_normal_irq_n (ethtool -S): how often dwxgmac2_dma_interrupt()
+  returned handle_tx. Before the fix every interrupt reports it for
+  all 8 channels.
+- tx_clean (ethtool -S): stmmac_tx_clean() runs, i.e. TX NAPI polls.
+  Each spurious handle_tx schedules one. What is left after the fix
+  is real TX and the TX coalesce timer. The "before" value is from a
+  separate run with the same setup.
+
+No packet loss before or after.
+
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index ff83858ebc..0a6e82a155 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -346,7 +346,7 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
+ 		u64_stats_update_end(&stats->syncp);
+ 		ret |= handle_rx;
+ 	}
+-	if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
++	if (likely(intr_status & XGMAC_TI)) {
+ 		u64_stats_update_begin(&stats->syncp);
+ 		u64_stats_inc(&stats->tx_normal_irq_n[chan]);
+ 		u64_stats_update_end(&stats->syncp);
+-- 
+2.54.0
+
 
