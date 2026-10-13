@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D4ECC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4BDCC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8VEovx8JONIwJgHiq9qjYKdW2rGuYmIo2hI8vH7e/Q=; b=bw7vYqMJ7XKFGjkJ4vJiEuJi9D
-	tw+nOPEYViUBvAYuA92cTdvLa/WGSLaaKIdoj9vPRdkp2QQBAbv4W3wlATDPxfXeVW79KMi4VM85q
-	oBNYyPtsTdfhVxqaya7i9RihJaxvvwMRUbUnoPbOIENUYltC2QdWMv2V04kWjUHbuL2ctPpgDvo3c
-	NFZmb6xBK87jgAHgQyg9H5kK42jkQI73Sg04QB5NsBnqfnhnYshOUhSnTd3lZZYxIrN6uUHYuLBZQ
-	AQVyWQGtmpHp8wfRZQCp8/JQcKjTKm6mZeDXmIsMHPPa8x3iF7vNpD5dzNjCDMM2uv6UXVKwdw0ps
-	j+2md3BA==;
+	bh=XHKvPJxtOUe89VmDsqkmUm9POoFOuKBVafdlaQIcGVE=; b=3Z2gs5KjjZtoPmC65FOGf+ycEn
+	wBhKeMpDYH/x5ETsvWwnQvQ96kp/b0u+oAyuRMxTd8nNbjitvSsprBnJE5NcTsIWa+YL7P7qVBf3N
+	s+/L56VNQCC/961FfonWlyplP9jxM1xF3dAo2vQAlM0Jyf5C00VixInrqh2QEuIpe3aqMM6ku6f2+
+	e/Du6967A24p9lAzomBIxf76NzyFwF3jfonUhgfJ0RmFp3LmKFAZcE0G+4UobzzOdNZi6fxzQ82VS
+	GWxNFNzuWRI4hy1UkG36uEDEXsDWYXADr6XzX8/eFKBGcoOYmtNq8XVN81yUP6pacziEN91Mz/X4g
+	rNyHGTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgJn-0000000Dgqm-3VM9;
-	Tue, 13 Oct 2026 17:29:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGgLk-0000000DhB5-100B;
+	Tue, 13 Oct 2026 17:31:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgJm-0000000DgqV-0uKy;
-	Tue, 13 Oct 2026 17:29:38 +0000
+	id 1xGgLi-0000000DhAc-1SQW;
+	Tue, 13 Oct 2026 17:31:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 879CE4128F;
-	Tue, 13 Oct 2026 17:29:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DBC81F000FF;
-	Tue, 13 Oct 2026 17:29:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 86A76602C3;
+	Tue, 13 Oct 2026 17:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D01E91F000FF;
+	Tue, 13 Oct 2026 17:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791912577;
-	bh=P8VEovx8JONIwJgHiq9qjYKdW2rGuYmIo2hI8vH7e/Q=;
+	s=k20260515; t=1791912697;
+	bh=XHKvPJxtOUe89VmDsqkmUm9POoFOuKBVafdlaQIcGVE=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=WijAxQMlggVG2Nt+6tHnQK2j2LdbSFh+sb5Ffqf3oG5ynJ3NRMwJNOEP/JRzlc21n
-	 6GhyB62CxLBzrRZH9QlSc+cniYNn1FihFt3ZHKcHAAOkxyeUGlUYvRFXhIKldm4t53
-	 Zh/iyczWTUSXiiFIrVF9cFepA4I3WFsxEVi7OOGo6C+l0pWJRBO+n+8AMFajqjgNXC
-	 ThCt0wvkd6jWY/V1+FhEKO68ZEQY5azCxdIC3Ukao5HzUQMyByu2ujp3vqh4jrd3vs
-	 NXU/GqULDJXpoO2lwsIkppGVph1v1kle4kwaSDoeeUQTBIElzyr3etumR+ZPUwtR90
-	 dtorQJcqXmoIg==
+	b=A8e7KvJHDPjWetHiC45tXKu6DgRn2R9/Fi3zyt1eYV+vaIef17ec+TB7oamk9o2yP
+	 Kz1eDq3I3e94inordlmeMtKpf99yPQTqbY9XzdTXCogYvZMSN+U5KAA1WiFvZ0FTTF
+	 XriyxG0pVV4hG3FuCzekqqJgs2lLZElmtdb6XuYFNiJRh2n/9z9Fl25x558URDauly
+	 SL+aZ6+aAs1c5qtijehAFuLHA8eZvQQyXv5yTS5espatyyTP/0zDacJ4WItNZL+++l
+	 Nc0CG9w/98QYBpWpFPNGp2m0Jr+NVOPmaFUMMCLnLMGO4/TFr+9PeJt0n0P9ZBX+7B
+	 5Fe/tJ+ax26EA==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 02/10] PCI: dw-rockchip: Restore vpcie3v3 regulator
- handle
+Subject: Re: [PATCH v6 08/10] PCI: dw-rockchip: Set broken L1SS resume flag
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -60,21 +59,21 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kernel@collabora.com
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-8-fbabcca9921b@collabora.com>
 References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-2-fbabcca9921b@collabora.com>
-Date: Tue, 13 Oct 2026 22:59:20 +0530
-Message-Id: <179191256030.12828.12537293247860204675.b4-reply@b4>
+ <20260908-rockchip-pcie-system-suspend-v6-8-fbabcca9921b@collabora.com>
+Date: Tue, 13 Oct 2026 23:01:26 +0530
+Message-Id: <179191268696.12828.12282510519182218823.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2211; i=mani@kernel.org;
- h=from:subject:message-id; bh=gX936auQn/4bFr8iOTHvtW8beKIHFNLtLQiaQL514Ag=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzmpz29diTcasNkOcChxQ3Mpfp/32IhiCxbGwk
- xiwMs1fjOmJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas5qcwAKCRBVnxHm/pHO
- 9fE9B/90x7NRyqLgmO824AjUzkKW3dwQHQH4pLj5pehJeGcYhuJxrur8hVe2zGul+gCczmJsm2n
- eQCsgt01NtV5jymJPvG7PfP7okwHyJ/A8pIHm8xJZ8MMCtk7cAm5L+a5e+qTGqub3Mgjk2i/epF
- orzjNaI/z/tcyWgcEkZyZh6NN85XC8NidZYKfjOgzrYdrFIrvDTNwuCIUJ2dlkyi79fGaJkMBGf
- IfKlqOYpEEx8bcGAPqnOha6/nXtOPbA/oe+RX06k8aQCpkHheb3huKQsiHyTYVZ6cffXYOb5JyG
- 1NTbSg/ZZL9LTESgD6AWPZ5bEKnp/DjEjskbqVRc3lZb5kWA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1487; i=mani@kernel.org;
+ h=from:subject:message-id; bh=sECM7/KBFpScFHSC/sEOxRcyil3uarzd9RUU7Zeyc5o=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzmrxbGKarqI/Q7fz3/e7A2/n23V+EU8Dis+QA
+ DRqwIdT222JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas5q8QAKCRBVnxHm/pHO
+ 9StMB/9t742KOafibx5/hcaZnnnDfkKBK6ODJNOTNS+zB5XOmgSqbqLfEynB/EaXH7Z1IVSesF5
+ JcO/kJVggvuUWjtG+Bz7pq3s/tWpHaBxVAXoWuoKPnzmZQUAxKIs9OySekQtCeEv2jIssn1+lTY
+ KlTKniY+QRLln2AfEHM6pjaYKbkpeZS5bKg5jeWKpCBAZGmDgrP0xDuf9dtI0jPuHRFLj9glYb5
+ F7nYF1s5WgEouqemlBHXoBFYsw76/UKAXjSO00Rp9rQo2/HndAffJbpqdn0wqbYG62fw9CxE/+E
+ 1Zj5tn15AtSsua4cVxmMS67MPLmYSJpc6j36ta1eNVRTUPvg
 X-Developer-Key: i=mani@kernel.org; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,58 +91,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2026-09-08 16:51 +0200, Sebastian Reichel wrote:
-> This reverts commit c930b10f17c0 ("PCI: dw-rockchip: Simplify regulator
-> setup with devm_regulator_get_enable_optional()"), which nicely cleaned
-> up the code.
-> 
-> The vpcie3v3 regulator handle is needed to disable the regulator during
-> system suspend (to be added in its own patch).
+> Setup the broken_l1ss_resume flag, so that pci_suspend_retains_context()
+> returns false on the Rockchip platform allowing PCIe peripheral device
+> drivers to act upon.
 > 
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++++++++++++++------
->  1 file changed, 17 insertions(+), 6 deletions(-)
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
 > 
 > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index dc85564e5001..f67ad3c31c35 100644
+> index 17530507e41b..47d9cab909bc 100644
 > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -112,6 +112,7 @@ struct rockchip_pcie {
->  	unsigned int clk_cnt;
->  	struct reset_control *rst;
->  	struct gpio_desc *rst_gpio;
-> +	struct regulator *vpcie3v3;
->  	struct irq_domain *irq_domain;
->  	const struct rockchip_pcie_of_data *data;
->  	bool supports_clkreq;
-> @@ -844,15 +845,22 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  		return ret;
+> @@ -458,6 +458,21 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+>  	return 0;
+>  }
 >  
->  	/* DON'T MOVE ME: must be enable before PHY init */
-> -	ret = devm_regulator_get_enable_optional(dev, "vpcie3v3");
-> -	if (ret < 0 && ret != -ENODEV)
-> -		return dev_err_probe(dev, ret,
-> -				     "failed to enable vpcie3v3 regulator\n");
-> +	rockchip->vpcie3v3 = devm_regulator_get_optional(dev, "vpcie3v3");
-> +	if (IS_ERR(rockchip->vpcie3v3)) {
-> +		if (PTR_ERR(rockchip->vpcie3v3) != -ENODEV)
-> +			return dev_err_probe(dev, PTR_ERR(rockchip->vpcie3v3),
-> +					"failed to get vpcie3v3 regulator\n");
-> +		rockchip->vpcie3v3 = NULL;
-> +	} else {
-> +		ret = regulator_enable(rockchip->vpcie3v3);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "failed to enable vpcie3v3 regulator\n");
-> +	}
->  
->  	ret = rockchip_pcie_phy_init(rockchip);
->  	if (ret)
-> -		return dev_err_probe(dev, ret,
-> -				     "failed to initialize the phy\n");
-> +		goto disable_regulator;
+> +static void rockchip_pcie_host_post_init(struct dw_pcie_rp *pp)
+> +{
+> +	/*
+> +	 * During system suspend, the Rockchip RC driver effectively powers off
+> +	 * the controller. If the link is in L1SS and the endpoint asserts
+> +	 * CLKREQ# to exit L1SS, the time required to wake the system and
+> +	 * restore the PHY/REFCLK may exceed the L1SS exit timing
+> +	 * (L10_REFCLK_ON + T_COMMONMODE), resulting in Link Down (LDn) and a
+> +	 * reset of the endpoint. Set this flag to indicate this limitation to
+> +	 * client drivers so that they can avoid relying on device state being
+> +	 * preserved during system suspend.
+> +	 */
 
-Not a deal breaker, but keeping dev_err_probe() here wouldn't hurt.
+This comment is redundant, please drop.
 
 - Mani
 
