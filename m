@@ -4,88 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA183CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01CDCC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGkWIGEM6jHHCAHhvIONIePGFqd8EjAxzOXAogPtvww=; b=Q15l7UnYleNiCvMsKDn6yMS9gO
-	ig7HKlM+SOICW+JDhWOv0tsG6r46DpiLT4vZwX7u4Wwqh45b+t21WOtsKZdMBhCb0L3m/gnzSJVry
-	YB7hrLchQW4bZLClxT/b9ESmfVlZr4ObcAqPg+/w+XgAvi7yYKZlrwh5v+hFgFpmWLxUjIS4gR/xl
-	Q8JvWjFd6iO+tUWnzxYGQdpncSWDtQkFUp62Fz8FRYE/Wzu0tXu3RXd457eZSJ6ZUK4FI2/wSaLTJ
-	NHFjJTtl4A+wafuvm2NjaZ4MNFrFiJfuSjN1Q3XBBKg58B5NdX7POD5jZiVp93q3OT3QG2Fs1dM9T
-	+T8Z6YCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YzIyLaCQVYyFvJr0HYNnDsB1AeI73g+HQRH1Lm1z4vA=; b=fTEJ0FC/N32kPkEZyV/kSiZ3Y+
+	RNG0+vGD1++Ccw1yasMd1geNTsmMeJYIzHBZpEEpy7n4V14nUbwTF3ZroWOpMPzDeo1cZUYzL8rX0
+	tWIWBvkxDKfNj0LIYqsaTHqsO+8d+n2h7FIwseBBelGq+ITuWUMR+740X7BFRkVYVOlCKYVkjAeBR
+	SbENmbZP1/nXkVg2gasT2R0vNaAEXtlEMOZtP/9K8XgT54CJRTU4CKu6gFWJXAF5UStJAMr3UQLK/
+	HYFrU1hd/ZmEUMa2/hpur3nNDJtwbYMieKKAvPkYqhXwzAxgZTTI6ZC4iswVf3iAeFj63gxoFAS/O
+	MWqTC21Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVjJ-0000000C7Fy-3pG4;
-	Tue, 13 Oct 2026 06:11:17 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1xGVm4-0000000C7SL-1TKJ;
+	Tue, 13 Oct 2026 06:14:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVjH-0000000C7Fb-2JyM
+	id 1xGVm2-0000000C7SC-3440
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1791871876; x=1823407876;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=bZCryCaE81/PP/pc+Hgv31p+qdLWaTjK3f7Lg80CbBM=;
-  b=GXoUvSjUDtoQi9Tuy0D1nZO6Coxpr+z6WKTk0iNlh3+sd5x0yvbqLatY
-   ggHL425BDtN+aHg5S9cXkauX+joCX0d/QzKiVkPNWhSIG8xQbIEVL6qXX
-   u/Qr+Dj51kh5bPDArpbSevqXPC+nKugYS4gz2IB5LVFajkfSp9bKjAIMF
-   EVYF2VDHDMnT+fU730QmdR1CdBEaUkmwqUTOX93j0CI/Zu3zzFkyI++RE
-   p6qUvrQb80WLggBQSzPYF4KQyUMHvlNSj5zOhokLaCPsdRMQ8FyUgdXVN
-   B1BNkDNbFwHsuXGTrdQA9NaTDD70i9qRONO7jEXvyKzEMP1Udt39IG+at
-   Q==;
-X-CSE-ConnectionGUID: vGkhHZ4+QryYPgrNjn18xA==
-X-CSE-MsgGUID: IWyNcK7XSjapTftcMJjbuw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="592550"
-X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
-   d="scan'208";a="592550"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 23:11:15 -0700
-X-CSE-ConnectionGUID: bUS/U4RbRLOGF0ixRHSvRQ==
-X-CSE-MsgGUID: P88hj0ooTWqjFlVDp4fQGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
-   d="scan'208";a="981242"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2026 23:11:11 -0700
-Date: Tue, 13 Oct 2026 09:11:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Brian Norris <briannorris@chromium.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	linux-iio@vger.kernel.org, Andy Shevchenko <andy@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Fabrice Gasnier <fabrice.gasnier@st.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/5] PM: runtime: Propagate last_busy from dependent to
- dependency
-Message-ID: <as3LfIU9bi5GY2cm@ashevche-desk.local>
-References: <20261002230714.507921-1-briannorris@chromium.org>
- <20261002160309.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
- <asEdiIT7l49vhn7i@ashevche-desk.local>
- <asPm6HYpEIAYJ4a3@google.com>
- <as074Em1m9d5s1yO@ashevche-desk.local>
- <as1qe_J37Njol797@google.com>
+	Tue, 13 Oct 2026 06:14:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01049439E8;
+	Tue, 13 Oct 2026 06:14:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E4431F000FF;
+	Tue, 13 Oct 2026 06:13:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791872045;
+	bh=YzIyLaCQVYyFvJr0HYNnDsB1AeI73g+HQRH1Lm1z4vA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=i9ArvrCk6y2JT7SFZ8TC2coKR32sMlGjZNT2ur0EQXl++EKq7u+/Sq96LZ2zVz1u8
+	 PF/7z53jLdSTrOz9I2Xv+chK02rzYTfeM9/umtsloeAwPepL6SykLGlIv7RQaeR4xO
+	 8bC2k3MewAzDx5grtHAaxR6tNcYW7r1Db0TaMaw6iieqw/iq8B5em+MbePXPNgn4OY
+	 E4f2WCFhwoNchILXcy/n80hUlZeVIbebxXKSr7gdLKoj5UIYaMj4EPQaZLBZlrVh5P
+	 0Y9IgnPVoVJiDRtqbgyIdjBi8O6exHxB9FlUyhtXCdlFOYPoFekfrpOHC9Gpptpz8U
+	 SNS76fV1/hSvQ==
+Message-ID: <abe6e89f-2379-4928-a77e-0baee12b23e4@kernel.org>
+Date: Tue, 13 Oct 2026 08:13:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <as1qe_J37Njol797@google.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_231115_666124_86808FF6 
-X-CRM114-Status: GOOD (  35.84  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/11] ARM: multi_v7_defconfig: Enable Cortina Systems
+ CS75xx GPIO, I2C and TWD watchdog
+To: filipp.dunsky@gmail.com, Thomas Gleixner <tglx@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org
+References: <20261013-b4-cs75xx-s2-v2-0-94f8c0a90cda@gmail.com>
+ <20261013-b4-cs75xx-s2-v2-10-94f8c0a90cda@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261013-b4-cs75xx-s2-v2-10-94f8c0a90cda@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,91 +123,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 04:17:15PM -0700, Brian Norris wrote:
-> On Mon, Oct 12, 2026 at 10:58:24PM +0300, Andy Shevchenko wrote:
-> > On Mon, Oct 05, 2026 at 11:05:28AM -0700, Brian Norris wrote:
-> > > On Sat, Oct 03, 2026 at 06:21:44PM +0300, Andy Shevchenko wrote:
-> > > > On Fri, Oct 02, 2026 at 04:03:07PM -0700, Brian Norris wrote:
-
-...
-
-> > > > > Cc: Ulf Hansson <ulfh@kernel.org>
-> > > > 
-> > > > Can go under the '---' cutter, so it won't pollute the commit message in the
-> > > > Git history.
-> > > 
-> > > This is a well-documented convention.
-> > > 
-> > > Documentation/process/submitting-patches.rst
-> > > 
-> > >   If a person has had the opportunity to comment on a patch, but has not
-> > >   provided such comments, you may optionally add a ``Cc:`` tag to the patch.
-> > >   This tag documents that potentially interested parties have been included in
-> > >   the discussion.
-> > > 
-> > > I'm directly referencing Ulf's suggestions (Link tag), so I'm also
-> > > making it explicit that I'm CC'ing him.
-> > 
-> > This piece of the documentation was written long time ago before we have got
-> > the kernel.org controlled mailing archives (now it's lore.kernel.org). I argue
-> > that this piece is outdated and we need to look at all aspects of the commit
-> > message. Perhaps having one might not lead to the issue, but exempli gratia 20
-> > is. I still think it should be moved to under '---' to show the good example.
+On 13/10/2026 05:47, Fil Dunsky via B4 Relay wrote:
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
 > 
-> Well, it's not 20; it's 1, with a clear reason.
+> Enable the GPIO and I2C drivers of the Cortina Systems CS75xx SoCs and
+> the ARM TWD watchdog driver, which is needed on the Securifi Almond+
+> because its bootloader starts the watchdog.
+> 
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+> ---
+>  arch/arm/configs/multi_v7_defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+> index 23f144359..9a161f8bd 100644
+> --- a/arch/arm/configs/multi_v7_defconfig
+> +++ b/arch/arm/configs/multi_v7_defconfig
+> @@ -423,6 +423,7 @@ CONFIG_I2C_ASPEED=m
+>  CONFIG_I2C_AT91=m
+>  CONFIG_I2C_BCM2835=y
+>  CONFIG_I2C_CADENCE=y
+> +CONFIG_I2C_CS75XX=y
 
-Yes, I aware of that — "having one might not lead to the issue".
+This should be module.
 
-> So not sure what you're saying. Anyway, I've prepped that for v2.
+>  CONFIG_I2C_DAVINCI=y
+>  CONFIG_I2C_DESIGNWARE_CORE=y
+>  CONFIG_I2C_DIGICOLOR=m
+> @@ -492,6 +493,7 @@ CONFIG_PINCTRL_QCOM_SSBI_PMIC=y
+>  CONFIG_PINCTRL_RZA2=y
+>  CONFIG_PINCTRL_RZN1=y
+>  CONFIG_GPIO_ASPEED_SGPIO=y
+> +CONFIG_GPIO_CS75XX=y
 
-> Do you think you could propose a documentation update, if it's really so
-> out-of-date with current practice?
+This as well.
 
-I posted some a few months ago, when I pointed out to that noise in the commit
-messages, it was like a pushback, but since that I have convinced several
-developers to follow, so it might be worth to try again (but it should not be
-insisting, just a recommendation). Also note, that even in the cited piece
-there is no clear point where to put that Cc tag. It's only required for
-stable backporting process to be in the commit message, otherwise that tag
-may well be located after the '---' line which still makes it a (email)
-tag, but visible in the commit message.
-
-> FWIW, a quick look at the v7.1..v7.2 git log shows over 10,000 Cc lines
-> that aren't for stable@ or similar, with over 900 different addressees,
-> across roughly 1300 different commits. (For comparison, there are 17,833
-> commits in v7.1..v7.2.)
-
-Have you checked in dynamics? (Note, most of those Cc comes from Andrew
-Morton's scripts and TIP tree.)
-
-I used this:
-
-$ git log --no-merges --grep '^Cc:' --pretty="%(trailers:key=Cc)" v<$A>..v<$B> | grep -v '^$' | grep -v 'stable@vger.kernel.org' | grep -v stable.*@kernel.org | wc -l
-
-where <$A> and <$B> give a range.
-
-v6.19..v7.0: 11525
-v7.0..v7.1: 11594
-v7.1..v7.2: 10946
-v7.2..v7.3-rc7: 8696
-
-You see, it works!
-
-> It seems like you'll have a hard job trying to apply your rule to
-> everybody's changes, especially if it conflicts with the documentation.
-
-As I explained above it doesn't really conflict, it rather old established
-process when people want to have that Cc be recorded, now we have
-lore.kernel.org for that and I successfully convinced several people to follow.
-
-> > > > > Signed-off-by: Brian Norris <briannorris@chromium.org>
-> > > > > ---
-> > > > 
-> > > >  Cc: ...
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Best regards,
+Krzysztof
 
