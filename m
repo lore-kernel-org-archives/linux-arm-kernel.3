@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD0DCC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05503CC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hpeZCtjtr3RFnVadMQBbI2r1C6CwdAtY8VnYl6TRGII=; b=bbeg0lQbF/oOIJI1vJpBljZcIC
-	qlfXiZibV662mXsuvr8XWD+HqRyEQcWK0Vn4hclTiTFaifZZZOqv9E5ime14rOoQVF56FrzZpiiNM
-	SYZ3/OxdL+Hr/Vs6sMD4MpK5iwsak4pFjm0AtxaCott65PTx82THdErgrRhDQqbm/CnrieCUGvsMg
-	Gnx9bTyI86kZrC1URnGvr/SGZD/4/3jUZik4E5KMgAfGxx5iZ9PHpc4RhfxyCCXbH4OUXHsdHZYrd
-	khDNJk9+bFGjko8OimUkjp1RLfwIDGYeUdcBC5QfC1JTaG7nN/ixVPB0lq/K6kCMnge7g5GB3fZWY
-	jKjZ5uvw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5fVc8UeH+5da/hVDNrPa5heU1KsL+eYQi/ZKHAgy494=; b=NiHZxqlPD6jcfZ2dJh6ELWQnxu
+	cGcwUHwRuU3ZXQXOp0l7HDauUvEy7sYsAgar1sHBLrrc4X7Qb94wc0n6zitnetphZUbOfCjUDOiVj
+	Xf7gWgdzxBwpbMDV2BmdLp5dcw+49W2reCH8DzBcPAZ8pKG4d3EYRLStAvu70BeyV/bCBmaupkWt+
+	TL7zsrQcUvxIBXJ1Kt9zYwTR8xVPrASsYaUD8JbeIHrvxtx3CB+Jx7UnZms1C4W45bMnrFVzqh5bY
+	T1X8j3tdvyaMDQghdHchew14KaxAKSGBuHvax+CwLM4OgL93GeF0IuIOf7s9Cku9jY1vNGduYeLDz
+	LL0vfbdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeGY-0000000DFrM-0kc9;
+	id 1xGeGY-0000000DFrA-0FJV;
 	Tue, 13 Oct 2026 15:18:10 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeGU-0000000DFnu-13TO
+	id 1xGeGU-0000000DFo5-24f7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:18:09 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-cc4dbda1e5dso1086817a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:17:58 -0700 (PDT)
+	Tue, 13 Oct 2026 15:18:08 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8917c712f32so1396778b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:18:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791904677; x=1792509477; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hpeZCtjtr3RFnVadMQBbI2r1C6CwdAtY8VnYl6TRGII=;
-        b=eGxmS//AQJo+tNkLkLApvjz5Gqkp1JXo5HrSAAb850h4OHnb0VWxGkaXGcQBcjwKuf
-         e2Ql9/UulITh3gx8wSBXqyYVqhWNg4f9eva3nJJlM3fLmQr6ePTYDqrYhuHhOnoE9L42
-         eRFtGPXip9qYOzmsCkPeHFMsEc2zLLV26ukMAzAFl+ev+y2Qvcg+Wvr3GqioMpKN0bQm
-         6V0SCZAQargvrL98fcXZ0e6TCsML6aFEUyX3+DJUDU3fxG8OggK1SfPk9g1q2ODPMWXN
-         8auv6agfXUHOfUlN7S0Ky/zEgGcWoAOujURJU6bBybVDNF5Lx1mcTh5m2KDicAWu8HR2
-         +2Ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791904677; x=1792509477;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1791904683; x=1792509483; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hpeZCtjtr3RFnVadMQBbI2r1C6CwdAtY8VnYl6TRGII=;
-        b=ACNrl7oSwZpVLS8qUIsnQlrdjJSywp7hAli/jm8FAgtlj+vf5bBfKkXo0gXlQ7Pzbl
-         DlMuM3KFKmIwrBFhSl+YsnqMRi6KTsCJwfqnQH5SX+1Mv1qNcCYC50bc+mor+6lWcWz9
-         yzwYnnF3oUpOVxYqxcRzv0G7jUl+HzjR/TTxhQnoGVVVms0azbuZI2uMR2DAmvL0MZOa
-         75QUiPe8u4vLA3s7ipB197gPxFKwJ5PZVRcKVmbYCMT/hLITNhgU6LBe7kQwpIA6LMtY
-         nCXctcXIwriTfxkrXIUR50L0bPo3RfSspxLliTeirkWQBLh7CedgDgTmXs+1HHFrFLr9
-         iWGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwIa4qBMBOYBBRGZC02ZSx4I74WKOYTQFAHzFXkcGtoWlauXyip41cBp+rG3q00pUnPTdbv9LXOURZlZZmF+7Bp@lists.infradead.org
-X-Gm-Message-State: AFq9FYLTccnpTDo87cQMj8XbKGar+4k7fgxRA40Pk1Uzc0udKno4RIqJ
-	tVcO14RFqYS8mpUDSrr9zEAq9LY4osNu9zqfI1p8hcOf2752cFVIrffs
-X-Gm-Gg: AYBFou0DZC0V2yATze2p3rbXM88Eera6sKGXoeP5QhdkYgOgWhSAau1+DnlTyglaiMo
-	QAHASeP5j8xJyV42xaEy0o/0jMDXSDiJGgm4EPUO+w0/x47p6gz5sN3nyBbLAa0lpaW/Xm1RAg9
-	0yBlpPZS2hU+40m8lIul0OSWHgm52g1rqt90F89CN92n8UeRhUVJw/0eiLgi5VbL+xsMCWHcLcV
-	rmcTqAntuGRrfkftd2JINK5jcENYZFAn4DnqJ5+z4z1N/Vow5fQzHnhh+2xc8va0ddEczJ9kn1A
-	rGS+IUhixLf671KuoPNFV9Z0L4ILIaXLD8+uCJfbQhnX29N3zsujOcL+FzsMJXBDj56H+ylhLC6
-	fW0yh3KUflc6IKFnWJ4BoGpwIcxAU7YkF6PucPj3e5k5jSUbRe2GCb7YiVKv6cwZVsVQEG7IoVl
-	mxsI8y88pa8qI9ZkSexEW9AVW+VlIy4opuu3Wb8tcxOdYwmD6ZvJ0fa1070P0WtqkGPmZ9kPk1f
-	GpwCDhp0Bsxrhrjs960GUSB2hFL
-X-Received: by 2002:a05:6a20:c905:b0:3dd:a195:dd55 with SMTP id adf61e73a8af0-3e16bfa50dbmr12116690637.55.1791904677448;
-        Tue, 13 Oct 2026 08:17:57 -0700 (PDT)
+        bh=5fVc8UeH+5da/hVDNrPa5heU1KsL+eYQi/ZKHAgy494=;
+        b=krRu6FdAeKOEuJrmqqB9Nbm6oBUsF9kw3ngEIMO/x/jgjZtyBu8UGYzdEGFRmsphUU
+         CLxxAUVAd98bhNjFJntKzbBMc2pTphNhRuD6ddm7dF1G/78hRybcbE7l0fu+Gy/6NIrH
+         RgU4XxF586FJ/lst6pfrX8tz3tdU29fcqbAkuvOtUiG4UNZiy3iMw4Uz7iBtqFB2HmxN
+         CQMFGFaMEDRhPDidAW74U9P71/wxJZTuAPaDzxFVS+W9+wm9HxXBnjJYlv2JeW9I4T70
+         OGLj+2Dg9jvvyx4i293WzsV2Go4PVpeOQlRB3dj8T4Qo/817xLXpVf1Bn+6Jc9oznlkX
+         CpIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791904683; x=1792509483;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5fVc8UeH+5da/hVDNrPa5heU1KsL+eYQi/ZKHAgy494=;
+        b=JJGYpcKGv9IjXsGb1SoKT3R7hhvZATIrwdce+LokUnvqsw3pcEMJ39oIxplcrJkMgU
+         rj5hv8CpSVq/08NLKFqL1LiUFtvDZZnxvhHiTLIzGFIqw28WGtAC/dv2/czzODp+dlWD
+         AWL34PP5dk6ADs4B50Y83IvAu0VN76HaHgWH9I4AzYNfSCgUuWSjgG5HnDwhT0CyNldu
+         qAZioP3BC6vns35mfVUV5oOHSXUjUpB2+noj+CFObFrlEarn5Hph8T5lqxosbPPIg2vn
+         lY+F9uOfQk1l6hzjbiDSIXN5wsCl+QxJZoa4Yu8htO9IhdSK2z/etBmbrA6yiSB02+3r
+         AuEQ==
+X-Forwarded-Encrypted: i=1; AKwUvByWt0w1avc0/iCdFign8kFMIEwj0vpKssPUCfGNZUpCitaG1AqiVFN+fTNPFLcwcJVj2dNkPgLMj5GeCv3dG6/l@lists.infradead.org
+X-Gm-Message-State: AFq9FYKHJOwIrMevv1xXeMCjWi4zkDfLdgl8X3cBQ3/dC9r/B8P4vQf+
+	thUZdWdrF89ibRh9LR6mbVL/05d58SKGzNtuk5kZMitvyjRp41EGly5S
+X-Gm-Gg: AYBFou2ANgui6XGsmyjOSD8LhmcRiGDjefhLkZrgmVsevW5MSnjIsLDeAKCnRPPqiVs
+	EMmeNb8CnT/2LrnSL6Y19HabJvHjfcTbMigsE6k4ljGv4YbdiDiFO28QW2Ytxc0/SeqZAr4x4J6
+	fVUBbNwYz4qEGkUQMFUL3ZFjYk6Vgq225wZ+BTP2NVLVyBuMzkz/B+wb3PyWaVcZmm6gWORfjWv
+	LkdfUq4oE0Qe5KM+ySet43G/rJd+zaAgQWdP2ZdK9k5m3E2j9ffMhE4PwHqvKHyAtvpXBqY1B2u
+	MWeNFB9wk7cUwCSb8g7hqI21TPn6Cgt8FgIGyn056VnxEDlQHfCIp88F7yo2olO5PqKJRZmfO5R
+	gLDhCI9ZbIa9sRwBBFPjm6sOxYHGM0u7R2ekQoSDKEDXgsz8/jlYnkitsf425D9eUv2DCKyQCEv
+	GLUnnV2pD3UQd+WocHqO/G+x7R367tzSDzXYhaqJSFptbUiMJlG8K71s/2lPs3ztCc96oYsdzoI
+	hxJP9Wr2ZXjmTeyfXFbD9HHtUFpE+kis7uP6MM=
+X-Received: by 2002:a05:6a20:a10c:b0:3de:79fe:13f with SMTP id adf61e73a8af0-3e16bf27deemr11023823637.38.1791904682967;
+        Tue, 13 Oct 2026 08:18:02 -0700 (PDT)
 Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd3da04596dsm5759888a12.29.2026.10.13.08.17.52
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd3da04596dsm5759888a12.29.2026.10.13.08.17.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 08:17:56 -0700 (PDT)
+        Tue, 13 Oct 2026 08:18:02 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: Brian Masney <bmasney+clk@redhat.com>,
 	Jerome Brunet <jbrunet+clk@baylibre.com>,
@@ -95,16 +96,20 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-kernel@vger.kernel.org (open list),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH v2 00/35] clk: mediatek: Migrate to common probe/remove helpers and fix memory leaks
-Date: Wed, 14 Oct 2026 00:16:59 +0900
-Message-ID: <20261013151734.3177690-1-akkun11.open@gmail.com>
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	stable@vger.kernel.org,
+	Brian Masney <bmasney@redhat.com>
+Subject: [PATCH v2 01/35] clk: mediatek: mt2712: Fix memory leak on module removal
+Date: Wed, 14 Oct 2026 00:17:00 +0900
+Message-ID: <20261013151734.3177690-2-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261013151734.3177690-1-akkun11.open@gmail.com>
+References: <20261013151734.3177690-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_081807_489169_62E4D489 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20261013_081807_483979_9CBD0147 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,146 +124,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series migrates most MediaTek clock drivers to the common
-probe/remove helpers provided by the MTK clock framework.
+clk_mt2712_apmixed_probe() in clk-mt2712-apmixedsys.c does not call
+platform_set_drvdata(), but clk_mt2712_apmixed_remove() callback calls
+platform_get_drvdata().
+This results in platform_get_drvdata() returning NULL, which leads to
+calling kfree(NULL) in mtk_free_clk_data(NULL).
+This leaves clk_data unreleased, causing a memory leak.
 
-Key changes:
-- Fix memory leaks on module removal caused by missing
-  platform_set_drvdata() calls (patches 1-6).
-- Add missing MODULE_DEVICE_TABLE() (patches 7, 8).
-- Add missing support for cpumux, PLL, FHCTL, and child-device
-  population to the common helpers (patches 12-15).
-- Convert all compatible clock drivers to use struct mtk_clk_desc
-  and mtk_clk_simple_probe/remove (patches 16-35).
+Fix this by calling platform_set_drvdata() during probe.
 
-The memory leak and MODULE_DEVICE_TABLE() fixes are split from the
-migration patches to allow backporting to stable.
-
-Drivers not converted:
-- MT6765 apmixedsys: requires direct register init.
-- MT6795 apmixedsys: uses mtk_clk_register_ref2usb_tx().
-- MT7629 eth/sgmiisys: uses a hacked probe sequence (multi-instance
-  sgmii gates).
-- MT8173 apmixedsys: uses mtk_clk_register_ref2usb_tx() and custom
-  divider registration.
-- MT8188/MT8195 topckgen: call devm_clk_hw_register_mux() and register
-  a notifier.
-- MT8196 vlpckgen: requires direct register init.
-- MT8365 apmixedsys: uses devm_clk_hw_register_gate().
-
-Patches 1-6 are based on
-"[PATCH v2 0/6] clk: mediatek: fix memory leak on module removal"
-(In addition fixed a compilation error in mt8173-infracfg)
-https://lore.kernel.org/linux-mediatek/20260707074839.240676-1-akkun11.open@gmail.com/
-
-Patch 5 fixes the same issue mentioned below
-"[PATCH] clk: mediatek: clk-mt8173-apmixedsys: Invoke platform_set_drvdata on probe"
-https://lore.kernel.org/linux-mediatek/20261010160134.112136-1-l.scorcia@gmail.com/
-
-Patch 12 is based on
-"[PATCH 1/3] clk: mediatek: clk-mtk: Add cpumux support to common probe/remove helpers"
-https://lore.kernel.org/lkml/20260304181024.738391-1-akkun11.open@gmail.com/
-
+Fixes: c6368ce86435 ("clk: mediatek: mt2712-apmixedsys: Add .remove() callback for module build")
+Cc: stable@vger.kernel.org
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+---
 Changes in v2:
-- Add two new fixes "Fix index in composite clock unwind path" and
-  "Fix memory leak in mtk_clk_register_gate()".
-- Add new refactor "return 0 instead of r in __mtk_clk_simple_probe()"
-- Fix missing `.data = &apmixed_desc` in the MT8167 and MT8195
-  apmixedsys drivers.
-- Fix PLL registration and unregistration when
-  CONFIG_COMMON_CLK_MEDIATEK_FHCTL is disabled.
-- Fix child-device population logic.
-- Clarify the rationale in the SoC conversion commit messages.
-- Minor fixes to several commit messages.
-- Rebased onto `24a19b953e2a ("Linux 7.3-rc7")`
-  from `075b74841bd0 ("Linux 7.2-rc6")`
+- Capitalize the first letter of the commit message: "fix" -> "Fix"
+---
+ drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Link to v1:
-https://lore.kernel.org/linux-mediatek/20260803141659.559129-1-akkun11.open@gmail.com/T/
-
-Akari Tsuyukusa (35):
-  clk: mediatek: mt2712: Fix memory leak on module removal
-  clk: mediatek: mt6795: Fix memory leak on module removal
-  clk: mediatek: mt7622: Fix memory leak on module removal
-  clk: mediatek: mt8135: Fix memory leak on module removal
-  clk: mediatek: mt8173: Fix memory leak on module removal
-  clk: mediatek: mt8192: Fix memory leak on module removal
-  clk: mediatek: mt6735: Add missing MODULE_DEVICE_TABLE()
-  clk: mediatek: mt7988-apmixed: Add missing MODULE_DEVICE_TABLE()
-  clk: mediatek: Fix index in composite clock unwind path
-  clk: mediatek: Fix memory leak in mtk_clk_register_gate()
-  clk: mediatek: return 0 instead of r in __mtk_clk_simple_probe()
-  clk: mediatek: Add cpumux support to common probe/remove helpers
-  clk: mediatek: Add PLL support to common probe/remove helpers
-  clk: mediatek: Add child-device population to probe/remove helpers
-  clk: mediatek: Add FHCTL support to common probe/remove helpers
-  clk: mediatek: mt2701: Switch to common probe/remove helpers
-  clk: mediatek: mt2712-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt6735-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt6779: Switch to common probe/remove helpers
-  clk: mediatek: mt6795: Switch to common probe/remove helpers
-  clk: mediatek: mt6797: Switch to common probe/remove helpers
-  clk: mediatek: mt7622: Switch to common probe/remove helpers
-  clk: mediatek: mt7981-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt7986-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt7988-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt8135-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8167-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8173-infracfg: Switch to common probe/remove helpers
-  clk: mediatek: mt8183: Switch to common probe/remove helpers
-  clk: mediatek: mt8186-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8188-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8192: Switch to common probe/remove helpers
-  clk: mediatek: mt8195: Switch to common probe/remove helpers
-  clk: mediatek: mt8196: Switch to common probe/remove helpers
-  clk: mediatek: mt8516-apmixedsys: Switch to common probe/remove
-    helpers
-
- drivers/clk/mediatek/Kconfig                 |  34 +--
- drivers/clk/mediatek/clk-gate.c              |   4 +-
- drivers/clk/mediatek/clk-mt2701-aud.c        |  35 +--
- drivers/clk/mediatek/clk-mt2701.c            | 233 +++++--------------
- drivers/clk/mediatek/clk-mt2712-apmixedsys.c |  48 +---
- drivers/clk/mediatek/clk-mt6735-apmixedsys.c |  51 +---
- drivers/clk/mediatek/clk-mt6735-imgsys.c     |   1 +
- drivers/clk/mediatek/clk-mt6735-mfgcfg.c     |   1 +
- drivers/clk/mediatek/clk-mt6779.c            | 124 ++--------
- drivers/clk/mediatek/clk-mt6795-apmixedsys.c |   2 +
- drivers/clk/mediatek/clk-mt6795-infracfg.c   |  70 +-----
- drivers/clk/mediatek/clk-mt6795-pericfg.c    |  71 +-----
- drivers/clk/mediatek/clk-mt6797.c            | 140 ++---------
- drivers/clk/mediatek/clk-mt7622-apmixedsys.c |  60 +----
- drivers/clk/mediatek/clk-mt7622-aud.c        |  35 +--
- drivers/clk/mediatek/clk-mt7622-infracfg.c   |  70 +-----
- drivers/clk/mediatek/clk-mt7981-apmixed.c    |  37 +--
- drivers/clk/mediatek/clk-mt7986-apmixed.c    |  37 +--
- drivers/clk/mediatek/clk-mt7988-apmixed.c    |  40 +---
- drivers/clk/mediatek/clk-mt8135-apmixedsys.c |  48 +---
- drivers/clk/mediatek/clk-mt8167-apmixedsys.c |  58 ++---
- drivers/clk/mediatek/clk-mt8173-apmixedsys.c |   2 +
- drivers/clk/mediatek/clk-mt8173-infracfg.c   |  98 ++------
- drivers/clk/mediatek/clk-mt8183-apmixedsys.c |  51 +---
- drivers/clk/mediatek/clk-mt8183-audio.c      |  26 +--
- drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  59 +----
- drivers/clk/mediatek/clk-mt8188-apmixedsys.c |  60 +----
- drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  67 ++----
- drivers/clk/mediatek/clk-mt8192-aud.c        |  26 +--
- drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  75 ++----
- drivers/clk/mediatek/clk-mt8195-apusys_pll.c |  49 +---
- drivers/clk/mediatek/clk-mt8196-apmixedsys.c |  67 +-----
- drivers/clk/mediatek/clk-mt8196-mcu.c        |  96 +++-----
- drivers/clk/mediatek/clk-mt8196-mfg.c        |  84 ++-----
- drivers/clk/mediatek/clk-mt8516-apmixedsys.c |  42 +---
- drivers/clk/mediatek/clk-mtk.c               |  90 ++++++-
- drivers/clk/mediatek/clk-mtk.h               |  12 +
- 37 files changed, 496 insertions(+), 1607 deletions(-)
-
+diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+index 54b18e9f83f8..087cf574bcdc 100644
+--- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+@@ -129,6 +129,8 @@ static int clk_mt2712_apmixed_probe(struct platform_device *pdev)
+ 		goto unregister_plls;
+ 	}
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_plls:
 -- 
 2.56.0
 
