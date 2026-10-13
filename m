@@ -4,115 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FFBCC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7328ECC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y3m+IiRPjHXlRcCy5kt0s5eCMwrp2C3UhEBDizZT22I=; b=Fcx0hJmRojEneCQUcR3h8Z5suf
-	dusRYGATES6yerFJstMCbruxJyVqfgBYIt+ps1axJbM07rH11aki30h0mZ3fi1TWbEjaY+hGz22rG
-	ADxsqjWPaJzTXiqra/InDlzgycFR7EKImqcrE5y8uYgu3FVo3IHsY9Vfdn8wkkrR4NNFV1kbHU9AH
-	uU6PzMgKnphyeGcsvAhR08O9CzfeEK0MmZUxJZfyrinFmN9n2Lanez8kOqq4uN8LYXi+SMEHcBFmT
-	ivr62VoVhYK4koqQneWjq78bxdyowGUpNEfWtK0iN1ktpWiPuB9ulFhoZEkyUkIkaPn1mcQud9q67
-	QEjPRHVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=; b=A6rsGUr19IF9JT8LxCJJJeVc2e
+	lCLjB2doduCiatY9EAPv9gqJAeZG84xgsqEJ8Bhso5mxxTGIIwxbilpkFWVsTa8m323qFql0SqtHZ
+	YDz5j6GF1BkSDNOk6+gBgoWS1GMXgVruCCxkaam/fLTix36ed02kF74pdBbFX3wXcyeB28lxQdLyy
+	t8suZ9R9EVHQphF1nyVCp3iy6znXzZGcMmKMXecFG7kgJPK/MehjJXjqtmwC2wbGjxhi13Z7HuXcu
+	9u84rduJqdf8M5rq/f5rt3hK/bYbyUNC8kuhIbqgkcwYx03afYtnGeQxRYG3xzvA/lF2KeT5sOy+g
+	A0zbT8sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgQa-0000000DiQi-3naK;
-	Tue, 13 Oct 2026 17:36:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGgRB-0000000DiXI-0HPj;
+	Tue, 13 Oct 2026 17:37:17 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgQY-0000000DiQE-3GsH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 17:36:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Y3m+IiRPjHXlRcCy5kt0s5eCMwrp2C3UhEBDizZT22I=; b=HqkHV7P2yT4WS3tc0glR6IU1eu
-	jjUEVFivK0OwCrCPGEY5vb0nMEnaNzp0e2XNApxDrsLuAl1gB5FQlh1U4s/+9n+l9ZVgcRw07COUR
-	aXs/D0fr195WY095L8PzgGgxsbntRHua8cBI/5aIAi6RwXl6304r4LUvuvh2BYT2R0BeKeDdJnDtV
-	rV6MIPxzHdBhnaQ8QjhpdE7x4KXs62E3tjH1ExehNlsG/MtWU1aIwToV+zYKnCClLASreFH38Mf7c
-	9/v0RBf4zYlfpDVSX9LsqPfJBDql0h1k4j+NHECivogCZWfmEw7BDBxg8H9f69VHI9Q7o5RCOq615
-	9vsCkaOw==;
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGgQV-0000000From-3nVv
+	id 1xGgR8-0000000DiWZ-0gX1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:36:37 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-3a772ec8389so25723801fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 10:36:35 -0700 (PDT)
+	Tue, 13 Oct 2026 17:37:15 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-8252259f6d2so1971302a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 10:37:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791912994; x=1792517794; darn=lists.infradead.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y3m+IiRPjHXlRcCy5kt0s5eCMwrp2C3UhEBDizZT22I=;
-        b=DPqBK/nIh+TrCe/HhnZwRHxTCYXol5XOf61huLd6Zk31ksG8M+rQsGaL2yYhbsExTw
-         JwRIglRNZMNEm8jsJBNMSw7eQGdo7yw1CJS9ZsL/nZdCvEzJRfIXHTZ5Fy6Z3ra+/mdq
-         pW3N6hbkS+AmpBmnsj9NWSb27ft/kYnWrx5tMgP0lh8SHnB5NwqnK0+yPy1e7Fg9afEo
-         ZW9/8k0/3Ly+rVZG5h5lw80QJRuIchJLV3BJSw0uHSQ9FrLfEFeZtUHPtnhrRirpLns3
-         RExmuu4dvOtlugc+IzxPm+0vxrhtjtZ0m8PrvMWrWYJ7DEYdez8p7/5IGy4RrsZ5AdNv
-         y8XQ==
+        d=gmail.com; s=20251104; t=1791913033; x=1792517833; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=;
+        b=Ae9BAE5SJLOuq077ZMDk6yBhII/f5ajGHqBRrQSH4yT3e7vHNwjJ62sCWrv4rnXQ0S
+         uyVQOqPP8myD8xXMi5+Dij2EX/UjI0zjIA75X+2ZDcYdBeBt6OIYKmMu63zAbSkBzBPQ
+         cJhdQpu8jxTAKTfLteJb0GC5/+KCRH+UAl5v/f6xklfy5aZyDyDtmak83jHKGEgvObQK
+         9aO1wxDMVrNpnY9QBqCRHuLv6yF7osbbzeDMaEMYSfyH3CYFtr1iEPpAbGXuaXgb2zKu
+         oLcq2VJC5irVMTJ1Jq4XkkJbvFcWe+d4Z13X4KcUxswK1JGKRouXYh/DAHTw+x+tN4nE
+         oMvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791912994; x=1792517794;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y3m+IiRPjHXlRcCy5kt0s5eCMwrp2C3UhEBDizZT22I=;
-        b=SYUkwqtQoRQ2XkVVepX571a+HoYoXtIzdDPiMczZeXMRA1l0pfnUzGprZbn/30sUdW
-         orcORbsoRdNhB/sxyBt7HQ/DqQ0qO6usj2sH4GeVktp8zx6WIrHspPlsHYDSGEzFUcKv
-         RASrPz7IYYy/EDYcv0+zTZJQqd2GTTcB7/d+uUoxWwvIo8QimRPepqSkxCKcOj3gyywd
-         1yDndHE58Gx2ZLAnFSkxxUMSOGGnx4Qk8kG5767ghdzIQb9XJ8EoR7qvNyQpn5Q59dHb
-         3XniVjO3hbw3lZCIKB89yTdQXPT/U+C4jikiiADa/XI4AsX4zmcW+2E9dSjh/EHSvV/F
-         worg==
-X-Forwarded-Encrypted: i=1; AKwUvBw5Rn8MkzTLtHTGykyk7O6kTqEabOUJ0BKd4YLJCZBB9yBBzny/fJCGXpW0s4GBbmdyjzPH/EerM9s4TI1fuhCH@lists.infradead.org
-X-Gm-Message-State: AFq9FYKNF1EFz2CyFpx0aYEuG9u8hV0RhfYzUwMPHwc0VT5JrrrDbxE1
-	ma6+s6ofH0+AuyMcqcm368zvbwtIGD2AXd+CpE6llOSNGeFP6/9VPzQy
-X-Gm-Gg: AYBFou3vWDEfwF8hgC6WVMz+bBFX5G7KWjJVEsl8MQ49c9Uelahuxa7JiWb/eFfllcB
-	bnwTVcHxuhLTIbz2RvnqAtjhzd+CsGOmdhNuxxt22y2wGGbLU219d2LR/B1ZoagKopNlPkQQfWl
-	4r6adXYETqAwriVDr+UFWU89vsUvly0Rh5ujc5h91ieZgxLz7IpNzWE/jmf02LEAbTHEX1fI/yu
-	7ZaNrajxA7WtBeHVZZEFZXZGmYLrki1gY2TrjcTWENZAvv9UpEVd0QLrFIt/oWgmUzlhBfKieVY
-	bimFajh8opaNWqJ7DVj9C51j0izWA4nj3L/65WMaX6Lc6LKMkz5dqHMswmNk/8zA3IYXAlI8D3S
-	vpht3Vw1qLt73fJGFlIXB43svLHa/CpV0MrcEJA801ZS1KB4XXDPYOKeXQf28ULes8NGJEb8KBY
-	OpCBlJPR89lzXlVfM7K/RJLavYN9mqUA7JoPe36xAtuMtK6z1mNxfw67YoiqykHiIMHBtoIx232
-	EFMVHCO29pSxjC06QbnOuAgB75fVOJuCerQKPhhVxQiMg9J30VMoufMHbd9Khjh8kQD
-X-Received: by 2002:a2e:a585:0:b0:3a5:f982:9c62 with SMTP id 38308e7fff4ca-3a9c4eb6b77mr31027101fa.1.1791912993414;
-        Tue, 13 Oct 2026 10:36:33 -0700 (PDT)
-Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a9c3cf7ffesm36421781fa.41.2026.10.13.10.36.28
+        d=1e100.net; s=20260707; t=1791913033; x=1792517833;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=;
+        b=ICivsJPUzp3gZanKRaMLd5EStky2kyqNp68zd+K8T7N1JXEvHQwTPuSV4NGil/oB/X
+         8JPQyIo7WF9Wii1ZTLntiXdPyCm8dO1QP5lkQ201yLzOfcmfvLsMojNg1eknnl0lkP61
+         KwtmVTgUnYSwQgXZTGpCKDyXpwx1xPXZFvfUwMMfT1JTzT/LbLhSmNdUZiGmatlNc/hb
+         ZYuyqb8MHDcNPiejzXNDmHBAklp8Y5+i4B0cWlp+cjllv3x0KJViaSnef9p4sw3yw1EA
+         DPL/HU6eTogLgnL+UruEcaEB4W7JpDVnmSneEOYB1YxGg2vzcyKQZ+Ihus5sCdg+Ye7Y
+         PZGA==
+X-Forwarded-Encrypted: i=1; AKwUvBxn/Ar3T7nwDiLB2AMaVlfR/8wky9ANsAcDx7cEVSSab8FPyuxgXOfr2vf6Pg9J0nwgQJOkDb0bNckzgHid3G08@lists.infradead.org
+X-Gm-Message-State: AFq9FYJoifwOJFJIjmmcjCpr5p8WeKm3ATlOaXZW6ei3D+PDpIe7QU6e
+	Sj2N9V20NUtlpyPRVuJGOUIBDhTCFXgxEehvou1EZNRcl83wkjxhbz0H
+X-Gm-Gg: AYBFou1Iqd2CwhLhM0Hx48GbJ3bjWZ4bj/2wPgcC1Z8o1CNi+WfScCmmCBtP1E9RFVa
+	X/nFh6IQViOOYAIkWPzLKS0GLW/raMGnWsCeZSsJtGkLibtLlw//uRN0Dd7av5sOAlnAwrIPr/9
+	IvFNTWLb46i4TvYgXJJkX8MFkfk0GyEoFBN0vw7Z3REDln4+oLX2SewQ9IfNdkd6mNbhsAbDU0x
+	QrR6aUQe9sP7V6itaQSqvrIp93jxV6F3S21Kzv0pg09/TrEKgPVrDUq1J5zKmjw1ItlRK91PrNW
+	MhWBCNW+YUhDstU4PjUc0SqyiXjL68GrABPlbW/dkvTd4URD9yTJ/QAKUmyYQOwi10vRRT98ifs
+	plnzngGDyRcJl/lb6i1KfUggLma8zlsdfJ+JTD69l1YBC/NTQmwXhoSeJ2KohF0GGJo64BbGvfs
+	MbQSBMzVwAxfiUbz6cMw6ZQz/rnrn4QnEIOWWmDKkB2ugcf9BN6+KqtJAPNaLoGunK+0dR+sKiW
+	5K9JcaaJPEgJ4NH8khVCXKLQ5zBtu8g0EcJEl9i67w4vBi6NobEQZJdYP6pVciFcDIPqZSoCl1e
+	5FtxpLBUL+13vx+HsE6RL63qeUN+IIH7zJFdlEx1UIZQRgXei+aZ6Zf0CZgIxPbIrsoQVEjK24E
+	YRe5e9UpIzHHgUvsxcs2AUjS4ikTneDk=
+X-Received: by 2002:a05:6830:a1d9:20b0:83c:73b7:e7a7 with SMTP id 46e09a7af769-83c73b7f03cmr848517a34.15.1791913032755;
+        Tue, 13 Oct 2026 10:37:12 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8303a60c458sm14564908a34.26.2026.10.13.10.37.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 10:36:31 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller, GPIO,
- I2C and TWD watchdog
-In-Reply-To: <20261013-plastic-dragging-8232efb058ef@spud>
-References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
- <20261012-dreamlike-hazily-19bb60326f0a@spud>
- <179187542217.3247897.4323160442877168450@gmail.com>
- <20261013-plastic-dragging-8232efb058ef@spud>
-Date: Tue, 13 Oct 2026 20:36:28 +0300
-Message-ID: <179191298807.12554.2183121269667635269@gmail.com>
-Content-Transfer-Encoding: 8bit
+        Tue, 13 Oct 2026 10:37:12 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 13 Oct 2026 11:37:11 -0600
+Subject: [PATCH net-next v3] net: stmmac: unwind the WoL IRQ after a safety
+ IRQ request failure
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-stmmac-irq-unwind-v3-1-fff4e2db805a@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OQW7DIBAF0KtYrEs1YzCGrHqPqgvA4wSpxg0QJ
+ 1HkuxfRquqi6vLra96fB8uUAmV26B4s0RZyWGMN4qlj/mTjkXiYamY99AqMAJ7LsljPQzrzS7y
+ GOHFwpJUBVEJPrN59JJrDrZmvLFLhkW6FvX01ic6XOlK+a2czcb8uSyiHDgY3ABoHODsjpXBgL
+ EmahLQzohisBqul1806hVzWdG+Pb9iwf37ckCMHry0MYlTox5fjYsP7c51u2tb/CAig/hL6KqC
+ Rg0GvR6ngt7Dv+yf4gEz5SgEAAA==
+X-Change-ID: 20260930-stmmac-irq-unwind-0be86901638d
+To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Serge Semin <fancer.lancer@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ Nicolai Buchwitz <nb@tipi-net.de>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_183636_064194_08B67A11 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20261013_103714_215831_FC0194A4 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,34 +114,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 05:52:36PM +0100, Conor Dooley wrote:
-> If things are just tightly packed, that's fine and you don't need to
-> make it a syscon. Just because something looks suspect doesn't mean that
-> it is actually wrong.
->
-> In your shoes, I think what I would do is leave i2c/interrupt
-> controller/gpios etc all as independent nodes.
->
-> I would however model the pinctrl as a single node, with
-> reg = <0xf000001c 0x14>
-> I think, rather than 5 instances 0x4 wide.
+The safety IRQ is requested after the MAC and optional WoL IRQs. If its
+request fails, stmmac_free_irq() frees the unregistered safety IRQ and
+leaks the WoL handler. This can warn about an already-free IRQ and make
+the next open fail.
 
-Thanks, that makes it simple: the interrupt controller, I2C and GPIO
-nodes stay as they are, and the pin controller, when it comes, gets one
-node for the five mux registers.
+Move the safety and WoL cleanup labels into reverse acquisition order.
 
-I checked the boot loader's pin mux on the board: it leaves the reset
-button line and the touchscreen interrupt line muxed to GPIO, so the
-dts does not change with the mux register gone from the GPIO binding.
+This was found by code inspection while working on the stmmac MTU/resume
+recovery series. Injecting a safety IRQ request failure in QEMU with
+mocked MAC/DMA hardware reproduced the "Trying to free already-free IRQ"
+warning and leaked WoL handler. The failure has not been observed without
+fault injection.
 
-> My take would probably be not sending new versions until at least 48h
-> has passed since the last reply on the current version, rather than 48h
-> or w/e from time of posting.
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+Changes in v3:
+- Rebase onto net-next and drop the Fixes tag as requested.
+- Describe how the issue was found and reproduced in the commit message.
+- Add Maxime Chevallier's Reviewed-by.
+- No code changes.
+- Link to v2: https://patch.msgid.link/20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com
 
-Noted. Arnd also asked to wait for the 7.4 merge window to close, so the
-next version comes on top of v7.4-rc1.
+Changes in v2:
+- Drop the claim that later per-queue IRQ failures also had broken
+  cleanup; those paths already released both IRQs.
+- Add Nicolai Buchwitz's Reviewed-by.
+- Link to v1: https://patch.msgid.link/20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Thanks,
-Fil
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 56d89a696272..3ce2d5994c61 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3821,13 +3821,13 @@ static void stmmac_free_irq(struct net_device *dev,
+ 			free_irq(msi->sfty_ce_irq, dev);
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_SFTY_CE:
+-		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
+-			free_irq(priv->wol_irq, dev);
+-		fallthrough;
+-	case REQ_IRQ_ERR_SFTY:
+ 		if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
+ 			free_irq(priv->sfty_irq, dev);
+ 		fallthrough;
++	case REQ_IRQ_ERR_SFTY:
++		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
++			free_irq(priv->wol_irq, dev);
++		fallthrough;
+ 	case REQ_IRQ_ERR_WOL:
+ 		free_irq(dev->irq, dev);
+ 		fallthrough;
+
+---
+base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
+change-id: 20260930-stmmac-irq-unwind-0be86901638d
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
 
