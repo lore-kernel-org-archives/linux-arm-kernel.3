@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518EFCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25C3CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YA58kepF5/oFO2hgjwCX+vvSGiubieaYMrE8JCbPGRE=; b=J5IQNVzOki5BObLx2KVJpK67Yg
-	ftHwUp93QuBgC1T7p2uzWvSK8iQ6EHm6WX2b7Y5uAMxjySnb0xQtJ4bH2DA5lvn1xtUL4xmYojolA
-	rYlPcbFrj3bN4z88NXUzaxl2PO60rPLdTYjSljPLO9MaJi+/HT+P0kjGOdJhNiT7EjidHxUqgRpMy
-	rUFrFLhoUxQspU5N6U097RQQ5E050v2hJiLi1YtwierpFekZXbqpWb9ED2fwocrbb6ccAkscbEbBS
-	ER4PCifRQ2NsyiWZcwao5OLZPy+VdDOgFX7MQF362PqT92a4X13koxPQ0fUKNArti6jC3jbiOKN7a
-	1gOOR6dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nhpzh1R7pHE2ibrH/oLzhVXyWjE77EiAh70/V2MZ6BM=; b=HclIY6XxgP+9brkPb9ogWmaS0W
+	eBcZilTA4D1dSoWOXSrE+YtaP+bOPA/0kfhLMl6y+5qTJM56qPK70LT8a0CeYKquRTa7SptbLvcWH
+	nIaeKzkV+yGsJLJOSByPfFWlQ0hXcZte83Ic7zus1IGjLS8HI6vyPkxehJ0sjhIWOqGy/b4FKrzGo
+	+kBlfHXDxwaS0HLe+aqGiPCSB+I8+ZnWBGvyq9DUbThhA+KRmqJ1iXFt10O6Jwp86e0ZoRLPtoIus
+	lvPwtYQSUpmPGEUvfve2raFAk3GYEnvp2MEzYg4F+r6QPd9sxKV/F1ECjlAX74oDl+AR4Kqvci4bZ
+	3xdR18nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcDE-0000000Cue3-3OE5;
-	Tue, 13 Oct 2026 13:06:36 +0000
-Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
+	id 1xGcFz-0000000CutR-15AA;
+	Tue, 13 Oct 2026 13:09:27 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcD8-0000000CucB-1qI2
+	id 1xGcFw-0000000Cut2-1e4X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:06:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791896783; bh=YA58kepF5/oFO2hgjwCX+vvSGiubieaYMrE8JCbPGRE=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=j7IsN8VBWg65+eB3yIn/pY/Cp7UuHAS1ElrRYG3zZ7ZDXhi4M7thr2ZTlxwosL0Rx
-	 fPD04FsKz1HocQJoipo0t6fXxf7LfpjkHyJSjBmW5xK3+MJ2cvCHSei91HaqsooCo9
-	 Dl7wl9Kkd0V4VH9581K0y75223OkCnoIsP+AzcaQ=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-XMAILINFO: OTkXlZHit/HDB8lz4bZyda8RXw5N5T4WHY6SL+WkAwI1CMWbvphDjR94zYpnKl
-	 w9w2c0/v1h6QRIPtC/NIc30bOguGfgMYpH+00L7Qsis+xUpA8Nv+/wuo62ZbSP3XKzEG8uYQVh5DV
-	 yok+v9e6ywQ9rWYWeEKwQnhLd2FBs/4ZCSw5Jjf7OCHKIj8cfHpYPJFjwldV6hlDsa84AHGsZpm/a
-	 WrQ7bMmfodY02zY0+KHnCfF7q2t+jk3kL0ltDxzU6lqeGHMu1RXJW5QqRACnN3w2UltfYuFlgV4OX
-	 N8h/k/ddOQsVYO+J02HXIY95WzCaQub8DB/9KemcUbV7hEjCmlqQ7EVNMdajoct92kC+sJM7kNamx
-	 1aE7mDpyf177tcaFixVmtjLQ29Lii7uS3GCMZkNYqSW1L6LBmWXdb6IHRR5MyxStYo38Hm49qFqcm
-	 AWAODyxYB/E8n0hAkvlmjShx23PmPggxbzVDcP524fSzoD0CPyLU9+RGVCXoh2k+ANhWnoiluu8/S
-	 vgLMF+Kq1kYqdXLdh49+8TnNStwsGtuhEd/iPWQw9Ny7SXxql05T0uPQzac983mEHKD/d3GQeiomp
-	 JMl0Cxxk5NTdiOziSbcq6K0OCEjMjOypdYY3K1AWjJcXQAIzHL2Nl5Wsk0YYJv7eeCmPB3oZo+DVl
-	 0Vn1E6BVcR/Jd/j5Cc/l7kUEiupH4YunRfFHliQq5jXRuNoZPmvuwqfW16wqTIlrxRsccA75k49SI
-	 V2N+NyLy1wpCp3zBNXlsEaa+dDrsKnkZuxPQut0knJM31hCQvTZVX5583eXF2RLgPNrAqB0Qv9H9u
-	 i5gcgt2CETH8w7OErtDpFPFTeJOhIN5CWcryAde4jIEKFCwo7eXX5avKAmuFdtSyZXjwd23l0rgBq
-	 KwitEBIvRHOhzLvIubCJbpLJ1Oh1hDSmmBSOg6DMCW3xuyAuu1PfIZXKX+p8TBOlIVLnI6z/uWiZA
-	 BLGQa5RMF/4qBGUIZJHF3vKGbSnP1CHfUqO6p6hbMxeFyp3djE6SyG23n6H7IIkcbXqpgp/n2zGyX
-	 CSm8Y2+bLzij19n+LvRGR5GrnLK3U7I6blTB81jpzuBJxkyg=
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?TWFyYyBLbGVpbmUtQnVkZGU=?=" <mkl@pengutronix.de>
-Cc: "=?utf-8?B?VmluY2VudCBNYWlsaG9s?=" <mailhol@kernel.org>, "=?utf-8?B?U2ViYXN0aWFuIEFuZHJ6ZWogU2lld2lvcg==?=" <bigeasy@linutronix.de>, "=?utf-8?B?Q2xhcmsgV2lsbGlhbXM=?=" <clrkwllms@kernel.org>, "=?utf-8?B?U3RldmVuIFJvc3RlZHQ=?=" <rostedt@goodmis.org>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
-Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before closing the device
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Tue, 13 Oct 2026 21:06:21 +0800
-X-Priority: 3
-Message-ID: <tencent_F9D491A400474428BFE7262F1A1799A88407@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
-	<20261013-hissing-saiga-of-endeavor-ef5e03-mkl@pengutronix.de>
-In-Reply-To: <20261013-hissing-saiga-of-endeavor-ef5e03-mkl@pengutronix.de>
-X-QQ-mid: xmsezb41-0t1791896781t2k02as9b
+	Tue, 13 Oct 2026 13:09:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1791896965; x=1823432965;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=UpLDrnSBhRg6iXoSIzOWUiTrJH1KftLjMwLndDqjc5g=;
+  b=cP3bhlOz3ynsvu+BY91bMc1glYxAVJrgMpD4RouwtnfZ/WTtMHzPiVM9
+   18PeSl2abyWO5SHkpfMwRyC2yCbGRenrNkk9xOzw68L0Qc79AmKocFPW8
+   AUO8HyyTFIRSLy2zVo/ZbqOPEHxqCyrTjY9bc+tolhDXmBzEaS8IFXlTi
+   1oDOVVmjd/6rwAYKEqAy9mRf+HRclkL7mWqBM1N7RUOcHl2+lUKtRydXd
+   A3EaxyzBc7HIYYe9mrhvxkI+k/07CpG2Nk0K9UeG2gt5PxA0NSc3SsMzv
+   zaZkEvo3H+bjt0hYJs8YHaqF2+8fcCaZlK0DDVnp6e42uJCb83EX8aPIM
+   A==;
+X-CSE-ConnectionGUID: Asq+SOKlRlyUnEKX3/hD8Q==
+X-CSE-MsgGUID: sBdNhcjoQ6qPJvvQngW0dQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11933"; a="505927"
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="505927"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 06:09:22 -0700
+X-CSE-ConnectionGUID: oYbbfUsLQUuknHb9gH/1MQ==
+X-CSE-MsgGUID: UOJ0k6MYQCCqCp2CcQRkoQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
+   d="scan'208";a="1269436"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 06:09:18 -0700
+Date: Tue, 13 Oct 2026 16:09:14 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Bradford Love <brad@nextdimension.cc>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-media@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Russell King <linux@armlinux.org.uk>,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Subject: Re: [PATCH v1 0/7] gpiolib: kill gpio_request_one()
+Message-ID: <as4tep73cAI57Yk7@ashevche-desk.local>
+References: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
+ <CAD++jL=prd1KDZQawqsRmW3qp1-cJ=18-yhp861CQirOOjE5Ag@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jL=prd1KDZQawqsRmW3qp1-cJ=18-yhp861CQirOOjE5Ag@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_060634_514468_5753C63A 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20261013_060924_507634_FF884646 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFyYywKCj4gQUZBSUNTIHRoaXMgaXMgYSBzeXN0ZW1hdGljIHByb2JsZW0gYW5kIHNo
-b3VsZCBJTUhPIG5vdCB3b3JrZWQgYXJvdW5kIGluCj4gb25lIGRyaXZlciBvbmx5LgoKQWdy
-ZWVkLiBJIGluaXRpYWxseSBvbmx5IG5vdGljZWQgdGhlIHByb2JsZW0gaW4gdGhlIFJvY2tj
-aGlwIENBTi1GRApkcml2ZXIgYW5kIGRpZCBub3QgY29uc2lkZXIgdGhlIGNvbW1vbiBDQU4g
-Y29kZS4KCj4gbmV0aWZfcnVubmluZygpIHRlc3RzIF9fTElOS19TVEFURV9TVEFSVCwgd2hp
-Y2ggaXMgcmVtb3ZlZCBpbgo+IF9fZGV2X2Nsb3NlX21hbnkoKSBwcmlvciB0byBjYWxsaW5n
-IHRoZSBkcml2ZXIncyBuZG9fc3RvcCgpLgo+Cj4gQ2FuIHdlIG1ha2UgdXNlIG9mIG5ldGlm
-X3J1bm5pbmcoKSBwcmlvciB0byBjYWxsaW5nIGRvX3NldF9tb2RlKGRldiwKPiBDQU5fTU9E
-RV9TVEFSVCk/IGZyb20gY2FuX3Jlc3RhcnQoKT8KCklmIHlvdSBoYXZlIG5vIG9iamVjdGlv
-bnMsIEkgdGhpbmsgaXQgd291bGQgYmUgYmV0dGVyIHRvIHB1dCB0aGUKbmV0aWZfcnVubmlu
-ZygpIGNoZWNrIGFmdGVyIHRoZSBleGlzdGluZyAhcHJpdi0+ZG9fc2V0X21vZGUgY2hlY2sg
-YW5kCmJlZm9yZSBuZXRpZl9jYXJyaWVyX29rKCk6CgogICAgICAgIGlmICghcHJpdi0+ZG9f
-c2V0X21vZGUpCiAgICAgICAgICAgICAgICByZXR1cm4gLUVPUE5PVFNVUFA7CgogICAgICAg
-IGlmICghbmV0aWZfcnVubmluZyhkZXYpKQogICAgICAgICAgICAgICAgcmV0dXJuIC1FTkVU
-RE9XTjsKClRoaXMgd291bGQgcHJlc2VydmUgdGhlIGV4aXN0aW5nIGVycm9yIHByZWNlZGVu
-Y2UgZm9yIGRldmljZXMgdGhhdCBkbwpub3Qgc3VwcG9ydCByZXN0YXJ0LgoKPiBjYW5fYnVz
-X29mZigpIHNob3VsZCBub3Qgc2NoZWR1bGVfZGVsYXllZF93b3JrKCkgaWYgIW5ldGlmX3J1
-bm5pbmcoKS4KCkFncmVlZC4gQWx0aG91Z2ggdGhpcyB3b3VsZCBjaGFuZ2UgdGhlIGJlaGF2
-aW9yIG9mIHNvbWUgZHJpdmVycywgSSB0aGluawppdCBzaG91bGQgaGVscCBpbXByb3ZlIHN0
-YWJpbGl0eS4KCj4gV2Ugc3RpbGwgaGF2ZSB0byBjYWxsIGNhbmNlbF9kZWxheWVkX3dvcmtf
-c3luYygmcHJpdi0+Y2FuLnJlc3RhcnRfd29yaykKPiBmcm9tIGVhY2ggZHJpdmVyLCB0aG91
-Z2guCgpJIGNhbiBtYWtlIGNoYW5nZXMgdG8gdGhlIG90aGVyIGRyaXZlcnMuIEhvd2V2ZXIs
-IEkgZG8gbm90IGhhdmUgdGhlCmNvcnJlc3BvbmRpbmcgaGFyZHdhcmUgYW5kIHdvdWxkIG5v
-dCBiZSBhYmxlIHRvIHRlc3QgdGhlIGNoYW5nZXMgb24KcmVhbCBkZXZpY2VzLCBzbyBJIGFt
-IGNvbmNlcm5lZCBhYm91dCB0aGUgcmlzay4gSSB3b3VsZCBsaWtlIHRvIGNvbmZpcm06CmRv
-IEkgbmVlZCB0byBhdWRpdCBhbmQgZml4IHRoZSByZXN0YXJ0IGJlaGF2aW9yIG9mIGV2ZXJ5
-IENBTiBkZXZpY2UKZHJpdmVyPwoKPiBXaGF0IGRvIHlvdSB0aGluaz8KCkkgd2lsbCBhZGRy
-ZXNzIHRoZXNlIGNvbW1lbnRzIGluIHYyLiBUaGFua3MgZm9yIHlvdXIgcmV2aWV3LgoKUmVn
-YXJkcywKQ3VuaGFvIEx1Cg==
+On Fri, Jul 24, 2026 at 11:40:59PM +0200, Linus Walleij wrote:
+> On Wed, Jul 15, 2026 at 8:51 PM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> 
+> > This is the finilazation of the work announced in the commit 61e1fd2abca4
+> > ("gpiolib: legacy: Make sure we kill gpio_request_one() first"). With this
+> > small series we kill gpio_request_one() and leave only two legacy calls
+> > devm_gpio_request_one() and gpio_request(), where the managed one has only
+> > a few users and high chances to be killed soon as well.
+> >
+> > The series is supposed to go via GPIO tree (due to nature of the last patch)
+> > with possible immutable branch for others. Please, ack.
+> 
+> The kernel is clearly a better place after these patches than before it, so:
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Thanks!
+Bart, anything needs to be done for this series to go in?
+
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
