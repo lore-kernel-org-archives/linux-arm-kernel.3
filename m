@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FFCCC6B16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC4FCC6B16
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FyuYj7EievWUMgkf0Dgy2n1ZW/X2wRzzOHWZkhZbtcQ=; b=0jAi7vMPzAC1zw52cnIk041OC0
-	DCZ5EN/IP8e8VuJ6T+ytsj8oK3wkjeQ50PMRpa801vDYkfREakdZdWe2UdLAn+2gUJ5AiizpVZVf3
-	3HIgFSt/QvCpNreRVDK6CzJ15eYzlg9DwgFJGe11MPt184fyLnAMxdlhBRF7b76FxnVJPJyOTJlB8
-	X1VCDJSlDwOnQlFfPLa6K5Am872DPmMlm985G9kpaSDVcJjvDmvNO2Zdrez5+flBroGglH9p5dVYs
-	epuUzeY10fWfP56/CJL8r9bXOxSpamqlw1djekujz6xpT9Qkwtuw49DVp2mh8RcHSmE5jZlVrnuo1
-	v+NKpytw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nj1TMhPOMkYB6MWx6yQQPG1mHpG2YJ3gWeRMyW8XpyQ=; b=xPFzooTmTKUagIyCZWYTRKZdIp
+	Zr4XCi8hIpqDt7F60GqNcpvRVlM+0qm3zJ5p2iu9+znOa9AYrhD7O7YXaUZBCcQ+6w0BTYa0G0PPH
+	7G7BlP0OP4ZkJdZsDXBtHYiC8YKSI5GhVvGZDmjBSIt0uGe7F8I7fqRmOALZjouj3fvbRCmU+iolQ
+	iUGmRJ2PjeYJ4FiSeXSCI7Y4VtxoHxCoey3PiBDNc2sMU+BM09J45fboM2AyRonzZCfRZ1L//osJm
+	Mg0weDHDB3lqMnayk7I+h8qCQx2DR8ZeVLVM2SmcslfwP/1myHn/PFzAajzviL3fM5ncDj/GgnPuQ
+	ORzxe+1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGea9-0000000DNNn-1Xoc;
-	Tue, 13 Oct 2026 15:38:25 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xGebr-0000000DNik-35by;
+	Tue, 13 Oct 2026 15:40:11 +0000
+Received: from out-79.mta1.migadu.com ([2001:41d0:203:375::4f] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGea7-0000000DNM6-1r80
+	id 1xGebm-0000000DNhW-1qAh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:38:24 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 22415200758;
-	Tue, 13 Oct 2026 17:38:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791905896;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FyuYj7EievWUMgkf0Dgy2n1ZW/X2wRzzOHWZkhZbtcQ=;
-	b=WCXoskXlLE6JKfoDacaebegBbaCAdke+9GXp4dlDb49ve4Jr3/c6+xkbZN5NfcqYxTDZ+H
-	3Fm/6azMf3kt+yFsOCBEX5ioOvAhNLAKGLqVM/zYqLtCPpM/Q/9W0CiP6p3OVfqfX913Nr
-	2yvOqBo3Ohld/+MepreQ5Y9spHQ4AyqjgU49vxfo/GHOwjBj5WVrsum0Yp3W/zjk43M60M
-	pG0ip+wv36xiwwkBOHWWQgMvZYbMjjXMYqkvtViPZZLQgQvlC0u0HsU6SuGeBUiZVmi34W
-	+dEWwcv4Y9dLK6QXwEydeOEX6Qxvd5Si96Qa+8Dk/GHGmzb42XkjggLd0U0shg==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791905896; a=rsa-sha256;
-	cv=none;
-	b=aKpUxBQ5pAurauYivFh3hnYNj1amaLsW8N/beg1AAZEzyJ+WaA+mfARRFjPtEhIS2zuSX/
-	gzy4/uiwBIRZcFcBiQ7Z8VoADF1PFuBAer6w+Yiuotwfr80KQuZYRuYZ2qIACAvljPUsnm
-	2ycJdPb0UV7mV89pN3ZFfnml2pYXXHuPiqhJy63m7kyD220WVqG2kTfukzKrXiznf4BJBY
-	Gn3KOSHqpIZpzrVGjKdbib79QouHKuh0PN9LU8oea1kTauTCn/m/btC/XKVy08ioO8EsGx
-	HNhA8+ujQIeoQNINxkhXtvI0TIF9CdkhrB7Kt64jyepuFWJVycsUn8vLeXjkaw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791905896;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FyuYj7EievWUMgkf0Dgy2n1ZW/X2wRzzOHWZkhZbtcQ=;
-	b=ULIJqL43g5HjEELGUYbeHFJQiZ8BcGtdOodoZDkG7Ty4SXmEoVqzeK34cEWDcgaTkrG55c
-	L6DXOZi6eDjw7zN55m2mnhXEb/hk1jXe8Wfar6OMVg8+Y3JxMnAKkpxpa5ojSS/BoS1PWv
-	jY4Xg2jzb57NwdQmyaFTCvoX0r6+fNbsREkQo3frXovsvorlTyVotS0y4Fit9o0xIJZmBE
-	VDQZ51t/yRl5Mvhg/fDZxNXuE56PKg2al5Ednc9F34AMdgujb6JZEJI+hh5hEyzXUHtM1p
-	ZSVvfH4HAFqwbOLRqKj2QdDlxilK5NMpL64inqpcnCAyMH9J6sxY14Cu2/c2Fg==
-Message-ID: <f6ebd774c7e65410c70074c94eab966418d7ac9a.camel@pengutronix.de>
-Subject: Re: [PATCH] clk: stm32: add support for reset_control_reset()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Stephen Boyd
-	 <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
-	 <jbrunet+clk@baylibre.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-clk@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 13 Oct 2026 17:38:16 +0200
-In-Reply-To: <20261013-ups_reset_control_reset-v1-1-f8a6c7f6cc3c@foss.st.com>
-References: <20261013-ups_reset_control_reset-v1-1-f8a6c7f6cc3c@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 13 Oct 2026 15:40:09 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=wvI3yQEb1pra9snQf3HMPf0AqFlWoLGzhzZcKtUO3i8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791906002; v=1; x=1792510802;
+ b=CbIVFpFzbvBZ6HFblwi9Sb2Ng2vo/5CtHr8jdpUpJfyFP0rmHhgvjF6nrCEl3FMJIiJRgIr9
+ ZbTVdh9AQTmDCe9FB8/Vz8xt/XXiOxJkF47VA0MZ6d/yz2HAiJ2wybh9QD08SWvhHFaU5MWfNII
+ rFg/yXiVkz6lsZ4pqqBAewts=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 0335801ba07d6e44;
+	Tue, 13 Oct 2026 15:40:02 +0000
+X-Mizu-Trace-ID: 0335801ba07d6e44
+X-Migadu-Flow: FLOW_OUT
+From: Lance Yang <lance.yang@linux.dev>
+To: zhaogongyi@bytedance.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baolin.wang@linux.alibaba.com,
+	lance.yang@linux.dev,
+	mark.rutland@arm.com,
+	akpm@linux-foundation.org,
+	david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid PTEs
+Date: Tue, 13 Oct 2026 23:39:53 +0800
+Message-ID: <20261013153953.77575-1-lance.yang@linux.dev>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_083823_640102_5D7402C6 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20261013_084006_621403_069D455D 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,108 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2026-10-13 at 16:52 +0200, Gabriel Fernandez wrote:
-> The STM32 RCC reset controller currently implements only .assert(),
-> .deassert(), and .status().
-> As a result, reset_control_reset() returns -ENOTSUPP, forcing consumers
-> to open-code the assert / delay / deassert sequence.
 
-Do you have specific consumer drivers in mind?
+On Tue, Oct 13, 2026 at 05:36:00PM +0800, Zhao Gongyi wrote:
+[...]
+>
+>Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+>---
 
-> Implement .reset() to provide the standard reset operation and avoid
-> duplicating this logic in consumers.
+Good catch! Thanks!
 
-The (documented) purpose of the .reset callback is to allow handling
-self-deasserting resets, not convenience. I try pushing back on
-unnecessary .reset implementations in reset controller drivers.
+[...]
+>diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>index 0acab179f..851fa2e44 100644
+>--- a/arch/arm64/mm/contpte.c
+>+++ b/arch/arm64/mm/contpte.c
+>@@ -463,6 +463,13 @@ void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
+> 	if (!mm_is_user(mm))
+> 		return __set_ptes(mm, addr, ptep, pte, nr);
+> 
+>+	/*
+>+	 * Keep the producer-side invariant documented in pgtable.h true even
+>+	 * if a direct caller passes an invalid descriptor with PTE_CONT set.
+>+	 */
+>+	if (!pte_valid(pte))
+>+		return __set_ptes(mm, addr, ptep, pte_mknoncont(pte), nr);
 
-There are a few drivers with direct level control that implement .reset
-like this, but those are mostly for the benefit of consumer drivers
-that can be paired with different reset controllers, some of which are
-self-deasserting.
+set_ptes() is the only in-tree caller, and it already clears PTE_CONT
+before we get here ... no? Why not fold !pte_valid(pte) into the
+!mm_is_user(mm) check below and return __set_ptes() directly?
 
-> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-> ---
->  drivers/clk/stm32/reset-stm32.c | 45 +++++++++++++++++++++++++++++++++++=
-++++++
->  1 file changed, 45 insertions(+)
->=20
-> diff --git a/drivers/clk/stm32/reset-stm32.c b/drivers/clk/stm32/reset-st=
-m32.c
-> index fc237fccae68..9b853417e9c5 100644
-> --- a/drivers/clk/stm32/reset-stm32.c
-> +++ b/drivers/clk/stm32/reset-stm32.c
-> @@ -4,6 +4,8 @@
->   * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicro=
-electronics.
->   */
-> =20
-> +#include <linux/delay.h>
-> +#include <linux/iopoll.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
-> @@ -13,6 +15,13 @@
-> =20
->  #include "reset-stm32.h"
-> =20
-> +/* Hold time between reset assertion and deassertion */
-> +#define STM32_RESET_ASSERT_DELAY_US		2
+	if (!mm_is_user(mm) || !pte_valid(pte))
+		return __set_ptes(mm, addr, ptep, pte, nr);
 
-Is this delay enough for all possible consumers, on all platforms that
-reset-stm32 supports?
+If a direct caller does pass a !pte_valid PTE with PTE_CONT set, I'd
+rather add a VM_WARN_ON() to catch that. Silently clearing the bit would
+hide a caller bug :)
 
-> +
-> +/* Polling of the reset status bit after deassertion */
-> +#define STM32_RESET_DEASSERT_POLL_US		10
-> +#define STM32_RESET_DEASSERT_TIMEOUT_US		(10 * USEC_PER_MSEC)
-> +
->  struct stm32_reset_data {
->  	/* reset lock */
->  	spinlock_t			lock;
-> @@ -119,9 +128,45 @@ static int stm32_reset_status(struct reset_controlle=
-r_dev *rcdev,
->  	return !!(reg & BIT(ptr_line->bit_idx));
->  }
-> =20
-> +static int stm32_check_deassert(struct reset_controller_dev *rcdev,
-> +				unsigned long id)
-> +{
-> +	struct stm32_reset_data *data =3D to_stm32_reset_data(rcdev);
-> +	struct stm32_reset_cfg line_reset;
-> +	const struct stm32_reset_cfg *ptr_line;
-> +	u32 reg;
-> +
-> +	ptr_line =3D stm32_get_reset_line(rcdev, id, &line_reset);
-> +	if (!ptr_line)
-> +		return -EPERM;
-> +
-> +	return readl_poll_timeout(data->membase + ptr_line->offset, reg,
-> +				  !(reg & BIT(ptr_line->bit_idx)),
-> +				  STM32_RESET_DEASSERT_POLL_US,
-> +				  STM32_RESET_DEASSERT_TIMEOUT_US);
-> +}
-> +
-> +static int stm32_reset(struct reset_controller_dev *rcdev, unsigned long=
- id)
-> +{
-> +	int ret;
-> +
-> +	ret =3D stm32_reset_assert(rcdev, id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	fsleep(STM32_RESET_ASSERT_DELAY_US);
-> +
-> +	ret =3D stm32_reset_deassert(rcdev, id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return stm32_check_deassert(rcdev, id);
+Cheers, Lance
 
-If polling is necessary after deassertion, doesn't this be have to be
-moved into stm32_reset_deassert()?
-
-regards
-Philipp
+>+
+> 	end = addr + (nr << PAGE_SHIFT);
+> 	pfn = pte_pfn(pte);
+> 	prot = pte_pgprot(pte);
+>-- 
+>2.39.5 (Apple Git-154)
+>
 
