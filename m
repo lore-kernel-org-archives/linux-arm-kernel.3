@@ -4,161 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BA2CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 19:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A578BCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 19:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:CC:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4BzgO4Xqc1/8iNtlEfyjCS0ZCE7vZVouWm+WmlA3ms=; b=fJUDWdjz/o57YqbMXDE0lJS4K3
-	lC/PSR6pNHoBB30DTF+GJ8ICuQFBccwJ01HJYmcqRtkdkHU9RWqpnXjQAFWn0632bFph8oNlxFVmN
-	MRfjIFGyi6DyA31oUEvsj36BH9niTF9MzpHbLsz0VNJjYE19CKN1fqbDOe6LXdPSTKjUGb/shycF3
-	izkiahLKtVOLJV4C6FGdMhBpuEzHlrQa7xquQyf0maqoUkLXETmd887Hn/1uduVCzwyfogSiv0FWp
-	YYWNDB9KAGmxG87B4fpgFlBCPoDBiYa0LYiCh9d/8wvSFuytiATFS8oy4cfpnaXV0gW3kk7A7W2zp
-	CUWlU3hQ==;
+	bh=KjOCMFC/Y7+GWbjEe0AG+BvdtDKX/n8qS43ZqrokTDo=; b=LDpUth9Mw4UmrkW6NG6Bb7tLYU
+	cPk9Z5MRWAUOwj4afAhs//5EbPzATprdvoXo3u4QDwIsEt2VaUSSxSZ45SyrSpfM66k1O4p6tTToE
+	6yK/HXsOQ9PZ1TNTKHrRASShEKcU93RLUKJAhImYu47mjs2RFSLbvdpOsH6I74MndMLSiZkItKmVP
+	Pap8fU9YTlyjZWVKoAp6rzrpnTldr58uRDWVPZykaP0pVDASEFOzSwFNL/lfCTvDuop3pzWDORYaC
+	Z6+FousycViwiaGL4mbmqdXmTEYhDEnmfWD4nsIs325vO2GAkZNHttmHaj7KuslAaWMsWZpSJvIiI
+	AcCLkC5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhxg-0000000Dtnw-3Ji5;
-	Tue, 13 Oct 2026 19:14:56 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1xGi4Y-0000000DuPd-38iv;
+	Tue, 13 Oct 2026 19:22:02 +0000
+Received: from mail-westusazon11010014.outbound.protection.outlook.com ([52.101.85.14] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhxY-0000000Dtli-0vej
+	id 1xGi4S-0000000DuPH-3j72
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 19:14:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1791918888; x=1823454888;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-transfer-encoding:mime-version:subject;
-  bh=m4BzgO4Xqc1/8iNtlEfyjCS0ZCE7vZVouWm+WmlA3ms=;
-  b=YVuBLUDdeBqUNyC8t3Jggg4gQiNhbuaU0DvmfV0sgBhMsYBVydOUhpoo
-   t2Qfgz813BC+4iCkdzvAv8s2Ys56ZxOHl+4t7q8CfII2UyZR+MPio7qb3
-   aD+MX7CzuHZVgfLzfUMh1f0vljs9LpBvzxMyqOpW4rh30CbxpU8cKV0zB
-   oLmprIYDoST0BQadb6RXCR5IIUp2TFidqMyni1a5bIFCJQ0g+HNX6QQ4M
-   URhOhKMDh8rFmu18Nzt/5PqeWW7Mu2ap7wUnq8u0wLBxRmIJcxlebzUjU
-   jivXVJZ23tUXR6yQ2NmDE1/zD7cWUB24qTVmVrz6afQiydstm2pG4GiQd
-   g==;
-X-CSE-ConnectionGUID: NTc5OJTJQIqK+VnxjuNgPw==
-X-CSE-MsgGUID: GD/iqb1sQgiwfs7tiQf3Ew==
-X-IronPort-AV: E=Sophos;i="6.27,156,1787011200"; 
-   d="scan'208";a="30941274"
-Subject: Re: [PATCH] perf/arm-cmn: Allow userspace to select the PMU's CPU
-Thread-Topic: [PATCH] perf/arm-cmn: Allow userspace to select the PMU's CPU
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 19:14:47 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:14956]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.1.91:2525] with esmtp (Farcaster)
- id 478c8355-849d-4cdd-abda-ee5b590be2c4; Tue, 13 Oct 2026 19:14:47 +0000 (UTC)
-X-Farcaster-Flow-ID: 478c8355-849d-4cdd-abda-ee5b590be2c4
-Received: from EX19EXOUWC001.ant.amazon.com (10.250.64.135) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
- Tue, 13 Oct 2026 19:14:46 +0000
-Received: from CO1PR07CU001.outbound.protection.outlook.com (10.250.64.206) by
- EX19EXOUWC001.ant.amazon.com (10.250.64.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49
- via Frontend Transport; Tue, 13 Oct 2026 19:14:46 +0000
+	Tue, 13 Oct 2026 19:21:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fqi33eZ4dd1Ths1Fo6x7TzBgKAsVzrSVnSVr36QUaD01p0CRrj2J4E9tdVcql1wCS04etQxAPyXexn95s8c9IUb7nedSIlbqBgaBVIRaSEQr2cbI8ueKVBdXLdcr5H5sv790bvQTnCa/2Mv4LqUldzOgcWXjV/FSSm12X+Q5LS0diE3duFwRc+6GTmiLxqaxG8n3/Ix02EJiYQsnJSK5VNsQuOobaq3weg+s0m92B1IVjXLPmKqZYQJ330uxDFmwPd7nDgGDu5+ue4JvHeJuXWoXGV9Lh6TsVXsxAtRbghmykh4LY1AI4k9dCM8c0v+v6nLvk+VQEFYPUd4UY90O0Q==
+ b=tMpEe6xcF17hPR0j9MRKx2QOWCmX/KR/m7CXBjk66D1KfQZcm3wHJYrANue1NjlhbO65xR7tYhnSWxef7nOKAvwbSGkk6eGl732pp+1Krq+jUVtlII2NAaqHc8zFoRlqmfBN5ryf/BsexIs+G7UpBx3Az9ftr4WotDz9d9NsxzQNLAI3q6ncqUOdu6kI3ZZuYKYiQNT8s/NbTAyr+KRPunEOVkxzoOtP3E2LKpuffEROEVgKvU+IOTKWFa8j4i96vD3dtgSES4oOEcnynL3vhmm129rDuVfmDIzjHwEU7rYIYXlXiEfuWbCl9pijrV0S0PdfAubAtT4+OlBknJb3nQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m4BzgO4Xqc1/8iNtlEfyjCS0ZCE7vZVouWm+WmlA3ms=;
- b=dWgBjLgpDM8oGQ5LNFvGuemQKl+fVGCU12W/UraaUYPmijyKEmyMkeD7gaEjYwEiszVoyZk8kZKWuXndaRgzmFeJlRJWlB/6CTsQY99/aDQkgtgpSjT0CBKeBo2hBAl37kyHrQ8+S/ppsOb5mGWNVLLMs6eoYvb8I3if9RA3i2+W71dUQjhp+N5rdHYIa4vbgKgU+0yHb22g3OkkbkzUUrnXlzhRGxxE1aUbYa1ZtowcwMrKC1Zphh6uTukLPy9StG4NH6U5oHWU4R0esVuuNqZ2Q/vF0wArFzd3PtUZ6EpXLUIylqOC/TBmbckCmddj97XBIfiWfpFmMTr9RsYs9w==
+ bh=KjOCMFC/Y7+GWbjEe0AG+BvdtDKX/n8qS43ZqrokTDo=;
+ b=oxIhPJg22eqmdcQHPUSMz7O3/nrYrraU9uc4zvJAP1HomB5p5KGd0oFLmPnfuKca/XgOp+Z3o6/8Qil/xbT1xCRdAW9VekA0QcUKsIuPd+t5Vu91DwPuG0QbalhwMbomKluZ9iULvOcFvJGc6nXiYGv69l7LrBeFhA4SYOPCYyhjbmDeybNjPA4HvNdr92QwZllFye2jWox5kaQ3Yjfnjwz1wJ2t1MH2hMCWMMyx81lQpp1o2xCi7uAex2Oy6GNgp6dYEysNPxYu21tcg5NVlEaZOey4/X6JNqyKmmB0tjRSeiocxcJ3oaHsn0J6M4W7IQNsPUK9fg1An1SNgC/wWg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amazon.com; dmarc=pass action=none header.from=amazon.com;
- dkim=pass header.d=amazon.com; arc=none
-Received: from MN7PR18MB660231.namprd18.prod.outlook.com
- (2603:10b6:208:5f3::23) by SA1PR18MB6065.namprd18.prod.outlook.com
- (2603:10b6:806:3e2::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Tue, 13 Oct
- 2026 19:14:44 +0000
-Received: from MN7PR18MB660231.namprd18.prod.outlook.com
- ([fe80::97fe:4c12:b98c:3b70]) by MN7PR18MB660231.namprd18.prod.outlook.com
- ([fe80::97fe:4c12:b98c:3b70%4]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
- 19:14:42 +0000
-From: "Okanovic, Haris" <harisokn@amazon.com>
-To: Robin Murphy <robin.murphy@arm.com>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "will@kernel.org" <will@kernel.org>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-perf-users@vger.kernel.org"
-	<linux-perf-users@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Thread-Index: AQHdURIAJvo3yua2RUmC2W5fD5s0e7bqeAkAgBFzzds=
-Date: Tue, 13 Oct 2026 19:14:42 +0000
-Message-ID: <MN7PR18MB66023148440D0477B7D384A16BA89E2@MN7PR18MB660231.namprd18.prod.outlook.com>
-References: <20260929223244.2411400-1-harisokn@amazon.com>
- <b782f893-e3ab-40f7-a7c5-ce19660be2c1@arm.com>
- <CY2PR18MB8432185386B28FBC1DA23F3333A88B2@CY2PR18MB843218.namprd18.prod.outlook.com>
- <2d70be7b-12c0-46e0-b308-744a3159388a@arm.com>
-In-Reply-To: <2d70be7b-12c0-46e0-b308-744a3159388a@arm.com>
-Accept-Language: en-US
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KjOCMFC/Y7+GWbjEe0AG+BvdtDKX/n8qS43ZqrokTDo=;
+ b=RmL1BZmrhr4G8ceZdBHSVEbHActzxaJp0BQdySJsHyzpP012c4hHMbuZ2a/vQG5CzMsN6E/+DybtPsKClcCpsz4RYJJ0RWtg1AEm8lRrSwXWtlbPtpotKRQxuhxnoIntFS6rsxpCQ2kMccwDTcYD778sTFzLjN7gducCf69A/Gk=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
+ by SN7PR12MB7204.namprd12.prod.outlook.com (2603:10b6:806:2ab::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 19:21:50 +0000
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54%5]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 19:21:50 +0000
+Message-ID: <c64b8484-283d-46d1-8721-53f9b9a962f1@amd.com>
+Date: Wed, 14 Oct 2026 00:51:34 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 3/6] net: xilinx: axienet: Add 10G/25G (XXV)
+ ethernet support
+To: netdev-bot+sashiko@kernel.org
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261006110550.1990213-4-suraj.gupta2@amd.com>
+ <179163334454.434549.6060647558462905074@kernel.org>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amazon.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN7PR18MB660231:EE_|SA1PR18MB6065:EE_
-x-ms-office365-filtering-correlation-id: 196d8f17-a852-4f00-ce14-08df295e3c53
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|10067099003|4143699003|11063799006|261009223027099003|56012099006|38070700021;
-x-microsoft-antispam-message-info: hkHmy4nU3BzoElPnjkGwSl08k58AoBh6xu+KsZQiZpTv34uRqrP8iWwFncpaf5eH5m3OGAuoEU+L09YjcLzFBwpSsgs5qs9xXEFpSNbLyymOFu9EjIhxdddiCbwOnsc07foyG7nhqIoEjWHc8qD5CKWMVXuWDhzOZ/lnpyV0U/F/YE4mzfZgZ+cdZn8yBOIdKkZ0fn82BBvfmLC0A6TL/ICWyYsdWHoegQxBl9tzNg2EK+aK5EBjIggjsE/GZslidx5cahVNY6VK50lMRBAsYxTgsu+rv3SbO6+rNYr2OLQ73XRIETjWiQLXAjx1IVlBbjAPbjRnp8ykBn5KSVjcqJCzX8zdhSZ6q2XdRv2BhjCGppJyCtYPuQUfJAkAwWP/b1XmR41bZcmSkZCrTh3FiujaS8f+iyXj4PhMfKpwWyQb4fnuAxj8LI5B3aRpQlZH22MyiZdSXRbB3eyNaSoAUNAnNDkp64T8h3rdxx9iv7VHkF3MCMche88Dvsu+HekGZweqTmfqGmIn4L/QXFb84OaWZ+tZ/1r+AyIoZH9Z2w5Z6I89ckUPNOseNY2MwxgfLOzBJJOuVuVKIlHjXV9yYgSLqpc+mC/5fRuju1lklCncSCEjMPqtpjIGHWXm0TOkDSq94yYNOtfAUbWGli0OCXYdZ8txe8eAOmiikFzT7Mw=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN7PR18MB660231.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(10067099003)(4143699003)(11063799006)(261009223027099003)(56012099006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?wWMwaqJC4Cuko+26oJvi8bp5NDAqzwV3nFsjYD0DGv4kJuY3eYvXYBXCSS?=
- =?iso-8859-1?Q?ZqsvGicyUUR1MtlpHXcUwjYSpZ2eC71ze8R1wk1gM9yoMvWctmhErG5Fdw?=
- =?iso-8859-1?Q?bCVWzf6m4NvdJSZbVyqoUpPSmjVADI5h5QHJJvwQHBJTGwXSOCLQwXrOZI?=
- =?iso-8859-1?Q?XgtyGoDim/6vwnGDLAepeF6vPQmUnZeSw/B9D2F++R/VxHmuXPQiOBWIaG?=
- =?iso-8859-1?Q?Cbgir0R1fzOIXGcSH81S+li60sdEnZzTjG7RZshlM+PgDrk/YufbG4vh1S?=
- =?iso-8859-1?Q?YpxTxbe/q9mveN0CavQ4/9BaOVRXdVwTgmgmne6dRjes0GV7R1bQkACGOI?=
- =?iso-8859-1?Q?YT96WRUuVTUXo/btV7aEx4YX7atj7QZjSPDsQOMp78m+1I8KThHbXn9anZ?=
- =?iso-8859-1?Q?549usl8WLBPRJ6ZIxjE6p1KCSIsNBI01gn0wgXVz/Y5lqyxUu+TE9lVqAp?=
- =?iso-8859-1?Q?XHRweZbjVLcXve75FrG3X0Sv7W47BaNObE03UvpYcm27+e/9E+SsTYcg3g?=
- =?iso-8859-1?Q?JgwWH73qFbG6HSml1AWBWxWC1umDn5xfrC8px86sD1oAZzYQjF+U9Q0N/l?=
- =?iso-8859-1?Q?85RhM5F0Bi1OGzBF8LzY/RI7cew45d2dG3RmVGaC8iNnarsuVuYNghCCBb?=
- =?iso-8859-1?Q?7JcgOec74hivDFpq3wLhmvakEI3lZD9AfQf565NKu+Ty2CvDwj/IN/Rein?=
- =?iso-8859-1?Q?zsOd2WxAfsnGSFDc/NjaBpvJvyjtGCuFutHvuw4g/5Y/y+/KJ0IW/Ak6gf?=
- =?iso-8859-1?Q?q4KK+1kccWsDyPr+9M3mTXYCFPHF7HetqSdVIBgs9Pa7VfP/cfnKnd19M0?=
- =?iso-8859-1?Q?EMxcKYDUaAKGY/GuYKOD6YFqmeiD8SoFGgdXI3HY72tZGRIVm4miyJzHig?=
- =?iso-8859-1?Q?i+s60mMEwnFujnDLRyhYtMNVo5rn9+4BztSJTUMrjzfjcv6dSh01vqXD8v?=
- =?iso-8859-1?Q?ppquWtjrJYS6pO34WhGb6PYCbggBsgC7ToyxpWfhWhDbQ7jF37sx0d3hzv?=
- =?iso-8859-1?Q?+dc32dMFxD5u44ICB3RsJri9QbbrIpjDdD+slFRzIJMjSxIi9vnKlFQz1n?=
- =?iso-8859-1?Q?2R5HMesG1M3MSd9vmRthZKOB0PRJk0jrbcrB4o3GdEECHnMYZzsXu+7nRt?=
- =?iso-8859-1?Q?/Ic8Z6AvcXvprKRi+OsF71rlljWP1exE+LPDSL88BeKKSX7KHLc9kDUcOc?=
- =?iso-8859-1?Q?Kxj1o3QjlEmV/PlH7S85i6ZUYWuuKsT95exCEINiCnCt1nuzS9kFI1xcf8?=
- =?iso-8859-1?Q?L758xS3oTQ96vUQjxsFqbePjec6TcBTQUBtI68Lw0WnwDzc3q13NmnA6yc?=
- =?iso-8859-1?Q?2GbR5HYkcqIcp8ght0QRnFf+Ai4uj3eyZb9EF8D2ohb6w1sDWkwxutADaP?=
- =?iso-8859-1?Q?Qqt0DHGZ20UuckSDPJQP8edq8sChwWaW7yRxZRsdUXxzwD8MbnyliH7byR?=
- =?iso-8859-1?Q?Kn9Vr/uXb4fo9hdnLzb7C+pmqDiM68G507kcAyUD7Btr2ara0hO3FuPEWK?=
- =?iso-8859-1?Q?8bJJGb5P5SSpzlyw1GqgpzkRQEzliGhl+FZGDlhJyTXFwxKj8f6/lJ5kNw?=
- =?iso-8859-1?Q?pvDtWpVMiir1iuOKmpVaXJ9Fmx2+Im3+TDxuKQqK6jl1rg0M6vbCJInTCY?=
- =?iso-8859-1?Q?RI04Gv6ti219NODMUUPoRRL8Pp6hXubhi1gs808LIik1H2igriuNEoAerd?=
- =?iso-8859-1?Q?gm4ogAVuNMN6PPptTYrp9ye6kOX5Q44SsHh8pa7vccc398fyJKBQMHLOCx?=
- =?iso-8859-1?Q?NxR6jikUxes0mU4GcRblVdclZakuUoy9SpldsAxLO58YXm?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+From: "Gupta, Suraj" <suraj.gupta2@amd.com>
+In-Reply-To: <179163334454.434549.6060647558462905074@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PN2P287CA0004.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:21b::6) To SA1PR12MB6798.namprd12.prod.outlook.com
+ (2603:10b6:806:25a::22)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: u10kkG+cEpx4JpK0szQMITDdk6pWlaX1RHz5//JmpBatu7ERACsblUQpJ2Ra3Ihi48Kd4PC//SdUBg6KQUW9XsyCFg6QqbgsOEybIoMQFPxBnpI+NvCzsvyda7+W6cGmifmYQF2dZK9cKI1NkIb3VEDy247q5r0iUm6vK35Clzhr/ioynCJMKZuqfYIPPXsqp7X4ZQukKN+yAgoJ3LSs6tpbKxyMcSRcA+fn2jELophUbhXdHIMtAZHdXK9045/1GVIr8AcN9Qe2BbYE3JuQNWBFAvP6ZGqXQHMovf1PMxgKgwWmOh/K7TKVxuB8vZ/7AsjRN5SC7LvTbQoqSuzHWg==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|SN7PR12MB7204:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1081fef6-50d8-4da4-3256-08df295f3b67
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|6133799003|22082099003|18002099003|10067099003|5023799004|11063799006|4143699003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: Gv6e0JdIWT/jzUuPtbnb46QLprjgXFp7wl3gLGU9M0K49bInZp9uolFnT4Ii7OOBVsenpsqjBuCdRounZ9hL141U5mY+Cdh/80C5FhVV1X6A/IOC5HwxYi7iSb+nNKR6h9ci+s6CbZSaQfF/eZJPQiSO08Y9LIFYFUmh9mepgMIg6uXUVbSna6R1LSdf88q/hyAliQv3fvtbPzE/CxTEMXV7/SMCrPMSZGOheMQFXNg29icKcXGTNendnRYxJ2/ztIv5Pu7+1A5grF4DMqy4+7VyIjnaE92qvwtAAsE3bdPHg/2EosrQVcVXo04Q0jnaKzDNAQvHdRice5jzbj75V5mnNnEx/WfBT5hLt14Af51farIVy57QVE0H1KkFyzU1g14C7qy2zmYIGjyK39KPkp2Iv4DlTdVBsmPasHdFHCsgUsHtuTzRhyHwhYarTJf4IrI2sFxouAr0NRsNyzMJYMJ5wGg4EMACxwzaISEsTT082aSqQ3kABaF3jLXcQjK+zmllCX9kmg7MdySzUWn+XadlNUc/Xp9hs6iGC/iZIvwnOw3oiqRHR1hO/YMVnLzR5acc8sx4R4X1pFJhR32vzGnhKagZBlUe/gRGcaadie1lgvmem4sVtNHTV+FuIczi0wGfSFzey9Qnhxgu/2Ja2GX/RYNJlWOJPp9w4ixrbek=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(10067099003)(5023799004)(11063799006)(4143699003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eU9tU0xkelBaV0NoT0l5Y3I1eTJRRjJONUx0UnJycDBZVHFQZzFBeCs2cHZY?=
+ =?utf-8?B?UW4xWlR3QmVSdXdzY0Z6c08vSDdLVmhnMjVtYkVxS1VnTkJCY05MYXZJOTAy?=
+ =?utf-8?B?Z2drelg5dlQ3NC9rUWNGdkI0UjViNzRyaURMTGpxeFl4czNQbVp2UDR2NXky?=
+ =?utf-8?B?b3hlVVI2SXZWK0UyVWoxYXZyYWN3VU9pbDdCVHkyNkJkQU9QQnNVNUZ0MXZq?=
+ =?utf-8?B?b3kwNzB2NmFiVGk3cDVxMWM1eTZNS2NUUTkzODVSRW93NGxRT0xEQ2xjRkxk?=
+ =?utf-8?B?YlY3RVBKTW9LSW9LNlRFMGI4MkVERXJ6Vko5cGRzRVFUcDNMbnU5SXNEYzFm?=
+ =?utf-8?B?UzgvdnYyZEU0RlFaWkZjYWlmZFNLUkdoUjNmLzJDbmZiTnpReU5tTGErYjJ5?=
+ =?utf-8?B?VzFxUjgvRjlxZTdyNEkraVVHeklqOVhyUG12bm9IQ2hPL0o4Z0FmTHpOa3U5?=
+ =?utf-8?B?R0tmSkN1d2p0SUtDL1RSSDZZQzJSN3JEZ0R2UXJ4eVMzL3BDV3RIZ0FseFZt?=
+ =?utf-8?B?SDBiNW5zWmZnR1E0UzFVa2V1bk90QlhHZllxbHEydUdVdE45UmJwdXVBOTBa?=
+ =?utf-8?B?Y25DQ3ZaZ3p0R3ExOVhwVEkxaSt4UUNrRjFhQTFaeE9UNXdaekR6RXFVN1VI?=
+ =?utf-8?B?NXNLcm4wVmF0QTlFMHovTENYWFhTMW4vYnZXeGs4M0poOHZKMzlBbnF2TmhF?=
+ =?utf-8?B?OUdXM1dteFlpT2RYZklSeU45bnlLTnZwWVgxd0dqc3Q5ZlRYRFBwOFcrRGpU?=
+ =?utf-8?B?ZGdudnV6ZUhRajJiaW9WYk9QZzBxWWM3NVVpRjhLR3B3WFkzM3BtNkluczZM?=
+ =?utf-8?B?cmdlSVZwNnJ2czlGM2pNd21yMnJLSThrRC9FekZ0MURjcCtEV3pGVVJWb1pR?=
+ =?utf-8?B?MHRhcnlSRWt2YkNFNCtaMWN5QXpObzVhZzBCbEN3UTdtOFliUy9zcEIvSDRW?=
+ =?utf-8?B?MnQ1dEFHUy9RVXIxV0xmb28wY25OaEI4d1M3QThPR2p0MlByak95dHFGU3F1?=
+ =?utf-8?B?QnZjRXhLNnBjQUZBZTEzWERFVVFGR2R2SzRRcCtPWDh5bFczSXBiQ09zVm11?=
+ =?utf-8?B?SGx5eTRyVDVFdUdaanRaR3RmQ3kzUlQ0Z3BWNUdKbmVtanNBRnBpdzN2U3A2?=
+ =?utf-8?B?Zlg5VEt4QlVNYlRiSG1iOXd6TEIzMWRWNWZ6ZUhXN3lkODlOWEZrVHoxYkJM?=
+ =?utf-8?B?a1NLMGlSUmhZYlp3V0g4MHRkQUdlYkpkRnhtbklzc0RFRHFhZlduTlFGZ254?=
+ =?utf-8?B?cUtHS3B4M2JGMVBBWi9MY0ZjdzVZZmNscFR3UjNyRXhlSEVZSW13MERja2Y2?=
+ =?utf-8?B?ZVVxaWRGQ1pVOFczVVpzQlpKK3BPQlpqR05ZSzlIOEZvbmVwVVJqcldoZnU2?=
+ =?utf-8?B?bEZDWC9makxIMHFBMHQ0NWVLNFJnb1pLdk4vSnRBSjh0QTNSb1pjNm80SExv?=
+ =?utf-8?B?amRkM3ZWS0F6REtwUnNFck9GckJIRS84NUVUYXNSNFhJTlRROEhBYTh1RkVh?=
+ =?utf-8?B?UUQ2NnFuQUF3MStRaUFmK29hTDJNUXV1NTR5UnpvSkxsUEtWeStyNWk1TW5W?=
+ =?utf-8?B?cytpUWh3RFl2QjRFRzE0amRHMlFiY25pUEhHTEE3VGZadVQwTGtTbUt3a2w4?=
+ =?utf-8?B?WnFsTTNrK1liK3gwaE9TVUxVUzhZN3BrOXEweFV0N3gvcHFCOUpCQitnTDB5?=
+ =?utf-8?B?clhTMk9lNnZFQWhSbnExbkd2bWRlUWNyV1k5Nisrb1JHcTZ0Z3pyd2VRRWNG?=
+ =?utf-8?B?aWJnYXlRRytwK1l1N3JCakdkN3p0N0UxeEt0SWZNV0NCVEhnc1RSRXVhbzNU?=
+ =?utf-8?B?aUQ1YjRESEYwdlJaa1lFNXhVcDkza0FIVHczL1RDTFZ1V0ZQdFljMzM4clZv?=
+ =?utf-8?B?L1hlTGhNaHpZbkNGS0RObWl4V3h4eVNtMWk1RVJIRkNZTEhLbXZHZ0VFWVlM?=
+ =?utf-8?B?anArRHdEc0I5b1owNVAzYmlsUzB6eW44czVsVmhsQjdiVGNqRU85TzRrckNX?=
+ =?utf-8?B?TGJ0UTlOY3hOQ3h3MXlWT2t6MTc5Umg1ZlJ5dm13V01vZHIvRE5ONElEUzZh?=
+ =?utf-8?B?VFo5SUp6NkppMVN5ZE9uUEUyelh6N3h4Sm5TWHFZZE1jaHQvL0JnakFvR3I5?=
+ =?utf-8?B?d1l2RHQrU2Qvdlk1NStneW5tU3pkakNBaWZ6Uk5IVE01cUh2UnFBUXdIYk82?=
+ =?utf-8?B?cis4SzJxOW1aZU9PRDZiMEoyb1JqMSsrRGdSaE13QTVEaGlPMTl6MDVMT1pj?=
+ =?utf-8?B?cDRXSFQ1b2RWQWRVTExydFVkalBCNSt5UkNqeFdFV1dGRTlMcHUyY0cwUFFq?=
+ =?utf-8?B?RHRaMzJNNDNvSGtQbHE2SkUvWVZqaGlJSUZmdXlXVmFUdzh1c3hWdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1081fef6-50d8-4da4-3256-08df295f3b67
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN7PR18MB660231.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 196d8f17-a852-4f00-ce14-08df295e3c53
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Oct 2026 19:14:42.5370
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 19:21:50.6751
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 5280104a-472d-4538-9ccf-1e1d0efe8b1b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +uij0UEY/2I8ns/bpK7/FcdBBuWwfym4LV0NZ9HCJxw9nGIo8i+609iu/121JgWdZy86akMnFyTcJF0jumCzDA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR18MB6065
-X-OriginatorOrg: amazon.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OVPubVarPl+46ZDEEb09ULKaeli6rJvIyN7Y8QvbJqe8uf99K8f8LkU+9cLZG6PMeKcJ2mZXc78f0Eb5t6tJXA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_121448_315695_8C8BC940 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261013_122156_975186_67A15E90 
+X-CRM114-Status: GOOD (  42.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,28 +150,481 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-02 17:43, Robin Murphy wrote:=0A=
-> why do the dozens of other drivers which also pick an arbitrary CPU=0A=
-> not also need fixing?=0A=
-=0A=
-Fair point, I understand the scope better now. I counted 25 drivers=0A=
-doing this, each with its own copy of roughly the same logic.=0A=
-=0A=
-> I don't see this being practical without first generalising the notion=0A=
-> of CPU affinity so that it can at least be dealt with from a single=0A=
-> place in the perf core.=0A=
-=0A=
-That is what I have done instead of the original patch:=0A=
-=0A=
-  https://lore.kernel.org/linux-arm-kernel/20261013185603.1347265-1-harisok=
-n@amazon.com/=0A=
-=0A=
-Only arm-cmn is converted there; the other 24 are prototyped locally and=0A=
-will follow if the approach looks right.=0A=
-=0A=
-Please let me know your thoughts.=0A=
-=0A=
--- =0A=
-Haris Okanovic=0A=
-AWS Graviton=0A=
+
+
+On 10/10/2026 5:25 PM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 10 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 4 · Medium: 2 (1) · Low: 4
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] Under the new xlnx,xxv-ethernet binding, the interface cannot be
+>    opened.
+> - [High] The new early return in axienet_open() leads to a double free /
+>    use-after-free after a failed resume.
+> - [High] The XXV RX path takes frame lengths from a source the XXV
+>    hardware does not write.
+> - [High] The XXV MAC's receive max-packet-length register is never
+>    programmed to match the RX buffer size.
+> - [Medium] Pause is advertised and reported for XXV but never applied to
+>    the hardware.
+> - [Medium] The GT reset-done timeout is only 1 ms, and this patch makes
+>    missing it fatal to ndo_open.
+> - [Low] A real fix for an existing 1G bug is bundled into this feature
+>    patch without a Fixes: tag.
+> - [Low] axienet_xxv_poll_link_ready()'s kernel-doc says missing PCS block
+>    lock is expected with an unplugged cable and must not fail bring-up,…
+> - [Low] The jumbo-frame flag and the MTU range disagree for XXV.
+> - [Low] The kernel-doc for axienet_device_reset() is now wrong for XXV.
+> 
+> Pre-existing issues:
+> - [Medium] axienet_dma_rx_cb() passes `rx_len = app_metadata[LEN_APP] &
+>    0xFFFF` straight to skb_put().
+> 
+> --
+> 
+> net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+> 
+> This patch adds support for the Xilinx XXV 10G/25G Ethernet IP to the
+> axienet driver. The XXV-specific code lives in new xilinx_axienet_xxv.c/.h
+> files and is described through an axienet_10g25g_config with callbacks. It
+> also propagates axienet_device_reset() failures from axienet_open().
+> 
+>> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> index 5af48d5cbed3b..c09f88b552fce 100644
+>> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> @@ -1710,6 +1710,10 @@ static int axienet_open(struct net_device *ndev)
+>>   	axienet_lock_mii(lp);
+>>   	ret = axienet_device_reset(ndev);
+>>   	axienet_unlock_mii(lp);
+>> +	if (ret) {
+>> +		dev_err(lp->dev, "axienet_device_reset() failed: %d\n", ret);
+>> +		return ret;
+>> +	}
+> 
+> [Severity: Low]
+> This isn't a bug in the new code, but this check also fixes an existing
+> problem on the 1G path. Before this patch, phylink_fwnode_phy_connect()
+> overwrote the ret from axienet_device_reset() before anything checked it.
+> 
+> On the 1G legacy DMA path, axienet_device_reset() can already fail. That
+> happens when __axienet_device_reset() times out or when
+> axienet_dma_bd_init() cannot allocate descriptors:
+> 
+> axienet_device_reset() {
+>      ...
+> 	ret = __axienet_device_reset(lp);
+> 	if (ret)
+> 		return ret;
+> 
+> 	ret = axienet_dma_bd_init(ndev);
+>      ...
+> }
+> 
+> In those cases open continued into phylink_start() and
+> axienet_init_legacy_dma(). The core had not been reset, or there were no BD
+> rings.
+> 
+> The commit message only says this "matters for XXV". Could this go to net as
+> a separate fix with a Fixes: tag, so stable picks it up?
+
+This is a pre-existing bug & can be fixed in separate series.>
+> [Severity: High]
+> Can this early return lead to a double free after a failed resume?
+> 
+> axienet_suspend() calls axienet_stop(). In dmaengine mode, the only mode XXV
+> supports, that frees the skb rings and releases the DMA channels. It does not
+> clear the pointers:
+> 
+> axienet_stop() {
+>      ...
+> 	for (i = 0; i < TX_BD_NUM_MAX; i++)
+> 		kfree(lp->tx_skb_ring[i]);
+> 	kfree(lp->tx_skb_ring);
+>      ...
+> 	dma_release_channel(lp->rx_chan);
+> 	dma_release_channel(lp->tx_chan);
+>      ...
+> }
+> 
+> axienet_resume() then ignores what axienet_open() returns:
+> 
+> axienet_resume() {
+>      ...
+> 	rtnl_lock();
+> 	axienet_open(ndev);
+> 	rtnl_unlock();
+> 
+> 	netif_device_attach(ndev);
+>      ...
+> }
+> 
+> Suppose axienet_xxv_mac_init() returns -ETIMEDOUT from the GT reset-done
+> poll. axienet_open() now returns before axienet_init_dmaengine() runs, but
+> the netdev is still netif_running().
+> 
+> The next ndo_stop can come from ifdown, from dev_close() in
+> axienet_shutdown(), or from unregister_netdev() in axienet_remove(). It would
+> run axienet_stop() again. That calls dmaengine_terminate_sync() on the
+> released channels and kfree()s the already freed tx_skb_ring/rx_skb_ring
+> arrays and their entries. It then calls dma_release_channel() a second time.
+> 
+> Before this patch the reset error was overwritten and open always
+> re-allocated, so stop stayed balanced. Resume ignoring the open error
+> predates this patch, but this early return is what makes the problem
+> reachable.
+> 
+>>   
+
+
+Agree, will fix it>>   	ret = phylink_fwnode_phy_connect(lp->phylink, 
+dev_fwnode(lp->dev), 0);
+>>   	if (ret) {
+> 
+> [ ... ]
+> 
+>> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+>> new file mode 100644
+>> index 0000000000000..9f7efab84f827
+>> --- /dev/null
+>> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+>> @@ -0,0 +1,323 @@
+> 
+> [ ... ]
+> 
+>> +/* Option table for setting up XXV Ethernet hardware options */
+>> +static struct axienet_option xxvenet_options[] = {
+>> +	{ /* Turn on FCS stripping on receive packets */
+>> +		.opt = XAE_OPTION_FCS_STRIP,
+>> +		.reg = XXV_RCW1_OFFSET,
+>> +		.m_or = XXV_RCW1_FCS_MASK,
+>> +	}, { /* Turn on FCS insertion on transmit packets */
+>> +		.opt = XAE_OPTION_FCS_INSERT,
+>> +		.reg = XXV_TC_OFFSET,
+>> +		.m_or = XXV_TC_FCS_MASK,
+>> +	}, { /* Enable transmitter */
+>> +		.opt = XAE_OPTION_TXEN,
+>> +		.reg = XXV_TC_OFFSET,
+>> +		.m_or = XXV_TC_TX_MASK,
+>> +	}, { /* Enable receiver */
+>> +		.opt = XAE_OPTION_RXEN,
+>> +		.reg = XXV_RCW1_OFFSET,
+>> +		.m_or = XXV_RCW1_RX_MASK,
+>> +	},
+>> +	{}
+>> +};
+> 
+> [Severity: Medium]
+> Is the pause configuration ever applied to the XXV MAC?
+> 
+> axienet_probe() sets MAC_SYM_PAUSE | MAC_ASYM_PAUSE in
+> lp->phylink_config.mac_capabilities for every MAC type.
+> axienet_xxv_phylink_set_capabilities() only adds speed bits, so XXV
+> advertises both pause modes.
+> 
+> axienet_10g25g_config has no .mac_link_up. axienet_mac_link_up() therefore
+> silently drops the resolved tx_pause/rx_pause:
+> 
+> 	if (lp->axienet_config->mac_link_up)
+> 		lp->axienet_config->mac_link_up(ndev, speed, tx_pause, rx_pause);
+> 
+> This table also has no XAE_OPTION_FLOW_CONTROL entry. The
+> XXV_CONFIG_TX_FLOW_CTRL1_OFFSET and XXV_CONFIG_RX_FLOW_CTRL1/2_OFFSET
+> registers are only read for ethtool -d and never written.
+> 
+> As a result, phylink and ethtool -a/-A report and accept pause settings while
+> the MAC stays at its reset default. Should XXV program the flow control
+> registers from a mac_link_up callback, or stop advertising pause?
+
+
+Setting pause configurations for XXV is not validated yet, I'll stop 
+advertising pause for now and can be added later after proper validation.
+
+> 
+> [ ... ]
+> 
+>> +/**
+>> + * axienet_xxv_gt_reset - Pulse the XXV GT reset line
+>> + * @lp: Pointer to the axienet_local structure
+>> + */
+>> +static void axienet_xxv_gt_reset(struct axienet_local *lp)
+>> +{
+>> +	u32 val;
+>> +
+>> +	/* Reset GT */
+>> +	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
+>> +	val |= XXV_GT_RESET_MASK;
+>> +	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
+>> +	/* Allow 1 ms for the GT reset to settle (see timeout note above) */
+>> +	usleep_range(1000, 2000);
+>> +	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
+>> +	val &= ~XXV_GT_RESET_MASK;
+>> +	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
+>> +}
+> 
+> [Severity: Low]
+> The kernel-doc for axienet_device_reset() in xilinx_axienet_main.c still
+> says:
+> 
+>   * Ethernet core. No separate hardware reset is done for the Axi Ethernet
+>   * core.
+> 
+> For XXV, that function now calls config->gt_reset() first, and this pulses
+> XXV_GT_RESET_MASK. XXV is dmaengine-only, so the DMA reset and BD init
+> described there never happen. The function now also returns mac_init()
+> failures such as the GT reset-done timeout.
+> 
+> Could the comment be updated to match?
+
+Sure, will update the comment.>
+> [ ... ]
+> 
+>> +static int axienet_xxv_poll_link_ready(struct net_device *ndev)
+>> +{
+>> +	struct axienet_local *lp = netdev_priv(ndev);
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	/* Confirm XXV Ethernet is up: on IP v3.2+, wait for GT
+>> +	 * reset-done before further register access, then poll until
+>> +	 * RX PCS block lock is asserted.
+>> +	 */
+>> +	if (axienet_xxv_ip_has_gtwiz_status(lp->xxv_ip_version)) {
+>> +		ret = readl_poll_timeout(lp->regs + XXV_STAT_GTWIZ_OFFSET,
+>> +					 val,
+>> +					 (val & XXV_GTWIZ_RESET_DONE) == XXV_GTWIZ_RESET_DONE,
+>> +					 XXV_LINK_POLL_INTERVAL_US,
+>> +					 DELAY_OF_ONE_MILLISEC);
+> 
+> [Severity: Medium]
+> Is 1 ms long enough for GT reset-done?
+> 
+> axienet_xxv_gt_reset() releases ctl_gt_reset_all after 1-2 ms, and the GT
+> reset sequence only starts at that release. This poll then gives the GT
+> wizard DELAY_OF_ONE_MILLISEC to assert both TX and RX reset-done.
+> 
+> GT reset-done covers PLL re-lock and the RX reset sequence. With no signal
+> present, the CDR lock wait in that sequence can run until its internal
+> timeout. The comment at the top of the file says the bound is empirical and
+> that PG210 does not specify it.
+> 
+> With the new check in axienet_open(), a timeout here now fails ndo_open.
+> Could an unplugged cable push this past 1 ms and fail bring-up? The
+> kernel-doc above says an unplugged cable must not do that.
+> 
+>> +		if (ret) {
+>> +			netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	ret = readl_poll_timeout(lp->regs + XXV_STATRX_BLKLCK_OFFSET,
+>> +				 val, (val & XXV_RX_BLKLCK_MASK),
+>> +				 XXV_LINK_POLL_INTERVAL_US,
+>> +				 DELAY_OF_ONE_MILLISEC);
+>> +	if (ret)
+>> +		netdev_err(ndev, "XXV MAC block lock not complete! Cross-check the MAC ref clock configuration\n");
+>> +
+>> +	return 0;
+>> +}
+> 
+
+reset-done is refclk-driven, independent of link partner. block-lock 
+(signal-dependent) is already non-fatal.> [Severity: Low]
+> The kernel-doc says a missing block lock is expected with an unplugged
+> cable, and the function returns 0 in that case. Should this be logged below
+> netdev_err()?
+> 
+> As written, every ip link set up on a port with no link partner logs an
+> error that points at the ref clock configuration.
+> 
+>> +
+>> +/**
+>> + * axienet_xxv_mac_init - XXV MAC-specific bring-up after the DMA reset
+>> + * @ndev: Pointer to the net_device structure
+>> + *
+>> + * Return: 0 on success or a negative error number otherwise.
+>> + */
+>> +static int axienet_xxv_mac_init(struct net_device *ndev)
+>> +{
+>> +	struct axienet_local *lp = netdev_priv(ndev);
+>> +	int ret;
+>> +
+>> +	ret = axienet_xxv_poll_link_ready(ndev);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	lp->options |= XAE_OPTION_FCS_STRIP;
+>> +	lp->options |= XAE_OPTION_FCS_INSERT;
+>> +
+>> +	return 0;
+>> +}
+> 
+
+
+Agree — block-lock-not-asserted is a normal no-link state, not an error. 
+Demote to netdev_dbg (not ratelimited; it's once per open, so level—not 
+rate—is the issue) and reword to drop the ref-clock blame. The genuine 
+netdev_err stays on the GT reset-done timeout, which does imply a 
+bring-up/refclk fault."
+
+> [Severity: High]
+> Should the XXV RX max packet length be programmed here?
+> 
+> XXV_JUM_OFFSET (CONFIGURATION_RX_MTU, ctl_rx_max_packet_len) appears only in
+> the ethtool -d table and is never written. Its reset default is 9600 bytes.
+> 
+> At the default MTU, axienet_device_reset() sets lp->max_frm_size to
+> XAE_MAX_VLAN_FRAME_SIZE (1522). axienet_rx_submit_desc() maps each RX buffer
+> at exactly that size.
+> 
+> If a link partner sends frames of 1523 to 9600 bytes, the MAC accepts them
+> and splits each one across several S2MM descriptors. axienet_dma_rx_cb()
+> treats every completion as a whole frame. Would these fragmented frames be
+> passed up the stack?
+> 
+> Changing the MTU never updates the MAC either, so the software and hardware
+> frame limits can be out of sync in both directions. On 1G the MAC drops
+> frames above its configured limit, so this does not happen there.
+> 
+>> +
+>> +static void axienet_xxv_phylink_set_capabilities(struct axienet_local *lp,
+>> +						 struct phylink_config *cfg)
+>> +{
+>> +	u32 core_speed;
+>> +
+>> +	core_speed = axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET);
+>> +	/* Bit[1:0]: 00=25G, 01=10G, 10=runtime-switchable 25G,
+>> +	 * 11=runtime-switchable 10G. Bit 0 is the active rate. Advertise
+>> +	 * only that rate.
+>> +	 */
+>> +	if (core_speed & XXV_STAT_CORE_SPEED_10G_MASK) {
+>> +		cfg->mac_capabilities |= MAC_10000FD;
+>> +		__set_bit(PHY_INTERFACE_MODE_10GBASER,
+>> +			  cfg->supported_interfaces);
+>> +	} else {
+>> +		cfg->mac_capabilities |= MAC_25000FD;
+>> +		__set_bit(PHY_INTERFACE_MODE_25GBASER,
+>> +			  cfg->supported_interfaces);
+>> +	}
+>> +}
+> 
+
+I agree, will fix it.
+
+> [Severity: High]
+> Can the XXV interface be opened with a device tree that follows the new
+> binding?
+> 
+> The xlnx,xxv-ethernet binding comes from "dt-bindings: net:
+> xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet". It requires neither
+> phy-handle nor managed = "in-band-status", and neither of its examples has
+> them.
+> 
+> Nothing sets lp->phylink_config.default_an_inband for XXV. At the end of the
+> series there is no default_an_inband anywhere in drivers/net/ethernet/xilinx/.
+> phylink_parse_mode() therefore leaves cfg_link_an_mode as MLO_AN_PHY.
+> 
+> axienet_open() then calls phylink_fwnode_phy_connect(), which does:
+> 
+> 	phy_fwnode = fwnode_get_phy_node(fwnode);
+> 	if (IS_ERR(phy_fwnode)) {
+> 		if (pl->cfg_link_an_mode == MLO_AN_PHY)
+> 			return -ENODEV;
+> 		return 0;
+> 	}
+> 
+> axienet_open() passes that -ENODEV back to the caller, so the interface never
+> comes up. Should this function set cfg->default_an_inband = true, or should
+> the binding require managed = "in-band-status"?
+
+
+I agree, will modify example to indicate inband in DT yaml& set 
+cfg->default_an_inband = true in driver .>
+> [ ... ]
+> 
+>> +const struct axienet_config axienet_10g25g_config = {
+>> +	.sw_padding = true,
+>> +	.internal_pcs = true,
+>> +	.regs_n = XXV_REGS_N,
+>> +	.clk_init = axienet_10g25g_clk_init,
+>> +	.setoptions = axienet_xxv_setoptions,
+>> +	.probe_init = axienet_xxv_probe_init,
+>> +	.gt_reset = axienet_xxv_gt_reset,
+>> +	.mac_init = axienet_xxv_mac_init,
+>> +	.get_regs = axienet_xxv_get_regs,
+>> +	.phylink_set_caps = axienet_xxv_phylink_set_capabilities,
+>> +	.pcs_ops = &axienet_xxv_pcs_ops,
+>> +};
+> 
+> [Severity: Low]
+> This leaves .jumbo false, which the kernel-doc defines as "MAC supports jumbo
+> frames" being false. axienet_probe() still sets ndev->max_mtu = XAE_JUMBO_MTU
+> for every MAC. axienet_change_mtu() only checks against lp->rxmem:
+> 
+> 	if ((new_mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE) > lp->rxmem)
+> 		return -EINVAL;
+> 
+> So ip link set mtu 9000 is accepted on XXV. For XXV, is the .jumbo flag
+> wrong, or the max_mtu? xxvenet_options also has no XAE_OPTION_JUMBO entry,
+> and XXV_JUM_OFFSET is never written.
+> 
+
+Agree — set .jumbo=true for XXV (no reg programming needed).
+
+> [Severity: High]
+> Where does XXV get the RX frame length from?
+> 
+> .non_dmaengine is left false, so every XXV RX completion goes through
+> axienet_dma_rx_cb(). That callback reads the length from AXI DMA APP word 4:
+> 
+> 	/* TODO: Derive app word index programmatically */
+> 	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+> 
+> On the 1G AXI Ethernet, the MAC's RX status stream writes that word. PG210
+> describes the XXV IP with only AXI4-Stream data interfaces and no status
+> stream.
+> 
+> xilinx_dma only attaches metadata_ops when the DMA node has
+> xlnx,axistream-connected:
+> 
+> 	if (chan->xdev->has_axistream_connected)
+> 		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
+> 
+> Without that property, dmaengine_desc_get_metadata_ptr() fails and every
+> received frame is counted as rx_dropped. With it, app4 holds stale or zero BD
+> contents. Zero-length skbs or wrong lengths would then reach eth_type_trans()
+> and skb_put().
+> 
+> The real byte count is in the BD status length field, which xilinx_dma
+> reports as the residue. Does XXV need its own MAC-specific RX length source?
+> 
+
+Resolved by rebasing on Srinivas' residue series (97f9c11a6dd9, rx_len = 
+max_frm_size - residue); note dependency.> [Severity: Medium]
+> This is a pre-existing issue, but XXV now goes through the same callback.
+> axienet_dma_rx_cb() passes the metadata length straight to skb_put():
+> 
+> 	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+> 	skb_put(skb, rx_len);
+> 
+> The callback does not check the dmaengine result or residue. rx_len is not
+> bounded by lp->max_frm_size or skb_tailroom() either. Could a length larger
+> than the posted buffer hit skb_over_panic()? The 1G dmaengine path already
+> had this problem.
+> 
+
+
+Bounded by residue series; note dependency.
+
+Regards,
+Suraj
+
 
