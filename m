@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0764CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B138BCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nBmmlrjRf6kiAPDnWG0bIPmLpvBk+xT5O40dRmfvp1g=; b=MwZgLEmKgMSgSSPRNg+it9MEdY
-	BTbopBfFLyk3bcKDnHJE2Xstn8v+QYuW6G1gOvRGZEhceI8mZKLr6U92h6rOwSsHJwa8Cy2FyYzPJ
-	89rUufpw+te7Kigg04nxwSolr4ML1o//1iFL3JnczO465cPjgKZtJYUeTDg77NPSY6d+T35mvR8Tu
-	B8vxkhoCyoou792EcBVgWeLNozNQKu8d7w+xV9pqZgk8dMtLjOUoc5Y+Y72cighSO/h2/gw6RTl+D
-	McfYg40f1UL+GGXK3n8JphEZ9nTD2VhCXG5E5cU1uw72MU2qKunYYS45KkVP/qP48mhr8PWae3IDF
-	WdTk40mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OojGyMZ5eh41Y2wVjeI/8ZXJHmHbXooHvcwTpVEfMY8=; b=ty+0dyTrlLjpxBNMh0MSJPingD
+	G2htNWrJs5RW1b8XvRiYjRm1VujsyNLJKj1SbKFPJBsPiYIvcVTGoL2iCA5l7Jd/p4bYsOuuhXnn7
+	8Xj3crlcnDepQL9GmJAxSis5IVA7Q9W5R2oU7mLQVOSTLxGSbs0EBhbRXPW/iHsk57dPdjRudjnf4
+	RSzd4XFNfa+VkRcvJr0f+Fgc4P3pZN4FY37UieomAzXPRUJskKbBblrP0KJDiFinFFUjFZSpcNYLh
+	6/0uGAwOBhbc8410bM1DV35576vIkudIgXWMPP9PaO7ObKJZi24UjsptUCa1OJ5rK07f6bkdT0Xsw
+	7PGc7aaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwCQ-0000000FCrM-1Onc;
-	Wed, 14 Oct 2026 10:27:06 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xGwDq-0000000FD5j-2HnB;
+	Wed, 14 Oct 2026 10:28:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwCO-0000000FCqz-1irY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 10:27:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nBmmlrjRf6kiAPDnWG0bIPmLpvBk+xT5O40dRmfvp1g=; b=VIHanN21Peaph5zThAGFzLv7J6
-	adaWTxv+LFZ9iHD6K+I1uqxMiDOfTdwt4dwa1WSORjDUPT6o9h5ZoTfCJHuRlCWja+zQ+Mp9sF+IP
-	PwPiI34+E4crA25WYxEJdQCZ/5T0gS9NT812fSr7o4JveXv3BAZR6WqTWgGOqiRShDDgCCqZogEOq
-	oVkPngrFalNvy7telg+TitooXXFcL/p0pOirl3C9MWiwSNiL6Ca7hEzkJBpu+rCWbKSjWQLJtCNLW
-	rv4CbD53FaewVRf2ETA7Hg2242/Af7hoaTDHyNavba0kiwsJH9UTPcnhDgfRBh3mla/goInICx5xz
-	4qrvk0Ig==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwCL-00000002tBD-2GdW;
-	Wed, 14 Oct 2026 10:27:01 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A95CA30063F; Wed, 14 Oct 2026 12:27:00 +0200 (CEST)
-Date: Wed, 14 Oct 2026 12:27:00 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Haris Okanovic <harisokn@amazon.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] perf/core: Add PERF_PMU_SCOPE_DEVICE
-Message-ID: <20261014102700.GC4121339@noisy.programming.kicks-ass.net>
-References: <20261013185603.1347265-1-harisokn@amazon.com>
- <20261013185603.1347265-3-harisokn@amazon.com>
+	id 1xGwDo-0000000FD5S-3EmU;
+	Wed, 14 Oct 2026 10:28:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3CBD441E51;
+	Wed, 14 Oct 2026 10:28:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7D3B1F000FF;
+	Wed, 14 Oct 2026 10:28:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791973712;
+	bh=OojGyMZ5eh41Y2wVjeI/8ZXJHmHbXooHvcwTpVEfMY8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=nthlxmwCZNSa7NzKSt41VJhrAobn7kMyHdh+zm4AEHtnNSSWjrrumq5fKNBine4wp
+	 kIjXM1GU6YAsJ6xbdVIKWicELwukF2deWbUv2q/npVfO+tz6Zcl7qbwESll7cGMkCi
+	 sM23xAJR2X6KDLIizdR1SfKUYLoOfoqYzRxJoCAw/z1wv9z2GtA60K4rH05S+jpQ9/
+	 pJquoTVntsiXzjfWAnknvduFoO1Fx/4u/Ugf60lAuoqO+EJFwYmGZzYLI33wZao6Cq
+	 P8/HxHBsY6RsOI22+mhBB6CjuoCvQv00+W6c5gQmwbLIgVm1bLVVcfNAk+ndwU01E5
+	 N2/xDlFK3Awwg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ =?utf-8?q?Micha=C5=82_Kope=C4=87?= <michal@nozomi.space>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, linux-sound@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261003194501.832558-1-michal@nozomi.space>
+References: <20261003194501.832558-1-michal@nozomi.space>
+Subject: Re: [PATCH 0/4] ASoC: Fixes for the MT8188 sound card
+Message-Id: <179192410329.1606900.11713606638187764851.b4-ty@b4>
+Date: Tue, 13 Oct 2026 21:41:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261013185603.1347265-3-harisokn@amazon.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2081; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=85ePqdUrxlAKgImhGQeGtnMz7AsH4S3r8BPV51Rup88=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLOR/pEr8oJW9Vq7PPuFZ+iUGu/DIdR9+4c2WXyR2v1V
+ qYFbIjpKGVhEONikBVTZInL4n5ZX/J6Dd/BhW0wc1iZQIYwcHEKwETYhRn+pwgfC3hQctJLVW+z
+ +fH9qznvZ07fNWNP1IR/6zqf5E766cDIsKfWZK/b8ecLFyw3jvlqIrp2x6GO4osRF3ibvn9J0bL
+ byAYA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 01:56:01PM -0500, Haris Okanovic wrote:
-> Add a "device" pmu::scope for PMUs counted on a single CPU drawn
-> from a driver-supplied set instead of a fixed topology.
+On Sat, 03 Oct 2026 21:44:57 +0200, Michał Kopeć wrote:
+> ASoC: Fixes for the MT8188 sound card
 > 
-> This mechanism is implemented by new callbacks: filter_allowed_cpus()
-> is invoked to constrain the running CPU set to an allowed set for a
-> particular device; migrate_cpu() is used to perform any device specific
-> migration steps. Both are optional, e.g. for devices that can run on
-> any CPU or have no additional migration steps.
+> These patches fix problems found while bringing up audio with SOF on
+> the Lenovo Chromebook Duet Gen 9 (Ciri, MT8188) on a mainline kernel.
 > 
-> Placement initially happens in perf_pmu_register() before the PMU
-> becomes visible, and is subsequently re-evaluated on hotplug events.
-> A new CPU selection is made by cpumask_any_distribute() to spread out
-> load from multiple devices, but only when the previous CPU selection is
-> offline or no longer allowed by filter_allowed_cpus().
+> The first two fix the common MediaTek sound card probe when the card
+> cannot be bound on the first attempt. A missing component made the
+> card fail its rebind because the codec references were already
+> released, and a deferred or failed probe left the static card with a
+> topology name that devm had freed, so the card registered with a
+> garbage name and UCM found no profile for it.
 > 
-> PMU events of these devices follow the chosen CPU. They are initially
-> bound to a CPU in perf_try_init_event() then reassigned by
-> perf_pmu_migrate_context() when a new CPU is selected.
+> [...]
 
-> 
-> The initial CPU assignment can race with migration, leaving a stranded
-> event. A sequence counter is added to close this gap without additional
-> locks. A count in struct pmu increments on each migration and is copied
-> to struct perf_event on init. The copied count is checked again before
-> the event is installed, under the same context mutex, which causes
-> perf_event_open() and perf_event_create_kernel_counter() to return -EBUSY
-> during migration periods.
+Applied to
 
-I'm not entirely sure on this. How is this race different from changing
-CPU on hotplug? 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+
+Thanks!
+
+[1/4] ASoC: mediatek: common: Keep codec references until the card is bound
+      https://git.kernel.org/broonie/sound/c/6cb1f09e1f69
+[2/4] ASoC: mediatek: Don't keep a freed topology name in the static card
+      https://git.kernel.org/broonie/sound/c/50c5d7f3a9b4
+[3/4] ASoC: mediatek: mt8188: Constrain UL8 FE to its back end's capabilities
+      https://git.kernel.org/broonie/sound/c/76775717c4ad
+[4/4] ASoC: hdmi-codec: Don't parse an empty ELD on startup
+      https://git.kernel.org/broonie/sound/c/d0b9e91b87c9
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
