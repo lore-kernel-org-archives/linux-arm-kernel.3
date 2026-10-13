@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C7ACC6B10
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976CBCA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXLSiEF0IbD5c5Y/dirPwQYZ27Ijc9UIrfKVhG9lics=; b=CR79+UBj9sVhdlRMIpG7xdQjFs
-	a1OdjgFRAIRkVNRljj1MTzi7BvuSslCxEuCBRI23vn5QTkbvgRXrDTQPqBfmVKcdTlzSMfy3ozNVp
-	UFbfS5y79u+O/mI9HSZFi+zpX4a7eTi/1ZUTfOk++yN2FLY5etL54wcmKSQMiYuOaLJm/fyTdNXD+
-	xnDmF7wDb4YTjvm5X8OLSG2F8oC4MP9g8dbc1c5WT2pdBVfCXk2rHVXOFsHn4r+UXpTHJ1d6toWvJ
-	G05j4mgUTNFIgOkl5UaHoSbdvNrfVxf+emZm/gCBJ7Zclz693GNFRWyEUGFCTl7V+VJRpSaqwZkwW
-	DIIP6x2A==;
+	bh=qnKi+7ADQG/VWxlGCq3ag9AtsA95cFTpxw3B8yHY6Is=; b=eNdV/YverjbszBhInEWqC4emxQ
+	OMfP5/tcvQz7ZF3XzGzCa3DgAU/D6OhEgKSQm5s0dNb6PtZnv/eO4LSe1MobfFWwMv0kT1hhGZUHM
+	1K9lWRjJPP8Vs4whSth3jYwoUSAEz5kh4mHtvO1NmXE4qnYablg9X5rUwT3AV8iyItMNhgOT6EG/r
+	zgg3YV+McphLMapLZABsXGO7Zci7aI4HYRq6X8gL3Ypjz2kb3+4YtWq9jTCCUJdSohhnaR7+Lm2fQ
+	DRG22Cy8fcB/hNRZ7JQfGj4YenNmqSFOoe2AxrysnjiwbYYi9CO9Yrq6F3PeDYaA6nkysAKImseVM
+	hRpqoUqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCh-0000000CdsM-01ZH;
-	Tue, 13 Oct 2026 10:57:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGaCm-0000000CdvS-0wmd;
+	Tue, 13 Oct 2026 10:58:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCg-0000000CdrU-05Br
+	id 1xGaCh-0000000Cds9-060N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:57:54 +0000
+	Tue, 13 Oct 2026 10:57:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CD52600D1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D54641A0A;
+	Tue, 13 Oct 2026 10:57:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A62B1F00899;
 	Tue, 13 Oct 2026 10:57:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B881F00898;
-	Tue, 13 Oct 2026 10:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791889072;
-	bh=oXLSiEF0IbD5c5Y/dirPwQYZ27Ijc9UIrfKVhG9lics=;
+	s=k20260515; t=1791889074;
+	bh=qnKi+7ADQG/VWxlGCq3ag9AtsA95cFTpxw3B8yHY6Is=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NDM2u2u68Vrs4dIlY6eEnOWD5LQ43rY0JHUxZsTwFnxNcLaYqhfFN5XHx9Ki8LxJQ
-	 kFcXgTqwrZdtv1hjYXOGJZM6XNVwIKjDnQzIDrhdJ5R/lO+kxtJCMMjDqeSxnB3Kbc
-	 DuhCSi/YbU/GQfuzuMUdHTLV+7WZ3/dSfkrNTAGp7LFOGPnWsLnYQPYoq/sotFQwe/
-	 Q8oDsf5OCnbq4a1Je9L4cfBHRGIr8VoVT8147YrN71qmVijXTXH7YZoEXJCyed8ZEN
-	 wlGwfxN6DrpXOwgEZ4D8QsZI+f9+4AQYIHQwFeQlTn5BC0kcNi+o6rZhMRE6GRDUBG
-	 JlxgxcT5enpGQ==
-Subject: Re: [PATCH v5 net-next 4/9] net: dsa: netc: tie setup resources and
- reset to DSA setup/teardown
+	b=hZ9VNlsyT3Z+fNT5UOrRnZPOKchhLvUfhBAFg03Rt02L9yj3H4m7uoyW9rrLRrzoV
+	 LT0fdOf+FvEdEDRFKMK5aZ+3k3jDS5EIshqjXtn85u8/AGldCzyqtgQY5fWRxfdOxx
+	 BbhHDub9llJaK6QKR92fkLaswLuHMlnJlrg3FrHSvrfbOG2rVLABkqSw0sTi0hPgIZ
+	 dS+imhoEw69fZ48G8mFqvEPiGYEviHf3avQYS49ajGZby3FDUMHcs/myrht7f21X8G
+	 VoIJoTOMJYtJanQCFHw86kfuYrgTICIk5tycusG7Me3xl0v/806uKcZA6e3NrfJcm8
+	 k5kxGwHBgPHMg==
+Subject: Re: [PATCH v5 net-next 6/9] net: dsa: netc: check return value of
+ ntmp_ipft_delete_entry()
 From: netdev-bot+sashiko@kernel.org
 To: wei.fang@oss.nxp.com
 Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
@@ -52,11 +52,11 @@ Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
  richardcochran@gmail.com, linusw@kernel.org, wei.fang@nxp.com,
  imx@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Date: Tue, 13 Oct 2026 10:57:51 +0000
-Message-ID: <179188907149.434549.9657555602480791517@kernel.org>
-In-Reply-To: <20261012095924.1129312-5-wei.fang@oss.nxp.com>
-References: <20261012095924.1129312-5-wei.fang@oss.nxp.com>
-X-sashiko-severity: High
+Date: Tue, 13 Oct 2026 10:57:52 +0000
+Message-ID: <179188907298.434549.12622968877593744091@kernel.org>
+In-Reply-To: <20261012095924.1129312-7-wei.fang@oss.nxp.com>
+References: <20261012095924.1129312-7-wei.fang@oss.nxp.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -77,7 +77,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -85,186 +85,220 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] netc_setup() now calls pci_reset_function(A->pdev) whenever
-  A->in_probe is false.
-- [Medium] priv->in_probe is a plain bool.
-- [Medium] Moving the initial reset from before pcim_enable_device() into
-  netc_setup() means pci_set_master() (netc_switch_pci_init(), line…
+- [Medium] The commit message says the delete-then-add reorder costs only
+  a 'brief window' in which packets are dropped.
+- [Medium] netc_port_remove_host_flood() now treats every
+  ntmp_ipft_delete_entry() error as 'entry still installed' and keeps…
+- [Medium] A failed VLAN-unaware bridge join can permanently disable an
+  all-multicast (or promisc) configuration the standalone port already…
 
 --
 
-net: dsa: netc: tie setup resources and reset to DSA setup/teardown
+net: dsa: netc: check return value of ntmp_ipft_delete_entry()
 
-This patch replaces the one-time pcie_flr() in probe with a
-netc_switch_reset() call at the start of netc_setup(). The reset uses
-pci_reset_function_locked() during probe and pci_reset_function()
-otherwise. It also converts the devm_ allocations on the setup path to
-explicit alloc/free, so their lifetime matches DSA setup and teardown.
+netc_port_remove_host_flood() now returns the error from
+ntmp_ipft_delete_entry(). Driver state is cleared only after a delete
+succeeds.
+
+Host flood rule replacement in netc_port_set_host_flood() changes from
+add-then-delete to delete-then-add, with a bounded retry on the add.
+
+netc_port_bridge_join() now deletes the host flood rule before the VLAN
+setup and tries to restore it if that setup fails.
 
 > diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-> index 77077352c1a57..c639ae67c9b71 100644
+> index e33a184fd0054..09154781df7a0 100644
 > --- a/drivers/net/dsa/netc/netc_main.c
 > +++ b/drivers/net/dsa/netc/netc_main.c
 
 [ ... ]
 
-> +static int netc_switch_reset(struct netc_switch *priv)
-> +{
-> +	if (priv->in_probe)
-> +		return pci_reset_function_locked(priv->pdev);
-> +
-> +	return pci_reset_function(priv->pdev);
+> @@ -1851,32 +1845,32 @@ static int netc_port_add_host_flood_rule(struct netc_port *np,
+>  	return err;
 >  }
-
-[Severity: High]
-Can the pci_reset_function() branch deadlock against unbind in the
-multi-switch case this patch is preparing for?
-
-In a multi-switch tree, ds->ops->setup() runs under dsa2_mutex for every
-switch in the tree, including switches that are already bound:
-
-dsa_register_switch(B)
-  mutex_lock(&dsa2_mutex)
-  dsa_switch_probe()
-    dsa_tree_setup()
-      ...
-        netc_setup(A)
-          netc_switch_reset(A)
-            pci_reset_function(A->pdev)
-              pci_dev_lock(A->pdev)    /* device_lock(A) */
-
-The remove path takes the same two locks in the opposite order, because
-the driver core already holds device_lock(A) when it calls the driver:
-
-device_release_driver(A)           /* holds device_lock(A) */
-  netc_switch_remove()
-    dsa_unregister_switch()
-      mutex_lock(&dsa2_mutex)
-
-Shutdown has the same ordering through
-netc_switch_shutdown()->dsa_switch_shutdown().
-
-If CPU0 is probing switch B while CPU1 is unbinding switch A, would both
-threads hang forever? Re-probing A while B is being unbound looks like
-the same inversion with the roles swapped.
-
-device->mutex uses lockdep_set_novalidate_class(), so lockdep would not
-report this.
-
-This code is still the same at the end of the series. Should this
-branch use a different approach, rather than resetting another switch
-under its device lock from inside .setup while dsa2_mutex is held?
-
->  static int netc_setup(struct dsa_switch *ds)
-> @@ -875,6 +957,10 @@ static int netc_setup(struct dsa_switch *ds)
->  	struct dsa_port *dp;
->  	int err;
 >  
-> +	err = netc_switch_reset(priv);
+> -static void netc_port_remove_host_flood(struct netc_port *np, u32 entry_id)
+> +static int netc_port_remove_host_flood(struct netc_port *np)
+>  {
+>  	struct netc_switch *priv = np->switch_priv;
+> -	bool disable_host_flood = false;
+> +	u32 entry_id = np->ipft_hf_eid;
+> +	int err;
+>  
+>  	if (entry_id == NTMP_NULL_ENTRY_ID)
+> -		return;
+> +		return 0;
+>  
+> -	if (np->ipft_hf_eid == entry_id)
+> -		disable_host_flood = true;
+> +	err = ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
 > +	if (err)
 > +		return err;
-> +
->  	err = netc_init_switch_id(priv);
->  	if (err)
->  		return err;
-
-[ ... ]
-
-> @@ -1045,7 +1136,6 @@ static int netc_switch_pci_init(struct pci_dev *pdev)
->  	void __iomem *base;
->  	int err;
->  
-> -	pcie_flr(pdev);
->  	err = pcim_enable_device(pdev);
->  	if (err)
->  		return dev_err_probe(dev, err, "Failed to enable device\n");
 
 [Severity: Medium]
-Now that pcie_flr() is gone from here, netc_switch_pci_init() calls
-pci_set_master() before the switch has been reset. The first reset now
-comes much later. It happens after netc_switch_get_ip_revision() and
-netc_switch_platform_probe(), once dsa_register_switch() reaches
-netc_setup().
+Is it safe to treat every error from ntmp_ipft_delete_entry() as meaning
+the entry is still installed?
 
-Is that ordering safe after a kexec? pci_device_shutdown() only clears
-bus mastering:
+For -ETIMEDOUT, netc_xmit_ntmp_cmd() has already advanced the producer
+index before it polls. It then returns without withdrawing the BD:
 
-	if (kexec_in_progress && (pci_dev->current_state <= PCI_D3hot))
-		pci_clear_master(pci_dev);
+drivers/net/ethernet/freescale/enetc/ntmp.c:netc_xmit_ntmp_cmd() {
+    ...
+	netc_write(cbdr->regs.pir, i);
 
-netc_switch_shutdown()->dsa_switch_shutdown() does not call
-netc_teardown() or ntmp_free_cbdr(). Also, netc_xmit_ntmp_cmd() can
-return on a read_poll_timeout() expiry after it has already advanced the
-producer index.
+	err = read_poll_timeout(netc_read, val,
+				(val & NETC_CBDRCIR_INDEX) == i,
+				NETC_CBDR_DELAY_US, NETC_CBDR_TIMEOUT,
+				true, cbdr->regs.cir);
+	if (unlikely(err))
+		return err;
+    ...
+}
 
-The switch could then keep enabled command BD rings with a pending
-command that points at the previous kernel's DMA addresses. If the
-hardware resumes fetching as soon as bus mastering is set again, could
-it access memory the new kernel has reused? With an IOMMU, would it
-cause faults instead?
+NETC_CBDR_TIMEOUT is 1000us, so the hardware could still run the DELETE
+after the timeout. The IPFT entry would then be gone while
+np->ipft_hf_eid still holds its ID.
 
-Also, if probe fails between pci_set_master() and netc_setup(), for
-example in netc_switch_platform_probe() or dsa_register_switch(), the
-device is never reset before devres disables it.
+After that, every netc_port_remove_host_flood() call would send a DELETE
+for the freed ID. If the hardware rejects it, the error comes back on
+every call. With this patch netc_port_bridge_join() returns that error,
+so the port could never join a bridge again.
 
-Would it work to keep a probe-time reset in netc_switch_pci_init()
-before pci_set_master()?
+What if the hardware instead gives the same ID to a later
+ntmp_ipft_add_entry()? That could be another port's host flood rule, or
+the PTP trap entries added later in the series. Wouldn't the stale
+DELETE then silently remove that other rule?
+
+The commit message says "so that the software state always stays
+consistent with the hardware". Does that hold for the timeout case?
 
 [ ... ]
 
-> @@ -2475,12 +2565,15 @@ static int netc_switch_probe(struct pci_dev *pdev,
->  	ds->ageing_time_max = U32_MAX;
->  	ds->priv = priv;
->  	priv->ds = ds;
-> +	priv->in_probe = true;
+> @@ -1893,19 +1892,33 @@ static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
+>  		return;
 >  
->  	err = dsa_register_switch(ds);
->  	if (err)
->  		return dev_err_probe(dev, err,
->  				     "Failed to register DSA switch\n");
->  
-> +	priv->in_probe = false;
+>  	/* IPFT does not support in-place updates to the KEYE element,
+> -	 * we need to add a new entry and then delete the old one. So
+> -	 * save the old entry ID first.
+> +	 * we need to delete the old one and then add the new rule. If
+> +	 * the deletion fails, return immediately.
+>  	 */
+> -	old_entry_id = np->ipft_hf_eid;
+> -
+> -	if (netc_port_add_host_flood_rule(np, uc, mc)) {
+> -		dev_err(ds->dev, "Failed to add host flood rule on port %d\n",
+> +	if (netc_port_remove_host_flood(np)) {
+> +		dev_err(ds->dev,
+> +			"Failed to delete old host flood rule on port %d\n",
+>  			port);
 > +
->  	return 0;
+>  		return;
+>  	}
+>  
+> -	/* Remove the old host flood entry */
+> -	netc_port_remove_host_flood(np, old_entry_id);
+> +	/* Restoring the previous configuration is pointless because
+> +	 * .port_set_host_flood() returns void, so the upper layer cannot
+> +	 * detect the error and the RX flags have changed. Furthermore, we
+> +	 * cannot guarantee that we can successfully restore the previous
+> +	 * state.
+> +	 */
+> +retry:
+> +	if (netc_port_add_host_flood_rule(np, uc, mc)) {
+> +		if (retry_num++ < 2) {
+> +			usleep_range(100, 110);
+> +			goto retry;
+> +		}
+> +
+> +		dev_err(ds->dev,
+> +			"Failed to add host flood rule on port %d\n", port);
+> +	}
 >  }
 
 [Severity: Medium]
-netc_switch_reset() reads priv->in_probe to decide whether the current
-thread holds A's device lock. The flag only records that A's probe is in
-progress somewhere, not that the current thread owns the lock.
+What happens to host flooding on a standalone port if all three
+netc_port_add_host_flood_rule() attempts fail here?
 
-dsa_register_switch() drops dsa2_mutex before it returns, and it returns
-0 when the tree is still incomplete. Consider this sequence:
+By this point netc_port_remove_host_flood() has already done four things:
 
-CPU0 (probe of A)
-  priv->in_probe = true;
-  dsa_register_switch(A)
-    mutex_unlock(&dsa2_mutex);
-  <window>
-  priv->in_probe = false;
+- deleted the old IPFT entry
+- cleared np->ipft_hf_eid
+- cleared np->uc and np->mc
+- written 0 to NETC_PIPFCR
 
-CPU1 (probe of B, async probe or deferred probe)
-  dsa_register_switch(B)
-    dsa_tree_setup()
-      netc_setup(A)
-        netc_switch_reset(A)    /* sees in_probe == true */
-          pci_reset_function_locked(A->pdev)
+The add can fail with -ENOMEM from kzalloc_obj() or the DMA allocation.
+It can also fail with an error from the NTMP command, for example a full
+table or a timeout.
 
-In this case pci_reset_function_locked() runs on B's thread, which does
-not hold A's device lock. Wouldn't device_lock_assert() fire under
-lockdep?
+.port_set_host_flood() returns void. DSA calls it only from
+dsa_user_change_rx_flags(), when IFF_PROMISC or IFF_ALLMULTI change. So
+the port would have no host flood rule until the user toggles those
+flags again.
 
-The FLR includes msleep(100) and a readiness poll. Could it still be
-running after A's probe returns and the driver core releases
-device_lock(A)? If so, it would not be serialized against other
-device-locked operations such as a sysfs reset.
+With the previous add-then-delete order, a failed add left the old rule
+in place.
 
-The cross-CPU write and read of in_probe is also unsynchronized.
+The commit message describes the cost of the reorder as "a brief window
+in which packets that would have matched the rule find no match and are
+dropped". Should it also say that a failed add now leaves host flooding
+disabled indefinitely?
 
-This code is still the same at the end of the series. Could the caller
-context decide whether the lock is held, for example through a parameter
-or by doing the probe-time reset directly in probe, instead of a shared
-per-device flag?
+[ ... ]
+
+> @@ -2081,6 +2096,12 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
+>  	if (err)
+>  		return err;
+>  
+> +	err = netc_port_remove_host_flood(np);
+> +	if (err) {
+> +		NL_SET_ERR_MSG_MOD(extack, "Failed to delete host flood rule");
+> +		return err;
+> +	}
+> +
+>  	netc_port_set_mlo(np, MLO_NOT_OVERRIDE);
+
+[ ... ]
+
+> @@ -2105,6 +2124,11 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
+>  disable_mlo:
+>  	netc_port_set_mlo(np, MLO_DISABLE);
+>  
+> +	if (netc_port_add_host_flood_rule(np, uc, mc))
+> +		dev_err(ds->dev,
+> +			"Failed to restore host flood rule on port %d\n",
+> +			port);
+> +
+>  	return err;
+>  }
+
+[Severity: Medium]
+Can a failed join to a VLAN-unaware bridge leave a standalone port that
+has allmulti or promisc set without its host flood rule for good?
+
+Take a port that already has IFF_ALLMULTI set, so np->mc is true and a
+rule is installed:
+
+br_add_if()
+  dev_set_allmulti(dev, 1)     /* refcount 1 -> 2, flags unchanged */
+  ...
+    dsa_port_bridge_join()
+      dsa_broadcast(DSA_NOTIFIER_BRIDGE_JOIN)
+        netc_port_bridge_join()
+          netc_port_remove_host_flood()     /* rule gone, np->mc = false */
+          netc_port_set_vlan_entry()        /* fails, e.g. -ENOMEM */
+          disable_mlo:
+            netc_port_add_host_flood_rule() /* fails, only logged */
+      goto out_rollback                     /* no .port_bridge_leave */
+  ...
+  dev_set_allmulti(dev, -1)    /* refcount 2 -> 1, flags unchanged */
+
+IFF_ALLMULTI never changes, so dsa_user_change_rx_flags() is not called
+and nothing re-adds the rule. The saved uc/mc values are lost, and
+np->uc and np->mc stay false.
+
+Before this patch, a failure in netc_port_set_vlan_entry() returned
+before the rule was touched. Could the host flood rule be deleted only
+after the steps that can fail have succeeded?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261012095924.1129312-1-wei.fang%40oss.nxp.com
