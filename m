@@ -4,78 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C91FCC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30689CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 07:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=69kQwry6TD30awfQGydoBmTqroQv4aC1HHDmW2peaOA=; b=ThLS7nVbsEcVnfRkmrKNa4G6f8
-	dwrHnogtILTBv/otSXS/Dx+KjIHw2haHngxzKRisxHw2Qj0/Eu3MbfJUdG7zl6zVMDp7HK3b6fayK
-	LdZ75I1hCeN1njWJRaFrQSuEJHzCdG+r9/Q3o1dJ1PkkWn5mCeRF6BKBn2a/lt4FD2AKtBCLsmkHY
-	988QjUqehu3XZeM8T7EoFWFqqr4xvONZNXhP7xDIrjblKLyf2f48RKd8YFQM836cFnIqFhUIUGDz5
-	Is/CEtbSbXoslQWPPSHR5aEGTG2vYLKIpNOtev/Dfk8snGfTmU62Dzhkn7OoP/UO+03BU0phNsFGi
-	0+uZ0qSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tlJOMcxW9ZrlwWT0lPMOPWXSHtzr6xFkCMhjWue+wXc=; b=zhowQIe3nelIOFVokH0acaKI4u
+	nZYqSg7z+BT3OBPjqeRuceXDh4k0jLvzK216+qqPalB9HnNUP+9Q3+LcZZ/Rp0jwcfw+gNIwd48Ay
+	jk1uC6U/UOvSfXN5UxV4XatoKcAFLEiiZinIgLHU7xmQoyE8quoInfvJ9X1Du0L59i+9Uu3y/G95x
+	/OmTaRM4XvrgVbifEovdFldUmGQ92+WTRXPCU8Z4SWZs/RlGhc4CRwrDpZ53H8MmJQ/+na+0PR68X
+	l7T1HZSow1eQuNe3ysnTJV79RxSEqE0+fMzosnNG4yIIM4nQIZwijPtmGbcGqKD425VQqLej7zZ5f
+	aH/0Q7GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVfQ-0000000C5yC-35Rb;
-	Tue, 13 Oct 2026 06:07:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGWWj-0000000CBFz-0u6h;
+	Tue, 13 Oct 2026 07:02:21 +0000
+Received: from mail-westusazon11010044.outbound.protection.outlook.com ([52.101.85.44] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVfN-0000000C5vn-19ie
+	id 1xGWWg-0000000CBFM-27Mw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:07:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D89044790;
-	Tue, 13 Oct 2026 06:07:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E1A38C2BD00;
-	Tue, 13 Oct 2026 06:07:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791871632;
-	bh=+zZQ85eonvdgpg+CtFUy3LsYAvptEOGqdtBRYiHP3Qs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Wm4E/DWne9FUTjDDgNTLWmqcrW0DBBXzf9Ro7C83jpr0gdBvZEkd13i4VSzQcGxKX
-	 MSBgHjTA9e8UM+1wQ+u4npb0pAKZqF5lKpW3DWF/0lZfgdFTgqwknxSvFExxIXv8tL
-	 xJGw3nLv5kF9zu/yux2TVyW3yQcHU0nZR0KOesJrmbXqKLDI7RJea1hlfVPGyWlyBK
-	 Vsfcen89JP8U0bzV8+eTScvyTvgQ/yX37DtNsmewaIjqyUb5ZIs76h6kICAbr7/aOL
-	 vvfSpH4J46hqjfwhEmyjn8KPKK6ccVBOuDV8eEapkfz0eSZWuREAakKeoFEN1uKxz6
-	 Az5/fuOsIeTwA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF1F4CC6B0E;
-	Tue, 13 Oct 2026 06:07:12 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 13 Oct 2026 09:07:14 +0300
-Subject: [PATCH v3 04/11] gpio: Add Cortina Systems CS75xx GPIO driver
+	Tue, 13 Oct 2026 07:02:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nputcfLeLIjJGhfz4c1ltoLjS6Xbb+okVJzW+qDX9m6BGHwyu6xpajccqhTQlbziONeV/rs0nWQwBTHB9GWtfD6gN+U75N/Vw+NuJIGquA+xfKigzVWl8+nRm4tFj2HICicdGR5sGqY6FjjCxQahhFAEAoGrdCEtb+/OyJxGcZVx33zHWjs68mMUATHK7oPJwdDDCz9gI142rS2FJ8wno47YYgJWNF6x4lrijMuQlzv3kFUFgKb67lyVuwRP2tbn3HpIk+Zztk3V8Ad3LLLQcKxHsKURXO1R2b140+Qv/B2SRTw4gOQYsUGoARI6Ol80gVNfdDNC7CI7obP1/WMe6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tlJOMcxW9ZrlwWT0lPMOPWXSHtzr6xFkCMhjWue+wXc=;
+ b=gbYaCxaJHuC37STSS4ylLezfaKMc7j2PNxcdaSf39dmKQiF1UFNOVVnpDjvAVJetSEe1re6FKz3AVbwRx4tM/8ACIye+igvUX676OZ4DCCRaqabcaVRJWC2HFs10BHPY15t12drEkIP5U27G2Ew+gBTDltDl3+gFDRSnGs/GGfa7fGpGwhoCDpLx57oBOEt2s8sBjlQ71RW7azd/pByT8fPHoMkvBmn48iE34ZsEhnWDkTe/ft3k8Xj4uFMlW637bBZahvcQ2rpv5t/fnqzYvwPsEBF0gYElL6vtBFnVHLwYBRObj2hGxrAfRS4PTTVneQH8yyenZ4TeK1FnTBOeRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tlJOMcxW9ZrlwWT0lPMOPWXSHtzr6xFkCMhjWue+wXc=;
+ b=WmY70vDkFmap7gt5FSeNgdyZKp6JYCK/ORNRGi2SuRYMssYhYx6GCUc9z9WVJ10XO4WL1HsLo3Ed/zYeeq0lh5p9aUW3y9SRL4MZ9n+Cl/mvWS7WlWgY0b/pqrB/HxV70KmPTGWQTZmuZaTyEVR4QHaoNd+iarv3uJrOO6H1JuXOd01ljGhI3DmTkQgxKu+DUdol/kXfWM/ou0m9kDbEPHXVEfvlBylrEVEjcJmxueG3EDuOlL/NeX4BN1TmOGlQ3xWT8HtXrUqNBftJCcn1/4pcs07v5kk5/n6I7zA4RKrkc8Zd0EhIXF5cNp6Eog1aGpUSPhaG1nuZU/nXKbOd1A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB727857.namprd12.prod.outlook.com
+ (2603:10b6:408:3ba::5) by CY8PR12MB7416.namprd12.prod.outlook.com
+ (2603:10b6:930:5c::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 07:02:10 +0000
+Received: from LY0PR12MB727857.namprd12.prod.outlook.com
+ ([fe80::843e:82cd:41ca:f522]) by LY0PR12MB727857.namprd12.prod.outlook.com
+ ([fe80::843e:82cd:41ca:f522%5]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 07:02:09 +0000
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+To: mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	conor@kernel.org,
+	jic23@kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	andre.przywara@arm.com,
+	aneesh.kumar@kernel.org,
+	Souvik.Chakravarty@arm.com,
+	treding@nvidia.com,
+	jonathanh@nvidia.com,
+	bence.csokas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Srirangan Madhavan <smadhavan@nvidia.com>
+Subject: [PATCH v4 0/2] Add SMCCC cache clean/invalidate provider
+Date: Tue, 13 Oct 2026 07:02:03 +0000
+Message-ID: <20261013070205.3566865-1-smadhavan@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P221CA0058.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::7) To LY0PR12MB727857.namprd12.prod.outlook.com
+ (2603:10b6:408:3ba::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-b4-cs75xx-s2-v3-4-181bb0d23f4c@gmail.com>
-References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
-In-Reply-To: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>, 
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791871630; l=11756;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=U8kbFa+ObMQjf4fVSpDRBdQdY5FQbSMl5bKCiv7JH/g=;
- b=0FcBYOnhwS37Cuj1eYq9gwQB1fr1aVkCg+Tsm7wPgtfqKZSGj7fjQch9/outPw/6B8YsFc8zL
- pu8QTrU1E1ICEcO6OFG43uPnfVoiNZJ/iItprcRNKQvk5f08hZlRUg3
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB727857:EE_|CY8PR12MB7416:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28c2ad4b-5f4f-4b48-cc29-08df28f7e636
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|10067099003|261009223027099003|5023799004|11063799006|6133799003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: YqhkmNDXSItcIv7E8BXP5uswE1jISk4R1uGFs7OeyIjhp/IkIhzzyxXGHew+Cfu+NGnvh7CSsMr3Hd+CX+y/XjgAmuzSuYSErnuKkOJ9OG6/us6un2eROyyHFo+JWdzmwaTueckh9iaaLXWU2YDePIOXA44igugptj1aGafdocVvW0XTtqYbkH2K+KR2bHrwEFRKgLixr1d5Ik6B//hPHYpUQMqemaIyNV78tAHmuIMABv/H/s8VmNO0jcYX+RwpGyD3KMvRJyiGwxSRa5wz0QxDd+1KQ2WFYs2IRgyLlGHhQRjG75LoJTYT1wMfUQiYGOEkNraZ+Y7dmON/xNoNaPFpT8flEWKAgk8tjuxCjmuY611nOmooatNMY6x5s7P+mnd6jCPo/DLoERyv14k/SQ8nT5VQ3RLTM4OLM1cYrDJO7C+1zoGUoy2CFhvqDuxCsGpsHZUxLtzQmB4qRXUsbSFcSlVHfeV4zklNQnhY62h0dUd7sK0YQRh7qZXLoNL31xxrbKpP2TBKGJ6YmLBykVZNOFCVrmCx5aZw1kvrerAxrioTLmPgK3w1yNqd4YJ0ZDKelrc5MN3CQrpz7C47/p9Exgcp5C0c72+1ro1lQw+Kve/ADaWr5cq3i8n31wsi0EzNBdhKoL/cG2FYcrU8vFrcXjvZfdkSKrKOigcJdfg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB727857.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(10067099003)(261009223027099003)(5023799004)(11063799006)(6133799003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVVqODRGbDhMVGtPMkVGS3FjRjdmZHJrUXF3ODdJeGpMbFRjV0R3TlIwd3VY?=
+ =?utf-8?B?YjhRTnpESjYwWmZDTkQvUG12OFRqRFZNdlRuU2EyT2ZlQ1ozUHF1NHdiZ3BP?=
+ =?utf-8?B?aDlZOFp6UUJRV3A0aS9YelZCdUlDcnc4aHpuTzV3M21vS01wa1Z2ZmErelJk?=
+ =?utf-8?B?b0RYSjZjV2lMalVPaHVJQ2NSQ09pUGQ4MkYyZnRpKzVibnk4eEJIditheTkv?=
+ =?utf-8?B?d0lCRktqYTN5RUkwVFNrRmhUQTJnODNwWWlqOWU0QlpwWHBkYUcyMUJPQlFS?=
+ =?utf-8?B?WW9yb25wK29vSWFyRlVvdHFXNDcrcTR2bFVnQWZBcWgreUZJMHVPWkJ6VUZw?=
+ =?utf-8?B?TXlwY1J5eDYxdUUvb2dxUUpZQ3FLRmx2NVNZQzVlbXQ5SzZKWENQNTZ5cERC?=
+ =?utf-8?B?eXB0Q2czaU1HV2luL2Z2K0tOQXZTVjlOd0ZlSUlleDNCYkprZWhENnZld1ZG?=
+ =?utf-8?B?MGVud01Wbk1HejRxQXYzSDFteTE1R0FrU25YeFdmWjJkelcxeUdmZldQaThY?=
+ =?utf-8?B?TUpXaFZoRG5LYkhvZEwxSldFc29EM043RW9JVE5MY3kyWmlLR3AySkNXQXRr?=
+ =?utf-8?B?bEFqQllWSURDVDhIRkx1Y3B0b0k4ck9TL05uQVhWNWJJRTREMzVnVnRqYVFK?=
+ =?utf-8?B?dVR1UEQvTVBPNlkvVmJEc3BmdmxORHhHQzE1RzZSalFXVUwyNVUvR1JXT2lV?=
+ =?utf-8?B?M3hLZVdSS0M4ZnBXd05yTWFVQUdTUzNRYTFadmFmckxYUU1OemNjeUJKeFNI?=
+ =?utf-8?B?MjZiNDBLTHJMYlV2c04wZkVxZ2hhNHFaWGczaFordFZBRHVSK0NQeVRjdmxu?=
+ =?utf-8?B?bmtYa3ZTZDROek40RGVXVGxXZjJYR050aVZYUkZJbmcwMkx0V2pvekd0cFhs?=
+ =?utf-8?B?bm5rVitucFpRampEL25PM2thWDhPUTRuemM1RytwdXIvUWo1ZDE0RldiUFJj?=
+ =?utf-8?B?MlhTK29Pd1hqUDN3VWFNc21nVHNqK3RZV083cGdCbzRpZVJKNlRWcEJweW41?=
+ =?utf-8?B?Y3RnSzFLdFVEVzVMS2FvdGROVTk1dk5ZRnNLaXptY0hMQzZNSW5MdnlOcy9j?=
+ =?utf-8?B?eG5FdzlpNDdKOGVjUEJyd3NVOStUTlduT2pHNjQwSE9WMXVkeXZFMFN0cnha?=
+ =?utf-8?B?MlN0M1pCcEVKWDVVdE5KQkJUNHViRktpeEJwYmNmSU1wYkdtUGtEcXQyUlor?=
+ =?utf-8?B?Z0wrVlkwTkxoQUh3R2dybGdwWmwzVVVhbzRTYk9kTDBneS95bk9nVGRTMWtr?=
+ =?utf-8?B?Z096S1pEQ1dRUHJNckJYN0t5TXpxYjdhL0tXemo5bWxZMXhBZkJ2N0FOZHJL?=
+ =?utf-8?B?c3BqdkZBS0ZWckk4NkZJczBUOGx1cVhPaGU5UlBXOE5uUnk4ekFObEV0V3dW?=
+ =?utf-8?B?a214VysrditDMTVhNndTcHlqcXpJQ2xvcyt3dlQyT01BaFFKL1IxLzR5QXJa?=
+ =?utf-8?B?MHZLZGRXOWxFeDZ4dTFZdi9NQTc3M3JUclVkNHNOMmVJUnNRZHhieUhySW90?=
+ =?utf-8?B?ZlhmeWxMcUkxRFA2ODI2MnIyRlBON3JOU0J2SlRqTjY3ZnZ6QlE3SnRDWnZT?=
+ =?utf-8?B?cnBXMXYxVjZTMXVKUDhyYlZCampGUlFSYmdQWmpObUtrbjZBem5OV28zcDVK?=
+ =?utf-8?B?R2c5N3pDTW01ZDNZT3BOZ2daVUtZaVBhKy96UkFRdVpFQTRQOGdENFRaeXFl?=
+ =?utf-8?B?TVBCcUlGMlF3dkRZNWI5VW9ZZktSZ1hvSU5BYzJHUUxRZldrWElLQ3Via1N0?=
+ =?utf-8?B?VGpzd25xKzdQUUs3NlNWN3hWblVFc3Fla3o2d3UwajFHelVwcjE1QmlTcHJo?=
+ =?utf-8?B?dkdCeHNsbVd1ZTY1SktGbnpKYW5vVmtOZzRFa01oRCs3bGVrVXAxNlZONW5G?=
+ =?utf-8?B?bDBSU2NrK3J0eGxFNHo0ZXNyS3VKZzEyYjdqc2pxMmRmZWxBWCt3YWdtU1RH?=
+ =?utf-8?B?Sk1kRVFUUDluelB5RDcwaDIvWnNXME5iL0ZWNnhwODVoeVcxbFY4YmVwa2Zw?=
+ =?utf-8?B?R1BLZXRWc3JJOEZXRWhabm9MbUloNDUycFk1SERENWdURlFlaENjaERGT2JU?=
+ =?utf-8?B?Z2trU0I2bHZ4RDVuazVCdHAzQk9JVmJPQ1QxRHgxNnYwY1pwNW5xTG1UTmlk?=
+ =?utf-8?B?czgzSUZkS0JEcVN0Q3RlekJIU2VQU3ZMZHFCNHdiR0swN0l0V1RpaVVPS0M3?=
+ =?utf-8?B?M0IxV1RrZm02S0tQOXZrYitoalpEZHdzNGtTdGFwdEV2cEtJbDdrb242RWtQ?=
+ =?utf-8?B?WWljbW53b2ZxRDFOZGVFWTZXVGFMSVdUWlM2QSt1d25RK2w4VHhScDFMaDQ4?=
+ =?utf-8?B?MHV1VXczek9TVU9yalYwVjc5Uk1UditGNkYwcERwQ01xbURVd0tsZz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28c2ad4b-5f4f-4b48-cc29-08df28f7e636
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB727857.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 07:02:09.4946
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nyEHV6UrkSfWO59MsNHg07Fh49QXlPpLRbWYaQB4s4MSQ6LAzIi8FMzXI1xIHgfFJcLRQOO2WCKqgOMA3vBMwA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7416
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_000218_551784_3D4B6D78 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,409 +154,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+This series adds an arm64 backend for memregion cache invalidation users
+based on the Arm SMCCC cache clean+invalidate interface.
 
-Add a driver for the GPIO banks of the Cortina Systems CS75xx SoCs. The
-data and direction registers are handled by gpio-mmio; each bank has its
-own interrupt with level and edge triggers, both edges are emulated by
-flipping the polarity.
+Per DEN0028, this interface targets systems where a Normal Cacheable
+memory region can be modified in ways that are not handled by usual PE
+coherency mechanisms, and where VA-based CMOs may be too slow or
+insufficient for large ranges and/or system-cache implementations.
 
-A pin only works as a GPIO when its bit in the bank's GPIO_MUX register
-is set. The driver sets it when a line is requested as a GPIO or as an
-interrupt and restores the value found at probe time when the line is
-released.
+Representative use cases include device-backed memory state transitions
+where stale CPU/system cache lines must be invalidated reliably (for
+example secure erase, reset/offline flows, and dynamic memory
+reconfiguration).
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- drivers/gpio/Kconfig       |  12 ++
- drivers/gpio/Makefile      |   1 +
- drivers/gpio/gpio-cs75xx.c | 336 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 349 insertions(+)
+Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
+transient return codes needed by callers [1].
 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index dfdc9ee1a..6b9524f25 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -300,6 +300,18 @@ config GPIO_CLPS711X
- 	help
- 	  Say yes here to support GPIO on CLPS711X SoCs.
- 
-+config GPIO_CS75XX
-+	tristate "Cortina Systems CS75xx GPIO support"
-+	depends on ARCH_CORTINA_ACCESS || COMPILE_TEST
-+	select GPIO_GENERIC
-+	select GPIOLIB_IRQCHIP
-+	help
-+	  Say yes here to support the GPIO banks of the Cortina Systems
-+	  CS75xx SoCs, including their interrupts.
-+
-+	  Requesting a line switches its pin from the peripheral function
-+	  to GPIO until the line is released.
-+
- config GPIO_DAVINCI
- 	tristate "TI Davinci/Keystone GPIO support"
- 	default y if ARCH_DAVINCI
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index 88f748846..a38ad4331 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -59,6 +59,7 @@ obj-$(CONFIG_GPIO_CLPS711X)		+= gpio-clps711x.o
- obj-$(CONFIG_GPIO_SNPS_CREG)		+= gpio-creg-snps.o
- obj-$(CONFIG_GPIO_CROS_EC)		+= gpio-cros-ec.o
- obj-$(CONFIG_GPIO_CRYSTAL_COVE)		+= gpio-crystalcove.o
-+obj-$(CONFIG_GPIO_CS75XX)		+= gpio-cs75xx.o
- obj-$(CONFIG_GPIO_CS5535)		+= gpio-cs5535.o
- obj-$(CONFIG_GPIO_DA9052)		+= gpio-da9052.o
- obj-$(CONFIG_GPIO_DA9055)		+= gpio-da9055.o
-diff --git a/drivers/gpio/gpio-cs75xx.c b/drivers/gpio/gpio-cs75xx.c
-new file mode 100644
-index 000000000..d3e8d3a99
---- /dev/null
-+++ b/drivers/gpio/gpio-cs75xx.c
-@@ -0,0 +1,336 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Cortina Systems CS75xx GPIO controller
-+ *
-+ * Each bank has 32 lines with direction, data and interrupt registers.
-+ * Whether a pin is driven by the GPIO bank or by its peripheral function
-+ * (NAND, Ethernet, UART, ...) is selected by the bank's GPIO_MUX register
-+ * in the global control block. A line is switched to GPIO when it is
-+ * requested as a GPIO or as an interrupt and switched back to its initial
-+ * setting when it is released.
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/irq.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+
-+#define CS75XX_GPIO_CFG		0x00	/* 1: input, 0: output */
-+#define CS75XX_GPIO_OUT		0x04
-+#define CS75XX_GPIO_IN		0x08
-+#define CS75XX_GPIO_LVL		0x0c	/* 1: high level or rising edge */
-+#define CS75XX_GPIO_EDGE	0x10	/* 1: edge, 0: level */
-+#define CS75XX_GPIO_IE		0x14
-+#define CS75XX_GPIO_INT		0x18	/* write 1 to clear */
-+
-+struct cs75xx_gpio {
-+	struct gpio_generic_chip chip;
-+	void __iomem *base;
-+	void __iomem *mux;
-+	u32 mux_init;
-+	u32 gpio_used;
-+	u32 irq_used;
-+	u32 both_edges;
-+};
-+
-+/* Called with the chip lock held */
-+static void cs75xx_gpio_update_mux(struct cs75xx_gpio *g, unsigned int offset)
-+{
-+	u32 mask = BIT(offset);
-+	u32 val = readl(g->mux);
-+
-+	if ((g->gpio_used | g->irq_used) & mask)
-+		val |= mask;
-+	else
-+		val = (val & ~mask) | (g->mux_init & mask);
-+
-+	writel(val, g->mux);
-+}
-+
-+static int cs75xx_gpio_request(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+
-+	guard(gpio_generic_lock_irqsave)(&g->chip);
-+	g->gpio_used |= BIT(offset);
-+	cs75xx_gpio_update_mux(g, offset);
-+
-+	return 0;
-+}
-+
-+static void cs75xx_gpio_free(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+
-+	guard(gpio_generic_lock_irqsave)(&g->chip);
-+	g->gpio_used &= ~BIT(offset);
-+	cs75xx_gpio_update_mux(g, offset);
-+}
-+
-+static void cs75xx_gpio_irq_ack(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+
-+	writel(BIT(irqd_to_hwirq(d)), g->base + CS75XX_GPIO_INT);
-+}
-+
-+static void cs75xx_gpio_irq_mask(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+
-+	scoped_guard(gpio_generic_lock_irqsave, &g->chip) {
-+		u32 ie = readl(g->base + CS75XX_GPIO_IE);
-+
-+		writel(ie & ~BIT(hwirq), g->base + CS75XX_GPIO_IE);
-+	}
-+
-+	gpiochip_disable_irq(gc, hwirq);
-+}
-+
-+static void cs75xx_gpio_irq_unmask(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+	u32 ie;
-+
-+	gpiochip_enable_irq(gc, hwirq);
-+
-+	guard(gpio_generic_lock_irqsave)(&g->chip);
-+	/*
-+	 * The status of a level interrupt is latched while the line is
-+	 * asserted, also after the ack, so it may be stale by now. Clear it,
-+	 * it is set again right away if the line is still asserted.
-+	 */
-+	if (irqd_is_level_type(d))
-+		writel(BIT(hwirq), g->base + CS75XX_GPIO_INT);
-+	ie = readl(g->base + CS75XX_GPIO_IE);
-+	writel(ie | BIT(hwirq), g->base + CS75XX_GPIO_IE);
-+}
-+
-+/* Both edges are emulated by flipping the polarity on every interrupt */
-+static void cs75xx_gpio_set_polarity(struct cs75xx_gpio *g, u32 mask)
-+{
-+	u32 lvl = readl(g->base + CS75XX_GPIO_LVL);
-+
-+	if (readl(g->base + CS75XX_GPIO_IN) & mask)
-+		lvl &= ~mask;
-+	else
-+		lvl |= mask;
-+
-+	writel(lvl, g->base + CS75XX_GPIO_LVL);
-+}
-+
-+static int cs75xx_gpio_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	u32 mask = BIT(irqd_to_hwirq(d));
-+	u32 lvl, edge, both_edges;
-+
-+	guard(gpio_generic_lock_irqsave)(&g->chip);
-+
-+	lvl = readl(g->base + CS75XX_GPIO_LVL);
-+	edge = readl(g->base + CS75XX_GPIO_EDGE);
-+	both_edges = g->both_edges & ~mask;
-+
-+	switch (type & IRQ_TYPE_SENSE_MASK) {
-+	case IRQ_TYPE_LEVEL_LOW:
-+		lvl &= ~mask;
-+		edge &= ~mask;
-+		break;
-+	case IRQ_TYPE_LEVEL_HIGH:
-+		lvl |= mask;
-+		edge &= ~mask;
-+		break;
-+	case IRQ_TYPE_EDGE_FALLING:
-+		lvl &= ~mask;
-+		edge |= mask;
-+		break;
-+	case IRQ_TYPE_EDGE_RISING:
-+		lvl |= mask;
-+		edge |= mask;
-+		break;
-+	case IRQ_TYPE_EDGE_BOTH:
-+		both_edges |= mask;
-+		edge |= mask;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	g->both_edges = both_edges;
-+	writel(lvl, g->base + CS75XX_GPIO_LVL);
-+	writel(edge, g->base + CS75XX_GPIO_EDGE);
-+	if (g->both_edges & mask)
-+		cs75xx_gpio_set_polarity(g, mask);
-+
-+	if (type & IRQ_TYPE_LEVEL_MASK)
-+		irq_set_handler_locked(d, handle_level_irq);
-+	else
-+		irq_set_handler_locked(d, handle_edge_irq);
-+
-+	return 0;
-+}
-+
-+static int cs75xx_gpio_irq_reqres(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+	int ret;
-+
-+	/* The boot loader may leave the line configured as an output */
-+	ret = gc->direction_input(gc, hwirq);
-+	if (ret)
-+		return ret;
-+
-+	ret = gpiochip_reqres_irq(gc, hwirq);
-+	if (ret)
-+		return ret;
-+
-+	guard(gpio_generic_lock_irqsave)(&g->chip);
-+	g->irq_used |= BIT(hwirq);
-+	cs75xx_gpio_update_mux(g, hwirq);
-+
-+	return 0;
-+}
-+
-+static void cs75xx_gpio_irq_relres(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+
-+	scoped_guard(gpio_generic_lock_irqsave, &g->chip) {
-+		g->irq_used &= ~BIT(hwirq);
-+		cs75xx_gpio_update_mux(g, hwirq);
-+	}
-+
-+	gpiochip_relres_irq(gc, hwirq);
-+}
-+
-+static const struct irq_chip cs75xx_gpio_irq_chip = {
-+	.name			= "cs75xx-gpio",
-+	.irq_ack		= cs75xx_gpio_irq_ack,
-+	.irq_mask		= cs75xx_gpio_irq_mask,
-+	.irq_unmask		= cs75xx_gpio_irq_unmask,
-+	.irq_set_type		= cs75xx_gpio_irq_set_type,
-+	.irq_request_resources	= cs75xx_gpio_irq_reqres,
-+	.irq_release_resources	= cs75xx_gpio_irq_relres,
-+	.flags			= IRQCHIP_IMMUTABLE | IRQCHIP_MASK_ON_SUSPEND,
-+};
-+
-+static void cs75xx_gpio_irq_handler(struct irq_desc *desc)
-+{
-+	struct gpio_chip *gc = irq_desc_get_handler_data(desc);
-+	struct cs75xx_gpio *g = gpiochip_get_data(gc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	unsigned long pending;
-+	unsigned int offset;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	pending = readl(g->base + CS75XX_GPIO_INT) &
-+		  readl(g->base + CS75XX_GPIO_IE);
-+
-+	for_each_set_bit(offset, &pending, gc->ngpio) {
-+		scoped_guard(gpio_generic_lock, &g->chip) {
-+			if (g->both_edges & BIT(offset))
-+				cs75xx_gpio_set_polarity(g, BIT(offset));
-+		}
-+		generic_handle_domain_irq(gc->irq.domain, offset);
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static int cs75xx_gpio_probe(struct platform_device *pdev)
-+{
-+	struct gpio_generic_chip_config config;
-+	struct device *dev = &pdev->dev;
-+	struct gpio_irq_chip *girq;
-+	struct cs75xx_gpio *g;
-+	int irq, ret;
-+
-+	g = devm_kzalloc(dev, sizeof(*g), GFP_KERNEL);
-+	if (!g)
-+		return -ENOMEM;
-+
-+	g->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(g->base))
-+		return PTR_ERR(g->base);
-+
-+	g->mux = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(g->mux))
-+		return PTR_ERR(g->mux);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	g->mux_init = readl(g->mux);
-+
-+	config = (struct gpio_generic_chip_config) {
-+		.dev = dev,
-+		.sz = 4,
-+		.dat = g->base + CS75XX_GPIO_IN,
-+		.set = g->base + CS75XX_GPIO_OUT,
-+		.dirin = g->base + CS75XX_GPIO_CFG,
-+	};
-+
-+	ret = gpio_generic_chip_init(&g->chip, &config);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "unable to init generic GPIO\n");
-+
-+	if (g->chip.gc.ngpio > 32)
-+		return dev_err_probe(dev, -EINVAL, "too many lines: %u\n",
-+				     g->chip.gc.ngpio);
-+
-+	g->chip.gc.request = cs75xx_gpio_request;
-+	g->chip.gc.free = cs75xx_gpio_free;
-+	g->chip.gc.owner = THIS_MODULE;
-+
-+	/* Mask and clear all interrupts before the parent is set up */
-+	writel(0, g->base + CS75XX_GPIO_IE);
-+	writel(~0, g->base + CS75XX_GPIO_INT);
-+
-+	girq = &g->chip.gc.irq;
-+	gpio_irq_chip_set_chip(girq, &cs75xx_gpio_irq_chip);
-+	girq->parent_handler = cs75xx_gpio_irq_handler;
-+	girq->num_parents = 1;
-+	girq->parents = devm_kcalloc(dev, 1, sizeof(*girq->parents),
-+				     GFP_KERNEL);
-+	if (!girq->parents)
-+		return -ENOMEM;
-+	girq->parents[0] = irq;
-+	girq->default_type = IRQ_TYPE_NONE;
-+	girq->handler = handle_bad_irq;
-+
-+	return devm_gpiochip_add_data(dev, &g->chip.gc, g);
-+}
-+
-+static const struct of_device_id cs75xx_gpio_of_match[] = {
-+	{ .compatible = "cortina,cs7542-gpio" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cs75xx_gpio_of_match);
-+
-+static struct platform_driver cs75xx_gpio_driver = {
-+	.probe = cs75xx_gpio_probe,
-+	.driver = {
-+		.name = "cs75xx-gpio",
-+		.of_match_table = cs75xx_gpio_of_match,
-+	},
-+};
-+module_platform_driver(cs75xx_gpio_driver);
-+
-+MODULE_DESCRIPTION("Cortina Systems CS75xx GPIO driver");
-+MODULE_LICENSE("GPL");
+Patch 2 adds a cache maintenance provider that:
+- registers the interface attributes function as an SMCCC device
+- binds to the service through the SMCCC bus
+- registers with the generic cache coherency framework used by
+  cpu_cache_invalidate_memregion()
+- handles transient BUSY/RATE_LIMITED responses with bounded retries
 
+This patch set does not add a software fallback path; when firmware does
+not implement the SMCCC cache maintenance interface, the SMCCC device is
+not registered and existing behavior is preserved.
+
+The series is based on the current SMCCC bus topic branch queued for
+v7.4 [3].
+
+References:
+[1] https://developer.arm.com/documentation/den0028/h
+[2] https://lore.kernel.org/linux-cxl/20260902072804.665639-1-smadhavan@nvidia.com/
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/smccc-bus
+
+DEN0028 v1.7 has since been confirmed as stable.
+
+Testing:
+- With corresponding TF-A support enabled, exercised the cache operation
+  path through CXL Reset [2] and verified that it invokes the SMCCC call and
+  completes the cache flush successfully.
+- ARM64 defconfig with CONFIG_CACHEMAINT_FOR_HOTPLUG=y and
+  CONFIG_ARM_SMCCC_CACHE=y
+- W=1 build of drivers/cache/arm_smccc_cache.o
+- W=1 build of the ARM64 Image
+
+Changes since v3:
+- Rebased onto the current SMCCC bus topic branch queued for v7.4.
+- Converted the provider to an SMCCC bus driver and registered the
+  attributes function as an SMCCC device.
+- Added an explicit DEN0028 v1.7 reference to the provider source and
+  patch 2 commit message.
+- Dropped the unused tools/include copy of the new definitions.
+- Replaced the catch-all linux/kernel.h include with the specific headers
+  used by the provider.
+- Added Reviewed-by tags for patch 1 from Bence and Andre.
+- Dropped the review tags from patch 2 because the SMCCC bus conversion
+  changed its discovery and initialization paths after the rebase.
+
+Srirangan Madhavan (2):
+  arm64: smccc: add cache clean/invalidate IDs and return codes
+  cache: add SMCCC-backed cache invalidate provider
+
+ drivers/cache/Kconfig           |  11 +++
+ drivers/cache/Makefile          |   2 +
+ drivers/cache/arm_smccc_cache.c | 161 ++++++++++++++++++++++++++++++++
+ drivers/firmware/smccc/smccc.c  |   5 +
+ include/linux/arm-smccc.h       |  21 ++++-
+ 5 files changed, 198 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/cache/arm_smccc_cache.c
+
+
+base-commit: c6e78a4080a3b310a9f61db778d6dee7bc646cb7
 -- 
-2.53.0
-
+2.43.0
 
 
