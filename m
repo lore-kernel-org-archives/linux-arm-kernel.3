@@ -4,47 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FECFCC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DBFCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2LK46YutHa3oM+xUu+YyUYDdDuDRMk9fL5ystfIlDc=; b=VntDs2UCrEVcW/RsSviD8Y3iZj
-	FoDebFMbEWywaOnY+doX70AkoPiuajDlIVoWztBiCB2NFTq5ATOOHykga099FSUUZFfmo+T/xbdw6
-	CFAhoqgOI2VmhV8ZdJXmcoMftpCnzbDCsKf3/uCcFsHVZQNAoPh17vvG5EI0aZA/Zzhdsbdms53B+
-	ziqqNrzQbJexr8zNGgT4hnY2KsmydKkDsJV5kStuJ8Xw4ZT57a0mSck/1eT3AzLI4Bxo9FT7cKrH2
-	aGnwsTUJBqNsF1sniAuU8yd/11MN4LoUkdtqTsd01ylFbTQBT2sEXjKuH+F/xFzV8E8JN78zOLT8W
-	8vyvibqw==;
+	bh=Ngs2H5drVhSSsY3k+1XuymWpnKLMqckm0fPB9uQ+rqU=; b=fU/HIO2wTiIL3XNLKgz5ONnU87
+	cyVGItB3Qv6L3P84tZ8Mrwvhm1m9DiGXbNyJAASzc21uaXcOlcxn4nCAG9DWrnBox1Z8lsK3gInIi
+	WpIztjjyMAZpivWjhx7UNjtjTQ/oJoGDYIgLj/sgFNDpaOjfJLuLl6DMmlUH0pYByaAq3FUfA/Ihq
+	fAcooHK70KBQMFDAuGoA2N8qWLKNX6I4B6S70y8XA5F0J84MaJQjcBzbUTOCQw4/6B3kuUxCU25T/
+	a93arc1MUdCDYBj5h77DUZAtI34hWQzVPHrRyg8k6pfOVz0bYp8dcNRO99cvLnqeCrCUG9rRNHz/M
+	0iQ1OJtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhYo-0000000DrU8-2gEs;
-	Tue, 13 Oct 2026 18:49:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGhbb-0000000DruK-2Omv;
+	Tue, 13 Oct 2026 18:52:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhYn-0000000DrTe-0Bfo;
-	Tue, 13 Oct 2026 18:49:13 +0000
+	id 1xGhba-0000000Drtt-1kyI;
+	Tue, 13 Oct 2026 18:52:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37CB5602C3;
-	Tue, 13 Oct 2026 18:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F941F00893;
-	Tue, 13 Oct 2026 18:49:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 87949601FF;
+	Tue, 13 Oct 2026 18:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF59A1F00898;
+	Tue, 13 Oct 2026 18:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791917351;
-	bh=W2LK46YutHa3oM+xUu+YyUYDdDuDRMk9fL5ystfIlDc=;
+	s=k20260515; t=1791917525;
+	bh=Ngs2H5drVhSSsY3k+1XuymWpnKLMqckm0fPB9uQ+rqU=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=bTXsVBY8L2hiFt/lX44+36LdKu0+Af4DYvhIMIKcG4bRcIFERWTzv95PbLNRlgePL
-	 CqQSp7GoNYsrXskXGpJa0nok+ue8SA5l07BFlCWazWWlUnyBx4yAmRzlIx9MGMJKkn
-	 fpp22GvOUe7mY4Ss8xQJCOrTSup9aOuu5q5czHHsHvOHpWrm1GzMAUCdVm25U7ut0D
-	 WarcoPvGRQKEaG5SOaJ1GvxI0DmcCmSPCx2FvMyOLKpSO+c+gkgjOfAohkS3kmpHQj
-	 8BIAt9GygOF5yIE7qeEmkD5eA9+oeZHfj405BYiivT7QGj1AOusFjBMY1fvEifTPlG
-	 DsPCL8vAvFVZA==
+	b=izNyqB47eFZArRZRZNS7dTQBn7NwqycEpAbpoYBJgMJHm+NegzSQJJwS9MSZqK8ml
+	 O/n/XnPby62gp/+ntCAkK7UK82X0JjnzHR46YNg4EAdRAyzA9ezr8+TmuN5FKEzBVr
+	 omqTZ6m2XYVmBNVdBxfh/aj4Nf16K6MuR/0tBlTl7NNrDa0DSi3KoLSYOmjvbq20sG
+	 1qzaP5hmeiCdwv+HFpK7Bk6xNdL17OPUR93hPZ96+DtT22aXWPU9BtrOcyHA9NFAkj
+	 LDv543Ch+E5iEcLOjnjzHigokCbH7xyt9ftQHuTec+TrL9mxhxGQyTBVzsiz7Fib/3
+	 MaqwfMaUWeA6g==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 09/10] PCI: dw-rockchip: Add system PM support
+Subject: Re: [PATCH v6 10/10] PCI: dw-rockchip: Clear debug buffer before
+ entering L2
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -59,21 +60,21 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kernel@collabora.com
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
 References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
-Date: Wed, 14 Oct 2026 00:18:57 +0530
-Message-Id: <179191733707.12828.15231988052096272779.b4-reply@b4>
+ <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
+Date: Wed, 14 Oct 2026 00:21:54 +0530
+Message-Id: <179191751499.12828.9504625790909143778.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4265; i=mani@kernel.org;
- h=from:subject:message-id; bh=h9eSoJBPlSKMV9GPuwPqWD3tM0tkXMEuYQdYPg0IKaY=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzn0bKa2b1ZElqC1ZZLD0461BQLLkljsz8CTkv
- mcVRYwIEpSJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas59GwAKCRBVnxHm/pHO
- 9dt6CACUWonlZ9vT5z/JAsPPzaPJghCoWcwQa7irZNahQtFDrKmc0JEEdS07p1dv7/ejiVjUpD3
- kRkYuK6CxWG2qiYXAsaFaDdu5Js9gY50kh8ZTpmdX7TQXFIE8i7nfl+Kv4a8Zqbk1beOslV+GVQ
- fy7rXip0H714OQ3xOCAJ2C9IePkaUhFCNh/Y3a8QidRolkBH6JP8hwMqPqrElbM3lfcPB9eO+e2
- 2+Ki92mSmO57qbIDdAu4900AmzW9BajB/IBwEmOVr6LGYKIfgj39ENpnrhVcI8Xa9cZ+LpeI48I
- XMQns/3TPwHHefh9IO+CLQeKuSD7TQ+1Dc6T6vW+LYK3RLzE
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1907; i=mani@kernel.org;
+ h=from:subject:message-id; bh=lgEh/kHjjKO7vlCJXlboj9R2tBBVF0LjFp0XPpozdIc=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzn3N2W74pXFoa1XfcNm77M+sJBrelI12u1im6
+ DOtwTHu2E+JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas59zQAKCRBVnxHm/pHO
+ 9fCPCACKrsGNtItOmtzFMwfvK3S2OTHm0WlhE8B9Bq3QvNwVmHc4MWIAPWgpJJFErQkW+fKFsgS
+ OK2nKjCZPQjX1E/GPEviJYaE6jDC21nZTcpEbw3LIKNt65fRGD9BQXrrYAZCC4/T4t+ebJq9elA
+ 7pKr9kuBovq6rM9zOu4mrf3VXtOy4ocOOnqJoJos1ocBaEr5KtoWUVpWmCFZiz1e4KeEZVEwp+8
+ 4QpTK3CNffdbl5DyM020BUhChR8dZai2ITRvgPaFK7Vrw5R5g4JpvMj424vp75+gj3wa3KVBWBm
+ chKJnVneASzyRoDqKo9o5wqtmiTDxxjfHq7QVoecFMZviPI1
 X-Developer-Key: i=mani@kernel.org; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,124 +92,55 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2026-09-08 16:51 +0200, Sebastian Reichel wrote:
-> Add system PM support for Rockchip PCIe Designware Controllers.
+> Clear the debug buffer before entering the L2 state to ease debugging
+> link training issues on resume.
 > 
-> I've tested this on the Rockchip RK3576 EVB1, the Radxa ROCK 4D
-> and the ArmSom Sige5 boards.
-> 
-> While I haven't experienced any issues, most of my tests have been done
-> without any devices attached (i.e. default board without any extras), so
-> there _might_ still be some problems. As system suspend does not work at
-> all right now, I think it makes sense to get at least the basic
-> configurations working as soon as possible as it will allow us to catch
-> regressions by enabling system suspend in CI systems like KernelCI.
-> 
-> Co-developed-by: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+
+What is this debug buffer and what value does it provide?
+
+> Cc: Shawn Lin <shawn.lin@rock-chips.com>
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 100 ++++++++++++++++++++++++++
->  1 file changed, 100 insertions(+)
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
 > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 47d9cab909bc..e675918ba184 100644
+> index e675918ba184..a508f4fffd2a 100644
 > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -120,6 +120,7 @@ struct rockchip_pcie {
->  	struct gpio_desc *rst_gpio;
->  	struct regulator *vpcie3v3;
->  	struct irq_domain *irq_domain;
-> +	u32 intx;
->  	const struct rockchip_pcie_of_data *data;
->  	bool supports_clkreq;
->  	struct delayed_work trace_work;
-> @@ -1042,6 +1043,99 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
+> @@ -77,6 +77,9 @@
+>  #define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
+>  #define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
+>  
+> +/* General Debug Register */
+> +#define PCIE_CLIENT_GENERAL_DEBUG	0x104
+> +
+>  /* RASDES TBA information */
+>  #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
+>  #define  PCIE_CLIENT_CDM_RASDES_TBA_L1_1	BIT(4)
+> @@ -1043,6 +1046,11 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
 >  	return ret;
 >  }
 >  
-> +static int rockchip_pcie_suspend(struct device *dev)
+> +static inline void rockchip_pcie_link_status_clear(struct rockchip_pcie *rockchip)
+
+No inline in .c files, please.
+
 > +{
-> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> +	struct dw_pcie *pci = &rockchip->pci;
-> +	int ret;
-> +
-> +	if (rockchip->data->mode == DW_PCIE_EP_TYPE) {
-> +		dev_err(dev, "suspend is not supported in EP mode\n");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
-> +
-> +	ret = dw_pcie_suspend_noirq(pci);
-> +	if (ret)
-> +		return ret;
-> +
-> +	gpiod_set_value_cansleep(rockchip->rst_gpio, 0);
-> +	rockchip_pcie_phy_deinit(rockchip);
-> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-> +	reset_control_assert(rockchip->rst);
-> +	if (rockchip->vpcie3v3)
-> +		regulator_disable(rockchip->vpcie3v3);
-> +
-> +	return 0;
+> +	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_GENERAL_DEBUG, 0x0);
 > +}
 > +
-> +static int rockchip_pcie_resume(struct device *dev)
-> +{
-> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> +	struct dw_pcie *pci = &rockchip->pci;
-> +	int ret;
-> +
-> +	if (rockchip->data->mode == DW_PCIE_EP_TYPE) {
-> +		dev_err(dev, "resume is not supported in EP mode\n");
-> +		return -EOPNOTSUPP;
-> +	}
+>  static int rockchip_pcie_suspend(struct device *dev)
+>  {
+>  	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> @@ -1056,6 +1064,11 @@ static int rockchip_pcie_suspend(struct device *dev)
+>  
+>  	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
+>  
+> +	/* All sub-devices are in D3hot by PCIe stack */
+> +	dw_pcie_dbi_ro_wr_dis(pci);
 
-This is going to regress the EP system suspend. If the EP suspend used to work
-before this patch, then you can safely return 0 here.
-
-> +
-> +	ret = clk_bulk_prepare_enable(rockchip->clk_cnt, rockchip->clks);
-> +	if (ret) {
-> +		dev_err(dev, "clock init failed: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	if (rockchip->vpcie3v3) {
-> +		ret = regulator_enable(rockchip->vpcie3v3);
-> +		if (ret)
-> +			goto err_disable_clk;
-> +	}
-> +
-> +	ret = rockchip_pcie_phy_init(rockchip);
-> +	if (ret) {
-> +		dev_err(dev, "phy init failed: %d\n", ret);
-> +		goto err_disable_regulator;
-> +	}
-> +
-> +	reset_control_deassert(rockchip->rst);
-> +
-> +	rockchip_pcie_writel_apb(rockchip, FIELD_PREP_WM16(0xffff, rockchip->intx),
-> +				 PCIE_CLIENT_INTR_MASK_LEGACY);
-> +
-> +	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
-> +	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
-> +	rockchip_pcie_unmask_dll_indicator(rockchip);
-> +
-> +	gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
-> +
-> +	ret = dw_pcie_resume_noirq(pci);
-> +	if (ret) {
-> +		dev_err(dev, "failed to resume: %d\n", ret);
-> +		/*
-> +		 * During resume, dw_pcie_wait_for_link() is called and when
-> +		 * there is no device connected at all it returns -EIO with
-> +		 * the message "Device found, but not active". Ignore it for
-> +		 * now.
-> +		 */
-
-This is not correct. When there is no device connected, -ENODEV will be
-returned.
+I don't understand the code and the comment. Please explain.
 
 - Mani
 
