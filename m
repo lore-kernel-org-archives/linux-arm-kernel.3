@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0576FCC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0F6CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JjUhGeNIiMMANRRaRsl1pjhnEELfb6stTWkWEvlDGk=; b=GfbC7a5BokbEhqWqj0But9ESfY
-	dDwkn0ODedD88ZlHMh5T4Lex/cdNuGgmHHeJjOKt7BYyqseuB6NHIy0Zy+v0gtUya5VYxtjgcDsOj
-	pZ1wbAbTAY/7U1tttVh85WTUeI0y8G7xzr4O+7eBqQmiwZ15y/5UFV7mkNvlBJxgyHMWN2IA06rrd
-	YvHPDKZ+4UnOSwRazBxG0gHeUkT2T46EKi2aqdGCa3yiB1yy2EbfgbgyrNj8U0aOkk2LLwYhbN+gN
-	we9i7e1tb/cA1isrKGvF77NRdgDrAaxe9VCFxV0hAmdpF6ECh72v5+DlC5a+4viJMbtoTwNdLZXGX
-	2Y50DwYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=akBGkOEOlGYhEbnp+4TPffwtf+bndS3xlT3KFEyzqHY=; b=O5iulpdR0HmgAHLtAQfmmA5LMm
+	KdRX/iupbR/ZXheMBfjvx6j2z+/RkohWh8BbfqSFiPnKq3XIlNaJ++dx+9uteaSbZv/j2xezie7jA
+	bkEK7V+SMYy2Ro5OCK1MP3wzgSwXjrWCcNqABjYKMtXer42UXdPaxh0AzsSbVCaWBp8kxzAQml1nI
+	pOYZP/jtExR0wqL6AmBAx9QSA9ILkFLj7ImueWvLC6fY5TqaoNw5Ff/moEabmXg/NbFudIvEyJJts
+	Nk9VzGKLO3QYpYIAJHlcvcfazFDU9c22N1PIRD1BFghAFg2NzS7GndWjieec7CYaGh4mABT3fGCSk
+	Vi9MZzuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfW4-0000000DYZf-06lS;
-	Tue, 13 Oct 2026 16:38:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGfW8-0000000DYc6-0Xb6;
+	Tue, 13 Oct 2026 16:38:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfW2-0000000DYYV-2jtP
+	id 1xGfW3-0000000DYYh-1F2Z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 13 Oct 2026 16:38:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=akBGkOEOlGYhEbnp+4TPffwtf+bndS3xlT3KFEyzqHY=; b=TvwkD8j5kbSjoPyMfmKKVLf8QN
+	UAJq82viLOi2pSMAK1fQMk913W4NkCz1lnJbBwJv7RbTtoY4EhSEIlh2WxuuXhaNq5ZHQaHwfXEdr
+	ehAx0MOEzeSnfC5P52DI/lqXLIZxV+ct45aw+rQB1rD61EuRiLi6i1cFhFni6yTpVne0uWJNoMcbp
+	OLV8TmswGQHSoUMflVRWArcrJZ54lHG1O9nGsWCt0kD5fd0UmKtuw4T/1KkE5McsDIXFVJIWx2Kpw
+	0d2EHRNK0jGqMAHTLzZTkv2nMUVpbRWtrjR0I0lMp+rp+JbAlEc9OnlZmia0r6Hck/9VhKA3yfR27
+	aYcnD05A==;
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGfVz-0000000FnYb-3McT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 16:38:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F37A360A56;
-	Tue, 13 Oct 2026 16:38:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3461F008A1;
-	Tue, 13 Oct 2026 16:38:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791909493;
-	bh=5JjUhGeNIiMMANRRaRsl1pjhnEELfb6stTWkWEvlDGk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XOPc8K41ZtPawQbQY0ycbHdlD1r+q7i2YNb8nWdP3Nki8QCWNHVDWn8Rv9Boj0vA1
-	 h54iiFOgIU5hKxvZ/JnFd2AhxdpFHcPWCFLtawSfiqMR/HqRZyrbHdoKZqK3wdzXZl
-	 4VCOS5dlwpn6j+8pzRpE4DfksdNVr844PnTv91tpdRjL4uEdKPdJk1hxBHX/+c6+Iq
-	 9ugkEdgrOvjXJgUCrboKSoR+vQ4PKlN83dql9jOUE2hy25vcyc8irPF6Z0RKRT+nQ7
-	 ZcFkkgfbUMKLCYRQ3lPWWUXcf9p5bUXrkDwqNEsAtrHvCLY/oin8rUAodncurSG0Xm
-	 l697HdRha7amg==
-Date: Tue, 13 Oct 2026 17:38:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
-	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
-	lars.povlsen@microchip.com, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, luka.perkov@sartura.hr
-Subject: Re: [PATCH 1/6] dt-bindings: hwmon: sparx5: add LAN969x fan
- controller
-Message-ID: <20261013-unnoticed-deviator-fa9263334ad5@spud>
-References: <20261013125735.1542349-1-robert.marko@sartura.hr>
- <20261013-stylized-plethora-2a9e27545adb@spud>
+	Tue, 13 Oct 2026 16:38:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791909497; x=1823445497;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=+Q3Zno1VCYhLi025pNDCmJZ5SJkmktbvvlNyIe3ul58=;
+  b=Li/F6TApbFTjL7DltMfUgvuwLXsA8UcqWKB19iRiLiQsJR2Q80kKWY4m
+   VcaQniX4d2gRouCUQ+hy8wx2YX8zSNYAEvms6TY/6828xGDeKUQ8koHZS
+   LV8HHHFn3XBg9pVl1tkZqMTritdJHSzrsbKo5W/BjWUoEi/PUBMHDspWA
+   KfLB4YrEkVx9xWVoFsP5oW3vE8bDiAqQPfoFy9H/FOLQBpXmPDJJkuFUZ
+   MZZHXgVum6JWFHFZWhZhBWRxSCsxjqkXFfUdxHY2g0KUTKzGiRVSUzj4T
+   kQ63h9tD9C+HTkQ/sHCatvVquiFd3VvKyqom9fTiRO1PNbppXOqCLxYav
+   Q==;
+X-CSE-ConnectionGUID: Sp3osUIdQWWTWm3jf6a2zA==
+X-CSE-MsgGUID: hbxw1M9VQ1CpZaB/MCeBVQ==
+X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
+   d="scan'208";a="64973283"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Oct 2026 09:38:12 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 13 Oct 2026 09:38:05 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 13 Oct 2026 09:38:01 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Date: Tue, 13 Oct 2026 18:37:27 +0200
+Subject: [PATCH v11 5/5] ARM: configs: at91_dt_defconfig: enable GFX2D
+ driver
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dNzm2dIscauwjnQ7"
-Content-Disposition: inline
-In-Reply-To: <20261013-stylized-plethora-2a9e27545adb@spud>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261013-cpitchen-mainline_gfx2d-v11-5-7527f2efab0a@microchip.com>
+References: <20261013-cpitchen-mainline_gfx2d-v11-0-7527f2efab0a@microchip.com>
+In-Reply-To: <20261013-cpitchen-mainline_gfx2d-v11-0-7527f2efab0a@microchip.com>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=806;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=+Q3Zno1VCYhLi025pNDCmJZ5SJkmktbvvlNyIe3ul58=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ9a5uEC+PVJ7HIt7Hz09nzhLY/3rhA8yc+Lqlh75FLxsi
+ dsiu3+bO0pZGMS4GGTFFFkOvdnam3n81WO7V6JSMHNYmUCGMHBxCsBEfu5j+MP7cprqJ4Ubkh16
+ QTLbF6UGFE3V8vrVFpe5aZ/UFKWbuZsY/nCp9t7wy2Y58Tu1qdWg6QDno+zQBWcsRa6kG+/fsvf
+ +RXYA
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_173812_229720_B68DC2C0 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,193 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---dNzm2dIscauwjnQ7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The GFX2D GPU is embedded in both SAM9X60 and SAM9X75; enable the
+driver to use it.
 
-On Tue, Oct 13, 2026 at 05:30:29PM +0100, Conor Dooley wrote:
-> On Tue, Oct 13, 2026 at 02:56:25PM +0200, Robert Marko wrote:
-> > LAN969x integrates a PWM fan controller with a tachometer input in
-> > addition to the Sparx5-compatible temperature sensor. Add a LAN969x
-> > hardware-monitor compatible and describe the second register region.
-> >=20
-> > Describe the fan as a child node using a two-cell PWM specifier for the
-> > period and standard polarity flags. The child also carries the optional
-> > tachometer pulses-per-revolution and thermal cooling properties.
-> >=20
-> > Keep the existing microchip,lan9691-temp compatible for device tree ABI
-> > compatibility.
-> >=20
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  .../bindings/hwmon/microchip,sparx5-temp.yaml | 90 ++++++++++++++++++-
-> >  1 file changed, 87 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/hwmon/microchip,sparx5-t=
-emp.yaml b/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.ya=
-ml
-> > index 611fcadb1e771..e91c2a3ccd3c9 100644
-> > --- a/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.yaml
-> > +++ b/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.yaml
-> > @@ -4,13 +4,15 @@
-> >  $id: http://devicetree.org/schemas/hwmon/microchip,sparx5-temp.yaml#
-> >  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> > =20
-> > -title: Microchip Sparx5 Temperature Monitor
-> > +title: Microchip Sparx5 Hardware Monitor
-> > =20
-> >  maintainers:
-> >    - Lars Povlsen <lars.povlsen@microchip.com>
-> > =20
-> >  description: |
-> > -  Microchip Sparx5 embedded temperature monitor
-> > +  Microchip Sparx5 temperature monitor with a fan controller on LAN969=
-x.
-> > +  The fan child's pwms property references this node to specify the
-> > +  PWM period and polarity.
-> > =20
-> >  properties:
-> >    compatible:
-> > @@ -18,11 +20,19 @@ properties:
-> >        - const: microchip,sparx5-temp
-> >        - items:
-> >            - enum:
-> > +              - microchip,lan9691-hwmon
-> >                - microchip,lan9691-temp
-> >            - const: microchip,sparx5-temp
-> > =20
-> >    reg:
-> > -    maxItems: 1
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +
-> > +  reg-names:
-> > +    minItems: 1
-> > +    items:
-> > +      - const: temp
-> > +      - const: fan
-> > =20
-> >    clocks:
-> >      items:
-> > @@ -31,11 +41,67 @@ properties:
-> >    '#thermal-sensor-cells':
-> >      const: 0
-> > =20
-> > +  '#pwm-cells':
-> > +    const: 2
-> > +    description: |
-> > +      Number of cells in a PWM specifier.
-> > +      - cell 0: PWM period in nanoseconds
-> > +      - cell 1: PWM polarity: 0 or PWM_POLARITY_INVERTED
-> > +
-> > +  fan:
-> > +    $ref: fan-common.yaml#
-> > +    unevaluatedProperties: false
-> > +
-> > +    properties:
-> > +      cooling-levels:
-> > +        description:
-> > +          PWM duty-cycle values corresponding to thermal cooling state=
-s.
-> > +        items:
-> > +          maximum: 255
-> > +
-> > +      pulses-per-revolution:
-> > +        minimum: 1
-> > +        maximum: 4
-> > +        default: 2
-> > +
-> > +    required:
-> > +      - pwms
-> > +
-> > +    dependencies:
-> > +      '#cooling-cells':
-> > +        - cooling-levels
-> > +      cooling-levels:
-> > +        - '#cooling-cells'
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> >    - clocks
-> > =20
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: microchip,lan9691-hwmon
-> > +    then:
-> > +      properties:
-> > +        reg:
-> > +          minItems: 2
-> > +        reg-names:
-> > +          minItems: 2
-> > +      required:
-> > +        - '#pwm-cells'
-> > +        - reg-names
-> > +    else:
-> > +      properties:
-> > +        '#pwm-cells': false
-> > +        fan: false
-> > +        reg:
-> > +          maxItems: 1
-> > +        reg-names:
-> > +          maxItems: 1
-> > +
-> >  additionalProperties: false
-> > =20
-> >  examples:
-> > @@ -46,3 +112,21 @@ examples:
-> >          #thermal-sensor-cells =3D <0>;
-> >          clocks =3D <&sys_clk>;
-> >      };
-> > +
-> > +  - |
-> > +    #include <dt-bindings/pwm/pwm.h>
-> > +
-> > +    hwmon: hwmon@e2020100 {
-> > +        compatible =3D "microchip,lan9691-hwmon", "microchip,sparx5-te=
-mp";
-> > +        reg =3D <0xe2020100 0xc>, <0xe2010348 0xc>;
->=20
-> Are these actually the same device? These are somewhat disparate
-> register regions - and the second is at a very odd offset.
->=20
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+ arch/arm/configs/at91_dt_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Hmm, doubly suspect since there's already a lan9691-temp compatible...
+diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
+index 830c6c0dbdaf..2a4a2d4c1865 100644
+--- a/arch/arm/configs/at91_dt_defconfig
++++ b/arch/arm/configs/at91_dt_defconfig
+@@ -142,6 +142,7 @@ CONFIG_VIDEO_OV2640=m
+ CONFIG_VIDEO_OV7740=m
+ CONFIG_DRM=y
+ CONFIG_DRM_ATMEL_HLCDC=y
++CONFIG_DRM_MICROCHIP_GFX2D=y
+ CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER=y
+ CONFIG_DRM_PANEL_SIMPLE=y
+ CONFIG_DRM_PANEL_EDP=y
 
-> Thanks,
-> Conor.
->=20
-> > +        reg-names =3D "temp", "fan";
-> > +        #pwm-cells =3D <2>;
-> > +        #thermal-sensor-cells =3D <0>;
-> > +        clocks =3D <&sys_clk>;
-> > +
-> > +        fan {
-> > +            pwms =3D <&hwmon 40000 PWM_POLARITY_INVERTED>;
-> > +            cooling-levels =3D <0 128 192 255>;
-> > +            #cooling-cells =3D <2>;
-> > +        };
-> > +    };
-> > --=20
-> > 2.56.0
-> >=20
+-- 
+2.53.0
 
-
-
---dNzm2dIscauwjnQ7
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas5ecAAKCRB4tDGHoIJi
-0miiAQDcoS6pSOZe09nTKWW5+iqnZh40Ene/HF8ywjE+shE02AD+L+ZLOFQc9oo7
-WY2OttGlEwnYUHuXtVrbQDVuvlVSAAs=
-=YRrz
------END PGP SIGNATURE-----
-
---dNzm2dIscauwjnQ7--
 
