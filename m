@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FC88CC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1C9CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3/WP5D92dJn63pBVARZJXVp+tuxI1GnuqurUpTZ5jA=; b=FN/zb80NyZXVSkl/A0r4WP+c0P
-	/ODSc5/lY/gTm1YnMwncN2bXA3DlLgbYaoy7bNMCZSFJlcfoJ04RkrfzioVLnFo+DQCBNfoEuQyZL
-	mskwoFN/PBznrEoyaqn7SvRq0oM/zNndeE7EQe2DHe/iV4FNVHcBG0tknTHR2RbyemsP3+A56IVea
-	QECLHfG3rwDZvhEsQWhzzsT85pIytvl+Q5+lK4mPW7MmJfZHraClYmiApTGOG/c3/hJ6ERIjlxxsG
-	MWuz5baRNRvMKZav+7tJ2gt8hPC4uvdYoDMLXxrPOkvSrIwtcpu9bV5Ya2PnZ+7AVubUHQwrf3fmv
-	+avpqwHA==;
+	bh=eldS8GplNjgTNKWeHV2zLRcIwD+JHyo0Mc6Zm17nTyg=; b=Iy83tvqBfBIv45FYytb6BCZZ6k
+	Etl/ZefH8dY4sdzDiFk3OtEVHw8JR0ickAIuv75CY3X/Ss9Q5/pkO/1yf22eFnq8sZkXAD+NuA506
+	0XzvVjOTPvziN4m64xn6M1KtLImcdLQV5a+3hzQkvUR52Aj9/FWxWa2F6n852V8NisF3gNlBU3rde
+	bBJPHpJIYLFyRmZlaaZE6XbRgz5G337/MgAuhFWVO7npYlDkAKhMjuXbuba5ckTyOW9mBF6RRbWRF
+	N9MnRp8NrwgkTjO0jN/1uMphCdAhLtr3Amxco3GHgFMtNNbiADiZz88BlKIqil4z3GlS09YlJ96NP
+	BrlLZk4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfjL-0000000Dawu-1KKR;
-	Tue, 13 Oct 2026 16:51:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGfk3-0000000Db9U-0dQY;
+	Tue, 13 Oct 2026 16:52:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfjJ-0000000Davk-0xlx
+	id 1xGfk1-0000000Db8y-3FPW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 16:51:57 +0000
+	Tue, 13 Oct 2026 16:52:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0428343DFE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:51:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD3C01F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:51:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DA1A60A5A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:52:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA51E1F00898
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791910316;
-	bh=l3/WP5D92dJn63pBVARZJXVp+tuxI1GnuqurUpTZ5jA=;
+	s=k20260515; t=1791910360;
+	bh=eldS8GplNjgTNKWeHV2zLRcIwD+JHyo0Mc6Zm17nTyg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HvWia53ZYyhgcZ+OXH68fzSeCTvCqsiRulCTPfoxOQFfsZUMZ7HrmAVwxHq0TSIhj
-	 0p0utXPvGUyGvZfDQB4Zcxctz5BdVh9RNiCElplGq3DFOQ58ymsICvXX2ZTjDpPP4B
-	 X0wiA+SPk4Lsr7Lf84b/BHLe6yTWho8RUweV+v0/4IPNRf3MO6T4p9lFHjOlHvuMRv
-	 KDbjyXUs12NH2QVqjoNNpwHh39PeyGCKmtbRFz3nSwX8yaEs0h5ugUoL2dsycH0fjl
-	 yTrrtTaV2/funlxY0mmHwruBFnUq4eeaX+TzpQ6hDC5aiF2tziZWKHelXDMRPTCo4h
-	 Tmxw75p8hc4Og==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5ba3ac592faso1664207e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 09:51:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzI2XZHt56fOamnujo3k6RgGz31+/2Rb3a3sv4345LparpwvHTedXd58v4zUY/GM3TcKWx+O+dVFvK+TJaa7GtK@lists.infradead.org
-X-Gm-Message-State: AFq9FYKU2aGywoPvFP8Yzy4kdbI5OLZe0aWuuW5+68Rc7c5mlVdnoBx+
-	y4l1+DXh44Wy5ZAoPCrTVuLBBBz0GWNbQ0hlduKXKAEUXAUQEbzwdH6X+qO1qI5Eyp1BjXr4m7S
-	4s4t7/wKi9bWHn+C0rH8wW13yMnNPovw=
-X-Received: by 2002:a05:6512:2245:b0:5ae:b7bc:27a7 with SMTP id
- 2adb3069b0e04-5bcde35cab3mr4460647e87.6.1791910315615; Tue, 13 Oct 2026
- 09:51:55 -0700 (PDT)
+	b=SJEUpDdwlT97nO6lc0n/R6Oe6uXVsnSWlQ0PeDy68BYviEoMgIWrnSABf3oPREArF
+	 KT92We0VmupMcw/WlzrS1W2uypvCMnqG4UJlLxrY+JdQaE2iCNsdGjUbZmCkRgVbjq
+	 LetOsuaXa0B8VBYz1dPLtr2qQQpSwp5KqmjHKQPC7Xep0RSFtXcZ3TIDQ4cDAgZYDq
+	 i6OJQMYhDTTFYSZ0ejFn1IoXo4MgY9WDYSnaN1KnRd5XeTgMwwQT+B0U2D/saX5pmb
+	 L/CNyWm1cXwvXzKrBYPRujo5jJN3PJC7m5D50N0qIx8ENFaEWI4fJhfZQ/dhRkGZvb
+	 39rAOgxT96J3g==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3aae4d5f740so6539711fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 09:52:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz6Bj9v/E5zKQjYhpU5Ql3lkpjEFXo+bJ1oJFt1ws53TVLMW96cXVv6dmoOPPKZi3l8eChjb3eq/k3m0tF9BHXk@lists.infradead.org
+X-Gm-Message-State: AFq9FYLFS3BKbj85wbwxP1Jo2wToaSkojor5bEEhNUaKdhIH95R7QBfd
+	6yvuaM7ef8yWbHmHev/jmUpFB6opnZWjP5G+Yo3oF/RYa0GLBhQ4pEcibrrDptUbd3LAXUi+lH0
+	BopjZrr8Sv5Exn6hEAWFcNLE2xXj73QM=
+X-Received: by 2002:a05:651c:b0f:b0:3a3:52a7:3a1d with SMTP id
+ 38308e7fff4ca-3a9c5125e97mr30998631fa.1.1791910359553; Tue, 13 Oct 2026
+ 09:52:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261013-gpio-mxc-cleanup-v7-0-c4d769587d3e@nxp.com> <20261013-gpio-mxc-cleanup-v7-1-c4d769587d3e@nxp.com>
-In-Reply-To: <20261013-gpio-mxc-cleanup-v7-1-c4d769587d3e@nxp.com>
+References: <20261013-gpio-mxc-cleanup-v7-0-c4d769587d3e@nxp.com> <20261013-gpio-mxc-cleanup-v7-2-c4d769587d3e@nxp.com>
+In-Reply-To: <20261013-gpio-mxc-cleanup-v7-2-c4d769587d3e@nxp.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 13 Oct 2026 18:51:42 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm3vuQr7WeYGMVVaNN5MuzuQvGrZFA4jboYBrTfCUfy8Q@mail.gmail.com>
-X-Gm-Features: AclHuK_fxfc0XIQk4rQosnKB8so3c6I-uEvWCQIJ_fa7_pXjDsATNC4VePcqcl4
-Message-ID: <CAD++jLm3vuQr7WeYGMVVaNN5MuzuQvGrZFA4jboYBrTfCUfy8Q@mail.gmail.com>
-Subject: Re: [PATCH v7 1/4] gpio: mxc: fix race between chained IRQ handler
- install and probe completion
+Date: Tue, 13 Oct 2026 18:52:27 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk1CC+hKyjRh=-dJ8M3oeMqo_8AVkNCUEUxpTRX1=SXDA@mail.gmail.com>
+X-Gm-Features: AclHuK_VSzCmWjCTJqET6DItFfQvgfiwDPO4tQVVwYVu_IZrlaY_9fZ_pvqLqPA
+Message-ID: <CAD++jLk1CC+hKyjRh=-dJ8M3oeMqo_8AVkNCUEUxpTRX1=SXDA@mail.gmail.com>
+Subject: Re: [PATCH v7 2/4] gpio: mxc: fix both_edges bit operations
 To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
 Cc: Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
 	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
@@ -84,33 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 8:03=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+On Tue, Oct 13, 2026 at 8:04=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
 m> wrote:
+
 > From: Peng Fan <peng.fan@nxp.com>
 >
-> mxc_update_irq_chained_handler() is called before the IRQ domain, the
-> generic IRQ chip, and the port list entry are set up. If an interrupt
-> arrives in that window:
+> gpio_set_irq_type() can be called concurrently for different pins on
+> the same port.  The IRQ core serializes per irq descriptor, but
+> different pins have different descriptors, so on SMP systems two
+> concurrent gpio_set_irq_type() calls for pins on the same port run
+> without mutual exclusion.
 >
->  - mx3_gpio_irq_handler() calls generic_handle_domain_irq() with
->    port->domain still NULL.
->  - mx2_gpio_irq_handler() walks mxc_gpio_ports, but the port has not
->    been added to the list yet.
+> The read-modify-write of port->both_edges is performed outside the
+> port-wide scoped_guard(gpio_generic_lock_irqsave) section, so
+> concurrent updates for different pins can overwrite each other,
+> causing missed interrupts or stuck IRQ lines on dual-edge triggered
+> pins.
 >
-> Additionally, if any of the subsequent probe steps
-> (gpio_generic_chip_init(), devm_gpiochip_add_data(),
-> irq_domain_create_legacy(), or mxc_gpio_init_gc()) fail, the error
-> paths never unregister the chained handler, leaving a dangling handler
-> that points at freed memory.
+> The original uniprocessor MXC SoCs were not affected; the race
+> became reachable on multi-core i.MX7 and i.MX8 SoCs that reuse this
+> driver.
 >
-> Move the handler installation after all its dependencies are ready and
-> after list_add_tail(), so the handler is never live while the data
-> structures it touches are incomplete, and is never installed if probe
-> fails.
+> Convert both_edges from u32 to unsigned long and use set_bit(),
+> clear_bit(), and test_bit() to make the modifications atomic.
 >
-> Fixes: 5f6d1998adeb ("gpio: mxc: release the parent IRQ in runtime suspen=
-d")
-> Assisted-by: LLM
+> Fixes: 910862ec092c ("mxc: emulate GPIO interrupt on both-edges")
 > Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
