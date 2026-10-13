@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BA0CC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DD4CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0Owovj5yCN/YII+i8I65SUoJkW/splLTgjlRzLW90g=; b=bizwT5OOF+O1LMin4Ie6TZd/xI
-	cURdRbwvY6oVEVXrA0jRQRsuyBemg3IvjVbU3JfULXnrmOZqV/rNIK3RgwG5xHfFLBLMwb1Md6cJ+
-	KrPvFU6EjZT5FwqOp8L6rLCdLe4bzwiU/orIGV6/TGDfda5buSPR1zdF/mq5QtBhaYX0GrbalJ/o1
-	2BHmYx6x0Msp05h7jJxcT9otbRPbjbstb5jaYgO6OdjWvMwjaD7EOOBovXj1DZl+sorK9vveiB9Tg
-	2TDlFJbsPt685L2JYh6DaOZqhKtCZuIwlTdppILjdPkLl8Wtr2a2e0+Sk4tarsFhPhYp5sJxjjoFj
-	M9vqZKlQ==;
+	bh=JWq2mQbmO9RAw9xT+tskDbvNi7O3rokYBk2esU3pDMw=; b=WIFTkQ9JOaLOJAaYYhs2YOMTlc
+	xeUadfeY6+PugXBQ11ANKRWD71geolGjeZxm6TsNBVNzrddLauT5+pqRwY2VTQOHBmZnFmaHPYCJq
+	+sNrWgm/wU9PtfmvpFmLmP6t5d5BOdYo84+UE246Tfdl9x+GYMPXE8c0SRXZLrXeMVLXeAht0WITQ
+	zbwyVmY9ajDvG4xyL4qa8i7dG04NgX/yLsxCAPUwx1NtEXW9yYAsdVMWTGt2eLwhfT4VoCqSvs7Qg
+	/7vRMSZdsm5NNui45LiUEFa7uBO0CkK8qV3rqA6ep979mfxHUdYit8qlpr5Rz4JgqfK0UjHG1Sw1G
+	fqTd7M2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVq7-0000000C7iN-0vhE;
-	Tue, 13 Oct 2026 06:18:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGVqT-0000000C7lZ-1SYB;
+	Tue, 13 Oct 2026 06:18:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVq6-0000000C7iF-24Dj
+	id 1xGVqS-0000000C7lQ-2xz9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:18:18 +0000
+	Tue, 13 Oct 2026 06:18:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A4EE600D1;
-	Tue, 13 Oct 2026 06:18:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C19271F000FF;
-	Tue, 13 Oct 2026 06:18:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CDB51600D1;
+	Tue, 13 Oct 2026 06:18:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952611F000FF;
+	Tue, 13 Oct 2026 06:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791872297;
-	bh=s0Owovj5yCN/YII+i8I65SUoJkW/splLTgjlRzLW90g=;
+	s=k20260515; t=1791872319;
+	bh=JWq2mQbmO9RAw9xT+tskDbvNi7O3rokYBk2esU3pDMw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=MjfJ0rkXJ2DyoAcWmEtDVDVvUKbYdcZ1Vcerv5B3uXjESwdAbG8iBg7y2LS2MeyTW
-	 4fhCrHGYMaDTgQiiRkQBAZyTlt5KyKDsBfG0db/ywbnxyQaO949953DNJUa8X9yfSZ
-	 OvhspphTmsyF68ALJrx+RMHJ1SFPC9Kf7Kd/z2Dzts0/Lh6SjPP9RWlMiIvAWW27E7
-	 R7APQlWX8TT7Z8WdBGWaUjfDr7SLWW38d2WZOpTkNt+l1z5WYImuYUHxJKCCs4oz8w
-	 bSpLfHRzzHfoZQHKRQ/gp3CO7sx+TsQqbN1Ts+4FFaSWlkbFCi9J3n1GItPchZBaqz
-	 iO8QfBEJdkYiw==
-Message-ID: <ad388a91-404f-40cd-8153-3a0df3411c16@kernel.org>
-Date: Tue, 13 Oct 2026 08:18:08 +0200
+	b=eICTKQo+E0lRMmncVMybDw4dbTe054NYyy7KBKel8y04qqerr2bpZbbH0oJgZCDQ9
+	 fRiCTwxdcXTLyxob2giS/dzCTjqrpjNGEw9XG90lb1dcA6KpduGPk+SG380mYoMP8i
+	 SDIZZTxybLdwKkZFNF1YvYJdX2vldEsUQe0bOhYmeIlmk2lJDymQRtbAlGTpgc2c+n
+	 VwZUHcPcJAYtTtSy3rc6HEznaFY9E0CZMUWWdgLIGhfiVdRwFM+9sCH1a1jzJqBdma
+	 VgmQThggWYTwWjprSwk8UMbyGO+7IH0DvvRq8FbXlrryVpyYewDCi8rWedEkDpYr4A
+	 5xFHOVyScOQhw==
+Message-ID: <971b67a9-7e3a-4fde-a8a1-e5a78f8d6436@kernel.org>
+Date: Tue, 13 Oct 2026 08:18:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/11] Cortina Systems CS75xx: interrupt controller,
- GPIO, I2C and TWD watchdog
-To: filipp.dunsky@gmail.com, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org
-References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+Subject: Re: [PATCH v6 00/10] ARM: Add support for Cortina Systems CS75xx and
+ Securifi Almond+
+To: filipp.dunsky@gmail.com, Arnd Bergmann <arnd@arndb.de>,
+ Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, Jason Li <jason.li@cortina-access.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+In-Reply-To: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,26 +123,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2026 08:07, Fil Dunsky via B4 Relay wrote:
-> This is the second step of the Cortina Systems CS75xx ("Goldengate G2")
-> / Securifi Almond+ support. It applies on top of the platform series
-> "ARM: Add support for Cortina Systems CS75xx and Securifi Almond+"
-> v6 [1] and adds:
-> 
->   - a driver for the per-CPU private watchdog of the ARM11 MPCore,
->     Cortex-A5 and Cortex-A9 ("arm,cortex-a9-twd-wdt"),
->   - the peripheral interrupt controller that combines the interrupts of
->     the low speed peripherals into one GIC interrupt,
->   - the GPIO banks,
->   - the I2C controller,
->   - the device tree nodes, including the reset button of the Almond+,
->     and the multi_v7_defconfig and MAINTAINERS updates.
+On 13/10/2026 08:06, Fil Dunsky via B4 Relay wrote:
+> This series adds initial support for the Cortina Systems CS75xx
+> ("Goldengate G2") network processors and the first board using one, the
+> Securifi Almond+ touchscreen Wi-Fi router (CS7542, 2x Cortex-A9 r2p1,
+> PL310 r3p1, 512 MiB DDR3, 512 MiB NAND).
 > 
 
-Slow down. One small patchset per 24h. If you send some big work, then
-once per 48h.
 
-Implement previous review.
+Way too many versions of huge patchsets. I already counted 4 today.
 
 Best regards,
 Krzysztof
