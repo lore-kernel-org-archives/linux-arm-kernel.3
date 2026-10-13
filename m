@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40397CC6B12
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3D4CC6B20
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uepo6mRy4/Ov3Vk9PFQPNHnMFdvAPTGwCp5tfbz1BEs=; b=oMrQwAkXAfseI6IZpMaQqFL+mY
-	ej7ZIM8PNjnBpuDwXx92mIU8qFwSRB4cP+fnOgama0jebDp7d5FiiiHxjd2uMQlPUnRHoiF0+fsTV
-	r737gwHuvVrq9N/QLkEa7rNVPtv3LBODLKz04ZiW/yx3BdpZt5CUePhQ3+1jX0FVHS1cpVuosITiU
-	J9HUQ/1eh+DxM13dZx/SwdGrYygkXaQQMVgvj7jV+Sf3O6dmdn6ozRBdkWsY08DxIwMQJa78OQi9g
-	mJVlS1Z15MiL0OO675qutRLz+ayh5ErLaFHuWy7kQlEeIA6SkLYMK9khYopR8tXRPVHKFfFauFfwv
-	bFZWb13Q==;
+	bh=SYtilPzqPXCnIDuAgNHfH0KQUIcCbca4y5FMXD8c9rs=; b=fZV3Y16DPvu0cBs2atnrl7lwsY
+	qZ+Zoo+O+J8ORixzWy+YgoSTwD3stE+HbSxxfax33gQPJPH/t6CC5NNoyNdKWMwWrtAFI3SNOv8CL
+	LumK9yG16WIQgyoHM5vicemZRK7WIiMQFue/b3qNxxiqNzOmX0d2to3W23b5lTCrWqTt8Ag3NFHOJ
+	7LzUMh21c6XA0j9mteQiBSA+b6MqkR9WYFgC55vL2nof7XS7ks63KwofVdrKf716L2/5HNRKud9fD
+	bhO3Z4sKJ4jB6FCN4n3LeRiYWefCVCDZisUkc0/La6ToBE7i6938xoYavTVMDg4mIrKhaXIo+fv1t
+	jvOlyxwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGlN1-0000000EC1W-3B4k;
+	id 1xGlN1-0000000EC0i-1tDR;
 	Tue, 13 Oct 2026 22:53:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGlLu-0000000EB5S-0EgY;
-	Tue, 13 Oct 2026 22:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Uepo6mRy4/Ov3Vk9PFQPNHnMFdvAPTGwCp5tfbz1BEs=; b=M79x1a6ji8gNP5H8q24lHs0EtG
-	Qk5lyFY0pzzZAIYe46QQBUwewJicpdw3gl0z38wggLICCR7lxu9XcriTX4fbGh9OZO83AItnBmDs3
-	oWi6X/29F46UwESAt37rBHSlXzQ1DH8YFlak8wixI52Dd5gwcmH4SL7tY9EsGaGREnzqRp12Y2k+J
-	9ILD47PMyJ8hj9V1yfD7S4Rn/Gk2vIw6cmrmgpFbZ89YCk686+CEFtf8+BQyhHERInQz55Um73R+n
-	sbApLMFtE4Mcex0YEon+KAeXoZmg6NaCntrmXqrFBhS/xsUAvYklbPb+WpPRCfDJYMEjyXaRHmoTL
-	IBG/ZCFw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGlLp-0000000GAnZ-0g1o;
-	Tue, 13 Oct 2026 22:52:08 +0000
+	id 1xGlLn-0000000EAzx-03hx;
+	Tue, 13 Oct 2026 22:52:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1791931915;
-	bh=eFcaLJbV3onLWXX76Dq0oKLZVVUoH0YvgLpoIYptoKU=;
+	s=mail; t=1791931919;
+	bh=t4xm3scI4l7rWR2iBzxLstmE0RTUxpACdTblDz3oXNQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QDqPLdLpUwLITLJWpDFYHjaxRbGYhpkddjc6fE7EgQIZOI+2y4475KzCprSb7hzeN
-	 1eRAoKJAQArBEQmq4DdJAW0lG5YZmUB3zUfTtl02CifcOqnyPCcH0swmkNHUJE8NRu
-	 f1+f/xMxp+gkPXpztJBRLy3ED+09FnB/cXhheH6eUwpUmwxCoxSCjSKQYDbTn9jhgL
-	 dzIprO8YmTf4+lOsgsppCnGNKOGNfkAm+CPM/20k8jAhck3PJH+yTid/FW+T9mAOg2
-	 On29pSLk4yT9wNd3OqyvKO9wukXpDFyK9AOkz/UXgFJJkHRanrFcQnmsmHbd9pZ7oQ
-	 xcAw/2COfQitQ==
+	b=CFVeqWm9bZ+b2qYqAyW6WEpI8vPhOwqd06tI38Fo7G+7VirPG5DQgRCp1R/nABSVf
+	 qQkR8ZzJ2LDrzOleN4SQWWjn/3+1gVpn1cFFupHnNq/CE4/TZTjXWP9JzYv8Ddkh99
+	 SOq3lCVBniNaGs5lVLfhwGI5xso2ykivJ8urd5cMpxubp41BZRR4La+NoP5e4dMm02
+	 +LeLuMKMLWqjmEdj6+Tn2uNQZQIB5AmdZfQl9x1iHZYF36Q7PMqq+TA5mjhftczIVT
+	 +usZqzS25oWkvGTZ2ARJG0braLal0GO55OFZEKUjClBPPAeKCTuWJ0/udB9/NJHQZT
+	 SSy5iZ9kpRc9g==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E106C17E0EB0;
-	Wed, 14 Oct 2026 00:51:54 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1726417E1509;
+	Wed, 14 Oct 2026 00:51:59 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 14 Oct 2026 01:51:23 +0300
-Subject: [PATCH v5 06/15] drm/rockchip: vop2: Fix VOP2_MAX_DCLK_RATE
- overflow on 32-bit
+Date: Wed, 14 Oct 2026 01:51:29 +0300
+Subject: [PATCH v5 12/15] drm/rockchip: dw_hdmi_qp: Do not mask error code
+ in atomic_check()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261014-dw-hdmi-qp-yuv-v5-6-6fab0fe43a9b@collabora.com>
+Message-Id: <20261014-dw-hdmi-qp-yuv-v5-12-6fab0fe43a9b@collabora.com>
 References: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
 In-Reply-To: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -87,12 +73,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
  dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
- Igor Paunovic <royalnet026@gmail.com>
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_235205_588722_1A7EB215 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20261013_155203_556301_9F6EB8E3 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2_MAX_DCLK_RATE is defined as an unsigned long and is used scaled by
-the color-depth ratio when computing the maximum DCLK the HDMI PHY PLL
-can source.
+dw_hdmi_qp_rockchip_get_vop_format() calls
+drm_atomic_get_bridge_state(), which takes the bridge private object
+lock through the atomic state's ww acquire context and may therefore
+fail with -EDEADLK when the lock is contended.
 
-On architectures where unsigned long is 32-bit, VOP2_MAX_DCLK_RATE * 8
-is evaluated in 32-bit arithmetic and overflows: 4800000000 wraps to
-505032704 before it is promoted to the 64-bit argument of
-DIV_ROUND_CLOSEST_ULL().  At 8 bpc this collapses max_dclk from the
-intended 600 MHz down to roughly 63 MHz.
+The DRM core expects -EDEADLK to be propagated up from atomic_check()
+so it can drop all held locks and restart the commit.  Replacing it
+with a hardcoded -EINVAL defeats this backoff mechanism, making
+otherwise valid commits fail spuriously when multiple threads perform
+atomic commits concurrently.
 
-As a result, low-resolution modes (e.g. 640x480 or 720x480, whose pixel
-clocks are well under 30 MHz) still pass the clock <= max_dclk check and
-are reparented to the HDMI PHY PLL as expected, but higher-resolution
-modes such as 1280x720 (~74 MHz), 1920x1080 (~148 MHz) and above are
-wrongly rejected and fall back to the system CRU as the DCLK source.
+Propagate the error code returned by the helper instead of
+unnecessarily overriding it.
 
-Define the constant as unsigned long long so that every expression using
-it is evaluated in 64-bit arithmetic, independent of the width of
-unsigned long.  This future-proofs any additional users of the macro as
-well.
-
-Fixes: b0362c45c401 ("drm/rockchip: vop2: Check bpc before switching DCLK source")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260623203310.9F8C81F000E9@smtp.kernel.org/
-Link: https://lore.kernel.org/all/20260623203310.9F8C81F000E9@smtp.kernel.org/
-Tested-by: Igor Paunovic <royalnet026@gmail.com>
+Closes: https://lore.kernel.org/all/20260902230603.AF5C61F000E9@smtp.kernel.org/
+Fixes: a18aa0dd7a0b ("drm/rockchip: dw_hdmi_qp: Implement "color format" DRM property")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 2 +-
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 5a870a843dae..14c073f61c64 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -102,7 +102,7 @@ enum vop2_afbc_format {
- 	VOP2_AFBC_FMT_INVALID = -1,
- };
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index f2a1ea8dfefa..db1933d75ced 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -203,7 +203,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
  
--#define VOP2_MAX_DCLK_RATE		600000000UL
-+#define VOP2_MAX_DCLK_RATE		600000000ULL
+ 	ingest_fmt = dw_hdmi_qp_rockchip_get_vop_format(encoder, conn_state);
+ 	if (ingest_fmt < 0)
+-		return -EINVAL;
++		return ingest_fmt;
  
- /*
-  * bus-format types.
+ 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
+ 	    s->output_bpc == conn_state->hdmi.output_bpc &&
 
 -- 
 2.55.0
