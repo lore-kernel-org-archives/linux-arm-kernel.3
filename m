@@ -4,106 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69295CC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8E0CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KFCW1M7qXicNkXoNFz0UEyrqo2R7uteq2KxnBN5zNno=; b=nN2ZXDBT//ma4Q8lCEQva5cjdt
-	3BxzasJ2pLLxX7LmveCHZ464Ohs8b224tJZly90bYH46JopHEvikUWkNQsz5BolCmGnvdLFqK6wn9
-	o8V2iHDU8xSCA/i9xIuh3s3ibWU7FbFFpWy7NE2dMV25UI3tpCQqV8OxligDwfv8nzwCACrC2nLTx
-	Pde4mA4zkxI9K1DXDzFgjrYUBXO9uzucYZdzqbKcJGNvnSkb2Aipww01QtBxhMREgqalOBb15/LsC
-	IDK8RV3XA/3NVkaWnSB6xJn2e2Cwar7amhsoUfxE++064sO0A8dlBhKgC7aKQ7BhR9l57HTbzmADx
-	DigQM9FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=; b=TFp8dBJE/DCIPHJAhS3maV9xyq
+	ArbFNy/0alUlj9f156tb8bdOIdLqdpdImR0lU+GhF7KaB7056+xT0VPE2+SRX8wn528Pdb9oJlTtB
+	UkH1qgsQjYApMk8mKiWdytRS+AwvNkRANaWdCUGMxwDrApYcIPjBZl3rrWbI/hp30dQQHtuz9S5va
+	SmhxiAv2426x9TzfbwSq22vWSTjELQVwzm+JUWUB802wrUmNqTJkemeZ6qtLV3BNDoBMp8Vd9/ybZ
+	fxlb38v1afqL72/YtqVO4eFXM8KgvBTXo+xTvM6qKxfLJSv/YBDbs5B+aMolOmafbmbjYVEGRfzdT
+	k2CajAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhBx-0000000Dp0U-47HS;
-	Tue, 13 Oct 2026 18:25:37 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1xGhE0-0000000DpIi-1W8l;
+	Tue, 13 Oct 2026 18:27:44 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhBu-0000000Dp09-0w7g
+	id 1xGhDy-0000000DpIF-0KtW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 18:25:35 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-53394bffe0fso2364061cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 11:25:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1791915933; x=1792520733; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=KFCW1M7qXicNkXoNFz0UEyrqo2R7uteq2KxnBN5zNno=;
-        b=W9mtyKFTCvnHwoExH3Jc/QOlGl4b5ym2Ec17s8UoEStPUziPulREvp77YGJKvDsAgE
-         YX5hYriXfCYNVf0zSlZhTDnkw68usAV3BbPkYU0D23JhuncbYGNXB6hCA8jwnD0TuLAT
-         Y226r7qNftgoxW73FUfzofY3pFFOUJHMc04FGLjbjlhvp+ep9VzKxNJlhehIJCxad6Am
-         94botkQeFhw1vuzMAVOFhI9pkXxddUTO2SGpO2wFXmSvBhscP+aWYT0oZvxpBO1va+JL
-         NK8BbDrxCw7YuvNmFAHZGE0RLZyoBg0FM/GAieayiqJYLqqRT4KHxTzC8MUjekLBDC5E
-         dyEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791915933; x=1792520733;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=KFCW1M7qXicNkXoNFz0UEyrqo2R7uteq2KxnBN5zNno=;
-        b=RNN9NOD+yANnzhQIyU6wXkr7SWw4gkXB7L2dW2Zxh3K12XyC4T0yfMqwndlm/cr46k
-         N51vPOE1L/2P005kZ74YLmC6+x5Hv5f4DfSgRUw0DWE9qI6NOHNhPDh7A7WNc2LX8/yV
-         7igXGK3hyfZl6nMssRtty/jpSnOPkFQH0mlLh+SqdRyAyccPqmp7MOYF1hen6W7eYsUM
-         bphRWUmapKCeqraSTqtZR8bJo93ptOhZufxbHAM1GTI60zJ5NsC6O1+tSqDjizxMoufF
-         02KIIZhxYlMPD5qJKWnOALwCsx+NNCUA7PvUmffjgZS60raj1/mxVlC/o2jqc1zmitQk
-         lAeQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy9f8VdeqP8N2lMYuHeaDGo0lVHrycUHkG79XFlSDVgJ//HMjhX72QBmICMgUwqOGXE9LnzQe4LcTpdxlO/OUJ/@lists.infradead.org
-X-Gm-Message-State: AFq9FYL7wn7aoVyjLgxG5JahcW83XVx0HBMnEw9Ozz0bjH8geO/QsDkH
-	a8qmM2R/F0sOotgywhaWKHcu8i8xBklPcJz/a5Q/CoO9oxMlycvts9PnoB5TvPOGMos=
-X-Gm-Gg: AYBFou3dq8yNNQGlIzTDaLIXhtnirLfwY6Ysqg6uCWpWJoj+iMEUaATL9YsBTZSlD9g
-	VQgWhPqFhA6fE9nWozWSFayzpNIIAr3us0avHO83/Tyqy2bxiaB2xGyKvThGOtj7VSXOPz57C9i
-	PGqEu2/pJtxLpKNCj94QuJ3r1pxPNru3BECKsA6djw9N+mztm97x82wn2OiLNjoMTWiiOF5P/Bd
-	MbxFLlm1bJAn/htFJhMdf58TvB6wURFbnAZ1E74n3BHNY/8zPJDdA3jISCtalrCoEdJ2NWUTunT
-	i7cLJ9iJ9pb8p4hisEpQeIyLbm66zp0AsDLha467nI5Jp5NMqvZB3ylx3AJMLg9vSV6p2mHnK3E
-	olO2yZbMuIZmXxPlOFRmJmVv1kdTR2N2983bwyEz2nl/akA3U3kGGHKAi/swRrzT+6s2Mleex0p
-	oE23aV2ET7BJLJ2GxI+zb0ZNaEIQoEJSQxZ5YEuQQM7ymapXciTSrMdupsZnr9oCc+1yVQZeV0i
-	b3AybeX7bdpqSw=
-X-Received: by 2002:a05:622a:4e04:b0:535:a5f7:d59b with SMTP id d75a77b69052e-535a5f7de55mr186236721cf.42.1791915932663;
-        Tue, 13 Oct 2026 11:25:32 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.251])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5359b76eea2sm107276361cf.18.2026.10.13.11.25.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 11:25:32 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Tue, 13 Oct 2026 18:25:06 +0000
-Subject: [PATCH net] net: axienet: don't advance the TX ring head before
- the descriptor is ready
+	Tue, 13 Oct 2026 18:27:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A8cpQmUTAgKFkZTc7AcF8TOqk8oLbRZ6yGOsR//+ca6abR+SkWiYgxW6PQydzj0T2VzEpTX1Eq09TcVbsXyJP1tUivBELyyT+tIFsopcrp2P+53dE/Ybm44LbrZHS1RC9K8ofA+d599AoQqpGYoJGYDcX6z/v4VbtrF5rpcaTVzXAwxwgW+oGokpcTzM1TS8cC2kX8xmiAs9DUoQuWHrEme58omOmeixQVPkXL7yF3TQrPPaQxVbRVC1XbRGAOUwbK2CobAROlrMH9Io+Y6pv+mJgqdvMkeBkWFuxp+STmBRXv25nledChNH34TTJPzK8rUdY9/LSzEF5sZxcIJK6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=;
+ b=yhbfgxZuiQNz8FYQAamfDquik0dE48L2CrdfX9injdMkdm0ZfXapBgM0bwJ7AdFMvpXirGfXPWr8yL7pXxIfsO0MSHxRQ5maZb9kYct7qNPFYGj1VZyYJS8iv3a+VmjjU774GveuPvgkFOy9KY/UkHep0MR6gVvwDT8vV83daaYQ1h4eqrZLa5Kch4He8GS8mzNN/jPAF3nhfJztOrtM1RjUkoyI4JGNJAk1q5Ra/gX7BFayRQ8nwyuhban8PErRijxBJSp4VIDPC+9fmW9exe45UJpdql3IdhUH4KlBRBVqVH45K0+5U85p+w5Xiy2CBp+BVAHoUCPWuuHmcUCI/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=;
+ b=oLUhGl8XHrY25RU8HA9GdfU9FFJZiRF+nrKRgNSwyQEaUYSV9Is1pjPW4ENpe92oOhXE8nf9B6VOHf7BRDExN7XU1PcxMYRtVD+bzTe68XptxxVHsz8naOQwc3DRUlNwiMouCgtPtON4lhs/Qb8hGwsNsSWXFdqM4EFY2m1P7zq1/0gdq5P99ZVzGJNa8IA710uavL8KZmd+b813fM7YijZWH5bSiPGXIcaQ2isO+xSY6a6RkybJtj+Y0nWDpRuUsJ3Rpq1FmFqZer1g49UQ5i7R8/6isiqNXOz3lJ2nlsX832Mh56jZhU+VpbMpjDsrlxYNWzsa8ybQ8Doj2rIU8g==
+Received: from MN2PR01CA0052.prod.exchangelabs.com (2603:10b6:208:23f::21) by
+ CH3PR12MB7764.namprd12.prod.outlook.com (2603:10b6:610:14e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 18:27:25 +0000
+Received: from BL6PEPF0002256F.namprd02.prod.outlook.com
+ (2603:10b6:208:23f:cafe::79) by MN2PR01CA0052.outlook.office365.com
+ (2603:10b6:208:23f::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Tue, 13
+ Oct 2026 18:27:25 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0002256F.mail.protection.outlook.com (10.167.249.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Tue, 13 Oct 2026 18:27:25 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 11:26:56 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 11:26:56 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 13 Oct 2026 11:26:55 -0700
+Date: Tue, 13 Oct 2026 11:26:52 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: Peng Fan <peng.fan@oss.nxp.com>, Robin Murphy <robin.murphy@arm.com>,
+	"Will Deacon" <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>, Thierry Reding
+	<thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Jonathan
+ Hunter" <jonathanh@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
+ ordering and feature gating
+Message-ID: <as537DUBbK+tNzuQ@nvidia.com>
+References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+ <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+ <aszfVNP6DGzWYdK0@shlinux89>
+ <as1zR1wc7ERxvR1F@nvidia.com>
+ <e8c22eb2-ed1f-47c7-b2ac-c56ead1cba8b@arm.com>
+ <20261013124400.GI14213@ziepe.ca>
+ <as5ERENDfgC6FB0b@shlinux89>
+ <20261013151458.GL14213@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-b4-axienet-dmaengine-ring-head-v1-1-7add24e74477@toxicpanda.com>
-X-B4-Tracking: v=1; b=H4sIAIF3zmoC/32NSw7CMAxEr1J5jdUvH3EVxMJOTGsEpkoKqlT17
- iRlz3KeZuYtECWoRDgXCwT5aNSXpVDvCnADWS+oPmVoquZQV3WL3CHNKiYT+ieJ9WqCQa3HQci
- jc55P0pLj4x7SyRjkpvMmuEAawfUH45vv4qZ8nWtMUZADmRsyeowld+UG/8hgXb//dwa/wAAAA
- A==
-X-Change-ID: 20261013-b4-axienet-dmaengine-ring-head-ccdb8e3acb75
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Michal Simek <michal.simek@amd.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1791915929; l=2932;
- i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=AlG/JZ6VJ7vRBe6rEuyNKsPV58OQf13xQXX8THhv3as=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
- JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QBomUl/RFNb7o7hd3lkq0GvyegzlXY0C4reO22XN+8hGLGwHC9ittbqyynjfwdMXd/zfN9u1sJL
- GMd7gDVRTMgE=
-X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
- fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261013151458.GL14213@ziepe.ca>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0002256F:EE_|CH3PR12MB7764:EE_
+X-MS-Office365-Filtering-Correlation-Id: b643c6c3-7f51-4b7e-bdd9-08df2957a11e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|23010399003|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: VQNQQkcLgCcNb+eGpcn+1ad016vfftF9T7oTB2r9l+3Wm4h5HcFb3mBei/ZmYSpe8m9ytO5/GpcoQET53aJRD8zwLzPk+RXsPHFAL2JwYL4+TGsepunENn9rPkWqh8hFGdg7yXeMUZn2wa2VfmXXrNR62+WaohUW0bUFCS0GK1PbSf/Y219SR1Ma6guhAHUrJLHo2Ehpalgxt4bwaGFoRC5eznFak3l6Xs6mg9AyBRcRFS4Ol80JpsGCE6P4Y95X9jRdiRBRXMNXdfKFX6r6srQxqW54LV59VSjM/iqW02eh/NRYAdSeyIWc0jx2WEUSkAN548zs9Fe8jqGAbiSEwZcZYplJ4qKRWzH4PFRRRXWSqK9PyWHH4M5HLDAnl9xVrSuDdxyVpYTfCr+6VLjNAQjCI646x3lFxPkyvIPg+K/w6rC6eHw+YbIcwF11Aqw8laXM/gyqnvSKxOlWSKTXczPNSu7YkbjSS4DCJRvsl9mUFwAzvCejC4l9WRXG/zD1+GGXsBjzgTnG4cQB/yZDLIkCDHgr5xF+BiGev1Cso/UOMHThc8Bdn47gkATk6OYPym/ByNxMSPJIz/sOKcGAXK5mXJcF1KHCDWY62CkIt185rL0KcJFFase4ZHtKcXcA9Lfb9hilgJvlZSmqsZ1hg6J0kddf9NK/Lmd06EV/JfKXh0x2RkmHcxRIBGv6g1Gnhfk/DDKhQjJfOReIQQvfSA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(23010399003)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: wDxq1Hev+3Ng2IeEXCpDs8NxIcdQplQGxmvj397HIxsEhZKSqPbHMwF1hZYAQPkjSVoCu/GuceFzQW2X7dTXdqutHKxjzULJby74aqgHyS9Kd2/sZFRPLJ4Xiq2SMvCJrHbXWiCxykw+zc5sHZ39EMzgWyN5IBKK1vH5k3Ua9Q3lrlbED0nvxG5SYY9en0GQBr7bD9uO66+daNgK/M4lcaEC3xCccRWil1PBCyTq4WN1eo9zl+dx6xPDeIryKezRggfPrsayC1HWU2wm8SQOI8uL2w0K9gVT3ZmZjSwnajJ49xZ9KFMePn8QcRQlTOjxc8uAEAo3rvP3oYCBxdFTATLXsvG0cMGdZWUQmj0sf+dWbwiD9JPIVsI8hyddxWXB/T/u2n+Y48eNRueIYhk3x/OLmHnJyOasDcJPKpjM2AOi2malPWI4P+9bND3T94po
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 18:27:25.0022
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b643c6c3-7f51-4b7e-bdd9-08df2957a11e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7764
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_112534_301291_2B2FCDF8 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20261013_112742_133270_AEAB7B8B 
+X-CRM114-Status: GOOD (  40.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,69 +139,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_start_xmit_dmaengine() bumps lp->tx_ring_head before
-skb_to_sgvec(), dma_map_sg() and device_prep_slave_sg(), and none of
-their error paths undo it.  The skb is freed and nothing is submitted,
-but the slot stays claimed.  axienet_dma_tx_cb() walks tx_ring_tail
-once per completion, so the next completion lands on the abandoned slot
-and dereferences whatever skb pointer is left there: NULL if the slot
-was never used or was already completed, or a stale skb that gets
-consumed a second time.  Every completion after that is accounted
-against the wrong slot.
+On Tue, Oct 13, 2026 at 12:14:58PM -0300, Jason Gunthorpe wrote:
+> On Tue, Oct 13, 2026 at 10:46:28PM +0800, Peng Fan wrote:
+> > Hi Nicolin, Robin, Jason
+> > 
+> > On Tue, Oct 13, 2026 at 09:44:00AM -0300, Jason Gunthorpe wrote:
+> > >On Tue, Oct 13, 2026 at 12:22:06PM +0100, Robin Murphy wrote:
+> > >> If we're not going to support PASID for shared streams (which I suggest we
+> > >> don't...) than we shouldn't strictly need to worry about CD tables anyway.
+> > >> So rather than having to special-case CD table sharing for shared streams,
+> > >> perhaps it might make sense to generalise back to a "default" per-domain CD
+> > >> for non-PASID use, which can then get switched for the private per-stream
+> > >> cd_table if and when a device does enable PASID?
+> > >
+> > >If we have stared STEs then the group becomes the per-STE data
+> > >structure not the master.. We don't have any way right now to do that,
+> > >but it would make some sense for the group to store the shared CD
+> > 
+> > Thanks for the detailed feedback, reply you all here.
+> > 
+> > For the CD table question: since shared-SID masters are in the same
+> > group and always use the same domain, the CD content is identical.
+> > With skip_shared_ste(), only stream->master's STE (and thus its
+> > cd_table) is active in hardware.  The other masters' cd_tables are
+> > allocated but never referenced by the STE.
+> > 
+> > I see two options:
+> > 
+> > A) Keep skip_shared_ste() and add arm_smmu_cd_owner() to redirect
+> >    all cd_table operations to stream->master. This is a minimal
+> >    change that works for our use case (platform devices, no PASID,
+> >    no domain switching).
+> > 
+> > B) Drop skip_shared_ste() entirely and share the CD table at the
+> >    group or domain level. This is cleaner but a larger change.
+> > 
+> > I'm leaning towards (A) for now to keep the series focused on the
+> > simple shared-SID case.  Would that be acceptable, or do you prefer
+> > we go with (B) from the start?
+> 
+> I think the skip is in the wrong place perhaps?
+> 
+> The group is always guarenteed to have all the masters in it.
+> 
+> So we could split them into primary masters and secondary ones. The
+> secondary ones are all the devices thare share SIDs with the primary.
 
-dma_map_sg() and device_prep_slave_sg() can fail at runtime, and so can
-skb_to_sgvec() on a malformed skb.  Only advance tx_ring_head once
-those have succeeded.  The completion callback can't run before
-dmaengine_submit(), so claiming the slot just before that is fine.
+Yea, stream->master can be used as the marker for the primary.
 
-dmaengine_submit() itself can also fail on xilinx_dma after a channel
-error, and its return isn't checked either.  That's a separate problem
-and isn't changed here.
+> The group list is guarenteed to have all masters in it, so we can
+> simply fully skip attach from the secondary. It is guarenteed by the
+> group that a primary will have already attached to the STE with
+> exactly the same domain so the secondary just needs to do NOP.
 
-This was found by the Sashiko AI review of the skbuff BUG_ON() series.
+I was worried about the book keepings in the attach. But most of
+them seems unnecessary to repeat on the secondaries. How about the
+arm_smmu_master_canwbs() guard?
 
-Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-Link: https://lore.kernel.org/all/20261007-b4-skbuff-bug-on-v2-0-b9a5f732895b@toxicpanda.com/
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
----
-Compile-tested only, I don't have the hardware.  The bug is in the error
-paths, which are easy to see from the diff: every goto after the old
-increment returns without submitting anything.
+> If you do that then all these questions go away since there is only
+> ever one thing writing the STE, it is always stable and no issue.
+> 
+> This does leave a problem for master remove to switch the STE to one
+> of the secondaries, but that sounds like it could be managed through
+> the release domain mechanism, just nominate a secondary to be primary
+> and execute an attach on it in the normal way. The hitless STE
+> mechanism will make it work safely.
 
-Thanks,
-Josef
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+I think the release domain can be entirely skipped on any shared
+master (including primary).
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 09443623a3e2..a5800409e45a 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -929,7 +929,6 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
- 	if (!skbuf_dma)
- 		goto xmit_error_drop_skb;
- 
--	lp->tx_ring_head++;
- 	sg_init_table(skbuf_dma->sgl, sg_len);
- 	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
- 	if (ret < 0)
-@@ -965,6 +964,10 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
- 	skbuf_dma->sg_len = sg_len;
- 	dma_tx_desc->callback_param = lp;
- 	dma_tx_desc->callback_result = axienet_dma_tx_cb;
-+	/* Claim the ring slot only after the steps above that can fail.  The
-+	 * completion callback can't run before dmaengine_submit().
-+	 */
-+	lp->tx_ring_head++;
- 	txq = skb_get_tx_queue(lp->ndev, skb);
- 	netdev_tx_sent_queue(txq, skb->len);
- 	netif_txq_maybe_stop(txq, CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
+ops->release_device() is called right after the release domain's
+attach_dev. I think it would be cleaner to put the nomination of
+the next primary into the release_device() callback -- it shares
+the same cleanup helper with arm_smmu_insert_master()'s rollback
+path.
 
----
-base-commit: 8bf659bd54e1f00e34cf5244b1d289c506fa47c0
-change-id: 20261013-b4-axienet-dmaengine-ring-head-ccdb8e3acb75
-
+Thanks
+Nicolin
 
