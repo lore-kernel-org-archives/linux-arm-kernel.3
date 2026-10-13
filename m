@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641C5CA9ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BB5CC6B0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86gac5+JjgPTNXaK6IWVl+N92A2dD5Z6znKgZ0OtgkA=; b=sGYghQVFriKPqFxgahvJr/OQTG
-	fURyyTFDJwIStpgqCxqFzbrApEtFODbAFjNSwLuEEfliJcZW7LAZqvzQAg7Kr0K4f/aRSiC9gMwca
-	ygRGbW3tO2d2rWEtySUMH+OjEuIotgSWJUhFpdicXHcQIFlRidgyA02D9Or98b6cB+WG7fjMbrQDB
-	Vhf5Z5zhPO64JsmhliaFqgKRbEay7eILXku5S2aun4DOIBie535Dd0XjCNrpt818k2zqpEbXlwAUX
-	8MmbmmD+h+DDq9GmwXQ+eWojqSf1igYnOcEFhKlFeBxN6xfctc44dvDYWlgMhyQuj6Owkljx2IUWY
-	secFU10g==;
+	bh=IWGxRSF6TsGu8YkPR66UCDbiThQFkRdGV1nPrINMwrA=; b=CIc20baiQPaUlbBAMQCVWcDyTr
+	BEEXMve65tZT2ydo8yEPTSJ8DHeGifvxxppcZfUdRP/2SflihGB52E/rlacRwJONR8O2YDqjm+M1E
+	EPg/XHyYDr3sN47wHtYWWyevcGD2YZj9HdpYA0RXvu01vCQN9K6hbdY/Qo6BfM+DR4TeDc3x1BgTM
+	R7nfdjoLH58vZTv3x5Qg83XHPJYLjCYxT4VAedCrEb/PXs5TDtMs1x/Jxf6A3TkWzXJVWNzamtpGY
+	lhi+d2xb8Ia7ioQLgnRNFmm/AbpM9Tlrj04qUX56RRMpPGR691yVVfoulyhQL/vdccMNGlIKQikZe
+	qwIdg3Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGTSr-0000000Btwz-0y8N;
+	id 1xGTSr-0000000BtxB-2Bon;
 	Tue, 13 Oct 2026 03:46:09 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGTSp-0000000Btvq-0KDs
+	id 1xGTSp-0000000Btvq-0yzn
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 Oct 2026 03:46:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CDA14477E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C7C6447AC;
 	Tue, 13 Oct 2026 03:46:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BF5ECC2BCFD;
-	Tue, 13 Oct 2026 03:46:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2EFD3C4AF67;
+	Tue, 13 Oct 2026 03:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1791863165;
-	bh=kbzWEJG3RS0uRhAVKboubU+SQaTYUAE0pi1FzWvqMkI=;
+	s=k20201202; t=1791863166;
+	bh=ncEev3AGZKvWWkasRL1X0+uWOAP6NQ4Xwr+gcNBRlgg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=K+jsmyVrwBxmJXXa5jnK6y+9yPjIPqA52EkB/ejlC3RbaKStkmUleK/+kf3Ieo7bA
-	 UFM1QX/SawRATv0W2d6q3Tgqrc7WRsyiT3Ijz7OuHSlmMFuO8abgVRcVXt+kO2Fb53
-	 cW4Gro/Pqt0HdewkBu0CNfNrRT0Sj4POwGx9iCE73pVpPC4k4TqCEkX585Qa/sMJfR
-	 KyvyAHn/PwRLmtkT9G0vjj83Or+vF7ljdMlUDxyRj3zUErs38SyeeAwW3vyOS13esG
-	 3GJZ5UvD+454flj69lwh9A0TKbApXwzhL4rkSW8wmPaKd/LnPW0iQlJQGffkS5PMx3
-	 U2cIqN1UuHf7A==
+	b=LrEfCR5HB1Z7xMoC11LpsV97TSjKmcTp4b5trUsH5d7DK8ijhxDWKiPRaNGzTA8yK
+	 VDUGT1mCjmE5O+kXNU4E8qt0yZFw9W2ya1mf9XfM6aYcpyJvdxLjv0XeDN/xRwHCm3
+	 4tpRNYRZFTFmkB7oHYPXewSU86vMRztNROIiFzO7997yLr6kmFlShSAp6xDzMhxcjL
+	 kiW+40UXXWL4FEGPDTic4IwYLF+Y8i1FVfcuhckdvdyNQ7ZK2UK5diUZITPYsHdB+y
+	 tGSdT4/lnFjS13zrRoxxdzeUnDti95Pnbt7XKmsQUmaD5kK9NrrPD41DdjCyjDBYvy
+	 f007UqVv+/BBQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A049CCC6B0A;
-	Tue, 13 Oct 2026 03:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D59BCC6B0A;
+	Tue, 13 Oct 2026 03:46:06 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 13 Oct 2026 06:46:06 +0300
-Subject: [PATCH v5 03/10] dt-bindings: arm: cpus: Add Cortina Systems
- CS7542 enable method
+Date: Tue, 13 Oct 2026 06:46:12 +0300
+Subject: [PATCH v5 09/10] ARM: multi_v7_defconfig: Enable Cortina Systems
+ CS75xx support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-b4-cs75xx-v5-3-4e72aa383d39@gmail.com>
+Message-Id: <20261013-b4-cs75xx-v5-9-4e72aa383d39@gmail.com>
 References: <20261013-b4-cs75xx-v5-0-4e72aa383d39@gmail.com>
 In-Reply-To: <20261013-b4-cs75xx-v5-0-4e72aa383d39@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
@@ -69,11 +69,11 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Jason Li <jason.li@cortina-access.com>, 
  Fil Dunsky <filipp.dunsky@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791863163; l=1280;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791863163; l=1073;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=zDmn+esXces7eieK+stPpF5FV5ebbgc0xe7in2CfHQ8=;
- b=sTeD9+Q8xSJusPWUSgycCMgDHn0q5b1tBSWFfhcKH4Mq4KeZQ+vYah9qbVFyY5Cioh7jX10U+
- Lom84BvRQCXBoG3VY//MAfS7tS37rZaTK1SoZQ2Xx7tAPX8M8ZCljlN
+ bh=6lUn6eCTFyPOKvxFHES2Y+JrDHysCcc0CgLi4Om4C1M=;
+ b=xrErsmNg7v40wqydb5oOhf5NBvKH0ywo4TFqhEq5F8X3DHsauQmJjInXLfHuRlLKhktQ8YL71
+ rF1/JCfaR0AD9q8YG18DqBp77djXIaR/b8ex1ukwMt5qqxHopYTDUlZ
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -96,38 +96,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-On the CS7542 the bootloader parks the secondary Cortex-A9 core in a loop
-that waits for an event and then jumps to the address found in a global
-software register. Add the "cortina,cs7542-smp" enable method for it and,
-as with the other release-address based methods, require cpu-release-addr
-to point at that register.
+Enable the Cortina Systems CS75xx platform and its UART driver with
+console support, as used on the Securifi Almond+ router.
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/configs/multi_v7_defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index 96136b70d..7a394c500 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -269,6 +269,7 @@ properties:
-           - brcm,bcm63138
-           - brcm,bcm-nsp-smp
-           - brcm,brahma-b15
-+          - cortina,cs7542-smp
-           - marvell,armada-375-smp
-           - marvell,armada-380-smp
-           - marvell,armada-390-smp
-@@ -484,6 +485,7 @@ allOf:
-         enable-method:
-           enum:
-             - spin-table
-+            - cortina,cs7542-smp
-             - renesas,r9a06g032-smp
-       required:
-         - enable-method
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 069d5a49f..23f144359 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -45,6 +45,7 @@ CONFIG_MACH_BERLIN_BG2CD=y
+ CONFIG_MACH_BERLIN_BG2Q=y
+ CONFIG_ARCH_DIGICOLOR=y
+ CONFIG_ARCH_EXYNOS=y
++CONFIG_ARCH_CORTINA_ACCESS=y
+ CONFIG_ARCH_HIGHBANK=y
+ CONFIG_ARCH_HISI=y
+ CONFIG_ARCH_HI3xxx=y
+@@ -396,6 +397,8 @@ CONFIG_SERIAL_FSL_LPUART=y
+ CONFIG_SERIAL_FSL_LPUART_CONSOLE=y
+ CONFIG_SERIAL_CONEXANT_DIGICOLOR=y
+ CONFIG_SERIAL_CONEXANT_DIGICOLOR_CONSOLE=y
++CONFIG_SERIAL_CORTINA=y
++CONFIG_SERIAL_CORTINA_CONSOLE=y
+ CONFIG_SERIAL_ST_ASC=y
+ CONFIG_SERIAL_ST_ASC_CONSOLE=y
+ CONFIG_SERIAL_STM32=y
 
 -- 
 2.53.0
