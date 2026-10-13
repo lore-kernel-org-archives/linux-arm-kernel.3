@@ -4,152 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6669CC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5630ACC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 14:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLsYpGybDcFYL54DVjqRniJMNcGDsEoOwITI4R6fhMQ=; b=B4kYZy4hLfBCe+2eXktYbO1qgk
-	SP4UT6Sb0ZzCEy1Nz0RAHGXAiA2Sxuk90bcKGMP0Kf8UstQnoNHV6V1ypF4vHblXxqbpVAEAe8+NY
-	u/TfLfa0hYsRAorFerxiMxAaB+QWDiAZgtRm6du9xsn6GchaOsb8qU9dnkwe8WlIrBnJu9Vku7sPN
-	6s5Njhe/Jp5IkO5rRNgY3t7vPO2brfYxTkT++GxDx75VOXFVru32/4n7hsmbeU9nFu92/NSG6+1oc
-	BX9RpapvN+P8zA0m8eUGxwVGFKTljpL+U0fK2Weap4inY49H8qYae8/C6f4hqK3Dv905QzYUNjc7c
-	sFbpxGrg==;
+	bh=/k2D/YdGMtAmujXUtOu4d2KpPRz9kblkxyAF2EEDClo=; b=DjFarAMkOi67otc/u1eyMZ2sJC
+	BTjGSFy4S8IJgf5LvuHSynPPqpMnmJnzzo1LZU1bQJ78MtUQ7twGzbq4Pf2D1Gp0VUpmDyY1jcxcT
+	oQRYoJEStPIdXqXTr8vsxMYdXmqA2lxGtHcX7DXVshnOirOR13cy5KZ9J27LWz9fLJZ8Dd8D3+QAi
+	tZec3XKscb0KHGWHl/jFBJEtrO+FZIr0iQlq2nxD+7pibKu+mFAZpGd8062i5KkruFw17dyo+fWUn
+	9hgcn/ZDXBXjQCRVdpLk3tSWzb8INHD8xlHBGwywT5tudF/AjlTd2td6Eyj940MXZtJyrj6GX6jkp
+	aW/rch2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGd4q-0000000D1mu-0TY0;
-	Tue, 13 Oct 2026 14:02:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGd4m-0000000D1lP-0xQO
+	id 1xGd6F-0000000D1vd-1X7b;
+	Tue, 13 Oct 2026 14:03:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGd6D-0000000D1v7-0ef3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 14:01:58 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69D901DX791192
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 14:01:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cLsYpGybDcFYL54DVjqRniJMNcGDsEoOwITI4R6fhMQ=; b=Wpjj8CGKvd6syAsW
-	wtKuWOEMzXdAwfjyWwU63oFbmTGJfc9gDeAOVjepqzpkkwH2dYSgTtltVa7IPRAA
-	75SD+S49d5Ta2NT8UQbJavnB1yms8R04z7KGX9/T2o8WZZYRTbsiDOiYK5+X+fbq
-	ADm3eslKt96bcRGzrl58ToWkng3HWPaKp5Kxq102O5hvnQJ96HuQ2ghQThOjYg6/
-	D2GT8VtVNImIR797Bb40m6XIzGj3ztNJbUjovqtOLzJMGC16JTJK812OFSw4ofAn
-	khHOX9hNckkAnRUnuoA1OKmbr2Jm5WZjW0+wrGX+m7dXsNNhbMOnrxOY5Kx52GUt
-	ZFBK/Q==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9hmjs7cp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 14:01:53 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5e0a8f73addso3450866e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 07:01:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791900113; x=1792504913; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cLsYpGybDcFYL54DVjqRniJMNcGDsEoOwITI4R6fhMQ=;
-        b=HQwSOQnl9MIoCwlH20iQ30VziH4b2SIEVzisUWUAUbTsMlgf8GCEwKJncD8uEtRnQO
-         xcjsTcZjpfHNLjZIGfftaUzZEWwXhwzxPZxrwI8/q4RjtAKZaivVLB0LkLC8NJzSrh23
-         w8AhyX/6eN2wRJadVGWcsKuFLBopel/xO0sRMFe6EvIRoVk5CNJmqIx+jeU9QZJJMDz1
-         pI96RrM3d1jURQJKKyweZDp1DpfJvLyQIvrFbz2rwXDFOJClS0sVch5oAaIT/JGmSMaq
-         UExUR4Umgsmy4meheHDD243WWKMRLxIkSINsPKci3IwFZsPd5iXC78+nZsdHSZd0m177
-         hqTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791900113; x=1792504913;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cLsYpGybDcFYL54DVjqRniJMNcGDsEoOwITI4R6fhMQ=;
-        b=mhsDHB9NvtqdENrwSTveRoO+YxA8K/+t9h0vgKZdsX3kI0vQkRo3o+GRiTsTyHgmOc
-         lSk19M1fKiBL5m8yo1ZFiSn16yK77ZqKxt1LfGmfNIVaKg+q7X8GejRQ500P8c3rsaEV
-         Y00UBjw6+/Uay3KWgCAbgta0vmTloN7bLBAuoF+8JMPxJfcKiNjWsCZS2cMIIbxPaBgK
-         53p3JF4HiDR8n6gJGu+/2LHXJKXCB7JqKjod/SDlhZFC9hd20QY3c5CH6b5K2lT28pZG
-         sHsECDaCUrTXMlpVWoXIrQ7zyGeFMgNGbo3Cdp7XZFyVQHhruyekNI4M8jt64LV7n6Ro
-         apEA==
-X-Forwarded-Encrypted: i=1; AKwUvBxSEnkPWIKmSGAVtFfv7qY8cAJETTBReScXBkwU0Egc76KE2v17tSXRP+sMaiWBTzuJURqr96GMor9/0k8hvb93@lists.infradead.org
-X-Gm-Message-State: AFq9FYJqEehMmNZfC/L9uZRdzVDXQiwt3giwjwzfzwrzykXXLXpJy6x3
-	lEN++OtmGFBfX3yjkD/HgPrT7wFr/yeQ5vdiq55RnGqLHd+Xa+qc2ylrWFU5ybrM04Ewc7sS/xV
-	/KcvDWPaRq8yK9BSiTHq6infSA5fWKY+vK+vS9BQZ/kasvA55KgO2uzWNX4fMAGBqH534jkmzwo
-	0ieg==
-X-Gm-Gg: AYBFou1lBabv0DaAJE9uC/cWu3rW5ejBIMY4V3/PF20xLHQqYBa/YBvWRtVaaXm0O1N
-	cNXD5gd7h3CrUtj7E91dLSMjOKBHn9/Arw+D9OMsUy6Df2B7RO8nMp6lvm1WSIDFEYhdWzaplUF
-	4bV7+AWGn9mCiYfrU9PHMdAkwEXww95p+5QUMm5ZalNT72MNjlcgq5sPKAzL/O+bLcLfBLv98Dg
-	p++BWFj3sEnNg/aRsnPr8r2lDVuQlTc3C0OHGprTBAYd1WmxuWayuVDshyhWLp7rPiV/zh7zg5Q
-	9PUuum/Z7/aOFgzoAX5QlfyW/zBfvB6hAeLJ/SNjzR9nbFVb/Ej4z05GvCIw5b8E+0LDQWjqGLv
-	5CxrIIXa7hNVHMBTdbfr7PVvobpjR
-X-Received: by 2002:a05:6122:d1b:b0:5e7:8bd1:731f with SMTP id 71dfb90a1353d-5e91f4815a8mr4193273e0c.10.1791900112838;
-        Tue, 13 Oct 2026 07:01:52 -0700 (PDT)
-X-Received: by 2002:a05:6122:d1b:b0:5e7:8bd1:731f with SMTP id 71dfb90a1353d-5e91f4815a8mr4193151e0c.10.1791900111802;
-        Tue, 13 Oct 2026 07:01:51 -0700 (PDT)
-Received: from [192.168.1.110] ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a195002123sm377260985e9.1.2026.10.13.07.01.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Oct 2026 07:01:50 -0700 (PDT)
-Message-ID: <8796cfa1-5ae0-41fd-b3f2-c6b588157b12@oss.qualcomm.com>
-Date: Tue, 13 Oct 2026 16:01:47 +0200
+	Tue, 13 Oct 2026 14:03:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D04F9169E;
+	Tue, 13 Oct 2026 07:03:18 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C3F03F7B4;
+	Tue, 13 Oct 2026 07:03:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791900202; bh=1IefC3iuQUrnFqoYEi0MFPNxQjrKAvxqtbUvGiWeLsc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z2Cw41guH8GdudzEKSB7rd8ujbuphgZqVU4LW2T+IQrL6T21Zy11jE3OaKQsDLwRC
+	 othZfQKLHSspMreGKNHWL9k0xpwsRfwXQfuc3DCcvZUhCbY4ofr3q2EKx605NiZGtL
+	 pjM52We2Gi12vcgotT+j2A4R9qWqC8yg14Yd9xIw=
+Message-ID: <35a421f1-c3f2-4863-938b-b516f5e3d2e6@arm.com>
+Date: Tue, 13 Oct 2026 16:03:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] thermal: samsung: Add support for Google GS101 TMU
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-        Tudor Ambarus <tudor.ambarus@linaro.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>
-Cc: jyescas@google.com, linux-kernel@vger.kernel.org,
-        linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-hardening@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org>
- <8142519a-0062-4f0f-b978-980e049f99c1@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <8142519a-0062-4f0f-b978-980e049f99c1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 1/2] pinctrl: sunxi: a733: program the two-bit I/O voltage
+ fields
+To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, linusw@kernel.org
+Cc: wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261012184130.548261-1-vinicius.eduardo.pedrosa@gmail.com>
+ <20261012184130.548261-2-vinicius.eduardo.pedrosa@gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20261012184130.548261-2-vinicius.eduardo.pedrosa@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA1NSBTYWx0ZWRfX09ekLdxPUILG
- 4MDf/kA2iMJRbmbH7QmzO/xe9N98eh7J0J50RmD0TF6QFoC5YEHWaN2mgItd37UBaghwfnh+WJT
- 8+breiI900WN5LNgmGLcJNEhe3tFzpw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA1NSBTYWx0ZWRfX+NZLlZSjaVWg
- gaVPdlHbAYVZMGcO6TxLJfay0wiHfYUoUijejhWtbWezGiVDeeBW5cObiqRCmSzEN19LVhYB1CZ
- jxSEPD1jqWOYogXgaDaPvjfVyY8lOzhciP3tmAzb34MoV6LB3hr4WKyiO15vDxRYgHee0PgKosT
- TnWipuIeqUX/XXtGs39BQCYxC0cMo/a/j4qEKIi6SafAV+X1YexI4XftBsgYpDOdZY8etI9m2wZ
- NDzuQANSHsK6L0Qtb0KQpq7exNgWW8enmEqcRz2MgeclO5yUTpDFsFxSayzNSe9T94wwzOFcqpA
- kemOj++Cl8fUI++V9dsUHW9xpsCSic31kPG9702fEOYYQKJvgAPtE60HBbnbUGZeRNvmrPQ1Iur
- 8gVpGuX291WtCB/8an2SR+IuY9z/gDWkHWcgC5w2Q9zzh9V9/S4nDLZwfJesQBE889WxRbrjJaf
- FE1inQNudotXUVo4cGw==
-X-Proofpoint-ORIG-GUID: ywEBrca3Zri9BjsqYc0AXxXFHVkULYE3
-X-Authority-Analysis: v=2.4 cv=O5+sLx9W c=1 sm=1 tr=0 ts=6ace39d1 cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=xpaw9_Cwbs5_s0yaehoA:9 a=QEXdDO2ut3YA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
-X-Proofpoint-GUID: ywEBrca3Zri9BjsqYc0AXxXFHVkULYE3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 adultscore=0 spamscore=0 priorityscore=1501
- bulkscore=0 malwarescore=0 lowpriorityscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_070156_391049_25382BC4 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20261013_070325_283558_6FBC6A72 
+X-CRM114-Status: GOOD (  41.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,19 +73,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2026 15:33, Daniel Lezcano wrote:
-> Hi Tudor,
-> 
-> I noticed I picked up your series without notifying you
-> 
-> However, I did not pay attention but picked also the dts files.
-> 
-> Shall I drop them ? (AFAICS there is one comment) and let you handle 
-> them separately ?
+Hi,
 
-Were they reviewed? I think no, so that's another reason not to take
-DTS. Anyway, it must not go via driver subsystem, so please drop.
+On 10/12/26 20:41, Vinicius Pedrosa wrote:
+> The A733 GPIO_POW_MOD_SEL register has a two-bit field per bank, but
+> the A733 uses the helper written for one bit per bank, so a request
+> for one bank can change the field of another one. With the register
+> as firmware leaves it on a Radxa Cubie A7Z (the fields of PB, PC, PD,
+> PE, PG, PH, PJ and PK in automatic mode, 0x01155550), a PJ request at
+> 1.8 V turns the PE field into fixed 1.8 V (0x01155750).
+> 
+> Add a variant that takes the field of each bank from a mask table. It
 
-Best regards,
-Krzysztof
+Why do we need a table? The bit assignment is a linear
+[bank * 2 + 1:bank * 2], no?
+
+> keeps automatic mode and a fixed 3.3 V mode that already fits, and
+> writes only the field of the requested bank. PF is left out: its field
+> (11:10) is known, but it is tied to the MMC vqmmc voltage switching.
+
+I don't think this redirection is legit. Yes, PortF could be supplied by 
+VCC-IO, but surely that port always has to stay at 3.3V, as the 
+datasheet requires.
+So I would not treat PortF special here.
+
+> PI is left out as well, since its supply domain is not documented.
+
+Mmmh, but isn't that just because it's not exposed on the A733 package? 
+Similar to what we saw on the A523: the registers for the banks are 
+clearly there, it's just the manual doesn't mention them, because they 
+are not used in the particular SoC version. If I read 0x2000480, I see 
+at least 8 pins there (all bits set), and 0x2000488 reads 0xf, so there 
+are 17 pins on PortI.
+And if we don't use PI pins or the PI supply in the DT, we will never 
+try to adjust the PI voltage withstand, so there is no problem.
+
+> Only silicon revision B, as reported through SMCCC, is programmed,
+> since the encoding is documented for that revision only.
+
+Where does this come from? Where is it documented to be applicable for 
+only a single revision?
+
+I will send what I came up with in a minute, feel free to poke holes in 
+there (it's just compile tested).
+
+Cheers,
+Andre
+
+> Computed with both helpers on that register value, the old one changes
+> it and the new one leaves it as it is.
+> 
+> Fixes: 0535bfbfa97b ("pinctrl: sunxi: add support for the Allwinner A733")
+> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+> ---
+>   drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c | 15 +++++-
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.c       | 57 +++++++++++++++++++++
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.h       |  6 +++
+>   3 files changed, 77 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c b/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+> index ca82f08a3a65..6f5757b8adea 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
+> @@ -21,10 +21,23 @@ static const u8 a733_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
+>   /*	  PA  PB  PC  PD  PE  PF  PG  PH  PI  PJ  PK */
+>   	{  0, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14};
+>   
+> +/* PA is not implemented. PF and PI are left to the firmware, so are not listed. */
+> +static const u32 a733_io_bias_masks[SUNXI_PINCTRL_MAX_BANKS] = {
+> +	[1] = GENMASK(25, 24),	/* PB, VCC-IO */
+> +	[2] = GENMASK(5, 4),	/* PC */
+> +	[3] = GENMASK(7, 6),	/* PD */
+> +	[4] = GENMASK(9, 8),	/* PE */
+> +	[6] = GENMASK(13, 12),	/* PG */
+> +	[7] = GENMASK(15, 14),	/* PH */
+> +	[9] = GENMASK(19, 18),	/* PJ */
+> +	[10] = GENMASK(21, 20),	/* PK */
+> +};
+> +
+>   static struct sunxi_pinctrl_desc a733_pinctrl_data = {
+>   	.irq_banks = 10,
+>   	.irq_read_needs_mux = true,
+> -	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+> +	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL_2BIT,
+> +	.io_bias_masks = a733_io_bias_masks,
+>   };
+>   
+>   static int a733_pinctrl_probe(struct platform_device *pdev)
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> index 3ee5012463da..8e62111d3409 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -10,6 +10,8 @@
+>    * warranty of any kind, whether express or implied.
+>    */
+>   
+> +#include <linux/arm-smccc.h>
+> +#include <linux/bitfield.h>
+>   #include <linux/clk.h>
+>   #include <linux/export.h>
+>   #include <linux/gpio/driver.h>
+> @@ -722,6 +724,58 @@ static const struct pinconf_ops sunxi_pconf_ops = {
+>   	.pin_config_group_set	= sunxi_pconf_group_set,
+>   };
+>   
+> +/*
+> + * The two-bit encoding is documented for A733 silicon revision B, which
+> + * firmware reports through the SMCCC SOC_ID call. Do not assume it for any
+> + * other revision, or when the firmware does not tell.
+> + */
+> +#define SUNXI_A733_SOC_ID		0x091e1903
+> +#define SUNXI_A733_REV_B		1
+> +
+> +static bool sunxi_pinctrl_a733_rev_b(void)
+> +{
+> +#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+> +	s32 id = arm_smccc_get_soc_id_version();
+> +
+> +	/* Bit 23 is the JEP106 parity bit. */
+> +	return id >= 0 && (id & ~BIT(23)) == SUNXI_A733_SOC_ID &&
+> +	       arm_smccc_get_soc_id_revision() == SUNXI_A733_REV_B;
+> +#else
+> +	return false;
+> +#endif
+> +}
+> +
+> +/*
+> + * Fields: 0 and 2 fixed 3.3V, 1 automatic, 3 fixed 1.8V. Leave automatic
+> + * mode and any other supply voltage to the firmware, and touch only the
+> + * field of this bank.
+> + */
+> +static void sunxi_pinctrl_set_io_bias_2bit(struct sunxi_pinctrl *pctl,
+> +					   unsigned int bank, int uV)
+> +{
+> +	u32 mask = pctl->desc->io_bias_masks[bank];
+> +	unsigned long flags;
+> +	u32 val, cur, reg;
+> +
+> +	if (!mask || !sunxi_pinctrl_a733_rev_b())
+> +		return;
+> +
+> +	if (uV >= 1620000 && uV <= 1980000)
+> +		val = 3;
+> +	else if (uV >= 2970000 && uV <= 3630000)
+> +		val = 2;
+> +	else
+> +		return;
+> +
+> +	raw_spin_lock_irqsave(&pctl->lock, flags);
+> +	reg = readl(pctl->membase + pctl->pow_mod_sel_offset);
+> +	cur = field_get(mask, reg);
+> +	if (cur != 1 && cur != val && !(val == 2 && cur == 0))
+> +		writel((reg & ~mask) | field_prep(mask, val),
+> +		       pctl->membase + pctl->pow_mod_sel_offset);
+> +	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> +}
+> +
+>   static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+>   					 unsigned pin,
+>   					 struct regulator *supply)
+> @@ -795,6 +849,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+>   		       pctl->membase + pctl->pow_mod_sel_offset);
+>   		raw_spin_unlock_irqrestore(&pctl->lock, flags);
+>   		return 0;
+> +	case BIAS_VOLTAGE_PIO_POW_MODE_SEL_2BIT:
+> +		sunxi_pinctrl_set_io_bias_2bit(pctl, bank, uV);
+> +		return 0;
+>   	default:
+>   		return -EINVAL;
+>   	}
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> index 7c2f29e75519..c37170b2e4f4 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -130,6 +130,11 @@ enum sunxi_desc_bias_voltage {
+>   	 */
+>   	BIAS_VOLTAGE_PIO_POW_MODE_CTL,
+>   	BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV,
+> +	/*
+> +	 * Bias voltage is set through two-bit fields in PIO_POW_MOD_SEL_REG,
+> +	 * whose positions are given by io_bias_masks[], as seen on A733.
+> +	 */
+> +	BIAS_VOLTAGE_PIO_POW_MODE_SEL_2BIT,
+>   };
+>   
+>   struct sunxi_desc_function {
+> @@ -155,6 +160,7 @@ struct sunxi_pinctrl_desc {
+>   	bool				irq_read_needs_mux;
+>   	bool				disable_strict_mode;
+>   	enum sunxi_desc_bias_voltage	io_bias_cfg_variant;
+> +	const u32			*io_bias_masks;
+>   };
+>   
+>   struct sunxi_pinctrl_function {
+
 
