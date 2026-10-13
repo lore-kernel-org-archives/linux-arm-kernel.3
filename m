@@ -4,54 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66556CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 08:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD4CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 08:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SpOCBKk6lZAg8nY3V1SvEGOLt6YZ/Ivn0261CJqepCk=; b=IAg5dwQV39me4S64NVB2Ks10V3
-	h7CLSfOqih0525XsvpHDeKM3brOcqlsNTTup/cMIJEg5kFA58Bd6PR94g2mobUU/M79NZhltuDD1r
-	JiH7wQTNF7M4G185G8b65VNdJWaAHhFI7joYEurd6+JZBnILAVZT662NNzdEsE8j+YQC3rTEG/YhI
-	S42Xs6/46CXG3w2y6UworrPcSmV9bRr/iPMao74AAFgdInfef61jrws9xf1Zq7PXTIjQyYD0KmbX/
-	pbBLRWYlQzBHnbS3kgvjWE+ma9S2he4qf5GzYD14WLMVTM2r1jWEnliOYw/sr0mNoh8Rphq4t6ZhC
-	/heiOfew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xh2RuTCpYl2KVhPa0ImjxCYVt4KjsZeFKDT0mY3GZ20=; b=LGojwbFINCHhdJlEmKmrmoqeAv
+	KzvjHBKrDq1VIIS2oyuagdfDkruVcyNyQvybGGPac7ZEwrrlr8vvIDRtf7X9rsP1L1hSrZjm+lSVW
+	Ph4ilKlV3G1uQwKxk8TDtvWHtlbGicuZpBBLC0xTUxsB2qNFW5wzBZS8mijDNIKDxtt6gIaEO8yIG
+	S7ddcqmufZNEu8Qksb13kSSqyzID1yqyOhEJofERjM9813i+e+S2q88epZbjU/a7KRLF+USpZ7Nwx
+	NkA2F3EhUJ0A87rRJnA6u4IzuDlsCgAZa3VJrDdUrhHq1Q9DQlHCjpsAQPXUAstYqVDKJm+vUi1la
+	f8gv5t4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGY2F-0000000CLYS-2XEk;
-	Tue, 13 Oct 2026 08:39:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGY2D-0000000CLXq-3l8v;
-	Tue, 13 Oct 2026 08:38:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD645600D1;
-	Tue, 13 Oct 2026 08:38:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD5E51F00898;
-	Tue, 13 Oct 2026 08:38:53 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-riscv@lists.infradead.org,
+	id 1xGY5C-0000000CM9J-2X27;
+	Tue, 13 Oct 2026 08:42:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGY59-0000000CM7W-20hU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 08:42:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FDCC169C;
+	Tue, 13 Oct 2026 01:41:52 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 702B53F66F;
+	Tue, 13 Oct 2026 01:41:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791880915; bh=NI8CmL/lnRoC7aE++YpF7fiq+bAGnCCUDMqbYkmDDew=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bZqkt7LfHhgrP+LpLkfSWkgVJSZiTZFy4lKziZu5iR37k9EFAy02+ty8P4ISH7oZJ
+	 KekFmta7QOPeZeaIU4GpQdPFpSIaN4Jm43CjCrlwnAe9zBdYufWXPGSmiCV/ITKyn4
+	 5OZk62xDJBVPfh1/7axdbnw2G3tJM7jWkrMYzZEU=
+Date: Tue, 13 Oct 2026 09:41:49 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: GONG Ruiqi <gongruiqi1@huawei.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	Roberto Sassu <roberto.sassu@huaweicloud.com>,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] perf/renesas: Remove remaining RISCV_ALTERNATIVE references
-Date: Tue, 13 Oct 2026 10:38:39 +0200
-Message-ID: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Eric Snowberg <eric.snowberg@oracle.com>,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
+	Roberto Sassu <roberto.sassu@huawei.com>,
+	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Jiri Pirko <jiri@resnulli.us>
+Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
+Message-ID: <as3uzQ7L6tJ-Lu-Q@e129823.arm.com>
+References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
+ <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
+ <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
+ <ar5tOUor0bp3MtQ6@e129823.arm.com>
+ <9e74ff9d-e8a3-425e-bf7c-f973d06e6cdf@huawei.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <9e74ff9d-e8a3-425e-bf7c-f973d06e6cdf@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_014159_646748_21C988CC 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As riscv always selects RISCV_ALTERNATIVE, the option was removed.
-However, a few references were left, making it impossible to enable
-RZ/Five support (ARCH_R9A07G043).
+> On 10/1/2026 10:24 PM, Yeoreum Yun wrote:
+> > Hi Roberto,
+> > 
+> >> On Thu, 2026-10-01 at 13:27 +0200, Roberto Sassu wrote:
+> >>> On Wed, 2026-09-30 at 14:43 +0100, Yeoreum Yun wrote:
+> >>>> Confidential computing guests without a TPM can use TSM measurement
+> >>>> registers to record IMA measurement digests instead of TPM PCRs.
+> >>
+> >> + Gong Ruiqi, of course.
+> >>
+> >> Roberto
+> 
+> Hi Roberto,
+> 
+> Thank you for involving me!
+> 
+> >>
+> >>> Hi Yeoreum
+> >>>
+> >>> a similar patch set has been sent to the linux-integrity mailing list:
+> >>>
+> >>> https://lore.kernel.org/linux-integrity/20250630125928.765285-1-gongruiqi1@huawei.com/
+> >>>
+> >>> Could you please work with Gong Ruiqi to have a unified proposal?
+> >>>
+> >>> Thanks
+> >>>
+> >>> Roberto
+> >>>
+> > 
+> > Thanks for letting me know and I think the proposal is almost the same
+> > with the different terminology only.
+> > 
+> > @Gong, what do you think?
+> 
+> Hi Yeoreum,
+> 
+> Nice to see this topic picked up again — I'm glad the IMA RoT framework
+> series I posted last year is still of interest.
+> 
+> Yes, I'd be happy to work with you on a unified proposal. It's been a
+> while since I last worked on that series, so I'll first revisit my
+> previous patch set, and then follow up with you to discuss the code details.
+> 
+> Looking forward to working with you.
+> 
+> BR,
+> Ruiqi
 
-Fix this by removing all remaining references.
+Hi Ruiqi :)
 
-Fixes: b924210f542e13c7 ("riscv: remove RISCV_ALTERNATIVE Kconfig option")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-To be applied to riscv/for-next, or folded into the original commit.
----
- drivers/perf/Kconfig        | 2 +-
- drivers/soc/renesas/Kconfig | 1 -
- 2 files changed, 1 insertion(+), 2 deletions(-)
+Thanks for replying and I'm happy with you too.
+However, I think we need to rework based on the Jiri's patch [0].
 
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 245e7bb763b9947a..8cef4bdef76aecab 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -117,7 +117,7 @@ config STARFIVE_STARLINK_PMU
- 
- config ANDES_CUSTOM_PMU
- 	bool "Andes custom PMU support"
--	depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI
-+	depends on ARCH_RENESAS && RISCV_PMU_SBI
- 	default y
- 	help
- 	  The Andes cores implement the PMU overflow extension very
-diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-index a63df28df3b5e7c7..0b6876ef6dca228b 100644
---- a/drivers/soc/renesas/Kconfig
-+++ b/drivers/soc/renesas/Kconfig
-@@ -461,7 +461,6 @@ config ARCH_R9A07G043
- 	bool "RISC-V Platform support for R9A07G043F (RZ/Five)"
- 	depends on NONPORTABLE
- 	depends on !DMA_DIRECT_REMAP
--	depends on RISCV_ALTERNATIVE
- 	depends on !RISCV_ISA_ZICBOM
- 	depends on RISCV_SBI
- 	select ARCH_RZG2L
+Any thought?
+
+Link: [0] https://github.com/jpirko/linux_mlxsw/tree/wip_attestation_pre_rfc_draft1 
+
+
 -- 
-2.43.0
-
+Sincerely,
+Yeoreum Yun
 
