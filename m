@@ -4,61 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBBCCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7853CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXXgGLmTCc87ALGVvkk6qcqz1pQ93/PQ6vEFDcP7yi8=; b=QuXviEJ2U10HzwvtRFkT40jOe9
-	6gmeXCv4lvUvzpAp5/sYk3zTxZvMo45yIM9KkqkGZ4ePr+Sdkf7xbSEPKZsX95LwM/dVVmqVupE94
-	dq46DPpSE8OqtiHBbUAh+EJio5Ulufj8+W5Vll3k+nl+8FNHj4UTY5fDC2lOONhDZa0Rez7xDCLmw
-	ZuFaJ5zh5wdxcY6AifmLG9jRrr8MEaeKJiIMEtcj+0KbOqeOg7xPayW6z2azkEVLXDv0x8RrSSvoc
-	+iXN8URHnSYgRpec5lhR+VovKYhEEP7RUaDcnwtnNEpH2d2s7nZMhac1srTpTLiGCHsIOBd02CbMW
-	gciC3hzQ==;
+	bh=T05vzeiPYCAD9ha/zYBcdJZOcJv8hbGGQej4+CwcNis=; b=CuY7XCMQvwsTbSQGooyTqhtqN9
+	O078TmRp3mE4StqdlUbqQE6pdmlQ/Q2FbrJ17te5B1a0NNh/9jsnDqyu/S4thNTaSDonQpVmn/ST2
+	qX0tLDfyUnGJyHCSGKAag6BfQ9MPd9/cLWxBMreGlJ8kXB1WSnBX78svNt8aNf39K4OU3Xx4IubhA
+	ni0LTUtqmNsICM8WONElgpMxxhk81g/I+XBgaejoS50RF+/E7VRATulaBAFQRS6Nar+H5pGs+GnJG
+	jXXxkcP4PvvVIz14mZKjEBLnweUIGic5DKBTvaiWZRRzNd4BiSYBhGnTIE45Kx+XGRuLX1DKB6WN7
+	oayhSqeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZX4-0000000CXBL-1hiG;
-	Tue, 13 Oct 2026 10:14:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZX2-0000000CXAT-0hsl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:14:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A3D5169C;
-	Tue, 13 Oct 2026 03:14:48 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64E243F7B4;
-	Tue, 13 Oct 2026 03:14:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791886491; bh=6R0ZVcgI1vecdTgXYMbd5IpM7bGkwKNFlhxOFBr5xeY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hFqV/kmivBi5/zMVd7gjTsB4GBfq86/B+pdmX+faSvuRuxoyj+l3tvAvMJM3ZTxbT
-	 ikBNXRFmpwAjL2jn0YhDEWbHy251mlhCBkAH7fG4itGhnD1z4KEyL0OSWv3qdrIzOW
-	 67hVUPxaDfoZezDD4yu5gkhO1uNI8hoL5ZLGrgS0=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-efi@vger.kernel.org,
-	Ard Biesheuvel <ardb+git@google.com>
-Cc: Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2] arm64/mm: Treat faults taken by EFI runtime firmware as kernel faults
-Date: Tue, 13 Oct 2026 11:14:41 +0100
-Message-ID: <179188648181.1426971.9847228389872179682.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261013073007.1431719-2-ardb+git@google.com>
-References: <20261013073007.1431719-2-ardb+git@google.com>
+	id 1xGZXv-0000000CXJ2-2UVe;
+	Tue, 13 Oct 2026 10:15:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGZXt-0000000CXIb-3Vge;
+	Tue, 13 Oct 2026 10:15:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6271E408C2;
+	Tue, 13 Oct 2026 10:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BDB41F000FF;
+	Tue, 13 Oct 2026 10:15:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791886545;
+	bh=T05vzeiPYCAD9ha/zYBcdJZOcJv8hbGGQej4+CwcNis=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hktXkihhv440HGGkgdGsZEbr9oMbyg+EgOWMpAxtFBlr6aQbnoYSL6Wuas6jGFM6d
+	 V0xX9RwH9/rrdqBuOfCQJ4aRDS5pExi6C+bz/YZf/co+hdpMJiqExS5xhjKzGJJGoq
+	 DlFhQFDXpXEWS7cp4hFg+6xagwZgQ0jnbN9h2i8wdUArD3NW6Wsa7qg31LFfpSQOx4
+	 lmdNQv4XgB25O/pbwR7UhOh8PAZKI5oePw/Qmschw2YDOPqXO5VqYq4FA2WZubX2bw
+	 NkAgGxI0rXPAdE8PCelwRptp/ieU+wMKwrbOS95//EynggUIlhlw2TE9nwLPHjB6Yl
+	 o7DW5zhazUf2g==
+Message-ID: <cc5463cf-1e31-4a5f-9341-22769a7b0af5@kernel.org>
+Date: Tue, 13 Oct 2026 12:15:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_031452_251564_BBAEC4F3 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
+ uart_8250_port
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <ray.jui@broadcom.com>,
+ Scott Branden <scott.branden@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
+ Paul Cercueil <paul@crapouillou.net>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>,
+ Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+ <u.kleine-koenig@baylibre.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-parisc@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <cover.1791873876.git.jirislaby@kernel.org>
+ <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
+ <as3etnbZatn4sbfx@ashevche-desk.local>
+ <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
+ <as31PsESOgLUhMB6@ashevche-desk.local>
+ <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
+ <as4BML-VUC9xUgOf@ashevche-desk.local>
+Content-Language: en-US
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <as4BML-VUC9xUgOf@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +148,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 09:30:08 +0200, Ard Biesheuvel wrote:
-> When EFI runtime services are invoked from a preemptible kthread, the
-> kthread runs with efi_mm installed via kthread_use_mm() and preemption
-> enabled, so neither faulthandler_disabled() nor !mm applies in
-> do_page_fault(). A permission fault taken by the firmware on one of its
-> own (TTBR0) mappings then hits the 'access to user memory outside
-> uaccess routines' check and oopses, without efi_runtime_fixup_exception()
-> ever being consulted.
+On 13. 10. 26, 12:00, Andy Shevchenko wrote:
+>>>> First, it is used in the kernel quite a few times already
+>>>> [1]. Second, while it is sort of c++ism (and I like to use modern c++), it
+>>>> makes the life of the variable a lot more obvious.
+>>>>
+>>>> [1] eg. see output of: rg -U -C 5 '}\n+\s+struct .*\*.*=' drivers/
+>>>
+>>> (you made me to install something I haven't heard about, it's better to use
+>>>    `git grep` though)
+>>
+>> rg is order of magnitude faster (searches in parallel). More importantly in
+>> this case, supports multiline matches. (And respects .git ignores.)
 > 
-> [...]
+> Isn't `git grep` fast enough due to looking into index and not into the files?
+> `rg` may not look at the Git index, right? So I may not to use an arbitrary
+> hash without checking it out first.
 
-Applied to arm64 (for-next/efi), thanks!
+Of course rg is not git grep.
 
-[1/1] arm64/mm: Treat faults taken by EFI runtime firmware as kernel faults
-      https://git.kernel.org/arm64/c/171be684bfa3
+>>> Note excluded __free() if I get regexp correctly
+>>>
+>>> $ rg -U -l '}\n+\s+struct .*\*[^)]*=' drivers/ | less
+>>> drivers/ufs/host/ufs-qcom.c
+>> ...
+>>> drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+>>>
+>>> So, less than dozen of drivers doing wrong is not an argument, try something
+>>> better. But thanks, I will check and address this in some of the above.
+>>
+>> Well, it's only an example of a declaration after a previous opening brace
+>> "{" -- this one turned out to be easy to search for. There is a lot of more,
+>> of course. kernel/ included.
+> 
+> Please, provide a better search line, I will look at that. For now it's just
+> a hypothetical assumption, I am afraid.
+
+I am not much into writing a semi-parser at this point :D. This'd be a 
+task eg. for clang's ASTMatcher.
+
+thanks,
+-- 
+js
+suse labs
 
