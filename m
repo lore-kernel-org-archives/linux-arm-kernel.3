@@ -4,68 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B5DCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA57CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sozmtSViSnvS1sffuLWX44m4uTEfUH4LsYrgLA4d38=; b=csUQp+RYk6jyB3p5GazRezT5Q6
-	0AWp1lHH3Ni4F8dbzihZ+No7RCvaAh3fobVYihdsOW9XOEvkZogqaZvScRS+SkzEzVYuStf6sohxL
-	4AXzNAKfIpUzO+Dcr+SAzLB59qe8YlUeYBRI6hR6qVWD5NbkeflLZUFRmjhTyJ9oCRW6xHN9uHoZL
-	oUADbQcyI86IBJeY8jFoE4ti0q1eNtBoa2OdYB6AmoBovI9jK8BrczXkwlL5b6GnaTQ0D681iJgdu
-	2uHqKDMujEomPjZ9cdubiTNsvdYr3kfB/VWe40dGrZcMARfLsEU5X/FwfbPwebwpw3WDSUPfzffB/
-	R/ANCD4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=; b=GHve//5pTZf1Mdko71aFig6Ipm
+	Ekujo8wg0C8rhICOC8Y69Tq1AkrWVFX18fH6h2S49KlRu9Y8c7nvT1tEkd8bdTLretITt/C/M9rW0
+	RNBYtGevV8HmSc/epwmYQ7jtPoXpzJ0JPvkBblHeoFe1eLBkZyQxTkPf2uY8eZTlHMCegVFZ+RHLT
+	W1RnJo5kl1zkhUJ0/AitP7XNDqOOP9fgPP8rETvOi4HS3pakOmDOEDbw9jeUX8Mz5Hxum/1U6n6Kt
+	ed/e8Wu8/0JpIw00Kl+zpP+bxt5M03oon8RhF7wO4p064Ld08o4/hM3/2+pFITTg5DBPJ+aHABKFB
+	L60wMmqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGanP-0000000CiVR-0m2N;
-	Tue, 13 Oct 2026 11:35:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGanL-0000000CiUQ-1BPM
+	id 1xGawj-0000000Cjfb-2Sz6;
+	Tue, 13 Oct 2026 11:45:29 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGawg-0000000Cjek-1o2g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:35:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 977A01570;
-	Tue, 13 Oct 2026 04:35:41 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A23143F66F;
-	Tue, 13 Oct 2026 04:35:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791891344; bh=iFHnFsr3NjAcsRUa/CVUBKDHfKdX/CfcLbNrrMoPACE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gl4+NGjuoXJn53qe90hDjficciUU0vZiX+yyPYW+ZDx13uFc4Q5PLHcJhbPEDlp/W
-	 pzQnrSxhy37kEHopU8W//0TMy1atxB3VauY7j+UROpxd0jwNa1Cmp9OEaDoa+9UVbS
-	 qL35dEEYtZsulURYhEruyJQNPy9gWwgtw5g72G7A=
-Message-ID: <370a947c-601b-434c-befd-4896ed523ced@arm.com>
-Date: Tue, 13 Oct 2026 12:35:40 +0100
+	Tue, 13 Oct 2026 11:45:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AQR88AzEcN89rG1tZmN8rM22kQ17xpp9Wlsp5G6alvYGt6/N9MIE+S7v/Mta+aiPy5aCYSZOnijUhdJMLOm0MPe5YqUx8BDdzCeYJ55oW+djJp5X0dYTiimF9TIbUTpY9w9Xw2WWOkWUDrrA4OXsA4pHFkiB2LYKJ2g1cet936VBvzR6gaos5chi0ffsAao1vbV+iaK8pzxYdEqgmu/xmeWvOkiY4H0cFhgXhycatJwdi46ZIyOjSa2eU49810FGVQQDbVYOEneJlPn9tIKIkJphnKtmzc04BOGVOZMSpgQN/1vAUgEtgkMg0VbIZVu+2sf+yMU+E7acxqQljuTqRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=;
+ b=ozIFAl13nR65nmF4peBBX0fPqcYA1a4eWajyk44/g4ANmzHM/OAst0DXSlpxyxQJnAot5qv1qdWZJbq0/3ph7w8aaHhGN71Qe4FZ4wsURAK2Ub5HuuETyvArgBcB1xzvhl8VCSZk3UR/6/kf26waoJ1rGHNyCU5SbbslDLo4+V1cVdx7r39OZTJ21gAHHQ5KV8gK9EqKvcTW2s8hOkvEwX+nx/x/lDQzGLVZGAlw5/qvyFqCLzfCfaETKlNCY63KoJhJJiv0CCM1ivlHnFjAd6MWKvjr3ayVonYbd2FeBaDbliGcY6OP6cj9NBxPikFHoMnthHfqeiTGKBHgNWmVkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=;
+ b=QO3rFX059AE5z/VjXJWkUHooWVNKeEEBetXZmi/SdSoYs48O5Z/D5CoNsuZNbdnXOkAg3NbB7CXpuwEK386Lho7LatOvKDKurocVxjc14p5oLQCjswYnL0Ik9AkPMJ9+kqIID1ha6kXOiCYsWzPP/WRaSuQ4DyF5IJpJSDpegF8=
+Received: from OS7PR01CA0099.jpnprd01.prod.outlook.com (2603:1096:604:256::17)
+ by TYVPR01MB11215.jpnprd01.prod.outlook.com (2603:1096:400:367::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 11:45:14 +0000
+Received: from OS1PEPF0000D20D.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:256:cafe::54) by OS7PR01CA0099.outlook.office365.com
+ (2603:1096:604:256::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue,
+ 13 Oct 2026 11:45:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=renesas.com;
+Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
+ 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
+Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
+ OS1PEPF0000D20D.mail.protection.outlook.com (10.167.240.36) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.6
+ via Frontend Transport; Tue, 13 Oct 2026 11:45:13 +0000
+Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.5])
+	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id BF9A23000270;
+	Tue, 13 Oct 2026 20:45:08 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	xiaoliang.yang_1@nxp.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net 0/2] net: stmmac: Track and report the TX DMA threshold per queue
+Date: Tue, 13 Oct 2026 11:45:01 +0000
+Message-ID: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
- gate CMDQ submissions
-To: Will Deacon <will@kernel.org>, Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
- Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>,
- Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, rafael@kernel.org,
- Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev
-References: <20260929034510.2023173-1-praan@google.com>
- <20260929034510.2023173-12-praan@google.com>
- <asZSQRSYBjbUaaH0@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <asZSQRSYBjbUaaH0@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS1PEPF0000D20D:EE_|TYVPR01MB11215:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 023652a3-8aaf-4a21-8d2b-08df291f714a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|23010399003|82310400026|36860700016|56012099006|11063799006|261009223027099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: s++4ebF6MuWM19CXGVOMtWtd4FiNhWc+f6NEFp0OCDSJ9qLTrJgRXmpWRC5Q16yEMry57Bwq9VhyczOfHklgUP0p0Xq4I7o4ILCvbDbAwipbK1+yuUWfEU86eE2aBj87+v7a9rmua2yho5/HoDXpWrviCOq0h8urWfLnWxAAQD6VOt3+5EunLHB67tJ4SRznVyMHQ8Hl8/CH/hAVuN8iDeKY0wxZfVdDICrsd+eieByBdKzEb7EZSII26dLTo2KHJ2DXv/ICMI4+aawXYJ3U9qWuR4yo0Rsv+tzuuRVsj8i/EAiif2eKLeWmklfk9e04HtYMSNWyGc6F7HfBL9/cUuRUvUd1QsrDXBYCcIxXhlnE5qGvaKuzK229iBk0RFs5qmP8taD58QMFzRZJLsZfp/c2xc+nkej35zuafEkJheTO5m0gRI39vnRLBzppDJipZ7xVqKGfYind+qVFuEdEoShaYAlXCZpoDj6xWP1t+e6FmKvR6Fa86JaTr938NOKH5GrmDMzzVPPxG/vV/5eeh3vobbkvr/dFMk54UKRc9WfnqgbP/XW3KUS4Zix2M7jf2Gl8IvLIyoDBtTH0R+tyM7GQSsgBjkNEBV69JSvXTDlN3D5zuGKwbGcTLy+6x4ge/xobVUMoezfZcTl+NMLbZ71xAr/jRrwKJNN74x1HNDL+tWO/oZtb0RAkO3lZzorwpe0H35K6dEjYIBhfz0k2vw==
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(23010399003)(82310400026)(36860700016)(56012099006)(11063799006)(261009223027099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TvFIZhWhZ6YCC25mMC1FzNOSfbyw9/yRXL0ZFGQgNsNI1srONUO3bB/7j9D/TjgeJXlfZ+udwraT093HHrVzefjjQ4BS1KzntavR1KPr03VzSEW6X0wYu9RgPwE/PhoMSy+HlW0/o09No2rnNEjeuRhuYNjN7gWXCBChnmKLq/whh442eFGMPdYVLVqH63RNJByV4G7FsSyMw4WPzQJvXjsdZ5GH+WPbewfaBlf+gC3O06qypIUmRWGYiWWFAgfGDSY61BPZ33pP4aigRJu4KsX0WgHDUbJRhTYgjXyAFDO8F/BudOIEJHrnQHJ4tqcHpqRCCH1oL9da8JGgHm8u5dfPp0USQ7nNv72P2JWGIyswgEs/5itXeDZNM41D4PV8bQpDo/rsvn+txBSS0eSfsL5jb6SNR+SKcGVVrQGSlHxQ2LiOFrqtt8EUWyquJHXj
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:45:13.0713
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 023652a3-8aaf-4a21-8d2b-08df291f714a
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
+X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D20D.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYVPR01MB11215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_043547_419717_551CB2C7 
-X-CRM114-Status: GOOD (  33.25  )
+X-CRM114-CacheID: sfid-20261013_044526_489430_0866BD19 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,107 +127,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2026 3:08 pm, Will Deacon wrote:
-> On Tue, Sep 29, 2026 at 03:45:05AM +0000, Pranjal Shrivastava wrote:
->> Introduce a new bit flag, CMDQ_PROD_STOP_FLAG (bit 30), in the command
->> queue's producer index to safely gate command submissions during device
->> suspension.
->>
->> The flag embeds the suspend state directly into the existing global state
->> The flag is checked in the cmpxchg loop in arm_smmu_cmdq_issue_cmdlist(),
->> which acts as a Point of Commitment, ensuring that no indices are
->> reserved or committed once the SMMU begins suspending.
-> 
-> I'm not familiar with the term "Point of Commitment". Is that something
-> you came up with? Without a general definition, I think I'd prefer to
-> avoid using it, especially as it sounds like something to do with the
-> Arm memory system (where we already have architectural terms such as
-> "Point of Coherency".
->   
->> This prevents a situation of "abandoned batches" where indices are
->> incremented but commands are never written, which would otherwise
->> lead to timeout during the drain poll.
->>
->> Update queue_inc_prod_n() to preserve this flag during index
->> calculations, ensuring that any in-flight commands that successfully
->> passed the point of commitment can proceed to completion while the
->> flag remains set.
->>
->> Suggested-by: Daniel Mentz <danielmentz@google.com>
->> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
->> Signed-off-by: Pranjal Shrivastava <praan@google.com>
->> ---
->>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 35 +++++++++++++++++++--
->>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  5 +++
->>   2 files changed, 38 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> index a123810fac57..7f89e2306942 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> @@ -218,7 +218,8 @@ static int queue_sync_prod_in(struct arm_smmu_queue *q)
->>   static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
->>   {
->>   	u32 prod = Q_POS(q, q->prod) + n;
->> -	return Q_OVF(q->prod) | Q_POS(q, prod);
->> +
->> +	return Q_OVF(q->prod) | Q_STOP(q->prod) | Q_POS(q, prod);
->>   }
->>   
->>   static void queue_poll_init(struct arm_smmu_device *smmu,
->> @@ -726,13 +727,42 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
->>   	do {
->>   		u64 old;
->>   
->> +		/*
->> +		 * If the SMMU is suspended/suspending, any new CMDs are elided.
->> +		 * This loop is the Point of Commitment. If we haven't cmpxchg'd
->> +		 * our new indices yet, we can safely bail. Once the indices are
->> +		 * committed, we MUST write valid commands to those slots to
->> +		 * avoid indefinite polling in the drain function.
->> +		 */
->> +		if (Q_STOP(llq.prod)) {
->> +			local_irq_restore(flags);
->> +			return 0;
->> +		}
->> +
->>   		while (!queue_has_space(&llq, n + sync)) {
->>   			local_irq_restore(flags);
->> +
->> +			/* Avoid waiting for space if the SMMU is suspending */
->> +			if (Q_STOP(READ_ONCE(cmdq->q.llq.prod)))
->> +				return 0;
->> +
->>   			if (arm_smmu_cmdq_poll_until_not_full(smmu, cmdq, &llq))
->>   				dev_err_ratelimited(smmu->dev, "CMDQ timeout\n");
-> 
-> It's a bit grotty to have the extra READ_ONCE() here. Why not make
-> arm_smmu_cmdq_poll_until_not_full() return if the stop bit is set?
-> 
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->> index deefb17e31eb..794b258550dd 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->> @@ -394,6 +394,11 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
->>   #define CMDQ_ERR_CERROR_ATC_INV_IDX	3
->>   
->>   #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
->> +#define CMDQ_PROD_STOP_FLAG		(1U << 30)
-> 
-> I'm unsure about this. Bit 30 of the cmdq prod register is RES0, so it's
-> plausible that the architecture allocates that bit for something in future.
-> For example, if the index field was extended, then I think that would
-> cause problems for the driver.
-> 
-> Do we have to put the stop flag in the producer value, or can it just be
-> a flag elsewhere in memory?
+On the Renesas RZ/V2H platform, which has two dwmac4 controllers, we
+observed sporadic iperf3 TCP TX failures on one of the controllers, with
+throughput dropping from >900Mbit/s to ~1Mbit/s due to TX underflows and
+the resulting retransmissions.
 
-Logically, it feels like this should happen earlier in the process 
-anyway - if we're entering a state where we don't want to accept _any_ 
-new command submissions, then surely arm_smmu_get_cmdq() should just 
-start saying "No, there is no valid queue to submit this command." to 
-everything?
+Commit 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from
+DMA descriptor") made dwmac4 raise the DMA threshold of the queues that
+report TX underflows, by increasing a global module parameter 'tc'.
+However, this logic does not work correctly across multiple queues and
+controllers, and can leave the TX DMA threshold stuck at 64 bytes.
 
-Thanks,
-Robin.
+This series fixes that logic to track and report the TX DMA threshold per
+queue for each controller.
+
+Ovidiu Panait (2):
+  net: stmmac: Track the TX DMA threshold per queue
+  net: stmmac: Report the TX DMA threshold per queue
+
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  3 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 ++++++++++---------
+ 4 files changed, 21 insertions(+), 17 deletions(-)
+
+-- 
+2.34.1
+
 
