@@ -4,100 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E374CC6B1C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FB2CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 19:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AJNG0UrFCFv1GRwghywdpAHlw28VEEGBTW5U88mg4A4=; b=bfNMEuan+9DvVCtv8KBvrX972u
-	g8ir8koaUkp7aF7O4VrXDPF+WqM0GfLwlqs3TdhE61NJz2LZC7QIomI2GXlXPPqSGsxTk91+rreiJ
-	bX81uxJ/6dtgzmUOsfUgQbkz62KlbEbDVnZ9fjeLNsKRUo/ldXduJbRPppW8yBXWaiywbEYf6NeOj
-	c+u4g0UWChXkdqUNFCLgZEwWzGqGdeeXXdpwZm3G8G6mV8/4uIBusfPj5HrQZVF9bDIKfnZDr+j0c
-	gyV1vtviV8A+XcwlO0T2rwPSgHf9mw4XLTmPUGEJ3IVUn+kDFDgiDrXydocuAmK3hHBCtbN2pXQpG
-	GpzLnc8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gg4svIlGHjMFWdE4ORpMaRtdmCor0a/wrTMsu8GhvKc=; b=yCGMkl+QpCnvXLbTe24Lk8Uzki
+	bKDKzpvYjKzIWpstKL6Y/YzqmFHolPb4NPkSIN624bYmHKmxlFW8loETRde46Mb4HiSIPHcqFpeJQ
+	GUOkX7KT8U6zzUwwIdxuGRxM1PgHLoFDJebCHI5McZ6W1OCHVlc8jP9RJmuk7NDNgoujBmhYn7G3H
+	JZOfbQYL66CUpuFD2PYljnImE7WkKfkYjQCsjcEM4NTkJ5S71OqWB8BqetagoxmsqpJI0S5Sit8L3
+	vGxlFslxXKGWy4mJWSn0gnUzt5XzDPcd4Z2sDKLM11Iun4Q+3GgGfQcRtX8ElSwBbQpqMqdgPAto6
+	q2T20Jqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhg0-0000000DsHb-3uYq;
-	Tue, 13 Oct 2026 18:56:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGhxY-0000000Dtm1-2lza;
+	Tue, 13 Oct 2026 19:14:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhfx-0000000DsFm-2OxP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 18:56:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AJNG0UrFCFv1GRwghywdpAHlw28VEEGBTW5U88mg4A4=; b=UcBzQ8cdcLkEpZPAWdb08zqECo
-	IDyKIW8hUXi0LMiDw8szeGZxqIDppsY1OKGDFwkjenCf76ENwOhnPK8cMWeFfQC3IH4dbpSAZoJ2M
-	umy7BWGeuxBFYFRkgrfjCabEUBBtpZ3mFFvFspWB94m1EjPPY+5rwkGpkYQv0TkMkVf4qofyJeof+
-	gg1NXMq8lFMm7MWcOe6T93E8crrqWncWYhTNYc07WxvF2x9TsnDtu33MnEPx6Xj+DBO3hnNVkBRLt
-	VA0t0onv2m1FYg6Jei168VQyfjHzpC8emealrGXjaBAzG0qnIxSMQd4WN3FoR74U28nkgC/hydjss
-	Mn03SWwg==;
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGhfu-0000000FxLa-13NV
+	id 1xGhxW-0000000Dtkz-2dbT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 18:56:36 +0000
+	Tue, 13 Oct 2026 19:14:47 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69DHRCL23017705
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 19:14:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gg4svIlGHjMFWdE4ORpMaRtdmCor0a/wrTMsu8GhvKc=; b=lKgVetjplREUnJh4
+	7iALWVWIP6om03f8b6FUaHo73isbCxsNAkBSJwvW4sZDHEI3ZVZKTkLXjJvUa5Ed
+	MaALsm+uw0nPET3dpFhUGLFsbh6Q3ebjqXZlZN4/lHqUm1GNzlgCbzWHIOZmkyfk
+	e+5yn4AwqO4shxcu0IO9DApGlEkiS5ZI0j6BmjOjyE5avrlvVgyUS9AxcZcC4QFv
+	x4S/0WHNsxosz8qVZJ249qtjTUu1Ij2GPmivaPEFlGaD4PNDS498pVt8bkNmG2GF
+	BD9K7ukVy/Fi5Asc6Fpt0FsZW83kvqpkc1NZwH5ExbaEDDa7xS4l22AleqfiR+ox
+	6szy9g==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9s2b0j3w-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 19:14:35 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-35a04491c56so230667eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 12:14:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1791917794; x=1823453794;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=AJNG0UrFCFv1GRwghywdpAHlw28VEEGBTW5U88mg4A4=;
-  b=i2AuS/kPNMuBPBvHiWojbDk5vP3GBDFzumcIH2oRVtbiLfXI5ENqZjmf
-   PE0craLvHMe+E/i/WkkQR/Y0iNeNEQ9CeDefi4kqog9Yc/asKyuHVRR79
-   D8GlNQcc2CjZFA/jhvJAWZ84Ucnj+BQxnEApG25ki1M6HWeCZv+dwMSDD
-   ess1m0Impfh5LHpDCxwEn0YZCx7BEheW5oufe2Nv3Ox5ISY69bJt9Vge3
-   H2qQJLg4ECn9RdIQX8phmCJEYuH5K9HcPbAVklSTWWkr72j15o8towgmK
-   ssvKqElOiba3GVL4WJVdR3MuAAHisNiWLfEDZGLl9rHl+RIz5ms/NPqNa
-   A==;
-X-CSE-ConnectionGUID: jwqJiJxfQkq3KiWE2Ehf2Q==
-X-CSE-MsgGUID: U4+NN1JVRU20vMdsp3he8g==
-X-IronPort-AV: E=Sophos;i="6.27,156,1787011200"; 
-   d="scan'208";a="30939237"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 18:56:31 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:16021]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.56.108:2525] with esmtp (Farcaster)
- id a2151c72-2e3a-458a-9a1a-02cb0192d0a7; Tue, 13 Oct 2026 18:56:30 +0000 (UTC)
-X-Farcaster-Flow-ID: a2151c72-2e3a-458a-9a1a-02cb0192d0a7
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
- Tue, 13 Oct 2026 18:56:30 +0000
-Received: from u34cccd802f2d52.amazon.com (10.187.170.30) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.53;
- Tue, 13 Oct 2026 18:56:29 +0000
-From: Haris Okanovic <harisokn@amazon.com>
-To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, "Ingo
- Molnar" <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-CC: Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa
-	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter
-	<adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <harisokn@amazon.com>
-Subject: [PATCH 2/4] perf/core: Add PERF_PMU_SCOPE_DEVICE
-Date: Tue, 13 Oct 2026 13:56:01 -0500
-Message-ID: <20261013185603.1347265-3-harisokn@amazon.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261013185603.1347265-1-harisokn@amazon.com>
-References: <20261013185603.1347265-1-harisokn@amazon.com>
+        d=oss.qualcomm.com; s=google; t=1791918875; x=1792523675; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gg4svIlGHjMFWdE4ORpMaRtdmCor0a/wrTMsu8GhvKc=;
+        b=PryxkoqL+w58BFHCATt1u3f1ODJyXyAUT8XA3WcYdlwcWtmGoZrcjGcqpFftCD+nqV
+         u5ayBpw0J/BJJhAjCXEf1lbacxYmpAcfmW7tqx7hT9rFBPR9zXu3QWxxDC1yoSefh5H+
+         nAVxS+Gb4Ak3ONkgDo7YU8fByELjgIQqpLzEtnX8BTG1+aswmDOeIEsVwTMU/wR+Ha6h
+         LiBTzqiper2bPvVk/fvLnaaYSwLb12gQtBry++aKIDLeNcNbASauhtPR7AB3rfqDM+Zc
+         l/NL9B4oYrIXCvSmPG9u3Gi1X61Ae0Jyyjjsd+DJDYgbQOrqZiKv3sPZ8odlt2LgCh5V
+         P8tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791918875; x=1792523675;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gg4svIlGHjMFWdE4ORpMaRtdmCor0a/wrTMsu8GhvKc=;
+        b=xtdZemtatr75Pkf4PiZcLPxhEcfCMukFdV6ixG1z69mw6kHUqgWZWHJiR9efsSwu68
+         gZUyQccti7ZfHiD6mVQyshPqqQ3U0YwVSsFap3AKzDQ42QxirGdCnbWdbvb/XvH51ESj
+         DeVNTVJKrSL2XnzPw4djHlOcuLx2nc5bhIlmX/Th2BxLClZxgSCOIkUeK215GIqnrDAU
+         Ypc911mUaNfsb80o+in2cPRNA5kap7m/0G+tZ0hWyRpPo0eLMJWI/qOvxIJ0MuTh2u+u
+         n47+hxzzjLwoAPsZtGUbsPxgrlVDrt6NoX1TYaP5G9HdEnp2pEXGVin0c4YQEEiwaZpR
+         etOw==
+X-Forwarded-Encrypted: i=1; AKwUvBzszVIn6EgIGtaDvVCG/PdRIkusOX6X4N6xyFFsnjGrGTk/iYWka0gsVKhVvm18oIGuARvDlIL0HYHv59f4tHO8@lists.infradead.org
+X-Gm-Message-State: AFq9FYLlr7pqkm713VamDr3EY3vCep8ekJnJDgX1wvOofaJ+m0mnw0Or
+	HohPVgVu+XbhgoZZWIwEJJ7GEbMTHj7MfVlf/hKaRLRW8p0IzenEjTvobKBPrfkxLUfB71posVo
+	r9Iv5oB0sZ7wAeY5qCLb3P0zx9TGcjwZ9lJNnald8qyQMLwLVzsyDuIphekQRA8VSmrimUn/ZZg
+	gWQg==
+X-Gm-Gg: AYBFou27/XV9PaHxXmufP+KlG/WcwXe+2p1nElrbt3+T8YuHTLiUhyzekArO4eS9126
+	yMd91UKD4XmoChFGGz3ExmsQoUxo+VZjupOIWmjVRGbgUMGjfoifxnWXd7aGWGMwjWOmiUyu4ER
+	Y+e0vNihjmWGTgsPaZPcvVzWVeuwUnAeK1plLFc8prht1BgdhJ3uH7iNa+YVbH9OJBKBoecRhPt
+	jT4v9LS+ZUdP7MJGZVWME7GkuxIt3S8oQw8BFegzYVbq2lviix5iEWeM0ihBRBv+sN9KmQYCVJp
+	0Wy+UN9UJOveu8GgzZuqDyGQlXB1nhetugmVIDdqKbNxZ5Gz/Lao1Y0qYQMF3fwn2i2k+fh4Fvm
+	j3oIm1xHnMVF3xQIbEECPny7RzcgJNnwZ47kADzI8STl7MTkI4DiHjAq2FWoGJtA=
+X-Received: by 2002:a05:7300:a8e:b0:35b:f6e:417c with SMTP id 5a478bee46e88-35b0f6e434amr7495228eec.15.1791918874547;
+        Tue, 13 Oct 2026 12:14:34 -0700 (PDT)
+X-Received: by 2002:a05:7300:a8e:b0:35b:f6e:417c with SMTP id 5a478bee46e88-35b0f6e434amr7495197eec.15.1791918873849;
+        Tue, 13 Oct 2026 12:14:33 -0700 (PDT)
+Received: from [10.71.40.138] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-35b690af3easm16076819eec.1.2026.10.13.12.14.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 Oct 2026 12:14:33 -0700 (PDT)
+Message-ID: <a05632fe-7511-45d2-afa1-a2215db570c0@oss.qualcomm.com>
+Date: Tue, 13 Oct 2026 12:14:32 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.187.170.30]
-X-ClientProxiedBy: EX19D031UWA003.ant.amazon.com (10.13.139.47) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: stmmac: dwxgmac2: enable L2 split header
+ support
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+        Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
+        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
+        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+References: <20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com>
+ <bea80b7e-3d44-4662-b3b2-e97a7f903aa9@bootlin.com>
+Content-Language: en-US
+From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+In-Reply-To: <bea80b7e-3d44-4662-b3b2-e97a7f903aa9@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=RPQmjIi+ c=1 sm=1 tr=0 ts=6ace831b cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=4tsTETeE3Fl7JHlmqNcA:9 a=QEXdDO2ut3YA:10 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-GUID: KvIG-vUgVUaQT9EBrG8ZDVXhYznwvAqy
+X-Proofpoint-ORIG-GUID: KvIG-vUgVUaQT9EBrG8ZDVXhYznwvAqy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA3NiBTYWx0ZWRfX1fDxL9mmJKYt
+ k1MyVSt8S6QwyYAgzjjHx+Znz0teegZxlYsez2xVyee/uSSezjwarZ97ehUnpmUjkJ43hJRZ7za
+ ry6rAyINcEXt+Bm/+XEOMYz3YDM7Ij70SXTvWqLRNdx9qeBJc42LxcoLfCDDBSELIs7SSMR1lnU
+ 52hGKyrFyG3rOoxXf4z8iDTb6j9MNWGL8z0RGbBq78vNY9QYitqWf3N/K2lcFan0nX3DaHAvkNc
+ 9Pkc2DE53mo61W/WFFWfQvw0I53r85n/EX7pAwMEMxLSwujaLrUgiQ7ow5sWbJ6bo0rx9Z/dliD
+ Gg5KYT6zsK++sZYZ2rsSEbvuT10WmRU6lxPz3t2wIlU0Xc3+VbQXvw2mtPJVxAQW5GO7WnFfwCH
+ 3k1h+6ptYPypoUmMDiTQaTz29+o6q02hjLQhLTngVCk4AZRopG+UYDRq5O0sNeFQocNRguQz7WL
+ EGpbzoHMHK40dxAQ3NA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA3NiBTYWx0ZWRfX2pJz3yUIT8Fh
+ K4CtI8hAU42cKO2u3zhR0gkI1qUr/Tpcj3y3MyvNno+bkj48o4zVZ1t8dchLrxjL/xRz41Tgecy
+ Q4neTGe8NIiipjgg+zwkwnP4ltxElbg=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
+ phishscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_195634_894636_A7359F8F 
-X-CRM114-Status: GOOD (  35.09  )
+X-CRM114-CacheID: sfid-20261013_121446_698509_A74943DF 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,390 +163,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a "device" pmu::scope for PMUs counted on a single CPU drawn
-from a driver-supplied set instead of a fixed topology.
+Hi Maxime,
 
-This mechanism is implemented by new callbacks: filter_allowed_cpus()
-is invoked to constrain the running CPU set to an allowed set for a
-particular device; migrate_cpu() is used to perform any device specific
-migration steps. Both are optional, e.g. for devices that can run on
-any CPU or have no additional migration steps.
+Thanks for the review.
 
-Placement initially happens in perf_pmu_register() before the PMU
-becomes visible, and is subsequently re-evaluated on hotplug events.
-A new CPU selection is made by cpumask_any_distribute() to spread out
-load from multiple devices, but only when the previous CPU selection is
-offline or no longer allowed by filter_allowed_cpus().
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+>> index f8ab347f7b5b..fb29dd489714 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+>> @@ -167,6 +167,12 @@
+>>  #define XGMAC_HW_FEATURE4		0x0000012c
+>>  #define XGMAC_HWFEAT_EASP		BIT(4)
+>>  #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+>> +#define XGMAC_EXT_CFG0			0x140
+> Let's keep it coherent and use 0x00000140
 
-PMU events of these devices follow the chosen CPU. They are initially
-bound to a CPU in perf_try_init_event() then reassigned by
-perf_pmu_migrate_context() when a new CPU is selected.
+Ack, will fix in v3.
 
-The initial CPU assignment can race with migration, leaving a stranded
-event. A sequence counter is added to close this gap without additional
-locks. A count in struct pmu increments on each migration and is copied
-to struct perf_event on init. The copied count is checked again before
-the event is installed, under the same context mutex, which causes
-perf_event_open() and perf_event_create_kernel_counter() to return -EBUSY
-during migration periods.
-
-Signed-off-by: Haris Okanovic <harisokn@amazon.com>
----
- include/linux/perf_event.h |  26 ++++++
- kernel/events/core.c       | 181 ++++++++++++++++++++++++++++++++++++-
- 2 files changed, 202 insertions(+), 5 deletions(-)
-
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 2d5e7687875b0..99c88ec99b786 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -317,6 +317,7 @@ enum perf_pmu_scope {
- 	PERF_PMU_SCOPE_CLUSTER,
- 	PERF_PMU_SCOPE_PKG,
- 	PERF_PMU_SCOPE_SYS_WIDE,
-+	PERF_PMU_SCOPE_DEVICE,
- 	PERF_PMU_MAX_SCOPE,
- };
- 
-@@ -351,6 +352,15 @@ struct pmu {
- 	 */
- 	unsigned int			scope;
- 
-+	/* The CPU this PMU counts on for PERF_PMU_SCOPE_DEVICE */
-+	int				cpu;
-+
-+	/*
-+	 * Ticks before and after changes to pmu::cpu, so that an event
-+	 * being created can tell whether the PMU moved under it.
-+	 */
-+	unsigned int			migrate_seq;
-+
- 	struct perf_cpu_pmu_context * __percpu *cpu_pmu_context;
- 	atomic_t			exclusive_cnt; /* < 0: cpu; > 0: tsk */
- 	int				task_ctx_nr;
-@@ -589,6 +599,16 @@ struct pmu {
- 	 * Check period value for PERF_EVENT_IOC_PERIOD ioctl.
- 	 */
- 	int (*check_period)		(struct perf_event *event, u64 value); /* optional */
-+
-+	/*
-+	 * Narrow @allowed_cpus (a set of candidate CPUs) down to the ones this
-+	 * PMU can be counted on. Called on PERF_PMU_SCOPE_DEVICE PMUs when CPU
-+	 * assignment needs to be reconsidered.
-+	 */
-+	int (*filter_allowed_cpus)(struct pmu *pmu, struct cpumask *allowed_cpus); /* optional */
-+
-+	/* Called when a PERF_PMU_SCOPE_DEVICE PMU is assigned a different CPU */
-+	void (*migrate_cpu)(struct pmu *pmu, unsigned int cpu); /* optional */
- };
- 
- enum perf_addr_filter_action_t {
-@@ -855,6 +875,12 @@ struct perf_event {
- 	int				oncpu;
- 	int				cpu;
- 
-+	/*
-+	 * Copy of pmu::migrate_seq on event init to detect migration of PMU
-+	 * under PERF_PMU_SCOPE_DEVICE.
-+	 */
-+	unsigned int			pmu_migrate_seq;
-+
- 	struct list_head		owner_entry;
- 	struct task_struct		*owner;
- 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 7caba4d528301..0d4e2c6d71584 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -470,6 +470,7 @@ static cpumask_var_t perf_online_die_mask;
- static cpumask_var_t perf_online_cluster_mask;
- static cpumask_var_t perf_online_pkg_mask;
- static cpumask_var_t perf_online_sys_mask;
-+static cpumask_var_t perf_device_scope_mask;
- static struct kmem_cache *perf_event_cache;
- 
- #ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
-@@ -12684,12 +12685,93 @@ static inline struct cpumask *perf_scope_cpumask(unsigned int scope)
- 	return NULL;
- }
- 
-+/*
-+ * Move a PERF_PMU_SCOPE_DEVICE PMU to one of @requested_cpus.
-+ *
-+ * Uses the pre-allocated perf_device_scope_mask global to avoid
-+ * allocation during hotplug; protected by pmus_lock.
-+ */
-+static int perf_pmu_set_cpu(struct pmu *pmu,
-+			    const struct cpumask *requested_cpus)
-+{
-+	struct cpumask *allowed_cpus = perf_device_scope_mask;
-+	int new_cpu, ret;
-+
-+	lockdep_assert_held(&pmus_lock);
-+
-+	/* A PMU can only be counted on a CPU that perf has online. */
-+	cpumask_and(allowed_cpus, requested_cpus, perf_online_mask);
-+	if (cpumask_empty(allowed_cpus))
-+		return -ENODEV;
-+
-+	if (pmu->filter_allowed_cpus) {
-+		ret = pmu->filter_allowed_cpus(pmu, allowed_cpus);
-+		if (ret)
-+			return ret;
-+
-+		if (cpumask_empty(allowed_cpus))
-+			return -ENODEV;
-+	}
-+
-+	/* Stay where we are for as long as that CPU is still allowed. */
-+	if ((unsigned int)pmu->cpu < nr_cpu_ids &&
-+	    cpumask_test_cpu(pmu->cpu, allowed_cpus))
-+		return 0;
-+
-+	/* Spreads PMUs across allowed CPUs. */
-+	new_cpu = cpumask_any_distribute(allowed_cpus);
-+
-+	WRITE_ONCE(pmu->migrate_seq, pmu->migrate_seq + 1);
-+	smp_wmb(); /* pairs with the smp_rmb() in perf_try_init_event() */
-+
-+	/*
-+	 * A PMU being placed for the first time (pmu->cpu = -1) has no events
-+	 * yet, and no CPU to migrate them from.
-+	 */
-+	if ((unsigned int)pmu->cpu < nr_cpu_ids)
-+		perf_pmu_migrate_context(pmu, pmu->cpu, new_cpu);
-+
-+	if (pmu->migrate_cpu)
-+		pmu->migrate_cpu(pmu, new_cpu);
-+
-+	pmu->cpu = new_cpu;
-+
-+	smp_wmb(); /* pairs with the smp_rmb() in perf_try_init_event() */
-+	WRITE_ONCE(pmu->migrate_seq, pmu->migrate_seq + 1);
-+
-+	return 0;
-+}
-+
-+/* Did the PMU move after event was initialized? */
-+static bool perf_event_pmu_moved(struct perf_event *event)
-+{
-+	struct pmu *pmu = event->pmu;
-+
-+	if (pmu->scope != PERF_PMU_SCOPE_DEVICE)
-+		return false;
-+
-+	/*
-+	 * An odd seq means the event was created during a move, so treat it
-+	 * as moved.
-+	 */
-+	return (event->pmu_migrate_seq & 1) ||
-+	       READ_ONCE(pmu->migrate_seq) != event->pmu_migrate_seq;
-+}
-+
- static ssize_t cpumask_show(struct device *dev, struct device_attribute *attr,
- 			    char *buf)
- {
- 	struct pmu *pmu = dev_get_drvdata(dev);
--	struct cpumask *mask = perf_scope_cpumask(pmu->scope);
-+	struct cpumask *mask;
- 
-+	/* These PMU devices count on a single CPU, see pmu::cpu. */
-+	if (pmu->scope == PERF_PMU_SCOPE_DEVICE) {
-+		if ((unsigned int)pmu->cpu >= nr_cpu_ids)
-+			return 0;
-+		return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpumask_of(pmu->cpu)));
-+	}
-+
-+	mask = perf_scope_cpumask(pmu->scope);
- 	if (mask)
- 		return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(mask));
- 	return 0;
-@@ -12846,6 +12928,12 @@ int perf_pmu_register(struct pmu *_pmu, const char *name, int type)
- 		      "Can not register a pmu with an invalid scope.\n"))
- 		return -EINVAL;
- 
-+	if (WARN_ONCE(pmu->scope != PERF_PMU_SCOPE_DEVICE &&
-+		      (pmu->filter_allowed_cpus || pmu->migrate_cpu),
-+		      "Can not register a pmu with CPU callbacks outside device scope.\n"))
-+		return -EINVAL;
-+
-+	pmu->cpu = -1; /* chosen below for PERF_PMU_SCOPE_DEVICE */
- 	pmu->name = name;
- 
- 	if (type >= 0)
-@@ -12915,6 +13003,14 @@ int perf_pmu_register(struct pmu *_pmu, const char *name, int type)
- 	INIT_LIST_HEAD(&pmu->events);
- 	spin_lock_init(&pmu->events_lock);
- 
-+	/* Pick the initial CPU to count on */
-+	if (pmu->scope == PERF_PMU_SCOPE_DEVICE) {
-+		int ret = perf_pmu_set_cpu(pmu, perf_online_mask);
-+
-+		if (ret)
-+			return ret;
-+	}
-+
- 	/*
- 	 * Now that the PMU is complete, make it visible to perf_try_init_event().
- 	 */
-@@ -13120,7 +13216,18 @@ static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
- 		goto err_destroy;
- 	}
- 
--	if (pmu->scope != PERF_PMU_SCOPE_NONE && event->cpu >= 0) {
-+	if (pmu->scope == PERF_PMU_SCOPE_DEVICE) {
-+		/* A device is not per-task; its counters cannot follow one. */
-+		if (event->attach_state & PERF_ATTACH_TASK) {
-+			ret = -EINVAL;
-+			goto err_destroy;
-+		}
-+
-+		event->pmu_migrate_seq = READ_ONCE(pmu->migrate_seq);
-+		smp_rmb(); /* pairs with the smp_wmb()s in perf_pmu_set_cpu() */
-+
-+		event->cpu = pmu->cpu;
-+	} else if (pmu->scope != PERF_PMU_SCOPE_NONE && event->cpu >= 0) {
- 		const struct cpumask *cpumask;
- 		struct cpumask *pmu_cpumask;
- 		int cpu;
-@@ -14072,6 +14179,12 @@ SYSCALL_DEFINE5(perf_event_open,
- 		}
- 	}
- 
-+	/* The PMU may have moved since it was picked, retry if so. */
-+	if (perf_event_pmu_moved(event)) {
-+		err = -EBUSY;
-+		goto err_locked;
-+	}
-+
- 	if (group_leader) {
- 		err = -EINVAL;
- 
-@@ -14369,6 +14482,12 @@ perf_event_create_kernel_counter(struct perf_event_attr *attr, int cpu,
- 		}
- 	}
- 
-+	/* The PMU may have moved since it was picked, retry if so. */
-+	if (perf_event_pmu_moved(event)) {
-+		err = -EBUSY;
-+		goto err_pmu_ctx;
-+	}
-+
- 	if (!exclusive_event_installable(event, ctx)) {
- 		err = -EBUSY;
- 		goto err_pmu_ctx;
-@@ -15129,6 +15248,7 @@ static void __init perf_event_init_all_cpus(void)
- 	zalloc_cpumask_var(&perf_online_cluster_mask, GFP_KERNEL);
- 	zalloc_cpumask_var(&perf_online_pkg_mask, GFP_KERNEL);
- 	zalloc_cpumask_var(&perf_online_sys_mask, GFP_KERNEL);
-+	zalloc_cpumask_var(&perf_device_scope_mask, GFP_KERNEL);
- 
- 
- 	for_each_possible_cpu(cpu) {
-@@ -15165,6 +15285,36 @@ static void perf_swevent_init_cpu(unsigned int cpu)
- 	mutex_unlock(&swhash->hlist_mutex);
- }
- 
-+static void perf_pmu_rebind(struct pmu *pmu)
-+{
-+	int ret;
-+
-+	/*
-+	 * An empty mask legitimately happens for the last CPU in the
-+	 * perf_reboot() teardown, when there is nothing left to migrate to.
-+	 */
-+	if (cpumask_empty(perf_online_mask))
-+		return;
-+
-+	/* Failing to pick out of every online CPU is a PMU bug. */
-+	ret = perf_pmu_set_cpu(pmu, perf_online_mask);
-+	WARN_ON_ONCE(ret);
-+}
-+
-+static void perf_pmu_rebind_all(void)
-+{
-+	struct pmu *pmu;
-+
-+	lockdep_assert_held(&pmus_lock);
-+
-+	list_for_each_entry(pmu, &pmus, entry) {
-+		if (pmu->scope != PERF_PMU_SCOPE_DEVICE)
-+			continue;
-+
-+		perf_pmu_rebind(pmu);
-+	}
-+}
-+
- #if defined CONFIG_HOTPLUG_CPU || defined CONFIG_KEXEC_CORE
- static void __perf_event_exit_context(void *__info)
- {
-@@ -15188,10 +15338,17 @@ static void perf_event_clear_cpumask(unsigned int cpu)
- 	cpumask_clear_cpu(cpu, perf_online_mask);
- 
- 	for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
--		const struct cpumask *cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
--		struct cpumask *pmu_cpumask = perf_scope_cpumask(scope);
-+		const struct cpumask *cpumask;
-+		struct cpumask *pmu_cpumask;
- 
- 		target[scope] = -1;
-+
-+		if (scope == PERF_PMU_SCOPE_DEVICE)
-+			continue;
-+
-+		cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
-+		pmu_cpumask = perf_scope_cpumask(scope);
-+
- 		if (WARN_ON_ONCE(!pmu_cpumask || !cpumask))
- 			continue;
- 
-@@ -15208,6 +15365,12 @@ static void perf_event_clear_cpumask(unsigned int cpu)
- 		    WARN_ON_ONCE(pmu->scope >= PERF_PMU_MAX_SCOPE))
- 			continue;
- 
-+		if (pmu->scope == PERF_PMU_SCOPE_DEVICE) {
-+			if (pmu->cpu == (int)cpu)
-+				perf_pmu_rebind(pmu);
-+			continue;
-+		}
-+
- 		if (target[pmu->scope] >= 0 && target[pmu->scope] < nr_cpu_ids)
- 			perf_pmu_migrate_context(pmu, cpu, target[pmu->scope]);
- 	}
-@@ -15253,6 +15416,9 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- 	 */
- 	if (cpumask_empty(perf_online_mask)) {
- 		for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
-+			if (scope == PERF_PMU_SCOPE_DEVICE)
-+				continue;
-+
- 			pmu_cpumask = perf_scope_cpumask(scope);
- 			if (WARN_ON_ONCE(!pmu_cpumask))
- 				continue;
-@@ -15262,8 +15428,12 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- 	}
- 
- 	for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
--		const struct cpumask *cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
-+		const struct cpumask *cpumask;
-+
-+		if (scope == PERF_PMU_SCOPE_DEVICE)
-+			continue;
- 
-+		cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
- 		pmu_cpumask = perf_scope_cpumask(scope);
- 
- 		if (WARN_ON_ONCE(!pmu_cpumask || !cpumask))
-@@ -15292,6 +15462,7 @@ int perf_event_init_cpu(unsigned int cpu)
- 	mutex_lock(&ctx->mutex);
- 	cpuctx->online = 1;
- 	mutex_unlock(&ctx->mutex);
-+	perf_pmu_rebind_all();
- 	mutex_unlock(&pmus_lock);
- 
- 	return 0;
--- 
-Haris Okanovic
-AWS Graviton
+Thanks,
+Sagar
 
 
