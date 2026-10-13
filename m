@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9BACC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00094CC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3JJebDaF8d0BDkPiP93+YZIa8Qgu2HPfzUYjFA6D8SE=; b=OsUqByUbPU9dryOLOcf5a9NLM7
-	BAom2S4OFWmY4BCloXpuzS6GEV0jY2UIScLpKaaOgI6fX1CSqzwTRbb7EG21yqtHXLUOXVN7BmHyQ
-	w/W7sEzqCvFvKHg1BDIDBdwKdy5Pr8iZsPbrnZkPPfPg2ne2kHyZAKGIYNXO4bAmpPoIiyTDR8iBU
-	8ZGSAdlM5vGOXn/9hCs+3gmSOU7RPiuZAGgYbXlmqmlZSLTnGweYl3RRRG3SVdChVQpoT7tGclduF
-	hzIfPJBSNVdpZEgLdvNpy5SHeCq3SqYOJ9IPakKwMJ60Qb4YAttzhIZsa66aVDntyrG8lp2sOY8/A
-	X/389CMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/AqZyAHTs/5Ze0NJawuBTwqntQ1EEyvYdHwstfLlgs=; b=5Gp3Xmy30FRaEsQkB8+P/fwmuk
+	RGDmzJOAWoYzYj3X6jOV/dJ3Rtcfz+S/T5fS7576J430herihN94MbWRs0L/JtSAugXjkyZs69xX2
+	rk3ptBQpC9VPdcUrKdV3U6TlYMwKYqajfmtWhYCxJKifUg/3VIW5Uw+OUmsvNLbfPE9PNl9cIsi3E
+	bVYSDMQFmXOr2DWFaUtbNNqnBnLWvMPz8K/CCGTtNaTfARRUE6e9XP5SUQLRQqry6J6ae+Fd+vVw6
+	3Y33DXIDtNScwJSEccDxJI9BVLFg3FG9/TQMd/7xFoeTwfh9Ard3BI+MZ2lHyZ2ySmmBAd1B/OvaD
+	VvNrTNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGf2j-0000000DSjT-1Map;
-	Tue, 13 Oct 2026 16:07:57 +0000
-Received: from 1.mo550.mail-out.ovh.net ([178.32.127.22])
+	id 1xGfBy-0000000DTc5-2B4d;
+	Tue, 13 Oct 2026 16:17:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGf2Y-0000000DShH-1SUs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 16:07:51 +0000
-Received: from director1.ghost.mail-out.ovh.net (unknown [10.110.43.142])
-	by mo550.mail-out.ovh.net (Postfix) with ESMTP id 4j3zkg6d5cz5x7k
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:07:39 +0000 (UTC)
-Received: from ghost-submission-c7b579475-655hp (unknown [10.110.164.42])
-	by director1.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 10B87C12C2;
-	Tue, 13 Oct 2026 16:07:38 +0000 (UTC)
-Received: from armadeus.com ([37.59.142.104])
-	by ghost-submission-c7b579475-655hp with ESMTPSA
-	id J4tGM0lXzmr7Qy8AW2yxgA
-	(envelope-from <sebastien.szymanski@armadeus.com>); Tue, 13 Oct 2026 16:07:38 +0000
-Authentication-Results: garm.ovh; auth=pass (GARM-104R005ed722c48-267d-45b9-9d0f-38bc83d56095,
-                    E71387541862F9B32BD99FE93336DDEC16E392F6) smtp.auth=sebastien.szymanski@armadeus.com
-X-OVh-ClientIp: 92.148.202.169
-From: =?utf-8?q?S=C3=A9bastien_Szymanski?= <sebastien.szymanski@armadeus.com>
-Date: Tue, 13 Oct 2026 18:07:24 +0200
-Subject: [PATCH] ARM: dts: apf6: fix Ethernet support
+	id 1xGfBx-0000000DTbt-0qkV;
+	Tue, 13 Oct 2026 16:17:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 587A6602C3;
+	Tue, 13 Oct 2026 16:17:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAE441F000FF;
+	Tue, 13 Oct 2026 16:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791908248;
+	bh=d/AqZyAHTs/5Ze0NJawuBTwqntQ1EEyvYdHwstfLlgs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oRtc0YuLUrkDiSZrEta9ZbfPGe4YcN4dg0b8m/8AWubxvc4grOmzg8WO6T7Oo3/QN
+	 ITtmcNAysxUoKc9jlntXO14pj6PsLmUFLgPbw4C8oTZNyh5RAodoFEo09kFjLHcJHj
+	 KgZrYZIlZfv6I6vPzxymih+kS+WwEMP4eDG+084gTWl+hskXlBuJ0vzzCffC0nzIeU
+	 E5KX0q9UIqEbCHHkBr9FRcgQ+n098/teFuk3wxQJbC7N+Uo8Bw+jneIr0q3sPKgaXV
+	 Sy70rxVC5TuezkUnhslo+Dgb3rttwfup3bKnsUEHtlMsvmGp23L591WZqSl2jqmvgw
+	 KekC5BGC8/9/w==
+Date: Tue, 13 Oct 2026 17:17:22 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Luo Liu =?utf-8?B?KOWImOe9lyk=?= <Luo.Liu@cixtech.com>
+Cc: "vkoul@kernel.org" <vkoul@kernel.org>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Gary Yang =?utf-8?B?KOadqOaWsOS8nyk=?= <Gary.Yang@cixtech.com>,
+	Fugang Duan =?utf-8?B?KOauteWvjOWImik=?= <fugang.duan@cixtech.com>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Wuyi Shen =?utf-8?B?KOayiOatpuS5iSk=?= <wuyi.shen@cixtech.com>,
+	Eastlake Yang =?utf-8?B?KOadqOS4nOiZjik=?= <Eastlake.Yang@cixtech.com>
+Subject: Re: =?utf-8?B?5Zue5aSN?= =?utf-8?Q?=3A?= [PATCH v2 1/3] dt-bindings:
+ phy: Add CIX Sky1 DP PHY
+Message-ID: <20261013-retry-unturned-70c276adf382@spud>
+References: <20261012123618.648930-1-Luo.Liu@cixtech.com>
+ <20261012123618.648930-2-Luo.Liu@cixtech.com>
+ <20261012-founding-stench-55cff46fe1a3@spud>
+ <JH0SPRMB0074821E0A55434A23B60E45F59E2@JH0SPRMB0074.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261013-apf6-fix-ethernet-v1-1-9530efe1d23e@armadeus.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQ5FMBSE4VeRs3aSloS4ryIW1JRj0SttiUS8u
- 2L5ZTL/SQFeEOiXneSxS5C/S9B5Rmbu3QSWMZkKVVRa6ZL71VZs5WDEGd4hsqlrUzYKVmGg9Fs
- 90v422+5z2IYFJj4huq4bM+Rl6HUAAAA=
-X-Change-ID: 20261013-apf6-fix-ethernet-c77c390ef0eb
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Oleksij Rempel <o.rempel@pengutronix.de>
-X-Mailer: b4 0.16.0
-x-ovh-tracer-id: 6290121306616026755
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTFwwrfl1iPxPmWO6o6uy7jINWKAyMh0x8QwmnQbFs9EgGBBoRnjM3BUaJEZr2O/b+jim7kDcbnaQ7gbObCvdaGwmrI7ygNuePUx2XfOlPU+ynH2L/Y3qjv+8V1sNGQDoWzTS4dPbg8+1q+A4z3650pMSEERHWOc6c7wHIzQ/cd0AAinuhk1ciGuYw2D4AM54rlUTc3EI7eSXJzVYl3OyTQSK/C+/uQKTz4zratc5VMMn5UDog0h/EUCyQxoTf55Y9AhqDDFZ6zvIsDrjC6HgMcTURajxU4gpbIZHaHPJuId6YRUZECM9rjL8rwWeXi3BZLeaf9O0cp/v2LK91+ydBE1Cuw9Pz2sSygtJMQyySiDwFOAUi8ORxeqSMQrjDiQ0hvpyhJSbt0z4x6XkLSR8k+ax+FeuHgblj6pXTpJ2oX8PfgfeozveVLFleydNnQ4oXi0DIU8tXFyC8L29F3qX3iF4UfhYYFXp7F2QZNo/NH3I4mxKSZv0Ft9+Cp+rL/OGDhI08pI5gNytOWguWYqqf3bFQELasVhKUY/p3Pfo+g23wKeyoagsRZk/6PuKX6sw922J8Zhfn9bs8IQkCb137qDmQHpYHwcRHo53H+aZxPyrip2ZmCeGVzf2dAbl/9cXTZ1PO2ntPh2FHu8y6E7+ioS6FxxoaJz9TbW/IvmujYNdA
-DKIM-Signature: a=rsa-sha256; bh=3JJebDaF8d0BDkPiP93+YZIa8Qgu2HPfzUYjFA6D8SE=;
- c=relaxed/relaxed; d=armadeus.com; h=From; s=ovhmo103079-selector1;
- t=1791907659; v=1;
- b=htzndDN0tLZisLCb4+yCj80PN7xv9g7YXxQHdVwxNFA1I1KYQbyiZdbAzxypK7zIFvtWUdlA
- r+p/WVV+ppUAzuY9Cza1y/KRrwjnBRzj7oRtHamoL4OZoIQbEG3XxkBEHIrdeIpf1KXsfSXMgrq
- 2/UbPM+mFpBi2IH1HsQ5viSypY+iiIFKg1drKuXZkQavLVjJhuqIRQm3zouS2VZrbD1Xz6WIxod
- yySiVzNtMLCjy/x0YLJTaXg29Aks8YfKXhaRmr6Nr6MiJWt0mlCrXkCR4PjW8lgmCZKsqFPEfV1
- 4XJdz2LUx6I4EgcjawOWbX78kUilhY/TtDYORO48qvGqw==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_090749_334897_3FAA71B4 
-X-CRM114-Status: GOOD (  10.29  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pQxb2iB7MuCcOiZL"
+Content-Disposition: inline
+In-Reply-To: <JH0SPRMB0074821E0A55434A23B60E45F59E2@JH0SPRMB0074.apcprd06.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +83,166 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, Julien Boibessot <julien.boibessot@armadeus.com>, =?utf-8?q?S=C3=A9bastien_Royen?= <sebastien.royen@armadeus.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit f5d9aa79dfdf ("ARM: imx6q: remove clk-out fixup for the Atheros
-AR8031 and AR8035 PHYs") removed a PHY fixup that setted the clock.
-Make the Ethernet interface work again by doing as advised in the
-commit's log, set the clock in the device tree.
+--pQxb2iB7MuCcOiZL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: f5d9aa79dfdf ("ARM: imx6q: remove clk-out fixup for the Atheros AR8031 and AR8035 PHYs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sébastien Szymanski <sebastien.szymanski@armadeus.com>
----
- arch/arm/boot/dts/nxp/imx/imx6qdl-apf6.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+On Tue, Oct 13, 2026 at 08:50:48AM +0000, Luo Liu (=E5=88=98=E7=BD=97) wrot=
+e:
+> HI Conor,=20
+>=20
+> 	Thank you very much for your reply and suggestions.
+>=20
+> -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> =E5=8F=91=E4=BB=B6=E4=BA=BA: Conor Dooley <conor@kernel.org>=20
+> =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2026=E5=B9=B410=E6=9C=8813=E6=97=A5=
+ 2:55
+> =E6=94=B6=E4=BB=B6=E4=BA=BA: Luo Liu (=E5=88=98=E7=BD=97) <Luo.Liu@cixtec=
+h.com>
+> =E6=8A=84=E9=80=81: vkoul@kernel.org; neil.armstrong@linaro.org; mani@ker=
+nel.org; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; Gary Yan=
+g (=E6=9D=A8=E6=96=B0=E4=BC=9F) <gary.yang@cixtech.com>; Fugang Duan (=E6=
+=AE=B5=E5=AF=8C=E5=88=9A) <fugang.duan@cixtech.com>; linux-phy@lists.infrad=
+ead.org; devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; =
+cix-kernel-upstream <cix-kernel-upstream@cixtech.com>; p.zabel@pengutronix.=
+de; linux-kernel@vger.kernel.org; Wuyi Shen (=E6=B2=88=E6=AD=A6=E4=B9=89) <=
+Wuyi.Shen@cixtech.com>; Eastlake Yang (=E6=9D=A8=E4=B8=9C=E8=99=8E) <EastLa=
+ke.Yang@cixtech.com>
+> =E4=B8=BB=E9=A2=98: Re: [PATCH v2 1/3] dt-bindings: phy: Add CIX Sky1 DP =
+PHY
+>=20
+> On Mon, Oct 12, 2026 at 08:36:16PM +0800, Luo Liu wrote:
+> > Document the dedicated DisplayPort PHY on CIX Sky1, including the=20
+> > optional cix,external-dp board property for external connector swing.
+> > Add a MAINTAINERS entry for the binding and driver.
+> >=20
+> > Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+> > ---
+> >  .../bindings/phy/cix,sky1-dp-phy.yaml         | 53 +++++++++++++++++++
+> >  MAINTAINERS                                   |  8 +++
+> >  2 files changed, 61 insertions(+)
+> >  create mode 100644=20
+> > Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> >=20
+> > diff --git=20
+> > a/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml=20
+> > b/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> > new file mode 100644
+> > index 000000000000..c6914cab74e0
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/cix,sky1-dp-phy.yaml
+> > @@ -0,0 +1,53 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/cix,sky1-dp-phy.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: CIX Sky1 DisplayPort PHY
+> > +
+> > +maintainers:
+> > +  - Luo Liu <Luo.Liu@cixtech.com>
+> > +
+> > +description:
+> > +  The CIX Sky1 DP PHY provides the PMA/CDB register interface for the
+> > +  dedicated DisplayPort instance on CIX Sky1.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: cix,sky1-dp-phy
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  "#phy-cells":
+> > +    const: 0
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +    description: PHY hardware reset
+> > +
+> > +  cix,external-dp:
+> > +    type: boolean
+> > +    description:
+> > +      Use voltage swing values suitable for an external DisplayPort
+> > +      connector instead of the default low-voltage values.
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - "#phy-cells"
+> > +  - resets
+>=20
+> A reset but no clocks? That's a bit hard to believe.
+>=20
+> Seems fine otherwise, unless I am missing some sort of common property fo=
+r the voltage swing stuff.
+>=20
+> Thanks,
+> Conor.
+>=20
+>=20
+> 1=EF=BC=8CRegarding the missing clocks property:=20
+>=20
+> 	The PHY APB clock is physically the same clock as the DPTx controller AP=
+B clock. It is described and=20
+>=20
+> managed only by the DPTx controller driver, so the PHY node does not list=
+ a separate clocks property.
+>=20
+> The PHY driver only implements the standard PHY callbacks. It does not to=
+uch the hardware in probe;=20
+>=20
+> All PHY programming happens later, when the DPTx driver actively calls ph=
+y_init() / phy_power_on() / phy_configure()=20
+>=20
+> and similar interfaces.=20
+>=20
+> 	By that time the shared APB clock is already under DPTx control.
+>=20
+> So from this binding's point of view there are no clocks to describe =E2=
+=80=94 only the reset line owned by the PHY node.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apf6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apf6.dtsi
-index b78ed7974ea9..b55a3539fbe8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apf6.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apf6.dtsi
-@@ -41,6 +41,7 @@ ethphy1: ethernet-phy@1 {
- 			reg = <1>;
- 			interrupt-parent = <&gpio1>;
- 			interrupts = <28 IRQ_TYPE_LEVEL_LOW>;
-+			qca,clk-out-frequency = <125000000>;
- 			status = "okay";
- 		};
- 	};
+This sounds wrong, if the PHY uses this clock then the "DPTx" (no idea
+what that actually is) it should also have this clock as an input.
 
----
-base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
-change-id: 20261013-apf6-fix-ethernet-c77c390ef0eb
+pw-bot: changes-requested
 
-Best regards,
---  
-Sébastien Szymanski <sebastien.szymanski@armadeus.com>
+>=20
+>=20
+> 2=EF=BC=8COn the voltage swing property: there is no suitable common DT p=
+roperty for this.
+>=20
+> 	The flag only selects which vendor calibration table to use for the same=
+ PHY IP =E2=80=94 the DisplayPort swing/EQ table=20
+>=20
+> versus the eDP table.=20
+>=20
+> 	Runtime swing/pre-emphasis levels still come from phy_configure_opts_dp =
+as usual.
+>=20
+> The old name cix,external-dp was misleading. I will rename it to cix,edp =
+(present =3D> eDP table, absent =3D> DP table)
 
+I dunno, I think "external" is clearer than "e", since eDP is also used
+for embedded displayport?
+
+Thanks,
+Conor.
+
+--pQxb2iB7MuCcOiZL
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas5ZkgAKCRB4tDGHoIJi
+0jyPAQDRmqHdCBu+JEY6WYgMJc70ELue4zQ5RLYDWcTc2EDf6AEA8BKvY64jcv/u
+g0LbGUnfGhL/p52BclTRXUFOId1YRgo=
+=gF/s
+-----END PGP SIGNATURE-----
+
+--pQxb2iB7MuCcOiZL--
 
