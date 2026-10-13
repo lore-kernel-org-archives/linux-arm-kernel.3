@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3249CC6B16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B6BCC6B16
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJ86ar7ft1Sjd5oHlVMjY4gwK71NzHJf7v8T3vhrJ3o=; b=mwxpKn4eV4vxStgA+FQMz0Yl7p
-	ENiXah4mBozhzwg1XiraR7m+O4zeYTGO+O62COSa6qNh2jraVBcYvwPdIfjjDz+a1Tg/igv8pvB9m
-	kJdq/W7EJDHVUCH4JHVWkQYmTUl23xvzzlBaO0ARxW5oauHZN6r7XaW9rldT835pogCPrj7FrAzsX
-	jKAKzbwCB64IoEYwVgktyTVlCR5RnXVQWk0cWmqoZotlWePBRCOtdCqxpJ6V3S1FThhsgquiwx3ZJ
-	6YpQtrnkSjZt1lqwkCUhGkIX44YWC0z065sMG24eYJkkm/d52wv20TiVO791JDNc0G0Y6iwjlklIC
-	lKS0S02A==;
+	bh=8zZdCXAs4vHgfimJ4DiiEZocPEzfktIkrYiZQKBBqwQ=; b=RTeC++Da6uCa5CDDoaOyAaStfH
+	k/KtenjVhnhN8R436fgFXXoRutQzd5pbdnb5CNDpIKA4WX5yKgq8DuvLciIGEl3i6usaIhXloQAFt
+	Z5uXalLQEBIUuXydqK7fLQT/BUi6neLvDg4hvi7eSsXgAEcN7o36zS301dWD+0WfN8curo5dlyly/
+	982pHAO5jr6WcB0k3XtTWXrHVoCKgbuo0nEar/w9wc6QbppkuIzjRXXCNqI29MOa73qSB8OsBx4+U
+	ugc21YZxI7reYF7kFLY/oO9O6ECJwrmOPF88AT8YFGD3r+cDygGM7cuixs/g0VCiZ+ZioHuK9jrm5
+	N9rLzDOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGemU-0000000DQR1-3r97;
-	Tue, 13 Oct 2026 15:51:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGeqC-0000000DR6G-3egC;
+	Tue, 13 Oct 2026 15:55:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGemR-0000000DQQa-0A9C
+	id 1xGeqB-0000000DR5h-3yAF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:51:07 +0000
+	Tue, 13 Oct 2026 15:54:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D6E4602C3;
-	Tue, 13 Oct 2026 15:51:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230E81F000FF;
-	Tue, 13 Oct 2026 15:51:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 760F943F71;
+	Tue, 13 Oct 2026 15:54:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2BCC1F000FF;
+	Tue, 13 Oct 2026 15:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791906665;
-	bh=MJ86ar7ft1Sjd5oHlVMjY4gwK71NzHJf7v8T3vhrJ3o=;
+	s=k20260515; t=1791906899;
+	bh=8zZdCXAs4vHgfimJ4DiiEZocPEzfktIkrYiZQKBBqwQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M7k7sMsxNzFfFxydRPey+N/9CCSkwmN5DyNYLRN5dFgRPYd43mfp0TWbfEdFgtY/w
-	 H00/6MvApVWWBqq6LDZx7/+XInjZmbM5zuio3/3YukuSPwX35+4v+bZT4srhksV8Y/
-	 8bn1MH/mlIp1/ryVdV5wSZQDhrWJpceSWiOoCDwcWL+D5pwOATLTjZsmlUmRJ4pMfD
-	 kLlwAqKnCSGxhK43xZgCQAZ5VYC99wMNctVqXBsraoV+Tk46krOgTi1shEbqCtFfVL
-	 Yf1Ycg8KCjLzBo9AnqlKiK7HQ47FXsYThbecmNPzqLxcksT0Py5AI5nA/VimCa4vcF
-	 VB7t70b3CeeaA==
-Date: Tue, 13 Oct 2026 17:51:03 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Cc: Andi Shyti <andi.shyti@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Shyam Sundar S K <shyam-sundar.s-k@amd.com>, 
-	Elie Morisse <syniurge@gmail.com>, Benson Leung <bleung@chromium.org>, 
-	Guenter Roeck <groeck@chromium.org>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Devyn Liu <liudingyuan@h-partners.com>, Oleksij Rempel <o.rempel@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Binbin Zhou <zhoubinbin@loongson.cn>, Khalil Blaiech <kblaiech@nvidia.com>, 
-	Asmaa Mnebhi <asmaa@nvidia.com>, Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
-	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Laxman Dewangan <ldewangan@nvidia.com>, Dmitry Osipenko <digetx@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Israel Cepeda <israel.a.cepeda.lopez@intel.com>, 
-	Hans de Goede <hansg@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Hans Hu <hanshu@zhaoxin.com>, George Cherian <gcherian@marvell.com>, linux-i2c@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 1/2] i2c: i2c-core-acpi: use named initializers for
- acpi_device_id
-Message-ID: <as5TMuJUE3H7bcFX@orome>
-References: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
- <20260918-acpi-i2c-v1-1-caf4bea4886c@thegoodpenguin.co.uk>
- <as5S4eXw9_olPYTK@orome>
+	b=OKpDwFAWOmCROzn++7CKt/o/UkYuRWyRKPZFbTQyKiNtZ/Myz26H3w7gll7alRqq5
+	 DB4y+98NoOS5/z61QN8smRUxWjp4JnBwN62xnZD/N2mDhUzvEAjYssQhYfbZi9ykcR
+	 5X+qFa8gZYm/xzWkBGJs16ImIjZMINShueT8rCAHqPZoPaAH/cnHEYav982GezyOkE
+	 x4o/7u2VcJV1yVhZMFBrP9gt6/4HfaynvrqnKN7ZQNsWWe6PMhNT2drSZJk07oF7JF
+	 kVAh6ddbdzHQ4ZGXlNrkQ3Fm1Ri4FX41UR6xpmxwV3zuaLVhpY/tQOMuiGyRfl4PrF
+	 M6xqHbYjIpoTw==
+Date: Tue, 13 Oct 2026 17:54:57 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: =?utf-8?B?6ZmI6ICA5piO?= <cc201008@gmail.com>
+Cc: netdev@vger.kernel.org, horms@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: airoha: Keep UPDMEM egress MAC in sync for
+ offloaded IPv6 flows
+Message-ID: <as5UUQuCjLTXvQ5Q@lore-desk>
+References: <CAPZ+gd9d1P+xDSrxxZkGJr32zjubP=KfQegeGkWykKGvEH0=oA@mail.gmail.com>
+ <CAPZ+gd8TPNnvEDOv_H=fdvy2ysG63uBD0MvmEMjhkMa8i-y1NA@mail.gmail.com>
+ <as0DO7n5SCr2j3Z2@lore-desk>
+ <CAPZ+gd_1JsNyhQbEAWiE1stom+T_jgvt4F2=tb68YoSvPCnFag@mail.gmail.com>
+ <as3faB96PFSnC-qP@lore-desk>
+ <CAPZ+gd_S4zMffbFTUbV989XxYtgxuJ3ijEBObehAXP_N20Akww@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ta66zshbuz6aaek2"
+	protocol="application/pgp-signature"; boundary="Fip1EEA1bp5qMo/a"
 Content-Disposition: inline
-In-Reply-To: <as5S4eXw9_olPYTK@orome>
+In-Reply-To: <CAPZ+gd_S4zMffbFTUbV989XxYtgxuJ3ijEBObehAXP_N20Akww@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +75,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---ta66zshbuz6aaek2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+--Fip1EEA1bp5qMo/a
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] i2c: i2c-core-acpi: use named initializers for
- acpi_device_id
-MIME-Version: 1.0
 
-On Tue, Oct 13, 2026 at 05:48:58PM +0200, Thierry Reding wrote:
-> On Fri, Sep 18, 2026 at 02:01:50PM +0100, Pawel Zalewski wrote:
-> > Use a designated initializer for the acpi_device_id fields which makes =
-the
-> > code more readable and consistent with how lists are initialized in the
-> > rest of the kernel code base. Also drop explicitly setting fields to 0
-> > where it is redundant.
-> >=20
-> > Unify the list terminator to have a single space between the brackets a=
-nd
-> > no trailing comma.
-> >=20
-> > Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-> > ---
-> >  drivers/i2c/i2c-core-acpi.c | 14 +++++++-------
-> >  1 file changed, 7 insertions(+), 7 deletions(-)
+> The issue is reproducible in the upstream codebase, without any of the
+> out-of-tree PON code -- the PON setup is just where I first hit it.
 >=20
-> Reviewed-by: Thierry Reding <treding@nvidia.com>
+> Reproduction with mainline code only (airoha eth + the mt7530 MMIO DSA
+> driver; the "airoha,en7581-switch" binding and driver are mainline,
+> the DT node just needs to be added to a board file):
+>=20
+> - AN7581 board, switch node with its CPU port on GDM1. Use a DSA user
+>   port as a routed WAN interface with its own MAC address.
+>=20
+> airoha_get_dsa_port() replaces the egress netdev with the conduit, so
+> routed IPv6 FOE entries carry smac_id =3D conduit port id, and the PPE
+> resolves the egress source MAC through UPDMEM[conduit]. That slot is
+> only programmed by airoha_set_macaddr(), which never runs when a DSA
+> slave address changes, so offloaded IPv6 frames leave the port with
+> the conduit's MAC instead of the user port's. IPv4 is unaffected,
+> since HNAPT entries store the MACs inline. The same shape appears on a
+> GDM port with two "airoha,eth-port" children carrying different MAC
+> LSBs, which the recent multi-SerDES series allows by design
+> (REG_FE_MAC_LMIN/LMAX); for that variant the exposure starts with the
+> series introducing multiple net_devices per GDM port.
+>=20
+> The posted patch only reprograms the shared per-port slot at offload
+> time, so a later address change on any netdev of that port re-breaks
+> offloaded IPv6 flows. It is a temporary patch for this setup; the
+> final solution is up to the maintainers.
 
-Nevermind, I realized too late that this popped up in my inbox because
-of Andi's message saying the patches were applied.
+I do not think the case you described is fixed with your patch. Let's consi=
+der
+the following case:
 
-Thierry
+- time t0: you offload a flow rule for traffic egressing dsa port0
+- time t1: you offload a flow rule for traffic egressing dsa port1
 
---ta66zshbuz6aaek2
-Content-Type: application/pgp-signature; name="signature.asc"
+Since the index written in REG_UPDMEM_CTRL() subfield is still the conduit =
+port
+ID, you are egressing traffic from port0 with L2 address of port1. Am I rig=
+ht,
+or am I missing something?
+Moreover, is it a bug if we use the conduit port L2 address as source mac
+address for IPv6 traffic?
+
+Regards,
+Lorenzo
+
+>=20
+> A proper fix would probably give each netdev its own UPDMEM entry: the
+> table is indexed by a 4-bit address (16 entries) while the FOE
+> smac_id field is 5-bit with 0xf reserved for "keep original MAC", so
+> there is room beyond the port ids. Slots could be programmed from
+> airoha_set_macaddr() (always under RTNL, as you noted) plus a
+> netdevice notifier for DSA slaves, and foe_entry_prepare() would only
+> reference the slot -- removing both the race and the extra locking the
+> current approach needs.
+>=20
+> Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=8813=
+=E6=97=A5=E5=91=A8=E4=BA=8C 15:36=E5=86=99=E9=81=93=EF=BC=9A
+> >
+> > > Ooo,  the new patch should be a dedicated leaf lock inside
+> > > airoha_ppe_init_upd_mem().
+> > > --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> > > +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> > > @@ -416,6 +416,19 @@
+> > >    dsa_port);
+> > >
+> > >   smac_id =3D port->id;
+> > > + /*
+> > > + * Routed IPv6 entries resolve the egress source MAC
+> > > + * through the UPDMEM table indexed by smac_id. The
+> > > + * egress netdev can legally carry a different address
+> > > + * than the GDM port itself: on PON setups the
+> > > + * authentication MAC lives on the pon device while
+> > > + * each service VLAN routes with its own address. Keep
+> > > + * the table entry in sync with the source address this
+> > > + * flow is actually going to use.
+> >
+> > Is the issue occurring just with PON or are you able to trigger the iss=
+ue
+> even
+> > in the upstream codebase? I guess you should not post a fix for some co=
+de
+> that
+> > is not upstream yet. Moreover, in the PON setup, I guess the approach is
+> still
+> > broken if the user change the device mac address.
+> >
+> > > + */
+> > > + if (type >=3D PPE_PKT_TYPE_IPV6_ROUTE_3T)
+> > > + airoha_ppe_init_upd_mem(dev,
+> > > + data->eth.h_source);
+> > >   }
+> > >   }
+> > >
+> > > @@ -1529,10 +1542,21 @@
+> > >
+> > >  void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8
+> *addr)
+> > >  {
+> > > + static DEFINE_MUTEX(updmem_lock);
+> > > +
+> > >   struct airoha_gdm_port *port =3D dev->port;
+> > >   struct airoha_eth *eth =3D dev->eth;
+> > >   u32 val;
+> > >
+> > > + /*
+> > > + * Routed IPv6 entries resolve the egress source MAC through the
+> > > + * UPDMEM table indexed by smac_id; the ndo_open/ndo_set_mac_address
+> > > + * writers hold flow_offload_mutex (QoS paths re-lock via
+> > > + * airoha_set_macaddr()), so this lock also serializes the leaf
+> > > + * against them.
+> > > + */
+> > > + mutex_lock(&updmem_lock);
+> >
+> > This is only required adding the above configuration since in the curre=
+nt
+> > codebase airoha_ppe_init_upd_mem() is always running holding RTNL.
+> >
+> > Regards,
+> > Lorenzo
+> >
+> > > +
+> > >   val =3D (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5=
+];
+> > >   airoha_fe_wr(eth, REG_UPDMEM_DATA(0), val);
+> > >   airoha_fe_wr(eth, REG_UPDMEM_CTRL(0),
+> > > @@ -1545,6 +1569,8 @@
+> > >       FIELD_PREP(PPE_UPDMEM_ADDR_MASK, port->id) |
+> > >       FIELD_PREP(PPE_UPDMEM_OFFSET_MASK, 1) |
+> > >       PPE_UPDMEM_WR_MASK | PPE_UPDMEM_REQ_MASK);
+> > > +
+> > > + mutex_unlock(&updmem_lock);
+> > >  }
+> > >
+> > >  struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
+
+--Fip1EEA1bp5qMo/a
+Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmrOU2cACgkQ3SOs138+
-s6EkQg//Q94g8lhAZ9FF1mSkUo8+4iAGe4AwVPaHJcaAsp/d3MMwLNgGHDNCCUTg
-G+wEpoEVHWYXoLXJdfApoubX1HNKCyZixOydZMuy/vyjfKK8d24WoUwsrruWKNoC
-Qr6q3NbnPuILsnE6wQDTVdRqZ5iJlmJKMwdL9zfnVqM3bLVwpDqLWA7QkJrqsNY+
-XJcQw62QQ2bvNUYmnEMs96w/3hFC5bQeQkZcRFHxT5YaZwH7n8XX3hvrMUqPUclG
-PWzaf3rRgKJvhonQNuJSHjaSbHTtBt1uuxV/RncTBbTqczCwADWg+huMeyInDKNG
-9jZddMF5telzFS0C6Qm320brFB2ZzTRmjHM+2QzdwwnIN48mkmpy3lwdzBDIsd1O
-aHW2OyY2zyfp3NG+HeVuBNWw3ctMLcffAk5pdZeVvW15ZaAYUMBFd6xMDS40I4TX
-6zJCJz7BRWHyAxLcuIK90E5LgVatIVCJvHGaYnwGPWgGan7CvL3WC+bGGu9u5huD
-LdxQ8jbuT81xOMrbWy9h8so1N+3KjZXMnz12Z2TD8mK+BJpgZt52vXOSzmNWB5Jt
-O1f8qDoslIrvaisD5tgoXZmn9NhZquYjFl1HqpnHxWpBK4rCW0fzIcMO1vByl8eF
-cwD+MtMt4inGeVuyn7CCI4ntQKPY1jGEF0X9EwXGBBfcYoocK/A=
-=H7B1
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas5UUQAKCRA6cBh0uS2t
+rAYFAQDficBv9jdbtC8Mk7r3GKyBesME3qEugohD1wSnjlTI1gEA5NcCKczi6hN8
+qgNmVTJhPzicY32zfoQMQcLSHOOkXgc=
+=FdXQ
 -----END PGP SIGNATURE-----
 
---ta66zshbuz6aaek2--
+--Fip1EEA1bp5qMo/a--
 
