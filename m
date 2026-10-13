@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34ABCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DF0CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LaM4TqZ8AdHQOxVVsmAeCsuZa9DxNKp9g6XxR24kvpQ=; b=124HCU3zsuib41VkxOdCgeOG8F
-	g0YzKmcqw/YuxHmin3e/R3Riz1iLgBiqq+N69fEeGgSy6Ip74djP7pD13XDMaoSRcxJ5LPllz4yj3
-	3sH6yrXRp31UcI+mjx8fNZ4jErFfUUm/ikBJDOG+4BQN/0/ob+exzQ+LtOjF2cdghCLc7NhALbH50
-	tr3VDr4W2ah8buQofmtL/ORVyLnoe+vsyYQlWDo7kvtNCMepQzJf9XJZ8osPU47H6yntHXnsBRIFS
-	AeuIxScd2xwqRzwOfdIeLSFwg5SXDIdjDAI7mNmvPdeP62Q3fQDZWK8a+vYLwJJt7Y200YnIfs0Od
-	CxJy++Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sg9zQ3+1NXirYIMG+ufMcNkrCdzyTyKdW+px0R/cpwI=; b=gGkrnC6SqRvE0n/0KpT+pUNm8f
+	6L/qd0o1a3nNF0KIO+gwuwx0Zi/up1cFZ2HrNqIwLnbni+NrANgMrhk2yaz8ts5QPQZ8F0Zz5E+vK
+	qsl69/2OSZGEnCIgK+D76lmlfhUe//STj20eMth1aZadCCAtKlIfm9rPDZMMOK9TSS5cVoSUNVQ9V
+	iwHPJ65H3XM688IA6spHatNs1ZfDutY7UG8xf+pvUcIo9rvgWnBcPF8yIOnLKI5NlALdFJFxNFNjH
+	XGkvppHotKtZV/uXlNFxEvlgF++Ooi9odlCghnNqdvoyLqWB3qZr0FqgMJCwJEYHUg6q5mx45InAO
+	tdwz3nrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZSx-0000000CWgL-2RyT;
-	Tue, 13 Oct 2026 10:10:41 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZSu-0000000CWfz-0Eif
+	id 1xGZW7-0000000CWyS-2T9z;
+	Tue, 13 Oct 2026 10:13:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGZW4-0000000CWxh-02Gd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:10:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791886235; x=1823422235;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qypXU8l+IYxIJuy8OiLCdws+Ijm1skroyyk0l/KNgCc=;
-  b=aW0FgYsWO5Ws+25PAZXVb75NreOeNpqezLitx25P6uPPlC+/hAus2gO8
-   Y0DCNXFQkKC9v1ryrb/s8MqlqXyo51z78Cji4elMvvwGY6PQl7aB412KU
-   wCb20nPDBT95+IM+2WjlnlsesVdl6hFulX7xz0creFjPbyvYv86BT3zDc
-   dku7twb+kjmo5aax2qmycgHTKVgImp+5wZ4clfre0/7ImY/LTJ1bGz8sJ
-   T2xYI8Wd8C55qYLprk15R/+b+zFnuDhMPdm2blCmmzLZZFHZvGQFMzdcC
-   wk2rNMMrmb+bx49eIU454AR+n5ZY+Bgds1cVqwWeoAiw+kZ5LwDjHe53s
-   g==;
-X-CSE-ConnectionGUID: iW/JPDAwQJeXFemJYbeI2w==
-X-CSE-MsgGUID: IaLE7yBiQH+fVeO0+HD9zA==
-X-IronPort-AV: E=Sophos;i="6.27,155,1787036400"; 
-   d="scan'208";a="64006529"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 03:10:34 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Tue, 13 Oct 2026 03:10:34 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 13 Oct 2026 03:10:32 -0700
-Date: Tue, 13 Oct 2026 12:10:31 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-CC: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Davide Caratti <dcaratti@redhat.com>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Daniel
- Thompson <daniel@riscstar.com>
-Subject: Re: [PATCH net-next] net: stmmac: fix mqprio and cbs combination
-Message-ID: <20261013101031.42ilxihghwsivccm@DEN-DL-M70577.microsemi.net>
-References: <20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com>
+	Tue, 13 Oct 2026 10:13:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A0C4169C;
+	Tue, 13 Oct 2026 03:13:45 -0700 (PDT)
+Received: from [10.164.19.62] (unknown [10.164.19.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE6393F7B4;
+	Tue, 13 Oct 2026 03:13:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791886428; bh=frG0so7TQeI6J8IN5+TVXwZehcv6LBDQHtosnjB44ng=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vPt/TJBM5bSkHglczz78hY7BXD6SECatQcMU54W0ej74QhW76cpEiJFbPOEw8K7JU
+	 WqyxnjPkS4K6NPE26B912TQjoDzXTTsDExrMgBstckn+8MUOIndkJq14UA0k5lNrJl
+	 ao3zLpmO6rM7bJBP3j5Np6l8ehJV6OeOT6g0fdYo=
+Message-ID: <6a10b61f-5c4f-4d04-9742-97a358147c39@arm.com>
+Date: Tue, 13 Oct 2026 15:43:41 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid
+ PTEs
+To: Zhao Gongyi <zhaogongyi@bytedance.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: ryan.roberts@arm.com, baolin.wang@linux.alibaba.com,
+ lance.yang@linux.dev, mark.rutland@arm.com, akpm@linux-foundation.org,
+ david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20261013093600.54995-1-zhaogongyi@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_031037_112848_386C0488 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20261013_031353_309410_1ADDA67A 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,113 +76,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
 
-Just a question:
 
-> The channel-mode mqprio offload and the CBS offload can currently not be
-> enabled at the same time. tc_mqprio_validate_chan_mode() refuses the
-> mqprio offload as soon as any TX queue is configured in AVB mode, and
-> tc_setup_cbs() refuses to enable CBS while the strict-priority scheduler
-> is active. As a result the combination is rejected whichever order the
-> two are configured in.
+On 13/10/26 3:06 pm, Zhao Gongyi wrote:
+> The transparent contpte layer treats PTE_CONT as software state: when a
+> PTE has PTE_CONT set, the contpte helpers may align the operation to a
+> CONT_PTE_SIZE block and operate on the whole block. That invariant only
+> makes sense for valid mappings. Explicit users such as hugetlb manage
+> their contiguous encodings separately.
 > 
-> The strict-priority scheduler selected by the channel-mode mqprio
-> offload and the per-queue CBS shaper are independent MTL settings and do
-> not conflict, so drop the checks and let the combination be offloaded.
-> The following configuration, which was previously refused, now works:
-
-Looks to me like these checks are shared by multiple cores. Are the MTL settings
-independent on all of them?
-
+> contpte_set_ptes() currently sets PTE_CONT from alignment alone. Batched
+> set_ptes() users can therefore install present-invalid PTEs with
+> PTE_CONT set, for example mprotect(PROT_NONE), NUMA hinting through
+> modify_prot_commit_ptes(), fork() copying a PROT_NONE large folio, or a
+> PMD split installing PAGE_NONE PTEs.
 > 
->   $ tc qdisc replace dev eth0 handle 100 parent root mqprio num_tc 4 \
->         map  0  0  0  0  0  1  2  3  0  0  0  0  0  0  0  0 \
->         queues 1@0 1@1 1@2 1@3 mode channel hw 1
->   $ tc qdisc replace dev eth0 parent 100:2 handle 102: cbs \
->         idleslope 800000 sendslope -1700000 hicredit 494 locredit -1049 offload 0
->   $ tc qdisc replace dev eth0 parent 100:3 handle 103: cbs \
->         idleslope 400000 sendslope -2100000 hicredit 247 locredit -1296 offload 1
->   $ tc qdisc replace dev eth0 parent 100:4 handle 104: cbs \
->         idleslope 200000 sendslope -2300000 hicredit 124 locredit -1419 offload 1
+> This is not a hardware programming problem: invalid descriptors are not
+> translated, so the hardware ignores descriptor bits such as PTE_CONT. It
+> is a software-state problem. Some arm64 fast paths intentionally test
+> pte_cont() directly instead of pte_valid_cont(), for example commit
+> 9970a9a27ffc ("arm64: mm: implement the architecture-specific
+> test_and_clear_young_ptes()"). Fixing the producer side preserves these
+> fast paths and covers all consumers.
 > 
-> Fixes: 47891d501e34 ("net: stmmac: add tc mqprio hw queue priority offload")
-> Tested-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> In the observed failure, mprotect(PROT_NONE) installed a full
+> CONT_PTE_SIZE range of present-invalid PTEs with PTE_CONT set.
+> MADV_GUARD_INSTALL then zapped one PTE. The nr == 1 clear_full_ptes()
+> path only unfolds pte_valid_cont() entries, so the neighbouring
+> present-invalid entries kept PTE_CONT while the target entry became a
+> guard marker.
+> 
+> clear_refs_pte_range() then reached the marker through:
+> 
+>   ptep_test_and_clear_young()
+>   test_and_clear_young_ptes()
+>   contpte_test_and_clear_young_ptes()
+>   contpte_align_addr_ptep()
+>   __ptep_test_and_clear_young()
+> 
+> The marker changed from old_pte=0x00000000000047c0 to
+> new_pte=0x00000000000043c0 by clearing PTE_AF. For swap PTEs, bit 10 is
+> part of the swap type field, bits 6-10: 0x47c0 is SWP_PTE_MARKER with
+> offset 4, while 0x43c0 has type 15 and is decoded as an ordinary swap
+> entry. Zap later warned in swap_put_entries_direct() with a bad swap
+> entry.
+> 
+> This is triggerable by a user process against its own address space. On
+> systems running with panic_on_warn, the warning becomes a denial of
+> service.
+> 
+> Fix the root cause by making contpte_set_ptes() use the transparent
+> contpte encoding only for valid descriptors. After this change, the
+> transparent contpte layer preserves the invariant that pte_cont(pte)
+> implies pte_valid(pte), so fast consumers can keep using PTE_CONT as
+> sufficient evidence of a transparent contpte block.
+> 
+> Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  8 --------
->  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 16 ----------------
->  2 files changed, 24 deletions(-)
+> Validation on an arm64 QEMU/KVM KASAN setup with CONFIG_ARM64_4K_PAGES=y
+> and CONFIG_ARM64_CONTPTE=y, using an out-of-tree guard-region reproducer:
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 56d89a696272..51d502930219 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -7740,14 +7740,6 @@ int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
->  	    tx_cnt < priv->xmit_qdisc.num_tx_queues)
->  		return -EINVAL;
->  
-> -	if (priv->xmit_qdisc.prio_offload) {
-> -		for (i = priv->plat->tx_queues_to_use; i < tx_cnt; i++) {
-> -			if (priv->plat->tx_queues_cfg[i].mode_to_use ==
-> -			    MTL_QUEUE_AVB)
-> -				return -EINVAL;
-> -		}
-> -	}
-> -
->  	if (netif_running(dev))
->  		stmmac_release(dev);
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index ea1f97d6f0bd..175236ba379d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> @@ -346,9 +346,6 @@ static int tc_setup_cbs(struct stmmac_priv *priv,
->  	if (!priv->dma_cap.av)
->  		return -EOPNOTSUPP;
->  
-> -	if (qopt->enable && priv->xmit_qdisc.prio_offload)
-> -		return -EOPNOTSUPP;
-> -
->  	port_transmit_rate_kbps = qopt->idleslope - qopt->sendslope;
->  
->  	if (qopt->enable) {
-> @@ -1340,7 +1337,6 @@ static void tc_mqprio_config_queue_prio(struct stmmac_priv *priv,
->  static int tc_mqprio_validate_chan_mode(struct stmmac_priv *priv,
->  					struct tc_mqprio_qopt_offload *mqprio)
->  {
-> -	struct plat_stmmacenet_data *pdata = priv->plat;
->  	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
->  	int i;
->  
-> @@ -1350,18 +1346,6 @@ static int tc_mqprio_validate_chan_mode(struct stmmac_priv *priv,
->  		return -EOPNOTSUPP;
->  	}
->  
-> -	/* Forcing strict priority conflicts with the CBS algorithm
-> -	 * of AVB queues, so reject the offload when any queue is
-> -	 * configured as AVB.
-> -	 */
-> -	for (i = 0; i < pdata->tx_queues_to_use; i++) {
-> -		if (pdata->tx_queues_cfg[i].mode_to_use == MTL_QUEUE_AVB) {
-> -			NL_SET_ERR_MSG_MOD(mqprio->extack,
-> -					   "SP conflicts with AVB queues");
-> -			return -EOPNOTSUPP;
-> -		}
-> -	}
-> -
->  	for (i = 0; i < qopt->num_tc; i++) {
->  		/* The offload switches the MTL scheduler to strict
->  		 * priority, which only supports a 1:1 TC to TX queue
-> 
-> ---
-> base-commit: d0bd617658ddfa5a115e64d1ab687bf155f6331f
-> change-id: 20261012-stmmac-mqprio-cbs-combo-341f12749ce2
-> 
-> Best regards,
-> -- 
-> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> 
+>   populate a CONT_PTE_SIZE anonymous THP range
+>   mprotect(PROT_NONE) on the range
+>   MADV_GUARD_INSTALL on one PTE in that range
+>   write "1" to /proc/self/clear_refs
+>   restore access and remove the guard marker
 
-/Daniel
+Thanks, could you please give the code of the reproducer. That will
+save us some time.
+
+
+> 
+>   Unfixed kernel: failed in the first iteration, with 65 bad swap
+>                   messages and a WARNING in swap_put_entries_direct()
+>   This patch:     completed 100 iterations without warnings
+> 
+> Additional producer-side instrumentation confirmed the same invalid
+> batch state outside the mprotect reproducer:
+> 
+>   Unfixed fork():     copy_page_range() wrote out_cont=1
+>   Unfixed PMD split: split_huge_pmd_locked() wrote out_cont=1
+>   This patch:        both paths wrote out_cont=0
+> 
+>  arch/arm64/include/asm/pgtable.h | 5 ++++-
+>  arch/arm64/mm/contpte.c          | 7 +++++++
+>  2 files changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 6000905a2..d6246042b 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1650,7 +1650,10 @@ extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long ad
+>  /*
+>   * The contpte APIs are used to transparently manage the contiguous bit in ptes
+>   * where it is possible and makes sense to do so. The PTE_CONT bit is considered
+> - * a private implementation detail of the public ptep API (see below).
+> + * a private implementation detail of the public ptep API (see below). The
+> + * transparent contpte layer maintains the invariant that pte_cont(pte) implies
+> + * pte_valid(pte); explicit contiguous-encoding users such as hugetlb manage
+> + * their entries separately.
+>   */
+>  extern void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+>  				pte_t *ptep, pte_t pte);
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index 0acab179f..851fa2e44 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -463,6 +463,13 @@ void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
+>  	if (!mm_is_user(mm))
+>  		return __set_ptes(mm, addr, ptep, pte, nr);
+>  
+> +	/*
+> +	 * Keep the producer-side invariant documented in pgtable.h true even
+> +	 * if a direct caller passes an invalid descriptor with PTE_CONT set.
+> +	 */
+> +	if (!pte_valid(pte))
+> +		return __set_ptes(mm, addr, ptep, pte_mknoncont(pte), nr);
+> +
+>  	end = addr + (nr << PAGE_SHIFT);
+>  	pfn = pte_pfn(pte);
+>  	prot = pte_pgprot(pte);
+
 
