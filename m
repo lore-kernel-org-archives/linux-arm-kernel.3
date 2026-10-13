@@ -4,94 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCC8CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1B5CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aVDwHrxGFuNY1rBlhB0rlGAAc2KJ50mMfxHrdnVpszk=; b=tjxVKvpxYdae7guUo8/L63OvhX
-	MJ860/ta2JZ6uY5P/1pBJLBk4ftShiiWp+XDxteeoFqIOwKhYPD0zC8kXag8BrTd8XtfpstuBBuh1
-	Vh5Abgq6lXi4BtIhUCbbRwhETigw+lRH2ogN54MaQD+Yu7JKJ2wmqR2UFbZ4RFbfFMK5XsAn5sPPS
-	VsxN4HzowvF9EUJ6Nf4R1nn9bxXx17s+bEM/5Z/zra8RYnaukknsAW4QICAPHNded0NgGJu974lob
-	tmbxYbTJWWZUbKeY5vD1kRoW1MN9kN2vR3bppcoZacBZxJ/rDw4K6E1O6oNq/0CDsKWEZyC9vbnU5
-	v5OBhPOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cSaR4EfQ2RKPTmsEMq+rue4eZMhrGbcKp9/l9a4Weg8=; b=kQ6861B/Wpih7D7KW8AOvN/COY
+	GnamnRxDkoqKeX8v8SOWwEcCRjRsraBXFOK2uAsfHcz3o1HzyFoehq1troHB9BZzrEgAz0hEezlNm
+	K11fmWM3SuxwTxihkGnFV9iWEYMSJnX75nYhgkRh4jdVtSDNkQ+Z22T7IuyxwXD8E6dxTeSu//I4t
+	1yoiNrItClLIpXvunIp8nU9JkIQWi5xvdXOF+pwOh778qfdCdHq0ugc2jbhnSg+/sAmcs+aV1C24y
+	groaivbwzRldlbxerMtqqLc474rJvzhG7BhDjlsudy7W8jBMXFQiws4h6+P92h1/FBzVWadFszhRF
+	dWjElahA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGagK-0000000ChcQ-3WI9;
-	Tue, 13 Oct 2026 11:28:33 +0000
-Received: from mail-gw01.astralinux.ru ([37.230.196.243])
+	id 1xGam4-0000000CiI6-3UzG;
+	Tue, 13 Oct 2026 11:34:28 +0000
+Received: from mail-westus3azon11011060.outbound.protection.outlook.com ([40.107.208.60] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGagF-0000000Chb9-0pLG;
-	Tue, 13 Oct 2026 11:28:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
-	s=mail; t=1791890891;
-	bh=dEHHHrPNOOAJJTJA9eGfVi5bhR+iD92nK9o8n40N0oU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OwQlillw+u190RBOJivvOFNF6tQDwA9T0ewjmsMgSbUU6yedlsYnJxpH44ueiMzRg
-	 FCpZsBkvIawd7MrdE3A5wHzD9TCzJZ4XGIumBEH1KMD2lqv9/xJMC9mnCNfw8VFckh
-	 mUciXDxqVSeOKrrTyTb+E0wHpwLzopo32yW/VlfHsVAB5k6QMTbCkXLPvT08ik2PW7
-	 O4B4fL/yDHyUPM1QvdrenRuxFBO3QG1G3IZMypYfxGY2lUy/0Hp5DXgiUCxm6ROa2/
-	 Y91ZvavA8n/xwM++2fjbL7iYzTqOLPFjGaWb89V4Nr7Xs14zAt0zdLqQd/4zgPjkqo
-	 +p2jqKeN/mRkg==
-Received: from gca-sc-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw01.astralinux.ru (Postfix) with ESMTP id A483D24AD4;
-	Tue, 13 Oct 2026 14:28:11 +0300 (MSK)
-Received: from new-mail.astralinux.ru (unknown [10.205.207.10])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw01.astralinux.ru (Postfix) with ESMTPS;
-	Tue, 13 Oct 2026 14:28:09 +0300 (MSK)
-Received: from DESKTOP-D46TNHI (unknown [10.198.27.112])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4j3sVc5mWXz18X5;
-	Tue, 13 Oct 2026 14:26:48 +0300 (MSK)
-From: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>,
-	HyeongJun An <sammiee5311@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Neil Armstrong <narmstrong@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	alsa-devel@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-sound@vger.kernel.org,
-	lvc-project@linuxtesting.org
-Subject: [PATCH 5.10/5.15] ASoC: meson: aiu: Validate written enum values
-Date: Tue, 13 Oct 2026 14:26:23 +0300
-Message-ID: <20261013112625.1126-1-mdmitrichenko@astralinux.ru>
-X-Mailer: git-send-email 2.54.0.windows.1
+	id 1xGam2-0000000CiGm-0xO7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 11:34:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=htChK4EWPQkVXCrpEmdtGkfEKqnc8ftk9cJHSL4CztG0bXacsVgXONwfN+lnaT2MDpEczDWAz5W6jDfFdspmF6Ssn+yqyj51JZYeAURHgDSlqRc+JRRexK6QUHpgWPxRYjRtqtXcFEYeLl8KlkufJdp2HpoDarlzXM9sPNDVZ0nWYnGKmSkI/I1qaFxfMfBRqYYcioAxeys7DL9XwLRxNsIrag4aeXE3cpu5/RPB1feW6doVSbXcJCdxJXVhAafLZVxJ6CAHW4mIlb2I2wRX3tYj6iKVkm2sIh77DLKypTs98xnBaCXATAuMsV1vtGwN7+CXr+pY1WemmlOCcKVq7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cSaR4EfQ2RKPTmsEMq+rue4eZMhrGbcKp9/l9a4Weg8=;
+ b=fQwAR1xPHXONR8lPUbcWNADlIBT3d33wXJmcIKWntkCgfQhk+GfBn5k25vQEWMfI8bg4Isi7pzMa8VSQYJdPAafYd5Nki5lGGdirqlo+CpJlJ8JrJkfoHOuL0f4fRQnu6kNrQcHerFYP0v0O6FY95i5G5gw++nqO6XuOXOrLblZYdJh23OOAC3KfMGVXpmTk88/feW93jl9ps7OPulzC5Dp3uMaXEnuetCKqUsGi60XRc+58w5xDIKDL8WG7N5agP/K4FP+q64zQS8FIodN4cZSLGO6xeCcyY82EYrj7gmN6t21PjiEO1O0A+9ybdiP8mOudhtuYLBaxGNIEU/nEDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cSaR4EfQ2RKPTmsEMq+rue4eZMhrGbcKp9/l9a4Weg8=;
+ b=COlcyaXhBhieHNaz1Ef6wVqhuLlAkqHI6mHQUC/osB4f42SLXWnqova5uW/7olG/kOnwJmY92JiQLcQsg2XsZrk195bf1hd8Q65hC4sh6wZhDx8R3zTDkPUxZSktW9ddHLOiKfGbb294xlCwDVFdLW4DyEg1ZxwWorYI/RL9Hc8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by DS5PPFFF21E27DC.namprd12.prod.outlook.com (2603:10b6:f:fc00::66b) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 11:34:16 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
+ 11:34:15 +0000
+Message-ID: <cdf3f87d-0575-436a-9bdd-5fc3053f21c1@amd.com>
+Date: Tue, 13 Oct 2026 17:04:04 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: xilinx: Request pre-allocated peripheral nodes
+ after bulk release
+To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com
+Cc: linux-arm-kernel@lists.infradead.org, git@amd.com,
+ linux-kernel@vger.kernel.org
+References: <20260923100343.3147243-1-jay.buddhabhatti@amd.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260923100343.3147243-1-jay.buddhabhatti@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0109.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:266::15) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-KSMG-AntiPhishing: NotDetected, bases: 2026/10/13 10:37:00
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: mdmitrichenko@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 127 0.3.127 0884f7b061fa529b810563f359267cd65d2ec05c, {Tracking_one_susp_tld}, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;astralinux.ru:7.1.1;new-mail.astralinux.ru:7.1.1;127.0.0.199:7.1.2;patch.msgid.link:7.1.1, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 206631 [Oct 13 2026]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.27
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2026/10/13 04:56:00 #28679670
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected, bases: 2026/10/13 10:37:00
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|DS5PPFFF21E27DC:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a189362-b392-4f36-958d-08df291de96e
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|56012099006|11063799006|261009223027099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: IPELfsItFleR5NhtrJiSCU1RSj8MQnWM4OPura0sa/GvxRwy2WMONBx5BiTbjxju1lSXwF41L2GZs8SrmmijMDTIRqBARaekyPemmphJnZrezIlLo0Kv1mMYp4SxKwpMjItBJ8fVnpEGSpy+1QyQEzb9iY1orw6ujVir596/Vd9FOBc2KDZDZ2i+pL7970A+iAPU8GIjx1MosGK6COrlBR3kwZ78WTwQBd7X5l5Jl5BhtjHbdqWKU9D++1qkX/h/gUV5zg1JVEzCUWeoBum3gc3o9j/r+0/VcTfd+/vXj2RTc8VK+46+RQy9KmeauJoD+RGLJ3SKKsNQdad4vK8QknK6mMFbkgHyXOxrG/AQXmcI35I6PxDROTKh2rnxExoCH62lTlTdNmaQRMI1j2L5pq+c+txeeAQXA444a9Z6IIfbAizEoBB9+E40acApn/aFi8k0LJ0lCNab9GamhzFZYZBCXNNcDOKSFYqglxK0DBBAhBT17BLYpDgJ4l+veleA9bIUTUC9SrohYKFJYlLTQgmHc5eo/7TqEn7+gKy2ddYsP9PpWqo/zEMBGQ6x1lSYiX5fDacb+g3xGPoFK2vagBU3qr5Jyo/i9gLRvKsulQ2OT+ChaFBTDm+c5r5guPGUANfzDgeesEW9XwSVhn5HNlrvcAkzd3t6IzDMDzIzrR0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(56012099006)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHBlS0dkMlBHTU8vUzh5cEx1NlVWWm5jU3djcjhXSXpGeFRhMUQ5dWlyK1RL?=
+ =?utf-8?B?cjRiaDFTblVmR0pLbXlkb1AwejVYa2tPMUFqOTkxaG90U2Jvem0rTy9La05s?=
+ =?utf-8?B?SUllNURPR0orSmJVaXMyVmZqMEVBck9xbmtBcVVsa1dUUzQ3VlZ0U2MxVzBH?=
+ =?utf-8?B?REJObjRiNDhRbHhVVWN6WkVvQ2lwTWFQanBYa0h4YndDVmtQNUhKKzM3Y01a?=
+ =?utf-8?B?QW12WUpXT25vTzZ0eWYwZW9NNGg2N1JBK2V5dGVNekNhSytPeWRaMG1pWnVt?=
+ =?utf-8?B?MWRrZmlPSEdYWnFtL0FHYllXekxCN1lORTYzMVd1N3oreGlRYVgvYTN5VEh2?=
+ =?utf-8?B?ZzhVSVhISVI1R2JxS285VjJtYWlWWEwyWTBrUys5RGtBSmtBSmlBaXh2cEt2?=
+ =?utf-8?B?bG15ekZValNZZUEzYWpGYzNoV1gyOXRSOFpvQzg5VGFtMVM3Q1JlMzI5Rmoz?=
+ =?utf-8?B?cHFHWVliNzdDZ3ljUkFndmtOaGNmbHpWTGdpdWxOYlBjQUxmWkZaL1BtS01w?=
+ =?utf-8?B?M3pZSGdOVi9wNTN0OUFIRVcwUXVTNklIK01EYTF2N0FUWUFrdjdpdzJsUjl3?=
+ =?utf-8?B?VU1PUGJld2p5NXRZM3ZuSWlobnZxczYwd2g2TXRvK3JTV1Q4dk12ZXg3V3g4?=
+ =?utf-8?B?K29QTy9LaVJpZ3ZxcyttM1hIK0J3U053SEs4OHBPV3REYnlYUDNaZmJYeFgz?=
+ =?utf-8?B?bnpaMkw0QU9SMFljM20yZVg3S2pYUVh2SW1rQXZFQ2ZTZFlldXI5RVRacmxr?=
+ =?utf-8?B?SitudGxLeklsZkFEUEdua3ovWnJzb1lxRnZiNDludU5oaTJHZnVwdW9BTFFX?=
+ =?utf-8?B?d092QW5MSk5iNTdzNXdic0RLUjNLTi9XbkFFSUVaU1RudmZXTGZkeWF2K0R5?=
+ =?utf-8?B?cXJoWGUvc3ZySFVZeVRCU1RCWUFadDMzN2VWemh6UXRYTzhQajFLRkwxTEpu?=
+ =?utf-8?B?L0RobUR0VE1YMDgwdVNmTk80cUdiVFRranRJaUtlU3l0RHo4TVRSRVVvcG9G?=
+ =?utf-8?B?Y29YZ2k5MG1FMXE2TXM2T1F4V2JHd2ZhZmgreDQ2SHBaZzZNM3VTOFVOWHcx?=
+ =?utf-8?B?WlBDNWxNcVlMa3EwWTQrR0dqTHpsNElHNWg0TW1hcldZQjVTOFR1NmtYdnM0?=
+ =?utf-8?B?SWFqNnMyWE9yQWhBRktEZ1JKYjVkRDJPNXViK05pclA3encxbnVGaElMdmpV?=
+ =?utf-8?B?U2xEaTk1U3RsaWQzSSt0eUp1Q1phVitZUE5IRVNsQ2p6RzB3T0JiTDdZYjA5?=
+ =?utf-8?B?SXhsKy9UWGhETHErc29sc2YzZms3eEExNXRQMG5GcWZSRmN2YTRUZnBxSS9Q?=
+ =?utf-8?B?Z2EzWHU1c0cxRlN0Qm9uNlJ6b0xhVFpnU05Mc1hJTkViOXJOM3dSQnJpM3hH?=
+ =?utf-8?B?aXlFdDRSRUMxMm1BWWgxbWYrdDY4MmloRUYvUzVLeVUwbWgrNnNtSUE4UHN1?=
+ =?utf-8?B?TWNORisvTXpoOERpTTJLUnpsOG1qbHQvc1FDc3gzMkE4bEt5bGFicTNEaEI4?=
+ =?utf-8?B?UVZ4TnVvd2hnNUsvWTdsY2swa1Rnc2MyVmtaa0ltSjBPVXJPd2pKL1ZRdzI0?=
+ =?utf-8?B?RVZGTzdIMmx6YVhkWmlabWdDN1ZvYzcrOUVKTmF5cExjLzh2N0xnelczRTI4?=
+ =?utf-8?B?VWZDZzdNMTc1RmRuNE80Q281QzZLa1JRVGNnbVd1Y0ovMmxxb2hjeE5CTUF6?=
+ =?utf-8?B?VWViZEo2ZldpUklzUjJsWFNNbExTNk9oV0hlMGVPRlVabnFvOEhOK0RGbisv?=
+ =?utf-8?B?Y3p6UEVNTzdxUy9uM0hEdHVyU29nRjd6K21hS0YyV3lEcVlMOEM5RmIrUWdv?=
+ =?utf-8?B?WEJXNERqSHpkT2h6b2dwY1ZKOGdjVXN2ODZWeWplZFZHMExyZ0MwKzkwT0RQ?=
+ =?utf-8?B?TnNKU0tIZTZ3bkpJdk9PejVTeERxbEtmRkZaSXBpYkZ5TmdZVkJGaGxkcnBY?=
+ =?utf-8?B?eFNPenBneDUxVEFpM2ZoRmx6U3pjWWdpdzhoR25pemFZVjliNzJPTHBQV0ZG?=
+ =?utf-8?B?TVFLVWJVRzgwQzgvb1FCRThlYUd4Y2wzR0JGeFJxbkNNR2FrSytmcGZhZVFL?=
+ =?utf-8?B?ZjlnUFk2YlN6WWhhOTQ3amRTclFuOThvdUtldk14MVBseWI0R2hwVDY5YVNS?=
+ =?utf-8?B?c1pqT0dhQ2hDaE1nL3hMUTMrMzdiaTY5VFJnak5IMzZkWE1OYThBc0tTY2Vo?=
+ =?utf-8?B?NHhEelA2UzJ4ZXRlZ2YyUGFNS0ZwU0FBYWxNMS9uTHFseXlIV1RFYmd3MHdN?=
+ =?utf-8?B?d2JEWThrSFE3cGljL0pyVzNVWndVeWNobXp0Y2FBMGlUZy9vQWpwbWZGTGE3?=
+ =?utf-8?Q?EsB2+k6aMbreMc4xNv?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a189362-b392-4f36-958d-08df291de96e
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:34:15.8262
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2q6k8Zh91wrp2IUc6affZxKbun+QnAI+jNAmh3vKKpfeMZoMTzUheRiTV1TwFhYO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFFF21E27DC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_042827_769055_B11BD19E 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20261013_043426_421583_5B2B511F 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +147,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: HyeongJun An <sammiee5311@gmail.com>
+On 9/23/2026 3:33 PM, Jay Buddhabhatti wrote:
+> During a kexec restart, zynqmp_clear_pm_state() releases all peripheral
+> devices via PM_DEV_ALL_PERIPH. Pre-allocated nodes are then left released,
+> so Linux no longer owns them and later peripheral access can fail.
+> 
+> Immediately re-request those nodes with zynqmp_pm_request_node(
+> PM_DEV_ALL_PERIPH, ...) so Linux retains ownership. On a graceful kexec
+> this runs from zynqmp_firmware_shutdown(). On a crash kernel restart it
+> runs from zynqmp_firmware_probe() in the reloaded kernel.
+> 
+> The bulk request depends on firmware support for PM_DEV_ALL_PERIPH
+> (PM_REQUEST_NODE feature check version >= PM_API_VERSION_3). On firmware
+> that does not implement it, the request is skipped and a warning is
+> logged. Errors are already logged inside zynqmp_clear_pm_state() and
+> zynqmp_firmware_probe() does not abort if the request fails.
+> 
+> Also, drop the redundant ret = 0 assignments whose value is overwritten
+> by the next do_feature_check_call()
+> 
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 
-commit d65adf85477247be04ac86886f8edfaa047b5d4a upstream.
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-The AIU HDMI and internal codec mux put callbacks use the written enum
-value with snd_soc_enum_item_to_val() before checking whether the value is
-valid for the enumeration.
+> ---
+>   drivers/firmware/xilinx/zynqmp.c | 15 +++++++++++++--
+>   1 file changed, 13 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index fe650747ac91..96dbb23eb673 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -2193,7 +2193,6 @@ static int zynqmp_clear_pm_state(struct device *dev)
+>   					"Failed to clear EL3 PM subsystem state: %d\n", ret);
+>   		} else {
+>   			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported by EL3 firmware: %d\n", ret);
+> -			ret = 0;
+>   		}
+>   
+>   		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
+> @@ -2206,7 +2205,19 @@ static int zynqmp_clear_pm_state(struct device *dev)
+>   		} else {
+>   			dev_warn(dev,
+>   				 "Bulk device release is not supported by firmware: %d\n", ret);
+> -			ret = 0;
+> +		}
+> +
+> +		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
+> +		ret = do_feature_check_call(PM_REQUEST_NODE);
+> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
+> +			/* Attempt to request all nodes via firmware */
+> +			ret = zynqmp_pm_request_node(PM_DEV_ALL_PERIPH, 0, 0, 0);
+> +			if (ret)
+> +				dev_err(dev, "Failed to request all peripheral devices: %d\n", ret);
+> +		} else {
+> +			dev_warn(dev,
+> +				 "Firmware doesn't support request all peripheral devices at once: %d\n",
+> +				 ret);
+>   		}
+>   
+>   		/* Check if the firmware supports the PM_ALL_NOTIFIERS node ID */
 
-Reject out-of-range values before converting the enum item, matching the
-validation already done by the G12A HDMI and internal codec mux controls.
-
-Fixes: b82b734c0e9a ("ASoC: meson: aiu: add hdmi codec control support")
-Fixes: 65816025d461 ("ASoC: meson: aiu: add internal dac codec control support")
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: HyeongJun An <sammiee5311@gmail.com>
-Link: https://patch.msgid.link/20260609124317.38046-3-sammiee5311@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
----
-Backport fix for CVE-2026-74294
- sound/soc/meson/aiu-acodec-ctrl.c | 3 +++
- sound/soc/meson/aiu-codec-ctrl.c  | 3 +++
- 2 files changed, 6 insertions(+)
-
-diff --git a/sound/soc/meson/aiu-acodec-ctrl.c b/sound/soc/meson/aiu-acodec-ctrl.c
-index 442c215936d9..4620a87edaea 100644
---- a/sound/soc/meson/aiu-acodec-ctrl.c
-+++ b/sound/soc/meson/aiu-acodec-ctrl.c
-@@ -38,6 +38,9 @@ static int aiu_acodec_ctrl_mux_put_enum(struct snd_kcontrol *kcontrol,
- 	struct soc_enum *e = (struct soc_enum *)kcontrol->private_value;
- 	unsigned int mux, changed;
- 
-+	if (ucontrol->value.enumerated.item[0] >= e->items)
-+		return -EINVAL;
-+
- 	mux = snd_soc_enum_item_to_val(e, ucontrol->value.enumerated.item[0]);
- 	changed = snd_soc_component_test_bits(component, e->reg,
- 					      CTRL_DIN_LRCLK_SRC,
-diff --git a/sound/soc/meson/aiu-codec-ctrl.c b/sound/soc/meson/aiu-codec-ctrl.c
-index c966fc60dc73..21a37511b6f9 100644
---- a/sound/soc/meson/aiu-codec-ctrl.c
-+++ b/sound/soc/meson/aiu-codec-ctrl.c
-@@ -30,6 +30,9 @@ static int aiu_codec_ctrl_mux_put_enum(struct snd_kcontrol *kcontrol,
- 	struct soc_enum *e = (struct soc_enum *)kcontrol->private_value;
- 	unsigned int mux, changed;
- 
-+	if (ucontrol->value.enumerated.item[0] >= e->items)
-+		return -EINVAL;
-+
- 	mux = snd_soc_enum_item_to_val(e, ucontrol->value.enumerated.item[0]);
- 	changed = snd_soc_component_test_bits(component, e->reg,
- 					      CTRL_DATA_SEL,
--- 
-2.47.3
 
