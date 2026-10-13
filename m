@@ -4,146 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5368BCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851C1CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3/iIZKQhJUZsfcIVouGWdsMj6/LIwjRNevWwRsSdNI=; b=ld4BkRjc59s9/xjgI0iQiILw0n
-	1/QVkUogZwB6vH1eqb2yTFwRyoolBdx2I9R9f150PByQGK+EbRMQLzU1r+ytCVJ2CYjva2dCucNQt
-	5B2trGis3q6Pz068PTq94bLlKyl9nbkxgcf4F8vQAFy+7CYA2VG6zCxn4phHhFezRoICIDsJ+HO49
-	r/16o6jLJJVESzIiM1+PbzmjTQzTdAK8SlJforKQlBgel9LwFv0i5J11rCKGNBsEZCM4rDfxE0FcV
-	xl9UgEDi2TJR+iSKDS/Ea73+ighcewqZU6qmLBHf5n+PQsH29j1+TI0NTOijwf1xK4Ci8ONZI6Vyc
-	3gsoKr5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ig0Y0bs9FN6Dhfi95iv4Xq2tV5MXRKRrxHG4lzB5XTM=; b=bCrH0fy0QpKYWl4zJ+UIfIUweh
+	nz88hPOu341WeyfikHcejMpIWyM3SqQEd2lZZR91WFrgHES5U/wc/BuG/vJICVqsEdOJAVm0jvzYd
+	9JVFTd7YqPUluNY6WBRIF2EZDmf7MtaTP3DSrcK5mgTDR66AW3W1tO6xDlAhoMS+X+hm6ilo01yf0
+	OCJfDynl761Pb2/bbvdkgRWJVabgMXeEXVosQeK2Zh5V6OxHzX5HTykeesMZ+928q+ddJpe8/UPYB
+	yVQqQMc3EexOKVklbyAiahm3k81U2iVgfNDnx7SZN/p4lpcYMJGjunj4R1iS0P0o77VoGvbMNfm4Z
+	2zy7tHQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcG5-0000000Cuud-1SYw;
-	Tue, 13 Oct 2026 13:09:33 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1xGcMO-0000000CveQ-3dts;
+	Tue, 13 Oct 2026 13:16:04 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcG2-0000000Cuto-3pe0
+	id 1xGcML-0000000CvdQ-1L4k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:09:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tPWx12dlUCDTgrrmZFPRKStJ00d8z6ViqQxeHLqcClv5p1TzBHzETRwx/tsvUqR6rjpp0w3er4rVynd9jiT1oH/GtAPzC/ZbHQgkZmYfITjvKvcAFjxeGSUx2HQFKAhxdjkIGxNsLg2jhfjmrM5/6iJoZFxxrSa2ZpxpN9XGEfzaPMOznBk2sn798mSJMow/DYOthDDGLKgrT9A9WJEg6kQQ8pJwqBJX3RvjjLihB/wsYXUxPtiqI7ldwurkc+KEhZrubvWHB8HJzFZ6br7wt4wuFHxW7t+dA5vs/ZoL2s1ardw1BkgsYHJjoytaO1Q7SbrxcgY6tYuGpYJ7AuQkZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l3/iIZKQhJUZsfcIVouGWdsMj6/LIwjRNevWwRsSdNI=;
- b=x5zSotoMSNYj9LgTIh70520CzX+KsSPYPst2FKPJjqs7ePaHPmOlqWelLrkwYuGe7rg3D//S3HRKGO/zyKEgxpxiquwh0oS+DPoV4KS45c8nVNQsdUkYLjPLrtmhX7ebWskt/1IYnPx8KOF2Aib+dW+n4CDMSfkqXsCVrE/1PJJRqzin5qW95umTKBiETnZwt0qYyDtt5MZ0TotW3Q803woMHX+0NQDLV5BVaDBB/FlmwL9OtVSCwMDJm4tDZYQ6hxaS4ka61vk6sPD6aqNdudab/37EfZUjH3oHeTcR3ZLht1TWDyn6nSagjGec4oHTQ7lx8Uc9HPlHCKhUZ56i5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phil.gs; dmarc=pass action=none header.from=phil.gs; dkim=pass
- header.d=phil.gs; arc=none
+	Tue, 13 Oct 2026 13:16:03 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49e73611928so31413015e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 06:16:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=NETORGFT5377951.onmicrosoft.com;
- s=selector1-NETORGFT5377951-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l3/iIZKQhJUZsfcIVouGWdsMj6/LIwjRNevWwRsSdNI=;
- b=baihjZiDWydbUzKa7y+5xSupRt0CaeRICakaotk+wde+2hMdWVcuZMFAYtMuYTjd+8GagFai6QBUGdQT2XlTT599vXf1CJLGVwPsDOxi01LKCu3K13/ghLKVksINtJfHfasWS1UXqW0d6T8tD/+KleaNAnh/15RIc3C5lcXMTTs=
-Received: from BY5PR04MB6472.namprd04.prod.outlook.com (2603:10b6:a03:1eb::10)
- by IA0PR04MB8788.namprd04.prod.outlook.com (2603:10b6:208:490::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 13:09:21 +0000
-Received: from BY5PR04MB6472.namprd04.prod.outlook.com
- ([fe80::3a9:9dbc:2aeb:8827]) by BY5PR04MB6472.namprd04.prod.outlook.com
- ([fe80::3a9:9dbc:2aeb:8827%6]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
- 13:09:21 +0000
-From: Phil Rosenthal <phil@phil.gs>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-CC: "git@gregoirelayet.com" <git@gregoirelayet.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Lee Jones
-	<lee@kernel.org>, Tan Siewert <tan.siewert@9elements.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "mfd@lists.linux.dev" <mfd@lists.linux.dev>,
-	"andrew@lunn.ch" <andrew@lunn.ch>, "jacky_chou@aspeedtech.com"
-	<jacky_chou@aspeedtech.com>, "ninad@linux.ibm.com" <ninad@linux.ibm.com>,
-	"anirudhsriniv@gmail.com" <anirudhsriniv@gmail.com>, "andy@kernel.org"
-	<andy@kernel.org>
-Subject: Re: [PATCH v6 4/6] mfd: aspeed-pci-core: add AST2600 PCIe BMC device
- driver
-Thread-Topic: [PATCH v6 4/6] mfd: aspeed-pci-core: add AST2600 PCIe BMC device
- driver
-Thread-Index: AQHdWr+RV/FhYOPImkyusUIlzmNZa7b7AOGAgABxsQA=
-Date: Tue, 13 Oct 2026 13:09:20 +0000
-Message-ID: <6712FB36-31D0-4A38-AFFD-0C992E406CEC@phil.gs>
-References: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
- <20260818-aspeed-driver-v6-v6-4-fd7cc0b338ea@9elements.com>
- <C5A01ECE-9A61-4BCA-88C6-83A1673AA69C@phil.gs>
- <as3OF7O5hnImaAWO@ashevche-desk.local>
-In-Reply-To: <as3OF7O5hnImaAWO@ashevche-desk.local>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phil.gs;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BY5PR04MB6472:EE_|IA0PR04MB8788:EE_
-x-ms-office365-filtering-correlation-id: f0374847-d510-4d27-d171-08df292b320d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|7416014|376014|366016|10067099003|7055299009|3023799007|261009223027099003|38070700021|5023799004|4143699003|6133799003|18002099003|56012099006|22082099003;
-x-microsoft-antispam-message-info: ojkqIzNt+tZeajfZNU2msjDDAKEGKAqWTQJS07xwARabqL0inkQrjmbmiGGRePWKKIdKlKe2uR1bIuumm7HDk5r8OigOqZ/oWoyOoL5wskpzStdhV2Fja/3FkSkBQWpEx/BAacEmaVBKiuKLGBf+UGHcJOxwhjvssWqwNEOV/X0/jqOhKujI/me+RtMOtcz/WNXJd+CYTBSodr/Pyj2b8iy696jvzzZVBWwRDpCeO6n6cBLIvVqi4tzViEdotST/nw6tt0zGMfjXN0dK+NZkdKqzKIpiqWajPJVsJ57vszpNcx2dNDHvWsam6GQslaLXAz8iVlZPa7ftlEDXbT1qPRaCfq6rbWmyHV4ce1PKk8bMvqaLo+iZh2hXw7kQ99K+ueL+pvBiLDdS5iNNT5NUVLVtI2M7AEvIq/8Qzsdp/pIFiXRFC5NVLqOB0pn/iaSKbDK32ACjdMzzCxyqyURRaD+qu7DUEKOFXoiGOkl6dsIWP4nwHQFA/AxLfq8W/I5EYmYWUMn/r1JQwt4YMSCZfffq/xA9Jv7wDytPVm/CkikfRZkcdrsGXDevTLIWzI3jMvRpqG+tfmb6HQgMTFJ91t7Wv5VGWA5B6fx65jJvlxLG/VVrna6TN9YRcUFSoDKu3sOkOcpeaW48knm/NFde+fbwHN73escxL1yWhT7HsdCSwoAD87JCBf/fvaVclh0T
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR04MB6472.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(7416014)(376014)(366016)(10067099003)(7055299009)(3023799007)(261009223027099003)(38070700021)(5023799004)(4143699003)(6133799003)(18002099003)(56012099006)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?V9h3ZbDc5yaQbLTHzihP9T8C0EMHcKSzkajdSWcl69KZMszM8uVvBzCNFnXq?=
- =?us-ascii?Q?Qx1ThwyjyRN+/3EeA9ocy6MP5JA5nGxHdUijKdalNFIMdHHhObWNIO8vRclc?=
- =?us-ascii?Q?m8M9jdMacG9w3EdW8MxeNE3LGX93bF2wN3RZY2lzl+CxVLaZ2Oy18nCdw2vW?=
- =?us-ascii?Q?RLXrtTIGszHY7xhGE6t27onnupuv3pqWeLPJYj51ioVfgQRfDLT19kNgTfj3?=
- =?us-ascii?Q?jFg38zMx9hdWbBs7eGpDcIg67FjCCnLIhNWknW5XGqGX+LmtRuMTCRPjGbCH?=
- =?us-ascii?Q?9wXmbgIFcXCjvbbBQixYmY/99GB+ofM81JTkv4XoAtCCo/SeRTO9hPU2ZeEN?=
- =?us-ascii?Q?vXKVKIyrLE45JwlgSTAQ28WlN73OazzhgWR2Lw5RZ7SdLnYzgdg2VpR7ozot?=
- =?us-ascii?Q?gmQThGuhOfmRdFdnFLTZcCmcFcyc3tFr6C7DHVjkxSWcVpZg88KK6S2yFZT6?=
- =?us-ascii?Q?3iECbYp8b7Wl6omcqCrc/Xav2eIfOZ1aB6Oda2fONLv0MUmm0XCVIycoF8h/?=
- =?us-ascii?Q?BnGxwhey3l/xmtUUYbSovAvQ3oJEXWk6U1b5XRk/7WHEVCTqvkXrov+kUwvB?=
- =?us-ascii?Q?QF+hPLBRexU/NT3/4RTRNX61Aabs8OjF1oTIvyDYNYa+8AwjjT2o+mXZPuhA?=
- =?us-ascii?Q?6M8BVFHfhvksISSSCamQx1OUVNXaUUa8zBkSvkFTp18AZ5COQ6RMB9AuyE28?=
- =?us-ascii?Q?db9eNun84UBwEC6L9c+dKVVI0RueJ/jRIhr6W9KKI+tPWkbzBuIR0EgWz4v5?=
- =?us-ascii?Q?ZoJnCzgq16u0sL8KMvibx5yX7w91mnLypEgZeeeEN8qS73ik2caSye/6UEzh?=
- =?us-ascii?Q?t66dBIltIEc0rq40cv3aOZZejrKrXaWGCb85LODp7LJpgk3OPbZV5rkVcFJ5?=
- =?us-ascii?Q?vp9TZEOB0w7i5ewgwSE9f88ZAKwHBiMXPv1E86ra/cdCWG3Qd8BA7HQrXQu3?=
- =?us-ascii?Q?jzPevYpXw+qnmN6R0zplRdxg+DyFIzcFu73GGkvSCsVMqKZTUX9viR2BhDnZ?=
- =?us-ascii?Q?C+hR2EnKHYltbd6yCByGd3c3mrOn3aBYKKx7WpUDEdnwTb42nQN2YBu0Z9xn?=
- =?us-ascii?Q?OZgdK/svr7gMXWpv60u+4JIivEGln4MOrJ3ZVMzhF5Hff5MfNBINrfk8k6V/?=
- =?us-ascii?Q?McaJbZNT5ahK/DeL1HKwNj0QWMJO1g3T5oiRCZo5jRxNUC/y+JxKx6Nwse5D?=
- =?us-ascii?Q?EAA6/3knGzDVS8a3S/+Pg+EBh81rLKXwcBzxP6V6W4EO0dECK9MtSDo4w1nh?=
- =?us-ascii?Q?QZb5KJk7u5gmcirojT4wjZ0aSbDEK5GHUBBU2ZSlcxPCtIZmdRF1H05rc4CC?=
- =?us-ascii?Q?jn4w010kmN+M9SaRVaLnJsldDXzObHGWWRLSOB7/JIii5fGxEMhEVlz4qtMp?=
- =?us-ascii?Q?ncE3pEQj2HdyCf25YVgvPLtrTLsYHnkjXSxqaggTAHywPv0eaBC/6aOWdgtB?=
- =?us-ascii?Q?aR5Ak1sqmUn5aTeDvJms/XeiUUxkvNmiWM44cl335alLiL81P/59kr+mgzuv?=
- =?us-ascii?Q?vOYXgo9Cur7CHZQzPI+dqqe+SZWLkx2MRKswgezVORJLojn9VnMn+aIWyx9f?=
- =?us-ascii?Q?dhvPgONsdBtoPwsxznpM1ajgpleyoebgTMxuSPiQA0PmTruAJaWxcAhFkY5t?=
- =?us-ascii?Q?A2SscgU1qfCrXQvZuglScqlgeYbBVp+3yEivZ5fpITeCI67UdRlxF08qIg0q?=
- =?us-ascii?Q?s6vssVDDD6GTUIHtA+qwH+7UoF2ttIBIqGiJ3/WWfj8iaJm2?=
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <C6161B1F9D17E147AEEEFCFA4B0C036F@namprd04.prod.outlook.com>
-Content-Transfer-Encoding: quoted-printable
+        d=wetterwald.eu; s=wetter; t=1791897359; x=1792502159; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ig0Y0bs9FN6Dhfi95iv4Xq2tV5MXRKRrxHG4lzB5XTM=;
+        b=RaffImXzE6Z8AaOw7qBFyPX0MvI85gAdLsgZw5gOMq7dq8O7qW+H7ruOcEAvJJgEoO
+         MSewyTd4U8LMinzyYWYy8uCqZd3Ysa/phCgcXXYiaQOA7F6oU6i1xOThZIo5Mh0uzSet
+         5uGCuPrghoi6KaeVoFn9feTnHwtQZAyg/DYYyE1tdFC8KQtcJJdNJLFumIhJjwcrEXc6
+         7kkKBvXsqTPZLeMJbTO70YRJGHp2jKqDb23h+ZR0wBRgbOSbAMCEBQryzJp54yIqJiuO
+         mycrL1FBK+9Jj55y+lWVZWoZqbrRHSxcbCat+IRUjfrT4gZL1dtd2otQA6lpawgBqXaj
+         KRMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791897359; x=1792502159;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ig0Y0bs9FN6Dhfi95iv4Xq2tV5MXRKRrxHG4lzB5XTM=;
+        b=c7ml0QVdgvqIOVgvpS6Yj+Vx2DowI4qNDNjPxcIHNXDCQ8KChZS3o4zLgeYcRAJsHz
+         1cns8z0klHmcPD4EPUX1x2cMvB+ksxR9BoUUL4uAqOU9wIIvwVgjEJvbod/VV4IJC3t/
+         2Q7qmp8pDq3By02YA6uczO6R6LpcN1YG5orL24vrg2XSpZtJ4V5S7FQqDMJH7ySSsYWB
+         3VnFc8tf5dItnq+UT7dMzzzrkMSyFKIGuhl5L6rsYicaWg88OVNiiOGm7uIgJhOln2dp
+         Nw7GvCgeY4tO7b67VERRo4CXaEtKuKVHap6G/YRq4+OomA7cTHp+DboegkuQ90hxFP13
+         5btQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwqLFh+rWbPbzzvZMc1ftowWYxkIFsj1ndp/FIdTVhuQPlnAPGP7qqgR/aAETIwX0axugTmKEY5XeNVemab3fom@lists.infradead.org
+X-Gm-Message-State: AFq9FYKoQbhQDfzH571qh56yRiI1eiAgiTIO1Z+OYhBLdTMwu9Fsybya
+	mHy4QIFYo1mcVJm9DWKHyPVgCZhtU3I2JcUTSAZGpqMs2Np6IasdvL7I+gPM7+M66Tg=
+X-Gm-Gg: AYBFou0yu2NhxYbDNU/bvwWq89I/PpIL7c8v9yG70GvgDetAhVZgYxMlEClnKTxMUHK
+	oT5h2ITx+mvmCTM6PiQ/r0e1RFqk04CheEKTD00QEDM3SxUYQhK0EAHmjFGfb6Mn2l9iYV3E1pf
+	kyRx/urIRZmTAKSXfEerXYQvMMAvV2tMGSUwD+bedmG23cvcZ1eUIL8a7rTpN4MhjoVVa5PtoQd
+	uLv/7m9CVKUOi2ILLcsdB8Z45I6z8NkXfhYIwpj2sARORg2guQlXywnHAjHH1tP3Bw/IG+Nhc8a
+	jXmiVvXDAU4hLX8fyQeCJWemRX3V+yr2IaZb5zZRamtiQbo23Feulam6OWet4Vu+hC/qfUqcNm8
+	lpxgAIrz7KOM3/poqV9vatNdPX2wl57gYbkTvS6dJc9LRSas0uBovvJzKSwj4hzGguxw3G7EWhN
+	5J1riMZ4SLpcukU9RvFbpeHoSxtkionr6jdMU1yWHiI5s1Z+EtvSRRV7wk7+G53Sm6wQ==
+X-Received: by 2002:a05:600c:3512:b0:49f:c5aa:9ef4 with SMTP id 5b1f17b1804b1-4a18e4913c3mr213743705e9.8.1791897359239;
+        Tue, 13 Oct 2026 06:15:59 -0700 (PDT)
+Received: from Halley ([2a01:e0a:dcd:52a0:bf8b:5759:6fe4:3105])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18be96549sm520141515e9.6.2026.10.13.06.15.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Oct 2026 06:15:58 -0700 (PDT)
+From: Martin Wetterwald <martin@wetterwald.eu>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Jai Luthra <jai.luthra@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Umang Jain <uajain@igalia.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	regressions@lists.linux.dev,
+	Martin Wetterwald <martin@wetterwald.eu>
+Subject: [PATCH] platform/raspberrypi: vchiq: register bus at subsys_initcall
+Date: Tue, 13 Oct 2026 15:14:35 +0200
+Message-ID: <20261013131435.1454019-1-martin@wetterwald.eu>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com>
+References: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: phil.gs
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR04MB6472.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0374847-d510-4d27-d171-08df292b320d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Oct 2026 13:09:20.9967
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 47d4f979-ea6f-4fcb-aea9-39371d64bc6b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 5zCEG2zw67Db6Iqd3ym36FUHiZnlxo7hBTwMG3IgzsOS+qbIwTICL9hoz8eL6/Xz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR04MB8788
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_060930_969661_689B56C6 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20261013_061601_692997_7CA0A492 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,72 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 09:22:15AM +0300, Andy Shevchenko wrote:
-> I interpret this clearly as "Let's allow vendors to continue making
-> mistakes and provide wrong DT/configuration bits." My vote is
-> definitely *no* to a such. If this needs to be done to support some
-> weird firmware in the wild it must:
-> - be a quirk that is clear sign that one has avoid such an example
-> - inform the vendor to fix their crap
->
-> Did I get it wrong?
+Since the VCHIQ interface was moved out of staging, its bus is no longer
+guaranteed to be registered before its client drivers. bcm2835-audio,
+still in drivers/staging, registers at device_initcall level and now
+runs first:
 
-Thanks for your review.
+  Driver 'bcm2835-audio' was unable to register with bus_type
+  'vchiq-bus' because the bus was not initialized.
 
-I see it a little differently, though my wording didn't help. For the
-BMC side added by this series, I agree with you: with
-aspeed,vuart-over-pci set, vuart3 and vuart4 should always be on SIRQ
-0 and 1, the values the host's vectors 16 and 17 rely on, set in
-aspeed-g6.dtsi rather than left to each board. That's the simple fix
-for v7 of this series, with no discovery, since here the BMC and host
-sides both come from this series. That's probably the less common
-case, though: most of these boards run the firmware the board maker
-ships with them, not OpenBMC. [my assumption, I don't have data]
+Register the bus and the platform driver at subsys_initcall so the bus
+exists before any client driver, independently of link order. The
+platform driver probe already returns -EPROBE_DEFER while the firmware
+is not ready, so probing earlier is safe. When built as modules, this is
+equivalent to module_init() and nothing changes.
 
-The case I had in mind is firmware outside this series: the stock BMC
-firmware on the ASUS board, which already ships. Which SIRQ a VUART
-uses is a choice on the BMC side, and nothing documents which MSI
-vector that becomes on the PCIe side or lets the host read it. From
-testing, the vector looks like 16 + SIRQ: this series uses SIRQ 0 and
-1 and gets vectors 16 and 17, and on the ASUS board the VUART is on
-vector 20, which would be SIRQ 4, the 8250_aspeed_vuart default and
-the COM1 interrupt. But that's inferred, as the host can't see the
-SIRQ the firmware chose. So there's no documented value for the vendor
-to fix to, and boards in the field keep their firmware.
+Tested on Raspberry Pi 1B rev2, 1B+, 2B, 3B and 4B with VCHIQ and
+bcm2835-audio both builtin and both as modules.
 
-Jacky, three things from ASPEED would help. First, confirming whether
-the vector is always 16 + SIRQ. Second, having the SDK put the VUARTs
-used over PCI on the same SIRQs as this series, so that firmware built
-on the SDK matches the host driver. Third, longer term, a register the
-host can read that gives the SIRQ or vector, since even a documented
-mapping doesn't tell the host which SIRQ the firmware chose. In the
-meantime, boards already in the field still need handling.
+Fixes: aa125180c673 ("platform/raspberrypi: Destage VCHIQ interface")
+Reported-by: Martin Wetterwald <martin@wetterwald.eu>
+Link: https://lore.kernel.org/r/CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com/
+Closes: https://lore.kernel.org/r/CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com/
+Signed-off-by: Martin Wetterwald <martin@wetterwald.eu>
+---
+ drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-For those I'd make it a quirk, as you say. The class code tells them
-apart: the stock firmware leaves the function at 0c0701, while this
-series' BMC side sets ff. So the vector search would run only for
-0c0701, wherever that support ends up, and never for boards using
-this series.
-
-If you'd rather not have a search at all, the quirk could instead use
-the vector seen on the ASUS board, 20, for class 0c0701. That only
-holds for firmware that picked the same SIRQ, and since stock firmware
-from any vendor would have the same class code, each board whose
-firmware picked a different SIRQ would need its own entry keyed on
-DMI. With a wrong vector the port's tty output would stall, so that case
-needs to be handled: the quirk would still check that the vector fires and
-poll if it doesn't. The search avoids both, with a single quirk entry.
-
-Would either form be acceptable to you?
-
-Whichever you prefer, it doesn't settle where the stock firmware
-support should go, in aspeed-pci-core or in the separate driver I
-proposed [1]; that's still open, and the quirk would be the same in
-either.
-
-[1] https://lore.kernel.org/r/8CD30026-4C04-4E0F-B7A3-5C107D2A8410@phil.gs
-
-Thanks,
-Phil
+diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+index e78641703252..d35f5ac5c2e2 100644
+--- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
++++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+@@ -1462,7 +1462,7 @@ static int __init vchiq_driver_init(void)
+ 
+ 	return ret;
+ }
+-module_init(vchiq_driver_init);
++subsys_initcall(vchiq_driver_init);
+ 
+ static void __exit vchiq_driver_exit(void)
+ {
+-- 
+2.55.0
 
 
