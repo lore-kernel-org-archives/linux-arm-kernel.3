@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655BCCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB9ACC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpVULbRYJKU83CTGHL5CwhzORJ7BhBP+deYnB7SA/2g=; b=jspG1LrTEXBsenTyW7Vausf62P
-	sTL2vNLZTSybAIoRIkyUW+tfI9ZOcZu/ZmY2jrU4rugo1mDQ8Usy31nAZS28WU+AvHT9T/yDTL/cb
-	LfPDDQLATHMP2LHPIJvj+1+92+iE4DLRfAvy2rVlAa/VW1vxG/U8szYvOvEgaRuU2wnDKjvVj4f6k
-	SAtFeMsGv6CzQqDVS8uTNsvXxGB0vOCcoZMW7YqE4VdlU1t+xeWMbEblhSJoyoeCcF+NQmSJVVUGR
-	zJ/ksAFmwOdmm92Xm0QmNaxb2pj9//ryEePW5r2O5EkDH/bOItRzP4uocHtfqxbDz7EkAmRCT14cQ
-	zAxlUuRw==;
+	bh=khTJvLKv/+vOyw+yWXKAIK2ePXBBTi6nmBmOdNZF1bE=; b=wwoVIENVRIFa8nE/6ppDxlw1SO
+	5YAqSg9xL+6eFBrkguJYtQ/a3hESlrO2EP+Ia/0yNUgya3vOi/2DZ9bN+RX0SLqjch498kDc40gdn
+	ykzeMNiYObudxhC6hB5SNNzQYwBXR0WWWutyuv4zL/2kcZAgBBXcGogDjLQSWOBX0EPOtZd3s62Q0
+	wK2lHNc9+io2fdMryAhhhvon8Vvt85CWxf5rOCrY0bxUrAg6CuVsLiQ9CKlQ55Qv6veb4T1eD5SGY
+	YZAmusrEaYpedUIgYeCfd2GO0kZ5Lcvqr5rCCF0uXZNEjg2ytWjZ5zbRbqny7NE4D7aavetX1YNKI
+	TQhvXupA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgNV-0000000DhcZ-12XL;
-	Tue, 13 Oct 2026 17:33:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGgPJ-0000000Di5q-0oDJ;
+	Tue, 13 Oct 2026 17:35:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgNN-0000000DhaW-3404
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:33:22 +0000
+	id 1xGgPI-0000000Di5b-2i11;
+	Tue, 13 Oct 2026 17:35:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 64CCC43E45;
-	Tue, 13 Oct 2026 17:33:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 376651F000FF;
-	Tue, 13 Oct 2026 17:33:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0601F60A56;
+	Tue, 13 Oct 2026 17:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81A9A1F000FF;
+	Tue, 13 Oct 2026 17:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791912801;
-	bh=zpVULbRYJKU83CTGHL5CwhzORJ7BhBP+deYnB7SA/2g=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=U36JkaS+gfg/tWQkQkHmkOMrP9aMpVn3g5B20hkYlkGSkVX434slElgGX5QfG+E+X
-	 BaP71Qo/vRe+vXrXrML/E+M7rMJIvVRWtbRgwKL3nm7Vo1jPDC7OF+w46JpDD3KKCg
-	 hcSPbphOh+AXmu8frVu2Nl7nD9mATi6uKjf8L56pgAoDakbniO+mI1qxisGhxTinqX
-	 ZmKCNltnUasboTGjSm9viDM4Xnx2dkYKtyGhzYCH4NwRjEkCSkl+GhVdNykQBfjKVF
-	 8zlJ3wWQHpaA8tgn1R6OPH8wPNJ7RDbWDcuTO/8lKj+dJesfcUlWOGFq4E38ryqhIn
-	 H3/yiMy2QTXlQ==
-Subject: Re: [PATCH net-next v6 4/4] net: stmmac: rework stmmac_rx to support
- XDP rx multi-buff
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- bpf@vger.kernel.org
-Date: Tue, 13 Oct 2026 17:33:19 +0000
-Message-ID: <179191279975.434549.8306729661220801505@kernel.org>
-In-Reply-To: <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
-References: <20261012-stmmac-rx-mb-v6-4-2225050915c1@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1791912919;
+	bh=khTJvLKv/+vOyw+yWXKAIK2ePXBBTi6nmBmOdNZF1bE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oMqQOCXCThSpiERo+J2ssNIxZSBPR/i04TI56b3HPg93nuwHeSySq6TcZ+W9B1BfO
+	 9JQNaL3PM0yzxFAH99mc2X7kX0kSJpIO5Y3okHhq1lczj08fcEv+p2vf4JZLI1T1YO
+	 lAmDVAze1RHqnVkLHe6WMw/h0GfYZSWLrzxk6DFWGF1Hg3CPMSvnzL99N9X+0H04Td
+	 4oVhwjTzTiV/Qr649AhK3Km50FccntIee9ZJyRCBHtfZJv12rnAS+YujVVmsDf3Sbd
+	 V210kbDPOhUDUexFzYUrkL75BsdSI7pTnaTPXm++NPfvhlhWKMZTwBjqAKJhVNEH8s
+	 WRObtjnrJ5j8A==
+Date: Tue, 13 Oct 2026 19:35:08 +0200
+From: Eric Biggers <ebiggers@kernel.org>
+To: vladimir@genproof.com
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH 0/5] lib/crypto: Handle large lengths in poly1305 and
+ chacha20poly1305
+Message-ID: <20261013173508.GB3830@quark>
+References: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261012-libcrypto-4gib-lengths-v1-0-ea566c129a2e@genproof.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,252 +74,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Mon, Oct 12, 2026 at 09:31:17PM +0000, Vladimir Kukharenko via B4 Relay wrote:
+> This series makes the Poly1305 and ChaCha20-Poly1305 library code handle
+> large lengths:
+> 
+> - poly1305_update() can write past its 16-byte buffer if it holds a
+>   partial block and nbytes >= 2^32 - desc->buflen.
+> - The chacha20poly1305 functions use only the low 32 bits of their
+>   size_t message and associated data lengths.
+> - On 64-bit MIPS and RISC-V, the poly1305 assembly reads past its input
+>   for lengths of 2 GiB or more: these ABIs sign-extend its u32 length
+>   argument, and the assembly uses all 64 bits.  arm64 has the same
+>   prototype mismatch, with no known failure.
+> 
+> Patches 1-3 fix the assembly prototypes, one architecture per patch.
+> The assembly already treats the length as 64-bit, so they declare it as
+> size_t, as commit f3d6cb3dc039 ("lib/crypto: x86/sha1: Migrate
+> optimized code into library") did for the x86 SHA-1 assembly.
+> Patches 4 and 5 make poly1305_update() and chacha_crypt() take size_t
+> lengths.  The patches apply independently, except that on 64-bit MIPS
+> and RISC-V patch 4 relies on patches 1 and 2 for inputs of 2 GiB or more.
+> 
+> No in-tree caller passes inputs this large (WireGuard passes at most one
+> packet, big_key at most 1 MiB), so I consider these ABI robustness
+> improvements rather than fixes and have not added Fixes or Cc stable tags.
+> 
+> I tested with the lib/crypto KUnit suite on UML, x86_64, i386, arm64,
+> riscv64 and mips64, with a temporary 2 GiB KUnit test on arm64, riscv64
+> and mips64 (it oopses on riscv64 and mips64 without patches 1 and 2), and
+> in userspace against OpenSSL for inputs above 4 GiB.
+> 
+> I found the bugs fixed by patches 4 and 5 while writing Coq/VST proofs of
+> this code with LLM agents, and an LLM review of patch 4 found the one
+> fixed by patches 1-3.  I used an LLM-based assistant to write the patches
+> and descriptions, and reviewed its work.
 
-Critical: 0 · High: 0 (1) · Medium: 1 (2) · Low: 1
+Thanks!  Patches 1-3 look good.  I'm less sure about patches 4-5, since
+they go through some trouble to work around (some implementations of)
+poly1305_blocks() and chacha_crypt_arch() not taking size_t.  Wouldn't
+it make sense to convert those to size_t at the same time?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] stmmac_build_skb() now calls skb_metadata_set(skb, metasize)
-  (stmmac_main.c:5847), so the XDP metadata sits right before skb->data.
-- [Low] The commit message says the old stmmac_rx() had two bugs on
-  multi-descriptor frames, and that accumulating the frame before…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but this patch
-  fixes it without saying so, and the net portion of the series leaves…
-- [Medium] This problem wasn't introduced by this patch, but
-  stmmac_construct_skb_zc() (AF_XDP zero-copy XDP_PASS path) allocates a…
-- [Medium] This problem wasn't introduced by this patch, but
-  dwmac4_wrback_get_rx_status() loads RDES1 and RDES2 before it loads…
-
---
-
-net: stmmac: rework stmmac_rx to support XDP rx multi-buff
-
-This commit reworks stmmac_rx() so that all descriptors of a frame are
-collected into an xdp_buff before the XDP program runs. On XDP_PASS the
-skb is built from that xdp_buff with napi_build_skb() and
-xdp_update_skb_frags_info(). The in-progress xdp_buff is kept in
-rx_q->state across NAPI polls, XDP metadata is passed to the skb, the
-FCS is stripped with a driver-local tail shrink, and
-NETDEV_XDP_ACT_RX_SG is advertised.
-
-> For those multi-descriptor frames the old code was buggy as well: it ran
-> the XDP program once per descriptor buffer, so for a multi-descriptor
-> frame the program was also invoked on continuation buffers holding
-> mid-frame payload. It also subtracted ETH_FCS_LEN from the first buffer
-> even when it was not the last descriptor (its second buffer empty),
-> dropping four bytes from the middle of the frame while marking the FCS as
-> already stripped and skipping the final pskb_trim(). Accumulating the
-> whole frame before running XDP fixes both.
-
-[Severity: Low]
-Does this describe the code being replaced? The parent commit "net:
-stmmac: drop multi-buffer frames in XDP mode" added this check, and this
-patch removes it:
-
-    /* We do not support SG in XDP mode */
-    if (unlikely(!error && (status & rx_not_ls) &&
-                 stmmac_xdp_is_enabled(priv))) {
-        rx_dropped++;
-        error = 1;
-    }
-
-With a program attached, every non-last descriptor is marked as an error
-before it reaches the block that runs the program and does:
-
-    if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
-        buf1_len -= ETH_FCS_LEN;
-        fcs_stripped = true;
-    }
-
-In XDP mode only single-descriptor frames get there. Neither problem
-seems reachable in the parent.
-
-The message also does not say what actually changes relative to the
-parent. Multi-descriptor frames that used to be dropped in XDP mode now
-go to programs loaded with BPF_F_XDP_HAS_FRAGS.
-
-Could the commit message describe that change instead?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 8c08d44fdbd39..fd04368543c23 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -5801,6 +5807,118 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
-
-[ ... ]
-
-> +static struct sk_buff *stmmac_build_skb(struct xdp_buff *xdp)
-> +{
-> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
-> +	u32 metasize = xdp->data - xdp->data_meta;
-> +	struct sk_buff *skb;
-> +	u8 num_frags = 0;
-> +
-> +	if (unlikely(xdp_buff_has_frags(xdp)))
-> +		num_frags = sinfo->nr_frags;
-> +
-> +	skb = napi_build_skb(xdp->data_hard_start, xdp->frame_sz);
-> +	if (!skb)
-> +		return NULL;
-> +
-> +	skb_mark_for_recycle(skb);
-> +	skb_reserve(skb, xdp->data - xdp->data_hard_start);
-> +	skb_put(skb, xdp->data_end - xdp->data);
-> +	if (metasize)
-> +		skb_metadata_set(skb, metasize);
-
-[Severity: Medium]
-Now that the regular RX path sets metadata, does the software VLAN
-stripping later in stmmac_rx() corrupt it?
-
-When priv->hw->hw_vlan_en is false (GMAC 3.x and dwmac100 cores),
-stmmac_rx() calls stmmac_rx_vlan(), which does this for a tagged frame:
-
-    memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
-    skb_pull(skb, VLAN_HLEN);
-
-The metadata is not moved. eth_type_trans() then sets mac_header at the
-pulled data, and skb_metadata_end() returns skb_mac_header(skb).
-
-So data_meta as seen by TC/BPF would cover
-[orig_data + 4 - metasize, orig_data + 4). The first 4 metadata bytes
-are lost, and the last 4 bytes are the old start of the destination MAC.
-
-skb_reorder_vlan_header() and the skb_postpull_data_move()/skb_data_move()
-helpers move the metadata together with the data. Should
-stmmac_rx_vlan() do the same?
-
-[Severity: Medium]
-This is a pre-existing issue, not one introduced by this patch. The
-AF_XDP zero-copy counterpart, stmmac_construct_skb_zc(), still sets the
-metadata length without copying the metadata:
-
-    skb = napi_alloc_skb(&ch->rxtx_napi,
-                         xdp->data_end - xdp->data_hard_start);
-    ...
-    skb_reserve(skb, xdp->data - xdp->data_hard_start);
-    memcpy(__skb_put(skb, datasize), xdp->data, datasize);
-    if (metasize)
-        skb_metadata_set(skb, metasize);
-
-The bytes in front of skb->data in the new skb are uninitialized
-headroom, not what the program wrote with bpf_xdp_adjust_meta().
-xdp_build_skb_from_zc() in net/core/xdp.c copies from xdp->data_meta
-before it sets the metadata length.
-
-Should the ZC XDP_PASS path copy the metadata too?
-
-[ ... ]
-
-> @@ -5900,19 +6019,11 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  				rx_errors++;
->  		}
->  
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but the status used here
-comes from dwmac4_wrback_get_rx_status(). That function loads the other
-descriptor words before the ownership word and has no barrier after the
-OWN check:
-
-    u32 rdes1 = le32_to_cpu(p->des1);
-    u32 rdes2 = le32_to_cpu(p->des2);
-    u32 rdes3 = le32_to_cpu(p->des3);
-    ...
-    if (unlikely(rdes3 & RDES3_OWN))
-        return dma_own;
-
-If the DMA write-back lands between these loads, can a descriptor with
-OWN already clear be paired with stale read-format RDES1/RDES2 contents?
-
-That could give wrong checksum-error bits (and CHECKSUM_UNNECESSARY), a
-spurious discard_frame from the filter-fail bits, or wrong PTP stats.
-The XGMAC descriptor ops use dma_rmb() for this.
-
-Would reading RDES3 first, followed by dma_rmb(), be needed here?
-
-[ ... ]
-
-> @@ -5922,121 +6033,89 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
-
-[ ... ]
-
-> -		if (!skb) {
-> -			unsigned int head_pad_len;
-> -
-> -			/* XDP program may expand or reduce tail */
-> -			buf1_len = ctx.xdp.data_end - ctx.xdp.data;
-> -
-> -			skb = napi_build_skb(page_address(buf->page),
-> -					     rx_q->napi_skb_frag_size);
-> -			if (!skb) {
-> -				page_pool_recycle_direct(rx_q->page_pool,
-> -							 buf->page);
-> -				buf->page = NULL;
-> -				rx_dropped++;
-> -				count++;
-> -				goto drain_data;
-> -			}
-
-[Severity: High]
-This is a pre-existing issue, not one introduced by this patch, but this
-hunk also removes an existing crash path that the commit message does
-not mention.
-
-Without XDP, the old code uses skb == NULL as the only start-of-frame
-marker. If napi_build_skb() fails on the first descriptor of a
-multi-descriptor frame, the code reaches drain_data with skb still NULL
-and error still 0:
-
-    drain_data:
-        if (likely(status & rx_not_ls))
-            goto read_again;
-
-The next continuation descriptor then goes through the if (!skb)
-head-building branch. With no program attached, stmmac_xdp_run_prog()
-returns ERR_PTR(0), which is NULL. A new skb is then built from
-mid-frame payload.
-
-With SPH active, stmmac_rx_buf1_len() returns 0 for non-first
-descriptors:
-
-    if (priv->sph_active && len)
-        return 0;
-
-So the rebuilt skb has an empty linear area and all of its data in
-frags. pskb_trim(skb, len) does nothing because len > skb->len. Can
-that then reach:
-
-stmmac_rx()
-  eth_type_trans()
-    eth_skb_pull_mac()
-      __skb_pull()
-        BUG()    /* skb->len < skb->data_len */
-
-Without SPH, a piece of mid-frame payload is passed up as a standalone
-Ethernet frame.
-
-The new code builds the skb only at the last descriptor and sends a
-stmmac_build_skb() failure to error_free_frag, so the problem is gone
-after this patch. "net: stmmac: drop multi-buffer frames in XDP mode"
-only covers XDP mode, and this rework has no Fixes tag. Backports that
-take only the Fixes-tagged patches would keep the crash.
-
-Should the napi_build_skb() failure path be fixed separately for net,
-for example by setting error so the rest of the frame is drained? Should
-this commit message also mention it?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261012-stmmac-rx-mb-v6-0-2225050915c1%40oss.qualcomm.com
+- Eric
 
