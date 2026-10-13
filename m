@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DBFCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3827CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ngs2H5drVhSSsY3k+1XuymWpnKLMqckm0fPB9uQ+rqU=; b=fU/HIO2wTiIL3XNLKgz5ONnU87
-	cyVGItB3Qv6L3P84tZ8Mrwvhm1m9DiGXbNyJAASzc21uaXcOlcxn4nCAG9DWrnBox1Z8lsK3gInIi
-	WpIztjjyMAZpivWjhx7UNjtjTQ/oJoGDYIgLj/sgFNDpaOjfJLuLl6DMmlUH0pYByaAq3FUfA/Ihq
-	fAcooHK70KBQMFDAuGoA2N8qWLKNX6I4B6S70y8XA5F0J84MaJQjcBzbUTOCQw4/6B3kuUxCU25T/
-	a93arc1MUdCDYBj5h77DUZAtI34hWQzVPHrRyg8k6pfOVz0bYp8dcNRO99cvLnqeCrCUG9rRNHz/M
-	0iQ1OJtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ExDc15Ef98vtkv2halza2GLOY92o7Aeod/xe2/R8Z/4=; b=FaWqiZegxoAUOotydWHrjVy7X2
+	RZsOEFXQK8mXZCdPSn5Uspcrgq87SgPNcjVfD9I+3+OSz9GKMufxm/pcv/PZc71Xs56ei6VkSUGnc
+	XnUyCLLkrSfkYczBIAs+Ihzr0NKaLt61tUF9TFnMMaKf2E0+fdazE/dTSgoLha2qUhYY3t2vm/t75
+	butkFP46mxfYiEZOnbaLNAkKDWIQQER2XHNfO3FDm1eglQqLLdFlfvfBK3HbTEMjI7CZNNOXm1DeK
+	+JtDgCSME4rTWxN1G9bmzTY04VcYgS02q28XCWcE3YOx7fAvswTuQjAgH074zt/hrYf3swU5rooWM
+	xU/fCq3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhbb-0000000DruK-2Omv;
-	Tue, 13 Oct 2026 18:52:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGhfo-0000000DsE6-0Hpt;
+	Tue, 13 Oct 2026 18:56:28 +0000
+Received: from pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.34.181.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhba-0000000Drtt-1kyI;
-	Tue, 13 Oct 2026 18:52:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87949601FF;
-	Tue, 13 Oct 2026 18:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF59A1F00898;
-	Tue, 13 Oct 2026 18:51:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791917525;
-	bh=Ngs2H5drVhSSsY3k+1XuymWpnKLMqckm0fPB9uQ+rqU=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=izNyqB47eFZArRZRZNS7dTQBn7NwqycEpAbpoYBJgMJHm+NegzSQJJwS9MSZqK8ml
-	 O/n/XnPby62gp/+ntCAkK7UK82X0JjnzHR46YNg4EAdRAyzA9ezr8+TmuN5FKEzBVr
-	 omqTZ6m2XYVmBNVdBxfh/aj4Nf16K6MuR/0tBlTl7NNrDa0DSi3KoLSYOmjvbq20sG
-	 1qzaP5hmeiCdwv+HFpK7Bk6xNdL17OPUR93hPZ96+DtT22aXWPU9BtrOcyHA9NFAkj
-	 LDv543Ch+E5iEcLOjnjzHigokCbH7xyt9ftQHuTec+TrL9mxhxGQyTBVzsiz7Fib/3
-	 MaqwfMaUWeA6g==
+	id 1xGhfl-0000000DsDL-3NP6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 18:56:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1791917785; x=1823453785;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ExDc15Ef98vtkv2halza2GLOY92o7Aeod/xe2/R8Z/4=;
+  b=Y8rsvtJAYR1DipECtiJhtc8aAxkOJ/9z3ZJv+lDraPs4Uc1RpbqBCI6R
+   PWHrD54gMmI4KhtNMsk1pnt4eyBI4wTWiOrWi4H5BiubmIp2Pt3EsYj2N
+   LJuPFW9iXlt6FbhcoTWHQzS5tp2W2AwUaCW3aZcH5eUPV82G84uUyDQMb
+   mCA9+Wq+RY9PWYcMOTVteCo7YIg/NDLa2CPH0yS7+SHOrYo5k6f6abYYC
+   HMcvpdih5pjiw5ato72ZRVs9dCBIbeIrVtOHinV3cEiSM4o5R6wqEeope
+   vOxjUYW1fPQ3+cajpC6cYy1Hcn3XXo83jDlhX+KjcWlUUm/WkGTzGk5ws
+   w==;
+X-CSE-ConnectionGUID: oWznY2ffSqarfFIC8BEq2w==
+X-CSE-MsgGUID: VXbXS8RXQHO3aQJZ0MCX2A==
+X-IronPort-AV: E=Sophos;i="6.27,156,1787011200"; 
+   d="scan'208";a="31152671"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2026 18:56:20 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:8919]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.175:2525] with esmtp (Farcaster)
+ id f1b4118a-6202-4225-89df-e251ce4331da; Tue, 13 Oct 2026 18:56:20 +0000 (UTC)
+X-Farcaster-Flow-ID: f1b4118a-6202-4225-89df-e251ce4331da
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Tue, 13 Oct 2026 18:56:20 +0000
+Received: from u34cccd802f2d52.amazon.com (10.187.170.30) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.53;
+ Tue, 13 Oct 2026 18:56:19 +0000
+From: Haris Okanovic <harisokn@amazon.com>
+To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, "Mark
+ Rutland" <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, "Ingo
+ Molnar" <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+CC: Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa
+	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter
+	<adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <harisokn@amazon.com>
+Subject: [PATCH 0/4] perf: Manage single-CPU PMU affinity in perf core
+Date: Tue, 13 Oct 2026 13:55:59 -0500
+Message-ID: <20261013185603.1347265-1-harisokn@amazon.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 10/10] PCI: dw-rockchip: Clear debug buffer before
- entering L2
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com
-In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
-References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
- <20260908-rockchip-pcie-system-suspend-v6-10-fbabcca9921b@collabora.com>
-Date: Wed, 14 Oct 2026 00:21:54 +0530
-Message-Id: <179191751499.12828.9504625790909143778.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1907; i=mani@kernel.org;
- h=from:subject:message-id; bh=lgEh/kHjjKO7vlCJXlboj9R2tBBVF0LjFp0XPpozdIc=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzn3N2W74pXFoa1XfcNm77M+sJBrelI12u1im6
- DOtwTHu2E+JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas59zQAKCRBVnxHm/pHO
- 9fCPCACKrsGNtItOmtzFMwfvK3S2OTHm0WlhE8B9Bq3QvNwVmHc4MWIAPWgpJJFErQkW+fKFsgS
- OK2nKjCZPQjX1E/GPEviJYaE6jDC21nZTcpEbw3LIKNt65fRGD9BQXrrYAZCC4/T4t+ebJq9elA
- 7pKr9kuBovq6rM9zOu4mrf3VXtOy4ocOOnqJoJos1ocBaEr5KtoWUVpWmCFZiz1e4KeEZVEwp+8
- 4QpTK3CNffdbl5DyM020BUhChR8dZai2ITRvgPaFK7Vrw5R5g4JpvMj424vp75+gj3wa3KVBWBm
- chKJnVneASzyRoDqKo9o5wqtmiTDxxjfHq7QVoecFMZviPI1
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.187.170.30]
+X-ClientProxiedBy: EX19D031UWA003.ant.amazon.com (10.13.139.47) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_115625_913623_544195B7 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +95,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-08 16:51 +0200, Sebastian Reichel wrote:
-> Clear the debug buffer before entering the L2 state to ease debugging
-> link training issues on resume.
-> 
+About 25 PMU drivers, nearly all under drivers/perf, drive their PMU from
+a single CPU, and each implements the same logic independently: pick a CPU
+at probe with cpumask_local_spread(), cpumask_any(), cpumask_any_and() or
+similar, register a CPUHP state to handle hotplug migration, bind every
+event to that CPU in event_init(), and publish it via a 'cpumask'
+attribute.
 
-What is this debug buffer and what value does it provide?
+Besides the duplicated code, that has two costs. On systems with many
+PMUs, the arbitrary choice tends to land all of them on the same CPU,
+concentrating overhead there. The chosen CPU also cannot be changed
+afterwards, except via hotplug, which is awkward on systems that confine
+background kernel work to housekeeping CPUs or otherwise isolate PMUs
+from latency sensitive work.
 
-> Cc: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index e675918ba184..a508f4fffd2a 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -77,6 +77,9 @@
->  #define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
->  #define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
->  
-> +/* General Debug Register */
-> +#define PCIE_CLIENT_GENERAL_DEBUG	0x104
-> +
->  /* RASDES TBA information */
->  #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
->  #define  PCIE_CLIENT_CDM_RASDES_TBA_L1_1	BIT(4)
-> @@ -1043,6 +1046,11 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
->  	return ret;
->  }
->  
-> +static inline void rockchip_pcie_link_status_clear(struct rockchip_pcie *rockchip)
+These patches move the choice into perf core as a new "device" pmu::scope.
+A driver describes which CPUs are eligible with an optional
+filter_allowed_cpus() callback; core intersects that with the online CPUs,
+picks one with cpumask_any_distribute() so instances spread out, migrates
+events on hotplug, and reports the result through an optional migrate_cpu()
+so the driver can follow with interrupt affinity.
 
-No inline in .c files, please.
+'cpumask' is made writable for device scope, so users can also choose the
+owning CPU deliberately, e.g. to move a PMU onto a housekeeping CPU. The
+attribute is read-only or absent in other scopes. Reusing it was the
+minimal change, and I'm happy to add a separate attribute instead if you
+would rather 'cpumask' stayed read-only everywhere.
 
-> +{
-> +	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_GENERAL_DEBUG, 0x0);
-> +}
-> +
->  static int rockchip_pcie_suspend(struct device *dev)
->  {
->  	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> @@ -1056,6 +1064,11 @@ static int rockchip_pcie_suspend(struct device *dev)
->  
->  	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
->  
-> +	/* All sub-devices are in D3hot by PCIe stack */
-> +	dw_pcie_dbi_ro_wr_dis(pci);
+Only arm-cmn is converted in this series, as an example and because it is
+what I can test today. I have prototype conversions for the other 24
+drivers locally and will post them if the core approach looks right, but I
+have no access to most of that hardware and will need help testing.
 
-I don't understand the code and the comment. Please explain.
+The series also carries two synchronization changes for events left behind
+by migration: the __perf_pmu_remove() fix in patch 1 and the sequence
+counter mechanism in patch 2. Neither problem is new. Under hotplug,
+leftover events are torn down with the dying CPU, which limits the damage.
+Migrating between two online CPUs leaves nothing to clean them up, so they
+matter more once users can request migration. I'm open to suggestions on
+different or better ways to close these races.
 
-- Mani
+Tested arm-cmn on two platforms with CONFIG_PROVE_LOCKING=y:
+
+  AWS m9g.metal-48xl CMN S3,  one mesh,   192 CPUs
+  AWS m8g.metal-48xl CMN-700, two meshes, 192 CPUs
+
+  - Events multiplex on the configured CPU, and the two meshes are placed
+    on distinct CPUs at registration.
+  - Offlining the owning CPU migrates every open event and updates the
+    attribute; nothing is left behind on the dying CPU.
+  - Writing 'cpumask' migrates open events, and offlining the vacated CPU
+    afterwards strands nothing. Bad input is rejected with EINVAL, ERANGE
+    or ENODEV without moving the PMU.
+  - Hammering perf_event_open() from 64 threads while flipping 'cpumask'
+    between two CPUs does not strand events.
+  - No lockdep reports on either platform.
+
+This supersedes the arm-cmn-only approach, following Robin Murphy's
+suggestion that CPU affinity be generalized into perf core:
+
+  https://lore.kernel.org/linux-arm-kernel/2d70be7b-12c0-46e0-b308-744a3159388a@arm.com/
+
+Haris Okanovic (4):
+  perf/core: Fix perf_pmu_migrate_context() leaving events behind
+  perf/core: Add PERF_PMU_SCOPE_DEVICE
+  perf/core: Allow userspace to select a device PMU's CPU
+  perf/arm-cmn: Convert to PERF_PMU_SCOPE_DEVICE
+
+ drivers/perf/arm-cmn.c     | 104 ++++------------
+ include/linux/perf_event.h |  26 ++++
+ kernel/events/core.c       | 247 +++++++++++++++++++++++++++++++++----
+ 3 files changed, 274 insertions(+), 103 deletions(-)
+
+-- 
+Haris Okanovic
+AWS Graviton
 
 
