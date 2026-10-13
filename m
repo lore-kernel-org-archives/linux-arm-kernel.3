@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0017BCC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA76CC6B1E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/HixAAUYELSS4YWnQ5iryrcMc/US3rCYDH85ZtPs1nM=; b=BmTM1D12uWD7LO
-	VhYSO72sEWhIDB97IlstFs/gT6hmkPnTPQI368Wk2OcL3K3qNiK2vh5OfWS3rB9+57lYHQh44QfOe
-	oK/p/9d9GrwX6z6S5wF4AyOU5wYb4HLtRCmQ2OFI2H2SfMD/MA5FgbuWHxnjGKpqzEFiC4uucsX2/
-	Rd4gc4ezna/w65xWA7rmgvoKsH+3aXB06w92obrzt6173hsWKUxg1/jaBKILrVkNjpxfQM5bw8F2/
-	VTBJKAtUJHhNrvg2t9armiu5u+ihE3n75N+igjX81jro7dW2mXraiY7sEEx8Jg0lNd6exH7LQuPZ6
-	c1TiEydr0Q/EHwCebghw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uwicsqu4mfddv9/LNXMDWZvZ6fMfsL5l8GsVnsYWPxc=; b=Y3S4FyDGWYPZFXQZAmISaD3ByT
+	ZG8+fLsSkKad2H8+w3T93iVS6TfJHwKQeX1BoDeFA6fv2D+w3124nAH/NnpnSuZD+UXOQfPDJ/SWn
+	vpHbyptv65dV3k8t4waYrTyPPrXYOBQi/MDm/GIIzssK5Ek+cU4bQ/QIh1Gg5NcPDxrLh+ImvPNkx
+	DSR3d2tCvyDzHpnVJiwTLbZa46L6q42qJr43SxqnYB8m44eXpJHY5dC3ykRnPBt2XcZoTJrdPayVd
+	UYYO083NLO9ftoJ23KfLdb4uDD5pUpHUnUK1pICXaWen9vosryZuOgHUPj5ahxabsoJ/c/sEMXHFB
+	ox+Y+q7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGlLv-0000000EB6u-1HZ8;
-	Tue, 13 Oct 2026 22:52:18 +0000
+	id 1xGlMD-0000000EBDz-00Nc;
+	Tue, 13 Oct 2026 22:52:29 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGlLh-0000000EAyR-0qsT;
-	Tue, 13 Oct 2026 22:52:02 +0000
+	id 1xGlLn-0000000EAzz-1Y7j;
+	Tue, 13 Oct 2026 22:52:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1791931910;
-	bh=FFe+p5tRUGDgwsZYDsPl+7ZOo4rO49AQKBgKoo4CTh8=;
-	h=From:Subject:Date:To:Cc:From;
-	b=CEziA9dOrXle/OLbz5LpMH/elrQJLb/eVCWUL1PNKA/Vi2BDMg34VkVtVEwZdfvoM
-	 VCt75IWfGQ3JNeZwh4gw1REq5hoHf7KO1UtX2/DQFY3dLKnkyLJ0HhekqVSyLM8/dS
-	 qF5Vu09MML7JWXwLypFVNsbQB0Aak+UfTmiDkQwN3w2/yaxp6/Cifram63lvaydgA2
-	 2RD+UuzeStDscqLQDA3+lMyzPsunqB1e5NHWqBkCSpmaVp8bHFawv3lWSTOlh16MOe
-	 tVpOnTrcZhe9F/Zy8s09PBqaRVJoJsM39SgbWpNt6PSvImhVXj3rPE+55bZDJlA7Pn
-	 Uh7VIuikgtxeg==
+	s=mail; t=1791931918;
+	bh=dbYuYcmwWQ0Rwvy6m5XUxd+zzK5ANGcRgXEHBixh4O0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=WYY2kXW7I/2TbIG3X6zK7WLe7rJ3GlD+ZbNj9xcEDCg9s4qyB+g0eY7KcjyzZpzro
+	 uiMFXEDCjSXPhf0uO1td8t/sjWDYnZ+akEduPmWie8EgoDFLzGkcdA6784nt77dGbS
+	 NZmiTNnt+6r/D1BcQhotpw4lYE0M25l1X0Ru8rN/FCWlA/5YIUxGB3zDddSwYb6WVk
+	 uLK+P+gAAjmh1uspennkyGKXxBVf7JAcEf+tIuFkJEwGC8/SZ/o15VBBgUUgFEKmg0
+	 erUuDjHLVPKWdybKrKJUIsXrxLJzcjr0Qnw7AVXDJW+oVfdM7Qa6z5JZpxmpaGXF29
+	 bdFsblqkVrJoQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AAE7517E05F1;
-	Wed, 14 Oct 2026 00:51:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 605D217E14EF;
+	Wed, 14 Oct 2026 00:51:58 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v5 00/15] Support 10-bit YUV422 and 8/10-bit YUV420 color
- format on DW HDMI QP
-Date: Wed, 14 Oct 2026 01:51:17 +0300
-Message-Id: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
+Date: Wed, 14 Oct 2026 01:51:28 +0300
+Subject: [PATCH v5 11/15] drm/bridge: dw-hdmi-qp: Log resolution and
+ refresh rate in atomic_enable()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOzW4CIRQF4FcxrEvD34B01fdoXHDh0qFRsYNij
- Zl3L9iFTccuT3Lud+6VFJwSFvKyupIJayop71sYnlbEj27/jjSFlolgQjPNDQ1nOoZdop8Hejl
- VKoBFAzCAW3PSjg4TxvR1A982P7mc4AP9sSu9MaZyzNPltlh57/2LV04ZdVoPPgamgwmvPm+3D
- vLknn3ekT5QxZ0wTC8I0QiwHBCkDBjiI0L+JuyCkP0L5exaOBsFmkeEuhOWyQWhGhFBDRAVVwb
- hLzHP8ze9zhf3iwEAAA==
-X-Change-ID: 20260617-dw-hdmi-qp-yuv-2b0f7bb5ba81
+Message-Id: <20261014-dw-hdmi-qp-yuv-v5-11-6fab0fe43a9b@collabora.com>
+References: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
+In-Reply-To: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -77,14 +73,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
  dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Sashiko <sashiko-bot@kernel.org>, Igor Paunovic <royalnet026@gmail.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ linux-kernel@vger.kernel.org, Igor Paunovic <royalnet026@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_155159_151927_4D21FC65 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20261013_155203_600531_7E9F9F0A 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +92,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series extends the output color format support of the Rockchip DW
-HDMI QP controller to cover 10-bit YUV 4:2:2 and 8/10-bit YUV 4:2:0.
+The debug entry in the HDMI branch of dw_hdmi_qp_bridge_atomic_enable()
+previously printed the literal string 'HDMI' as the mode field, giving
+no information about the actual display timing being configured.
 
-Patches 1, 7 & 15 improve VOP2 robustness on RK3588, helping recover
-from exceptions and preventing random display output glitches observed
-when switching modes that also change the color format, e.g. from RGB to
-YUV 4:2:0 and vice versa.
+Extend it to include the active resolution and refresh rate by
+retrieving the CRTC mode from the incoming atomic state:
 
-Patch 8 avoids an incorrect DCLK source switch for 10-bit YUV 4:2:2 by
-forcing 8 bpc in the bandwidth check.
+  dw_hdmi_qp_bridge_atomic_enable mode=HDMI:1920x1080@50Hz fmt=RGB rate=185625000 bpc=10
 
-Patches 2-6 address a few vop2 related issues reported by Sashiko, while
-9-12 are additional cleanups/improvements.
+This makes the log line self-contained and directly useful when
+debugging mode-setting issues, format negotiation, or TMDS rate
+mismatches without having to cross-reference a separate mode dump.
 
-Patch 13 adds MEDIA_BUS_FMT_UYVY10_1X20 for 10-bit YUV 4:2:2 output,
-configuring the PHY with 8 bpc.  YUV 4:2:2 always transmits two 12-bit
-components per pixel regardless of color depth, so from a clock-rate
-perspective it is equivalent to three 8-bit RGB components.
-
-Patch 14 advertises YUV 4:2:0 output, now that the bus-format and VOP2
-support are in place.
-
-Tested on Radxa's boards ROCK 5B (RK3588) and ROCK 4D (RK3576).
-
+Tested-by: Igor Paunovic <royalnet026@gmail.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v5:
-- Rebased onto latest drm-misc-next and fixed the conflicts introduced
-  by the recent addition of HDMI 2.0 support to the DRM infrastructure
-- Updated patch "drm/rockchip: vop2: Reset AXI and DCLK to improve
-  robustness" to also assert the AXI reset in the bind path, fixing DSI
-  panel support on RK3588 EVB1 (Sebastian Reichel)
-- Added new patch "drm/rockchip: dw_hdmi_qp: Do not mask error code in
-  atomic_check()" to fix a pre-existing issue reported by Sashiko
-- Link to v4: https://patch.msgid.link/20260903-dw-hdmi-qp-yuv-v4-0-fb45bf4147eb@collabora.com
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-Changes in v4:
-- Collected T-b tags from Igor
-- Rebased onto the latest drm-misc-next, which now contains the HDPTX
-  PHY driver fixes, so the runtime dependency has been dropped
-- Link to v3: https://patch.msgid.link/20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index b268c9376087..c6551f4cbf93 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -539,6 +539,8 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 	struct drm_connector_state *conn_state;
++	const struct drm_display_mode *mode;
++	struct drm_crtc_state *crtc_state;
+ 	struct drm_connector *connector;
+ 	unsigned int op_mode;
+ 	int ret;
+@@ -552,6 +554,9 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		return;
+ 
+ 	if (connector->display_info.is_hdmi) {
++		crtc_state = drm_atomic_get_new_crtc_state(state, conn_state->crtc);
++		mode = &crtc_state->mode;
++
+ 		op_mode = 0;
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+ 
+@@ -559,7 +564,10 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		if (ret)
+ 			dev_warn(hdmi->dev, "Failed to enable scrambling: %d\n", ret);
+ 
+-		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u scramb=%d\n", __func__,
++		dev_dbg(hdmi->dev,
++			"%s mode=HDMI:%ux%u@%uHz fmt=%s rate=%llu bpc=%u scramb=%d\n",
++			__func__, mode->hdisplay, mode->vdisplay,
++			drm_mode_vrefresh(mode),
+ 			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+ 			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc,
+ 			connector->hdmi.scrambler_enabled);
 
-Changes in v3:
-- Updated patch 3 to skip any hardware programming in the callbacks
-  gated by drm_atomic_helper_commit_planes() after powering down VOP2 on
-  an atomic_enable() error (Sashiko)
-- Ensured VBLANK events are sent immediately when atomic_enable() fails,
-  hence preventing userspace processes waiting for the page flip
-  completion to hang indefinitely (new patch 4, Sashiko)
-- Rebased onto latest drm-misc-next
-- Link to v2: https://patch.msgid.link/20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com
-
-Changes in v2:
-- Collected R-b from Krzysztof on the binding patch, while also fixed
-  the property ordering in the example
-- Renamed vop2_clk_reset() to vop2_reset_assert_deassert() and used to
-  devm_reset_control_get_optional_exclusive() in patch 6 (Philipp Zabel)
-- Addressed several issues reported by Sashiko
-  * Reset AXI before detaching the IOMMU domain, to close a theoretical
-    window where stale or in-flight DMA transactions could fault or
-    access memory untranslated after the domain is detached (patch 6)
-  * Fixed resource leak on vop2_enable() error path (new patch 2)
-  * Balance state on atomic_enable error paths (new patch 3)
-  * Avoided division by zero when computing max_dclk (new path 4)
-  * Fixed VOP2_MAX_DCLK_RATE overflow on 32-bit (new patch 5)
-- Rebased onto latest drm-misc-next
-- Link to v1: https://patch.msgid.link/20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com
-
----
-Cristian Ciocaltea (15):
-      dt-bindings: display: vop2: Add missing reset properties
-      drm/rockchip: vop2: Fix resource leak on vop2_enable() error path
-      drm/rockchip: vop2: Balance state on atomic_enable() error paths
-      drm/rockchip: vop2: Send pending event when atomic_enable() fails
-      drm/rockchip: vop2: Avoid division by zero when computing max_dclk
-      drm/rockchip: vop2: Fix VOP2_MAX_DCLK_RATE overflow on 32-bit
-      drm/rockchip: vop2: Reset AXI and DCLK to improve robustness
-      drm/rockchip: vop2: Avoid DCLK source switch for 10-bit YUV422 output
-      drm/rockchip: vop2: Consolidate HDMI PHY PLL clock parent switch
-      drm/rockchip: vop2: Switch to enum vop_csc_format
-      drm/bridge: dw-hdmi-qp: Log resolution and refresh rate in atomic_enable()
-      drm/rockchip: dw_hdmi_qp: Do not mask error code in atomic_check()
-      drm/rockchip: dw_hdmi_qp: Support 10-bit YUV422 output format
-      drm/rockchip: dw_hdmi_qp: Enable YUV420 output format
-      arm64: dts: rockchip: Add RK3588 VOP2 resets
-
- .../bindings/display/rockchip/rockchip-vop2.yaml   |  46 ++++-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  12 ++
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  10 +-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     |  15 +-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 217 +++++++++++++++------
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h       |  10 +
- 6 files changed, 247 insertions(+), 63 deletions(-)
----
-base-commit: 3e32932d3626d0279f9b3531bd648f8c0a16cb08
-change-id: 20260617-dw-hdmi-qp-yuv-2b0f7bb5ba81
+-- 
+2.55.0
 
 
