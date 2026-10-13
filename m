@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B372CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810E6CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRAFrg0S3ftbqJris0YLjBJevSM7MXf6TdgqLUs4uK4=; b=AVGcfUyZTvBlB2hARiYVBRZAT7
-	j/wBILbUmLcd+VfB0aORkEBrKq/hQaXTx5kjtG+R3xmGVA3fhD9RXwNoRjbqieEWKfeAXDjXFhIis
-	IA/9VeqnPvicMT3Q0f1pardVYohJcP8qCDgZbFoTTg1mebnwka5+vaHFdJHsYII2UwatuoDYazfX5
-	at00r2y/5zwmEVZSmne9S1HuGbFxdd6ANE0+R+kYiSQy599MvEXR/r1YlBIKUTq+OrGWpUyCo7pUy
-	AavDQR/QFrS5W3vfrIYYgHiPuan7xr+w1ZgiL/8FO8HmteOWE6hgxwxrVs4q6WKftB4IjHCgDboYJ
-	sO0cUcDw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qOLekdNuUKzpmlNyvUEJ41eSHKcZqRHe2taebwYI0Go=; b=gbQSZemZGXAAnXLsM33PvzwadJ
+	v0frYMcQpvFWxsbx7t+weC+FS9nEnuZHynuow65fm/cGrZQ/BK5xgr63WiFSY635VNhM3sfgJwSxw
+	TplTAj1QT2YEHadh8ZjRkR65rBBs7kv0ZcV9XRlEKXw5fHFdbfZMp7vFDYk92xX6exs+fO0C7oih9
+	eruVp4Ed48ylbhyk1QQz8kTruNbAaipP9Rx/CoAZKEWV1m9+jCZGqrYeUoZ5aq8gjNWpaHpHhehJw
+	XU8PQ8hqIcrOC0r8XWQ9EO0pqATtzh0cIO+3Joj3+Yyi1CEXMvPRJQtH0LTtLDaTxQIt9bBKCNjAk
+	C5xH74+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaW0-0000000CgHt-3gs5;
-	Tue, 13 Oct 2026 11:17:52 +0000
+	id 1xGaW3-0000000CgJ9-4AJH;
+	Tue, 13 Oct 2026 11:17:55 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaVy-0000000CgFz-2KXC
+	id 1xGaVy-0000000CgG2-2GAj
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 Oct 2026 11:17:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=CRAFrg0S3ftbqJris0YLjBJevSM7MXf6TdgqLUs4uK4=; b=lXmX1J4GPRqUcA3WWirPX0cgtB
-	/eo89izqWWRNIr0a5mtDG7zGN3xjYdeUPFUuiWJBYab8qbQSjuwfSy2J7/zQKw/clUP70eCKK+g6j
-	Lt8O4z+CLW9koSQodc4d42/JQ/I6eR/W9liWmhCSi046yBsRbSfw73eTSw8ur90z3ump7EOprA6BI
-	xRljqXABDj1p5i2MPZAld7iXa1ocG5o7AwBC6d2qmOeGnk0cRJgk/J976PPqNkMAi2kTZ3HFPcdiY
-	J9et/h/JGPc1bXjaaGZy9tjpM5IoPD+E1+Wi9YznwcQo7Br6ViUWSxDsYLUF85N0TDq8YiGLgCCGx
-	Zw5Ga7ww==;
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=qOLekdNuUKzpmlNyvUEJ41eSHKcZqRHe2taebwYI0Go=; b=YAvubxDSLgMXQsRLVXATgjnTRu
+	TeM+Df/7kbL3PpG9O/K1StvWDylRJiGYleSUQ7mv5zj5TnPw6e4ty6DGXxH2fS5M+Qh+gVbE+wkVa
+	qayoGrFSvZ9JMvDdR8rBRIkjGXBWlz7dFa1j4yMulvo8Z+5NKMQNXAgMdPiqxdZyNFvjxB/Xiogbi
+	T7KEhvuLEIPto301Kl97eXPQLEhIIApSd1gepYxrIketSCmcZJRj3MkGc6GBQ2EFXNHo+riRLfYfT
+	lfQawsFTPNpkyjzkwdzMEDhdlQ5Ejo+t9dmx0OqwUEU/2rlwS6oCoZXzRTljXVOavCDg4ubeRhIEN
+	HNwxwb9w==;
 Received: from sslproxy03.your-server.de ([88.198.220.132])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xGaVq-000OBu-31;
+	id 1xGaVq-000OBb-1c;
 	Tue, 13 Oct 2026 13:17:42 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xGaVq-0005it-1B;
-	Tue, 13 Oct 2026 13:17:42 +0200
+	id 1xGaVp-0005it-2s;
+	Tue, 13 Oct 2026 13:17:41 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
@@ -59,25 +59,23 @@ To: Frank Li <Frank.Li@nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Dong Aisheng <aisheng.dong@nxp.com>
-Cc: Liu Ying <victor.liu@nxp.com>,
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH 1/5] dt-bindings: firmware: imx: Add SCU controlled display pixel link nodes
-Date: Tue, 13 Oct 2026 13:17:25 +0200
-Message-ID: <20261013111737.998282-2-alexander.stein@ew.tq-group.com>
+	Liu Ying <victor.liu@nxp.com>
+Subject: [PATCH 0/5] LVDS support for TQMa8Xx
+Date: Tue, 13 Oct 2026 13:17:24 +0200
+Message-ID: <20261013111737.998282-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261013111737.998282-1-alexander.stein@ew.tq-group.com>
-References: <20261013111737.998282-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28152/Tue Oct 13 08:26:14 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_041750_689825_6124C278 
-X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-CacheID: sfid-20261013_041750_689737_40A4E511 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,47 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liu Ying <victor.liu@nxp.com>
+Hi,
 
-Document SCU controlled display pixel link child nodes.
+this series adds the LVDS support for TQMa8Xx on MBa8Xx. It is based on
+next-20261012.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../devicetree/bindings/firmware/fsl,scu.yaml | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+The first 3 patches are from an earlier v9 series from Liu Ying [1], with a
+smallmodification in patch 3 (changes mentioned there).
 
-diff --git a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-index 307f1c6278532..cd6cda1192a89 100644
---- a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-+++ b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-@@ -30,6 +30,26 @@ properties:
-       Clock controller node that provides the clocks controlled by the SCU
-     $ref: /schemas/clock/fsl,scu-clk.yaml
- 
-+  dc0-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc0-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-   gpio:
-     description:
-       Control the GPIO PINs on SCU domain over the firmware APIs
+Patches 4 and 5 add the overlay for LVDS support.
+
+Thanks to Liu for providing the DT patches earlier on.
+
+Best regards,
+Alexander
+
+[1] https://lore.kernel.org/all/20250414035028.1561475-17-victor.liu@nxp.com
+
+Alexander Stein (2):
+  arm64: dts: freescale: Add LVDS overlays for TQMa8Xx
+  arm64: dts: freescale: Add dual-channel LVDS overlay for TQMa8Xx
+
+Liu Ying (3):
+  dt-bindings: firmware: imx: Add SCU controlled display pixel link
+    nodes
+  arm64: dts: imx8qxp: Add display controller subsystem
+  arm64: dts: imx8qxp: Add MIPI-LVDS combo subsystems
+
+ .../devicetree/bindings/firmware/fsl,scu.yaml |  20 +
+ arch/arm64/boot/dts/freescale/Makefile        |  14 +
+ .../arm64/boot/dts/freescale/imx8-ss-dc0.dtsi | 408 ++++++++++++++++
+ .../boot/dts/freescale/imx8qxp-ss-dc.dtsi     | 240 ++++++++++
+ .../dts/freescale/imx8qxp-ss-mipi-lvds.dtsi   | 443 ++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi    |   7 +-
+ .../dts/freescale/mba8xx-lvds-g133han01.dtso  | 160 +++++++
+ .../freescale/mba8xx-lvds0-tm070jvhg33.dtso   |  88 ++++
+ .../freescale/mba8xx-lvds1-tm070jvhg33.dtso   |  88 ++++
+ arch/arm64/boot/dts/freescale/mba8xx.dtsi     |  58 ++-
+ 10 files changed, 1522 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/mba8xx-lvds-g133han01.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/mba8xx-lvds0-tm070jvhg33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/mba8xx-lvds1-tm070jvhg33.dtso
+
 -- 
 2.55.0
 
