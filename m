@@ -4,142 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6E2CC6B16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A033CCC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=; b=T/n8P3JjaW+dRpGs3W7Rv6zBPj
-	UFs+HGERGow5LmAvCKDClBctIDtMMxiKnCk5HJ+SO3uRxT+ZHnp835uE36aiw25pX+mufF6N7hX8X
-	h9oVMuXoqmGHZsguZ+H0eTClxQyDUAd/GjFtZjXHGf3l9rqbg9SFB/x/hY4Li+RpoZvMP1Mms09PF
-	pOAchzqlmeSA5gfh22nCulzVtdEBITVQNckWcQ+pkdgFTlcpOrLREBPmv6GS93Fyy4xVgVlfiejHR
-	l/4M6uBRO2piKWUCovcZVO422Prn1bxmkHp4Zh2ahwzoIFLQxHkyYcqZ/EIKeX+BuIc655Yym09ww
-	7IkCjisA==;
+	bh=45NPBWpuG2PMTMsqvm/ZHaqFngaU9inDYGxV4ki9ifs=; b=m1zmYkAxuN7WjoFE9WC5XCEi2P
+	eZ102Rcb8pIEpZLHp9Wtl99cNXqMP5HzXoq1QPcZQ+Z/96sIfnBBRDYNITiVc8YisvzWo+18FIIak
+	4DmZoqO+qSThlCs4M3+zH7wjCt346DUbMb9JZ6jiYNLv99/wRtAlc5JW+pAuW8Tu8ir8+gytzTItL
+	qRQb8jEf7yHqsAOcihLuOm9hsvhwvlU68ej9HVSrSjJwTJNWilqZKz3lJ4900VBvNMQAlQbMBJ55x
+	BYI16QOKS9NwQWk8sLeRWZVlNj7Dc2qmwtkR5YsMSPSiHNZzidYRqVhAYCWzB2uQMRiwkmJ/7TOi5
+	thDevtvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeVi-0000000DMBW-0Hyn;
-	Tue, 13 Oct 2026 15:33:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xGeZ4-0000000DN6P-3JAh;
+	Tue, 13 Oct 2026 15:37:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeVf-0000000DM9a-3wsx
+	id 1xGeZ2-0000000DN5p-3WtH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:33:49 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69DE40xf615484
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 15:33:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=HGeBD3r78PRe46uI+kLHVwNa
-	muj8NRza/V5oim/8S1s=; b=J2h8XG1wsM86CpohKwAVsMYjQidPsCgLchU5wXx8
-	NpEJHWAUg4xi+UmBNYdkc6TKf7j6BobzE47cQ/gdVXUuo+15j8kMGjhCeU9Vi+RL
-	ajEGJqmbP8s/EqvZbU/XqzgMSrXLbN1EgicPh0xdiMlmVnXAZjo9gHJ5Fan19llx
-	yr/Tz67OaktrxJszSPhUeYt5/qjEvjPLG7G4Yy8BpxYQLaL8Y9QsvSEZnMmH9TuN
-	nXCeCE4QxTtBFb6p+w0Zik3fCFZC8W7a+G8/cUHvzKom7ERk52fdIEhOtAy96X6F
-	Qo8TTT1tDONigKD3kIDhlDJZu73HdbpnS7tOzx5TDeccBw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9d7jauhy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 15:33:45 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93cb7f9bb86so619322285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:33:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791905624; x=1792510424; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=;
-        b=cFDVHr4/wWeRzjZneP2k/FDarr75qGw+4JwioczxiKKhkr7FlvivTfnE38sw6dXMfW
-         w0QRFjEkZXvPN9GdmloQc410di2KNKRugpSuD8lxHzDgYD/G04dtyta6FRu7d67CyOZm
-         HNgLtxbk3O26bS6mWBOhMMMJU3TK5KhpEye0IubHQPSQpU7DzuGTqVVYFkYcMBI3RE6u
-         fA7tGXQvEkhG/CwIlurWe2W00qdZyL47nG7I9/uGHWjUKScT8lL4jcconZxBfsuUb8Qt
-         cQ3Dmzf/iBf6ZM8HHcSRnYCtXrsaXalrBDdyPvMxjAG2V+yqAu3xne7zU5ytH0/XLmoq
-         IEVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791905624; x=1792510424;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HGeBD3r78PRe46uI+kLHVwNamuj8NRza/V5oim/8S1s=;
-        b=UBXtB7D4nQEWq3JHR+e3B2dm92EEcVe/GNpW44QvKjUTgL+2QhaQwcVxLqri1iwmSH
-         7TGA6DzaKQ4lRK/UyD44gyHvOBIzKryjxXhdjJ0SubkgdH1R0qADhZLVzFXOhQF5dd9P
-         OeY7q1Ll7V+Mhu8yrKYKXgya8+/tyiW0xTgKYv2uE9U0l35CigwIQ9Xxm20CQp5WQ0C3
-         zxbfSOV4Oo50g8qUkRDXZZhq2QTXZkMd2HW3qMSxyvTi9aMnJtBrlhDLyI8v8etMBLnD
-         emYZKO+HS+j4KMqXEs5p4SKDktaVwX7PCQ2EPuxhgI9oqg/C9x2PQkHkyUqia7l2uqPh
-         TAGg==
-X-Forwarded-Encrypted: i=1; AKwUvBwiAk/dK1gbnx66SqKZx8YArH8n7IDepm+4LIQSAqRsb8f7RNsp28nplbmjFJtsybIPmGSp/K48JKUseHhAwRmY@lists.infradead.org
-X-Gm-Message-State: AFq9FYK8tty8nRxCv7jBl+noYpIN9+a/tP96dfEkztNYnP5z2BPurKc6
-	MD8/cq7BP4UPwmS6rgcxq1MShpgj6gsj6vPEk6cVGKf5hdQsyDdAFeDa1Qu5NLSW2ClN98rynKv
-	0NYE7pUNP7BlouSKtbVBjVVGHVx9RM6WXFo+lAI2+JtTBu0Gut+2mfQR1fcxLFhl7EzQXaUAFqN
-	rggw67fXQRegtM
-X-Gm-Gg: AYBFou1o8OSWj1QdMN5+KV3wRPTrtBiRhjyG5HlH3/MC8OLTw3a0B9XUeP93vNjMHgW
-	l33qEwUq2nQ80bb+iGp/V4kuNjMhqrq76ploc+TxtskL+EeYy2lqJNehDtivkshwGyhWGJ+7pt9
-	cPJ5LYE4Yd79yqRt/yjKtEhqIgrpFD7WO0u3XlpZkQUF/ZkiZlw0+i2vrc3oeMsUUhUH2vRmFrE
-	IXhdTgkfYqswYu/tz3fPRwgXmECX6SVhK9eo7j58APvm3K4jnP4KUZabtxqac29Kdgm8Ta27210
-	c25tCnmpYAYiVwO2tKl1TjstR5yTBZXFQnpFW25XfksrgFzy568x+y6UstWdoxb2SHA2CWYplgs
-	ZRlKLY1XX7h1LQw==
-X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr2039604685a.3.1791905623798;
-        Tue, 13 Oct 2026 08:33:43 -0700 (PDT)
-X-Received: by 2002:a05:620a:3711:b0:93e:9292:1bb0 with SMTP id af79cd13be357-93ebd0c08e9mr2039594885a.3.1791905622602;
-        Tue, 13 Oct 2026 08:33:42 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0aaabb8sm6621534f8f.15.2026.10.13.08.33.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 08:33:41 -0700 (PDT)
-Date: Tue, 13 Oct 2026 17:33:41 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-        john.fastabend@gmail.com, sdf@fomichev.me, boon.leong.ong@intel.com,
-        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload
- for jumbo frames on bugged cores
-Message-ID: <as5PVATLFOcTHbkV@lore-desk>
-References: <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
- <179190522792.434549.2113659711683261245@kernel.org>
+	Tue, 13 Oct 2026 15:37:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 48CDD60A56;
+	Tue, 13 Oct 2026 15:37:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 260111F000FF;
+	Tue, 13 Oct 2026 15:37:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791905836;
+	bh=45NPBWpuG2PMTMsqvm/ZHaqFngaU9inDYGxV4ki9ifs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TyWpVrLqAtEiZ/xCttrXNqMMCpkOgGN02fHQnmQi3NLkg+hAsOBB0YuplOkjKJsyD
+	 pXG6vdXLT0alpbPoQ641+8si2elcykM3GJmJKVn4YSMhwEqYymkTr5Wxh6Xgi45c1n
+	 a/1D/exDt+kY37WH7aZrsgNUEobktJtFE8DhXvGy03Octs2Aveh8BFUCVs+JDMgfjC
+	 U8wOvzui2h9QbJ9TwU9dbLesE9vEJU67mPM1L7EKhQA1oeRuAAiWWXFk8ZuCRRxdHm
+	 z+lZiCFy7DFrYQllHlsZHN+whXQ6CP3uwedCuo5l33HC/TT5iPAcK8xKfnuOdVZxjM
+	 CbkDB6ws47MlA==
+Date: Tue, 13 Oct 2026 16:37:05 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Nishanth Menon <nm@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	alexander.sverdlin@siemens.com, jan.kiszka@siemens.com,
+	ayush@beagleboard.org, robertcnelson@gmail.com,
+	upstream@lists.phytec.de, francesco.dolcini@toradex.com,
+	leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
+	stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
+	thomas.richard@bootlin.com, miquel.raynal@bootlin.com,
+	mwalle@kernel.org
+Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
+Message-ID: <b76c9619-0485-47f2-85a5-9fc2bc7ddc6a@sirena.org.uk>
+References: <20260910134409.1713610-1-nm@ti.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LxLLuhv1acDbnu1W"
+	protocol="application/pgp-signature"; boundary="nT0mY8isk5i19UMu"
 Content-Disposition: inline
-In-Reply-To: <179190522792.434549.2113659711683261245@kernel.org>
-X-Proofpoint-GUID: yzaTu8cziV2EjOjCTFRjsnnL8RCQs8RH
-X-Proofpoint-ORIG-GUID: yzaTu8cziV2EjOjCTFRjsnnL8RCQs8RH
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA2MSBTYWx0ZWRfXyqQpDRPJonCH
- vakeaifX7AX3SkDlT+GZ9RPmj8zjlf88SICObYK1uWuA/XALzOqEOJ3H3O3lM4/Ue0a+4Y/BYes
- G8G23H2MWOMqQndx+zzTk1/sdkg4pt0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA2MSBTYWx0ZWRfXzO7XqVJuedvf
- 8HSPLqe68a2K71sRADZp9LEX0RFfh5nBLIiI08+8QxKBUjRAYtudJUO1LgVJ+2f4mBYsrO1kjnD
- 4mz/5vHLKJA5zy3Jv41hb7QNHDTyszx0L3mhOLNI7J79JtufH2XBRR/S5eiI+CEoWJs7fNtW0oA
- SBjEw17Ei77oqwMaCbhw5QbmNLySJOoo2uUUd3pM3nwwp0rH30nMTWSlaCLzXk6wRpxxL85fWHU
- s96eYNYE6ppFLtLgec1Ob+Q8YlFb/FwxwsAn6zfAxzsxgSJulzqzARcuzVmT2r7zLP9xDL1yZoO
- uWLhVi7nFam89B1mSPkI5Fl1IMS4d0kmgn8imxMVZfnxKCHj292O2TgPZBh6vxroTeTdyY1Pq2u
- PBEWHqbikGvlAJbwp/9hUPkM3kopSiBF8ZNwQUkxGstV6YZS7K50cC9om2byxo/87Hd63xFo1St
- fJZSFAzrOe6ZuEn+d/w==
-X-Authority-Analysis: v=2.4 cv=PMGaavqC c=1 sm=1 tr=0 ts=6ace4f59 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=cRO2Fxw6IMYKndE-NWIA:9 a=QEXdDO2ut3YA:10
- a=R2sLeNz3RpVDkO3zkzYA:9 a=IoWCM6iH3mJn3m4BftBB:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 impostorscore=0 malwarescore=0
- lowpriorityscore=0 clxscore=1015 adultscore=0 spamscore=0 phishscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610130061
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_083348_018912_F294B43E 
-X-CRM114-Status: GOOD (  43.13  )
+In-Reply-To: <20260910134409.1713610-1-nm@ti.com>
+X-Cookie: Some assembly required.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,164 +82,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---LxLLuhv1acDbnu1W
-Content-Type: text/plain; charset=utf-8
+
+--nT0mY8isk5i19UMu
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
->=20
-> Low priority / nit picks for your consideration:
->=20
-> - [Low] The commit message's premise doesn't match the tree.
->=20
-> Pre-existing issues:
-> - [Medium] This problem wasn't introduced by this patch, but
->   stmmac_xdp_xmit_xdpf() never looks at priv->plat->tx_coe when deciding=
-=E2=80=A6
->=20
-> --
->=20
-> net: stmmac: disable TX checksum offload for jumbo frames on bugged cores
->=20
-> This patch turns off TX checksum insertion in stmmac_xdp_xmit_xdpf() for
-> frames longer than ETH_FRAME_LEN on bugged_jumbo cores. It is meant to
-> match the stmmac_fix_features() workaround that the skb path already uses.
->=20
-> > The XDP TX
-> > path bypasses that workaround, so once XDP is allowed at MTU >
-> > ETH_DATA_LEN, jumbo frames sent via XDP_TX or redirected into the
-> > device would leave the interface with a full checksum insertion enabled
-> > on those cores - exactly what the workaround is meant to avoid.
->=20
-> [Severity: Low]
-> Can this scenario happen in the current tree? XDP still can't be used with
-> a jumbo MTU. stmmac_xdp_set_prog() refuses to attach a program when the M=
-TU
-> is above ETH_DATA_LEN:
+On Thu, Sep 10, 2026 at 08:44:09AM -0500, Nishanth Menon wrote:
+> Now that all relevant drivers have are ready, convert the
+> TISCI drivers to modules. This impacts all K3 platforms for
+> boot, recommendation (based on empirical evidence) is to use
+> deferred_probe_timeout=60 in kernel command line to allow for driver
+> probes to complete successfully based on the initrd used.
 
-This is actually a preliminary fix needed to remove the MTU limitation when=
- the
-device is running in XDP mode.
+I'm seeing boot failures in -next on the k3-am625-verdin-wifi-mallow
+which bisect to this commit, unfortunately the failure mode is that we
+get no console output which isn't super helpful (I'll try to persuade
+earlycon on but there's some issues with my CI setup).  I *should* have
+modules in the initramfs, I'm suspecting some dodgy deferred probe
+handling or something.
 
->=20
-> drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
->     ...
-> 	if (prog && dev->mtu > ETH_DATA_LEN) {
-> 		/* For now, the driver doesn't support XDP functionality with
-> 		 * jumbo frames so we return error.
-> 		 */
-> 		NL_SET_ERR_MSG_MOD(extack, "Jumbo frames not supported");
-> 		return -EOPNOTSUPP;
-> 	}
->     ...
-> }
->=20
-> stmmac_change_mtu() also refuses a jumbo MTU while XDP is enabled:
->=20
-> 	if (stmmac_xdp_is_enabled(priv) && new_mtu > ETH_DATA_LEN) {
-> 		netdev_dbg(priv->dev, "Jumbo frames not supported for XDP\n");
-> 		return -EINVAL;
-> 	}
->=20
-> The redirect case looks limited too. Devmap checks every frame with
-> xdp_ok_fwd_dev(dev, xdp_get_frame_len(xdpf)), which caps the length at
-> mtu + hard_header_len + VLAN_HLEN. At MTU 1500 that is 1518 bytes.
-> Redirected frames therefore reach the new ETH_FRAME_LEN check only when
-> they are 1515 to 1518 bytes long, which is VLAN-tagged normal-size
-> traffic, not jumbo.
->=20
-> The one path that seems to reach the new check today is XDP_TX after the
-> program grows the frame. At MTU 1500, stmmac_rx() still sets frame_sz to
-> at least PAGE_SIZE:
->=20
-> 	bufsz =3D DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
->=20
-> A program can therefore use bpf_xdp_adjust_tail() to grow a frame past
-> 1514 bytes and return XDP_TX. stmmac_xdp_xmit_xdpf() never checks that
-> length against the MTU.
->=20
-> Could the commit message describe the trigger that exists today, and say
-> whether the bugged_jumbo erratum covers it? If this patch depends on a
-> separate change that allows XDP at a jumbo MTU, could the message say so?
-> The Fixes: tag reads as if the problem can be hit now.
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index ca61ab449e32b..0e29c5d04714c 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -5276,6 +5276,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_pr=
-iv *priv, int queue,
-> >  		return STMMAC_XDP_CONSUMED;
-> >  	}
-> > =20
-> > +	/* Disable TX checksum offload for jumbo frames on cores where
-> > +	 * checksum insertion is broken for oversized frames, matching the
-> > +	 * stmmac_fix_features() workaround used by the skb path.
-> > +	 */
-> > +	if (priv->plat->bugged_jumbo &&
-> > +	    xdp_get_frame_len(xdpf) > ETH_FRAME_LEN)
-> > +		csum =3D false;
->=20
-> [Severity: Medium]
-> This is a pre-existing issue, not one introduced by this patch. The
-> comment says this matches stmmac_fix_features(), but that function also
-> turns off TX checksum offload when tx_coe is unset:
+bisect log:
 
-since this issue has not been introduced by this patch, it needs to be fixed
-with a dedicated patch.
+# bad: [4eb2586bd40db27d77cc5b724ca9386ed0c71d53] Add linux-next specific files for 20261012
+# good: [1d1c098dffddd29549b00946759ae0923f66b9c4] Merge branch 'for-linux-next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
+# good: [c9b15cd49b3fbd54f3382655b4e898921a7adb4e] arm64: dts: ti: var-som-am62p: Fix wkup R5F memory region size
+# good: [483872c9385c9726b056428adbaaf213623ab5a3] ARM: dts: ti: keystone: k2g: Move usb-phy nodes out of simple-bus
+# good: [b1368ab37a986bd448e989998eba6ad563207e06] Merge branches 'ti-drivers-soc-next' and 'ti-keystone-dts-next' into ti-next
+git bisect start '4eb2586bd40db27d77cc5b724ca9386ed0c71d53' '1d1c098dffddd29549b00946759ae0923f66b9c4' 'c9b15cd49b3fbd54f3382655b4e898921a7adb4e' '483872c9385c9726b056428adbaaf213623ab5a3' 'b1368ab37a986bd448e989998eba6ad563207e06'
+# test job: [c9b15cd49b3fbd54f3382655b4e898921a7adb4e] https://lava.sirena.org.uk/scheduler/job/91694
+# test job: [483872c9385c9726b056428adbaaf213623ab5a3] https://lava.sirena.org.uk/scheduler/job/92558
+# test job: [b1368ab37a986bd448e989998eba6ad563207e06] https://lava.sirena.org.uk/scheduler/job/92473
+# test job: [4eb2586bd40db27d77cc5b724ca9386ed0c71d53] https://lava.sirena.org.uk/scheduler/job/93242
+# bad: [4eb2586bd40db27d77cc5b724ca9386ed0c71d53] Add linux-next specific files for 20261012
+git bisect bad 4eb2586bd40db27d77cc5b724ca9386ed0c71d53
+# test job: [72c85b5b41c211b3c71335a7b86a2b61bded6a55] https://lava.sirena.org.uk/scheduler/job/92326
+# bad: [72c85b5b41c211b3c71335a7b86a2b61bded6a55] Merge branches 'ti-k3-dts-next', 'ti-k3-config-next', 'ti-drivers-soc-next' and 'ti-keystone-dts-next' into ti-next
+git bisect bad 72c85b5b41c211b3c71335a7b86a2b61bded6a55
+# test job: [11a51e82e1f997975a28358a1dcffec190ea7282] https://lava.sirena.org.uk/scheduler/job/94775
+# good: [11a51e82e1f997975a28358a1dcffec190ea7282] arm64: dts: ti: k3-am62-verdin: fix main_gpio0/main_gpio1 line names size
+git bisect good 11a51e82e1f997975a28358a1dcffec190ea7282
+# test job: [712357fa6b256b0a6bcf9a26b5c52e8bce36680a] https://lava.sirena.org.uk/scheduler/job/94813
+# good: [712357fa6b256b0a6bcf9a26b5c52e8bce36680a] Merge branch 'ti-k3-dts-next' into ti-next
+git bisect good 712357fa6b256b0a6bcf9a26b5c52e8bce36680a
+# test job: [e557da9b756dba66f9b1ae8bb27add2b7719baf4] https://lava.sirena.org.uk/scheduler/job/94891
+# bad: [e557da9b756dba66f9b1ae8bb27add2b7719baf4] arm64: configs: defconfig: Convert TISCI to modules
+git bisect bad e557da9b756dba66f9b1ae8bb27add2b7719baf4
+# first bad commit: [e557da9b756dba66f9b1ae8bb27add2b7719baf4] arm64: configs: defconfig: Convert TISCI to modules
 
-Regards,
-Lorenzo
-
->=20
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_fix_features() {
->     ...
-> 	if (!priv->plat->tx_coe)
-> 		features &=3D ~NETIF_F_CSUM_MASK;
->     ...
-> }
->=20
-> In stmmac_xdp_xmit_xdpf(), csum comes only from the per-queue flag:
->=20
-> 	bool csum =3D !priv->plat->tx_queues_cfg[queue].coe_unsupported;
->=20
-> stmmac_hw_init() clears tx_coe when threshold DMA mode is forced:
->=20
-> 		/* TXCOE doesn't work in thresh DMA mode */
-> 		if (priv->plat->force_thresh_dma_mode)
-> 			priv->plat->tx_coe =3D false;
->=20
-> stmmac_dma_operation_mode() then runs TX in threshold mode
-> (txmode =3D tc).
->=20
-> On platforms with snps,force_thresh_dma_mode, do XDP_TX and ndo_xdp_xmit
-> frames still request full checksum insertion through
-> stmmac_prepare_tx_desc() in a DMA mode where the driver treats TX COE as
-> broken? Should the XDP path also check priv->plat->tx_coe here?
->=20
-> >  	while (true) {
-> >  		skb_frag_t *frag =3D i ? &sinfo->frags[i - 1] : NULL;
-> >  		int len =3D frag ? skb_frag_size(frag) : xdpf->len;
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1%40oss.qualcomm.com
-
---LxLLuhv1acDbnu1W
-Content-Type: application/pgp-signature; name=signature.asc
+--nT0mY8isk5i19UMu
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas5PVAAKCRA6cBh0uS2t
-rBh4AP9zsPqcy5v4MxxUTWhZ0mz6mxVY53by/yLBAIv2hnvqoAD+NV1ihtRAqalp
-oG98y0xYkm4wcIjB5r1EF/ebj3Ig1go=
-=LEQo
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrOUCAACgkQJNaLcl1U
+h9B/CAf+OP/Zx9VGoK9IB2pwEmbfZG7zHXNyhapGB1Lj+1QCxDTin/mQB4cIAXQo
+XANGZJGR7Yt9EEILy1QLa3QDkKz674oft7V9sQ/wkaIfaIifxnRomXLvXbIS1vfk
+ZRMgPJ5nILrlZSoIC1RZOtYkICFuKqGgulZMxdXiBYHYYD+OfbPO7JwjdC5xsD3+
+3IHxdJ3WheDfxK5yWyQv4eGkgBIYXxKBx3JKjPafCDpf0tdsGOfDBSHD7O4rb/Lz
+/CiOkGRel2ctzaC95IAZT4k3PxEE2SkhC/2uv3yL+hdNZ1ruTsdWlzNi1E+4DL0X
+Z9A/JOpnljFope+78OZTB8e3wN8xow==
+=uwPz
 -----END PGP SIGNATURE-----
 
---LxLLuhv1acDbnu1W--
+--nT0mY8isk5i19UMu--
 
