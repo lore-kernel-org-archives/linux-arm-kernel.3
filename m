@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0EECC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D7CCA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PwLxNOFwoQXW7+W+m9Z6B9NLRJR3CBuEEpDCbi6SBic=; b=ko5egjRa+znmuKN6amznFNizga
-	1WTfA/dYyaB2AJF1D7T7tEpXKQWlDMN2zF6catg2ZbaZsmcAuGk2hEm0ZMJCqHvDETi2U3+gTDuX6
-	6PJJX3J1Rh2plGQWWjCdxcqH1TM4INVptHYGRZaq02Eg3xaZwCpEi2uVM3+6mqOEbRAOSpKDa3c1I
-	ykGAHLHoEmXETJkLO2ETYj/zPnEzKOHxIXIKmKdFTBJuFe8RJghMW0bsPDF82vCwsWOEhJnkiS/5a
-	JeDT+Xi7nkmcFkYU49wSK8vaeIg9CUPZN+Heru4bzSirH/DIDZS5xgBvNutSnp5W+/n1PJElG22/B
-	u2/UQBrQ==;
+	bh=JQCxumn3XpiebVDH8mWC56o1kMdP1z38mjE4HUn/wVk=; b=EQ2fknsHfc0ziJbwJUyLG3wxXd
+	+/JuPna2s8yYoklYgf1pSrY0hTeLLRHIP7mjpKO+iVGehEuzbbHk6UdN/zIET5+R2IOOCgagCqdBQ
+	ZTSXo/rGKOC20K7sxS+lqBXT8qLmLJLI0Xz1MLH1OKWCkZ+GUHSHMpuPH/CWlBDqZWKD8Gjms9msr
+	g1rG7x7VXb4y+D7d70IIr9hdDtUAydB/sgqQzD/7dBqfwguo9lrokaUJQrOQBdrfGgFsnlYhqgnO+
+	SAXEVRVUOevAM+xrGe9ReyjcoRMb7WVIYnpC+vQkGiF2hE3IoaWp71B/OyjKV34UqrSkZyLwTNXXo
+	RR3Y9GwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcVH-0000000CwcL-1Nt0;
-	Tue, 13 Oct 2026 13:25:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGcWh-0000000Cwn4-2Rz4;
+	Tue, 13 Oct 2026 13:26:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcVF-0000000CwcE-3W4i
+	id 1xGcWd-0000000CwmL-2Ndd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:25:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A59260A5E;
-	Tue, 13 Oct 2026 13:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E0E1F00893;
-	Tue, 13 Oct 2026 13:25:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791897912;
-	bh=PwLxNOFwoQXW7+W+m9Z6B9NLRJR3CBuEEpDCbi6SBic=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dSbKGPNRxJPPOMFpbge1zMm1SfL13jy9ENTnh7KtZIMFidWfOFhgk2FptTGUif2ao
-	 LRJ5aaaSGLKTbZQ0bLZYyjELXZ4VsJBGm1labQHWOdZdWyWX7TjqKPRaLV5WuF/yU7
-	 MiUQ5TWevmPBZZWkn0bzqsPjo1k+WxmRk/HajK6Uh6skEuC+nTMa01/d7SO7yL1jM8
-	 IMpBXQxLRSR188YW8t7tjCaLzCeQ4mf1cQuj2S3aICIaRmFJoHbnScEz3oPqG8ZyJK
-	 jsKTHbTy7C/wtsHDTkd1fKGX025mpXe571dZF7vMESZLpr8TNdTOhZXMmQQz0U0TvW
-	 yDf01FORPI5eg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xGcVC-00000002NMW-1eHk;
-	Tue, 13 Oct 2026 13:25:10 +0000
-Date: Tue, 13 Oct 2026 14:25:09 +0100
-Message-ID: <86tsmp20ne.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Tue, 13 Oct 2026 13:26:42 +0000
+Received: from killaraus.ideasonboard.com (unknown [185.104.138.147])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 14B34230;
+	Tue, 13 Oct 2026 15:24:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1791897875;
+	bh=D8X9/HU1ytSHn2aUiGxbzXM2r3PCSS7f5TTvhXGJReE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dOJAdN4oo3bZ4UV4ry2O66vUFwnVItB9gsiljzn8x4WEU+bobir9DPk/muyzzsC0d
+	 JhoZphnyEt1WwdKyFGzvWU8TvGPzGguBDj/HuVLpgGp+qLU/iGV4pu0kHWTzwjhTqC
+	 oQmLZ9T9Bh6tTlESdiElCOynkkb82ehyl66fRGYs=
+Date: Tue, 13 Oct 2026 15:26:25 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
-In-Reply-To: <CA+EHjTyZA6VL6EjhkB2bf9fDk4fUWpc=iXsu+sR1B+_YbR-nOQ@mail.gmail.com>
-References: <20261013081646.933312-1-fuad.tabba@linux.dev>
-	<as3_NKT20MNdqaJR@kernel.org>
-	<86wlrl2a2f.wl-maz@kernel.org>
-	<CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
-	<86v77526me.wl-maz@kernel.org>
-	<CA+EHjTyZA6VL6EjhkB2bf9fDk4fUWpc=iXsu+sR1B+_YbR-nOQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: Re: [PATCH v3 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
+Message-ID: <20261013132625.GA159927@killaraus.ideasonboard.com>
+References: <20260916204509.166633-1-marex@nabladev.com>
+ <20260916204509.166633-2-marex@nabladev.com>
+ <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_062639_749055_88D52674 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,126 +72,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 13:59:22 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+Hi Michal,
+
+On Tue, Oct 13, 2026 at 10:21:26AM +0200, Michal Simek wrote:
+> On 9/16/26 22:44, Marek Vasut wrote:
+> > Add support for ifm ZynqMP VHIP6 EvalBoard reference design.
+> > The board is populated with four ethernet ports, QSPI NOR,
+> > eMMC, UART and USB host interfaces.
+> > 
+> > Signed-off-by: Marek Vasut <marex@nabladev.com>
+> > ---
+> > Cc: Conor Dooley <conor+dt@kernel.org>
+> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > Cc: Michal Simek <michal.simek@amd.com>
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: devicetree@vger.kernel.org
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-kernel@vger.kernel.org
+> > ---
+> > NOTE: Checkpatch complains about ethernet-phy-id2000.a240 being
+> >        undocumented, but the TI DP83822I is generic C45 PHY that
+> >        is valided by Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> > ---
+> > V2: - Rename lm75 node to sensor@
+> >      - Use GPIO_ACTIVE_LOW macro
+> > V3: - Drop bogus clk_ignore_unused bootargs
+> >      - Drop gpio line names
+> > ---
+> >   arch/arm64/boot/dts/xilinx/Makefile           |   1 +
+> >   .../dts/xilinx/zynqmp-vhip6-evalboard.dts     | 300 ++++++++++++++++++
+> >   2 files changed, 301 insertions(+)
+> >   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-vhip6-evalboard.dts
 > 
-> Hi Marc,
-> 
-> On Tue, 13 Oct 2026 12:16:09 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > > A vCPU on its way into the guest does the same: it loads its LRs in
-> > > kvm_vgic_flush_hwstate() while it's still OUTSIDE_GUEST_MODE, so
-> > > kvm_arm_halt_guest() doesn't wait for it. With the delay after the
-> > > flush instead, on v2 plus your 1/7 and 2/7 [2] and both changes from
-> > > your reply to 1/7 [3], the guest takes it in 9 of 20 runs.
-> >
-> > Does this mean we still need OUTSIDE_GUEST_MODE to be a store-release
-> > past the point where we resync the state?
-> 
-> Not for the 9 of 20: that run already had the release. The halt reads
-> the OUTSIDE_GUEST_MODE the vCPU published at its previous exit, so it
-> doesn't wait for the early exit that folds the LPI back.
-> 
-> We do still need it for the window after the exit: with the delay
-> there and the same patches applied, the guest takes it in none of 20
-> runs, against 13 of 20 on v2.
+> I am not able to review or take this board support further without publicly 
+> available hardware documentation for the platform (board-level and relevant 
+> interface details). Please share public documentation links once available, and 
+> I’ll be happy to revisit the patches.
 
-I don't understand what these probabilities represent. Either it works
-or it doesn't. And given that I have no idea what you are testing
-with, I can't really make head or tail of the above.
+There are plenty of boards that have no public documentation. Pretty
+much all phones and laptops are like that. We even have a whole
+architecture that only runs on a few machines in a single person's
+basement [*] :-) The kernel has never required public schematics for
+boards, SoCs or IP cores.
 
-> 
-> > > Once DISCARD waits for irq->on_lr to clear before clearing
-> > > pending_latch, the guest takes it in none of 20 runs in either case.
-> > > I'll add that to v3, unless the single-vcpu stunning already waits for
-> > > it.
-> >
-> > Polling for on_lr feels very dodgy, and I'd like to avoid this. If the
-> > OUTSIDE_GUEST release addresses it, I'd rather do that.
-> 
-> I'd rather avoid the polling too, but the release alone doesn't close
-> this one. The vCPU would also need to store IN_GUEST_MODE and check
-> its requests before kvm_vgic_flush_hwstate(), so that it never loads
-> its LRs while it's OUTSIDE_GUEST_MODE. The existing check after the
-> flush would still be needed, for the KVM_REQ_GUEST_HYP_IRQ_PENDING
-> request kvm_vgic_flush_hwstate() makes in a nested state. With that
-> and the release, the guest takes it in none of 20 runs with the delay
-> after the flush, and herd7 finds no LKMM execution that leaves it
-> pending.
-
-If you have a herd litmus test, how about posting it? It would really
-avoid a lot of that back and forth where the S/N ratio is pretty poor.
-
-> The IN_GUEST_MODE change would also cover vgic_mmio_change_active(),
-> which depends on the same halt (the comment above
-> vgic_access_active_prepare()). Would you be OK folding it into your
-> series, on top of your OUTSIDE_GUEST_MODE changes? Patch 2 then
-> wouldn't need the on_lr wait.
-
-Is the hack below what you are asking for? I can't tell. If it isn't,
-please post your own version.
-
-Thanks,
-
-	M.
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0576c2022ef57..f1449b08531eb 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1321,10 +1321,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		local_irq_disable();
- 
--		kvm_vgic_flush_hwstate(vcpu);
--
--		kvm_pmu_update_vcpu_events(vcpu);
--
- 		/*
- 		 * Ensure we set mode to IN_GUEST_MODE after we disable
- 		 * interrupts and before the final VCPU requests check.
-@@ -1333,14 +1329,18 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 */
- 		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
- 
-+		kvm_vgic_flush_hwstate(vcpu);
-+
-+		kvm_pmu_update_vcpu_events(vcpu);
-+
- 		if (ret <= 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
--			vcpu->mode = OUTSIDE_GUEST_MODE;
- 			isb(); /* Ensure work in x_flush_hwstate is committed */
- 			if (kvm_vcpu_has_pmu(vcpu))
- 				kvm_pmu_sync_hwstate(vcpu);
- 			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
- 				kvm_timer_sync_user(vcpu);
- 			kvm_vgic_sync_hwstate(vcpu);
-+			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
- 			local_irq_enable();
- 			preempt_enable();
- 			continue;
-@@ -1356,7 +1356,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		ret = kvm_arm_vcpu_enter_exit(vcpu);
- 
--		vcpu->mode = OUTSIDE_GUEST_MODE;
- 		vcpu->stat.exits++;
- 		/*
- 		 * Back from guest
-@@ -1390,6 +1389,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 		kvm_arch_vcpu_ctxsync_fp(vcpu);
- 
-+		/*
-+		 * All the state has been synchronised, let advertise
-+		 * we're outside of the guest.
-+		 */
-+		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
-+
- 		/*
- 		 * We must ensure that any pending interrupts are taken before
- 		 * we exit guest timing so that timer ticks are accounted as
+[*] A slight exageration possibly, but that's how I heard arch/alpha/
+    being described at the maintainers summit.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Regards,
+
+Laurent Pinchart
 
