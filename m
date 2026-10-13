@@ -4,136 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62194CA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB7DCA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wcA9fhPG0oSyL4cbPGDpUO0KZiowx8q5haLFn7LRlFE=; b=UDFNjmpQyXmXWWlZTRvoMVpUMm
-	RZJi3QKuwiG6q+bA5tkRQ5MtvfnfVBMscxmuHkv5JByE+TN/yl+/ktYmdcMprT8sZXV2ACozXkuct
-	Zog/Lm1srVNKvUvGfgNlaF6sKZ/498vyYKkLs91vRn5tDixYKD9+w1mKPBt5tcTWzRWLTs9KelIj5
-	AiwoqTT1XgBXFRG0bkAgt6tvbyZvuMupnEweESTAEaKNbB2nU30ARmIQd/713nCgBZvJ94xLjFFo2
-	h2x9dlEA3I7RH3ikkhKP4INw3/m04PJ0JLME/WpX7jPSICcH4ogRzpMEBOCMEqd5HFbtmOSKq7MYW
-	0vxppwRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AFHzR5TFeZGnqwFD0CxAvQ2lyL98rIjFKD+P/ODefPI=; b=uBsDv0m051uzz3aQfhcGeQFqqa
+	I1NE05s4yYcyiEBZnWGnWgvFq+r0joUL5aIomIe6gm9ArtCbC3Rz7qPSwxjevv2EAa9xiEdct5767
+	6t6jKYHUNsDmBmgNVNicY5pPWUDtA6cLDMpzZsqGHOuCGo0Icd+QAL9qDuooz8bHA2FeT194Jipu8
+	bm2UMqtrqXMQrCujytc8d3cQGLmDec31KPX2Ip+1lIAE7Ubtkv0xQOc6MTzGhMcKGozq6wamuhFP9
+	c6wBtp6DrjzzH52UB7dWGj8MfuUxZU04YHRm3K+kHNdYtRUqjDcAKYSdqhEjvL6JRHEfwIBzVxOna
+	SINBaJpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaLS-0000000CfUY-2GaY;
-	Tue, 13 Oct 2026 11:06:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGaQd-0000000Cfss-21cG;
+	Tue, 13 Oct 2026 11:12:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaLN-0000000CfTr-14Gm;
-	Tue, 13 Oct 2026 11:06:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB9CE60A52;
-	Tue, 13 Oct 2026 11:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879071F000FF;
-	Tue, 13 Oct 2026 11:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791889612;
-	bh=wcA9fhPG0oSyL4cbPGDpUO0KZiowx8q5haLFn7LRlFE=;
-	h=Date:Subject:List-Id:To:Cc:References:From:In-Reply-To;
-	b=oBDJPa1jPL+/onrK8fQoCOVBlihc25js/H2NtNLihmVVMb50mUlZULQGs1RlxN5l8
-	 aWJleQmwz27glDKiKrt5fxwfjwwoXdkM1bEi+mmT9pTi5ZefX7QCbTtZYGp63agN18
-	 TZEk2jPjou5oRheY0MFv3Kj8VbUhDfe5EEFbs6AJZLbfeeiw2Dv39ToH7RcsVVaCVV
-	 AxIG2tKbfrmrTUsda/6ruLRJ/sWX+Px5tAXQaINiZDanrGiJzAJBded5mO8+xs7wV1
-	 1m0PaQx9k+AQ84dnAVcU8hzhdJ0oEL61fsAC5d2lPUDKlr5h7csS5pMr7GkHMDRXua
-	 30omhPNpueOWA==
-Message-ID: <f808883b-464e-4de8-a0c1-f799fd3d755e@kernel.org>
-Date: Tue, 13 Oct 2026 13:06:41 +0200
+	id 1xGaQW-0000000CfsJ-12h3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 11:12:18 +0000
+Received: from killaraus.ideasonboard.com (unknown [185.104.138.147])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C3259BC;
+	Tue, 13 Oct 2026 13:10:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1791889807;
+	bh=TLb9LXej9xG19WtKDwfE0UKEiJVXsGn15ErYlOXigNA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TlB8Bi30S5ri9HBtUHlzY6zY08CIHKtIIbBSKb5dt3zziN/pA8ByDTu5OVF15NSXn
+	 4xX7plyX8+U+sKzluFZfMATxaCJc0e/z0jlrmKi5bA3n8XANXoMWrPozvIdfIiMT60
+	 g+KdWAYoNwARwKCbEJ7Ue5TdERCKx0zSHWA4Wlas=
+Date: Tue, 13 Oct 2026 13:11:58 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Leonardo Costa <leoreis.costa@gmail.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 0/3] Add VGA support for Apalis iMX6
+Message-ID: <20261013111158.GG56180@killaraus.ideasonboard.com>
+References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
+ <20261012164054.GA56180@killaraus.ideasonboard.com>
+ <20261013090631.GA33628@francesco-nb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
- uart_8250_port
-To: Alejandro Colomar <alx+linux-hardening@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Richard Cochran <richardcochran@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <ray.jui@broadcom.com>,
- Scott Branden <scott.branden@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
- Paul Cercueil <paul@crapouillou.net>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>,
- Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-parisc@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <cover.1791873876.git.jirislaby@kernel.org>
- <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
- <as3etnbZatn4sbfx@ashevche-desk.local>
- <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
- <as31PsESOgLUhMB6@ashevche-desk.local>
- <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org> <as4JDXOIGvCbAnE_@debian>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <as4JDXOIGvCbAnE_@debian>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261013090631.GA33628@francesco-nb>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_041217_878548_689D7651 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,21 +85,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13. 10. 26, 12:51, Alejandro Colomar wrote:
-> 	alx@debian:~/src/linux/linux/master$ time rg -n ARRAY_SIZE | wc -l
-> 	58957
-> 
-> 	real	0m0.512s
-> 	user	0m0.490s
-> 	sys	0m0.974s
-> 
-> It's around 50% faster, which I wouldn't call orders of magnitude.
+Hi Francesco,
 
-If you pipe rg's output somewhere, it no longer works in parallel.
+On Tue, Oct 13, 2026 at 11:06:31AM +0200, Francesco Dolcini wrote:
+> On Mon, Oct 12, 2026 at 06:40:54PM +0200, Laurent Pinchart wrote:
+> > On Mon, Oct 12, 2026 at 04:25:22AM -0300, Leonardo Costa wrote:
+> > > This series adds a device tree overlay that enables the VGA output on Apalis
+> > > iMX6, which is driven from a parallel RGB interface passing through a
+> > > non-programmable video DAC.
+> > > 
+> > > The video DAC is a simple resistor network gated by an active-low
+> > > data-enable signal. For the bridge to work properly, this series also
+> > > changes the following in the dt-bindings and simple-bridge driver:
+> > > 
+> > > - dt-bindings: Add a new compatible for the bridge in the simple-bridge
+> > >   binding. This is necessary because the existing dumb-vga-dac compatible
+> > >   doesn't describe a data-enable signal polarity.
+> > > 
+> > > - simple-bridge: Add the VGA bridge match-table entry and timings
+> > >   struct, setting the DRM_BUS_FLAG_DE_LOW flag for the bridge.
+> > 
+> > Is there schematics available anywhere ? That would help reviewing the
+> > series ?
+> 
+> This circuit is on the SoM, and the SoM schematics are
+> confidential and not generally available.
+> 
+> I tried to extract as ascii art the relevant circuit, hope it helps
 
-Are we really about to discuss this?
+Thank you, it makes things clearer.
+
+The circuit seems fairly generic. Wouldn't it be better to add an
+optional property ot the dumb-vga-dac instead of a new compatible string
+specific to Apalis ?
+
+> BLUE (5 bits)
+> =============
+> DISP0_DATA[4] ---[R30   348R]---+
+> DISP0_DATA[3] ---[R33   715R]---+
+> DISP0_DATA[2] ---[R36  1.47K]---+-------- VGA1_B
+> DISP0_DATA[1] ---[R39  2.94K]---+          |
+> DISP0_DATA[0] ---[R42  5.90K]---+          D
+>                                            |
+> DI0_PIN15 ------------------------------ G | T4 MMBF2201N
+>                                            S
+>                                            |
+>                                           GND
+> 
+> 
+> RED (5 bits)
+> ============
+> DISP0_DATA[15] --[R31   348R]---+
+> DISP0_DATA[14] --[R34   715R]---+
+> DISP0_DATA[13] --[R37  1.47K]---+-------- VGA1_R
+> DISP0_DATA[12] --[R40  2.94K]---+          |
+> DISP0_DATA[11] --[R43  5.90K]---+          D
+>                                            |
+> DI0_PIN15 ------------------------------ G | T5 MMBF2201N
+>                                            S
+>                                            |
+>                                           GND
+> 
+> 
+> GREEN (6 bits)
+> ==============
+> DISP0_DATA[10] --[R32   348R]---+
+> DISP0_DATA[9]  --[R35   715R]---+
+> DISP0_DATA[8]  --[R38  1.47K]---+
+> DISP0_DATA[7]  --[R41  2.94K]---+-------- VGA1_G
+> DISP0_DATA[6]  --[R44  5.90K]---+          |
+> DISP0_DATA[5]  --[R45  11.8K]---+          D
+>                                            |
+> DI0_PIN15 ------------------------------ G | T6 MMBF2201N
+>                                            S
+>                                            |
+>                                           GND
 
 -- 
-js
-suse labs
+Regards,
+
+Laurent Pinchart
 
