@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F5DCC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 449E3CC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q7R6tLaKMrnhiYMCpQEIBY4+ztBWPJj02oLmWr3zD2o=; b=uQFinO4fmd2f+pxZbYiKkWIEAU
-	o/7V7Tt8YVmB8g8Ul6/jDsF6YIF4GMuCiDhA+jx0gFsN8JOdcbzW+Z3nKsLQPJARbF6lXqqaqFm8F
-	5A8m36eFPglrouTh3AWYEVHZoV69noWhE8hlyXkMkkCSiSe4cXfQCwU1B/w03T41AsXAAzE/78LQY
-	5JpyueZms00vSFZebyIskbU5tOcKlYBLo1MHJkWU6ApA4m1tP+OzyRAf/5yFB7wHvPlU4RP4iEyKq
-	6rSrlrx3mNB1ey9tp/ZBPVtLYr0sRul0EvjEwTF78+Lb9JYAVkYAdp4hsS6OpJRegkLpCdzn6WSme
-	9YbE+ydg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tnLWPN74AHBIaLDvOBtrD1EbTBWBcfnhxcDXArDXl2E=; b=MoDtouidvPtF9Sa1+d78K0O2VH
+	fyLJm/BdTQhczhVJMvqoHIpUuFviWzZrGiGXCHvD22ZSHBl8QOg/xMgYomZqCSaSywFiOU+x3z2go
+	xQqM0dl9HVtbt/ndhY+MAgOxN+SmSPpL4/MErsCr07BzC19F3tb83vvaCZs3nnMO173Z37I6BVxfO
+	yTNe/9ukCt91NTGeRWAcfHPw0LVSmr32UWUx1e4Xs1k1Rr5V/Bz2utystpwkZcoLDpZXD5k0G6AVU
+	8iuCmFM7OJUC9S3Fo5ECP2cLZI0YUKhlXGvZgqOfp4CJr8dc9nVe8NYIoslSQENWDYmMvtkIKBhnF
+	zOANkCCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkby-0000000E77y-1IIu;
-	Tue, 13 Oct 2026 22:04:42 +0000
+	id 1xGkc2-0000000E79U-246U;
+	Tue, 13 Oct 2026 22:04:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkbw-0000000E77q-3Mt6
+	id 1xGkc1-0000000E78o-0Z0K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 22:04:40 +0000
+	Tue, 13 Oct 2026 22:04:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB06342D73;
-	Tue, 13 Oct 2026 22:04:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6350D1F000FF;
-	Tue, 13 Oct 2026 22:04:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DBCC043C6B;
+	Tue, 13 Oct 2026 22:04:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A9D1F00893;
+	Tue, 13 Oct 2026 22:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791929078;
-	bh=q7R6tLaKMrnhiYMCpQEIBY4+ztBWPJj02oLmWr3zD2o=;
-	h=From:To:Cc:Subject:Date;
-	b=nJeU4Kf7A2ZSxV4/oIrv/+m4qhi2DPQWNhkyFHU+DESOAf5yJulmXe7xvyDk0w6nk
-	 ZOPE/RCgVdYnlCZcbsCNmMnWSV9s0BGx4r1UjkkmZ2e8b7YfxL2almnq8fnLZrbNL0
-	 Ap66yNHiGLfCHF4pqqYTIrRYUGWV60zpMJjBvQ3tKf2mSNFYYh1MN8KdQx7bp/uTsP
-	 us5r4B2/OKrQ/BpEj5C2azn9LDyzFzjTwSadnescPhT1LPiH4gkSV1ApLX8BHmNlOa
-	 k9uKOw4o48oOCTDVpXLsAl+snuqBO006lYP42s8MykuOlmLhddCxxNolvcQdbK6oBm
-	 7Ty2Yik2PBAwg==
+	s=k20260515; t=1791929084;
+	bh=tnLWPN74AHBIaLDvOBtrD1EbTBWBcfnhxcDXArDXl2E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mtVDUylQ1lNJPnFZhMPcXLIn4u86dWSvceE9nvzxhE5YBHr73m2pCRkZRu6RFNDMp
+	 j1dqv0gpnbmxcWx8Rx9dCj/BsRqhzfLROYVpKrKX1Z2NN2+4klYtTJVNQpLPetFekZ
+	 PhpOpF4vWN/P0rnHhYGkRlg6kgHORwRBdc211CGsLSIZ5rOjH07yA0VlBwYStap/tY
+	 FGAAqnE381c4yLjtQFRK4rb6Te2Ej4x3n6qrdeQO/HPwBGV3/HZZ92pfhgg6e/ZDb7
+	 1z7j+gkU1yqw+bO3q4tn8/xDGKHo9D557kmBoOZH6mts0JX7XCsNcsKZswi4xyeVUt
+	 Jalxvqg4duumA==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Semih Baskan <strst.gs@gmail.com>
 Cc: Manivannan Sadhasivam <mani@kernel.org>,
@@ -61,10 +61,12 @@ Cc: Manivannan Sadhasivam <mani@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH v4 0/2] PCI: iproc-bcma: Use EROM instead of devicetree
-Date: Tue, 13 Oct 2026 17:04:19 -0500
-Message-ID: <20261013220421.1588051-1-bhelgaas@google.com>
+Subject: [PATCH v4 1/2] PCI: Expose devm_pci_alloc_host_bridge_release()
+Date: Tue, 13 Oct 2026 17:04:20 -0500
+Message-ID: <20261013220421.1588051-2-bhelgaas@google.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261013220421.1588051-1-bhelgaas@google.com>
+References: <20261013220421.1588051-1-bhelgaas@google.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,31 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a combination of these two patches:
+devm_pci_alloc_host_bridge() allocates a struct pci_host_bridge and also
+parses device tree resources and claims them.  There are drivers, e.g.,
+pcie-iproc-bcma.c, that need to allocate a pci_host_bridge but do not need
+device tree resources.
 
-  [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
-  https://lore.kernel.org/all/20260807160526.379-1-strst.gs@gmail.com
+Expose devm_pci_alloc_host_bridge_release() so they can avoid the device
+tree parts by calling pci_alloc_host_bridge() directly and adding the devm
+release function manually.
 
-  [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
-  https://lore.kernel.org/all/20260912043626.437-1-strst.gs@gmail.com
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+---
+ drivers/pci/pci.h   | 1 +
+ drivers/pci/probe.c | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-I think it's a little simpler because it keeps the use of devm and it
-doesn't require two pcie-iproc-bcma.c patches.  I didn't sign off on the
-pcie-iproc-bcma.c patch because it's Semih's work except for the minor devm
-adaptation.  And the commit log probably needs some work, but I don't know
-enough to describe the platform/bcma driver issues.
-
-
-
-Bjorn Helgaas (2):
-  PCI: Expose devm_pci_alloc_host_bridge_release()
-  PCI: iproc: Use the EROM outbound window on BCMA
-
- drivers/pci/controller/pcie-iproc-bcma.c | 40 ++++++++++++++++++++++--
- drivers/pci/pci.h                        |  1 +
- drivers/pci/probe.c                      |  2 +-
- 3 files changed, 39 insertions(+), 4 deletions(-)
-
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index ba3c3fddddc2..5e21cd29cc7c 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -502,6 +502,7 @@ enum pci_bar_type {
+ 	pci_bar_mem64,		/* A 64-bit memory BAR */
+ };
+ 
++void devm_pci_alloc_host_bridge_release(void *data);
+ struct device *pci_get_host_bridge_device(struct pci_dev *dev);
+ void pci_put_host_bridge_device(struct device *dev);
+ 
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 27008e2ea5af..e214da95ca94 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -696,7 +696,7 @@ struct pci_host_bridge *pci_alloc_host_bridge(size_t priv)
+ }
+ EXPORT_SYMBOL(pci_alloc_host_bridge);
+ 
+-static void devm_pci_alloc_host_bridge_release(void *data)
++void devm_pci_alloc_host_bridge_release(void *data)
+ {
+ 	pci_free_host_bridge(data);
+ }
 -- 
 2.53.0
 
