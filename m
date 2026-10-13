@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D7CCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52699CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQCxumn3XpiebVDH8mWC56o1kMdP1z38mjE4HUn/wVk=; b=EQ2fknsHfc0ziJbwJUyLG3wxXd
-	+/JuPna2s8yYoklYgf1pSrY0hTeLLRHIP7mjpKO+iVGehEuzbbHk6UdN/zIET5+R2IOOCgagCqdBQ
-	ZTSXo/rGKOC20K7sxS+lqBXT8qLmLJLI0Xz1MLH1OKWCkZ+GUHSHMpuPH/CWlBDqZWKD8Gjms9msr
-	g1rG7x7VXb4y+D7d70IIr9hdDtUAydB/sgqQzD/7dBqfwguo9lrokaUJQrOQBdrfGgFsnlYhqgnO+
-	SAXEVRVUOevAM+xrGe9ReyjcoRMb7WVIYnpC+vQkGiF2hE3IoaWp71B/OyjKV34UqrSkZyLwTNXXo
-	RR3Y9GwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aqA05e3tEQzex5IV+W6xDQvoZ2RGk3y5IlP3Z09UWS0=; b=t/uIn/OID0UoFBpMukRE3xxXWY
+	oXbbav8HLT6aeZyJNmxfpnKtA2p2yn0s44wAX5SAE+ubHJnlA7hPXMCHIC0hBHYEgHbh06P6BCZ/Z
+	nY+2RvsZBiCoWe7Vt27nxjPGzbaMshRGRXkkHA2Q6iQ+Ptcd/zfMbxkjRtKNEBmoaK/tOLnwRYLP6
+	gO9KHX8qhEwnBajEe1FDtompAqJqNOcBa6UzqFZMFxeqWxSfCuHA33sdSjeaeO4R1hsZ3qsAHKZSU
+	ImK68Yas53yJJKrYTx6IHFprbwLr114HiaYAWbFtVi4ds65o3oJbxsrC6T4XnDwn/t6WSaPgLf4Dc
+	AkqoIfWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcWh-0000000Cwn4-2Rz4;
-	Tue, 13 Oct 2026 13:26:43 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xGbxR-0000000Cree-1Snb;
+	Tue, 13 Oct 2026 12:50:17 +0000
+Received: from mail-m10313119144.xmail.ntesmail.com ([103.131.191.44])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcWd-0000000CwmL-2Ndd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 13:26:42 +0000
-Received: from killaraus.ideasonboard.com (unknown [185.104.138.147])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 14B34230;
-	Tue, 13 Oct 2026 15:24:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1791897875;
-	bh=D8X9/HU1ytSHn2aUiGxbzXM2r3PCSS7f5TTvhXGJReE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dOJAdN4oo3bZ4UV4ry2O66vUFwnVItB9gsiljzn8x4WEU+bobir9DPk/muyzzsC0d
-	 JhoZphnyEt1WwdKyFGzvWU8TvGPzGguBDj/HuVLpgGp+qLU/iGV4pu0kHWTzwjhTqC
-	 oQmLZ9T9Bh6tTlESdiElCOynkkb82ehyl66fRGYs=
-Date: Tue, 13 Oct 2026 15:26:25 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
+	id 1xGbxE-0000000CrRq-40xC;
+	Tue, 13 Oct 2026 12:50:11 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 50e2b940d;
+	Tue, 13 Oct 2026 20:49:53 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
-Message-ID: <20261013132625.GA159927@killaraus.ideasonboard.com>
-References: <20260916204509.166633-1-marex@nabladev.com>
- <20260916204509.166633-2-marex@nabladev.com>
- <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dave Jones <s.dave.jones@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v1 1/6] dt-bindings: display: rockchip: analogix-dp: Add support for RK3568
+Date: Tue, 13 Oct 2026 20:49:41 +0800
+Message-Id: <20261013124946.1807886-2-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261013124946.1807886-1-damon.ding@rock-chips.com>
+References: <20261013124946.1807886-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
+X-HM-Tid: 0aa1354ff06a03a8kunm2e7c128b3006
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTEpNVkgZHkxNTENJGUgfT1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=esBq9R/0QwuJDYEtUDg/KknoEf7ksaQ6gizTruRkyCR2u10Wc22GMR33bSvqXmlMkjNtueJ7cE8cwrjHlLY2rslWcSTFtVpKvEdcaZcIXtZEaxocYkP0xempWqC3vjvhud7ANeDNZ0SFpMljUV3zVZ4fM5VKFGRE5yhXiW6CMBs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=aqA05e3tEQzex5IV+W6xDQvoZ2RGk3y5IlP3Z09UWS0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_062639_749055_88D52674 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20261013_055005_910758_5C535C14 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +94,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+Document the "rockchip,rk3568-edp" compatible.  Like RK3576/RK3588,
+the RK3568 eDP controller has the dp/pclk/hclk clocks and dp/apb
+resets, but unlike them it does not use GRF registers, so make the
+"rockchip,grf" property conditional on the SoC.
 
-On Tue, Oct 13, 2026 at 10:21:26AM +0200, Michal Simek wrote:
-> On 9/16/26 22:44, Marek Vasut wrote:
-> > Add support for ifm ZynqMP VHIP6 EvalBoard reference design.
-> > The board is populated with four ethernet ports, QSPI NOR,
-> > eMMC, UART and USB host interfaces.
-> > 
-> > Signed-off-by: Marek Vasut <marex@nabladev.com>
-> > ---
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Michal Simek <michal.simek@amd.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: devicetree@vger.kernel.org
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-kernel@vger.kernel.org
-> > ---
-> > NOTE: Checkpatch complains about ethernet-phy-id2000.a240 being
-> >        undocumented, but the TI DP83822I is generic C45 PHY that
-> >        is valided by Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> > ---
-> > V2: - Rename lm75 node to sensor@
-> >      - Use GPIO_ACTIVE_LOW macro
-> > V3: - Drop bogus clk_ignore_unused bootargs
-> >      - Drop gpio line names
-> > ---
-> >   arch/arm64/boot/dts/xilinx/Makefile           |   1 +
-> >   .../dts/xilinx/zynqmp-vhip6-evalboard.dts     | 300 ++++++++++++++++++
-> >   2 files changed, 301 insertions(+)
-> >   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-vhip6-evalboard.dts
-> 
-> I am not able to review or take this board support further without publicly 
-> available hardware documentation for the platform (board-level and relevant 
-> interface details). Please share public documentation links once available, and 
-> I’ll be happy to revisit the patches.
+Also document the optional avdd-0v9 and avdd-1v8 supplies, which are
+needed by the RK3568 eDP controller.
 
-There are plenty of boards that have no public documentation. Pretty
-much all phones and laptops are like that. We even have a whole
-architecture that only runs on a few machines in a single person's
-basement [*] :-) The kernel has never required public schematics for
-boards, SoCs or IP cores.
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+---
+ .../rockchip/rockchip,analogix-dp.yaml        | 25 ++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
 
-[*] A slight exageration possibly, but that's how I heard arch/alpha/
-    being described at the maintainers summit.
-
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index 39dafe75a680..f8670a4e0430 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -15,6 +15,7 @@ properties:
+     enum:
+       - rockchip,rk3288-dp
+       - rockchip,rk3399-edp
++      - rockchip,rk3568-edp
+       - rockchip,rk3576-edp
+       - rockchip,rk3588-edp
+ 
+@@ -47,6 +48,16 @@ properties:
+       - const: dp
+       - const: apb
+ 
++  avdd-0v9-supply:
++    description:
++      A 0.9V supply that powers up the SoC internal circuitry. The actual
++      supply source varies between different boards.
++
++  avdd-1v8-supply:
++    description:
++      A 1.8V supply that powers up the SoC internal circuitry. The actual
++      supply source varies between different boards.
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -61,11 +72,22 @@ required:
+   - clock-names
+   - resets
+   - reset-names
+-  - rockchip,grf
+ 
+ allOf:
+   - $ref: /schemas/display/bridge/analogix,dp.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3568-edp
++    then:
++      properties:
++        rockchip,grf: false
++    else:
++      required:
++        - rockchip,grf
++
+   - if:
+       properties:
+         compatible:
+@@ -100,6 +122,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - rockchip,rk3568-edp
+               - rockchip,rk3576-edp
+               - rockchip,rk3588-edp
+     then:
 -- 
-Regards,
+2.34.1
 
-Laurent Pinchart
 
