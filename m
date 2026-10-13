@@ -4,87 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9CECC6B08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1FBCC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fyQIUlduan4uj3HkUskv3/VOAOYZ+LxCMRN6JoUgPXQ=; b=lNeMuoSEPkU0DoA9Sa95Fxvw9s
-	sm1ZOK2xy9FaajydjsJqhhIbuziwrY3zkWek436LSY+Gyh1gcCxrfHNueXaHz0YA8zUAYN7i1v0t1
-	hry9Bw/1/KXQddU/U2VTSJgbWHQzjvSvInn0XAxT7DcSrv2U1pLq2JEAA8u2nzxOkkJKDdD+x3N/P
-	TnNyq0vZjL2/2ZqMvMoTd+I62y6/eAUla6E0iXGhwsQ/o0UyvJsGij7FivipArxqOe61Pe7WWAJiD
-	CfEGvEPyYEMPLFj3axSP7/1ABBdNhR3Wh53WwoCCdURt6Df78SdWHYFhr5NbUb5gIISY2Tu8rkLc2
-	LNWRzJfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fB0uk4ljewcdj9xikOsJ5AGGEnsL0TpvKZ1I7QdEXRs=; b=ieO3/HrtJNlD14XW7Dsas9WvIN
+	bRaxWj29K9fWkYO/yhR+unKaPFbgiY0xj05rPf7Ea6h0gYvFk3riFSS/MdeyhEs1toJci61Kyb0wQ
+	9ewJGJsndAxLoIu8O8oQq9s+QHSGaEKBkXLBEEwn5OycUFNv8s9iircJ3SRgN1kVWuV9CSkY8eA+y
+	WchzjQ+5+h4q3oDW9kK9T9bdTSd+QzikGHEkuAm6qk4xKVqmSzDPbOS8SLWHDfre58SpJNezLVMoX
+	mYGYEU2CmH3NIWvHJNI9kQ9d5c7JP4vqOIUG1+P2/SGG2oYqkQAuaDTtSAPlywn50XOVDbDlqFp1X
+	8AOJpPoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZ55-0000000CSZc-0O3K;
-	Tue, 13 Oct 2026 09:45:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGZAj-0000000CTji-0QVG;
+	Tue, 13 Oct 2026 09:51:49 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZ51-0000000CSW4-0QTV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 09:45:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fyQIUlduan4uj3HkUskv3/VOAOYZ+LxCMRN6JoUgPXQ=; b=NEy5uRfiLGZoIt58EhEcKe7eep
-	Tc1nsIWYo7NgZTHZu0lhAZrBJCpcfjWt89fCa7QcE1wtSOA9+jo4ukOd+xrIgG2zCsGO50zCCltVM
-	gWxUbqMx6tz33N2hAwUEHHxA24RN2BOrjbeAWS9fB04q3F7Kmfa+Z+pBALTqt+C1KNP5ZdhAu/vZm
-	gMvTAg7dOO/Ye845FyFkZg5U1vL7iyp5VI+GXaF7451lIg1iAkklP2gkEvuNWBUFOjNu1xQXJHQjv
-	GT99yg0F8DT97tvc1XpJCfKBzHbjynZ8I9AB5xlubpNYwI/9ug81oCL6b9HptG/e+PBFeWVfyaR/0
-	q1ybQMtw==;
-Received: from mail.fris.de ([116.203.77.234])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGZ4w-0000000FMgI-12FS
+	id 1xGZAe-0000000CTjE-3wHm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 09:45:53 +0000
-From: Frieder Schrempf <frieder@fris.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1791884745;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fyQIUlduan4uj3HkUskv3/VOAOYZ+LxCMRN6JoUgPXQ=;
-	b=vKYdBSIqZkoUmDWhGpQ8grXi6ItjLTgwjdgupVOy9BkERBHnF4Ma7kzIztO+uSfCuJslK6
-	ao29VaR7AMRYkbwr94yudXi+PKnKZpkCxf5p4o27dPLOrNAhI3Bj5kINOIXuSDq87FOA03
-	MIsS5R7gmCDwRE1bpBcZuyf9DTQH8C4NADs3qdNeGeaVWYy2/F42FwYNXTiiY4iQvPUjDj
-	vhiuca5/sEJqI0gYNgO1pS3EmLRRl36Ui1niSf1WBeWsu0T2aBnkppYeBCGC5AyCLd+a4t
-	VPbM87S51zexDk6jKtIUOg2HCwSqtCsOJYYurnLPQBVc4lj+RwJ5SGb3WikPAA==
-Date: Tue, 13 Oct 2026 11:44:53 +0200
-Subject: [PATCH 8/8] arm64: dts: imx93-kontron: Fix GPIO labels according
- to OSM spec
+	Tue, 13 Oct 2026 09:51:46 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a1af482519so2493085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 02:51:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1791885103; x=1792489903; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fB0uk4ljewcdj9xikOsJ5AGGEnsL0TpvKZ1I7QdEXRs=;
+        b=nhpvjBKt+gPemrmNsPZS375b7NHNpNlTS7JGiF92wFpKVFH4d+b9lBpyklYVQ69E2g
+         w1FFMhKyT78hzXWt65QTwZyeJBhoC8KITBetuEpz0JUmtVXJpgBW5xMC/L+ENPdNTJg4
+         5poKwEYavJ5ldddDg77oEFFb4pzT3ep7+9xGRG+WRLy6NllQVOn1L7PFKr1DW4P94uEq
+         3E8ZuboCtL77VliGcygPHjKhAN+MrHe5SItcJucmih2E9iRN13aPqmOucqOUEhr1qmuH
+         3l0XUFcSg7Vk9CLJ7jhKwao0UVwCoeJHBtoBvpGbta4LdG3wSSLPepsV1Q8yp1HbUe47
+         Db+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791885103; x=1792489903;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fB0uk4ljewcdj9xikOsJ5AGGEnsL0TpvKZ1I7QdEXRs=;
+        b=lDUSZOoEiz5hwmGR1zXAIbhiPOjlijz6540RW/M5TdM00JNAB01FVOU9aP8epiRens
+         CQLzjVVlSeVWF6InbOeSUj8AYEz75Q0mRLBXErHwQ5WihBLTSasD+QrQRtxfbGdt/kzA
+         6al3MM6y23sxTd9Nu2A6cHjv5spU0biuXTPh5YNsoXookjsUk0YBLxgo8ZFnCANt2lwN
+         dXaoVB1VY+11cv2bnsKnt5P8Fgq1YN7FDEF8IMuFs7GDjQQovpDxU+at810SNZ127auZ
+         3l/WxCuH1O+u6fyQn/v5kZbiPmFAiGbdLu1wRRNoqOaI2tDjkntDqs+0KmxEgjCS3Z3z
+         n05g==
+X-Forwarded-Encrypted: i=1; AKwUvBx39kJkP3UsRBBEacr+Jbqrb/BJ7+U6kxVi8vojN9USXz9Ao98cPVaJjwAdlux1IBYVMwQIcR/4t0qeuSoUO6+P@lists.infradead.org
+X-Gm-Message-State: AFq9FYLW0dGCmTnTfZ8QHq1BMWhf5dfu3Dh6mfgIAalCcyoRIIpKlva5
+	MSA3xzq6kGtHeSJtUnVJ7e86FkrIw9YaUogkiv+kbKxR+iUTZ/wcKV13eGaQ+no37t8=
+X-Gm-Gg: AYBFou2Lb5oSshinOJPOzLDh+LHcCZ7UfzRSm4splhA5v1RNAeDb3Asaxb7uwzBUU5Q
+	aXVWNwjskJLHyr6p0pjVinigk9+65AQWiOxwI8HD74K+MkDeJdToZ8ON/I8++KGMJ5D5gZVJvAY
+	m8dDhorO26/xbKROUY6RRdmw0YfLPX3OJKAblhpZoesyetd0+q5Znq2sf8+lMzKamR9XtMubybB
+	c59umDAzxTppEb1PpHiOaUwevPmzRTC/pmdg8wma44NEJzPk/6qvL4OGWWan+DpH9onWfHGo5K6
+	zIG04x5FFRr6Z4c+FX2X8hdL6+WmFxlP8Hjgj9lW1NSxd6z028qfJYJmQHrMFlCCJQXzD7CD3l4
+	8C4U8WypNCB1pjEPphAALkGIJFmGnN8he6AlrNzGCWvKdWwvrjzxn5kOIHQ7V/EUJUsX9n1fXWy
+	e5cvzD/+48gVSlOn6J9Le/E4Qu4OHWCLACVbyFw0+YswKdzzGADG8koAHEqjdQ8tYiE1aDhMoB+
+	io5lCriKv/8sITu+sFXSOmUbStiu6Q9kMkydwy66HVmAO5yA7kZNhEtpHgUqwTL8ZRIDUCHhlMM
+	Vg6Zrv/G0hLEMp2MX0dSJvzq104VbhiEp9yCcEbtqJrUzB4UW+4FOmdf9Tw=
+X-Received: by 2002:a05:600c:8b78:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4a18e4837f2mr222616855e9.5.1791885102854;
+        Tue, 13 Oct 2026 02:51:42 -0700 (PDT)
+Received: from aspen.lan (aztw-33-b2-v4wan-169864-cust3247.vm26.cable.virginm.net. [92.239.204.176])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18d12fe04sm217361885e9.4.2026.10.13.02.51.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Oct 2026 02:51:42 -0700 (PDT)
+Date: Tue, 13 Oct 2026 10:51:40 +0100
+From: Daniel Thompson <daniel@riscstar.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Davide Caratti <dcaratti@redhat.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next] net: stmmac: fix mqprio and cbs combination
+Message-ID: <as3_LNUGanrChZ8Q@aspen.lan>
+References: <20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-upstreaming-gpio-label-fixes-v1-8-94f09ec520ef@kontron.de>
-References: <20261013-upstreaming-gpio-label-fixes-v1-0-94f09ec520ef@kontron.de>
-In-Reply-To: <20261013-upstreaming-gpio-label-fixes-v1-0-94f09ec520ef@kontron.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: Eberhard Stoll <eberhard.stoll@kontron.de>, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3515;
- i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=e6m08tkTvA4gg72Au5Zi0RTkxyfrjwIcFur6slBKafI=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIevs36NL79lWpRRKqHy7tSQzOUTw91uPIpOcuzG2U2foM
- Yp+TF/bUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMBHnCkaGU09rZrzy/DwhTUA4
- qzWztPRy001tBc3oaCOBOeyJK45MZmT4dtqemYVhVW70S4lpj1au7DrX9+5SQVVSQM2d6xteWmo
- wAwA=
-X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
- fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_104552_141018_D70D31CF 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20261013_025145_252652_67DD4066 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,81 +108,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
+On Mon, Oct 12, 2026 at 11:14:06PM +0200, Lorenzo Bianconi wrote:
+> The channel-mode mqprio offload and the CBS offload can currently not be
+> enabled at the same time. tc_mqprio_validate_chan_mode() refuses the
+> mqprio offload as soon as any TX queue is configured in AVB mode, and
+> tc_setup_cbs() refuses to enable CBS while the strict-priority scheduler
+> is active. As a result the combination is rejected whichever order the
+> two are configured in.
+>
+> The strict-priority scheduler selected by the channel-mode mqprio
+> offload and the per-queue CBS shaper are independent MTL settings and do
+> not conflict, so drop the checks and let the combination be offloaded.
+> The following configuration, which was previously refused, now works:
+>
+>   $ tc qdisc replace dev eth0 handle 100 parent root mqprio num_tc 4 \
+>         map  0  0  0  0  0  1  2  3  0  0  0  0  0  0  0  0 \
+>         queues 1@0 1@1 1@2 1@3 mode channel hw 1
+>   $ tc qdisc replace dev eth0 parent 100:2 handle 102: cbs \
+>         idleslope 800000 sendslope -1700000 hicredit 494 locredit -1049 offload 0
+>   $ tc qdisc replace dev eth0 parent 100:3 handle 103: cbs \
+>         idleslope 400000 sendslope -2100000 hicredit 247 locredit -1296 offload 1
+>   $ tc qdisc replace dev eth0 parent 100:4 handle 104: cbs \
+>         idleslope 200000 sendslope -2300000 hicredit 124 locredit -1419 offload 1
+>
+> Fixes: 47891d501e34 ("net: stmmac: add tc mqprio hw queue priority offload")
+> Tested-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-The OSM specification provides generic names for all pads. Fix the
-GPIO labels to use the correct pad names in order to align the
-labels with the spec and with other OSM module devicetrees.
+Also FWIW:
+Reviewed-by: Daniel Thompson <daniel@riscstar.com>
 
-Fixes: 2b52fd6035b7 ("arm64: dts: Add support for Kontron i.MX93 OSM-S SoM and BL carrier board")
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
----
- .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    | 29 ++++++++++++++--------
- 1 file changed, 18 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-index 850a92dd9b9ba..c104f42a825b9 100644
---- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-@@ -51,8 +51,8 @@ &gpio1 {
- 	pinctrl-0 = <&pinctrl_gpio1>;
- 	gpio-line-names = "", "", "I2C_A_SCL", "I2C_A_SDA",
- 			  "UART_CON_RX", "UART_CON_TX", "UART_C_RX", "UART_C_TX",
--			  "CAN_A_TX", "CAN_A_RX", "GPIO_A_0", "SPI_A_CS0",
--			  "SPI_A_SDI", "SPI_A_SCK","SPI_A_SDO";
-+			  "CAN_A_TX", "CAN_A_RX", "GPIO_A_0", "SPI_A_CS0#",
-+			  "SPI_A_SDI_(IO0)", "SPI_A_SCK", "SPI_A_SDO_(IO1)";
- };
- 
- &gpio2 {
-@@ -61,7 +61,7 @@ &gpio2 {
- 	gpio-line-names = "I2C_B_SDA", "I2C_B_SCL", "GPIO_B_1", "GPIO_A_2",
- 			  "UART_B_TX", "UART_B_RX", "UART_B_CTS", "UART_B_RTS",
- 			  "UART_A_TX", "UART_A_RX", "UART_A_CTS", "UART_A_RTS",
--			  "SPI_B_CS0", "SPI_B_SDI", "SPI_B_SDO", "SPI_B_SCK",
-+			  "SPI_B_CS0#", "SPI_B_SDI", "SPI_B_SDO", "SPI_B_SCK",
- 			  "I2S_BITCLK", "I2S_MCLK", "GPIO_A_1", "I2S_A_DATA_OUT",
- 			  "I2S_A_DATA_IN", "PWM_2", "GPIO_A_3", "PWM_1",
- 			  "PWM_0", "CAN_B_TX", "I2S_LRCLK", "CAN_B_RX", "GPIO_A_4",
-@@ -71,7 +71,7 @@ &gpio2 {
- &gpio3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio3>;
--	gpio-line-names = "SDIO_A_CD", "SDIO_A_CLK", "SDIO_A_CMD", "SDIO_A_D0",
-+	gpio-line-names = "SDIO_A_CD#", "SDIO_A_CLK", "SDIO_A_CMD", "SDIO_A_D0",
- 			  "SDIO_A_D1", "SDIO_A_D2", "SDIO_A_D3", "SDIO_A_PWR_EN",
- 			  "", "", "", "",
- 			  "", "", "", "",
-@@ -83,13 +83,20 @@ &gpio3 {
- &gpio4 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_gpio4>;
--	gpio-line-names = "ETH_B_MDC", "ETH_B_MDIO", "ETH_B_TXD3", "ETH_B_TXD2",
--			  "ETH_B_TXD1", "ETH_B_TXD0", "ETH_B_TX_EN", "ETH_B_TX_CLK",
--			  "ETH_B_RX_CTL", "ETH_B_RX_CLK", "ETH_B_RXD0", "ETH_B_RXD1",
--			  "ETH_B_RXD2", "ETH_B_RXD3", "ETH_MDC", "ETH_MDIO",
--			  "ETH_A_TXD3", "ETH_A_TXD2", "ETH_A_TXD1", "ETH_A_TXD0",
--			  "ETH_A_TX_EN", "ETH_A_TX_CLK", "ETH_A_RX_CTL", "ETH_A_RX_CLK",
--			  "ETH_A_RXD0", "ETH_A_RXD1", "ETH_A_RXD2", "ETH_A_RXD3",
-+	gpio-line-names = "ETH_B_MDC", "ETH_B_MDIO",
-+			  "ETH_B_(S)(R)(G)MII_TXD3", "ETH_B_(S)(R)(G)MII_TXD2",
-+			  "ETH_B_(S)(R)(G)MII_TXD1", "ETH_B_(S)(R)(G)MII_TXD0",
-+			  "ETH_B_(R)(G)MII_TX_EN(_ER)", "ETH_B_(R)(G)MII_TX_CLK",
-+			  "ETH_B_(R)(G)MII_RX_DV(_ER)", "ETH_B_(R)(G)MII_RX_CLK",
-+			  "ETH_B_(S)(R)(G)MII_RXD0", "ETH_B_(S)(R)(G)MII_RXD1",
-+			  "ETH_B_(R)(G)MII_RXD2", "ETH_B_(R)(G)MII_RXD3",
-+			  "ETH_MDC", "ETH_MDIO",
-+			  "ETH_A_(S)(R)(G)MII_TXD3", "ETH_A_(S)(R)(G)MII_TXD2",
-+			  "ETH_A_(S)(R)(G)MII_TXD1", "ETH_A_(S)(R)(G)MII_TXD0",
-+			  "ETH_A_(R)(G)MII_TX_EN(_ER)", "ETH_A_(R)(G)MII_TX_CLK",
-+			  "ETH_A_(R)(G)MII_RX_DV(_ER)", "ETH_A_(R)(G)MII_RX_CLK",
-+			  "ETH_A_(S)(R)(G)MII_RXD0", "ETH_A_(S)(R)(G)MII_RXD1",
-+			  "ETH_A_(R)(G)MII_RXD2", "ETH_A_(R)(G)MII_RXD3",
- 			  "GPIO_B_0", "GPIO_B_2";
- };
- 
-
--- 
-2.55.0
-
+Daniel.
 
