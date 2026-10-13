@@ -4,140 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95A3CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 19:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC6EACC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 19:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2+k4ctYw0tM7rWPRbxKyU42iiDXNk6+I0nc8Mj/rlXA=; b=GiCXIM8g+M1zsKWrcJdKg8rUpk
-	QE9Y92C5qqJ+QMjXhQWDK5xenmUWmBZpNT2CfJgqF63R4AcYIZDlRFZV91iR/OqKfKoWDdvWyoW0M
-	nAgCBfY2YoADCMIK2L/ykfLXX4MmWcpq/7UvuM6s4sf4VB6ER0eD/nqkIXCpKgNJV8B4KNOfwDXBk
-	cbq/8048vfUa/3kJfhs4oJCeVpHxK79Y4InhQEvaBZSp86PKBWkNLkaWIivnGugo61wfEI8sbi+uK
-	9bEpgzcCBj1+0xUAjjxEM0JgnXW90BepcN6n2honYUZMBwEvHMKt6pcF/OmBzpL+THJAUZzTu3GjC
-	iEZ9cEeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vzeiI+gayp9EAe7RxgwBRYceR2ZzbZYo/guosxXjHcE=; b=p5BVm8/DM6t6Cn0g0TkWRu/xpN
+	2YggQTOvCCLXor1k6j4yGMK5mB5NgDGZvXvyTPSJYn0oTSQq9wwgtDubVX+wFOQA+fzYo7OnEpRaX
+	TvWaySjQlqDaJrtgboLFrXGLN2zkXHiN5ecIksaL+GJ9XsHfxvYPiJnUaqC7/wJ/6Fn9iV4AYXKNk
+	tulayRRdEL8ovK/ZPtHjFztXAlsjsGDXODUYcDU521xgjlSGoXzWn8DJ9asMzEi8gqPpMaA0rsIAt
+	yNioz6Wvn60aUncvwzR8BQKWbHLrlnU5BW3NKxQDEP/TCS9hh1PvyrN8XXdkHp09gKkegLc8EC+/P
+	xQwT96iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGiAP-0000000DuoY-2InJ;
-	Tue, 13 Oct 2026 19:28:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xGiGA-0000000DvJV-0hxU;
+	Tue, 13 Oct 2026 19:34:02 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGiAM-0000000Dunh-27qT
+	id 1xGiG7-0000000DvJ6-1BLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 19:28:05 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69DE49GS009645
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 19:28:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=2+k4ctYw0tM7rWPRbxKyU42iiDXNk6+I0nc
-	8Mj/rlXA=; b=jqi3ZzIAx1kO09gO94XLKJ/BnI0sCk2YdIqPZu74a7GkhcLKnqt
-	wVml33XvSLmoqwMCCjtKWT9fIR9mdsVTDRJihJgFsOBU7lAZ8tdFiXh7rNsLx9GU
-	G9zEPU+8HprJ4zMNJI+6GP6m86SwdkoW5aLonjTQZJhSIdSWDzeZBoP2Kzmy+lkA
-	B4bfjDkvE9YKbbWR5YJbYjQ21bX/KU5gjEl2Jw0ArUzCNb18dfr7jpoe0B9wnVVq
-	shqJe42mEGJxwSTMOQGN0vGon/yaakxcie8XmBDNPNy7gOhMIshQOz0rSb0bQGhM
-	FmY0fdJpv5FU+h/qK6jqKGpv4mW6Zz/y/jA==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h9fgjkf75-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 19:28:01 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-35a4d2e39acso642008eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 12:28:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791919681; x=1792524481; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2+k4ctYw0tM7rWPRbxKyU42iiDXNk6+I0nc8Mj/rlXA=;
-        b=NWGgHIWxe2tWyt+TdT8/Gdjv+gObwplZ0Hd7ARG73+DUcWEx/hkSAOVAVIorfFI289
-         YaA1Dqfz81/dNyeOzxlnI6lE8aDNbIa4bbp8sfJEnk0smP+bZhWxMW0MuGPedtZF2FQk
-         BMFPPgZbrJw99S7jRxpZGkumYHaWifMEXDPuzpjQ6bpPpyLGdO4RFCO3O/61tBvvWrcq
-         BQyxfODeV6Hq11zG8hSdUoIGrLOv0HK+Bin/ofu8D8DQA7wWJsrqbv6AyjQuXNt1CHTa
-         UHgfqRp9Ph2pEHU5yCQFvaNl05oo3ZFv+I8n9UgTeMrJa+6NfCNmx+63M7M3RukTx9b+
-         IC9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791919681; x=1792524481;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2+k4ctYw0tM7rWPRbxKyU42iiDXNk6+I0nc8Mj/rlXA=;
-        b=jH7+6m1MM32+AggngzUhswG98IptaTJfUZazTYcmJ91Hh/CFVLtAQY7cDTW8hE3pBZ
-         rjulDUyUQQyyIsGM+QWX7GGO0OUwW6upDW46Ek2xp9Ng+XHD462szbzusBbbNSYC17eF
-         KoPyJvm95aRkV34Aa8uztoFVLb+BNBcmrauhA9e+cUmbSpbIj1QNzy86j4F3Xy8rUqPk
-         nBH7dfi1pDTYsflGVRjnCtIMdPouRHJEe3nqQsRY2ELFxfk+FX6PHGI1yH32r+xdb4jk
-         vKqSvZ+CcQpt3hYqfNF5VEy3JW2rY5JggHNZwmBTdarZ+Kj3gy5J3GWthK5zwxoyrpBV
-         RQFg==
-X-Forwarded-Encrypted: i=1; AKwUvBxh8o5PrZnffqY9qvqJem43hkUiqWcg4IHGaSFrdgxn2YRz7KYX1vV3agDB0WcfYMSqGEkR/tySe061iJPoYkCV@lists.infradead.org
-X-Gm-Message-State: AFq9FYKrESVwky03PocahAcLtNDrhx6Z9DQqB4CKN94qpfq65YYl6X1j
-	AVBa3bbtoUg/Di+R+yntpbbEly+un6bUxc27G6CytGA7Uej1xCnhf+tgmU7g4SPySgkVwQFaSoU
-	XXIS2ddCR4tRYXCNMo2Y2Dx6d1hbee5hkxBvz+9SBJiV3PdTSU3biqEa+1+hzS8Mu213CpsABKA
-	u1Iw==
-X-Gm-Gg: AYBFou3oBkqUPzq1UJ0NcUm1j57IjB2+po3/FeKvqPWRyAR492h8knmx5fyc9z+Zmv3
-	6G4r8Kspadxqb3GCDTwq9rrN9v3K5+g4VxtzESB/HEhO/Lul/BR+dgIUz9k3XoNCkKPGVuJhcF8
-	H3GcEM6fivQW8xXaRpKRw4mAQLnfeca9mTp5BME2NzFW7nfazmyrPDxVFUXQgxr3rQzs4FLc/hC
-	Il03LxsMKNDMdtQhg12nxEim6llDizkCKafyw9KK1INPMIRBTm6Hi+B2bAjI1oO+aga3BDVpqAQ
-	pZKm9zmAoNKd87TUL29Na8uyuOIqAQOEUogbGAcE1PKt3nnVhlUpYXlI6idY7WwpUGzzFA/YTKq
-	al3SaYvYBfBJoCmxU6VNkQUgLRkZKnuqH3cQy6V9dth+x5dMrsAYKm6PJSYQsFA==
-X-Received: by 2002:a05:7300:da15:b0:359:6382:5e52 with SMTP id 5a478bee46e88-359638267cfmr13096822eec.17.1791919681013;
-        Tue, 13 Oct 2026 12:28:01 -0700 (PDT)
-X-Received: by 2002:a05:7300:da15:b0:359:6382:5e52 with SMTP id 5a478bee46e88-359638267cfmr13096776eec.17.1791919680365;
-        Tue, 13 Oct 2026 12:28:00 -0700 (PDT)
-Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537ca1b556sm60000008eec.9.2026.10.13.12.27.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 12:27:59 -0700 (PDT)
-From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S . Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
-        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
-        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>,
-        Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-Subject: [PATCH net-next v3] net: stmmac: dwxgmac2: enable L2 split header support
-Date: Tue, 13 Oct 2026 12:27:59 -0700
-Message-Id: <20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 13 Oct 2026 19:34:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xkR2q+xAuBy42531A4N7olBn3//0i1sZdIyb9fUjijNGM8/NhF5vhqjxG43r6VDDRjqC0+1rNJnjgupGqjg91q3OqbxWNzdv98yBH2YlJN/I42XOxgTUGq1jkVZbT43AnYF+Q699rG2NL9Vl2OCETrE5XucoS9dwO0vW7LP4jYyiD6vBth0Kpr+tG0bSyeNMWkE2AzyxuoNR8JvE5pG18BTDNwrhf+bYxpKVYNN4JTOYvIPgwfpdtr42vVZA79DqeBNeFUMCQn1FdzzkmLWXQcigXhNHnEBa3HRsljhCiYzgZdH8CwWIHYooYur6NuEgO/6zUXZm/s/cZLWaCJOrAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vzeiI+gayp9EAe7RxgwBRYceR2ZzbZYo/guosxXjHcE=;
+ b=sSRXBmRGF7i++o+mzmVaqknwdky0cNr6sW8/vkUnDLbNwYF+EtRxgjIpmPNTojqj8dYblhKdV82OS8X+Jry+vl2Abw6ronHm1ndhAGIgEJQWqt5rPvlD7QkuPXNUKNRM/EKtxVD7XNCBgUozcv0EdyTwELbSYCnkRJ+KDfdnsT4p7VsMyCWCS1E5uPYcbJ/LVbVM5Jp1sfo1PZfLrxomofI+aOvzlvOBfxiKT6m1QOZa30JR/4tT1FxMVqw0K0WBSt9CcU1rWUfKoIsRBWpvZRBigKZxc/oEkSTSGCZa5hwdjBbmFrKvpRBNQ+pnMIOHYz7HSW2mYeFBKm9DXdm+ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vzeiI+gayp9EAe7RxgwBRYceR2ZzbZYo/guosxXjHcE=;
+ b=aMgtdzsnRyVI+0R+pQjLpFuQLoOkYQgkuMvxm15a7zR0aYzsVbZSEf5XittQ24PS7QwzFCnoJJV/ylhgwZ4uUmngY1WinXPcJInVLFwcA5yBSM5LcNLhv6ftQ2w2j4QCnkugoOPemd32cgGiHMkRs13diD8nHQcY5jnPMBcIiCoZMImH1+okn92j24T5ys1ry6xfR+q22LWmIX6N2/CwyQYCnrYG9d6XSNNiIYlcot9tg62GDRR4ueJ/qRsEtlPwsHTmTGbqEOsmX/8oRwZh8J0D3U3LRMbVBq9fveGd6y1YnNihOWBK97cKX1WzNxUkGgrFARBxqXIC030MCG0WiA==
+Received: from BN0PR08CA0004.namprd08.prod.outlook.com (2603:10b6:408:142::22)
+ by MW5PR12MB5599.namprd12.prod.outlook.com (2603:10b6:303:194::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 19:33:50 +0000
+Received: from BN1PEPF00018072.namprd04.prod.outlook.com
+ (2603:10b6:408:142:cafe::7b) by BN0PR08CA0004.outlook.office365.com
+ (2603:10b6:408:142::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Tue, 13
+ Oct 2026 19:33:48 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN1PEPF00018072.mail.protection.outlook.com (10.167.245.200) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Tue, 13 Oct 2026 19:33:47 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 12:33:24 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 12:33:23 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 13 Oct 2026 12:33:22 -0700
+Date: Tue, 13 Oct 2026 12:33:19 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+CC: Jason Gunthorpe <jgg@ziepe.ca>, Peng Fan <peng.fan@oss.nxp.com>, "Will
+ Deacon" <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>, Thierry Reding
+	<thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Jonathan
+ Hunter" <jonathanh@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
+ ordering and feature gating
+Message-ID: <as6HfzpcalIh6SMs@nvidia.com>
+References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
+ <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
+ <aszfVNP6DGzWYdK0@shlinux89>
+ <as1zR1wc7ERxvR1F@nvidia.com>
+ <e8c22eb2-ed1f-47c7-b2ac-c56ead1cba8b@arm.com>
+ <20261013124400.GI14213@ziepe.ca>
+ <4d2a05c3-f7f6-4348-a3b4-c8f3ffa79b6c@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: puNgF_OZOFPeKKRc3aWJ4tEd21Q6p6nk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDA3NyBTYWx0ZWRfXzkwj0L1Bp1CZ
- a5TXdqI4RmqAxyeDsF1F7/VQcUrsYW9lHkkxvrii5x33wBJQPRgrPAgXiurla56XBMSMcJxofxW
- pLKmehD8SWs9OtDhtCjgotQ2PXokimGxEx0bMgSQLwemhMXEIBrsjuc04MhjIplrau0ny6UQ6xZ
- poRu10ltiDkwRxG1WrwfHmdsTITTdVZ+LEBHwWJdM5l/9gCcZ95nvvHnbQgbNY2FaxBe0TACj32
- /wsq0mxl8ISsg6MBBE8LAcn7J3suXt5cYj4UebBIRIRReEClJcNvZBkdi3STFyyC4x7QeR5QUO+
- azLRUxd+/aJHo3Pdnk91BgktcplSP4zc6aDwfX18cK67t2J0tjGzcQPZKP+t3qmA74aT+8qwgvf
- MMa7z57gkZyb3fe2dZTP9YofpY0fe8rW9Vvqdk/G9LhkkEnFJkmRjIUwlsO5zE4oENLgLTO7G55
- QFq1zxuNVpQfGGXJNag==
-X-Proofpoint-ORIG-GUID: puNgF_OZOFPeKKRc3aWJ4tEd21Q6p6nk
-X-Authority-Analysis: v=2.4 cv=PedqFShd c=1 sm=1 tr=0 ts=6ace8641 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=4efHNOip1X5BxVcu0mkA:9 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDA3NyBTYWx0ZWRfXxJgoPofGqBX2
- gVm4KkfxiH0rdU5ILw0zXu6ZCP+ljf6rZSw5nvf+ygrl/W/DblGSKVBlawvWxP/keVrPK/7yNSs
- rfc1guYS7f1AkdtFxLqUIqAZPcNb7JY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 priorityscore=1501 clxscore=1015
- adultscore=0 phishscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130077
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <4d2a05c3-f7f6-4348-a3b4-c8f3ffa79b6c@arm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00018072:EE_|MW5PR12MB5599:EE_
+X-MS-Office365-Filtering-Correlation-Id: 789ba8b1-6d6b-4d1c-0180-08df2960e704
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|7416014|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: YHQ6YIVvHu4uVyyc1qOayqYO3DNPsoNptiMcCHhOpCvVG5fH3BpRom87ajdP9KarkMqFnAQ1vBku0ZEEs/J2NaPpKHsHr1kfYgOta1Sx/NxgTC91qYWYJCL17dqabAKpyeUwxUOSKZz8tBKpdExVbV9w9pS6hSszTsszKu9PWDwGAgvm5HI4ZcE6HfEQejISIrReL+sYSxkZtVY8Dvward8/BTwV1RZHsBX4s91ZNDyvc64TthX0uNZItq7/jkRBM91SHqT1jbhObGYRLDfPgHMHowl9hym2NXrlj96LNDF+1LkFoG1hLoqjVdXXgnhR7lt7MH7R7UvoxzPaXh5PRus5bbINCdmYGq3Ymo2ycSmiXj2qn0nrTkQM9MJVsVgI2c0qgxGWDpUS/8gM6a4EriMKkWYoo2AvDho2t5eLWz/te7VwRvbLWDr6x6O3Qol4WD8XZQa5LS4tmNcMbcwwee6a5qSRCrp10zfV+E4EGvEmB9DofbFVWt9UOnUszBDJKBUU2HrFHdOjC1c2Cg55EDf7B0wQ1mBkD5RgnQPeYCN0OTLyTgUBxL2Tm3p9/VBhxacSaGFz3RqWtEugiLfccBCPIxfNiApJk4sH7A8ahKMRfCuLajJXK3Zd/I32MBvEg4GVjoEC6MxcgVsyEqBax935B3m8obKj2QoyObwhS7TpC0amvPqhR11zSDNj/986aM71dqy85g1mu6gY8ufyjA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(7416014)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PCFai6p/keu6aQQuiIu+aBSK5VYZVFP3Beg4qYQ7yTXWMgTMErz+JAObrNNhwcHIPuwAwAJfEIFYmIXnvXIzOEDByyjjlwXDTqt9ZaqEBGqHCZ25yHYZIcdJWCXRM6Ou4umiyjS1WRQKP/TiV6eRSsYhRzFFYtAMDYb/Bx1DNxihG05DBf/J16gOtAfaHPUfXY9T0aHTzuSBP80wTpcrNMwcx0EfBSwyExJLnqfFvVTYOdJxDrr9o8nnsyMHnLvYHB37cTHJSU+xOwZE4bbo8bU2d+nRzVy5+wpldWqK+sdK7WLr6Ig0Hc03b4U/5X3/qlRYlmEsgGVwIZp2vCV7Eshtm9pgGao372vtaiphCDs/vmGqnZHrgHOyD+D8gEfD56HrrasTweWflKT1Z5bwoWUB0Aq0+XWZ4HEv+9MitnaKesmKB0JdrqDvw6JaC/od
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 19:33:47.7432
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 789ba8b1-6d6b-4d1c-0180-08df2960e704
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018072.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5599
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_122803_831286_FF4EA790 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20261013_123359_334996_4EFC752A 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,123 +138,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-XGMAC2 doesn't program the MAC extended configuration registers
-needed for L2 header splitting when split-header mode is enabled,
-so tagged AV packets can't use the split-header path. Configure
-split mode (SPLM) and header saving (SAVE_EN) in XGMAC_EXT_CFG1,
-extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
-stmmac: Programming sequence for VLAN packets with split header")
-to XGMAC2.
+On Tue, Oct 13, 2026 at 05:23:21PM +0100, Robin Murphy wrote:
+> On 13/10/2026 1:44 pm, Jason Gunthorpe wrote:
+> > On Tue, Oct 13, 2026 at 12:22:06PM +0100, Robin Murphy wrote:
+> > > If we're not going to support PASID for shared streams (which I suggest we
+> > > don't...) than we shouldn't strictly need to worry about CD tables anyway.
+> > > So rather than having to special-case CD table sharing for shared streams,
+> > > perhaps it might make sense to generalise back to a "default" per-domain CD
+> > > for non-PASID use, which can then get switched for the private per-stream
+> > > cd_table if and when a device does enable PASID?
+> > 
+> > If we have stared STEs then the group becomes the per-STE data
+> > structure not the master.. We don't have any way right now to do that,
+> > but it would make some sense for the group to store the shared CD
+> 
+> That would be precisely the aforementioned special case that I'd hope to
+> avoid. My point is that the CD represents the domain context, so we really
+> shouldn't have to have multiple copies of that per-device _or_ per-group,
+> _unless_ it is attached via a PASID, since in that case it does need to be
+> copied into a per-device CD table (since the per-domain CD table was indeed
+> the wrong move in hindsight).
+> 
+> So what I'm saying is that if we're going to make anything share CDs, then
+> ideally we should just make all non-PASID devices always directly share the
+> domain's own CD, then if we just enforce that any devices sharing StreamIDs
+> must be non-PASID devices, it should all work out, we save some memory in
+> the normal case, and never have to be concerned with rewriting any STE with
+> a different S1ContextPtr for the _same_ domain except when enabling or
+> disabling PASID for the (single) device owning that STE.
 
-Also fix the RX header-length calculation for split-header
-descriptors. Per the XGMAC2 descriptor format, RDES3's L34T and
-L2T fields are only valid on the last descriptor (LD set); on a
-non-last descriptor they can hold stale write-back data from a
-previous packet. Read the header length from RDES2[9:0] directly
-for non-last descriptors, and only consult L34T/L2T on the last
-descriptor: RDES2[9:0] for IP packets (L34T set) and RDES2[9:2]
-for non-IP packets (L2T set).
+FWIW, master->ats_always_on would be a special case here: it is
+non-PASID but needs s1cdmax to be non zero.
 
-Finally, disable the variable-length preamble when L2 splitting
-is enabled. A variable-length preamble shifts the position of the
-Ethernet header, making the L2 split offset non-deterministic.
+But yea, that sounds like a good approach, though requires a big
+refactor.
 
-Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
-Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
----
-v3:
-  - Use zero-padded 0x00000140 for XGMAC_EXT_CFG0
-v2: https://lore.kernel.org/netdev/20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com/
-  - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
-v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com/
-
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       |  8 ++++++++
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 12 +++++++++++-
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 ++++++++++
- 3 files changed, 29 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index f8ab347f7b5b..7d1a7802a131 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -167,6 +167,12 @@
- #define XGMAC_HW_FEATURE4		0x0000012c
- #define XGMAC_HWFEAT_EASP		BIT(4)
- #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
-+#define XGMAC_EXT_CFG0			0x00000140
-+#define XGMAC_EXT_CFG0_VPRE		BIT(8)
-+#define XGMAC_EXT_CFG1			0x00000144
-+#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
-+#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
-+#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
- #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
- #define XGMAC_MAC_FSM_CONTROL		0x00000158
- #define XGMAC_PRTYEN			BIT(1)
-@@ -434,6 +440,7 @@
- #define XGMAC_RDES2_L4FM		BIT(28)
- #define XGMAC_RDES2_L3FM		BIT(27)
- #define XGMAC_RDES2_HL			GENMASK(9, 0)
-+#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
- #define XGMAC_RDES3_OWN			BIT(31)
- #define XGMAC_RDES3_CTXT		BIT(30)
- #define XGMAC_RDES3_IOC			BIT(30)
-@@ -441,6 +448,7 @@
- #define XGMAC_RDES3_CDA			BIT(27)
- #define XGMAC_RDES3_RSV			BIT(26)
- #define XGMAC_RDES3_L34T		GENMASK(23, 20)
-+#define XGMAC_RDES3_L2T			GENMASK(19, 16)
- #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
- #define XGMAC_L34T_IP4TCP		0x1
- #define XGMAC_L34T_IP4UDP		0x2
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-index 6719ac6e395b..65ac5403ec58 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-@@ -292,8 +292,18 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
- 
- static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
- {
--	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
-+	u32 rdes3 = le32_to_cpu(p->des3);
-+
-+	/* when FD=1 and LD=0, HL is RDES2[9:0] */
-+	if (!(rdes3 & XGMAC_RDES3_LD)) {
-+		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-+		return;
-+	}
-+
-+	if (rdes3 & XGMAC_RDES3_L34T)
- 		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-+	else if (rdes3 & XGMAC_RDES3_L2T)
-+		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
- }
- 
- static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index ff83858ebc1f..0a9c787305a4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
- 	value |= XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
- 	writel(value, ioaddr + XGMAC_RX_CONFIG);
- 
-+	value = readl(ioaddr + XGMAC_EXT_CFG1);
-+	value |= XGMAC_CONFIG1_SPLM(1);
-+	value |= XGMAC_CONFIG1_SAVE_EN;
-+	writel(value, ioaddr + XGMAC_EXT_CFG1);
-+
-+	/* Disable variable preambles to keep the L2 split offset deterministic. */
-+	value = readl(ioaddr + XGMAC_EXT_CFG0);
-+	value &= ~XGMAC_EXT_CFG0_VPRE;
-+	writel(value, ioaddr + XGMAC_EXT_CFG0);
-+
- 	value = readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
- 	if (en)
- 		value |= XGMAC_SPH;
--- 
-2.34.1
-
+Thanks
+Nicolin
 
