@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3409ECC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF513CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFMEj1cnRPQeYv12SK/a3UGK7lh2zV52Je/Sq5SGy/0=; b=NFKPwXlxcUcicyGyQYLkZ7wiac
-	AV7HCTaTRA2pNN5+uUOYwT93LZ5QNV5aPyIBRrCtjc42fSRPplXdCM5qZjaNLzfvmR0Pz/eteR6nU
-	5E27b/9l2uAXdFRDGQqplmd1sFdSXHTHRTcM+lHH63ABUmMdWGGv7liyEd3SO1lid44dsyZcIarQ+
-	7h9AdfvJ1VWtuwXakIiEqXqdzuBG7TvHr1jQsVoNi/OcSr6gwz99pKvc4ES089tBn55VwIEsB2DVn
-	kgyFY9O4lZtDEqD5vNgrFWJk1ZX+qjDXbqAboSgFMsZLvUVgy8HUFMWpjx3IUq9HXMJmS+g4Yl+Rv
-	BOpjTxcA==;
+	bh=e/YWC5GU+iDxE92YoOekJT+1e2v750KWewJ2AZK7Woc=; b=LIwuaA9AGWBiTRDvFDYT9iapsu
+	Cn8rEHGN8tCaXPJS4/oSCAjeYOrwYZprEMKED3oRnTMrFCeSm/Wk9O/B8bTMv5xfk8q3uT31WSVL4
+	GLUaED93fFTWJw3jmvgNHZiBCPBMGoQoaDVIcaezOOclyjGSVfu/2PekXWzmdgVOLgrl91jE7HA/h
+	k4904P1dD88SeWAsWySf7170VjxbWCzaihQowro2ZBJL9nEPYPSmN7sHaQ3DoXUAc8NomighcSoLO
+	XxT9pha+b1yWkXDPAoIrFSA7YFGmNQRBIOKUf6KiiqIV1yvHaoHLdoNxtj63TzKpiI9LfXfZRAv0q
+	QWvQm3Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGa9W-0000000CdVB-30IQ;
-	Tue, 13 Oct 2026 10:54:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGaCd-0000000CdrO-3kpX;
+	Tue, 13 Oct 2026 10:57:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGa9S-0000000CdUS-1rzm;
-	Tue, 13 Oct 2026 10:54:35 +0000
+	id 1xGaCa-0000000Cdr7-3c2L
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 10:57:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBB6A40D6F;
-	Tue, 13 Oct 2026 10:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FEDF1F00899;
-	Tue, 13 Oct 2026 10:54:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7F9E60A52;
+	Tue, 13 Oct 2026 10:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49DC1F000FF;
+	Tue, 13 Oct 2026 10:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791888873;
-	bh=xFMEj1cnRPQeYv12SK/a3UGK7lh2zV52Je/Sq5SGy/0=;
+	s=k20260515; t=1791889067;
+	bh=e/YWC5GU+iDxE92YoOekJT+1e2v750KWewJ2AZK7Woc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d1kYgaAgRb52bF+yK1n5b3RoclPkPNrkWQUqQjBZYvsD9kSQgaAeoS6nUxlEsEhwC
-	 A+TJbYjJgr2aYN4d4y8Qwm7qVSeYbIGdbWUxLzKgIGQwzAixriQQsp0d23rN96oZb3
-	 R0a/F1j3NDaUAc5/KMoym5jAoiDmuzfC5wTSlcCprXq1eVIBzGXi4ymGNt80iH9nMM
-	 7/E2hlvRl04iG9GyTFjwI7D1RIHjMl7ycGY69OKMrmaWkS14o7pzUhx1tPpE7GuEO8
-	 zmQxQH0ClNDcUbCbu8HzWeRzLlXDkX9z2gpzNbW6B2+c4tytCL3pTQk1M9yJp+5Vxr
-	 AQ48SqUsfwwZA==
-Date: Tue, 13 Oct 2026 12:54:17 +0200
-From: Alejandro Colomar <alx+linux-hardening@kernel.org>
-To: Jiri Slaby <jirislaby@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	gregkh@linuxfoundation.org, linux-serial@vger.kernel.org, 
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>, 
-	Billy Tsai <billy_tsai@aspeedtech.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <ray.jui@broadcom.com>, 
-	Scott Branden <scott.branden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-parisc@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
- uart_8250_port
-Message-ID: <as4NlWQ0JUC5WgIg@debian>
-References: <cover.1791873876.git.jirislaby@kernel.org>
- <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
- <as3etnbZatn4sbfx@ashevche-desk.local>
- <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
- <as31PsESOgLUhMB6@ashevche-desk.local>
- <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
- <as4BML-VUC9xUgOf@ashevche-desk.local>
- <cc5463cf-1e31-4a5f-9341-22769a7b0af5@kernel.org>
+	b=iX4pQWPbbLr5xGqP+MCgCgUdG00ojrL7a5bhRrM1T6oiyLJ95hpI331mrdTw77znq
+	 A1k/16Gya67mGxhTNroc9WX1ImIPdGz5LGyqb40ixaZEPptfHT4vI8dOx9/CuM/cfW
+	 YxHzopeCWEgubO7tCPwJgsq91zJZXO8CZLFrftGAKdX7Kg+TPK4Ic200LyBZSc0EOF
+	 4lnMrW/nW2VLcuwhaUyYzYysNAwfTRcwug+sJoukghvs2jRUneZOFXHf95MuzBFs4q
+	 jjjf+cupjCgVIvZwPZtxM43fcfjfDLWDBV1+b3zN5S7RvVPuROmlnWTAz1JXkTVgLT
+	 T3Bk598VpNRrw==
+Date: Tue, 13 Oct 2026 12:57:44 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Cc: Mika Westerberg <westeri@kernel.org>, 
+	Shyam Sundar S K <shyam-sundar.s-k@amd.com>, Elie Morisse <syniurge@gmail.com>, 
+	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Devyn Liu <liudingyuan@h-partners.com>, 
+	Oleksij Rempel <o.rempel@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Binbin Zhou <zhoubinbin@loongson.cn>, 
+	Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, 
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Laxman Dewangan <ldewangan@nvidia.com>, 
+	Dmitry Osipenko <digetx@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Israel Cepeda <israel.a.cepeda.lopez@intel.com>, 
+	Hans de Goede <hansg@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Hans Hu <hanshu@zhaoxin.com>, George Cherian <gcherian@marvell.com>, linux-i2c@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH 0/2] i2c: use designated initializers for acpi_device_id
+Message-ID: <as4OldgC6mnGe-r8@zenone.zhora.eu>
+References: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="chf2qusy2een43rb"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cc5463cf-1e31-4a5f-9341-22769a7b0af5@kernel.org>
+In-Reply-To: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,142 +84,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Pawel,
 
---chf2qusy2een43rb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-From: Alejandro Colomar <alx+linux-hardening@kernel.org>
-To: Jiri Slaby <jirislaby@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	gregkh@linuxfoundation.org, linux-serial@vger.kernel.org, 
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, 
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>, 
-	Billy Tsai <billy_tsai@aspeedtech.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <ray.jui@broadcom.com>, 
-	Scott Branden <scott.branden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chaitanya Vadrevu <chaitanya.vadrevu@emerson.com>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-parisc@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] serial: 8250: make port operations work on struct
- uart_8250_port
-Message-ID: <as4NlWQ0JUC5WgIg@debian>
-References: <cover.1791873876.git.jirislaby@kernel.org>
- <c59fa203f325e0fe7601ea0fbc0d222c8b37f9eb.1791873876.git.jirislaby@kernel.org>
- <as3etnbZatn4sbfx@ashevche-desk.local>
- <c6b08f53-b5ee-44c8-93d1-54fdf5994ed2@kernel.org>
- <as31PsESOgLUhMB6@ashevche-desk.local>
- <b404f3d7-1b2d-418a-8634-72c61ce33f8b@kernel.org>
- <as4BML-VUC9xUgOf@ashevche-desk.local>
- <cc5463cf-1e31-4a5f-9341-22769a7b0af5@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <cc5463cf-1e31-4a5f-9341-22769a7b0af5@kernel.org>
+> Pawel Zalewski (2):
+>       i2c: i2c-core-acpi: use named initializers for acpi_device_id
+>       i2c: busses: use named initializers for acpi_device_id
 
-Hi Jiri,
+pushed to i2c/i2c.
 
-> Date: 2026-10-13 12:15:35+0200
-> From: Jiri Slaby <jirislaby@kernel.org>
->
-> On 13. 10. 26, 12:00, Andy Shevchenko wrote:
-> > > > > First, it is used in the kernel quite a few times already
-> > > > > [1]. Second, while it is sort of c++ism (and I like to use modern=
- c++), it
-> > > > > makes the life of the variable a lot more obvious.
-> > > > >=20
-> > > > > [1] eg. see output of: rg -U -C 5 '}\n+\s+struct .*\*.*=3D' drive=
-rs/
-> > > >=20
-> > > > (you made me to install something I haven't heard about, it's bette=
-r to use
-> > > >    `git grep` though)
-> > >=20
-> > > rg is order of magnitude faster (searches in parallel). More importan=
-tly in
-> > > this case, supports multiline matches. (And respects .git ignores.)
-> >=20
-> > Isn't `git grep` fast enough due to looking into index and not into the=
- files?
-> > `rg` may not look at the Git index, right? So I may not to use an arbit=
-rary
-> > hash without checking it out first.
->=20
-> Of course rg is not git grep.
->=20
-> > > > Note excluded __free() if I get regexp correctly
-> > > >=20
-> > > > $ rg -U -l '}\n+\s+struct .*\*[^)]*=3D' drivers/ | less
-> > > > drivers/ufs/host/ufs-qcom.c
-> > > ...
-> > > > drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
-> > > >=20
-> > > > So, less than dozen of drivers doing wrong is not an argument, try =
-something
-> > > > better. But thanks, I will check and address this in some of the ab=
-ove.
-> > >=20
-> > > Well, it's only an example of a declaration after a previous opening =
-brace
-> > > "{" -- this one turned out to be easy to search for. There is a lot o=
-f more,
-> > > of course. kernel/ included.
-> >=20
-> > Please, provide a better search line, I will look at that. For now it's=
- just
-> > a hypothetical assumption, I am afraid.
->=20
-> I am not much into writing a semi-parser at this point :D. This'd be a ta=
-sk
-> eg. for clang's ASTMatcher.
-
-You may check grepc(1) --provided in man-pages.git--, which does have
-some code for searching different kinds of code.  You may need to tweak
-some regex produced by the backend grepc_c(1), but it should be
-possible.
-
-
-Cheers,
-Alex
-
->=20
-> thanks,
-> --=20
-> js
-> suse labs
->=20
-
---=20
-<https://www.alejandro-colomar.es>
-
---chf2qusy2een43rb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmrODdkACgkQ64mZXMKQ
-wqnsDA/+PoSRMrpPgQYZ1YngQ85h3wrKX56Mpt0JThWxcWVMcDod7LTn6C9sgMhA
-Wo1S5+HyNOIPVdYqTmZgRx+vE+IGp0f8Wx/JlYmH4yjAaGjssW2gfe7xb7mYXc03
-MWZXbFWxrICpzgjc+yokDM0JEgDKxh/B1MqAZjghXJjG4lN3v6Sgm2Efft6zj9TB
-2H+k1+cBwpe6ubcTTlRvKtWPAzC2XwriuVGFh+73xLlb2gqJgiWJVCH3rOCb8hx2
-SkNIlnC5gb/7hBhNfMsjBY4oJnPy8iL7XnsbQkV2a+rEW4aAqY8RNInIe/FhMeHV
-bEPRyLyoLNAcwwp7pdQly/4z59E6ZzxsCsroRh0rnPD771n7HEZcFYTlZ5E+tV9+
-YsnZyJ7E1ILMJEjiTZw1e0pU2ggebT/UZoHjKmarda/9n4WVp0PGH9f5nMp4v4rW
-Eg0DGoTcW6Bx/wUTYKYXdNR1zI6fysEMpdaq0smU6OHTZRh8zGR99HY7YXbwEc26
-6zWxAT7BHiIK5WTdNXmmSn8IZp+DBU607Y7twXzn3K8UxEFFvPJtRbCItLUd2eOD
-b/W7hsy+m7qEirdcflQn22V++r9savPpaF0c5+Uq/hZRwm3yrPhY5Q6DdWqLitJR
-SPLZuBKFjV63DBYf30LFWP4537QSkXu/eOY+Y9g/PopcTCBwlbU=
-=m8NY
------END PGP SIGNATURE-----
-
---chf2qusy2een43rb--
+Thanks,
+Andi
 
