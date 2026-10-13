@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D23CC6B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 07:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DDD8CC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 07:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YC4l7vs6phBF/kwZPYqd6bhtkTN6nnOLPDyVW74IR1o=; b=E5N5lXnBex97D7anbspBXJGjNn
-	FhkOg29OBsUrhsVSfUYjC8l79RMs00Uq76Df9/YWRa2VIf4mJAL4yQZYP7RPemJbRcOAYDKQlpfhL
-	/QIi8pxj3+/BuQPTYIkJQes/NLfxqdekcRtAcECqs5RV49pYT3JJVdvAbjKeEYzmSZKiAOpotVkdy
-	T0t1yW9RSxIEGNtekH1htmy6CFeLJk6u9U4Pruf+5gV526k3/HtsZFsG4KEgj+0X1jkLa8AYxYR2L
-	YY28ymkz5XSCoT2YkT01I3tDukxsUURsM3+3/8BQMbX4oDkAnvrbhXqTis87LspQN3dqQT54N8Sg0
-	Mgpj9+BA==;
+	bh=ltew1KHXNB8+YhpDwLMPSUsY2dQV2R5blJIdndy1I2I=; b=uR/MEIAbqg78f2ltV3fYi30O6y
+	48ErtprxbzWx5+uVygXutaBXvjAw6yTO5szk4D0gUThFsKcZrQS8V7fYHuUK77IJ8X60mZKzjH8jj
+	XpXuQXngWb3AJttxw981Mwr9KjR9s5Ovo0BFfJRRSxYIaupk4FTb9aK0GtkbqV3TNTjtkw4yYKU8S
+	ppk7uRFlOtXo7rcAZEAyuQGFNT+iyTg8Eq5sjqp6w7+UeklKXU4Tt7X0v5pLweX4l1mJFUXDWCFb+
+	0A4kT1Hpel8XbXMgDwVqRCZSDpK4ILd9ti+Gs8W86cxBdvzqYsrMB+gGeGRUtWV4whKdr5Asckw34
+	jmCehi2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGWed-0000000CBto-2HXu;
-	Tue, 13 Oct 2026 07:10:31 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1xGVfR-0000000C5z1-16Td;
+	Tue, 13 Oct 2026 06:07:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGWeZ-0000000CBsp-11Nn
+	id 1xGVfN-0000000C5vh-0HBx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 07:10:30 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5bced78b3dfso1439306e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 00:10:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791875425; x=1792480225; darn=lists.infradead.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YC4l7vs6phBF/kwZPYqd6bhtkTN6nnOLPDyVW74IR1o=;
-        b=qN950tolSGufCobCe3Mm035N3JKDcL8SUhwQFBhRLvf1M3Areh+5LZFwwfSeU9/K9i
-         00pc+sZB3MWyG5j1Ql11nnSM1Owi5EJWAlb8L/REeuKy/yM/AAaLOB/HdAJLe/r0EfUq
-         IsugUpUqiJ26ePjMRN+Dxsb38L/9HMY/8vrxPZARFhHvvgvkD0mtYMDul69iw2PfF02V
-         xxvWY91Uk4eTeTwLPmiv27Agj9QkuLe0OWPGhpnn5Fj2Tl9hZKeyHFITKeb8sKjwsAEQ
-         SwtxMY9prXO6t06GDDXBDXc4H/5fA/9uz2VVsAfdFSs4Nfv5lEmqxbWvCkFmwMyABwUl
-         Wz8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791875425; x=1792480225;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YC4l7vs6phBF/kwZPYqd6bhtkTN6nnOLPDyVW74IR1o=;
-        b=LCkt6P3+zGXAEeS9olyNZxtt5hPUmygNqElBaPVvs8G72uy7hu5CboDfuYhCDxA8D2
-         5DMLTJx6uGHsbfz/hhfuoJzPNZ2ziUrt2o05W59ihFdvPv0tSB7cbPo6CQqLB0wGMSLy
-         ziJE163e9TvEgutRdyAHIu+A8/I3EUmwhFafuu0YPIV3E/0kl2jS3J9E3ID8vPua7Esg
-         r5ObtqHWtEQ4MBIYG7nvAStKOAHrUTgjOWwV6Jv27dffgr1L4gcwKE/hLxQuK4Q//DL3
-         TUprJhLGcaHYIgFjAJhqLQa6nFD97f2dlsZiwkgojCzwHk5NmdLi2Hkxb9nlpgeqmJXj
-         qKUQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxSzXaxcrVhyqNTVQeQFaU9wk324mY5XexE5IRtDa1pYTbh+5R/RKbHaBF7sieRDrixg+ZJEwFBxfp+P9sLzfLP@lists.infradead.org
-X-Gm-Message-State: AFq9FYJVNCr87sBTrTab9QPy+jENEifB3VCqUmKndEYvtBUs33s/LTbj
-	afjT21W7pvfxeyml8ZHYBHEsx1AY+tWhCpyOw8xhpiuFrNppcShHERJg
-X-Gm-Gg: AYBFou1HFTwgYCJDPrQq+gqA57xZNisS8+1LocTV5LH3mJCvosFg9MVoiz7cogNtDkX
-	bQIi4a08CY2yvyTfUHxcNvA1prQJlKROSjDbJGZGVq7F8BU2acIuU9orOnKCC3jrOkeL1Jnv7Kt
-	iQzudcFEa381DTY1BoSyTHgGHFHksC9Vc2xVZPH8XwZzrF4D6RWo4FbpenC5HhWYTK+9MwO3ibM
-	LQ6xd6Gz+WpN6od5b/UTEqpz+m/xLirHuhaDs8IZWPRf5d/+r5YipIFZaJ2p7HypQu1iXLTIgJq
-	CSKWP60zoSn2u8wpFXs5O0C+C/QDrDXrXfrfrSEMYTDRHYS//FiL61t/2jOlqnMT7Ot1G8zQlDV
-	7y7nLFeTTdZxhKTbn1JeANscOCKSyE8f3A9UZFDcwYDq3fvHiUzcB13l3XOyOXRUIZsPPrJmdJA
-	fYYCDrZVIGgA252R3WCPXJbBkRVRNUxQBhpgBD4wWRQw8IiMLnBdhtux9lFEZmmdyOjxbzh7A6l
-	36qXuq+ztjiFjP7+DaygKHAn55AOcG5yV0G0xI+JlrjDl/0cq45MIrF
-X-Received: by 2002:a05:6512:3989:b0:5bc:b15d:beb9 with SMTP id 2adb3069b0e04-5bcde6c3067mr3863262e87.29.1791875424914;
-        Tue, 13 Oct 2026 00:10:24 -0700 (PDT)
-Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5bcdde36114sm3388236e87.1.2026.10.13.00.10.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 00:10:24 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
- Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 00/11] Cortina Systems CS75xx: interrupt controller, GPIO,
- I2C and TWD watchdog
-In-Reply-To: <20261012-dreamlike-hazily-19bb60326f0a@spud>
-References: <20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com>
- <20261012-dreamlike-hazily-19bb60326f0a@spud>
-Date: Tue, 13 Oct 2026 10:10:22 +0300
-Message-ID: <179187542217.3247897.4323160442877168450@gmail.com>
-Content-Transfer-Encoding: 8bit
+	Tue, 13 Oct 2026 06:07:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2CD143EAB;
+	Tue, 13 Oct 2026 06:07:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 96627C2BCFC;
+	Tue, 13 Oct 2026 06:07:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791871632;
+	bh=Zzzint5ECeIvn557DthDmutEppVqwPr3W2qzFUq9hXQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=BDabJj95IuB3mLaJUjXR94r+wWVF/AX0lysQN4ZdvnbrR3dcsZaN94cRO7YzngoG6
+	 0hFKBsNC7tW7hwmBMqdP37YeWQhB8awQL/cY3wz3JIfP6QfYGXTxVin7jlRRsTgkFe
+	 Ew4lZq7dhmdw9bM0sypmbS6prNTM26kuoJG5dFeMcqCZZb26NzC00KPMl+srnsqKl2
+	 rZtkt+yTf3Yy9sl1kVoO8tR0pTg85gS7E02XAgdyw8ddnpLv2olOzxy0I8Ybv7ALfE
+	 Af/GdmaR8Lx0kTyB8+dMUhNYhj4Agxl7RX7aHe0j3LCSazlutKCxcIyfM6wr4BgRMo
+	 vh1l8WyMQz/pQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 82480CC6B03;
+	Tue, 13 Oct 2026 06:07:12 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Tue, 13 Oct 2026 09:07:11 +0300
+Subject: [PATCH v3 01/11] dt-bindings: interrupt-controller: Add Cortina
+ Systems CS7542 peripheral interrupt controller
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_001028_979414_E00A8903 
-X-CRM114-Status: GOOD (  18.62  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-b4-cs75xx-s2-v3-1-181bb0d23f4c@gmail.com>
+References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+In-Reply-To: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>, 
+ Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791871630; l=2339;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=A+5dV3NaQB/TuZqJfC9IFKI7zbkGEtJkk6VbEFbSsyk=;
+ b=CBRbOlCi5m0QTRcyWOFGQnEKmf+3eiUaNk4OXM4BdQ0BXv+WbEY6zV5K/yoQsNFtF5qAd+BzK
+ xMkC7gmepSrDYGPutKYr7tm17p2cvT+KagNIbev0bxx0Ga5PkEoT2Lj
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +88,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Sorry for the late reply, and for sending v2 and v3 without addressing
-this - I missed your mail.
+The low speed peripherals of the Cortina Systems CS75xx SoCs share one
+GIC interrupt. A small controller in the peripheral register block
+reports which of its 15 sources are asserted and allows masking them.
 
-On Mon, Oct 12, 2026 at 07:48:00PM +0100, Conor Dooley wrote:
-> I think what's here looks really suspect - regions of two registers
-> wide, interlaced between devices etc.
-> You mention syscons here, and really that's where I think that this
-> should go. The region at 0xf007_0000 looks exactly like a syscon to me
-> and should be modelled as one.
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../interrupt-controller/cortina,cs7542-intc.yaml  | 57 ++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-Understood. The block at 0xf007_0000 is the "peripheral" register block
-of the vendor kernel: the interrupt status/enable pairs, the UARTs, GPIO
-banks, the I2C (BIW), SPI, MDIO and timer registers are all packed into
-it. Would you be fine with a "cortina,cs7542-peripheral", "syscon",
-"simple-mfd" node covering it, with the interrupt controller as a child
-node without its own reg that gets a regmap from the parent? The UART,
-GPIO and I2C nodes would stay separate devices with their own reg, as
-you suggest below.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/cortina,cs7542-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/cortina,cs7542-intc.yaml
+new file mode 100644
+index 000000000..2963acaf7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/cortina,cs7542-intc.yaml
+@@ -0,0 +1,57 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/cortina,cs7542-intc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 peripheral interrupt controller
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The low speed peripherals of the Cortina Systems CS75xx (Goldengate G2)
++  SoCs (two software interrupts, two timers, the AXI bridge, SPI, the five
++  GPIO banks, I2C, MDIO, SSP and the random number generator) share one GIC
++  interrupt. This controller has a status register showing the level of the
++  15 sources and an enable register to mask them. The sources are cleared in
++  the peripherals themselves.
++
++properties:
++  compatible:
++    const: cortina,cs7542-intc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 1
++    description:
++      The number of the source, 0 to 14. All sources are active high level
++      interrupts.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-controller
++  - "#interrupt-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    interrupt-controller@f0070004 {
++        compatible = "cortina,cs7542-intc";
++        reg = <0xf0070004 0x8>;
++        interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-controller;
++        #interrupt-cells = <1>;
++    };
 
-> I think it's fine to make a GPIO controller at this point, and leave
-> pinctrl to later, but I don't think that it is acceptable to pretend
-> that the mux registers are part of the GPIO controller. The pinctrl-less
-> GPIO controller would have to either rely on something else (e.g.
-> firmware) setting the mux registers or be not entirely functional until
-> the pinctrl arrives
+-- 
+2.53.0
 
-Agreed. The next version drops the mux register from the GPIO binding
-and driver and relies on the boot loader's pin mux. A line that the
-boot loader leaves muxed to a peripheral then stays unusable as a GPIO
-until the pin controller exists; I will check which of the Almond+
-lines (reset button, touchscreen interrupt) that affects before
-sending, and leave those out of the dts if needed.
-
-I will not send it before the interrupt controller question is settled,
-and not before 48 hours have passed in any case.
-
-Thanks,
-Fil
 
 
