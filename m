@@ -4,109 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012B9CC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BC9CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxya4FY5za1GbZKjfGG8UtleOM3iQpDXOoM1lQjAc2w=; b=IQ/UdvPOOQXIrKHt9TYLkHLpcZ
-	q14DN8v5c8QiaMsVwWchPEhfP7enr1NeKSHQpMvZM6N2PH6KgFGqN+L8ftou5QHNpzemowjT6a72k
-	T6PlYEObKy551uMKEBH9K9p+iQ/0o5FemIVV1VHumeo+MpYpDGpIQdQt/PtH3O5HTsZv/NzF+idv0
-	0OSTFJQb8M3NgedxJgASK671ucFE0pQPMUDN2ZounY/byVYfeC8wHNbflNN7wtC93d5qPtSic5K0u
-	fcnymswV9Te9KPKTVRbrjo8aGc91IwNfG9/OBbDNBGERxdbU90FPzS3lxMb+xSGd3I/9mb7Wa++Eh
-	EQb+oNVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R8S3NY57BMMYZek8JXFwtsc6w4ekQrWVkELly8pYpXE=; b=Vt7e5Qr5zGzrlsJGrGJwMOdold
+	y52lAh1JO9GhbJKbrl7ck1ntxEpY/08ym7FPd8fgeyQOZipbTyCh6/XvwovZPw0f3HzGcQKO9fhVf
+	ztRvkdbESViQjOqVy0nT7V6gs5wS9uOFm664+2ziwE6iBFByFuU/GuJPHJ+n25yujeXRHhzaEiHPO
+	6cE9kvpJY4Acg0itaReshuzhl1FMOv2f/cpczIjrH98Z/MvxPwFNgvqgxqkFymb4P7qJsghfHZn+S
+	nbemU3D84fixlbekJJAFeYB92/tkIKKeg6AH0KWO+yhObRyOfs+hzyVo5+3W5L2Z2OfzZrbX3pn2z
+	mU5CC6fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeMT-0000000DKEo-2V2d;
-	Tue, 13 Oct 2026 15:24:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGePF-0000000DKt2-2Q7l;
+	Tue, 13 Oct 2026 15:27:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeMT-0000000DKEg-08dl
+	id 1xGePE-0000000DKsF-2SFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:24:17 +0000
+	Tue, 13 Oct 2026 15:27:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C74BF41B2F;
-	Tue, 13 Oct 2026 15:24:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 624A81F00899;
-	Tue, 13 Oct 2026 15:24:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D653602C3;
+	Tue, 13 Oct 2026 15:27:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5C981F000FF;
+	Tue, 13 Oct 2026 15:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791905056;
-	bh=fxya4FY5za1GbZKjfGG8UtleOM3iQpDXOoM1lQjAc2w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=W2eDnD9/CR7JJVsxSs+rr/UQlhtJzxPrhQg24MekOvCeflWRGxSp8WGq7kRhEvObI
-	 mKhvqWneDih2WtrtnHeFtWu0j3lOqyntUMvfZvZAmV/JHYSMtR6U5FMFbxNMH/QQKB
-	 onHz4qnSa2vNEJIoTitc0ymqoS+1mDX4kFt/dIOF7ZU7Sk3tu6juQGWUR0YSq0nr4Q
-	 6nSmVcE7nAqo2ykXYJaUI+NO8qrFps4+GnwIyMJOSepGa2AbWPzo9xZUeQnG1IKfVV
-	 +c9bW8xqhUnjMJLFFDmXlhKpHvTt9fgGGNx9K9gH0Ov++2CL/imHThfn7Z8M3nChYC
-	 7c20SQJR9flJw==
-Message-ID: <755e3cbb-fe46-49f1-95e6-2f0384f75548@kernel.org>
-Date: Tue, 13 Oct 2026 17:24:09 +0200
+	s=k20260515; t=1791905227;
+	bh=R8S3NY57BMMYZek8JXFwtsc6w4ekQrWVkELly8pYpXE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=n17LqzD5siqrk9lbUKaMdGLHDkDLjAjNrOy6Tl9TIfbk62LN/BxzEnxmNOFfNg8hI
+	 9hNxLKLgvS+hQKSwwbQO0Gf++Yh/OvSldoO5/mTcYllIjsnphcPXW46NYVpgAeOxkF
+	 LtHqg/FzeOMjVX6ET9fTHgU/wD7AZMADbdUyyK0S50Vw8IqPfTGUFjXpPwX8QKXk7K
+	 pY9cr00Phjcv3HoeL0/+twYYBfcqUA7gMFKYqkIXnEqYBEZx49S7GoSiSbShdVCMlg
+	 MmKroUPEBahgbnqwsPH4goWJFA3VXDyx98yjPaICvBRwH0EpOE0BRFIlSQ6Efy0Kd1
+	 hpUE1E7KXIYMA==
+Subject: Re: [PATCH net-next 1/2] net: stmmac: fix XDP TX DMA address for
+ compound RX pages
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, boon.leong.ong@intel.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Tue, 13 Oct 2026 15:27:06 +0000
+Message-ID: <179190522641.434549.12034764335349832312@kernel.org>
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-1-05fd0c90f7e1@oss.qualcomm.com>
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-1-05fd0c90f7e1@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/4] dt-bindings: arm: fsl: add compatibles for Skov
- i.MX8MP boards
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: =?UTF-8?Q?S=C3=B8ren_Andersen?= <san@skov.dk>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-0-b97ad841598b@pengutronix.de>
- <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-2-b97ad841598b@pengutronix.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-2-b97ad841598b@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,21 +74,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2026 08:21, Steffen Trumtrar wrote:
-> Add a compatible for all revC-based Skov boards with a touch panel.
-> 
-> Also, in preparation for adding a new device tree variant with a
-> different 7" panel than the already mainline ones, also describe that DT
-> compatible in the binding.
-> 
-> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-You are sending this way too fast. v11 of trivial patchset is a proof of
-that.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
 
-Best regards,
-Krzysztof
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The commit message describes a bug that the current driver
+  cannot reach.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but on cores with
+  normal (non-enhanced) descriptors in ring mode, which is the default…
+
+--
+
+net: stmmac: fix XDP TX DMA address for compound RX pages
+
+This commit changes stmmac_xdp_xmit_xdpf() to use virt_to_head_page()
+instead of virt_to_page() when it looks up the page_pool DMA address for
+the XDP_TX head buffer. The goal is that a data pointer sitting in a tail
+page of a compound RX page still resolves to the DMA base of the head page.
+
+> RX pages become compound as soon as dma_buf_sz needs more than one page
+> (pp_params.order = order_base_2(num_pages) > 0), which happens from an
+> MTU around 3000 bytes once dma_buf_sz reaches 4096. If an XDP program
+> moves the data forward with bpf_xdp_adjust_head() by more than about a
+> page, xdpf->data points into a tail page whose struct page has no DMA
+> address: page_pool_get_dma_addr() then returns a bogus bus address, and
+> dma_sync_single_for_device() together with the TX descriptor transmit
+> from the wrong location.
+
+[Severity: Medium]
+
+Can the driver reach this configuration today? stmmac_xdp_set_prog()
+refuses to attach a program when the MTU is above ETH_DATA_LEN:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
+    ...
+	if (prog && dev->mtu > ETH_DATA_LEN) {
+		/* For now, the driver doesn't support XDP functionality with
+		 * jumbo frames so we return error.
+		 */
+		NL_SET_ERR_MSG_MOD(extack, "Jumbo frames not supported");
+		return -EOPNOTSUPP;
+	}
+    ...
+}
+
+stmmac_change_mtu() blocks the other order too:
+
+	if (stmmac_xdp_is_enabled(priv) && new_mtu > ETH_DATA_LEN) {
+		netdev_dbg(priv->dev, "Jumbo frames not supported for XDP\n");
+		return -EINVAL;
+	}
+
+When XDP is enabled the MTU is at most 1500, so stmmac_set_bfsize() returns
+DEFAULT_BUFSIZE (1536). Then in __alloc_dma_rx_desc_resources():
+
+	dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
+			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+	num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
+	...
+	pp_params.order = order_base_2(num_pages);
+
+dma_buf_sz_pad stays below PAGE_SIZE, so num_pages is 1 and the order is 0.
+stmmac_rx() also sets frame_sz to a single page.
+
+On an order-0 page, virt_to_page() and virt_to_head_page() return the same
+struct page. Does this change behaviour at runtime in any configuration the
+driver currently allows?
+
+The threshold in the message also looks off. By the driver's own sizing,
+dma_buf_sz reaches 4096 once the MTU goes above roughly 2022, not 3000.
+
+The later patch in the series, "net: stmmac: disable TX checksum offload
+for jumbo frames on bugged cores", only adds a csum override. It does not
+lift the XDP/jumbo restriction, so the described trigger still can't happen
+at the end of the series.
+
+The change is reasonable hardening, and it matches the existing
+virt_to_head_page(ctx.xdp.data) use in stmmac_rx(). Could the message
+describe it as hardening, or as a prerequisite for jumbo or multi-buffer
+XDP? Could the Fixes: tag also be reconsidered? As written, stable will
+treat this as a fix for a reachable DMA corruption bug.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b8b4de4c5b1a7..ca61ab449e32b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5301,7 +5301,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+>  			struct page *page;
+>  
+>  			page = frag ? skb_frag_page(frag)
+> -				    : virt_to_page(xdpf->data);
+> +				    : virt_to_head_page(xdpf->data);
+>  			dma_addr = page_pool_get_dma_addr(page);
+>  			if (frag)
+>  				dma_addr += skb_frag_off(frag);
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but it has the same symptom.
+On cores with normal (non-enhanced) descriptors in ring mode, the default
+when chain_mode is not set, can the XDP_TX path in stmmac_xdp_xmit_xdpf()
+make the DMA engine fetch part of the frame from an address that was never
+programmed?
+
+stmmac_rx() builds the xdp_buff with a full-page frame_sz:
+
+	bufsz = DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
+	...
+	xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
+
+That means an XDP program can use bpf_xdp_adjust_tail() to grow the frame
+well past 2047 bytes and return XDP_TX, even with the MTU at 1500.
+
+Further down in stmmac_xdp_xmit_xdpf(), only TDES2 is programmed:
+
+		stmmac_set_desc_addr(priv, desc, dma_addr);
+		stmmac_prepare_tx_desc(priv, desc, !i, len, csum,
+				       priv->descriptor_mode, !!i, last_frame,
+				       xdp_get_frame_len(xdpf));
+
+With normal descriptors, the call chain
+stmmac_prepare_tx_desc()->ndesc_prepare_tx_desc()->norm_set_tx_desc_len_on_ring()
+splits the length between buffer 1 and buffer 2:
+
+	unsigned int buffer1_max_length = BUF_SIZE_2KiB - 1;
+
+	if (unlikely(len > buffer1_max_length)) {
+		p->des1 |= cpu_to_le32(FIELD_PREP(TDES1_BUFFER2_SIZE_MASK,
+						  len - buffer1_max_length) |
+				       FIELD_PREP(TDES1_BUFFER1_SIZE_MASK,
+						  buffer1_max_length));
+
+In ring mode, TDES3 holds the buffer 2 address. That is why jumbo_frm() in
+ring_mode.c sets it explicitly:
+
+	desc->des3 = cpu_to_le32(lower_32_bits(des2) + BUF_SIZE_4KiB);
+
+The XDP path never writes des3, and ndesc_release_tx_desc() only clears
+des0 and des1:
+
+	memset(p, 0, offsetof(struct dma_desc, des2));
+
+So des3 still holds either 0 (from the coherent allocation, or after
+clean_desc3() runs on completion) or a stale buffer address. Would the MAC
+then read len - 2047 bytes from that address and transmit them?
+
+Without an IOMMU, this could send arbitrary memory out on the wire. With
+an IOMMU, the read would fault and TX DMA would be restarted.
+
+ndev->xdp_features is set unconditionally, so nothing blocks XDP on these
+cores. The behaviour goes back to be8b38a722e6, which added XDP_TX.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1%40oss.qualcomm.com
 
