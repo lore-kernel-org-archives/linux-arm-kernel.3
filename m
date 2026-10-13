@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05060CC6B08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA033CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 09:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xFlrCpI+Yd6quURj+Qcux9BYhkPUHzJhK85eTLRuPtQ=; b=IFvhPpJoeJ7Esr
-	GOXgspqXmYEmyxO5ci/CZAGxiXM2G5G/8cnFUuuVHRSOlcXJdaDydxscjCRg1up0IiKitD7+HtOK0
-	kg8jZkMe0kma+r8Sx8zlCgq4npNSvQ8XrBQFjS3HZOyU1+QRSfwz7TJYAmFx5OXGU6ORw2Jynl1pQ
-	Cz9b0YhQ5RVnlfuzobi2vI1J+CwlC8SY3Kvcf1YACSibWHcy+p6MY6896GQMny4HtHl/bD23JN2Zp
-	GPq7PLiazaXV8iA7u9QzNtbFfcJUHH5nVmm9KzNu4ML62i2M0cRGJBevstUbyZT4LdOSj2FcOmeQG
-	qBbp2Dfc/Ta/245IzSpA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JRvuRuILNq/yWoa/NRjDFom6P+NjTUbwcwNhaaI2vJw=; b=K9UmVlkJ70W5gXikLwBFM6KYmr
+	JwWJbfIijrGcewUZVDwasV9Ak8QzvYfM8aml1n6ZOLoBfd+4cnjOBUfwFZSRitI+vtmBWQoZW0BdP
+	bnX08rVAc8A+eDD/gluUTDIZ43BomZgO6Md6XUisJQQr+zuhM9jRu2OH6zQIID9s3JbjtjBPKKDoe
+	+f1a9o615AGx2kGz09UxRJldatefjW6nMAz5gEJhlUL1VyIj6e5Jeb8Ba8Eo+wxfyJ1ltIGFw2Cro
+	j6WhD9oLIeLelwnOUK/n1CeSdkg9cxKewcTgV7PxkMb/XleG+ROVb2VQqAQDc9LgqbxMb8swkzP7B
+	MGLu8RWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZ4x-0000000CSTo-0RzJ;
-	Tue, 13 Oct 2026 09:45:51 +0000
+	id 1xGZ54-0000000CSXJ-11bB;
+	Tue, 13 Oct 2026 09:45:58 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZ4t-0000000CSRL-0ets
+	id 1xGZ4t-0000000CSRd-1MMo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 09:45:49 +0000
+	Tue, 13 Oct 2026 09:45:50 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1791884742;
+	t=1791884743;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xFlrCpI+Yd6quURj+Qcux9BYhkPUHzJhK85eTLRuPtQ=;
-	b=JfXvW/utIoeD4MZQd3eJagYvekqdJYySucnkcJCxq1c4OU1UjSrqi07ALYjlQtnbtPAAx/
-	Tyn0p1FcYInTRyaXs7BPryg1goO09j8PBBGVRVC2BS84rw6wAnUg7C7MzaHDoCKx7YXGhL
-	iYt6zqc/AlI8zvSqEwjeMHieqzDfODvap0V9oUpssMWchqk56FpqbYFM2br8goGo4+7BAR
-	FHURH/zGUZK9e8ZWZ4JhlzNiTW4OHsJDQVAES0V2yL6c1PwuS39tDNVUWKCO9kM1HIWORY
-	EOMA4AATGd1vd/4A7C8imNpz6xCjPKetqf9zSPpOYu17FYYXqMrtbX323ZJLkw==
-Subject: [PATCH 0/8] arm64: dts: Kontron i.MX OSM GPIO Label Fixes
-Date: Tue, 13 Oct 2026 11:44:45 +0200
-Message-Id: <20261013-upstreaming-gpio-label-fixes-v1-0-94f09ec520ef@kontron.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JRvuRuILNq/yWoa/NRjDFom6P+NjTUbwcwNhaaI2vJw=;
+	b=URZieJOzf2PGaw4fALxQV5hq/IUG1Fk/9VmZ2wYiuUFFKXgIn768XI7LPiyd6BHviOdIZR
+	/eg6hFUHcQcZh00KjetK2DWmohla2vGy8/yWP0cbHJOW4Igflzg/t8wuGUrJQ1N8piL7SR
+	5XatkH/tKtm4X145O6LjnoT7vYCZUwtsPx1X+U3kzRf2DQ4L+hsSMYuAyO2F/jdsk3ymBW
+	BFB9aKP4cJHJeWcW/trkU38ecBhLulVF8iZdO012JOaG4DgM/JvSCH+zUVCQmCE3PD/CMV
+	dWQEZZqwzEOBYoqD7OwgWxSv+PBQO70SEmo+6fsxX4u5kTEir77cDNuD3H/P2w==
+Date: Tue, 13 Oct 2026 11:44:48 +0200
+Subject: [PATCH 3/8] arm64: dts: imx8mp-kontron: Remove obsolete
+ VDD_CARRIER regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBG4auUWTvQtJqFVxEXSfwTR2oaMq0Ip
- Xc36vLjwdtIUQVK526jipeozLnBHDoKd5cTWG7NNPSDNb0ZeS26VLin5MSpyMyT85g4yhvKNkY
- bjuYU7OipLUrFL7TD5fq3rv6BsHyftO8f0SdoR4AAAAA=
-X-Change-ID: 20261013-upstreaming-gpio-label-fixes-6ff6c415c63b
+Message-Id: <20261013-upstreaming-gpio-label-fixes-v1-3-94f09ec520ef@kontron.de>
+References: <20261013-upstreaming-gpio-label-fixes-v1-0-94f09ec520ef@kontron.de>
+In-Reply-To: <20261013-upstreaming-gpio-label-fixes-v1-0-94f09ec520ef@kontron.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -58,18 +58,18 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Eberhard Stoll <eberhard.stoll@kontron.de>, devicetree@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1456;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2612;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=DsmKtAg9kHXbhq0z1HToW5DmnXyp+tUTcmp0uuadwcs=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIevs3x1rN8ia6Hje3i605r+myoRD26qMDh21s3KMmiej1
- qC0MulURykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwERWdDP8D2G6WP3kyxEH14VC
- T8LrOnh7BarbY5ef754UV9y88OOh6Qz/w+f83Jfe5NZ4qfz93+vO65iMZ6aY6ynrCR5pm/2mOOw
- BLwA=
+ bh=BlLX2poyrIK+m0d4cirwujiYu4ewF9ZSgcg39h5GqLs=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIevs36OqzJ3vNx4s+db86GTG2tSGwE6ZBznPRM758JepG
+ cizHLvdUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMJFZpYwMR89GHbot9HHjuU8+
+ t9hVP/yMC7LvZqx+VONkl8F9y4y9iJHhp+4VlYd9+/wml5TtjG7+7W8oNYdFitO/+0X1KiHxiYv
+ YAA==
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_024547_674300_5DE847B7 
-X-CRM114-Status: UNSURE (   4.99  )
+X-CRM114-CacheID: sfid-20261013_024547_674528_EB04AA36 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,39 +85,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OSM spec [1] clearly names all pads and GPIO labels should match
-the spec in order to have unified names across all boards. The intial
-board support uses different labels for some pads and contains bugs.
+From: Eberhard Stoll <eberhard.stoll@kontron.de>
 
-Fix these to provide the correct labels the user expects from the
-documentation. This invalidates some previously used incorrect label
-names.
+For early prototypes, the CARRIER_PWR_EN signal was controlled
+by software. Now, for the regular revisions, this signal is
+controlled by hardware. The corresponding pad is now available as
+GPIO_C_1. Reflect these changes in the devicetree.
 
-[1] https://sget.org/standards/osm/
-
+Fixes: 946ab10e3f40 ("arm64: dts: Add support for Kontron OSM-S i.MX8MP SoM and BL carrier board")
+Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
-Eberhard Stoll (5):
-      arm64: dts: imx8mp-kontron: Fix GPIO label assignments
-      arm64: dts: imx8mp-kontron: Fix GPIO labels according to OSM spec
-      arm64: dts: imx8mp-kontron: Remove obsolete VDD_CARRIER regulator
-      arm64: dts: imx8mm-kontron: Fix wrong label for SPI_A_SDI_(IO0) pad
-      arm64: dts: imx8mm-kontron: Fix GPIO label for PCIe_SM_ALERT#
+ .../boot/dts/freescale/imx8mp-kontron-osm-s.dtsi   | 32 ++--------------------
+ 1 file changed, 2 insertions(+), 30 deletions(-)
 
-Frieder Schrempf (3):
-      arm64: dts: imx93-kontron: Fix ETH_B_TXD GPIO labels
-      arm64: dts: imx93-kontron: Fix UART RTS/CTS pad names
-      arm64: dts: imx93-kontron: Fix GPIO labels according to OSM spec
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
+index 3459ee2c0eb64..4fd42e7170ee8 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
+@@ -72,29 +72,6 @@ reg_usdhc3_vcc: regulator-usdhc3-vcc {
+ 		regulator-max-microvolt = <3300000>;
+ 		regulator-name = "VCC_SDIO_B";
+ 	};
+-
+-	reg_vdd_carrier: regulator-vdd-carrier {
+-		compatible = "regulator-fixed";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_reg_vdd_carrier>;
+-		gpio = <&gpio3 16 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-		regulator-always-on;
+-		regulator-boot-on;
+-		regulator-name = "VDD_CARRIER";
+-
+-		regulator-state-standby {
+-			regulator-on-in-suspend;
+-		};
+-
+-		regulator-state-mem {
+-			regulator-off-in-suspend;
+-		};
+-
+-		regulator-state-disk {
+-			regulator-off-in-suspend;
+-		};
+-	};
+ };
+ 
+ &A53_0 {
+@@ -185,7 +162,7 @@ &gpio4 {
+ 			  "GPIO_B_3", "GPIO_B_4",
+ 			  "GPIO_B_2", "GPIO_A_6", "CAN_A_TX", "UART_A_CTS",
+ 			  "UART_A_RTS", "CAN_A_RX", "CAN_B_TX", "CAN_B_RX",
+-			  "I2S_B_DATA_IN", "CARRIER_PWR_EN", "I2S_A_DATA_IN", "I2S_B_DATA_OUT";
++			  "I2S_B_DATA_IN", "GPIO_C_1", "I2S_A_DATA_IN", "I2S_B_DATA_OUT";
+ };
+ 
+ &gpio5 {
+@@ -547,6 +524,7 @@ MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18		0x19 /* GPIO_B_3 */
+ 			MX8MP_IOMUXC_SAI1_TXD7__GPIO4_IO19		0x19 /* GPIO_B_4 */
+ 			MX8MP_IOMUXC_SAI1_MCLK__GPIO4_IO20		0x19 /* GPIO_B_2 */
+ 			MX8MP_IOMUXC_SAI2_RXFS__GPIO4_IO21		0x19 /* GPIO_A_6 */
++			MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29		0x19 /* GPIO_C_1 */
+ 		>;
+ 	};
+ 
+@@ -683,12 +661,6 @@ MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27		0x19 /* SDIO_B_PWR_EN */
+ 		>;
+ 	};
+ 
+-	pinctrl_reg_vdd_carrier: regvddcarriergrp {
+-		fsl,pins = <
+-			MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29		0x19 /* CARRIER_PWR_EN */
+-		>;
+-	};
+-
+ 	pinctrl_rtc: rtcgrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_SAI5_RXD3__GPIO3_IO24		0x1c0
 
- .../boot/dts/freescale/imx8mm-kontron-osm-s.dtsi   |  6 +-
- .../boot/dts/freescale/imx8mp-kontron-osm-s.dtsi   | 84 +++++++++-------------
- .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    | 41 ++++++-----
- 3 files changed, 59 insertions(+), 72 deletions(-)
----
-base-commit: 4eb2586bd40db27d77cc5b724ca9386ed0c71d53
-change-id: 20261013-upstreaming-gpio-label-fixes-6ff6c415c63b
-
-Best regards,
---  
-Frieder Schrempf <frieder.schrempf@kontron.de>
+-- 
+2.55.0
 
 
