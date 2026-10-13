@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF513CC6B0F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C7ACC6B10
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/YWC5GU+iDxE92YoOekJT+1e2v750KWewJ2AZK7Woc=; b=LIwuaA9AGWBiTRDvFDYT9iapsu
-	Cn8rEHGN8tCaXPJS4/oSCAjeYOrwYZprEMKED3oRnTMrFCeSm/Wk9O/B8bTMv5xfk8q3uT31WSVL4
-	GLUaED93fFTWJw3jmvgNHZiBCPBMGoQoaDVIcaezOOclyjGSVfu/2PekXWzmdgVOLgrl91jE7HA/h
-	k4904P1dD88SeWAsWySf7170VjxbWCzaihQowro2ZBJL9nEPYPSmN7sHaQ3DoXUAc8NomighcSoLO
-	XxT9pha+b1yWkXDPAoIrFSA7YFGmNQRBIOKUf6KiiqIV1yvHaoHLdoNxtj63TzKpiI9LfXfZRAv0q
-	QWvQm3Cg==;
+	bh=oXLSiEF0IbD5c5Y/dirPwQYZ27Ijc9UIrfKVhG9lics=; b=CR79+UBj9sVhdlRMIpG7xdQjFs
+	a1OdjgFRAIRkVNRljj1MTzi7BvuSslCxEuCBRI23vn5QTkbvgRXrDTQPqBfmVKcdTlzSMfy3ozNVp
+	UFbfS5y79u+O/mI9HSZFi+zpX4a7eTi/1ZUTfOk++yN2FLY5etL54wcmKSQMiYuOaLJm/fyTdNXD+
+	xnDmF7wDb4YTjvm5X8OLSG2F8oC4MP9g8dbc1c5WT2pdBVfCXk2rHVXOFsHn4r+UXpTHJ1d6toWvJ
+	G05j4mgUTNFIgOkl5UaHoSbdvNrfVxf+emZm/gCBJ7Zclz693GNFRWyEUGFCTl7V+VJRpSaqwZkwW
+	DIIP6x2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCd-0000000CdrO-3kpX;
-	Tue, 13 Oct 2026 10:57:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGaCh-0000000CdsM-01ZH;
+	Tue, 13 Oct 2026 10:57:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCa-0000000Cdr7-3c2L
+	id 1xGaCg-0000000CdrU-05Br
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:57:51 +0000
+	Tue, 13 Oct 2026 10:57:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7F9E60A52;
-	Tue, 13 Oct 2026 10:57:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49DC1F000FF;
-	Tue, 13 Oct 2026 10:57:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1CD52600D1;
+	Tue, 13 Oct 2026 10:57:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B881F00898;
+	Tue, 13 Oct 2026 10:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791889067;
-	bh=e/YWC5GU+iDxE92YoOekJT+1e2v750KWewJ2AZK7Woc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iX4pQWPbbLr5xGqP+MCgCgUdG00ojrL7a5bhRrM1T6oiyLJ95hpI331mrdTw77znq
-	 A1k/16Gya67mGxhTNroc9WX1ImIPdGz5LGyqb40ixaZEPptfHT4vI8dOx9/CuM/cfW
-	 YxHzopeCWEgubO7tCPwJgsq91zJZXO8CZLFrftGAKdX7Kg+TPK4Ic200LyBZSc0EOF
-	 4lnMrW/nW2VLcuwhaUyYzYysNAwfTRcwug+sJoukghvs2jRUneZOFXHf95MuzBFs4q
-	 jjjf+cupjCgVIvZwPZtxM43fcfjfDLWDBV1+b3zN5S7RvVPuROmlnWTAz1JXkTVgLT
-	 T3Bk598VpNRrw==
-Date: Tue, 13 Oct 2026 12:57:44 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Cc: Mika Westerberg <westeri@kernel.org>, 
-	Shyam Sundar S K <shyam-sundar.s-k@amd.com>, Elie Morisse <syniurge@gmail.com>, 
-	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
-	Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Devyn Liu <liudingyuan@h-partners.com>, 
-	Oleksij Rempel <o.rempel@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Binbin Zhou <zhoubinbin@loongson.cn>, 
-	Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, 
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Laxman Dewangan <ldewangan@nvidia.com>, 
-	Dmitry Osipenko <digetx@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Israel Cepeda <israel.a.cepeda.lopez@intel.com>, 
-	Hans de Goede <hansg@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Hans Hu <hanshu@zhaoxin.com>, George Cherian <gcherian@marvell.com>, linux-i2c@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 0/2] i2c: use designated initializers for acpi_device_id
-Message-ID: <as4OldgC6mnGe-r8@zenone.zhora.eu>
-References: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
+	s=k20260515; t=1791889072;
+	bh=oXLSiEF0IbD5c5Y/dirPwQYZ27Ijc9UIrfKVhG9lics=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NDM2u2u68Vrs4dIlY6eEnOWD5LQ43rY0JHUxZsTwFnxNcLaYqhfFN5XHx9Ki8LxJQ
+	 kFcXgTqwrZdtv1hjYXOGJZM6XNVwIKjDnQzIDrhdJ5R/lO+kxtJCMMjDqeSxnB3Kbc
+	 DuhCSi/YbU/GQfuzuMUdHTLV+7WZ3/dSfkrNTAGp7LFOGPnWsLnYQPYoq/sotFQwe/
+	 Q8oDsf5OCnbq4a1Je9L4cfBHRGIr8VoVT8147YrN71qmVijXTXH7YZoEXJCyed8ZEN
+	 wlGwfxN6DrpXOwgEZ4D8QsZI+f9+4AQYIHQwFeQlTn5BC0kcNi+o6rZhMRE6GRDUBG
+	 JlxgxcT5enpGQ==
+Subject: Re: [PATCH v5 net-next 4/9] net: dsa: netc: tie setup resources and
+ reset to DSA setup/teardown
+From: netdev-bot+sashiko@kernel.org
+To: wei.fang@oss.nxp.com
+Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ richardcochran@gmail.com, linusw@kernel.org, wei.fang@nxp.com,
+ imx@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+Date: Tue, 13 Oct 2026 10:57:51 +0000
+Message-ID: <179188907149.434549.9657555602480791517@kernel.org>
+In-Reply-To: <20261012095924.1129312-5-wei.fang@oss.nxp.com>
+References: <20261012095924.1129312-5-wei.fang@oss.nxp.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,14 +74,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pawel,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-> Pawel Zalewski (2):
->       i2c: i2c-core-acpi: use named initializers for acpi_device_id
->       i2c: busses: use named initializers for acpi_device_id
+Critical: 0 · High: 1 · Medium: 2 · Low: 0
 
-pushed to i2c/i2c.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks,
-Andi
+- [High] netc_setup() now calls pci_reset_function(A->pdev) whenever
+  A->in_probe is false.
+- [Medium] priv->in_probe is a plain bool.
+- [Medium] Moving the initial reset from before pcim_enable_device() into
+  netc_setup() means pci_set_master() (netc_switch_pci_init(), line…
+
+--
+
+net: dsa: netc: tie setup resources and reset to DSA setup/teardown
+
+This patch replaces the one-time pcie_flr() in probe with a
+netc_switch_reset() call at the start of netc_setup(). The reset uses
+pci_reset_function_locked() during probe and pci_reset_function()
+otherwise. It also converts the devm_ allocations on the setup path to
+explicit alloc/free, so their lifetime matches DSA setup and teardown.
+
+> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
+> index 77077352c1a57..c639ae67c9b71 100644
+> --- a/drivers/net/dsa/netc/netc_main.c
+> +++ b/drivers/net/dsa/netc/netc_main.c
+
+[ ... ]
+
+> +static int netc_switch_reset(struct netc_switch *priv)
+> +{
+> +	if (priv->in_probe)
+> +		return pci_reset_function_locked(priv->pdev);
+> +
+> +	return pci_reset_function(priv->pdev);
+>  }
+
+[Severity: High]
+Can the pci_reset_function() branch deadlock against unbind in the
+multi-switch case this patch is preparing for?
+
+In a multi-switch tree, ds->ops->setup() runs under dsa2_mutex for every
+switch in the tree, including switches that are already bound:
+
+dsa_register_switch(B)
+  mutex_lock(&dsa2_mutex)
+  dsa_switch_probe()
+    dsa_tree_setup()
+      ...
+        netc_setup(A)
+          netc_switch_reset(A)
+            pci_reset_function(A->pdev)
+              pci_dev_lock(A->pdev)    /* device_lock(A) */
+
+The remove path takes the same two locks in the opposite order, because
+the driver core already holds device_lock(A) when it calls the driver:
+
+device_release_driver(A)           /* holds device_lock(A) */
+  netc_switch_remove()
+    dsa_unregister_switch()
+      mutex_lock(&dsa2_mutex)
+
+Shutdown has the same ordering through
+netc_switch_shutdown()->dsa_switch_shutdown().
+
+If CPU0 is probing switch B while CPU1 is unbinding switch A, would both
+threads hang forever? Re-probing A while B is being unbound looks like
+the same inversion with the roles swapped.
+
+device->mutex uses lockdep_set_novalidate_class(), so lockdep would not
+report this.
+
+This code is still the same at the end of the series. Should this
+branch use a different approach, rather than resetting another switch
+under its device lock from inside .setup while dsa2_mutex is held?
+
+>  static int netc_setup(struct dsa_switch *ds)
+> @@ -875,6 +957,10 @@ static int netc_setup(struct dsa_switch *ds)
+>  	struct dsa_port *dp;
+>  	int err;
+>  
+> +	err = netc_switch_reset(priv);
+> +	if (err)
+> +		return err;
+> +
+>  	err = netc_init_switch_id(priv);
+>  	if (err)
+>  		return err;
+
+[ ... ]
+
+> @@ -1045,7 +1136,6 @@ static int netc_switch_pci_init(struct pci_dev *pdev)
+>  	void __iomem *base;
+>  	int err;
+>  
+> -	pcie_flr(pdev);
+>  	err = pcim_enable_device(pdev);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "Failed to enable device\n");
+
+[Severity: Medium]
+Now that pcie_flr() is gone from here, netc_switch_pci_init() calls
+pci_set_master() before the switch has been reset. The first reset now
+comes much later. It happens after netc_switch_get_ip_revision() and
+netc_switch_platform_probe(), once dsa_register_switch() reaches
+netc_setup().
+
+Is that ordering safe after a kexec? pci_device_shutdown() only clears
+bus mastering:
+
+	if (kexec_in_progress && (pci_dev->current_state <= PCI_D3hot))
+		pci_clear_master(pci_dev);
+
+netc_switch_shutdown()->dsa_switch_shutdown() does not call
+netc_teardown() or ntmp_free_cbdr(). Also, netc_xmit_ntmp_cmd() can
+return on a read_poll_timeout() expiry after it has already advanced the
+producer index.
+
+The switch could then keep enabled command BD rings with a pending
+command that points at the previous kernel's DMA addresses. If the
+hardware resumes fetching as soon as bus mastering is set again, could
+it access memory the new kernel has reused? With an IOMMU, would it
+cause faults instead?
+
+Also, if probe fails between pci_set_master() and netc_setup(), for
+example in netc_switch_platform_probe() or dsa_register_switch(), the
+device is never reset before devres disables it.
+
+Would it work to keep a probe-time reset in netc_switch_pci_init()
+before pci_set_master()?
+
+[ ... ]
+
+> @@ -2475,12 +2565,15 @@ static int netc_switch_probe(struct pci_dev *pdev,
+>  	ds->ageing_time_max = U32_MAX;
+>  	ds->priv = priv;
+>  	priv->ds = ds;
+> +	priv->in_probe = true;
+>  
+>  	err = dsa_register_switch(ds);
+>  	if (err)
+>  		return dev_err_probe(dev, err,
+>  				     "Failed to register DSA switch\n");
+>  
+> +	priv->in_probe = false;
+> +
+>  	return 0;
+>  }
+
+[Severity: Medium]
+netc_switch_reset() reads priv->in_probe to decide whether the current
+thread holds A's device lock. The flag only records that A's probe is in
+progress somewhere, not that the current thread owns the lock.
+
+dsa_register_switch() drops dsa2_mutex before it returns, and it returns
+0 when the tree is still incomplete. Consider this sequence:
+
+CPU0 (probe of A)
+  priv->in_probe = true;
+  dsa_register_switch(A)
+    mutex_unlock(&dsa2_mutex);
+  <window>
+  priv->in_probe = false;
+
+CPU1 (probe of B, async probe or deferred probe)
+  dsa_register_switch(B)
+    dsa_tree_setup()
+      netc_setup(A)
+        netc_switch_reset(A)    /* sees in_probe == true */
+          pci_reset_function_locked(A->pdev)
+
+In this case pci_reset_function_locked() runs on B's thread, which does
+not hold A's device lock. Wouldn't device_lock_assert() fire under
+lockdep?
+
+The FLR includes msleep(100) and a readiness poll. Could it still be
+running after A's probe returns and the driver core releases
+device_lock(A)? If so, it would not be serialized against other
+device-locked operations such as a sysfs reset.
+
+The cross-CPU write and read of in_probe is also unsynchronized.
+
+This code is still the same at the end of the series. Could the caller
+context decide whether the lock is held, for example through a parameter
+or by doing the probe-time reset directly in probe, instead of a shared
+per-device flag?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261012095924.1129312-1-wei.fang%40oss.nxp.com
 
