@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D971ECA9ECF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8AACC6B0D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3b7xprGw93gQFMabPPbntprChoppFGG1BVub6+kQu5Q=; b=y2gI8sMJ+j8rXLmtw8y2qkW070
-	wBUDQq+4QX1FeoDfhfbpczAM/5yTEQFcyoL6XrLqFcKk7bTGDjKM0IHI7kms7lLZs3EQLp5hOtlcy
-	Q937Ju5rUfKihWjU8/e6M+d6TCzCugh0ddhkTSECxWeFMZ3J+P/608vOTJ+N/LHNNMMFur4317ySs
-	UlkX58vcFwhTTcSbqvvPWWRyAPleSwnW5lAz2/v64b3EavpJ+jO78VtdHCMbOARRob09KknVhNDpq
-	kdnBD9Ncvvbf2FdCZctYHgX6zTYffcVvhZ9TeGXlwv6tJyIwn+BoETmQYz1M4MZFalg8GkuRlMXwJ
-	x7iPEJ+w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oHn8yKTlhBopX3eFsqEm26zldUYRjgqOyCMZvSj9AoY=; b=NI50nLe34TGtVqXSHKMHdltYmW
+	N3bdo47HmYVUhbd07AJP8rAKFnkwV0xlTdr+E7mjVgyoLD+ELiCNAsg+v3q7VNvqb2qcduZ6lkw3b
+	C7urbys25XswemJx+lZ3i3p2+gTlA75WwNt28F5RqoCneXTzJmi35aD2rv6ldRLXE69ONPfazZBop
+	ofeMC8TYmO8RsSCTKLQDWkDACRO0fE6br3nj9mYcVLa82bb3U1oahpEAcflPiA6FHfdReddUi1YH4
+	5EkNwCIaduFMd+2HIispt9AZHG+j5Ne8IXJR9nM+Vs5g6BeOLrd/bLMeUJWAHUpf2YIhQrpOi2FM9
+	bjW9X6+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGTSr-0000000Btx7-1nVC;
-	Tue, 13 Oct 2026 03:46:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGTSq-0000000Btwv-3F4G;
+	Tue, 13 Oct 2026 03:46:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGTSp-0000000Btw1-0cBU
+	id 1xGTSo-0000000BtvX-1q2x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 03:46:07 +0000
+	Tue, 13 Oct 2026 03:46:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45FF644787;
-	Tue, 13 Oct 2026 03:46:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D9415C4AF10;
+	by sea.source.kernel.org (Postfix) with ESMTP id C5CD443A90;
+	Tue, 13 Oct 2026 03:46:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8F6ACC2BCF7;
 	Tue, 13 Oct 2026 03:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791863165;
-	bh=Ct9uOeYC8SA1Sm9EyJBjZtg8CNMYCoQgwWRIa6qWDME=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=D9VDihj9rmgP/l+ebiRxTkVjFoHLX77aVzpgDuP220SzRMDTvCZOkWwhSmoxK5D8U
-	 q2fJF5uz3pNrpRxUq1hmXU8P/vz9yp7pCHkgmlpjC3N4r9uz6UPnVEK6kK+SzfSR8h
-	 NBwM7Bm/6nVkhg6M9Ad2GIpE/Z2+uB/kjLi4RcU8CPOb5QFRTHRFoPbu7GYN3QofCX
-	 WRSr6NBbANSf8ZIU2L0JGG+b0EKOUZ9KgQVHB9njM9AJDwU3fVEvrA1MtJRHiqPbLY
-	 6KcQsyvvQjo3OiA3ksBn0y5FzEqaWnoihmsIf2zKjSRrnBCzegTO8mxQwI7vW6nAXX
-	 ghu5bj/mGbNjg==
+	bh=b3okz/0uEyVJIkXHDZKT7E/v+qvycxIQNIUqHlFagcY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=RqKDmi6yHsOozwrLUJp7ECP3A1yDJM2+uIX1IlkIVnto5F191O6EF56ulYEnZVfFb
+	 e7wSIXEzN9JvuzrJQpRPmajYEWoOdUc9lnO9zp/CEDKTwmJkLUyO5xMN6Q6JTUfI3c
+	 b7SDOx+HB19BVtp0lXjxyc3wPMjhpGjpplUO+9LHLdIN1TnDoF+XWacAa/VJ+nOaSZ
+	 +iEmvmHUO7gPo76gKMtMU90xtAIq/OB6GRko+llCbSPsO3JH5M7mufm/RLh9fg+YBH
+	 QH1sKJ3q7+ruwhSArIsS9smuY2I+JewzQyrSb9NquHeXza0TIDPYxoO6SnbO3172Ds
+	 v1V3QCz60XXxQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7F06CA9ECF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65967CA9ED0;
 	Tue, 13 Oct 2026 03:46:05 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 13 Oct 2026 06:46:08 +0300
-Subject: [PATCH v5 05/10] ARM: debug: Add Cortina Systems CS75xx UART0
- support
+Subject: [PATCH v5 00/10] ARM: Add support for Cortina Systems CS75xx and
+ Securifi Almond+
+Date: Tue, 13 Oct 2026 06:46:03 +0300
+Message-Id: <20261013-b4-cs75xx-v5-0-4e72aa383d39@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-b4-cs75xx-v5-5-4e72aa383d39@gmail.com>
-References: <20261013-b4-cs75xx-v5-0-4e72aa383d39@gmail.com>
-In-Reply-To: <20261013-b4-cs75xx-v5-0-4e72aa383d39@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WN3wqCMBxGX0V23eK3v2pXvUd0Mbepi9LYTAzx3
+ dsMQqIuD3znfDMK1jsb0CGbkbejC67vIohdhnSrusZiZyIjClRCyQBXHOuQi2nCwJiiGnguoEB
+ xf/e2dtPaOp3fHB7VxeohBdKidWHo/XM9G0na/eqOBAPmkuSac8kELY/NTbnrXvc3lLoj+5gEC
+ N2aLJpgwZBcQVno+tvkf00eTVNTAaYEJgu6NZdleQF70QT9KAEAAA==
+X-Change-ID: 20260930-b4-cs75xx-033a2c047508
 To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
  Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,13 +70,14 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  Jason Li <jason.li@cortina-access.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
  Fil Dunsky <filipp.dunsky@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791863163; l=4419;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791863163; l=10059;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=Kf0Hkr00xHM1irusJF0y6k3iCjmsska+Ga40A3ySHZk=;
- b=Q1m+PI/IceQggjYwfCOQH4X9KvW10Nln8g1bv/pxsfdrT1/4Utig4bxxIKBcsIlePkyYa8viz
- qhBAVkNe94tDU6WLdNybVDNyvU2OI0KapioWCr6fYMeIrDeSLRG/WP0
+ bh=b3okz/0uEyVJIkXHDZKT7E/v+qvycxIQNIUqHlFagcY=;
+ b=XzM65zfDdR6UvsYZUJKVk9zdyoam4GUa24vO3SE5HLW3bpLFZg+TRsCGxw1blL1zbnJU8ngLR
+ caBcUNeicauACAy3rjjj9C/B5U3Qwq2nHtYGw9xmE1dbLTu01lufATJ
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -94,127 +98,193 @@ Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+This series adds initial support for the Cortina Systems CS75xx
+("Goldengate G2") network processors and the first board using one, the
+Securifi Almond+ touchscreen Wi-Fi router (CS7542, 2x Cortex-A9 r2p1,
+PL310 r3p1, 512 MiB DDR3, 512 MiB NAND).
 
-Add low-level debug output through UART0 of the Cortina Systems CS75xx
-SoCs. The UART is mapped at a fixed virtual address by the generic
-debug_ll_io_init(), so no platform map_io is needed.
+There is no public documentation for the SoC. The register information
+comes from the GPL vendor kernels (Linux 2.6.36 for the Almond+, Linux
+4.9 for the Verizon FiOS G1100 which uses the same SoC) and from
+disassembly of the stock U-Boot 2009.11. A full out-of-tree port
+(clock, irqchip, GPIO, I2C, RTC, NAND, PCIe, MDIO and the packet engine)
+runs on Linux 6.18 in OpenWrt; this series is the first, minimal step to
+get the platform into mainline:
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+  - bindings: vendor prefix, SoC/board compatibles, an SMP enable method
+    and the UART,
+  - the platform Kconfig and SMP bring-up (the generic DT machine is
+    used, there is no DT_MACHINE_START),
+  - DEBUG_LL for UART0,
+  - a UART driver with console and earlycon support,
+  - SoC dtsi and board dts describing the CPUs, GIC, SCU, timers, L2,
+    UARTs and memory,
+  - multi_v7_defconfig and MAINTAINERS updates.
+
+Patches 6-7 (serial binding and driver) do not depend on the rest and
+can go through the tty tree.
+
+Testing: build tested with multi_v7_defconfig (GCC 14 and Clang 21,
+W=1) and checked with dt_binding_check/dtbs_check. On a Securifi
+Almond+ this series boots next-20260929 to an initramfs shell with
+both CPUs online ("smp: Brought up 1 node, 2 CPUs"; IPIs and the TWD
+timer tick on both cores); the L2C-310, the global and TWD timers and
+the UART driver (ttyCS0) come up. The kernel was started from a
+running OpenWrt system with a small kexec-style loader rather than
+from the stock U-Boot, because U-Boot enters the kernel with the MMU
+on (see 2 below). The same patches on Linux 6.18 in OpenWrt, with the
+head.S workaround from 2, also boot from NAND through the stock U-Boot;
+that is how the secondary CPU wake-up fix in v4 was found.
+
+Open questions:
+
+1. The stock U-Boot arms the CPU0 private (TWD) watchdog before
+   starting the kernel; without a driver the board resets after ~300
+   seconds. The OpenWrt port disarms it in init_early, which I did not
+   want to propose here. Instead, a driver for "arm,cortex-a9-twd-wdt"
+   (the binding exists, but there is currently no driver for it) that
+   takes over the running watchdog on all CPUs is written and tested
+   on this board and posted as a separate series right after this
+   one, together with a restart handler (this series has no way to
+   restart the SoC). Until then, this series on its own boots but
+   resets after ~5 minutes.
+   Is a TWD watchdog driver the preferred way to deal with this?
+
+2. The same U-Boot enters the kernel with the MMU and data cache
+   enabled (identity map with XN set, dirty lines left in the D-cache),
+   which breaks the decompressor. The OpenWrt port carries a small
+   workaround at the start of arch/arm/boot/compressed/head.S that
+   cleans the cache and turns the MMU off. It is not part of this series.
+   Replacing the bootloader is possible but risky for users of this
+   (discontinued) device. Would a quirk of that kind be acceptable in
+   head.S at all, or should this be solved outside the kernel (e.g. a
+   chain-loaded bootloader)? For the tests below the kernel was started
+   from a running Linux with the MMU off, so this was not an issue.
+
+3. The APB clock is 100, 150 or 170 MHz depending on the boot strap pins.
+   It is modelled as a fixed-clock with the rate set in the board dts.
+   A clock driver for the global control block, which also contains the
+   strap, pinmux and reset registers, will follow and replace it.
+
+4. The Cortex-A9 r2p1 is also affected by errata 742230, 742231, 743622
+   and 751472, whose workarounds are not available on multiplatform
+   kernels because they are expected to be applied by the bootloader.
+   The stock U-Boot does not apply them. Is there a preferred way to
+   deal with this?
+
+5. The UART ports are named ttyCS to avoid clashing with the 8250 driver
+   in multi_v7_defconfig, and PORT_GENERIC is used instead of a new port
+   type. The FIFO depth is not documented; the driver assumes 16.
+
+6. The top 64 MiB of RAM are reserved: the vendor firmware gives them to
+   the packet engine queue manager and the stock kernel is booted with
+   mem=448M. The reservation will be referenced by the network driver
+   later; I kept it now so that the memory is not handed out and later
+   claimed.
+
+Planned follow-ups, as separate series: the regbus interrupt
+controller, GPIO, I2C and TWD watchdog (posted separately),
+then the global control block/clock, RTC, NAND,
+PCIe (DesignWare glue), MDIO, the Ethernet/packet engine and a fix for
+the SX8650 touchscreen.
+
 ---
- arch/arm/Kconfig.debug          | 16 ++++++++++++++--
- arch/arm/include/debug/cs75xx.S | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 51 insertions(+), 2 deletions(-)
+Changes in v5:
+- goldengate: select PL310_ERRATA_769419, the PL310 is r3p1-50rel0
+  (CACHE_ID 0x410000c7), not r3p2 as v4 said; fix the revision in the
+  commit message and here
+- serial: scale the TX FIFO wait in putchar with the frame time, 10 ms is
+  shorter than one character below 1200 baud (sashiko-bot)
+- serial: no change for the other two sashiko-bot points on v4:
+  uart_port_tx() checks tx_ready before it sends x_char, and SysRq is
+  reachable through MAGIC_SYSRQ_SERIAL_SEQUENCE; the UART has no break
+  indication that the driver could use
+- Link to v4: https://patch.msgid.link/20261012-b4-cs75xx-v4-0-df250d903682@gmail.com
 
-diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
-index abcf14f10..c43fe288b 100644
---- a/arch/arm/Kconfig.debug
-+++ b/arch/arm/Kconfig.debug
-@@ -308,6 +308,15 @@ choice
- 		  Say Y here if you want the debug print routines to direct
- 		  their output to the second serial port on these devices.
- 
-+	config DEBUG_CS75XX_UART0
-+		bool "Kernel low-level debugging messages via CS75xx UART0"
-+		depends on ARCH_CORTINA_ACCESS
-+		help
-+		  Say Y here if you want the debug print routines to direct
-+		  their output to UART0 of Cortina Systems CS75xx SoCs. This
-+		  is the console port on the Securifi Almond+. The UART is
-+		  expected to be set up by the bootloader.
-+
- 	config DEBUG_DAVINCI_DA8XX_UART1
- 		bool "Kernel low-level debugging on DaVinci DA8XX using UART1"
- 		depends on ARCH_DAVINCI_DA8XX
-@@ -1531,6 +1540,7 @@ config DEBUG_LL_INCLUDE
- 	default "debug/vt8500.S" if DEBUG_VT8500_UART0
- 	default "debug/zynq.S" if DEBUG_ZYNQ_UART0 || DEBUG_ZYNQ_UART1
- 	default "debug/bcm63xx.S" if DEBUG_BCM63XX_UART || DEBUG_BCMBCA
-+	default "debug/cs75xx.S" if DEBUG_CS75XX_UART0
- 	default "debug/digicolor.S" if DEBUG_DIGICOLOR_UA0
- 	default "debug/brcmstb.S" if DEBUG_BRCMSTB_UART
- 	default "mach/debug-macro.S"
-@@ -1632,6 +1642,7 @@ config DEBUG_UART_PHYS
- 	default 0xe8008000 if DEBUG_R7S72100_SCIF2 || DEBUG_R7S9210_SCIF2
- 	default 0xe8009000 if DEBUG_R7S9210_SCIF4
- 	default 0xf0000000 if DEBUG_DIGICOLOR_UA0
-+	default 0xf0070110 if DEBUG_CS75XX_UART0
- 	default 0xf1012000 if DEBUG_MVEBU_UART0_ALTERNATE
- 	default 0xf1012100 if DEBUG_MVEBU_UART1_ALTERNATE
- 	default 0xf7fc9000 if DEBUG_BERLIN_UART
-@@ -1670,7 +1681,7 @@ config DEBUG_UART_PHYS
- 		DEBUG_RMOBILE_SCIFA4 || \
- 		DEBUG_S3C64XX_UART || \
- 		DEBUG_BCM63XX_UART || DEBUG_BCMBCA || DEBUG_ASM9260_UART || \
--		DEBUG_DIGICOLOR_UA0 || \
-+		DEBUG_CS75XX_UART0 || DEBUG_DIGICOLOR_UA0 || \
- 		DEBUG_AT91_UART || DEBUG_STM32_UART || \
- 		DEBUG_STIH41X_ASC2 || DEBUG_STIH41X_SBC_ASC1 || \
- 		DEBUG_STIH418_SBC_ASC0
-@@ -1708,6 +1719,7 @@ config DEBUG_UART_VIRT
- 	default 0xf7000800 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART2
- 	default 0xf7000c00 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART3
- 	default 0xf7020000 if DEBUG_AT91_SAMA5D2_UART1
-+	default 0xf7070110 if DEBUG_CS75XX_UART0
- 	default 0xf7fc9000 if DEBUG_BERLIN_UART
- 	default 0xf8007000 if DEBUG_HIP04_UART
- 	default 0xf8009000 if DEBUG_VEXPRESS_UART0_CA9
-@@ -1772,7 +1784,7 @@ config DEBUG_UART_VIRT
- 		DEBUG_QCOM_UARTDM || \
- 		DEBUG_S3C64XX_UART || \
- 		DEBUG_BCM63XX_UART || DEBUG_BCMBCA || DEBUG_ASM9260_UART || \
--		DEBUG_DIGICOLOR_UA0 || \
-+		DEBUG_CS75XX_UART0 || DEBUG_DIGICOLOR_UA0 || \
- 		DEBUG_AT91_UART || DEBUG_STM32_UART || \
- 		DEBUG_STIH41X_ASC2 || DEBUG_STIH41X_SBC_ASC1 || \
- 		DEBUG_STIH418_SBC_ASC0
-diff --git a/arch/arm/include/debug/cs75xx.S b/arch/arm/include/debug/cs75xx.S
-new file mode 100644
-index 000000000..967821add
---- /dev/null
-+++ b/arch/arm/include/debug/cs75xx.S
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Debugging macro include header for the Cortina Systems CS75xx UART
-+ */
-+
-+#define CS75XX_UART_TXDAT		0x10
-+#define CS75XX_UART_INFO		0x18
-+#define CS75XX_UART_INFO_TX_FULL	(1 << 2)
-+#define CS75XX_UART_INFO_TX_EMPTY	(1 << 3)
-+
-+		.macro	addruart, rp, rv, tmp
-+		ldr	\rp, =CONFIG_DEBUG_UART_PHYS
-+		ldr	\rv, =CONFIG_DEBUG_UART_VIRT
-+		.endm
-+
-+		.macro	senduart, rd, rx
-+		ARM_BE8(rev \rd, \rd)
-+		str	\rd, [\rx, #CS75XX_UART_TXDAT]
-+		ARM_BE8(rev \rd, \rd)
-+		.endm
-+
-+		.macro	waituartcts, rd, rx
-+		.endm
-+
-+		.macro	waituarttxrdy, rd, rx
-+1001:		ldr	\rd, [\rx, #CS75XX_UART_INFO]
-+		ARM_BE8(rev \rd, \rd)
-+		tst	\rd, #CS75XX_UART_INFO_TX_FULL
-+		bne	1001b
-+		.endm
-+
-+		.macro	busyuart, rd, rx
-+1002:		ldr	\rd, [\rx, #CS75XX_UART_INFO]
-+		ARM_BE8(rev \rd, \rd)
-+		tst	\rd, #CS75XX_UART_INFO_TX_EMPTY
-+		beq	1002b
-+		.endm
+Changes in v4:
+- serial: use guard()/scoped_guard() for the port lock and the port
+  table mutex (Jiri Slaby)
+- serial: honour INPCK/IGNPAR: report parity and framing errors with
+  TTY_PARITY/TTY_FRAME and insert the overrun marker after the characters
+  still in the FIFO (sashiko-bot)
+- goldengate: also send a wakeup IPI to the secondary core: the stock
+  U-Boot parks it in WFI, SEV alone only worked when it was parked by
+  another kernel (found booting from NAND instead of from RAM); the
+  change is small, I kept Linus' Reviewed-by
+- drop the RFC prefix
+- Link to v3: https://patch.msgid.link/20261012-b4-cs75xx-v3-0-0e0d17a098cf@gmail.com
 
--- 
-2.53.0
+Changes in v3:
+- serial: do not put the console setup callback in .init.text, it is
+  called from a probe that may be deferred past boot (sashiko-bot)
+- collect Reviewed-by tags
+- Link to v2: https://patch.msgid.link/20261006-b4-cs75xx-v2-0-b7d6e1e24d44@gmail.com
+
+Changes in v2:
+- serial: drop the empty break_ctl, request_port and release_port
+  callbacks, comment why set_mctrl stays, add a copyright line (Greg)
+- serial: take the port lock around all IE accesses in startup, flush
+  stale RX data on startup and disable the receiver on shutdown
+- serial: bound the RX loop per interrupt, check RXDAT_VALID in
+  poll_get_char, scale the console TX drain timeout with the frame time
+- serial: serialise port index allocation, reject too low clock rates
+- serial: name the driver after the vendor (cortina-uart.c,
+  SERIAL_CORTINA), as the same block is used in the Cortina Access SoCs
+  (Linus Walleij, Arnd Bergmann); the binding and the help text name
+  the Cortina Systems CS75xx and Cortina Access parts (Jason Li)
+- serial binding: describe the CS7542 only; other SoCs get their own
+  compatible with "cortina,cs7542-uart" as fallback (Conor Dooley)
+- debug: keep the character register intact on BE8 in senduart
+- platform: move arch/arm/mach-cortina to arch/arm/mach-goldengate, as
+  mach-gemini is a Cortina SoC too, and use one ARCH_CORTINA_ACCESS
+  symbol for the whole family, as for the 64-bit Cortina Access parts,
+  with the rationale in the commit message (Linus Walleij, Krzysztof
+  Kozlowski, Arnd Bergmann); mach-goldengate vs. mach-cortina is still
+  open, I am happy to rename the directory if mach-cortina is preferred
+- collect Reviewed-by and Acked-by tags
+- Link to v1: https://patch.msgid.link/20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com
+
+---
+Fil Dunsky (10):
+      dt-bindings: vendor-prefixes: Add Securifi
+      dt-bindings: arm: Add Cortina Systems CS7542 and Securifi Almond+
+      dt-bindings: arm: cpus: Add Cortina Systems CS7542 enable method
+      ARM: goldengate: Add support for the CS75xx SoC family
+      ARM: debug: Add Cortina Systems CS75xx UART0 support
+      dt-bindings: serial: Add Cortina Systems CS7542 UART
+      tty: serial: Add Cortina UART driver
+      ARM: dts: cortina: Add CS7542 SoC and Securifi Almond+ board
+      ARM: multi_v7_defconfig: Enable Cortina Systems CS75xx support
+      MAINTAINERS: Add entry for Cortina Systems CS75xx
+
+ Documentation/devicetree/bindings/arm/cortina.yaml |  31 ++
+ Documentation/devicetree/bindings/arm/cpus.yaml    |   2 +
+ .../bindings/serial/cortina,cs7542-uart.yaml       |  52 ++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  11 +
+ arch/arm/Kconfig                                   |   2 +
+ arch/arm/Kconfig.debug                             |  16 +-
+ arch/arm/Makefile                                  |   1 +
+ arch/arm/boot/dts/Makefile                         |   1 +
+ arch/arm/boot/dts/cortina/Makefile                 |   3 +
+ .../dts/cortina/cs7542-securifi-almondplus.dts     |  55 ++
+ arch/arm/boot/dts/cortina/cs7542.dtsi              | 127 +++++
+ arch/arm/configs/multi_v7_defconfig                |   3 +
+ arch/arm/include/debug/cs75xx.S                    |  37 ++
+ arch/arm/mach-goldengate/Kconfig                   |  19 +
+ arch/arm/mach-goldengate/Makefile                  |   2 +
+ arch/arm/mach-goldengate/platsmp.c                 |  72 +++
+ drivers/tty/serial/Kconfig                         |  24 +
+ drivers/tty/serial/Makefile                        |   1 +
+ drivers/tty/serial/cortina-uart.c                  | 599 +++++++++++++++++++++
+ 20 files changed, 1058 insertions(+), 2 deletions(-)
+---
+base-commit: 6474fa070f2b8013b4b87350b775b8c3be6e8aac
+change-id: 20260930-b4-cs75xx-033a2c047508
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
 
 
 
