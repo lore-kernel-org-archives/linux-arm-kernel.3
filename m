@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4371DCC6B0A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BCBCC6B0F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GX6tPjyxZgq06i1BxEioEo9IgWhT+swLiBH9K/mgsKw=; b=VCcd8MXebBZFkZ8akUmW2bFTcM
-	TSDKkPiB1nMDGgYV27h8z/97ttFwDjYopSsDhdt96UMx0JZMS6bHS+0B/9rz4n2r7axKqQaxVWVlb
-	bla622Tl3hGTreatOISEd9EsnepNG3Qlmde4BwNpDFkCxq3mtaD5oAlL3KUcAAj8HM34ch5ckl+Jd
-	nrsZmkyGFEJeEKanmhtXmLiWcrKqQmNc6amNOUwA4bDr/4+gr4KAxYNcpLJhcuOKHg8cZnxJ41E9W
-	W2o1+saCq01G/4Ne6+IBssDmrHXFKQVmBI1nfYCJ+xWkZYowYCZ+adqN5XS/t1L1F9bT6qHoQIxMG
-	l+7ldZvA==;
+	bh=ju5ziU/jiU2DieDsoHgPIHDX76lNg1D2lb3AWXFDUFs=; b=c0UoS9JdzTLr3tBTRHxaL/oOiq
+	UolhfkkgFo+4FGQfB6di/PS6V58AxZ/Eco7ej96Avn46E2wm3EWuKghONi/5sgEuKf3/KNnjPvXVI
+	rXGpJFpEusSp7Fkkj+/tdOGft5HTi06B6m/Za7c+wLwrnS0LLD60taI3n+3c5JVPPLqB0jEFpW1AU
+	lNLSDewBW7UlDO6NBpqk1QJSAhpHXM+CiqdQJ0SjNQFE7ES9ps5wf7PZV2jcIHPrXsRemv+EXTA0m
+	iMqocmjjsO1kYMbRoM7bDtWpS25Rh2GwCtD8dunShlET2V6+cG+YiTcjLWzcEGbYpFwM7eiMy1cWJ
+	rhjBKl5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVeH-0000000C5GR-3BWm;
+	id 1xGVeH-0000000C5Ga-3vOB;
 	Tue, 13 Oct 2026 06:06:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVeG-0000000C5FT-1zEe
+	id 1xGVeG-0000000C5Fc-3lo5
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 Oct 2026 06:06:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BAEE432EB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F0A744504;
 	Tue, 13 Oct 2026 06:06:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E8F9DC2BCFC;
-	Tue, 13 Oct 2026 06:06:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C20AC2BCFD;
+	Tue, 13 Oct 2026 06:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791871564;
-	bh=FGdKrLdjAm6HnyfgClKCSC4phcR13IbYQ7jKtBJyQUM=;
+	bh=N8m7KBF7NQ6WTdonuJlgr8ReC1ccHJp/7yH4LqgQIjs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=q6wa4XSnFO11KBBKPpaqIvWYAh9qENMAUtUttiHvxGbKFmeQ/IIrbsWbYe15LlxoH
-	 E5afu1sZD0d4r8V0rD3i6gOXnXZGG9zfO38wq1F9ZZNtKFJV2tV7L2y7qaaLdDEj98
-	 WaUNeJPiSfrIjkCLb7MI6LGFVFnXExyzO6iaU3EyBIBcRlygYYpy9j49dg9gu2s8Tn
-	 fjFmsftui5hnaco1ytfrcR1AbvQGhk3hF1lJOQ31Ch7u2N/1rpEv4aEF61sRtowLXJ
-	 vkSi5mQNswhuzbe1iVSyuqNO0YWlDsLSc55A95Ficvl2Uq+M+3DSlraZWQJKkgGo6O
-	 z8tBHXiea2D0w==
+	b=Q5NuaAqpeygPgJODWHDYfwGuK5fW/oflt+T9sKa+dCvU6x7b31nwG0Hz6Ji16RdWs
+	 lWzobdoKrpOQeUK8E1I7MhoZwh6004DfEd55qtyiT0Td8Wh5lcQD5JQukoJfmwa8+s
+	 S2W150ksUSaJn/SfsqfvUeuNWLNdvOkDP62UNHGthy+Pcs7FID7cLUzBbBcqOpTjDm
+	 L2/q/ckoOydCFDlUrY1dspmJnyldMjZVa+ERouUexpSqqHi7ldMapOnm7kxJrm4aGa
+	 dEoeUhWxLE5bPTvsajr3NI8xtK/Syw93t5uKHYWIY7m/h0t6TXGxIjtTV+eoNRpqBc
+	 KNHA1NZCZZ2DA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7E1CCC6B09;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE876CA9ED0;
 	Tue, 13 Oct 2026 06:06:03 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 13 Oct 2026 09:06:02 +0300
-Subject: [PATCH v6 01/10] dt-bindings: vendor-prefixes: Add Securifi
+Date: Tue, 13 Oct 2026 09:06:03 +0300
+Subject: [PATCH v6 02/10] dt-bindings: arm: Add Cortina Systems CS7542 and
+ Securifi Almond+
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-b4-cs75xx-v6-1-37e8f3969b7c@gmail.com>
+Message-Id: <20261013-b4-cs75xx-v6-2-37e8f3969b7c@gmail.com>
 References: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
 In-Reply-To: <20261013-b4-cs75xx-v6-0-37e8f3969b7c@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
@@ -66,14 +67,14 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  Jason Li <jason.li@cortina-access.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Fil Dunsky <filipp.dunsky@gmail.com>
+ Fil Dunsky <filipp.dunsky@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791871561; l=944;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791871561; l=1646;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=xgnzc7i7xTN4fotWpFnT0TA7w9z1wGvQ4nKXVlJT/zc=;
- b=yzkRYUQWI3fEO2TwyaICuILvVq8N3ONMeSHu6dBuJX+kA+9MeuYijqS+J99OE3f8CQOnliPb/
- A7UA9OmAWrRBN7i9sNF/C/3ccenoPVLXvfCjf2zQISIRZ4bfDVgmPjF
+ bh=iqp1aP4N83y9unmltEz85GKl1p1MyHyOFw1KaFYcgAM=;
+ b=o8L6+ILGorGI7xwt2a0S9kc5aW5CPw8hZlXeWbyMhQQTm1lMUYonuSX/pf9v1M4xckbrBIrT5
+ rYWMmnXr90aC2/hYno+TlxMD1e/igV8IvEQY/cONR9oSbNlrDbzVxKi
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -96,29 +97,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Securifi Ltd. makes the Almond series of touchscreen Wi-Fi routers.
-Add a vendor prefix for it.
+Add the top-level binding for boards built around the Cortina Systems
+CS7542 ("Goldengate G2") network processor, a dual Cortex-A9 SoC, and
+the first such board, the Securifi Almond+ touchscreen router.
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/arm/cortina.yaml | 31 ++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 5ddeae3a6..71e6f82a7 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1497,6 +1497,8 @@ patternProperties:
-     description: SDMC Technology Co., Ltd
-   "^seagate,.*":
-     description: Seagate Technology PLC
-+  "^securifi,.*":
-+    description: Securifi Ltd.
-   "^seeed,.*":
-     description: Seeed Technology Co., Ltd
-   "^seirobotics,.*":
+diff --git a/Documentation/devicetree/bindings/arm/cortina.yaml b/Documentation/devicetree/bindings/arm/cortina.yaml
+new file mode 100644
+index 000000000..1c04b1781
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/cortina.yaml
+@@ -0,0 +1,31 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/cortina.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS75xx platforms
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The CS75xx ("Goldengate G2") family are network processors from Cortina
++  Systems. The CS7542 has two Cortex-A9 cores with an SCU, GIC, private
++  timers and a PL310 L2 cache controller, a packet processing engine, three
++  PCIe root ports, a NAND flash controller and low speed peripherals.
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: CS7542 based boards
++        items:
++          - enum:
++              - securifi,almondplus
++          - const: cortina,cs7542
++
++additionalProperties: true
++
++...
 
 -- 
 2.53.0
