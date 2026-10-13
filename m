@@ -4,64 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22264CC6B12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 21:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24921CC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 22:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtpdMC3f1KAFmxjZUh+ailSfGGlGpQNYcvTeq7U0rMo=; b=jzTooW8LKoXpkWte9H/d2m+d2i
-	Q+R7eDdvqXVJBfD6RmyXWDb2AULBctxYhV03Jizd++ifsGEA+y1TG9atR0dc71ywc6JwhfOE7tPoL
-	3aLWB9bubk3gERDXyuM7GehKvUwd60Qnp3z9/P7UqZqpRO1crPZUubVLgbexRkpiVGfW1mIJOFNFr
-	SS0wNMkYp9B3SAOkUYwLgOChKNk56W2hvXeWeNnh6q7v1LF/B6P0LNXokBvj11Q4RFqdSkW41HTtC
-	ZlXw2BBUuHbQBQZdSJfqH9xNKUCdJTwdLuOv5h4e2Gn8bE67MuEdA+lBuBLcGosjdJokCBrOfx9Y+
-	SniyNf3Q==;
+	bh=Nhe/wjFUoCvty8LtSdiyp7x3mNmPZQcjb6dPJtToQNQ=; b=wvEUJi7vZZtML8D6oJzA9csZd4
+	btgDosjBXaHFLR6X5HmWml4hLL7hesNW1OZsoJL79lkd7kEAZznGDSI4oSd42PPWV+y2yzYe4PQ0F
+	2UTqCV5V+h1owrgvhpWQ1fsl/FX6oOywti1bDzjXnh4WyESZu79SIeuq+Cd2WGQ4GDgghfu98SqLY
+	ydnJT7coc+n/RVpI5R1M4Sclj2T+qfUXwg5KYxwnHBaiwOF8PsgaJN2KF9n8nuVLeDZK5Zu/bPGZC
+	5mEGnWLPP1YRAkmFgFjuZgIEWApvzqnOosozbXSBl+c9BwpSGAHFOMic1/U2N1IC2T2h3fTOKjNcr
+	jLPpAmyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkH8-0000000E66Z-1reE;
-	Tue, 13 Oct 2026 21:43:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGkXI-0000000E6oK-2zIj;
+	Tue, 13 Oct 2026 21:59:52 +0000
+Received: from mail-westeuropeazon11011046.outbound.protection.outlook.com ([52.101.70.46] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGkH6-0000000E66P-3II4
+	id 1xGkXG-0000000E6nl-4BMy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 21:43:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A28DD601DB;
-	Tue, 13 Oct 2026 21:43:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C44A91F000FF;
-	Tue, 13 Oct 2026 21:43:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791927787;
-	bh=wtpdMC3f1KAFmxjZUh+ailSfGGlGpQNYcvTeq7U0rMo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hwF/UfHPALEXRP/WvYSE5C40fRUfBxh4qXHyuJsN2ea3BoxA9J+LvrGWTu4LE+iVp
-	 ZZ7MyEED+qJ8POJJSdCyWM1gZ63Tw1j9sUcjMNyNXEAkmmD0wAdrW4tAjuMU8bJATI
-	 E8vtUZRIN1vrUU3eLhQ75XD7D8Rud4VczwNaU94mMb0TOjqaQR2NjIwoj22MfVHtXV
-	 fTTULt78Ma/CYKNRT0TLVfk2IXyTRH/d8c7bbJm26CNCKXZLfEfYxWaxiHk9VB04aG
-	 n5YKxlAfYviu572j04hONGrejAGo7I4jHSCbnLsrYLfGJ5kbjmd0qJK2ofmKA6ULPJ
-	 DTdejL1c9jAKg==
-Date: Tue, 13 Oct 2026 14:42:59 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Don't WARN on SMCCC filter reserved range
- allocation failure
-Message-ID: <as6l4-oADdUKiVLq@kernel.org>
-References: <20261013164334.1492070-1-fuad.tabba@linux.dev>
-MIME-Version: 1.0
+	Tue, 13 Oct 2026 21:59:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LU/cj1MwpCoIWPXkaPefEwFRqbzDIZaqae297G0b9ou1rLtwfN+ioL4Gz94TO/XXlj1J4NEwbSSPz7mM6YqGPD2qHTLijulci9fn8QLXp1eEzjO3Ks35CROtV7gs/mpSLflnrxv3aWt27YvlgQr0KN4+w9zXmJ6M1SOb/ouvEatyijURFI1adHn8USzz+v3fon02KitosmVy5rgamwI3UrPt9RYAm2yryhMBkwOJzHSO+cK1VrCKm1VC39Pe1WWbkRCPP7Pi0ygm9ODylw9DeV5iBx/gheSJ9e4dNAZviG21qLPzo90+ADqd96gxbxoJZjA74nxBshBThYUzrK1G+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Nhe/wjFUoCvty8LtSdiyp7x3mNmPZQcjb6dPJtToQNQ=;
+ b=CkPsaf9vlMlC+JQc3NDJjy3EQrDqTxfGr2Ca0ui7DMZjgIhBfxUViY3jjGXKDIWEg9G5Hnv0hc448VmKGTBHoPdbmWXj14HegM/xPfL4NI2sAX9w52lQYGYi305iwVkIctjusoHfese0cAKXRG3DCFDsOkGCeCYl1LuKzsurB4qNNSDx+bffsp6g1zwihE+TvwQIwz2O0hJjTyK66GYhoKJw6WVh0yZlFWUV4qmk8FDTPARlTqYLIbJwfBiRaXxkVWo9zQjVFKyvBDvN73xPN8Gs8z6x7jh04kR9u3ZGSID4B2NwlA8uoITJmrdlDQdoJSIbqrQU0qtZ6Ks5zd6ndQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Nhe/wjFUoCvty8LtSdiyp7x3mNmPZQcjb6dPJtToQNQ=;
+ b=tRmUfM1scQAZE4kGRfewVK0N2fg64nFWz0GGL/bP0OoRqFqaScoPoVjk6lnjrbrNroh11sjy0JP1xZVK+T6/MwXoARrxw6j7R0WYb5Lv6nBRjM0w0eoIT1zqKm28IycgkbnvgN+dchmDRpYCTdd4544bKv6LuCrrS62RMEz6hbjKYamv/ZqSfbvW7uQOHStRiSLi+uoDdEdb9EkU4WC2mZddeYOlbXWDEE1c1l5OydUUNp6CsuOsdSIRWue3Q1CrIbHokXE6afz4BXxxO1ym7A0a6i6xr3sWPJnBLJ41+MyMl+GkISbRSvPxiErNj8R5OR5K5ZMZiCYhNmXkQY4psA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB9PR04MB9701.eurprd04.prod.outlook.com (2603:10a6:10:300::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.24; Tue, 13 Oct
+ 2026 21:59:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
+ 21:59:12 +0000
+Date: Tue, 13 Oct 2026 17:59:05 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: dmaengine@vger.kernel.org, Lizhi Hou <lizhi.hou@amd.com>,
+	Brian Xu <brian.xu@amd.com>,
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be|_ptr)?b" <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCH v2] dmaengine: xilinx: xdma: use kzalloc_flex()
+Message-ID: <as6pqTKcHpSSjY7b@lizhi-Precision-Tower-5810>
+References: <20261005192621.99880-1-rosenp@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261013164334.1492070-1-fuad.tabba@linux.dev>
+In-Reply-To: <20261005192621.99880-1-rosenp@gmail.com>
+X-ClientProxiedBy: PH7P220CA0068.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB9701:EE_
+X-MS-Office365-Filtering-Correlation-Id: deffa7e7-b588-4ced-4c1d-08df2975375b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|7416014|376014|366016|6133799003|18002099003|10067099003|22082099003|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: bnfgbVYxeW3nRqg/+3G1yjTlpnt1qrMIgVkhMeo3dzugHtPse72mzg/sDeZGUH79dbTn0za6mixSK+281bjKelsVhPeygRuOfrTOZji3/6A4jHxezfhvP5X28sq11WYaC2l+ujtb5kzzdcegexKyEFXLkdArLYvk39HY+soNNrm0swF57f3AAMYLiZdj6+z+9E/ici8qqZecJ/NIRPMgSR8yy1NJKiUmNQpYpvQjy0JqI15vBRQ3cKxEVXqq9wxRfsklHmHHUDCWwoScSZUydYH3kwOO7uOh6y3YiRNzyEVHL1pwdVr6r1oq9v0sobYesTIHR8iU+GhXZe9P2yGghw5VxREbPNeVwFnPVri/PQQ+kXml7+SC37M6/dfcnD/G4elFKADKb1geJ5knwRUrFJldYGX0VieUrOyzctEkO2+8v4gNOORkkPGwpTcLowBT3bqSMJS/Esb8mFLrSrpJfDBVKsTH4ga6tJsc2S1SqqFtw7JbFzpYpDgrYhHw56XW7eqvESHqm+2nmKGskNUhaLqOCSTNqlfwH8XsygFR7vLPo2g9J/WUi6gVjqR7jR+YjKZ7/YdkFYs5xWX0CT6gm19pVmBHmbpykXkI3ZzYdwWk3jRX9pawopHbxgb4lhkHdIltTFLK5TcmVQ3I8bYH22e5I9ibNfK7Eg/BCigHjbI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(7416014)(376014)(366016)(6133799003)(18002099003)(10067099003)(22082099003)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KOIBMBRmCo4/6O4KvWNrKY30vr2xgML9acGGSvrzbOTnKpiO1eqF5hFpihiF?=
+ =?us-ascii?Q?ihEJN+Mn7e5MaTcS3LLLWhMKslQbaVcdGbK2Y0qQLK5bCIuQz8yWhX7SuEYt?=
+ =?us-ascii?Q?/SuFU8mSn9i0cri7nSgVkKzdqYDn33SFqcXOI6cjPO7o4rTIkgpKC66DXNA9?=
+ =?us-ascii?Q?JXb7jRqSQJqrYrWRuBK5aiF9QjTM6+R5itUybp/Bx6HPnkOAZMsux429/Z+v?=
+ =?us-ascii?Q?8b3jCLGfDsK4AlkQj5WLQLehoFB5N5BVld7cop84sjCbOY1VV9cvzE38EKrQ?=
+ =?us-ascii?Q?eUWrrytnphGPdHqLAFrP4hmjWvtOW63S8hHMS/7blK3kVqD9OWRqcHGUc1cT?=
+ =?us-ascii?Q?iPWZqPMMpT6XC1Y9dOZ72XMeaTY0fkmAU2+0Uu5SDMs1hHvSigCQvYDWSz2K?=
+ =?us-ascii?Q?cSjAaS4vDYbQ7mslUcp94P4qMnllD5ttO9jSalgqvgtwFBdP0fdBIcpOy4AM?=
+ =?us-ascii?Q?Zy+uu/a9+2zNemSSQ8M4TzJuo1qcBFHq1BQTgb4dlB4c7aUuq4R+RX3f7tLG?=
+ =?us-ascii?Q?q2ndl6/kOlmDDBiolqjqFP2KRqzWo7It6AtTJRL1geszR3ilFyhzCrYy5V7M?=
+ =?us-ascii?Q?5kpqThqPFG2CzR0C5NUU22Rsi39hfT2jamLCdRZAJfid1D+Iw4Gj3BV6Xpmk?=
+ =?us-ascii?Q?wuFwMA5xtkZUPtyRfKnDJeyn0fV1a3nh7Cvj0YedHlqXyDbZ8kTGD+vR0fqC?=
+ =?us-ascii?Q?/aUs4L4pBdtJBEJelLa25v1MyvK3KOYmWHCu6oWhWB/O03PaVN9uMdR1A1/w?=
+ =?us-ascii?Q?IxZ5Cxo4Bx1HGusiDY1JxfjDW3c9+4X0OJS1HlFk9SLjr6tRCinZWuKXwrzB?=
+ =?us-ascii?Q?WfHv9j0OEuh3BQDWWSbbeK6ZC6ErYVzxH35TdX8L3mZkD6upuDrrH03bLiD+?=
+ =?us-ascii?Q?Sli1HsjCQxYnNlAWfKoLuvf4KKHUKji4Ki24FdDW4Zv/RkLhCnQWIB69mcdk?=
+ =?us-ascii?Q?YtwvT4Fzingab9fmYip8EtA9PwoOVH7y2AxU/Q4l1zCMnTsi9FRAMYmM4lDN?=
+ =?us-ascii?Q?QmxiG2Qw7CeH6btJ5hTdrqHKNSqowMxrGg01EpDamXViQmhQg+3dj8cUbYij?=
+ =?us-ascii?Q?HEaBAf2KOX7JasT7rhUktGR5U/brf4F+6NRv6AcrnRIpUf9ov/wJLpbMPGFC?=
+ =?us-ascii?Q?RT4kGi9DUnomkURZRXy6GTjbNvlSjjit8JQdlS+01fVSMll69b3taRegxent?=
+ =?us-ascii?Q?BkJW/ezPqgeMvo3XSDuX9nxLwTiiqoWfhx35/pO4nJqU4ShJV579Gz8vLWH3?=
+ =?us-ascii?Q?4kW6InFYmf8NBDP5Isak1s2Z0gIORosCTZuptrNVqcm6KhnwCjaFa+kZOFnt?=
+ =?us-ascii?Q?RkLmxOaH2MhIsB/uxkrBvCz+eMaUH2YCaWx/Lf17mvkxV+6nwPJP8zK7Uf1e?=
+ =?us-ascii?Q?fckACr4q4aF5J5+DbZp4gGNWXklaC3u1bvVVutwAaaEXeXwZEmTJe9Gtc1lj?=
+ =?us-ascii?Q?EqHd75r5ng2P3etwr+/KaeWWaWd1KBXSH/DbSJ8e/Hzn1+Ycz0Q7urwhsuIF?=
+ =?us-ascii?Q?vZvc+d6SLsxnig8f200OkyDH7XhF+hCneLry5SQPE3kS1D+nxzDuN+RBj+9F?=
+ =?us-ascii?Q?/xEAIL4PrIBk3j8bueNRi04egYGXDr9VeROXsEt5JEQnThCktJxKAxwja0gN?=
+ =?us-ascii?Q?KU1Zl5uqj2U49Zgk9287WUXmCp8wMiVH9oqRW85eBrn2L1aowppyaTw71tJs?=
+ =?us-ascii?Q?ptyedckg0x67hJ7DPI+cs0N/fCOMS/ul9YSpNCKC6p0YvgaIeq0M+mA6smyD?=
+ =?us-ascii?Q?7LAGdzMrSd99yRg9E+78ZYYzwXqK40Aq09o9jnJefz4Bj3nEgCfT?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: deffa7e7-b588-4ced-4c1d-08df2975375b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 21:59:12.8400
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: laGg/n4MJ5J5sBuP7vr6M53hNn0UB86t5p2kOhwYverJPZthI5eUwfASPe8Mdk0o/hicAbXcYPXUYi7mm41GZmS06F/eNYWNVupo5m9GkTZeRCR2ykxZSCFLyzottKIP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9701
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_145951_050608_BD6559BE 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +142,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 05:43:34PM +0100, Fuad Tabba wrote:
-> The first time userspace sets an SMCCC filter, kvm_smccc_set_filter()
-> inserts the reserved architecture ranges into the maple tree and WARNs
-> if that fails. The insertion allocates with GFP_KERNEL_ACCOUNT, so a
-> tight memory cgroup limit is enough for userspace to hit the WARN, even
-> though the -ENOMEM is also returned to it. The WARN dates back to when
-> the ranges were inserted at VM creation.
-> 
-> Leave -ENOMEM out of the WARN and keep it for every other error. The
-> two reserved ranges are fixed and disjoint and go into an empty tree
-> under config_lock, so any other error is a KVM bug.
-> 
-> Fixes: fb88707dd39bd ("KVM: arm64: Use a maple tree to represent the SMCCC filter")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260829055809.29AD31F000E9@smtp.kernel.org/
-> Suggested-by: Oliver Upton <oupton@kernel.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Reviewed-by: Oliver Upton <oupton@kernel.org>
-
-Thanks,
-Oliver
-
+On Mon, Oct 05, 2026 at 12:26:21PM -0700, Rosen Penev wrote:
+> Change desc_blocks to a flexible array member so the descriptor and
+> its block array are allocated together, removing one allocation and
+> its error handling.
+>
+> Add __counted_by for extra runtime analysis, and set dblk_num right
+> after allocation which is already done by kzalloc_flex() for GCC >= 15.
+>
+> Assisted-by: LLM
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
-> Changes since v1 [1]:
->   - Keep the WARN for any error other than -ENOMEM. (Oliver)
->   - Split out of v1 as its own patch. (Marc)
-> 
-> Based on Linux 7.3-rc3 (fd73f4a665989).
-> 
-> [1] https://lore.kernel.org/all/20260928152507.2116110-2-fuad.tabba@linux.dev/
-> 
->  arch/arm64/kvm/hypercalls.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-> index b11b8821c9fbc..c9d488c586e5f 100644
-> --- a/arch/arm64/kvm/hypercalls.c
-> +++ b/arch/arm64/kvm/hypercalls.c
-> @@ -197,8 +197,10 @@ static int kvm_smccc_set_filter(struct kvm *kvm, struct kvm_smccc_filter __user
->  
->  	if (!kvm_smccc_filter_configured(kvm)) {
->  		r = kvm_smccc_filter_insert_reserved(kvm);
-> -		if (WARN_ON_ONCE(r))
-> +		if (r) {
-> +			WARN_ON_ONCE(r != -ENOMEM);
->  			goto out_unlock;
-> +		}
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>  drivers/dma/xilinx/xdma.c | 15 +++++----------
+>  1 file changed, 5 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+> index 8d4a5d14e8db..16d202722245 100644
+> --- a/drivers/dma/xilinx/xdma.c
+> +++ b/drivers/dma/xilinx/xdma.c
+> @@ -81,7 +81,6 @@ struct xdma_chan {
+>   * @vdesc: Virtual DMA descriptor
+>   * @chan: DMA channel pointer
+>   * @dir: Transferring direction of the request
+> - * @desc_blocks: Hardware descriptor blocks
+>   * @dblk_num: Number of hardware descriptor blocks
+>   * @desc_num: Number of hardware descriptors
+>   * @completed_desc_num: Completed hardware descriptors
+> @@ -91,12 +90,12 @@ struct xdma_chan {
+>   * @period_size: Size of a period in bytes in cyclic transfers
+>   * @frames_left: Number of frames left in interleaved DMA transfer
+>   * @error: tx error flag
+> + * @desc_blocks: Hardware descriptor blocks
+>   */
+>  struct xdma_desc {
+>  	struct virt_dma_desc		vdesc;
+>  	struct xdma_chan		*chan;
+>  	enum dma_transfer_direction	dir;
+> -	struct xdma_desc_block		*desc_blocks;
+>  	u32				dblk_num;
+>  	u32				desc_num;
+>  	u32				completed_desc_num;
+> @@ -106,6 +105,7 @@ struct xdma_desc {
+>  	u32				period_size;
+>  	u32				frames_left;
+>  	bool				error;
+> +	struct xdma_desc_block		desc_blocks[] __counted_by(dblk_num);
+>  };
+>
+>  #define XDMA_DEV_STATUS_REG_DMA		BIT(0)
+> @@ -255,7 +255,6 @@ static void xdma_free_desc(struct virt_dma_desc *vdesc)
+>  			      sw_desc->desc_blocks[i].virt_addr,
+>  			      sw_desc->desc_blocks[i].dma_addr);
 >  	}
->  
->  	r = mtree_insert_range(&kvm->arch.smccc_filter, start, end,
-> 
-> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
-> -- 
-> 2.39.5
-> 
-> 
+> -	kfree(sw_desc->desc_blocks);
+>  	kfree(sw_desc);
+>  }
+>
+> @@ -276,26 +275,22 @@ xdma_alloc_desc(struct xdma_chan *chan, u32 desc_num, bool cyclic)
+>  	void *addr;
+>  	int i, j;
+>
+> -	sw_desc = kzalloc_obj(*sw_desc, GFP_NOWAIT);
+> +	dblk_num = DIV_ROUND_UP(desc_num, XDMA_DESC_ADJACENT);
+> +	sw_desc = kzalloc_flex(*sw_desc, desc_blocks, dblk_num, GFP_NOWAIT);
+>  	if (!sw_desc)
+>  		return NULL;
+>
+> +	sw_desc->dblk_num = dblk_num;
+>  	sw_desc->chan = chan;
+>  	sw_desc->desc_num = desc_num;
+>  	sw_desc->cyclic = cyclic;
+>  	sw_desc->error = false;
+> -	dblk_num = DIV_ROUND_UP(desc_num, XDMA_DESC_ADJACENT);
+> -	sw_desc->desc_blocks = kzalloc_objs(*sw_desc->desc_blocks, dblk_num,
+> -					    GFP_NOWAIT);
+> -	if (!sw_desc->desc_blocks)
+> -		goto failed;
+>
+>  	if (cyclic)
+>  		control = XDMA_DESC_CONTROL_CYCLIC;
+>  	else
+>  		control = XDMA_DESC_CONTROL(1, 0);
+>
+> -	sw_desc->dblk_num = dblk_num;
+>  	for (i = 0; i < sw_desc->dblk_num; i++) {
+>  		addr = dma_pool_alloc(chan->desc_pool, GFP_NOWAIT, &dma_addr);
+>  		if (!addr)
+> --
+> 2.56.0
+>
 
