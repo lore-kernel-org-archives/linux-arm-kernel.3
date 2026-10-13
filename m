@@ -4,114 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B0BCC6B10
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 07:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D25BCC6B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 07:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/3uZKTyrNaRvsXwszDYWZ0D2uuc7O2dM/xJ/2Buikg=; b=MCB6JV71kv82yxlyNpiVFZeM0V
-	Vt34O+mdEY7C0r4WSXl1ww2aLweBxd3qRG3+/42QA5mhxhvcI5nrX+cW5N6mxUZa9w39asFbaL6bB
-	bfM4OrbacqwCJjfxy5FfB9S/Ebb5VrWr9dINME3cS8QryrvP+KUOnVB89fAlZoLH7zehkaXC6341b
-	AOItg6Lda3ZEpVljfyHpY2mCNNK5lfFjA2ngI1zohudW790MhxoocZ10vtRnVVx06tgiNyKAF29Gz
-	841NYbJeFPxZFBvvU9RAdpPdy8lC4o9LYC4M1oGHYo2gL13tPibt99JSZt9ivgY8wIVZABiuhaRUu
-	lx00zUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oab5q36RLcRFvq5kzowaoH9lXYz57V+AFbZGkJbzRns=; b=anCFfOWI/+e1lqRqMssZu515vn
+	5ckXTCk/wQBMWYJ1DJG9u6DiNv3KqugpKdixxSGtJH9vLaGGYia2+oVbZB95vLPhjrnI6GkxWzdyA
+	sj6snkuGwNFES1Tp2fZG769S74jEd2blJ7+M+5Gq/W1L0aPh0tzkLTUNfB6hxy7vHclU2VciwQi+k
+	XSxGx0l/Gul69rKu/5xsXstZToXyEHf9PCOoBHyoFVLLA5r+U6Q4jJRIEHhrZp9xWI+OgVctxIT3R
+	q0METwicPk5GSagctNY9vIKsmnwOIBXJFQxnkljyF1YAsiGtHfRoyxlBoUEbUS4vu4nfBCBX7qTUe
+	tbZgE3dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGWin-0000000CCBG-07CV;
-	Tue, 13 Oct 2026 07:14:49 +0000
+	id 1xGWis-0000000CCD0-19Fw;
+	Tue, 13 Oct 2026 07:14:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGWil-0000000CCAh-0hPE
+	id 1xGWiq-0000000CCCR-1T26
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 07:14:47 +0000
+	Tue, 13 Oct 2026 07:14:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=N/3uZKTyrNaRvsXwszDYWZ0D2uuc7O2dM/xJ/2Buikg=; b=drfQfciOiRh5fhoq7OhAlDG13i
-	P35TARtpK6tMJ8ZpO1YFOyMjI4ER4ZKiyBQYbzij2wLuIB7V1b9FhLivsznBZKCYjYnwosavt1ViT
-	3oqDApwYq84j3gN6iRHn06VRdM7fPnhXXLAix6sgljAynehoMLnNHgMgKH7CALoQ3IVebEDEWXOO/
-	6jVDMXkbcEOMWR/1c43nNud3b7E1cvD6P557IzS3pWzedTDaN5Eyt2NfxnxiHOcSHKye3vCghtIc8
-	Hq49pi8DYtDINHSRD8watL4T2ygFP4axa2JUWZ9BnuSuUW5jzH4YWpSVnoeWVu4Zvz6h8ol9b9OWE
-	2tSjo8cA==;
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Oab5q36RLcRFvq5kzowaoH9lXYz57V+AFbZGkJbzRns=; b=QK2H9KmgH5f9rUEKnQnjpQ7IAA
+	QSFKjwC4oxAd9L7DxZZtz+m8gOGyBXGo4eRiuNu4iyrdI4HmFgN6dkq6ISJ879+CwWhnTQfniWSIs
+	q9OLUWPZu6H6xg24Ke+ISdMsV2FeIUSRY/FvhXp7HhXXDJXlG2n1p16lZPNi1rwws8RS47+CpYPvm
+	+PfUyoZ30j0IPsvjRgvsS81Xpspgk9x3KTp76O3Upfb9tbWXkakWBVAALG20AyX3SMkfp/jWX2pqQ
+	/GHPJTgEicMCHyiOymNRqPqeKWD9qqzgdy86Jb9Eugo8rCNtx4wdo2JXK4Vm46JdkT8nBhMbbgV4W
+	45v2mYVA==;
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGWig-0000000FBtt-0odJ
+	id 1xGWim-0000000FBug-2UMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 07:14:45 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48b9d8055dfso1974563f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 00:14:40 -0700 (PDT)
+	Tue, 13 Oct 2026 07:14:50 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-4e4a4d77e5bso2650806b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 00:14:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791875685; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Mcy6+Paeda/OfDcuei7aTKQAIdQfkbUw56KZpSbeetMqEJS9S33ix1mGilEN1KHGZP
+         mfIeuyJRttFTIAiWijan784fBoX9xpzt/7VRedTCUf/sVrj5xuTZ+YbeEsMsGEvt7k9z
+         5sOJl9AYBosC+ESM0/1otJ5fEn0puPRuGU9dTllcAAcNzsV49ODAVDa98TwjZfgvbF2j
+         GH0u6ZZY+QxSNUp/E9tU0VABqym2bSPzR0lU9oIErG6ycZ9vB+HTJMXO2JXFUdNw12cv
+         7bvWe8RBOL15hRMItPUeY0V8G/hH62uR1faU9S6TRzj6lCtfFi9Fe7IhIElKKV6h57D1
+         ZEhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Oab5q36RLcRFvq5kzowaoH9lXYz57V+AFbZGkJbzRns=;
+        fh=uoFYvX5YrWzYQAQN450494PWsOesIs2TVwkpWR6RQ4k=;
+        b=oBYzglG88a7vI1OHBXVQQm7vKwZT0597FVQSFjSpldTX5phPpyZn3BtuA00cssc+DG
+         T3r0UHOQgrSkx/oTJFvUddgu+y3iQP1Jl7y0pQF4G+POhj5z/2wXWtz4Ee3TigQ2swVE
+         M/Jalp9PNKwUlJkRih+rn2Vq2gTycgI+rr5mreDFWobNWIhH3oEVqAKZMqz/vqrQ8s+m
+         IBFb347W9tEgm0we/sdebwHBx0P0IlWdSLGl6JmHxBpqbyhcrglVdbsgcA/SjR/aXhxs
+         szG/R5CrOuaYi71rFCuRdeMa631cd6ce8lLAaAH1yFk0MCJIr8v7KAhjiM3eVhZV8LBk
+         R0ug==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1791875679; x=1792480479; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N/3uZKTyrNaRvsXwszDYWZ0D2uuc7O2dM/xJ/2Buikg=;
-        b=laDxsnJNN4Nk1qCAFkWO+q0oHAMzGh7rsCVfmkZS4pVGrvT5xTOqgyE66Zppu/mArU
-         WaTRji54ID7WpFvjp/P20MiZ8B+E/vl9ahy7fnquJUes8xVQROwafsHz8cNasEdObX+M
-         wO1KNx41Dg3BYrwj2dh5EoiXe5TKFZbKpwlWJ6qwLw4XMeZvuWvgPK5F5QL0W8PFYvoB
-         GP1yAQadVgPO0ugL+CCrYl0G4gPqNWaYGQrbQw657n+ELptsVKgd5FfNTVWUWC6h6Cb1
-         XUA9xaZmStIONCyjj8+7PYxQDbMLDUPwlfwUb2oBwC6xd0rAgfLhDf4EpY0lWKnHm6Im
-         dsDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791875679; x=1792480479;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1791875685; x=1792480485; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=N/3uZKTyrNaRvsXwszDYWZ0D2uuc7O2dM/xJ/2Buikg=;
-        b=OjKACRdbmBttbmQmtl2p6QRGzN+id4VHr/TuVac3EFb85qVUwKWhPKa4L2FyMz3cWu
-         W/nN+UVa/Z3rIUm0vRK0YnLaEeIwPy6NUZyBxbdraXClabf9L7aZL6277UfjaEsaTKmS
-         +/B5cglPxqHHOswnZfOYENH1rq2V6BX/2oXijc99YbQ9M1XmeIrSETlNlrQGbnjh8hl7
-         f64QmFE9ic6+HklkqX1pX3JjOoILFV/e1JxRcGSTQdCiSubI5Hv9p5JOWeKkeoHFm5h3
-         JBIVdD0pK6Qjvk/Ndc2s6gKyElDjGyTz2hSN/XPTF6HB2rFg6C79tliXeVaV6tAiHotN
-         fnYw==
-X-Forwarded-Encrypted: i=1; AKwUvBwu6hf6yI6GVc2YcnmLjfG44fm1ePJcehrKmIKCJy8yp8aJhRIt0/68W9TCLifQOKiXCqiMGcshsYeEKtthQzi/@lists.infradead.org
-X-Gm-Message-State: AFq9FYJqfIu4fDpRnsVTgSWjKYRd1m0tWn0MqEq8YwAX7mQmoLZWbgGv
-	s0I67rydc/A+7k8BiBNNo/eLhvcK0T3ThZ7dayqhdqz8hwmWFTh+lovzLC2vvv/AeWU=
-X-Gm-Gg: AYBFou2I7WpB/ypTcLKPc6BzkZNmfxFF76wduriKqE0+jbo+5wLG33Hd8uMYlqWbFcS
-	OK03VIu9A51WFLf+m70QLxTcLhWf1hMo5SVMAt8VLHwTdTonlpWOzDrC6utXbs5+NG1IHEfpKA7
-	Md73y7zPIpleT2o34Zw3G0cCHRDmc2lDxyTF+m6iBuGaGYa/fcb/1kJe8WDx7f8oYgjHkCZbGQw
-	8ud98DXWq1aDBDt6KuBKP7UBbWe9GSf6kbTxtu7rVRidYbbX4AxobLpPgx1SVMX46Ty9nDvcE+N
-	FMzC5smVmQv00h5CS5jT6G3oBVKqwgjJWaOFnUvmKcyW5w5kCmkrdh+5dOYkO3VY6eSgCQPRR43
-	nqVsNB8ImC2h30rhKZkVrEUdOH4p6XUkzURgzB3cVvzyIrIaVOc5hrFhr0y006+Nw7kqwjD4hrT
-	tgmM7Cv1jKFx4UfOb+6UVvvhJajN+c7Qo2Yfk3OjDuCJSx2deHKAeeabAz/MIUwXniU23kP1TDL
-	GlfGlIZIcl9zkiLxg==
-X-Received: by 2002:a5d:5846:0:b0:48b:180:b900 with SMTP id ffacd0b85a97d-48dbaadb302mr21043691f8f.16.1791875679329;
-        Tue, 13 Oct 2026 00:14:39 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ab5b03sm3925157f8f.30.2026.10.13.00.14.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 00:14:38 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Lucas Tanure <tanure@linux.com>, xianwei.zhao@amlogic.com, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Neil
- Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
- <khilman@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 8/8] dt-bindings: net: ethernet-controller: tabulate
- who adds the RGMII delays
-In-Reply-To: <20261010105900.247342-9-tanure@linux.com>
-References: <20261010105900.247342-1-tanure@linux.com>
- <20261010105900.247342-9-tanure@linux.com>
-Date: Tue, 13 Oct 2026 09:14:38 +0200
-Message-ID: <1jqzhu9in5.fsf@starbuckisacylon.baylibre.com>
+        bh=Oab5q36RLcRFvq5kzowaoH9lXYz57V+AFbZGkJbzRns=;
+        b=q/KKPECPHelyuj8HvWLkNxdNsLl1lkqcjDuOMowwETsGK9sbhCbtBIlRorSYiAfnEG
+         ifkfttcM5v6Jp9vp8LVMx4JgiyhornR8R/2YivNukVrzb9T5CpT49qwRGAsET6xlhtYh
+         WgnPpIvlZRsZ1LbFq/7Lsva1vwePgQAIsZg2qyKvIAgtpDm7nEt018bTgN2kcz5SGQKs
+         bXqGH5GVdnP85Me0pFp+MBpS+xgTgBv9dlQamExYSiXTwMd//XYlKHVDwyDNlDq64Oqq
+         34FV597T7PkhqlpzjikxHnPOwigZhNyAfx2K3z7PkimEXcOo5VuT4SrSFRmcNj6M7mK7
+         c+4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791875685; x=1792480485;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Oab5q36RLcRFvq5kzowaoH9lXYz57V+AFbZGkJbzRns=;
+        b=pHK4j2xEr4U9h5QNHKFrA7UBdQFK4ex1uHAyVZLBFJ54qlakoFQ1+3xG1OHREu7WhA
+         WQaTBA9oe9EVbrA8nDQzyPuSdR+uBPHtPekEYO1ng/vzcEOnZujcx3ynZTiBMB+dLSg+
+         UFIWaM8h1dHUxfMCiy3/++ZYWL/hliOsayfv63sKr+3kkYp7R97z1Sr5q+M/r/vWkPAl
+         qnJYhbSDgr4jjvXu0JfyHn840wE8TAB7ngTn5vAmBF9R6108Bi/+X5IYC7k8dIDk2+wa
+         LrEnPROiq9Nnfui8zmgydMwaGK0OK34T6/MHse62oCeRSQjVv5Ha2wxjFuhZrPUtdVn7
+         v9Sg==
+X-Forwarded-Encrypted: i=1; AKwUvBxdc/wi3j2ElJyZ9UCIjGEPCoFRYj5UqsOjW+578kd3LwCYk4dUntrsIPgRsmz3ZLmFYpTiJ/R/oK58L0+zPhha@lists.infradead.org
+X-Gm-Message-State: AFq9FYLRwecV9o5hbu+jTKgl9+2VZuQ/LKwZjOHZJJ3XFRngLHDarPDY
+	KaHrVTW/4eaUTo8Fj0bGMGun3TxbXTI1iqkL919ytZtkB4r9KDoF7ZSQMR2R6hvOiMpyf3E/+s5
+	TAbDHkL3Gr3rjtCu82jBRFsUdaaizcNY=
+X-Gm-Gg: AYBFou381i+UWB/XEO0t4xTBIwajZYWqR+fLM0KZo27SfIOBW5CZHX8LKvJyTy0S6dT
+	QCcp5igzkDv5a7ET2OXs1FAD3VCmmFf/0gji/FCBjDbnABj7CCbfnOk80VJqdUNcT5YQxeFhjrm
+	cDwY6YptboZz2slHsPHVu8uasvM/AGX9FoCgEdqTbIM5+/boArgaRurEUP/fD9ojfd/HGFoxNjq
+	Ka468VED8dg+gPTa1sJGi7nKc6RbrPYEjL/lmzVD+/pDSrA4CuXfK4HTIXrCtL8lX7i2NjS0P/L
+	HpPtQAhNDw9UyOk3ELoM5zdMSSTdQ5zvxAgOsRPO0zRdnLoxnGmGT9qqj6unFTaPWVor90bGdKp
+	bJwJcbNZ+d62NXksj3Mmi6237NaGm/ryLpDGqNcDOqEucTqPYEZp5GSieLln4KwNd9nDjqmlBFe
+	7H+gg+Fwste3CLO2QihbDH3bs6Ty/loRguPfx2K5xFQm7anwoCmlc=
+X-Received: by 2002:a05:6808:30aa:b0:495:ce6d:7d48 with SMTP id
+ 5614622812f47-50c4e67cdf5mr8677005b6e.9.1791875685589; Tue, 13 Oct 2026
+ 00:14:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20261004-macaudio-v2-0-7b47ed6335a8@gmail.com>
+ <20261004-macaudio-v2-9-7b47ed6335a8@gmail.com> <3698d260-13c5-4050-8f03-61f7b7185514@intel.com>
+ <l_pd6lBHQaWNYoohhfxhFw@gmail.com> <8fcdfd97-fcc5-4ed9-8a9a-3e7eac53fed3@intel.com>
+In-Reply-To: <8fcdfd97-fcc5-4ed9-8a9a-3e7eac53fed3@intel.com>
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Tue, 13 Oct 2026 17:14:34 +1000
+X-Gm-Features: AclHuK8TJXmdm-cxsbCKrijwUibcd22A39HSUGZRpbNW3PHDJmMdVBEajRXhBY0
+Message-ID: <CAHgNfTyTQW2vMieSo+U7CTTuckrLZL+PuEKXfKCHYMFDBCFWng@mail.gmail.com>
+Subject: Re: [PATCH v2 09/21] ASoC: apple: Add macaudio machine driver
+To: Cezary Rojewski <cezary.rojewski@intel.com>
+Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
+	patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Hector Martin <marcan@marcan.st>, 
+	Sasha Finkelstein <k@chaosmail.tech>, David Rhodes <david.rhodes@cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Neal Gompa <neal@gompa.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_081442_865511_A5CA4190 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20261013_081449_265463_78A61465 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,67 +148,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On sam. 10 oct. 2026 at 11:59, Lucas Tanure <tanure@linux.com> wrote:
+On Mon, Oct 12, 2026 at 8:03=E2=80=AFPM Cezary Rojewski
+<cezary.rojewski@intel.com> wrote:
+> How does one know the speaker died? Is there some kind of signal, event
+> or an interrupt we could depend on? As delayed-work is a mechanism of
+> choice here for handling the case, I believe there is still a gap and a
+> chance for bad things to happen.
 
-> The informative section explains in prose how phy-mode, the delay
-> properties in the MAC node and the mode handed to the PHY fit together,
-> and says itself that developers often get this wrong. A reader has to
-> work through several paragraphs before answering the one question they
-> usually have: for this phy-mode and these properties, which part adds
-> which delay.
->
-> Add a table that answers it at a glance, with one row for every
-> combination the properties allow.
->
-> Assisted-by: LLM
-> Signed-off-by: Lucas Tanure <tanure@linux.com>
-> ---
->  .../bindings/net/ethernet-controller.yaml      | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-controller.yaml b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-> index 1bafd687dcb1..bba27a9feb61 100644
-> --- a/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-> +++ b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-> @@ -339,6 +339,24 @@ additionalProperties: true
->  # has added. Failure to remove the delay will result in a
->  # non-functioning link.
->  #
-> +# Put together, with the two properties in the MAC node, this is who
-> +# adds each delay:
-> +#
-> +#   phy-mode    tx-internal-delay-ps  rx-internal-delay-ps  TX delay    RX delay
-> +#   rgmii       -                     -                     PCB trace   PCB trace
-> +#   rgmii-id    -                     -                     PHY         PHY
-> +#   rgmii-id    present               -                     MAC         PHY
-> +#   rgmii-id    -                     present               PHY         MAC
-> +#   rgmii-id    present               present               MAC         MAC
-> +#   rgmii-txid  -                     -                     PHY         PCB trace
-> +#   rgmii-txid  present               -                     MAC         PCB trace
-> +#   rgmii-rxid  -                     -                     PCB trace   PHY
-> +#   rgmii-rxid  -                     present               PCB trace   MAC
-> +#
+speakersafetyd is a userspace daemon, not hardware. It cannot generate
+interrupts. The daemon puts a magic value into a kctl every run of its
+safety model to signal to the driver that it is alive. The driver checks
+every time this kctl is put (see macaudio_slk_put) and schedules delayed
+work for the timeout, resetting the timeout if the correct value is put. If
+the kctl is not put within the timeout (e.g. if the daemon crashes),
+it locks the speaker amp volumes to a safe level that will not cause
+damage.
 
-That would match how the HW is working on the A733 Allwinner too but I'm
-not entirely sure this is what Andrew had in mind from our previous
-discussion [1]. Adding him to the thread
+We do not want these checks running when the PCM is idle however,
+so when there are no longer any active DAI BEs, we disable the timeout.
 
-[1]: https://lore.kernel.org/linux-sunxi/491f043e-6dc6-4936-a490-31a3362c5b6e@lunn.ch/
+> Czarek
 
-> +# A property for a clock the PCB already delays is not in this table.
-> +# It is either the fine tuning described next, or a mistake the MAC
-> +# should report as a fatal error.
-> +#
->  # Sometimes there is a need to fine tune the delays. Often the MAC or
->  # PHY can perform this fine tuning. In the MAC node, the Device Tree
->  # properties 'rx-internal-delay-ps' and 'tx-internal-delay-ps' should
-
-Acked-by: Jerome Brunet <jbrunet@baylibre.com>
-
-> -- 
-> 2.56.0
->
-
--- 
-Jerome
+James
 
