@@ -4,102 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7328ECC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 867CECC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=; b=A6rsGUr19IF9JT8LxCJJJeVc2e
-	lCLjB2doduCiatY9EAPv9gqJAeZG84xgsqEJ8Bhso5mxxTGIIwxbilpkFWVsTa8m323qFql0SqtHZ
-	YDz5j6GF1BkSDNOk6+gBgoWS1GMXgVruCCxkaam/fLTix36ed02kF74pdBbFX3wXcyeB28lxQdLyy
-	t8suZ9R9EVHQphF1nyVCp3iy6znXzZGcMmKMXecFG7kgJPK/MehjJXjqtmwC2wbGjxhi13Z7HuXcu
-	9u84rduJqdf8M5rq/f5rt3hK/bYbyUNC8kuhIbqgkcwYx03afYtnGeQxRYG3xzvA/lF2KeT5sOy+g
-	A0zbT8sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AWLGk4M8RWnLC331E/eJtLrY3wcwilQb82FAA06rV08=; b=oFCxpSCiVvCujx7X6gUM3BRnON
+	Wk7BpL/GniO3T6c5M6L2kVV/VWZ+MFrpd6eLZbKiqP2gSoFXovYzzaBUjsyuRYHTFUTLYAhONkB77
+	VETVQAg8EL2jST36Ehm33rnfZQFKxCtEHUoWNgDF6hBRvYjn/icanjg9DGC1DgctsMlRfwgQsR8c8
+	ALM3L4WocknfBNCSNgyCODZ5bQJOKra0sQbAePRoBF6K4qu3qMTFt1za67DQYRPquRCp3hDv7cOTw
+	QkoYGBeFRsSDXq/hxP4pEcvJ5G/33BoDGc1ms3njDiHfQHKrA6WeJ+gVrrOUXz9g3WTHuH5BtS6fD
+	XJIU3kzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgRB-0000000DiXI-0HPj;
-	Tue, 13 Oct 2026 17:37:17 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1xGgW1-0000000DjGn-2hR9;
+	Tue, 13 Oct 2026 17:42:17 +0000
+Received: from mail-westusazon11010019.outbound.protection.outlook.com ([52.101.85.19] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgR8-0000000DiWZ-0gX1
+	id 1xGgVy-0000000DjFs-0K8t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:37:15 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-8252259f6d2so1971302a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 10:37:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791913033; x=1792517833; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=;
-        b=Ae9BAE5SJLOuq077ZMDk6yBhII/f5ajGHqBRrQSH4yT3e7vHNwjJ62sCWrv4rnXQ0S
-         uyVQOqPP8myD8xXMi5+Dij2EX/UjI0zjIA75X+2ZDcYdBeBt6OIYKmMu63zAbSkBzBPQ
-         cJhdQpu8jxTAKTfLteJb0GC5/+KCRH+UAl5v/f6xklfy5aZyDyDtmak83jHKGEgvObQK
-         9aO1wxDMVrNpnY9QBqCRHuLv6yF7osbbzeDMaEMYSfyH3CYFtr1iEPpAbGXuaXgb2zKu
-         oLcq2VJC5irVMTJ1Jq4XkkJbvFcWe+d4Z13X4KcUxswK1JGKRouXYh/DAHTw+x+tN4nE
-         oMvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791913033; x=1792517833;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=1BLtIj0xEvl7cfZrXbIf/98tRmcqVQkUnaAEHoiODWY=;
-        b=ICivsJPUzp3gZanKRaMLd5EStky2kyqNp68zd+K8T7N1JXEvHQwTPuSV4NGil/oB/X
-         8JPQyIo7WF9Wii1ZTLntiXdPyCm8dO1QP5lkQ201yLzOfcmfvLsMojNg1eknnl0lkP61
-         KwtmVTgUnYSwQgXZTGpCKDyXpwx1xPXZFvfUwMMfT1JTzT/LbLhSmNdUZiGmatlNc/hb
-         ZYuyqb8MHDcNPiejzXNDmHBAklp8Y5+i4B0cWlp+cjllv3x0KJViaSnef9p4sw3yw1EA
-         DPL/HU6eTogLgnL+UruEcaEB4W7JpDVnmSneEOYB1YxGg2vzcyKQZ+Ihus5sCdg+Ye7Y
-         PZGA==
-X-Forwarded-Encrypted: i=1; AKwUvBxn/Ar3T7nwDiLB2AMaVlfR/8wky9ANsAcDx7cEVSSab8FPyuxgXOfr2vf6Pg9J0nwgQJOkDb0bNckzgHid3G08@lists.infradead.org
-X-Gm-Message-State: AFq9FYJoifwOJFJIjmmcjCpr5p8WeKm3ATlOaXZW6ei3D+PDpIe7QU6e
-	Sj2N9V20NUtlpyPRVuJGOUIBDhTCFXgxEehvou1EZNRcl83wkjxhbz0H
-X-Gm-Gg: AYBFou1Iqd2CwhLhM0Hx48GbJ3bjWZ4bj/2wPgcC1Z8o1CNi+WfScCmmCBtP1E9RFVa
-	X/nFh6IQViOOYAIkWPzLKS0GLW/raMGnWsCeZSsJtGkLibtLlw//uRN0Dd7av5sOAlnAwrIPr/9
-	IvFNTWLb46i4TvYgXJJkX8MFkfk0GyEoFBN0vw7Z3REDln4+oLX2SewQ9IfNdkd6mNbhsAbDU0x
-	QrR6aUQe9sP7V6itaQSqvrIp93jxV6F3S21Kzv0pg09/TrEKgPVrDUq1J5zKmjw1ItlRK91PrNW
-	MhWBCNW+YUhDstU4PjUc0SqyiXjL68GrABPlbW/dkvTd4URD9yTJ/QAKUmyYQOwi10vRRT98ifs
-	plnzngGDyRcJl/lb6i1KfUggLma8zlsdfJ+JTD69l1YBC/NTQmwXhoSeJ2KohF0GGJo64BbGvfs
-	MbQSBMzVwAxfiUbz6cMw6ZQz/rnrn4QnEIOWWmDKkB2ugcf9BN6+KqtJAPNaLoGunK+0dR+sKiW
-	5K9JcaaJPEgJ4NH8khVCXKLQ5zBtu8g0EcJEl9i67w4vBi6NobEQZJdYP6pVciFcDIPqZSoCl1e
-	5FtxpLBUL+13vx+HsE6RL63qeUN+IIH7zJFdlEx1UIZQRgXei+aZ6Zf0CZgIxPbIrsoQVEjK24E
-	YRe5e9UpIzHHgUvsxcs2AUjS4ikTneDk=
-X-Received: by 2002:a05:6830:a1d9:20b0:83c:73b7:e7a7 with SMTP id 46e09a7af769-83c73b7f03cmr848517a34.15.1791913032755;
-        Tue, 13 Oct 2026 10:37:12 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8303a60c458sm14564908a34.26.2026.10.13.10.37.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 10:37:12 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 13 Oct 2026 11:37:11 -0600
-Subject: [PATCH net-next v3] net: stmmac: unwind the WoL IRQ after a safety
- IRQ request failure
+	Tue, 13 Oct 2026 17:42:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dzpIqa9sVbE2s5E2MsMapiaK6U070Fv5z5dnIeCZBWBM6XES4q10rPTcF9RVljt6S0IFX4APwg9gYVbmcpbQDzwtTIMT8rSahggltfA547EIplxOyDu4eGQcppl8CtEw3ZikawUnqIdJCj5wupl41GxKqgBUscePZu7qPjpruyzib8UQsD8r7CJTbm2jac6qO03jWyIJnEjc1jKb3w28eyARF2tFUhLqiGmMZOEaH0IDCJWg++pfwoxEDKAJEnCDd4WxenuGJXh9mLMngx+DEa1pgruG8MoAilYiXL20QRdEboNl6jyTXt/6ef4hea+aqocSLgauxqlAgR6dZZpkiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AWLGk4M8RWnLC331E/eJtLrY3wcwilQb82FAA06rV08=;
+ b=p7iGFJNYJdzly4n1gb4V1a4pSaznxQKvK43XbooZexj0rIHI6mAm9S8Wi24HXTTsLizSD9z82AgYXkx3+eucEOc0fGcW2p15XmAnPDRvxCrfZYT0IfHCoZLuamjMsaDNPQNORDLwj0ffJ94J7x+yixBX2XRmRxOY20xbYW97jHhdoTb3VftJ3oWWedevASmdIyt1vEqlGmHtUHAqwj6oVdlBcDodFm2GJBQ/yXnendu/AWOeFCtqsIZenyZZom1olqXGhoGXBPO9QbBQX31jK2kJNfzQG5yWvAX/clpTHQ84f/Sob+cKtSohuvkkOpiKkoCZBE4qVxvlN4BoB2ZVQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AWLGk4M8RWnLC331E/eJtLrY3wcwilQb82FAA06rV08=;
+ b=SbetmktpIftuGbxm9a28AaiGFRivSQepos9eGkub9h0VJ0iAbXDGeUq1ZRZW9jMcvf7lACEvi8px1VG4Whc+nx2a0tNyxBX/fB6P+AWRhd6JEpddsjV9UH9SPEqd5lIQ20e3IwxfPYNrdLt1fGnhdWpSXUjUhvVOgz0JdMnvtFbTWhWPAopf1x42GeRHs8XKhrlJDMjSma/mB+aaY+A/b/cC1RD53nbxiNI9ixEh1zm+W2xKadHAZDV3YnG13OMQ5ZHgF8gSIDCdHVIvvR5OAD6A/sHb7jUsZUAstpVmkRIgkTDFeYuMOyMo5w+tk/ckRVJj/pWATLqkMOhc5dpEEg==
+Received: from SJ0PR05CA0105.namprd05.prod.outlook.com (2603:10b6:a03:334::20)
+ by CY8PR12MB8265.namprd12.prod.outlook.com (2603:10b6:930:72::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.24; Tue, 13 Oct
+ 2026 17:42:03 +0000
+Received: from SJ1PEPF000026CA.namprd04.prod.outlook.com
+ (2603:10b6:a03:334:cafe::53) by SJ0PR05CA0105.outlook.office365.com
+ (2603:10b6:a03:334::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Tue, 13
+ Oct 2026 17:42:03 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF000026CA.mail.protection.outlook.com (10.167.244.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Tue, 13 Oct 2026 17:42:03 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 10:41:44 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
+ 2026 10:41:44 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 13 Oct 2026 10:41:42 -0700
+Date: Tue, 13 Oct 2026 10:41:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
+	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
+Subject: Re: [PATCH v11 03/11] iommu/arm-smmu-v3: Swap EVTQ_MSI_INDEX and
+ GERROR_MSI_INDEX
+Message-ID: <as5tVAzw2TAX5bEq@nvidia.com>
+References: <cover.1791226953.git.nicolinc@nvidia.com>
+ <630e70ba13639e5bd86fca0b574dd47dddb7fb92.1791226953.git.nicolinc@nvidia.com>
+ <179190297652.2261874.5664965715184131627.b4-review@b4>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261013-stmmac-irq-unwind-v3-1-fff4e2db805a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OQW7DIBAF0KtYrEs1YzCGrHqPqgvA4wSpxg0QJ
- 1HkuxfRquqi6vLra96fB8uUAmV26B4s0RZyWGMN4qlj/mTjkXiYamY99AqMAJ7LsljPQzrzS7y
- GOHFwpJUBVEJPrN59JJrDrZmvLFLhkW6FvX01ic6XOlK+a2czcb8uSyiHDgY3ABoHODsjpXBgL
- EmahLQzohisBqul1806hVzWdG+Pb9iwf37ckCMHry0MYlTox5fjYsP7c51u2tb/CAig/hL6KqC
- Rg0GvR6ngt7Dv+yf4gEz5SgEAAA==
-X-Change-ID: 20260930-stmmac-irq-unwind-0be86901638d
-To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Serge Semin <fancer.lancer@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
- Nicolai Buchwitz <nb@tipi-net.de>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179190297652.2261874.5664965715184131627.b4-review@b4>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026CA:EE_|CY8PR12MB8265:EE_
+X-MS-Office365-Filtering-Correlation-Id: 549ae4ca-41db-4562-3271-08df29514b01
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|36860700016|82310400026|10067099003|261009223027099003|4143699003|11063799006|56012099006|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: ecKrVLO5tLaxMK9JgGLjxHyhnnLQnX5K5K81gTiMJqXoswvULaTErrXpyoIAsF01PmfmySqfZls+JC8INVTwgtRQYHozzEX1qP2aBhnQErHIReQLVDMsnQByRoGIb1ulnyFxj8PVg7vSTYl/fYjYfa/48dZnZ3lkulFMmjNKIRmZhhlCiXM+Bz07oBOo2Z+bFYKJfIkg5JPxEmfB7/COH/XiwpGNlohwzPYfwJYyDzKcPBdtxRhYaC6tjUcwUY2HdYC4hneEy0tsZ2slJgsg+1bUYvB6r7GAzDxCyVNNOvW7SktQiKIKi3gvqu7mWaO+URGGdiw4vDHn2eYauUse8t4prnXUP5P2SU8gDVKwWpA9Sj1vpfw6aVPSXEyfqCeXdPtNUy5vSUVcPqYjBx7txa0KsJqMajfSabBzhnBdNQu8QO2w5wK7jfZXUw6UuxLHJgROwZOUMc9vy34oA1PYGcMlDpSYTQLzDfLL+w6AM+hOQOUepHTgXJY5vZJ4zxh3jy1P1PsTS2d2jzK9CQDi77CyEV+YwCCWJDSWCSWRw4TQG1fjyMx+mprHCxSpCBe1XoUVjKi8wuvtLLR/3+G37ev50PxkagjXCVSTSgVC2NSnEyODFQxWOnQNeqIDcsV2LtNm6WV4VbYO0L0vIc3TsvCxIGOSle0N2D7z9LPME1ed71Tu3NJR4mEWfg+hJlAo6Wm/E2mfpjHkl4b9edIr5w==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(10067099003)(261009223027099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PI5jVFHyIB8t2TJs6ZTSfdEAMEl08QFAmlHAOROp8fePYFrNQMXOg+VjLm3jLuvh0ttoGOCMS/MACzPTPhXmUgr8X43sWocNva2UTC0n52IHhGqohrOpFPSVrnIOafXYHq0QOd4znZ2Rwe2yYMiqQilErJFf5tUTL8T8pkruOgQK5pgc3wvXhcT4uI7OP+VNlGd8jHT7OTfunn6+uhAskMAPwV1wmwIpRNtHbheSiuF12WDGhsltgFNzdD4+2tsBC/YRQdU4dHBGHOhV/LVy6JLFNEC39kjgqOOaA6E9sUSaRRINezi9BEUWZ7EVltzXB4BFKXQe8juoFUBMVr4DEH7UkGytXm4h6EacWq7rFx1O7tRTSlf+6v5J7i/L6JkqPa7C/NNgOEBAj/TxYgso9jI4XZhChmL/kn2OrndJspoZXsYCX0268W/LgW7EG/J1
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 17:42:03.7037
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 549ae4ca-41db-4562-3271-08df29514b01
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026CA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8265
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_103714_215831_FC0194A4 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20261013_104214_146043_1FF79EAB 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,68 +132,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The safety IRQ is requested after the MAC and optional WoL IRQs. If its
-request fails, stmmac_free_irq() frees the unregistered safety IRQ and
-leaks the WoL handler. This can warn about an already-free IRQ and make
-the next open fail.
+On Tue, Oct 13, 2026 at 11:49:36AM -0300, Jason Gunthorpe wrote:
+> I think if you want to compress the nvec's array it should be done
+> directly.
+> 
+> The smmu should have a small array
+>    u8 msi_map[]
+> 
+> Which holds the xx_MSI_INDEX value. Then arm_smmu_write_msi_msg()
+> would indirect to get the config:
+> 
+> 	phys_addr_t *cfg = arm_smmu_msi_cfg[smmu->msi_map[desc->msi_index]];
+> 
+> And we just compress msi_map as we go through the normal flow
+> 
+>    index_msi[EVTQ_MSI_INDEX] = nvec;
+>    smmu->msi_map[nvec++] = EVTQ_MSI_INDEX
+> 
+> Then it isn't fragile at all.
 
-Move the safety and WoL cleanup labels into reverse acquisition order.
+Thanks. I replaced this patch with:
 
-This was found by code inspection while working on the stmmac MTU/resume
-recovery series. Injecting a safety IRQ request failure in QEMU with
-mocked MAC/DMA hardware reproduced the "Trying to free already-free IRQ"
-warning and leaked WoL handler. The failure has not been observed without
-fault injection.
+Subject: [PATCH] iommu/arm-smmu-v3: Pack the MSI vectors of the used sources
 
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+arm_smmu_setup_msis() skips the PRIQ vector by decreasing nvec, which only
+works since PRIQ_MSI_INDEX is the last index. A subsequent change will make
+the EVTQ optional for kdump, whose index is 0, so that trick won't work.
+
+Pack the vectors of the used sources instead, and record the source of each
+vector in a new msi_map, for arm_smmu_write_msi_msg() to find the register
+set, regardless of the sources in use.
+
+No functional change intended.
+
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Assisted-by: LLM
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
-Changes in v3:
-- Rebase onto net-next and drop the Fixes tag as requested.
-- Describe how the issue was found and reproduced in the commit message.
-- Add Maxime Chevallier's Reviewed-by.
-- No code changes.
-- Link to v2: https://patch.msgid.link/20261006-stmmac-irq-unwind-v2-1-194591c87460@gmail.com
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 42 +++++++++++----------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  9 +++++
+ 2 files changed, 32 insertions(+), 19 deletions(-)
 
-Changes in v2:
-- Drop the claim that later per-queue IRQ failures also had broken
-  cleanup; those paths already released both IRQs.
-- Add Nicolai Buchwitz's Reviewed-by.
-- Link to v1: https://patch.msgid.link/20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 56d89a696272..3ce2d5994c61 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3821,13 +3821,13 @@ static void stmmac_free_irq(struct net_device *dev,
- 			free_irq(msi->sfty_ce_irq, dev);
- 		fallthrough;
- 	case REQ_IRQ_ERR_SFTY_CE:
--		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
--			free_irq(priv->wol_irq, dev);
--		fallthrough;
--	case REQ_IRQ_ERR_SFTY:
- 		if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
- 			free_irq(priv->sfty_irq, dev);
- 		fallthrough;
-+	case REQ_IRQ_ERR_SFTY:
-+		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
-+			free_irq(priv->wol_irq, dev);
-+		fallthrough;
- 	case REQ_IRQ_ERR_WOL:
- 		free_irq(dev->irq, dev);
- 		fallthrough;
-
----
-base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
-change-id: 20260930-stmmac-irq-unwind-0be86901638d
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
-
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index aeace4335abfe..2ec117d231569 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -56,13 +56,6 @@ static struct iommu_dirty_ops arm_smmu_dirty_ops;
+  */
+ static DEFINE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
+ 
+-enum arm_smmu_msi_index {
+-	EVTQ_MSI_INDEX,
+-	GERROR_MSI_INDEX,
+-	PRIQ_MSI_INDEX,
+-	ARM_SMMU_MAX_MSIS,
+-};
+-
+ #define NUM_ENTRY_QWORDS 8
+ static_assert(sizeof(struct arm_smmu_ste) == NUM_ENTRY_QWORDS * sizeof(u64));
+ static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
+@@ -4933,7 +4926,7 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	phys_addr_t doorbell;
+ 	struct device *dev = msi_desc_to_dev(desc);
+ 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
+-	phys_addr_t *cfg = arm_smmu_msi_cfg[desc->msi_index];
++	phys_addr_t *cfg = arm_smmu_msi_cfg[smmu->msi_map[desc->msi_index]];
+ 
+ 	doorbell = (((u64)msg->address_hi) << 32) | msg->address_lo;
+ 	doorbell &= MSI_CFG0_ADDR_MASK;
+@@ -4943,19 +4936,29 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	writel_relaxed(ARM_SMMU_MEMATTR_DEVICE_nGnRE, smmu->base + cfg[2]);
+ }
+ 
++static void arm_smmu_setup_msi_vector(struct arm_smmu_device *smmu,
++				      unsigned int *vec, unsigned int *nvec,
++				      enum arm_smmu_msi_index index)
++{
++	writeq_relaxed(0, smmu->base + arm_smmu_msi_cfg[index][0]);
++	vec[index] = *nvec;
++	smmu->msi_map[(*nvec)++] = index;
++}
++
+ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ {
+-	int ret, nvec = ARM_SMMU_MAX_MSIS;
++	unsigned int vec[ARM_SMMU_MAX_MSIS] = {
++		/* An unused source maps to a vector past nvec */
++		[0 ... ARM_SMMU_MAX_MSIS - 1] = ARM_SMMU_MAX_MSIS,
++	};
+ 	struct device *dev = smmu->dev;
++	unsigned int nvec = 0;
++	int ret;
+ 
+-	/* Clear the MSI address regs */
+-	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
+-	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
+-
++	arm_smmu_setup_msi_vector(smmu, vec, &nvec, EVTQ_MSI_INDEX);
++	arm_smmu_setup_msi_vector(smmu, vec, &nvec, GERROR_MSI_INDEX);
+ 	if (smmu->features & ARM_SMMU_FEAT_PRI)
+-		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
+-	else
+-		nvec--;
++		arm_smmu_setup_msi_vector(smmu, vec, &nvec, PRIQ_MSI_INDEX);
+ 
+ 	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
+ 		return;
+@@ -4972,9 +4975,10 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ 		return;
+ 	}
+ 
+-	smmu->evtq.q.irq = msi_get_virq(dev, EVTQ_MSI_INDEX);
+-	smmu->gerr_irq = msi_get_virq(dev, GERROR_MSI_INDEX);
+-	smmu->priq.q.irq = msi_get_virq(dev, PRIQ_MSI_INDEX);
++	/* msi_get_virq() returns 0 for an unused source that has no vector */
++	smmu->evtq.q.irq = msi_get_virq(dev, vec[EVTQ_MSI_INDEX]);
++	smmu->gerr_irq = msi_get_virq(dev, vec[GERROR_MSI_INDEX]);
++	smmu->priq.q.irq = msi_get_virq(dev, vec[PRIQ_MSI_INDEX]);
+ 
+ 	/* Add callback to free MSIs on teardown */
+ 	devm_add_action_or_reset(dev, arm_smmu_free_msis, dev);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 8f2c0b1cc4a8d..bce592fff0b12 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -936,6 +936,13 @@ struct arm_smmu_impl_ops {
+ 			  const struct iommu_user_data *user_data);
+ };
+ 
++enum arm_smmu_msi_index {
++	EVTQ_MSI_INDEX,
++	GERROR_MSI_INDEX,
++	PRIQ_MSI_INDEX,
++	ARM_SMMU_MAX_MSIS,
++};
++
+ /* An SMMUv3 instance */
+ struct arm_smmu_device {
+ 	struct device			*dev;
+@@ -993,6 +1000,8 @@ struct arm_smmu_device {
+ 
+ 	int				gerr_irq;
+ 	int				combined_irq;
++	/* MSI vector index to enum arm_smmu_msi_index */
++	u8				msi_map[ARM_SMMU_MAX_MSIS];
+ 
+ 	unsigned long			oas; /* PA */
+ 	unsigned long			pgsize_bitmap;
 
