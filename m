@@ -4,65 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88FCCC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 20:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FAECC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 20:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AiJ7IoSU+sfKB/Q4w1QxVNj3UUjJbRnEsS87BgwakDQ=; b=TBNf8ROLZztIvOhftvtoSoRllX
-	ijlB3eFTYhXKbp13MHvcODpOuBpO7uPsy3dw3LyxvIRuew5e1ZCvd52qAVrNVwA7gds6gt8xHcWBs
-	yDyVia8bz9H9TFda6oQ/EZIfpsabNlYzvSr+xEU8uQYhISUbepfFl1W+0vCvegou7kHPT14iT4VvV
-	pKDm5Nliuoutb9XPrV+wZEfUTdFBFAZS0zFHjLOPOjeuC+cZjAuDCs5vyxeiGLEFjjdFa3ISd0FIz
-	YLy84ojZ6yl6AA4SLVt+GNBpcJn5A9Z/CQ5Z0xz0gsp9sTniFZZyY0zx51gRPs+tInkD7uap/tbjR
-	hhmhidjg==;
+	bh=Go1o+no8SYY2iFthQpxyIdqUa/p66nYvSVs0v1GaWiU=; b=jV0sZAZ9dnxBAH+tL1K/Rk5hFj
+	WiDVWQPODDKt6fjoAcSYAoIJ4vEXs2QGAicnmEJzMEY7PlvPdFUhVLeOUVYzHfZinl35Ht+q0J4Ru
+	HXmkQfiFB4BK1x7yt6slk0nkkQkygxOCB0chLw3GPuOyT+BTQSM3A39atDrmaEtoA44GPxmZFqD2k
+	fTOdL+DpNnTMkXvGgOUxIXwU3vCJJifcIHgdiUHK8Z0lNs2okFFBrB1ImtMZCOpL6On178a/kXMQW
+	YdAUY/DJ23uUXiri6oXOm1H4rTthy5G/2kwGPJhEeMjggQtbmllp3b6eveP21qu0rcUTguQ0yP0Kq
+	Jg4C9iXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjJk-0000000E1t9-2J70;
-	Tue, 13 Oct 2026 20:41:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGjRi-0000000E2ip-04yQ;
+	Tue, 13 Oct 2026 20:50:02 +0000
+Received: from mail-northeuropeazon11011048.outbound.protection.outlook.com ([52.101.65.48] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGjJi-0000000E1so-3s0x
+	id 1xGjRe-0000000E2hn-2hYs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 20:41:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 624EB601DB;
-	Tue, 13 Oct 2026 20:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC631F000FF;
-	Tue, 13 Oct 2026 20:41:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791924106;
-	bh=AiJ7IoSU+sfKB/Q4w1QxVNj3UUjJbRnEsS87BgwakDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mCM1Fq+sNGY9MN1Rh9wjy8jPnenD0rEZgAXepqEo45yrWEb/feuqA3GTjqufW12JA
-	 Vfex/T7+Bmzi/kqv9re/tFSJYzdontk3lAlSCm///UKjkXKZzCPfSgwxRXbdktA7TW
-	 5iLZaQczOo4WRn8XaY05CaT5JaVSO/6RjeCuTfqrKaTmEoPs4Qigcy5Ng7dLb/6JWO
-	 3IwuavZZ18uZaswNA2hNqWv6L6IUI+fLkEiGxZ/9D21vhvnxCt5u42IhG9QUiMlJK7
-	 GUEsfvMa7V7LRIHAsf4UWYgnEv4FmPMC/3MQza7lGFj7uOIV84BjlabHFgu/KBOVfo
-	 vpYI2VEJ8bKrg==
-Date: Tue, 13 Oct 2026 22:41:43 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: =?utf-8?B?6ZmI6ICA5piO?= <cc201008@gmail.com>
-Cc: netdev@vger.kernel.org, horms@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net] net: airoha: Keep UPDMEM egress MAC in sync for
- offloaded IPv6 flows
-Message-ID: <as6XhxxTqbarzZcS@lore-desk>
-References: <CAPZ+gd9d1P+xDSrxxZkGJr32zjubP=KfQegeGkWykKGvEH0=oA@mail.gmail.com>
- <CAPZ+gd8TPNnvEDOv_H=fdvy2ysG63uBD0MvmEMjhkMa8i-y1NA@mail.gmail.com>
- <as0DO7n5SCr2j3Z2@lore-desk>
- <CAPZ+gd_1JsNyhQbEAWiE1stom+T_jgvt4F2=tb68YoSvPCnFag@mail.gmail.com>
- <as3faB96PFSnC-qP@lore-desk>
- <CAPZ+gd_S4zMffbFTUbV989XxYtgxuJ3ijEBObehAXP_N20Akww@mail.gmail.com>
- <as5UUQuCjLTXvQ5Q@lore-desk>
- <CAPZ+gd_S=Wm2DOw+j14HNtsBDQvSgBkWHmBzPqqe3fi3UK4d4w@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2yphx2aGqXHqbPHX"
+	Tue, 13 Oct 2026 20:50:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=afPoYmLN0ApPZKayJXDZqJ5c8C5A5+9D4b3ESPc0ikgL4NjWinb9u9e7Pvrwy4ZIwelPx7jU8yuSvyYZqlU/IF1G2Cc+Gk08v7u+zl/5+fVYIsvqxBHBTkT9zbo2BFB0jZlATJ1FMiaxl4QUk6Gdeo8BadCdIZaGSaCC8WqCTChjiN8uSiDQoqaMlWqxFigqlChBLjYCNA42gKF96Xu+GPH1ZbHyEaeYJfzHLdhHjjKxuHM4DK9OB3kGOVYPzsqLbaazpRuyDznEbZ1/ipk1dL24O+0X3piuaY+b3/63Nk3EAgQ9/CIxCZekLKYcCbH597IzqLnEz049w7IxMQN8sA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Go1o+no8SYY2iFthQpxyIdqUa/p66nYvSVs0v1GaWiU=;
+ b=r2vYDSPdgikZ+wCf+vwxMsk4EbrXrt7vTrpqhoa2guklAPsnXyYNwnyIR10X8NRkz+3gOjsnWrZ9nF5x7QIfmxbpisgELTDPEC8mUFAyG8OoyrKJM9Rq5+/7Hp3+J9GtnpZPJ0SvMa2VODp/Xpy5iph29RI0Dslx3221XPalk3uTwCXITcD1qMUCSAkVDYP7Ggf/ucoRxSNchZqIv4u4c9NdLEXR/aVB9+Yastd8nBSXPrfkwT7LrimxkcG/tOS/Fs4MB60+aFpVqIOtKo0GYsVDa/fSQOyiI5GYtpiZNMTrdQC7usHgUMlbO+nvSOo4byAZT7jZayDWDiRWQ08sIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Go1o+no8SYY2iFthQpxyIdqUa/p66nYvSVs0v1GaWiU=;
+ b=kPZgO6uJC2HstduOhsp35Z72o6F8HjOakrePQqG1I+bns6dwbwcsBv8bKg9u/o4IffNZSrgQ7u2rI8VVBkKjHKWPujZZM5pry3hU6BlKmojd02pEuLEDpy5DE+d5hP/9oYYoiBPM6cl2PJWGUVTwh1LtQTJNAtAyT3LCliEclSpzhdlGb2uWbnDoxSfdtLoElyXbz/mWyIxizX7H0lRrbTlCWJeuV2bQhPntLbeU4YPpLVN3Pz5x3zYo/hb5FJFnJAqokt7j1/audDOgIgoEZAklhqJQ0kuLnnLVYfxZoVn1E1d9EhLmwPU+vDQf8kkbe5UDAy2sX8JWu8GOLklUXQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10689.eurprd04.prod.outlook.com (2603:10a6:800:26f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 20:49:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
+ 20:49:54 +0000
+Date: Tue, 13 Oct 2026 16:49:41 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Sinan Kaya <okaya@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] dmaengine: qcom: hidma_mgmt: fix autosuspend cleanup
+ on probe failure
+Message-ID: <as6ZZXtckWRPMuVQ@lizhi-Precision-Tower-5810>
+References: <20261007122534.194286-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAPZ+gd_S=Wm2DOw+j14HNtsBDQvSgBkWHmBzPqqe3fi3UK4d4w@mail.gmail.com>
+In-Reply-To: <20261007122534.194286-1-lgs201920130244@gmail.com>
+X-ClientProxiedBy: PH8P221CA0018.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10689:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3e50f72-25b2-443c-ee71-08df296b8888
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|7416014|376014|366016|18002099003|22082099003|10067099003|11063799006|261009221227099003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: uldxNxR8dQefHOE5EwBzAEjOKPFHHmVr43Cx+nz/Icnljt6IZqmL0W5y6k0g5cYMMeQpi8Mdrp4RxG2VS1xAEx0PVe9BHXf4jf/AJuzBuxlBbezBpsptyRkiaBoG0HdjSv5WIiTyhhA216XSvLa12nQoxUqbP4CccW0nqKNWk/10jvCrmnAlm8AaFTflHhaWACgTtjl74zraJ8Rw5YtzTUt1ik5esE2jIh9KU+W9PKJRn2zJ0Ndxy1DDRKlPhLr9vAMU4jAZxu4XWyut93JTICXhLc66t92otZrihRPrDoQsv75s6EHxUoIxWhfUQPWc8S5duy4hH/Vh2aKJYA+f2grxYYcK7w48Xg90QZAAwX530r7hROUNZj0XxEfQqIlluwFYDzBDsYstfZeY2I4NSUzcJGI+9uVwb4Ah6YwE4AB3i6ThUTlXMiF+EQrl2X/S3A2Yyyn+K0Wv7sZtzylvh13CWnWC/XjV0gYhPARGgXQNY+dFWTyMW5MgJdzKhKn022m7j4VRcMVvYLljCyfrgeIOuxB2p2DeSKL9daarJl9HRKRAXYdcn38iVASUQcB95uCeWYVEykIsGdKcQOd65QyXslVvipVxQuGKxecFEPD55ZoUkXSCLaga46VwDPhe
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(7416014)(376014)(366016)(18002099003)(22082099003)(10067099003)(11063799006)(261009221227099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q4OEY9huvWKNrctFZFbpwueSZKTmEpabFoK9Pw9yyieofsWMjRG02JAANB+N?=
+ =?us-ascii?Q?fpYFgXFIQ7xSzVLaVhG8EeXUcWyf/2/FZcRrKV0QholPzQ9hteoiHqTeqURr?=
+ =?us-ascii?Q?eccMGzomn1YWGuVZJvWyKKJtGJuzcmuXrvUg58jKH7BorEpAfnHk8AEW15Ih?=
+ =?us-ascii?Q?eRSH0/OGB9dr5A1rPyGJGqQl9e5kyeXhzFn6dwNU+W198xCIncpZBHw+R3ra?=
+ =?us-ascii?Q?MvuWfPd2mNhdDlBd65LyMAELpBD/fdw3hkhwPujrzfo/lYX5XuqoLlgzzY1D?=
+ =?us-ascii?Q?NPJ18e0NwUVWuWbI4/wHr/Rfg/glepQTgWbhgQ079w5sgle8o2kNmpclzuCA?=
+ =?us-ascii?Q?VmIun/AK7k6sizbTmyUdwtBz3SDlYEKzb4oegVDkVqpQtS/Xtnq8hCMr+iAK?=
+ =?us-ascii?Q?skAuoBuWySxNG4W7FjfajRVXAR/9wzAoNvmF1jylYeYf0m6zBohbB6hFvnlv?=
+ =?us-ascii?Q?8IsVD6738pbfYITvI59w5VxQ0x1MpGu8KmdXfEJbJkr5J3z05i4rNFSPfkM4?=
+ =?us-ascii?Q?lNvOs+Q04mpdHuTDcd1f80SwvtHdlrXnQVCs7E2MmRteTPjz79RBJBQZbT3F?=
+ =?us-ascii?Q?Tv0e2u8A3Ha/90Qyd8AIfAA1KMNLmekheDsRxrMLvOkjrGg8CCpoyyhkpxQP?=
+ =?us-ascii?Q?OM2wasIF1W5oP118OeNpoPTunedqWRst3ZByPcHyCVizbO+9bhoOqAf5+oEQ?=
+ =?us-ascii?Q?eGPA3QmnYI55VmABmNVqGCUidnkpAShBPWa6pwF4R2MSypDmFGcjT+NXkByX?=
+ =?us-ascii?Q?7tSKTQ40JA+I3o9/xgvIfIDtNQwII3s6x37N4O/nPODL9/hfuxblYVK3fMX2?=
+ =?us-ascii?Q?w7bXrU98a35cVpk0X2FvEo440sf40yjiDsUxQ/1LjBHih22NJ2lLDq+DnER7?=
+ =?us-ascii?Q?TaIS6AiOBae+ZvXyEOCWn3t2vf8ax+figC0JFBJLMBTnsDsHWiGVPbU5mwmJ?=
+ =?us-ascii?Q?IX0lG03rCkGjl/Xbk/XMCmYgHC1HH3wPFhmUdjjUGVd08L7N00kgziafo7p1?=
+ =?us-ascii?Q?PqaV5z1Py9/AT7SIa+DpNYYkJyT7qYjh3zI4IKlCGIK3LTwOkh8aIw7O81gR?=
+ =?us-ascii?Q?qBAVFeagg4/FCrB+X981E7u9jtvDYn70eSfnuOiqRGfivd812duY/IFG8PBL?=
+ =?us-ascii?Q?Dn27/Z8u0t0OkBj9TgdJHB6Y7yjpl0TJ29SJK4tgYtM8t9mSaoMq2HCWwNql?=
+ =?us-ascii?Q?l4+nRbOjpjsdY06bsYW7mCt8w+ksNq39jeRqvRFqNILLk+mVOHbgnuS7DIKQ?=
+ =?us-ascii?Q?7E1uEYxE6bo1f7dx6QqmgGUs9vMQnrKshFFm1SOjWDrUWPo+ZIlTjOLyQz6x?=
+ =?us-ascii?Q?jIT1XQ+s9PWMwWQS45yT/bj7dAGo8Jm78Xs83H6DfVGcX3T+dGGtL/980QqG?=
+ =?us-ascii?Q?McRbxX6wbVuaeOb/djvE3oAH/qyDPpl+9Z7yFZO4wShH7gOwqlgccUST77lr?=
+ =?us-ascii?Q?tpzeKwrNYH4gbkjOU/ITVbYAc4toOdeIGUDGBqm/iwPD84YkT8TaO4L4SAJQ?=
+ =?us-ascii?Q?sP/67xgy9gv7hHdhsjwiEHcRb1KyeU89duz8gyCNnJDYc0wTLsHfNVEm29et?=
+ =?us-ascii?Q?aoZyMEaX4YzNVXTZIx/t1HiphE+xIiqENRj13h8hhnZiF/RgKEe/36Ja63tf?=
+ =?us-ascii?Q?5/FsnQwMQBbU3lYWeF3mdIM+8Bjs+EZ/Az4/9xaLutcOmqbGNnhs0f7JUWhx?=
+ =?us-ascii?Q?rv5I/r3qXgSRmsL/kBqbOMRLfkm0JTDUcqnE1tmdr4dtKTxTELoSM0eyTbLN?=
+ =?us-ascii?Q?3An2Z0Ft0fsdJK373TavqWckkgJwh53EmnuZNG7+0JZn+hW9QCgS?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3e50f72-25b2-443c-ee71-08df296b8888
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 20:49:54.0793
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1Mt86pRFHYUAdkR1EN0WKZR6iA2BhOUWWGGhDSH78LPKMUgM//ZjMU3KXIU4szNg6Ef8YFDhPad6Zwq7n0Lu6ypKsPwnEQyuFE/VRjNBbzQqSJAWECmc7YndsV/+TUmQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10689
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_134958_694371_7E84468B 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,188 +140,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---2yphx2aGqXHqbPHX
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Oct 07, 2026 at 08:25:34PM +0800, Guangshuo Li wrote:
+> hidma_mgmt_probe() calls pm_runtime_use_autosuspend() during probe, but
+> the probe failure path does not call the matching
+> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+>
+> Add the missing pm_runtime_dont_use_autosuspend() call to the probe
+> failure path before pm_runtime_disable() so that the autosuspend
+> setting is properly undone during cleanup.
+>
+> This issue was found by manual code inspection.
 
-On Oct 14, =E9=99=88=E8=80=80=E6=98=8E wrote:
-> Yes, your analysis is correct: with the patch, the flow offloaded at t1
-> reprograms the shared UPDMEM entry, so the flow egressing port0 starts
-> using port1's L2 address. Our setup happens to carry a single IPv6
-> identity per GDM port (the other services are IPv4), which is why the
-> patch holds there -- it is a stopgap for that topology, as noted.
->=20
-> On the second question: in the default DSA configuration user ports
-> inherit the conduit address, so the conduit MAC as source is
-> indistinguishable from the user port's own. It diverges once user ports
-> carry their own addresses (nvmem-assigned or user-configured): the
-> egress frame then differs from what the software path would emit, and
-> upstream bridges learn the conduit MAC behind a user port. Whether that
-> is a bug or a corner case is your call; per-netdev slots would cover
-> either way.
+This patch is not needed after
 
-I have not tested it yet, but can you please check if the patch available at
-[0] fixes the reported issue? Thanks.
+commit d1706f9da9f40dffe8621cc0ee03b847f41f1d6d
+Author: Joshua Crofts <joshua.crofts1@gmail.com>
+Date:   Sat Sep 19 10:24:28 2026 +0200
 
-Regards,
-Lorenzo
+    PM: runtime: call pm_runtime_dont_use_autosuspend() on reinit()
 
-[0] https://github.com/LorenzoBianconi/net-next/commit/486a5f13c62985d4333a=
-231cc9aaec714e81fcd2
+    Add a pm_runtime_dont_use_autosuspend() call to pm_runtime_reinit() to
+    ensure autosuspend is disabled on driver teardown.
 
->=20
-> Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=8813=
-=E6=97=A5=E5=91=A8=E4=BA=8C 23:54=E5=86=99=E9=81=93=EF=BC=9A
-> >
-> > > The issue is reproducible in the upstream codebase, without any of the
-> > > out-of-tree PON code -- the PON setup is just where I first hit it.
-> > >
-> > > Reproduction with mainline code only (airoha eth + the mt7530 MMIO DSA
-> > > driver; the "airoha,en7581-switch" binding and driver are mainline,
-> > > the DT node just needs to be added to a board file):
-> > >
-> > > - AN7581 board, switch node with its CPU port on GDM1. Use a DSA user
-> > >   port as a routed WAN interface with its own MAC address.
-> > >
-> > > airoha_get_dsa_port() replaces the egress netdev with the conduit, so
-> > > routed IPv6 FOE entries carry smac_id =3D conduit port id, and the PPE
-> > > resolves the egress source MAC through UPDMEM[conduit]. That slot is
-> > > only programmed by airoha_set_macaddr(), which never runs when a DSA
-> > > slave address changes, so offloaded IPv6 frames leave the port with
-> > > the conduit's MAC instead of the user port's. IPv4 is unaffected,
-> > > since HNAPT entries store the MACs inline. The same shape appears on a
-> > > GDM port with two "airoha,eth-port" children carrying different MAC
-> > > LSBs, which the recent multi-SerDES series allows by design
-> > > (REG_FE_MAC_LMIN/LMAX); for that variant the exposure starts with the
-> > > series introducing multiple net_devices per GDM port.
-> > >
-> > > The posted patch only reprograms the shared per-port slot at offload
-> > > time, so a later address change on any netdev of that port re-breaks
-> > > offloaded IPv6 flows. It is a temporary patch for this setup; the
-> > > final solution is up to the maintainers.
-> >
-> > I do not think the case you described is fixed with your patch. Let's c=
-onsider
-> > the following case:
-> >
-> > - time t0: you offload a flow rule for traffic egressing dsa port0
-> > - time t1: you offload a flow rule for traffic egressing dsa port1
-> >
-> > Since the index written in REG_UPDMEM_CTRL() subfield is still the cond=
-uit port
-> > ID, you are egressing traffic from port0 with L2 address of port1. Am I=
- right,
-> > or am I missing something?
-> > Moreover, is it a bug if we use the conduit port L2 address as source m=
-ac
-> > address for IPv6 traffic?
-> >
-> > Regards,
-> > Lorenzo
-> >
-> > >
-> > > A proper fix would probably give each netdev its own UPDMEM entry: the
-> > > table is indexed by a 4-bit address (16 entries) while the FOE
-> > > smac_id field is 5-bit with 0xf reserved for "keep original MAC", so
-> > > there is room beyond the port ids. Slots could be programmed from
-> > > airoha_set_macaddr() (always under RTNL, as you noted) plus a
-> > > netdevice notifier for DSA slaves, and foe_entry_prepare() would only
-> > > reference the slot -- removing both the race and the extra locking the
-> > > current approach needs.
-> > >
-> > > Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=
-=8813=E6=97=A5=E5=91=A8=E4=BA=8C 15:36=E5=86=99=E9=81=93=EF=BC=9A
-> > > >
-> > > > > Ooo,  the new patch should be a dedicated leaf lock inside
-> > > > > airoha_ppe_init_upd_mem().
-> > > > > --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> > > > > +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> > > > > @@ -416,6 +416,19 @@
-> > > > >    dsa_port);
-> > > > >
-> > > > >   smac_id =3D port->id;
-> > > > > + /*
-> > > > > + * Routed IPv6 entries resolve the egress source MAC
-> > > > > + * through the UPDMEM table indexed by smac_id. The
-> > > > > + * egress netdev can legally carry a different address
-> > > > > + * than the GDM port itself: on PON setups the
-> > > > > + * authentication MAC lives on the pon device while
-> > > > > + * each service VLAN routes with its own address. Keep
-> > > > > + * the table entry in sync with the source address this
-> > > > > + * flow is actually going to use.
-> > > >
-> > > > Is the issue occurring just with PON or are you able to trigger the=
- issue
-> > > even
-> > > > in the upstream codebase? I guess you should not post a fix for som=
-e code
-> > > that
-> > > > is not upstream yet. Moreover, in the PON setup, I guess the approa=
-ch is
-> > > still
-> > > > broken if the user change the device mac address.
-> > > >
-> > > > > + */
-> > > > > + if (type >=3D PPE_PKT_TYPE_IPV6_ROUTE_3T)
-> > > > > + airoha_ppe_init_upd_mem(dev,
-> > > > > + data->eth.h_source);
-> > > > >   }
-> > > > >   }
-> > > > >
-> > > > > @@ -1529,10 +1542,21 @@
-> > > > >
-> > > > >  void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8
-> > > *addr)
-> > > > >  {
-> > > > > + static DEFINE_MUTEX(updmem_lock);
-> > > > > +
-> > > > >   struct airoha_gdm_port *port =3D dev->port;
-> > > > >   struct airoha_eth *eth =3D dev->eth;
-> > > > >   u32 val;
-> > > > >
-> > > > > + /*
-> > > > > + * Routed IPv6 entries resolve the egress source MAC through the
-> > > > > + * UPDMEM table indexed by smac_id; the ndo_open/ndo_set_mac_add=
-ress
-> > > > > + * writers hold flow_offload_mutex (QoS paths re-lock via
-> > > > > + * airoha_set_macaddr()), so this lock also serializes the leaf
-> > > > > + * against them.
-> > > > > + */
-> > > > > + mutex_lock(&updmem_lock);
-> > > >
-> > > > This is only required adding the above configuration since in the c=
-urrent
-> > > > codebase airoha_ppe_init_upd_mem() is always running holding RTNL.
-> > > >
-> > > > Regards,
-> > > > Lorenzo
-> > > >
-> > > > > +
-> > > > >   val =3D (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | ad=
-dr[5];
-> > > > >   airoha_fe_wr(eth, REG_UPDMEM_DATA(0), val);
-> > > > >   airoha_fe_wr(eth, REG_UPDMEM_CTRL(0),
-> > > > > @@ -1545,6 +1569,8 @@
-> > > > >       FIELD_PREP(PPE_UPDMEM_ADDR_MASK, port->id) |
-> > > > >       FIELD_PREP(PPE_UPDMEM_OFFSET_MASK, 1) |
-> > > > >       PPE_UPDMEM_WR_MASK | PPE_UPDMEM_REQ_MASK);
-> > > > > +
-> > > > > + mutex_unlock(&updmem_lock);
-> > > > >  }
-> > > > >
-> > > > >  struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
+    Suggested-by: Frank Li <Frank.Li@nxp.com>
+    Signed-off-by: Joshua Crofts <joshua.crofts1@gmail.com>
+    Link: https://patch.msgid.link/20260919-move-dont-use-autosuspend-v1-1-f6e2d1315c23@gmail.com
+    Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
---2yphx2aGqXHqbPHX
-Content-Type: application/pgp-signature; name=signature.asc
+Frank
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas6XhwAKCRA6cBh0uS2t
-rHdOAQD1N3DK3YaUpREWtj66KFuq6jmX/TCpDSfI90hr7a6dsAEAr8pQEaJCbMCm
-r43E0FvDZZIk9lCLSFwo+SoiGPd9eAo=
-=lSOH
------END PGP SIGNATURE-----
-
---2yphx2aGqXHqbPHX--
+>
+> Fixes: 7f8f209fd6e0 ("dmaengine: add Qualcomm Technologies HIDMA management driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> v3:
+>   - Add the missing changelog.
+>
+> v2:
+>   - Keep pm_runtime_enable() and explicitly add the missing
+>     pm_runtime_dont_use_autosuspend() call in the probe failure path
+>     instead of switching to devm_pm_runtime_enable().
+>   - Update the commit message to match the actual change.
+>
+>  drivers/dma/qcom/hidma_mgmt.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/dma/qcom/hidma_mgmt.c b/drivers/dma/qcom/hidma_mgmt.c
+> index 4805ce390ffa..d8c56af5882d 100644
+> --- a/drivers/dma/qcom/hidma_mgmt.c
+> +++ b/drivers/dma/qcom/hidma_mgmt.c
+> @@ -310,6 +310,7 @@ static int hidma_mgmt_probe(struct platform_device *pdev)
+>  	return 0;
+>  out:
+>  	pm_runtime_put_sync_suspend(&pdev->dev);
+> +	pm_runtime_dont_use_autosuspend(&pdev->dev);
+>  	pm_runtime_disable(&pdev->dev);
+>  	return rc;
+>  }
+> --
+> 2.43.0
+>
 
