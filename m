@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB7DCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6F8CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFHzR5TFeZGnqwFD0CxAvQ2lyL98rIjFKD+P/ODefPI=; b=uBsDv0m051uzz3aQfhcGeQFqqa
-	I1NE05s4yYcyiEBZnWGnWgvFq+r0joUL5aIomIe6gm9ArtCbC3Rz7qPSwxjevv2EAa9xiEdct5767
-	6t6jKYHUNsDmBmgNVNicY5pPWUDtA6cLDMpzZsqGHOuCGo0Icd+QAL9qDuooz8bHA2FeT194Jipu8
-	bm2UMqtrqXMQrCujytc8d3cQGLmDec31KPX2Ip+1lIAE7Ubtkv0xQOc6MTzGhMcKGozq6wamuhFP9
-	c6wBtp6DrjzzH52UB7dWGj8MfuUxZU04YHRm3K+kHNdYtRUqjDcAKYSdqhEjvL6JRHEfwIBzVxOna
-	SINBaJpQ==;
+	bh=k0zH0Wnlh/sO6ZQbr+1OS83JkdmxfQFaqrYbJIXwek0=; b=Go3IeosQr/5GaiJmDbVIKPqqRu
+	Yb1S35txAtQ0kIuREB3tMutXwdo1f8khjlNH4LhjOqMZzsBcUrKbUZaLwgoVBH3zW3YbgI+yhWUiP
+	bhxPWygwDZ4RVL/HFU9PoPnVk9ATfqz5BixAtW5OKTkEPhn/E8vpufIf17wkc0DuduRWG9VnWsV5G
+	MkjEYXtlIKzkc6PxteMp3Y8/cUDqDCDiMkx8RNwvqD/s4ymiJTiulwytXPuu7D/yntFpG2b+PlSs+
+	xbmkUeoRp9Vjp5r2ZTOxPUgLWKabT7JzlVluxm7AQy9MBvTUA1EVszsG/baNn46iBLUY84UemGWeD
+	1nf1wruA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaQd-0000000Cfss-21cG;
-	Tue, 13 Oct 2026 11:12:19 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xGaUQ-0000000Cg7v-3h1O;
+	Tue, 13 Oct 2026 11:16:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaQW-0000000CfsJ-12h3
+	id 1xGaUP-0000000Cg7o-1s9S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:12:18 +0000
-Received: from killaraus.ideasonboard.com (unknown [185.104.138.147])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C3259BC;
-	Tue, 13 Oct 2026 13:10:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1791889807;
-	bh=TLb9LXej9xG19WtKDwfE0UKEiJVXsGn15ErYlOXigNA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TlB8Bi30S5ri9HBtUHlzY6zY08CIHKtIIbBSKb5dt3zziN/pA8ByDTu5OVF15NSXn
-	 4xX7plyX8+U+sKzluFZfMATxaCJc0e/z0jlrmKi5bA3n8XANXoMWrPozvIdfIiMT60
-	 g+KdWAYoNwARwKCbEJ7Ue5TdERCKx0zSHWA4Wlas=
-Date: Tue, 13 Oct 2026 13:11:58 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Leonardo Costa <leoreis.costa@gmail.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 0/3] Add VGA support for Apalis iMX6
-Message-ID: <20261013111158.GG56180@killaraus.ideasonboard.com>
-References: <20261012-v1-apalis-imx6-enable-vga-v1-0-8905d8746504@toradex.com>
- <20261012164054.GA56180@killaraus.ideasonboard.com>
- <20261013090631.GA33628@francesco-nb>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261013090631.GA33628@francesco-nb>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_041217_878548_689D7651 
-X-CRM114-Status: GOOD (  21.49  )
+	Tue, 13 Oct 2026 11:16:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 915E4600D1;
+	Tue, 13 Oct 2026 11:16:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45EFE1F000FF;
+	Tue, 13 Oct 2026 11:16:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791890172;
+	bh=k0zH0Wnlh/sO6ZQbr+1OS83JkdmxfQFaqrYbJIXwek0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=V1uIN3ayhOIYE1p9Qg95iKfyIODI2N3VGPlSnAjihXP1edyiVdww2p4n/LmCPoACD
+	 Kg+IRNwuy7PogVLswRSIHLmP++sV5vEmijTIYulBJ4oiOCPFV/cBg7LCzNk1QaZ615
+	 E7EBOu/ZPpGOG2eYCxMIH3sOYXSyhU9Egwwut3ZOLZooI7jRzReaywth3YT1oewH25
+	 9vzRzWpjRFfvUiA6L7MnKdNqSC1X36Dw12SFxF4X6tz7NKtQCBE+/aiQHW8vdwdAZE
+	 9pRS0pnX88hjYCfRvEU/rCRYna2j9U3a94QjiXWqnNnzj2Mqn2gkwYUDzFo8IXqPu5
+	 vI+jN2wDm+ruQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xGaUL-00000002KbM-3wmH;
+	Tue, 13 Oct 2026 11:16:10 +0000
+Date: Tue, 13 Oct 2026 12:16:09 +0100
+Message-ID: <86v77526me.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
+In-Reply-To: <CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
+References: <20261013081646.933312-1-fuad.tabba@linux.dev>
+	<as3_NKT20MNdqaJR@kernel.org>
+	<86wlrl2a2f.wl-maz@kernel.org>
+	<CA+EHjTztZpFrmuz9pK+01BsDxHnzpEwUMt6E3nUrgk4NNTsKYQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+On Tue, 13 Oct 2026 11:50:09 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> On Tue, 13 Oct 2026 11:01:44 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > Yeah, I now have a series that has the counting pause, your single
+> > vcpu pause (fixed to DTRT), and the LPI disabling fix. Patch #2 of
+> > this series can probably make use of the single-vcpu stunning.
+> 
+> I'll rebase the series on that once it's out, with patch 2 using the
+> single-vcpu stunning.
+> 
+> > As for the OUTSIDE_GUEST discussion, I've had a long discussion with
+> > Will where we reversed engineered the synchronisation requirements,
+> > and concluded that there was nothing to fix on that front (the logic
+> > is incredibly subtle and counter-intuitive, but overall sound). This
+> > patch is therefore dropped.
+> 
+> The first [High] issue Sashiko found on patch 2 [1] holds for DISCARD,
+> because the fold writes back the pending_latch that DISCARD clears.
+> With a 2ms delay after the exit to widen the window, and the DISCARD
+> sent at a varying time, the guest in my DISCARD reproducer takes the
+> discarded LPI in 13 of 20 runs on v2.
+> 
+> A vCPU on its way into the guest does the same: it loads its LRs in
+> kvm_vgic_flush_hwstate() while it's still OUTSIDE_GUEST_MODE, so
+> kvm_arm_halt_guest() doesn't wait for it. With the delay after the
+> flush instead, on v2 plus your 1/7 and 2/7 [2] and both changes from
+> your reply to 1/7 [3], the guest takes it in 9 of 20 runs.
 
-On Tue, Oct 13, 2026 at 11:06:31AM +0200, Francesco Dolcini wrote:
-> On Mon, Oct 12, 2026 at 06:40:54PM +0200, Laurent Pinchart wrote:
-> > On Mon, Oct 12, 2026 at 04:25:22AM -0300, Leonardo Costa wrote:
-> > > This series adds a device tree overlay that enables the VGA output on Apalis
-> > > iMX6, which is driven from a parallel RGB interface passing through a
-> > > non-programmable video DAC.
-> > > 
-> > > The video DAC is a simple resistor network gated by an active-low
-> > > data-enable signal. For the bridge to work properly, this series also
-> > > changes the following in the dt-bindings and simple-bridge driver:
-> > > 
-> > > - dt-bindings: Add a new compatible for the bridge in the simple-bridge
-> > >   binding. This is necessary because the existing dumb-vga-dac compatible
-> > >   doesn't describe a data-enable signal polarity.
-> > > 
-> > > - simple-bridge: Add the VGA bridge match-table entry and timings
-> > >   struct, setting the DRM_BUS_FLAG_DE_LOW flag for the bridge.
-> > 
-> > Is there schematics available anywhere ? That would help reviewing the
-> > series ?
-> 
-> This circuit is on the SoM, and the SoM schematics are
-> confidential and not generally available.
-> 
-> I tried to extract as ascii art the relevant circuit, hope it helps
+Does this mean we still need OUTSIDE_GUEST_MODE to be a store-release
+past the point where we resync the state?
 
-Thank you, it makes things clearer.
+> Once DISCARD waits for irq->on_lr to clear before clearing
+> pending_latch, the guest takes it in none of 20 runs in either case.
+> I'll add that to v3, unless the single-vcpu stunning already waits for
+> it.
 
-The circuit seems fairly generic. Wouldn't it be better to add an
-optional property ot the dumb-vga-dac instead of a new compatible string
-specific to Apalis ?
+Polling for on_lr feels very dodgy, and I'd like to avoid this. If the
+OUTSIDE_GUEST release addresses it, I'd rather do that.
 
-> BLUE (5 bits)
-> =============
-> DISP0_DATA[4] ---[R30   348R]---+
-> DISP0_DATA[3] ---[R33   715R]---+
-> DISP0_DATA[2] ---[R36  1.47K]---+-------- VGA1_B
-> DISP0_DATA[1] ---[R39  2.94K]---+          |
-> DISP0_DATA[0] ---[R42  5.90K]---+          D
->                                            |
-> DI0_PIN15 ------------------------------ G | T4 MMBF2201N
->                                            S
->                                            |
->                                           GND
-> 
-> 
-> RED (5 bits)
-> ============
-> DISP0_DATA[15] --[R31   348R]---+
-> DISP0_DATA[14] --[R34   715R]---+
-> DISP0_DATA[13] --[R37  1.47K]---+-------- VGA1_R
-> DISP0_DATA[12] --[R40  2.94K]---+          |
-> DISP0_DATA[11] --[R43  5.90K]---+          D
->                                            |
-> DI0_PIN15 ------------------------------ G | T5 MMBF2201N
->                                            S
->                                            |
->                                           GND
-> 
-> 
-> GREEN (6 bits)
-> ==============
-> DISP0_DATA[10] --[R32   348R]---+
-> DISP0_DATA[9]  --[R35   715R]---+
-> DISP0_DATA[8]  --[R38  1.47K]---+
-> DISP0_DATA[7]  --[R41  2.94K]---+-------- VGA1_G
-> DISP0_DATA[6]  --[R44  5.90K]---+          |
-> DISP0_DATA[5]  --[R45  11.8K]---+          D
->                                            |
-> DI0_PIN15 ------------------------------ G | T6 MMBF2201N
->                                            S
->                                            |
->                                           GND
+Thanks,
+
+	M.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Without deviation from the norm, progress is not possible.
 
