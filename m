@@ -4,127 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8E0CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FECFCC6B12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 18:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=; b=TFp8dBJE/DCIPHJAhS3maV9xyq
-	ArbFNy/0alUlj9f156tb8bdOIdLqdpdImR0lU+GhF7KaB7056+xT0VPE2+SRX8wn528Pdb9oJlTtB
-	UkH1qgsQjYApMk8mKiWdytRS+AwvNkRANaWdCUGMxwDrApYcIPjBZl3rrWbI/hp30dQQHtuz9S5va
-	SmhxiAv2426x9TzfbwSq22vWSTjELQVwzm+JUWUB802wrUmNqTJkemeZ6qtLV3BNDoBMp8Vd9/ybZ
-	fxlb38v1afqL72/YtqVO4eFXM8KgvBTXo+xTvM6qKxfLJSv/YBDbs5B+aMolOmafbmbjYVEGRfzdT
-	k2CajAhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W2LK46YutHa3oM+xUu+YyUYDdDuDRMk9fL5ystfIlDc=; b=VntDs2UCrEVcW/RsSviD8Y3iZj
+	FoDebFMbEWywaOnY+doX70AkoPiuajDlIVoWztBiCB2NFTq5ATOOHykga099FSUUZFfmo+T/xbdw6
+	CFAhoqgOI2VmhV8ZdJXmcoMftpCnzbDCsKf3/uCcFsHVZQNAoPh17vvG5EI0aZA/Zzhdsbdms53B+
+	ziqqNrzQbJexr8zNGgT4hnY2KsmydKkDsJV5kStuJ8Xw4ZT57a0mSck/1eT3AzLI4Bxo9FT7cKrH2
+	aGnwsTUJBqNsF1sniAuU8yd/11MN4LoUkdtqTsd01ylFbTQBT2sEXjKuH+F/xFzV8E8JN78zOLT8W
+	8vyvibqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhE0-0000000DpIi-1W8l;
-	Tue, 13 Oct 2026 18:27:44 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1xGhYo-0000000DrU8-2gEs;
+	Tue, 13 Oct 2026 18:49:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGhDy-0000000DpIF-0KtW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 18:27:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A8cpQmUTAgKFkZTc7AcF8TOqk8oLbRZ6yGOsR//+ca6abR+SkWiYgxW6PQydzj0T2VzEpTX1Eq09TcVbsXyJP1tUivBELyyT+tIFsopcrp2P+53dE/Ybm44LbrZHS1RC9K8ofA+d599AoQqpGYoJGYDcX6z/v4VbtrF5rpcaTVzXAwxwgW+oGokpcTzM1TS8cC2kX8xmiAs9DUoQuWHrEme58omOmeixQVPkXL7yF3TQrPPaQxVbRVC1XbRGAOUwbK2CobAROlrMH9Io+Y6pv+mJgqdvMkeBkWFuxp+STmBRXv25nledChNH34TTJPzK8rUdY9/LSzEF5sZxcIJK6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=;
- b=yhbfgxZuiQNz8FYQAamfDquik0dE48L2CrdfX9injdMkdm0ZfXapBgM0bwJ7AdFMvpXirGfXPWr8yL7pXxIfsO0MSHxRQ5maZb9kYct7qNPFYGj1VZyYJS8iv3a+VmjjU774GveuPvgkFOy9KY/UkHep0MR6gVvwDT8vV83daaYQ1h4eqrZLa5Kch4He8GS8mzNN/jPAF3nhfJztOrtM1RjUkoyI4JGNJAk1q5Ra/gX7BFayRQ8nwyuhban8PErRijxBJSp4VIDPC+9fmW9exe45UJpdql3IdhUH4KlBRBVqVH45K0+5U85p+w5Xiy2CBp+BVAHoUCPWuuHmcUCI/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FeZV8zJWPkmFQFaCF75hzG1PeOg6i8KBt7emXhobWr0=;
- b=oLUhGl8XHrY25RU8HA9GdfU9FFJZiRF+nrKRgNSwyQEaUYSV9Is1pjPW4ENpe92oOhXE8nf9B6VOHf7BRDExN7XU1PcxMYRtVD+bzTe68XptxxVHsz8naOQwc3DRUlNwiMouCgtPtON4lhs/Qb8hGwsNsSWXFdqM4EFY2m1P7zq1/0gdq5P99ZVzGJNa8IA710uavL8KZmd+b813fM7YijZWH5bSiPGXIcaQ2isO+xSY6a6RkybJtj+Y0nWDpRuUsJ3Rpq1FmFqZer1g49UQ5i7R8/6isiqNXOz3lJ2nlsX832Mh56jZhU+VpbMpjDsrlxYNWzsa8ybQ8Doj2rIU8g==
-Received: from MN2PR01CA0052.prod.exchangelabs.com (2603:10b6:208:23f::21) by
- CH3PR12MB7764.namprd12.prod.outlook.com (2603:10b6:610:14e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 18:27:25 +0000
-Received: from BL6PEPF0002256F.namprd02.prod.outlook.com
- (2603:10b6:208:23f:cafe::79) by MN2PR01CA0052.outlook.office365.com
- (2603:10b6:208:23f::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Tue, 13
- Oct 2026 18:27:25 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0002256F.mail.protection.outlook.com (10.167.249.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Tue, 13 Oct 2026 18:27:25 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
- 2026 11:26:56 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 13 Oct
- 2026 11:26:56 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Tue, 13 Oct 2026 11:26:55 -0700
-Date: Tue, 13 Oct 2026 11:26:52 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Peng Fan <peng.fan@oss.nxp.com>, Robin Murphy <robin.murphy@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>, Thierry Reding
-	<thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Jonathan
- Hunter" <jonathanh@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v6 5/5] iommu/arm-smmu-v3: Wire up shared-SID STE
- ordering and feature gating
-Message-ID: <as537DUBbK+tNzuQ@nvidia.com>
-References: <20261011-smmu-shared-sid-v6-0-cb76b89dc612@nxp.com>
- <20261011-smmu-shared-sid-v6-5-cb76b89dc612@nxp.com>
- <aszfVNP6DGzWYdK0@shlinux89>
- <as1zR1wc7ERxvR1F@nvidia.com>
- <e8c22eb2-ed1f-47c7-b2ac-c56ead1cba8b@arm.com>
- <20261013124400.GI14213@ziepe.ca>
- <as5ERENDfgC6FB0b@shlinux89>
- <20261013151458.GL14213@ziepe.ca>
+	id 1xGhYn-0000000DrTe-0Bfo;
+	Tue, 13 Oct 2026 18:49:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37CB5602C3;
+	Tue, 13 Oct 2026 18:49:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F941F00893;
+	Tue, 13 Oct 2026 18:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791917351;
+	bh=W2LK46YutHa3oM+xUu+YyUYDdDuDRMk9fL5ystfIlDc=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=bTXsVBY8L2hiFt/lX44+36LdKu0+Af4DYvhIMIKcG4bRcIFERWTzv95PbLNRlgePL
+	 CqQSp7GoNYsrXskXGpJa0nok+ue8SA5l07BFlCWazWWlUnyBx4yAmRzlIx9MGMJKkn
+	 fpp22GvOUe7mY4Ss8xQJCOrTSup9aOuu5q5czHHsHvOHpWrm1GzMAUCdVm25U7ut0D
+	 WarcoPvGRQKEaG5SOaJ1GvxI0DmcCmSPCx2FvMyOLKpSO+c+gkgjOfAohkS3kmpHQj
+	 8BIAt9GygOF5yIE7qeEmkD5eA9+oeZHfj405BYiivT7QGj1AOusFjBMY1fvEifTPlG
+	 DsPCL8vAvFVZA==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261013151458.GL14213@ziepe.ca>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0002256F:EE_|CH3PR12MB7764:EE_
-X-MS-Office365-Filtering-Correlation-Id: b643c6c3-7f51-4b7e-bdd9-08df2957a11e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|23010399003|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: VQNQQkcLgCcNb+eGpcn+1ad016vfftF9T7oTB2r9l+3Wm4h5HcFb3mBei/ZmYSpe8m9ytO5/GpcoQET53aJRD8zwLzPk+RXsPHFAL2JwYL4+TGsepunENn9rPkWqh8hFGdg7yXeMUZn2wa2VfmXXrNR62+WaohUW0bUFCS0GK1PbSf/Y219SR1Ma6guhAHUrJLHo2Ehpalgxt4bwaGFoRC5eznFak3l6Xs6mg9AyBRcRFS4Ol80JpsGCE6P4Y95X9jRdiRBRXMNXdfKFX6r6srQxqW54LV59VSjM/iqW02eh/NRYAdSeyIWc0jx2WEUSkAN548zs9Fe8jqGAbiSEwZcZYplJ4qKRWzH4PFRRRXWSqK9PyWHH4M5HLDAnl9xVrSuDdxyVpYTfCr+6VLjNAQjCI646x3lFxPkyvIPg+K/w6rC6eHw+YbIcwF11Aqw8laXM/gyqnvSKxOlWSKTXczPNSu7YkbjSS4DCJRvsl9mUFwAzvCejC4l9WRXG/zD1+GGXsBjzgTnG4cQB/yZDLIkCDHgr5xF+BiGev1Cso/UOMHThc8Bdn47gkATk6OYPym/ByNxMSPJIz/sOKcGAXK5mXJcF1KHCDWY62CkIt185rL0KcJFFase4ZHtKcXcA9Lfb9hilgJvlZSmqsZ1hg6J0kddf9NK/Lmd06EV/JfKXh0x2RkmHcxRIBGv6g1Gnhfk/DDKhQjJfOReIQQvfSA==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(23010399003)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: wDxq1Hev+3Ng2IeEXCpDs8NxIcdQplQGxmvj397HIxsEhZKSqPbHMwF1hZYAQPkjSVoCu/GuceFzQW2X7dTXdqutHKxjzULJby74aqgHyS9Kd2/sZFRPLJ4Xiq2SMvCJrHbXWiCxykw+zc5sHZ39EMzgWyN5IBKK1vH5k3Ua9Q3lrlbED0nvxG5SYY9en0GQBr7bD9uO66+daNgK/M4lcaEC3xCccRWil1PBCyTq4WN1eo9zl+dx6xPDeIryKezRggfPrsayC1HWU2wm8SQOI8uL2w0K9gVT3ZmZjSwnajJ49xZ9KFMePn8QcRQlTOjxc8uAEAo3rvP3oYCBxdFTATLXsvG0cMGdZWUQmj0sf+dWbwiD9JPIVsI8hyddxWXB/T/u2n+Y48eNRueIYhk3x/OLmHnJyOasDcJPKpjM2AOi2malPWI4P+9bND3T94po
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 18:27:25.0022
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b643c6c3-7f51-4b7e-bdd9-08df2957a11e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7764
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_112742_133270_AEAB7B8B 
-X-CRM114-Status: GOOD (  40.46  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v6 09/10] PCI: dw-rockchip: Add system PM support
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
+References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com>
+ <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
+Date: Wed, 14 Oct 2026 00:18:57 +0530
+Message-Id: <179191733707.12828.15231988052096272779.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4265; i=mani@kernel.org;
+ h=from:subject:message-id; bh=h9eSoJBPlSKMV9GPuwPqWD3tM0tkXMEuYQdYPg0IKaY=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzn0bKa2b1ZElqC1ZZLD0461BQLLkljsz8CTkv
+ mcVRYwIEpSJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas59GwAKCRBVnxHm/pHO
+ 9dt6CACUWonlZ9vT5z/JAsPPzaPJghCoWcwQa7irZNahQtFDrKmc0JEEdS07p1dv7/ejiVjUpD3
+ kRkYuK6CxWG2qiYXAsaFaDdu5Js9gY50kh8ZTpmdX7TQXFIE8i7nfl+Kv4a8Zqbk1beOslV+GVQ
+ fy7rXip0H714OQ3xOCAJ2C9IePkaUhFCNh/Y3a8QidRolkBH6JP8hwMqPqrElbM3lfcPB9eO+e2
+ 2+Ki92mSmO57qbIDdAu4900AmzW9BajB/IBwEmOVr6LGYKIfgj39ENpnrhVcI8Xa9cZ+LpeI48I
+ XMQns/3TPwHHefh9IO+CLQeKuSD7TQ+1Dc6T6vW+LYK3RLzE
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,81 +90,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 12:14:58PM -0300, Jason Gunthorpe wrote:
-> On Tue, Oct 13, 2026 at 10:46:28PM +0800, Peng Fan wrote:
-> > Hi Nicolin, Robin, Jason
-> > 
-> > On Tue, Oct 13, 2026 at 09:44:00AM -0300, Jason Gunthorpe wrote:
-> > >On Tue, Oct 13, 2026 at 12:22:06PM +0100, Robin Murphy wrote:
-> > >> If we're not going to support PASID for shared streams (which I suggest we
-> > >> don't...) than we shouldn't strictly need to worry about CD tables anyway.
-> > >> So rather than having to special-case CD table sharing for shared streams,
-> > >> perhaps it might make sense to generalise back to a "default" per-domain CD
-> > >> for non-PASID use, which can then get switched for the private per-stream
-> > >> cd_table if and when a device does enable PASID?
-> > >
-> > >If we have stared STEs then the group becomes the per-STE data
-> > >structure not the master.. We don't have any way right now to do that,
-> > >but it would make some sense for the group to store the shared CD
-> > 
-> > Thanks for the detailed feedback, reply you all here.
-> > 
-> > For the CD table question: since shared-SID masters are in the same
-> > group and always use the same domain, the CD content is identical.
-> > With skip_shared_ste(), only stream->master's STE (and thus its
-> > cd_table) is active in hardware.  The other masters' cd_tables are
-> > allocated but never referenced by the STE.
-> > 
-> > I see two options:
-> > 
-> > A) Keep skip_shared_ste() and add arm_smmu_cd_owner() to redirect
-> >    all cd_table operations to stream->master. This is a minimal
-> >    change that works for our use case (platform devices, no PASID,
-> >    no domain switching).
-> > 
-> > B) Drop skip_shared_ste() entirely and share the CD table at the
-> >    group or domain level. This is cleaner but a larger change.
-> > 
-> > I'm leaning towards (A) for now to keep the series focused on the
-> > simple shared-SID case.  Would that be acceptable, or do you prefer
-> > we go with (B) from the start?
+On 2026-09-08 16:51 +0200, Sebastian Reichel wrote:
+> Add system PM support for Rockchip PCIe Designware Controllers.
 > 
-> I think the skip is in the wrong place perhaps?
+> I've tested this on the Rockchip RK3576 EVB1, the Radxa ROCK 4D
+> and the ArmSom Sige5 boards.
 > 
-> The group is always guarenteed to have all the masters in it.
+> While I haven't experienced any issues, most of my tests have been done
+> without any devices attached (i.e. default board without any extras), so
+> there _might_ still be some problems. As system suspend does not work at
+> all right now, I think it makes sense to get at least the basic
+> configurations working as soon as possible as it will allow us to catch
+> regressions by enabling system suspend in CI systems like KernelCI.
 > 
-> So we could split them into primary masters and secondary ones. The
-> secondary ones are all the devices thare share SIDs with the primary.
-
-Yea, stream->master can be used as the marker for the primary.
-
-> The group list is guarenteed to have all masters in it, so we can
-> simply fully skip attach from the secondary. It is guarenteed by the
-> group that a primary will have already attached to the STE with
-> exactly the same domain so the secondary just needs to do NOP.
-
-I was worried about the book keepings in the attach. But most of
-them seems unnecessary to repeat on the secondaries. How about the
-arm_smmu_master_canwbs() guard?
-
-> If you do that then all these questions go away since there is only
-> ever one thing writing the STE, it is always stable and no issue.
+> Co-developed-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 100 ++++++++++++++++++++++++++
+>  1 file changed, 100 insertions(+)
 > 
-> This does leave a problem for master remove to switch the STE to one
-> of the secondaries, but that sounds like it could be managed through
-> the release domain mechanism, just nominate a secondary to be primary
-> and execute an attach on it in the normal way. The hitless STE
-> mechanism will make it work safely.
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 47d9cab909bc..e675918ba184 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -120,6 +120,7 @@ struct rockchip_pcie {
+>  	struct gpio_desc *rst_gpio;
+>  	struct regulator *vpcie3v3;
+>  	struct irq_domain *irq_domain;
+> +	u32 intx;
+>  	const struct rockchip_pcie_of_data *data;
+>  	bool supports_clkreq;
+>  	struct delayed_work trace_work;
+> @@ -1042,6 +1043,99 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
+>  	return ret;
+>  }
+>  
+> +static int rockchip_pcie_suspend(struct device *dev)
+> +{
+> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> +	struct dw_pcie *pci = &rockchip->pci;
+> +	int ret;
+> +
+> +	if (rockchip->data->mode == DW_PCIE_EP_TYPE) {
+> +		dev_err(dev, "suspend is not supported in EP mode\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
+> +
+> +	ret = dw_pcie_suspend_noirq(pci);
+> +	if (ret)
+> +		return ret;
+> +
+> +	gpiod_set_value_cansleep(rockchip->rst_gpio, 0);
+> +	rockchip_pcie_phy_deinit(rockchip);
+> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> +	reset_control_assert(rockchip->rst);
+> +	if (rockchip->vpcie3v3)
+> +		regulator_disable(rockchip->vpcie3v3);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rockchip_pcie_resume(struct device *dev)
+> +{
+> +	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+> +	struct dw_pcie *pci = &rockchip->pci;
+> +	int ret;
+> +
+> +	if (rockchip->data->mode == DW_PCIE_EP_TYPE) {
+> +		dev_err(dev, "resume is not supported in EP mode\n");
+> +		return -EOPNOTSUPP;
+> +	}
 
-I think the release domain can be entirely skipped on any shared
-master (including primary).
+This is going to regress the EP system suspend. If the EP suspend used to work
+before this patch, then you can safely return 0 here.
 
-ops->release_device() is called right after the release domain's
-attach_dev. I think it would be cleaner to put the nomination of
-the next primary into the release_device() callback -- it shares
-the same cleanup helper with arm_smmu_insert_master()'s rollback
-path.
+> +
+> +	ret = clk_bulk_prepare_enable(rockchip->clk_cnt, rockchip->clks);
+> +	if (ret) {
+> +		dev_err(dev, "clock init failed: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (rockchip->vpcie3v3) {
+> +		ret = regulator_enable(rockchip->vpcie3v3);
+> +		if (ret)
+> +			goto err_disable_clk;
+> +	}
+> +
+> +	ret = rockchip_pcie_phy_init(rockchip);
+> +	if (ret) {
+> +		dev_err(dev, "phy init failed: %d\n", ret);
+> +		goto err_disable_regulator;
+> +	}
+> +
+> +	reset_control_deassert(rockchip->rst);
+> +
+> +	rockchip_pcie_writel_apb(rockchip, FIELD_PREP_WM16(0xffff, rockchip->intx),
+> +				 PCIE_CLIENT_INTR_MASK_LEGACY);
+> +
+> +	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
+> +	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
+> +	rockchip_pcie_unmask_dll_indicator(rockchip);
+> +
+> +	gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
+> +
+> +	ret = dw_pcie_resume_noirq(pci);
+> +	if (ret) {
+> +		dev_err(dev, "failed to resume: %d\n", ret);
+> +		/*
+> +		 * During resume, dw_pcie_wait_for_link() is called and when
+> +		 * there is no device connected at all it returns -EIO with
+> +		 * the message "Device found, but not active". Ignore it for
+> +		 * now.
+> +		 */
 
-Thanks
-Nicolin
+This is not correct. When there is no device connected, -ENODEV will be
+returned.
+
+- Mani
+
 
