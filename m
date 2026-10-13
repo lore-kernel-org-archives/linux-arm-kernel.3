@@ -4,63 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07775CC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1751FCC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bCylcL8r7dne6e2xSUn57/ruC99iqBkZb4CHlqtT1Rk=; b=W2/0FBeZjuO3jFg6OC6BTKYLLC
-	Luoi4dBc80JwGNDBePtDqqPJC8v8SB47YyEHfnOiVjrBg2liA4ZhL7woSBvXbNiJoZGeLT9XSUrUA
-	G8krr9SdmuG4jKzc5VeOLtFptHDFO2S/PHrtUQ0QGdHM54xQi2MbKxu0mDyGoS5YSCjWfNRQ5qsBE
-	U7UfzFxRv1tdyOpS60Y5bZN4kkp4LMA4vaTMe2T162Pyh+u6Z1r0GL11LxhUthgv3qjj4ZNLVm6m9
-	TX2094xz6XSeIyTt66QXXBs6bz+C9Qrv3Wc/ozuIk0OEVXAPeFiklcC+raUzNPw4iTdaPF2nAWUbu
-	ANzuLIfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rU24YFZwJgindgSPEkjX0eodLrez8QH9DKfTSC9TXcA=; b=VVVTnPsc8GGpwX
+	McUe7ARJ+X/7+YFnGTuTZN2CYkqQd3ExRgHlYPyvH6eyaHWVpA9HuQxqSGQXonPntMkDEopMD36Wa
+	WRBXqz9ekIyWAXYxK56zk/94poLdNRuRlq/V24IGuX0RiGf6jJcIL1NmoAT28HkY75jbzm6dgg8Ae
+	QUx4jQ1diSvDnec0rXJIYWVjmuCmNr+SA8rqx+qhvich0SwoQwaRORQBtcO2o2UjBkX3wMtBjwycW
+	UO7fdstEK8y+10xf5rsmaRBhExIGOGZwPqOrTkdhGyV2SOsjxrz+VQvPyIY5omCfi4g2KgDqqlVnt
+	qgXJL7bLrxeUpoQESbPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfOe-0000000DVzF-2j1l;
-	Tue, 13 Oct 2026 16:30:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGfVd-0000000DYNH-0Awe;
+	Tue, 13 Oct 2026 16:37:49 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfOd-0000000DVyw-3Zsn
+	id 1xGfVY-0000000DYLW-3lYU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 16:30:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00060602C3;
-	Tue, 13 Oct 2026 16:30:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC32D1F000FF;
-	Tue, 13 Oct 2026 16:30:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791909034;
-	bh=bCylcL8r7dne6e2xSUn57/ruC99iqBkZb4CHlqtT1Rk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ICic/5CHydH+9bIuXE2dag452kYIQD66ar9sDhSFziK7acorOlC2b8bwaJpcjdLTk
-	 pSO4dM9E8PXgsVbA7+4jpxZEeBlys/BOwQcPXPSUg+iSiZY5PGOC+qJMAjAfqZOMJt
-	 KuGn5E/rxXhExFAlde+eF/DzjYHZU7ZQ2cHI7KNz5myUOXQwYxqk6FJTZgXyvVWxHG
-	 nzFDLKHSya7+8Gic0X7znR/feoR8oTgrgYnZqwkmlFr1hT8i+vPr7u2XYmm0mcjO+r
-	 gCTLi2MehvMBJs2UkLM58h7ogPS7qWiQ5lNbm77jBCkaYLHDqRf+MGLDH/gsOjXr/y
-	 kbiwEoTzXL8vQ==
-Date: Tue, 13 Oct 2026 17:30:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
-	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
-	lars.povlsen@microchip.com, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, luka.perkov@sartura.hr
-Subject: Re: [PATCH 1/6] dt-bindings: hwmon: sparx5: add LAN969x fan
- controller
-Message-ID: <20261013-stylized-plethora-2a9e27545adb@spud>
-References: <20261013125735.1542349-1-robert.marko@sartura.hr>
+	Tue, 13 Oct 2026 16:37:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791909465; x=1823445465;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=a8M0pwMdwzgcqpPLP7WjWUinEtCYKyax0Lc2mzN8idA=;
+  b=1p7J4f2UW/CWPhaYgXLUHZkDQJP0R1C/sfuCBXQ/72lh77l322Lw35Vz
+   bIym3+/JTai1vUHMfvVUKwFPeL3Ovj/gsNWyBLYOR9SaylXip6Y/IARWA
+   j+BPkCclx860a05lkeeEQz8C43bKTNXyZbU3zX2NoC2TGI0RvZJl8sT6e
+   Ewux/8tqHadcT2Z4zPNIpJAwOqpdt0KuSxY8/NohC7VmlF5yDKJTy8cvx
+   JHcAWF1GImJA+cf3Fari/QB3E0Fbt+hY15OaMEfJ5ty37bmUiISoaUdKS
+   lldBj83svcODtH2l5RkczXSyzrcf7YjycfCIGk3k2n2AJATy4gmQ+X/gz
+   w==;
+X-CSE-ConnectionGUID: v9lvrJ0AQPOdc6eYrw/1ng==
+X-CSE-MsgGUID: +GuKnf65Tj2pAotOX3k1KQ==
+X-IronPort-AV: E=Sophos;i="6.27,156,1787036400"; 
+   d="scan'208";a="296388287"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Oct 2026 09:37:44 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 13 Oct 2026 09:37:42 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 13 Oct 2026 09:37:38 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Subject: [PATCH v11 0/5] drm/microchip: add GFX2D support for SAM9X60 and
+ SAM9X75
+Date: Tue, 13 Oct 2026 18:37:22 +0200
+Message-ID: <20261013-cpitchen-mainline_gfx2d-v11-0-7527f2efab0a@microchip.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XdQaVzIG9Y1sxA5J"
-Content-Disposition: inline
-In-Reply-To: <20261013125735.1542349-1-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XS22rDMAwA0F8Zfl6GJN/3tP8YYzi+NIY1KUkJH
+ aX/PqewNgyne5RAR0LSmU1xzHFir09nNsY5T3noS4D4/MR85/pdbHIoCUZAEixi4w/56LvYN3u
+ X+6/cx89dOlFolOIYLZfkkmal+jDGlE9X+v2jxF2ejsP4fe0045L935yxgSbo5Fp03GCMb/vsx
+ 8F3+fDihz1b3JnWltm2qFjKJ+dtkEoh1Sx+sxBJbFt8sUAn4wVoMqpmiV9LQcG2LVGsRAgg0AU
+ ueM2Sa4tvW7JY1gfXmuSUtW3NUiuLYNtSxUKHygcMGlpTs/TdIrDbli4WeKSohAMroWaZu2Xow
+ R1Nsbg2XAsprebVuezNKntV25YtlhZt4CFRRFPdPcIaezAYwvIV2jsSWrc8yL/a5XL5AV/5C01
+ xAwAA
+X-Change-ID: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Manikandan Muralidharan
+	<manikandan.m@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11007;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=a8M0pwMdwzgcqpPLP7WjWUinEtCYKyax0Lc2mzN8idA=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ9a5OPfvBb/d53Fw+cupSLHdbPj3cZG2+MJdAeYrdid63
+ jhR+a6go5SFQYyLQVZMkeXQm629mcdfPbZ7JSoFM4eVCWQIAxenAExEQ4qR4dcdfYE5M6eFdRu9
+ NvLa8nbagu5XK0UY3/f66Oy5xXrRMpmRobWrWPPVsr8MbHJfWHZ1n75vaLLW5+wVr1OrH/F+8Q/
+ 7yQYA
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_093745_183133_E206CE58 
+X-CRM114-Status: GOOD (  29.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,184 +109,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---XdQaVzIG9Y1sxA5J
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi all,
 
-On Tue, Oct 13, 2026 at 02:56:25PM +0200, Robert Marko wrote:
-> LAN969x integrates a PWM fan controller with a tachometer input in
-> addition to the Sparx5-compatible temperature sensor. Add a LAN969x
-> hardware-monitor compatible and describe the second register region.
->=20
-> Describe the fan as a child node using a two-cell PWM specifier for the
-> period and standard polarity flags. The child also carries the optional
-> tachometer pulses-per-revolution and thermal cooling properties.
->=20
-> Keep the existing microchip,lan9691-temp compatible for device tree ABI
-> compatibility.
->=20
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
->  .../bindings/hwmon/microchip,sparx5-temp.yaml | 90 ++++++++++++++++++-
->  1 file changed, 87 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,sparx5-tem=
-p.yaml b/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.yaml
-> index 611fcadb1e771..e91c2a3ccd3c9 100644
-> --- a/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/microchip,sparx5-temp.yaml
-> @@ -4,13 +4,15 @@
->  $id: http://devicetree.org/schemas/hwmon/microchip,sparx5-temp.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> =20
-> -title: Microchip Sparx5 Temperature Monitor
-> +title: Microchip Sparx5 Hardware Monitor
-> =20
->  maintainers:
->    - Lars Povlsen <lars.povlsen@microchip.com>
-> =20
->  description: |
-> -  Microchip Sparx5 embedded temperature monitor
-> +  Microchip Sparx5 temperature monitor with a fan controller on LAN969x.
-> +  The fan child's pwms property references this node to specify the
-> +  PWM period and polarity.
-> =20
->  properties:
->    compatible:
-> @@ -18,11 +20,19 @@ properties:
->        - const: microchip,sparx5-temp
->        - items:
->            - enum:
-> +              - microchip,lan9691-hwmon
->                - microchip,lan9691-temp
->            - const: microchip,sparx5-temp
-> =20
->    reg:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    minItems: 1
-> +    items:
-> +      - const: temp
-> +      - const: fan
-> =20
->    clocks:
->      items:
-> @@ -31,11 +41,67 @@ properties:
->    '#thermal-sensor-cells':
->      const: 0
-> =20
-> +  '#pwm-cells':
-> +    const: 2
-> +    description: |
-> +      Number of cells in a PWM specifier.
-> +      - cell 0: PWM period in nanoseconds
-> +      - cell 1: PWM polarity: 0 or PWM_POLARITY_INVERTED
-> +
-> +  fan:
-> +    $ref: fan-common.yaml#
-> +    unevaluatedProperties: false
-> +
-> +    properties:
-> +      cooling-levels:
-> +        description:
-> +          PWM duty-cycle values corresponding to thermal cooling states.
-> +        items:
-> +          maximum: 255
-> +
-> +      pulses-per-revolution:
-> +        minimum: 1
-> +        maximum: 4
-> +        default: 2
-> +
-> +    required:
-> +      - pwms
-> +
-> +    dependencies:
-> +      '#cooling-cells':
-> +        - cooling-levels
-> +      cooling-levels:
-> +        - '#cooling-cells'
-> +
->  required:
->    - compatible
->    - reg
->    - clocks
-> =20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: microchip,lan9691-hwmon
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +        reg-names:
-> +          minItems: 2
-> +      required:
-> +        - '#pwm-cells'
-> +        - reg-names
-> +    else:
-> +      properties:
-> +        '#pwm-cells': false
-> +        fan: false
-> +        reg:
-> +          maxItems: 1
-> +        reg-names:
-> +          maxItems: 1
-> +
->  additionalProperties: false
-> =20
->  examples:
-> @@ -46,3 +112,21 @@ examples:
->          #thermal-sensor-cells =3D <0>;
->          clocks =3D <&sys_clk>;
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/pwm/pwm.h>
-> +
-> +    hwmon: hwmon@e2020100 {
-> +        compatible =3D "microchip,lan9691-hwmon", "microchip,sparx5-temp=
-";
-> +        reg =3D <0xe2020100 0xc>, <0xe2010348 0xc>;
+This series of patches adds GFX2D support.
+The GFX2D is a 2D GPU embedded in some Microchip SoCs such as the
+SAM9X60 and SAM9X75.
 
-Are these actually the same device? These are somewhat disparate
-register regions - and the second is at a very odd offset.
+Patches have been developped on top the 'linux-6.12-mchp' branch of the
+https://github.com/linux4microchip/linux.git repository and tested on
+mainly on a sam9x75-curiosity board and also on a sam9x60-ek board.
 
-Thanks,
-Conor.
+Later, the patches have also been rebased on the 'linux-6.18-mchp'
+branch of the https://github.com/linux4microchip/linux.git repository
+then tested on a sam9x75-curiosity board.
 
-> +        reg-names =3D "temp", "fan";
-> +        #pwm-cells =3D <2>;
-> +        #thermal-sensor-cells =3D <0>;
-> +        clocks =3D <&sys_clk>;
-> +
-> +        fan {
-> +            pwms =3D <&hwmon 40000 PWM_POLARITY_INVERTED>;
-> +            cooling-levels =3D <0 128 192 255>;
-> +            #cooling-cells =3D <2>;
-> +        };
-> +    };
-> --=20
-> 2.56.0
->=20
+Finally, they have been rebased on top of the 'drm-misc-next' branch
+of the https://gitlab.freedesktop.org/drm/misc/kernel.git repository
+for mainlining. Hence, they have been tested on a sam9x75-curiosity
+board running a linux4microchip 26.04 image where the kernel + DTB
+have been replaced with the new kernel compiled from the 'drm-misc-next'
+branch (currently based on linux 7.3.0-rc4).
 
---XdQaVzIG9Y1sxA5J
-Content-Type: application/pgp-signature; name=signature.asc
+About the tests, the GFX2D driver was used with the M2D (Multi 2D)
+library: https://github.com/linux4sam/libm2d
 
------BEGIN PGP SIGNATURE-----
+This is an open source library that abstracts 2D GPUs like the Microchip
+GFX2D and the Vivante GC520UL, providing graphics applications or
+libraries with a unified API, inspired from OpenGL but focused on 2D GPUs.
+The libm2d library itself relies on the libdrm library to send commands to
+the relevant DRM driver in the Linux kernel.
+The libm2d library has not been designed to be thread-safe. Indeed, it is
+intended to be used by a single thread for better performances.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCas5cpQAKCRB4tDGHoIJi
-0lm9AQCXQpPsK/Qh9JeeV83vBvj/4SlEGRYK70WcyV1ZZ+XUbwD/RVsReE5mgon+
-LvkceSyYW2eJr5Na+TSfbgUhFxZFYg4=
-=b6zh
------END PGP SIGNATURE-----
+M2D comes with a m2d_test program to run basic unitary tests.
+In addition, libm2d has been integrated to two graphics frameworks:
+- EGT: https://github.com/linux4sam/egt
+- LVGL: https://github.com/lvgl/lvgl/pull/8729
 
---XdQaVzIG9Y1sxA5J--
+Tested the system suspend with the 'systemctl suspend' command.
+Tested the runtime pm with the 'egt_boards' application.
+
+BR,
+
+Cyrille
+
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+Changes in v11:
+- Reworked patch 2 based on sashiko comments:
+  + Checked the return code of pm_runtime_resume_and_get() in
+    mchp_gfx2d_thread().
+  + Set 'cmd->id' once the 'cmdlist_mutex' is held.
+  + Didn't make mchp_gfx2d_interrupt() return IRQ_NONE.
+  + Didn't lock GEM object mutex in non-blocking mchp_gfx2d_wait().
+  + Removed implementation of ROP4 for now.
+  + Validated the userspace 'tv_nsec' value.
+  + Initialized all 'struct mchp_gfx2d_gem_object' fields from
+    mchp_gfx2d_gem_create_with_handle() before calling
+    drm_gem_handle_create().
+  + Called drm_dev_{enter,exit}() from ioctls and drm_dev_unplug() from
+    mchp_gfx2d_remove().
+  + Included "linux/slab.h" for the kzalloc_obj() macro definition.
+  + Added a mchp_gfx2d_stop() function to share code between
+    mchp_gfx2d_{runtime_suspend,remove}() functions.
+  + Reworked probe, remove and suspend/resume to release resources
+    without races.
+  + Flushed the data cache only with exported functions (but still
+    needed to solve the alias issue of VIVT cache on ARM926).
+- Link to v10: https://lore.kernel.org/r/20261008-cpitchen-mainline_gfx2d-v10-0-67ca2477b3d5@microchip.com
+
+Changes in v10:
+- Reworked patch 2 based on sashiko comments:
+  + Fixed mchp_gfx2d_cleanup_command_queue() to correctly release
+    resources from both the running and free command lists.
+  + Replaced pm_runtime_get_no_resume() with pm_runtime_resume_and_get()
+    in mchp_gfx2d_thread().
+  + Added locks to handle races between the IRQ handler/thread and the
+    suspend/resume/remove functions.
+  + Added a comment to explain why flush_cache_mm() is called from
+    mchp_gfx2d_ioctl_sync_for_gpu().
+  + Replaced enums with __u32 and added explicit padding fields in UAPI
+    structures.
+  + Called drm_gem_handle_delete() in all error paths within
+    mchp_gfx2d_ioctl_import_buffer().
+- Link to v9: https://lore.kernel.org/r/20261006-cpitchen-mainline_gfx2d-v9-0-74bd3df2e183@microchip.com
+
+Changes in v9:
+- Rebased onto the 'drm-misc-next' branch on 2026-10-06.
+- Reworked patch 2 mainly based on sashiko comments:
+  + Used 'struct drm_gem_dma_object' as the new base for 'struct
+    mchp_gfx2d_gem_object'.
+  + Removed useless initialization of 'ret' in mchp_gfx2d_schedule().
+  + Changed type of 'struct drm_mchp_gfx2d_submit.num_rectangles' from
+    '__kernel_size_t' to '__u32'.
+  + Added missing support of special blend functions in blend commands.
+  + Added helper functions to {en,de}queue commands in the running list.
+  + Enabled the EXEND interrupt when partial or pending commands are
+    scheduled to make sure such commands can actually progress.
+  + Replaced pm_runtime_resume_and_get() with pm_runtime_get_noresume()
+    in mchp_gfx2d_thread().
+  + Added a comment about the 'BLEND_SREG' GPU internal register that
+    could be overwritten on SAM9X60 SoCs.
+  + Fixed integer truncation of the ROP mode in
+    mchp_gfx2d_set_rop_params() to prevent userspace from bypassing mask
+    validation.
+  + Added upper bound check for the number of rectangles in SUBMIT ioctl.
+  + Fixed mchp_gfx2d_cleanup_command_queue() to access hardware
+    registers only if the peripheral clock is enabled.
+  + Fixed potential corrumption of 'priv->wlist' by concurrent WAIT ioctls
+    on the same GEM object.
+  + Kept imported surface metadata immutable after first import.
+  + Changed type of 'next_id' from 'static uint32_t' to 'static
+    atomic_t' to avoid potential races.
+  + Replaced atomic_dec() with atomic_dec_return() in
+    mchp_gfx2d_gem_unref().
+  + Fixed potential corruption of the shared per-file 'rectangles' buffer
+    by concurrent SUBMIT ioctls on the same file descriptor.
+  + Fixed the potential Use-After-Free of GEM object in
+    mchp_gfx2d_ioctl_alloc_buffer().
+  + Made mchp_gfx2d_ioctl_sync_for_cpu() invalidate the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_cpu().
+  + Made mchp_gfx2d_ioctl_sync_for_gpu() clean the CPU cache for
+    non-coherent buffers by calling dma_sync_single_for_device().
+  + Replaced flush_cache_range() with flush_cache_mm() in
+    mchp_gfx2d_ioctl_sync_for_gpu() to manage the cache aliasing issue
+    on SAM9 (ARM926) without copying a 'struct vm_area_struct'.
+- Link to v8: https://lore.kernel.org/r/20260828-cpitchen-mainline_gfx2d-v8-0-378374559738@microchip.com
+
+Changes in v8:
+- Rebased onto the 'drm-misc-next' branch on 2026-08-28.
+- Collected Reviewed-by tags from Manikandan Muralidharan on patches 3
+  and 4
+- Replaced kzalloc() with kzalloc_obj() in patch 2 as suggested by
+  checkpatch.pl.
+- Link to v7: https://lore.kernel.org/r/20260209-cpitchen-mainline_gfx2d-v7-0-0c12e64a0950@microchip.com
+
+Changes in v7:
+- Rebased onto the 'drm-misc-next' branch on 2026-02-09.
+- Rewored patch 2:
+  + Reworked the former valid_pixel_format() function into the new
+    mchp_gfx2d_valid_buffer_params() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and now checks
+    the `width` and `stride` parameters in addition to the `format` one.
+  + Added the mchp_gfx2d_valid_size() function, which is called from both
+    the mchp_gfx2d_ioctl_{alloc,import}_buffer() functions and checks
+    (`stride` * `height`) against `size` as suggested by Daniel Stone.
+- Link to v6: https://lore.kernel.org/r/20260120-cpitchen-mainline_gfx2d-v6-0-1a16cd1d70b8@microchip.com
+
+Changes in v6:
+- Shrank the size of the register set in the device tree from 0x4000
+  down to 0x100 (patches 1, 3 and 4).
+- Collected Reviewed-by and Acked-by tags from Nicolas Ferre on patches
+  1 and 5.
+- Rebased onto the 'drm-misc-next' branch on 2026-01-20.
+- Link to v5: https://lore.kernel.org/r/20260113-cpitchen-mainline_gfx2d-v5-0-9cdab8fa699b@microchip.com
+
+Changes in v5:
+- Fixed compilation issues in patch 2:
+  + Included <drm/drm_print.h> from mchp_gfx2d_cmd.c, mchp_gfx2d_drv.c
+    and mchp_gfx2d_gem.c.
+  + Replaced '.remove_new' with '.remove' in definition of 'struct
+    platform_driver mchp_gfx2d_platform_driver' to match the latest
+    definition of 'struct platform_driver'.
+  + Removed the '.date' member from the definition of 'struct drm_driver
+    mchp_gfx2d_drm_driver' since this 'date' member has been removed from
+    'struct drm_driver'.
+- Fixed typos in doxygen documentations of two functions:
+  + mchp_gfx2d_process_completed_commands()
+  + mchp_gfx2d_init_command_queue()
+- Link to v4: https://lore.kernel.org/r/20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com
+
+Changes in v4:
+- Rebased onto the 'drm-misc-next' branch on 2026-01-12.
+- Link to v3: https://lore.kernel.org/r/20251124-cpitchen-mainline_gfx2d-v3-0-607f8c407286@microchip.com
+
+Changes in v3:
+- Collected Acked-by tag from Conor Dooley on patch 1
+- Rebased onto the 'drm-misc-next' branch on 2025-11-24.
+- Link to v2: https://lore.kernel.org/r/20250918-cpitchen-mainline_gfx2d-v2-0-6cfac9d56612@microchip.com
+
+Changes in v2:
+- Renamed microchip,gfx2d.yaml into microchip,sam9x60-gfx2d.yaml.
+- Removed the 'clock-names' property from the DT bindings.
+- Renamed the GPU node from 'gfx2d' to 'gpu' in sam9x{60,7}.dtsi files.
+- Link to v1: https://lore.kernel.org/r/20250911-cpitchen-mainline_gfx2d-v1-0-d7fab1a381ee@microchip.com
+
+---
+Cyrille Pitchen (5):
+      dt-bindings: gpu: add bindings for the Microchip GFX2D GPU
+      drm/microchip: add a driver for the Microchip GFX2D GPU
+      ARM: dts: microchip: sam9x60: Add GFX2D GPU
+      ARM: dts: microchip: sam9x7: Add GFX2D GPU
+      ARM: configs: at91_dt_defconfig: enable GFX2D driver
+
+ .../bindings/gpu/microchip,sam9x60-gfx2d.yaml      |   46 +
+ MAINTAINERS                                        |   10 +
+ arch/arm/boot/dts/microchip/sam9x60.dtsi           |    8 +
+ arch/arm/boot/dts/microchip/sam9x7.dtsi            |    8 +
+ arch/arm/configs/at91_dt_defconfig                 |    1 +
+ drivers/gpu/drm/Kconfig                            |    1 +
+ drivers/gpu/drm/Makefile                           |    1 +
+ drivers/gpu/drm/microchip/Kconfig                  |   22 +
+ drivers/gpu/drm/microchip/Makefile                 |    8 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c         | 1891 ++++++++++++++++++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_cmd.h         |  181 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.c         |  427 +++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_drv.h         |  152 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.c         |  184 ++
+ drivers/gpu/drm/microchip/mchp_gfx2d_gem.h         |   77 +
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.c       |  423 +++++
+ drivers/gpu/drm/microchip/mchp_gfx2d_ioctl.h       |   17 +
+ include/uapi/drm/microchip_drm.h                   |  288 +++
+ 18 files changed, 3745 insertions(+)
+---
+base-commit: 4f2fb106c459e6b96ddfa542de40e517b5274c44
+change-id: 20250911-cpitchen-mainline_gfx2d-6631e9352af7
+
+Best regards,
+-- 
+Cyrille Pitchen <cyrille.pitchen@microchip.com>
+
 
