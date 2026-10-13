@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C99CC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B71CC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 16:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aoc8nug3Q5d4idvy+yC0Mx43dQ2bXsa5/t1xC0cav2Y=; b=yxRSzZCDrSm8KivdBKTKbwQjIq
-	g1gRAaZC7MNaRzcj7Vj3x/8rOo/Oi7boqBplcGZhfMXqMShatyqeUk6yaMdurb/qMPXnJHa1pfuvc
-	iHBH8RQkoEEmEFm43KlgFNlJob6l459kxMn1/0DPd6Qgt19AULWl00NrW2DhdVgDAgvNoDEqFTPCU
-	5Sf45cnhQ4H79uW1AKIxO35ixe32WtnkXlDZTFmEjEhUds8ggpvPw3EJjT0bMp31V/MC5fFnJpyzW
-	WpYsW+fiAN40HO6cNb2cbGSa9FnNf1DPMdrM47vHDY+l2hkkaNv9AgBw689RFuGepZchrkX7B95pY
-	ynM+Qkzw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ACtBFDMyQfLEniDWOYIjXyTNEq2aFsADzh9Mfbx6cXM=; b=n2hJfruj5PULOM4jc+3U4VSl+E
+	Xd3xK6weALtnfB2lbdjNsA2aelVSK2IV9MsC9Ir5D2Tr879S0ok2fI5PLfNrrEewHqX7hREB09ioR
+	8HWd2Cf02Dqmo0aybt3TWXxQWN36g9JyF7vm0o8HQAUuQnVq9yUj02+E0DLSnJvoYYHtmbhGEr0au
+	IYje7ONR8Daph2e6PVqz9WbzFkSpOxqbhnUJowTudLLHN+f0tGqk91EPh8BjH0UNQSoQLx3NELGwS
+	KOQzBddLbJXxD5xJoLxmk88Vnc2Z8cRZpdDkC51bh0VhUsbdSYWoRBvzJQLIjggFI/6A1j8SL/mWo
+	SOTSHTmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfWl-0000000DYnj-1cqJ;
-	Tue, 13 Oct 2026 16:38:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGfbJ-0000000DZos-2bor;
+	Tue, 13 Oct 2026 16:43:41 +0000
+Received: from out-117.mta0.migadu.com ([2001:41d0:1004:224b::75] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGfWj-0000000DYmT-18My
+	id 1xGfbG-0000000DZnZ-3IGe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 16:38:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C41260A59
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:38:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22ECB1F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 16:38:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791909536;
-	bh=aoc8nug3Q5d4idvy+yC0Mx43dQ2bXsa5/t1xC0cav2Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EIXr0/NqPFBPFbx1LaDsMXlKsGpxcyH5MhiMvJJEZ0hq0e0/HC3jK3AP1NrWRjgJ0
-	 9d+nW7mdbCZJFLBgvbC5gEY/xtmIeMTs8CfOlk1pibY1P/VXzO6VDvkSex+a/sQXwN
-	 JnsYAeNzc+oKZ6PMto84QQDBwMXAHAxm5+0qr302BxdESzqlPu72UGNyXChQ4ZYlW7
-	 TBEzkfcGSCutzCxu3ePjH/mnwPyN0Z2BazHlesETGhJDeapcn82BQpOxKPnbkJzAYZ
-	 54GU+w60CWQYtSjOWvzvxPPDu7y+qTe8EdOGslq1DfkZhUdWbgDnzizxDKE5xj+M/q
-	 q9MeRX/XD/Ewg==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5ba3ac592faso1653202e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 09:38:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxVxbvlv28e9/FCpNm9VWNzdR5qA6ss+1hNkiBZhAsRZUKX3uTToE0Avb2t2kx/ynQPCJ071GKNRbszIQnF8CUi@lists.infradead.org
-X-Gm-Message-State: AFq9FYIP2JKId8N3pamsZ7De6cyTBjfSfd9hLUb/vQMxpvr5i9TChGa7
-	En2NATMR2oasbwEeQFJLQXjEZiWTOYM+Vei5VHBCSORza4MjVe6vsHVSM7hgK2DT2sOULbl893h
-	3aI6MLdhCWmuG41ED+tpRQgevG8WUZpk=
-X-Received: by 2002:ac2:4e0c:0:b0:5ba:3b49:1ed4 with SMTP id
- 2adb3069b0e04-5bcde8be31dmr4294291e87.44.1791909534950; Tue, 13 Oct 2026
- 09:38:54 -0700 (PDT)
+	Tue, 13 Oct 2026 16:43:40 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=PcPBi5Nzv8M4w/Sm2h+bvnujrs8RY53hUJG3UM3gd0I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1791909815; v=1; x=1792514615;
+ b=ZZWxNsc9Flf9ovBnPjcSpEXnM8zrl3NkD9IJ7xQeBgazRInZPY8C1YQfvZizYS5ppdQulj3T
+ ToFzNfPAoJoinBTqqywE2fBaQvXYYXutc2XuA4djyyBL9rvT5iBV5wZAeck1kU8gAGdFcPSLOdh
+ 9MJWYsUpokMuodxSOK4poSa0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id bb0e231c7fdb8771;
+	Tue, 13 Oct 2026 16:43:35 +0000
+X-Mizu-Trace-ID: bb0e231c7fdb8771
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: Don't WARN on SMCCC filter reserved range allocation failure
+Date: Tue, 13 Oct 2026 17:43:34 +0100
+Message-Id: <20261013164334.1492070-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
- <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com> <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
- <b2256847-3ec1-47e8-ac79-ceca86eb09e7@kernel.org> <CAD++jLkrXXg9xrhAZ8HETc5Qcv5BbkY-ibjvzBmE5WZVqDEGWQ@mail.gmail.com>
- <a0eca34d-5eb2-4730-b8c7-0f2302bcf265@kernel.org> <CAD++jLm=T-U07vAVCogMnfOfkDf=i9QhGGc8ok2N-ZUh50WLNA@mail.gmail.com>
- <56dc6c05-7fd6-43de-bc62-c353ae1dbcc3@kernel.org> <54b55ad7.9d3a.1a135b09587.Coremail.zl020895@163.com>
-In-Reply-To: <54b55ad7.9d3a.1a135b09587.Coremail.zl020895@163.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 13 Oct 2026 18:38:40 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmrQwAT1Sb8HGgoM8x48rN9-pPT2RB1GE18h5YA7c4CwQ@mail.gmail.com>
-X-Gm-Features: AclHuK-C40htUqR0sQkUyvXzKiDDbUaAdB38TRfKZGEWECC-r-8bfyITN0j8-AE
-Message-ID: <CAD++jLmrQwAT1Sb8HGgoM8x48rN9-pPT2RB1GE18h5YA7c4CwQ@mail.gmail.com>
-Subject: Re: Re: [PATCH v8 04/18] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
-To: zl020895 <zl020895@163.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>, 
-	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_094339_021098_57F3E01E 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,18 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 4:36=E2=80=AFPM zl020895 <zl020895@163.com> wrote:
+The first time userspace sets an SMCCC filter, kvm_smccc_set_filter()
+inserts the reserved architecture ranges into the maple tree and WARNs
+if that fails. The insertion allocates with GFP_KERNEL_ACCOUNT, so a
+tight memory cgroup limit is enough for userspace to hit the WARN, even
+though the -ENOMEM is also returned to it. The WARN dates back to when
+the ranges were inserted at VM creation.
 
-> Would this work?: I send a standalone
-> "dt-bindings: vendor-prefixes: add Ambarella" patch to Rob with only
-> the two lines in vendor-prefixes.yaml, and drop that hunk from the
-> SoC series. Once the prefix is in linux-next, the vendor-prefix
-> warnings should be fixed. The remaining example matches, such as
-> ambarella,drive-strength-syscon, still need the separate
-> GPIO/UART/pinctrl bindings.
+Leave -ENOMEM out of the WARN and keep it for every other error. The
+two reserved ranges are fixed and disjoint and go into an empty tree
+under config_lock, so any other error is a KVM bug.
 
-That works for me and solves my problem so go ahead.
+Fixes: fb88707dd39bd ("KVM: arm64: Use a maple tree to represent the SMCCC filter")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260829055809.29AD31F000E9@smtp.kernel.org/
+Suggested-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+Changes since v1 [1]:
+  - Keep the WARN for any error other than -ENOMEM. (Oliver)
+  - Split out of v1 as its own patch. (Marc)
 
-Yours,
-Linus Walleij
+Based on Linux 7.3-rc3 (fd73f4a665989).
+
+[1] https://lore.kernel.org/all/20260928152507.2116110-2-fuad.tabba@linux.dev/
+
+ arch/arm64/kvm/hypercalls.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+index b11b8821c9fbc..c9d488c586e5f 100644
+--- a/arch/arm64/kvm/hypercalls.c
++++ b/arch/arm64/kvm/hypercalls.c
+@@ -197,8 +197,10 @@ static int kvm_smccc_set_filter(struct kvm *kvm, struct kvm_smccc_filter __user
+ 
+ 	if (!kvm_smccc_filter_configured(kvm)) {
+ 		r = kvm_smccc_filter_insert_reserved(kvm);
+-		if (WARN_ON_ONCE(r))
++		if (r) {
++			WARN_ON_ONCE(r != -ENOMEM);
+ 			goto out_unlock;
++		}
+ 	}
+ 
+ 	r = mtree_insert_range(&kvm->arch.smccc_filter, start, end,
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
+
 
