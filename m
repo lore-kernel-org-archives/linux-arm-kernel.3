@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E176CC6B08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3A5CC6B08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 13:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwsHrhWwBAqFC5XDIDWmcboOdLh7zz3XrR9XYaXosSk=; b=H6XOm0fWljadO5R2KWrQaceewg
-	vOLRQU5ogQHFnX8TLZq9PJ2SUkpbPHiHIR8XtEVZiEgamYmAI618AE/y0fR7dJPC3oNHNvFWk0byZ
-	XgDSIhaBa16/oewVAUyWb2ti33oEKZhImw3etSuQYrLaIhOymYmd9kh8AyqrSHeo3qII74INFvihV
-	XtZHYns3u13Ce6mBLetpswz/Vsr+WhV2zEPU6UPcxX/k/7rolTkFteOSBCwj0hF5co4irwHrKvEKQ
-	/NjQj1RSPX8u62VghzNsZ1CFcz5pnXM8dNnXeQ5MeKKLR4zqcJxTKhFJ939Xtzy80u++0z5lE1zua
-	U8G7Hb3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TXfMXr3ofUOe3VvzGuzi9UAal6HoM1qfiOVecqu93hE=; b=Wp96mQCKHDe8soLGjEqrFKn7hr
+	UrilhCuHxGyTv8Vp5rJetMIVJ0TI8qr1SaKtIZZ+7rS4KCaFa7PtFn/beidWAF5lWsSCoxfmGQWlX
+	jbCRx1uonnAXJ77I6Kl0l5E1w84rRKXQ90ATJkxZgmbMcJ/nL4dsUTJE+SjcnzpUcRKx+BPRec+r1
+	ln2Ya9RL5seQOyq53JifHJA6RJfyfoOgSh4xyzOIiAg19yIupvSVnE7xyCzXc1Db3uCMvwAIAobPD
+	wl0GifXk0TUk1cVx3DtTarjvkx+qp29X8ofcGyDt/8xxBo4zv75drC4u+3K87r5LBaqNnp4iBRg64
+	ehfo3zMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcra-0000000D0Gq-33W9;
-	Tue, 13 Oct 2026 13:48:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGctJ-0000000D0Z5-1R3Q;
+	Tue, 13 Oct 2026 13:50:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGcrY-0000000D0GE-1C0t;
-	Tue, 13 Oct 2026 13:48:16 +0000
+	id 1xGctI-0000000D0Ys-2hCt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Oct 2026 13:50:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A076602C3;
-	Tue, 13 Oct 2026 13:48:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45EB31F000FF;
-	Tue, 13 Oct 2026 13:48:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FBD940F8B;
+	Tue, 13 Oct 2026 13:50:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224811F00893;
+	Tue, 13 Oct 2026 13:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791899295;
-	bh=MwsHrhWwBAqFC5XDIDWmcboOdLh7zz3XrR9XYaXosSk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ZqqqnXTXL5JQQBVpDNrKTM+tmsrFuh0quFdrhPcnKsyO7YbA+lJycODBdX98wdONc
-	 xUDQCxz05TL7W75efE5ASsLNQRZLVN5/dBp9WD573ytfDG0rg2Gk6R7d3M/iNI88tL
-	 RXJb6RL0tTmjBoZjyP/89KYnxPitqQKJ2XWJyoLAyjiE3wbbIVMxyquN7oWk7nKoNs
-	 G/DNMOqBz69isfb+qUI0N2FHmmRXZndeYKJs8ErRvSxrMPnyE7FdVH504bw8/T3/9U
-	 V0v7mrpEZLQLR7Z1iMbD/vHjPrNTjS1Th3v8OWXdvYA4WVEeKVP1iPVbQHnszEI5Qh
-	 LSdKlEbgaI3Yg==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>, 
- Geraldo Nascimento <geraldogabriel@gmail.com>
-Cc: linux-rockchip@lists.infradead.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <cover.1781622998.git.geraldogabriel@gmail.com>
-References: <cover.1781622998.git.geraldogabriel@gmail.com>
-Subject: Re: [PATCH v7 0/3] PCI: rockchip: 5.0 GT/s speed discouraged by
- Rockchip
-Message-Id: <179189927768.12828.5970294502454132706.b4-ty@b4>
-Date: Tue, 13 Oct 2026 19:17:57 +0530
+	s=k20260515; t=1791899404;
+	bh=TXfMXr3ofUOe3VvzGuzi9UAal6HoM1qfiOVecqu93hE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cXdrPtbTeruVvXdwz1f7Ja2lJmGRQUiieTfUMe7Azf/gdRWuFqjDqSv6uxfZ0K9pz
+	 1FnoqtugJTqdyCtB9LMtNPBjJMFhmbYg6jrYT0biaip/jCV98PT6iMlYx3INF7KW19
+	 kh2RojDpTusZitvbuDYwQOXEgh02sjBcdPmOlqnlfn0r9A4+F14R1dG0JBGPNHaS+V
+	 yxcF6yg6g33y/iW5b8JtO58L2xgX83jgB2z6Kpxtjh6+rFCjzUgOv1CNuoh+WzIT4j
+	 37fl4KgCRkNpfcg70U5FngeOPXPM8bN/TgSKXJbxU5Hfg32+yvTiXrUuNfGzyCK/0q
+	 YMrG9aks7K7MQ==
+Date: Tue, 13 Oct 2026 14:49:58 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] arm64: sysreg: Fix three incorrect enum values
+Message-ID: <92e5b67e-f6cc-4b33-90e3-cf884ec22452@sirena.org.uk>
+References: <20261013130247.4135515-1-fuad.tabba@linux.dev>
+ <20261013130247.4135515-2-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=909; i=mani@kernel.org;
- h=from:subject:message-id; bh=MJ2L3Ts8++Q18HVodqsi50qgRqQHnU8MLJbv9TbaZZU=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzjaWuJsyJInKTko4kslC28gQaP58gTARVbj2t
- UDexrJ/9uWJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas42lgAKCRBVnxHm/pHO
- 9W4rB/9dfTBuarNvfVBSNUuYe2/Gdg9P5KVqDROq9kkrp8mxE5shnJedONgaWeuv7GI66sIjIjn
- rD8FbCw8pRxng8BoATEhuSMlZq9QKbV13RebbzDMgpYoPdBjw1frOv6uMUZ6kgyMtdpgUZYOO2C
- 6W410/kMupZjqqanx7W73Bg0LNMWuga+2rwyzOr9Rle1AQMco1hT/dcrVbMzU6NKDOmENnyC2G4
- ZFyrxo0ZSnXNk044fYyMemjU2ZwBwMiy3hR6fO4hCWslzj52aK4AN++wb3smZb7GQGuT1yVJU2B
- NGzRdxzYXeyLJH+Yber3rvaSu6wuzO3i3KToeCmVjn3+03YS
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Rq/wb53K3Hf7A56N"
+Content-Disposition: inline
+In-Reply-To: <20261013130247.4135515-2-fuad.tabba@linux.dev>
+X-Cookie: Some equipment shown is optional.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +79,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 16 Jun 2026 12:24:48 -0300, Geraldo Nascimento wrote:
-> PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
-> 
-> Dragan Simic already had warned me of potential issues with 5.0 GT/s
-> speed operation in Rockchip PCIe. However, in recent interactions
-> with Shawn Lin from Rockchip it came to my attention there's grave
-> danger in the unknown errata regarding 5.0 GT/s operational speed
-> of their PCIe core, including data loss.
-> 
-> [...]
+--Rq/wb53K3Hf7A56N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Applied, thanks!
+On Tue, Oct 13, 2026 at 02:02:44PM +0100, Fuad Tabba wrote:
+> Three enum values in the sysreg file don't match DDI0601 2026-09.
+> Outer Shareable in VTCR_EL2.SH0 is 0b10, not 0b01, as TCR_EL1.SH0 in
+> the same file already has it. Thumb-2 in ID_PFR0_EL1.State1 is 0b0011,
+> not 0b0010, and the M-profile model in ID_PFR1_EL1.MProgMod is 0b0010,
+> not 0b0001. The spec lists all three old values as reserved.
 
-[1/3] PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
-      commit: 39f89dde0a76b229df7eb356aaf6f444b4f8a636
-[2/3] PCI: rockchip-host: do not attempt 5.0 GT/s retraining
-      commit: 5988a53f5bf758b2d41cb6e0832c19b9692c76d2
-[3/3] PCI: rockchip: drive at 2.5 GT/s, error other speeds
-      commit: 62843031ca1f11d1b8e90e7f558c1b3c4cd77184
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
+--Rq/wb53K3Hf7A56N
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrONwUACgkQJNaLcl1U
+h9BuKwgAgS56Wi0nmWiVjRhDGQik+UBXmwru+1ZVErRWBA9lQxoSI4vVjJJs1JeT
+dCPPFb+FaOgp61UZnGzrhcKdSThI8CarEFoDCFyN4kGrD885duYRfClVEyQvQsCc
+qccF1GGfUb/TFH4N53KsTKfP0IPt1YfhCrDMH9AzC9g5wsLXIUT792aTohpj+Drp
+gP6gHbFgrxTpJl2VMsJuPxmfaeBCfe3vuHTykr4osWoMLNvGMmznXgTSHQMCKkd0
++nhFO1tBKzuJzR69gJGSHuhFwnOvMS2nGT3gj5CV22avixVSQeHQiIe4hUzLzdnH
+eVXFOXiatDUXebtvulL35tcX9yX5zA==
+=9+f6
+-----END PGP SIGNATURE-----
+
+--Rq/wb53K3Hf7A56N--
 
