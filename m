@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE32CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333DECA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvPQmojfQvdSuKzFwSonxR1bfeKW0jigc5qUQGEDGRc=; b=seqNf/yIe6CvrZ3Dzjc2b2aDH0
-	TD5+U/aIC0DXVbB6QUBZvymVs2zs3J8dQphvPMpY7f+FxKDkjBzAR+MU/oU8W0s8ZCCaj7EklBREl
-	O+LeyYPgDjBxN31GCaUL8uexa/hCCyF0MnxSMfzhkKomlULAMb0szn+Z8D+kN2upCZC8DkHAtqKn8
-	OZBkbTrSbRhwWj3VeM3GUNP+T9krEhFC7wEekVD2YYrsP6jAbWGKhr8ynKlOd3r6qpuQC4ex/Trn5
-	04Pp8WeY7qO/mFBD3POxYhfhiUvPMjrc7HGLTBVAsL73qKk73HJ9ZY56n/SJd/ffQBOB7Zw6tyRiB
-	BGFvLiog==;
+	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=; b=d8HL8tm4BwmitVGenUF3wkv2Qb
+	+LevkqZsDdPTUlnLlAypgXrVqSCGiSV3QoEFBZivlW0754OJH0Y4jhbreh0Ci5sh3SSqIoxLMmrTh
+	6gROynIt4ckKqfAI1c+v5EmDuabkrbOyL0loUTNNOl8aJvHF1N7TYBoG1wU1oe9USbV8A3tcrtopi
+	djFJGGMFLl9kQHUNHZdXxGmGSzGxsi18odIG6iZM+riDsEq1YBAge8SMuBjH5cMbm8lP5+heuBmBD
+	46oI1eiqXrYbsOZMeTATNM3XpS7KeVibDA9x0aa5MfehnC0opV38KAa1H3GRHlaLAniDYl3zuWps1
+	oQ3WXRVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCo-0000000Cdwe-1U16;
-	Tue, 13 Oct 2026 10:58:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGaDX-0000000CeJL-2EUM;
+	Tue, 13 Oct 2026 10:58:47 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGaCk-0000000CduS-10Lq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:57:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD58C60A66;
-	Tue, 13 Oct 2026 10:57:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 824E61F0089B;
-	Tue, 13 Oct 2026 10:57:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791889077;
-	bh=QvPQmojfQvdSuKzFwSonxR1bfeKW0jigc5qUQGEDGRc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dtuHFFROKKBVT90olJh3vQshzbvhEZIMKZJInp1SlLIZqBvMSYRGKp0k9GdEp+zR8
-	 hqcia1+sB6J5fdOHUAMFr2WPYpSEDdHCTeLnCUdKJMNETK0izv1r96nZiwlKSpzglY
-	 ScEbsQB5o6XcwiRVHqM+gBy5jLG4lIQ1PWSgrDFfEGjPMQpzCOdkbPFxB3Mpo2Chrs
-	 MkvAqZaozczI8C1+/MFQ3BGdDnoaNecHCfQL1jL8MT1Daupb1XJRqGiwXh4peHKfvI
-	 kLuNyeBn5vGN9taXByqxtg8SldmBQz1aow47h+ONF3DCje0QE9qocxALY3Lr3izKmK
-	 Rx+z7+uPo0WIg==
-Subject: Re: [PATCH v5 net-next 9/9] net: dsa: netc: add PTP one-step
- timestamping support
-From: netdev-bot+sashiko@kernel.org
-To: wei.fang@oss.nxp.com
-Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- richardcochran@gmail.com, linusw@kernel.org, wei.fang@nxp.com,
- imx@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Date: Tue, 13 Oct 2026 10:57:56 +0000
-Message-ID: <179188907611.434549.18346411156046070175@kernel.org>
-In-Reply-To: <20261012095924.1129312-10-wei.fang@oss.nxp.com>
-References: <20261012095924.1129312-10-wei.fang@oss.nxp.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xGaDT-0000000CeG8-175b;
+	Tue, 13 Oct 2026 10:58:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D89D5200582;
+	Tue, 13 Oct 2026 12:58:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791889118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=;
+	b=Ft9dEqdSqJcAUHVzPIc2Eix4ACSvnxYrBByJWx/dmOdIVRCmu/EeYRQP2CINQ7tuAtTN+/
+	Zys067Vs7HBtwPQyJNyvNv5Lh3hyUWpXmcILku2mXqsz46MNws2gfJI1O586Urlfo58qcU
+	9VyHc37+7jpex2p0wrt3C/wQGOE0+MD7inDL+q46sOhf40AiTKpiR7EAsDBK0ZvAinfgJO
+	9jmDQWCWriqusDxw0q/KDv7YeAYMFEvNGVYeaRpZtEXTe2CNP+BD4FSrTlmXR4ex56m0jM
+	tkb9dNyrp9togtfNL9QlKlskYUkqlbO2ZC264rzgmFZIV/gTvoxAX1sc9PT9dA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791889118; a=rsa-sha256;
+	cv=none;
+	b=H6lGdFXLC8FRo8ALFR+JY+10yIo5YK/+Ss/C/5Ge0Z7lmrzl0BemHysBpEXjjul0JMaCc3
+	Z/+L6EbsYtN9aakUCGvzNn7csRXqyyQmi9vsDWidakbgfQ2jPLFI5bJHKIHZ5fsouuL9Bi
+	Uz44QfRUT9PsyLJ6E0FRuvhDFXdh84ESkpZ9ti7Ev2wwZ6r3+G8lE0SB386d8cKhoZFaJU
+	0Zllheq8FeQVD8dMfKrZkkcJUs9fXBL+77v8pii+b7cRycZND4E/1/dPjhYDJutal28nic
+	GidRYbn9ynscfXEylHWlXhTdl5MzjPBItgQcpb0Hzrw47nPHLFSWdf0mllwGQA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791889118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ibx4Wuf/nDfg8JytDfccS5wn8x8YmTr1cZIy71hpWvY=;
+	b=COiVH5dzxNsq4sj3ao+H39OF5fYjChNz/VJalg6MCyepxFLn+CCrFd2APcgYSxdwDl158h
+	3Ydjmn8PeKtThSxC1pOTzEp5JeWk4MA0fyMVE2xqX/DAduXGMv+Snd22wWXQKNTmxGMoij
+	295cJh1BqBtYuiP7cE26uELPkPrxCkw0cNDqiCmg+9SN6eELvKvjTGZgXVrGkfI0HjsPSp
+	OZD7EUe97EMR77WC6Hynn2RwG99GJBXSHN49JEGEAwwZCqC1MChtevdwuW4NGEvg1GzfhO
+	j/xP3UStSs9sAwhWExXm+v8Q0FmXqXKjvRNA5/QoslsFv/2qZOTSHoap4bHiGw==
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xGaDO-005g8E-2X;
+	Tue, 13 Oct 2026 12:58:38 +0200
+Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 6C2E45C2F46;
+	Tue, 13 Oct 2026 10:58:38 +0000 (UTC)
+Date: Tue, 13 Oct 2026 12:58:37 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	kernel@pengutronix.de, Heiko Stuebner <heiko@sntech.de>, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
+ closing the device
+Message-ID: <20261013-hissing-saiga-of-endeavor-ef5e03-mkl@pengutronix.de>
+References: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="25w3tbmyskksrjyb"
+Content-Disposition: inline
+In-Reply-To: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_035843_459089_AF40FC1D 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,217 +110,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
 
-Low priority / nit picks for your consideration:
+--25w3tbmyskksrjyb
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before
+ closing the device
+MIME-Version: 1.0
 
-- [Low] The commit message does not describe the valid-window recovery
-  that the code implements.
-- [Low] The new one-step code reads the global jiffies_64 directly in two
-  places.
-- [Low] In netc_port_onestep_sync_enqueue(), the queue-full check
-  (skb_queue_len(&np->onestep_queue) >= NETC_ONESTEP_QTH) jumps to…
-- [Low] netc_port_enable_onestep() sets np->onestep_state =
-  NETC_ONESTEP_IDLE without checking the current state.
+On 13.10.2026 11:22:37, Cunhao Lu wrote:
+> The close path cancels restart_work after freeing the IRQ and stopping
+> hardware. A queued bus-off restart can therefore enable the controller
+> and interrupts after teardown. It can also restart timestamp work before
+> runtime suspend.
+>
+> Serialize restart with the close transition using a mutex. Mark the
+> device closing and mask its interrupts before synchronizing the IRQ.
+> Release the mutex before cancelling restart_work, so a queued restart
+> can observe the closing state without deadlocking.
+>
+> Exclude the IRQ handler while reinitializing the hardware on restart.
+> Do not disable the shared IRQ line while waiting for work to finish.
+>
+> Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD=
+ controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Cunhao Lu <1579567540@qq.com>
+
+AFAICS this is a systematic problem and should IMHO not worked around in
+one driver only.
+
+netif_running() tests __LINK_STATE_START, which is removed in
+__dev_close_many() prior to calling the driver's ndo_stop().
+
+Can we make use of netif_running() prior to calling do_set_mode(dev,
+CAN_MODE_START)? from can_restart()?
+
+can_bus_off() should not schedule_delayed_work() if !netif_running().
+
+We still have to call cancel_delayed_work_sync(&priv->can.restart_work)
+=66rom each driver, though.
+
+What do you think?
+
+Marc
 
 --
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-net: dsa: netc: add PTP one-step timestamping support
+--25w3tbmyskksrjyb
+Content-Type: application/pgp-signature; name="signature.asc"
 
-This adds one-step Sync offload for NETC switch ports and advertises
-HWTSTAMP_TX_ONESTEP_SYNC. The per-port PM_SINGLE_STEP register is shared,
-so the tagger hands each one-step Sync to the switch driver. The driver
-queues them and sends them one at a time from a work item using a To_Port
-subtype 3 tag. Lost responses are recovered through tstamp_timeout_work
-and a 2^30 ns validity window.
+-----BEGIN PGP SIGNATURE-----
 
-> Since
-> the tag timestamp is only 30 bits wide and the hardware accounts for a
-> single wrap at most, also schedule the work when the PTP time has
-> advanced beyond NETC_ONESTEP_VALID_WINDOW since the in-flight frame was
-> queued, as its correction field can no longer be computed correctly.
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCas4O2wAKCRDMOmT6rpmt
+0q+pAPwIF8wpYL7J1/gk9g6RXhUr5SARSzzpYTyGVX3yt2JlIQEAxgkwnBhMJin5
+BgazUeZQAgL09GXx7TEVzKpH1RZCUw0=
+=mEzK
+-----END PGP SIGNATURE-----
 
-[Severity: Low]
-This paragraph doesn't seem to match what netc_onestep_timeout() does. I
-see three differences.
-
-First, the check never reads the PTP clock. It compares jiffies_64 with
-np->onestep_tx_time + 1 + nsecs_to_jiffies64(NETC_ONESTEP_VALID_WINDOW).
-The code comment says this is on purpose, because the PHC may be stepped
-backwards.
-
-Second, np->onestep_tx_time is set in netc_port_onestep_work() just before
-the frame is programmed and passed to onestep_sync_xmit(). It is not set
-when the frame is put on onestep_queue.
-
-Third, netc_onestep_timeout() is only called from
-netc_port_onestep_sync_enqueue(). That means this check only resumes the
-drain when a new Sync is enqueued. If no new Sync arrives, queued frames
-wait for the 5 second tstamp_timeout_work.
-
-Could the commit message be reworded to describe this?
-
-> diff --git a/drivers/net/dsa/netc/netc_ptp.c b/drivers/net/dsa/netc/netc_ptp.c
-> index 756c69a02064e..c3875bce80bc1 100644
-> --- a/drivers/net/dsa/netc/netc_ptp.c
-> +++ b/drivers/net/dsa/netc/netc_ptp.c
-
-[ ... ]
-
-> @@ -68,12 +96,286 @@ static int netc_get_ts_req_id(struct netc_port *np)
->  	return ts_req_id;
->  }
->  
-
-[ ... ]
-
-> +void netc_port_disable_onestep(struct netc_port *np)
-> +{
-> +	struct sk_buff_head free_list;
-> +
-> +	if (!dsa_port_is_user(np->dp))
-> +		return;
-> +
-> +	__skb_queue_head_init(&free_list);
-> +
-> +	spin_lock_bh(&np->onestep_lock);
-> +	skb_queue_splice_init(&np->onestep_queue, &free_list);
-> +	np->onestep_state = NETC_ONESTEP_PORT_INACTIVE;
-> +	spin_unlock_bh(&np->onestep_lock);
-> +
-> +	cancel_work_sync(&np->onestep_work);
-> +	netc_tx_dropped_add(np->dp->user, skb_queue_len(&free_list));
-> +	__skb_queue_purge(&free_list);
-> +}
-> +
-> +void netc_port_enable_onestep(struct netc_port *np)
-> +{
-> +	if (!dsa_port_is_user(np->dp))
-> +		return;
-> +
-> +	spin_lock_bh(&np->onestep_lock);
-> +	np->onestep_state = NETC_ONESTEP_IDLE;
-> +	spin_unlock_bh(&np->onestep_lock);
-> +}
-
-[Severity: Low]
-Is it safe to set NETC_ONESTEP_IDLE here without checking the current
-state? netc_port_enable_onestep() is called from both netc_port_enable()
-and netc_mac_link_up(). The single-outstanding-frame rule for
-PM_SINGLE_STEP depends on NETC_ONESTEP_IN_FLIGHT, and this write
-discards it.
-
-Take a link flap:
-
-netc_mac_link_down()
-  netc_port_disable_onestep()
-    onestep_state = NETC_ONESTEP_PORT_INACTIVE
-    cancel_work_sync(&np->onestep_work)
-  netc_port_mac_tx_graceful_stop()
-
-cancel_work_sync() only waits for the worker. A subtype 3 frame already
-passed to dsa_enqueue_skb()->dev_queue_xmit() may still be in the conduit
-qdisc, the ENETC TX ring or the switch port egress queue. The graceful
-stop only drains the MAC TX FIFO.
-
-netc_mac_link_up()
-  netc_port_enable_onestep()
-    onestep_state = NETC_ONESTEP_IDLE
-
-The next Sync then reprograms PM_SINGLE_STEP while the older frame may
-still be pending. Could the older frame go out with the new frame's
-offset and checksum-update settings? Could it also get a wrong
-correctionField if it waited longer than 2^30 ns?
-
-A Sync sent between .port_enable and the first mac_link_up looks mostly
-blocked, because phylink keeps carrier off until mac_link_up.
-
-[ ... ]
-
-> +	NETC_SKB_CB(skb)->tstamp = tstamp;
-> +	NETC_SKB_CB(skb)->ts_req_id = ts_req_id;
-> +	NETC_SKB_CB(skb)->ptp_flag = NETC_PTP_FLAG_ONESTEP;
-> +	NETC_SKB_CB(dummy_skb)->ts_req_id = ts_req_id;
-> +	NETC_SKB_CB(dummy_skb)->ptp_tx_time = jiffies_64;
-> +	NETC_SKB_CB(dummy_skb)->ptp_flag = NETC_PTP_FLAG_ONESTEP;
-> +	np->onestep_tx_time = NETC_SKB_CB(dummy_skb)->ptp_tx_time;
-
-[Severity: Low]
-Should this be get_jiffies_64() instead of a direct read of jiffies_64?
-include/linux/jiffies.h says:
-
-  The 64-bit value is not atomic on 32-bit systems - you MUST NOT read it
-  without sampling the sequence number in jiffies_lock.
-  get_jiffies_64() will do this for you as appropriate.
-
-netc_port_prepare_twostep() fills the same ptp_tx_time field, for entries
-on the same tstamp_queue, with get_jiffies_64().
-
-On 32-bit builds (possible through COMPILE_TEST), a torn read could make
-netc_port_tstamp_timeout_work() reclaim this token's ts_req_id early or
-very late. The time_after64(jiffies_64, expire_time) check in
-netc_onestep_timeout() below has the same problem. It could report the
-in-flight frame as expired at the wrong time.
-
-[ ... ]
-
-> +static bool netc_onestep_timeout(struct netc_port *np)
-> +{
-> +	u64 expire_time;
-> +
-> +	/* Use monotonic jiffies_64, as the PHC may be stepped backwards.
-> +	 * Add one tick since the ns-to-jiffies conversion rounds down, so
-> +	 * the software window is never shorter than the hardware window.
-> +	 */
-> +	expire_time = np->onestep_tx_time + 1 +
-> +		      nsecs_to_jiffies64(NETC_ONESTEP_VALID_WINDOW);
-> +	if (np->onestep_state == NETC_ONESTEP_IN_FLIGHT &&
-> +	    time_after64(jiffies_64, expire_time))
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
-> +void netc_port_onestep_sync_enqueue(struct dsa_switch *ds, int port,
-> +				    struct sk_buff *skb)
-> +{
-> +	struct netc_port *np = NETC_PORT(ds, port);
-> +
-> +	spin_lock_bh(&np->onestep_lock);
-> +	if (unlikely(np->onestep_state == NETC_ONESTEP_PORT_INACTIVE))
-> +		goto free_skb;
-> +
-> +	if (unlikely(skb_queue_len(&np->onestep_queue) >= NETC_ONESTEP_QTH))
-> +		goto free_skb;
-> +
-> +	__skb_queue_tail(&np->onestep_queue, skb);
-> +	if (likely(np->onestep_state == NETC_ONESTEP_IDLE) ||
-> +	    netc_onestep_timeout(np)) {
-
-[Severity: Low]
-Can the queue-full check keep the drain stalled after
-NETC_ONESTEP_VALID_WINDOW has passed?
-
-If the response for the in-flight frame is lost, onestep_state stays
-NETC_ONESTEP_IN_FLIGHT. Suppose onestep_queue reaches 512 entries before
-the window (about 1.07s) expires. From then on, every enqueue takes the
-goto free_skb path and never calls netc_onestep_timeout().
-
-The only recovery left is netc_port_tstamp_timeout_work() expiring the
-token after NETC_TSTAMP_TIMEOUT (5 seconds). Every Sync that arrives
-before then is dropped.
-
-Would it be better to evaluate netc_onestep_timeout() before rejecting a
-frame because the queue is full?
-
-> +		np->onestep_state = NETC_ONESTEP_SCHEDULED;
-> +		schedule_work(&np->onestep_work);
-> +	}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261012095924.1129312-1-wei.fang%40oss.nxp.com
+--25w3tbmyskksrjyb--
 
