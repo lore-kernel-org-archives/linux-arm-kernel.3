@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1D5CC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E071DCC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 06:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VbeJlFIwdLrEO1dRUQbP8rGuG2DEV6y4QjSsQ5MvRbM=; b=Z5yayxDEDLYFHO
-	6ckgidxQ8HzJsH1fIMmMhtAg4NUWJPD2kMNQPesKUapA2N6N8jacljwGn13WXzXFzKnkSZbanc4Q4
-	oVvfW8k74STl5Hbg+fNFMp5eTMgA9lHQkxoGI2yDLZEdhRNIRlUyf6di2fCxV/DKr3ilALlaFtgtf
-	BW3zmStQNNh2JRlNEc5MMQLRk79Y38k74Mjsu3iZtsnDtZiJ9w4EXBz3SMxGnCnUO0/VBm5H6bpZa
-	XPfZIK2LaPyyj8jOW4dMXa3Eh5z5Jnl3QnCkJe8C/8TH6/pBdkxKTAU7QInieQ1LzUlet9b24GwFO
-	wy08c+FkGgCqKAbcFEng==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+wlCTTzhEmqwNRCCk2BDRDkJcEczD//wMLoJIXIrJ0M=; b=w2tjL6PJJTIzuujNeTHJd9qNJL
+	3jmHNdgwzkxWU2ATFdM5Gz1I6RPEfw3tW8RYcqmCJ6LfTDDRsW/07RPzO7o3yH9PTHoos5n/287PY
+	3A5PHjwx7BXJNUKypdrynAUzDlNBZa0I0A0bxlleZaWTaJCIoOLwL2qF94qy4ylplYYeInIPUPYJ4
+	Ijrq9ki/j4VvatnCdohUn8NhPwVwCzPtgNl5GJU6E58oUnZ94UyTsEHgSNelTrpF95uqBix9/uvaZ
+	yKqCFEeqp2m5xf827PtU23eapTZnSvT+H/fv5VdfO69ExeTCRJJf9FRV+sjBXP/pkxXtqsc9PU5db
+	AeNa6e2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVt0-0000000C8AR-1TUo;
-	Tue, 13 Oct 2026 06:21:18 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xGVt9-0000000C8Cn-2Sip;
+	Tue, 13 Oct 2026 06:21:27 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGVsw-0000000C89K-2vxx
+	id 1xGVsw-0000000C89M-3Pu3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 06:21:16 +0000
+	Tue, 13 Oct 2026 06:21:17 +0000
 Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
 	(Authenticated sender: str@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 1FE5D202012;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id BDAA62021ED;
 	Tue, 13 Oct 2026 08:21:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791872472;
+	s=20260414; t=1791872473;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=VbeJlFIwdLrEO1dRUQbP8rGuG2DEV6y4QjSsQ5MvRbM=;
-	b=GvqGh0lBiTZLBXY5ObZNzem/IlCdbzhKLL8DAvdB9AOThXf9JfiI33NHEhRCOsgcHF+9kk
-	irSpbXog8peW/yUFgYeo7jlG6zVangvc4gZDER7AP3bgr99OP+WWmIIND12woweDqIlCl1
-	VIeABUl0UMHUWG47bBfB81ehmAUwIRPYquMnIWxwlYBCEswD0rsQJJmGaFKok4x9vAv2/o
-	cPvCl7IdhfozgyytepeH27SotiV/VW86aHcmG2YVVL1bf/yYi9UNjqSf+i4KKr+lGEnpwN
-	Mug42FUfQUkTOPhtIU0Q4YA6h5g9Hd/169bIpCoLa/bFLWOSHQoXuLVK7jc7sw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791872472; a=rsa-sha256;
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+wlCTTzhEmqwNRCCk2BDRDkJcEczD//wMLoJIXIrJ0M=;
+	b=B9/UeEsmMuN5ZWalyMX4IDLKP7k6gp3ntBuhudM1CXpp2sDRi+5FOrZD/nsu0D1B4WmPJh
+	uzOaHFIX1Gt4Qh/jJNFIjXbqPTDSlsW+vLfAlxnSJn/iyXegI1QOMxe7IUfMRYE43JAftY
+	KJu8XsDhsz0Lq+rnbqWDR/XsBBnYb2eP8vSUTl/gobR4y6Y5DChAHI6QJ7McPk37uaKXt/
+	Pz0Y/Cl1fpGQwqVcZIQFXhNbpj9/ziqNuNIhgMPPRccJVJMK1UZ0O32i42eRYfAtDdDvrN
+	541t+UzqwthunHgbZknKUqCPNd+eFruGH5cX+i4xsPAWvcFvoA5L3PBMeOVzOQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791872473; a=rsa-sha256;
 	cv=none;
-	b=cceafrQp1a6Q5qc2mKvI2wFjQLVY/gdPSPeEo11S7jO3BmWwfVE9814E/PwFXtKUzbLUN2
-	IOUjFIp5GBycQHMOxmR9TXViXEMM3LULFDFuCk4pqZ2AQGzBDK1nI6u9mKXSDmNYKTAxht
-	CbYP2TUMM20ITaLLoiepNkdYURpxoP+ZqlBuGuel8eSa/wJagxIAhKEaXfQfckR5Nn6srA
-	gzxPjWMsjnqbCARrm8hb1T4HQeBT2CWblFyP2Va2JeQbsf8ZBC1fnf1O2N9hjhILvft9nd
-	RR53YtIYBRypTKCa5aNzFwKYMLCloSQFZZ0+j1NYcMw2UoG7VRew5v2VSJ4twg==
+	b=L4iVYsLwas9ejisd/KbU3Z00bTIDdev5ZmaKzKOkZgw2P9jqC+b0pfUFO/10l1NADVaErH
+	oYHy+mqsF7MbDSqr6Fzjadj4u9A5pSP8hv4yehYOfL9Pru7giqfUgPVpnt2G/IBIS5/yFV
+	Db4WLeL8Z/ePJqbVpQ/qCIkShojI4QLRWjl/h9pGyWO1AWpXV9NFzya09iuTQmn9ZfPd1P
+	85B1hy2cl+8Ln5jit9xY6wUhKjwjQkXSjoRJVMBoA5FQOLPGTr8ZEvb3PINAhnXK05oC7S
+	KAlQCSG2FGRH3blhumZiu38mWuwjGk5n3UkhUUtDHIhQHLg512/CtWM0Hda0zw==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1791872472;
+	s=20260414; t=1791872473;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=VbeJlFIwdLrEO1dRUQbP8rGuG2DEV6y4QjSsQ5MvRbM=;
-	b=Wz8kc7OmJoZA5J+1BeqL9gGXQeYUnMVJHkegGRnvq734wICiCWxzQztEPxpk+C8Y1aKJcH
-	VmsGI5EOqqLSSXjhfaEt/+7NngiDXjp+R+GLBgIdY1IThOnEkDmoavfc5CUhDKayAKLMpq
-	46bRVyeK6+j7ibybRngoKLJCJYtu0Dycq+YUHoKuuRxBqFhc2Wxsd1zqSyNtwFPSULRJP6
-	FmHQMXl6KYyQo4tVSzErq/ZbbnVHtOfJ0Q+Kpa1KFDAvd/fpS7dTYWtAvHZPH8zUGGvNFp
-	vQ/xw3MxYmdRSnjxUpFfdtthuJTyL0iP+AJFIyjkBbqriLsW7Pwx94fjzKDruQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+wlCTTzhEmqwNRCCk2BDRDkJcEczD//wMLoJIXIrJ0M=;
+	b=fEuYkWlaWKe+uQv6nVvfJLaargTTkVJyEE0zcShoJYD/B83iGeQfzP4cbH98r/REa9RKpM
+	MfWRMNY5D4LVqUry2bJuTC7CbeKphxI//WFKd+8uxAwxJEHokaLcz4bDPirvRKNq/9RJCA
+	xoFupj2yZ1s7HCM+4bgOs1lHxwdf2xIMYzG6dJZ01RfgIOUTvKXM3vN/5GSfeXJiNrb7V8
+	QCNCxPlYgMKt31ni5YqGX/I+WMDxfwc2n/vGtSLEbpcONpWEkENWilWcpegu/rwGpK8zB7
+	fQJrE1yxGPoNi/ZWNnA7JpKfkEzYHLQ6KQ6/WuBX/3HE2ADC/feOKyqhSREF5Q==
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Subject: [PATCH v11 0/4] arm64: dts: imx8mp-skov: add new 7" variant
-Date: Tue, 13 Oct 2026 08:21:07 +0200
-Message-Id: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-0-b97ad841598b@pengutronix.de>
+Date: Tue, 13 Oct 2026 08:21:09 +0200
+Subject: [PATCH v11 2/4] dt-bindings: arm: fsl: add compatibles for Skov
+ i.MX8MP boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/53Tu27DIBQG4FeJmEt1uEOmVl06duhWdcAYElLFt
- nxTqijvXuxKTaSykAUJ9Os7XA5nNPg++gFtN2fU+zkOsW3ShJCHDXJ72+w8jnVaQBSoBEYFnhU
- GPLZddDgeT/rY4eGrnXE9Dvgwje3k9ljFJo2srlzFBVhmHEpc1/sQT2utD/T2/P7yij5/l4epO
- ng3LmWW4D4OY9t/r3uayRovrz6TFCRAhagpk5yZp843u2ns2yaeHmu/1p7pVedUFeg0BT2tlAm
- OJpxkdXbVFZACnaVgrXhQngVNDcvq/FaXBTpf9ODAaU2VA5rVxY1edDMiBaUK1grvoQoyq8t7d
- ZmCweqgSDqBkCGrq3v1JeistsC5JFLarK6vumYlr6rXnvGSCS5oZfMdaf50AqALdLP0OwnWQBC
- MBJfVCdzwhJZ8J0hJMCC9UFxL+78nL5fLDzxkydNPBAAA
-X-Change-ID: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-2-b97ad841598b@pengutronix.de>
+References: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-0-b97ad841598b@pengutronix.de>
+In-Reply-To: <20261013-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v11-0-b97ad841598b@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -86,21 +83,20 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
  =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3897;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1629;
  i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=g1eNySreq6U83Gzfb6zsIDQEONDViRpveiiRk0O0Y3w=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bZs9c/7bPsXXwt0W19t2TVvQAHqfj9hpssCy5fmpou9
- yDxtdexjlIWBjEuBlkxRRaVhRV8oh4fPCOniXDBzGFlAhnCwMUpABPRVGX4zc75htUpvvYvx4wk
- hT/b3Ccd3LPynkDRGfMb4Ut8rmmelGdk+HUl8Ete0ezSG0sf3fjVkj7xUbaAGb//N2uXjQJiKm4
- eDAA=
+ bh=nZBa6AonUag7BVGD69Cp5RFNERuQJ1C1Cp8onbxhXgg=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bZs9dt7J/v3iD05XrMFv+rOQd9FrlK7FZavkR+8qVFC
+ e83WL393VHKwiDGxSArpsiisrCCT9Tjg2fkNBEumDmsTCBDGLg4BWAia78w/PetvGMYU+Q9j9/J
+ 5VadOOeko+ucnqatv3/0VPSyJ++rjpozMvRJs7+qzH0+2S+65weTrSSraWDIdIETVaukEp9u0wg
+ vZwAA
 X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
  fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_232114_947008_87267394 
-X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-CacheID: sfid-20261012_232115_004637_7AEEE5A2 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,97 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new board variant for the Skov i.MX8MP based family of boards.
+Add a compatible for all revC-based Skov boards with a touch panel.
 
-This variant uses a different 7" panel than the existing ones.
-As the already upstream boards and this new one are almost identical,
-convert the other device trees to a base devicetree and apply the touch
-controllers and panels via overlays.
+Also, in preparation for adding a new device tree variant with a
+different 7" panel than the already mainline ones, also describe that DT
+compatible in the binding.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 ---
-Changes in v11:
-- remove code-style fix from overlay-conversion patch
-- change patch subject
-- Link to v10: https://patch.msgid.link/20261012-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v10-0-0906e57486a3@pengutronix.de
+ Documentation/devicetree/bindings/arm/fsl.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v10:
-- rebase onto imx-dt64-7.4
-- rearrange binding and code patches
-- Link to v9: https://patch.msgid.link/20261008-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v9-0-11fa90f531fc@pengutronix.de
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index cb99fb74805bc..3ff8cd69b0830 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1153,8 +1153,10 @@ properties:
+               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
+               - skov,imx8mp-skov-revc-hdmi # SKOV i.MX8MP climate control without panel
+               - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
++              - skov,imx8mp-skov-revc-jutouch-jt070tm041 # SKOV i.MX8MP climate control with 7" JuTouch panel
+               - skov,imx8mp-skov-revc-jutouch-jt101tm023 # SKOV i.MX8MP climate control with 10" JuTouch panel
+               - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
++              - skov,imx8mp-skov-revc-touch # SKOV i.MX8MP climate control revision C with touch panel
+               - ultratronik,imx8mp-ultra-mach-sbc # Ultratronik SBC i.MX8MP based board
+               - ysoft,imx8mp-iota2-lumpy  # Y Soft i.MX8MP IOTA2 Lumpy Board
+           - const: fsl,imx8mp
 
-Changes in v9:
-- fix dtbscheck error
-- squash new compatible into 7" devicetree patch
-- Link to v8: https://patch.msgid.link/20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de
-
-Changes in v8:
-- add #address-cells and #size-cells to i2c2
-- fix touchscreen resolution
-- add missing binding includes
-- Link to v7: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v7-0-ca8a0446166a@pengutronix.de
-
-Changes in v7:
-- address more of sashikos rightful feedback
-- Link to v6: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de
-
-Changes in v6:
-- address sashikos rightful feedback
-- Link to v5: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de
-
-Changes in v5:
-- convert to overlays
-- Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
-
-Changes in v4:
-- fix Makefile sort order
-- add touchscreen fallback compatible
-- fix lvds_bridge comment
-- Link to v3: https://patch.msgid.link/20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de
-
-Changes in v3:
-- rebase to v7.2-rc1
-- Link to v2: https://patch.msgid.link/20260427-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v2-0-e2b79fc24391@pengutronix.de
-
-Changes in v2:
-- rebase to v7.1-rc1
-- Link to v1: https://patch.msgid.link/20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>
-Cc: Søren Andersen <san@skov.dk>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-
----
-Steffen Trumtrar (4):
-      arm64: dts: freescale: imx8mp: skov: fix sort order
-      dt-bindings: arm: fsl: add compatibles for Skov i.MX8MP boards
-      arm64: dts: imx8mp-skov-revc: convert jutouch and tian to overlays
-      arm64: dts: imx8mp-skov: support new 7inch panel board
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |  2 +
- arch/arm64/boot/dts/freescale/Makefile             | 10 ++-
- .../imx8mp-skov-revc-jutouch-jt070tm041.dtso       | 38 ++++++++++
- .../imx8mp-skov-revc-jutouch-jt101tm023.dtso       | 38 ++++++++++
- .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ----------------------
- .../freescale/imx8mp-skov-revc-tian-g07017.dtso    | 40 +++++++++++
- ...h-jt101tm023.dts => imx8mp-skov-revc-touch.dts} | 24 ++-----
- 7 files changed, 134 insertions(+), 99 deletions(-)
----
-base-commit: 7f47e8eafbf55a2ad0697e5d28f5e6cff2fa42f9
-change-id: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
-
-Best regards,
---  
-Steffen Trumtrar <s.trumtrar@pengutronix.de>
+-- 
+2.51.0
 
 
