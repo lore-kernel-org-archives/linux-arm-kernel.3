@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA57CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D37CA9ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=; b=GHve//5pTZf1Mdko71aFig6Ipm
-	Ekujo8wg0C8rhICOC8Y69Tq1AkrWVFX18fH6h2S49KlRu9Y8c7nvT1tEkd8bdTLretITt/C/M9rW0
-	RNBYtGevV8HmSc/epwmYQ7jtPoXpzJ0JPvkBblHeoFe1eLBkZyQxTkPf2uY8eZTlHMCegVFZ+RHLT
-	W1RnJo5kl1zkhUJ0/AitP7XNDqOOP9fgPP8rETvOi4HS3pakOmDOEDbw9jeUX8Mz5Hxum/1U6n6Kt
-	ed/e8Wu8/0JpIw00Kl+zpP+bxt5M03oon8RhF7wO4p064Ld08o4/hM3/2+pFITTg5DBPJ+aHABKFB
-	L60wMmqg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dXIJ8xkcncFbQkpA/INiogKRasKZvPb0dIiPW9fm01k=; b=XoSQj444o3/WLm0vAze0ajr2I+
+	AokJvbauE8hboA8QFHz4fgbAG2HOLzvZVaGG0Ye56V1KQU+ibXcrstf42dP0mWKy7/7uKu+o50agI
+	bndZmz4w/rbm7b5G0oY4NuWGf2qilirpAYNOSCsDduKrl25iK09FZKvmCWWkTtC2Gpdd4A/mOXnb1
+	ebXdOS65jO27tGHZbW6eOlz4zCmUUwb8V83patkTBA8R/7cM4eQZ1qI+mAqBlYJCuJMUKdb3cbHNq
+	uiC9+nuOIHb22TEKiAlETMstRu29nANEhNIlru85xiieKEM1aIxIsnKFA3YAIl4ZK/iy0aekFDw7h
+	tSR+Nv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGawj-0000000Cjfb-2Sz6;
-	Tue, 13 Oct 2026 11:45:29 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1xGawo-0000000Cjhx-2wiM;
+	Tue, 13 Oct 2026 11:45:34 +0000
+Received: from mail-japaneastazon11010043.outbound.protection.outlook.com ([52.101.229.43] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGawg-0000000Cjek-1o2g
+	id 1xGawm-0000000Cjg1-1c6o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:45:28 +0000
+	Tue, 13 Oct 2026 11:45:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AQR88AzEcN89rG1tZmN8rM22kQ17xpp9Wlsp5G6alvYGt6/N9MIE+S7v/Mta+aiPy5aCYSZOnijUhdJMLOm0MPe5YqUx8BDdzCeYJ55oW+djJp5X0dYTiimF9TIbUTpY9w9Xw2WWOkWUDrrA4OXsA4pHFkiB2LYKJ2g1cet936VBvzR6gaos5chi0ffsAao1vbV+iaK8pzxYdEqgmu/xmeWvOkiY4H0cFhgXhycatJwdi46ZIyOjSa2eU49810FGVQQDbVYOEneJlPn9tIKIkJphnKtmzc04BOGVOZMSpgQN/1vAUgEtgkMg0VbIZVu+2sf+yMU+E7acxqQljuTqRg==
+ b=VOtaOFL/kB6TdYYNDbZS5mCQva7TGRwlmYtw5n+j3jDQNYitPGOCQtrOvSd2qHdNI5ainw+ygF8hFC7zqUIw42En14ovnhb60QBJaj+ozX+73ihUah1aGAtFnZ//4kjsOGBBboH9o1rOCuhmA6B/b8Cd8V+XAh3mVa8DA65zDf3EYOZ/4R82MkwAiBnw9CITFd9mbzMjdUv70AQtkDTrgc1DvIhH10M6YrqHKmpa1zzjsF6akqFYl+sLWlS4tniEFg8buUY/ON07KQ1WC0sa8PfhXhjEgNb+8D17Nrxz/9EOfYv+9gQV6JJ+5NUnY8GBF8fYjjpPD5MZeyZkfB9Zkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=;
- b=ozIFAl13nR65nmF4peBBX0fPqcYA1a4eWajyk44/g4ANmzHM/OAst0DXSlpxyxQJnAot5qv1qdWZJbq0/3ph7w8aaHhGN71Qe4FZ4wsURAK2Ub5HuuETyvArgBcB1xzvhl8VCSZk3UR/6/kf26waoJ1rGHNyCU5SbbslDLo4+V1cVdx7r39OZTJ21gAHHQ5KV8gK9EqKvcTW2s8hOkvEwX+nx/x/lDQzGLVZGAlw5/qvyFqCLzfCfaETKlNCY63KoJhJJiv0CCM1ivlHnFjAd6MWKvjr3ayVonYbd2FeBaDbliGcY6OP6cj9NBxPikFHoMnthHfqeiTGKBHgNWmVkQ==
+ bh=dXIJ8xkcncFbQkpA/INiogKRasKZvPb0dIiPW9fm01k=;
+ b=hOrDUKCm2o6wT9NB7PjMvhUKe5H/UOx3/CEhC5M6yLJ238dsZxcktga9LXLEjRDnJCM7RgA7TNGxbmx5SEFZGvOgipKGwD5djiQTgev4yE5IsCThcfAciZfwSluFCuSZFwGy47XomdDIE9KjMO6wuWGBzscVqRWpibf8iXLVD9OAO+DI3rCx7ee3XMzAzR9xC3Fn7mg5eNAIL4pUV42WJL+yGPIF3emoRjVue2S7Hk7LWGQzlHtb5rMlok5l4InQtShDzGOTIxXdo47sOSViCCgYzgmHE3lsWcD6h9P5Q1ssf1biNS36UrTP/Vo8WEIGmU5sX1WtnRHdFBebUfcbiQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ly4XvGD5pppTZDPDOEqP6AmyaK2yGR/pnwe91PJ+Sq0=;
- b=QO3rFX059AE5z/VjXJWkUHooWVNKeEEBetXZmi/SdSoYs48O5Z/D5CoNsuZNbdnXOkAg3NbB7CXpuwEK386Lho7LatOvKDKurocVxjc14p5oLQCjswYnL0Ik9AkPMJ9+kqIID1ha6kXOiCYsWzPP/WRaSuQ4DyF5IJpJSDpegF8=
-Received: from OS7PR01CA0099.jpnprd01.prod.outlook.com (2603:1096:604:256::17)
- by TYVPR01MB11215.jpnprd01.prod.outlook.com (2603:1096:400:367::12) with
+ bh=dXIJ8xkcncFbQkpA/INiogKRasKZvPb0dIiPW9fm01k=;
+ b=kUsuUqRFNVb7BcwL3haCmB+PllaxqP0vAJkPy3ybLW/GWdG7X9D50YPYXMxSCCE8XGVVKcvTRP51IyI7IwzQvyl5N53CgsM0xDD8HLQ0fdIlUOFFlszzFwmXPYFFoNFL9Qu9rJFj85ZTiGhMqYrRvmsJ1D7dD1xOJ/MtlCIZ1wc=
+Received: from OS3PR01CA0075.jpnprd01.prod.outlook.com (2603:1096:604:da::8)
+ by TYRPR01MB13740.jpnprd01.prod.outlook.com (2603:1096:405:18e::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 11:45:14 +0000
-Received: from OS1PEPF0000D20D.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:604:256:cafe::54) by OS7PR01CA0099.outlook.office365.com
- (2603:1096:604:256::17) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 11:45:24 +0000
+Received: from OS3PEPF0000003E.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:da:cafe::d) by OS3PR01CA0075.outlook.office365.com
+ (2603:1096:604:da::8) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue,
- 13 Oct 2026 11:45:14 +0000
+ 13 Oct 2026 11:45:24 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=renesas.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
  8.62.32.50 as permitted sender) receiver=protection.outlook.com;
  client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
 Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
- OS1PEPF0000D20D.mail.protection.outlook.com (10.167.240.36) with Microsoft
+ OS3PEPF0000003E.mail.protection.outlook.com (10.167.240.7) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.6
- via Frontend Transport; Tue, 13 Oct 2026 11:45:13 +0000
+ via Frontend Transport; Tue, 13 Oct 2026 11:45:22 +0000
 Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.5])
-	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id BF9A23000270;
-	Tue, 13 Oct 2026 20:45:08 +0900 (JST)
+	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id 37880300026D;
+	Tue, 13 Oct 2026 20:45:17 +0900 (JST)
 From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 To: maxime.chevallier@bootlin.com,
 	andrew+netdev@lunn.ch,
@@ -81,38 +81,39 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net 0/2] net: stmmac: Track and report the TX DMA threshold per queue
-Date: Tue, 13 Oct 2026 11:45:01 +0000
-Message-ID: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net 2/2] net: stmmac: Report the TX DMA threshold per queue
+Date: Tue, 13 Oct 2026 11:45:03 +0000
+Message-ID: <20261013114503.57487-3-ovidiu.panait.rb@renesas.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+References: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS1PEPF0000D20D:EE_|TYVPR01MB11215:EE_
+X-MS-TrafficTypeDiagnostic: OS3PEPF0000003E:EE_|TYRPR01MB13740:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 023652a3-8aaf-4a21-8d2b-08df291f714a
+X-MS-Office365-Filtering-Correlation-Id: 7399e220-82d7-42c1-a0df-08df291f76f5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|23010399003|82310400026|36860700016|56012099006|11063799006|261009223027099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: s++4ebF6MuWM19CXGVOMtWtd4FiNhWc+f6NEFp0OCDSJ9qLTrJgRXmpWRC5Q16yEMry57Bwq9VhyczOfHklgUP0p0Xq4I7o4ILCvbDbAwipbK1+yuUWfEU86eE2aBj87+v7a9rmua2yho5/HoDXpWrviCOq0h8urWfLnWxAAQD6VOt3+5EunLHB67tJ4SRznVyMHQ8Hl8/CH/hAVuN8iDeKY0wxZfVdDICrsd+eieByBdKzEb7EZSII26dLTo2KHJ2DXv/ICMI4+aawXYJ3U9qWuR4yo0Rsv+tzuuRVsj8i/EAiif2eKLeWmklfk9e04HtYMSNWyGc6F7HfBL9/cUuRUvUd1QsrDXBYCcIxXhlnE5qGvaKuzK229iBk0RFs5qmP8taD58QMFzRZJLsZfp/c2xc+nkej35zuafEkJheTO5m0gRI39vnRLBzppDJipZ7xVqKGfYind+qVFuEdEoShaYAlXCZpoDj6xWP1t+e6FmKvR6Fa86JaTr938NOKH5GrmDMzzVPPxG/vV/5eeh3vobbkvr/dFMk54UKRc9WfnqgbP/XW3KUS4Zix2M7jf2Gl8IvLIyoDBtTH0R+tyM7GQSsgBjkNEBV69JSvXTDlN3D5zuGKwbGcTLy+6x4ge/xobVUMoezfZcTl+NMLbZ71xAr/jRrwKJNN74x1HNDL+tWO/oZtb0RAkO3lZzorwpe0H35K6dEjYIBhfz0k2vw==
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(23010399003)(82310400026)(36860700016)(56012099006)(11063799006)(261009223027099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|23010399003|11063799006|56012099006|18002099003|22082099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info: 5ZXZ7VtQVhtPuk/WBdOpowdsViRmDL8NzTjsiDJmLDShSfLQMnhNCSfcAf9lYc5UYdp005S7IpvDu4lPSEOZvN1XK/nTNbk0c3hNKOZZYtYwD2wkwN3OOD8xD6lsBvUMXeh15Lfnx+3JQCeCosDo8BvPiOOr/4k+MhBy+pp+OMPDr6TI6fv1OPQ6lRki+J/WkpHZPoF13I1fVoaYbVg7sIqxuIpURsDRT9zpUBZnRG+xLP7sYVM0zam/XvGHpR56sRnNm50XmvsyKyilUOWr87pEopAErAEtLMfFBOUNnAcHQvIdX2o23YxsxM64yEjODtyWC5NY3pwT/4jEAQ4G6c0ReO0a3oY0fhqYDj6q/99x/+4T2VwAbsQ8R+WnixojfXBGVdpguf/AUqLQMtaUds88rZ6+9/RdwYHvQDT4TA1ngDLHWuRQHTfDbskBSJeaBNSVXztcWxlY2yM4SNabrol4Su1KBNpE2FhPAIr6wc1yhsvvPzoewXzUaD40BcorG94hpK0rx/BFhAvdYBqkfd/ldRki4yPo9LXWx0LNxvTOhLURVDip4gNP0RuTf4ZvU5Jdai0pKQuv3MdRiO8NvCB5739VKs51+nTwdC8Pq+GbFOLssK4PrjrVLRjL6Z7Cdx5PSqY8vLaRm765k+8Tb6+EyLx73WaZ2UQpCbX/9c2DOy3KFqRbv0H+iIchzxcX3LMApxzoxMHAtHahopiWLw==
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(23010399003)(11063799006)(56012099006)(18002099003)(22082099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TvFIZhWhZ6YCC25mMC1FzNOSfbyw9/yRXL0ZFGQgNsNI1srONUO3bB/7j9D/TjgeJXlfZ+udwraT093HHrVzefjjQ4BS1KzntavR1KPr03VzSEW6X0wYu9RgPwE/PhoMSy+HlW0/o09No2rnNEjeuRhuYNjN7gWXCBChnmKLq/whh442eFGMPdYVLVqH63RNJByV4G7FsSyMw4WPzQJvXjsdZ5GH+WPbewfaBlf+gC3O06qypIUmRWGYiWWFAgfGDSY61BPZ33pP4aigRJu4KsX0WgHDUbJRhTYgjXyAFDO8F/BudOIEJHrnQHJ4tqcHpqRCCH1oL9da8JGgHm8u5dfPp0USQ7nNv72P2JWGIyswgEs/5itXeDZNM41D4PV8bQpDo/rsvn+txBSS0eSfsL5jb6SNR+SKcGVVrQGSlHxQ2LiOFrqtt8EUWyquJHXj
+X-MS-Exchange-AntiSpam-MessageData-0: P0ZLqLv4hPngVOlexAgWBFSazTF0mIlny9FlJ+6EE2aoKUEP9xJVwFZf7+EtlJ9F16dK32u6rs9FfTqX2yDIIZJ5htDZX3fcOQqpY1GUMsJDQsj0b5keP4HcxVHJRG1QgL+WoH1PZUlnvt5XZjmKpYY3v+2+9/OplYa5wY9eZ8Ah5csOXx4QGGTTZMlnvIj+nndzetg4V4/jG8N0U0UTzqiYtvadHGrjugw6mY2zgyxdf6jJLLZ37Ix8Xj8duqsq0ZBueGJSd5Bs2J5l/t6snAxR4mz7QzfXQewZ4bXYc+axQ8QoNHCHeSeVY1hj+91KUwp81exxb1gmfqvvq0IaaR66QHS2yLhhK00ZtHncLbEq+RVAAaUW9IH0bkGa+PwHtEe0GsjPsTrM9gYHrnO8ZK0e0SH8KUSotbyLvui+obxWSOxvIpqmQWjn7BjKWhRy
 X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:45:13.0713
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:45:22.5797
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 023652a3-8aaf-4a21-8d2b-08df291f714a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7399e220-82d7-42c1-a0df-08df291f76f5
 X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D20D.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthSource: OS3PEPF0000003E.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYVPR01MB11215
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13740
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_044526_489430_0866BD19 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261013_044532_718303_77924E4A 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,30 +128,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the Renesas RZ/V2H platform, which has two dwmac4 controllers, we
-observed sporadic iperf3 TCP TX failures on one of the controllers, with
-throughput dropping from >900Mbit/s to ~1Mbit/s due to TX underflows and
-the resulting retransmissions.
+The "threshold" ethtool statistic reports a single TX DMA threshold for
+the whole device. However, since commit d62a107a4f15 ("net: stmmac:
+prepare dma interrupt treatment for multiple queues"), a single TX DMA
+threshold per device doesn't make sense anymore, as each individual queue
+that underflows gets its threshold increased, so the queues are out of
+sync.
 
-Commit 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from
-DMA descriptor") made dwmac4 raise the DMA threshold of the queues that
-report TX underflows, by increasing a global module parameter 'tc'.
-However, this logic does not work correctly across multiple queues and
-controllers, and can leave the TX DMA threshold stuck at 64 bytes.
+To make the reporting accurate, remove it and report the threshold of
+each TX queue instead, as "qN_tx_threshold".
 
-This series fixes that logic to track and report the TX DMA threshold per
-queue for each controller.
+Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/common.h         | 1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 3 ++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c    | 4 ----
+ 3 files changed, 2 insertions(+), 6 deletions(-)
 
-Ovidiu Panait (2):
-  net: stmmac: Track the TX DMA threshold per queue
-  net: stmmac: Report the TX DMA threshold per queue
-
- drivers/net/ethernet/stmicro/stmmac/common.h  |  1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  3 +-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 ++++++++++---------
- 4 files changed, 21 insertions(+), 17 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 1729fb29ece3..c74bc7c9750e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -158,7 +158,6 @@ struct stmmac_extra_stats {
+ 	unsigned long fatal_bus_error_irq;
+ 	/* Tx/Rx IRQ Events */
+ 	unsigned long rx_early_irq;
+-	unsigned long threshold;
+ 	unsigned long irq_receive_pmt_irq_n;
+ 	/* MMC info */
+ 	unsigned long mmc_tx_irq_n;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 30e0d499326d..c616a1c95e5d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -89,7 +89,6 @@ static const struct stmmac_stats stmmac_gstrings_stats[] = {
+ 	STMMAC_STAT(fatal_bus_error_irq),
+ 	/* Tx/Rx IRQ Events */
+ 	STMMAC_STAT(rx_early_irq),
+-	STMMAC_STAT(threshold),
+ 	STMMAC_STAT(irq_receive_pmt_irq_n),
+ 	/* MMC info */
+ 	STMMAC_STAT(mmc_tx_irq_n),
+@@ -289,6 +288,7 @@ static const struct stmmac_stats stmmac_mmc[] = {
+ static const char stmmac_qstats_tx_string[][ETH_GSTRING_LEN] = {
+ 	"tx_pkt_n",
+ 	"tx_irq_n",
++	"tx_threshold",
+ #define STMMAC_TXQ_STATS ARRAY_SIZE(stmmac_qstats_tx_string)
+ };
+ 
+@@ -496,6 +496,7 @@ static void stmmac_get_per_qstats(struct stmmac_priv *priv, u64 *data)
+ 
+ 		*data++ = pkt_n;
+ 		*data++ = stmmac_get_tx_normal_irq_n(priv, q);
++		*data++ = priv->tx_threshold[q];
+ 	}
+ 
+ 	for (q = 0; q < rx_cnt; q++) {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b5ee0f297df6..2fed7713e376 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2633,7 +2633,6 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
+ 		 */
+ 		txmode = SF_DMA_MODE;
+ 		rxmode = SF_DMA_MODE;
+-		priv->xstats.threshold = SF_DMA_MODE;
+ 	} else {
+ 		rxmode = SF_DMA_MODE;
+ 	}
+@@ -2836,7 +2835,6 @@ static void stmmac_bump_dma_threshold(struct stmmac_priv *priv, u32 chan)
+ 		stmmac_set_dma_operation_mode(priv, thresh, SF_DMA_MODE, chan);
+ 
+ 	priv->tx_threshold[chan] = thresh;
+-	priv->xstats.threshold = thresh;
+ }
+ 
+ /**
+@@ -8135,8 +8133,6 @@ static int __stmmac_dvr_probe(struct device *device,
+ #endif
+ 	priv->msg_enable = netif_msg_init(debug, default_msg_level);
+ 
+-	priv->xstats.threshold = tc;
+-
+ 	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
+ 		priv->tx_threshold[i] = tc;
+ 
 -- 
 2.34.1
 
