@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD2ACC6B0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC167CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0H70aAMMimCbLXT1pVFm2uX6egTnEDs8iDKGzFjDDBI=; b=ApVTcfbHpWYfZDkJsPSS6xOC0+
-	++JhW2wCE3hup3mt6qmvbc4r8OIQXaLlDynWgpDuom+Xw9GxbZvxElxZmoljWugTqtxrIdzEcHDMz
-	hlh2wITjZFrtw6xz9JVppGSVu+ZYmkigT7H+wzFG3vQmId4Oy1lNwISOH8MtNJAsSKgXEHVA4+Z+g
-	mbFd/8J5joN3Nd5KOa61owiYaeZRs4p1E2ge/pOPPOw+Xt6yK1Ji+k7OL1fAppZjazhjdYc7FM/7R
-	5R731ysX6iGELBP4a2cqeVlB6GRDAcThtW8mpKs3bGgItj19HBarZB/saqsFq1PoEy6UaxJ7HgL59
-	jE6ulRCw==;
+	bh=4zKtTsd8MzhIo6AyA9SWXa1odPgIA10bRwmVL6OJsGk=; b=x5FujIKxxkSJhUNSw9G5AGW6Z9
+	qafzA4hWFSsF7525qe9wu7rIlG1afYqBJXEP2NatkjsE9yUooA8hz43ZzXPnNS0EZUkzXDYJqQtB5
+	ghEIANJx2aXPILTPnHEZNae37Sis25s92VQWpLMRkmHgvPV7eLwRW/liAObsdDJdo7XR1e+KIhhoo
+	Z6OxX/Z6y8bQY+bMhX6NaOCWsamvzgtVGdw0Kv0HTHndoQNHAvMH36jkoWrVCaM6wFW0eroUiPvWI
+	SwWZaA+Z4anJEQIKUuy09XZwrgzbgiKCzxljZQBFZnIJbkTJjC9XwN+znUr81jxLrcrtsb2OSPEdq
+	0+d5RIew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeI4-0000000DHHA-2pLn;
-	Tue, 13 Oct 2026 15:19:44 +0000
+	id 1xGeIE-0000000DHMW-0n0w;
+	Tue, 13 Oct 2026 15:19:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGeHk-0000000DH1c-2fg7
+	id 1xGeI0-0000000DHBb-31YJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 13 Oct 2026 15:19:34 +0000
+	Tue, 13 Oct 2026 15:19:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=0H70aAMMimCbLXT1pVFm2uX6egTnEDs8iDKGzFjDDBI=; b=LjzodsXRAAjaRO+etrMUH4N/kE
-	mjA0sIowu7pJo22wSIWkZevVBgQntrxnno1vEpJZy2avLYFShUH9xiBFwRvrS3P4q99IYaFXuBCNK
-	vcf29OwdtsSAHZwkB2DhblxEeb4fx0TDs8ZH6D8xJl4y95X4i5aQpDvcsOnrW2lxSeEMbBvh3pohX
-	IBEGMLcl+zzNdi3YscXKMxVDUB7J/KAUTWtBzF3UKUBNemauP5Gqe+mNEhhr3LiCOAJv4Mtyy3lnr
-	8K1xZokoXKKUZDg2OvKAGuUNy84Z5QFBDDJ63jA0srVN6GwpBgty4UDrJu58ytsuO3y1aMFtDbsHA
-	iNNxu1Pg==;
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	bh=4zKtTsd8MzhIo6AyA9SWXa1odPgIA10bRwmVL6OJsGk=; b=U2Wi/G7/Z8m+v9ljeiusEde2R8
+	IZJ3QMRzV4SUEEQSCF1x0eWn1NZ9k7Zhvd3K1pdP0KNUvsi2jWfgZwhIen34iCHFt2xMxXLoh412B
+	ltoU/xOgbkxZF3fs7Pg/7wr75GO97hj0OiDtGtwRnFKY/DVWp/ioktR4Wxckb/NOYeKOX0z/pPc5w
+	ei05Ev5JKC2s/Ghp1VYMLKoO7cUi8dRBvV6laKq5i1ptXcrRVq+zsTZ71vmusgpUN7AgFacFhLU5b
+	4qQwVvUECuxM9l01XgnQ8zhpxb0N6Mm0eDrkIjZ4qGTKMp0Qrbvmu+EUnmH853jQVZUmUvy9gvKBh
+	HurXzqRA==;
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGeHg-0000000FhRV-465S
+	id 1xGeHv-0000000FhVL-43pr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:19:22 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cc4dbcf2b85so1368211a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:19:19 -0700 (PDT)
+	Tue, 13 Oct 2026 15:19:39 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cd5e2d696e0so1667013a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:19:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791904758; x=1792509558; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791904774; x=1792509574; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0H70aAMMimCbLXT1pVFm2uX6egTnEDs8iDKGzFjDDBI=;
-        b=CvH85/9thbgFOXCRkMu8c7YjkIcBTGFBqZK8tMDoSw6eqLD6q3rld2vNfsaipbLhFG
-         98ObxGhOaA6w9ruyWCvEaYlv/8DPX4Il+ixvdmYgAf228QDucHLMxTJrkgfJQNHLY5O7
-         51AGxNjawCRC9plOF59J66owAIUw25vwWH+5tlNnQFH0FFut7I6H8pxzaNiD66FvWqxb
-         vylyJTkm9rlJTf0j86i1ANNWmqquVcZehVVZHYj85PGQivI2+FEsARg0TENZcCup3hmF
-         BMwRJ9CWrEwpxk3/peGwILPabIzBbRR9d6tzA0y0EAH4X3p2Iapi5+UOyFpRGF7dNayz
-         AaXA==
+        bh=4zKtTsd8MzhIo6AyA9SWXa1odPgIA10bRwmVL6OJsGk=;
+        b=V6PZdzry+QPHvV0T0YHq5t2wM0OnY0ZtgZXn51N9URarKwqStFVUyaWyRkU9TJl2rM
+         ZcPajuhkkQioMGwAe+/aoZDTMkNcvS/63nTiwBNY6jgaeCsbLXLbWWcA/ghkRVhiP3sq
+         ZkIizfHoPEIuBmbA9V8tqHN0Yj1QSwggWFw0nMHMVaTT7bY2HaepW8sp4go8xUq3tZoX
+         YbjXCGztL12IrwFwV5oZwzv8brxxxh9njJpovHyZkAi+JLpmURxKFmZylLaqCvTe8cws
+         RuVFyo1WG4sOC7MzlfLOjvMmT7F/vE6MJprSh504KpdTjPGg981WCroQM0ac6ggcMDW3
+         uVNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791904758; x=1792509558;
+        d=1e100.net; s=20260707; t=1791904774; x=1792509574;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0H70aAMMimCbLXT1pVFm2uX6egTnEDs8iDKGzFjDDBI=;
-        b=xUo73rbo9XN3xLQoC8ZrZO0Rs2ZDCyJqE03XXKAOTPxxA3xmcxFviby2oM/zppxiNf
-         8qfqkn+kpvQCRnQVGHCy7hTRSdW5fuYBLNoXXNMQBvmVdGifmPzt2XWT08j5UB4M7HEg
-         D4Zz5guS3AjTyz2LOra/tcTj2rG+KwW+Q/cExFJS8lO/zp55cIL7bFO9G57aKCKoXbN+
-         j4T6DM65JhM65mzZMuTwLkVZkYbpgmya2fDlBFGJhLOAn2EUt2fltCDzUJQ3UH7a8k6x
-         ZuMZkXPhlXF0eukek4nNBGlz/WhRnG/+KAwTET1E/BvPuuCO6EsdZWoJZDg6wMKFv8l1
-         ZN8g==
-X-Forwarded-Encrypted: i=1; AKwUvBzz8Gs9F9BX3MOfwmpdKUkcj38XKzFCXgXIwkdKTXZhXhHZqpWe0evzAbCVimj6f55v29K7ZkUFyWfRMq29PwfJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYLha/E9/pwK9N6RrX9UxH4Bx5Fv3VQk2sRQaIPOx73QFqkNGa6y
-	BCMXb5CPyHdgy+z8Ek8Ne5BDkUgD50AV+MkHyvhoabV3p0zj8WknGSiE
-X-Gm-Gg: AYBFou1wrVaYHGOK2RfqKqz+Vy2JQweMFA4Xn8dD1JaKYzJZgzCjDR/jViAardornRg
-	40F2x9l/NUm3z/XQoG1aexzEPfcXA0QmpauLZF9OWL7Jd2VdkY41xcKgtSwJJEGvVjS0E2qyMrb
-	jrDlvqp0n59UMZINPzqA/DghYrbOqOyQe64FAuoZ2F4FSBItxZZ9iYwteUz8jJUTj/VtHpLswoj
-	1HzRAaADxtRnhD47+67Nfh1qDGPfBWgHYlHq3ZI1VLtsy38deigmpN3Uz4Gs1e+XSNbCsZkS1RA
-	A9HvxY4xQ4QI7kPc16l4L5uV91tWj6fA3B73MgguPamP0/eSa52Si7x9LWTbAoxwMK1eAcc6n8s
-	8AAfdWMyV3c/UfJr7xn7CXZQr47Sbp1MqMQGVH2dBSJQV3x6Jf0fgPAwYT5lAkDTDaQS0hyaVA7
-	yo+/VMzfom9+nSNTCk60XWTHB/qd5uq4DgaS6Mpsu9hE+MVH435KasSFX1onv+rXHS/cBa0NdRq
-	QsDsE2pWWQBLizcFD7eR6p0MtrPXNub6EJyDyY=
-X-Received: by 2002:a05:6a21:8216:b0:3de:b120:bb88 with SMTP id adf61e73a8af0-3e16bb71260mr12893094637.2.1791904758027;
-        Tue, 13 Oct 2026 08:19:18 -0700 (PDT)
+        bh=4zKtTsd8MzhIo6AyA9SWXa1odPgIA10bRwmVL6OJsGk=;
+        b=wMXJ0o8KE0aaZDBQNyox03dhiA9ujIlABO8eEaiSkpbPod5cz8pd/zn+NR8hjV5aY1
+         oLf/qlYQODWp492MMwq4oY4+LySEl7OC07CwTOIuKNwTOeZVEuw5nX5hHHKkAtUz8Gfq
+         L6Sv32eT7gry/J55FuYWr9zPMPr783FnBz5YQbYNazB0m0XzlGvuOeq7yOK58UESnYwA
+         YAyV54ItWWCWr+A6w86UNnq0haDPdOyZQ0fogo2E8VB4MXI3rWYOuHnEYvkECt0PewUW
+         yca/3l/AzNYYJrNxIq2Q6IzaJFxLI41dWJg8ZZ56+Wn4ThzOp34fl5iszmLnC/aNaWpz
+         rZiw==
+X-Forwarded-Encrypted: i=1; AKwUvBwhg7xNSKikAIM8VstBRnzE0tnGDG7mIk31zyvyvljE8/i2s58dJTCAWJ7/wy0tMAFlJFl5jgkwj/6g+9s30Cd/@lists.infradead.org
+X-Gm-Message-State: AFq9FYJrcA8etiI4bPbAY2nKZawxVH9tw4+uRlcEbX3jnqtM+OdOOcv1
+	UemgOKx6b127dw/p7ZsJJbMBG9eSvdDOvGjcukJMidxQCvgstukXgk1B
+X-Gm-Gg: AYBFou1IAm9kydmHrUtYIT4jypqZfOH8QYYgdNRSQlf3x/INXuzKy49Zc3rbwT5xVPq
+	z+aMrWPdtMjNN0MtFKyf//4sy46EQAIQ/ji6xUEK/LCUQ22L1fyttxd1XQ70dKNrQ2ZHvZoG4Se
+	6tmPcG6IpTk8RuBZBvFjeuIVjiYyJMPBQ4N7lKqxWpVlcgOssj7ReI+oaSVR4Tb3dhnWnDUnXZk
+	xygQTKWCqTyPLnkDnRe/67bJHIoBit8IWTZWe4WMMjk/7dVJqP55wT3r2PBxWRZiXwrQymBYCai
+	ydJW1D2fsZTsYPQgPgV56OJHhtGcumwFZZ4R8yoWaRik/EvBT6J+K3TYI1hXZ3n7+4VpKeoamON
+	WAXsBWI0ChbT1QnZ3JAUpOhYVDy20r8TGKuenAia2CfUN2hkXvYGPQJNu9mIrpQPOWoyYnBC5m3
+	PKHn9Tz6rZLNOR8AcY4qQEi8ZafNksUyKYrdWwr3mrSGlCxjXSrIKfe5eEatqFa1E63RhOUFmK9
+	2jane2po3UfyB9wzh0XVGB6OGaYogLWhDkrQUI=
+X-Received: by 2002:a05:6a21:7a97:b0:3de:7854:8567 with SMTP id adf61e73a8af0-3e16bdd231bmr10680868637.12.1791904773761;
+        Tue, 13 Oct 2026 08:19:33 -0700 (PDT)
 Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd3da04596dsm5759888a12.29.2026.10.13.08.19.10
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd3da04596dsm5759888a12.29.2026.10.13.08.19.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 08:19:15 -0700 (PDT)
+        Tue, 13 Oct 2026 08:19:31 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: Brian Masney <bmasney+clk@redhat.com>,
 	Jerome Brunet <jbrunet+clk@baylibre.com>,
@@ -112,17 +112,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH v2 14/35] clk: mediatek: Add child-device population to probe/remove helpers
-Date: Wed, 14 Oct 2026 00:17:13 +0900
-Message-ID: <20261013151734.3177690-15-akkun11.open@gmail.com>
+Subject: [PATCH v2 16/35] clk: mediatek: mt2701: Switch to common probe/remove helpers
+Date: Wed, 14 Oct 2026 00:17:15 +0900
+Message-ID: <20261013151734.3177690-17-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261013151734.3177690-1-akkun11.open@gmail.com>
 References: <20261013151734.3177690-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_161921_138703_6A6AE36B 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20261013_161936_300279_6FF752C2 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,82 +137,455 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek audio clock drivers call devm_of_platform_populate() after
-mtk_clk_simple_probe(). Extend __mtk_clk_simple_probe() to run
-of_platform_populate() when the new 'populate_children' flag is set,
-reducing boilerplate.
+The MT2701 topckgen and pericfg drivers register clock types already
+supported by the common helpers, so their custom initialization
+routines can be replaced with struct mtk_clk_desc.
+
+The infracfg, apmixedsys, and audsys drivers additionally needed
+CPU mux registration, PLL registration, and child-device population,
+respectively. With these capabilities now supported by the common
+helpers, these drivers can use mtk_clk_simple_probe() and
+mtk_clk_simple_remove().
+
+Drop the CLK_OF_DECLARE_DRIVER early init for infracfg; the kernel's
+deferred probe mechanism ensures dependent drivers like cpufreq are
+initialized correctly.
+
+With the drivers converted to the common probe/remove helpers,
+enable module builds by changing their Kconfig entries to "tristate".
 
 Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 ---
 Changes in v2:
-- Use non "devm_" helper (based on Chen-Yu Tsai's review)
+- Improvement of commit messages
 ---
- drivers/clk/mediatek/clk-mtk.c | 18 +++++++++++++++++-
- drivers/clk/mediatek/clk-mtk.h |  1 +
- 2 files changed, 18 insertions(+), 1 deletion(-)
+ drivers/clk/mediatek/Kconfig          |  18 +-
+ drivers/clk/mediatek/clk-mt2701-aud.c |  35 +---
+ drivers/clk/mediatek/clk-mt2701.c     | 233 ++++++--------------------
+ 3 files changed, 65 insertions(+), 221 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mtk.c b/drivers/clk/mediatek/clk-mtk.c
-index e06cd40d995a..1172e76516c0 100644
---- a/drivers/clk/mediatek/clk-mtk.c
-+++ b/drivers/clk/mediatek/clk-mtk.c
-@@ -12,6 +12,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/slab.h>
-@@ -603,7 +604,16 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
- 		r = mtk_register_reset_controller_with_dev(&pdev->dev,
- 							   mcd->rst_desc);
- 		if (r)
--			goto unregister_clks;
-+			goto unregister_provider;
-+	}
-+
-+	if (mcd->populate_children) {
-+		r = of_platform_populate(pdev->dev.of_node, NULL, NULL,
-+					 &pdev->dev);
-+		if (r) {
-+			of_platform_depopulate(&pdev->dev);
-+			goto unregister_provider;
-+		}
- 	}
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index b059d44577f1..486024be26a6 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -19,7 +19,7 @@ config COMMON_CLK_MEDIATEK_FHCTL
+ 	  spread spectrum clocking features.
  
- 	if (mcd->need_runtime_pm)
-@@ -611,6 +621,9 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
+ config COMMON_CLK_MT2701
+-	bool "Clock driver for MediaTek MT2701"
++	tristate "Clock driver for MediaTek MT2701"
+ 	depends on (ARCH_MEDIATEK && ARM) || COMPILE_TEST
+ 	select COMMON_CLK_MEDIATEK
+ 	default ARCH_MEDIATEK && ARM
+@@ -27,49 +27,49 @@ config COMMON_CLK_MT2701
+ 	  This driver supports MediaTek MT2701 basic clocks.
  
- 	return 0;
+ config COMMON_CLK_MT2701_MMSYS
+-	bool "Clock driver for MediaTek MT2701 mmsys"
++	tristate "Clock driver for MediaTek MT2701 mmsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 mmsys clocks.
  
-+unregister_provider:
-+	of_clk_del_provider(node);
-+	platform_set_drvdata(pdev, NULL);
- unregister_clks:
- 	if (mcd->clks)
- 		mtk_clk_unregister_gates(mcd->clks, mcd->num_clks, clk_data);
-@@ -658,6 +671,9 @@ static void __mtk_clk_simple_remove(struct platform_device *pdev,
- 	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
- 	const struct mtk_clk_desc *mcd = device_get_match_data(&pdev->dev);
+ config COMMON_CLK_MT2701_IMGSYS
+-	bool "Clock driver for MediaTek MT2701 imgsys"
++	tristate "Clock driver for MediaTek MT2701 imgsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 imgsys clocks.
  
-+	if (mcd->populate_children)
-+		of_platform_depopulate(&pdev->dev);
-+
- 	of_clk_del_provider(node);
- 	if (mcd->clks)
- 		mtk_clk_unregister_gates(mcd->clks, mcd->num_clks, clk_data);
-diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
-index b6504b3e77ed..11939e3e0b38 100644
---- a/drivers/clk/mediatek/clk-mtk.h
-+++ b/drivers/clk/mediatek/clk-mtk.h
-@@ -265,6 +265,7 @@ struct mtk_clk_desc {
- 	unsigned int mfg_clk_idx;
+ config COMMON_CLK_MT2701_VDECSYS
+-	bool "Clock driver for MediaTek MT2701 vdecsys"
++	tristate "Clock driver for MediaTek MT2701 vdecsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 vdecsys clocks.
  
- 	bool need_runtime_pm;
-+	bool populate_children;
+ config COMMON_CLK_MT2701_HIFSYS
+-	bool "Clock driver for MediaTek MT2701 hifsys"
++	tristate "Clock driver for MediaTek MT2701 hifsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 hifsys clocks.
+ 
+ config COMMON_CLK_MT2701_ETHSYS
+-	bool "Clock driver for MediaTek MT2701 ethsys"
++	tristate "Clock driver for MediaTek MT2701 ethsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 ethsys clocks.
+ 
+ config COMMON_CLK_MT2701_BDPSYS
+-	bool "Clock driver for MediaTek MT2701 bdpsys"
++	tristate "Clock driver for MediaTek MT2701 bdpsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 bdpsys clocks.
+ 
+ config COMMON_CLK_MT2701_AUDSYS
+-	bool "Clock driver for Mediatek MT2701 audsys"
++	tristate "Clock driver for Mediatek MT2701 audsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports Mediatek MT2701 audsys clocks.
+ 
+ config COMMON_CLK_MT2701_G3DSYS
+-	bool "Clock driver for MediaTek MT2701 g3dsys"
++	tristate "Clock driver for MediaTek MT2701 g3dsys"
+ 	depends on COMMON_CLK_MT2701
+ 	help
+ 	  This driver supports MediaTek MT2701 g3dsys clocks.
+diff --git a/drivers/clk/mediatek/clk-mt2701-aud.c b/drivers/clk/mediatek/clk-mt2701-aud.c
+index e103121cf58e..533d35614661 100644
+--- a/drivers/clk/mediatek/clk-mt2701-aud.c
++++ b/drivers/clk/mediatek/clk-mt2701-aud.c
+@@ -128,6 +128,7 @@ static const struct mtk_gate audio_clks[] = {
+ static const struct mtk_clk_desc audio_desc = {
+ 	.clks = audio_clks,
+ 	.num_clks = ARRAY_SIZE(audio_clks),
++	.populate_children = true,
  };
  
- int mtk_clk_pdev_probe(struct platform_device *pdev);
+ static const struct of_device_id of_match_clk_mt2701_aud[] = {
+@@ -136,39 +137,9 @@ static const struct of_device_id of_match_clk_mt2701_aud[] = {
+ };
+ MODULE_DEVICE_TABLE(of, of_match_clk_mt2701_aud);
+ 
+-static int clk_mt2701_aud_probe(struct platform_device *pdev)
+-{
+-	int r;
+-
+-	r = mtk_clk_simple_probe(pdev);
+-	if (r) {
+-		dev_err(&pdev->dev,
+-			"could not register clock provider: %s: %d\n",
+-			pdev->name, r);
+-
+-		return r;
+-	}
+-
+-	r = devm_of_platform_populate(&pdev->dev);
+-	if (r)
+-		goto err_plat_populate;
+-
+-	return 0;
+-
+-err_plat_populate:
+-	mtk_clk_simple_remove(pdev);
+-	return r;
+-}
+-
+-static void clk_mt2701_aud_remove(struct platform_device *pdev)
+-{
+-	of_platform_depopulate(&pdev->dev);
+-	mtk_clk_simple_remove(pdev);
+-}
+-
+ static struct platform_driver clk_mt2701_aud_drv = {
+-	.probe = clk_mt2701_aud_probe,
+-	.remove = clk_mt2701_aud_remove,
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
+ 	.driver = {
+ 		.name = "clk-mt2701-aud",
+ 		.of_match_table = of_match_clk_mt2701_aud,
+diff --git a/drivers/clk/mediatek/clk-mt2701.c b/drivers/clk/mediatek/clk-mt2701.c
+index 710c4f2f9f30..5ea0c4acaf1b 100644
+--- a/drivers/clk/mediatek/clk-mt2701.c
++++ b/drivers/clk/mediatek/clk-mt2701.c
+@@ -6,6 +6,7 @@
+ 
+ #include <linux/clk-provider.h>
+ #include <linux/platform_device.h>
++#include <linux/module.h>
+ 
+ #include "clk-cpumux.h"
+ #include "clk-gate.h"
+@@ -655,38 +656,19 @@ static const struct mtk_gate top_clks[] = {
+ 		28),
+ };
+ 
+-static int mtk_topckgen_init(struct platform_device *pdev)
+-{
+-	struct clk_hw_onecell_data *clk_data;
+-	void __iomem *base;
+-	struct device_node *node = pdev->dev.of_node;
+-
+-	base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(base))
+-		return PTR_ERR(base);
+-
+-	clk_data = mtk_alloc_clk_data(CLK_TOP_NR);
+-	if (!clk_data)
+-		return -ENOMEM;
+-
+-	mtk_clk_register_fixed_clks(top_fixed_clks, ARRAY_SIZE(top_fixed_clks),
+-								clk_data);
+-
+-	mtk_clk_register_factors(top_fixed_divs, ARRAY_SIZE(top_fixed_divs),
+-								clk_data);
+-
+-	mtk_clk_register_composites(&pdev->dev, top_muxes,
+-				    ARRAY_SIZE(top_muxes), base,
+-				    &mt2701_clk_lock, clk_data);
+-
+-	mtk_clk_register_dividers(&pdev->dev, top_adj_divs, ARRAY_SIZE(top_adj_divs),
+-				base, &mt2701_clk_lock, clk_data);
+-
+-	mtk_clk_register_gates(&pdev->dev, node, top_clks,
+-			       ARRAY_SIZE(top_clks), clk_data);
+-
+-	return of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
+-}
++static const struct mtk_clk_desc topck_desc = {
++	.clks = top_clks,
++	.num_clks = ARRAY_SIZE(top_clks),
++	.fixed_clks = top_fixed_clks,
++	.num_fixed_clks = ARRAY_SIZE(top_fixed_clks),
++	.factor_clks = top_fixed_divs,
++	.num_factor_clks = ARRAY_SIZE(top_fixed_divs),
++	.composite_clks = top_muxes,
++	.num_composite_clks = ARRAY_SIZE(top_muxes),
++	.divider_clks = top_adj_divs,
++	.num_divider_clks = ARRAY_SIZE(top_adj_divs),
++	.clk_lock = &mt2701_clk_lock,
++};
+ 
+ static const struct mtk_gate_regs infra_cg_regs = {
+ 	.set_ofs = 0x0040,
+@@ -725,81 +707,21 @@ static const struct mtk_fixed_factor infra_fixed_divs[] = {
+ static u16 infrasys_rst_ofs[] = { 0x30, 0x34, };
+ static u16 pericfg_rst_ofs[] = { 0x0, 0x4, };
+ 
+-static const struct mtk_clk_rst_desc clk_rst_desc[] = {
+-	/* infrasys */
+-	{
+-		.version = MTK_RST_SIMPLE,
+-		.rst_bank_ofs = infrasys_rst_ofs,
+-		.rst_bank_nr = ARRAY_SIZE(infrasys_rst_ofs),
+-	},
+-	/* pericfg */
+-	{
+-		.version = MTK_RST_SIMPLE,
+-		.rst_bank_ofs = pericfg_rst_ofs,
+-		.rst_bank_nr = ARRAY_SIZE(pericfg_rst_ofs),
+-	},
++static const struct mtk_clk_rst_desc infra_rst_desc = {
++	.version = MTK_RST_SIMPLE,
++	.rst_bank_ofs = infrasys_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(infrasys_rst_ofs),
+ };
+ 
+-static struct clk_hw_onecell_data *infra_clk_data;
+-
+-static void __init mtk_infrasys_init_early(struct device_node *node)
+-{
+-	int r, i;
+-
+-	if (!infra_clk_data) {
+-		infra_clk_data = mtk_alloc_clk_data(CLK_INFRA_NR);
+-		if (!infra_clk_data)
+-			return;
+-
+-		for (i = 0; i < CLK_INFRA_NR; i++)
+-			infra_clk_data->hws[i] = ERR_PTR(-EPROBE_DEFER);
+-	}
+-
+-	mtk_clk_register_factors(infra_fixed_divs, ARRAY_SIZE(infra_fixed_divs),
+-						infra_clk_data);
+-
+-	mtk_clk_register_cpumuxes(NULL, node, cpu_muxes, ARRAY_SIZE(cpu_muxes),
+-				  infra_clk_data);
+-
+-	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
+-				   infra_clk_data);
+-	if (r)
+-		pr_err("%s(): could not register clock provider: %d\n",
+-			__func__, r);
+-}
+-CLK_OF_DECLARE_DRIVER(mtk_infra, "mediatek,mt2701-infracfg",
+-			mtk_infrasys_init_early);
+-
+-static int mtk_infrasys_init(struct platform_device *pdev)
+-{
+-	int r, i;
+-	struct device_node *node = pdev->dev.of_node;
+-
+-	if (!infra_clk_data) {
+-		infra_clk_data = mtk_alloc_clk_data(CLK_INFRA_NR);
+-		if (!infra_clk_data)
+-			return -ENOMEM;
+-	} else {
+-		for (i = 0; i < CLK_INFRA_NR; i++) {
+-			if (infra_clk_data->hws[i] == ERR_PTR(-EPROBE_DEFER))
+-				infra_clk_data->hws[i] = ERR_PTR(-ENOENT);
+-		}
+-	}
+-
+-	mtk_clk_register_gates(&pdev->dev, node, infra_clks,
+-			       ARRAY_SIZE(infra_clks), infra_clk_data);
+-	mtk_clk_register_factors(infra_fixed_divs, ARRAY_SIZE(infra_fixed_divs),
+-						infra_clk_data);
+-
+-	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
+-				   infra_clk_data);
+-	if (r)
+-		return r;
+-
+-	mtk_register_reset_controller_with_dev(&pdev->dev, &clk_rst_desc[0]);
+-
+-	return 0;
+-}
++static const struct mtk_clk_desc infracfg_desc = {
++	.clks = infra_clks,
++	.num_clks = ARRAY_SIZE(infra_clks),
++	.factor_clks = infra_fixed_divs,
++	.num_factor_clks = ARRAY_SIZE(infra_fixed_divs),
++	.cpumuxes = cpu_muxes,
++	.num_cpumuxes = ARRAY_SIZE(cpu_muxes),
++	.rst_desc = &infra_rst_desc,
++};
+ 
+ static const struct mtk_gate_regs peri0_cg_regs = {
+ 	.set_ofs = 0x0008,
+@@ -883,36 +805,20 @@ static const struct mtk_composite peri_muxs[] = {
+ 		0x40c, 3, 1),
+ };
+ 
+-static int mtk_pericfg_init(struct platform_device *pdev)
+-{
+-	struct clk_hw_onecell_data *clk_data;
+-	void __iomem *base;
+-	int r;
+-	struct device_node *node = pdev->dev.of_node;
+-
+-	base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(base))
+-		return PTR_ERR(base);
+-
+-	clk_data = mtk_alloc_clk_data(CLK_PERI_NR);
+-	if (!clk_data)
+-		return -ENOMEM;
+-
+-	mtk_clk_register_gates(&pdev->dev, node, peri_clks,
+-			       ARRAY_SIZE(peri_clks), clk_data);
+-
+-	mtk_clk_register_composites(&pdev->dev, peri_muxs,
+-				    ARRAY_SIZE(peri_muxs), base,
+-				    &mt2701_clk_lock, clk_data);
+-
+-	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
+-	if (r)
+-		return r;
+-
+-	mtk_register_reset_controller_with_dev(&pdev->dev, &clk_rst_desc[1]);
++static const struct mtk_clk_rst_desc peri_rst_desc = {
++	.version = MTK_RST_SIMPLE,
++	.rst_bank_ofs = pericfg_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(pericfg_rst_ofs),
++};
+ 
+-	return 0;
+-}
++static const struct mtk_clk_desc pericfg_desc = {
++	.clks = peri_clks,
++	.num_clks = ARRAY_SIZE(peri_clks),
++	.composite_clks = peri_muxs,
++	.num_composite_clks = ARRAY_SIZE(peri_muxs),
++	.rst_desc = &peri_rst_desc,
++	.clk_lock = &mt2701_clk_lock,
++};
+ 
+ #define MT8590_PLL_FMAX		(2000 * MHZ)
+ #define CON0_MT8590_RST_BAR	BIT(27)
+@@ -968,74 +874,41 @@ static const struct mtk_fixed_factor apmixed_fixed_divs[] = {
+ 	FACTOR(CLK_APMIXED_HDMI_REF, "hdmi_ref", "tvdpll", 1, 1),
+ };
+ 
+-static int mtk_apmixedsys_init(struct platform_device *pdev)
+-{
+-	struct clk_hw_onecell_data *clk_data;
+-	struct device_node *node = pdev->dev.of_node;
+-
+-	clk_data = mtk_alloc_clk_data(CLK_APMIXED_NR);
+-	if (!clk_data)
+-		return -ENOMEM;
+-
+-	mtk_clk_register_plls(&pdev->dev, apmixed_plls, ARRAY_SIZE(apmixed_plls),
+-								clk_data);
+-	mtk_clk_register_factors(apmixed_fixed_divs, ARRAY_SIZE(apmixed_fixed_divs),
+-								clk_data);
+-
+-	return of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
+-}
++static const struct mtk_clk_desc apmixedsys_desc = {
++	.plls = apmixed_plls,
++	.num_plls = ARRAY_SIZE(apmixed_plls),
++	.factor_clks = apmixed_fixed_divs,
++	.num_factor_clks = ARRAY_SIZE(apmixed_fixed_divs),
++};
+ 
+ static const struct of_device_id of_match_clk_mt2701[] = {
+ 	{
+ 		.compatible = "mediatek,mt2701-topckgen",
+-		.data = mtk_topckgen_init,
++		.data = &topck_desc,
+ 	}, {
+ 		.compatible = "mediatek,mt2701-infracfg",
+-		.data = mtk_infrasys_init,
++		.data = &infracfg_desc,
+ 	}, {
+ 		.compatible = "mediatek,mt2701-pericfg",
+-		.data = mtk_pericfg_init,
++		.data = &pericfg_desc,
+ 	}, {
+ 		.compatible = "mediatek,mt2701-apmixedsys",
+-		.data = mtk_apmixedsys_init,
++		.data = &apmixedsys_desc,
+ 	}, {
+ 		/* sentinel */
+ 	}
+ };
+ MODULE_DEVICE_TABLE(of, of_match_clk_mt2701);
+ 
+-static int clk_mt2701_probe(struct platform_device *pdev)
+-{
+-	int (*clk_init)(struct platform_device *);
+-	int r;
+-
+-	clk_init = of_device_get_match_data(&pdev->dev);
+-	if (!clk_init)
+-		return -EINVAL;
+-
+-	r = clk_init(pdev);
+-	if (r)
+-		dev_err(&pdev->dev,
+-			"could not register clock provider: %s: %d\n",
+-			pdev->name, r);
+-
+-	return r;
+-}
+-
+ static struct platform_driver clk_mt2701_drv = {
+-	.probe = clk_mt2701_probe,
+ 	.driver = {
+ 		.name = "clk-mt2701",
+ 		.of_match_table = of_match_clk_mt2701,
+ 	},
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
+ };
+-
+-static int __init clk_mt2701_init(void)
+-{
+-	return platform_driver_register(&clk_mt2701_drv);
+-}
+-
+-arch_initcall(clk_mt2701_init);
++module_platform_driver(clk_mt2701_drv);
+ 
+ MODULE_DESCRIPTION("MediaTek MT2701 main clocks driver");
+ MODULE_LICENSE("GPL");
 -- 
 2.56.0
 
