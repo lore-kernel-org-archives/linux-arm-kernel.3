@@ -4,88 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48029CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E71CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 17:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hp1dTw3hRxiZBvSzxIR3eaRSSMR6S7lRt7/KxcL7YmU=; b=yOsYRdiYT7mWe5jnDNOjZW9fzr
-	WFizD+Duy9Dl4gpHRVyMpax6TKXqxPBLMAGQqUkvezEWSphm3optbjKCu3ZDcvepWxxsqna095mO1
-	nltPXGIE3Ns8jHvdqZkPooykT73GGTBNQ6am2iX1kOVMwHDHQxWUZ2eIF6QTMUTItoNjSUogQA3GU
-	2gMXqvqNgX+EImCwh5a3OK/aHRRg30CQbmakIeCB3One99u05qHFwyUIhsjeSn8uPmbpqR53uonEz
-	BwFUeewdKf7zl86DhOCudcxD5tlWW+6JGMyAZtpV+mhubR38D7zWoZqsZmiQC4tg9QWoQn3vGA/ly
-	BRLztc/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AoNTFArShrIuErsfoUzGL9W/LuOVl703X8/dX7lKLJs=; b=0/uyiABDEJwAmJXC6sWyyVIZE2
+	wlIKHHc08aGVm6R4JQfTwJyEX9+fwXnEi2iQ2K88SQYOrO86qHZTeXupWGiLP0+d3I+MLrQM5u/dv
+	BZ5Dw5Zc+vJFl66AeCNeQ2fq0nINx5GFFjivJjK2tbr/fh/yz6FEJJrywckvFhT6UTBGd6AQO/1MG
+	mdShLoqCIJnO73WTgTrsMpkVzwTAxc6eKh8ki+FKUvCxC4nnC0s03Z4iLI3K0IS5mXQkrt0fg7Zui
+	UykmpKmlnpropHFEGviQPzcDkOvr/K+0oEfeau01B6vRQXpchAnz0j4xk7NnFBoA/8FmHt7FKg5eL
+	hOxU6zEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgh8-0000000Dlg5-1U8P;
-	Tue, 13 Oct 2026 17:53:46 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1xGghi-0000000Dlvp-3SkR;
+	Tue, 13 Oct 2026 17:54:22 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGgh5-0000000DleU-0QRR
+	id 1xGghc-0000000Dls0-2otl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 17:53:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=hp1dTw3hRxiZBvSzxIR3eaRSSMR6S7lRt7/KxcL7YmU=; b=O
-	WFaVuM93IWPWVHz1DROYW7egfZ3MO/d1MdS/gA7+Jxi5NWJd4PoZrmiHx15AKVZ2
-	4UM4Cwvntj02QhgfOh2yUzLuhNFwL2fTm+PsC0+Y4zrcQoHKQKUn5ibm288MEAes
-	5R0lW7gOOP+J72R9BCZBMfN7yGrWIPetla+gvN6Ux0=
-Date: Wed, 14 Oct 2026 01:51:46 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Linus Walleij" <linusw@kernel.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, longzhao@ambarella.com,
-	"Arnd Bergmann" <arnd@arndb.de>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Jerome Brunet" <jbrunet@baylibre.com>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re:Re: Re: [PATCH v8 04/18] dt-bindings: pinctrl: add Ambarella
- CV75 pinctrl
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <CAD++jLmrQwAT1Sb8HGgoM8x48rN9-pPT2RB1GE18h5YA7c4CwQ@mail.gmail.com>
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
- <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com>
- <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
- <b2256847-3ec1-47e8-ac79-ceca86eb09e7@kernel.org>
- <CAD++jLkrXXg9xrhAZ8HETc5Qcv5BbkY-ibjvzBmE5WZVqDEGWQ@mail.gmail.com>
- <a0eca34d-5eb2-4730-b8c7-0f2302bcf265@kernel.org>
- <CAD++jLm=T-U07vAVCogMnfOfkDf=i9QhGGc8ok2N-ZUh50WLNA@mail.gmail.com>
- <56dc6c05-7fd6-43de-bc62-c353ae1dbcc3@kernel.org>
- <54b55ad7.9d3a.1a135b09587.Coremail.zl020895@163.com>
- <CAD++jLmrQwAT1Sb8HGgoM8x48rN9-pPT2RB1GE18h5YA7c4CwQ@mail.gmail.com>
-X-NTES-SC: AL_Qu2SA/WavEEr4CaeZekdnUoTj+Y/XMK0uvwk1YdVc8gEnjjMwxonRUZAE2Xr9+a2LgydoDuVWhh8yd55fo9x/FIZB3Lpfw2lhbgiuZUShQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Tue, 13 Oct 2026 17:54:21 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-6f74f6b46abso1111123eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 10:54:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791914055; x=1792518855; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AoNTFArShrIuErsfoUzGL9W/LuOVl703X8/dX7lKLJs=;
+        b=FkGSM29xykmIGfJz44XDc3zveAvMgS99nR+EdN5pGqBqMFgIYniTgMzru0soy1Uswx
+         y4bwvF5PK3z3Kov5m1DCWPmwWJ0kaSIW/7xCVsg2TMPDO7f71Ea6ffY21Z8sQcGccHeO
+         KUTNR9GP/Vdn1MrzG3hdo7oSU8Es2TS9N5H2EyY20t5pEGd4weMusmadOIgnZ0vUYt7y
+         sDMEt9DqZuTfuSQ6gRKFTubnahn3YdRfC2qt+exK27HlORud7mimLQUrViRcyISipURV
+         dpY1To8ArLNvVRcIAuGHGKCrYvjexfh6RccnGdCs6DAHTwebweEPHjadWhewZOAMd9Xj
+         Z1BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791914055; x=1792518855;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=AoNTFArShrIuErsfoUzGL9W/LuOVl703X8/dX7lKLJs=;
+        b=D9+2fT52bwMk0hHGXlq/BHfE62Xng+JqWXnoJALzBr1cCA2Ul9xuaWpqGnQmIJAybG
+         0KQl2Wl9aKXmAaGAbylhpwiZto3YnfW698NSwEqT55fJ4YiBFWvy7wBvkMNxM9fMcdC2
+         Iugvb81cEpsIe2uQfQvNkG6IjZp8rdaImk/r2ojljAIfQcgaCfCEPu4Y8BVePmnp0alL
+         p5lW+/g8/shjILQZpsfUCp4BUIOpOWCYiwDr17wQVUWfQ8ynUploK5/hbwkHA/USf2QG
+         xztpRcAEXWBG8Wb+2ka5c/6+500pHMAtLtAnWgIdjDe3VVyEwgA5CSgzxuO0lZ4wRwTP
+         j0aA==
+X-Forwarded-Encrypted: i=1; AKwUvBzIiK4v27dEacGJGknVUQHupcVvMyTNx7PLoAmQhCO3QNWp71i2ZUcN8O220TKc6XgeLpUPbD0RF3H15QUjubDx@lists.infradead.org
+X-Gm-Message-State: AFq9FYJrJfKBoIQwbjdRue6/hTu1RmvgvcvwI8l4691tTnTVJhAxfwwf
+	sxXVC4UJDgwQHGPxmF8yfNJeUsIWF/JSBFWHrd7jP/NiyjjqRDKzXJor
+X-Gm-Gg: AYBFou0Ckxe95FbYi7Ei2+qldLMvG84VY4YHFuQFu46yH+Wh1J8ZygegZV5qwvJ9Cdg
+	qLatHeMzo3+VcdOXp2KrF8JHoMrn6eRIwTPtyPgZrBRwTbn1llOrArj14e5QuPufuZ8mdyikgXg
+	SLbgljJq+mQgSwdgwcsbp/pxV+f9vKt7U7RVaTVtnhLqLZIM+NwBMdtHbxZsXwvRXKGn8ff91tc
+	+9vp3Ybs/IJvXkYGWfSrRcFkQna++1r/CDO00GyYRNXG2PGyrwZUS9K0j9XK69mlyrHRwmEhEt9
+	Pm6Ruti1hpD5jytOJjDDZdrlAMiqs/kvDrQCtlGTZnt+CruqQcQpPtZEkqkfJUl6z03v4gJZS6P
+	nSo7n4bhxjySE/DhprauRPuQ95SBphLwebIFOi2XIc60kOA8gbWPv1WGyATFJAAs9pAe4dHk9LS
+	rHwhmsfYtBu6zVHklnuXDN/iJ6h0zGIfP2AzIbztvecV7PSLW2rWjQ6RXgN6CoEJHoRibe9/dI3
+	0/ypEwz28NpTsdJujdobd3Cu3w+RG8NABV8bQ5+w9m+G7TngaaOLlzjNIIN4sDprHccTs9Pioa2
+	3JgjMczYX1IthdNl8H09LPx8nj+4LrfNxFmOBpwVjmItQJsCTYwnEoLizpPLpyLTNryLnJpRJbH
+	2nXrPIUBAjNcPCi3lmhZJt1jZGMJPiA6Q
+X-Received: by 2002:a05:6820:a292:10b0:6f5:467a:aed2 with SMTP id 006d021491bc7-6f5467ab923mr3853137eaf.5.1791914055335;
+        Tue, 13 Oct 2026 10:54:15 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a6dfcabc34sm277356fac.15.2026.10.13.10.54.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Oct 2026 10:54:14 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 13 Oct 2026 11:54:13 -0600
+Subject: [PATCH net-next v2] net: stmmac: leave the datapath running for
+ normal-size MTU changes
 MIME-Version: 1.0
-Message-ID: <69bf6d9d.a86d.1a1366451f1.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eygvCgD3NyGyb85qV71XAA--.16978W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbC7hJWx2rOb7KL3QAA3C
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-stmmac-mtu-fastpath-v2-1-1e4ce8137689@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32OwW7DIBBEf8Xac6kWg2PIqf9R5bDgJUYqdgLES
+ hX534vcnnscPc2beUHhHLnAuXtB5i2WuC4t9G8d+JmWK4s4tQw99ie0CkWpKZEXqT5EoFJvVGd
+ xMkYqpkk5i9Cat8whPg/rJyxcxcLPCpdfkvn+aDP1DzsqLPyaUqznDgc3oLQOZXBWa+XQEmuel
+ KYgpRrIIBntzeGaY6lr/j6ub/KQ/ftyk0KKMI0qqNF4HOXHNVH8em/jcNn3/QcZJUMJDAEAAA=
+ =
+X-Change-ID: 20260930-stmmac-mtu-fastpath-68813ead3b90
+To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Christian Marangi <ansuelsmth@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Nicolai Buchwitz <nb@tipi-net.de>, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_105343_519686_82A6CD5D 
-X-CRM114-Status: UNSURE (   5.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261013_105416_745193_EC0F3D49 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,18 +115,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkF0IDIwMjYtMTAtMTQgMDA6Mzg6NDAsICJMaW51cyBXYWxsZWlqIiA8bGludXN3QGtlcm5lbC5v
-cmc+IHdyb3RlOgo+T24gVHVlLCBPY3QgMTMsIDIwMjYgYXQgNDozNuKAr1BNIHpsMDIwODk1IDx6
-bDAyMDg5NUAxNjMuY29tPiB3cm90ZToKPgo+PiBXb3VsZCB0aGlzIHdvcms/OiBJIHNlbmQgYSBz
-dGFuZGFsb25lCj4+ICJkdC1iaW5kaW5nczogdmVuZG9yLXByZWZpeGVzOiBhZGQgQW1iYXJlbGxh
-IiBwYXRjaCB0byBSb2Igd2l0aCBvbmx5Cj4+IHRoZSB0d28gbGluZXMgaW4gdmVuZG9yLXByZWZp
-eGVzLnlhbWwsIGFuZCBkcm9wIHRoYXQgaHVuayBmcm9tIHRoZQo+PiBTb0Mgc2VyaWVzLiBPbmNl
-IHRoZSBwcmVmaXggaXMgaW4gbGludXgtbmV4dCwgdGhlIHZlbmRvci1wcmVmaXgKPj4gd2Fybmlu
-Z3Mgc2hvdWxkIGJlIGZpeGVkLiBUaGUgcmVtYWluaW5nIGV4YW1wbGUgbWF0Y2hlcywgc3VjaCBh
-cwo+PiBhbWJhcmVsbGEsZHJpdmUtc3RyZW5ndGgtc3lzY29uLCBzdGlsbCBuZWVkIHRoZSBzZXBh
-cmF0ZQo+PiBHUElPL1VBUlQvcGluY3RybCBiaW5kaW5ncy4KPgo+VGhhdCB3b3JrcyBmb3IgbWUg
-YW5kIHNvbHZlcyBteSBwcm9ibGVtIHNvIGdvIGFoZWFkLgo+Cj5Zb3VycywKPkxpbnVzIFdhbGxl
-aWoKClNlbnQ6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MTAxNC1jdjc1LXByZWZp
-eC12MS0xLWZlOTVlZDU2Nzg4MEBhbWJhcmVsbGEuY29tCgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhh
-bwo=
+When both MTUs are at most ETH_DATA_LEN, the receive buffer size and MAC
+receive limit do not change. Update the MTU without restarting the
+datapath.
+
+This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
+rejects jumbo MTUs, so all supported XDP MTU changes take this path.
+Jumbo transitions still use the existing reopen path.
+
+Found by source review while working on the stmmac MTU/resume recovery
+series. The fast path was tested on Allwinner H616 with sun8i EMAC1 and
+an AC300 PHY. The AF_XDP scenario was identified by inspection.
+
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v2:
+- Target net-next and drop the Fixes tag as requested by Jakub Kicinski.
+- Clarify the standalone commit message and how the issue was found.
+- Add Nicolai Buchwitz's Reviewed-by.
+- No code changes.
+- Link to v1: https://patch.msgid.link/20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 56d89a696272..50eaee656cfb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6257,7 +6257,12 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
+ 	if ((txfifosz < new_mtu) || (new_mtu > BUF_SIZE_16KiB))
+ 		return -EINVAL;
+ 
+-	if (netif_running(dev)) {
++	/* Normal-size frames use the same buffers and MAC receive limits.
++	 * In particular, do not disturb a live AF_XDP pool: XDP does not
++	 * support jumbo frames, so it never needs the ring replacement below.
++	 */
++	if (netif_running(dev) &&
++	    (dev->mtu > ETH_DATA_LEN || mtu > ETH_DATA_LEN)) {
+ 		netdev_dbg(priv->dev, "restarting interface to change its MTU\n");
+ 		/* Try to allocate the new DMA conf with the new mtu */
+ 		dma_conf = stmmac_setup_dma_desc(priv, mtu);
+
+---
+base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
+change-id: 20260930-stmmac-mtu-fastpath-68813ead3b90
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
+
 
