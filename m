@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A3DCC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F79DCC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQrVccK3v8gLZZTZhG+z50I9Lrsb8YYlXxXzGN+OZL0=; b=0zKocjD4+Lxs1Va+uE93Ia48N5
-	jvb5BAwKzi84AnPJ+9+VfcFFniJatJbZeAXrbZehYvr7aCULA5VDgsIv7c349hMTDnlR1deT2sjb4
-	w7RJbP7vukrn5WGkuGXtQRvn7ihPgkbZP+G2vwX3b1Ts3XR5VxCNVRlzO35bxajCt2vPSOki2658/
-	tKYbdi6bEByZj4yxMOxH88wPDd0mRUjSeVcUhQc3Vej9OEpuPvZRko3E7He7AfhV1ZMym46W+YOrL
-	dvCP10mD5d37GBxdanKE0EpIpFY0CTVeBhg3F71hI/HQgtF810LVkoD5yhUSIVrkHAlMGHyINvn/i
-	QRY310yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eoYh+wmGkfMuCrYWAfzCPGRay9LfK9IhzqEdYF+ddbs=; b=aPh1G/9udxwB4Btf3hoCntqica
+	H34WTXnuPAGFgy+lKT8j/v3/54TWCCazgkVqYNTt0CmvqA+QzbHBnaWxYN+V8IaA4DaAj9DSePyh7
+	qh6h4bOhSZNYQqPbI+fujTkXufQjnh5WoSN3vuv92Jx/D+ZE+tyuK/eoMTKu0LhyvU/odAH1k7gvz
+	Za5r44JZmBPAgFHrsQWnmGK87bdcq1AnsS2Q8Z9i2oB95MYm+AYFjsaNjWa1LeyMKkNk7FTh4Kzn4
+	W+vsZmmTLtUGya6L61sMQe2djAfmmwyNHa3kSLbHBfBCIuO8dTYEGaQL30ZJv5cge4uEgnU7grjo4
+	b1f4YSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIeV-0000000HQup-1KHQ;
-	Thu, 15 Oct 2026 10:25:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIeS-0000000HQtx-3p1g
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 10:25:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74A8D143D;
-	Thu, 15 Oct 2026 03:25:26 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E37763F871;
-	Thu, 15 Oct 2026 03:25:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792059929; bh=sGbHk5FDbz32VFe9pXscVJPbQ6k08fJgWHw3LqabAHc=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=vKSGvAjXtSB+OFC5IiRfz05LDiq0TLIbJkeg6ZXjto/Zcxk8gPcWLTHI7cGgpUH/p
-	 J/SYN6MJmQ7Kkvg1lRYsVds5mULFbMOnylpVrD1Y5ZAjWRsGcsCoPxJ77NzHFsz0Sw
-	 WyokOTq42LoQUpu5CzUHlhQ3ReAKIvhq7K7nXGvM=
-Date: Thu, 15 Oct 2026 11:25:25 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, will@kernel.org, mark.rutland@arm.com,
-	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com,
-	james.clark@linaro.org
-Subject: Re: [RFC PATCH v7 00/28] KVM: arm64: Add Statistical Profiling
- Extension (SPE) support
-Message-ID: <atCqFRdGzFq5dOdT@raptor>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+	id 1xHIjv-0000000HRgA-2wlH;
+	Thu, 15 Oct 2026 10:31:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHIjs-0000000HRfQ-1ehE;
+	Thu, 15 Oct 2026 10:31:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D5AEE41078;
+	Thu, 15 Oct 2026 10:31:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EADF1F000C5;
+	Thu, 15 Oct 2026 10:31:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792060267;
+	bh=eoYh+wmGkfMuCrYWAfzCPGRay9LfK9IhzqEdYF+ddbs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ZXqyQrV6Y7qejDD9SlNYEzQBYR5GGe5ROFqdWd53NW2wZQ9yh1ft+y6dpqkI+3uRs
+	 qTfJqdBvZTQ5qHICsZjul3pBTF59hlac8Fr8dEDPC2TcmnDVRYEH+RsCUjMYC78C2r
+	 YRKjwN2oi8BguEWhyuFdGws2IlgyhBO2/+ohgq0c1oAfkQ1dfYmbU8SF6DigX38KeO
+	 ZQxeIadKVXb2qSVKBj65xTLXyGDjY6pLBmx1AgN6ylVv0kfh1V53IxbcEoDlmSrrZ2
+	 QPDpjOrijyCUv6X79cx7cO6dqXjMPZdtxmJcOg8fE3kDW7iIF/nMbUSVppXrcssx+J
+	 0+UE/oMtoJ8DQ==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Priyanka Mani <priyankamani2100@gmail.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, linux-sound@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Dan Carpenter <error27@gmail.com>
+In-Reply-To: <403cc04bb103dff096edf72b99ae6868ee91f359.1791782072.git.priyankamani2100@gmail.com>
+References: <403cc04bb103dff096edf72b99ae6868ee91f359.1791782072.git.priyankamani2100@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt8365: Fix out-of-bounds read in
+ get_iir_coef()
+Message-Id: <179192115331.1606900.11418539527267482059.b4-ty@b4>
+Date: Tue, 13 Oct 2026 20:52:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-1-alexandru.elisei@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_032533_072481_9F08A08D 
-X-CRM114-Status: GOOD (  52.71  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1147; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=OeNecRvAZ2xIg1KwKkSy3lnhgYoQ9dQyV2iwg36Y1C8=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIurE6P8+r9axAV+TZqMgNber7dtH0Jq1NyvtYzer+5z
+ W+2KOt4RykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACbC8peRYf8Zj9463o86y/9b
+ 3S5ZUKJxYc+ZhLMNGks3/YyaJH/e5AkjQ1Odr1Prn7xu2zzfKedVVtivXsYr+C86dd3uQ7v0OE/
+ 1cgEA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,235 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver, Marc,
+On Mon, 12 Oct 2026 05:31:19 +0000, Priyanka Mani wrote:
+> ASoC: mediatek: mt8365: Fix out-of-bounds read in get_iir_coef()
 
-Gentle ping regarding this series. Is there something you want me to do to make
-reviewing easier? Do you want me to rebase it on top of v7.4-rc1 when it comes
-out? Something else?
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+
+Thanks!
+
+[1/1] ASoC: mediatek: mt8365: Fix out-of-bounds read in get_iir_coef()
+      https://git.kernel.org/broonie/sound/c/e913917febd3
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Alex
+Mark
 
-On Thu, Sep 03, 2026 at 05:05:55PM +0100, Alexandru Elisei wrote:
-> For a description of the problem, and why using gup doesn't work, see the
-> previous iteration of the series, version v6 [1].
-> 
-> This series is based on v7.3-rc1.
-> 
-> I've completely changed the approach yet again, but I've kept Reviewed-by tags
-> for the some of the prerequisite patches. The highlights are:
-> 
-> * The entire memory is effectively pinned at stage 2 before the first VCPU is
-> run by having userspace use guest_memfd to back VM memory and then doing
-> KVM_PRE_FAULT_MEMORY on that memory.
-> 
-> This change alone simplifies the code immensly.
-> 
-> * The maximum buffer size does not need to be virtualized since the entire VM
-> memory is pinned, which means that PMBIDR_EL1 doesn't need to be trapped.
-> SPE features cannot be completely hidden from the guest, as some of them (most
-> of them?) add new fields to the records. The end result: PMBIDR_EL1 and
-> PMSIDR_EL1 don't need to be trapped, so the dependency on FEAT_FGT is dropped.
-> 
-> * It works with the SPE host driver built as a module; KVM requires that the
-> module is loaded for SPE to be virtualized.
-> 
-> The end result is that KVM support is mostly reduced to the userspace ABI to
-> configure the feature and context switching the SPE state.
-> 
-> 
-> Prerequisites
-> =============
-> 
-> There are several prerequisites:
-> 
-> * The series depends on KVM_PRE_FAULT_MEMORY being implemented for arm64.
-> There are two different implementations of that on the mailing list: [2], [3]. I
-> have chosen to use the series from Jack Thomson [2] (rebased on top of v7.3-rc1
-> + the SPE patches) for the simple reason that it doesn't change the way KVM
-> handles stage 2 faults, and can be cherry-picked *after* the KVM SPE patches, to
-> allow sashiko to review the SPE patches.
-> 
-> * A patch to explicitely ignore MMU notifiers for guest_memfd-only memslots. The
-> patch is on Sean's radar to be merged once he finishes fixing a bug in a related
-> area [4].
-> 
-> I believe that it is possible to have memory unmapped from stage 2 (it involves
-> automatic NUMA balancing and userspace explicitly setting a mempolicy), but
-> haven't tested that; the patch codifies that guest_memfd memory should never be
-> unmapped without userspace requesting it (userspace can unmap the memory from
-> stage 2 by closing the guest_memfd file descriptor or punching a hole in the
-> descriptor).
-> 
-> * Patches to add dirty page logging support to guest_memfd-only memslots
-> (rebased on top of v7.3-rc1 + the SPE patches), as it's impossible today to
-> change the flags for a guest_memfd-backed memslot. These patches were sent to
-> the mailing list [5], and as far as I can tell the conclusion was that allowing
-> dirty page logging is a goal to be pursued for guest_memfd memslots. If we do
-> decide that dirty page logging for a VM with SPE is useful, I'm planning to
-> revisit dirty page logging for guest_memfd.
-> 
-> A branch with the prerequisites **after** the SPE series can be found at [6].
-> The prequisites come after the SPE patches so I can send this series with an
-> upstream base commit, which allows sashiko to review them.
-> 
-> kvmtool patches are at [7], and kvm-unit-tests are at [8].
-> 
-> 
-> How it works
-> ============
-> 
-> 1. Userspace sets the KVM_ARM_VCPU_SPE VCPU feature for all VCPUs, configures
-> the SPE interrupt number (required), assigns a SPE PMU instance to the VM
-> (required) and then calls KVM_ARM_VCPU_SPE_INIT to finalise configuration. All
-> of this is done via KVM_SET_DEVICE_ATTR on each VCPU.
-> 
-> Once the VCPU feature is set, KVM_ARM_VCPU_SPE_INIT must be executed before a
-> VCPU can be run.
-> 
-> 2. Userspace uses guest_memfd-backed memslots to represent guest memory, and
-> pre-maps that memory at stage 2 using KVM_PRE_FAULT_MEMORY.
-> 
-> The order between steps 1 and 2 does not matter.
-> 
-> 3. Userspace runs the VCPU(s).
-> 
-> For a VM with SPE, KVM will not check if memslots are backed by guest_memfd,
-> because KVM cannot know which memslots the guest will use as RAM and which have
-> a different use, even if they are not read-only. For example, pvtime.
-> 
-> To create a VM with SPE enabled with kvmtool:
-> 
-> # modprobe arm_spe_pmu # If not already loaded or built-in
-> $ lkvm run --kernel <image> --spe --guest-memfd --name spe-test --params "kpti=off <other_params>"
-> 
-> To test dirty page logging with kvmtool, use the debug interface:
-> 
-> # Create a VM with the name spe-test, as above, then:
-> $ lkvm debug --name spe-test --enable-dirty-track # to enable dirty page logging
-> or
-> $ lkvm debug --name spe-test --disable-dirty-track # to disable dirty page logging
-> 
-> To run the tests from kvm-unit-tests:
-> 
-> $ configure --arch=arm64 --cross-prefix=<cross_compile> --target=kvmtool
-> $ make clean && make
-> $ KVMTOOL=<path/to/kvmtool/binary> ./run_tests.sh -g spe
-> 
-> 
-> Migration
-> =========
-> 
-> This is tricky (read: hacky). Relying on KVM fixing up stage 2 faults triggered
-> SPE attempting to write to memory that is read-only doesn't really work, because
-> a partial record might be written to the buffer (PMBSR_EL1.DL set). To recover
-> from this, KVM, or better yet, the VMM, would need to learn to parse the buffer
-> and rewind PMBPTR_EL1 to the first by after the last complete record.
-> 
-> So what I did instead was to introduce a new hardware exit reason, and have
-> VCPUs which have the buffer enabled exit to userspace when dirty page logging is
-> enabled. A VCPU also exits to userspace if the buffer was disabled when dirty
-> page logging was enabled, and the buffer later becomes enabled, before dirty page
-> logging is disabled.
-> 
-> When dirty page logging is disabled, the stage 2 permissions are relaxed to
-> allow writes. The gory details are in patch #27 ("KVM: arm64: Handle dirty page
-> logging when SPE feature is set").
-> 
-> [1] https://lore.kernel.org/kvmarm/20251114160717.163230-1-alexandru.elisei@arm.com/
-> [2] https://lore.kernel.org/kvmarm/20260612162354.73378-3-jackabt.amazon@gmail.com/
-> [3] https://lore.kernel.org/kvmarm/20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org/
-> [4] https://lore.kernel.org/kvmarm/amPCdAswlk24Xilf@google.com/
-> [5] https://lore.kernel.org/kvmarm/20260702142912.6395-1-alexandru.elisei@arm.com/
-> [6] https://gitlab.arm.com/linux-arm/linux-ae/-/tree/kvm-spe-v7
-> [7] https://gitlab.arm.com/linux-arm/kvmtool-ae/-/tree/kvm-spe-v7
-> [8] https://gitlab.arm.com/linux-arm/kvm-unit-tests-ae/-/tree/kvm-spe-v7
-> 
-> Alexandru Elisei (26):
->   arm64/sysreg: Add the nVM field to PMBLIMITR_EL1
->   arm64/sysreg: Define MDCR_EL2.E2PB values
->   KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig option
->   perf: arm_spe_pmu: Move struct arm_spe_pmu to a separate header file
->   perf: arm_spe_pmu: Add PMBIDR_EL1 and PMSIDR_EL1 to struct arm_spe_pmu
->   KVM: arm64: Add KVM_CAP_ARM_SPE capability
->   KVM: arm64: Add KVM_ARM_VCPU_SPE VCPU feature
->   HACK! KVM: arm64: Disable SPE virtualization if protected KVM is
->     enabled
->   HACK! KVM: arm64: Enable SPE virtualization only in VHE mode
->   HACK! KVM: arm64: Disable SPE virtualization if nested virt is enabled
->   KVM: arm64: Add SPE VCPU device attribute to set the SPE device
->   KVM: arm64: Add SPE VCPU device attribute to initialize SPE
->   KVM: arm64: Use PMSVer from the assigned SPE instance
->   KVM: arm64: Add SPE system registers to VCPU context
->   KVM: arm64: Apply a RES0 mask to PMBLIMITR_EL1 writes
->   KVM: arm64: config: Use functions from spe.c to test
->     FEAT_SPE_{FnE,FDS}
->   KVM: arm64: VHE: Context switch SPE state
->   KVM: arm64: Allow guest SPE physical timestamps only if kernel allows
->     it
->   KVM: arm64: Handle SPE maintenance interrupts
->   arm64: errata: Disable SPE in KVM
->   KVM: arm64: Add kvm-arm.ignore_spe_errata kernel parameter
->   arm64: errata: Don't enable guest buffer if misprogrammed
->   KVM: arm64: at: Use callback for reading descriptor
->   KVM: arm64: Map memory on a SPE stage 2 fault
->   KVM: arm64: Handle dirty page logging when SPE feature is set
->   KVM: arm64: Allow the creation of a SPE enabled VM
-> 
-> Sudeep Holla (2):
->   KVM: arm64: Add a new VCPU device control group for SPE
->   KVM: arm64: Add SPE VCPU device attribute to set the interrupt number
-> 
->  .../admin-guide/kernel-parameters.txt         |   3 +
->  Documentation/arch/arm64/silicon-errata.rst   |  37 +
->  Documentation/virt/kvm/api.rst                |  19 +-
->  Documentation/virt/kvm/devices/vcpu.rst       |  84 +++
->  arch/arm64/Kconfig                            |  55 ++
->  arch/arm64/include/asm/kvm_asm.h              |   1 +
->  arch/arm64/include/asm/kvm_host.h             |  48 +-
->  arch/arm64/include/asm/kvm_hyp.h              |  26 +-
->  arch/arm64/include/asm/kvm_mmu.h              |   1 +
->  arch/arm64/include/asm/kvm_nested.h           |   7 +
->  arch/arm64/include/asm/kvm_pgtable.h          |  19 +
->  arch/arm64/include/asm/kvm_pkvm.h             |   1 +
->  arch/arm64/include/asm/kvm_spe.h              | 150 ++++
->  arch/arm64/include/uapi/asm/kvm.h             |   6 +
->  arch/arm64/kernel/cpu_errata.c                |  51 ++
->  arch/arm64/kvm/Kconfig                        |  10 +
->  arch/arm64/kvm/Makefile                       |   1 +
->  arch/arm64/kvm/arm.c                          |  98 ++-
->  arch/arm64/kvm/at.c                           |  22 +-
->  arch/arm64/kvm/config.c                       |  30 +-
->  arch/arm64/kvm/guest.c                        |  12 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   2 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  34 +-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         |   7 +-
->  arch/arm64/kvm/hyp/pgtable.c                  |   8 +
->  arch/arm64/kvm/hyp/vhe/Makefile               |   1 +
->  arch/arm64/kvm/hyp/vhe/debug-sr.c             |  18 +
->  arch/arm64/kvm/hyp/vhe/spe-sr.c               | 212 ++++++
->  arch/arm64/kvm/hyp/vhe/switch.c               |   9 +
->  arch/arm64/kvm/mmu.c                          |  72 ++
->  arch/arm64/kvm/nested.c                       |   7 +-
->  arch/arm64/kvm/pkvm.c                         |  27 +
->  arch/arm64/kvm/pmu-emul.c                     |  11 +-
->  arch/arm64/kvm/spe.c                          | 647 ++++++++++++++++++
->  arch/arm64/kvm/sys_regs.c                     | 103 ++-
->  arch/arm64/tools/cpucaps                      |   2 +
->  arch/arm64/tools/sysreg                       |  11 +-
->  drivers/perf/arm_spe_pmu.c                    |  46 +-
->  include/linux/perf/arm_spe_pmu.h              |  66 ++
->  include/uapi/linux/kvm.h                      |   1 +
->  40 files changed, 1849 insertions(+), 116 deletions(-)
->  create mode 100644 arch/arm64/include/asm/kvm_spe.h
->  create mode 100644 arch/arm64/kvm/hyp/vhe/spe-sr.c
->  create mode 100644 arch/arm64/kvm/spe.c
->  create mode 100644 include/linux/perf/arm_spe_pmu.h
-> 
-> 
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> -- 
-> 2.43.0
-> 
-> 
 
