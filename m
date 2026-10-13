@@ -4,150 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071DBCC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 08:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6665CC6B0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 08:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDFKYb/m924u2VXBFcjCVaMkoZJEVndeSzqMZ0nALvQ=; b=TB8uzS0BDW18vVgNXrUIkfse9M
-	2NvNfzBKt7IQGc93FWNrgdOsXTiNM1e/IvoTLv3zTnhclRl4d66iUhzRX9nodJWraCprErP3UlW98
-	3AQZT+tYi22SKN16sP86OF/cfytqCLiaB3gAqSSXfw7CvHug0cJjTfApSGHBg3gzVdEb2jO4uWh5Q
-	qvI0alM5FWfCyl63Yr30ZTvzWLbDbRbpATWkaoimLw/5ftNLUMrS9+onM6UmMKnzJyjeQUoXPPkuO
-	RAg7ueiqWPBkf83+wmOhq7myPRwCAml2JLxTSKmCoySligh68XHrYW5JyGLFplERw6DVFj/lDnXCb
-	RELz5iDQ==;
+	bh=Yp32myEt2vaDuiwiOmNB3OM6aLbmkU3QM37TY7APibc=; b=T0Evhex7lG0KJ9oilfAdLkB0jC
+	J/Lzu/QG3KNDNPpoLqSUZrkS2Qb1MOi0Z86F+qpVckkoidd0OWqma9rU7EN08HmAaIOuHZ3ZTHcAg
+	sJO7GLROeoEntxaRXUEkuiA5zNCA4wmgOQp5wjGEvYf6gCCZlXu4mhfbPE2eoRmjYxboMMZnKyAK2
+	0hhDLfeYj1FJWCgKljykooHe3JXs86j/C0R9Y1jgKfgCS+mrXRsQDHhqykVewnYhmZ3oPonaexXpx
+	QGGDXyUo3Lng7po2W0EeUsw6ju9yEe61b/Q1LzQElEGmVQwrOx4YJ57USzpXKkKzPv7XQ55vYfquR
+	XilD3G3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGXhN-0000000CIqz-3VNP;
-	Tue, 13 Oct 2026 08:17:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xGXlY-0000000CJYy-3NNh;
+	Tue, 13 Oct 2026 08:21:44 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGXhJ-0000000CIoy-0aVa
+	id 1xGXlS-0000000CJWa-3tYj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 08:17:24 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69D8HCHs3908182
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:17:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=RDFKYb/m924u2VXBFcjCVaMk
-	oZJEVndeSzqMZ0nALvQ=; b=TFx4T6s+vG6c2WLyALwPHKSqjTDtCN7fxBIwwo1J
-	dU7J6toDY3QwVuwovF2S2kEb/grSQqpfCVP88Pj9VauALz8f5p1qZ9Bxp5osc2ph
-	vVnfrKQb6faASfxul4QO1ApJ2kwEWaOGhETfWu2apCrsqyf3TObZqHgWPEOgQLhh
-	Jpnfz0jCHN0kyEdJ1+M5FtNGd0ocJ05actKCyR08YPiN3TVfLRzIwpIZ6lq7Eu3K
-	/BUuuasFa7IVJtOsSdtNiVQdtMTFTakXpwk2ovJmmd944coP1P693ovg32b8VC40
-	5fKQICLfMUU7TMz2R+ZuGa4oQ6HVnMc2/r9FEOVCcyZX1Q==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h95xqtfk7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 08:17:19 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93caa0ce0cdso293657985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 01:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791879436; x=1792484236; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RDFKYb/m924u2VXBFcjCVaMkoZJEVndeSzqMZ0nALvQ=;
-        b=j1jzj38riCYAXG7z+ioAhPsGwvqzlFknLIVpfaZMJbhh3w72MhVuPaLlGVSXfMrwz5
-         z7+BpkcF4jAMVmlplPKexmeTXxJao2kBqvZuAS9J4q1WMzJSBtPLzPUtxA4psoP9Jvaj
-         x8Xcg/Y8Tq/mX1BwMlu6Z2xME741cktwC2iAn2grocOK9Nbc2knv85rDgXLBVP57ANqH
-         jw6dJctRGpkhnIwpDsS6gCJ8sUpV3/oycjMInAcYSMGTF6VB8rRfsTBbMr96keOPqoPQ
-         cYY9020pp1ftbYzeMsrdKpFLjSqt/U4pBjGUhqhW4NqJQNiAlQ5CaFzds/54s+rvx71c
-         dj3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791879436; x=1792484236;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RDFKYb/m924u2VXBFcjCVaMkoZJEVndeSzqMZ0nALvQ=;
-        b=wzpNRxLN7SZa74Stpc1CZbl9EtDLYJPlgNDw3Z/PNj6/fIjMYuw4hoAR8VgBH3ko13
-         QCxC3xi/egOwgV7ZpVtlp/2D48qBLxyPzDaW/K41yFAwOVQt476MpHBKHjWIYcu1n/bX
-         0IMdBuGwV0Q8Ow23+LlVgD2vZQ8oEk0kpz/z1n/6QEkumhidCjpJtAF747E1wx3iht77
-         ntK+vVM3dIHupnDIdx9UpgOfHts1IAXq9GMgzBC8RVcvsNBc3a/ME/Rrgxj2e5PFpIoe
-         OYS2EyDMKJJ8dqhTmDQoLhUoB3Lf2icTtVe5KgvotP6sVZbw5wwR78epjywKBpzvv4Sr
-         EzJQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy2rjL8CX3O1oSbPII4sjjQhvu5XlI5rMNsmTojyNEmoUvwkFEK37O8frQd8b7d2nNlR+ZgsY6LBWrEyNjTheka@lists.infradead.org
-X-Gm-Message-State: AFq9FYJOwDKvfB0r46pBZHMAGQiwEcRj2GJnRXvDTSn2yUquI/rWXwDR
-	JsA7++8qC1A50Qdn6/0TrSGdDsZt9+ihQdOptsuyRmyQoAC1Vw76nu3EBdEJuvEfLETtHbl2Ksx
-	DFIZ572KYJum6PewCVk2t/il4GGEjJZJDASHEWME0HSTAlhwMMLjEXhbMadB/jKP5aMAoDPRQGp
-	HSew==
-X-Gm-Gg: AYBFou1+xK3inCr5AUmtFqNlcCLgX0YLOsbpsh/y+jqp2i4DG2VVJXJcPLviqRTglC3
-	PL6KwJ6E5cfRVMjI7q6hzsUZsuQZ2mKKGlVYwwENXzBMZeSkHYlOWz5/TxzxDaTlCRPpVk6AHim
-	e06iQ9xf0nNhj0ylpPPjqpppQ3HPLAESP8etr/GAeW0tumcPMEpyu06ml5f1tuKg+itWq2xgabJ
-	q51shK6abDF82g5M05uti3AHKm2vN+5Lp2CC4/6dilP/3Kb6sFVGZ1Co6u2mq6b0hcioluPU8j8
-	sU7kOQrWwe+2F3Ik/FaE3nN7DrdR1vrOUzR8l1egFGpaGZ+xiPjDwNLdFLtCOJxHWEOEb1uU0PL
-	04pxlxWnaFQ0kyQ==
-X-Received: by 2002:a05:620a:199e:b0:93c:5872:ef48 with SMTP id af79cd13be357-93ebd273616mr1824175985a.50.1791879435944;
-        Tue, 13 Oct 2026 01:17:15 -0700 (PDT)
-X-Received: by 2002:a05:620a:199e:b0:93c:5872:ef48 with SMTP id af79cd13be357-93ebd273616mr1824171385a.50.1791879435209;
-        Tue, 13 Oct 2026 01:17:15 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18dcd7dd3sm221979045e9.2.2026.10.13.01.17.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 01:17:13 -0700 (PDT)
-Date: Tue, 13 Oct 2026 10:17:11 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Jose Abreu <Jose.Abreu@synopsys.com>,
-        Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v6 3/4] net: stmmac: drop multi-buffer frames in
- XDP mode
-Message-ID: <as3pB16af0_QhNyB@lore-desk>
-References: <20261012-stmmac-rx-mb-v6-0-2225050915c1@oss.qualcomm.com>
- <20261012-stmmac-rx-mb-v6-3-2225050915c1@oss.qualcomm.com>
- <b11af7d5d430dcddcc681484b50ae7e2@tipi-net.de>
+	Tue, 13 Oct 2026 08:21:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eycmlBfDJe1iruhjcNe5VaNsaNsc5imiF2PA1HVThvUE0ll/sxmp104uDziKXGj37U263hPi4Jkl1v3eXNVrYW47QIEUjaMbPTlDmTzItDXKujPEMrs/HIozwEirrXhiikjGmEytPATG9Zf4v2aVhEYPG4ioaEXNuAbKOMk79WmeMkH6yQZBTUOvGkkGI4BOGHmq+/cXCAgmy31yGywMeuXLpPIBfDMRlCYebPbdqTQOb99VNWavC1cIOXRxN5baBb7wKxrCDEPUFl3zoVhlA32UI47l8M+q1TV0xbyk7Dwfs9RYFyzu/ETYcIBoDAnWo1d8Gz+9nQE4F9pzWoc/NQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yp32myEt2vaDuiwiOmNB3OM6aLbmkU3QM37TY7APibc=;
+ b=ZRH5XG4KhD8tSP50BGcNjIFy5mfULUWhs0gn2T14KiI3jlrwKPZrn5rYaWExh5L2+6twbf4I6aG4wJuzlPICqmkyC66EGkZL5WsVm1roRu5t7b4dMdpHTLOjnIojX01EvmEQ2+C3Fix6AMcgNARg0RdKujgopdNgKkZnI0woQhJXNQwgM/v0CbcHtRisH1ZCW5BopuEqyEPT6BstTbqdkJ4gsI8VSrmgchi6lB9EIRnvkrLiBXPBtkyOMlKEse6h5/5+WSP9gs7EY6GhepkUrXvI0S63F5y3QFcbW2Hi28bWfGfKkeW/bf39fU/FNhsVWp7xQSVFt1DkNbzsSzbxyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yp32myEt2vaDuiwiOmNB3OM6aLbmkU3QM37TY7APibc=;
+ b=m56IrREbLrRs3/aMGiildALqfANWMGhjDZWukS/8Bo+AFH2Yw/dh9yCZYudRC6d70Cyhyjsp2cphKHB6hWFqMIUcu2ufCEyj4eArypmDbKldPhlbzPIGUiDmtQT7uwv24qOLeqEJMClRgBH9z6O6gqOEttd0E0hdBfJsNIyOehA=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by MN2PR12MB4256.namprd12.prod.outlook.com (2603:10b6:208:1d2::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
+ 2026 08:21:35 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 08:21:34 +0000
+Message-ID: <ad7fdd3a-489a-4573-8dec-961a16e6539b@amd.com>
+Date: Tue, 13 Oct 2026 10:21:26 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] arm64: zynqmp: Add ifm ZynqMP VHIP6 EvalBoard
+To: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260916204509.166633-1-marex@nabladev.com>
+ <20260916204509.166633-2-marex@nabladev.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20260916204509.166633-2-marex@nabladev.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1P189CA0013.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:802:2a::26) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KY7hfcVLGCw62j4b"
-Content-Disposition: inline
-In-Reply-To: <b11af7d5d430dcddcc681484b50ae7e2@tipi-net.de>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDEzMDAzMiBTYWx0ZWRfX5vM0swoAydyw
- kweInk9B776rLonoounN4Bnxg1elrPAfrfHD6O2LAZ3J+XARADzqOqOfJ4MGmK+G+KpJF+nrXKh
- M9fAijqY+LCqCSMTIG5n/Yrj+IYMEcFiP1byEwC+z8tjJ4TgyrVXlV0aBbOAuWl0sXWsC/g0HP5
- dc/r285h2cf3+2qCKwM+o5RQ4hqBnUcNOE5I9uGQ++6o3739LvkPo6jp5kHra4mSQeaZocXuIU/
- n524g6n/OT/LLXuyPJ42cu9Xnhmc6y1am72HUw+IRutGwoz+db2dnldD3GcNvkohLS2eOC5pe5H
- UpdrkQ+FkLRV7IIihObbrEVCVwyOJjA6Qpf3vjT+zp3BLrYufaKhiheXYpBVCJd0Pg9hzEX3Ras
- eEGB++YaoPVE92m+nZh9+4sSb9ndTGjhpyRqm60/j+ZL8SsbxUSGbC5uuHtwGmnXO9v5XjzlHbY
- IZSji4d4eBhJyvyEetQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDEzMDAzMiBTYWx0ZWRfX9iut12f89eRi
- VwzKrdhBHFAGEy1z4hoDu+JUYGy3UKSJEYwqOxlS4cvyx3pSCCYVyU9Hxb+WScLhRTFdNSY0D3b
- 1fvV1nGkZV1VOI+rTyzEZIQ8F58+aho=
-X-Proofpoint-ORIG-GUID: qU9w7tshyhb_uXPsYQUNH-oCPywjd9xE
-X-Authority-Analysis: v=2.4 cv=EP+TQFZC c=1 sm=1 tr=0 ts=6acde90f cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
- a=7PNn2skMB5_rZfgV75sA:9 a=CjuIK1q_8ugA:10 a=nfflnHfShdqUK23c0sYA:9
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: qU9w7tshyhb_uXPsYQUNH-oCPywjd9xE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 phishscore=0 clxscore=1015 spamscore=0
- malwarescore=0 priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610130032
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|MN2PR12MB4256:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f24f52a-f7f3-4481-9a8c-08df2902fea0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|4143699003|11063799006|56012099006|22082099003|18002099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info: ieI+fVh78wa0ygAhbrU8Q4AtEsDGf+3ycbR5ArLZlpRefWhhoQyJxwMuufKEVe3VOXO8HNoClDVUa1Sm6vHiT/lWVyYGxdN7tWBRx4+/wT4fn5L+bfaE6DZyNmjiwIV0B1pRZb/7g29AymHD49KOWsEgPkKJxuDoN8yRazTIh2+0GTJDxlj8Jiap4VchB4FoaXxhgmzeK4tIAaCJ7rNlfx7W0lMVAIDbeOkXX6GgrXxcgzES4iaD3aaX4awCZ3PiecET4ITnEqnt/8KlGbb1Ev9ioRY+HBOzjdIslnY0innkfEOJIobRRiYDQKAcaiH9PLdesRd33YBSBsQK/qV3us+iS4dpaaxrSBfjKCE3awD4m2YdZit+mEeKzm4H8Eks6pUukVLaQ6cJg/aqBcKqAFuXuIGQFmXBZur445AIgPWNZY1o6iNv3SPvpAg765MQwObhSpr1nzp/WQ7SFCRhYrwqaatxDmrTrabIxujaFnh4BAsx8HCbsRzejS7fMxA+PCMhGyENV8XVo9plVJodzmbBgBYvSU5dsfXnxzJ/OIJ1fkEXNQJ5iYFJQ9ztQnLr7V95JhGC7yIw+O6RtoD6qx98XX28Mf2CTCtQhhmx4Xb92SU9qG0t3aFwvcpsCIm7R8CBzsCTdP+hb+W9y8ovif6vHpTdVbPFnxwK1pykuA8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N2RlMUZnSllpQjVhSzlUUDRzMmRNWW1UY1lMTjV4M25xQWdBVWJ4N1BJaU1S?=
+ =?utf-8?B?aytqTkt3bitMMFdsNFd4ci9mSzRuRElvTjQwQVdBMWlTVEk2SGJpMTdVaUFr?=
+ =?utf-8?B?K2tPaTJId3F4WVdzbTFKNzBsOFJKdDRTSmhTSEpqNzUwVTRjenU4aU53M04r?=
+ =?utf-8?B?Rk0zYnN0dFlyMWpEK0lQZ2tZcm9vMWwxQVljZGZKd1BvY0VHRGNQRnljWnJt?=
+ =?utf-8?B?ZEtmNGdDclhTbmhXZW5uaVZiMmN0dVJ3NGJsNThvdC9ZUUR5THlkRThJVHhj?=
+ =?utf-8?B?YmVjSHJNKzNyTEtGbnQyQlBGbm9GZmNTRUJYdm4zenhwNitlUWMwNENPK3dY?=
+ =?utf-8?B?Zk5DQy81dVNzd2NMUkhwaThtWGFyTjM0SjJwOGpHVlBxQzVzdCtQdE5jOG1O?=
+ =?utf-8?B?azJoSnVaMDNKT0o2NWRxV0loNHRFWllCMiswM1cxaVBUTXJCelNnTXBoSERx?=
+ =?utf-8?B?Vk5yU1lwVTFWeDl1N2wvK2FFcFZwYTE5MDdhOGdZMU10NHcxYS9kTk1ON053?=
+ =?utf-8?B?dTJWd3dhM1NzTThWTlBLQ3hmakdXUThWaElrRW0xLzNtSFBsZytJUURCYVNp?=
+ =?utf-8?B?ejN5b0k1VHNCTWdZL0pITXA5Rm4vK0RrY0xwdzRtcmVmeXNQY05jd1hNdis1?=
+ =?utf-8?B?dUxWcERIS3RmUWRlQ2xiWVRuZEEyc3pFTG5RNm91bU9XWjQ0NGc4Q1RERURC?=
+ =?utf-8?B?RWpJbk1VN1N3enN1bGNGRUNaclN2UUlyc2FZWUdacDRFVmQvSWx2RklFelgw?=
+ =?utf-8?B?b3dRZDUwd3orWGNFUjZnOXZmbllJTlhhaGRaa0FTUmdGOTFpSzgvQXR0VkZO?=
+ =?utf-8?B?eTlaOHVUMHpHRFl6ak40RlgvL0l3bEdmUGVGZnhHQWI0enZZZWFlTExaVm9U?=
+ =?utf-8?B?bkdVSTVYOFlNMmhWZy9jTWZ0K21LcW5XTFhwYUhaZFF6dVloTUxDMk9Zdm84?=
+ =?utf-8?B?YmF4cWxNYWpBemErMHFweFdwdVR6TXNZMmliTEFNbnh2cFNJT2dGOVhLaEll?=
+ =?utf-8?B?T1NuQzlCbm8yT29vYklWZExQUUNvZTlwZ1BtLzNtN1lBU0phOWhSbExyNEN4?=
+ =?utf-8?B?MWpoOEtCWjNzNm9WRDZHS1B6TkF0bDRzL1E3L2hiMFkwblMvNXRCMWNlVEZ5?=
+ =?utf-8?B?K09SOGw5MEJMTFFEb2hKUUlpNFl6b0cvKyszNU9lVWNWZ3FBU2pWWCt5c1pm?=
+ =?utf-8?B?SXRmNHk3SFQzRUM5ZFlMTHgreEtUeHBpTU41YUhPSHNpa3o3WjJSR2NYSCtC?=
+ =?utf-8?B?dktxTkVyUVFVMVFPcnRCdHBYS2lXam1vRUVka1VvTHpSMXhneGEzYUVkRFp6?=
+ =?utf-8?B?NUd1anM1bFg4QUVlSHVYRFkveUJJelpMdVpULzNuRjFKTnhwNGlFc2o3SFNr?=
+ =?utf-8?B?ZkVDYXo1cHU0N1NtM0l4dUZGRStFSFN2NEZZVmMyVzM5aTZHanZHbFRGeDFo?=
+ =?utf-8?B?aE1PZmRNQVJTVlJqa3N1Nm16NldjWklTUVNudDRYUmNpOGpBbWJpcjRrcjFU?=
+ =?utf-8?B?TEs1OFJ2THE1NGQ2SzJsMjNEQmFjeldWY3o4SS9HMTJXUmsrR1llWXI0UjFJ?=
+ =?utf-8?B?czhGaCtlY2d1RXFNeWtOd1JOVlVjQzlueHQ0WGlGUTlOTUNrWE5oYkxXemJ4?=
+ =?utf-8?B?Wmk3TkFzNkdwMHZxVWtkMHJVR1UvWGU4QXJWb2RFN3lVN0MvQWU5b1kxaGdy?=
+ =?utf-8?B?K0x0bHhVdnFZbGFKOHp1SUY2WmhFb1FoaGhSaVZHRkY4eGFXODBFOGswenVN?=
+ =?utf-8?B?WjBMQ1dMTHR4aUNEYXpVbXpoYjhNMzJPQnNQODZJZjR2LzRnM1lSUWVVUUsv?=
+ =?utf-8?B?REVWQTVBZFJJWjdyVnVYamM2Z2pkZDlHTDhXaXFaem5Hend1eTdrcFJaNFpI?=
+ =?utf-8?B?dXFNKy8zYkZVcGo3RlNLbllhRk5NMmJkZmEzQVNrYXlITUtmbDREeXBoQk5t?=
+ =?utf-8?B?SXRYN09HZ25Od1h2dW5ONllhSXVwY1VMUzFXY2I2cFp3cmVySXRTRXhtcHBn?=
+ =?utf-8?B?RnAvb243MlQ4VjdrVDBYSUJOaU5Ka3FNM0lBSmVrL0lhRDBTWlZSdWp5MzRv?=
+ =?utf-8?B?N0ltNFJhU1hTRlVhWVo4eWU2MU9rajlnM3BaekRmeGdPVWt6LzRnYVlia1Zy?=
+ =?utf-8?B?M3VIUThFM2E3YTk2U2VjV05nWUZQeXE3cG5tOWtMZ0xKQ2kwWnJPWU1vamg1?=
+ =?utf-8?B?TUJjZ25tMFVSc09UQXVJOU93eVExSllkOFVsT2xzK2hKR2ZPZ1hlSnN1VGVw?=
+ =?utf-8?B?dkdpemFQWnJGYmhxQmc0MXR1QmJaWUdRaG1DeFIrOXJaSkJvQm85dW1DT1VR?=
+ =?utf-8?B?ZzNVR3JzU29YRHRtR09mSU45UHNkK25rNm9ZdTN4OG1TU3dQWlUrZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f24f52a-f7f3-4481-9a8c-08df2902fea0
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 08:21:34.9069
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CTMSIZToacXqpuxdMTWozG2+/gFsh7yH0qa19USisA0P3Y/PckMTVQ+90USzqggN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_011721_310222_9B1B1307 
-X-CRM114-Status: GOOD (  42.10  )
+X-CRM114-CacheID: sfid-20261013_012139_376590_9E4AAE72 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,137 +191,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---KY7hfcVLGCw62j4b
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Oct 12, Nicolai Buchwitz wrote:
-> Hi Lorenzo
->=20
-> On 12.10.2026 18:44, Lorenzo Bianconi wrote:
-> > stmmac_rx() runs the XDP program once per descriptor buffer and uses
-> > skb =3D=3D NULL as the only marker for the start of a frame. A frame la=
-rger
-> > than one buffer is split by the hardware across several descriptors;
-> > GMAC4 enables jumbo frames unconditionally (GMAC_CONFIG_JE in
-> > GMAC_CORE_INIT), so an on-link peer can deliver such a frame even when
-> > the interface MTU is left at 1500.
-> >=20
-> > When an XDP verdict ends a non-last descriptor, skb is cleared and the
-> > next descriptor of the same hardware frame is parsed as a new frame.
-> > For XDP_CONSUMED this happens via read_again with len preserved, so
-> > stmmac_rx_buf1_len() then returns min(dma_buf_sz, plen - len) for the
-> > last descriptor, which can be as small as 0-3 bytes. buf1_len -=3D
-> > ETH_FCS_LEN underflows and xdp_prepare_buff() puts data_end far past
-> > data; on XDP_PASS this produces an skb whose length is close to 4G that
-> > reaches the network stack (skb->tail and skb->len are 32-bit and wrap
-> > below skb->end, so skb_over_panic() does not fire). A 4+ byte tail is
-> > instead offered to the XDP program and delivered as a standalone
-> > mid-payload Ethernet frame on XDP_PASS. XDP_TX/XDP_REDIRECT instead
-> > falls through to the next iteration, resetting the running length, so
-> > the tail is re-parsed as a full-size new frame.
-> >=20
-> > XDP does not support scatter-gather frames until the multi-buffer
-> > rework, so drop the whole frame instead: mark it as errored as soon as
-> > a non-last descriptor is seen while an XDP program is attached, drain
-> > and release every descriptor - including the last - and account the
-> > frame once in rx_dropped. Removing the re-parse lets both XDP verdict
-> > branches simply complete the packet via next.
-> >=20
-> > Note: the subsequent "net: stmmac: rework stmmac_rx to support XDP rx
-> > multi-buff" accumulates the whole frame into a single xdp_buff and
-> > supersedes this patch; the fix is kept so the net portion of the series
-> > stands on its own.
-> >=20
-> > Fixes: 5fabb01207a2 ("net: stmmac: Add initial XDP support")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28
-> > ++++++++++-------------
-> >  1 file changed, 12 insertions(+), 16 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 426bb68c9bbc..8c08d44fdbd3 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -5893,18 +5893,24 @@ static int stmmac_rx(struct stmmac_priv *priv,
-> > int limit, u32 queue)
-> >=20
-> >  		if (priv->extend_desc)
-> >  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx +
-> > entry);
-> > -		if (unlikely(status =3D=3D discard_frame)) {
-> > -			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
-> > -			buf->page =3D NULL;
-> > +
-> > +		if (unlikely(!error && status =3D=3D discard_frame)) {
-> >  			error =3D 1;
-> >  			if (!priv->hwts_rx_en)
-> >  				rx_errors++;
-> >  		}
-> >=20
-> > -		if (unlikely(error && (status & rx_not_ls)))
-> > -			goto read_again;
-> > +		/* We do not support SG in XDP mode */
-> > +		if (unlikely(!error && (status & rx_not_ls) &&
-> > +			     stmmac_xdp_is_enabled(priv))) {
-> > +			rx_dropped++;
-> > +			error =3D 1;
-> > +		}
->=20
-> AFAIU GMAC4 and XGMAC always use the second buffer of a descriptor. If
-> so, at MTU 1500 a frame of up to 3072 bytes can fit in one descriptor,
-> and this check would not catch it?
->=20
-> The XDP program would then only see the first buffer. With XDP_TX the
-> frame is cut and sent too short. With XDP_PASS the second buffer is added
-> after the program already decided.
->=20
-> Patch 4 fixes this. But if this patch should work on its own, should it
-> also drop the frame when buf2_len is not zero? Or am I missing
-> something?
 
-Hi Nicolai,
+On 9/16/26 22:44, Marek Vasut wrote:
+> Add support for ifm ZynqMP VHIP6 EvalBoard reference design.
+> The board is populated with four ethernet ports, QSPI NOR,
+> eMMC, UART and USB host interfaces.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Michal Simek <michal.simek@amd.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+> NOTE: Checkpatch complains about ethernet-phy-id2000.a240 being
+>        undocumented, but the TI DP83822I is generic C45 PHY that
+>        is valided by Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> ---
+> V2: - Rename lm75 node to sensor@
+>      - Use GPIO_ACTIVE_LOW macro
+> V3: - Drop bogus clk_ignore_unused bootargs
+>      - Drop gpio line names
+> ---
+>   arch/arm64/boot/dts/xilinx/Makefile           |   1 +
+>   .../dts/xilinx/zynqmp-vhip6-evalboard.dts     | 300 ++++++++++++++++++
+>   2 files changed, 301 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-vhip6-evalboard.dts
+I am not able to review or take this board support further without publicly 
+available hardware documentation for the platform (board-level and relevant 
+interface details). Please share public documentation links once available, and 
+I’ll be happy to revisit the patches.
 
-IIUC your comment we are missing the case where we have a single descriptor
-(rx_not_ls is not set in status) but the packet is splitted over buf1 and b=
-uf2,
-right? Something like:
-
-	...
-	buf2_len =3D stmmac_rx_buf2_len(priv, p, status, len);
-	len +=3D buf2_len;
-
-	if (unlikely(stmmac_xdp_is_enabled(priv) && buf2_len)) {
-		rx_dropped++;
-		dev_kfree_skb(skb);
-		goto next;
-	}
-	...
-
-Is my understanding correct?
-
-Regards,
-Lorenzo
-
->=20
-> > [...]
->=20
-> Thanks,
-> Nicolai
-
---KY7hfcVLGCw62j4b
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas3pBwAKCRA6cBh0uS2t
-rKv6APsHFZSMX2dOAS1p36e6ZsqIAiOI0NDwoK6myQr0w44IyQEAuyVt58Q+sb1x
-hWYvoUu5yllNvcDzIt78fFC420vYdAw=
-=jWne
------END PGP SIGNATURE-----
-
---KY7hfcVLGCw62j4b--
+Thanks,
+Michal
 
