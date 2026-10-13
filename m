@@ -4,103 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FE8CC6B03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4673CCC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 10:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCvuGCgbSG8Y+xpTFr7MEL+ldVl+Jz9SiKtT/R39MNQ=; b=Z8iSzwiODpWXE6ld7dMte6P6u8
-	nW1VRYERZ4ZS5hSKEzkHTUksH+Zlo6WBbmtw7rXEERm2SIH/+ioGNHSKtC/VblIRJbR/I+xKzqHCU
-	RKbqyZv7SOR9tNd9NHKShbBil+MiCpCXwBWFnYZQYBHb1Oyy7xClqabMqpezcU2CK/azG/K1uZx3w
-	nS5kGkPOhv5k0CbhrjfSJ9hVHryutrR6jYyAUGyIam1YMFKS01eAyk7TVNS7N33itlP9ZawgOscIV
-	iJyGHgk3Xmhyyj0NDnBjCBI4gBZoyyXGP7CU15eD5tOp7B/IcqnAHhs4AT2LGz41pmW6ovObqo29+
-	ZEg+5HHw==;
+	bh=Mt4MM2b+kEda7XeWiXcjklx11vtEoBsUUQ1dFr4um50=; b=Tcq9QH96Y0ris98elNMrmo/sl1
+	YpPIFfBKWdX7S2CV8TPmhtNG0KQNHsS/J+24nKbjs9eAQjMUeMbFIOJw4Cjo8Wcg5RVY7gNQO9wiT
+	TxQPtdaEHry2bnsSzz6S1ZsPAcj9oXEtGiP9dffdsuk6sEY70xTdPJpqUZNu/raj2LnL0QoyDxmbH
+	JZmyZ/PqeEVtHscr5zDk1h6l7U/4zalcJmRIPBUIB/efnuh/Qw93F2SirWulRQNl8CJmaitKkTdAI
+	OUKKwWaI2YRQkNw+Leog12BRa+QR2AXas/ByKwVaS9Kb+GpAm23ibAoEHYdVUvdooh7N8O8JyDr5B
+	vo+5mduw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZgT-0000000CYg5-3PA2;
-	Tue, 13 Oct 2026 10:24:37 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xGZmg-0000000CZou-2tuN;
+	Tue, 13 Oct 2026 10:31:02 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGZgR-0000000CYf9-2kph
+	id 1xGZlz-0000000CZiw-1fE1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 10:24:37 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49ff680331aso22960585e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 03:24:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1791887074; x=1792491874; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wCvuGCgbSG8Y+xpTFr7MEL+ldVl+Jz9SiKtT/R39MNQ=;
-        b=w+HpbxiG4zbTSxwxA+KcykAzLXjcOpiA0ugsB6crlF5ViRv8KAs8JzvjIJeocWhYMD
-         y2Df6z12fY4EuH8b7LMVBEM7O27ua/08xfUAJ40AEhIVdBAwUVymLgZuniB0NEvLHxCe
-         BuQup5qjUIqiEeAsECKcsvocGRxRBaW++a76KnKQxP+YL4/eevGmfBeqlspnJmAK7//z
-         A9sEFngOAPkXRJeQAlL0ZqNc4/xbNdNSzmGJFRh62UVJS/PjfyY7vHtxiCcYmRHffM3D
-         FMpj9x+9GqfuJfYuOkQ+XHQZHmXi+nO2a465K5DlZ/BQS6oExEU35lDiOAeACOZyngpa
-         42sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791887074; x=1792491874;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wCvuGCgbSG8Y+xpTFr7MEL+ldVl+Jz9SiKtT/R39MNQ=;
-        b=iqJXVYrBmMhYuaCwWIs7dtUv5u/zaoenuq/zWqgbhY9Ii7md9BqLAPE4GgaVRW2lC3
-         J6VDz24p9edaEKOY8n8t8xws1DOYsd+wo2WMRpnsksAVKMGkAKk09JjSihS1hApArhuh
-         Yz+/OhMPcowRiqSXAg52iGqOjBlCWCOft/OWAFs16HMLPFCBaitTloYDVXMjbVctuJ44
-         naf2o357KrcbsTs6NzcdUVUlA86IV6RbtounXqtPSEd5B3sCV6/wK5GXiT9vBK8nQBv8
-         0ahbfOlRQ0vY85D4V1F7PW5oU7AUEg+uUzknAdBY0F0+d0ANzj0Diw4Ss5Wz1PMs3Mo5
-         b49g==
-X-Forwarded-Encrypted: i=1; AKwUvBz0FdB1M3RPGSbu6ShalyeB2OEs4n3k336R6k7+s8ZE08qzgaCFg+hWuDQbokTcYPVZQK7yZDB+q0hmHNGYucTW@lists.infradead.org
-X-Gm-Message-State: AFq9FYL4Z8iHmaYOOP0UiU/5dWa7W1eOJxQNchuJwC1Qv6GLXvKGV1xs
-	h9A+uPhN1p2LUpDhIJaFFc2guMVsAL7wz+cPRAqzIMczV8rbG5TNrfnDkDWkBihUV3w=
-X-Gm-Gg: AYBFou1SnWG8yJCw5QzYTFI2WbJ1ILp7sJViUS8vjZsRnizlP3V8LUZ55Y3wsqUcnhC
-	ilf4nF3HtdEHRus55OfXuitNEODzkz7rbQMtlLG/TmSz3E6wJvJmmgpC/6Yyq5j/odWrA0/9C7l
-	o//pfjg7d27FbDZLhL6CE3CrB0ETF2qFCksVAulgWa1p+XlB+o+eI7ZokxKf6SyNljbYMJa+eCN
-	vCD9yGeuL1RPSfDKkeQHgLGcod4y+aHXY1vNkmPKn/R4cGWOdnYVwuqwZgeh5IVcCLSQuwe2Og9
-	0LThy0U53gJd7RSuq3rP+NuvWYz7nqm7Ry6+QtZyszR7rDzyDw5D9+3t71DKSocxKfVn90/qNe2
-	cljFn3QJYcxD7QFkxgnoHvNzaV39UsuSpKCaUlusDxW8u6G5IetWNyWMyYnr+HRN/VnbN2D2tVe
-	45tMoLlA+gQ84gXHj9IHB0j3yyu6lzcZzpzCn5660sq9MHxirtHa3vuXNZSdB5+3e3rxBt66/lW
-	Z4VffbQ8NokxrHZyd/Hwd2L6+S7/EpcfDsoiZkPehMTTA17ceOQjtvuz6pjkR1D+6nmQS/0FKy0
-	NfuAxv0WR8awSqAe0I78XRYvccGHxgjR5G48iFtr8TfcRJwFx7/hz2JWUTQ=
-X-Received: by 2002:a05:600c:3d96:b0:4a1:746e:5898 with SMTP id 5b1f17b1804b1-4a18e4835e7mr204484115e9.13.1791887073091;
-        Tue, 13 Oct 2026 03:24:33 -0700 (PDT)
-Received: from aspen.lan (aztw-33-b2-v4wan-169864-cust3247.vm26.cable.virginm.net. [92.239.204.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19c8244edsm185108485e9.2.2026.10.13.03.24.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 03:24:32 -0700 (PDT)
-Date: Tue, 13 Oct 2026 11:24:30 +0100
-From: Daniel Thompson <daniel@riscstar.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	Tue, 13 Oct 2026 10:30:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vmrn8Kd8E5lpOakNrYxbJxcUA/W6yWsckqB+0Ks7SiMwYSgFIX2NSe9b/u5/UU+fpN2hvSidCRSTKq35YOnQqNNEbW6HFW5WwWnbmObxA95wqP5aIXUHeog2I7DCNDASb6O8BLF8X32kB52y32koZVr8M1W/FQGHFFyI5GGoGI/Kpzxeij8LgmzoADP5jMxs7jZPeTdJgsVv6/luaT8HJxV4lyyYc+QktUZb5jkoCs8mDE0J3Zpe2a98+/t9JN2feUVmoP7ExI7o3dyzJEkYSe3ouN5/2rWsKdAlLEEXc/FT8wBLPRByjxxGMS/KzjnNmDoGRmmiG4Y8slrPaX6MRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Mt4MM2b+kEda7XeWiXcjklx11vtEoBsUUQ1dFr4um50=;
+ b=G3k19suno15S3FJ25fo9QUof2eVuGmzHRNpQIUk2LLtg3P/O/NxxRrundrfbyphVOECWk/PhYmsTxZ7fC12oM0RgbT6xxCoTTv+OOFLjIJwxjLYpJAVP60BK9OdHQc/77QoKivL9F5AnpOt87/GKQ5c0YMsju8YpSKTsAJnxTThNE7KvucUDcPro66c/RwWh02yQ5PmwEZd+uurXeuSFJsz/4959QvlkWs3+tsQygnwnW99PcuCwZLf9yBNxuboGPV0lBvjKwlAsEeiNla00peSKjGkVuFb7/1zt6xmBEiFBIWRJbV/GZPtYvdsyH3Ii1kqPFCYtsrUx8WNPzrmJOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Mt4MM2b+kEda7XeWiXcjklx11vtEoBsUUQ1dFr4um50=;
+ b=A4n7nzsjHA2xjhJQrfEimqB/+6sQLN498MzaxuXSUypTkveSg8CX65R9cZxONTdHtY14q8ikWR4B79VeAivdPCDD790JumCNLtLAWTexi4FbpkhqaBXaVmCyk+LDTVFHNvejtjzrp4+jbtGwWMDtn6UVVzzxxfWFQNKwbwHUV2W4G5CoPam+Dt3U1695g03FeN2F9dhPSTeMAl8AWB+NuZwHM/6g/HBZKdhF8JYVhcUKqknp44gmBJ0BtG5uVCKxduBZiZswbr2wG49yXRf7KCHWQ6VXLeX0vwM+kx4LCSxr7dPzpDTfCR6YBqCMX5LWUySqIUSSSBqAmtxejtqe6w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by VI1PR04MB7133.eurprd04.prod.outlook.com
+ (2603:10a6:800:126::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Tue, 13 Oct
+ 2026 10:30:12 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0496.021; Tue, 13 Oct 2026
+ 10:30:12 +0000
+From: Larisa Grigore <larisa.grigore@oss.nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Ajay Neeli <ajay.neeli@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Pedro Sousa <pedrom.sousa@synopsys.com>,
+	Hannes Reinicke <hare@suse.de>,
+	Joao Pinto <Joao.Pinto@synopsys.com>
+Cc: linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Davide Caratti <dcaratti@redhat.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: add tc mqprio hw queue
- priority offload
-Message-ID: <as4G3gXpyam7oGeK@aspen.lan>
-References: <20261006-stmmac-mqprio-prio-offload-v5-0-d7da93419784@oss.qualcomm.com>
- <20261006-stmmac-mqprio-prio-offload-v5-3-d7da93419784@oss.qualcomm.com>
- <ase3UrUehtLY6b_5@aspen.lan>
- <97bc33f6-1566-4449-9343-9e3463d5b8bf@redhat.com>
+	linux-arm-msm@vger.kernel.org,
+	clizzi@redhat.com,
+	aruizrui@redhat.com,
+	eballetb@redhat.com,
+	echanude@redhat.com
+Subject: [PATCH v8 01/12] scsi: ufs: dwc: Return a negative error if the link is down
+Date: Tue, 13 Oct 2026 12:29:52 +0200
+Message-ID: <20261013103003.373156-2-larisa.grigore@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261013103003.373156-1-larisa.grigore@oss.nxp.com>
+References: <20261013103003.373156-1-larisa.grigore@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR3P281CA0095.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a1::7) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <97bc33f6-1566-4449-9343-9e3463d5b8bf@redhat.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|VI1PR04MB7133:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86c8cfee-5ee0-44c4-90e5-08df2914f6a4
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|1800799024|376014|366016|22082099003|10067099003|18002099003|921020|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: V3lMnU/0uLimLfYuxW1KOrw3hnhZfljpOzXfJTYyoobCF2mtaoj1ZhSwMeMcUzHBfKez9vkHS7bOYmQXpWNCzh20dcpGuY1VWmvbBBE7MRTnw3trpa4gvAPdgrTKGvL9SmQM9MwL5XjodZNk76xk1o5ry//EcKEHO91R4XY2ppgo7BG74XuFRUpBfW7ZTNCbHwHgwPm8PslalmMOrDEi5f5XKgKX7PnKMf9PG2wAPN5lTQupSxhKyv8SroA+uWhAbMxH7TCq78mnQ76PzMNxw6xn4h1PaAMXkGscHmrCBZ9VpPpRu6ntVIZ1mFfIaZddfn/5UIcigWxv+Lh32wCLbr2blbRD9XkLAoUqkiZaFp6iKK5qWs6AP/qFoOE/hJX8CP53qag5i3t1XbPbnTOQOQq1Bha6f4pVVUoOtKJ1re3t+smfvXMGcG9x7SWhf+SdA5nIbTv6QXlj8OBC9nSZARAg/kBNEQ36gGVnZxRUW2byUXnx/ANDAK4p2KOaIA10Ajzfm1zt1m4FTj+CV5h/1sfLTciHzJsCdVJnpMd4bkVvMd1PJhEmPSJQ1Lp7DYun7YSg9J9SG1Gj5vz+wHEobvBtmVewAV5JUsuF1yF2Ty3k+IT/zUtNzVlbT9lPG/RnZumULkpnDDAsUfJObX7zmza22h0Fi2b9rTaGN75CoC9H94xu5DORCPOrjWHryqlIogJRXaX3j8Z/jRgCHwOuOA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(1800799024)(376014)(366016)(22082099003)(10067099003)(18002099003)(921020)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RzVnMUR0eUVRSGlpcmpCZ0xsbXgweHpTR0tmOXRpc3VTMjNmYXRRTFRGOFcw?=
+ =?utf-8?B?RUEzMXN3dlpIOTdJTFFDUVkwTEpCZFB3SCtkMGJrS04zdG9KT2VJSlJ4cy9I?=
+ =?utf-8?B?ZEdDeVZwYzVTWThORG1lVGd6d08rWlI1d0dGT0ZsbWdkMDA3V3VyZ0tlNGds?=
+ =?utf-8?B?bFFRcjFZVlV5Zy81VktMRGFLMWp2bGtadzlWdG9mTTJuMTlFcmdtK24rdzBN?=
+ =?utf-8?B?UDMyaUZZaFVDVjAzNzR0VXZHTTlJSkpKaWhicHJHL1Era3ZQRUFzbVVkNlFt?=
+ =?utf-8?B?NkdKNnRrSVlHQWk4MTIxUW5EMzdvMzlNbFZDUk9RQ0hMMnNVU2FxaFJqMVFY?=
+ =?utf-8?B?N0ZvOUs2VkR3MjZqK0o0ZHhDZGEwQkZrRVV1MDBvV3lyS1Z2d1JQNEErbGpW?=
+ =?utf-8?B?eXlRcWJjNFBnMjlKZW1XaUZOWFlZcUV4ZldHaVUvT1ErTnRUT2ZlT2JSajU3?=
+ =?utf-8?B?WFArU1dDYXFKSnJVa24xTlZUMHcrbERVNE9EL1l5b1ZYcFhWaVYxMEIzUkZ5?=
+ =?utf-8?B?TUhmTDhTYWM1eWl4VHhqSGFNREVDaVEyb01EL0tVQkR4V3lUTnRSS0lrS0U1?=
+ =?utf-8?B?UHk4SVJjUnRLdHhseHF0a3RCNTdjSmlKOHhRYkNjVjJjNXpIbHlCL01sMXox?=
+ =?utf-8?B?NVB5dUxWYnZ6L0oxSHhCcEYzZU5kRHFLTk5XS1ZWOTZJcmRLUHAvSXdGekVj?=
+ =?utf-8?B?RzVaRStvOEk4d2kwSjFCN1Y3aFRmM29KcVJJVTluWWhwOUdOUmE3RUFsYmVq?=
+ =?utf-8?B?WnhUSWY1c2dDNUJaSDV2d1FvdFR6T2IrTmY1NVNCY2R6TGlHc3h2ZVA1TXNo?=
+ =?utf-8?B?bkE0d0xISzRrTkxsYURJZ0NLVTlYczZ5akpLOEEwRzYwaUs5WTdGbW1DYk9O?=
+ =?utf-8?B?Z0J6TDg4d0xyV0U0VWpxbkQxZ29GUHFqeVFxY2cvdGdyTXBhQ1ZMVFdpelZt?=
+ =?utf-8?B?UWRPTWEzSDR0d25va1dROXpPMEczR1M1QXZnYjFmem9wbDRRYThvNEJLbGpJ?=
+ =?utf-8?B?VS80cFoxenRscU8zTUh4TmhSTEczQUlYMVVUaWpqN0tqaXFISEdDcnE0emwr?=
+ =?utf-8?B?V2VGa1FjSUdXZFlMUURTWTAvalh0NHRnREl6bUk3K3VqZ1VCbDJDRWhaMHRQ?=
+ =?utf-8?B?c0owYnp4QjMxRHRJME1kcG1kOHBoWmp6T1hpQitJcEJVYUs5djFxQ1pJVnBV?=
+ =?utf-8?B?ejJVbE82ZnRpYlBnaGdmMkttN3Rhb200ZTBSUEsveXkxc0tMemlxekprRE1z?=
+ =?utf-8?B?blZ0YjIveHFQR2c5UE9FWTVTWE52WS93aSs3UUlvWnJPT283RzhYM2cxa2RZ?=
+ =?utf-8?B?QnR6V0t1d1QyS05jTXRrajZ2VWRmd045d0JWWHdoSUpBM2FLSmRpZUVhSkFE?=
+ =?utf-8?B?aGZDTVFMTGJveExYL0Z3dGd4a3NUZE9sSXZkbGE4UGx3WExHWG9UdExXU0Qv?=
+ =?utf-8?B?VWVJZjRZQlVmRkxPdi90VVhXYlJTam9UMEhHRm9qTUZNTXpQdGU1Y01VeGhX?=
+ =?utf-8?B?c2NGYTdqcEJkbW14YVpHYzd5bWhUT2ZyQ2hneVFid3FuSzFPenFXYUpUQ0dB?=
+ =?utf-8?B?c3NDNmJvRkgzRWFNL1hFeDBOOERzaW4ybEpwZFpSSjYybHIyWWd2WC9FZXdP?=
+ =?utf-8?B?TmVSbVVudkZ1b2lTam5tSGlXWmRPcUJrK2pleUpSNnlBR1N6clJwK2s5MHhT?=
+ =?utf-8?B?MDQ1T096bjhqbnZKY2RDUnJjajF2UjhZSDFDZS8yOTZDeFVuSzFrUXZ3ckdB?=
+ =?utf-8?B?QWNRTmxzSGw4VjZvM0QrblhINGU2STZoRnJXSEFmY2M0UGZoeGdDNlJHL0d6?=
+ =?utf-8?B?OFFZVU5jOHdJMEVUQlNtSExmV05UcVJuaDUvc2JQOUMzZ3liQUQzSTQ0TjM0?=
+ =?utf-8?B?U253dElMTkNBNGNHMWdHcTVPaEpGNGNzRUFla1BJdW41bWxiZDl6bEJ5MmJm?=
+ =?utf-8?B?ZzBrMHd6cU4wb2RGOUVEZU90SG9FdTBvS3gwc215SVplaHdoT0QzRGJPMUth?=
+ =?utf-8?B?THlob25TaE9zRVVWOGtlSTdkejBsTFpHeXFVWWhtejhHUys2ZFNJR0ZiV0Yw?=
+ =?utf-8?B?bEdyZkRRME1UNWFVeEFNSTVvditPNGMwMGR0YWd6RGhiUkJnM2FSYVZ4K2NB?=
+ =?utf-8?B?RFdHV3ZyUlNZbWNYaHd6VnB2MWdEK2JNYWFmYS9RWUsvOVJQT2QzcTZvcU5O?=
+ =?utf-8?B?Q2thTEVpQ1F2RHJlMFNmQUxHTVNtelQ2akpqd3VvejkvSGlXdzYzMUlSZG9z?=
+ =?utf-8?B?NVFJMFVGQjJrTFRReVpHUHE3QmpoUDNWQjFObDd1UTQ5YUdqaW10UDR4YTlx?=
+ =?utf-8?B?QndxcFQ5WVQ0M25lV2tNZ0xYRWhOcGJiaTM2YjlHaDd4YVJzREd1Zz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86c8cfee-5ee0-44c4-90e5-08df2914f6a4
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 10:30:12.4636
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PCY2IaY/UmAlCiYQWO/PFGRJ76312jLlFLtmonV1jycha50UpjIxkxjBWgRmXlkZW/81rTY803XuSOlhugmp0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_032435_728155_BEECF416 
-X-CRM114-Status: GOOD (  27.87  )
+X-CRM114-CacheID: sfid-20261013_033019_864211_46F895E3 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,85 +175,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 07:02:39PM +0200, Paolo Abeni wrote:
-> On 10/8/26 17:31, Daniel Thompson wrote:
-> > On Tue, Oct 06, 2026 at 12:46:27PM +0200, Lorenzo Bianconi wrote:
-> > > Implement the offload of the tc mqprio hw queue priority in the stmmac
-> > > driver. When the mqprio qdisc is configured in channel mode, the MTL TX
-> > > scheduler is switched to strict priority, and the PSTQX/PSTC priority
-> > > bitmask of each TX queue is programmed from the set of frame priorities
-> > > mapped to the owning traffic class (qopt->prio_tc_map).
-> > >
-> > > The channel mode offload requires the DCB hw feature and a 1:1 TC to TX
-> > > queue mapping, with a single queue per TC. Configurations with AVB queues
-> > > are rejected, since forcing strict priority conflicts with the CBS
-> > > algorithm. The CBS offload is refused while the strict-priority scheduler
-> > > is active, and so is a channel count change that would enable an AVB
-> > > queue.
-> >
-> > I don't think these CBS offload checks are necessary. It's quite reasonable
-> > to mix strict priority on low priority queues with CBS on higher
-> > priority queues.
-> >
-> > In fact on the hardware I have (TC956x) the lower priority queues don't
-> > implement CBS so mixing AVB and DCB queuing (whether SP or ETS) isn't
-> > just reasonable, it's pretty much unavoidable when using CBS!
-> >
-> > As a concrete example of combining mqprio and CBS, the following works well on
-> > TC956x (when I tested an older version of your patch):
-> >
-> > --- cut here ---
-> > tc qdisc replace dev eth0 handle 100 parent root mqprio num_tc 4 \
-> >      map  0  0  0  0  0  1  2  3  0  0  0  0  0  0  0  0 \
-> >      queues 1@0 1@1 1@2 1@3 mode channel hw 1
-> >
-> > # No CBS for TxQ1 means we can't offload this (h/ware stays in SP mode)
-> > tc qdisc replace dev eth0 parent 100:2 handle 102: cbs \
-> >      idleslope 800000 sendslope -1700000 hicredit 494 locredit -1049 \
-> >      offload 0
-> >
-> > tc qdisc replace dev eth0 parent 100:3 handle 103: cbs \
-> >      idleslope 400000 sendslope -2100000 hicredit 247 locredit -1296 \
-> >      offload 1
-> >
-> > tc qdisc replace dev eth0 parent 100:4 handle 104: cbs \
-> >      idleslope 200000 sendslope -2300000 hicredit 124 locredit -1419 \
-> >      offload 1
-> > --- cut here ---
-> Given your later tested-by, I assume you are looking for future possible
-> improvement?
+ufshcd_dwc_link_is_up() returns 1 when the UniPro link is not up. The
+value may propagate through callers that expect failures to be reported as
+negative errno values.
 
-Not sure how it appeared in the thread order but the Tested-by was not
-later chronologically (at that point I had only checked mqprio
-*without* CBS applied to some queues).
+Return -ENOLINK when the link is down, and report a failed
+ufshcd_dme_get() as a negative errno instead of its positive UIC result.
+Declare dme_result as u32 to match the ufshcd_dme_get() parameter type.
 
-Direct answer:
+Fixes: 4b9ffb5a353b ("ufs: add support for DesignWare Controller")
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+---
+ drivers/ufs/host/ufshcd-dwc.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-I'm pretty sure it's *possible* that the new CBS checks could trigger
-spuriously on an existing platform where the queues are statically
-configured via DT. However do we *care* about these cases? I think
-than can only be reached when are attempt to dynamically reconfigure
-the statically configured queues. That would be unusual... and made
-even less likely to happen because some parts of dynamic configuration
-were broken before Lorenzo's patches anyway.
+diff --git a/drivers/ufs/host/ufshcd-dwc.c b/drivers/ufs/host/ufshcd-dwc.c
+index 21b1cf912dcc..71433b4d04aa 100644
+--- a/drivers/ufs/host/ufshcd-dwc.c
++++ b/drivers/ufs/host/ufshcd-dwc.c
+@@ -48,20 +48,23 @@ static void ufshcd_dwc_program_clk_div(struct ufs_hba *hba, u32 divider_val)
+  * ufshcd_dwc_link_is_up() - check if link is up.
+  * @hba: private structure pointer
+  *
+- * Return: 0 on success, non-zero value on failure.
++ * Return: 0 on success, a negative errno value on failure.
+  */
+ static int ufshcd_dwc_link_is_up(struct ufs_hba *hba)
+ {
+-	int dme_result = 0;
++	u32 dme_result = 0;
++	int ret;
+ 
+-	ufshcd_dme_get(hba, UIC_ARG_MIB(VS_POWERSTATE), &dme_result);
++	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(VS_POWERSTATE), &dme_result);
++	if (ret)
++		return ret > 0 ? -EIO : ret;
+ 
+ 	if (dme_result == UFSHCD_LINK_IS_UP) {
+ 		ufshcd_set_link_active(hba);
+ 		return 0;
+ 	}
+ 
+-	return 1;
++	return -ENOLINK;
+ }
+ 
+ /**
+-- 
+2.43.0
 
-Indirect answer:
-
-I don't know if the new checks can cause a meaningful regression but
-Lorenzo has shared a patch[1] to remove the checks. Taking that patch
-is probably better then debating! The new patch is late in the dev cycle
-but should be low risk since AFAICT that patch only removes checks
-added by this one.
-
-[1] https://lore.kernel.org/all/20261012-stmmac-mqprio-cbs-combo-v1-1-831e323eb4ef@oss.qualcomm.com/
-
-
-> Also it's not clear which revision you are referring to: AFAICS this
-> patch is (attempting to) refusing CBS + SP since v1?!?
-
-Oops. I guess I might have pulled a pre-LKML version from a git repo
-and forgotten that!
-
-
-Daniel.
 
