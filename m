@@ -4,154 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D051ECA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF01CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 03:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1opAUVpunP0CpOoCgBaywTHkQiNE8QT/8Fz6vgg1bc=; b=ESqJGvWhTgiWFXiX8VGWsmDcBr
-	h6KPXqiBE3f3rQXgMtLuvrSKD5ysxD4x73uhzI94G8O8iN1EZkg9b6dX8mg7eCjOeYe9Hf5kB8Gsi
-	12dNs5iFTrCfEXtRw6paJlmLt4ilabICXQR96FFF4Rkz7X+t/RXu0nYOYMfDJyOOrE8ub4v4/XmIn
-	VGgnsufFy+Mmv36IOEwdsu4WVrL6111io9I6ujphP+iITVpW3eMGliJ4aEbRbWljYJmFSCwduTTyS
-	nBUZvWm2L8nEFVVoUHGN9hFDnj/Dkw+XM4ocUPHMNsrBlLSeNTikaq7gNjnwERQKZY6CZlKz+Fg4k
-	QG5oEvEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=n5aSjpi38d97JoTIKAE9ofjyp7sKD4gBZolpt7WmoUk=; b=jNEObAOT+U1L9k
+	fMX5/3SmM2E408Qdx7RYh8agJID3XxkuJB+4GVb6VzxNMAHyOZwYqe6hvMp8bGxP8/9AF0GCpdW5I
+	fSLVB+IQFUbxaHjN19x0K6eja5MEtinqemNRfbPgfn9uS0ONClKup6KjXP+nvULP4SDjAn40w/3us
+	9e+F+b0YzdesCZZw6/FS1sefhHihE7q8ihyMf0IhyQDwV9Xyop71O9IzmAeGnwYDhTjIMsvoWQgXF
+	MIQLiD7BMTDOLRKbs/scGEpTyzG92U2TW4Qyp+7WoBJB1loKBzlRKiTxGVci0XjQvUbTyrkXpAE4Y
+	NI/4V+1SmB/f/Sgh5lAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGSow-0000000Br7O-2jxL;
-	Tue, 13 Oct 2026 03:04:54 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1xGT7y-0000000BrtH-1ENY;
+	Tue, 13 Oct 2026 03:24:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGSou-0000000Br6j-0i6M
+	id 1xGT7w-0000000BrtB-3G5p
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 13 Oct 2026 03:24:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=n5aSjpi38d97JoTIKAE9ofjyp7sKD4gBZolpt7WmoUk=; b=Fe6lZd3pQ2sOZknSROYwqqN8Oj
+	AlWfaFjiA8gKydA67rC6MMwd0h6ujRLBOiyR9IbQI8Jxr4ctT7mrXsiccPP0VQUX5+79fBxkC+D29
+	2pY2OxVzsI9NLbWFDU3r3v+WgfW14HnT/YSWK3zr3NR99JVNQN1vUXdJejFSmMSWaG06GyATFamou
+	INgegjy9TIi8bU6QRKZUby+gIK5sjoksNKKEHbBEJVct4kMy9OylRsQcxWeZ2E828eiC9qUW0JmM5
+	nduIf8ThO4f2LwNHK3EgWlzQ5CsJdwRtGNXq/8eToAGCv8/d24cJnF47sw9KaSbLTTiFgC6sgQXAl
+	FGqZUCpw==;
+Received: from out203-205-221-245.mail.qq.com ([203.205.221.245])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGT7k-0000000F3Zb-2JOD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 03:04:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JU68lBlNgcWfq57R04gnehWiGr5M03UfiBXEvf1NQHM/jGvgCtvVhDf2uOXHVU9IZXYMFU9yZ5jc5ia4fAmnPMbKaIbPMqCVulNWhj7X279a7dkFL+Qcjq5rR+0iH2h8XThWoMUiKfs/zpVqhb5sD5IlXlEcJ8W5u1WjgM9s1I86o/p6aJVGFd+2PssEJNbhzv1fONKaRI+3xpatFNf9bGLvuONNeG1ZZZHpGDuEhkUiU9vLoul2z5Sq8L2awpxDgDDaNdiloTNXMLn8R617kjQ43ipRqyELLFgt0pgK4VjXoLXfUvS1ybQNLpOXai0uqBzJWSmWJE49qRB4SeU0Sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N1opAUVpunP0CpOoCgBaywTHkQiNE8QT/8Fz6vgg1bc=;
- b=WArqwwG/h5RqPdqYWRcAtFzKPNQ0VAuh3atOVqpDM77ZzNZFK73IhPrv+cXmPS36jUge9+5H3iFyO6TnxSIXiEDfVrY+5H6asaHZGvMyEy26EBi56rkas3EJkJRIb65LaIdHUj8lCmObiSwAa4wqKFo3CGsfJMNdr6lihEQcLAwkJoPqq+LMsSvypGsrMG6sBwr2nWB6e6OCrkiInkVADHOvmhLiCpldAYK8AEIrIEQGy0IG5vyrQsLtOgzIPs92FRgCVo2DKkF8eqy14dOK/SFoWp63hJlYRHm/fIu/XXkh0890D5exSlmWcGK3d1PHPkS17cI+CYthZzK94fZOLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phil.gs; dmarc=pass action=none header.from=phil.gs; dkim=pass
- header.d=phil.gs; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=NETORGFT5377951.onmicrosoft.com;
- s=selector1-NETORGFT5377951-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N1opAUVpunP0CpOoCgBaywTHkQiNE8QT/8Fz6vgg1bc=;
- b=Ua2NBSEd+qIQxJQjd4i0k6ScO/P3pAwYDVqzEvxnEvZIZ32yDraYF2yY+IFPZrWTruAZSVKOzO7yFScYwuyKC50V7kj701TM2D+4Cr74DAjU9ujeAy6euEtra8rW6IMwGoxSVbK+SfDQocxPi7JmR9QGxLdNOnuH7zdiNe0s/5c=
-Received: from BY5PR04MB6472.namprd04.prod.outlook.com (2603:10b6:a03:1eb::10)
- by DS4PR04MB9769.namprd04.prod.outlook.com (2603:10b6:8:277::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 13 Oct
- 2026 03:04:43 +0000
-Received: from BY5PR04MB6472.namprd04.prod.outlook.com
- ([fe80::3a9:9dbc:2aeb:8827]) by BY5PR04MB6472.namprd04.prod.outlook.com
- ([fe80::3a9:9dbc:2aeb:8827%6]) with mapi id 15.21.0522.011; Tue, 13 Oct 2026
- 03:04:43 +0000
-From: Phil Rosenthal <phil@phil.gs>
-To: "git@gregoirelayet.com" <git@gregoirelayet.com>
-CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel
-	<lkundrak@v3.sk>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Lee Jones <lee@kernel.org>, Tan Siewert <tan.siewert@9elements.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "mfd@lists.linux.dev" <mfd@lists.linux.dev>,
-	"andrew@lunn.ch" <andrew@lunn.ch>, "jacky_chou@aspeedtech.com"
-	<jacky_chou@aspeedtech.com>, "yh_chung@aspeedtech.com"
-	<yh_chung@aspeedtech.com>, "ninad@linux.ibm.com" <ninad@linux.ibm.com>,
-	"anirudhsriniv@gmail.com" <anirudhsriniv@gmail.com>, "andy@kernel.org"
-	<andy@kernel.org>
-Subject: Re: [PATCH v6 4/6] mfd: aspeed-pci-core: add AST2600 PCIe BMC device
- driver
-Thread-Topic: [PATCH v6 4/6] mfd: aspeed-pci-core: add AST2600 PCIe BMC device
- driver
-Thread-Index: AQHdWr+YV/FhYOPImkyusUIlzmNZaw==
-Date: Tue, 13 Oct 2026 03:04:43 +0000
-Message-ID: <C5A01ECE-9A61-4BCA-88C6-83A1673AA69C@phil.gs>
-References: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
- <20260818-aspeed-driver-v6-v6-4-fd7cc0b338ea@9elements.com>
-In-Reply-To: <20260818-aspeed-driver-v6-v6-4-fd7cc0b338ea@9elements.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phil.gs;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BY5PR04MB6472:EE_|DS4PR04MB9769:EE_
-x-ms-office365-filtering-correlation-id: 611939d0-3fcf-4647-ecc3-08df28d6bad1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|4143699003|5023799004|38070700021|56012099006|18002099003|22082099003|6133799003|7055299009|261009220027099003|261009221727099003|261009221227099003|261009223027099003|261009223327099003|10067099003;
-x-microsoft-antispam-message-info: XcgkeyVgi4WDFq/K9U9B6EjEMqHSi47JKI8MKaFye/RQy2a8yvFYeyyLaZjj1lgsovpqBO/bR5+hc4mZugFDvopLwnXBMMR4C6na05WResjbTrkWho6MpmJxjnEbHWVafFA97UgPmQXQFXiJBAmt7hH4U88u5XBPOc2yiE+67BAPONvQblcb3vBscw+tz4JsM/5Ufm+yUoOHLOua4Dxu060aRfj2x3Bwy0wvCTzOXWrii7Q5JE5pb7zKOV7M6MGkXfRJDIk6GYMj9JY//yDdXYbES3YPBINdkPiuI/ypCcO9Wwo2feWzkO9Z8eDA2gz6NOhNb+KsnjrXB+mXSC7ZQGlEJ/dcdTWeXmmYzFZSRF/yd+xIhQQxyaKugiijhzPiFnR9cT5cndNIKHFzr9AK03LM3ra7I3Iqw1vtJYhUmngdgQPyUYSs6T3JF8FxwgEumXsel6+BAd/vNKtHLhPJG+gqGbwxqY5W7pWxbnfbXTMzqc7BQ7YikV41QuzVwWCywS0704UD6esR9WTScYVB9W28KuSW7IUPFH/0LErCmCe1dZUF5x55Y+9R6M5FQhDWA+xtHEpkPGPz+NyIrdEf53hvvmg3DwcYuSMUWOtXln90QuMz6N5E9/Y+Vu8HHeW53oAs30sd7i6WZloStXEsl+vU/3rx8YEVne0slST5kkmQCI5a7Dklqldxgbzkwb2C4TtUnIuRq28PmJIHtor26g==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR04MB6472.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(4143699003)(5023799004)(38070700021)(56012099006)(18002099003)(22082099003)(6133799003)(7055299009)(261009220027099003)(261009221727099003)(261009221227099003)(261009223027099003)(261009223327099003)(10067099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?N1lQd2I0ZmRDYlBPMnQ2TkJNZVJkRXZTaGVtQ05uQW02MHlHbjZOdVBYYm1L?=
- =?utf-8?B?NHp3eW9UVlVXb0ZRNjFYL01keTBRczFyZWVIQ09BbWxxRWhHVWtXa20yVWh2?=
- =?utf-8?B?Nkd5eXQ0RllmNlZTYU52Vk91Sis1emVhYmtSZkZaaWJtOWY4R3BwVWM4c1Ur?=
- =?utf-8?B?RTVvQkxxT0ZRVFMxRUlBaFZ2MCtvTk42cG5BcDZocVNtNGVoNkZocStXT0tp?=
- =?utf-8?B?cENLck9meDY3Ni9rK29FWDB3TUhaWnh3VUNwdmtJbE9TQ3NUeGg3bnRZOHQ5?=
- =?utf-8?B?OWU2dmNrakYwOWJiZkY2MkxSMDM4dTFPU2VuNmJWTTZiVUZjQ0VyOWszY21l?=
- =?utf-8?B?RWxCQWZ2V2UwNU9uQmpCbWNFOGtqUkV4Q3VKK25JNTlRTVBzVnN0UFhmU2pX?=
- =?utf-8?B?OTZHTXMyNUFETEx1Tm9jSjUyUmtFMzRtYjRiVXdPbDlBbHZUcXhnWmFkNGg1?=
- =?utf-8?B?Y0tNMkhYd1hYYm9yaHYwVFEvc0ViZjQrQ3pQQzdRd3NOSEdhRlltRExJOUpU?=
- =?utf-8?B?WTZ4MTFqZFAzOTJGTTd5bS9IN2JCb3lTL2FtdzFtb2tWZkhoZ1lROXI1eHNE?=
- =?utf-8?B?VUt0TklveDNlTERicnA3eVB3TjdXT21IM0RiT0djRE03V0lncEkwUkNSaHVv?=
- =?utf-8?B?T2NFd1BYZU5Da2l4MkxLNkg2cmxpWkNxMmVjajJ2ZUxIZ0M1dVp1bzNCeEt2?=
- =?utf-8?B?TE9rSWVER1JEaUYxbkNjWjRyRnNtRTZEcldCN2VJUkRVbmxFUm9ob2NpcnBi?=
- =?utf-8?B?dGluUE5hT0lqaFhOSkpjbmZCZEJITTBaU05OajZTRGZxbFRFL0ZYS1BKdzZw?=
- =?utf-8?B?aE5JS1pUc3dzdGpTYm1XYmdrNlhwU01YWHBMclBYOFFpWXZuN1ZmT2NINmZJ?=
- =?utf-8?B?a2ZGRG1ZLzdBM1VhY0kwdzRtQkwwakY0bDVranNsdkNLRDR1QjRVaWZTTTZZ?=
- =?utf-8?B?MkU4RjhDYURnT083cDhEZnN6ZE5HRWoxN0ZSN1prcVdncUp5bUIyVzMvVVZP?=
- =?utf-8?B?aEl1Y3FweWJOVlU5c3lmd1BNclJrc2kvSDQzSW9kSlA4TlljQjg2NUtkRkhY?=
- =?utf-8?B?WGtmOUtDSjJaVTFHVHBwRnJQb3pLQVlYV1REblcyS0tHNHhuTlVWNi9Ua1BC?=
- =?utf-8?B?MHVMUytuVDNaVEsxZWZHSE1mMHluSWpkLzdvd0JkSy9IQWRXWDdIUU0xUUhJ?=
- =?utf-8?B?aWo4Q25PR1ZBRjUyUGljbCszbjlWNVlPSHE3WXdGUVJtMTVCTm5kU01WL2g3?=
- =?utf-8?B?SjNxcytUMVpjV2t5L0tOWlBZL2ZNMWRGMVEvN3dMNkw4Mjl3WXYrSzhoV0ZV?=
- =?utf-8?B?VUtNQndsOVloNDJINEwwNFIxYVJqQmxBUjNVend5NHhDYWpCcm1vQzZWb0Fv?=
- =?utf-8?B?YlpqZ09NTzJzNkZuSjY4ZUk3OU1CZklyaTdOci9RaFR1S0NMQmJ6ZjNrZFQy?=
- =?utf-8?B?Y2UzWWZtVUk4NkxxOXR6NkRiZ0xVR0htSjQvOW1lMk4vWHhlWTFZb3IxWFlZ?=
- =?utf-8?B?aVoyRXhRMjlPQUNidkhsOTJDMHdpQXNTdGlYQS9MWFRtOU4wZS9GSlZvenZq?=
- =?utf-8?B?TzlyWEdLZFErWFhJRWZqb3ZlWVV2QW9aQXd0T05QTkN6ZWtsUzJzRyt2ZUhp?=
- =?utf-8?B?eThmZUVEUG9rRnd3Rzd0RHhwUTZNVVhXZ1ZvaUtjTkhTRTBXaTIwWExsVml6?=
- =?utf-8?B?bG0vaE1oSXJDbnp5bERjbmRFU0pJTWs2YWE1c2lSbzdCRk1KTlhpVG9qZ1ZT?=
- =?utf-8?B?ZDAzWlhYSnZsQ3YxL2hkSktwcTl2V0k3OFBibWI3ZExtZnVVd0Q1ZEI4cDVU?=
- =?utf-8?B?aUxnQmNiai9OL0loVUZJMzdRM1MvUnA5YnltOWR6T3Y0N3VVbHc5T0lqNnFI?=
- =?utf-8?B?emtRMFdwdDREUWZPK1lnZ3JkeURBM2RMNUhxNG9lNDRUR3doUDkva1pqSnIz?=
- =?utf-8?B?UWNsbEYyazc4MnFMZC9NVlBPcWFmRkxxQXhodlkxcEQyQ2pQRmVhNG1aZU02?=
- =?utf-8?B?ekYvNVJTaU85Qy9oNkNPaU9IOVY2NkVCamo3TlZYU2dJOTFLTGNXNGFLV01z?=
- =?utf-8?B?bXlMMzdXdTdWeU9DVUtHR0JyRndJU3lsSVJ1VUR0L21vS0twTXBscU1Idm5u?=
- =?utf-8?B?bTVGUm9aeldWdmlaZHVkSXNxcmRlekpnSkpjQitiS1ZyOTNuOVRjTzBsaGwy?=
- =?utf-8?B?WTkybWw0N2l5c2QyWGNENFdRNThWeUdPckhXbEMrNmRkWGtGMStNZElDUmxF?=
- =?utf-8?B?L1A2NlBkcHRhU2JrRXMzaWx6NktxR2NnUy9tSlZJcnV1d0I0WDhYd29aSGt2?=
- =?utf-8?Q?HzmyFNq3iNA1bQ+eVP?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <7C539BBCD660D94E8EAB24C500DF9A10@namprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Tue, 13 Oct 2026 03:24:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791861852; bh=n5aSjpi38d97JoTIKAE9ofjyp7sKD4gBZolpt7WmoUk=;
+	h=From:Date:Subject:To:Cc;
+	b=ckXNWsAQFnZJGmmwry5r/3S6EMV3MfSylxwl7ff+BoBX+Go8owP0KEYXhxD+HzcRA
+	 L+fDJrLfgpNDOw0eTy0iy/A+WIrY9aHVi1ncTEZk8RjEr4rkqrXE9pCeDUeUTlT8Eb
+	 HHUIR/smYzm7U+kUmQy6pyXKMh5cFkj8JvwC1cdw=
+Received: from ubuntu2204.localdomain ([2409:8d20:7f:35d:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id 5AA184C4; Tue, 13 Oct 2026 11:22:42 +0800
+X-QQ-mid: xmsmtpt1791861762takf3foip
+Message-ID: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
+X-QQ-XMAILINFO: MlsYLnHA0UVjWnp7hi0CZSt7AYwx3Dlpux5tMi53y2dxpTPQTxCoE7WziwLp/l
+	 V9WsvrSu2jmFlr2nf/vrfvlmSOWV40/V1Rrx4/INqVH3CQOiTfzHUlJFxh+p7i6/iisSafKzXi8r
+	 6y2LdHMQDvMPS9hN0ujcgVZolio/nkv2HcpQPc7fJpKR7Tq6V506QsoNdj5NXv5gU3TiCMDxjpuE
+	 q74ONYXjm5qLjYrfKFAFLtnMKtVIRoeH5UtApQnoRO2Ky6prnDsU75kTJySU8eZK66IQKfzk7JfG
+	 Yl5Gru/A61Sw6ni8SyHEK8tKDOu7gOenphyWJjvJgyFPlOZYByFsUk603I2yTDetxjlMWE5DlXHO
+	 6XtfClD30Sm9PtN2So7rGf2rjIozhQdXQha9SaawaX8aie91AC+JXKN5afEmRh0IAyfcaUSQqnc9
+	 vEHXCrK6uECPcYNrZADd3gJsbtlHORLRJeSz8Ry+sKIhp9btZ/M/8U8i38YfJYAd1tkns9JeYlFX
+	 3jwmJB9A/+n2dP6Pww/UlniRdD89B2aLgOAI2jaCpRTYAMGW+xS339GHm8lX1rjMKykLi7jLvK6G
+	 RXfWe6NObbXnqhjO5E3G+4IBo2mTJXvxL8PDar9BcmItjd/9v5iaDAIBMjNLvDgB615LPDEDKFOZ
+	 Ts/2Nk8qd9fLs+5saJwqT//VQf8SGQpqfjv+TEreL93dcXAqgFExbu/aMNsYzg2aF1llwfaHo37W
+	 onqV+q8e8W38IlFxgjCxyBB9Miw+DJIc2AmRyyTdQZalfC75HFt9IM1l3dbUYgUHmKZXk2DrumLD
+	 HyeO5aHQqwjKZxhFqnya7NfyGhue6XhdPzWqlXGXhuue9XbDjBJ03L9Tp4gG6FNAeHkgKPNaKcog
+	 kEn2G/EW/KsyDqmgzR+JkWtpY+tdwbSgy1ip+6PHbMKv6BIW9xYkt/C4Uq3YP97z6aSvmLqgqK9z
+	 /88uB08Oly/aPF1ezaC483aolF6iJ4sofO4xaMU36Nhsz1O9NaiLMipOCYepT/d10L8KttsnHfmo
+	 nhVSd9mB4H+S+EDdwAeDH8zW8J5NnoaTPS9OVpMwS90dhlqWR2fPfIYnfDQcCST6pTko38zpOt/6
+	 8qP0WA5jDceBDRcpLPApCT9WK8MHDUE5xRfSdV1uBoOwTG3utYLmSCSs5iBHHp1dUwgwBoONW/Kh
+	 nHDEY=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Tue, 13 Oct 2026 11:22:37 +0800
+Subject: [PATCH net] can: rockchip_canfd: stop bus-off restart before
+ closing the device
 MIME-Version: 1.0
-X-OriginatorOrg: phil.gs
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR04MB6472.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 611939d0-3fcf-4647-ecc3-08df28d6bad1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Oct 2026 03:04:43.1704
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 47d4f979-ea6f-4fcb-aea9-39371d64bc6b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: I/MY7BHQndu5Dtjfypyua+u8ZgETPjr1SVSD1lu442Gls0IkNV2TqPp1RihGS1mR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR04MB9769
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20261013-rockchip-canfd-restart-close-v1-1-72cac4f932cf@qq.com>
+X-B4-Tracking: v=1; b=H4sIAPyjzWoC/yXMwQrCMAyA4VcZORtYpxP0VcRDm6YuKu1IOhHG3
+ t2qx/8/fCsYq7DBuVtB+SUmJbdwuw5o8vnGKLE1DP1wdL3boxZ60CQzks8porJVrxXpWYyRQ+T
+ xNB6SCwkaMSsnef/4C2SucP1PW8KdqX5h2LYPhSdx8oUAAAA=
+X-Change-ID: 20261013-rockchip-canfd-restart-close-ebde5954f1bf
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+ kernel@pengutronix.de, Heiko Stuebner <heiko@sntech.de>, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261012_200452_288830_D757E55E 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20261013_042424_791285_33B213A3 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,118 +110,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgR3LDqWdvaXJlLA0KDQpBIGZldyBub3RlcyBvbiB0aGUgaG9zdCBkcml2ZXIsIGZyb20gZHJp
-dmluZyB0aGUgVlVBUlRzIG9mIHRoZSBzYW1lIEJNQw0KZGV2aWNlIGZ1bmN0aW9uICgxYTAzOjI0
-MDIpIG9uIGFuIEFTVVMgUHJvIFdTIFc2ODAtQUNFIElQTUkuDQoNClNvbWUgY29udGV4dCBmb3Ig
-dGhvc2Ugd2hvIGhhdmVuJ3Qgc2VlbiB0aGUgb3RoZXIgdGhyZWFkIFsxXTogYm9hcmRzDQp3aG9z
-ZSBCTUMgcnVucyB0aGUgYm9hcmQgbWFrZXIncyBvd24gZmlybXdhcmUgcmF0aGVyIHRoYW4gT3Bl
-bkJNQyAob24NCnRoZSBBU1VTIGJvYXJkLCBBU1VTJ3MgQVNNQjEwLWlLVk0gZmlybXdhcmUpIGxl
-YXZlIHRoZSBmdW5jdGlvbiBhdCB0aGUNCktDUyBjbGFzcyBjb2RlICgwYzA3MDEpIGFuZCBwdXQg
-dGhlIFZVQVJUIGludGVycnVwdHMgb24gb3RoZXIgTVNJDQp2ZWN0b3JzLCBzbyB0aGlzIGRyaXZl
-ciBkb2Vzbid0IGJpbmQgdGhlbS4gSSd2ZSBwcm9wb3NlZCBhIHNlcGFyYXRlIDgyNTANCmRyaXZl
-ciBmb3IgdGhvc2UgYm9hcmRzLCBhbmQgd2hldGhlciB0aGF0IHN1cHBvcnQgc2hvdWxkIGdvIGlu
-dG8NCmFzcGVlZC1wY2ktY29yZSBpbnN0ZWFkIGlzIHN0aWxsIG9wZW4gaW4gdGhhdCB0aHJlYWQ7
-IGlucHV0IGZyb20gdGhlDQpzZXJpYWwgYW5kIE1GRCBtYWludGFpbmVycyB0aGVyZSB3b3VsZCBi
-ZSB3ZWxjb21lLiBJIHNhaWQgdGhlcmUgdGhhdCBJJ2QNCmhvbGQgdGhlc2Ugbm90ZXMgdW50aWwg
-dGhhdCdzIHNldHRsZWQsIGJ1dCBub25lIG9mIHRoZW0gZGVwZW5kIG9uIGl0LCBzbw0KSSdkIHJh
-dGhlciBub3Qgc2l0IG9uIHRoZW0uIElmIHRoZSBzdXBwb3J0IGRvZXMgZ28gaW50byB0aGlzIHNl
-cmllcywNCkknbGwgZm9sbG93IHVwIHdpdGggd2hhdCBpdCBuZWVkcyBvbiB0b3Agb2YgdGhlc2Uu
-DQoNClRoZSBwb2ludHMgYmVsb3cgYXJlIGFib3V0IHRoZSBjb2RlIGl0c2VsZiBhbmQgYXBwbHkg
-dG8gT3BlbkJNQyBib2FyZHMNCmFzIHdlbGwuDQoNCj4gK3N0YXRpYyBjb25zdCB1bnNpZ25lZCBp
-bnQgdnVhcnRfbXNpX2luZGV4W0FTUEVFRF9CTUNfTlJfVlVBUlRdID0geyAxNiwgMTcgfTsNCg0K
-VGhlc2UgdmVjdG9ycyBvbmx5IGhvbGQgaWYgdGhlIEJNQydzIGRldmljZSB0cmVlIHB1dHMgdGhl
-IHR3byBWVUFSVHMNCm9uIFNJUlEgMCBhbmQgMS4gODI1MF9hc3BlZWRfdnVhcnQgdGFrZXMgdGhl
-IFNJUlEgZnJvbQ0KImFzcGVlZCxscGMtaW50ZXJydXB0cyIgYW5kIGRlZmF1bHRzIHRvIFNJUlEg
-NCB3aXRob3V0IGl0LCBhbmQNCmFzcGVlZC1nNi5kdHNpLCBldmVuIHdpdGggcGF0Y2ggNi82LCBk
-b2Vzbid0IHNldCBpdCBmb3IgdnVhcnQzIG9yDQp2dWFydDQuIEEgYm9hcmQgdGhhdCBlbmFibGVz
-IFZVQVJUIG92ZXIgUENJIHdpdGhvdXQgYWxzbyBzZXR0aW5nDQphc3BlZWQsbHBjLWludGVycnVw
-dHMgZ2V0cyBib3RoIFZVQVJUcyBvbiBTSVJRIDQsIGFuZCwgYXMgZmFyIGFzIEkNCmNhbiB0ZWxs
-LCBuZWl0aGVyIG9uIHZlY3RvciAxNiBvciAxNy4gKFRoYXQgdGhlIHZlY3RvciBpcyAxNiArIFNJ
-UlEgaXMNCm15IGluZmVyZW5jZTogMTYgYW5kIDE3IGZvciBTSVJRIDAgYW5kIDEgb24geW91ciBi
-b2FyZHMsIGFuZCB2ZWN0b3IgMjANCmZvciB0aGUgVlVBUlQgb24gdGhlIEFTVVMgYm9hcmQsIHdo
-b3NlIHN0b2NrIGZpcm13YXJlIHVzZXMgU0lSUSA0LikNClRoZSBjaGFuZ2UgZnJvbSAxNSB0byAx
-NyBtZW50aW9uZWQgaW4gdGhlIGNvbW1pdCBtZXNzYWdlIGFsc28gc3VnZ2VzdHMNCnRoZSB0YWJs
-ZSBjYW1lIGZyb20gdGVzdGluZyByYXRoZXIgdGhhbiBkb2N1bWVudGF0aW9uLg0KDQpUaGUgc2lt
-cGxlc3QgZml4IHdvdWxkIGJlIHRvIG1ha2UgYXNwZWVkLGxwYy1pbnRlcnJ1cHRzIHJlcXVpcmVk
-DQp0b2dldGhlciB3aXRoIGFzcGVlZCx2dWFydC1vdmVyLXBjaSBpbiB0aGUgYmluZGluZywgb3Ig
-dG8gc2V0IFNJUlEgMA0KYW5kIDEgZm9yIHZ1YXJ0MyBhbmQgdnVhcnQ0IGluIHBhdGNoIDYvNiwg
-c28gdGhlIEJNQyBzaWRlIGFsd2F5cw0KbWF0Y2hlcyB0aGUgaG9zdCdzIHRhYmxlLg0KDQpUaGUg
-bW9yZSByb2J1c3Qgb3B0aW9uIGlzIHRvIGZpbmQgdGhlIHZlY3RvcnMgYXQgcHJvYmUsIHdoaWNo
-IFRhbiBhc2tlZA0KYWJvdXQgaW4gdGhhdCB0aHJlYWQuIFRoYXQgd29ya3Mgd2hhdGV2ZXIgU0lS
-UXMgdGhlIEJNQyBzaWRlIHVzZXMsIHNvIGENCmJvYXJkIERUIHRoYXQgbGVhdmVzIHRoZW0gb3V0
-IG9yIGdldHMgdGhlbSB3cm9uZyBzdGlsbCBnZXRzIGludGVycnVwdHMsDQphbmQgaWYgbm8gdmVj
-dG9yIGNhbiBiZSBmb3VuZCwgdGhlIHBvcnRzIGZhbGwgYmFjayB0byBwb2xsaW5nIGluc3RlYWQg
-b2YNCndhaXRpbmcgb24gYSB2ZWN0b3IgdGhhdCBuZXZlciBmaXJlcy4gSXQgd291bGQgYWxzbyBi
-ZSB0aGUgYmFzaXMgZm9yDQpzdG9jayBmaXJtd2FyZSBzdXBwb3J0IGlmIHRoYXQgZW5kcyB1cCBp
-biB0aGlzIHNlcmllcy4gSXQncyB0aGUgTVNJDQpjb3VudGVycGFydCBvZiB3aGF0IHRoZSA4MjUw
-IGNvcmUncyBhdXRvY29uZmlnX2lycSgpIGRvZXMgZm9yIGxlZ2FjeQ0KcG9ydHMgd2l0aCBVUEZf
-QVVUT19JUlE7IEkgZGVzY3JpYmVkIHRoZSBtZXRob2QgaW4gWzFdLCBhbmQgaXQncw0KYXNwZWVk
-X3BjaTgyNTBfZmluZF9pcnFzKCkgaW4gWzJdLiBXaXRoIHRoZSBEVCBmaXggYWJvdmUgeW91ciBi
-b2FyZHMNCmRvbid0IHN0cmljdGx5IG5lZWQgaXQsIGJ1dCBJJ20gaGFwcHkgdG8gc2VuZCBpdCBh
-cyBhIHBhdGNoIGZvcg0KYXNwZWVkLXBjaS1jb3JlIGlmIHlvdSdkIGxpa2UgaXQuDQoNCj4gK3N0
-YXRpYyBzdHJ1Y3QgcGxhdF9zZXJpYWw4MjUwX3BvcnQgYXNwZWVkX3VhcnRfcG9ydFtBU1BFRURf
-Qk1DX05SX1ZVQVJUICsgMV0gPSB7DQo+ICsJew0KPiArCQkudWFydGNsayA9IDExNTIwMCAqIDE2
-LA0KPiArCQkuaW90eXBlID0gVVBJT19NRU0zMiwNCj4gKwkJLnR5cGUgPSBQT1JUXzE2NTUwQSwN
-Cg0KRGlkIHlvdSBjb25zaWRlciBQT1JUX0FTUEVFRF9WVUFSVCBoZXJlPyBUaGUgQk1DIHNpZGUg
-dXNlcyBpdCBiZWNhdXNlDQpvZiBjb21taXQgYTYwM2NhNjBjZWJmICgic2VyaWFsOiA4MjUwX2Fz
-cGVlZF92dWFydDogYWRkDQpQT1JUX0FTUEVFRF9WVUFSVCBwb3J0IHR5cGUiKTogaG9zdC1zaWRl
-IFRIUkUgbWlzYmVoYXZlcyB3aGVuIHRoZQ0KQk1DLXNpZGUgcmVjZWl2ZSBGSUZPIHRyaWdnZXIg
-aXMgYWJvdmUgb25lIGJ5dGUuIFRoYXQgY29tbWl0IG9ubHkNCmNvdmVycyB0aGF0IGRpcmVjdGlv
-biwgc28gSSBjYW4ndCBzYXkgdGhlIGhvc3Qgc2lkZSBuZWVkcyBpdCB0b28sIGJ1dA0KdXNpbmcg
-dGhlIHNhbWUgdHlwZSBvbiBib3RoIGVuZHMgd291bGQgYXZvaWQgdGhlIHF1ZXN0aW9uLg0KDQpP
-biB0aGUgYXJyYXkgaXRzZWxmIGJlaW5nIHN0YXRpYyBhbmQgd3JpdHRlbiBhdCBwcm9iZSwgSSBh
-Z3JlZSB3aXRoDQpTYXNoaWtvJ3MgY29tbWVudC4NCg0KPiArCWZvciAoaSA9IDA7IGkgPCBBU1BF
-RURfQk1DX05SX1ZVQVJUOyBpKyspIHsNCj4gKwkJYXNwZWVkX3VhcnRfcG9ydFtpXS5tYXBiYXNl
-ID0gYmFyICsgKHZ1YXJ0X3BvcnRfYWRkcltpXSA8PCAyKTsNCj4gKwkJYXNwZWVkX3VhcnRfcG9y
-dFtpXS5pcnEgPSBwY2lfaXJxX3ZlY3RvcihwZGV2LCB2dWFydF9tc2lfaW5kZXhbaV0pOw0KPiAr
-CX0NCg0KQm90aCBWVUFSVHMgYXJlIHJlZ2lzdGVyZWQgd2hldGhlciBvciBub3QgdGhlIEJNQyBl
-bmFibGVzIHRoZW0uIEEgVlVBUlQNCnRoZSBCTUMgaGFzbid0IGVuYWJsZWQgcmVhZHMgYmFjayBh
-cyBhbGwgb25lcyB0aHJvdWdoIEJBUjEgKHRoZSBvbmUgYXQNCjB4MmY4IGRvZXMgb24gdGhlIEFT
-VVMgYm9hcmQpLiBUaGUgODI1MCBjb3JlJ3MgIkxTUiBzYWZldHkgY2hlY2siIGF0DQpvcGVuIHdv
-dWxkIG5vcm1hbGx5IGNhdGNoIHRoYXQsIGJ1dCBpdCBjb21wYXJlcyBhZ2FpbnN0IDB4ZmYsIGFu
-ZCB3aXRoDQpVUElPX01FTTMyIHRoZSByZWFkIHJldHVybnMgMHhmZmZmZmZmZi4gU28sIGFzIGZh
-ciBhcyBJIGNhbiB0ZWxsIGZyb20NCnRoZSBjb2RlLCB0aGUgcG9ydCBvcGVucyBub3JtYWxseSBh
-bmQgd2hhdGV2ZXIgaXMgd3JpdHRlbiB0byBpdCBpcyBsb3N0Lg0KUmVhZGluZyBNQ1IgZmlyc3Qg
-YW5kIHNraXBwaW5nIGEgVlVBUlQgdGhhdCByZWFkcyBhcyBhbGwgb25lcyBhdm9pZHMNCnRoYXQ6
-IE1DUiBiaXRzIDYtNyBhcmUgcmVzZXJ2ZWQgYXMgemVybywgYW5kIHJlYWRpbmcgaXQgaGFzIG5v
-IHNpZGUNCmVmZmVjdHMsIHVubGlrZSBMU1IuDQoNCj4gK3N0YXRpYyB2b2lkIGFzcGVlZF9ibWNf
-cGNpX2ZyZWVfaXJxcyh2b2lkICpwZGV2KQ0KPiArew0KPiArCXBjaV9mcmVlX2lycV92ZWN0b3Jz
-KHBkZXYpOw0KPiArfQ0KDQpTaW5jZSB0aGUgZGV2aWNlIGlzIGVuYWJsZWQgd2l0aCBwY2ltX2Vu
-YWJsZV9kZXZpY2UoKSwgdGhlIHZlY3RvcnMgYXJlDQphbHJlYWR5IG1hbmFnZWQ6IHBjaV9hbGxv
-Y19pcnFfdmVjdG9ycygpIHJlZ2lzdGVycyBwY2ltX21zaV9yZWxlYXNlKCksDQp3aGljaCBmcmVl
-cyB0aGVtIG9uIHVuYmluZC4gVGhlIGtlcm5lbGRvYyBvZiBwY2lfZnJlZV9pcnFfdmVjdG9ycygp
-DQpzYXlzIG5vdCB0byBjYWxsIGl0IGluIHRoYXQgY2FzZSAoImNhbiBsZWFkIHRvIGRvdWJsZS1m
-cmVlIGlzc3VlcyIpLg0KSXQgaGFwcGVucyB0byBiZSBoYXJtbGVzcyB0b2RheSwgYmVjYXVzZSB0
-aGUgc2Vjb25kIHBjaV9kaXNhYmxlX21zaSgpDQpmaW5kcyBNU0kgYWxyZWFkeSBkaXNhYmxlZCwg
-YnV0IHRoaXMgYWN0aW9uIGNhbiBzaW1wbHkgYmUgZHJvcHBlZC4NCg0KPiArCXJjID0gcGNpX2Fs
-bG9jX2lycV92ZWN0b3JzKHBkZXYsIEFTUEVFRF9CTUNfTVVMVElfTVNJLCBBU1BFRURfQk1DX01V
-TFRJX01TSSwgUENJX0lSUV9NU0kpOw0KPiArCWlmIChyYyA8IDApDQo+ICsJCXJldHVybiBkZXZf
-ZXJyX3Byb2JlKGRldiwgcmMsICJmYWlsZWQgdG8gYWxsb2NhdGUgJWQgTVNJIHZlY3RvcnNcbiIs
-DQo+ICsJCQkJICAgICBBU1BFRURfQk1DX01VTFRJX01TSSk7DQoNCklmIDMyIHZlY3RvcnMgYXJl
-bid0IGF2YWlsYWJsZSwgcHJvYmUgZmFpbHMgYW5kIHRoZXJlIGlzIG5vIHNlcmlhbA0KcG9ydCBh
-dCBhbGwuIE9uIHg4NiB0aGF0IGhhcHBlbnMgd2hlbmV2ZXIgaW50ZXJydXB0IHJlbWFwcGluZyBp
-cyBvZmYsDQpzaW5jZSBvbmx5IHRoZSBJbnRlbCBhbmQgQU1EIHJlbWFwcGluZyBkb21haW5zIHN1
-cHBvcnQgbXVsdGktTVNJLiBUaGUNClZVQVJUcyB3b3JrIGZpbmUgcG9sbGVkOiB0aGUgODI1MCBj
-b3JlIHBvbGxzIGEgcG9ydCB3aXRoIGlycSAwLiBPbiB0aGUNCkFTVVMgYm9hcmQgcG9sbGluZyBt
-YW5hZ2VzIGFib3V0IDIgS0IvcyBhZ2FpbnN0IDE0LjYgS0IvcyB3aXRoIE1TSSwNCndoaWNoIGlz
-IHNsb3cgYnV0IHBsZW50eSBmb3IgYSBjb25zb2xlLiBGYWxsaW5nIGJhY2sgdG8gaXJxIDAgaW5z
-dGVhZA0Kb2YgZmFpbGluZyB3b3VsZCBrZWVwIHRoZSBwb3J0IHVzYWJsZS4NCg0KUmVsYXRlZCwg
-Zm9yIHdoZW4gS0NTIG9yIG1haWxib3ggY2hpbGRyZW4gYXJlIGFkZGVkOiB3aXRoIG11bHRpcGxl
-IE1TSQ0KdmVjdG9ycyB0aGUgZnVuY3Rpb24gaGFzIGEgc2luZ2xlIE1TSSBhZGRyZXNzL2RhdGEs
-IHdoaWNoIGlzIHdyaXR0ZW4NCndoZW4gdmVjdG9yIDAgaXMgYWN0aXZhdGVkIGFuZCBjbGVhcmVk
-IHdoZW4gdmVjdG9yIDAgaXMgc2h1dCBkb3duLg0KU2luY2UgdGhlIDgyNTAgY29yZSBmcmVlcyBh
-IHBvcnQncyBJUlEgb24gY2xvc2UsIGEgY2hpbGQgdGhhdCB1c2VzDQp2ZWN0b3IgMCB3b3VsZCBj
-dXQgb2ZmIGV2ZXJ5IG90aGVyIHZlY3RvciB3aGVuIGl0IHJlbGVhc2VzIGl0LiBOb3RoaW5nDQp1
-c2VzIHZlY3RvciAwIHRvZGF5LCBzbyB0aGlzIGlzIGp1c3Qgc29tZXRoaW5nIHRvIGtlZXAgaW4g
-bWluZCAob3IgYQ0KY29tbWVudCBpbiB0aGUgY29yZSkuDQoNCk9uZSBtb3JlIHRoaW5nIHlvdSBt
-YXkgcnVuIGludG8gd2hlbiB0ZXN0aW5nIHVuYmluZCwgdGhvdWdoIGl0IGlzbid0DQpzcGVjaWZp
-YyB0byBlaXRoZXIgZHJpdmVyOiBpZiBhIFZVQVJUIGlzIHRoZSBjb25zb2xlIGFuZCBub3RoaW5n
-IGhvbGRzDQppdCBvcGVuIHdoZW4gdGhlIHBvcnQgaXMgcmVtb3ZlZCwgc2VyaWFsX2NvcmUgdXNl
-cyBmcmVlZCBtZW1vcnkuIFRoYXQNCnBhbmlja2VkIG15IHRlc3QgaG9zdCB3aGVuIEkgdW5sb2Fk
-ZWQgbXkgZHJpdmVyLiBJIHNlbnQgYSBmaXggZm9yIGl0DQpbM10uDQoNClsxXSBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9yLzhDRDMwMDI2LTRDMDQtNEUwRi1CN0EzLTVDMTA3RDJBODQxMEBwaGls
-LmdzDQpbMl0gaHR0cHM6Ly9naXRodWIuY29tL3BoaWxyb3NlbnRoYWwvYXNwZWVkLXBjaS12dWFy
-dC1ka21zL2Jsb2IvdjIuMS9ka21zLzgyNTBfYXNwZWVkX3BjaS5jDQpbM10gaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvci8yMDI2MTAwOC1zZXJpYWwtY29uc29sZS1yZW1vdmUtdjEtMS0yODhiOWMz
-MTVhZjdAcGhpbC5ncw0KDQpUaGFua3MsDQpQaGlsDQoNCg==
+The close path cancels restart_work after freeing the IRQ and stopping
+hardware. A queued bus-off restart can therefore enable the controller
+and interrupts after teardown. It can also restart timestamp work before
+runtime suspend.
+
+Serialize restart with the close transition using a mutex. Mark the
+device closing and mask its interrupts before synchronizing the IRQ.
+Release the mutex before cancelling restart_work, so a queued restart
+can observe the closing state without deadlocking.
+
+Exclude the IRQ handler while reinitializing the hardware on restart.
+Do not disable the shared IRQ line while waiting for work to finish.
+
+Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+When automatic bus-off recovery is enabled, bringing the interface down
+can race with a pending or running restart. The driver currently relies
+on close_candev() to cancel restart_work, but calls it only after freeing
+the IRQ, disabling RX offload and stopping the controller. A restart in
+that interval can re-enable the controller and its interrupts after IRQ
+teardown, and requeue timestamp work after it has been stopped. That work
+can subsequently access registers after runtime suspend disables the
+controller clocks.
+
+Serialize the restart callback and the close transition with a mutex and
+a closing flag. The close path marks the device as closing and masks its
+interrupts, then synchronizes the IRQ before cancelling restart_work.
+This drains any handler that could still schedule a restart. Cancellation
+runs outside the mutex so that a restart waiting for the lock can observe
+the closing flag and exit. IRQ teardown, RX offload shutdown and the final
+hardware stop follow only after restart work has finished. The shared IRQ
+line is disabled only around hardware reinitialization in the restart
+callback, not while cancelling work in the close path.
+
+The standalone fix was tested on a LubanCat-5IO running a PREEMPT_RT
+kernel. The 1 Mbit/s CAN bus was connected to four CANopen motors
+operating at 100 Hz and four sensors operating at 20 Hz.
+A bitrate mismatch forced bus-off, with automatic restart set to 100 ms;
+25 iterations brought the interface down at delays spanning immediate
+close through 130 ms after bus-off. Every iteration reached bus-off and
+scheduled recovery, with no crashes or kernel traces observed. Automatic
+recovery was also checked with the interface left up, including a 1 s
+restart delay. The reported build completed without warnings.
+---
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 40 +++++++++++++++++++-------
+ drivers/net/can/rockchip/rockchip_canfd.h      |  5 ++++
+ 2 files changed, 35 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 37c1c22c40c9..e38ddd143a3a 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -244,6 +244,8 @@ static void rkcanfd_chip_interrupts_enable(const struct rkcanfd_priv *priv)
+ static void rkcanfd_chip_interrupts_disable(const struct rkcanfd_priv *priv)
+ {
+ 	rkcanfd_write(priv, RKCANFD_REG_INT_MASK, RKCANFD_REG_INT_ALL);
++	/* Flush the mask before synchronizing a shared IRQ. */
++	rkcanfd_read(priv, RKCANFD_REG_INT_MASK);
+ }
+ 
+ static void rkcanfd_chip_fifo_setup(struct rkcanfd_priv *priv)
+@@ -353,19 +355,27 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 			    enum can_mode mode)
+ {
+ 	struct rkcanfd_priv *priv = netdev_priv(ndev);
++	int err = 0;
+ 
+-	switch (mode) {
+-	case CAN_MODE_START:
+-		rkcanfd_chip_start(priv);
+-		rkcanfd_chip_interrupts_enable(priv);
+-		netif_wake_queue(ndev);
+-		break;
+-
+-	default:
++	if (mode != CAN_MODE_START)
+ 		return -EOPNOTSUPP;
++
++	mutex_lock(&priv->state_lock);
++	if (READ_ONCE(priv->closing)) {
++		err = -ENETDOWN;
++		goto out_unlock;
+ 	}
+ 
+-	return 0;
++	disable_irq(ndev->irq);
++	rkcanfd_chip_start(priv);
++	rkcanfd_chip_interrupts_enable(priv);
++	enable_irq(ndev->irq);
++	netif_wake_queue(ndev);
++
++out_unlock:
++	mutex_unlock(&priv->state_lock);
++
++	return err;
+ }
+ 
+ static struct sk_buff *
+@@ -666,6 +676,9 @@ static irqreturn_t rkcanfd_irq(int irq, void *dev_id)
+ 	struct rkcanfd_priv *priv = dev_id;
+ 	u32 reg_int_unmasked, reg_int;
+ 
++	if (READ_ONCE(priv->closing))
++		return IRQ_NONE;
++
+ 	reg_int_unmasked = rkcanfd_read(priv, RKCANFD_REG_INT);
+ 	reg_int = reg_int_unmasked & ~priv->reg_int_mask_default;
+ 
+@@ -736,6 +749,7 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	rkcanfd_chip_start(priv);
+ 	can_rx_offload_enable(&priv->offload);
+ 
++	WRITE_ONCE(priv->closing, false);
+ 	err = request_irq(ndev->irq, rkcanfd_irq, IRQF_SHARED, ndev->name, priv);
+ 	if (err)
+ 		goto out_rkcanfd_chip_stop;
+@@ -758,9 +772,14 @@ static int rkcanfd_stop(struct net_device *ndev)
+ {
+ 	struct rkcanfd_priv *priv = netdev_priv(ndev);
+ 
++	mutex_lock(&priv->state_lock);
++	WRITE_ONCE(priv->closing, true);
++	rkcanfd_chip_interrupts_disable(priv);
++	mutex_unlock(&priv->state_lock);
++	synchronize_irq(ndev->irq);
++	cancel_delayed_work_sync(&priv->can.restart_work);
+ 	netif_stop_queue(ndev);
+ 
+-	rkcanfd_chip_interrupts_disable(priv);
+ 	free_irq(ndev->irq, priv);
+ 	can_rx_offload_disable(&priv->offload);
+ 	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
+@@ -921,6 +940,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
+ 	priv->can.do_set_mode = rkcanfd_set_mode;
+ 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
+ 	priv->ndev = ndev;
++	mutex_init(&priv->state_lock);
+ 
+ 	match = device_get_match_data(&pdev->dev);
+ 	if (match) {
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 95bea9bfd8a2..c81233142a74 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -12,6 +12,7 @@
+ #include <linux/can/rx-offload.h>
+ #include <linux/clk.h>
+ #include <linux/io.h>
++#include <linux/mutex.h>
+ #include <linux/netdevice.h>
+ #include <linux/reset.h>
+ #include <linux/skbuff.h>
+@@ -478,6 +479,10 @@ struct rkcanfd_priv {
+ 	unsigned int tx_head;
+ 	unsigned int tx_tail;
+ 
++	bool closing;
++	/* Serializes restart with the close transition. */
++	struct mutex state_lock;
++
+ 	u32 reg_mode_default;
+ 	u32 reg_int_mask_default;
+ 	struct rkcanfd_devtype_data devtype_data;
+
+---
+base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
+change-id: 20261013-rockchip-canfd-restart-close-ebde5954f1bf
+
+Best regards,
+--  
+Cunhao Lu <1579567540@qq.com>
+
 
