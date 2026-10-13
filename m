@@ -4,116 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E4CCA9ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FA6CC6B03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 11:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeVOGv1pBU4HdinlNlwV2FGb6Mlj6OrDn55dT7s/dU4=; b=FAbv1tmapx1sDmqlnFQl3nzz+Q
-	mENrPugBdx7MovMt8Lo3Gf3AzWxgkyGldQAebLTWmCVV6BzVRiRHuF1iusoc/VFX4UhTRMNvEHMw/
-	9C7TOMHB5kIRQBxVPQEU+h3odFQR8N/LRf6AlT4aqFtAbT/aP0ZhX0M/a4xdK2YGphTq6MZUXu5cK
-	eXN1r3xGtsum9NG8it1SP697/wDX8pgHG7CX8RtANNjWXjDp3l9LqBlI7XPCyos63iTLWRC3yARsO
-	2OCc55heNvdrRFC44wmVBqKSegNEQSan95XYSH/RTcFftX+++N4IldDpwnJ+t+FH31eZOJiBIbLD9
-	ZXDgK/QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aZzR7DfaI5+qyDMit5ERE7zlJ207/SzVa7DOfqeAcHM=; b=xa49blrwfqoaQPlgu/LDit7Cf5
+	3s7KUQ7hLAzb3BVRB7Iw6TaaxZR9F8MCYPB0GwjEdC88HWoyerHaCGtlYG+7r5TUigUMcAkRnqXNI
+	+uT8Lg4aO2HIBwVHxWvQecl/ErE1a5n5rjFUGr+WAM8ILZjYsO4okHP1lYfOqZPJVX91G66DaVVtb
+	33yeV5B3h+y1oO2VwAXTqf2IGXMIQwWqobBLOuDQf/mHxAwpeF2G+kdvSV5Iyablch7h2jpKU5qL5
+	rVPGBvP0vUiNL46AJ9gEq9I0x6u1TrqmwQkrC3BeFhw0bfbYM1McIsOT4GSC2BoymzHKk7DPO1RxV
+	ZEEDaHrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGax0-0000000CjkW-3pQd;
-	Tue, 13 Oct 2026 11:45:46 +0000
-Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1xGb32-0000000CkZi-1L67;
+	Tue, 13 Oct 2026 11:52:00 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGawn-0000000CjgB-1LTJ
+	id 1xGb2o-0000000CkWV-2fEy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 11:45:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jZ318c6DpyfDZcIpCSn1sgKwXTVbDES7J7dV+hWpFZ3C53+HUhw6IjEh1mn/0p1YgdahxtNJ/6O+nLMfjFCFUA8jU6oWpDuvnjhz0hdmo8Xg/iCOkk6lfAXo7Ffc9LxwDdaY7+MlSXA37Zf/nFqKT6Jf4PgkR271Y1tisZzjHd72gS8lZgUt9pG+EqDxNVKQcQeVXU387DKTO3l4evHc5bL966QfguBYEE1BXT96T+9OROJWioznIZP+/ZZUD8eBNgqLRt8wwN4KRuxsuvn4TN+SSY68knnp6uyUccJmSpNVPKpDQ071at7CmF9KBSwQf4M+26p9xSKgxREQGKVbbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KeVOGv1pBU4HdinlNlwV2FGb6Mlj6OrDn55dT7s/dU4=;
- b=CN2ocwFWZQyxXx8ahmvH3y9km/UebaLsuFzXaDRaUVyxZO3QexreyneMDVS7ERT97MGX7INW/DUrDsqx3Vpe2ERIHQGCT06FPZ3XohWrUIr1evu1Dx6+fzTIFMFGejcqK6pos7Q7iTIKNBrj7KdETn1z6hcbr70PHcVfc0JpfjaBaOAuqdKjWzk6s6lQfrC5Iy15E7Emp8XvveUfQz8VWDXTgMqzwykf5FE2UQbWOf2OvGsbVqKWfBR+b+y/qDFGEjcYGLBV6A+dE2H7wpQJ8cbm49HRhjaZLplsl45GtLEvC5aJRkbj4Sox8vu3/nHxq5jioh9CRHee0QeNavLGHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KeVOGv1pBU4HdinlNlwV2FGb6Mlj6OrDn55dT7s/dU4=;
- b=CB7Qn0bUh9SBGSA6CvRKJdjEzqunavnu9ork9Py4aoVGKmz6C4mmBmMKZDSp8jxXNzm784tTf11x2VN/9ALs4AakEwp+My+6HNA27f0VxMmM4M2iaC43ZdjRR+9QGLeK7e4SafY8p2BrxAhYZb+rGD77l7aMVrSff5xtoCfM6pk=
-Received: from OS7PR01CA0008.jpnprd01.prod.outlook.com (2603:1096:604:251::16)
- by OS9PR01MB16322.jpnprd01.prod.outlook.com (2603:1096:604:405::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Tue, 13 Oct
- 2026 11:45:19 +0000
-Received: from OS1PEPF0000D210.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:604:251:cafe::51) by OS7PR01CA0008.outlook.office365.com
- (2603:1096:604:251::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Tue,
- 13 Oct 2026 11:45:19 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=renesas.com;
-Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
- 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
-Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
- OS1PEPF0000D210.mail.protection.outlook.com (10.167.240.39) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.6
- via Frontend Transport; Tue, 13 Oct 2026 11:45:17 +0000
-Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.5])
-	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id 7113F300024F;
-	Tue, 13 Oct 2026 20:45:13 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	xiaoliang.yang_1@nxp.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net 1/2] net: stmmac: Track the TX DMA threshold per queue
-Date: Tue, 13 Oct 2026 11:45:02 +0000
-Message-ID: <20261013114503.57487-2-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
-References: <20261013114503.57487-1-ovidiu.panait.rb@renesas.com>
+	Tue, 13 Oct 2026 11:51:58 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1791892304;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aZzR7DfaI5+qyDMit5ERE7zlJ207/SzVa7DOfqeAcHM=;
+	b=PHi9Tp64t+50phgQuKhIb9sElWZZOUSnXsqd2Snkec64PQO7lQQT9hbV4E0r0bZxl/rb6h
+	tt6TRY9SkhcVmPTPEEvieGabNkZxnofwBamjzLMb+tULYSIWVUn4YePeax6BPI5VgG1H+0
+	5wMypuEBCuzj+zKAord2yDnScbJ8lv/IGt7GsYSvwakxsbK1aqM27k08H1N1g0ShiRWW3c
+	aOnFRAPMiXpEt2m7V2qI2u2ZU915AHm7lPWRME5hBgSisOIF95FsAAYbSMDJ4120tQFEEv
+	xxyfpFYEqLL1sGaGO6XOm8cR1rYXTEVEjvC9X7BC9C+p4rrGJEQaNBlX6Mn+pw==
+Date: Tue, 13 Oct 2026 13:51:06 +0200
+Subject: [PATCH v2 1/9] arm64: dts: imx8mp-kontron: Fix GPIO label
+ assignments
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS1PEPF0000D210:EE_|OS9PR01MB16322:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 5378de64-872c-4d8f-5192-08df291f741e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|23010399003|22082099003|18002099003|260925022911599003|260925021911599003|10067099003|260925021311599003|11063799006|5023799004|261009223027099003|56012099006;
-X-Microsoft-Antispam-Message-Info: vSadW/oG1Pu3XRGDYT4xkG6qMX/Ert/r10Z0naFM8oXEL6J8Fa5e8Zd9X4JC+hf6FAdRkC2bz8kC9bFu01c0OE/xbDHsOpKvy5fZFCUw4fHfTt++KTagxWdg+YOqNejCkjPsQpJ1DwGofJg4Mg8+BpaTLEyao7TNAnj94T7HtYmr+qteczAGRI9rfHUXTH9L071AYhMJbPdn7nl8DhsmIZFhhNgn93Do5aSByKyZgOID6svsq+iiKFBF6z61YiuzFYYvTzPzMNgoO3A/5ST/3Cy+OdPh923tGunaAcwwNTBq6/5An2UnnlbaXmxmu7jPIESMGWhVQF+C3IWEfNt6voyceo0FpkNEU+T9RjWeaP2GAmVphOxKe9DjUsu0Af44vbJroGVOp5zXZoHCx13AbwodeMguf24hvbHttSkgOxHNgqlCpBo5h4akrSS85csLiO6mvIbU2NqMurKW40stN1FoejWB9hTrTEMtZix3eGNI+2fIG+kmKiP6LNDwTfPSy7P7tMESBBQZyJTr4DQ2JZRgA1uwQDDt/IzOGcNRkUb9GCrayJ095cPCvXeSIUpBtGUX/ek5CFGY+J4ssZwN3xQ9G+pcbl0YXCvqLD7gzV1EjxN292eL6mYTyKUKLntQJD0eSr6SDEbSqO3PTOszyShMebA7n4RgMbpRw7ul5XMYn1cKxr5LCqVfWIyJpVnru3RI5n//eRgk96LEmIoiNQ==
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(23010399003)(22082099003)(18002099003)(260925022911599003)(260925021911599003)(10067099003)(260925021311599003)(11063799006)(5023799004)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: pbiTmHeyggjI+LSyqg6RhC+s0w3KCPgOKlpCkKrJptIriclU2xLTplPMNIcwhyke+87MqtE1uvzoMa+AFFu6s+h+yn4bqRiZ/Oz1T6Dxgc34/Z1C0toeG1epuzUbgcuD/GV0LXWC5boWdDhePyncBFpm2lRBYFyKtJ4x7UlkDQ/SxJrmpGRdAH5D6S+i7eIO0H7hhrA3XGGrMOl2dZkK162AwWdft+cVATlUbDTKauR/zzFZeVfC8ky3xYNaGe7ogXmZtQ0XeFwgccaDh+FENqoQcw9rUQiZOAa+SXfNAMyhAdH/T0WuK4RxRNGOFLjtcdg6hIbsHQLuVFNMkzTbcUZFitu2CkUFMBAzsAO6QeisjVAqwd4ag+WdmAD+9BOdtXWrjXw+5o70ydmb6ih57MsKz+gOsNYPiwv0+y59lUmNHOKVkJ3l+XSwL1+9F/n/
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2026 11:45:17.8161
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5378de64-872c-4d8f-5192-08df291f741e
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D210.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB16322
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261013-upstreaming-gpio-label-fixes-v2-1-d464ca652c91@kontron.de>
+References: <20261013-upstreaming-gpio-label-fixes-v2-0-d464ca652c91@kontron.de>
+In-Reply-To: <20261013-upstreaming-gpio-label-fixes-v2-0-d464ca652c91@kontron.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Eberhard Stoll <eberhard.stoll@kontron.de>, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6655;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=+zV3LGZPvv/o5QyNdbFepYoX8BW6jQLYxmeB8Uq7phM=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIeuctJ9bVhFnngvrTjGTmmMv/sRpeF3q2titOVVp4Ylnk
+ 51aLNZ0lLIwiHExyIopskjxW7y2NYv1kT9WHQUzh5UJZAgDF6cATOTvIkaGa7s9+jh1Ft9e0Poq
+ /vs05tLErVe0//ue/XKnyGD3D+6KEIb/fs5nXNet9Dj5YmJLy3wzV71Dov3zrfsSCnc0T8qfX1P
+ PCgA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_044533_362132_5A28DB50 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20261013_045156_355360_1DE9A3A9 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,131 +84,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from
-DMA descriptor") made dwmac4 raise the DMA threshold of the queues that
-report TX underflows. This is done by incrementing a module global
-parameter 'tc' by 64 on each underflow.
+From: Eberhard Stoll <eberhard.stoll@kontron.de>
 
-This leads to inconsistent TX DMA thresholds between queues and causes
-issues on platforms with multiple stmmac controllers, as 'tc' is shared
-by all of them. Once 'tc' goes over 256 the bumping stops, and queues
-that did not underflow before are left at the initial threshold.
+The OSM-S pad names GPIO_A_7, UART_B_RX, I2S_LRCLK and PCIe_CLKREQ
+are incorrectly assigned. The labels I2S_B_DATA_IN and I2S_B_DATA_OUT
+are missing and SPI_A_WP/SPI_A_HOLD are unconnected. Fix the labels.
 
-On the Renesas RZ/V2H platform, which has two dwmac4 controllers, we
-observed sporadic iperf3 TCP TX failures:
+The BL and SMARC board devicetrees override the GPIO labels of the SoM
+and inherited the incorrect assignments. Fix them accordingly.
 
-  iperf3 -c <server> -t5 --bind-dev end1
-  ...
-  [  5]   0.00-5.00   sec  1.00 MBytes  1.68 Mbits/sec   87       sender
-  [  5]   0.00-5.00   sec   768 KBytes  1.26 Mbits/sec            receiver
-
-This happens because the TX queues of end1 were underflowing on a large
-fraction of the packets, but the DMA TX threshold was never raised from
-the default of 64 bytes. The threshold was not raised because end0
-had underflowed first and had already pushed 'tc' past 256. Which
-controller is affected depends on which one underflows first.
-
-To fix this, make the TX DMA threshold per queue instead of global.
-Each time an underflow happens on a queue, its TX DMA threshold gets
-incremented, without affecting other queues or controllers. With this
-change, 'tc' is only used as the initial value, and the RX threshold
-is no longer bumped together with the TX one, as TX underflows have
-nothing to do with the RX side.
-
-Fixes: 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from DMA descriptor")
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Fixes: 946ab10e3f40 ("arm64: dts: Add support for Kontron OSM-S i.MX8MP SoM and BL carrier board")
+Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 +++++++++++--------
- 2 files changed, 21 insertions(+), 13 deletions(-)
+ .../boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts   | 10 +++++-----
+ .../boot/dts/freescale/imx8mp-kontron-osm-s.dtsi     |  8 ++++----
+ .../boot/dts/freescale/imx8mp-kontron-smarc.dtsi     | 20 ++++++++++----------
+ 3 files changed, 19 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 9278378407e8..85d63450693e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -270,6 +270,7 @@ struct stmmac_priv {
- 	bool sph_capable;
- 	u32 sarc_type;
- 	u32 rx_riwt[MTL_MAX_RX_QUEUES];
-+	u32 tx_threshold[MTL_MAX_TX_QUEUES];
- 	int hwts_rx_en;
- 	bool tsfupdt_coarse;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts
+index 29ce863403b88..b6ffea952b69f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts
+@@ -134,12 +134,13 @@ &gpio2 {
  
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b8b4de4c5b1a..b5ee0f297df6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2622,7 +2622,6 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
- 	}
+ /*
+  * Rename SoM signals according to board usage:
++ *   GPIO_A_7      -> TFT_STBY
+  *   GPIO_B_0      -> IO_EXP_INT
+  *   GPIO_B_1      -> IO_EXP_RST
+  */
+ &gpio3 {
+-	gpio-line-names = "PCIE_WAKE", "PCIE_CLKREQ", "PCIE_A_PERST", "SDIO_B_D5",
+-			  "SDIO_B_D6", "SDIO_B_D7", "SPI_A_WP", "SPI_A_HOLD",
++	gpio-line-names = "PCIE_WAKE", "TFT_STBY", "PCIE_A_PERST", "SDIO_B_D5",
++			  "SDIO_B_D6", "SDIO_B_D7", "UART_B_RX", "I2S_LRCLK",
+ 			  "UART_B_RTS", "UART_B_CTS", "SDIO_B_D0", "SDIO_B_D1",
+ 			  "SDIO_B_D2", "SDIO_B_D3", "SDIO_B_WP", "SDIO_B_D4",
+ 			  "PCIE_SM_ALERT", "SDIO_B_CLK", "SDIO_B_CMD", "IO_EXP_INT",
+@@ -151,7 +152,6 @@ &gpio3 {
+ /*
+  * Rename SoM signals according to board usage and remove labels for unsed pins:
+  *   GPIO_A_6      -> TFT_RESET
+- *   GPIO_A_7      -> TFT_STBY
+  *   GPIO_B_3      -> CSI_ENABLE
+  *   GPIO_B_2      -> USB_HUB_RST
+  */
+@@ -163,7 +163,7 @@ &gpio4 {
+ 			  "ETH_A_TX_EN", "ETH_A_TX_CLK", "CSI_ENABLE", "",
+ 			  "USB_HUB_RST", "TFT_RESET", "CAN_A_TX", "UART_A_CTS",
+ 			  "UART_A_RTS", "CAN_A_RX", "CAN_B_TX", "CAN_B_RX",
+-			  "TFT_STBY", "CARRIER_PWR_EN", "I2S_A_DATA_IN", "I2S_LRCLK";
++			  "I2S_B_DATA_IN", "CARRIER_PWR_EN", "I2S_A_DATA_IN", "I2S_B_DATA_OUT";
+ };
  
- 	if (priv->plat->force_thresh_dma_mode) {
--		txmode = tc;
- 		rxmode = tc;
- 	} else if (priv->plat->force_sf_dma_mode || priv->plat->tx_coe) {
- 		/*
-@@ -2636,7 +2635,6 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
- 		rxmode = SF_DMA_MODE;
- 		priv->xstats.threshold = SF_DMA_MODE;
- 	} else {
--		txmode = tc;
- 		rxmode = SF_DMA_MODE;
- 	}
+ /*
+@@ -181,7 +181,7 @@ &gpio5 {
+ 			  "I2C_B_SCL", "I2C_B_SDA", "PCIE_SMCLK", "PCIE_SMDAT",
+ 			  "I2C_CAM_SCL", "I2C_CAM_SDA", "UART_A_RX", "UART_A_TX",
+ 			  "UART_C_RX", "UART_C_TX", "UART_CON_RX", "UART_CON_TX",
+-			  "UART_B_RX", "UART_B_TX";
++			  "PCIe_CLKREQ", "UART_B_TX";
+ };
  
-@@ -2655,8 +2653,11 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
- 	for (chan = 0; chan < tx_channels_count; chan++) {
- 		qmode = priv->plat->tx_queues_cfg[chan].mode_to_use;
+ &hdmi_pvi {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
+index ea69c639b30b8..3c183ab573bed 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
+@@ -158,8 +158,8 @@ &gpio2 {
+ &gpio3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio3>;
+-	gpio-line-names = "PCIE_WAKE", "PCIE_CLKREQ", "PCIE_A_PERST", "SDIO_B_D5",
+-			  "SDIO_B_D6", "SDIO_B_D7", "SPI_A_WP", "SPI_A_HOLD",
++	gpio-line-names = "PCIE_WAKE", "GPIO_A_7", "PCIE_A_PERST", "SDIO_B_D5",
++			  "SDIO_B_D6", "SDIO_B_D7", "UART_B_RX", "I2S_LRCLK",
+ 			  "UART_B_RTS", "UART_B_CTS", "SDIO_B_D0", "SDIO_B_D1",
+ 			  "SDIO_B_D2", "SDIO_B_D3", "SDIO_B_WP", "SDIO_B_D4",
+ 			  "PCIE_SM_ALERT", "SDIO_B_CLK", "SDIO_B_CMD", "GPIO_B_0",
+@@ -178,7 +178,7 @@ &gpio4 {
+ 			  "ETH_A_TX_EN", "ETH_A_TX_CLK", "GPIO_B_3", "GPIO_B_4",
+ 			  "GPIO_B_2", "GPIO_A_6", "CAN_A_TX", "UART_A_CTS",
+ 			  "UART_A_RTS", "CAN_A_RX", "CAN_B_TX", "CAN_B_RX",
+-			  "GPIO_A_7", "CARRIER_PWR_EN", "I2S_A_DATA_IN", "I2S_LRCLK";
++			  "I2S_B_DATA_IN", "CARRIER_PWR_EN", "I2S_A_DATA_IN", "I2S_B_DATA_OUT";
+ };
  
--		stmmac_dma_tx_mode(priv, priv->ioaddr, txmode, chan,
--				txfifosz, qmode);
-+		if (txmode == SF_DMA_MODE)
-+			priv->tx_threshold[chan] = SF_DMA_MODE;
-+
-+		stmmac_dma_tx_mode(priv, priv->ioaddr, priv->tx_threshold[chan],
-+				   chan, txfifosz, qmode);
- 	}
- }
+ &gpio5 {
+@@ -189,7 +189,7 @@ &gpio5 {
+ 			  "I2C_B_SCL", "I2C_B_SDA", "PCIE_SMCLK", "PCIE_SMDAT",
+ 			  "I2C_CAM_SCL", "I2C_CAM_SDA", "UART_A_RX", "UART_A_TX",
+ 			  "UART_C_RX", "UART_C_TX", "UART_CON_RX", "UART_CON_TX",
+-			  "UART_B_RX", "UART_B_TX";
++			  "PCIe_CLKREQ", "UART_B_TX";
+ };
  
-@@ -2822,17 +2823,20 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ &i2c1 { /* OSM-S I2C_A */
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc.dtsi
+index 1e831d9b8a935..d63c10b9b3d72 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc.dtsi
+@@ -116,13 +116,13 @@ &gpio2 {
  
- static void stmmac_bump_dma_threshold(struct stmmac_priv *priv, u32 chan)
- {
--	if (unlikely(priv->xstats.threshold != SF_DMA_MODE) && tc <= 256) {
--		tc += 64;
-+	u32 thresh = priv->tx_threshold[chan];
+ /*
+  * Rename SoM signals according to SMARC module usage:
+- *   PCIE_CLKREQ -> PCIE_A_CKREQ
++ *   GPIO_A_7 -> TEST
+  *   PCIE_A_PERST -> PCIE_A_RST
+  *   SDIO_B_D5 -> n.a.
+  *   SDIO_B_D6 -> n.a.
+  *   SDIO_B_D7 -> n.a.
+- *   SPI_A_WP -> n.a.
+- *   SPI_A_HOLD -> n.a.
++ *   UART_B_RX -> SER2_RX
++ *   I2S_LRCLK -> I2S0_LRCK
+  *   UART_B_RTS -> SER2_RTS
+  *   UART_B_CTS -> SER2_CTS
+  *   SDIO_B_D0 -> GPIO8
+@@ -144,8 +144,8 @@ &gpio2 {
+  */
+ &gpio3 {
+ 	pinctrl-0 = <&pinctrl_gpio3>, <&pinctrl_gpio3_smarc>;
+-	gpio-line-names = "PCIE_WAKE", "PCIE_A_CKREQ", "PCIE_A_RST", "",
+-			  "", "", "", "",
++	gpio-line-names = "PCIE_WAKE", "TEST", "PCIE_A_RST", "",
++			  "", "", "SER2_RX", "I2S0_LRCK",
+ 			  "SER2_RTS", "SER2_CTS", "GPIO8", "GPIO9",
+ 			  "GPIO10", "GPIO11", "", "",
+ 			  "SMB_ALERT", "GPIO6", "GPIO7", "LCD0_BKLT_EN",
+@@ -170,9 +170,9 @@ &gpio3 {
+  *   CAN_A_RX -> CAN0_RX
+  *   CAN_B_TX -> CAN1_TX
+  *   CAN_B_RX -> CAN1_RX
+- *   GPIO_A_7 -> TEST
++ *   I2S_B_DATA_IN -> n.a.
+  *   I2S_A_DATA_IN -> I2S0_SDIN
+- *   I2S_LRCLK -> I2S0_LRCK
++ *   I2S_B_DATA_OUT -> n.a.
+  */
+ &gpio4 {
+ 	gpio-line-names = "", "", "", "LED",
+@@ -182,7 +182,7 @@ &gpio4 {
+ 			  "ETH_A_TX_EN", "ETH_A_TX_CLK", "ETH2_INT", "USB_HUB_RST",
+ 			  "ETH1_INT", "GPIO4", "CAN0_TX", "SER0_CTS",
+ 			  "SER0_RTS", "CAN0_RX", "CAN1_TX", "CAN1_RX",
+-			  "TEST", "CARRIER_PWR_EN", "I2S0_SDIN", "I2S0_LRCK";
++			  "", "CARRIER_PWR_EN", "I2S0_SDIN", "";
+ };
  
--		if (priv->plat->force_thresh_dma_mode)
--			stmmac_set_dma_operation_mode(priv, tc, tc, chan);
--		else
--			stmmac_set_dma_operation_mode(priv, tc, SF_DMA_MODE,
--						      chan);
-+	if (unlikely(thresh == SF_DMA_MODE) || thresh > 256)
-+		return;
+ /*
+@@ -215,7 +215,7 @@ &gpio4 {
+  *   UART_C_TX -> SER3_TX
+  *   UART_CON_RX -> SER1_RX
+  *   UART_CON_TX -> SER1_TX
+- *   UART_B_RX -> SER2_RX
++ *   PCIe_CLKREQ -> PCIE_A_CKREQ
+  *   UART_B_TX -> SER2_TX
+  */
+ &gpio5 {
+@@ -228,7 +228,7 @@ &gpio5 {
+ 			  "I2C_GP_CK", "I2C_GP_DAT", "HDMI_CTRL_CK", "HDMI_CTRL_DAT",
+ 			  "I2C_CAM1_CK", "I2C_CAM1_DAT", "SER0_RX", "SER0_TX",
+ 			  "SER3_RX", "SER3_TX", "SER1_RX", "SER1_TX",
+-			  "SER2_RX", "SER2_TX";
++			  "PCIE_A_CKREQ", "SER2_TX";
+ };
  
--		priv->xstats.threshold = tc;
--	}
-+	thresh += 64;
-+
-+	if (priv->plat->force_thresh_dma_mode)
-+		stmmac_set_dma_operation_mode(priv, thresh, tc, chan);
-+	else
-+		stmmac_set_dma_operation_mode(priv, thresh, SF_DMA_MODE, chan);
-+
-+	priv->tx_threshold[chan] = thresh;
-+	priv->xstats.threshold = thresh;
- }
- 
- /**
-@@ -8133,6 +8137,9 @@ static int __stmmac_dvr_probe(struct device *device,
- 
- 	priv->xstats.threshold = tc;
- 
-+	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
-+		priv->tx_threshold[i] = tc;
-+
- 	/* Initialize RSS */
- 	rxq = priv->plat->rx_queues_to_use;
- 	netdev_rss_key_fill(priv->rss.key, sizeof(priv->rss.key));
+ &usb_dwc3_1 {
+
 -- 
-2.34.1
+2.55.0
 
 
