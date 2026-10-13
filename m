@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADCACC6B16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3249CC6B16
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Oct 2026 15:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HIRM0RG8gr/DXh0YsHOuMrZwiwotXguOVcFJ3C/Z+g=; b=sqYTQR0/rciQyYMSKsMHGTA2LL
-	7FEfArlkJZYAUeULS0GWZe97jn8tg8m4BEsmBV5GVzVT/AFy39Y3SuF310NG8kqiAvT2TgB2zf/qQ
-	khM7l5Z+EEyUPDuoiAxmYWqGtLAa2eeOXbBecbv1lDBBxCyo672mIK48AnBmP3vLTRhWznSnm9O0q
-	8ra+D3RmR34c0QPbWXSLINUqFubm0chhDx1r6w51wYlf4WpdKkltbBw7mYz6P0/qX2SLAayshsJpZ
-	DVB3uSeM47n57hw6iNml5+QnEIVaowHV9rzGZyZg8/yB2o/Y+3AvAf1oxmFKhDX6zLOYJtmQJ+UJu
-	5tgNm3Tg==;
+	bh=MJ86ar7ft1Sjd5oHlVMjY4gwK71NzHJf7v8T3vhrJ3o=; b=mwxpKn4eV4vxStgA+FQMz0Yl7p
+	ENiXah4mBozhzwg1XiraR7m+O4zeYTGO+O62COSa6qNh2jraVBcYvwPdIfjjDz+a1Tg/igv8pvB9m
+	kJdq/W7EJDHVUCH4JHVWkQYmTUl23xvzzlBaO0ARxW5oauHZN6r7XaW9rldT835pogCPrj7FrAzsX
+	jKAKzbwCB64IoEYwVgktyTVlCR5RnXVQWk0cWmqoZotlWePBRCOtdCqxpJ6V3S1FThhsgquiwx3ZJ
+	6YpQtrnkSjZt1lqwkCUhGkIX44YWC0z065sMG24eYJkkm/d52wv20TiVO791JDNc0G0Y6iwjlklIC
+	lKS0S02A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGekP-0000000DQ9F-1e4S;
-	Tue, 13 Oct 2026 15:49:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGemU-0000000DQR1-3r97;
+	Tue, 13 Oct 2026 15:51:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGekO-0000000DQ8v-3UiL
+	id 1xGemR-0000000DQQa-0A9C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Oct 2026 15:49:00 +0000
+	Tue, 13 Oct 2026 15:51:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92F2A40811;
-	Tue, 13 Oct 2026 15:49:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0B381F000FF;
-	Tue, 13 Oct 2026 15:48:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D6E4602C3;
+	Tue, 13 Oct 2026 15:51:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230E81F000FF;
+	Tue, 13 Oct 2026 15:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791906540;
-	bh=8HIRM0RG8gr/DXh0YsHOuMrZwiwotXguOVcFJ3C/Z+g=;
+	s=k20260515; t=1791906665;
+	bh=MJ86ar7ft1Sjd5oHlVMjY4gwK71NzHJf7v8T3vhrJ3o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DbcaSXqUcaVh+Dn4Szez+2sa+s1pn6dxh4rk0zuD2iS8MtxWqlXtsDeQFdf0+ndoN
-	 e/DNfTRvn9qFxjEsaqLCCTMDD/EciCocH2iWVubkVKjRrjDeFtkfl4bHHsA9fVSzY2
-	 5PmwFn+sUQg6zBbcWR6OfrGEZezUr/RDrg6k9Zk3/Zy0QMcHqh3uzg1+sU+SMZxRYt
-	 okNpdlpySaXg9Sp07feU4V5/NVpd6+Y7lfTLm1c6W1XLDwF8W5TWDC8N4VrC5JR/32
-	 9jFemyokGfVPK87YKsMrGcqPYVVpQOwv5ubDWtaUKYdhlrgu4gTkUxTQAH+//kM1Lu
-	 y9f6egNh+AXDA==
-Date: Tue, 13 Oct 2026 17:48:58 +0200
+	b=M7k7sMsxNzFfFxydRPey+N/9CCSkwmN5DyNYLRN5dFgRPYd43mfp0TWbfEdFgtY/w
+	 H00/6MvApVWWBqq6LDZx7/+XInjZmbM5zuio3/3YukuSPwX35+4v+bZT4srhksV8Y/
+	 8bn1MH/mlIp1/ryVdV5wSZQDhrWJpceSWiOoCDwcWL+D5pwOATLTjZsmlUmRJ4pMfD
+	 kLlwAqKnCSGxhK43xZgCQAZ5VYC99wMNctVqXBsraoV+Tk46krOgTi1shEbqCtFfVL
+	 Yf1Ycg8KCjLzBo9AnqlKiK7HQ47FXsYThbecmNPzqLxcksT0Py5AI5nA/VimCa4vcF
+	 VB7t70b3CeeaA==
+Date: Tue, 13 Oct 2026 17:51:03 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 Cc: Andi Shyti <andi.shyti@kernel.org>, 
@@ -65,14 +65,15 @@ Cc: Andi Shyti <andi.shyti@kernel.org>,
 	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org
 Subject: Re: [PATCH 1/2] i2c: i2c-core-acpi: use named initializers for
  acpi_device_id
-Message-ID: <as5S4eXw9_olPYTK@orome>
+Message-ID: <as5TMuJUE3H7bcFX@orome>
 References: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
  <20260918-acpi-i2c-v1-1-caf4bea4886c@thegoodpenguin.co.uk>
+ <as5S4eXw9_olPYTK@orome>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bdaukvpfqy47g5lz"
+	protocol="application/pgp-signature"; boundary="ta66zshbuz6aaek2"
 Content-Disposition: inline
-In-Reply-To: <20260918-acpi-i2c-v1-1-caf4bea4886c@thegoodpenguin.co.uk>
+In-Reply-To: <as5S4eXw9_olPYTK@orome>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,7 +89,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---bdaukvpfqy47g5lz
+--ta66zshbuz6aaek2
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -96,41 +97,49 @@ Subject: Re: [PATCH 1/2] i2c: i2c-core-acpi: use named initializers for
  acpi_device_id
 MIME-Version: 1.0
 
-On Fri, Sep 18, 2026 at 02:01:50PM +0100, Pawel Zalewski wrote:
-> Use a designated initializer for the acpi_device_id fields which makes the
-> code more readable and consistent with how lists are initialized in the
-> rest of the kernel code base. Also drop explicitly setting fields to 0
-> where it is redundant.
+On Tue, Oct 13, 2026 at 05:48:58PM +0200, Thierry Reding wrote:
+> On Fri, Sep 18, 2026 at 02:01:50PM +0100, Pawel Zalewski wrote:
+> > Use a designated initializer for the acpi_device_id fields which makes =
+the
+> > code more readable and consistent with how lists are initialized in the
+> > rest of the kernel code base. Also drop explicitly setting fields to 0
+> > where it is redundant.
+> >=20
+> > Unify the list terminator to have a single space between the brackets a=
+nd
+> > no trailing comma.
+> >=20
+> > Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+> > ---
+> >  drivers/i2c/i2c-core-acpi.c | 14 +++++++-------
+> >  1 file changed, 7 insertions(+), 7 deletions(-)
 >=20
-> Unify the list terminator to have a single space between the brackets and
-> no trailing comma.
->=20
-> Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-> ---
->  drivers/i2c/i2c-core-acpi.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+> Reviewed-by: Thierry Reding <treding@nvidia.com>
 
-Reviewed-by: Thierry Reding <treding@nvidia.com>
+Nevermind, I realized too late that this popped up in my inbox because
+of Andi's message saying the patches were applied.
 
---bdaukvpfqy47g5lz
+Thierry
+
+--ta66zshbuz6aaek2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmrOUukACgkQ3SOs138+
-s6FUgw//WLO80tnSOWkfuTVznJOATqQqtXNIxuY17kM5m1EEoZt1NHMjgBpv4ylb
-UVXRSs8cAFNkUsmkCkeMiPaJiPSWLzGuuTJ0sE4E/yH0MMoIDPf8b1RwifvG2sSN
-ZGDPA+UWX7NANExmBZdu/Fs06EC5xjQtH23rqXP4Yh79x2ZPSkLP6yWrhrY7y+pW
-NZbhO6sZK5RmU+vX8JVgFot2fc5kuCXxXhhZP9nxMeiofepJlKO6pK0CgC2h3lMY
-rnaNREXSSruDZU4a+NXJtxkuPsKR4wQGGr3bcYJCyjcVmP4z6uUMLSI0YAT1Rgaq
-Y/kgJcAvgVY0JtyL2vUcU8IK+8dfiZT/j16cBPlrdlJcETavrz6C1/ySJsl14wmu
-o/y6FcKOZHXvLhPA4za1bQU5O8b7UZtP1MyvClac1rSzfL3V/9bb8+evmlWV944X
-aesOgjT5EptZyVYamUKXsFYP/XRUgMXykA1QChwVOtfFS4yOXc6k5TC/HbjY8dsq
-/7v+zkFiG0oI63U1dGMWWyCSjykdZaS4KyXLzFHptkgUCjj34C76CmENPztxCA+E
-M9m2Bac9gmYqgnyPE2QxC8l+s+nl6B+RA3Ajiuve2HQ6ZM8I9AJNKFGfR1kKu5Gf
-5CvbCSpmxrZzyS/Bt0DlUt1ZtYkHBF055ZwQtlBWs4AAAFsvcVA=
-=wgwe
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmrOU2cACgkQ3SOs138+
+s6EkQg//Q94g8lhAZ9FF1mSkUo8+4iAGe4AwVPaHJcaAsp/d3MMwLNgGHDNCCUTg
+G+wEpoEVHWYXoLXJdfApoubX1HNKCyZixOydZMuy/vyjfKK8d24WoUwsrruWKNoC
+Qr6q3NbnPuILsnE6wQDTVdRqZ5iJlmJKMwdL9zfnVqM3bLVwpDqLWA7QkJrqsNY+
+XJcQw62QQ2bvNUYmnEMs96w/3hFC5bQeQkZcRFHxT5YaZwH7n8XX3hvrMUqPUclG
+PWzaf3rRgKJvhonQNuJSHjaSbHTtBt1uuxV/RncTBbTqczCwADWg+huMeyInDKNG
+9jZddMF5telzFS0C6Qm320brFB2ZzTRmjHM+2QzdwwnIN48mkmpy3lwdzBDIsd1O
+aHW2OyY2zyfp3NG+HeVuBNWw3ctMLcffAk5pdZeVvW15ZaAYUMBFd6xMDS40I4TX
+6zJCJz7BRWHyAxLcuIK90E5LgVatIVCJvHGaYnwGPWgGan7CvL3WC+bGGu9u5huD
+LdxQ8jbuT81xOMrbWy9h8so1N+3KjZXMnz12Z2TD8mK+BJpgZt52vXOSzmNWB5Jt
+O1f8qDoslIrvaisD5tgoXZmn9NhZquYjFl1HqpnHxWpBK4rCW0fzIcMO1vByl8eF
+cwD+MtMt4inGeVuyn7CCI4ntQKPY1jGEF0X9EwXGBBfcYoocK/A=
+=H7B1
 -----END PGP SIGNATURE-----
 
---bdaukvpfqy47g5lz--
+--ta66zshbuz6aaek2--
 
