@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E399DCC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB32CC6B27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sl6IW0nnvVtp07vNT44AV7L0erWrDL8jBfOworvsToI=; b=oxj78CzPHvSNBlwANszXMJRBQZ
-	CV0uhonIpYBtkPC8bA6KnsHY0gZt6CfjwwImaT7MEqmjCn53j0IASG4WSf6xgI/xi8k7tIlJYwwom
-	ksIdt/U+mOK+zylywRuzeImNAL4eB+BRNfQFLpOpXWomMr0wHuOf8nYsuZfLI/8vQW7AqVJAEBydQ
-	TpnNYz/CrdYd7B0yp0OnZPuGJcL4+qKChhI1y+Fq79KSQei/iYWQhSWN4r96MbPAn5frPobcIj6K1
-	CW4ZG3WGUBIgCFcPWbU3VRKX0UukUJuQeS2YlJX/MEHtK/cljBR5LMYb/ddo/DoCP82cS12JFs2bZ
-	EXbENdPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1yC2vfl11Uvz+rPgJVGzarEqP1vrhE7ym9xxRH2Eha0=; b=zcySOiye7YXEMC39v6hYaTgKkP
+	p1SRYOowgURrfe2hoY48/UV6EBJKO5sjPh1a4QN9ryeDurbrCKyNJ2tm22gfFuehbr/Tgxwfi3cH+
+	NJaV+hT2TtqWwxZjP9Wh3oQCdNP0CJLSyovHhIS5dsEWszGi7Lw9sziNGVF2RxkzU76hVxBoC/heF
+	6E+pcbxq93mzpFfv2BqAvQGR2lC6FUSgTDugmaj9KJelytVR9jvGCpUfCvy9/KUmtlwv7XdHxtZEY
+	rDU/InJYQbnrkqB+s+fdfpcBvBFwozZXUleQWFdhN2zoJ5kvqa6TeItV2jVc0JECMZD9dFMjszsz+
+	8CsJKRTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtrH-0000000EpcR-2vj7;
-	Wed, 14 Oct 2026 07:57:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGtsk-0000000EpmV-0ByU;
+	Wed, 14 Oct 2026 07:58:38 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtrF-0000000EpcB-2P2O
+	id 1xGtsf-0000000EplP-1Kud
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:57:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2437A60213
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 07:57:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1A131F00893
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 07:57:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791964623;
-	bh=sl6IW0nnvVtp07vNT44AV7L0erWrDL8jBfOworvsToI=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=co9OoteDp2WuxaM8YqiplSwL9GnSd9In+175+3Te3DpvnRRfRQnFkFo+66Rxr8uTx
-	 fJYP8sycpWgurlsHVS+fCyw7p0VkLM5hgv1fQct5k3l5MryucUFTUwW8D16h6rKYJg
-	 qC4Sw6Yl0Vw/3h8SiPgyDEjGvfrAQ7z9DAOU1XID9Fw9QCjsHRSI9Zp4EufxvqDtdj
-	 OEQz2ODYL3dahOwI1VJmJpeVa78kuo8g0w91NTk7fJCZz3zCIfoCumI482++PTfRGZ
-	 KioZJz1346e+z5inJu/Mi6i3b47QXZAtTuEh6hOOvlz2sD33rq1jc+BXpeoUaXnX5i
-	 KjDhwntvI9xiQ==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3a980c01033so5532251fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:57:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwLOYninExy45PqB4f5qElmTOLUTrsuJP/rT7ZH5t7ddb8LZL6z3iN5Zz4aY/Ohatvo9HeS1356VkaN69mohE8Y@lists.infradead.org
-X-Gm-Message-State: AFq9FYLBUGGQJxUNrnrF3gWmW6EgjvM5LFQtqpYsdZxVo5qyJTx8pcSr
-	7ZxrRANkcoYOF3siBI/YhZJQvl2LoghupmMVnZWpYhMlQ6nPuvGDY+U7kgL0bT8kMgBc4zV6s+v
-	FHFr897Cp+Ydn9Py2Xwy8AoEyu0GYtagAYCTTV+SJOg==
-X-Received: by 2002:a05:651c:1542:b0:3a6:692d:b7ed with SMTP id
- 38308e7fff4ca-3a9c539343dmr40055691fa.20.1791964622555; Wed, 14 Oct 2026
- 00:57:02 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 14 Oct 2026 00:57:01 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 14 Oct 2026 00:57:01 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260814075624.16639-1-pengpeng@iscas.ac.cn>
+	Wed, 14 Oct 2026 07:58:36 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 8F98A22925;
+	Wed, 14 Oct 2026 09:58:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1791964708;
+	bh=1yC2vfl11Uvz+rPgJVGzarEqP1vrhE7ym9xxRH2Eha0=; h=From:To:Subject;
+	b=IIMSMLfBZLhPlC9dzthw9/IeIr8yB0aT2jxjCI7A+Gy3afeV+bD+lDTo2g5tr9Ue8
+	 ybqG0Wc4TAkAhBJpOAXQFAA/bdhzOhgAsgkagm6oMw+sCI3nwkbF6/ME+yRjao+lFk
+	 1bHGhonHW3ASGuaPt76ML1D49go1ojvrvVRQqMUPxbqddsi/ZvUbLW6GnILSWtUJR6
+	 Y2sc+Ft2qkgaofzz+oDcN/83CK7o2Uezmi2Wj8BNxCXQmIIeZ+aG18GKcJmKl51sWO
+	 fDN4DsTyoqZvGL03h437HN/Y8S8vVO5yyqI625d/ZQx8EaQni4hJsH5dF4QzgD2Ev8
+	 RZ+ES7r3g9phQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] arm64: dts: freescale: Remove Toradex OSM Development Board ETH_A PHY interrupt
+Date: Wed, 14 Oct 2026 09:58:08 +0200
+Message-ID: <20261014075812.29154-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260814075624.16639-1-pengpeng@iscas.ac.cn>
-Date: Wed, 14 Oct 2026 00:57:01 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Me3kH8rrifW20xw2JqECydKrbBfQ2ZfFsTrL6KwD8+9=A@mail.gmail.com>
-X-Gm-Features: AclHuK_kQw-qSVTPtUkRCZuiCj0gamOTj8vq5XddbmqNqJG15Vf0yUsge2wg9SY
-Message-ID: <CAMRc=Me3kH8rrifW20xw2JqECydKrbBfQ2ZfFsTrL6KwD8+9=A@mail.gmail.com>
-Subject: Re: [PATCH v2] ARM: davinci_all_defconfig: enable the current ST7586 symbol
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: David Lechner <david@lechnology.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <brgl@kernel.org>, Russell King <linux@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_005834_666382_03A2CDD5 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Aug 2026 09:56:24 +0200, Pengpeng Hou <pengpeng@iscas.ac.cn> said:
-> The ST7586 DRM provider is now built by CONFIG_DRM_ST7586.
-> davinci_all_defconfig still enables the removed DRM_TINYDRM and
-> TINYDRM_ST7586 carrier symbols.
->
-> Replace those stale entries with the current provider symbol.
->
-> Assisted-by: Codex:gpt-5
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Should be Assisted-by: LLM but even that tag is going away[1].
+GPIO_A7 is a boot strap on the OSM iMX95 module. The pull-up on the OSM
+Development Board Ethernet PHY interrupt line causes the module to enter USB
+loader mode instead of booting normally when the reset button is held for more
+than 0.5 seconds.
 
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> ---
-> Changes since v1: https://lore.kernel.org/all/20260624082029.18675-1-pengpeng@iscas.ac.cn/
-> - no source-code changes
-> - rebase davinci_all_defconfig
-> - route the revision to DaVinci and ST7586 maintainers
-> - add the coding-assistant disclosure
->
-> The Kconfig/provider mapping was reviewed statically; no DaVinci kernel
-> build was performed.
->
->  arch/arm/configs/davinci_all_defconfig | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/arch/arm/configs/davinci_all_defconfig b/arch/arm/configs/davinci_all_defconfig
-> index 72703ef0c51c..ac0029701283 100644
-> --- a/arch/arm/configs/davinci_all_defconfig
-> +++ b/arch/arm/configs/davinci_all_defconfig
-> @@ -144,8 +144,7 @@ CONFIG_VIDEO_ADV7343=m
->  CONFIG_DRM=m
->  CONFIG_DRM_TILCDC=m
->  CONFIG_DRM_SIMPLE_BRIDGE=m
-> -CONFIG_DRM_TINYDRM=m
-> -CONFIG_TINYDRM_ST7586=m
-> +CONFIG_DRM_ST7586=m
->  CONFIG_FB=y
->  CONFIG_FB_DA8XX=y
->  CONFIG_BACKLIGHT_PWM=m
-> --
-> 2.50.1 (Apple Git-155)
->
->
+To resolve this issue, the PHY interrupt connection has been removed from the
+carrier board, and GPIO_A7 is now exposed in the jumper area for
+general-purpose use.
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Since the OSM Development Board is shared across OSM modules, update the Device
+Trees for OSM iMX95, iMX93 and iMX91 accordingly. The Ethernet PHY now operates
+in polling mode on all three modules.
 
-[1] https://lore.kernel.org/lkml/20261009083137.3-1-sashal@kernel.org/
+Francesco Dolcini (2):
+  arm64: dts: freescale: imx95-toradex-osm-dev: Remove ETH_A PHY
+    interrupt
+  arm64: dts: freescale: imx93-imx91-toradex-osm-dev: Remove ETH_A PHY
+    interrupt
+
+ .../freescale/imx93-imx91-toradex-osm-dev-common.dtsi    | 6 +-----
+ arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts  | 9 +++++----
+ 2 files changed, 6 insertions(+), 9 deletions(-)
+
+-- 
+2.47.3
+
 
