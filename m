@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1F9CC6B24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD802CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJ88z5GPX8b+VXAqaP3/v3qo/EtaXQO2geHV+4a1+Gc=; b=knC2pl8CM/GUj3ldlNW7nKJD4E
-	ZbhPSgwaMov+wmcMKfHcJvRVIjqqf1OyYqr7k5H9gpq5mX+ganpRZy81f+CkiIUYcNLZj0Bz32cu2
-	WVjPY8ckN93U7P3lGA4Sh2QRkaDNPaxBnqWNKU40/ra68XoozWlpJvO91q0pRJ2B/NbmtItgkOtNC
-	f+/c3zqGQbit6KoW97Duzrb3uBFDuCWuwXp4f+r9Sa2x3hewVHFJZiEiWt/saPeA8NzciY8IOkh4m
-	KtXAVM2XYuwoJtIeS3NdkeKWU3nzMpQsWVtFVWMPEQ5hxNP/eiJknj2lPy51eoNQUKLHU7hQhE5bh
-	ZbpmB2zw==;
+	bh=E7VKM0kGySt6jsEqGEdmnsrJTxTzNoBKKYUnpSNyRaA=; b=oGgMMtN4CGveuTVPyS7WfBCM9I
+	c2m3Pl3SCM/3sqHfmkXdFWEyfEwvNjlCil28FN3pIUUGq+QGE6qd+YlqcS8QftPvYF2QrQ3/aqXGF
+	zb21J0TuixIKaSUBza+DEcYEKDa58fSWmsMEkMN2bd98qZwZ/LaHQw0cnHrAjroMtB2jUUWxBHYT9
+	ymBht4eZZsECwNPLCbRGHhqxBOxUhyl8lFnxtqOosgAATjn9Sd68w91WLfLvXFzSU6FcOpD9LqiQK
+	Xah8GFdfxga17le8ck4N3O2lpyHvjCvL+N7XvNadQt3oQHmM1hmqKzobDwDruivmgm28w3ZCEY/a+
+	2ZPFVUAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtKe-0000000EjW3-1WHJ;
-	Wed, 14 Oct 2026 07:23:24 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1xGtLO-0000000Ek04-3sD1;
+	Wed, 14 Oct 2026 07:24:10 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtKK-0000000EjFi-0d3q
+	id 1xGtKV-0000000EjNo-41FI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:23:08 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48c45111bebso2221569f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:03 -0700 (PDT)
+	Wed, 14 Oct 2026 07:23:17 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48b060ec084so2417610f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791962582; x=1792567382; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HJ88z5GPX8b+VXAqaP3/v3qo/EtaXQO2geHV+4a1+Gc=;
-        b=CocUF8qg9pp2Gr8SoEIdAGuKDwYubGYeY/wVwAN1PzCnZqdtqk+reW6xyRYdrdXKB2
-         9BenJmXzx4KhKlcKCWnSpJNiugL/0vl3M8/3q/ivlZvqN+bi6JbrIaTnx2yzC7V8UTlL
-         OSqMHxtjpYkMlCsRlN93vEngN4eblmmiRYDVvr96FW4MkbYICpNohilB/4OoU9JXmAJJ
-         OMR73MYZGQNAD6T/ARzoOzG+DgQ2Uv5C59q6HcYbfNmVvuoWRNzNfzb6YmvHmrdvG4ZL
-         4j1hISG/AY/8NNbsEdErn5UHEJjyF2jl4zGKVDI24y9IkR44Mu6v4RoMoL2exD1kwChc
-         HbKg==
+        d=gmail.com; s=20251104; t=1791962594; x=1792567394; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=E7VKM0kGySt6jsEqGEdmnsrJTxTzNoBKKYUnpSNyRaA=;
+        b=ho3sf2pS4v8pphVlyl2f9oCsn29WmZH7/bRGykgWnwSj0H/2RXCEoHXYiAFYlYYphV
+         jcnZuwojnwlUaOP3Db2bxPKFlcLRkuOpMPNa6dcgh6Tz4cC2P8nMPzb++Sv/Q9OQsmVF
+         6HT+Ib9TocU7ZBiY7QEYkUsd9axVlvO0j3DIBDmiVOBNj39LwwjgDwukPdvfPmOqY3yu
+         6PZMh183QE1OFl3kZ7nBY1VECMbLQAKvyTqEPVshIyFm/TmfbEfWVD22SbGPZcef0LFi
+         ZBBTZ6RyCtC9Cb7eYrs/5ahqSCV4wM0MRC2iOG3cbEcZc2bjoB234qA3B2idTIcCSvXt
+         ZU8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791962582; x=1792567382;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HJ88z5GPX8b+VXAqaP3/v3qo/EtaXQO2geHV+4a1+Gc=;
-        b=zXn1UQE9eKYroiKgKvMrXZSxsxMkxaHHnn3gdnJQKEhnPIgL+ByxpuD+dJXPuU9uzR
-         A4qY/w4TIfeWP+G75tnYsXFWuI1WnVne07hjoTDBBFxhcEzUeJF7eZ/Gc+GI3Lf/fjbu
-         DKBh7Nif9N8y4X3Hy7WdF40SOqf5URHLZoKf6dtaAFfSp6ww9hlBNz0O9spdcTm3pdPi
-         rp5KWYGRcUZfS+9hS0hJIJLWKZczV3t3Itfn24yM0xnsf57ZJ9tnuAyInrSXjZhhvh6Y
-         /gx8CBkT6mPrDjq9n/ZsfRsuJH7SyIs3A520cNmheErtSmv5ZAFuAyvk5n03B/wwKl0F
-         GLqg==
-X-Gm-Message-State: AFq9FYI+SYm7ktA8aePQcwL/hNX2wkIr6sE2V4wZi//NSb7VZNIjN20K
-	AteWL9EV3MkPOO4D2vupbBEixgDJYZ3CKo7PLeg6SkfAD9AKNvqoyIZE7c/vwSOOUp/N5Q==
-X-Gm-Gg: AYBFou1NMZPxxyIUWsXH/GhoQcXRFEy726/vvMuxlna17BSWQIuorD8zODrwysGVSqx
-	1nix+og9EQEAT1y04Yg5aGqT4YqRwUbRAqvxS0y8IPwXUvdthdRyDSGtxmX0Jg9kj5+FsFgxA5C
-	2kSxADIYBuZcmhat3CoTN1DX70JM4s20FQ+sAxEWg8SUZTar3rmzE2y2a9ivoe6Il122cWyWnxG
-	XKM6CMm/NqWEpbV88qYqsUDgKuUBv8dg3VFMOn7fLME22mlpOivkpnpOdQ5elWyfWeTVWfIchhR
-	R09FPToF4Vc4clF8C5koxstAq/bh2nSe4fJRwURLxgxWUkmCdxzn+Wa/zN1eJ19PhmhIagvG7SH
-	Oo/oUQWuh4UJedxonAqhxAB6IYTii6MJDZh06gfSIcKwI4CMQ1xQPc+D+Zj9Ho8WJjVfAVXydXw
-	y9mfMpHqZcMy2rymhz138QQkSoe3WrVbB4RJWOMGw3sp4FZhZfzTKdftwWpiZMhWlykOL7bcYng
-	RqRRXM7yh7KdoZCixhbhMu0vdPTX9TLw78PncsjXmEbFvc3yGiQV1XdsVW+yHP0Zlop7nThGopV
-	lUBnMN4I3E6z8Fd0kVTEcjT2LMor3RLozoWujWCEOvEfcjn5s46dIEGL8rcvWA==
-X-Received: by 2002:a05:6000:2dc5:b0:48a:fb26:23a4 with SMTP id ffacd0b85a97d-48dd6517828mr15172799f8f.31.1791962582334;
-        Wed, 14 Oct 2026 00:23:02 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791962594; x=1792567394;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=E7VKM0kGySt6jsEqGEdmnsrJTxTzNoBKKYUnpSNyRaA=;
+        b=Ezfn8forKHJMMPAx05hCwtw8F4owzPvVmyamqQNX+Vvjk4qBkH91a/3BnPyMB5PiPW
+         xDfKteVmLdckMc5XGF+UByipQEUDJ9PQAy4lG6qwkH2ArXCfHXTpsT+V/jn5vYpBTYAS
+         rDML4Ym7r9NyzbvV0Wa4h07ihjpUECgYQb1JjC95L4i5cpKOPc+fC8ef0Xheixl5eTrD
+         qVlKdWr8i7Wq6CTLSH9UmcegwZtzdW8MAJACuC6VF3ko87w1p7wSMlUtJVJVbdE1CjHR
+         xcG/DP73+HDY6pmzy2zOztQJGOE6c+CInfNwZwhLivmXg8WV9/nCWRiH2j3M/ZW8kQTr
+         nJRA==
+X-Gm-Message-State: AFq9FYJwSCUENU2KhIISKFRMX9Zcqx36UQ9dQ5kFqUh8Tr3J1k+CHCRB
+	5+Q3WunW/QvL1WupxiaAMnpNhyliWgYsD3lmXJO5yPs19pd+731uj7l0nCmlGe5kIoTHSw==
+X-Gm-Gg: AYBFou0KBycDS2gPvKXq+sx1kdbk20xmeLayimjiOotbINV4Wj8alYnrinTqhy2liPV
+	C+4qDWt1BwQQ/5t5m3oEMnP/8ygWJFptyuuQ2kDV3Pv+rTL9/BcxPKt19pP79GjlhI3dpykFO+b
+	GqA1pjq1eh6uF+19o171eFWsSBi3jgKOgwIKUyCwrZsIbnyq+cxs76fFyf8QhUc+O0890GLHoGn
+	2iG4D7yMj3NlJYmXVG1eTLr5dE+08PhtefE5GGI/QGB0eoKjE1VqVurRe1IFtoINss34cV5pc3S
+	ZdXr2TXwrm1F+7qAG/tp+hvmfqPk7jiAkkdbJNxM7NtrjvUkEDQz1vVwYTTkZKSvRM7LznKoYRR
+	uNGQbULCPvKKuLkv9O36+9lX78nkwJHCOEXfKmylR3+aEaInjOhVFtJgp5YWUWpEvsNW8mkYUXe
+	37er9bUhVe/2jH1pC6BsmnsaPalidDyJ6oxIgYpArsh7GuOm+QbthrD3mFHLymE4JJMeTNwk15l
+	j7UQUUTTOUQgHbSTRMeKayFXMOFYXgcfwaxd244p2VBCgBebR6tReAT9pM4qj3IPJOH5sou10UT
+	GCNoXNLzUOalcAWnOY0Z6WvYbqQVc38cMsw0PDK+bjt85KHNDfbJ44S6H1L37Q==
+X-Received: by 2002:adf:e80b:0:b0:487:342:d141 with SMTP id ffacd0b85a97d-48dbaae8b8dmr21050586f8f.23.1791962593943;
+        Wed, 14 Oct 2026 00:23:13 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.01
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 00:23:01 -0700 (PDT)
+        Wed, 14 Oct 2026 00:23:13 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: arnd@arndb.de,
 	stefandoesinger@gmail.com,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	linux-phy@lists.infradead.org,
+	linux-spi@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 10/24] dt-bindings: phy: Add ZTE ZX279128S PCIe PHY binding
-Date: Wed, 14 Oct 2026 08:20:50 +0100
-Message-ID: <20261014072109.1759502-11-ghahramani.navid@gmail.com>
+Subject: [PATCH v2 19/24] dt-bindings: spi: Add ZTE ZX family SPI flash controller binding
+Date: Wed, 14 Oct 2026 08:20:59 +0100
+Message-ID: <20261014072109.1759502-20-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_002304_243037_8B2FDFAC 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20261014_002316_025359_E5EEE790 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +110,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Device Tree binding for the PCIe SerDes PHY found inside the
-topcrm block of the ZTE ZX279128S SoC.
+Add Device Tree binding for the ZTE ZX family SPI flash controller,
+supporting both ZX29 and ZX279128S SoCs.
 
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- .../bindings/phy/zte,zx279128s-pcie-phy.yaml  | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
+ .../bindings/spi/zte,zx279128s-spifc.yaml     | 72 +++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/zte,zx279128s-spifc.yaml
 
-diff --git a/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
+diff --git a/Documentation/devicetree/bindings/spi/zte,zx279128s-spifc.yaml b/Documentation/devicetree/bindings/spi/zte,zx279128s-spifc.yaml
 new file mode 100644
-index 0000000000..7bfa363294
+index 0000000000..201fe46b2f
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
-@@ -0,0 +1,40 @@
++++ b/Documentation/devicetree/bindings/spi/zte,zx279128s-spifc.yaml
+@@ -0,0 +1,72 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/phy/zte,zx279128s-pcie-phy.yaml#
++$id: http://devicetree.org/schemas/spi/zte,zx279128s-spifc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: ZTE ZX279128S PCIe PHY
++title: ZTE zx279128s SPI flash controller
 +
 +maintainers:
++  - Stefan Dösinger <stefandoesinger@gmail.com>
 +  - Navid Ghahremani <ghahramani.navid@gmail.com>
 +
 +description:
-+  PCIe PHY block inside the ZTE ZX279128S Top CRM.
++  The SPI flash controller of the ZTE zx279128s runs flash operations (an
++  opcode with optional address, dummy and data phases) on one chip select.
++  The data phase can use one, two or four lines.
++
++allOf:
++  - $ref: spi-controller.yaml#
 +
 +properties:
 +  compatible:
-+    const: zte,zx279128s-pcie-phy
++    enum:
++      - zte,zx29-qspi
++      - zte,zx279128s-spifc
 +
 +  reg:
-+    description: Port index (0 or 1)
-+    items:
-+      - enum: [0, 1]
++    maxItems: 1
 +
-+  "#phy-cells":
-+    const: 0
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: work clock, the source of the SPI clock
++      - description: register (APB) clock
++
++  clock-names:
++    items:
++      - const: wclk
++      - const: pclk
 +
 +required:
 +  - compatible
 +  - reg
-+  - "#phy-cells"
++  - clocks
++  - clock-names
 +
-+additionalProperties: false
++unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    phy@0 {
-+        compatible = "zte,zx279128s-pcie-phy";
-+        reg = <0>;
-+        #phy-cells = <0>;
++    #include <dt-bindings/clock/zte,zx279128s-crm.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    spi@94406000 {
++        compatible = "zte,zx279128s-spifc";
++        reg = <0x94406000 0x1000>;
++        interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&lsp0crpm ZX279128S_LSP0_SPI_WCLK>,
++                 <&lsp0crpm ZX279128S_LSP0_SPI_PCLK>;
++        clock-names = "wclk", "pclk";
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        flash@0 {
++            compatible = "spi-nand";
++            reg = <0>;
++            spi-max-frequency = <50000000>;
++            spi-rx-bus-width = <2>;
++        };
 +    };
 -- 
 2.55.0
