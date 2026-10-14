@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5658DCC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7234CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QK4mu7evKVOV2GEU9FhgXywXMUX46qDQRJW8ekwQ4SQ=; b=oTnLYHUZwHMwxO5Bfl4GzfKysv
-	42gfly+C9guIHYMb95yFhTLL/UuuXDP9+A8EP8vntwp+CI4Wn+t6UCeIL2u6cvrD106tIhEqGkfCJ
-	RR8lObmgQhSe1vwKn47heQ4hRXS9G0Gn4Brdwe2LhSzZwctL7YIBg1/MMkZDw7QxF7WZpvKg7i52e
-	2JwwmEc2f7c11s3RTCQPTmPYcSrLeg6bZKbQuqqX1JQYbrjMSgSdXYhpUunxHmv90RcqSx8A/Voss
-	hq1IBXAjpff8wODx2oIfbSHuOGecJ1OlMidhNKPINlVzoCfHxPiZeV62qamVyiF+iao/hlox8zGKE
-	dstj9Tyg==;
+	bh=O4uyorJjU4yw9ZxRXCkaVYEh792OjjBS20MYURFIG1U=; b=zuiQsCTIfuFHGAUF7C7UKqJyvq
+	QXLha+jNPnR6rwdh3lB+ZsmtyF1VVuF52vzxfpgAhUum7xCb4RerNokxhTMNfm9f84Xs2nePTw1tE
+	vVRaraX+mSGn7ewPJy0e7P5D6Pf9+H7azJDG4prGesII9yu9hGYPTww7YcndPbdkCO78awzl5Oq+8
+	IGQzXgKWLKWzDFwD+s9Mh7ocrTxl4VLE5SfkL9EpO5h8XEk/pAPgTp4g0s4mSsSon0X41EnqJCL42
+	Ui6HDWy4Nwaco1qgpt00VC9GZmQbxTygXbqcWiXkiYeO7tiQ3otlkjRw3lqO1AsTVug1Bfl7souOe
+	IdgxBlAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuNn-0000000EtXQ-0lx4;
-	Wed, 14 Oct 2026 08:30:43 +0000
+	id 1xGuNo-0000000EtYD-1KRD;
+	Wed, 14 Oct 2026 08:30:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuNi-0000000EtV8-0tNF
+	id 1xGuNj-0000000EtVD-0pDv
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 08:30:38 +0000
+	Wed, 14 Oct 2026 08:30:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=QK4mu7evKVOV2GEU9FhgXywXMUX46qDQRJW8ekwQ4SQ=; b=GWEGfslLybUc2fySHhw1FiyYDL
-	HqfBlNPyn9Od7bQMmpE2K8ndIIwxdyRW4Dnqzu1OOdN5lPYVBevXNvWOKAq1S47sGnxKtNl0mROBM
-	JECQAJvzP7Cyki/Wt6nHUYh0WC68iS5QkUeUOGBQ7MJgxDA7OklX/ezOtxM8FR8kkJCcmmda3dbYC
-	/Di7A/eFF8LbPF8qw0v1yp4RCCiBwlxmRy7TbFXjqt5eFH6SG8AooMtoyScUbqNSpHkJ1qZXtJAM0
-	96Sf7wnKq+Wm9/K/UkpT1q1+jYtcTRmCHgLtkwFC/xExhVv8OY/FP5ZZO2BB1FdXwpIeBz0unbTD9
-	r9HKQSkA==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	bh=O4uyorJjU4yw9ZxRXCkaVYEh792OjjBS20MYURFIG1U=; b=psdm90UW8TZaSL/co7JOjQvR21
+	N9wtdQ/Ne85GNUYo8JL2xU1lBpeq+ldXp80IHvokMbsAloutBMmZL1FfwIaQkmB2CGEH8Fyw5F8jD
+	uySX6zphv3PLFPhvrIgdCykPm3fnM4pDiIXkwEHlsGi0UlS2QmPZgI999mGPL5mTWeehhngZugYNb
+	be9Wejiv6yMvyiPgzmyOPXPSXsNp9ogNJUphn91GVZbf9g7kuqL3YcZzWodwDwl+4SY3dOW9vOZJP
+	stnrJqPbvQgtqC9LsjpnGfTy38SnzRjiyZooJSMg2uTqUlkEFuHdb4UguOVoU9H+7PBvjemOiQQg8
+	0JDNzVTA==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGuNf-0000000GVK0-1N52
+	id 1xGuNf-0000000GVKJ-3rm7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 08:30:36 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49d05d51553so4086535e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 01:30:34 -0700 (PDT)
+	Wed, 14 Oct 2026 08:30:37 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a0213948d3so23220155e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 01:30:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791966633; x=1792571433; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791966634; x=1792571434; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=QK4mu7evKVOV2GEU9FhgXywXMUX46qDQRJW8ekwQ4SQ=;
-        b=VZxHndZVlU9zRBEhrBmeVgTCUpJPBxxGtPm514nKc7Njnynj42+LZSK8Achw1bqGsD
-         DkcbqpBX1ojAJ/dveOCUBYbWsqDnzwQtrvcvo2jfV2XDaxfaUIvYOkyhZYBxqwWcKK5W
-         GAUI5Z6yQvSYh2c5h2JE1Nvpm0maM+fl/RPh+ef5QWpu9YfnYytegxayYHk03u8wm9xO
-         kN6TFdWZPMxConqa2kGEgmj5JiqR8e96usTV4Ky3ib1d+r7u5lScW+k7qccquNlA9AFJ
-         9W/dXD0kpS6cap0MKFhR5gAJNo7GTYVlVgE5jLTQ5cysz+N9LF+gN/mL8Sq80KQV/V2T
-         ZbUw==
+        bh=O4uyorJjU4yw9ZxRXCkaVYEh792OjjBS20MYURFIG1U=;
+        b=O2aOCbrzn5lCNlQU5i52jLj1W8wJgIWPxPA3LBbLqLqABu63IQwcQ1Gxig8hpQI72W
+         lwpce524vwMyyFuV/XZxwbPYlvDjcABa92OxHbeQ/jt+mf7Oo9fGKH+IPy4yJSZpEcRe
+         N2q822ErZyEsbK0/rnPnmFMGBwYH5kchqIqkk6bT94+o7tblag7LvirRJpi4B0wnYvgm
+         yFUlF6jhMO/U9VQkBgR6Qx2MtgGpXSpHsZics9lmsIo9adG006wB7mKV/Vl0l47a3LC+
+         q8SfOv0G8970BLtR73tBLaKkwi1M4wijVKIWxRfMEnRwjCsxKerxLx9XJm0muvLR6I2s
+         lJbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791966633; x=1792571433;
+        d=1e100.net; s=20260707; t=1791966634; x=1792571434;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QK4mu7evKVOV2GEU9FhgXywXMUX46qDQRJW8ekwQ4SQ=;
-        b=tuAPAzgdRxFOuDbizazIroXjJCJtWpzGHiWXolMP4WHTj8/TARS8fC1wVGJHeRyad6
-         wdz7TP5ep+W7zQSXzJfpy7VkZDAln0ofX6wEe64Ao72HUocu86AQL7YNOc15QlNRfxwm
-         CyQmNlTV11BMiqNvQqRcw2VID+rndB8Blxkd4JCS2GzzACpcR2Zi+PD1bF4/dL7ULL0V
-         /Me0fLk5CvB8DN8XRr8L1D9KDUsksHRTHr5/rgPjFBMOgDxklcA5Epxf3+kljAsMCrHO
-         wps+EpaV0Abdvtrj0Oavh8d70aFqWKtAjevSZpC+kcUPYzyqQVYh0Sb+g9Ex7CsCDNAW
-         nSyA==
-X-Forwarded-Encrypted: i=1; AKwUvBxuUTJPQsjhaUThQB33XT5JwTRzhKEoEyth9ml43y9+TYn7QLsCaWctWYaFlp3brU70nFltgenVisFcjfnqzD20@lists.infradead.org
-X-Gm-Message-State: AFq9FYKuofc5HUYfbDNSbDktV4A39KkoNMml7H+tyzYqoTE5EqBnqWAt
-	STRtQzCLfG7KudaYw7yiYuqEDCOpZPmjQZyMoSBdHPjTeikYnXAnkk5G
-X-Gm-Gg: AYBFou0YwruU0mLrThp029eHQTg0X3jnEUdrGwljfep95vbgPLnd1rM8WHXovSem+ul
-	XrJKJawf7s412em5ZWiCOfdG52Y49DE9uJmRz4KtnVH/NKb0ApP0MHOI7MDpus8uYD0Hl9Dcgxn
-	wzNGOhLkbpX3K4KgPjwf1rJ78G+8fJ9vQPD3IKDfJJKdVGMcEM4KybC4jZZB75SbrpeX5h+mTgI
-	YJviiOQzAsdbfXlIBuClepsCdBYE3Iz4g4HXIs1RkNpjGMD9uOXQv1aTFL5z+OvVOosr+6bMj87
-	0eC9DlN9Dw+1E7uUf9feGmsSejKw2kgMOWxKq5WcPNnnt6no9+1qBpObEqOsPCKV1WAr0973DMp
-	+qfeWqKp2u2hnmtOdnCoJIO8HpAWZnYxdffhhKq+EdvICl/XLIRmgFWT2STdolTOcckhiYwqSNG
-	JrMFKCJVdR6sHVXtVTM9lNICoC0bAyYeX29V2YkP2VMe3mz9zbBt8aR6bF0WpLMt2k1LKcO6jkc
-	/lGnXRX5ksf0JxFu5QVAgo/2CP8xmkPOkLyewqivZ0cDw==
-X-Received: by 2002:a05:600c:1549:b0:4a0:25c:8af2 with SMTP id 5b1f17b1804b1-4a18e491051mr334974655e9.17.1791966632877;
-        Wed, 14 Oct 2026 01:30:32 -0700 (PDT)
+        bh=O4uyorJjU4yw9ZxRXCkaVYEh792OjjBS20MYURFIG1U=;
+        b=RBWrzF72UWbpGA9yD4R6zK+pb8lg9xDsKze6bnDjtNTFkXDOUi22Y4meSxgh3qRAjL
+         BSlrFZWdWKhTi0OU9MkMUeQ6VFneEM5QPj5SRdH1NQfR4J3/E7HElinatXNbIFYI+FyJ
+         B5jRQFYDkC4AqPkdLnmOvFoHwfqpB1DK9pVOl2YdtHnAEGIUqC33gRjeguZuvVuQWUZK
+         ch7jhoJdz8Yc75vzn/w7GtBfBFsVpxgowNyIdzaRydGD1wQnaFXtYbjgZ2+gtZdGUlxi
+         cHZSTWZ5hEmAKetDMlu/M9epq9OhaHj92hS3HVfB1FWwkv8ObFzsY0M6Y2+YvNRjg5bf
+         xkjg==
+X-Forwarded-Encrypted: i=1; AKwUvBzRAXnt8a9xVlQexzArxe31uKKA+BM5mYkLUVV+Pra8iC0aFgP7uukzyWenKWqbUfzdu6IFbQWUjCJh9IQS9n+E@lists.infradead.org
+X-Gm-Message-State: AFq9FYKL0Rqj3jGjmnpzup6k95FrDbIkJZn4kWfLC/9Ui0YJ3Tt0f4VA
+	48nRll/LEhnGgMakLnPwajs0KZ6c8E4GeGEAmnUVPj0n3IQVwsvmzvuBgvqvh+SFC4U=
+X-Gm-Gg: AYBFou3yptwA+KDX8k9fNzTlE80KLKC73Pg32a0cw4sv5sQWYM4ZZxwEsNrikTGkmYZ
+	juCdWeT7HZ3oMmv8SwtSNl135G5PkKGGXAb+XpsaMC+A8OyKmwNghULzIeJKEjswGWhIz6ioHjx
+	HuBWmQhrscrJ+pUq48DK0J2qmKaCrsLJ619nNlAMl0yEmGHHPjc+kK/SmHlfgFO0Ncb1o02LnkP
+	LEDqjvMofDyORGsyVBRIwc7Fbw8GoNAunht1jbyTz6StXl49kj0RuY8hYC5UrrHmS6yhjZF41Q/
+	9RplRT1qkd42RibpF8ko3EZ2BER81CfQPzrf0MbpnVu04lneIjs3owh0oivWdAISgf485nW+61F
+	H4szx2uBRNvopJswqVLpB2hn/Ai943de0DgbMSleTrigzPAcCUePx1NEoLjLJgtE/RyxZmBAUyh
+	Ehj9zrOMBp4MFkQLsoOP0TTYs4n4lrSDINpR6sXCoPtcgP8Fvj+p5goZV7Fr5cmDOWM8km8Aa6n
+	6tBoPjO2inR0DAD2//AYBQP31MUT7WbVolVkWLI6ArfcQ==
+X-Received: by 2002:a05:600c:1e0f:b0:4a0:1f51:ba2d with SMTP id 5b1f17b1804b1-4a18e4adcbamr292830765e9.22.1791966634221;
+        Wed, 14 Oct 2026 01:30:34 -0700 (PDT)
 Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c198134sm431809745e9.15.2026.10.14.01.30.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c198134sm431809745e9.15.2026.10.14.01.30.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 01:30:31 -0700 (PDT)
+        Wed, 14 Oct 2026 01:30:33 -0700 (PDT)
 From: Sander Speetjens <sander.speetjens@gmail.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -99,18 +99,19 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	sander.speetjens@gmail.com,
 	pbrobinson@gmail.com,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v11 1/3] dt-bindings: rtc: Add missing type to trickle-voltage-millivolt
-Date: Wed, 14 Oct 2026 10:30:14 +0200
-Message-ID: <20261014083016.332338-2-sander.speetjens@gmail.com>
+Subject: [PATCH v11 2/3] dt-bindings: rtc: Add property for Raspberry Pi 5 RTC
+Date: Wed, 14 Oct 2026 10:30:15 +0200
+Message-ID: <20261014083016.332338-3-sander.speetjens@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261014083016.332338-1-sander.speetjens@gmail.com>
 References: <20261014083016.332338-1-sander.speetjens@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_093035_475878_97EA9F3D 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20261014_093036_146279_C2C6F653 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +126,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trickle-voltage-millivolt property had no associated type.
--millivolt is not a default property unit suffix, so the schema does
-not automatically infer uint32. Explicitly reference the uint32
-definition so the type is correctly declared.
+The Raspberry Pi 5 has a built-in RTC that can be battery-backed
+via the VBAT pin. When a rechargeable coin cell is used, the
+hardware requires a trickle-charge voltage to keep the battery
+topped up.
 
-Suggested-by: Rob Herring <robh@kernel.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Expose the trickle-voltage-millivolt DT property so the driver can
+program the correct charge voltage for board specific configurations with
+the attached battery.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
 ---
 V10 -> V11: No changes
 
 V9 -> V10: No changes
 
- Documentation/devicetree/bindings/rtc/rtc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+V8 -> V9: No changes
 
-diff --git a/Documentation/devicetree/bindings/rtc/rtc.yaml b/Documentation/devicetree/bindings/rtc/rtc.yaml
-index efb66df82782..e46d50b1063e 100644
---- a/Documentation/devicetree/bindings/rtc/rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/rtc.yaml
-@@ -51,6 +51,7 @@ properties:
-       if trickle charger should be enabled.
+V7 -> V8: No changes
+
+V6 -> V7: No changes
+
+V5 -> V6: No changes
+
+V4 -> V5: As discussed with Conor Dooley, the reff to uint32 is removed
+and a PR is made on dt-schema adding millivolt to property-units.yaml
+
+V3 -> V4: Add a reff to uint32
+
+V2 -> V3: Fixed the firmware property naming
+
+V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded into
+the existing raspberrypi,bcm2835-firmware properties.
+
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml      | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec9..dc71fd57834e 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -133,6 +133,11 @@ properties:
+     required:
+       - compatible
  
-   trickle-voltage-millivolt:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-     description:
-       Selected voltage for trickle charger. Should be given
-       if trickle charger should be enabled and the trickle voltage is different
++  trickle-voltage-millivolt:
++    $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
++    minimum: 1300
++    maximum: 5000
++
+ required:
+   - compatible
+   - mboxes
+@@ -144,6 +149,7 @@ examples:
+     firmware {
+         compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+         mboxes = <&mailbox>;
++        trickle-voltage-millivolt = <3300>;
+ 
+         firmware_clocks: clocks {
+             compatible = "raspberrypi,firmware-clocks";
 -- 
 2.56.0
 
