@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E77C3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C19CC6B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sZvB8uEgwH3FOtyg8jjKySlsj8oVq373OT0N/xZEySo=; b=i0w6LqH439Y0yMDEV2+8E8oTC4
-	1tM66LEqshEUh4E161nSEfXwfcHIttkQTSubHq9B2qOACMb0c4g9WaHcgK9HboYYmB2Q8a8wa7v0+
-	SvQuAZmW6zK762VlvcZIHNsoyM6pP67tiqXZTGDnfPZPCUrxNuVlkSGJvlrkJyQVgX6hnEDMWspVr
-	t9CMqb0sKehzd3S/noawo84VSHC6Cqr36ZppAZGmi2Snz+DXr1bBEFGqcqFWi3MnRotYws/RL1U/k
-	vwHvQmt3SfTpA48r58cGZsmd/Sdf/NoE1yWfjk1kFEsjMCXnwcyfgMqOI9fulNxtdeo4bikbxiAUS
-	d9F24g2Q==;
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i3kPv2EnHCuSJTkONfOoKlbv7OJfV/DzN4cTtsaG+7s=; b=Pu/SYN79zU+SPVhUnCJwAsoh34
+	/IZMgLN/Ga5so+S4Yis2ZcuwkRIMUAX9mFmtsPTduPrXdieVUVcfoA7ma0r7KTTzy1BUg4rjvRTyN
+	RX+ULjxf2RKpwaEdJCirEI4O1M1eCIMf8Jv0jL/cV6fYx9eR2iwfgaWuUgBALnn49oVe8TymT1af7
+	tkMTQFOl5iVlk9gCyCf1XGPVAiPlvU0UyDLkd7fFAmdkQi783Ocm64R4WCkaRmDaIXfSgE5qfhiVK
+	PpyJoOQJoRVglL08wiDeJ0XMNfVAI9TACA30csLBsFMtoMB262UmrGFBmtCYaIuYRBZSXJVN2VrVn
+	SfR57HEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5KU-0000000GFXM-20hp;
-	Wed, 14 Oct 2026 20:12:02 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xH5N6-0000000GFhq-3iQC;
+	Wed, 14 Oct 2026 20:14:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5KR-0000000GFX1-1w0e
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 20:12:00 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a0213948d3so27852725e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:11:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792008718; x=1792613518; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sZvB8uEgwH3FOtyg8jjKySlsj8oVq373OT0N/xZEySo=;
-        b=D9eGLIj21bgmQwc4PRbNsFyHaWXSxv/9NLb/HaNCRXBhZruncYq09Vtnxl1hHGlqls
-         jB+6BgidWDQcse2UoV04pP4hOs+CBH1nuDtARlk1PHlPEeIDnpt2dShnh44zMjx/QVoc
-         vSW2adCnxjX3z0qv+fCT2FHTpyRhQLO6jCyCQuRhBrjKlsvBVlRYlHGAbRhj4BRxW/gw
-         vKEePIBcSX9vJf0+uVKmSCDScv3G6XeHFBHHXvPBgIrR+JYV8pXFFTihFUiMM2U1gpzH
-         vj36iur9Df2sEou2LEWfnBhGJ+QV3YMFW9xO5TlaTSyBtDIq7vm+W+u2POhddwCoTEyB
-         xptw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792008718; x=1792613518;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sZvB8uEgwH3FOtyg8jjKySlsj8oVq373OT0N/xZEySo=;
-        b=AnB6r3/7tcRIZ3iD0Hk3OKThXZ+ffaB6q90pnItHbuIM2wRnuZP+NPtAzJGb/rqR1c
-         URx5bCrE2Hpf91yRepT9rQbYifJLp6Osf7GEdkxDz3VTfu8eTDhh1t69UnowuNw7MnhE
-         /uqiLsxidR7uFDSdlOtyTqfIUEYjyDGoVBAqGi68WjbFfu1O0znpuZX8s2cpVUNSAB1K
-         YJme519MhotxGqerxymEtLuZeedapBo+ySCouHHqvHkAw7ujbDfUv0MIrdCAb2jmSTgv
-         4s9lUG3pA28GBt/SfLiQ0V3MsiYZ4ZwjUmnBrzN3bHoVyiqqsivISPtFSBDHy4qzQyO0
-         JsfA==
-X-Gm-Message-State: AFq9FYI0Oj46ADOrtAMeTHeIq9ZvKeyspj/uwGlipYjymidksnQ8xIyl
-	YHgMGHn3zJNkLCB4Cb7w5hHN+zEK9OL6KCJACux8a29VffTEc4vi3g1jZodHRg==
-X-Gm-Gg: AYBFou0E3OHLU3eRejDNXDVdfgpWuCqHf56pFaA5V5u3FDUGrIduhpeF0sNlTJCPWpU
-	Q5xpQjUF/urHP4VrLTqOE1nu3FV70xvtBdMXMh3ChIyeeLeVKTMCcGEjeTf66x4VE4ua57HllJB
-	DI4m9bVm4tPfNzWNt+223G15ThMOUHAaj2InM6mP5sb/xin/EPP/PAG3vT4sM7mHlx3XXts5/tQ
-	3AQPJpDd3gKJNxC+YXgLJxMtBSI3DPz7ju/2g6arTQpYeO3mx6kj8baWZUUdEbJI0QOYrBwHoDg
-	EwRTbtNHD560a8QgqDq9d/cbf8F6RmG6rmsMGn6H8VgOdZownMt6swvNnV0E1qlBKNOZbVkx/5E
-	LNl0eSxgS6lNeWTAUD56YxQHGjoBB3nYXJVcQPrqqImyEOrpjDZJSzjsh+sljZ/x27T/vk6IbEt
-	XVphJoQHMfZugHsVNtK/+qNJBmfM65uszVLTg6vT3eNJqtoCCSoZTJao0Ampu1Pds43iem3eKYt
-	RSQWa8PODeJrnuALqw0n0HKibtbPcMT3oCj4VZeFRSelEJXDjw=
-X-Received: by 2002:a05:600c:c113:b0:4a1:985b:83a9 with SMTP id 5b1f17b1804b1-4a1985b87f5mr193706685e9.4.1792008717371;
-        Wed, 14 Oct 2026 13:11:57 -0700 (PDT)
-Received: from silicon.doe.home (91.141.74.240.wireless.dyn.drei.com. [91.141.74.240])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bd5ec195sm18169355e9.0.2026.10.14.13.11.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 13:11:56 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: arnd@arndb.de, krzk@kernel.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 01/24] MAINTAINERS: Consolidate ARM/ZTE ZX SOC SUPPORT with
- Stefan Doesinger
-Date: Wed, 14 Oct 2026 22:11:51 +0200
-Message-ID: <f-cR3wroQOKOK55pQOGtvQ@gmail.com>
-In-Reply-To: <20261014072109.1759502-2-ghahramani.navid@gmail.com>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-2-ghahramani.navid@gmail.com>
+	id 1xH5N6-0000000GFhe-1jhB;
+	Wed, 14 Oct 2026 20:14:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F5646020C;
+	Wed, 14 Oct 2026 20:14:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB491F000C4;
+	Wed, 14 Oct 2026 20:14:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792008883;
+	bh=i3kPv2EnHCuSJTkONfOoKlbv7OJfV/DzN4cTtsaG+7s=;
+	h=Date:From:To:Cc:Subject;
+	b=QX2FLAgyAwNAACG4J/atDWNVOgM1duxzU+cwgZ/o4t+utd/n1VJ99q6OYk+BLOeHG
+	 6KOQfkVx2UiQeInHTw5ePbQNEQcnNO6xQfqGIUhh6J9SNEZz5OKO3UwHLJ9+UHuZYx
+	 Gnbah9qgTEUwliytxHKs1jwjU8F6DoIXBlADu0dZ/ToJgGmM2fMZxOpqKSkIw7hIvP
+	 m37Q6AMK73LIXKip7brd5H6Llw0XNcTV2TTDWg0+78IXW8UZeQvZFgMzQD1AmE2TQ+
+	 eqsi0bOrYkZK0MVT4EiycQwRG4Zo9d9ECk4/KL7Wtqj0ZO2u5Jv7Q6xQOgIfD/2dsu
+	 iCH27PqF3ftXw==
+Date: Wed, 14 Oct 2026 15:14:41 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lukas Wunner <lukas@wunner.de>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver OHalloran <oohall@gmail.com>,
+	Christian Koenig <christian.koenig@amd.com>,
+	Vitaly Prosyak <vitaly.prosyak@amd.com>,
+	amd-gfx@lists.freedesktop.org, Aditya Garg <aditya.garg@linux.dev>,
+	Jason Perlow <jperlow@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] PCI fixes for v7.3
+Message-ID: <20261014201441.GA1661922@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartNxO1axjoTnWkvnYZN3HUUQ";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_131159_539914_5F2292D9 
-X-CRM114-Status: GOOD (  12.28  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,89 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartNxO1axjoTnWkvnYZN3HUUQ
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Wed, 14 Oct 2026 22:11:51 +0200
-Message-ID: <f-cR3wroQOKOK55pQOGtvQ@gmail.com>
-In-Reply-To: <20261014072109.1759502-2-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-Am Mittwoch, 14. Oktober 2026, 09:20:41 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb=20
-Navid Ghahremani:
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-> -ARM/ZTE ZX29 SOC SUPPORT
-> +ARM/ZTE ZX SOC SUPPORT
->  M:	Stefan D=C3=B6singer <stefandoesinger@gmail.com>
-> +M:	Navid Ghahremani <ghahramani.navid@gmail.com>
+are available in the Git repository at:
 
-I am generally OK with that, at least once Navid's patches 1-6 passed revie=
-w.
+  git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git tags/pci-v7.3-fixes-5
 
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-
-subscribers)
-> -S:	Odd fixes
-> +S:	Maintained
+for you to fetch changes up to 4e9f69d08253471d92bcc46b363fbada06bd59c4:
 
-I think it is better to keep it ad "Odd fixes" as it is a hobby project to =
-both=20
-myself and Navid. I don't know where the dividing line between "Maintained"=
-=20
-and "Odd Fixes" is when it comes to SoCs ( yes I read https://docs.kernel.o=
-rg/
-process/maintainers.html ). I guess once we have a third developer and/or a=
-n=20
-openwrt userbase I'd feel better elevating that.
+  PCI: dw-rockchip: Move INTx IRQ setup to probe (2026-10-12 17:01:54 -0500)
 
->  F:	Documentation/arch/arm/zte/
-> +F:	Documentation/devicetree/bindings/arm/zte/
->  F:	Documentation/devicetree/bindings/arm/zte.yaml
-> +F:	Documentation/devicetree/bindings/clock/zte,zx*
-> +F:	Documentation/devicetree/bindings/gpio/zte,zx*
-> +F:	Documentation/devicetree/bindings/net/zte,zx*
-> +F:	Documentation/devicetree/bindings/pci/zte,zx*
-> +F:	Documentation/devicetree/bindings/phy/zte,zx*
-> +F:	Documentation/devicetree/bindings/reset/zte,zx*
-> +F:	Documentation/devicetree/bindings/spi/zte,zx*
-> +F:	Documentation/devicetree/bindings/usb/zte,zx*
+----------------------------------------------------------------
 
-This should go into or near the patches that add the files in question. ( I=
-=20
-took that reading from https://lore.kernel.org/linux-mediatek/
-2df4cad5e29fbcb4c5c5f59ea0bf322c7a301bdc.camel@gmail.com in particular.=20
-https://lore.kernel.org/linux-mediatek/20260506-honest-cyan-cow-d6c5b0@quol=
-l/=20
-suggests that too ). But yes, that can also cause annoying merge conflicts =
-when=20
-PR'ing patches to their respective trees.
+  - Leave ANFE masked on Apple T2 Secure Enclave, which fixes spontaneous
+    poweroff regressions on MacBookPro16,1 and likely other models with the
+    T2 caused by new Advisory Non-Fatal Error support (Jason Perlow)
 
---nextPartNxO1axjoTnWkvnYZN3HUUQ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+  - Move dw-rockchip INTx IRQ setup from rockchip_pcie_host_init(), where
+    it runs after every reset, to the rockchip_pcie_probe() path to avoid
+    installing new IRQ handler (which causes INTx IRQs to be lost) and
+    leaking an IRQ domain on every reset; fixes a regression added this
+    cycle (Shawn Lin)
 
------BEGIN PGP SIGNATURE-----
+----------------------------------------------------------------
+Jason Perlow (1):
+      PCI/AER: Keep ANFE masked on Apple T2 Secure Enclave
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrP4gcbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoi7zYP/2fAvvx5fPT4SsWjdFdI
-ABhAtJyWB4RG60JTfTVzXe5Qk37bsWxDMWZGDS5CCk2223n7pwnAooriQJ5a3Kub
-S9GtdDVdDrJrlL1QTxQsyCjoNXFBOC/PxSm8uOwEZ8G27Y/y/HOpGIMXRPKoOHnE
-2EMSVeNOgqKNMLtpdR4SqO79G1RazLNhiuVjadX2Xi7gGZ8Lx5Fxybv0+INi9T3n
-pA7fw/G48AmrnzXvXniQ0YIZug+sngeIhqekjpRMXoOFJfSQzjFkR9Kihxdj1TuR
-LiLnIJxAcNGac7WFuuL2VXpHbhKfEPwgRnmXX7xCiER9GrsU8mX6UvTYXBZrOnRV
-xJkGNrOn1E8DVx1BpGdS7WcXJh8wDEoPA7UAWCNSF8AwSHi3enXgboGubXuQHavG
-fuXWEx6DxjeNf44GUlA8KnDC1YDvXydyS426Z0oaMH/c/y6rJblBbG8aQA24XMDM
-FkgpIt6MlpnB9bd3n4kAP2vq/tf/1Jjr0J9fTq7uOPzya73eAnZeulZKJhTyFBrr
-sJzg8p8ix7JlJIlzNA1ucMMg5e8A1MK0OZwvVsQZuHGd+RLYHBUtB+Du5aOhwxnv
-7UmvYhazw1O67OcEiSir27cK3aSHv8jXcdlx/lkJpZ4NVBOCGwVcYALCH/RKsoaB
-8PBzu6beSOYdYS8pLH6jz6sd
-=7Rzi
------END PGP SIGNATURE-----
+Shawn Lin (1):
+      PCI: dw-rockchip: Move INTx IRQ setup to probe
 
---nextPartNxO1axjoTnWkvnYZN3HUUQ--
-
-
-
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 27 +++++++++++++--------------
+ drivers/pci/pcie/aer.c                        |  3 ++-
+ drivers/pci/quirks.c                          | 11 +++++++++++
+ include/linux/pci.h                           |  1 +
+ 4 files changed, 27 insertions(+), 15 deletions(-)
 
