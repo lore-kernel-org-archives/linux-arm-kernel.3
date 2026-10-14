@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E18C3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9ACCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Da+N8/h/LOIomXWrIUCxjdkd16K2eMbcBUf7cUXxZGM=; b=zkCC3k9hsni4qnNiGaHWVpqXWa
-	63Kih5TrXH5Rq9zapS+UCQtNJPCcuLOVBUqIwgIyXHFNXptuZbC4B2tj+vvBMsQcHUITzvBjotIgu
-	KhO41tzAvhZyozLjnijSFiZdYv8D5kOF61NVGqOa71udXIxU9zcl2X++llQebfGS1RdXZVPjcBxOC
-	YybcJH4kG83ZCETZ582meqqtt/sNcOaqg69l0qW2s1GaCJC3NfM9l7k56xD3iI2G2OVNv3yE+E7k4
-	IjVo57VKzv8C52sDYMW85AizzdArLhxseScYYq3yEKtMxZTqS3JITDMsgIGLxvLk571TQLv5t2sX5
-	UEqhLB/A==;
+	bh=S9NDs+qRPs7kXj6I7J4VGe9+OFMw8CqaRVV0zSUIIks=; b=kn2aI5nRCSSfHy/TNLi6CioaXL
+	ej0sp7TXs2VAgcuWMQSuLoWQvKbRgi0iOdb2QCnNgz/XxFa7a9eChIGxzDn5rsJ9AgXp8EAdO/ZPz
+	+Rh2lJJd4hWwcXtY5X020GVHCDgYeoKQ/hz/a97VzwB1gTOtn23vgXL6GuKyalUy2GvOgfv1pcnZO
+	Cd4iVo25N1QmjuMhd+E6TXyGOfEYOm+3f+fkDCQZKmycfPjYQ4XXZMgeqVzUfvVu11JbNIg/yWFgv
+	bj5N4KmI+cZjRYvXQ02KVENTqL2bY3Tz5NLC180zqf+C7suOxgm+HUWKfE9OshB6SfSvgnih2x+p0
+	3UBduwBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1wG-0000000Fz8V-2qcQ;
+	id 1xH1wG-0000000Fz9C-44Pv;
 	Wed, 14 Oct 2026 16:34:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1wF-0000000Fz6z-0gg9;
+	id 1xH1wF-0000000Fz71-1M4M;
 	Wed, 14 Oct 2026 16:34:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9905143D0D;
+	by sea.source.kernel.org (Postfix) with ESMTP id BC74A43E2C;
 	Wed, 14 Oct 2026 16:34:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 72A47C2BCF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0A20C2BCFA;
 	Wed, 14 Oct 2026 16:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1791995686;
-	bh=ALUyyge6FUZ6GWamul8z2xtbvXbH61GTco3jjpVzi54=;
+	bh=d0+KUaLwT/Dk7ZkgV4daJOv/D8kFOZkamvSLINiAhJw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ipRc0OAmGqmZyBY/NKktdCe/Mj+58+8V056sW7ZEYdXbdh1zpy2cVDKsd+m6NRaCF
-	 oihJmJORLGn8kDm5J2AgaCI9u9Q8khE/kst6n6SxMMRC/9wBi6Wv8Y27ZOS+bszstb
-	 9016BxuG6/xGZ5rFu7vl8YlPAYwUmosav7+dELLGorZ9C8p6wmXV8Vm37BWyBX+TeY
-	 kkxCJiGQ2ZI7391b3vOXJcl5kCQgsNF1uhU4Z7gNZ/z2iD810QzbVXtS4gm/s7x0fJ
-	 Uacc/8o/1QHdzHg666r8870DrsY9+uMKie7pQJw18+fewU8MvCzr+vK/+c2Iu0t820
-	 hoSNGln9lasyA==
+	b=qFbX5nNMzLa1yn7qKbd3umcPSKrzUO8eY9bX+KmC4dUs/3RenZVKTRln+/PDYP8UF
+	 9o2IUbTmZG0wJW+eZ4Mvda5UwJl4HLpzt+09gEmw+JP2QfEHltyc6hutDexSp/11Ot
+	 kkJ6c91r6sEspyYl4nCEadwMAEyQfh3X08JLgTk3FAThGpeUVokzpM09lezUDBSgvY
+	 wRV8tlpwy++YJRprRxJRmugyq8A/6z5SflkY34Q5qM0CX4dDvMqe6TVD/2zkblsrJn
+	 1axwyDkOSe0hmsm5XPKkH+oIXACGm4A+jkUtZIapd1+VLPBIbR6WS30ltv4MrOmMg3
+	 GRb38xuZOZpcw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5144AC3DA7A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7745FCC6B1A;
 	Wed, 14 Oct 2026 16:34:46 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Wed, 14 Oct 2026 18:33:01 +0200
-Subject: [PATCH 1/9] arm64: dts: rockchip: rk3588s-nanopi: fix sd min/max
- voltage
+Date: Wed, 14 Oct 2026 18:33:03 +0200
+Subject: [PATCH 3/9] arm64: dts: rockchip: rk3588s-nanopi: add voltage
+ iio-hwmon device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261014-nanopi-m6-improvements-v1-1-e713f71eb4d3@gmail.com>
+Message-Id: <20261014-nanopi-m6-improvements-v1-3-e713f71eb4d3@gmail.com>
 References: <20261014-nanopi-m6-improvements-v1-0-e713f71eb4d3@gmail.com>
 In-Reply-To: <20261014-nanopi-m6-improvements-v1-0-e713f71eb4d3@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,11 +60,11 @@ Cc: Diederik de Haas <diederik@cknow-tech.com>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  Joachim Eastwood <joachim.eastwood@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1791995685; l=999;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791995685; l=1213;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=ZL0Hzb2jEWUjL2wvU/uKxEAnzsHMxAzmFWNQXvnrLKo=;
- b=G2CZan4JvljYpymAFg6tQTWMFL8j5loRE3S67B5NyNlSv4GXYdGWQ8Iycbgd6uQFQNZk20w+p
- D4sUbWZyF0pAgaH4+zwPCWNAhfBeV1G3ZqMHFelarJm9l2BE2z2pTz+
+ bh=0FgBsPDSF/Ke2BFVA9LlVUDw3XaAvZxxd2wbi+fKjz4=;
+ b=ELmy2+RH7U4BXzexGX41iowrehf66vJrLCX+8TFFN8FUsuvHdzFQ5iUh2XfXqy9/nTdXHPxM/
+ LYIUg6huebvDi25rjXyKjfGXgb5qvb2In9NXxJPixfwbJSxZi+jPzaL
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -87,30 +87,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-This regulator is only a simple power switch and cannot change the
-output voltage.
+The NanoPi 6 series have a resistor divider on the main input supply to
+support voltage measurements. Hook this up as a hwmon device so it is
+possible to monitor the voltage.
 
-Fixes: c08257d642ac ("arm64: dts: rockchip: refactor rk3588s-nanopi-r6 to support M6 boards")
+Output from sensors on NanoPi-M6:
+vdd_usbc_iio_hwmon-isa-0000
+Adapter: ISA adapter
+in1:     19.80 V
+
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-index 22b0cdee22b4..8c36268e9876 100644
+index 8c77ee71ebf8..a47677926a59 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-@@ -79,8 +79,8 @@ vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
- 		pinctrl-0 = <&sd_s0_pwr>;
- 		regulator-name = "vcc_3v3_sd_s0";
- 		regulator-boot-on;
--		regulator-max-microvolt = <3000000>;
--		regulator-min-microvolt = <3000000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
- 		vin-supply = <&vcc_3v3_s3>;
+@@ -95,6 +95,19 @@ vcc5v0_host_20: regulator-vcc5v0-host-20 {
+ 		regulator-max-microvolt = <5000000>;
+ 		vin-supply = <&vcc5v0_sys>;
  	};
++
++	vdiv_vdd_usbc: voltage-divider-vdd-usbc {
++		compatible = "voltage-divider";
++		#io-channel-cells = <1>;
++		io-channels = <&saradc 2>;
++		output-ohms = <10000>;
++		full-ohms = <110000>;
++	};
++
++	vdd-usbc-iio-hwmon {
++		compatible = "iio-hwmon";
++		io-channels = <&vdiv_vdd_usbc 0>;
++	};
+ };
  
+ &combphy0_ps {
 
 -- 
 2.56.0
