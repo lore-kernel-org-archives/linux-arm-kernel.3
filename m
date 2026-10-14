@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75C0CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FF9CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HPQ7/QMA3vnMLq2figDVKCINSZpEuN5oVAhqwc1Zng=; b=VffYB4L2E+Bb8XNlethK10q6eP
-	45nXPUODk1u3MLxbaZYk4WxjfzyFz82DnhO59NOr9bdmpcoE64qpelkEkDJ105nrCEDUikb07pUNR
-	KnD89KokK2WR0KxbKseU7MlAXZfYqnKEV1wLJtdssJsysgyuPF3Mckq1i5vw0tBwUA4g0OTzJeRNc
-	LIooq3ZP0lHP0/edAA2hYbuAcgrde2VijacshvVIEnIESm0yNVYVwswGz2VEI7mRUjfCQ749TS8H8
-	0d198VUUPDen6vaKK0rltvE7g8ae8AHMJOpdT2Qh9U+OG6/Cs7B88kcVRUy4ZrltXLpHieteKCe0a
-	dk1AFl7g==;
+	bh=5ubX5HTXXwERfq8GEYIv/uI1vIKizAEZ4GSFbKVY9fs=; b=yo592a75I3aA6jEmLRBXRp5wTO
+	GZqDKTlfltUodt82WxvbFOhlRa7TOkRTh7gIs3Z8PhN+9/kMq7h06YgVJykLH7r7HvTHzaIi1j+dt
+	AjjQE+RwbZ1XtkCDCL+gSTSN7xxjDzHr0hKdj50Yx7Ah+j3iaGIH+Ze05M3LCpNJlWTelFRfDTl9k
+	8lnGr34epjGmpoq7I/MAtYDNyYJn+rGN1A7mTvXlk17kgx0FK5lmsSF6FBcxUaifwmh12GB/9fEcv
+	r/pFgoquoyqd6QzxOOU4Xg9uVG9CJlcZLCnVR3BqTDtRDuJWpxfCCc6eYELHkCxg84e0UAmeljNto
+	zvKIshqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtP7-0000000ElKJ-3iD9;
-	Wed, 14 Oct 2026 07:28:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGsv1-0000000EfMK-0C8b;
+	Wed, 14 Oct 2026 06:56:55 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtP7-0000000ElJZ-0FiT;
-	Wed, 14 Oct 2026 07:28:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A80D43868;
-	Wed, 14 Oct 2026 07:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD0AA1F000FF;
-	Wed, 14 Oct 2026 07:27:55 +0000 (UTC)
+	id 1xGsud-0000000EfEA-0XOr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Oct 2026 06:56:39 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1791960977;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5ubX5HTXXwERfq8GEYIv/uI1vIKizAEZ4GSFbKVY9fs=;
+	b=U3c3Z0O8dtLi9b3Gv3jAIZOHlMFHSw8JhKQR6lp7iYOQOZfaBReV9PVuM91j68Nj5xXj17
+	cU7t7SkH3lxAK8P2+luy2OmDTFfovJ+YHvHRVEL8NkVpsmpF7ttct8D+p/Q0olTVOnFRme
+	QMQYh32Vefts6KSIScAeT7Z3TOt7z0k=
+Date: Wed, 14 Oct 2026 08:56:09 +0200
+Subject: [PATCH v2 02/10] dt-bindings: interrupt-controller: apple,aic2:
+ Add t6041 compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2] PCI: rockchip: Skip the Tpvperl wait when power is
- already valid
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: =?utf-8?q?Enrique_Hern=C3=A1ndez_Bello?= <ehbello@gmail.com>
-Cc: shawn.lin@rock-chips.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
- mani@kernel.org, bhelgaas@google.com, robh@kernel.org, heiko@sntech.de, 
- dlemoal@kernel.org, linux-pci@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20260911211559.207990-1-ehbello@gmail.com>
-References: <20260911211559.207990-1-ehbello@gmail.com>
-Date: Wed, 14 Oct 2026 12:57:47 +0530
-Message-Id: <179196286749.38040.5597453767131590054.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2102;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=n3FTo4mK9R/lIGl5C3jeelRqRYzuENdY8tuLlXHAZOc=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqzy72A6EYqXUa8oem4GQlieL7BdAjqrbq/LHus
- 95HXXNGgXqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas8u9gAKCRBVnxHm/pHO
- 9VzpB/9GLv7F5DEMWwQ3WZjJLu4Q7SDngruevsqLwGdrOGO7UOVSUAgVdr7yQ57EUHYIaeZF5jp
- Pl/kg+HBvpSxkjLex1X5MQSkf2u1VGWSk0SZT/0DsNYYQzNE/9oBlSZLEzdCZJeu/+/OyRl6Xyk
- LCuLsMqwOy+cVpFLHNsNLqxRjcnKBlDyVo+76vBGsF/woWmS9WeFOWS/I9RYFhJ5M2Qjrx0zJEu
- 4UGxgjsyHy9OhBypKbC/c+0i59rAqfwMZn4NxjTHpwQEkQW1zgafnsKHcXnSdc2zrYqzVA3jBv5
- CkBZWRKvHxzrhppg5Wu6eG3LH4WUTlgxkkBZoiHvsH+0v0CG
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261014-apple-m4-pro-max-initial-devicetrees-v2-2-961edd8d661b@cyberchaos.dev>
+References: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
+In-Reply-To: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Hector Martin <marcan@marcan.st>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>, Linus Walleij <linusw@kernel.org>, 
+ Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ Yureka Lilian <yureka@cyberchaos.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_235631_628607_9C0B225C 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-11 22:15 +0100, Enrique Hernández Bello wrote:
-> Since commit c47f90be4c89 ("PCI: rockchip-host: Fix
-> rockchip_pcie_host_init_port() PERST# handling"), a JMicron JMB585
-> behind an rk3399 root port almost never becomes usable: the link trains
-> normally, but the endpoint's configuration space never answers, so the
-> device is not enumerated. On this controller a configuration read that
-> gets no usable completion is reported as an external abort rather than
-> as an all-ones response, which on arm64 brings the machine down.
-> 
-> The change added an unconditional 100 ms sleep so that PERST# stays
-> asserted for at least Tpvperl after power becomes valid. The wait is
-> performed while PERST# is asserted, so it also extends the reset by
-> 100 ms, and this endpoint does not tolerate the longer assertion.
-> 
+The Apple t604x (M4 Pro/Max) SoCs use an AIC3 as interrupt controller,
+same as the previous M3-M4 SoCs.
 
-This is hard to believe. First of all, Tpvperl is the min time specified by the
-CEM spec to allow the power to be stable, not the max. Even if the bootloader
-has already enabled the power supply during boot, it would've taken several
-seconds for the kernel driver to probe and execute this delay of 100ms. But
-claiming that the Endpoint doesn't tolerate this 100ms delay, but still several
-seconds of the boot delay is quite hard to believe.
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Maybe the issue is with the delay between PERST# assert and deassert? Is the
-PERST# signal polarity on the board DTS correct? We used to see Endpoint
-firmware crashes when the polarity was incorrect and the Endpoint got confused
-with incorrect PERST# sequence.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+index e3cadc5ad39d..3c2b24be530e 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+@@ -37,6 +37,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              # Do not add additional SoC to this list.
+               - apple,t6000-aic
+               - apple,t6020-aic
+               - apple,t8112-aic
+@@ -45,6 +46,7 @@ properties:
+           - enum:
+               - apple,t6030-aic3
+               - apple,t6031-aic3
++              - apple,t6041-aic3
+               - apple,t8132-aic3
+               - apple,t8140-aic3
+           - const: apple,t8122-aic3
 
-> Tpvperl is counted from the supplies becoming valid (PCIe CEM r5.1,
-> sec 2.9.2). On boards whose PCIe supplies are always-on -- vcc3v3_pcie
-> on ROCK Pi 4 is regulator-always-on and regulator-boot-on -- power has
-> been valid since boot, seconds before the driver probes, so the
-> requirement is already met and the sleep only lengthens the reset.
-> 
-
-I do agree that the Tpvperl delay is *redundant* if the supplies are already
-enabled by the bootloader. But I do not agree that it causes the Endpoint to not
-respond.
-
-- Mani
+-- 
+2.55.0
 
 
