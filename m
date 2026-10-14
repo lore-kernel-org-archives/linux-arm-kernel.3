@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8247CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 05:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CA5CC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71Y0wmRhfQg16pu9dm9O0XbJTlde/Ki76IIpjRJ4LFs=; b=T2eQYks6dAEqhBMeqxq4J1zIYY
-	/5OR8IDs+1CDxUI2fWjlj9qmzavuZjDd/UHGPfBpXF8sGO/enfSnM1tsS307utAs7iVAiCJTghQIX
-	Of0UrjTRHkpL/0I0OW2/Eh0prjUkzcit088SbuWr1pMZI/hLfjRY2/zd1CXBxNKXSvHtL/3n6zfB7
-	Io+nO82OBKtnZCh6xt53QZ9Spk6jRGeTSMtI2c0KAzx9NedMkdJ+nfdwf3/6bszHADTXkegH1rFAC
-	86OXIL3ZDnHm49NnRYTFT4bZuP6ysfL4iQI+FsiU29dXHr9HjVe9DEnm8jYrRrfk9zpzvXdaKXcaP
-	MSsXeksA==;
+	bh=ESeptom+XdILDBZ1SV9z+qsZLUlrAdxL/MtsJa3zQY8=; b=V9RexfoQREvC4NL5snasqHK1rN
+	HYnh5QUcXL2mxJToaZASZM0hcQscznHPfli/Qqgus7oBFgMvebKDiaC+GBQlXJTCtTLD4hO3Fxp3V
+	WePuKB3v69NqWTzBgReJoL2lWHcLWj7wOzQJ3sMrQvS6EF4pS/yHmMfGBzi7XB2RvPrEmfCiQAjBU
+	0Y/8HFIf9Ac41VPZFaSvxc+hz2V/vSx+t60OI4ZDsF8eJ3US1DQ8OxNOyT7EOCGZx8LDCh8l19gnR
+	3F15XRATCO3xkSBqnqNCsa/RKiQJDiQNFqrEJUsmhFXqCLb70eSodOy+Fk/faESRSdJY1TXLGk/WX
+	vl96seVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGrw9-0000000EZct-2rvo;
-	Wed, 14 Oct 2026 05:54:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGrw8-0000000EZca-14pH
+	id 1xGs5t-0000000EaBK-1UVf;
+	Wed, 14 Oct 2026 06:04:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGs5n-0000000EaAc-024o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 05:54:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B19AA40286;
-	Wed, 14 Oct 2026 05:53:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 328711F00893;
-	Wed, 14 Oct 2026 05:53:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791957239;
-	bh=71Y0wmRhfQg16pu9dm9O0XbJTlde/Ki76IIpjRJ4LFs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=fXHagODUU/0RicdM2mmGG65XnJqRRYTPzANomdVj5K0Tgwer3aNTP9K7qs7ynba3Q
-	 LoWJyfeEsrdUncF4PFOrICh+fq3kS2mekPpbWXs/PvCzwSKoPNQSp6DvywTHigxg/K
-	 0LBpNybgYtJrOTyQX+VQugHRG95m2nOD86GGraVViTsZcWOqg55m5oXXR69E54HqN/
-	 qf2VxHps3wzP5MH4dXFT73/bGI3Xe7o1zAuCGmdigyEooLb9rus207h54wPbENv2JC
-	 DHq3+sRhv91JYWl8zN/sLl64pda6haTV0LKjIOhO0p1f68PMoUINF63KiFvVfM1ZaP
-	 FKEq2eBL3vzFg==
-Message-ID: <a8a10c4b-993d-4cd4-9e99-fe7b0eff5597@kernel.org>
-Date: Wed, 14 Oct 2026 07:53:51 +0200
+	Wed, 14 Oct 2026 06:04:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98CEA15A1;
+	Tue, 13 Oct 2026 23:03:52 -0700 (PDT)
+Received: from [10.164.19.62] (unknown [10.164.19.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D3F03F7B4;
+	Tue, 13 Oct 2026 23:03:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791957835; bh=a+ePuoScWznFCdZL7kuuIwctTxuRzsdaAnI868FjqvY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NGFOsBqQlkYzYRc6c9oeI62OwONXctPXAWs1X+w9O0ZGSX08mzBFLCRloqvuXoEcs
+	 l+RKSocjuhfxG9ajTVLYRvJo74qsxS3Fa4vk2551oznUYNciNmnhrtaKCzGd4OvWLE
+	 xxJq6dznjLsg4ngtYlAUgjw44+L1Kvxk1pfNNxrY=
+Message-ID: <7b3c3a39-4cf3-430d-9fd3-ba83e5175e72@arm.com>
+Date: Wed, 14 Oct 2026 11:33:47 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/4] arm64: dts: imx8mp-skov-revc: convert to overlays
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- =?UTF-8?Q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20261012-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v10-0-0906e57486a3@pengutronix.de>
- <20261012-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v10-3-0906e57486a3@pengutronix.de>
- <20261013-musical-brown-mamba-ff87a8@quoll> <87v774j0z8.fsf@pengutronix.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v10 01/10] arm64/mm: add pte_set_huge() and
+ pte_clear_huge()
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org
+Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
+ baohua@kernel.org, chleroy@kernel.org, david@kernel.org,
+ jiangwen6@xiaomi.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+ ryan.roberts@arm.com
+References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
+ <20261002090947.869220-2-jiangwen6@xiaomi.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <87v774j0z8.fsf@pengutronix.de>
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20261002090947.869220-2-jiangwen6@xiaomi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_230359_231634_EE2EC8B2 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,63 +78,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2026 07:38, Steffen Trumtrar wrote:
-> 
-> Hi,
-> 
-> On 2026-10-13 at 09:31 +02, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
->> On Mon, Oct 12, 2026 at 08:30:32AM +0200, Steffen Trumtrar wrote:
->>> The i.MX8MP Skov RevC jutouch 10" and Tian 7" variants are pretty
->>> similar, apart from the Display and touch controller.
->>>
->>> Move the common bindings to imx8mp-skov-revc-touch.dts and convert both
->>> variants to use overlays applied on this base version.
->>>
->>> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
->>> ---
->>>  arch/arm64/boot/dts/freescale/Makefile             |  5 ++
->>>  .../imx8mp-skov-revc-jutouch-jt101tm023.dtso       | 38 ++++++++++
->>>  .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ----------------------
->>>  .../freescale/imx8mp-skov-revc-tian-g07017.dtso    | 40 +++++++++++
->>>  ...h-jt101tm023.dts => imx8mp-skov-revc-touch.dts} | 26 +++----
->>>  5 files changed, 91 insertions(+), 99 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->>> index 475e1ad9116e1..7c1b61249778e 100644
->>> --- a/arch/arm64/boot/dts/freescale/Makefile
->>> +++ b/arch/arm64/boot/dts/freescale/Makefile
->>> @@ -707,6 +707,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
->>> +
->>> +imx8mp-skov-revc-jutouch-jt101tm023-dtbs += imx8mp-skov-revc-touch.dtb \
->>> +	imx8mp-skov-revc-jutouch-jt101tm023.dtbo
->>> +imx8mp-skov-revc-tian-g07017-dtbs += imx8mp-skov-revc-touch.dtb \
->>> +	imx8mp-skov-revc-tian-g07017.dtbo
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
->>>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
->>> diff --git
->>> a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso
->>> b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso
->>> new file mode 100644
->>> index 0000000000000..33ddd08a7adb5
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtso
->>
->> I do not understand this. This is a board, so not an overlay.
-> 
-> yes, that's what I did up until v4. New board with new dts.
-> 
-> - Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
-> 
-> The boards are all very similar apart from the touch panel, but they are all "real" boards and don't share a SOM, so dtsi is also not correct.
-> 
 
-So why this is not a DTS?
 
-Best regards,
-Krzysztof
+On 02/10/26 2:39 pm, Wen Jiang wrote:
+> vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
+> set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+> helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
+> unavailable on CONFIG_HUGETLB_PAGE=n kernels and couples mm/vmalloc.c to
+> HugeTLB internals it does not otherwise need.
+> 
+> Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
+> pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
+> __set_ptes() and __get_and_clear_full_ptes() directly, so they do not
+> depend on CONFIG_HUGETLB_PAGE.
+> 
+> There is no caller yet: mm/vmalloc.c is converted later in this series,
+> once the generic fallbacks are in place.
+> 
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Reviewed-by: Barry Song <baohua@kernel.org>
+> ---
+>  arch/arm64/include/asm/pgtable.h |  6 ++++++
+>  arch/arm64/mm/mmu.c              | 23 +++++++++++++++++++++++
+>  2 files changed, 29 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 6000905a2e865..9b762eb68cff0 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1978,6 +1978,12 @@ static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
+>  
+>  #endif /* CONFIG_ARM64_CONTPTE */
+>  
+> +#define __HAVE_ARCH_PTE_SET_HUGE
+> +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
+> +		  pgprot_t prot, unsigned long size);
+> +#define __HAVE_ARCH_PTE_CLEAR_HUGE
+> +pte_t pte_clear_huge(pte_t *ptep, unsigned long addr, unsigned long size);
+> +
+>  #endif /* !__ASSEMBLER__ */
+>  
+>  #endif /* __ASM_PGTABLE_H */
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 79d90226fd5dc..ae2f15618c97d 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1912,6 +1912,29 @@ int pmd_clear_huge(pmd_t *pmdp)
+>  	return 1;
+>  }
+>  
+> +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
+> +		  pgprot_t prot, unsigned long size)
+> +{
+> +	unsigned long pfn = __phys_to_pfn(phys);
+> +	pte_t pte = pte_mkcont(pfn_pte(pfn, prot));
+> +	unsigned int nr = size >> PAGE_SHIFT;
+> +
+> +	VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
+> +	VM_WARN_ON(!IS_ALIGNED(addr, CONT_PTE_SIZE));
+> +	VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
+> +
+> +	/* For vmap, there is no valid -> valid transition */
+> +	VM_WARN_ON(pte_valid(__ptep_get(ptep)));
+> +
+> +	__set_ptes(&init_mm, addr, ptep, pte, nr);
+> +}
+> +
+> +pte_t pte_clear_huge(pte_t *ptep, unsigned long addr, unsigned long size)
+> +{
+> +	return __get_and_clear_full_ptes(&init_mm, addr, ptep,
+> +					 size >> PAGE_SHIFT, 0);
+> +}
+
+I think we should have the same VM_WARN_ON() checks here, as for
+pte_clear_huge(), in addition to also warning for
+current->mm != &init_mm.
+
+We should make it clear that pte_clear_huge() gets called only for
+kernel mappings, and the range we operate on is definitely an aligned
+CONT range - which is why we do not go through get_and_clear_full_ptes ->
+contpte_get_and_clear_full_ptes, and possibly contpte_try_unfold(), but
+directly use __get_and_clear_full_ptes.
+
+
+> +
+>  int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>  {
+>  	pte_t *table;
+
 
