@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C78CC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A46CC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MHXeb0vXLdnW9/JmwDK3OUmF9m3u5QpIN6VrE7BO30U=; b=U9LXa3o60sU7wZC7r6FjTjNhyC
-	dLMoXsdM9hhq/EBrVKdBau6JXrmhXdBbS/5Y7iws3C01Dm4Zr/K4yteZj1GbfK/0/urr20eZgyMNh
-	MnUcCZQXROUuKYnkDWe53rfZatbfcbv9r0gFfMkVvSnkf2rd3q8gBcAg07DisRGVe3cHh0rtJUOOh
-	yXn+SwXKQea4n5NoaIl/jX9MrjJc7SaIiEAm5S73Vher7O6lnfu28VB+HKJpfkCBC/ultNeQjJgYc
-	cf/ucmjK+l9rghCCbiov4FL1r8vLSFGTvHM6Qq52qqQXD8XRcC2ThXnq0YV8c6D4ViOnmdTZONv3e
-	Np5kghOw==;
+	bh=jdZa5mT6e0C2U/Kjg0oF233p2kgkpg3mIMsYIfiUcPo=; b=m3bPFd1lZNBXqpeEXzIsqN78Co
+	drNgNgY9SuFdYhc3san0OzA3looJylDaO8Jtajdd6oSegoqbS0CFSK10R++MFRTZrMXqC8RiRaFr8
+	Dh/nPSkXIJP6vQR9vBKWP/lZHur+hGBrx0V3w/I3yB6MN8dKtk+EjUYt9j7z/QMFiNHklddUguhdx
+	FODkeMQlyrvdyfu1tM09KVCMVQBG14AH2y6CUW9ZJkwCO13N8HZvM6B5aJkHWIjAFGVMl3kmckaiR
+	A4besUcSsUqb4zxX/mKnaq/NmicBTTaDNHbd7AB3Wudj4/fcIEH6EAIo96RIANL+sh/xNeApGE4Ge
+	vhBCQqTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6hl-0000000GMNy-1W7b;
-	Wed, 14 Oct 2026 21:40:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xH6ll-0000000GMp8-3D6c;
+	Wed, 14 Oct 2026 21:44:17 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6hk-0000000GMNR-01lK
+	id 1xH6li-0000000GMo6-31Fa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 21:40:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 912AC60229;
-	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44A0B1F000C4;
-	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792014006;
-	bh=MHXeb0vXLdnW9/JmwDK3OUmF9m3u5QpIN6VrE7BO30U=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=WEqnW0jD3CDKzk3yyPkIENurtJb9u8+7v8LlYYTkhdBRxr/2gkDUhAEBBqQp4E8xu
-	 +HIh91vYH+zfKfHaws/cpNrK+ULUVi+CXOf6V70q+aUVIeOkeazLh8pE8xC709ibUv
-	 cpj2owkVVgbfK4ieN2QHTb6cd3QVZbtFH5rdtYzhs7alrXvnca8nzOG4DaO4JPnpG4
-	 WX/hVErhC4xFhZJubFngDYKhq5HPuh9qq6WF9Hblj07ScGv7oAqBCmFAhE5uSlTDs7
-	 DIV/qH5FkBcB8VSt/voFn7ykplx/lDaOIEjfp+dnnmzwIXaNLEpXvI81B5YuARnZPS
-	 m8KyBhCCSBrug==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4313803318;
-	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Wed, 14 Oct 2026 21:44:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=jdZa5mT6e0C2U/Kjg0oF233p2kgkpg3mIMsYIfiUcPo=; b=lbYsagp04O4Oc3iLW68zu5zMCJ
+	qEMAhGP//WbRVIs1DgvSn+N9NA0nbW1yNxg4f0s5um7pW3Q6GTV6/j9NM8u0KeKp2JQdC/X6F1hWw
+	9dmQQDhqoQANl78PqeqXAszZjxLSYyiEXFvBM6e5uXadbzKiqRPanSTnX1Xs7IPrJ368jOgA1QvwV
+	hTakF8AbEpnhlAa3dOvhrem3a7SaFyZB7l/A824xWW1H/jU+R3CClP8Hjy7Vm2ikKI5G6hkq9zv3s
+	C2qol7LFHyM5dY7meUAQkQUZS/0M7vsXKoBZo4Fyf98Dv4cw7JF4LZRJzjHUy49V2NwPpHi85pzas
+	aDRfh7ng==;
+Received: from [177.172.122.211] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1xH6lb-000F5s-IK; Wed, 14 Oct 2026 23:44:07 +0200
+Message-ID: <430b10e9-7c8a-44ad-904b-e579250b314a@igalia.com>
+Date: Wed, 14 Oct 2026 18:44:11 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 1/1] arch: arm64: Implement unaligned atomic
+ emulation
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, kernel-dev@igalia.com,
+ Mark Brown <broonie@kernel.org>, Will Deacon <will@kernel.org>,
+ Ryan Houdek <sonicadvance1@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
+ Billy Laws <blaws05@gmail.com>
+References: <20260930020138.2377090-1-andrealmeid@igalia.com>
+ <20260930020138.2377090-2-andrealmeid@igalia.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+In-Reply-To: <20260930020138.2377090-2-andrealmeid@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/3] net: use skb_share_check() in loopback
- selftest hooks
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179201400467.3009952.9047387445003414493.git-patchwork-notify@kernel.org>
-Date: Wed, 14 Oct 2026 21:40:04 +0000
-References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
-In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, o.rempel@pengutronix.de,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Jose.Abreu@synopsys.com, saeedm@nvidia.com, tariqt@nvidia.com,
- mbloch@nvidia.com, leon@kernel.org, dtatulea@nvidia.com, alazar@nvidia.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_144415_039428_0A41506E 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 07 Oct 2026 20:29:21 +0200 you wrote:
-> The loopback selftest hooks can get a shared skb when another handler
-> is bound to the device. Linearizing a non-linear frame then hits
-> BUG_ON(skb_shared()) in pskb_expand_head().
+Em 29/09/2026 23:01, André Almeida escreveu:
+> Implement support for emulating unaligned atomic operations on arm64.
+> User applications that wish to enable support for this should use the
+> pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`.
 > 
-> Stumbled over this on RPi CM4 (bcmgenet, with jumbo series applied +
-> WIP selftest patches) with a packet socket open at the same time as
-> running ethtool -t.
-> 
-> [...]
+As discussed at LPC 2026[1], the split lock emulation is probably the 
+first thing that we want to figure from the atomics issues, given that 
+is the trickiest one to emulate correctly given the need serialize two 
+atomic instructions. As suggested by Mark, first we are going to work on 
+an userspace solution that delivers correctness and from there we can 
+better understand what the kernel could provide to help with performance 
+improvements.
 
-Here is the summary with links:
-  - [net-next,1/3] net: selftests: use skb_share_check() in the loopback receive hook
-    https://git.kernel.org/netdev/net-next/c/fbd3a301b137
-  - [net-next,2/3] net: stmmac: selftests: use skb_share_check() in the loopback receive hook
-    https://git.kernel.org/netdev/net-next/c/a7a89019bac0
-  - [net-next,3/3] net/mlx5e: use skb_share_check() in the loopback selftest hook
-    https://git.kernel.org/netdev/net-next/c/16fb7aa6955a
+Thanks!
+	André
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+[1] https://lpc.events/event/20/contributions/2594/
 
