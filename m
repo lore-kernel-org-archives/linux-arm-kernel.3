@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F8FCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EA1CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+LHJC/NB4yRzWoWwokMMEzOhdTsVA9ERhh/Ya3fyko=; b=ZQXmtySpdZqpqpgyeO53pUL0Si
-	aWtnTHjjJM5Z2jWkkbqI+Q6JUo2H98Yd42zXZujWGmlB2O9DNobTj641w+kqycOfwTx0uT6BXXFGK
-	CHwU8kOeoFbRf9EPeylnf56JzdP+KpVgoMQgKsh8PCXKpMGanscafxJBbPz7CU4HwwxvbJaQRw0Xu
-	LA48/uivBFJFd+rmI6m3cJsYbSBRD7CF0OxQHNNraJ2ti8K446JW3X6egcbf5JisQI76MCtOhTix9
-	HOnryt7MhiqVBUmLPuoUEttFdRSMKdSgx/FtsACCKEBuYp72DqCaP+mKNS9ZTi8HdtL+1LU+lbmDs
-	iNGW5ipQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1FG/dI3SNgpPU4Bu7DcRd1rffp3ub89wihELCwlProk=; b=JTb/e1lZdQVBHLSNByHoi6Ia2Z
+	BmuZYl+OcQtjHxnWBnOQGovSRPfmxiTRdENGC2eOl6NpbPNSm3rUNriNqoCVPaOHUNUfm+u5qLICa
+	TSsR7nH+fZCQ91bc+Oy+IuBXa9ofIZYVvFlKK06hjtiVPqWVMpmuiU2TzcfdjC1lHiXMBx3rxlhet
+	AabRX/ZEnNdMRGhDHHbz0BT6cC0wDsZGUVW868uoRtOzgyh4MGhww2X0R09Pa99/NagdY/7NvoTEK
+	xF6O0FZxQw6IP8dw5hdqHAGaTtcbSl3axKBpAmMyElSSbFKiWsp9CR9jx5V0Yk+IUxJTKk3bqdIB9
+	C1erokAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH3GH-0000000G7aQ-1LXM;
-	Wed, 14 Oct 2026 17:59:33 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH3GF-0000000G7Zq-0o8h
+	id 1xH3i2-0000000G9Iy-3AZW;
+	Wed, 14 Oct 2026 18:28:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xH3i0-0000000G9Ij-2UQ6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 17:59:32 +0000
-Received: from localhost (unknown [4.194.122.144])
-	by linux.microsoft.com (Postfix) with ESMTPSA id BE38B20B7166;
-	Wed, 14 Oct 2026 10:59:13 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BE38B20B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1792000765;
-	bh=w+LHJC/NB4yRzWoWwokMMEzOhdTsVA9ERhh/Ya3fyko=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=axoF8r+6w476cU0VGnnpnAmwmzXLi4bAV8TsfQtae96LkE3UE0UZC6O3c5c/ntdql
-	 eYvWFE3Uu7XqgcwhPPlZBwc4Nr6xACMFBQ+1papQUDT8vJHb9XQBWWus4QC50y/B7E
-	 w0dvyC+VBWj+UHjxKlTKAyFWiS0KwTtKwKFICy9c=
-Date: Wed, 14 Oct 2026 10:59:13 -0700
-From: Jacob Pan <jacob.pan@linux.microsoft.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, Alex Williamson <alex@shazbot.org>, Alexey
- Kardashevskiy <aik@amd.com>, Bjorn Helgaas <bhelgaas@google.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Joerg
- Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, Jonathan
- Hunter <jonathanh@nvidia.com>, Kevin Tian <kevin.tian@intel.com>, Krishna
- Reddy <vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>, Nicolin Chen
- <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz
- <sameo@rivosinc.com>, Shameer Kolothum
- <shameerali.kolothum.thodi@huawei.com>, Steven Price
- <steven.price@arm.com>, Suravee Suthikulpanit
- <suravee.suthikulpanit@amd.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thierry Reding <thierry.reding@kernel.org>, Vasant Hegde
- <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>, Xu Yilun
- <yilun.xu@linux.intel.com>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-tegra@vger.kernel.org, jacob.pan@linux.microsoft.com
-Subject: Re: [PATCH v7 08/16] iommufd/viommu: Keep a reference to the KVM
- file
-Message-ID: <20261014105913.00001217@linux.microsoft.com>
-In-Reply-To: <20261008055955.4014342-9-aneesh.kumar@kernel.org>
-References: <20261008055955.4014342-1-aneesh.kumar@kernel.org>
-	<20261008055955.4014342-9-aneesh.kumar@kernel.org>
-Organization: LSG
-X-Mailer: Claws Mail 3.21.0 (GTK+ 2.24.33; x86_64-w64-mingw32)
+	Wed, 14 Oct 2026 18:28:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E610E41A73;
+	Wed, 14 Oct 2026 18:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47741F000C4;
+	Wed, 14 Oct 2026 18:28:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792002491;
+	bh=1FG/dI3SNgpPU4Bu7DcRd1rffp3ub89wihELCwlProk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gN06LqC2tjJ6VYjpIGDT1q+UakkgtM3aj6RkW8WoRsBC08dmHPleVLmpKzf4pWP8K
+	 ERnwJt+Z6KBK1RLxT/Z4ZjRDbg0CFe5f0iM47ZXMWFu9wAZtgb3UdxQkqsWqQ2gUT/
+	 jvuJi8LQs6XO0yHMnQc3+BVT/Kh/Bm++oyhgv/xa5t55P4jXHlVJJw/tKXDv8Axmh5
+	 kNZqxw2k/h29fblvDhBFBv61Io2sAU/OaVsQE4padaFw4WEJ+oxUKQtZaI/x84W530
+	 JPikfsOfanabG8XAN+s59QzN08AfBplVqgn8jQQyP1nIdtwxnaqeX4uP4HcMUvrn1U
+	 oW21Jgix2xZ0w==
+Date: Wed, 14 Oct 2026 19:28:08 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: gcs: Store GCSCRE0_EL1 values instead of
+ userspace mode
+Message-ID: <c39b2cc4-832f-49cb-8a59-e5b7a8bd9317@sirena.org.uk>
+References: <20260917-arm64-gcs-store-gcscre0-v1-0-3c9fa9213bac@kernel.org>
+ <20260917-arm64-gcs-store-gcscre0-v1-2-3c9fa9213bac@kernel.org>
+ <as-8IqsbMbOBo5Oq@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_105931_263636_6F401789 
-X-CRM114-Status: GOOD (  22.32  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="z4+DNe/36eU2EIEe"
+Content-Disposition: inline
+In-Reply-To: <as-8IqsbMbOBo5Oq@arm.com>
+X-Cookie: Live free or die.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,84 +73,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh,
 
-On Thu,  8 Oct 2026 11:29:47 +0530
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+--z4+DNe/36eU2EIEe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> 
-> The TSM vDevice operations need access to the KVM associated with the
-> device's vIOMMU. Save the device's KVM file in the iommufd_viommu
-> when the vIOMMU is allocated, and take a file reference so it remains
-> valid for the lifetime of the vIOMMU.
-> 
-> Release the reference when the vIOMMU is destroyed.
-> 
-> Based on an original patch by
-> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> 
-> [nicolinc: hold kvm's users_count]
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> [aneesh.kumar: Switch to use kvm_file]
-> Cc: jgg@ziepe.ca
-> Cc: kevin.tian@intel.com
-> Cc: joro@8bytes.org
-> Cc: will@kernel.org
-> Cc: robin.murphy@arm.com
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  drivers/iommu/iommufd/viommu.c | 5 +++++
->  include/linux/iommufd.h        | 1 +
->  2 files changed, 6 insertions(+)
-> 
-> diff --git a/drivers/iommu/iommufd/viommu.c
-> b/drivers/iommu/iommufd/viommu.c index f7951057a1e5..b7489ed259bd
-> 100644 --- a/drivers/iommu/iommufd/viommu.c
-> +++ b/drivers/iommu/iommufd/viommu.c
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0-only
->  /* Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES
->   */
-> +#include <linux/file.h>
->  #include "iommufd_private.h"
->  
->  void iommufd_viommu_destroy(struct iommufd_object *obj)
-> @@ -11,6 +12,8 @@ void iommufd_viommu_destroy(struct iommufd_object
-> *obj) if (viommu->ops && viommu->ops->destroy)
->  		viommu->ops->destroy(viommu);
->  	refcount_dec(&viommu->hwpt->common.obj.users);
-> +	if (viommu->kvm_file)
-> +		fput(viommu->kvm_file);
->  	xa_destroy(&viommu->vdevs);
->  }
->  
-> @@ -82,6 +85,8 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd
-> *ucmd) }
->  
->  	xa_init(&viommu->vdevs);
-> +	if (idev->kvm_file)
-> +		viommu->kvm_file = get_file(idev->kvm_file);
-So kvm_file will persist inside viommu even when no more vdevice exists
-under the viommu. In that case, don't we need to check idev->kvm_file
-matches viommu->kvm_file during vdevice allocation?
+On Wed, Oct 14, 2026 at 06:30:10PM +0100, Catalin Marinas wrote:
+> On Thu, Sep 17, 2026 at 11:14:17PM +0100, Mark Brown wrote:
 
-Otherwise, it appears possible to associate a device belonging to a
-different KVM VM with the existing vIOMMU, no?
+> >  	u64			por_el0;
+> >  #ifdef CONFIG_ARM64_GCS
+> > -	unsigned int		gcs_el0_mode;
+> > +	unsigned int		gcscre0_el1;
 
->  	viommu->type = cmd->type;
->  	viommu->ictx = ucmd->ictx;
->  	viommu->hwpt = hwpt_paging;
-> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-> index 0a0bb4abfbd2..3267717f676d 100644
-> --- a/include/linux/iommufd.h
-> +++ b/include/linux/iommufd.h
-> @@ -103,6 +103,7 @@ struct iommufd_viommu {
->  	struct iommufd_ctx *ictx;
->  	struct iommu_device *iommu_dev;
->  	struct iommufd_hwpt_paging *hwpt;
-> +	struct file *kvm_file;
->  
->  	const struct iommufd_viommu_ops *ops;
->  
+> u64?
+
+Sure, I always find the decision about which to use in a given situation
+confusing.
+
+> > -	current->thread.gcs_el0_mode =3D enabled;
+> > +	gcs_set_el0_mode(current, enabled);
+>=20
+> I think we have an existing bug here and it's more serious without this
+> patch. restore_gcs_context() does not update the actual register and,
+> with current mainline, we may even skip the hardware write in
+> gcs_thread_switch(). Basically one task can disable GCS for another
+
+Right, that's an existing bug.
+
+> task. Can we get gcs_set_el0_mode() to actually update the register as
+> well?
+
+We also set the mode from ptrace at which point it's being set for a
+different thread.
+
+> On the sigreturn bug, do you recall why we thought we needed to update
+> the gcs_el0_mode in the signal handler (or even expose it)? Wouldn't it
+> be better if the signal handler did a prctl() directly if it needed to
+> change the mode for the current thread?
+
+In theory you could have tasks with a mix of GCS and non-GCS threads
+doing green thread stuff, especially if the clone3() stuff had gone in
+so that the GCS wasn't so tied to the thread.  You could also have mixed
+push or write permissions in that case.  I am not sure that any of this
+is a realistic use case though, I'm certainly not aware of any current
+users.=20
+
+The case where a signal handler tries to handle a GCS fault by disabling
+GCS could be handled using prctl() if someone wants it.  I'm not aware
+of anyone doing that yet, there was some talk about implementing it in
+glibc at LPC but it's not been implemented.
+
+> I don't think we have any precedent for allowing sigreturn to update an
+> EL1 sysreg. In hindsight, we shouldn't have exposed it at all but that's
+> ABI now. The next best thing we can do now is check the field hasn't
+> been modified and fault otherwise (assuming no-one does anything with
+> this field).
+
+I don't think userspace is doing anything with it at present.
+
+--z4+DNe/36eU2EIEe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrPybcACgkQJNaLcl1U
+h9A+twf/SvrdXCf5iFoUVIJnYy0vstIxnbvlnm8Ng/nkRT0U38Wg0Sawsj4f8kQ+
+e38vZSWOU4zXOjqyGBjtjT3QUd6JkdfxBBRFZsT8mMv+Dcn92i41yKCTk+a096E+
+LSnUj/qVOP3iGE/4qbRqJbLkhTrbM/UeMmFFel0Tp29nLMakKnV3Df9/L+iwG1d+
+iTF0yZCDMEyJ+wqAdnVfj/hhj0XFop4O81BxcSnKEpznhET2RF9yZWtYN6BWs8kK
+AthpKsF2dogqkK8Et1ijxF525s31M51GeiDWL+S4doH75/61GRPed54+dUzS0JVG
+MUtKCK/VA2vmvM4K4WhSJAgi44vPQQ==
+=pqzz
+-----END PGP SIGNATURE-----
+
+--z4+DNe/36eU2EIEe--
 
