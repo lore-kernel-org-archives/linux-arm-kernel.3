@@ -4,113 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C868BC3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862B4CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+0bbYBp5vS6Wzy92SxhIlT3F+PvYBDU5sICwVgEKDw=; b=oLCCnR+0Ht0wm4O5G+lL1/RrXC
-	4pzPpFnMGRkC234JNkEaYd07KMZyzdvpK5FKTNGPP8bCNdJDCv68Hzj3GSHOfK7S2it8Ouvc8jCgt
-	rwdIxIXiXpl8KV5yjMleBnchw8gPFrc0/wOaKP9Nnzv4pUcsQ267/jKqdzzn9Y+RkbC5iTE3j7IWk
-	/fEqcm1A3DvKWYoquui6R4YHCxFHk5xPqTXCNmFsf8SVicBF5msf4tbF+C+0L3yYT+LIx8hijofUU
-	dZ/KrU8kPy897zGA4rmpzuPDYvCZ668UKOVMmEltSx8VS5ca8Rhn7u6M3vlBaM7Nsb9Sg+otEfG6+
-	iv+3j/wQ==;
+	bh=o1xNoGNlDuv8dcA05o9muZ1QtkmEswQhTqN6SrXTfWI=; b=1EoGiSdiQ09jiq5klaLo+WW8U4
+	WKHRoxfzTzRq2hNvWt3jxM5M2OQUR7hqtjOVjJVUmVcDI6M52oE4SoB/l4of2HSx4TH7HFZ51kpy3
+	RNdZ21i6CGz8c7R0q7tiT/WIV7a9N3LtwMyd7NMyorbAzbriqvkJqk9bQt+C0oyf3L8YG1mh0A3tK
+	erPdm82CHVvKlJLIcry868rCCq+VilSBbVh+T43Arv9bXP5ZyEcDqgxcWidGq9btDUbhhuQO0RDjE
+	rueX32Aa3xFZNzk7cQBggB7lkxqfRot/ipQIcY8qgizQd2NSEm24QvWFTYb5GX4lMtj+Eh+GWbwqw
+	td5HEH4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1sl-0000000Fyiu-2o4V;
-	Wed, 14 Oct 2026 16:31:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xH1ZH-0000000FwjN-0qut;
+	Wed, 14 Oct 2026 16:11:03 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1sj-0000000Fyi6-3JPx
+	id 1xH1Z7-0000000FwgQ-2Cz4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 16:31:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791995468;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k+0bbYBp5vS6Wzy92SxhIlT3F+PvYBDU5sICwVgEKDw=;
-	b=OtEdRiEM/q3OoCkRiLtmYcXFc/3q4v/Cv0KwuqdgpIu0gJFdOmofg41YqQYHJ56AY+vDHu
-	kPbulanFmQ+4AE4/UAMi8djtmRPTG/0N2Bjy7y3mrC4vJsnGP7p02YMlIKOQtivKB6lpQ8
-	tfCtyCTaaQFweVntt9bpnmXHu3WfnX0=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-657-Fe3u1gKCOKi3N_FoI0dS3g-1; Wed, 14 Oct 2026 16:31:07 +0000
-X-MC-Unique: Fe3u1gKCOKi3N_FoI0dS3g-1
-X-Mimecast-MFC-AGG-ID: Fe3u1gKCOKi3N_FoI0dS3g_1791995466
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-486f9d150c3so2698980f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 09:31:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791995466; x=1792600266;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k+0bbYBp5vS6Wzy92SxhIlT3F+PvYBDU5sICwVgEKDw=;
-        b=mu+q6Gb9YSMchgydGwCSU9gZQZKfoGyR+2G0vGWIB91C6fRDBnotMENW2jW8AdS8FJ
-         Pu/C0jr2ycux0p6c2SI41Kg9eRpZJOjlvPKWbJHTZTVf8ud01XHNy7pqTnLq8T0RNXTp
-         xav2KhqZDuKVU0igKWO4H7MKczbmB0PD/eNXC06OH1ORVLmIjJnRB81E7pn6PWrupGeb
-         Q5rkT3uQIw3X4BgYXe1EGxJ5dzEzXMV9oV1AZYaEAk4DdNARaGhYWZYxchWgdbGvIa5q
-         sIxEieoRj4TblmC0wFwPcxQOMFBFpXcK25Got5Zr9eu//svx8ZgtA4lRyAYrNkP5Gcgp
-         9MIg==
-X-Forwarded-Encrypted: i=1; AKwUvBxJimiB2fkoa+YDT2sva0aZTnku5RXTkKDXUeHqvIk8ombnZZ+vn0QxnabaT8NU8AlrbOfZRKTk/TeVNxTFndgP@lists.infradead.org
-X-Gm-Message-State: AFq9FYKVYkt7u+6Ny/3x0gg1Cq2MiPRouggAMClNIJ5ETXsaQf0sVMvc
-	zCbCspk8U5zBeIDcfL7sUxt2emw/ontZ126dOqzqMNmz9aosY+35gb+OItwdQyOMkcC/quTraeG
-	/FJFDW40emfKb7sAp1d8FftVpXlED8JRghr4s+hw2sTdYAwHn1ZgZyvIzFFprKD2XrjatiRijkt
-	ei5LEp1fNsegij4wEQ5qOaOpChTqnF0kSvy2EWyOeztEyKDOvwNiE=
-X-Gm-Gg: AYBFou0+cVPwhNVtcjTlt5KQc4Evbji6hBCEJDg1mZ6yqHQcZ8q1ZcwRWFg86Wuy8TD
-	QRdrNvVGzqCA+Z9ZtM86wJ22evQPUKofq/kntaINNYYA7oWgSnuWReMzzDt701ueKHJxzsockKr
-	wwQ6xV17a30Xz0zqgAq6vS+aH2HGtFoICokm9HKBYJfV846oXfTSCnxap4Q/s7Y/BnjYnTEsNzs
-	sH8tHxoQs1AgUJWWcuEV/Ij27bIpHzZ/TnwHbjBBnohcxdCjMulawP8x/T6og==
-X-Received: by 2002:a05:600c:34c4:b0:4a1:b027:99dc with SMTP id 5b1f17b1804b1-4a1b027a161mr98309005e9.18.1791995466264;
-        Wed, 14 Oct 2026 09:31:06 -0700 (PDT)
-X-Received: by 2002:a05:600c:34c4:b0:4a1:b027:99dc with SMTP id
- 5b1f17b1804b1-4a1b027a161mr98308215e9.18.1791995465797; Wed, 14 Oct 2026
- 09:31:05 -0700 (PDT)
+	Wed, 14 Oct 2026 16:10:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=o1
+	xNoGNlDuv8dcA05o9muZ1QtkmEswQhTqN6SrXTfWI=; b=HuRHChRJv/jlQNiIMf
+	16PHgfNcZnlrAjoqtMercf5+sXqdV8TdXJ89LDiYx5Ql2YslJqnDuglgj7gautHv
+	qNDVkCo+7lOsAJeZSrhHEXoFUOAWocWRGOdm490fyPYjLYSKsjjTDN9P29FSGaGj
+	fCmPdss/y1J0XEOk4CD29/m6Q=
+Received: from fedora (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3v15Gqc9qxM0iAA--.40892S3;
+	Thu, 15 Oct 2026 00:09:54 +0800 (CST)
+From: Ju Nan <junan76@163.com>
+To: junan76@163.com,
+	antonio.borneo@foss.st.com,
+	bigeasy@linutronix.de,
+	linusw@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	arnd@arndb.de,
+	clrkwllms@kernel.org,
+	lee@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	mcoquelin.stm32@gmail.com,
+	mfd@lists.linux.dev,
+	rostedt@goodmis.org,
+	u.kleine-koenig@pengutronix.de
+Subject: [PATCH v4 1/2] pinctrl: stm32: Fix the unit of the hwspinlock timeout
+Date: Thu, 15 Oct 2026 00:09:17 +0800
+Message-ID: <20261014160917.139241-3-junan76@163.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261014160917.139241-2-junan76@163.com>
+References: <20261014160917.139241-2-junan76@163.com>
 MIME-Version: 1.0
-References: <20261014162126.964330-1-maz@kernel.org>
-In-Reply-To: <20261014162126.964330-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Wed, 14 Oct 2026 18:30:50 +0200
-X-Gm-Features: AclHuK-uduyx1V7w8xPq5hTQncfjGaYTAtLpmbc_jG8-KYLjkOQH5FYBRTis6z4
-Message-ID: <CABgObfYVHtFGopM=vCY2vt2N-CON=_5BN4YFiZknwvyrgP5mfw@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 updates for Linux 7.4
-To: Marc Zyngier <maz@kernel.org>
-Cc: Amit Machhiwal <amachhiw@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Colton Lewis <coltonlewis@google.com>, Eric Auger <eauger@redhat.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Gautam Menghani <gautam@linux.ibm.com>, 
-	Gavin Shan <gshan@redhat.com>, Gokul K <gokul02k@gmail.com>, 
-	Hemanth Selam <hemanth.selam@gmail.com>, Hiroyuki Katsura <hk590@cam.ac.uk>, 
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>, Jack Thomson <jackabt@amazon.com>, 
-	Jiaqi Yan <jiaqiyan@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, 
-	Jonathan Davies <jonathan.davies@nutanix.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
-	Leonardo Bras <leo.bras@arm.com>, Like Xu <likexu@tencent.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Nina Schoetterl-Glausch <nsg@linux.ibm.com>, Oliver Upton <oupton@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Sean Christopherson <seanjc@google.com>, Sebastian Ene <sebastianene@google.com>, 
-	Sebastian Ott <sebott@redhat.com>, Shen Yongchao <grayhat@foxmail.com>, 
-	Shuai Xue <xueshuai@linux.alibaba.com>, Stefan Teodorescu <fane@google.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Steven Price <steven.price@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Tharit Tangkijwanichakul <tharitt97@gmail.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Wang Han <wanghan@linux.alibaba.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Will Deacon <will@kernel.org>, Yuan Yao <yaoyuan@linux.alibaba.com>, 
-	Zenghui Yu <zenghui.yu@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: US2wPyiLQUYcfeFI-yODkZ_ifNwUOkmgRwNYZCne7d0_1791995466
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3v15Gqc9qxM0iAA--.40892S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFyDGw4kXr43uF47WFWxZwb_yoW5tw1fpF
+	Zagwn0yrs8XrW5Zw4DtF4q9rnxJa1Iyw4DJFWjqa48Zr1jqr95Ja1Sqa92yF12qas7J3ZI
+	qFW2q345ua1DAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zEs2-8UUUUU=
+X-Originating-IP: [2409:8a62:3ec:5108::1000]
+X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC0xINvmrPqVIcfQAA3N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_093109_926433_9DDCAA28 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20261014_091053_960199_335C851F 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +86,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 6:21=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> Paolo,
->
-> Here's the set of KVM/arm64 updates for 7.4. After a couple of
-> releases mostly focused on mopping the AI wave, we're back to merging
-> new code, and there is a lot of it. Given the size and the conflicts
-> that this generates (see below), I've decided to send the pull request
-> early.
->
-> Details are as usual in the tag below, but there is a few things to
-> call out:
->
-> - a lot of pKVM updates, finally delivering on the isolation promises,
->   thanks to Fuad's work on upstreaming this stuff.
->
-> - the first stab at sharing code with s390... More fun to come, but
->   that's a start
->
-> - More GICv5 code. As always with the GIC, it is huge... But for once,
->   the code is much simpler than the previous iterations, and also
->   comes with a bunch of selftests from the beginning.
->
-> As a consequence, the diffstat is a gold-plated pig.
->
-> Things to note:
->
-> - this drags the kvmarm-fixes-7.3-1 tag as a way to resolve bad
->   conflicts with some of the patches
->
-> - there is some additional conflicts with 7.3-rc6, due to
->   kvmarm-fixes-7.3-2 landing a bit late. I have stashed a resolution
->   here [1], which you can either apply if you're basing the merge on
->   -rc6, or mention to Linus as you send your own PR. For everybody to
->   enjoy, I also add the resolution at the end of this email.
+HWSPNLCK_TIMEOUT is passed to hwspin_lock_timeout_in_atomic(), whose
+timeout argument is in milliseconds, not microseconds:
 
-I've done the unspeakable and pulled kvmarm-fixes-7.3-2 into kvm/next
-so that this PR will go on top; that conflict is too much to send to
-Linus. Please check in kvm/queue that I copied your resolution
-correctly. As soon as you confirm I'll move it to kvm/next.
+  atomic_delay += HWSPINLOCK_RETRY_DELAY_US;
+  if (atomic_delay > to * 1000)
+          return -ETIMEDOUT;
 
-Paolo
+The hwspinlock core documents this explicitly:
+
+  If the mode is HWLOCK_IN_ATOMIC (called from an atomic context) the
+  timeout is handled with busy-waiting delays, hence shall not exceed
+  few msecs.
+
+Fixes: 290a9f937e5a ("pinctrl: stm32: use the hwspin_lock_timeout_in_atomic() API")
+Signed-off-by: Ju Nan <junan76@163.com>
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 6a99708a5a23..e71651d4fad4 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -87,7 +87,7 @@
+ #define gpio_range_to_bank(chip) \
+ 		container_of(chip, struct stm32_gpio_bank, range)
+ 
+-#define HWSPNLCK_TIMEOUT	1000 /* usec */
++#define HWSPNLCK_TIMEOUT_MS	1
+ 
+ static const char * const stm32_gpio_functions[] = {
+ 	"gpio", "af0", "af1",
+@@ -609,7 +609,7 @@ static int stm32_gpio_domain_activate(struct irq_domain *d,
+ 
+ 	if (pctl->hwlock) {
+ 		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+-						    HWSPNLCK_TIMEOUT);
++						    HWSPNLCK_TIMEOUT_MS);
+ 		if (ret) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			return ret;
+@@ -946,7 +946,7 @@ static int stm32_pmx_set_mode(struct stm32_gpio_bank *bank,
+ 
+ 	if (pctl->hwlock) {
+ 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+-						    HWSPNLCK_TIMEOUT);
++						    HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+@@ -1089,7 +1089,7 @@ static int stm32_pconf_set_driving(struct stm32_gpio_bank *bank,
+ 
+ 	if (pctl->hwlock) {
+ 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+-						    HWSPNLCK_TIMEOUT);
++						    HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+@@ -1135,7 +1135,7 @@ static int stm32_pconf_set_speed(struct stm32_gpio_bank *bank,
+ 
+ 	if (pctl->hwlock) {
+ 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+-						    HWSPNLCK_TIMEOUT);
++						    HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+@@ -1181,7 +1181,7 @@ static int stm32_pconf_set_bias(struct stm32_gpio_bank *bank,
+ 
+ 	if (pctl->hwlock) {
+ 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+-						    HWSPNLCK_TIMEOUT);
++						    HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+@@ -1242,7 +1242,7 @@ static int stm32_pconf_set_advcfgr(struct stm32_gpio_bank *bank, int offset, u32
+ 	spin_lock_irqsave(&bank->lock, flags);
+ 
+ 	if (pctl->hwlock) {
+-		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
++		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+@@ -1320,7 +1320,7 @@ stm32_pconf_set_skew_delay(struct stm32_gpio_bank *bank, int offset, u32 delay,
+ 	spin_lock_irqsave(&bank->lock, flags);
+ 
+ 	if (pctl->hwlock) {
+-		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
++		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT_MS);
+ 		if (err) {
+ 			dev_err(pctl->dev, "Can't get hwspinlock\n");
+ 			goto unlock;
+-- 
+2.56.0
 
 
