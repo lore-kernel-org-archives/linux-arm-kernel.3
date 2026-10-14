@@ -4,75 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D4CCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0401CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vD0NYzUJsJFaZFVryPBxGWUgQmiZpnh4TV1Ps+d5RWQ=; b=dNYtqdZfmokXHIp2Bz/0lf5iqn
-	MoM4pbmqU8rbXi8XZhGJCZiLT1TBvBEK/G/yAAne1bO5qYz5+TtmvfsWKPScnIiAnH9n55XhW3Fzr
-	KMd1/H/SsNIidKfKlORCiLSh/4ZkjBT9MHgpbJxsgmNIA1qDEQx8kaLwJL4u2CklxYkaeMHMw/0Ux
-	e29nRLYFcmN+x2n1laP2RYI0YKsxewyZVbLQtFoVtNxV9FWyXih0s1R6Sh9d4sNMs8Joq/iI2NrBS
-	NHg+kp76DAGbgcxqeAIhqWXmI6VjNORuOFrKFPvdpTri282FVdiay0AKyP/p3REiKpnUw/AVcZa2v
-	56KoKs1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EXpof7pnQphkIZzCps970+n9zznG2XF6tbptkJsiRO8=; b=xSbl3gh2P4Xiw/Tq7ppHCt1PBj
+	JfmNfMejbOKUDwy/bK/UD6yEMtCSmhGPE+vij1b7mmsgVnoUBerMUpDBlJLMdJ3cJQS+fOgs5eLY4
+	7o5PseKm/MmSai6IlbaWbJK0GeEwP/LtzLGjR2e1MVykcqGNyAhv4Q7PPkbSXQ06Bd1uueTnWXhoc
+	7FeQ0FKvae+rLppnSdmtE0Te0aUF9+Pso5OSp0bT7iQxRBttuSEkupOiIFXFSn4Eta+vgi5Kl68um
+	PqPqEsBjzrYJp8ydZB4mAiBHK48BsSV9LQquD8TuxIfGLhJlSJ/WNdtHILfLN+fnf5xfJ+sAJ0BMm
+	0Nbd1FsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1ZC-0000000Fwi2-45dt;
-	Wed, 14 Oct 2026 16:10:58 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1xH1f3-0000000FxMZ-3vSn;
+	Wed, 14 Oct 2026 16:17:01 +0000
+Received: from mail-francecentralazon11013037.outbound.protection.outlook.com ([40.107.162.37] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH1Z7-0000000FwgP-0DJj
+	id 1xH1f0-0000000FxLK-3pQv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 16:10:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=vD0NYzUJsJFaZFVryPBxGWUgQmiZpnh4TV1Ps+d5RWQ=;
-	b=WCgs8tda2Zv3PJklFz49gflNOSls4Nw3b2RM6byorIje9pe6uAET/yiQWqxWPp
-	cohxrQuKqfE1YCTdmbT8r2CJ1jqUx8ivQERWioe1+Lgsz6g2c7LGUiV2CUpXnQ8t
-	Rxp5OplJfLjsWG8nmfiK8M8PsVtKVena+1pNz5lE8eA9k=
-Received: from fedora (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3v15Gqc9qxM0iAA--.40892S4;
-	Thu, 15 Oct 2026 00:09:56 +0800 (CST)
-From: Ju Nan <junan76@163.com>
-To: junan76@163.com,
-	antonio.borneo@foss.st.com,
-	bigeasy@linutronix.de,
-	linusw@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	arnd@arndb.de,
-	clrkwllms@kernel.org,
-	lee@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	mcoquelin.stm32@gmail.com,
-	mfd@lists.linux.dev,
-	rostedt@goodmis.org,
-	u.kleine-koenig@pengutronix.de
-Subject: [PATCH v4 2/2] pinctrl: stm32: program the EXTI mux from .alloc instead of .activate
-Date: Thu, 15 Oct 2026 00:09:18 +0800
-Message-ID: <20261014160917.139241-4-junan76@163.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261014160917.139241-2-junan76@163.com>
-References: <20261014160917.139241-2-junan76@163.com>
+	Wed, 14 Oct 2026 16:17:00 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=IMxDLKk2tbP+DrfKostEjweIPEsQLXg3nra6uMv9HcxhLDvddfKgLelhaSXBm7thhTtH3Lx48VOsCayjs/Eyh7iPPLs0nYQem36JeYgZ3zEm2P/r3rW4Od/mTpcGiDO4vzLDff4f7Zqk1C1gOVWQMk6qeeR8CKJtwzFgcmjIoTC/swClP+BbhVhK+e4q92hC4czdox773kitYzYhaNPnCX20YDwHT0hVKZoh+ts/mVAq1LZ4R1YlO1XkqCxDcUIZutL643ATD2abkqgRZVNh5sZbQJD3y8+5wvRxPVA7JeJ+ZeEsHpMKpXFXv50q8t4WPZoE5+G72Uu0e/aehzMYcA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EXpof7pnQphkIZzCps970+n9zznG2XF6tbptkJsiRO8=;
+ b=c4o6948nbHXcfwkkUK5z4tHbnqsI1bNXVEgRGDEmTFbVRE/vTuW3ZlmXFjN81zA8k3130xpz/ftRFxUa57QzG96n4Rsbjwcp3vf3TbptZlj8RoN1r81POXGjyK/Ha9fZuA+jaObYzaIQ+RfrwRn62osJU9S93VGytWnTZVtNaHohuXFjpHkEQeL1LAnHd0quUqE21JjWfj6GogPZy1+1Mj8pawIQ3itzFDpvHdHLhgcetr2XwPg/XIXV8lCHkY2x0OLgZrhlI9jmbVm/96MQqWX0xODbw4++GDVhwYWfF6oMmUf3uRBwX3H9y3ApThI9Er6vpKEJ7ffprl3Cmy2z/g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=qti.qualcomm.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EXpof7pnQphkIZzCps970+n9zznG2XF6tbptkJsiRO8=;
+ b=FqP9bNDOubvgW0t5nhIijrVohI2LAyE7+DzGJxiCQ0rHHgVOukn4qhOKRCXZeLcmgvQpbQR3otZAAchx6DR/H6/djXwV4XvYFcHXImbiToK+IdMYt37ClFrMEv50/7Fn/iZnhWYHMyBeAnyoOldLbGGsgzL2jMV0yZf5ZOQQVb0=
+Received: from AS4P189CA0010.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::14)
+ by GV2PR08MB11561.eurprd08.prod.outlook.com (2603:10a6:150:2d0::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Wed, 14 Oct
+ 2026 16:16:47 +0000
+Received: from DU6PEPF0000A7DE.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d7:cafe::46) by AS4P189CA0010.outlook.office365.com
+ (2603:10a6:20b:5d7::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed,
+ 14 Oct 2026 16:16:47 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000A7DE.mail.protection.outlook.com (10.167.8.38) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.6 via
+ Frontend Transport; Wed, 14 Oct 2026 16:16:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nF3kTOWPH8t/IHeZYlQLmYW6G/K9OBDc/IUM/DXyvvveYSGo9nr1mx4WbUZLXlrFnjiSxQXL6XIF9PbnOokGVLJMfzd8p7gAEnIuHSvOIpo5qaiW8cpZ3I1HmmA9z5HG5z6d8TMp0hbR9GLte8E59aXYhmH6fD0hTKCgEKCxAPnh1jKcV6R1ec9xGJIMwUozo94XfSN7Y4yixPDpQ0anYA5E4fGBsFcnBSs4ocG6LB2sZGSYs3AQcSSWz/PzgjWV8mT8+/AQQYN5sKP1ha72hplD8f5r3LnCV38HVF9qeXsG4vrDwT8qBc8Sk8D/J+DlkrvcxqjUtWIL6mKzUYvsFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EXpof7pnQphkIZzCps970+n9zznG2XF6tbptkJsiRO8=;
+ b=Jmlrh2m0dZLyl4GeCQGKzggq3MCZrAFvI71g63rC6fp68Hbdhlsbgh8+q6FATyOqRyubF8WkoCcXLftnugTVVBg8oIf72ZdLrbTqF6izMpEQH/KyGtzFO2DD9iGdopMCl3p9P9oMDoHu0azxaBqmNn520PK3jFvX80Vu8pSxMK+FSsDftzAkRA7RkikL7S37LZ4BJH1LARgeXPPMGV8MvMxsXbC2hDNy28nbsLVB7m8z9lC0pJJ2LgrfXDqTOBiZPuT5sjjR8M2EnWRmpSF+HqRn42zkn+SMyWejAGqxCoR/LEA5UK9FvW0/qDn2eUT1YT5M5p3W01krDNMPKmVzCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EXpof7pnQphkIZzCps970+n9zznG2XF6tbptkJsiRO8=;
+ b=FqP9bNDOubvgW0t5nhIijrVohI2LAyE7+DzGJxiCQ0rHHgVOukn4qhOKRCXZeLcmgvQpbQR3otZAAchx6DR/H6/djXwV4XvYFcHXImbiToK+IdMYt37ClFrMEv50/7Fn/iZnhWYHMyBeAnyoOldLbGGsgzL2jMV0yZf5ZOQQVb0=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from VI0PR08MB10683.eurprd08.prod.outlook.com (2603:10a6:800:208::8)
+ by GVXPR08MB11227.eurprd08.prod.outlook.com (2603:10a6:150:289::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Wed, 14 Oct
+ 2026 16:16:13 +0000
+Received: from VI0PR08MB10683.eurprd08.prod.outlook.com
+ ([fe80::7fcd:1ea6:477b:e5b9]) by VI0PR08MB10683.eurprd08.prod.outlook.com
+ ([fe80::7fcd:1ea6:477b:e5b9%4]) with mapi id 15.21.0522.011; Wed, 14 Oct 2026
+ 16:16:12 +0000
+Message-ID: <30683c6f-08d5-47a9-ba0d-24622c3a54bc@arm.com>
+Date: Wed, 14 Oct 2026 17:16:10 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: Support for ARM ECMDQs
+To: Sukadev Bhattiprolu <sukadev@qti.qualcomm.com>, will@kernel.org,
+ robin.murphy@arm.com
+Cc: thunder.leizhen@huawei.com, tanmay@marvell.com,
+ linux-arm-kernel@lists.infradead.org, pdaly@qti.qualcomm.com,
+ iommu@lists.linux.dev
+References: <as+Mh1Ah3FFpCZlK@hu-sukadev-lv.qualcomm.com>
+Content-Language: en-US
+From: John Garry <john.garry@arm.com>
+In-Reply-To: <as+Mh1Ah3FFpCZlK@hu-sukadev-lv.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PR1P264CA0064.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:2ca::16) To VI0PR08MB10683.eurprd08.prod.outlook.com
+ (2603:10a6:800:208::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3v15Gqc9qxM0iAA--.40892S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Ww4rJw4fKryrZry8ZF4fZrb_yoWxtr1rpF
-	W3XrsIyrsxX3WrZa4DtF4jvF9Ika92y3ZrGw1DtayxZrn0vrn5t3WSqFyxuFWjkF97J3ZI
-	vF45tryUua1DZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEVyIbUUUUU=
-X-Originating-IP: [2409:8a62:3ec:5108::1000]
-X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC0xQOv2rPqVQckwAA3h
+X-MS-TrafficTypeDiagnostic: VI0PR08MB10683:EE_|GVXPR08MB11227:EE_|DU6PEPF0000A7DE:EE_|GV2PR08MB11561:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ad8c8cd-613f-45d5-3b79-08df2a0e8b85
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|10067099003|22082099003|18002099003|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info-Original: /ZgNESrGHLxhGuuFyKXThzHzQHjKdYIHPoWExvXxFvkJvHbF47jJBu9WOZVdVmMmLgU7vMebH+9BMshyDUN91RE1GeychOCI0H3xlQObL2T3mCSBrBEndkQwEInd2sumGdoZbd7JnwN0X5y3hDOgqxkjW6M/QiBe5YkPwsvMEiVbDSpjMZyMbrNpuCTm0Q7AOqHJg+O/cQ3RZAIhzY1Qplaxt3XYYbbyYjle7ogDriEg9Df7sX8d+IW0VUnI+DkDCABbBRmRvskyH5haH1StIj+glTelyeBmRxXW2915iabnsipNI49YeYqT88nwL3hmwf4mHzWWFaPDqONJNumj2938LXfRDFXeeAlJGuxt3kNFKGKK1lpoEGV2uV5MfPK3OXhYatQnYNMQfSSoUHruqV/FbI27uxC+taF1h2q9R2Z6709/cXKM/eXtaTUZSyUbLd8XRQcStaft4Ps7JNpX1zLXICSUFimzBoEds1v4RzjM0aMwG3xUvHlJ8/3VMjvEMpvLbC1zLc/pxegS7T1Ecyq0SxVIiYmO7x7SoqSyB6d/rR95q21T5f3ZHXujaja7dSYjYUprm6O9W3j2q+ZbFrdI1RhZgCQpihnc771VbgasUKHtLqMJkjCOPgE9Yz3bR38IEDMrxRUc3xdqtk+aONcxzORY3K4FprLhIJ3Rgf0=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB10683.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(10067099003)(22082099003)(18002099003)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: XR7YziS1LVDLwaq3SMuF+mVL+HIVcKw7XswYtushpaiZ2rwLdMCROvotJXLSBCrh46x6Pop+v1cO72Vl6/le52mJJh0/8jnsWbTd7vsHrTuDdtkkdCYm3GmxB2ZeAvr0UOvyc2FD9QPwbzh4udxVcgKe4D9TmHWnGRtnKe9n07LJqhv54tL1rkuS5o/xjFoD1ga/2ImM1r0rmnZ36VsE+K5Zb/1JSmsXtIwYv6ha9Ueg7aN2iLI4HIYovAMKW2cajOuZLHUdCrKlJ3JAZczYkXQOg0+jqWYhTIbON1fJKE+eU4EaJ4Ligu4KJqldDQIAKO2DxMIsKcguoz5XJniu5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11227
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DE.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: de5f2bdb-ea36-4fee-10ee-08df2a0e76a3
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|35042699022|14060799003|36860700016|23010399003|10067099003|56012099006|22082099003|18002099003|11063799006|13003099007|261009223027099003;
+X-Microsoft-Antispam-Message-Info: O4dzhz5pdsIp76tfOVn5l6yGbZnpGYBxm4xNTJ8Qr80fm4PaoKQnaJU3D/lvlQzvH2uuPlDoffeJNKn6IBzVvvZcN0LA1PuQ6wH+wcmvv1xU3u8D2nyZdFN0XmxCEHNVid5b2aAmXas11HYaLJyjijp0ap/YXgukqpwSn/n18ywzB05jKnJxTbMedaDVrcPbX3xp/Jvp+MQlxcqBPkBItnPfPUNt/tdHfYAQZQOvgwx43ZRR5jGdfehUPABJv2XeFEkJcHlM17rkYwBjJ+OOS8wwztGts8xdV1BXgrthZk8BK/Wbt3PG2iFFn8E7XVLnJ139mPnyxrDHXFH4bMBHsyrsa4iODHId983SkqRBXus1uJ3di7RmGioBKOzo4eBHH7xI1hT0r30Mh6uSbkIjEvatDOl8SKfsCo3n1upxiQEAM3RveQ2wSISJUSqLSniZKG0KsI5WC5xrJvnEdXVa3CkdRz1VkascQ60XHjyIN/VeqqmtAlGwgsVoFPZdRgMvAZAnj78yfrYjRSk6G7pJALcDjLuHuPgDQJeB6CbDhpuSjhj29tGVCAf7DNLrYPRCuyHqrZRqYGeNzyJva53QwidnASJ4ZXr0f8Gv0LYI06w7Ep6IyVWP9jND0hJv6WTOAWSFNIJAdFQ6UuK47dfF3lRpom7gkyxO3VBDzSY7Y9QMBWaQP46USEma+qLCPsMtIVauavXS2DhD8vOGYXwc6g==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(35042699022)(14060799003)(36860700016)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003)(11063799006)(13003099007)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: tLNMh+7HQ9cBLTEMeVAm6hIOQsNnZRL53W86LwO7J+rDMCG+bTP8JnlJqvfv/cujg8l6uYKXzAF10cxqxZtBtyc6zw276jeVkYYnksRw3Rjrr/k2937SdjyOEtr7XiEZG5OqWP0FWe5MUgfqUqOYptz8ZUNZTWdm9t3Jlm3LJE75YUNhQKGVrF3IT48feENp5AyghR8fhYk2hq/81obsKwl3+6KbzDoO1iuvOFN1o2Znbxc6upXDUiCuUkzFYcAm87crx3RBRTk1v9PcvwLvBaS3IcJ9yN5Wlg1iXct42IL3fzH4NSieUkuAiqXj88016uaKIDplkzkqNjnl8Q6wXBS4bLmmaXHWmzf1+X/d3szU4a3467A9Bjq2roXd6DvxD7UGNRm27OYronLCAYrsU07iUW7JYXWlxhGUs0Nbl97gd9BrbGkPnNEXa2/caFCn
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 16:16:46.7554
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ad8c8cd-613f-45d5-3b79-08df2a0e8b85
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DE.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11561
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_091053_528842_006F5580 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20261014_091659_105486_924C1A84 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,191 +155,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_gpio_domain_activate() writes the EXTI interrupt multiplexer
-through a regmap obtained from the generic syscon driver. The irq core
-calls .activate from __setup_irq() with the raw desc->lock held, so this
-happens in a raw atomic section. regmap-mmio sets fast_io, and syscon
-does not ask for a raw spinlock, so the regmap is protected by a
-spinlock_t. On PREEMPT_RT that is a sleeping lock, which must not be
-taken there. lockdep reports it as soon as a GPIO interrupt is
-requested:
+On 10/14/26 15:07, Sukadev Bhattiprolu wrote:
+> Hi,
+> 
+> We are trying to understand the direction or ongoing efforts to support enhanced
+> command queues (ECMDQs) in Linux.
+> 
+> Earlier version of patches [1] seem to have stalled due to lack of real-world
+> workload data.
+> 
+> Also, any recommendations on policies to distribute available eCMDQs - one per
+> CPU as in [1] or, round-robin when # of eCMDQs are less than # of CPUs or others?
+> 
 
- [ BUG: Invalid wait context ]
- 7.1.13 #7 Not tainted
- -----------------------------
- kworker/u8:1/29 is trying to lock:
- (syscon:117:(&syscon_config)->lock){....}-{3:3}, at: regmap_lock_spinlock
- other info that might help us debug this:
- context-{5:5}
- 5 locks held by kworker/u8:1/29:
-  #0: ((wq_completion)async){+.+.}-{0:0}, at: process_one_work
-  #1: ((work_completion)(&entry->work)){+.+.}-{0:0}, at: process_one_work
-  #2: (&dev->mutex){....}-{4:4}, at: __device_attach_async_helper
-  #3: (&desc->request_mutex){+.+.}-{4:4}, at: __setup_irq
-  #4: (&irq_desc_lock_class){-...}-{2:2}, at: __setup_irq
+I'd expect a static spread over all CPUs to improve caching of the cmdq 
+memory structures.
 
-The driver was already aware of running in atomic context there: it uses
-the _in_atomic() hwspinlock primitives around the very same access. The
-syscon lock is the one lock in that section it does not control.
+> Thanks,
+> Sukadev
+> 
+> [1] https://lkml.indiana.edu/hypermail/linux/kernel/2404.3/07988.html
 
-Program the mux from .alloc instead, which runs in a sleepable context.
-That callback already owns this resource: it reserves the mux line in
-pctl->irqmux_map under irqmux_lock, so writing the value it just claimed
-is a natural fit, and the value only depends on the bank.
+As you can see in that thread, the maintainers wanted to see results 
+from real-world workloads (which never appeared).
 
-Nothing requires the mux to be reprogrammed at interrupt startup time:
-the domain has no .deactivate, .free() only releases the irqmux_map bit
-without touching the registers.
-
-Keep the access inside the existing irqmux_lock section rather than
-after it. hwspin_lock_timeout_in_atomic() deliberately skips the local
-lock that the other hwspinlock modes take, so its caller is responsible
-for disabling preemption and for excluding other local contexts; every
-other hwspinlock user in this driver relies on bank->lock for that.
-irqmux_lock plays the same role here, and it also turns the mux
-reservation and the mux write into a single critical section. Nesting
-the regmap spinlock_t inside irqmux_lock, itself a spinlock_t, is what
-the wait-context checker expects.
-
-Note that this bounds the semaphore hold time on !PREEMPT_RT only. On
-PREEMPT_RT spinlock_t disables neither interrupts nor preemption, so the
-hardware semaphore can be held across a preemptible section and a
-coprocessor contending for it may poll for an unbounded time. That is
-not introduced here: bank->lock is a spinlock_t too, so every existing
-hwspinlock user in this driver behaves the same way on PREEMPT_RT.
-Removing that exposure requires the EXTI mux regmap to be raw-spinlock
-based, which the syscon core does not currently offer, and is left for a
-separate change.
-
-While moving the code, release the mux reservation when the hwspinlock
-cannot be taken, which the .activate callback had no way of doing.
-
-Reported-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
-Closes: https://lore.kernel.org/all/20220202174430.pf37tt6lua2op3gc@pengutronix.de/
-Signed-off-by: Ju Nan <junan76@163.com>
----
-The issue mentioned by Antonio in v3 cannot happen: irqmux_lock is held
-while irqmux_map is checked, so PB5 cannot write the mux once PA5 has
-claimed the line. I tested it on the same STM32 board:
-
-1. add a fake device in dts:
-
-&i2c5{
-
-hdmi-transmitter@39 {
-	compatible = "sil,sii9022";
-...
-	interrupts = <14 IRQ_TYPE_EDGE_FALLING>;
-	interrupt-parent = <&gpioa>;
-...
-};
-
-fake-hdmi-transmitter@40 {
-	compatible = "sil,sii9022";
-...
-	interrupts = <14 IRQ_TYPE_EDGE_FALLING>;
-	interrupt-parent = <&gpiob>;
-...
-};
-};
-
-2. hack the sii902x driver so that the second and later instances only
-   call request_irq() and return 0 from .probe.
-
-3. dmesg result:
-
-# dmesg | grep -i error
-[    2.107147] stm32_rtc 5c004000.rtc: probe with driver stm32_rtc failed with error -110
-[    5.439201] GPT: Use GNU Parted to correct GPT errors.
-[    9.333158] sii902x 0-0040: error -EINVAL: request_irq(0) 0x0 sii902x_interrupt [sii902x] 0-0040
-# dmesg | grep -i "irq line"
-[    9.324176] stm32mp157-pinctrl soc:pinctrl@50002000: irq line 14 already requested.
-# uname -a
-Linux fsmp1a 7.1.13 #7 SMP PREEMPT Wed Oct 14 19:26:21 CST 2026 armv7l GNU/Linux
-
-The second instance (0-0040) fails to map its interrupt: .alloc refuses
-the line with "irq line 14 already requested", so the mux is never
-written for GPIOB. client->irq is then left at 0, and the hacked probe
-fails with "-EINVAL: request_irq(0)".
-
----
- drivers/pinctrl/stm32/pinctrl-stm32.c | 46 +++++++++++----------------
- 1 file changed, 19 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index e71651d4fad4..b5f9091bd990 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -600,30 +600,6 @@ static int stm32_gpio_domain_translate(struct irq_domain *d,
- 	return 0;
- }
- 
--static int stm32_gpio_domain_activate(struct irq_domain *d,
--				      struct irq_data *irq_data, bool reserve)
--{
--	struct stm32_gpio_bank *bank = d->host_data;
--	struct stm32_pinctrl *pctl = dev_get_drvdata(bank->gpio_chip.parent);
--	int ret = 0;
--
--	if (pctl->hwlock) {
--		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT_MS);
--		if (ret) {
--			dev_err(pctl->dev, "Can't get hwspinlock\n");
--			return ret;
--		}
--	}
--
--	regmap_field_write(pctl->irqmux[irq_data->hwirq], bank->bank_ioport_nr);
--
--	if (pctl->hwlock)
--		hwspin_unlock_in_atomic(pctl->hwlock);
--
--	return ret;
--}
--
- static int stm32_gpio_domain_alloc(struct irq_domain *d,
- 				   unsigned int virq,
- 				   unsigned int nr_irqs, void *data)
-@@ -645,10 +621,27 @@ static int stm32_gpio_domain_alloc(struct irq_domain *d,
- 	if (pctl->irqmux_map & BIT(hwirq)) {
- 		dev_err(pctl->dev, "irq line %ld already requested.\n", hwirq);
- 		ret = -EBUSY;
--	} else {
--		pctl->irqmux_map |= BIT(hwirq);
-+		goto unlock;
-+	}
-+
-+	pctl->irqmux_map |= BIT(hwirq);
-+
-+	if (pctl->hwlock) {
-+		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
-+						    HWSPNLCK_TIMEOUT_MS);
-+		if (ret) {
-+			dev_err(pctl->dev, "Can't get hwspinlock\n");
-+			pctl->irqmux_map &= ~BIT(hwirq);
-+			goto unlock;
-+		}
- 	}
- 
-+	regmap_field_write(pctl->irqmux[hwirq], bank->bank_ioport_nr);
-+
-+	if (pctl->hwlock)
-+		hwspin_unlock_in_atomic(pctl->hwlock);
-+
-+unlock:
- 	spin_unlock_irqrestore(&pctl->irqmux_lock, flags);
- 	if (ret)
- 		return ret;
-@@ -683,7 +676,6 @@ static const struct irq_domain_ops stm32_gpio_domain_ops = {
- 	.translate	= stm32_gpio_domain_translate,
- 	.alloc		= stm32_gpio_domain_alloc,
- 	.free		= stm32_gpio_domain_free,
--	.activate	= stm32_gpio_domain_activate,
- };
- 
- /* Pinctrl functions */
--- 
-2.56.0
-
+And I think that the preemption disabling scheme in that series can be 
+improved (dropped).
 
