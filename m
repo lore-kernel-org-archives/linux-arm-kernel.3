@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29278CC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F00DCC6B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4LolNj5RgXRiJp9WHX5KF7cNBaLE83TgO48U4ZXlu/o=; b=YLQo25bpuPYJ3S9KWaixQhMnWD
-	aMYokjQA/bIPI4cicopDNvsDgvfym8Vk1f+RDkj0GTGdDhZ+56RvExAfPzF5RYcMxAacIB4S3uv5S
-	V5BWo7ChF1X8XV55RPJ42bIBG51qG/BAPGwpiW9R1qH9oNQd2JV+YDm+1hO+0qzfbWAdtOwY2qPdG
-	hD5FZR5Cgl+U4EIKOuz4dlXrvLD/Id2a9LWmyEjlfH+T6Rw3OD5hiH+lAxfGs7WKiDFpLzdeIXKXN
-	fYKFljHDsIcomXsN3XIgbWgkjYO7JKrrkpaXBbZ2RSJ+evv1HLoYWcfLZr1MUpXJq9fLVJmU5Wo6S
-	FSbhuJmQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8FrA0L/R7A7IF2ZuOD7k7zA8sFMvC+j6C0JG2ltYEHU=; b=TYdMDFBpVE4ojLIK0OAjekuW1E
+	sNj4OaRVrnF0h0LZoOqencEUKLpWGrbpfdxZH1nh37meofWXlHLhcx4TnI5dxYQpuX2nvTGuH1Zai
+	M0Jce5MCDoCel4+dSsJT3Yg1enIfafIzde9qKUOvFZlDDljjaliDSwbHj+oYZM+cL6ygYuBhxQppE
+	BjNB+QhLacawrfmAOGN4/TnSQ+BVPpptV1oKA50kTMsL2nkTUKTwyieFDJt7DY86FD/T1nCvc6Kks
+	JwH4WUi4UOf0Cu9Dq/9/NS7SE3NvUFQPfSmyjnoyOjUdGC0GwCgwUihVhgoG60cUuYa5XI9Ekwqcz
+	HOc39c0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5kq-0000000GHK3-2zq4;
+	id 1xH5kq-0000000GHK7-3MNN;
 	Wed, 14 Oct 2026 20:39:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5kq-0000000GHJk-0dvi
+	id 1xH5kq-0000000GHJm-0fQ6
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 14 Oct 2026 20:39:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8225E43B85;
+	by sea.source.kernel.org (Postfix) with ESMTP id 97E4E43FD1;
 	Wed, 14 Oct 2026 20:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 590B4C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 732B6C2BCFC;
 	Wed, 14 Oct 2026 20:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792010355;
-	bh=COt3GvWqWgF0CxI9plDeQb5zlZ9CoK/iukULf+JUTd8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=OnRqdUeje8h7xcsJrIWm4dgO6n/hNW17viy2Nzy87dNFsiI1cfChmAmD6QpUXHsoa
-	 dVkc6gsS4TwWl769C+MA+/BEiwfpBDHyi0UEOVpJonnKhiba2IReecOiP99qGOx143
-	 VXUWaWoQL/HbYK5qmAra/jCe+o8bAWyC9rGJM2ijxxVG85Sw6JD/b/xnhDhIi6GbBE
-	 lrjtUHy6150ZRU/fUJDrPPVMiXvCF5c3s+HHXYWKGfcH2Hea9rmtgWuvQhIWQ/RBlb
-	 IolWh+E6AQgPx78DL3G7K8kEifqND/K5ev4X4X0ApDR+AfidJszsB5hPMHx/wjpUG+
-	 f/sOXhS7hoMyQ==
+	bh=UBvuNYZW41/APtR5ddoeb0UgGDD+zXYvUBuSkNWMIaI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=q2c3T2FxqkrsZUIE6rNPEf33TUEUgcVUBuCwXb9dd6QsiHsbMD0mSEKP8SWMmWbkf
+	 d4mZJeJuG0JItVczEC9KqQRKIEiWB6Zxn6SVlmhBfPntTXkCfV+HGJgCvZUkaRGdly
+	 ufHU1brKIyMfpurIpS822TX/iorgRkOqNISidZ+8pBLUHUMH36INMFFl/lpgIFmfrZ
+	 XuRnTDapdGNuh/o5OKaTNLLlA4jUtL3MzrMZJK76JzsFtpy8wjaFg882S7EmGlXFaC
+	 MAhyYxmNzC5SkoMvpCFDvZJcanccB9Yry6hfYTYvEPxOBY6814i8iAA5HqErXehdPR
+	 4AAdAkxL4JdTw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34B74CC6B2D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52FEACC6B2E;
 	Wed, 14 Oct 2026 20:39:15 +0000 (UTC)
 From: Vladimir Kukharenko via B4 Relay <devnull+vladimir.genproof.com@kernel.org>
-Subject: [PATCH 0/2] lib/crypto: chacha: Handle lengths of 2 GiB or more on
- 32-bit arm and MIPS
-Date: Wed, 14 Oct 2026 20:34:20 +0000
-Message-Id: <20261014-libcrypto-chacha-32bit-2gib-v1-0-e0719ca0be89@genproof.com>
+Date: Wed, 14 Oct 2026 20:34:22 +0000
+Subject: [PATCH 2/2] lib/crypto: mips/chacha: Handle lengths of 2 GiB or
+ more
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE3nz2oC/zWN227CMBAFfyXyc428tpOQqKr4D8SDL2t3C0nAN
- qgV4t8xl0r7MtqjmSvLmAgzG5srS3ihTMtcAT4a5r7NHJGTr8ykkB0I0PxA1qW/Y1l4/dfjSlo
- qXEayvDUKW1SdER2wajgmDPT7tG93L85n+4OuPJTvRcLTuWbLa8YmzNk8s2Pz+V+FVnZCr5RUC
- gQHjpZixJQ3e0wzHlZLil8PnTUZuVumicrYaBF0HwwIAx4G1+ug1waUH3or0cLg22AHtfZsd7v
- dAVdR8MAIAQAA
-X-Change-ID: 20261014-libcrypto-chacha-32bit-2gib-5a3e5e36a061
+Message-Id: <20261014-libcrypto-chacha-32bit-2gib-v1-2-e0719ca0be89@genproof.com>
+References: <20261014-libcrypto-chacha-32bit-2gib-v1-0-e0719ca0be89@genproof.com>
+In-Reply-To: <20261014-libcrypto-chacha-32bit-2gib-v1-0-e0719ca0be89@genproof.com>
 To: Eric Biggers <ebiggers@kernel.org>, 
  "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>
 Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
  Vladimir Kukharenko <vladimir@genproof.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792010354; l=1694;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792010354; l=2832;
  i=vladimir@genproof.com; s=20261012; h=from:subject:message-id;
- bh=COt3GvWqWgF0CxI9plDeQb5zlZ9CoK/iukULf+JUTd8=;
- b=rnntLP2QYnFZTNLD0UoAJH+5N82xB9Y7wkvlKAyjJogo7+gLjT1eGgZHZSfqMxSU84345q47Q
- +cvgDd+YaR9DXMeWRNqIYZDj/OTr3obKCf6qGcBhKWqNd2UzOwlcVWW
+ bh=TE9/gftYr+enx+PZyGbuYGXK7HjmheuriB0NIElpFUA=;
+ b=WOkimjKS6q9y+tTvfw/GyU0mi88Yj7HdCBcTmTAQGDb1YctRcrBvsYwbJ1Jg3i7NiV+cIVR+a
+ 8pxikIGozpaAWK0ypu8z2t18ifIHtLu8A0hLRdsR/pNvbzEHMC7SEVg
 X-Developer-Key: i=vladimir@genproof.com; a=ed25519;
  pk=EqOzBSKBgFn7ExzKj5f9T8u+1yTrGVlLBwf3fj/sdHM=
 X-Endpoint-Received: by B4 Relay for vladimir@genproof.com/20261012 with
@@ -90,46 +86,93 @@ Reply-To: vladimir@genproof.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 32-bit arm (the scalar code) and 32-bit MIPS, the ChaCha assembly
-treats the length as signed, so lengths of 2 GiB or more are still
-mishandled after "lib/crypto: chacha: Use size_t length", since size_t
-is 32 bits there.
+From: Vladimir Kukharenko <vladimir@genproof.com>
 
-Patch 1 makes the arm assembly use unsigned conditions.  The MIPS
-assembly relies on the sign of the remaining length, so patch 2 instead
-limits each call to 1 GiB from C.
+The MIPS ChaCha assembly, which is chacha_crypt_arch() itself, tests
+the remaining length with signed branches, so for 2 GiB + 64 bytes or
+more it takes the final partial block path too early and processes less
+than requested.  It is only used on 32-bit kernels, where size_t is 32
+bits, so declaring the length as size_t does not avoid this.  No
+in-tree caller passes such lengths.
 
-This applies on top of
-https://lore.kernel.org/r/20261014152604.323310-1-ebiggers@kernel.org
-Feel free to fold these into your series instead.
+The partial block code also keeps the remaining length as a negative
+value, so instead of changing the assembly, rename it to
+chacha_crypt_mips() and add a C chacha_crypt_arch() that passes it at
+most 1 GiB per call.
 
-Tested with the lib/crypto KUnit tests in QEMU on arm (Cortex-A7 and
-Cortex-A15) and 32-bit MIPS, plus a temporary 2 GiB test on the
-Cortex-A7 and QEMU user mode runs of the MIPS assembly.
+Tested in QEMU user mode: with a length of 0xfffff045 the assembly
+processed about 4 KiB and advanced the block counter by 64; with the
+same 1 GiB loop in C, a 1.25 GiB + 4101 byte buffer matches a C
+reference.  An LLM review of this code found the bug.
 
-An LLM review found these bugs; I used an LLM-based assistant to write
-the patches and reviewed its work.
-
+Assisted-by: LLM
+Signed-off-by: Vladimir Kukharenko <vladimir@genproof.com>
 ---
-Vladimir Kukharenko (2):
-      lib/crypto: arm/chacha: Handle lengths of 2 GiB or more in scalar code
-      lib/crypto: mips/chacha: Handle lengths of 2 GiB or more
+ lib/crypto/mips/chacha-core.S |  8 ++++----
+ lib/crypto/mips/chacha.h      | 20 +++++++++++++++++++-
+ 2 files changed, 23 insertions(+), 5 deletions(-)
 
- lib/crypto/arm/chacha-scalar-core.S |  8 ++++----
- lib/crypto/arm/chacha.h             |  2 +-
- lib/crypto/mips/chacha-core.S       |  8 ++++----
- lib/crypto/mips/chacha.h            | 20 +++++++++++++++++++-
- 4 files changed, 28 insertions(+), 10 deletions(-)
----
-base-commit: 40f47fa10a1d19c74f48a13d97b2eb19d5fb938d
-change-id: 20261014-libcrypto-chacha-32bit-2gib-5a3e5e36a061
-prerequisite-message-id: <20261014152604.323310-1-ebiggers@kernel.org>
-prerequisite-patch-id: f66d78884d3d0cf68e1efc9635c084c6b700352f
-prerequisite-patch-id: 64c39ea52fe4e25501701ffa262fb3525af29f0b
+diff --git a/lib/crypto/mips/chacha-core.S b/lib/crypto/mips/chacha-core.S
+index 706aeb850fb0..1a2253d91af7 100644
+--- a/lib/crypto/mips/chacha-core.S
++++ b/lib/crypto/mips/chacha-core.S
+@@ -196,9 +196,9 @@ CONCAT3(.Lchacha_mips_xor_aligned_, PLUS_ONE(x), _b: ;) \
+ .text
+ .set	reorder
+ .set	noat
+-.globl	chacha_crypt_arch
+-.ent	chacha_crypt_arch
+-chacha_crypt_arch:
++.globl	chacha_crypt_mips
++.ent	chacha_crypt_mips
++chacha_crypt_mips:
+ 	.frame	$sp, STACK_SIZE, $ra
+ 
+ 	/* Load number of rounds */
+@@ -414,7 +414,7 @@ chacha_crypt_arch:
+ 
+ 	/* Jump table */
+ 	FOR_EACH_WORD(JMPTBL_UNALIGNED)
+-.end chacha_crypt_arch
++.end chacha_crypt_mips
+ .set at
+ 
+ /* Input arguments
+diff --git a/lib/crypto/mips/chacha.h b/lib/crypto/mips/chacha.h
+index 5a565d0a8c26..15b39c744c28 100644
+--- a/lib/crypto/mips/chacha.h
++++ b/lib/crypto/mips/chacha.h
+@@ -6,8 +6,26 @@
+  */
+ 
+ #include <linux/kernel.h>
++#include <linux/sizes.h>
+ 
+-asmlinkage void chacha_crypt_arch(struct chacha_state *state, u8 *dst,
++asmlinkage void chacha_crypt_mips(struct chacha_state *state, u8 *dst,
+ 				  const u8 *src, size_t bytes, int nrounds);
+ asmlinkage void hchacha_block_arch(const struct chacha_state *state,
+ 				   u32 out[HCHACHA_OUT_WORDS], int nrounds);
++
++static void chacha_crypt_arch(struct chacha_state *state, u8 *dst,
++			      const u8 *src, size_t bytes, int nrounds)
++{
++	/*
++	 * chacha_crypt_mips() compares the length as a signed value, so pass
++	 * it at most 1 GiB at a time.
++	 */
++	do {
++		size_t todo = min(bytes, SZ_1G);
++
++		chacha_crypt_mips(state, dst, src, todo, nrounds);
++		bytes -= todo;
++		src += todo;
++		dst += todo;
++	} while (bytes);
++}
 
-Best regards,
---  
-Vladimir Kukharenko <vladimir@genproof.com>
+-- 
+2.43.0
 
 
 
