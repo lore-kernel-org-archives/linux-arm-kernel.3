@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2000CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651D1CC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFAtSOWeUdpj6kXEPmj1UoPGuO/u8ZjVsAV9hfRb6Vc=; b=nqR1DtsXd2GOoGpITAt6aHbuKK
-	F/atn2JROI3R5pUZGZAUtWUMjDPgAWWMbiBhX6kCsCGvhmcSaUz+O1d7PE/9lSANR8ftx7gR/4dhx
-	MFNAtWmtEFStToTdAKoHLWBZWq2B7gDzoYJCH6R5q8c8mwRppDXJKxlW3KEnxyHyPP2eooSvD6vLT
-	1fMJzZUpOpY+m/ELsz0JgL/gBWHV7/s9Eqk0iq7yDoUl5CtWcvgmfkHVtYAWYzDh29FYPQ1bVt5nB
-	XI1CT1txG73+jp5KGgNeszqFQHueFpcGa9ebdrXNsOvUyVLvhRY0cYBCKmgqvKCqXUx/ULH9+Twer
-	a//D9ifQ==;
+	bh=OqyQwIgQ/OPd1P3CopPmT923OjJym72s0dWzOzTAjxY=; b=wumwxgsoyIWtzElu/6v6xw2yaF
+	KB3HfEHIuV25nBCF4SFXU65Is51WNW+hx8KF+MaEAdtp1k6qDx76Ri3CDa54QBM07wTrljLZA9uw3
+	JpwOUKIx61xxPnp+owHR2Twiqp/6Wef2qN2Sb33RWzog6EY7dW2VKSxrnvApu9/P1V8TJRqpNabs9
+	GoN/macMGZowz5e6QJPzDf3dnd1vNV3zPFVy4fwprHjI8+H3ME16/zSM857iYsgSTdmiCOX6L7CgB
+	Bj/a2oiEEX3ASEgpyUtbkzpZ6i7Uvk3uEtcsP2lvqn6qGscIFBm/lEPBqqdgTa9npZNoN0Wra1xrA
+	QUhR4x9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvR8-0000000F41r-0OXu;
-	Wed, 14 Oct 2026 09:38:14 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xGvQc-0000000F3ZL-1chH;
+	Wed, 14 Oct 2026 09:37:42 +0000
+Received: from mail-wr1-f48.google.com ([209.85.221.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQl-0000000F3fJ-1pL4
+	id 1xGvQZ-0000000F3Y5-1a7I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 09:37:56 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48b0ef9c76eso205795f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:50 -0700 (PDT)
+	Wed, 14 Oct 2026 09:37:41 +0000
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-48afe75f055so218628f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791970669; x=1792575469; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eFAtSOWeUdpj6kXEPmj1UoPGuO/u8ZjVsAV9hfRb6Vc=;
-        b=dG4TZqwisPEo/bffMlivpQQ/tKq5fZH9lN7QE4FYtSMfIl/7e28tDOtzIiJCRgjqmB
-         zxpc40kmEIpZgW3C7oCoK37k8qKY+BhXrD2B9v86mEcd3+DTiZyQN9gI5dqVsO9Zowzz
-         p3kyZ5Mu9IKSBRBA+iHi/osy9Iyjbh5JQm1GdsJOxhmVn7IknPE5Rbmmr91rauuhP7Vy
-         I5N+yxBvBkmM64zRgEH1YVVph5xHvVNkZt4K0Cb5lbwPGArOyuJ6/Q9XHNA0T5679Gb8
-         T39rBQRqWqtqc2p6MDhXTPLiBk8DHi4L4U1go2h5DMRKJhTmk2n9MxRec8auwv274IB8
-         fXRA==
+        d=gmail.com; s=20251104; t=1791970657; x=1792575457; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OqyQwIgQ/OPd1P3CopPmT923OjJym72s0dWzOzTAjxY=;
+        b=EeGM4bnF3hJFS+iQeT/yZ0jyn4vTTSEay7sjMVK0O7xRRvMNi5M1HdiusBJtr9ABhG
+         p3G3Ujqouzc6U4APri5BV/VOYDDIGvV2bKs6PyWKHTUw9AXwd44rS9lM3pFM9lNgJryG
+         XiQNcsX045Rq3EZrisiDyfK9eXSjRN1U053jGtU5Ykbr5AEabXKyscK1R9UbXsyzdlQy
+         l2WfH/qc/eLAz5n3N3c9zRzYgkTgwpKKWM8P/ZN3lczF7aMEY4EnoG7dts+tZSP595lJ
+         HQK6GUeKL4Ko8WK/5MO2YSVTouYNpmnOl4/baUIFMdqSJZ2/AHTBChfdOCuVXpIUZfwV
+         PCRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791970669; x=1792575469;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eFAtSOWeUdpj6kXEPmj1UoPGuO/u8ZjVsAV9hfRb6Vc=;
-        b=A0/8AVHBcQAPUUhOppR6xggqesg5QFcEgbV54hfknMAC1AGgqomfs7Uw72zffSKCnS
-         6yudnLKMh4uxzlnedSuyDphhEkqXu9AmM5fkU/hbA3acC6FPZ/Jdy1PdAIwdvPQwidjd
-         JY7uhAfBLJBB0oMZHPOtGAy/N0SEV7szTnv8yqCwqZ1GehU5n+fFS/AjLHnfJYzneQx1
-         dCga9JOHdQKC4/lKG47e66Q5XKOR4FK2t/uYcErdTF0Ynra3EroenCEBbXy44zGwk7wU
-         WrpwqOi8vl1LR5spEnT8tKW5Mss3Ohiu34ruVYwjPIR0WqfhlXi8XDmxYgzSKZ3JE82Z
-         f3vg==
-X-Forwarded-Encrypted: i=1; AKwUvBxfCzuyAm4td2vTk690vfHx9llRclIlCxh7qxE/mh8sXwNQFfOXcXeEkNyb6bNQv7AVCtQC04W7eMDor659fEUH@lists.infradead.org
-X-Gm-Message-State: AFq9FYKKZJBrGKOUwhq0kssKRP4xsTZdgeHQIybXMqjjyEchdZufagfd
-	21nC68Y3l3ViCeGgoPXBosOHpazEyyuU0D+EYD97x0RyI3720DOE0Pj2
-X-Gm-Gg: AYBFou05svV5t/ksAixGmhuq4q2HS9KykGT0CNSOf+h+KoDds67Fl0KTH3C0rBDf2cU
-	zjYv5/zkzoa2W3J/h1NaKO4AsfTTQaLcl+07ubdLP9uPx8AcWnz0UNUvq1hKM7VvoXva41MJJt2
-	WCpTwU6m+vTEO1fIQLXK9eQPAyQLcTDMmJMJXqK/sVrltRnQvqSsbBnerjezv5r7LD+bl43S8ND
-	AG2E7N4UeYS55Yf8q+4luP5JdPD4sr3dOenHiQf51fpy0qR4Tkdcfv8L6nhLJ59zD7zW9kKOqJe
-	aAYyxHBk4jubMAPUbO0LvLbUuV9i1cwLBYiy7ubW1mG2cnZPGQz+t6qb1WCy4mK2xTOcY8TIaXs
-	aB5yD03fW8QHv7yaHIMu3S2hGgAe19owxxZ1oMPpOAu2aNATanVOWjwmpCByn6fKS6ao5vPUdZ3
-	zbY4B94y5tQymncOUxp6vpUV2vVdTxhWjQqnQGcPUp1U8FwBflW8bDp7Xq2Gk2655tOfJJ6ih3+
-	9FAOvLFlA2MUUxyy1JFHwJGypZs9+m5zZN3aZUNnm2ym6Hghz7upGw6TCwn/Tvd6z8fEQqEAlWe
-	p3YSFjWyqaRIfAbchHGHxQTxp+jKdJ2lKxD4pD+pUkAkrQ==
-X-Received: by 2002:a05:6000:454c:b0:48c:69ba:77d2 with SMTP id ffacd0b85a97d-48dba77d170mr21480297f8f.4.1791970669079;
-        Wed, 14 Oct 2026 02:37:49 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791970657; x=1792575457;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OqyQwIgQ/OPd1P3CopPmT923OjJym72s0dWzOzTAjxY=;
+        b=0TC9MmEgjiqRXplG3zE/JHd4Ut/i4qotQt28wLb1R5J9XUiXS9nqKDPfSBb9fknhVS
+         4dygSN1wMppT+Wi78FZ0AODJ8iZwq1D0oOFmsEyQuhcORTBfeIoG0LusJ8pUWf5ch+PQ
+         qgh/8oW0aOWbzGMxooT9hkE4tnWECQXEvV7VqounWLzMdDyi4fIi8s28OhI3cJuOZpkk
+         95XDvvdlEpgKBEdXlPltj1OyX5OCK8CDdaXPRXRvjQLzuGJqwM316WLhzuiyeMnDaeFo
+         Cyxiu4D0SbmMjY76koMaxQAm1NzdfQ6J9xdR5fPGP5DHBsVfpbeMC3wF9EABN5mp69zY
+         uxyw==
+X-Forwarded-Encrypted: i=1; AKwUvBx0/JaN72WBgcrCRxs0f85VwXWiyjusiOeyEYzIcWs4W8F2xdNVxC/94tEwIE8acrNO0CepS1xnEwEl9TwrZbI8@lists.infradead.org
+X-Gm-Message-State: AFq9FYKXwB1GdL692VZm69RCfzXOeuiYgvCssfmRr0h/IswGjHUHg1/7
+	OG+NE+p74F8SxeThXycYzLjgNXUKm4o4XKWbEVEGydxCW4WCMJOWa7QT
+X-Gm-Gg: AYBFou1+Z+rhs1LMq0ReH+glYJWHfrBUJzc3z5bw9SWKIA4tNpve4VXqYGmFiyHilrB
+	86oIkL1PR9j0ZQaGU84ka48A2SUmkVeVVSv979k6MPVyWpU5HXtAkCZ0dtciEYMAHunKQlQaTPJ
+	Rp5x7eZcUIqmRM2qDVaicUaW3pBotvF4z8LOj4h00CGXqCmOJ3E9F/Ft19+yCNl+ob/xUiCm+4p
+	eH7OVdEV8soCHfIO6L9D4dYrN7vK/jKymc53REVLeR8UN6sbuC7N9UY56QTEcWsVuXoXvwRsbSM
+	zM0LBOlhsEQFElo/0+qKF6B9Eho/8YcgiuvpEkJvyIF+tH7gOqJ8sXYWissq+THBikblvmMM9B5
+	oM6/DtUs3KKH6KYck7ZoKfm+MAKYZ4EglSIZBvxZ0ldVMncpzYklnTDC0sR6fecajqc/hKnC0y1
+	3ReUHmZeYMnYYPbAEGZuL1bvrgk5ZeLQRQuaudmSeuLP5P57mjv+er0FWlsk28YILh9zvtTbSzt
+	Sj0Vdzv7Fp/mtyV8XnNaEstEBVwHKFzLDOyIjqSR3UKro2gAG7CXJHthAg0qZpsk6Ae0DuGYhtM
+	otbOoNp+qi20omDdtD5XH2xcBJu1Ta0DKy0=
+X-Received: by 2002:a05:6000:4b14:b0:48d:eb6b:9d0f with SMTP id ffacd0b85a97d-48deb6b9db7mr2281067f8f.11.1791970656765;
+        Wed, 14 Oct 2026 02:37:36 -0700 (PDT)
 Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.47
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.35
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Oct 2026 02:37:48 -0700 (PDT)
+        Wed, 14 Oct 2026 02:37:36 -0700 (PDT)
 From: Fred Griffoul <griffoul@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>,
@@ -118,17 +119,18 @@ Cc: David Woodhouse <dwmw2@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 10/11] samples/kvm: Add a memory provider sample
-Date: Wed, 14 Oct 2026 09:37:32 +0000
-Message-ID: <20261014093733.90312-11-griffoul@gmail.com>
+Subject: [RFC PATCH v2 01/11] KVM: guest_memfd: Introduce guest memory ops and route native gmem through them
+Date: Wed, 14 Oct 2026 09:37:23 +0000
+Message-ID: <20261014093733.90312-2-griffoul@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261014093733.90312-1-griffoul@gmail.com>
 References: <20261014093733.90312-1-griffoul@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_023752_120397_59D88A69 
-X-CRM114-Status: GOOD (  37.95  )
+X-CRM114-CacheID: sfid-20261014_023739_614179_CA0F62FD 
+X-CRM114-Status: GOOD (  33.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,1100 +145,753 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fred Griffoul <fgriffo@amazon.co.uk>
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-The memory provider interface has no in-tree provider that a VMM can
-use.
+Guest_memfd today has exactly one backing implementation, hard-wired
+into virt/kvm/guest_memfd.c.  To let other subsystems supply guest
+memory from an alternate source -- for example a physically contiguous
+range without struct page, or memory shared with a peer device --
+lift the operations into a small vtable and route the built-in gmem
+through it.
 
-Add mem_provider_sample. It lends a region, either a fixed range given
-with addr= and len= or memory from alloc_contig_pages(), as child files
-that a VMM passes to both guest_memfd and iommufd. A control device
-moves pages between children, takes them back and makes them read
-only, and every change revokes the range. It uses no KVM, dma-buf or
-iommufd symbol.
+Introduce struct kvm_gmem_ops in <linux/kvm_host.h>: bind / unbind /
+get_pfn / populate / invalidate for the memory-side operations, plus
+release / mmap / fallocate for the file-level ones.  Every file that
+can back guest memory is created with one shared struct
+file_operations, kvm_gmem_fops, and file->private_data points at a
+struct kvm_gmem_backing whose ->ops field is the per-instance vtable.
+This mirrors the dma-buf / socket / iommufd pattern: a canonical fops
+identifies the file (is_kvm_gmem_file() is a plain fops-equality
+check), and per-instance behaviour is reached via private_data.
 
-The fixed range is not System RAM, so the sample keeps a write-back
-memremap() of it while a file over it may be mapped into userspace.
-Without it, PAT would make the range uncached on x86, and the VMM's
-mapping would be uncached while the guest's is write-back. The sample
-is x86 only, as guest_memfd accepts providers only there.
+Every callback on kvm_gmem_fops -- release, mmap, fallocate, and the
+memory-side dispatchers already present -- reaches through the ops
+table, so foreign implementations get a private hook for each and
+KVM code never has to distinguish "native vs foreign".  Native gmem
+becomes one implementation of the ops (kvm_gmem_native_ops), with the
+current release/mmap/fallocate bodies moved into
+kvm_gmem_native_release/_mmap/_fallocate.  struct gmem_file gains a
+struct kvm_gmem_backing as its first member so file->private_data can
+be reinterpreted uniformly across implementations.
 
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
+.populate is deliberately left NULL for the built-in path;
+kvm_gmem_populate() keeps an inline fast path because the current
+folio-locked + attribute-checked shape of post_populate() does not fit
+the ops signature cleanly.  Wiring that flow through ops is a separate
+cleanup.  .invalidate is likewise NULL for the built-in path, because
+its invalidations run through inode->i_mapping (truncate, hwpoison,
+free_folio) rather than an out-of-band notification.
+
+kvm_gmem_unbind() gains a struct kvm * parameter so the dispatcher can
+pass it to ops->unbind() without keeping a duplicate copy anywhere.
+The three existing callers in kvm_main.c already have @kvm in scope.
+
+Based on a proof-of-concept by Connor Williamson <connordw@amazon.com>.
+
+Signed-off-by: David Woodhouse (Kiro) <dwmw@amazon.co.uk>
 ---
- MAINTAINERS                       |   1 +
- samples/Kconfig                   |  17 +
- samples/Makefile                  |   1 +
- samples/kvm/Makefile              |   2 +
- samples/kvm/mem_provider_sample.c | 855 ++++++++++++++++++++++++++++++
- samples/kvm/mem_provider_sample.h | 135 +++++
- 6 files changed, 1011 insertions(+)
- create mode 100644 samples/kvm/Makefile
- create mode 100644 samples/kvm/mem_provider_sample.c
- create mode 100644 samples/kvm/mem_provider_sample.h
+ arch/x86/kvm/Makefile    |   5 +-
+ include/linux/kvm_host.h |  82 ++++++++++
+ virt/kvm/guest_memfd.c   | 339 +++++++++++++++++++++++++++++++--------
+ virt/kvm/kvm_main.c      |   8 +-
+ virt/kvm/kvm_mm.h        |   4 +-
+ 5 files changed, 365 insertions(+), 73 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6cab075a3ff7..b6b47e132e16 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17366,6 +17366,7 @@ L:	linux-mm@kvack.org
- S:	Maintained
- F:	include/linux/mem_provider.h
- F:	mm/mem_provider.c
-+F:	samples/kvm/mem_provider_sample.*
+diff --git a/arch/x86/kvm/Makefile b/arch/x86/kvm/Makefile
+index 77337c37324b..36a319f382b7 100644
+--- a/arch/x86/kvm/Makefile
++++ b/arch/x86/kvm/Makefile
+@@ -63,7 +63,10 @@ exports_grep_trailer := --include='*.[ch]' -nrw $(srctree)/virt/kvm $(srctree)/a
+ 				-e kvm_write_track_remove_gfn \
+ 				-e kvm_get_kvm \
+ 				-e kvm_get_kvm_safe \
+-				-e kvm_put_kvm
++				-e kvm_put_kvm \
++				-e kvm_gmem_invalidate_range \
++				-e kvm_gmem_fops \
++				-e file_is_kvm
  
- MEMORY TECHNOLOGY DEVICES (MTD)
- M:	Miquel Raynal <miquel.raynal@bootlin.com>
-diff --git a/samples/Kconfig b/samples/Kconfig
-index a75e8e78330d..3c870bca076a 100644
---- a/samples/Kconfig
-+++ b/samples/Kconfig
-@@ -326,6 +326,23 @@ source "samples/rust/Kconfig"
+ # Force grep to emit a goofy group separator that can in turn be replaced with
+ # the above newline macro (newlines in Make are a nightmare).  Note, grep only
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index ab8cfaec82d3..b33d2f475042 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -621,6 +621,88 @@ static inline bool kvm_slot_has_gmem(const struct kvm_memory_slot *slot)
+ 	return slot && (slot->flags & KVM_MEM_GUEST_MEMFD);
+ }
  
- source "samples/damon/Kconfig"
- 
-+config SAMPLE_KVM_MEM_PROVIDER
-+	tristate "Build sample memory provider -- loadable module only"
-+	depends on MEM_PROVIDER && CONTIG_ALLOC && X86_64 && m
-+	help
-+	  This builds a sample memory provider (include/linux/mem_provider.h).
-+	  Its files can back a guest_memfd and be mapped by iommufd.  Loaded
-+	  with addr= and len=, it lends a fixed physical range that has no
-+	  struct page, for example memory hidden with memmap= on the command
-+	  line.  Without them, it allocates a contiguous region with
-+	  alloc_contig_pages().
-+
-+	  It shows how a memory owner moves pages between VMs, takes them
-+	  back or makes them read only, and how guest_memfd and iommufd
-+	  follow each change.
-+
-+	  If unsure, say N.
-+
- endif # SAMPLES
- 
- config HAVE_SAMPLE_FTRACE_DIRECT
-diff --git a/samples/Makefile b/samples/Makefile
-index 07641e177bd8..e7dfb0bb15a5 100644
---- a/samples/Makefile
-+++ b/samples/Makefile
-@@ -37,6 +37,7 @@ obj-$(CONFIG_SAMPLE_TPS6594_PFSM)	+= pfsm/
- subdir-$(CONFIG_SAMPLE_WATCHDOG)	+= watchdog
- subdir-$(CONFIG_SAMPLE_WATCH_QUEUE)	+= watch_queue
- obj-$(CONFIG_SAMPLE_KMEMLEAK)		+= kmemleak/
-+obj-$(CONFIG_SAMPLE_KVM_MEM_PROVIDER)	+= kvm/
- obj-$(CONFIG_SAMPLE_CORESIGHT_SYSCFG)	+= coresight/
- obj-$(CONFIG_SAMPLE_FPROBE)		+= fprobe/
- obj-$(CONFIG_SAMPLES_RUST)		+= rust/
-diff --git a/samples/kvm/Makefile b/samples/kvm/Makefile
-new file mode 100644
-index 000000000000..2ce44fc0aa8e
---- /dev/null
-+++ b/samples/kvm/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_SAMPLE_KVM_MEM_PROVIDER) += mem_provider_sample.o
-diff --git a/samples/kvm/mem_provider_sample.c b/samples/kvm/mem_provider_sample.c
-new file mode 100644
-index 000000000000..8180959ab78f
---- /dev/null
-+++ b/samples/kvm/mem_provider_sample.c
-@@ -0,0 +1,855 @@
-+// SPDX-License-Identifier: GPL-2.0
++#ifdef CONFIG_KVM_GUEST_MEMFD
 +/*
-+ * mem_provider_sample - a sample memory provider.
++ * struct kvm_gmem_ops - vtable a guest_memfd backing implementation exposes.
 + *
-+ * The module owns a region of physical memory and lends it through provider
-+ * files (include/linux/mem_provider.h).  A VMM passes the same file to
-+ * KVM_CREATE_GUEST_MEMFD, for the guest, and to IOMMU_IOAS_MAP_FILE, for the
-+ * guest's devices.  The module calls neither KVM nor iommufd: it answers
-+ * "what is page N" and revokes a range when the answer changes.
++ * Every file that can back KVM guest memory -- KVM's own guest_memfd (see
++ * kvm_gmem_create()) and any other subsystem opting in -- is created with
++ * the shared kvm_gmem_fops (see is_kvm_gmem_file()).  file->private_data on
++ * such a file points at a struct kvm_gmem_backing whose ->ops field is the
++ * per-instance vtable below.  KVM never looks any further; the rest of the
++ * per-file state (allocator, refcount, private xarray, ...) is up to the
++ * implementation and is reached via container_of() from the backing.
 + *
-+ * The region is either:
++ * The memory-side callbacks (bind, unbind, get_pfn, populate, invalidate)
++ * are the reason the interface exists.  The file-level callbacks (release,
++ * mmap, fallocate, ...) are dispatched by kvm_gmem_fops so that every
++ * implementation gets a private hook -- see the dispatchers in
++ * virt/kvm/guest_memfd.c.
 + *
-+ *  - a fixed range given with addr= and len=, which has no struct page, for
-+ *    example memory hidden from the kernel with memmap= on the command line;
-+ *  - or, without those parameters, a range from alloc_contig_pages().
++ * get_pfn() contract:
++ *  - *pfn is the host PFN backing @gfn.  It need not have a struct page.
++ *  - *max_order is the largest order KVM may use to map starting at @gfn.
++ *    The implementation MUST clamp it to the physical contiguity and the
++ *    HPA/GPA alignment of the backing, so KVM never builds a huge SPTE that
++ *    spans discontiguous physical memory.
++ *  - If *page is non-NULL on return the caller owns that page reference and
++ *    is responsible for put_page() after use.  If *page is left NULL the PFN
++ *    is treated as non-refcounted, and its lifetime is owned by the
++ *    implementation across bind()/unbind().
 + *
-+ * The control device /dev/mem_provider_sample creates provider files.
-+ * SETUP makes one file over the whole region.  NEW_CHILD carves part of the
-+ * region into a child file, and MOVE, DONATE and RECLAIM change which child
-+ * has which page.  A page can also be taken away or made read only.  See
-+ * mem_provider_sample.h.
-+ *
-+ * Confidential VMs are not supported.
++ * Memory intended to back guest RAM MUST be reported as E820_TYPE_RAM by the
++ * host so KVM maps it write-back (and applies the memory-encryption bit on
++ * encrypted hosts) rather than treating it as MMIO.
 + */
-+
-+#include <linux/anon_inodes.h>
-+#include <linux/bitmap.h>
-+#include <linux/file.h>
-+#include <linux/fs.h>
-+#include <linux/gfp.h>
-+#include <linux/io.h>
-+#include <linux/mem_provider.h>
-+#include <linux/miscdevice.h>
-+#include <linux/mm.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/slab.h>
-+
-+#include "mem_provider_sample.h"
-+
-+static unsigned long long addr;
-+module_param(addr, ullong, 0444);
-+MODULE_PARM_DESC(addr,
-+		 "Physical base of a region with no struct page (optional)");
-+
-+static unsigned long long len;
-+module_param(len, ullong, 0444);
-+MODULE_PARM_DESC(len, "Size in bytes of that region (optional)");
-+
-+/*
-+ * One provider file.
-+ *
-+ * Lock order: mps_root.lock, then mps_info.lock, then the consumers' locks
-+ * (taken by their revoke callbacks).  get_page() takes no lock, so a
-+ * consumer can call it from its fault paths and its revoke callback.
-+ */
-+struct mps_info {
-+	struct mem_provider_file mpf;
-+	struct mutex lock;		/* the bitmaps */
-+
-+	unsigned long base_pfn;
-+	unsigned long npages;
-+	struct page *cma_pages;		/* from alloc_contig_pages(), or NULL */
-+	bool fixed;			/* a SETUP file over addr=/len= */
-+	bool mmap_capable;
-+	bool fixed_wb;			/* holds a ref on the fixed-region WB alias */
-+
-+	unsigned long *absent;		/* taken away by CTL_SET_PRESENT */
-+	unsigned long *readonly;
++struct kvm_gmem_ops {
++	/* Memory operations. */
++	int (*bind)(struct file *file, struct kvm *kvm,
++		    struct kvm_memory_slot *slot, loff_t offset);
++	void (*unbind)(struct file *file, struct kvm *kvm,
++		       struct kvm_memory_slot *slot);
++	int (*get_pfn)(struct file *file, struct kvm *kvm,
++		       struct kvm_memory_slot *slot, gfn_t gfn,
++		       kvm_pfn_t *pfn, struct page **page, int *max_order);
++	int (*populate)(struct file *file, struct kvm *kvm,
++			struct kvm_memory_slot *slot, gfn_t gfn,
++			kvm_pfn_t *pfn, struct page *src_page, int order);
++	void (*invalidate)(struct file *file, struct kvm *kvm,
++			   struct kvm_memory_slot *slot,
++			   gfn_t start, gfn_t end);
 +
 +	/*
-+	 * A child of the root: its first page in the root, and the pages it
-+	 * has.  NULL @owned for a file made by SETUP, which has all its pages.
++	 * File-level operations, dispatched by kvm_gmem_fops.  These are
++	 * per-instance analogues of the like-named file_operations members,
++	 * with the same semantics.  A NULL entry causes the dispatcher to
++	 * fail the file-level operation with an appropriate errno.
 +	 */
-+	unsigned long root_index;
-+	unsigned long *owned;
-+	struct list_head root_link;	/* mps_root.children, mps_root.lock */
++	void (*release)(struct file *file);
++	int (*mmap)(struct file *file, struct vm_area_struct *vma);
++	long (*fallocate)(struct file *file, int mode, loff_t offset,
++			  loff_t len);
++	long (*ioctl)(struct file *file, unsigned int cmd, unsigned long arg);
 +};
 +
 +/*
-+ * The root region, owned by the control device.  Changes of ownership run
-+ * under @lock, which is taken before any child's lock.
++ * Anchor placed at file->private_data of every guest_memfd-backing file.
++ * KVM's own gmem embeds it as the first member of struct gmem_file; other
++ * implementations do the same in their own per-fd state.  is_kvm_gmem_file()
++ * (fops-identity check) proves the reinterpretation is safe.
 + */
-+static struct mps_root {
-+	struct mutex lock;		/* everything below */
-+	unsigned long base_pfn;
-+	unsigned long npages;
-+	struct page *cma_pages;
-+	unsigned long *owned;		/* pages that a child has */
-+	unsigned long *donated;		/* pages kept at the root */
-+	struct list_head children;
-+	/*
-+	 * The addr=/len= region is used either by one SETUP file or by the
-+	 * root, never by both, so that its frames have one owner.
-+	 */
-+	bool fixed_setup;
-+	/* Files over the fixed region that may be mapped into userspace. */
-+	unsigned int fixed_wb_users;
-+} mps_root;
-+
-+/*
-+ * A write-back mapping of the addr=/len= region, held while any file over it
-+ * may be mapped into userspace (counted by mps_root.fixed_wb_users).  Without
-+ * it, PAT makes the range uncached on x86, and the VMM's mapping would be
-+ * uncached while the guest's is write-back.  PAT may still give a weaker type
-+ * if the MTRRs do not mark the range write-back.
-+ */
-+static void *mps_fixed_wb;
-+
-+/* A file over the fixed region whose pages the host may map. */
-+static bool mps_over_fixed_mappable(struct mps_info *info)
-+{
-+	return addr && len && !info->cma_pages && info->mmap_capable;
-+}
-+
-+/*
-+ * Hold a write-back mapping of the fixed region while any file over it may be
-+ * mapped into userspace.  Called under mps_root.lock.
-+ */
-+static int mps_fixed_wb_get(void)
-+{
-+	if (mps_root.fixed_wb_users == 0) {
-+		mps_fixed_wb = memremap(addr, len, MEMREMAP_WB);
-+		if (!mps_fixed_wb)
-+			return -ENOMEM;
-+	}
-+	mps_root.fixed_wb_users++;
-+	return 0;
-+}
-+
-+static void mps_fixed_wb_put(void)
-+{
-+	if (--mps_root.fixed_wb_users == 0) {
-+		memunmap(mps_fixed_wb);
-+		mps_fixed_wb = NULL;
-+	}
-+}
-+
-+/* Does @info have page @index now?  Called with or without info->lock. */
-+static bool mps_page_present(struct mps_info *info, unsigned long index)
-+{
-+	if (info->owned && !test_bit(index, info->owned))
-+		return false;
-+	return !test_bit(index, info->absent);
-+}
-+
-+/*
-+ * The length of the run from @index of pages with the same state as @index:
-+ * present, and the same read-only bit.
-+ */
-+static unsigned long mps_run(struct mps_info *info, unsigned long index)
-+{
-+	unsigned long end = info->npages;
-+
-+	end = min(end, find_next_bit(info->absent, info->npages, index + 1));
-+	if (info->owned)
-+		end = min(end, find_next_zero_bit(info->owned, info->npages,
-+						  index + 1));
-+	if (test_bit(index, info->readonly))
-+		end = min(end, find_next_zero_bit(info->readonly, info->npages,
-+						  index + 1));
-+	else
-+		end = min(end, find_next_bit(info->readonly, info->npages,
-+					     index + 1));
-+	return end - index;
-+}
-+
-+/* ---- Provider operations ------------------------------------------------ */
-+
-+static struct mem_provider_file *
-+mps_mp_attach(struct file *file, loff_t size)
-+{
-+	struct mps_info *info = file->private_data;
-+
-+	if (size > (loff_t)info->npages << PAGE_SHIFT)
-+		return ERR_PTR(-EINVAL);
-+	return &info->mpf;
-+}
-+
-+static void mps_mp_detach(struct mem_provider_file *mpf)
-+{
-+}
-+
-+/*
-+ * Reads the bitmaps without info->lock.  A change runs under the lock and
-+ * revokes the range afterwards, so an answer that a change makes out of date
-+ * is dropped by the consumer.
-+ */
-+static int mps_mp_get_page(struct mem_provider_file *mpf, pgoff_t index,
-+			   unsigned long *pfn, int *max_order, u32 *attrs)
-+{
-+	struct mps_info *info = container_of(mpf, struct mps_info, mpf);
-+	unsigned long run;
-+
-+	if (index >= info->npages)
-+		return -EINVAL;
-+
-+	if (!mps_page_present(info, index))
-+		return -EFAULT;
-+
-+	/* The aligned block around @index must be one run. */
-+	run = mps_run(info, index);
-+	while (*max_order) {
-+		unsigned long first = ALIGN_DOWN(index, 1UL << *max_order);
-+
-+		if (first + (1UL << *max_order) <= index + run &&
-+		    (first == index || mps_page_present(info, first)) &&
-+		    mps_run(info, first) >= 1UL << *max_order)
-+			break;
-+		(*max_order)--;
-+	}
-+
-+	*pfn = info->base_pfn + index;
-+	if (test_bit(index, info->readonly))
-+		*attrs |= MEM_PROVIDER_ATTR_READONLY;
-+	/* The creator of the file decides whether the host may map it. */
-+	if (!info->mmap_capable)
-+		*attrs |= MEM_PROVIDER_ATTR_NO_USER_MAP;
-+	return 0;
-+}
-+
-+static const struct mem_provider_ops mps_mp_ops = {
-+	.attach		= mps_mp_attach,
-+	.detach		= mps_mp_detach,
-+	.get_page	= mps_mp_get_page,
++struct kvm_gmem_backing {
++	const struct kvm_gmem_ops *ops;
 +};
 +
-+/* Tell the consumers that pages [start, end) of @info changed. */
-+static void mps_revoke(struct mps_info *info, unsigned long start,
-+		       unsigned long end)
++/* Defined in guest_memfd.c; single canonical fops for every gmem file. */
++extern struct file_operations kvm_gmem_fops;
++
++static inline bool is_kvm_gmem_file(struct file *file)
 +{
-+	if (end > start)
-+		mem_provider_revoke(&info->mpf, (loff_t)start << PAGE_SHIFT,
-+				    (loff_t)(end - start) << PAGE_SHIFT);
++	return file && file->f_op == &kvm_gmem_fops;
 +}
 +
-+/* ---- Provider file ------------------------------------------------------ */
++#endif /* CONFIG_KVM_GUEST_MEMFD */
 +
-+/* Byte range [offset, offset + len) of @info as page indices. */
-+static int mps_range(struct mps_info *info, u64 offset, u64 len,
-+		     unsigned long *start, unsigned long *end)
-+{
-+	if (!len || !PAGE_ALIGNED(offset) || !PAGE_ALIGNED(len))
-+		return -EINVAL;
-+	*start = offset >> PAGE_SHIFT;
-+	*end = *start + (len >> PAGE_SHIFT);
-+	if (*end > info->npages || *end < *start)
-+		return -EINVAL;
-+	return 0;
-+}
-+
-+static void mps_set_readonly(struct mps_info *info, unsigned long start,
-+			     unsigned long end, bool readonly)
-+{
-+	mutex_lock(&info->lock);
-+	if (readonly)
-+		bitmap_set(info->readonly, start, end - start);
-+	else
-+		bitmap_clear(info->readonly, start, end - start);
-+	mps_revoke(info, start, end);
-+	mutex_unlock(&info->lock);
-+}
-+
-+static void mps_set_present(struct mps_info *info, unsigned long start,
-+			    unsigned long end, bool present)
-+{
-+	mutex_lock(&info->lock);
-+	if (present)
-+		bitmap_clear(info->absent, start, end - start);
-+	else
-+		bitmap_set(info->absent, start, end - start);
-+	mps_revoke(info, start, end);
-+	mutex_unlock(&info->lock);
-+}
-+
-+static long mps_get_stats(struct mps_info *info, void __user *uarg)
-+{
-+	struct mps_stats st = {};
-+
-+	mutex_lock(&info->lock);
-+	st.region_offset = (u64)info->root_index << PAGE_SHIFT;
-+	st.region_len = (u64)info->npages << PAGE_SHIFT;
-+	st.owned_pages = info->owned ?
-+		bitmap_weight(info->owned, info->npages) : info->npages;
-+	st.absent_pages = bitmap_weight(info->absent, info->npages);
-+	st.readonly_pages = bitmap_weight(info->readonly, info->npages);
-+	mutex_unlock(&info->lock);
-+
-+	return copy_to_user(uarg, &st, sizeof(st)) ? -EFAULT : 0;
-+}
-+
-+/*
-+ * A child fd is read-only to its holder: only GET_STATS.  The owner changes a
-+ * child's pages through the control device (MPS_CTL_SET_PRESENT and
-+ * MPS_CTL_SET_READONLY), so a VMM that holds a child cannot.
-+ */
-+static long mps_file_ioctl(struct file *file, unsigned int cmd,
-+			   unsigned long arg)
-+{
-+	struct mps_info *info = file->private_data;
-+	void __user *uarg = (void __user *)arg;
-+
-+	if (cmd == MPS_GET_STATS)
-+		return mps_get_stats(info, uarg);
-+	return -ENOTTY;
-+}
-+
-+/* Every consumer has detached: each one holds a reference to the file. */
-+static int mps_file_release(struct inode *inode, struct file *file)
-+{
-+	struct mps_info *info = file->private_data;
-+	unsigned long i;
-+
+ static inline bool kvm_slot_dirty_track_enabled(const struct kvm_memory_slot *slot)
+ {
+ 	return slot->flags & KVM_MEM_LOG_DIRTY_PAGES;
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index db57c5766ab6..057f90eb835a 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -22,11 +22,22 @@ static struct vfsmount *kvm_gmem_mnt;
+  * specific to its associated VM, e.g. memslots=>gmem bindings.
+  */
+ struct gmem_file {
 +	/*
-+	 * A child gives the pages it has back to the root.  Pages it donated
-+	 * stay at the root, and pages moved out belong to another child.
++	 * MUST be first: file->private_data points here.
++	 * is_kvm_gmem_file(file) proves this reinterpretation is safe.
 +	 */
-+	if (info->owned) {
-+		mutex_lock(&mps_root.lock);
-+		list_del(&info->root_link);
-+		for_each_set_bit(i, info->owned, info->npages)
-+			__clear_bit(info->root_index + i, mps_root.owned);
-+		mutex_unlock(&mps_root.lock);
-+		bitmap_free(info->owned);
-+	}
-+	if (addr && len && !info->cma_pages) {
-+		mutex_lock(&mps_root.lock);
-+		if (info->fixed)
-+			mps_root.fixed_setup = false;
-+		if (info->fixed_wb)
-+			mps_fixed_wb_put();
-+		mutex_unlock(&mps_root.lock);
-+	}
++	struct kvm_gmem_backing backing;
 +
-+	if (info->cma_pages)
-+		free_contig_range(info->base_pfn, info->npages);
-+	bitmap_free(info->absent);
-+	bitmap_free(info->readonly);
-+	kfree(info);
+ 	struct kvm *kvm;
+ 	struct xarray bindings;
+ 	struct list_head entry;
+ };
+ 
++static inline struct gmem_file *gmem_file_of(struct file *file)
++{
++	return container_of(file->private_data, struct gmem_file, backing);
++}
++
+ struct gmem_inode {
+ 	struct shared_policy policy;
+ 	struct inode vfs_inode;
+@@ -296,7 +307,7 @@ static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
+ 	return r;
+ }
+ 
+-static long kvm_gmem_fallocate(struct file *file, int mode, loff_t offset,
++static long kvm_gmem_native_fallocate(struct file *file, int mode, loff_t offset,
+ 			       loff_t len)
+ {
+ 	int ret;
+@@ -320,9 +331,10 @@ static long kvm_gmem_fallocate(struct file *file, int mode, loff_t offset,
+ 	return ret;
+ }
+ 
+-static int kvm_gmem_release(struct inode *inode, struct file *file)
++static void kvm_gmem_native_release(struct file *file)
+ {
+-	struct gmem_file *f = file->private_data;
++	struct inode *inode = file_inode(file);
++	struct gmem_file *f = gmem_file_of(file);
+ 	struct kvm_memory_slot *slot;
+ 	struct kvm *kvm = f->kvm;
+ 	unsigned long index;
+@@ -367,7 +379,6 @@ static int kvm_gmem_release(struct inode *inode, struct file *file)
+ 
+ 	kvm_put_kvm(kvm);
+ 
+-	return 0;
+ }
+ 
+ static inline struct file *kvm_gmem_get_file(struct kvm_memory_slot *slot)
+@@ -466,7 +477,7 @@ static const struct vm_operations_struct kvm_gmem_vm_ops = {
+ #endif
+ };
+ 
+-static int kvm_gmem_mmap(struct file *file, struct vm_area_struct *vma)
++static int kvm_gmem_native_mmap(struct file *file, struct vm_area_struct *vma)
+ {
+ 	if (!kvm_gmem_supports_mmap(file_inode(file)))
+ 		return -ENODEV;
+@@ -481,12 +492,61 @@ static int kvm_gmem_mmap(struct file *file, struct vm_area_struct *vma)
+ 	return 0;
+ }
+ 
+-static struct file_operations kvm_gmem_fops = {
+-	.mmap		= kvm_gmem_mmap,
++/* File-op dispatchers — thin: they all go through the backing's ops table. */
++
++static int kvm_gmem_fops_release(struct inode *inode, struct file *file)
++{
++	struct kvm_gmem_backing *b = file->private_data;
++
++	if (b && b->ops && b->ops->release)
++		b->ops->release(file);
 +	return 0;
 +}
 +
-+static const struct mem_provider_fops mps_file_fops = {
-+	.fops = {
-+		.owner		= THIS_MODULE,
-+		.fop_flags	= FOP_MEM_PROVIDER,
-+		.release	= mps_file_release,
-+		.unlocked_ioctl	= mps_file_ioctl,
-+		.compat_ioctl	= compat_ptr_ioctl,
-+	},
-+	.ops = &mps_mp_ops,
-+};
-+
-+/*
-+ * Make a provider file over [base_pfn, base_pfn + npages).  The fd is
-+ * reserved but not installed, so that the caller can finish setting up
-+ * @info before another thread can reach it.
-+ */
-+static int mps_new_file(unsigned long base_pfn, unsigned long npages,
-+			u32 flags, struct mps_info **infop,
-+			 struct file **filep)
++static int kvm_gmem_fops_mmap(struct file *file, struct vm_area_struct *vma)
 +{
-+	struct mps_info *info;
-+	struct file *file;
-+	int fd, ret;
++	struct kvm_gmem_backing *b = file->private_data;
 +
-+	info = kzalloc_obj(*info);
-+	if (!info)
-+		return -ENOMEM;
-+	mem_provider_file_init(&info->mpf);
-+	info->base_pfn = base_pfn;
-+	info->npages = npages;
-+	info->mmap_capable = flags & MPS_FLAG_MMAP_CAPABLE;
-+	info->absent = bitmap_zalloc(npages, GFP_KERNEL);
-+	info->readonly = bitmap_zalloc(npages, GFP_KERNEL);
-+	if (!info->absent || !info->readonly) {
-+		ret = -ENOMEM;
-+		goto err_free;
-+	}
-+	mutex_init(&info->lock);
-+	INIT_LIST_HEAD(&info->root_link);
-+
-+	fd = get_unused_fd_flags(O_CLOEXEC);
-+	if (fd < 0) {
-+		ret = fd;
-+		goto err_free;
-+	}
-+	file = anon_inode_getfile("[mem-provider-sample]", &mps_file_fops.fops,
-+				  info, O_RDWR);
-+	if (IS_ERR(file)) {
-+		put_unused_fd(fd);
-+		ret = PTR_ERR(file);
-+		goto err_free;
-+	}
-+	*infop = info;
-+	*filep = file;
-+	return fd;
-+
-+err_free:
-+	bitmap_free(info->absent);
-+	bitmap_free(info->readonly);
-+	kfree(info);
-+	return ret;
++	if (!b || !b->ops || !b->ops->mmap)
++		return -ENODEV;
++	return b->ops->mmap(file, vma);
 +}
 +
-+static struct page *mps_alloc_region(unsigned long npages)
++static long kvm_gmem_fops_fallocate(struct file *file, int mode,
++				    loff_t offset, loff_t len)
 +{
-+	struct page *pages;
++	struct kvm_gmem_backing *b = file->private_data;
 +
-+	pages = alloc_contig_pages(npages, GFP_KERNEL | __GFP_ZERO,
-+				   numa_node_id(), NULL);
-+	return pages;
++	if (!b || !b->ops || !b->ops->fallocate)
++		return -EOPNOTSUPP;
++	return b->ops->fallocate(file, mode, offset, len);
 +}
 +
-+static long mps_ctl_setup(void __user *uarg)
++static long kvm_gmem_fops_ioctl(struct file *file, unsigned int cmd,
++				unsigned long arg)
 +{
-+	struct mps_setup setup;
-+	unsigned long base_pfn, npages;
-+	struct page *pages = NULL;
-+	struct mps_info *info;
-+	struct file *file;
-+	int fd;
++	struct kvm_gmem_backing *b = file->private_data;
 +
-+	if (copy_from_user(&setup, uarg, sizeof(setup)))
-+		return -EFAULT;
-+	if ((setup.flags & ~MPS_FLAG_MMAP_CAPABLE) || setup.pad)
-+		return -EINVAL;
-+
-+	if (addr && len) {
-+		/* The fixed region has one owner: this file or the root. */
-+		mutex_lock(&mps_root.lock);
-+		if (mps_root.fixed_setup || mps_root.npages) {
-+			mutex_unlock(&mps_root.lock);
-+			return -EBUSY;
-+		}
-+		fd = mps_new_file(addr >> PAGE_SHIFT, len >> PAGE_SHIFT,
-+				  setup.flags, &info, &file);
-+		if (fd >= 0 && mps_over_fixed_mappable(info)) {
-+			if (mps_fixed_wb_get()) {
-+				put_unused_fd(fd);
-+				fput(file);
-+				fd = -ENOMEM;
-+			} else {
-+				info->fixed_wb = true;
-+			}
-+		}
-+		if (fd >= 0) {
-+			info->fixed = true;
-+			mps_root.fixed_setup = true;
-+		}
-+		mutex_unlock(&mps_root.lock);
-+		if (fd >= 0)
-+			fd_install(fd, file);
-+		return fd;
-+	}
-+
-+	if (!setup.size || !PAGE_ALIGNED(setup.size))
-+		return -EINVAL;
-+	npages = setup.size >> PAGE_SHIFT;
-+	pages = mps_alloc_region(npages);
-+	if (!pages)
-+		return -ENOMEM;
-+	base_pfn = page_to_pfn(pages);
-+
-+	fd = mps_new_file(base_pfn, npages, setup.flags, &info, &file);
-+	if (fd < 0) {
-+		free_contig_range(base_pfn, npages);
-+		return fd;
-+	}
-+	info->cma_pages = pages;
-+	fd_install(fd, file);
-+	return fd;
-+}
-+
-+/* ---- Root and children -------------------------------------------------- */
-+
-+/* Create the root on the first NEW_CHILD, from addr=/len= or of @size. */
-+static int mps_root_ensure(u64 size)
-+{
-+	struct page *pages = NULL;
-+	unsigned long npages;
-+
-+	lockdep_assert_held(&mps_root.lock);
-+	if (mps_root.npages)
-+		return 0;
-+
-+	if (addr && len) {
-+		if (mps_root.fixed_setup)
-+			return -EBUSY;
-+		mps_root.base_pfn = addr >> PAGE_SHIFT;
-+		npages = len >> PAGE_SHIFT;
-+	} else {
-+		if (!size || !PAGE_ALIGNED(size))
-+			return -EINVAL;
-+		npages = size >> PAGE_SHIFT;
-+		pages = mps_alloc_region(npages);
-+		if (!pages)
-+			return -ENOMEM;
-+		mps_root.base_pfn = page_to_pfn(pages);
-+	}
-+	mps_root.owned = bitmap_zalloc(npages, GFP_KERNEL);
-+	mps_root.donated = bitmap_zalloc(npages, GFP_KERNEL);
-+	if (!mps_root.owned || !mps_root.donated) {
-+		bitmap_free(mps_root.owned);
-+		bitmap_free(mps_root.donated);
-+		mps_root.owned = NULL;
-+		mps_root.donated = NULL;
-+		if (pages)
-+			free_contig_range(page_to_pfn(pages), npages);
-+		return -ENOMEM;
-+	}
-+	mps_root.cma_pages = pages;
-+	mps_root.npages = npages;
-+	return 0;
-+}
-+
-+static void mps_root_teardown(void)
-+{
-+	if (!mps_root.npages)
-+		return;
-+	WARN_ON(!list_empty(&mps_root.children));
-+	if (mps_root.cma_pages)
-+		free_contig_range(mps_root.base_pfn, mps_root.npages);
-+	bitmap_free(mps_root.owned);
-+	bitmap_free(mps_root.donated);
-+}
-+
-+/* A page-aligned byte range of the root as page indices [first, last). */
-+static int mps_root_range(u64 offset, u64 length, unsigned long *first,
-+			  unsigned long *last)
-+{
-+	if (!length || !PAGE_ALIGNED(offset) || !PAGE_ALIGNED(length))
-+		return -EINVAL;
-+	*first = offset >> PAGE_SHIFT;
-+	*last = *first + (length >> PAGE_SHIFT);
-+	if (*last <= *first || *last > mps_root.npages)
-+		return -EINVAL;
-+	return 0;
-+}
-+
-+/* Return a referenced child file made by NEW_CHILD. */
-+static struct file *mps_get_child(int fd, struct mps_info **infop)
-+{
-+	struct file *file = fget(fd);
-+
-+	if (!file)
-+		return ERR_PTR(-EBADF);
-+	if (file->f_op != &mps_file_fops.fops ||
-+	    !((struct mps_info *)file->private_data)->owned) {
-+		fput(file);
-+		return ERR_PTR(-EINVAL);
-+	}
-+	*infop = file->private_data;
-+	return file;
-+}
-+
-+static long mps_ctl_new_child(void __user *uarg)
-+{
-+	struct mps_new_child nc;
-+	unsigned long first, last, i, grant = 0;
-+	struct mps_info *info;
-+	unsigned long *owned;
-+	struct file *file;
-+	int fd, ret;
-+
-+	if (copy_from_user(&nc, uarg, sizeof(nc)))
-+		return -EFAULT;
-+	if ((nc.flags & ~MPS_FLAG_MMAP_CAPABLE) || nc.pad)
-+		return -EINVAL;
-+
-+	mutex_lock(&mps_root.lock);
-+	ret = mps_root_ensure(nc.offset + nc.len);
-+	if (ret)
-+		goto out_unlock;
-+	ret = mps_root_range(nc.offset, nc.len, &first, &last);
-+	if (ret)
-+		goto out_unlock;
-+
-+	/* A child that would get no page is likely a mistake. */
-+	for (i = first; i < last; i++)
-+		if (!test_bit(i, mps_root.owned) &&
-+		    !test_bit(i, mps_root.donated))
-+			grant++;
-+	if (!grant) {
-+		ret = -EBUSY;
-+		goto out_unlock;
-+	}
-+
-+	owned = bitmap_zalloc(last - first, GFP_KERNEL);
-+	if (!owned) {
-+		ret = -ENOMEM;
-+		goto out_unlock;
-+	}
-+	fd = mps_new_file(mps_root.base_pfn + first, last - first, nc.flags,
-+			  &info, &file);
-+	if (fd < 0) {
-+		bitmap_free(owned);
-+		ret = fd;
-+		goto out_unlock;
-+	}
-+	if (mps_over_fixed_mappable(info)) {
-+		if (mps_fixed_wb_get()) {
-+			put_unused_fd(fd);
-+			fput(file);
-+			bitmap_free(owned);
-+			ret = -ENOMEM;
-+			goto out_unlock;
-+		}
-+		info->fixed_wb = true;
-+	}
-+
-+	/* No other thread can reach the child until fd_install(). */
-+	for (i = first; i < last; i++) {
-+		if (test_bit(i, mps_root.owned) ||
-+		    test_bit(i, mps_root.donated))
-+			continue;
-+		__set_bit(i - first, owned);
-+		__set_bit(i, mps_root.owned);
-+	}
-+	info->owned = owned;
-+	info->root_index = first;
-+	list_add(&info->root_link, &mps_root.children);
-+	mutex_unlock(&mps_root.lock);
-+	fd_install(fd, file);
-+	return fd;
-+
-+out_unlock:
-+	mutex_unlock(&mps_root.lock);
-+	return ret;
-+}
-+
-+/* Take [first, last) of the root from @info.  Called under mps_root.lock. */
-+static void mps_child_lose(struct mps_info *info, unsigned long first,
-+			   unsigned long last)
-+{
-+	unsigned long s = first - info->root_index;
-+	unsigned long e = last - info->root_index;
-+
-+	mutex_lock(&info->lock);
-+	bitmap_clear(info->owned, s, e - s);
-+	mps_revoke(info, s, e);
-+	mutex_unlock(&info->lock);
-+	bitmap_clear(mps_root.owned, first, last - first);
-+}
-+
-+/* Give [first, last) of the root to @info.  Called under mps_root.lock. */
-+static void mps_child_gain(struct mps_info *info, unsigned long first,
-+			   unsigned long last)
-+{
-+	unsigned long s = first - info->root_index;
-+	unsigned long e = last - info->root_index;
-+
-+	mutex_lock(&info->lock);
-+	bitmap_set(info->owned, s, e - s);
-+	mps_revoke(info, s, e);
-+	mutex_unlock(&info->lock);
-+	bitmap_set(mps_root.owned, first, last - first);
-+}
-+
-+static bool mps_child_covers(struct mps_info *info, unsigned long first,
-+			     unsigned long last)
-+{
-+	return first >= info->root_index &&
-+	       last <= info->root_index + info->npages;
-+}
-+
-+static bool mps_child_owns(struct mps_info *info, unsigned long first,
-+			   unsigned long last)
-+{
-+	unsigned long s = first - info->root_index;
-+	unsigned long e = last - info->root_index;
-+
-+	return mps_child_covers(info, first, last) &&
-+	       find_next_zero_bit(info->owned, e, s) >= e;
-+}
-+
-+static long mps_ctl_move(void __user *uarg)
-+{
-+	struct mps_move mv;
-+	struct mps_info *src, *dst;
-+	unsigned long first, last;
-+	struct file *sf, *df;
-+	long ret;
-+
-+	if (copy_from_user(&mv, uarg, sizeof(mv)))
-+		return -EFAULT;
-+	sf = mps_get_child(mv.src_fd, &src);
-+	if (IS_ERR(sf))
-+		return PTR_ERR(sf);
-+	df = mps_get_child(mv.dst_fd, &dst);
-+	if (IS_ERR(df)) {
-+		fput(sf);
-+		return PTR_ERR(df);
-+	}
-+
-+	mutex_lock(&mps_root.lock);
-+	ret = mps_root_range(mv.offset, mv.len, &first, &last);
-+	if (ret)
-+		goto out;
-+	if (src == dst || !mps_child_owns(src, first, last) ||
-+	    !mps_child_covers(dst, first, last)) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+	/* Revoke from the source before the destination gets the pages. */
-+	mps_child_lose(src, first, last);
-+	mps_child_gain(dst, first, last);
-+out:
-+	mutex_unlock(&mps_root.lock);
-+	fput(df);
-+	fput(sf);
-+	return ret;
-+}
-+
-+static long mps_ctl_donate(void __user *uarg, bool reclaim)
-+{
-+	struct mps_donate d;
-+	unsigned long first, last;
-+	struct mps_info *info;
-+	struct file *file;
-+	long ret;
-+
-+	if (copy_from_user(&d, uarg, sizeof(d)))
-+		return -EFAULT;
-+	if (d.pad)
-+		return -EINVAL;
-+	file = mps_get_child(d.fd, &info);
-+	if (IS_ERR(file))
-+		return PTR_ERR(file);
-+
-+	mutex_lock(&mps_root.lock);
-+	ret = mps_root_range(d.offset, d.len, &first, &last);
-+	if (ret)
-+		goto out;
-+	if (!reclaim) {
-+		if (!mps_child_owns(info, first, last)) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
-+		mps_child_lose(info, first, last);
-+		bitmap_set(mps_root.donated, first, last - first);
-+	} else {
-+		if (!mps_child_covers(info, first, last) ||
-+		    find_next_zero_bit(mps_root.donated, last, first) < last) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
-+		bitmap_clear(mps_root.donated, first, last - first);
-+		mps_child_gain(info, first, last);
-+	}
-+out:
-+	mutex_unlock(&mps_root.lock);
-+	fput(file);
-+	return ret;
-+}
-+
-+/*
-+ * CTL_SET_READONLY and CTL_SET_PRESENT change a child's pages, by the owner on
-+ * the control device.  A VMM that holds the child fd cannot, so it cannot undo
-+ * them.
-+ */
-+static long mps_ctl_set_range(void __user *uarg, bool readonly)
-+{
-+	struct mps_ctl_range cr;
-+	unsigned long start, end;
-+	struct mps_info *info;
-+	struct file *file;
-+	int ret;
-+
-+	if (copy_from_user(&cr, uarg, sizeof(cr)))
-+		return -EFAULT;
-+	if (cr.value > 1)
-+		return -EINVAL;
-+	file = mps_get_child(cr.fd, &info);
-+	if (IS_ERR(file))
-+		return PTR_ERR(file);
-+	ret = mps_range(info, cr.offset, cr.len, &start, &end);
-+	if (!ret) {
-+		if (readonly)
-+			mps_set_readonly(info, start, end, cr.value);
-+		else
-+			mps_set_present(info, start, end, cr.value);
-+	}
-+	fput(file);
-+	return ret;
-+}
-+
-+static long mps_ctl_ioctl(struct file *file, unsigned int cmd,
-+			  unsigned long arg)
-+{
-+	void __user *uarg = (void __user *)arg;
-+
-+	switch (cmd) {
-+	case MPS_SETUP:
-+		return mps_ctl_setup(uarg);
-+	case MPS_NEW_CHILD:
-+		return mps_ctl_new_child(uarg);
-+	case MPS_MOVE:
-+		return mps_ctl_move(uarg);
-+	case MPS_DONATE:
-+		return mps_ctl_donate(uarg, false);
-+	case MPS_RECLAIM:
-+		return mps_ctl_donate(uarg, true);
-+	case MPS_CTL_SET_READONLY:
-+		return mps_ctl_set_range(uarg, true);
-+	case MPS_CTL_SET_PRESENT:
-+		return mps_ctl_set_range(uarg, false);
-+	default:
++	if (!b || !b->ops || !b->ops->ioctl)
 +		return -ENOTTY;
-+	}
++	return b->ops->ioctl(file, cmd, arg);
 +}
 +
-+static const struct file_operations mps_ctl_fops = {
-+	.owner		= THIS_MODULE,
-+	.unlocked_ioctl	= mps_ctl_ioctl,
-+	.compat_ioctl	= compat_ptr_ioctl,
++/*
++ * A single struct file_operations for every guest_memfd-backing file --
++ * KVM's built-in gmem and any subsystem-supplied backing alike.  All
++ * callbacks that can vary per implementation dispatch through the
++ * kvm_gmem_backing at file->private_data.
++ */
++struct file_operations kvm_gmem_fops = {
+ 	.open		= generic_file_open,
+-	.release	= kvm_gmem_release,
+-	.fallocate	= kvm_gmem_fallocate,
++	.release	= kvm_gmem_fops_release,
++	.mmap		= kvm_gmem_fops_mmap,
++	.fallocate	= kvm_gmem_fops_fallocate,
++	.unlocked_ioctl	= kvm_gmem_fops_ioctl,
++	.compat_ioctl	= kvm_gmem_fops_ioctl,
+ };
++EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_gmem_fops);
+ 
+ static int kvm_gmem_migrate_folio(struct address_space *mapping,
+ 				  struct folio *dst, struct folio *src,
+@@ -557,6 +617,43 @@ bool __weak kvm_arch_supports_gmem_init_shared(struct kvm *kvm)
+ 	return true;
+ }
+ 
++static int  kvm_gmem_native_bind(struct file *file, struct kvm *kvm,
++				 struct kvm_memory_slot *slot, loff_t offset);
++static void kvm_gmem_native_unbind(struct file *slot_file, struct kvm *kvm,
++				   struct kvm_memory_slot *slot);
++static int  kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
++				    struct kvm_memory_slot *slot, gfn_t gfn,
++				    kvm_pfn_t *pfn, struct page **page,
++				    int *max_order);
++static void kvm_gmem_native_release(struct file *file);
++static int  kvm_gmem_native_mmap(struct file *file,
++				 struct vm_area_struct *vma);
++static long kvm_gmem_native_fallocate(struct file *file, int mode,
++				      loff_t offset, loff_t len);
++
++static const struct kvm_gmem_ops kvm_gmem_native_ops = {
++	/* Memory operations. */
++	.bind      = kvm_gmem_native_bind,
++	.unbind    = kvm_gmem_native_unbind,
++	.get_pfn   = kvm_gmem_native_get_pfn,
++	/*
++	 * .populate is deliberately NULL: kvm_gmem_populate() has an inline
++	 * fast path that drives post_populate() with the folio locked and
++	 * the memory-attribute check in the right place; that flow doesn't
++	 * fit the current ops signature cleanly.  Wiring it through ops
++	 * is a separate cleanup.
++	 *
++	 * .invalidate is deliberately NULL: invalidations for the built-in
++	 * implementation flow through inode->i_mapping (truncate, hwpoison,
++	 * free_folio) and don't need an out-of-band callback from KVM.
++	 */
++
++	/* File-level operations (dispatched by kvm_gmem_fops). */
++	.release   = kvm_gmem_native_release,
++	.mmap      = kvm_gmem_native_mmap,
++	.fallocate = kvm_gmem_native_fallocate,
 +};
 +
-+static struct miscdevice mps_dev = {
-+	.minor	= MISC_DYNAMIC_MINOR,
-+	.name	= "mem_provider_sample",
-+	.fops	= &mps_ctl_fops,
-+};
-+
-+static int __init mps_init(void)
+ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ {
+ 	static const char *name = "[kvm-gmem]";
+@@ -605,7 +702,8 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ 	}
+ 
+ 	file->f_flags |= O_LARGEFILE;
+-	file->private_data = f;
++	file->private_data = &f->backing;
++	f->backing.ops = &kvm_gmem_native_ops;
+ 
+ 	kvm_get_kvm(kvm);
+ 	f->kvm = kvm;
+@@ -640,34 +738,27 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+ 	return __kvm_gmem_create(kvm, size, flags);
+ }
+ 
+-int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+-		  unsigned int fd, uoff_t offset)
++static const struct kvm_gmem_ops *kvm_gmem_get_ops(struct file *file)
 +{
-+	int ret;
++	if (!is_kvm_gmem_file(file))
++		return NULL;
++	return ((struct kvm_gmem_backing *)file->private_data)->ops;
++}
 +
-+	if ((addr || len) &&
-+	    (!addr || !len || !PAGE_ALIGNED(addr) || !PAGE_ALIGNED(len))) {
-+		pr_err("mem_provider_sample: addr= and len= must both be set and page aligned\n");
++static int kvm_gmem_native_bind(struct file *file, struct kvm *kvm,
++				struct kvm_memory_slot *slot, loff_t offset)
+ {
+ 	uoff_t size = slot->npages << PAGE_SHIFT;
++	struct gmem_file *f = gmem_file_of(file);
++	struct inode *inode = file_inode(file);
+ 	unsigned long start, end;
+-	struct gmem_file *f;
+-	struct inode *inode;
+-	struct file *file;
+ 	int r = -EINVAL;
+ 
+-	BUILD_BUG_ON(sizeof(gpa_t) != sizeof(offset));
+-	BUILD_BUG_ON(sizeof(gfn_t) != sizeof(slot->gmem.pgoff));
+-
+-	file = fget(fd);
+-	if (!file)
+-		return -EBADF;
+-
+-	if (file->f_op != &kvm_gmem_fops)
+-		goto err;
+-
+-	f = file->private_data;
+ 	if (f->kvm != kvm)
+-		goto err;
+-
+-	inode = file_inode(file);
 +		return -EINVAL;
+ 
+-	if (!PAGE_ALIGNED(offset) || offset + size > i_size_read(inode))
+-		goto err;
++	if (offset < 0 || !PAGE_ALIGNED(offset) || offset + size > i_size_read(inode))
++		return -EINVAL;
+ 
+ 	filemap_invalidate_lock(inode->i_mapping);
+ 
+@@ -677,14 +768,13 @@ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 	if (!xa_empty(&f->bindings) &&
+ 	    xa_find(&f->bindings, &start, end - 1, XA_PRESENT)) {
+ 		r = -EEXIST;
+-		filemap_invalidate_unlock(inode->i_mapping);
+-		goto err;
++		goto out;
+ 	}
+ 
+ 	/*
+-	 * memslots of flag KVM_MEM_GUEST_MEMFD are immutable to change, so
+-	 * kvm_gmem_bind() must occur on a new memslot.  Because the memslot
+-	 * is not visible yet, kvm_gmem_get_pfn() is guaranteed to see the file.
++	 * memslots of flag KVM_MEM_GUEST_MEMFD are immutable, so bind must
++	 * occur on a new memslot.  Because the memslot is not visible yet,
++	 * kvm_gmem_get_pfn() is guaranteed to see the file.
+ 	 */
+ 	WRITE_ONCE(slot->gmem.file, file);
+ 	slot->gmem.pgoff = start;
+@@ -692,15 +782,51 @@ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		slot->flags |= KVM_MEMSLOT_GMEM_ONLY;
+ 
+ 	xa_store_range(&f->bindings, start, end - 1, slot, GFP_KERNEL);
++	r = 0;
++out:
+ 	filemap_invalidate_unlock(inode->i_mapping);
++	return r;
++}
++
++int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
++		  unsigned int fd, uoff_t offset)
++{
++	const struct kvm_gmem_ops *ops;
++	struct file *file;
++	int r;
++
++	BUILD_BUG_ON(sizeof(gpa_t) != sizeof(offset));
++	BUILD_BUG_ON(sizeof(gfn_t) != sizeof(slot->gmem.pgoff));
++
++	file = fget(fd);
++	if (!file)
++		return -EBADF;
++
++	ops = kvm_gmem_get_ops(file);
++	if (!ops || !ops->bind || !ops->get_pfn) {
++		r = -EINVAL;
++		goto out;
 +	}
 +
-+	mutex_init(&mps_root.lock);
-+	INIT_LIST_HEAD(&mps_root.children);
++	if (!PAGE_ALIGNED(offset)) {
++		r = -EINVAL;
++		goto out;
++	}
+ 
+ 	/*
+-	 * Drop the reference to the file, even on success.  The file pins KVM,
+-	 * not the other way 'round.  Active bindings are invalidated if the
+-	 * file is closed before memslots are destroyed.
++	 * On success .bind() associates the fd with @kvm and (if the
++	 * implementation needs it) records the reference that makes the fd
++	 * pin the VM.  A .bind() that returns success is trusted to have
++	 * done so; there is no separate ownership check here.
++	 */
++	r = ops->bind(file, kvm, slot, offset);
++out:
++	/*
++	 * Drop the reference to the file even on success.  The file pins
++	 * KVM, not the other way 'round: it is the implementation's job to
++	 * invalidate its bindings if the fd is closed before the memslots
++	 * are destroyed.
+ 	 */
+-	r = 0;
+-err:
+ 	fput(file);
+ 	return r;
+ }
+@@ -719,21 +845,15 @@ static void __kvm_gmem_unbind(struct kvm_memory_slot *slot, struct gmem_file *f)
+ 	WRITE_ONCE(slot->gmem.file, NULL);
+ }
+ 
+-void kvm_gmem_unbind(struct kvm_memory_slot *slot)
++static void kvm_gmem_native_unbind(struct file *slot_file, struct kvm *kvm,
++				   struct kvm_memory_slot *slot)
+ {
+-	/*
+-	 * Nothing to do if the underlying file was _already_ closed, as
+-	 * kvm_gmem_release() invalidates and nullifies all bindings.
+-	 */
+-	if (!slot->gmem.file)
+-		return;
+-
+ 	CLASS(gmem_get_file, file)(slot);
+ 
+ 	/*
+-	 * However, if the file is _being_ closed, then the bindings need to be
+-	 * removed as kvm_gmem_release() might not run until after the memslot
+-	 * is freed.  Note, modifying the bindings is safe even though the file
++	 * If the file is _being_ closed, then the bindings need to be removed
++	 * as kvm_gmem_release() might not run until after the memslot is
++	 * freed.  Note, modifying the bindings is safe even though the file
+ 	 * is dying as kvm_gmem_release() nullifies slot->gmem.file under
+ 	 * slots_lock, and only puts its reference to KVM after destroying all
+ 	 * bindings.  I.e. reaching this point means kvm_gmem_release() hasn't
+@@ -741,15 +861,41 @@ void kvm_gmem_unbind(struct kvm_memory_slot *slot)
+ 	 * until the caller drops slots_lock.
+ 	 */
+ 	if (!file) {
+-		__kvm_gmem_unbind(slot, slot->gmem.file->private_data);
++		__kvm_gmem_unbind(slot, gmem_file_of(slot_file));
+ 		return;
+ 	}
+ 
+ 	filemap_invalidate_lock(file->f_mapping);
+-	__kvm_gmem_unbind(slot, file->private_data);
++	__kvm_gmem_unbind(slot, gmem_file_of(file));
+ 	filemap_invalidate_unlock(file->f_mapping);
+ }
+ 
++void kvm_gmem_unbind(struct kvm *kvm, struct kvm_memory_slot *slot)
++{
++	const struct kvm_gmem_ops *ops;
++	struct file *file;
 +
-+	ret = misc_register(&mps_dev);
++	/*
++	 * Nothing to do if the underlying file was _already_ closed, as
++	 * kvm_gmem_release() invalidates and nullifies all bindings.
++	 */
++	file = READ_ONCE(slot->gmem.file);
++	if (!file)
++		return;
++
++	ops = kvm_gmem_get_ops(file);
++	if (ops && ops->unbind)
++		ops->unbind(file, kvm, slot);
++
++	/*
++	 * .unbind() may clear slot->gmem.file itself (as the built-in gmem
++	 * ops do, under filemap_invalidate_lock, to serialise against
++	 * release/invalidate); catch the ones that don't.
++	 */
++	if (READ_ONCE(slot->gmem.file))
++		WRITE_ONCE(slot->gmem.file, NULL);
++}
++
+ /* Returns a locked folio on success.  */
+ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ 					struct kvm_memory_slot *slot,
+@@ -757,7 +903,7 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ 					int *max_order)
+ {
+ 	struct file *slot_file = READ_ONCE(slot->gmem.file);
+-	struct gmem_file *f = file->private_data;
++	struct gmem_file *f = gmem_file_of(file);
+ 	struct folio *folio;
+ 
+ 	if (file != slot_file) {
+@@ -787,17 +933,14 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ 	return folio;
+ }
+ 
+-int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+-		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order)
++static int kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
++				   struct kvm_memory_slot *slot, gfn_t gfn,
++				   kvm_pfn_t *pfn, struct page **page,
++				   int *max_order)
+ {
+ 	pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 	struct folio *folio;
+-	int r = 0;
+-
+-	CLASS(gmem_get_file, file)(slot);
+-	if (!file)
+-		return -EFAULT;
++	int r;
+ 
+ 	folio = __kvm_gmem_get_pfn(file, slot, index, pfn, max_order);
+ 	if (IS_ERR(folio))
+@@ -809,7 +952,6 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 	}
+ 
+ 	r = kvm_gmem_prepare_folio(kvm, slot, gfn, folio);
+-
+ 	folio_unlock(folio);
+ 
+ 	if (!r)
+@@ -819,6 +961,24 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 
+ 	return r;
+ }
++
++int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
++		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
++		     int *max_order)
++{
++	const struct kvm_gmem_ops *ops;
++
++	CLASS(gmem_get_file, file)(slot);
++	if (!file)
++		return -EFAULT;
++
++	ops = kvm_gmem_get_ops(file);
++	if (!ops || !ops->get_pfn)
++		return -EFAULT;
++
++	*page = NULL;
++	return ops->get_pfn(file, kvm, slot, gfn, pfn, page, max_order);
++}
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_gmem_get_pfn);
+ 
+ #ifdef CONFIG_HAVE_KVM_ARCH_GMEM_POPULATE
+@@ -860,11 +1020,51 @@ static long __kvm_gmem_populate(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 	return ret;
+ }
+ 
++static int kvm_gmem_populate_one(const struct kvm_gmem_ops *ops,
++				      struct file *file, struct kvm *kvm,
++				      struct kvm_memory_slot *slot, gfn_t gfn,
++				      struct page *src_page,
++				      kvm_gmem_populate_cb post_populate,
++				      void *opaque)
++{
++	struct page *ignored_page = NULL;
++	kvm_pfn_t pfn;
++	int ret;
++
++	/*
++	 * Resolve the PFN via the ops.  A populate() op may also copy
++	 * @src_page into the backing before the arch post_populate() step
++	 * (e.g. SNP LAUNCH_UPDATE); otherwise fall back to get_pfn().
++	 */
++	if (ops->populate)
++		ret = ops->populate(file, kvm, slot, gfn, &pfn,
++				    src_page, 0);
++	else
++		ret = ops->get_pfn(file, kvm, slot, gfn, &pfn,
++				   &ignored_page, NULL);
 +	if (ret)
 +		return ret;
-+	return 0;
++
++	ret = post_populate(kvm, gfn, pfn, src_page, opaque);
++
++	/*
++	 * Populate does not consume a refcount on the destination page.
++	 * Drop @page (if any) AFTER post_populate() so the PFN cannot be
++	 * freed and reallocated behind an arch hook (e.g. RMPUPDATE) that
++	 * is still operating on it.
++	 */
++	if (ignored_page)
++		put_page(ignored_page);
++
++	return ret;
 +}
-+module_init(mps_init);
 +
-+static void __exit mps_exit(void)
-+{
-+	misc_deregister(&mps_dev);
-+	mps_root_teardown();
-+	if (mps_fixed_wb)
-+		memunmap(mps_fixed_wb);
-+}
-+module_exit(mps_exit);
+ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src,
+ 		       long npages, bool may_writeback_src,
+ 		       kvm_gmem_populate_cb post_populate, void *opaque)
+ {
+ 	struct kvm_memory_slot *slot;
++	const struct kvm_gmem_ops *ops;
+ 	int ret = 0;
+ 	long i;
+ 
+@@ -884,6 +1084,8 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src,
+ 	if (!file)
+ 		return -EFAULT;
+ 
++	ops = kvm_gmem_get_ops(file);
 +
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Sample memory provider for guest_memfd and iommufd");
-diff --git a/samples/kvm/mem_provider_sample.h b/samples/kvm/mem_provider_sample.h
-new file mode 100644
-index 000000000000..0e036d1c76a4
---- /dev/null
-+++ b/samples/kvm/mem_provider_sample.h
-@@ -0,0 +1,135 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _SAMPLES_KVM_MEM_PROVIDER_SAMPLE_H
-+#define _SAMPLES_KVM_MEM_PROVIDER_SAMPLE_H
-+
-+#include <linux/ioctl.h>
-+#include <linux/types.h>
-+
-+/*
-+ * A sample memory provider (include/linux/mem_provider.h).
-+ *
-+ * Every fd that this module returns is a provider file.  Pass it as
-+ * resource_fd to KVM_CREATE_GUEST_MEMFD with GUEST_MEMFD_FLAG_USE_RESOURCE,
-+ * and as fd to IOMMU_IOAS_MAP_FILE.  Both consumers follow every change that
-+ * the ioctls below make.
-+ */
-+
-+/* Flags for struct mps_setup and struct mps_new_child */
-+/* The host may map the pages; otherwise they are NO_USER_MAP */
-+#define MPS_FLAG_MMAP_CAPABLE	(1u << 0)
-+
-+/*
-+ * ioctl on /dev/mem_provider_sample: create a provider fd.
-+ *
-+ * If the module was loaded with addr= and len=, the fd covers that fixed
-+ * range, which has no struct page, and @size is ignored.  The fixed range
-+ * then has one owner.  SETUP fails with -EBUSY while a SETUP file uses it,
-+ * or once the first MPS_NEW_CHILD has made it the root of the children, which
-+ * lasts until the module is unloaded.  MPS_NEW_CHILD fails with -EBUSY while
-+ * a SETUP file uses it.  Otherwise the fd covers @size bytes from
-+ * alloc_contig_pages().
-+ */
-+struct mps_setup {
-+	__u32 flags;	/* MPS_FLAG_* */
-+	__u32 pad;
-+	__u64 size;	/* bytes, page aligned */
-+};
-+
-+#define MPS_IOCTL_BASE		'P'
-+#define MPS_SETUP \
-+	_IOW(MPS_IOCTL_BASE, 1, struct mps_setup)
-+
-+/*
-+ * ---- A tree of owners --------------------------------------------------
-+ *
-+ * The control device owns one region, the root.  NEW_CHILD carves part of
-+ * it into a new provider fd for one VM.  The owner can MOVE pages between
-+ * children, DONATE pages to the root, so that no child has them, and
-+ * RECLAIM them.  Each change revokes the range, so KVM and iommufd follow.
-+ *
-+ * The owner changes a child's pages through the control device
-+ * (CTL_SET_READONLY, CTL_SET_PRESENT).  A child fd is read-only to its
-+ * holder: a VMM can only GET_STATS, never change the memory.
-+ */
-+
-+/*
-+ * ioctl on /dev/mem_provider_sample: carve [@offset, @offset + @len) of the
-+ * root into a new child fd.  The child gets every page of the range that no
-+ * other child has and that is not donated.  Ranges of children may overlap,
-+ * which is how a page can MOVE between them.  Returns the child fd.
-+ */
-+struct mps_new_child {
-+	__u32 flags;	/* MPS_FLAG_* */
-+	__u32 pad;
-+	__u64 offset;	/* bytes into the root, page aligned */
-+	__u64 len;	/* bytes, page aligned */
-+};
-+
-+#define MPS_NEW_CHILD \
-+	_IOW(MPS_IOCTL_BASE, 5, struct mps_new_child)
-+
-+/*
-+ * ioctl on /dev/mem_provider_sample: move [@offset, @offset + @len) of the root
-+ * from child @src_fd to child @dst_fd.  @src_fd must have every page of the
-+ * range, and the range must be inside @dst_fd's.  The pages are revoked from
-+ * the source before the destination gets them, so the consumers of the two
-+ * children never map them at the same time.
-+ */
-+struct mps_move {
-+	__s32 src_fd;
-+	__s32 dst_fd;
-+	__u64 offset;	/* bytes into the root, page aligned */
-+	__u64 len;	/* bytes, page aligned */
-+};
-+
-+#define MPS_MOVE \
-+	_IOW(MPS_IOCTL_BASE, 6, struct mps_move)
-+
-+/*
-+ * ioctls on /dev/mem_provider_sample: DONATE takes [@offset, @offset + @len) of
-+ * the root from child @fd, which must have all of it, and keeps it at the
-+ * root.  RECLAIM gives a donated range to child @fd, whose range must
-+ * contain it.  The sample does not scrub the pages.
-+ */
-+struct mps_donate {
-+	__s32 fd;
-+	__u32 pad;
-+	__u64 offset;	/* bytes into the root, page aligned */
-+	__u64 len;	/* bytes, page aligned */
-+};
-+
-+#define MPS_DONATE \
-+	_IOW(MPS_IOCTL_BASE, 7, struct mps_donate)
-+#define MPS_RECLAIM \
-+	_IOW(MPS_IOCTL_BASE, 8, struct mps_donate)
-+
-+/* ioctl on a child fd: read the child's state, for tests. */
-+struct mps_stats {
-+	__u64 region_offset;	/* the child's range in the root */
-+	__u64 region_len;
-+	__u64 owned_pages;	/* pages the child has */
-+	__u64 absent_pages;	/* pages taken away by CTL_SET_PRESENT */
-+	__u64 readonly_pages;
-+};
-+
-+#define MPS_GET_STATS \
-+	_IOR(MPS_IOCTL_BASE, 10, struct mps_stats)
-+
-+/*
-+ * ioctls on /dev/mem_provider_sample: CTL_SET_READONLY or CTL_SET_PRESENT on
-+ * child @fd, by the owner.  @value is the readonly or present value, and
-+ * @offset and @len are a byte range within the child, page aligned.
-+ */
-+struct mps_ctl_range {
-+	__s32 fd;
-+	__u32 value;
-+	__u64 offset;	/* bytes into the child, page aligned */
-+	__u64 len;	/* bytes, page aligned */
-+};
-+
-+#define MPS_CTL_SET_READONLY \
-+	_IOW(MPS_IOCTL_BASE, 11, struct mps_ctl_range)
-+#define MPS_CTL_SET_PRESENT \
-+	_IOW(MPS_IOCTL_BASE, 12, struct mps_ctl_range)
-+
-+#endif /* _SAMPLES_KVM_MEM_PROVIDER_SAMPLE_H */
+ 	npages = min_t(ulong, slot->npages - (start_gfn - slot->base_gfn), npages);
+ 	for (i = 0; i < npages; i++) {
+ 		struct page *src_page = NULL;
+@@ -906,8 +1108,13 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src,
+ 			}
+ 		}
+ 
+-		ret = __kvm_gmem_populate(kvm, slot, file, start_gfn + i, src_page,
+-					  post_populate, opaque);
++		if (ops && (ops->populate || ops->get_pfn != kvm_gmem_native_get_pfn))
++			ret = kvm_gmem_populate_one(ops, file, kvm, slot,
++						    start_gfn + i, src_page,
++						    post_populate, opaque);
++		else
++			ret = __kvm_gmem_populate(kvm, slot, file, start_gfn + i,
++						  src_page, post_populate, opaque);
+ 
+ 		if (src_page)
+ 			put_page(src_page);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index e44c20c04961..3af5270d2a90 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -935,7 +935,7 @@ static void kvm_destroy_dirty_bitmap(struct kvm_memory_slot *memslot)
+ static void kvm_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
+ {
+ 	if (slot->flags & KVM_MEM_GUEST_MEMFD)
+-		kvm_gmem_unbind(slot);
++		kvm_gmem_unbind(kvm, slot);
+ 
+ 	kvm_destroy_dirty_bitmap(slot);
+ 
+@@ -1747,7 +1747,7 @@ static void kvm_commit_memory_region(struct kvm *kvm,
+ 		 * flags-only changes on guest_memfd slots should be impossible.
+ 		 */
+ 		if (WARN_ON_ONCE(old->flags & KVM_MEM_GUEST_MEMFD))
+-			kvm_gmem_unbind(old);
++			kvm_gmem_unbind(kvm, old);
+ 
+ 		/*
+ 		 * The final quirk.  Free the detached, old slot, but only its
+@@ -2118,7 +2118,7 @@ static int kvm_set_memory_region(struct kvm *kvm,
+ 
+ out_unbind:
+ 	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+-		kvm_gmem_unbind(new);
++		kvm_gmem_unbind(kvm, new);
+ out:
+ 	kfree(new);
+ 	return r;
+@@ -5475,7 +5475,7 @@ bool file_is_kvm(struct file *file)
+ {
+ 	return file && file->f_op == &kvm_vm_fops;
+ }
+-EXPORT_SYMBOL_FOR_KVM_INTERNAL(file_is_kvm);
++EXPORT_SYMBOL_GPL(file_is_kvm);
+ 
+ static int kvm_dev_ioctl_create_vm(unsigned long type)
+ {
+diff --git a/virt/kvm/kvm_mm.h b/virt/kvm/kvm_mm.h
+index 7510ca915dd1..ea0fe74e89d4 100644
+--- a/virt/kvm/kvm_mm.h
++++ b/virt/kvm/kvm_mm.h
+@@ -76,7 +76,7 @@ void kvm_gmem_exit(void);
+ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args);
+ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		  unsigned int fd, uoff_t offset);
+-void kvm_gmem_unbind(struct kvm_memory_slot *slot);
++void kvm_gmem_unbind(struct kvm *kvm, struct kvm_memory_slot *slot);
+ #else
+ static inline int kvm_gmem_init(struct module *module)
+ {
+@@ -91,7 +91,7 @@ static inline int kvm_gmem_bind(struct kvm *kvm,
+ 	return -EIO;
+ }
+ 
+-static inline void kvm_gmem_unbind(struct kvm_memory_slot *slot)
++static inline void kvm_gmem_unbind(struct kvm *kvm, struct kvm_memory_slot *slot)
+ {
+ 	WARN_ON_ONCE(1);
+ }
 -- 
 2.47.3
 
