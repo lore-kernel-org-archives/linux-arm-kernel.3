@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0025ACC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66799CC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hdVNPXX+mEqB47rmv2rjd64sgDnMvE06aSM5G9mVz1Q=; b=Jpr3jXEbDQP4jJOYxYnpZSY9vX
-	kQ877i1IMUeDSA+fgE3uBf5eDmG40D3HrASRVst86CxwDAclsQuKXqmQftMNdDKh9G34cmoETlEMN
-	SGpfuVELoWjURKGwmbiS0n8GwZBNob4xr6xHxt3w6c+mvpms8MQC3xIkJPHEwVAds5t12ndOo0FJk
-	9ewA2OwiC3jF9phhXM8L1vTfXrnVcqtYj4hWzJ80TfAq7xRePC3PGK7CZYkxz8R7h7pCOCn0MUtV1
-	uCtQWdbWYU0gNSKk6W/GcH0Qo2KA1S0hUtWptS9dYvbyFD+rU4UQqpsT8652Yw0ciXLGLp3lpB4fb
-	LlpZ8KLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rTPTETMsSIKG1nCvbwUzCvIhMmhA0CGFDd8J2LjIxAM=; b=S7RjHCAVyAKpYAFH+JkeaKrLs+
+	Q1iK2VMivDAd+zK/3xJSSJZo352/LlHyGHMLs5Y/DMU5zh0JcmJhBtPBi5xYIL+FJTAZopLKjhZjl
+	YjGEYQgaYotzDWbMAsDL0KlIy41VSDudGQV7FanBDHy7a4oqoaHygArFqEAe2Wj7Zx168DHC5Gk6m
+	PMaYLRx3RkR8Zs74vIpNVyxrF1oXHOhEpmhOidtELnuVth288SGrKk39Av3F9Oe6cZkvK1qdbxXkj
+	mPJvKLzhZUfA8xfVBMIVLlB6EuWxu/FWdBZi630uSK23XEUiecqospqX3RpSxR2cJdOiYaaADFiM2
+	3y8KvBxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpkR-0000000ERSL-3PXN;
-	Wed, 14 Oct 2026 03:33:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGp6r-0000000ENxe-1mD5;
+	Wed, 14 Oct 2026 02:52:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpkG-0000000ERRy-3YtE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 03:33:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADBE4601DB;
-	Wed, 14 Oct 2026 03:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 917051F000FF;
-	Wed, 14 Oct 2026 03:33:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791948815;
-	bh=hdVNPXX+mEqB47rmv2rjd64sgDnMvE06aSM5G9mVz1Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=i6DaU3oEW6StgoHEucwsLxIexAeZ6IfTkIAWUzyuJItqz3+iBwYQqVURxC9BOknm2
-	 PFNfZSpN0pXT85BVlOuQFr/sWC0PiKR/7K4vkRb8atx3vaNn3zMLiaEVFrrc8/gFPT
-	 JgaAxqDoRlPK2NF4KnL/tuIisBr3htNrM7c0Daz5S/oxI0qkuPhF7krv7KiUFf8y5n
-	 LWXCZkBaLCitGg38/rLNnX0sTotKxkA5EYUQPWBqgOk6t3BtsYkVTpWWagyp3mj+h9
-	 KA1hUVpyTzzJbIFizddSFgE3XAwdvphkFbd7C7CLJCx4bmeYNTkLIhMX90Fkh+03Vd
-	 lN35IydPUHeaw==
-Subject: Re: [PATCH net] net: stmmac: xgmac: do not treat TBU as a TX event
-From: netdev-bot+sashiko@kernel.org
-To: zhangfeionline@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com,
- chenchuangyu@xiaomi.com, horms@kernel.org, zhangpengfei16@xiaomi.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 14 Oct 2026 03:33:34 +0000
-Message-ID: <179194881415.434549.5017437610608933310@kernel.org>
-In-Reply-To: <20261013024747.2688984-1-zhangfeionline@gmail.com>
-References: <20261013024747.2688984-1-zhangfeionline@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xGp6j-0000000ENvA-3sT6;
+	Wed, 14 Oct 2026 02:52:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 424B243F53;
+	Wed, 14 Oct 2026 02:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1AA65C2BCFC;
+	Wed, 14 Oct 2026 02:52:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791946365;
+	bh=4mf3d6sU0aMYs3dvfYoWTi9XaytMg1W3upkQYvSJubg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=r88DEOlMh39rtsTSWvV1BQDCmRCIz6ytBy1lDXhiShL/spHsZd1bBtk+ygDccB2s+
+	 tUy1UoCYIbqH+dG518rzv9yaGBG1YF8AHuEiRSPPeLW5mm9qWrUXp2ievgabjalgIu
+	 63h623ruYEVmolMhoW5GGEfEP6Z/a7OBr7xqar6qOmcGjyHRkB1eH1Z6d5phv3XSsM
+	 3zF0/dvsPeqErR2yfGkHTUnQxz5m6YB9WgbNUaA4UbTgzXKW/JreHmGXi2c8hVm2pE
+	 5+YDb7QJn7B6W0JWEbBl1L8DsCr/+euP5FDanMUpXyzSW6LXgsp7qgbVHeIbuAwMTT
+	 SR+Y3I6wY+GsA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC0A5CC6B1D;
+	Wed, 14 Oct 2026 02:52:44 +0000 (UTC)
+From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
+Date: Wed, 14 Oct 2026 10:50:59 +0800
+Subject: [PATCH v10 1/6] net: wwan: t9xx: Add PCIe core
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261014-t9xx_driver_v1-v10-1-4d0dde3613f5@compal.com>
+References: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
+In-Reply-To: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
+ Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
+ Minano Tseng <Minano.tseng@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Robert Yu <robert_yu@compal.com>, 
+ Jeff Chang <Jeff_Chang@compal.com>
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791946362; l=41630;
+ i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
+ bh=cYB+YZI58UVZAI3G3TIko9SMEMM+eDVP90ud60HOPQo=;
+ b=Pu8YdASQNhYW4NQDEfidkx2w6/CsfG40bbb/J44H3K0yiraSj8Sp5kI8O5Eky1DR+pYYAdR0K
+ 5ecktRUieMABZD5BC2cXbDraUWbPh/+tL5v+2UHkI4lkWwliKZkvQO9
+X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
+ pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
+X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
+ auth_id=793
+X-Original-From: Jack Wu <jackbb_wu@compal.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,131 +92,1410 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Jack Wu <jackbb_wu@compal.com>
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
+Registers the T900 device driver with the kernel. Set up all
+the fundamental configurations for the device: PCIe layer,
+Modem Host Cross Core Interface (MHCCIF), modem common control
+operations, build infrastructure and MAINTAINERS entry.
+Besides the T900 itself (14c3:0900) the driver binds its
+HP-branded variant, the HP RMM-G4 (03f0:01ca); both IDs are
+exported via MODULE_DEVICE_TABLE for module autoloading.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+* PCIe layer code implements driver probe and removal, MSI-X
+  interrupt initialization and de-initialization, and the way
+  of resetting the device.
+* MHCCIF provides the interrupt channels used for the boot
+  handshake and for the host-to-device reset doorbell.
+* Modem common control operations provide the basic read/write
+  functions of the device's hardware registers,
+  mask/unmask/get/clear functions of the device's interrupt
+  registers and inquiry functions of the device's status.
+* Add MAINTAINERS entry for the MediaTek T9XX 5G WWAN modem
+  device driver.
 
-- [Medium] Removing XGMAC_TBU from the TX condition in
-  dwxgmac2_dma_interrupt() also removes an incidental TX-reclaim trigger.
+Removal resets the modem, because the next driver load has to
+redo the device handshake and status sync and cannot do that
+against firmware left running by the previous load.
+mtk_pci_remove() evaluates MRST._RST on the device's own ACPI
+node: that is a platform-level reset and does not depend on the
+firmware's state.  Where the platform has no MRST._RST, removal
+falls back to the MHCCIF DEV_EVT_H2D_DEVICE_RESET doorbell if
+the link is still up.  The doorbell is a request to the
+firmware, so it is best effort and cannot recover firmware that
+has stopped responding - the case the reset exists for.  Probe
+therefore does not require MRST._RST; without it the driver
+still binds and only removal is degraded.
 
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but the
-  dwmac4/GMAC5 core has the same defect that this patch fixes for XGMAC.
+Signed-off-by: Jack Wu <jackbb_wu@compal.com>
+---
+ MAINTAINERS                              |   11 +
+ drivers/net/wwan/Kconfig                 |   11 +
+ drivers/net/wwan/Makefile                |    1 +
+ drivers/net/wwan/t9xx/Makefile           |    9 +
+ drivers/net/wwan/t9xx/mtk_dev.h          |   42 ++
+ drivers/net/wwan/t9xx/pcie/mtk_pci.c     | 1042 ++++++++++++++++++++++++++++++
+ drivers/net/wwan/t9xx/pcie/mtk_pci.h     |  140 ++++
+ drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h |   34 +
+ 8 files changed, 1290 insertions(+)
 
---
-
-net: stmmac: xgmac: do not treat TBU as a TX event
-
-This patch removes XGMAC_TBU from the TX condition in
-dwxgmac2_dma_interrupt(), so only TI schedules TX processing. TBUE is
-not enabled and only enabled bits are acknowledged, so TBU was never
-cleared. With a shared interrupt, that meant every interrupt scheduled
-TX NAPI on every idle TX channel.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> index ff83858ebc1f3..0a6e82a155c0e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> @@ -346,7 +346,7 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
->  		u64_stats_update_end(&stats->syncp);
->  		ret |= handle_rx;
->  	}
-> -	if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
-> +	if (likely(intr_status & XGMAC_TI)) {
-
-[Severity: Medium]
-Can the XDP_TX and ndo_xdp_xmit path stall permanently on XGMAC in
-shared-IRQ mode when the TX coalesce timer is disabled?
-
-__stmmac_set_coalesce() accepts tx-usecs=0 as long as tx-frames is
-nonzero. stmmac_tx_timer_arm() then returns early:
-
-    if (!tx_coal_timer)
-        return;
-
-stmmac_xdp_xmit_xdpf() sets IOC only on a tx_coal_frames boundary. It
-has no !netdev_xmit_more() fallback like stmmac_xmit(). It also stops
-taking new frames at 3/4 ring occupancy:
-
-	if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
-		return STMMAC_XDP_CONSUMED;
-	...
-	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-		set_ic = true;
-	else
-		set_ic = false;
-
-Take a 64 entry TX ring (stmmac_set_ringparam() accepts
-DMA_MIN_TX_SIZE) with tx-frames=64 and tx-usecs=0. Starting from an
-empty ring, only 48 XDP_TX frames get in. None of them reaches the IOC
-boundary, so no TI is raised.
-
-Before this patch, the sticky TBU bit made every later shared
-interrupt return handle_tx and run stmmac_tx_clean(). That includes
-the RX interrupts that drive XDP_TX.
-
-stmmac_napi_poll_rx() does not call stmmac_tx_clean(). After this
-change, would dirty_tx never advance on that queue? If so, every
-further XDP_TX or redirect frame would be dropped with
-STMMAC_XDP_CONSUMED. Only skb TX on the same queue or a reconfiguration
-would recover it.
-
-More generally, with tx-usecs=0, trailing XDP frames below tx-frames
-would no longer be reclaimed on the next interrupt. The same gap
-already exists in XGMAC per-channel MSI mode. This patch exposes it in
-shared-IRQ mode as well.
-
-The commit message says that what remains is "real TX and the TX
-coalesce timer". Does that also hold when the timer is disabled?
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but does
-dwmac4_dma_interrupt() in dwmac4_lib.c have the same sticky TBU
-problem?
-
-drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c:dwmac4_dma_interrupt() {
-    ...
-	if (unlikely(intr_status & DMA_CHAN_STATUS_TBU))
-		ret |= handle_tx;
-	...
-	writel(intr_status & intr_en,
-	       ioaddr + DMA_CHAN_STATUS(dwmac4_addrs, chan));
-    ...
-}
-
-DMA_CHAN_INTR_NORMAL and DMA_CHAN_INTR_NORMAL_4_10 in dwmac4_dma.h
-only contain NIE, RIE and TIE, and no TBUE bit is defined. So TBU is
-never part of intr_en. Once a TX channel goes idle, its TBU status bit
-is never cleared.
-
-In shared-IRQ mode, stmmac_dma_interrupt() calls
-stmmac_napi_check(priv, chan, DMA_DIR_RXTX) for every channel, and the
-status is not masked for that direction. This looks like it would
-schedule TX NAPI and stmmac_tx_clean() on every idle TX channel for
-every interrupt. That is the same behaviour measured for XGMAC in the
-commit message.
-
-Since commit 1975df880b959e, TBU is no longer counted in
-tx_normal_irq_n on this core. That would hide the effect from the
-statistic used to diagnose the XGMAC case.
-
-Should the dwmac4 implementation behind the same dispatcher get the
-same change?
-
->  		u64_stats_update_begin(&stats->syncp);
->  		u64_stats_inc(&stats->tx_normal_irq_n[chan]);
->  		u64_stats_update_end(&stats->syncp);
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 461a3eed6129..8f13ef7440ce 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16494,6 +16494,17 @@ L:	netdev@vger.kernel.org
+ S:	Supported
+ F:	drivers/net/wwan/t7xx/
+ 
++MEDIATEK T9XX 5G WWAN MODEM DRIVER
++M:	Jack Wu <jackbb_wu@compal.com>
++M:	Robert Yu <robert_yu@compal.com>
++M:	Jeff Chang <Jeff_Chang@compal.com>
++R:	Wen-Zhi Huang <wen-zhi.huang@mediatek.com>
++R:	Shi-Wei Yeh <shi-wei.yeh@mediatek.com>
++R:	Minano Tseng <Minano.tseng@mediatek.com>
++L:	netdev@vger.kernel.org
++S:	Supported
++F:	drivers/net/wwan/t9xx/
++
+ MEDIATEK USB3 DRD IP DRIVER
+ M:	Chunfeng Yun <chunfeng.yun@mediatek.com>
+ L:	linux-usb@vger.kernel.org
+diff --git a/drivers/net/wwan/Kconfig b/drivers/net/wwan/Kconfig
+index 88df55d78d90..f510cc8ab4e4 100644
+--- a/drivers/net/wwan/Kconfig
++++ b/drivers/net/wwan/Kconfig
+@@ -121,6 +121,17 @@ config MTK_T7XX
+ 
+ 	  If unsure, say N.
+ 
++config MTK_T9XX
++	tristate "MediaTek PCIe 5G WWAN modem T9xx device"
++	depends on PCI_MSI && ACPI
++	help
++	  Enables MediaTek PCIe based 5G WWAN modem (T9xx series) device.
++
++	  To compile this driver as a module, choose M here: the module will be
++	  called mtk_t9xx.
++
++	  If unsure, say N.
++
+ endif # WWAN
+ 
+ endmenu
+diff --git a/drivers/net/wwan/Makefile b/drivers/net/wwan/Makefile
+index 3960c0ae2445..7361eef4c472 100644
+--- a/drivers/net/wwan/Makefile
++++ b/drivers/net/wwan/Makefile
+@@ -14,3 +14,4 @@ obj-$(CONFIG_QCOM_BAM_DMUX) += qcom_bam_dmux.o
+ obj-$(CONFIG_RPMSG_WWAN_CTRL) += rpmsg_wwan_ctrl.o
+ obj-$(CONFIG_IOSM) += iosm/
+ obj-$(CONFIG_MTK_T7XX) += t7xx/
++obj-$(CONFIG_MTK_T9XX) += t9xx/
+diff --git a/drivers/net/wwan/t9xx/Makefile b/drivers/net/wwan/t9xx/Makefile
+new file mode 100644
+index 000000000000..bd6063c85c2b
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/Makefile
+@@ -0,0 +1,9 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++ccflags-y += -I$(src)/pcie
++ccflags-y += -I$(src)
++
++obj-$(CONFIG_MTK_T9XX) += mtk_t9xx.o
++
++mtk_t9xx-y := \
++	pcie/mtk_pci.o
+diff --git a/drivers/net/wwan/t9xx/mtk_dev.h b/drivers/net/wwan/t9xx/mtk_dev.h
+new file mode 100644
+index 000000000000..329e5e6695df
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_dev.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_DEV_H__
++#define __MTK_DEV_H__
++
++#include <linux/dma-mapping.h>
++#include <linux/dmapool.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/sched.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++
++#define MTK_DEV_STR_LEN 16
++
++enum mtk_user_id {
++	MTK_USER_CTRL,
++	MTK_USER_MAX
++};
++
++enum mtk_dev_evt_h2d {
++	DEV_EVT_H2D_DEVICE_RESET	= BIT(2),
++};
++
++enum mtk_dev_evt_d2h {
++	DEV_EVT_D2H_BOOT_FLOW_SYNC	= BIT(4),
++	DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP = BIT(5),
++	DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD	= BIT(6),
++};
++
++/* mtk_md_dev defines the structure of MTK modem device */
++struct mtk_md_dev {
++	struct device *dev;
++	void *hw_priv;
++	u32 hw_ver;
++	char dev_str[MTK_DEV_STR_LEN];
++};
++
++#endif /* __MTK_DEV_H__ */
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.c b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+new file mode 100644
+index 000000000000..a3bd1caf470b
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+@@ -0,0 +1,1042 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#include <linux/acpi.h>
++#include <linux/aer.h>
++#include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/device.h>
++#include <linux/dma-mapping.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++
++#include "mtk_dev.h"
++#include "mtk_pci.h"
++#include "mtk_pci_reg.h"
++
++#define MTK_MHCCIF_RC_BASE_ADDR		0x1000A000
++
++#define MTK_MHCCIF_RESET_DELAY_MS	2000
++
++static const int mtk_pci_irq_tbl[MTK_IRQ_SRC_MAX] = {
++	[MTK_IRQ_SRC_MHCCIF] = 28,
++	[MTK_IRQ_SRC_CLDMA0] = 27,
++	[MTK_IRQ_SRC_CLDMA1] = 26,
++};
++
++#define MTK_PCI_TRANSPARENT_ATR_SIZE	(0x3F)
++#define MTK_PCI_MINIMUM_ATR_SIZE	(0x1000)
++#define ATR_SIZE_LO32_MASK		GENMASK_ULL(31, 0)
++#define ATR_SIZE_HI32_MASK		GENMASK_ULL(63, 32)
++#define ATR_SIZE_BIAS_FROM_LO32		2
++#define ATR_ADDR_ALIGN_MASK		0xFFFFF000
++#define ATR_EN				BIT(0)
++#define ATR_PARAM_OFFSET		16
++#define SET_HW_BITS(dest, chs, mhccif, dev)		\
++	({						\
++		if ((chs) & (dev))					\
++			(dest) |= FIELD_PREP(mhccif, 1);		\
++	})
++
++struct mtk_mhccif_cb {
++	struct list_head entry;
++	int (*evt_cb)(u32 status, void *data);
++	void *data;
++	u32 chs;
++};
++
++/**
++ * mtk_pci_setup_atr() - Configure a PCIe address translation rule
++ * @mdev: MTK MD device
++ * @cfg: ATR configuration parameters
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_setup_atr(struct mtk_md_dev *mdev, struct mtk_atr_cfg *cfg)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	u32 addr, val, size_h, size_l;
++	int atr_size, pos, offset;
++
++	if (cfg->transparent) {
++		/* No address conversion is performed */
++		atr_size = MTK_PCI_TRANSPARENT_ATR_SIZE;
++	} else {
++		if (cfg->size < MTK_PCI_MINIMUM_ATR_SIZE)
++			cfg->size = MTK_PCI_MINIMUM_ATR_SIZE;
++
++		if (cfg->src_addr & (cfg->size - 1)) {
++			dev_err(mdev->dev, "Invalid atr src addr is not aligned to size\n");
++			return -EFAULT;
++		}
++
++		if (cfg->trsl_addr & (cfg->size - 1)) {
++			dev_err(mdev->dev,
++				"Invalid atr trsl addr is not aligned to size, %llx, %llx\n",
++				cfg->trsl_addr, cfg->size - 1);
++			return -EFAULT;
++		}
++
++		size_l = FIELD_GET(ATR_SIZE_LO32_MASK, cfg->size);
++		size_h = FIELD_GET(ATR_SIZE_HI32_MASK, cfg->size);
++		pos = ffs(size_l);
++		if (pos) {
++			atr_size = pos - ATR_SIZE_BIAS_FROM_LO32;
++		} else {
++			pos = ffs(size_h);
++			atr_size = pos + 32 - ATR_SIZE_BIAS_FROM_LO32;
++		}
++	}
++
++	/* Calculate table offset */
++	offset = ATR_PORT_OFFSET * cfg->port + ATR_TABLE_OFFSET * cfg->table;
++
++	addr = REG_ATR_PCIE_WIN0_T0_SRC_ADDR_MSB + offset;
++	val = (u32)(cfg->src_addr >> 32);
++	mtk_pci_mac_write32(priv, addr, val);
++
++	addr = REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_MSB + offset;
++	val = (u32)(cfg->trsl_addr >> 32);
++	mtk_pci_mac_write32(priv, addr, val);
++
++	addr = REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_LSB + offset;
++	val = (u32)(cfg->trsl_addr & ATR_ADDR_ALIGN_MASK);
++	mtk_pci_mac_write32(priv, addr, val);
++
++	/* TRSL_PARAM */
++	addr = REG_ATR_PCIE_WIN0_T0_TRSL_PARAM + offset;
++	val = (cfg->trsl_param << ATR_PARAM_OFFSET) | cfg->trsl_id;
++	mtk_pci_mac_write32(priv, addr, val);
++
++	/* Enable ATR last, after translation target is fully programmed */
++	addr = REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset;
++	val = (u32)(cfg->src_addr & ATR_ADDR_ALIGN_MASK) | (atr_size << 1) | ATR_EN;
++	mtk_pci_mac_write32(priv, addr, val);
++
++	/* Ensure ATR is set */
++	mtk_pci_mac_read32(priv, addr);
++
++	return 0;
++}
++
++/**
++ * mtk_pci_atr_disable() - Disable all PCIe address translation rules
++ * @priv: MTK PCI private data
++ */
++void mtk_pci_atr_disable(struct mtk_pci_priv *priv)
++{
++	int port, tbl, offset;
++	u32 val;
++
++	/* Disable all ATR table for all ports */
++	for (port = ATR_SRC_PCI_WIN0; port <= ATR_SRC_AXIS_3; port++)
++		for (tbl = 0; tbl < ATR_TABLE_NUM_PER_ATR; tbl++) {
++			/* Calculate table offset */
++			offset = ATR_PORT_OFFSET * port + ATR_TABLE_OFFSET * tbl;
++			val = mtk_pci_mac_read32(priv, REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset);
++			val = val & (~BIT(0));
++			/* Disable table by SRC_ADDR_L */
++			mtk_pci_mac_write32(priv, REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset, val);
++		}
++}
++
++/**
++ * mtk_pci_get_dev_state() - Read the device state from the modem
++ * @mdev: MTK MD device
++ *
++ * Return: Device state value.
++ */
++u32 mtk_pci_get_dev_state(struct mtk_md_dev *mdev)
++{
++	return mtk_pci_mac_read32(mdev->hw_priv, REG_PCIE_DEBUG_DUMMY_7);
++}
++
++/**
++ * mtk_pci_ack_dev_state() - Acknowledge the device state to the modem
++ * @mdev: MTK MD device
++ * @state: State value to acknowledge
++ */
++void mtk_pci_ack_dev_state(struct mtk_md_dev *mdev, u32 state)
++{
++	mtk_pci_mac_write32(mdev->hw_priv, REG_PCIE_DEBUG_DUMMY_7, state);
++}
++
++/**
++ * mtk_pci_get_irq_id() - Map an IRQ source to its hardware IRQ ID
++ * @mdev: MTK MD device
++ * @irq_src: IRQ source enum
++ *
++ * Return: IRQ ID on success, -EINVAL on failure.
++ */
++int mtk_pci_get_irq_id(struct mtk_md_dev *mdev, enum mtk_irq_src irq_src)
++{
++	int irq_id = -EINVAL;
++
++	if (irq_src > MTK_IRQ_SRC_MIN && irq_src < MTK_IRQ_SRC_MAX) {
++		irq_id = mtk_pci_irq_tbl[irq_src];
++		if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX)
++			irq_id = -EINVAL;
++	}
++
++	return irq_id;
++}
++
++/**
++ * mtk_pci_get_virq_id() - Get the Linux virtual IRQ for a hardware IRQ ID
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ *
++ * Return: Virtual IRQ number on success, negative error code on failure.
++ */
++int mtk_pci_get_virq_id(struct mtk_md_dev *mdev, int irq_id)
++{
++	struct pci_dev *pdev = to_pci_dev(mdev->dev);
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	if (irq_id < 0 || irq_id >= priv->irq_cnt)
++		return -EINVAL;
++
++	return pci_irq_vector(pdev, irq_id);
++}
++
++/**
++ * mtk_pci_register_irq() - Register a callback for a hardware IRQ
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ * @irq_cb: Callback function
++ * @data: Private data passed to callback
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_register_irq(struct mtk_md_dev *mdev, int irq_id,
++			 int (*irq_cb)(int irq_id, void *data), void *data)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	if ((irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX) || !irq_cb)
++		return -EINVAL;
++
++	spin_lock(&priv->irq_cb_lock);
++	if (priv->irq_cb_list[irq_id]) {
++		spin_unlock(&priv->irq_cb_lock);
++		dev_err(mdev->dev,
++			"Unable to register irq, irq_id=%d, it's already been register by %ps.\n",
++			irq_id, priv->irq_cb_list[irq_id]);
++		return -EFAULT;
++	}
++	priv->irq_cb_data[irq_id] = data;
++	smp_wmb(); /* Ensure data is visible before callback */
++	WRITE_ONCE(priv->irq_cb_list[irq_id], irq_cb);
++	spin_unlock(&priv->irq_cb_lock);
++
++	return 0;
++}
++
++/**
++ * mtk_pci_unregister_irq() - Unregister a hardware IRQ callback
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_unregister_irq(struct mtk_md_dev *mdev, int irq_id)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	int virq_id;
++
++	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX)
++		return -EINVAL;
++
++	if (!READ_ONCE(priv->irq_cb_list[irq_id])) {
++		dev_err(mdev->dev, "irq_id=%d has not been registered\n", irq_id);
++		return -EFAULT;
++	}
++
++	/* mtk_pci_irq_handler() loads the callback and its data separately, so
++	 * the data may only be cleared once no handler can still hold a live
++	 * callback pointer.
++	 */
++	mtk_pci_mask_irq(mdev, irq_id);
++
++	spin_lock(&priv->irq_cb_lock);
++	WRITE_ONCE(priv->irq_cb_list[irq_id], NULL);
++	spin_unlock(&priv->irq_cb_lock);
++
++	virq_id = mtk_pci_get_virq_id(mdev, irq_id);
++	if (virq_id >= 0)
++		synchronize_irq(virq_id);
++
++	priv->irq_cb_data[irq_id] = NULL;
++
++	return 0;
++}
++
++/**
++ * mtk_pci_mask_irq() - Mask (disable) a hardware IRQ
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_mask_irq(struct mtk_md_dev *mdev, int irq_id)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX) {
++		dev_err(mdev->dev, "Failed to mask irq: input irq_id=%d\n", irq_id);
++		return -EINVAL;
++	}
++
++	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_CLR_GRP0_0, BIT(irq_id));
++
++	return 0;
++}
++
++/**
++ * mtk_pci_unmask_irq() - Unmask (enable) a hardware IRQ
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_unmask_irq(struct mtk_md_dev *mdev, int irq_id)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX) {
++		dev_err(mdev->dev, "Failed to unmask irq: input irq_id=%d\n", irq_id);
++		return -EINVAL;
++	}
++
++	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_SET_GRP0_0, BIT(irq_id));
++
++	return 0;
++}
++
++/**
++ * mtk_pci_clear_irq() - Clear (acknowledge) a hardware IRQ
++ * @mdev: MTK MD device
++ * @irq_id: Hardware IRQ ID
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_clear_irq(struct mtk_md_dev *mdev, int irq_id)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX) {
++		dev_err(mdev->dev, "Failed to clear irq: input irq_id=%d\n", irq_id);
++		return -EINVAL;
++	}
++
++	mtk_pci_mac_write32(priv, REG_MSIX_ISTATUS_HOST_GRP0_0, BIT(irq_id));
++
++	return 0;
++}
++
++static u32 mtk_pci_ext_d2h_evt_hw_bits(u32 chs)
++{
++	u32 hw_bits = 0;
++
++	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_BOOT_FLOW_SYNC,
++		    DEV_EVT_D2H_BOOT_FLOW_SYNC);
++	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_SAP,
++		    DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP);
++	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_MD,
++		    DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD);
++
++	return hw_bits;
++}
++
++static u32 mtk_pci_ext_d2h_evt_chs(u32 hw_bits)
++{
++	u32 chs = 0;
++
++	if (!hw_bits)
++		return chs;
++
++	chs = FIELD_PREP(DEV_EVT_D2H_BOOT_FLOW_SYNC,
++			 FIELD_GET(MHCCIF_EP2RC_EVT_BOOT_FLOW_SYNC, hw_bits)) |
++	      FIELD_PREP(DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP,
++			 FIELD_GET(MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_SAP, hw_bits)) |
++	      FIELD_PREP(DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD,
++			 FIELD_GET(MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_MD, hw_bits));
++
++	return chs;
++}
++
++/**
++ * mtk_pci_register_ext_evt() - Register a callback for MHCCIF device events
++ * @mdev: MTK MD device
++ * @chs: Bitmask of event channels to register
++ * @evt_cb: Callback function
++ * @data: Private data passed to callback
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_register_ext_evt(struct mtk_md_dev *mdev, u32 chs,
++			     int (*evt_cb)(u32 status, void *data), void *data)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct mtk_mhccif_cb *cb;
++	int ret = 0;
++
++	if (!chs || !evt_cb)
++		return -EINVAL;
++
++	spin_lock_bh(&priv->mhccif_lock);
++	list_for_each_entry(cb, &priv->mhccif_cb_list, entry) {
++		if (cb->chs & chs) {
++			ret = -EFAULT;
++			dev_err(mdev->dev,
++				"Unable to register evt, intersection: chs=0x%08x&0x%08x cb=%ps\n",
++				chs, cb->chs, cb->evt_cb);
++			goto err_spin_unlock;
++		}
++	}
++	cb = kzalloc(sizeof(*cb), GFP_ATOMIC);
++	if (!cb) {
++		ret = -ENOMEM;
++		goto err_spin_unlock;
++	}
++	cb->evt_cb = evt_cb;
++	cb->data = data;
++	cb->chs = chs;
++	list_add_tail(&cb->entry, &priv->mhccif_cb_list);
++err_spin_unlock:
++	spin_unlock_bh(&priv->mhccif_lock);
++
++	return ret;
++}
++
++/**
++ * mtk_pci_unregister_ext_evt() - Unregister an MHCCIF device event callback
++ * @mdev: MTK MD device
++ * @chs: Bitmask of event channels to unregister
++ */
++void mtk_pci_unregister_ext_evt(struct mtk_md_dev *mdev, u32 chs)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct mtk_mhccif_cb *cb, *next;
++
++	if (!chs)
++		return;
++
++	spin_lock_bh(&priv->mhccif_lock);
++	list_for_each_entry_safe(cb, next, &priv->mhccif_cb_list, entry) {
++		if (cb->chs == chs) {
++			list_del(&cb->entry);
++			kfree(cb);
++			goto out;
++		}
++	}
++	dev_warn(mdev->dev,
++		 "Unable to unregister evt, no chs=0x%08x has been registered.\n", chs);
++out:
++	spin_unlock_bh(&priv->mhccif_lock);
++}
++
++/**
++ * mtk_pci_mask_ext_evt() - Mask (disable) MHCCIF device events
++ * @mdev: MTK MD device
++ * @chs: Bitmask of event channels to mask
++ */
++void mtk_pci_mask_ext_evt(struct mtk_md_dev *mdev, u32 chs)
++{
++	u32 hw_bits = mtk_pci_ext_d2h_evt_hw_bits(chs);
++
++	mtk_pci_write32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++			MHCCIF_EP2RC_SW_INT_EAP_MASK_SET, hw_bits);
++}
++
++/**
++ * mtk_pci_unmask_ext_evt() - Unmask (enable) MHCCIF device events
++ * @mdev: MTK MD device
++ * @chs: Bitmask of event channels to unmask
++ */
++void mtk_pci_unmask_ext_evt(struct mtk_md_dev *mdev, u32 chs)
++{
++	u32 hw_bits = mtk_pci_ext_d2h_evt_hw_bits(chs);
++
++	mtk_pci_write32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++			MHCCIF_EP2RC_SW_INT_EAP_MASK_CLR, hw_bits);
++}
++
++static u32 mtk_pci_ext_h2d_evt_hw_bits(u32 chs)
++{
++	u32 hw_bits = 0;
++
++	SET_HW_BITS(hw_bits, chs, MHCCIF_RC2EP_EVT_DEVICE_RESET,
++		    DEV_EVT_H2D_DEVICE_RESET);
++	return hw_bits;
++}
++
++/**
++ * mtk_pci_send_ext_evt() - Send an MHCCIF event to the modem
++ * @mdev: MTK MD device
++ * @ch: Event channel to trigger (must be a single bit)
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int mtk_pci_send_ext_evt(struct mtk_md_dev *mdev, u32 ch)
++{
++	u32 rc_base = MTK_MHCCIF_RC_BASE_ADDR;
++	u32 hw_bits;
++
++	/* Only allow one ch to be triggered at a time */
++	if (!is_power_of_2(ch)) {
++		dev_err(mdev->dev, "Unsupported ext evt ch=0x%08x\n", ch);
++		return -EINVAL;
++	}
++
++	hw_bits = mtk_pci_ext_h2d_evt_hw_bits(ch);
++	if (!hw_bits) {
++		dev_err(mdev->dev, "Unmapped ext evt ch=0x%08x\n", ch);
++		return -EINVAL;
++	}
++
++	mtk_pci_write32(mdev, rc_base + MHCCIF_RC2EP_SW_BSY, hw_bits);
++	mtk_pci_write32(mdev, rc_base + MHCCIF_RC2EP_SW_TCHNUM, ffs(hw_bits) - 1);
++	return 0;
++}
++
++static u32 mtk_pci_get_ext_evt_hw_status(struct mtk_md_dev *mdev)
++{
++	return mtk_pci_read32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++			      MHCCIF_EP2RC_SW_INT_STS);
++}
++
++static void mtk_pci_ack_ext_evt_hw(struct mtk_md_dev *mdev, u32 hw_bits)
++{
++	mtk_pci_write32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++			MHCCIF_EP2RC_SW_INT_ACK, hw_bits);
++	/* Ensure the ack lands before level 1 is cleared */
++	mtk_pci_read32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++		       MHCCIF_EP2RC_SW_INT_STS);
++}
++
++/**
++ * mtk_pci_pldr() - Reset the modem via its ACPI MRST._RST method
++ * @mdev: MTK MD device
++ *
++ * Return:
++ * * 0       - Success, device was reset.
++ * * -ENODEV - No ACPI, no handle or no MRST._RST method.  Device
++ *             untouched.
++ * * -EIO    - MRST._RST failed.  Device untouched, still running;
++ *             a different reset may be attempted.
++ */
++int mtk_pci_pldr(struct mtk_md_dev *mdev)
++{
++	acpi_status acpi_ret;
++	acpi_handle handle;
++
++	if (acpi_disabled) {
++		dev_dbg(mdev->dev, "Unsupported, acpi function isn't enable\n");
++		return -ENODEV;
++	}
++
++	handle = ACPI_HANDLE(mdev->dev);
++	if (!handle) {
++		dev_dbg(mdev->dev, "Unsupported, acpi handle isn't found\n");
++		return -ENODEV;
++	}
++	if (!acpi_has_method(handle, "MRST._RST")) {
++		dev_dbg(mdev->dev, "Unsupported, pldr method isn't supported\n");
++		return -ENODEV;
++	}
++	acpi_ret = acpi_evaluate_object(handle, "MRST._RST", NULL, NULL);
++	if (ACPI_FAILURE(acpi_ret)) {
++		dev_err(mdev->dev, "Failed to execute MRST._RST method: %s\n",
++			acpi_format_exception(acpi_ret));
++		return -EIO;
++	}
++
++	return 0;
++}
++
++/**
++ * mtk_pci_link_check() - Check if the PCIe link to the modem is active
++ * @mdev: MTK MD device
++ *
++ * Return: true if the device is present, false otherwise.
++ */
++bool mtk_pci_link_check(struct mtk_md_dev *mdev)
++{
++	return pci_device_is_present(to_pci_dev(mdev->dev));
++}
++
++static void mtk_mhccif_isr_work(struct work_struct *work)
++{
++	struct mtk_pci_priv *priv =
++		container_of(work, struct mtk_pci_priv, mhccif_work);
++	struct mtk_md_dev *mdev = priv->irq_desc->mdev;
++	struct mtk_mhccif_cb *cb;
++	u32 stat, mask, chs;
++
++	stat = mtk_pci_get_ext_evt_hw_status(mdev);
++	mask = mtk_pci_read32(mdev, MTK_MHCCIF_RC_BASE_ADDR
++		+ MHCCIF_EP2RC_SW_INT_EAP_MASK);
++	if (unlikely(stat == U32_MAX && !(mtk_pci_link_check(mdev)))) {
++		/* When link failed, we don't need to unmask/clear. */
++		dev_err(mdev->dev, "Failed to check link in MHCCIF handler.\n");
++		return;
++	}
++
++	stat &= ~mask;
++	/* Acknowledge level 2 before dispatch: an event that re-asserts
++	 * while a callback runs must survive as a new status bit.
++	 */
++	if (stat)
++		mtk_pci_ack_ext_evt_hw(mdev, stat);
++
++	chs = mtk_pci_ext_d2h_evt_chs(stat);
++	/* Callbacks must not sleep or modify mhccif_cb_list */
++	spin_lock_bh(&priv->mhccif_lock);
++	list_for_each_entry(cb, &priv->mhccif_cb_list, entry) {
++		if (cb->chs & chs)
++			cb->evt_cb(cb->chs & chs, cb->data);
++	}
++	spin_unlock_bh(&priv->mhccif_lock);
++
++	mtk_pci_clear_irq(mdev, priv->mhccif_irq_id);
++	mtk_pci_unmask_irq(mdev, priv->mhccif_irq_id);
++}
++
++static const struct pci_device_id t9xx_pci_table[] = {
++	{ PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x0900),
++	  MTK_PCI_CLASS, PCI_ANY_ID },
++	{ PCI_DEVICE(0x03f0, 0x01ca),  /* HP RMM-G4 */
++	  MTK_PCI_CLASS, PCI_ANY_ID },
++	{/* end: all zeroes */}
++};
++
++MODULE_DEVICE_TABLE(pci, t9xx_pci_table);
++
++static int mtk_pci_atr_init(struct mtk_md_dev *mdev)
++{
++	struct pci_dev *pdev = to_pci_dev(mdev->dev);
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct mtk_atr_cfg cfg;
++	int port, ret;
++
++	mtk_pci_atr_disable(priv);
++
++	/* Config ATR for RC to access device's register */
++	cfg.src_addr = pci_bus_address(pdev, MTK_BAR_2_3_IDX);
++	cfg.size = ATR_PCIE_REG_SIZE;
++	cfg.trsl_addr = ATR_PCIE_REG_TRSL_ADDR;
++	cfg.port = ATR_PCIE_REG_PORT;
++	cfg.table = ATR_PCIE_REG_TABLE_NUM;
++	cfg.trsl_id = ATR_PCIE_REG_TRSL_PORT;
++	cfg.trsl_param = 0x0;
++	cfg.transparent = 0x0;
++	ret = mtk_pci_setup_atr(mdev, &cfg);
++	if (ret)
++		return ret;
++
++	/* Config ATR for EP to access RC's memory */
++	for (port = ATR_SRC_AXIS_0; port <= ATR_SRC_AXIS_3; port++) {
++		cfg.src_addr = ATR_PCIE_DEV_DMA_SRC_ADDR;
++		cfg.size = ATR_PCIE_DEV_DMA_SIZE;
++		cfg.trsl_addr = ATR_PCIE_DEV_DMA_TRSL_ADDR;
++		cfg.port = port;
++		cfg.table = ATR_PCIE_DEV_DMA_TABLE_NUM;
++		cfg.trsl_id = ATR_DST_PCI_TRX;
++		cfg.trsl_param = 0x0;
++		/* Enable transparent translation */
++		cfg.transparent = ATR_PCIE_DEV_DMA_TRANSPARENT;
++		ret = mtk_pci_setup_atr(mdev, &cfg);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int mtk_pci_bar_init(struct mtk_md_dev *mdev)
++{
++	struct pci_dev *pdev = to_pci_dev(mdev->dev);
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++
++	/* Fixed offsets used on these mappings (MSI-X registers up to
++	 * 0x3103 on BAR0/1, the ATR-biased MHCCIF window on BAR2/3) are
++	 * guaranteed by the only two devices this driver binds (0x0900,
++	 * 0x01CA), whose BAR sizes are fixed by hardware; an undersized
++	 * BAR here is impossible, so no pci_resource_len() checks.
++	 */
++	priv->mac_reg_base = pcim_iomap_region(pdev, MTK_BAR_0_1_IDX,
++					       mdev->dev_str);
++	if (IS_ERR(priv->mac_reg_base)) {
++		dev_err(mdev->dev, "Failed to map BAR0/1\n");
++		return PTR_ERR(priv->mac_reg_base);
++	}
++
++	priv->bar23_addr = pcim_iomap_region(pdev, MTK_BAR_2_3_IDX,
++					     mdev->dev_str);
++	if (IS_ERR(priv->bar23_addr)) {
++		dev_err(mdev->dev, "Failed to map BAR2/3\n");
++		return PTR_ERR(priv->bar23_addr);
++	}
++
++	/* We use MD view base address "0" to observe registers */
++	priv->ext_reg_base = priv->bar23_addr - ATR_PCIE_REG_TRSL_ADDR;
++
++	return 0;
++}
++
++static int mtk_mhccif_irq_cb(int irq_id, void *data)
++{
++	struct mtk_md_dev *mdev = data;
++	struct mtk_pci_priv *priv;
++
++	priv = mdev->hw_priv;
++	queue_work(system_highpri_wq, &priv->mhccif_work);
++
++	return 0;
++}
++
++static int mtk_mhccif_init(struct mtk_md_dev *mdev)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	int ret;
++
++	INIT_LIST_HEAD(&priv->mhccif_cb_list);
++	spin_lock_init(&priv->mhccif_lock);
++	INIT_WORK(&priv->mhccif_work, mtk_mhccif_isr_work);
++
++	/* The write below goes through the BAR 2/3 ATR window, so this
++	 * function must run after mtk_pci_atr_init().
++	 * Mask every channel; consumers unmask the channels they need.
++	 * Do NOT ack here: EP2RC status bits are latched one-shot
++	 * notifications (e.g. BOOT_FLOW_SYNC raised before the driver
++	 * loads) that the device never re-sends.  Masking blocks
++	 * delivery but preserves the bit for delivery on unmask; an
++	 * ack would erase it and the boot flow would hang silently.
++	 */
++	mtk_pci_write32(mdev, MTK_MHCCIF_RC_BASE_ADDR +
++			MHCCIF_EP2RC_SW_INT_EAP_MASK_SET, U32_MAX);
++
++	ret = mtk_pci_get_irq_id(mdev, MTK_IRQ_SRC_MHCCIF);
++	if (ret < 0) {
++		dev_err(mdev->dev, "Failed to get mhccif_irq_id. ret=%d\n", ret);
++		return ret;
++	}
++	priv->mhccif_irq_id = ret;
++
++	ret = mtk_pci_register_irq(mdev, priv->mhccif_irq_id, mtk_mhccif_irq_cb, mdev);
++	if (ret) {
++		dev_err(mdev->dev, "Failed to register mhccif_irq callback\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static void mtk_mhccif_exit(struct mtk_md_dev *mdev)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct mtk_mhccif_cb *cb, *tmp;
++
++	mtk_pci_unregister_irq(mdev, priv->mhccif_irq_id);
++	cancel_work_sync(&priv->mhccif_work);
++	/* The work unmasks the source on its way out, so leave it masked. */
++	mtk_pci_mask_irq(mdev, priv->mhccif_irq_id);
++
++	list_for_each_entry_safe(cb, tmp, &priv->mhccif_cb_list, entry) {
++		list_del(&cb->entry);
++		kfree(cb);
++	}
++}
++
++static irqreturn_t mtk_pci_irq_handler(struct mtk_md_dev *mdev, u32 irq_state)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	int irq_id;
++
++	/* Check whether each set bit has a callback, if has, call it */
++	do {
++		int (*cb)(int irq_id, void *data);
++
++		irq_id = fls(irq_state) - 1;
++		irq_state &= ~BIT(irq_id);
++		cb = READ_ONCE(priv->irq_cb_list[irq_id]);
++		if (likely(cb)) {
++			smp_rmb(); /* Ensure data is read after callback */
++			cb(irq_id, priv->irq_cb_data[irq_id]);
++		} else {
++			dev_err_ratelimited(mdev->dev,
++					    "Unhandled irq_id=%d, no callback for it.\n",
++					    irq_id);
++			mtk_pci_clear_irq(mdev, irq_id);
++		}
++	} while (irq_state);
++
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t mtk_pci_irq_msix(int irq, void *data)
++{
++	struct mtk_pci_irq_desc *irq_desc = data;
++	struct mtk_md_dev *mdev = irq_desc->mdev;
++	struct mtk_pci_priv *priv;
++	u32 irq_state, irq_enable;
++
++	priv = mdev->hw_priv;
++	irq_state = mtk_pci_mac_read32(priv, REG_MSIX_ISTATUS_HOST_GRP0_0);
++	irq_enable = mtk_pci_mac_read32(priv, REG_IMASK_HOST_MSIX_GRP0_0);
++	irq_state &= irq_enable;
++
++	if (unlikely(irq_state == U32_MAX && irq_enable == U32_MAX))
++		return IRQ_NONE; /* device gone */
++
++	irq_state &= irq_desc->msix_bits; /* scope to this vector */
++	if (unlikely(!irq_state))
++		return IRQ_NONE;
++
++	/* Mask the bit; the consumer unmasks it when it is done */
++	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_CLR_GRP0_0, irq_state);
++
++	return mtk_pci_irq_handler(mdev, irq_state);
++}
++
++static int mtk_pci_request_irq_msix(struct mtk_md_dev *mdev)
++{
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct mtk_pci_irq_desc *irq_desc;
++	struct pci_dev *pdev;
++	int ret, i;
++
++	pdev = to_pci_dev(mdev->dev);
++	irq_desc = priv->irq_desc;
++
++	priv->irq_cnt = MTK_IRQ_CNT_MAX;
++
++	for (i = 0; i < MTK_IRQ_CNT_MAX; i++) {
++		irq_desc[i].mdev = mdev;
++		irq_desc[i].msix_bits = BIT(i);
++		snprintf(irq_desc[i].name, MTK_IRQ_NAME_LEN, "msix%d-%s", i, mdev->dev_str);
++		ret = pci_request_irq(pdev, i, mtk_pci_irq_msix, NULL,
++				      &irq_desc[i], "%s", irq_desc[i].name);
++		if (ret) {
++			dev_err(mdev->dev, "Failed to request %s: ret=%d\n",
++				irq_desc[i].name, ret);
++			for (i--; i >= 0; i--)
++				pci_free_irq(pdev, i, &irq_desc[i]);
++			priv->irq_cnt = 0;
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
++static int mtk_pci_request_irq(struct mtk_md_dev *mdev)
++{
++	struct pci_dev *pdev = to_pci_dev(mdev->dev);
++	int ret;
++
++	ret = pci_alloc_irq_vectors(pdev, MTK_IRQ_CNT_MAX,
++				    MTK_IRQ_CNT_MAX, PCI_IRQ_MSIX);
++	if (ret < 0) {
++		dev_err(mdev->dev,
++			"Unable to alloc %d MSI-X vectors: ret=%d\n",
++			MTK_IRQ_CNT_MAX, ret);
++		return ret;
++	}
++
++	ret = mtk_pci_request_irq_msix(mdev);
++	if (ret)
++		pci_free_irq_vectors(pdev);
++
++	return ret;
++}
++
++static void mtk_pci_free_irq(struct mtk_md_dev *mdev)
++{
++	struct pci_dev *pdev = to_pci_dev(mdev->dev);
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	int i;
++
++	for (i = 0; i < priv->irq_cnt; i++)
++		pci_free_irq(pdev, i, &priv->irq_desc[i]);
++
++	pci_free_irq_vectors(pdev);
++	priv->irq_cnt = 0;
++}
++
++static int mtk_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)
++{
++	struct device *dev = &pdev->dev;
++	struct mtk_pci_priv *priv;
++	struct mtk_md_dev *mdev;
++	int ret;
++
++	mdev = devm_kzalloc(dev, sizeof(*mdev), GFP_KERNEL);
++	if (!mdev) {
++		ret = -ENOMEM;
++		goto log_err;
++	}
++	mdev->dev = dev;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv) {
++		ret = -ENOMEM;
++		goto log_err;
++	}
++
++	pci_set_drvdata(pdev, mdev);
++	priv->mdev = mdev;
++	mdev->hw_ver  = pdev->device;
++	mdev->hw_priv = priv;
++	mdev->dev     = dev;
++	snprintf(mdev->dev_str, MTK_DEV_STR_LEN, "%02x%02x%d",
++		 pdev->bus->number, PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn));
++	if (pdev->state_saved)
++		pci_restore_state(pdev);
++
++	ret = pci_enable_device(pdev);
++	if (ret) {
++		dev_err(mdev->dev, "Failed to enable pci device.\n");
++		goto log_err;
++	}
++
++	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
++	if (ret) {
++		dev_err(mdev->dev, "Failed to set DMA Mask and Coherent. (ret=%d)\n", ret);
++		goto disable_dev;
++	}
++
++	ret = mtk_pci_bar_init(mdev);
++	if (ret)
++		goto disable_dev;
++
++	ret = mtk_pci_atr_init(mdev);
++	if (ret)
++		goto disable_dev;
++
++	spin_lock_init(&priv->irq_cb_lock);
++
++	ret = mtk_mhccif_init(mdev);
++	if (ret)
++		goto disable_dev;
++
++	/* Mask every source before the handlers go in, so a source
++	 * left enabled by firmware or a previous bind cannot fire
++	 * into a half-initialised driver.
++	 */
++	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_CLR_GRP0_0, U32_MAX);
++
++	ret = mtk_pci_request_irq(mdev);
++	if (ret)
++		goto free_mhccif;
++
++	pci_set_master(pdev);
++	mtk_pci_unmask_irq(mdev, priv->mhccif_irq_id);
++
++	if (!mtk_pci_link_check(mdev)) {
++		ret = -ENOLINK;
++		goto clear_master;
++	}
++
++	ret = pci_save_state(pdev);
++	if (ret) {
++		dev_err(mdev->dev, "Failed to save PCI state: %d\n", ret);
++		goto clear_master;
++	}
++
++	priv->saved_state = pci_store_saved_state(pdev);
++	if (!priv->saved_state) {
++		ret = -ENOMEM;
++		goto clear_master;
++	}
++
++	return 0;
++
++clear_master:
++	pci_clear_master(pdev);
++	mtk_pci_free_irq(mdev);
++free_mhccif:
++	mtk_mhccif_exit(mdev);
++disable_dev:
++	pci_disable_device(pdev);
++log_err:
++	dev_err(dev, "Failed to probe device, ret=%d\n", ret);
++
++	return ret;
++}
++
++static void mtk_pci_remove(struct pci_dev *pdev)
++{
++	struct mtk_md_dev *mdev = pci_get_drvdata(pdev);
++	struct mtk_pci_priv *priv = mdev->hw_priv;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	/* Silence every source before tearing anything down. */
++	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_CLR_GRP0_0, U32_MAX);
++
++	/* Free the vectors first: once no handler can run, the unmask at the
++	 * tail of mtk_mhccif_isr_work() cannot re-open the source behind
++	 * mtk_mhccif_exit()'s back.
++	 */
++	mtk_pci_free_irq(mdev);
++	mtk_mhccif_exit(mdev);
++	pci_clear_master(pdev);
++	pci_disable_device(pdev);
++
++	/* Reset last: the endpoint comes back at power-on defaults, so no MMIO
++	 * and no MSI-X teardown may follow it.
++	 */
++	ret = mtk_pci_pldr(mdev);
++	if (ret && mtk_pci_link_check(mdev)) {
++		dev_warn(dev, "PLDR failed (%d), trying MHCCIF reset\n", ret);
++		if (mtk_pci_send_ext_evt(mdev, DEV_EVT_H2D_DEVICE_RESET))
++			dev_err(dev, "MHCCIF reset failed\n");
++		/* Unlike MRST._RST the doorbell returns before the device
++		 * has reset, so let it settle before the restore below.
++		 */
++		msleep(MTK_MHCCIF_RESET_DELAY_MS);
++	}
++
++	/* Without this a runtime-PM suspend after unbind would snapshot the
++	 * reset state over our copy, and whoever binds next finds BARs the
++	 * device does not decode.
++	 */
++	pci_load_and_free_saved_state(pdev, &priv->saved_state);
++	pci_restore_state(pdev);
++	/* The state was saved after pci_set_master(), so the restore just
++	 * re-enabled bus mastering on an unbound device - drop it again.
++	 */
++	pci_clear_master(pdev);
++}
++
++static pci_ers_result_t mtk_pci_error_detected(struct pci_dev *pdev,
++					       pci_channel_state_t state)
++{
++	struct mtk_md_dev *mdev = pci_get_drvdata(pdev);
++
++	dev_err(mdev->dev, "AER detected: pci_channel_state_t=%u\n", state);
++
++	/* AER recovery not supported, disconnect the device */
++	return PCI_ERS_RESULT_DISCONNECT;
++}
++
++static const struct pci_error_handlers mtk_pci_err_handler = {
++	.error_detected = mtk_pci_error_detected,
++};
++
++static struct pci_driver mtk_pci_drv = {
++	.name = "mtk_pci_drv",
++	.id_table = t9xx_pci_table,
++	.probe = mtk_pci_probe,
++	.remove = mtk_pci_remove,
++	.err_handler = &mtk_pci_err_handler
++};
++
++module_pci_driver(mtk_pci_drv);
++
++MODULE_DESCRIPTION("MediaTek T9xx PCIe WWAN driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.h b/drivers/net/wwan/t9xx/pcie/mtk_pci.h
+new file mode 100644
+index 000000000000..80c1a40f98d5
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.h
+@@ -0,0 +1,140 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_PCI_H__
++#define __MTK_PCI_H__
++
++#include <linux/pci.h>
++
++#include "../mtk_dev.h"
++
++enum mtk_irq_src {
++	MTK_IRQ_SRC_MIN,
++	MTK_IRQ_SRC_MHCCIF,
++	MTK_IRQ_SRC_CLDMA0,
++	MTK_IRQ_SRC_CLDMA1,
++	MTK_IRQ_SRC_MAX
++};
++
++enum mtk_atr_src_port {
++	ATR_SRC_PCI_WIN0 = 0,
++	ATR_SRC_PCI_WIN1,
++	ATR_SRC_AXIS_0,
++	ATR_SRC_AXIS_1,
++	ATR_SRC_AXIS_2,
++	ATR_SRC_AXIS_3,
++};
++
++enum mtk_atr_dst_port {
++	ATR_DST_PCI_TRX = 0,
++	ATR_DST_AXIM_0 = 4,
++};
++
++#define MTK_PCI_CLASS                 0x0D4000
++
++#define MTK_BAR_0_1_IDX                 0
++#define MTK_BAR_2_3_IDX                 2
++
++#define MTK_IRQ_CNT_MAX				32
++#define MTK_IRQ_NAME_LEN			32
++
++#define ATR_PORT_OFFSET				0x100
++#define ATR_TABLE_OFFSET			0x20
++#define ATR_TABLE_NUM_PER_ATR			8
++#define ATR_PCIE_REG_TRSL_ADDR			0x10000000
++#define ATR_PCIE_REG_SIZE			0x00400000
++#define ATR_PCIE_REG_PORT			ATR_SRC_PCI_WIN0
++#define ATR_PCIE_REG_TABLE_NUM			1
++#define ATR_PCIE_REG_TRSL_PORT			ATR_DST_AXIM_0
++#define ATR_PCIE_DEV_DMA_SRC_ADDR		0x00000000
++#define ATR_PCIE_DEV_DMA_TRANSPARENT		1
++#define ATR_PCIE_DEV_DMA_SIZE			0
++#define ATR_PCIE_DEV_DMA_TABLE_NUM		0
++#define ATR_PCIE_DEV_DMA_TRSL_ADDR		0x00000000
++
++struct mtk_pci_irq_desc {
++	struct mtk_md_dev *mdev;
++	u32 msix_bits;
++	char name[MTK_IRQ_NAME_LEN];
++};
++
++struct mtk_pci_priv {
++	struct mtk_md_dev *mdev;
++	void __iomem *bar23_addr;
++	void __iomem *mac_reg_base;
++	void __iomem *ext_reg_base;
++	int irq_cnt;
++	/* irq_cb_lock: protects irq_cb_list[] and irq_cb_data[] */
++	spinlock_t irq_cb_lock;
++	void *irq_cb_data[MTK_IRQ_CNT_MAX];
++
++	int (*irq_cb_list[MTK_IRQ_CNT_MAX])(int irq_id, void *data);
++	struct mtk_pci_irq_desc irq_desc[MTK_IRQ_CNT_MAX];
++	struct list_head mhccif_cb_list;
++	/* mhccif_lock: lock to protect mhccif_cb_list */
++	spinlock_t mhccif_lock;
++	struct work_struct mhccif_work;
++	int mhccif_irq_id;
++	struct pci_saved_state *saved_state;
++};
++
++struct mtk_atr_cfg {
++	u64 src_addr;
++	u64 trsl_addr;
++	u64 size;
++	u32 port;      /* Port number */
++	u32 table;     /* Table number (8 tables for each port) */
++	u32 trsl_id;
++	u32 trsl_param;
++	u32 transparent;
++};
++
++/* BAR 0/1 MMIO access */
++static inline u32 mtk_pci_mac_read32(struct mtk_pci_priv *priv, u64 addr)
++{
++	return ioread32(priv->mac_reg_base + addr);
++}
++
++static inline void mtk_pci_mac_write32(struct mtk_pci_priv *priv, u64 addr, u32 val)
++{
++	iowrite32(val, priv->mac_reg_base + addr);
++}
++
++/* BAR 2/3 MMIO access */
++static inline u32 mtk_pci_read32(struct mtk_md_dev *mdev, u64 addr)
++{
++	return ioread32(((struct mtk_pci_priv *)mdev->hw_priv)->ext_reg_base + addr);
++}
++
++static inline void mtk_pci_write32(struct mtk_md_dev *mdev, u64 addr, u32 val)
++{
++	iowrite32(val, ((struct mtk_pci_priv *)mdev->hw_priv)->ext_reg_base + addr);
++}
++
++/* Device operations */
++u32 mtk_pci_get_dev_state(struct mtk_md_dev *mdev);
++void mtk_pci_ack_dev_state(struct mtk_md_dev *mdev, u32 state);
++/* IRQ Related operations */
++int mtk_pci_get_irq_id(struct mtk_md_dev *mdev, enum mtk_irq_src irq_src);
++int mtk_pci_get_virq_id(struct mtk_md_dev *mdev, int irq_id);
++int mtk_pci_register_irq(struct mtk_md_dev *mdev, int irq_id,
++			 int (*irq_cb)(int irq_id, void *data), void *data);
++int mtk_pci_unregister_irq(struct mtk_md_dev *mdev, int irq_id);
++int mtk_pci_mask_irq(struct mtk_md_dev *mdev, int irq_id);
++int mtk_pci_unmask_irq(struct mtk_md_dev *mdev, int irq_id);
++int mtk_pci_clear_irq(struct mtk_md_dev *mdev, int irq_id);
++/* External event related */
++int mtk_pci_register_ext_evt(struct mtk_md_dev *mdev, u32 chs,
++			     int (*evt_cb)(u32 status, void *data), void *data);
++void mtk_pci_unregister_ext_evt(struct mtk_md_dev *mdev, u32 chs);
++void mtk_pci_mask_ext_evt(struct mtk_md_dev *mdev, u32 chs);
++void mtk_pci_unmask_ext_evt(struct mtk_md_dev *mdev, u32 chs);
++int mtk_pci_send_ext_evt(struct mtk_md_dev *mdev, u32 ch);
++int mtk_pci_pldr(struct mtk_md_dev *mdev);
++bool mtk_pci_link_check(struct mtk_md_dev *mdev);
++int mtk_pci_setup_atr(struct mtk_md_dev *mdev, struct mtk_atr_cfg *cfg);
++void mtk_pci_atr_disable(struct mtk_pci_priv *priv);
++
++#endif /* __MTK_PCI_H__ */
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h b/drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h
+new file mode 100644
+index 000000000000..a97ad6630dcf
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_PCI_REG_H__
++#define __MTK_PCI_REG_H__
++
++#define REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB	0x0600
++#define REG_ATR_PCIE_WIN0_T0_SRC_ADDR_MSB	0x0604
++#define REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_LSB	0x0608
++#define REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_MSB	0x060C
++#define REG_ATR_PCIE_WIN0_T0_TRSL_PARAM		0x0610
++#define REG_PCIE_DEBUG_DUMMY_7			0x0D1C
++#define REG_MSIX_ISTATUS_HOST_GRP0_0		0x0F00
++#define REG_IMASK_HOST_MSIX_SET_GRP0_0		0x3000
++#define REG_IMASK_HOST_MSIX_CLR_GRP0_0		0x3080
++#define REG_IMASK_HOST_MSIX_GRP0_0		0x3100
++
++/* mhccif registers */
++#define MHCCIF_RC2EP_SW_BSY			0x4
++#define MHCCIF_RC2EP_SW_TCHNUM			0xC
++#define MHCCIF_RC2EP_EVT_DEVICE_RESET		BIT(13)
++
++#define MHCCIF_EP2RC_SW_INT_STS			0x10
++#define MHCCIF_EP2RC_SW_INT_ACK			0x14
++#define MHCCIF_EP2RC_SW_INT_EAP_MASK		0x20
++#define MHCCIF_EP2RC_SW_INT_EAP_MASK_SET	0x30
++#define MHCCIF_EP2RC_SW_INT_EAP_MASK_CLR	0x40
++#define MHCCIF_EP2RC_EVT_BOOT_FLOW_SYNC		BIT(5)
++#define MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_SAP	BIT(15)
++#define MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_MD	BIT(16)
++
++#endif /* __MTK_PCI_REG_H__ */
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261013024747.2688984-1-zhangfeionline%40gmail.com
+2.34.1
+
+
 
