@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F993CC6B24
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6595FCC6B27
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OX0VXOszlEhy3QmUuQYMcEiT+j/7+8CPCHw1G+kDYVg=; b=OUF3uEfY+H1chev9RcBTWY98ts
-	VLSfp5XFgvEV/c5XS1sUCUtB+tMAUWpqFUZumQv93L8vqrZfs8CboJn//kM+WjYAJyiUxSL7DdlHZ
-	5YO/kpEcoiLOkymSfM1y5VXcnWlW3l2nvACnGSlkZvKw4GAyRanoeww2U3xQvcMAE7ms1VCO6VlRs
-	F2w1ruepEHKzyt1NRZVVuiq5JkfZaplLyzSvyUyPBp5Ab4IbrZhjQqpoqOa0jvkiFCLhJRg46/+d8
-	Kc9CiPE6uH3HkVoK/+lQ00JjfgqOcmwhhG459G17KXvR0WuH1q3nLiVwFFS1RFtP4eLXlBjTNy8xq
-	1KEF0LIQ==;
+	bh=8x9KsBewSFYSs1uygWN9H4G3vWtytmr+Iw9MGOEX/xM=; b=T5Gw/cXOPAD/tuaMWJEtFXzrd1
+	HomodMiO8KITrK3pjDoOJtkOCQjoi6aWPmnGkobeZCuA6N3ogczKvnmv63iklxvnBtNeImTonTPUE
+	ak/vg9RbPkW5bMs1nv53N5x2xA84Bi4ybkVn4vRXcIndmSLT8J+8CWuzwaLHWBM9gOdL0bKQY609b
+	bhvUnNLjK0jUEdgR8lH7unFPEsPdLD1XDPKPPTnZkPmTPZcZDkc6KVVMH92L2Ctu3IVxTt0Awww8V
+	Ut7klzpUOkymPxS5vACj5fIWUAka5dMky21T6Cw7isi2ENWDNfvwQ/g1UmcGlXND3kFS7vsrhvMPI
+	y+Z5XgGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtLR-0000000Ek57-2lH8;
-	Wed, 14 Oct 2026 07:24:13 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xGtLS-0000000Ek6B-0Apt;
+	Wed, 14 Oct 2026 07:24:14 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtKX-0000000EjOw-200P
+	id 1xGtKa-0000000EjRa-1whv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:23:35 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48deeadb3fdso75717f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:16 -0700 (PDT)
+	Wed, 14 Oct 2026 07:23:36 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-49fbb2acc90so32016995e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791962595; x=1792567395; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OX0VXOszlEhy3QmUuQYMcEiT+j/7+8CPCHw1G+kDYVg=;
-        b=LmTPMrTGrQwFTaeMeix68bQsf5P2kwrQnYWUWTzurFBQ6GL3sxwTkmhqnZEiQNCc3k
-         BevAw4ZiV/bomvQ5TvL1hyA/ekQzBZwwtyTtyOYh685acpb03uEwVFlFAcGKQ6HCvYOs
-         ezaev0AyjS93W5pT8hLPcF4zyEg8+THbRxoipmwfkf8O0j/Z3k4IU37FA8X5X9mvQFC2
-         GKUxyj63GA671A9xA6nnLMnh/X6J6yBvxeutI74AdHq2lr6vvTOqvOxQx+jqKR37L3ui
-         6YGRGLaHTISqZQUeUEgs/ZLs8+5IiLLn2n8nnRbDoZr/cOHHihbKXdXL0KW/cZSnVS0H
-         aQFw==
+        d=gmail.com; s=20251104; t=1791962598; x=1792567398; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8x9KsBewSFYSs1uygWN9H4G3vWtytmr+Iw9MGOEX/xM=;
+        b=XRffRW95gyyRvj3Dc+ESmS6c3+fjrivkXT8vFTr9yBv4pb2/0FQpp8LXqZOlsEmyJ9
+         6RUAUQ3LGPwm/tpRJwxIvB5JOvN46qwDcRAdoeu3GzvIkxirGd17cyaQh6LQXxKEeRzQ
+         LNayjeGJB7Ty1rownX4qx1DdjRZbS3zUcBvm0ghByTW2Hri/M5winij+Rx6M8R5qa5nx
+         HGpC+S8/X6Yv3M8A8p4BZWR3lAriP+a0XC6wEGzYydHHRoffa8y32tIcZPuIgPjk1UI3
+         vxduCjtan3+cA1CbbYHvbEHxDpOxx4J70WywKPKmVl8HwQNIF/uLN8ayxdHUYue/JA3A
+         OfHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791962595; x=1792567395;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OX0VXOszlEhy3QmUuQYMcEiT+j/7+8CPCHw1G+kDYVg=;
-        b=SIuerpyBl2L/yszLftycej+nnHdHKCN+7fEMR1dc8mf8jQxrPYcfWUdtRgOdhHx+uq
-         xUryfUGUDrCISjFBdFgxJ9XfPT+KlAi0pw/+NDAV1OTnPoOA8cnP/DjN/mK0qfqyUiiV
-         p7IYCoOOkmN9o/K9uR91jRE/vNreVO0AFVAa2TU/SE8945klo3Jsdgml92Nj0MYbL95W
-         UGOZpHFZRrFQX+guS00LeJz0Tw53YgF7M38mXKENn+Y+BLB+1QLzalMjHfYHzUO0943C
-         vU2BGOVp1q4LrmNrUw3MWqziUMKjMYhLuDbMVPJKDI4n4BifeBw/1TJgoZBipeuaKGEV
-         aqXw==
-X-Gm-Message-State: AFq9FYL9C4aMr+B3EEPZDXzdg0sOeqrN0s5Z+SILEMZdp0v3qbBDU0ft
-	t1YXCJ0vHwr5ZlCW3dR8m3ElEu3W/EtdbRW3I5bBs3hJbjTqYWYsjbASkS9v3zNv8LlMnA==
-X-Gm-Gg: AYBFou1L8cOr3QELOeKvoGPq1jkZ3JqAE4e0iDcj+T19QQHuJRZdGPspPla/lIs5A9J
-	YziEPeEo7xJWn7pZO0Kl17RQrnPiaGyOW6RLAYVF5CshTUU3pEhH1YIxU0EQ/Y7XjHcY6rw0MJ6
-	pliaJcc14vjcGn959Xi40XxHiqZL/S256xfn3JXED5Gw/z0OuifvK6p8i+BOAg0Niau9qnZm6Rl
-	hI70kpWcWcWtByBAec65VXuVnDXx+GHH8mFhK4v3SniuVgFcTSE9+f42US0oBTwJNB6Z4w/Cpyq
-	imUuYW4+Vhd6e67h5EjCIWLtvfFKwVfmPr3Nf8CPkucqGjkuZ8hqmmfWVhyPmNFQjTDkgw6QP/q
-	hAzMjXBkQPswNFl8drTMZjzZsb35Sckx7iaKeMDwUGxIIKZOAuQkz0UKSGZMMOusKho2c92JvCq
-	XIBdSyWG9jEJgnm05VNKm01cAmVK8zLm7oIY8Zu8W7H6/H6U+YIPtNGf/9Tb79WhvsMxw/Vttuy
-	8tkT10oBM1NG3bjKE57dBS7EEbD/asLDp9ZZKPbPsWhVQoBxLm/pd6sg3jVkHpBwIbuxdBvJlgT
-	LspZE06VE1H0QlBLLfpVkIv5xrA5Ub9OPKjrMUCIxRGAHaMokBjW6K20Tzjv3A==
-X-Received: by 2002:a05:6000:220f:b0:48d:eee6:b1a0 with SMTP id ffacd0b85a97d-48deee6b2f0mr231922f8f.9.1791962595326;
-        Wed, 14 Oct 2026 00:23:15 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791962598; x=1792567398;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8x9KsBewSFYSs1uygWN9H4G3vWtytmr+Iw9MGOEX/xM=;
+        b=GUTmiztLMHOsW2+QDXs0C3WPZ5iNWAMAKeYFTN97sXckPIZiFJR2KUJeWSgBjtXIQG
+         oEx8rQr/f8IAVUc9gMdP3nYr9356ejmgsjLb8m8Juq883iZe1NO5EiwXKhL/mWNzr+5M
+         Chn3rrQyc4Su+BG0AL4mN2faN70ALlhIqyFPVn5qK2kKc3klr4ZuRdaGBvWKY/3q3Sb4
+         82EGoG/geXe1ZhDqsl8eHKV1JdygLCCl3vikvgrVJb9IRG9cUQxa9cpRqw4BvINoF/eQ
+         6BUPLUyV/8O4+w5G/+04AFxgjx4P7ttFZRgiiQXro5WbdgDh9/AJN+5AZ773CUyEIfsY
+         QY8w==
+X-Gm-Message-State: AFq9FYLgHAtEj2ZoYI9drmd9AMDahO04kjqYDWhSwUEHfWCFlxk46cRD
+	S8R6kYCqfFws6eaHkhMforkX9wU16/UtIu8vtnbqwQ92Cz+wZjZ+uViMYF0DMqNk7CX7dg==
+X-Gm-Gg: AYBFou1ke24vynj1TbKh44zuxLA71QiaQHcm60T6Zu89Smlcqdi4RNe0B6AT375xZ7g
+	A8aTfVA48WD6yU3vaymZiDXK1W9CVxtDoojWi/PWwa69sTtsHG0GbEH+4WKXS102u7R+MSZ7kAc
+	2CA8NeBGHqFemYm/oDNw8zRL9WKcL2PkZ5H3bTi2YQoYz8lF7hBcccwyZbG7RGce1eJ3rsR52v4
+	efJaIZ7nZE+xREslhIJaFdUlh5bc8PzDWL50zHGaWWLarKob+19510qKPmoIOaz9i/sOe+j6kCv
+	kLkWKZCMocg5N9KMEjCD4kXwEiF3zamtxcS8n8YnJGpwwiZf/74UG4NnTGe7JGuE6eKmIz83PLw
+	WAQSV+ebAxRCb0KI8UhS8iUAdcEaoRLFHaFYI0v6U5L4zvhzo0rNvw3I7J/t6d1ePNRTAgmtPwH
+	IT6K0Dt8qqhO0t18Cwj2tl4zIYnLd9jisqAosU12YEhew9A5Uw0IOhz2hWsSFtHpF8NU6L2QQ0+
+	ZWBy+W/Yht9ViMFGQUWqjYqm6iLkRwrPOlRo71mXKiVUbloanSBu6z5SowPmCRykqeW01WZ+qyB
+	vulswNFyfv3YSKoZ3NSd3WmeUCZ/2hBaFqnNMC6S4ZPPR362uQk77gup0sI8gQ==
+X-Received: by 2002:a05:600c:4f89:b0:4a1:acaa:9d4c with SMTP id 5b1f17b1804b1-4a1acaa9f79mr83413695e9.25.1791962598362;
+        Wed, 14 Oct 2026 00:23:18 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 00:23:14 -0700 (PDT)
+        Wed, 14 Oct 2026 00:23:17 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: arnd@arndb.de,
 	stefandoesinger@gmail.com,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org
-Subject: [PATCH v2 20/24] spi: zx: Add ZTE ZX family SPI flash controller driver
-Date: Wed, 14 Oct 2026 08:21:00 +0100
-Message-ID: <20261014072109.1759502-21-ghahramani.navid@gmail.com>
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 23/24] ARM: dts: zte: Add ZX279128S SoC description
+Date: Wed, 14 Oct 2026 08:21:03 +0100
+Message-ID: <20261014072109.1759502-24-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_002322_665972_8D6E5DBF 
-X-CRM114-Status: GOOD (  32.23  )
+X-CRM114-CacheID: sfid-20261014_002322_671411_A5E08031 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,791 +106,439 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the SPI flash controller found on ZTE ZX family SoCs
-(ZX297520V3, ZX279128S). Implement tuned PIO to avoid redundant FIFO
-depth reads, dynamic CCF clock scaling, 4KB operation chunking, and
-optional DMA support.
+Add the base device tree for the dual Cortex-A9 ZTE ZX279128S SoC,
+including GIC, arch timer, CRM clock and reset controllers, GPIO,
+pin control, Ethernet switch, MDIO, PCIe PHYs and controllers, SPI,
+and DWC3 USB.
 
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- drivers/spi/Kconfig  |  15 +
- drivers/spi/Makefile |   1 +
- drivers/spi/spi-zx.c | 728 +++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 744 insertions(+)
- create mode 100644 drivers/spi/spi-zx.c
+ arch/arm/boot/dts/zte/zx279128s.dtsi | 416 +++++++++++++++++++++++++++
+ 1 file changed, 416 insertions(+)
+ create mode 100644 arch/arm/boot/dts/zte/zx279128s.dtsi
 
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index a0f37e2df7..5ab0cec218 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -1320,6 +1320,21 @@ config SPI_XTENSA_XTFPGA
- 	  16 bit words in SPI mode 0, automatically asserting CS on transfer
- 	  start and deasserting on end.
- 
-+config SPI_ZX
-+	tristate "ZTE ZX family SPI flash controller"
-+	depends on ARCH_ZTE || COMPILE_TEST
-+	depends on OF && HAS_IOMEM
-+	depends on SPI_MEM
-+	help
-+	  This enables support for the SPI flash controller found on ZTE ZX
-+	  family SoCs (ZX297520V3, ZX279128S, etc.), through which they reach
-+	  boot flash (such as SPI NAND on the ZTE ZXHN H3600).
-+	  This controller operates flash transactions through a hardware FIFO
-+	  or optional DMA engine.
-+	  This driver does not support generic SPI. It only implements the
-+	  spi-mem interface.
-+
-+
- config SPI_ZYNQ_QSPI
- 	tristate "Xilinx Zynq QSPI controller"
- 	depends on ARCH_ZYNQ || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index a18814fbde..3e9ea1e6fa 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -170,6 +170,7 @@ obj-$(CONFIG_SPI_XCOMM)		+= spi-xcomm.o
- obj-$(CONFIG_SPI_XILINX)		+= spi-xilinx.o
- obj-$(CONFIG_SPI_XLP)			+= spi-xlp.o
- obj-$(CONFIG_SPI_XTENSA_XTFPGA)		+= spi-xtensa-xtfpga.o
-+obj-$(CONFIG_SPI_ZX)			+= spi-zx.o
- obj-$(CONFIG_SPI_ZYNQ_QSPI)		+= spi-zynq-qspi.o
- obj-$(CONFIG_SPI_ZYNQMP_GQSPI)		+= spi-zynqmp-gqspi.o
- obj-$(CONFIG_SPI_AMD)			+= spi-amd.o spi-amd-pci.o
-diff --git a/drivers/spi/spi-zx.c b/drivers/spi/spi-zx.c
+diff --git a/arch/arm/boot/dts/zte/zx279128s.dtsi b/arch/arm/boot/dts/zte/zx279128s.dtsi
 new file mode 100644
-index 0000000000..edcad6008d
+index 0000000000..8896a8b067
 --- /dev/null
-+++ b/drivers/spi/spi-zx.c
-@@ -0,0 +1,728 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/arch/arm/boot/dts/zte/zx279128s.dtsi
+@@ -0,0 +1,416 @@
++// SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +/*
-+ * Copyright (C) ZTE (for HW register defines and initial PIO implementation)
-+ * Copyright (C) Stefan Dösinger 2026
-+ * Author: Stefan Dösinger <stefandoesinger@gmail.com>
++ * ZTE zx279128s SoC: dual Cortex-A9 with an L2C-310 cache controller, a
++ * five-port gigabit switch, two PCIe controllers and a SPI NAND controller.
 + *
-+ * This device has certain similarities to stm32-qspi, but it isn't as simple as remapping register
-+ * offsets.
++ * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
 + */
 +
-+//#define DEBUG
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/dmaengine.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/errno.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/interrupt.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/sizes.h>
-+#include <linux/spi/spi-mem.h>
-+
-+#define MODULE_NAME "zx-qspi"
-+
-+struct zx_qspi {
-+	struct spi_controller *ctrl;
-+	struct reset_control *rstc;
-+	phys_addr_t phys_base;
-+	void __iomem *io_base;
-+	struct clk *pclk, *wclk;
-+
-+	struct completion dma_completion;
-+	struct sg_table sgt;
-+	struct dma_async_tx_descriptor *dma_desc;
-+	struct dma_chan *cur_dma_ch;
-+	unsigned int speed_hz;
-+
-+	/* TODO: Do I need locks? */
-+};
-+
-+#define ZX_QSPI_FIFO_SIZE			16
-+
-+/* Register and flag defines are copypasted from ZTE's kernel */
-+
-+/*
-+ * spifc register
-+ *
-+ * ZX_QSPI_VER_REG: This is a bit of a misnomer. The mmio areas of a lot of hardware on the ZX
-+ * platform starts with an identifier. 0x01040000 is the identifier of the SPI and QSPI devices,
-+ * so VER_REG will always contain 0x01040000.
-+ */
-+#define ZX_QSPI_VER_REG				0x0
-+#define ZX_QSPI_START_REG			0x4
-+#define ZX_QSPI_EN_REG				0x8
-+#define ZX_QSPI_CTRL0_REG			0xc
-+#define ZX_QSPI_CTRL1_REG			0x10
-+#define ZX_QSPI_CTRL2_REG			0x14
-+#define ZX_QSPI_BYTE_NUM_REG			0x18
-+#define ZX_QSPI_ADDR_REG			0x1c
-+#define ZX_QSPI_INS_REG				0x20
-+#define ZX_QSPI_TIMING_REG			0x24
-+#define ZX_QSPI_INT_EN_REG			0x28
-+#define ZX_QSPI_INT_RAW_REG			0x2c
-+#define ZX_QSPI_INT_SW_CLR_REG			0x30
-+#define ZX_QSPI_SW_REG				0x34
-+#define ZX_QSPI_DATA_REG			0x38
-+
-+/*
-+ * spifc start register
-+ */
-+#define ZX_QSPI_START				BIT(0)
-+#define ZX_QSPI_BUSY				BIT(0)
-+
-+/*
-+ * spifc en register
-+ */
-+#define ZX_QSPI_EN				BIT(0)
-+#define ZX_QSPI_EN_BACK				BIT(1)
-+
-+/*
-+ * spifc ctrl0 register
-+ *
-+ * Guesswork: ZX_QSPI_*XFIFO_THRES are probably 4 bit counts that set at which point an int is
-+ * raised. E.g. if ZX_QSPI_TXFIFO_THRES=5, it will raise an int when the RX fifo has 5 32 bit
-+ * values ready to read. They also have an effect on DMA. If the THRES flags are set, the burst
-+ * size needs to be big enough or the DMA transfer times out.
-+ *
-+ * I don't know what ZX_QSPI_WDOG_EN does. Likely there is some correlation with INT_WDOG_OVERRUN,
-+ * but all I could observe is that setting ZX_QSPI_WDOG_EN breaks write operations with DMA.
-+ */
-+#define ZX_QSPI_SCLK_PAUSE_CLR_ALLOW		BIT(17)
-+#define ZX_QSPI_SCLK_PAUSE_EN			BIT(16)
-+#define ZX_QSPI_TXFIFO_CLR			BIT(15)
-+#define ZX_QSPI_RXFIFO_CLR			BIT(14)
-+#define ZX_QSPI_TXFIFO_THRES			BIT(10)
-+#define ZX_QSPI_RXFIFO_THRES			BIT(6)
-+#define ZX_QSPI_TX_DMA_EN			BIT(5)
-+#define ZX_QSPI_RX_DMA_EN			BIT(4)
-+#define ZX_QSPI_WDOG_EN				BIT(3)
-+#define ZX_QSPI_SPI_MODE			BIT(1)
-+#define ZX_QSPI_WR_PROTECT			BIT(0)
-+
-+/*
-+ * spifc ctrl1 register
-+ */
-+#define ZX_QSPI_ADDR_TX_EN			BIT(4)
-+#define ZX_QSPI_DUMMY_TX_EN			BIT(2)
-+#define ZX_QSPI_READ_DATA_EN			BIT(1)
-+#define ZX_QSPI_WRITE_DATA_EN			BIT(0)
-+
-+/*
-+ * spifc ctrl2 register
-+ */
-+#define ZX_QSPI_DUMMY_BYTE_NUM			(12)		/* [12:15} */
-+#define ZX_QSPI_DUMMY_BIT_NUM			(8)		/* [8:10] */
-+#define ZX_QSPI_ADDR_BYTE_NUM			(5)		/* [5:6] */
-+#define ZX_QSPI_ADDR_MULTI_LINE_EN		BIT(4)
-+#define ZX_QSPI_DATA_MULTI_LINE_EN		BIT(2)
-+#define ZX_QSPI_TRANS_MOD			BIT(0)
-+
-+#define ADDR_BYTE_WIDTH_8			(0)
-+#define ADDR_BYTE_WIDTH_16			(1)
-+#define ADDR_BYTE_WIDTH_24			(2)
-+#define ADDR_BYTE_WIDTH_32			(3)
-+
-+/*
-+ * spifc timing register
-+ */
-+#define ZX_QSPI_T_CS_SETUP			11	/* [11:13] */
-+#define ZX_QSPI_T_CS_HOLD			6	/* [8:6] */
-+#define ZX_QSPI_T_CS_DESEL			0	/* [0:3] */
-+
-+/*
-+ * spifc int_en, int_raw, int_sw_clr register
-+ */
-+#define ZX_QSPI_INT_TX_BYD_THRES		BIT(7)
-+#define ZX_QSPI_INT_RX_BYD_THRES		BIT(6)
-+#define ZX_QSPI_INT_TX_UNDERRUN			BIT(5)
-+#define ZX_QSPI_INT_RX_OVERRUN			BIT(4)
-+#define ZX_QSPI_INT_WDOG_OVERRUN		BIT(2)
-+#define ZX_QSPI_INT_FMT_ERR			BIT(1)
-+#define ZX_QSPI_INT_CMD_END			BIT(0)
-+#define ZX_QSPI_INT_ALL_MASK			GENMASK(7, 0)
-+#define ZX_QSPI_INT_EN_MASK			GENMASK(5, 0)
-+
-+/*
-+ * spifc sw register
-+ */
-+#define ZX_QSPI_TX_FIFO_CNT_MASK		GENMASK(20, 16)	/* [16:20] */
-+#define ZX_QSPI_RX_FIFO_CNT_MASK		GENMASK(12, 8)	/* [8:12] */
-+#define ZX_QSPI_TX_BYD_THRES			BIT(5)
-+#define ZX_QSPI_RX_BYD_THRES			BIT(4)
-+#define ZX_QSPI_SCLK_PAUSE_FLAG			BIT(3)
-+#define ZX_QSPI_WAIT_FLAG			BIT(2)
-+#define ZX_QSPI_FORMAT_ERR			BIT(1)
-+
-+static irqreturn_t zx_qspi_irq(int irq, void *dev_id)
-+{
-+	struct zx_qspi *qspi = dev_id;
-+	struct device *dev = &qspi->ctrl->dev;
-+	u32 sw, raw = 0;
-+	/* The RAW_REG register reports the unmodified hardware status while the SW/CLR reg reports
-+	 * RAW_REG & INT_EN_REG.
-+	 *
-+	 * Beware that clearing a FIFO flag here doesn't do much - the RX fifo will still have data
-+	 * and the TX fifo will still have room, so it will re-raise the same int again. The
-+	 * solution is to mask the RX/TX ints and re-enable them after reading or filling the fifo.
-+	 *
-+	 * By and large IRQs from this controller are not very helpful. If we're in PIO mode we are
-+	 * forced to do a lot of busy waiting anyway because we have to drain/fill FIFOs every 64
-+	 * bytes. In ad-hoc benchmarking, doing PIO with IRQ notifications resulted in both slower
-+	 * reads as well as slower parallel CPU computation.
-+	 *
-+	 * In DMA mode we just piggypack on the DMA IRQ.
-+	 */
-+	sw = readl_relaxed(qspi->io_base + ZX_QSPI_INT_SW_CLR_REG);
-+	raw = readl_relaxed(qspi->io_base + ZX_QSPI_INT_RAW_REG);
-+
-+	dev_dbg(dev, "Got an IRQ, sw %x raw %x\n", sw, raw);
-+
-+	writel_relaxed(0, qspi->io_base + ZX_QSPI_INT_EN_REG);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+/* IRQs for PIO aren't worth the bother. The hardware is sloppy with IRQs in larger (>2000 byte)
-+ * transfers and in my testing it does not free up measurable amounts of CPU resources. DMA is the
-+ * answer to better performance, not tuning PIO.
-+ *
-+ * To get IRQs for PIO operations set ZX_QSPI_{R/T}XFIFO_THRES to a non-zero value and enable
-+ * ZX_QSPI_INT_{R/T}X_BYD_THES in ZX_QSPI_INT_EN_REG. Beware that the TX fifo will report empty
-+ * until it is fed with data, so only unmask this interrupt after the pipe is full. Then either
-+ * signal completion from zx_qspi_irq when it sees ZX_QSPI_INT_{R/T}X_BYD_THES and command
-+ * completion or fill new data from the IRQ handler.
-+ */
-+static int zx_qspi_read_fifo(struct zx_qspi *qspi, u32 len, u8 *val)
-+{
-+	struct device *dev = &qspi->ctrl->dev;
-+	u32 *p = (uint32_t *)val;
-+	u32 fifo, readval;
-+	u32 cnt = 0;
-+	int ret;
-+
-+	len = ALIGN(len, 4) >> 2;
-+	while (cnt < len) {
-+		ret = readl_relaxed_poll_timeout_atomic(qspi->io_base + ZX_QSPI_SW_REG,
-+							 fifo, fifo & ZX_QSPI_RX_FIFO_CNT_MASK, 1,
-+							 30000);
-+		if (ret) {
-+			dev_err(dev, "fifo timeout (len:%d stat:%#x)\n",
-+				len << 2, fifo);
-+			return ret;
-+		}
-+		fifo = min((fifo & ZX_QSPI_RX_FIFO_CNT_MASK) >> 8, len - cnt);
-+		while (fifo) {
-+			readval = readl_relaxed(qspi->io_base + ZX_QSPI_DATA_REG);
-+			p[cnt++] = readval;
-+			fifo--;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx_qspi_write_fifo(struct zx_qspi *qspi, u32 len, u8 *val)
-+{
-+	struct device *dev = &qspi->ctrl->dev;
-+	u32 *p = (uint32_t *)val;
-+	u32 cnt = 0;
-+	u32 fifo;
-+	int ret;
-+
-+	len = ALIGN(len, 4) >> 2;
-+	while (cnt < len) {
-+		ret = readl_relaxed_poll_timeout_atomic(qspi->io_base + ZX_QSPI_SW_REG,
-+							 fifo, fifo & ZX_QSPI_TX_FIFO_CNT_MASK, 1,
-+							 30000);
-+		if (ret) {
-+			dev_err(dev, "fifo timeout (len:%d stat:%#x)\n",
-+				len << 2, fifo);
-+			return ret;
-+		}
-+		fifo = min((fifo & ZX_QSPI_TX_FIFO_CNT_MASK) >> 16, len - cnt);
-+		while (fifo) {
-+			writel_relaxed(p[cnt++], qspi->io_base + ZX_QSPI_DATA_REG);
-+			fifo--;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx_qspi_tx(struct zx_qspi *qspi,
-+		      const struct spi_mem_op *op)
-+{
-+	int (*tx_fifo)(struct zx_qspi *qspi, u32 len, u8 *val);
-+	u32 len = op->data.nbytes;
-+	u8 *buf;
-+
-+	if (!op->data.nbytes)
-+		return 0;
-+
-+	if (op->data.dir == SPI_MEM_DATA_IN) {
-+		tx_fifo = zx_qspi_read_fifo;
-+		buf = op->data.buf.in;
-+	} else {
-+		tx_fifo = zx_qspi_write_fifo;
-+		buf = (u8 *)op->data.buf.out;
-+	}
-+
-+	return tx_fifo(qspi, len, buf);
-+}
-+
-+static void zx_qspi_callback_result(void *arg,
-+				    const struct dmaengine_result *result)
-+{
-+	struct zx_qspi *qspi = arg;
-+	struct device *dev = &qspi->ctrl->dev;
-+	struct completion *dma_completion = &qspi->dma_completion;
-+
-+	if (result->residue)
-+		dev_err(dev, "Residue %u not handled\n", result->residue);
-+
-+	if (result->result)
-+		dev_err(dev, "Unexpected result %d\n", result->result);
-+
-+	complete(dma_completion);
-+}
-+
-+static u32 zx_qspi_setup_dma(struct zx_qspi *qspi, const struct spi_mem_op *op)
-+{
-+	struct device *dev = &qspi->ctrl->dev;
-+	enum dma_transfer_direction dma_dir;
-+	u32 ctrl0 = 0;
-+	int ret;
-+
-+	qspi->cur_dma_ch = NULL;
-+	qspi->dma_desc = NULL;
-+	if (op->data.nbytes < ZX_QSPI_FIFO_SIZE * 4)
-+		return 0;
-+
-+	if (op->data.dir == SPI_MEM_DATA_IN && qspi->ctrl->dma_rx) {
-+		dma_dir = DMA_DEV_TO_MEM;
-+		ctrl0 |= ZX_QSPI_RX_DMA_EN;
-+		qspi->cur_dma_ch = qspi->ctrl->dma_rx;
-+	} else if (qspi->ctrl->dma_tx) {
-+		dma_dir = DMA_MEM_TO_DEV;
-+		ctrl0 |= ZX_QSPI_TX_DMA_EN;
-+		qspi->cur_dma_ch = qspi->ctrl->dma_tx;
-+	} else {
-+		return 0;
-+	}
-+
-+	reinit_completion(&qspi->dma_completion);
-+	ret = spi_controller_dma_map_mem_op_data(qspi->ctrl, op, &qspi->sgt);
-+	if (ret) {
-+		dev_err(dev, "spi_controller_dma_map_mem_op_data = %d\n", ret);
-+		return 0;
-+	}
-+
-+	qspi->dma_desc = dmaengine_prep_slave_sg(qspi->cur_dma_ch, qspi->sgt.sgl, qspi->sgt.nents,
-+				       dma_dir, DMA_PREP_INTERRUPT);
-+	if (!qspi->dma_desc) {
-+		dev_err(dev, "dmaengine_prep_slave_sg fail\n");
-+		goto out;
-+	}
-+
-+	return ctrl0;
-+
-+out:
-+	spi_controller_dma_unmap_mem_op_data(qspi->ctrl, op, &qspi->sgt);
-+	return 0;
-+}
-+
-+static int zx_qspi_set_speed(struct zx_qspi *qspi, unsigned int max_hz)
-+{
-+	unsigned long rate;
-+	long rounded;
-+	int ret;
-+
-+	if (!max_hz)
-+		return -EINVAL;
-+	if (qspi->speed_hz == max_hz)
-+		return 0;
-+
-+	rounded = clk_round_rate(qspi->wclk, max_hz);
-+	if (rounded < 0)
-+		return rounded;
-+	if (!rounded || rounded > max_hz)
-+		return -EINVAL;
-+
-+	ret = clk_set_rate(qspi->wclk, rounded);
-+	if (ret)
-+		return ret;
-+	rate = clk_get_rate(qspi->wclk);
-+	if (!rate || rate > max_hz)
-+		return -EINVAL;
-+	qspi->speed_hz = rate;
-+
-+	return 0;
-+}
-+
-+static int zx_qspi_setup(struct spi_device *spi)
-+{
-+	struct zx_qspi *qspi = spi_controller_get_devdata(spi->controller);
-+
-+	return zx_qspi_set_speed(qspi, spi->max_speed_hz);
-+}
-+
-+static int zx_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+{
-+	struct zx_qspi *qspi = spi_controller_get_devdata(mem->spi->controller);
-+	u32 ctrl0, ctrl1 = 0, ctrl2 = 0, txstatus;
-+	struct device *dev = &qspi->ctrl->dev;
-+	dma_cookie_t cookie;
-+	int ret;
-+
-+	ret = zx_qspi_set_speed(qspi, op->max_freq ?: mem->spi->max_speed_hz);
-+	if (ret)
-+		return ret;
-+
-+	dev_dbg(dev, "%s cmd:%#x buswidth:%d.%d.%d.%d addr:%#llx nbytes:%#x\n",
-+		__func__, op->cmd.opcode, op->cmd.buswidth, op->addr.buswidth,
-+		op->dummy.buswidth, op->data.buswidth,
-+		op->addr.val, op->data.nbytes);
-+
-+	ctrl0 = readl_relaxed(qspi->io_base + ZX_QSPI_CTRL0_REG);
-+	dev_dbg(dev, "ZX_QSPI_CTRL0_REG = 0x%08x\n", ctrl0);
-+	ctrl0 &= ~(ZX_QSPI_TX_DMA_EN | ZX_QSPI_RX_DMA_EN);
-+	ctrl0 |= (ZX_QSPI_RXFIFO_CLR | ZX_QSPI_TXFIFO_CLR);
-+	/* What are these for? I don't know, the ZTE driver sets them. Removing them here makes it
-+	 * possible to operate with a smaller burst size but presumably comes at a performance cost.
-+	 * In simple benchmarking I have not found an impact though.
-+	 */
-+	ctrl0 |= ZX_QSPI_TXFIFO_THRES | ZX_QSPI_RXFIFO_THRES;
-+
-+	if (op->addr.nbytes && op->addr.buswidth) {
-+		ctrl1 |= ZX_QSPI_ADDR_TX_EN;
-+		switch (op->addr.buswidth * op->addr.nbytes) {
-+		case 1:
-+			ctrl2 |= (ADDR_BYTE_WIDTH_8 << ZX_QSPI_ADDR_BYTE_NUM);
-+			break;
-+		case 2:
-+			ctrl2 |= (ADDR_BYTE_WIDTH_16 << ZX_QSPI_ADDR_BYTE_NUM);
-+			break;
-+		case 3:
-+			ctrl2 |= (ADDR_BYTE_WIDTH_24 << ZX_QSPI_ADDR_BYTE_NUM);
-+			break;
-+		case 4:
-+			ctrl2 |= (ADDR_BYTE_WIDTH_32 << ZX_QSPI_ADDR_BYTE_NUM);
-+			break;
-+		default:
-+			dev_err(dev, "Unexpected addr.buswidth %u\n",
-+				op->addr.buswidth * op->addr.nbytes);
-+			return -EIO;
-+		}
-+	}
-+
-+	ctrl0 |= zx_qspi_setup_dma(qspi, op);
-+
-+	/* dummy config */
-+	if (op->dummy.nbytes && op->dummy.buswidth) {
-+		ctrl1 |= ZX_QSPI_DUMMY_TX_EN;
-+		ctrl2 |= (0x1 << ZX_QSPI_DUMMY_BYTE_NUM);
-+	}
-+
-+	/* data config */
-+	if (op->data.nbytes) {
-+		if (op->data.dir == SPI_MEM_DATA_IN)
-+			ctrl1 |= ZX_QSPI_READ_DATA_EN;
-+		else
-+			ctrl1 |= ZX_QSPI_WRITE_DATA_EN;
-+
-+		if (op->data.buswidth == 0x4)
-+			ctrl2 |= ZX_QSPI_DATA_MULTI_LINE_EN | ZX_QSPI_TRANS_MOD;
-+		else if (op->data.buswidth == 0x2)
-+			ctrl2 |= ZX_QSPI_DATA_MULTI_LINE_EN;
-+	}
-+
-+	writel_relaxed(ctrl0, qspi->io_base + ZX_QSPI_CTRL0_REG);
-+	writel_relaxed(ctrl1, qspi->io_base + ZX_QSPI_CTRL1_REG);
-+	writel_relaxed(ctrl2, qspi->io_base + ZX_QSPI_CTRL2_REG);
-+
-+	/* clear int */
-+	writel_relaxed(ZX_QSPI_INT_ALL_MASK, qspi->io_base + ZX_QSPI_INT_SW_CLR_REG);
-+
-+	/* data len */
-+	if (op->data.nbytes)
-+		writel_relaxed(op->data.nbytes - 1, qspi->io_base + ZX_QSPI_BYTE_NUM_REG);
-+
-+	/* addr */
-+	if (op->addr.nbytes && op->addr.buswidth)
-+		writel_relaxed(op->addr.val, qspi->io_base + ZX_QSPI_ADDR_REG);
-+
-+	/* cmd */
-+	writel_relaxed(op->cmd.opcode, qspi->io_base + ZX_QSPI_INS_REG);
-+
-+	/* spifc start */
-+	writel_relaxed(ZX_QSPI_START, qspi->io_base + ZX_QSPI_START_REG);
-+
-+	if (op->data.nbytes && ctrl0 & (ZX_QSPI_TX_DMA_EN | ZX_QSPI_RX_DMA_EN)) {
-+		dev_dbg(dev, "Attempting DMA %x %s qspi 0x%08x...\n",
-+			ctrl0, ctrl0 & ZX_QSPI_TX_DMA_EN ? "tx" : "rx",
-+			(unsigned int)qspi);
-+		// qspi->dma_desc->callback = zx_qspi_dma_callback;
-+		qspi->dma_desc->callback_result = zx_qspi_callback_result;
-+		qspi->dma_desc->callback_param = qspi;
-+		cookie = dmaengine_submit(qspi->dma_desc);
-+		ret = dma_submit_error(cookie);
-+		if (ret) {
-+			/* FIXME: Does this kind of fallback to PIO work? How do I provoke it to
-+			 * test it?
++#include <dt-bindings/clock/zte,zx279128s-crm.h>
++#include <dt-bindings/reset/zte,zx279128s-reset.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	#address-cells = <1>;
++	#size-cells = <1>;
++	compatible = "zte,zx279128s";
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		enable-method = "zte,zx279128s-smp";
++
++		cpu@0 {
++			compatible = "arm,cortex-a9";
++			device_type = "cpu";
++			next-level-cache = <&l2cc>;
++			reg = <0>;
++		};
++
++		cpu@1 {
++			compatible = "arm,cortex-a9";
++			device_type = "cpu";
++			next-level-cache = <&l2cc>;
++			reg = <1>;
++		};
++	};
++
++	osc: clock-25000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <25000000>;
++	};
++
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "simple-bus";
++		interrupt-parent = <&gic>;
++		ranges;
++
++		sram@200800 {
++			compatible = "mmio-sram";
++			reg = <0x00200800 0x1000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0x00200800 0x1000>;
++
++			/* the parked second core jumps here on every wake-up */
++			smp-sram@0 {
++				compatible = "zte,zx279128s-smp-sram";
++				reg = <0x0 0x8>;
++			};
++		};
++
++		scu@800000 {
++			compatible = "arm,cortex-a9-scu";
++			reg = <0x00800000 0x100>;
++		};
++
++		timer@800200 {
++			compatible = "arm,cortex-a9-global-timer";
++			reg = <0x00800200 0x20>;
++			interrupts = <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++		};
++
++		timer@800600 {
++			compatible = "arm,cortex-a9-twd-timer";
++			reg = <0x00800600 0x20>;
++			interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++		};
++
++		watchdog@800620 {
++			compatible = "arm,cortex-a9-twd-wdt";
++			reg = <0x00800620 0x20>;
++			interrupts = <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_EDGE_RISING)>;
++			clocks = <&topcrm ZX279128S_TOP_A9_PERIPH>;
++			status = "disabled";
++		};
++
++		gic: interrupt-controller@801000 {
++			compatible = "arm,cortex-a9-gic";
++			#address-cells = <0>;
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			reg = <0x00801000 0x1000>,
++			      <0x00800100 0x0100>;
++		};
++
++		l2cc: cache-controller@c00000 {
++			compatible = "arm,pl310-cache";
++			reg = <0x00c00000 0x1000>;
++			cache-unified;
++			cache-level = <2>;
++			arm,data-latency = <2 2 2>;
++			arm,tag-latency = <2 2 2>;
++			/*
++			 * As the stock firmware (AUX_CTRL 0x76430001). Without
++			 * shared-override the PL310 turns normal non-cacheable
++			 * shared accesses (dma_alloc_coherent buffers) into
++			 * cacheable ones, so devices and CPUs see stale data.
 +			 */
-+			dev_err(dev, "dmaengine_submit = %d, falling back to PIO\n", ret);
-+			ctrl0 &= ~(ZX_QSPI_TX_DMA_EN | ZX_QSPI_RX_DMA_EN);
-+			writel_relaxed(ctrl0, qspi->io_base + ZX_QSPI_CTRL0_REG);
-+		} else {
-+			dma_async_issue_pending(qspi->cur_dma_ch);
++			arm,shared-override;
++			prefetch-data = <1>;
++			prefetch-instr = <1>;
++			arm,double-linefill = <1>;
++			arm,double-linefill-incr = <0>;
++		};
 +
-+			if (!wait_for_completion_io_timeout(&qspi->dma_completion,
-+					 msecs_to_jiffies(2000))) {
-+				dev_err(dev, "DMA timed out\n");
-+				spi_controller_dma_unmap_mem_op_data(qspi->ctrl, op, &qspi->sgt);
-+				return -EIO;
-+			}
-+		}
-+		qspi->dma_desc = NULL;
++		usb: usb@9100000 {
++			compatible = "zte,zx279128s-dwc3";
++			reg = <0x09100000 0x100000>;
++			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topcrm ZX279128S_TOP_USB_REF>,
++				 <&topcrm ZX279128S_TOP_USB_ACLK>,
++				 <&topcrm ZX279128S_TOP_USB_SUSPEND>;
++			clock-names = "ref", "bus_early", "suspend";
++			/* in the order the vendor firmware releases them */
++			resets = <&topcrm ZX279128S_RESET_USB_B11>,
++				 <&topcrm ZX279128S_RESET_USB_B14>,
++				 <&topcrm ZX279128S_RESET_USB_B9>,
++				 <&topcrm ZX279128S_RESET_USB_B10>;
++			dr_mode = "host";
++			status = "disabled";
++		};
 +
-+		spi_controller_dma_unmap_mem_op_data(qspi->ctrl, op, &qspi->sgt);
-+		writel_relaxed(ctrl0 & ~(ZX_QSPI_TX_DMA_EN | ZX_QSPI_RX_DMA_EN),
-+			       qspi->io_base + ZX_QSPI_CTRL0_REG);
-+	}
++		pcie0: pcie@f000000 {
++			compatible = "zte,zx279128s-pcie";
++			reg = <0x0f000000 0x4000>,
++			      <0x09500000 0x1000>,
++			      <0x1c000000 0x200000>;
++			reg-names = "dbi", "ctrl", "config";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			device_type = "pci";
++			bus-range = <0x00 0xff>;
++			ranges = <0x82000000 0 0x10000000 0x10000000 0 0x08000000>;
++			dma-ranges = <0x43000000 0 0x40000000 0x40000000 0 0x20000000>;
++			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			linux,pci-domain = <0>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pcie0_pins>;
++			clocks = <&crm2 ZX279128S_CRM2_PCIE0_CLK>;
++			clock-names = "pcie";
++			resets = <&crm2 ZX279128S_CRM2_RESET_PCIE0>;
++			reset-names = "core";
++			phys = <&pcie0_phy>;
++			phy-names = "pcie";
++			status = "disabled";
++		};
 +
-+	if (op->data.nbytes && !(ctrl0 & (ZX_QSPI_TX_DMA_EN | ZX_QSPI_RX_DMA_EN))) {
-+		ret = zx_qspi_tx(qspi, op);
-+		if (ret) {
-+			dev_err(dev, "zx_qspi_tx error %d\n", ret);
-+			return ret;
-+		}
-+	}
++		pcie1: pcie@f100000 {
++			compatible = "zte,zx279128s-pcie";
++			reg = <0x0f100000 0x4000>,
++			      <0x09600000 0x1000>,
++			      <0x2c000000 0x200000>;
++			reg-names = "dbi", "ctrl", "config";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			device_type = "pci";
++			bus-range = <0x00 0xff>;
++			ranges = <0x82000000 0 0x20000000 0x20000000 0 0x08000000>;
++			dma-ranges = <0x43000000 0 0x40000000 0x40000000 0 0x20000000>;
++			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			linux,pci-domain = <1>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pcie1_pins>;
++			clocks = <&crm2 ZX279128S_CRM2_PCIE1_CLK>;
++			clock-names = "pcie";
++			resets = <&crm2 ZX279128S_CRM2_RESET_PCIE1>;
++			reset-names = "core";
++			phys = <&pcie1_phy>;
++			phy-names = "pcie";
++			status = "disabled";
++		};
 +
-+	/* With DMA the result is ready by the time we receive the DMA complete callback. With PIO,
-+	 * the highest wait time I have seen was 1 us.
-+	 */
-+	ret = readl_relaxed_poll_timeout_atomic(qspi->io_base + ZX_QSPI_INT_RAW_REG,
-+						txstatus, txstatus & ZX_QSPI_INT_CMD_END, 1,
-+						1000);
-+	if (ret) {
-+		dev_err(dev, "Wait for transfer end failed: %u.\n", ret);
-+		return ret;
-+	}
++		gmac: ethernet@92000000 {
++			compatible = "zte,zx279128s-gmac";
++			reg = <0x92000000 0x400000>;
++			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
 +
-+	if (txstatus & ZX_QSPI_INT_FMT_ERR) {
-+		dev_err(dev, "SPI controller reported an error, status 0x%08x\n", txstatus);
-+		return -EIO;
-+	}
-+	if (txstatus & ZX_QSPI_INT_CMD_END)
-+		return 0;
++			ethernet-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+	dev_err(dev, "Unexpected status 0x%08x\n", txstatus);
-+	return -EIO;
-+}
++				gmac_port0: port@0 {
++					reg = <0>;
++					status = "disabled";
++				};
 +
-+#define ZX_QSPI_MAX_DATA			4096
++				gmac_port1: port@1 {
++					reg = <1>;
++					status = "disabled";
++				};
 +
-+static bool zx_qspi_supports_op(struct spi_mem *mem,
-+				const struct spi_mem_op *op)
-+{
-+	if (!spi_mem_default_supports_op(mem, op))
-+		return false;
++				gmac_port2: port@2 {
++					reg = <2>;
++					status = "disabled";
++				};
 +
-+	/* Command and address are always on one line */
-+	if (op->cmd.nbytes != 1 || op->cmd.buswidth != 1)
-+		return false;
-+	if (op->addr.nbytes > 4 || (op->addr.nbytes && op->addr.buswidth != 1))
-+		return false;
-+	if (op->dummy.nbytes > 15 || (op->dummy.nbytes && op->dummy.buswidth != 1))
-+		return false;
++				gmac_port3: port@3 {
++					reg = <3>;
++					status = "disabled";
++				};
 +
-+	/* The controller cannot transmit data on two lines */
-+	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_OUT &&
-+	    op->data.buswidth == 2)
-+		return false;
++				gmac_port4: port@4 {
++					reg = <4>;
++					status = "disabled";
++				};
++			};
++		};
 +
-+	return true;
-+}
++		topcrm: clock-controller@94000000 {
++			compatible = "zte,zx279128s-topcrm", "syscon", "simple-mfd";
++			reg = <0x94000000 0x1000>;
++			clocks = <&osc>;
++			clock-names = "osc";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+static int zx_qspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
-+{
-+	op->data.nbytes = min_t(unsigned int, op->data.nbytes, ZX_QSPI_MAX_DATA);
++			reboot {
++				compatible = "syscon-reboot";
++				offset = <0x44>;
++				mask = <0x1>;
++				value = <0x1>;
++			};
 +
-+	return 0;
-+}
++			pcie0_phy: phy@0 {
++				compatible = "zte,zx279128s-pcie-phy";
++				reg = <0>;
++				#phy-cells = <0>;
++			};
 +
-+static const struct spi_controller_mem_caps zx_qspi_mem_caps = {
-+	.per_op_freq = true,
++			pcie1_phy: phy@1 {
++				compatible = "zte,zx279128s-pcie-phy";
++				reg = <1>;
++				#phy-cells = <0>;
++			};
++		};
++
++		crm2: clock-controller@94100000 {
++			compatible = "zte,zx279128s-crm2", "syscon";
++			reg = <0x94100000 0x1000>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		/*
++		 * The pin mux. What most of its bits select isn't known, so each
++		 * bit is a pin of its own.
++		 */
++		pinmux: pinctrl@94200000 {
++			compatible = "zte,zx279128s-pinmux", "pinctrl-single";
++			reg = <0x94200000 0x10>;
++			#pinctrl-cells = <2>;
++			pinctrl-single,bit-per-mux;
++			pinctrl-single,register-width = <32>;
++			pinctrl-single,function-mask = <0x1>;
++
++			/* the interface to an external Ethernet PHY */
++			ext_phy_pins: ext-phy-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00180800>;
++			};
++
++			pcie0_pins: pcie0-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00004000>;
++			};
++
++			pcie1_pins: pcie1-pins {
++				pinctrl-single,bits = <0x0c 0x0 0x00000002>;
++			};
++		};
++
++		lsp0crpm: clock-controller@94400000 {
++			compatible = "zte,zx279128s-lsp0crpm";
++			reg = <0x94400000 0x1000>;
++			clocks = <&topcrm ZX279128S_TOP_LSP0_PCLK>,
++				 <&topcrm ZX279128S_TOP_LSP0_25M>,
++				 <&topcrm ZX279128S_TOP_LSP0_32K>,
++				 <&topcrm ZX279128S_TOP_LSP0_100M>;
++			clock-names = "pclk", "wclk25m", "wclk32k", "wclk100m";
++			#clock-cells = <1>;
++		};
++
++		serial0: serial@94404000 {
++			compatible = "arm,pl011", "arm,primecell";
++			arm,primecell-periphid = <0x0018c011>;
++			reg = <0x94404000 0x1000>;
++			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_UART0_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_UART0_PCLK>;
++			clock-names = "uartclk", "apb_pclk";
++			status = "disabled";
++		};
++
++		serial1: serial@94405000 {
++			compatible = "arm,pl011", "arm,primecell";
++			arm,primecell-periphid = <0x0018c011>;
++			reg = <0x94405000 0x1000>;
++			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_UART1_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_UART1_PCLK>;
++			clock-names = "uartclk", "apb_pclk";
++			status = "disabled";
++		};
++
++		spifc: spi@94406000 {
++			compatible = "zte,zx279128s-spifc";
++			reg = <0x94406000 0x1000>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_SPI_WCLK>,
++				 <&lsp0crpm ZX279128S_LSP0_SPI_PCLK>;
++			clock-names = "wclk", "pclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		gpio0: gpio@94407000 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407000 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio1: gpio@94407040 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407040 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio2: gpio@94407080 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407080 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio3: gpio@944070c0 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x944070c0 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio4: gpio@94407100 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407100 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		gpio5: gpio@94407140 {
++			compatible = "zte,zx279128s-gpio";
++			reg = <0x94407140 0x40>;
++			clocks = <&lsp0crpm ZX279128S_LSP0_GPIO_PCLK>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		lsp1crpm: clock-controller@9a100000 {
++			compatible = "zte,zx279128s-lsp1crpm";
++			reg = <0x9a100000 0x1000>;
++			clocks = <&topcrm ZX279128S_TOP_LSP1_PCLK>,
++				 <&topcrm ZX279128S_TOP_LSP1_ACLK>,
++				 <&topcrm ZX279128S_TOP_LSP1_25M>,
++				 <&topcrm ZX279128S_TOP_LSP1_49M>,
++				 <&topcrm ZX279128S_TOP_LSP1_100M>;
++			clock-names = "pclk", "aclk", "wclk25m", "wclk49m", "wclk100m";
++			#clock-cells = <1>;
++		};
++
++		mdio: mdio@9a101000 {
++			compatible = "zte,zx279128s-mdio";
++			reg = <0x9a101000 0x18>;
++			clocks = <&lsp1crpm ZX279128S_LSP1_MDIO_WCLK>,
++				 <&lsp1crpm ZX279128S_LSP1_MDIO_PCLK>;
++			clock-names = "wclk", "pclk";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++	};
 +};
-+
-+static const struct spi_controller_mem_ops zx_qspi_mem_ops = {
-+	.adjust_op_size = zx_qspi_adjust_op_size,
-+	.supports_op = zx_qspi_supports_op,
-+	.exec_op = zx_qspi_exec_op,
-+};
-+
-+static int zx_qspi_probe(struct platform_device *pdev)
-+{
-+	struct dma_slave_config dma_cfg = {0};
-+	struct device *dev = &pdev->dev;
-+	struct spi_controller *ctrl;
-+	struct zx_qspi *qspi;
-+	struct resource *res;
-+	int irq, ret;
-+	u32 reg;
-+
-+	dev_info(dev, "ZX QSPI Controller driver initializing\n");
-+
-+	ctrl = devm_spi_alloc_host(dev, sizeof(*qspi));
-+	if (!ctrl)
-+		return -ENOMEM;
-+
-+	qspi = spi_controller_get_devdata(ctrl);
-+	qspi->ctrl = ctrl;
-+	platform_set_drvdata(pdev, qspi);
-+
-+	init_completion(&qspi->dma_completion);
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	qspi->phys_base = res->start;
-+	qspi->io_base = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(qspi->io_base))
-+		return PTR_ERR(qspi->io_base);
-+
-+	irq = platform_get_irq_optional(pdev, 0);
-+	if (irq > 0) {
-+		ret = devm_request_irq(dev, irq, zx_qspi_irq, 0, MODULE_NAME, qspi);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "failed to request irq\n");
-+	}
-+
-+	qspi->pclk = devm_clk_get_enabled(dev, "pclk");
-+	if (IS_ERR(qspi->pclk))
-+		return PTR_ERR(qspi->pclk);
-+
-+	qspi->wclk = devm_clk_get_enabled(dev, "wclk");
-+	if (IS_ERR(qspi->wclk))
-+		return PTR_ERR(qspi->wclk);
-+
-+	qspi->rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
-+	if (IS_ERR(qspi->rstc))
-+		return PTR_ERR(qspi->rstc);
-+	if (qspi->rstc) {
-+		reset_control_assert(qspi->rstc);
-+		udelay(10);
-+		reset_control_deassert(qspi->rstc);
-+	}
-+
-+	dma_cfg.src_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+	dma_cfg.dst_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+	dma_cfg.src_addr = qspi->phys_base + ZX_QSPI_DATA_REG;
-+	dma_cfg.dst_addr = qspi->phys_base + ZX_QSPI_DATA_REG;
-+	/* FIFO_THRES has an impact on the burst size. Don't make them too small. */
-+	dma_cfg.src_maxburst = ZX_QSPI_FIFO_SIZE / 2;
-+	dma_cfg.dst_maxburst = ZX_QSPI_FIFO_SIZE / 2;
-+
-+	dma_cfg.direction = DMA_DEV_TO_MEM;
-+	qspi->ctrl->dma_rx = devm_dma_request_chan(dev, "rx");
-+	if (IS_ERR(qspi->ctrl->dma_rx)) {
-+		dev_info(dev, "Cannot get RX DMA, using PIO\n");
-+		qspi->ctrl->dma_rx = NULL;
-+	} else {
-+		if (dmaengine_slave_config(qspi->ctrl->dma_rx, &dma_cfg)) {
-+			dev_info(dev, "Cannot configure RX DMA, using PIO\n");
-+			dma_release_channel(qspi->ctrl->dma_rx);
-+			qspi->ctrl->dma_rx = NULL;
-+		}
-+	}
-+
-+	dma_cfg.direction = DMA_MEM_TO_DEV;
-+	qspi->ctrl->dma_tx = devm_dma_request_chan(dev, "tx");
-+	if (IS_ERR(qspi->ctrl->dma_tx)) {
-+		dev_info(dev, "Cannot get TX DMA, using PIO\n");
-+		qspi->ctrl->dma_tx = NULL;
-+	} else {
-+		if (dmaengine_slave_config(qspi->ctrl->dma_tx, &dma_cfg)) {
-+			dev_info(dev, "Cannot configure TX DMA, using PIO\n");
-+			dma_release_channel(qspi->ctrl->dma_tx);
-+			qspi->ctrl->dma_tx = NULL;
-+		}
-+	}
-+
-+	ctrl->mode_bits = SPI_RX_QUAD | SPI_RX_DUAL | SPI_TX_QUAD;
-+	ctrl->bus_num = -1;
-+	ctrl->mem_ops = &zx_qspi_mem_ops;
-+	ctrl->mem_caps = &zx_qspi_mem_caps;
-+	ctrl->setup = zx_qspi_setup;
-+	ctrl->min_speed_hz = clk_round_rate(qspi->wclk, 1);
-+	ctrl->max_speed_hz = 50000000;
-+	ctrl->use_gpio_descriptors = true;
-+	ctrl->num_chipselect = 1;
-+	ctrl->dev.of_node = dev->of_node;
-+	ctrl->dma_alignment = 4;
-+
-+	writel_relaxed(ZX_QSPI_EN, qspi->io_base + ZX_QSPI_EN_REG);
-+	ret = readl_relaxed_poll_timeout_atomic(qspi->io_base + ZX_QSPI_EN_REG,
-+						reg, reg & ZX_QSPI_EN_BACK, 1,
-+						1000);
-+	if (ret) {
-+		dev_err(dev, "SPI controller failed to start: en_reg=%x\n", reg);
-+		return ret;
-+	}
-+
-+	writel_relaxed(ZX_QSPI_SCLK_PAUSE_EN, qspi->io_base + ZX_QSPI_CTRL0_REG);
-+	writel_relaxed(0, qspi->io_base + ZX_QSPI_INT_EN_REG);
-+
-+	/* Ensure proper data sampling point */
-+	reg = readl_relaxed(qspi->io_base + ZX_QSPI_TIMING_REG);
-+	if (!FIELD_GET(GENMASK(17, 16), reg)) {
-+		reg |= FIELD_PREP(GENMASK(17, 16), 1);
-+		writel_relaxed(reg, qspi->io_base + ZX_QSPI_TIMING_REG);
-+	}
-+
-+	reg = readl_relaxed(qspi->io_base + ZX_QSPI_SW_REG) >> 16;
-+	if (reg != ZX_QSPI_FIFO_SIZE)
-+		dev_info(dev, "Got unexpected fifo size %u\n", reg);
-+
-+	ret = devm_spi_register_controller(dev, ctrl);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void zx_qspi_remove(struct platform_device *pdev)
-+{
-+	struct zx_qspi *qspi = platform_get_drvdata(pdev);
-+
-+	writel_relaxed(~ZX_QSPI_EN, qspi->io_base + ZX_QSPI_EN_REG);
-+}
-+
-+static const struct of_device_id zx_qspi_match[] = {
-+	{ .compatible = "zte,zx29-qspi" },
-+	{ .compatible = "zte,zx279128s-spifc" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, zx_qspi_match);
-+
-+static struct platform_driver zx_qspi_driver = {
-+	.probe	= zx_qspi_probe,
-+	.remove = zx_qspi_remove,
-+	.driver	= {
-+		.name = MODULE_NAME,
-+		.of_match_table = zx_qspi_match,
-+	},
-+};
-+module_platform_driver(zx_qspi_driver);
-+
-+MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
-+MODULE_DESCRIPTION("ZTE zx29 quad spi driver");
-+MODULE_LICENSE("GPL");
 -- 
 2.55.0
 
