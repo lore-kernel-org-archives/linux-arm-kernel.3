@@ -4,117 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01748CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBE1CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0yDFWXidPUpD6GR8yKBVyIefq/VsIeeuNEuSAxQe+oI=; b=aVaGX3UbtlWH5BwB+DQb2r2+z1
-	UhZaZx/UTEPKoYumdxMjRbPQ7NHE4QReXK9y+GOFExsEeRgiy8BH1Y20/B2MluZ6y3AoJEItimuOn
-	IOMHWk7YyfZ5w/UG3GZfEH8pti4Efc7LlJe0Pqi+SAjN6qmV2MSiocI2AbTHkjlYF+H/Ypc3n8xPy
-	hpOy0qcFQ7ka51DEh8mfv4Tw1ndaQ+l/k8m2jXCRZ0HTMj1iB8MOHONlLJIZTD7vMuOuid06BY5d1
-	++jf7zt9XLC+rXd/GU0pwxKjDm7VICDQYlS+tWMai7hNXatwVU4nSNevZ1ahGfcl2Fznk8me3HoJJ
-	GbVVqAAg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/WrZ4/u4jJEQM0ZlZpxNQ2Z1WiaeNhYEi18x7PW/q/M=; b=sLScPqPj4vl0mnKIu2IV6ATL/F
+	GIEafWEmqZf/wxria70ykP3ZHObtMysKtnqU7K3VKwYKiYPpWmAnc43lY8cAzukxm6h2lMHmo7agQ
+	DEcdLagiQhHKdPZJsS4MN2Nfic9aHJEBnFa6I92R9+T8ZrO1DDv1qqIFdRuaTOpbDOKTotyjYYn/E
+	gfd8ZuirCggahDq7XG3gEZ7EC0/tvDqDfSjoflSNsA2M1DhCQvBrInNOweox6SUvGfgtJnjgZNZ00
+	qb1WtY83EonqCqKPKWEZxhwI8E13KYfpO2BLhEJIEVl/qg/f3t2MGCu3CDnbnvhHfyMlsT1HPDowO
+	24ZQTeXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsKt-0000000Eb8O-2Ca7;
-	Wed, 14 Oct 2026 06:19:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGsSN-0000000EbSz-1goc;
+	Wed, 14 Oct 2026 06:27:19 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsKr-0000000Eb8B-0rkJ
+	id 1xGsSL-0000000EbSP-2X5a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 06:19:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EBA860213;
-	Wed, 14 Oct 2026 06:19:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBC271F000FF;
-	Wed, 14 Oct 2026 06:19:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791958772;
-	bh=0yDFWXidPUpD6GR8yKBVyIefq/VsIeeuNEuSAxQe+oI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Zyo1uzypz4fSM0KloSSS9SVY+3DeiGf7FUMG8Ff0J/te8kx78yKQyJFoxSH9Vb5hB
-	 KV6iYsdDi5Km940R37qM1bkNWcj7ArIvwja/q5QxoCfHFW3COh3gKApr1+jQfRBpMw
-	 SJQmWHNTsKSnH+7TuAm1B1BkKS6NGcycYbuGb/NUqOCiQqxozr+K/9JtTOsXo9cAD8
-	 QmGQAhykysyCwGTcGGU1U5pIpZy0ZJMDtuXGdKeW34F2lu4TlK2FKiWVrz355X7XD/
-	 VAQUTg1gBhF575KEm3RPEfA57UqZQUEjL1AwbHKwFpWDZf+DIY/JamagqhqSpxGfms
-	 6UCZnpehxS4VQ==
-Message-ID: <5e221ba3-fea2-4663-80a9-94fdd5135e89@kernel.org>
-Date: Wed, 14 Oct 2026 08:19:23 +0200
+	Wed, 14 Oct 2026 06:27:18 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49d0da752ffso4733485e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 23:27:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791959236; x=1792564036; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/WrZ4/u4jJEQM0ZlZpxNQ2Z1WiaeNhYEi18x7PW/q/M=;
+        b=EBOvM4MRWMfzEDS986M9ObG/bDVOGlpuQLLcY9OSobTEsdXc9xslV4LIE2CbRRaChj
+         XlAyrB0Ka7roUEJGz4PzCwjFmPzf639giVTgkPFqFYrJe+OjqulSaFhcI8628Vvp/WY3
+         fFYjUf0Ja2z5Iw+D5vzRvD0+r14JYExJ7JIo6SBEnEgqa+btP8C32iCuKfO4/RYWlo3+
+         9dWeWRxRT/mZQvy89m12zfiGHjKqxiny2iuEZ2GiW+PydmjX7pAnHnjZjasSWHu+LINV
+         xEf0vAyqnxZCwkjUTfviIz8dm1eZw/3aRFFdY5/O2QxBgL+m2IJDeefgKEkfKM++sjSJ
+         x6JA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791959236; x=1792564036;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/WrZ4/u4jJEQM0ZlZpxNQ2Z1WiaeNhYEi18x7PW/q/M=;
+        b=judJY9zvJ3VRYzKfZmmr0vjVfW/Efn2/jAXBRoURNppLAHShXhy1YpoTBr5bFE6/Tf
+         N3oLf5ta3/QIC/prInGMtTwPPjraWXbdPR2TzKeQlkmyyCNJPIcBFZOpjo1Meuic3HGh
+         IIrekxjhLfdF1e7pclowFYvbHTj31BQcz806P64hiGacKBgSSTf0xTZ6PIa3EKFI4gs0
+         LwH6n5v3OmwaqsDZpeUTEWUmvsur0D6F5wAhq7ISmdRRwsBEQ0Nn327WhYhxy6TkGM6U
+         3Yqp/U0kECsB+Tm481+Tf3gOYIvUwP1pO19t79R5sPGTvwmZUwnNSOKPc5q500Z5CvSb
+         nL/Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxW8Pjtkz/PCpHmpVNmf2bPfbUnKXb/0l+AHJbqBHOfdiePoqnkyIiy56foA23wqlnRzAJN4RTYz2BRK0PUbPdV@lists.infradead.org
+X-Gm-Message-State: AFq9FYJg3PXgo4NYnapctvgiawSTP9/AQwTt3rmcjB6sUyD5rHtw2fff
+	0K/LJsaxNCwi8k6qLqKdYzOx08od4CLShcHKjXq1chqsIbkKHmQF03bKIh8IJ8PY
+X-Gm-Gg: AYBFou2/dWONjxLKHpRwyo7t4PHnCyHLL+uoyeAu4FKFFlENSSydYEnD8Jgr0qGxAOh
+	dgJxbM/ArhOQ/sk3jWtB/ZGplQ3qdpYKNaaAk8s5XUW9jZhwJqnwu7zdwL0g/OAkouw4I1lUTBo
+	BlNt0Qz7LnNa+vlEeWdincbE4GZK85JwwQ1S/h+81PMiFkfMo2aqqjJm9ql0voEbSBHbnqAA3mf
+	SJtVn2kF0YVuPexBG7MM2CUV6msBWvcUYXOhm+a7wH8DJ8zx9lk/a5cBVDAJWUc82gve4VK6PWi
+	DSUZIxg2CspuCBdHESU5Db+LKQen9Sxsuuztox5WeN0f/DWdlyTiXfkuSqrsVFhs7j1J8iUMCKA
+	0aXLgUbM5ldEH4jA/3H4GI0e2comG57iygvtwb8c60NtAgh4/+9LnpB+q4Naj1NZ4fuOFcwXa4H
+	RxM4fzGW1mUwcnqQ/GNK39ZH0CI5O41Y2C8zGtKFwvk3V097I97zAuZ5bXuFqAUOStOwWUs/ads
+	GnCb85nFUMQmk0bf6VyujNUpKs6Bf+GVYLJpXvt8BBHvB3/30BpriTJhKjBiYpKg7hBcKPJZPO3
+	MxsbOuanrt26K1Gxlb8tAE6F0j8KYNGokIN2NrMvONPpcuj4KuEUmV82yXjGK5D1Lv21axuL+qO
+	3dTZ7G5XqhfF2
+X-Received: by 2002:a05:600c:19ca:b0:49d:10d6:fd55 with SMTP id 5b1f17b1804b1-4a18e4487b5mr298737055e9.1.1791959235651;
+        Tue, 13 Oct 2026 23:27:15 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-aed1-da01-ddff-863b-8308-ab16.310.pool.telefonica.de. [2a02:3100:aed1:da01:ddff:863b:8308:ab16])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18be8c5e7sm528846745e9.4.2026.10.13.23.27.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 13 Oct 2026 23:27:15 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	netdev@vger.kernel.org
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Joao Pinto <Joao.Pinto@synopsys.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	bpf@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 0/3] net: stmmac: fix DMA allocation and IRQ failure cleanup
+Date: Wed, 14 Oct 2026 08:26:58 +0200
+Message-Id: <cover.1791958735.git.kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 14/14] arm: multi_v7_defconfig: enable the Qualcomm
- Crypto Engine core driver
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Thara Gopinath <thara.gopinath@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Stanimir Varbanov <svarbanov@mm-sol.com>,
- Eneas U de Queiroz <cotequeiroz@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Eric Biggers <ebiggers@kernel.org>,
- Demi Marie Obenour <demiobenour@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, brgl@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
- <20261013-qce-fix-self-tests-v10-14-57162a38a554@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261013-qce-fix-self-tests-v10-14-57162a38a554@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_232717_660651_AEF4C749 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,22 +118,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2026 11:57, Bartosz Golaszewski wrote:
-> The QCE core driver should be enabled by default as it binds to the qce
-> device node and scales down the interconnects if no child auxiliary
-> driver is using the IP. Add it to the multi_v7_defconfig. Disable the
-> crypto part of the driver by default.
+A DMA error-path review for the BeagleV Ahead found three bugs in the
+common STMMAC code. Partial allocation can call buffer cleanup without
+the metadata it indexes. A later TX allocation failure leaks the RX
+resources allocated first. IRQ registration failure can release
+descriptors and packet buffers while DMA remains active.
 
-Missing use case/hardware (see maintainer profile).
+Patches 1 and 2 fix allocation cleanup. Patch 3 fixes the IRQ failure
+unwind independently.
 
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Tested-by: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
-> Tested-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+Testing:
 
-Drop fake tests. You cannot execute defconfig on the device.
+- BeagleV Ahead, TH1520 DWMAC 3.70a: guarded baseline/fixed boots for RX
+  and TX allocation failures and normal-open IRQ failure. Baseline runs
+  reached the guarded unsafe boundaries. Fixed runs cleared the tracked
+  resources and stopped DMA before cleanup.
+- A matched follow-up applied the same RTL8211F-VD resume repair to all
+  baseline and fixed kernels. At both 100 and 1000 Mbit/s, each variant
+  passed eight close/open cycles (32 total), delay-register checks,
+  pings and bidirectional 1 MiB SHA-256 transfers with no RX CRC or
+  DMA-API errors.
+- Native-XDP IRQ failure was exercised on the same board. The baseline
+  reached IRQ unwind with DMA active and required a test-only rescue;
+  the fixed kernel stopped DMA before unwind. Both reached descriptor
+  cleanup with DMA inactive and no DMA-API errors.
+- The physical native-XDP pair used CONFIG_BPF_JIT=n in both variants
+  to bypass an independent RISC-V execmem Oops after the STMMAC unwind.
+  The default configuration's XDP-open path remains covered by the QEMU
+  fault-injection matrix.
+- The exact combined code passed 24 of 24 checked 64 MiB transfers on
+  fresh BeagleV Ahead boots with no DMA-API errors.
+- QEMU orangepi-pc/dwmac-sun8i: 36 of 36 cold boots passed across the
+  allocation and IRQ matrices, including XDP-open IRQ failure.
+- The exact combined code cross-built the STMMAC objects and BeagleV
+  Ahead DTB with a RISC-V defconfig and DWMAC_THEAD enabled.
+
+The guards and fault-injection hooks are test-only and are not in this
+series. The RTL8211F-VD repair is being submitted separately.
+
+Based on 24a19b953e2a (Linux 7.3-rc7).
+
+Karl Mehltretter (3):
+  net: stmmac: handle partially allocated DMA queues
+  net: stmmac: free RX resources when TX allocation fails
+  net: stmmac: stop DMA when IRQ registration fails
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 26 +++++++++++++++----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
 
-Best regards,
-Krzysztof
+base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
+-- 
+2.39.5 (Apple Git-154)
+
 
