@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B8ECC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6F9CC6B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hvbv4h83/gh3e9PL4i/Jed17SUFA0/98By/JOQOBZh0=; b=OS+2cnes8hN1CxmpEi1Vyx/3+M
-	kjflIUYUtkg8jPXCJzUFEXDbP06RkVmQN6nkcwfx7NGflHYpPHWpc0/35l0aH/PO35xEmQiN86KRg
-	NhVHq62y5NfJTI8rZjaSuaZANdp+TPmnv7Z9j10O4Ark8GKVIRWob+mOWo3wySUs0Oyg0Lz9DyMuy
-	ODNan0sA5uuEwWE35chDmdwzinraOULRVXtc/odNfvmWtUaAuOGlr43syM9X3GUFi79Syzrv6uguZ
-	pXUeCFkilQLV94xCIVZDQHnGBcmILmKNMvmxA9SbQDpeSOkAfbx2N4tbaENhJke12tl90W9WQsvCp
-	q2qJLIsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w+VXnodruUJPl19jPfHLhxfJZGqvtsAgNI1YLQhK2Rc=; b=StmyIgGjpbtUt8SQ5nq5IkW2gu
+	ot1j1mDXezh2+mqmmIUmEkByuXfiCllVt7KuKa/Ec/M1Wr6Sy3E2l0JtSVljmiEyiD9mQ5fxSuvFX
+	+9E7vOTYZkkQUBcZ9LnNSYiKw4Jlu8YIu1zRokRI1z+k9LoTaGSH40d0UH1ucGaC8Vyw6ZNyg5OB2
+	k7MBXqo1SahpdteB5XBrcp9wD38X/uHIE+RDfaqdKJ/bA07yzFjlQmvi7OZfpJw0sSC8h04FwEiek
+	O7dkSPy0QJ1tqOu2QSnU8BbVHAoX/4VdniC9pJPH7av8z/DEeira437RysoiX2MQlhzOxzvC1cpWd
+	VKGJirTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5lT-0000000GHVC-0UaT;
-	Wed, 14 Oct 2026 20:39:55 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1xH5rH-0000000GI3x-3ZZm;
+	Wed, 14 Oct 2026 20:45:56 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5lQ-0000000GHTy-3PDz
+	id 1xH5rC-0000000GI31-1LYo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 20:39:54 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-91986c5cb75so8574746d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:39:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792010391; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oZRDp0udgw98CieFZbsJpyv7N3K9R4MyiBo0U5fmR/3r44dNBtZ6TUWqyocXK8p+c0
-         UK9EuDtITU2w+Ioe9xEBTGBabu/6NjPK4adzi8OyEPzBW4FvvZoBKYK8F7DxIZwpSXy/
-         bz6G051Mo9DiR5jn3Rb95RhizOAspMvtGsjkytHzy4c3f1dfj5JouDI66DZe6jyYoxjr
-         A3Lm/S+1BBMs5KRFUtwb9E0Ebp3d3N+xhZLYvOcX4GUar+4KaV/lh2JE338dib5wlX6J
-         Ny+ItW5SnxBLXQ71IiQvXCa1yKLm85B4wrAuUsP2YeXZdnkr/tOzG3RJN3Tv4rtO+YMR
-         N+Jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Hvbv4h83/gh3e9PL4i/Jed17SUFA0/98By/JOQOBZh0=;
-        fh=BQ26inqxrhVXUZe0NpiS92Zm4FjXeUSoq96qn6OzGsk=;
-        b=pkDSvJkHOturv4aSDd+uQWLKBkbgMlomaH2y4iOYwoFkitlG0F6CilKR4Cofzhefh8
-         1UkXRESYZ/SVZTgPh5UZxQEajvMrnaVGfrBDZ2aLliJWR2PoNMeqNZhiJrb26uuOiSe1
-         nG5kR94nyALu5eOdNki4ev4sermgVbRbRmyjC29eHhQzyvDo9svO0ESAFbUNoUMTI7lv
-         JHqmR4IwnurlJKv2t2MhlqVHgYjTHlzYIr6zCb9WmHMw3GopkRFn5frXw50xaTUuPhhp
-         w/SrLTumOPmm5tR1duwrWJJWQHtWVL5NjsWRCkD1ErXBXTZloGMj3zOaN2rawegSh/gO
-         +yoA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 14 Oct 2026 20:45:53 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-33fb4680717so3690565eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:45:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=genproof-com.20251104.gappssmtp.com; s=20251104; t=1792010391; x=1792615191; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hvbv4h83/gh3e9PL4i/Jed17SUFA0/98By/JOQOBZh0=;
-        b=mAJYzC8wBULiwDaVXouqhQwe4u+uQ4+XwXjhTS3QUkpxI9NQOjBCrv5omFfx0ausR5
-         sf9QGStuNv8cvfFUeuVzKgfdjrgbVrQbCnZ1JYGemUdwc2UJH/f/Ojt3UtOBq/Nalr/f
-         H92vJ6eHDXPM/vfTh6/svTKhMYvf3ZlQwnZFSKpILJfpVH5M7Xs5mPHx67m2VapPb7pK
-         N5RjgjeMUnjQP3K9YLhg0yGG59Q4k+FZOAV5zDJLkp4z4IbPv5jeSVseluyM7wrWXJp/
-         pI/BUcvWls1MmVkuOMQdfHhRV0RIocuTecj5kjK5sGcepKuyCk4yFrrjl63yyi3dkEzr
-         VcqA==
+        d=gmail.com; s=20251104; t=1792010749; x=1792615549; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=w+VXnodruUJPl19jPfHLhxfJZGqvtsAgNI1YLQhK2Rc=;
+        b=PQAlVNmDWc8nTKYLNcIiB0SAHeN+n/cjQYI1Zlxxj5OPrbttVYpcu85yfNYvokG3XB
+         88U1/mnYaqf6E4rvglfaROYlom/2aDYlz4jvqP+xQJiEaEVZnImggEyeKQUnjZE8uRjF
+         tZZ/13z62eaAAxKdRn69OMXcafVkFIBilFB5VcrJKQAyu8AyfT/PnGclcci34qDIm3sD
+         jyBAzwbnN7gazoteDt4n1oJCMezD1GenFeTMQW8udP6oPjcKK5LLZOiyx31+jdKwn/fX
+         h471UsyYM6hH4EV2uaTh07AFe69krd1yD+VypPDmHBmDrI5BNo5orqJ1kCnbhQTvumMq
+         Vvbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792010391; x=1792615191;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Hvbv4h83/gh3e9PL4i/Jed17SUFA0/98By/JOQOBZh0=;
-        b=jyD4UztFNdgOuYyBEFxl5D4SjPlDJTy38+bsauzf+bHDMbNd1tCn3846KSvjwPquHZ
-         y+S6dUVq7xJhFwim418hS4najJ+jmNdu37DJwWbUAQMaLFBOIKkeblduE/LyaHywbpbI
-         G9D7HGfi4aqugocn4R6roMivWP85CNU+SrjXFWprlVKf5qNoPT2COQvuYm3fRB0y/Xo/
-         KOnyh7zj6ZWovNhasDdmCvJRA6nVU09rOhv6zQpva3JEykJyiK097UzlTWhNDbEKgwJf
-         4MCpL4+lW2QNvT1SOw4w19U85aGWLpyK4MOHxuNNXaLEP9M6G35FE1whrJWEHIzkpFyW
-         emSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzoo4CUWAVcflTqWQyBusCIJjLjhWo7l85VvMBn9Th0NirxKrlQGsw7FWTmgCSuKR7Mvtlijr1N4RP+WHRIJDBF@lists.infradead.org
-X-Gm-Message-State: AFq9FYI8mf5SvwYfDN+QLGntGqYsyU0H2LV0BUjVm78pV9AyGOdChXyB
-	GQVRdiARhjS6csv+ViLg8lg+DyAGvyVDck50A23pc+ZSh6ZLxgSDwv6H0Xi7qha5UH6PnsHN0D7
-	nOwwhrUaZXn+RjsE7yVceojpy2nY4XrQ7veGqMr0X73nvHyutfnI2MNBFZAhEKOc/
-X-Gm-Gg: AYBFou3UWH/KUqDgzA7CkGlZdK6vZn9yrptGt0/29OKeAh9esCnkBF+205XefVj9Drd
-	LySgLBmxMIQ0JdVhNoEcGSEywYVgFbnAhG9GsfjofDNC9lMINu9Kl9wSNFnPw11lDdBJhjUXRhv
-	52YqfYlod1uecsJ9FEoErExg5IfLcI9RrTJbS0R64g94iJ9eAzHqL2d+Ue5x5cgSi8cz7kpXHFU
-	DAFY3DH+U0khPOSGDJ8ZVfD/ZgPU8cC77RyOPQGDIL2MJQ/NRRxw/BHTYcAyNaci7ZnKNzDNWJ8
-	WrwzZiuk32QGf99bzB5oIjpDgvXtW8CA4772SvnzEkPI0iONGG5kI1wslPJVeEfMeVWDiSgG3Hi
-	DPNv/XPjhtYKg
-X-Received: by 2002:a05:6214:5082:b0:91b:80ac:66ea with SMTP id
- 6a1803df08f44-91b80ac67d2mr172010016d6.24.1792010390916; Wed, 14 Oct 2026
- 13:39:50 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792010749; x=1792615549;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=w+VXnodruUJPl19jPfHLhxfJZGqvtsAgNI1YLQhK2Rc=;
+        b=qRbaQwtrRbiWyUwpBdT0zFeyQmJ5yHlC6TJ5Lms3+iLOlNssvRU3dYX7rrgqBxC54Q
+         yaDA5lSZFpp4mlZoOVpMTaXPHC3Ij9LLgT7BWHpcf3Yz68pSDDyGct8FJeYnteby18/j
+         xu4bpu2z+IQv+ioYMdphpm9CyaOp887XLO/498eS/YVvCrlxc+b6A2iIn/SlkYRm440T
+         aEwRG/Gj1wT0si5xpkTaoOeDSGqHwACXJfcjD5Gkbaut21cM7drziseiiJG73YwZIvuS
+         LpirfxVkIGUbDU/eBu6ZqzacRNDdAHVN/dtmNqmP1lqcD37p0pj2PyjDTuLZnhUQMrKL
+         IV/w==
+X-Forwarded-Encrypted: i=1; AKwUvBwFs14ELrQHB/n/uACa+Xtep++1JcBd2jZVr+ochh2cCLeIe082BxqT8n+pxTChs9mgMRiVZFKAF7GYCtXTQ1zX@lists.infradead.org
+X-Gm-Message-State: AFq9FYKsqADBWU7jd5EFjriioh7S+3Azx9JH+nLnZOsEUpX09ccZvetv
+	4ATze1mgEf6UGuUG6bXwYeDazDqPRxuTf4BnN4i2qJbUwOC64ckBq3VR
+X-Gm-Gg: AYBFou1ov8XomLs6Gv5804jVuAxCCSXXHZdSvVXNyawhvL91MggG4ebWRw0Rgp2+cJn
+	53HIpdx4GNJr42bX8Stjlxus9IYXvQD9hL+c+3KWNs6h08Jse5sqpvG58YcL09mtcKIHvcBV97c
+	eCMLpnA+dxpymY6louGOxK3v2Qzb1s8EPPxHBXIkUWlvhBSRugSKdt27OPgzxSjjbxSV5lB7vJC
+	+BpVdkN1sgLyQORM9kKQGLN4QUOx41pxXJgLgOhh5mtkMHfTZUvmiouGQ1mmhOi/VQOAvYlVGMG
+	Rmydjy2M9QzHGUJhHbKDDFSBAxWjXCLFv/JETgF6aqNvK5C7DKBY5rUXOxhTmvI+oT2EYADnMLz
+	v40Ygn8blnpRlTmNN0Fc+wi8xelrhjiJ9AUjyLpXCyltxMnRX68zHBpFdKwdbKLKNrJMgPW+HaS
+	9CoodxPmTxf+bPCfqsy2q6pGaPMhc/8WDqAZhCY4qAyzzPDcM/EnK1yFYIoLuTNBd6bPyA6VL3Q
+	InZ1cYywYLGdbrKBxodBDmhbLjj
+X-Received: by 2002:a05:693c:821a:b0:35c:813a:1c81 with SMTP id 5a478bee46e88-35c813a23b6mr8461466eec.18.1792010748588;
+        Wed, 14 Oct 2026 13:45:48 -0700 (PDT)
+Received: from hp-OMEN-Laptop-15-en0xxx.. ([122.172.84.6])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-353810403e9sm57109957eec.2.2026.10.14.13.44.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 13:45:48 -0700 (PDT)
+From: Jayaraj Devaraj <jayarajdmit@gmail.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jayaraj Devaraj <jayarajdmit@gmail.com>
+Subject: [PATCH] gpio: lpc32xx: check devm_gpiochip_add_data() return value
+Date: Thu, 15 Oct 2026 02:13:31 +0530
+Message-Id: <20261014204331.15383-1-jayarajdmit@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20261014152604.323310-1-ebiggers@kernel.org>
-In-Reply-To: <20261014152604.323310-1-ebiggers@kernel.org>
-From: Vladimir Kukharenko <vladimir@genproof.com>
-Date: Wed, 14 Oct 2026 22:39:39 +0200
-X-Gm-Features: AclHuK9hyj4qEGknIGYgSBtc9GBfZkkTP8Pl6YErh1Uue02KgFYR-0JbdSeWHNE
-Message-ID: <CABB2QaKKvuTFt5fHa6+=n3siom4TFYCqZ67bcHyHTrD+PogojA@mail.gmail.com>
-Subject: Re: [PATCH 0/2] lib/crypto: Use size_t lengths for Poly1305 and ChaCha
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_133952_914001_F41782F4 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20261014_134550_393088_35989A4D 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +101,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
+lpc32xx_gpio_probe() registers each gpio chip with
+devm_gpiochip_add_data() but ignores the return value. If registering
+a chip fails, probe still returns 0, so the driver binds with a chip
+missing and no error is reported.
 
-Sorry for not replying to your question on v1. I was already reworking
-the series in that direction and should have told you.
+Check the return value, print an error naming the failing chip and
+return the error code. Chips registered earlier in the loop are devm
+managed and are removed automatically on failure.
 
-Thanks for doing this. I tested your two patches with the lib/crypto
-KUnit tests in QEMU on x86_64, i386, arm, arm64, powerpc64le, riscv64,
-mips, mips64, s390x and UML, plus temporary tests with buffers over
-2 GiB and 4 GiB. Everything passed, except for two things that fail the
-same way without your patches: the POWER10 Poly1305 interrupt context
-tests (I force-enabled that code, which depends on BROKEN), and two
-Poly1305 tests that crash under QEMU with AVX2 because of a QEMU bug.
+Signed-off-by: Jayaraj Devaraj <jayarajdmit@gmail.com>
+---
+ drivers/gpio/gpio-lpc32xx.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-Tested-by: Vladimir Kukharenko <vladimir@genproof.com>
+diff --git a/drivers/gpio/gpio-lpc32xx.c b/drivers/gpio/gpio-lpc32xx.c
+index 37fc54fc7385..014eb8bc70da 100644
+--- a/drivers/gpio/gpio-lpc32xx.c
++++ b/drivers/gpio/gpio-lpc32xx.c
+@@ -510,7 +510,7 @@ static int lpc32xx_of_xlate(struct gpio_chip *gc,
+ 
+ static int lpc32xx_gpio_probe(struct platform_device *pdev)
+ {
+-	int i;
++	int i, ret;
+ 	void __iomem *reg_base;
+ 
+ 	reg_base = devm_platform_ioremap_resource(pdev, 0);
+@@ -524,8 +524,12 @@ static int lpc32xx_gpio_probe(struct platform_device *pdev)
+ 			lpc32xx_gpiochip[i].chip.of_gpio_n_cells = 3;
+ 			lpc32xx_gpiochip[i].reg_base = reg_base;
+ 		}
+-		devm_gpiochip_add_data(&pdev->dev, &lpc32xx_gpiochip[i].chip,
+-				  &lpc32xx_gpiochip[i]);
++		ret = devm_gpiochip_add_data(&pdev->dev, &lpc32xx_gpiochip[i].chip,
++					     &lpc32xx_gpiochip[i]);
++		if (ret) {
++			dev_err(&pdev->dev, "failed to register gpio chip %d: %d\n", i, ret);
++			return ret;
++		}
+ 	}
+ 
+ 	return 0;
+-- 
+2.34.1
 
-One gap remains on 32-bit arm and MIPS: the ChaCha assembly there
-treats the length as signed, and size_t is 32 bits, so lengths of 2 GiB
-or more are still handled incorrectly. On a Cortex-A7, which always
-uses the scalar code, a 2 GiB + 4101 byte in-place chacha20_crypt()
-changed only one byte.
-
-As a suggestion, I've sent two small fixes on top of your series:
-
-- arm: use unsigned conditions in chacha-scalar-core.S, and
-  DIV_ROUND_UP_POW2() for the block count, since DIV_ROUND_UP() wraps
-  above 0xffffffc0.
-- MIPS: the partial block code also relies on the sign of the remaining
-  length, so a small C chacha_crypt_arch() passes the assembly at most
-  1 GiB at a time.
-
-Feel free to fold them into your series or handle it differently.
-
-Thanks,
-Vladimir Kukharenko
 
