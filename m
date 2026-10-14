@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA473CC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87079CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jH1ufsQ5g3r1H3aslg+X8qJ0wMgxmZRuam6ChKawEQw=; b=OFMF+EJsJRpgQOtd0eJ4shabb7
-	TsF5Ojf2aiJ5B67uMvWnB6xyHNUhkzfBmwhG1h1kAplX+y8Mi655OTG6M5HfhNI1TBaYVfTsyokZ4
-	yZBrWtlCkmVM6a6IT8gm3eI++eaHqGYRq1foTYhIIOmAnZZAHqKm1HEJJky61SH/knv0TrPIxqh5p
-	SyXwGraGrBZAQIZsK/gZCqGZR59S63jkWeeLaNvJqvQbJJPYSLlbvxk9tFkoxnzC4/0nyZEykyVwI
-	1FxtG12mmAJplL1491w0J73kKKsBAhQ8+zmEuNhdGcJyMWm56cu21UpEIuDaWfOIt0rS/vypk9Buj
-	jpBVj7FQ==;
+	bh=BvY7nGoqC/VCKiPtrdSySUfl08WH1MFwZCtI/LVweWk=; b=RLHJP7hSFlP8ay6G2/dNBbg+8/
+	LR5P+mp2/5kt2eWorL6jmCIupPmJmdOYVt+QodBfKwBlhUVFJkZzNQbe3ldX+8yIp50p5oQxDBr6J
+	cmy54g9a7DCztftVVQg8H92moJQgBF33BIkhd5zfoOYEoC8XQ7ClktKVWWdeuzmw1inFKqpK7v8iq
+	SPt49KYq4tVnSfeQsTrEZ8aQUuXSgMj+5MiPKxz0/HjI4TMYtUH+rKeCU+GAQnx5dSFn938iSYjM1
+	CkYJ7nt08T/XWgUSEsoxGaXplWAwfiyaM3dPxuvAzKIwsng7XSJg5ucTqxLwOSD52hho85leyVXZE
+	30nKGVBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwgb-0000000FG7M-1vIX;
-	Wed, 14 Oct 2026 10:58:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xGwhs-0000000FGGo-3RWs;
+	Wed, 14 Oct 2026 10:59:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwgY-0000000FG6q-1sZL
+	id 1xGwhq-0000000FGGf-33Kn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 10:58:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791975493;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jH1ufsQ5g3r1H3aslg+X8qJ0wMgxmZRuam6ChKawEQw=;
-	b=Ft5vQYAsmmGrRvVXqCt1HYeHZ/Ss5dxr+fW7NY2k/4aJRERtUVy/lcCqrKuHmbsHW1mIvF
-	lwm0g58dzj8uO5BdKbbyl88Cy96OXK2D0xq5nPhbHx1TXTSahG42t6QArrLKLHX60mPBvZ
-	NUjCa1cCI43Ezz/SggMR+G19hiElMBU=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-187-vw7zp3ACPe6QXM08qHU4Wg-1; Wed, 14 Oct 2026 10:58:12 +0000
-X-MC-Unique: vw7zp3ACPe6QXM08qHU4Wg-1
-X-Mimecast-MFC-AGG-ID: vw7zp3ACPe6QXM08qHU4Wg_1791975491
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3ab2395f104so252221a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 03:58:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791975491; x=1792580291;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jH1ufsQ5g3r1H3aslg+X8qJ0wMgxmZRuam6ChKawEQw=;
-        b=psG8Bqi1k97gVqYxuVjdRXL8CVDJuuNADDCUxsCjfS0cNiXG9DNLhoJ/uh8p7hJr/6
-         yPF937yCx7z1UrictWVdcLU0/fn71+JpLX4CMw6+NUymgVfTwQRfP5L4+uLpGzQCon75
-         +L/C3JqG6FddF4jJ91B1pSERuqrS73B6CWP1aRZIu7JAGTJ8KcW+2tiqKUDhA1/d+Pnm
-         3JI50QCWuPDKDPc0Tm/wv0V0VdK+AqiiYWI3DDsmJMtdnzcuk788/gZ86hJZYdFIbIKd
-         fiPz39yCkMurIDLCJTx7mYjPbbukRvl8HA+pPfnGMi7yhm3A+bRkxYdPtD3MxcZ+aT/g
-         6hvA==
-X-Forwarded-Encrypted: i=1; AKwUvBwPQ59CAocquIpbnq97iMmzJL91QdYyvt9JOm3pPYSY4EYofo0nWGqga1HhhEC6vBYTQc43oPnSbEpzE1tNOiJE@lists.infradead.org
-X-Gm-Message-State: AFq9FYILmVrmcQg9ndYNiKY3P9uYcNYnTFdHg8QSWMYv4J/Hv+sVQs2Q
-	xFqDC/ELcYlqEf41GbDAHrUWbVX2gNMPlO9+rXnASIZGfvfIa0OsJum83om3+/eMRPr8Rkzg5W9
-	7YYMUtodXJB/KLpuAzG5quLHKca7UFOc4MLcA0ugyyJCJFW7qnNaVwQpVKP77KyrCO/nCCyMOmO
-	7h
-X-Gm-Gg: AYBFou0ZfWZAEceEO6i4mLlCgCV/0rfK7FR9NBlr4n1EqH9OosCjQciUb7xHclFtgfP
-	lyLZ9gjdXreAGyU89Z/laEdcLBwFhPqFFBO6BBiR3aZ3fPp7PK8xuHKg82pmcSKdR6DQeoQPzTd
-	rizbRlRkM4+dZHVVRIN5oPqiXyHQQlPoXF1xFR3HqO+/oVa4wPh7n3v/NyLUAdChWiLJfjwrQK6
-	6HOuV9fOy5BxPj/HoU99XMi9gOJeXrNA/8KQFrL4Kdie8QvtZMU2uTMfuh+GK24p/Ia8iWg61kP
-	2lfaH55lZs8wKRlG5DKwKmeS64weOCKR4gm3D3SeYK1dI2hzPMGMXu/zGz55CB6Ddo09q8i+4z2
-	QF83VQ5s5/ACbK1/5RmudXmAYBMV7yoelhqUb3/L29g==
-X-Received: by 2002:a17:90a:51a7:b0:3ab:4262:1a3a with SMTP id 98e67ed59e1d1-3ab42621c33mr8647761a91.61.1791975490685;
-        Wed, 14 Oct 2026 03:58:10 -0700 (PDT)
-X-Received: by 2002:a17:90a:51a7:b0:3ab:4262:1a3a with SMTP id 98e67ed59e1d1-3ab42621c33mr8647724a91.61.1791975490063;
-        Wed, 14 Oct 2026 03:58:10 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac5f05083fsm4391258a91.1.2026.10.14.03.58.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Oct 2026 03:58:09 -0700 (PDT)
-Message-ID: <0ceda99f-0352-474b-a30a-c5e79b817c2d@redhat.com>
-Date: Wed, 14 Oct 2026 20:58:00 +1000
+	Wed, 14 Oct 2026 10:59:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CBF943BD7;
+	Wed, 14 Oct 2026 10:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44771F000FF;
+	Wed, 14 Oct 2026 10:59:27 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 02/10] firmware: arm_rmm: Check for RMI support at
- init
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
- <20261002061507.1600269-3-suzuki.poulose@arm.com>
- <2586e689-c27d-4e4c-8c69-03e24259cb96@redhat.com>
- <8be050e3-8af1-4f04-902f-9bc01b209dd0@arm.com>
- <3fbd4739-a4eb-4428-95ae-ead22e7cf9f2@redhat.com>
- <799fb810-c33e-4d0e-9a70-7092c0a681ff@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <799fb810-c33e-4d0e-9a70-7092c0a681ff@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zBj0KqruUzkRlfJ-mGHys_S1l6R99LYERZz0Gez71IU_1791975491
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_035814_616896_5A0FA343 
-X-CRM114-Status: GOOD (  26.42  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Semih Baskan <strst.gs@gmail.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, lpieralisi@kernel.org, 
+ kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+ rjui@broadcom.com, sbranden@broadcom.com, 
+ bcm-kernel-feedback-list@broadcom.com, rafal@milecki.pl, zajec5@gmail.com, 
+ florian.fainelli@broadcom.com, arnd@arndb.de, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ rosenp@gmail.com, rani.hod@gmail.com
+In-Reply-To: <20261012181637.GA1313446@bhelgaas>
+References: <20261012181637.GA1313446@bhelgaas>
+Date: Wed, 14 Oct 2026 16:29:18 +0530
+Message-Id: <179197555828.38040.6359970121400952902.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7862;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=KSF9k092edLku1kkCDS+2NRkgH9zctS3hcszlXKZ9xE=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz2CJqgbbMoVYwQbKmkJK+1j/ufZW5b9A9T9cm
+ CzX3TZtwIaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas9giQAKCRBVnxHm/pHO
+ 9UfPB/45UVgsiHlnB55ICLCA7TTM9QYivpnXhXRhF9kWusLH2XPR8f4qgdXTbB7bRFfROoAiPaq
+ Gaqz1sNnSFpgKo9AJeu2gCpL9N0Dw2FSuTitSlJW/RYb+57rcZYDCdlZrzgBHKTzK+q/hGsVA5e
+ f339kqyrb+9BX8xdwKXw2QirsqVQvi1ScOrK1IBYIRBr5/UzV9HRXhEybQ9nLzlviM5oETEMJ0J
+ 3/4PoICpm+LT/CF4zXARu4wTxtx9dHxfoyWx6GbMGoazfbiJKg8htO1Ck4Sv0n5ZKvxrOFYL+5k
+ 73M2Mm5+r+2jOaTWEVQWn/DCOLgmrt/3SnAdkAGN3IrJK8BJ
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,180 +77,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/14/26 7:19 PM, Suzuki K Poulose wrote:
-> On 14/10/2026 08:26, Gavin Shan wrote:
->> On 10/13/26 7:58 PM, Suzuki K Poulose wrote:
->>> On 13/10/2026 04:53, Gavin Shan wrote:
->>>> Hi Suzuki,
->>>>
->>>> On 10/2/26 4:14 PM, Suzuki K Poulose wrote:
->>>>> From: Steven Price <steven.price@arm.com>
->>>>>
->>>>> Query the RMI version number and check if it is a compatible version.
->>>>> All RMM feature registers are read and exposed for future code to
->>>>> use. Also restrict the support to SMC conduit.
->>>>>
->>>>> We only support this for Little Endian kernels, the Big Endian kernel
->>>>> support is anyway marked BROKEN and is being removed.
->>>>>
->>>>> Cc: Marc Zyngier <maz@kernel.org>
->>>>> Cc: Oliver Upton <oupton@kernel.org>
->>>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>>>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->>>>> Tested-by: Gavin Shan <gshan@redhat.com>
->>>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>>> ---
->>>>
->>>> [...]
->>>>
->>>>> ---
->>>>>   MAINTAINERS                       |   2 +
->>>>>   arch/arm64/Kconfig                |   1 +
->>>>>   arch/arm64/kernel/cpufeature.c    |   1 +
->>>>>   arch/arm64/kvm/sys_regs.c         |   2 +
->>>>>   drivers/firmware/Kconfig          |   1 +
->>>>>   drivers/firmware/Makefile         |   1 +
->>>>>   drivers/firmware/arm_rmm/Kconfig  |  25 +++++++
->>>>>   drivers/firmware/arm_rmm/Makefile |   1 +
->>>>>   drivers/firmware/arm_rmm/rmi.c    | 112 ++++++++++++++++++++++++++ ++++
->>>>>   include/linux/arm-rmi-cmds.h      |  48 +++++++++++++
->>>>>   10 files changed, 194 insertions(+)
->>>>>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
->>>>>   create mode 100644 drivers/firmware/arm_rmm/Makefile
->>>>>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
->>>>>   create mode 100644 include/linux/arm-rmi-cmds.h
->>>>>
->>>>
->>>> [...]
->>>>
->>>>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ arm_rmm/rmi.c
->>>>> new file mode 100644
->>>>> index 0000000000000..06f5392c982d2
->>>>> --- /dev/null
->>>>> +++ b/drivers/firmware/arm_rmm/rmi.c
->>>>> @@ -0,0 +1,112 @@
->>>>> +// SPDX-License-Identifier: GPL-2.0
->>>>> +/*
->>>>> + * Copyright (C) 2023-2026 ARM Ltd.
->>>>> + */
->>>>> +
->>>>> +#include <linux/arm-rmi-cmds.h>
->>>>> +#include <linux/cpufeature.h>
->>>>> +#include <linux/memblock.h>
->>>>> +#include <linux/slab.h>
->>>>> +
->>>>> +#include <asm/memory.h>
->>>>> +#include <asm/pgtable-hwdef.h>
->>>>> +
->>>>> +/* RMM v2.0 defines RmiFeatureRegister0 to RmiFeatureRegister4. */
->>>>> +static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
->>>>> +
->>>>> +static int rmi_check_version(void)
->>>>> +{
->>>>> +    unsigned short version_major, version_minor;
->>>>> +    unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
->>>>> +                             RMI_ABI_MINOR_VERSION);
->>>>> +    unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
->>>>> +    struct arm_smccc_1_2_regs res = {
->>>>> +        SMC_RMI_VERSION, host_version,
->>>>> +    };
->>>>> +
->>>>> +    /* If RME isn't supported, then RMI can't be */
->>>>> +    if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
->>>>> +        return -ENXIO;
->>>>> +
->>>>> +    if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
->>>>> +        return -ENXIO;
->>>>
->>>> I think we need to ensure SMCCC version is v1.2 or a newer one here? arm_smccc_1_2_smc()
->>>> is immediately called by rmi_smccc_invoke() after this check.
->>>>
->>>>      if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC ||
->>>>              arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
->>>
->>> We could. But I am wondering if that adds any value ? If the RMM
->>> exists and responds to the RMI_ABI_VERSION, it must be so on a
->>> platform with v1.2 or greater ? The extra check doesn't hurt.
->>>
->>
->> It's required as documented in section "B1.1 overview" of RMM-spec-v2.0- bet3.
->> In the same section, there are more requirements regarding the SMCCC version
->> when SVE/SME are supported. I don't see a practical problem if the check is
->> missed since the combination of TF-A and TF-RMM are the only RMM-spec- v2.0-bet3
->> implementation (as I knew) where the SMCCC version has been set to v1.5 in the
->> 'master' branch.
+On 2026-10-12 13:16 -0500, Bjorn Helgaas wrote:
+> [cc->to: Mani]
 > 
-> Reading the RMM spec again, DFNMZ lists how one can detect if the RMM
-> ABI is present. That specifies that the user checks for SMCCC
-> version >= 1.1, which we do by using arm_smccc_1_1_get_conduit().
+> On Sat, Sep 12, 2026 at 07:36:26AM +0300, Semih Baskan wrote:
+> > The BCMA driver takes its register base and, since commit 552aa843e4c5
+> > ("PCI: iproc: Use the EROM outbound window on BCMA"), its outbound
+> > window from what bcma read out of the enumeration ROM. It still
+> > allocates its host bridge with devm_pci_alloc_host_bridge(), which since
+> > commit 669cbc708122 ("PCI: Move DT resource setup into
+> > devm_pci_alloc_host_bridge()") parses ranges, dma-ranges and bus-range
+> > from the device's OF node and requests the windows it finds. None of
+> > that reaches the hardware here: need_ob_cfg is only ever set by the
+> > platform driver, so iproc_pcie_setup() never maps the parsed windows,
+> > and the EROM commit above had to throw them away again to keep them
+> > from colliding with its own window.
+> > 
+> > Allocate the bridge with pci_alloc_host_bridge() instead, so nothing
+> > from the devicetree is requested or handed to the PCI core, and free it
+> > on the error paths and in remove(). The driver now sets
+> > bridge->dev.parent itself, as devm_pci_alloc_host_bridge() did, since
+> > the wifi nodes under pcie_bridge0 in bcm4709-netgear-r8000.dts are
+> > resolved through the root bus. The window request
+> > moves from devm to request_resource() and release_resource() because
+> > the resource lives inside the bridge allocation and has to be released
+> > before the bridge is freed.
+> > 
+> > The ranges property is still read, but only to compare. bcm-ns.dtsi
+> > describes the same window for the platform driver, and on core revision
+> > 0x01 it points at an address the hardware does not decode. The warning
+> > from the EROM commit stays for that reason: a wrong dts is visible on
+> > BCMA boots, where nothing else would show it. Without bus-range the
+> > root bus also logs "No busn resource found for root bus, will use
+> > [bus 00-ff]" again, which changes nothing else.
+> > 
+> > With PCIE_IPROC_PLATFORM and PCIE_IPROC_BCMA both enabled, the platform
+> > driver binds the same nodes first and claims the devicetree window. On
+> > core revision 0x07 that is the EROM window, so this driver's request
+> > still fails and the probe backs out as before. On revision 0x01 the
+> > devicetree window is elsewhere, so this driver now probes as well, next
+> > to a platform driver instance whose window the hardware does not decode.
+> > That instance does not work either; the only difference is that the
+> > second probe is no longer stopped by the collision.
+> > 
+> > Tested on an ASUS RT-N18U (BCM47081, core revision 0x01): the warning
+> > lines are identical to the applied version, /proc/iomem and the
+> > enumerated devices are unchanged.
 > 
-> Then checking the R{M,S}I_VERSION call is sufficient. So, I think
-> we are good here. Do you agree ?
+> What do you think about this, Mani?
+> 
+> I still don't quite understand the issue with the DT and discovering
+> this via both platform and bcma bus drivers, but we should make
+> progress.
 > 
 
-arm_smccc_1_1_get_conduit() ensures SMCCC version >= v1.1, but we need
-SMCCC version >= v1.2. We will have problem if the firmware only supports
-SMCCC v1.1 and R{M,S}I_VERSION is coincidentally supported. In this
-rare (even impossible) case, it's not sufficient to check R{M,S}I_VERSION
-as I understand.
+Sorry for the delay. Vacation + LPC kept me off for some time...
 
-As far as TF-A+TF-RMM is concerned, I agree there is no issue. However,
-the extra check doesn't hurt and make the code following the spec a bit
-more strictly? :-)
+I read through the whole thread, and compared the driver + devicetree. Let me
+try to explain what I understood on this issue.
 
-Thanks,
-Gavin
+Before commit 767012397976, every Northstar SoC relied on the
+drivers/pci/controller/pcie-iproc-bcma.c driver to initialize the PCIe
+controllers present in the SoC. This driver only relied on the bcma bus driver
+for probing and getting the Host bridge resources such as MEM range, register
+base address etc... and ignored devicetree. So the devm_pci_alloc_host_bridge()
+call was only allocating the host bridge struct and devm_of_pci_bridge_init()
+ended up being a NOP.
 
-> Suzuki
+But with the advent of the commit 767012397976, the PCIe nodes present in the
+bcm-ns.dtsi got compatibles and resource properties. Unfortunately, the values
+provided in the resource properties (ranges specifically), only matched the
+BCM47094 SoC. What the author overlooked was, they added these properties to the
+common bcm-ns.dtsi which was included by several other SoCs as well. Typically,
+the resources are only added to the common dtsi when they are common to all SoCs
+inheriting the common dtsi. Otherwise, they get added to the specific SoC dtsi.
+So this started all the issues as the added ranges properties were only valid
+for BCM47094 SoC and not on other SoCs using bcm-ns.dtsi. I believe the author
+was not aware of this incompatibility.
+
+But then there was one more issue that the author of commit 767012397976
+overlooked. When the compatible got added to the PCIe nodes, they got matched
+with the pcie-iproc-platform driver and that driver started driving the PCIe
+controller instead of the existing pcie-iproc-bcma driver. By probe ordering, I
+think the pcie-iproc-platform driver got probed first and it made use of the
+devicetree resources like the ranges property. Since the ranges value matched
+the BCM47094 SoC, the pcie-iproc-platform probed fine and the controllers were
+initialized properly.
+
+But here is the catch, the author must've failed to notice the issue coming from
+pcie-iproc-bcma driver when it tried probing later. When the pcie-iproc-bcma
+driver probed, devm_of_pci_bridge_init() inside devm_pci_alloc_host_bridge()
+would've tried parsing the ranges property again and should've failed with
+-EBUSY as the memory was already mapped by the pcie-iproc-platform driver.
+Either the author didn't notice this or the pcie-iproc-bcma driver could've been
+disabled on their setup.
+
+Now, when the same devicetree was used on other Northstar SoCs like BCM47081,
+BCM4709, the ranges value were invalid and the pcie-iproc-platform driver's
+probe got failed. Then the pcie-iproc-bcma driver also got probed later (it
+should be noted that these two are separate, so platform driver probe doesn't
+affect this bus driver probe), it also ended up parsing the wrong ranges from
+the devicetree. And this is what fixed by the patch from Semih [1] which forced
+the driver to use the ranges from EROM only and ignore devicetree. The reason
+why EROM parsing was added to the brcm driver instead of the platform driver
+was, only the brcm driver got access to the EROM region as it gets populated by
+the brcm bus code.
+
+Even though [1] allowed the PCIe controllers to be working again, it didn't
+prevent the platform driver from probing first and claiming the invalid
+resource. For fixing this specific issue, I think we need two fixes:
+
+1. Override the ranges property in the SoC dtsi with correct values.
+2. Prevent the pcie-iproc-platform driver from probing for the Northstar SoCs
+and just rely on pcie-iproc-bcma driver to initialize the PCIe controllers. This
+can be achieved by the below patch:
+
+diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci/controller/pcie-iproc-platform.c
+index 4c9a0c4bb923..d2237a56dd79 100644
+--- a/drivers/pci/controller/pcie-iproc-platform.c
++++ b/drivers/pci/controller/pcie-iproc-platform.c
+@@ -45,6 +45,9 @@ static int iproc_pltfm_pcie_probe(struct platform_device *pdev)
+        struct pci_host_bridge *bridge;
+        int ret;
+ 
++       if (of_device_is_compatible(np->parent, "brcm,bus-axi"))
++               return -EINVAL;
++
+        bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+        if (!bridge)
+                return -ENOMEM;
+
+IMO, we need both fixes because, devicetree has to describe the hardware
+properly and we should not have two drivers claiming the same resource.
+
+[1] https://lore.kernel.org/linux-pci/20260807162149.7CC9E1F000E9@smtp.kernel.org
+
+> I *think* that if we squash this patch into 552aa843e4c5 ("PCI: iproc:
+> Use the EROM outbound window on BCMA") and use
+> devm_add_action_or_reset(), it will simplify down to this, which is
+> less intrusive and would need less explanation:
 > 
->>
->> Thanks,
->> Gavin
->>
->>> Suzuki
->>>
->>>>          return -ENXIO;
->>>>
->>>> Thanks,
->>>> Gavin
->>>>
->>>>> +
->>>>> +    rmi_smccc_invoke(&res);
->>>>> +    if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
->>>>> +        return -ENXIO;
->>>>> +
->>>>> +    version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
->>>>> +    version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
->>>>> +
->>>>> +    if (res.a0 != RMI_SUCCESS) {
->>>>> +        unsigned short high_version_major, high_version_minor;
->>>>> +
->>>>> +        high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
->>>>> +        high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
->>>>> +
->>>>> +        pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d. %d\n",
->>>>> +               version_major, version_minor,
->>>>> +               high_version_major, high_version_minor,
->>>>> +               RMI_ABI_MAJOR_VERSION,
->>>>> +               RMI_ABI_MINOR_VERSION);
->>>>> +        return -ENXIO;
->>>>> +    }
->>>>> +
->>>>> +    pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
->>>>> +
->>>>> +    return 0;
->>>>> +}
->>>>> +
->>>>
->>>> [...]
->>>>
->>>>
->>>>
->>>
->>
-> 
+
+This LGTM!
+
+- Mani
 
 
