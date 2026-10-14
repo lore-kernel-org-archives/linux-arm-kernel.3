@@ -4,112 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1DECC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6A7CC6B27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pS+BC2ndYOMZ6fqgC3DMOilAQfKzi15Rlla/RMjkrmM=; b=roBIepjJT0Ab2XpbdlsUkiX+JT
-	3c3Ggy2I3uQL5X9zLorpi2UQU4VGuWeFrPs/QqOblHT6Ax+woTyK/0gyjDmTk+CqiRfQ2sksMS38g
-	URK/gKQil3YAbk4MD+OWqD3CPfn8g1XFQfW9MaRUlSp+NwPXr74ZfTG2B6XsJAlnAgoWdjbs78gA8
-	ahySdBNDyAK8ah/7N1UdWdTpuS9vvOSH+qLWDxBDPcf252AHBVUR/yRXNzNdjPUGuO8L4fnE1Tois
-	WtNlEhiS16Ek/F7WmrZExhzn7s6BLAN9RtT/7tngeWSaVQUWfue29cPQoMdjlUtVcGkOSn+XeKQQ4
-	80n14n4g==;
+	bh=vw4KmkdFwK/CDZvAcWLH27fTwNsZ5t5VqFuZ9WIw3lY=; b=JKHeN9hcLciSdX/EEutC635wh8
+	5rUltyfiSusS1mmL7dwkDAldjhkoDje6fzes4EfwWaJ+l2Qw4um9z3idAmoiFhYw5rw42XvCgE/ce
+	hxmP5uytLo/8kpwcsFecSmGivaiIszTrwJu8pI/xQYqc9ZXBboFPDGywbo4iiJ12eogv0ov8710Bt
+	VAO/mdEyRqDBqSXDk6kciSDEgVLp2aeyHhBcWBmUGkCYiuDxqHiwL5Tdb8J+SJ/80pPLRiZnnvw60
+	CvleqJIZlLrtqxSY/Jndu9ev/1b3ksjgM26q4ornc/iJB3zHSWobh9ceV9sO2PVwujWSVlBw5PfZZ
+	gkWd/AEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuNu-0000000Etc0-0LWg;
+	id 1xGuNu-0000000EtcQ-13yn;
 	Wed, 14 Oct 2026 08:30:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuNm-0000000EtW8-10nV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 08:30:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pS+BC2ndYOMZ6fqgC3DMOilAQfKzi15Rlla/RMjkrmM=; b=WtsZrqjZimbdnjtXTugNH/z/90
-	EH163UhsZhtMrpB/RYbT/Lp1deA0AUn4jNzsRHKjEEjBf7hpRCyIel4lnY4Q0q6uxautaQ0JCvbXx
-	NgSVMW6D+N2uD8uCag8SKBlt379CDY9Aqx7jdmpxlpRBlF0ymQU27jWWdg+Au3918yLEiAm9Z93u9
-	qLvpvpGk+0VB+ow2+UDPFsIaJmZNyHs4CcSTEoEqF7eOwor8p5CYc3iUmrdPi4mq0IyHnYBthbKdC
-	uhqg/Mi1fT92H8TSRYRE/JO7CRY94Pq6gnejgUoim8GWQXH8KUcBJxXKeae5S7eAt/vGEISjvtCYG
-	/KrgGyng==;
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGuNh-0000000GVLU-0xoK
+	id 1xGuNa-0000000EtSN-3xdm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 08:30:39 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-487049569b6so2630644f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 01:30:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791966635; x=1792571435; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pS+BC2ndYOMZ6fqgC3DMOilAQfKzi15Rlla/RMjkrmM=;
-        b=HrDQrrQaxBiEW+LksUyrP5GmxmNNLLoVjdKdJXQEJm0NAfMwi+Mshda7iCSyQBp/Ax
-         C9TKLkuapF8Bv0yurPGfLgYkNBIcjIhJu+KEQvyM9s1MWV8MymrRyZM29fqVUFiVeFy9
-         aQmUYmRkt5kGd4zpqrJrAs+dkAOCog0iXzeKQt8VMzvda20f28icPDKFlbVcWArizcxn
-         zqQzsrInoDiDAniKXXQv2uLioK80V0tXokj/ULz9739gGatZA66vq7FF0KDnPZzdB+EM
-         EoB1UJMpIfCnTfY+oSwltRpgzOlWEmFv9krqw8bvT8SSNCeU6LQEmK+DoNEXaS5uCuJu
-         XKPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791966635; x=1792571435;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pS+BC2ndYOMZ6fqgC3DMOilAQfKzi15Rlla/RMjkrmM=;
-        b=blFPrHdqi4P4X9MSWtukV53k4fOTJTlmAHQ0KJ3DVk+3ksI+voOoEnRJK/YHM0caf+
-         rScHRm2LnYm0QHBhtRuJka5qJU5/XEWYTRXdRlZAE9cS8N5JVaVBBH+06c/IR0TmeP8N
-         k0rMndELN53PM2prJy//SI9d+pB6TIfFfe3IcQsGjuV6nj7Vqh//QKR1KYh0S7J3hIaE
-         MsskMiE3apG0cxlxZZsoaeFglYivflI2vatDVOlZTPK95AERYIzbAjrw+WS3sftFmzux
-         9GZKHKrgFCt5IKjM7aNaU+mbA8M+qD4mTQxjQQGdOZFiWNveos3J6DNd4puuZN7L9b+j
-         rNBQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxqaynCY+wbRTMBp5alf93fh7tDsePpFeIXNflwVknr0JD0v4GYUIoSXfMK3ZTQTtua18sYMn24Mf0d3D81z60N@lists.infradead.org
-X-Gm-Message-State: AFq9FYJvLUv01BMsXJOZHDTxU7EYZk23WJKsf25PaGYlcDrBO+CpX7NO
-	AXMq0WNMJGvOrcRdifQGAnerqpBwoBQq6ixOnNxw8o858oAIOoQ3D5kw
-X-Gm-Gg: AYBFou1LoZBUeC1Fa8fuFyxKOvnfD57tAjLR82E9Rl8RWLvUPMMVrG62sFdbpemQiO7
-	aXRItnFT03KgobaX0uUVPvhduMVkR8CL1CsLOxodXoM8TrDlYJcEGaQXDQNYV2sbrlxruGzANb7
-	V3z4kpAdbQlBbLHnnVQRz3KyiyGn7WDy7/d763Ma6kIOdTMZydmDMsQ05jCYC4z/ZTtLG70IC5P
-	DlkWiKh1JNVnypYCIByVpaBQACxHDjl6k1oGiFLODJm/NQgJt2x7fRH2ilIgHrawA9f7bYX8BKp
-	XkiDCZvirwNPtZyqIfAFYeNpe9NgQOXUWimJJyZNBiVdR3dJeVoLpwQQC3TztG6S2dSmWyK/6OD
-	nYfO2kdgPv2yuqJaAnRNwdXbT6zjeyT/SEwpleZpwGLDsOlD7NfdaiC7drC9XgbtKKHKwxEoEJD
-	ktLAem136cVneRbQzXUaOFDjv1SCkds+q2UvPjRcaZDxeKvWSe+QBPxcnvprskXZMJhoIEWg58e
-	abqhO/foODgDQ3buOsAxGSGeUBOUSkdYKCWDFs/WNQ5aw==
-X-Received: by 2002:a05:600c:a010:b0:4a0:2500:2cd0 with SMTP id 5b1f17b1804b1-4a18e4b4646mr273410865e9.18.1791966635390;
-        Wed, 14 Oct 2026 01:30:35 -0700 (PDT)
-Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c198134sm431809745e9.15.2026.10.14.01.30.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 01:30:34 -0700 (PDT)
-From: Sander Speetjens <sander.speetjens@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	sander.speetjens@gmail.com,
-	pbrobinson@gmail.com
-Subject: [PATCH v11 3/3] rtc: Add Raspberry Pi 5 RTC driver
-Date: Wed, 14 Oct 2026 10:30:16 +0200
-Message-ID: <20261014083016.332338-4-sander.speetjens@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261014083016.332338-1-sander.speetjens@gmail.com>
-References: <20261014083016.332338-1-sander.speetjens@gmail.com>
-MIME-Version: 1.0
+	Wed, 14 Oct 2026 08:30:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uifN0WLOB+c+0tD0KVPPGvt1xc8Hy7ltlCoV7mguAmfu5FokMzxYzNSpSnYCqb7wjbS0oY50OzRqHGEtl2GNhl6dHOcL6RhjOXv2ml+rlbKOpnxTuhAdj44gVVKmcOjR0zf8azTrXIZLMcOuip+9omwfCnVs4OYOLIupEs2UPJEx3ihWszQwiWeQ1vK7kMVxUtrU2G8bAyc+Rddpy9Aqkj4IQ+XPBf6TMdbViRgIomqO0U8aIKRANTSGZo/QdXVUe830t23wWMB2JZKjctW3JiMmFB5cmn6AlFay5ajeCZj78CbpnGOHFeUVrodY7CyNzyCfSD10qGly50aHPoR2Sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vw4KmkdFwK/CDZvAcWLH27fTwNsZ5t5VqFuZ9WIw3lY=;
+ b=R+KTcCvJ+LQd76TxPwS7VJNZxnbKjIVWKKFpAtbdZlFNKH/4SrZ3AR/wW1qZJzZ7FJW8J5BclBkGyzQ4eo0MKuG0UZN3+fQ4WJzOf6seVV5D7BqJaI7UDKSCCA0ReLJ2fc4gC0H+4lalnCyoctHnD2zNijh7cKcozIC7j89HDVDjH3c3HUN7rZfSuiA3xe76HoJJUbhgiEcAVjY+Xng0nrBrkZP9Ij6vOSeUg8sl2Y/suNEN1iz6l94dLEw5Htv8kv/0zjTKXm22Rk6wm50YQpT02m6ZdhWdUYjwsy0GZOguzp0qPNUgftwcEh0OvO0Zr1P0s/rtN5dk2IUgnAIkwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vw4KmkdFwK/CDZvAcWLH27fTwNsZ5t5VqFuZ9WIw3lY=;
+ b=mn++iTriD2xhL5RekALuw/S3LRj8AZeVfuSfEnEsR3x+0TaOl4DzUQEBjmorV1F7CIxCaBmRkdHJ9kO5+G6IWBcRWUpzEhMzmzTAltdFPszDtfVyGYVBnHddmNBiRveJKatiBcCvDhnc8T6PT0NNtzFE51f6i3CrFQ4nNxObdW7fnt+Jio/k2jHC6ynZYqvwL7Oxowz91YJ480edZDfHHGjMjUGtld+WOBov2hdj9/RCuje3m8ue2/K9BU2almF6FS6mnCl6gWa60NESVfg4snds7iGV7Z3SXb9wYcYmLynWIKLTJlPnlx0BjRzuDHZdP9IdRQPVRWdGhIt+o2phgA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by AS5PR04MB9969.eurprd04.prod.outlook.com (2603:10a6:20b:67c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Wed, 14 Oct
+ 2026 08:30:25 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0522.012; Wed, 14 Oct 2026
+ 08:30:22 +0000
+Date: Wed, 14 Oct 2026 16:34:58 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v6 07/13] gpio: mxc: convert pad wakeup compatible checks
+ to hwdata flags
+Message-ID: <as8+sqlBEuhfdtZ8@shlinux89>
+References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
+ <20261011-gpio-mxc-cleanup-v6-7-cb47ce2ad758@nxp.com>
+ <CAD++jLnDxTAz2=ge5RgvO02mp+BJyLBV0zR8xqsm8LSsSEcRYQ@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jLnDxTAz2=ge5RgvO02mp+BJyLBV0zR8xqsm8LSsSEcRYQ@mail.gmail.com>
+X-ClientProxiedBy: SI2PR01CA0041.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS5PR04MB9969:EE_
+X-MS-Office365-Filtering-Correlation-Id: 05d6a05c-7b27-4e19-426d-08df29cd637e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|7416014|376014|366016|18002099003|22082099003|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: /6Za28xJAZe4ZAt26s6nTnh3Ousy/hz2+mGa7lnRKQtQj08f7ROJcC9feYjiP0ap6fOS2E1/iQFsFMyGfOr1Gfr0xnOEncaIyiGFh9d8Ehza21Dr/o0q6hwK1KuDRenKoT0zCX8pT61IT0n3CfLUxgKY9fWE+9c+JWFT5+Ao9yFMCYFqlHv77DNxmioA7WjQ5k1X15SyETZxWEDkl3RqRkstepFLQHgbaiQvgdyQgS6sk1SLd0dLSXhvLsXsfpSqfDtC6FsycU5L2x6F3pesjQ1ft+B2SFcK7gCxJWO6eJ23i4Hp1NJ8uHVQtbXXq+cWfkYMoehwd1Nlb+jsqxhz3v5yObnRFtoCnjoUPYTPeDe7rW8dNocXe8ECauP02bClfJtoDhgqPvhCo6PPDMMBYisRRZ7GhwgLU/F+Q9q4qbtU3f3v8CBFOy7pTPCg6/UsYmVoKQCU4+Q75BqHvxpVKLe+t3SjUeebosFONEMaNCRNH/0t+heVGAyoMcZIIRfIACyfN56xQCSvMFnso06w811UOWEctz5VOZ+wiGZBdcq2CoWWADwZj6KsX4OVYpc34Xo0WG/S1S/rQPH1EaJZZzGaPHrlfHqFJKGPJQY9tYp3V+dQDrQh9DK32ZhmUM3UBzz6NfVCI/RaTKejVMukqZ/aAXy/3sq6/Vr7PUdldzU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(7416014)(376014)(366016)(18002099003)(22082099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L1RoNzBJYW5MYThwWGJweTJNakdBUDVjREV3N2x2aUhyeDc4bk0xeUdaNitk?=
+ =?utf-8?B?L0tWTHVaWFJaRjlxVE9yVWZJbklWZU12emVsU25kaFA0MStRS3N6Tjd4MDFX?=
+ =?utf-8?B?L2JZc0tKL2lxMGRBYzUrdkNMeDNTd2RrYmMyTUlqYlFFeGltV0pIbXMvS3d3?=
+ =?utf-8?B?eUNxbmRlUjZYajhPTFdNWEJHL0drOGU0MzdIQUZsbER4aTdxRktjYjhkbXZt?=
+ =?utf-8?B?cVVnQ21CMHc3NldvaFFNR1hNL2ZsV0FSWTlHM3M5WmtrdW5tZDloU01WTnFK?=
+ =?utf-8?B?NjBFeEQzbFZRY1p3Q0Q2V1BmVUE2ZXVjOCt5TWdDNDVDMGhrUUd0djIxVFpo?=
+ =?utf-8?B?dVQ4Ujc4VDRiYzVZelpRSWNKZUxMZkVpS2RKVnd3ZU9LS2VkV3p6c3RGRmdS?=
+ =?utf-8?B?MmxPWlJNUDZjL3VQZ3c3Z1ZWcVA4VU9FcEJQK2Z0M2JtUklPV0d0TmY2SlhO?=
+ =?utf-8?B?K1l0aEk4VUNHWkJQa1FkUlFNd3IrQjQrK2FmQis5TEFBaHhmS3V6Q1BoOTVO?=
+ =?utf-8?B?OThUdnlSY0FURGx5NWVWaURLVTZmQ1BFYzNBZG9UNWpSbUszTUtqdlVNSStq?=
+ =?utf-8?B?QmdwVHk5TllSbUhXdEFDb1I5Z2RYNUtGR0x1ZExNUDVxMXlVRXA5LzQrVHJl?=
+ =?utf-8?B?bFczSG5aQWlIcjBrY2hJTjlXUG9jMlplWGY0dllKQkZwbWpld0t4RGRxWHU4?=
+ =?utf-8?B?dDlCZk5zaUNOOUkwbVdLd2plN3o1R284UVBFRGViUnBzdTZ3bDh4RHBSZUZR?=
+ =?utf-8?B?L2VPK2Z5K2dLUloxQ0lqMy9IK1lGU2hrbWVaUWxianRhRmoyRWtOaStFYTRs?=
+ =?utf-8?B?VEJ3K1ZqbUxPT1lydDBxdGVKSW51OGw4Y1YwVFI5SitkOVBhWG4yejdUS1Q0?=
+ =?utf-8?B?cWcvWnJmWGY3MVU4Qmd3UmpWNWdLOUhQbFpDSWJneGMwa2Ivcy81UkZ2RWli?=
+ =?utf-8?B?L0NYcWc5UGpTTTYyc01jb2dvS3lNaFYzOGJaemhVc2tSNWFESnBGSHduaWZi?=
+ =?utf-8?B?VlVETVZCb2w3a1ZMcElNQ0FXNDgwN2xGQlA3V0lHSnVCS2RRamoxTGtKeldF?=
+ =?utf-8?B?U01TVlpjdmkzVmJYci8xY0MyNU0wcXJISkJnajYxcHFKZmsvK3g5anlHNGFN?=
+ =?utf-8?B?UERoZjlZL1g2enJRMlRVaW1jTmxSOVkzQ3pDbElvbXZ6aFpNRy9GaEFVZTM2?=
+ =?utf-8?B?dmd5ajJrd05qT0RSUzRtL0VGZStVOUdDQXpzWGN6YmJmdVMxZS90YXY1M2p3?=
+ =?utf-8?B?MUVPTDFobUQrMnhwY3JnY3phbm1YUEFOZzU4cW8wdUcrY0h6TGRkVTF2dUdN?=
+ =?utf-8?B?Y3JlVTg0N29sSS9aeGRCL3pZZmdaTHBPRWlmaFNiQVh0VjNldkpSMmw5K2NG?=
+ =?utf-8?B?UGNXaXQ4azBKWU5BU1ZDV3VlUCtvbjZwTlNTNUpkaEhBS1hmeFZ6eW1kQ0k5?=
+ =?utf-8?B?Z2laNFlUMUZCaHBia21UVGxXaW9lbDU3ZGFjTmdqQW5PVFhuOHVkWmQzeTQw?=
+ =?utf-8?B?bnhrdjI1dzZlMVJQTkZjSkdqdUgzZnZjUVpxWW1IY2VxRkJsMktLYkI3WVlo?=
+ =?utf-8?B?c25vamJUUTdTdDViQzhrQnpTSkFBQlEybEpwRXo0RnphaWNLd3FuNHdaUmpu?=
+ =?utf-8?B?YjZwczRsaEFNWjJLYWxtdmFuWG1RM2xvRGQ0TlkzcENSaWtYUmN3Yzl2SldN?=
+ =?utf-8?B?clcyUDA1ek9KcjYwNlFuaTBwRUc3dkhIbkppWUxxNG9mT2pGZ2hGWFI3NHor?=
+ =?utf-8?B?Qko5WWNGSmt2WFJtcGVFNSsvSnkwTlI1OWY4YzU5czNHNEw3MWovdGR4bElU?=
+ =?utf-8?B?b29UeVFJektDM0lUZVg0VHNJRXdhU3Y0dUx4c3FtUVNXQ3h6T1IwNzNJSFRT?=
+ =?utf-8?B?WVB4YTg1aFFhUkdmc2x5c3QzbDJaTml3NkxLM0hseVZ3NlE5ZDdUdWJTVy95?=
+ =?utf-8?B?dnVaK2J2RVJYell0emNzRkNCZjlKeElSK2RybG1mQnhYd0M1L0dWTytObmZZ?=
+ =?utf-8?B?bmFhdXNseGptMnlsVURyaFFZY0xrRVF0dCtxbnp4ak50aUNDOUVpNVErZTNa?=
+ =?utf-8?B?K0EzMmRwWTRYczFZVk5nZjR5UEgwd1hrSDV4SlhVeUIvTG5qbEhwem0rNDRT?=
+ =?utf-8?B?NlZOV2RBMkplVzNSem9QaEdJTUVPc21jZFZraVhkcWM4ai84VzcwNHRYaEMr?=
+ =?utf-8?B?MUNveVNOaExTUkt6T1hJSzhlV1BZa0JZWk8zZGsvbTV0dHdqMlRQdzZiSW5E?=
+ =?utf-8?B?eEpPRFlTTFVRMGlWTnlCckdvd1VwZmpWUXRGTCtzcktoSTRrR3BCQXRUK2Nx?=
+ =?utf-8?B?cko0TWovakV1YVNoUjQzY2lGbExNQTNGVVdQblVxb0xZWVpSalFhSjlsUVlw?=
+ =?utf-8?Q?0uIf6vceeD71lzAxjsRAdGtBAOcOHtm//XHK0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 05d6a05c-7b27-4e19-426d-08df29cd637e
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 08:30:22.9286
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Iwp1MvpEpQLWf/c1xJ0LVDi3yYHAO6Ggu0iUFu0anj2uLzpuzJchrTQCW32ocBKKal9qCGd/ONbQ1zfv6BKyTnkZdWOoFFOHiXFP84L75F/lSjJQu9bG3SstNmDV3fSJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9969
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_093037_386072_0C6D584C 
-X-CRM114-Status: GOOD (  39.50  )
+X-CRM114-CacheID: sfid-20261014_013031_990346_DD0F838A 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,479 +156,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upstreaming the downstream Raspberry Pi 5 RTC driver.
-This driver supports the custom DA9091,
-which is accessed through the firmware mailbox.
+Hi Linus,
+On Wed, Oct 14, 2026 at 01:10:48AM +0200, Linus Walleij wrote:
+>Hi Peng,
+>
+>On Sun, Oct 11, 2026 at 1:51 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+>
+>>  static bool mxc_gpio_generic_config(struct mxc_gpio_port *port,
+>>                 unsigned int offset, unsigned long conf)
+>>  {
+>> -       struct device_node *np = port->dev->of_node;
+>> +       int ret;
+>> +
+>> +       if (!mxc_gpio_has_pad_wakeup(port))
+>> +               return false;
+>
+>Why is the entire call to mxc_gpio_generic_config()
+>bailing out here if the port does not have pad wakeup?
+>
+>> -       if (of_device_is_compatible(np, "fsl,imx8dxl-gpio") ||
+>> -           of_device_is_compatible(np, "fsl,imx8qxp-gpio") ||
+>> -           of_device_is_compatible(np, "fsl,imx8qm-gpio"))
+>> -               return (gpiochip_generic_config(&port->gen_gc.gc,
+>> -                                               offset, conf) == 0);
+>> +       ret = gpiochip_generic_config(&port->gen_gc.gc, offset, conf);
+>> +       if (ret)
+>> +               return false;
+>
+>Then no generic config can happen.
+>
+>This looks weird, isn't it just some of the configs that
+>don't work?
 
-Based on code originally written by Jonathan Bell
-<jonathan@raspberrypi.com>
-and Dom Cobley <popcornmix@gmail.com>
+The early return is correct and matches the original behavior - only
+i.MX8 SoCs with SCU have pad wakeup hardware.
 
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
----
-V10 -> V11:
-- Change enum order in include
-- Remove compatible
-- Rename vrtc to rtc
-- Change from MODULE ALIAS to id_table
+gpiochip_generic_config() here calls into the pinctrl backend's
+pin_config_set(), which on i.MX8 programs the SCU firmware with the
+PAD wakeup source type.  Non-i.MX8 SoCs don't have an SCU pinctrl backend.
 
-V9 -> V10:
-- Fix sign-off-by
-- Change enum to defines
-- Change comment in firmware
+The function name is misleading - its only caller is mxc_gpio_set_pad_wakeup().
 
-V8 -> V9:
-- Fix whitespace in Kconfig
-- Move RTC regs to firmware header
-- Add a warn when getting the min or max charging values fails
-- Remove the unused return value of set charge voltage
+Thanks
+Peng
 
-V7 -> V8:
-- Fix whitespacing errors
-- Use of_machine_is_compatible instead of strncmp
-
-V6 -> V7:
-- Move from u32 array to struct
-- Fix encapsulation as mentioned by sashiko-bot
-
-V5 -> V6:
-- Add MODULE_ALIAS, as mentioned by sashiko-bot
-- Encapsulate the mailbox data in le32_to_cpu or cpu_to_le32, as
-  mentioned by sashiko-bot. For good practice
-
-V4 -> V5: No changes
-
-V3 -> V4:
-- Fix Kconfig depends that disallows having Raspberrypi
-firmware built as a module while the rtc driver is built in
-- Remove sysfs
-- Add limits from firmware properties and check in rpi_rtc_set_charge_voltage
-
-V2 -> V3:
-- Move platform check to firmware and abort before registering
-a platform device if on another platform
-- Add a dependency on the Raspberry Pi firmware to Kconfig
-- Check return value of devm_device_init_wakeup
-- Fix property name
-
-V1 -> V2:
-Instead of the original driver, which was directly bound to the device tree.
-This driver is bound to the Raspberry Pi firmware device by creating
-a child device in the firmware driver probe function.
-The child device is then bound to this driver,
-which uses the firmware mailbox to access the RTC.
-
-A couple of minor changes have been made to the driver since it was originally written, including:
-- Checking if the model is a Raspberry Pi 5, as the RTC is only present on that model.
-- Using the new devm_rpi_firmware_get() and devm_init_wakeup() helper to get the firmware device and avoid leaking memory.
-- Using millivolts instead of microvolts for the trickle charge voltage, to match the RTC standard.
-- Instead of setting the trickle charge voltage to 0 to disable trickle charging, the property is now optional. If the property is not present, trickle charging is disabled, per the RTC standard.
-- Renaming the driver dt match compatible to "raspberrypi,firmware-rtc" to match the other firmware bindings.
-- Renaming the driver name to "raspberrypi-rtc" to match the other firmware drivers.
-
- drivers/firmware/raspberrypi.c             |  25 ++
- drivers/rtc/Kconfig                        |  12 +
- drivers/rtc/Makefile                       |   1 +
- drivers/rtc/rtc-raspberrypi.c              | 275 +++++++++++++++++++++
- include/soc/bcm2835/raspberrypi-firmware.h |   2 +
- 5 files changed, 315 insertions(+)
- create mode 100644 drivers/rtc/rtc-raspberrypi.c
-
-diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
-index 0aa322e9a2e7..b22c59a429de 100644
---- a/drivers/firmware/raspberrypi.c
-+++ b/drivers/firmware/raspberrypi.c
-@@ -24,6 +24,7 @@
- 
- static struct platform_device *rpi_hwmon;
- static struct platform_device *rpi_clk;
-+static struct platform_device *rpi_rtc;
- 
- struct rpi_firmware {
- 	struct mbox_client cl;
-@@ -231,6 +232,27 @@ static void rpi_register_clk_driver(struct device *dev)
- 						-1, NULL, 0);
- }
- 
-+static void rpi_register_rtc_driver(struct device *dev)
-+{
-+	struct platform_device *pdev;
-+	struct device_node *firmware;
-+
-+	/*
-+	 * Check if our model of Raspberry Pi board is from the 5th gen
-+	 * as the RTC is only present on that model.
-+	 */
-+	if (!of_machine_is_compatible("brcm,bcm2712"))
-+		return;
-+
-+	pdev = platform_device_register_data(dev, "raspberrypi-rtc",
-+					     -1, NULL, 0);
-+
-+	if (IS_ERR(pdev))
-+		return;
-+
-+	rpi_rtc = pdev;
-+}
-+
- unsigned int rpi_firmware_clk_get_max_rate(struct rpi_firmware *fw, unsigned int id)
- {
- 	struct rpi_firmware_clk_rate_request msg =
-@@ -305,6 +327,7 @@ static int rpi_firmware_probe(struct platform_device *pdev)
- 	rpi_firmware_print_firmware_revision(fw);
- 	rpi_register_hwmon_driver(dev, fw);
- 	rpi_register_clk_driver(dev);
-+	rpi_register_rtc_driver(dev);
- 
- 	return 0;
- }
-@@ -327,6 +350,8 @@ static void rpi_firmware_remove(struct platform_device *pdev)
- 	rpi_hwmon = NULL;
- 	platform_device_unregister(rpi_clk);
- 	rpi_clk = NULL;
-+	platform_device_unregister(rpi_rtc);
-+	rpi_rtc = NULL;
- 
- 	rpi_firmware_put(fw);
- }
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 05b9233b9418..6adaf425a76b 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -1999,6 +1999,18 @@ config RTC_DRV_R7301
- 	   This driver can also be built as a module. If so, the module
- 	   will be called rtc-r7301.
- 
-+config RTC_DRV_RPI
-+	tristate "Raspberry Pi RTC"
-+	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
-+	depends on ARCH_BRCMSTB || COMPILE_TEST
-+	default ARCH_BRCMSTB
-+	help
-+	  If you say yes here you get support for the RTC found on
-+	  Raspberry Pi 5th gen devices.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called rtc-raspberrypi.
-+
- config RTC_DRV_STM32
- 	tristate "STM32 RTC"
- 	select REGMAP_MMIO
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 0347645b021f..46f1a0fc2416 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -144,6 +144,7 @@ obj-$(CONFIG_RTC_DRV_PS3)	+= rtc-ps3.o
- obj-$(CONFIG_RTC_DRV_PXA)	+= rtc-pxa.o
- obj-$(CONFIG_RTC_DRV_R7301)	+= rtc-r7301.o
- obj-$(CONFIG_RTC_DRV_R9701)	+= rtc-r9701.o
-+obj-$(CONFIG_RTC_DRV_RPI)	+= rtc-raspberrypi.o
- obj-$(CONFIG_RTC_DRV_RC5T583)	+= rtc-rc5t583.o
- obj-$(CONFIG_RTC_DRV_RC5T619)	+= rtc-rc5t619.o
- obj-$(CONFIG_RTC_DRV_RK808)	+= rtc-rk808.o
-diff --git a/drivers/rtc/rtc-raspberrypi.c b/drivers/rtc/rtc-raspberrypi.c
-new file mode 100644
-index 000000000000..6d5c8111f4db
---- /dev/null
-+++ b/drivers/rtc/rtc-raspberrypi.c
-@@ -0,0 +1,275 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/**
-+ * rtc-raspberrypi.c
-+ *
-+ * RTC driver using firmware mailbox
-+ * Supports battery backed RTC and wake alarms
-+ *
-+ * Based on rtc-meson-vrtc by Neil Armstrong
-+ *
-+ * Copyright (c) 2023, Raspberry Pi Ltd.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/rtc.h>
-+#include <linux/of.h>
-+#include <soc/bcm2835/raspberrypi-firmware.h>
-+
-+#define	RTC_TIME		0
-+#define	RTC_ALARM		1
-+#define	RTC_ALARM_PENDING	2
-+#define	RTC_ALARM_ENABLE	3
-+#define	RTC_BBAT_CHG_VOLTS	4
-+#define	RTC_BBAT_CHG_VOLTS_MIN	5
-+#define	RTC_BBAT_CHG_VOLTS_MAX	6
-+#define	RTC_BBAT_VOLTS		7
-+
-+struct rpi_rtc_data {
-+	struct rtc_device *rtc;
-+	struct rpi_firmware *fw;
-+	u32 bbat_vchg_millivolts;
-+	u32 bbat_vchg_min_millivolts;
-+	u32 bbat_vchg_max_millivolts;
-+};
-+
-+struct rpi_rtc_reg {
-+	__le32 reg;
-+	__le32 val;
-+} __packed;
-+
-+static int rpi_rtc_read_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_TIME)
-+	};
-+	int err;
-+
-+	err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	rtc_time64_to_tm(le32_to_cpu(data.val), tm);
-+	return err;
-+}
-+
-+static int rpi_rtc_set_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_TIME),
-+		.val = cpu_to_le32(rtc_tm_to_time64(tm))
-+	};
-+
-+	return rpi_firmware_property(rtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_alarm_irq_is_enabled(struct device *dev, unsigned char *enabled)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_ALARM_ENABLE)
-+	};
-+	int err;
-+
-+	err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	*enabled = le32_to_cpu(data.val) & 0x1;
-+	return err;
-+}
-+
-+static int rpi_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_ALARM_ENABLE),
-+		.val = cpu_to_le32(enabled)
-+	};
-+
-+	return rpi_firmware_property(rtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_alarm_clear_pending(struct device *dev)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_ALARM_PENDING),
-+		.val = cpu_to_le32(1)
-+	};
-+
-+	return rpi_firmware_property(rtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_ALARM)
-+	};
-+	int err;
-+
-+	err = rpi_rtc_alarm_irq_is_enabled(dev, &alarm->enabled);
-+	if (!err)
-+		err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+					    &data, sizeof(data));
-+	rtc_time64_to_tm(le32_to_cpu(data.val), &alarm->time);
-+
-+	return err;
-+}
-+
-+static int rpi_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_ALARM),
-+		.val = cpu_to_le32(rtc_tm_to_time64(&alarm->time))
-+	};
-+	int err;
-+
-+	err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				    &data, sizeof(data));
-+
-+	if (!err)
-+		err = rpi_rtc_alarm_irq_enable(dev, alarm->enabled);
-+
-+	return err;
-+}
-+
-+static const struct rtc_class_ops rpi_rtc_ops = {
-+	.read_time = rpi_rtc_read_time,
-+	.set_time = rpi_rtc_set_time,
-+	.read_alarm = rpi_rtc_read_alarm,
-+	.set_alarm = rpi_rtc_set_alarm,
-+	.alarm_irq_enable = rpi_rtc_alarm_irq_enable,
-+};
-+
-+static void rpi_rtc_set_limits(struct device *dev)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS_MIN)
-+	};
-+
-+	int err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+					&data, sizeof(data));
-+	if (!err)
-+		rtc->bbat_vchg_min_millivolts = le32_to_cpu(data.val) / 1000U;
-+	else
-+		dev_warn(dev, "failed to get minimum trickle charge voltage\n");
-+
-+	data.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS_MAX);
-+	data.val = cpu_to_le32(0);
-+	err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	if (!err)
-+		rtc->bbat_vchg_max_millivolts = le32_to_cpu(data.val) / 1000U;
-+	else
-+		dev_warn(dev, "failed to get maximum trickle charge voltage\n");
-+}
-+
-+static void rpi_rtc_set_charge_voltage(struct device *dev)
-+{
-+	struct rpi_rtc_data *rtc = dev_get_drvdata(dev);
-+	struct rpi_rtc_reg data = {
-+		.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS),
-+		.val = cpu_to_le32(rtc->bbat_vchg_millivolts * 1000U)
-+	};
-+	int err;
-+
-+	if (rtc->bbat_vchg_millivolts != 0 &&
-+	    (rtc->bbat_vchg_millivolts < rtc->bbat_vchg_min_millivolts ||
-+	    rtc->bbat_vchg_millivolts > rtc->bbat_vchg_max_millivolts)) {
-+		dev_warn(dev, "trickle charge voltage %umV is outside of the supported range (%umV - %umV)\n",
-+			 rtc->bbat_vchg_millivolts,
-+			 rtc->bbat_vchg_min_millivolts,
-+			 rtc->bbat_vchg_max_millivolts);
-+		return;
-+	}
-+
-+	err = rpi_firmware_property(rtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				    &data, sizeof(data));
-+
-+	if (err)
-+		dev_err(dev, "failed to set trickle charge voltage to %umV: %d\n",
-+			rtc->bbat_vchg_millivolts, err);
-+	else if (rtc->bbat_vchg_millivolts)
-+		dev_info(dev, "trickle charging enabled at %umV\n",
-+			 rtc->bbat_vchg_millivolts);
-+}
-+
-+static int rpi_rtc_probe(struct platform_device *pdev)
-+{
-+	struct rpi_rtc_data *rtc;
-+	struct device *dev = &pdev->dev;
-+	struct rpi_firmware *firmware;
-+	int ret;
-+
-+	// Get the firmware device from the parent device
-+	firmware = devm_rpi_firmware_get(dev, dev->parent->of_node);
-+
-+	if (!firmware)
-+		return -EPROBE_DEFER;
-+
-+	rtc = devm_kzalloc(dev, sizeof(*rtc), GFP_KERNEL);
-+	if (!rtc)
-+		return -ENOMEM;
-+
-+	rtc->fw = firmware;
-+
-+	ret = devm_device_init_wakeup(dev);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, rtc);
-+
-+	rtc->rtc = devm_rtc_allocate_device(dev);
-+	if (IS_ERR(rtc->rtc))
-+		return PTR_ERR(rtc->rtc);
-+
-+	rtc->rtc->range_max = U32_MAX;           /* 2106-02-07 */
-+
-+	set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, rtc->rtc->features);
-+	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->rtc->features);
-+
-+	rtc->rtc->ops = &rpi_rtc_ops;
-+
-+	rpi_rtc_alarm_clear_pending(dev);
-+
-+	/*
-+	 * The trickle-voltage property lives on the parent firmware node
-+	 * because we deliberately do not create a DT child node just to
-+	 * instantiate this driver (see DT maintainer guidance).
-+	 * The firmware driver registers us as a platform device at runtime.
-+	 */
-+	rtc->bbat_vchg_millivolts = 0;
-+	of_property_read_u32(dev->parent->of_node, "trickle-voltage-millivolt",
-+			     &rtc->bbat_vchg_millivolts);
-+
-+	rpi_rtc_set_limits(dev);
-+	rpi_rtc_set_charge_voltage(dev);
-+
-+	return devm_rtc_register_device(rtc->rtc);
-+}
-+
-+static const struct platform_device_id raspberrypi_rtc_id[] = {
-+	{ "raspberrypi-rtc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(platform, raspberrypi_rtc_id);
-+
-+static struct platform_driver rpi_rtc_driver = {
-+	.driver = {
-+		.name = "raspberrypi-rtc",
-+	},
-+	.id_table = raspberrypi_rtc_id,
-+	.probe = rpi_rtc_probe
-+};
-+
-+module_platform_driver(rpi_rtc_driver);
-+
-+MODULE_AUTHOR("Jonathan Bell <jonathan@raspberrypi.com>");
-+MODULE_AUTHOR("Sander Speetjens <sander.speetjens@gmail.com>");
-+MODULE_DESCRIPTION("Raspberry Pi RTC driver");
-+MODULE_LICENSE("Dual BSD/GPL");
-diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
-index 975bef529854..8c3d43977a03 100644
---- a/include/soc/bcm2835/raspberrypi-firmware.h
-+++ b/include/soc/bcm2835/raspberrypi-firmware.h
-@@ -75,6 +75,7 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_GET_THROTTLED =                          0x00030046,
- 	RPI_FIRMWARE_GET_CLOCK_MEASURED =                     0x00030047,
- 	RPI_FIRMWARE_NOTIFY_REBOOT =                          0x00030048,
-+	RPI_FIRMWARE_GET_RTC_REG =                            0x00030087,
- 	RPI_FIRMWARE_SET_CLOCK_STATE =                        0x00038001,
- 	RPI_FIRMWARE_SET_CLOCK_RATE =                         0x00038002,
- 	RPI_FIRMWARE_SET_VOLTAGE =                            0x00038003,
-@@ -92,6 +93,7 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_SET_POE_HAT_VAL =                        0x00030050,
- 	RPI_FIRMWARE_NOTIFY_XHCI_RESET =                      0x00030058,
- 	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
-+	RPI_FIRMWARE_SET_RTC_REG =                            0x00038087,
- 
- 	/* Dispmanx TAGS */
- 	RPI_FIRMWARE_FRAMEBUFFER_ALLOCATE =                   0x00040001,
--- 
-2.56.0
-
+>
+>Yours,
+>Linus Walleij
+>
+>
 
