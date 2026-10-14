@@ -4,111 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE72CC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0025ACC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+XzrVoQ3vWBTwQeyNjjZdGD+xOhZxdrYigQYqaqhay4=; b=XxY/exOiG8Whsr0jKiU1pkTv4A
-	Vs2RtDMGQ4Na43MpvHNbIRwQGv7pTmzd9qZq5+daiSjjmpmNu0QHQQt7NVf3Tq/z8l7Ge1n75gAZA
-	RHL9XUfYa64CWEJk2e0g4YueF9aMzB2NHAHhPZ1OEKGGjQ3GETowWGSuKeNiz41ciBu3nzXeWN6sF
-	ueIaZbUe45W57SDfgZlH+mXEYEjd2GEnrvg+mBLM9kKrvLqd4czBN5kfcJfirU4HUsf48MXxyq/l5
-	dZ1lyqUgme9uxkHSQrCljZfWWF6Sbf9fcYuUlKYrMio9yKdc7z6lOsLAF1we96XXbloUzrZKhC1r+
-	PgrPytRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdVNPXX+mEqB47rmv2rjd64sgDnMvE06aSM5G9mVz1Q=; b=Jpr3jXEbDQP4jJOYxYnpZSY9vX
+	kQ877i1IMUeDSA+fgE3uBf5eDmG40D3HrASRVst86CxwDAclsQuKXqmQftMNdDKh9G34cmoETlEMN
+	SGpfuVELoWjURKGwmbiS0n8GwZBNob4xr6xHxt3w6c+mvpms8MQC3xIkJPHEwVAds5t12ndOo0FJk
+	9ewA2OwiC3jF9phhXM8L1vTfXrnVcqtYj4hWzJ80TfAq7xRePC3PGK7CZYkxz8R7h7pCOCn0MUtV1
+	uCtQWdbWYU0gNSKk6W/GcH0Qo2KA1S0hUtWptS9dYvbyFD+rU4UQqpsT8652Yw0ciXLGLp3lpB4fb
+	LlpZ8KLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpfy-0000000ER7F-1G0q;
-	Wed, 14 Oct 2026 03:29:10 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1xGpkR-0000000ERSL-3PXN;
+	Wed, 14 Oct 2026 03:33:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpfv-0000000ER6j-3OSx
+	id 1xGpkG-0000000ERRy-3YtE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 03:29:09 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5bb7c6980f1so2861127e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 20:29:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1791948546; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TubAJHs7rOY0gXRfszoCEmMvZjGw6G5jl+0kbsTgU/0eFdeuH/mw34eKrgtQRaVrOX
-         2679I0NkliRteNetYbp0AuTanqn0Z3BM1ZlgSzbdv3UQoIqNZKlonOnn1hZPFk0Hx5Hf
-         TPQOrV8PIkEEjEbjVp0rS7o22spT6jWDW9Ga0a7RVfFYieTKdkfyTkc1GMlzZsM7e6sq
-         jNFgYaIHFnVTz7Ihnl8vjpMx+YVF52Nfy8kXDtU5Ylw7gF9FmQ7dYspLIRCKb71uW1c+
-         7BX+UuNeoYA/3rb1t5MdBzR3cClAbmkZl474Rnut8Uq5LO1MvAg70FQWLEqiJC6J4S4c
-         F5tQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+XzrVoQ3vWBTwQeyNjjZdGD+xOhZxdrYigQYqaqhay4=;
-        fh=p0P8zHQpVYF1eK3GNPLoudj9FNFu5HeVrPqCFFc//cI=;
-        b=MQTa40VCrLwvzGcfCzBIMGz9BbySRZJDogqAmgILzJ0O+fczdp5xwV+qzYcemI9Yht
-         GQ7lpvHZ/vrL8nLjD1uK3p2UczrX/9Ey+ezLPNlm5wUKL2j6aNGPo0PGjrhR0+BCU2X1
-         oRLaUkf8u4lPly6OO/LvPk1ewbbHpQ2vMUqfX/SVYREiWvMkm5lqXZ01tb1vGmaOrqNY
-         8o3TdmBoXGX+a9XSi5BYjSC2xhkY/OKcoAUI0CNwVORxZF27FhVLneZ02gen+1POMKjV
-         JMEgqOKmxFUmLLxt/hw8SyStn/c0UC6K3lyXSCZ++37UDxE+yEByXPp4zJArBlaxSghx
-         G++g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791948546; x=1792553346; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+XzrVoQ3vWBTwQeyNjjZdGD+xOhZxdrYigQYqaqhay4=;
-        b=Ny9CIHTSnPxS7MwUF9gj+XywtQqHGmUIHlDVRVbeGP1SWCvEzY1OOedQUndhGSrjfU
-         4rRENgp14rmt2YjGfJTvWeSZ72Whwe7kyn+BCBBd0pK9Ng6SidNdTmDe6XLZ5Dqt8Z30
-         GOuVEKww8kPlykU3BbKM6KdlNFkG7hczndJeT+MJVChY1eouoRmv2+vy52fNrC+ab3JT
-         sKsts5mkPmyV3r72K3Bc+nMCDM38cNq7j1utGCkvgR1nAR8cYIvu5eUkxWDeuD5wl8eb
-         EpeI2E86xilXEnHpOcrfJXfwaKi5S/g+4N1D71A7RcVsBafmSliQsaLrvr0dcXqQouDh
-         ST3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791948546; x=1792553346;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+XzrVoQ3vWBTwQeyNjjZdGD+xOhZxdrYigQYqaqhay4=;
-        b=nqxR2iDhbYJk0EhriNw3h0FwicU+eKSRQpmLkH8bjLMUV/uRJk5hjdA0vWCurS3mFm
-         a179R4I1CdQNXFeRrcOF7oTw5CN2lL7dbDv2zA5RJL77G5FLx1SOcb4Glqs1QQaoJ10W
-         YNvR3APruRArsPka+w2E2sL8SozD2Uhd9FIztWTnzeChrc+s8s4lfY6w/AlK15K7VZdL
-         bofQEJT4yerh72UP35oZO19/WwgHx+3u6vRLic7ni+awWvkTu3XK/90BKkn67y2y9io0
-         +/2mYzywsUo2j989euioCG68FipMYyoLK0kWdkILE+Mbd9ddAfzzJer3GesI6SVv40Ps
-         BRYA==
-X-Forwarded-Encrypted: i=1; AKwUvBxl1TOPxakkrsPVy4gmbC+Cvy9hI2d9dU1MeSG6gozTaWlJsvYJKavFodO+QOMUTvU7jiEcZ/Cx5sIYNGEf0F9a@lists.infradead.org
-X-Gm-Message-State: AFq9FYJk6B0JkPNufoxOg16OZ2QazxX06033ZvCyKnC5K3IIfJW6MgUW
-	IbaCqc1w1RRf7VrWTCUqNwE77gLFiUAzyq1GhYvgxci2DUJwMmTV8VuMY0Yo+7SOFyp82et3nUB
-	VSVj3uZ+LTnoDM7HBZpXxAH6dt+GliU8=
-X-Gm-Gg: AYBFou2ZBv43EkrRghhqaPsAHpEQuYiQ5vRuxhQUCyEP7a2YU5W0xONH8AlPeCF93+A
-	qV5ku+nR04/yyIEMH0EWUliNv3iNMJSVGLqM3OxtnL1Pw/OUwGY+yWRK3fwoJeWdnjwGTA30mxx
-	FBuA+KdDvkp2c2XNcBuIrWLhNdiVbz4CBBSx2XY/Li7pXOHGX54ez/leLAYjGErFNgNVufpAEEy
-	4tkJRJ3yr+OjUhVISNPT3DEVEcYr04QEYcpgVio0bo96B9sVguy4kuuLcJhe4KHmx0f5HaAlaOP
-	s1u0kodGScp5BELbOhRV2vjjCMX5ymLLd4tocQF6IWc/knuDRDuI8aPX18pC1Cc=
-X-Received: by 2002:a05:6512:668c:20b0:5ba:3df8:5dbc with SMTP id
- 2adb3069b0e04-5bcde6b37a7mr2923502e87.20.1791948545348; Tue, 13 Oct 2026
- 20:29:05 -0700 (PDT)
+	Wed, 14 Oct 2026 03:33:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADBE4601DB;
+	Wed, 14 Oct 2026 03:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 917051F000FF;
+	Wed, 14 Oct 2026 03:33:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791948815;
+	bh=hdVNPXX+mEqB47rmv2rjd64sgDnMvE06aSM5G9mVz1Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=i6DaU3oEW6StgoHEucwsLxIexAeZ6IfTkIAWUzyuJItqz3+iBwYQqVURxC9BOknm2
+	 PFNfZSpN0pXT85BVlOuQFr/sWC0PiKR/7K4vkRb8atx3vaNn3zMLiaEVFrrc8/gFPT
+	 JgaAxqDoRlPK2NF4KnL/tuIisBr3htNrM7c0Daz5S/oxI0qkuPhF7krv7KiUFf8y5n
+	 LWXCZkBaLCitGg38/rLNnX0sTotKxkA5EYUQPWBqgOk6t3BtsYkVTpWWagyp3mj+h9
+	 KA1hUVpyTzzJbIFizddSFgE3XAwdvphkFbd7C7CLJCx4bmeYNTkLIhMX90Fkh+03Vd
+	 lN35IydPUHeaw==
+Subject: Re: [PATCH net] net: stmmac: xgmac: do not treat TBU as a TX event
+From: netdev-bot+sashiko@kernel.org
+To: zhangfeionline@gmail.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, joabreu@synopsys.com,
+ chenchuangyu@xiaomi.com, horms@kernel.org, zhangpengfei16@xiaomi.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 14 Oct 2026 03:33:34 +0000
+Message-ID: <179194881415.434549.5017437610608933310@kernel.org>
+In-Reply-To: <20261013024747.2688984-1-zhangfeionline@gmail.com>
+References: <20261013024747.2688984-1-zhangfeionline@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <CAPZ+gd9d1P+xDSrxxZkGJr32zjubP=KfQegeGkWykKGvEH0=oA@mail.gmail.com>
- <CAPZ+gd8TPNnvEDOv_H=fdvy2ysG63uBD0MvmEMjhkMa8i-y1NA@mail.gmail.com>
- <as0DO7n5SCr2j3Z2@lore-desk> <CAPZ+gd_1JsNyhQbEAWiE1stom+T_jgvt4F2=tb68YoSvPCnFag@mail.gmail.com>
- <as3faB96PFSnC-qP@lore-desk> <CAPZ+gd_S4zMffbFTUbV989XxYtgxuJ3ijEBObehAXP_N20Akww@mail.gmail.com>
- <as5UUQuCjLTXvQ5Q@lore-desk> <CAPZ+gd_S=Wm2DOw+j14HNtsBDQvSgBkWHmBzPqqe3fi3UK4d4w@mail.gmail.com>
- <as6XhxxTqbarzZcS@lore-desk>
-In-Reply-To: <as6XhxxTqbarzZcS@lore-desk>
-From: =?UTF-8?B?6ZmI6ICA5piO?= <cc201008@gmail.com>
-Date: Wed, 14 Oct 2026 11:28:54 +0800
-X-Gm-Features: AclHuK_82ADKZfAuGHWzKivAFtRt5-EB7F-dWSDmFyWNeTqF7Lof4wfiGo0wuCo
-Message-ID: <CAPZ+gd9Z0kVXy7QnNsByKF=fNAZLsA=q=KySwhmsz3qKgxzGfg@mail.gmail.com>
-Subject: Re: [PATCH net] net: airoha: Keep UPDMEM egress MAC in sync for
- offloaded IPv6 flows
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev@vger.kernel.org, horms@kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_202907_908482_78A233B1 
-X-CRM114-Status: GOOD (  51.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,213 +73,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Went through the patch:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Per-port UPDMEM slots referenced from the FOE and programmed
-through the notifier look correct; the slot range fits the 4-bit UPDMEM
-address and the 5-bit smac_id field, stays clear of the GDM port ids,
-and would only reach 0xf (the "keep original source MAC" marker) for
-an 8-port switch, which this SoC does not have.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-For the non-DSA variants, in our setup several service VLANs
-(voip/iptv/tr069/internet) are stacked on a single GDM port, each with
-its own MAC address. VLAN devices are visible neither to the notifier
-nor to airoha_set_macaddr(), and foe_entry_prepare() still collapses
-them to smac_id =3D port->id, so all of them would egress with the port
-base MAC. The two-airoha,eth-port multi-SerDES variant shares the same
-gap.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-What the VLAN case needs is the same identity-scoped treatment for
-these devices: a slot allocated per egress identity, programmed on
-their address events and referenced per flow instead of per port.
+- [Medium] Removing XGMAC_TBU from the TX condition in
+  dwxgmac2_dma_interrupt() also removes an incidental TX-reclaim trigger.
 
-Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=8814=
-=E6=97=A5=E5=91=A8=E4=B8=89 04:41=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Oct 14, =E9=99=88=E8=80=80=E6=98=8E wrote:
-> > Yes, your analysis is correct: with the patch, the flow offloaded at t1
-> > reprograms the shared UPDMEM entry, so the flow egressing port0 starts
-> > using port1's L2 address. Our setup happens to carry a single IPv6
-> > identity per GDM port (the other services are IPv4), which is why the
-> > patch holds there -- it is a stopgap for that topology, as noted.
-> >
-> > On the second question: in the default DSA configuration user ports
-> > inherit the conduit address, so the conduit MAC as source is
-> > indistinguishable from the user port's own. It diverges once user ports
-> > carry their own addresses (nvmem-assigned or user-configured): the
-> > egress frame then differs from what the software path would emit, and
-> > upstream bridges learn the conduit MAC behind a user port. Whether that
-> > is a bug or a corner case is your call; per-netdev slots would cover
-> > either way.
->
-> I have not tested it yet, but can you please check if the patch available=
- at
-> [0] fixes the reported issue? Thanks.
->
-> Regards,
-> Lorenzo
->
-> [0] https://github.com/LorenzoBianconi/net-next/commit/486a5f13c62985d433=
-3a231cc9aaec714e81fcd2
->
-> >
-> > Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=88=
-13=E6=97=A5=E5=91=A8=E4=BA=8C 23:54=E5=86=99=E9=81=93=EF=BC=9A
-> > >
-> > > > The issue is reproducible in the upstream codebase, without any of =
-the
-> > > > out-of-tree PON code -- the PON setup is just where I first hit it.
-> > > >
-> > > > Reproduction with mainline code only (airoha eth + the mt7530 MMIO =
-DSA
-> > > > driver; the "airoha,en7581-switch" binding and driver are mainline,
-> > > > the DT node just needs to be added to a board file):
-> > > >
-> > > > - AN7581 board, switch node with its CPU port on GDM1. Use a DSA us=
-er
-> > > >   port as a routed WAN interface with its own MAC address.
-> > > >
-> > > > airoha_get_dsa_port() replaces the egress netdev with the conduit, =
-so
-> > > > routed IPv6 FOE entries carry smac_id =3D conduit port id, and the =
-PPE
-> > > > resolves the egress source MAC through UPDMEM[conduit]. That slot i=
-s
-> > > > only programmed by airoha_set_macaddr(), which never runs when a DS=
-A
-> > > > slave address changes, so offloaded IPv6 frames leave the port with
-> > > > the conduit's MAC instead of the user port's. IPv4 is unaffected,
-> > > > since HNAPT entries store the MACs inline. The same shape appears o=
-n a
-> > > > GDM port with two "airoha,eth-port" children carrying different MAC
-> > > > LSBs, which the recent multi-SerDES series allows by design
-> > > > (REG_FE_MAC_LMIN/LMAX); for that variant the exposure starts with t=
-he
-> > > > series introducing multiple net_devices per GDM port.
-> > > >
-> > > > The posted patch only reprograms the shared per-port slot at offloa=
-d
-> > > > time, so a later address change on any netdev of that port re-break=
-s
-> > > > offloaded IPv6 flows. It is a temporary patch for this setup; the
-> > > > final solution is up to the maintainers.
-> > >
-> > > I do not think the case you described is fixed with your patch. Let's=
- consider
-> > > the following case:
-> > >
-> > > - time t0: you offload a flow rule for traffic egressing dsa port0
-> > > - time t1: you offload a flow rule for traffic egressing dsa port1
-> > >
-> > > Since the index written in REG_UPDMEM_CTRL() subfield is still the co=
-nduit port
-> > > ID, you are egressing traffic from port0 with L2 address of port1. Am=
- I right,
-> > > or am I missing something?
-> > > Moreover, is it a bug if we use the conduit port L2 address as source=
- mac
-> > > address for IPv6 traffic?
-> > >
-> > > Regards,
-> > > Lorenzo
-> > >
-> > > >
-> > > > A proper fix would probably give each netdev its own UPDMEM entry: =
-the
-> > > > table is indexed by a 4-bit address (16 entries) while the FOE
-> > > > smac_id field is 5-bit with 0xf reserved for "keep original MAC", s=
-o
-> > > > there is room beyond the port ids. Slots could be programmed from
-> > > > airoha_set_macaddr() (always under RTNL, as you noted) plus a
-> > > > netdevice notifier for DSA slaves, and foe_entry_prepare() would on=
-ly
-> > > > reference the slot -- removing both the race and the extra locking =
-the
-> > > > current approach needs.
-> > > >
-> > > > Lorenzo Bianconi <lorenzo@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=
-=9C=8813=E6=97=A5=E5=91=A8=E4=BA=8C 15:36=E5=86=99=E9=81=93=EF=BC=9A
-> > > > >
-> > > > > > Ooo,  the new patch should be a dedicated leaf lock inside
-> > > > > > airoha_ppe_init_upd_mem().
-> > > > > > --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> > > > > > +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> > > > > > @@ -416,6 +416,19 @@
-> > > > > >    dsa_port);
-> > > > > >
-> > > > > >   smac_id =3D port->id;
-> > > > > > + /*
-> > > > > > + * Routed IPv6 entries resolve the egress source MAC
-> > > > > > + * through the UPDMEM table indexed by smac_id. The
-> > > > > > + * egress netdev can legally carry a different address
-> > > > > > + * than the GDM port itself: on PON setups the
-> > > > > > + * authentication MAC lives on the pon device while
-> > > > > > + * each service VLAN routes with its own address. Keep
-> > > > > > + * the table entry in sync with the source address this
-> > > > > > + * flow is actually going to use.
-> > > > >
-> > > > > Is the issue occurring just with PON or are you able to trigger t=
-he issue
-> > > > even
-> > > > > in the upstream codebase? I guess you should not post a fix for s=
-ome code
-> > > > that
-> > > > > is not upstream yet. Moreover, in the PON setup, I guess the appr=
-oach is
-> > > > still
-> > > > > broken if the user change the device mac address.
-> > > > >
-> > > > > > + */
-> > > > > > + if (type >=3D PPE_PKT_TYPE_IPV6_ROUTE_3T)
-> > > > > > + airoha_ppe_init_upd_mem(dev,
-> > > > > > + data->eth.h_source);
-> > > > > >   }
-> > > > > >   }
-> > > > > >
-> > > > > > @@ -1529,10 +1542,21 @@
-> > > > > >
-> > > > > >  void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const=
- u8
-> > > > *addr)
-> > > > > >  {
-> > > > > > + static DEFINE_MUTEX(updmem_lock);
-> > > > > > +
-> > > > > >   struct airoha_gdm_port *port =3D dev->port;
-> > > > > >   struct airoha_eth *eth =3D dev->eth;
-> > > > > >   u32 val;
-> > > > > >
-> > > > > > + /*
-> > > > > > + * Routed IPv6 entries resolve the egress source MAC through t=
-he
-> > > > > > + * UPDMEM table indexed by smac_id; the ndo_open/ndo_set_mac_a=
-ddress
-> > > > > > + * writers hold flow_offload_mutex (QoS paths re-lock via
-> > > > > > + * airoha_set_macaddr()), so this lock also serializes the lea=
-f
-> > > > > > + * against them.
-> > > > > > + */
-> > > > > > + mutex_lock(&updmem_lock);
-> > > > >
-> > > > > This is only required adding the above configuration since in the=
- current
-> > > > > codebase airoha_ppe_init_upd_mem() is always running holding RTNL=
-.
-> > > > >
-> > > > > Regards,
-> > > > > Lorenzo
-> > > > >
-> > > > > > +
-> > > > > >   val =3D (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | =
-addr[5];
-> > > > > >   airoha_fe_wr(eth, REG_UPDMEM_DATA(0), val);
-> > > > > >   airoha_fe_wr(eth, REG_UPDMEM_CTRL(0),
-> > > > > > @@ -1545,6 +1569,8 @@
-> > > > > >       FIELD_PREP(PPE_UPDMEM_ADDR_MASK, port->id) |
-> > > > > >       FIELD_PREP(PPE_UPDMEM_OFFSET_MASK, 1) |
-> > > > > >       PPE_UPDMEM_WR_MASK | PPE_UPDMEM_REQ_MASK);
-> > > > > > +
-> > > > > > + mutex_unlock(&updmem_lock);
-> > > > > >  }
-> > > > > >
-> > > > > >  struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but the
+  dwmac4/GMAC5 core has the same defect that this patch fixes for XGMAC.
+
+--
+
+net: stmmac: xgmac: do not treat TBU as a TX event
+
+This patch removes XGMAC_TBU from the TX condition in
+dwxgmac2_dma_interrupt(), so only TI schedules TX processing. TBUE is
+not enabled and only enabled bits are acknowledged, so TBU was never
+cleared. With a shared interrupt, that meant every interrupt scheduled
+TX NAPI on every idle TX channel.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> index ff83858ebc1f3..0a6e82a155c0e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> @@ -346,7 +346,7 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
+>  		u64_stats_update_end(&stats->syncp);
+>  		ret |= handle_rx;
+>  	}
+> -	if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
+> +	if (likely(intr_status & XGMAC_TI)) {
+
+[Severity: Medium]
+Can the XDP_TX and ndo_xdp_xmit path stall permanently on XGMAC in
+shared-IRQ mode when the TX coalesce timer is disabled?
+
+__stmmac_set_coalesce() accepts tx-usecs=0 as long as tx-frames is
+nonzero. stmmac_tx_timer_arm() then returns early:
+
+    if (!tx_coal_timer)
+        return;
+
+stmmac_xdp_xmit_xdpf() sets IOC only on a tx_coal_frames boundary. It
+has no !netdev_xmit_more() fallback like stmmac_xmit(). It also stops
+taking new frames at 3/4 ring occupancy:
+
+	if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
+		return STMMAC_XDP_CONSUMED;
+	...
+	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
+		set_ic = true;
+	else
+		set_ic = false;
+
+Take a 64 entry TX ring (stmmac_set_ringparam() accepts
+DMA_MIN_TX_SIZE) with tx-frames=64 and tx-usecs=0. Starting from an
+empty ring, only 48 XDP_TX frames get in. None of them reaches the IOC
+boundary, so no TI is raised.
+
+Before this patch, the sticky TBU bit made every later shared
+interrupt return handle_tx and run stmmac_tx_clean(). That includes
+the RX interrupts that drive XDP_TX.
+
+stmmac_napi_poll_rx() does not call stmmac_tx_clean(). After this
+change, would dirty_tx never advance on that queue? If so, every
+further XDP_TX or redirect frame would be dropped with
+STMMAC_XDP_CONSUMED. Only skb TX on the same queue or a reconfiguration
+would recover it.
+
+More generally, with tx-usecs=0, trailing XDP frames below tx-frames
+would no longer be reclaimed on the next interrupt. The same gap
+already exists in XGMAC per-channel MSI mode. This patch exposes it in
+shared-IRQ mode as well.
+
+The commit message says that what remains is "real TX and the TX
+coalesce timer". Does that also hold when the timer is disabled?
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but does
+dwmac4_dma_interrupt() in dwmac4_lib.c have the same sticky TBU
+problem?
+
+drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c:dwmac4_dma_interrupt() {
+    ...
+	if (unlikely(intr_status & DMA_CHAN_STATUS_TBU))
+		ret |= handle_tx;
+	...
+	writel(intr_status & intr_en,
+	       ioaddr + DMA_CHAN_STATUS(dwmac4_addrs, chan));
+    ...
+}
+
+DMA_CHAN_INTR_NORMAL and DMA_CHAN_INTR_NORMAL_4_10 in dwmac4_dma.h
+only contain NIE, RIE and TIE, and no TBUE bit is defined. So TBU is
+never part of intr_en. Once a TX channel goes idle, its TBU status bit
+is never cleared.
+
+In shared-IRQ mode, stmmac_dma_interrupt() calls
+stmmac_napi_check(priv, chan, DMA_DIR_RXTX) for every channel, and the
+status is not masked for that direction. This looks like it would
+schedule TX NAPI and stmmac_tx_clean() on every idle TX channel for
+every interrupt. That is the same behaviour measured for XGMAC in the
+commit message.
+
+Since commit 1975df880b959e, TBU is no longer counted in
+tx_normal_irq_n on this core. That would hide the effect from the
+statistic used to diagnose the XGMAC case.
+
+Should the dwmac4 implementation behind the same dispatcher get the
+same change?
+
+>  		u64_stats_update_begin(&stats->syncp);
+>  		u64_stats_inc(&stats->tx_normal_irq_n[chan]);
+>  		u64_stats_update_end(&stats->syncp);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261013024747.2688984-1-zhangfeionline%40gmail.com
 
