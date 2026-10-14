@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4AF0CC6B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F9CCC6B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5fHeiHrpOk2vfvskk98XxNTZrpPOhyutiQiQa8eWkg=; b=qLLJVjITItkuJP0JaxfH/fcXhS
-	IAgPeAjN9JDG4CvRbFLPCf2119+q+PKTTL/iOPvE1zs7JPwogNaZL7hYlzUmx0JenApl82l5pWOp5
-	n2iLSh0I0ZDrAmPdTG3T+fFVsCgi94dMCXCWDJApe558ZTO7MgSYyJOf+PKhMCHD6ugn8GNXUOKT+
-	sJQVeH+ExR7l+w/sMAUL8fo6mi7NsSksQaLE79lPSwXaNqcHcN3EePMW+oWagTNvY771fJS4bMCr0
-	cM/6rU9fOjc7oGswGh9FCMyjLVmh5l93XroFg0CDrUPQYt/mGpfnMo2NgQLs1p8vOb3odY3EYrNma
-	Rp40fZhg==;
+	bh=8wdgF2BDQf2rF/BhRn+nlQhMcqxcBjtWlSkaY+Ug2V4=; b=leYk1GHLPgRgeK2klofQ1FvcsZ
+	r4+R97HGF2FAjz4DEes/ngou6m3H3DwxaGv0gqqYiimsY6/orc92ecwSG9nL2Mj86/07HK8ywmaWN
+	h7nvb0Ut092ghxI17GZzd7JCmQyFzpgrrFu0+K7GzarEDah0CfexC6MCTBUZUX2G8GJzjmDPbU7hi
+	RDhXOIbvf70RD2PQpK+I/xe1G/VKkDl1l4Q3nNE9LuYn62GsRAMwbFtdIpQCGigRFweIOGsM2nHSB
+	0MxX3VbnH2S6o5WS8r8rVyvJGLMOZb/InXBRGJKGa+ZzcnNCeVEzQFii460vyuLXJaIanoXhTbtct
+	w5gaW4KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6Br-0000000GJWl-2i2h;
-	Wed, 14 Oct 2026 21:07:11 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1xH6GL-0000000GJmc-0fD1;
+	Wed, 14 Oct 2026 21:11:49 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6Bo-0000000GJWQ-1Ct9
+	id 1xH6GI-0000000GJm9-3FQx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 21:07:10 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48afbd2c386so2713023f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 14:07:07 -0700 (PDT)
+	Wed, 14 Oct 2026 21:11:47 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a16c399641so44672665e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 14:11:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792012026; x=1792616826; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792012305; x=1792617105; darn=lists.infradead.org;
         h=content-type:mime-version:references:in-reply-to:message-id:date
          :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=G5fHeiHrpOk2vfvskk98XxNTZrpPOhyutiQiQa8eWkg=;
-        b=So3ZNxFsKdoyIWJ/Qar/Mn9ws23423Vw85ZX2SaFf7TGItO0XAd1E2kQYRLUzjJkRO
-         DOysJJH5bIVQpeLXk0EmIlclrdMMnWR65x1wpgYAoTyzwqgZffi/yNWIXrchf3ZAn3Be
-         3g3YHIZzaFeNTABdhDD5iAvnGmHCjdsPrCCm5oAdXqNy3wdGV1cN2yKBQCWR0op7/mw1
-         x4xPftcGCkOoAGTUadTeI+6uWpch24BvbXSo0sRnd+okswzRe5fQsQfP0/zhluFLXbxJ
-         T8dZ7+PmY6lxc0eNJpKLOlELuOJmVPnewaD7ua44f/fKbi60CjmgPRjqHNF+7C8NSVpp
-         TnZw==
+        bh=8wdgF2BDQf2rF/BhRn+nlQhMcqxcBjtWlSkaY+Ug2V4=;
+        b=b23UxDFyqdL5pcccZ/AHef/mxgKL/Flu9F7qZlr+S2aLu7sEldN+vnEy8EzLDuLoDU
+         MrBemoFkGCSx2uu00gek5DGqkKDPdJWGnCLdhZmC0POlAuSUZ2kyrP89MrDfMLlgwQtI
+         xlmOcbpzDNVsslFzI5QsGx7e33OtNC/t2mXwRQ53faC8AL+LA45ObGT0R3LNCzPpMhVV
+         C6bbb5qwEQ6pOqAaNCe0baFj4gLFWOzC1QyvEG3ivkhn6dYrVZFNrbKXt+1E7WLmhOlY
+         ZCmNVTcEfKP6wdcn1X4ZkiX4t227wOWs+7bm79eg6wJLg5G6YHf2Oci6r5aOgbeDRDW/
+         XF6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792012026; x=1792616826;
+        d=1e100.net; s=20260707; t=1792012305; x=1792617105;
         h=content-type:mime-version:references:in-reply-to:message-id:date
          :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=G5fHeiHrpOk2vfvskk98XxNTZrpPOhyutiQiQa8eWkg=;
-        b=PbnLZ7uB0GO8vkG4/4Ji8m0qQwRjBeffrkC/v4/qx7fSZkJRA09MO2PzP11cu91uLt
-         jusApMMSRuyarL+Ph+wyFsN4v0Smpvc4ry76sgP7VckexNwEzXkn6s2DeJ82N+v3Ul8a
-         pZA/CCHYoiX2K9Y1Kqried0qcZeqR6VKCiZSdxuRsWtO0hlUE5UPMDRZX2fKGT/2SkNV
-         hlAIVmlGOrMPegcTqBY6QEPCbk6mWbXe8VtQARJH8BRUO9/yo8KSMo+CNsx0df9spin2
-         jDnTSxrxDeOT/RS3N8a4RqhVp1DpFJ8zem4sxfY/DnFxcDxfVU+kNaPurWjm9xGWBSEV
-         d8Sg==
-X-Gm-Message-State: AFq9FYKxz+bnWBsX5CMi0hKqp7I1adbuPwd8/335OeZ3V7cpL+m6kRjl
-	7+XbrT1ayrBXFBw2aTVOj/90f1VFhgjICnpyAM3rr9Qg5V8ZxPigqCp5
-X-Gm-Gg: AYBFou0ZjHgLJmpoxKUjUbVC6cd6oWrpF8HWmIiOLTUYhbHdScM9Dw6gKlQ4kV+ByQR
-	X46i3U/lydCACOtYSTZ7b5pz9Uz94N7gffS+39It3iX3iKKJoTMtrYjK2h+MbgLwdhVm9gMTpSh
-	vtMJb52oNWB89yF3AFJR3xaV6/5L+R1bzYIKTOoLM4pfNHc5PSBzsaE/BkAUnLW/tDoCyiHdl/q
-	F8sG083fJrFD16YrbWXP8wLlgQrAkk3SIsrsIw/TwoO8rGOAhD0ImuR2y5LHKNsUGt1GOgc/9se
-	JckCFkgiFS0PX9s1vqD4GVlSKQ1IyoagWr9PExp3dnW92j9HUQtJMNqrOUnYqatSpYMxzd05hce
-	00GL8enVHoee+z94gge+3YLdGth0DxnOkkps7QoEqGVhRiuJXClRwXUE1f9WjlnLB3joSS6gu7n
-	+51PuHKEgKLPWoWGIefBCggt/GwrQ7M0Y+GlaimlwRCze/s8rkIihDIWwGcjoUeZxsOppWse744
-	sD/bztt0sgcV8PzmrB0ZhX6kVvqZPilUnaSVfLGLO9lULV6kahfjvyo6VXGpA==
-X-Received: by 2002:a05:600c:a088:b0:4a0:2644:80db with SMTP id 5b1f17b1804b1-4a18e4d55a2mr331849525e9.35.1792012025838;
-        Wed, 14 Oct 2026 14:07:05 -0700 (PDT)
+        bh=8wdgF2BDQf2rF/BhRn+nlQhMcqxcBjtWlSkaY+Ug2V4=;
+        b=RkgIruYTauq6Yy7MiDVRPdU3GPE9bIlXK1Hw0TDBHH8yivrAjiQ5wRfFzVbsncCIIr
+         oT9cgj87ACr8k7MLLnhLKnbXDvh4S47xYimFpZ6h9AX8Xfs81akaAi38oz9CJ4MnUH3t
+         jWtyAOIZ3m8df4zD0R+N/f9BSyVFGzb9jnanfAnf2w4uCaRkwTvxQhuqDjsG7UbA5pVN
+         TD04QKMflKyRyJqA58ScS7BNxFynfC4vT6/1thQgEVmFbum9RPFbEiPSBB0p/kobvCR3
+         SUi1ZWyKbsDGd18VqtDVLsAMHSf4nD+TFrqwha7CyprS0jQFxcLkHavT497hKTt/604/
+         rvQw==
+X-Gm-Message-State: AFq9FYJ9bkIRj7TfxCBwDRxLIRUjXeOdzCb8ETswgqqsLN4XyFr2OVEP
+	CGHIvnMOVxTg2Uix8SOTRuhe1UEjrExdGtX0AKDudY4z9Ok5l+XhVbCKLjRxZp5s
+X-Gm-Gg: AYBFou1WrOX/8UmrcW98Bf5GOAL9sra7jUYzyo6Ls+GX5VFevHFN/tFGEDkjxTsBqPD
+	8vOYMfOI5yxDs6sD0eYtQMSuvAlNzEtEhxwWj+By1H2oJU9oQ+uSNNRkR59vHjFE5TEXnpvbctw
+	v649K9UVJZLzZmJ7+fRQx8bFQpLHw54x0rpEvGsBCppfJuWS9lJz2SYLCgeAX1qPhuC5ZCOKj6c
+	WpuTtc6fsUD5BXHp7yCMnbjIVbzHIneFDqwYGzDLgwEWX6W0CbmUC3arKxiXVlMU/sVGwA3EmCS
+	BfKqQIfmmiuJEuZxj8vefjDdfJrQQdAEOM3UXaIfaQKnShLd1oP62RM/tCUdiSyU3yVhpGI+FKo
+	a5+JxlxL9PFrKWy2BzOIwfFGusC6L75yxQI1QH/AakK2GNnuL0RVvr/fUlBx2K8c3j9uvzsVXLc
+	vw1JzoNRGCvq2F/zaT+ySHEoANOj9ieg2Tkli+I8bMTTWpzIu1irRRC0mxgl7uKOuoLQq1brQUG
+	hHfiz/m3x7+Myu+UsRe3FLTHrBNyc2X2iY7SGkcaDUnn1E9itG6WQf7Z0lLXw==
+X-Received: by 2002:a05:600c:8105:b0:49f:fdca:c361 with SMTP id 5b1f17b1804b1-4a18e483818mr364919115e9.12.1792012304648;
+        Wed, 14 Oct 2026 14:11:44 -0700 (PDT)
 Received: from silicon.doe.home (91.141.74.240.wireless.dyn.drei.com. [91.141.74.240])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bd68dce7sm8179535e9.3.2026.10.14.14.07.02
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ab4edfsm15124324f8f.26.2026.10.14.14.11.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 14:07:04 -0700 (PDT)
+        Wed, 14 Oct 2026 14:11:43 -0700 (PDT)
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>,
- Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de, krzk@kernel.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 13/24] PCI: dwc: Add ZTE ZX279128S host controller driver
-Date: Wed, 14 Oct 2026 23:06:57 +0200
-Message-ID: <1wUqZrTnSiGMTyqeA30cyw@gmail.com>
-In-Reply-To: <20261014131954.GA1623979@bhelgaas>
-References: <20261014131954.GA1623979@bhelgaas>
+To: linux-arm-kernel@lists.infradead.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: arnd@arndb.de, krzk@kernel.org,
+ Navid Ghahremani <ghahramani.navid@gmail.com>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 08/24] gpio: Add ZTE ZX279128S GPIO driver
+Date: Wed, 14 Oct 2026 23:11:40 +0200
+Message-ID: <PSg3JObRTl2eiB9vIwNJDQ@gmail.com>
+In-Reply-To: <20261014072109.1759502-9-ghahramani.navid@gmail.com>
+References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
+ <20261014072109.1759502-9-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartzLu3b8EiSJuMDdR1hVgfBw";
+Content-Type: multipart/signed; boundary="nextParttNiNcatGTRe0X_MNundQow";
  micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_140708_348147_7A121B8E 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20261014_141146_832243_CC7A505B 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartzLu3b8EiSJuMDdR1hVgfBw
+--nextParttNiNcatGTRe0X_MNundQow
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Wed, 14 Oct 2026 23:06:57 +0200
-Message-ID: <1wUqZrTnSiGMTyqeA30cyw@gmail.com>
-In-Reply-To: <20261014131954.GA1623979@bhelgaas>
-References: <20261014131954.GA1623979@bhelgaas>
+Subject: Re: [PATCH v2 08/24] gpio: Add ZTE ZX279128S GPIO driver
+Date: Wed, 14 Oct 2026 23:11:40 +0200
+Message-ID: <PSg3JObRTl2eiB9vIwNJDQ@gmail.com>
+In-Reply-To: <20261014072109.1759502-9-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 
-Hi,
-
-This is mostly a reply for Navid, not Bjorn, but since the topic of=20
-capitalization came up=20
-
-Am Mittwoch, 14. Oktober 2026, 15:19:54 Mitteleurop=C3=A4ische Sommerzeit s=
+Am Mittwoch, 14. Oktober 2026, 09:20:48 Mitteleurop=C3=A4ische Sommerzeit s=
 chrieb=20
-Bjorn Helgaas:
-> Capitalization of "zx279128s" here (menu item, help text, comment
-> below) should probably match the commit log and marketing materials
-> for this SoC.
->=20
-> The config symbol should use the same tag as the subject line.
-> PCIE_ZX279128S might be too specific if more SoCs might share this
-> driver.
+Navid Ghahremani:
+> + * Each bank has 16 lines, one bit per line in each register. The regist=
+ers
+> + * at 0x04-0x10 and 0x28-0x34 control the interrupts, which are not
+> supported + * yet.
+> + */
+> +#define ZX279128S_GPIO_DIR	0x00	/* 1: output */
+> +#define ZX279128S_GPIO_DATA	0x14	/* line level */
+> +#define ZX279128S_GPIO_SET	0x18	/* write 1: drive high */
+> +#define ZX279128S_GPIO_CLEAR	0x1c	/* write 1: drive low */
 
-=46or my little pet chip I decided to keep the letters lowercase because th=
-e SoC=20
-name is borderline unreadable. At least zx297520v3 has some minor visual=20
-distinction whereas ZX297520V3 does not. If somebody had asked me why I wou=
-ld=20
-have said the above and that Linux generally uses snake_case not CamelCase.
-
-So I'd suggest to zse zx279128s rather than ZX279128S unless the symbol is=
+=46yi, there is also Documentation/devicetree/bindings/gpio/gpio-mmio.yaml,=
 =20
-capitalized anyway.
+which allows you to put this directly into the DTS without a driver shim.
 
-Now just wait for the zx234502 charger and zx234290 PMIC...
-=20
---nextPartzLu3b8EiSJuMDdR1hVgfBw
+--nextParttNiNcatGTRe0X_MNundQow
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part.
 Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrP7vEbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoihqoP/2vakcsfXpu+Ci+GS+WV
-e7rBcoFUyeSymrqBIbFTVnyAjrjc8gPnoJsgGCeYhjKPqMuHfgoic0eVqtS4cMq8
-BHExipQPVyxZO6NW0HMfIEhbII9WDqdctyOcuy2GSedoIMJzIPWMXpMnX46JyKOB
-1MBV8Q/S8GWhnhk1T/KCKwkaSoSZJHhoiw/lo5o8F+P8I9dcp7ZrxHx5adGFs+fe
-UNcC27+Sp3EVDpBFGm2+6CCGXA0d/Qo7Uk5ty7NM0+HSJXcALpE+7LaJiI/86tTw
-Vt3hTnzzG0eN0Tip7+9uRebVf+Qs9c7bfw8Sul479iAAxyG9Z6P3HOWpFb+w8yED
-YOClg/A/MOekZBJXb7IYLXV4ENzO3pDqoKI2X8UX8lkNhHQsQzT1ZNHyMTMrvbbk
-EaRsivRO0CHD9AAX5PlqzJCpNKNEexkpzqkIN9cCBDl0OcY/Lcx0YT2Zo0F0bY0J
-9K8/B9tRssVA56pmeoMY4Yf9cOGXFBOUXiNhJloY/r4pNYA8dCp68WWAB/pVxfGJ
-qKiMZAcpZ7oUuw4ShbC4SufoVUrsvcxNWwuuNex2mpLspZCO70Dpy/Vlxs6KAQb7
-Dsyp9HyIVZq21HsJ67gfF1MMRcEKqg/zJPA+6PpI9QwuLB9kJFmh5dH/oSd+HJsK
-q2rJ6y1sOhtsWG3VBwTYdMBy
-=fL1G
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrP8AwbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoi6lsP/0RJ+uVDbDDI0O0CKlkY
+BUNsbFtSFFTvMf6KMJlT8cFc3twEamjPapWShtEPN8tAIcT2Ckzdn3nETcIhVpMk
+f5vVb/X1Iljo9FFz6dUyXW9Lkc9DalGhVptpyXH/9vHKBq1HRhCU8VWa0DvHblKg
+8lEVD4Cz0BOS+aEtcvn0vVxKAGw9X49ieKEvAkQtkXpd4Udfdm4gDcrAmlFvMPEF
+zwRPzytJWCBFawDhllbT7fsUoHYnOl1E1BqQ/tBld2IA1YaahqbEQh6BqjjTvZLv
+3Hg2qKO64Ln6ojB5MMi2rXlEXh+pgpqilL7OdPjZCfNCi3jFl3a+G4rXoJu8R/jU
+9b6mezwNP5JMI59U+jK8yPTNJP1/mNZUocju7IfytjfSIzS0KB9AD0WypDB28O38
+MVM75siRiT8cNStVwZbx+Cbe/emKQmE86yVAB93JwUPN3Kp4GcFIxjTnaDqV8mr1
+Y7/axwKCTTcY3U5GfqQ11ZOMTN64b80Ku6rWpiiVzBMx0JcgADPZGReeJ32CirAm
+Mj6Ll9G64U+MDEuWnjRhJ8O9foB6tw3ATsC+I+cDk+lfVLwf5i6UXoX5RQmnP7MT
+3MCd9yLyyUWKgwDldBW5DIxkmEl9dfB7MbzEA9vplbDQ8rCj3y/0uvadxWZLPAs/
+zjQYkcM9a0llpm/KSAf5MlsK
+=mcKA
 -----END PGP SIGNATURE-----
 
---nextPartzLu3b8EiSJuMDdR1hVgfBw--
+--nextParttNiNcatGTRe0X_MNundQow--
 
 
 
