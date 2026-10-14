@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74647CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7568ACC6B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOLbAUBz5H7rxEdfV/QFcYjUOz9mIzKR4aWrqSrKZ5E=; b=fjkafgw9sXk2nOoBtpj7B0zTmJ
-	WhRZQaUxjdylDA6kZMF+/fl237KZOWNtb/mSa0T+rS8beeCjqqzYe2f4d+0DIVHJJ/jOqK3Lw5V+G
-	Mu7KI6tLzyqz6AezNGDK7RNC7rOiku8Ro+IBgWQV5au/SUIRgybfyKwd/ucvFANCwRAhuYsPAI5GX
-	T3Nu/XXWQ/SpEczWGnwAdkwaJOQuLZgjPLFg7s6/0Kk66ZNP9xV4DNh8WMTwJ6DYDJazs9SRIQsRe
-	vSAhawf/lJTLqN47ZB6MCFQaLQs8PooOUmPg+BfWFbDYNaWADn5A5vk5Cf+mbUBFF58vJP8DgwoI1
-	YtLD2JdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfE+HoszBW81JfpKZ8ADGrOXhCccZkZmZbnezmaZz3g=; b=HLPPX0EOob27ePfxj9PVudbVyj
+	NFOa505Eep028qf7HUlY+QHDY671FnuNUpllepxsveflDeNtzgvuhO1gSUMsGQIe9TARCSOkNMKv7
+	bd4gfW1bZjZSJkpQfxATJtMw8inp51UvaXYv3Bb0QtpxuJo6N8ppoFZuiRylHoT5nfXsIMYy7CoFQ
+	aU3eEFmYK8FEbxraft1NRygf/4clryOjlxtIia9Os2YDRnBylWqz+7WPSpTRFiSfZ73h+SpYgEYV5
+	dmgO39CgbmGr6Zy5KwSnYlcAlq6895SjhCmUPGZ/6jyQkVVW2jGyliC/YZO73Cso/oKZZO2D6Ntzi
+	GQUJsbTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGv8l-0000000F0Wv-3N0a;
-	Wed, 14 Oct 2026 09:19:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGv8j-0000000F0WB-0cwn
+	id 1xGvB0-0000000F0r4-1XcO;
+	Wed, 14 Oct 2026 09:21:34 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGvAx-0000000F0qK-1RG3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 09:19:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B08061596;
-	Wed, 14 Oct 2026 02:19:07 -0700 (PDT)
-Received: from [10.57.9.28] (unknown [10.57.9.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81EA83F7B4;
-	Wed, 14 Oct 2026 02:19:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791969551; bh=0iLcOxtwrgS/UkYKeqlfP2wojjuPV2/CZ+VIyyxdRoM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M9KEyBoVa495mH6cL0uM1F4WPXWVp/YOB8FWlR2edx0LU5TF4kWaBCIBMweLfAu/L
-	 B3EWqwjayWkkXs/mZl5eP0M6W1BxPiiNPIlRvo6Y8lIXOm9Vgaktb0RbVWUTPf+fEQ
-	 ZAAsndMp4bK76B51zsEP8pnpbn6BOksWzXNx1jLs=
-Message-ID: <799fb810-c33e-4d0e-9a70-7092c0a681ff@arm.com>
-Date: Wed, 14 Oct 2026 10:19:05 +0100
+	Wed, 14 Oct 2026 09:21:33 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A44962007F9;
+	Wed, 14 Oct 2026 11:21:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791969688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nfE+HoszBW81JfpKZ8ADGrOXhCccZkZmZbnezmaZz3g=;
+	b=bn36ga2R/Q/f3RzbVzI3q6AtPXo0q/3b0o7HWyn8C+bupqoZyNda9UByXCzx1v0D5MUQ+K
+	puzo8nkZ671mWby9XmipkAeHsgg3usNnzWXTtP1iQ5FY1H+iSKyO4WEuBfvhne/kQSGsRG
+	b2HotNgEutFHg8HXZj3EORPlylvMPFvTRHa15kcWk/+itKu2byobqUZEnv9v71Cp2tymIh
+	dV+JSAWEYey7ZOg1t5MVT18Nhi/jpytrP8oRvQapB2FdUCa2x/sc1f1ztJUkTzGXLLj+J5
+	+dnGneohYTjjzvVzclxoFCFsxr2MOM6H5Tu9TlRBImTJDNqrBADddVhv2zbx7A==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1791969688; a=rsa-sha256;
+	cv=none;
+	b=f76UA6F/dBELSiSpxsm8I9Zx8r4qVCdk44SCMOTX0qXGz7BiNDSPqxFM31uiiBOfZxvV0+
+	qN9mpsNugI5BjbGQ8urd1TpZsARtMcccbLXxl6hMQ/bA5zS2gQRrA+JWMJZDPR/T8rePQs
+	LQlUW/K08XuyfWsHy3zGxDc0ma/V1T21ZNK8Meioha/6UWHuQwYChZDy7X+RQFY8b+kt6D
+	ZfdT6lO3jvfcmhOdUpsYOVW37xSlQqWGem4oC0VmFePYB1Z4HwQgXnrlek7XTy1Ou39fCL
+	6syxLCVPlsCw6QcUadCnWwJ+7HBo+a+I0/DcntyNoPeF6TTTIBgOHVC+L32/mw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1791969688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nfE+HoszBW81JfpKZ8ADGrOXhCccZkZmZbnezmaZz3g=;
+	b=CdLwJjGT7nw/4fkVzcRRKViVB3mBzOdNNMW1YDXoFf9cYzPtc1LCzNA7lFIIxa+c1DYhpr
+	cW5I1NdRis8TLoerZtgQ7teQduhQle2l57CP4xLYpzGkaWzcb3kBrR+C5WkoyJ9vfHDaP3
+	cAJ1V4l04BjWfqkDyt6GDk5SigrZyJcBUadH/cPvVVXGogIBKGpbC3D5NwJcFVt3+5FZR/
+	XpjD81IBqnyq4f1/diU7XoPbXbeqcWFQhDeAjf40pwdF4fT5vjHSx7ss+g+tEGQ031oL5D
+	a30xD6fKClvEJqL5iW9Lnkf/LvCj8oLAWJLICnf73nAeHrXPhbwBnXooaWG49Q==
+Message-ID: <c54ea6fb6adf7b0c944c47bc91f564af9ad1560b.camel@pengutronix.de>
+Subject: Re: [PATCH v3] usb: dwc3: st: balance reset ownership on deassert
+ failure
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Pengpeng Hou <hppiscas@163.com>, patrice.chotard@foss.st.com
+Cc: thinh.nguyen@synopsys.com, gregkh@linuxfoundation.org, 
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 14 Oct 2026 11:21:28 +0200
+In-Reply-To: <20261014031920.8390-1-hppiscas@163.com>
+References: <20261014031920.8390-1-hppiscas@163.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 02/10] firmware: arm_rmm: Check for RMI support at
- init
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261002061507.1600269-1-suzuki.poulose@arm.com>
- <20261002061507.1600269-3-suzuki.poulose@arm.com>
- <2586e689-c27d-4e4c-8c69-03e24259cb96@redhat.com>
- <8be050e3-8af1-4f04-902f-9bc01b209dd0@arm.com>
- <3fbd4739-a4eb-4428-95ae-ead22e7cf9f2@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <3fbd4739-a4eb-4428-95ae-ead22e7cf9f2@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_021913_370787_614F389F 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20261014_022131_541458_A2395842 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,175 +97,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2026 08:26, Gavin Shan wrote:
-> On 10/13/26 7:58 PM, Suzuki K Poulose wrote:
->> On 13/10/2026 04:53, Gavin Shan wrote:
->>> Hi Suzuki,
->>>
->>> On 10/2/26 4:14 PM, Suzuki K Poulose wrote:
->>>> From: Steven Price <steven.price@arm.com>
->>>>
->>>> Query the RMI version number and check if it is a compatible version.
->>>> All RMM feature registers are read and exposed for future code to
->>>> use. Also restrict the support to SMC conduit.
->>>>
->>>> We only support this for Little Endian kernels, the Big Endian kernel
->>>> support is anyway marked BROKEN and is being removed.
->>>>
->>>> Cc: Marc Zyngier <maz@kernel.org>
->>>> Cc: Oliver Upton <oupton@kernel.org>
->>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->>>> Tested-by: Gavin Shan <gshan@redhat.com>
->>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>> ---
->>>
->>> [...]
->>>
->>>> ---
->>>>   MAINTAINERS                       |   2 +
->>>>   arch/arm64/Kconfig                |   1 +
->>>>   arch/arm64/kernel/cpufeature.c    |   1 +
->>>>   arch/arm64/kvm/sys_regs.c         |   2 +
->>>>   drivers/firmware/Kconfig          |   1 +
->>>>   drivers/firmware/Makefile         |   1 +
->>>>   drivers/firmware/arm_rmm/Kconfig  |  25 +++++++
->>>>   drivers/firmware/arm_rmm/Makefile |   1 +
->>>>   drivers/firmware/arm_rmm/rmi.c    | 112 ++++++++++++++++++++++++++ 
->>>> ++++
->>>>   include/linux/arm-rmi-cmds.h      |  48 +++++++++++++
->>>>   10 files changed, 194 insertions(+)
->>>>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
->>>>   create mode 100644 drivers/firmware/arm_rmm/Makefile
->>>>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
->>>>   create mode 100644 include/linux/arm-rmi-cmds.h
->>>>
->>>
->>> [...]
->>>
->>>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
->>>> arm_rmm/rmi.c
->>>> new file mode 100644
->>>> index 0000000000000..06f5392c982d2
->>>> --- /dev/null
->>>> +++ b/drivers/firmware/arm_rmm/rmi.c
->>>> @@ -0,0 +1,112 @@
->>>> +// SPDX-License-Identifier: GPL-2.0
->>>> +/*
->>>> + * Copyright (C) 2023-2026 ARM Ltd.
->>>> + */
->>>> +
->>>> +#include <linux/arm-rmi-cmds.h>
->>>> +#include <linux/cpufeature.h>
->>>> +#include <linux/memblock.h>
->>>> +#include <linux/slab.h>
->>>> +
->>>> +#include <asm/memory.h>
->>>> +#include <asm/pgtable-hwdef.h>
->>>> +
->>>> +/* RMM v2.0 defines RmiFeatureRegister0 to RmiFeatureRegister4. */
->>>> +static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
->>>> +
->>>> +static int rmi_check_version(void)
->>>> +{
->>>> +    unsigned short version_major, version_minor;
->>>> +    unsigned long host_version = 
->>>> RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
->>>> +                             RMI_ABI_MINOR_VERSION);
->>>> +    unsigned long aa64pfr0 = 
->>>> read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
->>>> +    struct arm_smccc_1_2_regs res = {
->>>> +        SMC_RMI_VERSION, host_version,
->>>> +    };
->>>> +
->>>> +    /* If RME isn't supported, then RMI can't be */
->>>> +    if (cpuid_feature_extract_unsigned_field(aa64pfr0, 
->>>> ID_AA64PFR0_EL1_RME_SHIFT) == 0)
->>>> +        return -ENXIO;
->>>> +
->>>> +    if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
->>>> +        return -ENXIO;
->>>
->>> I think we need to ensure SMCCC version is v1.2 or a newer one here? 
->>> arm_smccc_1_2_smc()
->>> is immediately called by rmi_smccc_invoke() after this check.
->>>
->>>      if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC ||
->>>              arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
->>
->> We could. But I am wondering if that adds any value ? If the RMM
->> exists and responds to the RMI_ABI_VERSION, it must be so on a
->> platform with v1.2 or greater ? The extra check doesn't hurt.
->>
-> 
-> It's required as documented in section "B1.1 overview" of RMM-spec-v2.0- 
-> bet3.
-> In the same section, there are more requirements regarding the SMCCC 
-> version
-> when SVE/SME are supported. I don't see a practical problem if the check is
-> missed since the combination of TF-A and TF-RMM are the only RMM-spec- 
-> v2.0-bet3
-> implementation (as I knew) where the SMCCC version has been set to v1.5 
-> in the
-> 'master' branch.
+On Mi, 2026-10-14 at 11:19 +0800, Pengpeng Hou wrote:
+> The ST DWC3 glue ignores reset deassert failures in probe and resume.
+> It may publish the child device or access the glue registers without both
+> reset operations having succeeded.
+>=20
+> Check both results and unwind DRD setup failures as well. A shared
+> softreset provider failure must go through undo_softreset: the reset core
+> has already incremented its deassert count before calling the provider.
+>=20
+> Track whether this driver owns the deassert pair so suspend and remove do
+> not release it again after failed resume has unwound it. This is referenc=
+e
+> ownership, not a guarantee about the physical reset-line state. Resume
+> itself needs no early-return guard: the paired suspend callback clears
+> the ownership state before resume is entered.
+>=20
+> The issue was found by our static-analysis tool and manually reviewed.
+>=20
+> Fixes: f83fca0707c6 ("usb: dwc3: add ST dwc3 glue layer to manage dwc3 HC=
+")
+> Assisted-by: gpt 5
+> Signed-off-by: Pengpeng Hou <hppiscas@163.com>
+> ---
+> Changes since v2:
+> - remove the redundant resets_active early return in resume, as Thinh que=
+ried
+> - keep failed shared deasserts routed through undo_softreset
+> - retain the independently needed suspend/remove ownership guards
+> - rebase on current mainline
+>=20
+> Previous version:
+> https://lore.kernel.org/all/20260922004312.3589-1-hppiscas@163.com/
+>=20
+>  drivers/usb/dwc3/dwc3-st.c |   43 ++++++++++++++++++++++++++++++++++----=
+-----
+>  1 file changed, 34 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/drivers/usb/dwc3/dwc3-st.c b/drivers/usb/dwc3/dwc3-st.c
+> index 5d513decaacd22de15825dc061c2747cf09fef07..1a2f38f9407ae0aea25edd616=
+f8d77f953b3b404 100644
+> --- a/drivers/usb/dwc3/dwc3-st.c
+> +++ b/drivers/usb/dwc3/dwc3-st.c
+> @@ -84,6 +84,7 @@
+>   * @dr_mode:		drd static host/device config
+>   * @rstc_pwrdn:		rest controller for powerdown signal
+>   * @rstc_rst:		reset controller for softreset signal
+> + * @resets_active:	whether this driver holds its deasserted reset pair
+>   */
+> =20
+>  struct st_dwc3 {
+> @@ -94,6 +95,7 @@ struct st_dwc3 {
+>  	enum usb_dr_mode dr_mode;
+>  	struct reset_control *rstc_pwrdn;
+>  	struct reset_control *rstc_rst;
+> +	bool resets_active;
+>  };
+> =20
+>  static inline u32 st_dwc3_readl(void __iomem *base, u32 offset)
+> @@ -242,7 +244,9 @@ static int st_dwc3_probe(struct platform_device *pdev=
+)
+>  				     "could not get power controller\n");
+> =20
+>  	/* Manage PowerDown */
+> -	reset_control_deassert(dwc3_data->rstc_pwrdn);
+> +	ret =3D reset_control_deassert(dwc3_data->rstc_pwrdn);
+> +	if (ret)
+> +		return ret;
 
-Reading the RMM spec again, DFNMZ lists how one can detect if the RMM
-ABI is present. That specifies that the user checks for SMCCC
-version >= 1.1, which we do by using arm_smccc_1_1_get_conduit().
+		goto undo_powerdown;
 
-Then checking the R{M,S}I_VERSION call is sufficient. So, I think
-we are good here. Do you agree ?
+This behaviour of _deassert causing workarounds in drivers is
+unfortunate.
 
-Suzuki
+Maybe we should add a reset_control_deassert_get/put() pair for shared
+resets where _get() decrements deassert_count on failure and _put()
+returns void.
 
-> 
-> Thanks,
-> Gavin
-> 
->> Suzuki
->>
->>>          return -ENXIO;
->>>
->>> Thanks,
->>> Gavin
->>>
->>>> +
->>>> +    rmi_smccc_invoke(&res);
->>>> +    if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
->>>> +        return -ENXIO;
->>>> +
->>>> +    version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
->>>> +    version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
->>>> +
->>>> +    if (res.a0 != RMI_SUCCESS) {
->>>> +        unsigned short high_version_major, high_version_minor;
->>>> +
->>>> +        high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
->>>> +        high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
->>>> +
->>>> +        pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d. 
->>>> %d\n",
->>>> +               version_major, version_minor,
->>>> +               high_version_major, high_version_minor,
->>>> +               RMI_ABI_MAJOR_VERSION,
->>>> +               RMI_ABI_MINOR_VERSION);
->>>> +        return -ENXIO;
->>>> +    }
->>>> +
->>>> +    pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
->>>> +
->>>> +    return 0;
->>>> +}
->>>> +
->>>
->>> [...]
->>>
->>>
->>>
->>
-> 
-
+regards
+Philipp
 
