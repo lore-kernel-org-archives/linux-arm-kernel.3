@@ -4,91 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918A2CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27D6CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WndwsVBnokaEULAtUgcH4KgNi79vCmesxGK8Y8PtXoU=; b=XQoSj9SBUHp9GwiryGBTxAjj74
-	qi0F9fSR4L/bvuDTlM3bchDT/w/XR0A8WfNWxNdifu08hdAtUSiNwBpUwpBK+EYLFdrmc42BDmGYF
-	BcnuJMNRv6Agr1tYcULR8QIzhhH8EtGJaMnmMnnA5184NNwnCuo1RAgUdrM3PmYbKzMnLx3F/xBXf
-	+CXylmsxUtazR+Cv6ytdHKhALjDWjyFzG+QjvTYFLGV+cUSq0Lj9qsodKmTzVwNz8h9N36dJPYbza
-	88VNRkRBzChHi/g2bBl52uKTNKUYwcrag0JRsG0Nne22waCdedgzNWH8u+D5lFgzPhzMWopO99wpt
-	auJJxjaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xL7lz3u7A7nCbF8cVqVov/D4tUJYTYOjlx+J/uhQPIc=; b=IXHyXwfEYmCpVNoH/HpLz3LZJL
+	SGbhOYzaMxYIuyW1dE8+j5SxSljYbsctmOzGeE6HetBrfoHMkAyLmDHVtGBqcNb1McNQ435khkAPm
+	+zfNmYSpUY6K4Yj/YezvJ5VWf5Pho7FTHcXbb9V65SBQJ9BzSEVSHdoevuTVL8N9Ky00pWRKKCRVw
+	/i0X3A+aZJjpkauJLjBa7e7iF350XQ1B/+SKv5KbuBnV0WVOMjhwdD6KVH/9wZx86pdwZoR84FYzv
+	1XEhMMIlNrLtLTLw7Uszkqid3weeqIItDKlfkauUSkcoZp/6Kka+oNQYdzDS+XhEj2mUk6r//rlj7
+	PU3y1qHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsCj-0000000Eabv-07I3;
-	Wed, 14 Oct 2026 06:11:09 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xGsFz-0000000Eait-2ExS;
+	Wed, 14 Oct 2026 06:14:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsCf-0000000Eab4-3nwF
+	id 1xGsFy-0000000Eain-0u6k
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Oct 2026 06:14:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=xL7lz3u7A7nCbF8cVqVov/D4tUJYTYOjlx+J/uhQPIc=; b=ECuQn8pnzjb/1t4TDeMGDY7Cmg
+	+dHWAKSB14Hp6zwaFYW90NaPtH7WaMuKFOiksxzn8WHRqHwKLtbyKTRaSc+6Q3hI+uvxZWqtkVcTj
+	T08bdWqAEM2ucruuRWGZ8xuv0kXSCVprD/L1D1OH8YVq0qxkKPW6InZ0ySqVgSQbO317DxIcr34ap
+	c3DZBF8FhT+4qD472j7mtSoO0GtVnAsiEdjbZ6PLmDfJzKY7TIyoVq3b6l84pu9PQoLNk4A6f3+Px
+	uDY6zK1MLJ2W7K8Z4R8Sh3qZ5tBSdQnTlozc4HRGw9CMr+TlL33NOQgIw6dPE2m+xUCZPTbVypl8i
+	alyOid9g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGsFt-0000000GO5h-3UQG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 06:11:08 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso5590995e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 23:11:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791958264; x=1792563064; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WndwsVBnokaEULAtUgcH4KgNi79vCmesxGK8Y8PtXoU=;
-        b=p2q0EjFjKsEpAwpEH7pMW9rlzI0VbyNC0Vz9FOg01POL5lpjgTV/xEYsfYXqVTBkBn
-         FTjHfYbg2+9YuDkdTWdoV/ZLsNahwsftYyk6ioraXHWrBwmtqvmhQ0NeV/HRWVl7JQku
-         UW0BLfVuee0VJoO3T9TXWSxJS5u3pNa+yHyXApoCTGL7e9OEhSco1iW+RW/6uVX78y1M
-         wMioiEwMh7jnVyT0ooqrlay8Z2mu/XmGcfY0jej/lRSFnXYj9hRp1ltxgZVfwfg/1Cz7
-         NdZRpv8KCI/2xCbId++hYiKCz+7/RhVe3GpuM5Xmk3AUUKKmEV1fJYH7Sa5R08zcioHK
-         rzgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791958264; x=1792563064;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WndwsVBnokaEULAtUgcH4KgNi79vCmesxGK8Y8PtXoU=;
-        b=tFpAIRuyeKPCQ7PeN36PUH2Js87R2PBjJEs3hXbO6c6iY3LVkK+dUaoWvjoMfs/r95
-         kQrCQ7/qXaev+VEAmboo/6TX7AD1xHSL56yoUG+Bey3d9FjtadHhhBu5vFpvySEDmctA
-         V8EignUzzwuNDRcYqUv2LzZmw4uWe+TJwOCdHobWfbe/4Bowj/l3E1VNP6Y7kp6aWvrD
-         pln5dF+zfsztDrmLhfiswOdzlackZyL1o+zTggGNQ9LOiL29jkePffJOsaSq3e84eTuo
-         B7DrI11QQ7RfDvxuhORLzOhO0GkFdo5up+pJx9WvIWNDzrcl8ZyPzoNmqkz2sO1irGY0
-         T5sw==
-X-Forwarded-Encrypted: i=1; AKwUvBwWsNhVrW5SwmBi2MSr9XzccIeeyNMbS8uCZLrINlWXAWu6/K0i0fANMs2jqCRYvg9bu8BtWGqJA2VZDYbYm7JM@lists.infradead.org
-X-Gm-Message-State: AFq9FYIxlFyLcvZgQoVY+paBAvoeTi812ji2yR6jaae+UnokGbEYXoOV
-	BKsZHLDdaILZsoXY9pJ6wNaQGcrYmI3FMsNUXMNSkExGQXIo+hothph4qMfhf9ep
-X-Gm-Gg: AYBFou0ssTc/wptTFFMsytgRfs0Du6qYwtTxEjd3OCT/9Z/J/Ost2+bM/1dQNY8TcWk
-	n4UMYl99u+dH3trzyfQDi0KCqU8syOR+gueC2uJB26rJ8Ka4WvHBf/l3HGGrdoN9Mzlssp50FLQ
-	4sZGjoDLpcABoJlizaCsxqbVQvUQU/W0f4b7MRRfzOMlFSDAWKEkgWPKVxaBt0cFEWav50AxN+z
-	rZqPKtMvKcj1JMc5e2VGEOpjBCxZ+YczKINxDOPOcG4W6G7adKFM4Vs8yHyHRoU+hLl4FwSgpyC
-	qXxGDrFvvIeWUtcwuxvEl41IfvuyoVV+rR4dV4nA6WnXYIr5FkVOUHEJ5rM7CukgHv5CEQbYBZg
-	CYtkE780UPtX8wD8bwpA5X4hJVSeKwT0ekZxpPidJtqtCuZ8k2PMb+657F3iHKOxn6qTxSB00Qg
-	ftPoU9B2iWwsB7I7YY/giDyWjpOH7Htl3lk05jldtqSnGqq/GVe8C25HXs6A+XkRQyA29Ow+Pwm
-	udgv/dR/xW0cu5/vJtfpYoAME89pIG67HC7CzetvkYJQMrzNCwUzKETxBL0yXpLWMoqMFmTnm2D
-	LQi4TpZm9iMeO65TiMbB1LAs9OpJMZs10ieaeTb6AsguoJJl4LIVYyZfOf49j7B5dEMhTMIwtNY
-	5UmKCxb/i
-X-Received: by 2002:a05:600c:5251:b0:49f:e772:6ddf with SMTP id 5b1f17b1804b1-4a18e4d5a01mr289077105e9.32.1791958263735;
-        Tue, 13 Oct 2026 23:11:03 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.local (dynamic-2a02-3100-aed1-da01-ddff-863b-8308-ab16.310.pool.telefonica.de. [2a02:3100:aed1:da01:ddff:863b:8308:ab16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a19471edd5sm554130545e9.11.2026.10.13.23.11.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 23:11:00 -0700 (PDT)
-Date: Wed, 14 Oct 2026 08:10:59 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Taichi Sugaya <sugaya.taichi@socionext.com>, 
-	Takao Orito <orito.takao@socionext.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ARM: milbeaut: Drop the select of the nonexistent
- CONFIG_PINCTRL_MILBEAUT
-Message-ID: <as8cCOZ2kmXq0prn@gmail.com>
-References: <20260905080648.34615-1-kmehltretter@gmail.com>
+	Wed, 14 Oct 2026 06:14:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59978152B;
+	Tue, 13 Oct 2026 23:14:20 -0700 (PDT)
+Received: from [10.164.19.62] (unknown [10.164.19.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0671C3F7B4;
+	Tue, 13 Oct 2026 23:14:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791958463; bh=a7qhbNgmdcPYQ6buXTv8OGPWO0Grnhy1fDX5AmFWNhU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iVZjLtZtTnUpq+MWM8i1fufHT2ECWkrV3HWNj3WcG/hN9gP+H6H1v93xpCesC3iXX
+	 CQi/6xszKB9Zt761+SEqTqssh9cXgTWtdj2H2ozmWZiK6LvgOQCLvIdI0bH8dhgof8
+	 tc467R1T/ulRHWldWSPWBQMRzgRPRXiY+auEPDBE=
+Message-ID: <c1849f90-58a4-404a-aa01-97b53bd92650@arm.com>
+Date: Wed, 14 Oct 2026 11:44:15 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260905080648.34615-1-kmehltretter@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
+ for PTE-level block mappings
+To: Uladzislau Rezki <urezki@gmail.com>, Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+ will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
+ anshuman.khandual@arm.com, baohua@kernel.org, chleroy@kernel.org,
+ david@kernel.org, jiangwen6@xiaomi.com, leo.yan@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
+ <20261002090947.869220-4-jiangwen6@xiaomi.com> <asudY_EhrT5fZGmZ@milan>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <asudY_EhrT5fZGmZ@milan>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_231105_950563_EC4CB5CA 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20261014_071426_847082_6B1C1756 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,18 +92,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05, 2026 at 10:06:48AM +0100, Karl Mehltretter wrote:
-> No Kconfig symbol CONFIG_PINCTRL_MILBEAUT exists, and git log -S finds
-> no Kconfig file that has ever defined one, so the select in
-> CONFIG_ARCH_MILBEAUT_M10V is silently ignored. Remove it.
-> CONFIG_PINCTRL itself is still selected on the line above.
+
+
+On 11/10/26 7:59 pm, Uladzislau Rezki wrote:
+> On Fri, Oct 02, 2026 at 05:09:40PM +0800, Wen Jiang wrote:
+>> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
+>> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
+>> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
+>> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
+>>
+>> Now that arm64 and powerpc/8xx provide pte_set_huge() and
+>> pte_clear_huge(), add the generic fallbacks next to the existing
+>> pmd/pud_set_huge() family and convert vmap_pte_range() and
+>> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
+>> around the block-mapping paths are dropped, so PTE-level block mappings
+>> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
+>> longer includes <linux/hugetlb.h>.
+>>
+>> The fallbacks exist only to keep the build working on architectures
+>> without PTE-level block mapping support. They are unreachable there:
+>> the callers only run when arch_vmap_pte_range_map_size() or
+>> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
+>> which requires an arch implementation. BUILD_BUG() makes that
+>> explicit rather than silently doing nothing.
+>>
+>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+>> Reviewed-by: Barry Song <baohua@kernel.org>
+>> ---
+>>  include/linux/pgtable.h | 29 +++++++++++++++++++++++++++++
+>>  mm/vmalloc.c            | 19 ++++++-------------
+>>  2 files changed, 35 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index 8c093c119e5a8..a7fd51fec8a17 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -2204,6 +2204,35 @@ static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
+>>  }
+>>  #endif	/* CONFIG_HAVE_ARCH_HUGE_VMAP */
+>>  
+>> +/*
+>> + * PTE-level block mappings for vmap.
+>> + *
+>> + * pte_set_huge() only has to be implemented by architectures whose
+>> + * arch_vmap_pte_range_map_size() can return a size other than PAGE_SIZE.
+>> + */
+>> +#ifndef __HAVE_ARCH_PTE_SET_HUGE
+>> +static inline void pte_set_huge(pte_t *ptep, unsigned long addr,
+>> +				phys_addr_t phys, pgprot_t prot,
+>> +				unsigned long size)
+>> +{
+>> +	BUILD_BUG();
+>> +}
+>> +#endif
+>> +
+>> +/*
+>> + * Likewise, pte_clear_huge() only has to be implemented by architectures
+>> + * whose arch_vmap_pte_range_unmap_size() can return a size other than
+>> + * PAGE_SIZE.
+>> + */
+>> +#ifndef __HAVE_ARCH_PTE_CLEAR_HUGE
+>> +static inline pte_t pte_clear_huge(pte_t *ptep, unsigned long addr,
+>> +				   unsigned long size)
+>> +{
+>> +	BUILD_BUG();
+>> +	return __pte(0);
+>> +}
+>> +#endif
+>> +
+>>  #ifndef __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+>>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>>  /*
+>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+>> index bea9f76ed7e74..fb757d95bde25 100644
+>> --- a/mm/vmalloc.c
+>> +++ b/mm/vmalloc.c
+>> @@ -38,7 +38,6 @@
+>>  #include <linux/rbtree_augmented.h>
+>>  #include <linux/overflow.h>
+>>  #include <linux/pgtable.h>
+>> -#include <linux/hugetlb.h>
+>>  #include <linux/sched/mm.h>
+>>  #include <asm/tlbflush.h>
+>>  #include <asm/shmparam.h>
+>> @@ -100,7 +99,7 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>>  	pte_t *pte;
+>>  	u64 pfn;
+>>  	struct page *page;
+>> -	unsigned long size = PAGE_SIZE;
+>> +	unsigned long size;
+>>  
+>>  	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+>>  		return -EINVAL;
+>> @@ -121,17 +120,12 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>>  			BUG();
+>>  		}
+>>  
+>> -#ifdef CONFIG_HUGETLB_PAGE
+>>  		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
+>>  		if (size != PAGE_SIZE) {
+>> -			pte_t entry = pfn_pte(pfn, prot);
+>> -
+>> -			entry = arch_make_huge_pte(entry, ilog2(size), 0);
+>> -			set_huge_pte_at(&init_mm, addr, pte, entry, size);
+>> +			pte_set_huge(pte, addr, PFN_PHYS(pfn), prot, size);
+>>
+> As far as i understand, X86_64 arches do not use this path. This
+> specifically is only for ARM64 or powerpc. pte_set_huge() makes me
+> thinking about huge-page mappings(PMD/PUD/hugetlb). This helper is
+
+I disagree. All the helpers in hugetlb.c are all "huge" helpers but
+the arch overrides.
+
+It has been a long time since huge mappings have been supported at the PTE
+level, setting it by setting multiple ptes is just an implementation detail.
+
+Similarly, there are CONT-PMD mappings on arm64, we still call them huge mappings,
+it is a matter of implementation that the huge mapping is expressed by setting
+multiple PMDs.
+
+ > about mutli page mapping on the PTE level.
 > 
-> Fixes: 9fb29c734f9e ("ARM: milbeaut: Add basic support for Milbeaut m10v SoC")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Better naming? pte_set_large()?
+> 
+> Any thoughts?
+> 
+> Other then that:
+> 
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+> 
+> --
+> Uladzislau Rezki
 
-Friendly ping on this cleanup patch.
-
-Thanks,
-Karl
 
