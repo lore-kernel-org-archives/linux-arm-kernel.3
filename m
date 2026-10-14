@@ -4,86 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EE5CC6B30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3038CCC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sU9N9t+rSJbdzfZ3EGowiDCPXCTLK+Yw+P9GxmRYz1g=; b=2eS3mgPVyw3oFy
-	W6DszTTCs68MSXUfUauvYlcrsNHuGxyCnpgdDxaDpXRtGRzs3g5gRur0XCh8pRM9wK49RCHvOAHll
-	y4oUwJUyUagL+MGPqsi1Jc0jTowzXNxBspAwXb3gN/6faKLDe4x/EbSvwoJl20uuMyQP/UNpdy0wB
-	VftzwVH0Pg9sIZ3UbbG5yzRVTLuP9hdgW3L12gFRTSKm6ZYzzglBeZsfrJMy5gLZIQ2TdbmRvwoSY
-	cNrSMwxZd2nQfo7T7EbZxl1/uk2QV5gBSMx7Oe690Fz3eOLc+0UutG88aeZIuuLmUw775Zdofxo0Y
-	YV8QrK18X6Syi71t8QVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AzJZIfyBw3rCpIRAXFdDjjYQK/8trx9bNTIiD2yo2pI=; b=hsHVsARQ0wphMj4pIZcEK3JMW7
+	YwplV3IkNWKrMh9Hw+eLlWxGzqQLaJrxT1G40IlJ8IY6BuXTrxGbMqCPXa4gq8fkI3R/JUMpGnTm5
+	mBJnlxePfutGtByRzbEgV9nkg2aB4xjPmv0khxSdYn91zvMVKmBZv8ObfoImLeqnrmTQztIVJ7JW3
+	CValTCOdTRG4m+FQHQGPn6AXh66h+ieqcUiP0ll9wiaD6uNxHMffPUUvvsx9uEywQofnqQAKph76h
+	4G7TZK1lyu6AyeFQWtl0+qOeIldsquCtnBRSBwnCzvbOtRzs27812uJR+Q9OZTaa9ju6oXiWga6VI
+	a8gQq/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6Zz-0000000GKVm-3jwQ;
-	Wed, 14 Oct 2026 21:32:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xH6cR-0000000GLKQ-1cQa;
+	Wed, 14 Oct 2026 21:34:39 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6Zx-0000000GKUJ-1r9g;
-	Wed, 14 Oct 2026 21:32:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7A22447A2;
-	Wed, 14 Oct 2026 21:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86BE61F000C7;
-	Wed, 14 Oct 2026 21:32:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792013524;
-	bh=sU9N9t+rSJbdzfZ3EGowiDCPXCTLK+Yw+P9GxmRYz1g=;
-	h=From:Subject:Date:To:Cc;
-	b=lH4XGLptaQqNsFgDjcW/GtR5HeupPmlqTRIhQZ/oK7A517/GBqdkroZNLZ9SGkD4U
-	 yZ6ewNhlbTjyttPD3qhRbwdHoHRuVMkAubxgG7zOsz9N9swBy1FYt9czSqi8/Rsah3
-	 MFh5eCEG6Xu8KFw8zFwfG18LML4FNGTqDAWFBdMoqaKI1E9mPtRVGsaLU+C1NYwLD2
-	 0ucp+hF5Akv951WlgkYh9tX9YaTVbSVQkPF61FfJCzasiPnoKPeClQ790htjXOjfq8
-	 8/pQkcAMYI11DoIAqajqoVtxPhp+eYDt9igSb7Xro1UlkJVVFLuimpQ8p6KTKmx4q4
-	 /TgRzxDhSeHUA==
-Received: by venus (Postfix, from userid 1000)
-	id 68603180A50; Wed, 14 Oct 2026 23:32:02 +0200 (CEST)
-From: Sebastian Reichel <sre@kernel.org>
-Subject: [PATCH 0/4] Add DP AltMode VDO definitions for DT usage
-Date: Wed, 14 Oct 2026 23:31:48 +0200
-Message-Id: <20261014-dp-altmode-dt-defines-v1-0-b657c9b6e4c3@collabora.com>
+	id 1xH6cP-0000000GLJO-1ahe
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Oct 2026 21:34:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oz7qkNj3lCDqGWe+GOZOipKed2uCEicSjjNYBv0Lin+LtWL8NKn9idRCzlIE5Jt5iKXvNrXji6dJ3SrBGgPMNSOKcnp1UsMlw0EsjqsACKV5PJeIxh+SAt5mVDjo536FPDudprIM4PJYq6uFM/iBS3a/3NlkK4bXzlxdDN+f7Lf5YP+q2gAPLvLhRBv0qHWihOG/RYum0ZMGlYtctJQjCCLizunOLTl69W41robQeovsrNHBOn57xIaUnueLAyo7ivOWaepJK8vXnbwGoax+yoYK1cvu1SMeN2V2D/1mJGxZk2Ne5Kmh7ftSgrM7++riUJqNBeuBDjOb+XBKspXDog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AzJZIfyBw3rCpIRAXFdDjjYQK/8trx9bNTIiD2yo2pI=;
+ b=IShmD2h00aKp6L3sENxansyqCZRJiSglijqRBml6y+Wd6h0G3Y7W4l9rHeUeRFKRocsE3IROPo9uc8n6nEkB0sOnZGjDnYMG46t1Y6OapyGW2EdbDEqwZTqXhJq2lZ66DE27wdsJPnJ9754OeRfBRFpreAcCwo9YObD9SGjF2t6lZptMgrgFHX5tY6BUQH2FpAvtE3ATmAGCevf1MSqxRKKPgLP/wo31TnE0IkPgqYTS4uFtYPD6bfIVcVTj+JnvtaSSsditvtdNFCwoK5aR+4rOXhCy1ryLocnK4rnL/dycAINXu9NCbSHjfVtIjthVuE2vdBE5HcNRwHBuy0YEQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AzJZIfyBw3rCpIRAXFdDjjYQK/8trx9bNTIiD2yo2pI=;
+ b=BL2RnhdMVWfzePTrZsiOP81HF9pV1Nz/SLcChnFkYeOBT2cxkoTt/CqPntaYgxv7HVX35STJ4TYC6oM9dvmdvllmA6GsQc4xTKuAPq/sEkfyO8vjINYS/+ZRv787nYkIdGcNOyjTGOVWTfwJpLs+9n+0TkstdphO8ChMM5MIxFc=
+Received: from BY3PR05CA0024.namprd05.prod.outlook.com (2603:10b6:a03:254::29)
+ by DS0PR12MB9346.namprd12.prod.outlook.com (2603:10b6:8:1be::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.16; Wed, 14 Oct
+ 2026 21:34:29 +0000
+Received: from SJ1PEPF000026C9.namprd04.prod.outlook.com
+ (2603:10b6:a03:254:cafe::3b) by BY3PR05CA0024.outlook.office365.com
+ (2603:10b6:a03:254::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Wed, 14
+ Oct 2026 21:34:28 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000026C9.mail.protection.outlook.com (10.167.244.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 21:34:28 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Wed, 14 Oct
+ 2026 16:34:21 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Wed, 14 Oct
+ 2026 16:34:21 -0500
+Received: from xsjblevinsk51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Wed, 14 Oct 2026 16:34:20 -0500
+From: Ben Levinsky <ben.levinsky@amd.com>
+To: <jassisinghbrar@gmail.com>, <andersson@kernel.org>,
+	<mathieu.poirier@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <michal.simek@amd.com>, <linux-remoteproc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <ben.levinsky@amd.com>, <tanmay.shah@amd.com>
+Subject: [PATCH 0/6] Add AMD PL Mailbox and RPMsg support for the AMD BRAM remoteproc
+Date: Wed, 14 Oct 2026 14:34:20 -0700
+Message-ID: <20261014213426.2957480-1-ben.levinsky@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0Q6CMAyF4VchvbbJtggGX8V4UWjBEh1kHcaE8
- O5Oufxycv4NTJKKwbXaIMlbTedY4E8V9A+Ko6ByMQQXGu+8Q16Qnvk1syBnZBk0imEgqqk9d5d
- mqKF8l1SGz797ux+2tZukz78Y7PsXRUYHJnkAAAA=
-X-Change-ID: 20261010-dp-altmode-dt-defines-2aa5a94b76f5
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1647;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=Mb7sbWbMfHESa0aAXF7BdF35M8lFzlOgXSETY1QlwaE=;
- b=owEBbQKS/ZANAwAKAdju1/PIO/qaAcsmYgBqz/TQGcp6wF8P8bq+yUhm+bV9dkEdDnyOEi6TJ
- 0TsUKTp+aaJAjMEAAEKAB0WIQTvZg0HRj+Lcmp5VBPY7tfzyDv6mgUCas/00AAKCRDY7tfzyDv6
- mmQWD/0ZLmcrm2qIQ9ZwFK8Gv/BjgvkaCFGmaFJSQFBj0SQj6/lUOFBMauA0MvE6ZijzvCpoyoE
- azqANY5G7eMKlZ106ByVaQQ1BRTBpNc2OzCFXIP5/7bfkHmx1SIAhAI8YLn+ktmIhHgjTQ6GMQ+
- afcbVr0ffREqfRNEJa6bkB6Q0SslaeHR9eHcjmN8gWJnKOFvUKlNxUTrQbABmMD0bJuRYnmajjU
- oFX3d7cknM7xSa9hTRvKBUuv/t8cj4ZdMtEvWD529oYYvzn3oC3SjJMztPh0HIm7L51MRXJlQCq
- oDyMl2yjdXacK0GnPl6ntPpVRuEot3qewQgqjjWoFN4CzmKsHlAQpegNnCqIObc93PDAhIkntAw
- JLhUanvzkKzdAuD1DrEVgQ6JdiCVB4mnu+zZhwx7EI4rzVwtYIV2EUJAkd5zBH4TaqvLT0XIAbU
- 7Vev4VT4rdaf/Hw43Wf12nRvMSkwuBwVSbTGgYAXjvCqcZ/Ma9Yf+aJTVRHyzbTqx75p8/F0KFL
- 9ezMoyhf1QDnAUjV4jAm0DiYQeOezqEqO8i0B5Fn4OOeu1jc74lnC53M1J1lLyoc3oQCRJuIyZW
- Ny6ZiKJQs1n3IqSnmVi3tVbvGB988CwipdVPqw/M/NkN+pUj9Z5/ZhnjiqcNMqfqHzSPdqAFOO3
- bLviFcfj1uoO8Kg==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C9:EE_|DS0PR12MB9346:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59f336e6-d12b-4ebd-48c3-08df2a3aed43
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|7416014|82310400026|376014|23010399003|261009220027099003|56012099006|10067099003|11063799006|18002099003|261009223027099003|6133799003|261009223327099003|3023799007|261009221727099003|261009221227099003;
+X-Microsoft-Antispam-Message-Info: u4XD0N7/HSVS3f++bGQxjiS09DgPD1tUKc/1AKNOJfFLcioVzHACPJt4cMb7TELE6O89Sr/5CLyYpuexHGNKeV9qFtiufOjPgmGFSnXc+UCIdLjdAWzSLz44v3Mk7YoVLOwhJC+saCBmvj8X1S3YP8UkwXKUUFPFO6D4UPEMXh+TXBFNBcW2Y0pFcSvUErVynxgYfxoFKShtalk3CElpD7/zCGtge8hpMk+H1PVNgm+MiOy/rHyUMeJUwJ36ZcylZYc8lS2UwCj2QiPuIGx7FeRA/r4AehRU8TpgmkObIw8T2qhdoCCUwVf0bdXaPd4pbdz6WBJD5/MYUYcQHwiRt6tQBHZf9Zm4U+735teTjZXVlE/VKKzMbP8f+piM2ZexVbMy5aaQf4cQu9LSiVc6NwusuAp1aE+GBguTdK7Ux9MMWuruc5qpLlMKp4EeOqOYPQ0J8JxLApSnJrsxalE9Bxlo62ywmMCHIc97AWCKHmZgrlfKuXdMzHX8il2HEk+It+cURAF59n4wawE/dw4tQyAon0Y8YVxXn2dcXRcdoPLqEhOBgrSAdp3QUvstx8+oAJS1ugzmppvo2f4nPMpgWm/+lfjYhHPw6XWmz2q1nKTyIuqT5MImbLsXjDCzEdJWyOYchVKPm9uOzPNL/U8Ef2KF3QxTU5K1boxWcGxCxHIIq1+3Z1T2CFpgRhcQMeO1Azz4cx5Phi+0aW6DTQ+OqA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(7416014)(82310400026)(376014)(23010399003)(261009220027099003)(56012099006)(10067099003)(11063799006)(18002099003)(261009223027099003)(6133799003)(261009223327099003)(3023799007)(261009221727099003)(261009221227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 0YwAE+KpuL4OhYZWPYezIxy7AVM9f4EEa34jHUoLFXMnQa2Dr2+z1Nd1sop1FKGaLsAtP2XocCoLrXQHmJXxdxN36fjGbEqiUPxOp4sxqS4J9RDv717qIyzjngIaugytImlz2mB8SnNiq2ajXRNS+AAgTc+RE9PpMHLqtAvijJoLzmV5iRjArFJrRr8zs189UVj8f9gsaLgD4QU8N07zscFV//nAb3Rb3l6ClKgYPgOCavl2OSasMv33QjgsWmMCfDz4w/6QEHv8hjui0h8wjaZrF88HYfmEVtIg75dJxBTPbIu0FEZTuzx0sgpcsYbMZzC1LZAV7/PeKOlV+vLDXvEgwK4JFXVg8QREa98M5A8qEA3VqWZCi3WKCUq9QQNNqrAN4hwFY/bKFEwL+nNTDu0s/xPq7Ge1ptWubpp2QWsAMz8kAcCOrGiq8UrS2lzm
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 21:34:28.5967
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59f336e6-d12b-4ebd-48c3-08df2a3aed43
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C9.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9346
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_143437_423248_26A8D811 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +125,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make DP AltMode devicetree entries more readable by adding a few
-defines. This hopefully helps to correctly describe the supported
-DP AltMode when boards are being upstreamed. Apparently right now
-all upstream boards with DP AltMode *should* have set their VDO to
-0x00001c46, which means that they can output DP1.4 with C, D or E
-pin mapping on a receptacle that also has functional USB 2.
+This series adds a mailbox controller for the AMD programmable-logic (PL)
+Mailbox soft IP and uses it to add RPMsg support to the AMD MicroBlaze/V
+BRAM remoteproc driver, so that a soft processor in the PL can communicate
+with Linux over virtio-rpmsg.
 
-The patch series is based on current master.
+Patches 1-2 fix the existing BRAM remoteproc driver:
+- Pass the device name to rproc_mem_entry_init() through a constant format
+  string instead of using it as the format.
+- Drive the reset GPIO with gpiod_direction_output() so a start still
+  produces a reset pulse after the PL has been reconfigured, which restores
+  the AXI GPIO to its default direction.
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-Sebastian Reichel (4):
-      dt-bindings: connector: Add DP AltMode VDO definitions
-      arm64: dts: rockchip: Use DP AltMode defines
-      arm64: dts: mediatek: Use DP AltMode defines
-      arm64: dts: qcom: Use DP AltMode defines
+Patches 3-4 add the binding and the mailbox-framework controller for the
+PL Mailbox IP. The controller exposes independent TX and RX channels. Its
+interface clock is enabled only while a channel is started. RX uses the
+receive-threshold interrupt and delivers up to one FIFO depth of words per
+message, with the depth taken from the device tree. TX completion is
+reported by mailbox-core polling of the send-threshold status bit.
 
- .../boot/dts/mediatek/mt8390-genio-common.dtsi     |  8 ++-
- .../boot/dts/mediatek/mt8395-genio-common.dtsi     | 10 +++-
- arch/arm64/boot/dts/qcom/qrb5165-rb5.dts           |  8 ++-
- arch/arm64/boot/dts/qcom/sm8150-hdk.dts            |  9 +++-
- .../dts/rockchip/rk3576-anbernic-rg-vita-pro.dts   |  8 ++-
- .../boot/dts/rockchip/rk3576-armsom-cm5-io.dts     |  8 ++-
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  8 ++-
- .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   |  8 ++-
- .../boot/dts/rockchip/rk3588s-indiedroid-nova.dts  |  8 ++-
- include/dt-bindings/usb/pd.h                       | 58 ++++++++++++++++++++++
- 10 files changed, 115 insertions(+), 18 deletions(-)
----
+Patches 5-6 extend the BRAM remoteproc binding and driver with optional
+mailbox channels and named reserved-memory regions for the vrings and the
+shared RPMsg buffer pool. The driver registers the carveouts, exposes the
+loaded resource table, requests the mailbox channels only while the remote
+processor clock is enabled, sends virtqueue notification IDs through the
+mailbox framework, and defers received notifications to process context.
+Without mailboxes the driver keeps supporting load, start and stop only.
+
+The series applies to v7.3-rc7 and uses the remoteproc wc-ioremap and
+optional resource-table helpers merged for v7.3-rc1.
+
+
+Ben Levinsky (6):
+  remoteproc: amd_mbv_bram: Bound device name formatting
+  remoteproc: amd_mbv_bram: Restore reset GPIO direction after PL
+    reconfig
+  dt-bindings: mailbox: Add AMD PL Mailbox IP
+  mailbox: Add AMD PL Mailbox soft IP controller
+  dt-bindings: remoteproc: Add RPMsg resources to AMD BRAM rproc
+  remoteproc: amd_mbv_bram: Add RPMsg support
+
+ .../mailbox/amd,zynqmp-pl-mbox-2.1.yaml       |  74 ++++
+ .../bindings/remoteproc/amd,bram-rproc.yaml   |  31 ++
+ MAINTAINERS                                   |   7 +
+ drivers/mailbox/Kconfig                       |  10 +
+ drivers/mailbox/Makefile                      |   1 +
+ drivers/mailbox/amd-pl-mailbox.c              | 369 ++++++++++++++++++
+ drivers/remoteproc/Kconfig                    |   6 +-
+ drivers/remoteproc/amd_mbv_bram_rproc.c       | 256 +++++++++++-
+ 8 files changed, 748 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl-mbox-2.1.yaml
+ create mode 100644 drivers/mailbox/amd-pl-mailbox.c
+
+
 base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
-change-id: 20261010-dp-altmode-dt-defines-2aa5a94b76f5
-
-Best regards,
---  
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+-- 
+2.34.1
 
