@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E80CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01748CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPV0f0P+OlbQsun3sAAvy5HVXr3czVbo2sJjluw/ocg=; b=y+Hk4jut6i4RmH79eobKsMc73y
-	OIAFkw1/pEUqfs9RWsfkthAUmSkty12oaJywIqsXEyx8P0Gnn/k5sav2ys2OEtWfufCYdyaPTYxhp
-	ztU5cbKMNzNyiH7j+ru+LNk79pvPD4HsTkVWjc6eRZsw2D8Xm7A42l9dLAyBe2mWRqqdmtkDwriTq
-	YIGRTUHXg394WxZR4WrbplYzCBeQpyxo1qkrIMS/EW20SLrLLI1Ac7iIasEHR1MM60NcuSyxXwPpd
-	ejseX5IscKe3rqIwAkUf4aKTYdh47SmA9uGcAtwFFeR3I92QeaNh6r2kKbxrn9QkYp9uMewzwyfUw
-	hQCoucfw==;
+	bh=0yDFWXidPUpD6GR8yKBVyIefq/VsIeeuNEuSAxQe+oI=; b=aVaGX3UbtlWH5BwB+DQb2r2+z1
+	UhZaZx/UTEPKoYumdxMjRbPQ7NHE4QReXK9y+GOFExsEeRgiy8BH1Y20/B2MluZ6y3AoJEItimuOn
+	IOMHWk7YyfZ5w/UG3GZfEH8pti4Efc7LlJe0Pqi+SAjN6qmV2MSiocI2AbTHkjlYF+H/Ypc3n8xPy
+	hpOy0qcFQ7ka51DEh8mfv4Tw1ndaQ+l/k8m2jXCRZ0HTMj1iB8MOHONlLJIZTD7vMuOuid06BY5d1
+	++jf7zt9XLC+rXd/GU0pwxKjDm7VICDQYlS+tWMai7hNXatwVU4nSNevZ1ahGfcl2Fznk8me3HoJJ
+	GbVVqAAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsK4-0000000Eb3s-1bnw;
-	Wed, 14 Oct 2026 06:18:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGsKt-0000000Eb8O-2Ca7;
+	Wed, 14 Oct 2026 06:19:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsK3-0000000Eb3d-3aSK
+	id 1xGsKr-0000000Eb8B-0rkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 06:18:43 +0000
+	Wed, 14 Oct 2026 06:19:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B8CD60218;
-	Wed, 14 Oct 2026 06:18:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 869851F000FF;
-	Wed, 14 Oct 2026 06:18:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EBA860213;
+	Wed, 14 Oct 2026 06:19:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBC271F000FF;
+	Wed, 14 Oct 2026 06:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791958722;
-	bh=lPV0f0P+OlbQsun3sAAvy5HVXr3czVbo2sJjluw/ocg=;
+	s=k20260515; t=1791958772;
+	bh=0yDFWXidPUpD6GR8yKBVyIefq/VsIeeuNEuSAxQe+oI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ayJ88EZng8xSFT38achQy/9Jv4OXmdtQfsqARpzdzwVDQXlp+mgU0nT1S71z/lerQ
-	 jga5lka5RuyPuCP7LoAWzrrUYxukCur4V2PH9LOV3tQUe7l5t0DfDnd2klMoLmrr/c
-	 7RMvH5PcGu4Zm/le86aQ9f3jb88M0LRnrwOL2UYypXIfxfsqvIqTr+m12/zMUx/m3Y
-	 eP/f/tWvhCCjKTFQy7l7LgbYkMvw5tNF3vivfvz/sX5AspYi0JvSnElhz2XOJmI0BS
-	 Fd14/S1isb4KPLwGU9lvOGeJ1maPzlbhI1RN0PG2/SHJCUNqaX6+KCEoOiqW1pktSY
-	 UCqf0Qw+rf1nw==
-Message-ID: <aa220570-f573-4d85-8cb8-e009bb5ab856@kernel.org>
-Date: Wed, 14 Oct 2026 08:18:33 +0200
+	b=Zyo1uzypz4fSM0KloSSS9SVY+3DeiGf7FUMG8Ff0J/te8kx78yKQyJFoxSH9Vb5hB
+	 KV6iYsdDi5Km940R37qM1bkNWcj7ArIvwja/q5QxoCfHFW3COh3gKApr1+jQfRBpMw
+	 SJQmWHNTsKSnH+7TuAm1B1BkKS6NGcycYbuGb/NUqOCiQqxozr+K/9JtTOsXo9cAD8
+	 QmGQAhykysyCwGTcGGU1U5pIpZy0ZJMDtuXGdKeW34F2lu4TlK2FKiWVrz355X7XD/
+	 VAQUTg1gBhF575KEm3RPEfA57UqZQUEjL1AwbHKwFpWDZf+DIY/JamagqhqSpxGfms
+	 6UCZnpehxS4VQ==
+Message-ID: <5e221ba3-fea2-4663-80a9-94fdd5135e89@kernel.org>
+Date: Wed, 14 Oct 2026 08:19:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 13/14] arm64: defconfig: enable the Qualcomm Crypto
- Engine core driver
+Subject: Re: [PATCH v10 14/14] arm: multi_v7_defconfig: enable the Qualcomm
+ Crypto Engine core driver
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  Thara Gopinath <thara.gopinath@gmail.com>,
  Herbert Xu <herbert@gondor.apana.org.au>,
@@ -63,9 +63,10 @@ To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
 Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-kernel@vger.kernel.org, brgl@kernel.org,
  linux-arm-kernel@lists.infradead.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
  Pankaj Patil <pankaj.patil@oss.qualcomm.com>
 References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
- <20261013-qce-fix-self-tests-v10-13-57162a38a554@oss.qualcomm.com>
+ <20261013-qce-fix-self-tests-v10-14-57162a38a554@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,7 +112,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261013-qce-fix-self-tests-v10-13-57162a38a554@oss.qualcomm.com>
+In-Reply-To: <20261013-qce-fix-self-tests-v10-14-57162a38a554@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -131,19 +132,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 13/10/2026 11:57, Bartosz Golaszewski wrote:
 > The QCE core driver should be enabled by default as it binds to the qce
 > device node and scales down the interconnects if no child auxiliary
-> driver is using the IP. Add it to the arm64 defconfig. Disable the
+> driver is using the IP. Add it to the multi_v7_defconfig. Disable the
 > crypto part of the driver by default.
 
-
-Standard comment for Qualcomm defconfig: why do we want it? If no
-hardware is using it, then it does not matter that it scales something down.
+Missing use case/hardware (see maintainer profile).
 
 > 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > Tested-by: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
 > Tested-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
 
-
-Drop fake tests, you cannot test this.
+Drop fake tests. You cannot execute defconfig on the device.
 
 
 Best regards,
