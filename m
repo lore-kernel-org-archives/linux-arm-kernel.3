@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83582CC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA13CC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+IaSM9kT05pfBEWp0Id2Mry8ziv93Bwpy/RvFGwxDY=; b=dBYX62PZeP5uvR/sjGeHVScbpT
-	nFdH1fQpK3joNcKBJVg5hf9fqBYg1Pc9ARf8T7JMQ0j2ZesbgwihXQBoGvq0zQ0r/PWUHaRcxiuXQ
-	u9781vp74wAdZ8Zic4KfulkgyR8Lgf1un388Ftetk2+83mORalqgX5H0ZxnkT0nUjycPnkGNVv0ne
-	lXjBCD8Gqswkl/BG48ZZnE3lnU4mZ5oIr/SMawJ+xoaGI45G+FUcj1Qh3EIB6sr7h2bOKTwdv+vu0
-	o7R1Bj8nPwz2Tea/0hihu8Za/HkeBb3ENA26+942yZWBLmbCtzTmQ3m62x7yooT/aGaIoxO0Oujaz
-	0TiELN3A==;
+	bh=qmJA5oweHf7y7LUm/IEEoB8DMBJEwZzzWuhG/f1dqCA=; b=yTCyGbxejrvfN4AiympgufS+qT
+	kYi/mJYMHyWWTMmPHahLC9cEdHwodkAdCwMbXzC5HFD76iAzeC7w89HNSDTBVcaV/TCGz3YtEEJgE
+	MEs7kDrmrAZzUsR8c/Yj8uaIhPiqgjB/WHh3iYIvmG0958HYqh9zWuR/olybIoW4qRN3kbTMub02j
+	WsjsxK8QQ9L9r+qeX2ek1hTbRU3y/mWX2H1hXOUCzpb4wrNwd/pAggXVY5X5Z4I0C7UYkdepwolUm
+	ONz91KGBRHJi2viZ9k6VkG6O69OFdSRc78Z4Q2/som3WsxQLo1OXngrjScmWdP/tHMrE+O49kLb+j
+	ZXGkVMBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6tz-0000000GNg9-2CAC;
-	Wed, 14 Oct 2026 21:52:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xH6xL-0000000GNxo-3vM6;
+	Wed, 14 Oct 2026 21:56:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6tx-0000000GNfZ-4Atq
+	id 1xH6xI-0000000GNws-38AX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 21:52:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CFA543474;
-	Wed, 14 Oct 2026 21:52:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888AC1F000C4;
-	Wed, 14 Oct 2026 21:52:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792014765;
-	bh=D+IaSM9kT05pfBEWp0Id2Mry8ziv93Bwpy/RvFGwxDY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=luFKnl6nDaTRwLuUvwfPn1yXToQ2S1HPsjTzNUym0qJ8e7SyIg0KvlS7arhuRzpcy
-	 4PkPpRlwf7D6QFnrWtwK5EzrYITdsqCmxWlo9Q+ebxhM8EnqkgnHWQw4ScGKloCiu7
-	 Fgc4P0Hv9gWPN348FWMNlfdx0gXntEZPzXl3HL0DBLf8pZeLN5avrDd2gJawMMgvRR
-	 gYTbwxoOiYBLLhDsEgnfcoerq+xFhZ3jE8lrgn956m+2dhQA/ghNl6VNgj/xMR43Sw
-	 gyXbFe1TLs3xdr+rRcVimZDKubhrru8kRO9aXspUB+z7OGi8O/RCE+opLw9XqyhE8O
-	 BxLIt38LXIC+A==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin
- Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa
- Saleh <smostafa@google.com>, Nicolin Chen <nicolinc@nvidia.com>, Daniel
- Mentz <danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, Radu Rendec <radu@rendec.net>, Bjorn
- Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, rafael@kernel.org, Danilo Krummrich
- <dakr@kernel.org>, driver-core@lists.linux.dev, Pranjal Shrivastava
- <praan@google.com>, sashiko-bot@kernel.org
-Subject: Re: [PATCH v11 07/16] genirq/msi: Cache MSI message in
- irq_chip_write_msi_msg()
-In-Reply-To: <20260929034510.2023173-8-praan@google.com>
-References: <20260929034510.2023173-1-praan@google.com>
- <20260929034510.2023173-8-praan@google.com>
-Date: Wed, 14 Oct 2026 23:52:41 +0200
-Message-ID: <875wz4eyqe.ffs@fw13>
+	Wed, 14 Oct 2026 21:56:14 +0000
+Received: from killaraus.ideasonboard.com (unknown [80.155.15.37])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C9315BC;
+	Wed, 14 Oct 2026 23:54:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1792014844;
+	bh=7uB7pWYKGkJ0kAF2Aw86BM8RV0dxWrCfnl6W2JEIN6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=wTGgkj5PBvgb9lbmG/k+vWjnOOQZfx0fifY2n9Ijxa25iE3w+SRFGs9paNrdWdGFh
+	 T0ygxjOr2Mr09vZ/EuS3/MfpXZcqeabDEWT4OV/P9HnjRzkr0R91b7hM/XwNZpU65R
+	 nCmPkFuYzDSzuD5q4vkJrmD700UyWdrKBNEvD+io=
+Date: Wed, 14 Oct 2026 23:56:06 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: guoniu.zhou@oss.nxp.com
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
+Subject: Re: [PATCH] media: imx-mipi-csis: add support for
+ MEDIA_BUS_FMT_YUYV8_1X16
+Message-ID: <20261014215606.GB283442@killaraus.ideasonboard.com>
+References: <20261009-csis_sam-v1-1-81f2b0fb76ef@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261009-csis_sam-v1-1-81f2b0fb76ef@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_145613_264824_B337105E 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,80 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29 2026 at 03:45, Pranjal Shrivastava wrote:
-> Currently, PCI MSI caches the composed MSI message into the MSI
-> descriptor inside __pci_write_msi_msg(), whereas platform MSI and other
-> device MSI domains do not cache the message in the core, forcing
-> individual drivers to manually copy the message into desc->msg if they
-> need to restore it across power transitions.
->
-> Cache desc->msg in irq_chip_write_msi_msg() before invoking the chip
-> callback so all hierarchical MSI domains automatically record the
-> latest message. Document why the redundant assignment in
-> __pci_write_msi_msg() must remain for direct callers outside the
-> irq_chip hierarchy.
->
-> Suggested-by: Thomas Gleixner <tglx@kernel.org>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+Hello Guoniu,
+
+Thank you for the patch.
+
+On Fri, Oct 09, 2026 at 06:58:41PM +0800, guoniu.zhou@oss.nxp.com wrote:
+> From: Alice Yuan <alice.yuan@nxp.com>
+> 
+> Add MEDIA_BUS_FMT_YUYV8_1X16 to the list of supported bus formats.
+> 
+> The format uses the same CSI-2 YUV422 8-bit data type and 16-bit
+> parallel bus width as MEDIA_BUS_FMT_UYVY8_1X16, but with a different
+> component ordering. Supporting YUYV allows sensors and bridge devices
+> that output YUYV formatted YUV422 data to be used with the i.MX MIPI
+> CSIS driver without requiring format conversion.
+
+What sensor(s) do you have in mind ? CSI-2 does not support other
+component orderings, the YUV4222_8B data type specifies the ordering on
+the bus as [U1, Y1, V1, Y2], and V4L2 maps that to
+MEDIA_BUS_FMT_UYVY8_1X16.
+
+> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 > ---
->  drivers/pci/msi/msi.c | 6 ++++++
->  kernel/irq/msi.c      | 9 +++++++++
->  2 files changed, 15 insertions(+)
->
-> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> index 80a9db417dc8..f7bedc31d486 100644
-> --- a/drivers/pci/msi/msi.c
-> +++ b/drivers/pci/msi/msi.c
-> @@ -257,6 +257,12 @@ void __pci_write_msi_msg(struct msi_desc *entry, struct msi_msg *msg)
->  		pci_write_msg_msi(dev, entry, msg);
->  	}
->  
-> +	/*
-> +	 * Although irq_chip_write_msi_msg() already caches the message,
-> +	 * keep the assignment here for callers that invoke
-> +	 * __pci_write_msi_msg() or pci_write_msi_msg() directly outside
-> +	 * the irq_chip hierarchy.
-> +	 */
->  	entry->msg = *msg;
->  
->  	if (entry->write_msi_msg)
-> diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
-> index fb5f372215bf..df460a574d80 100644
-> --- a/kernel/irq/msi.c
-> +++ b/kernel/irq/msi.c
-> @@ -634,6 +634,15 @@ static unsigned int msi_domain_get_hwsize(struct device *dev, unsigned int domid
->  static inline void irq_chip_write_msi_msg(struct irq_data *data,
->  					  struct msi_msg *msg)
->  {
-> +	struct msi_desc *desc = irq_data_get_msi_desc(data);
-> +
-> +	/*
-> +	 * PCI Multi-MSI shares a single descriptor across all vectors and
-> +	 * the device stores only the base message. Cache the message of the
-> +	 * first interrupt only, so that sub-vectors cannot overwrite it.
-> +	 */
-> +	if (desc->irq == data->irq)
-> +		desc->msg = *msg;
->  	data->chip->irq_write_msi_msg(data, msg);
->  }
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> index 5f9691d76434..14a00b9fcedf 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -382,6 +382,11 @@ static const struct csis_pix_format mipi_csis_formats[] = {
+>  		.output = MEDIA_BUS_FMT_UYVY8_1X16,
+>  		.data_type = MIPI_CSI2_DT_YUV422_8B,
+>  		.width = 16,
+> +	}, {
+> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.output = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.data_type = MIPI_CSI2_DT_YUV422_8B,
+> +		.width = 16,
+>  	},
+>  	/* RGB formats. */
+>  	{
+> 
+> ---
+> base-commit: b38d06ad1e13c32970d58039c154f009b81a3368
+> change-id: 20261009-csis_sam-c5c10ed12322
 
-Sashiko reported correctly:
+-- 
+Regards,
 
-> [Severity: Critical]
-> Does this code cause a NULL pointer dereference for domains without an
-> msi_desc object?
-
-So this needs to be:
-
-	if (desc && desc->irq == data->irq)
-		desc->msg = *msg;
-
-Did not think about that, but that also means that this patch was not
-tested on any recent (less than 10 years old) Intel x86 platform or a
-x86 VM exposing HPET...
-
-Thanks,
-
-        tglx
-
+Laurent Pinchart
 
