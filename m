@@ -4,115 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8632FCC6B2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C78CC6B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ygEfqZkKdYLvH5PzfILD+BlJxPDngifIuZOGwDu9kek=; b=ZElPsEtpe/MTHaWQxbH2cE4LnD
-	vfV0ankJ183zTcHoGla98uhZuJ1CG+5BNRcdfEJm7OnFnU//5luX8UyD4pTHFl6cbVIugEWRlouIn
-	MawB48HcfRrqGtbu/bQV3Sy7asy+Jd3tzd2IkY80pSVcfOlJGGqPzpMqIImQfqrGlxUQeqDZ2F7Rs
-	kguz3BJYn374h01bBYEcn0UnxrTLxcF3EGv0fjllfYE+dqSuHM49vSVkVP4YFjW31Y2DyQrYyf1G5
-	IX82T367TFLPis6W3OKrE7j/cwAulHp+2OdGRjPnls1gusJE2ffrTRhIiihIHHHZ+WdU0/m3AfoRn
-	zAT38IHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MHXeb0vXLdnW9/JmwDK3OUmF9m3u5QpIN6VrE7BO30U=; b=U9LXa3o60sU7wZC7r6FjTjNhyC
+	dLMoXsdM9hhq/EBrVKdBau6JXrmhXdBbS/5Y7iws3C01Dm4Zr/K4yteZj1GbfK/0/urr20eZgyMNh
+	MnUcCZQXROUuKYnkDWe53rfZatbfcbv9r0gFfMkVvSnkf2rd3q8gBcAg07DisRGVe3cHh0rtJUOOh
+	yXn+SwXKQea4n5NoaIl/jX9MrjJc7SaIiEAm5S73Vher7O6lnfu28VB+HKJpfkCBC/ultNeQjJgYc
+	cf/ucmjK+l9rghCCbiov4FL1r8vLSFGTvHM6Qq52qqQXD8XRcC2ThXnq0YV8c6D4ViOnmdTZONv3e
+	Np5kghOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6e3-0000000GLyJ-3CE3;
-	Wed, 14 Oct 2026 21:36:19 +0000
-Received: from mail-centralusazon11011023.outbound.protection.outlook.com ([52.101.62.23] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1xH6hl-0000000GMNy-1W7b;
+	Wed, 14 Oct 2026 21:40:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6e1-0000000GLxc-1ZRs
+	id 1xH6hk-0000000GMNR-01lK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 21:36:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fv7mc0ph59rO2xCBjmhlgCvcG0czfuSG/D/+d9VODULlWLx0G4DPMqQtZ2pOE0eM22H9RnJuaoy3D5Y8mjqt5m9ZSO1g7eevk1DonSRnI6TV7LJuxGI4+NmOwZVQYQFzIkNoOJgEU32vpXmYbtds9xU20kbHjwhmsXvXYdcQ/+NUK401ZQs2KggCvW4Egeg1SedmZM5JbYGdawZv2yCchLsO8nNCauDnkOQ4lAx7kr8J9nnTGuA9L9940rCXE3CXAlE33gJjswe46ylVBcD2JBzi9Uc5B3YqRs3yp+T8Pt/pZCUFUWDX84JRjTMMhJfwAiuwKT7MO+aA9SupWsXu7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ygEfqZkKdYLvH5PzfILD+BlJxPDngifIuZOGwDu9kek=;
- b=mXcWpLd03itFojMRt0wjNYgavQtV8hrDy4swCXROs2HZQnd3ok/8JkxlUJJcg1u/64RGg1nsMp8k4lxnRfImTdFFp5gbbwoNIKbexXZQXUw446M6IqpT1RT0YdSU7+pNwXPxbxS3qhSqIh0AOPkXoUK8FrFMW9uqg7TVpG17M3Zn9ndPAXYiXZ9FgWeqdLzqaYsfj4Jtr7HQfTNUvdJXdlnLIUACajgfyOQkfxEG1N8cLMgEeKvZEIrUK8h+j/9ZDVFgi0UyRV4ZiTgyAvyp2yoSh8ZKg337lJLxDci2sYUk0cCspjqvoH7exw30kRHYKIpvA0TMV4zByc8tBybIPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ygEfqZkKdYLvH5PzfILD+BlJxPDngifIuZOGwDu9kek=;
- b=1JgeqHzaN6kTxQ2p7ovakYKYa/alzvQkoGZIKubRVACYXQCAz8bqKRqeMvZU7Y7cOmXtr+/LggadFw3fwD4EzmqUzcJXXfcH+m7MqhQfKso5R9opqL/bCXFvF2IOYRfhulZ+rkGd/uMwt220GvRXIMPSTqBgzMChakbhkrV9QQc=
-Received: from SJ2PR07CA0008.namprd07.prod.outlook.com (2603:10b6:a03:505::8)
- by MW4PR12MB7381.namprd12.prod.outlook.com (2603:10b6:303:223::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
- 2026 21:34:33 +0000
-Received: from SJ5PEPF000001E9.namprd05.prod.outlook.com
- (2603:10b6:a03:505:cafe::1f) by SJ2PR07CA0008.outlook.office365.com
- (2603:10b6:a03:505::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Wed,
- 14 Oct 2026 21:34:32 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001E9.mail.protection.outlook.com (10.167.242.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 21:34:32 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Wed, 14 Oct
- 2026 16:34:23 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Wed, 14 Oct
- 2026 16:34:22 -0500
-Received: from xsjblevinsk51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Wed, 14 Oct 2026 16:34:21 -0500
-From: Ben Levinsky <ben.levinsky@amd.com>
-To: <jassisinghbrar@gmail.com>, <andersson@kernel.org>,
-	<mathieu.poirier@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <michal.simek@amd.com>, <linux-remoteproc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <ben.levinsky@amd.com>, <tanmay.shah@amd.com>
-Subject: [PATCH 1/6] remoteproc: amd_mbv_bram: Bound device name formatting
-Date: Wed, 14 Oct 2026 14:34:21 -0700
-Message-ID: <20261014213426.2957480-2-ben.levinsky@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261014213426.2957480-1-ben.levinsky@amd.com>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
+	Wed, 14 Oct 2026 21:40:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 912AC60229;
+	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44A0B1F000C4;
+	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792014006;
+	bh=MHXeb0vXLdnW9/JmwDK3OUmF9m3u5QpIN6VrE7BO30U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=WEqnW0jD3CDKzk3yyPkIENurtJb9u8+7v8LlYYTkhdBRxr/2gkDUhAEBBqQp4E8xu
+	 +HIh91vYH+zfKfHaws/cpNrK+ULUVi+CXOf6V70q+aUVIeOkeazLh8pE8xC709ibUv
+	 cpj2owkVVgbfK4ieN2QHTb6cd3QVZbtFH5rdtYzhs7alrXvnca8nzOG4DaO4JPnpG4
+	 WX/hVErhC4xFhZJubFngDYKhq5HPuh9qq6WF9Hblj07ScGv7oAqBCmFAhE5uSlTDs7
+	 DIV/qH5FkBcB8VSt/voFn7ykplx/lDaOIEjfp+dnnmzwIXaNLEpXvI81B5YuARnZPS
+	 m8KyBhCCSBrug==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4313803318;
+	Wed, 14 Oct 2026 21:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001E9:EE_|MW4PR12MB7381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9bf3c622-a1b4-4868-c62c-08df2a3aefba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|36860700016|1800799024|82310400026|56012099006|11063799006|261009223027099003|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: pYsjq0MpETRdqmCRa8h5bIfbr77cI7MsIgJjfcs0KxpskTS+C4tVImabTl2lUKZCe5l1xrZrgljQBHUuiL2fRBe4OnCuKBaa2vHgy7Wi26jXEIICAjAB5r05yEz/0amS95CWFMJKfES3VN7joB2+yjbN8WUOnM4bZMRdZPtAAt32MVeN+1fP3Nl06Aysd6DBPRDIfClBmGF+k2n4glvFZvAIR67SUjuCmnIuaW40lkdYsURUQKbuIz7reGS4JKKdJONguso85Mf1LhkA7fZ81g116GD6wkibt53v+hCvRMGF8SlbPMDVLyBDXMawFS59xSGrS4+99DGhSwsn3Dk5OQFTEblLEtlmqOd6zPMzKzIs3NP4bQMokKHfKeiREYfJOszMgdro3yyLQ712QUtnS4qhPEtExrgBrRzm+UDXugncB0LW57D7BnXYHTxEX7slsOIgIy9cwe3CUJdPrlCfBMB0Ns7ozEuTgvqY7SrZfpE4LWaGkj0gAqLUJC04bEIRuLbetSireDyeyqVqYj9cjNR7EglcWR4IRHbAwHN7UHiUvfzMPGVr41hQ/CA8ilXrXTLBshadkt6IPJ5N7r1zlghZoNISyyJ6VvVQedLZmPfZ6aWiKQE2u8qLRNj27t85LWl3YnblQo+hG1FwMUEnUF8k3UkCCJFdL6vixRlugqOqt6eifuiLAtwSiMt2JnT9eE4VlMmzlfjBkBZUnN2a4w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(36860700016)(1800799024)(82310400026)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: INQLdoosDKkF/hXUcpodXvBOCY0u81OOsC6y2ZzhZ0WMS1l8VzuwZZgqx2bByR32QuSuca/NpndlI2T8BmxxThJxLjzmnUTLk+WjO0rIjbk4VHdi2AZqgn9odPt25JczQppN4tV5Oi2uIS4GxgM7DbZXVPK3igFwXmbiGOZ1Eh46yEkjzTKRUwNA6q6W8eHa4mFxBHXvhFXViHUDFuZzfpygNw4T9AfFjexG2ovXw9jE/1RNCTx8dE26ZfTjqUoH6F5Xa/qAV48F6l1hliwXnKDEWkQjEEkop9j+FaM8SXZqMKATtcEJpArCFy4IdMzRRV/4kATDxVc00mXTFVAHfnxfArs4Q6VyXGtSfmLeyvn4s/ac4oVkbhncJwlcrYyhyyPLQf/pAClfOyHeSZSOlZ6cdNrsK2WnNAyxfFHgAvhVoAyadELvxxE74jBbDLGF
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 21:34:32.7645
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9bf3c622-a1b4-4868-c62c-08df2a3aefba
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001E9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7381
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_143617_417609_2F1BAB99 
-X-CRM114-Status: GOOD (  12.64  )
+Subject: Re: [PATCH net-next 0/3] net: use skb_share_check() in loopback
+ selftest hooks
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179201400467.3009952.9047387445003414493.git-patchwork-notify@kernel.org>
+Date: Wed, 14 Oct 2026 21:40:04 +0000
+References: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+In-Reply-To: <20261007-nb-net-selftest-shared-net-v1-0-458369bfa1ba@tipi-net.de>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, o.rempel@pengutronix.de,
+ maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ Jose.Abreu@synopsys.com, saeedm@nvidia.com, tariqt@nvidia.com,
+ mbloch@nvidia.com, leon@kernel.org, dtatulea@nvidia.com, alazar@nvidia.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rproc_mem_entry_init() interprets its name argument as a printf format
-string. Passing the device name directly allows percent conversions in a
-DT-derived platform device name to consume nonexistent variadic arguments.
+Hello:
 
-Pass the device name through a constant format so it is always handled as
-data. Limit the formatted name to 31 characters to match the space
-available in rproc_mem_entry::name while leaving room for its terminating
-null byte.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Fixes: f87b4998994e ("remoteproc: Add AMD MicroBlaze/V BRAM-based remote processor driver")
-Reviewed-by: Tanmay Shah <tanmay.shah@amd.com>
-Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
----
- drivers/remoteproc/amd_mbv_bram_rproc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Wed, 07 Oct 2026 20:29:21 +0200 you wrote:
+> The loopback selftest hooks can get a shared skb when another handler
+> is bound to the device. Linearizing a non-linear frame then hits
+> BUG_ON(skb_shared()) in pskb_expand_head().
+> 
+> Stumbled over this on RPi CM4 (bcmgenet, with jumbo series applied +
+> WIP selftest patches) with a packet socket open at the same time as
+> running ethtool -t.
+> 
+> [...]
 
-diff --git a/drivers/remoteproc/amd_mbv_bram_rproc.c b/drivers/remoteproc/amd_mbv_bram_rproc.c
-index e4a103cf8455..6cf33c7b7e64 100644
---- a/drivers/remoteproc/amd_mbv_bram_rproc.c
-+++ b/drivers/remoteproc/amd_mbv_bram_rproc.c
-@@ -72,7 +72,7 @@ static int amd_bram_rproc_prepare(struct rproc *rproc)
- 				   resource_size(&res), da,
- 				   rproc_mem_entry_ioremap_wc,
- 				   rproc_mem_entry_iounmap,
--				   dev_name(priv->dev));
-+				   "%.31s", dev_name(priv->dev));
- 	if (!mem)
- 		return -ENOMEM;
- 
+Here is the summary with links:
+  - [net-next,1/3] net: selftests: use skb_share_check() in the loopback receive hook
+    https://git.kernel.org/netdev/net-next/c/fbd3a301b137
+  - [net-next,2/3] net: stmmac: selftests: use skb_share_check() in the loopback receive hook
+    https://git.kernel.org/netdev/net-next/c/a7a89019bac0
+  - [net-next,3/3] net/mlx5e: use skb_share_check() in the loopback selftest hook
+    https://git.kernel.org/netdev/net-next/c/16fb7aa6955a
+
+You are awesome, thank you!
 -- 
-2.34.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
