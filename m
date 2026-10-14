@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE7CCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EB0CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcDK/pebo2mPEMQZ0p0oqr6UiazZd9GFCzRu+HIk0DU=; b=R9jYZaIhBU6Atd0YY374utZVVF
-	3RaeNP3fTGmIrxgR9cNiuij5ZhivhoydhU7IPnq9akXyu0adivm4abyJfzBXyrQxo3VJlBm13juuf
-	lLP4K1kbhXpnf+DqI95jAy5+u0ElUwMy9fDA6rqvjxVPIPmymTcv3ph7NrK3ayQzXn4725IqqWq3c
-	F7CbuMWWIsRr66eePtJoN1YF9Vqy3Jwl1a2pQH02Qn3so6Vlw/Gh8h7hQClWfreoi36hcfGf5mpqr
-	FPfj5+AE0VyiJtXf9c47naHpx0yiCoqNV8mq6e3iPqkxN8vdYgvb9p0cEjMs4yGbVXfIbbuz+Njeq
-	oRTvYu+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Kg+A+xrZdns/Gt1pdYxZtMAWhuUXTyI/p/XIqtBsPU=; b=Kt5AEjhNnv7wvRlRWyJ2dF/nuv
+	1c1ft31hjwcw6jeK6FyjvZRUBOOYEPiz9aCoZ4RGASGeXcC1F4+rMCquRGM7t18h8XeqdOTcw/eSH
+	0N/Gh2tf3P6PzeQN3KGrKybApjoMpeHHlP00WFcdeKTLFtw/EOI7fF7LvUMVGmA8+LJCQId0MhHln
+	9I/UCF6YtAALHdW0U7+L0nk9qM/wLGjNYeEV9fFqLC8p+kUnyCeCPp8TszWRe3tVNZPOFNQ388Z8x
+	LJlP8Xz9L2xI8lR7qV5qX2imHU7HA5HpKpJGPGZIiKXKgr/eHEZnGczwiNK/QJ+0vaSWhHvb5CNXN
+	2quJ/HNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyEE-0000000FRX1-4BVd;
-	Wed, 14 Oct 2026 12:37:07 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xGz9h-0000000FcD4-1A1b;
+	Wed, 14 Oct 2026 13:36:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyEB-0000000FRVX-2kf8
+	id 1xGz9f-0000000FcCs-2QIY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 12:37:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=zcDK/pebo2mPEMQZ0p0oqr6UiazZd9GFCzRu+HIk0DU=; b=M2NhgmN1lO9irghBDCYlbRM8SS
-	w0CY12HmYRITG6PK2i7bv55vNs8IktqgyMX08xWIk9fzIwULJQ0FsZkUDhxiEPA1qz2uPxjiV36vX
-	MkoO9uhvcxx08tJpKPAV79mFlUDIsdab+9ApuLGKZkGsf+6EY1LCqQ+KJ3z4E+F7KUzM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xGyE9-00AjBI-BM; Wed, 14 Oct 2026 14:37:01 +0200
-Date: Wed, 14 Oct 2026 14:37:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
-	stefandoesinger@gmail.com, krzk@kernel.org,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 16/24] net: phy: Add Sanechips ZX5201 PHY support
-Message-ID: <788c9b01-473e-4c45-b6f0-b2ba054da8e9@lunn.ch>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-17-ghahramani.navid@gmail.com>
+	Wed, 14 Oct 2026 13:36:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5735642D84;
+	Wed, 14 Oct 2026 13:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AD2C1F000FF;
+	Wed, 14 Oct 2026 13:36:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791984987;
+	bh=/Kg+A+xrZdns/Gt1pdYxZtMAWhuUXTyI/p/XIqtBsPU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=IOPD676Bzqg8w3PuxzHaWtPLz4Fr1BGavAD4ZKepp+VzH02KwLCArkK2JUaJy5VYC
+	 GmztHM30ObE8AOA7cr61nyWpFnePu7d8J3Pks9mbG8Tb1fkZ1FOCX+1hT+zV6IL3Wq
+	 RYZcSCn7zwieXuGT55CchkP8tFFxchV6wQFcHoYf8P+NMSthRHY7V9RwETLF+mwieI
+	 rqQdjhZfKPPDDnVAuRg5fS/cL+dRV/1SKhDEWvSmaRhjaT/wk1X+d0Ly1vCoG7Lu/1
+	 lkS4LaGJfzGirFDwp5wMFysaLGVKAcJy5ssoszF04c6Bcp8X/x/iDClgu6PPu0XgAf
+	 qEeSpJj+3eNbw==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, 
+ Roy Zang <roy.zang@nxp.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Ioana Ciornei <ioana.ciornei@nxp.com>, 
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Vincent Jardin <vjardin@free.fr>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260928-for-upstream-pci-layerscape-async-probe-v1-1-76412d887baa@free.fr>
+References: <20260928-for-upstream-pci-layerscape-async-probe-v1-1-76412d887baa@free.fr>
+Subject: Re: [PATCH] PCI: layerscape: async probe by default
+Message-Id: <179198497640.63727.7466078377590135207.b4-ty@b4>
+Date: Wed, 14 Oct 2026 19:06:16 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261014072109.1759502-17-ghahramani.navid@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_053703_695582_EF294D4A 
-X-CRM114-Status: GOOD (  17.21  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=303;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=bIScKkSRWfgKMp5sG5Isx9f9wVbp2+a5UTcxtA0Zz2o=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz4VV1pY342QQGnH8cFuzx4aa0fkm4cHc0AiK7
+ +xJU8Y3iL6JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas+FVQAKCRBVnxHm/pHO
+ 9XC+B/0ZHyHZhsScilHuWvjjib7MCUyNylWS37lr4ITYD4lMWo+3rdnEyjgV9vXzxi0hpamuRKq
+ dquWb/DbCBlgT5aenUd7qndALvWtkTK//owK7DqOL/W4q4ElEKL7xqps5nrJghYX/vZtEId+dEl
+ bRjtbwKSiuUZCh19G4f4P4rvwV1UmoBN7wYsWGkH52WEURKKAbPRTjl+Zpc2G8Dn+SLzceMOSK2
+ CTlvecW3mPlO5rSLrxADHJuRiDsZatXJYqtv6wzfmS4Nzb0Q8b3l2bM77KOcBInbRzhTeiEHJo5
+ WucunzBLhRoRKzKTunS3JDCh5K4sVhQ1WmsLA6CdqSodHGKU
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +87,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Sanechips ZX5201 Ethernet PHY
-> + *
-> + * The ZX5201 answers on two MDIO addresses: the copper PHY on its own
-> + * address and its MAC-side SerDes interface on the next one.
 
-What do you get when you read registers 2 and 3 of the SERDES? Is
-there an ID in them?
+On Mon, 28 Sep 2026 15:48:09 +0200, Vincent Jardin wrote:
+> PCI: layerscape: async probe by default
 
-If the mdio bus is scanned, and there is an ID, phylib will try to
-probe a PHY driver on the SERDES.
+Applied, thanks!
 
-> +static int zx5201_sds_read(struct phy_device *phydev, u32 regnum)
-> +{
-> +	return mdiobus_read(phydev->mdio.bus, phydev->mdio.addr + 1, regnum);
-> +}
+[1/1] PCI: layerscape: async probe by default
+      commit: fd592bcb77f834564e787b8c809fa01f1af81731
 
-I would suggest adding a probe, and validate phydev->mdio.addr is not
-31. ENODEV, or EINVAL, to indicate the setup is invalid.
+Best regards,
+-- 
+மணிவண்ணன் சதாசிவம்
 
-> +static int zx5201_config_init(struct phy_device *phydev)
-> +{
-> +	static const u16 led_regs[] = { 0xb409, 0xb407, 0xb406, 0xb408 };
 
-> +	/* LED control registers, all cleared as the vendor firmware does */
-> +	for (i = 0; i < ARRAY_SIZE(led_regs); i++) {
-> +		ret = zx5201_ext_write(phydev, led_regs[i], 0);
-> +		if (ret)
-> +			return ret;
-
-It would be nice to reverse engineer what these bits do. And then add
-proper LED controls. However, that can be later.
-
-Ah, now i'm confused:
-
-https://www.sanechips.com.cn/en/ProductEn/WiredEn/ethernetConnectivityEn/index.html
-
-This says it is an RGMII PHY. Why does it have a SERDES? That suggests
-SGMII?
-
-We need to understand this, because if it is an RGMII PHY, we need to
-address the RGMII delays, which that page says it can controller.
-
-	Andrew
 
