@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7646ECC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 04:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413C1CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 05:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=; b=47LYgMdF8JY3HECiSteY9q4jdA
-	yggiRztwYwa15XeBSesabLDattVP5lTclLg5L4D7OByYfbE7aVd+YO6lZfgbdUsMfgGpAHO2sLl0k
-	/YyEsLlDAYBT4+b0I0dtaKLIjDWE2sDdEbdubydPBlyYMjGX7QmDaZ5HkmC2hnvyafzGL2LxPHTaE
-	3tbRJR9bR9cBcGQIzHYjFIr8zK0Fxafk4+iLjyMLoHhm6Dvu2nHQ6CGYlrOHQGMMHMYSC6c+7CJJd
-	tx0uRxeIEetCv/GaBL97S83s04fy4TFbbFA8oDlWcmYgkrPuULMKxZVkYIyDpBFJYr0tbMJugGwfv
-	8nipRSSQ==;
+	bh=0T0zreJEKXCOs2vAHy9C7aS+rC0OoUQsDz7CaxsQtfg=; b=DTeZYM3+u4vf7HPZvLNct/lo7T
+	4NAB0X8tFxuwm59XbMbu+y8qNcZ/NjedXSuWO++vX13k0eSZ9Auu+lDG/FyCLeaw/pl8o7RxQSuhl
+	il9ZQjAa8csHB4q48nMysFZbYq7+KZU7cWBmCmbrQMx3d5WFSnbr5tvH/sG4vxT+v5agvuZs/d4IQ
+	r6Wx9rgpOv1C++0nOCvmyRO2rjyc2cJxNhJapFY59mt/nLgYmtnogy50NczCqVG6/ZhfVDOXWFeNO
+	4c4CTBsO2QuJmuLqlQTTJiNl2F4+j7qwMQxkzhTgcLrd9ck+G1tXWPwWnWGfjwnEzEIdrwIi/6+Nu
+	OS6tVJzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGr2T-0000000EWpr-41B1;
-	Wed, 14 Oct 2026 04:56:29 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1xGr95-0000000EX4T-2cQq;
+	Wed, 14 Oct 2026 05:03:19 +0000
+Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGr2P-0000000EWpT-1RIx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 04:56:28 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-353804b591eso6494396eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 21:56:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791953784; x=1792558584; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=;
-        b=axeu5QOZcuLfcKFf8R+gKx7/Agm7HUTBY8fxk8Qj9yNOxQyh1juknb1Zu5NBxgecuc
-         JCS5Tdf5XK8cM+X/xKVTiAxNoLnB9VGSPdg9bdE/UuyDUXIoqXes2QbrNQZJS5fOb4P4
-         tVZjC8AE+czRegwv0CvwRoC58VWtcwCn6a8Ilj+p36JgAWARbM3OGWu0NiRDT8ZVkCyQ
-         x68ddHC1BJQfyzP2Mf8vqv45DH7adtuVBJXdaOBR+lEwFH4n8a18+5fL3fDp6W+YX1eQ
-         9L79zLmtYNcxfaUnmZXtGn9vet2DsppvVSI/LVTwlszAUWh2eyFjGinkR8M1s26W7raY
-         DOxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791953784; x=1792558584;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=;
-        b=y0UBu2Kt/Ytf5/MQJ84Y8uV373RG4ADu3glf5IZ7vsq8MjyY7kTT8yl3+gO6KPMfpd
-         u2+vAtVRxw1/IQP7WFkRqrkkKsvgzaK/fy2CyRwD17h7IcPPp+d3kVcM8d24t6HyWQPn
-         sor8DF6q+/wIEaNrxgEj6YHyhPfRvivVoMub4DWXzcsTP+TVlTPnHpmjMG7EB1Y43Ci8
-         3JQE3OTxD7kUoB4fkaxwaxccdKOwUzlcyKyUJMgqYb5TDgyLo3LO5x5wgAwdfIqAyXcI
-         GutaB/TqY4Wa+N9P7w8UmQKjJGP0dbuzYsdodsOYNZ+LAfE2j+uZXTlK99FW5r+xDQPw
-         U18g==
-X-Forwarded-Encrypted: i=1; AKwUvBwSw0Tlj5OaqlG8K+nvixwcfZyKCZXTCS4Q8fY/8zn6eflsBhrr0g6nuq1AXFOIHZbSHsbYEP+IDVJWt7qjqo7p@lists.infradead.org
-X-Gm-Message-State: AFq9FYKZ5AlrQ9NEGDvMnTiJ9Y4ZY3lACfsv9kJFgX9ot7aOD3rnokCi
-	KpFVCh7Plc4hQ35yQhMa6VDok8r+GJIw7Uv93YowHsaTpujj5qDzJR8+eY/r6ErF
-X-Gm-Gg: AYBFou11SJ1vVHeNmFa+a1Mq08hDYJijY8vLfTKS9FhT9JJiqBm42/Zj3FVWf7TMhYK
-	JsdU3+0tEmKdHvXs43hCFGaYFrtvmiCCRyCJjJj9p6ub82YBYL44eaQgdIux28UdWDae61cBgAn
-	QgaakOVU38oqzM4Is0O86a87NYNwaYUeNx9OAobEkyXhTrgGpMmNeaO+H6yj89M48tOV8+MuOzc
-	PPzpTPhs9ACxiVMlL/Cnb1AFT1+N5zp9LxogSpMAxDYPmbzuN+2gtn5NxHNzrKcZa/FqaxuDVpk
-	D3RJtXQLvxS9S86Mrcu8W4D3K6lR4uej7FomaDSeVTrKhoMNwX+GsnIkH/26cDaxRCUZg18n24J
-	akfQNHtFm/5JcPtioUcpGmWzmwSPcdy8TQ6vEMsbq+JfDtGrU4h1AoBNMSV2wrZIdglGAjt8KE4
-	RzHmgtUru2iaxmnpeaiaU/kQnsIEAKCm6c6g0iLv39Nsbps6H3/0SEqy/vgj5FwC2ET5Ms4k8hx
-	aNnYG3GFYxS
-X-Received: by 2002:a05:7301:dd8a:b0:35d:ea6f:b85e with SMTP id 5a478bee46e88-35dea6fb98cmr1093412eec.1.1791953783690;
-        Tue, 13 Oct 2026 21:56:23 -0700 (PDT)
-Received: from online.mioffice.cn ([2408:8607:1b00:8:a73d:31e0:8b98:4eee])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-359789fde97sm33473630eec.20.2026.10.13.21.56.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Oct 2026 21:56:22 -0700 (PDT)
-From: Pengfei Zhang <zhangfeionline@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Jose Abreu <Jose.Abreu@synopsys.com>,
-	EricChan <chenchuangyu@xiaomi.com>,
-	Simon Horman <horms@kernel.org>,
-	zhangpengfei16@xiaomi.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: xgmac: do not treat TBU as a TX event
-Date: Wed, 14 Oct 2026 12:56:07 +0800
-Message-ID: <20261014045607.3421104-1-zhangfeionline@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <179194881415.434549.5017437610608933310@kernel.org>
-References: <179194881415.434549.5017437610608933310@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1xGr90-0000000EX3r-1fRu;
+	Wed, 14 Oct 2026 05:03:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1791954184; bh=0T0zreJEKXCOs2vAHy9C7aS+rC0OoUQsDz7CaxsQtfg=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=No67Yb899+Gy5k0t1WYRFaEiPXQEASN0lMGBncIbU4m8e4fnqLIm+fEXsR5UfuJwp
+	 yIrJoSxF4pMNGBdwDfBBn0Us2aUNEJN7/ZgcQUsN+oVjkPNya/0lvb6FO+i0L9mCfm
+	 /mPcwbtyc9mJSpxq3lCWtLVMGaJYR9gTtyyChNfg=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-XMAILINFO: MxLtP9q6S0tzjLKUKgJphWdmcFHfNjQ+Kg7zfilYfOVLccuCtqBLPDXOU/0AG3
+	 hDL/EKnlaE/4Unw/PfxELEMPmMENAGsqik9zbXx65JLzWq3V7par2z3s3fqP0lxb/tS+BeO5Gu3p6
+	 /wENtOGv41KbVGOZvRDWC5xLa0bWnalLVMpTNobxlr34gAcXwFbcU7+sEKEqpKvYZhrYrs4ouvi+Y
+	 4gECnxuN4+7fD8JXAslDJG/R1qwFg+HuvSXHoXQMTV1CDamooQqWma0WMIq7K1/QMDbprIc9G2jEs
+	 e3GD5a8sGYDS6FXCJa7xby38XshjdgNZecatCej30e/sCQZhPQokFNeC1AMMD/7G6JldqgGDQcEpR
+	 8r54+y0EGdWvHX9h82jppGKe1BGXL0Xkxwtc9NUf65rTbBddyTkpkbZ0+9vw5IZzLq8XHXVpN9GkO
+	 9YOpkySIos4xtYfpPTiCPH8B3NGGzjAlD1UhaTekAD70mundIhUfgbKT7H704tZBLpl5eaqEJwJKY
+	 eFHlJZwlxKGagWjnLISVdl0iXGBA+ke6RjWRgx1dv2RlhC3oV9j5RZHKafNToNomSwaZVRP/bot8C
+	 LVa1y9inpdOh49gA5e/mHAIHF471W6INM6UsSfdqMuPD4jThwep0vFAVYo7U+EfX3DkFA0OIv5vPO
+	 2+4gqjwQ0Qihoujov7LQknNJ7Lg1QU+/2cv/hnHaSayki3+8PWY2vGb5cBeSloV09+kzMqngrEaF5
+	 yMX45PfBtrNQeUqcJe83PMsreIHn8irfvpXCJtg8SBCyGHoDq0eyPQSlatJ9OefP1CYtj6hQjr5X4
+	 WtplOcUl0FDukpST5Aov9n0Fv8mnYeYvSyp/FMmmog7ajNe90P6m51FWmx3gW8J3hiw6v33G2ihwt
+	 SRjJwSTVa2kZ+qW0oJ4GM883eF3s0/Zz+GYQDsh16RPZvPlAG0jO8dHG2LSYxuRr6yzJnLB3O9nID
+	 4mPLuNj3oH8wOXjcEChVobv2ru0XNLfM6Jw83mCNqK/XGWC+Sot4MbqME0At8ZvTDGNQegoW9MMWu
+	 29dv36fwBYAFDYJgSlKIrftX3a8AIGo5TYxKVh22MaBVmKqs=
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
+Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?YmlnZWFzeQ==?=" <bigeasy@linutronix.de>, "=?utf-8?B?Y2xya3dsbG1z?=" <clrkwllms@kernel.org>, "=?utf-8?B?cm9zdGVkdA==?=" <rostedt@goodmis.org>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>
+Subject: Re: [PATCH net] can: rockchip_canfd: stop bus-off restart before closing the device
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Wed, 14 Oct 2026 13:03:02 +0800
+X-Priority: 3
+Message-ID: <tencent_D5994C4DC2CF087A800762B3DF5F53010D06@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_5802EE88434010229EDF7A53084D994C6106@qq.com>
+	<179194843570.434549.16906326776857003512@kernel.org>
+In-Reply-To: <179194843570.434549.16906326776857003512@kernel.org>
+X-QQ-mid: xmsezb41-0t1791954182tg1aae6rv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_215625_390828_6BCEF65C 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20261013_220314_995667_AC811130 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> [Severity: Medium]
-> Can the XDP_TX and ndo_xdp_xmit path stall permanently on XGMAC in
-> shared-IRQ mode when the TX coalesce timer is disabled?
+SGksCgpJIGNoZWNrZWQgYWxsIGZvdXIgZmluZGluZ3MgYWdhaW5zdCB0aGUgY3VycmVudCBi
+cmFuY2guCgo+IC0gW01lZGl1bV0gVGhlIHBhdGNoIG5vdyBoYXMgcmtjYW5mZF9zZXRfbW9k
+ZSgpIHJldHVybiAtRU5FVERPV04gd2hlbiBpdAo+ICAgc2VlcyBwcml2LT5jbG9zaW5nLgo+
+IC0gW01lZGl1bV0gcmtjYW5mZF9zdG9wKCkgcHVibGlzaGVzIHByaXYtPmNsb3NpbmcgPSB0
+cnVlIChsaW5lIDc3NikKPiAgIGJlZm9yZSBpdCBtYXNrcyB0aGUgY29udHJvbGxlciBpbnRl
+cnJ1cHRzIHdpdGjigKYKClRoZSB0d28gaXNzdWVzIGludm9sdmluZyBjbG9zaW5nIHdlcmUg
+YWRkcmVzc2VkIGluIHYyLgoKPiBbU2V2ZXJpdHk6IEhpZ2hdCj4gVGhpcyBpc24ndCBhIGJ1
+ZyBpbnRyb2R1Y2VkIGJ5IHRoaXMgcGF0Y2gsIGJ1dCB0aGlzIHBhdGNoIGhhcmRlbnMgdGhl
+Cj4gcmVzdGFydCBwYXRoLCBzbyBpcyBpdCBzYWZlIHRvIHJlaW5pdGlhbGl6ZSB0aGUgdGlt
+ZXN0YW1wIGRlbGF5ZWRfd29yawo+IGhlcmU/Cj4gLi4uCj4gV291bGQgaXQgd29yayB0byBj
+YWxsIElOSVRfREVMQVlFRF9XT1JLKCkgb25jZSBhdCBwcm9iZSB0aW1lLCBhbmQgdG8gY2Fs
+bAo+IGNhbmNlbF9kZWxheWVkX3dvcmtfc3luYygmcHJpdi0+dGltZXN0YW1wKSBpbiB0aGUg
+cHJvY2Vzcy1jb250ZXh0IHJlc3RhcnQKPiBwYXRoIGJlZm9yZSB0aGUgdGltZWNvdW50ZXIg
+aXMgcmVpbml0aWFsaXplZD8KCkFncmVlZC4gRXhjbHVkaW5nIHRoZSBJUlEgaGFuZGxlciBk
+b2VzIG5vdCBzdG9wIHRoZSB0aW1lc3RhbXAgd29ya2VyLgpJIHdpbGwgaW5pdGlhbGl6ZSB0
+aGUgZGVsYXllZF93b3JrIG9uY2UgYXQgcHJvYmUgdGltZSBhbmQgc3luY2hyb25vdXNseQpj
+YW5jZWwgaXQgaW4gdGhlIHByb2Nlc3MtY29udGV4dCByZXN0YXJ0IHBhdGgsIGFmdGVyIGV4
+Y2x1ZGluZyB0aGUgSVJRCmhhbmRsZXIgYW5kIGJlZm9yZSBya2NhbmZkX2NoaXBfc3RhcnQo
+KSByZWluaXRpYWxpemVzIHRoZSB0aW1lc3RhbXAKc3RhdGUuIFRoZSBidXMtb2ZmIElSUSBw
+YXRoIHdpbGwga2VlcCBpdHMgbm9uLXN5bmNocm9ub3VzIGNhbmNlbGxhdGlvbi4KCgo+IFtT
+ZXZlcml0eTogSGlnaF0KPiBUaGlzIGlzIGEgcHJlLWV4aXN0aW5nIGlzc3VlLCBidXQgdGhp
+cyBodW5rIHRvdWNoZXMgdGhlIHJlcXVlc3RfaXJxKCkKPiBwYXRoIGluIHJrY2FuZmRfb3Bl
+bigpLiBXaGF0IGhhcHBlbnMgdG8gTkFQSSBpZiByZXF1ZXN0X2lycSgpIGZhaWxzPwo+IC4u
+Lgo+IFNob3VsZCBjYW5fcnhfb2ZmbG9hZF9kaXNhYmxlKCZwcml2LT5vZmZsb2FkKSBiZSBh
+ZGRlZCB0byB0aGlzIGVycm9yIHBhdGg/CgpZZXMuIEkgd2lsbCBhZGQgaXQgdG8gdGhlIHJl
+cXVlc3RfaXJxKCkgZmFpbHVyZSBwYXRoLCBiZWZvcmUgc3RvcHBpbmcgdGhlCmNvbnRyb2xs
+ZXIsIHRvIGJhbGFuY2UgY2FuX3J4X29mZmxvYWRfZW5hYmxlKCkuIEkgd2lsbCBhZGRyZXNz
+IHRoaXMgYW5kCnRoZSB0aW1lc3RhbXAgd29yayBpc3N1ZSBpbiBzZXBhcmF0ZSBwYXRjaGVz
+LgoKSSB3aWxsIGZpeCB0aGVzZSBidWdzIGluIHYzLgoKUmVnYXJkcywKQ3VuaGFvIEx1
 
-This is not caused by this patch. It needs a very specific setup: XDP
-TX traffic, tx-usecs set to 0, and tx-frames too large to be reached
-below STMMAC_TX_THRESH. With that setup the same stall can already
-happen on XGMAC with per-channel MSI today, because
-stmmac_xdp_xmit_xdpf() only sets IC on a tx_coal_frames boundary and
-has no fallback when the TX timer is disabled.
-
-I will look at fixing that in the XDP TX path with a separate patch,
-but it is independent of this one.
-
-> [Severity: Medium]
-> This isn't a bug introduced by this patch, but does
-> dwmac4_dma_interrupt() in dwmac4_lib.c have the same sticky TBU
-> problem?
-
-Yes, it looks like it does, especially since commit 6ccf12ae111e
-("net: stmmac: use interrupt mode INTM=1 for multi-MSI") moved the TBU
-check out of the NIS block. I only have XGMAC hardware at the moment,
-so I kept this patch to XGMAC. I will send a separate patch for dwmac4
-once I can test it on dwmac4 hardware.
 
