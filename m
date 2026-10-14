@@ -4,124 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4529C3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 16:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89337C3DA7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFIQspE78173JERdSzX9t1NRuY8+2KrnZKd62sGFYCg=; b=dBCc06wFWycF+hk2JEwFvLKKcj
-	LwruzKL5sXwvmKv6f/G/R6q4qYOTr+kq6Ys0OgUYb0uXUrdFksSf1feuvLHTIg5Axa8OUixyRbkpC
-	cqzZbMoLQm2r54lKPU3NbLRz9jmD0GTRVoU0RcJbN62QU8o/yCRx8XMJiX9tr1ttiXojKkDqIw3nw
-	vnpd35cc6sV1B2L/E5Fs9m+U+GsoVJZQEMFTsyfsS0cPuJ9OGqLNQc7UXhNivzPhh8OFC+qu+PLZZ
-	oqEUjYK04RJqbgLvNyTbeBBymJICaTPpE21nnw9WvUx7JiDMsXiaHAbbiLr9/K9hYnZ505nH43F2W
-	+M7luTUA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bpY9JtnGzcvzPu6O4P0Dx+xFkkQyMIXI5/iH9ew2AVQ=; b=Ys5h2WkFJEmtz6i7I09oXMcxRD
+	Ffffe/ar08TOPP74iGeOH3Fkjr5QAawPCiZabOnOb0Y0UGK/SaX7kLnEUscr5hsabxEhA99X9gR6t
+	LOve8JfyZ8YQNo2a6Jum0GmanaNBvYA+5x1va3IuQmHNnktKIYGUIW1ES4WvL4OBjA8ViCU8d083D
+	KPaSc9/eU/GuyxEYVbeRv94nN/ScMeTpt2akr9xOHbYXyxaWqFszHHPeT/l2ty2lO+Z/RJQDSbVUb
+	ZFWKRx2b4NV3uFy8ZBKczRqsuFJJAE0IOa4Wx9VwBEck49WdBhsPKDEAvmjPz1C+6c8Ia73/11KBl
+	ozTsmwfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2Id-0000000G2iQ-04OF;
-	Wed, 14 Oct 2026 16:57:55 +0000
-Received: from mail-francesouthazhn150110001.outbound.protection.outlook.com ([2a01:111:f403:da07::1] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xH2Pt-0000000G3i8-0Xp7;
+	Wed, 14 Oct 2026 17:05:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2Ia-0000000G2hs-1kNS
+	id 1xH2Ps-0000000G3i1-12fo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 16:57:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n+m3C1VF4RZJFdqFkcEvz5HBrPagEjYfHqkJDd14S8hNNRZsECtV9b+TNuhZ9/dcXUGlDfc7Uc32lodCO/bCHo2p3zdFrXh6qjCFchCWk5udyEMgr1okrSP6pJxgreB+TVIXmTtORWqc55GOeGepBCV84rJzQjF2sP6gzAxi7P6sHdR65M8uhqSwZ4/4clPC+lho3M4/KP/k/77Iuev2BDjXx7gi1K9o0yFBXQ9yVyBHnhKoHS5q6cSjXqEZqmfDVchSscaDKACrigIaZL7Z4MJ1mRVEvEN1icZHFKzp59ONYhEpsv1SJO30DqbAupgygjI59R3DkSG3F9U75pdtKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fFIQspE78173JERdSzX9t1NRuY8+2KrnZKd62sGFYCg=;
- b=ozOGo6Bnh3PgLjflAVSNLvMowhtQYP+181FNk+vgRqpv2HVP2MJAST7wrUBy/ojWTbAIxV+Onzv1uZN/gRAK0mi464z8JdIwi4LSAbYx+Myc8ZBL7CYKYMB7a3t56JWk7Z16iScMUY0/0c7h52TtFn0nmELe00452CpnBVobVymMC145VY/oUvgaxji7W27UAMDdHYHZKrHI0U03b2646Dl0Bm6PlflxL3e1JmhLcA17GLBKSeMqtbEQMFULskp4k8szXDZ39+NIs97fhMzg6ywTjdHSu9HYcLhzYlWkSDpXBvt0uD2KGhjUNRiA+MOl01z/I8swXivMnNLtruzymg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fFIQspE78173JERdSzX9t1NRuY8+2KrnZKd62sGFYCg=;
- b=bFAbFt30DdTswDWEMMnXa6u6wTBOkJ1AKnS9/9kdk6m4wvZAn+CPF959/KYpGmADPwjjFIOTucEfRYC9UuS+qcyO1SLN2iakOGt9C80+WvCcooSidl2w/r1ej0PtqL1Dm5ClRVxI5dzFdTyQOpRZh9AXPVFqRtA3PSBtVDyJ3ZfGq5iURXOlCG4YeaKsn4CYjg1qZ3+N4EEalbHJ/pimSnJwbBs/7NYVq+/jBXgpz1Q2hZnfPgc9B4/KHhSVXGJtvvobYiZSMlsJxowyNK+lpQQKnUyqv8EVAl+1obtxKWLJhc5YpC/C/LZi5Xd8uHfe/ywHjcLvcBfvnBJmW7ANcQ==
-Received: from PAZP264CA0008.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:21::13)
- by DU4PR10MB8999.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:55c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
- 2026 16:57:46 +0000
-Received: from MI3PEPF00008491.eurprd03.prod.outlook.com
- (2603:10a6:102:21:cafe::11) by PAZP264CA0008.outlook.office365.com
- (2603:10a6:102:21::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Wed, 14
- Oct 2026 16:57:46 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MI3PEPF00008491.mail.protection.outlook.com (10.167.240.152) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 16:57:45 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
- 2026 18:58:12 +0200
-Received: from [10.252.12.121] (10.252.12.121) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
- 2026 18:57:44 +0200
-Message-ID: <0cf0f3ca-bcb5-47d2-a4c7-9a3ab03d7293@foss.st.com>
-Date: Wed, 14 Oct 2026 18:57:42 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] iio: adc: add stm32 mdf support
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
-	<linux-kernel@vger.kernel.org>, <linux-iio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linaro-mm-sig@lists.linaro.org>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-3-olivier.moysan@foss.st.com>
- <ar6wypoRS-5j9iM7@ashevche-desk.local>
-Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <ar6wypoRS-5j9iM7@ashevche-desk.local>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.12.121]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008491:EE_|DU4PR10MB8999:EE_
-X-MS-Office365-Filtering-Correlation-Id: 176e283a-aa03-45a3-a395-08df2a144522
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|34020700016|82310400026|23010399003|36860700016|7416014|376014|4143699003|56012099006|11063799006|10067099003|261009221227099003|261009223027099003|22082099003|18002099003|6133799003|12100799066;
-X-Microsoft-Antispam-Message-Info: ehFrLC5tsuaw3UcBhV4KMCcjdjFm3Xaxg9MbKLnppFd8IHpHv6CW6rGzpoH1OoD2ytc037izurA1jpEZYEIWj8b/VdzNN2hkiwT0WPQA0coCWZyuA1+DOB3Ahfhw/jTihRh5DFRFsDVvKumoPHTRhG2xjR0eYpkiCe7PxWvx1g9dmU5sv1xBSMojuRk80Ssf9q+If6FJJUZKRPwNWDont51O4AxW6beQltXw0d+tU2itwRdNyNaLnhOYCgQmmC7ir1UBq/z56ae7axb4IhDSgCC5AHXnApRQJekm3HJ9POR3xYTHLNvoGMJJCAtlnwRoDR3/eBxvck9dfV9IxOyj/lGFjRFi60oRFrbCaRFTA88Xv0KSZfBfylrAy1H7nl3AuA3+/E5eR3cRT4uFJEYV2iYWOLsf8/zgCBTtdJV3C2ixf+hwUs0F2WnP8xUmPLynyIjBIWvHkWWoxzs/j2x3h5XLnSUzJ6LyXVE5zwIEQhO6AzP/g2upqkOV9p9qrO1QyHI3H6tZCupFFpAuGptrx9BqfYHPS36AmYAs0HEdyOXIYR5JVl6lxk0xHBgtdFRj/vO05kevH3gcCzApKTggL8XKvaLYGhboXBwE22W/aOBhSfynKaBOMCuIC1VhA0i2IMsLoJwTdzBT52doDzpMo9+AubWPDXVnZnMY2c0Sl4z9RWkFJIhVnBdrv6B0Nd6tQGBFv3QckLnh2Hh8jqmvnQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(34020700016)(82310400026)(23010399003)(36860700016)(7416014)(376014)(4143699003)(56012099006)(11063799006)(10067099003)(261009221227099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(12100799066);DIR:OUT;SFP:1501;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5cZJCHhw/6cOM0KYgDWB2RtGzXCJ6toa5McRJS2Mj33g8g622eQqFBH794aqUHj0rakygtWCUem8o+C+yfsxLBhHdRRg8Wktih298E7w4KCF2RkqxfEKt8TW1ssQtL6ke58gMIcctbhz5O3mU6PDUIuQuCiiaalIxY5IwY+E9r1z/R68YfTuYyg/1sAhmSG9Zh/hsVdGBriU/4E/zpgea0sY/EF1IkowodyZdIjsiBcbLuYo+5oOwkT8ObdLo9tA4vi52dccqi4JpjhS0kskWzIn2UFEVGVkpCHNjdV+FNnpJ9oLyZFysAmlPok85XrJLS5NarlGDWAPMcp6uQSpjo1gXibFMsGc30qjAp61TgU2oizMYjiOFf0ME74OFFkxZ5bZGA5qCrnhAsg/F6OkGFNKG7hxadvnP5r+Vk0w1+8gUBmCseO84doPVnNRuUk1
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 16:57:45.7078
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 176e283a-aa03-45a3-a395-08df2a144522
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008491.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8999
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_095752_460097_E5527697 
-X-CRM114-Status: GOOD (  11.91  )
+	Wed, 14 Oct 2026 17:05:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CEF8438EE;
+	Wed, 14 Oct 2026 17:05:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66D931F000C4;
+	Wed, 14 Oct 2026 17:05:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791997523;
+	bh=bpY9JtnGzcvzPu6O4P0Dx+xFkkQyMIXI5/iH9ew2AVQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LqQ7PzbgsznEMCrl2lw649ci+U8Zw7Q3jiKYim1jfBrAGBIUfl44JMeDbILpFyOdh
+	 sZjp49YXLOwWMxK0zcfly6oioYJomjj5V3kFQaDvZoZ0SP8O8CyuUv4nHjHb26SdwA
+	 zM/d8OE3CGyIwrWdjQASdukDOW1qC/eOn49S3TAUjAHPXA0JKcy8x85OVRJCav93OG
+	 NaWdL5I3p9KtjVHUslG+BMd0iMueSMWioIoMbqYx8I8Stg0B0+/ZIpDjgEOhltJtF/
+	 92PdiIHAcMPA3MrvG6Sp+WeqwqsLZaPUTpg1p6d4Xx24SCEs98zeeZyRy66W7oEdHO
+	 7dujPvhUZ6v6g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xH2Pp-00000002xwS-0lN5;
+	Wed, 14 Oct 2026 17:05:21 +0000
+Date: Wed, 14 Oct 2026 18:05:20 +0100
+Message-ID: <86pkxc1acv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Amit Machhiwal <amachhiw@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Eric Auger <eauger@redhat.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Gautam Menghani <gautam@linux.ibm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Gokul K <gokul02k@gmail.com>,
+	Hemanth Selam <hemanth.selam@gmail.com>,
+	Hiroyuki Katsura <hk590@cam.ac.uk>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Jack Thomson <jackabt@amazon.com>,
+	Jiaqi Yan <jiaqiyan@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Jonathan Davies <jonathan.davies@nutanix.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Like Xu <likexu@tencent.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Nina Schoetterl-Glausch <nsg@linux.ibm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shen Yongchao <grayhat@foxmail.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	Stefan Teodorescu <fane@google.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Steven Price <steven.price@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tharit Tangkijwanichakul <tharitt97@gmail.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Wang Han <wanghan@linux.alibaba.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: Re: [GIT PULL] KVM/arm64 updates for Linux 7.4
+In-Reply-To: <CABgObfbkbEY_MuD7Y=Y1GYSrHjp=nKfE8-Vy+QHqKMyCVurJ9Q@mail.gmail.com>
+References: <20261014162126.964330-1-maz@kernel.org>
+	<CABgObfYVHtFGopM=vCY2vt2N-CON=_5BN4YFiZknwvyrgP5mfw@mail.gmail.com>
+	<86qzhs1ay2.wl-maz@kernel.org>
+	<CABgObfbkbEY_MuD7Y=Y1GYSrHjp=nKfE8-Vy+QHqKMyCVurJ9Q@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, amachhiw@linux.ibm.com, catalin.marinas@arm.com, coltonlewis@google.com, eauger@redhat.com, fuad.tabba@linux.dev, gautam@linux.ibm.com, gshan@redhat.com, gokul02k@gmail.com, hemanth.selam@gmail.com, hk590@cam.ac.uk, itaru.kitayama@fujitsu.com, jackabt@amazon.com, jiaqiyan@google.com, joey.gouly@arm.com, jonathan.cameron@oss.qualcomm.com, jonathan.davies@nutanix.com, kmehltretter@gmail.com, leo.bras@arm.com, likexu@tencent.com, ljs@kernel.org, broonie@kernel.org, nsg@linux.ibm.com, oupton@kernel.org, rdunlap@infradead.org, sascha.bischoff@arm.com, seanjc@google.com, sebastianene@google.com, sebott@redhat.com, grayhat@foxmail.com, xueshuai@linux.alibaba.com, fane@google.com, seiden@linux.ibm.com, steven.price@arm.com, rostedt@goodmis.org, suzuki.poulose@arm.com, tharitt97@gmail.com, vdonnefort@google.com, wanghan@linux.alibaba.com, weilin.chang@arm.com, will@kernel.org, yaoyuan@linux.alibaba.com, zenghui.yu@linux.dev, yuzenghui@huawei.com, kvmarm
+ @lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,40 +129,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Wed, 14 Oct 2026 17:56:40 +0100,
+Paolo Bonzini <pbonzini@redhat.com> wrote:
+>=20
+> On Wed, Oct 14, 2026 at 6:52=E2=80=AFPM Marc Zyngier <maz@kernel.org> wro=
+te:
+> >
+> > On Wed, 14 Oct 2026 17:30:50 +0100,
+> > Looks pretty good to me:
+>=20
+> Good, applied (I idly wonder what the x86 maintainers would think of
+> KVM growing a memory allocator...).
 
-On 10/1/26 21:13, Andy Shevchenko wrote:
-> On Thu, Oct 01, 2026 at 04:56:46PM +0200, Olivier Moysan wrote:
->> Add the STM32 Multi-function Digital Filter (MDF) core, serial interface
->> and digital filter drivers. The MDF converts bitstreams from sigma-delta
->> modulators or digital microphones into samples exposed through IIO.
->>
->> Audio: capture PDM microphones via cyclic DMA for an ASoC consumer.
->> Support CIC scaling and filtering, synchronized and interleaving modes.
->> Audio use case requires a DMIC filter, and a separate ASoC DAI.
->>
->> Analog: expose sigma-delta modulators as IIO voltage channels with
->> direct reads or DMA buffering mode. STM32 timer triggers can be used as
->> clock source.
->> Analog use case requires an IIO backend for the SD modulator.
->>
->> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
->> ---
->>   drivers/iio/adc/Kconfig               |   27 +
->>   drivers/iio/adc/Makefile              |    3 +
->>   drivers/iio/adc/stm32-mdf-adc.c       | 2078 +++++++++++++++++++++++++
->>   drivers/iio/adc/stm32-mdf-core.c      |  857 ++++++++++
->>   drivers/iio/adc/stm32-mdf-serial.c    |  309 ++++
->>   drivers/iio/adc/stm32-mdf.h           |  312 ++++
->>   include/linux/iio/adc/stm32-mdf-adc.h |   19 +
->>   7 files changed, 3605 insertions(+)
-> 
-> Unreviewable. Make sure the single patch is ~750 lines.
-> 
-> 
+If x86 ever grows something like pKVM, I have no doubt that this will
+be a requirement, just like the whole caretaker thingy will eventually
+grow into a full-blown hypervisor.
 
-Ok. I am preparing a v2 series to reduce the size of the patches.
+Bloat knows no boundary!
 
-Best Regards
-olivier
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
