@@ -4,99 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA3DAC3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EAACC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ypJpkmQRRV1BQV0ur1VLkim3Ln3Ci6KGz+PKJeDImg=; b=yaJfoeD9bQ5zTBh5Deouc10T3C
-	6gT15nQC/s7rzIdobO+wrfIXhqE/4embHP0XIR9ek7UA1YjUAvF6UG4Y5ySy2CH455kK2c4zTrpDu
-	xj1CLz6IbV3h7iWkiuSeHEXP9gJa6+zOf9cEXfl2xTEdlbZS8BDIWR3d8a00Olm4bmf6wtHZ6Pj7/
-	rPlGzoWhtQWN33O2apTG7qvW7XSfKEOX/b8b7+8AKuFkExZLdzujsvjZXz61RJULOoXuFY7rWmVhN
-	gQWJ1Z5N9oeQ7nZUpbM8w3rkXql/VwOwSm2jkmbGz1CAFUyJVfnpMNDo1l3BgE9QcMq4A0qCczJ3a
-	tLN+lnOQ==;
+	bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=; b=Pn0R7teD9wdJ0hiUipGgMOS9Ng
+	/88vW6U6u5BNO4jAx4Qh7LeTsC3EQ/4+xC2jeqycoWzVx01sp+YG/a1IrnfZKTzzZ31bGH2+QNYso
+	bkAwIDiJgX5q0GToYD3u71m+Ixic5dZWxjwuFdb0pPneyYSyGfYlXErS0iVgRzwqpj1bS8HkUZWMi
+	QhqDE4qIxYAz4V37iUlUgrysBC52ZY/5X+dKP94M+s9pDsQH1PKK+I+yafnrg8ZoGeScVEtJGcE2x
+	9CMEdW6hn+ZFK7Lfxs3yEVmG6U6VYVVxbeDgtbkRG4Uip0fvfn1ZtWsrTQYcAvtIIT4hjJxK2QGzr
+	tEqUrLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH3pH-0000000G9zb-26ZL;
-	Wed, 14 Oct 2026 18:35:43 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1xH43a-0000000GArJ-2pwJ;
+	Wed, 14 Oct 2026 18:50:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH3pC-0000000G9yn-3fGW
+	id 1xH43Y-0000000GAqr-1Jzf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 18:35:42 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-82503732024so2291691a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 11:35:37 -0700 (PDT)
+	Wed, 14 Oct 2026 18:50:29 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EGZhYi3468837
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 18:50:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=; b=hLw7FgaYpyNo6zxN
+	l8UvMhOCymTJmyoS3bWMjr5HzJVHGUDmM15PoeZw62rTAv7lAWVn+4w/Hn5g1+4X
+	/m3XN9322dQYzH9LtDo5PYG58tsWg3pKe4CtmZEZalzj1aiYPrgalBB9KeuhcMVa
+	BjmDS62vTj3Cuh3fTXBp0SJqfQjY8d1DAXX/AKNu1k1YrIaTOed3GbTA2OUWXI0b
+	5Q0OHU11f0kfDr+XCUAoOHBPuYcu2vtzh4LNNBYJz1WtBvllA9e5EVxr1BQsDWjP
+	ON1rFDnOcHjgSE319n24TVY1oL3h6wsAC8z3P7FyoemA7Qxus3vGzHqRDohxXyc1
+	mVfA8g==
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hadd78hp2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 18:50:26 +0000 (GMT)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-17dc865c94cso707715c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 11:50:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792002937; x=1792607737; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3ypJpkmQRRV1BQV0ur1VLkim3Ln3Ci6KGz+PKJeDImg=;
-        b=L3fKdAKh8uo4FrgrnU6SR4fltW1zGfiXNmCgEd5SLpORxoyAgCLX0MqmFmxYOxwTQe
-         fKOKXuXUj+FXNF94WLts1Ou76ehyXRcAr8tvX14QhnWytxQPs4/sz7RhID76Xxj6Yd+3
-         aMZ1kuG1Z+PwYPrNXFyycSMjsDJagLiEP8Ug9jYNafO7As10RBTPfH9/w1a72OyuWIuE
-         799MxPpwg6+c4fk1P+Iy4XP0Q3fKaDoWpynGjvBdykwiRQlg88nSLZ+sQ8ueUbPpFnCF
-         kvVFBmfTigDCddycYXDf165F7BS3ZP3DF+dLbdbRSAwU/7ZBA1ej+LqdAg9gKr9DdMEP
-         Z1NQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792002937; x=1792607737;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1792003826; x=1792608626; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3ypJpkmQRRV1BQV0ur1VLkim3Ln3Ci6KGz+PKJeDImg=;
-        b=KAXfJr7k7e05z4H3gptkvsx3V4zZ9GZafecMdWb+3rIl54KV6zhrYu2M1HWnubBu13
-         ZF+oFfcmFvntOid6hdyAMH7Avihwp6TulbMyivXJ+1RDQnf8zqEhx7Q7vUklW31elDYh
-         hFDMqmqDVnqh6a9LevkKonN80Qm27Pm/xze9yG8JDW0zWVyyLS2ZQZDTmEv584uPOf3A
-         c0SaKZeHBzyQRvuShiPgS7ed8PHGe+kqSwsZLWogx9gTJ2+RaQFpX4mgviHPoaWgyvTw
-         c/7RePSI4dXUuPOwFET0toIbb1Wmh+HNjCmOkbR857XNsUz7EUquipnkbGejrltKIyhf
-         zqMg==
-X-Forwarded-Encrypted: i=1; AKwUvBxxAmXItgTPseGg+if8mDAART/77y/FP7j22XcU7aqS3jElyneiDU/AhsdMra3Q4nqhy7fuT1hMGnZ3ZazapvsQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYIngzzGKycKeU5oM0Omyt6rkSMUggc3b4/9YRwCXnWySVkRfY1A
-	jDgiDMPlxSA9+IfIodGCr9i3Xz+G8fi6//KLiuF8xrSQov1Z5WH2ObrA
-X-Gm-Gg: AYBFou3zktcM5Et6/1Fbc3ePCT1amvpfpcpwVOGhtMyAopAO4aVcFMS5gERsRTNa/oJ
-	Hd6XdcLC3F2OCo0mgt5ZpXaUVog3PlAMPEgmDbOXP4230SfMzqD3D1KBPtbRb7qZCdPep+32cuC
-	xDcpxVAtIk3hOj6P12b8quZIDyUXT4ZykFqkJvRe4uAKhxmNG5MeWWImAifZKNAWIkTUcIEDDhN
-	vSASJ2Qm9peAYwlNCO7DqUOaFcPo4ph7bri4H46YyYI2OiYhoNMsxljAAbg1pi0ikuRBJ393KZk
-	1zlmZYmse9rLBQIqgvgB3SySHV0Fq1zC172SBHJDhx6/nMfD4RQPjScu4N+KjZE6zymYXi2jiCG
-	W+qM410O2flHLL5NZeDbAKL+cpj47uPpZsmik4Tq/95qbroDwvPFNxyG0Jb3cYU+2qbh4v2nJPK
-	PF05Zkd/i0fMoNNOJx5hj0pk2X9rx1CUEbbpHLhZIK2HTmL0vi9J8BMjHfFexfiVlgN5N+CpG8k
-	zZjFtxbN7Bs9hNqyxWAccWi34uD7Bj8bTFDXArmAXQLN+SpUSQ3AFDHvDpqt6UAe67KPkvRPFJO
-	Wrxdtk3t+1gqSg==
-X-Received: by 2002:a05:6808:6c8e:b0:4f3:e98f:fa19 with SMTP id 5614622812f47-50c57695fe4mr15959952b6e.61.1792002937206;
-        Wed, 14 Oct 2026 11:35:37 -0700 (PDT)
-Received: from MaquinaLab.. ([187.14.248.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-50c0c5fe7d0sm17325426b6e.2.2026.10.14.11.35.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 11:35:35 -0700 (PDT)
-From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFT] pinctrl: sunxi: Fix A733 withstand programming
-Date: Wed, 14 Oct 2026 15:35:16 -0300
-Message-ID: <20261014183516.172060-1-vinicius.eduardo.pedrosa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261014001334.54dcf0b5@ryzen.lan>
-References: <20261013142351.771229-1-andre.przywara@arm.com> <20261013172427.328177-1-vinicius.eduardo.pedrosa@gmail.com> <20261014001334.54dcf0b5@ryzen.lan>
+        bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=;
+        b=Vz++mB4gwbSXu0xZcILgLrC8EzDD7wuNqA4F/ZDER/Z53dH/NQuKfG4p9BVlsXdlJj
+         MifEY1lABUFE6xWQoW/Zrx/XEOPTY1hC0wawDPXUFG0xMZedeZFUPiVrIW+GxtGd1Ekr
+         GjQ5YQl8d5QWTg9ADaOJUGlaF627iTVThduN2vz1NISNs9y2o20658etNHnsArrLeHT+
+         mM+fsc8FR4PmWLYsfBIJ9xlVmhnPsYrIDBbN0Bdy3TRy31qfa/BSgSvFwL6Uv5HpBOe0
+         GGW7kp37giH63QG8hiddylpCdeyLl7DFu0TCxsxmryyzy/NSxHUhv7Dx1VAoQVpNkWRZ
+         UKmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792003826; x=1792608626;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=;
+        b=JCFlfiqlKg7CbeTBbfLeqQr4eS7CHRIyyXysuqxJkK0FNdgFjsbq+6ywBI6IJCHPMk
+         OYWQmgLCIjg1AqD56g+nJRM3P/afbrn2nP5pIWIQPGGZzBOSbwJMrj8Ib7MC/96HJkrk
+         m3PLCUjZ850So2uHcoQJwTKJqAy8OWtidIxw542KNSdStXGbn1ZlelG7x9TASM7QarQm
+         QSlg15FWOPlgwdtJvPHPNkOGtPjYdddUZbX/DwoedaqlS0p+vdwiz63S5v55pPveaGtH
+         hoqaieF+bL1H8kfPZw2D3+gozmHPdsxob9TTLcE7tzzpQEpoVZPxZcQircz7zCzI6Tnr
+         666Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwlfZsh/+Bmbjkm0FWFrTDrJm7i+5GC3NFQSdVjdckfk/e1yRa381X5JIwHdHo20oxGobKcIgcBtByvb9m4Xr+q@lists.infradead.org
+X-Gm-Message-State: AFq9FYKe06QhOTamNs9UCOWOPUjH8ZL2ne76Zk9cLcCLnsWOuIg8Uv2t
+	P+FDekfX4wS+xPBD5+WZ3agF5dP//zmr+qiPGsljOyeqrjwyxAQNzF2shaoPjtHJM5HTl+YaI+h
+	yzYPeJSlV4b98AjcTSATHktcKjPr+76c31D0+cySZBbbiQf9FUQluwxa36qIFTAp4uhit+P/A0/
+	SY7Q==
+X-Gm-Gg: AYBFou29rJiAkgLDtSgar4B+gAePeURDmoj3hNmGVr9O5UDtviXXIJXhZiBCouyad6x
+	a4dGw+FB3u0nqeLdm8pJCYlsfttNjjvgXTyNmxs2LvSdnLTnB19HaRnK7Pc3Lo+B7ZhBxrZ7pXk
+	yC5h0Jih237ufs8KxxrLvzxxhqeJVEBV2AArc4A9fzB6swkfAXukpgLTeWQFrEj+BTV3nnYgz0/
+	29xLhgWuKC3tTRwnRciRCgv12pGyujfrVhAaa385L/45ypHlZCG7bcYMsskzgl0PJToXsgRoNvr
+	Vy+sT9zAK/5Mv40JWO+RDFD9/k34aUBh6WQdxqxFtABUHpR95/ZJJNXJ3uobJRDksl/QDqPC1mm
+	0B6bYHRiGZ2pTLzJV2FOBvwsCRTHoUeRj
+X-Received: by 2002:a05:7022:1582:b0:143:298e:913d with SMTP id a92af1059eb24-16a63b2edc7mr32561296c88.47.1792003825562;
+        Wed, 14 Oct 2026 11:50:25 -0700 (PDT)
+X-Received: by 2002:a05:7022:1582:b0:143:298e:913d with SMTP id a92af1059eb24-16a63b2edc7mr32561225c88.47.1792003824748;
+        Wed, 14 Oct 2026 11:50:24 -0700 (PDT)
+Received: from [192.168.1.2] ([106.222.235.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-169a442956asm62519780c88.16.2026.10.14.11.50.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Oct 2026 11:50:23 -0700 (PDT)
+Message-ID: <16d94994-ff80-405c-ad98-ccefe4f951d6@oss.qualcomm.com>
+Date: Thu, 15 Oct 2026 00:20:14 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 9/9] i2c: qcom-geni: Use geni_se_set_rate() for setting
+ source clock frequency
+To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
+        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+        Andi Shyti <andi.shyti@kernel.org>
+Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
+        linux-i2c@vger.kernel.org
+References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
+ <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-9-091697dbeb02@oss.qualcomm.com>
+Content-Language: en-US
+From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-9-091697dbeb02@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=BaVNQbt2 c=1 sm=1 tr=0 ts=6acfcef2 cx=c_pps
+ a=kVLUcbK0zfr7ocalXnG1qA==:117 a=N5Y/PXOiYxOVLBGg3HvMCg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=UheTk5Niw0niUJ_rJrEA:9 a=QEXdDO2ut3YA:10
+ a=vr4QvYf-bLy2KjpDp97w:22
+X-Proofpoint-GUID: MCXOipVQR61AKonBbIM35-rKBSWmaU4E
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX8Iv+IaPpc51w
+ 3ZGDEQbqBTWAPfl+FUUVnleRjlt/1wNAmnG8798LrU7wnfJjAhx2qGXNl7MK7cHw7RXPYCGj/7t
+ N1Px5C/67WOPjVnUX6uEYOMmt5Q/Y46sdHL2E19oiHWEoDnbXPr2VzwS2KCdl+OKqpH43MHZT32
+ yHaCVjSCQ1nHr5g1xBMMiQu7/IcY8dPVemlZ4+mzKqxU6wnSaWN5ALC+07+vBmWlEZsIJRYrYiZ
+ jcrLELGXte5WGl5gC2lV2TbomOQgKgp5Ab0viXul+O3bdXrbd4SFcMHas7Ji30jd25/ChO98r/+
+ gO5vkzU8nh4deXUIeQF8vAIH+rKCdzfyoi00KKjTgcbOrkWA0aQdo/SSAFLR6WTI25Tl87JA4Eb
+ YsYaDb5OwGy8qpySHR61+q8B1N/C6+8+ecmqq7GEiMBR5WZ0YPRqFpYNnN9QSWPTZD8dhR/qAdT
+ uYMMoJtTkHONxMCI0Lw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX1/7rBnmQ24cK
+ FO2Nlt7fcgXV2TeHhdQSBrIL98nlyNDkMSgB7rhFsATki7SxtcFHm2oTS3eVy0sbaH23AveUqz0
+ 6yc6/pByxzRlRTY2Eit7VpSdMAVaU90=
+X-Proofpoint-ORIG-GUID: MCXOipVQR61AKonBbIM35-rKBSWmaU4E
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610140075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_113538_955240_EF3127BB 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20261014_115028_368112_10402A1E 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,81 +163,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
 
-On Wed, 14 Oct 2026, Andre Przywara wrote:
 
-> So PortB has no supply of its own, instead it's always supplied by
-> VCC-IO. [...] Which somewhat means that this is broken there as well?
-
-You're right about shared VCC-IO. A523/T527 may have a similar issue:
-the vendor driver maps PB/PH to the shared VCC-IO bit, while mainline
-uses per-bank offsets. I haven't checked the A523 manual or observed a
-failure there.
-
-> What do you mean with "the board's SEL value"? That's not the SoC reset
-> value, is it? So who programs that value, and why?
-
-Vendor boot0 writes `0x01155550` when `0x03000024[2:0] == 1`, printing
-"board gpio withstand voltage auto mode". This isn't the documented
-reset value.
-
-On my Cubie A7Z, I also measured SEL without vendor boot0 or SCP:
-
-- Cold FEL, no SD: `0x0aaaa69a` (PC/PF in AUTO).
-- Experimental SPL/TF-A/U-Boot SD boot, at the U-Boot prompt:
-  `0x0aaaa6aa` (only PF in AUTO).
-
-SID+0x210 bit 10 is set. The BootROM code uses it to select AUTO for
-boot ports, although my SPL also sets PF to AUTO.
-
-> So this means you hacked the register in the vendor kernel, for the
-> sake of an experiment? [...] uses register 0x70 to switch PortF to 1.8V?
-
-Yes, I deliberately changed SEL from U-Boot before booting vendor 5.15.
-The BSP switches PF for 1.8 V UHS via `0x70` without updating SEL. The
-SDR104 timeouts with fixed 3.3 V are consistent with that.
-
-> So can you say whether you observed a real problem with either the
-> current (broken) code, or with one the fixes?
-
-No functional failure with current mainline. I found the mismatch by
-chance while comparing the manual and registers. The investigation was
-preventive, not prompted by a failure.
-
-> Thanks for the confirmation, and just curious where this revB
-> restriction came from, originally?
-
-Initially, excessive caution: I only had a revB board and B-version BSP
-descriptor. Further investigation shows that vendor U-Boot and Linux use
-opposite `POW_VAL` polarities across silicon versions, while boot0
-enables AUTO only on version B. This suggests revision-dependent
-behavior, but doesn't prove SEL encoding differs.
-
-> Did you find any recommendation? IIRC manuals for other SoCs did
-> recommend one or the other method.
-
-No explicit recommendation in the A733 manual. Its prose calls `10`
-adaptive, while the encoding table identifies `01` as AUTO. Revision
-differences might explain this, but that's still an inference.
-
-Given this, I'd return to the `BIAS_VOLTAGE_NONE` approach from my
-initial report for both A733 controllers, with a separate A733-R
-descriptor and A523-R unchanged. This supersedes my later PB/AUTO fixups
-and PL/PM programming. I wouldn't write `01` unconditionally without
-evidence for other revisions.
-
-Without vendor boot0, `GPIO_POW_VAL` indicates 1.8 V for PG/PJ/PD while
-SEL remains fixed at 3.3 V. My DT doesn't use these banks, so there's no
-demonstrated failure. NONE leaves that limitation in place but avoids an
-unqualified write. AUTO could be version-gated if needed.
-
-For A733-R, the separate descriptor also avoids inheriting the A523-R
-`CTL_INV` path through offset `0x344`.
-
-My mission-critical background sometimes makes me overly cautious, so
-feel free to call me out when I'm complicating things.
-
-Thanks,
-Vinicius
+On 8/27/2026 11:29 PM, Praveen Talari wrote:
+> GENI resource management may be handled either through the Linux clock
+> framework or a firmware-managed performance domain. Source clock
+> programming currently depends on platform-specific callbacks.
+> 
+> Use geni_se_set_rate() for source clock programming and perform the
+> source clock configuration from qcom_geni_i2c_conf(), allowing the GENI
+> core to abstract the underlying resource-management mechanism from the
+> I2C driver. This removes the need for platform-specific rate-setting
+> callbacks and enables a common code path across all GENI I2C platforms.
+> 
+> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
+> ---
+Reviewed-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
 
