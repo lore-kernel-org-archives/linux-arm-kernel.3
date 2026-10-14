@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE21CC6B1F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EA0CC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpAZ9bBqLpRDHKtCcUCoXD82CF9jsn5qbZ7SJ4GmbDo=; b=mpNifNtFS0pQKjjS4vU73XT90L
-	0AaWYhZmm1Ta7LxnlJlqXYz2lTuOC3oIRHF0yeVU+wrsE1Gw92VvVwFk6ioDBLsNwV2avmR85EhlU
-	u1OSMotM21Mgv5R0foB3/cK8+nWsJ/XkFmOEitO4ptZR4nO+VEkrCNlQTaTgNHHalSV8qPj3jYq4L
-	HN15hE5hAjVXh00qwYXXlWGGw//+d8mrYZMqo91yUNq5/3S6nLTRWhDVQ5IW5vaxT4Zs5nPDJXqH/
-	yFBokdXP5GbjqwSvTJF63qh4H88KIVt4+jlcsTGHBW9Qe6BQSBi++q8cenZUdR8QL4ZFZhF9ciCrv
-	KOuTqNZg==;
+	bh=sXoOtdmnob+YnMth1qvSHm903lQEMfykmhDcceAz8kQ=; b=Yqt5W5WKP24FV80XbsEnWw2RKn
+	WCORsZ0VPR2IUVd/pSKCIakeAEPwVz/AFUPj2LgowfHUJ4OhXwh4XaRd4Q2I5YkYV5QKUI2JM2xi0
+	nFl5DwBST9VVOtiFqJp53RYBBgrdzreccroK4alBAesfQkzMUkRdGxzRu4G9mEGakBQy3EHa+wWvn
+	5OTd/JZF+hkvmmcCfJ/j6rBOGUZty2C63Q1V9XLn2FYqBvCoUDYTdgm3mV6hOFvGhwApi/pM+pASC
+	QuJjmJUrtojchz9I1JTKo4sFwmwH+oMyjg1D6AfftqufYBbRricjNyaJiNjguA2rmTg6MP5G/TMp/
+	hcZ7CVvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQn-0000000F3j7-3xeN;
-	Wed, 14 Oct 2026 09:37:53 +0000
-Received: from mail-wr1-f47.google.com ([209.85.221.47])
+	id 1xGvQk-0000000F3fT-1amb;
+	Wed, 14 Oct 2026 09:37:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQg-0000000F3bH-0FG9
+	id 1xGvQd-0000000F3Zm-2Nxz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Oct 2026 09:37:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=sXoOtdmnob+YnMth1qvSHm903lQEMfykmhDcceAz8kQ=; b=Yc5CeZNG5aAYR48ONbY1zF+tAG
+	r6yyvZ5hxD9wiGY0jc9wXCFFDLpY6UcEXG3tWqIbmZ6eGNaJ2Chs3lQgalTC+eEsd/VIbv79gD+pl
+	VBKeNO/pwhUSEVb8mJA34myFZZ+HED/4cFTg2u3zSdtHzmpYOjCpFL9a+LWkocuaWzJjN9UIfuBG8
+	CP3xkDEUkLu2P1ykzdHvt6dANVwrJZTFJja8T0gn4yJuKamdMrAbfBnhOworI7U6UgfuRaP7o4pSl
+	mUiOX0WxjfUg1CppWoVLPz3X8uII92AjKybdiZbEbCoexqUM/OseydVaE6HxpYnsoOBooJXzp5axb
+	fAh9xHXw==;
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGvQZ-0000000GZTL-3jM1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 09:37:47 +0000
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-486e8faff03so1670969f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:45 -0700 (PDT)
+	Wed, 14 Oct 2026 09:37:41 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48deeadb3fdso249350f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791970664; x=1792575464; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791970658; x=1792575458; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UpAZ9bBqLpRDHKtCcUCoXD82CF9jsn5qbZ7SJ4GmbDo=;
-        b=ABxSDPF+0GQpDqifoLmlllb9f74xuCWs0F62HvrM5zwbvY2xNmF5RcreSGqatRhAoW
-         3XWU7CtHTkRKyHTMM972V7OCp/S6dMBOSsfDEKsJlzura5USh44DbPRO+PRMuARzuSab
-         lB/pzXyIkb419X5fx+b3MIwTI2w4SYBh8KjXNI6tZX6pTd+KhdwqcZWmUPxH7j6/EA62
-         Z9YclJv8IY7jdE0JVNwm5ioAR2a0CxC54iLYeELngVlJ6EMDqc3kQyptopdzj4TJifYi
-         E0UJ9nlCk5vO7UrBjah3oQHjU/LOrDrHlVs2Lgf2teLc53yYG/4jOvlndBNmEBUBh9fG
-         zj/Q==
+        bh=sXoOtdmnob+YnMth1qvSHm903lQEMfykmhDcceAz8kQ=;
+        b=pG7KBlanUYt6C/h01w/3jJwFL4XBZZu9tkLn7F22TpD0tRkbiHzPkMRw8ssJ3Tpu82
+         AGRlLoiFXtUXes1QIT9tFPyH4ufY9vqbrYmAYIJMhNFG+kWivwLAom/Rj4J2iBQRgWZJ
+         bW/QJ08ULkk8zR4pjKFOq2ZgI868JTrhlkpJJMc/2WCo2f3Gn/PCJe9GNtF7UYgzkr47
+         yvgfU1UC2BjTuDHDUP1Q/DwpB0DIr8lbLHlG6B2oCfIC5F0z5U+kS8/K78SswVep0UQj
+         /UjqZP0zix/NiUX8gSslnd4jcEY7x2nItaM99BeRS0boLG+l9BRKSX808B9UESvPSwl1
+         GgoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791970664; x=1792575464;
+        d=1e100.net; s=20260707; t=1791970658; x=1792575458;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UpAZ9bBqLpRDHKtCcUCoXD82CF9jsn5qbZ7SJ4GmbDo=;
-        b=ZmF44J8dX3WW6sZuYctHN6oTHeNVIivkm+TPe2zfkJGQnFRPipzHhn8YTzf/thDvGb
-         Flk6sXI8lnyIkZQ8X5cPBsmEHOvqM9m4QBYQ2oj0jwelmgFDU+nmEeYRmmcQkVlxw0Op
-         T5EJcSq+Ipt6pjwD/VRGjZTI4jk04OWBaz4PJwIJvuqx2lx7yp+UjNe38khgSEW6DpnB
-         gfX2Q0IU7XR4znAR8u+Gh8ZO5K0vwZwSmW0+KyMunHNAyQk1mfbu4CUxoFQ8IgCCzmeL
-         VpaJ1IS9kkWk/6c43fGQt3JqvFj7Wh7ESr8anzz0V7mxdgIXboa69XF7IB8lyVT1ctL0
-         Sr7A==
-X-Forwarded-Encrypted: i=1; AKwUvBzlfSEjwePoBOH39i/B8fcdpErf9ODmjyKKvbvgVpwzfHVKz8IoRthWyeTfEqSenhjM3e1UCDrGWMQpnQ31aq52@lists.infradead.org
-X-Gm-Message-State: AFq9FYIk21EgfzUjPgMzI1uBF+Fa+LL6ajHMwnO9KA0Tl4YY2Lsc/fMl
-	QmXNG+8aDCLaRZSoeqmNvTW4qug/qJYg93rnkzeeF6SzjUvrrjyn2Rv3
-X-Gm-Gg: AYBFou2ZRv3CUgixojlnoP15D4dq6GZuABQZ8Kr7YiPl/800lBCAsRL/Hx2JksVt8Rm
-	sTOmpZML+YdmXYfbsQ01oCRiOdgogGvRkE8g5Ln7EgUynNd4zrzYLu2vuBM/w4Oezhx+7+5YnRO
-	k3m3pHVrrFSwZKtBlrNe9YJbxTk04vNpFm+FkjGqT7RHn/qFdolYcCEUcVTbaRwTMU3AFLx+pm/
-	3qzzFzSSstUqvMjQD/bOTHcuhFN/2po8MjcL67Ld/Pu01sN08BmNF2Eez8kzea62axUpiHtk5IR
-	48EbpzeWgFqiGAuUk0SVEn8KfNi2Vj5rIDf6U2KDnS7VxqiuliyLFjoCHHHyHbI8znxwpsxXwYX
-	Yr33sIidaorPS/qj5U1h2zs7Uu88tJjORi1GmVeAFhkzRmAryV2bxRCR2VYqAX7X0F/kGiDN/Zi
-	tmx1qjJpkR/vsBupY8ojtpRps7xoxQiOOQG9JP7QzPsN81A4YJ1mmQXSqonBomP8f6KV5rmtTS8
-	xkHC3hUAeAwvZ7ZvdQmC6yF6/EUcMP7OdXeqd6qVMFoHK54fTbvqG39+TyABokruIVE0OEUjwHx
-	ywyYSgrRC8NTY460HSvG4jm4iii/iOoVDRUB
-X-Received: by 2002:a05:6000:469c:b0:48a:ef5c:fc2c with SMTP id ffacd0b85a97d-48dbacf86e2mr20371602f8f.48.1791970663608;
-        Wed, 14 Oct 2026 02:37:43 -0700 (PDT)
+        bh=sXoOtdmnob+YnMth1qvSHm903lQEMfykmhDcceAz8kQ=;
+        b=XnSEMOFp5OfZwHcz2piM5akmVnlHcIJaKgmvvWVG12VH9BVXAntIT+GQbyYjbYBcBo
+         yOO5HsirgxYLv7px0pLSTsr54lRot/VQbaygsnyTVMYh21EImI64imzoMoah9sBqZun9
+         tz/WEiD+U+YlA4vclMpVsDBUaEJHnElU9e0ojDr4ZuRiuS4IcahLs2nVTwNxLQMxlm2x
+         zM5y/syp6F00JD7T6Cc8xoytnrUQ0Kb6waWv7AwgWGpafVgehkbrC/g3alssAhjFKbzs
+         EFxmxiuOanDpGpCX6PNIEvYLud85NPbjX1y/tUORWoak42zBwSVIBR5G2KGXDDANFUMv
+         jwxQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzay7KkZtDDYgTpHwxzx9ZWHtlDyt8Jit0881k9MyetAX0pt3JhrJUu2Zpk2L6GADCPsKpZFw1wQxFoqYHrWNjz@lists.infradead.org
+X-Gm-Message-State: AFq9FYLS3Ai2vUw1O5jq8R1NbsSDZwbfJzKwyl1wHjacrJbDOkUhwIEg
+	/SNtHnahFDKJDpB43qCJCi2uVJcFvOzkzbxcnI+tCrslRKkJL8kyz5D+
+X-Gm-Gg: AYBFou1iD91jcUsNPaUhMcf6Ta33HrRpp8G4Tn/JVOE2m7AxtX9lmLqTScZ6tqiXq9c
+	ZzVBkDxAnQa5UkApY6TEJe7BNgQ4eDZoepDVmkHgP9+ZfoFRC6U7nFhftfFPqfJAUdh/MOvc85w
+	ApCRyefMQk3LuZqpBsjIBcydr6XWjytbXuNYVXQeWCxCIv2sX6JsNL2sQjB3Ql+VTLPbSoSIkoG
+	asodFoThGUD9JAE0hD69amxYP4G7o+/qnlkVrSHp8ZXgOqaioT0qMmGw14hSyr+Ti1akZoxfHPs
+	Ksaz2mD9OV6TtUXM3ie1CQkTT5xBcqW2/Ezmndi82Fq6Uym+zPELcdMty7qGvOi/QZmkEyuJ6zl
+	q+y5mau2+WfLCIChUbhi6/UVImz3TlfiuyFgg8kZL02NwHdyDvq9zMbYPDVSm7MmiWpo4IP6l29
+	C+dz+7Y2Mx/Ni7FjeH5H6gKu5Maj1imjtqgK+2z4gEcBKC8e3UElUsYYJYys0ivzVXofGAYxviz
+	dKamrLcN81FRvNCetYUj6iv47pMoy9n40RzgbJCgrRqhFdfkJuPz9se/N4zRebcWxnnqdeUhmvf
+	TV4DSasdNp/OM6v1cHkMxdtwjre9cQx3AOZYEvJjMY5C1g==
+X-Received: by 2002:a5d:4381:0:b0:48c:7d67:8ee9 with SMTP id ffacd0b85a97d-48dbacec815mr21345295f8f.19.1791970658161;
+        Wed, 14 Oct 2026 02:37:38 -0700 (PDT)
 Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.42
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.36
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Oct 2026 02:37:43 -0700 (PDT)
+        Wed, 14 Oct 2026 02:37:37 -0700 (PDT)
 From: Fred Griffoul <griffoul@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>,
@@ -118,17 +133,17 @@ Cc: David Woodhouse <dwmw2@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 06/11] iommufd: Map memory provider files
-Date: Wed, 14 Oct 2026 09:37:28 +0000
-Message-ID: <20261014093733.90312-7-griffoul@gmail.com>
+Subject: [RFC PATCH v2 02/11] KVM: guest_memfd: Let get_pfn() report read-only pages
+Date: Wed, 14 Oct 2026 09:37:24 +0000
+Message-ID: <20261014093733.90312-3-griffoul@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261014093733.90312-1-griffoul@gmail.com>
 References: <20261014093733.90312-1-griffoul@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_023746_284844_D457257B 
-X-CRM114-Status: GOOD (  35.36  )
+X-CRM114-CacheID: sfid-20261014_103740_271538_A2A1BCA2 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,576 +160,294 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fred Griffoul <fgriffo@amazon.co.uk>
 
-IOMMU_IOAS_MAP_FILE pins the pages it maps, which cannot work for a
-memory provider file: the frames may have no struct page, and the
-provider can take any of them back at any time.
+A guest_memfd backing cannot map a page read-only for the guest:
+get_pfn() returns only a frame, and KVM_MEM_READONLY is refused on
+guest_memfd slots. So a hypervisor cannot give a guest a page it may
+read but not write.
 
-Accept a provider file. iommufd neither pins nor accounts its pages.
-It asks the provider for each frame when it fills a domain, and on a
-revoke it unmaps the range in every domain and maps what the provider
-backs now. A device that accesses the range in between faults. A
-revoke charges the page tables it allocates to the memory cgroup that
-mapped the file, not to the task that revoked.
+get_pfn() gets a writable output, which it may clear. The x86 and arm64
+fault paths then map the page without write permission, and a guest
+write exits with KVM_EXIT_MEMORY_FAULT. A read-only answer applies to
+the whole block that max_order allows.
 
-Each frame gets a PAGE_SIZE entry, so a partial revoke never splits a
-large IOMMU page. The next patch maps larger blocks. Holes stay
-unmapped, read-only pages are mapped without IOMMU_WRITE, and MMIO
-pages with IOMMU_MMIO. Frame 0 is refused with -EINVAL: iova_to_phys()
-returns 0 for an IOVA that is not mapped, so a revoke would take that
-page for a hole and leave it mapped.
+Callers that hand the page to something that writes it must refuse a
+read-only page: the arm64 VNCR page and the SEV-SNP VMSA. populate() has
+no writable output, so a backing cannot report read-only state through
+it. The output does not cover KVM's own writes through the slot's host
+address.
 
-A revoke would race a dirty bitmap read and lose the dirty bits of the
-range, so provider pages and a dirty tracking domain cannot share an
-IOAS: whichever comes second fails with -EOPNOTSUPP. A provider
-mapping cannot be split by a partial unmap, and in-kernel accesses to
-it are refused.
+The memory provider backing, later in this series, is the first user.
 
 Assisted-by: Claude:claude-opus-5-5
 Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
 ---
- drivers/iommu/iommufd/Kconfig        |   1 +
- drivers/iommu/iommufd/io_pagetable.c |  13 +-
- drivers/iommu/iommufd/io_pagetable.h |  27 ++-
- drivers/iommu/iommufd/pages.c        | 288 ++++++++++++++++++++++++++-
- include/uapi/linux/iommufd.h         |  11 +-
- 5 files changed, 334 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/mmu.c     | 13 ++++++++-----
+ arch/arm64/kvm/nested.c  | 16 ++++++++++++----
+ arch/x86/kvm/mmu/mmu.c   | 18 ++++++++++++++++--
+ arch/x86/kvm/svm/sev.c   | 13 +++++++++++--
+ include/linux/kvm_host.h | 16 +++++++++++++---
+ virt/kvm/guest_memfd.c   | 21 ++++++++++++++++-----
+ 6 files changed, 76 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/Kconfig b/drivers/iommu/iommufd/Kconfig
-index 455bac0351f2..65d71e28c12b 100644
---- a/drivers/iommu/iommufd/Kconfig
-+++ b/drivers/iommu/iommufd/Kconfig
-@@ -8,6 +8,7 @@ config IOMMUFD
- 	select INTERVAL_TREE
- 	select INTERVAL_TREE_SPAN_ITER
- 	select IOMMU_API
-+	select MEM_PROVIDER
- 	default n
- 	help
- 	  Provides /dev/iommu, the user API to control the IOMMU subsystem as
-diff --git a/drivers/iommu/iommufd/io_pagetable.c b/drivers/iommu/iommufd/io_pagetable.c
-index bcd531acc9dd..3eca7f4f83d3 100644
---- a/drivers/iommu/iommufd/io_pagetable.c
-+++ b/drivers/iommu/iommufd/io_pagetable.c
-@@ -217,6 +217,7 @@ static int iopt_insert_area(struct io_pagetable *iopt, struct iopt_area *area,
- 		return -EPERM;
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..32e591edc69d 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1607,7 +1607,7 @@ struct kvm_s2_fault_desc {
  
- 	area->iommu_prot = iommu_prot;
-+	area->provider = iopt_is_provider(pages);
- 	area->page_offset = start_byte % PAGE_SIZE;
- 	if (area->page_offset & (iopt->iova_alignment - 1))
- 		return -EINVAL;
-@@ -289,6 +290,9 @@ static int iopt_alloc_area_pages(struct io_pagetable *iopt,
- 		case IOPT_ADDRESS_DMABUF:
- 			start = elm->start_byte + elm->pages->dmabuf.start;
- 			break;
-+		case IOPT_ADDRESS_PROVIDER:
-+			start = elm->start_byte + elm->pages->provider.start;
-+			break;
+ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ {
+-	bool write_fault, exec_fault;
++	bool write_fault, exec_fault, writable;
+ 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+@@ -1641,14 +1641,17 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
+ 	smp_rmb();
+ 
+-	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
+-	if (ret) {
++	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL,
++			       &writable);
++	if (ret || (write_fault && !writable)) {
+ 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+ 					      write_fault, exec_fault, false);
+-		return ret;
++		if (!ret)
++			kvm_release_faultin_page(kvm, page, true, false);
++		return ret ?: -EFAULT;
+ 	}
+ 
+-	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
++	if (!(s2fd->memslot->flags & KVM_MEM_READONLY) && writable)
+ 		prot |= KVM_PGTABLE_PROT_W;
+ 
+ 	if (s2fd->nested)
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index fb54f6dad995..fa86705df949 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1411,11 +1411,19 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
+ 			return -EFAULT;
+ 	} else {
+-		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
+-		if (ret) {
++		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL,
++				       &writable);
++		/*
++		 * The VNCR page is always written, so a read-only page cannot
++		 * back it.  Exit on the first access, even a read, rather than
++		 * map it read-only and fault on the next write.
++		 */
++		if (ret || !writable) {
+ 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
+-					      write_fault, false, false);
+-			return ret;
++					      true, false, false);
++			if (!ret)
++				kvm_release_faultin_page(vcpu->kvm, page, true, false);
++			return ret ?: -EFAULT;
  		}
- 		rc = iopt_alloc_iova(iopt, dst_iova, start, length);
- 		if (rc)
-@@ -515,8 +519,13 @@ int iopt_map_file_pages(struct iommufd_ctx *ictx, struct io_pagetable *iopt,
- 		if (!file)
- 			return -EBADF;
+ 	}
  
--		pages = iopt_alloc_file_pages(file, start_byte, start, length,
--					      iommu_prot & IOMMU_WRITE);
-+		/* A memory provider file, or else a memfd. */
-+		pages = iopt_alloc_provider_pages(file, start, length,
-+						  iommu_prot & IOMMU_WRITE);
-+		if (PTR_ERR(pages) == -ENODEV)
-+			pages = iopt_alloc_file_pages(file, start_byte, start,
-+						      length,
-+						      iommu_prot & IOMMU_WRITE);
- 		fput(file);
- 		if (IS_ERR(pages))
- 			return PTR_ERR(pages);
-diff --git a/drivers/iommu/iommufd/io_pagetable.h b/drivers/iommu/iommufd/io_pagetable.h
-index ba539bfaac31..80d926c86c6c 100644
---- a/drivers/iommu/iommufd/io_pagetable.h
-+++ b/drivers/iommu/iommufd/io_pagetable.h
-@@ -8,11 +8,14 @@
- #include <linux/dma-buf.h>
- #include <linux/interval_tree.h>
- #include <linux/kref.h>
-+#include <linux/mem_provider.h>
- #include <linux/mutex.h>
- #include <linux/xarray.h>
- 
- #include "iommufd_private.h"
- 
-+struct mem_cgroup;
-+
- struct iommu_domain;
- 
- /*
-@@ -48,6 +51,8 @@ struct iopt_area {
- 	/* IOMMU_READ, IOMMU_WRITE, etc */
- 	int iommu_prot;
- 	bool prevent_access : 1;
-+	/* The pages come from a memory provider and may have holes */
-+	bool provider : 1;
- 	unsigned int num_accesses;
- 	unsigned int num_locks;
- };
-@@ -191,6 +196,7 @@ enum iopt_address_type {
- 	IOPT_ADDRESS_USER = 0,
- 	IOPT_ADDRESS_FILE,
- 	IOPT_ADDRESS_DMABUF,
-+	IOPT_ADDRESS_PROVIDER,
- };
- 
- /* An area of the pages mapped into a domain, for pages that are not pinned. */
-@@ -207,6 +213,14 @@ struct iopt_pages_dmabuf {
- 	unsigned long start;
- };
- 
-+struct iopt_pages_provider {
-+	struct mem_provider_attachment att;
-+	/* Byte offset in the provider file, always PAGE_SIZE aligned */
-+	unsigned long start;
-+	/* Charged for the page tables that a revoke allocates */
-+	struct mem_cgroup *memcg;
-+};
-+
- /*
-  * This holds a pinned page list for multiple areas of IO address space. The
-  * pages always originate from a linear chunk of userspace VA. Multiple
-@@ -236,6 +250,8 @@ struct iopt_pages {
- 		};
- 		/* IOPT_ADDRESS_DMABUF */
- 		struct iopt_pages_dmabuf dmabuf;
-+		/* IOPT_ADDRESS_PROVIDER */
-+		struct iopt_pages_provider provider;
- 	};
- 	bool writable:1;
- 	u8 account_mode;
-@@ -260,10 +276,15 @@ static inline bool iopt_is_dmabuf(struct iopt_pages *pages)
- 	return pages->type == IOPT_ADDRESS_DMABUF;
- }
- 
-+static inline bool iopt_is_provider(struct iopt_pages *pages)
-+{
-+	return pages->type == IOPT_ADDRESS_PROVIDER;
-+}
-+
- /* The pages are not pinned, so their domains are tracked in pages->tracker. */
- static inline bool iopt_pages_tracked(struct iopt_pages *pages)
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 234d0a95abf5..f689ef5c2b46 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -4612,6 +4612,7 @@ static void kvm_mmu_finish_page_fault(struct kvm_vcpu *vcpu,
+ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
+ 				    struct kvm_page_fault *fault)
  {
--	return iopt_is_dmabuf(pages);
-+	return iopt_is_dmabuf(pages) || iopt_is_provider(pages);
- }
++	bool writable;
+ 	int max_order, r;
  
- static inline bool iopt_dmabuf_revoked(struct iopt_pages *pages)
-@@ -285,6 +306,10 @@ struct iopt_pages *iopt_alloc_dmabuf_pages(struct iommufd_ctx *ictx,
- 					   unsigned long start_byte,
- 					   unsigned long start,
- 					   unsigned long length, bool writable);
-+struct iopt_pages *iopt_alloc_provider_pages(struct file *file,
-+					     unsigned long start,
-+					     unsigned long length,
-+					     bool writable);
- void iopt_release_pages(struct kref *kref);
- static inline void iopt_put_pages(struct iopt_pages *pages)
- {
-diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
-index 660af3d46f5e..aa7740326ad6 100644
---- a/drivers/iommu/iommufd/pages.c
-+++ b/drivers/iommu/iommufd/pages.c
-@@ -52,6 +52,8 @@
- #include <linux/iommu.h>
- #include <linux/iommufd.h>
- #include <linux/kthread.h>
-+#include <linux/mem_provider.h>
-+#include <linux/memcontrol.h>
- #include <linux/overflow.h>
- #include <linux/slab.h>
- #include <linux/sched/mm.h>
-@@ -238,6 +240,35 @@ static void iommu_unmap_nofail(struct iommu_domain *domain, unsigned long iova,
- 	WARN_ON(ret != size);
- }
+ 	if (!kvm_slot_has_gmem(fault->slot)) {
+@@ -4620,13 +4621,26 @@ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
+ 	}
  
-+/*
-+ * Provider pages are mapped with PAGE_SIZE entries, and may have holes.  Some
-+ * IOMMU drivers warn when asked to unmap an IOVA that is not mapped, so find
-+ * the runs that are mapped and unmap each one, without touching the holes.
-+ * iopt_provider_map() refuses frame 0, which iova_to_phys() reports for
-+ * an IOVA that is not mapped.
-+ */
-+static void iopt_provider_unmap(struct iopt_area *area,
-+				struct iommu_domain *domain,
-+				unsigned long start_index,
-+				unsigned long last_index)
-+{
-+	unsigned long iova = iopt_area_index_to_iova(area, start_index);
-+	size_t left = (last_index - start_index + 1) * PAGE_SIZE;
-+
-+	while (left) {
-+		size_t len = 0;
-+
-+		while (len < left && iommu_iova_to_phys(domain, iova + len))
-+			len += PAGE_SIZE;
-+		if (len)
-+			iommu_unmap_nofail(domain, iova, len);
-+		/* Step over the run and the hole page that ended it. */
-+		len = min(len + PAGE_SIZE, left);
-+		iova += len;
-+		left -= len;
+ 	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
+-			     &fault->refcounted_page, &max_order);
++			     &fault->refcounted_page, &max_order, &writable);
+ 	if (r) {
+ 		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
+ 		return r;
+ 	}
+ 
+-	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
++	/*
++	 * get_pfn() may clear writable, on top of the memslot's read-only flag:
++	 * a read-only page is mapped read-only, and a guest write to it exits to
++	 * userspace rather than being installed.
++	 */
++	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY) &&
++			      writable;
++	if (fault->write && !fault->map_writable) {
++		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
++		kvm_release_faultin_page(vcpu->kvm, fault->refcounted_page,
++				 true, false);
++		fault->refcounted_page = NULL;
++		return -EFAULT;
 +	}
-+}
-+
- static void iopt_area_unmap_domain_range(struct iopt_area *area,
- 					 struct iommu_domain *domain,
- 					 unsigned long start_index,
-@@ -245,6 +276,11 @@ static void iopt_area_unmap_domain_range(struct iopt_area *area,
- {
- 	unsigned long start_iova = iopt_area_index_to_iova(area, start_index);
+ 	fault->max_level = kvm_max_level_for_order(max_order);
  
-+	if (area->provider) {
-+		iopt_provider_unmap(area, domain, start_index, last_index);
+ 	return RET_PF_CONTINUE;
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index 427229347876..e121441bc89c 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -3988,6 +3988,7 @@ static void sev_snp_init_protected_guest_state(struct kvm_vcpu *vcpu)
+ 	struct vcpu_svm *svm = to_svm(vcpu);
+ 	struct kvm_memory_slot *slot;
+ 	struct page *page;
++	bool writable;
+ 	kvm_pfn_t pfn;
+ 	gfn_t gfn;
+ 
+@@ -4025,9 +4026,17 @@ static void sev_snp_init_protected_guest_state(struct kvm_vcpu *vcpu)
+ 	 * The new VMSA will be private memory guest memory, so retrieve the
+ 	 * PFN from the gmem backend.
+ 	 */
+-	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL))
++	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL,
++			     &writable))
+ 		return;
+ 
++	/* The CPU writes the VMSA on every VMRUN: a read-only page cannot be one. */
++	if (!writable) {
++		if (page)
++			kvm_release_page_clean(page);
 +		return;
 +	}
 +
- 	iommu_unmap_nofail(domain, start_iova,
- 			   iopt_area_index_to_iova_last(area, last_index) -
- 				   start_iova + 1);
-@@ -1349,6 +1385,10 @@ static int pfn_reader_first(struct pfn_reader *pfns, struct iopt_pages *pages,
- 	    WARN_ON(last_index < start_index))
- 		return -EINVAL;
- 
-+	/* Provider pages are read from the provider, see iopt_provider_map() */
-+	if (WARN_ON(iopt_is_provider(pages)))
-+		return -EINVAL;
-+
- 	rc = pfn_reader_init(pfns, pages, start_index, last_index);
- 	if (rc)
- 		return rc;
-@@ -1647,6 +1687,228 @@ void iopt_pages_untrack_all_domains(struct iopt_area *area,
+ 	/*
+ 	 * From this point forward, the VMSA will always be a guest-mapped page
+ 	 * rather than the initial one allocated by KVM in svm->sev_es.vmsa. In
+@@ -4958,7 +4967,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 		return;
  	}
- }
  
-+static int iopt_provider_prot(struct iopt_area *area, u32 attrs)
-+{
-+	int prot = area->iommu_prot;
-+
-+	if (attrs & MEM_PROVIDER_ATTR_READONLY)
-+		prot &= ~IOMMU_WRITE;
-+	if (mem_provider_type(attrs) != MEM_PROVIDER_TYPE_RAM) {
-+		prot &= ~IOMMU_CACHE;
-+		prot |= IOMMU_MMIO;
-+	}
-+	return prot;
-+}
-+
-+/*
-+ * Map what the provider backs in [start_index, last_index] of the area into
-+ * @domain, and leave the holes unmapped.  Each frame is mapped with a
-+ * PAGE_SIZE entry, so that a revoke of part of a large block never has to
-+ * split a larger IOMMU page.  On failure nothing in the range is mapped.
-+ */
-+static int iopt_provider_map(struct iopt_area *area, struct iopt_pages *pages,
-+			     struct iommu_domain *domain,
-+			     unsigned long start_index,
-+			     unsigned long last_index)
-+{
-+	unsigned long base = pages->provider.start >> PAGE_SHIFT;
-+	unsigned long index = start_index;
-+	int rc;
-+
-+	lockdep_assert_held(&pages->mutex);
-+
-+	if ((1UL << __ffs(domain->pgsize_bitmap)) > PAGE_SIZE)
-+		return -EOPNOTSUPP;
-+
-+	/*
-+	 * A revoke unmaps under pages->mutex only, so it would race with a
-+	 * dirty bitmap read, and lose the dirty bits of what it unmaps.
-+	 * Provider pages are not mapped in a domain with dirty tracking.
-+	 */
-+	if (domain->dirty_ops)
-+		return -EOPNOTSUPP;
-+
-+	while (index <= last_index) {
-+		unsigned long pfn, iova, block_end, nr, i;
-+		int order = PUD_ORDER;
-+		u32 attrs;
-+		int prot;
-+
-+		rc = mem_provider_get_page(&pages->provider.att, base + index,
-+					   &pfn, &order, &attrs);
-+		if (rc == -EFAULT) {
-+			index++;
-+			continue;
-+		}
-+		/* Frame 0 would look unmapped to iopt_provider_unmap(). */
-+		if (!rc && !pfn)
-+			rc = -EINVAL;
-+		if (rc)
-+			goto err_unmap;
-+
-+		block_end = ALIGN_DOWN(base + index, 1UL << order) +
-+			    (1UL << order) - base;
-+		nr = min(block_end, last_index + 1) - index;
-+		iova = iopt_area_index_to_iova(area, index);
-+		prot = iopt_provider_prot(area, attrs);
-+
-+		for (i = 0; i < nr; i++) {
-+			rc = iommu_map_nosync(domain, iova + i * PAGE_SIZE,
-+					      PFN_PHYS(pfn + i), PAGE_SIZE, prot,
-+					      GFP_KERNEL_ACCOUNT);
-+			if (rc)
-+				break;
-+		}
-+		if (i) {
-+			int sync_rc = iommu_sync_map(domain, iova, i * PAGE_SIZE);
-+
-+			if (!rc)
-+				rc = sync_rc;
-+		}
-+		index += i;
-+		if (rc)
-+			goto err_unmap;
-+	}
-+	return 0;
-+
-+err_unmap:
-+	if (index > start_index)
-+		iopt_provider_unmap(area, domain, start_index, index - 1);
-+	return rc;
-+}
-+
-+/* Map the whole area into every domain of its io_pagetable. */
-+static int iopt_provider_fill_domains(struct iopt_area *area,
-+				      struct iopt_pages *pages)
-+{
-+	struct iommu_domain *domain, *undo;
-+	unsigned long index, undo_index;
-+	int rc;
-+
-+	xa_for_each(&area->iopt->domains, index, domain) {
-+		rc = iopt_provider_map(area, pages, domain,
-+				       iopt_area_index(area),
-+				       iopt_area_last_index(area));
-+		if (rc)
-+			goto err_unmap;
-+	}
-+	return 0;
-+
-+err_unmap:
-+	xa_for_each(&area->iopt->domains, undo_index, undo) {
-+		if (undo_index >= index)
-+			break;
-+		iopt_provider_unmap(area, undo, iopt_area_index(area),
-+				    iopt_area_last_index(area));
-+	}
-+	return rc;
-+}
-+
-+/*
-+ * The provider changed the frames behind [offset, offset + len).  In every
-+ * domain, unmap the range and map what the provider backs now.  A device that
-+ * accesses the range in between faults.
-+ */
-+static void iopt_provider_revoke(struct mem_provider_attachment *att,
-+				 loff_t offset, loff_t len)
-+{
-+	struct iopt_pages *pages =
-+		container_of(att, struct iopt_pages, provider.att);
-+	u64 start = pages->provider.start;
-+	u64 end = start + (u64)pages->npages * PAGE_SIZE;
-+	struct iopt_pages_track *track;
-+	struct mem_cgroup *old_memcg;
-+	unsigned long first, last;
-+	int rc;
-+
-+	if (offset < 0 || len <= 0 || offset >= end || offset + len <= start)
-+		return;
-+	first = (max_t(u64, offset, start) - start) >> PAGE_SHIFT;
-+	last = (min_t(u64, offset + len, end) - start - 1) >> PAGE_SHIFT;
-+
-+	guard(mutex)(&pages->mutex);
-+	/*
-+	 * The task that revokes does not own these page tables: charge the
-+	 * memory cgroup that mapped the file.
-+	 */
-+	old_memcg = set_active_memcg(pages->provider.memcg);
-+	list_for_each_entry(track, &pages->tracker, elm) {
-+		struct iopt_area *area = track->area;
-+		unsigned long s = max(first, iopt_area_index(area));
-+		unsigned long l = min(last, iopt_area_last_index(area));
-+
-+		if (s > l)
-+			continue;
-+		iopt_provider_unmap(area, track->domain, s, l);
-+		rc = iopt_provider_map(area, pages, track->domain, s, l);
-+		if (rc)
-+			pr_warn_ratelimited("iommufd: cannot map provider pages at IOVA %#lx-%#lx after a revoke: %d\n",
-+					    iopt_area_index_to_iova(area, s),
-+					    iopt_area_index_to_iova(area, l) +
-+						    PAGE_SIZE - 1, rc);
-+	}
-+	set_active_memcg(old_memcg);
-+}
-+
-+/**
-+ * iopt_alloc_provider_pages() - Pages backed by a memory provider file
-+ * @file: The provider file
-+ * @start: Byte offset in the file, PAGE_SIZE aligned
-+ * @length: Number of bytes
-+ * @writable: The pages may be mapped writable
-+ *
-+ * The pages are not pinned.  The provider can change the frames behind them
-+ * at any time, and every domain that maps them follows.
-+ *
-+ * Return: the pages, ERR_PTR(-ENODEV) if @file is not a provider file,
-+ * ERR_PTR(-EINVAL) if @start is not page aligned, or another ERR_PTR().
-+ */
-+struct iopt_pages *iopt_alloc_provider_pages(struct file *file,
-+					     unsigned long start,
-+					     unsigned long length,
-+					     bool writable)
-+{
-+	static struct lock_class_key pages_provider_mutex_key;
-+	struct iopt_pages *pages;
-+	int rc;
-+
-+	if (length / PAGE_SIZE >= MAX_NPFNS)
-+		return ERR_PTR(-EINVAL);
-+
-+	pages = iopt_alloc_pages(0, length, writable);
-+	if (IS_ERR(pages))
-+		return pages;
-+
-+	/*
-+	 * The pages mutex of provider pages is never held while taking the
-+	 * mmap_lock, but is taken from the provider's revoke.  Split the lock
-+	 * class from the pinned pages.
-+	 */
-+	lockdep_set_class(&pages->mutex, &pages_provider_mutex_key);
-+
-+	/* Provider pages are not pinned, so they are not accounted. */
-+	pages->account_mode = IOPT_PAGES_ACCOUNT_NONE;
-+	pages->type = IOPT_ADDRESS_PROVIDER;
-+	pages->provider.start = start;
-+	pages->provider.memcg = get_mem_cgroup_from_current();
-+
-+	/*
-+	 * The provider must cover the whole mapping, so the size is its end.
-+	 * Check the alignment only once the file is known to be a provider
-+	 * file: on -ENODEV the caller maps it as a memfd, which may start
-+	 * anywhere.
-+	 */
-+	rc = mem_provider_attach(&pages->provider.att, file, start + length,
-+				 iopt_provider_revoke);
-+	if (!rc && !PAGE_ALIGNED(start))
-+		rc = -EINVAL;
-+	if (rc) {
-+		iopt_put_pages(pages);
-+		return ERR_PTR(rc);
-+	}
-+	return pages;
-+}
-+
- void iopt_release_pages(struct kref *kref)
+-	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
++	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order, NULL);
+ 	if (ret) {
+ 		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+ 				    gpa);
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index b33d2f475042..a15abd0f7fb7 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -649,6 +649,15 @@ static inline bool kvm_slot_has_gmem(const struct kvm_memory_slot *slot)
+  *    is responsible for put_page() after use.  If *page is left NULL the PFN
+  *    is treated as non-refcounted, and its lifetime is owned by the
+  *    implementation across bind()/unbind().
++ *  - *writable, when the caller passes it, is true on entry.  Clear it to
++ *    have KVM map the page read-only; a guest write then exits as a memory
++ *    fault.  It covers the whole block that *max_order allows, so that block
++ *    must be all writable or all read-only.  It applies to stage-2 mappings
++ *    only, not to KVM's own writes through the memslot's host address.  A
++ *    caller that hands the page to hardware that writes it passes @writable
++ *    and refuses a read-only page.  Only a caller that never writes the page
++ *    itself passes NULL.  populate() has no writable result, so KVM cannot
++ *    learn read-only state through it; it is used only to fill a page.
+  *
+  * Memory intended to back guest RAM MUST be reported as E820_TYPE_RAM by the
+  * host so KVM maps it write-back (and applies the memory-encryption bit on
+@@ -662,7 +671,8 @@ struct kvm_gmem_ops {
+ 		       struct kvm_memory_slot *slot);
+ 	int (*get_pfn)(struct file *file, struct kvm *kvm,
+ 		       struct kvm_memory_slot *slot, gfn_t gfn,
+-		       kvm_pfn_t *pfn, struct page **page, int *max_order);
++		       kvm_pfn_t *pfn, struct page **page, int *max_order,
++		       bool *writable);
+ 	int (*populate)(struct file *file, struct kvm *kvm,
+ 			struct kvm_memory_slot *slot, gfn_t gfn,
+ 			kvm_pfn_t *pfn, struct page *src_page, int order);
+@@ -2642,12 +2652,12 @@ static inline bool kvm_mem_is_private(struct kvm *kvm, gfn_t gfn)
+ #ifdef CONFIG_KVM_GUEST_MEMFD
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order);
++		     int *max_order, bool *writable);
+ #else
+ static inline int kvm_gmem_get_pfn(struct kvm *kvm,
+ 				   struct kvm_memory_slot *slot, gfn_t gfn,
+ 				   kvm_pfn_t *pfn, struct page **page,
+-				   int *max_order)
++				   int *max_order, bool *writable)
  {
- 	struct iopt_pages *pages = container_of(kref, struct iopt_pages, kref);
-@@ -1664,6 +1926,9 @@ void iopt_release_pages(struct kref *kref)
- 		dma_resv_unlock(dmabuf->resv);
- 		dma_buf_detach(dmabuf, pages->dmabuf.attach);
- 		dma_buf_put(dmabuf);
-+	} else if (iopt_is_provider(pages)) {
-+		mem_provider_detach(&pages->provider.att);
-+		mem_cgroup_put(pages->provider.memcg);
- 	} else if (pages->type == IOPT_ADDRESS_FILE) {
- 		fput(pages->file);
- 	}
-@@ -1814,6 +2079,12 @@ static void iopt_area_unfill_partial_domain(struct iopt_area *area,
-  */
- void iopt_area_unmap_domain(struct iopt_area *area, struct iommu_domain *domain)
+ 	KVM_BUG_ON(1, kvm);
+ 	return -EIO;
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index 057f90eb835a..c9595cc9d56e 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -624,7 +624,7 @@ static void kvm_gmem_native_unbind(struct file *slot_file, struct kvm *kvm,
+ static int  kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 				    struct kvm_memory_slot *slot, gfn_t gfn,
+ 				    kvm_pfn_t *pfn, struct page **page,
+-				    int *max_order);
++				    int *max_order, bool *writable);
+ static void kvm_gmem_native_release(struct file *file);
+ static int  kvm_gmem_native_mmap(struct file *file,
+ 				 struct vm_area_struct *vma);
+@@ -936,7 +936,7 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ static int kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 				   struct kvm_memory_slot *slot, gfn_t gfn,
+ 				   kvm_pfn_t *pfn, struct page **page,
+-				   int *max_order)
++				   int *max_order, bool *writable)
  {
-+	if (area->provider) {
-+		iopt_provider_unmap(area, domain, iopt_area_index(area),
-+				    iopt_area_last_index(area));
-+		return;
+ 	pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 	struct folio *folio;
+@@ -964,7 +964,7 @@ static int kvm_gmem_native_get_pfn(struct file *file, struct kvm *kvm,
+ 
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order)
++		     int *max_order, bool *writable)
+ {
+ 	const struct kvm_gmem_ops *ops;
+ 
+@@ -977,7 +977,10 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		return -EFAULT;
+ 
+ 	*page = NULL;
+-	return ops->get_pfn(file, kvm, slot, gfn, pfn, page, max_order);
++	if (writable)
++		*writable = true;
++	return ops->get_pfn(file, kvm, slot, gfn, pfn, page, max_order,
++			    writable);
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_gmem_get_pfn);
+ 
+@@ -1028,6 +1031,7 @@ static int kvm_gmem_populate_one(const struct kvm_gmem_ops *ops,
+ 				      void *opaque)
+ {
+ 	struct page *ignored_page = NULL;
++	bool writable = true;
+ 	kvm_pfn_t pfn;
+ 	int ret;
+ 
+@@ -1041,10 +1045,17 @@ static int kvm_gmem_populate_one(const struct kvm_gmem_ops *ops,
+ 				    src_page, 0);
+ 	else
+ 		ret = ops->get_pfn(file, kvm, slot, gfn, &pfn,
+-				   &ignored_page, NULL);
++				   &ignored_page, NULL, &writable);
+ 	if (ret)
+ 		return ret;
+ 
++	/* post_populate() writes the page, so it cannot be read-only. */
++	if (!writable) {
++		if (ignored_page)
++			put_page(ignored_page);
++		return -EPERM;
 +	}
 +
- 	iommu_unmap_nofail(domain, iopt_area_iova(area),
- 			   iopt_area_length(area));
- }
-@@ -1857,6 +2128,11 @@ int iopt_area_fill_domain(struct iopt_area *area, struct iommu_domain *domain)
- 	if (iopt_dmabuf_revoked(area->pages))
- 		return 0;
+ 	ret = post_populate(kvm, gfn, pfn, src_page, opaque);
  
-+	if (iopt_is_provider(area->pages))
-+		return iopt_provider_map(area, area->pages, domain,
-+					 iopt_area_index(area),
-+					 iopt_area_last_index(area));
-+
- 	rc = pfn_reader_first(&pfns, area->pages, iopt_area_index(area),
- 			      iopt_area_last_index(area));
- 	if (rc)
-@@ -1922,7 +2198,11 @@ int iopt_area_fill_domains(struct iopt_area *area, struct iopt_pages *pages)
- 			goto out_unlock;
- 	}
- 
--	if (!iopt_dmabuf_revoked(pages)) {
-+	if (iopt_is_provider(pages)) {
-+		rc = iopt_provider_fill_domains(area, pages);
-+		if (rc)
-+			goto out_untrack;
-+	} else if (!iopt_dmabuf_revoked(pages)) {
- 		rc = pfn_reader_first(&pfns, pages, iopt_area_index(area),
- 				      iopt_area_last_index(area));
- 		if (rc)
-@@ -2361,7 +2641,7 @@ int iopt_pages_rw_access(struct iopt_pages *pages, unsigned long start_byte,
- 	if ((flags & IOMMUFD_ACCESS_RW_WRITE) && !pages->writable)
- 		return -EPERM;
- 
--	if (iopt_is_dmabuf(pages))
-+	if (iopt_is_dmabuf(pages) || iopt_is_provider(pages))
- 		return -EINVAL;
- 
- 	if (pages->type != IOPT_ADDRESS_USER)
-@@ -2450,6 +2730,10 @@ int iopt_area_add_access(struct iopt_area *area, unsigned long start_index,
- 	if ((flags & IOMMUFD_ACCESS_RW_WRITE) && !pages->writable)
- 		return -EPERM;
- 
-+	/* Provider frames may have no struct page, and are not pinned. */
-+	if (iopt_is_provider(pages))
-+		return -EOPNOTSUPP;
-+
- 	mutex_lock(&pages->mutex);
- 	access = iopt_pages_get_exact_access(pages, start_index, last_index);
- 	if (access) {
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 0425d452d41e..b4500fc21368 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -224,7 +224,7 @@ struct iommu_ioas_map {
-  * @size: sizeof(struct iommu_ioas_map_file)
-  * @flags: same as for iommu_ioas_map
-  * @ioas_id: same as for iommu_ioas_map
-- * @fd: the memfd or supported dma-buf file to map
-+ * @fd: the memfd, memory provider file or supported dma-buf file to map
-  * @start: byte offset from start of the file to map from
-  * @length: same as for iommu_ioas_map
-  * @iova: same as for iommu_ioas_map
-@@ -235,6 +235,15 @@ struct iommu_ioas_map {
-  * VFIO PCI dma-bufs exported through VFIO_DEVICE_FEATURE_DMA_BUF, and
-  * other dma-bufs may be rejected. All other arguments and semantics match
-  * those of IOMMU_IOAS_MAP.
-+ *
-+ * A file from a memory provider is also accepted; @start must then be
-+ * page aligned. Its pages are not pinned. The provider may change the memory
-+ * behind any range at any time, and the mapping follows: pages that the
-+ * provider does not back are left unmapped, read-only pages are mapped
-+ * without write permission, and device memory is mapped as MMIO. A device
-+ * access to a page that is being changed, or that is not backed, faults. Such
-+ * a mapping cannot be split by a partial unmap, and in-kernel accesses to it
-+ * are refused. It is not supported in an IOAS with a dirty tracking domain.
-  */
- struct iommu_ioas_map_file {
- 	__u32 size;
+ 	/*
 -- 
 2.47.3
 
