@@ -4,62 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C327CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16099CC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Lf0lQggRONexyHLo27fbzWTnjGbzE28f5/qQ3luTUQ=; b=U/1LHoDzDlS5re3/hLIpKSDSIW
-	PJ0xgqykyKGiogVAL6M2RYQ3tnKpgVH5odjBEp3mpZqWnxLVGYKvA8U4iv6fBQ36sOnl+EW+wSKrL
-	4omzg0oJU5oSqsbp/TuzNoEwYqmLKqypfA5ZTidCm+b+nnzMzbnXJjGbnfg6pTqad5O0xlRyvGW+Z
-	kWfSMf3UcriACx3Jf3doLThrND4oW1IP9ETtM12f6wD4/S9vynG0vcuHjw7DWtXR3Af7opKfZ6+se
-	D1rRlAHhibJImbYZ9cV6NMoGbqcdJouiMYgzHXXBJgKYnYSYVwcCgwVQxzm87/4WIL5wlIYk9EZFt
-	Y6KkxrbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=; b=roXtigPFo7WpNSfi52lYxwpT3r
+	mfYoAIQfzMTndXqYQmJjFX7zDUFAumqgjks31SkixbP6LLF9vrBolTnsrzMNH/ro0MpLSqlyiaUgr
+	505mAuzYuyWzfBKc5bccaZy/5hjoF8pR5P8hVfV6thVWOFpynHordrtLksQ8mqMTaZYAFOL6eaefr
+	5j/8VEaVugZTvvHpJzfPLZJVgOGBfAp4k9ubNsoXIVXls5oOXjf5ZFgnJ6dqkhlyibCIN4J/xQQok
+	GduQ3URmfQ+J//qJGksRxJv7TU1SrhTa1tv3aIPLs+tRCPgwmwC2X2P2ithfopjFsIe7rOd99fEXk
+	Cke/QmwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvzO-0000000FBBF-2dXZ;
-	Wed, 14 Oct 2026 10:13:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvzJ-0000000FBAc-17h2
+	id 1xGw2G-0000000FBeZ-1jnC;
+	Wed, 14 Oct 2026 10:16:36 +0000
+Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGw2D-0000000FBdU-1rXy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 10:13:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0315C153B;
-	Wed, 14 Oct 2026 03:13:29 -0700 (PDT)
-Received: from [10.57.9.28] (unknown [10.57.9.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B22E3F673;
-	Wed, 14 Oct 2026 03:13:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1791972812; bh=U0HDjjBQ1wZStGbPImReFidE4VOJi6igE3YQoFYCuS0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GzIBGRC8wuOEsqZgPFOh5C1Hwiga39S2JNj6kDzRTPrTtTd9pdUSC5Qptl0M/6c8T
-	 JG65pzO9uSv3RJAvLIvsRzfJgWS+4+MRONAV5O+4q/y8M2Cgr+B5UOLMhOQzNdA1Yo
-	 9v0tcX0nmJ6r+R8s28aAyT4u9Zho2F359P+pimP0=
-Message-ID: <c17df5ea-3f62-47f5-9de8-8ce3dc74eada@arm.com>
-Date: Wed, 14 Oct 2026 11:13:29 +0100
-MIME-Version: 1.0
+	Wed, 14 Oct 2026 10:16:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ScSNPT2OM81qCWn82Amts1MwcBfa0MpOvdjSlqd+TZ51WWCmtQq6HJLxdyVovuWpPJsxIZ41dEgpZ8eDFY4MppnUE+H+7V6eyOHQhvQs2s5VpQBl6umdiaiP9RhBKtSK5yVBXsOlgNifrQhvkC5rO42lJHD3yrWJWHud6A/Ro3O3r3VxJMVvr828LU+HU+tEPtgBtsRU2TtuJCqWVQSNNLPUzOjAkysBmMvoTxV4znLunEj6W5LaEOXtZsZpp9x/IdkunPe2bbw4mFYmWF/72VzD/SG2XVc7rAL0X9zJY8bBro9xWYaWLBNaBnylJeRqmov3u7jgFxAKNVh3JK3ZmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=;
+ b=svuxaxfRoM+Lb2ZIvx1xgKMgaOOnzEScJYcD42TGsXGq1U2m7U7ctMo5m41IgStKBhhSY9bJo040JjkJtl+xcZKkfSfk0Lb3C4wB5W4OnLk5zboH7JgRanFHq13nABNdEqsxEsPqsoQGC6ORqnc140pnWY8P7UPJwNp1RQ/NYmi2q4dzJyfRCkS98YzqTysLxQg4Ye4YcFcS44AM/rS/tc71cVhuHxjzxUg9BTX5bf8kTU1ADiVvZ2XGJEb6lsrs5rcv/6wrkg6hp6OTckfUOvrh22I6cHai9LJHKRZh/dR93uXJ/qDnj3jxnbRLK4MFDinp0NpLHT//x/iPDV4gDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=;
+ b=gYt+Calpm6zAz6JQsvFPm75XH/SNlH+0NCujLX6pMZvwTwEXa8/9J22dzKcLuhikDK2Atu78Z+fJPlGVfNde/0rtZrNA1IKFlUbEbwkXplGHdh+YIX0ALj6zxJCg2L/ux0OYnxV3qgTtzm7itGYELwqPguG3t3IYKzOgsb216OVVwM8XX9Vd7+c3p41wQDnNd3sBObkA0bqpeMLtTX62h0z08DMWrvlae6soCUYTNVbuOhlhEJCN2eTzRBvrCdL6bD+jpk9ILVk481NF12cHK/pJKw6bgrx+u/qtOcutK6Nl2QG+BM5tJ7G4V5LKu807qTO6cb7PojcTs7/GByJZSA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by PA3PR04MB11202.eurprd04.prod.outlook.com (2603:10a6:102:4b0::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 10:16:17 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0522.012; Wed, 14 Oct 2026
+ 10:16:17 +0000
+Message-ID: <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
+Date: Wed, 14 Oct 2026 13:16:06 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: rsi: Correct type of realm_config::hash_algo
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Kohei Enju <enju.kohei@fujitsu.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sami Mujawar <sami.mujawar@arm.com>, Steven Price <steven.price@arm.com>,
- "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-References: <20261014-cca-b4-rsi-fix-hash_algo-type-rebase-v2-1-6cb0ae13c8c1@fujitsu.com>
- <as9RFRuhlGL1mZbz@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <as9RFRuhlGL1mZbz@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: s32g2-siul2: describe EIRQ
+ input mux registers
+To: Conor Dooley <conor@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
+ Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20261008071436.596651-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20261008-1e3e0aa3fab167d544c21e68@squawk>
+Content-Language: en-US
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20261008-1e3e0aa3fab167d544c21e68@squawk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR0P281CA0261.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b5::15) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PA3PR04MB11202:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6293c43f-8b5c-4f77-aa9a-08df29dc2f02
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|7416014|376014|6133799003|22082099003|18002099003|10067099003|11063799006|261009223027099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: IUYW22JlShIYg0XyA2SLJoO5yehqSO6LVTDq0Cq5tLRSgj9nDIFy/CKk3pBQ6A4t5ExQ2rVnxSFvprPrJWYtYu3iXTDYVFFq/1XB1YyYvrK36+rzJnKZAX5dpUHh/Biy5e7edJyggUG9ODBaglK0Qp1ljNOWoY7yV7J+730gE62rx2KOp3fTTf0IzVqPVRkdDNvP96BwCb3fKKqXFj3rsHVg+BwP5uPFgbOdFINtVwA3WEWJ8iIwld/Sd9uy/1klSooZXU7LZ4OrFZLcPqTvOqLeTp0FyMmqG7dyrML9QSCafxD/sDGoT+kNprjuSHFdgkp0kz2Hl1Xz/mqAEkxwdHqghuztXGa2eW7JsrvsHEf2IzseNSeEAn2IPoHoNdEpp5Akhgu1bu6txBk+gLvMsPbt7MLj37BVK/vDtMJryWasTLJFnCRUVWAUBNAEpBIvHjtm+Xin69/B+ulj3/ukA9NHZFSdv6O/UnuIxQFgzwfcxl3q2MILQNXLEoh0dQW97ydYCsNBFHH5jeoYHpNCyVBGN43UDNY06H8sEiLGxFIm2MhAenj1xAril604f6vE8FvhKMbztckBosfYa4yZG1w3sVR2hiynS/St7ToeVzfcfYHxIilNiotpuyWn5Uy63TcxLeUNSVwtSSJeptjVuTYIDIDwPQ2XV4dJ0AR4mVY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(7416014)(376014)(6133799003)(22082099003)(18002099003)(10067099003)(11063799006)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?LzlIT2dXRStRT3N2L1R5NGRaYWtxdFEwODdmcDN2K0VTZlEyaEVhN2IzZTFz?=
+ =?utf-8?B?bE5FZWpyemdtNVUzQlRVVGtSVkRYUTNQYXhxVVQzUDNESWxhUUVzejltUUFp?=
+ =?utf-8?B?MFFpZFcxVW9MSDA3MWJpeDRybHUzMmxubWN0blR1dmtTMHJINDRpT3BHT1ZM?=
+ =?utf-8?B?L2d4R3hPcjk1L2c2SUQrZ1RqM0RiaTMxY2RRRUlDVFBObmUzU05CSmhVNHR6?=
+ =?utf-8?B?MzB0d1BhUWdzc0Zsa0hkb2Jzb3FyK3ppbnQ1anZkZExoNFVxZVB1YVExMVIx?=
+ =?utf-8?B?bWJDSFRLL3ZPN1RReWZuRWxJemlkbWFGSGFvZ24rbklWNWNLeEdtMzZEd1FP?=
+ =?utf-8?B?aG5wbS8vSU1idzhUUDVyU2txTEQ5RCtlRWltdWhSSktPUVBxRHlaeDJrUk5j?=
+ =?utf-8?B?TmU3SjRZR1duYjEvKzZpUXcvcVcxcWN6dTBFUHVNT1pDa3FQbmVST0VFeU94?=
+ =?utf-8?B?UUhVdmhmQXdQUTlpK1pRSTExaE5UemN3Y0xqWkJwQmloZ21CQWpta0JmV1pL?=
+ =?utf-8?B?SlJMRUpqNDgzODJtQndFRllETTFxdXQvdC9zRmpYVlBJdS9FLzA4cHBmL05P?=
+ =?utf-8?B?YkJkTW5iaGI0MVlENmdscklRS0h1VFVieHlPdUtNQ0ZWNmFjZXA3VUxvY1RF?=
+ =?utf-8?B?VmZWcVcrVWhjcE5BT1FJenN6Y0I3SEpXTTI5cmxGbC9XOWZvS3Y2c2h5Yy9Z?=
+ =?utf-8?B?N016Z2thQ3JxZ21Gb3lGMWg5N0dnYkJobUZCMlV4VkFFdTZtYzJiam5ZMUJ4?=
+ =?utf-8?B?a24yZlpIa2dSVlRLUDluY2Npbmp4eTFiUGZuUHdtS0xESkpoZDZaZmt1WmNv?=
+ =?utf-8?B?OVViMzVXM1JRWUlvTzVhRFdXMmg5V0tJWTdYRFlJN2wva3dwUGJ0aytJTVFn?=
+ =?utf-8?B?WGMwQTNxb1EwVDZBdmNkUzg4ZFMvUUJSaFJkS3I2dzhMNjFZYVRwUmh3bWVP?=
+ =?utf-8?B?a3FvMHZwWUNYTEtlU01pbWtkek9vTThyM3RkWDVlcGZydHFJUDRzcWFvL0xu?=
+ =?utf-8?B?dXVYUWRqdkQ5c1lQcTlmcEFCZi9nWVdDSHQrMWtwT3JSUzJTNFlMV2FlN1FU?=
+ =?utf-8?B?bEdJOWdhM3NrMDFZcG5DQ24wWWtSeHNlWnhoVjFMTUFpRG9rK2hJRndDcko1?=
+ =?utf-8?B?ekZQc1Zza1FXdGJ6VEk0NytyM3FMTy85L09ROXpVN2tYWFlJWlkrZTdHeVRC?=
+ =?utf-8?B?aUlON093K1hubnhKYWJGeGdTTVJzdkoweWpBck5UdWxmYlhGbzFtZWZVM1pm?=
+ =?utf-8?B?ZXNJdnVmWXZjeXh1RkFjQTlxSDRXN3d2VzdxaTgxTkJLWnkyWjJDM3g2Q3VD?=
+ =?utf-8?B?TmRLeGhCRFd5NnFwR1NQRlZBbnNQR3NXeVorckc4bXlST0xYejFaMGtwQzlN?=
+ =?utf-8?B?WDJuNXBndlM0WCtXaUc2dnJ1WTdUUk5sU2Y3VHF3OVdZSTVmUkFkaGZVTDB1?=
+ =?utf-8?B?N05NTHFhVFJzcERCTGFHYkNlR3hyTXM5L3M1SkQydUoza3FKMjlrYjBJR1Az?=
+ =?utf-8?B?ckZhbGpnR0ZqczI5d2c0US9Zb1VGQ1g2OU9zbTdoOTRjVTA3UkZMeVpxYVZq?=
+ =?utf-8?B?YWE3R0NQLzBWMCs0eFBaY0lLL0lRQUFtR000bkU1NlRFY3hVbFhLOHZxNnlW?=
+ =?utf-8?B?MUNzSnNVZVlwWmRVUnJkRVFSOEVwdFBiSjdXeGNaSENsYnY2YkdNdWQyK0dK?=
+ =?utf-8?B?cFBNWWcwNHpZcjFyeTVOME5JeDNvRFBpekNNZmp0OHNUT2x3d1YxVGJJMnA2?=
+ =?utf-8?B?SzZQd3k5Y2hZb1Z3QUFHN1p3VnRjc0NaRFZ3dUsvdHVNMGtJUlFCSkNLK01p?=
+ =?utf-8?B?ZFhtQkl2MXRiSUpMOU1md2FGZnRtcGxERy9mWWN4eEN5bVlvS1RRSCtBaTRi?=
+ =?utf-8?B?T1ppUFlkNnZ3NXUwZUhIeTZJOWJJY1YvUHQ0NUpsZ240YktLZTRjQ2tKcGtP?=
+ =?utf-8?B?RkRQM0FTS045c2tyVGliZC9hOW43VlRiK3l3OC9sc2lSOElxb2VzWW56emdo?=
+ =?utf-8?B?YkRKejJCQ0RjeS9iSWlpT215TFBrNHU1RlorTG94YWxZcGtLUklsQkM5MGlZ?=
+ =?utf-8?B?N1d3K0hvdFlTQlVCUEluajdjTGFRT0FaaStWZ1pvcXdPNmp2RlppcFVpZzlN?=
+ =?utf-8?B?T0plRWFhMlN6V2lDc09vODBrMzE3QVVvM1J3b2NyOVJEa2xUZnIvNTB3dklr?=
+ =?utf-8?B?d0ZXdUVpOS9ldGh6Nk9JTzlINTNTZXU5MDJxUm5UdWhZWTh2NzM4UXJ6ZXhS?=
+ =?utf-8?B?cnBiRm9Wb3lpSTkvU1dCcUk3NFdUODhMSmo3MzZBTVh0bUZQSVNzR3VoMUVF?=
+ =?utf-8?B?c1VMa1QxVXYwdXBwMUlDSmpjcnZJUWFzbTNMd2RrVDROd3VzcWxVZktUY1NN?=
+ =?utf-8?Q?oIm21aiB8ykUxCqZU/zn3bhChymwbPztz/MfV?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6293c43f-8b5c-4f77-aa9a-08df29dc2f02
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 10:16:17.0605
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XtGWa6bKSaDueY5/PVCmzKcE6mZopBPBIa7uAOhstqvAZDvrA8ZHav0WTQ4/9pr1ZaEFKaWtjo/nV/APL1qoXLNz6+gc1+r8B47HGmw//qFZDZ/3vzHEkUBfdVq2+ZE8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_031333_412702_E3FE3B0E 
-X-CRM114-Status: GOOD (  29.25  )
+X-CRM114-CacheID: sfid-20261014_031633_488576_2E646702 
+X-CRM114-Status: GOOD (  25.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,79 +169,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2026 10:53, Catalin Marinas wrote:
-> Thanks for respinning.
-> 
-> On Wed, Oct 14, 2026 at 11:43:23AM +0900, Kohei Enju wrote:
->> The RMM specification defines RsiHashAlgorithm as an 8-bit type, but
->> realm_config::hash_algo is currently declared as unsigned long.
+On 10/8/2026 10:20 AM, Conor Dooley wrote:
+> On Thu, Oct 08, 2026 at 09:14:34AM +0200, Khristine Andreea Barbulescu wrote:
+>> The SIUL2 external interrupt lines (EIRQ0-EIRQ31) on S32G2/S32G3 are not
+>> hard-wired to fixed pads. Each EIRQ line has its own input multiplexer,
+>> implemented by the IMCR398-IMCR429 registers, whose Source Signal Select
+>> (SSS) field selects which pad signal feeds the edge detector.
 >>
->> There are currently no upstream users of this field, so the mismatch
->> does not cause an observable issue today. However, a proposed series
->> adding support for Realm measurement registers uses this field and
->> exposes a bug caused by the incorrect type.
-> 
-> It should be clear the bug is in the RMM implementation. The patch here
-> is more like defensive programming when the RMM doesn't honour the
-> interface and zero the unused bits. I can fix the text when applying.
-> 
->> Change hash_algo to u8 to match the RMM specification while preserving
->> the size and layout of struct realm_config.
+>> These registers were previously listed as reserved and were absent from
+>> the reg list. Add a dedicated entry for the IMCR398-IMCR429 EIRQ input
+>> multiplexer window between the two regular IMCR groups, update the
+>> example and the minimum item count for the GPIO/EIRQ variant, and drop
+>> IMCR398-IMCR429 from the reserved-index note.
 >>
->> Link: https://lore.kernel.org/all/20260413084957.327661-4-sami.mujawar@arm.com/
->> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+>> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 >> ---
->> Changes in v2:
->> - Drop the inner union and padding around hash_algo (Catalin)
->> - Link to v1: https://patch.msgid.link/20260929-cca-b4-rsi-fix-hash_algo-type-rebase-v1-1-6932cf0aa605@fujitsu.com
-> 
-> In theory we could add a fixes tag for reference but not worth cc
-> stable.
-> 
-> Fixes: b880a80011f5 ("arm64: rsi: Add RSI definitions")
-> 
->> ---
->>   include/linux/arm-smccc-rsi.h | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>  .../bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml        | 9 +++++++--
+>>  1 file changed, 7 insertions(+), 2 deletions(-)
 >>
->> diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
->> index fddb77986f70..cca881ddfdba 100644
->> --- a/include/linux/arm-smccc-rsi.h
->> +++ b/include/linux/arm-smccc-rsi.h
->> @@ -128,7 +128,7 @@ struct realm_config {
->>   	union {
->>   		struct {
->>   			unsigned long ipa_bits; /* Width of IPA in bits */
->> -			unsigned long hash_algo; /* Hash algorithm */
->> +			u8 hash_algo; /* Hash algorithm */
->>   		};
->>   		u8 pad[0x200];
->>   	};
+>> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>> index 36f2393fa406..ecf6d61a80e9 100644
+>> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
+>> @@ -23,7 +23,9 @@ description: |
+>>    are used for external interrupt configuration.
+>>  
+>>    Please note that some register indexes are reserved in S32G2, such as
+>> -  MSCR102-MSCR111, MSCR123-MSCR143, IMCR84-IMCR118 and IMCR398-IMCR429.
+>> +  MSCR102-MSCR111, MSCR123-MSCR143 and IMCR84-IMCR118. IMCR398-IMCR429
+>> +  are not regular pin IMCRs but the EIRQ input multiplexer registers,
+>> +  which select the pad signal routed to each external interrupt line.
+>>  
+>>  properties:
+>>    compatible:
+>> @@ -53,6 +55,7 @@ properties:
+>>        - description: MSCR registers group 2 in SIUL2_1
+>>        - description: IMCR registers group 0 in SIUL2_0
+>>        - description: IMCR registers group 1 in SIUL2_1
+>> +      - description: IMCR398-IMCR429 EIRQ input multiplexer registers in SIUL2_1
 > 
-> Suzuki, are you ok with this patch?
+> Isn't mid-list insertion here a compatibility break, since there's no
+> reg-names property here? Seems like this can just be added at the end,
+> without an impact on existing users?
+>
 
-Yep, looks good to me.
+Hi Conor,
 
+You're right. I placed it mid-list because the EIRQ window (IMCR398-IMCR429)
+physically sits between the two IMCR groups in the SIUL2_1 address map.
+But I'll move it to the end of the reg list in v2.
+>>        - description: IMCR registers group 2 in SIUL2_1
+>>        - description: PGPDO registers in SIUL2_0
+>>        - description: PGPDI registers in SIUL2_0
+>> @@ -141,7 +144,7 @@ oneOf:
+>>        - interrupts
+>>      properties:
+>>        reg:
+>> -        minItems: 11
+>> +        minItems: 12
 > 
-> As a separate patch, we need to add some static_assert() for the offsets
-> and the size of the realm_config structure. We do this in
-> arm-smccc-rmi.h already.
-
-I was going to suggest that and possibly rename the "pad" to sizers. For
-now this is fine, but would be good to do that when we add the newer
-  fields for RSI v2.0
-
-
+> Why is the new reg mandatory? I didn't catch the explanation for that.
 > 
-> There's a similar realm_params structure in arm-smccc-rmi.h but,
-> IIUC, the hash_algo there is written by the kernel, so unsigned long is
-> fine.
+> Thanks,
+> Conor.
+>
 
-Correct. It is an input to the RMM.
+The current driver just ioremaps the EIRQ region unconditionally, which is
+what forced the bump, but that isn't a real requirement. The EIRQ
+window only matters when EIRQ is used.
+In v2 I'll keep minItems at 11 and make the window optional: when it's absent
+the driver skips the EIRQ IRQ domain (already tracked via eirq_present) and
+EIRQ stays purely additive. Does this approach work for you?
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>  
+>>  additionalProperties: false
+>>  
+>> @@ -162,6 +165,8 @@ examples:
+>>                <0x4009ca40 0x150>,
+>>                /* IMCR119-IMCR397 registers on siul2_1 */
+>>                <0x44010c1c 0x45c>,
+>> +              /* IMCR398-IMCR429 (EIRQ input mux) on siul2_1 */
+>> +              <0x44011078 0x80>,
+>>                /* IMCR430-IMCR495 registers on siul2_1 */
+>>                <0x440110f8 0x108>,
+>>                /* PGPDO registers on siul2_0 */
+>> -- 
+>> 2.34.1
+>>
 
-Cheers
-Suzuki>
+On timing: I'll hold the v2 respin a bit longer. As noted in the cover letter,
+the series still depends on two changes that haven't landed — the rebase of
+94cb9e8f2707 ("pinctrl: s32cc: implement GPIO functionality") onto the GPIO tree
+(currently reverted by 04b3818c3bbc) and the reg_mask_xlate alignment with
+6c53312b7e2d. Until those settle the series won't apply cleanly.
+
+Regards,
+Khristine
 
 
