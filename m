@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9843CC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 19:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F9DCC6B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 19:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AUucbabIGrn3bRd3fXdHgTzW7jRpxaxIBGMPCbeA8Ms=; b=qasQp6CV3/ZAVvN3hBYxOKl0gm
-	BdavV6Mj3sg6QHJmcdSThmYZaMZ3DxXrYHzLASzf3a1DzByqdg4+AjxlPmFvVwSnGO3EH3vtMPbru
-	Xe0XkB/6vZsAVmb2oCd/dQ+SINJ7rwBCqmdv6MU+2wkwf8ZhwNErw3dVBQyqormj5an5l/LErRscn
-	OiMU+Qj9WylNFsDQo08KyuxXn/vV1iculMzNVy19koVs8gfNlY7Ad6vIxsujN0UejjiQxZjRrFncY
-	xkNEnCVFW3l/0IdKdIavXUtz4I8WS2I7knlZHuNWKoeOa4GVrrfI7k8u3Q0ZtVg+Ttqbvp7vKNtZB
-	blAgwtdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Nwo7fummJ1+6uAUT8/LcA06d2mBN1HNQjSCHgbIgjcU=; b=2f7MU+x2GZv9SS
+	3b02GpJCwEOdR56iuYBKT6zHaJAs1N4CnauYI2uWAJ9zbxbEfbMgmQWbLPuApujmmE/9KbZhLF751
+	R+yjS8rlM2z1x2/C0KgQvtm+sxg9LBPdM3XRQPRAP4JsBXvjiUdV+3EyZDGHXCQC2rnQ1SHjJL90d
+	8/SspJdDiECT8ypzf06fS7vFNfWx++yFtcKFMN2j7L8ybQTb2NiVYesmX7iqGYNqbZnmmDWmnQqJJ
+	Er/RCfSpnuNnXFkRhocm535K8dH740PR2luwz0+81MRLo6WWbx8K+H7VPV2PCdugLXUX1kMwn0d/A
+	aW4qSOJqi1Y78R8w112Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH4ie-0000000GD9R-3U1x;
-	Wed, 14 Oct 2026 19:32:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xH4mX-0000000GDJW-0qQk;
+	Wed, 14 Oct 2026 19:36:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH4ic-0000000GD9E-36A3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 19:32:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=AUucbabIGrn3bRd3fXdHgTzW7jRpxaxIBGMPCbeA8Ms=; b=ZuGLJTFEE2pXNOQu2NSJnVA4ey
-	bz0J72QtGVP/7iSMERO96pB+2Uc3YgnRlVi8oCwzNdx7bsMYxWhPPjPLkczW6OpGYdv2z61hjQzdS
-	iUcwBskAAyHDN9KsaxBsTlMQehF23PtK8cSO6pL0R83yoJEjXqzR9Zl6MJfHB9h3TTF7WgFI/1R5g
-	wcOyulO8YDzlvHNnLAF/Buv1jRFKlky91ehns/S3hv16rmPNHNM5JXlrI+mU26+OdjUXj0AIM8nq3
-	U/INGTEi0ZYzpAl2trhWeO7RZnhY3Qkzb3i+v86V9DfmRp/phxEHB+uCuUMgIwA4dkFiUG6rWNqrQ
-	yphBIYkA==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xH4iZ-0000000H9Qu-2J2l
+	id 1xH4mW-0000000GDJP-1zsA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 19:32:53 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-486e70f2457so415868f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 12:32:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792006369; x=1792611169; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AUucbabIGrn3bRd3fXdHgTzW7jRpxaxIBGMPCbeA8Ms=;
-        b=LxIutU4bVOkSnQD8iFd/USfDglzK1MBSJ0PLpr193dA/vhPYs3UR/QrhnhnZSnTgxJ
-         VQqwntZZ498NZDvcATbPzuMQBGckLS+8DjvrgXnCP+3RwglfiaZsjw3xCbLBTdXvrHR+
-         2b32xNjxz2h2jLzDdwFBse8WIkF+7qI7c/4b16bF9Mw8EtfDsirPEzFusouE1mf6s0AN
-         P2FrNqc+H6sxHesj9htoVHDisVfXr7b0muWRRRpkBP+WGATUECrUenjOe+8SX8IgDZjQ
-         7NMzaxvY3Dpgatwybe6kIW1LDHTLAJqM/td6GMyTK1Ewn2j1iWbBn41YPg18Y25so5Dp
-         qL2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792006369; x=1792611169;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AUucbabIGrn3bRd3fXdHgTzW7jRpxaxIBGMPCbeA8Ms=;
-        b=RZS3cNrBhrpvHXflAC/mR8b7zKe/WphtR3Td8YBtxh69Fk69UzMXEhqpeSGU3Dl2Am
-         Ad0YOZuFq1oLMzEibBJizf4+qTpAG7OzLlmpoizyPkqvkX2ilsUxNd2zxdaOr5/e5xup
-         /p+vTYAaNvX8fIRDGNWz0blBGBaQqLoCpkr88HkBfN5nw6i4xdZZHCVkW0QSKfKh3EXm
-         hEvOqXHJ1XUXh0q64XkPjQgd5rnCk+qSQE5G0m8Dn+Ft38M4AZnbZhDXkpbMPn+ugEbj
-         Nck1IhiyVHJ+hWLO9zD6CFgivcuu8zUQDh2owww+1LcbAF1IL2JKu4LHLey/9h4DH67B
-         TFiw==
-X-Forwarded-Encrypted: i=1; AKwUvBxHG2AvwoSJQu0ftrwKQInLn6dgeipBf9FgJh8B4sWBMC3p00hIMjvFpXpsVokosTS16zvNoea+0ebZfR1H9iMA@lists.infradead.org
-X-Gm-Message-State: AFq9FYJxFiRncskTZRU1KhUDQFxAEQ6tqnoZBya1ygMvCoNSN8OUlUAo
-	Qa4yIBQnQiiotV9xUSpqi0hdrxSEtkZ6gp6o3MVAewHECpXLb9WCJ1SI
-X-Gm-Gg: AYBFou27FJIc45IEd/rkZbjDfjkEerdRtgNLXPB0yV98bQlzQJYiIGZXG4BtSZqL4oc
-	Sp9Ph3VNG1seqqsQnL4Dxqr6TFpIPoMeeRUIr/96DTmxvrl0MUdKNwUAXMFzJgSygtWiAbWtmBF
-	dXCYhqv2Ujy+Bg9Mo+7kNbsvcemJDwwDbApkKAYHSx6rDNE/0BXyo7B8gNYgXYkcUh4hGOcGiEu
-	ExdB37xNm/1SYaCLOYaJLswhXTuD3jgRsEnS5NgBqz32a1nt+qWSydmUbF+GejJhz5q4t6dGl9J
-	L1eW+QApEPoLhj+p8htIQ4BqhjWS0cnmpXF7HG8XNxWrODKp2dEbMcAn31FAASnBvVlxWL4ugKA
-	t/77AzZ/qFdYrxsay5QntNuO7jyZIiUlboU/2iB0j9wrtuDImZUn0UlLmAKaA4J14r8hj9mr2PG
-	h1bMaNTsEYc1FTf1hAZDznIATfRwich8iWYyM7dtdjYjU6Nj+d2HTTuVsEUfPjoSttwxBjTTvUz
-	PLX4iEH+0X3aAtTA3PpixLQOUVv1mgJ
-X-Received: by 2002:a05:6000:298e:10b0:48b:5e2:52c7 with SMTP id ffacd0b85a97d-48dba77cf13mr25773200f8f.8.1792006368804;
-        Wed, 14 Oct 2026 12:32:48 -0700 (PDT)
-Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ab4e8csm13151463f8f.23.2026.10.14.12.32.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 12:32:46 -0700 (PDT)
-From: Pablo Mazzini <pmazzini@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Pablo Mazzini <pmazzini@gmail.com>
-Subject: [PATCH] rtc: sun6i: fix error handling in sun6i_rtc_clk_init()
-Date: Wed, 14 Oct 2026 20:32:20 +0100
-Message-ID: <20261014193220.38055-1-pmazzini@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 14 Oct 2026 19:36:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E582B41523;
+	Wed, 14 Oct 2026 19:36:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 975291F000C4;
+	Wed, 14 Oct 2026 19:36:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792006615;
+	bh=Nwo7fummJ1+6uAUT8/LcA06d2mBN1HNQjSCHgbIgjcU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=DVvcvc7UX80k12qRiHESe3D5qMFFVXrS38E48C9Buz1YyN3x0yyLjfN8PE2O8obfo
+	 z1EWyL8sTL4Zx59tmp6xOzDVuU7hCj2hbkXdM89M3tJdnXtlc9u49ZO+Lto+g3BsGu
+	 hsyH6xqZqSuHs9uSkr1db02NQdGYUUb5hKuZQNs6e0mShBs1+p9oLvNshC5gBtfnxU
+	 5ICHjv7tO8lQQurcDTA1KP612gBPLumtixcyZjH0oDoeejT+40FVxVkP9zTNGRb27e
+	 QFXad8keYB8IZ/hC1pkcJr6OqlI6NaCTwLEk0M52Cn+ZuieNdgR4uXGSCl8QqcT2Fo
+	 xOB+33S6zENxQ==
+Date: Wed, 14 Oct 2026 14:36:54 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: vjardin@free.fr
+Cc: Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>,
+	Roy Zang <roy.zang@nxp.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: layerscape: async probe by default
+Message-ID: <20261014193654.GA1656473@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_203251_797363_B50CC37B 
-X-CRM114-Status: GOOD (  14.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260928-for-upstream-pci-layerscape-async-probe-v1-1-76412d887baa@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,78 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set sun6i_rtc only once all clocks are registered, and unwind fully on
-error.
+On Mon, Sep 28, 2026 at 03:48:09PM +0200, Vincent Jardin via B4 Relay wrote:
+> From: Vincent Jardin <vjardin@free.fr>
+> 
+> dw_pcie_wait_for_link() polls for up to
+>   PCIE_LINK_WAIT_MAX_RETRIES x PCIE_LINK_WAIT_SLEEP_MS (10 x 90 ms)
+> per controller.
+> 
+> The controllers are probed one after the other, so, it leads to slow
+> boot time.
+> 
+> On an LX2160A board with 4 enabled controllers and no link on any
+> of them, ls_pcie_driver_init took almost 4s.
 
-Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
----
- drivers/rtc/rtc-sun6i.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
+"ls_pcie_driver_init" doesn't exist; I suppose this means
+dw_pcie_host_init()?
 
-diff --git a/drivers/rtc/rtc-sun6i.c b/drivers/rtc/rtc-sun6i.c
-index 7fc60880e409..dd293e8324b8 100644
---- a/drivers/rtc/rtc-sun6i.c
-+++ b/drivers/rtc/rtc-sun6i.c
-@@ -231,6 +231,7 @@ static void __init sun6i_rtc_clk_init(struct device_node *node,
- 	const char *iosc_name = "rtc-int-osc";
- 	const char *clkout_name = "osc32k-out";
- 	const char *parents[2];
-+	struct resource res;
- 	u32 reg;
- 
- 	rtc = kzalloc_obj(*rtc);
-@@ -267,9 +268,6 @@ static void __init sun6i_rtc_clk_init(struct device_node *node,
- 	}
- 	writel(reg, rtc->base + SUN6I_LOSC_CTRL);
- 
--	/* Yes, I know, this is ugly. */
--	sun6i_rtc = rtc;
--
- 	of_property_read_string_index(node, "clock-output-names", 2,
- 				      &iosc_name);
- 
-@@ -280,7 +278,7 @@ static void __init sun6i_rtc_clk_init(struct device_node *node,
- 								300000000);
- 	if (IS_ERR(rtc->int_osc)) {
- 		pr_crit("Couldn't register the internal oscillator\n");
--		goto err;
-+		goto err_unmap;
- 	}
- 
- 	parents[0] = clk_hw_get_name(rtc->int_osc);
-@@ -309,7 +307,7 @@ static void __init sun6i_rtc_clk_init(struct device_node *node,
- 					  &rtc->lock);
- 	if (IS_ERR(rtc->ext_losc)) {
- 		pr_crit("Couldn't register the LOSC external gate\n");
--		goto err_register;
-+		goto err_losc;
- 	}
- 
- 	clk_data->num = 3;
-@@ -317,12 +315,22 @@ static void __init sun6i_rtc_clk_init(struct device_node *node,
- 	clk_data->hws[1] = __clk_get_hw(rtc->ext_losc);
- 	clk_data->hws[2] = rtc->int_osc;
- 	of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-+
-+	/* Yes, I know, this is ugly. */
-+	sun6i_rtc = rtc;
- 	return;
- 
-+err_losc:
-+	clk_unregister(rtc->losc);
- err_register:
- 	clk_hw_unregister_fixed_rate(rtc->int_osc);
-+err_unmap:
-+	iounmap(rtc->base);
-+	of_address_to_resource(node, 0, &res);
-+	release_mem_region(res.start, resource_size(&res));
- err:
- 	kfree(clk_data);
-+	kfree(rtc);
- }
- 
- static const struct sun6i_rtc_clk_data sun6i_a31_rtc_data = {
--- 
-2.52.0
-
+> Probing the 4 in parallel allows to have it down to 1s.
+> 
+> The controllers are independent, other DWC based drivers are already
+> using async probing such as qcom, imx6, s32g, rcar-gen4 or stm32.
+> 
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> ---
+>  drivers/pci/controller/dwc/pci-layerscape.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
+> index 14d6ac4fc53f..7f37a0537159 100644
+> --- a/drivers/pci/controller/dwc/pci-layerscape.c
+> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
+> @@ -419,6 +419,7 @@ static struct platform_driver ls_pcie_driver = {
+>  		.of_match_table = ls_pcie_of_match,
+>  		.suppress_bind_attrs = true,
+>  		.pm = &ls_pcie_pm_ops,
+> +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+>  	},
+>  };
+>  module_platform_driver(ls_pcie_driver);
+> 
+> ---
+> base-commit: 94e8d4e94266bb9737a5963810a3f9365cb2f39d
+> change-id: 20260928-for-upstream-pci-layerscape-async-probe-084cae5d0907
+> 
+> Best regards,
+> -- 
+> Vincent Jardin <vjardin@free.fr>
+> 
+> 
 
