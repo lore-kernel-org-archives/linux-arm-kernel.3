@@ -4,116 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302A7CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 14:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB51CC6B2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 14:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TW7i3VMv6X3fE7YsM/6qtchCWcRku46q7bDuz3n+Xbs=; b=ogaFAu31MI5A+2WKTcAgwMTyU/
-	tDtoGyIXHEYPBdwM0NxopuXjdx0jrvLOKiSYHfRrpEWmtF4LuqUR+WBtZdsbP5iiYebSiEyySTYLd
-	n9uvqBgMph1KmhPwRNpl+te0GHZC/IKfTzQtvrCCc9OJpW5biTw6rzj8v1UWHptqcdRLSTlGFLT3y
-	zeWyuSH1BeEi3Dt8pN7eyqW/hJ9rzA9UOPIFaON7t9/ZehpZYy+ym18pSBbfry42xA18T45uHcrVJ
-	NMHbjMeWeoxVwVJMoT2x1ZFHr1j5mEfG0eia+DoB38YtI4GD35/1oygNx0maIYMppn2M/yjqgKhcz
-	bUwrlqTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YgDmbLtvb0Bbe+ZC7gTroHBuG04gtGr+M66R48NvSNE=; b=xVwJZY19EdKkjLAp18F29dZZCb
+	lkobncT+carVemzgqg7xAXDNNVcE5M5xrZpPpbag0l1UyWi53OzRVMm/XZtbQYRFKuwDyBb+H8tH6
+	TYS7wKOxEvFLcbxxb7IhtcmDIf3azD9xb1jckWXAZYc4vZ4dAxpaOIlbQdSA636KOyDZTSd66bS4R
+	+h0ZELcvuYYza65SeDk/qQ/JX5lHL67PWAIGKnB5lNBqpZ8q3OKOPddEU9MrCS26t4dmpB/LVWw77
+	HEfGJUaz8zUOfqx5pp7yvqZA0EAXpX+7jAhxXMwDo7gedi6djkIpvEbE4++wCgy6vyQw5Oi7oh4HB
+	kxWrUuJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGzr4-0000000Fimz-1jUf;
-	Wed, 14 Oct 2026 14:21:18 +0000
-Received: from mail-northeuropeazhn150110001.outbound.protection.outlook.com ([2a01:111:f403:da00::1] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xGzwf-0000000FjBY-05kG;
+	Wed, 14 Oct 2026 14:27:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGzqz-0000000FilE-3yaF
+	id 1xGzwd-0000000FjAI-1Fms
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Oct 2026 14:27:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YgDmbLtvb0Bbe+ZC7gTroHBuG04gtGr+M66R48NvSNE=; b=aIcvs3pB14ryVDWbEmekFH/yfH
+	L4wvARr7t48z3/YgPShqmFfhMnXDKDkQ24/l0t4geeKA0lhOEd/NSK6TaAwovDG7ry7PTgQ1WzlOc
+	9cMs1z7p4paDET+dFZRjcMr9kSrpVWndewTPISP76zGKsAtbDJ0lfIbK9eamUZWw3JhfVo/yjqVGU
+	iaf3xk8GAMJRJsoj/i9UcSAjJUokVIss25/4KnM+BEsFneS4Fw6hNhcMpijIL566Tx2YwCl20nV+7
+	ggINxs4GsdpM3SbmQ9DkS15XoaLxbRTR0FdVHVdvW1oZaXm3MOuPoJvXwWiwKm3vUmIH+RJq8k+2j
+	LEhfuEgg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGzwR-0000000Gsbw-1ifW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 14:21:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DqxRi+Skmb2MY5YtJvL8rM4nF2eHrY2bEj08oF3pfkPIS55gWkh0mxwKQTQXSPZBpaBEonK39y2WEPuVCaINcPWEOu1ph9TFd5kIlOiSlohrS0lpR7F3TqmZNq32XEEupXXKyWdj1vv559Yh/GgMX6MXUuWIDhdZGU6pvpDJejqbKDj0MJc09qC+6D3y0vfSx17Nsz6ztkzkS14Mqdh76IuD4XBBDiA308iZ94LGtQx8C96J7GiCgW2NOzg/ADoPoAFSIXbNheR2hJd4Q+vKe6uISliNOlzpx5P6Zon6DickZJOcF1BdjirhZ6jadBd4PHIzCGUvDOdZ3inGt+rLqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TW7i3VMv6X3fE7YsM/6qtchCWcRku46q7bDuz3n+Xbs=;
- b=IeDpVH90DDOX60tkTazokAzX5yHsJh8YMxm7nxNe3qlXXKluixLh3TBdMepRzmjJ032swn9kAB9ar6EKRAw6e9V60UqWG0YccP5+FY5U+uKgXERzbw4IAJYxwKb5RRcZtV2TwPEGICyFkUAz/xeLmc/eJhK8BpWZA+siYrF8rRZSCgNV30f6oJTNklzv2F7NK9aBAV45f+U/Wo+9YXwrRM6fCeDgha2C29LZyJFEZoLKlg04umXbTsNHxZ7h6X7OAmi/PWGBOT6qBQ2cXpDgvjTmwCdH2qCabeq2lx3I0Db3gLEqHhDtQsD7UtphZA1IgiOSyzMMQMX2oc1By8hTkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TW7i3VMv6X3fE7YsM/6qtchCWcRku46q7bDuz3n+Xbs=;
- b=KQjz/Ea2fH1W9Qb988DKXBSuCz42SUqmLd69iQzo+b+QzcfrFLfaDasBI9mPKvtGU1+VjeHL8zVHPcplahNTWCDHtKQccbakl2GZYrZEmeaB7pc2os4MFeuNHcdoVldFdkAe9/rKdh1UGWLW+MVsYAM5otkmVaW+/FpMDQChCmOK4wlSZwb/dKWmxqxojzq997zO4LEDhu+bOvcnucsF57P8MDuNZiScceLEfaxt1hyxBk7hGWyBN+9C7RA+hZ01/47Kw3wrKMd6eNeKUtsZ6A+mmh3CaefmWGZhjQdMSD/O+nkYi1fBwHE3C2ZO/KIdZ1z71WgbqZ9R0IaiNzXaMQ==
-Received: from PAZP264CA0049.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fc::16)
- by VI0PR10MB8815.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:234::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
- 2026 14:20:58 +0000
-Received: from MI3PEPF00008490.eurprd03.prod.outlook.com
- (2603:10a6:102:1fc:cafe::92) by PAZP264CA0049.outlook.office365.com
- (2603:10a6:102:1fc::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Wed, 14
- Oct 2026 14:20:58 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MI3PEPF00008490.mail.protection.outlook.com (10.167.240.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 14:20:57 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
- 2026 16:21:24 +0200
-Received: from localhost (10.48.86.45) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
- 2026 16:20:57 +0200
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: Antonio Borneo <antonio.borneo@foss.st.com>, Amelie Delaunay
-	<amelie.delaunay@foss.st.com>
-Subject: [PATCH v2 0/3] ARM: dts: stm32: support secure watchdog on STM32MP1 platforms
-Date: Wed, 14 Oct 2026 16:20:52 +0200
-Message-ID: <20261014142055.1909285-1-antonio.borneo@foss.st.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 14 Oct 2026 14:26:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09D311570;
+	Wed, 14 Oct 2026 07:26:16 -0700 (PDT)
+Received: from [10.57.12.254] (unknown [10.57.12.254])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 313283F673;
+	Wed, 14 Oct 2026 07:26:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791987979; bh=F84HomwI7RDpju62PoqCWgA1Ivfs4haiBD/st0o+QzE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nFBgg7xs78iiK+yIReZwBNw+qWrI1JYs6yVae8edJkk6j+F+8YkDvGcapDQbql5Tn
+	 e6OBc+S6BRxNLQ3McUWK/8p+/tYmsXTU/3Qp5IsgdadZPyjlSTYLNI/4GJLLLyDnLf
+	 3AyF8VMWuq2wd7jYlcyw46wh5qQHawDBjcE/sOF8=
+Message-ID: <e9d01b93-3658-4ba3-a15c-e6b4122b5c08@arm.com>
+Date: Wed, 14 Oct 2026 15:26:10 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.45]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008490:EE_|VI0PR10MB8815:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06b57516-ba67-4e0b-7d5f-08df29fe5d9c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|34020700016|1800799024|82310400026|921020|56012099006|11063799006|261009223027099003|10067099003|18002099003|13003099007|12100799066;
-X-Microsoft-Antispam-Message-Info: T/r44zBaedKdhM7yXkgg6n9E9bveQEkjG0VeQY/qoLG3hWnzyCdLqGzjKQVcPtS8l5oXSxGcuGO1j8Uw7Yr7Kb08Dd9oiDOF7tFdkEZMs+k9r6PzUrkg2Gl9pKUxlm5l84kTM3xAAJmwlSfSW359im2kr9u1wnAbidb1n48c3FujL5rzsNfg51xeZcfsTlW8JoZqvCN2tm7aZrimFVIeDP9FbAsPNm46v3btMR6Qg0QlPk22ZmEdz8X0myy3LuybEUbR0iCFazKpog3L/rhhSXH3DEPNjmltak/fvvLguYKOfsCiSFavgevt51UVq1Ub/9EjedDmb6BVIBtMFXoRCQbE0sdeEQp00n8uzylVc2/3MfqdgMUufkeRC7z5MkX40I4NXZeX/YOAYw/UzwkulOnBtRMPJ2hqfHR8xBExLUqZF3K0S1l8mPxP6O5n8AMUxZaIys0oWOrUpufPM1Sygd/5C6HbG+OfNdvfQcK3ybq4D+2+kfm7PPGXOREsco3JXOyOKYljfCJX4bgFenjGeG/L1YpmtUgm272Eh44pPRKV1KLU1AMeH6uP8Agk8LnH1Oy7oDfBIkpA70LsYD0ulESqHH4kg0hKmCIDNYShOb8Q47ascqTX14yQH08QLP+BnNe3lz8dvGkEv1cVkPTvDkDsGq5aUZ6DRFm7i6MxRoFPFEzTazY6thYJm4sgQu5hcUUV43MRhKwTn8Ire/TMmQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(34020700016)(1800799024)(82310400026)(921020)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003)(13003099007)(12100799066);DIR:OUT;SFP:1501;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MFlW4PlRdAJ+pyq5hZFa021j8LRkRG28lNDE/jxPYxZu8vfFTJeXGfnMpm73mX1fOoNTHjN0cfBA2jPUsBA7I6YzLzpQe1j/Cwu5pGoiamzBtl1HM5cpSNMImzoPkL9c8zqJySc9+Y8ezZ+U9AB8gJyhEKV0472dWClr7tp/KiGoCLZvp6VYq0x8MDAwcywQCnZB/iyACcb0reaQOQK0Q0Yig5WEXINZUBEeDV675K3knWo14QTFWERzg+WGjPVLWQw6Td7OmkNTJVn7kP6xKamdnBURLl1l/rL93ZbLF40MLumY3c0QNCcvv13zr9nnSTtVx8ecPFHEGbxztPzoN8FWxbV6+4vAX8G4j/Y/coM1SeWU5ROn2awmW4qQEqqxVDw9k1Ic8FYqoGpliJdtl9HjTXuksHCiKYO+Mf590pgj623Txr17qTsrXYUC5HrX
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 14:20:57.8120
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06b57516-ba67-4e0b-7d5f-08df29fe5d9c
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008490.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB8815
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] perf/core: Add PERF_PMU_SCOPE_DEVICE
+To: Peter Zijlstra <peterz@infradead.org>,
+ Haris Okanovic <harisokn@amazon.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261013185603.1347265-1-harisokn@amazon.com>
+ <20261013185603.1347265-3-harisokn@amazon.com>
+ <20261014102700.GC4121339@noisy.programming.kicks-ass.net>
+Content-Language: en-GB
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <20261014102700.GC4121339@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_072114_238371_22A965C5 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20261014_152652_153268_E95326B4 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,44 +94,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recent versions of TF-A start the secure watchdog IWDG1 on all the boards
-from STMicroelectronics based on STM32MP1 devices.
-Since the ARM SMC watchdog driver is not enabled by default at compile time
-and the DT node is not present in all the board DT, the boards get reset
-when the watchdog expires.
+On 2026-10-14 11:27 am, Peter Zijlstra wrote:
+> On Tue, Oct 13, 2026 at 01:56:01PM -0500, Haris Okanovic wrote:
+>> Add a "device" pmu::scope for PMUs counted on a single CPU drawn
+>> from a driver-supplied set instead of a fixed topology.
+>>
+>> This mechanism is implemented by new callbacks: filter_allowed_cpus()
+>> is invoked to constrain the running CPU set to an allowed set for a
+>> particular device; migrate_cpu() is used to perform any device specific
+>> migration steps. Both are optional, e.g. for devices that can run on
+>> any CPU or have no additional migration steps.
+>>
+>> Placement initially happens in perf_pmu_register() before the PMU
+>> becomes visible, and is subsequently re-evaluated on hotplug events.
+>> A new CPU selection is made by cpumask_any_distribute() to spread out
+>> load from multiple devices, but only when the previous CPU selection is
+>> offline or no longer allowed by filter_allowed_cpus().
+>>
+>> PMU events of these devices follow the chosen CPU. They are initially
+>> bound to a CPU in perf_try_init_event() then reassigned by
+>> perf_pmu_migrate_context() when a new CPU is selected.
+> 
+>>
+>> The initial CPU assignment can race with migration, leaving a stranded
+>> event. A sequence counter is added to close this gap without additional
+>> locks. A count in struct pmu increments on each migration and is copied
+>> to struct perf_event on init. The copied count is checked again before
+>> the event is installed, under the same context mutex, which causes
+>> perf_event_open() and perf_event_create_kernel_counter() to return -EBUSY
+>> during migration periods.
+> 
+> I'm not entirely sure on this. How is this race different from changing
+> CPU on hotplug?
 
-This series enables the ARM SMC watchdog driver in the machine Kconfig and
-adds the required DT nodes in the board files.
+Not much, other than that hotplug is at least already serialised against 
+perf_event_open on the perf core side via perf_online_mask. This is also 
+where I was heading with my generic hotplug proposal[1] - once perf core 
+can be in charge of that, it should then be viable to also migrate PMUs 
+for reasons other than hotplug, and it would all look the same to the 
+drivers.
 
-It would be nice to have such series merged asap, possibly in 7.4.
+(Yes, as-is my patch still preserves the status quo of drivers picking 
+their own target CPU to keep things simple, but that was one of the 
+points I was hoping to generate some discussion on...)
 
-Regards,
-Antonio
+Thanks,
+Robin.
 
-
-Changes in v2:
-- Drop addition of iwdg1 DT node, not needed as OP-TEE keep the watchdog
-  secure on all boards;
-- Link to v1: https://lore.kernel.org/lkml/20261007151358.1166329-1-antonio.borneo@foss.st.com/
-
-
-Amelie Delaunay (1):
-  ARM: dts: stm32: enable ARM SMC watchdog on ST STM32MP15 boards
-
-Antonio Borneo (2):
-  ARM: dts: stm32: move ARM SMC watchdog to STM32MP151 SoC
-  ARM: stm32: enable arm-smc watchdog on STM32MP1
-
- arch/arm/boot/dts/st/stm32mp151.dtsi           | 6 ++++++
- arch/arm/boot/dts/st/stm32mp157c-ed1.dts       | 5 +++++
- arch/arm/boot/dts/st/stm32mp157f-dk2-scmi.dtsi | 7 -------
- arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi      | 5 +++++
- arch/arm/mach-stm32/Kconfig                    | 2 ++
- 5 files changed, 18 insertions(+), 7 deletions(-)
-
-
-base-commit: f831584128ac2a36fb4fa62fe106793d08c2dbf1
--- 
-2.34.1
-
+[1] 
+https://lore.kernel.org/linux-arm-kernel/cover.1784911757.git.robin.murphy@arm.com/
 
