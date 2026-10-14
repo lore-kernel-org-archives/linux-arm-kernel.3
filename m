@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9760BCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 05:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6F5CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 05:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5uIkWpaIYy1KePSTnW91xhwZ5sNP8TP3tpIZTScI8Vw=; b=I+O0Y5UzbfJqy76z/USBM01KRu
-	9QGyzWqMEDOd2sxJvQSlqm157zslnmFxgssh4FfQ8cc2JQJH22mwZ7t6yc6lhBLNLyKfnVQpK7HUn
-	2os0yaKgDilpSspEYBK/8Grk3vDKVC5aZOrfoWW7QED8kp+9cRwWjdOJblC5773NMOoewxg+ql0fy
-	nz0zhym/hN0B4NXblEgmefqA8oS/sXHIEtCNfwDuATvCHze6xDMCflZMWGi/4gDNNlWNDaG25GVCO
-	LKcaZ2GeCX5XUbCUWHpihppmEIT4SJ5jhIUOMSSY24+4S/8YBb8PW/BwvZo0XZ5mqB0yrf92x8k9A
-	JhW4ezow==;
+	bh=RKYhMjcdquQctXovoCvyjlBSW58IakiaspYG2NbsggE=; b=XHURS22qubz9EK9fbFhFxSbKmL
+	BtINCLX+FfGhEHQ23niJA/SjQ1jpItDRztRUKjRqXoFIVsupLSokPKqPhUZoUgNC59gyKqWE4Iljc
+	j7cedH9ZhKbsTqbHEOtDGu0uwKjw1X8uB2XcoINNq/G2/L4m0cu5T2FBzXMKtsmX5rQJDHf2flcdC
+	v1EmTlGfOnv+AOyXnBwLbyDSlXtlku/xXcxAA6cLyghw/lV1su1nHFayxz8XK8ctfLUuBWISYDZm8
+	RDN+Ep0V1WMDA/y9pPIjVYQUCqGNbBpeW2mdW2GQGlwzL2bAUAotS/F118mfiY+YQaSFu0rtg+x+X
+	QOsLhJ8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGrCj-0000000EXFc-45rj;
-	Wed, 14 Oct 2026 05:07:05 +0000
-Received: from out162-62-57-87.mail.qq.com ([162.62.57.87])
+	id 1xGrVV-0000000EXqb-07oC;
+	Wed, 14 Oct 2026 05:26:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGrCf-0000000EXEY-0BUn
+	id 1xGrVT-0000000EXqS-22xJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 05:07:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791954417; bh=5uIkWpaIYy1KePSTnW91xhwZ5sNP8TP3tpIZTScI8Vw=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=f1nG6eUvuUaWNcX55pHDBeDE05P7ukJjUriNaxP7W53Uxq2DERJMI+CHZss9bMEUF
-	 0JDP7CrwH4IUdFs02suogZQzSW5Fp9gP+TkS8hggKBcAKUq5orGaR220rGSeIgzNd/
-	 7wPHyBF3jsfI2SenIn5/CicQTxaAtWYUFrPrXlfg=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-XMAILINFO: N/Vcqssfup8JUGdPU3KjzrD6L48Qsc+XeK+cFwyDFvTsE7eDMU0YJu9qLZH5qe
-	 pMZSp3drrYCKaeN8uJcDat/2ZTprScxwK4seUeEPUj0Iyx4zF0x/afx/UgPRuAtpX+H3Ucvf37Pd4
-	 0fzukyCQsV+2Vzk9wKtx3bGRC/TWb4C6QlGBbO1TpsiorXlA8W1L1BOL4sU1cE0A7HyfiyAMqAswu
-	 hnYuYVV/chcmlZOZ+D9acU4Q+lnaSmOQg2T/CFZkrguVoRZl6+qVCEWvScPxd5OW2eJ9Xl/XbWR5U
-	 jQkVgJUudJJcnbLvgMG2DU1Lo04COn59IS/XhDF9zGXTkXrlYrYhIzyYhRVfBacRetAtyEVjlZ8TE
-	 LRttzyOanaWuYs1Mmnt9LVFwScOs9jwMQzYlxJDQgyU49BTo0tQbPmr6CclGPN8kV1AZ9KBgcIY4A
-	 GPFybcKYySsy3/CN5kKawcSbP4uBH8fYSOH+4hCO+ZyF4PR7GdSrdtJZwBaf/GCDqv3/YJbkxfCpa
-	 EJ2A+N2BdaNxayHUzrEaQXEer8twYzA+vDdN3vBZK2Q8+7nSfQgYkSDOoOsOBw5s7KmX3O3zNP6tU
-	 ZGJV1/R5yIW+Haes9kCRzRTqidjRJjY/yiRqbXUTMfINQEzck5AbEZef9/9bFzdw7Lt/z8Ibzer8H
-	 5NISZAWmWTVccgThVXQJ9iwPaWidJwe7zM+WmNSZSUuROWKhs4tpvYdAH+JMw1P9clFRJJHu5ejSq
-	 k8mlMNkgH16qqLO0MPoR6FNtj++nDgYy4uqMsXpZVtfhBTmpu7O8CUFeWBAG4UWp3ozIQ2nR8fMZ9
-	 tEnh/EAa1MdHrMwIq0WF1Z6cVivF5LLkpcbVRVoow0lytBcH/rTRfshIcmX/zqOVxDPgJZFtYNG9t
-	 PrKeUSl2x81G8GRNWOX0gAStWub5BDbAMBjiqMm0dSKLObDKLclGlmT0nFm97Qi+wPb4AO8q2qcs6
-	 xfCKNHkqMUt+kWprtDoZqeijwP2N1gjdG1xbnswHjeU+R4r3NAynjlWtawVueKX5BFH6E8R6GWW1d
-	 lT8FU4aYMp+Ac9bXlmuemYAkRXRmBD7G/crPW7WVr7D9zL0j66jsnvE74qNw6eY8cYLvfd0C5d5nx
-	 +yPXt+Xi2KRKGSsy7+y50R01fL47HOt9uUi5jp8dVrXKYNwT3DCmYRgTf8MjEMK2beRNWUFW99HBo
-	 zYWrzW8OW7U9u+AdW43G1DpZlIdieEFkBVFk4wEwOAwFGY3ZLJiw+CnWh4+V+MDVSZEKHFA6OXORo
-	 uYrdDJfmg=
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>, "=?utf-8?B?TWFyYyBLbGVpbmUtQnVkZGU=?=" <mkl@pengutronix.de>, "=?utf-8?B?VmluY2VudCBNYWlsaG9s?=" <mailhol@kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>, "=?utf-8?B?RGF2aWQgUy4gTWlsbGVy?=" <davem@davemloft.net>, "=?utf-8?B?V29sZmdhbmcgR3JhbmRlZ2dlcg==?=" <wg@grandegger.com>, "=?utf-8?B?T2xpdmVyIEhhcnRrb3Bw?=" <socketcan@hartkopp.net>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>
-Cc: "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>, "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-Subject: Re: [PATCH net v2 0/3] can: fix bus-off restart during device close
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Wed, 14 Oct 2026 13:06:54 +0800
-X-Priority: 3
-Message-ID: <tencent_04B66976651812A847AC03C610D9FC809A09@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <tencent_82C93561D200C84C24608C80049C23EEF80A@qq.com>
-In-Reply-To: <tencent_82C93561D200C84C24608C80049C23EEF80A@qq.com>
-X-QQ-mid: xmsezb41-0t1791954414t6uc91w1n
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_220701_669510_3EDF06E2 
-X-CRM114-Status: GOOD (  34.85  )
+	Wed, 14 Oct 2026 05:26:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E5511417AA;
+	Wed, 14 Oct 2026 05:26:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFF91F000FF;
+	Wed, 14 Oct 2026 05:26:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791955586;
+	bh=RKYhMjcdquQctXovoCvyjlBSW58IakiaspYG2NbsggE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=TJuBiAEZRVGFKBEI+g+qdhcounkDdDDtV7vjYsd22pxHCLXIuDNV46SZ/ganIUoxM
+	 I/ovGv+xxuWHfFX+aDErwdbmu1qOnp/QSgRbs7m2ympbASIM6/RSQFwaz+61JQB1ie
+	 7E34R0iYHa+YTpdKWjZlKaaqjMr7RHuthMm7lqyBCG8vGI2F9RzHw7mxvNdi9qE0cB
+	 0s8AZA3y12XnDxXpOpvhFKOlW1yoQAEFi4WwDWoJO3rFS0wSEOZ8iwkWpV58LZwZMM
+	 0BoMgi6Xdg2OfMB0JIJ75kbOY3yK7yVSTZwkSM0+gXBCiZboEYh0AXeg5aWozI4Eq6
+	 Gh/AoCNCncuzw==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260619112535.1127850-1-alexander.stein@ew.tq-group.com>
+References: <20260619112535.1127850-1-alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH 1/1] PCI: imx6: Use dev_err_probe
+Message-Id: <179195558138.34437.14421683189304797818.b4-ty@b4>
+Date: Wed, 14 Oct 2026 10:56:21 +0530
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +77,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBUaGlzIHdvcmsgc3RhcnRlZCBmcm9tIGEgcmVhbCBmYWlsdXJlIG9uIGEgcHJvZHVjdGlv
-biByb2JvdCB1c2luZyBhCj4gTHViYW5DYXQtNUlPIHdpdGggYW4gUkszNTg4LiBSWCBjb250
-aW51ZWQsIGJ1dCB0aGUgVFggcXVldWUgcmVtYWluZWQKPiBzdG9wcGVkIGFuZCBzdWJzZXF1
-ZW50IHNlbmRzIHJldHVybmVkIEVOT0JVRlMuIFRoZSBpbnRlcmZhY2Ugc3RpbGwKPiByZXBv
-cnRlZCBFUlJPUi1BQ1RJVkUsIGFuZCB0aGUgaGFyZHdhcmUgaW5kaWNhdGVkIG5laXRoZXIg
-YSBidXMtb2ZmCj4gY29uZGl0aW9uIG5vciBhIHBlbmRpbmcgVFggcmVxdWVzdC4KPiAKPiBX
-aGlsZSB0ZXN0aW5nIHRoZSBlY2hvLWxvc3MgZml4IHdpdGggZmF1bHQgaW5qZWN0aW9uLCBJ
-IGRpc2NvdmVyZWQgYQo+IHNlcGFyYXRlIHJhY2UgYmV0d2VlbiBidXMtb2ZmIHJlc3RhcnQg
-YW5kIGRldmljZSBjbG9zZS4gVGhpcyBzZXJpZXMgZml4ZXMKPiB0aGF0IHJhY2U7IHRoZSBm
-aXggZm9yIHRoZSBvcmlnaW5hbCBUWCBzdGFsbCB3aWxsIGZvbGxvdyBzZXBhcmF0ZWx5Lgo+
-IAo+IFdoZW4gYXV0b21hdGljIGJ1cy1vZmYgcmVjb3ZlcnkgaXMgZW5hYmxlZCwgYnJpbmdp
-bmcgdGhlIGludGVyZmFjZSBkb3duCj4gY2FuIHJhY2Ugd2l0aCBhIHBlbmRpbmcgb3IgcnVu
-bmluZyByZXN0YXJ0LiBUaGUgUm9ja2NoaXAgZHJpdmVyIGN1cnJlbnRseQo+IHJlbGllcyBv
-biBjbG9zZV9jYW5kZXYoKSB0byBjYW5jZWwgcmVzdGFydF93b3JrLCBidXQgY2FsbHMgaXQg
-b25seSBhZnRlcgo+IGZyZWVpbmcgdGhlIElSUSwgZGlzYWJsaW5nIFJYIG9mZmxvYWQsIGFu
-ZCBzdG9wcGluZyB0aGUgY29udHJvbGxlci4gQQo+IHJlc3RhcnQgaW4gdGhhdCBpbnRlcnZh
-bCBjYW4gcmUtZW5hYmxlIHRoZSBjb250cm9sbGVyIGFuZCBpdHMgaW50ZXJydXB0cwo+IGFm
-dGVyIElSUSB0ZWFyZG93biwgYW5kIHJlcXVldWUgdGltZXN0YW1wIHdvcmsgYWZ0ZXIgaXQg
-aGFzIGJlZW4gc3RvcHBlZC4KPiBUaGF0IHdvcmsgY2FuIHN1YnNlcXVlbnRseSBhY2Nlc3Mg
-cmVnaXN0ZXJzIGFmdGVyIHJ1bnRpbWUgc3VzcGVuZAo+IGRpc2FibGVzIHRoZSBjb250cm9s
-bGVyIGNsb2Nrcy4KPiAKPiBUaGUgbmV0d29ya2luZyBjb3JlIGNsZWFycyB0aGUgcnVubmlu
-ZyBmbGFnIGJlZm9yZSBjYWxsaW5nIG5kb19zdG9wKCkuCj4gVGhlIGZpcnN0IHBhdGNoIHVz
-ZXMgdGhhdCBmbGFnIHRvIGF2b2lkIHNjaGVkdWxpbmcgb3Igc3RhcnRpbmcgYnVzLW9mZgo+
-IHJlY292ZXJ5IG9uY2UgdGhlIGludGVyZmFjZSBpcyBvYnNlcnZlZCB0byBiZSBubyBsb25n
-ZXIgcnVubmluZy4gVGhlCj4gc2Vjb25kIHBhdGNoIGFkZHMgY2xvc2VfY2FuZGV2X2NhbmNl
-bF9yZXN0YXJ0X3N5bmMoKSBzbyBkcml2ZXJzIGNhbiB3YWl0Cj4gZm9yIHJlY292ZXJ5IHNl
-cGFyYXRlbHkgZnJvbSB0aGUgZWNobyBjbGVhbnVwIGluIGNsb3NlX2NhbmRldigpLiBUaGUK
-PiB0aGlyZCBwYXRjaCB1c2VzIHRoaXMgaGVscGVyIGF0IHRoZSBzdGFydCBvZiB0aGUgUm9j
-a2NoaXAgY2xvc2UgcGF0aC4KPiAKPiBUaGUgcnVubmluZy1zdGF0ZSBjaGVja3MgZG8gbm90
-IHJlcGxhY2Ugc3luY2hyb25pemF0aW9uIHdpdGggYSByZXN0YXJ0Cj4gdGhhdCBoYXMgYWxy
-ZWFkeSBwYXNzZWQgdGhlIGNoZWNrLiBSb2NrY2hpcCB3YWl0cyBmb3IgdGhhdCB3b3JrIGJl
-Zm9yZQo+IHRlYXJpbmcgZG93biBpdHMgcmVzb3VyY2VzLCBhbmQga2VlcHMgY2xvc2VfY2Fu
-ZGV2KCkgYXQgdGhlIGVuZCBmb3IgdGhlCj4gZmluYWwgY2FuY2VsbGF0aW9uIGFuZCBlY2hv
-IGNsZWFudXAuIElSUSBleGNsdXNpb24gZHVyaW5nIGhhcmR3YXJlCj4gcmVpbml0aWFsaXph
-dGlvbiBpcyByZXRhaW5lZDsgdGhlIHNoYXJlZCBJUlEgaXMgbm90IGRpc2FibGVkIHdoaWxl
-IHRoZQo+IGNsb3NlIHBhdGggd2FpdHMgZm9yIHJlc3RhcnQgd29yay4KPiAKPiBJIHRlc3Rl
-ZCB2MiBvbiBhIEx1YmFuQ2F0LTVJTyBydW5uaW5nIGEgUFJFRU1QVF9SVCBrZXJuZWwsIHVz
-aW5nIHRoZSBzYW1lCj4gc2V0dXAgYW5kIHByb2NlZHVyZSBhcyB2MS4gVGhlIDEgTWJpdC9z
-IENBTiBidXMgd2FzIGNvbm5lY3RlZCB0byBmb3VyCj4gQ0FOb3BlbiBtb3RvcnMgb3BlcmF0
-aW5nIGF0IDEwMCBIeiBhbmQgZm91ciBzZW5zb3JzIG9wZXJhdGluZyBhdCAyMCBIei4KPiBB
-IGJpdHJhdGUgbWlzbWF0Y2ggZm9yY2VkIGJ1cy1vZmYgd2l0aCBhdXRvbWF0aWMgcmVzdGFy
-dCBzZXQgdG8gMTAwIG1zLgo+IFRoZSB2MiBjYW1wYWlnbiBjb21wbGV0ZWQgMzgwIHZhbGlk
-IGJ1cy1vZmYgaXRlcmF0aW9ucywgY292ZXJpbmcgYXV0b21hdGljCj4gcmVjb3ZlcnksIGNs
-b3NlIHdoaWxlIHJlY292ZXJ5IHdhcyBwZW5kaW5nLCBjbG9zZSBuZWFyIHRocmVlIGRlbGF5
-IHBvaW50cywKPiAyMDAgcmFuZG9taXplZCBzdHJlc3MgaXRlcmF0aW9ucywgbWFudWFsIHJl
-Y292ZXJ5LCBhbmQgcmVvcGVuIGFmdGVyIGNsb3NlLgo+IEFsbCAzODAgaXRlcmF0aW9ucyBy
-ZWFjaGVkIGJ1cy1vZmYgYW5kIHNjaGVkdWxlZCByZWNvdmVyeS4KPiAKPiAtLS0KPiBDaGFu
-Z2VzIGluIHYyOgo+IC0gU3BsaXQgdGhlIHNlcmllcyBpbnRvIHRoZSBjb21tb24gY2hlY2tz
-LCB0aGUgY2FuY2VsbGF0aW9uIGhlbHBlciwgYW5kCj4gICBpdHMgdXNlIGluIFJvY2tjaGlw
-Lgo+IC0gQ2hlY2sgbmV0aWZfcnVubmluZygpIGFmdGVyIHRoZSBkb19zZXRfbW9kZSBjYXBh
-YmlsaXR5IGNoZWNrIGFuZCBiZWZvcmUKPiAgIHRoZSByZXN0YXJ0IG5vdGlmaWNhdGlvbiwg
-ZWNobyBjbGVhbnVwLCBhbmQgY2FycmllciB1cGRhdGUuCj4gLSBPbmx5IHF1ZXVlIGF1dG9t
-YXRpYyByZWNvdmVyeSBmb3IgYSBydW5uaW5nIGludGVyZmFjZTsga2VlcCByZXBvcnRpbmcK
-PiAgIGJ1cy1vZmYgYW5kIG1ha2UgdGhlIGxvZyBtZXNzYWdlIG1hdGNoIHRoZSBzY2hlZHVs
-aW5nIGRlY2lzaW9uLgo+IC0gQWRkIGNsb3NlX2NhbmRldl9jYW5jZWxfcmVzdGFydF9zeW5j
-KCkgaW4gbGludXgvY2FuL2Rldi5oIGFuZCB1c2UgaXQgaW4KPiAgIGNsb3NlX2NhbmRldigp
-IHdpdGhvdXQgY2hhbmdpbmcgdGhlIGV4aXN0aW5nIGNsZWFudXAgb3JkZXIuCj4gLSBSZXBs
-YWNlIHRoZSBSb2NrY2hpcCBtdXRleCBhbmQgY2xvc2luZyBmbGFnIHdpdGggYW4gZWFybHkg
-Y2FsbCB0byB0aGUKPiAgIGhlbHBlci4gRHJvcCB0aGUgZXh0cmEgY2xvc2UtcGF0aCBJUlEg
-c3luY2hyb25pemF0aW9uIGFuZCBtYXNrIHJlYWRiYWNrLgo+IC0gUmV0YWluIElSUSBleGNs
-dXNpb24gYXJvdW5kIGhhcmR3YXJlIHJlaW5pdGlhbGl6YXRpb24gaW4gdGhlIHJlc3RhcnQK
-PiAgIGNhbGxiYWNrLgo+IC0gTGluayB0byB2MToKPiAgIGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LWNhbi90ZW5jZW50XzU4MDJFRTg4NDM0MDEwMjI5RURGN0E1MzA4NEQ5OTRD
-NjEwNkBxcS5jb20vCj4gCj4gVG86IE1hcmMgS2xlaW5lLUJ1ZGRlIDxta2xAcGVuZ3V0cm9u
-aXguZGU+Cj4gVG86IFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbEBrZXJuZWwub3JnPgo+IFRv
-OiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+IFRvOiAiRGF2aWQgUy4gTWls
-bGVyIiA8ZGF2ZW1AZGF2ZW1sb2Z0Lm5ldD4KPiBUbzogV29sZmdhbmcgR3JhbmRlZ2dlciA8
-d2dAZ3JhbmRlZ2dlci5jb20+Cj4gVG86IE9saXZlciBIYXJ0a29wcCA8c29ja2V0Y2FuQGhh
-cnRrb3BwLm5ldD4KPiBUbzoga2VybmVsQHBlbmd1dHJvbml4LmRlCj4gQ2M6IGxpbnV4LWNh
-bkB2Z2VyLmtlcm5lbC5vcmcKPiBDYzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+
-IENjOiBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgt
-cm9ja2NoaXBAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IAo+IC0tLQo+IEN1bmhhbyBMdSAoMyk6
-Cj4gICAgICAgY2FuOiBkZXY6IHByZXZlbnQgYnVzLW9mZiByZWNvdmVyeSB3aGVuIHRoZSBp
-bnRlcmZhY2UgaXMgbm90IHJ1bm5pbmcKPiAgICAgICBjYW46IGRldjogYWRkIGNsb3NlX2Nh
-bmRldl9jYW5jZWxfcmVzdGFydF9zeW5jKCkKPiAgICAgICBjYW46IHJvY2tjaGlwX2NhbmZk
-OiBjYW5jZWwgYnVzLW9mZiByZXN0YXJ0IGJlZm9yZSBjbG9zaW5nIHRoZSBkZXZpY2UKPiAK
-PiAgZHJpdmVycy9uZXQvY2FuL2Rldi9kZXYuYyAgICAgICAgICAgICAgICAgICAgICB8IDEy
-ICsrKysrKystLS0tLQo+ICBkcml2ZXJzL25ldC9jYW4vcm9ja2NoaXAvcm9ja2NoaXBfY2Fu
-ZmQtY29yZS5jIHwgIDMgKysrCj4gIGluY2x1ZGUvbGludXgvY2FuL2Rldi5oICAgICAgICAg
-ICAgICAgICAgICAgICAgfCAxMiArKysrKysrKysrKysKPiAgMyBmaWxlcyBjaGFuZ2VkLCAy
-MiBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQo+IC0tLQo+IGJhc2UtY29tbWl0OiAy
-NGExOWI5NTNlMmEzZDBlYTVhOGM0OTUxYTBhYjhmMzI3MjBjOTA3Cj4gY2hhbmdlLWlkOiAy
-MDI2MTAxMy1yb2NrY2hpcC1jYW5mZC1yZXN0YXJ0LWNsb3NlLWViZGU1OTU0ZjFiZgo+IAo+
-IEJlc3QgcmVnYXJkcywKPiAtLSAgCj4gQ3VuaGFvIEx1IDwxNTc5NTY3NTQwQHFxLmNvbT4K
-CnB3LWJvdDogY3I=
+
+On Fri, 19 Jun 2026 13:25:33 +0200, Alexander Stein wrote:
+> pci_pwrctrl_power_on_devices() might return -EPROBE_DEFER resulting in
+> an error message. Use dev_err_probe to silence this non-error message.
+
+Applied, thanks!
+
+[1/1] PCI: imx6: Use dev_err_probe
+      commit: 2aed243fe21ec77c5682aa8ee6a5912d94b3a4ff
+
+Best regards,
+-- 
+மணிவண்ணன் சதாசிவம்
+
 
 
