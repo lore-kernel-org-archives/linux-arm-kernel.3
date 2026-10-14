@@ -4,157 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16099CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E6BCC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=; b=roXtigPFo7WpNSfi52lYxwpT3r
-	mfYoAIQfzMTndXqYQmJjFX7zDUFAumqgjks31SkixbP6LLF9vrBolTnsrzMNH/ro0MpLSqlyiaUgr
-	505mAuzYuyWzfBKc5bccaZy/5hjoF8pR5P8hVfV6thVWOFpynHordrtLksQ8mqMTaZYAFOL6eaefr
-	5j/8VEaVugZTvvHpJzfPLZJVgOGBfAp4k9ubNsoXIVXls5oOXjf5ZFgnJ6dqkhlyibCIN4J/xQQok
-	GduQ3URmfQ+J//qJGksRxJv7TU1SrhTa1tv3aIPLs+tRCPgwmwC2X2P2ithfopjFsIe7rOd99fEXk
-	Cke/QmwA==;
+	bh=slGu8WvW62RLRh45NPBc1MSWHZx6u7Xy9JQffUxucLs=; b=nZGxSUn1NSQB/8Cfu6WoSPy4/X
+	s7fs0UQkGgzmRpFmEJgBKvFlYPbDKALRMRJz9pd8bydww6zM8pFxauR9KOTzQ4KGSDHK4o5AZhVZO
+	xKM+xjqGxbOpUgoq1R3fqmSymXiZzqRhF/tEJe72WAgg01cOVXYI634XIwLzQVdyIwAcedrdmazxt
+	79DIqX7TvxX+flc1Y2deObbDhGYMRjXLZdG/D6SUWkOR1GDVlHNgDfZem+4yzKfwWpkI1jpOixnYJ
+	R77Gor2Z1Nr2VZRKzeqaPx+BOOttnLkU/caCTVRwWfMui61y0IYwnCQT9yQBPL53Y4GmmObQmQWUf
+	8nGCs/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGw2G-0000000FBeZ-1jnC;
-	Wed, 14 Oct 2026 10:16:36 +0000
-Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xGw5k-0000000FC3G-46cQ;
+	Wed, 14 Oct 2026 10:20:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGw2D-0000000FBdU-1rXy
+	id 1xGw5j-0000000FC2o-1gP9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Oct 2026 10:20:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=slGu8WvW62RLRh45NPBc1MSWHZx6u7Xy9JQffUxucLs=; b=RDi5BgQnaGjicwgaSooH5PZ8IZ
+	O8/D8B9GmrK7dOoVtOKXIx2pLZIEJX7WffyvrVJms3c5czb8r+/VSne8Hm7swayFcHajh3h2cR48M
+	CSv5/ivpaXLdAUymBKEQdzREqcnROKY0soMmSc36gEHPYDk0iMHwBZCXblV/F+Thkq2UP/k6wUome
+	luIF0FwOwZuAZoYKfupEtVMs84GhcPBFTTzBK6hM/yJvabNnpWRQqpbFukyBXfaOjQLqfnm5dH2qQ
+	IhFLd9YwMGqiahAZFgfihyfnOshZG6FY6AUwMTPbPK17YDy8w1GTWDWIrWIIelbz1KMJRuVoaCs6P
+	StYKjVGw==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGw5f-0000000GcwE-1EBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 10:16:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ScSNPT2OM81qCWn82Amts1MwcBfa0MpOvdjSlqd+TZ51WWCmtQq6HJLxdyVovuWpPJsxIZ41dEgpZ8eDFY4MppnUE+H+7V6eyOHQhvQs2s5VpQBl6umdiaiP9RhBKtSK5yVBXsOlgNifrQhvkC5rO42lJHD3yrWJWHud6A/Ro3O3r3VxJMVvr828LU+HU+tEPtgBtsRU2TtuJCqWVQSNNLPUzOjAkysBmMvoTxV4znLunEj6W5LaEOXtZsZpp9x/IdkunPe2bbw4mFYmWF/72VzD/SG2XVc7rAL0X9zJY8bBro9xWYaWLBNaBnylJeRqmov3u7jgFxAKNVh3JK3ZmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=;
- b=svuxaxfRoM+Lb2ZIvx1xgKMgaOOnzEScJYcD42TGsXGq1U2m7U7ctMo5m41IgStKBhhSY9bJo040JjkJtl+xcZKkfSfk0Lb3C4wB5W4OnLk5zboH7JgRanFHq13nABNdEqsxEsPqsoQGC6ORqnc140pnWY8P7UPJwNp1RQ/NYmi2q4dzJyfRCkS98YzqTysLxQg4Ye4YcFcS44AM/rS/tc71cVhuHxjzxUg9BTX5bf8kTU1ADiVvZ2XGJEb6lsrs5rcv/6wrkg6hp6OTckfUOvrh22I6cHai9LJHKRZh/dR93uXJ/qDnj3jxnbRLK4MFDinp0NpLHT//x/iPDV4gDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+C/6VlzuRgMaS+dUYVXwHU2dZZz8l/oqXUSOmD+kVks=;
- b=gYt+Calpm6zAz6JQsvFPm75XH/SNlH+0NCujLX6pMZvwTwEXa8/9J22dzKcLuhikDK2Atu78Z+fJPlGVfNde/0rtZrNA1IKFlUbEbwkXplGHdh+YIX0ALj6zxJCg2L/ux0OYnxV3qgTtzm7itGYELwqPguG3t3IYKzOgsb216OVVwM8XX9Vd7+c3p41wQDnNd3sBObkA0bqpeMLtTX62h0z08DMWrvlae6soCUYTNVbuOhlhEJCN2eTzRBvrCdL6bD+jpk9ILVk481NF12cHK/pJKw6bgrx+u/qtOcutK6Nl2QG+BM5tJ7G4V5LKu807qTO6cb7PojcTs7/GByJZSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by PA3PR04MB11202.eurprd04.prod.outlook.com (2603:10a6:102:4b0::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
- 2026 10:16:17 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0522.012; Wed, 14 Oct 2026
- 10:16:17 +0000
-Message-ID: <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
-Date: Wed, 14 Oct 2026 13:16:06 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: s32g2-siul2: describe EIRQ
- input mux registers
-To: Conor Dooley <conor@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
- Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Vincent Guittot <vincent.guittot@linaro.org>
-References: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
- <20261008071436.596651-2-khristineandreea.barbulescu@oss.nxp.com>
- <20261008-1e3e0aa3fab167d544c21e68@squawk>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20261008-1e3e0aa3fab167d544c21e68@squawk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0261.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b5::15) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Wed, 14 Oct 2026 10:20:09 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69E9eB6S3696121
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 10:20:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=slGu8WvW62RLRh45NPBc1MSW
+	HZx6u7Xy9JQffUxucLs=; b=Hy2+aJMs1gRshg51tHlSPone0lxZ27VNEcGFFAdL
+	DL6vAzNHdgejhLi//d06rxMMt9B2stvNj48p0XrCyek0e16oRxk2+IdvjZjOdrLr
+	hvIGSI0DrkZWTiOFGaF0sz5VZoHszhzAqS9JSIkm4+sbuTLdmn4zJZYhf0yTDnL5
+	tm6anPiTvUGy2bJbupap4880zpyPMDXrQRkimjs7KuinxOPLTJ6vMEYDpmaQ1ers
+	jXHZ/jepUSyNYW+dOZe/kuCNwSfbE4mtlg+yienD0m9QZHmVVH4SR7c4GD0Yo/mh
+	S8tVwJqiTXGICke6EM2CzFPGrLsNdE8T5Z5Ehtu4YjXMyw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ha7aeg56k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 10:20:05 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-939c30aa9a0so20331485a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 03:20:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1791973205; x=1792578005; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=slGu8WvW62RLRh45NPBc1MSWHZx6u7Xy9JQffUxucLs=;
+        b=aG7l7AFJZPiUM9jISiRxo1bMqqoADd5aZqU32XILsrFPqHjec1pDre1zYt/Fen8Lri
+         eIw0iNSm6kX9HHGh8zdwHxOlpeZ3tPMLnDxkZwPONXiqkqLTR+/wIzVjve6Jz344T5mj
+         MyLDAwXFEd/ZJkQUKZQHcuZ7Xql37vnlP8QUAtzt4h+OUTQuW5s3BmrHrJqQh1gbl37a
+         a6DsQIKqyTbLsFWCHgk31D68zJszJjEKZAuBOHRq0ZajuQupsvUX5fF9BeXKvfXIIlzd
+         UV+Ag5tHME5Mhbq6sBLedMJKe/81q/xjJdDnPkgafGSsuFvnxdhoV4AwClvMQ8cYH9JP
+         od5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791973205; x=1792578005;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=slGu8WvW62RLRh45NPBc1MSWHZx6u7Xy9JQffUxucLs=;
+        b=TWQivI08KK3E8LO9eZRb76ojjTomXJvWO3eo0LjktCE30KcZoNLaHEVTCtQzeXVQor
+         3tTsnA4BewMBi3q2wVoGOMLuXV6XrCG6/xcsaWXIu2J1AZpqkkb+J1cxDZSO9EvD7uZO
+         vNTvatI/hXHJPgG6yo1Wl2774e5tfRe3RaXUiRbzXvmuvkyO6fha8vGmqfNAMIxxvB5T
+         NH24vESXbpaBpyi5Xp4iLHS/XLfCZhBR2Era3hYBG/IBpviEFI4jJtPgCFpefTlk/qcX
+         kWLz0wJieDGoHS+0+fImXeZe4PW69JC8Y4KFyzoDey44GbYDHuTPysxu/B/M55RHQlYx
+         yLhg==
+X-Forwarded-Encrypted: i=1; AKwUvBxVEO/6Uc5E1dsezkX8nVXAJVUGyGlaV6b7vdRmNf+4/GWQDWxrYLwBERGu0CL9/ZBbs4GX12M23FmxBfP8HNQD@lists.infradead.org
+X-Gm-Message-State: AFq9FYLWhrWn2nir7mwOgk+ge0glsn+e3peIdDL6p9Lp7QHYlXwx1gyI
+	5+CJw72iMpFkgJTpo9B6CPw7jMQ2tlOCO7Vmb7G2b2QJjAbLP7RoDz/B2C1B+EJd0+N4QAXO1zU
+	uBJ9d1t5nGLhSkABa8Ri2/8VusNv0r73Zs4+lFqs8cTgIxEWc05wZ/i885z5rpcg0Jm9cIIKwk/
+	7LFQ==
+X-Gm-Gg: AYBFou1sIlAhFSRZRWrAvm3c3g+0dJP26lhhX5wzA/iXDhHAerqjGWKmSc7bFVuPg2F
+	OdwGfmeow37cYaxyzCvdSlovjqVQqldk4MvIcQJgrSih8v+X+pp5ATiaiTTvu8kHp/z0Lr1gaA+
+	Hzms9s1DjLToD/WHGs5Jjg0shkmVMEMLXMac++6Gpxvn0w2wQbYbophkqHqcAdT9CzfgoYVUoez
+	kLxCPLlUq77nZEyMHiaLcNHO32K1lIXrA7bXxjXDqVKB18zBby+sjZ7ohjxdtkDC/RVbgJUWpsw
+	Idn26pPzF7513udKDRXR7HYrAp4mBS2rPF2o9JnT9OWONSShCYAyU1XGOhheb25k5HUdgEwyQFI
+	1Cu/G80DxYC4DoQ==
+X-Received: by 2002:a05:620a:7118:b0:938:ff8e:cd0b with SMTP id af79cd13be357-93ebd211368mr2513666985a.18.1791973204381;
+        Wed, 14 Oct 2026 03:20:04 -0700 (PDT)
+X-Received: by 2002:a05:620a:7118:b0:938:ff8e:cd0b with SMTP id af79cd13be357-93ebd211368mr2513660485a.18.1791973203546;
+        Wed, 14 Oct 2026 03:20:03 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0bc50e0sm14157454f8f.49.2026.10.14.03.20.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 03:20:02 -0700 (PDT)
+Date: Wed, 14 Oct 2026 12:20:01 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
+        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
+        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Subject: Re: [PATCH net-next v3] net: stmmac: dwxgmac2: enable L2 split
+ header support
+Message-ID: <as9XUbOfJazEQ4y5@lore-desk>
+References: <20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PA3PR04MB11202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6293c43f-8b5c-4f77-aa9a-08df29dc2f02
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|7416014|376014|6133799003|22082099003|18002099003|10067099003|11063799006|261009223027099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: IUYW22JlShIYg0XyA2SLJoO5yehqSO6LVTDq0Cq5tLRSgj9nDIFy/CKk3pBQ6A4t5ExQ2rVnxSFvprPrJWYtYu3iXTDYVFFq/1XB1YyYvrK36+rzJnKZAX5dpUHh/Biy5e7edJyggUG9ODBaglK0Qp1ljNOWoY7yV7J+730gE62rx2KOp3fTTf0IzVqPVRkdDNvP96BwCb3fKKqXFj3rsHVg+BwP5uPFgbOdFINtVwA3WEWJ8iIwld/Sd9uy/1klSooZXU7LZ4OrFZLcPqTvOqLeTp0FyMmqG7dyrML9QSCafxD/sDGoT+kNprjuSHFdgkp0kz2Hl1Xz/mqAEkxwdHqghuztXGa2eW7JsrvsHEf2IzseNSeEAn2IPoHoNdEpp5Akhgu1bu6txBk+gLvMsPbt7MLj37BVK/vDtMJryWasTLJFnCRUVWAUBNAEpBIvHjtm+Xin69/B+ulj3/ukA9NHZFSdv6O/UnuIxQFgzwfcxl3q2MILQNXLEoh0dQW97ydYCsNBFHH5jeoYHpNCyVBGN43UDNY06H8sEiLGxFIm2MhAenj1xAril604f6vE8FvhKMbztckBosfYa4yZG1w3sVR2hiynS/St7ToeVzfcfYHxIilNiotpuyWn5Uy63TcxLeUNSVwtSSJeptjVuTYIDIDwPQ2XV4dJ0AR4mVY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(7416014)(376014)(6133799003)(22082099003)(18002099003)(10067099003)(11063799006)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?LzlIT2dXRStRT3N2L1R5NGRaYWtxdFEwODdmcDN2K0VTZlEyaEVhN2IzZTFz?=
- =?utf-8?B?bE5FZWpyemdtNVUzQlRVVGtSVkRYUTNQYXhxVVQzUDNESWxhUUVzejltUUFp?=
- =?utf-8?B?MFFpZFcxVW9MSDA3MWJpeDRybHUzMmxubWN0blR1dmtTMHJINDRpT3BHT1ZM?=
- =?utf-8?B?L2d4R3hPcjk1L2c2SUQrZ1RqM0RiaTMxY2RRRUlDVFBObmUzU05CSmhVNHR6?=
- =?utf-8?B?MzB0d1BhUWdzc0Zsa0hkb2Jzb3FyK3ppbnQ1anZkZExoNFVxZVB1YVExMVIx?=
- =?utf-8?B?bWJDSFRLL3ZPN1RReWZuRWxJemlkbWFGSGFvZ24rbklWNWNLeEdtMzZEd1FP?=
- =?utf-8?B?aG5wbS8vSU1idzhUUDVyU2txTEQ5RCtlRWltdWhSSktPUVBxRHlaeDJrUk5j?=
- =?utf-8?B?TmU3SjRZR1duYjEvKzZpUXcvcVcxcWN6dTBFUHVNT1pDa3FQbmVST0VFeU94?=
- =?utf-8?B?UUhVdmhmQXdQUTlpK1pRSTExaE5UemN3Y0xqWkJwQmloZ21CQWpta0JmV1pL?=
- =?utf-8?B?SlJMRUpqNDgzODJtQndFRllETTFxdXQvdC9zRmpYVlBJdS9FLzA4cHBmL05P?=
- =?utf-8?B?YkJkTW5iaGI0MVlENmdscklRS0h1VFVieHlPdUtNQ0ZWNmFjZXA3VUxvY1RF?=
- =?utf-8?B?VmZWcVcrVWhjcE5BT1FJenN6Y0I3SEpXTTI5cmxGbC9XOWZvS3Y2c2h5Yy9Z?=
- =?utf-8?B?N016Z2thQ3JxZ21Gb3lGMWg5N0dnYkJobUZCMlV4VkFFdTZtYzJiam5ZMUJ4?=
- =?utf-8?B?a24yZlpIa2dSVlRLUDluY2Npbmp4eTFiUGZuUHdtS0xESkpoZDZaZmt1WmNv?=
- =?utf-8?B?OVViMzVXM1JRWUlvTzVhRFdXMmg5V0tJWTdYRFlJN2wva3dwUGJ0aytJTVFn?=
- =?utf-8?B?WGMwQTNxb1EwVDZBdmNkUzg4ZFMvUUJSaFJkS3I2dzhMNjFZYVRwUmh3bWVP?=
- =?utf-8?B?a3FvMHZwWUNYTEtlU01pbWtkek9vTThyM3RkWDVlcGZydHFJUDRzcWFvL0xu?=
- =?utf-8?B?dXVYUWRqdkQ5c1lQcTlmcEFCZi9nWVdDSHQrMWtwT3JSUzJTNFlMV2FlN1FU?=
- =?utf-8?B?bEdJOWdhM3NrMDFZcG5DQ24wWWtSeHNlWnhoVjFMTUFpRG9rK2hJRndDcko1?=
- =?utf-8?B?ekZQc1Zza1FXdGJ6VEk0NytyM3FMTy85L09ROXpVN2tYWFlJWlkrZTdHeVRC?=
- =?utf-8?B?aUlON093K1hubnhKYWJGeGdTTVJzdkoweWpBck5UdWxmYlhGbzFtZWZVM1pm?=
- =?utf-8?B?ZXNJdnVmWXZjeXh1RkFjQTlxSDRXN3d2VzdxaTgxTkJLWnkyWjJDM3g2Q3VD?=
- =?utf-8?B?TmRLeGhCRFd5NnFwR1NQRlZBbnNQR3NXeVorckc4bXlST0xYejFaMGtwQzlN?=
- =?utf-8?B?WDJuNXBndlM0WCtXaUc2dnJ1WTdUUk5sU2Y3VHF3OVdZSTVmUkFkaGZVTDB1?=
- =?utf-8?B?N05NTHFhVFJzcERCTGFHYkNlR3hyTXM5L3M1SkQydUoza3FKMjlrYjBJR1Az?=
- =?utf-8?B?ckZhbGpnR0ZqczI5d2c0US9Zb1VGQ1g2OU9zbTdoOTRjVTA3UkZMeVpxYVZq?=
- =?utf-8?B?YWE3R0NQLzBWMCs0eFBaY0lLL0lRQUFtR000bkU1NlRFY3hVbFhLOHZxNnlW?=
- =?utf-8?B?MUNzSnNVZVlwWmRVUnJkRVFSOEVwdFBiSjdXeGNaSENsYnY2YkdNdWQyK0dK?=
- =?utf-8?B?cFBNWWcwNHpZcjFyeTVOME5JeDNvRFBpekNNZmp0OHNUT2x3d1YxVGJJMnA2?=
- =?utf-8?B?SzZQd3k5Y2hZb1Z3QUFHN1p3VnRjc0NaRFZ3dUsvdHVNMGtJUlFCSkNLK01p?=
- =?utf-8?B?ZFhtQkl2MXRiSUpMOU1md2FGZnRtcGxERy9mWWN4eEN5bVlvS1RRSCtBaTRi?=
- =?utf-8?B?T1ppUFlkNnZ3NXUwZUhIeTZJOWJJY1YvUHQ0NUpsZ240YktLZTRjQ2tKcGtP?=
- =?utf-8?B?RkRQM0FTS045c2tyVGliZC9hOW43VlRiK3l3OC9sc2lSOElxb2VzWW56emdo?=
- =?utf-8?B?YkRKejJCQ0RjeS9iSWlpT215TFBrNHU1RlorTG94YWxZcGtLUklsQkM5MGlZ?=
- =?utf-8?B?N1d3K0hvdFlTQlVCUEluajdjTGFRT0FaaStWZ1pvcXdPNmp2RlppcFVpZzlN?=
- =?utf-8?B?T0plRWFhMlN6V2lDc09vODBrMzE3QVVvM1J3b2NyOVJEa2xUZnIvNTB3dklr?=
- =?utf-8?B?d0ZXdUVpOS9ldGh6Nk9JTzlINTNTZXU5MDJxUm5UdWhZWTh2NzM4UXJ6ZXhS?=
- =?utf-8?B?cnBiRm9Wb3lpSTkvU1dCcUk3NFdUODhMSmo3MzZBTVh0bUZQSVNzR3VoMUVF?=
- =?utf-8?B?c1VMa1QxVXYwdXBwMUlDSmpjcnZJUWFzbTNMd2RrVDROd3VzcWxVZktUY1NN?=
- =?utf-8?Q?oIm21aiB8ykUxCqZU/zn3bhChymwbPztz/MfV?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6293c43f-8b5c-4f77-aa9a-08df29dc2f02
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 10:16:17.0605
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XtGWa6bKSaDueY5/PVCmzKcE6mZopBPBIa7uAOhstqvAZDvrA8ZHav0WTQ4/9pr1ZaEFKaWtjo/nV/APL1qoXLNz6+gc1+r8B47HGmw//qFZDZ/3vzHEkUBfdVq2+ZE8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11202
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Va93bnXPgVMhmS7J"
+Content-Disposition: inline
+In-Reply-To: <20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com>
+X-Proofpoint-ORIG-GUID: X0C7U3q-CEssM1f5pLq31LEYC0jyJbi7
+X-Proofpoint-GUID: X0C7U3q-CEssM1f5pLq31LEYC0jyJbi7
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA0MSBTYWx0ZWRfXw03hp4Z+WZZi
+ 8qGScyXL8F5uk1I69CRTw/2S6B9fCV87H859nVEdpwhTP0shbMUQn6J6Js33lgG1zFqcjuEimjK
+ Upt6Re+9bshVteY7CMZUYXCZgp6cmbk=
+X-Authority-Analysis: v=2.4 cv=NctzRGD4 c=1 sm=1 tr=0 ts=6acf5755 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=K8_CPFW8AYnmyr30bPQA:9 a=CjuIK1q_8ugA:10
+ a=4yWUPP8YMvIpZnTD_-MA:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA0MSBTYWx0ZWRfX2OEW1Yyd926b
+ iE6Mko48+hVsPFgTIOmAeiXoWeCPoq/g9kQbLH+xOiUePWqAAtbs/8t8jTEyMDcJn8V8kmpVtsg
+ HZAqv7c3hALV8sTxP60C/zaTMV6WqmNnKxbSrN4tMm3NOCK+3GLfH96yX6l/HNSYqMarhpQMB8L
+ +0XLN84RJUjI01ox1puB5bJdZVCqcB2HPkF2lXTLy9mw5z6xUqQ90Io8FnyE5/IqT9Dfs2cNpk/
+ FBQ38dt5Me16ldpPYn+7uAIbbtIl6exCW1Tvprli1g9UJfmNZizxYE3bm3O5jmISfHU/xkaTibV
+ BIWOOmuID04fCq+8hA1OHQrCTdeHJm0EzNqlIhvt/qWD23OJz2Hi6iuGk1Meogypppg9UffR5CC
+ JV2Nuoo+gxGrsk4Wqii1JY6aY1hMHzSgRjQrCrpitml/Rl2xXkqWztuTnGBeq9osW9JI1GsErUC
+ UgKkkRBANFG3ndxot/g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 suspectscore=0 lowpriorityscore=0
+ spamscore=0 phishscore=0 impostorscore=0 bulkscore=0 malwarescore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610140041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_031633_488576_2E646702 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20261014_112007_680997_BF2E81C8 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,101 +174,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/8/2026 10:20 AM, Conor Dooley wrote:
-> On Thu, Oct 08, 2026 at 09:14:34AM +0200, Khristine Andreea Barbulescu wrote:
->> The SIUL2 external interrupt lines (EIRQ0-EIRQ31) on S32G2/S32G3 are not
->> hard-wired to fixed pads. Each EIRQ line has its own input multiplexer,
->> implemented by the IMCR398-IMCR429 registers, whose Source Signal Select
->> (SSS) field selects which pad signal feeds the edge detector.
->>
->> These registers were previously listed as reserved and were absent from
->> the reg list. Add a dedicated entry for the IMCR398-IMCR429 EIRQ input
->> multiplexer window between the two regular IMCR groups, update the
->> example and the minimum item count for the GPIO/EIRQ variant, and drop
->> IMCR398-IMCR429 from the reserved-index note.
->>
->> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
->> ---
->>  .../bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml        | 9 +++++++--
->>  1 file changed, 7 insertions(+), 2 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> index 36f2393fa406..ecf6d61a80e9 100644
->> --- a/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> +++ b/Documentation/devicetree/bindings/pinctrl/nxp,s32g2-siul2-pinctrl.yaml
->> @@ -23,7 +23,9 @@ description: |
->>    are used for external interrupt configuration.
->>  
->>    Please note that some register indexes are reserved in S32G2, such as
->> -  MSCR102-MSCR111, MSCR123-MSCR143, IMCR84-IMCR118 and IMCR398-IMCR429.
->> +  MSCR102-MSCR111, MSCR123-MSCR143 and IMCR84-IMCR118. IMCR398-IMCR429
->> +  are not regular pin IMCRs but the EIRQ input multiplexer registers,
->> +  which select the pad signal routed to each external interrupt line.
->>  
->>  properties:
->>    compatible:
->> @@ -53,6 +55,7 @@ properties:
->>        - description: MSCR registers group 2 in SIUL2_1
->>        - description: IMCR registers group 0 in SIUL2_0
->>        - description: IMCR registers group 1 in SIUL2_1
->> +      - description: IMCR398-IMCR429 EIRQ input multiplexer registers in SIUL2_1
-> 
-> Isn't mid-list insertion here a compatibility break, since there's no
-> reg-names property here? Seems like this can just be added at the end,
-> without an impact on existing users?
->
+--Va93bnXPgVMhmS7J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hi Conor,
+On Oct 13, Sagar Cheluvegowda wrote:
+> XGMAC2 doesn't program the MAC extended configuration registers
+> needed for L2 header splitting when split-header mode is enabled,
+> so tagged AV packets can't use the split-header path. Configure
+> split mode (SPLM) and header saving (SAVE_EN) in XGMAC_EXT_CFG1,
+> extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
+> stmmac: Programming sequence for VLAN packets with split header")
+> to XGMAC2.
+>=20
+> Also fix the RX header-length calculation for split-header
+> descriptors. Per the XGMAC2 descriptor format, RDES3's L34T and
+> L2T fields are only valid on the last descriptor (LD set); on a
+> non-last descriptor they can hold stale write-back data from a
+> previous packet. Read the header length from RDES2[9:0] directly
+> for non-last descriptors, and only consult L34T/L2T on the last
+> descriptor: RDES2[9:0] for IP packets (L34T set) and RDES2[9:2]
+> for non-IP packets (L2T set).
+>=20
+> Finally, disable the variable-length preamble when L2 splitting
+> is enabled. A variable-length preamble shifts the position of the
+> Ethernet header, making the L2 split offset non-deterministic.
+>=20
+> Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+> Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+> Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+> Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+> Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+> ---
+> v3:
+>   - Use zero-padded 0x00000140 for XGMAC_EXT_CFG0
+> v2: https://lore.kernel.org/netdev/20261007183905.2582759-1-sagar.cheluve=
+gowda@oss.qualcomm.com/
+>   - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
+> v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluveg=
+owda@oss.qualcomm.com/
+>=20
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       |  8 ++++++++
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 12 +++++++++++-
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 ++++++++++
+>  3 files changed, 29 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net=
+/ethernet/stmicro/stmmac/dwxgmac2.h
+> index f8ab347f7b5b..7d1a7802a131 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> @@ -167,6 +167,12 @@
+>  #define XGMAC_HW_FEATURE4		0x0000012c
+>  #define XGMAC_HWFEAT_EASP		BIT(4)
+>  #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+> +#define XGMAC_EXT_CFG0			0x00000140
+> +#define XGMAC_EXT_CFG0_VPRE		BIT(8)
+> +#define XGMAC_EXT_CFG1			0x00000144
+> +#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
+> +#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
+> +#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
+>  #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+>  #define XGMAC_MAC_FSM_CONTROL		0x00000158
+>  #define XGMAC_PRTYEN			BIT(1)
+> @@ -434,6 +440,7 @@
+>  #define XGMAC_RDES2_L4FM		BIT(28)
+>  #define XGMAC_RDES2_L3FM		BIT(27)
+>  #define XGMAC_RDES2_HL			GENMASK(9, 0)
+> +#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
+>  #define XGMAC_RDES3_OWN			BIT(31)
+>  #define XGMAC_RDES3_CTXT		BIT(30)
+>  #define XGMAC_RDES3_IOC			BIT(30)
+> @@ -441,6 +448,7 @@
+>  #define XGMAC_RDES3_CDA			BIT(27)
+>  #define XGMAC_RDES3_RSV			BIT(26)
+>  #define XGMAC_RDES3_L34T		GENMASK(23, 20)
+> +#define XGMAC_RDES3_L2T			GENMASK(19, 16)
+>  #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
+>  #define XGMAC_L34T_IP4TCP		0x1
+>  #define XGMAC_L34T_IP4UDP		0x2
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drive=
+rs/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> index 6719ac6e395b..65ac5403ec58 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> @@ -292,8 +292,18 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, =
+u32 *hash,
+> =20
+>  static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int =
+*len)
+>  {
+> -	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
+> +	u32 rdes3 =3D le32_to_cpu(p->des3);
+> +
+> +	/* when FD=3D1 and LD=3D0, HL is RDES2[9:0] */
+> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
+> +		*len =3D le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +		return;
+> +	}
+> +
+> +	if (rdes3 & XGMAC_RDES3_L34T)
 
-You're right. I placed it mid-list because the EIRQ window (IMCR398-IMCR429)
-physically sits between the two IMCR groups in the SIUL2_1 address map.
-But I'll move it to the end of the reg list in v2.
->>        - description: IMCR registers group 2 in SIUL2_1
->>        - description: PGPDO registers in SIUL2_0
->>        - description: PGPDI registers in SIUL2_0
->> @@ -141,7 +144,7 @@ oneOf:
->>        - interrupts
->>      properties:
->>        reg:
->> -        minItems: 11
->> +        minItems: 12
-> 
-> Why is the new reg mandatory? I didn't catch the explanation for that.
-> 
-> Thanks,
-> Conor.
->
+should we check FD=3D1 here? Since HL is not defined for the case {FD=3D0,L=
+D=3D1},
+right?
 
-The current driver just ioremaps the EIRQ region unconditionally, which is
-what forced the bump, but that isn't a real requirement. The EIRQ
-window only matters when EIRQ is used.
-In v2 I'll keep minItems at 11 and make the window optional: when it's absent
-the driver skips the EIRQ IRQ domain (already tracked via eirq_present) and
-EIRQ stays purely additive. Does this approach work for you?
+>  		*len =3D le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +	else if (rdes3 & XGMAC_RDES3_L2T)
+> +		*len =3D (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
 
->>  
->>  additionalProperties: false
->>  
->> @@ -162,6 +165,8 @@ examples:
->>                <0x4009ca40 0x150>,
->>                /* IMCR119-IMCR397 registers on siul2_1 */
->>                <0x44010c1c 0x45c>,
->> +              /* IMCR398-IMCR429 (EIRQ input mux) on siul2_1 */
->> +              <0x44011078 0x80>,
->>                /* IMCR430-IMCR495 registers on siul2_1 */
->>                <0x440110f8 0x108>,
->>                /* PGPDO registers on siul2_0 */
->> -- 
->> 2.34.1
->>
-
-On timing: I'll hold the v2 respin a bit longer. As noted in the cover letter,
-the series still depends on two changes that haven't landed — the rebase of
-94cb9e8f2707 ("pinctrl: s32cc: implement GPIO functionality") onto the GPIO tree
-(currently reverted by 04b3818c3bbc) and the reg_mask_xlate alignment with
-6c53312b7e2d. Until those settle the series won't apply cleanly.
+same here.
 
 Regards,
-Khristine
+Lorenzo
 
+>  }
+> =20
+>  static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, b=
+ool is_valid)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers=
+/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> index ff83858ebc1f..0a9c787305a4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> @@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *=
+priv, void __iomem *ioaddr,
+>  	value |=3D XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
+>  	writel(value, ioaddr + XGMAC_RX_CONFIG);
+> =20
+> +	value =3D readl(ioaddr + XGMAC_EXT_CFG1);
+> +	value |=3D XGMAC_CONFIG1_SPLM(1);
+> +	value |=3D XGMAC_CONFIG1_SAVE_EN;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG1);
+> +
+> +	/* Disable variable preambles to keep the L2 split offset deterministic=
+=2E */
+> +	value =3D readl(ioaddr + XGMAC_EXT_CFG0);
+> +	value &=3D ~XGMAC_EXT_CFG0_VPRE;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG0);
+> +
+>  	value =3D readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
+>  	if (en)
+>  		value |=3D XGMAC_SPH;
+> --=20
+> 2.34.1
+>=20
+
+--Va93bnXPgVMhmS7J
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas9XUQAKCRA6cBh0uS2t
+rG4HAP4goEYjxrArM6TdJd+MFIeqzUtidp4JYTu12RjAE+mlUwD/e5GewtsO9RV7
+k+CeJufRbJRvlTiMT8RjKAZEgMRGYwE=
+=sUaN
+-----END PGP SIGNATURE-----
+
+--Va93bnXPgVMhmS7J--
 
