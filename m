@@ -4,62 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409BCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84951C3DA7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 19:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvWOaTUlMXOEn3tnxgA4QdZqJ3etpFx5xwMvPC1gXq4=; b=l3MQ40UqaCGfMoN9D4BpxDjMXb
-	EdSYInjMENbAzqZXCYPdaNCjOmasz7PptS434P1wNQenCNm+cVAE7kExq3p77/uVrnFxoXU0dQDmQ
-	npUYPwHPP6Vup5AGgoZTNWuDO6LEBqE0i9uD22GX/cKjyByDJRbE53wKUtFEnxuT85oLIq9bxDOSq
-	bhnlPluFw7c4Pz7/ImTnUelRWk/nBM3TgfreLjeHUHFBau8Qk+mKZSsHHmoTRvYd3BYhDVNdl7Yxv
-	8lUQqRPWSMHMAcD+YWNAdmLKBnPPEXRt8zceexW0X9+yhLa314A6yWtG00xeiCHeyX5Ep+kA3lW5g
-	odlG96aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=voN+/DnSvNdqF9FDu+3qMGQaGXIMjzAKCkLlGWfn+W8=; b=wFDaKKOKVVhjIxWaWtcH1aUVdT
+	9xKuec5ohzeReRALaWyisKKTyaLYHaFSWGsRzgq2N/Pyn44Z64VjvgW7IgktvGM5x8HiSIQG62Kyj
+	4FrwS7MBPX4D2Cth3o23BV+BJZqAanf4JCkXB7EF1bNTbBMpHq+lbSaOhXamIaGOaAFROjobAMwq4
+	zAAJxFN7GVXnDM6EBCeNyMfCTirgsOXet/crvRWxuMBp8+A3scTQkYhU7XZU2UAepCMZafZ87fx5E
+	frskU/WPqCsIkHoYGK3Gj3qWw0Ak/5hkzoz7H24uTkYDshapQ/RxRoVZI0fGmy5ce5Nopdh0p7nhQ
+	xpTGeGLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH4AG-0000000GBAI-1pqZ;
-	Wed, 14 Oct 2026 18:57:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xH4De-0000000GBXp-2Slt;
+	Wed, 14 Oct 2026 19:00:54 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH4AF-0000000GBA8-0ZB0
+	id 1xH4Db-0000000GBXK-3U4i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 18:57:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20DD660229;
-	Wed, 14 Oct 2026 18:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314031F000C4;
-	Wed, 14 Oct 2026 18:57:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792004241;
-	bh=CvWOaTUlMXOEn3tnxgA4QdZqJ3etpFx5xwMvPC1gXq4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G4F521D7LiiIZZCqQVxHOB/nZBiu4tBxIrJQIPczjUHE+9a4ljcAa5OTOC19AOt/M
-	 rGoKmaMxA+wiyvhsWOZZEmMlyGxP3Fht7DONoGYHa8rKGnJNPOBU7hqGwasqMppiDD
-	 lj4CXohfxWrglWa+txVDNBw+bPCOdgEhQTckY2zfH0ZHgR0L/WNgTXn5Zeh/5QgqxV
-	 NQTLBjMv2/0kf0itpRvtcPZcdOJMQYdLblZtfduOYIvb2NT7t0hKKaPc4AedK6EZLm
-	 sCYsf901oGif3DjXDGjJHt6feyuSnqKqJoGw1fNebhvxz0Rnprqy5WN4zEg1AFqjcX
-	 mLR9Es3GE/qkw==
-Date: Wed, 14 Oct 2026 19:57:16 +0100
-From: Simon Horman <horms@kernel.org>
-To: Sagi Maimon <maimon.sagi@gmail.com>
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com,
-	michal.simek@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	daniel@iogearbox.net, jacob.e.keller@intel.com, joe@dama.to,
-	suraj.gupta2@amd.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v4] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-Message-ID: <20261014185716.GD83879@horms.kernel.org>
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
- <20261007034620.1360542-1-maimon.sagi@gmail.com>
+	Wed, 14 Oct 2026 19:00:53 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EEbJR53642816
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 19:00:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	voN+/DnSvNdqF9FDu+3qMGQaGXIMjzAKCkLlGWfn+W8=; b=QWkjTE5apijBfBE6
+	nq2/otO/V/2ZLXOJPZ4IhjF77TvAVYeXfGJUTZijKqX1/2YBFj1G2Mwaeg4hRXaH
+	oyrwWf8p3v6pXFMhsvyj77wSgTE2O8VB+tyvWIC3ekuA3HUMbUlu7/u3P6hKd+3F
+	p7PXrJZc+LrUrH7gKmsP9L+8ZKTVmzSpwGBDBWZvY72qPo5b+6gcN/zQNCvVTLjc
+	jaCu7CDfvNPy6WBQpi6MoeLZmnERpP+02zz7TmorU5QZsket1NbHfmbPEQ3/wPB3
+	P4R1MgZVWBVuOsBEGzPLwEqvuQIVEVUBHlkO7IrlQoAbU+tLINl9aMQeiGAQ8E/9
+	hBRu1w==
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ha470b37u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 19:00:50 +0000 (GMT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1665200f4c2so6202949c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 12:00:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792004450; x=1792609250; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=voN+/DnSvNdqF9FDu+3qMGQaGXIMjzAKCkLlGWfn+W8=;
+        b=FiZzA0DTG7fiq/Sp7v7Vu5U+M8auvCzc2c5YHzHc7y972iPNtYcxFw/yoeA9cRLpso
+         RJWtSBjZsTjw+Dl5iRkxzeydcND/Gx9SYfiGgpIydFq7rNz9LLUsPSLGMkDsN7pQU1J3
+         NeM7h62NjxnnIq3bLhzCx5p8Cd69DQxqpAgFPXj1W6DnL8tkYM5fngseK/sQYkNf10hG
+         IimR0Vq5QhRL28P+VH/qypKnnV3Q5zKY8ca+4XufLKlFJauAF00ioFUQhQZEXjNLDEeL
+         1Gb4cwwRq2oRGl3dCw2ga+wE1m4t9X7mgKftPRN0ywjp1fPoycR+eCJ15tV9bchXxoda
+         Bu2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792004450; x=1792609250;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=voN+/DnSvNdqF9FDu+3qMGQaGXIMjzAKCkLlGWfn+W8=;
+        b=JX3lPH6ywRGn+jp5R+AovpTTPRHzaxL3sGpO/jEnqqnpA5ggCMGWTzZvqWRay6ImKf
+         QU5IF0i92cKRySC6LmY+6w6x6V3gYjHzDA/1ouO2Cgtc72Dw6AVAjRkzYaJ5mbbNj9vy
+         +mYw2+GPmO28kQ2tZka3Cfg05n8TI6z03vRCl7X2RQnJHmnhMcYrih1ekard+XTJBB21
+         C/u2j9ywta2QrWksvfwfkEMgVOeMfSRgcAIig3vkJtDK99j6j6cYxbM0QYW6Zdk0TOc+
+         mBhq2cpQ6MXNNj9gedlkRETeBbwL7xBJgIDzx3x2LCC24vJY2/b2uXfnuHDQin9u7HL5
+         k8LA==
+X-Forwarded-Encrypted: i=1; AKwUvBwYOBCrFpq2XxmYBFyrtwfWq+0LCceTgOv7L4Uy9dg0f7mepfa0U/xoSRToa7XTjJUcGxPEZpLcrfNqwnAt5l6G@lists.infradead.org
+X-Gm-Message-State: AFq9FYLVr/Hcmtm9cO4Xx+C6xyBytzGDilRXQlZu96knS3uByGbKlNw5
+	5OBMENNBHSwjbkdldnKvu0YJqt9r+Vp6/1tZkS56OfPNGIRRpnP+OIKGROVGNtFNE7sOZqAynBV
+	gB62XESPYOKhCd/2pa3T1gw+gJczj4+CJ//3YB+c/59Z5zwPh8i6wsmxwOGO0vZRi9FpBnsykmJ
+	zZkA==
+X-Gm-Gg: AYBFou1g053J6WJ8q7A1sNXXyxHvSbl4ZUbW5A7UBCH30AE5RpzMc4JQb3N+WQtxefL
+	ZAIZrxFuT/sSim1ceCfslH5hH7axdtgVHdn/+74szptpNQxw6VvQ/ZmZHVEJudsRMe4jIYeDTZt
+	+KfBimoE6CwlF+fCrAPesq/Maqjt9FEJeTpd2DprdRipYBFlLEgoMDijGjThWMBPzmiGP4JGEy2
+	zR/JoREBTZ6rnsHXvEWg9xWCb5kWDo88EvidE4dU0fxWImVVZdxUuo2bZdvHP4BDmShSyG0o2te
+	O0TQsMeSERsCr/wRALhin9+P49t7qBHi0HQ3cgXCb22DNjo6Q6i9XgOVo+FUsZVrE/vLh2Zlt4H
+	8VLjBPFy/9i8pqqVN20Xma43UyG8epr/8nidUcATZtlLnSzE6EsdJg6+ShLf/OK4=
+X-Received: by 2002:a05:7023:a47:10b0:14c:1f57:3e86 with SMTP id a92af1059eb24-16a5f5ddf6bmr21715194c88.47.1792004449146;
+        Wed, 14 Oct 2026 12:00:49 -0700 (PDT)
+X-Received: by 2002:a05:7023:a47:10b0:14c:1f57:3e86 with SMTP id a92af1059eb24-16a5f5ddf6bmr21715140c88.47.1792004448426;
+        Wed, 14 Oct 2026 12:00:48 -0700 (PDT)
+Received: from [10.71.40.138] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-169a31f6f5csm47683131c88.11.2026.10.14.12.00.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Oct 2026 12:00:47 -0700 (PDT)
+Message-ID: <ff4fac87-380d-410d-942a-a48edce70397@oss.qualcomm.com>
+Date: Wed, 14 Oct 2026 12:00:44 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261007034620.1360542-1-maimon.sagi@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3] net: stmmac: dwxgmac2: enable L2 split header
+ support
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
+        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
+        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+References: <20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com>
+ <as9XUbOfJazEQ4y5@lore-desk>
+Content-Language: en-US
+From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+In-Reply-To: <as9XUbOfJazEQ4y5@lore-desk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX7RAA6o9RaGmS
+ sSTUy0nPxvS+g494RSYXJM7NCv5ZSGt6zmfj1xEWlRNIWoWKgHjZP8fl0Fjg029kcRuVz1U5aOE
+ 3eTb1RBa8ISIUqGTn6L0daTnHYPqq/tplbUvaIcdQfdpf0tI7GSngKKUNV7jkemBWQmENgWjVFV
+ 9XMllVO++Jl771bFiaMOHzw/4cb03OLTo1tZoJTqAmQwYAZO9oaqCMNQmqj9pVLMBL/ThgGOCmA
+ OSL0wcKIgYgTRftmBbA7DPuJ3iPRuRog54CW3+dFp7sjVoI3/XYwXn3SCZE10c3HlHXqWH6XEfg
+ EYVxlQ8VX8XmgDHANXzwRfSCXtMoT01mxYHt8BIcR8FsD8xPCk1bzSKYLrYuP1JdDdpfa4oIqJV
+ 4P57kn2cf2ZGcc1qhSwhlW3YwKtNT6G/jtySTqnYszxJIel1Vef3rSqpzaTgRxr+YlKejVGWPW9
+ zQ8q45I5/D8MqUt6gcQ==
+X-Proofpoint-GUID: q5gkxpQWTOxQ10nNdRSUDevJFb0c1r97
+X-Authority-Analysis: v=2.4 cv=P6avFSAu c=1 sm=1 tr=0 ts=6acfd162 cx=c_pps
+ a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=uAmjrx48wFnj9rB13rsA:9 a=QEXdDO2ut3YA:10 a=vBUdepa8ALXHeOFLBtFW:22
+X-Proofpoint-ORIG-GUID: q5gkxpQWTOxQ10nNdRSUDevJFb0c1r97
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX2NvAUEV1HSt/
+ DdlVwqxRQAeQET7kxFI1Tpu0MZ7InXB/Nw1WhqtDNBvEuM8TZNIvhjjyfuL2NXpH1R7XgawYKdr
+ z4M1qwS59dQtubDPVG9Zw4mF5v2Ni08=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
+ suspectscore=0 clxscore=1015 impostorscore=0 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610140075
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_120051_994864_10D8CAA5 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +162,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 07, 2026 at 06:46:20AM +0300, Sagi Maimon wrote:
-> axienet_dma_bd_release() walks the RX ring to unmap and free every
-> receive buffer before releasing it, but frees the TX descriptor ring
-> with dma_free_coherent() alone.  Any descriptor that
-> axienet_free_tx_chain() had not yet reclaimed still holds its skb and
-> its streaming DMA mapping, and both are lost.
-> 
-> axienet_stop() disables TX NAPI and stops the DMA engine before calling
-> it, so nothing reclaims those descriptors afterwards.  Bringing the
-> interface down while frames are in flight therefore leaks up to
-> lp->tx_bd_num skbs and mappings each time.
-> 
-> axienet_dma_err_handler() already walks the TX ring this way before it
-> restarts the DMA engine: it unmaps every descriptor whose cntrl is still
-> set - axienet_free_tx_chain() clears it on reclaim - frees any skb still
-> attached, and clears the descriptor.  Move that loop into a helper,
-> axienet_free_tx_bufs(), and call it from axienet_dma_bd_release() too.
-> This relies on axienet_stop() having stopped the DMA engine first, as
-> the RX walk in the same function already does.  The helper frees the
-> skbs with dev_kfree_skb_any(), as drops: in the error handler, which
-> runs from a workqueue, that frees them directly rather than deferring
-> them to softirq as dev_kfree_skb_irq() did.
-> 
-> The walk must not run on a ring that is not there.  axienet_open() does
-> not check the result of the reset that runs axienet_dma_bd_init(), so
-> when that reset fails tx_bd_v is either still NULL or, after an earlier
-> close, points at the ring that close freed.  Clear tx_bd_v and rx_bd_v
-> once their rings are freed, and skip the walk when tx_bd_v is NULL.
-> That also ends the second dma_free_coherent() of a stale ring which the
-> same path already did.  On the axienet_dma_bd_init() error path the TX
-> ring has just been allocated zeroed, so the walk does nothing.
-> 
-> This was reported by the Sashiko AI review bot.
-> 
-> Tested on the AXI Ethernet MAC of an ADVA TimeCard X2 (PCIe card, with
-> the built-in AXI DMA): traffic passes, and after each of ten down/up
-> cycles and five module reloads, all made with traffic running and each
-> running axienet_dma_bd_release(), traffic resumes and nothing is logged.
-> The leak itself was not measured, and neither the failed-reset paths nor
-> axienet_dma_err_handler() were exercised.
-> 
-> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-> Reviewed-by: Joe Damato <joe@dama.to>
-> Assisted-by: LLM sparse
-> Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+>> index 6719ac6e395b..65ac5403ec58 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+>> @@ -292,8 +292,18 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+>>  
+>>  static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+>>  {
+>> -	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
+>> +	u32 rdes3 = le32_to_cpu(p->des3);
+>> +
+>> +	/* when FD=1 and LD=0, HL is RDES2[9:0] */
+>> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
+>> +		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+>> +		return;
+>> +	}
+>> +
+>> +	if (rdes3 & XGMAC_RDES3_L34T)
+> should we check FD=1 here? Since HL is not defined for the case {FD=0,LD=1},
+> right?
+>
+>>  		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+>> +	else if (rdes3 & XGMAC_RDES3_L2T)
+>> +		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
+> same here.
+>
+> Regards,
+> Lorenzo
+>
+Hi Lorenzo,
 
-In future please post new patch revisions as new email threads,
-not as a reply to an earlier revision.
+Thanks for the review. dwxgmac2_get_rx_header_len() is only called from stmmac_rx_buf1_len(),
+after the sph_active && len early return, so with split header enabled it only runs on the
+first descriptor (FD=1). I don't think an extra FD check is needed, but I can add one if you'd prefer.
 
-Thanks!
+Regards,
+Sagar
 
 
