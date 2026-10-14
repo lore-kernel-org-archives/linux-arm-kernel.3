@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052F0CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1659BCC6B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2bE4GOYNuN0L2A43+aeT8XcVziQfGC7lOtj0K7aqEDA=; b=X6Q33NAbRmcxf4UjJjV8bF+7Xn
-	LzE3vH+qJBjV48OX06omh1Gkm3B62sEdtLfelKBwDuN+6fpC5+hO9xoi+eqkwVKHqBqXEcjFZ1kgk
-	YVXWDBGEav7pjL64xz53F+Zn/Cc6W9EkUkparNW0OnjS+fTY5cPha2Tm3eCIOv5UA1RxYaznLTUHj
-	oFanuYoD5UAsDuZ5oWDgTQ3AYr5cLS35SBPgeekZPQ0/Y6muJRNgT6L2hLyqGCDifU3Y1HTZNeRvn
-	aCPrOxvpVWuPT3bjjYrQPKXRRi1Wr1T54cNQNe10RQdPBxUoLTnm9/VbYqoI3B50hdstrskMatGIf
-	X7p/VEVw==;
+	bh=YdecmZTfB9lfXaRQG8h4bWhgYgRYVcqnrt4h9FJW8IM=; b=fNJPuyi6JNVpBeGnwUShb4S8TE
+	1FAsiY2BtO6pnqaJs8VXRKlocFsvsmdgEYo3wZQLhn7MZAfkMxHPCDcmJPKRYgwVtpz786raquMDI
+	N2YpYxShuuKB4QpISbCyRlWWY8qtE3fTxkETRZLTxy9pk5NU05ZLvhONesf6z/ZUvwIsgoL+o8Qmo
+	LRRwSfc6KtKbieoSPdpHDlR49mHdcI8OH5vOOQb419/owknmqCtGpgFAJxsNp8yvSdxogP7f//LPf
+	P5j+GEiJQwDB4NJAw5ivIdcfIt9wMgg5oZs4jlz4spjXmuLorxQ5hbDaAta1N/R1dxvi1H7CRS20e
+	4zyX1YcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQq-0000000F3kv-1YI4;
-	Wed, 14 Oct 2026 09:37:56 +0000
+	id 1xGvR7-0000000F41P-3FdO;
+	Wed, 14 Oct 2026 09:38:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQi-0000000F3dD-017j
+	id 1xGvQn-0000000F3hu-2K8w
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 09:37:48 +0000
+	Wed, 14 Oct 2026 09:37:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=2bE4GOYNuN0L2A43+aeT8XcVziQfGC7lOtj0K7aqEDA=; b=Z++MFiYVvnEmR4ubJ0QD5j4KBi
-	o7Kozm7SgUyvBTK1JYbA1uM6Qzzj+/+T05pVLcj6tYCwPWgCQoTOuOGjMzqIeBPPuZl9gKreaVdPs
-	UPGlJV+jD+4dWMiFASJWctnAUVpCCkOg8/qwzKwz7OVEXYbMdSMw2FMpqOMBX2O/fZtbBF0rxp981
-	hQmxNcqiB2oplxX0nUAv8es4rx+SS7ri3K0NIqkBWMcHCOdcWs76yKCqiKi9Uv+ek+qMom7NvDHth
-	SBt56DZhzeWF4LyV/iS8wHU2xgZS4eRKWZ0oMO03+5V+b+OXyGY11+NRFMLRwl16nZo1SCx52uWGC
-	jWwuumsA==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	bh=YdecmZTfB9lfXaRQG8h4bWhgYgRYVcqnrt4h9FJW8IM=; b=S8oVQeTdRtGnGJevZF7TYr9Es2
+	2V3taersflHy7fTATavB7tt2NTDI6c5u9zQxB8Qu+yuQLCGYPCLeurioEWKznmOHu6bABcAOlacXm
+	dKEnCNUT/8Cu5WM3EUoXvpjQet/Ig3UPzouPh7+IVk+kFFtTHkjSlPRswoDoOGGm2WEsxJuhbaVbS
+	vP/mFu18joPCbMfK6nTjbg2AAkUy2Edc33zG+Pf3M/jblGH9XEXhkA5zHDECl3z9xYnqvXkWlFSyI
+	+OVi2Ak9Ct+1p5gCd3J9k/IURrJq6lb65TgWuD3fyNJm2q8Re9upri/c65qiQNC8pqEL1Q6vvltXE
+	Smk3+CXg==;
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGvQd-0000000GZVv-2z1x
+	id 1xGvQj-0000000GZaf-1bO1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 09:37:46 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a19cba5c14so32540445e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:43 -0700 (PDT)
+	Wed, 14 Oct 2026 09:37:51 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48bbb06e746so158098f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791970662; x=1792575462; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791970668; x=1792575468; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2bE4GOYNuN0L2A43+aeT8XcVziQfGC7lOtj0K7aqEDA=;
-        b=Sc3o2hZwb9B4Aq+rM09sYo18m9L4rihEckbuQMoDZxrieIKAanytuIr8jVyjAJv3Cx
-         +xMFAauPVhUkeDovu0Tsj1L9HWJpJmlO4tu52kTFBNJ1n9v6R6vU7PJooxwFdP3ekXGj
-         ltPEpdLvpG9mzdG2tti+7khPWd/O6BJheh1NzZOjRhPgxX2Kp2Z5960kPHRea3OdQL/4
-         OL2XVALB/cVFX/wI2y8JhmJC5g8Q06eFb3HtGXTyD5YNMjwYyMYudWiWOmjhQBbym8Pj
-         do/DadgIMsYq1Ll+5n3Z83GveRD5aJDiE6I7lx8wVWelXU+MjaQMhKo71vpS5ywjoKLD
-         R4jA==
+        bh=YdecmZTfB9lfXaRQG8h4bWhgYgRYVcqnrt4h9FJW8IM=;
+        b=HWrJQjo2HbAjIssW8XVjFidlCBfp5KJBQ/J7lG9ucxjCMId86d83PW0yfAaS3d6JYk
+         H72d+dJ47AI72SOdHTIicGgj59JKhhAeptBgj3yl3aAgpbcneamAEomzNp5zakLT3yF/
+         PSyQhou2DYybkvVNhy/ShW/oU/21XgpgNHS7MRF+BBnZLqghdeol8hoFgiHv0mIABFC4
+         53f5TCkEJjts+wvrZtCgMJCm/4vYy4wTIYQ7Lj6SMy0WC8sbqHKvatSyuRHsQTcV3UvR
+         TkJnd28nH0go7nSLm+Su8ydtSYQCsAHaAKf9HNfsEqP5NuPCxzBkFEv+iEgdwKaefZR7
+         RLCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791970662; x=1792575462;
+        d=1e100.net; s=20260707; t=1791970668; x=1792575468;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2bE4GOYNuN0L2A43+aeT8XcVziQfGC7lOtj0K7aqEDA=;
-        b=GfTeSH5vsOdeXyCXtR8vS3tpVKglxCwOIjsYBnY1I0RA9vW5YQXgUeC6x1ekdOWxBX
-         xeCViUFHHyiRZ20h4UfYentbCg9Qj7eIxevPK5hAQIk2sexbB2sTvmqezLDrw4WrZMMJ
-         kfdpiTQCG6i0joXfEdgk23FssgqBkHY4rmeOGsJiAVLLJweIkfp/A+ZqMA2tLuorgUOS
-         PZMd/w1+QT0s+yTC7lrrmU9xgSkk6rNZLiPG2TgXQu3qPLev6soBtpSY7xRxHpvmSIH9
-         1Rkt6CvAwAFKefnWDtqxJRJyYTt52hquTTOtbhFAiIW5vt/wR/JZhfZ9R12rgAgT1C2n
-         lY6g==
-X-Forwarded-Encrypted: i=1; AKwUvBybGfRUtYI71PifwB7JStKuXbUER2SHcNxSZNXhEAJxqmmzVVR/1GEapNfXfNldfilGXJh+DDJHp4yrhJ6DUIIV@lists.infradead.org
-X-Gm-Message-State: AFq9FYJFUtbamhCy8YafVI6ACZD8c5nvf3dFy3NCxJquyQL4h/O13upq
-	fM2ZOddqwnf5Y2qCceIgIyxYFZQFTfnnFWYfnx4Ywa+1BLGAOjcSu0rE
-X-Gm-Gg: AYBFou0Hr/0+e8t+Hble2iC8kx5xwCmdJL3ku+m02xGpkipd7AcuqRjWj4QtASxQSlx
-	wFhVMFX4L4cQBTgH/Jtm/UoQPx4pDuXwj6kIi04xPrYk81fDvuWLyycpMIC54fxjN62VmpbZdBm
-	joUy4axU/8C3sDr2sT5mlArJs9Do5+WYPvt8w5vxAJpIy+DTRBuMI3r5XPEBatmUK67QEYueg+F
-	b7Ltlhs/Bfw47POCIvegvbe4RW2Gf4+BZSTJccnB8IfzCa3UPdTZkNGvbuhfy0zNAa4eRV5NMEP
-	eveqXwvuFAsW3Gc9e0nNncEel2YOcd57Uzgf3cLLuZUfvfXHcsVoAxn76uFdrcYUl5LblpOS5Dk
-	T+J3a57mhXWfPrv49zFrpPKcFCpGelfUss4Iko499iDnSdoMxLA6TIgkXnGScJLQFSTh6993TpW
-	Y0GuVwmzP971D3yF3h9YAve0nTWLviWPyDmyvNW0+HyB24XMZo3LCCF+/erih900rA+f9xKT92Y
-	T/R3nBtg4kX4zZM+82ct0schsmgN2wg3o2+JT39aANuWYUOTitbIFhViW5DZqQ50tEKUMZVqoRO
-	fjLzGnpOAornYOHpyzQyXNDOPAJF2PM/bIQ=
-X-Received: by 2002:a05:600c:5493:b0:4a1:78da:d271 with SMTP id 5b1f17b1804b1-4a18e4ee976mr332971435e9.30.1791970662375;
-        Wed, 14 Oct 2026 02:37:42 -0700 (PDT)
+        bh=YdecmZTfB9lfXaRQG8h4bWhgYgRYVcqnrt4h9FJW8IM=;
+        b=VdmFXslbWPGBPhV0V+oXcI28eumW8Jo3SOTXdl5Cb7UU5UPnem6+CVuU1yLsBI2Zdw
+         xwrdEv/vXJ14VVRslUK7SGor41rt5tf+CqDX1GmPEyTFJSC1ETzOJcuf8zvTzC5um3id
+         GdH/ayOxcpkw6Qyn73lHKy+WTcYi3TjmiEcrYGomLu58Y7sRpzmlwC41EqDBqqChEYpn
+         hTlDQ/Y/L+5VG/hCODCctxiQg8+LbjkkdauiPwfq2lpqsbo51GJFNV4ezyD/x0I/7hCt
+         zDJOgfP2N/0Jkwsjz6W5cYfV53CkwUqlSZVO6qBfBSZjMclaalyeAnEfDcHR6M9WpKlR
+         Hs5A==
+X-Forwarded-Encrypted: i=1; AKwUvBzuBCw6kO7JiaZRzMk4CiAjSES57QD+nWVlg+jfU91T5NlHh6BJAyIubhbuWHECvJcqYX9a01d544uejT4rV4gn@lists.infradead.org
+X-Gm-Message-State: AFq9FYIwqQNBNyiNO9ejNY+GrjfWbaDJ4OUI+I0Zeq2AO+OkxB99lNpz
+	qvUlTphd4APOU/ivA03q971FXp2FuVkvlFLUFbXg4I9dEhxyOlqRrcUO
+X-Gm-Gg: AYBFou2uVI3utgpZGlb6+52mUzP9efIZRAhtv+k5rKYtjKC0dbgFvB7/kinv72err8K
+	QQUO2UJ3y4C6wB9yH0SbNNEqvazbaMyLoHfQtuQqI4Kk2vCdXp1q05srMSCYa0fk1zmyQQnvl7N
+	7dHIe7dKzY7pSKQuRK+t1+cMu1gqJjeMHQprl8LjvwugMg93JCb54XAT4HEZp8oycu2vEIyy1yT
+	KglLyoMajsq1QDv6U8C3d3hWhkVe39pDzRgufOlAMHEMc/K/75kLRbrHUV4mEUsivHLZNJifQi3
+	f+vGR2N4AqGDtaIYv225R5wYVIFMUmkQj5/9wEuBYN8fy6m4w/xK1Bisqd4+BgkUyRtli4f47tR
+	Xe7mG0OkFFY25kwlF6MJIO4IYbiNV6r38GGQNU707NnNdMuGu3V8jf5ZsYvrEKxd+nI2TLdzlfq
+	/1vefRqDxEatntpY181wLAwuAgrUee87+wUDBnNL+5uebNnkoYOyH/3fOkXMO/fKN7aMVmciYsY
+	ubR5Mmlb+SEdw6Qw+6ytm8HcuyZWdqHFfVM8cAbMrAiPUiky4H6msOL1ZCxvUIx6+jAz9uKWKrX
+	n3uHPjOoZhNSY9DDvSbL0gmvbd4SiVy/h11I
+X-Received: by 2002:a05:6000:29c3:b0:486:f907:ebec with SMTP id ffacd0b85a97d-48dba9d487dmr20959102f8f.31.1791970667594;
+        Wed, 14 Oct 2026 02:37:47 -0700 (PDT)
 Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.46
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Oct 2026 02:37:41 -0700 (PDT)
+        Wed, 14 Oct 2026 02:37:47 -0700 (PDT)
 From: Fred Griffoul <griffoul@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>,
@@ -133,17 +133,17 @@ Cc: David Woodhouse <dwmw2@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 05/11] iommufd: Track the domains of pages that are not pinned
-Date: Wed, 14 Oct 2026 09:37:27 +0000
-Message-ID: <20261014093733.90312-6-griffoul@gmail.com>
+Subject: [RFC PATCH v2 09/11] iommufd/selftest: Add a mock memory provider
+Date: Wed, 14 Oct 2026 09:37:31 +0000
+Message-ID: <20261014093733.90312-10-griffoul@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261014093733.90312-1-griffoul@gmail.com>
 References: <20261014093733.90312-1-griffoul@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_103744_342075_E236C7BF 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20261014_103750_237679_F5ABDAED 
+X-CRM114-Status: GOOD (  29.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,359 +160,587 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fred Griffoul <fgriffo@amazon.co.uk>
 
-Memory provider pages, added in the next patch, are not pinned and can
-change under the domains that map them, as a dma-buf can. They need the
-same list of (area, domain) pairs that the dma-buf revoke uses.
+The provider path of IOMMU_IOAS_MAP_FILE needs a provider to test
+against.
 
-Move that list from struct iopt_pages_dmabuf to struct iopt_pages.
-
-No functional change.
+Add a mock provider whose pages can be made holes, read only, MMIO or
+another shared frame, with a revoke after each change. It can also
+back the file with one contiguous allocation and report large blocks.
+Test that holes stay unmapped and that a revoke changes only its
+range, also inside a large IOMMU page. Also test that new domains see
+the current state, and that provider pages and dirty tracking domains
+cannot share an IOAS.
 
 Assisted-by: Claude:claude-opus-5-5
 Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
 ---
- drivers/iommu/iommufd/io_pagetable.c | 24 +++++-----
- drivers/iommu/iommufd/io_pagetable.h | 33 +++++++++-----
- drivers/iommu/iommufd/pages.c        | 67 ++++++++++++++--------------
- 3 files changed, 67 insertions(+), 57 deletions(-)
+ drivers/iommu/iommufd/iommufd_test.h          |  24 ++
+ drivers/iommu/iommufd/selftest.c              | 216 ++++++++++++++++++
+ tools/testing/selftests/iommu/iommufd.c       | 185 +++++++++++++++
+ tools/testing/selftests/iommu/iommufd_utils.h |  69 ++++++
+ 4 files changed, 494 insertions(+)
 
-diff --git a/drivers/iommu/iommufd/io_pagetable.c b/drivers/iommu/iommufd/io_pagetable.c
-index 24d4917105d9..bcd531acc9dd 100644
---- a/drivers/iommu/iommufd/io_pagetable.c
-+++ b/drivers/iommu/iommufd/io_pagetable.c
-@@ -1008,14 +1008,14 @@ static void iopt_unfill_domain(struct io_pagetable *iopt,
- 				WARN_ON(!area->storage_domain);
- 			if (area->storage_domain == domain)
- 				area->storage_domain = storage_domain;
--			if (iopt_is_dmabuf(pages)) {
-+			if (iopt_pages_tracked(pages)) {
- 				if (!iopt_dmabuf_revoked(pages))
- 					iopt_area_unmap_domain(area, domain);
--				iopt_dmabuf_untrack_domain(pages, area, domain);
-+				iopt_pages_untrack_domain(pages, area, domain);
- 			}
- 			mutex_unlock(&pages->mutex);
+diff --git a/drivers/iommu/iommufd/iommufd_test.h b/drivers/iommu/iommufd/iommufd_test.h
+index 28fd9c43edc4..3a94429cd3af 100644
+--- a/drivers/iommu/iommufd/iommufd_test.h
++++ b/drivers/iommu/iommufd/iommufd_test.h
+@@ -33,8 +33,22 @@ enum {
+ 	IOMMU_TEST_OP_DMABUF_REVOKE,
+ 	IOMMU_TEST_OP_MD_CHECK_MAPPED,
+ 	IOMMU_TEST_OP_MD_IOVA_TO_PHYS,
++	IOMMU_TEST_OP_PROVIDER_GET,
++	IOMMU_TEST_OP_PROVIDER_SET,
+ };
  
--			if (!iopt_is_dmabuf(pages))
-+			if (!iopt_pages_tracked(pages))
- 				iopt_area_unmap_domain(area, domain);
- 		}
- 		return;
-@@ -1033,8 +1033,8 @@ static void iopt_unfill_domain(struct io_pagetable *iopt,
- 		WARN_ON(area->storage_domain != domain);
- 		area->storage_domain = NULL;
- 		iopt_area_unfill_domain(area, pages, domain);
--		if (iopt_is_dmabuf(pages))
--			iopt_dmabuf_untrack_domain(pages, area, domain);
-+		if (iopt_pages_tracked(pages))
-+			iopt_pages_untrack_domain(pages, area, domain);
- 		mutex_unlock(&pages->mutex);
- 	}
- }
-@@ -1065,15 +1065,15 @@ static int iopt_fill_domain(struct io_pagetable *iopt,
- 			continue;
- 
- 		guard(mutex)(&pages->mutex);
--		if (iopt_is_dmabuf(pages)) {
--			rc = iopt_dmabuf_track_domain(pages, area, domain);
-+		if (iopt_pages_tracked(pages)) {
-+			rc = iopt_pages_track_domain(pages, area, domain);
- 			if (rc)
- 				goto out_unfill;
- 		}
- 		rc = iopt_area_fill_domain(area, domain);
- 		if (rc) {
--			if (iopt_is_dmabuf(pages))
--				iopt_dmabuf_untrack_domain(pages, area, domain);
-+			if (iopt_pages_tracked(pages))
-+				iopt_pages_untrack_domain(pages, area, domain);
- 			goto out_unfill;
- 		}
- 		if (!area->storage_domain) {
-@@ -1102,8 +1102,8 @@ static int iopt_fill_domain(struct io_pagetable *iopt,
- 			area->storage_domain = NULL;
- 		}
- 		iopt_area_unfill_domain(area, pages, domain);
--		if (iopt_is_dmabuf(pages))
--			iopt_dmabuf_untrack_domain(pages, area, domain);
-+		if (iopt_pages_tracked(pages))
-+			iopt_pages_untrack_domain(pages, area, domain);
- 		mutex_unlock(&pages->mutex);
- 	}
++/* Page states of the mock memory provider, IOMMU_TEST_OP_PROVIDER_SET */
++enum {
++	MOCK_PROVIDER_BACKED = 0,
++	MOCK_PROVIDER_HOLE,
++	MOCK_PROVIDER_READONLY,
++	MOCK_PROVIDER_OTHER,
++	MOCK_PROVIDER_MMIO,
++};
++
++/* IOMMU_TEST_OP_PROVIDER_GET: back the file with one contiguous allocation */
++#define MOCK_PROVIDER_FLAG_CONTIG	(1 << 0)
++
+ enum {
+ 	MOCK_IOMMUPT_DEFAULT = 0,
+ 	MOCK_IOMMUPT_HUGE,
+@@ -209,6 +223,16 @@ struct iommu_test_cmd {
+ 			__aligned_u64 iova;
+ 			__aligned_u64 out_phys;	/* 0 if unmapped */
+ 		} iova_to_phys;
++		struct {
++			__u32 length;
++			__u32 flags;
++		} provider_get;
++		struct {
++			__s32 fd;
++			__u32 state;
++			__aligned_u64 offset;
++			__aligned_u64 length;
++		} provider_set;
+ 	};
+ 	__u32 last;
+ };
+diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+index 1f5cd2d00fda..242fa53cb6cf 100644
+--- a/drivers/iommu/iommufd/selftest.c
++++ b/drivers/iommu/iommufd/selftest.c
+@@ -10,6 +10,7 @@
+ #include <linux/fault-inject.h>
+ #include <linux/file.h>
+ #include <linux/iommu.h>
++#include <linux/mem_provider.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/xarray.h>
+@@ -2132,6 +2133,212 @@ static int iommufd_test_md_check_mapped(struct iommufd_ucmd *ucmd,
  	return rc;
-@@ -1315,7 +1315,7 @@ static int iopt_area_split(struct iopt_area *area, unsigned long iova)
- 		return -EBUSY;
- 
- 	/* Maintaining the domains_itree below is a bit complicated */
--	if (iopt_is_dmabuf(pages))
-+	if (iopt_pages_tracked(pages))
- 		return -EOPNOTSUPP;
- 
- 	if (new_start & (alignment - 1) ||
-diff --git a/drivers/iommu/iommufd/io_pagetable.h b/drivers/iommu/iommufd/io_pagetable.h
-index 27e3e311d395..ba539bfaac31 100644
---- a/drivers/iommu/iommufd/io_pagetable.h
-+++ b/drivers/iommu/iommufd/io_pagetable.h
-@@ -70,15 +70,14 @@ void iopt_area_unfill_domain(struct iopt_area *area, struct iopt_pages *pages,
- void iopt_area_unmap_domain(struct iopt_area *area,
- 			    struct iommu_domain *domain);
- 
--int iopt_dmabuf_track_domain(struct iopt_pages *pages, struct iopt_area *area,
--			     struct iommu_domain *domain);
--void iopt_dmabuf_untrack_domain(struct iopt_pages *pages,
--				struct iopt_area *area,
--				struct iommu_domain *domain);
--int iopt_dmabuf_track_all_domains(struct iopt_area *area,
--				  struct iopt_pages *pages);
--void iopt_dmabuf_untrack_all_domains(struct iopt_area *area,
--				     struct iopt_pages *pages);
-+int iopt_pages_track_domain(struct iopt_pages *pages, struct iopt_area *area,
-+			    struct iommu_domain *domain);
-+void iopt_pages_untrack_domain(struct iopt_pages *pages, struct iopt_area *area,
-+			       struct iommu_domain *domain);
-+int iopt_pages_track_all_domains(struct iopt_area *area,
-+				 struct iopt_pages *pages);
-+void iopt_pages_untrack_all_domains(struct iopt_area *area,
-+				    struct iopt_pages *pages);
- 
- static inline unsigned long iopt_area_index(struct iopt_area *area)
- {
-@@ -194,7 +193,8 @@ enum iopt_address_type {
- 	IOPT_ADDRESS_DMABUF,
- };
- 
--struct iopt_pages_dmabuf_track {
-+/* An area of the pages mapped into a domain, for pages that are not pinned. */
-+struct iopt_pages_track {
- 	struct iommu_domain *domain;
- 	struct iopt_area *area;
- 	struct list_head elm;
-@@ -205,7 +205,6 @@ struct iopt_pages_dmabuf {
- 	struct phys_vec phys;
- 	/* Always PAGE_SIZE aligned */
- 	unsigned long start;
--	struct list_head tracker;
- };
- 
- /*
-@@ -246,6 +245,12 @@ struct iopt_pages {
- 	struct rb_root_cached access_itree;
- 	/* Of iopt_area::pages_node */
- 	struct rb_root_cached domains_itree;
-+	/*
-+	 * Of iopt_pages_track::elm.  Pages that are not pinned can change
-+	 * under the domains that map them, so every (area, domain) that maps
-+	 * them is listed here.  See iopt_pages_tracked().
-+	 */
-+	struct list_head tracker;
- };
- 
- static inline bool iopt_is_dmabuf(struct iopt_pages *pages)
-@@ -255,6 +260,12 @@ static inline bool iopt_is_dmabuf(struct iopt_pages *pages)
- 	return pages->type == IOPT_ADDRESS_DMABUF;
  }
  
-+/* The pages are not pinned, so their domains are tracked in pages->tracker. */
-+static inline bool iopt_pages_tracked(struct iopt_pages *pages)
++/*
++ * A mock memory provider.  Each page of the file is backed by its own page of
++ * RAM, or is a hole, read only, the one page that every page in the OTHER
++ * state shares, or reported as MMIO.  With MOCK_PROVIDER_FLAG_CONTIG, the
++ * pages come from one aligned allocation, and aligned blocks of BACKED or
++ * READONLY pages are reported as large blocks.
++ * IOMMU_TEST_OP_PROVIDER_SET changes the state of a range and revokes it.
++ */
++struct iommufd_test_provider {
++	struct mem_provider_file mpf;
++	size_t npages;
++	struct page **pages;
++	struct page *contig;	/* with MOCK_PROVIDER_FLAG_CONTIG */
++	unsigned int order;
++	struct page *other;
++	u8 *state;
++};
++
++static void iommufd_test_provider_free(struct iommufd_test_provider *tp)
 +{
-+	return iopt_is_dmabuf(pages);
++	size_t i;
++
++	if (tp->contig)
++		__free_pages(tp->contig, tp->order);
++	else if (tp->pages)
++		for (i = 0; i != tp->npages; i++)
++			if (tp->pages[i])
++				__free_page(tp->pages[i]);
++	if (tp->other)
++		__free_page(tp->other);
++	kfree(tp->state);
++	kfree(tp->pages);
++	kfree(tp);
 +}
 +
- static inline bool iopt_dmabuf_revoked(struct iopt_pages *pages)
++static int iommufd_test_provider_release(struct inode *inode,
++					 struct file *file)
++{
++	iommufd_test_provider_free(file->private_data);
++	return 0;
++}
++
++static struct mem_provider_file *
++iommufd_test_provider_attach(struct file *file, loff_t size)
++{
++	struct iommufd_test_provider *tp = file->private_data;
++
++	if (size > (loff_t)tp->npages * PAGE_SIZE)
++		return ERR_PTR(-EINVAL);
++	return &tp->mpf;
++}
++
++static void iommufd_test_provider_detach(struct mem_provider_file *mpf)
++{
++}
++
++static int iommufd_test_provider_get_page(struct mem_provider_file *mpf,
++					  pgoff_t index, unsigned long *pfn,
++					  int *max_order, u32 *attrs)
++{
++	struct iommufd_test_provider *tp =
++		container_of(mpf, struct iommufd_test_provider, mpf);
++	u8 state = READ_ONCE(tp->state[index]);
++	int order = 0;
++
++	/* The largest aligned block around @index whose pages share a state */
++	if (tp->contig && (state == MOCK_PROVIDER_BACKED ||
++			   state == MOCK_PROVIDER_READONLY)) {
++		while (order < min_t(int, *max_order, tp->order)) {
++			size_t first = ALIGN_DOWN(index, 2UL << order);
++			size_t i;
++
++			if (first + (2UL << order) > tp->npages)
++				break;
++			for (i = first; i != first + (2UL << order); i++)
++				if (READ_ONCE(tp->state[i]) != state)
++					break;
++			if (i != first + (2UL << order))
++				break;
++			order++;
++		}
++	}
++	*max_order = order;
++	switch (state) {
++	case MOCK_PROVIDER_HOLE:
++		return -EFAULT;
++	case MOCK_PROVIDER_READONLY:
++		*attrs = MEM_PROVIDER_ATTR_READONLY;
++		break;
++	case MOCK_PROVIDER_OTHER:
++		*pfn = page_to_pfn(tp->other);
++		return 0;
++	case MOCK_PROVIDER_MMIO:
++		*attrs = MEM_PROVIDER_TYPE_MMIO;
++		break;
++	}
++	*pfn = page_to_pfn(tp->pages[index]);
++	return 0;
++}
++
++static const struct mem_provider_ops iommufd_test_provider_ops = {
++	.attach = iommufd_test_provider_attach,
++	.detach = iommufd_test_provider_detach,
++	.get_page = iommufd_test_provider_get_page,
++};
++
++static const struct mem_provider_fops iommufd_test_provider_fops = {
++	.fops = {
++		.owner = THIS_MODULE,
++		.fop_flags = FOP_MEM_PROVIDER,
++		.release = iommufd_test_provider_release,
++	},
++	.ops = &iommufd_test_provider_ops,
++};
++
++static int iommufd_test_provider_get(struct iommufd_ucmd *ucmd, size_t len,
++				     u32 flags)
++{
++	struct iommufd_test_provider *tp;
++	struct file *file;
++	size_t i;
++	int fd, rc;
++
++	len = ALIGN(len, PAGE_SIZE);
++	if (len == 0 || len > PAGE_SIZE * 512 ||
++	    (flags & ~MOCK_PROVIDER_FLAG_CONTIG))
++		return -EINVAL;
++
++	tp = kzalloc_obj(*tp);
++	if (!tp)
++		return -ENOMEM;
++	mem_provider_file_init(&tp->mpf);
++	tp->npages = len / PAGE_SIZE;
++	tp->pages = kcalloc(tp->npages, sizeof(*tp->pages), GFP_KERNEL);
++	tp->state = kcalloc(tp->npages, sizeof(*tp->state), GFP_KERNEL);
++	tp->other = alloc_page(GFP_KERNEL | __GFP_ZERO);
++	if (!tp->pages || !tp->state || !tp->other) {
++		rc = -ENOMEM;
++		goto err_free;
++	}
++	if (flags & MOCK_PROVIDER_FLAG_CONTIG) {
++		tp->order = get_order(len);
++		tp->contig = alloc_pages(GFP_KERNEL | __GFP_ZERO, tp->order);
++		if (!tp->contig) {
++			rc = -ENOMEM;
++			goto err_free;
++		}
++		for (i = 0; i != tp->npages; i++)
++			tp->pages[i] = tp->contig + i;
++	}
++	for (i = 0; !tp->contig && i != tp->npages; i++) {
++		tp->pages[i] = alloc_page(GFP_KERNEL | __GFP_ZERO);
++		if (!tp->pages[i]) {
++			rc = -ENOMEM;
++			goto err_free;
++		}
++	}
++
++	fd = get_unused_fd_flags(O_CLOEXEC);
++	if (fd < 0) {
++		rc = fd;
++		goto err_free;
++	}
++	file = anon_inode_getfile("[iommufd-test-provider]",
++				  &iommufd_test_provider_fops.fops, tp, O_RDWR);
++	if (IS_ERR(file)) {
++		put_unused_fd(fd);
++		rc = PTR_ERR(file);
++		goto err_free;
++	}
++	fd_install(fd, file);
++	return fd;
++
++err_free:
++	iommufd_test_provider_free(tp);
++	return rc;
++}
++
++static int iommufd_test_provider_set(struct iommufd_ucmd *ucmd, int fd,
++				     unsigned int state, u64 offset, u64 length)
++{
++	struct iommufd_test_provider *tp;
++	u64 end;
++	size_t i;
++
++	if (state > MOCK_PROVIDER_MMIO)
++		return -EINVAL;
++
++	CLASS(fd, f)(fd);
++	if (fd_empty(f))
++		return -EBADF;
++	if (fd_file(f)->f_op != &iommufd_test_provider_fops.fops)
++		return -EINVAL;
++	tp = fd_file(f)->private_data;
++
++	if (!length || check_add_overflow(offset, length, &end) ||
++	    !PAGE_ALIGNED(offset) || !PAGE_ALIGNED(length) ||
++	    end > (u64)tp->npages * PAGE_SIZE)
++		return -EINVAL;
++
++	for (i = offset / PAGE_SIZE; i != end / PAGE_SIZE; i++)
++		WRITE_ONCE(tp->state[i], state);
++	mem_provider_revoke(&tp->mpf, offset, length);
++	return 0;
++}
++
+ static int iommufd_test_dmabuf_revoke(struct iommufd_ucmd *ucmd, int fd,
+ 				      bool revoked)
  {
- 	lockdep_assert_held(&pages->mutex);
-diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
-index 03c8379bbc34..660af3d46f5e 100644
---- a/drivers/iommu/iommufd/pages.c
-+++ b/drivers/iommu/iommufd/pages.c
-@@ -1384,6 +1384,7 @@ static struct iopt_pages *iopt_alloc_pages(unsigned long start_byte,
- 	pages->npages = DIV_ROUND_UP(length + start_byte, PAGE_SIZE);
- 	pages->access_itree = RB_ROOT_CACHED;
- 	pages->domains_itree = RB_ROOT_CACHED;
-+	INIT_LIST_HEAD(&pages->tracker);
- 	pages->writable = writable;
- 	if (capable(CAP_IPC_LOCK))
- 		pages->account_mode = IOPT_PAGES_ACCOUNT_NONE;
-@@ -1434,13 +1435,13 @@ struct iopt_pages *iopt_alloc_file_pages(struct file *file,
- static void iopt_revoke_notify(struct dma_buf_attachment *attach)
- {
- 	struct iopt_pages *pages = attach->importer_priv;
--	struct iopt_pages_dmabuf_track *track;
-+	struct iopt_pages_track *track;
- 
- 	guard(mutex)(&pages->mutex);
- 	if (iopt_dmabuf_revoked(pages))
- 		return;
- 
--	list_for_each_entry(track, &pages->dmabuf.tracker, elm) {
-+	list_for_each_entry(track, &pages->tracker, elm) {
- 		struct iopt_area *area = track->area;
- 
- 		iopt_area_unmap_domain_range(area, track->domain,
-@@ -1557,7 +1558,6 @@ struct iopt_pages *iopt_alloc_dmabuf_pages(struct iommufd_ctx *ictx,
- 	pages->account_mode = IOPT_PAGES_ACCOUNT_NONE;
- 	pages->type = IOPT_ADDRESS_DMABUF;
- 	pages->dmabuf.start = start - start_byte;
--	INIT_LIST_HEAD(&pages->dmabuf.tracker);
- 
- 	rc = iopt_map_dmabuf(ictx, pages, dmabuf);
- 	if (rc) {
-@@ -1568,16 +1568,16 @@ struct iopt_pages *iopt_alloc_dmabuf_pages(struct iommufd_ctx *ictx,
- 	return pages;
+@@ -2252,6 +2459,15 @@ int iommufd_test(struct iommufd_ucmd *ucmd)
+ 	case IOMMU_TEST_OP_MD_IOVA_TO_PHYS:
+ 		return iommufd_test_md_iova_to_phys(ucmd, cmd->id,
+ 						    cmd->iova_to_phys.iova);
++	case IOMMU_TEST_OP_PROVIDER_GET:
++		return iommufd_test_provider_get(ucmd,
++						 cmd->provider_get.length,
++						 cmd->provider_get.flags);
++	case IOMMU_TEST_OP_PROVIDER_SET:
++		return iommufd_test_provider_set(ucmd, cmd->provider_set.fd,
++						 cmd->provider_set.state,
++						 cmd->provider_set.offset,
++						 cmd->provider_set.length);
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
+diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
+index d44b34b05757..c9248e10349e 100644
+--- a/tools/testing/selftests/iommu/iommufd.c
++++ b/tools/testing/selftests/iommu/iommufd.c
+@@ -1627,6 +1627,191 @@ TEST_F(iommufd_ioas, dmabuf_revoke)
+ 	close(dfd);
  }
  
--int iopt_dmabuf_track_domain(struct iopt_pages *pages, struct iopt_area *area,
--			     struct iommu_domain *domain)
-+int iopt_pages_track_domain(struct iopt_pages *pages, struct iopt_area *area,
-+			    struct iommu_domain *domain)
++TEST_F(iommufd_ioas, provider_simple)
++{
++	size_t buf_size = PAGE_SIZE * 4;
++	__u64 iova;
++	int pfd;
++
++	test_cmd_get_provider(buf_size, &pfd);
++	test_err_ioctl_ioas_map_file(EINVAL, pfd, 0, 0, &iova);
++	test_err_ioctl_ioas_map_file(EINVAL, pfd, 0, buf_size + PAGE_SIZE,
++				     &iova);
++	test_err_ioctl_ioas_map_file(EINVAL, pfd, 1, PAGE_SIZE, &iova);
++	test_ioctl_ioas_map_file(pfd, 0, buf_size, &iova);
++	if (variant->mock_domains)
++		test_cmd_md_check_mapped(self->hwpt_id, iova, buf_size, true);
++
++	/* The mapping keeps the provider file alive */
++	close(pfd);
++	if (variant->mock_domains)
++		test_cmd_md_check_mapped(self->hwpt_id, iova, buf_size, true);
++	test_ioctl_ioas_unmap(iova, buf_size);
++}
++
++TEST_F(iommufd_ioas, provider_revoke)
++{
++	size_t buf_size = PAGE_SIZE * 8;
++	__u64 phys0, phys1;
++	__u32 hwpt_id;
++	__u64 iova;
++	int pfd;
++
++	if (!variant->mock_domains)
++		SKIP(return, "Needs a mock domain");
++
++	test_cmd_get_provider(buf_size, &pfd);
++
++	/* A page that is a hole when the file is mapped stays unmapped */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_HOLE, PAGE_SIZE, PAGE_SIZE);
++	test_ioctl_ioas_map_file(pfd, 0, buf_size, &iova);
++	test_cmd_md_check_mapped(self->hwpt_id, iova, PAGE_SIZE, true);
++	test_cmd_md_check_mapped(self->hwpt_id, iova + PAGE_SIZE, PAGE_SIZE,
++				 false);
++	test_cmd_md_check_mapped(self->hwpt_id, iova + 2 * PAGE_SIZE,
++				 buf_size - 2 * PAGE_SIZE, true);
++
++	/* Give the page back */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_BACKED, PAGE_SIZE, PAGE_SIZE);
++	test_cmd_md_check_mapped(self->hwpt_id, iova, buf_size, true);
++
++	/* Take back the middle, and only the middle goes */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_HOLE, 2 * PAGE_SIZE,
++			      4 * PAGE_SIZE);
++	test_cmd_md_check_mapped(self->hwpt_id, iova, 2 * PAGE_SIZE, true);
++	test_cmd_md_check_mapped(self->hwpt_id, iova + 2 * PAGE_SIZE,
++				 4 * PAGE_SIZE, false);
++	test_cmd_md_check_mapped(self->hwpt_id, iova + 6 * PAGE_SIZE,
++				 2 * PAGE_SIZE, true);
++
++	/* A domain added now sees the same holes */
++	test_cmd_hwpt_alloc(self->device_id, self->ioas_id, 0, &hwpt_id);
++	test_cmd_md_check_mapped(hwpt_id, iova, 2 * PAGE_SIZE, true);
++	test_cmd_md_check_mapped(hwpt_id, iova + 2 * PAGE_SIZE, 4 * PAGE_SIZE,
++				 false);
++	test_cmd_md_check_mapped(hwpt_id, iova + 6 * PAGE_SIZE, 2 * PAGE_SIZE,
++				 true);
++	test_ioctl_destroy(hwpt_id);
++
++	/* Put the same other frame behind two pages */
++	phys0 = test_cmd_md_iova_to_phys(self->hwpt_id, iova);
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_OTHER, 0, 2 * PAGE_SIZE);
++	phys1 = test_cmd_md_iova_to_phys(self->hwpt_id, iova);
++	ASSERT_NE(0, phys1);
++	ASSERT_NE(phys0, phys1);
++	ASSERT_EQ(phys1,
++		  test_cmd_md_iova_to_phys(self->hwpt_id, iova + PAGE_SIZE));
++
++	/* Read-only and MMIO pages stay mapped */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_READONLY, 0, buf_size / 2);
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_MMIO, buf_size / 2,
++			      buf_size / 2);
++	test_cmd_md_check_mapped(self->hwpt_id, iova, buf_size, true);
++
++	/* A change past the end of the file is refused */
++	EXPECT_ERRNO(EINVAL, _test_cmd_provider_set(self->fd, pfd,
++						    MOCK_PROVIDER_HOLE,
++						    buf_size, PAGE_SIZE));
++
++	test_ioctl_ioas_unmap(iova, buf_size);
++	close(pfd);
++}
++
++/* Each page of [iova, iova + length) maps linearly from phys */
++static bool provider_linear(int fd, __u32 hwpt_id, __u64 iova, __u64 phys,
++			    size_t length)
++{
++	size_t i;
++
++	for (i = 0; i < length; i += PAGE_SIZE)
++		if (_test_cmd_md_iova_to_phys(fd, hwpt_id, iova + i) != phys + i)
++			return false;
++	return true;
++}
++
++TEST_F(iommufd_ioas, provider_large)
++{
++	size_t buf_size = PAGE_SIZE * 512;
++	__u64 iova = MOCK_APERTURE_START;
++	__u32 hwpt_ids[2];
++	__u64 phys;
++	int pfd, i;
++
++	if (!variant->mock_domains)
++		SKIP(return, "Needs a mock domain");
++
++	/* Large blocks, mapped into a default and a huge-page domain */
++	test_cmd_get_provider_contig(buf_size, &pfd);
++	test_ioctl_ioas_map_fixed_file(pfd, 0, buf_size, iova);
++	hwpt_ids[0] = self->hwpt_id;
++	test_cmd_hwpt_alloc_iommupt(self->device_id, self->ioas_id, 0,
++				    MOCK_IOMMUPT_HUGE, &hwpt_ids[1]);
++	phys = test_cmd_md_iova_to_phys(self->hwpt_id, iova);
++	ASSERT_NE(0, phys);
++
++	for (i = 0; i != 2; i++) {
++		ASSERT_TRUE(provider_linear(self->fd, hwpt_ids[i], iova, phys,
++					    buf_size));
++	}
++
++	/* A page taken back from the middle of a block goes alone */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_HOLE, 100 * PAGE_SIZE,
++			      PAGE_SIZE);
++	for (i = 0; i != 2; i++) {
++		ASSERT_TRUE(provider_linear(self->fd, hwpt_ids[i], iova, phys,
++					    100 * PAGE_SIZE));
++		test_cmd_md_check_mapped(hwpt_ids[i], iova + 100 * PAGE_SIZE,
++					 PAGE_SIZE, false);
++		ASSERT_TRUE(provider_linear(self->fd, hwpt_ids[i],
++					    iova + 101 * PAGE_SIZE,
++					    phys + 101 * PAGE_SIZE,
++					    buf_size - 101 * PAGE_SIZE));
++	}
++
++	/* Given back, and a change across block boundaries */
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_BACKED, 100 * PAGE_SIZE,
++			      PAGE_SIZE);
++	test_cmd_provider_set(pfd, MOCK_PROVIDER_READONLY, 200 * PAGE_SIZE,
++			      300 * PAGE_SIZE);
++	for (i = 0; i != 2; i++) {
++		ASSERT_TRUE(provider_linear(self->fd, hwpt_ids[i], iova, phys,
++					    buf_size));
++	}
++
++	test_ioctl_destroy(hwpt_ids[1]);
++	test_ioctl_ioas_unmap(iova, buf_size);
++	close(pfd);
++}
++
++TEST_F(iommufd_ioas, provider_dirty_tracking)
++{
++	size_t buf_size = PAGE_SIZE * 4;
++	__u32 hwpt_id;
++	__u64 iova;
++	int pfd;
++
++	if (!variant->mock_domains)
++		SKIP(return, "Needs a mock domain");
++
++	test_cmd_get_provider(buf_size, &pfd);
++
++	/* No dirty tracking domain over provider pages ... */
++	test_ioctl_ioas_map_file(pfd, 0, buf_size, &iova);
++	test_err_hwpt_alloc(EOPNOTSUPP, self->device_id, self->ioas_id,
++			    IOMMU_HWPT_ALLOC_DIRTY_TRACKING, &hwpt_id);
++	test_ioctl_ioas_unmap(iova, buf_size);
++
++	/* ... and no provider pages under a dirty tracking domain. */
++	test_cmd_hwpt_alloc(self->device_id, self->ioas_id,
++			    IOMMU_HWPT_ALLOC_DIRTY_TRACKING, &hwpt_id);
++	test_err_ioctl_ioas_map_file(EOPNOTSUPP, pfd, 0, buf_size, &iova);
++	test_ioctl_destroy(hwpt_id);
++
++	test_ioctl_ioas_map_file(pfd, 0, buf_size, &iova);
++	test_ioctl_ioas_unmap(iova, buf_size);
++	close(pfd);
++}
++
+ FIXTURE(iommufd_mock_domain)
  {
--	struct iopt_pages_dmabuf_track *track;
-+	struct iopt_pages_track *track;
+ 	int fd;
+diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
+index b4928cbd4d9c..e89b9d64a005 100644
+--- a/tools/testing/selftests/iommu/iommufd_utils.h
++++ b/tools/testing/selftests/iommu/iommufd_utils.h
+@@ -593,6 +593,75 @@ static int _test_cmd_revoke_dmabuf(int fd, int dmabuf_fd, bool revoked)
+ #define test_cmd_revoke_dmabuf(dmabuf_fd, revoke) \
+ 	ASSERT_EQ(0, _test_cmd_revoke_dmabuf(self->fd, dmabuf_fd, revoke))
  
- 	lockdep_assert_held(&pages->mutex);
--	if (WARN_ON(!iopt_is_dmabuf(pages)))
-+	if (WARN_ON(!iopt_pages_tracked(pages)))
- 		return -EINVAL;
- 
--	list_for_each_entry(track, &pages->dmabuf.tracker, elm)
-+	list_for_each_entry(track, &pages->tracker, elm)
- 		if (WARN_ON(track->domain == domain && track->area == area))
- 			return -EINVAL;
- 
-@@ -1586,21 +1586,20 @@ int iopt_dmabuf_track_domain(struct iopt_pages *pages, struct iopt_area *area,
- 		return -ENOMEM;
- 	track->domain = domain;
- 	track->area = area;
--	list_add_tail(&track->elm, &pages->dmabuf.tracker);
-+	list_add_tail(&track->elm, &pages->tracker);
- 
- 	return 0;
- }
- 
--void iopt_dmabuf_untrack_domain(struct iopt_pages *pages,
--				struct iopt_area *area,
--				struct iommu_domain *domain)
-+void iopt_pages_untrack_domain(struct iopt_pages *pages, struct iopt_area *area,
-+			       struct iommu_domain *domain)
++static int _test_cmd_get_provider(int fd, size_t len, __u32 flags,
++				  int *out_fd)
++{
++	struct iommu_test_cmd cmd = {
++		.size = sizeof(cmd),
++		.op = IOMMU_TEST_OP_PROVIDER_GET,
++		.provider_get = { .length = len, .flags = flags },
++	};
++
++	*out_fd = ioctl(fd, IOMMU_TEST_CMD, &cmd);
++	if (*out_fd < 0)
++		return -1;
++	return 0;
++}
++#define test_cmd_get_provider(len, out_fd) \
++	ASSERT_EQ(0, _test_cmd_get_provider(self->fd, len, 0, out_fd))
++#define test_cmd_get_provider_contig(len, out_fd)                     \
++	ASSERT_EQ(0, _test_cmd_get_provider(self->fd, len,             \
++					    MOCK_PROVIDER_FLAG_CONTIG, \
++					    out_fd))
++
++static int _test_cmd_provider_set(int fd, int pfd, unsigned int state,
++				  __u64 offset, __u64 length)
++{
++	struct iommu_test_cmd cmd = {
++		.size = sizeof(cmd),
++		.op = IOMMU_TEST_OP_PROVIDER_SET,
++		.provider_set = { .fd = pfd, .state = state,
++				  .offset = offset, .length = length },
++	};
++
++	return ioctl(fd, IOMMU_TEST_CMD, &cmd);
++}
++#define test_cmd_provider_set(pfd, state, offset, length) \
++	ASSERT_EQ(0, _test_cmd_provider_set(self->fd, pfd, state, offset, length))
++
++static int _test_cmd_md_check_mapped(int fd, __u32 hwpt_id, __u64 iova,
++				     __u64 length, bool mapped)
++{
++	struct iommu_test_cmd cmd = {
++		.size = sizeof(cmd),
++		.op = IOMMU_TEST_OP_MD_CHECK_MAPPED,
++		.id = hwpt_id,
++		.check_mapped = { .mapped = mapped, .iova = iova,
++				  .length = length },
++	};
++
++	return ioctl(fd, IOMMU_TEST_CMD, &cmd);
++}
++#define test_cmd_md_check_mapped(hwpt_id, iova, length, mapped)		\
++	ASSERT_EQ(0, _test_cmd_md_check_mapped(self->fd, hwpt_id, iova,	\
++					       length, mapped))
++
++static __u64 _test_cmd_md_iova_to_phys(int fd, __u32 hwpt_id, __u64 iova)
++{
++	struct iommu_test_cmd cmd = {
++		.size = sizeof(cmd),
++		.op = IOMMU_TEST_OP_MD_IOVA_TO_PHYS,
++		.id = hwpt_id,
++		.iova_to_phys = { .iova = iova },
++	};
++
++	if (ioctl(fd, IOMMU_TEST_CMD, &cmd))
++		return -1;
++	return cmd.iova_to_phys.out_phys;
++}
++#define test_cmd_md_iova_to_phys(hwpt_id, iova) \
++	_test_cmd_md_iova_to_phys(self->fd, hwpt_id, iova)
++
+ static int _test_ioctl_destroy(int fd, unsigned int id)
  {
--	struct iopt_pages_dmabuf_track *track;
-+	struct iopt_pages_track *track;
- 
- 	lockdep_assert_held(&pages->mutex);
--	WARN_ON(!iopt_is_dmabuf(pages));
-+	WARN_ON(!iopt_pages_tracked(pages));
- 
--	list_for_each_entry(track, &pages->dmabuf.tracker, elm) {
-+	list_for_each_entry(track, &pages->tracker, elm) {
- 		if (track->domain == domain && track->area == area) {
- 			list_del(&track->elm);
- 			kfree(track);
-@@ -1610,36 +1609,36 @@ void iopt_dmabuf_untrack_domain(struct iopt_pages *pages,
- 	WARN_ON(true);
- }
- 
--int iopt_dmabuf_track_all_domains(struct iopt_area *area,
--				  struct iopt_pages *pages)
-+int iopt_pages_track_all_domains(struct iopt_area *area,
-+				 struct iopt_pages *pages)
- {
--	struct iopt_pages_dmabuf_track *track;
-+	struct iopt_pages_track *track;
- 	struct iommu_domain *domain;
- 	unsigned long index;
- 	int rc;
- 
--	list_for_each_entry(track, &pages->dmabuf.tracker, elm)
-+	list_for_each_entry(track, &pages->tracker, elm)
- 		if (WARN_ON(track->area == area))
- 			return -EINVAL;
- 
- 	xa_for_each(&area->iopt->domains, index, domain) {
--		rc = iopt_dmabuf_track_domain(pages, area, domain);
-+		rc = iopt_pages_track_domain(pages, area, domain);
- 		if (rc)
- 			goto err_untrack;
- 	}
- 	return 0;
- err_untrack:
--	iopt_dmabuf_untrack_all_domains(area, pages);
-+	iopt_pages_untrack_all_domains(area, pages);
- 	return rc;
- }
- 
--void iopt_dmabuf_untrack_all_domains(struct iopt_area *area,
--				     struct iopt_pages *pages)
-+void iopt_pages_untrack_all_domains(struct iopt_area *area,
-+				    struct iopt_pages *pages)
- {
--	struct iopt_pages_dmabuf_track *track;
--	struct iopt_pages_dmabuf_track *tmp;
-+	struct iopt_pages_track *track;
-+	struct iopt_pages_track *tmp;
- 
--	list_for_each_entry_safe(track, tmp, &pages->dmabuf.tracker,
-+	list_for_each_entry_safe(track, tmp, &pages->tracker,
- 				 elm) {
- 		if (track->area == area) {
- 			list_del(&track->elm);
-@@ -1656,6 +1655,7 @@ void iopt_release_pages(struct kref *kref)
- 	WARN_ON(!RB_EMPTY_ROOT(&pages->domains_itree.rb_root));
- 	WARN_ON(pages->npinned);
- 	WARN_ON(!xa_empty(&pages->pinned_pfns));
-+	WARN_ON(!list_empty(&pages->tracker));
- 	if (iopt_is_dmabuf(pages) && pages->dmabuf.attach) {
- 		struct dma_buf *dmabuf = pages->dmabuf.attach->dmabuf;
- 
-@@ -1664,7 +1664,6 @@ void iopt_release_pages(struct kref *kref)
- 		dma_resv_unlock(dmabuf->resv);
- 		dma_buf_detach(dmabuf, pages->dmabuf.attach);
- 		dma_buf_put(dmabuf);
--		WARN_ON(!list_empty(&pages->dmabuf.tracker));
- 	} else if (pages->type == IOPT_ADDRESS_FILE) {
- 		fput(pages->file);
- 	}
-@@ -1749,7 +1748,7 @@ static void __iopt_area_unfill_domain(struct iopt_area *area,
- 
- 	lockdep_assert_held(&pages->mutex);
- 
--	if (iopt_is_dmabuf(pages)) {
-+	if (iopt_pages_tracked(pages)) {
- 		if (WARN_ON(iopt_dmabuf_revoked(pages)))
- 			return;
- 		iopt_area_unmap_domain_range(area, domain, start_index,
-@@ -1917,8 +1916,8 @@ int iopt_area_fill_domains(struct iopt_area *area, struct iopt_pages *pages)
- 		return 0;
- 
- 	mutex_lock(&pages->mutex);
--	if (iopt_is_dmabuf(pages)) {
--		rc = iopt_dmabuf_track_all_domains(area, pages);
-+	if (iopt_pages_tracked(pages)) {
-+		rc = iopt_pages_track_all_domains(area, pages);
- 		if (rc)
- 			goto out_unlock;
- 	}
-@@ -1983,8 +1982,8 @@ int iopt_area_fill_domains(struct iopt_area *area, struct iopt_pages *pages)
- 	}
- 	pfn_reader_destroy(&pfns);
- out_untrack:
--	if (iopt_is_dmabuf(pages))
--		iopt_dmabuf_untrack_all_domains(area, pages);
-+	if (iopt_pages_tracked(pages))
-+		iopt_pages_untrack_all_domains(area, pages);
- out_unlock:
- 	mutex_unlock(&pages->mutex);
- 	return rc;
-@@ -2024,8 +2023,8 @@ void iopt_area_unfill_domains(struct iopt_area *area, struct iopt_pages *pages)
- 		WARN_ON(RB_EMPTY_NODE(&area->pages_node.rb));
- 	interval_tree_remove(&area->pages_node, &pages->domains_itree);
- 	iopt_area_unfill_domain(area, pages, area->storage_domain);
--	if (iopt_is_dmabuf(pages))
--		iopt_dmabuf_untrack_all_domains(area, pages);
-+	if (iopt_pages_tracked(pages))
-+		iopt_pages_untrack_all_domains(area, pages);
- 	area->storage_domain = NULL;
- out_unlock:
- 	mutex_unlock(&pages->mutex);
+ 	struct iommu_destroy cmd = {
 -- 
 2.47.3
 
