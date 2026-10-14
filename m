@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A686CC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1418FCC6B29
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfozdcxqBChVvaf7D3SigXB2jJovmVY483zJua6pyIA=; b=lbuiL9A5z/5QF+JESgQ9B3RN+F
-	BTTewo+CwqB2AkUorTmLuWXFlNIdrqbfOP4a3kyhJUh9FctQzoAnZqEpg9/1AMpy1aInpb5z8vBfb
-	tXIDWY69AHhagoI9Tqn9dk7HQGFehJdJJ/FWW15wQAIYhdfmMw+TmtEGtZAU0F+Yr+PPGsoBTKZQc
-	9/fIi8FeXHv9xQPYcFHplaMIbLdgGcEzg/iXEADtSN5FelErBk5w52+6/1OUYZNbtcYgBbMvhQ6uh
-	u9YWc0PfHmByORdpJNefuE08UJ0PRnYKY9WIpN/rp09x6mLj1uWFpNE5TgRcqHNE6eyGjdAxvlQ4h
-	w6hwFxog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ngJFCKHqbgCLyG9vhboqwQUYeRLMtMl0aG5g/OQVWlc=; b=Dutp2N/5I3I+QyDJQ4uLeA0VsO
+	+nV9VgZEGCmG+ex1Ov0BZ8p7jxo0wI44mjIZSJsOn94GFRu7RgeWKYqmyckZRekvI4YydWB0RUBS/
+	ooe28uTKgu2NYSAi/rwsnufOVHrq3nRtuCL3vwRpm7WzsQV7vcps27ZuZwDLHkv2VKOTJu6kbXhAp
+	bwSjjGfhoaGGHlqgDrb6pzSiXJ9ORrJPFhelDyc9Ww/V0knV8mjFw4hyzJ9Zs7bYcBHyJN0FPZhb1
+	DO2eDbfoBWGjNHXpxaDjuzYuINAGOXsuUyIElxB8fhSLZx+o0o/eD0egcTHN8KhR1BHke0Uy6bKJl
+	7mHKP1Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuVF-0000000Ev1d-1ZMc;
-	Wed, 14 Oct 2026 08:38:25 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1xGuVj-0000000EvC3-2xIG;
+	Wed, 14 Oct 2026 08:38:55 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGuV7-0000000Euy4-0qd2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 08:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1791967090; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=HfozdcxqBChVvaf7D3SigXB2jJovmVY483zJua6pyIA=;
-	b=eWwoFvyt+6Vs8Gw1JxR3D6ied4VS1bp0brsxZKyW4i5n8zP+4+tJAW6h9CXQii2KbMWgwTepKhFQB70WKi4dVp2DGy9Ictpqvm+AYpVxU6wuHA2EzlWaglIrZwvDTzD9RfdtS1j0kDqP09XuzYwif6GDfeCu/QLry6KheXgAenA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=19;SR=0;TI=SMTPD_---0XCoZJ.D_1791967088;
-Received: from 30.74.144.153(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XCoZJ.D_1791967088 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 14 Oct 2026 16:38:09 +0800
-Message-ID: <a6feb3f1-c08d-4d54-a38b-55fafcfec7b8@linux.alibaba.com>
-Date: Wed, 14 Oct 2026 16:38:08 +0800
+	id 1xGuVg-0000000Ev9j-2OhQ;
+	Wed, 14 Oct 2026 08:38:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 87F55C63440;
+	Wed, 14 Oct 2026 08:39:45 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9323D60368;
+	Wed, 14 Oct 2026 08:38:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D675103286A7;
+	Wed, 14 Oct 2026 10:38:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791967128; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=ngJFCKHqbgCLyG9vhboqwQUYeRLMtMl0aG5g/OQVWlc=;
+	b=mq2Xp10guRPwOdzd5i29FPKBO3X5MoRrIDnynu+OM/FCaB5zvzCaTUpQoKiQNkWiJBd1P4
+	RcIpGp8oUqiBVqGBcBchPS8i8MsOXMOju1szusJtZev+cdUICiyy1pMMwlD4aHLI9/yWVB
+	12lNzP6dgKerzIA9QGtkL4HgipGMFlZIc7aeZOdLyZHqqfYDMk8Vr2w3+iNzvySIGpPexz
+	z73yYP6RfNokqHlpefpHcIX/X5aLu+ceWfhnv0vWpEsXGbWeXoqb+uMUH0HU4mzObgcoIX
+	hLZGbyZoZbB9Oc13tOMNwnmWYFBkgUxWv8kpUkc0QThocKv1ia7Fk3Df69msIA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: <pratyush@kernel.org>,  <mwalle@kernel.org>,
+  <takahiro.kuwano@infineon.com>,  <richard@nod.at>,  <vigneshr@ti.com>,
+  <robh@kernel.org>,  <krzk+dt@kernel.org>,  <conor+dt@kernel.org>,
+  <srini@kernel.org>,  <nicolas.ferre@microchip.com>,
+  <alexandre.belloni@bootlin.com>,  <claudiu.beznea@tuxon.dev>,
+  <linux@armlinux.org.uk>,  <richardcochran@gmail.com>,
+  <linusw@kernel.org>,  <arnd@arndb.de>,  <aaro.koskinen@iki.fi>,
+  <gregkh@linuxfoundation.org>,  <mathieu.dubois-briand@bootlin.com>,
+  <michael@walle.cc>,  <linux-mtd@lists.infradead.org>,
+  <devicetree@vger.kernel.org>,  <linux-kernel@vger.kernel.org>,
+  <linux-arm-kernel@lists.infradead.org>,  <netdev@vger.kernel.org>
+Subject: Re: [PATCH v8 4/8] mtd: spi-nor: sfdp: expose the SFDP as a
+ read-only NVMEM device
+In-Reply-To: <093672d183a06dc2f37366b2f9ff144316850863.1790847519.git.manikandan.m@microchip.com>
+	(Manikandan Muralidharan's message of "Wed, 14 Oct 2026 12:10:08
+	+0530")
+References: <cover.1790847519.git.manikandan.m@microchip.com>
+	<093672d183a06dc2f37366b2f9ff144316850863.1790847519.git.manikandan.m@microchip.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 14 Oct 2026 10:38:42 +0200
+Message-ID: <87ld80znfx.fsf@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid
- PTEs
-To: Lance Yang <lance.yang@linux.dev>, Zhao Gongyi <zhaogongyi@bytedance.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
- dev.jain@arm.com, mark.rutland@arm.com, akpm@linux-foundation.org,
- david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261013093600.54995-1-zhaogongyi@bytedance.com>
- <20261013153953.77575-1-lance.yang@linux.dev>
- <516828fb-558d-4a20-9532-51f50d6ba042@bytedance.com>
- <f111bec5-6148-4649-8805-79a250f6e736@linux.dev>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <f111bec5-6148-4649-8805-79a250f6e736@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_013817_766601_17207F30 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20261014_013852_769560_2BD68EB9 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 14/10/2026 at 12:10:08 +0530, Manikandan Muralidharan <manikandan.m@microchip.com> wrote:
 
+> The SPI NOR core already reads the SFDP tables during enumeration and
+> caches them in nor->sfdp->dwords (see spi_nor_parse_sfdp()). Re-expose
+> that cached data as a read-only NVMEM device, in on-flash byte order,
+> rooted at the flash's SFDP child node (compatible "jedec,sfdp").
+>
+> This lets NVMEM cells reference any SFDP data: a fixed-layout for
+> parameters at a known offset, or an nvmem-layout parser for vendor data
+> whose location must be discovered at runtime. The device is only registered
+> when an "sfdp" node is present in the device tree.
+>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 
-On 10/14/26 2:46 PM, Lance Yang wrote:
-> 
-> 
-> On 2026/10/14 14:31, Zhao Gongyi wrote:
->> On 10/13/26 11:39 PM, Lance Yang wrote:
->>>>
->>>> +    /*
->>>> +     * Keep the producer-side invariant documented in pgtable.h 
->>>> true even
->>>> +     * if a direct caller passes an invalid descriptor with 
->>>> PTE_CONT set.
->>>> +     */
->>>> +    if (!pte_valid(pte))
->>>> +        return __set_ptes(mm, addr, ptep, pte_mknoncont(pte), nr);
->>>
->>> set_ptes() is the only in-tree caller, and it already clears PTE_CONT
->>> before we get here ... no? Why not fold !pte_valid(pte) into the
->>> !mm_is_user(mm) check below and return __set_ptes() directly?
->>>
->>>     if (!mm_is_user(mm) || !pte_valid(pte))
->>>         return __set_ptes(mm, addr, ptep, pte, nr);
->>>
->>> If a direct caller does pass a !pte_valid PTE with PTE_CONT set, I'd
->>> rather add a VM_WARN_ON() to catch that. Silently clearing the bit would
->>> hide a caller bug :)
->>>
->>
->> Hi Lance,
->>
->> Thanks for taking a look.
-> 
-> Cheers!
-> 
->> Yes, you are right. The public set_ptes() wrapper already strips PTE_CONT
->> before calling contpte_set_ptes(), so the pte_mknoncont() in the invalid
->> path is unnecessary for the current in-tree path.
->>
->> The issue I was trying to avoid is not that the incoming pte already has
->> PTE_CONT set, but that contpte_set_ptes() rebuilds the pte from pfn/prot
->> and then adds PTE_CONT again based on alignment. For an invalid 
->> descriptor,
->> that transparent contiguous encoding should be skipped entirely.
->>
->> So your suggested shape makes sense to me. I will change this to return
->> through __set_ptes() directly for invalid descriptors, and add a warning
->> for any unexpected direct caller that passes an invalid PTE with PTE_CONT
->> set, e.g.:
->>
->>     if (!mm_is_user(mm) || !pte_valid(pte)) {
->>         VM_WARN_ON_ONCE(!pte_valid(pte) && pte_cont(pte));
-
-mprotect() can trigger the warning here when setting PAGE_NONE for a 
-batch of PTEs?
-
->>         return __set_ptes(mm, addr, ptep, pte, nr);
-
-I am trying to convince myself that the 'nr' passed in is always 
-CONT_PTE_SIZE aligned, but it seems OK.
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
