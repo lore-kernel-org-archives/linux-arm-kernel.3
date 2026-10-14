@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87079CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E34CC6B24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 11:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BvY7nGoqC/VCKiPtrdSySUfl08WH1MFwZCtI/LVweWk=; b=RLHJP7hSFlP8ay6G2/dNBbg+8/
-	LR5P+mp2/5kt2eWorL6jmCIupPmJmdOYVt+QodBfKwBlhUVFJkZzNQbe3ldX+8yIp50p5oQxDBr6J
-	cmy54g9a7DCztftVVQg8H92moJQgBF33BIkhd5zfoOYEoC8XQ7ClktKVWWdeuzmw1inFKqpK7v8iq
-	SPt49KYq4tVnSfeQsTrEZ8aQUuXSgMj+5MiPKxz0/HjI4TMYtUH+rKeCU+GAQnx5dSFn938iSYjM1
-	CkYJ7nt08T/XWgUSEsoxGaXplWAwfiyaM3dPxuvAzKIwsng7XSJg5ucTqxLwOSD52hho85leyVXZE
-	30nKGVBw==;
+	bh=ceqfmDgJF+WCAppCjeCtJerZ7k+zNnEfBBwFXdsDMkA=; b=OLAjf3aM6ZuVjw+J7Pa+rVgq5Q
+	xwIsYA6ak2wWxBL17JMuRLkuOd8VS+sqrigKReazLsrXUAutVle+8yYKdS+oFtkeDBejR0KrqIOi4
+	Bu/R/jnE9tp4DGvagxA5IXpEI4f4+1Z9wyjc06qk0FffGNCEy3g1ZVO6z0lIX/Vt3cYQsPxyz5EwS
+	SoEZCWg8+wWnDmfa1zEhghhnIou4Jq69HW+8oVCuNUk7qyWTRFGrl/awVgV/KtjgcIiCV59C6/mqF
+	SGRgwgYuM7Rqe9KBfqrTI3ZnSYErTf67CaN6UckaOKG8x14FJMir1Ta1OayLzoGck64S2zqT9r9U4
+	QAhrOhMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwhs-0000000FGGo-3RWs;
-	Wed, 14 Oct 2026 10:59:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xGwj1-0000000FGU3-0tkW;
+	Wed, 14 Oct 2026 11:00:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGwhq-0000000FGGf-33Kn
+	id 1xGwiz-0000000FGTf-469K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 10:59:35 +0000
+	Wed, 14 Oct 2026 11:00:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CBF943BD7;
-	Wed, 14 Oct 2026 10:59:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44771F000FF;
-	Wed, 14 Oct 2026 10:59:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F838405C0;
+	Wed, 14 Oct 2026 11:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35FC31F000FF;
+	Wed, 14 Oct 2026 11:00:38 +0000 (UTC)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
+Subject: Re: [PATCH v4 1/2] PCI: Expose
+ devm_pci_alloc_host_bridge_release()
 From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 To: Bjorn Helgaas <helgaas@kernel.org>
 Cc: Semih Baskan <strst.gs@gmail.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, lpieralisi@kernel.org, 
- kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
- rjui@broadcom.com, sbranden@broadcom.com, 
- bcm-kernel-feedback-list@broadcom.com, rafal@milecki.pl, zajec5@gmail.com, 
- florian.fainelli@broadcom.com, arnd@arndb.de, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- rosenp@gmail.com, rani.hod@gmail.com
-In-Reply-To: <20261012181637.GA1313446@bhelgaas>
-References: <20261012181637.GA1313446@bhelgaas>
-Date: Wed, 14 Oct 2026 16:29:18 +0530
-Message-Id: <179197555828.38040.6359970121400952902.b4-reply@b4>
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Rosen Penev <rosenp@gmail.com>, 
+ Rani Hod <rani.hod@gmail.com>, bcm-kernel-feedback-list@broadcom.com, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
+In-Reply-To: <20261013220421.1588051-2-bhelgaas@google.com>
+References: <20261013220421.1588051-1-bhelgaas@google.com>
+ <20261013220421.1588051-2-bhelgaas@google.com>
+Date: Wed, 14 Oct 2026 16:30:35 +0530
+Message-Id: <179197563532.38040.2990484499406539707.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7862;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=639;
  i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=KSF9k092edLku1kkCDS+2NRkgH9zctS3hcszlXKZ9xE=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz2CJqgbbMoVYwQbKmkJK+1j/ufZW5b9A9T9cm
- CzX3TZtwIaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas9giQAKCRBVnxHm/pHO
- 9UfPB/45UVgsiHlnB55ICLCA7TTM9QYivpnXhXRhF9kWusLH2XPR8f4qgdXTbB7bRFfROoAiPaq
- Gaqz1sNnSFpgKo9AJeu2gCpL9N0Dw2FSuTitSlJW/RYb+57rcZYDCdlZrzgBHKTzK+q/hGsVA5e
- f339kqyrb+9BX8xdwKXw2QirsqVQvi1ScOrK1IBYIRBr5/UzV9HRXhEybQ9nLzlviM5oETEMJ0J
- 3/4PoICpm+LT/CF4zXARu4wTxtx9dHxfoyWx6GbMGoazfbiJKg8htO1Ck4Sv0n5ZKvxrOFYL+5k
- 73M2Mm5+r+2jOaTWEVQWn/DCOLgmrt/3SnAdkAGN3IrJK8BJ
+ bh=m2zGuI1114KB7j2Md4jUhmFglPbeNlyzqJzKL4P086U=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz2DWgeXL37dRXhlsw+cju33dbarzvO4skPBCf
+ XNu9gd5OPaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas9g1gAKCRBVnxHm/pHO
+ 9ST7B/95w7G/Q0Ayf+Fn8WxvcIro1W8eLT4TqGaJ5xN5vjz72qAs+mDUnuUlLWWaQwx4O/IyI32
+ 0tlfRfuxr2yU+qb7SLiNPskgPQsocJ90VBkCsBG6VXbTy8XR6JXE9BGqJVghyN9BdlxTjWP9LXY
+ kp2Z6cx+UsoJ0xmNyt0fjFmwcey8jCZbmqTg+AP9ffMKUppB35fHfFiPvS/RyGC+h5fsf1LuYDH
+ yK21Ulp7ZnybzG1lRqgTRiH87OYwPAgrJVu+ujPNROPZ1TdkhvM49r+kkZcLsgFtnYQ3JLJMA59
+ QIFFwRJHGlemAsi1fGGHVeBF32u1954SZ11WsUnk0kCjae2U
 X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,148 +84,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-12 13:16 -0500, Bjorn Helgaas wrote:
-> [cc->to: Mani]
+On 2026-10-13 17:04 -0500, Bjorn Helgaas wrote:
+> devm_pci_alloc_host_bridge() allocates a struct pci_host_bridge and also
+> parses device tree resources and claims them.  There are drivers, e.g.,
+> pcie-iproc-bcma.c, that need to allocate a pci_host_bridge but do not need
+> device tree resources.
 > 
-> On Sat, Sep 12, 2026 at 07:36:26AM +0300, Semih Baskan wrote:
-> > The BCMA driver takes its register base and, since commit 552aa843e4c5
-> > ("PCI: iproc: Use the EROM outbound window on BCMA"), its outbound
-> > window from what bcma read out of the enumeration ROM. It still
-> > allocates its host bridge with devm_pci_alloc_host_bridge(), which since
-> > commit 669cbc708122 ("PCI: Move DT resource setup into
-> > devm_pci_alloc_host_bridge()") parses ranges, dma-ranges and bus-range
-> > from the device's OF node and requests the windows it finds. None of
-> > that reaches the hardware here: need_ob_cfg is only ever set by the
-> > platform driver, so iproc_pcie_setup() never maps the parsed windows,
-> > and the EROM commit above had to throw them away again to keep them
-> > from colliding with its own window.
-> > 
-> > Allocate the bridge with pci_alloc_host_bridge() instead, so nothing
-> > from the devicetree is requested or handed to the PCI core, and free it
-> > on the error paths and in remove(). The driver now sets
-> > bridge->dev.parent itself, as devm_pci_alloc_host_bridge() did, since
-> > the wifi nodes under pcie_bridge0 in bcm4709-netgear-r8000.dts are
-> > resolved through the root bus. The window request
-> > moves from devm to request_resource() and release_resource() because
-> > the resource lives inside the bridge allocation and has to be released
-> > before the bridge is freed.
-> > 
-> > The ranges property is still read, but only to compare. bcm-ns.dtsi
-> > describes the same window for the platform driver, and on core revision
-> > 0x01 it points at an address the hardware does not decode. The warning
-> > from the EROM commit stays for that reason: a wrong dts is visible on
-> > BCMA boots, where nothing else would show it. Without bus-range the
-> > root bus also logs "No busn resource found for root bus, will use
-> > [bus 00-ff]" again, which changes nothing else.
-> > 
-> > With PCIE_IPROC_PLATFORM and PCIE_IPROC_BCMA both enabled, the platform
-> > driver binds the same nodes first and claims the devicetree window. On
-> > core revision 0x07 that is the EROM window, so this driver's request
-> > still fails and the probe backs out as before. On revision 0x01 the
-> > devicetree window is elsewhere, so this driver now probes as well, next
-> > to a platform driver instance whose window the hardware does not decode.
-> > That instance does not work either; the only difference is that the
-> > second probe is no longer stopped by the collision.
-> > 
-> > Tested on an ASUS RT-N18U (BCM47081, core revision 0x01): the warning
-> > lines are identical to the applied version, /proc/iomem and the
-> > enumerated devices are unchanged.
+> Expose devm_pci_alloc_host_bridge_release() so they can avoid the device
+> tree parts by calling pci_alloc_host_bridge() directly and adding the devm
+> release function manually.
 > 
-> What do you think about this, Mani?
-> 
-> I still don't quite understand the issue with the DT and discovering
-> this via both platform and bcma bus drivers, but we should make
-> progress.
-> 
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
 
-Sorry for the delay. Vacation + LPC kept me off for some time...
-
-I read through the whole thread, and compared the driver + devicetree. Let me
-try to explain what I understood on this issue.
-
-Before commit 767012397976, every Northstar SoC relied on the
-drivers/pci/controller/pcie-iproc-bcma.c driver to initialize the PCIe
-controllers present in the SoC. This driver only relied on the bcma bus driver
-for probing and getting the Host bridge resources such as MEM range, register
-base address etc... and ignored devicetree. So the devm_pci_alloc_host_bridge()
-call was only allocating the host bridge struct and devm_of_pci_bridge_init()
-ended up being a NOP.
-
-But with the advent of the commit 767012397976, the PCIe nodes present in the
-bcm-ns.dtsi got compatibles and resource properties. Unfortunately, the values
-provided in the resource properties (ranges specifically), only matched the
-BCM47094 SoC. What the author overlooked was, they added these properties to the
-common bcm-ns.dtsi which was included by several other SoCs as well. Typically,
-the resources are only added to the common dtsi when they are common to all SoCs
-inheriting the common dtsi. Otherwise, they get added to the specific SoC dtsi.
-So this started all the issues as the added ranges properties were only valid
-for BCM47094 SoC and not on other SoCs using bcm-ns.dtsi. I believe the author
-was not aware of this incompatibility.
-
-But then there was one more issue that the author of commit 767012397976
-overlooked. When the compatible got added to the PCIe nodes, they got matched
-with the pcie-iproc-platform driver and that driver started driving the PCIe
-controller instead of the existing pcie-iproc-bcma driver. By probe ordering, I
-think the pcie-iproc-platform driver got probed first and it made use of the
-devicetree resources like the ranges property. Since the ranges value matched
-the BCM47094 SoC, the pcie-iproc-platform probed fine and the controllers were
-initialized properly.
-
-But here is the catch, the author must've failed to notice the issue coming from
-pcie-iproc-bcma driver when it tried probing later. When the pcie-iproc-bcma
-driver probed, devm_of_pci_bridge_init() inside devm_pci_alloc_host_bridge()
-would've tried parsing the ranges property again and should've failed with
--EBUSY as the memory was already mapped by the pcie-iproc-platform driver.
-Either the author didn't notice this or the pcie-iproc-bcma driver could've been
-disabled on their setup.
-
-Now, when the same devicetree was used on other Northstar SoCs like BCM47081,
-BCM4709, the ranges value were invalid and the pcie-iproc-platform driver's
-probe got failed. Then the pcie-iproc-bcma driver also got probed later (it
-should be noted that these two are separate, so platform driver probe doesn't
-affect this bus driver probe), it also ended up parsing the wrong ranges from
-the devicetree. And this is what fixed by the patch from Semih [1] which forced
-the driver to use the ranges from EROM only and ignore devicetree. The reason
-why EROM parsing was added to the brcm driver instead of the platform driver
-was, only the brcm driver got access to the EROM region as it gets populated by
-the brcm bus code.
-
-Even though [1] allowed the PCIe controllers to be working again, it didn't
-prevent the platform driver from probing first and claiming the invalid
-resource. For fixing this specific issue, I think we need two fixes:
-
-1. Override the ranges property in the SoC dtsi with correct values.
-2. Prevent the pcie-iproc-platform driver from probing for the Northstar SoCs
-and just rely on pcie-iproc-bcma driver to initialize the PCIe controllers. This
-can be achieved by the below patch:
-
-diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci/controller/pcie-iproc-platform.c
-index 4c9a0c4bb923..d2237a56dd79 100644
---- a/drivers/pci/controller/pcie-iproc-platform.c
-+++ b/drivers/pci/controller/pcie-iproc-platform.c
-@@ -45,6 +45,9 @@ static int iproc_pltfm_pcie_probe(struct platform_device *pdev)
-        struct pci_host_bridge *bridge;
-        int ret;
- 
-+       if (of_device_is_compatible(np->parent, "brcm,bus-axi"))
-+               return -EINVAL;
-+
-        bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-        if (!bridge)
-                return -ENOMEM;
-
-IMO, we need both fixes because, devicetree has to describe the hardware
-properly and we should not have two drivers claiming the same resource.
-
-[1] https://lore.kernel.org/linux-pci/20260807162149.7CC9E1F000E9@smtp.kernel.org
-
-> I *think* that if we squash this patch into 552aa843e4c5 ("PCI: iproc:
-> Use the EROM outbound window on BCMA") and use
-> devm_add_action_or_reset(), it will simplify down to this, which is
-> less intrusive and would need less explanation:
-> 
-
-This LGTM!
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
 - Mani
 
