@@ -4,59 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A434CC6B2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB62ACC6B2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XK6JRULEEQS0QFoOXSZ/Y2S3hUUnJazwERTb7LZ/0M4=; b=IMy1wkncAtqFse4uFM1KBE+LR1
-	5N7MSaOuPPU1bRT6eEine+TWSSaJbRsp8W6hETfpgtn0BgBhHSeg6oqa9dimJGCjsc6ppGW7fVhH+
-	9D+5A3eA9r6wH/ps2u0P2RPqbOfWFP2ZVmoj2jP2ACHnoB4Gu0WLzKFCKypzoDYBcIdeB/Bp7M3dK
-	ov3t9i1xXZl6i7sK2FnhLP1VJZ0lPxPiEK9X8Zm3H+PWk6DEFHz8hXqR+AcLkWbyWCQmQHEWcwUHH
-	Sr8z9DFfnbVWAJILUsK826Z8JdCEXPuef4JqY3dGySdubHolIQ1S4q3STyKPwRnF6jeBahBMNPjp4
-	eIn+kG3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJbAHCKu9hv44MCMU0n25cnba1hWf1/Vr3XGWqPo92k=; b=BNIiYOhcqEWUKc6VjYAlOAZeos
+	5H89UX909FA/Ckje7PVIUx2HS8EvxcK0ie5eyVkGYmxNmlCZr6WwycmCUXq670SJTqo65lnI2iLq2
+	NP+ZpB4fhBJS5TMiB2fvjJ9TpFLmU6Nm2yhMS1MUzAPxtqHWmyr01xWhAl8GM2182T7CF8CyFAeCI
+	/E9Krpqzr3cF63oBsleHJbLjZgexLLDfbxcBw1rohQ0sTCmIetes/hXdtmdd6z6yU7e9ipd/FBi8W
+	eT4L+8XXciVzWWK+pls+dBlAndB0CWjlbxH420UZ2SuBhFxAR8A89joMVgsad4BXQCKI+JPvRNX4/
+	7wdm0WdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyY5-0000000FVs3-1obL;
-	Wed, 14 Oct 2026 12:57:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGyal-0000000FW7q-3iFE;
+	Wed, 14 Oct 2026 13:00:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGyY1-0000000FVqc-0BUs
+	id 1xGyak-0000000FW7k-0TjO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Oct 2026 13:00:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qJbAHCKu9hv44MCMU0n25cnba1hWf1/Vr3XGWqPo92k=; b=Pu8taEMFtx/cWLqOVeWJn7wJT8
+	SVfUJqJGBzODmpvK4EpIiKtY7WAoblZvSkYKhhfkMaEVv4ssTfFRWT27YFsk0fAXWCKbtTmBL25BA
+	gP2tWtYzjDVWb0njNRQNoV2P9x4aNyiHIZkMTYJEBnSeg68oDwHB4+0TgZpkshbZPwM2kXYPH/m7x
+	KTMSGv+zFkuM3FwNVJUfSgwEEPw/tHUD87uoSHn4P3niulGcGanOlopgPrV2yNmfyM7/eONCXsx8S
+	zhgsLMMJ79rF6OlTyQNeUpNui1aEpn+o+q/EskhJAEr7aIdVrOqBvlqVi8pJV4y7yrDDbDm9/ENzr
+	v87u9MAA==;
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGyaf-0000000Gmce-3ZII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 12:57:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3EFC460416
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 12:57:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F151F00898;
-	Wed, 14 Oct 2026 12:57:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791982652;
-	bh=XK6JRULEEQS0QFoOXSZ/Y2S3hUUnJazwERTb7LZ/0M4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=df1kxSupHmz42lxiT28tel3pI40ayRTHsFr9H3mY82zQ9MR9h9j7lPl3NtqLqz2A0
-	 9OKKb/qSSX8LCSVIYdx94F1V3zoOAf17Va9ZxefLM6nNbBl9g/8y3edGzK+/jkeBHI
-	 kahpwsCXysZ621dRK3qVx7E8f5fVtZaqvNvUZzg9AZ0e7630BobkzVdl2qZ6E7OGxe
-	 2rdS2WbBdF+d1IiF+LOBXsEPAuw5I0NIKK+g2v30+sUJCYcFGGHY1qQapc6GGV+oj9
-	 zPASUjSUvO7/JE8amCdoWmFX/tRZxALVlpZncr1GpydLJp0BIAA8ebXWIgpeQLQLor
-	 /dLu+ua8hW3kw==
-From: Dinh Nguyen <dinguyen@kernel.org>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: dinguyen@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] arm64: dts: altera: Add support for the Agilex27 SoCDK
-Date: Wed, 14 Oct 2026 07:57:09 -0500
-Message-ID: <20261014125709.2106261-2-dinguyen@kernel.org>
-X-Mailer: git-send-email 2.42.0.411.g813d9a9188
-In-Reply-To: <20261014125709.2106261-1-dinguyen@kernel.org>
-References: <20261014125709.2106261-1-dinguyen@kernel.org>
+	Wed, 14 Oct 2026 13:00:21 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69E9ESKb3082451;
+	Wed, 14 Oct 2026 08:00:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=qJbAHCKu9hv44MCMU0n25cnba1hWf1/Vr3XGWqPo9
+	2k=; b=blBIgL3/78osnRn3JUKEgDJ4SWfXlzxXu4R8Fx/KEoShbpBaW3v62srBn
+	Fv5oo0H0kbnXTvmKxwwEEyMVzJnWqhFl1yTehBHA9qieZ7G1woOHzok3reBVieHe
+	QUcG/FaHKNFV1/5nq4WNM3O8+OfmaJj14YDJXNoA7MlcEJFoaPcdZhhMBgh7HX/2
+	by9s7XvoRYa+vnpmrF1XJgLNx5QLmvQB/oFsfUc2DT65pmuQ5nGmYvG7fNCsky5F
+	7+WcZaWdxYWfpDJYY6nI1h0K2NN4/aEfl5Y+8smYZ1hjyrCCoGEo1t8rR01WzFaG
+	gf2t3Z24G3w0Eg3l6TmH+7jrEmjeA==
+Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11012033.outbound.protection.outlook.com [52.101.53.33])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4ha6xch3d1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 14 Oct 2026 08:00:04 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CgdREOPN2i3WKiH9v16GI4DQSVs5J9EIj+WCJg/ZvohvjyO3EnKIMDukNzXTUvbkE+dxTy0nos/i/S5MDqSamMS8kHUWqG1AFJL4XtGMLZzaP7mqeqMz7FBEkefvTZLNGmpkuq4FlUBePfdfWhDF6/1pBm7mMaOF0EoqYfK1ZycJrREKtubWqmOVLgdfXQUzJ/BpLlH494uu1gKIfggpoZcyrtmO/EDYVvau0r8UdfPgJEfeaXemncpmxthpNO41Zs/unQS1sKnZPllitlgcH+5xlpbcDe9HfT5lcH8yg/h1h0OrU9AqeRVbukEbLiiziOnabcM72jqovHRR200N2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qJbAHCKu9hv44MCMU0n25cnba1hWf1/Vr3XGWqPo92k=;
+ b=M7j6R/6AUAmBFMbQ/k/l+n1trDQ+VUPE/9oqMw8FunHN2C4aYm0M+iSj/ceZqtJeFSVq6IWKWBB8E8EyIhKTwhc+Dvq4Af0fQRHsKA13tfUG4xNi2vetOlQDKuuoaPCOig/28lnI4iAbaOUe99+QccPhYbXbecgbx/5XyCi5p3UDjljmbNv/tQBPb2rQFw5bs85lO1HLvRwKgJRKD22cdXZL49hQm8hGgMBjvS08CeidDoYTz5Et6XQSx3KailYQwwNXe7ZNbhNmE02EGh8e77gwiVlEby+FSO00h+36avmykAO1oSHQyIhlz/WCxDMZyRsTSUrwLuPiCNOzmDpZOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qJbAHCKu9hv44MCMU0n25cnba1hWf1/Vr3XGWqPo92k=;
+ b=rVZE00XikDoBLAOIDPZKceX1KDls/YRldcZUGFJtAn8uxYbw43iVfRaWDRqy5Ksk0k8vqkm9tXOggyeJ+giXICQBsdeiVC3lOUnX+QAG5gdDa7jAr7eLtBd80wLMcZvzAbo56TH16xnFoAdORPPOyR0uTBGRnguRMgi3PyA/1Zo=
+Received: from CH0PR03CA0255.namprd03.prod.outlook.com (2603:10b6:610:e5::20)
+ by CYYPR10MB7607.namprd10.prod.outlook.com (2603:10b6:930:bf::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 13:00:01 +0000
+Received: from BN2PEPF000044A6.namprd04.prod.outlook.com
+ (2603:10b6:610:e5:cafe::7d) by CH0PR03CA0255.outlook.office365.com
+ (2603:10b6:610:e5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Wed, 14
+ Oct 2026 13:00:01 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF000044A6.mail.protection.outlook.com (10.167.243.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 13:00:00 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 14 Oct
+ 2026 07:59:54 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 14 Oct
+ 2026 07:59:54 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 14 Oct 2026 07:59:54 -0500
+Received: from localhost (akira.dhcp.ti.com [10.24.72.253])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69ECxrqv1395184;
+	Wed, 14 Oct 2026 07:59:54 -0500
+From: Rishi Kumar <r-kumar12@ti.com>
+To: <netdev@vger.kernel.org>
+CC: MD Danish Anwar <danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Jacob Keller
+	<jacob.e.keller@intel.com>,
+        Meghana Malladi <m-malladi@ti.com>,
+        "Vadim
+ Fedorenko" <vadim.fedorenko@linux.dev>,
+        Kevin Hao <haokexin@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <j-rameshbabu@ti.com>,
+        <aaron.richard@ti.com>, <l-chinnannavar@ti.com>,
+        <m-santhoshkadavan@ti.com>, <k-tiwari1@ti.com>, <a-dev@ti.com>,
+        <r-kumar12@ti.com>, <pratheesh@ti.com>
+Subject: [PATCH net 2/2] net: ti: icssg-prueth: re-apply rx_mode state after firmware reboot
+Date: Wed, 14 Oct 2026 18:29:48 +0530
+Message-ID: <20261014125948.230571-3-r-kumar12@ti.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261014125948.230571-1-r-kumar12@ti.com>
+References: <20261014125948.230571-1-r-kumar12@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A6:EE_|CYYPR10MB7607:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58680e23-d7c6-467f-3df8-08df29f30ec1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|7416014|376014|18002099003|22082099003|10067099003|13003099007|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: n0MzUpFIlrVXzpQKWu+ON9Nz+m/PmFS9+jXgDPR5D7ax2A3o4KTDSLuLPfwoK2kqNysG6Sy9GS0jH96PkgGXV75kCacZl2WgffHzML4nh2ntPlQNCN0bMlaTUy2wBA7tcNZOZrLaOXf3Demfqr3361DqjtCyIe0ZI0oHo/9V3c2z35zjWfwaGs9z2+7AGReSsO41U2gNI30ilSCeNfJ2GHThamtQ7nCl3WsP9T9ZNw9oGXMy37G64sawxLo0WCalwAXzSy4j5VI5RHJK+CJU0EcfEGp73Oklg4tu4Lbc3jKDf83MzYyY/FxPoDMbAKtY8PpugTpYolxb5soSfqllBJs2JMZqy9KcGAjstgKwPxe2x6WlCYrDtPujil36Jkcq5vic9WBbobSW30Fi+tBLmzdFZ/7hRVDU0WIRcwSnE/C9HgrrkLWo7wgBcKZ6k/wv8etabydZA7fLfzFUXlja0FjOX1wlWHWTAMNF+9hPmLeWpymURi1LKxGhIvmdtm8vf5mQTKBE88Vgw4+Czw9T360z4BYKIHFIqKJaJrbc0vlXXSJxu59y9IHj0rvu57pkK99HOAPQCBWfX13s0LEPw9K7rqXnfaP4m4AbW36OFkLM8OM78InhYrQhhgUrS1CQt7+JvESAoBTKceLiX3ZelqCEdiynANUbCju1wSqePJlUSB0qJEZQYjGdChtyyHqYwMD2Ah45hjrd7s6RXjzO7A==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(7416014)(376014)(18002099003)(22082099003)(10067099003)(13003099007)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: sm766TEwmFqLzLWVjWftjsPqperMGaJ0gFKE8lLgXhfO/Z6gG/DgwYcy1IzipKcmc6py/hhWlNEGy41gBHTpgT+b1TW6Idv7jCEc3jRtbxaFuK65gEJBW+9fz0ug79s1WEYgJKasIRCsNBVvspF3cIJkwDzVmFcyZgYUJ6os3MLtPuGhmuGfz3cOj20mbhdrjttL/Oo/DG9bHYL3IQcwjdcwgPoHSC0ZPIRc5lQpnayTjiFbHM5MLitUWqLARHnJqeBd7LnTI/iwnaYU5dS/TqOz0w+C+bE7jgJ74FlF0RbSE8rwvWxj/ov2eMcKyCc3UAf/ROVZlqdgkKZhwIIGxgD6lM7uCOVjoDIg1i1fjtqdqHVHZflaK4W/z7OSzc8YEIUUzEhGO890+uawBInGMmOAskCurhEqfHCT9OnLV7jPYtQ4Oa8vsSLEX2CxNYZ6
+X-Exchange-RoutingPolicyChecked: o51NnzJ1Lq8oCawwZdbXzOXxgoa4At1rwwTEwhuw+/xmxgdOUEZ4PB8qybna3czqBRvKQSm8LnQHUoQ5TZ6lJGQy690twSwrMFJv0X9+HZZJgAZWJYqIr7GU/onwVj98QivTGi90RDzjrfFuk/nmL/c6d4FcF+xhVzmXXw8ySnHPeg2B7xDYs2c1TUTy2V++1v/Fd9A3YYpgr+vuzKVLmqKFY3IauZtyy7BuvYWDKNQW0JoXyL50XToYDPv+V0z6iU1u2HpZmpyEdkau6eiNv09TTYDCHD46sxSqfJT0vsjS/fsdd2dkr4fCdMZVb4Pw8Osw5p5n6CouYYBC9mJuFA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 13:00:00.9997
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58680e23-d7c6-467f-3df8-08df29f30ec1
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A6.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7607
+X-Authority-Analysis: v=2.4 cv=fMysTpae c=1 sm=1 tr=0 ts=6acf7cd5 cx=c_pps
+ a=CgODY3tvNtn0KPtxrBvszw==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=NEAV23lmAAAA:8 a=sozttTNsAAAA:8
+ a=qV52rf1l9grw7hYQ-DgA:9
+X-Proofpoint-ORIG-GUID: ZeFFFGZMiIinHXJdYWkVsWsJ_wu-C3--
+X-Proofpoint-GUID: ZeFFFGZMiIinHXJdYWkVsWsJ_wu-C3--
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA1MSBTYWx0ZWRfX1mlZXim2sxwT
+ pdiBKrrD4RPHsYyczN9mzCoipPWkqEOHFQgn/fovW9Wa2QpyUA93DV8vvSonXCMSB8ISPjQOxA0
+ amwcSLCuolLG4zaHtZrP3j0QHY0DUE0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA1MSBTYWx0ZWRfX4ICFdgklr7Lb
+ 1JnESXX2B5oXLyTf/lVOXrUfS8GDXWEL9WEuCUZm8W/f0SHUw72zLU5V+PoazjX/rzfAtAaXsc3
+ XR+KI6XWqYwiAPkfDnIGmoZf5I5YHoNIUErgwDf7JmbjdftNp4Ie4IasvQNvroQwB0Tncxv+lvT
+ lVqDoRuV+i8oBPamkPhb5D+7eAiKT37Yg/sBZHJij/zNQRFNvFQrRvyfpBRnrU+NAKwZc6rZr0F
+ PFpfM4BTnXXmik2OO2gM/UZnekoybMej2IQtQDmC5u+i6MaANYghJ/amU69biy/g8nGSVgxvXed
+ F/LSEI0cGp3MYzPx4gQ2YZ5TDfXQTQDK/nbnIc/hP0rdf4hkXYZis9wJ/k9dcLiQV/nInd8Rfyr
+ BAEJOyhz0R8a5aG0u1zTvc+ZGbshUFL8zwszXgKh1ZNWJydAyYHnh0SsxtLcQ7ezvvnqeW07reC
+ 4n9oub417q0aoya69qw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 lowpriorityscore=0 phishscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1011 adultscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610140051
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_140018_578788_43E34866 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +205,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SoCFPGA Agilex72 platform is being renamed to Agilex27.
+prueth_emac_common_start() reboots the PRU/RTU/txPRU cores whenever
+the first port opens, or on a full mode change via
+icssg_change_mode(). Any icssg_set_port_state() command sent while a
+core is stopped or still booting times out waiting for firmware to
+ack it ("timeout waiting for command done"), and the write is lost
+with no retry.
 
-Remove the agilex72 base DTSI and agilex72 devkit dts and replace them with
-an Agilex27 base DTSI and Agilex27 devkit dts.
+emac_ndo_set_rx_mode_work() sends exactly this kind of command to
+enable/disable UC/MC flooding based on IFF_PROMISC/IFF_ALLMULTI. If
+a port's rx_mode_work runs while firmware is being rebooted, the
+flood-enable command can be dropped, leaving that port without
+multicast flooding.
 
-Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
+Re-queue rx_mode_work for every running port at the end of the
+firmware start sequence in prueth_emac_common_start(), so the current
+IFF_PROMISC/IFF_ALLMULTI state is re-applied after a reboot. Also
+cancel the pending work in the stop_pruss error path so it cannot run
+after the cores are stopped again.
+
+prefix logs: https://gist.github.com/r-kumar12/91ee6fecd40ea3f22dcc65aba42705e1
+postfix logs: https://gist.github.com/r-kumar12/4d5ade22d783020552b8a1e0c6d7102f
+
+Fixes: 9facce84f406 ("net: ti: icssg-prueth: Fix firmware load sequence.")
+Signed-off-by: Rishi Kumar <r-kumar12@ti.com>
 ---
- arch/arm64/boot/dts/altera/Makefile                         | 2 +-
- .../altera/{socfpga_agilex72.dtsi => socfpga_agilex27.dtsi} | 2 +-
- ...ocfpga_agilex72_socdk.dts => socfpga_agilex27_socdk.dts} | 6 +++---
- 3 files changed, 5 insertions(+), 5 deletions(-)
- rename arch/arm64/boot/dts/altera/{socfpga_agilex72.dtsi => socfpga_agilex27.dtsi} (98%)
- rename arch/arm64/boot/dts/altera/{socfpga_agilex72_socdk.dts => socfpga_agilex27_socdk.dts} (67%)
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/altera/Makefile b/arch/arm64/boot/dts/altera/Makefile
-index 8f41349103b80..40248dbb5abad 100644
---- a/arch/arm64/boot/dts/altera/Makefile
-+++ b/arch/arm64/boot/dts/altera/Makefile
-@@ -3,12 +3,12 @@ dtb-$(CONFIG_ARCH_INTEL_SOCFPGA) += socfpga_agilex_n6000.dtb \
- 				socfpga_agilex_socdk.dtb \
- 				socfpga_agilex_socdk_emmc.dtb \
- 				socfpga_agilex_socdk_nand.dtb \
-+				socfpga_agilex27_socdk.dtb \
- 				socfpga_agilex3_socdk.dtb \
- 				socfpga_agilex5_socdk.dtb \
- 				socfpga_agilex5_socdk_013b.dtb \
- 				socfpga_agilex5_socdk_modular.dtb \
- 				socfpga_agilex5_socdk_nand.dtb \
--				socfpga_agilex72_socdk.dtb \
- 				socfpga_agilex7m_socdk.dtb \
- 				socfpga_n5x_socdk.dtb \
- 				socfpga_stratix10_socdk.dtb \
-diff --git a/arch/arm64/boot/dts/altera/socfpga_agilex72.dtsi b/arch/arm64/boot/dts/altera/socfpga_agilex27.dtsi
-similarity index 98%
-rename from arch/arm64/boot/dts/altera/socfpga_agilex72.dtsi
-rename to arch/arm64/boot/dts/altera/socfpga_agilex27.dtsi
-index c29c2afcaab70..369981fe85e38 100644
---- a/arch/arm64/boot/dts/altera/socfpga_agilex72.dtsi
-+++ b/arch/arm64/boot/dts/altera/socfpga_agilex27.dtsi
-@@ -7,7 +7,7 @@
- #include <dt-bindings/interrupt-controller/irq.h>
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 745178fe7cf3..96ad6227f405 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -311,6 +311,18 @@ static int prueth_emac_common_start(struct prueth *prueth)
+ 	if (ret)
+ 		goto disable_class;
  
- / {
--	compatible = "intel,socfpga-agilex72";
-+	compatible = "altr,socfpga-agilex27";
- 	#address-cells = <2>;
- 	#size-cells = <2>;
++	/* PRU/RTU/txPRU are up now: re-sync any port
++	 * config (e.g. flood/promisc flags) that may have been
++	 * dropped while firmware was still rebooting above.
++	 */
++	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
++		emac = prueth->emac[slice];
++		if (!emac)
++			continue;
++		if (netif_running(emac->ndev))
++			schedule_work(&emac->rx_mode_work);
++	}
++
+ 	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
+ 	       prueth->emac[ICSS_SLICE1];
+ 	ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
+@@ -323,6 +335,11 @@ static int prueth_emac_common_start(struct prueth *prueth)
+ 	return 0;
  
-diff --git a/arch/arm64/boot/dts/altera/socfpga_agilex72_socdk.dts b/arch/arm64/boot/dts/altera/socfpga_agilex27_socdk.dts
-similarity index 67%
-rename from arch/arm64/boot/dts/altera/socfpga_agilex72_socdk.dts
-rename to arch/arm64/boot/dts/altera/socfpga_agilex27_socdk.dts
-index 998f19f492b36..15d331cdeeb47 100644
---- a/arch/arm64/boot/dts/altera/socfpga_agilex72_socdk.dts
-+++ b/arch/arm64/boot/dts/altera/socfpga_agilex27_socdk.dts
-@@ -2,11 +2,11 @@
- /*
-  * Copyright (C) 2026, Altera Corporation
-  */
--#include "socfpga_agilex72.dtsi"
-+#include "socfpga_agilex27.dtsi"
+ stop_pruss:
++	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
++		emac = prueth->emac[slice];
++		if (emac)
++			cancel_work_sync(&emac->rx_mode_work);
++	}
+ 	prueth_emac_stop(prueth);
  
- / {
--	model = "Altera SoCFPGA Agilex72 SoCDK";
--	compatible = "intel,socfpga-agilex72-socdk", "intel,socfpga-agilex72";
-+	model = "Altera SoCFPGA Agilex27 SoCDK";
-+	compatible = "altr,socfpga-agilex27-socdk", "altr,socfpga-agilex27";
- 
- 	aliases {
- 		serial0 = &uart0;
+ disable_class:
 -- 
-2.42.0.411.g813d9a9188
+2.53.0
 
 
