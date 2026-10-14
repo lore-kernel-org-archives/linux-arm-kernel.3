@@ -4,66 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF48DCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257C0CC6B24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYl8wmk7D4k4k2nm9c6RwZ9lG54OdzU1lxAQYote2iU=; b=hG03uNtWihZurdO0IOWjksh5IW
-	O6f8vjT6OHmCRftKgbqscPo3DrblvtIoPxWQm8OeI9rr3Y603z2qHB0aBtXNQpu7XqT5VoGQHEWGd
-	brAKE/f+1E8365RSovtaNtuiBHycm0J1XlKFXbMO2YbQLz/udvbhpr3n3EOUw2riZC0z9WSW1bYmS
-	lfNuTkrQyLtyCfUDCMlt7MKZbwctJa4j21dwjL4KBJLSHxSQifoGIoK/ZT6z4+jdRrtCkPsA42dKS
-	+zSqAHuOcsFNhiYhrnKgQoT6wRekx69hhplBB2x8a87y4nWHvCZ3lbnnCRsHCb9WRVT7GiSkzaXt7
-	dIl2+T9A==;
+	bh=GwHJPQZUtuKCeOkSnuXK1XdvDVMXGuvW2jBkJxpDDDI=; b=b+oxfV+lJ1OdlWb89O/81Z6i8x
+	vIbmro05kreuC12Xv1kIzMVsdVyd1vrpMD+gvxok/c7EgDqrcDerPfGUTacjcFxX5IHFAcYO8zlHX
+	ZBfPTnhAgqJWMIEaAhYO3mALD+d73vbkH3M0BL+mXO6nSv+PjFMHKfGPUNxt8TQhujQwrCQyEOmmR
+	jn95CXgFiYa9SfDB55Uie5S1izSsP7oVCfF0+Wvc6Ob/ybVvWUi43nkZC1/MMexAD7eIDX2v8jcmU
+	o7CiS3m3422lMkKm8tLTM6EkWCCXs7p7BPCDa2ojBnKHBBWZ0NpFUXklZpmShZ1azRiljRUmqoSTQ
+	rtFNrQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtEo-0000000Ehjx-09IX;
-	Wed, 14 Oct 2026 07:17:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtEb-0000000Ehgt-2ob4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 07:17:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=DYl8wmk7D4k4k2nm9c6RwZ9lG54OdzU1lxAQYote2iU=; b=KQzQrt4whyLtJlWhFBBpjb19Jq
-	v7QPHABv/54WHH/EQ89dyfgr1i99myLxwpp8zmWoLTO8APafrie7J0TVOp21YtNTiW53kAzJBk/hQ
-	IwRhLx67RKJL+lkaG++nhW6o/NSxJYc9IXBd+qItU6Jn6wLqc0TxZjt8XgIf4t8nzBYlvAoLFcnSU
-	gmoWu3WtJ7zWFr6wYL76GctbJ5gr4eJyu/GIztZbfSHVsLsm5qhe2pWPwwfE/GfFEYQD8hVxLydOM
-	Nvv9/42zGa3kghpbxyCMUiU8s9p6XHQLBZuHp//xYdOopxZ7F6a1wobjTKT+vasQzui40cyhieJ5Z
-	i/ZRlX5g==;
+	id 1xGtEn-0000000EhjK-3IYi;
+	Wed, 14 Oct 2026 07:17:21 +0000
 Received: from www537.your-server.de ([188.40.3.216])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGtEY-0000000GRDx-0Egx
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xGtEW-0000000Ehef-3lK6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:17:08 +0000
+	Wed, 14 Oct 2026 07:17:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=DYl8wmk7D4k4k2nm9c6RwZ9lG54OdzU1lxAQYote2iU=; b=CqMAADJNq7+zkvJFHqb2xV2z7Z
-	TPo+ieodKAXBZvRwMMe45vc0xX6X+SuS+B3p6RYPbAQOzOe6JEz3XRr5tpGEOUT0JnmCmYG0x7CmN
-	25Lp27Fb8WN9grPFZ0EiXHLuEJGLmCFl3PngvTMRqwo3S7QR9yreJfIT8T1mSE8c/LGptMgWptZId
-	VeDTnNQBEbdO45Y5YsV2ayguwKXUNynO4Tb8BkKgoGLbxb6kgi1Ym3mPhWlseTE2dkrlbX7Yoi7ZP
-	XkZ9T/pzwCWIT1k4Ad3XPT+LPT4B+Ix8LdGqnlDIAmJP9bSOdV3nQ4uS25iJmamOnoJojdsTHlGKq
-	ydNqK8jg==;
+	bh=GwHJPQZUtuKCeOkSnuXK1XdvDVMXGuvW2jBkJxpDDDI=; b=C4xdcSXtqPMfrwHqnb46ICQtJK
+	5kVblumdICzGINHeR0jCZ3ls380221mtQCL1Z9rUAl87Po2hTiN3nSAv1MWDl4Lg91ommu9sSl4Bl
+	mhiSYfY5TylInEb9BlyleN36OTSYoPztBUNuj4UX+G6cX8VFjv3hMawYMAfMUSbUD15rdInfZOJvo
+	pF8T0cmn+WN9pWw+kwDGyZ4qFjDABFUI8XgkKh/Za6t6TAj0Yn/w54lShO2iVc+aLEMbb3KZZWXMm
+	cAsHLQNUFhUddVrBCqv5K69LjOOSw52B0gPxiRKDBcF2JGjMK4CX68mGVUyFrchWqHiWqHKDLwQoj
+	cJHnNnxg==;
 Received: from sslproxy02.your-server.de ([78.47.166.47])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xGtEV-000GDb-1P;
+	id 1xGtEU-000GBv-3A;
 	Wed, 14 Oct 2026 09:17:03 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xGtEU-000AF0-2Z;
+	id 1xGtEU-000AF0-17;
 	Wed, 14 Oct 2026 09:17:02 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -74,16 +59,16 @@ To: Frank Li <Frank.Li@nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Dong Aisheng <aisheng.dong@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+Cc: Liu Ying <victor.liu@nxp.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com,
-	Liu Ying <victor.liu@nxp.com>
-Subject: [PATCH v2 4/5] arm64: dts: freescale: Add LVDS overlays for TQMa8Xx
-Date: Wed, 14 Oct 2026 09:16:48 +0200
-Message-ID: <20261014071657.118378-5-alexander.stein@ew.tq-group.com>
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 3/5] arm64: dts: imx8qxp: Add MIPI-LVDS combo subsystems
+Date: Wed, 14 Oct 2026 09:16:47 +0200
+Message-ID: <20261014071657.118378-4-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
 References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
@@ -91,8 +76,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28152/Tue Oct 13 08:26:14 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_081706_674469_F9BD0930 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20261014_001705_248697_B0E909AA 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,325 +92,524 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add overlays for the supported LVDS display tianma tm070jvhg33 on both
-LVDS0 and LVDS1 channels on connector X14 (+ control on X22).
-The corresponding display controller PLL is configured with 10x the
-pixelclock.
+From: Liu Ying <victor.liu@nxp.com>
 
+The MIPI-LVDS combo subsystems are peripherals of pixel link MSI
+bus in i.MX8qxp display controller subsystem.  Add the MIPI-LVDS
+combo subsystems.
+
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
 Changes in v2:
-* Fix channel1 'reg' property in dc0_pc node for LVDS overlay
+* None
 
- arch/arm64/boot/dts/freescale/Makefile        | 12 +++
- .../freescale/mba8xx-lvds0-tm070jvhg33.dtso   | 88 +++++++++++++++++++
- .../freescale/mba8xx-lvds1-tm070jvhg33.dtso   | 88 +++++++++++++++++++
- arch/arm64/boot/dts/freescale/mba8xx.dtsi     | 58 +++++++++++-
- 4 files changed, 243 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/mba8xx-lvds0-tm070jvhg33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/mba8xx-lvds1-tm070jvhg33.dtso
+ .../boot/dts/freescale/imx8qxp-ss-dc.dtsi     |   4 +
+ .../dts/freescale/imx8qxp-ss-mipi-lvds.dtsi   | 443 ++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi    |   3 +
+ 3 files changed, 450 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb56..84aeff0e78cf2 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -120,6 +120,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx8dxl-hummingboard-telematics.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+index 647ee3348f494..9916a06669c87 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+@@ -156,10 +156,12 @@ port@1 {
  
- dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdps-mb-smarc-2.dtb
-+
-+imx8dxp-tqma8xdp-mba8xx-lvds0-tm070jvhg33-dtbs += imx8dxp-tqma8xdp-mba8xx.dtb mba8xx-lvds0-tm070jvhg33.dtbo
-+imx8dxp-tqma8xdp-mba8xx-lvds1-tm070jvhg33-dtbs += imx8dxp-tqma8xdp-mba8xx.dtb mba8xx-lvds1-tm070jvhg33.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdp-mba8xx-lvds0-tm070jvhg33.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdp-mba8xx-lvds1-tm070jvhg33.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-beacon-kit.dtb
+ 				dc0_pixel_link0_mipi_lvds_0_pxl2dpi: endpoint@0 {
+ 					reg = <0>;
++					remote-endpoint = <&mipi_lvds_0_pxl2dpi_dc0_pixel_link0>;
+ 				};
  
- imx8mm-data-modul-edm-sbc-overlay-cm4-dtbs := \
-@@ -839,6 +845,12 @@ dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
+ 				dc0_pixel_link0_mipi_lvds_1_pxl2dpi: endpoint@1 {
+ 					reg = <1>;
++					remote-endpoint = <&mipi_lvds_1_pxl2dpi_dc0_pixel_link0>;
+ 				};
+ 			};
  
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
-+
-+imx8qxp-tqma8xqp-mba8xx-lvds0-tm070jvhg33-dtbs += imx8qxp-tqma8xqp-mba8xx.dtb mba8xx-lvds0-tm070jvhg33.dtbo
-+imx8qxp-tqma8xqp-mba8xx-lvds1-tm070jvhg33-dtbs += imx8qxp-tqma8xqp-mba8xx.dtb mba8xx-lvds1-tm070jvhg33.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx-lvds0-tm070jvhg33.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx-lvds1-tm070jvhg33.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-9x9-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-9x9-qsb.dtb
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx-lvds0-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/mba8xx-lvds0-tm070jvhg33.dtso
+@@ -211,10 +213,12 @@ port@1 {
+ 
+ 				dc0_pixel_link1_mipi_lvds_1_pxl2dpi: endpoint@0 {
+ 					reg = <0>;
++					remote-endpoint = <&mipi_lvds_1_pxl2dpi_dc0_pixel_link1>;
+ 				};
+ 
+ 				dc0_pixel_link1_mipi_lvds_0_pxl2dpi: endpoint@1 {
+ 					reg = <1>;
++					remote-endpoint = <&mipi_lvds_0_pxl2dpi_dc0_pixel_link1>;
+ 				};
+ 			};
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi
 new file mode 100644
-index 0000000000000..3bff1c4ca0b73
+index 0000000000000..67f5392cfc803
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/mba8xx-lvds0-tm070jvhg33.dtso
-@@ -0,0 +1,88 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-ss-mipi-lvds.dtsi
+@@ -0,0 +1,443 @@
++// SPDX-License-Identifier: GPL-2.0+
 +/*
-+ * Copyright (c) 2021-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Alexander Stein
++ * Copyright 2024 NXP
 + */
 +
-+/dts-v1/;
-+/plugin/;
-+
++#include <dt-bindings/clock/imx8-lpcg.h>
 +#include <dt-bindings/firmware/imx/rsrc.h>
 +
-+&adma_pwm {
-+	status = "okay";
-+};
++/ {
++	mipi_lvds_0_ipg_clk: clock-mipi-lvds0-ipg {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <120000000>;
++		clock-output-names = "mipi_lvds_0_ipg_clk";
++	};
 +
-+&backlight_lvds {
-+	status = "okay";
-+};
-+
-+&dc0_framegen0 {
-+	assigned-clocks = <&clk IMX_SC_R_DC_0_PLL_0 IMX_SC_PM_CLK_PLL>,
-+			  <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC0>;
-+	assigned-clock-parents = <0>,
-+				 <&clk IMX_SC_R_DC_0_PLL_0 IMX_SC_PM_CLK_PLL>;
-+	assigned-clock-rates = <682000000>;
-+};
-+
-+&dc0_pc {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	channel@0 {
-+		reg = <0>;
-+		status = "okay";
++	mipi_lvds_1_ipg_clk: clock-mipi-lvds1-ipg {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <120000000>;
++		clock-output-names = "mipi_lvds_1_ipg_clk";
 +	};
 +};
 +
-+&dc0_pixel_link0 {
-+	status = "okay";
++&dc0_pl_msi_bus {
++	mipi_lvds_0_irqsteer: interrupt-controller@56220000 {
++		compatible = "fsl,imx-irqsteer";
++		reg = <0x56220000 0x1000>;
++		interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-controller;
++		interrupt-parent = <&gic>;
++		#interrupt-cells = <1>;
++		clocks = <&mipi_lvds_0_lis_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
++		fsl,channel = <0>;
++		fsl,num-irqs = <32>;
++	};
 +
-+	ports {
++	mipi_lvds_0_csr: bus@56221000 {
++		compatible = "simple-pm-bus", "syscon";
++		reg = <0x56221000 0x1000>;
++		clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
 +		#address-cells = <1>;
-+		#size-cells = <0>;
++		#size-cells = <1>;
++		ranges;
 +
-+		port@1 {
-+			reg = <1>;
-+			status = "okay";
++		mipi_lvds_0_pxl2dpi: pxl2dpi {
++			compatible = "fsl,imx8qxp-pxl2dpi";
++			fsl,sc-resource = <IMX_SC_R_MIPI_0>;
++			power-domains = <&pd IMX_SC_R_MIPI_0>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0>;
++
++					mipi_lvds_0_pxl2dpi_dc0_pixel_link0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&dc0_pixel_link0_mipi_lvds_0_pxl2dpi>;
++						status = "disabled";
++					};
++
++					mipi_lvds_0_pxl2dpi_dc0_pixel_link1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&dc0_pixel_link1_mipi_lvds_0_pxl2dpi>;
++						status = "disabled";
++					};
++				};
++
++				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <1>;
++
++					mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi>;
++						status = "disabled";
++					};
++
++					mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi>;
++						status = "disabled";
++					};
++				};
++			};
++		};
++
++		mipi_lvds_0_ldb: ldb {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			compatible = "fsl,imx8qxp-ldb";
++			clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>,
++				 <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
++			clock-names = "pixel", "bypass";
++			assigned-clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>;
++			assigned-clock-parents = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
++			power-domains = <&pd IMX_SC_R_LVDS_0>;
++			status = "disabled";
++
++			channel@0 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0>;
++				phys = <&mipi_lvds_0_phy>;
++				phy-names = "lvds_phy";
++				status = "disabled";
++
++				port@0 {
++					reg = <0>;
++
++					mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi: endpoint {
++						remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0>;
++					};
++				};
++			};
++
++			channel@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
++				phys = <&mipi_lvds_0_phy>;
++				phy-names = "lvds_phy";
++				status = "disabled";
++
++				port@0 {
++					reg = <0>;
++
++					mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi: endpoint {
++						remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1>;
++					};
++				};
++			};
 +		};
 +	};
-+};
 +
-+&dc0 {
-+	status = "okay";
-+};
-+
-+&mipi_lvds_0_ldb {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	channel@0 {
-+		reg = <0>;
-+		status = "okay";
++	mipi_lvds_0_lis_lpcg: clock-controller@56223000 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56223000 0x4>;
++		#clock-cells = <1>;
++		clocks = <&mipi_lvds_0_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_0_lis_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_0>;
 +	};
-+};
 +
-+&mipi_lvds_0_phy {
-+	status = "okay";
-+};
-+
-+&mipi_lvds_0_pxl2dpi {
-+	status = "okay";
-+};
-+
-+&mipi_lvds_0_pxl2dpi_dc0_pixel_link0 {
-+	status = "okay";
-+};
-+
-+&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0 {
-+	status = "okay";
-+};
-+
-+&panel_lvds0 {
-+	compatible = "tianma,tm070jvhg33";
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx-lvds1-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/mba8xx-lvds1-tm070jvhg33.dtso
-new file mode 100644
-index 0000000000000..76520ca4138cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/mba8xx-lvds1-tm070jvhg33.dtso
-@@ -0,0 +1,88 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2021-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Alexander Stein
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/firmware/imx/rsrc.h>
-+
-+&adma_pwm {
-+	status = "okay";
-+};
-+
-+&backlight_lvds {
-+	status = "okay";
-+};
-+
-+&dc0_framegen1 {
-+	assigned-clocks = <&clk IMX_SC_R_DC_0_PLL_1 IMX_SC_PM_CLK_PLL>,
-+			  <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC1>;
-+	assigned-clock-parents = <0>,
-+				 <&clk IMX_SC_R_DC_0_PLL_1 IMX_SC_PM_CLK_PLL>;
-+	assigned-clock-rates = <682000000>;
-+};
-+
-+&dc0_pc {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	channel@1 {
-+		reg = <1>;
-+		status = "okay";
++	mipi_lvds_0_di_mipi_lvds_regs_lpcg: clock-controller@56223004 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56223004 0x4>;
++		#clock-cells = <1>;
++		clocks = <&mipi_lvds_0_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_0_di_mipi_lvds_regs_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_0>;
 +	};
-+};
 +
-+&dc0_pixel_link1 {
-+	status = "okay";
++	mipi_lvds_0_pwm_lpcg: clock-controller@5622300c {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x5622300c 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_MIPI_0_PWM_0 IMX_SC_PM_CLK_PER>,
++			 <&mipi_lvds_0_ipg_clk>,
++			 <&mipi_lvds_0_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_0>,
++				<IMX_LPCG_CLK_4>,
++				<IMX_LPCG_CLK_1>;
++		clock-output-names = "mipi_lvds_0_pwm_lpcg_clk",
++				     "mipi_lvds_0_pwm_lpcg_ipg_clk",
++				     "mipi_lvds_0_pwm_lpcg_32k_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_0_PWM_0>;
++	};
 +
-+	ports {
++	mipi_lvds_0_i2c0_lpcg: clock-controller@56223010 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56223010 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_MIPI_0_I2C_0 IMX_SC_PM_CLK_PER>,
++			 <&mipi_lvds_0_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_0>,
++				<IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_0_i2c0_lpcg_clk",
++				     "mipi_lvds_0_i2c0_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_0_I2C_0>;
++	};
++
++	mipi_lvds_0_pwm: pwm@56224000 {
++		compatible = "fsl,imx8qxp-pwm", "fsl,imx27-pwm";
++		reg = <0x56224000 0x1000>;
++		interrupt-parent = <&mipi_lvds_0_irqsteer>;
++		interrupts = <12>;
++		clocks = <&mipi_lvds_0_pwm_lpcg IMX_LPCG_CLK_4>,
++			 <&mipi_lvds_0_pwm_lpcg IMX_LPCG_CLK_0>;
++		clock-names = "ipg", "per";
++		assigned-clocks = <&clk IMX_SC_R_MIPI_0_PWM_0 IMX_SC_PM_CLK_PER>;
++		assigned-clock-rates = <24000000>;
++		#pwm-cells = <3>;
++		power-domains = <&pd IMX_SC_R_MIPI_0_PWM_0>;
++		status = "disabled";
++	};
++
++	mipi_lvds_0_i2c0: i2c@56226000 {
++		compatible = "fsl,imx8qxp-lpi2c", "fsl,imx7ulp-lpi2c";
++		reg = <0x56226000 0x1000>;
++		interrupt-parent = <&mipi_lvds_0_irqsteer>;
++		interrupts = <8>;
++		clocks = <&mipi_lvds_0_i2c0_lpcg IMX_LPCG_CLK_0>,
++			 <&mipi_lvds_0_i2c0_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "per", "ipg";
++		assigned-clocks = <&clk IMX_SC_R_MIPI_0_I2C_0 IMX_SC_PM_CLK_PER>;
++		assigned-clock-rates = <24000000>;
++		power-domains = <&pd IMX_SC_R_MIPI_0_I2C_0>;
++		status = "disabled";
++	};
++
++	mipi_lvds_0_phy: phy@56228300 {
++		compatible = "fsl,imx8qxp-mipi-dphy";
++		reg = <0x56228300 0x100>;
++		clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
++		clock-names = "phy_ref";
++		assigned-clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
++		assigned-clock-parents = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
++		#phy-cells = <0>;
++		fsl,syscon = <&mipi_lvds_0_csr>;
++		power-domains = <&pd IMX_SC_R_MIPI_0>;
++		status = "disabled";
++	};
++
++	mipi_lvds_1_irqsteer: interrupt-controller@56240000 {
++		compatible = "fsl,imx-irqsteer";
++		reg = <0x56240000 0x1000>;
++		interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-controller;
++		interrupt-parent = <&gic>;
++		#interrupt-cells = <1>;
++		clocks = <&mipi_lvds_1_lis_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
++		fsl,channel = <0>;
++		fsl,num-irqs = <32>;
++	};
++
++	mipi_lvds_1_csr: bus@56241000 {
++		compatible = "simple-pm-bus", "syscon";
++		reg = <0x56241000 0x1000>;
++		clocks = <&mipi_lvds_1_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
 +		#address-cells = <1>;
-+		#size-cells = <0>;
++		#size-cells = <1>;
++		ranges;
 +
-+		port@1 {
-+			reg = <1>;
-+			status = "okay";
++		mipi_lvds_1_pxl2dpi: pxl2dpi {
++			compatible = "fsl,imx8qxp-pxl2dpi";
++			fsl,sc-resource = <IMX_SC_R_MIPI_1>;
++			power-domains = <&pd IMX_SC_R_MIPI_1>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0>;
++
++					mipi_lvds_1_pxl2dpi_dc0_pixel_link1: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&dc0_pixel_link1_mipi_lvds_1_pxl2dpi>;
++						status = "disabled";
++					};
++
++					mipi_lvds_1_pxl2dpi_dc0_pixel_link0: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&dc0_pixel_link0_mipi_lvds_1_pxl2dpi>;
++						status = "disabled";
++					};
++				};
++
++				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <1>;
++
++					mipi_lvds_1_pxl2dpi_mipi_lvds_1_ldb_ch0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&mipi_lvds_1_ldb_ch0_mipi_lvds_1_pxl2dpi>;
++						status = "disabled";
++					};
++
++					mipi_lvds_1_pxl2dpi_mipi_lvds_1_ldb_ch1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&mipi_lvds_1_ldb_ch1_mipi_lvds_1_pxl2dpi>;
++						status = "disabled";
++					};
++				};
++			};
++		};
++
++		mipi_lvds_1_ldb: ldb {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			compatible = "fsl,imx8qxp-ldb";
++			clocks = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_MISC2>,
++				 <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_BYPASS>;
++			clock-names = "pixel", "bypass";
++			assigned-clocks = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_MISC2>;
++			assigned-clock-parents = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_BYPASS>;
++			power-domains = <&pd IMX_SC_R_LVDS_1>;
++			status = "disabled";
++
++			channel@0 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0>;
++				phys = <&mipi_lvds_1_phy>;
++				phy-names = "lvds_phy";
++				status = "disabled";
++
++				port@0 {
++					reg = <0>;
++
++					mipi_lvds_1_ldb_ch0_mipi_lvds_1_pxl2dpi: endpoint {
++						remote-endpoint = <&mipi_lvds_1_pxl2dpi_mipi_lvds_1_ldb_ch0>;
++					};
++				};
++			};
++
++			channel@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
++				phys = <&mipi_lvds_1_phy>;
++				phy-names = "lvds_phy";
++				status = "disabled";
++
++				port@0 {
++					reg = <0>;
++
++					mipi_lvds_1_ldb_ch1_mipi_lvds_1_pxl2dpi: endpoint {
++						remote-endpoint = <&mipi_lvds_1_pxl2dpi_mipi_lvds_1_ldb_ch1>;
++					};
++				};
++			};
 +		};
 +	};
-+};
 +
-+&dc0 {
-+	status = "okay";
-+};
-+
-+&mipi_lvds_1_ldb {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	channel@0 {
-+		reg = <0>;
-+		status = "okay";
++	mipi_lvds_1_lis_lpcg: clock-controller@56243000 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56243000 0x4>;
++		#clock-cells = <1>;
++		clocks = <&mipi_lvds_1_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_1_lis_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_1>;
 +	};
-+};
 +
-+&mipi_lvds_1_phy {
-+	status = "okay";
-+};
++	mipi_lvds_1_di_mipi_lvds_regs_lpcg: clock-controller@56243004 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56243004 0x4>;
++		#clock-cells = <1>;
++		clocks = <&mipi_lvds_1_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_1_di_mipi_lvds_regs_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_1>;
++	};
 +
-+&mipi_lvds_1_pxl2dpi {
-+	status = "okay";
-+};
++	mipi_lvds_1_pwm_lpcg: clock-controller@5624300c {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x5624300c 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_MIPI_1_PWM_0 IMX_SC_PM_CLK_PER>,
++			 <&mipi_lvds_1_ipg_clk>,
++			 <&mipi_lvds_1_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_0>,
++				<IMX_LPCG_CLK_4>,
++				<IMX_LPCG_CLK_1>;
++		clock-output-names = "mipi_lvds_1_pwm_lpcg_clk",
++				     "mipi_lvds_1_pwm_lpcg_ipg_clk",
++				     "mipi_lvds_1_pwm_lpcg_32k_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_1_PWM_0>;
++	};
 +
-+&mipi_lvds_1_pxl2dpi_dc0_pixel_link1 {
-+	status = "okay";
-+};
++	mipi_lvds_1_i2c0_lpcg: clock-controller@56243010 {
++		compatible = "fsl,imx8qxp-lpcg";
++		reg = <0x56243010 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_MIPI_1_I2C_0 IMX_SC_PM_CLK_PER>,
++			 <&mipi_lvds_1_ipg_clk>;
++		clock-indices = <IMX_LPCG_CLK_0>,
++				<IMX_LPCG_CLK_4>;
++		clock-output-names = "mipi_lvds_1_i2c0_lpcg_clk",
++				     "mipi_lvds_1_i2c0_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_MIPI_1_I2C_0>;
++	};
 +
-+&mipi_lvds_1_pxl2dpi_mipi_lvds_1_ldb_ch0 {
-+	status = "okay";
-+};
-+
-+&panel_lvds1 {
-+	compatible = "tianma,tm070jvhg33";
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-index e32519b156d93..a94594db34d56 100644
---- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-@@ -80,7 +80,37 @@ led2 {
- 		};
- 	};
- 
--	/* TODO LVDS panels */
-+	panel_lvds0: panel-lvds0 {
-+		/*
-+		 * Display is not fixed, so compatible has to be added from
-+		 * DT
-+		 */
-+		backlight = <&backlight_lvds>;
-+		power-supply = <&reg_3v3>;
++	mipi_lvds_1_pwm: pwm@56244000 {
++		compatible = "fsl,imx8qxp-pwm", "fsl,imx27-pwm";
++		reg = <0x56244000 0x1000>;
++		interrupt-parent = <&mipi_lvds_1_irqsteer>;
++		interrupts = <12>;
++		clocks = <&mipi_lvds_1_pwm_lpcg IMX_LPCG_CLK_4>,
++			 <&mipi_lvds_1_pwm_lpcg IMX_LPCG_CLK_0>;
++		clock-names = "ipg", "per";
++		assigned-clocks = <&clk IMX_SC_R_MIPI_1_PWM_0 IMX_SC_PM_CLK_PER>;
++		assigned-clock-rates = <24000000>;
++		#pwm-cells = <3>;
++		power-domains = <&pd IMX_SC_R_MIPI_1_PWM_0>;
 +		status = "disabled";
-+
-+		port {
-+			panel_in_lvds0: endpoint {
-+				remote-endpoint = <&lvds0_out>;
-+			};
-+		};
 +	};
 +
-+	panel_lvds1: panel-lvds1 {
-+		/*
-+		 * Display is not fixed, so compatible has to be added from
-+		 * DT
-+		 */
-+		backlight = <&backlight_lvds>;
-+		power-supply = <&reg_3v3>;
++	mipi_lvds_1_i2c0: i2c@56246000 {
++		compatible = "fsl,imx8qxp-lpi2c", "fsl,imx7ulp-lpi2c";
++		reg = <0x56246000 0x1000>;
++		interrupt-parent = <&mipi_lvds_1_irqsteer>;
++		interrupts = <8>;
++		clocks = <&mipi_lvds_1_i2c0_lpcg IMX_LPCG_CLK_0>,
++			 <&mipi_lvds_1_i2c0_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "per", "ipg";
++		assigned-clocks = <&clk IMX_SC_R_MIPI_1_I2C_0 IMX_SC_PM_CLK_PER>;
++		assigned-clock-rates = <24000000>;
++		power-domains = <&pd IMX_SC_R_MIPI_1_I2C_0>;
 +		status = "disabled";
-+
-+		port {
-+			panel_in_lvds1: endpoint {
-+				remote-endpoint = <&lvds1_out>;
-+			};
-+		};
 +	};
- 
- 	reg_12v0: regulator-12v0 {
- 		compatible = "regulator-fixed";
-@@ -280,8 +310,6 @@ &i2c2 {
- 	status = "okay";
- };
- 
--/* TODO LDB */
--
- &lpspi1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_spi1>;
-@@ -329,6 +357,30 @@ &lsio_gpio3 {
- 			  "", "", "", "";
- };
- 
-+&mipi_lvds_0_ldb {
-+	channel@0 {
-+		port@1 {
-+			reg = <1>;
 +
-+			lvds0_out: endpoint {
-+				remote-endpoint = <&panel_in_lvds0>;
-+			};
-+		};
++	mipi_lvds_1_phy: phy@56248300 {
++		compatible = "fsl,imx8qxp-mipi-dphy";
++		reg = <0x56248300 0x100>;
++		clocks = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_PHY>;
++		clock-names = "phy_ref";
++		assigned-clocks = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_PHY>;
++		assigned-clock-parents = <&clk IMX_SC_R_LVDS_1 IMX_SC_PM_CLK_BYPASS>;
++		#phy-cells = <0>;
++		fsl,syscon = <&mipi_lvds_1_csr>;
++		power-domains = <&pd IMX_SC_R_MIPI_1>;
++		status = "disabled";
 +	};
 +};
-+
-+&mipi_lvds_1_ldb {
-+	channel@0 {
-+		port@1 {
-+			reg = <1>;
-+
-+			lvds1_out: endpoint {
-+				remote-endpoint = <&panel_in_lvds1>;
-+			};
-+		};
-+	};
-+};
-+
- &pcieb {
- 	phys = <&hsio_phy 0 PHY_TYPE_PCIE 0>;
- 	phy-names = "pcie-phy";
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+index eedca1c300d64..268dd63646806 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+@@ -34,6 +34,8 @@ aliases {
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
+ 		i2c3 = &i2c3;
++		mipi-dphy0 = &mipi_lvds_0_phy;
++		mipi-dphy1 = &mipi_lvds_1_phy;
+ 		mmc0 = &usdhc1;
+ 		mmc1 = &usdhc2;
+ 		mmc2 = &usdhc3;
+@@ -351,6 +353,7 @@ map0 {
+ #include "imx8qxp-ss-vpu.dtsi"
+ #include "imx8qxp-ss-security.dtsi"
+ #include "imx8qxp-ss-dc.dtsi"
++#include "imx8qxp-ss-mipi-lvds.dtsi"
+ #include "imx8qxp-ss-adma.dtsi"
+ #include "imx8qxp-ss-conn.dtsi"
+ #include "imx8qxp-ss-lsio.dtsi"
 -- 
 2.55.0
 
