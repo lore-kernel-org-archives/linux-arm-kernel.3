@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CBBCC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FE6CC6B27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RSU/5zIos1JoD/tFn6BkFqrUZOIf6cM2zH0LKt50WJ4=; b=NqsPUroCW53uc1SSuEh5BaKyGC
-	4iInayG7BTZxYrYyjS6Q3us6apSvHrSNqbWVK1vHXbDtO9/LB0E/V8OBK7Pgm6q/gjqtkP1EUqlbV
-	zMZCFDXzEJCD/Ghcyyj1uz7QIuBJNciPVY51Oo3I+Q+Q4anmqr+0PYXU5DRSFo570wLpTq+hDIYcs
-	5zit3LBQk/pVIZL4MScNXTRJf8FkDVzm2geVNUZeccjOpzjktKVPtzAimwulawryqM94mwecVIy9y
-	4TC18rjez6onqLGra9wi1FNFj1vO2Rhha5ro81/EyQ3tTB3nw7cs4S4cytSo3ajDDCTVGTTcCKlbr
-	XXoZc8mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OGqY9OeuSuI0aEthSsiU7JsrWFGKoAcXGOm0ksXcQTg=; b=I00/SCgZ6MVUSUGB+bHhhIJI5r
+	iNlHH+S/fpTRuzOZKw3QnZuxX6pUX68qYCdUpSoSTkSV4xffb0cQTIY79MP/zvssFQFRBLQqqAMK1
+	0LOMnDC9YuxPwn+0CAA+GbSjXTMWo67J/K1WbDjZk3yU5ZGWwORk5gSOlizwm2f00VZUY7t9fJ4dd
+	0UfVAkPijX1aSstpB72ZZq1nNuCrhD9eOt6l1ai1QjurRgf/l7uppajFQoOs0TxhDS75g5+7K7L2L
+	qsSo+gzYGf/B1/nz6aKq95I1WEY3luEHT/bcOo43WiqF41kUl3Zf2rRzWDEdQhYDaA0DtAe3BHWRg
+	IRihAv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsv1-0000000EfMm-0pgh;
-	Wed, 14 Oct 2026 06:56:55 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1xGta1-0000000EmZ9-447x;
+	Wed, 14 Oct 2026 07:39:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsuh-0000000EfFz-1nED
+	id 1xGta0-0000000EmYo-0wR8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 06:56:39 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1791960982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RSU/5zIos1JoD/tFn6BkFqrUZOIf6cM2zH0LKt50WJ4=;
-	b=YFBEL8lfnu0HHKsSAM11j7Vc8Rcr7CSK82yMQGL+gDoYB/iQ7mN2vmI6VQR7SwZKOyWX19
-	JJO/1WyonTba9OJE0ZNXwqLY2vzYoWLOyvCxjmKZWRmV0N0nNsMSWjmdxImX/jGCX1yAiQ
-	Os4Rk924LXUcskUoOTQOXnWkmpI5RYA=
-Date: Wed, 14 Oct 2026 08:56:15 +0200
-Subject: [PATCH v2 08/10] dt-bindings: i2c: apple,i2c: Add t6041 compatible
+	Wed, 14 Oct 2026 07:39:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 94ABF43F74
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 07:39:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B7371F00893
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 07:39:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791963555;
+	bh=OGqY9OeuSuI0aEthSsiU7JsrWFGKoAcXGOm0ksXcQTg=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=WqRkRRomO92WDiOUWic+S1zHuVNhXsWSqhTlNhkdarMyTWSgdXSEKVpoFMKUT4usk
+	 XUv8PpKBAUMM6AJl2xktCaqgYC12xkTJQvFn2v1THERUM0W2tXYkba4Lj55kBYj+Ac
+	 5C87fGKNhL860wPdWdqDtVbLoFUeD6toPIMc+3HvWKQ7FLIYZ/mT3jF4egkVCKG0QG
+	 WJ5YQV/oeau4uugnNfeKQz+6SSDba1pMWUsneUuVr1skiU3ju4hzL204tnmnoRmMli
+	 oP7bX8upeOJAIr0OXqet5ynKIT3t3G5P5h3DXO0ebIzteQGtw+Havul+HG0PZwtiN7
+	 TCW9BfnBWh49Q==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3a7754c2471so33363671fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:39:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxtEpS1uVni55jutwOnTLJ4oVcS5nByVCV0phGKpavrMILFVF4VyRDIsbuBrosG/5nBzUIQx+qyRmLZ8tcxi6an@lists.infradead.org
+X-Gm-Message-State: AFq9FYLi2EXEgJ/BLI3aiGg11k5DJCt7Kar61aMKUfFYpiM/uJW5Zgwy
+	x0o5wU0qxoNUvmZcfXKex4y64Dgou2ubVT8WGy+fnvXvwQ4WbmJjZKRzahERFlaLpTTxAxY1FqZ
+	HrwWfs6uxCM57ZguqBAFGoiIb9F9wFN3sZrFLDim4Xg==
+X-Received: by 2002:a05:6512:401e:b0:5b8:ef11:922d with SMTP id
+ 2adb3069b0e04-5bcde6cae88mr4673476e87.39.1791963554104; Wed, 14 Oct 2026
+ 00:39:14 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 14 Oct 2026 00:39:12 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 14 Oct 2026 00:39:12 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <5e221ba3-fea2-4663-80a9-94fdd5135e89@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261014-apple-m4-pro-max-initial-devicetrees-v2-8-961edd8d661b@cyberchaos.dev>
-References: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
-In-Reply-To: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Hector Martin <marcan@marcan.st>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Sasha Finkelstein <k@chaosmail.tech>, Linus Walleij <linusw@kernel.org>, 
- Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
- Yureka Lilian <yureka@cyberchaos.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_235637_102490_2A6AC236 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
+ <20261013-qce-fix-self-tests-v10-14-57162a38a554@oss.qualcomm.com> <5e221ba3-fea2-4663-80a9-94fdd5135e89@kernel.org>
+Date: Wed, 14 Oct 2026 00:39:12 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MdqwrTGVtnZuVUsn8onTMxxhbysVfUPtmABL2a1Avd2_A@mail.gmail.com>
+X-Gm-Features: AclHuK_y_qSg5r7k-9srjbMx_1U4_7rx7a-kKL338uumbIkGOujVoeMBFDNQ3IU
+Message-ID: <CAMRc=MdqwrTGVtnZuVUsn8onTMxxhbysVfUPtmABL2a1Avd2_A@mail.gmail.com>
+Subject: Re: [PATCH v10 14/14] arm: multi_v7_defconfig: enable the Qualcomm
+ Crypto Engine core driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, brgl@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, 
+	Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +94,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i2c block on the Apple Silicon T604x (M4 Pro/Max) SoCs is compatible
-with t8103. Add "apple,t6041-i2c" as SoC specific compatible under
-"apple,t8103-i2c".
+On Wed, 14 Oct 2026 08:19:23 +0200, Krzysztof Kozlowski <krzk@kernel.org> said:
+> On 13/10/2026 11:57, Bartosz Golaszewski wrote:
+>> The QCE core driver should be enabled by default as it binds to the qce
+>> device node and scales down the interconnects if no child auxiliary
+>> driver is using the IP. Add it to the multi_v7_defconfig. Disable the
+>> crypto part of the driver by default.
+>
+> Missing use case/hardware (see maintainer profile).
+>
+>>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>> Tested-by: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
+>> Tested-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+>
+> Drop fake tests. You cannot execute defconfig on the device.
+>
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
- Documentation/devicetree/bindings/i2c/apple,i2c.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Ah, dang it. Sorry, didn't verify b4's actions.
 
-diff --git a/Documentation/devicetree/bindings/i2c/apple,i2c.yaml b/Documentation/devicetree/bindings/i2c/apple,i2c.yaml
-index 641f24b0ef4b..56bb07a2ec01 100644
---- a/Documentation/devicetree/bindings/i2c/apple,i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/apple,i2c.yaml
-@@ -26,6 +26,7 @@ properties:
-               - apple,t6020-i2c
-               - apple,t6030-i2c
-               - apple,t6031-i2c
-+              - apple,t6041-i2c
-               - apple,t8122-i2c
-               - apple,t8132-i2c
-           - const: apple,t8103-i2c
-
--- 
-2.55.0
-
+Bart
 
