@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772F3CC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B1DCC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9drWIXfr1DDCei/MMFdnXnXQjS0PR3I+D9u3gYliR1s=; b=AKr1LigCq68Sls4tWNUDsK8GEG
-	WjM9f8gcMaIBvbJnEJe9ycH/UFrVRC4rOxHDQhxndoYWzryksT3WaisptKD0588mDTmqGLP+bOphY
-	oe2UaWm1zpRCTXC+1X1c3wchkplACJUpFp13M2khCk9IbSkTAnZo+IeuuUEFYx9/trUtDQL8DQOdJ
-	EJdrP1beX1Z8ZGZdv/C1z3OFq+INnX6WGRhFR4wMIxGZrTa1PwKTUQ5NuYuaZvxaWq0oLgZgMBTos
-	jRYxeiFGUG7eePKCWffKs1AIRNFrDEaDgU2SZlvSg6Gv2RyS1B23QaMrMVLjZOISgYL248FeTLMzQ
-	by/GjBxQ==;
+	bh=e6vCgS7KAygFla7uat3bQZIFCdUqlIN833SV0CdLwlo=; b=2IGU7nnV94Z9Vr9SnzfbKnhEd6
+	iZrgb3iL+c3ZnbKxHtGyHagxE1xJ5WUWzhGrCId23d+WjigvI3M9WFaeaALpX/drYz5HCLOYsqdpM
+	G4p7wW50FKlbk0ApnYUvGnSJnI0akqOUupuAfhkww/PhYGDm7EoJPmwtOKYntIr5R4A1OSUnumjSg
+	Wh+Qes8/7X6dCRZ9IX0LU0GHfNZ6NzR1/puPomYyWwnkeewLcqpSQmEs6JfhAYGAsTVHgqNnqfOZ8
+	dqhgzD5t6uHVv9iWjzHv83zIVHPCdjFLFTkoz71snohV1nzvs2seDjMLqD8Qv+5r/o51SDkKJy4fh
+	nZOoxdNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2mZ-0000000G4sG-1KJW;
-	Wed, 14 Oct 2026 17:28:51 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2mW-0000000G4rP-2vEh
+	id 1xH2o2-0000000G4yg-2qff;
+	Wed, 14 Oct 2026 17:30:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xH2nw-0000000G4yI-0Fmi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 17:28:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0D5741A122D;
-	Wed, 14 Oct 2026 17:28:43 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D2AF360368;
-	Wed, 14 Oct 2026 17:28:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51E38103289C5;
-	Wed, 14 Oct 2026 19:28:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1791998921; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=9drWIXfr1DDCei/MMFdnXnXQjS0PR3I+D9u3gYliR1s=;
-	b=DZTjr4rcD+U5hXiQ9kZTaTOKC2GXTRTIsMAo+WCZcrT6F3sSswagtAMUmWEUX12H0lBz8N
-	xxd1/ThZHjPRScs61HupWe1i4jhO43uMK8JPmPScISePuBcl2XiFX5GHOTKmKVrOqrDRI4
-	gERKpF9ZYqWmpBwtxonAeZnudDPMuAvCrAdnfrZWwsXd2YdD0Nf7rX0h4+/4k53Y6xk6tV
-	HC8E8EL9m9E1bYVdRFtk6F5tfhFQnEYtBDfBGTv6oyLBwJcTXAd77IJzZ3w3YyD3G62O7D
-	MdhwpTjrIdq3O/DiyxTYrHAhjZvDfKqdnv3xud/gF7Cciq2oz2omThfldbc1ZQ==
-Date: Wed, 14 Oct 2026 19:28:35 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Sander Speetjens <sander.speetjens@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v11 2/3] dt-bindings: rtc: Add property for Raspberry Pi
- 5 RTC
-Message-ID: <20261014172835a731fd1b@mail.local>
-References: <20261014083016.332338-1-sander.speetjens@gmail.com>
- <20261014083016.332338-3-sander.speetjens@gmail.com>
+	Wed, 14 Oct 2026 17:30:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 529F214BF;
+	Wed, 14 Oct 2026 10:30:10 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6F1F3F7B4;
+	Wed, 14 Oct 2026 10:30:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791999013; bh=by6on7IdoMYA3UgFmnlrUVtDz0jT2YuuuHv7ehz4Vso=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E4CG3nEOJur/swv/CcWIZxoJS4pKFo0RuEfa5DM8aE7EMBLJn65YktaO44KhAlXB7
+	 bw6eDbluamnlZF1rnjsrIfsz63OJrzt204E5UyMZar/mt+2wx50LMAxsDjldFlXTMD
+	 RWcwvHKgm4WJE/QOobu/GjxkHKSvYEUzujQTarWY=
+Date: Wed, 14 Oct 2026 18:30:10 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: gcs: Store GCSCRE0_EL1 values instead of
+ userspace mode
+Message-ID: <as-8IqsbMbOBo5Oq@arm.com>
+References: <20260917-arm64-gcs-store-gcscre0-v1-0-3c9fa9213bac@kernel.org>
+ <20260917-arm64-gcs-store-gcscre0-v1-2-3c9fa9213bac@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261014083016.332338-3-sander.speetjens@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20260917-arm64-gcs-store-gcscre0-v1-2-3c9fa9213bac@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_102848_878622_9B0E8EC7 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20261014_103017_741142_6740AFFF 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +70,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2026 10:30:15+0200, Sander Speetjens wrote:
-> The Raspberry Pi 5 has a built-in RTC that can be battery-backed
-> via the VBAT pin. When a rechargeable coin cell is used, the
-> hardware requires a trickle-charge voltage to keep the battery
-> topped up.
-> 
-> Expose the trickle-voltage-millivolt DT property so the driver can
-> program the correct charge voltage for board specific configurations with
-> the attached battery.
-> 
+Hi Mark,
 
-You are missing a comment from Krzysztof:
-"Commit msg could explain that you do not reference rtc.yaml due to node
-naming rule."
+On Thu, Sep 17, 2026 at 11:14:17PM +0100, Mark Brown wrote:
+> diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+> index 6dfbcacd9ba0..5b9b22ce9329 100644
+> --- a/arch/arm64/include/asm/processor.h
+> +++ b/arch/arm64/include/asm/processor.h
+> @@ -196,7 +196,7 @@ struct thread_struct {
+>  	u64			tpidr2_el0;
+>  	u64			por_el0;
+>  #ifdef CONFIG_ARM64_GCS
+> -	unsigned int		gcs_el0_mode;
+> +	unsigned int		gcscre0_el1;
 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
-> ---
-> V10 -> V11: No changes
-> 
-> V9 -> V10: No changes
-> 
-> V8 -> V9: No changes
-> 
-> V7 -> V8: No changes
-> 
-> V6 -> V7: No changes
-> 
-> V5 -> V6: No changes
-> 
-> V4 -> V5: As discussed with Conor Dooley, the reff to uint32 is removed
-> and a PR is made on dt-schema adding millivolt to property-units.yaml
-> 
-> V3 -> V4: Add a reff to uint32
-> 
-> V2 -> V3: Fixed the firmware property naming
-> 
-> V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded into
-> the existing raspberrypi,bcm2835-firmware properties.
-> 
->  .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml      | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> index 983ea80eaec9..dc71fd57834e 100644
-> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> @@ -133,6 +133,11 @@ properties:
->      required:
->        - compatible
+u64?
+
+> @@ -593,9 +594,7 @@ static void gcs_thread_switch(struct task_struct *next)
+>  	/* GCSPR_EL0 is always readable */
+>  	gcs_preserve_current_state();
+>  	write_sysreg_s(next->thread.gcspr_el0, SYS_GCSPR_EL0);
+> -
+> -	if (current->thread.gcs_el0_mode != next->thread.gcs_el0_mode)
+> -		gcs_set_el0_mode(next);
+> +	write_sysreg_s(next->thread.gcscre0_el1, SYS_GCSCRE0_EL1);
 >  
-> +  trickle-voltage-millivolt:
-> +    $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
-> +    minimum: 1300
-> +    maximum: 5000
-> +
->  required:
->    - compatible
->    - mboxes
-> @@ -144,6 +149,7 @@ examples:
->      firmware {
->          compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
->          mboxes = <&mailbox>;
-> +        trickle-voltage-millivolt = <3300>;
+>  	/*
+>  	 * Ensure that GCS memory effects of the 'prev' thread are
+
+[...]
+
+> @@ -763,7 +763,7 @@ static int restore_gcs_context(struct user_ctxs *user)
+>  	if (!(enabled & PR_SHADOW_STACK_ENABLE))
+>  		enabled = 0;
 >  
->          firmware_clocks: clocks {
->              compatible = "raspberrypi,firmware-clocks";
-> -- 
-> 2.56.0
-> 
+> -	current->thread.gcs_el0_mode = enabled;
+> +	gcs_set_el0_mode(current, enabled);
+
+I think we have an existing bug here and it's more serious without this
+patch. restore_gcs_context() does not update the actual register and,
+with current mainline, we may even skip the hardware write in
+gcs_thread_switch(). Basically one task can disable GCS for another
+task. Can we get gcs_set_el0_mode() to actually update the register as
+well?
+
+On the sigreturn bug, do you recall why we thought we needed to update
+the gcs_el0_mode in the signal handler (or even expose it)? Wouldn't it
+be better if the signal handler did a prctl() directly if it needed to
+change the mode for the current thread?
+
+I don't think we have any precedent for allowing sigreturn to update an
+EL1 sysreg. In hindsight, we shouldn't have exposed it at all but that's
+ABI now. The next best thing we can do now is check the field hasn't
+been modified and fault otherwise (assuming no-one does anything with
+this field).
+
+> @@ -120,29 +120,39 @@ SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsi
+>  	return addr;
+>  }
+>  
+> -/*
+> - * Apply the GCS mode configured for the specified task to the
+> - * hardware.
+> - */
+> -void gcs_set_el0_mode(struct task_struct *task)
+> +void gcs_set_el0_mode(struct task_struct *task, u64 flags)
+>  {
+> -	u64 gcscre0_el1 = GCSCRE0_EL1_nTR;
+> +	task->thread.gcscre0_el1 = GCSCRE0_EL1_nTR;
+>  
+> -	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE)
+> -		gcscre0_el1 |= GCSCRE0_EL1_RVCHKEN | GCSCRE0_EL1_PCRSEL;
+> +	if (flags & PR_SHADOW_STACK_ENABLE)
+> +		task->thread.gcscre0_el1 |= GCSCRE0_EL1_RVCHKEN | GCSCRE0_EL1_PCRSEL;
+>  
+> -	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_WRITE)
+> -		gcscre0_el1 |= GCSCRE0_EL1_STREn;
+> +	if (flags & PR_SHADOW_STACK_WRITE)
+> +		task->thread.gcscre0_el1 |= GCSCRE0_EL1_STREn;
+>  
+> -	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_PUSH)
+> -		gcscre0_el1 |= GCSCRE0_EL1_PUSHMEn;
+> +	if (flags & PR_SHADOW_STACK_PUSH)
+> +		task->thread.gcscre0_el1 |= GCSCRE0_EL1_PUSHMEn;
+> +}
+
+Are we preemptible here? I think we are, so we should build the value
+and do a WRITE_ONCE(), otherwise the switch code may get confused.
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Catalin
 
