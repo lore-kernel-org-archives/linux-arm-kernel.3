@@ -4,114 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF23CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E1DCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 10:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XemIgLfXAXsX5F5DvdAMtcb2KhZv0+MaaLg/MSFJqAo=; b=BupfkSbm0QrRK2NGEWi2kQhDBr
-	IbIph6wLsx0OlDVCfttaEqwZPaKJ0NDrDnidbcABKpP5GW81qjM+Y/gRBF/GVwVEtgmxGJgFQh1As
-	6gZNWqrE11qxvdIq25YurdgPnP4KhZVZ1WDpoZGPL3ybSq9ZDISM8KIm130H0Tch+WZQvJIOnwn1R
-	JRcl1TbwWhHrPu82S67WW8etmeYKead+HC9FSOUoUCGFraOH7b0nW/hz6gIDtfMILqCgZlNaJwfto
-	QX04tVMSv4IsfCZUVJ38DCePe6z7Cc9nFHsvl2pRhe60mSjvxIksXS/Tc5JSYzVLcLgZ6nToFg0Hw
-	aYBFtELQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XSz/+BnjQYgbijbHrwe+bRqrS/QzOKRHyeoICSuw/es=; b=dfVJP0EGWPYtjlmHyYeIB7hL5K
+	SxxWiJWdrK7NGyWnvaJJqMfOro7q5JJPBkgueAX2xiaGo3eiJOxSarnTzcFChQycFd9jDuhdi8nc6
+	o3kprSBXECQ1am3qzp0BselyCgH9P7Em6FvOeV3uGFIsuhF2dx6AIVWUn9bzHkMR6djeEIvsQT/4A
+	v0W2fP+AfbPp5SWQrmxK+Zwki/2cTAGxD9b2mANfN6rkaNE/MbHyuMwYb+tgnEaMBLQpXrcubbK+U
+	WU4Dsxnncx0sk/hZdkLZbrFlmTsnblR4+AiCPNZUqP0JESTZiCNJ3GOSsR+75yzNVwvMHfIJeZsK2
+	r2ST1R8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvqp-0000000FAAY-3nWp;
-	Wed, 14 Oct 2026 10:04:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xGvto-0000000FAdp-2ZOo;
+	Wed, 14 Oct 2026 10:07:52 +0000
+Received: from mail-southcentralusazon11012014.outbound.protection.outlook.com ([40.93.195.14] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvql-0000000FA7h-2mjQ
+	id 1xGvtf-0000000FAch-0ZIa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 10:04:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1791972281;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XemIgLfXAXsX5F5DvdAMtcb2KhZv0+MaaLg/MSFJqAo=;
-	b=E3A3Lwxfd7RtHnhyYfATiE8BMQATbHnPK9oc1dT7N7P5ZPGhQvg4t4/dnyFRviLJz1+2Ei
-	RlBOVjkSICZQ9q795spDONdTnBHpnytetCLTHysXkMXnFQgkh9M1fXcNDInAO6TocEhoF+
-	xcrlqsqJh6roi/lzd5luTmyFv/xCjvs=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-512-vk7HrLMIPWqWqTJt9PiL1g-1; Wed, 14 Oct 2026 10:04:40 +0000
-X-MC-Unique: vk7HrLMIPWqWqTJt9PiL1g-1
-X-Mimecast-MFC-AGG-ID: vk7HrLMIPWqWqTJt9PiL1g_1791972279
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a01d1fb07bso8869455e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 03:04:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791972279; x=1792577079;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XemIgLfXAXsX5F5DvdAMtcb2KhZv0+MaaLg/MSFJqAo=;
-        b=xM8841k22C3vIgVx0e73sbgylpW9qCmci1ukoxPhbyFFPuCMafhjJPCrD3NZdWUdUd
-         5FqStEHNHUwAs830DEulbL8BQ/grl8cr/ZvCUb3sQnNp+tGrT1cum3pnwvcz1c46PeGn
-         eOZNT9cwMDNA2e5k2Ui9C6ktoJJLZ9VWJ6LEmgauYYN0zgfcbuLCnKpvUWzXqQXMnssx
-         31hPIANx/KFXMRq0+AvaTZNe717KH8b6oMVH5pRKSwBepO52nmw1Xe7n0MvEd8ojbAh0
-         D//75dbZN68FtpL1mkMKndiPEfWYJ3NSYMuXA4P7yEpqMRb9aIyNkWyhXMg/cjrZ9w3G
-         Gscg==
-X-Forwarded-Encrypted: i=1; AKwUvBxI4rEuAmyqOUEq8ZR4M63rod1X3IW9XNKTQGXRLEhZ+NBIaVsfOxQCX2K1V5EwSJ/cDbOEm6aZNmdsWOUq2aYB@lists.infradead.org
-X-Gm-Message-State: AFq9FYIntCPF1rtyINviULj0A4kOa4hgJ6SjN2uJKE4UAxpqWs9YoZJa
-	KN7J6FlbfqNm49ozUV0ULVKMb/NocHisnPh6KpjcavSxdR7N+mCZNJC6AiB7BJIH9yG+vEvHk8V
-	mCff2hAwxNOP6z4SjQesd5UG5wnfUmQJTjfOJBpgpojl6quDFdsTvRSHaxkYeqqmp/OI7upngYu
-	lU
-X-Gm-Gg: AYBFou3EKwi3go+dFGPGjtZFe5ECx/gvTE3eARpE3ELTKNvpP+0NChVdFz4mHMl2ziP
-	1XF0yd8JLzIHV1E5FYD/t7i4iGlaelJvhffgiZH7TWruG+9DtXWET1L+jnw4KBtkXWyqZOFb/h3
-	tuoC7XsdVrqS1MURR91lxXMOFFe5uMlPKkp0ZS6bW7JxqbwnO2WQnyO6horCckqdBF2+XoZPjd5
-	qGRtHgJg4BhunBUj72zYW2GHwbpL0UAKrS0Usbo84TOUZ7C/JWXpay7AwPHjKlkosEdImnZGh7h
-	auNrwmurqdXp/GQNlqGIJ/h7ViOaPoEfe5H3hzngi1MvG9NHhlkcpEhLZOZvWeUQvwHzBaC1hXj
-	ulXxj3FhHoEgnjmnCHkUoTLj+WbGwG1eXiGL1fcrnIiIUGYSwzItq7wmltAuGmgDMIvJTynukmg
-	==
-X-Received: by 2002:a05:600c:6383:b0:4a1:a6e0:4ce4 with SMTP id 5b1f17b1804b1-4a1a6e04d7cmr101285235e9.33.1791972279252;
-        Wed, 14 Oct 2026 03:04:39 -0700 (PDT)
-X-Received: by 2002:a05:600c:6383:b0:4a1:a6e0:4ce4 with SMTP id 5b1f17b1804b1-4a1a6e04d7cmr101284465e9.33.1791972278755;
-        Wed, 14 Oct 2026 03:04:38 -0700 (PDT)
-Received: from [192.168.188.234] (ip232-47-231-195.pool-bba.aruba.it. [195.231.47.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18bf3e044sm419838595e9.14.2026.10.14.03.04.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Oct 2026 03:04:38 -0700 (PDT)
-Message-ID: <3d3b9f10-e3e8-4d50-b543-0d451cb07598@redhat.com>
-Date: Wed, 14 Oct 2026 12:04:36 +0200
+	Wed, 14 Oct 2026 10:07:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tpLZEnSoHQMAd6KRO9e1mezxbTOebkybRkZnVGlI9M72vdcGtNnaQegNapDfsnGy6lgtTExs3Ozqtz8BzJSQjHTafpXRacSNdesdMWpPJ6YALeQOuqu678W+KuFdTBvpRyx+5mHAq+/hfdyB1mAsa6RMWfAzxtcvRvYcZb8MSS7SDKy02scjxTCBa9N060015Ax/aO7IuqCWiKqU6EgWSWHti6PM/peeFKYu9zcfhrP1PRvFjLS8enBxavEk15Bhy0+dN4HfzkR8t9hAyeQj27nEilum1hT0a22n3Ty7h2rr18cBsKHxT7Wx0tj5iSAwlzIDYCuMNvEbTCRBRL+MuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XSz/+BnjQYgbijbHrwe+bRqrS/QzOKRHyeoICSuw/es=;
+ b=QdS8+M9PVrlb4EPZ24kTjkzSYLUEGlquxh2K9DJwIQe9Utu5T11XEhEzI17hzMPQW1ysNw6mf/V0WSxlS5h8mNfw0A08YZAx90ZyKP4ROc4Ki16gRqYbMt/dIR6YzGCymANLw3evVyVRjAHT14Y450XpIZDwrzCdr7s1X0QKUxBpGFv22xCYReVaGH0TnlBhb34DbXVDZ2eILJJZjmWVB1J3dYCRzUIMwJuahEW5Y16Q7yNq6gytG8l1BVZYacPdtlw+B7CpLv6VtrFlSOy8BCdVlrrWwaqczzjVza2+HZS30vlf3EHmjlSftMrTmv5AuM8brFGPotzNyW3cJdLteg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XSz/+BnjQYgbijbHrwe+bRqrS/QzOKRHyeoICSuw/es=;
+ b=c5jVfFE66lgtOcTdpz+Zoz4Erzj+H1AfazSxHpcgHR+r4czzO9TdmNH3FyX2RME7w4z0ly42/f2blPSaKrDmJZamp717h7rauaZIFSEtn05EBNbOAv1mvMinZVTQ7YPRvQ2JsamIeTMUXuYzXEH+rnsmCbH4+hVzuMue16xUT5mTEyfWTC9JWqdHA4CnqXOP/lcJu/QjMpcQ0UduSTMxIHzjZVl2PGEj8MCUJc4+yRGV+vrs8P1Uv33gvl09KXo30qS7Riex4uErniEdctL8oAXxsxxV+5l2Ayney9sN2/J8v0zONc498tbUDih4fbT1IjHpPSKj+patalofYy/N+A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SAWPR03MB989178.namprd03.prod.outlook.com
+ (2603:10b6:806:4d3::18) by DM6PR03MB5194.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Wed, 14 Oct
+ 2026 10:07:37 +0000
+Received: from SAWPR03MB989178.namprd03.prod.outlook.com
+ ([fe80::433c:5b4a:9497:d73e]) by SAWPR03MB989178.namprd03.prod.outlook.com
+ ([fe80::433c:5b4a:9497:d73e%3]) with mapi id 15.21.0522.011; Wed, 14 Oct 2026
+ 10:07:37 +0000
+From: Mahesh Vaidya <mahesh.vaidya@altera.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Cc: Dinh Nguyen <dinguyen@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	subhransu.sekhar.prusty@altera.com,
+	mahesh.vaidya@altera.com,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Radu Rendec <radu@rendec.net>
+Subject: [PATCH] PCI: altera: Convert root port IRQ to a requested handler
+Date: Wed, 14 Oct 2026 18:07:23 +0800
+Message-Id: <20261014100723.1643089-1-mahesh.vaidya@altera.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0005.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::23) To SAWPR03MB989178.namprd03.prod.outlook.com
+ (2603:10b6:806:4d3::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 0/3] net: phylink: wait for a PHY that probes
- after the MAC
-To: Aleksei Sviridkin <f@lex.la>
-Cc: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <olteanv@gmail.com>,
- netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <aa01ab1c-da2c-4638-816b-f535b635379b@redhat.com>
- <20261013151233.2474217-1-f@lex.la>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261013151233.2474217-1-f@lex.la>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MOBqD5KAAtPq-1vKTZ--5Plah-JFxZWDJy4vv2YjdNo_1791972279
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SAWPR03MB989178:EE_|DM6PR03MB5194:EE_
+X-MS-Office365-Filtering-Correlation-Id: 881ea6af-e12c-4357-377d-08df29daf96a
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|23010399003|376014|13003099007|55112099003|261009220027099003|261009223027099003|18002099003|56012099006|261009223327099003|5023799004|11063799006|261009221227099003|261009221727099003|10067099003;
+X-Microsoft-Antispam-Message-Info: 3gyHoryd1jLlgRBpHW2VcSDiL9egZ5y4cfoV5gzcTB9pK6P9gLa7aX2GVqLnZVWnEJ6kirr6xrxLB1SvazQPj711QD2XMrhr/l1lA6GMOpafv+lrq3kdpwTfJZU402arnpv2tHnaHnXPd2T4TPddh51BwY5NvbvWk1PFM/Hi5FdGyxu9ne/YypqPospRfntpK5cvOqq8W4RX7XuMsCbYx72w7wh1yuE8jBu4zaVdaJG6qa2+wQLEgD36Jon/AN6bUPgmLAvkuvMwIdyb+UGVi3bhmyFG65Jw66C2p+FIxleRs/lA2D0WIQl2BVeFTgSTsHzV9YjfThqltQo5bCOYKo/WNAZhop8HW4R+Qdlzc7JzqgZo1R8v4ec9KPvkT1QlLobUHz4yL3hmFleOh2qRu5CrzVRt0IuPPa1nMg8iUHXzsyl+JWpf6+4egaEd7/ZyKQ5nlK9IKzY9AwKVXwqusDaXgAaANLG3TyZgP21X1/bjIT22s6iNIce95POLlQPPIyCME9z0J8TvFdxI9MXC0uxyUOMXnhvcR6Xx29WGcjOD0I2+0drXZlnfrYtNfAUCGl2EZ+B559JWD2n00FhPjDzAAfxsy0Jg0aXDNNKrr/rhYDvV3EvBohFxeGty2XoV
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAWPR03MB989178.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(23010399003)(376014)(13003099007)(55112099003)(261009220027099003)(261009223027099003)(18002099003)(56012099006)(261009223327099003)(5023799004)(11063799006)(261009221227099003)(261009221727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VLTtmsfJyFaVZ9hRj1/1SGjz9NgFene4p6ra7H3Jt0o9l5sP5+/IWQGuJTYt?=
+ =?us-ascii?Q?YFLNgTTeS0fy9xWgm4IpHnt0oyyXhYHsLlxW1Fj6+CrGVK6hU+9M8z3b+UYl?=
+ =?us-ascii?Q?1hMlrQT0SxwRjtx4ZghAJ88mu4HnfGdXtKMXJldl3XDx16PmjeLzjgShQ+kk?=
+ =?us-ascii?Q?f37QpiSMqvWfK7iyH5mKqQNTj1t1g+LEHVZa0Bg/arQ5ZjowTzKcBZ77t9Jq?=
+ =?us-ascii?Q?cWVrKeaR1JSRTq1rpx9KY1ckr8xDdLVu1kQCiiw7Iex+CeRbNSVbwxEGrbwG?=
+ =?us-ascii?Q?hHbLCUI3eax9LMTDZUww8JElcildoGhQIwbEmrEHqfc8Hpl5N2VaEXVu1tLF?=
+ =?us-ascii?Q?vW1YPY8gailJOR297M/TgTLCQZrjpQsLobawv8wNo3B0okQfowLKCEKMJn6m?=
+ =?us-ascii?Q?lu396bWeNgECRw1+he41soeXnXetfT7XapvIwZdLv9A5agE7S3dz8aA9z3a+?=
+ =?us-ascii?Q?7umyO3enAS/J8t70T02LxVlp1OAhk9cEabT2BtDT/zFTwJJwwGzr6jLRVvap?=
+ =?us-ascii?Q?akBekWPPzJ+nj11+dIpH3hQSpNMsAcqICKVyQB23Jch2WYt7UhCYUdOuLW5W?=
+ =?us-ascii?Q?t+jILNcyg8MXAWZPzZE3RLhHXjaM+UrSsQI+t/mSmMcG/y2mr7YtI6YaoxfE?=
+ =?us-ascii?Q?LAFgpOLHZsh412XE0k2H35FrD5nPt3TXmfKMyX45OInLoXlK2hUpcjO20BGi?=
+ =?us-ascii?Q?ZvHvddZMfbO0diChoB6TRgiIdke7XdpjzFmVTYHo7bysTrN36sAj2Yt8Gl/5?=
+ =?us-ascii?Q?C6RlBbGxJvsw/r9zuVIAskv0jnDI8+RB2Ya8yZ+Z4WzOG6dY+crqACOVPbXa?=
+ =?us-ascii?Q?wRHGInmgBAnZ5YfX/4aaW7JOfvKKI789UPP+4pdKUPFKWRDe9afQVkKb8gt+?=
+ =?us-ascii?Q?8oMQeZ8Mxqsi9pSEygTfTxjIwEPXkN+4GB5Y+RT7Ly9Sy86eF+JEhKuxsRZi?=
+ =?us-ascii?Q?pamGYABSkHb6iagvyZ2mPn+5RlQFJW/faxdVZpTfHE0Nvn6vQVoEDUmW/j/h?=
+ =?us-ascii?Q?iZRIWM2DRV1/jIv+kQZqoJc7aWWmpt2HjEv2ybGtZmSi4EDsNTq2boDrzFHD?=
+ =?us-ascii?Q?KaFuFHk8wL84gh3ldHTTJ5hv5g90ivQq1TfAbk+dCdfbVsgjbCrDT6+9Beey?=
+ =?us-ascii?Q?wunxAOal4q65iQs3FPMupOqeccvoCrrvE51huuhizofW1rSjvkQMEuf+jrdZ?=
+ =?us-ascii?Q?rtzB0O+wHjParJHOO6pMnETwKLbqYRzOlA7i/YHMQH0nSwC13eRezpbX6Vpv?=
+ =?us-ascii?Q?jWtm/FJb5xkSsbF5VCccS8nw7e8uK4PVmMh0pvdnjU8VRf6Tirq2MyxdTFBR?=
+ =?us-ascii?Q?qBrjzedSWQllnWTLy/WhWnFYsfJvZpdXWf7KHYhSGEUTut8voSWw8qRItXez?=
+ =?us-ascii?Q?+IxuD7Trhyb4EvduqEZpuBNG3WurrRDRjRTTNF44hAZrvsuy4SsC5xCAzjDc?=
+ =?us-ascii?Q?u8RQLDBNb3Y+B5CWyrACv+O+ZgP1vACjuFqxZVkGQtxSj79FYt8FOadjq96L?=
+ =?us-ascii?Q?fYyOT2TfY3rhYchRQD7z7Et+QMFJbhVuBO+3TGRYev388+yYBsImmNdZXCiW?=
+ =?us-ascii?Q?aAncklcpHWxfFvEb6CWilZHk6QZg5kTChl6gTYplM69ocXZynhRQ2Itu7NK7?=
+ =?us-ascii?Q?qvSF9wYoRDh1I9PC65ry3ccblvOfnulgk+WDxj26TBSayyzy65FjIlXOlxDz?=
+ =?us-ascii?Q?6cvTU0uUroF5sOy1TfWgJEDG4bXWNIeL+Sj3LL0LF3w+lrIHxM6on2awvT0X?=
+ =?us-ascii?Q?LlbOBRVQ8g=3D=3D?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 881ea6af-e12c-4357-377d-08df29daf96a
+X-MS-Exchange-CrossTenant-AuthSource: SAWPR03MB989178.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 10:07:37.5058
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Symq/8HukdaWO/unyzJXR+rKVf1HM1uZX9lU/Qrc2Ml39j+iVfGV5oeyAV2UI4SOAFyctcY+9fNPU33Qj0DMypXfQkwLOVIGAJ4khU6vn2g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR03MB5194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_030443_789975_3F7D98C2 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20261014_030743_240012_7A43F6DB 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +146,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/13/26 17:12, Aleksei Sviridkin wrote:
-> On 10/13/26 09:53, Paolo Abeni wrote:
->> The above looks like a significant amount of complexity for OoT driver,
->> and I understand it could be solved with a different kconf?
-> 
-> The PHY driver is in mainline, air_en8811h. Only the board's device
-> tree lives in OpenWrt.
-> 
-> A config change can avoid it, but it is expensive here. Building
-> air_en8811h in is not enough, since it loads its firmware with
-> request_firmware_direct() from the root filesystem, which is not mounted
-> yet when the switch probes. It also needs CONFIG_EXTRA_FIRMWARE with
-> 144 KB of blobs, in a kernel that OpenWrt shares between every board
-> of the subtarget.
-> 
-> Is that the expected answer for a board like this one, or would you
-> take a smaller change in phylink?
-To me this series still looks too much churn for something that has
-alternative options. I would like to hear a 2nd opinion from Russell,
-Andrew or Heiner.
+altera_pcie_irq_teardown() removes the chained handler before removing
+the INTx domain. Removing the handler prevents new invocations, but does
+not wait for one already running on another CPU. Such a handler can
+therefore access pcie or pcie->irq_domain after they have been freed.
 
-/P
+Chained handlers bypass handle_irq_event(), so synchronize_irq() cannot
+rely on IRQD_IRQ_INPROGRESS and may return without waiting if the parent
+irqchip does not report IRQCHIP_STATE_ACTIVE.
+
+Convert the chained handler to a requested hard IRQ. Request it only
+after creating the INTx domain and call free_irq() before removing the
+domain. free_irq() then synchronizes against any in-flight handler.
+
+Use IRQF_NO_THREAD because generic_handle_domain_irq() requires hardirq
+context. Use IRQF_NO_SUSPEND to preserve the suspend behavior of the
+previous chained cascade. Request and free the IRQ explicitly because
+automatic devres cleanup happens after remove() returns.
+
+Fixes: ec15c4d0d5d2 ("PCI: altera: Allow building as module")
+Reported-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://lore.kernel.org/linux-pci/20260430204330.3121003-3-mahesh.vaidya@altera.com/
+Suggested-by: Dinh Nguyen <dinguyen@kernel.org>
+Assisted-by: ChatGPT:GPT-5
+Signed-off-by: Mahesh Vaidya <mahesh.vaidya@altera.com>
+---
+This converts the driver as Dinh proposed in [1], where sashiko raised
+the use-after-free while Bjorn was considering 7a94138caeb2 ("PCI:
+altera: Fix resource leaks on probe failure") for backport. Dinh offered
+to write the conversion there; we agreed I would send it, since I have
+V2 and V3 hardware to test it on.
+
+[1] https://lore.kernel.org/linux-pci/20260430204330.3121003-3-mahesh.vaidya@altera.com/
+
+Note for reviewers, on IRQF_NO_SUSPEND:
+
+Converting the parent from a chained handler to a requested one changes
+its suspend behavior, because suspend_device_irqs() skips chained
+descriptors. I used IRQF_NO_SUSPEND to preserve the existing behavior
+rather than change it in a fix. I would appreciate confirmation from the
+IRQ maintainers that this is the right call. The alternative is to omit
+the flag and accept the behavior change.
+
+Tested on Stratix 10 (V2) with an igb-driven Ethernet endpoint using
+INTx and on Agilex 7 (V3, M-series R-tile) with an NVMe endpoint using
+INTx. On both, INTx delivery remained correct under sustained load with
+no spurious interrupts reported, and repeated driver bind/unbind cycles
+with interrupts in flight produced no warnings and no crashes. V1 shares
+altera_pcie_isr() with V2, so the converted handler is identical there,
+but I have no Cyclone V hardware to confirm it.
+
+On backporting: I have not added Cc: stable because the conversion
+affects all three supported generations and V1 remains untested. If you
+would prefer this to accompany 7a94138caeb2 into stable, I can send
+targeted backports.
+
+ drivers/pci/controller/pcie-altera.c | 78 ++++++++++++++++------------
+ 1 file changed, 45 insertions(+), 33 deletions(-)
+
+diff --git a/drivers/pci/controller/pcie-altera.c b/drivers/pci/controller/pcie-altera.c
+index 8ef56e2fabcf..c5a67aa3be79 100644
+--- a/drivers/pci/controller/pcie-altera.c
++++ b/drivers/pci/controller/pcie-altera.c
+@@ -9,7 +9,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/delay.h>
+ #include <linux/interrupt.h>
+-#include <linux/irqchip/chained_irq.h>
++#include <linux/irq.h>
+ #include <linux/irqdomain.h>
+ #include <linux/init.h>
+ #include <linux/module.h>
+@@ -123,7 +123,7 @@ struct altera_pcie_ops {
+ 			   unsigned int devfn, int where, int size, u32 *value);
+ 	int (*ep_write_cfg)(struct altera_pcie *pcie, u8 busno,
+ 			    unsigned int devfn, int where, int size, u32 value);
+-	void (*rp_isr)(struct irq_desc *desc);
++	irqreturn_t (*rp_isr)(int irq, void *data);
+ };
+ 
+ struct altera_pcie_data {
+@@ -796,19 +796,15 @@ static const struct irq_domain_ops intx_domain_ops = {
+ 	.xlate = pci_irqd_intx_xlate,
+ };
+ 
+-static void altera_pcie_isr(struct irq_desc *desc)
++static irqreturn_t altera_pcie_isr(int irq, void *data)
+ {
+-	struct irq_chip *chip = irq_desc_get_chip(desc);
+-	struct altera_pcie *pcie;
+-	struct device *dev;
++	struct altera_pcie *pcie = data;
++	struct device *dev = &pcie->pdev->dev;
++	irqreturn_t handled = IRQ_NONE;
+ 	unsigned long status;
+ 	u32 bit;
+ 	int ret;
+ 
+-	chained_irq_enter(chip, desc);
+-	pcie = irq_desc_get_handler_data(desc);
+-	dev = &pcie->pdev->dev;
+-
+ 	while ((status = cra_readl(pcie, P2A_INT_STATUS)
+ 		& P2A_INT_STS_ALL) != 0) {
+ 		for_each_set_bit(bit, &status, PCI_NUM_INTX) {
+@@ -819,34 +815,33 @@ static void altera_pcie_isr(struct irq_desc *desc)
+ 			if (ret)
+ 				dev_err_ratelimited(dev, "unexpected IRQ, INT%d\n", bit);
+ 		}
++		handled = IRQ_HANDLED;
+ 	}
+-	chained_irq_exit(chip, desc);
++
++	return handled;
+ }
+ 
+-static void aglx_isr(struct irq_desc *desc)
++static irqreturn_t aglx_isr(int irq, void *data)
+ {
+-	struct irq_chip *chip = irq_desc_get_chip(desc);
+-	struct altera_pcie *pcie;
+-	struct device *dev;
++	struct altera_pcie *pcie = data;
++	struct device *dev = &pcie->pdev->dev;
+ 	u32 status;
+ 	int ret;
+ 
+-	chained_irq_enter(chip, desc);
+-	pcie = irq_desc_get_handler_data(desc);
+-	dev = &pcie->pdev->dev;
+-
+ 	status = readl(pcie->hip_base + pcie->pcie_data->port_conf_offset +
+ 		       pcie->pcie_data->port_irq_status_offset);
+ 
+-	if (status & CFG_AER) {
+-		writel(CFG_AER, (pcie->hip_base + pcie->pcie_data->port_conf_offset +
+-				 pcie->pcie_data->port_irq_status_offset));
++	if (!(status & CFG_AER))
++		return IRQ_NONE;
+ 
+-		ret = generic_handle_domain_irq(pcie->irq_domain, 0);
+-		if (ret)
+-			dev_err_ratelimited(dev, "unexpected IRQ %d\n", pcie->irq);
+-	}
+-	chained_irq_exit(chip, desc);
++	writel(CFG_AER, (pcie->hip_base + pcie->pcie_data->port_conf_offset +
++			 pcie->pcie_data->port_irq_status_offset));
++
++	ret = generic_handle_domain_irq(pcie->irq_domain, 0);
++	if (ret)
++		dev_err_ratelimited(dev, "unexpected IRQ %d\n", pcie->irq);
++
++	return IRQ_HANDLED;
+ }
+ 
+ static int altera_pcie_init_irq_domain(struct altera_pcie *pcie)
+@@ -881,7 +876,12 @@ static void altera_pcie_disable_irq(struct altera_pcie *pcie)
+ static void altera_pcie_irq_teardown(struct altera_pcie *pcie)
+ {
+ 	altera_pcie_disable_irq(pcie);
+-	irq_set_chained_handler_and_data(pcie->irq, NULL, NULL);
++
++	/*
++	 * free_irq() waits for any in-flight parent handler, so it can no
++	 * longer dispatch through pcie->irq_domain below.
++	 */
++	free_irq(pcie->irq, pcie);
+ 	irq_domain_remove(pcie->irq_domain);
+ }
+ 
+@@ -1034,12 +1034,19 @@ static int altera_pcie_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/*
+-	 * The chained handler uses pcie->irq_domain, so set it only after the
+-	 * INTx domain has been created.
++	 * The handler demultiplexes into pcie->irq_domain, so request the IRQ
++	 * only after the INTx domain has been created. IRQF_NO_THREAD keeps it
++	 * in hardirq context, which generic_handle_domain_irq() requires, and
++	 * IRQF_NO_SUSPEND keeps the cascade available across suspend as the
++	 * chained handler was.
+ 	 */
+-	irq_set_chained_handler_and_data(pcie->irq,
+-					 pcie->pcie_data->ops->rp_isr,
+-					 pcie);
++	ret = request_irq(pcie->irq, pcie->pcie_data->ops->rp_isr,
++			  IRQF_NO_THREAD | IRQF_NO_SUSPEND, dev_name(dev),
++			  pcie);
++	if (ret) {
++		dev_err(dev, "Failed to request IRQ %d\n", pcie->irq);
++		goto err_remove_domain;
++	}
+ 
+ 	if (pcie->pcie_data->version == ALTERA_PCIE_V1 ||
+ 	    pcie->pcie_data->version == ALTERA_PCIE_V2) {
+@@ -1067,6 +1074,11 @@ static int altera_pcie_probe(struct platform_device *pdev)
+ err_teardown_irq:
+ 	altera_pcie_irq_teardown(pcie);
+ 
++	return ret;
++
++err_remove_domain:
++	irq_domain_remove(pcie->irq_domain);
++
+ 	return ret;
+ }
+ 
+-- 
+2.34.1
 
 
