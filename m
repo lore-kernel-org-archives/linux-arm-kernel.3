@@ -4,144 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2DFCC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712D6CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=; b=MzB64NC9bRw3ZX4y9romohil89
-	q2XqzQ6VEsIyhcDcRyUmHWiBN5iTWVZ68XdW/bjDsES+JmuhJKH0Kh4T7iMM8j5ScgOJ/zhGmH5Gw
-	moee+OrzfNAB4yk1j9cA9e5curi+8Akyg4vUG6d+doUYxtDWxy9Hq4RZNI1FB1cih+QtfiS6TLrSp
-	EQ8LMhlWKy4PLdQSNc1Y3wjZr5nAsiIUTs3x9DM7Nnl3rPxu+Ats3IA0elnMqWssPFyrA+rRA+4RY
-	xwoZg2KibgcaX3KjKQYn0aYNUhLRr2juOfoP6kABemHon0Le4wXOCmrgR2dWH0tiEyccSAw7+UD0r
-	i0NnMvoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p4d3CtqHUPjK4TCiWScT6tHr43tsZcB7KMP7S55pcsA=; b=MfCgLL8FV04/azyZSc9h1RlGu/
+	ZhLXzulm0/aW7fwp7DQ89vCWFgZwTX/4402m2nrNoP0lqLOC4iZbtyq30Hghuh3ChlWU+5WrJ+IfI
+	6PIaya1WNV6G3X6/WXfp1LZ7jlu0Xe3edll712AQb4mJZrg5yCSQr7pPqZk+sS4WIKWMMhDlnO39t
+	5nerrWvKQv5yHYSg6k2aULcuxi0GYEbPIHPBiVMDh5eQtvqSzBN81KKikVsNvu1yJ1QDvSNsm2jFc
+	2cFVBEe9os1/W7i9r4HzMZReIxcIGuPkDBIPzteaCeGD3hXLTGFv7iF1QN0ODpHNcPSlqAX4Ij4DX
+	gcP5mQqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpV6-0000000EQEW-24lp;
-	Wed, 14 Oct 2026 03:17:56 +0000
-Received: from mail-northcentralusazon11013018.outbound.protection.outlook.com ([40.107.201.18] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1xGpWl-0000000EQOR-3qVV;
+	Wed, 14 Oct 2026 03:19:39 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGpV2-0000000EQDR-3Mi1;
-	Wed, 14 Oct 2026 03:17:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B9lEVvDgYYmxMfeYB8rxEywFZY8N8Ujt7oRL+OYJnlA3oJ5gSTTKr/rFxJxNkqqviCQ3FrfSxK+CWoT6Lwb/zHJzNJyTMBetBcHfytswrh9PG/Mv/lRe1vOAR/9sSPJ+XK+PQ6nlDrY7YKZCOo4iZymRfR4FCBRN/XhHvBMv9tk6ZqOh40jw4gTMV4Y6NJofmJADLzg+Xw/b7zqBbg7yNAtAPc06pgruX8+mA8KNdcx9tr336gzmIfiJIczgQTKWxqUMbVJWgibM3rWzxmM+PzpYtQmb4C+kXmxAewryt3I5NcazdccA//H6MnoMQitj4CcBd2GXsYlHTW58r8jU7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=;
- b=PtrEx2l6Q/IhcrtAXbsxvQHvn3DkXagd5E6uXLMLmvL2Xx/kWuhk/lP10P6HMpf05H3QmXirxX7h3r4Un5gSdNoRlrGDZ6eAHZ5aXJIwFv1w6/ks83fbMcdsqiEIoXuM/hk384b0F85BdGFKeeSksn3SWULGaa+y7LDAhtwXD5+ObUr/G7bQo42HnvdgXrjgJU3TEOA5pgkF63k7wh8kK5qyrLVSJBDd+s0X+7YSmQ/qDCp5wyTC5dHwDjIkpjwfXOyjSzf+tRrbIwinnCy/wkqoe7n3DV2XgIDXO7X4ipIAbCS+fJqciuzhWrSb7xcZSL7HTxgDSD3MRX7dZl8EBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=;
- b=FukwMs5co0TsVm1Qjnwn8EDCw+ZAStWsrK5eFWtL0IRtTFUyYL68CIgo2IqcAzgd6LfxyyT/+SmIRBdCF+nh3dDtp+HRTW6oywNnGE/mqPwQK19N59D/ivnn2EQblYtoVizHDP9mFxZmx/5Y3C0fDutu6OWWZlNWo6w6VselhbJrNtZpYjaN9ygpTLQPN70X6orn5DUE79X0puYkH8cdhpw5oxBHaKOn0fx2TOCqJW+DalYRhDbLbpMVYnl3wN7MdYw927+PngVr83A/5JdsaP9UTIhm7tDCMUk2vqkmT2CBdRGkrlzGDfYpGotDZwTtnI5CBYKjdQ83LgSzFwuv9A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SAVPR12MB999143.namprd12.prod.outlook.com
- (2603:10b6:806:4e5::21) by DS7PR12MB5909.namprd12.prod.outlook.com
- (2603:10b6:8:7a::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Wed, 14 Oct
- 2026 03:17:41 +0000
-Received: from SAVPR12MB999143.namprd12.prod.outlook.com
- ([fe80::219e:6553:2ec0:3761]) by SAVPR12MB999143.namprd12.prod.outlook.com
- ([fe80::219e:6553:2ec0:3761%4]) with mapi id 15.21.0496.021; Wed, 14 Oct 2026
- 03:17:41 +0000
-Message-ID: <b4aa46a5-dd8a-4520-8574-d008a3877f28@nvidia.com>
-Date: Wed, 14 Oct 2026 11:17:29 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH nf-next v3 1/3] net/mlx5e: Ignore FLOW_ACTION_PRIORITY on
- flowtable offload
-To: Julius Bairaktaris <julius@bairaktaris.de>, pablo@netfilter.org,
- fw@strlen.de
-Cc: phil@nwl.cc, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- netdev@vger.kernel.org, lorenzo@kernel.org, nbd@nbd.name,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
- rdunlap@infradead.org, skhan@linuxfoundation.org, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, saeedm@nvidia.com, leon@kernel.org,
- tariqt@nvidia.com, mbloch@nvidia.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261004171636.3545085-1-julius@bairaktaris.de>
- <20261004171636.3545085-2-julius@bairaktaris.de>
-Content-Language: en-US
-From: Jianbo Liu <jianbol@nvidia.com>
-In-Reply-To: <20261004171636.3545085-2-julius@bairaktaris.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0022.apcprd02.prod.outlook.com
- (2603:1096:4:195::23) To SAVPR12MB999143.namprd12.prod.outlook.com
- (2603:10b6:806:4e5::21)
+	id 1xGpWi-0000000EQNt-48mS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Oct 2026 03:19:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=p4
+	d3CtqHUPjK4TCiWScT6tHr43tsZcB7KMP7S55pcsA=; b=DT7b9zEFewTz8piT9M
+	GxINXx+xRQ2Dc1qFRERcIKXg+sIzhwcjLHpIzyqBxkEU5bX8D0b19rfHKh4m77c8
+	77nWPrZ+b9yQPCM/gP+fyinZDY9ytCnumhsxI5c+YqtbmJIjnNyW/3qThQn2xSIV
+	h4atQUw1VSrjGjXY8CrQu4qKs=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgC3v+q69M5qU34YEg--.64934S2;
+	Wed, 14 Oct 2026 11:19:22 +0800 (CST)
+From: Pengpeng Hou <hppiscas@163.com>
+To: patrice.chotard@foss.st.com
+Cc: Pengpeng Hou <hppiscas@163.com>,
+	thinh.nguyen@synopsys.com,
+	gregkh@linuxfoundation.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	p.zabel@pengutronix.de
+Subject: [PATCH v3] usb: dwc3: st: balance reset ownership on deassert failure
+Date: Wed, 14 Oct 2026 11:19:20 +0800
+Message-ID: <20261014031920.8390-1-hppiscas@163.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SAVPR12MB999143:EE_|DS7PR12MB5909:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5dc0b751-8545-4b35-ea38-08df29a1b4c1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|23010399003|56012099006|4143699003|11063799006|22082099003|18002099003|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: kA8f/qsQS36PB7mSdciJr1MEQjR9QaammDV/YaeJZ0bk4Luia2GQREKKY6e+kw6LlWWoWPYyanzIYbORr0MBh69CxV6LMmN3peVwVw2/uXmHbO2r4FeumSa4t4ULwN1mnaGNx+f0FpaTVXaB0QiAB4mEUWviKyCcCd2H8Ccyn/GybmgfCrjhpddbRZJZdO57OLE7EIQTazVqVoSw7JIiKc2POw+2bNmP+/UzfU7hiquldjJfel0LXHclYdGPdfe+FQAeSG29Yc2302DJzDwGLuXtd1TT9DKVjvXO4Q90YkeuLVeRUsuTo58w5daURiJVKdWQnInRwbjDCGJlN0i68B5K+wG9XYmmpL1wAoUBc35s14ndYpUn2ymgg4jhIABFW8dmTP/OuG9He0W86TQOOv3DOw5FBH2XWO9cIhvc+Epis1F4BvbpOwqTunndsShlVfYN6F6+MqWb+x/lU/gHko8B46AellhYGB6GQ5RxhgNiPGtNWhrdZxLxtLJ0fEQ82qNIrFGvN7KHFub28JHepbwQuhoytmxWYPNYX2CLNOSDRh6eIBwHMkMGrlHqWEJFYblrSrzGOocAi4yTQ6sNmCO9ggFnZOfsz5BZr4MnKkKYDf80eMNDyY9JXq4uzsGCBTV8tw55bHK/HCsx26husA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAVPR12MB999143.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(23010399003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?djJWTEtkTUMwU3IxWTRwTHZ4dy9mU3RzOEZ4L0NQN2lnc05NMjJ1S0xpM2d6?=
- =?utf-8?B?MFF0M1pMUDNZZkhvbi9jbUJnSnBNYm1ZbHJTcGRmbi9obG9jUU5idnUrWkNN?=
- =?utf-8?B?SVVjaitHYW5JbklaRVE2L0JOL2p0SGM4TU02dkxWbEZENU1wVzUvTFZESmFK?=
- =?utf-8?B?YmNUZ0QzOWlUdFJoMUlObVlpRStERXdBd3c0VTIvWFZLdDlFNDhtcU1TakQx?=
- =?utf-8?B?WlgvMTJLMGk1bXdTTExqYmd6VDJ4UmNCbFY0bXhGaEVMNThjeTYrY254Sk1w?=
- =?utf-8?B?a3NweS9ydW5DNXByR1FqS1ZHYlpMUWY5T2pUcmV2NkpISTN5TnFsY0tsSWpz?=
- =?utf-8?B?S0NBYUxseG9nNElyRWxiNjI5YXJ5VUx4TmR5dTFWV3hSNUZWK0ZTM2ljbkcw?=
- =?utf-8?B?N0IxNXpTL0JIZG8zTUJBYUJxRERIOGlZcERLMFY0dTFhMTFNN2VPOVVkNzNs?=
- =?utf-8?B?bmVtYUh4c1B3QlNjNEttWmdMTmx5d2hYamI3N0R5Y0NHK25TdGFqMlc0Mmhq?=
- =?utf-8?B?M3N3bGVHc0RYQ1M1TzlUaFVvY0pUUCtTSTYxa0g2YUNHR3U5OHRjcHo3cERT?=
- =?utf-8?B?eDQwVHdjK2UvZTVOcGNRdGRoT2dqVnVEOUFKMERHUCtYeG5sSk13SVhESElt?=
- =?utf-8?B?bG1IVTFLSVBZQkZzYTRhN1JuK1J3b3pIelRQNHdIUTJkV0ZBaVkzYjdzR2Mx?=
- =?utf-8?B?L1VmV2xhYXhQYVR2a1RKanMrUy9LSmk1TWVQZFZVWDRlZCtlUUZZMnpVRjlx?=
- =?utf-8?B?QWF5cno5Nk9POVVBdW4yaEQ5T1pVMWZnRGhCMGttYlFETDRRTXl1cFUreHFT?=
- =?utf-8?B?Sk81NnVmYXRzVmlwc0Vna1pVcGhwZ1FobjYvOGlsaUN3SW5SNXE0aHhQY09D?=
- =?utf-8?B?VE05cEtZN2lxbHpLY3JHVUR3WEQ3Z1ZOVXJWZEFyOTc2WXE5aXJiUWUzYmxJ?=
- =?utf-8?B?MG1ObzB5ZFJOUUVzYjc3RWZPTVlHQ0JVM3c0THJiR0NMb1JvZ0J6UjlWZ295?=
- =?utf-8?B?OGJoMjVPcU90RXVhaUJEbEJjcVNzRnVQb2FsL1ZBNTVnZXQ2ZHE4SER1MzlN?=
- =?utf-8?B?emd0dm82YVdVVVR4amE4OHZqS2QvV1B6MTNYQ2lxMElRbk5za2RQYm5XUXM1?=
- =?utf-8?B?MWIyaUtsYXVKa1gzNVBRcUxGOUZSL1RySXRFRHdGQ0FCbEVFcGZ2Yk9pOWla?=
- =?utf-8?B?MGFEWE5vdHkxUDBiejVaMnlseHJLMkRGVklHdXNqYW5INldTL0VQOGNReWlO?=
- =?utf-8?B?UDdYUkVDMUp2NUZwS1gxTlo1M1V0WTZiNGlYVVR1Mkd6MGxYdDc1TEM3S2J4?=
- =?utf-8?B?Wm1YZnlOcFppQlpiSGdOZnc4cWovVFJsT1VqaUczUys4b0pmT3UwdTIrT0JL?=
- =?utf-8?B?Q2oyM1RoaWU3VElQeDZPYkFKdTR1Z3VzNDR3bGJGNHpLWnd6WnFPbGwwT0tW?=
- =?utf-8?B?ZktnbXVmVU9EZlZVYkNOREQwYktueTdDRm5yZ3o0bHFCT3JkazFqTG16N1c5?=
- =?utf-8?B?UmZxMzcvQ21TcFlrVDFZazV0ckdrRE1VWTZvclpQL0RFdlB1NklMSXZzRXBF?=
- =?utf-8?B?QnhpNXVBdDl2Snl5ZlpBSWtKcXN5U1ZieWRYbTZ1bHFWYXArSmJWUnB0VjQ3?=
- =?utf-8?B?REpoUmxtaFNOaUlha1lMMGVRUVlpNzVRWlI3L0JybVZHa082am95b080bG1p?=
- =?utf-8?B?S3oyT05oNHFFWmt1Y0V5WnpMblVLQzhCVkprQk4wZ0VHZnFOVEFkeFdPcnd5?=
- =?utf-8?B?L1V0aFdhSXo0NUhjR1hiQWJpSWtQazYzRVhHS2VrODhCUUEzVXlFR3F3MFBI?=
- =?utf-8?B?czRtSmZ1OU9XOXp2T2RTQkYrNWtBS0FVZlAxUGJHT0lnbCtuZG5YZmR5OHdN?=
- =?utf-8?B?OHdOTU9SaUV2cDlBaTlCaVFadytveG96MnlUY0ljd3h6OHhvUTIzWDVBenla?=
- =?utf-8?B?OVd4MUJLSGM2dVRmUEl2Z3JUakJva1NUS3d1M1d1cTBlYkdZT1VtNWxCR0lm?=
- =?utf-8?B?YUNlZnZnSHJ5L2YwWFFZYklwMXhEdS96L0JWTnpNR3BWaDhMQThpTFQxRWVK?=
- =?utf-8?B?dUtrQzNiM3hPZWhCS2ZVR1JYUW5HMGoxWHlNaWVEZnNPTDhKbU96WDFlMVd2?=
- =?utf-8?B?L09uMG1pdTNncUhTYnBvS2VzV3RoelZocUlCRWRFVURSbEdpeXlwU1ZXNW95?=
- =?utf-8?B?aUtOdFZtSUJ0dXYvbUpLUUFwQTd0cVZLSUg2OExIQjAwNWs1MWdvTEtrSlFx?=
- =?utf-8?B?UjhjOTNBTmNzNmxKTDFtSjRpaVJ4c2haem1zeW1LT1lDMmc0bEdqeVJOVERK?=
- =?utf-8?B?VE9UMDZidVhjUjJCbDE4WUovbzN5VEVIckhNUWZrRzZQa093ZURwUT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5dc0b751-8545-4b35-ea38-08df29a1b4c1
-X-MS-Exchange-CrossTenant-AuthSource: SAVPR12MB999143.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 03:17:41.0156
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ADuRsCGrOiriwqV0vWjcxR1hNuzm0gqdRffuL7ryKcXnwmwidk503AdJTK3X4oUhbdn2aKF/j9tJEoJ9tk0D6A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5909
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgC3v+q69M5qU34YEg--.64934S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCF1fWry5KFy8KF4fCr13CFg_yoW7Jr13p3
+	y7Gr4ayr1IkFs3t3yxJF15uFyfZFWftayUGa13K348AwsI9rWDJryj9FyrJayjyrWkJry5
+	CF4jqFnY9anFvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEl4iUUUUUU=
+X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7hu5gmrO9Ltq7wAA3g
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_201754_238345_FD41931E 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20261013_201937_400866_C29F1DC2 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,37 +74,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The ST DWC3 glue ignores reset deassert failures in probe and resume.
+It may publish the child device or access the glue registers without both
+reset operations having succeeded.
 
+Check both results and unwind DRD setup failures as well. A shared
+softreset provider failure must go through undo_softreset: the reset core
+has already incremented its deassert count before calling the provider.
 
-On 10/5/2026 1:16 AM, Julius Bairaktaris wrote:
-> The next patch makes the flowtable emit FLOW_ACTION_PRIORITY for flows
-> with a non-zero skb->priority, which on IPv4 includes the priority
-> ip_forward() derives from the TOS by default. mlx5 would reject these
-> rules and stop offloading flows it offloads today.
-> 
-[...]
-> +	/* The eswitch does not apply skb->priority to flowtable flows. */
-> +	if (mlx5e_is_ft_flow(parse_state->flow))
-> +		return 0;
+Track whether this driver owns the deassert pair so suspend and remove do
+not release it again after failed resume has unwound it. This is reference
+ownership, not a guarantee about the physical reset-line state. Resume
+itself needs no early-return guard: the paired suspend callback clears
+the ownership state before resume is entered.
 
-The handler is only in tc_acts_fdb[] and only accepts flowtable flows,
-so NIC mode and tc flower rules are rejected as before. Looks good.
+The issue was found by our static-analysis tool and manually reviewed.
 
-The comment says what the code does, but the consequence is worth a line
-in the commit message. Because the action is ignored, the priority only
-reaches packets still on the software fast path, where
-nf_flow_offload_forward() sets skb->priority. Once the flow is offloaded
-to the FDB, mlx5 forwards it without touching skb->priority, so the
-offloaded packets do not carry it. Refusing the flow to honor the
-priority would keep it in software, so ignoring the action and keeping
-the offload is the better tradeoff, it is just not obvious from the code.
+Fixes: f83fca0707c6 ("usb: dwc3: add ST dwc3 glue layer to manage dwc3 HC")
+Assisted-by: gpt 5
+Signed-off-by: Pengpeng Hou <hppiscas@163.com>
+---
+Changes since v2:
+- remove the redundant resets_active early return in resume, as Thinh queried
+- keep failed shared deasserts routed through undo_softreset
+- retain the independently needed suspend/remove ownership guards
+- rebase on current mainline
 
-I checked this on ConnectX-7: with the series the priority-carrying 
-flows stay offloaded to the FDB like plain flows, and without patch 1/3 
-they fallback to software.
+Previous version:
+https://lore.kernel.org/all/20260922004312.3589-1-hppiscas@163.com/
 
-Nit: "prio" already means flow table priority in mlx5; skbedit_prio
-would be clearer. Not a blocker.
+ drivers/usb/dwc3/dwc3-st.c |   43 ++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 34 insertions(+), 9 deletions(-)
 
-Reviewed-by: Jianbo Liu <jianbol@nvidia.com>
+diff --git a/drivers/usb/dwc3/dwc3-st.c b/drivers/usb/dwc3/dwc3-st.c
+index 5d513decaacd22de15825dc061c2747cf09fef07..1a2f38f9407ae0aea25edd616f8d77f953b3b404 100644
+--- a/drivers/usb/dwc3/dwc3-st.c
++++ b/drivers/usb/dwc3/dwc3-st.c
+@@ -84,6 +84,7 @@
+  * @dr_mode:		drd static host/device config
+  * @rstc_pwrdn:		rest controller for powerdown signal
+  * @rstc_rst:		reset controller for softreset signal
++ * @resets_active:	whether this driver holds its deasserted reset pair
+  */
+ 
+ struct st_dwc3 {
+@@ -94,6 +95,7 @@ struct st_dwc3 {
+ 	enum usb_dr_mode dr_mode;
+ 	struct reset_control *rstc_pwrdn;
+ 	struct reset_control *rstc_rst;
++	bool resets_active;
+ };
+ 
+ static inline u32 st_dwc3_readl(void __iomem *base, u32 offset)
+@@ -242,7 +244,9 @@ static int st_dwc3_probe(struct platform_device *pdev)
+ 				     "could not get power controller\n");
+ 
+ 	/* Manage PowerDown */
+-	reset_control_deassert(dwc3_data->rstc_pwrdn);
++	ret = reset_control_deassert(dwc3_data->rstc_pwrdn);
++	if (ret)
++		return ret;
+ 
+ 	dwc3_data->rstc_rst =
+ 		devm_reset_control_get_shared(dev, "softreset");
+@@ -253,7 +257,10 @@ static int st_dwc3_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Manage SoftReset */
+-	reset_control_deassert(dwc3_data->rstc_rst);
++	ret = reset_control_deassert(dwc3_data->rstc_rst);
++	if (ret)
++		goto undo_softreset;
++	dwc3_data->resets_active = true;
+ 
+ 	/* Allocate and initialize the core */
+ 	ret = of_platform_populate(node, NULL, NULL, dev);
+@@ -305,16 +312,22 @@ static void st_dwc3_remove(struct platform_device *pdev)
+ 
+ 	of_platform_depopulate(&pdev->dev);
+ 
+-	reset_control_assert(dwc3_data->rstc_pwrdn);
+-	reset_control_assert(dwc3_data->rstc_rst);
++	if (dwc3_data->resets_active) {
++		reset_control_assert(dwc3_data->rstc_pwrdn);
++		reset_control_assert(dwc3_data->rstc_rst);
++		dwc3_data->resets_active = false;
++	}
+ }
+ 
+ static int st_dwc3_suspend(struct device *dev)
+ {
+ 	struct st_dwc3 *dwc3_data = dev_get_drvdata(dev);
+ 
+-	reset_control_assert(dwc3_data->rstc_pwrdn);
+-	reset_control_assert(dwc3_data->rstc_rst);
++	if (dwc3_data->resets_active) {
++		reset_control_assert(dwc3_data->rstc_pwrdn);
++		reset_control_assert(dwc3_data->rstc_rst);
++		dwc3_data->resets_active = false;
++	}
+ 
+ 	pinctrl_pm_select_sleep_state(dev);
+ 
+@@ -328,19 +341,31 @@ static int st_dwc3_resume(struct device *dev)
+ 
+ 	pinctrl_pm_select_default_state(dev);
+ 
+-	reset_control_deassert(dwc3_data->rstc_pwrdn);
+-	reset_control_deassert(dwc3_data->rstc_rst);
++	ret = reset_control_deassert(dwc3_data->rstc_pwrdn);
++	if (ret)
++		return ret;
++
++	ret = reset_control_deassert(dwc3_data->rstc_rst);
++	if (ret)
++		goto undo_softreset;
+ 
+ 	ret = st_dwc3_drd_init(dwc3_data);
+ 	if (ret) {
+ 		dev_err(dev, "drd initialisation failed\n");
+-		return ret;
++		goto undo_softreset;
+ 	}
+ 
+ 	/* ST glue logic init */
+ 	st_dwc3_init(dwc3_data);
++	dwc3_data->resets_active = true;
+ 
+ 	return 0;
++
++undo_softreset:
++	/* A shared deassert holds its reference even if the provider fails. */
++	reset_control_assert(dwc3_data->rstc_rst);
++	reset_control_assert(dwc3_data->rstc_pwrdn);
++	return ret;
+ }
+ 
+ static DEFINE_SIMPLE_DEV_PM_OPS(st_dwc3_dev_pm_ops, st_dwc3_suspend, st_dwc3_resume);
+
+base-commit: 4056b3c9d3c92ea45955641dbafeb9b960e146ef
+
 
