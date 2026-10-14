@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A20CC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C016CC6B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jUACYbETaqpFqJbZX1FmstlpX60MgJplyW3Gj5blayY=; b=DTbEkXiv/5UQtGPJWK7oCBuayH
-	bwSaBSG2rviCO1tsZzzxcVvH3Y1BH4kUgRM+BWBnZ46FHeV5uYvLtpoIVYuV+isIBraCCNp0C7Yil
-	h3dupVsdnN7fqMRR/xSjQvHen7mnmA80ppHntY6VDAo9DEmA56xhtpj2YsNDkxgFgTsPLtCqJAAK/
-	gYNsLhEfPuWzA5425PdG0KwohLVJagy8L1Wka55OFHtupka5E/p30dvCxUM6Rg1XEJQ/rX4nASzu/
-	ZSlLtVWoD4v81WhH+UdbdnmVLBj1JFLJ9b36oRCJyItFBgH5jsaJkimVIdMy+lP47eZ0G912FWc6n
-	Y/2EceDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dgx7fdVL3gslgVt9JDPuNjkPT/2OnyYQOFdGME5nfVM=; b=n85URuD/rgz/NFnCKRv/ga3uh5
+	oOOLh8bJucQc6PwntOQBSfZ/kaDKZTRwTRZ1c/l62uvOGsBqdzYwbWXZDfNA/A4Zd58oHN6CTWmc0
+	rNwH7jRjcDJGeTI7c1MrxnrLTYKftJ47MlmoLyX9rBHjQOwAue3KowbF00fJozkFnIGoVeHKifY8U
+	+NpECtbag//yQ4gElojZjGGHekEnZ+v3KKldpDhFWpwIygtYpsQCyiZEna1Ws2ecFq6C5ICoL3dyy
+	EDSjzAOL6an0lF8WHbNpmtot/LMSzaLk1DGn8FlaBoPiY9HiYv5QSD1Lm1lqCQEqMPznW/jYAuItB
+	5BZcpnag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH59m-0000000GEXK-2DA4;
-	Wed, 14 Oct 2026 20:00:58 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1xH5A9-0000000GEaN-2gCY;
+	Wed, 14 Oct 2026 20:01:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH59i-0000000GEWy-31Nh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 20:00:56 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49e73611928so40889545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:00:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792008053; x=1792612853; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jUACYbETaqpFqJbZX1FmstlpX60MgJplyW3Gj5blayY=;
-        b=rPfQB+4Em7KM1BaDkugWkdsfmArGqohxZCthGWbesBBnri8jRvJa9TQBs7B9yFrWPm
-         m40ectrQSkdjLImpQMVTCYXi7iNmEiD3nuMv89x5h4DXl5JjPuq6neRpZl7a9T9R/dUj
-         2RsvcL6fqhChWBtaqaDTuswVeuJyk0e8um9LQBhhoXJ1PFNjdiTFZXRgvdKgq72C6cF1
-         8IhYnUeW9VSqr+QZIdmGZbzYUOAeE9/UIyr2aPjjZSUyzM/vZjukg4lPjy/Pg1Cjezsw
-         maIQdbN0dpUUaG3MHqJgQdZAQttOgNz37eGY0ou1JMJovxIYa4vr0kM9Eq+JU1ZQskd+
-         AqYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792008053; x=1792612853;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jUACYbETaqpFqJbZX1FmstlpX60MgJplyW3Gj5blayY=;
-        b=r1yyXFMid/axeIpjS3PRtJ7nd/R8xtMqhgaj3GdCL//cjLLwj2zS7AXoaHaUh1LoLN
-         LnlQJGJHhAlRtWDwa6mVohMcm+wcx4rVeoT4/04kva9Qvr+h3sSwE6EofhI3uoSXzzGz
-         XM2Cn0lyCmpJN2mg18pKvY6OhbBFfnCIwv25gxCSsLn3R/c8H0acNiKYqig4ZwASXH+B
-         qepZJJZXbyGI2y/ANLwYIu0R0naZ7PExGZbg9Sngag2CvT4kIVBmjnPrJbfI+ypJ2oP7
-         D7S0xpXTK/N/P2jHw10TW8ayEEz3iYGUZXF0B7F6Bp03MSuW5ALE66+KG9BWs7KrkaX4
-         FyGg==
-X-Gm-Message-State: AFq9FYJbqvXy4+nJmcVjfKPzfq9DA47dzNSM7BNXDiN+1H4/cME1X9Um
-	k0xEp3Cc6EVoNnHEVehRb57jZ81ggxUNjhLrYAFhIlnef1Ycs9qnrZMLYs5D8w==
-X-Gm-Gg: AYBFou1qasf0v9DTUobR+7pSwZWUC9x/hBGPJ0ozTOmVrX1l2zD9/uU4KzvPu8SbmDA
-	xpre7lf9nJqXZxQVK6HisssZdvlwfxxzjkv4C7/SWtd8wiXdDmyIuB+I7qlgOHT1pPZK7JMzjNz
-	C/gqIcrHqNeEYAI1KT0KRofgFh+GZ7zhHYHM0eKeQmhSro2403tc8fuNzjiZWEtJxfQqYvbGZqN
-	ZlJY2CjIRhNZrctlNM9/IoEVHXSE2bXXP3iMIIyt0LH13l0Q7HD+ng1+QTo3+AyqxAwCIwsBKfd
-	Gj/Yp24ZnQWaRUst/yGB8/1cyDPIeQ8syJuB8wUIYvuAHrfcn0jx70/olhDn4YnwbYfh6ucButQ
-	TSWg26+s1fcJtx5z4FZUOk43xqWF0mXGudUTCgp8T3i7BO8mIjJbDHmxzpvB2JrXWvyFimdLHZi
-	6HIIBlin/V4I95H0x3gd1Kqhi3zuwpzRCENvDHPBJcIjrb+BHHbWMMTfLeBOIFGMhk9RBL5tY/S
-	2fodNL4mqoyRv8tomTQpjFGiYt1MEhvXhOroV5TucSp3rbKjEbbWXmXtM42cA==
-X-Received: by 2002:a05:600c:3512:b0:49f:c5aa:9ef4 with SMTP id 5b1f17b1804b1-4a18e4913c3mr301016295e9.8.1792008052372;
-        Wed, 14 Oct 2026 13:00:52 -0700 (PDT)
-Received: from silicon.doe.home (91.141.74.240.wireless.dyn.drei.com. [91.141.74.240])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bf63567esm7824665e9.10.2026.10.14.13.00.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 13:00:50 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: arnd@arndb.de, krzk@kernel.org,
- Navid Ghahremani <ghahramani.navid@gmail.com>
-Subject: Re: [PATCH v2 00/24] ARM: zte: Add support for Sanechips ZX279128S and ZTE
- ZXHN H3600
-Date: Wed, 14 Oct 2026 22:00:48 +0200
-Message-ID: <rum7uPffTpawXUWooWWkfg@gmail.com>
-In-Reply-To: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
+	id 1xH5A7-0000000GEZx-46bU;
+	Wed, 14 Oct 2026 20:01:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A9AA43A9B;
+	Wed, 14 Oct 2026 20:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AADC1F000C5;
+	Wed, 14 Oct 2026 20:01:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792008079;
+	bh=dgx7fdVL3gslgVt9JDPuNjkPT/2OnyYQOFdGME5nfVM=;
+	h=From:To:Cc:Subject:Date;
+	b=V6eL6YOFwWuYgmDoB3mIA4GJ3F4OZCBk9aFgeGrpcuwi4o03Vd8ovkLKlg4UChmYN
+	 sVTjzdqjPsjT704Blk9YrdyohlOwJm6FDtk4Xq+Qr0MtI3sGGargh5Q0RpngXYtWuP
+	 qWn+QZiUctW5JOGzpaKCvhxi+39imNKSXDfzb9VJm6wIFmM5UGhGiZhkmNUC89V9M5
+	 0xnUQ1Zqpq1EyaEZBTxYDDU9DOwGjBsh4D0hSmr7MsiVRe9LcEeYXyBE9cBMPNycEj
+	 cD30B5U6lNd2UZAVhcZwEio5JDcB1vuZcEO6kepMkEQVDY7ZFo0ImmBN5E6caFwgpv
+	 yLzcvxBt8kORQ==
+From: Sasha Levin <sashal@kernel.org>
+To: Shuah Khan <shuah@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	sparclinux@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	=?UTF-8?q?Ricardo=20B=2E=20Marli=C3=A8re?= <rbm@suse.com>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/7] selftests: report per-suite build results without failing the build
+Date: Wed, 14 Oct 2026 16:01:08 -0400
+Message-ID: <20261014200115.1363363-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartKEWPbr7dRzSw0sWJFcmXLQ";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_130054_841400_7612BA40 
-X-CRM114-Status: GOOD (  11.72  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,67 +92,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartKEWPbr7dRzSw0sWJFcmXLQ
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Wed, 14 Oct 2026 22:00:48 +0200
-Message-ID: <rum7uPffTpawXUWooWWkfg@gmail.com>
-In-Reply-To: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
+Building the selftests succeeds as long as one target builds, so that a
+single broken suite does not cost CI systems the coverage of all the
+others. Commit cad6f32665cb ("selftests: Deescalate error reporting")
+restored that policy after commit 7e47389142b8 ("selftests: Preserve
+subtarget failures in all/install") had made any failure fatal. The
+other side of the policy is that make cannot say which suites failed,
+and CI systems fall back to guessing from the installed files, which
+misses suites that installed their scripts but failed to compile and
+flags suites that legitimately install nothing.
 
-Am Mittwoch, 14. Oktober 2026, 09:20:40 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb=20
-Navid Ghahremani:
+This series keeps the policy and adds an opt-in report instead:
 
-> Series breakdown:
-> - Patch 01: Consolidated MAINTAINERS entry.
-> - Patches 02-03: SoC platform integration, SMP CPU hotplug trampoline.
-> - Patches 04-06: Split CRM clock bindings, logical reset bindings,
->   CCF/reset driver.
+ - Patch 1 fixes the exit status of the top-level loops, which wraps to
+   success once eight or more targets fail.
 
-I recommend to focus on the above patches first and wait with the rest unti=
-l=20
-the basic board description and clock drivers are in. This reduces load on=
-=20
-reviewers and keeps the patch series focused.
+ - Patch 2 adds KSFT_BUILD_REPORT. When it names an absolute file, the
+   all and install rules append a "phase<TAB>target<TAB>status" record
+   per target, without changing what is built or installed or the exit
+   status of make.
 
-The later patches are still interesting to see though to see where the jour=
-ney=20
-is going and for myself to see how your zx27 hardware compares to mine.
+ - Patches 3-7 apply the same policy to the suites that build their
+   subdirectories in shell loops (futex, arm64, riscv, powerpc and
+   sparc64). A failing subdirectory no longer hides behind the status
+   of the last one, nor drops the whole suite from the installation,
+   and each subdirectory is recorded as <suite>/<subdir>. FORCE_TARGETS
+   keeps failing fast, now also inside these suites.
 
-Out of curiosity, do you have a public git repository with your patches=20
-somewhere?
+Patches 3-7 depend on patch 2 for the recording helper, so the series
+is easiest to take as a whole; acks from the architecture and futex
+maintainers would be appreciated.
 
-Cheers,
-Stefan
+Tested with mock suites for every converted loop and with native and
+cross (arm64, riscv, powerpc) builds of the affected suites against the
+base tree. A kselftest-install of 20 suites gives the same installation
+and runlist as before, plus the report.
 
---nextPartKEWPbr7dRzSw0sWJFcmXLQ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+Sasha Levin (7):
+  selftests: keep the build status from wrapping to success
+  selftests: optionally record per-suite build and install results
+  selftests/futex: report failures of the functional subdirectory
+  kselftest/arm64: keep building and installing after a subdirectory
+    fails
+  selftests/riscv: keep building and installing after a subdirectory
+    fails
+  selftests/powerpc: report the outcome of each subdirectory
+  selftests/sparc64: report failures of the drivers subdirectory
 
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmrP33AbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJED0TvMhUTxoiXLQP/RdR5nOgAIesKOVgadqe
-EyFgnmAV14zRgxOGzbO4tWpNf5CBefXWeYBd0XakT1NHOYwwD27gM83K1ZUEEZTk
-PybWik5XX2uRomjSfYjk95fUB/qNGYEme2YIKISzwSgcUuoy6yfMNzVIrkg5WngW
-PQl7g6lnN7hvUfRW3fZ/LRJOafEdNz2yjVZqOcGSQOhlWyeJH6P9qDMlvznEQDqr
-Fs4fB6ms4TIRQHKQ0MfkbDALQVAdz4yT6EKsS9sO6KoFjM2tyj+8qp5TqfjTxsWV
-J9tTV7Wr44Gl3AfA8AdOCrE12JRfqGPaJTHhAPMYbM4UY/XyhkihjjNXOYBEH11P
-NtiEweIDivghWxYhm7L4vUS4Vdeer9N6BIcEjmsv+Bn1X/Z4WUqoULUsJKo1OQe4
-gsY7gKY1As0o55vLZ7ZXQol+EFw2hr4OWKFedPXjjyCbhLnpYpm2qbNrdV53Uv+2
-yHNqS7EkceQsKKSjRqfCPbclYdDHWO7E6Rh9g9bb/1oAxpvWAp3rLR0yXSg6JRH2
-PRaZcM2lcLFUtfM9Y33yWNJ2Z6cy35wG1QttgeQxjGvab4Su40S+MtPSHejAuFBw
-wcRiwrBKWjVbUHbQSC6AZ3jkjMF+5qMtfqPPCUX5ecx634OJDBRQrBKhUEnmIUC2
-/U+nEDT49K7qNx6FLf/rv5Y6
-=j77C
------END PGP SIGNATURE-----
-
---nextPartKEWPbr7dRzSw0sWJFcmXLQ--
+ Documentation/dev-tools/kselftest.rst        | 38 +++++++++++++++++
+ tools/testing/selftests/Makefile             | 31 ++++++++++----
+ tools/testing/selftests/arm64/Makefile       | 43 +++++++++++++-------
+ tools/testing/selftests/build_report.mk      | 26 ++++++++++++
+ tools/testing/selftests/futex/Makefile       | 32 ++++++++++-----
+ tools/testing/selftests/powerpc/Makefile     | 20 ++++++---
+ tools/testing/selftests/powerpc/pmu/Makefile | 20 ++++++---
+ tools/testing/selftests/riscv/Makefile       | 39 +++++++++++++-----
+ tools/testing/selftests/sparc64/Makefile     | 33 ++++++++++-----
+ 9 files changed, 218 insertions(+), 64 deletions(-)
+ create mode 100644 tools/testing/selftests/build_report.mk
 
 
+base-commit: 4eb2586bd40db27d77cc5b724ca9386ed0c71d53
+-- 
+2.53.0
 
 
