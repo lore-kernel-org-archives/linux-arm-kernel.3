@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0D8CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4370ECC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 06:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Mime-Version:From:
-	In-Reply-To:Message-Id:Date:Subject:To:Cc:Content-Transfer-Encoding:
-	References:Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JmrvG8Wxu6YtXiksiU23e1HswNsSn5IxgMS7VCL0AQ=; b=NhwRheIEudFyqUbk0hb3IgrOGy
-	ixWAODKJk16Zy4YNXvZveglw/XSrUFcmbIp/FU/Nnl2SeoTYK+BX/A+zm47kvoyUYQo43EJGL/Q5x
-	6y7uyvxff92HifXJu86rcEpFANFxumK7gnD6Hs7bQKmudduZUJqU5AEiq1PmQxsG2j2JQ01jaGIP7
-	oJhZfRJ2YBjPjiQgjr9YkeeO6OMCXBXYoXZaa7Erksarmo3UqHP6Isjqy1XVKhYLpXO85p71Nbkkw
-	ts4k87F5jR5BaCX1yV8UQXwn/Y/OHDqmf5PTWAdqUtjYHyW7i9yMaUy2fDL06XeMumb8c1DbEP4ii
-	VJ6hlZ5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=81duqT+TGq/k4w9S/HTskqgzN8L8IuVjcoIbbmiODbw=; b=r/M5GAEh9GfY18XLlJYCXo9Nmb
+	IskcV76rDL9ERbv7ivUwqzLj3JljSBMedT78HcLGQVWzqnts85OE5lMuRgP4PvMmJwGNeP+wVgMlx
+	YqBYpVElflncYmiIlTX2KMmq9ZYZYdvdNhy92tKtCpTP43Tb7S1cxG9CqXEacXg1gDlnLOuMwl0t9
+	VLK0LFvztyUFEuvW8ngfpcIE5fBsrUB+NH/PVKa2Rv5g3ry8j21Fw14LvP7+7gm4E7DJjqy5AUENI
+	vtTm1/iXCS6ULPnm9UE6hoiEoOZmYZ58uZo5Z1iy9KzCZK285bZdgcTH5jsl+hz32QT8crYEusD/J
+	hlfO6/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsXg-0000000Ec6I-1lzA;
-	Wed, 14 Oct 2026 06:32:48 +0000
-Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
+	id 1xGsfS-0000000EcTz-1LRs;
+	Wed, 14 Oct 2026 06:40:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGsXa-0000000Ec5W-1A3S
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 06:32:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1791959549; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=1JmrvG8Wxu6YtXiksiU23e1HswNsSn5IxgMS7VCL0AQ=;
- b=iTcsN+byvXNYl6hTEYFqWX8+lbU4twF9xpYtGiOH6InWYmZLRqwfNMRVz2t9bQimc7k9wT
- TjkrOpTjyMYV0WQRL/7JsX086c7rmWh8yDTyg1tRrw0GVt6pd9X069YGiieE/+AVvmY96/
- 4YNt0N5ny7Cc8RSMUwpZOnIruFiZmL+/w6ugOS785/hv32r11tWTr5tmln3UEk0x9vY/el
- cBbhbF99VxUyecqIeirKDMSNlEH8Cm/L/vWN6pOg3KjscQLrt0n9yj3NWAl0GpC7H1jDrc
- +QeZlz//gprlBGa91xMSxHvpPReT7tsIW/XlcFZSW18OJhIHtFWsnCQr/jTOtA==
-Content-Type: text/plain; charset=UTF-8
-References: <20261013093600.54995-1-zhaogongyi@bytedance.com> <20261013153953.77575-1-lance.yang@linux.dev>
-X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
-Content-Transfer-Encoding: 7bit
-User-Agent: Mozilla Thunderbird
-Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <ryan.roberts@arm.com>, 
-	<dev.jain@arm.com>, <baolin.wang@linux.alibaba.com>, 
-	<mark.rutland@arm.com>, <akpm@linux-foundation.org>, <david@kernel.org>, 
-	<ljs@kernel.org>, <liam@infradead.org>, <vbabka@kernel.org>, 
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, 
-	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>, 
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-X-Lms-Return-Path: <lba+26acf21fb+10c094+lists.infradead.org+zhaogongyi@bytedance.com>
-To: "Lance Yang" <lance.yang@linux.dev>
-Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid PTEs
-Date: Wed, 14 Oct 2026 14:31:59 +0800
-Message-Id: <516828fb-558d-4a20-9532-51f50d6ba042@bytedance.com>
-In-Reply-To: <20261013153953.77575-1-lance.yang@linux.dev>
-From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
-Mime-Version: 1.0
+	id 1xGsfO-0000000EcTU-2u0U;
+	Wed, 14 Oct 2026 06:40:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791960046; x=1823496046;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=YB8kz/ID/XehfQjwXEA5abLAoigvKWCrN6PJeVFUUA0=;
+  b=DeGXjVMh6uTyulpy3Yu1fDWo4Zy7UflkAgT1zhSqK/mSPH7AdFPFnwMd
+   HDki5GKBLxtRlCDGGU+MfCScfI4skI9csZ6Gj28+cFjrVuw3fKDg90b+A
+   Du7uwQnCe415+o6qkbn2J9I6lCTXm6Oc3DZYCCI0Z21YLiA6jN+z+q3mj
+   rGp5/qdKhA3lRcfP06O23EQYxH2b+BzyPXAog+28ckB3PhPPLuRUdvtIy
+   IHdqBQY9yasTfpmeitOz0uArCBgIacNx6/1YKSoRFl1avlb/9Q1aDPA1Z
+   djLAlOffpppFBnbxB07YuW3FkKVmcYzPmVigLSQibV9dTO4vaBz/TT7Vb
+   g==;
+X-CSE-ConnectionGUID: ze9kuomzSkKsCdw4s2j0Dg==
+X-CSE-MsgGUID: Q2YK/AHwT2604iaaLgSX/g==
+X-IronPort-AV: E=Sophos;i="6.27,157,1787036400"; 
+   d="scan'208";a="232101696"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Oct 2026 23:40:44 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 13 Oct 2026 23:40:44 -0700
+Received: from che-ll-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 13 Oct 2026 23:40:35 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
+	<arnd@arndb.de>, <aaro.koskinen@iki.fi>, <gregkh@linuxfoundation.org>,
+	<mathieu.dubois-briand@bootlin.com>, <michael@walle.cc>,
+	<linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH v8 0/8] Read MAC address from SST vendor specific SFDP region
+Date: Wed, 14 Oct 2026 12:10:04 +0530
+Message-ID: <cover.1790847519.git.manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_233242_560982_530AA9C2 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20261013_234047_017211_D8132EB7 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +90,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/13/26 11:39 PM, Lance Yang wrote:
->>
->> +	/*
->> +	 * Keep the producer-side invariant documented in pgtable.h true even
->> +	 * if a direct caller passes an invalid descriptor with PTE_CONT set.
->> +	 */
->> +	if (!pte_valid(pte))
->> +		return __set_ptes(mm, addr, ptep, pte_mknoncont(pte), nr);
-> 
-> set_ptes() is the only in-tree caller, and it already clears PTE_CONT
-> before we get here ... no? Why not fold !pte_valid(pte) into the
-> !mm_is_user(mm) check below and return __set_ptes() directly?
-> 
-> 	if (!mm_is_user(mm) || !pte_valid(pte))
-> 		return __set_ptes(mm, addr, ptep, pte, nr);
-> 
-> If a direct caller does pass a !pte_valid PTE with PTE_CONT set, I'd
-> rather add a VM_WARN_ON() to catch that. Silently clearing the bit would
-> hide a caller bug :)
-> 
+Some Microchip/SST QSPI flashes (e.g. the SST26VF064BEUI) are factory
+programmed with globally unique, write-protected EUI-48 and EUI-64
+identifiers stored in a vendor-specific SFDP parameter table. On boards
+that have no on-board EEPROM (sama5d27_wlsom1, sama5d29 curiosity,
+sam9x75 curiosity) this is a reliable source for an Ethernet MAC address,
+instead of relying on a U-Boot-provided or random address.
 
-Hi Lance,
+The series exposes the SFDP as a generic NVMEM framework with no vendor
+code in the SPI NOR core:
+ - The SPI NOR core exposes the entire SFDP as a generic read-only NVMEM
+   device, rooted at a new "sfdp" child node of the flash.
+ - A new NVMEM layout driver (drivers/nvmem/layouts/) locates the
+   Microchip vendor parameter table at runtime and presents the EUI-48 as
+   a "mac-address" cell.
+ - Arbitrary parameters can be read with a standard fixed-layout
+   (known offset) or with an nvmem-layout parser (location discovered at runtime).
 
-Thanks for taking a look.
+Changes in v8:
+ - New 3/8 - nvmem: core: take a reference on dev.of_node in
+             nvmem_register(). v7's 3/8 (now 4/8) called of_node_put() right
+			 after devm_nvmem_register(), which left nvmem->dev.of_node backed by
+			 no reference at all once the caller's own reference was dropped.
+			 Fixing it at the nvmem_register() by taking  its own of_node_get()
+			 when assigning nvmem->dev.of_node and released in nvmem_release().
+ - 6/8 - drop the #address-cells/#size-cells from the qspi1_flash node.
 
-Yes, you are right. The public set_ptes() wrapper already strips PTE_CONT
-before calling contpte_set_ptes(), so the pte_mknoncont() in the invalid
-path is unnecessary for the current in-tree path.
+Changes in v7:
+ - 1/7 - Add blank lines in the "sfdp" schema per review;
+ 		 Add Reviewed-by: Rob Herring.
+ - 2/7 - Add Reviewed-by: Rob Herring.
+ - 3/7 - Drop the spi_nor_sfdp_nvmem_put_np() helper and
+ 		 call of_node_put() right after devm_nvmem_register().
+ - 6/7 - Note in the commit message that the sama5d27_wlsom1 SoM ships the
+         factory-programmed SST26VF064BEUI, so the EUI-48 "mac-address"
+         cell is always present.
 
-The issue I was trying to avoid is not that the incoming pte already has
-PTE_CONT set, but that contpte_set_ptes() rebuilds the pte from pfn/prot
-and then adds PTE_CONT again based on alignment. For an invalid descriptor,
-that transparent contiguous encoding should be skipped entirely.
+Changes in v6:
+ - 3/7 - Move the SFDP NVMEM registration from sfdp.c into core.c, since
+         sfdp.c is only for parsing the tables;use of_get_compatible_child()
+		 instead of the open-coded child-node lookup.
+ - 2/7, 6/7, 7/7 - Add Reviewed-by: Linus Walleij.
 
-So your suggested shape makes sense to me. I will change this to return
-through __set_ptes() directly for invalid descriptors, and add a warning
-for any unexpected direct caller that passes an invalid PTE with PTE_CONT
-set, e.g.:
+Changes in v5:
+ - 1/7 and 5/7 - Add R-b tags
+ - 3/7- Rework the comments, function name and commit message.Check all the nodes
+        (for_each_available_child) for the right compatible "jedec,sfdp" instead
+		of node name.
 
-	if (!mm_is_user(mm) || !pte_valid(pte)) {
-		VM_WARN_ON_ONCE(!pte_valid(pte) && pte_cont(pte));
-		return __set_ptes(mm, addr, ptep, pte, nr);
-	}
+Changes in v4:
+ - Rework per v3 review: remove the vendor-specific SFDP handling from the
+   SPI NOR core; expose the whole SFDP as a generic read-only NVMEM device
+   and move the EUI extraction into an nvmem-layout driver.
+ - Introduce a new nvmem-layout driver to discover the vendor-table location
+   at runtime; no offset hardcoded in the device tree.
+ - Describe the SFDP via a dedicated "sfdp" subnode (compatible
+   "jedec,sfdp"), which also resolves the v3 dtbs_check "Unevaluated
+   properties ('nvmem-layout')" warning.
+ - Reverse the stored EUI bytes into canonical MAC order.
+ - Enable the layout in sama5_defconfig.
 
-That keeps the fix focused on not creating new invalid contpte entries,
-while still catching a bad direct caller instead of silently sanitizing it.
+Changes in v3:
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+   binding in sama5d27_wlsom1
+ - 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
+   properties for macb node in sama5d27_wlsom1
 
-Thanks,
-Zhao
+Changes in v2:
+ - 1/3 - parse the SST vendor table, read and store the addresses
+  into a resource - managed space. Register the addresses
+  into NVMEM framework
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+  binding
+
+v7: https://lore.kernel.org/all/20260812104955.485667-1-manikandan.m@microchip.com/
+
+Manikandan Muralidharan (8):
+  dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via
+    NVMEM
+  dt-bindings: nvmem: layouts: add Microchip/SST SFDP EUI layout
+  nvmem: core: take a reference on dev.of_node in nvmem_register()
+  mtd: spi-nor: sfdp: expose the SFDP as a read-only NVMEM device
+  nvmem: layouts: add Microchip/SST SFDP EUI layout driver
+  ARM: dts: microchip: sama5d27_wlsom1: use fixed-partitions for QSPI
+    flash
+  ARM: dts: microchip: sama5d27_wlsom1: read MAC address from QSPI SFDP
+  ARM: configs: sama5: enable Microchip/SST SFDP EUI NVMEM layout
+
+ .../bindings/mtd/jedec,spi-nor.yaml           |  20 ++
+ .../layouts/microchip,sst26vf-sfdp-eui.yaml   |  60 ++++++
+ .../bindings/nvmem/layouts/nvmem-layout.yaml  |   1 +
+ MAINTAINERS                                   |   6 +
+ .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  63 +++---
+ .../dts/microchip/at91-sama5d27_wlsom1_ek.dts |   2 +
+ arch/arm/configs/sama5_defconfig              |   1 +
+ drivers/mtd/spi-nor/core.c                    |  78 ++++++++
+ drivers/nvmem/core.c                          |   5 +-
+ drivers/nvmem/layouts/Kconfig                 |  10 +
+ drivers/nvmem/layouts/Makefile                |   1 +
+ drivers/nvmem/layouts/sst26vf-sfdp-eui.c      | 182 ++++++++++++++++++
+ 12 files changed, 403 insertions(+), 26 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
+ create mode 100644 drivers/nvmem/layouts/sst26vf-sfdp-eui.c
+
+
+base-commit: 551c722f40809618230001baccf219193e22fc5a
+--
+2.43.0
+
 
