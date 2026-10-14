@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D3CCC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B9CCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nv1QRKVD0rhHN7pKsXLPrsiYoxShZ0enIr7QyxQJp0s=; b=wdywOFmj15qy9sSpcNuZSz/Dre
-	oyMrMFYRxrDy2aMYDVhqW/emVkZGJpPLtNJ73/hJec9mbpZwxl6j8Dpy9T7ngTaXHBLn/RFThOWnv
-	a8QohKPicO560KLbxpprNJLUDGHgKiugylljPsj+nARek3SUYihcEZVgpx/IUXjSQLnnKO2X7SU97
-	7chqFuJ9t1soc5xQufN+6sIsDigxAqXkFFWERvbW18aumFItDlQurlyELgt6rvDGhu7/LfTUiLK/X
-	fguZrqi7G8H902Tc+dolqVdCVXHdiZDMrvfgg1bElUBnEY2oE0Nt5hphb9PbY4uk2nsVYR/s09adt
-	dl/jWTTA==;
+	bh=YZHQeVBPNU6rc5illaISM5DptVONwmd53i/boebMGqQ=; b=euoNnIY8wVnavAtb+IJVKdDDHK
+	5eDCQ7dhzvxD5cEhFel9TLm9apA5cxZ2clYQCgJ3Do8vx/OXAK2cjv3903B9na+ZHTi3Sh/6DwVOX
+	BbxyLmQvimgpHc1GQQ9JUQvsvtG9DTk0rPduoLh9KqnAt4l5mX4w+EeAZstPpg1N/DF6qyUlV2LFj
+	HAtHUJUV/aPgFjGkHVJuMMlG5G0IYI4k3FAM5x4mT9Q9Yw/1/Lye8Nz7xuqdKgOptdSXxdpocC+Sm
+	zlN6meMTPhf3yN9gKU6LLRokAlMUZPdpS8uxBOQ7yUOsw4rKLbDt0XuxUXoUlozs7rtJsyxoqKumI
+	QuA/fngw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtsq-0000000Epo0-0e2j;
-	Wed, 14 Oct 2026 07:58:44 +0000
+	id 1xGu1u-0000000Eqk8-418v;
+	Wed, 14 Oct 2026 08:08:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtsl-0000000Epmo-168Q
+	id 1xGu1s-0000000Eqja-1rQN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 07:58:39 +0000
+	Wed, 14 Oct 2026 08:08:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Nv1QRKVD0rhHN7pKsXLPrsiYoxShZ0enIr7QyxQJp0s=; b=BSoLhe2qjibpwKYK5j73xCneBe
-	G4le/99qbaw4DuUVPXKj2aqD73g++QIti/DU2ZTbIqAT6FXj9ZxsAb1IaCM7h0FROphlp82UiwoGf
-	qNQj8o5g58WqnyLhf5jOCtK6kSQX96ow7x9gjOxEKDKKKlJBoyNyFoVuaTq+3ktSzpblZeVTu0b1k
-	CQZ2rvnJfCadU7pqHAX7cTzgGnbTNphCDSzpIxQgvHKe5BgExBKQyYc+zG5gS4h7c6DAV5GnINdGo
-	5P3xzokcg17/ZtZefh+ueHSh2B3W3CWfINgJus2nlVcurz+XR1NyuA85eSEuKCBkAozOrDUb7ojQQ
-	sryL0nRA==;
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGtsh-0000000GTVR-0aX4
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YZHQeVBPNU6rc5illaISM5DptVONwmd53i/boebMGqQ=; b=FJBtaPICyJFpBqNWKDB8+V3vlJ
+	JB9lOrVQSGedMKrd4Rht/u0xn507hISH5zynKOH2BtO4QHABR+OEeJGUZ7b6TEgCoZOsr1GZFp624
+	9HkwFr+wehbCIvJ5uFkEeRLbWSxK16pxoF+SkLd//o7mkpIE7WpxUzkN3ZdRfMjNBoe4WtE4JCf+g
+	25/Cu+S20CBhWdEpgwGQVp9Gw+tyo6yEzUBr+C38zOaKB0VkYlckllnYmYXK8suv4fOS/91i14DD4
+	tNYuojijBOn8sMTd/IJsBa3zRpytRWM/R3/Fe9ztBJs2cihhB8KbaK6Bz8tym+QaafjXPpkuPhBF1
+	0Wnr6t0Q==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xGu1p-0000000GU5o-1Tvh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:58:37 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 42C4F22B73;
-	Wed, 14 Oct 2026 09:58:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1791964709;
-	bh=Nv1QRKVD0rhHN7pKsXLPrsiYoxShZ0enIr7QyxQJp0s=; h=From:To:Subject;
-	b=YQpi4LNQGJxIumQ2T5EsXikjrwl07DOxUA6tybUsS8Q1OCAMNEVEFry5Z95/30zQ6
-	 XHIgfQ1oICc3wceqlCd4BhvE4ar2yaB+PCF4hqKDkOXpiIXl9GslDsPGfLDF/Ebj05
-	 D0C1ZO0BX94XScAABV+JWSYNJv0McG9Ke3c7Kn20TWkdqJzYRFA5LkMIYMN4RD6I3J
-	 OOjCkDtPEwt93ho8SoKSJ5iBsYtwEyzJ9YbSP2hCCSFIKNZqOvlYNGn1cMtQ/Og50B
-	 DEJJiVqiuxkufOU7iIR0c6gCyPaiFuGNMvbhLwQbLNsFpwPDGA5YuNm5EuW6MxoUka
-	 iPwg/ofD/9n3A==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] arm64: dts: freescale: imx93-imx91-toradex-osm-dev: Remove ETH_A PHY interrupt
-Date: Wed, 14 Oct 2026 09:58:10 +0200
-Message-ID: <20261014075812.29154-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261014075812.29154-1-francesco@dolcini.it>
-References: <20261014075812.29154-1-francesco@dolcini.it>
+	Wed, 14 Oct 2026 08:08:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56E2F1576;
+	Wed, 14 Oct 2026 01:07:55 -0700 (PDT)
+Received: from [10.164.19.62] (unknown [10.164.19.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28C6B3F7B4;
+	Wed, 14 Oct 2026 01:07:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1791965278; bh=MUie6VSnW5OquybNhX7YpynpIviFja/SPKRkeO/X0wM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D36suGIDWLUtoLdWoMaoApXTyWb2dzsEOXw/86kfMa+KgI93jY3cyZhzJ4faej4Sh
+	 JoeimUdc+OnzEu/p97k/KVlKyD++ribIOtPYH/XLmQ5DbwSBE4LVzCjncH4gY/3l/L
+	 763i0DKSevsHZIg/cPifkmIZayELI65poLThF0W0=
+Message-ID: <1a34d980-4520-464a-b8d9-7720136bdacf@arm.com>
+Date: Wed, 14 Oct 2026 13:37:50 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 04/10] arm64/hugetlb: drop the init_mm special case in
+ clear_flush()
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org
+Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
+ baohua@kernel.org, chleroy@kernel.org, david@kernel.org,
+ jiangwen6@xiaomi.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+ ryan.roberts@arm.com
+References: <20261002090947.869220-1-jiangwen6@xiaomi.com>
+ <20261002090947.869220-5-jiangwen6@xiaomi.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20261002090947.869220-5-jiangwen6@xiaomi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_085835_627501_B91633E1 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20261014_090801_736351_7D5BB1A1 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +93,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-The OSM Development Board is shared across OSM modules. The Ethernet PHY
-interrupt connection to GPIO_A7 has been removed to resolve a boot strap
-conflict on OSM iMX95.
 
-Update the OSM iMX93 and iMX91 Device Trees accordingly. Remove the PHY
-interrupt configuration to use polling, and move the GPIO_A7 pinctrl
-configuration to the GPIO controller. The pin is now available in the
-jumper area for general-purpose use.
+On 02/10/26 2:39 pm, Wen Jiang wrote:
+> clear_flush() calls flush_tlb_kernel_range() when mm is &init_mm. This
+> was added by commit 06fc959fcff7 ("arm64/mm: Support huge pte-mapped
+> pages in vmap") because vmap called set_huge_pte_at(&init_mm, ...).
+> 
+> Now that vmap uses pte_set_huge()/pte_clear_huge(), mm/vmalloc.c is no
+> longer a caller of set_huge_pte_at() on arm64. The only remaining
+> callers passing &init_mm are in arch/powerpc, which uses its own
+> implementation. Remove the dead branch.
+> 
+> No functional change.
+> 
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Reviewed-by: Barry Song <baohua@kernel.org>
+> ---
 
-Fixes: e8a8c86875f4 ("arm64: dts: freescale: Add Toradex OSM iMX93")
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- .../dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi   | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+Reviewed-by: Dev Jain <dev.jain@arm.com>
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
-index 566671b32308..24b4bf579835 100644
---- a/arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
-@@ -93,7 +93,7 @@ &gpio2 {
- 
- &gpio4 {
- 	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_gpio_a6>;
-+	pinctrl-0 = <&pinctrl_gpio_a6>, <&pinctrl_gpio_a7>;
- };
- 
- /* OSM I2C_B */
-@@ -262,10 +262,6 @@ &mdio {
- 
- 	ethphy_a: ethernet-phy@2 {
- 		reg = <2>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_gpio_a7>;
--		interrupt-parent = <&gpio4>;
--		interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
- 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 	};
--- 
-2.47.3
+
+>  arch/arm64/mm/hugetlbpage.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 8e799c1fe0aa6..ce247b06fe03d 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -206,10 +206,7 @@ static void clear_flush(struct mm_struct *mm,
+>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+>  		__ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
+>  
+> -	if (mm == &init_mm)
+> -		flush_tlb_kernel_range(saddr, addr);
+> -	else
+> -		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKCACHE);
+> +	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKCACHE);
+>  }
+>  
+>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
 
 
