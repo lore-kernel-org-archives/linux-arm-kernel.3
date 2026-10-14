@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8499CC6B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68EAC3DA7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 20:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rA58PSq59ct6hyQRhMEzlraWcFyA2/zxWUU6GgU+788=; b=BmUjRrKPkiOYsQtFDoPJ+fxYQB
-	L+3Krr38e2gaeePiq9Ie4IDfogiBWpXTtmGNpcVPgafU2Mhyo2MScbFMRKH+BW0MiiZJuLjiQWCsN
-	60kPfJLl8mU0sfiOhoAUXqGSXko4sQLOSPTz/CxtftBRUvdVXzq/lcA7puMCQqOxmccvciBcU8nRl
-	fsL2xl9GmoUFpb0ZmWoeTpPpS67868R/jVKwqBadTbHDkT4nUReaRrryPnv8szRq+mKoVDlAqBuyM
-	cpx0yYdEJDVjnzjZG9YwUPcikY95hWEWSf86w2HINU59I9goyinWLg3MhIRbSInyIWBzux979HzPo
-	EQ+PTCtQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kvH9a/W89tZJwkWJJfa80zFGn++eJmb59weeXs/8uuU=; b=LcipbixI9GUiQo4plMv7mfQuGi
+	Da/lPjJM9zvQ7SUqLLv4FB0oaecyJo6juXQ4oOJhPZDtNNW3QNGfsFxVRGHGDR7aJJLQOKa9AgqGi
+	qQVflaTqpe/cVsXjewB9YGMHG1+eNUbNpNHBVLNSP/54vK1sPyGkRi/IL0jSGPFEFS9u7dfnWpAQd
+	NGKdsc7zJkUu+masnBwgvPqst6/3P+GAF7DlL4wuAdmG+amrAHfvJXV5s8mficMBQLxzK+16b8tEK
+	KWlJEBC7yYgTYsEvCtCYpEl2NvHYRwfNgPvmy4bvA5FJS+82mUS7AnNftIloNlvvQt6nYbDQI8/OE
+	y5/xy36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5AD-0000000GEbw-2Ypw;
-	Wed, 14 Oct 2026 20:01:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xH5AX-0000000GEkS-49cl;
+	Wed, 14 Oct 2026 20:01:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH5AC-0000000GEb5-16eT
+	id 1xH5AV-0000000GEj0-2PqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 20:01:24 +0000
+	Wed, 14 Oct 2026 20:01:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B60D7447A8;
-	Wed, 14 Oct 2026 20:01:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6511F000C9;
-	Wed, 14 Oct 2026 20:01:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B6F7B60A75;
+	Wed, 14 Oct 2026 20:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F7FD1F000C4;
+	Wed, 14 Oct 2026 20:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792008083;
-	bh=rA58PSq59ct6hyQRhMEzlraWcFyA2/zxWUU6GgU+788=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=U6jHo78e72z2xYPYD5ffo2o4IhU2p9EYuHvk1szfldPP2qD5DbpzmUx77WUQYLT/x
-	 tHTEOgNDtKxDXMooe4WsZ1VxS/H7OpVDqsX3NmUts14zSNB+syl3VTjH4WexpLYGTk
-	 uWDkvCsyBSRWTuqcJupKDP236eN9O0IwqLakRjSY6evQZoNAytL80ugjyrKPmZn85w
-	 kHsrmB6VBuALEuyQFIKXmyKCZuHpsHfOpkARVtDrm9qe4+syOmXKVQy+VNk5tT8XsN
-	 zVIqi5TmF9H0giqEB3Pn70IijK5lXLVHSvThJfosysipf3VcfgZic6YcGmtw2WMWRn
-	 UxKg67QWUcDZw==
+	s=k20260515; t=1792008102;
+	bh=kvH9a/W89tZJwkWJJfa80zFGn++eJmb59weeXs/8uuU=;
+	h=From:To:Cc:Subject:Date;
+	b=bzWATHB6HSA28GRD/qm5bsV1FMCHzOzRoDkZ2kjxBjGX8jrn8Z0kDjFh/OdsVCOZz
+	 3WQwRMs2XLPqgG6Fua94ELep1HkGBbxnuqC2VjrH30DL/l8oVBQCBBJwh6WGUkVmkR
+	 o5kijjef0BgAFGpSK8alQyNzUt5TdSiyjlBFWWTGjgWoWaI6yzou+9yjEvt6T/CgZ9
+	 BdQ2JiBrOIftEUL187otPtjH3e7Nu10/nA7jYtzsC3r/cjyfA39hfEHGO3NZVpSUVm
+	 ZMN2WTp5lnTwWrWf1LkR8MKktI/Ubp2evsykersbwlbI58aku36XJ35yUeIKGCBI7M
+	 nS+eh5QAxzPQg==
 From: Sasha Levin <sashal@kernel.org>
-To: Shuah Khan <shuah@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
 Cc: Sasha Levin <sashal@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
 	Mark Brown <broonie@kernel.org>,
-	=?UTF-8?q?Ricardo=20B=2E=20Marli=C3=A8re?= <rbm@suse.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/7] kselftest/arm64: keep building and installing after a subdirectory fails
-Date: Wed, 14 Oct 2026 16:01:12 -0400
-Message-ID: <20261014200115.1363363-5-sashal@kernel.org>
+Subject: [PATCH] kselftest/arm64: signal: copy each test binary only once
+Date: Wed, 14 Oct 2026 16:01:40 -0400
+Message-ID: <20261014200140.1364282-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261014200115.1363363-1-sashal@kernel.org>
-References: <20261014200115.1363363-1-sashal@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -74,101 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 suite builds and installs its subdirectories in shell loops
-whose status is that of the last subdirectory. A failure in an earlier
-subdirectory is therefore lost unless FORCE_TARGETS is set, while a
-failure in the last one fails "make all" and, through "install: all",
-drops the installation of every other arm64 test as well.
+The signal tests are built in testcases/ and then copied to the output
+directory. The copy rule lists every generated program as a target and
+copies all of them in each recipe:
 
-Make each loop fail only when no subdirectory succeeds, which matches
-how the top-level selftests Makefile treats its targets, and keep
-stopping at the first failure when FORCE_TARGETS is set. When a build
-report is requested, record each subdirectory as arm64/<subdir> so that
-a partially built suite is visible even though make succeeds.
+  $(TEST_GEN_PROGS): $(PROGS)
+          cp $(PROGS) $(OUTPUT)/
 
-Invoke the subdirectories with $(MAKE) rather than make. The command
-line variables already reach them through MAKEFLAGS either way, but
-$(MAKE) lets them use the parent's jobserver and makes -n, -t and -q
-apply to them.
+In a parallel build make runs that recipe once for each program, so
+several cp processes write the same destination files at the same time.
+cp then fails with "cannot create regular file ...: File exists", which
+fails the arm64 build even though every test compiled. A cross build of
+the arm64 signal tests at -j8 hit this in all of 8 runs.
 
-Fixes: 313a4db7f338 ("kselftest: arm64: extend toplevel skeleton Makefile")
+Use a static pattern rule so that each output depends on, and copies,
+only its own binary.
+
+Fixes: f96bf4340316 ("kselftest: arm64: mangle_pstate_invalid_compat_toggle and common utils")
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/testing/selftests/arm64/Makefile | 43 +++++++++++++++++---------
- 1 file changed, 29 insertions(+), 14 deletions(-)
+ tools/testing/selftests/arm64/signal/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-index e456f3b62fa13..c787e848d4718 100644
---- a/tools/testing/selftests/arm64/Makefile
-+++ b/tools/testing/selftests/arm64/Makefile
-@@ -26,38 +26,53 @@ OUTPUT ?= $(CURDIR)
- export CFLAGS
- export top_srcdir
+diff --git a/tools/testing/selftests/arm64/signal/Makefile b/tools/testing/selftests/arm64/signal/Makefile
+index 1381039fb36f9..c4df4be41636c 100644
+--- a/tools/testing/selftests/arm64/signal/Makefile
++++ b/tools/testing/selftests/arm64/signal/Makefile
+@@ -17,8 +17,8 @@ TEST_GEN_PROGS := $(notdir $(PROGS))
+ # the toplevel makefile
+ include ../../lib.mk
  
-+include $(top_srcdir)/tools/testing/selftests/build_report.mk
-+
- all:
--	@for DIR in $(ARM64_SUBTARGETS); do				\
-+	@ret=$(if $(ARM64_SUBTARGETS),1,0);				\
-+	for DIR in $(ARM64_SUBTARGETS); do				\
- 		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
--		mkdir -p $$BUILD_TARGET;			\
--		make OUTPUT=$$BUILD_TARGET -C $$DIR $@		\
--			$(if $(FORCE_TARGETS),|| exit); \
--	done
-+		mkdir -p $$BUILD_TARGET &&			\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;	\
-+		status=$$?;					\
-+		$(call ksft_record_build_status,all,arm64/$$DIR); \
-+		$(if $(FORCE_TARGETS),[ $$status -eq 0 ] || exit $$status;) \
-+		[ $$status -eq 0 ] && ret=0;			\
-+	done; exit $$ret
+-$(TEST_GEN_PROGS): $(PROGS)
+-	cp $(PROGS) $(OUTPUT)/
++$(TEST_GEN_PROGS): $(OUTPUT)/%: testcases/%
++	cp $< $@
  
- install: all
--	@for DIR in $(ARM64_SUBTARGETS); do				\
-+	@ret=$(if $(ARM64_SUBTARGETS),1,0);				\
-+	for DIR in $(ARM64_SUBTARGETS); do				\
- 		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
--		make OUTPUT=$$BUILD_TARGET -C $$DIR $@		\
--			$(if $(FORCE_TARGETS),|| exit); \
--	done
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;	\
-+		status=$$?;					\
-+		$(call ksft_record_build_status,install,arm64/$$DIR); \
-+		$(if $(FORCE_TARGETS),[ $$status -eq 0 ] || exit $$status;) \
-+		[ $$status -eq 0 ] && ret=0;			\
-+	done; exit $$ret
- 
- run_tests: all
- 	@for DIR in $(ARM64_SUBTARGETS); do				\
- 		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
--		make OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;	\
- 	done
- 
- # Avoid any output on non arm64 on emit_tests
- emit_tests:
--	@for DIR in $(ARM64_SUBTARGETS); do				\
-+	@ret=$(if $(ARM64_SUBTARGETS),1,0);				\
-+	for DIR in $(ARM64_SUBTARGETS); do				\
- 		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
--		make OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
--	done
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;	\
-+		status=$$?;					\
-+		$(call ksft_record_build_status,install,arm64/$$DIR); \
-+		$(if $(FORCE_TARGETS),[ $$status -eq 0 ] || exit $$status;) \
-+		[ $$status -eq 0 ] && ret=0;			\
-+	done; exit $$ret
- 
- clean:
- 	@for DIR in $(ARM64_SUBTARGETS); do				\
- 		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
--		make OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
-+		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;	\
- 	done
- 
- .PHONY: all clean install run_tests emit_tests
+ # Common test-unit targets to build common-layout test-cases executables
+ # Needs secondary expansion to properly include the testcase c-file in pre-reqs
+
+base-commit: 4eb2586bd40db27d77cc5b724ca9386ed0c71d53
 -- 
 2.53.0
 
