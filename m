@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821B4CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8BDCC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0/kXwLol77P1UIWOZaXZfvnRJWwEc/Fx9u5zNdyzPc=; b=phsiRn6HdCxbdzsPkVbkuZZrlV
-	uxxP4IMuoa2WLSdR3NLboTKIHs9uFcQuwOXnQXSO21++MRmcOxJbYjiO5wZh+aEpLPJDn17ODLLD4
-	PEO2/NM6Ko6RavosEkPsaZ+tgyifUfjkGd/612CtuZzcNf59tnYKpqvXxryeZoKLv3hzNHdoXFG0s
-	KEnRKr2FVhBWw49dm1PvNbKNlOiUPMpkxl1UrIHxKUDHGQPkYxacNj8lN8w++KbT9EN5vuNdst6qJ
-	fY36DvEIwSwnf3NAbwdBkeQy/E5AK2+QH8bzYPUJDWcX3foF2vtubwkLNQAEzX9LcmijvyXkWmyV2
-	3T36fL2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kBvZwMjkY3SFTfW54L+/3JW1YEsME5Dm5IClIbBeKQk=; b=KG+HRPpS+YATXjPLBEkj854s+m
+	RhAITQksJejdCXWJ20AmsCXC4f0je+3XXxposv7GcJ1hpSFuMyOMGUkkxr7EfCsAFzUFolM9HUXlE
+	0m9WjIKsymUjeJcQ2NVpLapV+vYK3oCm48b+xdjm8ov0jOJUGvWQaWrZPslbUM+xfVVQW8k6e9iUk
+	9ppVmPCrd6RmdfXCsf751SW4By+uJHyfHzo7MrYFerXgkRYEGiAePmeWV43H6LRee1rBGLOMC5Gt1
+	I2GkZyZ+g04hHsl+bLtpo3r2/YMsmOA+cul8ls6c2B3JhE45tXGHMjIityv7qgoMjWWoixYYnVFq2
+	eLaG3DzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxqn-0000000FPIs-06Az;
-	Wed, 14 Oct 2026 12:12:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xGxrg-0000000FPQt-0hhr;
+	Wed, 14 Oct 2026 12:13:48 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxqk-0000000FPIT-01N1
+	id 1xGxrb-0000000FPPw-3Wkx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 12:12:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 104F360219;
-	Wed, 14 Oct 2026 12:12:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB1821F00893;
-	Wed, 14 Oct 2026 12:12:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791979968;
-	bh=u0/kXwLol77P1UIWOZaXZfvnRJWwEc/Fx9u5zNdyzPc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=BZLIhcGbGKV1fsesf/wSm71gyqX5envcYaPqmYBFHgAuldLfHIx+qHL3q4oc/ZYpT
-	 UR+6xFVedLeFGlSYXe+hwMsCsMnorDk0TZ0jNCNcw0TqloNhZ8bLEKYy6xhmQn/q20
-	 1x8TjHMulY4z2j1Gi679Q8i03H2kvVHpWKfQON012Aev9AdiuCbTeyu3Fe6D4szxxA
-	 FlEFsLQcQM3eJ+Jw/N07l72bXJjJF7OVyHtQ5aGBxIMTuw5ak4Kr56H0+qpbjmoA6H
-	 DmVnWgzb5Ug+0Om/EjBpJYRDgcycRY6Z3cXrrK7tvpzdLaGIeHqLT+7ARzSZ+nFaBU
-	 VPhscif4noHVQ==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>, Rudi Heitbaum <rudi@heitbaum.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <aqfqE4OLhnN4a1lW@b65e9c1eb12f>
-References: <aqfqE4OLhnN4a1lW@b65e9c1eb12f>
-Subject: Re: [PATCH v2] PCI: imx6: Avoid dereferencing a NULL clock name
-Message-Id: <179197995736.38040.16523239820411551777.b4-ty@b4>
-Date: Wed, 14 Oct 2026 17:42:37 +0530
+	Wed, 14 Oct 2026 12:13:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kBvZwMjkY3SFTfW54L+/3JW1YEsME5Dm5IClIbBeKQk=; b=3RNTW6C3qq+Yy9VbhkvL85MEfl
+	g+n8Vt2sBTZsNZ8N8u0Pi6SXJWtM5OjdMWSR9bikHwDTn2VtzwCCgW7VTpmD7PeQ3HMU7B/n/ZrgK
+	25nwCzFwMHi2wa4eYssYtUCalSBjjBT4Nkh6Kcy4IrkPqzCeokZSh2QsqK+N8M5GqvEw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xGxrX-00Aj27-0o; Wed, 14 Oct 2026 14:13:39 +0200
+Date: Wed, 14 Oct 2026 14:13:38 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	stefandoesinger@gmail.com, krzk@kernel.org,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v2 15/24] net: mdio: Add ZTE ZX279128S MDIO controller
+Message-ID: <595371a9-6b7b-4ad9-985e-66f0e659f4a1@lunn.ch>
+References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
+ <20261014072109.1759502-16-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=320;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=57pibpZHJQ8PNUTQdmsvfInl1FuFWliYpgpnWYMvTOc=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz3G7KyLfJwopwyubBI2cQyz05Pgfv7a6bBmIO
- GuKeAj9B2GJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas9xuwAKCRBVnxHm/pHO
- 9f0mB/4hu+0F+duNvinGllK+1Hhv37pnBDPebIMwv3Ligu+r3lGaVU8q1a95LUKPyr/xx5vywU+
- gmIl2GndmGc8dAkpT7O12EbYixW+40Gr+JsRSJzFw0+TCEvzx4ayCDyNwCkSeAfagp0+9BaMKAv
- ZVTWUV5eRNLRDQegH5uUdDFkkVKtccEP5IPPx2/qshCSf/Gcbb67t6gn74cSr/BYAv8PbEdWjjm
- gsGZay4vEcKxNJx3SUVu1J0SQVMqDSUpTHFz/UDzWczyCobEjumElMRTWYgJwS1iietF8hXEc+y
- uX8vzO/ccIIWqJS0GYu31dpFBqTypaSYJq7bpKiZuGrkxY6m
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261014072109.1759502-16-ghahramani.navid@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_051343_881292_87423CE0 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,18 +74,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +static int zx279128s_mdio_xfer(struct mii_bus *bus, u32 op, int addr,
+> +			       int regnum, u16 data)
+> +{
+> +	struct zx279128s_mdio *priv = bus->priv;
+> +	void __iomem *base = priv->base;
+> +	u32 cmd, val;
+> +	int ret;
+> +
+> +	/* Clear the previous command and its status */
+> +	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
+> +	       base + ZX_MDIO_CMD);
+> +	writel(0, base + ZX_MDIO_STATUS);
+> +
+> +	cmd = readl(base + ZX_MDIO_CMD);
+> +	cmd &= ~(ZX_MDIO_CMD_WR | ZX_MDIO_CMD_RD | ZX_MDIO_CMD_ADDR |
+> +		 ZX_MDIO_CMD_REG);
+> +	cmd |= op | FIELD_PREP(ZX_MDIO_CMD_ADDR, addr) |
+> +	       FIELD_PREP(ZX_MDIO_CMD_REG, regnum);
+> +
+> +	if (op == ZX_MDIO_CMD_WR)
+> +		writel(data, base + ZX_MDIO_DATA_WR);
+> +	writel(cmd | ZX_MDIO_CMD_START, base + ZX_MDIO_CMD);
+> +
+> +	ret = readl_poll_timeout(base + ZX_MDIO_STATUS, val,
+> +				 val & ZX_MDIO_STATUS_DONE, ZX_MDIO_POLL_US,
+> +				 ZX_MDIO_TIMEOUT_US);
+> +	if (ret) {
+> +		dev_err_ratelimited(&bus->dev, "timeout (addr %d, reg %d)\n",
+> +				    addr, regnum);
+> +		return ret;
+> +	}
+> +
+> +	writel(0, base + ZX_MDIO_STATUS);
+> +	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
+> +	       base + ZX_MDIO_CMD);
 
-On Mon, 14 Sep 2026 12:35:31 +0000, Rudi Heitbaum wrote:
-> PCI: imx6: Avoid dereferencing a NULL clock name
+This is the same as what you did at the beginning, but in the opposite
+order. Is it actually needed, and can the same order be used?
 
-Applied, thanks!
+> +static int zx279128s_mdio_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct zx279128s_mdio *priv;
+> +	struct mii_bus *bus;
+> +	struct clk *clk;
+> +	u32 val;
+> +
+> +	bus = devm_mdiobus_alloc_size(dev, sizeof(*priv));
+> +	if (!bus)
+> +		return -ENOMEM;
+> +
+> +	priv = bus->priv;
+> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->base))
+> +		return PTR_ERR(priv->base);
+> +
+> +	clk = devm_clk_get_enabled(dev, "pclk");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk),
+> +				     "failed to get the register clock\n");
+> +	clk = devm_clk_get_enabled(dev, "wclk");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk),
+> +				     "failed to get the work clock\n");
+> +
 
-[1/1] PCI: imx6: Avoid dereferencing a NULL clock name
-      commit: e6fe37efcde8e7f81581129ef4e57ea158f38e40
+Is this the bus clock? Does it need setting to 2.5Mhz?
 
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
+> +static const struct of_device_id zx279128s_mdio_of_match[] = {
+> +	{ .compatible = "zte,zx279128s-mdio" },
+> +	{ }
 
+It needs a device tree binding. But that is mostly boilerplate.
 
+   Andrew
 
