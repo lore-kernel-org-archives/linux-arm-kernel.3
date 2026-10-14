@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A0EC3DA7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772F3CC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 17:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UosP9kkTOML1KxzD7EFqS7558a32ne/l8IFRfCNRGiI=; b=wa1Dz+XIEfI5C7Ukkc999WsxHe
-	bNIsxVzKo6UApbtktali61dSWvEp7+4nqwDIXIGkCizIfTRc1FDVJhLNwRBxWzPytNhsBG4gZLHj4
-	IayeZPoFuaj2YQ7GXKUxXgRgzK2rml9egco8+FlYOr4jD40ZnU1Qgi9ZWfL1Y3Upy4QavcO3P1ARN
-	izBG2IQRHwwDhVesZEWpgttKDCbZyLLkelxL2Jv8CIdCZKgBE6k2dBDOKmlNvcW07GlZmDRu1dVHr
-	2UyPgryhHukdokiTcpiEkD2YSjVg3DB3BNraMshXyW50hlG3fAvBgzpt0lwKXyDXpyxqvk6p6y8zc
-	HAqodoJw==;
+	bh=9drWIXfr1DDCei/MMFdnXnXQjS0PR3I+D9u3gYliR1s=; b=AKr1LigCq68Sls4tWNUDsK8GEG
+	WjM9f8gcMaIBvbJnEJe9ycH/UFrVRC4rOxHDQhxndoYWzryksT3WaisptKD0588mDTmqGLP+bOphY
+	oe2UaWm1zpRCTXC+1X1c3wchkplACJUpFp13M2khCk9IbSkTAnZo+IeuuUEFYx9/trUtDQL8DQOdJ
+	EJdrP1beX1Z8ZGZdv/C1z3OFq+INnX6WGRhFR4wMIxGZrTa1PwKTUQ5NuYuaZvxaWq0oLgZgMBTos
+	jRYxeiFGUG7eePKCWffKs1AIRNFrDEaDgU2SZlvSg6Gv2RyS1B23QaMrMVLjZOISgYL248FeTLMzQ
+	by/GjBxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2Yt-0000000G4M6-0N6p;
-	Wed, 14 Oct 2026 17:14:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xH2mZ-0000000G4sG-1KJW;
+	Wed, 14 Oct 2026 17:28:51 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH2Yr-0000000G4Lw-2FZX;
-	Wed, 14 Oct 2026 17:14:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CB6A4022A;
-	Wed, 14 Oct 2026 17:14:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C69C1F000C4;
-	Wed, 14 Oct 2026 17:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791998081;
-	bh=UosP9kkTOML1KxzD7EFqS7558a32ne/l8IFRfCNRGiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KFXwJ7/ehAnJv2ToopZ+B2JhcwuPBVgwHg5Dyk/uBfrcUGwdKvwkcf/6cYQD8uGFq
-	 Svifn6lX8osqJc1EIsr+B8HROp85/HpYh9wvwpVfBJmv2/upLNGzta4iWJzlYjUtun
-	 GXjxcrMi0p89AHznPmXBAXOro2wsXG04asxdomZeUS4mZ4pjBeY8gmxMUI1RpU/DcJ
-	 rg0c5YKSl5/SmcDsLYaGG1lMBqN1ZiKiR5kA9kZNFNrnE3Q3/0Vtbn/WhNdaQG0f3I
-	 9dBXbHJZHi0nAr7oh11Di3B3eEiwO6Wa9DENGIfD9gFxVIKFQHYuM3ePcbqMCnzw+g
-	 lzrDCJRTd65gg==
-Date: Wed, 14 Oct 2026 22:44:32 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 00/13] PCI: brcmstb: Stop using chip numbers for
- conditions
-Message-ID: <as-4akoLT9L2c086@debian>
-References: <20260911233541.1650895-1-james.quinlan@broadcom.com>
- <179197952602.38040.4438252459530233972.b4-ty@b4>
- <CA+-6iNwE935j4wn4BWxs+t1qh3iRtWb0xNjZ-hRS0j-tkLx8=w@mail.gmail.com>
+	id 1xH2mW-0000000G4rP-2vEh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Oct 2026 17:28:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0D5741A122D;
+	Wed, 14 Oct 2026 17:28:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D2AF360368;
+	Wed, 14 Oct 2026 17:28:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51E38103289C5;
+	Wed, 14 Oct 2026 19:28:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1791998921; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=9drWIXfr1DDCei/MMFdnXnXQjS0PR3I+D9u3gYliR1s=;
+	b=DZTjr4rcD+U5hXiQ9kZTaTOKC2GXTRTIsMAo+WCZcrT6F3sSswagtAMUmWEUX12H0lBz8N
+	xxd1/ThZHjPRScs61HupWe1i4jhO43uMK8JPmPScISePuBcl2XiFX5GHOTKmKVrOqrDRI4
+	gERKpF9ZYqWmpBwtxonAeZnudDPMuAvCrAdnfrZWwsXd2YdD0Nf7rX0h4+/4k53Y6xk6tV
+	HC8E8EL9m9E1bYVdRFtk6F5tfhFQnEYtBDfBGTv6oyLBwJcTXAd77IJzZ3w3YyD3G62O7D
+	MdhwpTjrIdq3O/DiyxTYrHAhjZvDfKqdnv3xud/gF7Cciq2oz2omThfldbc1ZQ==
+Date: Wed, 14 Oct 2026 19:28:35 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Sander Speetjens <sander.speetjens@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v11 2/3] dt-bindings: rtc: Add property for Raspberry Pi
+ 5 RTC
+Message-ID: <20261014172835a731fd1b@mail.local>
+References: <20261014083016.332338-1-sander.speetjens@gmail.com>
+ <20261014083016.332338-3-sander.speetjens@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+-6iNwE935j4wn4BWxs+t1qh3iRtWb0xNjZ-hRS0j-tkLx8=w@mail.gmail.com>
+In-Reply-To: <20261014083016.332338-3-sander.speetjens@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_102848_878622_9B0E8EC7 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +82,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 10:45:32AM -0400, Jim Quinlan wrote:
-> On Wed, Oct 14, 2026 at 8:05 AM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> >
-> > On Fri, 11 Sep 2026 19:35:25 -0400, Jim Quinlan wrote:
-> > > PCI: brcmstb: Stop using chip numbers for conditions
-> > >
-> > > Much of the brcmstb PCIe driver code does (essentially) this:
-> > >
-> > >         if (pcie->chip == 0x1234 || pcie->chip == 0x5678) {
-> > >                 /* ... */
-> > >         }
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
+On 14/10/2026 10:30:15+0200, Sander Speetjens wrote:
+> The Raspberry Pi 5 has a built-in RTC that can be battery-backed
+> via the VBAT pin. When a rechargeable coin cell is used, the
+> hardware requires a trickle-charge voltage to keep the battery
+> topped up.
 > 
-> Hi Manivannan,
-> 
-> I apologize for not submitting a V2 promptly -- I thought that only
-> Sashiko was waiting for me :-).
-> I have a V2 series, where 10 V1 commits are unchanged, 3 are modified,
-> and 5 are new.
-> Shall I submit the changed/new commits in a new series since you have
-> applied V1?
+> Expose the trickle-voltage-millivolt DT property so the driver can
+> program the correct charge voltage for board specific configurations with
+> the attached battery.
 > 
 
-Yeah, please do!
+You are missing a comment from Krzysztof:
+"Commit msg could explain that you do not reference rtc.yaml due to node
+naming rule."
 
-- Mani
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+> ---
+> V10 -> V11: No changes
+> 
+> V9 -> V10: No changes
+> 
+> V8 -> V9: No changes
+> 
+> V7 -> V8: No changes
+> 
+> V6 -> V7: No changes
+> 
+> V5 -> V6: No changes
+> 
+> V4 -> V5: As discussed with Conor Dooley, the reff to uint32 is removed
+> and a PR is made on dt-schema adding millivolt to property-units.yaml
+> 
+> V3 -> V4: Add a reff to uint32
+> 
+> V2 -> V3: Fixed the firmware property naming
+> 
+> V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded into
+> the existing raspberrypi,bcm2835-firmware properties.
+> 
+>  .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml      | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> index 983ea80eaec9..dc71fd57834e 100644
+> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> @@ -133,6 +133,11 @@ properties:
+>      required:
+>        - compatible
+>  
+> +  trickle-voltage-millivolt:
+> +    $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
+> +    minimum: 1300
+> +    maximum: 5000
+> +
+>  required:
+>    - compatible
+>    - mboxes
+> @@ -144,6 +149,7 @@ examples:
+>      firmware {
+>          compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+>          mboxes = <&mailbox>;
+> +        trickle-voltage-millivolt = <3300>;
+>  
+>          firmware_clocks: clocks {
+>              compatible = "raspberrypi,firmware-clocks";
+> -- 
+> 2.56.0
+> 
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
