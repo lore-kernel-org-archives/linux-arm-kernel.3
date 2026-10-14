@@ -4,146 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF48DCC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976B8CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 09:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7H7ZE/xa2zi3u4fdcWWpstxxHIkVu+ASPHQYzwGB7qE=; b=enrQfd929htvs3nDib7Zjqtx0k
-	jZn+mHqKn1U8mpkGzlPsprDstCwA74xTxmGtj1h7gGzOuSqoq5edxNW9xgPnQIHCCjzCdVEHAuyo2
-	rU6V9z6fCF48DmhHz9k2Adk/3bnl7pHoJ4d9GrDrJ8+7705B8pT0sL3+siP9KLL/LrqZwHA8NLick
-	xnp8jkGfG9avg8S7ke73zteK2t3PFURjEegBRLrAebojgJoxZPnICNOUxMsQQke/uK424ZZuTlK4p
-	0X12UFaKHUeWHKCa8kBUGnp0lxZLa83BjwECeLmOV/lQFzjAw5FmX07NEb8T4Xs7RlN1YoaXrLcs+
-	Vo2RJtOw==;
+	bh=583Eau0el8ObjKBmmxFa4KzkKfDIxLiATIurJEgZ/HE=; b=cskS9XUjquXhHsy0ImVrawTsam
+	wfK9uzcK3+0mrkvy1clgLdRVKgErDrDcN6KzUcuvw6vmo+i2rn+ZIfMWMDbzL1tyMYYWC8bMLPjHR
+	pQRot8EVqre5UgGa9EkjwU62RqsthvM2kTBMmYk/rL9A8DYhYfhZBYewbxBMxFiMDYmzgQjTOWPRm
+	9e5hzjdT1Xu595lrpM3Mcjipp1SZOnOeZkyPfZlWWhzGHQ+kgx2roNj7vEmp8j6h1b4P8j681U2OD
+	YJombh45DG3mKXl+Dcpo7AIcFd+ScBYsDyUnSQF9kZdA6SiBV/5L9NzqsKp5dEHpSZgdoMYvY0BqN
+	BoPwHzdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvR8-0000000F42K-19LY;
-	Wed, 14 Oct 2026 09:38:14 +0000
+	id 1xGvS9-0000000F4q1-3KR0;
+	Wed, 14 Oct 2026 09:39:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGvQp-0000000F3jj-1vh4
+	id 1xGvS6-0000000F4oO-05KH
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 09:37:56 +0000
+	Wed, 14 Oct 2026 09:39:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7H7ZE/xa2zi3u4fdcWWpstxxHIkVu+ASPHQYzwGB7qE=; b=b4QHE3vbiPSSrZfSrbfm7VUM2e
-	VRbNKiqrXp8qBq14hjfORdR78p5EuPhpEg8z9nACbrmstgl10e1rNiUu04I75SZmmruQ2yy1D4Bqg
-	6C51kodYBpnmIru7rTKOMkA+FbvXtym6K5yywHol2utnRymB5JABz6eN97BE+PJZpJpAWKsG46Wwu
-	dnwCYjgJYQTKnFMxezXbHR2PR+92wk+Vkk5ajcCcEDltoFL3KqIWqi9kKsn1+B14q91qmg7HPdNzo
-	/OjoAaXE/xe/UOUVkfq4nm1lyfd/ulnteXXM3dehe0Efz09QBo8RgfDuGmz5YH5gufPnM16tQ2VHk
-	TMkIjGZA==;
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=583Eau0el8ObjKBmmxFa4KzkKfDIxLiATIurJEgZ/HE=; b=SEdkwAHizHSeojyl0fEzZw86Og
+	1RP4wvFOCAGV5rOFN8e8VNYoQEBwBzn4ukvEHJ4bsur8vQmiHYwPHazDVjGlLo0EaOMUQBEBS9+z4
+	DgFsERkS9KZzXDTftXCedB/IItnv8/UtjThPUtS5skn67lu4Ay2t42OsxKE5u4WTxZH3UeEtBPouk
+	HzDcwPOlfoaO9FYPce3NXOm0vcu2Jq2TpJzjgwr1WkaGXsZ1VgSgTlLqDuBKk3XQ5F+6QvL1rVS3T
+	dCYc+Cja2GkNlshFgfbwpPFXIOzdxZ3mmSYb5H9itJBh4qsSIre08ChzV/bVu53i1CjcoXlfS7UlM
+	pKhteqKg==;
+Received: from mail-swedencentralazhn15013061.outbound.protection.outlook.com ([52.102.163.61] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGvQm-0000000GZcN-1nnL
+	id 1xGvS0-0000000GZw7-2riV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 09:37:54 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a17baef589so6576595e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 02:37:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791970671; x=1792575471; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7H7ZE/xa2zi3u4fdcWWpstxxHIkVu+ASPHQYzwGB7qE=;
-        b=GUDPIgalLeZ0rsJuSP4f1D+6drT/mLsByM7eO2lSplkmtDW3gQnh36DvN5g/DPAvDk
-         WkLxV7CvPqMReda/4OWQKSOctk6tQ6qz/CQZoyC3wWNky1+Wis3LhSvVD2IvvwENEMCl
-         X7VNfJnZYAcyLnBMoA9uLX1WNaI+FwjM/sGtCpIJr3Gy1ipUxl4EovCIJQDlz78ccf/u
-         zUYvKQVA3cy4R1jb6KtIdEx5525odfl1qFyNA7Cg/qlUt2RojBrKd/zJ3Xn/onzpey5g
-         IIBJG0dVzQ0qeLVHjYNaTFMfr5VSoeZPghw8P+tt6jEs+yPNRpAB0DC1DCB7XhNd9HuF
-         Gqdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791970671; x=1792575471;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7H7ZE/xa2zi3u4fdcWWpstxxHIkVu+ASPHQYzwGB7qE=;
-        b=eQzgSJExMQ1ejyAVPLvML8R2q1Lkf8VTDfmZpRmnIbqy5Q6KOJpeGrgc2LDlJnktr9
-         HCqwwAMzccoBPxIG+Wiy4Vi5j05ncj7OlRRBM+Xep2dhCW0WHdiJhohAr5bDSOV4vlzJ
-         N6eKqRupvROTFe415jvrdZ3DYg0C8jj7dmcQ8l/xelYImejYBw2GeFN8d7I03PbER8zc
-         qC+3bhRcr4SXlTFJsV/Vt/uMUWkA44tsBErVlr+w+VWRk7Cj920m9btsfukXHDTzkxRp
-         HGZgzc0NHsNbsffpHjH6sS1WuCdOUD0Qlw0EbBMYIHYfg4rgrC0p16JlxIKZiPihtF79
-         aMcQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwy/Dgwpn7t+tJQ4PvZIdcFDnZK/9F5IjwTRKj8vuGeq0UQpkxm5UfactuF9If0Ge+vbKlXsCTfvYN5qYF3FrHg@lists.infradead.org
-X-Gm-Message-State: AFq9FYK26u/sZH/o9t6O/zisK/okI49O5V50OhUHJwY5IGQem/klazyu
-	iIXPVScKU4JFuZCTTpcmLu3Omh23DGS+3aOXOjLmcCYVzqAuN73uDXtC
-X-Gm-Gg: AYBFou08Kl7gtPCIBqhynHDjQpSuodQ/c0trmRjZCOBL9PX8ifNUeQwsYj2PmxF7zWQ
-	P8oPhVFi/dqTffzb1LnEkgBvlo3kspPBjtsBMssGRSYHfezrZ8aPAaRVzaH6xvMekk6bVRzsJa0
-	0AWFuWP76BKxwuG6vUA68ylXMj7g4HDaj9PnZmgxuUm6QbD6KOqCL9p7FFpiXc0MPk7x5V9Htwz
-	fkUxp6B6KPTifsY9E62Abogk+bgp7rSxrPtPbAKYEsS9gvssb+N2qxAXhsssZkxmkZcYPrIfYpH
-	ltUzLIxQ0qcrUuOpcCzvX46pgGi9cZsQ1rl738zxtQHoPq3dBrvckOYq7L0Qn9uxME1UNtEKTCV
-	Q0a+qhfzehhfI6HP02PWiWankFryOh2Q+8wE6/266gC8pEdFLhAi1CJhsyusA45nFqgwDVgjoLi
-	tHJxB0hOaQKTNxF7GqwSu0k8FDtNkM59398iERmk6RZD+ZumeFku1oSqpl2uOQwazxF5Z+l3Hn2
-	7Cbo/8s2S3gPLcmZH13XT8pQDLyv5mDU2F8C1mmLag3k9Jk/tmA2VjQXbCJdYVrHfo2kj1rWM0l
-	9AsmBM0UmnS+gqItHW2J7M2//O+iGlgXeDM=
-X-Received: by 2002:a05:600c:4747:b0:4a1:77db:45d9 with SMTP id 5b1f17b1804b1-4a18e47aa9amr317337615e9.6.1791970670603;
-        Wed, 14 Oct 2026 02:37:50 -0700 (PDT)
-Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm9365477f8f.35.2026.10.14.02.37.49
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Oct 2026 02:37:50 -0700 (PDT)
-From: Fred Griffoul <griffoul@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Cc: David Woodhouse <dwmw2@infradead.org>,
-	Ackerley Tng <ackerleytng@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 11/11] KVM: selftests: Test a memory provider shared by KVM and iommufd
-Date: Wed, 14 Oct 2026 09:37:33 +0000
-Message-ID: <20261014093733.90312-12-griffoul@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261014093733.90312-1-griffoul@gmail.com>
-References: <20261014093733.90312-1-griffoul@gmail.com>
+	Wed, 14 Oct 2026 09:39:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wUdTt4titaddqBVqrwYPa5QPi/FzeVVcHt6cMGNdae+hT+5ZeLHkzSz6TNKAKCNi3Sut4ymvnRfnGq8IjJIkrFMbZXTTrYyNB8dhkZT2DO6HP127DGQqt8U27FNEk1Ba6JOEhRYb3mJuPbuAgGkwB++I9hz7eCya/yjzPh3Kchnab0auzZJkfVUwCel8mioky0T8p/fxoGNlb0NzCWm6JqUXr9JfTAE9b6u7COP50LICU6fdfrmzvHzDJsf0hSgfBVCNBTSppYuOs9U3gotEgusP98Eu/IfCZnx/AaSLBrJ0RJ4SGVcaPsM9aip5ZfPcIPVQHSoLXhN6zE8vbRxBJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=583Eau0el8ObjKBmmxFa4KzkKfDIxLiATIurJEgZ/HE=;
+ b=LIdXXEYWaiiU/M7lEVC4POZLQvpZxdScfME4Dz6//WpMtav69iTPdIRxTbYqE/Z09gAFecylvVm/BUD1vVV8EGAarobU9zXTr2gC3rBtwhj1MnWzT23YDZi6bLCRLC1jlUKP6/3wiPcVDck45RsTXXdneffEILOqpr2IdGG40VQYGJzmVEpwRAZTrKPfPC9Sd60vwRI6I99bD6EeYfA/1hti/8K2N/LGWz3pfhvUWpaTU8TmZf8qIezxvei+9xOTJIDMOKjGbPi/4fw6nC6m8MtQBRwqeGdmBT8LOUywmsM/aytTaoYLpCrDJRNfa3NDmDbtdE372/Cg8JdemEkWPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=pengutronix.de smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=583Eau0el8ObjKBmmxFa4KzkKfDIxLiATIurJEgZ/HE=;
+ b=JnYICs1LZqnfEfMMKEJGPb2rF8CPDcDgWca7NTuHBud7Na8md7BOcM5OvtR1VViQd4X8lJbhRKVcE14zXygE0p5UyPpx+XWZshAqPHosfe9cv4Ac6QGPtRCeIFEp3QZw8AcobfeKYJiR8BpK6HLnyeCOj1nuZuaRsVqcZH3FsGNb1Xonw7JxUvRW1sAi7+UiafQweyKM6iIz5z5xfLumN7jM2nPe9MdcR1G9c+nOFfAoP7rVxp42/ZMvAX7LnYVvHSSFv9WItXsNdHQ2m5Nhys17jOS3E5WYXoPR8tChZbmo4d1QQiMKIKAlPHr8O08WHzqYPd4TxSNCt/Ll0fphyA==
+Received: from PA7P264CA0209.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:36d::8)
+ by AS2PR10MB7904.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:648::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 09:39:02 +0000
+Received: from MAD0EPF000008BC.eurprd04.prod.outlook.com
+ (2603:10a6:102:36d:cafe::9a) by PA7P264CA0209.outlook.office365.com
+ (2603:10a6:102:36d::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 14
+ Oct 2026 09:39:02 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MAD0EPF000008BC.mail.protection.outlook.com (10.167.241.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Wed, 14 Oct 2026 09:39:01 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
+ 2026 11:39:16 +0200
+Received: from [10.48.87.14] (10.48.87.14) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 14 Oct
+ 2026 11:39:00 +0200
+Message-ID: <4be10243-3937-4412-a8e2-92ea9fa098ff@foss.st.com>
+Date: Wed, 14 Oct 2026 11:38:59 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: stm32: add support for reset_control_reset()
+To: Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
+	<jbrunet+clk@baylibre.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-clk@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261013-ups_reset_control_reset-v1-1-f8a6c7f6cc3c@foss.st.com>
+ <f6ebd774c7e65410c70074c94eab966418d7ac9a.camel@pengutronix.de>
+Content-Language: en-US
+From: Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
+In-Reply-To: <f6ebd774c7e65410c70074c94eab966418d7ac9a.camel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.14]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008BC:EE_|AS2PR10MB7904:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6b66ea5c-5882-4402-c535-08df29d6fadb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|34020700016|1800799024|376014|22082099003|18002099003|10067099003|11063799006|4143699003|261009223027099003|56012099006|12100799066;
+X-Microsoft-Antispam-Message-Info: b8FG/QIhlneMgNDdPlZcvge62PH3LMfAGFNt0HMAzbyejvjo4qCvY65oZq9rsV8qczCR6TL9PMZim8g6mOGvOBDNLuE2maga8kLJOUKEMCOHVt2BJIRTpIoHtU4hXvCN9YVZn29KponKyDCCzo3TDf4KwZSQSJTjUdXdoQXj/EvOzGT9AK1NY+cu/19IblBgr89LYKTl6OsHqQbH7/u1AQwwAqCIDHIgDO/7NIwFeOh3IMkYuvV6Q5d2tH+LBE1RqHjEnYKnydnSzwhonJIwWJka4ZTN2GoYvZkfc2uZJpjAEG6UERiW+fbyIJDHsu8EK+bgl1yuDBNmgaTOVHVwfRPAO5YdN+5AfqfAclR8QnVbOp59XHSuuiNoMqrrg8W5y9QRYUB4+oPsS6fc5ZksixH6bbVfbvRcCYuGx0ZGGGFp8X3AMpHmcE6SgLAVEhdj1ijysnn/YW/umQvp6HuYWgrrnM2XhsjVvEg1gSKFyH3PunxvAom3RlnuBEvr91agDE2J56k3mPYGwO5D6UeYX0Vjtttwef52qaeZCvGhlFzsLw7aylW3m15IRce4AeCu1b9nAnDBUE6RQZbse/ef7Nyrp5hglrLURTvHLpvKip+ZBF9vY3i7x1+eTTyHhSwrltjSuz4aRMQy4rAFbkutUoY/39+BqqxMfaXe8gDqI4u4He/MeqEWe+QVq8i8a7BgTFoPVYvC5j+Q/vr7hqYxyw==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(34020700016)(1800799024)(376014)(22082099003)(18002099003)(10067099003)(11063799006)(4143699003)(261009223027099003)(56012099006)(12100799066);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: T0XAaeFV8+LMWJ51KQho6+Uqv7cv72RF33t3tT0ku3VduNfzrR52zk0cGeYpZ5dwWan5gxq/127iKOnn+3ZOsLzMOMOCvMNr+yf1B/BoLp0fScgbmG0NPd5odyKmIw9yecbu1f0bNRsOiOzDlhWIA14KONbZ1ZcIxmoXMrMBQQj95726anBi+PE7eWhf/YRp1fODoU5XKWQt8uZczEUymDk4e9HKAkXL82V+PtMYVJMehB8xtE0+CqlXtpZgfoVxvHG7mv6c3YE6lmACiLssHBRPCiUOTMULWdOpMC7HbVxYm6U6s1d3FX/TeSLS4uGuXhfyrst6fSsstcuPoqzwJermC0r7+OYlPBvnSe/CsA1YBT/9jHbh2yl67tb1G1BRt6xuh0aqjJdM6x2sNNy1wnTHBN5e9ZtVlZK0MRkuWH+jDP19CsAcS9Nlf9kFZeyK
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 09:39:01.7208
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6b66ea5c-5882-4402-c535-08df29d6fadb
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008BC.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_103752_824917_564D6C21 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20261014_103909_205615_1EA7A4CE 
+X-CRM114-Status: GOOD (  24.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,703 +145,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fred Griffoul <fgriffo@amazon.co.uk>
+Hi Philipp,
 
-Test that guest, host and device mappings of one provider file follow
-the provider's changes.
+Thanks for the review.
 
-Two VMs get child files of the sample provider, each passed to
-guest_memfd and to an iommufd mock domain. The test moves a range
-between them, donates and reclaims pages, and makes a page read only.
-After each change it checks the guest, a host mapping and the device
-mapping. Pages are mapped on the host before a change, so the test
-checks that the revoke zaps them.
+On 10/13/26 17:38, Philipp Zabel wrote:
+> On Di, 2026-10-13 at 16:52 +0200, Gabriel Fernandez wrote:
+>> The STM32 RCC reset controller currently implements only .assert(),
+>> .deassert(), and .status().
+>> As a result, reset_control_reset() returns -ENOTSUPP, forcing consumers
+>> to open-code the assert / delay / deassert sequence.
+> Do you have specific consumer drivers in mind?
+Yes. stm32-dma3 calls reset_control_reset() at probe time and the
 
-A third VM, on a child that starts on a 2 MiB boundary, checks that
-KVM maps the provider's block with a 2 MiB page, and that donating a
-page inside the block takes that mapping away. It skips if the
-provider's frames are not aligned.
+STM32MP25 hantro glue (stm32mp25_venc_reset()) does as well. Today both
 
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Fred Griffoul <fgriffo@amazon.co.uk>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/x86/mem_provider_test.c     | 653 ++++++++++++++++++
- 2 files changed, 654 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/x86/mem_provider_test.c
+get -ENOTSUPP from the RCC, so the reset is silently skipped.
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index d28a057fa6c2..bde312dba7a8 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -89,6 +89,7 @@ TEST_GEN_PROGS_x86 += x86/hyperv_tlb_flush
- TEST_GEN_PROGS_x86 += x86/kvm_clock_test
- TEST_GEN_PROGS_x86 += x86/kvm_pv_test
- TEST_GEN_PROGS_x86 += x86/kvm_buslock_test
-+TEST_GEN_PROGS_x86 += x86/mem_provider_test
- TEST_GEN_PROGS_x86 += x86/monitor_mwait_test
- TEST_GEN_PROGS_x86 += x86/msrs_test
- TEST_GEN_PROGS_x86 += x86/nested_close_kvm_test
-diff --git a/tools/testing/selftests/kvm/x86/mem_provider_test.c b/tools/testing/selftests/kvm/x86/mem_provider_test.c
-new file mode 100644
-index 000000000000..08555dbbfa07
---- /dev/null
-+++ b/tools/testing/selftests/kvm/x86/mem_provider_test.c
-@@ -0,0 +1,653 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * mem_provider_test - one memory provider shared by KVM and iommufd.
-+ *
-+ * A control process and two VMMs, in one process:
-+ *
-+ *  ctl:  holds /dev/mem_provider_sample, the owner of the memory.  Creates a
-+ *        child provider file per VM, moves pages between children, donates
-+ *        and reclaims them, and makes them read only.
-+ *        Never touches a VM.
-+ *  vmm:  holds one child file, one VM and one iommufd IOAS on a mock domain.
-+ *        Passes the child file to KVM_CREATE_GUEST_MEMFD and to
-+ *        IOMMU_IOAS_MAP_FILE.  Never touches the control device.
-+ *
-+ * Scenarios:
-+ *
-+ *  1. Launch:    each guest writes to its memory, the host sees the write,
-+ *                and the device mapping covers the pages the child has.
-+ *  2. Move:      a range leaves A for B.  A's guest and A's host mapping
-+ *                fault on it and A's device loses only that range.  B's
-+ *                guest and host read what A wrote, and B's device reaches
-+ *                the frame A had.
-+ *  3. Donate:    a range leaves A for the root and comes back on reclaim,
-+ *                for the guest, the host mapping and the device.
-+ *  4. Read only: a guest write to a read-only page exits to the VMM and a
-+ *                host write raises SIGBUS; both land once the page is
-+ *                writable again.
-+ *  5. Window:    a host mapping of the guest_memfd faults after the range it
-+ *                covers is donated.
-+ *  6. Large:     a third VM, on an aligned child, gets a 2 MiB stage-2
-+ *                mapping, which a donation inside the block takes away.
-+ *
-+ * Requires samples/kvm/mem_provider_sample.ko and CONFIG_IOMMUFD_TEST.
-+ */
-+#include <fcntl.h>
-+#include <errno.h>
-+#include <setjmp.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+
-+#include <linux/iommufd.h>
-+
-+#include "test_util.h"
-+#include "kvm_util.h"
-+#include "processor.h"
-+
-+/*
-+ * The iommufd mock domain test interface.  The iommufd selftest helpers
-+ * bring their own harness, which does not mix with the KVM selftest library.
-+ */
-+#include "../../../../../drivers/iommu/iommufd/iommufd_test.h"
-+
-+/* Mirrors samples/kvm/mem_provider_sample.h */
-+#define MPS_FLAG_MMAP_CAPABLE	(1u << 0)
-+
-+struct mps_new_child { __u32 flags, pad; __u64 offset, len; };
-+struct mps_move { __s32 src_fd, dst_fd; __u64 offset, len; };
-+struct mps_donate { __s32 fd; __u32 pad; __u64 offset, len; };
-+struct mps_ctl_range { __s32 fd; __u32 value; __u64 offset, len; };
-+struct mps_stats {
-+	__u64 region_offset, region_len, owned_pages, absent_pages, readonly_pages;
-+};
-+
-+#define MPS_NEW_CHILD		_IOW('P', 5, struct mps_new_child)
-+#define MPS_MOVE		_IOW('P', 6, struct mps_move)
-+#define MPS_DONATE		_IOW('P', 7, struct mps_donate)
-+#define MPS_RECLAIM		_IOW('P', 8, struct mps_donate)
-+#define MPS_GET_STATS		_IOR('P', 10, struct mps_stats)
-+#define MPS_CTL_SET_READONLY	_IOW('P', 11, struct mps_ctl_range)
-+
-+#define PAGE		0x1000ULL
-+#define HPAGE		0x200000ULL		/* 2 MiB */
-+#define CHILD_SIZE	0x400000ULL		/* 4 MiB per child */
-+#define GPA		(1ULL << 32)		/* each VM maps its child here */
-+#define IOVA		(1ULL << 28)		/* inside the mock aperture */
-+#define MAGIC_A		0xa11ce000a11ce000ULL
-+#define MAGIC_B		0xb0bb0bb0b0bb0bb0ULL
-+
-+/*
-+ * The ranges of A and B in the root overlap on [SHARED_OFF, +SHARED_LEN).
-+ * A is created first and has its whole range, B is created second and has
-+ * its range without the overlap.  The overlap can then move from A to B.
-+ */
-+#define A_OFF		0ULL
-+#define SHARED_LEN	(4 * PAGE)
-+#define B_OFF		(CHILD_SIZE - SHARED_LEN)
-+#define SHARED_OFF	B_OFF
-+
-+/* C, for the large page scenario, starts on a 2 MiB boundary after B. */
-+#define C_OFF		((B_OFF + CHILD_SIZE + HPAGE - 1) & ~(HPAGE - 1))
-+#define ROOT_SIZE	(C_OFF + CHILD_SIZE)
-+
-+#define A_SHARED_GPA	(GPA + (SHARED_OFF - A_OFF))
-+#define B_SHARED_GPA	(GPA + (SHARED_OFF - B_OFF))
-+#define A_SHARED_IOVA	(IOVA + (SHARED_OFF - A_OFF))
-+#define B_SHARED_IOVA	(IOVA + (SHARED_OFF - B_OFF))
-+
-+/* A page of A that never moves. */
-+#define RO_OFF		(64 * PAGE)
-+#define RO_GPA		(GPA + RO_OFF)
-+
-+/* Pages of A that are donated and reclaimed. */
-+#define DON_OFF		(8 * PAGE)
-+#define DON_GPA		(GPA + DON_OFF)
-+#define DON_IOVA	(IOVA + DON_OFF)
-+
-+/* A page that B has from the start. */
-+#define B_HOME_OFF	(CHILD_SIZE / 2)
-+#define B_HOME_GPA	(GPA + B_HOME_OFF)
-+
-+struct guest_args {
-+	uint64_t write_gpa;	/* 0 to skip */
-+	uint64_t write_val;
-+	uint64_t read_gpa;	/* 0 to skip; the value goes to GUEST_SYNC */
-+};
-+
-+static void guest_code(struct guest_args *a)
-+{
-+	if (a->write_gpa)
-+		*(volatile uint64_t *)a->write_gpa = a->write_val;
-+	if (a->read_gpa)
-+		GUEST_SYNC(*(volatile uint64_t *)a->read_gpa);
-+	GUEST_DONE();
-+}
-+
-+/* ---- Control process ---------------------------------------------------- */
-+
-+static int ctl;
-+
-+static int ctl_new_child(uint64_t off, uint64_t len)
-+{
-+	struct mps_new_child nc = {
-+		.flags = MPS_FLAG_MMAP_CAPABLE,
-+		.offset = off, .len = len,
-+	};
-+	int fd = ioctl(ctl, MPS_NEW_CHILD, &nc);
-+
-+	TEST_ASSERT(fd >= 0, "NEW_CHILD(%#llx, %#llx) errno=%d",
-+		    (unsigned long long)off, (unsigned long long)len, errno);
-+	return fd;
-+}
-+
-+static int ctl_move(int src, int dst, uint64_t off, uint64_t len)
-+{
-+	struct mps_move mv = { .src_fd = src, .dst_fd = dst,
-+			       .offset = off, .len = len };
-+
-+	return ioctl(ctl, MPS_MOVE, &mv) ? -errno : 0;
-+}
-+
-+static void ctl_donate(int fd, uint64_t off, uint64_t len, bool reclaim)
-+{
-+	struct mps_donate d = { .fd = fd, .offset = off, .len = len };
-+
-+	TEST_ASSERT(!ioctl(ctl, reclaim ? MPS_RECLAIM : MPS_DONATE, &d),
-+		    "%s errno=%d", reclaim ? "RECLAIM" : "DONATE", errno);
-+}
-+
-+static void ctl_readonly(int fd, uint64_t off, bool ro)
-+{
-+	struct mps_ctl_range cr = { .fd = fd, .value = ro, .offset = off,
-+				    .len = PAGE };
-+
-+	TEST_ASSERT(!ioctl(ctl, MPS_CTL_SET_READONLY, &cr),
-+		    "CTL_SET_READONLY errno=%d", errno);
-+}
-+
-+/* ---- VMM ---------------------------------------------------------------- */
-+
-+struct vmm {
-+	const char *name;
-+	int child;		/* the provider file */
-+	int gmem;		/* the guest_memfd backed by it */
-+	int iommufd;
-+	uint32_t ioas, stdev, hwpt;
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	void *hva;		/* host mapping of the whole guest_memfd */
-+	gva_t args_gva;
-+};
-+
-+static void vmm_create(struct vmm *v)
-+{
-+	v->vm = vm_create_with_one_vcpu(&v->vcpu, guest_code);
-+	v->args_gva = vm_alloc_page(v->vm);
-+}
-+
-+static bool vmm_iova_mapped(struct vmm *v, uint64_t iova, uint64_t len,
-+			    bool mapped)
-+{
-+	struct iommu_test_cmd cmd = {
-+		.size = sizeof(cmd), .op = IOMMU_TEST_OP_MD_CHECK_MAPPED,
-+		.id = v->hwpt,
-+		.check_mapped = { .mapped = mapped, .iova = iova,
-+				  .length = len },
-+	};
-+
-+	return !ioctl(v->iommufd, IOMMU_TEST_CMD, &cmd);
-+}
-+
-+static uint64_t vmm_iova_phys(struct vmm *v, uint64_t iova)
-+{
-+	struct iommu_test_cmd cmd = {
-+		.size = sizeof(cmd), .op = IOMMU_TEST_OP_MD_IOVA_TO_PHYS,
-+		.id = v->hwpt,
-+		.iova_to_phys = { .iova = iova },
-+	};
-+
-+	if (ioctl(v->iommufd, IOMMU_TEST_CMD, &cmd))
-+		return 0;
-+	return cmd.iova_to_phys.out_phys;
-+}
-+
-+/*
-+ * Map the guest_memfd on a 2 MiB boundary: KVM uses large pages only if the
-+ * memslot's guest and host addresses are aligned alike.
-+ */
-+static void *vmm_map_gmem(struct vmm *v)
-+{
-+	uint8_t *area, *aligned;
-+
-+	area = mmap(NULL, CHILD_SIZE + HPAGE, PROT_NONE,
-+		    MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	TEST_ASSERT(area != MAP_FAILED, "%s: mmap(reserve) errno=%d", v->name,
-+		    errno);
-+	aligned = (uint8_t *)(((uintptr_t)area + HPAGE - 1) & ~(HPAGE - 1));
-+	if (aligned > area)
-+		munmap(area, aligned - area);
-+	munmap(aligned + CHILD_SIZE, area + HPAGE - aligned);
-+
-+	return mmap(aligned, CHILD_SIZE, PROT_READ | PROT_WRITE,
-+		    MAP_SHARED | MAP_FIXED, v->gmem, 0);
-+}
-+
-+/* Give the child file to KVM and to iommufd. */
-+static void vmm_attach(struct vmm *v, int child_fd)
-+{
-+	struct iommu_ioas_alloc alloc = { .size = sizeof(alloc) };
-+	struct kvm_create_guest_memfd gm = {
-+		.size = CHILD_SIZE,
-+		.flags = GUEST_MEMFD_FLAG_MMAP | GUEST_MEMFD_FLAG_USE_RESOURCE,
-+		.resource_fd = child_fd,
-+	};
-+	struct iommu_test_cmd mock = {
-+		.size = sizeof(mock), .op = IOMMU_TEST_OP_MOCK_DOMAIN,
-+	};
-+	struct iommu_ioas_map_file map = {
-+		.size = sizeof(map),
-+		.flags = IOMMU_IOAS_MAP_FIXED_IOVA | IOMMU_IOAS_MAP_READABLE |
-+			 IOMMU_IOAS_MAP_WRITEABLE,
-+		.fd = child_fd, .start = 0, .length = CHILD_SIZE, .iova = IOVA,
-+	};
-+	int r;
-+
-+	v->child = child_fd;
-+
-+	/* KVM: a guest_memfd backed by the child, behind one memslot. */
-+	v->gmem = __vm_ioctl(v->vm, KVM_CREATE_GUEST_MEMFD, &gm);
-+	TEST_ASSERT(v->gmem >= 0, "%s: KVM_CREATE_GUEST_MEMFD errno=%d",
-+		    v->name, errno);
-+	v->hva = vmm_map_gmem(v);
-+	TEST_ASSERT(v->hva != MAP_FAILED, "%s: mmap(guest_memfd) errno=%d",
-+		    v->name, errno);
-+	r = __vm_set_user_memory_region2(v->vm, 10, KVM_MEM_GUEST_MEMFD, GPA,
-+					 CHILD_SIZE, v->hva, v->gmem, 0);
-+	TEST_ASSERT(!r, "%s: SET_USER_MEMORY_REGION2 errno=%d", v->name,
-+		    errno);
-+	virt_map(v->vm, GPA, GPA, CHILD_SIZE / PAGE);
-+
-+	/* iommufd: the same child file, in an IOAS on a mock domain. */
-+	v->iommufd = open("/dev/iommu", O_RDWR);
-+	__TEST_REQUIRE(v->iommufd >= 0, "iommufd unavailable");
-+	TEST_ASSERT(!ioctl(v->iommufd, IOMMU_IOAS_ALLOC, &alloc),
-+		    "IOAS_ALLOC errno=%d", errno);
-+	v->ioas = alloc.out_ioas_id;
-+
-+	mock.id = v->ioas;
-+	__TEST_REQUIRE(!ioctl(v->iommufd, IOMMU_TEST_CMD, &mock),
-+		       "no iommufd mock domain (CONFIG_IOMMUFD_TEST?)");
-+	v->stdev = mock.mock_domain.out_stdev_id;
-+	v->hwpt = mock.mock_domain.out_hwpt_id;
-+
-+	map.ioas_id = v->ioas;
-+	TEST_ASSERT(!ioctl(v->iommufd, IOMMU_IOAS_MAP_FILE, &map),
-+		    "%s: IOAS_MAP_FILE(provider) errno=%d", v->name, errno);
-+}
-+
-+/*
-+ * Continue the guest.  KVM_RUN fails with EFAULT for KVM_EXIT_MEMORY_FAULT,
-+ * which several scenarios expect; the expect_*() helpers check the exit.
-+ */
-+static void vmm_resume(struct vmm *v)
-+{
-+	int r = _vcpu_run(v->vcpu);
-+
-+	TEST_ASSERT(!r || (errno == EFAULT &&
-+			   v->vcpu->run->exit_reason == KVM_EXIT_MEMORY_FAULT),
-+		    "%s: KVM_RUN r=%d errno=%d exit=%s", v->name, r, errno,
-+		    exit_reason_str(v->vcpu->run->exit_reason));
-+}
-+
-+static void vmm_run(struct vmm *v, uint64_t write_gpa, uint64_t write_val,
-+		    uint64_t read_gpa)
-+{
-+	struct guest_args *a = addr_gva2hva(v->vm, v->args_gva);
-+
-+	a->write_gpa = write_gpa;
-+	a->write_val = write_val;
-+	a->read_gpa = read_gpa;
-+	vcpu_arch_set_entry_point(v->vcpu, guest_code);
-+	vcpu_args_set(v->vcpu, 1, v->args_gva);
-+	vmm_resume(v);
-+}
-+
-+static void expect_done(struct vmm *v)
-+{
-+	struct kvm_run *run = v->vcpu->run;
-+	struct ucall uc;
-+
-+	TEST_ASSERT(run->exit_reason != KVM_EXIT_MEMORY_FAULT,
-+		    "%s: unexpected memory fault at gpa %#llx", v->name,
-+		    (unsigned long long)run->memory_fault.gpa);
-+	TEST_ASSERT(get_ucall(v->vcpu, &uc) == UCALL_DONE, "%s: guest exit %s",
-+		    v->name, exit_reason_str(run->exit_reason));
-+}
-+
-+static uint64_t expect_sync_then_done(struct vmm *v)
-+{
-+	struct ucall uc;
-+	uint64_t val;
-+
-+	TEST_ASSERT(get_ucall(v->vcpu, &uc) == UCALL_SYNC, "%s: guest exit %s",
-+		    v->name, exit_reason_str(v->vcpu->run->exit_reason));
-+	val = uc.args[1];
-+	vmm_resume(v);
-+	expect_done(v);
-+	return val;
-+}
-+
-+static void expect_memory_fault(struct vmm *v, uint64_t gpa)
-+{
-+	struct kvm_run *run = v->vcpu->run;
-+
-+	TEST_ASSERT(run->exit_reason == KVM_EXIT_MEMORY_FAULT,
-+		    "%s: want KVM_EXIT_MEMORY_FAULT, got %s", v->name,
-+		    exit_reason_str(run->exit_reason));
-+	TEST_ASSERT(run->memory_fault.gpa == gpa,
-+		    "%s: fault at gpa %#llx, want %#llx", v->name,
-+		    (unsigned long long)run->memory_fault.gpa,
-+		    (unsigned long long)gpa);
-+}
-+
-+static void vmm_stats(struct vmm *v, struct mps_stats *st)
-+{
-+	TEST_ASSERT(!ioctl(v->child, MPS_GET_STATS, st),
-+		    "%s: GET_STATS errno=%d", v->name, errno);
-+}
-+
-+static void vmm_destroy(struct vmm *v)
-+{
-+	close(v->iommufd);
-+	kvm_vm_free(v->vm);
-+	munmap(v->hva, CHILD_SIZE);
-+	close(v->gmem);
-+	close(v->child);
-+}
-+
-+static sigjmp_buf host_jmp;
-+
-+static void host_sig(int sig)
-+{
-+	siglongjmp(host_jmp, sig);
-+}
-+
-+/*
-+ * Read @addr, or write @val to it, through a host mapping.  Return the
-+ * signal that the access raised, or 0.
-+ */
-+static int host_access(volatile uint64_t *addr, bool write, uint64_t val)
-+{
-+	struct sigaction sa = { .sa_handler = host_sig }, old_bus, old_segv;
-+	int sig;
-+
-+	sigaction(SIGBUS, &sa, &old_bus);
-+	sigaction(SIGSEGV, &sa, &old_segv);
-+	sig = sigsetjmp(host_jmp, 1);
-+	if (!sig) {
-+		if (write)
-+			*addr = val;
-+		else
-+			(void)*addr;
-+	}
-+	sigaction(SIGBUS, &old_bus, NULL);
-+	sigaction(SIGSEGV, &old_segv, NULL);
-+	return sig;
-+}
-+
-+#define host_read_faults(p)	(host_access(p, false, 0) == SIGBUS)
-+#define host_write_faults(p, v)	(host_access(p, true, v) == SIGBUS)
-+
-+/* ---- Scenarios ---------------------------------------------------------- */
-+
-+static void scenario_launch(struct vmm *a, struct vmm *b)
-+{
-+	pr_info("1. launch\n");
-+	vmm_run(a, GPA, MAGIC_A, 0);
-+	expect_done(a);
-+	vmm_run(b, B_HOME_GPA, MAGIC_B, 0);
-+	expect_done(b);
-+	TEST_ASSERT(*(volatile uint64_t *)a->hva == MAGIC_A,
-+		    "A: the guest write is not visible to the host");
-+	TEST_ASSERT(*(volatile uint64_t *)(b->hva + B_HOME_OFF) == MAGIC_B,
-+		    "B: the guest write is not visible to the host");
-+
-+	/* A has its whole range; B lacks the shared window. */
-+	TEST_ASSERT(vmm_iova_mapped(a, IOVA, CHILD_SIZE, true),
-+		    "A: device mapping incomplete");
-+	TEST_ASSERT(vmm_iova_mapped(b, B_SHARED_IOVA, SHARED_LEN, false),
-+		    "B: device maps a window that B does not have");
-+	TEST_ASSERT(vmm_iova_mapped(b, B_SHARED_IOVA + SHARED_LEN,
-+				    CHILD_SIZE - SHARED_LEN, true),
-+		    "B: device mapping incomplete");
-+}
-+
-+static void scenario_move(struct vmm *a, struct vmm *b)
-+{
-+	struct mps_stats st;
-+	uint64_t frame;
-+	int r;
-+
-+	pr_info("2. move A -> B\n");
-+	vmm_run(a, A_SHARED_GPA, MAGIC_A, 0);
-+	expect_done(a);
-+	frame = vmm_iova_phys(a, A_SHARED_IOVA);
-+	TEST_ASSERT(frame, "A: window not mapped before the move");
-+	/* Map the window on the host too, so that the move must zap it. */
-+	TEST_ASSERT(*(volatile uint64_t *)(a->hva + SHARED_OFF - A_OFF) ==
-+		    MAGIC_A, "A: host mapping does not see the guest write");
-+
-+	/* B does not have the window yet. */
-+	vmm_run(b, 0, 0, B_SHARED_GPA);
-+	expect_memory_fault(b, B_SHARED_GPA);
-+
-+	/* A move outside the destination's range is refused. */
-+	r = ctl_move(a->child, b->child, RO_OFF, PAGE);
-+	TEST_ASSERT(r == -EINVAL, "MOVE outside B's range returned %d", r);
-+
-+	r = ctl_move(a->child, b->child, SHARED_OFF, SHARED_LEN);
-+	TEST_ASSERT(!r, "MOVE returned %d", r);
-+
-+	vmm_stats(a, &st);
-+	TEST_ASSERT(st.owned_pages == (CHILD_SIZE - SHARED_LEN) / PAGE,
-+		    "A has %llu pages after the move",
-+		    (unsigned long long)st.owned_pages);
-+	vmm_stats(b, &st);
-+	TEST_ASSERT(st.owned_pages == CHILD_SIZE / PAGE,
-+		    "B has %llu pages after the move",
-+		    (unsigned long long)st.owned_pages);
-+
-+	/* A's device lost the window and only the window. */
-+	TEST_ASSERT(vmm_iova_mapped(a, A_SHARED_IOVA, SHARED_LEN, false),
-+		    "A: moved window still mapped");
-+	TEST_ASSERT(vmm_iova_mapped(a, IOVA, CHILD_SIZE - SHARED_LEN, true),
-+		    "A: the rest of the mapping went too");
-+
-+	/* A's guest and A's host mapping fault on the window. */
-+	vmm_run(a, 0, 0, A_SHARED_GPA);
-+	expect_memory_fault(a, A_SHARED_GPA);
-+	TEST_ASSERT(host_read_faults(a->hva + SHARED_OFF - A_OFF),
-+		    "A: host mapping of the moved window still readable");
-+
-+	/* B reads what A wrote, and B's device reaches A's frame. */
-+	vmm_run(b, 0, 0, B_SHARED_GPA);
-+	TEST_ASSERT(expect_sync_then_done(b) == MAGIC_A,
-+		    "B does not see A's write");
-+	TEST_ASSERT(*(volatile uint64_t *)(b->hva + SHARED_OFF - B_OFF) ==
-+		    MAGIC_A, "B: host mapping does not see A's write");
-+	TEST_ASSERT(vmm_iova_phys(b, B_SHARED_IOVA) == frame,
-+		    "B: window is not on the frame A had");
-+}
-+
-+static void scenario_donate(struct vmm *a)
-+{
-+	struct mps_stats st;
-+
-+	pr_info("3. donate and reclaim\n");
-+	/* Map the page on the host, so that the donation must zap it. */
-+	TEST_ASSERT(!host_access(a->hva + DON_OFF, false, 0),
-+		    "A: host mapping faults before the donation");
-+	ctl_donate(a->child, DON_OFF, 2 * PAGE, false);
-+	vmm_stats(a, &st);
-+	TEST_ASSERT(st.owned_pages == (CHILD_SIZE - SHARED_LEN) / PAGE - 2,
-+		    "A has %llu pages after the donation",
-+		    (unsigned long long)st.owned_pages);
-+	TEST_ASSERT(vmm_iova_mapped(a, DON_IOVA, 2 * PAGE, false),
-+		    "A: donated pages still mapped for the device");
-+	TEST_ASSERT(host_read_faults(a->hva + DON_OFF),
-+		    "A: host mapping of a donated page still readable");
-+	vmm_run(a, 0, 0, DON_GPA);
-+	expect_memory_fault(a, DON_GPA);
-+
-+	ctl_donate(a->child, DON_OFF, 2 * PAGE, true);
-+	vmm_stats(a, &st);
-+	TEST_ASSERT(st.owned_pages == (CHILD_SIZE - SHARED_LEN) / PAGE,
-+		    "A has %llu pages after the reclaim",
-+		    (unsigned long long)st.owned_pages);
-+	TEST_ASSERT(vmm_iova_mapped(a, DON_IOVA, 2 * PAGE, true),
-+		    "A: reclaimed pages not mapped again for the device");
-+	TEST_ASSERT(!host_access(a->hva + DON_OFF, false, 0),
-+		    "A: host mapping of a reclaimed page faults");
-+	vmm_run(a, 0, 0, DON_GPA);
-+	expect_sync_then_done(a);
-+}
-+
-+static void scenario_readonly(struct vmm *a)
-+{
-+	volatile uint64_t *page = (volatile uint64_t *)(a->hva + RO_OFF);
-+
-+	pr_info("4. read only\n");
-+	*page = MAGIC_B;
-+
-+	ctl_readonly(a->child, RO_OFF, true);
-+	TEST_ASSERT(vmm_iova_mapped(a, IOVA + RO_OFF, PAGE, true),
-+		    "A: read-only page not mapped for the device");
-+
-+	vmm_run(a, RO_GPA, MAGIC_A, 0);
-+	expect_memory_fault(a, RO_GPA);
-+	TEST_ASSERT(host_write_faults(page, MAGIC_A),
-+		    "A: host write to a read-only page did not fault");
-+	TEST_ASSERT(*page == MAGIC_B, "write to a read-only page landed");
-+
-+	/* Clear the bit; the guest retries the same write. */
-+	ctl_readonly(a->child, RO_OFF, false);
-+	vmm_resume(a);
-+	expect_done(a);
-+	TEST_ASSERT(*page == MAGIC_A, "write after clearing read only lost");
-+	TEST_ASSERT(!host_write_faults(page, MAGIC_B),
-+		    "A: host write after clearing read only faulted");
-+	TEST_ASSERT(*page == MAGIC_B, "host write after clearing read only lost");
-+}
-+
-+static void scenario_window(struct vmm *a)
-+{
-+	volatile uint64_t *win;
-+
-+	pr_info("5. host mapping\n");
-+	win = mmap(NULL, PAGE, PROT_READ | PROT_WRITE, MAP_SHARED, a->gmem,
-+		   DON_OFF);
-+	TEST_ASSERT(win != MAP_FAILED, "mmap(guest_memfd, page) errno=%d",
-+		    errno);
-+	*win = MAGIC_A;
-+	TEST_ASSERT(*(volatile uint64_t *)(a->hva + DON_OFF) == MAGIC_A,
-+		    "the two host mappings disagree");
-+
-+	ctl_donate(a->child, DON_OFF, PAGE, false);
-+
-+	TEST_ASSERT(host_read_faults(win),
-+		    "host mapping still readable after the donation");
-+
-+	ctl_donate(a->child, DON_OFF, PAGE, true);
-+	TEST_ASSERT(*win == MAGIC_A, "host mapping did not come back");
-+	munmap((void *)win, PAGE);
-+}
-+
-+static void scenario_large(void)
-+{
-+	struct vmm c = { .name = "C" };
-+	uint64_t before, after;
-+
-+	pr_info("6. large pages\n");
-+	vmm_create(&c);
-+	vmm_attach(&c, ctl_new_child(C_OFF, CHILD_SIZE));
-+
-+	/* The provider's blocks are aligned only if its frames are. */
-+	if (vmm_iova_phys(&c, IOVA) & (HPAGE - 1)) {
-+		pr_info("   skipped: the child's frames are not 2 MiB aligned\n");
-+		vmm_destroy(&c);
-+		return;
-+	}
-+
-+	/* Fault in the guest's code and stack first, then count. */
-+	vmm_run(&c, 0, 0, 0);
-+	expect_done(&c);
-+	before = vm_get_stat(c.vm, pages_2m);
-+
-+	vmm_run(&c, GPA, MAGIC_A, 0);
-+	expect_done(&c);
-+	after = vm_get_stat(c.vm, pages_2m);
-+	TEST_ASSERT(after == before + 1,
-+		    "C: %llu 2 MiB mappings, want %llu",
-+		    (unsigned long long)after,
-+		    (unsigned long long)before + 1);
-+
-+	/* A donation inside the block takes the large mapping away. */
-+	ctl_donate(c.child, C_OFF + DON_OFF, PAGE, false);
-+	TEST_ASSERT(vm_get_stat(c.vm, pages_2m) == before,
-+		    "C: the 2 MiB mapping survived a donation inside it");
-+	vmm_run(&c, 0, 0, GPA);
-+	TEST_ASSERT(expect_sync_then_done(&c) == MAGIC_A,
-+		    "C: the rest of the block lost the guest write");
-+	TEST_ASSERT(vm_get_stat(c.vm, pages_2m) == before,
-+		    "C: a 2 MiB mapping over a block with a hole");
-+	vmm_run(&c, 0, 0, DON_GPA);
-+	expect_memory_fault(&c, DON_GPA);
-+
-+	vmm_destroy(&c);
-+}
-+
-+int main(void)
-+{
-+	struct vmm a = { .name = "A" }, b = { .name = "B" };
-+	struct mps_new_child probe = { .offset = ROOT_SIZE - PAGE, .len = PAGE };
-+	int fd;
-+
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_GUEST_MEMFD_FLAGS) &
-+		     GUEST_MEMFD_FLAG_USE_RESOURCE);
-+
-+	ctl = open("/dev/mem_provider_sample", O_RDWR);
-+	__TEST_REQUIRE(ctl >= 0, "mem_provider_sample not loaded");
-+
-+	/*
-+	 * Without addr= and len=, the first NEW_CHILD sizes the root, so ask
-+	 * for its last page first and give it back.  A fixed root that is too
-+	 * small makes the test skip.
-+	 */
-+	fd = ioctl(ctl, MPS_NEW_CHILD, &probe);
-+	__TEST_REQUIRE(fd >= 0, "provider root smaller than %#llx bytes",
-+		       (unsigned long long)ROOT_SIZE);
-+	close(fd);
-+
-+	vmm_create(&a);
-+	vmm_create(&b);
-+	vmm_attach(&a, ctl_new_child(A_OFF, CHILD_SIZE));
-+	vmm_attach(&b, ctl_new_child(B_OFF, CHILD_SIZE));
-+
-+	scenario_launch(&a, &b);
-+	scenario_move(&a, &b);
-+	scenario_donate(&a);
-+	scenario_readonly(&a);
-+	scenario_window(&a);
-+
-+	vmm_destroy(&a);
-+	vmm_destroy(&b);
-+	scenario_large();
-+	close(ctl);
-+	pr_info("mem_provider: all scenarios passed\n");
-+	return 0;
-+}
--- 
-2.47.3
 
+>
+>> Implement .reset() to provide the standard reset operation and avoid
+>> duplicating this logic in consumers.
+> The (documented) purpose of the .reset callback is to allow handling
+> self-deasserting resets, not convenience. I try pushing back on
+> unnecessary .reset implementations in reset controller drivers.
+>
+> There are a few drivers with direct level control that implement .reset
+> like this, but those are mostly for the benefit of consumer drivers
+> that can be paired with different reset controllers, some of which are
+> self-deasserting.
+
+OK, I see. We do have some IPs, such as the GPU, that use a self-deasserting
+
+reset. The corresponding driver has not been upstreamed yet.
+
+
+
+>> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+>> ---
+>>   drivers/clk/stm32/reset-stm32.c | 45 +++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 45 insertions(+)
+>>
+>> diff --git a/drivers/clk/stm32/reset-stm32.c b/drivers/clk/stm32/reset-stm32.c
+>> index fc237fccae68..9b853417e9c5 100644
+>> --- a/drivers/clk/stm32/reset-stm32.c
+>> +++ b/drivers/clk/stm32/reset-stm32.c
+>> @@ -4,6 +4,8 @@
+>>    * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
+>>    */
+>>   
+>> +#include <linux/delay.h>
+>> +#include <linux/iopoll.h>
+>>   #include <linux/of.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/regmap.h>
+>> @@ -13,6 +15,13 @@
+>>   
+>>   #include "reset-stm32.h"
+>>   
+>> +/* Hold time between reset assertion and deassertion */
+>> +#define STM32_RESET_ASSERT_DELAY_US		2
+> Is this delay enough for all possible consumers, on all platforms that
+> reset-stm32 supports?
+
+Yes, you are right. Even if 2 us should cover a good part of the IPs,
+
+I'll re-checkagainst STM32MP13/MP15/MP25 and use a conservative value in v2.
+
+>
+>> +
+>> +/* Polling of the reset status bit after deassertion */
+>> +#define STM32_RESET_DEASSERT_POLL_US		10
+>> +#define STM32_RESET_DEASSERT_TIMEOUT_US		(10 * USEC_PER_MSEC)
+>> +
+>>   struct stm32_reset_data {
+>>   	/* reset lock */
+>>   	spinlock_t			lock;
+>> @@ -119,9 +128,45 @@ static int stm32_reset_status(struct reset_controller_dev *rcdev,
+>>   	return !!(reg & BIT(ptr_line->bit_idx));
+>>   }
+>>   
+>> +static int stm32_check_deassert(struct reset_controller_dev *rcdev,
+>> +				unsigned long id)
+>> +{
+>> +	struct stm32_reset_data *data = to_stm32_reset_data(rcdev);
+>> +	struct stm32_reset_cfg line_reset;
+>> +	const struct stm32_reset_cfg *ptr_line;
+>> +	u32 reg;
+>> +
+>> +	ptr_line = stm32_get_reset_line(rcdev, id, &line_reset);
+>> +	if (!ptr_line)
+>> +		return -EPERM;
+>> +
+>> +	return readl_poll_timeout(data->membase + ptr_line->offset, reg,
+>> +				  !(reg & BIT(ptr_line->bit_idx)),
+>> +				  STM32_RESET_DEASSERT_POLL_US,
+>> +				  STM32_RESET_DEASSERT_TIMEOUT_US);
+>> +}
+>> +
+>> +static int stm32_reset(struct reset_controller_dev *rcdev, unsigned long id)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = stm32_reset_assert(rcdev, id);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	fsleep(STM32_RESET_ASSERT_DELAY_US);
+>> +
+>> +	ret = stm32_reset_deassert(rcdev, id);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return stm32_check_deassert(rcdev, id);
+> If polling is necessary after deassertion, doesn't this be have to be
+> moved into stm32_reset_deassert()?
+Right, waiting for the line to be released is part of deassert, not of
+
+reset. I'll move it there in v2.
+
+Best regards,
+
+Gabriel
+
+
+> regards
+> Philipp
 
