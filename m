@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48290CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE7CCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZV9wpLaB7GSx4PtVOFkB/b4sfjtm/46M63tFH45CRE=; b=MNMuuO6qlVlh+c5Y4eQ7vGgwRf
-	x1gpPm6jZWtWcohXivMZUoe8luVgv41amVlogIjsV0J//IzkJwJv+V1WYTS5XoVQvRuVIwYBupIGV
-	6efAIbNBRkpRF6mgeGX3zPrQh48dte5F3dcOnEcEBkCaAO8F0OoNzCx74PdWoboZU13iC9zeKw9/3
-	TNqborPgQxWxPccBJHstXChYT0+2gCUFadQB8YIrYTe5i+L3r/bFS2V6O+HlaqXJuDhvMLv8L1JtP
-	HIZu+sp9OKWux7qKHT+pGjlge3geNUSk9NsVezTvsZ7h7cRHNr2ACiuQBqCx7PKRz+EjN7rduvdhw
-	Ej7BurTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zcDK/pebo2mPEMQZ0p0oqr6UiazZd9GFCzRu+HIk0DU=; b=R9jYZaIhBU6Atd0YY374utZVVF
+	3RaeNP3fTGmIrxgR9cNiuij5ZhivhoydhU7IPnq9akXyu0adivm4abyJfzBXyrQxo3VJlBm13juuf
+	lLP4K1kbhXpnf+DqI95jAy5+u0ElUwMy9fDA6rqvjxVPIPmymTcv3ph7NrK3ayQzXn4725IqqWq3c
+	F7CbuMWWIsRr66eePtJoN1YF9Vqy3Jwl1a2pQH02Qn3so6Vlw/Gh8h7hQClWfreoi36hcfGf5mpqr
+	FPfj5+AE0VyiJtXf9c47naHpx0yiCoqNV8mq6e3iPqkxN8vdYgvb9p0cEjMs4yGbVXfIbbuz+Njeq
+	oRTvYu+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz7j-0000000Fbtj-0AW9;
-	Wed, 14 Oct 2026 13:34:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGyEE-0000000FRX1-4BVd;
+	Wed, 14 Oct 2026 12:37:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz7h-0000000Fbsf-1rQ6
+	id 1xGyEB-0000000FRVX-2kf8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 13:34:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8C77605F0;
-	Wed, 14 Oct 2026 13:34:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A6F1F0089C;
-	Wed, 14 Oct 2026 13:34:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791984864;
-	bh=XZV9wpLaB7GSx4PtVOFkB/b4sfjtm/46M63tFH45CRE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=H6NqJWrbi7Q7UOF7JBoq4heJwKmi5w7AjaTmDd58ZIIUNVtOrN2VWklG92FxN2PQV
-	 KYFvWpkK3ajLvCvw92WLcZQE5vZW+auWA1y3ysCoZPeODAXuQod/WKSAa9c0UpXDeY
-	 3/gR/kXCiLH3pP0H1EUhaFk/jTJeipIPiIMl2B6ple+GGz1cH7XfoJ41iNwpQEKboh
-	 ZVzSa2ul5RtabFmxnPDHmBCbEY+NKGutX0l99DzpzhT90o8pDCevIjnitpvrVPptiP
-	 IWIuxJYV+CeYsopFayTEvpgGpAjnW0rzNSBKX55JYZjc+s6mM2RNKuS/QINWvefxCp
-	 Wz19rT3phBcYQ==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Semih Baskan <strst.gs@gmail.com>, Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Arnd Bergmann <arnd@arndb.de>, Rosen Penev <rosenp@gmail.com>, 
- Rani Hod <rani.hod@gmail.com>, bcm-kernel-feedback-list@broadcom.com, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
-In-Reply-To: <20261013220421.1588051-1-bhelgaas@google.com>
-References: <20261013220421.1588051-1-bhelgaas@google.com>
-Subject: Re: [PATCH v4 0/2] PCI: iproc-bcma: Use EROM instead of devicetree
-Message-Id: <179198485820.77319.12457284951144723062.b4-ty@b4>
-Date: Wed, 14 Oct 2026 19:04:18 +0530
+	Wed, 14 Oct 2026 12:37:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=zcDK/pebo2mPEMQZ0p0oqr6UiazZd9GFCzRu+HIk0DU=; b=M2NhgmN1lO9irghBDCYlbRM8SS
+	w0CY12HmYRITG6PK2i7bv55vNs8IktqgyMX08xWIk9fzIwULJQ0FsZkUDhxiEPA1qz2uPxjiV36vX
+	MkoO9uhvcxx08tJpKPAV79mFlUDIsdab+9ApuLGKZkGsf+6EY1LCqQ+KJ3z4E+F7KUzM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xGyE9-00AjBI-BM; Wed, 14 Oct 2026 14:37:01 +0200
+Date: Wed, 14 Oct 2026 14:37:01 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Navid Ghahremani <ghahramani.navid@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	stefandoesinger@gmail.com, krzk@kernel.org,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v2 16/24] net: phy: Add Sanechips ZX5201 PHY support
+Message-ID: <788c9b01-473e-4c45-b6f0-b2ba054da8e9@lunn.ch>
+References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
+ <20261014072109.1759502-17-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261014072109.1759502-17-ghahramani.navid@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_053703_695582_EF294D4A 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +74,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Sanechips ZX5201 Ethernet PHY
+> + *
+> + * The ZX5201 answers on two MDIO addresses: the copper PHY on its own
+> + * address and its MAC-side SerDes interface on the next one.
 
-On Tue, 13 Oct 2026 17:04:19 -0500, Bjorn Helgaas wrote:
-> This is a combination of these two patches:
-> 
->   [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
->   https://lore.kernel.org/all/20260807160526.379-1-strst.gs@gmail.com
-> 
->   [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
->   https://lore.kernel.org/all/20260912043626.437-1-strst.gs@gmail.com
-> 
-> [...]
+What do you get when you read registers 2 and 3 of the SERDES? Is
+there an ID in them?
 
-Applied, thanks!
+If the mdio bus is scanned, and there is an ID, phylib will try to
+probe a PHY driver on the SERDES.
 
-[1/2] PCI: Expose devm_pci_alloc_host_bridge_release()
-      commit: 4e93e052afad91ad28e8343d3777c1e5ab8c24d2
-[2/2] PCI: iproc: Use the EROM outbound window on BCMA
-      commit: 694a9f52a937f272d8aa6e845765e37118c10e17
+> +static int zx5201_sds_read(struct phy_device *phydev, u32 regnum)
+> +{
+> +	return mdiobus_read(phydev->mdio.bus, phydev->mdio.addr + 1, regnum);
+> +}
 
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
+I would suggest adding a probe, and validate phydev->mdio.addr is not
+31. ENODEV, or EINVAL, to indicate the setup is invalid.
 
+> +static int zx5201_config_init(struct phy_device *phydev)
+> +{
+> +	static const u16 led_regs[] = { 0xb409, 0xb407, 0xb406, 0xb408 };
 
+> +	/* LED control registers, all cleared as the vendor firmware does */
+> +	for (i = 0; i < ARRAY_SIZE(led_regs); i++) {
+> +		ret = zx5201_ext_write(phydev, led_regs[i], 0);
+> +		if (ret)
+> +			return ret;
+
+It would be nice to reverse engineer what these bits do. And then add
+proper LED controls. However, that can be later.
+
+Ah, now i'm confused:
+
+https://www.sanechips.com.cn/en/ProductEn/WiredEn/ethernetConnectivityEn/index.html
+
+This says it is an RGMII PHY. Why does it have a SERDES? That suggests
+SGMII?
+
+We need to understand this, because if it is an RGMII PHY, we need to
+address the RGMII delays, which that page says it can controller.
+
+	Andrew
 
