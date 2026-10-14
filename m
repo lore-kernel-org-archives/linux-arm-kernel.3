@@ -4,62 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41144CC6B19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 04:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7646ECC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 04:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jgrKJENA6Fuo/kBiIZwLHpnxCBpu7F/vcADbosM2nII=; b=Q0OLU5dyG59DfP/tX0jCz2lDVN
-	EOzNNNPY2xc9zhyCKdCbUKBtyWsfO01MIBA6Zj7S0k8tS2dUy7cA1vG9RhsJX4zGk/diDxGtRHaGT
-	ec/osqq0Guiy/ossHPfGw6FWha0Ag284Le5p/Qa0+IP5qVDm7pOXBRGBef1IARjDalxg/9a5Q9phT
-	etKqQA8e2Sf03HMktpkJcg80wBqdP7i0bPb0V7n32E73xnP/eqmMDSib5XlDK0P7KAJNNMDBAeUvQ
-	mMYnCxFOT0y41l6xPtXGaQH4vptac0einC+PstPosKMWLbt8OcpHI7SYYnFO0IC1EEeBzJo7czs9V
-	H5DOkcAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=; b=47LYgMdF8JY3HECiSteY9q4jdA
+	yggiRztwYwa15XeBSesabLDattVP5lTclLg5L4D7OByYfbE7aVd+YO6lZfgbdUsMfgGpAHO2sLl0k
+	/YyEsLlDAYBT4+b0I0dtaKLIjDWE2sDdEbdubydPBlyYMjGX7QmDaZ5HkmC2hnvyafzGL2LxPHTaE
+	3tbRJR9bR9cBcGQIzHYjFIr8zK0Fxafk4+iLjyMLoHhm6Dvu2nHQ6CGYlrOHQGMMHMYSC6c+7CJJd
+	tx0uRxeIEetCv/GaBL97S83s04fy4TFbbFA8oDlWcmYgkrPuULMKxZVkYIyDpBFJYr0tbMJugGwfv
+	8nipRSSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGqgf-0000000EVSK-2dQU;
-	Wed, 14 Oct 2026 04:33:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xGr2T-0000000EWpr-41B1;
+	Wed, 14 Oct 2026 04:56:29 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGqgc-0000000EVS2-2IsX;
-	Wed, 14 Oct 2026 04:33:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B509960213;
-	Wed, 14 Oct 2026 04:33:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5541F000FF;
-	Wed, 14 Oct 2026 04:33:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1791952433;
-	bh=jgrKJENA6Fuo/kBiIZwLHpnxCBpu7F/vcADbosM2nII=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bXZ1cR0ReD4VORVk4VdqfFYNw0NqiNoCQxEWXenGRsIR1SJYoUL0iLjQbmilRgtuv
-	 KmyEY3Ubi4MKwXDMWA1K2bLUWf5P6jJxcGlz45GJRoRIfbF4ggFCtjyKr3uKtEGLY2
-	 iU7WQeT+1QddV0alJIgB+wuyZO2Zu+E0hQYPvcIbGQSfAdRGuXF5sWcA3I81tVSsDp
-	 /X7sba4zBQ29cFX+5++4g1nI6Ep98jOi+9Tvp+gv/M0phur0hNIRGqO7kVKAiGBtma
-	 RAxZuU4+hVN3DDsMn5ko0pjOpw8XZNhB7v3WdFAVzAZYQoWAFQK9g1PdktCxx21LnN
-	 kxzyLfTIXSN4Q==
-Date: Wed, 14 Oct 2026 12:13:49 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	linux-riscv@lists.infradead.org,
+	id 1xGr2P-0000000EWpT-1RIx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Oct 2026 04:56:28 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-353804b591eso6494396eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Oct 2026 21:56:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791953784; x=1792558584; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=;
+        b=axeu5QOZcuLfcKFf8R+gKx7/Agm7HUTBY8fxk8Qj9yNOxQyh1juknb1Zu5NBxgecuc
+         JCS5Tdf5XK8cM+X/xKVTiAxNoLnB9VGSPdg9bdE/UuyDUXIoqXes2QbrNQZJS5fOb4P4
+         tVZjC8AE+czRegwv0CvwRoC58VWtcwCn6a8Ilj+p36JgAWARbM3OGWu0NiRDT8ZVkCyQ
+         x68ddHC1BJQfyzP2Mf8vqv45DH7adtuVBJXdaOBR+lEwFH4n8a18+5fL3fDp6W+YX1eQ
+         9L79zLmtYNcxfaUnmZXtGn9vet2DsppvVSI/LVTwlszAUWh2eyFjGinkR8M1s26W7raY
+         DOxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791953784; x=1792558584;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WjQH6eF1riN+Hdn/Ak1ts4FChWpGKVUmHOzzJk7eT5E=;
+        b=y0UBu2Kt/Ytf5/MQJ84Y8uV373RG4ADu3glf5IZ7vsq8MjyY7kTT8yl3+gO6KPMfpd
+         u2+vAtVRxw1/IQP7WFkRqrkkKsvgzaK/fy2CyRwD17h7IcPPp+d3kVcM8d24t6HyWQPn
+         sor8DF6q+/wIEaNrxgEj6YHyhPfRvivVoMub4DWXzcsTP+TVlTPnHpmjMG7EB1Y43Ci8
+         3JQE3OTxD7kUoB4fkaxwaxccdKOwUzlcyKyUJMgqYb5TDgyLo3LO5x5wgAwdfIqAyXcI
+         GutaB/TqY4Wa+N9P7w8UmQKjJGP0dbuzYsdodsOYNZ+LAfE2j+uZXTlK99FW5r+xDQPw
+         U18g==
+X-Forwarded-Encrypted: i=1; AKwUvBwSw0Tlj5OaqlG8K+nvixwcfZyKCZXTCS4Q8fY/8zn6eflsBhrr0g6nuq1AXFOIHZbSHsbYEP+IDVJWt7qjqo7p@lists.infradead.org
+X-Gm-Message-State: AFq9FYKZ5AlrQ9NEGDvMnTiJ9Y4ZY3lACfsv9kJFgX9ot7aOD3rnokCi
+	KpFVCh7Plc4hQ35yQhMa6VDok8r+GJIw7Uv93YowHsaTpujj5qDzJR8+eY/r6ErF
+X-Gm-Gg: AYBFou11SJ1vVHeNmFa+a1Mq08hDYJijY8vLfTKS9FhT9JJiqBm42/Zj3FVWf7TMhYK
+	JsdU3+0tEmKdHvXs43hCFGaYFrtvmiCCRyCJjJj9p6ub82YBYL44eaQgdIux28UdWDae61cBgAn
+	QgaakOVU38oqzM4Is0O86a87NYNwaYUeNx9OAobEkyXhTrgGpMmNeaO+H6yj89M48tOV8+MuOzc
+	PPzpTPhs9ACxiVMlL/Cnb1AFT1+N5zp9LxogSpMAxDYPmbzuN+2gtn5NxHNzrKcZa/FqaxuDVpk
+	D3RJtXQLvxS9S86Mrcu8W4D3K6lR4uej7FomaDSeVTrKhoMNwX+GsnIkH/26cDaxRCUZg18n24J
+	akfQNHtFm/5JcPtioUcpGmWzmwSPcdy8TQ6vEMsbq+JfDtGrU4h1AoBNMSV2wrZIdglGAjt8KE4
+	RzHmgtUru2iaxmnpeaiaU/kQnsIEAKCm6c6g0iLv39Nsbps6H3/0SEqy/vgj5FwC2ET5Ms4k8hx
+	aNnYG3GFYxS
+X-Received: by 2002:a05:7301:dd8a:b0:35d:ea6f:b85e with SMTP id 5a478bee46e88-35dea6fb98cmr1093412eec.1.1791953783690;
+        Tue, 13 Oct 2026 21:56:23 -0700 (PDT)
+Received: from online.mioffice.cn ([2408:8607:1b00:8:a73d:31e0:8b98:4eee])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-359789fde97sm33473630eec.20.2026.10.13.21.56.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Oct 2026 21:56:22 -0700 (PDT)
+From: Pengfei Zhang <zhangfeionline@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Jose Abreu <Jose.Abreu@synopsys.com>,
+	EricChan <chenchuangyu@xiaomi.com>,
+	Simon Horman <horms@kernel.org>,
+	zhangpengfei16@xiaomi.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] perf/renesas: Remove remaining RISCV_ALTERNATIVE
- references
-Message-ID: <as8BfaTCxKh72_iC@xhacker>
-References: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: xgmac: do not treat TBU as a TX event
+Date: Wed, 14 Oct 2026 12:56:07 +0800
+Message-ID: <20261014045607.3421104-1-zhangfeionline@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <179194881415.434549.5017437610608933310@kernel.org>
+References: <179194881415.434549.5017437610608933310@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <fe117dd44728fe7c96f3e4b3ec88c6ca83c5da9b.1791880574.git.geert+renesas@glider.be>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261013_215625_390828_6BCEF65C 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +112,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2026 at 10:38:39AM +0200, Geert Uytterhoeven wrote:
-> As riscv always selects RISCV_ALTERNATIVE, the option was removed.
-> However, a few references were left, making it impossible to enable
-> RZ/Five support (ARCH_R9A07G043).
-> 
-> Fix this by removing all remaining references.
-> 
-> Fixes: b924210f542e13c7 ("riscv: remove RISCV_ALTERNATIVE Kconfig option")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> [Severity: Medium]
+> Can the XDP_TX and ndo_xdp_xmit path stall permanently on XGMAC in
+> shared-IRQ mode when the TX coalesce timer is disabled?
 
-Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+This is not caused by this patch. It needs a very specific setup: XDP
+TX traffic, tx-usecs set to 0, and tx-frames too large to be reached
+below STMMAC_TX_THRESH. With that setup the same stall can already
+happen on XGMAC with per-channel MSI today, because
+stmmac_xdp_xmit_xdpf() only sets IC on a tx_coal_frames boundary and
+has no fallback when the TX timer is disabled.
 
-> ---
-> To be applied to riscv/for-next, or folded into the original commit.
-> ---
->  drivers/perf/Kconfig        | 2 +-
->  drivers/soc/renesas/Kconfig | 1 -
->  2 files changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> index 245e7bb763b9947a..8cef4bdef76aecab 100644
-> --- a/drivers/perf/Kconfig
-> +++ b/drivers/perf/Kconfig
-> @@ -117,7 +117,7 @@ config STARFIVE_STARLINK_PMU
->  
->  config ANDES_CUSTOM_PMU
->  	bool "Andes custom PMU support"
-> -	depends on ARCH_RENESAS && RISCV_ALTERNATIVE && RISCV_PMU_SBI
-> +	depends on ARCH_RENESAS && RISCV_PMU_SBI
->  	default y
->  	help
->  	  The Andes cores implement the PMU overflow extension very
-> diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-> index a63df28df3b5e7c7..0b6876ef6dca228b 100644
-> --- a/drivers/soc/renesas/Kconfig
-> +++ b/drivers/soc/renesas/Kconfig
-> @@ -461,7 +461,6 @@ config ARCH_R9A07G043
->  	bool "RISC-V Platform support for R9A07G043F (RZ/Five)"
->  	depends on NONPORTABLE
->  	depends on !DMA_DIRECT_REMAP
-> -	depends on RISCV_ALTERNATIVE
->  	depends on !RISCV_ISA_ZICBOM
->  	depends on RISCV_SBI
->  	select ARCH_RZG2L
-> -- 
-> 2.43.0
-> 
+I will look at fixing that in the XDP TX path with a separate patch,
+but it is independent of this one.
+
+> [Severity: Medium]
+> This isn't a bug introduced by this patch, but does
+> dwmac4_dma_interrupt() in dwmac4_lib.c have the same sticky TBU
+> problem?
+
+Yes, it looks like it does, especially since commit 6ccf12ae111e
+("net: stmmac: use interrupt mode INTM=1 for multi-MSI") moved the TBU
+check out of the NIS block. I only have XGMAC hardware at the moment,
+so I kept this patch to XGMAC. I will send a separate patch for dwmac4
+once I can test it on dwmac4 hardware.
 
