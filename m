@@ -4,76 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E09CC6B2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 22:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09BECC6B30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 23:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+VLM+36tmgQYYXNxE5+5p9zimFvNHmmZ//pOlOgDHc=; b=w5RbE+r2WtSW3t8Uu7S8hg/fDP
-	cjvz3bD0k6I0CnxfZhrNPzvAXZooD5tkbD9j0XlI123q2RjWEO+mBdj3r8eQjj29ID8p7KWB6IYTw
-	49reRVk8kbDgwSIdOWw3W1RxB+bu4FUJqwg3CN1dRTymuuyQ5sYD91iLw95DNlbf3s/gqfocNApaX
-	XhI1vlRgJvuTpf4a+4p8t0tWrN9KA7Is2fvvxhHK3JA3NeLE4B838uzab1v6Sbb4U6rl5/Ds77DlX
-	hHCMeg6oynue7lHXQnZD27M7QUJRAzOvPOIZkU8NmC2EOh4qm1t2etZL/1imUPI1mC47vDHdKdASG
-	S9F/xXTw==;
+	bh=ReKVbNx+D5AMrmxj0HiDzNjMMNMqfQtzg8j7u13LE9k=; b=AceBa05zBuNNUMdUHDPM1ELwYD
+	ZWU76B/qF7lA8GVN6logCt3dL/YR1WyD5nLhSwTobO3AKGvQdDIojjYE6MEF11MNKPBSWttQotyQ3
+	b2LdkUFsP1tAxOfAYCHF5exAOoOaJqFeEgNVI/hDy+zb426O7ocbbJwXqxooQhbHjwT34HwShmlDz
+	rBjDbN230NhbXxaW57pADH+S6738tmMbrVpZ33V8RiCUq9nRmt9D7dPr/sJIT99uuePvLSf64HrR0
+	Byi1hvV7Z1gex4jtjfVacrVfcElApxgZ7TmF6lzuLidBz9WHM1LCTB90NtU3EC0+WDc3A8K4wYIs9
+	oIsZWOMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH7mn-0000000GQhy-0Yhe;
-	Wed, 14 Oct 2026 22:49:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xH8g0-0000000GSmB-1gln;
+	Wed, 14 Oct 2026 23:46:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH7ml-0000000GQho-2EgR
+	id 1xH8fx-0000000GSl5-2EFR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 22:49:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC00043F20;
-	Wed, 14 Oct 2026 22:49:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCC0A1F000C4;
-	Wed, 14 Oct 2026 22:49:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792018162;
-	bh=a+VLM+36tmgQYYXNxE5+5p9zimFvNHmmZ//pOlOgDHc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K3WkrGqRDGu1SLHDBhaoOJO1KXPkT0ihkApPQjJZcly8C6xERK0BynDVBNjY7pRCt
-	 ANWBXv6614dAbecH/DWkK8FAzTIjUSE0xd9M60HWBvQh0am9URSApjpmEsSSH/y20k
-	 bVC7/QMLOrXS0t19SEIF+d3UmIukVbdNMM5z0VXEdAikMeqs/8SrU4v05QNcrUBbLw
-	 Ud3yN9aC96wtpwydm+Mptwlv8dA8sX8XHRPsvbHRTJ684E4HglJUdySZVt36Gb7c6v
-	 CZecPdfLmxdiKvejeu/iwx7aT7xr9EZfRLtT0SUCdq/3PSRnYQCoXqNINFiiUQPTlI
-	 JKNtIwScIX8Fw==
-Date: Wed, 14 Oct 2026 23:49:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Olivier MOYSAN <olivier.moysan@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-Message-ID: <20261014-unmade-sphinx-71cb25110d58@spud>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261001-tribesman-gauze-862e1ef0cdd8@spud>
- <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
- <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
- <950f2801-a613-4f5a-a5a7-cb30101cf293@foss.st.com>
- <20261009-8db882a9fa159f8759aa7327@squawk>
- <2ba9235f-182e-4906-92e2-e35cf831d289@foss.st.com>
- <20261014-untrimmed-partly-81a4a21db49c@spud>
- <48e528a5-0c54-4778-bd29-b6f44ae95be7@foss.st.com>
+	Wed, 14 Oct 2026 23:46:26 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EMXZVs644567
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 23:46:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ReKVbNx+D5AMrmxj0HiDzNjM
+	MNMqfQtzg8j7u13LE9k=; b=O46HmpVJH9qI9Cc9w+33CO6yrWJ1EBw2T2z9pILQ
+	Vh4AvXalBt4x0JsyiRg1RtPbCzoKDNZm+GzJRjwbIDX+gf2xYpNGMB+1mHxtzPk0
+	P7/80k4m4HKkXINqmyQPdWn0BKSxPZUlVdjJpn8aChpLv5AFvvqlOV8PAop83o0y
+	i46jyUhlJ/zq4LGG+MHe60GCNAclB56uAJUrgf6LRmaqJSJDYCsCrp2jqWto/hrP
+	JO3HL0jp9VAEUNU+pQYgZdxCeExA36f6FabsbimVXTdpKslfgCJarrrr/8qXhwFJ
+	vMTIP4UXyomjpEp7IAiuPUkjHOFKT74/8muEUeqSw6kidw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hajmy86e9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 23:46:24 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93e46c120dfso127989885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 16:46:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792021583; x=1792626383; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ReKVbNx+D5AMrmxj0HiDzNjMMNMqfQtzg8j7u13LE9k=;
+        b=bkVtlfBtCQDjoyssGrNIcRnwWFZ/SvA4Sj1fTMtjjuOd4PWyApCG6nN0i2paTUyUhQ
+         BTAwYmEdxTOREp9pMZ8h4hJrLDd5zyFlA+eSnJXgynx6n4RO3sEgb6HeejwVjLQm5GYT
+         EpFlGVKQUSR5mK3HD5qoe5QVJnQLESM0IELHimdoz9zlRw+iLEgXQb2mjzXZr4ZHMaIq
+         pXuO+kfSY6s/GSdX5HPVKFGpWxP8vO9s42gWbR0fhaVGBW+L2zyHKfb9QhDKqxL/G3OB
+         9ewWoC1x1PN+EdZHvE0HxfgwP1uHIQgBc/L+wb6FcnWHAXS3f00raCM4ut0ucIe0KXT4
+         ToUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792021583; x=1792626383;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ReKVbNx+D5AMrmxj0HiDzNjMMNMqfQtzg8j7u13LE9k=;
+        b=HGWhBrvvg2e4X1/GLdm00gVeDrp6lKSdowjdIR2GPmag0ibnNFLi8oaV0ZKQjs71GN
+         fbedxmZEAkjj6/9QqDR0bdRq56cB+5zDNTCBYFagT5vo/sn5vE82jT3+DOtjZHGUegb4
+         52ZEDAfdrgSLdoNRDwhv+cs1942SU02BySdfLR5XvZOssNW3ofm+EqTPwt+J83wi7CLk
+         xxlCFcqsxxLZLNvoQc+6CS+E58zyaxXQhPbBGyYX1VeadD1pypmH1QL2y29drmjXP+pC
+         TAcO01I4PxIZuClKuxMFDiGaw3VakjmugM/W3LQq6noayfU5s5EEQk0S6Fw8xkqZe9fj
+         GmAQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy2DR45+YI4bTXue4pnG+tHK902drsiwt7zwzn2jsUmcypypk113lYRA+92oeI4wSgp+LGEimNeV5dc1vzejB9e@lists.infradead.org
+X-Gm-Message-State: AFq9FYJJw+RAkJ6ib9id4+Kx/aAHGkvn/RG+xRhfiFmqjR+TVCpGbm5y
+	JW8cIMOmQjMn+Fu9tKjIz3pusdNgpT2lxrbi6IqE+VpJznUKyoOqHjJL8vzG7rSqqbWeumVyxvh
+	HF0m5zV6/ZIZGw0lz70T1OroxoQEQ2yf/Id8tlwH6WefEK+D+OIVv4qy19+Sp6LNkqT1JiHYJCH
+	17Yw==
+X-Gm-Gg: AYBFou0HEUGEDK8MkSeSW4c+AJJ0njjEf8FePrI9M2yRQ7+12bBnkxH5H4V1xH/AGEG
+	Mgo495LFFvahJKKXKc/r28glQkxbp5ksEfOyRQT+dN+2Bzvb0fmojy4hOd1IkywRsaClqC+GgGs
+	xFjbKQV21xKTnv9tr4H3nkk9VNagM4yRve2+KKY1XG7Iu6Z9pg3BOWSQiTP5K5kawI6bTPUtVIY
+	8Cs9muBvlKiCjo5tiKQIWeLHo6SMmRlWCS1pHtTPhfw+edVV8LHF44T17vV1pJTM15LaLdXdzpm
+	37Z76JI8VNqU4a7Jx/0T42hmg8u/7A4QIZcDEb73DkUeqDdZ8Bggo2ogFhhjP1fQHXgryTB4OpG
+	PWqNcJzLQ2pROMsmLZThSH3S40FYm24REnlxW30Vb7+mE5QaLB+9JbAOxxljX0aqj6LW7raIqOn
+	cfiA2Uv+97hMnL
+X-Received: by 2002:a05:620a:4693:b0:93a:9ef5:d370 with SMTP id af79cd13be357-93ebd0be3d8mr2916450985a.1.1792021583028;
+        Wed, 14 Oct 2026 16:46:23 -0700 (PDT)
+X-Received: by 2002:a05:620a:4693:b0:93a:9ef5:d370 with SMTP id af79cd13be357-93ebd0be3d8mr2916446585a.1.1792021582503;
+        Wed, 14 Oct 2026 16:46:22 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be33d90ce5sm957598e87.59.2026.10.14.16.46.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 16:46:20 -0700 (PDT)
+Date: Thu, 15 Oct 2026 02:46:18 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Sebastian Reichel <sre@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-mediatek@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, kernel@collabora.com,
+        Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH 1/4] dt-bindings: connector: Add DP AltMode VDO
+ definitions
+Message-ID: <otk44i4caul5k5dhqsprgmv4hr4jrvtpq2nhcyhgc7ngul5iyl@jmz2ebrwhcgc>
+References: <20261014-dp-altmode-dt-defines-v1-0-b657c9b6e4c3@collabora.com>
+ <20261014-dp-altmode-dt-defines-v1-1-b657c9b6e4c3@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MwIaf7mBDFu+e2ZQ"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <48e528a5-0c54-4778-bd29-b6f44ae95be7@foss.st.com>
+In-Reply-To: <20261014-dp-altmode-dt-defines-v1-1-b657c9b6e4c3@collabora.com>
+X-Proofpoint-GUID: KMex5zCMHOoGvHcWv_ydbddUxuA-8Hna
+X-Proofpoint-ORIG-GUID: KMex5zCMHOoGvHcWv_ydbddUxuA-8Hna
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA5NCBTYWx0ZWRfX4MijV6nyTqe/
+ 0ExSbSdTJ1aImzwLRpQXOb3tI10JnPLct9SmipGDCS3rM9ICaValfWF39DOZoIXpp3sbh1I13oP
+ 2bBWXzW9aX1Tc5yOEaLkxwA9FsCD4as=
+X-Authority-Analysis: v=2.4 cv=TbQDJhQh c=1 sm=1 tr=0 ts=6ad01450 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=QX4gbG5DAAAA:8
+ a=EUspDBNiAAAA:8 a=YnuTlg8LRq0IA_Y-aJEA:9 a=CjuIK1q_8ugA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=AbAUZ8qAyYyZVLSsDulk:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA5NCBTYWx0ZWRfX8PXtYxqwrJWE
+ 63hMzEGPsmpHF8MvcnH9nMjE53rw1UXh9VOIpMizuMIkSu/RXSd+xDkqlW0bt3pGWiV0Y5O3hEt
+ bRJL/zJYFbXrptmXevYRaYRFz1YjbsN7oCdwoWZTjoGb9kjX6SMllEZSNd1mnnM4YzlitUPklXn
+ cHlAiLimIR47iliIlYUxn0wOXoqVVgxT074u7U3Q1DZNiSCrqcVZt2HUvD2e1Bq1VzdarArQv4g
+ HleapTNIUt7CwnQSmgALUkumTZBGQyI+GOFci2OP0eSxxPzh0QEDARTEvKDtsJUo8EEdqOERq+G
+ 249qws1QirlX6nYTFcPfCOfhc3WSxQC7PlZv9eSHUuhR1z3iy29qfXijqjPyHzxqyAwBQ7nQ5ow
+ Hkk6u+YRUzMS/ITMxpjpmeo9sqWVfIaZBrX7gpm1P31VdxnoMAxHapges+cqt9zq1NADQQHWf48
+ IWoarJu6FFe/kR+kYRQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-13_01,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501 spamscore=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610140094
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_164625_605659_6C2DD5EA 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,251 +159,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---MwIaf7mBDFu+e2ZQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Oct 14, 2026 at 11:31:49PM +0200, Sebastian Reichel wrote:
+> From: Sebastian Reichel <sebastian.reichel@collabora.com>
+> 
+> The typical USB-C DisplayPort AltMode capabilities for a down facing
+> port (i.e. sending out video data) looks like this:
+> 
+> altmodes {
+> 	displayport {
+> 		svid = /bits/ 16 <0xff01>;
+> 		vdo = <0x00001c46>;
+> 	};
+> };
+> 
+> Improve the readability by adding defines for the numbers, so that
+> the above instead looks like this:
+> 
+> altmodes {
+> 	displayport {
+> 		svid = /bits/ 16 <USB_SVID_DP_ALTMODE>;
+> 		vdo = <VDO_DP(DP_CAP_DPAM_V2_0, DP_CAP_CABLE_TYPE_PASSIVE,
+> 			      DP_CAP_UHBR_13_5_UNSUPPORTED,
+> 			      DP_PIN_UFP_NONE, DP_PIN_DFP_C_D_E,
+> 			      DP_CAP_USB2_USED, DP_CAP_RECEPTACLE,
+> 			      DP_CAP_SIGNALLING_HBR3, DP_CAP_DFP_D)>;
+> 	};
+> };
+> 
+> The generated DT binary will stay unchanged.
+> 
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  include/dt-bindings/usb/pd.h | 58 ++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
+> 
 
-On Wed, Oct 14, 2026 at 06:51:45PM +0200, Olivier MOYSAN wrote:
-> On 10/14/26 17:15, Conor Dooley wrote:
-> > On Mon, Oct 12, 2026 at 02:56:04PM +0200, Olivier MOYSAN wrote:
-> > > On 10/9/26 21:12, Conor Dooley wrote:
-> > > > On Thu, Oct 08, 2026 at 06:37:26PM +0200, Olivier MOYSAN wrote:
-> > > > > On 10/8/26 12:11, Conor Dooley wrote:
-> > > > > > On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
-> > > > > > > On 10/1/26 20:32, Conor Dooley wrote:
-> > > > > > > >=20
-> > > > > > > > > +
-> > > > > > > > > +required:
-> > > > > > > > > +  - compatible
-> > > > > > > > > +  - reg
-> > > > > > > > > +  - ranges
-> > > > > > > > > +  - clocks
-> > > > > > > > > +  - clock-names
-> > > > > > > > > +  - clock-ranges
-> > > > > > > > > +  - "#address-cells"
-> > > > > > > > > +  - "#size-cells"
-> > > > > > > > > +
-> > > > > > > > > +additionalProperties: false
-> > > > > > > > > +
-> > > > > > > > > +patternProperties:
-> > > > > > > > > +  "^sitf@[0-9]+$":
-> > > > > > > > > +    type: object
-> > > > > > > > > +    description: Serial interface child node
-> > > > > > > >=20
-> > > > > > > > Why is this a child node at all?
-> > > > > > > > Probably not worth reviewing more without a link to the doc=
-s for this
-> > > > > > > > device so I can figure out what on earth is going on!
-> > > > > > > >=20
-> > > > > > >=20
-> > > > > > > The MDF is a digital filter for sigma-delta bitstreams, rathe=
-r than the
-> > > > > > > analog-to-digital converter itself.
-> > > > > > >=20
-> > > > > > > Here is the link to STM32MP25 reference manuel
-> > > > > > > https://www.st.com/resource/en/reference_manual/rm0457-stm32m=
-p2325xx-advanced-armbased-3264bit-mpus-stmicroelectronics.pdf
-> > > > > > > Chapter 45: Multi-function digital filter (MDF)
-> > > > > > >=20
-> > > > > > > On STMP32MP25 SoC, the MDF provides 8 serial interfaces (SITF=
-) and 8 digital
-> > > > > > > filters (DFLT) which can be connected through a multiplexer.
-> > > > > > >=20
-> > > > > > > Below is a schematic view of typical applications targeted by=
- this
-> > > > > > > peripheral
-> > > > > > >=20
-> > > > > > >=20
-> > > > > > > Audio use case:
-> > > > > > >=20
-> > > > > > > 		mdf
-> > > > > > >                +-------------------------------------+
-> > > > > > > +------+    | +------+    +------+    +------+    |
-> > > > > > > | dmic | -> | | sitf | -> | mux  | -> | dflt | -- | -> audio =
-device
-> > > > > > > +------+    | +------+    +------+    +------+    |
-> > > > > > >                +-------------------------------------+
-> > > > > > >=20
-> > > > > > > For instance, in an audio use case the serial interface can b=
-e configured to
-> > > > > > > provide the clock to the digital microphone (cck0, cck1 or bo=
-th) at a common
-> > > > > > > predefined rate, and to retrieve the PDM samples.
-> > > > > > > The serial interface provides this samples to a digital filte=
-r, which
-> > > > > > > delivers PCM samples on its output.
-> > > > > > >=20
-> > > > > > >=20
-> > > > > > > Analog use case:
-> > > > > > >=20
-> > > > > > > 		mdf
-> > > > > > >                  +-------------------------------------+
-> > > > > > > +--------+    | +------+    +------+    +------+    |
-> > > > > > > | sd adc | -> | | sitf | -> | mux  | -> | dflt | -- | -> iio =
-device
-> > > > > > > +--------+    | +------+    +------+    +------+    |
-> > > > > > >                  +-------------------------------------+
-> > > > > >=20
-> > > > > >=20
-> > > > > > So, looking at the docs and a brief chat with Jonathan about th=
-is
-> > > > > > device, I believe you've got things backwards and this is actua=
-lly the backend,
-> > > > > > and the adc should be the one populating the io-backends proper=
-ty
-> > > > > > pointing to this device. You should have io-backend-cells, and =
-I assume
-> > > > > > that there should be a cell for the adc to select which dlft it=
- is connected
-> > > > > > to.
-> > > > > >=20
-> > > > >=20
-> > > > > There have already been lengthy discussions in the past about a D=
-FSDM
-> > > > > peripheral on STM32MP1, which has features similar to those of th=
-e MDF and
-> > > > > similar implementation constraints. For the DFSDM, a solution bas=
-ed on an
-> > > > > IIO backend had been upstreamed. The MDF follows the same archite=
-cture. I
-> > > > > need to take a little time to dive back into this issue.
-> > > >=20
-> > > > One thing to note there is that you retrofitted the backends onto t=
-hat
-> > > > device, and the original design here is much older (it's a text
-> > > > binding).
-> > > >=20
-> > > >=20
-> > > > >=20
-> > > > > DFSDM sources:
-> > > > > drivers/iio/adc/stm32-dfsdm-adc.c
-> > > > > drivers/iio/adc/stm32-dfsdm-core.c
-> > > > >=20
-> > > > > Here is a sample of DFSDM DT
-> > > > >=20
-> > > > > sd_adc0: simple-sd-adc0 {
-> > > > > 	compatible =3D "sd-modulator";
-> > > > > 	#io-backend-cells =3D <0>;
-> > > > > 	vref-supply =3D <&v3v3>;
-> > > >=20
-> > > > Yeah, pretty sure this is wrong (backwards). The backend is the thi=
-ng
-> > > > that gets data from an ADC not the ADC.
-> > > >=20
-> > >=20
-> > > The backend framework was introduced to implement complex IIO aggrega=
-te
-> > > devices. The hardwares that were driving this need were analog device=
- ad9467
-> > > and ST DFSDM.
-> > >=20
-> > > https://lore.kernel.org/linux-iio/20231204144925.4fe9922f@jic23-huawe=
-i/T/#m222f5175273b81dbfe40b7f0daffcdc67d6cb8ff
-> > >=20
-> > >  From drivers/iio/industrialio-backend.c:
-> > >=20
-> > > "The typical architecture is to have one device as the frontend devic=
-e which
-> > > can be "linked" against one or multiple backend devices. All the IIO =
-and
-> > > userspace interface is expected to be registers/managed by the fronte=
-nd
-> > > device which will callback into the backends when needed (to get/set =
-some
-> > > configuration that it does not directly control)."
-> > >=20
-> > >   *                                    ---------------------
-> > >   * ------------------                 | ------------
-> > >   * |     ADC        |-----------------| | ADC CORE |
-> > >   * | (Frontend/IIO) | Serial Data (eg | |(backend) |-------
-> > >   * |                |-----------------| ------------
-> > >   * ------------------                 ---------------------
-> > >=20
-> > > The MDF (or DFSDM) use case, follows this topology:
-> > > - The SD modulator (ADC core) registers in backend framework
-> > > - The MDF registers in IIO framework and exposes the IIO devices
-> > >    It also get configuration (ref voltage) from SD modulator, to comp=
-ute
-> > > scaling.
-> > >=20
-> > > I agree that if we consider the terms frontend and backend, the eleme=
-nts in
-> > > the data flow do not have the roles that we would naturally expect. H=
-owever,
-> > > if we consider the expected role of the elements using the iio-backend
-> > > framework, the usage seems coherent to me.
-> >=20
-> > I didn't even get as far as sd modulators or whatever, if I understand
-> > correctly the ADC inputs on this device are fed by the onboard ADC?
-> > (https://lore.kernel.org/linux-iio/20261006-adc-stm32mp25-v1-v4-0-d31ec=
-75aecf3@foss.st.com/)
-> > In that case, I can't really see how it makes sense for the primary iio
-> > device to change when data is fed back through the mdf or taken
-> > directly from the ADC itself, particularly given how that would affect
-> > the userspace interface.
-> >=20
-> > The "serial" side of this seems in a similar vein to the adi,axi-adc
-> > stuff, which when considered with the ADC inputs, really does give me
-> > the impression this is backwards.
->=20
-> Some clarifications about the STM32MP25. This SoC does indeed provide ADC=
-s,
-> and these can be connected to the MDF via a dedicated interface. (but not
-> the serial interface).
->=20
-> However, this use case is not supported by the driver. Only sigma-delta
-> modulators, external to the SoC and connected via the serial interface, a=
-re
-> supported. On ST boards, the only available SD modulators are digital
-> microphones.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Quite frankly, I don't care what you are choosing to implement in the
-driver or what your first-party boards support. The binding must
-represent the capabilities of the device, not what subset you deem
-relevant at this point in time. I'm not going to ack anything that does
-not consider all use cases for the device, especially since I the more I
-look the more I am convinced that this is the wrong way to model the
-relationship between devices and therefore intentionally ignoring a use case
-is likely to be problematic when someone does decide that they want to use
-that feature.
 
-> Anyway, if the internal ADC to MDF use case was supported, the issue would
-> be the same. The whole ADC + MDF set would be presented at the interface =
-as
-> an aggregated device, and the ADC data would not be directly accessible to
-> the user.
-
-Of course, that's what I was talking about when I said:
-| In that case, I can't really see how it makes sense for the primary iio
-| device to change when data is fed back through the mdf or taken
-| directly from the ADC itself, particularly given how that would affect
-| the userspace interface.
-
-To me, in that ADC to MDF use case, the frontend portion of the aggregate
-device presented to userspace needs to be the ADC and the MDF needs to be
-the backend, since otherwise the ADC will simultaneously be frontend and
-backend, depending on which channel is considered. That makes no sense to me
-when the MDF can always be the backend, for all use cases and avoid that
-sort of problem entirely.
-I've heard no argument as to why the MDF cannot be a backend, just that you
-don't want to because the previous device didn't, but copying what was
-done before isn't a justification that bears weight if how it was done
-before isn't the way it should be done.
-
-Thanks,
-Conor.
-
---MwIaf7mBDFu+e2ZQ
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatAG7QAKCRB4tDGHoIJi
-0lf0APoDDmWLKbnSiCnHdRPcy+vbGQhQMeNRusw0qJ8Bot87jwD/dNYXNfEsRY9R
-URObrWxRpVhyloeQ5A2gSFp3xlKWNwk=
-=BK0a
------END PGP SIGNATURE-----
-
---MwIaf7mBDFu+e2ZQ--
+-- 
+With best wishes
+Dmitry
 
