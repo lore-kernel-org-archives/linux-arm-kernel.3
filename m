@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634D5CC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5147BCC6B27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 08:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AvWz/TY0T7HCNOvJmAbyRi0N/T41F5Dpvz1qDuxVX8=; b=t8QN360QA7uyvHcNe2IODHHLhz
-	HYQs9RxH5fDY5JRUApN/3FY7hyDGAMNSTBZ/p2EAVeVwJlRXF8s0gomt0sLsSAVDuo0Cuo6YTO94E
-	in/SUbIjQD7JaKkw1lZS8hJ/Qq9fknkqHTqgMNnCUzjqFg3Na3XaUXmZdjG6/35u4fTXHxpT6ZdTx
-	bkBt1Oanx553E9jD8ffnMoqu0cLzVW3m0Zz9+COU7g43PmLsVVLWot7grHbRl0yhkc6K0UE15nyxu
-	enN9xprzwBb7IjIR3ZYgWONINieqGB+xoHr2BU955C4ba0OackNMIfyR+Or6KP9ihjYiKqigFnvx/
-	wWRgn6JQ==;
+	bh=F1UhGspZt3n8d7AimaUoaUHhmKl1e/RrKismBjq1j3Q=; b=OzIL/XvIvErhA5suDBtF2nePH7
+	R0eK27+veFTrNay+auV5vsyiY+IrdIsiky3w2J3qF4uGtHMFyc30UzR1vqNXHrJ1gD+pEWWRTHWtc
+	NDeHQa5nYzSc7wmYD8NGDOWU0yAhmlzT294xUkXJTkUIyp8kf+no2d3/UHbC3NZwLJz0imuQAYd9o
+	QOmpmysrOlGs8YniSstvyV+D99MBWAp3qlTDBJc4CCM4LMFYzFB3y+MjeLebIaOXXCTN5UpSuwAwe
+	+VX11e66FXJYV9igzh7CMpq0yRevCZPj0nxP2aLm55SIwSzyNS/CNpQ5GDDLZQqZYbQwSCD3DK0Lw
+	EzsBmW/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtKf-0000000EjXt-0mAn;
+	id 1xGtKf-0000000EjZu-3zp2;
 	Wed, 14 Oct 2026 07:23:25 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtKO-0000000EjI0-10SX
+	id 1xGtKQ-0000000EjK8-1rtT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:23:09 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48de72fc832so80766f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:07 -0700 (PDT)
+	Wed, 14 Oct 2026 07:23:11 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48b0584ad71so2164131f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:23:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791962587; x=1792567387; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791962588; x=1792567388; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4AvWz/TY0T7HCNOvJmAbyRi0N/T41F5Dpvz1qDuxVX8=;
-        b=mlHrgqp10pNtc134Vhv6IigkDsSMjAjZnWPKqqkz3hEHVPto3f2zk7DPb04idFjub1
-         8rMokBCUbqhVUPf+u68o0wFvyp9rCgMKgf4XciMyRzasl4Y/0ojkP22IUtypsEIc74L8
-         bYsfU/PuJfC3xo9uE50yyyJSEnLSAm0t5hXQ769LsuFrpmSTUFtjO2eQugxFUmziYecc
-         xDEKuCn5xDFJmJlLPNzYwLA0jEKv8bz59G5+mRA1haUtl1uQS2Cud2RAXabwBnaq3T0b
-         7y8Jn1ZdMRu7mO7c7/1RELFdtSI1eL+oQQOzjObxXNlnh8+BXs2EgHelp9uCVTJ4RoFT
-         RsYg==
+        bh=F1UhGspZt3n8d7AimaUoaUHhmKl1e/RrKismBjq1j3Q=;
+        b=d/HQV/0/ZqDbn+lL+52OuMTyH87nVHhsNnlAEgVNDiWX7dzi9N1+6eLZ9DYECsTLhM
+         y3y/H0C2SkSQOHkcfrF++f2940VdHm7i+q/+g+4AaiGHhDA+0Etye1fhqLSdLUp43UlV
+         zSq35f5AxV0bmdp8S7EQ6JK50+Qvsq4joyZZh7FtJJciJAkrfrLZrbKdO7HxKDy8NFqQ
+         I+qfa6mzsnGKRsxO6MGirF2hU5ypNBtSG5sORBoLElsF7uZdGEFn819lrPM7dVFV/v2a
+         01HzSUzfwjgZ7sAYZNV5YgVElNPh+jEkN8/jrYSyg8+cdUdl3hug53ooi2MSWCIdab85
+         gEpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791962587; x=1792567387;
+        d=1e100.net; s=20260707; t=1791962588; x=1792567388;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4AvWz/TY0T7HCNOvJmAbyRi0N/T41F5Dpvz1qDuxVX8=;
-        b=VObad6bwIWUg0l3FtNJ19IluSahFllFTq43aaSz5K13vWS5PXxvCcz3fkoC9S2q442
-         omqoJly1MmCa7exQBvj3b0AZ+eGVQGXg82xGuPSFzRp0HK1/bzzT9LdQadpwMG5cfEG7
-         oqyQ1aB5MOdgMEsmxRGH46WJhj3LKenI4OpSKztO2CnW4pjrNWCaFTmpWMrec6AclUfo
-         xoMr9v1/8QxXe+31HSrm2SDdOKf4iT5BcTyrokDK5pbgBt9JQWT4ygwfflsTPxWJpeGY
-         suGDSf3MVTm4D9gtSEJQo6X6wNCMyybUS4yRYsldjMcH29cN8G8Q0Wl0UOpy6fhw0mAq
-         cxZA==
-X-Gm-Message-State: AFq9FYIPJWUHa8h6DAL0+KCswoMYnq5YtKdlZxWFQK76KEsbJP9alYYn
-	sEeB1v2xmm9WFJLRkvbZ4ZVbRKYcJgO1O4H2KOcRqApv2eTsb6dx7pm/nKuwJeEV33Af0A==
-X-Gm-Gg: AYBFou1uyHo3/jpNKrIWZwQoJKBi1MPWSWT+pGm0z5L4w2RrLKMWk7m1cOUM+BPMTDD
-	418y8hDGHrmLnaAPKJkTfVvoTM+qfKZX2fy5/gRJ7Y7w9HV1TGlUZE6/YmIXEHnw5A1zV8Mc7Zw
-	vccyJdo9FPwKcjl1tOxrN/5COSwaJjshHvl4vRpEpE3E8/xZGlK9m1qpe4MyPNytozMIyKgPgUg
-	zDYplbdpX0a3kZ4Kf5po1cadaNfrExHyzLlIaLuPyq+BrmGQ+GRVF48wCUBkQIwGDuVHrUceYYH
-	uN8UF1GkYbSxjx3hINEleKw9BqZPj02SQdPXvUlbv6zehk/09O1VTAxFf6STFS6wfhJNXOwyz3c
-	A+4UobmFkHDS0Pp3SFPxeyPMqYZWs8cjFx28hXRVt+r2QtmSdmsgqN+qcE1qEebVE7siaSXsBv4
-	oiIWyrIytXJpsTkxDFxUNch8vtdqK7LRpto/A7uqABcxRFUINRQIvTGY4T0coxSKXmBDWnPPNPY
-	BCKCOe9eBbjX0B42795rY54wgffs0h1OdxxTwpSo35YRgWUDcKQc0+zn5OU5I0tW+3PtFt1CtvF
-	xlZZsLI4P/VuoI8cpVbAjlyRF39eUmSF+SZpdtj3NvV/WRZfhhamgL7yPMQMog==
-X-Received: by 2002:a05:6000:25c4:b0:48d:db43:4ba3 with SMTP id ffacd0b85a97d-48ddb434e27mr14396343f8f.2.1791962586518;
-        Wed, 14 Oct 2026 00:23:06 -0700 (PDT)
+        bh=F1UhGspZt3n8d7AimaUoaUHhmKl1e/RrKismBjq1j3Q=;
+        b=ShEI3G7UrQ+9VZNLaGYvq2hG3s/OyAbXfhkgj5CyXbiooKu+vC7Ij/ZguLw2k5FWMe
+         hf6jEh+45KD6uoGfbBcQcHaw2HcMfc9iwTduBIr4oGpjGmpja+ZQQc5uHmYV9QryzktK
+         8Wpn8OcYwGiNJosVl+KamG5q74e1o3YrcN6GZ16W5KI63qcYKxGANFh09REaPBm48V3Q
+         HJVbiIXeVAfbnrlH7f954NSw0Nc/tZogZNDUZdpaMIyOG7I3PO+/TpWaeeCMfDlqZh25
+         CRzmUopostaubkmRvi4CzriPtUCQg1K2DSgCaPWG89RtSdeclZ3ClfevFnc+ZfnjkyrV
+         Zm9A==
+X-Gm-Message-State: AFq9FYK2bim1dNFOe/yxGsUUoJDd/zXEyBbqHJhpAvgURIh/k5aKSmpf
+	I29dUGSiSn72X6kIcnpY4byKom90Lo7JtC0cQyC4oKdazq80/x3jJwwwnTIq4VthDgNbag==
+X-Gm-Gg: AYBFou1kq6vknm/m0r8NCLMsOvxV6T2uw3WG1AbYmdfUiZ6wipsioJFmW5jkVrEklaW
+	ceVjBiboGI/aeUBZ0wRzRRvYHXqFUqTwKLkEBACE3B2Acf/EGJ9ff/kkyYURbnqwY07NjxJE6Hy
+	rbpZ8x34BtLbXtaNzAAYzM5RhnHuaH3qnkJd3oOdnllZHGGwhRugcbfJ1/zPIm+TKPBw8sgdhl+
+	oPHoncGuX7FV+Ev57OiRklxirPxWuEB5Dst2gQF23L9mmDC9vBVAMqnaTahAiVEIgZVe1q7YQkk
+	p6q68EC80gpGMBO2Z/coKhqqWhUTC+VjQUpIuA+6gf3W4Gs55rIa/ZURyQJH10yK2j7tTy/dMTz
+	MMuaW5VCNcpSDDu19QTSccnhrSDxLGml2CfwEULZG9YdtAR//DiYUyOdp1P30QIfFUliz2yPqHv
+	LxWws0cztamZLTn2qDWIoeu8/SprxytnENrNX+WR3vqNIJFxwE6rnEI5sdWb0rNr987VW7THiQL
+	lfjFTzh1QzUKBYk9JX/ITJ102mVhufOOrkwySPzIToXJe9I4VMcfjBlgVQTTHvqcYZg5+uzd/z9
+	19Ak62c/dF1HsxlAzknGErQthOF5JCempEaf5ICe2jrHmUNavZ1MZuqxz1bKJicJW1qfrRH1
+X-Received: by 2002:a05:6000:2c06:b0:48d:ed3c:4cdd with SMTP id ffacd0b85a97d-48ded3c5789mr1068940f8f.49.1791962588408;
+        Wed, 14 Oct 2026 00:23:08 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.23.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 00:23:06 -0700 (PDT)
+        Wed, 14 Oct 2026 00:23:07 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: arnd@arndb.de,
 	stefandoesinger@gmail.com,
 	krzk@kernel.org,
 	Navid Ghahremani <ghahramani.navid@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: [PATCH v2 13/24] PCI: dwc: Add ZTE ZX279128S host controller driver
-Date: Wed, 14 Oct 2026 08:20:53 +0100
-Message-ID: <20261014072109.1759502-14-ghahramani.navid@gmail.com>
+	netdev@vger.kernel.org
+Subject: [PATCH v2 15/24] net: mdio: Add ZTE ZX279128S MDIO controller
+Date: Wed, 14 Oct 2026 08:20:55 +0100
+Message-ID: <20261014072109.1759502-16-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_002308_579394_6D9C7E95 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20261014_002310_521328_9652DE8A 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,66 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the two Synopsys DesignWare PCIe host controllers of the
-ZTE ZX279128S SoC. The driver manages the controller clocks via CCF,
-asserts/deasserts resets via the Reset framework, and manages the
-analog SerDes and PLL via the Generic PHY framework.
+Provide bounded Clause 22 transactions and managed clock and MDIO-bus
+registration.
 
 Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
 ---
- drivers/pci/controller/dwc/Kconfig          |  13 +
- drivers/pci/controller/dwc/Makefile         |   1 +
- drivers/pci/controller/dwc/pcie-zx279128s.c | 273 ++++++++++++++++++++
- 3 files changed, 287 insertions(+)
- create mode 100644 drivers/pci/controller/dwc/pcie-zx279128s.c
+ drivers/net/mdio/Kconfig          |  11 +++
+ drivers/net/mdio/Makefile         |   1 +
+ drivers/net/mdio/mdio-zx279128s.c | 157 ++++++++++++++++++++++++++++++
+ 3 files changed, 169 insertions(+)
+ create mode 100644 drivers/net/mdio/mdio-zx279128s.c
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index dcfbe7e229..3a4008be84 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -577,4 +577,17 @@ config PCIE_ULTRARISC
- 	  By default, this symbol is enabled when ARCH_ULTRARISC is active,
- 	  requiring no further configuration on that platform.
+diff --git a/drivers/net/mdio/Kconfig b/drivers/net/mdio/Kconfig
+index a05229838c..59812a082a 100644
+--- a/drivers/net/mdio/Kconfig
++++ b/drivers/net/mdio/Kconfig
+@@ -199,6 +199,17 @@ config MDIO_THUNDER
+ 	  ThunderX SoCs when the MDIO bus device appears as a PCI
+ 	  device.
  
-+config PCIE_ZX279128S
-+	bool "ZTE zx279128s PCIe controller"
++config MDIO_ZX279128S
++	tristate "ZTE zx279128s MDIO bus controller"
 +	depends on ARCH_ZTE || COMPILE_TEST
-+	depends on PCI_MSI
-+	select GENERIC_PHY
-+	select PCIE_DW_HOST
-+	select RESET_CONTROLLER
++	depends on HAS_IOMEM && OF_MDIO
 +	help
-+	  Say Y here to enable support for the two PCIe host controllers of
-+	  the ZTE zx279128s SoC. They are based on the Synopsys DesignWare
-+	  PCIe IP. On the ZTE ZXHN H3600 they connect the MT7915 Wi-Fi chip.
-+	  The driver only supports legacy INTx interrupts.
++	  This driver supports the MDIO controller of the ZTE zx279128s
++	  SoC. It reaches the PHYs of the integrated switch and, on boards
++	  such as the ZTE ZXHN H3600, an external PHY.
 +
- endmenu
-diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-index d4f88cfc62..379198ebd6 100644
---- a/drivers/pci/controller/dwc/Makefile
-+++ b/drivers/pci/controller/dwc/Makefile
-@@ -35,6 +35,7 @@ obj-$(CONFIG_PCIE_TEGRA194) += pcie-tegra194.o
- obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
- obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
- obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
-+obj-$(CONFIG_PCIE_ZX279128S) += pcie-zx279128s.o
- obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
- obj-$(CONFIG_PCIE_SPACEMIT_K1) += pcie-spacemit-k1.o
- obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
-diff --git a/drivers/pci/controller/dwc/pcie-zx279128s.c b/drivers/pci/controller/dwc/pcie-zx279128s.c
++	  To compile this driver as a module, choose M here.
++
+ menu "MDIO Multiplexers"
+ 
+ config MDIO_BUS_MUX
+diff --git a/drivers/net/mdio/Makefile b/drivers/net/mdio/Makefile
+index 0485867460..ce21e1496c 100644
+--- a/drivers/net/mdio/Makefile
++++ b/drivers/net/mdio/Makefile
+@@ -26,6 +26,7 @@ obj-$(CONFIG_MDIO_REGMAP)		+= mdio-regmap.o
+ obj-$(CONFIG_MDIO_SUN4I)		+= mdio-sun4i.o
+ obj-$(CONFIG_MDIO_THUNDER)		+= mdio-thunder.o
+ obj-$(CONFIG_MDIO_XGENE)		+= mdio-xgene.o
++obj-$(CONFIG_MDIO_ZX279128S)		+= mdio-zx279128s.o
+ 
+ obj-$(CONFIG_MDIO_BUS_MUX)		+= mdio-mux.o
+ obj-$(CONFIG_MDIO_BUS_MUX_BCM6368)	+= mdio-mux-bcm6368.o
+diff --git a/drivers/net/mdio/mdio-zx279128s.c b/drivers/net/mdio/mdio-zx279128s.c
 new file mode 100644
-index 0000000000..592a7f7c4e
+index 0000000000..fa0aab5b28
 --- /dev/null
-+++ b/drivers/pci/controller/dwc/pcie-zx279128s.c
-@@ -0,0 +1,273 @@
++++ b/drivers/net/mdio/mdio-zx279128s.c
+@@ -0,0 +1,157 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * ZTE zx279128s PCIe host controller
-+ *
-+ * The SoC has two DesignWare PCIe controllers with one lane each. Their
-+ * clocks, resets and PHYs are managed through the CCF, Reset and Generic PHY
-+ * frameworks.
++ * ZTE zx279128s MDIO controller
 + *
 + * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
 + */
@@ -176,265 +171,153 @@ index 0000000000..592a7f7c4e
 +#include <linux/bitfield.h>
 +#include <linux/bits.h>
 +#include <linux/clk.h>
-+#include <linux/delay.h>
 +#include <linux/err.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/init.h>
 +#include <linux/io.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/pci.h>
-+#include <linux/phy/phy.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of_mdio.h>
++#include <linux/phy.h>
 +#include <linux/platform_device.h>
-+#include <linux/reset.h>
 +
-+#include "pcie-designware.h"
++#define ZX_MDIO_DATA_WR		0x04
++#define ZX_MDIO_DATA_RD		0x08
++#define ZX_MDIO_CFG		0x0c
++#define ZX_MDIO_STATUS		0x10
++#define  ZX_MDIO_STATUS_DONE	BIT(0)
++#define ZX_MDIO_CMD		0x14
++#define  ZX_MDIO_CMD_REG	GENMASK(4, 0)
++#define  ZX_MDIO_CMD_ADDR	GENMASK(9, 5)
++#define  ZX_MDIO_CMD_WR		BIT(10)
++#define  ZX_MDIO_CMD_RD		BIT(11)
++#define  ZX_MDIO_CMD_CLK_DIV	BIT(12)
++#define  ZX_MDIO_CMD_BIT13	BIT(13)
++#define  ZX_MDIO_CMD_START	BIT(14)
++#define  ZX_MDIO_CMD_BIT15	BIT(15)
 +
-+/* Controller wrapper ("ctrl" registers) */
-+#define CTRL_CFG		0x000
-+#define CTRL_CFG_EN		BIT(5)
-+#define CTRL_STATUS		0x0dc
-+#define CTRL_STATUS_LTSSM	GENMASK(22, 17)
-+#define CTRL_LTSSM_L0		0x11
++#define ZX_MDIO_POLL_US		10
++#define ZX_MDIO_TIMEOUT_US	2000
 +
-+struct zx279128s_pcie {
-+	struct dw_pcie pci;
-+	void __iomem *ctrl;
-+	struct clk *clk;
-+	struct reset_control *rst;
-+	struct phy *phy;
-+	struct gpio_desc *reset;
-+	struct gpio_desc *enable;
++struct zx279128s_mdio {
++	void __iomem *base;
 +};
 +
-+#define to_zx279128s_pcie(x)	container_of(x, struct zx279128s_pcie, pci)
-+
-+/* The board reset lines are shared by both controllers, see host_init */
-+static DEFINE_MUTEX(zx279128s_board_lock);
-+static bool zx279128s_board_released;
-+
-+/* Limit the link to 2.5 GT/s and retrain it, as the vendor firmware does */
-+static void zx279128s_pcie_force_gen1(struct dw_pcie *pci)
++static int zx279128s_mdio_xfer(struct mii_bus *bus, u32 op, int addr,
++			       int regnum, u16 data)
 +{
-+	u8 cap = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	u32 val;
-+	u16 val16;
-+
-+	if (WARN_ON(!cap))
-+		return;
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+
-+	/*
-+	 * With L0s/L1 enabled the H3600 endpoints stop responding, so do not
-+	 * advertise those states or clock power management until their wakeup
-+	 * sequence is understood.
-+	 */
-+	val = dw_pcie_readl_dbi(pci, cap + PCI_EXP_LNKCAP);
-+	val &= ~(PCI_EXP_LNKCAP_SLS | PCI_EXP_LNKCAP_ASPMS |
-+		 PCI_EXP_LNKCAP_CLKPM);
-+	val |= PCI_EXP_LNKCAP_SLS_2_5GB;
-+	dw_pcie_writel_dbi(pci, cap + PCI_EXP_LNKCAP, val);
-+
-+	val16 = dw_pcie_readw_dbi(pci, cap + PCI_EXP_LNKCTL2);
-+	val16 &= ~PCI_EXP_LNKCTL2_TLS;
-+	val16 |= PCI_EXP_LNKCTL2_TLS_2_5GT;
-+	dw_pcie_writew_dbi(pci, cap + PCI_EXP_LNKCTL2, val16);
-+
-+	val16 = dw_pcie_readw_dbi(pci, cap + PCI_EXP_LNKCTL);
-+	val16 &= ~(PCI_EXP_LNKCTL_ASPMC | PCI_EXP_LNKCTL_CLKREQ_EN);
-+	dw_pcie_writew_dbi(pci, cap + PCI_EXP_LNKCTL, val16 | PCI_EXP_LNKCTL_RL);
-+
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+}
-+
-+static int zx279128s_pcie_host_init(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct zx279128s_pcie *pcie = to_zx279128s_pcie(pci);
++	struct zx279128s_mdio *priv = bus->priv;
++	void __iomem *base = priv->base;
++	u32 cmd, val;
 +	int ret;
 +
-+	/*
-+	 * The board lines reset a device that can sit behind both controllers
-+	 * (the MT7915 of the H3600 uses both). The first controller to start
-+	 * resets and releases it; the second must not reset it again.
-+	 */
-+	mutex_lock(&zx279128s_board_lock);
-+	if (!zx279128s_board_released && (pcie->reset || pcie->enable)) {
-+		ret = gpiod_direction_output(pcie->reset, 1);
-+		if (ret)
-+			goto err_unlock;
-+		ret = gpiod_direction_output(pcie->enable, 0);
-+		if (ret)
-+			goto err_unlock;
-+		msleep(100);
-+		ret = gpiod_set_value_cansleep(pcie->reset, 0);
-+		if (ret)
-+			goto err_unlock;
-+		ret = gpiod_set_value_cansleep(pcie->enable, 1);
-+		if (ret)
-+			goto err_unlock;
-+		msleep(200);
-+		zx279128s_board_released = true;
++	/* Clear the previous command and its status */
++	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
++	       base + ZX_MDIO_CMD);
++	writel(0, base + ZX_MDIO_STATUS);
++
++	cmd = readl(base + ZX_MDIO_CMD);
++	cmd &= ~(ZX_MDIO_CMD_WR | ZX_MDIO_CMD_RD | ZX_MDIO_CMD_ADDR |
++		 ZX_MDIO_CMD_REG);
++	cmd |= op | FIELD_PREP(ZX_MDIO_CMD_ADDR, addr) |
++	       FIELD_PREP(ZX_MDIO_CMD_REG, regnum);
++
++	if (op == ZX_MDIO_CMD_WR)
++		writel(data, base + ZX_MDIO_DATA_WR);
++	writel(cmd | ZX_MDIO_CMD_START, base + ZX_MDIO_CMD);
++
++	ret = readl_poll_timeout(base + ZX_MDIO_STATUS, val,
++				 val & ZX_MDIO_STATUS_DONE, ZX_MDIO_POLL_US,
++				 ZX_MDIO_TIMEOUT_US);
++	if (ret) {
++		dev_err_ratelimited(&bus->dev, "timeout (addr %d, reg %d)\n",
++				    addr, regnum);
++		return ret;
 +	}
 +
-+	ret = phy_init(pcie->phy);
-+	if (ret)
-+		goto err_unlock;
-+
-+	ret = phy_power_on(pcie->phy);
-+	if (ret)
-+		goto err_phy_exit;
-+
-+	ret = reset_control_assert(pcie->rst);
-+	if (ret)
-+		goto err_phy_off;
-+	fsleep(50);
-+	ret = reset_control_deassert(pcie->rst);
-+	if (ret)
-+		goto err_phy_off;
-+
-+	mutex_unlock(&zx279128s_board_lock);
-+
-+	/* Enable the controller, which starts link training */
-+	writel(readl(pcie->ctrl + CTRL_CFG) | CTRL_CFG_EN, pcie->ctrl + CTRL_CFG);
-+
-+	zx279128s_pcie_force_gen1(pci);
-+
-+	return 0;
-+
-+err_phy_off:
-+	phy_power_off(pcie->phy);
-+err_phy_exit:
-+	phy_exit(pcie->phy);
-+err_unlock:
-+	mutex_unlock(&zx279128s_board_lock);
-+	return dev_err_probe(pci->dev, ret, "failed to initialize PCIe\n");
-+}
-+
-+static void zx279128s_pcie_host_deinit(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct zx279128s_pcie *pcie = to_zx279128s_pcie(pci);
-+
-+	mutex_lock(&zx279128s_board_lock);
-+	reset_control_assert(pcie->rst);
-+	phy_power_off(pcie->phy);
-+	phy_exit(pcie->phy);
-+	mutex_unlock(&zx279128s_board_lock);
-+}
-+
-+/*
-+ * The Wi-Fi on the H3600 uses legacy INTx interrupts. Providing msi_init
-+ * keeps the DWC core from setting up its internal MSI controller, which has
-+ * not been tested on this SoC.
-+ */
-+static int zx279128s_pcie_msi_init(struct dw_pcie_rp *pp)
-+{
-+	return 0;
-+}
-+
-+static const struct dw_pcie_host_ops zx279128s_pcie_host_ops = {
-+	.init = zx279128s_pcie_host_init,
-+	.deinit = zx279128s_pcie_host_deinit,
-+	.msi_init = zx279128s_pcie_msi_init,
-+};
-+
-+static int zx279128s_pcie_start_link(struct dw_pcie *pci)
-+{
-+	zx279128s_pcie_force_gen1(pci);
++	writel(0, base + ZX_MDIO_STATUS);
++	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
++	       base + ZX_MDIO_CMD);
 +
 +	return 0;
 +}
 +
-+static bool zx279128s_pcie_link_up(struct dw_pcie *pci)
++static int zx279128s_mdio_read(struct mii_bus *bus, int addr, int regnum)
 +{
-+	struct zx279128s_pcie *pcie = to_zx279128s_pcie(pci);
-+	u32 val = readl(pcie->ctrl + CTRL_STATUS);
++	struct zx279128s_mdio *priv = bus->priv;
++	int ret;
 +
-+	return FIELD_GET(CTRL_STATUS_LTSSM, val) == CTRL_LTSSM_L0;
++	ret = zx279128s_mdio_xfer(bus, ZX_MDIO_CMD_RD, addr, regnum, 0);
++	if (ret)
++		return ret;
++
++	return readl(priv->base + ZX_MDIO_DATA_RD) & 0xffff;
 +}
 +
-+static const struct dw_pcie_ops zx279128s_pcie_ops = {
-+	.link_up = zx279128s_pcie_link_up,
-+	.start_link = zx279128s_pcie_start_link,
-+};
++static int zx279128s_mdio_write(struct mii_bus *bus, int addr, int regnum,
++				u16 val)
++{
++	return zx279128s_mdio_xfer(bus, ZX_MDIO_CMD_WR, addr, regnum, val);
++}
 +
-+static int zx279128s_pcie_probe(struct platform_device *pdev)
++static int zx279128s_mdio_probe(struct platform_device *pdev)
 +{
 +	struct device *dev = &pdev->dev;
-+	struct zx279128s_pcie *pcie;
-+	struct resource *res;
++	struct zx279128s_mdio *priv;
++	struct mii_bus *bus;
++	struct clk *clk;
++	u32 val;
 +
-+	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
-+	if (!pcie)
++	bus = devm_mdiobus_alloc_size(dev, sizeof(*priv));
++	if (!bus)
 +		return -ENOMEM;
 +
-+	pcie->pci.dev = dev;
-+	pcie->pci.ops = &zx279128s_pcie_ops;
-+	pcie->pci.pp.ops = &zx279128s_pcie_host_ops;
++	priv = bus->priv;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
 +
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "ctrl");
-+	pcie->ctrl = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(pcie->ctrl))
-+		return PTR_ERR(pcie->ctrl);
++	clk = devm_clk_get_enabled(dev, "pclk");
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "failed to get the register clock\n");
++	clk = devm_clk_get_enabled(dev, "wclk");
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "failed to get the work clock\n");
 +
-+	pcie->clk = devm_clk_get_enabled(dev, "pcie");
-+	if (IS_ERR(pcie->clk))
-+		return dev_err_probe(dev, PTR_ERR(pcie->clk),
-+				     "failed to get pcie clock\n");
++	val = readl(priv->base + ZX_MDIO_CMD);
++	val &= ~(ZX_MDIO_CMD_START | ZX_MDIO_CMD_BIT15 | ZX_MDIO_CMD_BIT13);
++	val |= ZX_MDIO_CMD_CLK_DIV;
++	writel(val, priv->base + ZX_MDIO_CMD);
++	writel(0, priv->base + ZX_MDIO_STATUS);
++	writel(0, priv->base + ZX_MDIO_CFG);
 +
-+	pcie->rst = devm_reset_control_get_exclusive(dev, "core");
-+	if (IS_ERR(pcie->rst))
-+		pcie->rst = devm_reset_control_get_exclusive(dev, "pcie");
-+	if (IS_ERR(pcie->rst))
-+		return dev_err_probe(dev, PTR_ERR(pcie->rst),
-+				     "failed to get pcie reset\n");
++	bus->name = "zx279128s-mdio";
++	bus->read = zx279128s_mdio_read;
++	bus->write = zx279128s_mdio_write;
++	snprintf(bus->id, MII_BUS_ID_SIZE, "%s", dev_name(dev));
++	bus->parent = dev;
 +
-+	pcie->phy = devm_phy_get(dev, "pcie");
-+	if (IS_ERR(pcie->phy))
-+		return dev_err_probe(dev, PTR_ERR(pcie->phy),
-+				     "failed to get pcie phy\n");
-+
-+	/*
-+	 * Optional board lines to reset and enable endpoints. If already
-+	 * claimed by another controller, treat -EBUSY as already managed.
-+	 */
-+	pcie->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_ASIS);
-+	if (IS_ERR(pcie->reset)) {
-+		if (PTR_ERR(pcie->reset) == -EBUSY)
-+			pcie->reset = NULL;
-+		else
-+			return dev_err_probe(dev, PTR_ERR(pcie->reset),
-+					     "failed to get the reset GPIO\n");
-+	}
-+
-+	pcie->enable = devm_gpiod_get_optional(dev, "enable", GPIOD_ASIS);
-+	if (IS_ERR(pcie->enable)) {
-+		if (PTR_ERR(pcie->enable) == -EBUSY)
-+			pcie->enable = NULL;
-+		else
-+			return dev_err_probe(dev, PTR_ERR(pcie->enable),
-+					     "failed to get the enable GPIO\n");
-+	}
-+
-+	return dw_pcie_host_init(&pcie->pci.pp);
++	return devm_of_mdiobus_register(dev, bus, dev->of_node);
 +}
 +
-+static const struct of_device_id zx279128s_pcie_of_match[] = {
-+	{ .compatible = "zte,zx279128s-pcie" },
++static const struct of_device_id zx279128s_mdio_of_match[] = {
++	{ .compatible = "zte,zx279128s-mdio" },
 +	{ }
 +};
++MODULE_DEVICE_TABLE(of, zx279128s_mdio_of_match);
 +
-+static struct platform_driver zx279128s_pcie_driver = {
-+	.probe = zx279128s_pcie_probe,
++static struct platform_driver zx279128s_mdio_driver = {
++	.probe = zx279128s_mdio_probe,
 +	.driver = {
-+		.name = "zx279128s-pcie",
-+		.of_match_table = zx279128s_pcie_of_match,
-+		.suppress_bind_attrs = true,
++		.name = "zx279128s-mdio",
++		.of_match_table = zx279128s_mdio_of_match,
 +	},
 +};
-+builtin_platform_driver(zx279128s_pcie_driver);
++module_platform_driver(zx279128s_mdio_driver);
++
++MODULE_AUTHOR("Navid Ghahremani <ghahramani.navid@gmail.com>");
++MODULE_DESCRIPTION("ZTE zx279128s MDIO controller driver");
++MODULE_LICENSE("GPL");
 -- 
 2.55.0
 
