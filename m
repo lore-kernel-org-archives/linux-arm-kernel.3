@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA33ECC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685B3CC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mA6mwuU/8KGkmZBYxzmUPrKtz6y2loB+9vkSMCJlaCA=; b=aBlYK5/DPnlE9GmrH+E2PcPWb0
-	YVQiyvh1GY9CaznEiNfHqf4VQks/tlP+mZ+cIK/yHL7dzeUKdfJJNnB8DjXqc5OFEh/6B2t++XWe/
-	A0EnIjextR9E7YuMUh9CKcavyn9fMYSinvrE0FjNiMGwwlz+iAHfhnduLrV8KpFD9wuvPwrQv+A2/
-	tByDaGFxlDEZVXOAAj7lqMvElrEKsY3p7WWNJxGPtvf0oK/PCCeeSyBRRth24kHsRtHSlQ/BqFsHo
-	WqdUp51o2d6u2VFfFNUXTd24jNSfK4bn4az7mpB0unFFLHRFf5rczg9Reg3+BuDZyujsDNcA3GZeb
-	FFJbGetQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKgGfNoWXQV4tpIVxLenRclK7vXKxa8R7Z63ZilMkDY=; b=CL8LvqdURDPnj2h419ajOioPrl
+	hVpNl9auwlsU3/sQF1YgRvzyBQCQA+vBAdw81xPM3HfSoBaIdNUEeQDf0cb63M5zFF6lsc/zgBL5R
+	i7KWZnaQ411ULhuWdiWYtRIvJbsk1K3qp6u8Up+/yVV/GOorQiJ/aGq9FysD6n52EAjnK8RalYDQV
+	89yIi0pxENryWOeaPjS9+dS80PTydnf49dRozeHiEsBypVAPK+rjNpphoco5BIOz1z4vDAQBd0zdW
+	yN86tw/ld95ujmPfeTcytDt+oLwDP8l6Di69L1ysQwGtzTd4mapR+POUpAQ8/r/j90gQ4ajZIPRoy
+	4dN+cY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxvJ-0000000FPx2-3DMa;
-	Wed, 14 Oct 2026 12:17:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1xGyD5-0000000FRJd-2PPW;
+	Wed, 14 Oct 2026 12:35:55 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxvG-0000000FPwP-2X4g
+	id 1xGyD1-0000000FRIM-1eyx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 12:17:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1791980250; x=1823516250;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=VwGEM9bG+gm8aZY+vx8GaLjgb1ELCuBd2Ygqztwzy94=;
-  b=IwFLJlPjqETJZHywaDx1VgS4yfiwAvrHZ4+6r79x65j5Ja9REgeArjdH
-   OxdTZ9q3pQuxEHlozx8zYx3GOyq/FVyFrMuEzjmPruUG4a+NhAxrJ+QjK
-   rPe2Ys8p+rpEKCeL9qTOUnH92zq2I1ir0b4IC5kvBrMtr+ATyJ9rsNCGE
-   1mvO6AMm5CxxGBHvigwdhThEWGk4dxnnP+VVga0V+2RQbHoLd5HothxhW
-   Nlf7tifznt5VvQFz5JM4AYTD4s3Wma9jG7hKdPaNP+kCcHI5dT0doL7jk
-   vCFwcmi1447mRu7to9M0VXXuuJ57ffesvK3vngeR+NLPQNcBDfWRyd1Kp
-   w==;
-X-CSE-ConnectionGUID: AS0fM4N0TTu+W0y8BvP7CQ==
-X-CSE-MsgGUID: e/ISQjFySC2entXgr5BMBQ==
-X-IronPort-AV: E=Sophos;i="6.27,157,1787036400"; 
-   d="scan'208";a="296441734"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Oct 2026 05:17:29 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 14 Oct 2026 05:17:28 -0700
-Received: from archlinux.mchp-main.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 14 Oct 2026 05:17:26 -0700
-From: Mihai Sain <mihai.sain@microchip.com>
-To: <stern@rowland.harvard.edu>, <gregkh@linuxfoundation.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH] usb: host: ehci-atmel: Use dev_dbg() for debug messages
-Date: Wed, 14 Oct 2026 15:16:56 +0300
-Message-ID: <20261014121656.1634-1-mihai.sain@microchip.com>
-X-Mailer: git-send-email 2.56.0
+	Wed, 14 Oct 2026 12:35:54 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48c411d6615so2954850f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 05:35:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791981350; x=1792586150; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GKgGfNoWXQV4tpIVxLenRclK7vXKxa8R7Z63ZilMkDY=;
+        b=ooTFNpVdVDI+g/krzJsv0Q9mB70fGm0Hfa9odri8x2BYCA2PezMkUPMPoaWiFrzyVt
+         IT3P7L1/GkvpOjS8sy8rwOc6fLwJKRNVjRJWSvM4i5Fov1eBy5zPRFc43+69nj2LdaqT
+         g+y3jyG0jsFRKpnYsfp6iZaRHeAaMizfhYsWjSNSX4sqAllpYYFoXF8I0HO1b0g+e63b
+         GrUdHW0ZEsgl/EOZ2SQPzzXvJQlF5fGQwqJ8X3vjNDIHCkvEtfm7Q5GvCYFk+PpvSaHB
+         HVsP73DHOZeB655o9gGz+Ass2gcBCSmn4dNBaB94khkzhyprskI7P2GsB9UEBRZb/vTE
+         T21Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791981350; x=1792586150;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GKgGfNoWXQV4tpIVxLenRclK7vXKxa8R7Z63ZilMkDY=;
+        b=Atr1ZsuDOzMQ7mEShhvxzF0ooYw4fbA3lv6r896gk1FZpHX5DR+8typkrbaqDFmzkU
+         M1V+Jyvs8qu0BGA3ER7rkNDxzDkmn+jfXzTA+fuxn8KK51sbZS6hZ8e+RtvJqtWmLz5F
+         o+CHxoorfVBa36zwD4+Yy8o6O2Lf5r7Bzek26ds5q/w/zSzIdVf/gXQ2ychtC1O+y6U4
+         BDChsFuBz6Ayhb8NbId3Vqb9WkP3kMnfIiY1/DI04wot1llqG4PVsa6yYUkvq4wjoJuG
+         qvrose0vBiGe7qT/HZk0t+rPtzYtxlXewCaFX6lA4J4CfybjVW2RmmFUZEu0fq1TYfDo
+         FpuQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxEYoT3YR1qF5C/A6xcSiBmeN+0XVqovqiQkeCibCE836bUmNslInM533usze9VNVqf+Lbwea8wMc146n3er4cn@lists.infradead.org
+X-Gm-Message-State: AFq9FYK3rXNAyr7UgbHQaZILswXXXjnxT3s139N8tUs7rh0unCoCgdN+
+	Nm8KB5uwAsYAl0xg1vS2XcaYe/XA3eDA0U+9YSnwjGnTduS9VoguNBHI
+X-Gm-Gg: AYBFou0jM1VAn/KDb523wqonuSBx0Mmw6hE6k0Gqzgz1/kKdPiCe/x/gMZE9RgkMCAS
+	jXyMvu57zGPiJAjG7VUHiXsXa7ZCg3p5PxTirXpnWk46vB6OtVjyv73dfSFIpeWPffYMgspuVP6
+	MGKAVrPQ5L7tOBmMbEJHeQU73IN6UVoMeKhxkLw8L9g/oTGuafHgK004GHSxgZD1kQ5jtUYtZFD
+	aVazbAROiU/+/yAjcJZZR9O1I9h1k5E/xrEbczI+x4Nt0RyKXF1cjRYa4S4vcom8E0FXiT0S7Ab
+	SY68Qxge6oW5cKsnjseT+Aum8NpalheGAFpEc/8idgXgMInI3QRfHwvWWIIx9so/bxRaxzGfnfc
+	/NeHcFMtp6VPvNasYn+rlLcoV3e1idploijZUL8YsCQ9iWy6f9vmA7atWezZN0SiB/0jsTjOHny
+	A9AyPPyMnlGCvwKI0nExXsrF8y6tbFROUbFOBVGeaYkRliLHoaW4LBtTt6gbFgQybRVK7VEoYVt
+	BJUAbBkptJxDGhPEn3wQiQyHUgaQvhffAnZy1lCRRKV7jj4noVxw4WJGXjWQLY=
+X-Received: by 2002:a05:6000:12c7:b0:48b:28e:2f13 with SMTP id ffacd0b85a97d-48dbacffdfdmr22882377f8f.52.1791981349373;
+        Wed, 14 Oct 2026 05:35:49 -0700 (PDT)
+Received: from nixos-office (29.pool92-59-2.dynamic.orange.es. [92.59.2.29])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48ded3874c6sm3003353f8f.18.2026.10.14.05.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 05:35:48 -0700 (PDT)
+From: Julian Braha <julianbraha@gmail.com>
+To: mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	tglx@kernel.org
+Cc: radu@rendec.net,
+	vsethi@nvidia.com,
+	maz@kernel.org,
+	sdonthineni@nvidia.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH v3 2/2] firmware: smccc: provide stubs when discovery is disabled
+Date: Wed, 14 Oct 2026 13:35:39 +0100
+Message-ID: <20261014123539.2259230-3-julianbraha@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261014123539.2259230-1-julianbraha@gmail.com>
+References: <20261014123539.2259230-1-julianbraha@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_051730_888679_469B193C 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20261014_053552_674831_D0D3883F 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +109,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_dbg() instead of pr_debug() in the probe function
-to provide a more specific device message.
-This ensures the log message is properly associated with
-the corresponding platform device instance.
+Add fallbacks for callers to avoid needing #ifdef guards when
+HAVE_ARM_SMCCC_DISCOVERY is disabled (32-bit arm).
 
-Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+Fixes: 35727af2b15d ("irqchip/gicv3: Workaround for NVIDIA erratum T241-FABRIC-4")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Julian Braha <julianbraha@gmail.com>
 ---
- drivers/usb/host/ehci-atmel.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes since v2:
+- split out changes into two patches
 
-diff --git a/drivers/usb/host/ehci-atmel.c b/drivers/usb/host/ehci-atmel.c
-index 65747270fd88..b6ba7005be69 100644
---- a/drivers/usb/host/ehci-atmel.c
-+++ b/drivers/usb/host/ehci-atmel.c
-@@ -99,7 +99,7 @@ static int ehci_atmel_drv_probe(struct platform_device *pdev)
- 	if (usb_disabled())
- 		return -ENODEV;
+Link to v2:
+https://lore.kernel.org/all/20260823180832.1246363-1-julianbraha@gmail.com/
+
+Changes since v1:
+- remove select and dependency on ARM_PSCI_FW,
+- make the HAVE_ARM_SMCCC_DISCOVERY 'select' conditional on arm64
+
+Link to v1: https://lore.kernel.org/all/20260801212235.2692694-1-julianbraha@gmail.com/
+---
+ include/linux/arm-smccc.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 4de81848fe2e..75f9d3f1723b 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -324,6 +324,7 @@ enum arm_smccc_conduit {
+ 	SMCCC_CONDUIT_HVC,
+ };
  
--	pr_debug("Initializing Atmel-SoC USB Host Controller\n");
-+	dev_dbg(&pdev->dev, "Initializing Atmel-SoC USB Host Controller\n");
++#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+ /**
+  * arm_smccc_1_1_get_conduit()
+  *
+@@ -363,6 +364,12 @@ s32 arm_smccc_get_soc_id_version(void);
+  * When ARM_SMCCC_ARCH_SOC_ID is not present, returns SMCCC_RET_NOT_SUPPORTED.
+  */
+ s32 arm_smccc_get_soc_id_revision(void);
++#else   /* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
++#define arm_smccc_1_1_get_conduit()	SMCCC_CONDUIT_NONE
++#define arm_smccc_get_version()		0
++#define arm_smccc_get_soc_id_version()	SMCCC_RET_NOT_SUPPORTED
++#define arm_smccc_get_soc_id_revision()	SMCCC_RET_NOT_SUPPORTED
++#endif	/* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
  
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0) {
+ #ifndef __ASSEMBLY__
+ 
 -- 
-2.56.0
+2.55.0
 
 
