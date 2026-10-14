@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0232CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFF9CC6B24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHjm9SAitOsN54DuSr+rty4UIW0s07msMR7i0uLAqz4=; b=r9XbC5D0JqsHQykvNzo7O5cwO8
-	nn/eTr3hIW+INT+byM/JPnncMNresOCz2ZJaFtA1aC5X7u2hlSQ2BcO16KaOoNMed2C8Rg+8Zsda7
-	Gm2RqSH24dbFzPoNUJyigIDJ52OZOg8q4qNBChgxtYrKGa1gcnM8+OdFvDfk+uNd3hBNbAVFCOjPu
-	5EtOfxsQ5byw1PP+HT/ut0OD888+zWpsdejyIBAqSgLXu+tTByTO2E1w58A4wudzbRsm9m8nHTMVF
-	H9MR5H26mMclZl2I9A70EcHEc0e0iFpouSjWaVFvniCjy8EMkvEzsyi0JXkMOiOdwP9vZzXQdloxc
-	0pu3eqLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wCfjDkPuVi/KiVzZBkJiMV+SmGsikrZ8mJA+CXJhKz4=; b=2SknI8ygZf/3+wfxtecmRRC7b6
+	QGar9r1z5uqK91q26J+LsaUKYqvhuIJT7Vuq1dsuWH3i5NmrqbSiXG0eUmfRQ4oSLSU+NwkxcmvKN
+	MglX4QAwd352DNAy6G+XdmmhxQ7fpJiAGHi+K+PVZcjITORzUOwkYxTm1r5r2gmhVbmXEah3KrWWk
+	YcnBjIvjnGz9euzRrH7N6XxtTY8QuIipAHVa7R+L/VTwyLryV3M4Rj4KYrbeCFuTUZRlfwkFVV5YO
+	vO7khgTnJErMSnBT3SmNXrIyZSLtgV6RnczD7SdklGtp8ujyF7quZJMYGzcuzm3D0v/k8eqysKSmU
+	kRB76C/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtHT-0000000Eivo-2an3;
-	Wed, 14 Oct 2026 07:20:07 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xGtK8-0000000Ej9D-4Adp;
+	Wed, 14 Oct 2026 07:22:52 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGtHQ-0000000Eiv0-0IgQ
+	id 1xGtK7-0000000Ej8F-0OHf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:20:05 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a180fbeef5so33810775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:20:03 -0700 (PDT)
+	Wed, 14 Oct 2026 07:22:52 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48870973bddso2221908f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:22:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791962402; x=1792567202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kHjm9SAitOsN54DuSr+rty4UIW0s07msMR7i0uLAqz4=;
-        b=T0JuXYVGnFf7s7VWXzEQu9JBiAXJqFXY7herS88v+ImcpZZdBrWLVfTK1Hlg9lhoXB
-         EGvxXDRPPEJVtyb6dC0/SdI1R+lMcFJjIIprygpu3jgOFREw027biTYZQqPyyYJP5gHu
-         MInpvxfUVDgvdFYvr8I7cAR3sduPNkFxFZrhXDtJY2YcPETYww1bg4lNYs8rfRcwIIgV
-         rIEubvlTeBAEcAq2+WdKlRDBG7zN5b49XzP/PN1I353M9VzBcxFolA5TEJipy/LlS4dk
-         fRHdB/EYE4TAakC9AuNJdHTa6r4/hK0MAfwq9dJ0/A1mm1taMo3bNC+DAd/gmZgKMV4P
-         BgEA==
+        d=gmail.com; s=20251104; t=1791962569; x=1792567369; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wCfjDkPuVi/KiVzZBkJiMV+SmGsikrZ8mJA+CXJhKz4=;
+        b=rzDYXsPK3zv9LxxPng95Fw0vX2aSs5zDZV4gq2PNCvBr1mFnqCFJpIzaVhNVTniHjR
+         H8N952TNATWnyDu4GDWyWuWR/lgDySYTT3JpdKywNHGKprNOj5FrAeDfD05BgX9UNjs0
+         T4IqNNOa0G3DLwcTRs2p5iOS60DsFPH/lXbxslZqvNsk0NAq38fRczhLTTa9IwY/106K
+         bgatiTdoo2973iqKJYqfXcdsVrlS8zTb6jqLo0ZE5hEgWOmrq2aPE/ililuUtztFsI/j
+         1JtZkO00UrPyekc0dMuB16NoPmvhoNFbcjKDcobEUMQV9cLNkveNW7jqy932IXEizNT1
+         nIKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791962402; x=1792567202;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kHjm9SAitOsN54DuSr+rty4UIW0s07msMR7i0uLAqz4=;
-        b=1HCk6f/3Mu59yULUKlHhndJSDYBEC6nwUt0Qe3vsnAKZJMuSDg8G+Hoh5AOnNph/Kr
-         QoAxH824T7p86vdrsuGsTR5ux5o1sc7pic2qyLj7jIwGsGlsittOvqnfKZHDDZDLHRoW
-         dpXBuMUaFB0QG6/v7BjUWCc8xMg1TM+PEh1b22k24yTVvs5fvwNfvynvFNgUT1OVJpvD
-         DuqmkARffIGqw7r/e5EZZqZo/4/2GnRl1ON2kCPv8AAhbDSlZUlpQnCS7jNc75kpY9Ko
-         Sid+yjJSgHJu/SKfOS8HasDmS4MErCNoMyI1j9THogKPtkqmvKFGfH+exyDuz12Ej928
-         uzAg==
-X-Forwarded-Encrypted: i=1; AKwUvBxqRkqwtLXao5yR5StKBLvtY96H0lpZ36OPvwhhf5rAeD6hJG4rI9G+YRFn0xTVpgs8pripWXS/24Op6CoV33o5@lists.infradead.org
-X-Gm-Message-State: AFq9FYJlXAFqPLQJJdyDTqo7Fxv1OhrMPSKF1S7O2JZECs4+cno782bD
-	I5BEKKXwvkf7iodmTs43yy2cjvTe+GcegK3VRJuC/9O3cD3or5DPNruE
-X-Gm-Gg: AYBFou2/vR/xlBZcnJ//GQsi4W9NLLo5dy6GZbnwR+TFTPmi7Id+Wdtw5noeP8YzFNe
-	k8rLnlrdNoasuYNJRyGoNNMfEz5OUppeiewloLEKUGbtMqCN7vt4c1mmv4jV/i3Mw17GiucFJA1
-	nOZRDgvGNOVGXXrOIkrQoOs4u2ZyOmmynvOYHauhGHLYGsDIg2RPLjV1MuLLrrG20E0ZSO9CA8C
-	KnnqYoHh5qqMXsnCA1MeEgjV3JMWzBYJbP7/VTmVMZXYyMyQDjZdcslv42kHsSRsJjs4MrHRMbx
-	clpq5zpy8z0LhJZ74ILc92eXYs3i0rHr4g9hJH0mA+VtIucsjbXdybdvB8zep8xnhOZxxM7o2TJ
-	BvHI0RP2KUha8G8k8vwkkDt6ksiVIuldwOHWQfqMxy4h62MMNySzAeiSYE3A9GusJ5boKHDIFuw
-	QMI3fMMpAzmo36lIOAB2AC1pAdQxMKG1MwinINEgEDkZqnZCz5OwFKe/Tek9HV5BiF1wWUyPWlr
-	JGwX1hhhom6TErmAefqFBpTzzEYZxUpU2NGT5C4nGWM/js2aqdTbqgPy586V5TmtEjeBL6HwnPm
-	pTWW4XxyZHJshi1Q7i0YbMfz/tZq3HZ10V53QGhjVWfE4EAt1EOCjwoWA4m5Tw==
-X-Received: by 2002:a05:600c:674a:b0:4a1:7cf8:5433 with SMTP id 5b1f17b1804b1-4a18e443ee9mr278080075e9.3.1791962402100;
-        Wed, 14 Oct 2026 00:20:02 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1791962569; x=1792567369;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wCfjDkPuVi/KiVzZBkJiMV+SmGsikrZ8mJA+CXJhKz4=;
+        b=17rJnGkC0Yxb3v+q4AAjq7BOqUpigfvp+7bxavPug535wvrKKoiLJVnJCl2NgwQupP
+         lTelmruOEXUSOl+NswWLvjq59mRZRU/z6/KJJJZ4pAhzxKPZXa4U/zCTKvpbcqXELnZs
+         imY6ggO9FPUa68zX5kFA+vewfK12DJ+E9FEFL5qqzy+5TXyhT/Dl2gCNBUesM18nY+oi
+         78YYF+7YBJX6CB67KRaV0oFxyJG/DpUWgGsO8VK25+PPOqqnRj51bEEO5H7mbUGPeme3
+         ffI4tBXWneOQmfEMGqyNiqtoIfbQjQ4xKLQW1gyjPeYmQfTZsKdrsIiP3UAvcGUgJuii
+         N6/w==
+X-Gm-Message-State: AFq9FYJKzlPaXhQJRyX0btcrttXYYOY1RGC496El6149FDEipP0A6FS2
+	KkWGbLlaXAE0CHu3W3XO43OkublJCzFeCsnpGnAvC6uBpdlw0CGQDKVd4XBcrXUbZlbhEg==
+X-Gm-Gg: AYBFou2I6OmBALbgW69agRd7r+VqryhPSXZdqqLaYKqXadIorddDrJATzah4S+zWWtA
+	hXEEuKQKv41LEbgsMDMyZE/erWZvZPEFkWlh0bvIhkp5hB+tyfI3Xnq5uHwLDVrnD8oS8plQl9F
+	9x7gk8M76bQfyGUgyC6wP+zyNl9ssmvOsAbVOdPKNTItXLhFZOMImXGMpKyWQ6Ci/ZaQup2VW57
+	xPC7b/QORudzDY0PJiwGCICFQfnJlEMpuuGyhwvVQJoEwOevZTxxB4M+AYwPxU/uTpHo5MHd6ev
+	JdA/lkv78bejx09r6L86eELS1tOdDNlw3VFOgWfy3kmxkpB7usWQ+k5AZiSf4NHVhgc705Re1Lq
+	+ZDUbLr5zesd1MvutMGbZULvE1o4Q2nP1doA3QKzJRiiM24rG5JcDCJBvFNxHjD5RvRT4HG/j03
+	JYYd2PziPOCd+CVbpGcSHk10t0jR8rmj456V3pCfOW8kfUuojIAh6Olp/j9NRYDU67/ax7W6CVG
+	KKRL0Ag9zWF+eWwWIUscTOT8xeTjNg3UpEBsokRss2JPoGOFf/5uLw/1CNK/8XGzVWzXSN6up0L
+	N4pY6oByo1NgH9FudWRK7gO/El3uUBSen6T0RvRjGu/ROqmNMTZPPl2j1KWz3w==
+X-Received: by 2002:a5d:5f92:0:b0:488:7f61:de0e with SMTP id ffacd0b85a97d-48db948839bmr33401464f8f.21.1791962569164;
+        Wed, 14 Oct 2026 00:22:49 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0ac3ac5sm9979474f8f.38.2026.10.14.00.20.01
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm8500933f8f.35.2026.10.14.00.22.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 00:20:01 -0700 (PDT)
+        Wed, 14 Oct 2026 00:22:48 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
-To: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
-Cc: Navid Ghahremani <ghahramani.navid@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH RFC 00/24] ARM: zte: Add support for Sanechips ZX279128S and ZTE ZXHN H3600
-Date: Wed, 14 Oct 2026 08:19:55 +0100
-Message-ID: <20261014071955.1755637-1-ghahramani.navid@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: arnd@arndb.de,
+	stefandoesinger@gmail.com,
+	krzk@kernel.org,
+	Navid Ghahremani <ghahramani.navid@gmail.com>
+Subject: [PATCH v2 00/24] ARM: zte: Add support for Sanechips ZX279128S and ZTE ZXHN H3600
+Date: Wed, 14 Oct 2026 08:20:40 +0100
+Message-ID: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <Lurh_NpYS2qId-6ONmcWzg@gmail.com>
-References: <20261010130024.177503-1-ghahramani.navid@gmail.com> <Lurh_NpYS2qId-6ONmcWzg@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_002004_130226_EA0A8FF0 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20261014_002251_182695_3EAB9AC4 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +98,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+This series introduces mainline Linux support for the Sanechips (ZTE)
+ZX279128S SoC and the ZTE ZXHN H3600 Wi-Fi 6 router.
 
-Thank you for the candid feedback, and I completely understand your
-concern.
+The ZX279128S is a dual-core ARM Cortex-A9 network SoC with an ARM
+PL310 / L2C-310 outer cache controller, dual PCIe interfaces, a 5-port
+Gigabit Ethernet switch with hardware packet classification and flow
+offload, SPI-NAND flash controller, and DWC3 USB 2.0 host.
 
-To be completely honest, I am returning to low-level C and kernel systems
-work after being on the software/application side for quite a few years.
-This router bring-up is a personal hobby project that I work on in my
-spare time rather than my daily job, so I am a bit slow right now and
-still catching up to speed with modern kernel architecture conventions.
+Changes in v2:
+- Dropped [PATCH RFC] tag.
+- Decoupled controversial silicon bus/cache workaround (patches 01-03
+  from RFC) from this platform series based on discussions with
+  Arnd Bergmann and Stefan Doesinger. Kept downstream in OpenWrt while
+  exploring a cleaner long-term MMIO solution (e.g. lib/logic_iomem.c).
+- Consolidated maintainership under ARM/ZTE ZX SOC SUPPORT in
+  MAINTAINERS with Stefan Doesinger and Navid Ghahremani as
+  co-maintainers (Patch 01).
+- Split CRM Device Tree schemas into separate dedicated topcrm and
+  lspcrpm bindings with fixed clock lists (Patch 04).
+- Added syscon-reboot child under topcrm with simple-mfd, dropping
+  deprecated regmap properties (Patches 04, 06, 23).
+- Converted reset bindings to sequential logical enum IDs (0, 1, 2...)
+  in include/dt-bindings/reset/zte,zx279128s-reset.h with driver lookup
+  table, ensuring stable DT ABI (Patches 05, 06).
+- Synchronized clock gating and reset operations in CRM using shared
+  spinlocks to protect shared registers (Patch 06).
+- Used CLK_OF_DECLARE_DRIVER for topcrm to ensure simple-mfd populates
+  child platform devices (Patch 06).
+- Header hygiene: dropped <linux/mod_devicetable.h> from platform
+  drivers in favor of <linux/platform_device.h> (Uwe Kleine-Koenig)
+  (Patches 08, 13, 15, 16).
+- Isolated PCIe SerDes/PLL into a Generic PHY driver under drivers/phy/
+  with #phy-cells = <0>, completely removing raw syscon register poking
+  from the DWC PCIe host controller driver (Patches 10, 11, 12, 13).
+- Restored PCIe ASPM and CLKPM masking in controller setup, preventing
+  MT7915 endpoint lockup when entering L0s/L1 power states (Patch 13).
+- Replaced separate SPI driver with Stefan Doesinger unified spi-zx.c
+  driver supporting both ZX29 and ZX279128S with dynamic CCF clock
+  scaling via clk_get_rate(spifc->clk) (Patches 19, 20).
+- Validated spi-zx.c in PIO mode on physical ZTE ZXHN H3600 hardware
+  with 128 MiB HeYangTek SPI-NAND, UBI auto-attach, and UBIFS
+  read/write.
+- Fixed LED colors and shared PCIe reset GPIOs on H3600 (Patch 24).
+- All DT schemas validated with dtschema and dt-doc-validate (0 warnings).
+- All patches validated with scripts/checkpatch.pl (0 errors, 0 warnings).
 
-All my work is done directly on physical ZTE ZXHN H3600 hardware on my
-desk with serial UART, netbooting over TFTP, and live devmem probing.
-While I initially relied on ZTE's vendor BSP to identify register bases
-and magic bit offsets, I agree that several parts had a vendor code smell
-that needed to be dismantled.
+Series breakdown:
+- Patch 01: Consolidated MAINTAINERS entry.
+- Patches 02-03: SoC platform integration, SMP CPU hotplug trampoline.
+- Patches 04-06: Split CRM clock bindings, logical reset bindings,
+  CCF/reset driver.
+- Patches 07-09: GPIO controller bindings/driver, pinctrl-single
+  bindings.
+- Patches 10-13: Generic PCIe PHY bindings/driver, DWC PCIe controller.
+- Patches 14-18: Networking: MDIO bus controller, ZX5201 Gigabit PHY,
+  Gigabit Ethernet switch driver.
+- Patches 19-20: Unified SPI flash controller bindings and spi-zx driver.
+- Patches 21-22: Synopsys DWC3 USB platform glue binding and enablement.
+- Patches 23-24: Device tree descriptions for the ZX279128S SoC and
+  ZTE ZXHN H3600 board.
 
-In v2, I took your feedback to heart to clean this up:
-1. I eliminated the raw syscon poking in the PCIe controller entirely,
-   isolating the SerDes and PLL into a proper Generic PHY driver
-   (#phy-cells = <0>) under drivers/phy/zte/ and routing clocks via CCF.
-2. I adopted your unified spi-zx.c driver with dynamic CCF clock rate
-   scaling (clk_get_rate) and verified it on physical silicon with
-   128 MiB SPI-NAND and UBIFS.
-3. I split the CRM bindings into dedicated topcrm and lspcrpm schemas,
-   moved the reboot node under topcrm with simple-mfd, and replaced raw
-   register offsets in the reset bindings with sequential logical enum
-   IDs (0, 1, 2...) in include/dt-bindings/reset/zte,zx279128s-reset.h.
-4. I consolidated MAINTAINERS under ARM/ZTE ZX SOC SUPPORT with both of
-   us as co-maintainers.
+Hardware testing:
+- Validated on physical ZTE ZXHN H3600 hardware running Linux 6.18.55.
+- Dual-core SMP, CPU hotplug, and thermal sensors operational.
+- Unified spi-zx driver verified with 128 MiB HeYangTek SPI-NAND,
+  10 MTD partitions, UBI attachment, and UBIFS rootfs overlay.
+- Dual-band MT7915 2.4/5 GHz Wi-Fi links initialized and stable.
+- Gigabit Ethernet switch verified at line-rate 1 Gbps forwarding.
+- USB 2.0 host verified.
+---
 
-Regarding your observations on patch 07 (PLL reuse with pll-zx.c, the
-32 kHz clock origin, and a dedicated pinmux driver): you are spot on.
-For this v2 baseline, I kept the clock driver scoped to the working
-peripherals needed for solid platform boot and retained pinctrl-single
-for the initial muxing. As I get more time on weekends, I would be very
-glad to work with you on unifying the PLL code with pll-zx.c and
-expanding pinmux coverage once this clean foundation is in place.
+Navid Ghahremani (24):
+  MAINTAINERS: Consolidate ARM/ZTE ZX SOC SUPPORT with Stefan Doesinger
+  dt-bindings: arm: Add ZTE ZX279128S platform descriptions
+  ARM: zte: Add ZX279128S platform and CPU hotplug support
+  dt-bindings: clock: Add ZTE ZX279128S CRM clock bindings
+  dt-bindings: reset: Add ZTE ZX279128S reset controller bindings
+  clk: zte: Add ZX279128S CRM clock and reset driver
+  dt-bindings: gpio: Add ZTE ZX279128S GPIO controller
+  gpio: Add ZTE ZX279128S GPIO driver
+  dt-bindings: pinctrl: pinctrl-single: Add ZTE ZX279128S pin mux
+  dt-bindings: phy: Add ZTE ZX279128S PCIe PHY binding
+  phy: zte: Add ZTE ZX279128S PCIe PHY driver
+  dt-bindings: PCI: Add ZTE ZX279128S host controller
+  PCI: dwc: Add ZTE ZX279128S host controller driver
+  dt-bindings: net: Add ZTE ZX279128S MDIO controller
+  net: mdio: Add ZTE ZX279128S MDIO controller
+  net: phy: Add Sanechips ZX5201 PHY support
+  dt-bindings: net: Add ZTE ZX279128S Ethernet switch
+  net: ethernet: zte: Add ZX279128S Ethernet switch driver
+  dt-bindings: spi: Add ZTE ZX family SPI flash controller binding
+  spi: zx: Add ZTE ZX family SPI flash controller driver
+  dt-bindings: usb: Add ZTE ZX279128S DWC3 controller
+  usb: dwc3: generic-plat: Add ZTE ZX279128S
+  ARM: dts: zte: Add ZX279128S SoC description
+  ARM: dts: zte: Add ZTE ZXHN H3600 board
 
-Thank you again for the patience, guidance, and collaboration!
+ .../devicetree/bindings/arm/cpus.yaml         |    1 +
+ .../devicetree/bindings/arm/zte.yaml          |    8 +-
+ .../bindings/clock/zte,zx279128s-crm2.yaml    |   48 +
+ .../bindings/clock/zte,zx279128s-lspcrpm.yaml |  101 ++
+ .../bindings/clock/zte,zx279128s-topcrm.yaml  |   86 +
+ .../bindings/gpio/zte,zx279128s-gpio.yaml     |   53 +
+ .../bindings/net/zte,zx279128s-gmac.yaml      |  125 ++
+ .../bindings/net/zte,zx279128s-mdio.yaml      |   65 +
+ .../bindings/pci/zte,zx279128s-pcie.yaml      |  121 ++
+ .../bindings/phy/zte,zx279128s-pcie-phy.yaml  |   40 +
+ .../bindings/pinctrl/pinctrl-single.yaml      |    1 +
+ .../bindings/spi/zte,zx279128s-spifc.yaml     |   72 +
+ .../devicetree/bindings/sram/sram.yaml        |    1 +
+ .../bindings/usb/zte,zx279128s-dwc3.yaml      |   76 +
+ MAINTAINERS                                   |   27 +-
+ arch/arm/boot/dts/zte/Makefile                |    2 +
+ .../boot/dts/zte/zx279128s-zte-zxhn-h3600.dts |  364 ++++
+ arch/arm/boot/dts/zte/zx279128s.dtsi          |  416 +++++
+ arch/arm/mach-zte/Kconfig                     |   16 +
+ arch/arm/mach-zte/Makefile                    |    4 +
+ arch/arm/mach-zte/platsmp-zx279128s.c         |  173 ++
+ arch/arm/mach-zte/zx279128s.c                 |   19 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/zte/Kconfig                       |   14 +
+ drivers/clk/zte/Makefile                      |    2 +
+ drivers/clk/zte/clk-zx279128s.c               |  758 +++++++++
+ drivers/gpio/Kconfig                          |   12 +
+ drivers/gpio/Makefile                         |    1 +
+ drivers/gpio/gpio-zx279128s.c                 |   79 +
+ drivers/net/ethernet/zte/Kconfig              |   13 +
+ drivers/net/ethernet/zte/Makefile             |    3 +
+ drivers/net/ethernet/zte/zx279128s-eth.h      |  386 +++++
+ drivers/net/ethernet/zte/zx279128s-main.c     | 1502 +++++++++++++++++
+ drivers/net/ethernet/zte/zx279128s-ppe.c      |  805 +++++++++
+ drivers/net/ethernet/zte/zx279128s-switch.c   |  368 ++++
+ drivers/net/mdio/Kconfig                      |   11 +
+ drivers/net/mdio/Makefile                     |    1 +
+ drivers/net/mdio/mdio-zx279128s.c             |  157 ++
+ drivers/net/phy/Kconfig                       |    8 +
+ drivers/net/phy/Makefile                      |    1 +
+ drivers/net/phy/sanechips.c                   |  152 ++
+ drivers/pci/controller/dwc/Kconfig            |   13 +
+ drivers/pci/controller/dwc/Makefile           |    1 +
+ drivers/pci/controller/dwc/pcie-zx279128s.c   |  273 +++
+ drivers/phy/Kconfig                           |   12 +
+ drivers/phy/Makefile                          |    1 +
+ drivers/phy/phy-zx279128s-pcie.c              |  156 ++
+ drivers/spi/Kconfig                           |   15 +
+ drivers/spi/Makefile                          |    1 +
+ drivers/spi/spi-zx.c                          |  728 ++++++++
+ drivers/usb/dwc3/Kconfig                      |    2 +-
+ drivers/usb/dwc3/dwc3-generic-plat.c          |    1 +
+ include/dt-bindings/clock/zte,zx279128s-crm.h |   51 +
+ .../dt-bindings/reset/zte,zx279128s-reset.h   |   26 +
+ 55 files changed, 7370 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx279128s-crm2.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx279128s-lspcrpm.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx279128s-topcrm.yaml
+ create mode 100644 Documentation/devicetree/bindings/gpio/zte,zx279128s-gpio.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/zte,zx279128s-gmac.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/zte,zx279128s-mdio.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/zte,zx279128s-pcie.yaml
+ create mode 100644 Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/spi/zte,zx279128s-spifc.yaml
+ create mode 100644 Documentation/devicetree/bindings/usb/zte,zx279128s-dwc3.yaml
+ create mode 100644 arch/arm/boot/dts/zte/zx279128s-zte-zxhn-h3600.dts
+ create mode 100644 arch/arm/boot/dts/zte/zx279128s.dtsi
+ create mode 100644 arch/arm/mach-zte/platsmp-zx279128s.c
+ create mode 100644 arch/arm/mach-zte/zx279128s.c
+ create mode 100644 drivers/clk/zte/Kconfig
+ create mode 100644 drivers/clk/zte/Makefile
+ create mode 100644 drivers/clk/zte/clk-zx279128s.c
+ create mode 100644 drivers/gpio/gpio-zx279128s.c
+ create mode 100644 drivers/net/ethernet/zte/zx279128s-eth.h
+ create mode 100644 drivers/net/ethernet/zte/zx279128s-main.c
+ create mode 100644 drivers/net/ethernet/zte/zx279128s-ppe.c
+ create mode 100644 drivers/net/ethernet/zte/zx279128s-switch.c
+ create mode 100644 drivers/net/mdio/mdio-zx279128s.c
+ create mode 100644 drivers/net/phy/sanechips.c
+ create mode 100644 drivers/pci/controller/dwc/pcie-zx279128s.c
+ create mode 100644 drivers/phy/phy-zx279128s-pcie.c
+ create mode 100644 drivers/spi/spi-zx.c
+ create mode 100644 include/dt-bindings/clock/zte,zx279128s-crm.h
+ create mode 100644 include/dt-bindings/reset/zte,zx279128s-reset.h
 
-Best regards,
-Navid
+-- 
+2.55.0
+
 
