@@ -4,166 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEFFCC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BDECC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sqq3d4Um/1FzAW/kUe6wQksJqVemNCXMK7vcu4NUvaE=; b=TZ3q13WXfbyfqavMLPM1talEpM
-	ZH2teuh0upS9j6tzJwBMoJWOCPg97tYZGfPSbUuQZAAms6Wg4IE+BfjZrwG56Rc9cYuthSnxVU9gL
-	v1g/i8qjtICRyV0rakqYqL+gaStSYHc5GRYACgZ9e+qGx+5kJYOlAaxj4oxeiFPgcfk97X26oRnI7
-	+enXsJ5XdlQ1q+h4JA7BjnyKYfzC4POVjfPgwJIx1AHX2lJuJ+MOzrQ/uYLmLCfKUXPlovYG0qByx
-	RbfcAs31lIuTcabh8LsYOxf+595IUEZfduAlV1j1K3bnRXygG+aaGWr4zquoONGJRyf18BcwconZp
-	afp4dd2Q==;
+	bh=xlbe4IDve5sVa3bicBDrKckx0LdiPpTCwmNH0wErMrk=; b=eqeROrbW+SSR4S1MgRxjTrkMxy
+	S1QMXklUdAQJ4niOVa8zZX9F+4+LGgTpaFB/uXQuYkutLbO8Qf3pZJ4McfaTjNOp3f/Y31EqgGTvF
+	dmENWCzG3TQivmitOz9f4aTUSmYxSENFDePk0R+A0fxvOzR+xk2uztAgujPV6VWVP83RtIDBCUTAe
+	eZuE0m2JpJ/EBDE+TIbk2c7404PLsG6f2dJ96OIMfD/hWllj7xIlqAkpEvAyuXQMDpM2ywoMtqqE9
+	FJw2bjptY4MOvEF8AGyNiBUthKfrj/4mTjntXnbIqhwpMu1qBZJXwb+oOiE65ovkWeIP3jNNf6OLq
+	Ta/ik24Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz6U-0000000Fbi7-2RLS;
-	Wed, 14 Oct 2026 13:33:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xGz7W-0000000FbpO-3Cab;
+	Wed, 14 Oct 2026 13:34:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz6Q-0000000Fbhr-2HQO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 14 Oct 2026 13:33:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Sqq3d4Um/1FzAW/kUe6wQksJqVemNCXMK7vcu4NUvaE=; b=YD6ND5ygf+hkQYz098i7fCuWtS
-	kRf5dmQ1IqG3r56zrJDja/Q+bNi7tUeYdrbYSyfRMF0iFLrO6wxALW4H0i93rkc4UDaUkY5y/O5JW
-	W5s/OzBOyju+YKvg/kyO+tRNTmnYaF+5us/+IIrck6jl067F9MEYQl6Hb9eSaq28iih5AT2TVzZi8
-	V8O9UWaRRmiuXELagzLJY9F5K2943BDAJqGFgY8h0Kyf7lGDsliM7xj6SXt58Lwts1hzB1Ltyq+UU
-	Ei/VNzZJhS8yaKGzI9P6CkDb7h8WwS5tUbITzVVqNNUnS4IONMwbx/ZNscUB6zvjig02o+bvDNx9w
-	0SybS9iw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xGz6N-0000000Gp5H-1YFa
+	id 1xGz7V-0000000Fboy-2Ctq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 13:33:05 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EDHub8329046
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:32:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Sqq3d4Um/1FzAW/kUe6wQksJ
-	qVemNCXMK7vcu4NUvaE=; b=UnfABSKF4JG68NRDS67n6FE6AnekBQykOL4dXwyE
-	Lyv7SfAq92MSxg/NrlbJV+N22FkwrRfz1rvxBk56npO9QdUUq/VpujtVZEIRl2Ta
-	nYctr+D9MFQKQ7eN9JOqCUogOh+OQC8JeUOiI9pCW9roWtHj5GlmcnsCP05PTpii
-	5GRxY4+zhnTqgZdlksK+Qjb29bFX8A8MYjCvwAgbXr78RAb52zHSYJMCiJHPrfL3
-	oNlOsNFMMq9MXzjw67mbd4gMyk7ImLGh/5DZwJAhXP/P5rImYvy1xtETZIjoZD0X
-	4ut88kZXLGxS4yDQ95V+egmivq9706ssobJbZhFmUxoncA==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4haagf0204-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 13:32:50 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-98e3ad6dbb5so24883241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 06:32:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1791984770; x=1792589570; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Sqq3d4Um/1FzAW/kUe6wQksJqVemNCXMK7vcu4NUvaE=;
-        b=K7xSRiR0Pc9wosAmI5K+1myDvJYhvDt5nHSP5GHgxTIFzC+xrq0rFzg5FioEZWlRKp
-         sdO0xuHYURP61xC74lORrZ2HsAibRHDF6fDLKR1F5XUcpyTvVl1GJBKseQKlhMKhU7Jm
-         cBBhtC5afGE7vasYdLYhlHRbbVVApvX3/BsSMzkCom5u9EejEmOJ2TBSIMYWzmKcB9Bz
-         /IscOasdh8pRxEJxK9s77iU8p+6OV4gkylbNbVokr2Zm0zIOXRGoyWkBhTCKjkdi0k46
-         htXfDHvzW56Y+IFMi5OQqwwR8w38++WOfF9/OK7vuYYi/Q9Y/LZtOmk6/LynE9Gtws+3
-         c9KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791984770; x=1792589570;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Sqq3d4Um/1FzAW/kUe6wQksJqVemNCXMK7vcu4NUvaE=;
-        b=wculrAd/npsarYNo6aulvk4D025928Dzch/PM3kIZRnJw/0+HhUN6IdJz46rA33t3e
-         h2h958nbbTsP5Xib2Ixu2C/tJ7LsF2Zq8EcqG+3bdAxJKAo/EY3nuNDSpfCSG3UUaL8x
-         yQ//BLhFYQ1xyrQXNMEonJ4F7FxVTudzNMVHr40xBvj/yLwhVyXv/GfRSJtMSmI3rLTT
-         5aW6RlVPhCv6i9ZcV2+H22DQwgde9LW8jWb1sSA6dOLkd9yCXxlGULzbB8Kf5jlTkkch
-         8g2fiBK5aWWvXicvuztPrCe9pgEsAJvMCllnpYhOIjEoQ22UJqPR4gnTis12vcTnCIub
-         25ag==
-X-Forwarded-Encrypted: i=1; AKwUvBwW/z8neX/IiliNNB2wKylLq02AZvquYjH5MhQA0Jk+qdLz2zRCuvzjI1j4dm5TEe651Me50d35nyEQYrSG4gqG@lists.infradead.org
-X-Gm-Message-State: AFq9FYIDgqdx2wt5q3HAszMOKSkACID17GVWY05jSWQR6mpdQ83LCi0H
-	8ERaF5ssWcIYRZUEWD+umEMUzzC/7IZcgA63IpN1qv+ri1xuVs45+iu2iTumb3rZkfZCj/mYQm/
-	C/PcCwz/VsFnCM+wdGR+2oGVdy/BlB4Zaw+bWZmUrd6k2xPyUwVlESGfa/9RkqB49XKiO7d7yTy
-	DGYg==
-X-Gm-Gg: AYBFou0OOP8Ppdc6jlTUG9I95hTzgASEPYzomDxoG2bgkTPm5fxg64OTGSPWdgYBM5i
-	ycrFvvFJmnEewBFGAD1digr4ggTx6Fvdyld+f+LTZIJ3xU8j1jfXY1kzYmp8jIscecfPSqMYXYh
-	xsw5wUPKqZHzihwzBXT4NripLACSgyoHy1pYwXlCOoLt82PBNzkMX+2WMO0dWFImDtasYSutJSp
-	xB2nm9DrJqwRW4d7lEmNYOEUWJybCjQ03Puc1OkXw9jtIBc6LlhezZEAq8vx72q6nIKc4GSRsmG
-	P0QIeakxTbp2M/Og68UcbeOzXMg6Ye9zPEwAHn4mWRwe8Bv9zPaVRGAxFn8+pGX9rTu1GUAfKp5
-	W6roccXgycUFh7w==
-X-Received: by 2002:a05:6122:20a8:b0:5c9:a60b:e5bd with SMTP id 71dfb90a1353d-5e91f48b6b8mr4332945e0c.13.1791984769679;
-        Wed, 14 Oct 2026 06:32:49 -0700 (PDT)
-X-Received: by 2002:a05:6122:20a8:b0:5c9:a60b:e5bd with SMTP id 71dfb90a1353d-5e91f48b6b8mr4332918e0c.13.1791984769035;
-        Wed, 14 Oct 2026 06:32:49 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bd07c276sm416225e9.13.2026.10.14.06.32.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 06:32:48 -0700 (PDT)
-Date: Wed, 14 Oct 2026 15:32:47 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Jose Abreu <Jose.Abreu@synopsys.com>,
-        Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-        James Hilliard <james.hilliard1@gmail.com>,
-        Nicolai Buchwitz <nb@tipi-net.de>
-Subject: Re: [PATCH net-next v7 0/4] net: stmmac: introduce XDP rx multi-buff
- support
-Message-ID: <as-Ef22VEKQcZ9QQ@lore-desk>
-References: <20261014-stmmac-rx-mb-v7-0-5d2d70f052cd@oss.qualcomm.com>
- <179198374828.320699.17103999780938670424@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q3kgqRgL7mAsQ/qT"
-Content-Disposition: inline
-In-Reply-To: <179198374828.320699.17103999780938670424@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA1MyBTYWx0ZWRfX7568DX2YCFu/
- GHakRiOZlGTvYAhz1SVMkZS7lYbucsAPC9la3piERTBZUK7QOD4OqaoIjHq9BsAC4o+k82//Tip
- fchIIOwnwvBtWm0CKS8FO3p374gyQASHw2QYBO9EfFyxWAIoGwI9I824N+vPPHNZNEEBQEEjKp3
- 39zdHPTPCXgJg/hIwp0ELPQK4ppay9dTARBSov32fsuZaf6BwsWhzU9vh72ZXY4ckGMO3C7w3cY
- rvTgVxlQLMbboRyrYNAiRrEgI59rzKJVLFluWdSNFui1ybuGaew8Enf3JDX3AMzPabZqvwpkLjA
- mKvcS8GR06/rywZ9lMP8Of3nWIBFhJIrFQRJRZpaBRUyKcld5WJ/y28pjUuKdR1VbCu/tRN0qKm
- tK6eeWgY1CsKqdgkAXCbSzR2aQe89fdBVHIc7OvlmV1GahWrTULyBYtxMA9rF9wSIgvU/2N5YVf
- z1fKdkxSZ9KBS/MwSow==
-X-Proofpoint-GUID: RrSDNgz6bpe_VG-ecGyxJ_LbFMGEugwa
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA1MyBTYWx0ZWRfXxcRaUTUcIGnz
- q+tc0QbqdMyPFpFZq7Maerpa6mX5ku1zOWA3K4emWtCe457PRtoKCfhpSLsnwwMLAaz+UdZsePt
- 3HfObDokMA2jp7rF2BUSRlYTf2bm0fQ=
-X-Proofpoint-ORIG-GUID: RrSDNgz6bpe_VG-ecGyxJ_LbFMGEugwa
-X-Authority-Analysis: v=2.4 cv=V/noQuni c=1 sm=1 tr=0 ts=6acf8482 cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=jeKYxtEjmYGD5WCmXysA:9
- a=CjuIK1q_8ugA:10 a=cApNwXssEwYNTDXMzu4A:9 a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-09_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 lowpriorityscore=0 impostorscore=0
- bulkscore=0 adultscore=0 clxscore=1015 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610140053
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_143303_870005_01950FEE 
-X-CRM114-Status: GOOD (  25.02  )
+	Wed, 14 Oct 2026 13:34:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DB758600DA;
+	Wed, 14 Oct 2026 13:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73CCC1F00893;
+	Wed, 14 Oct 2026 13:34:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791984852;
+	bh=xlbe4IDve5sVa3bicBDrKckx0LdiPpTCwmNH0wErMrk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=euj6GWmHlaz7C/KEd7JCVSEhRJsOzvJDpdVYhnxnG+iJZKo6DPq5lnGN0OZs32nlm
+	 KWrnCmPNVBakogEapCVV7u8jH3HXd3iYSX4Extyjed3dbHCo0UnPFon6iiCEz15UWE
+	 gN5B+2iOa3o8Sh3ksxwvpFEkzQRiRcglwdg9uQw42kgbUubYWVZ732cOBBlPFxHi6t
+	 m5bFEP7JlgicNJ6pDlMUMf67OJ134IlNZFOf55XgfzMs5DXY7jBgCdSVFFzY8F4I2q
+	 LX7ZOjzU0ox34ZDPpucyLxxDkHoWckTA9vl8SFOn4dTWIv/XsRvFtneiDkZPF3ANNC
+	 c21G3FKmH1Bfw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xGz7R-00000002tLm-48r5;
+	Wed, 14 Oct 2026 13:34:10 +0000
+Date: Wed, 14 Oct 2026 14:34:09 +0100
+Message-ID: <86se281k4u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 0/2] KVM: arm64: vgic-its: Fix LPI double mapping and DISCARD
+In-Reply-To: <20261013143338.815377-1-fuad.tabba@linux.dev>
+References: <86tsmp20ne.wl-maz@kernel.org>
+	<20261013143338.815377-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,59 +92,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---q3kgqRgL7mAsQ/qT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, 13 Oct 2026 15:33:38 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+>
+> [...]
+> > Is the hack below what you are asking for? I can't tell. If it isn't,
+> > please post your own version.
+> 
+> Almost: it's missing a request check between the IN_GUEST_MODE store and
+> the flush. Without it, a halt that reads OUTSIDE_GUEST_MODE just before
+> the store doesn't wait for the vCPU, which then loads the LPI into an
+> LR, takes the early exit on KVM_REQ_SLEEP and folds the LPI back after
+> DISCARD has cleared it. That's the outcome in the first litmus test's
+> exists clause. With the debug hooks forcing it on QEMU, the guest takes
+> the discarded LPI in every run with your diff, and in none with this on
+> top:
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index f1449b0..896bc76 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1329,11 +1329,29 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  		 */
+>  		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
+>  
+> +		/*
+> +		 * Don't load the LRs with a request pending:
+> +		 * kvm_arm_halt_guest() doesn't wait for a vCPU it reads
+> +		 * as OUTSIDE_GUEST_MODE.
+> +		 */
+> +		if (ret <= 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
+> +			isb(); /* Ensure work in x_flush_hwstate is committed */
+> +			if (kvm_vcpu_has_pmu(vcpu))
+> +				kvm_pmu_sync_hwstate(vcpu);
+> +			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+> +				kvm_timer_sync_user(vcpu);
+> +			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+> +			local_irq_enable();
+> +			preempt_enable();
+> +			continue;
+> +		}
+> +
+>  		kvm_vgic_flush_hwstate(vcpu);
+>  
+>  		kvm_pmu_update_vcpu_events(vcpu);
+>  
+> -		if (ret <= 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
+> +		/* kvm_vgic_flush_hwstate() can make a request when nested */
+> +		if (kvm_vcpu_exit_request(vcpu, &ret)) {
+>  			isb(); /* Ensure work in x_flush_hwstate is committed */
+>  			if (kvm_vcpu_has_pmu(vcpu))
+>  				kvm_pmu_sync_hwstate(vcpu);
+> 
 
-> Hi!
->=20
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->=20
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
+I don't think this is right. Yes, it probably does enough request
+checks that we end-up with not getting it completely wrong, but the
+issues are that:
 
-The issues have been reported by sashiko.
+- we have state change before we evaluate the requests
 
->=20
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by code inspection). If it was triggered please include
->    the symptoms, like the stack trace or error messages.
+- we mix request generation and state change in a single helper
 
-The issues are real bugs spotted by sashiko.
+and we should be able to fix that so that there is only a single
+request checking point in the whole entry sequence.
 
->=20
->  - What hardware the change was tested on. For driver fixes please
->    mention the device (and if relevant firmware version) used for
->    testing, or say that the change was not tested on real hardware.
+I ended-up with a much bigger change, which really needs to be split
+in two:
 
-I tested them on a Qualcomm RB3-gen2 board.
+- untangle state generation and requests: this means that the
+  maintenance interrupt generation and the request. The request
+  generating stuff must happen before being IN_GUEST_MODE and request
+  checking.
 
-Regards,
-Lorenzo
+- the flushing must happen later on, once we don't look back anymore
+  and have committed to entering the guest.
 
->=20
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account. If the series needs another revision for
-> other reasons, please include the information in the commit messages
-> then.
->=20
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+This, in turn, simplifies the "shit, I must rollback all the previous
+changes as I can't enter the guest and must handle a request instead"
+horror.
 
---q3kgqRgL7mAsQ/qT
-Content-Type: application/pgp-signature; name=signature.asc
+Another bug fix is that we now generate the maintenance interrupt
+before deciding whether to generate a request switching from L2 to L1
+as we have a pending interrupt.
 
------BEGIN PGP SIGNATURE-----
+Thoughts?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCas+EfwAKCRA6cBh0uS2t
-rHLiAPoDfKUfclyNbJe2zYWQCf+joNgROzCH1Sw+dJSGo0Hy/wD+JduogxPwQFL2
-qb5cuv1UhjwryPGYdH+CM1gOy0VEIAw=
-=E36V
------END PGP SIGNATURE-----
+	M.
 
---q3kgqRgL7mAsQ/qT--
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 0576c2022ef57..3fa9e158f0be1 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1321,10 +1321,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		local_irq_disable();
+ 
+-		kvm_vgic_flush_hwstate(vcpu);
+-
+-		kvm_pmu_update_vcpu_events(vcpu);
+-
+ 		/*
+ 		 * Ensure we set mode to IN_GUEST_MODE after we disable
+ 		 * interrupts and before the final VCPU requests check.
+@@ -1334,18 +1330,19 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
+ 
+ 		if (ret <= 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
+-			vcpu->mode = OUTSIDE_GUEST_MODE;
+ 			isb(); /* Ensure work in x_flush_hwstate is committed */
+-			if (kvm_vcpu_has_pmu(vcpu))
+-				kvm_pmu_sync_hwstate(vcpu);
+ 			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 				kvm_timer_sync_user(vcpu);
+-			kvm_vgic_sync_hwstate(vcpu);
++			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+ 			local_irq_enable();
+ 			preempt_enable();
+ 			continue;
+ 		}
+ 
++		kvm_vgic_flush_hwstate(vcpu);
++
++		kvm_pmu_update_vcpu_events(vcpu);
++
+ 		kvm_arch_vcpu_ctxflush_fp(vcpu);
+ 
+ 		/**************************************************************
+@@ -1356,7 +1353,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		ret = kvm_arm_vcpu_enter_exit(vcpu);
+ 
+-		vcpu->mode = OUTSIDE_GUEST_MODE;
+ 		vcpu->stat.exits++;
+ 		/*
+ 		 * Back from guest
+@@ -1390,6 +1386,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+ 
++		/*
++		 * All the state has been synchronised, let advertise
++		 * we're outside of the guest.
++		 */
++		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
++
+ 		/*
+ 		 * We must ensure that any pending interrupts are taken before
+ 		 * we exit guest timing so that timer ticks are accounted as
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index b191365d97cc2..41f3def0eecae 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -2046,6 +2046,9 @@ void check_nested_vcpu_requests(struct kvm_vcpu *vcpu)
+  *
+  * What follows is some slop to (1) react to exception routing / masking and (2)
+  * preserve the pending SError state across translation regimes.
++ *
++ * Also look generate the maintenance interrupt state, and finally check
++ * that if we need to take an interrupt targetting the guest hypervisor.
+  */
+ void kvm_nested_flush_hwstate(struct kvm_vcpu *vcpu)
+ {
+@@ -2054,6 +2057,11 @@ void kvm_nested_flush_hwstate(struct kvm_vcpu *vcpu)
+ 
+ 	if (unlikely(vcpu_test_and_clear_flag(vcpu, NESTED_SERROR_PENDING)))
+ 		kvm_inject_serror_esr(vcpu, vcpu_get_vsesr(vcpu));
++
++	vgic_v3_nested_update_mi(vcpu);
++
++	if (vgic_state_is_nested(vcpu) && kvm_vgic_vcpu_pending_irq(vcpu))
++		kvm_make_request(KVM_REQ_GUEST_HYP_IRQ_PENDING, vcpu);
+ }
+ 
+ void kvm_nested_sync_hwstate(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 5cf5a1ef86cdd..7061b4ab206c9 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -1152,7 +1152,7 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+ 	 *
+ 	 *   We do that by placing a request to ourselves which will
+ 	 *   abort the entry procedure and inject the exception at the
+-	 *   beginning of the run loop.
++	 *   beginning of the run loop (see kvm_nested_flush_hwstate()).
+ 	 *
+ 	 * - Otherwise, do exactly *NOTHING* apart from enabling the virtual
+ 	 *   CPU interface. The guest state is already loaded, and we can
+@@ -1162,16 +1162,10 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+ 	 * maintenance interrupt state, as it may fire.
+ 	 */
+ 	if (vgic_state_is_nested(vcpu)) {
+-		if (kvm_vgic_vcpu_pending_irq(vcpu))
+-			kvm_make_request(KVM_REQ_GUEST_HYP_IRQ_PENDING, vcpu);
+-
+ 		vgic_v3_flush_nested(vcpu);
+ 		return;
+ 	}
+ 
+-	if (vcpu_has_nv(vcpu))
+-		vgic_v3_nested_update_mi(vcpu);
+-
+ 	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+ 
+ 	vgic_flush_state(vcpu);
+-- 
+2.47.3
+
+
+-- 
+Without deviation from the norm, progress is not possible.
 
