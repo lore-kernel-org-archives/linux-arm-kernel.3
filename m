@@ -4,43 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527A1CC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48290CC6B1D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 13:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRFFqQOcyYa8SYcuThyFS6mpUDGAJZgovKMt0+uSYFs=; b=QC8sZQu2Ix+RIbG0hN84NBBAU8
-	hjXxciOaFoBvxFY9BrbTjGcEYQj+NWLoNWb7eNOjgqFyqqh2FUMk1HyCIfpDBqwZJ055drSk/qAs7
-	15XiRr3TD941bqiYajzjy5HfqxtdnFw2t5E+uW26A3PpD1avEFNEUtAX/HbxT18KUy3Gs8e4Fr9Y7
-	XXT3EdojBDWOwKRUzHgTujmfWy9E7/Za0S6RG0p7gpDuomUAdzp1cLAeNNAzaMI9bGaIfT0parg0S
-	EBAmKZEmiZ4SBDItIU0Pmhwl2l7XM3e1NzCMd/E+IHrirMITHVbXFcUB/hN1s/srx0DbCYcpghZbZ
-	qEPhR7RA==;
+	bh=XZV9wpLaB7GSx4PtVOFkB/b4sfjtm/46M63tFH45CRE=; b=MNMuuO6qlVlh+c5Y4eQ7vGgwRf
+	x1gpPm6jZWtWcohXivMZUoe8luVgv41amVlogIjsV0J//IzkJwJv+V1WYTS5XoVQvRuVIwYBupIGV
+	6efAIbNBRkpRF6mgeGX3zPrQh48dte5F3dcOnEcEBkCaAO8F0OoNzCx74PdWoboZU13iC9zeKw9/3
+	TNqborPgQxWxPccBJHstXChYT0+2gCUFadQB8YIrYTe5i+L3r/bFS2V6O+HlaqXJuDhvMLv8L1JtP
+	HIZu+sp9OKWux7qKHT+pGjlge3geNUSk9NsVezTvsZ7h7cRHNr2ACiuQBqCx7PKRz+EjN7rduvdhw
+	Ej7BurTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz7e-0000000Fbrm-3y1v;
-	Wed, 14 Oct 2026 13:34:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xGz7j-0000000Fbtj-0AW9;
+	Wed, 14 Oct 2026 13:34:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGz7Y-0000000Fbpo-2jSv
+	id 1xGz7h-0000000Fbsf-1rQ6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 13:34:18 +0000
+	Wed, 14 Oct 2026 13:34:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5419441FE9;
-	Wed, 14 Oct 2026 13:34:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38741F000FF;
-	Wed, 14 Oct 2026 13:34:09 +0000 (UTC)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 0/2] PCI: iproc-bcma: Use EROM instead of devicetree
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Semih Baskan <strst.gs@gmail.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	by tor.source.kernel.org (Postfix) with ESMTP id B8C77605F0;
+	Wed, 14 Oct 2026 13:34:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A6F1F0089C;
+	Wed, 14 Oct 2026 13:34:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1791984864;
+	bh=XZV9wpLaB7GSx4PtVOFkB/b4sfjtm/46M63tFH45CRE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=H6NqJWrbi7Q7UOF7JBoq4heJwKmi5w7AjaTmDd58ZIIUNVtOrN2VWklG92FxN2PQV
+	 KYFvWpkK3ajLvCvw92WLcZQE5vZW+auWA1y3ysCoZPeODAXuQod/WKSAa9c0UpXDeY
+	 3/gR/kXCiLH3pP0H1EUhaFk/jTJeipIPiIMl2B6ple+GGz1cH7XfoJ41iNwpQEKboh
+	 ZVzSa2ul5RtabFmxnPDHmBCbEY+NKGutX0l99DzpzhT90o8pDCevIjnitpvrVPptiP
+	 IWIuxJYV+CeYsopFayTEvpgGpAjnW0rzNSBKX55JYZjc+s6mM2RNKuS/QINWvefxCp
+	 Wz19rT3phBcYQ==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Semih Baskan <strst.gs@gmail.com>, Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
  Rob Herring <robh@kernel.org>, Ray Jui <rjui@broadcom.com>, 
  Scott Branden <sbranden@broadcom.com>, 
@@ -53,21 +57,13 @@ Cc: Semih Baskan <strst.gs@gmail.com>,
  linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
 In-Reply-To: <20261013220421.1588051-1-bhelgaas@google.com>
 References: <20261013220421.1588051-1-bhelgaas@google.com>
-Date: Wed, 14 Oct 2026 19:04:01 +0530
-Message-Id: <179198484126.63727.459652495621312738.b4-reply@b4>
+Subject: Re: [PATCH v4 0/2] PCI: iproc-bcma: Use EROM instead of devicetree
+Message-Id: <179198485820.77319.12457284951144723062.b4-ty@b4>
+Date: Wed, 14 Oct 2026 19:04:18 +0530
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=962;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=oQT/vFq4L2+1ykzH4bcsj6Dl0qjssokYfXpiBYK9RgQ=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqz4TMGL/YtFvclINMLC37pDBET+uU5MewK8ZwK
- mLcXFFcMzyJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCas+EzAAKCRBVnxHm/pHO
- 9TFJCACEdnC2gLjnShD19IBYYT/ZlRWSBBIhCLaM36uZM/D9ApdLK3k+oGIg+xcBjIAp7RR5DO+
- 9+gSYdovqZ1bGIxwNVoZ9NedvDKPNp6am9yjm2xMC1pz93S9Yvr8HYjoj+jyEXLlnLwEYChm8vZ
- CTC+dm++dijdj7VQvPuc59vCNvhuIo2FwykeHMH3T2fN7T1Tc+xX30QhqVI5mf7VtcRQjLJ9G6Q
- zpBA39E2NGkeGNrzDx2YYkonv21lA4xVXXwAVbL7wX35mIPYl9rWpDoZHFEADh4gSH75D9UAJyZ
- 29ysRxwEFWC+zTGbxEQkTDhlAYagIqt61/1cX4MEca85rKTM
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,7 +78,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-13 17:04 -0500, Bjorn Helgaas wrote:
+
+On Tue, 13 Oct 2026 17:04:19 -0500, Bjorn Helgaas wrote:
 > This is a combination of these two patches:
 > 
 >   [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
@@ -91,17 +88,18 @@ On 2026-10-13 17:04 -0500, Bjorn Helgaas wrote:
 >   [PATCH] PCI: iproc: Use pci_alloc_host_bridge() on BCMA
 >   https://lore.kernel.org/all/20260912043626.437-1-strst.gs@gmail.com
 > 
-> I think it's a little simpler because it keeps the use of devm and it
-> doesn't require two pcie-iproc-bcma.c patches.  I didn't sign off on the
-> pcie-iproc-bcma.c patch because it's Semih's work except for the minor devm
-> adaptation.  And the commit log probably needs some work, but I don't know
-> enough to describe the platform/bcma driver issues.
-> 
+> [...]
 
-Applied this series to controller/iproc-bcma. Note that I changed the authorship
-of patch 2/2 to Semih and collected his tags. But I didn't add your s-o-b. Feel
-free to do it yourself, if you seem fit.
+Applied, thanks!
 
-- Mani
+[1/2] PCI: Expose devm_pci_alloc_host_bridge_release()
+      commit: 4e93e052afad91ad28e8343d3777c1e5ab8c24d2
+[2/2] PCI: iproc: Use the EROM outbound window on BCMA
+      commit: 694a9f52a937f272d8aa6e845765e37118c10e17
+
+Best regards,
+-- 
+மணிவண்ணன் சதாசிவம்
+
 
 
