@@ -4,151 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EAACC6B1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409BCC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 18:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=; b=Pn0R7teD9wdJ0hiUipGgMOS9Ng
-	/88vW6U6u5BNO4jAx4Qh7LeTsC3EQ/4+xC2jeqycoWzVx01sp+YG/a1IrnfZKTzzZ31bGH2+QNYso
-	bkAwIDiJgX5q0GToYD3u71m+Ixic5dZWxjwuFdb0pPneyYSyGfYlXErS0iVgRzwqpj1bS8HkUZWMi
-	QhqDE4qIxYAz4V37iUlUgrysBC52ZY/5X+dKP94M+s9pDsQH1PKK+I+yafnrg8ZoGeScVEtJGcE2x
-	9CMEdW6hn+ZFK7Lfxs3yEVmG6U6VYVVxbeDgtbkRG4Uip0fvfn1ZtWsrTQYcAvtIIT4hjJxK2QGzr
-	tEqUrLlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CvWOaTUlMXOEn3tnxgA4QdZqJ3etpFx5xwMvPC1gXq4=; b=l3MQ40UqaCGfMoN9D4BpxDjMXb
+	EdSYInjMENbAzqZXCYPdaNCjOmasz7PptS434P1wNQenCNm+cVAE7kExq3p77/uVrnFxoXU0dQDmQ
+	npUYPwHPP6Vup5AGgoZTNWuDO6LEBqE0i9uD22GX/cKjyByDJRbE53wKUtFEnxuT85oLIq9bxDOSq
+	bhnlPluFw7c4Pz7/ImTnUelRWk/nBM3TgfreLjeHUHFBau8Qk+mKZSsHHmoTRvYd3BYhDVNdl7Yxv
+	8lUQqRPWSMHMAcD+YWNAdmLKBnPPEXRt8zceexW0X9+yhLa314A6yWtG00xeiCHeyX5Ep+kA3lW5g
+	odlG96aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH43a-0000000GArJ-2pwJ;
-	Wed, 14 Oct 2026 18:50:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xH4AG-0000000GBAI-1pqZ;
+	Wed, 14 Oct 2026 18:57:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH43Y-0000000GAqr-1Jzf
+	id 1xH4AF-0000000GBA8-0ZB0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 18:50:29 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69EGZhYi3468837
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 18:50:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=; b=hLw7FgaYpyNo6zxN
-	l8UvMhOCymTJmyoS3bWMjr5HzJVHGUDmM15PoeZw62rTAv7lAWVn+4w/Hn5g1+4X
-	/m3XN9322dQYzH9LtDo5PYG58tsWg3pKe4CtmZEZalzj1aiYPrgalBB9KeuhcMVa
-	BjmDS62vTj3Cuh3fTXBp0SJqfQjY8d1DAXX/AKNu1k1YrIaTOed3GbTA2OUWXI0b
-	5Q0OHU11f0kfDr+XCUAoOHBPuYcu2vtzh4LNNBYJz1WtBvllA9e5EVxr1BQsDWjP
-	ON1rFDnOcHjgSE319n24TVY1oL3h6wsAC8z3P7FyoemA7Qxus3vGzHqRDohxXyc1
-	mVfA8g==
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hadd78hp2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 18:50:26 +0000 (GMT)
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-17dc865c94cso707715c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 11:50:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792003826; x=1792608626; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=;
-        b=Vz++mB4gwbSXu0xZcILgLrC8EzDD7wuNqA4F/ZDER/Z53dH/NQuKfG4p9BVlsXdlJj
-         MifEY1lABUFE6xWQoW/Zrx/XEOPTY1hC0wawDPXUFG0xMZedeZFUPiVrIW+GxtGd1Ekr
-         GjQ5YQl8d5QWTg9ADaOJUGlaF627iTVThduN2vz1NISNs9y2o20658etNHnsArrLeHT+
-         mM+fsc8FR4PmWLYsfBIJ9xlVmhnPsYrIDBbN0Bdy3TRy31qfa/BSgSvFwL6Uv5HpBOe0
-         GGW7kp37giH63QG8hiddylpCdeyLl7DFu0TCxsxmryyzy/NSxHUhv7Dx1VAoQVpNkWRZ
-         UKmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792003826; x=1792608626;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QmKAgT+BMROb7bsj9FpwRJzAdtcudV6UZcveycRYTO8=;
-        b=JCFlfiqlKg7CbeTBbfLeqQr4eS7CHRIyyXysuqxJkK0FNdgFjsbq+6ywBI6IJCHPMk
-         OYWQmgLCIjg1AqD56g+nJRM3P/afbrn2nP5pIWIQPGGZzBOSbwJMrj8Ib7MC/96HJkrk
-         m3PLCUjZ850So2uHcoQJwTKJqAy8OWtidIxw542KNSdStXGbn1ZlelG7x9TASM7QarQm
-         QSlg15FWOPlgwdtJvPHPNkOGtPjYdddUZbX/DwoedaqlS0p+vdwiz63S5v55pPveaGtH
-         hoqaieF+bL1H8kfPZw2D3+gozmHPdsxob9TTLcE7tzzpQEpoVZPxZcQircz7zCzI6Tnr
-         666Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwlfZsh/+Bmbjkm0FWFrTDrJm7i+5GC3NFQSdVjdckfk/e1yRa381X5JIwHdHo20oxGobKcIgcBtByvb9m4Xr+q@lists.infradead.org
-X-Gm-Message-State: AFq9FYKe06QhOTamNs9UCOWOPUjH8ZL2ne76Zk9cLcCLnsWOuIg8Uv2t
-	P+FDekfX4wS+xPBD5+WZ3agF5dP//zmr+qiPGsljOyeqrjwyxAQNzF2shaoPjtHJM5HTl+YaI+h
-	yzYPeJSlV4b98AjcTSATHktcKjPr+76c31D0+cySZBbbiQf9FUQluwxa36qIFTAp4uhit+P/A0/
-	SY7Q==
-X-Gm-Gg: AYBFou29rJiAkgLDtSgar4B+gAePeURDmoj3hNmGVr9O5UDtviXXIJXhZiBCouyad6x
-	a4dGw+FB3u0nqeLdm8pJCYlsfttNjjvgXTyNmxs2LvSdnLTnB19HaRnK7Pc3Lo+B7ZhBxrZ7pXk
-	yC5h0Jih237ufs8KxxrLvzxxhqeJVEBV2AArc4A9fzB6swkfAXukpgLTeWQFrEj+BTV3nnYgz0/
-	29xLhgWuKC3tTRwnRciRCgv12pGyujfrVhAaa385L/45ypHlZCG7bcYMsskzgl0PJToXsgRoNvr
-	Vy+sT9zAK/5Mv40JWO+RDFD9/k34aUBh6WQdxqxFtABUHpR95/ZJJNXJ3uobJRDksl/QDqPC1mm
-	0B6bYHRiGZ2pTLzJV2FOBvwsCRTHoUeRj
-X-Received: by 2002:a05:7022:1582:b0:143:298e:913d with SMTP id a92af1059eb24-16a63b2edc7mr32561296c88.47.1792003825562;
-        Wed, 14 Oct 2026 11:50:25 -0700 (PDT)
-X-Received: by 2002:a05:7022:1582:b0:143:298e:913d with SMTP id a92af1059eb24-16a63b2edc7mr32561225c88.47.1792003824748;
-        Wed, 14 Oct 2026 11:50:24 -0700 (PDT)
-Received: from [192.168.1.2] ([106.222.235.49])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-169a442956asm62519780c88.16.2026.10.14.11.50.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Oct 2026 11:50:23 -0700 (PDT)
-Message-ID: <16d94994-ff80-405c-ad98-ccefe4f951d6@oss.qualcomm.com>
-Date: Thu, 15 Oct 2026 00:20:14 +0530
+	Wed, 14 Oct 2026 18:57:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20DD660229;
+	Wed, 14 Oct 2026 18:57:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314031F000C4;
+	Wed, 14 Oct 2026 18:57:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792004241;
+	bh=CvWOaTUlMXOEn3tnxgA4QdZqJ3etpFx5xwMvPC1gXq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G4F521D7LiiIZZCqQVxHOB/nZBiu4tBxIrJQIPczjUHE+9a4ljcAa5OTOC19AOt/M
+	 rGoKmaMxA+wiyvhsWOZZEmMlyGxP3Fht7DONoGYHa8rKGnJNPOBU7hqGwasqMppiDD
+	 lj4CXohfxWrglWa+txVDNBw+bPCOdgEhQTckY2zfH0ZHgR0L/WNgTXn5Zeh/5QgqxV
+	 NQTLBjMv2/0kf0itpRvtcPZcdOJMQYdLblZtfduOYIvb2NT7t0hKKaPc4AedK6EZLm
+	 sCYsf901oGif3DjXDGjJHt6feyuSnqKqJoGw1fNebhvxz0Rnprqy5WN4zEg1AFqjcX
+	 mLR9Es3GE/qkw==
+Date: Wed, 14 Oct 2026 19:57:16 +0100
+From: Simon Horman <horms@kernel.org>
+To: Sagi Maimon <maimon.sagi@gmail.com>
+Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com,
+	michal.simek@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	daniel@iogearbox.net, jacob.e.keller@intel.com, joe@dama.to,
+	suraj.gupta2@amd.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4] net: axienet: free outstanding TX buffers in
+ axienet_dma_bd_release()
+Message-ID: <20261014185716.GD83879@horms.kernel.org>
+References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
+ <20261007034620.1360542-1-maimon.sagi@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 9/9] i2c: qcom-geni: Use geni_se_set_rate() for setting
- source clock frequency
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
-        linux-i2c@vger.kernel.org
-References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
- <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-9-091697dbeb02@oss.qualcomm.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-9-091697dbeb02@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=BaVNQbt2 c=1 sm=1 tr=0 ts=6acfcef2 cx=c_pps
- a=kVLUcbK0zfr7ocalXnG1qA==:117 a=N5Y/PXOiYxOVLBGg3HvMCg==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=UheTk5Niw0niUJ_rJrEA:9 a=QEXdDO2ut3YA:10
- a=vr4QvYf-bLy2KjpDp97w:22
-X-Proofpoint-GUID: MCXOipVQR61AKonBbIM35-rKBSWmaU4E
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX8Iv+IaPpc51w
- 3ZGDEQbqBTWAPfl+FUUVnleRjlt/1wNAmnG8798LrU7wnfJjAhx2qGXNl7MK7cHw7RXPYCGj/7t
- N1Px5C/67WOPjVnUX6uEYOMmt5Q/Y46sdHL2E19oiHWEoDnbXPr2VzwS2KCdl+OKqpH43MHZT32
- yHaCVjSCQ1nHr5g1xBMMiQu7/IcY8dPVemlZ4+mzKqxU6wnSaWN5ALC+07+vBmWlEZsIJRYrYiZ
- jcrLELGXte5WGl5gC2lV2TbomOQgKgp5Ab0viXul+O3bdXrbd4SFcMHas7Ji30jd25/ChO98r/+
- gO5vkzU8nh4deXUIeQF8vAIH+rKCdzfyoi00KKjTgcbOrkWA0aQdo/SSAFLR6WTI25Tl87JA4Eb
- YsYaDb5OwGy8qpySHR61+q8B1N/C6+8+ecmqq7GEiMBR5WZ0YPRqFpYNnN9QSWPTZD8dhR/qAdT
- uYMMoJtTkHONxMCI0Lw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE0MDA3NSBTYWx0ZWRfX1/7rBnmQ24cK
- FO2Nlt7fcgXV2TeHhdQSBrIL98nlyNDkMSgB7rhFsATki7SxtcFHm2oTS3eVy0sbaH23AveUqz0
- 6yc6/pByxzRlRTY2Eit7VpSdMAVaU90=
-X-Proofpoint-ORIG-GUID: MCXOipVQR61AKonBbIM35-rKBSWmaU4E
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-13_01,2026-10-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610140075
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_115028_368112_10402A1E 
-X-CRM114-Status: GOOD (  13.91  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261007034620.1360542-1-maimon.sagi@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,20 +74,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/27/2026 11:29 PM, Praveen Talari wrote:
-> GENI resource management may be handled either through the Linux clock
-> framework or a firmware-managed performance domain. Source clock
-> programming currently depends on platform-specific callbacks.
+On Wed, Oct 07, 2026 at 06:46:20AM +0300, Sagi Maimon wrote:
+> axienet_dma_bd_release() walks the RX ring to unmap and free every
+> receive buffer before releasing it, but frees the TX descriptor ring
+> with dma_free_coherent() alone.  Any descriptor that
+> axienet_free_tx_chain() had not yet reclaimed still holds its skb and
+> its streaming DMA mapping, and both are lost.
 > 
-> Use geni_se_set_rate() for source clock programming and perform the
-> source clock configuration from qcom_geni_i2c_conf(), allowing the GENI
-> core to abstract the underlying resource-management mechanism from the
-> I2C driver. This removes the need for platform-specific rate-setting
-> callbacks and enables a common code path across all GENI I2C platforms.
+> axienet_stop() disables TX NAPI and stops the DMA engine before calling
+> it, so nothing reclaims those descriptors afterwards.  Bringing the
+> interface down while frames are in flight therefore leaks up to
+> lp->tx_bd_num skbs and mappings each time.
 > 
-> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
-> ---
-Reviewed-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+> axienet_dma_err_handler() already walks the TX ring this way before it
+> restarts the DMA engine: it unmaps every descriptor whose cntrl is still
+> set - axienet_free_tx_chain() clears it on reclaim - frees any skb still
+> attached, and clears the descriptor.  Move that loop into a helper,
+> axienet_free_tx_bufs(), and call it from axienet_dma_bd_release() too.
+> This relies on axienet_stop() having stopped the DMA engine first, as
+> the RX walk in the same function already does.  The helper frees the
+> skbs with dev_kfree_skb_any(), as drops: in the error handler, which
+> runs from a workqueue, that frees them directly rather than deferring
+> them to softirq as dev_kfree_skb_irq() did.
+> 
+> The walk must not run on a ring that is not there.  axienet_open() does
+> not check the result of the reset that runs axienet_dma_bd_init(), so
+> when that reset fails tx_bd_v is either still NULL or, after an earlier
+> close, points at the ring that close freed.  Clear tx_bd_v and rx_bd_v
+> once their rings are freed, and skip the walk when tx_bd_v is NULL.
+> That also ends the second dma_free_coherent() of a stale ring which the
+> same path already did.  On the axienet_dma_bd_init() error path the TX
+> ring has just been allocated zeroed, so the walk does nothing.
+> 
+> This was reported by the Sashiko AI review bot.
+> 
+> Tested on the AXI Ethernet MAC of an ADVA TimeCard X2 (PCIe card, with
+> the built-in AXI DMA): traffic passes, and after each of ten down/up
+> cycles and five module reloads, all made with traffic running and each
+> running axienet_dma_bd_release(), traffic resumes and nothing is logged.
+> The leak itself was not measured, and neither the failed-reset paths nor
+> axienet_dma_err_handler() were exercised.
+> 
+> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+> Reviewed-by: Joe Damato <joe@dama.to>
+> Assisted-by: LLM sparse
+> Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+
+Reviewed-by: Simon Horman <horms@kernel.org>
+
+In future please post new patch revisions as new email threads,
+not as a reply to an earlier revision.
+
+Thanks!
+
 
