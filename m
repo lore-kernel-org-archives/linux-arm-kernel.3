@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8BDCC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA33ECC6B1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 12:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBvZwMjkY3SFTfW54L+/3JW1YEsME5Dm5IClIbBeKQk=; b=KG+HRPpS+YATXjPLBEkj854s+m
-	RhAITQksJejdCXWJ20AmsCXC4f0je+3XXxposv7GcJ1hpSFuMyOMGUkkxr7EfCsAFzUFolM9HUXlE
-	0m9WjIKsymUjeJcQ2NVpLapV+vYK3oCm48b+xdjm8ov0jOJUGvWQaWrZPslbUM+xfVVQW8k6e9iUk
-	9ppVmPCrd6RmdfXCsf751SW4By+uJHyfHzo7MrYFerXgkRYEGiAePmeWV43H6LRee1rBGLOMC5Gt1
-	I2GkZyZ+g04hHsl+bLtpo3r2/YMsmOA+cul8ls6c2B3JhE45tXGHMjIityv7qgoMjWWoixYYnVFq2
-	eLaG3DzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mA6mwuU/8KGkmZBYxzmUPrKtz6y2loB+9vkSMCJlaCA=; b=aBlYK5/DPnlE9GmrH+E2PcPWb0
+	YVQiyvh1GY9CaznEiNfHqf4VQks/tlP+mZ+cIK/yHL7dzeUKdfJJNnB8DjXqc5OFEh/6B2t++XWe/
+	A0EnIjextR9E7YuMUh9CKcavyn9fMYSinvrE0FjNiMGwwlz+iAHfhnduLrV8KpFD9wuvPwrQv+A2/
+	tByDaGFxlDEZVXOAAj7lqMvElrEKsY3p7WWNJxGPtvf0oK/PCCeeSyBRRth24kHsRtHSlQ/BqFsHo
+	WqdUp51o2d6u2VFfFNUXTd24jNSfK4bn4az7mpB0unFFLHRFf5rczg9Reg3+BuDZyujsDNcA3GZeb
+	FFJbGetQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxrg-0000000FPQt-0hhr;
-	Wed, 14 Oct 2026 12:13:48 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xGxvJ-0000000FPx2-3DMa;
+	Wed, 14 Oct 2026 12:17:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGxrb-0000000FPPw-3Wkx
+	id 1xGxvG-0000000FPwP-2X4g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 12:13:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=kBvZwMjkY3SFTfW54L+/3JW1YEsME5Dm5IClIbBeKQk=; b=3RNTW6C3qq+Yy9VbhkvL85MEfl
-	g+n8Vt2sBTZsNZ8N8u0Pi6SXJWtM5OjdMWSR9bikHwDTn2VtzwCCgW7VTpmD7PeQ3HMU7B/n/ZrgK
-	25nwCzFwMHi2wa4eYssYtUCalSBjjBT4Nkh6Kcy4IrkPqzCeokZSh2QsqK+N8M5GqvEw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xGxrX-00Aj27-0o; Wed, 14 Oct 2026 14:13:39 +0200
-Date: Wed, 14 Oct 2026 14:13:38 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
-	stefandoesinger@gmail.com, krzk@kernel.org,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 15/24] net: mdio: Add ZTE ZX279128S MDIO controller
-Message-ID: <595371a9-6b7b-4ad9-985e-66f0e659f4a1@lunn.ch>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-16-ghahramani.navid@gmail.com>
+	Wed, 14 Oct 2026 12:17:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1791980250; x=1823516250;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=VwGEM9bG+gm8aZY+vx8GaLjgb1ELCuBd2Ygqztwzy94=;
+  b=IwFLJlPjqETJZHywaDx1VgS4yfiwAvrHZ4+6r79x65j5Ja9REgeArjdH
+   OxdTZ9q3pQuxEHlozx8zYx3GOyq/FVyFrMuEzjmPruUG4a+NhAxrJ+QjK
+   rPe2Ys8p+rpEKCeL9qTOUnH92zq2I1ir0b4IC5kvBrMtr+ATyJ9rsNCGE
+   1mvO6AMm5CxxGBHvigwdhThEWGk4dxnnP+VVga0V+2RQbHoLd5HothxhW
+   Nlf7tifznt5VvQFz5JM4AYTD4s3Wma9jG7hKdPaNP+kCcHI5dT0doL7jk
+   vCFwcmi1447mRu7to9M0VXXuuJ57ffesvK3vngeR+NLPQNcBDfWRyd1Kp
+   w==;
+X-CSE-ConnectionGUID: AS0fM4N0TTu+W0y8BvP7CQ==
+X-CSE-MsgGUID: e/ISQjFySC2entXgr5BMBQ==
+X-IronPort-AV: E=Sophos;i="6.27,157,1787036400"; 
+   d="scan'208";a="296441734"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Oct 2026 05:17:29 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 14 Oct 2026 05:17:28 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 14 Oct 2026 05:17:26 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <stern@rowland.harvard.edu>, <gregkh@linuxfoundation.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH] usb: host: ehci-atmel: Use dev_dbg() for debug messages
+Date: Wed, 14 Oct 2026 15:16:56 +0300
+Message-ID: <20261014121656.1634-1-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261014072109.1759502-16-ghahramani.navid@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_051343_881292_87423CE0 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20261014_051730_888679_469B193C 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,79 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int zx279128s_mdio_xfer(struct mii_bus *bus, u32 op, int addr,
-> +			       int regnum, u16 data)
-> +{
-> +	struct zx279128s_mdio *priv = bus->priv;
-> +	void __iomem *base = priv->base;
-> +	u32 cmd, val;
-> +	int ret;
-> +
-> +	/* Clear the previous command and its status */
-> +	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
-> +	       base + ZX_MDIO_CMD);
-> +	writel(0, base + ZX_MDIO_STATUS);
-> +
-> +	cmd = readl(base + ZX_MDIO_CMD);
-> +	cmd &= ~(ZX_MDIO_CMD_WR | ZX_MDIO_CMD_RD | ZX_MDIO_CMD_ADDR |
-> +		 ZX_MDIO_CMD_REG);
-> +	cmd |= op | FIELD_PREP(ZX_MDIO_CMD_ADDR, addr) |
-> +	       FIELD_PREP(ZX_MDIO_CMD_REG, regnum);
-> +
-> +	if (op == ZX_MDIO_CMD_WR)
-> +		writel(data, base + ZX_MDIO_DATA_WR);
-> +	writel(cmd | ZX_MDIO_CMD_START, base + ZX_MDIO_CMD);
-> +
-> +	ret = readl_poll_timeout(base + ZX_MDIO_STATUS, val,
-> +				 val & ZX_MDIO_STATUS_DONE, ZX_MDIO_POLL_US,
-> +				 ZX_MDIO_TIMEOUT_US);
-> +	if (ret) {
-> +		dev_err_ratelimited(&bus->dev, "timeout (addr %d, reg %d)\n",
-> +				    addr, regnum);
-> +		return ret;
-> +	}
-> +
-> +	writel(0, base + ZX_MDIO_STATUS);
-> +	writel(readl(base + ZX_MDIO_CMD) & ~ZX_MDIO_CMD_START,
-> +	       base + ZX_MDIO_CMD);
+Use dev_dbg() instead of pr_debug() in the probe function
+to provide a more specific device message.
+This ensures the log message is properly associated with
+the corresponding platform device instance.
 
-This is the same as what you did at the beginning, but in the opposite
-order. Is it actually needed, and can the same order be used?
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+---
+ drivers/usb/host/ehci-atmel.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> +static int zx279128s_mdio_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct zx279128s_mdio *priv;
-> +	struct mii_bus *bus;
-> +	struct clk *clk;
-> +	u32 val;
-> +
-> +	bus = devm_mdiobus_alloc_size(dev, sizeof(*priv));
-> +	if (!bus)
-> +		return -ENOMEM;
-> +
-> +	priv = bus->priv;
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-> +
-> +	clk = devm_clk_get_enabled(dev, "pclk");
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(dev, PTR_ERR(clk),
-> +				     "failed to get the register clock\n");
-> +	clk = devm_clk_get_enabled(dev, "wclk");
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(dev, PTR_ERR(clk),
-> +				     "failed to get the work clock\n");
-> +
+diff --git a/drivers/usb/host/ehci-atmel.c b/drivers/usb/host/ehci-atmel.c
+index 65747270fd88..b6ba7005be69 100644
+--- a/drivers/usb/host/ehci-atmel.c
++++ b/drivers/usb/host/ehci-atmel.c
+@@ -99,7 +99,7 @@ static int ehci_atmel_drv_probe(struct platform_device *pdev)
+ 	if (usb_disabled())
+ 		return -ENODEV;
+ 
+-	pr_debug("Initializing Atmel-SoC USB Host Controller\n");
++	dev_dbg(&pdev->dev, "Initializing Atmel-SoC USB Host Controller\n");
+ 
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0) {
+-- 
+2.56.0
 
-Is this the bus clock? Does it need setting to 2.5Mhz?
-
-> +static const struct of_device_id zx279128s_mdio_of_match[] = {
-> +	{ .compatible = "zte,zx279128s-mdio" },
-> +	{ }
-
-It needs a device tree binding. But that is mostly boilerplate.
-
-   Andrew
 
