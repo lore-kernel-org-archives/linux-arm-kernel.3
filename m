@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76576CC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83582CC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 21:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=luFA3M8iJDEjYQKkTt9bQWNEwCOCJKRU2TiOe6VX7ts=; b=dTwP5bHJCfbPUuuKu1uEcocZ0S
-	PgZYCjRuqaOnWkO5EaxVKYDG8qWkjGKRgawyQmi1NNYNJgk/BGgR78p8ESjsNrfSqBBx8lNeDBE1M
-	GP8dpO0nM0OqEW6sMQcBvT+pfBqWH/hyO3DG2fAqCeyT/vyHFy5VzMhwBUC8ABFonHZDdpQWZbCT7
-	dsifFQJGJ2AUaAv6PIfg60PU/1tCfPRjXg9F2MX3R3GRijweDv37jW5IEebRUwYYbpx0xs9Qo7jMj
-	Yhd7OY2vQ2NwhG8RjR6MnV5t5OwN0ZoJdBJGiXDUzGS65EvJe+6y5ZlxkDA1WXimcfK2y2wEwqFJc
-	pmZRIpAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D+IaSM9kT05pfBEWp0Id2Mry8ziv93Bwpy/RvFGwxDY=; b=dBYX62PZeP5uvR/sjGeHVScbpT
+	nFdH1fQpK3joNcKBJVg5hf9fqBYg1Pc9ARf8T7JMQ0j2ZesbgwihXQBoGvq0zQ0r/PWUHaRcxiuXQ
+	u9781vp74wAdZ8Zic4KfulkgyR8Lgf1un388Ftetk2+83mORalqgX5H0ZxnkT0nUjycPnkGNVv0ne
+	lXjBCD8Gqswkl/BG48ZZnE3lnU4mZ5oIr/SMawJ+xoaGI45G+FUcj1Qh3EIB6sr7h2bOKTwdv+vu0
+	o7R1Bj8nPwz2Tea/0hihu8Za/HkeBb3ENA26+942yZWBLmbCtzTmQ3m62x7yooT/aGaIoxO0Oujaz
+	0TiELN3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6tT-0000000GNbV-0xnG;
-	Wed, 14 Oct 2026 21:52:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xH6tz-0000000GNg9-2CAC;
+	Wed, 14 Oct 2026 21:52:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xH6tO-0000000GNb0-1ZN9
+	id 1xH6tx-0000000GNfZ-4Atq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 21:52:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792014729;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=luFA3M8iJDEjYQKkTt9bQWNEwCOCJKRU2TiOe6VX7ts=;
-	b=We9ZGO7G/p6MyYIu3SdHsaCy8gUssvXvQIIRRzwyqKpT/cD4ewYgB0TxTl+0e6OjT5ECT6
-	NJSQy0iIkUULOfhi+z53g+KGMZ0QK8X8v/bZMw1H3JrNOkgBRy3SO8IRKk2x2yCYPO3er1
-	tX5LTh817uOk6IbDdI1J5POKybyfhwk=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-ZooB6ZgMMp-axWORu3tXwA-1; Wed,
- 14 Oct 2026 21:52:06 +0000
-X-MC-Unique: ZooB6ZgMMp-axWORu3tXwA-1
-X-Mimecast-MFC-AGG-ID: ZooB6ZgMMp-axWORu3tXwA_1792014725
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 505631800D89;
-	Wed, 14 Oct 2026 21:52:05 +0000 (UTC)
-Received: from [172.20.178.115] (unknown [10.30.44.133])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C4D2B1956042;
-	Wed, 14 Oct 2026 21:52:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci
- (upstream-arm-next)
-Date: Wed, 14 Oct 2026 21:52:03 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Wed, 14 Oct 2026 21:52:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CFA543474;
+	Wed, 14 Oct 2026 21:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888AC1F000C4;
+	Wed, 14 Oct 2026 21:52:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792014765;
+	bh=D+IaSM9kT05pfBEWp0Id2Mry8ziv93Bwpy/RvFGwxDY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=luFKnl6nDaTRwLuUvwfPn1yXToQ2S1HPsjTzNUym0qJ8e7SyIg0KvlS7arhuRzpcy
+	 4PkPpRlwf7D6QFnrWtwK5EzrYITdsqCmxWlo9Q+ebxhM8EnqkgnHWQw4ScGKloCiu7
+	 Fgc4P0Hv9gWPN348FWMNlfdx0gXntEZPzXl3HL0DBLf8pZeLN5avrDd2gJawMMgvRR
+	 gYTbwxoOiYBLLhDsEgnfcoerq+xFhZ3jE8lrgn956m+2dhQA/ghNl6VNgj/xMR43Sw
+	 gyXbFe1TLs3xdr+rRcVimZDKubhrru8kRO9aXspUB+z7OGi8O/RCE+opLw9XqyhE8O
+	 BxLIt38LXIC+A==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Pranjal Shrivastava <praan@google.com>, iommu@lists.linux.dev
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin
+ Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa
+ Saleh <smostafa@google.com>, Nicolin Chen <nicolinc@nvidia.com>, Daniel
+ Mentz <danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, Radu Rendec <radu@rendec.net>, Bjorn
+ Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, rafael@kernel.org, Danilo Krummrich
+ <dakr@kernel.org>, driver-core@lists.linux.dev, Pranjal Shrivastava
+ <praan@google.com>, sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 07/16] genirq/msi: Cache MSI message in
+ irq_chip_write_msi_msg()
+In-Reply-To: <20260929034510.2023173-8-praan@google.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-8-praan@google.com>
+Date: Wed, 14 Oct 2026 23:52:41 +0200
+Message-ID: <875wz4eyqe.ffs@fw13>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <66501.126101417520601209@us-mta-515.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dYy6BBfG2VGChite95xGVKY08KnvWadnFvv54sJOyEE_1792014725
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_145210_486050_3A16BE92 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +77,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, Sep 29 2026 at 03:45, Pranjal Shrivastava wrote:
+> Currently, PCI MSI caches the composed MSI message into the MSI
+> descriptor inside __pci_write_msi_msg(), whereas platform MSI and other
+> device MSI domains do not cache the message in the core, forcing
+> individual drivers to manually copy the message into desc->msg if they
+> need to restore it across power transitions.
+>
+> Cache desc->msg in irq_chip_write_msi_msg() before invoking the chip
+> callback so all hierarchical MSI domains automatically record the
+> latest message. Document why the redundant assignment in
+> __pci_write_msi_msg() must remain for direct callers outside the
+> irq_chip hierarchy.
+>
+> Suggested-by: Thomas Gleixner <tglx@kernel.org>
+> Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> ---
+>  drivers/pci/msi/msi.c | 6 ++++++
+>  kernel/irq/msi.c      | 9 +++++++++
+>  2 files changed, 15 insertions(+)
+>
+> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+> index 80a9db417dc8..f7bedc31d486 100644
+> --- a/drivers/pci/msi/msi.c
+> +++ b/drivers/pci/msi/msi.c
+> @@ -257,6 +257,12 @@ void __pci_write_msi_msg(struct msi_desc *entry, struct msi_msg *msg)
+>  		pci_write_msg_msi(dev, entry, msg);
+>  	}
+>  
+> +	/*
+> +	 * Although irq_chip_write_msi_msg() already caches the message,
+> +	 * keep the assignment here for callers that invoke
+> +	 * __pci_write_msi_msg() or pci_write_msi_msg() directly outside
+> +	 * the irq_chip hierarchy.
+> +	 */
+>  	entry->msg = *msg;
+>  
+>  	if (entry->write_msi_msg)
+> diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+> index fb5f372215bf..df460a574d80 100644
+> --- a/kernel/irq/msi.c
+> +++ b/kernel/irq/msi.c
+> @@ -634,6 +634,15 @@ static unsigned int msi_domain_get_hwsize(struct device *dev, unsigned int domid
+>  static inline void irq_chip_write_msi_msg(struct irq_data *data,
+>  					  struct msi_msg *msg)
+>  {
+> +	struct msi_desc *desc = irq_data_get_msi_desc(data);
+> +
+> +	/*
+> +	 * PCI Multi-MSI shares a single descriptor across all vectors and
+> +	 * the device stores only the base message. Cache the message of the
+> +	 * first interrupt only, so that sub-vectors cannot overwrite it.
+> +	 */
+> +	if (desc->irq == data->irq)
+> +		desc->msg = *msg;
+>  	data->chip->irq_write_msi_msg(data, msg);
+>  }
 
-    Overall result: FAILED
-             Merge: FAILED
+Sashiko reported correctly:
 
+> [Severity: Critical]
+> Does this code cause a NULL pointer dereference for domains without an
+> msi_desc object?
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2947671969
+So this needs to be:
 
+	if (desc && desc->irq == data->irq)
+		desc->msg = *msg;
 
+Did not think about that, but that also means that this patch was not
+tested on any recent (less than 10 years old) Intel x86 platform or a
+x86 VM exposing HPET...
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+Thanks,
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+        tglx
 
 
