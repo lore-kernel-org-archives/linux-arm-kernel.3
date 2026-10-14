@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D74CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 02:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 680CECC6B24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 02:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okdk8hxm0dW/XUwfuxYTgGwSE96/fYrUOqgmlQ1vuHs=; b=2rX51p643fhPOFdJa547KAUDk3
-	x2pm/zBk3S0g3aeXpWRo9Pvt66Kjrt7YXJs1LkFOXxfUcbMBB7fZhVHRr+CpFlTHYE250w0VvdxXO
-	WQKklhdB93WkCwZcwQJD3u+nviAHFUbkzMBg5DiqMKspwiDDtt//stzEwy8luJJMUwHYd9/ll2soR
-	WV+SJQFi7b9RJtt68O+rD1qxTF3YviEAh9++zTh82rBb893n2e9bLdqdt3UlqJ2e2BR5Wzqu4MQpJ
-	cM3WeTchTuF81kUrKOSDCSs8IrK56G2SkoWTWtUWSH9KYORM7dsigyeV+8kAE8BZLFtDZCY3ilDZP
-	LO7jShvg==;
+	bh=tnAKT9GFDYcMWkB5lweFRL7iO4umy+ozBsGwVhHS1a4=; b=OxzwWFTahiq3p3ttRrroBbRKQz
+	6bw8541VL1ADP8LE2EfmPqpvls7OUv1PVUMdcy90oz/S2js7c48KuExjKyeq9AeXvPdauil4mFgvI
+	HdH7E4EC0gHVo273bs+En7Mp52UoyRT2oo+rBqeKHWj5aRDhlkGnTEi0Ft8D3LXnHG61VmYonjuj6
+	5Vqzq1NgrEzpgAS+Ral3WZv5x3zMphFbPDr1Qm5+b2vj5UfePmK+YN3tkzU+zHDFaPGfbA7jNiDuf
+	7UUK6C7cZa55ZN4nx4F0ViEosaratx79Xuzz88w+qS3OQbKUmoDDSgJgF0BAZUkAd9YAfddlaDWxw
+	yn78Lwdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGp3I-0000000ENhE-2h00;
-	Wed, 14 Oct 2026 02:49:12 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xGp6r-0000000ENxr-2rRn;
+	Wed, 14 Oct 2026 02:52:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGp3F-0000000ENgJ-3cxx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 02:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ok
-	dk8hxm0dW/XUwfuxYTgGwSE96/fYrUOqgmlQ1vuHs=; b=oIIglN6gPucGyfVL1t
-	WwtCGfdfOtcbKWfbJKEEPpHZIKPJFLpLFh4JrWh/JJyLQnR3j1CuBlsU5Mr62nHf
-	4FliQ9fVZrp1kd7rSINBIE/7lxu3cuHkQkACg+2T4DjKN/yWGPTjieSEhz/ozaLB
-	YYrs9kuxCrE8yXv4UVqKrRh5c=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3f2Et7c5qnkk1Eg--.60824S2;
-	Wed, 14 Oct 2026 10:47:10 +0800 (CST)
-From: Pengpeng Hou <hppiscas@163.com>
-To: david@lechnology.com
-Cc: brgl@kernel.org,
-	linux@armlinux.org.uk,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	hppiscas@163.com
-Subject: Re: [PATCH v2] ARM: davinci_all_defconfig: enable the current ST7586 symbol
-Date: Wed, 14 Oct 2026 10:47:07 +0800
-Message-ID: <20261014024707.77051-1-hppiscas@163.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <c2dcc1be-ede4-4f80-83ed-3aeb0590f576@lechnology.com>
-References: <20260814075624.16639-1-pengpeng@iscas.ac.cn> <c2dcc1be-ede4-4f80-83ed-3aeb0590f576@lechnology.com>
+	id 1xGp6k-0000000ENvB-20Kt;
+	Wed, 14 Oct 2026 02:52:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7889A601DB;
+	Wed, 14 Oct 2026 02:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2D3F3C2BCFD;
+	Wed, 14 Oct 2026 02:52:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1791946365;
+	bh=6QAs/AWFg+oBZWeRI/xjXG7Fb0aOe9h+Fc+Luoc3Buo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=eCPJbxCuNea0z4pF0nB2hK/Mg/QZpcF7OYLr7NVfTbew7cMV7P8a2HzSAe/8xtXhL
+	 tzUJ240YkwpfN144bGvFKFJm7mIOlx3UeNSvQWFUeOFCKtu9qkU7JPR1S5g8Fp7HY/
+	 rRchVdFpO/+55ene0uHn0U30dlpAU3jQSiBE3bQtzA4PUd4NN6OhevUO+k1zg+at7W
+	 PcZfGDjnlJ9/AdsUPpNAg0RCRzn9Pd/jSMl1YIFqL7JJKlxe976C26i9YereMouken
+	 5fafPKiYxYsHzJ9SYUf3HvHEnj6Zeh4QD+N6h2odKc9KdB8uK5V7ee2vMmXRPmW7BX
+	 Q8bNF8ke1If7w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B4B8CC6B20;
+	Wed, 14 Oct 2026 02:52:45 +0000 (UTC)
+From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
+Date: Wed, 14 Oct 2026 10:51:00 +0800
+Subject: [PATCH v10 2/6] net: wwan: t9xx: Add control plane transaction
+ layer framework
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3f2Et7c5qnkk1Eg--.60824S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjfUeb18UUUUU
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7Q7UnWrO7S6BLgAA3i
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_194910_245249_462BDED3 
-X-CRM114-Status: UNSURE (   5.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261014-t9xx_driver_v1-v10-2-4d0dde3613f5@compal.com>
+References: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
+In-Reply-To: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
+ Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
+ Minano Tseng <Minano.tseng@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Robert Yu <robert_yu@compal.com>, 
+ Jeff Chang <Jeff_Chang@compal.com>
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1791946362; l=5009;
+ i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
+ bh=Lzrnn7C9a9Y9E/a8QXchnvLpm0gvt2cHKib9+c/G3dM=;
+ b=ZkxvWXrNy9RHFPhO09nFO9Eeq/r66bg+SilozXTSbFiTj2uS9wd0ew4B1K0VPiZhBpOWlQxSa
+ OY0JXQYU8glAeHWLlBsn71LRGeUhpU8TI1/ot2E/E6Pvw8NB+9lLNnC
+X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
+ pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
+X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
+ auth_id=793
+X-Original-From: Jack Wu <jackbb_wu@compal.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,21 +93,184 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+From: Jack Wu <jackbb_wu@compal.com>
 
-Please add:
+Introduce the control plane and transaction layer framework
+for the T9XX WWAN driver. This patch adds the core data
+structures (mtk_ctrl_blk, mtk_ctrl_trans) and initialization
+entry points that subsequent patches build upon.
 
-Fixes: 9b8f32002cdd ("drm/sitronix: move tiny Sitronix drivers to their own subdir")
+The control plane block (ctrl_blk) serves as the central
+context for managing the transaction layer, port layer, and
+FSM interactions. The actual DMA engine and TX/RX service
+implementations are added in subsequent patches, and
+mtk_ctrl_init() and mtk_ctrl_exit() get their first callers
+there, in pcie/mtk_trans_ctrl.c.
 
-That commit moved the driver to DRM_ST7586 and made TINYDRM_ST7586 a
-promptless compatibility symbol defaulting to n. The old defconfig entry
-therefore stopped enabling the driver at that point, before the broken
-compatibility layer was subsequently removed.
+Signed-off-by: Jack Wu <jackbb_wu@compal.com>
+---
+ drivers/net/wwan/t9xx/Makefile              |  1 +
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.c      | 46 +++++++++++++++++++++++++++++
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.h      | 21 +++++++++++++
+ drivers/net/wwan/t9xx/mtk_dev.h             |  3 ++
+ drivers/net/wwan/t9xx/pcie/mtk_pci.c        |  1 +
+ drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h | 20 +++++++++++++
+ 6 files changed, 92 insertions(+)
 
-Thanks for the review,
-Pengpeng
+diff --git a/drivers/net/wwan/t9xx/Makefile b/drivers/net/wwan/t9xx/Makefile
+index bd6063c85c2b..0a07507f1ddf 100644
+--- a/drivers/net/wwan/t9xx/Makefile
++++ b/drivers/net/wwan/t9xx/Makefile
+@@ -6,4 +6,5 @@ ccflags-y += -I$(src)
+ obj-$(CONFIG_MTK_T9XX) += mtk_t9xx.o
+ 
+ mtk_t9xx-y := \
++	mtk_ctrl_plane.o \
+ 	pcie/mtk_pci.o
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.c b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+new file mode 100644
+index 000000000000..81f6b3fbc0bd
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ * Copyright (c) 2022-2023, Intel Corporation.
++ */
++
++#include <linux/device.h>
++
++#include "mtk_ctrl_plane.h"
++
++/**
++ * mtk_ctrl_init() - Initialize the control plane block.
++ * @mdev: Pointer to the MTK modem device.
++ *
++ * Allocates and initializes the control plane block
++ * associated with @mdev.  Runs once per bind; the allocation is
++ * devres managed and is released at unbind, not by
++ * mtk_ctrl_exit().
++ *
++ * Return: 0 on success, -ENOMEM on allocation failure.
++ */
++int mtk_ctrl_init(struct mtk_md_dev *mdev)
++{
++	struct mtk_ctrl_blk *ctrl_blk;
++
++	ctrl_blk = devm_kzalloc(mdev->dev, sizeof(*ctrl_blk), GFP_KERNEL);
++	if (!ctrl_blk)
++		return -ENOMEM;
++
++	ctrl_blk->mdev = mdev;
++	mdev->ctrl_blk = ctrl_blk;
++
++	return 0;
++}
++
++/**
++ * mtk_ctrl_exit() - Clean up the control plane block.
++ * @mdev: Pointer to the MTK modem device.
++ *
++ * Clears the control plane block pointer. The allocation
++ * itself is managed by devres and freed on driver detach.
++ */
++void mtk_ctrl_exit(struct mtk_md_dev *mdev)
++{
++	mdev->ctrl_blk = NULL;
++}
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+new file mode 100644
+index 000000000000..46f1ab9f0551
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_CTRL_PLANE_H__
++#define __MTK_CTRL_PLANE_H__
++
++#include <linux/skbuff.h>
++
++#include "mtk_dev.h"
++
++struct mtk_ctrl_blk {
++	struct mtk_md_dev *mdev;
++	void *ctrl_hw_priv;
++};
++
++int mtk_ctrl_init(struct mtk_md_dev *mdev);
++void mtk_ctrl_exit(struct mtk_md_dev *mdev);
++
++#endif /* __MTK_CTRL_PLANE_H__ */
+diff --git a/drivers/net/wwan/t9xx/mtk_dev.h b/drivers/net/wwan/t9xx/mtk_dev.h
+index 329e5e6695df..84fcd980110b 100644
+--- a/drivers/net/wwan/t9xx/mtk_dev.h
++++ b/drivers/net/wwan/t9xx/mtk_dev.h
+@@ -31,12 +31,15 @@ enum mtk_dev_evt_d2h {
+ 	DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD	= BIT(6),
+ };
+ 
++struct mtk_ctrl_blk;
++
+ /* mtk_md_dev defines the structure of MTK modem device */
+ struct mtk_md_dev {
+ 	struct device *dev;
+ 	void *hw_priv;
+ 	u32 hw_ver;
+ 	char dev_str[MTK_DEV_STR_LEN];
++	struct mtk_ctrl_blk *ctrl_blk;
+ };
+ 
+ #endif /* __MTK_DEV_H__ */
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.c b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+index a3bd1caf470b..9fa61f08174d 100644
+--- a/drivers/net/wwan/t9xx/pcie/mtk_pci.c
++++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+@@ -13,6 +13,7 @@
+ #include <linux/module.h>
+ 
+ #include "mtk_dev.h"
++#include "mtk_trans_ctrl.h"
+ #include "mtk_pci.h"
+ #include "mtk_pci_reg.h"
+ 
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h
+new file mode 100644
+index 000000000000..50b1c366a4c8
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_TRANS_CTRL_H__
++#define __MTK_TRANS_CTRL_H__
++
++#include <linux/list.h>
++#include <linux/skbuff.h>
++#include <linux/types.h>
++
++#include "mtk_dev.h"
++
++struct mtk_ctrl_trans {
++	struct mtk_ctrl_blk *ctrl_blk;
++	struct mtk_md_dev *mdev;
++};
++
++#endif
+
+-- 
+2.34.1
+
 
 
