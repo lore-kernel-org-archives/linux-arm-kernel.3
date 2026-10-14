@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20629CC6B24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DFBCC6B24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 07:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=La3IGCJzcQNQ9anmlymqvEqtbx1gbMCxPmpjE3ilM98=; b=4BCTsAFVDdqyPd3ucEnYf6hF8g
-	41/2X/P0lLQMvN42vpVeVDdWHSvcbIKRf8ux9JDexmiqIZKE6JQUzZ293BYt5PH7FT1yJxW1SMyFD
-	5xUgsj3be0f2WDT2sdJyFEu/9iWo9icD2NRoE2Ul6NCz/9nozZiQPP1Ad3NifYLs+C1KEdhBRFWyf
-	/RptRCIifym54n6X0T0k+eQ+7ghq5H5ytjQCzJPUUxY/7+nUEae6soT8tDOm1Jsy00jHZEucAhlTy
-	bS1inA4Rs9zsjgnBz9DYLDfPbbEsEk1OACuNqASldyRIoNjBxMV0OcEtjOd97iFoWJP/UmhIbPyxa
-	gf6I5csA==;
+	bh=0qtI+1ruZBNaLTkzRZwiEy3kiz2UbhsH+GjByvYkReM=; b=45GZpJ+495V/QPT95Xqy9qxlqD
+	oUFT/hLdCe5NnNW30RkPEv5B+/107/rdRbu4fD736HaCMZOzd+GgNiK4WX8v+nKOExd3oSk6eo9LT
+	iwGlPKAmEkLqiHnfII2ChmorLgqx6ttlm1Jxt/UM5SCyYq144uR+tQY5osC31XYMRw3yA1GHWdLHL
+	Xm2vxdf1GTBMsumytkJ8wD/kWINXw9K2q4SC65xRkyRgWAYDrmiuXyccBCz6A9p1nzGspZzvXAzoi
+	7IVHDanZaHR9Tm41M7pJEqBD/p4wn7cWoDsg2kZMCw9r66Ad+Z9dEsFgnS2oFYlvUd4sefWZQAz2X
+	r9FFCR3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGt61-0000000Egh3-0MNK;
-	Wed, 14 Oct 2026 07:08:17 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1xGt6A-0000000EgjB-0nLZ;
+	Wed, 14 Oct 2026 07:08:26 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGt5y-0000000EggM-3sV7
+	id 1xGt65-0000000Eghx-0SDL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Oct 2026 07:08:16 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48afe75f055so73946f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:08:14 -0700 (PDT)
+	Wed, 14 Oct 2026 07:08:22 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a02667ccebso26712155e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 00:08:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1791961693; x=1792566493; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1791961699; x=1792566499; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=La3IGCJzcQNQ9anmlymqvEqtbx1gbMCxPmpjE3ilM98=;
-        b=YUDbPsKf6JM3W/l3UjE5ZHJUDyoj6oESjla+jIXCeRhraSVOAXzJ2n7TD4jOFPrDSl
-         ZfrVYhDKugP198MdJAo3LZlBIuFaHREFbfRITIXohk2uwLvWvQkTeDoQxnK3Kt3a501V
-         cqSudkp9ANQ4kZGzpjvEF9EllXjdXDA8gpY0jXhQM7DOf2vABBjzjd0VUIPCo4IWqXIg
-         hyguDZjvCsqIWjvy2Q2ZgIrwX/lxaOng/UJ0/VR0S/QsMuYVEzRpV3dHU2u2JcVMOtxr
-         9yKiftYZzVNmXEqNocngt+hmTs5aJyMWxS777KVNa8olLpf8QuO7eP+ToYc8Rpw3jhnC
-         Kwsw==
+        bh=0qtI+1ruZBNaLTkzRZwiEy3kiz2UbhsH+GjByvYkReM=;
+        b=d8pyF03/L9oeOB6kYgbz7h9vDqtndnfAyiEYpcqfpuXkwglBRNpsxDVFuCtJ9Qthym
+         ltN/R8z9JoAiUtRErJrDn7fxywPsQ9vOAAVBUKCBLoI9viUJyYJ5eZljLefBEphQC44Z
+         g44YqqXqB0RcevoMpLft6nGCWTPUY0RBFYugbpYh2mXcBa3rE2ctNsVVxQejwWORpc4Z
+         U77MuyoNKyXbofxqyb2kOruMx1LArQ4ht+c7kZxNB3m7zwdDetI7MpSDZUxIU31xrZg1
+         ua+G5ds0VJQUGGxE2YAIpjUjxWiDl9NPojw0iEAQsJH8xAAUrMEFGZpht3LdIHem8+dD
+         iNOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1791961693; x=1792566493;
+        d=1e100.net; s=20260707; t=1791961699; x=1792566499;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=La3IGCJzcQNQ9anmlymqvEqtbx1gbMCxPmpjE3ilM98=;
-        b=vpvKtLeiMe+S+I+DQOsIhuBS0eU1xrVzsS+As0NrsEh6gnncWs0J150Wlcl1V8cLM8
-         QND6Yv7eq7GgnR0u57gTOOcVNEVJSqF5WZx1UFDtNEwX1VgtFplYTDmB9kVKYw48Q3Oi
-         3XIPiq6etvwISf0VKgpkY79zKyVohwiwg2UE10U34VRkSby9sPXITcPY1Pla0FNisqUP
-         4GWehSXGKbw+5WRt448uuuAdpyV9i+u0Ux9hggL8Cbcjwm5tPrK2kSQZg9DQberEc686
-         KKGR6oC6FbG+YUyqtaNnOl21siZ1lJ5B6SFFgI9nRapM8MoeDmUOSIcJAbyVbl/Xk/vW
-         tl0Q==
-X-Forwarded-Encrypted: i=1; AKwUvBz3TJ+CXBoCzAzpzDhU+w4auWxUzoooPozRzAu3F4cWIjoZM3FbAYlXKy3tkGCzOB5X4IEnXyNjz+nAwqrQXM2b@lists.infradead.org
-X-Gm-Message-State: AFq9FYIu213ZliLzKISpREDsLVJEZWpJjO5SupKoygFhnavYn5/fOuet
-	/hAZXNdOCi4WF1c5rJAsMniLJ8EHrOl2MdHbhtAxIe+Nr119ojePWzUn
-X-Gm-Gg: AYBFou1OlVLERwq15JLrkNrQOn61um1vCxXHDD+64dIX4drTL36RUH8rrtzdg0yDEOb
-	ItOC8pQhJnUOyEOGNmk65ydHgHAYcQf0NryCZ5psovWWu1+OTWx5QeCrRRsvzTRoodB91h/hx+I
-	ank2pO9qRtmHoPkrGxu4TnToHVnGLwQl5mLunx6CyIVxOHx34qFJ1613EllAkENdwj92WdC6Dnh
-	Y3BNBgpthr4Pb906ZKl96xGM7UVUfil0CaBSTSfS5i9NZINFT4lpxcB6gcjynhM2mZ40VI0Q3bz
-	YW3WeiQo1urk9b4VQSZIOcU54ENIvc/XuAjeKSu6me29rouJb8M9cb22pG/xRxLFhi2OhtixGVT
-	/tRaLttEXItHxiSQvBwXqdXNb8rPxxatu5qCZqS51D7GNUqF/tdFRmYflEQ/hfEDX0prylsGMla
-	RaKrnAmYje4CIuE4gJEIeWwmaRx31gyu+O4gZN3gvqBqFjfrmQgbPPA6ASAomWBJn2/md/xaZPx
-	5iPFiMuLyrh83Lxz1vQ01e5EID8YSCGBHkPwQPvfTLalHwth6RjNXLo+BVxE6fJRn7VikgotZrP
-	VtI0lq8FHPlkHU3W1GSaKSQCex2RbM08xgqv2+urqr/v/R+z3ewlCfRpO7UCaQ==
-X-Received: by 2002:a05:600c:8708:b0:4a1:7b05:3a6d with SMTP id 5b1f17b1804b1-4a18e49881amr279706725e9.8.1791961692688;
-        Wed, 14 Oct 2026 00:08:12 -0700 (PDT)
+        bh=0qtI+1ruZBNaLTkzRZwiEy3kiz2UbhsH+GjByvYkReM=;
+        b=hhBRh7TRsLW+OXXv/6nNVQBj/UXr1HMB+iEXV7RBRBv46pzTOKre6UncMh0qZFo+UY
+         DJNTgCBdy/LPhIRxS/W5njfrIrB97+J7kBwhgDLeJuGBGGreeAwEE98l/l48gvisqjRf
+         rwZsKzVTCvoqQO5F86EcwtWNy8vW0mFtuzcJfjmtxi/Pt5bqzPPkWY/B5A9kS1sbqsdO
+         nLuCmznMNRAlBgRLsRFVNCgq51e2zwRYjSYU1YTK6kmdfp2GxkYAaaWalzjo3CMXxP8I
+         2/Rd1squn9Y8T4A04K4N64dTe00aNdaaNoan7irTsEFeReOHbPWtdrBxdkmUzMdag9la
+         eesA==
+X-Forwarded-Encrypted: i=1; AKwUvBzk+uC4a4oMEGVmymG6nNU/HIGQ5jwzaKWgobljlukPgsjgcKy5aVdGTPY39Q9DG+2RWSD0VH0fA1o3dA9CwtA5@lists.infradead.org
+X-Gm-Message-State: AFq9FYIsB5gOw+ZFq+E6fB04zneXOQYnZq8alp1+QHHuZDuAqmPjLDYd
+	im8ZwsLxE95Qd93/c8fz7cJjXnnyU7numvfNnceOR0NTGja2k1cc7HOP
+X-Gm-Gg: AYBFou0p6MEbH+RGR8ZKcVHCNjewOrwjXCR7sGC44o5p1Uo1NU6DWEwCBZSYTF2g6fh
+	z8o7NzQ0120ef0D52o6S6cyLH9RYB3HgD88sALFl0QghoDNkRv224Uao2FSUneSKordrWTOgGmd
+	f6udiNTRBzob/yIjL7QIYgJbwu3eBcuj/iLdrN3u7Yz2P6wQEbtQjwK4ZbmRyQuX91zT15IDYw0
+	YiIGHI6KG8gHx9McsT14Wei/o3iKANCREn2jZVH/KKQT7Y6JewF4kWu6RwR0TxmxDUknOBXi72s
+	DfUUKiVkP0wEvCYkudz/uwT2moOI6mbDte2RBSYWn7nPoyZoAmf2BME6iZ8p2LJDdtLjP4PC0jx
+	y8GOlg5RWcxFG3K1Ln1y4N13lf+dfsEQuYPXoTF/w0eTEWvfzgM3+0XODDF+qVPMdEXVjw/FLq+
+	Y4coZv3mS3NbnjN6bUYAB3IajwU5Gdgv3MhqOhfgY1Pf20wDERnecN9n6QWwznHMqcZetQEkBWO
+	++Fu1nncQcWCnarnwVW9951moy2wxpnF4xWNL/wVSIX4Ox1bkY4wfFBkaklp23jkziYMg0njKSf
+	KYvkvpxyogKbXbgQsHzZBBNHNHnvjHocMDCJvxSIATDt5OFFtnHj8f48KVELUw==
+X-Received: by 2002:a05:600c:3ba2:b0:4a1:acab:234c with SMTP id 5b1f17b1804b1-4a1acab23acmr109596385e9.10.1791961699061;
+        Wed, 14 Oct 2026 00:08:19 -0700 (PDT)
 Received: from navid-pc ([2a01:4b00:a856:6220::a11])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1b4819302sm27797175e9.3.2026.10.14.00.08.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1b481b7f8sm32291785e9.3.2026.10.14.00.08.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 00:08:11 -0700 (PDT)
+        Wed, 14 Oct 2026 00:08:18 -0700 (PDT)
 From: Navid Ghahremani <ghahramani.navid@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Navid Ghahremani <ghahramani.navid@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 02/24] ARM: l2c: Serialize device reads with cache maintenance when requested
-Date: Wed, 14 Oct 2026 08:08:09 +0100
-Message-ID: <20261014070809.1718578-1-ghahramani.navid@gmail.com>
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
+Subject: Re: [PATCH 01/24] dt-bindings: cache: l2c2x0: Describe ZTE device-read serialization
+Date: Wed, 14 Oct 2026 08:08:17 +0100
+Message-ID: <20261014070817.1718976-1-ghahramani.navid@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <2bebabca-9df1-4ccd-afdc-3a1740c05061@app.fastmail.com>
-References: <20261010130024.177503-3-ghahramani.navid@gmail.com> <5e78f63b-9479-49d9-8474-fa408135f325@app.fastmail.com> <2bebabca-9df1-4ccd-afdc-3a1740c05061@app.fastmail.com>
+In-Reply-To: <20261012-eggplant-nyala-of-mathematics-5005e8@quoll>
+References: <20261010130024.177503-2-ghahramani.navid@gmail.com> <20261012-eggplant-nyala-of-mathematics-5005e8@quoll>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_000814_989726_45395720 
-X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-CacheID: sfid-20261014_000821_163750_B06E06BC 
+X-CRM114-Status: UNSURE (   7.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,35 +108,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hi Krzysztof,
 
-Thank you very much for the thoughtful advice and guidance.
+Thank you for the feedback and guidance.
 
-I completely agree with the strategy of decoupling the problem. I have
-dropped patches 01, 02, and 03 from the upstream submission, keeping the
-outer-cache serialization workaround downstream in OpenWrt so that my
-local test units remain stable while I get the clean platform code
-upstreamed.
+Dropping this from DT patchwork makes complete sense for the RFC.
 
-The v2 series now focuses entirely on the clean platform support:
-1. Unified ARM/ZTE ZX SOC SUPPORT entry with Stefan Dösinger and myself
-   as co-maintainers.
-2. Split CRM DT schemas (topcrm vs lspcrpm) with fixed clock lists and
-   simple-mfd reboot child.
-3. Logical enum IDs for resets in include/dt-bindings/reset/.
-4. Isolation of PCIe SerDes/PLL into a Generic PHY driver (#phy-cells = <0>)
-   under drivers/phy/zte/, removing all raw syscon poking from the DWC
-   PCIe host driver.
-5. Integration of Stefan's tuned spi-zx.c driver with CCF dynamic clock
-   scaling.
-6. Header hygiene in platform drivers, avoiding <linux/mod_devicetable.h>.
+Based on discussions with Arnd Bergmann and Stefan Dösinger, I have
+decided to decouple the contentious silicon bus/cache workaround
+(patches 01, 02, and 03) completely from the mainline platform series.
 
-Once the platform series is in good shape, I will explore using
-lib/logic_iomem.c to see if I can register a transparent trapped MMIO
-region for PCI reads as a cleaner long-term architectural solution for
-the silicon crossbar flaw.
+For v2, I am dropping the RFC tag and submitting a clean 24-patch series
+covering the core SoC platform, split CRM clock bindings/drivers,
+logical reset bindings, GPIO, Generic PCIe PHY, PCIe host, MDIO,
+Ethernet switch, SPI-MEM, and board DTS.
 
-I will send out the formal v2 platform series shortly.
+I will ensure all patches in v2 are properly routed per subsystem and
+directly CC the respective subsystem maintainers as determined by
+scripts/get_maintainer.pl. All DT bindings have also been verified
+against dtschema and dt-doc-validate with zero warnings.
 
 Best regards,
 Navid
