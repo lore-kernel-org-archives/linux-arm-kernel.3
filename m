@@ -4,79 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91440CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 02:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2DFCC6B19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Oct 2026 03:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkxb/SSvWmoJe26HTtHwdhNk0MSZX0RLO3LLp8B2RzA=; b=njYH4ccKgnF57QAtw1K/ofrk+i
-	CPiUAv2dDt2a1PF55i9oIF3BfMZmYMQ+AZ6FofmoLVBmr1+DmIHZboS/0Ug1hp/g5vImHwnvWPVz6
-	yYOiy68mocUSW3eItSjn0qMwFPGuRZVG/tQ+fRcYMqKDXu6aDikXZQLoo5nLLBk5SyS+UNehoXAeQ
-	Rz5bHXnaNr2Wm+1G26lqJq62m22pFQlR1r5eIa4Sc5U+bQtMgEOoONxCsDMKaXN9mbQLkGeb75SXs
-	d05Fmwdoz78p5sTYjHALtjJiYqYwf4fOfzRiMHtAuCDlay74HCgztgdzLH9+nUiJEJpcfPZx9q1xl
-	OXSAZ8Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=; b=MzB64NC9bRw3ZX4y9romohil89
+	q2XqzQ6VEsIyhcDcRyUmHWiBN5iTWVZ68XdW/bjDsES+JmuhJKH0Kh4T7iMM8j5ScgOJ/zhGmH5Gw
+	moee+OrzfNAB4yk1j9cA9e5curi+8Akyg4vUG6d+doUYxtDWxy9Hq4RZNI1FB1cih+QtfiS6TLrSp
+	EQ8LMhlWKy4PLdQSNc1Y3wjZr5nAsiIUTs3x9DM7Nnl3rPxu+Ats3IA0elnMqWssPFyrA+rRA+4RY
+	xwoZg2KibgcaX3KjKQYn0aYNUhLRr2juOfoP6kABemHon0Le4wXOCmrgR2dWH0tiEyccSAw7+UD0r
+	i0NnMvoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGp8r-0000000EOmn-1N8r;
-	Wed, 14 Oct 2026 02:54:57 +0000
-Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
+	id 1xGpV6-0000000EQEW-24lp;
+	Wed, 14 Oct 2026 03:17:56 +0000
+Received: from mail-northcentralusazon11013018.outbound.protection.outlook.com ([40.107.201.18] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xGp8b-0000000EOe6-2ToR;
-	Wed, 14 Oct 2026 02:54:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1791946476; bh=bkxb/SSvWmoJe26HTtHwdhNk0MSZX0RLO3LLp8B2RzA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KAVCdpnnmDhYevQxOc0Mow5176er9Wiy+bMzWBp5zLm8y4FMP+K4YgyE2cScY7rrZ
-	 940RNd1HTiQWBjWxvGXhwoPUMhXEYsw8y/cDwt3rhyevvFUop4P0IKaf1CbJrh0sNh
-	 yOYDWV0WDNmmYHEZ8SLu9kjarvVc5kFVw/d+5DvQ=
-Received: from ubuntu2204.localdomain ([2409:8d20:7f:35d:9e54:40ff:fe02:3f0f])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id D9F194D5; Wed, 14 Oct 2026 10:54:31 +0800
-X-QQ-mid: xmsmtpt1791946473tjd2h8u74
-Message-ID: <tencent_196A2433801631CD2FA42998465E26316105@qq.com>
-X-QQ-XMAILINFO: OW/hvONf2Ob/Fv5PtXrSHO3o8leLMIOT/zbKLJ/ZSXvI26/6VVSH6VIIkOITCM
-	 wfUEePpEWQfE55IMcuu4zToWE/qxBFV+Yd28b+4uOYxUV3FsXhkwLTxDwlOwhkSREjC7/00ZjFT9
-	 mU+n5XpEbBymlsM24cCMOxLmgdM9F9Lz8O2hb1qSz2uC+D9z4eX6dXX5hRBYqhQZxcGY+AaAfkwx
-	 cIU7oXoGQUEjToTAtiGDEemkD/WzXN5B655eZ/zRSFcE3JvdklQawptKNSpzZ4xZH8dumVC5uEZV
-	 /vgM1kZKGcio8KUVwCNyOfF7awGzxLWD2sPL9UdNkEWDPTT2Aa6lLR480JIrpLBJejEQBjprxucS
-	 kCosNiBBJL4HC7MB07p6YTYsZjBU4hQta/uVefNghRPd1fyPVBiOUAu432RKZ60fPInuDfeUMJAn
-	 YymOtMTgv/Wc//KNi03yt/Bb1UiCZZu2RDQPzupn8yl+2aJja7gCV6ZYy7ce+nDagMnO0eVXVy4X
-	 CRMk549afx7NHo+5uzhyx1qPulU74NSeV9Q41mRYiINKeB38btaalJrl37THto55EKNtqhozGnCg
-	 peFyRhNgXbSEcur/ptLaYvRn5ASdZ8SzfaGYG+OMORvJScx5F62j3dVhe45Yl/v12OPWwEYhoe4O
-	 8cld1rBKNI+gwLCdgdiBVCCsHWwiIPdJT3jZYxAVfapOBcY9zxzhaV7V6+K8HOlP605UiCgIQMsD
-	 v1CWXM7wigTZJ/6MPPXR8oKEkqPQLi0tsaRph7zZtkoxtFoVfhaLoG5aCpzuskc/LUZMQ2xIeXd9
-	 EhoK9RNKIdyY+BiAUGGi0zN1sYdh4yrAQzxShgBRLHrvTNqEQsGH2FFByTT2XnswQ2ugfuD5Moc3
-	 sD4WYgPtSe/elyUpRl4WtS77byUDSuDneNP44JXvZol/7ONKDq9KX+4Y0vcVAws3P41QKSnJP8QQ
-	 BaiuuK4EtN0C0CA8fESZOZgoaSHjuQ6CmDmeY8UaeXHYYH+Dc5vpc9tcM0YG/X0xeXNHQucd/UAC
-	 rEh+83IV8gg3ky/ROx+vAoJdV/3F3nKIBh7iI87fBa8SMJ/pX6gHyvynSQ4LPqQqyQgMuPATZgS/
-	 ZM6MW1Jy9DXa3SBoHLSO4Al5MoucXadTujNY026LxoICMI6CD7/BmuYDEs1FwdTVHU7NnpHSeoNJ
-	 m8iEMHPqpwmNErKw==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Cunhao Lu <1579567540@qq.com>
-Date: Wed, 14 Oct 2026 10:54:22 +0800
-Subject: [PATCH net v2 1/3] can: dev: prevent bus-off recovery when the
- interface is not running
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	id 1xGpV2-0000000EQDR-3Mi1;
+	Wed, 14 Oct 2026 03:17:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B9lEVvDgYYmxMfeYB8rxEywFZY8N8Ujt7oRL+OYJnlA3oJ5gSTTKr/rFxJxNkqqviCQ3FrfSxK+CWoT6Lwb/zHJzNJyTMBetBcHfytswrh9PG/Mv/lRe1vOAR/9sSPJ+XK+PQ6nlDrY7YKZCOo4iZymRfR4FCBRN/XhHvBMv9tk6ZqOh40jw4gTMV4Y6NJofmJADLzg+Xw/b7zqBbg7yNAtAPc06pgruX8+mA8KNdcx9tr336gzmIfiJIczgQTKWxqUMbVJWgibM3rWzxmM+PzpYtQmb4C+kXmxAewryt3I5NcazdccA//H6MnoMQitj4CcBd2GXsYlHTW58r8jU7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=;
+ b=PtrEx2l6Q/IhcrtAXbsxvQHvn3DkXagd5E6uXLMLmvL2Xx/kWuhk/lP10P6HMpf05H3QmXirxX7h3r4Un5gSdNoRlrGDZ6eAHZ5aXJIwFv1w6/ks83fbMcdsqiEIoXuM/hk384b0F85BdGFKeeSksn3SWULGaa+y7LDAhtwXD5+ObUr/G7bQo42HnvdgXrjgJU3TEOA5pgkF63k7wh8kK5qyrLVSJBDd+s0X+7YSmQ/qDCp5wyTC5dHwDjIkpjwfXOyjSzf+tRrbIwinnCy/wkqoe7n3DV2XgIDXO7X4ipIAbCS+fJqciuzhWrSb7xcZSL7HTxgDSD3MRX7dZl8EBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7kL8oBs/1JPwv1vs8iPTM+H3vHOob8w+C+Ebxc7ulJk=;
+ b=FukwMs5co0TsVm1Qjnwn8EDCw+ZAStWsrK5eFWtL0IRtTFUyYL68CIgo2IqcAzgd6LfxyyT/+SmIRBdCF+nh3dDtp+HRTW6oywNnGE/mqPwQK19N59D/ivnn2EQblYtoVizHDP9mFxZmx/5Y3C0fDutu6OWWZlNWo6w6VselhbJrNtZpYjaN9ygpTLQPN70X6orn5DUE79X0puYkH8cdhpw5oxBHaKOn0fx2TOCqJW+DalYRhDbLbpMVYnl3wN7MdYw927+PngVr83A/5JdsaP9UTIhm7tDCMUk2vqkmT2CBdRGkrlzGDfYpGotDZwTtnI5CBYKjdQ83LgSzFwuv9A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SAVPR12MB999143.namprd12.prod.outlook.com
+ (2603:10b6:806:4e5::21) by DS7PR12MB5909.namprd12.prod.outlook.com
+ (2603:10b6:8:7a::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Wed, 14 Oct
+ 2026 03:17:41 +0000
+Received: from SAVPR12MB999143.namprd12.prod.outlook.com
+ ([fe80::219e:6553:2ec0:3761]) by SAVPR12MB999143.namprd12.prod.outlook.com
+ ([fe80::219e:6553:2ec0:3761%4]) with mapi id 15.21.0496.021; Wed, 14 Oct 2026
+ 03:17:41 +0000
+Message-ID: <b4aa46a5-dd8a-4520-8574-d008a3877f28@nvidia.com>
+Date: Wed, 14 Oct 2026 11:17:29 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH nf-next v3 1/3] net/mlx5e: Ignore FLOW_ACTION_PRIORITY on
+ flowtable offload
+To: Julius Bairaktaris <julius@bairaktaris.de>, pablo@netfilter.org,
+ fw@strlen.de
+Cc: phil@nwl.cc, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ netdev@vger.kernel.org, lorenzo@kernel.org, nbd@nbd.name,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ rdunlap@infradead.org, skhan@linuxfoundation.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, saeedm@nvidia.com, leon@kernel.org,
+ tariqt@nvidia.com, mbloch@nvidia.com, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261004171636.3545085-1-julius@bairaktaris.de>
+ <20261004171636.3545085-2-julius@bairaktaris.de>
+Content-Language: en-US
+From: Jianbo Liu <jianbol@nvidia.com>
+In-Reply-To: <20261004171636.3545085-2-julius@bairaktaris.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20261014-rockchip-canfd-restart-close-v2-1-c8fbdfad1803@qq.com>
-References: <20261014-rockchip-canfd-restart-close-v2-0-c8fbdfad1803@qq.com>
-In-Reply-To: <20261014-rockchip-canfd-restart-close-v2-0-c8fbdfad1803@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- "David S. Miller" <davem@davemloft.net>, 
- Wolfgang Grandegger <wg@grandegger.com>, 
- Oliver Hartkopp <socketcan@hartkopp.net>, kernel@pengutronix.de
-Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
-X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI2PR02CA0022.apcprd02.prod.outlook.com
+ (2603:1096:4:195::23) To SAVPR12MB999143.namprd12.prod.outlook.com
+ (2603:10b6:806:4e5::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SAVPR12MB999143:EE_|DS7PR12MB5909:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5dc0b751-8545-4b35-ea38-08df29a1b4c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|23010399003|56012099006|4143699003|11063799006|22082099003|18002099003|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info: kA8f/qsQS36PB7mSdciJr1MEQjR9QaammDV/YaeJZ0bk4Luia2GQREKKY6e+kw6LlWWoWPYyanzIYbORr0MBh69CxV6LMmN3peVwVw2/uXmHbO2r4FeumSa4t4ULwN1mnaGNx+f0FpaTVXaB0QiAB4mEUWviKyCcCd2H8Ccyn/GybmgfCrjhpddbRZJZdO57OLE7EIQTazVqVoSw7JIiKc2POw+2bNmP+/UzfU7hiquldjJfel0LXHclYdGPdfe+FQAeSG29Yc2302DJzDwGLuXtd1TT9DKVjvXO4Q90YkeuLVeRUsuTo58w5daURiJVKdWQnInRwbjDCGJlN0i68B5K+wG9XYmmpL1wAoUBc35s14ndYpUn2ymgg4jhIABFW8dmTP/OuG9He0W86TQOOv3DOw5FBH2XWO9cIhvc+Epis1F4BvbpOwqTunndsShlVfYN6F6+MqWb+x/lU/gHko8B46AellhYGB6GQ5RxhgNiPGtNWhrdZxLxtLJ0fEQ82qNIrFGvN7KHFub28JHepbwQuhoytmxWYPNYX2CLNOSDRh6eIBwHMkMGrlHqWEJFYblrSrzGOocAi4yTQ6sNmCO9ggFnZOfsz5BZr4MnKkKYDf80eMNDyY9JXq4uzsGCBTV8tw55bHK/HCsx26husA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAVPR12MB999143.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(23010399003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?djJWTEtkTUMwU3IxWTRwTHZ4dy9mU3RzOEZ4L0NQN2lnc05NMjJ1S0xpM2d6?=
+ =?utf-8?B?MFF0M1pMUDNZZkhvbi9jbUJnSnBNYm1ZbHJTcGRmbi9obG9jUU5idnUrWkNN?=
+ =?utf-8?B?SVVjaitHYW5JbklaRVE2L0JOL2p0SGM4TU02dkxWbEZENU1wVzUvTFZESmFK?=
+ =?utf-8?B?YmNUZ0QzOWlUdFJoMUlObVlpRStERXdBd3c0VTIvWFZLdDlFNDhtcU1TakQx?=
+ =?utf-8?B?WlgvMTJLMGk1bXdTTExqYmd6VDJ4UmNCbFY0bXhGaEVMNThjeTYrY254Sk1w?=
+ =?utf-8?B?a3NweS9ydW5DNXByR1FqS1ZHYlpMUWY5T2pUcmV2NkpISTN5TnFsY0tsSWpz?=
+ =?utf-8?B?S0NBYUxseG9nNElyRWxiNjI5YXJ5VUx4TmR5dTFWV3hSNUZWK0ZTM2ljbkcw?=
+ =?utf-8?B?N0IxNXpTL0JIZG8zTUJBYUJxRERIOGlZcERLMFY0dTFhMTFNN2VPOVVkNzNs?=
+ =?utf-8?B?bmVtYUh4c1B3QlNjNEttWmdMTmx5d2hYamI3N0R5Y0NHK25TdGFqMlc0Mmhq?=
+ =?utf-8?B?M3N3bGVHc0RYQ1M1TzlUaFVvY0pUUCtTSTYxa0g2YUNHR3U5OHRjcHo3cERT?=
+ =?utf-8?B?eDQwVHdjK2UvZTVOcGNRdGRoT2dqVnVEOUFKMERHUCtYeG5sSk13SVhESElt?=
+ =?utf-8?B?bG1IVTFLSVBZQkZzYTRhN1JuK1J3b3pIelRQNHdIUTJkV0ZBaVkzYjdzR2Mx?=
+ =?utf-8?B?L1VmV2xhYXhQYVR2a1RKanMrUy9LSmk1TWVQZFZVWDRlZCtlUUZZMnpVRjlx?=
+ =?utf-8?B?QWF5cno5Nk9POVVBdW4yaEQ5T1pVMWZnRGhCMGttYlFETDRRTXl1cFUreHFT?=
+ =?utf-8?B?Sk81NnVmYXRzVmlwc0Vna1pVcGhwZ1FobjYvOGlsaUN3SW5SNXE0aHhQY09D?=
+ =?utf-8?B?VE05cEtZN2lxbHpLY3JHVUR3WEQ3Z1ZOVXJWZEFyOTc2WXE5aXJiUWUzYmxJ?=
+ =?utf-8?B?MG1ObzB5ZFJOUUVzYjc3RWZPTVlHQ0JVM3c0THJiR0NMb1JvZ0J6UjlWZ295?=
+ =?utf-8?B?OGJoMjVPcU90RXVhaUJEbEJjcVNzRnVQb2FsL1ZBNTVnZXQ2ZHE4SER1MzlN?=
+ =?utf-8?B?emd0dm82YVdVVVR4amE4OHZqS2QvV1B6MTNYQ2lxMElRbk5za2RQYm5XUXM1?=
+ =?utf-8?B?MWIyaUtsYXVKa1gzNVBRcUxGOUZSL1RySXRFRHdGQ0FCbEVFcGZ2Yk9pOWla?=
+ =?utf-8?B?MGFEWE5vdHkxUDBiejVaMnlseHJLMkRGVklHdXNqYW5INldTL0VQOGNReWlO?=
+ =?utf-8?B?UDdYUkVDMUp2NUZwS1gxTlo1M1V0WTZiNGlYVVR1Mkd6MGxYdDc1TEM3S2J4?=
+ =?utf-8?B?Wm1YZnlOcFppQlpiSGdOZnc4cWovVFJsT1VqaUczUys4b0pmT3UwdTIrT0JL?=
+ =?utf-8?B?Q2oyM1RoaWU3VElQeDZPYkFKdTR1Z3VzNDR3bGJGNHpLWnd6WnFPbGwwT0tW?=
+ =?utf-8?B?ZktnbXVmVU9EZlZVYkNOREQwYktueTdDRm5yZ3o0bHFCT3JkazFqTG16N1c5?=
+ =?utf-8?B?UmZxMzcvQ21TcFlrVDFZazV0ckdrRE1VWTZvclpQL0RFdlB1NklMSXZzRXBF?=
+ =?utf-8?B?QnhpNXVBdDl2Snl5ZlpBSWtKcXN5U1ZieWRYbTZ1bHFWYXArSmJWUnB0VjQ3?=
+ =?utf-8?B?REpoUmxtaFNOaUlha1lMMGVRUVlpNzVRWlI3L0JybVZHa082am95b080bG1p?=
+ =?utf-8?B?S3oyT05oNHFFWmt1Y0V5WnpMblVLQzhCVkprQk4wZ0VHZnFOVEFkeFdPcnd5?=
+ =?utf-8?B?L1V0aFdhSXo0NUhjR1hiQWJpSWtQazYzRVhHS2VrODhCUUEzVXlFR3F3MFBI?=
+ =?utf-8?B?czRtSmZ1OU9XOXp2T2RTQkYrNWtBS0FVZlAxUGJHT0lnbCtuZG5YZmR5OHdN?=
+ =?utf-8?B?OHdOTU9SaUV2cDlBaTlCaVFadytveG96MnlUY0ljd3h6OHhvUTIzWDVBenla?=
+ =?utf-8?B?OVd4MUJLSGM2dVRmUEl2Z3JUakJva1NUS3d1M1d1cTBlYkdZT1VtNWxCR0lm?=
+ =?utf-8?B?YUNlZnZnSHJ5L2YwWFFZYklwMXhEdS96L0JWTnpNR3BWaDhMQThpTFQxRWVK?=
+ =?utf-8?B?dUtrQzNiM3hPZWhCS2ZVR1JYUW5HMGoxWHlNaWVEZnNPTDhKbU96WDFlMVd2?=
+ =?utf-8?B?L09uMG1pdTNncUhTYnBvS2VzV3RoelZocUlCRWRFVURSbEdpeXlwU1ZXNW95?=
+ =?utf-8?B?aUtOdFZtSUJ0dXYvbUpLUUFwQTd0cVZLSUg2OExIQjAwNWs1MWdvTEtrSlFx?=
+ =?utf-8?B?UjhjOTNBTmNzNmxKTDFtSjRpaVJ4c2haem1zeW1LT1lDMmc0bEdqeVJOVERK?=
+ =?utf-8?B?VE9UMDZidVhjUjJCbDE4WUovbzN5VEVIckhNUWZrRzZQa093ZURwUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5dc0b751-8545-4b35-ea38-08df29a1b4c1
+X-MS-Exchange-CrossTenant-AuthSource: SAVPR12MB999143.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2026 03:17:41.0156
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ADuRsCGrOiriwqV0vWjcxR1hNuzm0gqdRffuL7ryKcXnwmwidk503AdJTK3X4oUhbdn2aKF/j9tJEoJ9tk0D6A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5909
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261013_195444_518718_BEF8EE7A 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20261013_201754_238345_FD41931E 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +156,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The networking core clears __LINK_STATE_START before calling ndo_stop(),
-but CAN bus-off recovery neither checks this state before queuing work
-nor before calling the driver's restart callback. Recovery can therefore
-be queued or started after the interface has begun closing, potentially
-re-enabling hardware while the driver is tearing it down.
 
-Check netif_running() in can_restart() before flushing echo skbs, sending
-the restart notification or enabling the carrier. Keep the existing
-unsupported-operation check first. In can_bus_off(), only schedule
-recovery for a running interface and make the log message reflect that
-decision. Keep reporting bus-off and disabling the carrier.
 
-These checks do not wait for recovery that has already passed the check,
-nor serialize the check with work submission. Drivers still need to
-cancel restart work before tearing down resources and quiesce its
-producers before their final cleanup.
+On 10/5/2026 1:16 AM, Julius Bairaktaris wrote:
+> The next patch makes the flowtable emit FLOW_ACTION_PRIORITY for flows
+> with a non-zero skb->priority, which on IPv4 includes the priority
+> ip_forward() derives from the TOS by default. mlx5 would reject these
+> rules and stop offloading flows it offloads today.
+> 
+[...]
+> +	/* The eswitch does not apply skb->priority to flowtable flows. */
+> +	if (mlx5e_is_ft_flow(parse_state->flow))
+> +		return 0;
 
-Fixes: 39549eef3587 ("can: CAN Network device driver and Netlink interface")
-Cc: stable@vger.kernel.org
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
- drivers/net/can/dev/dev.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+The handler is only in tc_acts_fdb[] and only accepts flowtable flows,
+so NIC mode and tc flower rules are rejected as before. Looks good.
 
-diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-index 769745e22a3c7..92492c503446e 100644
---- a/drivers/net/can/dev/dev.c
-+++ b/drivers/net/can/dev/dev.c
-@@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
- 	if (!priv->do_set_mode)
- 		return -EOPNOTSUPP;
- 
-+	if (!netif_running(dev))
-+		return -ENETDOWN;
-+
- 	if (netif_carrier_ok(dev))
- 		netdev_err(dev, "Attempt to restart for bus-off recovery, but carrier is OK?\n");
- 
-@@ -264,8 +267,9 @@ int can_restart_now(struct net_device *dev)
- void can_bus_off(struct net_device *dev)
- {
- 	struct can_priv *priv = netdev_priv(dev);
-+	const bool restart = priv->restart_ms && netif_running(dev);
- 
--	if (priv->restart_ms)
-+	if (restart)
- 		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
- 			    priv->restart_ms);
- 	else
-@@ -273,7 +277,7 @@ void can_bus_off(struct net_device *dev)
- 
- 	netif_carrier_off(dev);
- 
--	if (priv->restart_ms)
-+	if (restart)
- 		schedule_delayed_work(&priv->restart_work,
- 				      msecs_to_jiffies(priv->restart_ms));
- }
+The comment says what the code does, but the consequence is worth a line
+in the commit message. Because the action is ignored, the priority only
+reaches packets still on the software fast path, where
+nf_flow_offload_forward() sets skb->priority. Once the flow is offloaded
+to the FDB, mlx5 forwards it without touching skb->priority, so the
+offloaded packets do not carry it. Refusing the flow to honor the
+priority would keep it in software, so ignoring the action and keeping
+the offload is the better tradeoff, it is just not obvious from the code.
 
--- 
-2.34.1
+I checked this on ConnectX-7: with the series the priority-carrying 
+flows stay offloaded to the FDB like plain flows, and without patch 1/3 
+they fallback to software.
 
+Nit: "prio" already means flow table priority in mlx5; skbedit_prio
+would be clearer. Not a blocker.
+
+Reviewed-by: Jianbo Liu <jianbol@nvidia.com>
 
