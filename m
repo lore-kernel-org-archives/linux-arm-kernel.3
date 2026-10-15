@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C858BC2D0A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 17:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB71C2D0A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BR39sy8DNKw1ZDp7svnLRx/eWgcsHY1Z/PHczB4iT6o=; b=SX00JFFDgK6fcuUetnZzh9q5yz
-	g4qs+9n3fS73APMvY3q1OQbQDdqPdLw4IB+MlW2imOEZFtvDy/BKPES+revPSqfPdKNqsN0YJe7OY
-	FGkZEwKkYWnlAZRGl7OB5QVJlf5cY8MIRYK9lpEh8xt2VA9lmDOhPyr4hZeQcWBX/hPhOCl0i6BxL
-	qN9LlZMouaXkPuhEdYRbJIs8PkVtVtdcGUAmZSWgdg84vmWqbkWgOxqYcoFzLm0K7+kCg4t/p9MFz
-	bXxb3EdR0D0OiPVh3UkY07ILZjyBSqkKjVeNV9qH2wPzHfc44oQ71xOIr0CZQxqjTOnqVa/Yd1oaP
-	0DIagx5A==;
+	bh=LoTwk1VsHW2EJttQL+1VY9z4iXn0HsS9wZms9typK54=; b=GDyAIPHXm78tMm0GJeciFaSDc3
+	zf/45vyP4QxksR6Ue6McopPYYaGVRFLyGQMS/0cxWtetMt2sW/VPZYIbX/OBbwO8988bLSa4oY//3
+	2rAFLxB1mm4cfh3BeQtonAhCG6fFkRwCe0kMPn969e3E3nerV7Z8M7Zh+42XmhtiK+kXD78jiM+Hp
+	RGqgSgoKcB1yaIM6WRu8m2Ms+whOpwFsjSu0zLioBsaNAM7oAeanu0hoBsN+guGq0HPI8FBOalliL
+	jRymvQr22DG+Qy19hBX4++3AtZMxrk3rlDLqh3NzYgDhVmiVuEe6ZWz2eWlbkJCbNdBl3SrnXicXy
+	kPQNOaFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPfn-000000013oM-36Sx;
-	Thu, 15 Oct 2026 17:55:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPfl-000000013n7-2Kez;
-	Thu, 15 Oct 2026 17:55:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2064402E;
-	Thu, 15 Oct 2026 17:55:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C3978C2BCC7;
-	Thu, 15 Oct 2026 17:55:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792086920;
-	bh=N8NEwzojQLQla3jklAl3N85hxfcgpsBNXfZR/hJZlhM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mA8SwwUU2hy9TVx8FvRfgUiI+AguDDfa3uI7MpC+SAJSsbqK0qvmwvZApZ0cF9M8X
-	 YthachphCCglbouBoRYmxlyzJ9n0V1rR73SUq/YDAWiLzsblp0zrrqny/7DByywWWv
-	 c4cEKus0uY7h3dhUL7GXt8fqbTkZvzJfInBs7k4q6Y4OFbGm65LbOII9FWcFdMfT+z
-	 pIHXznersbc4Vy00iNDIbWPzsirLvgTp3W3M1qEFogTm6aGJDjZRLDSsZGom4nkWuE
-	 sqGlJam3sqPEQRdrC+XcPv3es1KilcUralZqfYXJZOJGndQMOdg7uLhLR0B6NVsrTZ
-	 WqWR2XMveQ0BQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A498CC2D0A6;
-	Thu, 15 Oct 2026 17:55:20 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Thu, 15 Oct 2026 19:54:10 +0200
-Subject: [PATCH v6 2/4] arm64: dts: amlogic: t7: Add thermal sensor nodes
+	id 1xHPvz-000000016Zb-2nfZ;
+	Thu, 15 Oct 2026 18:12:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHPvt-000000016ZF-1fh5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 18:12:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE7BB14BF;
+	Thu, 15 Oct 2026 11:11:56 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5C613F871;
+	Thu, 15 Oct 2026 11:11:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792087920; bh=lb4Rl1o5/3HkWX592DeNjfwpCj6DGSbq0M9PUyV8CwU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tRAQC+9JYeNu1Lo5qLLgcEKcdHvjm4GTZ5y2DaAWJGu/woDL7kSTd6k9SNg2aYzn6
+	 CfnYTCtnmvj3aZU49EJJvQzYIUU/eArK3Qoi6EJvSt88b6lSbFLg+RYVzzN3g815fX
+	 GOp8Q3Zle06+ptc+0P2G1j1C69YoXxCoNA6Tx8ZM=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Bill Roberts <bill.roberts@foss.arm.com>
+Subject: Re: [PATCH 0/2] arm64: gcs: Return -EPERM when changes are prevented by locking
+Date: Thu, 15 Oct 2026 19:10:36 +0100
+Message-ID: <179208783673.159915.17856867908691720090.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
+References: <20260910-arm64-gcs-lock-eperm-v1-0-d88e51855c9f@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-add-thermal-t7-vim4-v6-2-37d1c954390c@aliel.fr>
-References: <20261015-add-thermal-t7-vim4-v6-0-37d1c954390c@aliel.fr>
-In-Reply-To: <20261015-add-thermal-t7-vim4-v6-0-37d1c954390c@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3560;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=rtWuGUHxUnyMFKCauIYV7dFBkIsewyYeUUnSeGS6n8c=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9ZF4crr27gbc+/+KZlwe8beud67tyo4//VcolZrevxHj
- H9Bw7YnHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEFs5nZDjqbx2Z33Ez4fLk
- zEcF1eoapcpfYz+eUitKcD4jLW4xrYORoeVgcI/D5Kv8P0omt81ZprT9b/ulePbXu3J53v5ckX5
- XkBUA
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_111202_154437_BDBCFAED 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,110 +72,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Thu, 10 Sep 2026 20:00:39 +0100, Mark Brown wrote:
+> When we refuse to change the GCS configuraiton due to locking we
+> currently return -EBUSY which is an odd choice.  The only userspace I
+> found that relies on this value at present is the kselftest and other
+> architectures are using the more obvious -EPERM here let's switch.
 
-Add six temperature sensor nodes using the amlogic,t7-thermal compatible:
-a73, a53, gpu, nna, vpu, and hevc. Each sensor retrieves its calibration
-data from the secure monitor via the amlogic,secure-monitor phandle with
-the corresponding tsensor_id argument.
+Applied to arm64 (for-next/gcs), thanks!
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 66 +++++++++++++++++++++++++++++
- 1 file changed, 66 insertions(+)
+While a minor ABI change, it's pretty harmless. The benfit is eventual
+(hopefully) common handling with x86 and risc-v. I did wonder whether to
+cc stable but we can always send it separately.
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 8aa85aab30469..c81632d3984e8 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -696,6 +696,26 @@ sec_ao: ao-secure@10220 {
- 				amlogic,has-chip-id;
- 			};
- 
-+			a73_tsensor: temperature-sensor@20000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x20000 0x0 0x50>;
-+				interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_TS_A73>, <&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 1>;
-+			};
-+
-+			a53_tsensor: temperature-sensor@22000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x22000 0x0 0x50>;
-+				interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_TS_A53>, <&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 2>;
-+			};
-+
- 			pwm_ao_ef: pwm@30000 {
- 				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
- 				reg = <0x0 0x30000 0x0 0x24>;
-@@ -818,6 +838,52 @@ sd_emmc_c: mmc@8c000 {
- 				assigned-clock-parents = <&xtal>;
- 				status = "disabled";
- 			};
-+
-+			gpu_tsensor: temperature-sensor@94000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x94000 0x0 0x50>;
-+				interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_TS_GPU>, <&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				power-domains = <&pwrc PWRC_T7_MALI_TOP_ID>;
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 3>;
-+			};
-+
-+			nna_tsensor: temperature-sensor@96000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x96000 0x0 0x50>;
-+				interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_TS_NNA>, <&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				power-domains = <&pwrc PWRC_T7_NNA_TOP_ID>;
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 4>;
-+			};
-+
-+			vpu_tsensor: temperature-sensor@98000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x98000 0x0 0x50>;
-+				interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_TS_VPU>, <&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				power-domains = <&pwrc PWRC_T7_VPU_HDMI_ID>;
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 6>;
-+			};
-+
-+			hevc_tsensor: temperature-sensor@9a000 {
-+				compatible = "amlogic,t7-thermal";
-+				reg = <0x0 0x9a000 0x0 0x50>;
-+				interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks =
-+					<&clkc_periphs CLKID_SYS_TS_HEVC>,
-+					<&clkc_periphs CLKID_TS>;
-+				clock-names = "bus", "core";
-+				power-domains = <&pwrc PWRC_T7_DOS_HEVC_ID>;
-+				#thermal-sensor-cells = <0>;
-+				amlogic,secure-monitor = <&sm 5>;
-+			};
- 		};
- 
- 	};
-
--- 
-2.49.0
-
-
+[1/2] arm64: gcs: Return -EPERM not -EBUSY for prctl() locking failures
+      https://git.kernel.org/arm64/c/988be99717ae
+[2/2] kselftest/arm64: Check for -EPERM not -EBUSY in the locking test
+      https://git.kernel.org/arm64/c/8c831e5cd3ad
 
