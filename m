@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75704CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57063CC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCOhz3Wt0IBSuhz9trpFOD+pDHm76mOA/Vo1u0No8Wc=; b=HD0ezEmDRqYDQZGXSJLmcvF+OL
-	V+xI92phlxfqIbcjvBchmSv/Cnr28VrLChgVk0dCWNn4T+6JZq+tLpBAGw1Xjqw25L2gQofY7i7Md
-	fv+nQpZSqwX+l0Poy5J5KC9QO5+Vz+7HtSXP7C2Q2lK2mz3t6LRReem214RENoKYxj+YrfwjKoWqP
-	NZHwtVAI4MwFD2NkSsMVqrUDeYW2M039jkmHkuYEezASIhDQDXd9JLO6xbraObV/vLEiqLVGUg8oU
-	l0QkePl1m3oqrNsaDFzxv1Cde3hm4+JA7udCnJEtRqua501O3M3UyWuHUSD6SsAflPHacIqwzxOc5
-	FYp36rog==;
+	bh=HVw7Nmm0VW1a3sl5XHyrI6+aoyrs2z1eR25B+WaHeQs=; b=tewURz5pVBUoPKjcyHc9N7gNzh
+	nLETDINWf2TXLAsysCfBUdkm3XZSvE1G4gFWWnydgkMlTIeoYAqBXAwc32BZ/WAG1DWU0lxJf+FTh
+	CwTn5m+iM849BjVrBOsDeRVvEaNlQM0kMJs5CG0EJqIxhzppQSm/5XmNYAKEKqAb6/g1f9R0eF8wC
+	ClpgWC2+N1rUuyEl/Hp75OQYcjZz9PxEROhXX1kC5GlB79rtzj/OwbTUVfByU3nwCkkQCwDzVewsR
+	YHuCUX+0hzYdkekHQ+/kzyPWfPLK4n2xJ/PydBxHKVWOxfmkoLZdJUfaGdDy426+jVrmxBY6bCdFr
+	KWgEazJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNkh-00000000ccG-0kr3;
-	Thu, 15 Oct 2026 15:52:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNkc-00000000cay-11Fa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 15:52:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50D2C1576;
-	Thu, 15 Oct 2026 08:52:09 -0700 (PDT)
-Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EB783F7B4;
-	Thu, 15 Oct 2026 08:52:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792079532; bh=UsCucnKFbKHlnk/F6TLrWSk1K2rkrN5p17L2rucxR3s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WhjEwxub1G+PVPhg1zi/d1OtUzMMy7qscvqNVR6KMwWueipE8B4+N/UmcaYhPoHIa
-	 00tnBxL3UkhC1lQ6gcVZiXbD6bSiV5pHMpTUg2HeSmXEJsXFYl7LyzuFwujos+6wJu
-	 fquc4F0tqJzlRm7OP4hEeEd3Am872iuCs0q6gtUg=
-From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 15 Oct 2026 16:51:59 +0100
-Subject: [PATCH 2/2] coresight: trbe: Order padding before publishing AUX
- head
+	id 1xHNlX-00000000csg-2Lny;
+	Thu, 15 Oct 2026 15:53:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHNlU-00000000cs9-3JNI;
+	Thu, 15 Oct 2026 15:53:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3FC2A601EF;
+	Thu, 15 Oct 2026 15:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EBF71F000C4;
+	Thu, 15 Oct 2026 15:53:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792079588;
+	bh=HVw7Nmm0VW1a3sl5XHyrI6+aoyrs2z1eR25B+WaHeQs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=cM9FQrU6LiVZexQnyD/RSRu/KEyxBDWORjo59+NoyN8ppIcaspjtF4wM9B/Qim4KS
+	 8RDAfqeWp/ny0IWEr/T8IFYtrtW79Z8LLJYRYp2mjBlSvN8keOUMRFcIedplYrLCzE
+	 ULc3tQSh/G85xDz8ysCHEx1NSL7eUJKCcUKMMANfIre0SU6o6RJglPA9eRAM8hdjQ/
+	 m1EJzFZmHyz1gL5iSll/M8IOBIlunQKplebkdLxWMU7SU6EUfFpJFWY9hauO6cXrVL
+	 h1FMql5Lz5fALhNwjqpOJA/54uJNApzN3Rogs2h6lUF39hk+VT0zPeGPgj+M1t8ZfN
+	 camhYwBdkU0jg==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Quchaosheng <quchaosheng000406@163.com>
+Cc: Chris Zhong <zyw@rock-chips.com>, Zhang Qing <zhangqing@rock-chips.com>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260923083001.606935-1-quchaosheng000406@163.com>
+References: <20260923083001.606935-1-quchaosheng000406@163.com>
+Subject: Re: (subset) [PATCH v5] dt-bindings: mfd: rockchip,rk805: Convert
+ pinctrl to DT schema
+Message-Id: <179207958534.2076854.17430709456309504242.b4-ty@b4>
+Date: Thu, 15 Oct 2026 16:53:05 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-add_barriers_for_perf_aux_output_skip-v1-2-5847d0578859@arm.com>
-References: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
-In-Reply-To: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
- James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792079527; l=1351;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=UsCucnKFbKHlnk/F6TLrWSk1K2rkrN5p17L2rucxR3s=;
- b=gsloEepkVMtNNVQxOuyaX8g3lCODtKFXXcVigyk6awxiHlk2ZhtSAsvT3+ZV2vqvTxD88hV7d
- UrzDuPHy3rHCNDzJ9dbwX3PuXAN87mSg/TXtPdKHCOhEJqZG+jzmiTL
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_085216_096203_4AEEAEAF 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TRBE fills gaps in the AUX buffer before advancing aux_head. Neither
-perf_aux_output_skip() nor perf_aux_output_end() guarantees ordering of
-these CPU stores before publishing the new head.
+On Wed, 23 Sep 2026 16:30:01 +0800, Quchaosheng wrote:
+> pinctrl-rk805.txt describes the pinmux controller that is part of the
+> Rockchip RK805 PMIC. The PMIC itself is already described by
+> rockchip,rk805.yaml, so the pinmux part belongs there as well: the
+> pinctrl node is a child of the PMIC node, not a separate device.
+> 
+> Fold the pinmux description into rockchip,rk805.yaml and drop the
+> standalone text binding.
+> 
+> [...]
 
-Add smp_wmb() after memset() in __trbe_pad_buf(). This covers alignment
-padding published by perf_aux_output_skip() and the overwrite erratum
-padding written by trbe_get_trace_size() before perf_aux_output_end().
+Applied, thanks!
 
-Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
-Assisted-by: LLM
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-trbe.c | 2 ++
- 1 file changed, 2 insertions(+)
+[1/1] dt-bindings: mfd: rockchip,rk805: Convert pinctrl to DT schema
+      commit: c2f8288a58e22feeeb9c444bbaff179b0058e459
 
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index c7cbca45f2debd4047b93283ea9fe5dd9e1f2ebf..b605121b1dcfed9837c15cd92ff4c42515f39eaf 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -362,6 +362,8 @@ static void trbe_stop_and_truncate_event(struct perf_output_handle *handle)
- static void __trbe_pad_buf(struct trbe_buf *buf, u64 offset, int len)
- {
- 	memset((void *)buf->trbe_base + offset, ETE_IGNORE_PACKET, len);
-+	/* Order the padding stores before publishing the new aux_head. */
-+	smp_wmb();
- }
- 
- static void trbe_pad_buf(struct perf_output_handle *handle, int len)
-
--- 
-2.34.1
+--
+Lee Jones [李琼斯]
 
 
