@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EB5CA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1467DCA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=; b=PK2npih9sbnYUJ1AXU4O63iTgz
-	Ccq09lhbgCSyavilVo42GjKpmZ0gYeBi94XW8t+kWfS/YHrPbZAVscvH+k05Dhz+2+abm3Rqxh85d
-	7xBUqll62A+XKyxjFgzUKaCPKX04S2kyEmUgk+bmGCno/jjQU7WA7qDIXMUeBtiLZmWonzMZW8SyG
-	tPmV4OdPNQK41k45FVo2OZ5y6tvEanqgQCHRHUBGt8lg++Gx9HxNzY2DaRvKPILpshB/zTZ3b5JDc
-	Gdxzxdg6bkmS3SdKKC4xRJg06MrwVQuhHMrH+ubENAxGo9C1v72bqkEn7flpnxjwVHVwzfF37CFfP
-	daWIJ5sw==;
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OJEWc0eoUwLODa0bYpq9gJ49xJvUkRMXg6H5LcqBKIo=; b=HAOVgonFFsYeMiwVP6Mcpa1mWi
+	t4dFS6LArbJ++V+CQ++gdTDdyZzQ1NnlxAoi9/2zTN4ujgXGfXriMA57r8Jc37aRe2JoZFgk+s7WB
+	zNjZxDJsvSg+Hnmxlbfb006tf++iaFTHXC3CGfU8gB6OIS2myFFr/nxYQg6zKYMa4V6p6TWzRHk4m
+	ie1fBcVfFReH0UkRD9gYi45gBx5TPQ61ihMXrxjTpqlIguQw5Y7nJn79W28/Jqu3mCVvO6OCNNIST
+	7LpaplUf7xO7OiPThFY11zwaDDtiBYFvtD7dcRs2BYE+fUstMNIbDr3sPFn9PkS+l2dur5Jz/1Cwr
+	zKqQtRoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCV9-0000000GlaY-3DPJ;
-	Thu, 15 Oct 2026 03:51:31 +0000
-Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
+	id 1xHCa2-0000000Glr6-0Lbf;
+	Thu, 15 Oct 2026 03:56:34 +0000
+Received: from sender-op-o17.zoho.eu ([136.143.169.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCV6-0000000GlaB-3XFx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 03:51:30 +0000
-Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-35b2c599f43so45674eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 20:51:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792036287; x=1792641087; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=;
-        b=pLqhb51A/ovdxc4V1m4mZTGTRZE76BQgMGgj8FkUS26kwPJLKyIEfnGKmZ+TALHnhS
-         CEYr6XQgKNH2hmfCH8dV23GOZ4stkOwSeKebh+MM2cvvoUXgpjMOjuECFMfzfPCrKQFY
-         F/s0LAkCqMRgmDYflb82dwXjZiYx6gW5W0qyco+iUvm74zf2O6Ff4jngL8LyO54YQms4
-         kyb2zRuYrbrVHyiljkf8wbNlhh2NELhc8V6ZY4OKlKNaPb94/uyOFDSYMVA5yr2o2Hp6
-         NwAdot+0KzxbecsaM9oeOqrPWOpbT0mVzs7AkrMhW3LzI/ltMJbOJLIzWEWUKTNUwwlO
-         C5oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792036287; x=1792641087;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=;
-        b=DvXFAGA9stPQRxbFds+PbA8do8Yw59yTW14AwYVQthXkicYv6DUJ3P/l7fWw5HCab1
-         zJ5NyPTPxhGX/R/nGS7uZWufWHEichAC8Vd76HKVkWizKgqZDdxnn+FnsKKQiVRKP1D4
-         pYtWLpMUjyFCfDX1SQ12YjkYTIzZrWYhhOYfwgiF96YHdwQprpXWRX2esp+GYBkEFd03
-         yB1DlrRGzLOzk4H4cyMEJoDMkCzgJ/mPgt3h5slO9t5y3bD2bCFtipy55qPtzLxV8Nas
-         amLkbROXybb+pU/tyHO9KDadWCoc1LbfLem3XWwvrtzpxDntItRpptTYRiiCNvlCx6NB
-         WZWQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzu7Y+3tNKLj8cvMNbPpW8YlDgFKoJN9vhmDCVleFQDuTrHcdK+mJdbojHI7U9dELo8GSy8cfqcbf5Mir9CzrRG@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ8G6xNIEht/26qNpsxajK/+cdE+VYmMd0Gr4dVfCAXZKiTj93d
-	uVl/umyc8uP9oy4njbDGVMUl9RHBvebnsKtW7JBcw7lPWNycPEH4dkCsVAdvVA==
-X-Gm-Gg: AYBFou2+lzv4d7BP9RGDgxDormrvH5Ba8l4ZgxTnG97tHUQZqe3rVsybPSSavvu31gp
-	zZ2thINqVpHi16nh1ZBF+YP302oVErOnPtSTD9OcvjF5/dvuN52OqzKNzvc8Dr9MKSZ1GT76wf1
-	WUKg7Hl4EuvOIovgCMgrnmfSbM/2DxvLLMhVIJUX/xqnjNduFPtGiKtkXMEkhIY0Rxg/v7qnSkc
-	wGYXAHp7z2n9W6ZQRQUvHi+OsfuKAxo/2bdCEhB6PgPUWfijPfZfrU62Q7qnmtm/AbAFHKuNlhG
-	ul0Cd8rfeGsrC58E44fzuNmFiMmRX/AQybakGpPdEOAVwKO4+gYUZMhO/P97ipjCM99JoLZr0gs
-	9UFnRR7ZPuA9w2GP+X4tMn3ru2u7OKZ1xzs65M794VqWVRDYpiio8ulKun6Y38EgtTNeTJCld1y
-	wKFa1G25jch5u7T5bcEYlI10XYh0rIIcnoaHQeCIrWHtDpB+fp9qvU1UVt8i2S1PtnKlwKA+HvY
-	DGJlaP0HXJegd2O
-X-Received: by 2002:a05:7300:8b14:b0:35f:f0:8edf with SMTP id 5a478bee46e88-35f00f09f07mr2511567eec.13.1792036287168;
-        Wed, 14 Oct 2026 20:51:27 -0700 (PDT)
-Received: from debian.prasanth ([103.183.205.240])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537cb6a279sm56719830eec.30.2026.10.14.20.51.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Oct 2026 20:51:26 -0700 (PDT)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: andrew@codeconstruct.com.au
-Cc: linus.walleij@linaro.org,
-	joel@jms.id.au,
-	brgl@kernel.org,
-	linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [RFC PATCH] pinctrl: aspeed: Handle GPIOZ6 pass-through strap on GPIO requests
-Date: Thu, 15 Oct 2026 09:21:18 +0530
-Message-ID: <20261015035118.9495-1-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	id 1xHCZx-0000000Glnr-0vdv;
+	Thu, 15 Oct 2026 03:56:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1792036578; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=HyjvtTwhbqCnEDH+MM5AHhQ87mjpWDv0DrsKtXsvxuq6lhn5N8rGWPQIDyZY+fAh3AwiXa8Xe8gKNdvpdhizsg3rYIKeozFX0ia2GSRiCj5c2xsb6FL/h3xmfTAbUqDsPQh5Jh8U/yD/0CZi0W8xf58qk9HbFWXjr3xClzlQGHU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1792036578; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=OJEWc0eoUwLODa0bYpq9gJ49xJvUkRMXg6H5LcqBKIo=; 
+	b=E2eOfspFM5gCwbCsatAD8Fn64RGT0FWn/DZ21T2Vv7mPZIfNcaJBPbyt6tyxbyE4w8/sHczqOnDHrTzd56qEYsQOgN7zpToITst4OEZuCqK8qcKj1HEtzHAJlsP9QHCB44m8hXXcJ/MMGYJJcgDkbp5t2xrV/r3djHvQzPQvJKw=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792036578;
+	s=zoho; d=iav.lv; i=iav@iav.lv;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=OJEWc0eoUwLODa0bYpq9gJ49xJvUkRMXg6H5LcqBKIo=;
+	b=Akc0haoJe+d24pdB1r5qr5Bcd+Rzg071FeSpZ0OaUBwMo+3lG/uVXD9prR3yw8Jw
+	+yU+IVSHY82dU1hfI40eJWMTNT8+27LnGlakJMMMuQtW/TVDIaykx4UkM1jGgrcfk90
+	XGvHILAdm1gFbK6VaI6HvHZKz7m07gmIqnLQQt28=
+Received: by smtp.zoho.eu with SMTPS id 1792036574971162.77080539620772;
+	Thu, 15 Oct 2026 05:56:14 +0200 (CEST)
+Date: Thu, 15 Oct 2026 06:56:12 +0300
+From: Igor Velkov <iav@iav.lv>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, Igor Velkov <iav@iav.lv>
+Subject: Re: [PATCH v6 09/10] PCI: dw-rockchip: Add system PM support
+In-Reply-To: <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
+References: <20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com> <20260908-rockchip-pcie-system-suspend-v6-9-fbabcca9921b@collabora.com>
+Message-ID: <20261015-m1-tested-by-pcie-v6-09@iav.lv>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_205128_890857_5594BAD1 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20261014_205629_545678_85365A04 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,140 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the ASRock Rack B650D4U, requesting GPIOP3 through gpiolib does
-not provide working host power control when the GPIOZ6 pass-through
-strap in SCU51C[9] is set.
+Tested on ODROID-M1 (RK3568, NVMe on pcie3x2) with 7.3-rc7 and Jonas'
+EHCI/OHCI clock patch: s2idle 4/4, deep 6/6, the NVMe stays usable
+after resume. Without this series it is lost on resume:
 
-With the existing GPIO request path, SCU4BC reads zero, but a host
-power-on request through x86-power-control times out waiting for
-power-good:
+  nvme 0002:21:00.0: Unable to change power state from D3cold to D0, device inaccessible
 
-  SCU4BC = 0x00000000
-  SCU510 = 0x00000000
-  SCU51C = 0x00001e80
+Tested-by: Igor Velkov <iav@iav.lv>
 
-The AST2600 A3 datasheet describes SCU51C[9] as an additional
-pass-through enable for GPIOP0/P1, GPIOP2/P3 and GPIOP4/P5 when
-SCU510[30] is clear.
+> +	ret = dw_pcie_suspend_noirq(pci);
+> +	if (ret)
+> +		return ret;
+> +
+> +	gpiod_set_value_cansleep(rockchip->rst_gpio, 0);
+> +	rockchip_pcie_phy_deinit(rockchip);
 
-A diagnostic experiment that cleared only SCU51C[9], preserving all
-other bits, allowed the same GPIO-only power-control implementation
-to power on the host:
-
-  SCU51C: 0x00001e80 -> 0x00001c80
-
-SCU4BC and SCU510 remained zero. No per-operation THRU1 switching
-or additional userspace delay was required.
-
-Add an AST2600-specific GPIO request callback that performs the
-existing GPIO mux configuration and clears SCU51C[9] for GPIOP0-P5
-when SCU510[30] is clear. Check register access errors and verify
-that the strap bit cleared. Other GPIOs retain the existing path.
-
-This RFC handles only the GPIOZ6 strap source. It leaves SCU51C
-unchanged when SCU510[30] is set and returns -EOPNOTSUPP for
-GPIOP0-P5 requests when SCU510[28] is set.
-
-Hardware testing on B650D4U with this pinctrl candidate confirmed:
-
-  - Remote power-on: power-good asserted.
-  - Remote graceful power-off: power-good deasserted.
-  - Physical power-button power-on.
-  - Physical power-button shutdown.
-
-These tests used x86-power-control with software button forwarding.
-The earlier board-specific SoC driver, its DT node, custom sysfs
-interface and diagnostic boot parameter were not used.
-
-This replaces the approach explored in the withdrawn B650D4U
-power-passthrough RFC. The new proposal changes the existing pinctrl
-driver and introduces no DT binding or userspace interface.
-
-Feedback is requested on two unresolved issues:
-
-  1. SCU51C[9] is shared by all three GPIOP pass-through pairs.
-     Clearing it for one GPIO request may affect forwarding on
-     another pair. How should that shared control be represented
-     and coordinated with existing mux ownership?
-
-  2. The SCU510[28] enable path has not been validated. Returning
-     -EOPNOTSUPP is a limitation of this candidate, not a proposed
-     complete solution for every AST2600 configuration.
-
-Is the GPIO request callback the appropriate place to handle this
-strap interaction, or should it be modeled through the existing
-signal-expression mechanism?
-
-
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
----
-diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
---- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-+++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-@@ -40,6 +40,7 @@
- #define SCU4D8		0x4D8 /* Multi-function Pin Control #23 */
- #define SCU500		0x500 /* Hardware Strap 1 */
- #define SCU510		0x510 /* Hardware Strap 2 */
-+#define SCU51C		0x51c /* Hardware Strap 3 */
- #define SCU610		0x610 /* Disable GPIO Internal Pull-Down #0 */
- #define SCU614		0x614 /* Disable GPIO Internal Pull-Down #1 */
- #define SCU618		0x618 /* Disable GPIO Internal Pull-Down #2 */
-@@ -2747,12 +2748,56 @@
- 	.nconfmaps = ARRAY_SIZE(aspeed_g6_pin_config_map),
- };
- 
-+/*
-+ * GPIOP0-P5 have a global strap-controlled pass-through enable in addition
-+ * to their individual SCU4BC mux bits. SCU51C is ordinary RW, unlike the
-+ * write-one-set SCU510 register. This candidate handles the GPIOZ6 strap
-+ * source only; the SCU510[28] enable path needs separate validation.
-+ */
-+static int aspeed_g6_gpio_request_enable(struct pinctrl_dev *pctldev,
-+					 struct pinctrl_gpio_range *range,
-+					 unsigned int offset)
-+{
-+	struct aspeed_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
-+	struct regmap *scu = pdata->pinmux.maps[ASPEED_IP_SCU];
-+	unsigned int strap2, strap3;
-+	int ret;
-+
-+	if (offset < AB22 || offset > AB23)
-+		return aspeed_gpio_request_enable(pctldev, range, offset);
-+
-+	ret = regmap_read(scu, SCU510, &strap2);
-+	if (ret)
-+		return ret;
-+	if (strap2 & BIT(28))
-+		return -EOPNOTSUPP;
-+
-+	ret = aspeed_gpio_request_enable(pctldev, range, offset);
-+	if (ret)
-+		return ret;
-+
-+	/* In dedicated-strap mode, SCU51C[9] does not enable pass-through. */
-+	if (strap2 & BIT(30))
-+		return 0;
-+
-+	ret = regmap_update_bits(scu, SCU51C, BIT(9), 0);
-+	if (ret)
-+		return ret;
-+	ret = regmap_read(scu, SCU51C, &strap3);
-+	if (ret)
-+		return ret;
-+	if (strap3 & BIT(9))
-+		return -EPERM;
-+
-+	return 0;
-+}
-+
- static const struct pinmux_ops aspeed_g6_pinmux_ops = {
- 	.get_functions_count = aspeed_pinmux_get_fn_count,
- 	.get_function_name = aspeed_pinmux_get_fn_name,
- 	.get_function_groups = aspeed_pinmux_get_fn_groups,
- 	.set_mux = aspeed_pinmux_set_mux,
--	.gpio_request_enable = aspeed_gpio_request_enable,
-+	.gpio_request_enable = aspeed_g6_gpio_request_enable,
- 	.strict = true,
- };
- 
+When pci_host_common_d3cold_possible() returns false,
+dw_pcie_suspend_noirq() returns 0 without setting pci->suspended. The
+controller is then powered down here anyway, and dw_pcie_resume_noirq()
+returns early on !pci->suspended, so the RC is not set up again and the
+link is not restarted. I did not hit this path on M1.
 
