@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA64CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32035CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLLh+H6AvF3pOzsah8RxxbzU39nSJ9TcPLlAcIWH0Mg=; b=ktVBDxuShKITdWFPofRMvOGUh/
-	pUcLGKe0IbQzi6vpEZNi2UISiWPoss4xTMl2ydQI8SXI1wFq6G3+B7PAmi5hfUbuWsnHVZwx1Q5aw
-	I/7Gk/WVsv0s4TvK2mTmHaeVUg73fFi5OYizjzB7JkYdujWlOGki+WEfwNkMoLmXwG0FDC0E4pBRP
-	33Inn9oIaqQE57sId+rdGhab4GZXI8c4GLUwg1jRu7jtUwPuSyvYM9Eef7n4/lhqAMDa0RzaBMAbK
-	liSFvNtfNKdyzT7dy1BxjZau5I8iJJgqKU8lcyvQiHTsgy8QluIvMkeMVFoWeYtFszntppFywlhC8
-	A4daVyow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fupo3qVQI2pxjW/yxgqOTHlZPzPsqE2ts6oU7cgw2DA=; b=FDLNs+Rx7M+nd4tLizxLta+28r
+	dY77/CIjyVOIXWuqCpZaQi6ipSgzoR2S1khLlQOYmeBlPArJIGH6eCtPK/CXApP7MoYFVOzt/NvbG
+	r1ZAqhTINJfAMFZa7m1P/OMoQWWRyYGEfQ2NJV79JkK/tukcRgFuY3AJPAHfeVMZfaeuPCX3wrNmG
+	8xrh/ipA9agFpzvDDmeZ1FgOFSJfCAUNG0Gz/lzK2VSYLP/Jf82rXWNgLqi701mci0fK5ILW6QO0P
+	e6mVxQGkFFAOGRoPWb6uulolfEZWwOjvPgUKdsdIpfL92D/PXDfMyTwgqfl0Wi10gD9Yni2U3h07v
+	6R6BG62g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHf4H-00000002bP1-2MIq;
-	Fri, 16 Oct 2026 10:21:41 +0000
+	id 1xHfBT-00000002c5I-3RaL;
+	Fri, 16 Oct 2026 10:29:07 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHf4F-00000002bOp-2Jba
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:21:39 +0000
+	id 1xHfBR-00000002c4u-2lsJ;
+	Fri, 16 Oct 2026 10:29:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C71946022B;
-	Fri, 16 Oct 2026 10:21:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F671F000C4;
-	Fri, 16 Oct 2026 10:21:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EF8460018;
+	Fri, 16 Oct 2026 10:29:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5691B1F000C4;
+	Fri, 16 Oct 2026 10:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792146098;
-	bh=ZLLh+H6AvF3pOzsah8RxxbzU39nSJ9TcPLlAcIWH0Mg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SA5y25c5Ax9XiL89LHF60r7LTjc/isW/mANFnBpopAF7cnYAH68fLLHwbl1/OVtkd
-	 nurZ8/hyMKyst8EuUgHLk1ctDT2FNTC1X1UwhqJee9Yz7/+6gLU3Ase+3LoxnKUtbU
-	 D2+c9LWzP3DuNy8b4SQsWU12QwdVokU7l7zIifnGyYQZEguEO5b6WLau/Vee49QXmf
-	 PKdqLRCbvFFrR7FCt9HPFQdkxEdm9gPG9sc5H2zD5z9TOHutnFDhAHCKHV8raPJMmS
-	 GavfobPpuZyGynW0TZKRfAUSXMjrSgQoUM4wcU1xv3vSQs5E4MmFvIxvUP+TuyFKKq
-	 hHnVrmV03MAzw==
-Date: Fri, 16 Oct 2026 11:21:34 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Philip Radford <philip.radford@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v9 12/13] powercap: arm_scmi: Add get_power_uw to
- synthetic node
-Message-ID: <20261016-nostalgic-adaptable-crab-4eea62@sudeepholla>
-References: <20260909220437.1254412-1-philip.radford@arm.com>
- <20260909220437.1254412-13-philip.radford@arm.com>
+	s=k20260515; t=1792146544;
+	bh=Fupo3qVQI2pxjW/yxgqOTHlZPzPsqE2ts6oU7cgw2DA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=VGPQfZVbRThd2e8iprQYEPOUs0X+ngE0wfYnIyy8UEx6+zOguaCbIiZBhtzPsjicb
+	 YsGQSs1bBQqy7bj8GCRiA7MQw9gmzRGpGN/7lfooSOh0A0HQcUxIStioTnApgg2X4X
+	 PP917JW0LTzqTasxVWsumro6ZLXivRk4imnPbYVWj1CxOCHkN99LtOhbZn1yVddTeb
+	 thfGihva+3KaTwK1XTadhCfjeMZQEdBYYxlRkyrJUX9/MV4bxLONLnq7FTOARG6285
+	 czuKceIbFBxohW+rGVP56n2fh+J3vV/KOeBWf0V6lteewshCyyH/Uw3e6JRNlvRENc
+	 sdIxKHO/FlUTQ==
+From: Mark Brown <broonie@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, 
+ Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ cassiogabrielcontato@gmail.com, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Haotian Zhang <vulab@iscas.ac.cn>, 
+ HariKrishna Sagala <hariconscious@gmail.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261014112752.683032-1-phucduc.bui@gmail.com>
+References: <20261014112752.683032-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v3 00/16] ASoC: mediatek: mt8195: Fix clock error
+ handling
+Message-Id: <179210283368.134795.1901521604596560361.b4-ty@b4>
+Date: Thu, 15 Oct 2026 23:20:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909220437.1254412-13-philip.radford@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3281; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=6zqTom2WlZPTwEEtyh3GxcUXytYw4YtB15LlXVi6qP8=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIu/sm+ejBlzx6b75GzeiTOSM154fpUbf+8KVxXWHa47
+ P0soTKltaOUhUGMi0FWTJElLov7ZX3J6zV8Bxe2wcxhZQIZwsDFKQATUd7LyHBi2v1rgTuv/jLj
+ ENK4PGuj7LPGxQs2L1us9OvBwikfeOasYmTYnSs09yqjeJ6wVnQBo3O1Ypbhx+s3Q4QO3X152yh
+ J/jALAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +86,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 10:04:36PM +0000, Philip Radford wrote:
-> Exposes the current power usage from the immediate children of the
-> synthetic (root) powercap node. Iterates over pr->spzones and sums per-zone
-> power.
+On Wed, 14 Oct 2026 18:27:35 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: mt8195: Fix clock error handling
 > 
-> Signed-off-by: Philip Radford <philip.radford@arm.com>
-> ---
-> V8->V9
-> - Removed redundant if (!pr) check from instance_root_get_power_uw()
-> - Stopped returning a partial sum if one child read fails
-> ---
->  drivers/powercap/arm_scmi_powercap.c | 34 ++++++++++++++++++++++++++--
->  1 file changed, 32 insertions(+), 2 deletions(-)
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> index b5397d7675e6..aac0b00490b2 100644
-> --- a/drivers/powercap/arm_scmi_powercap.c
-> +++ b/drivers/powercap/arm_scmi_powercap.c
-> @@ -17,6 +17,9 @@
->  #define to_scmi_powercap_zone(z)		\
->  	container_of(z, struct scmi_powercap_zone, zone)
->  
-> +#define to_scmi_powercap_root(z)		\
-> +	container_of(z, struct scmi_powercap_root, instance_root.zone)
-> +
->  static const struct scmi_powercap_proto_ops *powercap_ops;
->  
->  struct scmi_powercap_zone {
-> @@ -453,9 +456,36 @@ static int instance_root_release(struct powercap_zone *pz)
->  	return 0;
->  }
->  
-> -static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
-> +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
->  {
-> -	*v = 0;
-> +	struct scmi_powercap_root *pr = to_scmi_powercap_root(pz);
-> +	struct scmi_powercap_zone *child;
-> +
-> +	u64 p, acc = 0;
-> +	int i, ret;
-> +
-> +	if (!pz || !power_uw)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < pr->num_zones; i++) {
-> +		child = &pr->spzones[i];
-> +
-> +		if (!child->registered || child->invalid)
-> +			continue;
-> +
-> +		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
-> +			continue;
-> +
-> +		ret = scmi_powercap_get_power_uw(&child->zone, &p);
+> Hi all,
+> 
+> This series improves error handling in the MT8195 ASoC driver,
+> mainly by checking and propagating errors from clock operations.
+> 
+> [...]
 
-Should we skip domains without monitoring here as scmi_powercap_get_power_uw()
-return -EINVAL for such domains always ? If the system has one such node, you
-will always return error here ?
+Applied to
 
--- 
-Regards,
-Sudeep
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+
+Thanks!
+
+[01/16] ASoC: mediatek: mt8195: Fix tuner clock error handling
+        https://git.kernel.org/broonie/sound/c/8e5a2eabb0d7
+[02/16] ASoC: mediatek: mt8195: Use dev_err_probe() in mt8195_afe_init_clock()
+        https://git.kernel.org/broonie/sound/c/ad1617e53609
+[03/16] ASoC: mediatek: mt8195: Fix register access clock error handling
+        https://git.kernel.org/broonie/sound/c/c23390ecf5c0
+[04/16] ASoC: mediatek: mt8195: Fix timing system clock error handling
+        https://git.kernel.org/broonie/sound/c/f18c0a8e528e
+[05/16] ASoC: mediatek: mt8195: Fix main clock error handling
+        https://git.kernel.org/broonie/sound/c/9f1b48c658ac
+[06/16] ASoC: mediatek: mt8195: Fix paired memif clock error handling
+        https://git.kernel.org/broonie/sound/c/c0ec135cf3fd
+[07/16] ASoC: mediatek: mt8195: Fix FE startup error handling
+        https://git.kernel.org/broonie/sound/c/b1db7408c8e0
+[08/16] ASoC: mediatek: mt8195: Check paired MEMIF clock enable in FE trigger
+        https://git.kernel.org/broonie/sound/c/a2ae972c75a1
+[09/16] ASoC: mediatek: mt8195: Fix runtime resume error handling
+        https://git.kernel.org/broonie/sound/c/933fbfb66488
+[10/16] ASoC: mediatek: mt8195: Remove redundant error message
+        https://git.kernel.org/broonie/sound/c/9f9ba582ac82
+[11/16] ASoC: mediatek: mt8195: Propagate IRQ lookup errors
+        https://git.kernel.org/broonie/sound/c/9d5dedb285fb
+[12/16] ASoC: mediatek: mt8195: Fix ETDM MCLK error handling
+        https://git.kernel.org/broonie/sound/c/91dce9c7eec2
+[13/16] ASoC: mediatek: mt8195: Fix ETDM startup error handling
+        https://git.kernel.org/broonie/sound/c/8e67c67f3fd2
+[14/16] ASoC: mediatek: mt8195: Fix HDMI TX startup error handling
+        https://git.kernel.org/broonie/sound/c/1d6f1785d903
+[15/16] ASoC: mediatek: mt8195: Fix ETDM probe error handling
+        https://git.kernel.org/broonie/sound/c/ca3ac9a7eec1
+[16/16] ASoC: mediatek: mt8195: Fix clock parent error handling
+        https://git.kernel.org/broonie/sound/c/a4276a80c62e
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
