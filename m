@@ -4,69 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A27CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DCECC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkEV3NU/xjxq6SJuLLAVWiQsTCv0N4E8zuSVpty49hU=; b=Okg/tG5UO77xQVTg0/BUj8EugK
-	rq0NvUgRloRPuqI2zTn3Qpe04sW4hj2sizgnj22y1I7RxjFve5YLudIWiuGFrwGIKrGugRKILzxzw
-	gk/xdU754bCFg0O8gKbuGjizSg1X3XVPJjpZYb82XGiDRb7QiWejdEQ6UE57Mqr0UzodVYDFqMgXo
-	REZK5fedlcGFrQHqNa6b+0VKBAZnAUkiP84e4rL40MhKX2Hi7bxQQi5wQ/prt4emlN60GwI150gbm
-	q/ItyKFKg34+r3heBXb4xR7lRqZotlBNHc0aVxSppppwg3N7SgB05MjN8ezilroa6ljGYaXvirmHO
-	PQi1WZ4A==;
+	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=; b=mzy4jcCju4yNJY1BV5xWOT0OD9
+	CUEDSr6OGJa7jmBY3InTu1YW1FXHhbJ1Ue0SJxE/YhmmBbAq9BTe2io8Iy4Eq4/RNK1fEDhoTIMd5
+	Gx3mTUFhXrMBJ8VZj8lp0be5xMa0as+si40SS+vPWhAzZHEcHwAJ/EKVAA4GH1Cyj01hos18zzKNM
+	FqxCKLAROplgQkebWa/9iUxWpppaZNSr1uwvyqWInhi6wjgV2zFIj+KD2B6EByHb6Q6Lhie4jJDDd
+	fd7tkEn27tV/i37YSEiNyvfmvr6xouF9YA0k53jE4JDedA+6Wz7IdpnvL/Tbut5XZN3KNjohiFSXs
+	n8wMhbjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNuu-00000000eJk-2JMl;
-	Thu, 15 Oct 2026 16:02:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNuq-00000000eG2-02Yn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Oct 2026 16:02:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=dkEV3NU/xjxq6SJuLLAVWiQsTCv0N4E8zuSVpty49hU=; b=Msoinerxq6PHxn9Ni/JuXmTj6v
-	35peaaJAyKaNDhfGgZPwZQGiYpPXJS8Gug3u1f/XgUuEqtNHLt1nJJkffRUiiHnlrPdVGee/Ecbcg
-	WT5fLz594edDRKG6FN71MpklaWhEL1pW9GeghQYgbbkRmLsfCczh+t7LTlYm+1t4qiAL/jkoXZkz0
-	TaYSkytyrpzIVcJk5wm3enXY0AfDDIrQwMSVdUEHyJOczAuQdFybb6Xho8ESbhFGz3pvOYLRy1MWC
-	MoPS75iPbsH9H4jiFRPn3lj1d1qv4WgFmG4wpwtp53dEt9J+p+gzhLeGqo1W1xesPLdhhv7IdW24s
-	CnUeNWtg==;
+	id 1xHNux-00000000eMw-4Bot;
+	Thu, 15 Oct 2026 16:02:56 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHNul-00000000aJi-0XUd
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHNuq-00000000eG1-01Cy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 16:02:46 +0000
+	Thu, 15 Oct 2026 16:02:54 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B69541A1244;
-	Thu, 15 Oct 2026 16:02:41 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 95CB91A1245;
+	Thu, 15 Oct 2026 16:02:46 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 890F36075C;
-	Thu, 15 Oct 2026 16:02:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 703BB10328B42;
-	Thu, 15 Oct 2026 18:02:31 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 674526075C;
+	Thu, 15 Oct 2026 16:02:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 160EA10328CF5;
+	Thu, 15 Oct 2026 18:02:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792080155; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1792080163; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=dkEV3NU/xjxq6SJuLLAVWiQsTCv0N4E8zuSVpty49hU=;
-	b=WX+PHVm+NUlQ1Ip641v/NskvAApUPXyftYa6uAZQMl+jqNOTkVd7dCLcuzpVkToOZnzBqK
-	sEf8H5j9hJP1hu6AczeZxd6k+H4Y2LP2+zsGPyMK9OgK1zX/OVQPVW049W+jD09pL/zCzT
-	vON8v+O1zGNKMeJqlSjtJluCO0vZ4XcNXtqwn+XePIictvYDgU9I3QvCb3yP9x37i2p6+r
-	Ugz0YG0PPI7Ga39jBHMna5ydbCp3pRnxRo3z3GK6nSkktIbHbhXoylYnNpmgOTnC05cm1w
-	WTryKVX7rKpyrDoUc0VU9XQ6zILZ311BH7TkdBS4oULZk2KQ6XR3+GkWokhyvg==
+	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=;
+	b=oS25sV93XSD557wIB4lBXK1AG3ECjXQ3/Xlt8i7iz5CqRstbNl9cYZbGW70uIC1wRn5iNg
+	ExzMWfb8ZDgKP7VxkURJiqTz4/JC91q9DmmWR2rdv7Hml3dQ9b8NKfvLAvZEMCBE6dFCBd
+	MjlEZIyMoearzV0TbcgmMTd6JWLu+HpzAOjM8wrqNUEmCaB5LuWctAB84QR8v77Fw2n1dA
+	Hc42OYjblLicTn3fhzlEAuAB1WbhnHsACYUtXAsPpBIg4lss4dthUKiIGCGP5+Iw1mcQaZ
+	xizj3KcIO3aEn9DMnW2WfwJR3kSm18N0uw10Q1vIsTZc302ETniRGUF2mLn68g==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 15 Oct 2026 18:01:22 +0200
-Subject: [PATCH v10 09/10] arm64: dts: nuvoton: ma35d1: Drop HXT clock
- output name
+Date: Thu, 15 Oct 2026 18:01:23 +0200
+Subject: [PATCH v10 10/10] arm64: dts: nuvoton: ma35d1: Add LXT crystal and
+ clock-names
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-perso-ma35d1-upstream-clk-v10-9-47c97b54a809@bootlin.com>
+Message-Id: <20261015-perso-ma35d1-upstream-clk-v10-10-47c97b54a809@bootlin.com>
 References: <20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com>
 In-Reply-To: <20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com>
 To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -84,12 +69,14 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ stable@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_170243_302055_BA82EFC3 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20261015_090248_502946_F49FF13B 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +91,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock-output-names property is not useful since there is only one
-output clock, and the naming of that clock would already be clock-hxt
-after the node name if we were not providing that property (so very
-similar). Just drop it.
+The clock controller takes its two crystal oscillator inputs from the
+board: HXT and LXT. The LXT crystal is not described at all: add the
+fixed clock node for it and reference both inputs from the clock
+controller node, with their respective clock-names.
 
-I want to clean this name before introducing another very similar fixed
-clock in the DT: LXT
-
-Another solution could have been to rename it "hxt", which would have
-been more aligned with the other clock names. Sashiko complained that
-this could break DT compatibility with an -EEXIST error because of
-the colliding names.
-
+Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
+Fixes: b69af0984732 ("arm64: dts: nuvoton: Add initial ma35d1 device tree")
+Cc: stable@vger.kernel.org
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 1 -
- arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 1 -
- 2 files changed, 2 deletions(-)
+---
+ arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 6 ++++++
+ arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 6 ++++++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi         | 3 ++-
+ 3 files changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-index 78534d613486..d7670afb0a63 100644
+index d7670afb0a63..7752e85734ac 100644
 --- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
 +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-@@ -35,7 +35,6 @@ clk_hxt: clock-hxt {
- 		compatible = "fixed-clock";
+@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
  		#clock-cells = <0>;
  		clock-frequency = <24000000>;
--		clock-output-names = "clk_hxt";
  	};
++
++	clk_lxt: clock-lxt {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <32768>;
++	};
  };
  
+ &clk {
 diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index a029b660e8dc..8f3cb18d39b6 100644
+index 8f3cb18d39b6..5c65f1fe5da9 100644
 --- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
 +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -35,7 +35,6 @@ clk_hxt: clock-hxt {
- 		compatible = "fixed-clock";
+@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
  		#clock-cells = <0>;
  		clock-frequency = <24000000>;
--		clock-output-names = "clk_hxt";
  	};
++
++	clk_lxt: clock-lxt {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <32768>;
++	};
  };
  
+ &clk {
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+index 7228ad4735b5..9a341c2b1397 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+@@ -92,7 +92,8 @@ clk: clock-controller@40460200 {
+ 			compatible = "nuvoton,ma35d1-clk";
+ 			reg = <0x00000000 0x40460200 0x0 0x100>;
+ 			#clock-cells = <1>;
+-			clocks = <&clk_hxt>;
++			clocks = <&clk_hxt>, <&clk_lxt>;
++			clock-names = "hxt", "lxt";
+ 		};
+ 
+ 		pinctrl: pinctrl@40040000 {
 
 -- 
 2.55.0
