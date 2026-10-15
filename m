@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA4CCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7513ECCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Wpd8ZaDIqKTRZJeEXKKKlTMACDQQ6OKalAajIFnFWE=; b=ylYXxekYmub2qLPT+P4phzJZWT
-	L2dVuEblvBqo+Su35gVQ4mZf26+W5MZ0f7cpo5O1dm+nX454uApFBbioRUGLrUciUWXA+RCk2YW01
-	3ex/YIXV+BQe8zL4cilUd/IrKwJ3zZbHOpmaAvM0tJyNqXDRK9d1eP2foddqGgYIW39RUsyULVGrs
-	ICgfLsZz7LDCmM2GOigTobpI07UyZotgwbNoS1mqDCfacChYpvlur5m97oaPekVR03DK4kgMExWzH
-	q/iHQtQLY5pvs1+yh+WCESVyVNAWzG1qtmfUJ42NTwp0LbJDaDabCurikCNeReU/Jm+i/DUo+Oi8b
-	25JP6/YQ==;
+	bh=u/qu+1nboXXgRmovuxE9nnlbwXrJITNUPGViGdzyeYY=; b=xTKvvVSPfJKCL4AuTXL0L1XJ1r
+	UP3Ah4r6+OYihzamu9iphtTrYhntPxunLWTac5itC78gSyLHY+7bJaXW9UfGxQCJmr97geOaSvET4
+	gUbhZaf9PL4eJW9ayoPRZX4E7+DU2bLAcH1U8onhQck0uvESGwFR1JNn49jjtrDKSWAtl1N3EzwHn
+	DY8w/FR50U9cNHNhA9vlKkohE00RR6PfrHm0Z3B1qMpfcI+GkGchHdfDsJ4dbr9HtNWXSHY//y4xR
+	RtRkU3LPr3ayMQcdJYNmmBvqrS5cmT173hI9b5vCMgikOmSX9CwmO6iEgWb58k2oTMnufALyYdFv/
+	tk3Dc8xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHQ0q-000000017uw-2ase;
-	Thu, 15 Oct 2026 18:17:09 +0000
+	id 1xHQDQ-000000019th-3zb9;
+	Thu, 15 Oct 2026 18:30:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHQ0m-000000017tf-0zNq
+	id 1xHQDP-000000019tF-0X59
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 18:17:07 +0000
+	Thu, 15 Oct 2026 18:30:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56138601EF;
-	Thu, 15 Oct 2026 18:17:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45FA21F000C4;
-	Thu, 15 Oct 2026 18:17:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 40CC4605F0;
+	Thu, 15 Oct 2026 18:30:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 481B81F000C4;
+	Thu, 15 Oct 2026 18:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792088223;
-	bh=4Wpd8ZaDIqKTRZJeEXKKKlTMACDQQ6OKalAajIFnFWE=;
+	s=k20260515; t=1792089006;
+	bh=u/qu+1nboXXgRmovuxE9nnlbwXrJITNUPGViGdzyeYY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LpsdpARhGYr41eV1EMUdnUedxaFou091rS8T/+A9xI9vvMiuDo7Q7bm5AZ3zfwa4/
-	 /Nia4CIz5t5Pqq5sRM42kJz2JQ464mDT5N/7nt/a6WtfZVhAJThnsZuUgcGIC94Ea8
-	 lIiZJlIBRjd3GjqzzOuvmNji2D2WSHaPfBCdVFTjDe6Y9kPFY/KINkpzGW+hw0+Y9Y
-	 wBmonE1Q0sJBBQermpHDmPOmASiofJENOWA4KnMvCVREzqZ6VbUotRZgcaKFm//YPM
-	 6f+eajbxaQ6L2kaXprbfwzrzp6sdDlkhcJU+bYQrsJ4aTaurHlMSCygxFqHY3DK8we
-	 QRwe954fzEauw==
-Date: Thu, 15 Oct 2026 19:16:58 +0100
+	b=bJE9FUP4W3cVPp/S/HGuqa4YptCXCKdrrAR68zXqHHilHZfC7p8sTLqWNeodrCH+P
+	 wovUbdBrOhKvcanhDyQVg6WhUyNQJoSInIxSvK1anE1WgHyGq0VoYAcF+Yqjd2hynr
+	 imCaz54SbgqdJ3rSTph4YjZY95XTIzyhvp/ZqTbsPM8g/D4TNQNYOcDagEmluflOSc
+	 eW4GoM6oLgCag5hCY4PtGRMtWJEhPTd2nGgnTeUAK29PWZ8cWXoYatiSwUwjKrKMqd
+	 JmrJMDsixyLmgGgUWbrbr7iRYenHOfz++f1jlj4byzPhC+C7VTl2g6ZOOgCmMyJWbx
+	 aZWSkHmQGan0g==
+Date: Thu, 15 Oct 2026 19:29:59 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Sasha Levin <sashal@kernel.org>
-Cc: Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Ricardo =?iso-8859-1?Q?B=2E_Marli=E8re?= <rbm@suse.com>,
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] kselftest/arm64: keep building and installing after
- a subdirectory fails
-Message-ID: <5527ee60-e0bd-46d5-b63e-8a39fbdf2ad7@sirena.org.uk>
-References: <20261014200115.1363363-1-sashal@kernel.org>
- <20261014200115.1363363-5-sashal@kernel.org>
+Subject: Re: [PATCH] kselftest/arm64: signal: copy each test binary only once
+Message-ID: <793b97aa-6980-4cdf-8426-34b4f9bd0615@sirena.org.uk>
+References: <20261014200140.1364282-1-sashal@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NYWNnkWlSL6zYjFJ"
+	protocol="application/pgp-signature"; boundary="hV3+bZ8AmAs2jgop"
 Content-Disposition: inline
-In-Reply-To: <20261014200115.1363363-5-sashal@kernel.org>
+In-Reply-To: <20261014200140.1364282-1-sashal@kernel.org>
 X-Cookie: Tax and title extra.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,42 +74,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---NYWNnkWlSL6zYjFJ
+--hV3+bZ8AmAs2jgop
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Wed, Oct 14, 2026 at 04:01:12PM -0400, Sasha Levin wrote:
-> The arm64 suite builds and installs its subdirectories in shell loops
-> whose status is that of the last subdirectory. A failure in an earlier
-> subdirectory is therefore lost unless FORCE_TARGETS is set, while a
-> failure in the last one fails "make all" and, through "install: all",
-> drops the installation of every other arm64 test as well.
+On Wed, Oct 14, 2026 at 04:01:40PM -0400, Sasha Levin wrote:
+> The signal tests are built in testcases/ and then copied to the output
+> directory. The copy rule lists every generated program as a target and
+> copies all of them in each recipe:
 
-> Make each loop fail only when no subdirectory succeeds, which matches
-> how the top-level selftests Makefile treats its targets, and keep
-> stopping at the first failure when FORCE_TARGETS is set. When a build
-> report is requested, record each subdirectory as arm64/<subdir> so that
-> a partially built suite is visible even though make succeeds.
+The build stuff for the signal testcases is a menance, it's being far
+too cute.
+
+> -$(TEST_GEN_PROGS): $(PROGS)
+> -	cp $(PROGS) $(OUTPUT)/
+> +$(TEST_GEN_PROGS): $(OUTPUT)/%: testcases/%
+> +	cp $< $@
+
+You'd have thought that'd be clearer with two separate rules but the
+obvious doesn't work and we're already being so clever I think this is
+fine:
 
 Reviewed-by: Mark Brown <broonie@kernel.org>
 
-I can't help but think it might be less annoying to convert these into
-separate TARGETS but that disrupts everyone's results which isn't ideal.
-
---NYWNnkWlSL6zYjFJ
+--hV3+bZ8AmAs2jgop
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrRGJkACgkQJNaLcl1U
-h9DQFQf+LiGBnxMlC8Nft/57njPqtSr4IrbEOYXfDtnVtE8C/qIDTms81g1IsDl9
-ZsD5vzOSkVbGBsoFyWpurQfTf8ryWE0FlSxsSXC7S++ewunXZ+RLG5s7cVDHdqEt
-45DtK73sods62xPWOohEwTf3GWlxEupQs3GuRmbFbC4qsuUSRrygBDa74bGUMOdD
-v5LdfkpZmVnR71bi9zkcLkUPPhd7G6PfktHl9l9u4eN1U8c52tCYrgaqvkkoY+8f
-oWzMotzmNe2M7/GZ/yV9WNtAYwsWk11/3XLzpg0AdrvNzaqUrivQqKN1Wb1IRfaB
-amVPv/R1ZMmYwXbDArYC+mEi+syHtQ==
-=SPc5
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrRG6YACgkQJNaLcl1U
+h9AWzQf+OU6dIs888s5E7lDGgDCaqEwbWzdiPRypghBp84fZqmPXX7D88/4HscEh
+UxccmRKO5ixBfP1JLzOumblG96lYNNAMkkiq/xhEqNZMgIkwdNl46EaIDpWP8moY
+6QgDldJOItjV4gs8eUS+kSsB/UkvsMc61oZNYuTeVwwVRe/nX+1Orj9V0p7e/Mgt
+AzHVsGpDyoGp8tVlX78gXkk2vwC9iPvqjHwYbJHteGNoGah/P1L1GbqAjBD7TB5t
+9zbqDxRalqbIJOjhvIxtIh+1ZiqN9F6uipi43TncHvVtpgz2J0cqTInZhMOSspM/
+3tGbP7GJRwZec18k1oWegqYKZ4E89Q==
+=Ar76
 -----END PGP SIGNATURE-----
 
---NYWNnkWlSL6zYjFJ--
+--hV3+bZ8AmAs2jgop--
 
