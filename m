@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BC3CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A64CCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9tSjy5btu0nKEVD9uEjSPa7hI+lCWSjDGkfK4yaJpY=; b=b76pQ0dg8db8VJOHlSli8D/aOo
-	V9wgVST1Apug1F5O5mNzBWEblqcLVukBogc80FQBN/45Dnwj2rQ/kNxPsKtlS1kU4PQwyshlXz8kD
-	k5ro4VcR9KQxIY3b2ex3t8clUi+CWV6qyf9H7N0E0rV4tCJPioayfXQTG96v/8hoL2lCLH4xxs4UX
-	Nj4BSCi89Z9CCY5jETuuDirKcKd+gXNuhEw9SPkh5ASTeEoWadTwTqnpk5qgC74585mOWcMgrCs72
-	zQFM2jTEHrxf1100eSe3FKlyv1nZIbAH0o2Ox4iTRlT1MfeD3xrXE+LoBUunrMCY6v2MbwA+mDIXp
-	r8BnPweQ==;
+	bh=iVD6DVgrrmWtPCKZuLRYBe58wCwR82Aw5cFa3tQXsTU=; b=xpZ+WULgLckqLDSbK8rE7xUO9M
+	Pmf+sSu1vK/k7roG9i3ujkq+9YWsgi+qdlE+EYkVGaW0F12Yv7XwWXWAomQkeW4t3+MJ1BNaW0bKM
+	Y6Ouu/hKLMSsvDeWmJv2yzUHRqkINbnihzNbbOJw1NmrXk/nrWuAfQmz01y0pBOdLu6HhVcNmZ/2d
+	ABE5heHsvXeJtagRPoinTB/EMshfx3ccDLBWHDsRllG8KMGSFVi+/sUKANABMgHgO9FGKJEyxzUJ/
+	AKRiV1jhuBlYwAS9OsGYx/V8e9NpH3p7CQE7m1mydYtQpibppUFQM96kidEyDtQR1VYSuYpIcbvWr
+	OXE+YMzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIOu-0000000HOsl-02wJ;
-	Thu, 15 Oct 2026 10:09:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHIPp-0000000HP8K-1Y7K;
+	Thu, 15 Oct 2026 10:10:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIOs-0000000HOrT-1hUx
+	id 1xHIPo-0000000HP7k-0kpI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 10:09:26 +0000
+	Thu, 15 Oct 2026 10:10:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDE67601F0;
-	Thu, 15 Oct 2026 10:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5489A1F000C4;
-	Thu, 15 Oct 2026 10:09:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72EEA6022B
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 10:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1271F000CB
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 10:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792058965;
-	bh=h9tSjy5btu0nKEVD9uEjSPa7hI+lCWSjDGkfK4yaJpY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ajhoMSsRskdZnQj0c0oTEflDaXe1SWo77F2/5Lhxe2oXFVQ4wcXvcj+Xwij5FmbmA
-	 A7bAALzGMN8k8MSGD22je2/Qo6KPugVXSSvtD2DEQAgb69dkBQs3cm4BlnXN53xHO3
-	 S0qa//6dYPDAczscOVb8RUTIhrRIrqC7fDpIGYIC8A5gDzvfvAMSqakHNt+4fKEaI2
-	 mPV/LzrFDxSwPFWeRc66+0PXUDqBxiXZfZGD/kQx7Yaom1wW/gX/BSPewgFJB7vWsZ
-	 OmhOOUO4TRnDzv4FtpL/TgdxvYTty6FF3XYiSjF2HHkWUG0U7tgarIv0QPDiO0o9lE
-	 NeEJFuHoyzT9g==
-Date: Thu, 15 Oct 2026 12:09:20 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hector Martin <marcan@marcan.st>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>, 
-	Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org
-Subject: Re: [PATCH v2 04/10] dt-bindings: arm: power: apple,pmgr-pwrstate:
- Add t6041 compatible
-Message-ID: <20261015-rampant-imported-wildebeest-8a3b0a@quoll>
-References: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
- <20261014-apple-m4-pro-max-initial-devicetrees-v2-4-961edd8d661b@cyberchaos.dev>
+	s=k20260515; t=1792059023;
+	bh=iVD6DVgrrmWtPCKZuLRYBe58wCwR82Aw5cFa3tQXsTU=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=STR8H/kfDMSr+DWDoq48sXSduiYpF29cDZUyK7Fdcw20EHdZ/VWLhPjfrERXtda0k
+	 PXafGPzINOa8Y9a3SPaTqAQWZjdj/31fGC8BnkqNY8TW5IF+P9Wk8dvXTHeedTbeO8
+	 yi5/06I9GkPZ5BjXXSOuLBA0DHupRYFnp2OSgc9Gubb7Vc/yzoNmN0esApKdN1oOFN
+	 qNp/XG0tWLx2SidhXAU/bdihsyyYtM5v+m4cO6i4TmYMF5qQ6gn6meXwLlmZQeIlLL
+	 6QSLQ9iCMlf1isA7F9rVgEurWYpX1rc4MNYPwcasw1Z62JIE8VwDxb7Jj+YRelA+S3
+	 c1Mdl2MNORU8g==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5bccb867d6fso4209699e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 03:10:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxoAz3CB6VdMdbeUS7IsOYj9TGBRiHz//82xEiVDjVdR6vao+OPWMfM/sEC9rEH2tAuJSmHlSIsc1LaN/VgYs28@lists.infradead.org
+X-Gm-Message-State: AFq9FYKTpQ6L/JdPapuKkqzJilQZ127QN1gSVY9OzdxiYZBAaTBXi2mW
+	JEcaQ0+ogCJmiLLl1iBWdJB1jJi87cHwFPag/D4HwieXMHPvD8MyanqeyIj4GrWjLjc+SBmyrBS
+	UtdHUEVRdkdfbA9c0AIVmNJ8b9QGi9jRvn4yt1r94Hw==
+X-Received: by 2002:a05:6512:3e24:b0:5bc:b091:ea4f with SMTP id
+ 2adb3069b0e04-5bcde8c154cmr6665182e87.38.1792059021797; Thu, 15 Oct 2026
+ 03:10:21 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 15 Oct 2026 06:10:20 -0400
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 15 Oct 2026 06:10:20 -0400
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20261014204331.15383-1-jayarajdmit@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261014-apple-m4-pro-max-initial-devicetrees-v2-4-961edd8d661b@cyberchaos.dev>
+References: <20261014204331.15383-1-jayarajdmit@gmail.com>
+Date: Thu, 15 Oct 2026 06:10:20 -0400
+X-Gmail-Original-Message-ID: <CAMRc=Mfir4zVZENbq8zJuvo8Acq3ZxUTy5E74ZzqHYVmPH8fog@mail.gmail.com>
+X-Gm-Features: AclHuK-iPK_M1R-OIfN-ytjpEWR5PdRs3K3ZQbAWqipplmC2--vh1bUa1mLFQ3o
+Message-ID: <CAMRc=Mfir4zVZENbq8zJuvo8Acq3ZxUTy5E74ZzqHYVmPH8fog@mail.gmail.com>
+Subject: Re: [PATCH] gpio: lpc32xx: check devm_gpiochip_add_data() return value
+To: Jayaraj Devaraj <jayarajdmit@gmail.com>
+Cc: Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 08:56:11AM +0200, Yureka Lilian wrote:
-> The device power state management of the PMGR blocks on the Apple
-> silicon M4 Pro/Max SoCs (t604x) is compatible with the M1-M4 SoCs.
-> Add "apple,t6041-pmgr-pwrstate" as M4 Pro/Max specific compatible.
-> 
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+On Wed, 14 Oct 2026 22:43:31 +0200, Jayaraj Devaraj
+<jayarajdmit@gmail.com> said:
+> lpc32xx_gpio_probe() registers each gpio chip with
+> devm_gpiochip_add_data() but ignores the return value. If registering
+> a chip fails, probe still returns 0, so the driver binds with a chip
+> missing and no error is reported.
+>
+> Check the return value, print an error naming the failing chip and
+> return the error code. Chips registered earlier in the loop are devm
+> managed and are removed automatically on failure.
+>
+> Signed-off-by: Jayaraj Devaraj <jayarajdmit@gmail.com>
 > ---
->  Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/gpio/gpio-lpc32xx.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-lpc32xx.c b/drivers/gpio/gpio-lpc32xx.c
+> index 37fc54fc7385..014eb8bc70da 100644
+> --- a/drivers/gpio/gpio-lpc32xx.c
+> +++ b/drivers/gpio/gpio-lpc32xx.c
+> @@ -510,7 +510,7 @@ static int lpc32xx_of_xlate(struct gpio_chip *gc,
+>
+>  static int lpc32xx_gpio_probe(struct platform_device *pdev)
+>  {
+> -	int i;
+> +	int i, ret;
+>  	void __iomem *reg_base;
+>
+>  	reg_base = devm_platform_ioremap_resource(pdev, 0);
+> @@ -524,8 +524,12 @@ static int lpc32xx_gpio_probe(struct platform_device *pdev)
+>  			lpc32xx_gpiochip[i].chip.of_gpio_n_cells = 3;
+>  			lpc32xx_gpiochip[i].reg_base = reg_base;
+>  		}
+> -		devm_gpiochip_add_data(&pdev->dev, &lpc32xx_gpiochip[i].chip,
+> -				  &lpc32xx_gpiochip[i]);
+> +		ret = devm_gpiochip_add_data(&pdev->dev, &lpc32xx_gpiochip[i].chip,
+> +					     &lpc32xx_gpiochip[i]);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "failed to register gpio chip %d: %d\n", i, ret);
+> +			return ret;
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Please use return dev_err_probe().
 
-Best regards,
-Krzysztof
+Bart
 
+> +		}
+>  	}
+>
+>  	return 0;
+> --
+> 2.34.1
+>
+>
 
