@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBB1CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4DDCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFtKTdCOnjQ0A3NhArKmDUYdjNzEkViYnCuIHXxkhxA=; b=Xg9ToEMregf8rKfmwVtMW1FacJ
-	XrxDpHgmyYugcy6fXrXCbncnS/qiiMWNRcu/wrSortrHz9d3JTd7fb0iM5lSlI1lYed58h+98leLP
-	PKVYTGkjb2s8cWr4U89/PzIKKB7c+GewPE8qgN0YffFjJnIW2Ou842rrEV987TaicjaXgO2q4NIr9
-	FnWoQ3oCU1OI9hcViQ32KOlxNVsYyoEypSp0786S0AwIPN8/O12VmH2wKhaOoIGb6I1P4i81otT4D
-	a5nLSUPWQksVQQqfxMrXhTrcB0mtKj6K/ASstJ+GZgmQSaP6sZQ9fn1hcxmRz0LS3hsjsjyCc6G8Y
-	830/AF6Q==;
+	bh=Kx/01Nsq1UY3kmElra+GwWgne6z+msRWvpMdj34qnwk=; b=eSw+opwNdIn8+6+c43nVFHmggY
+	rsaCkC85U4z6jXhN4K+LYYZrA1M+GJeJrdx1a7DoZYbhyLzgl6HC1ByOyf3lqn3jUA9UMge+CO0pQ
+	BkdQCyhC747zajnMOFC1mLJq9sqedEzHf8FH1ySY7UVPJaj2sv0uBz79IaWJRxQ2rjGux+9D+Xbcq
+	Diy0jGPP8HifGv1v8i2qZhq7hOT2kcCeAOqdv8OLrK39CL5QVT8HGC634+2o4Q1MW4VqEVO3BNGAf
+	m2Q0LOcdVnE2Hg16KGyZxU7inxNKtvs4BcAbJ7QUlg6z+7u6JEBCd7nIyuBA3w6KKDIwl9L9mCiD2
+	Xt99eCBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLZi-00000000GSj-0zzD;
-	Thu, 15 Oct 2026 13:32:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLZd-00000000GRz-13GJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 13:32:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5DC314BF;
-	Thu, 15 Oct 2026 06:32:39 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 662AC3F673;
-	Thu, 15 Oct 2026 06:32:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792071163; bh=dNFE+0UDneyWKTtD7qawy+9dH5R8+C4LBXacelJmlhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nemcdfNgayRdTS7dR6UHOCG6RHTna9KQ09c/ba9/UpVtCNPlJphTfBHxFzjRAMwy9
-	 IeU+DhZBB2R0ziP+dGNvqL0TeNJTXEjortCfszilYnJWLdndRZ5858afl2F4n98XnO
-	 ytj1ASrI0QH2FXiA5240qgBrZ+MzJ8vjaeZz6OOk=
-Date: Thu, 15 Oct 2026 19:02:39 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Iurii Trukhin <yuri@trukhin.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit
- and 52-bit VA
-Message-ID: <mcnimghb5b3h2h73c3uhrlmnc5azi3quzuq5owtsfw5zo7iw7t@t6j5xbd6zss5>
-References: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
+	id 1xHLmp-00000000Hs1-2LcM;
+	Thu, 15 Oct 2026 13:46:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHLmo-00000000Hra-3TPt;
+	Thu, 15 Oct 2026 13:46:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 491A0408C0;
+	Thu, 15 Oct 2026 13:46:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87B31F000C4;
+	Thu, 15 Oct 2026 13:46:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792071982;
+	bh=Kx/01Nsq1UY3kmElra+GwWgne6z+msRWvpMdj34qnwk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iVz7KgO9Cm2mX6ny5SHc02ay/J/zYG7KOkNB+c1dCyFPSh++xhzNK0dd/gZ8N7Q3F
+	 DNpCy3deOCDafeJOyy+94wg8QGz31E0cLl9S8ZBRyZXi/dp2LOXTqNRiQI/uWBlo6e
+	 mflihpcygGeZiZpLIgpl616jKl0Ni62cZYg1Ek/1yBEBXZ4iFx6ljLIKbWyWUhV+Y7
+	 wiIDv74TdBVF5Zsjam4B6NBNPRhSp0FDySL1e9jmidB9KyT4yywxbSeWqtiL1WJwJD
+	 lcf7+cyCKW2RaHbLYA7yJovxTZ34ppYEbsmp3cF1KCbkcF8o7oj3+cDd5scuLAL196
+	 skaObiIf7rIOQ==
+Date: Thu, 15 Oct 2026 14:46:16 +0100
+From: Lee Jones <lee@kernel.org>
+To: Yaozhong Li <yaozhonguwl@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 2/3] mfd: rk8xx: Release the power hold GPIOs
+ before powering off
+Message-ID: <20261015134616.GA1907748@google.com>
+References: <20260929140649.55-1-yaozhonguwl@gmail.com>
+ <20260929140649.55-3-yaozhonguwl@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_063245_385205_EEE9A8BF 
-X-CRM114-Status: GOOD (  17.03  )
+In-Reply-To: <20260929140649.55-3-yaozhonguwl@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +73,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 10:23:35PM -0700, Iurii Trukhin wrote:
-> Since commit f101c5644771 ("arm64: Support ARM64_VA_BITS=52 when
-> setting ARCH_MMAP_RND_BITS_MAX"), arm64 supports up to 33, 31, and 29
-> bits of mmap ASLR entropy on 48-bit and 52-bit virtual address spaces
-> for 4K, 16K, and 64K pages respectively. However, ARCH_MMAP_RND_BITS
-> still defaults to ARCH_MMAP_RND_BITS_MIN (18, 16, and 14 bits), which
-> was set in commit 8f0d3aa9de57 ("arm64: mm: support ARCH_MMAP_RND_BITS")
-> when 39-bit VA was the 4K default.
-> 
-> Set the default ARCH_MMAP_RND_BITS for 48-bit and 52-bit VA to 28 (4K
-> pages), 26 (16K pages), and 24 (64K pages), matching x86_64's 1 TiB
-> randomization range (5 bits below ARCH_MMAP_RND_BITS_MAX) while keeping
-> ARCH_MMAP_RND_BITS_MIN unchanged for smaller VA configurations.
-> 
-> Closes: https://github.com/KSPP/linux/issues/371
-> Reviewed-by: Kees Cook <kees@kernel.org>
-> Signed-off-by: Iurii Trukhin <yuri@trukhin.com>
+On Tue, 29 Sep 2026, Yaozhong Li wrote:
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> rk808_power_off() writes the PMIC's shutdown bit directly. On boards where
+> lines driven by the SoC gate the PMIC's power-off path, a shutdown
+> performed this way does not stick: the rails drop and immediately come
+> back up, so the board restarts instead of staying off. U-Boot reports the
+> result as a power-on reset.
+> 
+> Take those lines as an optional GPIO array, hold them asserted while the
+> system runs and release them - waiting power-hold-delay-ms - before
+> writing the shutdown bit. Device trees without the property retain the
+> existing behaviour.
+> 
+> The array is claimed before any child device is registered, so that a
+> -EPROBE_DEFER from the GPIO provider does not tear down the regulators,
+> RTC and clocks that devm_mfd_add_devices() has already registered.
+> 
+> On a Firefly-RK3399 the shutdown stuck when such a line went from high to
+> low before the shutdown bit was written, and did not when the line was
+> never driven.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
 
-> ---
-> Changes in v2:
-> - Add a comment above ARCH_MMAP_RND_BITS explaining the 1 TiB default
->   for 48/52-bit VA and the fallback to ARCH_MMAP_RND_BITS_MIN in
->   arch/Kconfig for smaller VA sizes (Anshuman Khandual).
-> - Collect Reviewed-by from Kees Cook.
-> - Link to v1: https://lore.kernel.org/r/CAOx7e9Jm0N9O_ndL1UApMPrXUN=P4RiptSNibdDP+9prUsNPOw@mail.gmail.com
->  arch/arm64/Kconfig | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index cab741a695f5..7bca47269dd5 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -313,6 +313,14 @@ config ARCH_MMAP_RND_BITS_MAX
->  	default 16 if ARM64_16K_PAGES
->  	default 18
-> 
-> +# default to 1 TiB (5 bits below ARCH_MMAP_RND_BITS_MAX) on 48-bit and
-> +# 52-bit VA; smaller VA sizes fall back to ARCH_MMAP_RND_BITS_MIN in
-> +# arch/Kconfig
-> +config ARCH_MMAP_RND_BITS
-> +	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
-> +	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
-> +	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
-> +
->  config ARCH_MMAP_RND_COMPAT_BITS_MIN
->  	default 7 if ARM64_64K_PAGES
->  	default 9 if ARM64_16K_PAGES
-> -- 
-> 2.56.0
+Why is this still an RFC?  That means it should not be applied.
+
+-- 
+Lee Jones
 
