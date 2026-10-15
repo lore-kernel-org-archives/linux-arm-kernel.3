@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB2DC2D0A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA4CCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ex7eoXsOGwipzer8glQZQi9Td7dG2oGs2hJRx0Qok+U=; b=h9tGwZznKC1YFRTSWBVqYH495b
-	/fFL0i1NeFGVN1OsC/367AFCqXj0P7ASZWdAQaw8u9c0XL8Cj9PHCVSZF42aU6efAfVlJ32TjJ+1U
-	Nwk3u3ReTl8aHFKfd+CfM4FAyiLIoV6y1+kBCBLEI0sDZBdfShZ0Uwj4x8NtMvgDAhuS9986doSz3
-	GxTqqIvD8HOq+HyvZpLpbfPX/v2y2Dsc4Nyb9diBstLDZ4SU44iAM47lGX1BBLRGX3wrqzgLoZDx9
-	cO3M4L3HQbElJ0zjTB3T2Q7eccepmBT0gg2ctVsjWOoJLH1QGMbZf7/X5LN/6+5hAObh1dhSZd3RP
-	CxGyaejA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Wpd8ZaDIqKTRZJeEXKKKlTMACDQQ6OKalAajIFnFWE=; b=ylYXxekYmub2qLPT+P4phzJZWT
+	L2dVuEblvBqo+Su35gVQ4mZf26+W5MZ0f7cpo5O1dm+nX454uApFBbioRUGLrUciUWXA+RCk2YW01
+	3ex/YIXV+BQe8zL4cilUd/IrKwJ3zZbHOpmaAvM0tJyNqXDRK9d1eP2foddqGgYIW39RUsyULVGrs
+	ICgfLsZz7LDCmM2GOigTobpI07UyZotgwbNoS1mqDCfacChYpvlur5m97oaPekVR03DK4kgMExWzH
+	q/iHQtQLY5pvs1+yh+WCESVyVNAWzG1qtmfUJ42NTwp0LbJDaDabCurikCNeReU/Jm+i/DUo+Oi8b
+	25JP6/YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPwi-000000016nR-0Zak;
-	Thu, 15 Oct 2026 18:12:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPwc-000000016lX-1v8z
+	id 1xHQ0q-000000017uw-2ase;
+	Thu, 15 Oct 2026 18:17:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHQ0m-000000017tf-0zNq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 18:12:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C8A914BF;
-	Thu, 15 Oct 2026 11:12:41 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A7523F871;
-	Thu, 15 Oct 2026 11:12:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792087964; bh=V86yQw2cdso6AicU0JXttx1tZfScvEduAhjH1cO1zcI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HWaCx8U38ceCAPFYpqDCW/6C9dyaKcOx8EI3XD3Zn0Rud99NfAzNb7W4b/0EuaGjL
-	 7bwM2oNhjdEDLg9qHR/0ldAnLQu3jaOlj7oTGPKBlIGJjFtxVCTWnGv7w6/zRGEhiw
-	 6c4+WkVy7wpy6sVvjmtvrgVqaovONHfGxPngPmRA=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Iurii Trukhin <yuri@trukhin.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit and 52-bit VA
-Date: Thu, 15 Oct 2026 19:12:35 +0100
-Message-ID: <179208793359.161729.16083745247655027140.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
-References: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
+	Thu, 15 Oct 2026 18:17:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 56138601EF;
+	Thu, 15 Oct 2026 18:17:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45FA21F000C4;
+	Thu, 15 Oct 2026 18:17:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792088223;
+	bh=4Wpd8ZaDIqKTRZJeEXKKKlTMACDQQ6OKalAajIFnFWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LpsdpARhGYr41eV1EMUdnUedxaFou091rS8T/+A9xI9vvMiuDo7Q7bm5AZ3zfwa4/
+	 /Nia4CIz5t5Pqq5sRM42kJz2JQ464mDT5N/7nt/a6WtfZVhAJThnsZuUgcGIC94Ea8
+	 lIiZJlIBRjd3GjqzzOuvmNji2D2WSHaPfBCdVFTjDe6Y9kPFY/KINkpzGW+hw0+Y9Y
+	 wBmonE1Q0sJBBQermpHDmPOmASiofJENOWA4KnMvCVREzqZ6VbUotRZgcaKFm//YPM
+	 6f+eajbxaQ6L2kaXprbfwzrzp6sdDlkhcJU+bYQrsJ4aTaurHlMSCygxFqHY3DK8we
+	 QRwe954fzEauw==
+Date: Thu, 15 Oct 2026 19:16:58 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Ricardo =?iso-8859-1?Q?B=2E_Marli=E8re?= <rbm@suse.com>,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/7] kselftest/arm64: keep building and installing after
+ a subdirectory fails
+Message-ID: <5527ee60-e0bd-46d5-b63e-8a39fbdf2ad7@sirena.org.uk>
+References: <20261014200115.1363363-1-sashal@kernel.org>
+ <20261014200115.1363363-5-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_111246_534003_66C56CF6 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NYWNnkWlSL6zYjFJ"
+Content-Disposition: inline
+In-Reply-To: <20261014200115.1363363-5-sashal@kernel.org>
+X-Cookie: Tax and title extra.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Oct 2026 22:23:35 -0700, Iurii Trukhin wrote:
-> Since commit f101c5644771 ("arm64: Support ARM64_VA_BITS=52 when
-> setting ARCH_MMAP_RND_BITS_MAX"), arm64 supports up to 33, 31, and 29
-> bits of mmap ASLR entropy on 48-bit and 52-bit virtual address spaces
-> for 4K, 16K, and 64K pages respectively. However, ARCH_MMAP_RND_BITS
-> still defaults to ARCH_MMAP_RND_BITS_MIN (18, 16, and 14 bits), which
-> was set in commit 8f0d3aa9de57 ("arm64: mm: support ARCH_MMAP_RND_BITS")
-> when 39-bit VA was the 4K default.
-> 
-> [...]
 
-Applied to arm64 (for-next/misc), thanks!
+--NYWNnkWlSL6zYjFJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[1/1] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit and 52-bit VA
-      https://git.kernel.org/arm64/c/ac9de62b1902
+On Wed, Oct 14, 2026 at 04:01:12PM -0400, Sasha Levin wrote:
+> The arm64 suite builds and installs its subdirectories in shell loops
+> whose status is that of the last subdirectory. A failure in an earlier
+> subdirectory is therefore lost unless FORCE_TARGETS is set, while a
+> failure in the last one fails "make all" and, through "install: all",
+> drops the installation of every other arm64 test as well.
+
+> Make each loop fail only when no subdirectory succeeds, which matches
+> how the top-level selftests Makefile treats its targets, and keep
+> stopping at the first failure when FORCE_TARGETS is set. When a build
+> report is requested, record each subdirectory as arm64/<subdir> so that
+> a partially built suite is visible even though make succeeds.
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+I can't help but think it might be less annoying to convert these into
+separate TARGETS but that disrupts everyone's results which isn't ideal.
+
+--NYWNnkWlSL6zYjFJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrRGJkACgkQJNaLcl1U
+h9DQFQf+LiGBnxMlC8Nft/57njPqtSr4IrbEOYXfDtnVtE8C/qIDTms81g1IsDl9
+ZsD5vzOSkVbGBsoFyWpurQfTf8ryWE0FlSxsSXC7S++ewunXZ+RLG5s7cVDHdqEt
+45DtK73sods62xPWOohEwTf3GWlxEupQs3GuRmbFbC4qsuUSRrygBDa74bGUMOdD
+v5LdfkpZmVnR71bi9zkcLkUPPhd7G6PfktHl9l9u4eN1U8c52tCYrgaqvkkoY+8f
+oWzMotzmNe2M7/GZ/yV9WNtAYwsWk11/3XLzpg0AdrvNzaqUrivQqKN1Wb1IRfaB
+amVPv/R1ZMmYwXbDArYC+mEi+syHtQ==
+=SPc5
+-----END PGP SIGNATURE-----
+
+--NYWNnkWlSL6zYjFJ--
 
