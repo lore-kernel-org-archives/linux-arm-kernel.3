@@ -4,118 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B811CC6B3A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 11:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEC6CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 11:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sdNkNBafRccqTYJjZh2GSaQS3+kqdDiQMw0aTXAGmM=; b=ZzR0cK1J5u1f2q2BK5GuwIK/j/
-	jOQD0y3EItTMCNbYmizmDjzpT3G4g0pj+2SiLZcPnEFukqooEivn/mkCx/fYp0lNZoiN5kPSLoxn8
-	R+EMYyROmtqf1JEG/JDqkK9V9OV96hPHcG65yeBd/CM8iJKTUxgGXlaCjb9PNBM7RlUJuQMlh64bF
-	6eSY/M2SmFh/p6KnKAonYMinmcU2vfSR9aNE13Igs+gpbUKbD90aWaAvx8Nvu9nEuIuen1tGVlmn3
-	Iw5BD62H97PpxyVtzWNyI8sJUUGHDRHmM9mNr3OzpafLyxap1iB9NDpe2ad1pGR0IpTUhZ6pRh7rr
-	mwAUVsNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NLUXZYQHnrv5dnJvW9S0SeWM2jKlG9nQfpauk7gahWQ=; b=MfihHBuM7QzVR3R9t+kv4xXFlM
+	ZeltsDdE7HyiLAC0qZ3Zf9JYwIFFRSsPpoReE6Uzo4tFkBgGww23pj3PPdniXo4dJLYw+KWsM5HcV
+	5g+4rUwRyr1zTztg1QyVliJDjmdnlI3IN7bQNlBaPUcm99fCKDpqZ6Bqmu5HZ/u65JvwC+LKrWOBv
+	7vtla9xCIOh/2jprJm4XPWodt7/H/2T+3LfvmHQhG33+W5SfmftDspPRz4FixIcMyKcxLBemqhyII
+	Ak7aaOGLybXD446kDOMJzGJnBsCyV8SksX+U8hsV9PqLg7ya4iQYIN/3Nasm6frC8AsZQDTpCTjUQ
+	fwnNjsew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHJsh-000000000zt-30NH;
-	Thu, 15 Oct 2026 11:44:19 +0000
-Received: from mail-westeuropeazhn15011023.outbound.protection.outlook.com ([52.102.161.23] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xHK1R-000000001ym-3xiD;
+	Thu, 15 Oct 2026 11:53:21 +0000
+Received: from mail-japaneastazon11023121.outbound.protection.outlook.com ([52.101.127.121] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHJse-000000000yP-1kyJ
+	id 1xHK1P-000000001yN-28BT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 11:44:18 +0000
+	Thu, 15 Oct 2026 11:53:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T6gqmo2zKG4XsCEhl67F0JJbPmNW4kfubc9fATsv/WJoHVN0PEQP3/qjKrkT1TUI+Zh+fv5tWgP8kx+k6aXvz2wYdDSAC7ta9ITbmYt7pNtg4509ZYpVvYYRfxkGLuLg66AQGE6If+pGxwnODNtD96mafQxtabd66FoYUWHADYRii1R9qlrHUav3vojKj9bdscghEj9yaz8tw3+80Scgy7GkzpFpO2SxwkH5pagJF2HDZlAweNKqfpZj6rLqp2eBse0Yi+v2LNx5q1Dx9nX3FroZXD2g6xGPbksKcQ+qhLPVJT5W+RB9AIQLkSVQSjJMS5s27LN7/OkHuO2+gZj1kA==
+ b=hgbaFnMIdx7hw1/R7VrrIjGmLgh1V7/CBD7PIAr4d3ey0vVRfPUd8uqhOOMUR7IMbKFqtJvLBtmB9mpHY+XrUNL6oIx2Fn5An9DwRxFFAwB+Y8qDXt4DG/g5U/t7FsSm6xNb0bDrOOlo2lG000CiyLs5TJQ5YtObeOFWdhgcEXpK7YSRIifZZEr98/tINqL0tdMOGqm72iPrTi3s3k8R8QDF0FcYpCeP1ywQDIkiQ/OndjHVPTlBADdpoKtw5qIGrb9DOfyaG8YzOTrvJy6FXWcsyFxwJHT7DasRcyjVj0rcXJosS7dXANxL2lPcQzPlOgoF6L5PzOySlCm5yuKG4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+sdNkNBafRccqTYJjZh2GSaQS3+kqdDiQMw0aTXAGmM=;
- b=o/lXtRXQQQtAdGxCqEW1f30FDk9/9sxZOBJi4rzZH01kL5AFY1wEM2aDEfu4xtzBtqMjwy8M+mMOwDT3LCHi9QqZuPjAm4l5iFJpmxwvcuFd2sRyazAILsBdiF4mkjHTYNraZr59Mhj+b1yuwgax7xYrC/4KB7OM/yp1hkWx6HYbVy4ZFskvi9aXQHMKHHwR71APIYhWHZ4vNuSv8GuC01DFa3WdpxU9xtddcYax9xkoNxGnkFZQFtFSoP+shU3UW201aWeQ7K7uZbuhxYRB40Z1OSRoKvYirxU2qgib8cKXbW42R0DBbgMt/HBlpkQpNJjgceoALG+gFI6KaT8Arw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+sdNkNBafRccqTYJjZh2GSaQS3+kqdDiQMw0aTXAGmM=;
- b=Ldw5MfY7ahjrIQJv1Wy4ewMubfP4vXifA4GwJM5wYMgZuH7fXNkFKo/NtdnwFoqOswWjInzjTmQJHX8DxMelexjDAWvJtCQUrUvNQUBsyEfBWRzkHyrHaaVbUUyKUgmMJ0jT6YfKhTis/WcOm4MO9Mw9tytEiWANqRBeAORCnwOUKuy6E3B/y5yY8bARRmmvcvJI5ppg1UsARXMk3aVsyud4/3V03rvpkLKeXIZGXoepmrLuxq4KeRSybdqllxaNdApw2F4y1fGcplPL5RIhxxMMs7XnrRQMm/cKqToYU5Y6qaLm0zxivw8moFVfZfs77irpoCkZpWT/yH3hbrSXzw==
-Received: from DU7P195CA0029.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::12)
- by GVXPR10MB8946.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1d9::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 11:44:06 +0000
-Received: from DB1PEPF000509E3.eurprd03.prod.outlook.com
- (2603:10a6:10:54d:cafe::2b) by DU7P195CA0029.outlook.office365.com
- (2603:10a6:10:54d::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Thu, 15
- Oct 2026 11:44:05 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509E3.mail.protection.outlook.com (10.167.242.53) with Microsoft
+ bh=NLUXZYQHnrv5dnJvW9S0SeWM2jKlG9nQfpauk7gahWQ=;
+ b=THMZG9yBJmts2WdbIlCT6Oa7Zegexu4ALKPCg5lBL2fWM4SwHwgljRU4x3M4LjNrnk5VbWM4n9p9wuw4FauyqeHHL5VyP+CZgj/6GuBzGfOyCbzqyD8N51kMEGQOipmcAQkdcxFDzcyhx6ui0B0XaGPKON7/00vsjpIBkxNAu9qOCMZQv9ncP6zYhwt0O+h9uhDC2M1bqgx6JqjHgNwplj7oDpoavEkbemC7stxaUwLgxD/5z0gTYUFCkw/oidTZhdl0GIjL4YnvR/2tnTa0tW8Te8y4dOY1pzfWOlq/4FatZe1yZnNA0Bp0UZVm9y0igaZdelTLH/jCssrxFmk7Uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SGAP274CA0002.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::14) by
+ SEYPR06MB6108.apcprd06.prod.outlook.com (2603:1096:101:c5::7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 11:44:05 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
- 2026 13:44:10 +0200
-Received: from [10.48.87.100] (10.48.87.100) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
- 2026 13:43:09 +0200
-Message-ID: <70074c6d-1141-4723-b61c-dbef3962e381@foss.st.com>
-Date: Thu, 15 Oct 2026 13:43:09 +0200
+ 15.21.522.13; Thu, 15 Oct 2026 11:53:06 +0000
+Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
+ (2603:1096:4:b6:cafe::2f) by SGAP274CA0002.outlook.office365.com
+ (2603:1096:4:b6::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Thu, 15
+ Oct 2026 11:53:06 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 11:53:05 +0000
+Received: from JohnnyFan (unknown [172.21.64.24])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C53B342C644D;
+	Thu, 15 Oct 2026 19:53:03 +0800 (CST)
+Date: Thu, 15 Oct 2026 19:52:54 +0800
+From: Johnny Fan <johnny.fan@cixtech.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, will@kernel.org, mark.rutland@arm.com,
+	james.clark@linaro.org, leo.yan@arm.com, jeremy.linton@arm.com,
+	cix-kernel-upstream@cixtech.com, bob.zhang@cixtech.com,
+	jie.fu@cixtech.com, fugang.duan@cixtech.com
+Subject: Re: [PATCH] perf: arm_spe: Support heterogeneous ACPI systems
+Message-ID: <atC+lsWALy6ueGAB@JohnnyFan>
+References: <20261015062908.3565761-1-johnny.fan@cixtech.com>
+ <86mrsf1bnv.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: st: add thermal zones on stm32mp251
-To: Mateusz Nowicki <mateusz.nowicki@posteo.net>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: Valentin Caron <valentin.caron@foss.st.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261009093709.19907-1-mateusz.nowicki@posteo.net>
-Content-Language: en-US
-From: Patrick DELAUNAY <patrick.delaunay@foss.st.com>
-In-Reply-To: <20261009093709.19907-1-mateusz.nowicki@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.100]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86mrsf1bnv.wl-maz@kernel.org>
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509E3:EE_|GVXPR10MB8946:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a7f05a1-dab6-4ba6-cbf4-08df2ab19de3
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|SEYPR06MB6108:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7227726-30ad-4ac9-3486-08df2ab2dfd4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|34020700016|23010399003|82310400026|36860700016|56012099006|11063799006|261009223027099003|22082099003|10067099003|18002099003|13003099007|12100799066;
-X-Microsoft-Antispam-Message-Info: fV6vRw0tJ8hI8V9LcHPsWzYM5+d1cZsI8pOJOHX/hghMTo/+Y+A+jTtlmaTgaZLViCSumPGztlzM+FooKpUqZtSchPuWiF8oxOHEPY09t8QFe5gZp4RkxPeqfgD6UkH6WnsTKQ8lrmNF+6s6D03bg4BWvb/zQy4T3U7TsX/LYa//j/spbWlQRo2Xysodsv+mzOquGMdfnp8/MSoLaZmqzyvioyHOH1qL8AR5KNJKipM5aQfQF5hRrAAlSVW/bHMu5bZVWKRCAijdjSi8asVuJS1/WHngqr/m1/u+sTApz4gtn+6N1vYL7NT69ejDAFhVfjqW9Qo0PD7x/6NsrmEVW82d3l/LVnwiwGw5Ws+0o2w/N88Sp4ibu4EYkKwUfZ4Up/5qDNXQeuEQxA9+WH37R+uGAtYQXqf0oICjvpgqXyUAa778rR4v6xW7PIL6YywRurrZsEUvj4UqjteoKy8SLCG+j5ZPzQWPlpmiV3KVmcsEeTK4hZPdpUp0OlNwFKxirkTBHRaN5UNYz5ubpIr0IYEDnrzsk414mpHcKRSUj1XWuh+VWfdAN2YORxhMq8idc6PWYvMPX6Sj2bhQWBLo4aBPhCldrFpCPh6N9C2qu79ak2Lbt6pb7rNa8wbyvcVjiIoj8r6PQSl8+kBI2TDAjvZ8svl3tW23RVk/py43wck=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(34020700016)(23010399003)(82310400026)(36860700016)(56012099006)(11063799006)(261009223027099003)(22082099003)(10067099003)(18002099003)(13003099007)(12100799066);DIR:OUT;SFP:1501;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|10067099003|22082099003|18002099003|4143699003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 557c9TQ84HWUt/+HA+CXEieK3RRpgmYPHJHb+qKjbg7asxL2uIZ8zjtSOncMjfL0mmuslJ/E1ER1VsQeFFHTAfPPunFlGcAe7BraFVy7355bor9boNyMeetmZbfo2QJ3Lu553FHMghcfULAg8Zi+WHn/Uyx7t7QxVVv/D9Q8Wut2wJLE3M7qGwb4PFXWER09OewNYrs81jmN360tloLZ7NvHkmchvCoKP6OzFKeg3UhxZ9KAWlPK67CSxuk/MlIKAdCW2P4eC2kSlpjsSNkAHRfXgVan4AdVrZ3NL3Br3dm1EiCtfAxXjmcYOzK0puqyQ/QSFhzZDR2nX/25XvTW04gMJ0c1DqPyM/7Pj3UsMlnf1ytDYspXQ/EPWoCJg+7cQ9oIdLcnEb3S7oeZtQdMfO7AmWLw2Yl1pP9hGGDzXnlVBp6EEd0WH8dlyX/KDPqnilY20WGrwiiObUsV6JIeDiQRc+jc1Z408aA3bvsHbocfcNDf6geTFQfF5jjN7LHGR3gpMAVEgiyD4o77Cur2jjhN/JeKW7uyuucGnm2G8SEaUR6gJxdnfwKkxzuiEZy/HuNJQIyyFedx/M6r9rKA8c3EEZH5J7x/wVhhZBW91vtLVtjsmL66p44k5DZPBXUI8NusBb7l5TN7lkqr0/7nUaZGOXfV0j75uvas+pJnaODDxg3z4yW5bGLUMRyRnX0SzPoKhnXKTUk+NTSv5VNA8g==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(10067099003)(22082099003)(18002099003)(4143699003)(261009223027099003)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JODpdvSrITdcQR2Ussg6daEtguMwoxU4QG1HdVDtg7qvCv1nqkikjPD8ZIkZZnfmACAjkfxXO2wqcAjcCT6W1WhCGaephExyFHN2rZse6spTLgYR/PQHEv7QxHXjHz605H+iOQeRehq8Vl8RforqNoLp/blOwHw3CJPO9+yWHkH7S6XUl7SUdh7RpLicn6LfMa8lLZ8T6j1v1uGZqksyNwd+fvUgXeZTXnsg2ykrAqVpspHMmu2eh8kV2ROUtxNiaJEYsaVqsbY/aIxvaBWkdcG8pAeBoQbpxQTg4WMC19WCyO7TT2FNQ4yyCMRmp46tasW2lAl3ADxDZaNdf2xUV4oeXhMnM3sYmnKRisw9+OkvtjZI848KaqqBbJLLSI4PvQGAvbn7b9bXR6GStZlI1vrpIlMP0OjUfTk9d2JpoK/RiHABK7b+jhb5YukQfnJ4
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 11:44:05.5269
+X-MS-Exchange-AntiSpam-MessageData-0: mMp4SPxpQ2oQeQXCT7AC2x7ntuSmJ3j30H8ARIaxTnnEPmUWFEz+d89p9ibi9y2d68QD9RbEsEBvD5EtSOMX2Mt90FZXCH8wDmb0vIW5J7jEYyASVu7cQZ+TWh6UXoqmKgfj+stkORuhVtqRJSnmwthET2HXjY4hO4xtvwRTzaxZd5LclEXpkHVh3DrkMwidlr83cuO//FXx67r7FKHPjIrhSZGa6DCVISkbk3r4Lm8Jtr2GdFH9+JJrsgUzoXqQ4LX5NbbWNjVJtNL3ysGfgs6/eBCHIu9YxqIDcCUI9qpJrsWxoYxRMXijgeMRGJBipzHqspps5ROXUChC0d0MjVRaGTvrqToxtACZKNSf3v33ssqB/6zaEMPFjIKRCgZmYhDYMMUFNA4RAC+EOmCjrTd3Gl5ChNLLx4RM63QN9ZitDjGtA77QhR+p4lVgflEK
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 11:53:05.5975
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a7f05a1-dab6-4ba6-cbf4-08df2ab19de3
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E3.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7227726-30ad-4ac9-3486-08df2ab2dfd4
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8946
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_044416_718089_A364F886 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20261015_045319_553049_6E15C752 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,76 +114,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Oct 15, 2026 at 11:49:24AM +0100, Marc Zyngier wrote:
+> This is a bit odd: at the beginning, you are stating that the SPE
+> interrupt being 0 is an indication of SPE not being supported. Then
+> you check for PMSVer for the same properly. This seems pretty wrong.
+> 
+> It should be possible to build the mask of SPE-enabled CPUs without
+> IPI-ing the other CPUs, and only rely on the firmware table.
 
-On 10/9/26 11:37, Mateusz Nowicki wrote:
-> Add a CPU and a SoC thermal zone for the two DTS sensors. The sensors
-> have no interrupt, so both zones are polled.
->
-> Each zone has a critical trip point at 122 C (Tj max 125 C minus
-> 3 C sensor tolerance).
->
-> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
-> ---
-> Changes in v2:
-> - Set critical trip to 122 C with 1 C hysteresis (Tj max minus sensor
->    tolerance), as suggested by Patrick
-> - Add polling-delay-passive, the sensors have no interrupt
->
-> Link to v1: https://lore.kernel.org/r/20261004121200.64034-1-mateusz.nowicki@posteo.net/
->
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 30 ++++++++++++++++++++++++++
->   1 file changed, 30 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index b624f998b87c..da75e02f7c8f 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -158,6 +158,36 @@ RET_PD: power-domain-retention {
->   		};
->   	};
->   
-> +	thermal-zones {
-> +		cpu-thermal {
-> +			polling-delay-passive = <250>;
-> +			polling-delay = <1000>;
-> +			thermal-sensors = <&dts 1>;
-> +
-> +			trips {
-> +				cpu-crit {
-> +					temperature = <122000>;
-> +					hysteresis = <1000>;
-> +					type = "critical";
-> +				};
-> +			};
-> +		};
-> +
-> +		soc-thermal {
-> +			polling-delay-passive = <250>;
-> +			polling-delay = <1000>;
-> +			thermal-sensors = <&dts 0>;
-> +
-> +			trips {
-> +				soc-crit {
-> +					temperature = <122000>;
-> +					hysteresis = <1000>;
-> +					type = "critical";
-> +				};
-> +			};
-> +		};
-> +	};
-> +
->   	timer {
->   		compatible = "arm,armv8-timer";
->   		interrupt-parent = <&intc>;
->
-> base-commit: f831584128ac2a36fb4fa62fe106793d08c2dbf1
+Agreed. The MADT walk already tells us which CPUs implement SPE, so the
+whole PMSVer probing (including the hotplug compensation for CPUs that
+were offline at probe time) can go away: the driver already consumes
+platform_get_irq_affinity(), so once the mask comes from the GICC
+entries it needs no changes at all.
 
+> This "optional" parameter feels very wrong. We now have an
+> infrastructure to get a set of affinities for an interrupt (see
+> 5324fe21ba9b7 and following patches). What this needs is ACPI to be
+> plumbed into this.
+> 
+> Unfortunately, ACPI is awkward and very badly abstracted in this area,
+> but that doesn't mean we should make the driver code more bizarre.
+> 
+> Treating SPE and TRBE differently is just as odd, and there is no
+> reason to do other than suiting your particular platform.
 
-Reviewed-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+Also agreed -- the TRBE overflow interrupt has the same per-CPU
+semantics in the GICC, so both devices can share one code path: build
+the mask of CPUs reporting a non-zero interrupt, and require a single
+GSI across that mask. The current hetid check is replaced by the GSI
+consistency check. 
 
-Thanks
-Patrick
+The part I'm unsure about is how to convey the MADT-derived mask to
+platform_get_irq_affinity() for these devices: they are synthesized by
+arm_pmu_acpi.c without an fwnode, so neither the of_node path nor the
+_CRS-based ACPI path can reach them. Would you rather see the mask
+registered with the GIC domain keyed by GSI, with a fallback in
+get_irq_affinity() that resolves by IRQ number, or something simpler at
+the platform_device level?
 
+Happy to implement whichever shape you prefer.
 
+Thanks,
+
+Johnny
 
