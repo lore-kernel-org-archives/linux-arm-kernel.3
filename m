@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39254CC6B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA311CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bAP0jFBI8WAL+VDXYWXzcPI8IjLkXvZH2SutsFfuipo=; b=Akv6BFWOlkQFOYoj8LHEIGTBPp
-	L6go6pio42NL4lhFrzaZFoNoaeddJmWnCfgc8ck+SdF7a0eD7bQ+DjEloINTJIx5swjiUsgVAPsal
-	9gOWKNHSHExmf0E1/+vJo1e8BTQBYRYpt2Py2o03cq3+Y1tmvj9fIOfIjeg3keKWt0kooYhZlvXHw
-	ZyCIsXY9aJGyLDom+trNMH7aDPqDI4lWjpAPY5F7WFwnhYHBjtjh9gRfO0/wUiq7o4lIF2+f/sIJa
-	SRIjcID08lhf/sgAshBLc2oKUt1vmcvja5ENqCPJabSMmeLt3WbZFmLJj+3jEUgT+bqFnm5TWPpjh
-	ndMXZy8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1TG6EaszwqcVuJqwSi/vXz+tyLYa/MdcQh36mn2UMKc=; b=P3PdyevSpaxuQLe82JG7zkYr41
+	4TqUcGXl7PQ4K9uLTA6oQxmZGgpGrJ1pbucrE74v7MABZFmFwhiVsCN1Ald8pjkGUdtbeRfTazSJs
+	FLwcE96KLPfXwPaNCzxsr7IGPebalRDRRNXo8iAZVxCNOoqqGrejHXsIYtDzvdHx9bs/BBg+4EYpP
+	jv3mco+Eigod7e0KaxbyiNI2EzkZijt4//D8vLf3BSObWDRRLmrMTPbb92v7JIy0xaNGpvJRdk8ZL
+	tMPh5vGatnO47vzadimEmrciEga1tlZJkfdNrVlxNmMZ2+/rpIHm03qZafd3pvb7lw4L5G1rD9KL6
+	QLPfiJnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHH04-0000000HAeF-1h6z;
-	Thu, 15 Oct 2026 08:39:44 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1xHH1o-0000000HAsl-2Z5S;
+	Thu, 15 Oct 2026 08:41:32 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHH01-0000000HAdK-2tzR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 08:39:42 +0000
-Date: Thu, 15 Oct 2026 10:39:37 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792053579;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=bAP0jFBI8WAL+VDXYWXzcPI8IjLkXvZH2SutsFfuipo=;
-	b=cH7wevxJoqYgrOYPPcVpz1mXa17o3t6H5ZnOsS6sjw1dpVIaZxU2ngfODWwZFwo/vmCxJA
-	eGnLvO/WBiw4/EiEXuyA9D3GZuXgsdU35tnaL8xCz/YCUjxsZkMRNyXHAQ7H14yZcljvnV
-	N/KX9/XAZihSlQsqmYOTlVdi4OF85MJw5CLI82EGF/yWzM32+vFDetwVR87DZCajcKOlbv
-	IXN0wwrbbX3Sampb+W1FPG7b2Q53YwriFA4O4kr25vBLMf5XmrZXjprkighBQIpSyGi4Qi
-	nJeXDqJsxa/Og19RBgtub90tRQgzWIrP5Q1ub5/s351/DZZlddQN6bC7l+QVUQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792053579;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=bAP0jFBI8WAL+VDXYWXzcPI8IjLkXvZH2SutsFfuipo=;
-	b=JBxjdmKaAHPCOWINepCeoqlvfCr2GJ2vjheYVcFtESuxFM/2BxXPJ4dhpZTkDKvtcKMNwv
-	CU5ppBAO/ex+CyDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Jassi Brar <jassisinghbrar@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Harini T <harini.t@amd.com>,
-	Tanmay Shah <tanmay.shah@amd.com>,
-	Saeed Nowshadi <saeed.nowshadi@amd.com>
-Subject: [Q] zynqmp-ipi-mailbox and SGI interrupts
-Message-ID: <20261015083937.8SDbdK8P@linutronix.de>
+	id 1xHH1m-0000000HAsC-1oJF;
+	Thu, 15 Oct 2026 08:41:31 +0000
+X-UUID: 34bfe3fcc87411f1acbe4559397dec65-20261015
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=1TG6EaszwqcVuJqwSi/vXz+tyLYa/MdcQh36mn2UMKc=;
+	b=H4Q1odMDUk2qt2xD9nhbmqkfcVfTZLq8ldMvRk4ES8cVVZ+rOk/uX7LTrXvF3qac/EnFzIqhtu7Y8VoWRr4qjqCYKcCdz5WGZdHWfdOiF3xlOcxaIZBsD65xE3R5KuBRXrJuUlGwiURXJGi1zcWYkKRkP7/vpoPY7FZXlFuTeUI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:af1974a2-557b-4f3c-a770-875b17c6b3ae,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:291e20b,CLOUDID:2d4b6095-3103-4fdb-b79c-08de0e281a5d,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
+	0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 34bfe3fcc87411f1acbe4559397dec65-20261015
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <zhengping.zhang@airoha.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 468354417; Thu, 15 Oct 2026 01:41:25 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 15 Oct 2026 16:41:22 +0800
+Received: from mediatek.com (172.18.153.129) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Thu, 15 Oct 2026 16:41:22 +0800
+Date: Thu, 15 Oct 2026 16:41:22 +0800
+From: Zhengping Zhang <zhengping.zhang@airoha.com>
+To: Daniel Pawlik <pawlik.dan@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kuba@kernel.org>,
+	<lorenzo@kernel.org>, <nbd@nbd.name>, <sean.wang@mediatek.com>,
+	<Mark-MC.Lee@mediatek.com>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <andrew+netdev@lunn.ch>, <yangshiji66@outlook.com>,
+	<upstream@airoha.com>, <szymon.datko@gmail.com>, <lei.dong@airoha.com>,
+	<ansuelsmth@gmail.com>
+Subject: Re: [PATCH v10 2/2] net: airoha: npu: use cacheline-sized buffers
+ for mailbox DMA
+Message-ID: <atCRsquzA1UxSpCc@mediatek.com>
+References: <20260820085941.380401-1-pawlik.dan@gmail.com>
+ <20260820085941.380401-2-pawlik.dan@gmail.com>
+ <CALC2AphzQ=dHOk2Yjtaw=i2euCLxo+Lk0kO50ixtYydO0yzBHA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
+In-Reply-To: <CALC2AphzQ=dHOk2Yjtaw=i2euCLxo+Lk0kO50ixtYydO0yzBHA@mail.gmail.com>
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_013941_871136_B2D22A2F 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_014130_487168_9F196D6F 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,22 +92,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Daniel,
 
-The ZynqMP IPI Mailbox driver supports two bindings of which
-xlnx,versal-ipi-mailbox is not present in any kernel dts file and
-xlnx,zynqmp-ipi-mailbox is used in two .dtsi files.
-For the per-CPU interrupts the irq-type should be 2 (which would
-correspond with GIC_ESPI in the dts, no?) which I can't find.
-Before the IPI_IRQ_TYPE_SGI it used to check for the value less than 16
-I also can't find this in the two available dts file.
-I did browse over the "AMD Versal Virt" but it also looks not present.
+We investigated the NPU V2 address handling and confirmed that the NPU
+exposes only a 1 GiB DRAM address window.
 
-My question is whether this is used or just a development step that
-never got somewhere. 
-My guess is that the device tree here is preconfigured from the boot
-firmware.
-So is this SGI-IPI a thing or not?
+The relevant vendor definitions are:
 
-Sebastian
+    #define DRAM_RANGE_1GB 0xbfffffff
+
+    #define DRAM_CAC_TO_UNC(x) \
+            ((x & 0x3fffffff) | 0x40000000)
+
+    #define DRAM_UNC_TO_CAC(x) \
+            ((x & 0x3fffffff) | 0x80000000)
+
+Therefore, the supported host cached DRAM range is:
+
+    0x80000000 - 0xbfffffff
+
+The corresponding NPU uncached address range is:
+
+    0x40000000 - 0x7fffffff
+
+As a result, the upper 1 GiB of a 2 GiB DRAM configuration aliases the
+lower 1 GiB from the NPU's point of view.
+
+The WLAN NPU firmware also checks the address range for packet buffers
+and TX ring addresses:
+
+    if (addr > DRAM_RANGE_1GB)
+            printf("out of available range");
+
+NPU debug output is disabled by default. To enable it for debugging,
+change the value written to REG_CR_NPU_MIB(21) from 1 to 0 in
+airoha_npu.c:
+
+-    regmap_write(npu->regmap, REG_CR_NPU_MIB(21), 1);
++    regmap_write(npu->regmap, REG_CR_NPU_MIB(21), 0);
+
+The recommended platform integration is to reserve all NPU-owned WLAN
+buffers inside the supported DRAM window. For example:
+
+    reserved-memory {
+            #address-cells = <2>;
+            #size-cells = <2>;
+            ranges;
+
+            npu_pkt: npu-pkt@8a000000 {
+                    no-map;
+                    reg = <0x0 0x8a000000 0x0 0x2c00000>;
+            };
+
+            npu_txpkt: npu-txpkt@8cc00000 {
+                    no-map;
+                    reg = <0x0 0x8cc00000 0x0 0x4000000>;
+            };
+
+            npu_txbufid: npu-txbufid@90c00000 {
+                    no-map;
+                    reg = <0x0 0x90c00000 0x0 0x6800>;
+            };
+
+            npu_ba: npu-ba@90c06800 {
+                    no-map;
+                    reg = <0x0 0x90c06800 0x0 0x200000>;
+            };
+    };
+
+The regions should then be referenced by name from the NPU device node:
+
+    npu {
+            memory-region = <&npu_pkt>,
+                            <&npu_txpkt>,
+                            <&npu_txbufid>,
+                            <&npu_ba>;
+            memory-region-names = "pkt", "tx-pkt", "tx-bufid", "ba";
+    };
+
+This reserved-memory configuration covers the NPU WLAN packet buffers,
+TX packet buffers, buffer IDs, and BA memory.
+
+It does not automatically constrain the temporary mailbox buffers
+allocated with kzalloc(). If the same NPU address-window restriction
+also applies to mailbox DMA, those buffers must be allocated from a
+low-address DMA pool or otherwise guaranteed to map to an address
+within the supported window.
+
+Best regards,
+Zhengping
+
+Wed, Sep 30, 2026 at 06:19:31PM +0200, Daniel Pawlik wrote:
+> Hi Kuba, Lorenzo, Airoha team,
+> 
+> I found a concrete lead for the unresolved cacheline patch in the vendor
+> firmware. The installed en7581_MT7996_npu_rv32.bin matches the blob in
+> linux-firmware commit 1043c0303910 by SHA-256.
+> 
+> At file offset 0x3a9c, the Wi-Fi mailbox handler converts the supplied
+> buffer address before reading the command:
+> 
+>   lui   a5,0x40000
+>   addi  a4,a5,-1
+>   and   a4,a4,a0
+>   or    a4,a4,a5
+>   lw    a1,0(a4)
+> 
+> This implements (address & 0x3fffffff) | 0x40000000. Both 0xbf6cf000
+> and 0xff6cf000 produce 0x7f6cf000. W1700K has 2 GiB of RAM starting
+> at 0x80000000; its current SWIOTLB pool starts at 0xff6cf000.
+> 
+> The handler also returns 1 (success) for an unsupported operation type
+> at file offset 0x3b4a. My earlier claim that mailbox success proved a
+> correct command read was therefore unjustified. The traces do not
+> establish a read-succeeds/write-fails limitation.
+> 
+> This suggests an address-window problem, but the NPU-side bus mapping
+> still needs confirmation. The cacheline patch avoids the observed bounce
+> path without constraining the address of future direct allocations.
+> 
+> Can Airoha confirm which host DRAM range this alias covers, and whether
+> mailbox buffers above 0xbfffffff are supported?
+> 
+> I have prepared, but not yet run, a test retaining all 2 GiB of RAM and
+> the 12-byte DMA_BIDIRECTIONAL mapping, with the SWIOTLB boot pool below
+> 0xc0000000. A successful version response through a verified bounced
+> mapping there would help distinguish the address limitation from a
+> SWIOTLB copy/cache issue.
+> 
+> Thanks,
+> Dan
+> 
 
