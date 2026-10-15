@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82026CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9682CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CeSzBwDNP1bLe2YHsb8NqKTNfjCsvy23Eg0OzCMcErs=; b=sIVIEzoQG1GqsUqdihin6ZzbRG
-	RXxSDBOGavk1uzmmtFmbrss7v6S+1fzJWYn0tHhLamqV9VrgF2PBPFP1GGwA9mdAWpHkP5rcgMafS
-	9qVQQsthBOik567ZZu+V2DFlfyVxJachF9MXj7bmXtiv1XkFyvE3PPRCOPXsqnubqMkvyVLruCuEA
-	ZoEP3Gi0SAnMDhqfzDOvLi8hO03B4ElKBegqOMGyTUrtXhdG88NJO3NSvmWbTkK/nO2k7zKhFWzGJ
-	vNhgGN+d4kQKvV7IlrJ9xe6gIIvc70myXlHiHri5jQPta7k7BbLR3M5KACE4B0WL7dMj5ELOv00pG
-	cBGCr4qQ==;
+	bh=UPrN/no3DffduP2sEm94iiYCvuk5y36LiSEgg/HYSWY=; b=MselGXvjOj1bzhzLQbBgUj1yoT
+	65JB/SOgzNE1hNA3VD4nIxCtv7u5dmovXs34/0pf/O/aLw3tjqMl9AYhNu1on2d3wia+vkU8vzllR
+	yGazgbxBfgiq82vHg4oVUs1gIS1tuzolvn9XCmG0qduBqV7SnnXUE50X0sjz9sqj4tJa39XHw4Hyj
+	JR7hWsXaaw0Jj22NcBYAXruEJhVuhFqZGtn6ppdWurXEU46QpLP+AH8Xg+JFXehJwbk71rxF6oEkB
+	UYqanP7qaxxeFpmnk4jyLLaIL0olwxltf2XBGF34+Mp5AtS9fvwPtOf1TBGW2yL2zK65GgikgFTN8
+	5x3ADL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMIU-00000000Lbw-3teT;
-	Thu, 15 Oct 2026 14:19:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMIS-00000000Lbh-3xzn;
-	Thu, 15 Oct 2026 14:19:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52DC46022C;
-	Thu, 15 Oct 2026 14:19:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821511F000C5;
-	Thu, 15 Oct 2026 14:19:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792073944;
-	bh=CeSzBwDNP1bLe2YHsb8NqKTNfjCsvy23Eg0OzCMcErs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ofmvxIX5sFpS2nZjQ3emTsjKbeA08Ybf3LomWAMA3CsTaar+cmLX3XueVahpMtYcH
-	 WMCw/oQF7fS1Sb0U4FyUO+HAhNdMddq8U8mAjH0avlpGkBb56o+0JoxcDwfPw9Hi8w
-	 /z9I2IrSb9hYzftzMkXcGbx9rqa+RV2p5NQDVFs+KbO5xA/KcNOVIUwVkGrs1nl+qb
-	 nwQl79/n9lPdozVJSpDHav3zP9i+CydbsJDi43lhAwIxWVS5kQy/j91BdLtkG67epg
-	 35MlKf91qFXiOfPqcUYVfkSGcK3lcwdmORnho8mZtZtcZzbSmrDd5/HZ7RhIRexmwd
-	 qREot1TN3cJHQ==
-Date: Thu, 15 Oct 2026 16:19:01 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Thomas Fourier <fourier.thomas@gmail.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sujuan Chen <sujuan.chen@mediatek.com>,
-	"open list:MEDIATEK ETHERNET DRIVER" <netdev@vger.kernel.org>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH net-next] net: ethernet: mtk_wed: Fix dma_unmap_single()
- size
-Message-ID: <atDg1UFw9CJpvsxF@lore-desk>
-References: <20261015140110.41988-2-fourier.thomas@gmail.com>
+	id 1xHMIx-00000000LiS-0U7P;
+	Thu, 15 Oct 2026 14:19:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMIu-00000000Lhf-1XfY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 14:19:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABE2F1477;
+	Thu, 15 Oct 2026 07:19:25 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C8BF3F871;
+	Thu, 15 Oct 2026 07:19:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792073968; bh=toY2d+nKnmDfOpFRB7kB9FTOmrbPE2iy1wkw0IypruA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y3vi/qaGwlAMS6V2VrtigNi/Q0VFTsR5SvFAE1qOc5LJDFUg0KwzQ5o4ZY7d7aoXX
+	 c6oCRN7lw7xuowVJbfbIVt4snSN2EfAzZVhhsM1O1xgdggk2ZbjoUtMYtaebVcBZFd
+	 PVaIFnaZCRoisRwYZpfOTVYNcRuljdGFUMaL+nB4=
+Date: Thu, 15 Oct 2026 15:19:26 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Johnny.Fan" <johnny.fan@cixtech.com>, will@kernel.org,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	james.clark@linaro.org, jeremy.linton@arm.com,
+	cix-kernel-upstream@cixtech.com, bob.zhang@cixtech.com,
+	jie.fu@cixtech.com, Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH] perf: arm_spe: Support heterogeneous ACPI systems
+Message-ID: <20261015141926.GC26205@e132581.arm.com>
+References: <20261015062908.3565761-1-johnny.fan@cixtech.com>
+ <86mrsf1bnv.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bf2LvNtCjkzeEFGh"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261015140110.41988-2-fourier.thomas@gmail.com>
+In-Reply-To: <86mrsf1bnv.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_071932_598764_6222A01E 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---bf2LvNtCjkzeEFGh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Oct 15, 2026 at 11:49:24AM +0100, Marc Zyngier wrote:
 
-> In mtk_wed_wo_queue_refill(), the entry->buf is DMA mapped with length
-> q->buf_size which saved in entry->len. However, in mtk_wed_wo_dequeue(),
-> the same buffer is DMA unmapped with length buf_len which is set to
-> SKB_WITH_OVERHEAD(q->buf_size).
->=20
-> Change the size to q->buf_size.
->=20
-> This was discovered with static analysis and was only compile-tested.
->=20
-> Fixes: 799684448e3e ("net: ethernet: mtk_wed: introduce wed wo support")
-> Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-> ---
->  drivers/net/ethernet/mediatek/mtk_wed_wo.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed_wo.c b/drivers/net/eth=
-ernet/mediatek/mtk_wed_wo.c
-> index 7063c78bd35f..4f720ec53e20 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed_wo.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed_wo.c
-> @@ -99,7 +99,6 @@ static void *
->  mtk_wed_wo_dequeue(struct mtk_wed_wo *wo, struct mtk_wed_wo_queue *q, u3=
-2 *len,
->  		   bool flush)
->  {
-> -	int buf_len =3D SKB_WITH_OVERHEAD(q->buf_size);
->  	int index =3D (q->tail + 1) % q->n_desc;
->  	struct mtk_wed_wo_queue_entry *entry;
->  	struct mtk_wed_wo_queue_desc *desc;
-> @@ -123,7 +122,7 @@ mtk_wed_wo_dequeue(struct mtk_wed_wo *wo, struct mtk_=
-wed_wo_queue *q, u32 *len,
->  		*len =3D FIELD_GET(MTK_WED_WO_CTL_SD_LEN0,
->  				 le32_to_cpu(READ_ONCE(desc->ctrl)));
->  	if (buf)
-> -		dma_unmap_single(wo->hw->dev, entry->addr, buf_len,
-> +		dma_unmap_single(wo->hw->dev, entry->addr, q->buf_size,
+[...]
 
-I guess you can use entry->len here to align with the tx side. Anyway:
+> > The CPUs without SPE are trimmed from the PMU supported CPUs by
+> > probing PMSVer on each CPU, both at probe time (for online CPUs) and
+> > from the hotplug callback (for CPUs that were offline at probe), as
+> > ACPI conveys no affinity information and the PPI otherwise defaults
+> > to all possible CPUs.
+> 
+> This is a bit odd: at the beginning, you are stating that the SPE
+> interrupt being 0 is an indication of SPE not being supported. Then
+> you check for PMSVer for the same properly. This seems pretty wrong.
+> 
+> It should be possible to build the mask of SPE-enabled CPUs without
+> IPI-ing the other CPUs, and only rely on the firmware table.
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Agreed.
 
->  				 DMA_FROM_DEVICE);
->  	entry->buf =3D NULL;
-> =20
-> --=20
-> 2.53.0
->=20
+The SPE driver probes its capabilities on one CPU selected by
+smp_call_function_any(), then performs local setup on every CPU in
+supported_cpus. It therefore relies on that mask being accurate;
+including a CPU without SPE could lead to accesses to unimplemented
+SPE system registers.
 
---bf2LvNtCjkzeEFGh
-Content-Type: application/pgp-signature; name=signature.asc
+> > @@ -97,6 +100,20 @@ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+> >  			return gsi ? -ENXIO : 0;
+> >  
+> >  		this_gsi = parse_gsi(gicc);
+> > +
+> > +		if (optional) {
+> > +			if (!this_gsi)
+> > +				continue;
+> > +
+> > +			if (gsi && gsi != this_gsi) {
+> > +				pr_warn("ACPI: %s: CPU%d: inconsistent interrupt %u/%u\n",
+> > +					pdev->name, cpu, gsi, this_gsi);
+> > +				return -ENXIO;
+> > +			}
+> > +			gsi = this_gsi;
+> > +			continue;
+> > +		}
+> > +
+> 
+> This "optional" parameter feels very wrong. We now have an
+> infrastructure to get a set of affinities for an interrupt (see
+> 5324fe21ba9b7 and following patches). What this needs is ACPI to be
+> plumbed into this.
+> 
+> Unfortunately, ACPI is awkward and very badly abstracted in this area,
+> but that doesn't mean we should make the driver code more bizarre.
+> 
+> Treating SPE and TRBE differently is just as odd, and there is no
+> reason to do other than suiting your particular platform.
 
------BEGIN PGP SIGNATURE-----
+Yes, SPE and TRBE should be consistent.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCatDg1QAKCRA6cBh0uS2t
-rAHDAQCBk2/JP1GlWzVrZmGmNrnZUmPT6fHOUTTZRcN+7YPm+gD9GGJ0a5/HxB8d
-rhhirUOm4xPSbbOd9R0UefDOqX6KUwQ=
-=PNQo
------END PGP SIGNATURE-----
+There is also a grouping question for SPE and TRBE. If all participating
+CPUs implement the feature, but have different capabilities, should ACPI
+registration create separate platform devices for the compatible CPU
+groups? DT can describe separate CPU subsets using PPI partitions [1].
 
---bf2LvNtCjkzeEFGh--
+Thanks,
+Leo
+
+[1] https://github.com/torvalds/linux/blob/0fcb05b72344f40806cbe810de8872f1698bf053/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml#L139
+[2] https://git.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a.git/+/refs/heads/master/fdts/tc-base.dtsi#328
 
