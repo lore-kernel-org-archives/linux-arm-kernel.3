@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AEBCC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD95CCC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEmGhCZyoSI8PTthqmAqZcOC8ihliMwqzrmhdRRjlRE=; b=ImwhP//V8V3QC4lhJ/14JDGEtS
-	yukGV9oI5dZknPSTt9Tlmz+TQPDWjEiw6I7BiVR3p+KP9s0bpeW/W7v8kt9A2RTDYeWEVoN566CXE
-	25qIVryimKRWacVi7otk6T2gU+W//8h0z81TmhsJeCARuXoUog0RE4xLT9yDEAQmhk9bXnj5t+I3y
-	O0Lp2lYTze4x7Ndc1fpA7FW4O+gDLt61e0INynLpBc+jqH9iPm+rr7omuf7gqcXqa2ETMMN7c1Et8
-	Sglzk8WyuTOaUsDCjSa05U9YEKnpQ4A2qMWCbpfaPAMDvXNblb93lrsYd2MhQgFmcF1bwsSCy7x0B
-	pLH9FZCw==;
+	bh=RvZXZkvUSAD15cNaKk6sP3PS0iiPsYhfJc7tNMHipvE=; b=rLwALIYYyi8CxYd9JoMQlkcp7m
+	LNnmE6ayQJ8T6anK0ILtatxeYtz3LUEe5vvhvVtPzt07CA/h661oOyqK6byklEqFfP0LH94lXl89h
+	t5YCIQwh8NthSt/XBKgJtLlL7RFeDoDvJZfKLXB2HhCV+PotxsSeLlooogL9y7Y6dPKB40h27ugU6
+	WaIFfo5Uo7iylfdPoD+Tv9sgJT3CgY93eTE6gocHIEbs7kMRb1JtY6MFOpAGusKfRiZDax5kZVjcs
+	X7GnFYf8rv7nOarKsFBDjGrX900GQsV9FqtHxViBJBzA5GRvqdI4oNADvvsGNGUCAD8GWwJsamtHp
+	dWJFLiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMPP-00000000MAA-2Tnm;
-	Thu, 15 Oct 2026 14:26:15 +0000
+	id 1xHMPi-00000000MOq-2ych;
+	Thu, 15 Oct 2026 14:26:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMPe-00000000MJh-0agQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 Oct 2026 14:26:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=RvZXZkvUSAD15cNaKk6sP3PS0iiPsYhfJc7tNMHipvE=; b=HAdu14Mk+ZzIh7OMRAsS5yjY5c
+	nZpAEz08nouvoVJw9OA8OG14yjl5dCIM+71t5jcviWMboQ/XZ2mC9hwNZrNZc61p1BP2u+C4OOFH/
+	+VBPuKORARis/LCIMDYiug/jJTx+8u2Iu5wHk5o45QNvfkA1hpC3+afRhOhOSXrtgMhTufgbDwtwd
+	puFzYNvLDlf5LDzSrisf/Yww7G52apZcWPD0cl+HFsp6NTi7E5X0dC0gBtd7aTRsvmDomGGQAcTdD
+	wlyQkUpnV6LEmOgoK4A7DeTHmtM15+6lm9rLqUNu1g4BupLwXoIKI8yHkgSS+NlTfKUgpaeFIAxe/
+	mRqdwHEw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMPM-00000000M8p-0Xoi
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHMPb-00000000TBX-0DMH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:26:13 +0000
+	Thu, 15 Oct 2026 14:26:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D13AD1576;
-	Thu, 15 Oct 2026 07:26:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DAC91477;
+	Thu, 15 Oct 2026 07:26:21 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DBEA3F871;
-	Thu, 15 Oct 2026 07:26:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC9823F871;
+	Thu, 15 Oct 2026 07:26:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792074371; bh=+sWSx7q4/Kw4lwtWKeviDU8sZZvwTr4UZ7T0bQPZcT4=;
+	t=1792074384; bh=05KhQBlLMMcBUNB/YK9iSgcp4Cp+gQe+85V4m76ZWnU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DY769hD2aZ1vtvDesRp5NMChqCCV5ltsWck8QekzDyKNA0DuRSEd6vBFWyH1QeS54
-	 D3A2S6P99KAJdEs0fWxHm2zMMUJIEv+q7Pf3PUgOMmlsGGz9aeoE2CCx8yJKLAp2mv
-	 j74pglqhMvx/4mY3LDtwHKNK6hkAwZLwE1cdx1QE=
+	b=pteDuhxpEAoGDtrwUFa2OEkQeIaXnJ9FyDsm6fKmfWOVkF2fRFHoaJSK1yxsaHekj
+	 SaaJyxn2NMswr79AdcItzxqATQM5+ERBvWHCWOqHbOmy8F31+OPKGUAVWkaZ2Jp5Dj
+	 zyPZHXCVcNUARZU7C8dkSAzPIUeKpMN0Jj7VPto8=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Arnd Bergmann <arnd@arndb.de>,
@@ -63,17 +78,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 02/15] misc/arm-cla: Add launch operation helpers
-Date: Thu, 15 Oct 2026 15:25:36 +0100
-Message-ID: <20261015142552.4128028-3-ryan.roberts@arm.com>
+Subject: [RFC PATCH v2 06/15] misc/arm-cla: Accelerator context save and restore
+Date: Thu, 15 Oct 2026 15:25:40 +0100
+Message-ID: <20261015142552.4128028-7-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
 References: <20261015142552.4128028-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_072612_282980_31A52C09 
-X-CRM114-Status: GOOD (  36.64  )
+X-CRM114-CacheID: sfid-20261015_152627_482969_03B2341E 
+X-CRM114-Status: GOOD (  36.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,408 +105,525 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jpb@kernel.org>
 
-CLA commands are issued by writing optional payload registers,
-programming the LAUNCH register and polling LRESP until the hardware
-accepts or rejects the operation.
+Add helpers to save and restore CLA context for later domain switching.
+The saved state includes DATA registers, LRESP, per-accelerator SRSTATE
+and any implementation-defined internal accelerator state exposed
+through the IAS register window.
 
-Add a common launch helper that performs this sequence on the CLA's
-local CPU, waits for LRESP completion and translates launch response
-codes into Linux errors.
+Use ENTERSR to stop each accelerator and collect SRSTATE, then read the
+advertised internal register state with REGREAD. Restore by entering SR
+mode from a reset, idle accelerator, writing the saved internal state
+with REGWRITE and completing the transition with EXITSR.
 
-Build accelerator reset and register read and write support on top of
-it. The register read and write helpers split larger accesses into
-multiple launch operations when an access crosses an eight-register
-window.
+Reject accelerators that require SAVE/RESTORE operations during setup,
+since that path needs a DMA buffer for state storage. Allocate
+per-device save areas for all CLAs in a domain, sized from the combined
+IASSIZE discovered at setup time.
 
 Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
 ---
- drivers/misc/arm-cla/Makefile   |   6 +
- drivers/misc/arm-cla/arm-cla.h  |  24 +++
- drivers/misc/arm-cla/cla-init.c |  12 ++
- drivers/misc/arm-cla/cla-ops.c  | 293 ++++++++++++++++++++++++++++++++
- 4 files changed, 335 insertions(+)
- create mode 100644 drivers/misc/arm-cla/cla-init.c
- create mode 100644 drivers/misc/arm-cla/cla-ops.c
+ drivers/misc/arm-cla/Makefile   |   1 +
+ drivers/misc/arm-cla/arm-cla.h  |  32 ++++
+ drivers/misc/arm-cla/cla-init.c |  35 ++++
+ drivers/misc/arm-cla/cla-ops.c  |  49 ++++++
+ drivers/misc/arm-cla/cla-regs.c | 295 ++++++++++++++++++++++++++++++++
+ 5 files changed, 412 insertions(+)
+ create mode 100644 drivers/misc/arm-cla/cla-regs.c
 
 diff --git a/drivers/misc/arm-cla/Makefile b/drivers/misc/arm-cla/Makefile
-index a4e40e534e6a..3fa8567c8b3e 100644
+index 84ed1a054a21..c1b14155454d 100644
 --- a/drivers/misc/arm-cla/Makefile
 +++ b/drivers/misc/arm-cla/Makefile
-@@ -1 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+
-+arm-cla-y := \
-+	cla-init.o \
-+	cla-ops.o
-+
-+obj-$(CONFIG_ARM_CLA) += arm-cla.o
+@@ -3,6 +3,7 @@
+ arm-cla-y := \
+ 	cla-init.o \
+ 	cla-ops.o \
++	cla-regs.o \
+ 	cla-topology.o
+ 
+ obj-$(CONFIG_ARM_CLA) += arm-cla.o
 diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
-index 1e8ffca28bc6..4884e4804ab3 100644
+index 6890c813a5c3..6d72d57e5422 100644
 --- a/drivers/misc/arm-cla/arm-cla.h
 +++ b/drivers/misc/arm-cla/arm-cla.h
-@@ -7,6 +7,9 @@
- #ifndef _ARM_CLA_H_
- #define _ARM_CLA_H_
- 
-+#include <linux/device.h>
-+#include <linux/io.h>
-+
- #include "arm-cla-regs.h"
- 
- /* Number of accelerators per CLA */
-@@ -19,10 +22,12 @@
+@@ -29,6 +29,7 @@ struct cla_domain;
+  * @pfn:		Page of registers assigned to user.
+  * @accelerators:	Available accelerators.
+  * @pg_offset:		Mmap offset of this device.
++ * @iassizes:		Combined regstate of all accels in bytes.
+  * @domain:		The domain this CLA belongs to.
   *
-  * Immutable state:
-  * @cpu:		The CPU this CLA is attached to.
-+ * @regs:		Registers accessed by the kernel.
-  * @dev:		The platform device.
-  */
- struct cla_dev {
- 	unsigned int cpu;
-+	void __iomem *regs;
- 	struct device *dev;
+  * Mutable, protected by CPU hotplug locking:
+@@ -42,6 +43,7 @@ struct cla_dev {
+ 	unsigned long pfn;
+ 	u8 accelerators;
+ 	unsigned long pg_offset;
++	unsigned long iassizes;
+ 	struct cla_domain *domain;
+ 
+ 	bool discovered;
+@@ -64,6 +66,27 @@ struct cla_domain {
+ 	struct cla_dev **devs;
  };
  
-@@ -33,4 +38,23 @@ struct cla_dev {
- #define cla_err(_dev, fmt, ...) \
- 	dev_err((_dev)->dev, "[%u] " fmt, (_dev)->cpu, ##__VA_ARGS__)
++/**
++ * struct cla_regs_pl0 - Saved CLA register state (PL0)
++ *
++ * @data:		DATA registers.
++ * @lresp:		LRESP register.
++ * @accel_valid:	Accelerator state has been saved once.
++ * @srstate:		Save/restore state for each accelerator.
++ * @regstate:		Internal accelerator state.
++ */
++struct cla_regs_pl0 {
++	u64 data[CLA_NUM_DATA_REGS];
++	u64 lresp;
++	bool accel_valid;
++	u64 srstate[CLA_NUM_ACC][CLA_SRSTATE_LEN];
++	u64 regstate[];
++};
++
++struct cla_ctx {
++	void **regs;
++};
++
+ extern struct xarray cla_domains;
+ extern unsigned int cla_nr_domains;
+ extern struct cla_dev **cla_lut_cpu;
+@@ -116,5 +139,14 @@ int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
+ 		   size_t nregs, u64 *regs);
+ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 		    unsigned int regidx, size_t nregs, u64 *regs);
++int cla_op_entersr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
++int cla_op_exitsr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
++
++int cla_regs_install(struct cla_dev *dev, struct cla_ctx *ctx,
++		     unsigned int ctx_id);
++int cla_regs_uninstall(struct cla_dev *dev, struct cla_ctx *ctx,
++		       unsigned int ctx_id);
++int cla_ctx_alloc_regs(struct cla_domain *domain, struct cla_ctx *ctx);
++void cla_ctx_free_regs(struct cla_domain *domain, struct cla_ctx *ctx);
  
-+static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
-+{
-+	/* MMIO reads are all relaxed, since the driver doesn't use DMA. */
-+	return readq_relaxed(dev->regs + reg);
-+}
-+
-+static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64 val)
-+{
-+	/* MMIO writes are all relaxed, since the driver doesn't use DMA. */
-+	return writeq_relaxed(val, dev->regs + reg);
-+}
-+
-+int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp);
-+int cla_op_reset(struct cla_dev *dev, unsigned int accid);
-+int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
-+		   size_t nregs, u64 *regs);
-+int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
-+		    unsigned int regidx, size_t nregs, u64 *regs);
-+
  #endif /* _ARM_CLA_H_ */
 diff --git a/drivers/misc/arm-cla/cla-init.c b/drivers/misc/arm-cla/cla-init.c
-new file mode 100644
-index 000000000000..3d1f47592842
---- /dev/null
+index 2974bf71033c..a4d2ffaa3136 100644
+--- a/drivers/misc/arm-cla/cla-init.c
 +++ b/drivers/misc/arm-cla/cla-init.c
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Arm CLA driver - probing and initialization
-+ *
-+ * Copyright 2026 Arm Limited.
-+ */
-+
-+#include <linux/module.h>
-+
-+MODULE_DESCRIPTION("Arm Core Local Accelerator");
-+MODULE_AUTHOR("Arm Limited");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
-new file mode 100644
-index 000000000000..46026304a057
---- /dev/null
-+++ b/drivers/misc/arm-cla/cla-ops.c
-@@ -0,0 +1,293 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Arm CLA driver - Launch operations
-+ *
-+ * Copyright 2026 Arm Limited.
-+ */
-+
-+#include <linux/iopoll.h>
-+
-+#include "arm-cla.h"
-+
-+/* Time to wait between two LRESP reads */
-+#define CLA_LRESP_DELAY_US	1
-+
-+/*
-+ * Time to wait for LRESP_PENDING to clear. Commands like REGREAD should
-+ * complete in a few cycles, but ENTERSR and RESET may need to clean up
-+ * some very large states depending on the work interrupted, and may need
-+ * 1us or more. Some software models need a lot more time.
-+ */
-+#define CLA_LRESP_TIMEOUT_US	1000000 /* 1s! */
-+
-+/* Time to wait between two STATUS reads when polling for DMB */
-+#define CLA_STATUS_DMB_DELAY_US	10
-+
-+/* Time to wait for STATUS_DMB to be set after a successful RESET or ENTERSR. */
-+#define CLA_STATUS_DMB_TIMEOUT_US 1000000 /* 1s! */
-+
-+enum cla_launch_data_mode {
-+	CLA_DATA_NONE,
-+	CLA_DATA_IN,
-+	CLA_DATA_OUT,
-+};
-+
-+struct cla_launch {
-+	u8	op;		/* opcode */
-+	u8	ndata_m1;	/* Data size minus 1 */
-+	u8	accid;		/* Accelerator ID */
-+	bool	seq;		/* part of compound cmd */
-+	u32	regidx;		/* Register index */
-+
-+	enum cla_launch_data_mode data_mode;
-+	u64	*data;		/* In/out data */
-+
-+	u8	errcode;	/* Output error code */
-+};
-+
-+/**
-+ * cla_op_launch - Launch operation.
-+ * @dev: CLA device.
-+ * @launch: LAUNCH settings.
-+ *
-+ * 1. Check that no previous operation is pending.
-+ * 2. If data_mode is %CLA_DATA_IN, write DATA registers.
-+ * 3. Launch the operation, and wait for the response.
-+ * 4. If data_mode is %CLA_DATA_OUT, read DATA registers into @launch->data.
-+ *
-+ * Return:
-+ * * %0			- Success.
-+ * * %-EAGAIN		- A previous operation is still pending. Nothing was
-+ *			  written to DATA or LAUNCH.
-+ * * %-ETIMEDOUT	- LAUNCH timed out (possibly no CLA at this address).
-+ *			  Unless LRESP_PENDING eventually clears, this is
-+ *			  unrecoverable.
-+ * * %-ENODEV		- Accelerator not available.
-+ * * %-EBUSY		- Accelerator is busy.
-+ * * %-EIO		- LAUNCH error. @launch->errcode contains the LRESP
-+ *			  error code.
-+ */
-+static int cla_op_launch(struct cla_dev *dev, struct cla_launch *launch)
-+{
-+	int i;
+@@ -7,8 +7,10 @@
+ 
+ #include <linux/cpuhotplug.h>
+ #include <linux/cpuhplock.h>
++#include <linux/math.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/overflow.h>
+ #include <linux/platform_device.h>
+ #include <linux/smp.h>
+ 
+@@ -82,6 +84,38 @@ static int cla_reset_pmu(struct cla_dev *dev, unsigned int accid)
+  */
+ static int cla_dev_discover_accel(struct cla_dev *dev, unsigned int accid)
+ {
++	unsigned long iassizes;
++	u64 iassize;
++	u64 acap;
 +	int ret;
-+	u64 lresp;
-+
-+	if (WARN_ON(smp_processor_id() != dev->cpu))
-+		return -EINVAL;
-+
-+	lresp = cla_reg_read(dev, CLA_REG_LRESP);
-+	if (FIELD_GET(CLA_LRESP_PENDING, lresp))
-+		return -EAGAIN;
-+
-+	if (launch->data_mode == CLA_DATA_IN)
-+		for (i = 0; i < launch->ndata_m1 + 1; i++)
-+			cla_reg_write(dev, CLA_REG_DATA(i), launch->data[i]);
 +
 +	/*
-+	 * For operations that return a response, LAUNCH sets LRESP_PENDING or
-+	 * provides an immediate response. So a previously completed error
-+	 * response does not block a new LAUNCH and does not need to be
-+	 * explicitly cleared.
++	 * This driver supports context switching with REGREAD and REGWRITE.
++	 * SROP (SAVE and RESTORE ops) requires DMA-backed state storage, which
++	 * is not implemented here.
 +	 */
-+	cla_reg_write(dev, CLA_REG_LAUNCH,
-+		      FIELD_PREP(CLA_LAUNCH_OP, launch->op) |
-+		      FIELD_PREP(CLA_LAUNCH_NDATA_M1, launch->ndata_m1) |
-+		      FIELD_PREP(CLA_LAUNCH_ACCID, launch->accid) |
-+		      FIELD_PREP(CLA_LAUNCH_SEQ, launch->seq) |
-+		      FIELD_PREP(CLA_LAUNCH_REGIDX, launch->regidx));
-+
-+	ret = cla_op_wait_lresp(dev, &lresp);
-+	if (ret) {
-+		cla_err(dev, "launch failed with %d\n", ret);
++	ret = cla_op_regread(dev, accid, CLA_REG_ACAP, 1, &acap);
++	if (ret)
 +		return ret;
++	if (FIELD_GET(CLA_ACAP_SROP, acap)) {
++		cla_err(dev, "[%u] SROP not supported\n", accid);
++		return 1;
 +	}
 +
-+	switch (FIELD_GET(CLA_LRESP_CODE, lresp)) {
-+	case CLA_LRESP_OK:
-+		break;
-+	case CLA_LRESP_UNAVAIL:
-+		return -ENODEV;
-+	case CLA_LRESP_BUSY:
-+		return -EBUSY;
-+	case CLA_LRESP_ERROR:
-+		launch->errcode = FIELD_GET(CLA_LRESP_ERRCODE, lresp);
-+		return -EIO;
++	ret = cla_op_regread(dev, accid, CLA_REG_IASSIZE, 1, &iassize);
++	if (ret)
++		return ret;
++	if (FIELD_GET(CLA_ACAP_REGSTATE, acap)) {
++		/* Reserve whole u64 entries for each accelerator's state. */
++		if (check_add_overflow(iassize, sizeof(u64) - 1, &iassize) ||
++		    check_add_overflow(dev->iassizes, round_down(iassize,
++				       sizeof(u64)), &iassizes)) {
++			cla_err(dev, "[%u] IASSIZE total overflows\n", accid);
++			return -EOVERFLOW;
++		}
++		dev->iassizes = iassizes;
 +	}
 +
-+	if (launch->data_mode == CLA_DATA_OUT)
-+		for (i = 0; i < launch->ndata_m1 + 1; i++)
-+			launch->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
-+
-+	return 0;
-+}
-+
-+/**
-+ * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
-+ * @dev: CLA device.
-+ * @lresp: last LRESP value read.
-+ *
-+ * Return: 0 on success, -ETIMEDOUT in case of timeout.
-+ */
-+int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
-+{
-+	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
-+			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) == 0,
-+			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
-+}
-+
-+/*
-+ * Wait for STATUS_DMB to be 1. Although RESET and ENTERSR both wait for
-+ * accelerators to return to STATUS_IDLE, some writes may still be pending. When
-+ * all accesses reach the PoC, STATUS_DMB is 1.
-+ *
-+ * This is needed for a few reasons:
-+ *
-+ * - Propagation of STATUS_EABORT. Until all writes are flushed and STATUS_DMB
-+ *   is 1, external aborts may still happen. The next context must not see this
-+ *   external abort reported in its status.
-+ *
-+ *   Note that EABORT cannot be injected into the previous context, it is not
-+ *   part of the saved and restored STATUS bits.
-+ *
-+ * - Turning CLA power off.
-+ *
-+ * - Migrating an accelerator owner across CPUs, although the driver does not
-+ *   support it.
-+ *
-+ * Return: -ETIMEDOUT on timeout. On success, return 0 and set *status to the
-+ * last status read.
-+ */
-+static int cla_wait_status_dmb(struct cla_dev *dev, unsigned int accid, u64 *status)
-+{
-+	return poll_timeout_us(*status = cla_reg_read(dev, CLA_REG_STATUS(accid)),
-+			       *status & CLA_STATUS_DMB,
-+			       CLA_STATUS_DMB_DELAY_US,
-+			       CLA_STATUS_DMB_TIMEOUT_US,
-+			       /* sleep_before_read */ false);
-+}
+ 	dev->accelerators |= (1 << accid);
+ 
+ 	return 0;
+@@ -181,6 +215,7 @@ static int cla_dev_setup(unsigned int cpu)
+ 	if (!dev->discovered) {
+ 		/* Discard partial results from an earlier, failed discovery. */
+ 		dev->accelerators = 0;
++		dev->iassizes = 0;
+ 	}
+ 
+ 	/* Clear DATA and LRESP_DATANZ */
+diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
+index 5d053c6aa1f7..bb0bac5c2d35 100644
+--- a/drivers/misc/arm-cla/cla-ops.c
++++ b/drivers/misc/arm-cla/cla-ops.c
+@@ -314,3 +314,52 @@ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGWRITE, CLA_DATA_IN,
+ 				 accid, regidx, nregs, regs);
+ }
 +
 +/**
-+ * cla_op_reset - Launch RESET operation for this accelerator.
++ * cla_op_entersr - launch ENTERSR operation.
 + * @dev: CLA device.
 + * @accid: accelerator ID.
++ * @srstate: 64-byte save/restore state written by CLA. May be NULL if the
++ *           SRSTATE isn't needed.
 + *
-+ * Return: 0 on success, 1 if there is no accelerator with this ID, or an error.
++ * Return: 0 on success, or an error.
 + */
-+int cla_op_reset(struct cla_dev *dev, unsigned int accid)
++int cla_op_entersr(struct cla_dev *dev, unsigned int accid, u64 *srstate)
 +{
 +	int ret;
 +	u64 status;
 +	struct cla_launch launch = {
-+		.op	= CLA_LAUNCH_OP_RESET,
-+		.accid	= accid,
++		.op		= CLA_LAUNCH_OP_ENTERSR,
++		.ndata_m1	= 7,
++		.accid		= accid,
++		.data_mode	= srstate ? CLA_DATA_OUT : CLA_DATA_NONE,
++		.data		= srstate,
 +	};
 +
 +	ret = cla_op_launch(dev, &launch);
-+	if (ret) {
-+		if (ret == -EIO && launch.errcode == CLA_ERRCODE_NOACC)
-+			return 1;
-+		return ret;
-+	}
-+
-+	/* Wait for outstanding writes */
-+	ret = cla_wait_status_dmb(dev, accid, &status);
 +	if (ret)
 +		return ret;
 +
++	return cla_wait_status_dmb(dev, accid, &status);
++}
++
++/**
++ * cla_op_exitsr - launch EXITSR operation.
++ * @dev: CLA device.
++ * @accid: accelerator ID.
++ * @srstate: 64-byte save/restore state written to CLA.
++ *
++ * Return: 0 on success, or an error.
++ */
++int cla_op_exitsr(struct cla_dev *dev, unsigned int accid, u64 *srstate)
++{
++	struct cla_launch launch = {
++		.op		= CLA_LAUNCH_OP_EXITSR,
++		.ndata_m1	= 7,
++		.accid		= accid,
++		.data_mode	= CLA_DATA_IN,
++		.data		= srstate,
++	};
++
++	return cla_op_launch(dev, &launch);
++}
+diff --git a/drivers/misc/arm-cla/cla-regs.c b/drivers/misc/arm-cla/cla-regs.c
+new file mode 100644
+index 000000000000..2452a7601990
+--- /dev/null
++++ b/drivers/misc/arm-cla/cla-regs.c
+@@ -0,0 +1,295 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Arm CLA driver - save/restore accelerator context
++ *
++ * Copyright 2026 Arm Limited.
++ */
++
++#include <linux/io.h>
++#include <linux/overflow.h>
++
++#include "arm-cla.h"
++
++static int cla_regs_save_accel(struct cla_dev *dev, unsigned int accid,
++			       struct cla_regs_pl0 *regs, size_t *regstate_off)
++{
++	int ret;
++	u64 status;
++	size_t regstate_size;
++	u64 *srstate = regs->srstate[accid];
++	size_t nr_regstate = dev->iassizes / sizeof(u64);
++
++	ret = cla_op_entersr(dev, accid, srstate);
++	if (ret) {
++		/*
++		 * Note that we don't expect the accelerator to return an error.
++		 * Implementations that don't support context switch cancel the
++		 * work and write an error in SRSTATE_STATUS, but don't fail
++		 * ENTERSR.
++		 */
++		return ret;
++	}
++
++	status = cla_reg_read(dev, CLA_REG_STATUS(accid));
++	if ((status & CLA_STATUS_STATE_MASK) != CLA_STATUS_STATE_SRMODE) {
++		cla_err(dev, "unexpected SR status 0x%llx\n", status);
++		return -EIO;
++	}
++
 +	/*
-+	 * If STATUS.EABORT is set, a RAS error report is available. Launch a
-+	 * second reset to clear the bit. No need to wait for STATUS.DMB again
-+	 * since all accelerators are idle from the first reset, so no more
-+	 * memory writes could have been generated.
++	 * A device that supports SROP fails device probe. Others should not
++	 * report SROP here, we don't support it.
 +	 */
-+	if (status & CLA_STATUS_EABORT)
-+		return cla_op_launch(dev, &launch);
++	WARN_ON(FIELD_GET(CLA_SRSTATE_0_SROP, srstate[0]));
++
++	regstate_size = FIELD_GET(CLA_SRSTATE_0_REGSTATE, srstate[0]);
++	if (WARN_ON(*regstate_off > nr_regstate ||
++		    regstate_size > nr_regstate - *regstate_off))
++		return -ENOSPC;
++
++	if (regstate_size) {
++		ret = cla_op_regread(dev, accid, CLA_REG_IASn, regstate_size,
++				     regs->regstate + *regstate_off);
++		if (ret) {
++			cla_err(dev, "failed to save regstate: %d\n", ret);
++			return ret;
++		}
++	}
++
++	*regstate_off += regstate_size;
 +
 +	return 0;
 +}
 +
-+/* regidx is unsigned long here to avoid overflow during calculations */
-+static int cla_op_access_reg(struct cla_dev *dev, u8 op,
-+			     enum cla_launch_data_mode data_mode,
-+			     unsigned int accid, unsigned long regidx,
-+			     size_t nregs, u64 *regs)
++/*
++ * Errors are very unlikely, but if they happen the device is left in SRMODE.
++ */
++static int cla_regs_restore_accel(struct cla_dev *dev, unsigned int accid,
++				  struct cla_regs_pl0 *regs,
++				  size_t *regstate_off)
 +{
-+	int ret = -EINVAL;
-+	unsigned long max_regidx;
-+	struct cla_launch launch = {
-+		.op = op,
-+		.accid = accid,
-+		.data_mode = data_mode,
-+	};
++	int ret;
++	u64 status;
++	size_t regstate_size;
++	u64 *srstate = regs->srstate[accid];
++	size_t nr_regstate = dev->iassizes / sizeof(u64);
 +
-+	switch (op) {
-+	case CLA_LAUNCH_OP_REGREAD:
-+	case CLA_LAUNCH_OP_REGWRITE:
-+		max_regidx = 0x100000000;
-+		break;
-+	default:
-+		WARN_ON(1);
-+		return -EINVAL;
++	/*
++	 * The accelerator was reset and isn't in SRMODE. Later we could support
++	 * coming directly from cla_regs_save_accel() in SRMODE, but at the
++	 * moment we always need a RESET.
++	 */
++	status = cla_reg_read(dev, CLA_REG_STATUS(accid));
++	if ((status & CLA_STATUS_STATE_MASK) != CLA_STATUS_STATE_IDLE) {
++		cla_err(dev, "unexpected status 0x%llx\n", status);
++		return -EIO;
 +	}
 +
-+	if (WARN_ON(regidx + nregs > max_regidx))
-+		return -EINVAL;
++	ret = cla_op_entersr(dev, accid, NULL);
++	if (ret)
++		return ret;
 +
-+	/* 1 to 8 registers accessed at a time, within the same 8-reg group */
-+	while (nregs > 0) {
-+		u64 reg_group = ALIGN_DOWN(regidx, 8);
-+		u64 max_reg = min(regidx + nregs, reg_group + 8);
-+		u8 ndata = max_reg - regidx;
++	WARN_ON(FIELD_GET(CLA_SRSTATE_0_SROP, srstate[0]));
 +
-+		launch.ndata_m1 = ndata - 1;
-+		launch.regidx = regidx;
-+		launch.data = regs;
++	regstate_size = FIELD_GET(CLA_SRSTATE_0_REGSTATE, srstate[0]);
++	if (WARN_ON(*regstate_off > nr_regstate ||
++		    regstate_size > nr_regstate - *regstate_off))
++		return -ENOSPC;
 +
-+		ret = cla_op_launch(dev, &launch);
++	if (regstate_size) {
++		ret = cla_op_regwrite(dev, accid, CLA_REG_IASn, regstate_size,
++				      regs->regstate + *regstate_off);
++		if (ret) {
++			cla_err(dev, "failed to restore regstate: %d\n", ret);
++			return ret;
++		}
++	}
++
++	*regstate_off += regstate_size;
++
++	return cla_op_exitsr(dev, accid, srstate);
++}
++
++static int cla_regs_uninstall_pl0(struct cla_dev *dev, struct cla_ctx *ctx,
++				  unsigned int ctx_id)
++{
++	int i;
++	int ret;
++	unsigned int accid;
++	size_t regstate_off = 0;
++	struct cla_regs_pl0 *regs = ctx->regs[ctx_id];
++
++	/*
++	 * When we interrupt the user process in the middle of launching a
++	 * command, we have to wait for LRESP_PENDING to clear before we can
++	 * launch a new command or save the DATA registers.
++	 */
++	ret = cla_op_wait_lresp(dev, &regs->lresp);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < CLA_NUM_DATA_REGS; i++)
++		regs->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
++
++	cla_for_each_accid(dev, accid) {
++		ret = cla_regs_save_accel(dev, accid, regs, &regstate_off);
 +		if (ret)
-+			break;
-+
-+		regidx += ndata;
-+		regs += ndata;
-+		nregs -= ndata;
++			return ret;
 +	}
 +
-+	return ret;
++	regs->accel_valid = true;
++
++	/*
++	 * "If the accelerator is non idle when ENTERSR is launched, then a
++	 * RESET operation is required after the internal accelerator state has
++	 * been saved"
++	 *
++	 * Reset unconditionally to establish a clean state before assigning
++	 * the next context.
++	 */
++	return cla_op_reset_all(dev);
++}
++
++static int cla_regs_install_pl0(struct cla_dev *dev, struct cla_ctx *ctx,
++				unsigned int ctx_id)
++{
++	int i;
++	int ret;
++	unsigned int accid;
++	size_t regstate_off = 0;
++	struct cla_regs_pl0 *regs = ctx->regs[ctx_id];
++
++	cla_for_each_accid(dev, accid) {
++		if (regs->accel_valid) {
++			ret = cla_regs_restore_accel(dev, accid, regs, &regstate_off);
++			if (ret)
++				return ret;
++			/*
++			 * At this point we must not read STATUS because that
++			 * would clear EVENT. Userspace always gets a spurious
++			 * EVENT on restore, because we have no way to
++			 * save/restore EVENT and userspace missing an event
++			 * would be worse than getting a spurious one.
++			 */
++		} else {
++			/*
++			 * If this context has never been scheduled, then we
++			 * just clean the CLA regs. Also clear EVENT by reading
++			 * STATUS, to provide a pristine context.
++			 */
++			cla_reg_read(dev, CLA_REG_STATUS(accid));
++		}
++	}
++
++	for (i = 0; i < CLA_NUM_DATA_REGS; i++)
++		cla_reg_write(dev, CLA_REG_DATA(i), regs->data[i]);
++	cla_reg_write(dev, CLA_REG_LRESP, regs->lresp);
++
++	return 0;
 +}
 +
 +/**
-+ * cla_op_regread - Launch REGREAD operations.
-+ * @dev: CLA device.
-+ * @accid: accelerator ID.
-+ * @regidx: first register index.
-+ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
-+ *         REGREAD operations).
-+ * @regs: array of length @nregs.
++ * cla_regs_install - Install and/or restore CLA context
++ * @dev: CLA device
++ * @ctx: CLA context to install
++ * @ctx_id: CLA context number within the domain
 + *
-+ * Return: 0 on success, or an error.
++ * Save the kernel context if necessary, and install a user context.
++ *
++ * PL0 context: Restore the DATA and LRESP registers, and accelerator state if
++ * one has been saved.
++ *
++ * This function is called with all accelerators idle and no trace of previous
++ * work.
++ *
++ * Return: 0 on success, or an error
 + */
-+int cla_op_regread(struct cla_dev *dev, unsigned int accid,
-+			  unsigned int regidx, size_t nregs, u64 *regs)
++int cla_regs_install(struct cla_dev *dev, struct cla_ctx *ctx,
++		     unsigned int ctx_id)
 +{
-+	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGREAD, CLA_DATA_OUT,
-+				 accid, regidx, nregs, regs);
++	return cla_regs_install_pl0(dev, ctx, ctx_id);
 +}
 +
 +/**
-+ * cla_op_regwrite - Launch REGWRITE operations.
-+ * @dev: CLA device.
-+ * @accid: accelerator ID.
-+ * @regidx: first register index.
-+ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
-+ *         REGWRITE operations).
-+ * @regs: array of length @nregs.
++ * cla_regs_uninstall - Remove and/or save CLA context
++ * @dev: CLA device
++ * @ctx: CLA context to remove
++ * @ctx_id: CLA context number within the domain
++ *
++ * Uninstall a user context, and restore the kernel context if necessary.
++ *
++ * PL0 context: Save the DATA and LRESP registers and accelerator state.
++ *
++ * When this completes, all accelerators are idle. If this fails, some
++ * accelerators may still be running.
 + *
 + * Return: 0 on success, or an error.
 + */
-+int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
-+			   unsigned int regidx, size_t nregs, u64 *regs)
++int cla_regs_uninstall(struct cla_dev *dev, struct cla_ctx *ctx,
++		       unsigned int ctx_id)
 +{
-+	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGWRITE, CLA_DATA_IN,
-+				 accid, regidx, nregs, regs);
++	return cla_regs_uninstall_pl0(dev, ctx, ctx_id);
++}
++
++/**
++ * cla_ctx_alloc_regs - Allocate register state for a CLA context
++ * @domain: CLA domain
++ * @ctx: CLA context
++ *
++ * Allocate register state to save and restore every device in @domain, store it
++ * in @ctx.
++ *
++ * Return: 0 on success, or an error
++ */
++int cla_ctx_alloc_regs(struct cla_domain *domain, struct cla_ctx *ctx)
++{
++	void **regs_ptrs;
++	size_t size;
++	int i;
++
++	regs_ptrs = kmalloc_objs(*regs_ptrs, domain->nr_devs,
++				 GFP_KERNEL_ACCOUNT);
++	if (!regs_ptrs)
++		return -ENOMEM;
++
++	for (i = 0; i < domain->nr_devs; i++) {
++		struct cla_dev *dev = domain->devs[i];
++		size_t nr_regstate = dev->iassizes / sizeof(u64);
++		void *regs;
++
++		/*
++		 * The regs structures are only ever accessed from the CLA
++		 * device's CPU, so try to allocate them on the right NUMA node
++		 */
++		size = struct_size_t(struct cla_regs_pl0, regstate, nr_regstate);
++		regs = kvzalloc_node(size, GFP_KERNEL_ACCOUNT,
++				     cpu_to_node(dev->cpu));
++		if (!regs)
++			goto err_free;
++
++		regs_ptrs[i] = regs;
++	}
++
++	ctx->regs = regs_ptrs;
++	return 0;
++
++err_free:
++	for (i--; i >= 0; i--)
++		kvfree(regs_ptrs[i]);
++	kfree(regs_ptrs);
++	return -ENOMEM;
++}
++
++/**
++ * cla_ctx_free_regs - Free register state for a CLA context
++ * @domain: CLA domain
++ * @ctx: CLA context
++ */
++void cla_ctx_free_regs(struct cla_domain *domain, struct cla_ctx *ctx)
++{
++	int i;
++
++	for (i = 0; i < domain->nr_devs; i++)
++		kvfree(ctx->regs[i]);
++	kfree(ctx->regs);
 +}
 -- 
 2.43.0
