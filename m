@@ -4,111 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217BACC6B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 05:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5EACC6B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 05:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:MIME-Version:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SrK6FyhBTZnEQlLogJ3NQ2zWDChbZG9raJxAdO0+bRA=; b=i7l7Y5XQJ4aAbTtt9wzQr6+NL3
-	wabZ0Yk2SrtlA2ZbsYI23+IJ1ewwYDNAeGX8CNrH9MHVGLfeybQBj9P+Xoo/ImmuIgutjkTKI5ZM+
-	VgcdHG/JiJEMjy5PJ1h6eK1JX88/zHewLepLFFYsWbKm+bsfH+VxCvUUrBYHDDh+BWvLId/zVEfzh
-	PzIcpvkDt9C7YIgiIqXSyg1uqmQDHXWl+RDxyenfNwAPdgLqEgAwQawrYvv8jm8zHVAEs0Cnz4VS7
-	/CieJs+NILVVBX0gC0aoa5DdyTJnZEp0O828SHcO/Eji02DnkMieDKotFkzaVCviI9ImC/Fm8bO/v
-	qRMBWTUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dS4djhTCCyfNupiiHbhsTglSI4Wcf298uQffxP9D2K4=; b=FlWKXILfJN9Mr1jxYSR4uR9kDD
+	VPsaKeCj4LlAdNwF5E7c/yQkq/+kz3QWiBdYCR0O/5NipE+PJAqJ4bS8DnEi20K2mIvqLku7mqDRv
+	JWDiclGeYcLcdZ7NxDrXpEBo5NgQDHvBRMEuTbIXd8kW4XGg2geY7qvkYhEiD2XKUV1jVwxG0ze9N
+	yCxANoAVAB2MCLBj7InUKCJka7IdasTO+G+gkf5FduzVlsfMidL7yOX0KLM2SPbTjvZDHt9puxqHR
+	1DLJwvw+TWqroGcHSREk0SBlwODbIP4Geyjdbph8QO2mgJoMYT4+L+cmnmVfqyPArMOsdQRkgynfP
+	itrYNTRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHDwK-0000000Gr1u-03Xz;
-	Thu, 15 Oct 2026 05:23:40 +0000
-Received: from mail-vs2-x00.google.com ([2a00:1450:4864:3a::])
+	id 1xHEBQ-0000000Gs2t-3bUM;
+	Thu, 15 Oct 2026 05:39:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHDwH-0000000Gr1X-3c19
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 05:23:39 +0000
-Received: by mail-vs2-x00.google.com with SMTP id ada2fe7eead31-7565f2f85c5so1179741137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 22:23:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792041816; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Xx/u0ar5cHCq0yhygLKdipZNrty8EUDKMbl5qUXK/AV7g5f58NharBVU9uyP0103TV
-         m+gqJCyockISInarUI7anPRSQbsFev2/8mzic1TfqP0gg+re/N1V7vr62eAS1EVer2KB
-         eNQeqd5G2KaRoF/rJyTvKMQ/cyEkh85Y/a5aq/s0gL2V9BdEa76fLG2tMUPbB30TgpBP
-         alek193v3RhL6M7P7ars7LwfBn2fsX3KUJuBmL2YXzQ6WdQ9Xfto4d1mQ5XrdMvDqiUy
-         HY8+hWnCaE6U+4fEe33KtMh4A5dzPgbJWWvquxleBTgQYHXrkJv8EmnfG47pCzzZ9KPg
-         60gA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:mime-version:from:dkim-signature;
-        bh=SrK6FyhBTZnEQlLogJ3NQ2zWDChbZG9raJxAdO0+bRA=;
-        fh=BETfeaWVzjnto6E8XIRtlQfeDl1KuGz9Y2DEFDftMAQ=;
-        b=egmLrJEStH1aCAJsW95cb4gfDbvLz7lLwtiLKvJ5imWJ3eFPIQBRRVfgStk50sYnam
-         uhAqp3h02Ax2gD8HyE/PQpw/DtovihmyoKtdXvhUyNmDiVTKHmn03kn5LZ6MyNK/FogW
-         El+c5di8KBSyCzbhxiS0MIs5JWuW+j9UENAjzV83/v0HtQmbxcTc4oOljp41hS1riKsa
-         AaDKA2Wm3wtU+RLmHQrhx1jCsaiuIymR0vjq/2lVgArLv8a+Xwf7B7LEvyssnAvqUJjW
-         krTSZA/EXPmi2Vn8gF4dvVAkyycKzmwwqZnT57b6Owj+sy1P0DpMIB1/vTSJGUjh7Z8x
-         3RGg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trukhin.com; s=google; t=1792041816; x=1792646616; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:from:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SrK6FyhBTZnEQlLogJ3NQ2zWDChbZG9raJxAdO0+bRA=;
-        b=PLmtJU2jn+lK1fJV9guyePc7J9j3flGm0uvtoXEWvSHW+OAsig2koDUndhiKcczmHZ
-         A4mIWQWN1IQSn52ZBoKi3MRTTWxlCK3XvA2uQGuNFdrRnmGI7kh7PnMFZ80WeoyT2/0e
-         PvwTUmJD1Jj7VaOur6+lGpW0hkuxuG7bS+0z/URQDAPYjp8uY8rijv17HCG5D22ErADL
-         D6IfRC5Ltcphl2hlp3Ep9snTSAC+nvdefo94cp3c5FZDEs071Xek/HQgAG5ipwDfj2m6
-         DUGTtAjShCjMdHiR/Dnu8AvZDKGxOXIfb16iJGWFJZvMacc9psuPhGq2UQSR5kCKsT8E
-         P1gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792041816; x=1792646616;
-        h=content-type:cc:to:subject:message-id:date:mime-version:from
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=SrK6FyhBTZnEQlLogJ3NQ2zWDChbZG9raJxAdO0+bRA=;
-        b=gdwnxAz5dYAiqNreYxMrySrp9vMmafVOWagcIigyBVK63ZAs05TfQ5y4Sa+Lebf8hW
-         mbLGV3hvst6d+bOfq9fgN7iYE5RHL/pM/kAqFf2DyHxXxIJVmf/Zf5P4jBq/igf2HxDD
-         IN3FU6XAU6SXDACvWMGZYDbS8dR/aes6Q+LWGVypowEiGBlyB1S01UpLMgLv1XGYtSN0
-         IZQc5JpCUKkm8bTI8wzE8H2eurdnuIT5OUM3YBIeCluK88r/oBpUHCeWqQDblPZAwaGc
-         a5xDSaVbTnJ/0uBdy3Cb1gXFR0X1hnf6KDbWEFNzXucHIDzawDa9dRobiS+i/SFnzOlP
-         RxJA==
-X-Forwarded-Encrypted: i=1; AKwUvBx8Yon+IdTJ3Uhhf6cUYi4hKBChjhbP2HAyVP3XbikQL29oAjecG1mGmhrgtQtdIKaNbgPfKU1ZP0zbQZvaL6KZ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFQc5HEO6SZ1uA9zBjx2VpIBaSfOpBubJf6oa4JzuIxBInMQxH
-	8H6wnUL0viy6TEA4ZEs5Aan2oftRU5pjlEj5eb4jaFdnf+SXM9cf3l3U9imEfVM9Y8P5lXpPN7r
-	zitT3uY1iB89Bb3eGKju4emwBFQpXVmXbJv+VoQb3RYZfaKeiewsX6dVp0aBIqlfBrA==
-X-Gm-Gg: AYBFou3Af3CW9SNI3dLS5z78yGK4WI3/fJLJ3A0p3x57fnSlW93iTQorrfAZg4FcHHT
-	idsPM3gjCU40x81r8IuHV58eoxKIanAacEXfKnoxgvtyePi4JMsVTtvxHkcRQU4ZosTU1h5UhIJ
-	J9oAtqX+jQZOi09DLHAfMyl8rX8cK2oDAr2XIJ+JVtyqT2Mmr0oYIPfy5P27IpYj01UkaWgbwXK
-	a91R8Ck8nUOPJ7XxlqDsGg2NgDxUBJN3IAyYcQ2czHTOugnqLmXdBkjjqVftHHP1Z5UKLJ5B7HF
-	iccNJ5pwuplBZM4eACfWSuqwAcoxFpXSZKVncz/g8qKkH3EiGKdvZ5FxZOXWn5nZnP1367bncjB
-	wbDs46/gJRxqRdXBjJzZsO6hiiV1qKRX0VA==
-X-Received: by 2002:a05:6102:370d:b0:7c3:9464:efaa with SMTP id
- ada2fe7eead31-7cb36590225mr4707868137.2.1792041816136; Wed, 14 Oct 2026
- 22:23:36 -0700 (PDT)
-Received: from 121308794542 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 14 Oct 2026 22:23:35 -0700
-Received: from 121308794542 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 14 Oct 2026 22:23:35 -0700
-From: Iurii Trukhin <yuri@trukhin.com>
-X-Mailer: git-send-email 2.56.0
+	id 1xHEBO-0000000Gs21-2W1q;
+	Thu, 15 Oct 2026 05:39:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 119C24176F;
+	Thu, 15 Oct 2026 05:39:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DC720C2BCFC;
+	Thu, 15 Oct 2026 05:39:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792042753;
+	bh=ezz9X8LCg9d+XCwZ3z22UMCSEaqyTLaQMTVDqp8Flk4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=qeWZQc3E6bw96CKDHU6b8eLjnOTmLuPimJHseQqvcJ+isKMMAJsnmvf2hxtIm9W1R
+	 bns8LkAy+331XpOw0IpNlDHq0px+qJFDbIQqDbjr6/7Uk4Xv0iNDYOjKjhmDOsY8UK
+	 +GEtf0PsvaPewmS7SQRbaDzxAhyLE7tuB+lhx0qR1a6OsHQtFNYQQGte5xCZLSzZ1P
+	 SUGkvt8vqJKlSZZh6h4WbMIPqhnLU6IY/gB7KJgdkxlisa88R/WKsRYR7fL3hJ7tRO
+	 HfHbZeZPAQuIp3wF05G+WsgKzmiD9eiPoEMRTCL8BJq9W4ZgleLe2QuO0KNj3UO3a/
+	 jb0zwI25A2H8A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9DF9CC6B2F;
+	Thu, 15 Oct 2026 05:39:13 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Thu, 15 Oct 2026 13:38:55 +0800
+Subject: [PATCH net v4 1/6] can: dev: prevent bus-off recovery when the
+ interface is not running
 MIME-Version: 1.0
-Date: Wed, 14 Oct 2026 22:23:35 -0700
-X-Gm-Features: AclHuK_YYfxnldX7Bh0B9i3Tow6J5A6qSw_Ioe7q5Yt1rETlptfRJUA_JUSnfjQ
-Message-ID: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
-Subject: [PATCH v2] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit and
- 52-bit VA
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Kees Cook <kees@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Iurii Trukhin <yuri@trukhin.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_222337_932042_54220B4C 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261015-rockchip-canfd-restart-close-v4-1-ad149ff79450@qq.com>
+References: <20261015-rockchip-canfd-restart-close-v4-0-ad149ff79450@qq.com>
+In-Reply-To: <20261015-rockchip-canfd-restart-close-v4-0-ad149ff79450@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Wolfgang Grandegger <wg@grandegger.com>, 
+ Oliver Hartkopp <socketcan@hartkopp.net>, kernel@pengutronix.de
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792042751; l=2288;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=uB+Pk/mygKqGhQYSoYzTiXpubbzalD/v2yRTUeNfoh0=;
+ b=qFu6jCjlfQAOMF4S/9w/na0VuZg9OCUazkAvDZtgoaA7Pw+vjJ5QN21IoElGk3A1OZDTEiREB
+ HuBVfsNn1cMDg9mwlcCIhiNKMseD0gx3O7+Fc1EZRJZ+0L7t1OTdlUx
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,54 +84,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit f101c5644771 ("arm64: Support ARM64_VA_BITS=52 when
-setting ARCH_MMAP_RND_BITS_MAX"), arm64 supports up to 33, 31, and 29
-bits of mmap ASLR entropy on 48-bit and 52-bit virtual address spaces
-for 4K, 16K, and 64K pages respectively. However, ARCH_MMAP_RND_BITS
-still defaults to ARCH_MMAP_RND_BITS_MIN (18, 16, and 14 bits), which
-was set in commit 8f0d3aa9de57 ("arm64: mm: support ARCH_MMAP_RND_BITS")
-when 39-bit VA was the 4K default.
+From: Cunhao Lu <1579567540@qq.com>
 
-Set the default ARCH_MMAP_RND_BITS for 48-bit and 52-bit VA to 28 (4K
-pages), 26 (16K pages), and 24 (64K pages), matching x86_64's 1 TiB
-randomization range (5 bits below ARCH_MMAP_RND_BITS_MAX) while keeping
-ARCH_MMAP_RND_BITS_MIN unchanged for smaller VA configurations.
+The networking core clears __LINK_STATE_START before calling ndo_stop(),
+but CAN bus-off recovery neither checks this state before queuing work
+nor before calling the driver's restart callback. Recovery can therefore
+be queued or started after the interface has begun closing, potentially
+re-enabling hardware while the driver is tearing it down.
 
-Closes: https://github.com/KSPP/linux/issues/371
-Reviewed-by: Kees Cook <kees@kernel.org>
-Signed-off-by: Iurii Trukhin <yuri@trukhin.com>
+Check netif_running() in can_restart() before flushing echo skbs, sending
+the restart notification or enabling the carrier. Keep the existing
+unsupported-operation check first. In can_bus_off(), only schedule
+recovery for a running interface and make the log message reflect that
+decision. Keep reporting bus-off and disabling the carrier.
+
+These checks do not wait for recovery that has already passed the check,
+nor serialize the check with work submission. Drivers still need to
+cancel restart work before tearing down resources and quiesce its
+producers before their final cleanup.
+
+Fixes: 39549eef3587 ("can: CAN Network device driver and Netlink interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
 ---
-Changes in v2:
-- Add a comment above ARCH_MMAP_RND_BITS explaining the 1 TiB default
-  for 48/52-bit VA and the fallback to ARCH_MMAP_RND_BITS_MIN in
-  arch/Kconfig for smaller VA sizes (Anshuman Khandual).
-- Collect Reviewed-by from Kees Cook.
-- Link to v1: https://lore.kernel.org/r/CAOx7e9Jm0N9O_ndL1UApMPrXUN=P4RiptSNibdDP+9prUsNPOw@mail.gmail.com
- arch/arm64/Kconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/net/can/dev/dev.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index cab741a695f5..7bca47269dd5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -313,6 +313,14 @@ config ARCH_MMAP_RND_BITS_MAX
- 	default 16 if ARM64_16K_PAGES
- 	default 18
-
-+# default to 1 TiB (5 bits below ARCH_MMAP_RND_BITS_MAX) on 48-bit and
-+# 52-bit VA; smaller VA sizes fall back to ARCH_MMAP_RND_BITS_MIN in
-+# arch/Kconfig
-+config ARCH_MMAP_RND_BITS
-+	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
-+	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
-+	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 769745e22a3c7..92492c503446e 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
+ 	if (!priv->do_set_mode)
+ 		return -EOPNOTSUPP;
+ 
++	if (!netif_running(dev))
++		return -ENETDOWN;
 +
- config ARCH_MMAP_RND_COMPAT_BITS_MIN
- 	default 7 if ARM64_64K_PAGES
- 	default 9 if ARM64_16K_PAGES
+ 	if (netif_carrier_ok(dev))
+ 		netdev_err(dev, "Attempt to restart for bus-off recovery, but carrier is OK?\n");
+ 
+@@ -264,8 +267,9 @@ int can_restart_now(struct net_device *dev)
+ void can_bus_off(struct net_device *dev)
+ {
+ 	struct can_priv *priv = netdev_priv(dev);
++	const bool restart = priv->restart_ms && netif_running(dev);
+ 
+-	if (priv->restart_ms)
++	if (restart)
+ 		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
+ 			    priv->restart_ms);
+ 	else
+@@ -273,7 +277,7 @@ void can_bus_off(struct net_device *dev)
+ 
+ 	netif_carrier_off(dev);
+ 
+-	if (priv->restart_ms)
++	if (restart)
+ 		schedule_delayed_work(&priv->restart_work,
+ 				      msecs_to_jiffies(priv->restart_ms));
+ }
+
 -- 
-2.56.0
+2.34.1
+
+
 
