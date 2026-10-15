@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919AFCC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C521CC6B3A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzjmrQ1q4F01dLrUdKab1eKm96P1ZxBBD0Tw8S1Xhiw=; b=VfTXP2OpoLdQa5vtThY7TIIXO8
-	XWv7rISCRekzSPWXlZZ3TIOn/J13JYF6Hy7l9slw/MkMYnbPcBdTITBtRX4zPVU8Z10o4gJdtKvbW
-	sf8V8Yk7CkyY38QjPSI4hoLoVUxbyLjCOMwRmtNSdMX/9QT8m5HnmJvf+Bhfw5e2Zn/AQ2hXSDZCm
-	NqUx2PyBFqZyAKVKtrjItsETnHIKEoPMhsHugT3qTlNii1m6XMJXWlewJFq16qZPWpwVFhoKB12Jy
-	JRBz2wCHYB6S+TfbQMm6k1gzu/HJwiBEYY4NEzTdw8JbpR1I2T7OYvC62cFntjJKBd/KkRGDDi196
-	WvLub4VA==;
+	bh=J8Ghc916VwV8YIfUc/Uxibbm6amSUje62iHNzWirMC8=; b=aL67vfuGzTdCLdRqr91NPviOyK
+	3cKR09GYfJpL/ug6Fr+FXVQQrrlaVDwiBndQVIRtyFG8gPTOEtLKzB8PecML09OkxBrHUXSl/RSIz
+	yJZ03Opqms+vwAgsUKWFjvqnnu3q5cVE3+4ZzCsIGZ6nmbYIRkUvlhQkQdRvABMXp+Hzt1Z13N4c5
+	f3M5Rr67jE8cQOhQGxDlFHsh0LjOJoX5F7t6JnhFzVoiT/XV4pWwnUJPVnMr3r05pN2auLs4wurvc
+	sVGMyWE1uVCza6jGy83yB71R+EfXTNGOXfHeWRR2kxrJwWS3oh0QZ6lR84oL9WoimSBFyAfVUx7WZ
+	h1m2HdRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOQC-00000000rDW-3rIG;
-	Thu, 15 Oct 2026 16:35:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOQ9-00000000rCq-3WwE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 16:35:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17A7414BF;
-	Thu, 15 Oct 2026 09:35:02 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC9223F871;
-	Thu, 15 Oct 2026 09:35:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792082105; bh=lsiH1+9I7R8Zogecgsc8mrMTXuCaEqcuQrsVaEDtkC0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a2AsLQvbUtafLx5JEFU7If/jPUmnKDzQLNnyAKcPeXuraMiO1yHOL9cr1qGxmcFDg
-	 /ZtQ63wu2mEK+d3MgSz1GePJ/sF0hbTvf5y80ElN7tv5niqN5SSKYm3Huz/QQ9fjE3
-	 8WSg6sfzddBzCnipx04jTzq4ZNdtfgDF7erhtQtM=
-Date: Thu, 15 Oct 2026 17:35:00 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Iurii Trukhin <yuri@trukhin.com>
-Cc: Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit
- and 52-bit VA
-Message-ID: <atEAtHiHh0eeVPn3@arm.com>
-References: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
+	id 1xHOSp-00000000rca-1ee0;
+	Thu, 15 Oct 2026 16:37:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHOSo-00000000rc5-1Pw6;
+	Thu, 15 Oct 2026 16:37:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF21A42A26;
+	Thu, 15 Oct 2026 16:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D651C1F000C5;
+	Thu, 15 Oct 2026 16:37:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792082273;
+	bh=J8Ghc916VwV8YIfUc/Uxibbm6amSUje62iHNzWirMC8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nBoGsk0e/eI4m/vubZcic2PC5Ky37MpdXmuDv6mijgTCJAPULtRp67iFNzqAmqZ5J
+	 4kaqXLdAxERaH/H1U5jEj5ukSV+2DFA5mNx/vvrWUFrDNXHOp/cUX34rqgKQInbf5a
+	 SjX01y94O+QZYmamUqKZJpjG+1t7LVYWIFXO14BbdZbyZlzx/QaemnXOdtHMe1/of4
+	 ysWgMcis2jblNUDGjoVuT3wI25zoqb0Qhy/be2Ap071SvChzrlX++quul3ChtmGWnn
+	 aXEAxtIXzc7jiaoXQgaB0RU9EIRsoqbCBvtw10Xs86enXMcotEmnrednGh3O1tI/5/
+	 CwIWOmakaJ5/g==
+Subject: Re: [PATCH net v2 1/3] can: dev: prevent bus-off recovery when the
+ interface is not running
+From: netdev-bot+sashiko@kernel.org
+To: 1579567540@qq.com
+Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
+ davem@davemloft.net, wg@grandegger.com, socketcan@hartkopp.net,
+ kernel@pengutronix.de, linux-can@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, stable@vger.kernel.org, kuba@kernel.org
+Date: Thu, 15 Oct 2026 16:37:52 +0000
+Message-ID: <179208227237.1406898.11528789185033827404@kernel.org>
+In-Reply-To: <tencent_196A2433801631CD2FA42998465E26316105@qq.com>
+References: <tencent_196A2433801631CD2FA42998465E26316105@qq.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_093509_948678_F3D016B1 
-X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +72,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 10:23:35PM -0700, Iurii Trukhin wrote:
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index cab741a695f5..7bca47269dd5 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -313,6 +313,14 @@ config ARCH_MMAP_RND_BITS_MAX
->  	default 16 if ARM64_16K_PAGES
->  	default 18
-> 
-> +# default to 1 TiB (5 bits below ARCH_MMAP_RND_BITS_MAX) on 48-bit and
-> +# 52-bit VA; smaller VA sizes fall back to ARCH_MMAP_RND_BITS_MIN in
-> +# arch/Kconfig
-> +config ARCH_MMAP_RND_BITS
-> +	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
-> +	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
-> +	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-This looks fine but I was wondering what ARCH_MMAP_RND_BITS_DEFAULT (and
-the compat equivalent) is for. It turns out that an int always evaluates
-to 'n', so not taken into account. It might be worth removing them
-altogether as a separate patch. No-one seems to be using them.
+Critical: 0 · High: 0 (1) · Medium: 1 (1) · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Split-frame drop accounting in stmmac_rx_zc() is inconsistent
+  per frame and per core.
+
+Pre-existing issues:
+- [High] stmmac_dispatch_skb_zc() (stmmac_main.c:5533) sets
+  `skb->ip_summed = CHECKSUM_UNNECESSARY` for every IP frame when RX COE…
+- [Medium] priv->xstats.rx_dropped and priv->xstats.rx_errors are device-
+  wide unsigned longs.
+
+--
+
+net: stmmac: drop split frames on AF_XDP zero-copy RX
+
+This patch fixes stmmac_rx_zc() so that split frames are drained as
+errored, and the last fragment is no longer handed to XDP as a fresh
+frame. It also changes the legacy normal and enhanced descriptor
+callbacks to report rx_not_ls together with discard_frame for non-last
+descriptors.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> index 0512536012251..297e2428a8f9b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> @@ -184,7 +184,7 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
+>  
+>  	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
+>  		x->rx_length++;
+> -		return discard_frame;
+> +		return discard_frame | rx_not_ls;
+>  	}
+>  
+>  	if (unlikely(rdes0 & RDES0_ERROR_SUMMARY)) {
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> index c4b613564f87c..d19bf7ca4db38 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> @@ -70,7 +70,7 @@ static int ndesc_get_rx_status(struct stmmac_extra_stats *x,
+>  
+>  	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
+>  		x->rx_length++;
+> -		return discard_frame;
+> +		return discard_frame | rx_not_ls;
+>  	}
+>  
+>  	if (unlikely(rdes0 & RDES0_ERROR_SUMMARY)) {
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index f0835be2f65a7..10ea72cbf889a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5695,18 +5695,21 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats,
+>  						  rx_q->dma_erx + entry);
+> -		if (unlikely(status == discard_frame)) {
+> -			xsk_buff_free(buf->xdp);
+> -			buf->xdp = NULL;
+> -			dirty++;
+> +
+> +		if (unlikely(status & discard_frame)) {
+>  			error = 1;
+>  			if (!priv->hwts_rx_en)
+>  				rx_errors++;
+>  		}
+>  
+> -		if (unlikely(error && (status & rx_not_ls)))
+> -			goto read_again;
+>  		if (unlikely(error)) {
+> +			xsk_buff_free(buf->xdp);
+> +			buf->xdp = NULL;
+> +			dirty++;
+> +
+> +			if (status & rx_not_ls)
+> +				goto read_again;
+> +
+>  			count++;
+>  			continue;
+>  		}
+> @@ -5715,8 +5718,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (likely(status & rx_not_ls)) {
+>  			xsk_buff_free(buf->xdp);
+>  			buf->xdp = NULL;
+> +			rx_dropped++;
+> +			error = 1;
+
+[Severity: Medium]
+
+Is the split-frame drop accounting here consistent across descriptor
+formats?
+
+The legacy callbacks now return discard_frame | rx_not_ls for every
+non-last descriptor. So the discard branch above runs first for each of
+those descriptors, and there is no !error guard:
+
+    if (unlikely(status & discard_frame)) {
+        error = 1;
+        if (!priv->hwts_rx_en)
+            rx_errors++;
+    }
+
+On dwmac100/dwmac1000, a frame spanning N descriptors would then add N-1
+to rx_errors. It adds 0 to rx_dropped, while count / rx_pkt_n goes up
+only once for the frame. The new rx_dropped++ in this 1:1 block can never
+be reached on those cores.
+
+On dwmac4 (and similarly xgmac), dwmac4_wrback_get_rx_status() returns a
+bare rx_not_ls for non-last descriptors:
+
+	if (likely(!(rdes3 & RDES3_LAST_DESCRIPTOR)))
+		return rx_not_ls;
+
+That means this block does rx_dropped++ and sets error = 1. If the last
+descriptor has RDES3_ERROR_SUMMARY set, the discard branch also does
+rx_errors++. The same dropped frame then shows up in both rx_dropped and
+rx_errors.
+
+Later in the series, stmmac_rx() is changed to count only once, using
+(!error && (status & discard_frame)). Should stmmac_rx_zc() get the same
+treatment, so each dropped frame is counted once in either rx_errors or
+rx_dropped?
+
+>  			dirty++;
+> -			count++;
+>  			goto read_again;
+>  		}
+>  
+
+[Severity: Medium]
+
+This is a pre-existing issue and was not introduced by this patch. The
+new rx_dropped++ feeds into an unsynchronized accumulation at the end of
+stmmac_rx_zc():
+
+	priv->xstats.rx_dropped += rx_dropped;
+	priv->xstats.rx_errors += rx_errors;
+
+These are device-wide unsigned longs. They are updated with a plain +=
+from per-queue NAPI contexts that can run at the same time on different
+CPUs. stmmac_rx() does the same thing, and stmmac_get_stats64() reads
+them without any locking.
+
+Can concurrent NAPI polls on different queues lose increments to these
+counters?
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but it is in the same receive
+path. On XDP_PASS, stmmac_rx_zc() calls stmmac_dispatch_skb_zc() without
+passing status. That function marks every IP frame as verified when RX
+COE is enabled:
+
+stmmac_dispatch_skb_zc() {
+    ...
+	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
+		skb_checksum_none_assert(skb);
+	else
+		skb->ip_summed = CHECKSUM_UNNECESSARY;
+    ...
+}
+
+On dwmac4, dwmac4_wrback_get_rx_status() reports L4 payload checksum
+failures only as csum_none, without discard_frame:
+
+	if (rdes1 & RDES1_IP_PAYLOAD_ERROR) {
+		x->ip_payload_err++;
+		ret |= csum_none;
+	}
+
+Also, dwmac4_dma_rx_chan_op_mode() sets MTL_OP_MODE_DIS_TCP_EF, so the
+hardware forwards these frames instead of dropping them.
+
+Suppose a frame with a bad TCP/UDP checksum arrives on a ZC queue and
+the XDP program passes it. Could it reach the stack as
+CHECKSUM_UNNECESSARY and hand corrupted payload to applications?
+
+The non-ZC stmmac_rx() handles this case:
+
+	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
+	    (status & csum_none))
+		skb_checksum_none_assert(skb);
+
+This still seems to be the case at the end of the series.
+
+[ ... ]
 
 -- 
-Catalin
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_196A2433801631CD2FA42998465E26316105%40qq.com
 
