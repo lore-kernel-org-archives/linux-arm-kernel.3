@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2FACCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 20:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DA2CCA465
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 20:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7yiMjjkdLQO3PNrhwbNdhn6qAcJaSjM3V5hz1K+dJI=; b=O7nL5r8hkS7sDtXPvCrNSFzGo/
-	1B2/SXLTt4RXMFIJWdkZVlOGwCEBMhqfQ/DH6qEvtHLP9Gl/+aXB3E4lPydZPXBQVMlkxFmiFOb7G
-	YeEEG/vxVSfy9yw+bY9cS9d0xrZ7eC8+Lzs4Rq480UCMFvntYDthrti8NpAm+4l4n+5QL5HJsyINJ
-	vHHV/XpEg6BnXrVtaeEUbtOKOUq+aB6ODy24e2KJWDOhvzQqFzlwTjHC9MyoXFN4laMyJVT8NKVHy
-	3mKQ9LcvuMltzVqR978wioklLzsgCC4lIskeV+nwNjCUAx4DbhHvfy0QzN5qrZ/lIE+im9QGpGvTO
-	ZzPH2yvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YA655uS50Rz/0F2aNH0cvFlEUANrwagOaIfSXMlyYX0=; b=ghYh6cXS/AS+kBEaeLJg2fiyKW
+	8QAgTperlzIBS2VKEKJri/E1yK6Dc3BvBucemF0VYkSzKXHVmjeK25W8//9+xHnJKdSKnft94Q9jm
+	dOpQulnTu3lj+nieJ1HyQpAKkqQ1n0gjxg0dk6GTF+ysuuwhPisDCEiC0WgZAs7I8jxJQkVpuqz0f
+	j9bNIOZsN/geZQoE7n6xlvI6yccTE9nV+rMoOE2LVe9I87Aa1LQVdFysTUTJ8nhNNMaPvLiu7UBp+
+	zroLeoNqi/f9MmXHv3X52HSMgzy81J0YmWS3fg0DdCHB5SzCLGB6loGn/cj91le2Ds7WhEZkFSwis
+	DgOd9erg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHSNV-00000001NUs-0qKC;
-	Thu, 15 Oct 2026 20:48:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHSWn-00000001Ozq-1SSP;
+	Thu, 15 Oct 2026 20:58:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHSNT-00000001NUQ-3fGP
+	id 1xHSWl-00000001Ozd-2knN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 20:48:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 499DC447D4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:48:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B3F1F000C4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:48:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792097319;
-	bh=a7yiMjjkdLQO3PNrhwbNdhn6qAcJaSjM3V5hz1K+dJI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=hTS//8hA/VDvbaWBMMR/w7JO7leX8PXZf4aauwidjAuQwJVmJp3cjp/mSv8AC9nRY
-	 I23tflHXyvdOH8XGg1T/d56MD6EccEvuuEiqEavsHVIEo7/w1v84HAQILgXGUZUJr9
-	 7yRDDD4u0duFwis19E++mna3faT9WJYMvgp0feP3JO7cWEaHoqZfOe07oKrRzVpeUt
-	 OeMzeisrkKB9Zgw3UNLi+CxOKREjXm3kG7xqgzOTgUwYY3jx1L2rzhP0oWotiY6ouJ
-	 yQdoA9XJDU6eENe3jSTwoJXS+zVDh7j12AFb91IJrfahC4CXeRpkmMHbdUAv8xFj99
-	 mnJtOsmJAYUAQ==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3a65ed9c7cfso43604001fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 13:48:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBysBE5q5Ktc5JhNDds+6Q0tKT/5cf5d0Lbads7r+dyLNFIKCnvEtw+p9XS1HV8d/xoSv36rdQDDpslxMVPqzQBJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKUtxU60aBuOKOcMzGaxUk6NyK4x9wn45lgVT/QV5/6Q9vYq9fH
-	ZqqtaMkjNiossllRTm/HLVQZfgd1B2p7w9lOSLkHlyrs9bCUrST/QmcN7LNAj7kBXew/8IiS2jj
-	eom4SDDCmY0osetAWF2lZcflC6mI4meM=
-X-Received: by 2002:a05:6512:2c99:b0:5be:456e:7bf5 with SMTP id
- 2adb3069b0e04-5be456e7d65mr691240e87.2.1792097317209; Thu, 15 Oct 2026
- 13:48:37 -0700 (PDT)
+	Thu, 15 Oct 2026 20:58:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C757260A57;
+	Thu, 15 Oct 2026 20:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 76D00C2BCF4;
+	Thu, 15 Oct 2026 20:58:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.dev; s=korg;
+	t=1792097893; bh=faqGfWDw1le1ZOU408v3r7oVHq96hylhJ7Q53F2VifA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=zhLOcywChmpS8yO0V4WjFwh4fkPmyAxj1CR9ExcC+J+0NPbFumE4g1xAYpTDhxZUj
+	 DIAFRX8CAo/0XFqp4y0c1Wc4OqQbhNvboFuxtr3Fo3BL2RfeMsCGmrCT/on95CPCuf
+	 Qh2c3HUeY/YJsUcC+1ecWTNU8qt/9DDTHubQ6nZk=
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 54D96CCA465;
+	Thu, 15 Oct 2026 20:58:13 +0000 (UTC)
+From: Richard Leitner <richard.leitner@linux.dev>
+Date: Thu, 15 Oct 2026 22:58:00 +0200
+Subject: [PATCH] spi: imx: fix slab corruption from undersized DMA bounce
+ buffers
 MIME-Version: 1.0
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arZDwutoadki7tiZ@ashevche-desk.local> <arZNL9BnTGK0Klwc@red-moon>
- <arZS4vwxps01dGb7@ashevche-desk.local> <arqSqcoWAkhy-8do@red-moon>
- <d1720b63-65bf-4019-bc19-1852555f7993@arm.com> <asieTvinZ7c2QpQm@red-moon>
-In-Reply-To: <asieTvinZ7c2QpQm@red-moon>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 15 Oct 2026 22:46:26 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hVLSJs1j8J1TV3yJ8Psyaf=B_0UfHsYSMtM5xTup0B_Q@mail.gmail.com>
-X-Gm-Features: AclHuK-DuoXI-ze6OR_y67J91aOnhT8WYRNmJVSaRmfvir6JKBEzZ6K-TrcO_zw
-Message-ID: <CAJZ5v0hVLSJs1j8J1TV3yJ8Psyaf=B_0UfHsYSMtM5xTup0B_Q@mail.gmail.com>
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261015-fix-spi-imx-dma-v1-1-e28259671392@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM3QpAQBCG4VvRHJuy/sKtyMEug1F+2kFbcu8Wh
+ 09933uBkGUSqIILLJ0svC4eKgygHfUyEHLnDXEU5ypSGfbsUDZGnh12s0ZltCkz0mmRJ+BfmyU
+ /+Yp181sOM1G7vxm47wcaJxsXcwAAAA==
+X-Change-ID: 20261015-fix-spi-imx-dma-1bab95ea4863
+To: Mark Brown <broonie@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Carlos Song <carlos.song@nxp.com>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Richard Leitner <richard.leitner@linux.dev>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792097892; l=3405;
+ i=richard.leitner@linux.dev; s=20250225; h=from:subject:message-id;
+ bh=faqGfWDw1le1ZOU408v3r7oVHq96hylhJ7Q53F2VifA=;
+ b=NWW3P6cYmkePPMpWsRHkUTk0deQKAZHw/C7ZSe4zPOPl/GT8QhdCPeKwGIQVg4uSFnyxUsCmw
+ 15j25uuYY3ICHQ3aqc/WSXW+2Q+ftGF8NhRirhOYUu2ePFIEg9S9Vyc
+X-Developer-Key: i=richard.leitner@linux.dev; a=ed25519;
+ pk=8hZNyyyQFqZ5ruVJsSGBSPIrmJpfDm5HwHU4QVOP1Pk=
+X-Endpoint-Received: by B4 Relay for richard.leitner@linux.dev/20250225
+ with auth_id=350
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,180 +84,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry for the delay.
+Since commit faa8e404ad8e ("spi: imx: support dynamic burst length for
+ECSPI DMA mode"), the driver allocates its private DMA TX/RX buffers
+with kzalloc(dma_len), where dma_len is only rounded up to 4 bytes, but
+maps, syncs and unmaps them with DMA_CACHE_ALIGNED_LEN(dma_len), i.e.
+rounded up to the cache line size. As a result, the DMA API operates on
+memory beyond the end of the allocation.
 
-On Fri, Oct 9, 2026 at 9:57=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@kernel=
-.org> wrote:
->
-> On Tue, Oct 06, 2026 at 05:19:23PM +0100, Robin Murphy wrote:
-> > On 28/09/2026 5:15 pm, Lorenzo Pieralisi wrote:
-> > > On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
-> > > > On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
-> > > > > On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
-> > > > > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wro=
-te:
-> > > >
-> > > > ...
-> > > >
-> > > > > > > +static int acpi_static_fwnode_read_u32_prop_index(const stru=
-ct fwnode_handle *fwnode,
-> > > > > > > +                                             const char *pro=
-pname,
-> > > > > > > +                                             unsigned int in=
-dex, u32 *value)
-> > > > > > > +{
-> > > > > > > +   u32 *values;
-> > > > > > > +   int ret, count;
-> > > > > > > +
-> > > > > > > +   count =3D fwnode_property_count_u32(fwnode, propname);
-> > > > > > > +   if (count < 0)
-> > > > > > > +           return count;
-> > > > > > > +
-> > > > > > > +   if (index >=3D count)
-> > > > > > > +           return -ENOENT;
-> > > > > > > +
-> > > > > > > +   values =3D kcalloc(count, sizeof(*values), GFP_KERNEL);
-> > > > > > > +   if (!values)
-> > > > > > > +           return -ENOMEM;
-> > > > > > > +
-> > > > > > > +   ret =3D fwnode_property_read_u32_array(fwnode, propname, =
-values, count);
-> > > > > > > +   if (!ret)
-> > > > > > > +           *value =3D values[index];
-> > > > > >
-> > > > > > Use standard pattern, id est
-> > > > > >
-> > > > > >       if (ret)
-> > > > > >               ...
-> > > > > >
-> > > > > > > +   kfree(values);
-> > > > > >
-> > > > > > You want to use __free()
-> > > > > >
-> > > > > > > +   return ret;
-> > > > > > > +}
-> > > > > >
-> > > > > > I believe the whole approach is suboptimal, if you wish get ind=
-exed value (but why?)
-> > > > >
-> > > > > Why what (that's what the irq_get() interface requires ?) I agree=
- it is
-> > > > > suboptimal - the whole point of the series is an RFC on using pro=
-perties
-> > > > > to store GSI number/flags, then how to read them we will optimize=
- it
-> > I>>> when/if we agree that's the approach to be taken.
-> > > >
-> > > > Why to have indexed APIs. The callers usually do not want a single =
-item from an
-> > > > array, they want all of them or a big pile (exception is the array =
-of strings,
-> > > > but we have matching functions for that).
-> > > >
-> > > > As per approach, this patch is against device property and I don't =
-think we are
-> > > > going to agree on the approach taken in *this* patch.
-> > >
-> > > Coming back to this, what is needed here is a way to stash the GSI nu=
-mber,
-> > > flags and name in stardard storage (like OF nodes IRQ properties, ACP=
-I objects
-> > > _CRS, etc).
-> > >
-> > > To give you some background, I thought about adding an array of:
-> > >
-> > > GSI [number, flags, name]
-> > >
-> > > to the ACPI static fwnode itself. Then basically the irq_get() API ha=
-s got
-> > > all the information it needs from the primary fwnode; while doing tha=
-t I
-> > > thought that this might have been a bit like reinventing software nod=
-es
-> > > (granted, software node properties are ways more general that what I =
-suggest
-> > > above and I don't expect any other property to be ever added to stati=
-c fwnodes)
-> > > that's why I put together the series as it is, precisely to understan=
-d what's
-> > > best.
-> > >
-> > > When you say "against device property", what do you mean precisely ?
-> > >
-> > > I suppose you mean that this approach goes against software node prop=
-erties
-> > > usage guidelines ?
-> > >
-> > > Anyway, again, it is just to provide some context, we are talking abo=
-ut
-> > > a bunch of platform devices, it is nice to have a generic solution bu=
-t
-> > > it has to be simple enough too given its scope, I understand very wel=
-l
-> > > your concern with this approach as-is - it is there to find a way
-> > > forward together and show what the problem is.
-> >
-> > I guess software node properties look inviting in theory since they're =
-a
-> > ready-made mechanism for effectively attaching arbitrary data to a fwno=
-de,
-> > however looking at patches 6-7 and the amount of boilerplate involved i=
-n the
-> > reality, I'm inclined to think that a dedicated structure for static no=
-des
-> > is probably the best and most efficient compromise here. The redundancy
-> > argument rather falls apart once we end up creating copies of those
-> > contentiously-made-up property name strings for every node, especially =
-given
-> > that any one of those alone is probably already more than the amount of
-> > actual data we need per node...
-> >
-> > Perhaps the "purest" option might be to just store a function pointer i=
-n the
-> > fwnode wrapper for each static table type to provide its own internal
-> > irq_get() callback, so not stashing intermediate GSI data at all, but I
-> > suspect that might end up being more work overall.
->
-> Hi Rafael, Robin,
->
-> I have not started prototyping it yet but I have got a question as a
-> follow-up to our chat at LPC about crafting an ACPI device for the static
-> table entries and sort out the probe dependencies using autodep.
->
-> After spur of the moment reaction during the session, I now remember I
-> thought about crafting an ACPI device for the static table entries and
-> started digging then bumped into acpi_add_single_object() as you
-> suggested.
->
-> The point though is: what about the acpi_handle and the AML required to
-> sort out the dependencies using the _CRS ? We have got the info to fill
-> the _CRS coming from static table entries (MMIO, GSI) but I am not sure h=
-ow I
-> can form a full-fledged ACPI namespace object in the kernel, without
-> that in place I am not sure how the autodep mechanism can possibly
-> work.
+This was observed on a custom i.MX8MP platform with an mcp251xfd CAN
+controller under heavy RPMSG load, as a series of refcount_t warnings
+triggered from rpmsg_recv_done() in virtio_rpmsg_bus:
 
-The missing ACPI handle is not a hard part IMV, it is a matter of
-modifying struct acpi_dep_data to be able to hold struct acpi_device
-pointers instead of ACPI handles in case the devices in question have
-no ACPI handles and adjusting the code using it.
+  refcount_t: addition on 0; use-after-free.
+  refcount_t: underflow; use-after-free.
+  refcount_t: saturated; leaking memory.
 
-Finding the dependencies is harder.  I guess it may involve walking
-the namespace and looking up a device object with a specific device ID
-or similar.
+Leading finally to an "Unable to handle kernel paging request" oops.
+Reproducing this problem took between 30 minutes and roughly 30 hours
+under the same workload.
 
-Note that the dependencies can be added to acpi_dep_list after
-creating a struct acpi_device with acpi_add_single_object() and
-acpi_scan_add_dep() is not really suitable for that, but it should be
-doable if the dependencies can be found.
+Hardware watchpoints on the refcount of a struct rpmsg_endpoint showed
+it was overwritten from 2 to 1 by __pi_memcpy_generic() in the
+irq/155-spi2.0 thread. Additionally it was found that a "normal"
+rpmsg_recv_done() took 11µs +/-2µs from its kref_get to kref_put. In
+the error case the same sequence took about 215µs +/-10µs. Based on
+this, an LLM was used to identify the size mismatch fixed here.
 
-> I need to have a deeper look into this next week but I wanted to ask firs=
-t
-> whether there was something I missed - most likely.
+Allocate the buffers with DMA_CACHE_ALIGNED_LEN(dma_len) so they cover
+the full mapped length, and use the same length for
+dma_sync_single_for_cpu() to stay consistent with map and unmap.
 
-Well, it is not really straightforward.
+With this patch applied, the same workload ran for more than 200 hours
+without the problem reproducing.
 
-I'm still not sure why you can't represent all devices in the ACPI
-namespace in addition to describing some of them in static tables.  I
-guess that would work for everybody, wouldn't it?
+Assisted-by: LLM
+Fixes: faa8e404ad8e ("spi: imx: support dynamic burst length for ECSPI DMA mode")
+Cc: stable@vger.kernel.org
+Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
+---
+ drivers/spi/spi-imx.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+index 79a6c1a60b0a0..3851c50dbe314 100644
+--- a/drivers/spi/spi-imx.c
++++ b/drivers/spi/spi-imx.c
+@@ -1578,11 +1578,13 @@ static int spi_imx_dma_tx_data_handle(struct spi_imx_data *spi_imx,
+ 		dma_data->dma_len = ALIGN(dma_data->data_len, BYTES_PER_32BITS_WORD);
+ 	}
+ 
+-	dma_data->dma_tx_buf = kzalloc(dma_data->dma_len, GFP_KERNEL);
++	dma_data->dma_tx_buf = kzalloc(DMA_CACHE_ALIGNED_LEN(dma_data->dma_len),
++				       GFP_KERNEL);
+ 	if (!dma_data->dma_tx_buf)
+ 		return -ENOMEM;
+ 
+-	dma_data->dma_rx_buf = kzalloc(dma_data->dma_len, GFP_KERNEL);
++	dma_data->dma_rx_buf = kzalloc(DMA_CACHE_ALIGNED_LEN(dma_data->dma_len),
++				       GFP_KERNEL);
+ 	if (!dma_data->dma_rx_buf) {
+ 		kfree(dma_data->dma_tx_buf);
+ 		return -ENOMEM;
+@@ -1920,7 +1922,8 @@ static int spi_imx_dma_package_transfer(struct spi_imx_data *spi_imx,
+ 
+ 	/* Trim the DMA RX buffer and copy the actual data to rx_buf */
+ 	dma_sync_single_for_cpu(controller->dma_rx->device->dev, dma_data->dma_rx_addr,
+-				dma_data->dma_len, DMA_FROM_DEVICE);
++				DMA_CACHE_ALIGNED_LEN(dma_data->dma_len),
++				DMA_FROM_DEVICE);
+ 	spi_imx_dma_rx_data_handle(spi_imx, dma_data, transfer->rx_buf + spi_imx->rx_offset,
+ 				   word_delay);
+ 	spi_imx->rx_offset += dma_data->data_len;
+
+---
+base-commit: 62f482ff73bf3ae88b0c899115527752cf9cbf13
+change-id: 20261015-fix-spi-imx-dma-1bab95ea4863
+
+Best regards,
+--  
+Richard Leitner <richard.leitner@linux.dev>
+
+
 
