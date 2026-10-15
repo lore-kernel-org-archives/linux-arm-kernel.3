@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0B9CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5EDCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W12XDrvw7f+AKX3qBwyOQ7szCXeUEBebRu6XXPPodDI=; b=X9mzOepA6qrC1pyRBR+Vlva/qC
-	vajGpTBPO1uY3aTYRt5IPWwYZPNLZGjhMS+oNWifPUoOXL4r8lECgrQjp3UcOGasKkRtRcifi3Ijj
-	ZvJTHUS2tmnHnSd4Q/F+q6F5wIz6ovipmCt9TEB2n5H5J0jXVtD0Xnn9XSqMZcq3ykT1jis8FjJQz
-	ej4SOFGS3hNJUXyPt5mh895yTWiHl2jI6KHnP1Ugha8G78B3K1vOyCP44Sq1lnSSbJBJl3cylQwu9
-	SqCslCmygG/ziyyIOrnt35QQwJzWUc4u8Xg2hWTFg/PZp3B71fXc8xayVZk0GLYmQ6OgSTFE/Sdyg
-	yRzE6P9Q==;
+	bh=4R6C3otfPSRMB7sLJWxWEvrFS4WjHRVB+TeXnhUt7Q4=; b=Zny/MbNRvmHgtkTxkCpJIxW8np
+	F/bt5KRd2rhPAYnMmyX3hu2CHGsrpvS+QS9MqbuZWTdgEDzVa7QZusWMw4OZYUzCBR6jNEIpgHpzN
+	5UF2/6em3yG11QMlk6ZYneLZRD4iVCIvZj6D+xmEd3J6HR5o+iMNeZ8oCSf4+oL/mHC2lTDXFZWkU
+	OtQ4baVb4PA03cJGeoJKdgvRhSriHELlUxVcg1c1JYM1brmSY+dXywnrWZgBDXIKmgZMlxVhcUJYO
+	JS6E23EhhYkamK1WOnXVZ/PaDza4xYS11zqsAEXzcKeoIddBX8YzaL8W2PrhjFwMRZUXrmCzxY5BZ
+	pUslxlWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKqF-000000009Nk-1TST;
-	Thu, 15 Oct 2026 12:45:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHKub-00000000A7R-0sKb;
+	Thu, 15 Oct 2026 12:50:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKqD-000000009Nc-3NcX
+	id 1xHKuX-00000000A6a-0ygt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:45:49 +0000
+	Thu, 15 Oct 2026 12:50:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2433D439A2;
-	Thu, 15 Oct 2026 12:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1743F1F000C4;
-	Thu, 15 Oct 2026 12:45:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B3A260120;
+	Thu, 15 Oct 2026 12:50:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245CE1F000C4;
+	Thu, 15 Oct 2026 12:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792068349;
-	bh=W12XDrvw7f+AKX3qBwyOQ7szCXeUEBebRu6XXPPodDI=;
+	s=k20260515; t=1792068616;
+	bh=4R6C3otfPSRMB7sLJWxWEvrFS4WjHRVB+TeXnhUt7Q4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=le6uPVllewTN5EAXowJ8xOcxIlFmLfrEKnM516I8nrvzPao8bCK2e37+CtcQOsl4/
-	 k8bW9nNY5M7YnHMBZVzcPr2bZi4YwV3FhwZKQ3s2CYPrIPvv3ZiRzL/M6I8vuzyQHL
-	 FIz/KBhwqKcgiAPbu6ZlJwmOUvz+3eZOdEeHCZFZzs/Lyr7PQGsstQAaqq1cisNXqT
-	 6iitL6D7/H12m1qFZLcTxKyhHt1hNm2QJPT+MQBze2+1X/sDC6EqADMmKpr7vLbZUb
-	 kCcrp1HnFk/IooaG9cfXJ+Wtg+b4we+SfjCDbVAYYt/zJ+XiXx5j82UUR7h5G040yh
-	 E9Fp29B444Icg==
-Date: Thu, 15 Oct 2026 13:45:44 +0100
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: mark.rutland@arm.com, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3] perf/arm_cspmu: Add Arm system PMU
-Message-ID: <atDK-H_Qrufjc2WW@willie-the-truck>
-References: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
+	b=VvGzkhkXPC+gUqSIhDNIhuCk0U83Pnahsv8JWnqIZ3WPyxMgOfEb+v3pExjdpYNxe
+	 W/DFwGWQw5PbXO5XkdnRnOfsq6fsX2h7zN6IbOl3Dv3OyhcLvvRchrsRr89oj7iBLb
+	 ZpcdNGsIzKQzNngva2sZwFCck9DPcqkhDTGxN5BwUI+DuCS94HpNk5CyyRb81p0kLb
+	 8Fi3S5FvPc9kIbhpwu2GLI1IO0sRIuJuHevOB6krAS18ddMyqvrQh4dhqljaWzkHod
+	 SkVW+AnFQjrwb175AzOTl3IC51i8mb0xSa7+Y5X3jAleab7bsU3ETmJZmPs6JZVczB
+	 ZxvRVUKkg4gfA==
+Date: Thu, 15 Oct 2026 13:50:09 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, james.clark@linaro.org
+Subject: Re: [RFC PATCH v7 00/28] KVM: arm64: Add Statistical Profiling
+ Extension (SPE) support
+Message-ID: <atDLgcMeh7kizHGt@gremlin>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <atCqFRdGzFq5dOdT@raptor>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
+In-Reply-To: <atCqFRdGzFq5dOdT@raptor>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,34 +73,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
+On Thu, Oct 15, 2026 at 11:25:25AM +0100, Alexandru Elisei wrote:
+> Hi Oliver, Marc,
+>
+> Gentle ping regarding this series. Is there something you want me to do to make
+> reviewing easier? Do you want me to rebase it on top of v7.4-rc1 when it comes
+> out? Something else?
+>
+> Thanks,
+> Alex
 
-On Mon, Oct 05, 2026 at 03:11:00PM +0100, Robin Murphy wrote:
-> Arm's latest Compute Subsystems and SoCs are using a common PMU block
-> in various places which can mostly just be driven as a generic 64-bit
-> CoreSight PMU, but does have an IMP-DEF register for additional
-> filtering. The details of event and filter encodings depend on the
-> particular PMU instance, so are left to the higher level Arm Telemetry
-> Solution tooling.
-> 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
-> 
-> v3: Fix 32-bit COMPILE_TEST to match arm_cspmu.c
-> 
->  drivers/perf/arm_cspmu/Kconfig      |  7 +++
->  drivers/perf/arm_cspmu/Makefile     |  1 +
->  drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
->  drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
->  drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
->  5 files changed, 83 insertions(+)
->  create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
+Just to say that I'm planning to go through this series myself and can hopefully
+help with the review workload here! :)
 
-Sorry, but with LPC last week and us now being at -rc7, this finalised
-just a little too late for 7.4. I'll pick it up next cycle (but please
-resend at -rc1 so I don't forget!).
-
-Cheers,
-
-Will
+--
+Cheers, Lorenzo
 
