@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F85CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A1CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MycHCtKOpCViJUeUQ3alLvxWUMdQesuZvEMWTh9BpTU=; b=MJXz1OdW1AjqSjFjs/vY/rsV1/
-	gxPXfBqWcMGNF9GGAssbvMM+0g83l6JS3iqWrJM8r55ABILdaqrBuWZt0Vj4PiiPDXgR5lF0s+vgs
-	KnyR6tZAeZ3DT0uLobIyNDcsb3n4YTHXKl7BFoh5vrCl7WvJ9ajg/LohwSkHwE2lyGjax3tJWCQ8L
-	VnaxVcjR15kdvF6bSxI4z08gS10sRIydlMsRkZ+pJo4JdFluGj0pgG0Cwid0damIxtdzwK1iN4SNV
-	bV0csk63KPWZlyHU8QMjmDau+jmUzWmlwjJMyQPRdA/g2taztOsxcRb0uMOimmvM6gIGkC92DKI7R
-	cJAB/I4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+ilM+P1ev730bUBcqRovMoOiqIOLokGHIw92Q+VPKk=; b=U0ZnjV9F2kxU+M/zF95FuOXRyq
+	3G7y3INIm2WSnR6DkjiNPhjIgK0twEbLA2M33qEZopxETEwLWESuM3WeQ/K8adaf6MvfV8KkLdUxI
+	Ml4jpg29FY0kV0ufjfYTYdep97O6Qa65gvC7Yl2gsWf7oQ8MUebUDExnIF362M1MJ4gPqYF2J27fm
+	U+lZlVC4I2N0o3cPFoBO6avTSrrUkLwsXJv79apZ41tL7fI975tI3iBVqcCIW2dgdvzvh2ka80peo
+	7U4d3MASqpBJhH/DeI38WE1zqQSGaYxSy6nYcTOZzx5ZhDC+T6kGqlNX4/FtOUmMpEiU23q5MlzGI
+	9VEDAGMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHnq-0000000HGwz-2gMx;
-	Thu, 15 Oct 2026 09:31:10 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHno-0000000HGwG-2aS8
+	id 1xHHoi-0000000HHBW-0OVw;
+	Thu, 15 Oct 2026 09:32:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHHog-0000000HHAq-3SId
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 09:31:09 +0000
-Received: from [10.94.176.134] (unknown [4.194.122.162])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 900F720B7166;
-	Thu, 15 Oct 2026 02:30:59 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 900F720B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1792056662;
-	bh=MycHCtKOpCViJUeUQ3alLvxWUMdQesuZvEMWTh9BpTU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HsS7G5z2YTlyMJh+eltF/Bob62gbHOQPMm0/uY+RUwcHz/a/n9Q7DHaDm6Nf6CLAF
-	 79v7iwxOtdcJ0XgDImeJ+bgCeYQWMLG3q3SveAuSHE1Up5OqX4XKoh7C51G/xWqxmn
-	 LeFvjc3+6mIVpVxjYBuim3ZfN6F2BnZYsdful1Uc=
-Message-ID: <20175a31-2ef8-4c12-b329-616cb07d3d0b@linux.microsoft.com>
-Date: Thu, 15 Oct 2026 15:01:01 +0530
+	Thu, 15 Oct 2026 09:32:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 33A79601F0;
+	Thu, 15 Oct 2026 09:32:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E0E1F000C4;
+	Thu, 15 Oct 2026 09:32:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792056721;
+	bh=r+ilM+P1ev730bUBcqRovMoOiqIOLokGHIw92Q+VPKk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=TtAttl89pU+Ar6H2ZGB8oGU19ZW3MJFoRwyM33BzqO4kJQ1r9EW91CaaTA3zQ9jXz
+	 div97sLCynNqQjbNjp8THUt/J8DVqJRKtbKCPZfUJlfGSvZntf+STilaWf8RDIJfYO
+	 6nJsRJHCZIVbjuW/2ZqKFG8NjTUnqlDKLJJCfEQyhj72X2QhFMEdJvB7tCi6fnmSIA
+	 D/BBGOUNi123ZYVeNkmp4/+09MU+MdBji8hD582ihHHCnTB7HBKDbgbUN1T/11AQXh
+	 bmnGZ+e6ACgCyw9brL9WLWGJXz1fnotuoWJUvDeeiim2ihuN/FnTcpvTL/kdNA+wt7
+	 H5z5kaf3TRpvg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, Oliver
+ Upton <oupton@kernel.org>
+Cc: Eric Auger <eauger@redhat.com>, Joey Gouly <joey.gouly@arm.com>, Steffen
+ Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, Sascha
+ Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene
+ <sebastianene@google.com>, Yuan Yao <yaoyuan@linux.alibaba.com>, Fuad
+ Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init
+ error paths
+In-Reply-To: <20260921072958.2918477-1-fuad.tabba@linux.dev>
+References: <20260921072958.2918477-1-fuad.tabba@linux.dev>
+Date: Thu, 15 Oct 2026 11:31:58 +0200
+Message-ID: <87wlrje2cx.ffs@fw13>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: xilinx: versal-net: Remove CPU idle states
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, git@amd.com,
- ptsm@microsoft.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, michal.simek@amd.com, sven@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
- <b9213a36eb1d28f3e7b8610592c085f627f5c7cf.1791374721.git.jay.buddhabhatti@amd.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <b9213a36eb1d28f3e7b8610592c085f627f5c7cf.1791374721.git.jay.buddhabhatti@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_023108_696896_D0C58CCC 
-X-CRM114-Status: GOOD (  17.06  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,186 +74,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 21 2026 at 08:29, Fuad Tabba wrote:
+> Hi folks,
+>
+> Changes since v2 [1]:
+>   - Patch 3: a vgic_v4_init() failure now frees only the SPI array,
+>     since that function unwinds its own state; the teardown label is
+>     for the routing failure. (Yuan Yao)
+>   - Rebased on kvmarm/next, where the routing failure already tears
+>     down the GICv5 state. Patch 3 moves that into the shared label, so
+>     the SPI array is freed on that path too.
+>   - Collected Reviewed-by from Yuan Yao on patches 1 and 2. (thanks!)
+>
+> Four fixes on the paths that run when vgic init fails partway. Each one
+> needs an allocation failure to reach.
 
-
-On 07-10-2026 17:49, Jay Buddhabhatti wrote:
-> The sleep state powers down the CPU core, and the wake-up time cannot be
-> guaranteed because the firmware may be busy handling other tasks at the
-> time of the wake-up request. This leads to unpredictable and potentially
-> high wake-up latency during CPU idle.
-> 
-> Remove the sleep state to avoid this dependency on firmware. The default
-> backend CPU idle state simply puts core in WFI and retains its context
-> without being powered off. Since wake-up from WFI is handled entirely in
-> hardware, it is effectively immediate (a few cycles) and does not depend
-> on firmware availability.
-> 
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-> ---
-> Changes in v2:
-> - Remove the idle state instead of replacing it with a retention state.
-> - Update the subject and commit description.
-> 
-> Link to v1: https://lore.kernel.org/all/20260727121842.3410495-1-jay.buddhabhatti@amd.com/
-> ---
->   arch/arm64/boot/dts/xilinx/versal-net.dtsi | 29 ----------------------
->   1 file changed, 29 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> index 21bb917bcba1..9b74e59fd64a 100644
-> --- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> +++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> @@ -103,7 +103,6 @@ cpu0: cpu@0 {
->   			enable-method = "psci";
->   			reg = <0>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -133,7 +132,6 @@ cpu100: cpu@100 {
->   			enable-method = "psci";
->   			reg = <0x100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -163,7 +161,6 @@ cpu200: cpu@200 {
->   			enable-method = "psci";
->   			reg = <0x200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -193,7 +190,6 @@ cpu300: cpu@300 {
->   			enable-method = "psci";
->   			reg = <0x300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -223,7 +219,6 @@ cpu10000: cpu@10000 {
->   			enable-method = "psci";
->   			reg = <0x10000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -253,7 +248,6 @@ cpu10100: cpu@10100 {
->   			enable-method = "psci";
->   			reg = <0x10100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -283,7 +277,6 @@ cpu10200: cpu@10200 {
->   			enable-method = "psci";
->   			reg = <0x10200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -313,7 +306,6 @@ cpu10300: cpu@10300 {
->   			enable-method = "psci";
->   			reg = <0x10300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -343,7 +335,6 @@ cpu20000: cpu@20000 {
->   			enable-method = "psci";
->   			reg = <0x20000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -373,7 +364,6 @@ cpu20100: cpu@20100 {
->   			enable-method = "psci";
->   			reg = <0x20100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -403,7 +393,6 @@ cpu20200: cpu@20200 {
->   			enable-method = "psci";
->   			reg = <0x20200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -433,7 +422,6 @@ cpu20300: cpu@20300 {
->   			enable-method = "psci";
->   			reg = <0x20300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -463,7 +451,6 @@ cpu30000: cpu@30000 {
->   			enable-method = "psci";
->   			reg = <0x30000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -493,7 +480,6 @@ cpu30100: cpu@30100 {
->   			enable-method = "psci";
->   			reg = <0x30100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -523,7 +509,6 @@ cpu30200: cpu@30200 {
->   			enable-method = "psci";
->   			reg = <0x30200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -553,7 +538,6 @@ cpu30300: cpu@30300 {
->   			enable-method = "psci";
->   			reg = <0x30300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -632,19 +616,6 @@ llc: l4-cache { /* LLC inside CMN */
->   			cache-size = <0x1000000>; /* 16MB */
->   			cache-unified;
->   		};
-> -
-> -		idle-states {
-> -			entry-method = "psci";
-> -
-> -			CPU_SLEEP_0: cpu-sleep-0 {
-> -				compatible = "arm,idle-state";
-> -				arm,psci-suspend-param = <0x40000000>;
-> -				local-timer-stop;
-> -				entry-latency-us = <300>;
-> -				exit-latency-us = <600>;
-> -				min-residency-us = <10000>;
-> -			};
-> -		};
->   	};
->   
->   	cpu_opp_table: opp-table {
-
-This change works fine.
-
-Tested-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-
+Marc?
 
