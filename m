@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E39CC6B33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE74CCC6B34
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMFy2QOZK7zANSOk5PDCpb3dFWclqXWbQfTgV5KP3e4=; b=pkusOG/zniUqjrLihxF5YgWzXW
-	pFfbe0R7vQziM51vcRNOliDJaFIVvwuUMXbn7Fgfhij+/XSCmfwap5KsG2GsJNsnskuKadsOZSji6
-	k/PogtNx0eEnS67cSMPSw8qOa6l/zAFY/Q7/9hUCE5EzzcSnAL21rheGh+c8YC/qYjqiz8xBauX2b
-	LPxFZsxedQrVlC6LlEvYktXjInklYqn1Gkl0cPCxQgJtiGGPzSxkGsbdxiqw8O8kxypJu8NSukgR+
-	LycwkeJB0WdHlXmLQjuunRlJgVafYPvEH8TZI9Uq1piJjO3K9NhCGduMtzKYu94V91lFV7BEsle9x
-	tgFypxKQ==;
+	bh=cAsfqIY4xysP+5WQyv/gdBmoGAYKfxxvAXv3mSfmZtg=; b=vTTIORtUUOxCSz+vR/CezdYw4o
+	9MlV17TWsI14E7Cl7rPl0ZOM1HJujFdBwouEYR6CJvk49fSAEpuWiOV2DfAytSE9HiNpaqeBkmziU
+	chjnmx8PE2PuSw2ZXwyUxERF5A2DIHoikbZA29orsxEFVYb+2J1OfthTOSTSwcGngzOAKVsrHzOPy
+	nvuJ7ZOj4ui481TC2celucWEmP8ntxCkuJUNQCqPZI7TVIu+t8oA7m43VgdYeeCs6/ArX1MTJPq0X
+	cXeFhQ3UJnic54MOJnxbtqvvjRILkxlT0n4h7iIRVJ42awB6JxyAB2/jGXv4q2DJTRNTy829q04pk
+	uwSeNZOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKRB-000000005EX-3Ll5;
+	id 1xHKRB-000000005Dp-2Ag2;
 	Thu, 15 Oct 2026 12:19:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKR6-0000000059X-1J4E
+	id 1xHKR3-0000000057M-1HJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:19:55 +0000
+	Thu, 15 Oct 2026 12:19:50 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C1BAE1A1238;
-	Thu, 15 Oct 2026 12:19:50 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id BCADFC62201;
+	Thu, 15 Oct 2026 12:20:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8E25D60360;
-	Thu, 15 Oct 2026 12:19:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D4B510328189;
-	Thu, 15 Oct 2026 14:19:45 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 600C860360;
+	Thu, 15 Oct 2026 12:19:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 295FB10328BAF;
+	Thu, 15 Oct 2026 14:19:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792066788; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1792066783; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=CMFy2QOZK7zANSOk5PDCpb3dFWclqXWbQfTgV5KP3e4=;
-	b=blUPwAobQRK/Drqoo1A1JwsPNS1zBMWRc0CklqwauB4Fd2TjEpPhCsCy2fgUQOPpY0iqv6
-	qjqqU92IevRVMJGKvP+B5TZx16FeAc5Mg7PS44YlwrT776Gf82DEAU6sfmQEWc5aGsbVC2
-	YFAakl7lMxi4f1DHXZx05p8VfhutIIVTg3wpE2BE6I3VlL0HMExjZyob2ZvmZUy0tcwxGt
-	gl6ycfsPxh4YEasXhgVK+NpBgR7blCVKigFFamNIm/fIySFbtZwBulTTbQH6DNAmKVJt3y
-	SV1NV6ZR/bTwblwM27IhVOpIrSvpp6NRErb20dy2jECP+ZibuXGTCogjYg2Z1g==
+	bh=cAsfqIY4xysP+5WQyv/gdBmoGAYKfxxvAXv3mSfmZtg=;
+	b=dzzF0JFt/2sok+tbijanyssaOqEfpyuXYXFHltESIN42r4MCBoxFsSIEWFsdnJ+qUMeK0d
+	nKkKnPR29iFbphSNbmpe6sXtztzU6MuHlxSKgp1T/lLhFOQB2WyR7Ksk7mB0nxPQ1GoeS+
+	Pqw7QvZ2wABRcRih2szizFekNx8KjjzK5RnK4TF9q3jrKst7wZf6R8PoooSv64pkHdtvbR
+	XZNNu3z/lHoCF55X48byGow4ZAkg8lKwSsp9rQawfByojVkSOU29fHFSOtpwZi4KDNWB45
+	S7EcIsk9U3IgIWdkcBLGxCS23SY2RgA0RHuAKHwaeddE86DvjSYiWjLPLDnuHQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 15 Oct 2026 14:19:02 +0200
-Subject: [PATCH v9 06/10] clk: Create
- devm_clk_hw_register_fixed_rate_parent_hw()
+Date: Thu, 15 Oct 2026 14:19:01 +0200
+Subject: [PATCH v9 05/10] clk: nuvoton: ma35d1: Use device managed helpers
+ for fixed rate clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-perso-ma35d1-upstream-clk-v9-6-1f548fa2002e@bootlin.com>
+Message-Id: <20261015-perso-ma35d1-upstream-clk-v9-5-1f548fa2002e@bootlin.com>
 References: <20261015-perso-ma35d1-upstream-clk-v9-0-1f548fa2002e@bootlin.com>
 In-Reply-To: <20261015-perso-ma35d1-upstream-clk-v9-0-1f548fa2002e@bootlin.com>
 To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -73,8 +73,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_051952_502585_42B6FB10 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20261015_051949_530783_0084A46A 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +89,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk-provider.h exposes many different helpers to help registering
-clocks. Most of them expose both a 'basic' variant and their 'devm_'
-extension (with just the last parameter of the inner function call
-becoming true instead of false). Do the same with:
-
-     clk_hw_register_fixed_rate_parent_hw() by creating
-devm_clk_hw_register_fixed_rate_parent_hw().
+Most of the clocks are already registered with device managed helpers,
+except the fixed clocks. Harmonize the driver by using the already
+available managed helper for that.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- include/linux/clk-provider.h | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/clk/nuvoton/clk-ma35d1.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-index a355d1ee5189..c2b80cb3ab0b 100644
---- a/include/linux/clk-provider.h
-+++ b/include/linux/clk-provider.h
-@@ -458,6 +458,19 @@ struct clk *clk_register_fixed_rate(struct device *dev, const char *name,
- 					     fixed_rate)		      \
- 	__clk_hw_register_fixed_rate((dev), NULL, (name), NULL, (parent_hw),  \
- 				     NULL, (flags), (fixed_rate), 0, 0, false)
-+/**
-+ * devm_clk_hw_register_fixed_rate_parent_hw - register fixed-rate clock with
-+ * the clock framework
-+ * @dev: device that is registering this clock
-+ * @name: name of this clock
-+ * @parent_hw: pointer to parent clk
-+ * @flags: framework-specific flags
-+ * @fixed_rate: non-adjustable clock rate
-+ */
-+#define devm_clk_hw_register_fixed_rate_parent_hw(dev, name, parent_hw, flags, \
-+						  fixed_rate)		       \
-+	__clk_hw_register_fixed_rate((dev), NULL, (name), NULL, (parent_hw),   \
-+				     NULL, (flags), (fixed_rate), 0, 0, true)
- /**
-  * clk_hw_register_fixed_rate_parent_data - register fixed-rate clock with
-  * the clock framework
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index 75b7e2a84bfd..4a745b169778 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -139,9 +139,9 @@ static const struct clk_div_table eadc_div_table[] = {
+ 	{13, 28}, {14, 30}, {15, 32}, {0, 0},
+ };
+ 
+-static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
++static struct clk_hw *ma35d1_clk_fixed(struct device *dev, const char *name, int rate)
+ {
+-	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
++	return devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+ }
+ 
+ static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
+@@ -280,24 +280,24 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	 * purposes.
+ 	 */
+ 	if (num_clks == 1) {
+-		hws[HXT] = ma35d1_clk_fixed("hxt", 24000000);
+-		hws[LXT] = ma35d1_clk_fixed("lxt", 32768);
++		hws[HXT] = ma35d1_clk_fixed(dev, "hxt", 24000000);
++		hws[LXT] = ma35d1_clk_fixed(dev, "lxt", 32768);
+ 	}
+ 
+ 	hws[HXT_GATE] = ma35d1_clk_gate_parent_data(dev, "hxt_gate", hxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 0);
+ 	hws[LXT_GATE] = ma35d1_clk_gate_parent_data(dev, "lxt_gate", lxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 1);
+-	hws[HIRC] = ma35d1_clk_fixed("hirc", 12000000);
++	hws[HIRC] = ma35d1_clk_fixed(dev, "hirc", 12000000);
+ 	hws[HIRC_GATE] = ma35d1_clk_gate(dev, "hirc_gate", "hirc",
+ 					 clk_base + REG_CLK_PWRCTL, 2);
+-	hws[LIRC] = ma35d1_clk_fixed("lirc", 32000);
++	hws[LIRC] = ma35d1_clk_fixed(dev, "lirc", 32000);
+ 	hws[LIRC_GATE] = ma35d1_clk_gate(dev, "lirc_gate", "lirc",
+ 					 clk_base + REG_CLK_PWRCTL, 3);
+ 
+ 	hws[CAPLL] = ma35d1_reg_clk_pll(dev, CAPLL, pllmode[0], "capll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL0CTL0);
+-	hws[SYSPLL] = ma35d1_clk_fixed("syspll", 180000000);
++	hws[SYSPLL] = ma35d1_clk_fixed(dev, "syspll", 180000000);
+ 	hws[DDRPLL] = ma35d1_reg_clk_pll(dev, DDRPLL, pllmode[1], "ddrpll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL2CTL0);
+ 	hws[APLL] = ma35d1_reg_clk_pll(dev, APLL, pllmode[2], "apll",
+@@ -338,8 +338,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[PCLK3_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk3_div4096", "pclk3", 1, 4096);
+ 	hws[PCLK4_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk4_div4096", "pclk4", 1, 4096);
+ 
+-	hws[USBPHY0] = ma35d1_clk_fixed("usbphy0", 480000000);
+-	hws[USBPHY1] = ma35d1_clk_fixed("usbphy1", 480000000);
++	hws[USBPHY0] = ma35d1_clk_fixed(dev, "usbphy0", 480000000);
++	hws[USBPHY1] = ma35d1_clk_fixed(dev, "usbphy1", 480000000);
+ 
+ 	/* DDR */
+ 	hws[DDR0_GATE] = ma35d1_clk_gate(dev, "ddr0_gate", "ddrpll",
 
 -- 
 2.55.0
