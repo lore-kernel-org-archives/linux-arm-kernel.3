@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4DDCC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C995FCC6B3A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kx/01Nsq1UY3kmElra+GwWgne6z+msRWvpMdj34qnwk=; b=eSw+opwNdIn8+6+c43nVFHmggY
-	rsaCkC85U4z6jXhN4K+LYYZrA1M+GJeJrdx1a7DoZYbhyLzgl6HC1ByOyf3lqn3jUA9UMge+CO0pQ
-	BkdQCyhC747zajnMOFC1mLJq9sqedEzHf8FH1ySY7UVPJaj2sv0uBz79IaWJRxQ2rjGux+9D+Xbcq
-	Diy0jGPP8HifGv1v8i2qZhq7hOT2kcCeAOqdv8OLrK39CL5QVT8HGC634+2o4Q1MW4VqEVO3BNGAf
-	m2Q0LOcdVnE2Hg16KGyZxU7inxNKtvs4BcAbJ7QUlg6z+7u6JEBCd7nIyuBA3w6KKDIwl9L9mCiD2
-	Xt99eCBA==;
+	bh=jffrM+FBQqUwiZ21cymkCC4MhlAofj7fyNSPSMCMd8A=; b=P9y4Qvr1HKrGUVfoyY60H983ce
+	6cAxkW7yFRRxN2seTz3LJiJczNqBAKZs0hYUkvVRUagyyuTSqLXz5g2FJZ+yGILNtE324iWAIm/Xk
+	097N6KU5NpyAJiZFToaJR6a4TrLdMZ1+c5EDXptv8JTerJojO3Xh9x0p/S0/TxRv/5E+rRPcsx6Pk
+	xb10dm+/u3Z++znszHLGSuzqex55UgwN2s/uzMAe2ERlLPrWJL50ovGQv0chmp3jYKzO/ylftexMH
+	jMIb0QM5EfaTmAiP1PiEpbmlbGpNPImhI+t9LqsLTwtzkz+MQU2hf5pyzquTy9TT33dG2wJ0BjGKB
+	rEB2zQPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLmp-00000000Hs1-2LcM;
-	Thu, 15 Oct 2026 13:46:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHLsP-00000000IUv-1XXd;
+	Thu, 15 Oct 2026 13:52:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLmo-00000000Hra-3TPt;
-	Thu, 15 Oct 2026 13:46:22 +0000
+	id 1xHLsO-00000000IUk-1IhB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 13:52:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 491A0408C0;
-	Thu, 15 Oct 2026 13:46:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87B31F000C4;
-	Thu, 15 Oct 2026 13:46:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0649432C2;
+	Thu, 15 Oct 2026 13:52:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A33DD1F000C4;
+	Thu, 15 Oct 2026 13:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792071982;
-	bh=Kx/01Nsq1UY3kmElra+GwWgne6z+msRWvpMdj34qnwk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iVz7KgO9Cm2mX6ny5SHc02ay/J/zYG7KOkNB+c1dCyFPSh++xhzNK0dd/gZ8N7Q3F
-	 DNpCy3deOCDafeJOyy+94wg8QGz31E0cLl9S8ZBRyZXi/dp2LOXTqNRiQI/uWBlo6e
-	 mflihpcygGeZiZpLIgpl616jKl0Ni62cZYg1Ek/1yBEBXZ4iFx6ljLIKbWyWUhV+Y7
-	 wiIDv74TdBVF5Zsjam4B6NBNPRhSp0FDySL1e9jmidB9KyT4yywxbSeWqtiL1WJwJD
-	 lcf7+cyCKW2RaHbLYA7yJovxTZ34ppYEbsmp3cF1KCbkcF8o7oj3+cDd5scuLAL196
-	 skaObiIf7rIOQ==
-Date: Thu, 15 Oct 2026 14:46:16 +0100
-From: Lee Jones <lee@kernel.org>
-To: Yaozhong Li <yaozhonguwl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3 2/3] mfd: rk8xx: Release the power hold GPIOs
- before powering off
-Message-ID: <20261015134616.GA1907748@google.com>
-References: <20260929140649.55-1-yaozhonguwl@gmail.com>
- <20260929140649.55-3-yaozhonguwl@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260929140649.55-3-yaozhonguwl@gmail.com>
+	s=k20260515; t=1792072327;
+	bh=jffrM+FBQqUwiZ21cymkCC4MhlAofj7fyNSPSMCMd8A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=mxo+pNTHLo6MUL8x9zySsXumotxTHNpP1g/C2J2kydv5SBdfm8hVSK6pAx0CDehZ/
+	 BlmUF6hyq4rCRB4S4U1+VQeQEXdQF7n90+sI4+Bx3DD0p//ayxdaPOKsjcRhFGGp28
+	 rO/6lAg8hkCpkecU4mwU0jOl0SfCUJD5RnIEFysjW9IweXALp5d7XqE8i9euCk0PTH
+	 3oxLYmA2wxc2wl4dl/Oh43rQbmn+KFpnNH4w9yZ7wtlyIjY5x2gD9zk71ZbZQobBhG
+	 w9/0f5++QHH70EQcbAvtgthUGRbIEkGrFXBmEKxbBBBJ0ge1YKiE4FBcT3phDElOK3
+	 TiZ0GnCRiSu6g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xHLsL-00000003KaI-2QOu;
+	Thu, 15 Oct 2026 13:52:05 +0000
+Date: Thu, 15 Oct 2026 14:52:05 +0100
+Message-ID: <86ik33137e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 2/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being saved
+In-Reply-To: <20261015125713.2650696-1-fuad.tabba@linux.dev>
+References: <20261015100539.1011760-3-maz@kernel.org>
+	<20261015125713.2650696-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +88,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026, Yaozhong Li wrote:
+On Thu, 15 Oct 2026 13:57:13 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 15 Oct 2026 11:05:34 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > However, code that uses OUTSIDE_GUEST_MODE as a synchronisation point
+> > relies on the vcpu state to have been written back to the in-memory
+> > structures. Clearly, this is not what is happening
+> 
+> nit: missing full stop.
+> 
+> [...]
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> [...]
+> > @@ -1390,6 +1389,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+> >
+> >  		kvm_arch_vcpu_ctxsync_fp(vcpu);
+> >
+> > +		/*
+> > +		 * All the state has been synchronised, let advertise
+> > +		 * we're outside of the guest.
+> > +		 */
+> > +		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+> 
+> nit: could this say the vgic state rather than all the state? In pKVM,
+> a non-protected guest's context comes back later, in
+> handle_exit_pkvm_state() or on demand, and with VHE the EL1 sysregs
+> stay on the CPU until vcpu_put(). Also "let's advertise".
 
-> rk808_power_off() writes the PMIC's shutdown bit directly. On boards where
-> lines driven by the SoC gate the PMIC's power-off path, a shutdown
-> performed this way does not stick: the rails drop and immediately come
-> back up, so the board restarts instead of staying off. U-Boot reports the
-> result as a power-on reset.
-> 
-> Take those lines as an optional GPIO array, hold them asserted while the
-> system runs and release them - waiting power-hold-delay-ms - before
-> writing the shutdown bit. Device trees without the property retain the
-> existing behaviour.
-> 
-> The array is claimed before any child device is registered, so that a
-> -EPROBE_DEFER from the GPIO provider does not tear down the regulators,
-> RTC and clocks that devm_mfd_add_devices() has already registered.
-> 
-> On a Firefly-RK3399 the shutdown stuck when such a line went from high to
-> low before the shutdown bit was written, and did not when the line was
-> never driven.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
+I don't really want to make this vgic specific, as there could be
+more. But I can more precisely describe what state were talking about:
 
-Why is this still an RFC?  That means it should not be applied.
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b46fafdd3494..7ce9f3bfa7fff 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1390,8 +1390,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+ 
+ 		/*
+-		 * All the state has been synchronised, let advertise
+-		 * we're outside of the guest.
++		 * The state that was pushed into the CPU on entering
++		 * the guest has been synchronised back, let's
++		 * advertise we're outside of the guest.
+ 		 */
+ 		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+ 
+
+Thanks,
+
+	M.
 
 -- 
-Lee Jones
+Without deviation from the norm, progress is not possible.
 
