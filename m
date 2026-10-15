@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830ADCC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A46CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXfvrGncNECkYTGee+Xy6oBurWJxQFEpKp2Ltg0dPzk=; b=1BNFTi2AO5VwmlktoFsxkXMnP7
-	T6ff0id73JkCkjUfD6oNqFXovkOMZbd5YlnLtEZgGOO8p3Am2hyWAGpZYo94WXn6/Ibb7TOZphvCn
-	BTkvJypA3usvE4bK/Vunz2NomItYuYgjDVNw1DUs3lbs2NPAYYoF3e3WUXOjaWZ1kcv+3YmcZITHn
-	V7aoVcCjY9WS7FMFRyc+CYFPsAkSDbZ+hhDB31WcYvIrojIA/WI6HSWU63lDwGsvonBu8ZXgKFGqa
-	3CvcFFW7K8kSkIqCEotdZoPEMw5PTYQ5EYWrTzxSK7/KlK55CV5i25qHVU/qztStCp6B2rndC2ZX2
-	IWyBwJEA==;
+	bh=p7EZk+lzmJeE4LsSw3GX37rQBpfI6r8PK791dC690Ys=; b=H9fsAfI+aScR5P9WtvFvLVvv2B
+	mn+V13FszZv0o/t6pNUVYC6zG0uG9uwQ/bNh4LNkGDDT0tnO/y6kKa1Bn2CObTgCsd6OoL8DzkybL
+	czhNU7W2zzI/Ye0SfRWv6ycGAGOd/vEg4ciag+JRsxN/wkeqmuaIW4mMNXxLMH1zIiBEtLtXkNOOZ
+	wbHYcVpILbz7JClDF7yrNg9FmUXdhS+DE4hGeKsTT/c8XvrPgARCTWpQF2SRroeHRWsQZJypyuYcY
+	PLWFQCqXGA+sC9SXeNbZVnt33wAP+C6a2ozJLsGR9MgBykQErw8obaopAim1LX4wmLqqnR8HnWDbF
+	wEMK97MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIY9-0000000HPvo-2ttu;
-	Thu, 15 Oct 2026 10:19:01 +0000
+	id 1xHIbg-0000000HQBq-1Jmc;
+	Thu, 15 Oct 2026 10:22:40 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHIY7-0000000HPvg-3zX8
+	id 1xHIbf-0000000HQBk-03Zu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 10:19:00 +0000
+	Thu, 15 Oct 2026 10:22:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 24BFA601F0;
-	Thu, 15 Oct 2026 10:18:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0C41F000C4;
-	Thu, 15 Oct 2026 10:18:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 636A8601F0;
+	Thu, 15 Oct 2026 10:22:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49321F000C4;
+	Thu, 15 Oct 2026 10:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792059538;
-	bh=wXfvrGncNECkYTGee+Xy6oBurWJxQFEpKp2Ltg0dPzk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MpnGkmxHZkPrQydu5m9eU/fvlFcJoj/Jewcl0WmzJ9zb4P4/nrWI8ftsb2Cnmtg2L
-	 oY872VoK2af/mtlxfuaFymeLbGnykBKUpDb5ul0midByw5M5BroAvJySGaWBDlp+e4
-	 u616cXq2LOgO9V5Tld5Ynf0k/AhrBrzOLpjRl7NI0irXcFeivbZlia0d/mqEwyx08o
-	 RGN3ZIqBbue6WppNW/ax7LkTs5FsVGKSovb9QRW+4UIPyOl4TK+sR5MwtZ6R9Y0xyk
-	 26jpXrK5Ny92JIiXWj7CCe4YIuYaCY7yR4xgPOFvOaci8F+b5LQXXF1dt4LX5VLgKX
-	 9c/qkcaXfFNrg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xHIY4-00000003F8l-2vNR;
-	Thu, 15 Oct 2026 10:18:56 +0000
-Date: Thu, 15 Oct 2026 11:18:56 +0100
-Message-ID: <86o6cv1d2n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Oliver
- Upton <oupton@kernel.org>,
-	Eric Auger <eauger@redhat.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen
- Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha
- Bischoff <Sascha.Bischoff@arm.com>,
-	Sebastian Ene
- <sebastianene@google.com>,
-	Yuan Yao <yaoyuan@linux.alibaba.com>,
-	Fuad
- Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init error paths
-In-Reply-To: <87wlrje2cx.ffs@fw13>
-References: <20260921072958.2918477-1-fuad.tabba@linux.dev>
-	<87wlrje2cx.ffs@fw13>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tglx@kernel.org, fuad.tabba@linux.dev, oupton@kernel.org, eauger@redhat.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, Sascha.Bischoff@arm.com, sebastianene@google.com, yaoyuan@linux.alibaba.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1792059758;
+	bh=p7EZk+lzmJeE4LsSw3GX37rQBpfI6r8PK791dC690Ys=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=h7hyC0PSOMUerNNnkjhU/TJSkF39Piqr/V/PlCuAddZo8a5N8op1k8zN5aSMFQG4s
+	 2x/FRnIKtf2E3E+Rz6yt/bS7TLMNWPvSq69DheZPEjBQzdgoX1AuiZ3cMXG5lfIwMQ
+	 Tie17QNVvqnO8HSuwJtjRnjCQy51t0aEv3GsOgmaufyxj9dHOcio/e9kX64SpkhNqh
+	 r6NCMvdbjTTFkpC8Ruqc71yEp5suyxmdvjBRlXco6hG+F69rh82BTrGannRzy/yXwb
+	 g0acbs+f5wvA2FVbLe3UGElQIkSjTkyDdMKtZZwpWkaWgfyAAVvWDwUVpV1Ba8XQa5
+	 HXCCFGkg6Tx1g==
+Date: Thu, 15 Oct 2026 12:22:32 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Neal Gompa <neal@gompa.dev>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hector Martin <marcan@marcan.st>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>, 
+	Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pwm@vger.kernel.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v2 05/10] dt-bindings: arm: apple: apple,pmgr: Add t6041
+ compatible
+Message-ID: <20261015-unselfish-camouflaged-ant-decc86@quoll>
+References: <20261014-apple-m4-pro-max-initial-devicetrees-v2-0-961edd8d661b@cyberchaos.dev>
+ <20261014-apple-m4-pro-max-initial-devicetrees-v2-5-961edd8d661b@cyberchaos.dev>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261014-apple-m4-pro-max-initial-devicetrees-v2-5-961edd8d661b@cyberchaos.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Oct 2026 10:31:58 +0100,
-Thomas Gleixner <tglx@kernel.org> wrote:
+On Wed, Oct 14, 2026 at 08:56:12AM +0200, Yureka Lilian wrote:
+> The PMGR blocks on the Apple Silicon M4 Pro/Max SoCs (t604x) are
+> compatible with the previous M1-M4 SoCs. Add "apple,t6041-pmgr" as M4
+> Pro/Max specific compatible.
 > 
-> On Mon, Sep 21 2026 at 08:29, Fuad Tabba wrote:
-> > Hi folks,
-> >
-> > Changes since v2 [1]:
-> >   - Patch 3: a vgic_v4_init() failure now frees only the SPI array,
-> >     since that function unwinds its own state; the teardown label is
-> >     for the routing failure. (Yuan Yao)
-> >   - Rebased on kvmarm/next, where the routing failure already tears
-> >     down the GICv5 state. Patch 3 moves that into the shared label, so
-> >     the SPI array is freed on that path too.
-> >   - Collected Reviewed-by from Yuan Yao on patches 1 and 2. (thanks!)
-> >
-> > Four fixes on the paths that run when vgic init fails partway. Each one
-> > needs an allocation failure to reach.
-> 
-> Marc?
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> ---
+>  Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-I was about to say that I had already queued that, except that it
-appears it only happened in my head, and nowhere else... :-(
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-If that's OK with you, I'll queue (for real!) the whole thing via the
-kvmarm tree, targeting 7.4-rc1.
+Best regards,
+Krzysztof
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
