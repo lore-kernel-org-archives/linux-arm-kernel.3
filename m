@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E77CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A11CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYZtliE6jqQGjnSKE/8fS++RZfkDgdjeis6gl9kgVeY=; b=362Fa80R9uWfgZycYNSRcMxUlO
-	h5PoJPbNllJU6FCFTUAtgE9tIzgy+PybA3hAEWPe2BVZnKsumQZ5GIaUqgUy/V38n0jfXgJ035eYf
-	NJjXTtztghlRmt1j0OvO+gbyWr3U7+S8se3gOc/osjVLEXpd1TxTYooLpNzQ28Q3Y+y+0+hIO5QYw
-	1I6/gx1alktcv0gHsFakclmCYGOxlvC34sBEQIfUcXwMM0d3DPFgq8m+HYwwfqUPweP2zfUuaj4fx
-	MI94Xm/ivld/AXlwjjg+xS08VxT09gxt/6WfQxd2EJQe1kIFCSt4li9NPjZzBsFWN05Y8yu+SQHqJ
-	FbYKBpEw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O2M4w/ZFagUjIv202JHTtOzgBHFi+5K/W5bohYPHYz8=; b=1B1vPtIktCp+B6KJ4p6oebkLVj
+	Wah+v47liM/xFtFohLjoWsAS7X8Hel18uo/hCBcBOrDz9jKccgsJ2MWmxfAA2QBJckoYK5g/l6mMd
+	YpMiFi44cXJKhsMIITcAAq/JhChtBxrkY9kGXjAYfh+LFDqRHfuCSvHZrI1AOe5IR83M/e0hDzyfm
+	54jzTfiNl/Rslve47/nVWRE+YGyeqjVzVufm+NJDUenQ7u31+uoxxDAJf6PSEfMErGTXJ79z1q8F5
+	EhX7EhAxMtodwUcRUtVw0EBMWAaR1K1SmMinCk94zrbE8cHaRd/iMTs8xsHT9FE4KjvcuXw+/+rZ1
+	WfsjfRrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHILO-0000000HNsc-2l7e;
-	Thu, 15 Oct 2026 10:05:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHILN-0000000HNrZ-0WMK;
+	Thu, 15 Oct 2026 10:05:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHILK-0000000HNqk-0rnt
+	id 1xHILJ-0000000HNqD-2d5J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 10:05:48 +0000
+	Thu, 15 Oct 2026 10:05:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F24D143C5C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CD3041A85;
 	Thu, 15 Oct 2026 10:05:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4EE01F000CB;
-	Thu, 15 Oct 2026 10:05:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2D331F000C5;
+	Thu, 15 Oct 2026 10:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792058745;
-	bh=XYZtliE6jqQGjnSKE/8fS++RZfkDgdjeis6gl9kgVeY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OsjQ35gkeRZ6hw66X+lFuG/J1fzbOQ9ia5uYS9ENSDH96RiRkuLoew1zqU4HTx9hy
-	 7m/jxCXLO42Q1jtblaUFUv5KH8tCYfsBjElCDEy1TCoNRWizLIOxGkk7SEf8u+FLZ3
-	 QKNkbWOxEteOd/jG0mCINpgrxcwh4ej97RrRJdlg8JRCrWH9wRhuBxvs2qEsNXcXNl
-	 JHgaTc4DrlIf+guByYrzpRQ8mOjh3mjuyy6muVpsrRat0h/54hc/wVMkv+K8ES23mH
-	 9naYX4ZsgAcVIHRBnf56dqx76EmWGMkitYkjb1PwE6QUsJaZgbWHrDbzNZ75PV5/+J
-	 JIq7yngDAmocQ==
+	s=k20260515; t=1792058744;
+	bh=O2M4w/ZFagUjIv202JHTtOzgBHFi+5K/W5bohYPHYz8=;
+	h=From:To:Cc:Subject:Date;
+	b=Ddg/nBt6jS+ELONe4oMAh0lQ+r3B91fEWE+/uzkG/CE13m3UYxb+yq0MMLIbkxhwy
+	 vfbplBvUmBCiZF15fjrTcYiDGrUo7mbWHObJ/xIfNE+iBhBj3e7mPSmlh7J4mqmeqn
+	 ZIrnGLaRuEMhOY3u9KnazIgXosIrTP+e4hxtRX1/58mWp8WjqbuhEz90FZY2ZpoBtN
+	 LXPdpTRTzgGzpND6cstTj/UKSH0giaL/kKjXRdkYJTosJtNZz52UKsU1UWEHZbf4fg
+	 +1jt1wdJ2Sm95wh029vsherJnGq4jEn93am6b3YWFyfuSkUxFWb1zV+yRO+ZL9w3Uz
+	 USgIY/FHtMSSA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xHILI-00000003EfK-0Vlu;
-	Thu, 15 Oct 2026 10:05:44 +0000
+	id 1xHILG-00000003EfK-1xhU;
+	Thu, 15 Oct 2026 10:05:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,12 +58,10 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH 7/7] KVM: arm64: vgic-its: Stop the VM when handling MOVALL
-Date: Thu, 15 Oct 2026 11:05:39 +0100
-Message-ID: <20261015100539.1011760-8-maz@kernel.org>
+Subject: [PATCH 0/7] KVM: arm64: Fix cross-CPU vcpu pausing
+Date: Thu, 15 Oct 2026 11:05:32 +0100
+Message-ID: <20261015100539.1011760-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261015100539.1011760-1-maz@kernel.org>
-References: <20261015100539.1011760-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,51 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MOVALL is a royal pain, as it requires us to iterate over all the LPIs
-and move them around if they are on the correct source vcpu, and
-requiring locking for each of them.
+This series is a follow-up on what I previously posted at [1], and has
+now grown a few more fixes, and inherited an improvement from Oliver.
+Some of the fixes have already been merged, so what we have here
+serves a slightly different goal.
 
-This locking can result in contention for vcpus that enter and exit
-the guest, and hinders forward progress. In order to make sure such
-process is not contended, just stop the VM altogether.
+As we are simplifying (and fixing) a bunch of vgic behaviours, it
+becomes necessary to pause one (or all) vcpu(s) and *reliably*
+introspect the state of interrupts.
 
-Nobody in their right mind uses MOVALL anyway, as this is a rather
-braindead aspect of the GICv3 architecture.
+It appears that the current KVM behaviour is remarkably broken:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/vgic/vgic-its.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+- OUTSIDE_GUEST_MODE is published too early, before we have resynced
+  the state, making it unreliable
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index c10a11373e106..a9949ab4e4133 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1382,6 +1382,15 @@ static int vgic_its_cmd_handle_movall(struct kvm *kvm, struct vgic_its *its,
- 	if (vcpu1 == vcpu2)
- 		return 0;
- 
-+	/*
-+	 * Bulk operations such as MOVALL are a pain, as they can clash
-+	 * badly locking-wise with other vcpus entering and exiting the
-+	 * guest, should they be affected by it. Stopping the guest is a
-+	 * safer bet to ensure uncontended access and ultimately forward
-+	 * progress. Yeah...
-+	 */
-+	kvm_arm_halt_guest(kvm);
-+
- 	xa_for_each(&dist->lpi_xa, intid, irq) {
- 		irq = vgic_get_irq(kvm, intid);
- 		if (!irq)
-@@ -1394,6 +1403,8 @@ static int vgic_its_cmd_handle_movall(struct kvm *kvm, struct vgic_its *its,
- 
- 	vgic_its_invalidate_cache(its);
- 
-+	kvm_arm_resume_guest(kvm);
-+
- 	return 0;
- }
- 
+- IN_GUEST_MODE is published too late, once we have already placed
+  volatile state on the CPU (interrupts, for example), and making the
+  in-memory state stale (edge pending bits are a particular sore spot)
+
+- self-generated requests are sometimes posted too late, after we have
+  committed to entering the guest, and are therefore delayed
+
+- the pausing mechanism itself is unreliable, as it has no requirement
+  to be called whilst holding a global lock, and therefore is able to
+  nest, while it is backed by a simple boolean
+
+This series addresses these defects, and builds on top of it to:
+
+- add pausing to a single vcpu in addition to the full VM pausing
+
+- convert LPI disabling and the MOVALL command to vcpu pausing
+
+Patches on top of -rc6, most of them being Cc stable without any
+qualification (this has been broken for as long as I can remember).
+
+[1] https://lore.kernel.org/r/20260929093548.3598547-1-maz@kernel.org
+
+Marc Zyngier (6):
+  KVM: arm64: nv: Move L2->L1 switch on interrupt early
+  KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being
+    saved
+  KVM: arm64: Move IN_GUEST_MODE ahead of state being loaded
+  KVM: arm64: Turn vcpu->arch.pause into a counter
+  KVM: arm64: vgic: Stop the target vcpu when disabling LPIs
+  KVM: arm64: vgic-its: Stop the VM when handling MOVALL
+
+Oliver Upton (1):
+  KVM: arm64: Add helpers to halt a vCPU
+
+ arch/arm64/include/asm/kvm_host.h  |  9 ++--
+ arch/arm64/kvm/arm.c               | 69 ++++++++++++++++++++----------
+ arch/arm64/kvm/nested.c            |  8 ++++
+ arch/arm64/kvm/vgic/vgic-its.c     | 11 +++++
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 10 +++++
+ arch/arm64/kvm/vgic/vgic.c         |  8 +---
+ 6 files changed, 81 insertions(+), 34 deletions(-)
+
 -- 
 2.47.3
 
