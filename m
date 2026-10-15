@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349A7CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6193CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/BYTPN1YnNM3Fwl3zVGsa2NH/wVfsNuKryu9DbOHO9w=; b=KpV8xp4cgTiQ4oc9k4bCd6fdpi
-	TQ/RQx6TTgNfzKWXwaxA7lUtFFZlpNBo7+2H139+/mbIfrDqeshB+2Nxypx/esa5bnwotVxg2znOq
-	zHg3JpIbBAA7eyr9mmMzqKEs1RPzyAHnRf4isD4BLPPGAsNece4Wil2RrRjRWDFvc/y3anvD2oBLC
-	LOffAqkCAeXkXTgKNB6KT5ss5WoKvpnsgerbUnRSr7amhjC0Tb+Hy/iwXvxAp/1c/FFSpNsVvzTsN
-	jpr8OVdvzZDOCXzCxaJqd2AxhPpC/yQParhYGnZ2Oa3ya/UWuF01BYsFR4XJwdwOByVBgmaqxySV3
-	AOniDzeA==;
+	bh=hQDHOplHUGv77hfd0oQ4n9tB9YO6bJ+Eq2WryDRF/Ms=; b=tu8JKXWW3R+fwm9jEXy0kInZK+
+	Hzj/A7sZg6KVL4t4uw/yUrU7tMVHmd0vTKqaDNDO6xEgu1bs2F7qL26d4dmoHbpLQsaFRolPme9aB
+	Rwp8npS3LmbYF/K4BWi1RmLfHoy5nTf3zHSUeCHEuisiyAQh5vRkXaUZszT5Af4iHmlu6L5lPcq3A
+	T32w6xwjm6bhg2m8JzVuRLTt8JH5F0CrhrytYdnzQOIkmjd1Gl96WI/xJdBB9RA2b/GSzeNnAXKeJ
+	llyh+lDSNa6VSNqIgbitblqw9r61Ni+4oYdQsHAS6fIqE0JkkiW/aBFL86IjHzdn+CLvWPybOyyTl
+	eFKallUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMCn-00000000L3Y-3LtV;
-	Thu, 15 Oct 2026 14:13:13 +0000
-Received: from out-40.mta0.migadu.com ([2001:41d0:1004:224b::28] helo=mta0.migadu.com)
+	id 1xHMEy-00000000LHR-1H7F;
+	Thu, 15 Oct 2026 14:15:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMCj-00000000L2y-2vWd
+	id 1xHMEx-00000000LH9-0z1o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:13:11 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=AehSZEUXyYI5DnsWcNl+PxgJ375j0fwJ+dcWs3+ntuo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792073587; v=1; x=1792678387;
- b=w+VCKMOfUhZ4tnUVXgY67Kd3FFG/XrjyC9yoHz4uB+KWiaFE5rxOJDgzUvdyypas+jqMRDSV
- x8s6NQAJ/+KafzKv7/7FzR20ERkP5qAZInNHVEFgCT8ClMqjtuypi6A3ndnMrfiFbuMZwNMFC2L
- FC6rGijnFaBeLnx5Utonxda0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 162999ff3130d9cb;
-	Thu, 15 Oct 2026 14:13:07 +0000
-X-Mizu-Trace-ID: 162999ff3130d9cb
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6afac79b3a3so8386a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 07:13:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxeHWuOtCUKWjwkzD6bFCzJqFTXaLanHO0m9ZYyAyOQ8ou9XTo2AGMAwm61QuZMkQTZDXHyQIVqZUJVImdaxX2a@lists.infradead.org
-X-Gm-Message-State: AFq9FYLhCqChc6kVqWuUtZ8UDHUIZuk8wgPn+Db/XHRgAf7Vq/h4LSvG
-	iAVMK0n5Q2/HFDu4ZkoOtc0tf6axawH7m14LexQxN2zQPVWuoNSwRtWpSbaSNDOnoSwez2fWJna
-	RnVddRgcDbaxHGxthjQHZbUn66YWGq10VmrnqV4B+
-X-Received: by 2002:a05:6402:208e:10b0:6b1:d80d:396b with SMTP id
- 4fb4d7f45d1cf-6b375fddc3fmr33779a12.14.1792073582345; Thu, 15 Oct 2026
- 07:13:02 -0700 (PDT)
+	Thu, 15 Oct 2026 14:15:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EA14601EF;
+	Thu, 15 Oct 2026 14:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF5F61F000C4;
+	Thu, 15 Oct 2026 14:15:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792073726;
+	bh=hQDHOplHUGv77hfd0oQ4n9tB9YO6bJ+Eq2WryDRF/Ms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X4imKHXQU3mX+G+97i7d9YoI/2vFiBhh0JQYSQKFsOwO2eicg91lXDJH8PiED+5er
+	 limSY8Ce5fa1JofCh0RSo/iBQlHhnJL210tZ2mEedz5IdhT554maeW0L8YVY7YK0iJ
+	 RVwkA5/IuVdekUztByKBWESMPgDPpX62VXUZaMVV4GtMai4jpWCFrXmYuZ5u1EVQOq
+	 zvcV2RJRV+GE9Yz/PxxQ6Wae449E+F1AeUGPQg+0S01CihYkNPiqaaIwBZABKxeWz0
+	 kIiUxZ6Q97Y4HpfZFr+qHYEvNTU4+RZ7XwQkCUfFo53Qy12FzR8zl9W6D2lp0iyrEn
+	 +FCQpqL0l6xRg==
+Date: Thu, 15 Oct 2026 15:15:18 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, james.clark@linaro.org
+Subject: Re: [RFC PATCH v7 03/28] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
+ option
+Message-ID: <atDa-BSF3RMzJSdE@gremlin>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <20260903160623.315525-4-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-References: <20261013130247.4135515-4-fuad.tabba@linux.dev> <20261015140909.1310928-B-seiden@linux.ibm.com>
-In-Reply-To: <20261015140909.1310928-B-seiden@linux.ibm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 15 Oct 2026 15:12:25 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwqhB8_L0E5X5SgCcpK4rGceRgq1mtOwcPaMG-szycvew@mail.gmail.com>
-X-Gm-Features: AclHuK8s26iwmj4UvOequv8LIG1kS_-fIOvoCkMvREIBgursWs09-hjQUBgRlhc
-Message-ID: <CA+EHjTwqhB8_L0E5X5SgCcpK4rGceRgq1mtOwcPaMG-szycvew@mail.gmail.com>
-Subject: Re: [PATCH 3/4] arm64: sysreg: Mark fields the architecture dropped
- as RES0
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Brown <broonie@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_071309_911363_9B3DBF22 
-X-CRM114-Status: GOOD (  19.04  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903160623.315525-4-alexandru.elisei@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +73,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Oct 2026 at 15:09, Steffen Eiden <seiden@linux.ibm.com> wrote:
-[...]
-> Verified values with DDI0601 2026-09.
+On Thu, Sep 03, 2026 at 05:05:58PM +0100, Alexandru Elisei wrote:
+> Add a new configuration option that will be used for KVM SPE emulation.
+> CONFIG_KVM_ARM_SPE depends on the SPE driver being loaded because:
 >
-> While checking I noticed that Bit 58 of PMICFILTR_EL0 is also defined as
-> RES0 in DDI0601 2026-09 but is defined as SYNC in tools/sysreg. Not sure
-> if this demands a separate patch or can be folded into this one as you
-> already are touching this reg. This field is unused as well.
+> 1. The SPE driver maintains a cpumask of physical CPUs that support SPE,
+>    and that will be used by KVM to emulate SPE on heterogeneous systems.
 
-Thanks Steffen. Catalin has already merged this series, so it would
-have to go into a separate patch.
-
-Like I said in the cover, I plan to fix this once and for all though later on.
-
-Cheers,
-/fuad
+I guess e.g. big.LITTLE?
 
 >
-> Anyways,
+> 2. KVM will rely on the SPE driver enabling the SPE interrupt at the GIC
+>    level.
 >
-> Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+> The option will become user selectable after SPE support in KVM is
+> implemented.
 >
-> Steffen
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+
+With nit addressed the redundant dependency removed (both noted below),
+LGTM and:
+
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+> ---
+>  arch/arm64/kvm/Kconfig | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
-> > ---
-> >  arch/arm64/tools/sysreg | 11 +++--------
-> >  1 file changed, 3 insertions(+), 8 deletions(-)
-> >
-> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > index 341db8e9b6c37..99af1c39478be 100644
-> > --- a/arch/arm64/tools/sysreg
-> > +++ b/arch/arm64/tools/sysreg
-> > @@ -1420,8 +1420,7 @@ Field   17      DIRECT
-> >  Field        16      EnI
-> >  Res0 15:8
-> >  Field        7       PAUSED
-> > -Field        6       LASTFAILED
-> > -Res0 5:0
-> > +Res0 6:0
-> >  EndSysreg
-> >
-> >  Sysreg       BRBTS_EL1       2       1       9       0       2
-> > @@ -2663,11 +2662,7 @@ Field  57      EPAN
-> >  Field        56      EnALS
-> >  Field        55      EnAS0
-> >  Field        54      EnASR
-> > -Field        53      TME
-> > -Field        52      TME0
-> > -Field        51      TMT
-> > -Field        50      TMT0
-> > -Res0 49:47
-> > +Res0 53:47
-> >  Field        46      TWEDEL
-> >  Field        45      TWEDEn
-> >  Field        44      DSSBS
-> > @@ -2985,7 +2980,7 @@ Field   27      NSH
-> >  Field        26      M
-> >  Res0 25
-> >  Field        24      SH
-> > -Field        23      T
-> > +Res0 23
-> >  Field        22      RLK
-> >  Field        21      RLU
-> >  Field        20      RLH
-> > --
-> > 2.39.5
-> >
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 449154f9a485..fece4c02b97c 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -103,5 +103,14 @@ config PKVM_STACKTRACE
+>  	  If unsure, or not using protected nVHE (pKVM), say N.
+>
+>  endif # NVHE_EL2_DEBUG
+> +
+> +config KVM_ARM_SPE
+
+NIT: Nothing else in the file has the _ARM_ prefix, so is that redundant
+here?
+
+> +	bool
+> +	depends on KVM && ARM_SPE_PMU
+
+I think KVM should be removed here, this is within an 'if KVM' block
+already, and nothing else here depends on it either so not a convention.
+
+> +	default n
+> +	help
+> +	  Adds support for Statistical Profiling Extension (SPE) in virtual
+> +	  machines.
+> +
+>  endif # KVM
+>  endif # VIRTUALIZATION
+> --
+> 2.43.0
+>
+>
+
+--
+Cheers, Lorenzo
 
