@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA3FCC6B1C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DD0CC6B1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIpHWuXUD+B0nM605H+8Y3byQjJEbNOYgaYDz+R88T4=; b=EkVlMgm0sA/n08Xv64X75LH0Wt
-	PMU9p6Y++sMHelibEGYmjDLw/NlB3/5du/UAEE3DPW5BoqbNwEnAtmZMtrnerSKomcoEFT5W9f1yt
-	CjP87hDHP39u15cPavaRMVYZahwFjsaF2neBgRIFREuvFgtn3bTcbUeirBlo9cL8Io6kVKKD+kbKg
-	uYM2WCxA0DXIZZCnUkH4tQD56TO2WhXwNcTbakLQHqUwRRn1ZakNlQWNFVaCRNyDoLcx7ZOiHYcFj
-	B030eJH/iLeg22S3sitJH8dZ9py727zrDR8alWSByJ2tBg0gGCXQ833d5eWvgUBCBsUJE/SzeQZEU
-	wcPiSuBw==;
+	bh=pifDH0uDw0EMlv5YUttgPbWoNR7hI3QK3uBz9udZ6wU=; b=pVvjTh9lFKgyc9RV/i9/oOEKmr
+	3OFHRwKSOQWejHh9scvwbVAKI8lmwfE83RSfAr9irLNk/jSagZArp0eN8simJFwhD+hhVZfm7ENtk
+	gf/Jh/L+b802paeZNBzPmCk4yKWnMl5A7dQtas6lJnGooSSECOhYHbWNGC0H3wU3s67k+eI5zPtMt
+	mtJNNlF3IQUKm3/bHEkZiZ3ZRSLPVfrKTeFqnIY1r9g1GxQlIlw+lsn095cqfXgLxj22MvNTtxmPB
+	Fh22C/aFdNdOMqE5jCYm4LB/tcBwLkOtZQ9dHpL2IPiXk5knkuodveGWWdrBasW6Gh2IjB/vtofJg
+	bHW15EWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCbA-0000000Gm17-2NMM;
-	Thu, 15 Oct 2026 03:57:44 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1xHCbo-0000000Gm57-1Cpa;
+	Thu, 15 Oct 2026 03:58:24 +0000
+Received: from sender-op-o17.zoho.eu ([136.143.169.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCax-0000000GlzR-46Un
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 03:57:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4j4v8l59c0zKm8R;
-	Thu, 15 Oct 2026 11:44:55 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id E97934057C;
-	Thu, 15 Oct 2026 11:57:17 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
- (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
- 2026 11:57:16 +0800
-Message-ID: <526758a6-40f5-4810-8e17-6e94afc3fab2@hisilicon.com>
-Date: Thu, 15 Oct 2026 11:57:16 +0800
+	id 1xHCbb-0000000Gm3i-0S49;
+	Thu, 15 Oct 2026 03:58:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1792036686; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=XzPeRgEUlE3s0CSareeggcFzEnRfqc7xoCpj4oo2E82QbQDlix7V9KbvZ06IcxJ9gTngzArzUTu8Ow3hnS1aRWzkj4bGt5IyX1V/G2XM9xXXre3FgXvqDEIWBVpCSZhAKOblOCeOA12su29hYHCisU3xO6Ep//FiMZI0//bwxiI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1792036686; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pifDH0uDw0EMlv5YUttgPbWoNR7hI3QK3uBz9udZ6wU=; 
+	b=APm6ig9UNFz+3FbTT3D47VhHIUfHoLuD+FBpe36tSfRK1owNP9HeEHs5gNYxj+4joCsSS5mXJL66RtNpKJZuCMltMuVEHqcsRaBylNyW/p4CAT5GOtq6RPo9cXi/9c35wZW3HTAV1X4fqE1IoK75Xa1ZS+pKdc4SeHsSTLf90U0=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792036686;
+	s=zoho; d=iav.lv; i=iav@iav.lv;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=pifDH0uDw0EMlv5YUttgPbWoNR7hI3QK3uBz9udZ6wU=;
+	b=CZ6T92YOtgOrWHHIxR94ereumsmrWWD6DTCKVTY8K/N+10dtHCVhqhIuwMjV3YpX
+	r6jdNdqtfKPRbFC9HiksDsmVyvOKT2GinsZhkRFVI6G0hRSMMpKSZUBWkRslMMian4S
+	Q9AcHjYd+6rT1uvzOFwT/24GGv6Qo9fjV/ODwSzA=
+Received: by smtp.zoho.eu with SMTPS id 1792036684329824.7527309360931;
+	Thu, 15 Oct 2026 05:58:04 +0200 (CEST)
+Date: Thu, 15 Oct 2026 06:58:02 +0300
+From: Igor Velkov <iav@iav.lv>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Geis <pgwipeout@gmail.com>, Michael Riesch <michael.riesch@collabora.com>, Diederik de Haas <diederik@cknow-tech.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Fix devices suspend freeze on RK3568/RK3566
+In-Reply-To: <20260624192726.781864-3-jonas@kwiboo.se>
+References: <20260624192726.781864-1-jonas@kwiboo.se> <20260624192726.781864-3-jonas@kwiboo.se>
+Message-ID: <20261015-m1-tested-by-usb-clk-v2-2@iav.lv>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Jie Zhan <zhanjie9@hisilicon.com>
-Subject: Re: [PATCH 1/3] cpufreq: Add a driver frequency resolution callback
-To: Christian Loehle <christian.loehle@arm.com>, <rafael@kernel.org>
-CC: <zhenglifeng1@huawei.com>, <zhongqiu.han@oss.qualcomm.com>,
-	<viresh.kumar@linaro.org>, <linux-kernel@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, Mario Limonciello <mario.limonciello@amd.com>, K
- Prateek Nayak <kprateek.nayak@amd.com>, Huang Rui <ray.huang@amd.com>, Perry
- Yuan <perry.yuan@amd.com>, "Gautham R . Shenoy" <gautham.shenoy@amd.com>,
-	Vanshidhar Konda <vanshikonda@os.amperecomputing.com>, Shubhang Kaushik
-	<sh@gentwo.org>, Pierre Gondois <pierre.gondois@arm.com>, Beata Michalska
-	<beata.michalska@arm.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ionela Voinescu <ionela.voinescu@arm.com>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, Jeremy Linton
-	<jeremy.linton@arm.com>, Peter Zijlstra <peterz@infradead.org>,
-	<jonathanh@nvidia.com>, Vincent Guittot <vincent.guittot@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-References: <20260929102957.2591657-1-christian.loehle@arm.com>
- <20260929102957.2591657-2-christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260929102957.2591657-2-christian.loehle@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_205733_000146_685C787F 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20261014_205813_201600_69F8BFF3 
+X-CRM114-Status: UNSURE (   4.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,89 +75,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Tested on ODROID-M1 (RK3568) with 7.3-rc7: without this patch
+pm_test=devices hung while suspending the first OHCI controller 4 of
+14 times, with it all 31 runs passed.
 
-
-On 9/29/2026 6:29 PM, Christian Loehle wrote:
-> Without a frequency table, cpufreq treats the policy range as continuous
-> even when the driver selects discrete performance levels. Governors can
-> then issue different kHz requests for the same driver setting.
-> 
-> Add ->resolve_freq() for table-less ->target() drivers to canonicalize
-> requests within the supplied limits using CPUFREQ_RELATION_{L,H,C}.
-> Document the callback and verification contracts so callers can safely
-> cache resolved requests.
-Hi Christian,
-
-IIUC, ->target() + ->resolve_freq() should do almost the same work as
-->target_index() + freq_table. Why not switch to ->target_index() if that's
-intended?
-
-I had a few unsent comments on the second CPPC patch but perhaps we discuss
-this first.
-
-Jie
-> 
-> Signed-off-by: Christian Loehle <christian.loehle@arm.com>
-> ---
->  Documentation/admin-guide/pm/cpufreq.rst |  4 ++++
->  Documentation/cpu-freq/cpu-drivers.rst   | 19 +++++++++++++++++++
->  drivers/cpufreq/cpufreq.c                | 17 +++++++++++++++--
->  include/linux/cpufreq.h                  | 10 ++++++++++
->  4 files changed, 48 insertions(+), 2 deletions(-)
-> 
-[...]
->  
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index 54dde8419bdc..44bda2f32fcf 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -480,8 +480,12 @@ static unsigned int __resolve_freq(struct cpufreq_policy *policy,
->  
->  	target_freq = clamp_val(target_freq, min, max);
->  
-> -	if (!policy->freq_table)
-> +	if (!policy->freq_table) {
-> +		if (cpufreq_driver->resolve_freq)
-> +			return cpufreq_driver->resolve_freq(policy, target_freq, min, max,
-> +							    relation & ~CPUFREQ_RELATION_E);
->  		return target_freq;
-> +	}
->  
->  	idx = cpufreq_frequency_table_target(policy, target_freq, min, max, relation);
->  	policy->cached_resolved_idx = idx;
-> @@ -495,7 +499,10 @@ static unsigned int __resolve_freq(struct cpufreq_policy *policy,
->   * @policy: associated policy to interrogate
->   * @target_freq: target frequency to resolve.
->   *
-> - * The target to driver frequency mapping is cached in the policy.
-> + * The frequency-table resolution path caches the mapping in the policy.
-> + *
-> + * Keep the policy active and exclude driver teardown; a policy reference
-> + * alone does not protect driver-private data.
-Do you mean the caller should ensure this?
-This function doesn't seem to do this.
->   *
->   * Return: Lowest driver-supported frequency greater than or equal to the
->   * given target_freq, subject to policy (min/max) and driver limitations.
-> @@ -1445,6 +1452,11 @@ static int cpufreq_policy_online(struct cpufreq_policy *policy,
->  		 * If there is a problem with its frequency table, take it
->  		 * offline and drop it.
->  		 */
-> +		if (policy->freq_table && cpufreq_driver->resolve_freq) {
-> +			ret = -EINVAL;
-> +			goto out_offline_policy;
-> +		}
-> +
->  		ret = cpufreq_table_validate_and_sort(policy);
->  		if (ret)
->  			goto out_offline_policy;
-> @@ -2925,6 +2937,7 @@ int cpufreq_register_driver(struct cpufreq_driver *driver_data)
->  
->  	if (!driver_data || !driver_data->verify || !driver_data->init ||
->  	     (driver_data->target_index && driver_data->target) ||
-> +	     (driver_data->resolve_freq && !driver_data->target) ||
->  	     (!!driver_data->setpolicy == (driver_data->target_index || driver_data->target)) ||
->  	     (!driver_data->get_intermediate != !driver_data->target_intermediate) ||
->  	     (!driver_data->online != !driver_data->offline) ||
-[...]
+Tested-by: Igor Velkov <iav@iav.lv>
 
