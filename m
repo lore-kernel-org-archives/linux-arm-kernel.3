@@ -4,153 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49EACC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99226CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 10:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQQ8nviSaj+ci/GGMep8gLm46uLdgX7t+TFOvWm4SAc=; b=wm56IO5wlxizYDwNM0pg0HDpxT
-	tcHGDkESd6gpRF8yuAMVqkl561qWN4PpobtYdVwOJvJ9t4xNd2mBAcf3ngV0rDLsBn6bGm4jUT07n
-	mRchqtY6wBmrOmQnrIAYknlwI7cBhJR+HkdMg2JppbGzo9Nu1OcXUHn5oiOKhwIwAxBZuacwNgHyc
-	54OKpynCO7UgWHFtMJ3XYInkslrbgrnPGL7lDXgphmf0I0wZsz0E4VMDXWvl/IzVGMKFNVYSQWUDb
-	y5fFv9y/NAvzA+04X2TPRpCs0nGGcd8D9Pad/H9OmHZDgPA/EyuVH5gA0XzxCXsASLKd6ypefzimB
-	B4oMImlg==;
+	bh=GekRjwqq9HiLl3MVX3ePIJd60B4hFQQSWwFg9TJmd4c=; b=qP7x5C0XjvTHRCgNXbealOANvC
+	cQCrkU4245bXlNktgLC6Nn/8j4h+DC80gy9soX3sibaP74enyen78DWyMibxTSaEW1L9f4HvQIvhl
+	yOvW3u3j+UPp6z0sWyT8jm9sW6soO/8TbY+x0+rZWJMOfxNQdV/6s/C9ZlSFBH+NN2X8W+Hn1eBxI
+	pytwYV5E0Eu6XsYS4+dbOuwdqPCPliXhKHADdyjraoFR4NvzWp5QeV00Na2hEd+PA7RROdkPBHb0S
+	e3gIlzeYjWItHRjASTQhB5G7ar7+56ea2J+0X4MJQpuv2+BGZR7LoBfH7EicdZl82l409tGJ5/jx/
+	Xhfv+p9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHICP-0000000HMd9-2zRO;
-	Thu, 15 Oct 2026 09:56:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHICG-0000000HMVN-2l4x
+	id 1xHIJ6-0000000HNQV-2Rmt;
+	Thu, 15 Oct 2026 10:03:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHIJ3-0000000HNPR-2Qm9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 09:56:26 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69F9kHZi1507238
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 09:56:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	DQQ8nviSaj+ci/GGMep8gLm46uLdgX7t+TFOvWm4SAc=; b=HoW3znptfsV8eKyQ
-	3QCkwfF61sW0FHl7f8719XRyRCCQMyDnDSouGTBTJTSlO/jEEu3kQ2lqrbM/ZCSB
-	3REObE5HTyZQpdzN7M6KoP81quM7ZXGOYNLxGhEybkUC6PCPIz1ARwzD//TrNx31
-	YivnFTrWdxSksODz2YkzxqwsE40aqpB0zJODVKaPhFfRCUW7zvfiYGl93niQtNFp
-	OJIpfqvTGBb6K3zNPINGzfwTL7NWbGN5pvxUQ3msev8COPW60pq0esQsAIB2ylOi
-	bOVyYq6KzXzov8lHmPEQ0m0EpUVApah+XkB05S10QXQ/6V2C5SAuhuY5YwM7y/Qb
-	aeb37g==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hadd7bpma-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 09:56:24 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-359b81ad4e8so2843011eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 02:56:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792058183; x=1792662983; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DQQ8nviSaj+ci/GGMep8gLm46uLdgX7t+TFOvWm4SAc=;
-        b=GHlrrOLemhOENU66gIMsq2upSO+d4czVCOZq8oX6sFpBE9eN3xEcNxV6kvlkvFXyzJ
-         P1fQdj2fFv/cjhhUjihUJ87C3vWF5jxDDRg22buqXVogEAFt1W2z8i89CywtRuDXpoRd
-         9FVyPoSMxRv61Q0wOslM7oBaLlGrjLcoLNbtl/bg4/LdX281XBTl8zGJD5AbUvltyq10
-         6I/a9trSeIILOS5M7iz6d9f6ulmb62lzf1VP1AGmyfQ8eztTd3B71FZxbAhu/dDAJ74m
-         e9jk2YBEsDQKXuK1lUx4slmvj6LLN3R088TgX4/Fl1cQg/z79dKgGDkdIxXnpgYgN62M
-         Xu3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792058183; x=1792662983;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DQQ8nviSaj+ci/GGMep8gLm46uLdgX7t+TFOvWm4SAc=;
-        b=cJ7v7vYqNzfzVpK8lUNGPgqGm5vD/jKNIbxgdH8nqKqRYffnocBaMTUJS1MUHHOadi
-         zqriAdv+iOqFP6PSC84B16rEMe11/BZGoO3xP1RCB9QrSBB9+UDhu+pKEvcpp528L6q5
-         GTmbTUvx0959JF4Lxn60NzQPqQ/NE01WY+oe8TW2tClr/y5uDJpazvJCfK0eTuZEd5O+
-         L/0kpDXrXxpUghCSoBXQ0vzM1ac/yJcSIGBCsOOX7lVCj8nWF07MaeeVlvYaGN83kjFa
-         kv89f9n5i5B/4GxWgZ/fLVqlr4PEB8QNP0moAMsJ92Su2sYYgRu1XkB6kJUvgbTV32cO
-         Ldyg==
-X-Forwarded-Encrypted: i=1; AKwUvBxaKXLBEGbMu/BFC7tV8L8n47UBU7lQ11yQ79gIBGePut5nLwaAXNj4CFE52r0M7cskhyAER/hJBjLW5sdT0sH2@lists.infradead.org
-X-Gm-Message-State: AFq9FYJSjRz9oTeSIW+99mtiGNRllTz3cPu+hzH0fGUyMjxqH/B305XG
-	9XnWQs1lh/KcjWWy3xP1WYS+sIxidsa4D7JTxS8a0ExU3pQBLv8wdXIKvBzG28IQ+rF3osjWckl
-	onbrLqipxblWyYCrftgWxd6OaDXiPjt7sw5+nR8a1VkgytvpVHXWznDTUJi5nlvJhSqQmuzQBCr
-	eEKA==
-X-Gm-Gg: AYBFou0b/hw2lKm+MFKqT9YRNFjNE2QpQgdDOy3+H3hAmLZg5GO+hhfDL43Uyw0KPD6
-	KMpPkfMyCTBGFLiEF4BWp6Kl/fT8UdFhfD03hoaUwjYoMbvcAyENfX7vKxWO6QDwxXQ6cV6o8bS
-	wUtlPnp8JsQAAMvmbYBa9nNsia2tS2yvmxDV2tJMSla13rFOUmBFRdaHiP9uCKcpw9XqBrHCmsX
-	8eZSTc0Wyf3Ehohet4x6fkDaELdiuxf/gywL+zSBj8/xpSMaq2kCuuViVeQ6KqvVOFaBsQqAp4/
-	hkPQFAmVB+ft1uIDwLf6Oy0s0rJA+kdKaTm4SBaz2WEZU3Xk39I9v6m0l0dzIV6Cii8kSLlg5UR
-	G/o9RkbP2yMRmnWr1/80ARDS54wCH
-X-Received: by 2002:a05:701b:230c:b0:136:c443:80e5 with SMTP id a92af1059eb24-16a586a31b5mr23126179c88.6.1792058183407;
-        Thu, 15 Oct 2026 02:56:23 -0700 (PDT)
-X-Received: by 2002:a05:701b:230c:b0:136:c443:80e5 with SMTP id a92af1059eb24-16a586a31b5mr23126148c88.6.1792058182858;
-        Thu, 15 Oct 2026 02:56:22 -0700 (PDT)
-Received: from hu-smankad-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-169a442ac67sm84476533c88.18.2026.10.15.02.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 02:56:22 -0700 (PDT)
-From: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
-Date: Thu, 15 Oct 2026 15:25:25 +0530
-Subject: [PATCH v2 9/9] arm64: dts: qcom: shikra: Do not mark MPM as power
- domain provider
+	Thu, 15 Oct 2026 10:03:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A83322F;
+	Thu, 15 Oct 2026 03:03:20 -0700 (PDT)
+Received: from [10.33.8.90] (e142021.arm.com [10.33.8.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70B5B3F871;
+	Thu, 15 Oct 2026 03:03:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792058603; bh=jQfSLed4h//EKi1zFvLaF3DZxizTMwuRBrKZKA0SkCk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ospqc/jotDB57wXSnGWpaAnDpiiDDQypchsf84aZpuHa47m/33nzc41Dr5AHsIt8v
+	 jjfBUGLOvZh2OtCykrhLpsW1fqaFB1I8QKCmxsXQVprsUY9NFXFXOf8WkrTs/EqZXK
+	 JK5o31xXcjuwy68k94tHKRt1vKs7A4PR48vD3600=
+Message-ID: <03b070de-b0b0-44d9-89ce-891e6c3ac4d2@arm.com>
+Date: Thu, 15 Oct 2026 11:03:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-b4-shikra_lpm_addition-v2-9-ac7f1a0d5638@oss.qualcomm.com>
-References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
-In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Anna-Maria Behnsen <anna-maria@linutronix.de>,
-        Frederic Weisbecker <frederic@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Sneh Mankad <sneh.mankad@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792058122; l=1137;
- i=sneh.mankad@oss.qualcomm.com; s=20250818; h=from:subject:message-id;
- bh=xzu473Y7V24ggj3le/TfoZWNsp/SkGbTiLRw8aI+628=;
- b=ObOaLXXfjGaKBaGzk5dvoHlmZEcF7kbr+L5I8bDEc+YKLttWH9KjHTmjJ9jEEInESNrKqR7u8
- zHBiWoG8WH4B3JMd+PazXFt2w88qQYlhWJK5ibhNPVGoUMWrxdw15/G
-X-Developer-Key: i=sneh.mankad@oss.qualcomm.com; a=ed25519;
- pk=sv57EGwdcfnp6xJmoBCIT1JFSqWI+gawRHkJWj/T2B0=
-X-Authority-Analysis: v=2.4 cv=BaVNQbt2 c=1 sm=1 tr=0 ts=6ad0a348 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=5xU5tZsdfkseTblZoQMA:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
- a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-GUID: nVosYAWbvqxbPfh6XavxGEvUJ8PPhzHL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE1MDAzOSBTYWx0ZWRfXxdjttSqiaHdW
- DLgCTAuQRMjzM2XEs8YGBWvpxYlKPB3VaaeCFD+4ddM9rIKUnAFOrbFH4BYSvb0yiK4XfMfGRxv
- KVICEIYi1HgCWHgGyYwiKnWUVdFhHti6Ah9X670TijKizV3msyhdQL7W5tvELx6doun9fJwwRar
- tJEmTVC2XYBPVx/hEQfo+Iw9VuUVWgvOy7HaT52tKf0rTNmfmC+ZaX1RmC2KAxTjmM3lGQ+Y/i4
- RmwRgHcVJlRbTVGmdxXTQXMZIb5N0fIszAIdBuGXH1AfadNnqsixoe3g+nWMrhzqMF6Yb2teKSL
- oqMEsiUe3ezxdU25heFvqCb8qCYJrUHo5dD+le28E7YSLxXzYVo8dDQn8ejjQBvwjMEEXMQ2SWj
- 57t6yAbazRgL0DKoce4RefRjC4OUcKH7pH7cEpDBSaw9fpQH4ufPb2ymQ6yYcHOPDzNUzXzpcvr
- ik2PzkYAebGVc8HLKkw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE1MDAzOSBTYWx0ZWRfX+h4DhompUvQ4
- mRC8M/IqDKMdJ3ALqJR79muOc9WX4zlgsr54EYzHku2S+Xi+nBpZJ0oZSrBC/6WeJcDxzJfgD69
- c5F8UWLTBTJlAhekBqgflfkkNO9GlCU=
-X-Proofpoint-ORIG-GUID: nVosYAWbvqxbPfh6XavxGEvUJ8PPhzHL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-14_01,2026-10-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610150039
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] cache: add SMCCC-backed cache invalidate provider
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence.csokas@arm.com>,
+ Srirangan Madhavan <smadhavan@nvidia.com>, mark.rutland@arm.com,
+ lpieralisi@kernel.org, sudeep.holla@kernel.org, conor@kernel.org,
+ jic23@kernel.org
+Cc: catalin.marinas@arm.com, will@kernel.org, aneesh.kumar@kernel.org,
+ Souvik.Chakravarty@arm.com, treding@nvidia.com, jonathanh@nvidia.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20261013070205.3566865-1-smadhavan@nvidia.com>
+ <20261013070205.3566865-3-smadhavan@nvidia.com>
+ <23e9b66f-083a-4a77-8214-25f30c08057a@arm.com>
+ <c0c04151-1ba9-473c-86a4-e066d6881858@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <c0c04151-1ba9-473c-86a4-e066d6881858@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_025624_815206_86C0AEA9 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20261015_030325_835786_979F6623 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,38 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To make the MPM design more logical and avoid probe dependencies, the RPM
-notification is managed by registering for CPU_PM notifications.
+Hi,
 
-Remove #power-domain-cells property from MPM device.
+On 10/15/26 09:43, Bence Csókás wrote:
+> Hi,
+> 
+> On 2026. 10. 14. 17:38, Andre Przywara wrote:
+>>> +static int smccc_cache_probe(struct arm_smccc_device *sdev)
+>>> +{
+>>> +    struct arm_smccc_res res = {};
+>>> +    struct smccc_cache *cache;
+>>> +    int ret;
+>>> +
+>>> +    arm_smccc_1_1_invoke(sdev->func_id, &res);
+>>
+>> I think you should provide the explicit function ID name here, and not 
+>> rely on which function exactly is used to probe for the interface's 
+>> existence.
+> 
+> I thought that was the point of the matcher, that you could in theory
 
-Signed-off-by: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/shikra.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+But that probe() function here is not a "matcher" or a check function, 
+that is done in the SMCCC bus generic code, using a function ID that has 
+no side effects and does not return -1.
 
-diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-index df4a7181ff80da0b75287bf4b96f82facb152b46..bb30bab28c24c02f4619a4dffd7132973356236c 100644
---- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-+++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-@@ -234,7 +234,6 @@ cpu_pd3: power-domain-cpu3 {
- 
- 		cluster_pd: power-domain-cluster {
- 			#power-domain-cells = <0>;
--			power-domains = <&mpm>;
- 			domain-idle-states = <&cluster_sleep_apss_off>;
- 		};
- 	};
-@@ -310,7 +309,6 @@ mpm: interrupt-controller {
- 			mboxes = <&apcs_glb 1>;
- 			interrupt-controller;
- 			#interrupt-cells = <2>;
--			#power-domain-cells = <0>;
- 			interrupt-parent = <&intc>;
- 			qcom,mpm-pin-count = <96>;
- 			qcom,mpm-pin-map = <2 275>,  /* TSENS0 uplow */
+The reason for this SMC call here is to learn the attributes, they are 
+used below to fill the latency and rate_limit fields in the struct.
+So we should then make this explicit, I think, by using the 
+ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES name.
+> assign the same probe handler to any function ID? For example if there's 
+> some FW that implements this (or a compatible) function, but at a 
+> different ID, you would only update the match table? At least that's how 
+> most subsystems (I2C, PCI, USB) do it.
 
--- 
-2.34.1
+Not sure I understand this, this is a driver specifically for the 
+CLEANINV_MEM_REGION SMCCC interface, I don't see how you would reuse 
+that, or plug any other interfaces to it.
+
+>>> +    if ((s32)res.a0)
+>>> +        return -ENODEV;
+>>> +
+>>> +    cache = cache_coherency_ops_instance_alloc(&smccc_cache_ops,
+>>> +                           struct smccc_cache, cci);
+>>> +    if (!cache)
+>>> +        return -ENOMEM;
+>>> +
+>>> +    mutex_init(&cache->lock);
+>>> +    cache->latency_us = lower_32_bits(res.a2);
+>>> +    cache->rate_limit = res.a3;
+>>
+>> According to the spec you would need lower_32_bits() for a3 as well - 
+>> if we are going to use this value. But I don't think we need to, see 
+>> above.
+> Where does it say that? My copy of DEN 0028 1.7 H, released 2026/Jul/24, 
+> only says the following:
+> 
+>    X3 (uint64_t attr_2)
+>      Rate Limit: The maximum number of SMCCCC_ARCH_CLEAN_INV_MEMREGION 
+> calls allowed per second. If set to 0, it indicates that this field is 
+> not reported by the implementation.
+> 
+> See my second-to-last comment on v2 of this patch:
+> 
+> https://lore.kernel.org/lkml/591e7ac9-310e-40f4-ab22-161d6ea8f487@arm.com/
+> 
+> Maybe I have an outdated copy already? ;_;
+
+No, I had! Mine said v1.7H, but is was an early version, which had the 
+upper 32 bits of rate_limit as reserved.
+Indeed in the later public version it's a 64-bit field, so ignore my 
+comment. Sorry for the noise!
+
+Cheers,
+Andre
 
 
