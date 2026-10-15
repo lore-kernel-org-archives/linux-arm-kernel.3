@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE758CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AEBCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+WbW2/AMhXZdEubCnrJgm7dbLwFj9qtF+7pjh0jU2E=; b=rw08eyNPdeeHj9DrzY4lIQnAC7
-	Y9psak20bmCi6LW90WcuwmjumaeJnsdqVnUVb5WL7La1136I61XCldZD/q8mQmaBmLQv5ZECIBxDk
-	KEh07nqugHTrQ944/sloHhHc5ILIExN8UNwla2YQvaM+QMmJU9mTerup54CQypYd7f07PYN79FgEL
-	pnawbk5giah2V/buRD0Ue8ukdoe3W2mKd5N0RHm1DxDu4ErxXYPfnyQFopXufwWjqlnECCTkpVz45
-	FzDlAL392Y3D4Frkl5fFWx624IWpXjOFraVjp9hoNXm+AU8l8Cn7H6+9RGd/evQPjoknMgqldJBMm
-	McsVkW1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zEmGhCZyoSI8PTthqmAqZcOC8ihliMwqzrmhdRRjlRE=; b=ImwhP//V8V3QC4lhJ/14JDGEtS
+	yukGV9oI5dZknPSTt9Tlmz+TQPDWjEiw6I7BiVR3p+KP9s0bpeW/W7v8kt9A2RTDYeWEVoN566CXE
+	25qIVryimKRWacVi7otk6T2gU+W//8h0z81TmhsJeCARuXoUog0RE4xLT9yDEAQmhk9bXnj5t+I3y
+	O0Lp2lYTze4x7Ndc1fpA7FW4O+gDLt61e0INynLpBc+jqH9iPm+rr7omuf7gqcXqa2ETMMN7c1Et8
+	Sglzk8WyuTOaUsDCjSa05U9YEKnpQ4A2qMWCbpfaPAMDvXNblb93lrsYd2MhQgFmcF1bwsSCy7x0B
+	pLH9FZCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMd1-00000000Puf-1PnK;
-	Thu, 15 Oct 2026 14:40:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMcz-00000000Ptv-497O
+	id 1xHMPP-00000000MAA-2Tnm;
+	Thu, 15 Oct 2026 14:26:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMPM-00000000M8p-0Xoi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:40:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C91B60120;
-	Thu, 15 Oct 2026 14:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73BE1F000C4;
-	Thu, 15 Oct 2026 14:40:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792075216;
-	bh=x+WbW2/AMhXZdEubCnrJgm7dbLwFj9qtF+7pjh0jU2E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=apf57+B3qo2bNygvN+Rge7NO4qF6q6JofjpUvYbWCm1IoR71qccfsx7EqtONodgIo
-	 wXK6Ag2NlWGx4zGWGABznTEexPi0A66v71B6r/PN7dqlJypF3w1wtlNxemZxiafXsV
-	 e6tlZ5R36fSJNjRaNooV5u45XuIEqlODGHrUnWb5tYdNGT5SBN7xLIwyusgN7vbdZ5
-	 MFivwOGSTDU/wUTwsWRcLeKarHj2H+ATjw4SA1b/ETeMBE6xLP4MmtWZzlKQ4QDDtU
-	 E15YNSxPiGeb+pvPG2MjQIHHUtfds0IZpVM2At6bBU6kogrLPL/aMb/cfyCKk7vTNU
-	 N+nd1M4bdZDtQ==
-Date: Thu, 15 Oct 2026 15:40:09 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-	catalin.marinas@arm.com, james.clark@linaro.org
-Subject: Re: [RFC PATCH v7 04/28] perf: arm_spe_pmu: Move struct arm_spe_pmu
- to a separate header file
-Message-ID: <atDgBR0WOGHUsLaF@gremlin>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
- <20260903160623.315525-5-alexandru.elisei@arm.com>
+	Thu, 15 Oct 2026 14:26:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D13AD1576;
+	Thu, 15 Oct 2026 07:26:07 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DBEA3F871;
+	Thu, 15 Oct 2026 07:26:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792074371; bh=+sWSx7q4/Kw4lwtWKeviDU8sZZvwTr4UZ7T0bQPZcT4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DY769hD2aZ1vtvDesRp5NMChqCCV5ltsWck8QekzDyKNA0DuRSEd6vBFWyH1QeS54
+	 D3A2S6P99KAJdEs0fWxHm2zMMUJIEv+q7Pf3PUgOMmlsGGz9aeoE2CCx8yJKLAp2mv
+	 j74pglqhMvx/4mY3LDtwHKNK6hkAwZLwE1cdx1QE=
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Alex Williamson <alex@shazbot.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org
+Subject: [RFC PATCH v2 02/15] misc/arm-cla: Add launch operation helpers
+Date: Thu, 15 Oct 2026 15:25:36 +0100
+Message-ID: <20261015142552.4128028-3-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-5-alexandru.elisei@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_072612_282980_31A52C09 
+X-CRM114-Status: GOOD (  36.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,151 +88,412 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 05:05:59PM +0100, Alexandru Elisei wrote:
-> KVM will soon want to make use of struct arm_spe_pmu, move it to a separate
-> header where it will be easily accessible.
->
-> Cc: Will Deacon <will@kernel.org>
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+From: Jean-Philippe Brucker <jpb@kernel.org>
 
-Looks to be a straightforward mechanical change, couple nits below but with
-those addressed:
+CLA commands are issued by writing optional payload registers,
+programming the LAUNCH register and polling LRESP until the hardware
+accepts or rejects the operation.
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Add a common launch helper that performs this sequence on the CLA's
+local CPU, waits for LRESP completion and translates launch response
+codes into Linux errors.
 
-> ---
->  drivers/perf/arm_spe_pmu.c       | 33 +--------------------
->  include/linux/perf/arm_spe_pmu.h | 50 ++++++++++++++++++++++++++++++++
+Build accelerator reset and register read and write support on top of
+it. The register read and write helpers split larger accesses into
+multiple launch operations when an access crosses an eight-register
+window.
 
-This should be added to MAINTAINERS too I think?
+Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+---
+ drivers/misc/arm-cla/Makefile   |   6 +
+ drivers/misc/arm-cla/arm-cla.h  |  24 +++
+ drivers/misc/arm-cla/cla-init.c |  12 ++
+ drivers/misc/arm-cla/cla-ops.c  | 293 ++++++++++++++++++++++++++++++++
+ 4 files changed, 335 insertions(+)
+ create mode 100644 drivers/misc/arm-cla/cla-init.c
+ create mode 100644 drivers/misc/arm-cla/cla-ops.c
 
->  2 files changed, 51 insertions(+), 32 deletions(-)
->  create mode 100644 include/linux/perf/arm_spe_pmu.h
->
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index b70f3fedf028..79c571a649d5 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -28,6 +28,7 @@
->  #include <linux/of.h>
->  #include <linux/perf_event.h>
->  #include <linux/perf/arm_pmu.h>
-> +#include <linux/perf/arm_spe_pmu.h>
->  #include <linux/platform_device.h>
->  #include <linux/printk.h>
->  #include <linux/slab.h>
-> @@ -67,38 +68,6 @@ struct arm_spe_pmu_buf {
->  	void					*base;
->  };
->
-> -struct arm_spe_pmu {
-> -	struct pmu				pmu;
-> -	struct platform_device			*pdev;
-> -	cpumask_t				supported_cpus;
-> -	struct hlist_node			hotplug_node;
-> -
-> -	int					irq; /* PPI */
-> -	u16					pmsver;
-> -	u16					min_period;
-> -	u16					counter_sz;
-> -
-> -#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
-> -#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
-> -#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
-> -#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
-> -#define SPE_PMU_FEAT_LDS			(1UL << 4)
-> -#define SPE_PMU_FEAT_ERND			(1UL << 5)
-> -#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
-> -#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
-> -#define SPE_PMU_FEAT_EFT			(1UL << 8)
-> -#define SPE_PMU_FEAT_FDS			(1UL << 9)
-> -#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
-> -	u64					features;
-> -
-> -	u64					pmsevfr_res0;
-> -	u16					max_record_sz;
-> -	u16					align;
-> -	struct perf_output_handle __percpu	*handle;
-> -};
-> -
-> -#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
-> -
->  /* Convert a free-running index from perf into an SPE buffer offset */
->  #define PERF_IDX2OFF(idx, buf) \
->  	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
-> diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
-> new file mode 100644
-> index 000000000000..af86fd184050
-> --- /dev/null
-> +++ b/include/linux/perf/arm_spe_pmu.h
-> @@ -0,0 +1,50 @@
-> +// SPDX-License-Identifier: GPL-2.0
+diff --git a/drivers/misc/arm-cla/Makefile b/drivers/misc/arm-cla/Makefile
+index a4e40e534e6a..3fa8567c8b3e 100644
+--- a/drivers/misc/arm-cla/Makefile
++++ b/drivers/misc/arm-cla/Makefile
+@@ -1 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++
++arm-cla-y := \
++	cla-init.o \
++	cla-ops.o
++
++obj-$(CONFIG_ARM_CLA) += arm-cla.o
+diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
+index 1e8ffca28bc6..4884e4804ab3 100644
+--- a/drivers/misc/arm-cla/arm-cla.h
++++ b/drivers/misc/arm-cla/arm-cla.h
+@@ -7,6 +7,9 @@
+ #ifndef _ARM_CLA_H_
+ #define _ARM_CLA_H_
+ 
++#include <linux/device.h>
++#include <linux/io.h>
++
+ #include "arm-cla-regs.h"
+ 
+ /* Number of accelerators per CLA */
+@@ -19,10 +22,12 @@
+  *
+  * Immutable state:
+  * @cpu:		The CPU this CLA is attached to.
++ * @regs:		Registers accessed by the kernel.
+  * @dev:		The platform device.
+  */
+ struct cla_dev {
+ 	unsigned int cpu;
++	void __iomem *regs;
+ 	struct device *dev;
+ };
+ 
+@@ -33,4 +38,23 @@ struct cla_dev {
+ #define cla_err(_dev, fmt, ...) \
+ 	dev_err((_dev)->dev, "[%u] " fmt, (_dev)->cpu, ##__VA_ARGS__)
+ 
++static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
++{
++	/* MMIO reads are all relaxed, since the driver doesn't use DMA. */
++	return readq_relaxed(dev->regs + reg);
++}
++
++static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64 val)
++{
++	/* MMIO writes are all relaxed, since the driver doesn't use DMA. */
++	return writeq_relaxed(val, dev->regs + reg);
++}
++
++int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp);
++int cla_op_reset(struct cla_dev *dev, unsigned int accid);
++int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
++		   size_t nregs, u64 *regs);
++int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
++		    unsigned int regidx, size_t nregs, u64 *regs);
++
+ #endif /* _ARM_CLA_H_ */
+diff --git a/drivers/misc/arm-cla/cla-init.c b/drivers/misc/arm-cla/cla-init.c
+new file mode 100644
+index 000000000000..3d1f47592842
+--- /dev/null
++++ b/drivers/misc/arm-cla/cla-init.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Arm CLA driver - probing and initialization
++ *
++ * Copyright 2026 Arm Limited.
++ */
++
++#include <linux/module.h>
++
++MODULE_DESCRIPTION("Arm Core Local Accelerator");
++MODULE_AUTHOR("Arm Limited");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
+new file mode 100644
+index 000000000000..46026304a057
+--- /dev/null
++++ b/drivers/misc/arm-cla/cla-ops.c
+@@ -0,0 +1,293 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Arm CLA driver - Launch operations
++ *
++ * Copyright 2026 Arm Limited.
++ */
++
++#include <linux/iopoll.h>
++
++#include "arm-cla.h"
++
++/* Time to wait between two LRESP reads */
++#define CLA_LRESP_DELAY_US	1
++
++/*
++ * Time to wait for LRESP_PENDING to clear. Commands like REGREAD should
++ * complete in a few cycles, but ENTERSR and RESET may need to clean up
++ * some very large states depending on the work interrupted, and may need
++ * 1us or more. Some software models need a lot more time.
++ */
++#define CLA_LRESP_TIMEOUT_US	1000000 /* 1s! */
++
++/* Time to wait between two STATUS reads when polling for DMB */
++#define CLA_STATUS_DMB_DELAY_US	10
++
++/* Time to wait for STATUS_DMB to be set after a successful RESET or ENTERSR. */
++#define CLA_STATUS_DMB_TIMEOUT_US 1000000 /* 1s! */
++
++enum cla_launch_data_mode {
++	CLA_DATA_NONE,
++	CLA_DATA_IN,
++	CLA_DATA_OUT,
++};
++
++struct cla_launch {
++	u8	op;		/* opcode */
++	u8	ndata_m1;	/* Data size minus 1 */
++	u8	accid;		/* Accelerator ID */
++	bool	seq;		/* part of compound cmd */
++	u32	regidx;		/* Register index */
++
++	enum cla_launch_data_mode data_mode;
++	u64	*data;		/* In/out data */
++
++	u8	errcode;	/* Output error code */
++};
++
++/**
++ * cla_op_launch - Launch operation.
++ * @dev: CLA device.
++ * @launch: LAUNCH settings.
++ *
++ * 1. Check that no previous operation is pending.
++ * 2. If data_mode is %CLA_DATA_IN, write DATA registers.
++ * 3. Launch the operation, and wait for the response.
++ * 4. If data_mode is %CLA_DATA_OUT, read DATA registers into @launch->data.
++ *
++ * Return:
++ * * %0			- Success.
++ * * %-EAGAIN		- A previous operation is still pending. Nothing was
++ *			  written to DATA or LAUNCH.
++ * * %-ETIMEDOUT	- LAUNCH timed out (possibly no CLA at this address).
++ *			  Unless LRESP_PENDING eventually clears, this is
++ *			  unrecoverable.
++ * * %-ENODEV		- Accelerator not available.
++ * * %-EBUSY		- Accelerator is busy.
++ * * %-EIO		- LAUNCH error. @launch->errcode contains the LRESP
++ *			  error code.
++ */
++static int cla_op_launch(struct cla_dev *dev, struct cla_launch *launch)
++{
++	int i;
++	int ret;
++	u64 lresp;
++
++	if (WARN_ON(smp_processor_id() != dev->cpu))
++		return -EINVAL;
++
++	lresp = cla_reg_read(dev, CLA_REG_LRESP);
++	if (FIELD_GET(CLA_LRESP_PENDING, lresp))
++		return -EAGAIN;
++
++	if (launch->data_mode == CLA_DATA_IN)
++		for (i = 0; i < launch->ndata_m1 + 1; i++)
++			cla_reg_write(dev, CLA_REG_DATA(i), launch->data[i]);
++
++	/*
++	 * For operations that return a response, LAUNCH sets LRESP_PENDING or
++	 * provides an immediate response. So a previously completed error
++	 * response does not block a new LAUNCH and does not need to be
++	 * explicitly cleared.
++	 */
++	cla_reg_write(dev, CLA_REG_LAUNCH,
++		      FIELD_PREP(CLA_LAUNCH_OP, launch->op) |
++		      FIELD_PREP(CLA_LAUNCH_NDATA_M1, launch->ndata_m1) |
++		      FIELD_PREP(CLA_LAUNCH_ACCID, launch->accid) |
++		      FIELD_PREP(CLA_LAUNCH_SEQ, launch->seq) |
++		      FIELD_PREP(CLA_LAUNCH_REGIDX, launch->regidx));
++
++	ret = cla_op_wait_lresp(dev, &lresp);
++	if (ret) {
++		cla_err(dev, "launch failed with %d\n", ret);
++		return ret;
++	}
++
++	switch (FIELD_GET(CLA_LRESP_CODE, lresp)) {
++	case CLA_LRESP_OK:
++		break;
++	case CLA_LRESP_UNAVAIL:
++		return -ENODEV;
++	case CLA_LRESP_BUSY:
++		return -EBUSY;
++	case CLA_LRESP_ERROR:
++		launch->errcode = FIELD_GET(CLA_LRESP_ERRCODE, lresp);
++		return -EIO;
++	}
++
++	if (launch->data_mode == CLA_DATA_OUT)
++		for (i = 0; i < launch->ndata_m1 + 1; i++)
++			launch->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
++
++	return 0;
++}
++
++/**
++ * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
++ * @dev: CLA device.
++ * @lresp: last LRESP value read.
++ *
++ * Return: 0 on success, -ETIMEDOUT in case of timeout.
++ */
++int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
++{
++	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
++			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) == 0,
++			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
++}
++
++/*
++ * Wait for STATUS_DMB to be 1. Although RESET and ENTERSR both wait for
++ * accelerators to return to STATUS_IDLE, some writes may still be pending. When
++ * all accesses reach the PoC, STATUS_DMB is 1.
++ *
++ * This is needed for a few reasons:
++ *
++ * - Propagation of STATUS_EABORT. Until all writes are flushed and STATUS_DMB
++ *   is 1, external aborts may still happen. The next context must not see this
++ *   external abort reported in its status.
++ *
++ *   Note that EABORT cannot be injected into the previous context, it is not
++ *   part of the saved and restored STATUS bits.
++ *
++ * - Turning CLA power off.
++ *
++ * - Migrating an accelerator owner across CPUs, although the driver does not
++ *   support it.
++ *
++ * Return: -ETIMEDOUT on timeout. On success, return 0 and set *status to the
++ * last status read.
++ */
++static int cla_wait_status_dmb(struct cla_dev *dev, unsigned int accid, u64 *status)
++{
++	return poll_timeout_us(*status = cla_reg_read(dev, CLA_REG_STATUS(accid)),
++			       *status & CLA_STATUS_DMB,
++			       CLA_STATUS_DMB_DELAY_US,
++			       CLA_STATUS_DMB_TIMEOUT_US,
++			       /* sleep_before_read */ false);
++}
++
++/**
++ * cla_op_reset - Launch RESET operation for this accelerator.
++ * @dev: CLA device.
++ * @accid: accelerator ID.
++ *
++ * Return: 0 on success, 1 if there is no accelerator with this ID, or an error.
++ */
++int cla_op_reset(struct cla_dev *dev, unsigned int accid)
++{
++	int ret;
++	u64 status;
++	struct cla_launch launch = {
++		.op	= CLA_LAUNCH_OP_RESET,
++		.accid	= accid,
++	};
++
++	ret = cla_op_launch(dev, &launch);
++	if (ret) {
++		if (ret == -EIO && launch.errcode == CLA_ERRCODE_NOACC)
++			return 1;
++		return ret;
++	}
++
++	/* Wait for outstanding writes */
++	ret = cla_wait_status_dmb(dev, accid, &status);
++	if (ret)
++		return ret;
++
++	/*
++	 * If STATUS.EABORT is set, a RAS error report is available. Launch a
++	 * second reset to clear the bit. No need to wait for STATUS.DMB again
++	 * since all accelerators are idle from the first reset, so no more
++	 * memory writes could have been generated.
++	 */
++	if (status & CLA_STATUS_EABORT)
++		return cla_op_launch(dev, &launch);
++
++	return 0;
++}
++
++/* regidx is unsigned long here to avoid overflow during calculations */
++static int cla_op_access_reg(struct cla_dev *dev, u8 op,
++			     enum cla_launch_data_mode data_mode,
++			     unsigned int accid, unsigned long regidx,
++			     size_t nregs, u64 *regs)
++{
++	int ret = -EINVAL;
++	unsigned long max_regidx;
++	struct cla_launch launch = {
++		.op = op,
++		.accid = accid,
++		.data_mode = data_mode,
++	};
++
++	switch (op) {
++	case CLA_LAUNCH_OP_REGREAD:
++	case CLA_LAUNCH_OP_REGWRITE:
++		max_regidx = 0x100000000;
++		break;
++	default:
++		WARN_ON(1);
++		return -EINVAL;
++	}
++
++	if (WARN_ON(regidx + nregs > max_regidx))
++		return -EINVAL;
++
++	/* 1 to 8 registers accessed at a time, within the same 8-reg group */
++	while (nregs > 0) {
++		u64 reg_group = ALIGN_DOWN(regidx, 8);
++		u64 max_reg = min(regidx + nregs, reg_group + 8);
++		u8 ndata = max_reg - regidx;
++
++		launch.ndata_m1 = ndata - 1;
++		launch.regidx = regidx;
++		launch.data = regs;
++
++		ret = cla_op_launch(dev, &launch);
++		if (ret)
++			break;
++
++		regidx += ndata;
++		regs += ndata;
++		nregs -= ndata;
++	}
++
++	return ret;
++}
++
++/**
++ * cla_op_regread - Launch REGREAD operations.
++ * @dev: CLA device.
++ * @accid: accelerator ID.
++ * @regidx: first register index.
++ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
++ *         REGREAD operations).
++ * @regs: array of length @nregs.
++ *
++ * Return: 0 on success, or an error.
++ */
++int cla_op_regread(struct cla_dev *dev, unsigned int accid,
++			  unsigned int regidx, size_t nregs, u64 *regs)
++{
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGREAD, CLA_DATA_OUT,
++				 accid, regidx, nregs, regs);
++}
++
++/**
++ * cla_op_regwrite - Launch REGWRITE operations.
++ * @dev: CLA device.
++ * @accid: accelerator ID.
++ * @regidx: first register index.
++ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
++ *         REGWRITE operations).
++ * @regs: array of length @nregs.
++ *
++ * Return: 0 on success, or an error.
++ */
++int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
++			   unsigned int regidx, size_t nregs, u64 *regs)
++{
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGWRITE, CLA_DATA_IN,
++				 accid, regidx, nregs, regs);
++}
+-- 
+2.43.0
 
-Pedantic I know, sorry :P but as per Documentation/process/license-rules.rst:
-
-      C source:	// SPDX-License-Identifier: <SPDX License Expression>
-      C header:	/* SPDX-License-Identifier: <SPDX License Expression> */
-      ...
-
-So should be /* */ here.
-
-> +/*
-> + * Split from driver/perf/arm_spe_pmu.c
-
-NIT: should be drivers/...
-
-> + *
-> + * Copyright (C) 2016 ARM Limited
-> + */
-> +
-> +#ifndef __PERF_ARM_SPE_PMU_H__
-> +#define __PERF_ARM_SPE_PMU_H__
-> +
-> +#include <linux/cpumask.h>
-> +#include <linux/container_of.h>
-> +#include <linux/list.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/types.h>
-> +
-> +struct arm_spe_pmu {
-> +	struct pmu				pmu;
-> +	struct platform_device			*pdev;
-> +	cpumask_t				supported_cpus;
-> +	struct hlist_node			hotplug_node;
-> +
-> +	int					irq; /* PPI */
-> +	u16					pmsver;
-> +	u16					min_period;
-> +	u16					counter_sz;
-> +
-> +#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
-> +#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
-> +#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
-> +#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
-> +#define SPE_PMU_FEAT_LDS			(1UL << 4)
-> +#define SPE_PMU_FEAT_ERND			(1UL << 5)
-> +#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
-> +#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
-> +#define SPE_PMU_FEAT_EFT			(1UL << 8)
-> +#define SPE_PMU_FEAT_FDS			(1UL << 9)
-> +#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
-> +	u64					features;
-> +
-> +	u64					pmsevfr_res0;
-> +	u16					max_record_sz;
-> +	u16					align;
-> +	struct perf_output_handle __percpu	*handle;
-> +};
-> +
-> +#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
-> +
-> +#endif /* __PERF_ARM_SPE_PMU_H__ */
-> --
-> 2.43.0
->
->
-
---
-Cheers, Lorenzo
 
