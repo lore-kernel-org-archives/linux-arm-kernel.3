@@ -4,131 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783EACA9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EB5CA9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 03:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPJDDRMvvglY5IJI7XgT8h1LKZ5Ofp+mKEQiteRdWRM=; b=EI244Pal5Z204XO5+qqH3Qw3jB
-	LuBhu0MRHDZvw66CreqKjXKrg8bavQ+kO3UUP33XnQjlsWDCjNAW/5pprsYM8nw29obX/L4bkWxz6
-	TDOZANE99hITMBXWJtI0HbS2me848f4inU02yLQADxZlI3F0b55iXKZtQARUAkt0hs3IkzHObM2T+
-	plzwxsMiMwNo4EvcRUKVmqYgRqs50RF8Gjg0kQqH5YKP5CLnwSTmt7XI/N1eAEatQ/qUjRHxZnw9l
-	z/3/g88qwEHdIWpyA7SFVkFyGvG16seGaKp54rj9RfEzeUljN3hDOlJ891eaUZttyvHyzkESmLkp/
-	95LtSYXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=; b=PK2npih9sbnYUJ1AXU4O63iTgz
+	Ccq09lhbgCSyavilVo42GjKpmZ0gYeBi94XW8t+kWfS/YHrPbZAVscvH+k05Dhz+2+abm3Rqxh85d
+	7xBUqll62A+XKyxjFgzUKaCPKX04S2kyEmUgk+bmGCno/jjQU7WA7qDIXMUeBtiLZmWonzMZW8SyG
+	tPmV4OdPNQK41k45FVo2OZ5y6tvEanqgQCHRHUBGt8lg++Gx9HxNzY2DaRvKPILpshB/zTZ3b5JDc
+	Gdxzxdg6bkmS3SdKKC4xRJg06MrwVQuhHMrH+ubENAxGo9C1v72bqkEn7flpnxjwVHVwzfF37CFfP
+	daWIJ5sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCKQ-0000000GklI-0sBH;
-	Thu, 15 Oct 2026 03:40:26 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xHCV9-0000000GlaY-3DPJ;
+	Thu, 15 Oct 2026 03:51:31 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHCKN-0000000Gkkb-3oCf
+	id 1xHCV6-0000000GlaB-3XFx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 03:40:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H7yJUqObDQnbkoAqSiEj3WdkysEGcCrlQj9DApUcNLDJ8vLtpCjGC4rpxktSXd2uNfH3StwSbzKkrEJ5rf8s85ouYLKee26ucHv0MWG6cI27T/I/s/Ciwwj/DbZwsT/AVAGrCNYIQfvahQ+wtTUlSFtDabzA4QNc/C0llgFLE34QkI5L+whkOKlkfkFlR3jZIYVmCBUviC5P+cNSvXgv7ysruF6f1ybAXMuDS2qnMrl9kAPXoQvORM+UHoRvKwLRG9q84Gwrde4JWV/u/SJ8bhW+BgZG6xvXGulZcZbttP5gy7k4bh3Sv9pD1GUN3Wa/EJ5I8fKBjBUSbimb7ceuOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xPJDDRMvvglY5IJI7XgT8h1LKZ5Ofp+mKEQiteRdWRM=;
- b=ff3nDPMXCRUT7KeszgO9jlTxb9gFvp75GglnObNLJOtGBb71tSUjsUvqRPJc0O6CjXSIyd4A2fAoy1WRupsJyvfLgL2QErWgFyWyGhtBk+6mC+MiidnV/lEv3Qdh/Te7AKWJi+DDJ7sH/u2UooPnQiOO5cbd1nnMRaCLG0hrivK1srhAB3w3HE1PURlh5ucM/A22EYGbqg5kyIDq0qC8eWs2Vd7tS6BpGKVkoVgQKr8sUXjZvU0izj3aoOOrPbFZZLRNyDYxDo1GIMsEHHjn6LcuuEysU7jCqL+PMENvbsxAEa6UkKtFt0jGYRA0s9NrLJh/Tx56+Yde3Dnk/rBufg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xPJDDRMvvglY5IJI7XgT8h1LKZ5Ofp+mKEQiteRdWRM=;
- b=Sp07dtAUOlA6McMq4Y/plQAuL4/49wFFC9B/vcX8LYzERdYHdF8T8zraF7vCQRql7mLlwP4noKmhgR7Tkkj/4H5Z+b08ZFnBsgPnEhOA1b3oDvressXKVFARmCoHI8+4tiIOtI/VmW4fpJFghWQ4tZTbDLemWKbzxDxHZLuKOuCkNxCO7mM6nyQGUKr9WUkfkQSFsLti51z6jO/i24vl63Ywj8XITqiG281LlVQc9XdtRJpF9txKjeSPb1LbdIroclEQB+sh+w++vV+4CmVo6k52g3sS0vxTwRnmAaIvgDt+kCQ5I7WRudWywrCCg9w+DAfsb0L8JX7s3fctJSMWlw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
- by VI0PR04MB10685.eurprd04.prod.outlook.com (2603:10a6:800:264::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 03:40:17 +0000
-Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
- ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 03:40:17 +0000
-Date: Thu, 15 Oct 2026 11:41:54 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 2/5] arm64: dts: imx8qxp: Add display controller
- subsystem
-Message-ID: <atBLglf0gSLS7XkW@raspi>
-References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
- <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: MA5P287CA0026.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:17a::9) To MI9PR04MB350878.eurprd04.prod.outlook.com
- (2603:10a6:290:c0::7)
+	Thu, 15 Oct 2026 03:51:30 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-35b2c599f43so45674eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Oct 2026 20:51:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792036287; x=1792641087; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=;
+        b=pLqhb51A/ovdxc4V1m4mZTGTRZE76BQgMGgj8FkUS26kwPJLKyIEfnGKmZ+TALHnhS
+         CEYr6XQgKNH2hmfCH8dV23GOZ4stkOwSeKebh+MM2cvvoUXgpjMOjuECFMfzfPCrKQFY
+         F/s0LAkCqMRgmDYflb82dwXjZiYx6gW5W0qyco+iUvm74zf2O6Ff4jngL8LyO54YQms4
+         kyb2zRuYrbrVHyiljkf8wbNlhh2NELhc8V6ZY4OKlKNaPb94/uyOFDSYMVA5yr2o2Hp6
+         NwAdot+0KzxbecsaM9oeOqrPWOpbT0mVzs7AkrMhW3LzI/ltMJbOJLIzWEWUKTNUwwlO
+         C5oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792036287; x=1792641087;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5Brhdwqnp+zrXya+pAYQZ+kocBKTR7q3OUom2Y3/V6I=;
+        b=DvXFAGA9stPQRxbFds+PbA8do8Yw59yTW14AwYVQthXkicYv6DUJ3P/l7fWw5HCab1
+         zJ5NyPTPxhGX/R/nGS7uZWufWHEichAC8Vd76HKVkWizKgqZDdxnn+FnsKKQiVRKP1D4
+         pYtWLpMUjyFCfDX1SQ12YjkYTIzZrWYhhOYfwgiF96YHdwQprpXWRX2esp+GYBkEFd03
+         yB1DlrRGzLOzk4H4cyMEJoDMkCzgJ/mPgt3h5slO9t5y3bD2bCFtipy55qPtzLxV8Nas
+         amLkbROXybb+pU/tyHO9KDadWCoc1LbfLem3XWwvrtzpxDntItRpptTYRiiCNvlCx6NB
+         WZWQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzu7Y+3tNKLj8cvMNbPpW8YlDgFKoJN9vhmDCVleFQDuTrHcdK+mJdbojHI7U9dELo8GSy8cfqcbf5Mir9CzrRG@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ8G6xNIEht/26qNpsxajK/+cdE+VYmMd0Gr4dVfCAXZKiTj93d
+	uVl/umyc8uP9oy4njbDGVMUl9RHBvebnsKtW7JBcw7lPWNycPEH4dkCsVAdvVA==
+X-Gm-Gg: AYBFou2+lzv4d7BP9RGDgxDormrvH5Ba8l4ZgxTnG97tHUQZqe3rVsybPSSavvu31gp
+	zZ2thINqVpHi16nh1ZBF+YP302oVErOnPtSTD9OcvjF5/dvuN52OqzKNzvc8Dr9MKSZ1GT76wf1
+	WUKg7Hl4EuvOIovgCMgrnmfSbM/2DxvLLMhVIJUX/xqnjNduFPtGiKtkXMEkhIY0Rxg/v7qnSkc
+	wGYXAHp7z2n9W6ZQRQUvHi+OsfuKAxo/2bdCEhB6PgPUWfijPfZfrU62Q7qnmtm/AbAFHKuNlhG
+	ul0Cd8rfeGsrC58E44fzuNmFiMmRX/AQybakGpPdEOAVwKO4+gYUZMhO/P97ipjCM99JoLZr0gs
+	9UFnRR7ZPuA9w2GP+X4tMn3ru2u7OKZ1xzs65M794VqWVRDYpiio8ulKun6Y38EgtTNeTJCld1y
+	wKFa1G25jch5u7T5bcEYlI10XYh0rIIcnoaHQeCIrWHtDpB+fp9qvU1UVt8i2S1PtnKlwKA+HvY
+	DGJlaP0HXJegd2O
+X-Received: by 2002:a05:7300:8b14:b0:35f:f0:8edf with SMTP id 5a478bee46e88-35f00f09f07mr2511567eec.13.1792036287168;
+        Wed, 14 Oct 2026 20:51:27 -0700 (PDT)
+Received: from debian.prasanth ([103.183.205.240])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537cb6a279sm56719830eec.30.2026.10.14.20.51.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 20:51:26 -0700 (PDT)
+From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+To: andrew@codeconstruct.com.au
+Cc: linus.walleij@linaro.org,
+	joel@jms.id.au,
+	brgl@kernel.org,
+	linux-aspeed@lists.ozlabs.org,
+	openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Subject: [RFC PATCH] pinctrl: aspeed: Handle GPIOZ6 pass-through strap on GPIO requests
+Date: Thu, 15 Oct 2026 09:21:18 +0530
+Message-ID: <20261015035118.9495-1-prasanth.padarthi10@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|VI0PR04MB10685:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd341b8d-df1a-4e44-8970-08df2a6e07eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|19092799006|23010399003|56012099006|11063799006|18002099003|22082099003|4143699003|10067099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: iLVhc6xqlVynk26GRetnD8q4HmDaF6HqoWq1uDFha9pgU1feI2SwK0WTGMoOZQKqCUZQtrmz5eSAZTtTXQj82dApcKhKV2st0EcW7WUfwTL8m78g+tISt3Cuzbfpe2bGh5bVSt7ycTovRnHwJDTlz2vTAN4qmoYMRK+pNam2PwAfU2P/Vz/FdMeRahqC05I0Rg5/+9RLNH0rmTrRhPSzjl6EVjdHtm/13OSmdy673SqzzvHEh5RRXBZHdG55bsrpFl8jxb+KzGRpChqgydA4QHS5dooALVxRir3zpdSfLNDM2kYd2XGbb4VNZhU2ugrI70dv8NQ/lHa0mGQwgbNQQ02YfCONf2Q/15bIItuZaDpktgfEPvZ1RNnD0RDP5KDdlPWvDmfVK5gAYkDcSC75NuSI0vonVI/70dGZxgceQWgQxs42G92um/e47AsUEA9ttQAjrhbJ3vqDw0ep+aWpvv1aARaNIisYiJcZjlFsrFjlhEQvffZLO+ZMrvddOY/yCNtM0ru1On+UM4bzn12X0kooGvAJ/llkbDaVFel2FyNlGeNIFbNq0oD7yEYYLkXbT/Lv/0n+clpZYD24ipMtsN72ZiacavB59Z4Y0biJwYr5HNsujWSD8PcU+oCKGDYAM57Otjmz27heUXB+qxiVLUpqFMLD4MDm+ShTYtxW6Qg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(19092799006)(23010399003)(56012099006)(11063799006)(18002099003)(22082099003)(4143699003)(10067099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pTg3u3j/HkoENx9am5YIvlWK6eqJjG2AGGj06OlnARsMRnUhW2KfZJ5TorUO?=
- =?us-ascii?Q?mr5anv7UJ3FalP1A1+dRIFFOVcwpqezdPj3OFPfBBYgJVLuDcU0hA7i18KqV?=
- =?us-ascii?Q?IrLPF7yGLQZkewDe+1pLx58BmcuBkpHFIHE4TX7LBWa/KFs5IwN2tJBcBeYh?=
- =?us-ascii?Q?ogvl1PL1uNQiEbIXrDtafEUh2FBxTsGf3azKrhk7GLixcsEknzoI5W2Lnt4e?=
- =?us-ascii?Q?cxhiy862AEx5VJxi/+UxvY94m1PQTZxQ0nCvr4pEAW13HwU3teZWa0EYGSrY?=
- =?us-ascii?Q?goiNHtCHbcSPn6jbvAZjwceuVcnLTD4Cab2Gicplg0I0GMoRlmd3iBzXQ2yt?=
- =?us-ascii?Q?hsB8uV68cEFxIMzM47QQZ9ubQoSmcKfhSK5wyIGHSHVZvpqKjClJASa5paJb?=
- =?us-ascii?Q?hKKLuJ4XnbykBP593/EVBmovJyAGa8UHuiGk3/autUbjfgZQ7Oz19lWO9Ctn?=
- =?us-ascii?Q?oo03Vap4WY8TY+BFDQsmJNfBCIKOdohe5fQZk8ssDZy2FIiI6dQPYTlnaZwh?=
- =?us-ascii?Q?XVETthmGkQHMTd925eANd3ylpgnEL+T7QJ2dhtyggYvYIc/TgddaiVbzcXlv?=
- =?us-ascii?Q?H00JdNGxjq2qsaY9LP7P88PdYbRdE3zFjuhDrVDyzc4hg4RbXGxeLFRlxSFQ?=
- =?us-ascii?Q?SvHA+vVBBrMmko08dZIeunwtP0jPFT7EB1gzObjFhURek2bJafXeOkDHt8tt?=
- =?us-ascii?Q?Os+7raw87820DqW777d/SJTC39K2z6d1LH3qfgoLY5awvl4GpmO0Car+9Zri?=
- =?us-ascii?Q?qq5OyAuyi8SBs0OiWza7QSeoTy6sG1RQjtVxoymL2UHlnMZtxymu10yFCH0V?=
- =?us-ascii?Q?Y9AKRqiN2evbsag5jRg3ZCDk3NHXETyQNY3cSDpfaPyECu+GfzhuIr/+I99e?=
- =?us-ascii?Q?H4szBhsbdIobQ3mAjU5befWfnoaaAC0LFBbHM91em0Lp0i2Az7N8B3XzH4kY?=
- =?us-ascii?Q?wg9pMV0Q+0d6ZmvaDuKsm/EKFjOFUdNwtdGfJEsfMUPCgtOXNS2Is5YQaX/2?=
- =?us-ascii?Q?zW5Jo92vpDvMntLuKwVhiVITXWHF5yl65cqLrg6wBV4entmhjqjoXc3P8scc?=
- =?us-ascii?Q?Dk9f6QPRnj//BCE6e2UZzDdyb1yhAflx6WrjSzZolMRxyiohi7o4j2GLwA9h?=
- =?us-ascii?Q?2XTNTHEPjF+7qr9ptJ3SQ0v8c8wjwviDKVR0NG1BH31C65vbXmtm7B5w1hXI?=
- =?us-ascii?Q?wh115FH/t8jXvuluHlSIZ1SOv5DtvkoH9yV+TYN9dd8vTTLhYuNYenj1LQos?=
- =?us-ascii?Q?A2aatvE2VnafrrTIRijZWvvqAI/W9EgG/yHv17RwMnz/gH+nD30Ymbe2cgGa?=
- =?us-ascii?Q?HwELrSPf952qat9UoaShfS5qqEm0hsz1yuexVpb29lzAJeImJddtolgv6KHU?=
- =?us-ascii?Q?byLerB5Mlrsl3g8YOySsOplS95fkneJU9hK1bfLMb17Flhctj8jGYBvO/41L?=
- =?us-ascii?Q?OL5B3KDFkHePquZ23q3jES6b9rLTs7oleMBuZn3OCkc7+IAuowb5xCjkQBFX?=
- =?us-ascii?Q?eItBAyY49hCPSLXLa1ATwYwuDgcSwzhoC2AJ/3FwA01TDoxysOnNmAg2rPYQ?=
- =?us-ascii?Q?tqhqvFyH/6L0fMyUX9HxZ7A1tMMcIVNhXdVVhlMcMukUcXftdIMlBuRStgVm?=
- =?us-ascii?Q?4Vz4KVAZqeBz0xckDIltgvopyynopzWhruESwGSNokCjytRXMRIyhrHsMd9C?=
- =?us-ascii?Q?qxv097azTQO1Wz+0zZ90l1a2ylpHzu/0uMC9UXUjcmiCiuO0Pslidoy/BOU3?=
- =?us-ascii?Q?8D13DU4HZA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd341b8d-df1a-4e44-8970-08df2a6e07eb
-X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 03:40:17.8357
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +Zc8TMRpZsufELqzzv6nKJShp7IfPz4jiTgmywJHuNjeKEUMVkCLhzx/FSOPFuQAD2iDv/U3l8PkKMmM4Mk0vQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10685
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_204024_144043_43276D1C 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261014_205128_890857_5594BAD1 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,257 +103,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
+On the ASRock Rack B650D4U, requesting GPIOP3 through gpiolib does
+not provide working host power control when the GPIOZ6 pass-through
+strap in SCU51C[9] is set.
 
-On Wed, Oct 14, 2026 at 09:16:46AM +0200, Alexander Stein wrote:
+With the existing GPIO request path, SCU4BC reads zero, but a host
+power-on request through x86-power-control times out waiting for
+power-good:
 
-[...]
+  SCU4BC = 0x00000000
+  SCU510 = 0x00000000
+  SCU51C = 0x00001e80
 
-> +	dc0: display-controller@56180000 {
-> +		reg = <0x56180000 0x40000>;
-> +		clocks = <&dc0_lpcg IMX_LPCG_CLK_4>;
-> +		power-domains = <&pd IMX_SC_R_DC_0>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges;
-> +		status = "disabled";
-> +
-> +		dc0_intc: interrupt-controller@56180040 {
-> +			reg = <0x56180040 0x60>;
-> +			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
-> +			interrupt-controller;
-> +			interrupt-parent = <&dc0_irqsteer>;
-> +			#interrupt-cells = <1>;
-> +			interrupts = <448>, <449>, <450>,  <64>,
-> +				      <65>,  <66>,  <67>,  <68>,
-> +				      <69>,  <70>, <193>, <194>,
-> +				     <195>, <196>, <197>,  <72>,
-> +				      <73>,  <74>,  <75>,  <76>,
-> +				      <77>,  <78>,  <79>,  <80>,
-> +				      <81>, <199>, <200>, <201>,
-> +				     <202>, <203>, <204>, <205>,
-> +				     <206>, <207>, <208>,   <5>,
-> +				       <0>,   <1>,   <2>,   <3>,
-> +				       <4>,  <82>,  <83>,  <84>,
-> +				      <85>, <209>, <210>, <211>,
-> +				     <212>;
-> +			interrupt-names = "store9_shdload",
-> +					  "store9_framecomplete",
-> +					  "store9_seqcomplete",
-> +					  "extdst0_shdload",
-> +					  "extdst0_framecomplete",
-> +					  "extdst0_seqcomplete",
-> +					  "extdst4_shdload",
-> +					  "extdst4_framecomplete",
-> +					  "extdst4_seqcomplete",
-> +					  "extdst1_shdload",
-> +					  "extdst1_framecomplete",
-> +					  "extdst1_seqcomplete",
-> +					  "extdst5_shdload",
-> +					  "extdst5_framecomplete",
-> +					  "extdst5_seqcomplete",
-> +					  "disengcfg_shdload0",
-> +					  "disengcfg_framecomplete0",
-> +					  "disengcfg_seqcomplete0",
-> +					  "framegen0_int0",
-> +					  "framegen0_int1",
-> +					  "framegen0_int2",
-> +					  "framegen0_int3",
-> +					  "sig0_shdload",
-> +					  "sig0_valid",
-> +					  "sig0_error",
-> +					  "disengcfg_shdload1",
-> +					  "disengcfg_framecomplete1",
-> +					  "disengcfg_seqcomplete1",
-> +					  "framegen1_int0",
-> +					  "framegen1_int1",
-> +					  "framegen1_int2",
-> +					  "framegen1_int3",
-> +					  "sig1_shdload",
-> +					  "sig1_valid",
-> +					  "sig1_error",
-> +					  "reserved",
-> +					  "cmdseq_error",
-> +					  "comctrl_sw0",
-> +					  "comctrl_sw1",
-> +					  "comctrl_sw2",
-> +					  "comctrl_sw3",
-> +					  "framegen0_primsync_on",
-> +					  "framegen0_primsync_off",
-> +					  "framegen0_secsync_on",
-> +					  "framegen0_secsync_off",
-> +					  "framegen1_primsync_on",
-> +					  "framegen1_primsync_off",
-> +					  "framegen1_secsync_on",
-> +					  "framegen1_secsync_off";
-> +		};
-> +
-> +		dc0_pixel_engine: pixel-engine@56180800 {
-> +			reg = <0x56180800 0xac00>;
-> +			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges;
-> +
-> +			dc0_constframe0: constframe@56180960 {
-> +				reg = <0x56180960 0xc>, <0x56184400 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_extdst0: extdst@56180980 {
-> +				reg = <0x56180980 0x1c>, <0x56184800 0x28>;
-> +				reg-names = "pec", "cfg";
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <3>, <4>, <5>;
-> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			};
-> +
-> +			dc0_constframe4: constframe@561809a0 {
-> +				reg = <0x561809a0 0xc>, <0x56184c00 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_extdst4: extdst@561809c0 {
-> +				reg = <0x561809c0 0x1c>, <0x56185000 0x28>;
-> +				reg-names = "pec", "cfg";
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <6>, <7>, <8>;
-> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			};
-> +
-> +			dc0_constframe1: constframe@561809e0 {
-> +				reg = <0x561809e0 0xc>, <0x56185400 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_extdst1: extdst@56180a00 {
-> +				reg = <0x56180a00 0x1c>, <0x56185800 0x28>;
-> +				reg-names = "pec", "cfg";
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <9>, <10>, <11>;
-> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			};
-> +
-> +			dc0_constframe5: constframe@56180a20 {
-> +				reg = <0x56180a20 0xc>, <0x56185c00 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_extdst5: extdst@56180a40 {
-> +				reg = <0x56180a40 0x1c>, <0x56186000 0x28>;
-> +				reg-names = "pec", "cfg";
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <12>, <13>, <14>;
-> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			};
-> +
-> +			dc0_fetchwarp2: fetchwarp@56180a60 {
-> +				reg = <0x56180a60 0x10>, <0x56186400 0x190>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_fetchlayer0: fetchlayer@56180ac0 {
-> +				reg = <0x56180ac0 0xc>, <0x56188400 0x404>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_layerblend0: layerblend@56180ba0 {
-> +				reg = <0x56180ba0 0x10>, <0x5618a400 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_layerblend1: layerblend@56180bc0 {
-> +				reg = <0x56180bc0 0x10>, <0x5618a800 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_layerblend2: layerblend@56180be0 {
-> +				reg = <0x56180be0 0x10>, <0x5618ac00 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +
-> +			dc0_layerblend3: layerblend@56180c00 {
-> +				reg = <0x56180c00 0x10>, <0x5618b000 0x20>;
-> +				reg-names = "pec", "cfg";
-> +			};
-> +		};
-> +
-> +		dc0_display_engine0: display-engine@5618b400 {
-> +			reg = <0x5618b400 0x14>, <0x5618b800 0x1c00>;
-> +			reg-names = "top", "cfg";
-> +			interrupt-parent = <&dc0_intc>;
-> +			interrupts = <15>, <16>, <17>;
-> +			interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			power-domains = <&pd IMX_SC_R_DC_0_PLL_0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges;
-> +
-> +			dc0_framegen0: framegen@5618b800 {
-> +				reg = <0x5618b800 0x98>;
-> +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <18>, <19>, <20>, <21>,
-> +					     <41>, <42>, <43>, <44>;
-> +				interrupt-names = "int0", "int1", "int2", "int3",
-> +						  "primsync_on", "primsync_off",
-> +						  "secsync_on", "secsync_off";
-> +			};
-> +
-> +			dc0_tcon0: tcon@5618c800 {
-> +				reg = <0x5618c800 0x588>;
-> +
-> +				port {
-> +					dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
-> +						remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_disp0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		dc0_display_engine1: display-engine@5618b420 {
-> +			reg = <0x5618b420 0x14>, <0x5618d400 0x1c00>;
-> +			reg-names = "top", "cfg";
-> +			interrupt-parent = <&dc0_intc>;
-> +			interrupts = <25>, <26>, <27>;
-> +			interrupt-names = "shdload", "framecomplete", "seqcomplete";
-> +			power-domains = <&pd IMX_SC_R_DC_0_PLL_1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges;
-> +
-> +			dc0_framegen1: framegen@5618d400 {
-> +				reg = <0x5618d400 0x98>;
-> +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
-> +				interrupt-parent = <&dc0_intc>;
-> +				interrupts = <28>, <29>, <30>, <31>,
-> +					     <45>, <46>, <47>, <48>;
-> +				interrupt-names = "int0", "int1", "int2", "int3",
-> +						  "primsync_on", "primsync_off",
-> +						  "secsync_on", "secsync_off";
-> +			};
-> +
-> +			dc0_tcon1: tcon@5618e400 {
-> +				reg = <0x5618e400 0x588>;
-> +
-> +				port {
-> +					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
-> +						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
+The AST2600 A3 datasheet describes SCU51C[9] as an additional
+pass-through enable for GPIOP0/P1, GPIOP2/P3 and GPIOP4/P5 when
+SCU510[30] is clear.
 
-I'm thinking that it would be good to have a complete display controller
-DT node in the first place, including those prefetch engines attached to
-fetchunits through the fsl,prg property.  In this way, display controller
-driver's life would be easier - all child/grandchild devices are always
-available.  I'm considering to adding a check to the Linux display controller
-driver to ensure the availability(at least for critical child/grandchild
-devices).
+A diagnostic experiment that cleared only SCU51C[9], preserving all
+other bits, allowed the same GPIO-only power-control implementation
+to power on the host:
 
--- 
-Regards,
-Liu Ying
+  SCU51C: 0x00001e80 -> 0x00001c80
+
+SCU4BC and SCU510 remained zero. No per-operation THRU1 switching
+or additional userspace delay was required.
+
+Add an AST2600-specific GPIO request callback that performs the
+existing GPIO mux configuration and clears SCU51C[9] for GPIOP0-P5
+when SCU510[30] is clear. Check register access errors and verify
+that the strap bit cleared. Other GPIOs retain the existing path.
+
+This RFC handles only the GPIOZ6 strap source. It leaves SCU51C
+unchanged when SCU510[30] is set and returns -EOPNOTSUPP for
+GPIOP0-P5 requests when SCU510[28] is set.
+
+Hardware testing on B650D4U with this pinctrl candidate confirmed:
+
+  - Remote power-on: power-good asserted.
+  - Remote graceful power-off: power-good deasserted.
+  - Physical power-button power-on.
+  - Physical power-button shutdown.
+
+These tests used x86-power-control with software button forwarding.
+The earlier board-specific SoC driver, its DT node, custom sysfs
+interface and diagnostic boot parameter were not used.
+
+This replaces the approach explored in the withdrawn B650D4U
+power-passthrough RFC. The new proposal changes the existing pinctrl
+driver and introduces no DT binding or userspace interface.
+
+Feedback is requested on two unresolved issues:
+
+  1. SCU51C[9] is shared by all three GPIOP pass-through pairs.
+     Clearing it for one GPIO request may affect forwarding on
+     another pair. How should that shared control be represented
+     and coordinated with existing mux ownership?
+
+  2. The SCU510[28] enable path has not been validated. Returning
+     -EOPNOTSUPP is a limitation of this candidate, not a proposed
+     complete solution for every AST2600 configuration.
+
+Is the GPIO request callback the appropriate place to handle this
+strap interaction, or should it be modeled through the existing
+signal-expression mechanism?
+
+
+Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+---
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+@@ -40,6 +40,7 @@
+ #define SCU4D8		0x4D8 /* Multi-function Pin Control #23 */
+ #define SCU500		0x500 /* Hardware Strap 1 */
+ #define SCU510		0x510 /* Hardware Strap 2 */
++#define SCU51C		0x51c /* Hardware Strap 3 */
+ #define SCU610		0x610 /* Disable GPIO Internal Pull-Down #0 */
+ #define SCU614		0x614 /* Disable GPIO Internal Pull-Down #1 */
+ #define SCU618		0x618 /* Disable GPIO Internal Pull-Down #2 */
+@@ -2747,12 +2748,56 @@
+ 	.nconfmaps = ARRAY_SIZE(aspeed_g6_pin_config_map),
+ };
+ 
++/*
++ * GPIOP0-P5 have a global strap-controlled pass-through enable in addition
++ * to their individual SCU4BC mux bits. SCU51C is ordinary RW, unlike the
++ * write-one-set SCU510 register. This candidate handles the GPIOZ6 strap
++ * source only; the SCU510[28] enable path needs separate validation.
++ */
++static int aspeed_g6_gpio_request_enable(struct pinctrl_dev *pctldev,
++					 struct pinctrl_gpio_range *range,
++					 unsigned int offset)
++{
++	struct aspeed_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
++	struct regmap *scu = pdata->pinmux.maps[ASPEED_IP_SCU];
++	unsigned int strap2, strap3;
++	int ret;
++
++	if (offset < AB22 || offset > AB23)
++		return aspeed_gpio_request_enable(pctldev, range, offset);
++
++	ret = regmap_read(scu, SCU510, &strap2);
++	if (ret)
++		return ret;
++	if (strap2 & BIT(28))
++		return -EOPNOTSUPP;
++
++	ret = aspeed_gpio_request_enable(pctldev, range, offset);
++	if (ret)
++		return ret;
++
++	/* In dedicated-strap mode, SCU51C[9] does not enable pass-through. */
++	if (strap2 & BIT(30))
++		return 0;
++
++	ret = regmap_update_bits(scu, SCU51C, BIT(9), 0);
++	if (ret)
++		return ret;
++	ret = regmap_read(scu, SCU51C, &strap3);
++	if (ret)
++		return ret;
++	if (strap3 & BIT(9))
++		return -EPERM;
++
++	return 0;
++}
++
+ static const struct pinmux_ops aspeed_g6_pinmux_ops = {
+ 	.get_functions_count = aspeed_pinmux_get_fn_count,
+ 	.get_function_name = aspeed_pinmux_get_fn_name,
+ 	.get_function_groups = aspeed_pinmux_get_fn_groups,
+ 	.set_mux = aspeed_pinmux_set_mux,
+-	.gpio_request_enable = aspeed_gpio_request_enable,
++	.gpio_request_enable = aspeed_g6_gpio_request_enable,
+ 	.strict = true,
+ };
+ 
 
