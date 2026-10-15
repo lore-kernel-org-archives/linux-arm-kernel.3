@@ -4,71 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F108CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA0DCC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWBbbDlf4EIwAAVhrNOPgxfdQorqL6I+zOwc8slJsqA=; b=PUcVRY9Zk3KtJEokxnjcH5gFIN
-	1uq1osS8uBcxtu/ImcCBsT1IV6CcwMBJJwVRO115EeZcVup7q0w5h+Vd+5M4L8iHSjZ2dw1T7qQvY
-	Smrlk6xh4rmgo1kHD25L7OMsNsxQrswwA4MldoFOfCaRLjJ4WjbjZWE/Ur9ZlZ2xFmxaGh8Qj2zgQ
-	8Ukk1cFZ/hvESSFIMlr+PpwdQRODNwafz5F6CLYM59L4iFrSuXu7bwaqxJeGznfId0krLDKr+3fdg
-	bQZbn6mmITBmGoTT8AvANbQcEPocq+5lnO0M5UjuVgV6/JRd5b4XB8xRKX1lOtb6yOL8L1V5Eb7Nb
-	9RIzoTtA==;
+	bh=1AO+QwuftpWsQMDUEJ5JM/I5y4GFNwbDtpxDrS/aidw=; b=48Cbo26rM/vPauMvcgE6YTccsw
+	nEoznCPF9BesKgWRVF3rwxBer7bt5FSlXKNBM9uV7FC7udRGjMSgKWbiOLQevqZsbzoqbUO9gaa0P
+	kn5XSsL5fO+AK+V01U03sT/YEfvOEnAClyx7SkdkYVQ+bSfTS2FQXD/hqwF/Fdd8I0h91j59r2LZa
+	EF9yreIADth6W55dSnDJHD7c6HjOm4bVyYRXi0hLOiOO0VvfEGxrz7I+qBiVCwGrnelUgcDASOs9V
+	pkP+IJG9AmwgpJDHf/JqUbauKd5DYbEZBt1kzewJWy0Tl3SUvS7pKjcBd0S2WnWkiwe6JYQFOZ3Ny
+	FVl4UsBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKWA-000000006VA-2ZAi;
-	Thu, 15 Oct 2026 12:25:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHKZx-0000000071k-0Txh;
+	Thu, 15 Oct 2026 12:29:01 +0000
+Received: from mail-westus2azon11012002.outbound.protection.outlook.com ([52.101.48.2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKW8-000000006UM-3h8w
+	id 1xHKZt-0000000070t-4A0Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:25:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1A3C43643
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 12:25:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5F081F000C9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 12:25:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792067102;
-	bh=XWBbbDlf4EIwAAVhrNOPgxfdQorqL6I+zOwc8slJsqA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=oY2H1XZyIbnqyuy9ZYrkW/bwtfEtmpmrrrPgH0gEKO4rjAbAF4Rr29YEmejrYxWkL
-	 vR1qzJK9JwqSwFkWuV75Vj6fRh2/a3c5qJw3kqhSYbJ1OybRZNmmBXeu0QKcm+UwSJ
-	 98U8hVMRPVTGDdXhpXuegBO/edEZfS+yzfys3I1AI/LC+PU+sCvYQvAAEfdb690GbB
-	 VBJbRGyUY7ESh4zEY//CizYpMIEsoqucX4/9700sly8oG0kJMARc0x+PA3xMCkQG5e
-	 vClriT9LqQzK4gxJwvP5C7xmmH6X8+3FyL3+jifzi7wEKb74FE3Z+NpFE/dJGluTJK
-	 jBN7s0IqI5qRA==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5bccb867d6fso4337919e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 05:25:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzqT/tflBwRmkOPyNjI19qEvzxtmi7Sp1CyMa2MegAA2u0U34/eVV0zrbBsZ+5+rDybjMlg9b/Is47+1tJ7bOtY@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFfFuDnTe4TRIs9vpSG32XWbQuPWvQQbK1cqon34NLfMKw1RiY
-	9OoqA6HjFHS4pxAIgEA8l+FyGxipWOLFYGLpy3B587yR8oi77hzjxe1UUPBtWhSNTHlnZWA6z06
-	hpuimASVkOzNUSGwfFW+CmWuim1LsrYlOw8aUk0/cZA==
-X-Received: by 2002:a05:6512:3989:b0:5ba:37c8:a485 with SMTP id
- 2adb3069b0e04-5bcde6bdfd9mr6220298e87.22.1792067101328; Thu, 15 Oct 2026
- 05:25:01 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Oct 2026 12:25:00 +0000
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Oct 2026 12:25:00 +0000
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20261014072109.1759502-9-ghahramani.navid@gmail.com>
+	Thu, 15 Oct 2026 12:28:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oRp6K5jQ1u0yLvowxkG8lfo3BneRcyH4+OLXzIDflwjLnSeTaMWwrrK/6KhZd+AyqgXJcgf668JnPfSIjAI02oLcZYIlAsglWr6SBiAT6eCixYu0m6chxDbLw8Nq2E6QKmmNuZ4xJse/ZfM+qAo3bPiAssWY18ct9nbHjY08EbT3drOXCb12st76Ktu2fxdHzvlcN/9wNj/HyGzxDg/QGNCIuL81+HVyA3U6nAhML6JFhuCqSAqDzBN61jdsBsj42wrGvofmhpYPWi+pOc4N93GOhmLmQqiU9QeuYF+j7zSpVYeXNDAJd0Xp0WcpHWygcJ+Z3vZ/v4h+haw/mKvfjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1AO+QwuftpWsQMDUEJ5JM/I5y4GFNwbDtpxDrS/aidw=;
+ b=Hy9kzo03Az97wM2JaYU5AzQ07MyyHsQeBbyrRiHT7JeDFPrMt9OAfMPZO1hjSfwiopXwEgw0M1mF7qpHpxMZj98CmQg0HoyAxjOR+6WmVQ3C8uZAi/FeeIsMhLhWfTUHeR0/gXpzt3I9SzsO6abUW5Hw5bDi75OBdDcgHf1T1/7F4svmzmpnamPkNfuCLj9KYFgsQ3cKOdL75gjBO7/SGuHkYiuw1H8sS5pd92hxfwrSDYYCcVHBM4oxCcZw99zxRAqj/flwft6tb5vk+Y/SsotT7JJ3y+Gkui0JoE9HvjxK1UBWJCSwgqR9gNcKWWfGt/uubyAH5jkLL8Grc5iGsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1AO+QwuftpWsQMDUEJ5JM/I5y4GFNwbDtpxDrS/aidw=;
+ b=FH1KORdNMEBjjfuiXyXzNoFut9LS+FjkUKDZISiXIvPn/a8NsZY5aeHVNHHwdSWnszNQuNf/tg9b4arDnk0wMGwVf6sqLRul5ZAcSMzrS+hcTfxa1F8YxikEaXhOGJqLhof6yHUCJ1mGEHLY5dDmVQ9ShYyTJvkU7fSEDk/3e6U=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH2PR12MB9518.namprd12.prod.outlook.com (2603:10b6:610:27e::11)
+ by PH7PR12MB6738.namprd12.prod.outlook.com (2603:10b6:510:1a9::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
+ 2026 12:28:47 +0000
+Received: from CH2PR12MB9518.namprd12.prod.outlook.com
+ ([fe80::5f97:8622:699:6b37]) by CH2PR12MB9518.namprd12.prod.outlook.com
+ ([fe80::5f97:8622:699:6b37%5]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
+ 12:28:47 +0000
+Message-ID: <4f42a518-42b8-4969-b346-6c5c2acababd@amd.com>
+Date: Thu, 15 Oct 2026 17:58:34 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] pwm: cadence: Add TTC PWM driver
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: michal.simek@amd.com, tglx@kernel.org, daniel.lezcano@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com, linux-pwm@vger.kernel.org,
+ Michal Wilczynski <m.wilczynski@samsung.com>
+References: <20261007-cadence-ttc-pwm-v1-0-52a95a8d98b1@amd.com>
+ <20261007-cadence-ttc-pwm-v1-4-52a95a8d98b1@amd.com>
+ <asYvE-ThtZeYSEyk@monoceros>
+Content-Language: en-US
+From: "Vanukuri, Meher Thanmaiee" <MeherThanmaiee.Vanukuri@amd.com>
+In-Reply-To: <asYvE-ThtZeYSEyk@monoceros>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0040.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:175::13) To CH2PR12MB9518.namprd12.prod.outlook.com
+ (2603:10b6:610:27e::11)
 MIME-Version: 1.0
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com> <20261014072109.1759502-9-ghahramani.navid@gmail.com>
-Date: Thu, 15 Oct 2026 12:25:00 +0000
-X-Gmail-Original-Message-ID: <CAMRc=MfhnbwvM+c=e1=ga4wALCmj8Bi8LWkB_W4_0YHkK3Hikw@mail.gmail.com>
-X-Gm-Features: AclHuK8GH8etn3uUshACOzvmzHuZTS1r4ysvL-52dRD2_mweQZCACUKo2mAjagE
-Message-ID: <CAMRc=MfhnbwvM+c=e1=ga4wALCmj8Bi8LWkB_W4_0YHkK3Hikw@mail.gmail.com>
-Subject: Re: [PATCH v2 08/24] gpio: Add ZTE ZX279128S GPIO driver
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: arnd@arndb.de, stefandoesinger@gmail.com, krzk@kernel.org, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PR12MB9518:EE_|PH7PR12MB6738:EE_
+X-MS-Office365-Filtering-Correlation-Id: 314f7420-0c27-4898-fd1b-08df2ab7dbf3
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|11063799006|18002099003|22082099003|10067099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: Oux3j6y7zcFqgc9NfTlLVwAP3fjQYMNhqLkvrEopeWGbuXJsSJ0CTAz03zw4xiDG3B3vWYI7YPKVDSO8YZaCSuATBG/g/9CzTuTZLfmQ68IobGHukNeWlRagwCiw6TYPjtJm8RL0SqrFo4PwQm5oagKaDP4yUn57I5iemU73RWLnl6ojyxwaIbR6EtPE/XrLN6B5VB2GDMMUvf2YniiliCwfern5fyeZJZh4glf6vTBlCYA++09A2hQYlcYTWMcNGHAQr6tNHaj2PAHIYlxRVrzR07K0NkD6VPI6PubhGSz+m8/x1iae0MunaD57pOs2k02XGuTKwJZTVTFlCM4/MWVFoK//Q/pCO1BnfA44GvBaBudtf3oSu5wKupoTqvUCPEEmIbDJcMw61jY5FLQxXglN1nrhcXUOBjMbG7g3z3jzMPyJEh37r4f+J175vvYKQL4ZEV6rVvq9HXjW/3V+nT7cLmg1jApuz2bQQZBlGu+ulW+yXOoX+RLKm3lXOlNx/tW4QxBtSmcU0C6o0DYLYQUdOxnZfKRp1odZvQHNTjyBG1cQwI5uTVdAfQJ1nVyT+8PpO0rvxWd1RUn7rJ5TzVaui1dngns2+PKWIn21zcnl8K+NnEmd/4sewqHyKGl6Y8usOLUXJhdyS1VdZIufq0ALF7ufbwtOaND9g7/drHk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB9518.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(11063799006)(18002099003)(22082099003)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHNGbDB4cWxWVkYzR2FzMzZGc1R2M3V2bXlVeVh1d05CS3g2RUhUdmtIZ2hH?=
+ =?utf-8?B?dnU4bUJhd0p6ZlFYellQV1I5SUE3OVZZcE5JQzVCcmUzeENLUkFObWFNVk9o?=
+ =?utf-8?B?Q1NqMFVIVmNEQXdWRjhKY2lBK3hWa0MzUkwxd3ViRjcxVGg1MHEvcXJETnJ3?=
+ =?utf-8?B?R1luOTNFRzJZL0d5UVd2QWZKaU5WNy9jSHZnOEd4aTlKcFFiREdpR2dSdURV?=
+ =?utf-8?B?YmxwN0g3TnZFSElINUJRbWl2elE3QiswUFpvcTJTM1BKTW0wZm5FMkY0VjZ3?=
+ =?utf-8?B?ZnpteWMzSk4yV1JwNXZTRE01ZmhXNWtXN29BaDlDdlR5b1I5dnc0VHFYNFBz?=
+ =?utf-8?B?cEUzbmZnWGExMDFDV0phZXd0RmVlaFdtYTJDMlBiWGtMOG83QkMzYlFsL0J2?=
+ =?utf-8?B?Mk1CQ2F4ZzRhMDJ6RHhXM2VyVDhHSG1tZ1ViVVpmbHkxVDFSejVjalJicmFn?=
+ =?utf-8?B?QlhKYVFQQk56SDc5Ukx2dXUyYU1jcUlieDFRWWlZMHJPMGtPVmdETTJyQ1ZE?=
+ =?utf-8?B?SE9HakZrUUhuK1pkVFVTQkhIZUMxakVGQzIvdnJLbFZSdlZ5ZEpYYzJodGpt?=
+ =?utf-8?B?RzJBTFlRSFZyRFd1K0JGbFUxNGJYNXlWSXAyajFGU3BjVG5NU1krbnVsQ1R6?=
+ =?utf-8?B?aldjN1pnUTIyRFk2d1dBZmx4RCtWeVdwbTBzZVQ2RnhxQU84YlMwRVdubm5v?=
+ =?utf-8?B?RWt4Z3h1ejl3UFJjYzh6L081WXZ0Wndzb2RtQTVMOG96cGF1UTJVeVJETFQz?=
+ =?utf-8?B?ek1IVVVlM2pzMmdKdDVXQ2diaVJiOE5zRG00akFMT1VpWGQ4QUNLMFpaQU9I?=
+ =?utf-8?B?QVE4dGs4V1VPMEF4MXNWaVJRdy8rSVJreWtpTXVuVDBVSmJ2UXVzV2hJRUN2?=
+ =?utf-8?B?M0pVeUVLR0F4MVpSdkpuUkVEdGp6RkU5a1h3OXozdXlIOEg5a3B2SjZCa1FU?=
+ =?utf-8?B?ZDFiYWo2SDdaY0lNSVcrekZoZTFKa3FkRytLOHN5emFLb1NSb3dBdGhnc2Ny?=
+ =?utf-8?B?dk9VRFQvSTJSNUY1R2FhSG5ZZitUS1czaGZhWE05cFE5dm16bi85dWsva2xH?=
+ =?utf-8?B?bXlUM1hzaFN0NWZPdGsvekFlbk1kZ05rU3VHZlJZT1pydFBCVUhqNFhXL0Qx?=
+ =?utf-8?B?WWxXbFdCZzFQQXNVWk85cjdta1NkbjVMTW8wcCtZTTZXdUFoWGgwVnJQWXlV?=
+ =?utf-8?B?ZlBsc2FJSVdCOExGaWtvN2w3MVFYVVN0TGdudFZlanVGODJhUnZXdnVmL2xt?=
+ =?utf-8?B?YmhSMG1IUTQ4QkgxQ3NvcXZLTW9FMy93a2g4TTNMdTJuSFJab0dtbHZWSVJT?=
+ =?utf-8?B?Q1J2dWc3ZjhGT0MzNytXaHhUY1VpbGFReFRuUzVBNjRET1B4Y0F2VXB0VDNv?=
+ =?utf-8?B?NEUreURxdUpqTnhJMGlMWnRIRHo5c3g2Z2g5QlNhK0plMnQvZ1UvZkNOSElh?=
+ =?utf-8?B?SWg2b0NTREljWTh1cFJ2QUp4ZGorbFVhYWVYVkpTalpWWnNGSXNJVFA2dDlE?=
+ =?utf-8?B?cWFESWUxUDdQR05vVHZIcmF4QVJFSEpVR3NsbGFLRzVZeUl4Q0g5N2EwTXpq?=
+ =?utf-8?B?SzJEWEFHdy90eGJmaFA5QTVpS0w3WG83R0VJdjVDT2QwS3NoTEFVYVBuVG9y?=
+ =?utf-8?B?Ujk0ZHJQUkNnbWgyT1U2RTczRVFYUFFwcHlzNHhPeUQrRk9md2hXMmlvaWpP?=
+ =?utf-8?B?cTdITVFjNS9kNEtnZ2RXYzF3QWV4cDdZekYzUEwwZUFsU2ZhTXhFaTVTcEV0?=
+ =?utf-8?B?aHRuaHRoUzloTlFHbXp0L2lSenNVRkVrenVVUlRxeW42VHlvWWZKVXhNeEk5?=
+ =?utf-8?B?VWthUGJOWUlLbU00SjlxdHFFcHNYbmpRQ1g3T3BZWlNxNWhwSmZ6RUhxSUgy?=
+ =?utf-8?B?WGVvMm5MWnAreW9NR0FWWi9acGVsbkw1TkJRRGdKdDdvYlVFZEJiN2ZkVXVs?=
+ =?utf-8?B?a2o3c3JweXhielFIUDRsaWFUUHhndlhjTVQreUhYeStrVDJZaXV3ZFl3TkJS?=
+ =?utf-8?B?cFh2ZTFNci84NGJ5Sjh0R3UyV3NwQW1hT3pxSGo4VEpYejRjMzJ6OVJhNHJU?=
+ =?utf-8?B?YlpyZFBYVDVjUm11Y1VIZVVOK2RuWXFpL2gzUGRsQWZmaUYreDZMOU1EZmo3?=
+ =?utf-8?B?Z0tKOXZ5anpDR2hXWXF3NkR6ZVVtdXkyUzhieTY1c2poUENBRjcrVS9YRHUx?=
+ =?utf-8?B?Lzd4NXZUOGpFQ25yT1Y3WnF4ejJFdXpVMXVXQVZWZm1oMHkvQ2N2UmxrK0NH?=
+ =?utf-8?B?NmJLb3dKL0JUK00zSmo3NFo2ZnFhbXVIVjJJQUcvNS9jNzJ1Q1IrRW4xc2lD?=
+ =?utf-8?B?TkV6Mlp0Q2VOZzhKM0ttKzJkQWEySDdBbS9McHgyU3RjRi9pdm1CUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 314f7420-0c27-4898-fd1b-08df2ab7dbf3
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB9518.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 12:28:47.0879
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7THPnE+WMbJVcurKTSDo4JsNvvDQlN5b08AlkvPpYkKHmuetW4C+1EzE1LheEWbjn8zm0JoWE52vTCUkgnmAlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6738
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_052858_035284_F13D131E 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,155 +150,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Oct 2026 09:20:48 +0200, Navid Ghahremani
-<ghahramani.navid@gmail.com> said:
-> Expose the six banks using the generic GPIO implementation and enable
-> the register clock before accessing the bank.
->
-> Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
-> ---
->  drivers/gpio/Kconfig          | 12 ++++++
->  drivers/gpio/Makefile         |  1 +
->  drivers/gpio/gpio-zx279128s.c | 79 +++++++++++++++++++++++++++++++++++
->  3 files changed, 92 insertions(+)
->  create mode 100644 drivers/gpio/gpio-zx279128s.c
->
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index a48586bb8e..3ae51a3c10 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -902,6 +902,18 @@ config GPIO_ZEVIO
->  	help
->  	  Say yes here to support the GPIO controller in LSI ZEVIO SoCs.
->
-> +config GPIO_ZX279128S
-> +	tristate "ZTE zx279128s GPIO support"
-> +	depends on ARCH_ZTE || COMPILE_TEST
-> +	select GPIO_GENERIC
-> +	help
-> +	  Say yes here to support the GPIO controller of the ZTE zx279128s
-> +	  SoC. It has several banks of 16 lines each, which boards such as
-> +	  the ZTE ZXHN H3600 use for LEDs, buttons and reset lines.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called gpio-zx279128s.
-> +
->  config GPIO_ZYNQ
->  	tristate "Xilinx Zynq GPIO support"
->  	depends on ARCH_ZYNQ || ARCH_ZYNQMP || COMPILE_TEST
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index dc9e6d643b..a57ed7ec71 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -223,5 +223,6 @@ obj-$(CONFIG_GPIO_XLP)			+= gpio-xlp.o
->  obj-$(CONFIG_GPIO_XRA1403)		+= gpio-xra1403.o
->  obj-$(CONFIG_GPIO_XTENSA)		+= gpio-xtensa.o
->  obj-$(CONFIG_GPIO_ZEVIO)		+= gpio-zevio.o
-> +obj-$(CONFIG_GPIO_ZX279128S)		+= gpio-zx279128s.o
->  obj-$(CONFIG_GPIO_ZYNQ)			+= gpio-zynq.o
->  obj-$(CONFIG_GPIO_ZYNQMP_MODEPIN)	+= gpio-zynqmp-modepin.o
-> diff --git a/drivers/gpio/gpio-zx279128s.c b/drivers/gpio/gpio-zx279128s.c
-> new file mode 100644
-> index 0000000000..71eb6b5d82
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-zx279128s.c
-> @@ -0,0 +1,79 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * ZTE zx279128s GPIO controller
-> + *
-> + * Copyright (C) 2026 Navid Ghahremani <ghahramani.navid@gmail.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/gpio/generic.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +
-> +/*
-> + * Each bank has 16 lines, one bit per line in each register. The registers
-> + * at 0x04-0x10 and 0x28-0x34 control the interrupts, which are not supported
-> + * yet.
-> + */
-> +#define ZX279128S_GPIO_DIR	0x00	/* 1: output */
-> +#define ZX279128S_GPIO_DATA	0x14	/* line level */
-> +#define ZX279128S_GPIO_SET	0x18	/* write 1: drive high */
-> +#define ZX279128S_GPIO_CLEAR	0x1c	/* write 1: drive low */
-> +
-> +static int zx279128s_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct gpio_generic_chip_config config = { };
+Hi Uwe,
 
-Don't initialize it here, instead...
+On 10/7/2026 5:11 PM, Uwe Kleine-König wrote:
+> Hello,
+> 
+> On Wed, Oct 07, 2026 at 02:37:02PM +0530, Meher Thanmaiee wrote:
+>> +static const struct pwm_ops cdns_ttc_pwm_ops = {
+>> +	.apply = cdns_ttc_pwm_apply,
+>> +	.get_state = cdns_ttc_pwm_get_state,
+>> +};
+> 
+> Just a very quick review: I won't take any new drivers using .apply().
+> Please use the waveform stuff. And also note that there is Rust support
+> for PWMs, so if you're adventurous try that. (The reference in that case
+> would be drivers/pwm/pwm_th1520.rs.)
 
-> +	struct device *dev = &pdev->dev;
-> +	struct gpio_generic_chip *chip;
-> +	void __iomem *base;
-> +	struct clk *clk;
-> +	int ret;
-> +
-> +	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
-> +	if (!chip)
-> +		return -ENOMEM;
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	clk = devm_clk_get_enabled(dev, NULL);
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to get the clock\n");
-> +
-> +	config.dev = dev;
-> +	config.sz = 4;
-> +	config.dat = base + ZX279128S_GPIO_DATA;
-> +	config.set = base + ZX279128S_GPIO_SET;
-> +	config.clr = base + ZX279128S_GPIO_CLEAR;
-> +	config.dirout = base + ZX279128S_GPIO_DIR;
-> +
+Thanks for the review. I will rework the driver to use the waveform API 
+and send an updated patch series.
+> 
+> Best regards
+> Uwe
 
-... do:
-
-	config = (struct gpio_generic_chip){
-		.dev = dev,
-		...
-	};
-
-> +	ret = gpio_generic_chip_init(chip, &config);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to set up the GPIO chip\n");
-> +
-> +	chip->gc.ngpio = 16;
-> +
-> +	return devm_gpiochip_add_data(dev, &chip->gc, NULL);
-> +}
-> +
-> +static const struct of_device_id zx279128s_gpio_of_match[] = {
-> +	{ .compatible = "zte,zx279128s-gpio" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, zx279128s_gpio_of_match);
-> +
-> +static struct platform_driver zx279128s_gpio_driver = {
-> +	.probe = zx279128s_gpio_probe,
-> +	.driver = {
-> +		.name = "zx279128s-gpio",
-> +		.of_match_table = zx279128s_gpio_of_match,
-> +	},
-> +};
-> +module_platform_driver(zx279128s_gpio_driver);
-> +
-> +MODULE_AUTHOR("Navid Ghahremani <ghahramani.navid@gmail.com>");
-> +MODULE_DESCRIPTION("ZTE zx279128s GPIO controller driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.55.0
->
->
-
-Looks pretty good, I love small drivers like this.
-
-Bart
+Regards,
+Meher
 
