@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA22CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7663CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GHuAmdmkXZvDWTufmXOc4smtM5tKnn8omClhm1kd2uo=; b=xny5B13wNDzWrkox5zL/yMSXWM
-	SvvCPMNTQGj3T5YRwbHTIvvkGzBhf9vbShmGvlvpzT8L1cUWB4v+h37bJekDm1dl9R1FbE2NJ2MmW
-	RP9V++R5ETTiINUOP+BUztYLtuiX54Lo50ATGZAZ5RNbpmIvGFeexJSuxyXZnq8stlT154JB7Nnc3
-	VwlPp9tB77/Mpo5OmNv4ZNHXkZdXgTw62o0NYclBwFsNHJQHTZHfcyuMIfYy/n4lbehbR8gkrwhCL
-	iO5mFiRolmVLtTXm+V8ExDPmQviNfzu4scYInu4a5uiLo7S6vvn8YnvGkJKkJrADNm4ue+SmL4ylY
-	XsIPteCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ROx8ZrIJxZPKAnmEDgSiLHFrl4/+fCH2BLuQGAkssG8=; b=QOF0qeTXtYyHQz7ZIR4otK6saq
+	R1sDn/9x/XBknwRm8wxqkP+09Jk1TWA6id8bQO5abUorYkxsPHU2GrZXWKytZUD6BuRdI04dJWNA8
+	PhCyeRYj5VR+cvddbUY2LNrYN/ZMVC/RDh1nr2f9woUf1zxbP0rxNqri/J4cr40BEdBuvJfWBIoJZ
+	OYGX3fK8/3/T3j/uLEqY4gGZvcvRjoY/5fSfJumo6bNArBwswPEyeNl03NqXwDNDqxU80VIivw6In
+	8EVo2dgMIIg7NtE4/WyL5jqM6o0S6wYl3eLAPJZxDeYqkEXNLcejntt9jbugL5CDLM74S9BqZaufD
+	sH16kDnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGZI-0000000H7Hn-2O1C;
-	Thu, 15 Oct 2026 08:12:04 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1xHGe4-0000000H85g-24Qw;
+	Thu, 15 Oct 2026 08:17:00 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGZG-0000000H7Gf-31k7
+	id 1xHGe1-0000000H858-1kJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 08:12:03 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48c4649b35bso137933f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 01:12:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792051921; x=1792656721; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GHuAmdmkXZvDWTufmXOc4smtM5tKnn8omClhm1kd2uo=;
-        b=lV78KoLMzSaZOMzJaoG1bO/6dy420NsbGqhReIMdbWpYUahzFn9MFapCgZx35q1vdD
-         fBraN7OfFu6qEdcXUX7laTm5IvufopNfUTRZ3G/r9ErPqPp7LksA0o14cBDrV02WrYW5
-         wa2o1urUGKZRC3moFSnteqJJ0+JBTZ6nTg0zc1ds4GXP1aV+/W8VNf4PKNruWB7Wm4Lv
-         unY5Akbsc9cnOOm1bIussTQiISm25wXfqhMcBDeMsK+dpBQtp4gBj7jJauKN99OnM/Oo
-         Dl2itCrr4U5WhqCtOu4K52+/jsRaeW7US//GxjyKhTnuPtCfZjWCGMl/bt3AIv5p+MoS
-         yKfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792051921; x=1792656721;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GHuAmdmkXZvDWTufmXOc4smtM5tKnn8omClhm1kd2uo=;
-        b=kzrY4X9f4vxLhIuMQrtV0wu/xklui5s3jZpXxsp1cT0uw0cJBroMHFAb+0pV26qkuz
-         1FkkjdZrBi1UVfhLAIlabkdKBoi1llCh4D5et+kbA6fb7MBltGxys5MKjbgpsi5ZMXtS
-         UnOUMY1tiS7yiAr/iuwyCrl4RkecNS9fkj8THEU1LXlh/QSIQrFvbHi5Tzi4ad7FpuRH
-         BA/rfGLpfuWrhXh6Td3wWaxZZNaJFqgrCGX2UsvAEuiJYZ5kaeWanr9MMLhNxarlowL6
-         ZcnW+H4o9Cn8rOY2wp1o0y45rp8yAO5cTdSH5bOyE+fWWwly85FTDNe6vSjSQv1veASI
-         cwbA==
-X-Forwarded-Encrypted: i=1; AKwUvBxBj5+wM75uAaS5wD5m5OPo1tcyp8JfNApMGsT4AQoKB72saRUbnv2BEJ4PNy+lhd1qu3KUCRzo7Iv0Fnk0NMgH@lists.infradead.org
-X-Gm-Message-State: AFq9FYJoCr/jGk2BBZcOKFRkXxWnUC6oc86RgA1N+wYls8Z5rQvNayKr
-	7XKxea2dfjjNWzi0pdcGSLzN9R5oTbzCx6UCuqYJL3LB2SSxnyiIn5mZ
-X-Gm-Gg: AYBFou1GVAfO0IOPLiOWRu2Ldmd5BEGDyyZAJvLYCu04ANt5OhGMVz5+5ehSgADeV7J
-	DeBh1/bFk4dOmZcWbqQaDMz6mzVqZ7jBFWg9vcVtFDHm5mNw4zw73l704JOZTgUbbp9B9RjyvCv
-	ZR9LUVJD1hM/8VRdYsOrC3Sc1fO1B49P8Hd/3vL3nROYVCXVqWXbLNGPMI/6lK4uqbKe3EpMszH
-	tGBAHS/T9FUk3ZH73KVKclfscsQu+Qbd5lS8xKJl5koFcvAMKTNzs8KJc3zufWzsSw7YTjhg7X3
-	J3rUZMFDk28rx6ewcW9zjxa7Yae6LHjx7T+3cHcWEKN70iEuAA1/BxtS3cruJ7lbJfh60shdYhL
-	Xx8y1YtH0btj9zLjDgXaBMTz1o/NE3KKQndeozRTJMedyCW27FgAhaScyW1SHa6LvGoDGl1ZN0J
-	nkqx0JffSPrTKiIr+FJ2+7lkJ2YQFoKXkvRG0MEf7IS9GPedkODh9p6CfPMoHGc0d+MideAGyLh
-	znhmgR3CkA+bw8aRgHobWydfsH+oG4palhLRJKWFu0tBOdvyBTRwZ1Tc6z02ks1WV9eCmn0gGg5
-	3NiANR8dPAhdfD/uGGXdPAtiDmpNQ1Ix
-X-Received: by 2002:a05:6000:2993:20b0:48c:4442:54e with SMTP id ffacd0b85a97d-48dbaae710dmr26750262f8f.30.1792051920518;
-        Thu, 15 Oct 2026 01:12:00 -0700 (PDT)
-Received: from Lord-Beerus.station ([93.66.71.207])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de3f7f8b8sm16237534f8f.35.2026.10.15.01.11.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 01:11:59 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 1/1] arm64: dts: imx8mn-evk: Pass GPIO_OPEN_DRAIN flag on i2c3 GPIOs
-Date: Thu, 15 Oct 2026 10:11:49 +0200
-Message-ID: <20261015081149.5919-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	Thu, 15 Oct 2026 08:16:59 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F35FDA1418;
+	Thu, 15 Oct 2026 10:16:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1792052213; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=ROx8ZrIJxZPKAnmEDgSiLHFrl4/+fCH2BLuQGAkssG8=;
+	b=tyawvZU/IZ63eeeesnSa72wQnkzH+SaM1aPjO7EtokPfeiDyBCkpdRUxZ0pO2WXkL578aM
+	YsaziRM9tc2jHtnqWTMaWWhaXqvkhDzc18wazja+gmvwukPndbF+92ijsCbCMnu3Fz/ONE
+	7Y/eKc/ERJfoevkTRFzTIlLIJwBGn/Mip0x78Oi0aKnMw3QcyqTLg/7K6hFiddjBsgz49g
+	neq3ZgIhADgw3Oc85OtYYgnZ0/sVJ2pQ7A9kkUTepggqQd53+78Wrbkoc2dzJGrZVng3KE
+	3/dVuNbbPztehyUxIeSz8FdHNyjcvhPwzlaZp+DFOocn/3YPoDea71rQ+dN/vg==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Thu, 15 Oct 2026 10:16:38 +0200
+Subject: [PATCH net-next] net: rename skb_unshare() to skb_unclone_full()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261015-nb-skb-unclone-full-v1-1-0dfbf01f60f2@tipi-net.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMywrCMBAAf6Xs2YWm+P4V8ZBNN7oatpJNpFD67
+ 0Y9DsPMAsZZ2ODcLZD5LSaTNnCbDsLd641RxsYw9MPe9W6HSmhPwqohTcoYa0o4+khue6Cj9yd
+ o5StzlPl3vYByQeW5wPVvrNKDQ/lOYV0/9+QGz4EAAAA=
+X-Change-ID: 20261015-nb-skb-unclone-full-dafb147b8aa9
+To: Raju Rangoju <Raju.Rangoju@amd.com>, 
+ Prashanth Kumar K R <PrashanthKumar.K.R@amd.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Sunil Goutham <sgoutham@marvell.com>, 
+ Geetha sowjanya <gakula@marvell.com>, 
+ Ratheesh Kannoth <rkannoth@marvell.com>, 
+ Subbaraya Sundeep <sbhatta@marvell.com>, 
+ Bharat Bhushan <bbhushan2@marvell.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Sabrina Dubroca <sd@queasysnail.net>, Simon Horman <horms@kernel.org>, 
+ Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+ Vladimir Oltean <olteanv@gmail.com>, Alexander Aring <alex.aring@gmail.com>, 
+ Stefan Schmidt <stefan@datenfreihafen.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Jeremy Kerr <jk@codeconstruct.com.au>, 
+ Matt Johnston <matt@codeconstruct.com.au>, 
+ Stephen Hemminger <stephen@networkplumber.org>, 
+ Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, 
+ Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, 
+ Xin Long <lucien.xin@gmail.com>, Jon Maloy <jmaloy@redhat.com>, 
+ Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
+ linux-wpan@vger.kernel.org, linux-sctp@vger.kernel.org, 
+ tipc-discussion@lists.sourceforge.net, Nicolai Buchwitz <nb@tipi-net.de>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_011202_773813_9570E188 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20261015_011657_765325_F2AD6888 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +98,344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+skb_unshare() only copies cloned skbs. A shared skb that is not a clone
+comes back unchanged, which the name doesn't suggest. The loopback
+selftest hooks got caught by this and hit BUG_ON(skb_shared()).
 
-scl-gpios and sda-gpios need GPIO_OPEN_DRAIN flag, otherwise the
-following run-time warning is seen:
+Rename it to skb_unclone_full(). Like skb_unclone() it only acts on
+clones, but it copies the whole skb, not just the head.
 
-gpio-146 (scl): enforced open drain please flag it properly in DT/ACPI DSDT/board file
-
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Suggested-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Follow-up to Jakub's suggestion on the selftest shared-skb series:
+https://lore.kernel.org/all/20261014130618.4c50f817@kernel.org/
+---
+ drivers/net/ethernet/amd/xgbe/xgbe-selftest.c            |  2 +-
+ drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c         |  4 ++--
+ drivers/net/ethernet/freescale/dpaa2/dpaa2-switch.c      |  4 ++--
+ drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.c |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c   |  2 +-
+ drivers/net/macsec.c                                     |  6 +++---
+ include/linux/if_vlan.h                                  | 16 ++++++++--------
+ include/linux/skbuff.h                                   | 11 +++++++----
+ net/bluetooth/6lowpan.c                                  |  2 +-
+ net/dsa/tag.c                                            |  2 +-
+ net/ieee802154/6lowpan/rx.c                              |  2 +-
+ net/ieee802154/6lowpan/tx.c                              |  2 +-
+ net/mctp/route.c                                         |  2 +-
+ net/sched/sch_netem.c                                    |  4 ++--
+ net/sctp/ulpqueue.c                                      |  2 +-
+ net/tipc/msg.c                                           |  2 +-
+ 16 files changed, 34 insertions(+), 31 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi
-index 3e590afa4fab..036afa0f6990 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi
-@@ -287,8 +287,8 @@ &i2c3 {
- 	pinctrl-names = "default", "gpio";
- 	pinctrl-0 = <&pinctrl_i2c3>;
- 	pinctrl-1 = <&pinctrl_i2c3_gpio>;
--	scl-gpios = <&gpio5 18 GPIO_ACTIVE_HIGH>;
--	sda-gpios = <&gpio5 19 GPIO_ACTIVE_HIGH>;
-+	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 	status = "okay";
+diff --git a/drivers/net/ethernet/amd/xgbe/xgbe-selftest.c b/drivers/net/ethernet/amd/xgbe/xgbe-selftest.c
+index cfdbd4639a1e..7ebae08ddf29 100644
+--- a/drivers/net/ethernet/amd/xgbe/xgbe-selftest.c
++++ b/drivers/net/ethernet/amd/xgbe/xgbe-selftest.c
+@@ -44,7 +44,7 @@ static int xgbe_test_loopback_validate(struct sk_buff *skb,
+ 	struct iphdr *ih;
+ 	int eat;
  
- 	pca6416: gpio@20 {
--- 
-2.47.3
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		goto out;
+ 
+diff --git a/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c b/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
+index def2d5c0e7f7..7227a35dfaf2 100644
+--- a/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
++++ b/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
+@@ -1418,9 +1418,9 @@ static netdev_tx_t __dpaa2_eth_tx(struct sk_buff *skb,
+ 	/* We'll be holding a back-reference to the skb until Tx Confirmation;
+ 	 * we don't want that overwritten by a concurrent Tx with a cloned skb.
+ 	 */
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (unlikely(!skb)) {
+-		/* skb_unshare() has already freed the skb */
++		/* skb_unclone_full() has already freed the skb */
+ 		percpu_stats->tx_dropped++;
+ 		return NETDEV_TX_OK;
+ 	}
+diff --git a/drivers/net/ethernet/freescale/dpaa2/dpaa2-switch.c b/drivers/net/ethernet/freescale/dpaa2/dpaa2-switch.c
+index 8cabce0eb2ab..fe8ac5e85259 100644
+--- a/drivers/net/ethernet/freescale/dpaa2/dpaa2-switch.c
++++ b/drivers/net/ethernet/freescale/dpaa2/dpaa2-switch.c
+@@ -1276,9 +1276,9 @@ static netdev_tx_t dpaa2_switch_port_tx(struct sk_buff *skb,
+ 	}
+ 
+ 	/* We'll be holding a back-reference to the skb until Tx confirmation */
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (unlikely(!skb)) {
+-		/* skb_unshare() has already freed the skb */
++		/* skb_unclone_full() has already freed the skb */
+ 		net_err_ratelimited("%s: Error copying the socket buffer\n", net_dev->name);
+ 		goto err_exit;
+ 	}
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.c
+index 77c5cfbe4ce4..4e418c7456b7 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.c
+@@ -2117,7 +2117,7 @@ dma_addr_t otx2_dma_map_skb_frag(struct otx2_nic *pfvf,
+ 	/* Crypto hardware need write permission for ipsec crypto offload */
+ 	if (unlikely(xfrm_offload(skb))) {
+ 		dir = DMA_BIDIRECTIONAL;
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	}
+ 
+ 	/* First segment is always skb->data */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index dbe8339947be..40811df8f2b7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -920,7 +920,7 @@ static int stmmac_test_vlan_validate(struct sk_buff *skb,
+ 
+ 	proto = tpriv->svlan ? ETH_P_8021AD : ETH_P_8021Q;
+ 
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		goto out;
+ 
+diff --git a/drivers/net/macsec.c b/drivers/net/macsec.c
+index 409fd855235b..b714052e1a37 100644
+--- a/drivers/net/macsec.c
++++ b/drivers/net/macsec.c
+@@ -639,7 +639,7 @@ static struct sk_buff *macsec_encrypt(struct sk_buff *skb,
+ 			return ERR_PTR(-ENOMEM);
+ 		}
+ 	} else {
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (!skb) {
+ 			macsec_txsa_put(tx_sa);
+ 			return ERR_PTR(-ENOMEM);
+@@ -948,7 +948,7 @@ static struct sk_buff *macsec_decrypt(struct sk_buff *skb,
+ 
+ 		aead_request_set_crypt(req, sg, sg, len, iv);
+ 		aead_request_set_ad(req, macsec_hdr_len(macsec_skb_cb(skb)->has_sci));
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (!skb) {
+ 			aead_request_free(req);
+ 			return ERR_PTR(-ENOMEM);
+@@ -1154,7 +1154,7 @@ static rx_handler_result_t macsec_handle_frame(struct sk_buff **pskb)
+ 	if (hdr->eth.h_proto != htons(ETH_P_MACSEC))
+ 		return handle_not_macsec(skb);
+ 
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	*pskb = skb;
+ 	if (!skb)
+ 		return RX_HANDLER_CONSUMED;
+diff --git a/include/linux/if_vlan.h b/include/linux/if_vlan.h
+index 975892367136..c863cdf60f01 100644
+--- a/include/linux/if_vlan.h
++++ b/include/linux/if_vlan.h
+@@ -427,8 +427,8 @@ static inline int __vlan_insert_tag(struct sk_buff *skb,
+  * Inserts the VLAN tag into @skb as part of the payload at offset mac_len
+  * Returns a VLAN tagged skb. This might change skb->head.
+  *
+- * Following the skb_unshare() example, in case of error, the calling function
+- * doesn't have to worry about freeing the original skb.
++ * Following the skb_unclone_full() example, in case of error, the calling
++ * function doesn't have to worry about freeing the original skb.
+  *
+  * Does not change skb->protocol so this function can be used during receive.
+  *
+@@ -458,8 +458,8 @@ static inline struct sk_buff *vlan_insert_inner_tag(struct sk_buff *skb,
+  * Inserts the VLAN tag into @skb as part of the payload
+  * Returns a VLAN tagged skb. This might change skb->head.
+  *
+- * Following the skb_unshare() example, in case of error, the calling function
+- * doesn't have to worry about freeing the original skb.
++ * Following the skb_unclone_full() example, in case of error, the calling
++ * function doesn't have to worry about freeing the original skb.
+  *
+  * Does not change skb->protocol so this function can be used during receive.
+  *
+@@ -480,8 +480,8 @@ static inline struct sk_buff *vlan_insert_tag(struct sk_buff *skb,
+  * Inserts the VLAN tag into @skb as part of the payload
+  * Returns a VLAN tagged skb. This might change skb->head.
+  *
+- * Following the skb_unshare() example, in case of error, the calling function
+- * doesn't have to worry about freeing the original skb.
++ * Following the skb_unclone_full() example, in case of error, the calling
++ * function doesn't have to worry about freeing the original skb.
+  *
+  * Return: modified @skb on success, NULL on error (@skb is freed).
+  */
+@@ -524,8 +524,8 @@ static inline void __vlan_hwaccel_copy_tag(struct sk_buff *dst, const struct sk_
+  *
+  * Pushes the VLAN tag from @skb->vlan_tci inside to the payload.
+  *
+- * Following the skb_unshare() example, in case of error, the calling function
+- * doesn't have to worry about freeing the original skb.
++ * Following the skb_unclone_full() example, in case of error, the calling
++ * function doesn't have to worry about freeing the original skb.
+  */
+ static inline struct sk_buff *__vlan_hwaccel_push_inside(struct sk_buff *skb)
+ {
+diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
+index 27ec1e38c828..cd969dd73841 100644
+--- a/include/linux/skbuff.h
++++ b/include/linux/skbuff.h
+@@ -2125,14 +2125,14 @@ static inline struct sk_buff *skb_share_check(struct sk_buff *skb, gfp_t pri)
+ }
+ 
+ /*
+- *	Copy shared buffers into a new sk_buff. We effectively do COW on
++ *	Copy cloned buffers into a new sk_buff. We effectively do COW on
+  *	packets to handle cases where we have a local reader and forward
+  *	and a couple of other messy ones. The normal one is tcpdumping
+  *	a packet that's being forwarded.
+  */
+ 
+ /**
+- *	skb_unshare - make a copy of a shared buffer
++ *	skb_unclone_full - make a private copy of a cloned buffer
+  *	@skb: buffer to check
+  *	@pri: priority for memory allocation
+  *
+@@ -2142,10 +2142,13 @@ static inline struct sk_buff *skb_share_check(struct sk_buff *skb, gfp_t pri)
+  *	the original buffer is returned. When called with a spinlock held or
+  *	from interrupt state @pri must be %GFP_ATOMIC
+  *
++ *	Unlike skb_unclone(), the paged data is copied as well. A buffer with
++ *	skb->users > 1 that is not a clone is returned as is, use
++ *	skb_share_check() for that case.
++ *
+  *	%NULL is returned on a memory allocation failure.
+  */
+-static inline struct sk_buff *skb_unshare(struct sk_buff *skb,
+-					  gfp_t pri)
++static inline struct sk_buff *skb_unclone_full(struct sk_buff *skb, gfp_t pri)
+ {
+ 	might_sleep_if(gfpflags_allow_blocking(pri));
+ 	if (skb_cloned(skb)) {
+diff --git a/net/bluetooth/6lowpan.c b/net/bluetooth/6lowpan.c
+index 30f4afa18bc8..a1c9c0d75da1 100644
+--- a/net/bluetooth/6lowpan.c
++++ b/net/bluetooth/6lowpan.c
+@@ -515,7 +515,7 @@ static netdev_tx_t bt_xmit(struct sk_buff *skb, struct net_device *netdev)
+ 	/* We must take a copy of the skb before we modify/replace the ipv6
+ 	 * header as the header could be used elsewhere
+ 	 */
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		return NET_XMIT_DROP;
+ 
+diff --git a/net/dsa/tag.c b/net/dsa/tag.c
+index 991732d6eae2..6a5aa7fc331c 100644
+--- a/net/dsa/tag.c
++++ b/net/dsa/tag.c
+@@ -64,7 +64,7 @@ static int dsa_switch_rcv(struct sk_buff *skb, struct net_device *dev,
+ 		return 0;
+ 	}
+ 
+-	skb = skb_unshare(skb, GFP_ATOMIC);
++	skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		return 0;
+ 
+diff --git a/net/ieee802154/6lowpan/rx.c b/net/ieee802154/6lowpan/rx.c
+index 517e6493f5d1..9148f1be7cba 100644
+--- a/net/ieee802154/6lowpan/rx.c
++++ b/net/ieee802154/6lowpan/rx.c
+@@ -294,7 +294,7 @@ static int lowpan_rcv(struct sk_buff *skb, struct net_device *wdev,
+ 	 */
+ 	if (lowpan_is_frag1(*skb_network_header(skb)) ||
+ 	    lowpan_is_iphc(*skb_network_header(skb))) {
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (!skb)
+ 			goto out;
+ 	}
+diff --git a/net/ieee802154/6lowpan/tx.c b/net/ieee802154/6lowpan/tx.c
+index b261daedc290..d346e906e41e 100644
+--- a/net/ieee802154/6lowpan/tx.c
++++ b/net/ieee802154/6lowpan/tx.c
+@@ -279,7 +279,7 @@ netdev_tx_t lowpan_xmit(struct sk_buff *skb, struct net_device *ldev)
+ 			return NET_XMIT_DROP;
+ 		}
+ 	} else {
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (!skb)
+ 			return NET_XMIT_DROP;
+ 	}
+diff --git a/net/mctp/route.c b/net/mctp/route.c
+index e7c95eeacb48..d18ed9d0db1d 100644
+--- a/net/mctp/route.c
++++ b/net/mctp/route.c
+@@ -396,7 +396,7 @@ static int mctp_frag_queue(struct mctp_sk_key *key, struct sk_buff *skb)
+ 		 * this will free the skb; callers can no longer access it
+ 		 * safely.
+ 		 */
+-		key->reasm_head = skb_unshare(skb, GFP_ATOMIC);
++		key->reasm_head = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (!key->reasm_head)
+ 			return -ENOMEM;
+ 
+diff --git a/net/sched/sch_netem.c b/net/sched/sch_netem.c
+index 8a1b89a289d8..1dc2924890eb 100644
+--- a/net/sched/sch_netem.c
++++ b/net/sched/sch_netem.c
+@@ -460,7 +460,7 @@ static int netem_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 			 struct sk_buff **to_free)
+ {
+ 	struct netem_sched_data *q = qdisc_priv(sch);
+-	/* We don't fill cb now as skb_unshare() may invalidate it */
++	/* We don't fill cb now as skb_unclone_full() may invalidate it */
+ 	struct netem_skb_cb *cb;
+ 	struct sk_buff *skb2 = NULL;
+ 	struct sk_buff *segs = NULL;
+@@ -528,7 +528,7 @@ static int netem_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 			qdisc_skb_cb(skb)->pkt_len = skb->len;
+ 		}
+ 
+-		skb = skb_unshare(skb, GFP_ATOMIC);
++		skb = skb_unclone_full(skb, GFP_ATOMIC);
+ 		if (unlikely(!skb)) {
+ 			WRITE_ONCE(q->allocation_errors, q->allocation_errors + 1);
+ 			qdisc_qstats_drop(sch);
+diff --git a/net/sctp/ulpqueue.c b/net/sctp/ulpqueue.c
+index b05daafd369a..93823eebd727 100644
+--- a/net/sctp/ulpqueue.c
++++ b/net/sctp/ulpqueue.c
+@@ -339,7 +339,7 @@ struct sctp_ulpevent *sctp_make_reassembled_event(struct net *net,
+ 		if (skb_cloned(f_frag)) {
+ 			/* This is a cloned skb, we can't just modify
+ 			 * the frag_list.  We need a new skb to do that.
+-			 * Instead of calling skb_unshare(), we'll do it
++			 * Instead of calling skb_unclone_full(), we'll do it
+ 			 * ourselves since we need to delay the free.
+ 			 */
+ 			new = skb_copy(f_frag, GFP_ATOMIC);
+diff --git a/net/tipc/msg.c b/net/tipc/msg.c
+index b0bba0feef56..39dfd33c8eec 100644
+--- a/net/tipc/msg.c
++++ b/net/tipc/msg.c
+@@ -145,7 +145,7 @@ int tipc_buf_append(struct sk_buff **headbuf, struct sk_buff **buf)
+ 		if (skb_has_frag_list(frag) && __skb_linearize(frag))
+ 			goto err;
+ 		*buf = NULL;
+-		frag = skb_unshare(frag, GFP_ATOMIC);
++		frag = skb_unclone_full(frag, GFP_ATOMIC);
+ 		if (unlikely(!frag))
+ 			goto err;
+ 		head = *headbuf = frag;
+
+---
+base-commit: 0c20cb4cfb40cf270d6c4c2c2ff5e5d72322644a
+change-id: 20261015-nb-skb-unclone-full-dafb147b8aa9
+
+Best regards,
+--  
+Nicolai Buchwitz <nb@tipi-net.de>
 
 
