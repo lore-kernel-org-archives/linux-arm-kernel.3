@@ -4,127 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819F2CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3953CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JPnqRj+ouWeiOmjc3Ub3XFr/pLArvg8XvA/m9s4Q9QM=; b=oK84B4OIRn3PCU1+b+e9BPVYFi
-	N9CTax/k5t8qy2JHxHxiA9OutBte91hAPUEmO0CSetwPbn7WvdMSrPovUm205thi6C18VHM5jiJIf
-	uBsO0u4ywjBQwy/1g5MuK3kvzZE/qi8wGU5Uh+eOWMIXIMQiGrdnvZWHOcQAvP9LagtPyDjbLsO1K
-	AFViPh0VR2R4SUegGuiJLSgiPN/GqZLB6cGSsB32KnD/2mKZEhobpEny76Pv7Bg0zRbFbhXxN/Eqn
-	fVmrK876ba7qgx6pE13X7BxIzPw2Qn/AZD21zuoE+dGH9T9hmdeErm17/7URiEbh20sYhwyI8hhir
-	k0dewnDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fdYADvUIAL7MDa+bJm7bhbBdJiZGBEXau0jcZkfAjkY=; b=HCB2Er+EELrWsER0q3QuRzYNum
+	Q6T2x1HtMFXSbnJvWioYP0DlPhevs/TPqywrQ93Wxjb0lS+WskZtTAdigfgeRfF/4auL3nC5FuE7F
+	48OO8ii0PLgW2RgVNvTSK0STUdjQBw/vvavOUYGhfEC0D0SqazUvg74uN7F7AwrxXBrihKcMv4+bJ
+	fz8HjdOCTqyJQS9XSipAVokgnj0yFiFKAkhC2hsHNX0TjI4/7CFVRlawgWdI1PFqdXpsAJMeAvrnK
+	GDjWoD04pLlUrdukwci7antgBXQ1ktMgkGbnolxwXi+E+OYytcu1ma5Q+VSq+JMohcQ1rdYC9Ai8M
+	X3xQnH0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNKO-00000000YNw-2yr6;
-	Thu, 15 Oct 2026 15:25:08 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xHNQ2-00000000Yz6-3GS4;
+	Thu, 15 Oct 2026 15:30:58 +0000
+Received: from out-159.mta0.migadu.com ([2001:41d0:1004:224b::9f] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNKK-00000000YNS-33U8
+	id 1xHNPx-00000000Yxd-0IpN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 15:25:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yob4rHTTVNaAmJHG9EajJnS+Y4ycItjOZVNI4Hg6gnq/Q/XaaVRlL8o+xBSv+Tj1CwbF9f6v8KCsp6Nh65i4UoUQIuZYqvPxbDv+Vw/twpdgDS0Akjxn6k3zjsxOn6L3/jAyyXrc0f+85HRqDLmn47R4+ytBxPlc15Ns7HZ9NNj68WFrSmgQWsofHPAa5Aui1A1xO47PJ1he056wACUnKN0HARj1tVC9oUtNizW6sLHB7/iawjBKWpLjlFIhRPIE1MZjtw7CV2Vb8UflgWtm7zSlR0Q3I2e3JFHh6PdpFzQZ4wtdsKyB69GcxFlGn0P+QtQHk6/kEd+RePDMCkaWXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JPnqRj+ouWeiOmjc3Ub3XFr/pLArvg8XvA/m9s4Q9QM=;
- b=N9audIVyp4jW8kxHC9IfOTrPljS3FU/Ga20TSVxw2yZKuT0xYiOBg50PreaMTpWLhsYpf9bSw+5erCB2N6MGYFJMWaIn2XeVuxJgzyTHOSTI/hxhYQO7ADA/S2S9/c4hQ/MInap/n6m26Ay5FraFfjVgLIsFBipxWyD7hJlcBESLMPftsKJrnLMsTutnsk1g2SHHznlAvLhJLxB63fI4WQtIngad0/2/nAxWeJ521aUt1ol6zqfoGwdSdAYU6Mbohcj35mmKuUrk+xJrfCxYww4vunSlGBJL6VmeZNqlCPM0nLbmLn39as32L0tJy1JfxMslV2brQo4Ozl3FQ7mIHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JPnqRj+ouWeiOmjc3Ub3XFr/pLArvg8XvA/m9s4Q9QM=;
- b=d6Dq3NpuzTD764RGw63lVC/lRQ4z8bfhbWVNbejQrZA+DagH36uCp65p2Y7MndWp3bHwqE/SHA9Y1qN9rqI7LrfBDnQtRl1XK856GMTrACQYqkVdns1Wr9N79AY4n0IK2da2eoK66aDYfFlAx3chIIPhLuJYlrsj+19SS5qUF7JbksuP5btz2vTxXf75L5MbVHdFZvLOS/JaAGVuiDRqnrRuYOR8I/NmcLoXHmlXQRXHWnh15ODPuDvFIBIfokJemB9ym47NSsGv4Bc6kI7dtArHL695gvH27C0TjcL3+2ERPCLIqZdAiFN5lmJSjwFDsmWp4SlC10LN+LYm9DjYow==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB10601.eurprd04.prod.outlook.com (2603:10a6:102:488::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 15:24:58 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 15:24:58 +0000
-Date: Thu, 15 Oct 2026 10:24:49 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Otavio Salvador <otavio@ossystems.com.br>
-Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-serial@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	"Rodrigo M. Duarte" <rodrigo.duarte@ossystems.com.br>
-Subject: Re: [PATCH] serial: imx: keep the CPU out of deep idle while an
- RS485 port is open
-Message-ID: <atDwQfCyI6yUpAWK@SMW015318>
-References: <20261015144627.2461915-1-otavio@ossystems.com.br>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261015144627.2461915-1-otavio@ossystems.com.br>
-X-ClientProxiedBy: DS7P220CA0038.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:8:223::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 15 Oct 2026 15:30:56 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=2yWri+1wXQrRPEy5ZKZnqhA5e1wWBSIZ6Uevifgk4uQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792078250; v=1; x=1792683050;
+ b=ezTL8yAqZ6Nu9swiGexNA6YIyNlqyK3P1RPf5RdL120JbiGGLFqE04vbYwUuWhxSo6NJLZ/0
+ QmH36P5UgE/NNWTDaN6u2ToZ781j+17E1g72wGqeOk4dEAFZOUZcdIgCzmbGOzb9YbyR+QUF7ci
+ gskpT4pXO7ldCbXK/9FuNVZU=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e3960b5cc32e181e;
+	Thu, 15 Oct 2026 15:30:42 +0000
+X-Mizu-Trace-ID: e3960b5cc32e181e
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Only enable S1PIE and S1POE for a guest with TCR2 and ATS1A
+Date: Thu, 15 Oct 2026 16:30:41 +0100
+Message-Id: <20261015153041.3770032-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB10601:EE_
-X-MS-Office365-Filtering-Correlation-Id: 307044b7-c6ac-4929-1dff-08df2ad07939
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|23010399003|19092799006|366016|56012099006|11063799006|10067099003|261009223027099003|261009221227099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: gMQ5u9HqP4JWIiA7iC72ofpYoGC1K958dC+sIejkzSZQ3YvL6x/Uyuz78+XUGoQ7wG8A+m2RO58gvidCWDbYM/0TsgnmkiEdsUGtr/i4i9tGEAFOSgsc7g0G9rBCZjjGs9ORM0iiFJwGyFTS3cVZ2cj5pYbtWTrXiiKK4yBddSdIUO0+UVaFMnwIsOGLtLhbYTA429wVprNv0SDWYPLGLlpxrG46rTbIL91IJjCBgLtW5wYxuUcRAdnrtksS8EZphla89IScS/JpzW6itx8q0qqZIUKFFLRJo9t53YmB1mgyx8b3rVE9PMzE5JhaTNmSICDHQ+LElsffpv9zg7Vj6DBf8donAnMIZT6EP9k05tqmYzs2DSUBXxTuYUAP2cti1LCcpMyhztrGagZ8JPn+zgnCuE/xQid5LL5/FHMdENpAox+ykB9a5TalSx4cGgU7WY2H1faKP0li28Mw6vjeWpyrYRAKtQGvHWjLj8dIeqvCqPt1jktnC8jBSmzHzntcEmzOle1bkVEnLBB6+OtFWPsj0fYaGurwrZijx0RIgm7CGSQ/EBKoLqC2gigQHQXOw9luiF5k7XoLkEFX6l1jhfZ8piF01IHRy8ZIuI0btwBkGdJpK9oofv0TrU2VOfF7kDv5NH81YmojYoM4Rt8qRsP1vbFuVaePbAx7HWbwnUU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(23010399003)(19092799006)(366016)(56012099006)(11063799006)(10067099003)(261009223027099003)(261009221227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DmyyZaqPCaeaIuXx3qHsjlVNCXZ3pv8Gl86gVr0cUd6CrGZL8wRuOm6b4b6C?=
- =?us-ascii?Q?x/sfh5DQWAhXLEsS7w+toZ/AEBXbNsR/HyC9pU2SeX8OTrvz2dMBqPgLj5I/?=
- =?us-ascii?Q?asTnQETmEB1THnYH+jqTedhAZcIgz+iM65/oUsRjyPcO246o6uMIHc1G1ANH?=
- =?us-ascii?Q?Z3JK9z4XrNCXkIjbFnBqt+IDPVuz6UdobiIR5HkbjD9vjB+Sp2I8ScsBS4u2?=
- =?us-ascii?Q?G1SJtN/nUM0+2aXxzz3R/5tEP6T0FnTzxQfGbYj7KLUzGhvAyShFl/TUYMti?=
- =?us-ascii?Q?MRCH0Ze+uDRxVyaqh7coPNGqP1f8Qoqif5rJuv9I46WEGz2KE4ZrZoleVlmd?=
- =?us-ascii?Q?A8NqZLYOrzGREgdQB+F7HigQH0AiOhsJ2NBj4SviYpXjJFTE54jMZ8W/iQxs?=
- =?us-ascii?Q?RHgS0wOBrH099FNm41ovtzuO33Omkgi9wOS748A9XtUqeTggZS0buPf8yOY2?=
- =?us-ascii?Q?Ganm9S5IRsoQymq7ZQMDuOFiNHxxIHLDjtRF1JjemgA3hxok3MuTGihyRWQA?=
- =?us-ascii?Q?1v8+CD0aSJM9zqeDDBHIaNC62JzkGd7Hefu5+HdcDDsoGUOD5eY+4FeV1RCc?=
- =?us-ascii?Q?uaPujjbhJcnqY4MKmEdSTw1umy5WCGXYJbdQ5W6wk8a9n0yM3iq6HUO2It13?=
- =?us-ascii?Q?/gZiopvzc/ofjOS1mo7bVPm0MVwdSweoBYHjKO4NAe9y9ZtmAEwMZFN88cOF?=
- =?us-ascii?Q?zclZ1tmxIuYCBRo/bMjeaZWdU7iAnWvA+0FFa7iWPi+JS5xBWgPkmkG61wqX?=
- =?us-ascii?Q?/KzVd2cWYiORb6kPdV2e4DOAdCvz5SoqISIqgnbPPvj2DFbr/pNvqq0FJf5H?=
- =?us-ascii?Q?jc8Vg40DZNIe1RaFiKQUSuN51vGsYlXDoukf7aZq6dCl/6GB6Mg27z80DrdA?=
- =?us-ascii?Q?vfwyq/R/Ha0V7UqEyg2rjtSa2ajXcB9csm9DNSb0OwopDPQupDM1anQmftLS?=
- =?us-ascii?Q?MnX0uHpGySy7Ey/IKCoQcp3TVKQsnqiAd//vmKarB7vFZ3QqZTGRozj/6JnT?=
- =?us-ascii?Q?UZlCeTxX/oEnYTx9dWaaLLPb/G+DCFnRBx9d0B9jb3CP6QvAMR6vnNxQPHyY?=
- =?us-ascii?Q?qXvfaXrBqDxEpZD3ddQjJaz+3Kr34JLXXfGXCsxiMNGgncExz9efpSjbDJT1?=
- =?us-ascii?Q?qg3pPbKwiDF8jcri0HDmCBtKBYaYMywGrK3Gx/jszovBZSD6Nt94WujuJSXx?=
- =?us-ascii?Q?fOKs3PXMGpPMrGWnvRHHx53VI1QuhkMvb88cXVMxMvfnfR43bCsJBBSAUZXx?=
- =?us-ascii?Q?x2k7N0zf/R5akUB3UPXqxVDCZw595I5P2bAKTg4rFbXITdPkn2MnwJ0RQqdp?=
- =?us-ascii?Q?Oe0I+HsW4fzSepVjREXSU4BdhdLwZ413GHvF+zJpp4z3qJfAaPtVaNPpr1ym?=
- =?us-ascii?Q?6B7JNu0klER2K9oCsfkj6Q6iYLYv9dZD6eXoyFYBC9c7gCLYvyIPlJQOCGwz?=
- =?us-ascii?Q?g6OBy0Q5IW3mDBYtBKWNjVr8a5JlkGVUh4Gtn1Vq/V/ADrwQOubFDNe4+183?=
- =?us-ascii?Q?M1LKxAWvorb56dmdw1MzITExfbmY0vWIN8m7NV1muGZ4Q8aiygHHgogdW/EX?=
- =?us-ascii?Q?HgmNQSowo/OFrFSCy79KqfszijiOj89ejLAlzTuxqUSCNAOFC9gCHMAjxRHX?=
- =?us-ascii?Q?1xo+SdohaOus598ZpCQMpNF6vRO4TDZChxINyO13G7M/Jv/CWZM/mc3+0/tS?=
- =?us-ascii?Q?ALzbn0GJi2yFeJUrhtXNcxOn71fo9HX0vKoML+NW/qqk59sscn6xzGjbtPUS?=
- =?us-ascii?Q?BuHadmClVSpryLKG/s31NmVskL2z+sND1dECJ+x0bu0S5Y480Eq0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 307044b7-c6ac-4929-1dff-08df2ad07939
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 15:24:58.8029
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yLS862lWwogSBiYDOc3T49Iy0TVjiMv0/UJmPdDo/cE5dzDNcCIdyjbL0T7kJG4u3WaghcaWYF0cJKe0xYZzeyKXQWgEjhUMBrSe0AdnZMTtaEhWUq2fLWk+TBccOZ8F
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10601
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_082504_922911_259FAF16 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20261015_083053_475568_2F71C67A 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,112 +79,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 11:46:27AM -0300, Otavio Salvador wrote:
-> [You don't often get email from otavio@ossystems.com.br. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> In RS485 mode the driver releases the transmitter (RTS/DE) from the TX
-> complete interrupt. On i.MX6UL/ULL the imx6sx cpuidle driver offers an
-> "ARM power off" state with a declared exit latency of 300us, measured at
-> up to 2ms. When the CPU enters it while the last character is shifted
-> out, DE is released that much later. Modbus RTU slaves may answer after
-> 3.5 character times (1.75ms at >=19200 baud), so the head of their reply
-> collides with our still-driven transmitter and is lost.
->
-> Add a CPU latency QoS request of 100us while an RS485 port is open. It
-> excludes the power-off state but keeps WFI and WAIT (50us) available, so
-> cpuidle can stay enabled and the constraint only applies while the port
-> is in use.
->
-> The request is added on startup and removed on shutdown, and its value
-> follows the RS485 state in imx_uart_rs485_config(), so RS485 enabled
-> through TIOCSRS485 after the port is opened, as libmodbus does, is
-> covered as well.
->
-> Tested-by: Rodrigo M. Duarte <rodrigo.duarte@ossystems.com.br>
-> Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
-> ---
+The world switch skips PIR_EL1, PIRE0_EL1 and POR_EL1 for a guest
+without TCR2, but KVM doesn't trap them for a guest with S1PIE or
+S1POE. Userspace can hide TCR2 while leaving either visible, and such a
+guest then accesses registers that are neither trapped nor switched.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Under VHE, that leaks values between guests. POR_EL1, which the host
+kernel doesn't use, leaks between guests in every mode. On nVHE and
+hVHE, pKVM included, the host's own EL1 registers are saved and restored
+according to the running guest's features, so the host kernel resumes
+with its stage-1 permissions taken from the guest's PIR_EL1 and
+PIRE0_EL1.
 
->  drivers/tty/serial/imx.c | 28 ++++++++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
->
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 986fefb45c632..be05ed94bf0c4 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -24,6 +24,7 @@
->  #include <linux/ktime.h>
->  #include <linux/mutex.h>
->  #include <linux/pinctrl/consumer.h>
-> +#include <linux/pm_qos.h>
->  #include <linux/rational.h>
->  #include <linux/slab.h>
->  #include <linux/of.h>
-> @@ -237,6 +238,7 @@ struct imx_port {
->         struct hrtimer          trigger_start_tx;
->         struct hrtimer          trigger_stop_tx;
->         unsigned int            rxtl;
-> +       struct pm_qos_request   rs485_pm_qos;
->  };
->
->  struct imx_port_ucrs {
-> @@ -339,6 +341,22 @@ static void start_hrtimer_ms(struct hrtimer *hrt, unsigned long msec)
->         hrtimer_start(hrt, ms_to_ktime(msec), HRTIMER_MODE_REL);
->  }
->
-> +/*
-> + * In RS485 mode the transmitter is only released from the TX complete
-> + * interrupt. If the CPU sits in a deep idle state at that point, the wakeup
-> + * delays the release long enough to collide with fast responders on the
-> + * bus. The i.MX6UL/SX "ARM power off" state has a 300us exit latency and was
-> + * measured at up to 2ms, so keep the CPU out of states slower than this while
-> + * an RS485 port is open.
-> + */
-> +#define IMX_UART_RS485_CPU_LATENCY_US  100
-> +
-> +static s32 imx_uart_rs485_cpu_latency(u32 rs485_flags)
-> +{
-> +       return rs485_flags & SER_RS485_ENABLED ?
-> +               IMX_UART_RS485_CPU_LATENCY_US : PM_QOS_DEFAULT_VALUE;
-> +}
-> +
->  /* called with port.lock taken and irqs off */
->  static void imx_uart_soft_reset(struct imx_port *sport)
->  {
-> @@ -1585,6 +1603,9 @@ static int imx_uart_startup(struct uart_port *port)
->
->         uart_port_unlock_irqrestore(&sport->port, flags);
->
-> +       cpu_latency_qos_add_request(&sport->rs485_pm_qos,
-> +                                   imx_uart_rs485_cpu_latency(port->rs485.flags));
-> +
->         return 0;
->  }
->
-> @@ -1710,6 +1731,8 @@ static void imx_uart_shutdown(struct uart_port *port)
->
->         clk_disable_unprepare(sport->clk_per);
->         clk_disable_unprepare(sport->clk_ipg);
-> +
-> +       cpu_latency_qos_remove_request(&sport->rs485_pm_qos);
->  }
->
->  /* called with port.lock taken and irqs off */
-> @@ -2053,6 +2076,11 @@ static int imx_uart_rs485_config(struct uart_port *port, struct ktermios *termio
->                 imx_uart_start_rx(port);
->         }
->
-> +       /* The request only exists while the port is open */
-> +       if (cpu_latency_qos_request_active(&sport->rs485_pm_qos))
-> +               cpu_latency_qos_update_request(&sport->rs485_pm_qos,
-> +                                              imx_uart_rs485_cpu_latency(rs485conf->flags));
-> +
->         return 0;
->  }
->
-> --
-> 2.55.0
->
->
+As per the architecture, S1PIE and S1POE imply TCR2 and ATS1A. Only
+enable them for a guest that has both. A guest that has S1PIE or S1POE
+without TCR2 or ATS1A still sees the feature in its ID registers, but
+its accesses to that feature's registers UNDEF.
+
+Fixes: 70ed7238297fb ("KVM: arm64: Sanitise ID_AA64MMFR3_EL1")
+Fixes: d4a89e5aee23e ("KVM: arm64: Expose S1PIE to guests")
+Reported-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20260930-arm64-gcs-v21-2-3556644cd927@kernel.org
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/86fqyn2che.wl-maz@kernel.org
+Cc: stable@vger.kernel.org
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+I'm sending this on its own because it affects the host on nVHE and in
+pKVM, so that it can go to kvmarm/fixes and stable rather than land
+with the GCS series. It's the data-driven fix Marc asked for on Mark's
+v21 02/15 [1].
+
+Following Mark's point on Lorenzo's draft [2], only feat_s1pie() and
+feat_s1poe() test TCR2 and ATS1A, so kvm_has_s1pie() and the world
+switch are unchanged. I've left the guest's ID registers alone, since
+updating them is the larger rework Mark described.
+
+I've got a reproducer showing the host's PIR_EL1 overwritten on nVHE
+and in pKVM, and can share it privately.
+
+Based on Linux 7.3-rc3 (fd73f4a665989; also applies to kvmarm/fixes
+71cc2c67fb8f8).
+
+[1] https://lore.kernel.org/r/86fqyn2che.wl-maz@kernel.org
+[2] https://lore.kernel.org/r/ae24e80c-1b34-4827-9c93-e80b987e9cd7@sirena.org.uk
+
+ arch/arm64/kvm/config.c | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 1053676551aff..5e5277c721d52 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -280,6 +280,21 @@ static bool feat_anerr(struct kvm *kvm)
+ 		kvm_has_feat(kvm, ID_AA64MMFR3_EL1, SNERR, FEAT_ANERR));
+ }
+ 
++/* S1PIE and S1POE imply TCR2 and ATS1A, but userspace can set them independently */
++static bool feat_s1pie(struct kvm *kvm)
++{
++	return (kvm_has_feat(kvm, FEAT_S1PIE) &&
++		kvm_has_feat(kvm, FEAT_TCR2) &&
++		kvm_has_feat(kvm, FEAT_ATS1A));
++}
++
++static bool feat_s1poe(struct kvm *kvm)
++{
++	return (kvm_has_feat(kvm, FEAT_S1POE) &&
++		kvm_has_feat(kvm, FEAT_TCR2) &&
++		kvm_has_feat(kvm, FEAT_ATS1A));
++}
++
+ static bool feat_sme_smps(struct kvm *kvm)
+ {
+ 	/*
+@@ -393,10 +408,10 @@ static const struct reg_bits_to_feat_map hfgrtr_feat_map[] = {
+ 	NEEDS_FEAT(HFGRTR_EL2_nS2POR_EL1, FEAT_S2POE),
+ 	NEEDS_FEAT(HFGRTR_EL2_nPOR_EL1		|
+ 		   HFGRTR_EL2_nPOR_EL0,
+-		   FEAT_S1POE),
++		   feat_s1poe),
+ 	NEEDS_FEAT(HFGRTR_EL2_nPIR_EL1		|
+ 		   HFGRTR_EL2_nPIRE0_EL1,
+-		   FEAT_S1PIE),
++		   feat_s1pie),
+ 	NEEDS_FEAT(HFGRTR_EL2_nRCWMASK_EL1, FEAT_THE),
+ 	NEEDS_FEAT(HFGRTR_EL2_nTPIDR2_EL0	|
+ 		   HFGRTR_EL2_nSMPRI_EL1,
+@@ -474,10 +489,10 @@ static const struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
+ 	NEEDS_FEAT(HFGWTR_EL2_nS2POR_EL1, FEAT_S2POE),
+ 	NEEDS_FEAT(HFGWTR_EL2_nPOR_EL1		|
+ 		   HFGWTR_EL2_nPOR_EL0,
+-		   FEAT_S1POE),
++		   feat_s1poe),
+ 	NEEDS_FEAT(HFGWTR_EL2_nPIR_EL1		|
+ 		   HFGWTR_EL2_nPIRE0_EL1,
+-		   FEAT_S1PIE),
++		   feat_s1pie),
+ 	NEEDS_FEAT(HFGWTR_EL2_nRCWMASK_EL1, FEAT_THE),
+ 	NEEDS_FEAT(HFGWTR_EL2_nTPIDR2_EL0	|
+ 		   HFGWTR_EL2_nSMPRI_EL1,
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
+
 
