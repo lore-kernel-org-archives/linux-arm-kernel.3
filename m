@@ -4,134 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F003DCC6B3A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB34CC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2q5wFWGH5XXfo1KOm5hOzjtSsfKt0mt/NhudM5oJXY=; b=RzTFH0kuVOcvtFW/TVEJ7aLaBP
-	QqxhoPXj1ZrzTiYEACn90m4OwmngPWr6netGuWtDDNrygurHUbHKhkCnlP6Nmbs/OrXR/seoq0oRt
-	0hqdnTvng+LuNOEl+9plyH0cD5JD6lF2Dx8xHlzXvarXeXamuUq9fVqkoKt6/QIGEwGo1/cTJVzhL
-	FfG7aya6XXlH5yPqbubp0iucVl8hLX/xw9x8mHCiAzSyL1vvQjJpGfA1ofh7TARW+SzTOsm5bL6fw
-	f3nfc94XqWRoAVa9f8xC9ExOpxqfdZ/kGQYcdMh7IFhEvKujGc0uTGF7mJC33zNpKJxwhpGVYXBP/
-	MEFXZdKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lezDcEzfhmumF5Y2Y/lqp/Jl23Bf7Sw2XB6gt32AYa8=; b=U9zKhGJU3uUY4KGniotFHzl+gU
+	doW0efWrchJBLskUh28vGsauMit/4YLsy+VjEgEGXCPQOghQ3kBXdfctJnGHnHjcS1Vp/o/odYQkP
+	RJ15X4SEDKmxoHws18SksJUHVCd+1Wv26mICVp3XSqZAhWjCMEoLKTPOiwzTSE91Zt2+BrpfNWkIV
+	L6J9pI3KXC94/yAYWIwnRS0WaqI2ZxjXl4CF6zvt1rY+NKRv42DdOMRwu6+Je4TifDihs22+bE8tg
+	cd57KpWW2IhlEEWeuRl4Y1Iaa8FkdI2hkDnLkwmcnGtrHK6NEoDNEjckvw53RS5dXp3Ha3UQIt6BV
+	0/7MA6Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOHm-00000000phZ-1VgL;
-	Thu, 15 Oct 2026 16:26:30 +0000
-Received: from mail-westeuropeazon11010068.outbound.protection.outlook.com ([52.101.69.68] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xHONZ-00000000qhS-2Drz;
+	Thu, 15 Oct 2026 16:32:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOHj-00000000phB-2Kyf
+	id 1xHONX-00000000qgb-2agD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 Oct 2026 16:32:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lezDcEzfhmumF5Y2Y/lqp/Jl23Bf7Sw2XB6gt32AYa8=; b=RlhBcpkTV3xsqxeEo3hQB37qgk
+	GWt2ghfdfHDQ9JUdtdBAr7GDGwNZVQWfVHKSun4lTUie+udRXFN/YwgpgJyY17/7F2veN/o2JdF1C
+	7w4uNwMSPR7X6NVV3KBsQpV6fKsO9Tzvu7LSH4mIDrB/38TXenitG+pz4/dwdM+eVcBu6m/nEGjMn
+	/J2RucZAhxUJLp9fskzttZMs/vS5ZpRGtpC5kURc0xiNms0IX4hvG+8UJDfGwG3jV6S3VmkyClfyP
+	5nS/rS5mP1p11LTjfvjYowHgja6ZhP7x6FmzUDKGavyPJ8reU63983UpUQTsPN4gvJpYdQVBbDzL3
+	Es3YZKJw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHONU-00000000clw-2M64
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 16:26:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W/pt3C1yImNaQRJQaHl/620sLFSOHh79kr8d8Kp4wqu/GhfYe7cBtTO9zsYRL6hh238armzAJ9VUEk/hDQQWyUO2LRDKPrzhxO241YgPh6EulQJed9BZStUs5oCjwjEs0WVSaznNGNozukmFS+1tUZk7FhhQbo/0SGuyYc/r2KUZh7MYWORuXT6R1QSPbwrMn57bz13L62RuIM7lJdCIT/kvS8mDQc8dFUMr8TI95FuR9vqIfeVpjMzAPWZsopV/ywQuk+j3WdZvjLOj9qUESQanZ2wbcJdbmQ2bQ0Qvb7F2OkzL3NM2blLFa60VE5R31Bb14QOzvh/LDZ4rNPMb0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V2q5wFWGH5XXfo1KOm5hOzjtSsfKt0mt/NhudM5oJXY=;
- b=Z6uDCZg1fCvirLLVJHYO+SJs3pKfO30voFr5OJiPsOa7BfBuxRHkbTs4UQZLC6TrBlMwLdrnjEGsXmI4yUZfTfuDPDErDtBCC6FhrpMfaECSm3MacfoCl8U19/l+AcyP/xxf+wE/zn/YoGqFB7heum6CtKGf934okOIFbRSn1ZhRgxZ1mdeJn1PFmKsWN0iFWgQ9a4H1pp+NB+T4nFrn+uSovCOwr5r8MkMEuyQpQsIPCbGLWqbFKgHTAWsok55LNFVMmZg4wluOzcH6v9DzHvngqxy5h7i3ZFg6KjfAIQV8XN9ZZ7vRyhigIY1uGto/72OnVs5yERNlztDH4JYOpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V2q5wFWGH5XXfo1KOm5hOzjtSsfKt0mt/NhudM5oJXY=;
- b=BV6RgfbLN4uyqV2GgwoadcdEceVVOW9s3Lv8DMzpT/qAkEFF7cW162xcHry1FoCCyQJEx9Xdxz4mtD2si4JHavBeVXXK2THtirXLn4p8qOCFSvzGI9pXU2hSjYAE3TNEy/YXw8D9P/scpQKNJx5lOPFN1O3s4WwQexCmocWHFdjaup/THBvIsiphXQg4G+c4GMwhlUn7jDNgBAC/RtJA5WlXpTNumsmdpGroMhMHBgXIf0MpaqyTTo3kY2onRikpl8/ov7/CVCUgopfV0DriqdjKthCEq3H0T+CatNjd4nvRuVW/cb6tHKWn1K0774NNHq6tPCeQaZKe94zS99ij7A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB12060.eurprd04.prod.outlook.com (2603:10a6:150:2bf::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 16:26:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 16:26:20 +0000
-Date: Thu, 15 Oct 2026 11:26:09 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] arm64: dts: freescale: imx95-toradex-osm-dev:
- Remove ETH_A PHY interrupt
-Message-ID: <atD-oWQMKKTmXXwL@SMW015318>
-References: <20261014075812.29154-1-francesco@dolcini.it>
- <20261014075812.29154-2-francesco@dolcini.it>
- <as-Pp99xLXk0nRJd@SMW015318>
- <20261015073719.GA58156@francesco-nb>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261015073719.GA58156@francesco-nb>
-X-ClientProxiedBy: PH8P223CA0022.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 15 Oct 2026 16:32:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A328614BF;
+	Thu, 15 Oct 2026 09:32:19 -0700 (PDT)
+Received: from [10.0.138.89] (XHFQ2J9959-5.cambridge.arm.com [10.0.138.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E966C3F871;
+	Thu, 15 Oct 2026 09:32:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792081942; bh=K53bHe/qRL8PgX+fC0aZ/IKukdzfGE2CeH1J1pXxbIw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QvHiuvww2XMiC1VH5lrEn7YT52tcUfUfqnhqZ6AL7/+1oS59HDeC1lXKxNrpFi1pC
+	 t0SbzJpTfupyKQqZc3bVVGYXHq188MRT6NrH01zSEEbyjpLbZx7PQxzYaj0Ht2nEy2
+	 xPD7PUul+C++YYvpS1ogXhTXImp3VMZKjPrCVxsE=
+Message-ID: <e8d97f6c-8e22-4c85-b15d-6edade16d789@arm.com>
+Date: Thu, 15 Oct 2026 17:32:18 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB12060:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1dfd333c-09d6-499f-d119-08df2ad90b64
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|19092799006|366016|376014|10067099003|3023799007|11063799006|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EbZGL1cuyDUSzRUn+WlAIx/LjcFI/CQkaI40hdJGXGEufq+SrAmctagOI7Tf9T49FmDLkWlGJBgQBQJSkck9JSVWTk0F8afdYXE+fmtvo5ljHkG/ez9YR/A9AWUMohBhmM15ALoOX3zW0HO61o3GEODZngav+ImfyU8d8eclcoctAcRUef77QEkTzB1ytUllj05YvtLhweNj7UDkdmfuuJfY4xkIR9B1NnRwawNPoLsH5Mj7FjPf62KmRRwlwQr92ZKOkjDsJJ+igHM4YdiizDfyIyrK+CxPuZJ949/b3pQtH/ItYkIo6KvHM9HS1r0vjY5XyFInqwg+VGRAwQU1jdqSXCnFPLVMNvwJH6KyAe0z2Xu1G+/8aT7FJ+Z+gqTqPea0fpf2EYNX0wYIZ4p3k96gUujBrFz9dnoCMfIcR8elSPstutPfH6DPlKierw0nQGVKNfmnzje2JpB3I883p+tRgMztpkjGulF5Uz6c8FW5MJKXGLinKw/Pa2bqyA4131EiYEwnhaIFImbcyqzRyz2woEc2zD9vhRugknRo2xyuN1ZfUPL+5tn59TfFtG5AP628LLg/X5915f917TsF81FkQuk0AobbVwTrexiUfnXBTP13tzwDkgRDAuGVvNx5ZDxRJvSEndAAm0ojrLZ+J1X8kLI9gOeVWaJm86Osw1k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(19092799006)(366016)(376014)(10067099003)(3023799007)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZXmtEhFngWuMulhD1wtXmh4z/rERH5l7Jj/8JdcrkE1AnUeBHO4MLrnUZ2ip?=
- =?us-ascii?Q?wmoAnGZfVdd7C1lryaN4E8Sjd4wuufU5xLVAMZ1hN+bkBiE7DpLMFz8ZW5pV?=
- =?us-ascii?Q?RioHDgaxHbwDFmAEzuRDJdk7+WOB5NbOtdYPFa0VbJvHsUm1RORloCzU9zTL?=
- =?us-ascii?Q?aY8LMICuI+X90+s7uW3T5t1dmS4qe1iS/juOYJ7mwiaRtrU3bHRoNL5i8xuQ?=
- =?us-ascii?Q?JM1SiBQcTp/+VvLklEk4ucNgF7lZHJfGac6L2fpXzDHfbgjtAZrNmqy4pVEI?=
- =?us-ascii?Q?oTwJXr8wpXJD81cnCBrEu4jHLKVAdCrFtYaOC3SVPJoCK3m3AhHYR2W+gbON?=
- =?us-ascii?Q?E1eJPPzG4Og0XjNH1K+Vf+4H+idXppj+1NMDgLfCurtkx9Aq+12A0gHczWSx?=
- =?us-ascii?Q?xrL/guH/6jfFyL9c6nwvwkuavWT2WM2yKfsuYMfKHdgZOdC8Bm4vhM5SR8Ch?=
- =?us-ascii?Q?jn7SgEAPj0j7T/IGtzIwv6cYEwshTXtb0+tUHgPPE7+m2DM7Xy0m9gZ46J+I?=
- =?us-ascii?Q?Xsa2kmh8LFdRYiDcepqiGBox1sw0XB0drDDIqDmfyGNnb8KSO9HQls5dgsCh?=
- =?us-ascii?Q?uYDvlJhUPoU5PtM2tb3uFshfhtHh6Fyrv5/GDAa93OmwElJS0MYIvW+0Ezkn?=
- =?us-ascii?Q?1D7HeaFmMj8c/ZolAmxOlAl7lXJzAmTlzCHC6topDcSRIQUtdWdSrxx1YqKG?=
- =?us-ascii?Q?i3fjhS97X4fFVoI5ldS7PsXQPIm+VCQY5IZDtPhO6VUdnX+g26eOBUmSLSuX?=
- =?us-ascii?Q?66au+5L8vKeX/jI3AohtKSjuzKWSK3xe0MuMPN2mr5cmUHveaqb0fqJG5RpZ?=
- =?us-ascii?Q?lnJkADkCJ2uaPv68Vyo389maoKNpE+/FxF/ev4x34TpUeQ5De5p6Qq2zLVK3?=
- =?us-ascii?Q?tSNMa1BswPqlDlFiqOh2rwIjYORg7PhO5gX4cJjtV9OYFft/7pRsz9Ow0PQq?=
- =?us-ascii?Q?4x9LwfkEprCEV18t/QU0/tvbBDGmVAaeRRKYawkkdjdFQPY26aToUXN+GTHc?=
- =?us-ascii?Q?7AYPYBPne413hH2gCGUe8YZw/dlXpWOBOjo5YTceCFTN/nIBgKl7D7JbNn0p?=
- =?us-ascii?Q?Xc8y7cyCR9PL9XYM7HJUCnt3lgiI1E50yV1BVEWb8XPHDghjgtjonbavhgua?=
- =?us-ascii?Q?oJ+ptjKRWydv/bfA/iJR6EGqxgRLj2VgYQQYxIkCIf1TpLCYivi5cOdMRDmH?=
- =?us-ascii?Q?fBH1jmZQoC3noOkdmEuZoq0pRlOm7KE+gxpgUp8YXIX4YWe3pUlfyed2yWZq?=
- =?us-ascii?Q?GHSl7c2I8AuhshjOV6DNmvSn36dFHcgOe3JvlsdEVYViV6aUFBxRuURmmlBX?=
- =?us-ascii?Q?h6YuSoPh8bNbdtjlovoKza6yUtnBf33vBTmoaKHkTSAWpAYmm4xm5uSZLgFz?=
- =?us-ascii?Q?5hPU0ciZX3gTSiAic2QTQbxlXAwCjY0BbpKSuXibDDFBZGP8fMbckKytL+El?=
- =?us-ascii?Q?VYjZ/yhbB8KI9PjuwFtuEc5ORat1mFOjbL+rYYysv57XOys5WfQB89WPI6TJ?=
- =?us-ascii?Q?YG2Czc6tNIOjgbqUavXsSPVKG4f0cmUo75tLvLc5lyVZHPRJ93KhFSNDsbN5?=
- =?us-ascii?Q?ZzGij/v/HgSS+2P9lkEvzgzDbMMJs3Z1os661pQeLk1B+eGAj2skU6ihOlov?=
- =?us-ascii?Q?6EfDDccwfZa+He2a1WmUrYke8SfWu3cRe88HnwOn1rX5OifLfKmchiT++1kc?=
- =?us-ascii?Q?bUACq9Rv+1Bc+gF2KPkLP4Tnn1V3tQxcNr3gJ+KiIJPI/TgyLznXFVgvlHHN?=
- =?us-ascii?Q?dz/KfukPLR0qWNkAzQ7DPGT9qVJSKppfoVYYsZ/vyg85/TWMESQF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1dfd333c-09d6-499f-d119-08df2ad90b64
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 16:26:20.0349
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bNIPZbiJ1E7hXIWu9WeiTimGrePtWqOxFACXBUk656s6S09sPD4jNEUPpRnvCk/znxSYI6HTP8vw6ISuZJxa2Cvg8kwwFfHediZ4oWruCNrxw7Fmrl4msXyMCexxp/oU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12060
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 02/15] misc/arm-cla: Add launch operation helpers
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
+ <20261015142552.4128028-3-ryan.roberts@arm.com>
+ <2026101542-briskness-most-a8ca@gregkh>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <2026101542-briskness-most-a8ca@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_092627_637704_B1BAB88B 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20261015_173224_817454_8A16129F 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,50 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 09:37:19AM +0200, Francesco Dolcini wrote:
-> Hello Frank,
->
-> On Wed, Oct 14, 2026 at 09:20:23AM -0500, Frank Li wrote:
-> > On Wed, Oct 14, 2026 at 09:58:09AM +0200, Francesco Dolcini wrote:
-> > > From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > >
-> > > GPIO_A7 is a boot strap on the OSM iMX95 module. The pull-up on the OSM
-> > > Development Board Ethernet PHY interrupt line causes the module to enter
-> > > USB loader mode instead of booting normally when the reset button is
-> > > held for more than 0.5 seconds.
-> > >
-> > > The PHY interrupt connection has been removed from the carrier board,
-> >
-> > Look like it is hardware modification, can declear the version number here
-> >
-> > Since V_x.y, the PHY interrupt connection has been removed...
->
-> Valid point. It deserves a better explanation.
->
->  1. There is no change in the actual board revision.
->  2. Moving from interrupt to polling works always, so it does not
->     require any change on the board.
->  3. On our board is possible to disconnect the interrupt just removing a
->     jumper. The actual board revision stay the same. This is a new
->     product, that is going to be generally available in a few days. We
->     are going to ship boards with such jumper removed to
->     solve the i.MX95 strap option issue on reset.
+On 15/10/2026 17:17, Greg Kroah-Hartman wrote:
+> On Thu, Oct 15, 2026 at 03:25:36PM +0100, Ryan Roberts wrote:
+>> From: Jean-Philippe Brucker <jpb@kernel.org>
+>>
+>> CLA commands are issued by writing optional payload registers,
+>> programming the LAUNCH register and polling LRESP until the hardware
+>> accepts or rejects the operation.
+>>
+>> Add a common launch helper that performs this sequence on the CLA's
+>> local CPU, waits for LRESP completion and translates launch response
+>> codes into Linux errors.
+>>
+>> Build accelerator reset and register read and write support on top of
+>> it. The register read and write helpers split larger accesses into
+>> multiple launch operations when an access crosses an eight-register
+>> window.
+>>
+>> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+> 
+> You forgot to sign off on patches from others :(
 
-Please add this information at commit message, otherwise, it will be strange,
-why wire trace suddently route to HEADER from irq line.
-
-Frank
-
->  4. Future board revisions might completely disconnect the ethernet
->     interrupt, removing the actual connection from the schematics. Given
->     we work in polling (after this patch is merged), this will be a
->     transparent change that will not create any kind of software
->     incompatibility.
->
->
-> Should I incorporate this detailed information in the commit message and
-> send a v2 or the current commit message is fine ?
->
-> Francesco
->
+Ahh sh*t, sorry about that. Hopefully given this is "just" an RFC that's not a
+big deal? Else, let me know and I'll resend.
 
