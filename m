@@ -4,122 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2268CCC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF1BCC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1krrUAZwt+7VVMHUNs7D/N28ZRN8NYC+XdbJ7kJ0OGg=; b=Uq+CqaVGZQSn5o
-	phnK1rtqqTUzIe8ySltSSmH/TQgQJP2F7xgg0xCN1Cjo0P/qrCyPDWadiegEccaH3GDY2feqfg7yn
-	RnWce6p29G0/BjlE8MEvhZZxa82iWXKL/IIUqUebqnX1+M0cUIy0exqze5JJcvlAdkLDJS7Cbrzm2
-	NYrD9iw0BLpN1BH7hhZ8O3NT7N14BlIN88n62fkCP99Yb5OznbcqQf+VvZsUNID+AVTAYuLRVg7dy
-	Ntb72KHUjrlT+jDq05RqokwcSKFdJyT4smbgd/WPBYxx/zg2k6dDx/1tEEVWmK2WNRoxzE++g9ShY
-	8xtDdX4GuiwMNXA/G6jQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ngGxpYiIc+l9ub+qBBEMWFAzMrMU0ZfsNfzhGcP3fz8=; b=FV3ZSFmnjDLsdYzXbijbzgHxmv
+	YXa5mPw1FbD339/lSm14IPSdXi/1S8dP4u6GCjxOQjEQnZ9CW3LVc+d9SlFl0qt8vC83hQEYLuZ26
+	oSCKBSCv9dM5PJylYntFChPXyatxpt1lguwximac3xmFxJ0mygc9oaYZI3ZMl7OiLpa8eBUF7FeCO
+	N0UHBLWzCoBkf4esism9fimqnl8JdShOoVR1kXMAogAwvZGjIPBBvFLlfXMZOt1DmAUxb22Ut+AUP
+	hbcioeZr1ifBk9KzBOL/2Wf0ox4BMphBJcGE2WA7ln94ItTh5h9A0KSkjtAJLlyE0zHrhURg0NoM+
+	YdBGn0UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNQi-00000000Z7V-04B8;
-	Thu, 15 Oct 2026 15:31:40 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xHNTC-00000000ZpT-3D3o;
+	Thu, 15 Oct 2026 15:34:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNQe-00000000Z64-1i3B
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 15:31:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NSsMyjH8O+gFEeCE8BesdMmUmAKtVqlGyJu1PDyfVv60Hg2fyOw2hU/ZyAp5ytazNCWc4XihF8F2AMm3UzE7ZSzN2sk3CKPzpfWMm1kLjxrKqBKhQ7LjpNIianGYQgM+wnju9GsHEAMDVHDm6gWkvGboLgC76vU6Ow7x9FsY+v6PovlmrCk3+AfNnvJgR/BAV5ogE4gXxV7rByFfUGJgWQKsYcxNx06/6qrt0opnc81vTwAhMayizQNF+UrrdC2VD/ja8IZv2urkrkx2bhYmtKxiqz9oxd2jFUawRSl5oz2Phtme71cgtwNwueCpGLgY2207KSR/ntAQ6bG2c30njQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1krrUAZwt+7VVMHUNs7D/N28ZRN8NYC+XdbJ7kJ0OGg=;
- b=VQhNyo3yGm7ZrP+m/GS3doXuqj7M/GoJbXo3vVx2SqSlTBW4M8P90OB663So4csk5ZuGuaFBB0WkBgcPCPuy6xJqIt8KIaEwcjoyepzR2CaasHsZ4iM63BCbI1c3cSRx5IKP5YI6g6eI5aEztcj2JKtJ/p2GEdXLupDC9GAA3KmGM0EFT9WEVwD6avJCWX6vFDQFtNQvRIpdqm5vDxzSNnmElq8xJDg4qC9grKsEQHRzNldFWO6lqe18tOd24AIJruEJ86xRAkp8Y1eHkTZfqrm68Y9oM5btCXm0padN9004Hj1KOjstfOglUzL0DjaHCzGhHMbjLXA7yiEMZLMrdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1krrUAZwt+7VVMHUNs7D/N28ZRN8NYC+XdbJ7kJ0OGg=;
- b=wzAAn5rLT2T+Y8nwovcy6kuRx2Rao/iJdzM89ykYUNxg69QBbkbvFC5X0q/QsjvjakPqVJaP8aO8WdLyayMigoD+vnosSqqquc+4kk8N3UFjGqHQEBtUERDrMelAJQL5ZRYgSUPMn7a/XQULr9qm67+hjjMapu6aQnW7JvR2AHo=
-Received: from BN0PR03CA0023.namprd03.prod.outlook.com (2603:10b6:408:e6::28)
- by PH7PR12MB7137.namprd12.prod.outlook.com (2603:10b6:510:1ed::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 15:31:23 +0000
-Received: from BN3PEPF00022BC8.namprd05.prod.outlook.com
- (2603:10b6:408:e6:cafe::35) by BN0PR03CA0023.outlook.office365.com
- (2603:10b6:408:e6::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Thu, 15
- Oct 2026 15:31:23 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN3PEPF00022BC8.mail.protection.outlook.com (10.167.248.214) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 15:31:23 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Thu, 15 Oct
- 2026 10:31:16 -0500
-Received: from [192.168.1.205] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Thu, 15 Oct 2026 10:31:16 -0500
-Message-ID: <0df4bfd4-2bcc-42fd-a22d-e704e4b41d5f@amd.com>
-Date: Thu, 15 Oct 2026 10:31:15 -0500
+	id 1xHNTB-00000000ZoW-0zIr;
+	Thu, 15 Oct 2026 15:34:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EE0340293;
+	Thu, 15 Oct 2026 15:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D22811F000C5;
+	Thu, 15 Oct 2026 15:34:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792078452;
+	bh=ngGxpYiIc+l9ub+qBBEMWFAzMrMU0ZfsNfzhGcP3fz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EzzwCEOF5UCtQQ5ogYU9OpxdIw6MEJLzEYhp4FMHHDPz9zdqNu9KKf4SwbIsQ1QOc
+	 rIkKxwnXrPKoK/60OubAJUm2Sx4lECHu2yzpMb2jck/Ug5dtQRmTsBBFZaj9+3vij9
+	 8h3Z9n0xNPRb3N3tfqeURgkdcO7GstooPrriy114xO4M7WWxXmfZffjlIFNbMOziVB
+	 iPuMpeRPlU4nItY6z+g7fEL80EWwQfYvd6CaV7cPkQFuqJZcCDqrDZXdAq3mSPwQxZ
+	 Z1wcJ3IXnMT4jyvaR7W7XPAJ5/4c8A/jR/opwaKxcS7QyNkwpOG36OqbHSkhn5BY5j
+	 ySukmI888URWA==
+Date: Thu, 15 Oct 2026 16:34:06 +0100
+From: Lee Jones <lee@kernel.org>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Manivannan Sadhasivam <mani@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	mfd@lists.linux.dev
+Subject: Re: [PATCH v13 04/13] mfd: zx297520v3: Add a clock and reset MFD
+  driver
+Message-ID: <179198492486.839288.18023026004912443161@kernel.org>
+References: <20260927-zx29clk-v13-0-70d8f673386c@gmail.com>
+ <20260927-zx29clk-v13-4-70d8f673386c@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
-To: Ben Levinsky <blevinsk@amd.com>, Krzysztof Kozlowski <krzk@kernel.org>
-CC: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
-	"andersson@kernel.org" <andersson@kernel.org>, "mathieu.poirier@linaro.org"
-	<mathieu.poirier@linaro.org>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Shah, Tanmay" <tanmay.shah@amd.com>,
-	"Levinsky, Ben" <ben.levinsky@amd.com>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-4-ben.levinsky@amd.com>
- <20261015-humble-eager-mushroom-9db4aa@quoll>
- <DM4PR12MB644859F1CA3A936684A3338B839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
- <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
-Content-Language: en-US
-From: "Shah, Tanmay" <tanmays@amd.com>
-In-Reply-To: <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC8:EE_|PH7PR12MB7137:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0730cc81-9e32-4275-5122-08df2ad15ea6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|23010399003|82310400026|1800799024|56012099006|4143699003|261009223027099003|11063799006|10067099003|18002099003|22082099003|6133799003|13003099007|3023799007;
-X-Microsoft-Antispam-Message-Info: bcPbL/pNUViwvQNdFAphKSjlXiZw4fksEpIcZJJkljCBiMnOAhD13qoPtSNiJeKmOp5CiFSUuUtTkKEE0ljtvUy5KIkdbPqxWr+plFaOUnLqVZpNCYQ1qHjKc/WM5QkgrRq53cLqXhhQMfhkmI9ASQm9AHhA9UjS5jbEWOmCvFy3aaGnV370K8ezunXdhcvEKXWNRDZfPvLae73fnbSqBW8OBuxt8x68LqGaI7rygp40TNguvYb70SDd0dRaQCoqLU/9bWAKj9Uoh/y18SylRtwYwHCw/zu/JDJOXNtjqVIqkTaEcPH5l2mzLaCGYkHsGfhe9z/0NW4nMdVWm2R/W8U+TpYammZBVGNWBpnjAPhtlZOIX78Ww8HwSWRE2UUxANPqygybW/S2Ej1Qv6hZw8FcU7Yr0qu24TUeYs0lPqsmE0lsOaTJKrmBQGZtR/x53zAXYV6n52sKnzL7RvattidSnIKihrLGTB9HeMO7aFOl3yQNu4jw/9iO/+kJo3h3CKp+4FslsCul8vrHf1mz1CA1g3VDG32elvFy4wPCMxwoVhc2iRS3SdplN1fFeUReM3gWYXF8d8SYksLCbPRMR2Lh7ji/7s2XLhgW0YpgkNC+gOaw5d51nHXQML2VxZbjnA/6M9RtJ8M9SY3XNx5qQQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(56012099006)(4143699003)(261009223027099003)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: X55LbwWFDGbLbuBuMyp9bOSLqMyZKvfyeNTjat0MqygfykC5kUXDlIC6saDoE97jesRFQ5aB4MxpyT9CIv5owRK5hGDV8nUysfYvVBHIQNeS2BF3b8KaZ8k0iS0C07Ej7Hs4G4R+7muGCQsW7PbT5sS1+OPvMrc3mcOtXn5Qvz7ZvyCuo89bgECqcb1O7vRLbBE5jFFG1eU3IPQfYtsIcPmpnbTvuUVJOFkR8F1bxqisvlhNd5MJADnf34GrYCsGvT/Y457ycXY+G0V7IcwVeXOBj9dZY4knarQwtsXU7p1CnyJ0uW5laaDSUsNOu9OreUPI+CBynIbE3DALEJMCCR0y8A+VNayKSBcl9RvQfiwciGfgBwzJewXOawVEix52VzAbY7u/PkXLK6tLe0MGwVgbwRvQ16Eh2UuAwNTFdAKOrhaO8TVKFnsFbUjKkR3W
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 15:31:23.3956
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0730cc81-9e32-4275-5122-08df2ad15ea6
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BC8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7137
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_083136_510934_9515E589 
-X-CRM114-Status: GOOD (  38.64  )
+In-Reply-To: <20260927-zx29clk-v13-4-70d8f673386c@gmail.com>
+X-AI-Review-Draft: <20260927-zx29clk-v13-4-70d8f673386c@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,180 +80,267 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--- checkpatch.pl (3 issues) ---
+Line 227: WARNING: DT compatible string "zte,zx297520v3-topcrm" appears un-documented -- check ./Documentation/devicetree/bindings/
+Line 228: WARNING: DT compatible string "zte,zx297520v3-matrixcrm" appears un-documented -- check ./Documentation/devicetree/bindings/
+Line 229: WARNING: DT compatible string "zte,zx297520v3-lspcrm" appears un-documented -- check ./Documentation/devicetree/bindings/
+----------------------------------
 
+Is Checkpatch right?
 
-On 10/15/2026 9:29 AM, Ben Levinsky wrote:
-> 
->>
->>
->> *From: *Krzysztof Kozlowski <krzk@kernel.org>
->> *Date: *Thursday, October 15, 2026 at 2:46â€¯AM
->> *To: *Levinsky, Ben <ben.levinsky@amd.com>
->> *Cc: *jassisinghbrar@gmail.com <jassisinghbrar@gmail.com>; andersson@kernel.org 
->> <andersson@kernel.org>; mathieu.poirier@linaro.org <mathieu.poirier@linaro.org>; 
->> robh@kernel.org <robh@kernel.org>; krzk+dt@kernel.org <krzk+dt@kernel.org>; 
->> conor+dt@kernel.org <conor+dt@kernel.org>; Simek, Michal <michal.simek@amd.com>; 
->> linux-remoteproc@vger.kernel.org <linux-remoteproc@vger.kernel.org>; 
->> devicetree@vger.kernel.org <devicetree@vger.kernel.org>; linux-arm- 
->> kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; linux- 
->> kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; Shah, Tanmay 
->> <tanmay.shah@amd.com>
->> *Subject: *Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
->>
->> On Wed, Oct 14, 2026 at 02:34:23PM -0700, Ben Levinsky wrote:
->>  > Document the AMD programmable-logic Mailbox IP used for bidirectional
->>  > FIFO communication between two processor-facing interfaces.
->>  >
->>  > The same IP is used on ZynqMP, Versal, Versal NET and Versal Gen 2.
->>  > Name each SoC in its compatible, and use amd,zynqmp-pl-mbox-2.1 as the
->>  > fallback that drivers match.
->>  >
->>  > Define the transmit and receive channel indices together with the register
->>  > aperture, interrupt, and interface clock. Describe the FIFO depth chosen
->>  > when the IP is configured, so that the driver can size received messages
->>  > to it.
->>  >
->>  > Assisted-by: LLM sparse
->>
->> How sparse assists here? It's something new. Since when does it parse
->> yaml code?
-> 
->   Hi Krzysztof,
-> 
->   Thank you for the review.
-> 
->   You are right, sparse was not used for this patch. It was only run on
->   the C patches of the series, and I applied the same trailer to the
->   whole series by mistake. In v2 the binding patches will name only the
->   model, and the tool list will match what was actually used on each
->   patch.
-> 
->>
->>  > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
->>  > ---
->>  >  .../mailbox/amd,zynqmp-pl-mbox-2.1.yaml       | 74 +++++++++++++++++++
->>  >  1 file changed, 74 insertions(+)
->>  >  create mode 100644 Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl- 
->> mbox-2.1.yaml
->>  >
->>  > diff --git a/Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl- 
->> mbox-2.1.yaml b/Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl- 
->> mbox-2.1.yaml
->>  > new file mode 100644
->>  > index 000000000000..2cc0d106b888
->>  > --- /dev/null
->>  > +++ b/Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl-mbox-2.1.yaml
->>  > @@ -0,0 +1,74 @@
->>  > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>  > +%YAML 1.2
->>  > +---
->>  > +$id: http://devicetree.org/schemas/mailbox/amd,zynqmp-pl-mbox-2.1.yaml# 
->> <http://devicetree.org/schemas/mailbox/amd,zynqmp-pl-mbox-2.1.yaml#>
->>  > +$schema: http://devicetree.org/meta-schemas/core.yaml# <http:// 
->> devicetree.org/meta-schemas/core.yaml#>
->>  > +
->>  > +title: AMD Programmable Logic Mailbox IP
->>  > +
->>  > +maintainers:
->>  > +  - Ben Levinsky <ben.levinsky@amd.com>
->>  > +
->>  > +description: |
->>  > +  The AMD Programmable Logic Mailbox IP provides bidirectional message passing
->>  > +  between two processor-facing interfaces. Each interface writes messages to
->>  > +  a send FIFO and reads messages from a receive FIFO. The register aperture,
->>  > +  interrupt, and clock described by a node belong to one processor-facing
->>  > +  interface. Channel 0 represents transmit and channel 1 represents receive
->>  > +  for that interface.
->>  > +
->>  > +properties:
->>  > +  compatible:
->>  > +    oneOf:
->>  > +      - const: amd,zynqmp-pl-mbox-2.1
->>
->> What is 2.1? Your SoC has different versions?
-> 
->   2.1 is the version of the Mailbox IP core in the Xilinx IP catalog
->   (Mailbox v2.1). It is not a SoC version. The IP is synthesized into the
->   programmable logic, so the same core is used on every SoC, and the SoC
->   names in the compatibles do not add information.
-> 
->   In v2 I will use a single IP-versioned compatible, "xlnx,mailbox-2.1",
->   and drop the SoC-specific ones. This is also the compatible the Xilinx
->   device tree generator already emits for this IP.
-> 
+On Sun, 27 Sep 2026, Stefan Dösinger wrote:
 
-Hi here is the reasoning behind the name:
+> This driver registers child devices for the zx297520v3 clock and reset
+> controllers. The clk-zx297520v3 and reset-zte-zx297520v3 submitted in
+> the next patches will drive the respective functionalities.
+>
+> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+>
+> ---
+>
+> v13: Break out the MAINTAINERS change so Lee can selectively apply this
+> patch. I made sure it compiles without the DT binding headers.
+>
+> Lee, if you prefer, I can send this patch with the MAINTAINERS change
+> folded in stand-alone (or as a pull request). It'll have to tricke into
+> the clk tree before I can PR the bindings and clk driver though.
+>
+> Changes v12:
+> Added comments elaborating on the role of the driver and the hardware.
+>
+> Regarding the names: zx297520v3 is the SoC's name (chip marking, boot
+> messages). TOPCRM, MATRIXCRM, LSPCRM are ZTE's names for the MMIO blocks
+> in their downstream sources. Sadly no datasheet is available. "clk",
+> "reset" names for the child nodes are mine.
+>
+> Regarding personal copyright: I am not affiliated with ZTE nor paid by
+> them. This is my personal hobby project. I am using knowledge extracted
+> from ZTE's kernel dumps, but not code.
+>
+> Changes v10 (All Lee Jones):
+> *) drop "select REGMAP_MMIO"
+> *) Drop comment about unimplemented hwlocks
+> *) Use MFD_CELL_[NAME|OF]
+> *) Renamed the device type enum and its values
+> *) Use device_get_match_data instead of the of_ variant
+> *) Improved debug messages
+>
+> Changes v9:
+> Deassert the LSP reset and enable the LSP pclk here. In practice the
+> boot rom needs to do that because it prints to an LSP-connected UART and
+> reads the boot policy from the LSP connected flash chip.
+>
+> In doing so, I migrated the match data to an enum as mfd.md suggests.
+>
+> Changes v8:
+> *) Remove .of_compatible from PHY mfd child
+>
+> *) Move to drivers/mfd (Sashiko)
+>
+> For me either soc/zte or mfd/ is fine. Note though that this MFD parent
+> is very specific to the zx297520v3 SoC. I don't expect this to be reused
+> anywhere else. There are two more MFD-ish devices in there: soc_sys at
+> 0x140000, which I plan to handle in the same driver, and an i2c PMIC,
+> which would get its own host driver.
+>
+> *) Use PLATFORM_DEVID_AUTO (Sashiko). NONE was intentional as I only
+> ever expect one instance, but I don't see any harm in doing the standard
+> thing and use AUTO
+>
+> *) On the suggestion not to put the link to mfd_cells[] into match data:
+> I see that it is spelled out in Sashiko's mfd.md, written by Lee Jones,
+> the MFD maintainer. I would appreciate some education on the rationale
+> behind it: Putting a pointer into the void *data is a common pattern in
+> the kernel. I don't understand in which situation this can possibly
+> break?
+>
+> Both structs are static const in the same compilation unit. data is a
+> const void *, not a uintptr_t or kernel_ulong_t, so it seems passing a
+> pointer is the intended use. What am I missing?
+>
+> Changes v7:
+> Add phy MFD child
+>
+> Changes v6: Make the ZTE SoC driver section depend on HAS_IOMEM
+> (Sashiko). The entire MFD section, which contains MFD_CORE, depends on
+> HAS_IOMEM even with COMPILE_TEST.
+>
+> Add a NULL ptr check for of_device_get_match_data (Sashiko). While not
+> uniform, rave-sp, rohm-bd9576, atc260x, da9052-i2c protect against
+> incorrect manual attachment that way.
+>
+> Add lspclk here as well in an attempt to satisfy both Conor Dooley, who
+> asks for MFD for top and matrix, and Philipp Zabel, who prefers aux but
+> at least wants the reset driver limited to one driver type.
+>
+> Changes v5: Use MFD instead of Aux bus for top and matrix crm because of
+> extra functionality: Reboot in top, hwlock in Matrix.
+>
+> LSP clocks stay with the aux bus and are thus not handled in this
+> driver. The clk driver will bind directly to the lspcrm node.
+> ---
+>  drivers/mfd/Kconfig              |  12 +++++
+>  drivers/mfd/Makefile             |   2 +
+>  drivers/mfd/zte-zx297520v3-crm.c | 111 +++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 125 insertions(+)
+>
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 857ca3bb0d5b..b30600f6ff0c 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -2580,5 +2580,17 @@ config MFD_MAX7360
+>  	  additional drivers must be enabled in order to use the functionality
+>  	  of the device.
+>
+> +config MFD_ZTE_ZX297520V3_CRM
+> +	tristate "ZTE zx297520v3 Clock and Reset Manager"
+> +	depends on ARCH_ZTE || COMPILE_TEST
+> +	select MFD_CORE
+> +	default SOC_ZX297520V3
+> +	help
+> +	  Say yes here to enable the driver for the ZTE zx297520v3 clock and
+> +	  reset manager MFD driver. This driver provides the host device for
+> +	  the clock and reset drivers and is required to boot the SoC. You
+> +	  will also need to enable CLK_ZTE_ZX297520V3 and RESET_ZTE_ZX297520V3
+> +	  to build the actual clock and reset child drivers.
+> +
+>  endmenu
+>  endif
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index 72d3944b0ad8..ab0cba2042a2 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
+>  obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
+>
+>  obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
+> +
+> +obj-$(CONFIG_MFD_ZTE_ZX297520V3_CRM)	+= zte-zx297520v3-crm.o
+> diff --git a/drivers/mfd/zte-zx297520v3-crm.c b/drivers/mfd/zte-zx297520v3-crm.c
+> new file mode 100644
+> index 000000000000..d896261a4d40
+> --- /dev/null
+> +++ b/drivers/mfd/zte-zx297520v3-crm.c
+> @@ -0,0 +1,111 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Stefan Dösinger
+> + *
+> + * This driver splits the ZTE zx297520v3 SoC's clock and reset management devices into MFD child
+> + * nodes that are managed by independent drivers in their respective subsystems.
+> + *
+> + * ZTE's downstream kernel names the mmio regions "topcrm", "matrixcrm" and "lspcrm". For an
+> + * explanation of how the controllers relate please see the DT binding documentation found in
+> + * Documentation/devicetree/bindings/clock/zte,zx297520v3-*yaml.
+> + *
+> + * The controllers are primarily clock controllers, but they all have reset controls as well. Top
+> + * and Matrix controllers have further auxiliary functions.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/errno.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/property.h>
+> +#include <linux/reset.h>
+> +
+> +enum zx_device_type {
+> +	TYPE_INVALID = 0,
+> +	TYPE_TOPCRM,
+> +	TYPE_MATRIXCRM,
+> +	TYPE_LSPCRM,
+> +};
+> +
+> +static const struct mfd_cell zx297520v3_topcrm_cells[] = {
+> +	MFD_CELL_NAME("zx297520v3-topclk"),
+> +	MFD_CELL_NAME("zx297520v3-topreset"),
+> +	MFD_CELL_OF("reboot", NULL, NULL, 0, 0, "syscon-reboot"),
+> +	MFD_CELL_NAME("zx297520v3-usb-phy"),
+> +};
+> +
+> +static const struct mfd_cell zx297520v3_matrixcrm_cells[] = {
+> +	MFD_CELL_NAME("zx297520v3-matrixclk"),
+> +	MFD_CELL_NAME("zx297520v3-matrixreset"),
+> +};
+> +
+> +static const struct mfd_cell zx297520v3_lspcrm_cells[] = {
+> +	MFD_CELL_NAME("zx297520v3-lspclk"),
+> +	MFD_CELL_NAME("zx297520v3-lspreset"),
+> +};
+> +
+> +static int zx297520v3_crm_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	const struct mfd_cell *cells;
+> +	struct reset_control *reset;
+> +	enum zx_device_type type;
+> +	unsigned int num_cells;
+> +	struct clk *pclk;
+> +
+> +	type = (enum zx_device_type)(kernel_ulong_t)device_get_match_data(dev);
+> +	switch (type) {
+> +	case TYPE_TOPCRM:
+> +		cells = zx297520v3_topcrm_cells;
+> +		num_cells = ARRAY_SIZE(zx297520v3_topcrm_cells);
+> +		break;
+> +
+> +	case TYPE_MATRIXCRM:
+> +		cells = zx297520v3_matrixcrm_cells;
+> +		num_cells = ARRAY_SIZE(zx297520v3_matrixcrm_cells);
+> +		break;
+> +
+> +	case TYPE_LSPCRM:
+> +		cells = zx297520v3_lspcrm_cells;
+> +		num_cells = ARRAY_SIZE(zx297520v3_lspcrm_cells);
+> +
+> +		pclk = devm_clk_get_enabled(dev, "pclk");
+> +		if (IS_ERR(pclk))
+> +			return dev_err_probe(dev, PTR_ERR(pclk), "Could not get 'pclk'\n");
+> +
+> +		reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
+> +		if (IS_ERR(reset))
+> +			return dev_err_probe(dev, PTR_ERR(reset),
+> +					     "Failed to deassert reset control\n");
+> +		break;
+> +
+> +	default:
+> +		return -ENODEV;
+> +	}
+> +
+> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, cells, num_cells, NULL, 0, NULL);
+> +}
+> +
+> +static const struct of_device_id of_match_zx297520v3_crm[] = {
+> +	{ .compatible = "zte,zx297520v3-topcrm", .data = (void *)TYPE_TOPCRM },
+> +	{ .compatible = "zte,zx297520v3-matrixcrm", .data = (void *)TYPE_MATRIXCRM },
+> +	{ .compatible = "zte,zx297520v3-lspcrm", .data = (void *)TYPE_LSPCRM },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, of_match_zx297520v3_crm);
+> +
+> +static struct platform_driver zx297520v3_crm = {
+> +	.probe = zx297520v3_crm_probe,
+> +	.driver = {
+> +		.name = "zx297520v3-crm",
+> +		.of_match_table = of_match_zx297520v3_crm,
+> +	},
+> +};
+> +module_platform_driver(zx297520v3_crm);
+> +
+> +MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
+> +MODULE_DESCRIPTION("ZTE zx297520v3 CRM driver");
+> +MODULE_LICENSE("GPL");
+>
+> -- 
+> 2.55.0
+>
 
-We use 'amd' vendor prefix for all new drivers & bindings. Also, there
-is dedicated IPI hardware which can be used as mailbox too, and we
-should distinguish it with this PL mailbox. So I that is included in the
-compatible string. (pl-mbox).
-
-If we are also to include SOC name as well (per compatible property
-guideline), then we should include one of the SOC name as well:
-
-So, I think 'amd,zynqmp-pl-mbox-2.1' is good.
-
-Krzysztof, are you okay with above name? The 2.1 is FPGA IP design
-version number and not the SOC version number. So in future let's say
-that FPGA IP design is improved then the name (pl-mbox) will remain
-same, but only version number will be updated i.e. (from 2.1 to 3.0). Is
-it okay if we explicitly mention this in the binding description?
-
-Thank You.
-
->>
->>  > +      - items:
->>  > +          - enum:
->>  > +              - amd,versal-pl-mbox-2.1
->>  > +              - amd,versal-net-pl-mbox-2.1
->>  > +              - amd,versal2-pl-mbox-2.1
->>  > +          - const: amd,zynqmp-pl-mbox-2.1
->>  > +
->>  > +  reg:
->>  > +    maxItems: 1
->>  > +
->>  > +  interrupts:
->>  > +    maxItems: 1
->>  > +
->>  > +  clocks:
->>  > +    maxItems: 1
->>  > +
->>  > +  amd,mbox-pl-fifo-len:
->>  > +    $ref: /schemas/types.yaml#/definitions/uint32
->>  > +    minimum: 16
->>  > +    maximum: 8192
->>  > +    default: 16
->>  > +    description:
->>  > +      Depth of the send and receive FIFOs in 32-bit words, as configured by
->>  > +      the C_MAILBOX_DEPTH parameter of the IP. Must match the configured
->>  > +      depth.
->>
->> So you have multiple mailboxes per one soc different in this?
-> 
->   Yes. The FIFO depth is chosen per IP instance when the design is
->   synthesized, so one design can contain several mailboxes with different
->   depths. The depth cannot be read from the registers, so the driver
->   needs it from the device tree to size its receive buffer and to limit
->   transmit messages. In v2 I will rename the property to
->   "xlnx,mailbox-depth", after the IP parameter, and state this in its
-
-Please use 'amd' as vendor prefix, also keep pl in the property name:
-i.e. 'amd,pl-mailbox-depth'.
-
->   description.
-> 
->   Thanks,
->   Ben
-> 
->>
->> Best regards,
->> Krzysztof
->>
-> 
-
+-- 
+Lee Jones
 
