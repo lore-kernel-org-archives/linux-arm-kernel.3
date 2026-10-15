@@ -4,75 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E979CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 05:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E14CC6B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 06:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pvr5zkrKr/pslBHrFCRb8FjLgbJ3PAHpiaNuZG4YNT4=; b=D/d89aml0lLL8/j/j0hy5yOVhX
-	bqT83uuxQbbUF18yssOExjw3j6/fQdyRwjoW/ilHMMzTnaUbJ6k2SJGQ19qAQL6l+GB/JrlOKzWfF
-	PojQ8UVGi0T335NKJjGyE4xudXL13Cjzleib9TgbneBVPz++EpOvhg4t0O3mklBb8cAsjArwRa4Oi
-	ssM7a030NxMwQe9x93A35evoXF7tq/2/GWywt+IiTeRdU2wy20CYAFS4nBP4QIz5G8INV0fB6j6fH
-	GfQ3tOz+pcYsa13luWhv9zx/HuD5DcCQQV0It8hvqfsT+Q+z9m4OcinNS6ssFUMVLB2SHQJHyCfJI
-	+XmD5Jnw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o5eykm7AJczkLx3JRr5ccH14HSao65jq+HP4JcWtens=; b=EemEwyIkI8JYba+toSl9cPCwky
+	YtEgwzLB9In3YqRVK4QQO5yfdrFkoBv7flwA1MWTBff2Ni9LqkKffK1Y1r791/Ju621SmpqTyt2UU
+	lzzPMTJRKILu3sR3vVckojzC+aKOEwu0mvGQuONXOahty9yThdLnbP9WT8g5TWHrmt+8Ne7w3wIgC
+	Uslcb0z9Qsqk4EmxRoXeV59CFCui8Ko4JIPmdQzsRMD6QcAzNb1IqQ8XY3F4fhuCS7gDXuxnegUWk
+	MPI35iaYXnc3kCSKmXMeU4TThXvmvATvBTUMo1sfcto91NgnvHOBNauJ3gsm31/a45iUV+c6GFjDu
+	CEnAXYDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHEBS-0000000Gs3L-2QrW;
-	Thu, 15 Oct 2026 05:39:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHEy5-0000000GvoC-3SGc;
+	Thu, 15 Oct 2026 06:29:33 +0000
+Received: from mail-japaneastazon11023140.outbound.protection.outlook.com ([52.101.127.140] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHEBO-0000000Gs23-2qGE;
-	Thu, 15 Oct 2026 05:39:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2918B44038;
-	Thu, 15 Oct 2026 05:39:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 07CB7C2BCFD;
-	Thu, 15 Oct 2026 05:39:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792042754;
-	bh=/mn1FAMySoblw7BNJKxvIifUG3mFrbJRYX66CKqRe6s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WfauFYd63bSvC9G5lMYRQvQ4V+TuDJ6N2c7Sr4LuQvhvjBU1EO9rqQf/NpTZkbyyQ
-	 4cNJo83EcDJX4gqWOyg78rbSHIG8gdUr59IxzC6dDdskgMC3TpbC2fI6NwxhWEObLj
-	 jntLB44qfaCj9To/Ynz4QlaX+N9b9tKZqnVSQnrHspEqSjKAFImedwEbNYzPpxk4V1
-	 aacnmKtrfty2byCQ7SQ/CbkG/KgNWDKP9re3429xoRhvm/775/d0p21rah7sFo0wXv
-	 A+7g5UQFAmJQ7u6s1rTeMa16hzRHDCHN3geAtxaslEU+FNSZgN2Rf5/qU97JIrq9nV
-	 IJ86GFSxcTXKw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E7A05CC6B3A;
-	Thu, 15 Oct 2026 05:39:13 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Thu, 15 Oct 2026 13:38:57 +0800
-Subject: [PATCH net v4 3/6] can: rockchip_canfd: cancel bus-off restart
- before closing the device
+	id 1xHEy2-0000000Gvmx-3pyZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 06:29:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e9a3RnK0k6eivYGJM6TP5cj2qvOWkH+N4ikkK9d9mAaFm9QX+IG09qVdmBGP7qlTDvChxcn8eXZ+suGkj0XVkAtaEErvF3mn1Fj4QECUKuynm3il+PD+7NQLR2pc8vExA9dytHT9e7x+gQqK0SRf2wIvDsi/5iqj4+5O2WqiIbFpbpgg6zvx1af26IEYJPVBXvapkvpX4ZjyXJJJr91JQ7iHTq1HF1urDcG8GKa6rcd5g2IcJMujpRvzd56LCSc26HWgqs2QYG4NVH3gRVdHY7eUo/jlMS1r8BXicwwFaxrM8sRhddhU3fKwI8EhWO0d1bm0Ouc8QSbM/ldO09Rr+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o5eykm7AJczkLx3JRr5ccH14HSao65jq+HP4JcWtens=;
+ b=W1mb9HNEA/PX5Q8G4OsS8NlhFgMWJzgVsS+v74UWm+K4Hso71cGob0S515EAlBqP/HcnTTWNzRPuRz8Dty5xCAKfe0ObToUNB+o2Zj8EMDyw1KKMiokjFn8GzO3B6aAub1AcAQa+PDuvc7RfJkAO3qosaOiRckwW8ifHCMYRr76wB2dy5/uPFslwei6kVbsmt21Nf1AKuQPkq3/nekswC/UmmPrwnhy31Z15rwrBf0KqcnuDylT+vFTjFjURzv1ryVl+aa+oCM4/erDiyn0eQkoaKwzIBLaWrFwSJgpD0U+3IQwhZS91mSzke/Od1hlugpJgiKU05j1T0aS+e7nupA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from JH0PR04CA0012.apcprd04.prod.outlook.com (2603:1096:990:4::15)
+ by SI3PR06MB8537.apcprd06.prod.outlook.com (2603:1096:4:2aa::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
+ 2026 06:29:11 +0000
+Received: from SG2PEPF000B66C9.apcprd03.prod.outlook.com
+ (2603:1096:990:4:cafe::26) by JH0PR04CA0012.outlook.office365.com
+ (2603:1096:990:4::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.20 via Frontend Transport; Thu,
+ 15 Oct 2026 06:29:09 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66C9.mail.protection.outlook.com (10.167.240.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 06:29:09 +0000
+Received: from JohnnyFan (unknown [172.21.64.24])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8D4D542C6440;
+	Thu, 15 Oct 2026 14:29:08 +0800 (CST)
+From: "Johnny.Fan" <johnny.fan@cixtech.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	maz@kernel.org,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	jeremy.linton@arm.com,
+	cix-kernel-upstream@cixtech.com,
+	bob.zhang@cixtech.com,
+	jie.fu@cixtech.com,
+	"Johnny.Fan" <Johnny.Fan@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: [PATCH] perf: arm_spe: Support heterogeneous ACPI systems
+Date: Thu, 15 Oct 2026 14:29:08 +0800
+Message-ID: <20261015062908.3565761-1-johnny.fan@cixtech.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-rockchip-canfd-restart-close-v4-3-ad149ff79450@qq.com>
-References: <20261015-rockchip-canfd-restart-close-v4-0-ad149ff79450@qq.com>
-In-Reply-To: <20261015-rockchip-canfd-restart-close-v4-0-ad149ff79450@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- "David S. Miller" <davem@davemloft.net>, 
- Wolfgang Grandegger <wg@grandegger.com>, 
- Oliver Hartkopp <socketcan@hartkopp.net>, kernel@pengutronix.de
-Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792042751; l=6448;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=IbsG/cS8L/6o4aTMlb97O7JQVyc7lkKuTpqEDY4h4Dw=;
- b=4bd2NJSZ1kGw5WEnWkw0ftB96pvwavEJ403KNbbYViN7neCgGoYgDvmJYMjOzU/hmihkDmVFj
- RMlEbV36X0BDmrrm0w/FRFHAPZ2oTcteK3MLrY0QPCRfrQR12sHZRb9
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66C9:EE_|SI3PR06MB8537:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: f7bdc515-4b16-4ab5-220e-08df2a859ef7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|82310400026|36860700016|56012099006|261009223027099003|10067099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: f6CJ/a7bXz3tRIOopDHn7b6Yc7AZSGMyCeI1eKs07GIhEAPAqpCisMF8bsqINdgDVnGZue1sAsrvjSndWMjGKQlBPl9aDadM6sH/0LQA8GndezuasuQMI3dV1yqsGix8G+MUufzCMlrx80xBLte78gv8FJAbkpUUetb7iwPZu/VNIFShru57E7i0a3DlJ4/3Wl1e9YjvfUleAA4mDq4V9VtAPz88p+axUt/EfkfmHrXIRFljiaUbq0Jc3zHI6JDCIG7fRJXDcTZMscCz4/stN83V52MAPpwo/qrBzHFkBXLez6fIdCUcUJabRbIx91v90ldEitsetDEwIEWcjHHH+7mKUa5zF7SaVawDWVmg5ecOScGXmrwVwZi0eteyp9xr1LzFbQIA7n8TNB/TnMcsSggHoMQ5WhgOmYTEQJLykDdRqQGreHBQUMTsUZHScPldWNjNuSFg7LRSapo4iYF3oIFS6ND7utbuWZE+NCtT65yBziPiDdOKOylg/9HyotK2D1aIkrDhAYFyabRjTveQNWWA+a7w+oXgfnmvODKw2FUsa9vLyF/sHXqTtCFrJJP0T3WUqZVTHIyT/WrALeIShOSVAJlLuAPFVm22ci5VzuWQhHmpr7FkzpbtdXrM6WzmPDJ26MGV8msHiU024iGV3hGKk71jFQx/nyzWh5ZwYzosu1u4WKrfv6M60rCFljVJlfoLrrawtbQayXHnAS9Flg==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(82310400026)(36860700016)(56012099006)(261009223027099003)(10067099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cWtlzhNK1/Lg30XsUnwSzRlsLREg+l2KXTFin+kjVPB8A3MUrQHC1OF68cKGG6CXfn4V4NM/BTIUrqB/JdttR3DSfyg2VQl814aMgSAwf66PfcS/EiB3g0OpmBpqLoPoDYH8iTUnB4sHRLH+hmD2ErMylIAkP/PesXMTDts34aWWRoCm8poZ3PeuGWDwWUaTTrLqsrpcY6j5wNInKzSIDqmq4ZXvaztCoxsEsUzqiGDeVN76eVScW8gIbA8PnvUkFmk/KS0mbJquwPiobVc/lcCp7LjTSZFcU3a6WvHZ0OiFiRPMRMmLwgvkz2GnedODTDDnlhDN5EpEK5ZWfKrqXoxYTZmIP4YB4bKNVl//GVRt+VTeadRQWzo2K77rHW3qldRu8hlyx65Y1PnRHg1bjOglIX91Cig6s83K1vYDRemFcyswc/vRXUfe5Csvxc72
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 06:29:09.3108
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7bdc515-4b16-4ab5-220e-08df2a859ef7
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66C9.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR06MB8537
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261014_232930_962816_1B4B1CCC 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,164 +118,207 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cunhao Lu <1579567540@qq.com>
+From: "Johnny.Fan" <Johnny.Fan@cixtech.com>
 
-The close path cancels restart_work in close_candev() only after freeing
-the IRQ, disabling RX offload and stopping the controller. A concurrent
-restart can re-enable the controller and interrupts after IRQ teardown,
-or requeue timestamp work that accesses registers after runtime suspend
-has disabled the controller clocks.
+The ACPI MADT describes the SPE overflow interrupt on a per-CPU basis
+in the GICC structure, where a CPU that does not implement SPE simply
+reports 0. Heterogeneous systems therefore only report the interrupt
+on the CPUs that implement SPE, but arm_pmu_acpi.c rejects this as a
+non-homogeneous mapping and never creates the SPE platform device.
 
-Call close_candev_cancel_restart_sync() at the start of ndo_stop(), while
-the resources needed by a running restart are still available. Keep
-close_candev() after IRQ teardown for final cancellation and echo cleanup.
+Treat the SPE interrupt as optional when walking the MADT: skip the
+GICCs that report 0 and only require that the CPUs which do report it
+agree on the number.
 
-During restart, mask the device's interrupts and drain active handlers
-without disabling the shared IRQ line. Suspend handler access to the
-controller until reinitialization is complete, and publish the initialized
-state before resuming IRQ handling.
+Note that the CPUs reporting the interrupt must still share a single
+GSI, as the platform device only exposes one IRQ resource. A system
+that assigns a different PPI per cluster cannot be described by this
+single-device model.
 
-Drain timestamp work before reinitializing the timecounter, and initialize
-the delayed work once at probe. Keep asynchronous cancellation in the
-bus-off path. Also disable RX offload if request_irq() fails during open.
+The CPUs without SPE are trimmed from the PMU supported CPUs by
+probing PMSVer on each CPU, both at probe time (for online CPUs) and
+from the hotplug callback (for CPUs that were offline at probe), as
+ACPI conveys no affinity information and the PPI otherwise defaults
+to all possible CPUs.
 
-Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Tested on a CIX sky1 SoC with heterogeneous SPE support.
 
+Signed-off-by: Johnny.Fan <Johnny.Fan@cixtech.com>
+
+Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
 ---
-Changes in v3:
-- Replace disable_irq()/enable_irq() with device interrupt masking,
-  mask readback, an irq_suspended flag and synchronize_irq().
-- Pair release/acquire accesses to publish reinitialized state before
-  the IRQ handler resumes, without disabling other shared IRQ users.
-- Initialize timestamp delayed work once at probe and synchronously
-  cancel it before reinitializing the timestamp state during restart.
-- Disable RX offload when request_irq() fails during open.
----
- drivers/net/can/rockchip/rockchip_canfd-core.c      | 20 ++++++++++++++++++++
- drivers/net/can/rockchip/rockchip_canfd-timestamp.c |  6 +++++-
- drivers/net/can/rockchip/rockchip_canfd.h           |  2 ++
- 3 files changed, 27 insertions(+), 1 deletion(-)
+ drivers/perf/arm_pmu_acpi.c | 34 +++++++++++++++++++++++-------
+ drivers/perf/arm_spe_pmu.c  | 41 ++++++++++++++++++++++++++++++++++---
+ 2 files changed, 65 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 37c1c22c40c9f..4b3db07242395 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -20,6 +20,7 @@
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/smp.h>
- #include <linux/string.h>
+diff --git a/drivers/perf/arm_pmu_acpi.c b/drivers/perf/arm_pmu_acpi.c
+index ca6bf8f86cfe..4ece1070827b 100644
+--- a/drivers/perf/arm_pmu_acpi.c
++++ b/drivers/perf/arm_pmu_acpi.c
+@@ -70,7 +70,8 @@ static void arm_pmu_acpi_unregister_irq(int cpu)
  
- #include "rockchip_canfd.h"
-@@ -356,7 +357,18 @@ static int rkcanfd_set_mode(struct net_device *ndev,
- 
- 	switch (mode) {
- 	case CAN_MODE_START:
-+		rkcanfd_chip_interrupts_disable(priv);
-+		/* Flush the interrupt mask write before suspending the handler. */
-+		rkcanfd_read(priv, RKCANFD_REG_INT_MASK);
-+		/* Keep shared IRQs from accessing the device during restart. */
-+		WRITE_ONCE(priv->irq_suspended, true);
-+		/* Wait for handlers that already passed the suspended check. */
-+		synchronize_irq(ndev->irq);
-+		rkcanfd_timestamp_stop_sync(priv);
-+
- 		rkcanfd_chip_start(priv);
-+		/* Publish the initialized state before resuming IRQ handling. */
-+		smp_store_release(&priv->irq_suspended, false);
- 		rkcanfd_chip_interrupts_enable(priv);
- 		netif_wake_queue(ndev);
- 		break;
-@@ -666,6 +678,10 @@ static irqreturn_t rkcanfd_irq(int irq, void *dev_id)
- 	struct rkcanfd_priv *priv = dev_id;
- 	u32 reg_int_unmasked, reg_int;
- 
-+	/* Pairs with the release after restart has initialized the device. */
-+	if (smp_load_acquire(&priv->irq_suspended))
-+		return IRQ_NONE;
-+
- 	reg_int_unmasked = rkcanfd_read(priv, RKCANFD_REG_INT);
- 	reg_int = reg_int_unmasked & ~priv->reg_int_mask_default;
- 
-@@ -747,6 +763,7 @@ static int rkcanfd_open(struct net_device *ndev)
- 	return 0;
- 
- out_rkcanfd_chip_stop:
-+	can_rx_offload_disable(&priv->offload);
- 	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
- 	pm_runtime_put(ndev->dev.parent);
- out_close_candev:
-@@ -758,6 +775,7 @@ static int rkcanfd_stop(struct net_device *ndev)
+ static int __maybe_unused
+ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+-			     u16 (*parse_gsi)(struct acpi_madt_generic_interrupt *))
++			     u16 (*parse_gsi)(struct acpi_madt_generic_interrupt *),
++			     bool optional)
  {
- 	struct rkcanfd_priv *priv = netdev_priv(ndev);
+ 	int cpu, this_hetid, hetid, irq, ret;
+ 	u16 this_gsi = 0, gsi = 0;
+@@ -87,7 +88,9 @@ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
  
-+	close_candev_cancel_restart_sync(ndev);
- 	netif_stop_queue(ndev);
+ 	/*
+ 	 * Sanity check all the GICC tables for the same interrupt
+-	 * number. For now, only support homogeneous ACPI machines.
++	 * number. For now, only support homogeneous ACPI machines,
++	 * unless the interrupt is optional, in which case a CPU that
++	 * does not implement the feature simply reports 0.
+ 	 */
+ 	for_each_possible_cpu(cpu) {
+ 		struct acpi_madt_generic_interrupt *gicc;
+@@ -97,6 +100,20 @@ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+ 			return gsi ? -ENXIO : 0;
  
- 	rkcanfd_chip_interrupts_disable(priv);
-@@ -934,6 +952,8 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 	if (err)
- 		goto out_free_candev;
- 
-+	rkcanfd_timestamp_work_init(priv);
+ 		this_gsi = parse_gsi(gicc);
 +
- 	err = rkcanfd_register(priv);
- 	if (err)
- 		goto out_can_rx_offload_del;
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-index 72774cd2f94b7..ad582afbbd682 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-@@ -37,6 +37,11 @@ static void rkcanfd_timestamp_work(struct work_struct *work)
- 	schedule_delayed_work(&priv->timestamp, priv->work_delay_jiffies);
++		if (optional) {
++			if (!this_gsi)
++				continue;
++
++			if (gsi && gsi != this_gsi) {
++				pr_warn("ACPI: %s: CPU%d: inconsistent interrupt %u/%u\n",
++					pdev->name, cpu, gsi, this_gsi);
++				return -ENXIO;
++			}
++			gsi = this_gsi;
++			continue;
++		}
++
+ 		this_hetid = find_acpi_cpu_topology_hetero_id(cpu);
+ 		if (!gsi) {
+ 			hetid = this_hetid;
+@@ -107,7 +124,7 @@ arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+ 		}
+ 	}
+ 
+-	if (!this_gsi)
++	if (!gsi)
+ 		return 0;
+ 
+ 	irq = acpi_register_gsi(NULL, gsi, ACPI_LEVEL_SENSITIVE, ACPI_ACTIVE_HIGH);
+@@ -146,13 +163,16 @@ static u16 arm_spe_parse_gsi(struct acpi_madt_generic_interrupt *gicc)
+ 
+ /*
+  * For lack of a better place, hook the normal PMU MADT walk
+- * and create a SPE device if we detect a recent MADT with
+- * a homogeneous PPI mapping.
++ * and create a SPE device if we detect a recent MADT with a PPI
++ * mapping. The SPE overflow interrupt is described per CPU, so a
++ * GICC reporting 0 simply means that the CPU does not implement
++ * SPE; the arm_spe_pmu driver trims such CPUs from its supported
++ * CPUs using PMSVer.
+  */
+ static void arm_spe_acpi_register_device(void)
+ {
+ 	int ret = arm_acpi_register_pmu_device(&spe_dev, ACPI_MADT_GICC_SPE,
+-					       arm_spe_parse_gsi);
++					       arm_spe_parse_gsi, true);
+ 	if (ret)
+ 		pr_warn("ACPI: SPE: Unable to register device\n");
+ }
+@@ -185,7 +205,7 @@ static u16 arm_trbe_parse_gsi(struct acpi_madt_generic_interrupt *gicc)
+ static void arm_trbe_acpi_register_device(void)
+ {
+ 	int ret = arm_acpi_register_pmu_device(&trbe_dev, ACPI_MADT_GICC_TRBE,
+-					       arm_trbe_parse_gsi);
++					       arm_trbe_parse_gsi, false);
+ 	if (ret)
+ 		pr_warn("ACPI: TRBE: Unable to register device\n");
+ }
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index b70f3fedf028..6f1bacc78b1c 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -1102,6 +1102,21 @@ static void arm_spe_pmu_perf_destroy(struct arm_spe_pmu *spe_pmu)
+ 	perf_pmu_unregister(&spe_pmu->pmu);
  }
  
-+void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv)
++static unsigned int arm_spe_pmu_pmsver(void)
 +{
-+	INIT_DELAYED_WORK(&priv->timestamp, rkcanfd_timestamp_work);
++	return cpuid_feature_extract_unsigned_field(read_cpuid(ID_AA64DFR0_EL1),
++						    ID_AA64DFR0_EL1_PMSVer_SHIFT);
 +}
 +
- void rkcanfd_timestamp_init(struct rkcanfd_priv *priv)
++static void __arm_spe_pmu_trim_supported_cpus(void *info)
++{
++	struct arm_spe_pmu *spe_pmu = info;
++
++	if (!arm_spe_pmu_pmsver())
++		cpumask_clear_cpu(smp_processor_id(),
++				  &spe_pmu->supported_cpus);
++}
++
+ static void __arm_spe_pmu_dev_probe(void *info)
  {
- 	const struct can_bittiming *dbt = &priv->can.fd.data_bittiming;
-@@ -73,7 +78,6 @@ void rkcanfd_timestamp_init(struct rkcanfd_priv *priv)
- 	max_cycles = min(max_cycles, cc->mask);
- 	work_delay_ns = clocksource_cyc2ns(max_cycles, cc->mult, cc->shift);
- 	priv->work_delay_jiffies = div_u64(work_delay_ns, 3u * NSEC_PER_SEC / HZ);
--	INIT_DELAYED_WORK(&priv->timestamp, rkcanfd_timestamp_work);
+ 	int fld;
+@@ -1109,8 +1124,7 @@ static void __arm_spe_pmu_dev_probe(void *info)
+ 	struct arm_spe_pmu *spe_pmu = info;
+ 	struct device *dev = &spe_pmu->pdev->dev;
  
- 	netdev_dbg(priv->ndev, "clock=%lu.%02luMHz bitrate=%lu.%02luMBit/s div=%u rate=%lu.%02luMHz mult=%u shift=%u delay=%lus\n",
- 		   priv->can.clock.freq / MEGA,
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 95bea9bfd8a2f..e1debab54534e 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -480,6 +480,7 @@ struct rkcanfd_priv {
+-	fld = cpuid_feature_extract_unsigned_field(read_cpuid(ID_AA64DFR0_EL1),
+-						   ID_AA64DFR0_EL1_PMSVer_SHIFT);
++	fld = arm_spe_pmu_pmsver();
+ 	if (!fld) {
+ 		dev_err(dev,
+ 			"unsupported ID_AA64DFR0_EL1.PMSVer [%d] on CPU %d\n",
+@@ -1275,6 +1289,12 @@ static int arm_spe_pmu_cpu_startup(unsigned int cpu, struct hlist_node *node)
+ 	if (!cpumask_test_cpu(cpu, &spe_pmu->supported_cpus))
+ 		return 0;
  
- 	u32 reg_mode_default;
- 	u32 reg_int_mask_default;
-+	bool irq_suspended;
- 	struct rkcanfd_devtype_data devtype_data;
++	/* The CPU was offline during probe; trim it if it lacks SPE */
++	if (!arm_spe_pmu_pmsver()) {
++		cpumask_clear_cpu(cpu, &spe_pmu->supported_cpus);
++		return 0;
++	}
++
+ 	__arm_spe_pmu_setup_one(spe_pmu);
+ 	return 0;
+ }
+@@ -1331,7 +1351,7 @@ static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
+ {
+ 	struct platform_device *pdev = spe_pmu->pdev;
+ 	const struct cpumask *affinity;
+-	int irq;
++	int cpu, irq;
  
- 	struct cyclecounter cc;
-@@ -551,6 +552,7 @@ int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv);
+ 	irq = platform_get_irq_affinity(pdev, 0, &affinity);
+ 	if (irq < 0)
+@@ -1344,6 +1364,21 @@ static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
  
- void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
- 			       struct sk_buff *skb, const u32 timestamp);
-+void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_init(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_start(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_stop(struct rkcanfd_priv *priv);
-
+ 	cpumask_copy(&spe_pmu->supported_cpus, affinity);
+ 
++	/*
++	 * Heterogeneous systems may only implement SPE on a subset of the
++	 * CPUs covered by the interrupt affinity (ACPI in particular has
++	 * no affinity information and falls back to cpu_possible_mask).
++	 * SPE is self-describing through PMSVer, so drop the online CPUs
++	 * that do not implement it. CPUs that are offline at probe time
++	 * are checked when they come up.
++	 */
++	for_each_cpu(cpu, &spe_pmu->supported_cpus) {
++		if (cpu_online(cpu))
++			smp_call_function_single(cpu,
++						 __arm_spe_pmu_trim_supported_cpus,
++						 spe_pmu, 1);
++	}
++
+ 	spe_pmu->irq = irq;
+ 	return 0;
+ }
 -- 
-2.34.1
-
+2.55.0
 
 
