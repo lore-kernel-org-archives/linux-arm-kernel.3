@@ -4,72 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842EECC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18588CC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Zj5znr2Nom4HHOQbTJi5RMAPGgKLlClPXVSJoArmYI=; b=nTElmCMUWOwmxbttwZclEiemDN
-	MO+qTqMpaUrbraKUa+1Z9hTfr/vLfZzC6nJeS62IMR7r6R2c4hmZS1ybQMg2ds7zbito/5hYNwHu+
-	1OmUFC5GO0hFFFc7aLmDrHfme+zd/eCfBDcxXbVZRHf/N1IR3VRSDAEimbpzHXV9iBZYPPs8mib/G
-	RSU7cwFuaN63NwMSR79rVRJtJw9KRIIThd7KqMYWBZNqql+ChJStbApmjxWxT45gDb3A4L+WeT+wm
-	rrz406yUTX0Oq8u0xrXIxZZHdM+jov4O+6racNI+iR958DGMhKIL/EGYX8NatuFLox/be7WjcKfJM
-	Mb5jfJ5w==;
+	bh=lfNaC7G0CFtt6g5HK84/0GmEi2YR+Up4b6D59qzUdj8=; b=EHZ4lycup1Th0W3RZ4mOmpVMst
+	+BIjkwQp/00+7qw9xRfYMwz1+SxYP5tYx8SVJ3wZblilDGzZQG0F1NoW+TST7/F+ixYuF7+M86EX0
+	rqqODJF6z88UcRodpzEMGLzYJGT+BHrflHMAWizPZdobykpC6Lzub09W+pAZZtsK/lZnGBm5BoDHI
+	dJYjN2hG7qDXRPfUubFybVAn37Uh6pp0MwB3ZxhJLmnl/Vsfx0kzvKDBP7op7nffmt9eWrEo5nyzZ
+	BohcIeYtZSBHWwQ+MOn7cti1FBgq4MP72eNDebNBoa+Jd10RLzBPPmq66fQQholcK4gt4Sv+Lv0XT
+	Oe07643A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHW3-0000000HE8r-15xF;
-	Thu, 15 Oct 2026 09:12:47 +0000
-Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1])
+	id 1xHHW6-0000000HEA5-28eM;
+	Thu, 15 Oct 2026 09:12:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHW0-0000000HE7y-1A1a;
-	Thu, 15 Oct 2026 09:12:45 +0000
-Received: from localhost (unknown [213.135.10.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id AD3E148D;
-	Thu, 15 Oct 2026 11:12:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
-	t=1792055551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0Zj5znr2Nom4HHOQbTJi5RMAPGgKLlClPXVSJoArmYI=;
-	b=h4mnp7OYGlPKxKPsqXtOpEz9t3l1xHMXynyVgwvBejzSs1PxHS4dV2PL3DhdFs/sQyatFZ
-	pbKPj+jC+Q+bjYxpPbuK8uT/F2U9KA6Mxe/R5ZWlvVZe40PmaT04r+PA91UTvseqlpeaYa
-	+OkG2bBVBzGB/nCZNFxDacrX7ZoPRuxuXiFZ13zA+aACh3ChUpxOi8jRX075PupfINHOBn
-	bisuEkzn28Uzawb7qSk/yKNDN8lo4r50LF+yj642Q5DJToihOes11gvD5REA5iAtnvGRS0
-	00K4T0R0S7Ie6PwrHimZd6OEkbAfbMcpXzFFvp3F3Ui/PzAv4AxoLMN2HmKJPg==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=1bcab1df772fb139f8336f2aa8b8f79a6917ec2951c5e78cac2480ad5a3f;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Thu, 15 Oct 2026 11:12:28 +0200
-Message-Id: <DM5AO9LBE1OI.19L3SG4BQTNB0@walle.cc>
-Subject: Re: [PATCH v8 3/8] nvmem: core: take a reference on dev.of_node in
- nvmem_register()
-From: "Michael Walle" <michael@walle.cc>
-To: "Manikandan Muralidharan" <manikandan.m@microchip.com>,
- <pratyush@kernel.org>, <mwalle@kernel.org>, <takahiro.kuwano@infineon.com>,
- <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
- <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <srini@kernel.org>, <nicolas.ferre@microchip.com>,
- <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
- <linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
- <arnd@arndb.de>, <aaro.koskinen@iki.fi>, <gregkh@linuxfoundation.org>,
- <mathieu.dubois-briand@bootlin.com>, <linux-mtd@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <cover.1790847519.git.manikandan.m@microchip.com>
- <2e21cc4b871da8764e3a12d0ebdcf7cb799149ab.1790847519.git.manikandan.m@microchip.com>
-In-Reply-To: <2e21cc4b871da8764e3a12d0ebdcf7cb799149ab.1790847519.git.manikandan.m@microchip.com>
+	id 1xHHW5-0000000HE9G-32D4;
+	Thu, 15 Oct 2026 09:12:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lfNaC7G0CFtt6g5HK84/0GmEi2YR+Up4b6D59qzUdj8=; b=bdZUEbceMkzdN+aORzkkO78arR
+	0Dev+bSmk8dDcjRJzwIHr+gLZ/QiK7p4nDS8KR97VKU/HBA0nAb22NtUj10qqlCWffQpIpSRgNyad
+	k/TEg4ae/tA2rec7sFEe82yfpQ/abBSeHeGEssF439lWebdHzZqG1C5NvJ3/Q/XVlWJiHh7VaU/UW
+	iU0KGHAbqlBNbUf0Ay0VPEJ7tdwOBJkFjgFWn7Eg+vU2CMebLEhHF4IFQump7aHWkAJKqGW2wtsv0
+	KB2ElLmZ2F+CJYie9rBEJkXJdornoU+cijZ0kCOSxfRBJxKh/WhF4i6G0pcsmtY9DekGXnDxtl7v2
+	UWz3lnvA==;
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHHW0-000000009cG-0sE0;
+	Thu, 15 Oct 2026 09:12:47 +0000
+X-UUID: 8946baf0c87811f1a87c2323a98e90a4-20261015
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:fccc4dd7-6bdf-4c38-a5f6-ae467af890c4,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:291e20b,CLOUDID:7e5718fd-82fa-4755-85ae-ebe9525ab585,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8946baf0c87811f1a87c2323a98e90a4-20261015
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 149126805; Thu, 15 Oct 2026 17:12:24 +0800
+X-UUID: 85f07972c87811f1a9f9c99e036204b4-20261015
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:6c0fc86c-41a4-4d2d-8bb1-fd28e0d23b8d,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e276073,CLOUDID:42af6095-3103-4fdb-b79c-08de0e281a5d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
+	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
+	RC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 85f07972c87811f1a9f9c99e036204b4-20261015
+Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 985879827; Thu, 15 Oct 2026 17:12:19 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
+ Thu, 15 Oct 2026 17:12:17 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a%11]) with mapi id
+ 15.02.2562.043; Thu, 15 Oct 2026 17:12:17 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+CC: Sergey Ryazanov <ryazanov.s.a@gmail.com>, Johannes Berg
+	<johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Wen-Zhi Huang
+	<wen-zhi.huang@mediatek.com>, Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, "Minano
+ Tseng" <Minano.tseng@mediatek.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "Simon Horman" <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"Yu. Robert (GSM)" <robert_yu@compal.com>, "Chang. Jeff (GSM)"
+	<Jeff_Chang@compal.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v10 1/6] net: wwan: t9xx: Add PCIe core
+Thread-Topic: [PATCH v10 1/6] net: wwan: t9xx: Add PCIe core
+Thread-Index: AQHdXIVGsyD+Aq2AK0OYcS5BD0f6eA==
+Date: Thu, 15 Oct 2026 09:12:17 +0000
+Message-ID: <1686fe2dfdfd4a0890c037a53818aec1@compal.com>
+References: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
+ <20261014-t9xx_driver_v1-v10-1-4d0dde3613f5@compal.com>,<CAFEp6-0d86Mx1gardmN74WNFCerY00Pm1B=720tqOqKhz5EE1Q@mail.gmail.com>
+In-Reply-To: <CAFEp6-0d86Mx1gardmN74WNFCerY00Pm1B=720tqOqKhz5EE1Q@mail.gmail.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30258.005
+x-tm-as-result: No-10--15.752000-8.000000
+x-tmase-matchedrid: q6+TWfRxf4cuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZuZd
+	NI5cmL7EqJ63gZLKrOBDdLXYWGnDb52vFMfvZjTGiu6u4shZ+fFtT5dsVizXEi+IwZW+xLvQ9PE
+	ncRVMUNt0GOgwQ+Y9+BEz71V9WVMe28Nv2hpJvnB4lyF1lyvUrRnz+kO152KHwnWkERiSip3i9D
+	rRYAMc5Df8MHPNq3cEyrzRjZhtElOvngkjHjojpPe3el8uYlFT28gAxP/Ts6IH2l80MvY9heUo4
+	N9PjSkTthRFAcCnfMqUTGVAhB5EbQ==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--15.752000-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30258.005
+x-tm-snts-smtp: 6D4F98746250E19D728C3E331916E799E093B7B9BF113165B5D1611D73E97CB82000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_021244_526181_D12D4993 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20261015_101245_054564_DB6A5385 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +147,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1bcab1df772fb139f8336f2aa8b8f79a6917ec2951c5e78cac2480ad5a3f
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Wed Oct 14, 2026 at 8:40 AM CEST, Manikandan Muralidharan wrote:
-> nvmem_register() stores config->of_node (or config->dev->of_node)
-> into nvmem->dev.of_node without taking its own reference. Callers
-> that get the node via of_get_compatible_child() etc. and drop their
-> reference right after registering leave nvmem->dev.of_node backed by
-> no reference at all.
->
-> Take an of_node_get() when assigning nvmem->dev.of_node and release
-> it in nvmem_release(). Existing callers that hold their own get/put
-> pair around the registration call need no changes, since get/put on
-> a device_node is per-holder and independent of core now also holding
-> one.
->
-> Suggested-by: Michael Walle <mwalle@kernel.org>
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-
-Nice!
-
-Did you check if any callers are also taking a reference, which
-might not be needed anymore now.
-
-Reviewed-by: Michael Walle <mwalle@kernel.org>
-
--michael
-
-> ---
->  drivers/nvmem/core.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-> index 0556d140170a..98192597b935 100644
-> --- a/drivers/nvmem/core.c
-> +++ b/drivers/nvmem/core.c
-> @@ -541,6 +541,7 @@ static void nvmem_release(struct device *dev)
-> =20
->  	ida_free(&nvmem_ida, nvmem->id);
->  	gpiod_put(nvmem->wp_gpio);
-> +	of_node_put(nvmem->dev.of_node);
->  	kfree(nvmem->ops);
->  	kfree(nvmem);
->  }
-> @@ -950,9 +951,9 @@ struct nvmem_device *nvmem_register(const struct nvme=
-m_config *config)
->  	nvmem->keepout =3D config->keepout;
->  	nvmem->nkeepout =3D config->nkeepout;
->  	if (config->of_node)
-> -		nvmem->dev.of_node =3D config->of_node;
-> +		nvmem->dev.of_node =3D of_node_get(config->of_node);
->  	else
-> -		nvmem->dev.of_node =3D config->dev->of_node;
-> +		nvmem->dev.of_node =3D of_node_get(config->dev->of_node);
-> =20
->  	switch (config->id) {
->  	case NVMEM_DEVID_NONE:
-
-
---1bcab1df772fb139f8336f2aa8b8f79a6917ec2951c5e78cac2480ad5a3f
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCatCY/BEcbWljaGFlbEB3
-YWxsZS5jYwAKCRASJzzuPgIf+GofAYD9mcyrw6Fsl+MSjbGeqfOmb4MGExC9nDTZ
-ZOEr0wblbvSq2/743J69jXa4cWznv6UBgKoH3UHkbObCLUD2qJ/idZX/Ga9BD2Xc
-Qa+nNJFPjUjx0YIViZ9j8C25yOcdXP47fw==
-=lByw
------END PGP SIGNATURE-----
-
---1bcab1df772fb139f8336f2aa8b8f79a6917ec2951c5e78cac2480ad5a3f--
+SGkgTG9pYywNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQpPbiBXZWQsIE9jdCAxNCwgMjAy
+NiBhdCA4OjQ5IFBNIExvaWMgUG91bGFpbg0KPGxvaWMucG91bGFpbkBvc3MucXVhbGNvbW0uY29t
+PiB3cm90ZToNCj4gPiArI2luY2x1ZGUgPGxpbnV4L2RtYS1tYXBwaW5nLmg+DQo+ID4gKyNpbmNs
+dWRlIDxsaW51eC9kbWFwb29sLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4NCj4g
+PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPg0KPiA+ICsjaW5jbHVkZSA8bGludXgvc2NoZWQu
+aD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L3NsYWIuaD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L3Nw
+aW5sb2NrLmg+DQo+DQo+IExvb2tzIGxpa2UgYSBsb3Qgb2YgaGVhZGVycyBmb3Igc3VjaCBhIHNt
+YWxsIGhlYWRlciBmaWxlLiBDb3VsZCB5b3UNCj4gdHJpbSB0aGUgdW5uZWNlc3NhcnkgaW5jbHVk
+ZXM/IEZvciBleGFtcGxlLCBzcGlubG9jay5oIGRvZXNuJ3QgYXBwZWFyDQo+IHRvIGJlIHVzZWQu
+DQoNCldpbGwgZml4IGluIHYxMS4gIEFsbCBzZXZlbiBnbzogdGhlIGhlYWRlciBvbmx5IHVzZXMg
+QklUKCkgYW5kIHUzMiwgc28NCjxsaW51eC9iaXRzLmg+IGFuZCA8bGludXgvdHlwZXMuaD4gYXJl
+IGxlZnQsIHBsdXMgYSBmb3J3YXJkIGRlY2xhcmF0aW9uDQpmb3Igc3RydWN0IGRldmljZS4NCg0K
+PiA+ICsjZGVmaW5lIFNFVF9IV19CSVRTKGRlc3QsIGNocywgbWhjY2lmLCBkZXYpCQlcDQo+ID4g
+KwkoewkJCQkJCVwNCj4gPiArCQlpZiAoKGNocykgJiAoZGV2KSkJCQkJCVwNCj4gPiArCQkJKGRl
+c3QpIHw9IEZJRUxEX1BSRVAobWhjY2lmLCAxKTsJCVwNCj4gPiArCX0pDQo+DQo+IEEgc3RhdGlj
+IGlubGluZSBoZWxwZXIgd291bGQgYmUgY2xlYW5lci4NCg0KV2lsbCBmaXggaW4gdjExOg0KDQog
+IHN0YXRpYyBpbmxpbmUgdTMyIG10a19wY2lfbWFwX2V2dF9iaXQodTMyIHZhbCwgdTMyIGZyb20s
+IHUzMiB0bykNCiAgew0KCXJldHVybiAodmFsICYgZnJvbSkgPyB0byA6IDA7DQogIH0NCg0KRXZl
+cnkgbWFzayBpbnZvbHZlZCBpcyBhIHNpbmdsZSBiaXQsIHNvIEZJRUxEX1BSRVAobWFzaywgMSkg
+d2FzIGp1c3QNCm1hc2suICBUaGUgc2FtZSBoZWxwZXIgYWxzbyByZXBsYWNlcyB0aGUgRklFTERf
+UFJFUChGSUVMRF9HRVQoKSkgcGFpcnMNCmluIG10a19wY2lfZXh0X2QyaF9ldnRfY2hzKCksIHdo
+aWNoIGlzIHRoaXMgdHJhbnNsYXRpb24gaW4gdGhlIG90aGVyDQpkaXJlY3Rpb24uDQoNClRoYW5r
+cywNCkphY2s=
 
