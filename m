@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA7DCC6B33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964A5CC6B3A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyIHE1N8EhU4LfmaBkvq2F19q6tRD3/spV1VOIDMgLE=; b=cvJPHASqeWWgXlORywHbxAHGFo
-	YMboyJo5eaigvz2HauOeCXbO7/MP4er8Dcl+w+QwQi60rEVWUouZ9+H46wv8XIUEdPv5paUg/nG/W
-	8okyjW31E7hfo7dLJInMFgASsntmzWfDjJqaqxegDK/cqIrPHicONiCV1GYiVU/2zPCJfLPF6NXJK
-	N8XLFIBPhodB+DGQA1kqr9FUfYBkdpR47Bs/a40E8GME5PmIJh+rjVcEuVj7fXIOET4XU+gmS9RZ7
-	Tibl6UmyE/ArFJPybYJ5B1uoc0201cRe2K6oFM+543yH98GACuhvyD23546bbirtAusNJrtEr5LLG
-	yDmWhLfg==;
+	bh=oiw+Ywg3q4SDdbjvYQdD/LzLrfhjbZnHMXz+5Y1tQXI=; b=iPcRxR0Jz3V1OjA7YVcZk7j+2O
+	Y9H67kqeuWpFxN2nunmzQLiREYBoAcmWRwbsQFH5R7P+9QCkmVYKx+akcc9PuzPkXSHAozRWF6/Eu
+	pP5yFrXxYipsk3GpheIdi3pXdxH/aCJ4jusCfa3mxrtPnToDtMIINtwwL07EIUuuREJNZmP9+3zJE
+	9vntz5hY2s244bD3IiEQzSUMfeEBkIN32ED6C8W/cMkZ8R1uwS1Ngu5eKMkFAfwmWw+2Cv7zttqUB
+	cbZdxKvklUOZEBe4aqe2L8UvS75qu+3KwX9+swd9mSvWFwl8h/659yPhM0o3N9Fa1fqID2FkwpIBj
+	yDo8rkIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHL1R-00000000BSI-2Oxz;
+	id 1xHL1R-00000000BRx-1rkv;
 	Thu, 15 Oct 2026 12:57:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHL1Q-00000000BQs-1YgV
+	id 1xHL1O-00000000BPy-0L7c
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Oct 2026 12:57:24 +0000
+	Thu, 15 Oct 2026 12:57:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=OyIHE1N8EhU4LfmaBkvq2F19q6tRD3/spV1VOIDMgLE=; b=dIg6+z4L5oYSxl+HEOxmDIzbPm
-	HwVskEvSAsKXOsIdax674J6xGz5+xL87z7XEv8l3GTp7CoAK62uq969cFnS4pytnp/yZrpmcDzsi9
-	aSwNXmtBE+TZ++FA38gF8W8sW6NAdfJWGcuRWit54CWDV0ZZkAxf2m75L8LAPpA+UgZipiKynmlJ8
-	/K+H4oH23IKIFgyqUFIIPbBBLlq+8rsUDlf2sdf4+qMAc0pSSKOxS3mx5P66aUD2AKsiLgNYiD4RM
-	csvi3z8tM/ZnfQqYdMQiK+b5Oco83hwWUdvjW5D+xN8lnguqUVQNdjSPPPC7HB8TA7YiohtduJJLm
-	jVXMeOoA==;
-Received: from out-110.mta1.migadu.com ([95.215.58.110] helo=mta1.migadu.com)
+	bh=oiw+Ywg3q4SDdbjvYQdD/LzLrfhjbZnHMXz+5Y1tQXI=; b=H5q5EDHgbFjNkLLByIYgRmbGkn
+	7fNmkqzwxuSDd85HEQJ6EH806a2vEt+ftSy25Elx31JPqHVY9muZ83BVOwmRr0dQ/yfbGbiW6iuvS
+	YiJ/WEQ/dX1mXtO5v2p4kWb6sRWHRPGZRhTPfzpNSnxrcb/diOwtkI5fcSZ26vZjfl7MbOhvbCNh4
+	OUT5d37J1pJITqQUYLZ6OXLHpIv5EnthPdecMnuLDrMh6y7R7pMiYiHuZnw84zcCmS2kBBxQy38ua
+	mGBZuAoOJegTg07Xjd+FwBXbgzDMSd/fdskYf59OywELM+nXOKyjMf+UMq2zya00HFQiMBL2S4gfV
+	B6seTODw==;
+Received: from out-99.mta1.migadu.com ([95.215.58.99] helo=mta1.migadu.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHL1M-00000000Nwz-3nJw
+	id 1xHL1J-00000000Nvh-2xgG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:57:23 +0000
+	Thu, 15 Oct 2026 12:57:20 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=OyIHE1N8EhU4LfmaBkvq2F19q6tRD3/spV1VOIDMgLE=;
+DKIM-Signature: a=rsa-sha256; bh=uGgOTqoXN8cnMYnIr0hBIol3IrBC3WkVwqukxqDL3aM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792069039; v=1; x=1792673839;
- b=u6ZvII4K4fHTNkJedM9DiM+1QjA6nMzZUQPTQZcDsPmNKCt/CyvcO4Vp+BTDc2c6pI5A9knk
- LtpSKB+YivY06zTskjBZEsjTknobwUKVpGxm1uHwBbr9SndY+loN4Nb/Aq7DmaiLY5rQMeZTesT
- J68wAbNCe2ic1YyGljQ21TP4=
+ t=1792069036; v=1; x=1792673836;
+ b=ilDjPIiXt1iyGqGkqvHL5Yhnpd57tgsq7uQp3cSdvbZ9dCKIx7dCqm/9D2zgxEu/n+05U9/V
+ BuA03TmTjsluEhfLaVg1sbryIcYNdx7tqb+xr2Dhmz04lCkwCNgXZl8uwDysVOKZGW98oTYwAoM
+ sEWEIQ9S0yRa20pK8DzTIIh4=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fe94d5db4e3b8dd5;
-	Thu, 15 Oct 2026 12:57:19 +0000
-X-Mizu-Trace-ID: fe94d5db4e3b8dd5
+Received: by smtp.migadu.com with ESMTPS id 860c7ff0ce382135;
+	Thu, 15 Oct 2026 12:57:15 +0000
+X-Mizu-Trace-ID: 860c7ff0ce382135
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>
@@ -66,18 +66,17 @@ Cc: Oliver Upton <oupton@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 5/7] KVM: arm64: Add helpers to halt a vCPU
-Date: Thu, 15 Oct 2026 13:57:16 +0100
-Message-Id: <20261015125716.2650737-1-fuad.tabba@linux.dev>
+Subject: Re: [PATCH 2/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being saved
+Date: Thu, 15 Oct 2026 13:57:13 +0100
+Message-Id: <20261015125713.2650696-1-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20261015100539.1011760-6-maz@kernel.org>
-References: <20261015100539.1011760-6-maz@kernel.org>
+In-Reply-To: <20261015100539.1011760-3-maz@kernel.org>
+References: <20261015100539.1011760-3-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_135721_331811_BC960921 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_135718_799963_7CBCFDC9 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,15 +93,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Marc,
 
-On Thu, 15 Oct 2026 11:05:37 +0100, Oliver Upton <oupton@kernel.org> wrote:
+On Thu, 15 Oct 2026 11:05:34 +0100, Marc Zyngier <maz@kernel.org> wrote:
 [...]
-> Signed-off-by: Oliver Upton <oupton@kernel.org>
-> Link: https://patch.msgid.link/20260929212925.31775-2-oupton@kernel.org
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> However, code that uses OUTSIDE_GUEST_MODE as a synchronisation point
+> relies on the vcpu state to have been written back to the in-memory
+> structures. Clearly, this is not what is happening
 
-Should this one have a Cc: stable too? Patch 6 is tagged for stable and
-calls kvm_pause_vcpu() and kvm_resume_vcpu(), so it won't build in
-stable without this patch.
+nit: missing full stop.
+
+[...]
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+[...]
+> @@ -1390,6 +1389,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>
+>  		kvm_arch_vcpu_ctxsync_fp(vcpu);
+>
+> +		/*
+> +		 * All the state has been synchronised, let advertise
+> +		 * we're outside of the guest.
+> +		 */
+> +		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+
+nit: could this say the vgic state rather than all the state? In pKVM,
+a non-protected guest's context comes back later, in
+handle_exit_pkvm_state() or on demand, and with VHE the EL1 sysregs
+stay on the CPU until vcpu_put(). Also "let's advertise".
 
 Cheers,
 /fuad
