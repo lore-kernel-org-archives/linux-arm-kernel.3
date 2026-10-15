@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2D0CCA461
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333EDCCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2X5Xp+BJcYwXpTBYZNho1k6G5fHOnIzC5YhX1BoUzhA=; b=nzswX8tMsuSugETFeK8lmH15Tb
-	fbrPXDW513nEtBq1R5mZBvWNJh8jQfT92DtEDmrNAmMzSlySrFNiyv8ys6w/UHP7STbeJsyBS3BCK
-	PLvyFHH5W443qGK3GHMXYhJGh2N0A/lcD7L8ue8ygqFsuYCAxEfdnOIJjGnYsXKaESApgbtEtLidV
-	dGs6Gdx8vOf0/AyXpuPEAfJeDfaZh+awrqG38+UKXkDzSD3N+OenM4FzTqIf6em3g3uCSNk46qc3B
-	AXe3ssFkjSYwb/xWN+IHcwpJjkJad0mzcFS5fS1ySm9bGEZQ5grpdi+XSwMo6fDec9s8O4bXbAnR+
-	G5Nh/d6A==;
+	bh=THdXiYAEn5Oz4oBQv+RuuXZHfCgfy9dp1ghQ5rbYac0=; b=ij/nWJD9L1dyQgla4Vinov7UVo
+	/6xAT5CuVCqkM1TOcak3RxJ4TEzsQRmYUIPEO+9OBH5N9nwU52SxkRZXj55iUebftX6O1+u3h3Dwl
+	3OV00gyr8h69BR6BvCYlvYOAMYXBLijKLrOKmoscmwKX/QVkhq80RRQtMKKmqF5n35vwK2Yu+YHRc
+	gfjl/BacOM37NJ68MaK8TEVjFwGQt62KO7QTa8dgh2Vi9kyNwKddkz3yaF59Sohaio1Uvh27XHNjr
+	+rPY3pscSJpGlO9bbeu80qBJip+KWMG9YUqZ2sVQyEGyZzAkd9epvy6JXDDa+ZxWuFqXXk69MQuFY
+	KXJQOHjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMQC-00000000Msg-3dex;
-	Thu, 15 Oct 2026 14:27:04 +0000
+	id 1xHMQW-00000000NAn-075y;
+	Thu, 15 Oct 2026 14:27:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMPv-00000000Mbc-3Vwf
+	id 1xHMQ0-00000000Mbc-3EEc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:26:51 +0000
+	Thu, 15 Oct 2026 14:26:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70C36175A;
-	Thu, 15 Oct 2026 07:26:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2CC11516;
+	Thu, 15 Oct 2026 07:26:48 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 823663F871;
-	Thu, 15 Oct 2026 07:26:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5CE483F871;
+	Thu, 15 Oct 2026 07:26:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792074405; bh=PXqy5CTIvVyabhSobcDo5UynTRm8mgLyLlhfsHWhUkg=;
+	t=1792074412; bh=DNQETDEyak8naSY4EIpo/+mHp8XBiRhp+IR8g1J6GgY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S5ZNRTzfTolZ+Gox3+EeghnFvOjOfvisyiJqfkcRnXbzdW9A9ndtPBMqlauFmqpdz
-	 rg6I6zNLJIjuTgVkZBSLh1Xffq/q77Q/SDEhlFVQ98mbDoAgIy3LrXdki0Pdf9LDui
-	 f246UeemzOG1S0I1I8k1XtVaOzqh6IFG3XaYQNCg=
+	b=WSqW9q7XxyuwSmz+6ydn2qmvCylqqdgvQfEHsW3ZI+CVk3toxpkOv3457nY01jAmL
+	 oWUcu0zVjHtRyNGSfcRP8POyzvzunYIOcPRzXWxewluJvrIlTeKE6qgG26Zlih/5MS
+	 N5PAD9oOQ+iEmQkBbG+Lt+WGtdQFCc3+qpopbsKY=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Arnd Bergmann <arnd@arndb.de>,
@@ -63,17 +63,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 12/15] vfio: Support VFIO devices that access the CPU MMU
-Date: Thu, 15 Oct 2026 15:25:46 +0100
-Message-ID: <20261015142552.4128028-13-ryan.roberts@arm.com>
+Subject: [RFC PATCH v2 14/15] misc/arm-cla: Support exclusive context assignment
+Date: Thu, 15 Oct 2026 15:25:48 +0100
+Message-ID: <20261015142552.4128028-15-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
 References: <20261015142552.4128028-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_072647_982587_0DCFAB2C 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20261015_072653_848377_1CAB9B6F 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,177 +90,122 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jpb@kernel.org>
 
-Support devices that are attached to a CPU and perform DMA through a
-MMU. They do not have an IOMMU and do not use a VFIO container.
-The VMM needs device-specific knowledge in order to create a virtual
-device (device tree, ACPI tables), so it also knows not to allocate a
-container.
+Introduce a nr_contexts members to cla_domain to count the mapped
+contexts. At the moment PL0 contexts share the domain, while PL1
+contexts require exclusive assignment, since there is no context
+save/restore. A negative count indicates the domain is exclusive.
 
 Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
 ---
- drivers/vfio/group.c     | 37 +++++++++++++++++++++++++++++--------
- drivers/vfio/vfio.h      |  5 +++++
- drivers/vfio/vfio_main.c | 16 +++++++++++++++-
- include/linux/vfio.h     |  1 +
- 4 files changed, 50 insertions(+), 9 deletions(-)
+ drivers/misc/arm-cla/arm-cla.h |  2 ++
+ drivers/misc/arm-cla/cla-ctx.c | 44 ++++++++++++++++++++++++++++++++--
+ 2 files changed, 44 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
-index b2299e5bc6df..99d85880a41c 100644
---- a/drivers/vfio/group.c
-+++ b/drivers/vfio/group.c
-@@ -120,7 +120,7 @@ static int vfio_group_ioctl_set_container(struct vfio_group *group,
- 		return -EBADF;
+diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
+index c9ecab5ab6bf..43a58a329525 100644
+--- a/drivers/misc/arm-cla/arm-cla.h
++++ b/drivers/misc/arm-cla/arm-cla.h
+@@ -105,6 +105,7 @@ struct cla_dev {
+  * @lock:		Protects the following members.
+  * @ctxs:		All live contexts, keyed on cla_ctx_key.
+  * @queued_ctxs:	Queue of contexts waiting for assignment.
++ * @nr_ctxs:		Context count. Negative value for exclusive assignment.
+  * @worker:		Kthread worker to coordinate reassignment.
+  * @reassign:		Delayed work that switches contexts with time slicing.
+  *
+@@ -120,6 +121,7 @@ struct cla_domain {
  
- 	mutex_lock(&group->group_lock);
--	if (vfio_group_has_iommu(group)) {
-+	if (vfio_group_has_iommu(group) || group->type == VFIO_CPU_MMU) {
- 		ret = -EINVAL;
- 		goto out_unlock;
- 	}
-@@ -173,7 +173,8 @@ static int vfio_df_group_open(struct vfio_device_file *df)
- 	int ret;
- 
- 	mutex_lock(&device->group->group_lock);
--	if (!vfio_group_has_iommu(device->group)) {
-+	if (!vfio_group_has_iommu(device->group) &&
-+	    device->group->type != VFIO_CPU_MMU) {
- 		ret = -EINVAL;
- 		goto out_unlock;
- 	}
-@@ -635,7 +636,8 @@ static bool vfio_group_has_device(struct vfio_group *group, struct device *dev)
- 	return false;
+ 	struct mutex lock;
+ 	bool broken;
++	long nr_ctxs;
+ 	struct rhashtable ctxs;
+ 	struct list_head queued_ctxs;
+ 	struct cla_ctx *assigned_ctx;
+diff --git a/drivers/misc/arm-cla/cla-ctx.c b/drivers/misc/arm-cla/cla-ctx.c
+index 0489bf7a103f..f956cc88909f 100644
+--- a/drivers/misc/arm-cla/cla-ctx.c
++++ b/drivers/misc/arm-cla/cla-ctx.c
+@@ -39,6 +39,38 @@ static inline void cla_ctx_put_pl1(struct cla_ctx *ctx)
  }
+ #endif
  
--static struct vfio_group *vfio_group_find_or_alloc(struct device *dev)
-+static struct vfio_group *vfio_group_find_or_alloc(struct device *dev,
-+						   enum vfio_group_type type)
- {
- 	struct iommu_group *iommu_group;
- 	struct vfio_group *group;
-@@ -662,12 +664,13 @@ static struct vfio_group *vfio_group_find_or_alloc(struct device *dev)
- 	mutex_lock(&vfio.group_lock);
- 	group = vfio_group_find_from_iommu(iommu_group);
- 	if (group) {
--		if (WARN_ON(vfio_group_has_device(group, dev)))
-+		if (WARN_ON(vfio_group_has_device(group, dev)) ||
-+		    WARN_ON(group->type != type))
- 			group = ERR_PTR(-EINVAL);
- 		else
- 			refcount_inc(&group->drivers);
- 	} else {
--		group = vfio_create_group(iommu_group, VFIO_IOMMU);
-+		group = vfio_create_group(iommu_group, type);
- 	}
- 	mutex_unlock(&vfio.group_lock);
- 
-@@ -681,10 +684,18 @@ int vfio_device_set_group(struct vfio_device *device,
- {
- 	struct vfio_group *group;
- 
--	if (type == VFIO_IOMMU)
--		group = vfio_group_find_or_alloc(device->dev);
--	else
-+	switch (type) {
-+	case VFIO_IOMMU:
-+	case VFIO_CPU_MMU:
-+		group = vfio_group_find_or_alloc(device->dev, type);
-+		break;
-+	case VFIO_EMULATED_IOMMU:
-+	case VFIO_NO_IOMMU:
- 		group = vfio_noiommu_group_alloc(device->dev, type);
-+		break;
-+	default:
-+		group = ERR_PTR(-EINVAL);
-+	}
- 
- 	if (IS_ERR(group))
- 		return PTR_ERR(group);
-@@ -761,6 +772,11 @@ int vfio_device_group_use_iommu(struct vfio_device *device)
- 
- 	lockdep_assert_held(&group->group_lock);
- 
-+	if (group->type == VFIO_CPU_MMU) {
-+		get_file(group->opened_file);
-+		return 0;
-+	}
-+
- 	if (WARN_ON(!group->container))
- 		return -EINVAL;
- 
-@@ -777,6 +793,11 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device)
- 
- 	lockdep_assert_held(&group->group_lock);
- 
-+	if (group->type == VFIO_CPU_MMU) {
-+		fput(group->opened_file);
-+		return;
-+	}
-+
- 	if (WARN_ON(!group->container))
- 		return;
- 
-diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
-index 7728bc99b63d..07c5223612d3 100644
---- a/drivers/vfio/vfio.h
-+++ b/drivers/vfio/vfio.h
-@@ -64,6 +64,11 @@ enum vfio_group_type {
- 	 * taint the kernel.
- 	 */
- 	VFIO_NO_IOMMU,
-+
-+	/*
-+	 * Physical devices using the CPU MMU
-+	 */
-+	VFIO_CPU_MMU,
- };
- 
- #if IS_ENABLED(CONFIG_VFIO_GROUP)
-diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-index 423ead48aafe..41fee81a14cb 100644
---- a/drivers/vfio/vfio_main.c
-+++ b/drivers/vfio/vfio_main.c
-@@ -344,7 +344,8 @@ static int __vfio_register_dev(struct vfio_device *device,
- {
- 	int ret;
- 
--	if (WARN_ON(IS_ENABLED(CONFIG_IOMMUFD) &&
-+	if (type != VFIO_CPU_MMU &&
-+	    WARN_ON(IS_ENABLED(CONFIG_IOMMUFD) &&
- 		    (!device->ops->bind_iommufd ||
- 		     !device->ops->unbind_iommufd ||
- 		     !device->ops->attach_ioas ||
-@@ -415,6 +416,19 @@ int vfio_register_emulated_iommu_dev(struct vfio_device *device)
- }
- EXPORT_SYMBOL_GPL(vfio_register_emulated_iommu_dev);
- 
-+/*
-+ * Register a devices that accesses memory through the CPU MMU. Although it
-+ * doesn't use an IOMMU, the device must have an IOMMU group.
-+ */
-+int vfio_register_cpu_mmu_dev(struct vfio_device *device)
++static int cla_domain_get(struct cla_domain *domain, bool share)
 +{
-+	if (!IS_ENABLED(CONFIG_VFIO_GROUP))
-+		return -EOPNOTSUPP;
++	lockdep_assert_held(&domain->lock);
 +
-+	return __vfio_register_dev(device, VFIO_CPU_MMU);
++	if (share) {
++		/* Time share the domain with other contexts. */
++		if (domain->nr_ctxs < 0)
++			return -EBUSY;
++		domain->nr_ctxs++;
++		WARN_ON(domain->nr_ctxs < 0); /* LONG_MAX contexts?! */
++	} else {
++		/* Reserve the domain for exclusive assignment. */
++		if (domain->nr_ctxs != 0)
++			return -EBUSY;
++		domain->nr_ctxs--;
++	}
++	return 0;
 +}
-+EXPORT_SYMBOL_GPL(vfio_register_cpu_mmu_dev);
 +
- /*
-  * Decrement the device reference count and wait for the device to be
-  * removed.  Open file descriptors for the device... */
-diff --git a/include/linux/vfio.h b/include/linux/vfio.h
-index 45f08986359e..7d3a5ff1ad00 100644
---- a/include/linux/vfio.h
-+++ b/include/linux/vfio.h
-@@ -337,6 +337,7 @@ static inline void vfio_put_device(struct vfio_device *device)
- 	put_device(&device->device);
- }
++/* Undo cla_domain_get() */
++static void cla_domain_put(struct cla_domain *domain)
++{
++	lockdep_assert_held(&domain->lock);
++
++	if (domain->nr_ctxs == -1)
++		domain->nr_ctxs = 0;
++	else if (domain->nr_ctxs > 0)
++		domain->nr_ctxs--;
++	else
++		WARN(1, "invalid domain refcount %ld\n", domain->nr_ctxs);
++}
++
+ /**
+  * cla_ctx_create - Create a context or increase its user count
+  * @domain: CLA domain
+@@ -53,7 +85,7 @@ struct cla_ctx *cla_ctx_create(struct cla_domain *domain,
+ 			       struct cla_ctx_key *key)
+ {
+ 	struct cla_ctx *ctx;
+-	int ret = -ENOMEM;
++	int ret;
  
-+int vfio_register_cpu_mmu_dev(struct vfio_device *device);
- int vfio_register_group_dev(struct vfio_device *device);
- int vfio_register_emulated_iommu_dev(struct vfio_device *device);
- void vfio_unregister_group_dev(struct vfio_device *device);
+ 	mutex_lock(&domain->lock);
+ 	ctx = cla_domain_lookup_ctx(domain, key);
+@@ -68,9 +100,14 @@ struct cla_ctx *cla_ctx_create(struct cla_domain *domain,
+ 		goto err_unlock;
+ 	}
+ 
++	ret = cla_domain_get(domain, key->type == CLA_CTX_PL0);
++	if (ret)
++		goto err_unlock;
++
++	ret = -ENOMEM;
+ 	ctx = kzalloc_obj(*ctx, GFP_KERNEL_ACCOUNT);
+ 	if (!ctx)
+-		goto err_unlock;
++		goto err_put_domain;
+ 
+ 	kref_init(&ctx->refcnt);
+ 	refcount_set(&ctx->users, 1);
+@@ -116,6 +153,8 @@ struct cla_ctx *cla_ctx_create(struct cla_domain *domain,
+ 		cla_ctx_put_pl1(ctx);
+ 	}
+ 	kfree(ctx);
++err_put_domain:
++	cla_domain_put(domain);
+ err_unlock:
+ 	mutex_unlock(&domain->lock);
+ 	return ERR_PTR(ret);
+@@ -161,6 +200,7 @@ void cla_ctx_destroy(struct cla_domain *domain, struct cla_ctx_key *key)
+ 	 */
+ 	if (domain->assigned_ctx == ctx)
+ 		cla_domain_schedule_reassignment(domain);
++	cla_domain_put(domain);
+ 	mutex_unlock(&domain->lock);
+ 
+ 	/* Release initial reference from cla_ctx_create(). */
 -- 
 2.43.0
 
