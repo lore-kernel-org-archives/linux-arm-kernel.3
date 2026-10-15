@@ -4,131 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FDCCC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93F6CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=; b=IX1Xdybt8vUDQMdg8Lq8jao8Ne
-	kcM+ipmAekrHVOJa0Vx6OU4FLMiwnEhH4SUI+OfkK9nYwMMrTTc76afJTmooa550jAe+Y1HQSop1/
-	1RAHX1p9WrLsUTIMYoBJCe4vSCwqeUkyBEUsZIcODbmp/tKiwmUYNxpmIE0qPx20RsNFgOBgLJF7s
-	AMgR0RQ09O4qhtoO6/+PIik+JzpUlECfZsYfbpTW2Wz/HBp2gwxzsiqCelizGXgtHb/hziaBcMdxH
-	FQ4wMCWNs9YMoYXTK3GmAHrVRnqNFM1UXDBNp9Q+1YOWAatHpKthB/I0G2cZ8cunQ1nf45WRrqxSh
-	zRgL4n2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RhOXfJe2evQSmltYZcqoysV/ojsK0GjNWYjg2pyAuN0=; b=XvwwFZsGtp821FpUusCP0+npJV
+	6t/ZcjOb/KuSfOGnx3iv3hVtWoRRkS/gr8pPMKasODDDQb1tcM6cJ8hSBhXo/QvqDrnjyeHStfdDP
+	vlZc17ralQ63Zgt+SbzDTKRdHsmfvBTi9jVRwqLlJQgWejzamOWyyDUXnl/lhwjUpwj2EO/i9gR8l
+	alIdn7y/98K9u8uIBewdA7nlIhtX0fNdNFS9hzPzoL1BTFjHPwtexcZ2s21E3Yn6hv16ffCGUWe8O
+	S3MwDI033G0FcIXQbJwC+EdjYLnokUxl/gupBYv459THCHNrXYooGRXXpS67LNk3xKcmhRn4q8nXT
+	OOZIV7EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHcj-0000000HF0n-0yVB;
-	Thu, 15 Oct 2026 09:19:41 +0000
-Received: from mail-northeuropeazhn150100000.outbound.protection.outlook.com ([2a01:111:f403:da00::] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xHHe9-0000000HFEm-2VwD;
+	Thu, 15 Oct 2026 09:21:09 +0000
+Received: from 0001.3ffe.de ([159.69.201.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHcf-0000000HEzw-0CNV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 09:19:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YWh/ohwIUeO0zg+fJo9YzPIVe5Bzq7Sql/dqswfTGzN/B9ul5oLIutxK5fWR5Sp12F+IdxM0pSa2PFLTDPv61tK2p07qULA/xmkKgMSXtbhwFrCKlAspTrz28g1/isUpVbfDN5NviUYEO1hNc1Yj2I8EE9PW1WRJrey0DLF/THwKnDEP0fN3I5ykCIpnIzqT4ywHmJAXUUrqfgEefpKT3ryWJC78GJxFMziq+gdOHes/vWOWlFSpeOOh3zLSrITvaEiyw//AkHKiNi/rHTM69F5Cc35dV3wziyT+3OlhwYQ+Iamd5tPzDbFGmXlDdhAGHSweYtNjjds6Lv/y/6kWiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=;
- b=GtoaGjwVXa/muo7QZArLkNglYWr06f+IFREw6D3c8TJJB2JOlhT3KVjfHgQUuReMRRpWgZTGBpJ5Y/rivimzc76NDadDfJPVMg0biu7ezvhssfxImaPkTg763Ng5BjLK1+fP1whGTEHjOg6MSWBSDNfYeu/gUixa/km2Cx8WtqLjAsyn8A+UbVazHQMeFzbKcsVUkrv7TO6+rYU/Yxu+LZVY/EZig8OJeu7Up3P7O64soNQOUEIzFIG/Ke5Ij3E7dA5uUGfrMMW3C/N+Js9edjtA12VZCchRTPUTy476w15PQRiji92x4AmQBIYQ52BwBqsicZh3bqj+WeShONQMlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=;
- b=BHM9Kf/GeZTLI/Rs60QAU5bXc/93IpWuprf8D5+Ctdf5msnJ3C+NrV8cf/1rOHFHQDQTCntN3gEKcaj0zKDV5Z1FajEJOGl2XOI3hC7WFq7O+KP0T9oPyhDI6GiJCEhPQE8fEtPK6u/+GKY48MHX5MMXVT2fv2olM2bz0OqZ9sSrguviOB9VTNQuoBs+O+sl8SLwHo34g65UFCIag2OBNzP8gPwRy2H62xiujDJsm9coATDM+MTrjhZl43HP2UetCTHZ+FGYjjdQumobeFBr3SjOhrhD5zRpPfRjhxAHC/s1PE24SQ9njIi0hu7gCslbVWOYthG1RAsihL5dfsJTYQ==
-Received: from AS8PR04CA0168.eurprd04.prod.outlook.com (2603:10a6:20b:331::23)
- by DU0PR10MB6344.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:410::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.24; Thu, 15 Oct
- 2026 09:19:25 +0000
-Received: from CPH1EPF0000052C.eurprd05.prod.outlook.com
- (2603:10a6:20b:331:cafe::5b) by AS8PR04CA0168.outlook.office365.com
- (2603:10a6:20b:331::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Thu, 15
- Oct 2026 09:19:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- CPH1EPF0000052C.mail.protection.outlook.com (10.167.241.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 09:19:24 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
- 2026 11:19:37 +0200
-Received: from [10.48.87.64] (10.48.87.64) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
- 2026 11:19:21 +0200
-Message-ID: <436ef0bf-4146-435d-8252-acec68e64b9e@foss.st.com>
-Date: Thu, 15 Oct 2026 11:19:19 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
- filter
-To: Conor Dooley <conor@kernel.org>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
- <20261001145702.2628429-2-olivier.moysan@foss.st.com>
- <20261001-tribesman-gauze-862e1ef0cdd8@spud>
- <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
- <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
- <950f2801-a613-4f5a-a5a7-cb30101cf293@foss.st.com>
- <20261009-8db882a9fa159f8759aa7327@squawk>
- <2ba9235f-182e-4906-92e2-e35cf831d289@foss.st.com>
- <20261014-untrimmed-partly-81a4a21db49c@spud>
- <48e528a5-0c54-4778-bd29-b6f44ae95be7@foss.st.com>
- <20261014-unmade-sphinx-71cb25110d58@spud>
-Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <20261014-unmade-sphinx-71cb25110d58@spud>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.64]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CPH1EPF0000052C:EE_|DU0PR10MB6344:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f96cf35-b4ff-4f92-0a83-08df2a9d67a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|34020700016|82310400026|23010399003|36860700016|56012099006|261009221727099003|11063799006|4143699003|261009223327099003|261009220027099003|261009223027099003|261009221227099003|10067099003|18002099003|6133799003|13003099007|22082099003|3023799007|12100799066;
-X-Microsoft-Antispam-Message-Info: 3hY7nlWWB8F0Q1kXr4zF6nI/attkFCXgdUPI3BnhroFdZnFOh48UOIztOjLts032Z9RXFVMIYzBrcWqigXYHys9LmtPJdmrs1xbOZXHc5E789b3vN2WPuD9wQXr5D+w7PZhY0mZnnV/jCNLZWBgpw4yg21wgIiDB8YpplLy4yDo+l45SHn1I+xAf3kEkWRmukPs8q8aTN0OYGNnLG8AAeAjqT7lOl4Htz2/uy9eWW9afrbr5K9Sy7N41+Z5cNB6roGxEoqbv3bXS0BAxeet2/+05y9Uj0Ea3NRYtk6VgC+MUqm2DJSWSf66nUet2KCzPhPb1bDJls3yoSY3XcwTg1UziWiO3PextqMapRUv5mz8ZyamuOcU5TIXU8imn8F8dzoAyHrVi45V2jpvChegavF2AQzPN9pG7UIriDUQXhic3mnSsOKo6+Y5yNAuMeYCtq1ekxKYR7DF6FOfqcLFMsbre4239pPlhCta7mtsUaD3s0D2d+OOGeVxzI7MV7WSa7h/D9ZK4VBsQrKWBpLAqK6mbftWY5ObrG24lv4KX0j33c3uwLOO7UVMA/QkbTj5TFvxUJVScVDUEl98vMw6y5kOGPlV8O2QPJTvlVXUpf99k/Y+sGP5Osh2fKNPevH5RqDSLWMjvQoJ5f1mfVb7Z4w==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(34020700016)(82310400026)(23010399003)(36860700016)(56012099006)(261009221727099003)(11063799006)(4143699003)(261009223327099003)(261009220027099003)(261009223027099003)(261009221227099003)(10067099003)(18002099003)(6133799003)(13003099007)(22082099003)(3023799007)(12100799066);DIR:OUT;SFP:1501;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vLPT1DzigKuJKThgrf1wD0/xTDnG/2VUeb4sj9ZJ7OcZrwIT/5gx9lbf+GdUAipRig0krAjf2YYZYsQSSlTqXryOYTm7jrtdQdY/X2gmBxnlv6O4+q9O1gUVN+I8NzI28O5lVZNo4kTLEusTp819kVTQEKhhO5uWM7LMuRaVsP02S2Qed+PG954sdMSHdowQRrQLDgd4noFHI+QPj0xQNDcfT/ZvcXjnl1ll8uxsv3QKtnqOwHFXHSyzrG699SJdtvFkPRXfTTYGLo7B53rC5IEEAIK/BhNa7nGdE5PZwb7FnYZeJzPU1xQOw+SWCLDXO3rCTigTT5r5sFYo+5Eh46eojpqaF2Yd5MmnGDjjfS4KoRUGlE4muBi/DNdEeexfm8ANLMa52xi8EpC2/H2+lbo+sr3RTye/W6eAArLIjJx6yxSIyL3TCmAhPYX1+KCs
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 09:19:24.5983
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f96cf35-b4ff-4f92-0a83-08df2a9d67a4
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF0000052C.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6344
+	id 1xHHe7-0000000HFDz-0MrB;
+	Thu, 15 Oct 2026 09:21:08 +0000
+Received: from localhost (unknown [213.135.10.150])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 57DC648D;
+	Thu, 15 Oct 2026 11:21:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
+	t=1792056064;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RhOXfJe2evQSmltYZcqoysV/ojsK0GjNWYjg2pyAuN0=;
+	b=qkTBo9hI6+sPXqeenT12ELPrdYL0GOJOtyFSPIXgxRq6GK4IMmNUqa4zVqQwJyGhapmTjI
+	ku5fbIeLlZw9IMaQV0mZxTKY7LL9rrPyW0jWHGVvz4VcSokzRzM+x9FQfuq8p5uBKgDVL1
+	wtN+QkhNuhLSM3kvlPcr7dkJPfzp0F4NcZ4qJxGJ4svJz0IrIXK5JIxlR0zK3Z8rl8WU8D
+	+VI81JPzU0CjbUX7sCpRqh40Fky5f3U0viqxNrw55gL8fqrdBVObQaQcLOzzGF0DCgapz2
+	Nv2v9AHnch1xy+b/hPijrh81mUG2kPf0svxawFPomN+5yrYI4o7MY9XDkHXEuA==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=499acbdbca56ee494925b2505869d62d751ec95367d3b21bbc9e541b217b;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Thu, 15 Oct 2026 11:21:02 +0200
+Message-Id: <DM5AUTOSX5TD.2RD50MZ8S8GAF@walle.cc>
+Subject: Re: [PATCH v8 4/8] mtd: spi-nor: sfdp: expose the SFDP as a
+ read-only NVMEM device
+From: "Michael Walle" <michael@walle.cc>
+To: "Manikandan Muralidharan" <manikandan.m@microchip.com>,
+ <pratyush@kernel.org>, <mwalle@kernel.org>, <takahiro.kuwano@infineon.com>,
+ <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+ <linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
+ <arnd@arndb.de>, <aaro.koskinen@iki.fi>, <gregkh@linuxfoundation.org>,
+ <mathieu.dubois-briand@bootlin.com>, <linux-mtd@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
+X-Mailer: aerc 0.20.0
+References: <cover.1790847519.git.manikandan.m@microchip.com>
+ <093672d183a06dc2f37366b2f9ff144316850863.1790847519.git.manikandan.m@microchip.com>
+In-Reply-To: <093672d183a06dc2f37366b2f9ff144316850863.1790847519.git.manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_021937_470518_036F2551 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20261015_022107_273340_372E08D2 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,217 +84,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+--499acbdbca56ee494925b2505869d62d751ec95367d3b21bbc9e541b217b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On 10/15/26 00:49, Conor Dooley wrote:
-> On Wed, Oct 14, 2026 at 06:51:45PM +0200, Olivier MOYSAN wrote:
->> On 10/14/26 17:15, Conor Dooley wrote:
->>> On Mon, Oct 12, 2026 at 02:56:04PM +0200, Olivier MOYSAN wrote:
->>>> On 10/9/26 21:12, Conor Dooley wrote:
->>>>> On Thu, Oct 08, 2026 at 06:37:26PM +0200, Olivier MOYSAN wrote:
->>>>>> On 10/8/26 12:11, Conor Dooley wrote:
->>>>>>> On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
->>>>>>>> On 10/1/26 20:32, Conor Dooley wrote:
->>>>>>>>>
->>>>>>>>>> +
->>>>>>>>>> +required:
->>>>>>>>>> +  - compatible
->>>>>>>>>> +  - reg
->>>>>>>>>> +  - ranges
->>>>>>>>>> +  - clocks
->>>>>>>>>> +  - clock-names
->>>>>>>>>> +  - clock-ranges
->>>>>>>>>> +  - "#address-cells"
->>>>>>>>>> +  - "#size-cells"
->>>>>>>>>> +
->>>>>>>>>> +additionalProperties: false
->>>>>>>>>> +
->>>>>>>>>> +patternProperties:
->>>>>>>>>> +  "^sitf@[0-9]+$":
->>>>>>>>>> +    type: object
->>>>>>>>>> +    description: Serial interface child node
->>>>>>>>>
->>>>>>>>> Why is this a child node at all?
->>>>>>>>> Probably not worth reviewing more without a link to the docs for this
->>>>>>>>> device so I can figure out what on earth is going on!
->>>>>>>>>
->>>>>>>>
->>>>>>>> The MDF is a digital filter for sigma-delta bitstreams, rather than the
->>>>>>>> analog-to-digital converter itself.
->>>>>>>>
->>>>>>>> Here is the link to STM32MP25 reference manuel
->>>>>>>> https://www.st.com/resource/en/reference_manual/rm0457-stm32mp2325xx-advanced-armbased-3264bit-mpus-stmicroelectronics.pdf
->>>>>>>> Chapter 45: Multi-function digital filter (MDF)
->>>>>>>>
->>>>>>>> On STMP32MP25 SoC, the MDF provides 8 serial interfaces (SITF) and 8 digital
->>>>>>>> filters (DFLT) which can be connected through a multiplexer.
->>>>>>>>
->>>>>>>> Below is a schematic view of typical applications targeted by this
->>>>>>>> peripheral
->>>>>>>>
->>>>>>>>
->>>>>>>> Audio use case:
->>>>>>>>
->>>>>>>> 		mdf
->>>>>>>>                 +-------------------------------------+
->>>>>>>> +------+    | +------+    +------+    +------+    |
->>>>>>>> | dmic | -> | | sitf | -> | mux  | -> | dflt | -- | -> audio device
->>>>>>>> +------+    | +------+    +------+    +------+    |
->>>>>>>>                 +-------------------------------------+
->>>>>>>>
->>>>>>>> For instance, in an audio use case the serial interface can be configured to
->>>>>>>> provide the clock to the digital microphone (cck0, cck1 or both) at a common
->>>>>>>> predefined rate, and to retrieve the PDM samples.
->>>>>>>> The serial interface provides this samples to a digital filter, which
->>>>>>>> delivers PCM samples on its output.
->>>>>>>>
->>>>>>>>
->>>>>>>> Analog use case:
->>>>>>>>
->>>>>>>> 		mdf
->>>>>>>>                   +-------------------------------------+
->>>>>>>> +--------+    | +------+    +------+    +------+    |
->>>>>>>> | sd adc | -> | | sitf | -> | mux  | -> | dflt | -- | -> iio device
->>>>>>>> +--------+    | +------+    +------+    +------+    |
->>>>>>>>                   +-------------------------------------+
->>>>>>>
->>>>>>>
->>>>>>> So, looking at the docs and a brief chat with Jonathan about this
->>>>>>> device, I believe you've got things backwards and this is actually the backend,
->>>>>>> and the adc should be the one populating the io-backends property
->>>>>>> pointing to this device. You should have io-backend-cells, and I assume
->>>>>>> that there should be a cell for the adc to select which dlft it is connected
->>>>>>> to.
->>>>>>>
->>>>>>
->>>>>> There have already been lengthy discussions in the past about a DFSDM
->>>>>> peripheral on STM32MP1, which has features similar to those of the MDF and
->>>>>> similar implementation constraints. For the DFSDM, a solution based on an
->>>>>> IIO backend had been upstreamed. The MDF follows the same architecture. I
->>>>>> need to take a little time to dive back into this issue.
->>>>>
->>>>> One thing to note there is that you retrofitted the backends onto that
->>>>> device, and the original design here is much older (it's a text
->>>>> binding).
->>>>>
->>>>>
->>>>>>
->>>>>> DFSDM sources:
->>>>>> drivers/iio/adc/stm32-dfsdm-adc.c
->>>>>> drivers/iio/adc/stm32-dfsdm-core.c
->>>>>>
->>>>>> Here is a sample of DFSDM DT
->>>>>>
->>>>>> sd_adc0: simple-sd-adc0 {
->>>>>> 	compatible = "sd-modulator";
->>>>>> 	#io-backend-cells = <0>;
->>>>>> 	vref-supply = <&v3v3>;
->>>>>
->>>>> Yeah, pretty sure this is wrong (backwards). The backend is the thing
->>>>> that gets data from an ADC not the ADC.
->>>>>
->>>>
->>>> The backend framework was introduced to implement complex IIO aggregate
->>>> devices. The hardwares that were driving this need were analog device ad9467
->>>> and ST DFSDM.
->>>>
->>>> https://lore.kernel.org/linux-iio/20231204144925.4fe9922f@jic23-huawei/T/#m222f5175273b81dbfe40b7f0daffcdc67d6cb8ff
->>>>
->>>>   From drivers/iio/industrialio-backend.c:
->>>>
->>>> "The typical architecture is to have one device as the frontend device which
->>>> can be "linked" against one or multiple backend devices. All the IIO and
->>>> userspace interface is expected to be registers/managed by the frontend
->>>> device which will callback into the backends when needed (to get/set some
->>>> configuration that it does not directly control)."
->>>>
->>>>    *                                    ---------------------
->>>>    * ------------------                 | ------------
->>>>    * |     ADC        |-----------------| | ADC CORE |
->>>>    * | (Frontend/IIO) | Serial Data (eg | |(backend) |-------
->>>>    * |                |-----------------| ------------
->>>>    * ------------------                 ---------------------
->>>>
->>>> The MDF (or DFSDM) use case, follows this topology:
->>>> - The SD modulator (ADC core) registers in backend framework
->>>> - The MDF registers in IIO framework and exposes the IIO devices
->>>>     It also get configuration (ref voltage) from SD modulator, to compute
->>>> scaling.
->>>>
->>>> I agree that if we consider the terms frontend and backend, the elements in
->>>> the data flow do not have the roles that we would naturally expect. However,
->>>> if we consider the expected role of the elements using the iio-backend
->>>> framework, the usage seems coherent to me.
->>>
->>> I didn't even get as far as sd modulators or whatever, if I understand
->>> correctly the ADC inputs on this device are fed by the onboard ADC?
->>> (https://lore.kernel.org/linux-iio/20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com/)
->>> In that case, I can't really see how it makes sense for the primary iio
->>> device to change when data is fed back through the mdf or taken
->>> directly from the ADC itself, particularly given how that would affect
->>> the userspace interface.
->>>
->>> The "serial" side of this seems in a similar vein to the adi,axi-adc
->>> stuff, which when considered with the ADC inputs, really does give me
->>> the impression this is backwards.
->>
->> Some clarifications about the STM32MP25. This SoC does indeed provide ADCs,
->> and these can be connected to the MDF via a dedicated interface. (but not
->> the serial interface).
->>
->> However, this use case is not supported by the driver. Only sigma-delta
->> modulators, external to the SoC and connected via the serial interface, are
->> supported. On ST boards, the only available SD modulators are digital
->> microphones.
-> 
-> Quite frankly, I don't care what you are choosing to implement in the
-> driver or what your first-party boards support. The binding must
-> represent the capabilities of the device, not what subset you deem
-> relevant at this point in time. I'm not going to ack anything that does
-> not consider all use cases for the device, especially since I the more I
-> look the more I am convinced that this is the wrong way to model the
-> relationship between devices and therefore intentionally ignoring a use case
-> is likely to be problematic when someone does decide that they want to use
-> that feature.
-> 
->> Anyway, if the internal ADC to MDF use case was supported, the issue would
->> be the same. The whole ADC + MDF set would be presented at the interface as
->> an aggregated device, and the ADC data would not be directly accessible to
->> the user.
-> 
-> Of course, that's what I was talking about when I said:
-> | In that case, I can't really see how it makes sense for the primary iio
-> | device to change when data is fed back through the mdf or taken
-> | directly from the ADC itself, particularly given how that would affect
-> | the userspace interface.
-> 
-> To me, in that ADC to MDF use case, the frontend portion of the aggregate
-> device presented to userspace needs to be the ADC and the MDF needs to be
-> the backend, since otherwise the ADC will simultaneously be frontend and
-> backend, depending on which channel is considered. That makes no sense to me
-> when the MDF can always be the backend, for all use cases and avoid that
-> sort of problem entirely.
-> I've heard no argument as to why the MDF cannot be a backend, just that you
-> don't want to because the previous device didn't, but copying what was
-> done before isn't a justification that bears weight if how it was done
-> before isn't the way it should be done.
-> 
+On Wed Oct 14, 2026 at 8:40 AM CEST, Manikandan Muralidharan wrote:
+> The SPI NOR core already reads the SFDP tables during enumeration and
+> caches them in nor->sfdp->dwords (see spi_nor_parse_sfdp()). Re-expose
+> that cached data as a read-only NVMEM device, in on-flash byte order,
+> rooted at the flash's SFDP child node (compatible "jedec,sfdp").
+>
+> This lets NVMEM cells reference any SFDP data: a fixed-layout for
+> parameters at a known offset, or an nvmem-layout parser for vendor data
+> whose location must be discovered at runtime. The device is only register=
+ed
+> when an "sfdp" node is present in the device tree.
+>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  drivers/mtd/spi-nor/core.c | 78 ++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 78 insertions(+)
+>
+> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+> index 8bc117b46e02..4e47459b1679 100644
+> --- a/drivers/mtd/spi-nor/core.c
+> +++ b/drivers/mtd/spi-nor/core.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/mtd/mtd.h>
+>  #include <linux/mtd/spi-nor.h>
+>  #include <linux/mutex.h>
+> +#include <linux/nvmem-provider.h>
+>  #include <linux/of.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/sched/task_stack.h>
+> @@ -3001,6 +3002,75 @@ static void spi_nor_init_fixup_flags(struct spi_no=
+r *nor)
+>  		nor->flags |=3D SNOR_F_IO_MODE_EN_VOLATILE;
+>  }
+> =20
+> +static int spi_nor_sfdp_reg_read(void *priv, unsigned int offset,
+> +				 void *val, size_t bytes)
+> +{
+> +	struct spi_nor *nor =3D priv;
+> +	struct sfdp *sfdp =3D nor->sfdp;
+> +	size_t sfdp_size =3D sfdp->num_dwords * sizeof(*sfdp->dwords);
+> +
+> +	if (offset >=3D sfdp_size || bytes > sfdp_size - offset)
+> +		return -EINVAL;
+> +
+> +	/* The cached SFDP is kept in on-flash (little-endian) byte order. */
+> +	memcpy(val, (u8 *)sfdp->dwords + offset, bytes);
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * spi_nor_register_sfdp_nvmem() - expose the SFDP as a read-only NVMEM =
+device
+> + * @nor:	pointer to a 'struct spi_nor'
+> + *
+> + * Expose the whole SFDP, in on-flash byte order, as a read-only NVMEM d=
+evice
+> + * rooted at the flash's SFDP child node (compatible "jedec,sfdp"). This=
+ lets
+> + * generic (fixed-layout) or vendor (nvmem-layout) cells reference any S=
+FDP
+> + * data. The device is only registered when a child node with the "jedec=
+,sfdp"
+> + * compatible is described in the device tree.
+> + *
+> + * Return: 0 on success or if there is nothing to do, -errno otherwise.
+> + */
+> +static int spi_nor_register_sfdp_nvmem(struct spi_nor *nor)
+> +{
+> +	struct device *dev =3D nor->dev;
+> +	struct nvmem_config config =3D { };
+> +	struct nvmem_device *nvmem;
+> +	struct device_node *np;
+> +
+> +	if (!nor->sfdp)
+> +		return 0;
+> +
+> +	np =3D of_get_compatible_child(dev_of_node(dev), "jedec,sfdp");
+> +	if (!np)
+> +		return 0;
 
-These topology problems were discussed at length in the case of DFSDM.
-The main blocking point being support for interleaved channels (scan 
-mode), a problematic issue that is still found with MDF.
-The constraints that led to this approach are in the following thread:
-https://lore.kernel.org/all/20210919191414.09270f4e@jic23-huawei/
+I've missed replying to your former question about this, sorry. Yeah
+I was implying to always add the nvmem device regardless of the
+device tree. I don't see a reason why it should only be added if dt
+node is there. Userspace might still do something useful with it.
 
-FYI: An implementation attempt had been made also via the "concverter 
-framework" proposal, but this approach has been abandoned in favor of 
-the backend framework.
-https://marc.info/?l=linux-iio&m=169347396021802&w=2
+So if you'll respin a new version you can remove the check,
+otherwise it could be a follow-up patch.
 
-BRs
-Olivier
+Reviewed-by: Michael Walle <mwalle@kernel.org>
 
-> Thanks,
-> Conor.
+-michael
 
+
+> +
+> +	config.dev =3D dev;
+> +	config.of_node =3D np;
+> +	config.name =3D "sfdp";
+> +	config.id =3D NVMEM_DEVID_AUTO;
+> +	config.owner =3D THIS_MODULE;
+> +	config.read_only =3D true;
+> +	config.word_size =3D 1;
+> +	config.stride =3D 1;
+> +	config.size =3D (int)(nor->sfdp->num_dwords * sizeof(*nor->sfdp->dwords=
+));
+> +	config.reg_read =3D spi_nor_sfdp_reg_read;
+> +	config.priv =3D nor;
+> +
+> +	nvmem =3D devm_nvmem_register(dev, &config);
+> +	of_node_put(np);
+> +	if (IS_ERR(nvmem)) {
+> +		/* NVMEM support is optional. */
+> +		if (PTR_ERR(nvmem) =3D=3D -EOPNOTSUPP)
+> +			return 0;
+> +		return dev_err_probe(dev, PTR_ERR(nvmem),
+> +				     "failed to register SFDP NVMEM device\n");
+> +	}
+> +
+> +	dev_dbg(dev, "exposed %d-byte SFDP as an NVMEM device\n", config.size);
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * spi_nor_late_init_params() - Late initialization of default flash par=
+ameters.
+>   * @nor:	pointer to a 'struct spi_nor'
+> @@ -3204,6 +3274,14 @@ static int spi_nor_init_params(struct spi_nor *nor=
+)
+>  		spi_nor_init_params_deprecated(nor);
+>  	}
+> =20
+> +	/*
+> +	 * Expose the SFDP table as an NVMEM device only when
+> +	 * the flash actually provides one
+> +	 */
+> +	ret =3D spi_nor_register_sfdp_nvmem(nor);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret =3D spi_nor_late_init_params(nor);
+>  	if (ret)
+>  		return ret;
+
+
+--499acbdbca56ee494925b2505869d62d751ec95367d3b21bbc9e541b217b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCatCa/hEcbWljaGFlbEB3
+YWxsZS5jYwAKCRASJzzuPgIf+AyOAYDi48emPwhdKyXoa8JthR5GGnUzBcZHL2J2
+pZ6C6SSkmiXIHMoOJ/Th4WD1Cl8r1AgBf0EKFYwI9hHKsvev5mSZE2raQt8NV+Ew
+jpesdTau2EQaMxsXwnVl9FK/rXeEsy0+Hw==
+=sngz
+-----END PGP SIGNATURE-----
+
+--499acbdbca56ee494925b2505869d62d751ec95367d3b21bbc9e541b217b--
 
