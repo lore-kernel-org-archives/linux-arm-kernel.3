@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E88CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B0ACC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dS4djhTCCyfNupiiHbhsTglSI4Wcf298uQffxP9D2K4=; b=UY4yTiIXEwh2TumBNhlqxcI2L6
-	zLmLs1YUmXtMC74UE8/WoRYMBUdZGz+xD2X8ZkFDqWF3pYXK4TUJXlhdzpFOpA8XOSGm/Yt9Np5l3
-	CMXB5D839s87BbmF7l5E54OI/Y1LY0NeYsl6GOWdqO8WawEv+qvMwKpdO+LN+TJUq+fDO8fIY7P/P
-	YL/iw0mXA6HQ7MlId07fgz0EZzW23BaTEphUidxGRZ6h3V5SOt6h2csqrLkPJ/ZcK7xeUq0WayHo2
-	/rtDY1gEng7pRfontDX+2VHoepM7jseb9etWm845Bq8OyR7S5OxkJHyzMt2+Ks4jEfQDcL/oYj7W0
-	lBegt/lg==;
+	bh=tg32k3zkQclemZcr2dQZpqOKedpSzgBkn+I3In2q3Tc=; b=av1ls0ipKZsq+Tzg5+ZRJC4RqH
+	9k3NxKU7heFmsE5dPebGkuWE41XthBQr2di7mYoer52ZICVkIBEAPQ5+mi0zr2QqtQwvcDXkqRsff
+	ETk/MiU/dMbWh3TqbeOkP1TzJ4HBE06atV76HZ1FOWB5QWz9T9gXbY0y3mzdT0qDdsmtZBaW2YvT+
+	4Grw4fwO9tMLkynw7CTiUWHUIogz+VGWl24B48T30Z44qo/6UN81yFegEFZjDC+hCd1DeFa90pe50
+	1V6M765LIksR2mqGhgnGPKD8xw8mEPVAKzk6gML2+/DKKzaYOerMEpMQ+KASW4I1+OmKM2q4NJ1Mz
+	iljKoypw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI2H-0000000HJDF-11NG;
+	id 1xHI2H-0000000HJDZ-2dOB;
 	Thu, 15 Oct 2026 09:46:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI2G-0000000HJBy-0lW5;
+	id 1xHI2G-0000000HJC4-1Yf4;
 	Thu, 15 Oct 2026 09:46:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB3B043A78;
-	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C55C4C2BCF4;
-	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2412943E48;
+	Thu, 15 Oct 2026 09:46:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0907AC2BD05;
+	Thu, 15 Oct 2026 09:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792057563;
-	bh=ezz9X8LCg9d+XCwZ3z22UMCSEaqyTLaQMTVDqp8Flk4=;
+	s=k20201202; t=1792057564;
+	bh=I7+yi3ViC+3RgnHVmqeLPNGXa38PKEpJVNdjGFCekQI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=oMwUU0yX7cyUqp6YbrMYWdwtKziUaUQOWmQejKuviONmRSAREkq4XcifHnDssIJmn
-	 b+ZohOJk2B8rdnmPqmoqb5CdD5i9A1ut9ciSbpnBycwZe7Ebg2rHRSuuena6+fZNGM
-	 KGA5SXkAiz6f0Mh4AKl5hJ0hpZMeOifMFIKh7WfE4c5+vA0gPDc/DSwHBT1JX1Rdgg
-	 QvbJLCOogIuP6VAWUQWZjIOdjz/GvWKjBvpPMrhMpNqSaukCfg6LqUrYIWcSeBB6Rl
-	 ie37f04e9LzhYHKlJ5g05fSth8GIhc9DETuTjkMnqgWHnBjS1igwqcpJOS9ae8z9Ys
-	 HcWzslmD9yTyA==
+	b=oqdTMERL6BqIO/5mbtAnUgErPEXcSDGnXXsKS8MDyxwEqSVJaYkREFKk7JRecEWn7
+	 3nq1gl+5UcyfViwy9MIcOmwkK+7LGuSfCXovD8u7OROFDcEkuMj1ouuLVf+ANaKhrl
+	 /PXVIWUa9EzZMMdXSAV1RXysPQyFv8jbb9+Gu9/wk7omURRZd8Yk+rN3lCtT4GK4y2
+	 AvQzrNzSzA+K5skqKOCiWduYlp5B0+/CW/dkeijWJGLZKjM6JwUelLhfsM9NKnRmeH
+	 D94qxml1HNCrEBfUCgqrWmEvGnmCnVA/WjWD35u7X16PloFwNrT16RDL9H4CN1fC1L
+	 t/hBJjtsNzAiA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6D25CC6B38;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EBE3FCC6B3D;
 	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
 From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Thu, 15 Oct 2026 17:45:02 +0800
-Subject: [PATCH net v5 1/6] can: dev: prevent bus-off recovery when the
- interface is not running
+Date: Thu, 15 Oct 2026 17:45:06 +0800
+Subject: [PATCH net v5 5/6] can: rockchip_canfd: serialize TX with bus-off
+ and restart
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-rockchip-canfd-restart-close-v5-1-ae77327037c9@qq.com>
+Message-Id: <20261015-rockchip-canfd-restart-close-v5-5-ae77327037c9@qq.com>
 References: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
 In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, 
@@ -63,11 +63,11 @@ Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792057562; l=2288;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792057562; l=9934;
  i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=uB+Pk/mygKqGhQYSoYzTiXpubbzalD/v2yRTUeNfoh0=;
- b=aDOVh3yRyfci2lDw37N9t4OltHL3UIkjn85vsXX0VOGrJzTsJ1xhkohkB/hfFvLNhdyYilBYW
- zcqn9mCt1FnC1WfK015mmaWiq53KoChOnxQLi8kAAL6d+geWBHlGaTh
+ bh=vX707GeJlnMj7iUOwFvQWZg6cWFMSRmfAPg6cgf2ftE=;
+ b=V7FlmfVRPweX3XDM0Qo5VQb2bkMEmZyHiARgfytJbe9XeOgx/SiT+xtzqQMvHMJgU8EZcuZQO
+ 3sNIdm10BZ/DQ3PcLYPZyNGqbRFs1RJx6I3FlZyo5iqbgPLns/YS+K4
 X-Developer-Key: i=1579567540@qq.com; a=ed25519;
  pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
 X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
@@ -90,64 +90,275 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Cunhao Lu <1579567540@qq.com>
 
-The networking core clears __LINK_STATE_START before calling ndo_stop(),
-but CAN bus-off recovery neither checks this state before queuing work
-nor before calling the driver's restart callback. Recovery can therefore
-be queued or started after the interface has begun closing, potentially
-re-enabling hardware while the driver is tearing it down.
+The bus-off path can reset the controller while ndo_start_xmit() is
+active. CAN restart also flushes the echo ring before calling set_mode(),
+so disabling TX in that callback is too late to protect echo slots.
 
-Check netif_running() in can_restart() before flushing echo skbs, sending
-the restart notification or enabling the carrier. Keep the existing
-unsupported-operation check first. In can_bus_off(), only schedule
-recovery for a running interface and make the log message reflect that
-decision. Keep reporting bus-off and disabling the carrier.
+Serialize TX submission, RX-side completion and retry with a private
+lock and enabled flag. Disable TX and drain these users before publishing
+CAN_STATE_BUS_OFF, protecting the core's echo flush during automatic and
+manual recovery. Reject further submissions with NETDEV_TX_BUSY.
 
-These checks do not wait for recovery that has already passed the check,
-nor serialize the check with work submission. Drivers still need to
-cancel restart work before tearing down resources and quiesce its
-producers before their final cleanup.
+If close disables TX after an RX IRQ has consumed a self-transmitted
+frame, skipping echo filtering alone would deliver it as ordinary RX.
+Drop consumed FIFO entries while TX is disabled, checking under the same
+lock, and continue draining the FIFO.
 
-Fixes: 39549eef3587 ("can: CAN Network device driver and Netlink interface")
+After draining the old IRQ and reinitializing the controller, restore
+carrier, enable TX, resume IRQ handling and wake the queue under the
+lock. This prevents the old bus-off IRQ from leaving manual recovery
+with carrier off, while allowing a new bus-off to take precedence.
+
+Keep shared IRQ handling suspended during open until initialization is
+complete, and leave TX disabled on close or failed open. Keep resets and
+synchronous IRQ/work draining outside the lock.
+
+Fixes: b6661d73290c ("can: rockchip_canfd: add TX PATH")
 Cc: stable@vger.kernel.org
 Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
- drivers/net/can/dev/dev.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-index 769745e22a3c7..92492c503446e 100644
---- a/drivers/net/can/dev/dev.c
-+++ b/drivers/net/can/dev/dev.c
-@@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
- 	if (!priv->do_set_mode)
- 		return -EOPNOTSUPP;
- 
-+	if (!netif_running(dev))
-+		return -ENETDOWN;
-+
- 	if (netif_carrier_ok(dev))
- 		netdev_err(dev, "Attempt to restart for bus-off recovery, but carrier is OK?\n");
- 
-@@ -264,8 +267,9 @@ int can_restart_now(struct net_device *dev)
- void can_bus_off(struct net_device *dev)
- {
- 	struct can_priv *priv = netdev_priv(dev);
-+	const bool restart = priv->restart_ms && netif_running(dev);
- 
--	if (priv->restart_ms)
-+	if (restart)
- 		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
- 			    priv->restart_ms);
- 	else
-@@ -273,7 +277,7 @@ void can_bus_off(struct net_device *dev)
- 
- 	netif_carrier_off(dev);
- 
--	if (priv->restart_ms)
-+	if (restart)
- 		schedule_delayed_work(&priv->restart_work,
- 				      msecs_to_jiffies(priv->restart_ms));
+---
+Changes in v5:
+- Drop consumed RX FIFO entries when tx_enabled is false under tx_lock,
+  rather than skipping only echo filtering and delivering them as RX.
+---
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 51 ++++++++++++++++++++++----
+ drivers/net/can/rockchip/rockchip_canfd-rx.c   | 26 +++++++++----
+ drivers/net/can/rockchip/rockchip_canfd-tx.c   | 16 +++++++-
+ drivers/net/can/rockchip/rockchip_canfd.h      |  3 ++
+ 4 files changed, 80 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 4b3db07242395..150748c0b6845 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -326,6 +326,35 @@ static void rkcanfd_chip_start(struct rkcanfd_priv *priv)
+ 		   rkcanfd_read(priv, RKCANFD_REG_MODE));
  }
+ 
++static void rkcanfd_tx_disable(struct rkcanfd_priv *priv)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&priv->tx_lock, flags);
++	priv->tx_enabled = false;
++	netif_stop_queue(priv->ndev);
++	spin_unlock_irqrestore(&priv->tx_lock, flags);
++}
++
++static void rkcanfd_chip_start_finish(struct rkcanfd_priv *priv)
++{
++	unsigned long flags;
++
++	/* Serialize carrier, IRQ enable and queue wake with a new bus-off. */
++	spin_lock_irqsave(&priv->tx_lock, flags);
++	/* A manual restart may have raced with the old bus-off IRQ's
++	 * netif_carrier_off(). That IRQ is now drained; restore carrier
++	 * before resuming IRQ handling so a new bus-off takes precedence.
++	 */
++	netif_carrier_on(priv->ndev);
++	priv->tx_enabled = true;
++	/* Publish the initialized state before resuming IRQ handling. */
++	smp_store_release(&priv->irq_suspended, false);
++	rkcanfd_chip_interrupts_enable(priv);
++	netif_wake_queue(priv->ndev);
++	spin_unlock_irqrestore(&priv->tx_lock, flags);
++}
++
+ static void __rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum can_state state)
+ {
+ 	priv->can.state = state;
+@@ -357,6 +386,7 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 
+ 	switch (mode) {
+ 	case CAN_MODE_START:
++		rkcanfd_tx_disable(priv);
+ 		rkcanfd_chip_interrupts_disable(priv);
+ 		/* Flush the interrupt mask write before suspending the handler. */
+ 		rkcanfd_read(priv, RKCANFD_REG_INT_MASK);
+@@ -367,10 +397,7 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 		rkcanfd_timestamp_stop_sync(priv);
+ 
+ 		rkcanfd_chip_start(priv);
+-		/* Publish the initialized state before resuming IRQ handling. */
+-		smp_store_release(&priv->irq_suspended, false);
+-		rkcanfd_chip_interrupts_enable(priv);
+-		netif_wake_queue(ndev);
++		rkcanfd_chip_start_finish(priv);
+ 		break;
+ 
+ 	default:
+@@ -604,6 +631,12 @@ static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
+ 	 * handles cf == NULL.
+ 	 */
+ 	skb = rkcanfd_alloc_can_err_skb(priv, &cf, &timestamp);
++	if (new_state == CAN_STATE_BUS_OFF) {
++		/* Drain TX before publishing BUS_OFF, which permits a manual
++		 * restart to flush echo SKBs before calling our set_mode().
++		 */
++		rkcanfd_tx_disable(priv);
++	}
+ 	can_change_state(ndev, cf, tx_state, rx_state);
+ 
+ 	if (new_state == CAN_STATE_BUS_OFF) {
+@@ -749,6 +782,8 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	if (err)
+ 		goto out_close_candev;
+ 
++	/* A shared IRQ may run as soon as request_irq() succeeds. */
++	WRITE_ONCE(priv->irq_suspended, true);
+ 	rkcanfd_chip_start(priv);
+ 	can_rx_offload_enable(&priv->offload);
+ 
+@@ -756,13 +791,12 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	if (err)
+ 		goto out_rkcanfd_chip_stop;
+ 
+-	rkcanfd_chip_interrupts_enable(priv);
+-
+-	netif_start_queue(ndev);
++	rkcanfd_chip_start_finish(priv);
+ 
+ 	return 0;
+ 
+ out_rkcanfd_chip_stop:
++	rkcanfd_tx_disable(priv);
+ 	can_rx_offload_disable(&priv->offload);
+ 	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	pm_runtime_put(ndev->dev.parent);
+@@ -776,7 +810,7 @@ static int rkcanfd_stop(struct net_device *ndev)
+ 	struct rkcanfd_priv *priv = netdev_priv(ndev);
+ 
+ 	close_candev_cancel_restart_sync(ndev);
+-	netif_stop_queue(ndev);
++	rkcanfd_tx_disable(priv);
+ 
+ 	rkcanfd_chip_interrupts_disable(priv);
+ 	free_irq(ndev->irq, priv);
+@@ -939,6 +973,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
+ 	priv->can.do_set_mode = rkcanfd_set_mode;
+ 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
+ 	priv->ndev = ndev;
++	spin_lock_init(&priv->tx_lock);
+ 
+ 	match = device_get_match_data(&pdev->dev);
+ 	if (match) {
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+index 24e87daa1df00..5e64317d4eee6 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+@@ -91,6 +91,7 @@ rkcanfd_fifo_header_to_cfd_header(const struct rkcanfd_priv *priv,
+ 	return len + cfd->len;
+ }
+ 
++/* Called with tx_lock held and TX enabled. */
+ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
+ 				const struct canfd_frame *cfd_rx, const u32 ts,
+ 				bool *tx_done)
+@@ -204,7 +205,9 @@ static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
+ 	struct canfd_frame cfd[1] = { }, *skb_cfd;
+ 	struct rkcanfd_fifo_header header[1] = { };
+ 	struct sk_buff *skb;
++	unsigned long flags;
+ 	unsigned int len;
++	bool tx_done = false;
+ 	int err;
+ 
+ 	/* read header into separate struct and convert it later */
+@@ -237,15 +240,24 @@ static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
+ 		return 0;
+ 	}
+ 
+-	if (rkcanfd_get_tx_pending(priv)) {
+-		bool tx_done = false;
++	/* Drop FIFO entries while TX is disabled, as they may be self-
++	 * received frames. Do not access the echo ring, retry TX or wake the
++	 * queue while restart owns the ring. The entry is already consumed.
++	 */
++	spin_lock_irqsave(&priv->tx_lock, flags);
++	if (unlikely(!priv->tx_enabled)) {
++		spin_unlock_irqrestore(&priv->tx_lock, flags);
++		return 0;
++	}
+ 
++	err = 0;
++	if (rkcanfd_get_tx_pending(priv))
+ 		err = rkcanfd_rxstx_filter(priv, cfd, header->ts, &tx_done);
+-		if (err)
+-			return err;
+-		if (tx_done && !(priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK))
+-			return 0;
+-	}
++	spin_unlock_irqrestore(&priv->tx_lock, flags);
++	if (err)
++		return err;
++	if (tx_done && !(priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK))
++		return 0;
+ 
+ 	/* Manual handling of CAN Bus Error counters. See
+ 	 * rkcanfd_get_corrected_berr_counter() for detailed
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+index 12200dcfd3389..f49ed6d2266d9 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+@@ -69,12 +69,19 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 	u32 reg_frameinfo, reg_id, reg_cmd;
+ 	unsigned int tx_head, frame_len;
+ 	const struct canfd_frame *cfd;
++	unsigned long flags;
+ 	int err;
+ 	u8 i;
+ 
+ 	if (can_dev_dropped_skb(ndev, skb))
+ 		return NETDEV_TX_OK;
+ 
++	spin_lock_irqsave(&priv->tx_lock, flags);
++	if (unlikely(!priv->tx_enabled)) {
++		netif_stop_queue(ndev);
++		goto out_busy;
++	}
++
+ 	if (!netif_subqueue_maybe_stop(priv->ndev, 0,
+ 				       rkcanfd_get_effective_tx_free(priv),
+ 				       RKCANFD_TX_STOP_THRESHOLD,
+@@ -85,7 +92,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 				    priv->tx_head, priv->tx_tail,
+ 				    rkcanfd_get_tx_pending(priv));
+ 
+-		return NETDEV_TX_BUSY;
++		goto out_busy;
+ 	}
+ 
+ 	cfd = (struct canfd_frame *)skb->data;
+@@ -137,7 +144,14 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 				  RKCANFD_TX_STOP_THRESHOLD,
+ 				  RKCANFD_TX_START_THRESHOLD);
+ 
++	spin_unlock_irqrestore(&priv->tx_lock, flags);
++
+ 	return NETDEV_TX_OK;
++
++out_busy:
++	spin_unlock_irqrestore(&priv->tx_lock, flags);
++
++	return NETDEV_TX_BUSY;
+ }
+ 
+ void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 2743c96ed42f0..4a2bdc205296e 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -476,6 +476,9 @@ struct rkcanfd_priv {
+ 	struct net_device *ndev;
+ 
+ 	void __iomem *regs;
++	/* Serialize TX submission/completion with bus-off and restart. */
++	spinlock_t tx_lock;
++	bool tx_enabled;
+ 	unsigned int tx_head;
+ 	unsigned int tx_tail;
+ 
 
 -- 
 2.34.1
