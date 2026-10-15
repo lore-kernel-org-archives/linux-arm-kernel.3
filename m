@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF9DCC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8092ACC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovNA/CLS6+iFz0OpFQaVFejefV2xgJzAekjyPeVYFLA=; b=MMzylC9r6gYin5DuXxqCehhrgJ
-	Cc754ci5aVbN79VEC4XyFOdHoUBeBvvbiHtZcgLSl54eRqaKI0E1tofuhsgFj6zty14fRVDJ4VN7I
-	I+nAUQOGZLv7MHS9ifOka62jkC11gzdNJzzNMolj+tK7y8alWlEU34GLfbbj7OAB4oP48b8f6gBEs
-	ZHP5yvgxnpl5tefc5cNG+TIatVhnAiSHh8KKbkl0oXrtOfD/AA2fLWqDlwO0ISqf8Xq+QfYvHSXDK
-	6Zt8gDm2P7ZxHs/8EolJssqFL1Iv4gf0KnerIuQow9ZSA4YKhCiTF1nSRRazzv+CzlhIzyd2/prh/
-	KVtGz2yQ==;
+	bh=Pvr5zkrKr/pslBHrFCRb8FjLgbJ3PAHpiaNuZG4YNT4=; b=SzR+nhd5bU/vE3CelkVTOX5gjV
+	OMD5bfz8ALoxWEr63o9J4t/EOBnnLfXbDwHAhk8XVabhFqeD7Z/A+WlnYgpbTGA0cz00seQbdi5tq
+	ne86DX8e59HCQFwaX2vV27LEEl7Rt81bXRrjDoyz/w9tnBNYHQiuivZNKkhNVo6B3ADK3uxm+3I8D
+	tqOVhAWUvLftgfxzG5kVN3a9fmRnDOFsn/FXq3cXg8+0a+4cZ4Zt9A4wZF41NVvr20NPFtn/157fh
+	trq/hfrUklf/CuBSwg3ufbfKgbRV+pMRO3C1zSwlYvUFpKJeIqcDm25EwU8pLLii0U3Aqxwca4PtX
+	JA3kV/+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI2H-0000000HJEc-3UBm;
+	id 1xHI2H-0000000HJDO-1vTC;
 	Thu, 15 Oct 2026 09:46:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI2G-0000000HJCE-1y19;
+	id 1xHI2G-0000000HJBz-1G2F;
 	Thu, 15 Oct 2026 09:46:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36FB043E4A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 13A7343E47;
 	Thu, 15 Oct 2026 09:46:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1AE90C32786;
-	Thu, 15 Oct 2026 09:46:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3134C2BD01;
+	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792057564;
-	bh=mXB6tIL/+qLpJiz4Sn4FUNs0zYbvBZ/cActaGcwuZns=;
+	bh=/mn1FAMySoblw7BNJKxvIifUG3mFrbJRYX66CKqRe6s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JBeK3WnkHrZxvtxm1MimnNo1sTWt4o9UDhoalE4K8PTKRCZ2BHgXJX65Hc9cKRmNy
-	 9cuWX6CH2EKtc58TcAH+kI9pecBYipZjA4H128eHDERfQ9upYYDKSCfrndtbnSU7+x
-	 INsbLL/2ea/p7e8t0P45jUbqZuVaOk1TMjtpo9WFiNrpgbcXDr8dntABfCWDB8ATBc
-	 doPoyU5R7l2/DroSc74ZqtM+0ClQbQhdzwFLGBcKxFa8RzZPFhwfWBZc+WzDRsPw7X
-	 M1lbFnn9kro09pvq3oS13XgjHF2Gz+KhS4NIyAxplpMwVYPcG07pNtVrYzETfprAFs
-	 fbKG98xzlmYTg==
+	b=sC/e+idARBf/1K0qJTFSNUKZt3g6i9yHdV4BVYkCcqYY6FqCMR93qsXFpYpDBmVPp
+	 xesOI+CZyVR5sIeiVZ5v2iFnQEoZA8pTuRbJhOucswlKj/n0axZ+nsJypZ5QPEwbZs
+	 QGGrWXoKKS+qFBx1hcYYNYa8/ynHkNzUYEUnnlMZCXOLKQCsjUo1RAJrdvYUVzDwu4
+	 QuimVlBqkJoQIKh2PWhifkJvtpKIpru5eM8dTovQbqwpL32hxOZTdQeRG5YL5Vnicv
+	 wQDVnm452rEr0IaUmcvrcra0n+04+zevNOowZ5uEajvviywX+AThVGxdqo5lmjXZRk
+	 aLdtHkJGoeJCw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A0E8CC6B38;
-	Thu, 15 Oct 2026 09:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6297CC6B33;
+	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
 From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Thu, 15 Oct 2026 17:45:07 +0800
-Subject: [PATCH net v5 6/6] can: rockchip_canfd: serialize timecounter
- timestamp conversion
+Date: Thu, 15 Oct 2026 17:45:04 +0800
+Subject: [PATCH net v5 3/6] can: rockchip_canfd: cancel bus-off restart
+ before closing the device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-rockchip-canfd-restart-close-v5-6-ae77327037c9@qq.com>
+Message-Id: <20261015-rockchip-canfd-restart-close-v5-3-ae77327037c9@qq.com>
 References: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
 In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, 
@@ -63,11 +63,11 @@ Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792057562; l=2940;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792057562; l=6448;
  i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=PpQslORihJNgfj4mzr9VTzdMu4X2EvQLejo/FRw489Q=;
- b=RUohAt88zMHGcIl0NA9Ep90SBUid/VM9brk9mn2HdBYrjShSlOBHdaVR2v9u9mPDwNOIPs6nC
- s3sRyZwU5u9BLMySyX3lRK2h6e5PhCqeDkPeCungPKcBptOfHv7qgd1
+ bh=IbsG/cS8L/6o4aTMlb97O7JQVyc7lkKuTpqEDY4h4Dw=;
+ b=BXBEzaJ1viyo+pQQzfnpBEwWEsAXTO9sbym79Y4F79za99X2XpDhkC3QQbu6YgWo2epmxFr/Z
+ Av9DGauq6zGC0T/o7fA8dmsGvEJbv9TfzV2Barypt65EmHzQ+VvajEF
 X-Developer-Key: i=1579567540@qq.com; a=ed25519;
  pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
 X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
@@ -90,73 +90,155 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Cunhao Lu <1579567540@qq.com>
 
-The timestamp worker advances the timecounter with timecounter_read()
-while RX, TX completion and error-frame paths use timecounter_cyc2time()
-to convert hardware timestamps without holding timestamp_lock.
+The close path cancels restart_work in close_candev() only after freeing
+the IRQ, disabling RX offload and stopping the controller. A concurrent
+restart can re-enable the controller and interrupts after IRQ teardown,
+or requeue timestamp work that accesses registers after runtime suspend
+has disabled the controller clocks.
 
-timecounter_read() updates frac, cycle_last and nsec in separate steps.
-A concurrent conversion can observe the new cycle_last with the old
-nsec and produce an incorrect timestamp.
+Call close_candev_cancel_restart_sync() at the start of ndo_stop(), while
+the resources needed by a running restart are still available. Keep
+close_candev() after IRQ teardown for final cancellation and echo cleanup.
 
-Hold timestamp_lock across timecounter_cyc2time(), using the same lock
-as timecounter_read() and timecounter_init(). Keep the SKB timestamp
-assignment outside the critical section.
+During restart, mask the device's interrupts and drain active handlers
+without disabling the shared IRQ line. Suspend handler access to the
+controller until reinitialization is complete, and publish the initialized
+state before resuming IRQ handling.
 
-TX completion nests timestamp_lock inside tx_lock; no timestamp-lock
-holder acquires tx_lock.
+Drain timestamp work before reinitializing the timecounter, and initialize
+the delayed work once at probe. Keep asynchronous cancellation in the
+bus-off path. Also disable RX offload if request_irq() fails during open.
 
-Fixes: 4e1a18bab124 ("can: rockchip_canfd: add hardware timestamping support")
+Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD controller")
 Cc: stable@vger.kernel.org
 Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
- drivers/net/can/rockchip/rockchip_canfd-timestamp.c | 5 ++++-
- drivers/net/can/rockchip/rockchip_canfd.h           | 4 ++--
- 2 files changed, 6 insertions(+), 3 deletions(-)
 
+---
+Changes in v3:
+- Replace disable_irq()/enable_irq() with device interrupt masking,
+  mask readback, an irq_suspended flag and synchronize_irq().
+- Pair release/acquire accesses to publish reinitialized state before
+  the IRQ handler resumes, without disabling other shared IRQ users.
+- Initialize timestamp delayed work once at probe and synchronously
+  cancel it before reinitializing the timestamp state during restart.
+- Disable RX offload when request_irq() fails during open.
+---
+ drivers/net/can/rockchip/rockchip_canfd-core.c      | 20 ++++++++++++++++++++
+ drivers/net/can/rockchip/rockchip_canfd-timestamp.c |  6 +++++-
+ drivers/net/can/rockchip/rockchip_canfd.h           |  2 ++
+ 3 files changed, 27 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 37c1c22c40c9f..4b3db07242395 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -20,6 +20,7 @@
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/smp.h>
+ #include <linux/string.h>
+ 
+ #include "rockchip_canfd.h"
+@@ -356,7 +357,18 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 
+ 	switch (mode) {
+ 	case CAN_MODE_START:
++		rkcanfd_chip_interrupts_disable(priv);
++		/* Flush the interrupt mask write before suspending the handler. */
++		rkcanfd_read(priv, RKCANFD_REG_INT_MASK);
++		/* Keep shared IRQs from accessing the device during restart. */
++		WRITE_ONCE(priv->irq_suspended, true);
++		/* Wait for handlers that already passed the suspended check. */
++		synchronize_irq(ndev->irq);
++		rkcanfd_timestamp_stop_sync(priv);
++
+ 		rkcanfd_chip_start(priv);
++		/* Publish the initialized state before resuming IRQ handling. */
++		smp_store_release(&priv->irq_suspended, false);
+ 		rkcanfd_chip_interrupts_enable(priv);
+ 		netif_wake_queue(ndev);
+ 		break;
+@@ -666,6 +678,10 @@ static irqreturn_t rkcanfd_irq(int irq, void *dev_id)
+ 	struct rkcanfd_priv *priv = dev_id;
+ 	u32 reg_int_unmasked, reg_int;
+ 
++	/* Pairs with the release after restart has initialized the device. */
++	if (smp_load_acquire(&priv->irq_suspended))
++		return IRQ_NONE;
++
+ 	reg_int_unmasked = rkcanfd_read(priv, RKCANFD_REG_INT);
+ 	reg_int = reg_int_unmasked & ~priv->reg_int_mask_default;
+ 
+@@ -747,6 +763,7 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	return 0;
+ 
+ out_rkcanfd_chip_stop:
++	can_rx_offload_disable(&priv->offload);
+ 	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	pm_runtime_put(ndev->dev.parent);
+ out_close_candev:
+@@ -758,6 +775,7 @@ static int rkcanfd_stop(struct net_device *ndev)
+ {
+ 	struct rkcanfd_priv *priv = netdev_priv(ndev);
+ 
++	close_candev_cancel_restart_sync(ndev);
+ 	netif_stop_queue(ndev);
+ 
+ 	rkcanfd_chip_interrupts_disable(priv);
+@@ -934,6 +952,8 @@ static int rkcanfd_probe(struct platform_device *pdev)
+ 	if (err)
+ 		goto out_free_candev;
+ 
++	rkcanfd_timestamp_work_init(priv);
++
+ 	err = rkcanfd_register(priv);
+ 	if (err)
+ 		goto out_can_rx_offload_del;
 diff --git a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-index 0fa791849c95..05f1005ee506 100644
+index 72774cd2f94b7..ad582afbbd682 100644
 --- a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
 +++ b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-@@ -15,13 +15,16 @@ static u64 rkcanfd_timestamp_read(struct cyclecounter *cc)
- 	return rkcanfd_get_timestamp(priv);
+@@ -37,6 +37,11 @@ static void rkcanfd_timestamp_work(struct work_struct *work)
+ 	schedule_delayed_work(&priv->timestamp, priv->work_delay_jiffies);
  }
  
--void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
-+void rkcanfd_skb_set_timestamp(struct rkcanfd_priv *priv,
- 			       struct sk_buff *skb, const u32 timestamp)
++void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv)
++{
++	INIT_DELAYED_WORK(&priv->timestamp, rkcanfd_timestamp_work);
++}
++
+ void rkcanfd_timestamp_init(struct rkcanfd_priv *priv)
  {
- 	struct skb_shared_hwtstamps *hwtstamps = skb_hwtstamps(skb);
-+	unsigned long flags;
- 	u64 ns;
+ 	const struct can_bittiming *dbt = &priv->can.fd.data_bittiming;
+@@ -73,7 +78,6 @@ void rkcanfd_timestamp_init(struct rkcanfd_priv *priv)
+ 	max_cycles = min(max_cycles, cc->mask);
+ 	work_delay_ns = clocksource_cyc2ns(max_cycles, cc->mult, cc->shift);
+ 	priv->work_delay_jiffies = div_u64(work_delay_ns, 3u * NSEC_PER_SEC / HZ);
+-	INIT_DELAYED_WORK(&priv->timestamp, rkcanfd_timestamp_work);
  
-+	spin_lock_irqsave(&priv->timestamp_lock, flags);
- 	ns = timecounter_cyc2time(&priv->tc, timestamp);
-+	spin_unlock_irqrestore(&priv->timestamp_lock, flags);
- 
- 	hwtstamps->hwtstamp = ns_to_ktime(ns);
- }
+ 	netdev_dbg(priv->ndev, "clock=%lu.%02luMHz bitrate=%lu.%02luMBit/s div=%u rate=%lu.%02luMHz mult=%u shift=%u delay=%lus\n",
+ 		   priv->can.clock.freq / MEGA,
 diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 4a2bdc205296..63f146ff8e6b 100644
+index 95bea9bfd8a2f..e1debab54534e 100644
 --- a/drivers/net/can/rockchip/rockchip_canfd.h
 +++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -489,7 +489,7 @@ struct rkcanfd_priv {
+@@ -480,6 +480,7 @@ struct rkcanfd_priv {
+ 
+ 	u32 reg_mode_default;
+ 	u32 reg_int_mask_default;
++	bool irq_suspended;
+ 	struct rkcanfd_devtype_data devtype_data;
  
  	struct cyclecounter cc;
- 	struct timecounter tc;
--	/* Protects timestamp_active and worker reads/requeueing. */
-+	/* Protects tc, timestamp_active and worker requeueing. */
- 	spinlock_t timestamp_lock;
- 	struct delayed_work timestamp;
- 	unsigned long work_delay_jiffies;
-@@ -557,7 +557,7 @@ void rkcanfd_ethtool_init(struct rkcanfd_priv *priv);
+@@ -551,6 +552,7 @@ int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv);
  
- int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv);
- 
--void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
-+void rkcanfd_skb_set_timestamp(struct rkcanfd_priv *priv,
+ void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
  			       struct sk_buff *skb, const u32 timestamp);
- void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv);
++void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv);
  void rkcanfd_timestamp_init(struct rkcanfd_priv *priv);
+ void rkcanfd_timestamp_start(struct rkcanfd_priv *priv);
+ void rkcanfd_timestamp_stop(struct rkcanfd_priv *priv);
 
 -- 
 2.34.1
