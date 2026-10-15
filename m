@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70874CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E75BCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXOaVPd7VhD3hx5c4q+vgR03AqUTjEWUn8n5s3ly05A=; b=JtQwWer3hF6KOjiWmnx8TYjjY/
-	pEX+1gU0RTgaPe1ushxWChh/M6tQT7zcQPG7yUKmSU4N+jXHzB4tZ6fev3QWKGM9pKgWPLYDmJPFD
-	J6efaT/s8HTfRDX59MecYlkXGjDM46u0TnpMG9ETirA20LTXx37dO/CtSyB050jhMEw3di0qWqUf2
-	6xcYBxvGjGfVPYv7zklZOpaPmjWIOGZbygT6wBFyLdTriegyfOTmzbht+zZ7bMCo2wIt+5xepq4Ij
-	/MzHq9FwRXOZxV5B7DUdHSc2u0oLzhgr7rTwlwJcernei2ufi0v0V1ZOtxALGdjFomsSaROBLBzJ5
-	N0pF7kjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Cc2bLqxi6ii7OXNS6cumR3l3FQgR/dj9D62L9zre70=; b=eZjefQwuLwYEVCax4kLAuJXUx/
+	oyZp+D0ikamg3AnRBrgz74FNTmbn9J9d/QidFNOnn8EEf9FFa/1jAC9AWYupEJMwRlrD8ZXH64UDN
+	xyBgWa24yLShlqPZrbWixjyE5dtU9i2n5GgYTo6snio90EPwzV2GOvFOn+ShL+G0S56NpKeLoIKC7
+	anaQ9ShOLgisDWTPGWPsokVNlXc5cpgy62XWVSOiZeE8faRGVopT6CAnVIr4r9y/XvenclrEJaZ1c
+	1CrU0rfnQO7iMdHk5Ez4uioqjxspyUY+gTk+Je2uixt7SeEtVREAyx54/BqMA0wREyehJxASePt9V
+	b7Ts3m9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMm8-00000000RZ3-20cD;
-	Thu, 15 Oct 2026 14:49:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMm7-00000000RYq-1XxZ
+	id 1xHMPZ-00000000MGd-485R;
+	Thu, 15 Oct 2026 14:26:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMPQ-00000000MAb-1WQy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:49:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D0106022C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 14:49:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 477061F000C4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 14:49:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792075782;
-	bh=bXOaVPd7VhD3hx5c4q+vgR03AqUTjEWUn8n5s3ly05A=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=bncduYwSg2Cj2dMYmqvi2X4zBOLmHttF1YUIbEGCPVxjFplh7Q25LNrK5sOnUHYUA
-	 NcoPEos5LbQsw+VzrhXA9S/96v2bxkTLLwlHmZxAVV74haRKcwrH/YZzkM3vq6WjRs
-	 0k09NhB/vKBXid0AwP4cDgXOubwpU74/mNVBETIUhkFM07kxWyzvbK8y2ypV2tG7CY
-	 3hLChObxcyq6OjHJvl/eOHCN0zFPpycDKJU/yq3QP9QljfkaG/oU5hxbM6ilQ0VKN/
-	 GHkG4cqmxhztfBeWom1ZFJ+4A8Qw1RJQBnG6O4K6dfgIazMBh/1pIO/Tz4DTNVEPA9
-	 jKAnA8JK2fiog==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5bccb867d6fso4497046e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 07:49:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxjW1SGNfoOKAaNq11Ow/FS3pa2BdHAFKjdblkxSmpZ10LwTu+epufXVKaBUBO0pmqehoXMzSRgwadKOch1ATSw@lists.infradead.org
-X-Gm-Message-State: AFq9FYKnjYY3dvvWcE2wjQtOAyWSjQDcKPH7UqjD6J0VitBZ7xOcQUgk
-	q0H6W3TXYpiJbXC1feaUHzHKlAI+mFEzsgs4weKy+hcMGFdXHGrHGsDGn+UNKf1+7xAjRLe0w5M
-	ZQ826R5MKLL4oPxJzF1TST6hJcPdVaPtCCMchjkWYdw==
-X-Received: by 2002:a05:6512:3e04:b0:5be:3db4:5665 with SMTP id
- 2adb3069b0e04-5be3db4582cmr863547e87.7.1792075780254; Thu, 15 Oct 2026
- 07:49:40 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Oct 2026 10:49:37 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 Oct 2026 10:49:37 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
+	Thu, 15 Oct 2026 14:26:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 338861477;
+	Thu, 15 Oct 2026 07:26:11 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 768E33F871;
+	Thu, 15 Oct 2026 07:26:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792074374; bh=G36qdmTqm2rO4jOwRCiQ4XYdFKdwxjAn5cYS9ovRP7s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qgIDJeAA47kbre4VMzYXSsz/jRNOmr+Uidx7bY/PipDt4zyVp+pZA20LZyfXfcJkx
+	 F94C+169GFWu5+v0tJ09/nbM5ONBNiUi9S89P6lLbYHJjxwTT4u2XVBNDaies8/3//
+	 WJ9pQiFVVXSGlz8owk+LSRbBu9aNNelQ4Y2oomY0=
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Alex Williamson <alex@shazbot.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org
+Subject: [RFC PATCH v2 03/15] dt-bindings: misc: Add Arm Core Local Accelerator
+Date: Thu, 15 Oct 2026 15:25:37 +0100
+Message-ID: <20261015142552.4128028-4-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
-Date: Thu, 15 Oct 2026 10:49:37 -0400
-X-Gmail-Original-Message-ID: <CAMRc=MejhYpC6QNXwK_cG_NuJs5XpOviK2NPsEwtnK0RxDi61Q@mail.gmail.com>
-X-Gm-Features: AclHuK99R8-us8Fs2p5d0092H4vgTDHcFapELNpNx1Z9qKaqccwjS9iFs8yerts
-Message-ID: <CAMRc=MejhYpC6QNXwK_cG_NuJs5XpOviK2NPsEwtnK0RxDi61Q@mail.gmail.com>
-Subject: Re: [PATCH v10 00/14] crypto: qce - Fix crypto self-test failures
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, brgl@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Thara Gopinath <thara.gopinath@gmail.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Stanimir Varbanov <svarbanov@mm-sol.com>, Eneas U de Queiroz <cotequeiroz@gmail.com>, 
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, Eric Biggers <ebiggers@kernel.org>, 
-	Demi Marie Obenour <demiobenour@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Abel Vesa <abelvesa@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_072616_542674_567D56CC 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,13 +88,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 11:57:29 +0200, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> said:
-> This iteration addresses issues raised by sashiko.
->
+Arm Core Local Accelerator (CLA) provides a CPU-local interface to
+accelerators that access memory through the local CPU's MMU. CLAs whose
+accelerators cannot be isolated from each other form an isolation
+domain.
 
-It came back with some more issues. And seems I have a build failure midway
-in the series so that needs fixing too.
+Add a binding for arm,cla describing the register range, CPU
+association, DMA coherency and isolation domain. Document the
+privilege-level register frames, including reduced ranges exposed to
+virtual machines, and provide an example of two CLAs sharing a domain.
 
-Bart
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ .../devicetree/bindings/misc/arm,cla.yaml     | 77 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 78 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/misc/arm,cla.yaml
+
+diff --git a/Documentation/devicetree/bindings/misc/arm,cla.yaml b/Documentation/devicetree/bindings/misc/arm,cla.yaml
+new file mode 100644
+index 000000000000..b86a2befd09a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/misc/arm,cla.yaml
+@@ -0,0 +1,77 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/misc/arm,cla.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Arm Core Local Accelerator (CLA)
++
++maintainers:
++  - Ryan Roberts <ryan.roberts@arm.com>
++
++description:
++  A Core Local Accelerator (CLA) provides a CPU-local interface to up to eight
++  accelerators. The accelerators access memory through the local CPU's MMU. Each
++  CLA has its own register range, which can only be accessed by its local CPU.
++  Completion is polled through the registers; CLA does not generate interrupts.
++
++properties:
++  compatible:
++    const: arm,cla
++
++  reg:
++    maxItems: 1
++    description:
++      A single contiguous register range starting at the PL0 frame, aligned to
++      256 KiB. Each privilege-level frame occupies 64 KiB, with PL0, PL1, PL2
++      and PL3 at offsets 0, 0x10000, 0x20000 and 0x30000 respectively. The
++      complete range is 256 KiB. Higher-privilege frames may be omitted when
++      unavailable, for example in a virtual machine. The range must include at
++      least PL0 and PL1 when running at EL1 and additionally PL2 when running at
++      EL2.
++
++  cpu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the CPU for which this CLA is local. Only that CPU can access
++      the CLA's registers.
++
++  dma-coherent: true
++
++  arm,domain:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      Identifier of the CLA isolation domain. CLAs whose attached accelerators
++      cannot be isolated from each other, for example because they share an
++      inter-accelerator communication bus, must have the same domain ID.
++      Different isolation domains must have different IDs. IDs need not be
++      consecutive. A CLA that can be isolated from all other CLAs has its own
++      domain ID.
++
++required:
++  - compatible
++  - reg
++  - cpu
++  - dma-coherent
++  - arm,domain
++
++additionalProperties: false
++
++examples:
++  - |
++    /* Two CPU-local CLAs in the same isolation domain. */
++    cla@10000000 {
++        compatible = "arm,cla";
++        reg = <0x10000000 0x40000>;
++        cpu = <&cpu0>;
++        dma-coherent;
++        arm,domain = <0>;
++    };
++
++    cla@10040000 {
++        compatible = "arm,cla";
++        reg = <0x10040000 0x40000>;
++        cpu = <&cpu1>;
++        dma-coherent;
++        arm,domain = <0>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 735f6527f920..98a25b3de9b4 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2213,6 +2213,7 @@ ARM CORE LOCAL ACCELERATOR (CLA) DRIVER
+ M:	Ryan Roberts <ryan.roberts@arm.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Supported
++F:	Documentation/devicetree/bindings/misc/arm,cla.yaml
+ F:	Documentation/misc-devices/arm-cla.rst
+ F:	drivers/misc/arm-cla/
+ 
+-- 
+2.43.0
+
 
