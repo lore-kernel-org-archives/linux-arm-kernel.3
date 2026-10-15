@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90351CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E9ECC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cu+kqaxp2LTtL66kVYg1eFWIE3LmRxniGoxkUb1pV6Q=; b=wDniTu1O+sMyVfhiZScWv7uZdw
-	oOSkMjWSxpxRKwY0FymHKa6YMZ6VvL44peo8tmwYZhOZJHBUw3QWYKprSo3YtQzEXksAlK3SFLJ/W
-	Zv3SV/tuEQrUTIjp/upq4Hc7Lee3J+j7bp50Pyn6zAymXcL+HKbeZzrI86ZSBmKJSGb9indFUwnrQ
-	37/GTCC9GUz2Yt/xnwG90bVpGJ1ahOKhrj9w4wkPn+Upgib8Mfi7YG4azXO2yN8k4hEMAKJBXryZe
-	mfQCU20TyzzlEv6U3RK5ry0pmC0j3bnc1CpAStpedNeKRLpRU3hiUzhUD3DGbp+AgfGWZwKscZ28s
-	x679GAnQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m1Sj8rSdmb/pbigDyObZpWX/JDYcZPR3uB5iI75Xx8c=; b=FKXp1XVtU7dUE1CZna1V2wmYIh
+	eyke2zFA1Yg+Kplp8EGdALVprdQ7/yF2IB9B7C/hQ/kDjYpsUOiqrh8kQ0UIUmnLoF5eg64iTGxI7
+	br7iz8tiErFmQghvs3ojNelMn3cx81sTu9wdOTUr2KFlPd7ds7px2Ok6xNb1awhN/DbRhPxLnJxwB
+	I0dh74mxRmjlNO+qqfuus8i59jNAGevIJJpaEgqIqfuk1j5DB0WdXjNycMpnEYVErUpg5QfD55ft2
+	QQHETxSZdGP8HlyGsBlLn9EvJUOdeKa7Y+LV8ECL2OQFgDDNAYiixUx4vA/W0ijyuO6QMu61NkPjm
+	GcQ9CFhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMiA-00000000QiQ-03M2;
-	Thu, 15 Oct 2026 14:45:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHMja-00000000RAA-3lA9;
+	Thu, 15 Oct 2026 14:47:07 +0000
+Received: from mail-oo1-f51.google.com ([209.85.161.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMi6-00000000Qi9-2IKM;
-	Thu, 15 Oct 2026 14:45:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEA4E439EE;
-	Thu, 15 Oct 2026 14:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 304AC1F000C4;
-	Thu, 15 Oct 2026 14:45:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792075533;
-	bh=Cu+kqaxp2LTtL66kVYg1eFWIE3LmRxniGoxkUb1pV6Q=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=A8KDxOcVlxsVPVeUTb9z6c3kNCv2Dr1lrWDr9l40cOoWUXL1Aa9evg1lXL0HZO/Zz
-	 WJ4G1FmtHGdIq/yYXMZfJZqNjbt9NMUpVkN/vtR4Mzvfp5GKzKyrwAvEA453Qd7RpW
-	 wP99QRrUSELooIlXaxd1eJvNM5QC1IenKNGjpIg+zB2LT2WeunlLmM1UJXSCo5WA7b
-	 tyATQpPi99r6EB7JJg8bBX4cwJ1lBgWXeHKfDPeFIj7696IzdLwoN8rt3vtje0v0Gd
-	 +YNvLWNOlpLLsoSztfgUpWU3yPeS6wL7TT0rhUUVmx10YQEsGxxMH8vU7g+oNU15gg
-	 PK543lonFLSyA==
-From: Lee Jones <lee@kernel.org>
-To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Eddie Huang <eddie.huang@mediatek.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-rtc@vger.kernel.org
-In-Reply-To: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-1-558b8f95cfbc@gmail.com>
-References: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-1-558b8f95cfbc@gmail.com>
-Subject: Re: (subset) [PATCH 1/2] dt-bindings: mfd: mediatek: mt6397:
- describe the RTC's nvmem layout
-Message-Id: <179207552993.2025354.8082190784295988343.b4-ty@b4>
-Date: Thu, 15 Oct 2026 15:45:29 +0100
+	id 1xHMjW-00000000R8K-1qjE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 14:47:04 +0000
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-6d68de53053so2315766eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 07:47:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792075620; x=1792680420;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m1Sj8rSdmb/pbigDyObZpWX/JDYcZPR3uB5iI75Xx8c=;
+        b=rbHFOz2WAJi47uiIRsR5lceLTw3dFxLZc1IVIqet7ZmGyRt2J/l84D/SRS6v8LARZ3
+         U6XSsY2rRMB8toxuFrm/pR0juqIXJI8HjfYabraXQmAZtj7eYjG8+nrfqxsLo9nuNUs4
+         S6xgzJCHMqvvE/UoesAyLkZGg89fUmFTKMCpeNHOZg+uX94wkZUSTSQaJCXTjClTvF8M
+         f6COAneApWmrVHOalyKgsCcucQmjusZAhBj6+ktqMvHIg3Ve7qk0K3pu2zhi0j/d9lOw
+         0yiCRsztC2O0RFkR+GT2CbXTHeBa0S3tt7EquxC+HR6Ghw4z9ECuOxlL+WwN2qw28ggN
+         pgfw==
+X-Forwarded-Encrypted: i=1; AKwUvBzlEvin/soNWjg4W3Pwj5ObD5ackU3F4VqBu6ehklrgk1aHQ6rffi4OyQa0pXjPlxAuzed1BdOSu/7NZRjRw3Qu@lists.infradead.org
+X-Gm-Message-State: AFq9FYIRhiDZZIzXuTUonT/FiBoN7OsxxFi5Th+4BZw7+6F+e66TI2no
+	QFZfuLu7ylWk5z8oMGFNi2A3OML8EI4Av4L7Wf/Uj+qeBWj4btykpsTg
+X-Gm-Gg: AYBFou13c5ZCK24K2kKdNVQvgidjjrYCXdWeaVIHIR90uIPrVAqPwmxdFkAoRYoVhOA
+	Q3+atqWseG9b/Y0rRhu3aCgR6zi3uqTmnFT+UedGN2PPAboWwLwKMbdj6eLureSB9WHUwRhlQAY
+	Q7qlLshbCgS7rWF834s1IMpLkmPhcIdjmVa+9e7cZf+WgzfJ6JX+RLOPiY/LxPQJLKFM4Ui+RaR
+	aDvvB5vIOREoX/uvZ5vm1NFXJKrgLGHXWDATRYsq34vCf7O7btUUn9XbwmfpIBEgorN7VmSyADq
+	LqbbpzbWIByz7Sq5/TfisNR8j1e/dKNF19gXgW0vvKLsBPjmDbeye2cT8/s3ev/y2sWj5n8h2N/
+	+wnqOHfwdjIOGCdit2qLrKvEcUYpHJiOLvojsL+0hgLDSq1MXs9TDIFRXEA3XtJqjhiN8+neYjj
+	sIeKrpoq6CmCAGiYy6mQ291zsOPrQysc2E2NtakM5ZCvzEM3yoXggFJJ1VIVuEg5798B3bMikza
+	NadjO1z+ng8prtRBBA7k1lOOX2it6p9x/ixXnrdvfS6/oUEXu8tPdU3H4jGPeULH3jyOlNWfyvM
+	nEXX0DwpAahlXpn9eQqWegBE6fuZWwEGNGMCNyO0GPN5PbDMlkRAUaNpfVtEGhb2knqNEg885Lq
+	6Y8tMDTOFNVE=
+X-Received: by 2002:a05:6820:162b:b0:6f7:6416:a34 with SMTP id 006d021491bc7-6f764161ae2mr8416735eaf.41.1792075620353;
+        Thu, 15 Oct 2026 07:47:00 -0700 (PDT)
+Received: from localhost ([201.89.183.74])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a6dfc982a4sm4664115fac.14.2026.10.15.07.46.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Oct 2026 07:46:59 -0700 (PDT)
+From: Otavio Salvador <otavio@ossystems.com.br>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org
+Cc: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-serial@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Otavio Salvador <otavio@ossystems.com.br>,
+	"Rodrigo M. Duarte" <rodrigo.duarte@ossystems.com.br>
+Subject: [PATCH] serial: imx: keep the CPU out of deep idle while an RS485 port is open
+Date: Thu, 15 Oct 2026 11:46:27 -0300
+Message-ID: <20261015144627.2461915-1-otavio@ossystems.com.br>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_074702_493002_5952E832 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +96,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 23:57:46 -0500, Ryan Brue wrote:
-> Four of the MT6397 RTC's alarm registers use only their low bits; the
-> high byte of each is storage the clock and the alarm don't touch.
-> MediaTek's documentation names them RTC_NEW_SPARE0 to RTC_NEW_SPARE3 and
-> assigns the first to a fuel gauge, which is what a battery driver reads
-> at boot so that the reported capacity does not jump across a reboot.
-> 
-> They sit in the RTC's always-on domain, so the driver can offer them as
-> a battery-backed nvmem provider. Allow a board to lay cells out over
-> them.
-> 
-> [...]
+In RS485 mode the driver releases the transmitter (RTS/DE) from the TX
+complete interrupt. On i.MX6UL/ULL the imx6sx cpuidle driver offers an
+"ARM power off" state with a declared exit latency of 300us, measured at
+up to 2ms. When the CPU enters it while the last character is shifted
+out, DE is released that much later. Modbus RTU slaves may answer after
+3.5 character times (1.75ms at >=19200 baud), so the head of their reply
+collides with our still-driven transmitter and is lost.
 
-Applied, thanks!
+Add a CPU latency QoS request of 100us while an RS485 port is open. It
+excludes the power-off state but keeps WFI and WAIT (50us) available, so
+cpuidle can stay enabled and the constraint only applies while the port
+is in use.
 
-[1/2] dt-bindings: mfd: mediatek: mt6397: describe the RTC's nvmem layout
-      commit: 3606288af5e8c09a14ab5b19e121feec75296354
+The request is added on startup and removed on shutdown, and its value
+follows the RS485 state in imx_uart_rs485_config(), so RS485 enabled
+through TIOCSRS485 after the port is opened, as libmodbus does, is
+covered as well.
 
---
-Lee Jones [李琼斯]
+Tested-by: Rodrigo M. Duarte <rodrigo.duarte@ossystems.com.br>
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ drivers/tty/serial/imx.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
+index 986fefb45c632..be05ed94bf0c4 100644
+--- a/drivers/tty/serial/imx.c
++++ b/drivers/tty/serial/imx.c
+@@ -24,6 +24,7 @@
+ #include <linux/ktime.h>
+ #include <linux/mutex.h>
+ #include <linux/pinctrl/consumer.h>
++#include <linux/pm_qos.h>
+ #include <linux/rational.h>
+ #include <linux/slab.h>
+ #include <linux/of.h>
+@@ -237,6 +238,7 @@ struct imx_port {
+ 	struct hrtimer		trigger_start_tx;
+ 	struct hrtimer		trigger_stop_tx;
+ 	unsigned int		rxtl;
++	struct pm_qos_request	rs485_pm_qos;
+ };
+ 
+ struct imx_port_ucrs {
+@@ -339,6 +341,22 @@ static void start_hrtimer_ms(struct hrtimer *hrt, unsigned long msec)
+        hrtimer_start(hrt, ms_to_ktime(msec), HRTIMER_MODE_REL);
+ }
+ 
++/*
++ * In RS485 mode the transmitter is only released from the TX complete
++ * interrupt. If the CPU sits in a deep idle state at that point, the wakeup
++ * delays the release long enough to collide with fast responders on the
++ * bus. The i.MX6UL/SX "ARM power off" state has a 300us exit latency and was
++ * measured at up to 2ms, so keep the CPU out of states slower than this while
++ * an RS485 port is open.
++ */
++#define IMX_UART_RS485_CPU_LATENCY_US	100
++
++static s32 imx_uart_rs485_cpu_latency(u32 rs485_flags)
++{
++	return rs485_flags & SER_RS485_ENABLED ?
++		IMX_UART_RS485_CPU_LATENCY_US : PM_QOS_DEFAULT_VALUE;
++}
++
+ /* called with port.lock taken and irqs off */
+ static void imx_uart_soft_reset(struct imx_port *sport)
+ {
+@@ -1585,6 +1603,9 @@ static int imx_uart_startup(struct uart_port *port)
+ 
+ 	uart_port_unlock_irqrestore(&sport->port, flags);
+ 
++	cpu_latency_qos_add_request(&sport->rs485_pm_qos,
++				    imx_uart_rs485_cpu_latency(port->rs485.flags));
++
+ 	return 0;
+ }
+ 
+@@ -1710,6 +1731,8 @@ static void imx_uart_shutdown(struct uart_port *port)
+ 
+ 	clk_disable_unprepare(sport->clk_per);
+ 	clk_disable_unprepare(sport->clk_ipg);
++
++	cpu_latency_qos_remove_request(&sport->rs485_pm_qos);
+ }
+ 
+ /* called with port.lock taken and irqs off */
+@@ -2053,6 +2076,11 @@ static int imx_uart_rs485_config(struct uart_port *port, struct ktermios *termio
+ 		imx_uart_start_rx(port);
+ 	}
+ 
++	/* The request only exists while the port is open */
++	if (cpu_latency_qos_request_active(&sport->rs485_pm_qos))
++		cpu_latency_qos_update_request(&sport->rs485_pm_qos,
++					       imx_uart_rs485_cpu_latency(rs485conf->flags));
++
+ 	return 0;
+ }
+ 
+-- 
+2.55.0
 
 
