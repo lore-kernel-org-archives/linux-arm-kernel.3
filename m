@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FC9CC6B3B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E88CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/dObaMkUWm5pUqDYuOvXJ2uzV/iakL+4bYfynFPMTA=; b=j0PCq1Wl5RnE2tmvH4xEp22Wvu
-	ItayC8jJMIgMQBxN6xHrguWVova3py3hLmoVYqGrOc84COC+W1u2+SRp3ixoTlvVhPz37YCh42ScK
-	Ni+6sIAWnlMIzbKWs+67ZjgvKOnPggEEJWIeH38n0LrfoTaotZTmfBo0lLOLUy5Yvz9qWNAePT1UG
-	EERHwJed/FJTseMuD2JtgFyFi6nJJSQHoFn0tsIkqmkd4cr7qj488XuTlx3tYyAgG8NcYF+Itk9BG
-	21IH+IIsNmcidICp0sy6xjl3OmnkB2Gl5mGVtlmiI4gLxSvSxlQJOC8CyAiw3N6hEEH+d//u3YP5L
-	yGT9UAEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dS4djhTCCyfNupiiHbhsTglSI4Wcf298uQffxP9D2K4=; b=UY4yTiIXEwh2TumBNhlqxcI2L6
+	zLmLs1YUmXtMC74UE8/WoRYMBUdZGz+xD2X8ZkFDqWF3pYXK4TUJXlhdzpFOpA8XOSGm/Yt9Np5l3
+	CMXB5D839s87BbmF7l5E54OI/Y1LY0NeYsl6GOWdqO8WawEv+qvMwKpdO+LN+TJUq+fDO8fIY7P/P
+	YL/iw0mXA6HQ7MlId07fgz0EZzW23BaTEphUidxGRZ6h3V5SOt6h2csqrLkPJ/ZcK7xeUq0WayHo2
+	/rtDY1gEng7pRfontDX+2VHoepM7jseb9etWm845Bq8OyR7S5OxkJHyzMt2+Ks4jEfQDcL/oYj7W0
+	lBegt/lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHxg-0000000HIZO-2hgq;
-	Thu, 15 Oct 2026 09:41:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHI2H-0000000HJDF-11NG;
+	Thu, 15 Oct 2026 09:46:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHxf-0000000HIYa-26ME
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Oct 2026 09:41:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=n/dObaMkUWm5pUqDYuOvXJ2uzV/iakL+4bYfynFPMTA=; b=VsoWz/v6Zs04d2qHXxKS8669cX
-	hHbrm1SFHR9cV89wRNMPhbgxouW8htxLsre1qVCvcY5ZdsnNZd/W08Q5REhnJGgYjTpY4wmeGJKoz
-	LJxBotcInOVONYE+7J81Il45tyI/6t1DOUSCUo1+W3eLBqG4unTKkoLLJSOD2sZjVQbry9xcsxAv6
-	xQUj651ScQ3KAqIjVphtVdqgU/4nmavMr7RBQMv3GyszIcEm37mAVt8K0Y7sTTkt7ZkEuwHkFrZrN
-	msPnT9OQfwrABwm5I3+c4kYq+tVviaaDzpo0FDA+rDJAqgQXkfxsvSk+EBXseXbiau8nVhIXol7CL
-	KmY/TBEA==;
-Received: from abb.hmeau.com ([180.181.231.80])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHHxa-00000000Bnc-2fW6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 09:41:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=n/dObaMkUWm5pUqDYuOvXJ2uzV/iakL+4bYfynFPMTA=; 
-	b=AayoWzIl507yCoEfvjqfTQoiWeTVGYboAIKqziCOjo9+D1pJH3shHm2jQuig9q+R8AdT/5yHe2f
-	qNVO626Q6NxguYxuu70Ckd0KoTflmJ5AMRYgBTA/3/zdOhMjD72rWq5b6pVmnBLeXfMKFCRkCNpZU
-	qPNKcNcJBXHRb5Zhlyh1+ECXrFUGZtsOCl0uFZR9VBHdUrYZG445G0CZ9WK0A9ApyiL4EvdYFCcQC
-	ohSUk86lI9xyB9lW+d+zPZq9mYDdFAoTfwr8CHpiyqh6Kr2itvVJzRQJo2ClqhSRdV/uSa1WIY+dE
-	n450QdfRBPr4zy6msj5Pkig6LKYvBK6kJ60g==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xHHx4-000000047Y7-2R5o;
-	Thu, 15 Oct 2026 17:40:43 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 15 Oct 2026 20:40:42 +1100
-Date: Thu, 15 Oct 2026 20:40:42 +1100
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: jeanmichel.hautbois@yoseli.org
-Cc: Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v4 1/2] hwrng: imx-rngc: Use optional clock
-Message-ID: <atCfmsPr85oAnsJT@gondor.apana.org.au>
-References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
- <20251126-b4-m5441x-add-rng-support-v4-1-5309548c9555@yoseli.org>
+	id 1xHI2G-0000000HJBy-0lW5;
+	Thu, 15 Oct 2026 09:46:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB3B043A78;
+	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C55C4C2BCF4;
+	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792057563;
+	bh=ezz9X8LCg9d+XCwZ3z22UMCSEaqyTLaQMTVDqp8Flk4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=oMwUU0yX7cyUqp6YbrMYWdwtKziUaUQOWmQejKuviONmRSAREkq4XcifHnDssIJmn
+	 b+ZohOJk2B8rdnmPqmoqb5CdD5i9A1ut9ciSbpnBycwZe7Ebg2rHRSuuena6+fZNGM
+	 KGA5SXkAiz6f0Mh4AKl5hJ0hpZMeOifMFIKh7WfE4c5+vA0gPDc/DSwHBT1JX1Rdgg
+	 QvbJLCOogIuP6VAWUQWZjIOdjz/GvWKjBvpPMrhMpNqSaukCfg6LqUrYIWcSeBB6Rl
+	 ie37f04e9LzhYHKlJ5g05fSth8GIhc9DETuTjkMnqgWHnBjS1igwqcpJOS9ae8z9Ys
+	 HcWzslmD9yTyA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A6D25CC6B38;
+	Thu, 15 Oct 2026 09:46:03 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Thu, 15 Oct 2026 17:45:02 +0800
+Subject: [PATCH net v5 1/6] can: dev: prevent bus-off recovery when the
+ interface is not running
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126-b4-m5441x-add-rng-support-v4-1-5309548c9555@yoseli.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_104114_866918_6B1A14B9 
-X-CRM114-Status: GOOD (  12.73  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261015-rockchip-canfd-restart-close-v5-1-ae77327037c9@qq.com>
+References: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
+In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Wolfgang Grandegger <wg@grandegger.com>, 
+ Oliver Hartkopp <socketcan@hartkopp.net>, kernel@pengutronix.de
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792057562; l=2288;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=uB+Pk/mygKqGhQYSoYzTiXpubbzalD/v2yRTUeNfoh0=;
+ b=aDOVh3yRyfci2lDw37N9t4OltHL3UIkjn85vsXX0VOGrJzTsJ1xhkohkB/hfFvLNhdyYilBYW
+ zcqn9mCt1FnC1WfK015mmaWiq53KoChOnxQLi8kAAL6d+geWBHlGaTh
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +84,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: 1579567540@qq.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 08:08:09AM +0100, Jean-Michel Hautbois via B4 Relay wrote:
-> From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> 
-> Change devm_clk_get() to devm_clk_get_optional() to support platforms
-> where the RNG clock is always enabled and not exposed via the clock
-> framework (such as ColdFire MCF54418).
-> 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> ---
->  drivers/char/hw_random/imx-rngc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+From: Cunhao Lu <1579567540@qq.com>
 
-Patch applied.  Thanks.
+The networking core clears __LINK_STATE_START before calling ndo_stop(),
+but CAN bus-off recovery neither checks this state before queuing work
+nor before calling the driver's restart callback. Recovery can therefore
+be queued or started after the interface has begun closing, potentially
+re-enabling hardware while the driver is tearing it down.
+
+Check netif_running() in can_restart() before flushing echo skbs, sending
+the restart notification or enabling the carrier. Keep the existing
+unsupported-operation check first. In can_bus_off(), only schedule
+recovery for a running interface and make the log message reflect that
+decision. Keep reporting bus-off and disabling the carrier.
+
+These checks do not wait for recovery that has already passed the check,
+nor serialize the check with work submission. Drivers still need to
+cancel restart work before tearing down resources and quiesce its
+producers before their final cleanup.
+
+Fixes: 39549eef3587 ("can: CAN Network device driver and Netlink interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ drivers/net/can/dev/dev.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 769745e22a3c7..92492c503446e 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
+ 	if (!priv->do_set_mode)
+ 		return -EOPNOTSUPP;
+ 
++	if (!netif_running(dev))
++		return -ENETDOWN;
++
+ 	if (netif_carrier_ok(dev))
+ 		netdev_err(dev, "Attempt to restart for bus-off recovery, but carrier is OK?\n");
+ 
+@@ -264,8 +267,9 @@ int can_restart_now(struct net_device *dev)
+ void can_bus_off(struct net_device *dev)
+ {
+ 	struct can_priv *priv = netdev_priv(dev);
++	const bool restart = priv->restart_ms && netif_running(dev);
+ 
+-	if (priv->restart_ms)
++	if (restart)
+ 		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
+ 			    priv->restart_ms);
+ 	else
+@@ -273,7 +277,7 @@ void can_bus_off(struct net_device *dev)
+ 
+ 	netif_carrier_off(dev);
+ 
+-	if (priv->restart_ms)
++	if (restart)
+ 		schedule_delayed_work(&priv->restart_work,
+ 				      msecs_to_jiffies(priv->restart_ms));
+ }
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.34.1
+
+
 
