@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEF1CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4747CCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6NX91n8sg0b4V5XyUBL6pTMXOsCEZRCIKDjR1HCVko=; b=bzfhbEJkAN0gPEj6UpGH9Xon0G
-	lMH628BRV0t82s69PcnQkaACPSIvL6bgZsXVN0eiA1SwLJp2VKS+1p/Vi1CW80oSoewVd0401a501
-	yMrezudgoCtyA7CKy8CcUz2e8z+NEkt9Gm5DVmzwCB69mVn2fyyg8JzhHJ9HXtDgJ5wu1shCt5fE5
-	T/Mc81zvz0x2cmEOjOs6zsFzNpgnnh6tCas0hYaP0ZINPO3Sqq4FoE/rTiWmsrRmaSBy9Ti6Ejdv2
-	BISOSVKXU2xUVoS9SgSrf9rzVeKPEYDbAS05hBT3OKUaOEVWl6kcA00c+wcrvZPMyCUpHEBaaIGjr
-	p1JLWL6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTiAObyAESh3G5YxQwvY1f/k5aL+7XVnCiMQ+GLcbRk=; b=qdVYUoAMR7eD+pUc7rvndMmrm4
+	xIssDrUeDercRRf51PZVXpzq97Ab0lwQ14c8Tp6lztNwY6M6TRKrJd49fbDcXhR1VTfCABCEy4zU4
+	/ReIx1CVE/3ANAKy4KbFY88IFXjk4sc2rmRfFJbsE+rEGNVWD0Jk0a7RD2EVOmCtNi4AehBWwdQwO
+	vNbo9Wp7SoQXvSYrao72KE72EKOy99UfZF5zRnvp3egb3nSNUMz5DDGMdLf0NCiGZQhjNQb3dKeB1
+	GGI3uHYw7PRdEhwy8hlxGB5jIgG7578YcOGId911tZoP6/yh4EhLQf1Y+Mv6AoQiSz6fhgY6yU9QC
+	FtuTVt5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI7r-0000000HLSg-3Jrn;
-	Thu, 15 Oct 2026 09:51:51 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHI7p-0000000HLSG-1i1m
+	id 1xHIAV-0000000HLtT-0res;
+	Thu, 15 Oct 2026 09:54:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHIAU-0000000HLt3-0n3i
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 Oct 2026 09:54:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FTiAObyAESh3G5YxQwvY1f/k5aL+7XVnCiMQ+GLcbRk=; b=E1NN7Ft7gEWjC+vq5ZBRZvekE6
+	8QHNYmvOcIovBCRlhZRiDEDtjT4aE31hSUB1yRCR6g2E2ZnSftpK+Z/7jKQHWbUvSXjvYWRW1rLtL
+	wmTqfU6WRwnwFOSZ46WjhT2jOouW7hv3xsatfENINvhHpn6ZodybcSDT7mU7Ol723nJhaejY2qlf8
+	L3zl290DDAF+LxqiaAPTYMXz8pFBBWoCBsT4ruQuMYrTKwrtQxDDJ2Bg+o/5JdH4rZexSlmjfOGkU
+	biocYur/dUibauJN4Q1864tBSA3J8wPpYnHFPk/gtnjU2OWMLK8bhG99756YTem+pIThJa/d1EdZA
+	x9wmFGUw==;
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHIAQ-00000000Ck5-2cAy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 09:51:50 +0000
-Received: from [10.94.176.134] (unknown [4.194.122.162])
-	by linux.microsoft.com (Postfix) with ESMTPSA id D205E20B7167;
-	Thu, 15 Oct 2026 02:51:40 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D205E20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1792057904;
-	bh=q6NX91n8sg0b4V5XyUBL6pTMXOsCEZRCIKDjR1HCVko=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=R0LCZU8Bm4A7wctc9j6aHEiOhMnlKfeMxoDNSSPJRlcLlgmBiviXbSymwpu6KDHw9
-	 KMSVMGaQm+1ITiFkMVxzW96Sr032KoY3DyGmcWCNjEcDp3i+LAHvT5BQznwAnRlf5y
-	 n1zf89Ms4AaJ7d+9AkocphWw2rMy2ICCrQOBRcKY=
-Message-ID: <4f9398a0-d303-4b7f-9967-9a5f3077cc1a@linux.microsoft.com>
-Date: Thu, 15 Oct 2026 15:21:43 +0530
+	Thu, 15 Oct 2026 09:54:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FTiAObyAESh3G5YxQwvY1f/k5aL+7XVnCiMQ+GLcbRk=; b=dNnLFCDdJxUFAnrNjRUh3QEdY7
+	2KbWJtVpT8MtlXfHPk4eNHJ0WK0IHo26G9EEcRYvjgB21eaBUz8/eg+lr/VKHV4xsxuwxhEgClC5v
+	Sin9Tp+SerlmItUku+HmrO1sk0egRZlwpHgJrGq3UC1n5SnbgDFZq4A1N8KVgXVsM3brOzcMfZX65
+	CScOmGCD+sEkN+ZwDz0wRROYnLq8o4GpMh9Y0DKHQHUA5UsZI7fu/fg0t6eIoPWVOVmD94lCBg03U
+	kdUaj7kaHdSWHDTbKli3+NrOc89nucwHa/GwQQCF3dTFnjvtB8NZXVsHY8IQ7+1710ULQyru7cUbR
+	cK+eNmHw==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xHI94-0056ak-1F;
+	Thu, 15 Oct 2026 09:53:06 +0000
+Date: Thu, 15 Oct 2026 02:52:58 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Chia-Wei Wang <chiawei_wang@aspeedtech.com>, 
+	Oskar Senft <osk@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Jani Nikula <jani.nikula@intel.com>, 
+	Vitaly Lubart <lubvital@gmail.com>, Hanjun Guo <guohanjun@huawei.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Alexander Usyskin <alexander.usyskin@intel.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	James Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Stephen Hemminger <stephen@networkplumber.org>, Dave Penkler <dpenkler@gmail.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	Dan Williams <djbw@kernel.org>, Mukesh Rathor <mrathor@linux.microsoft.com>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, Alexandra Winter <wintera@linux.ibm.com>, 
+	Julian Braha <julianbraha@gmail.com>, Karthikeyan KS <karthiproffesional@gmail.com>, 
+	Pengpeng Hou <pengpeng@iscas.ac.cn>, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH v2 1/4] uart-routing: Add common UART routing framework
+Message-ID: <atCibvmbCSTMTMYD@gmail.com>
+References: <20260905102901.126035-1-changhuang.liang@starfivetech.com>
+ <20260905102901.126035-2-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: xilinx: versal-net: Remove CPU idle states
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, git@amd.com,
- ptsm@microsoft.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, michal.simek@amd.com, sven@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
- <b9213a36eb1d28f3e7b8610592c085f627f5c7cf.1791374721.git.jay.buddhabhatti@amd.com>
- <20175a31-2ef8-4c12-b329-616cb07d3d0b@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <20175a31-2ef8-4c12-b329-616cb07d3d0b@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260905102901.126035-2-changhuang.liang@starfivetech.com>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_025149_473847_4B5C87B3 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20261015_105430_870273_3E8A94D0 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,198 +105,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Sep 05, 2026 at 03:28:58AM -0700, Changhuang Liang wrote:
+> +ssize_t uart_routing_show(struct device *dev, struct device_attribute *attr,
+> +                       char *buf)
+> +{
+> +     const struct uart_routing_selector *sel = to_uart_routing_selector(attr);
+> +     struct uart_routing *routing = uart_routing_from_dev(dev);
+> +     unsigned int val, pos;
+> +     int len, ret;
+> +
+> +     ret = regmap_read(routing->regmap, sel->reg, &val);
 
+It seems routing can be NULL here if the file is read while the device
+is being unbound, and uart_routing_store() has the same problem.
 
-On 15-10-2026 15:01, Prasanna Kumar T S M wrote:
-> 
-> 
-> On 07-10-2026 17:49, Jay Buddhabhatti wrote:
->> The sleep state powers down the CPU core, and the wake-up time cannot be
->> guaranteed because the firmware may be busy handling other tasks at the
->> time of the wake-up request. This leads to unpredictable and potentially
->> high wake-up latency during CPU idle.
->>
->> Remove the sleep state to avoid this dependency on firmware. The default
->> backend CPU idle state simply puts core in WFI and retains its context
->> without being powered off. Since wake-up from WFI is handled entirely in
->> hardware, it is effectively immediate (a few cycles) and does not depend
->> on firmware availability.
->>
->> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
->> ---
->> Changes in v2:
->> - Remove the idle state instead of replacing it with a retention state.
->> - Update the subject and commit description.
->>
->> Link to v1: https://lore.kernel.org/all/20260727121842.3410495-1- 
->> jay.buddhabhatti@amd.com/
->> ---
->>   arch/arm64/boot/dts/xilinx/versal-net.dtsi | 29 ----------------------
->>   1 file changed, 29 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/ 
->> boot/dts/xilinx/versal-net.dtsi
->> index 21bb917bcba1..9b74e59fd64a 100644
->> --- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
->> +++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
->> @@ -103,7 +103,6 @@ cpu0: cpu@0 {
->>               enable-method = "psci";
->>               reg = <0>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -133,7 +132,6 @@ cpu100: cpu@100 {
->>               enable-method = "psci";
->>               reg = <0x100>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -163,7 +161,6 @@ cpu200: cpu@200 {
->>               enable-method = "psci";
->>               reg = <0x200>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -193,7 +190,6 @@ cpu300: cpu@300 {
->>               enable-method = "psci";
->>               reg = <0x300>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -223,7 +219,6 @@ cpu10000: cpu@10000 {
->>               enable-method = "psci";
->>               reg = <0x10000>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -253,7 +248,6 @@ cpu10100: cpu@10100 {
->>               enable-method = "psci";
->>               reg = <0x10100>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -283,7 +277,6 @@ cpu10200: cpu@10200 {
->>               enable-method = "psci";
->>               reg = <0x10200>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -313,7 +306,6 @@ cpu10300: cpu@10300 {
->>               enable-method = "psci";
->>               reg = <0x10300>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -343,7 +335,6 @@ cpu20000: cpu@20000 {
->>               enable-method = "psci";
->>               reg = <0x20000>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -373,7 +364,6 @@ cpu20100: cpu@20100 {
->>               enable-method = "psci";
->>               reg = <0x20100>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -403,7 +393,6 @@ cpu20200: cpu@20200 {
->>               enable-method = "psci";
->>               reg = <0x20200>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -433,7 +422,6 @@ cpu20300: cpu@20300 {
->>               enable-method = "psci";
->>               reg = <0x20300>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -463,7 +451,6 @@ cpu30000: cpu@30000 {
->>               enable-method = "psci";
->>               reg = <0x30000>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -493,7 +480,6 @@ cpu30100: cpu@30100 {
->>               enable-method = "psci";
->>               reg = <0x30100>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -523,7 +509,6 @@ cpu30200: cpu@30200 {
->>               enable-method = "psci";
->>               reg = <0x30200>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -553,7 +538,6 @@ cpu30300: cpu@30300 {
->>               enable-method = "psci";
->>               reg = <0x30300>;
->>               operating-points-v2 = <&cpu_opp_table>;
->> -            cpu-idle-states = <&CPU_SLEEP_0>;
->>               d-cache-size = <0x10000>; /* 64kB */
->>               d-cache-line-size = <64>;
->>               /* 4 ways set associativity */
->> @@ -632,19 +616,6 @@ llc: l4-cache { /* LLC inside CMN */
->>               cache-size = <0x1000000>; /* 16MB */
->>               cache-unified;
->>           };
->> -
->> -        idle-states {
->> -            entry-method = "psci";
->> -
->> -            CPU_SLEEP_0: cpu-sleep-0 {
->> -                compatible = "arm,idle-state";
->> -                arm,psci-suspend-param = <0x40000000>;
->> -                local-timer-stop;
->> -                entry-latency-us = <300>;
->> -                exit-latency-us = <600>;
->> -                min-residency-us = <10000>;
->> -            };
->> -        };
->>       };
->>       cpu_opp_table: opp-table {
-> 
-> This change works fine.
-> 
-> Tested-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> 
+I hit this while testing v2 on arm64 (next-20261008 with KASAN), and the
+code is unchanged in v3.
 
-Change looks good to me.
+        d=/sys/bus/platform/devices/$DEV
+        drv=/sys/bus/platform/drivers/aspeed-uart-routing
+        while :; do cat $d/uart1; done >/dev/null 2>&1 &
+        while :; do echo $DEV > $drv/unbind; echo $DEV > $drv/bind; done
 
-Feel free to add:
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+and then got:
 
-Regards,
-Prasanna Kumar
+    KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+    Internal error: Oops: 0000000096000006 [#1]  SMP
+    pc : uart_routing_show+0x64/0x288 [uart_routing]
+    Call trace:
+     uart_routing_show+0x64/0x288 [uart_routing] (P)
+     dev_attr_show+0x64/0xc0
+     sysfs_kf_seq_show+0x21c/0x380
+     kernfs_seq_show+0x138/0x1c8
+     seq_read_iter+0x358/0xa30
+     kernfs_fop_read_iter+0x438/0x500
+     vfs_read+0x484/0x6f0
+
+--breno
 
