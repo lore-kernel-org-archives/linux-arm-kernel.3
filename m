@@ -4,72 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8470ACCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 21:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81731CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 22:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vvufauZzLYW0JHYDGiG8zwwIzvncUu8gfygsgQRO7M4=; b=fnq8qOU9R+7oDjWzXuwzD5lLs2
-	Ec5Gke87uJyI+pdZnSO1WRPoIqebGrW5h8bRfeuiP3s2E6YRficuurmtYFLbWuN/G+k+/U/+uJJv3
-	myprOBn6BOpp/e0Sh18JdeFKJnluRTZY4Kci4K6B9mwENSduot1a2R3FgLAez6UsYav9NiW23Uex6
-	SxwVJ62Y329YB5+fWet1wYkbHY4WR6clwJvQbqTE51jw7lOUdJKRhBfoPeZONe+qKYWXldbYcjGZf
-	/o4Qyyf3YnYvHvmCf+Kg/sNnmXdpmKeHFiNkVgT67EpbRe1nu7+f/FeRXDoyRIjuK0Ix4nPQgzeN9
-	a80Bq19Q==;
+	bh=u91t8PE5PNM5uF0C/lBcc+9N4yzpNajRaYi6mYstLnU=; b=TS+De7+YDZwIt3mhT5tkAvgXAs
+	XAriir6NjKmO7I1lwTBxnGosSRT2AKG8cg39q/Dh44t9hNbUjx6j/GXn+yMtNbuO5YfYfVT0CRQer
+	35eUcw3FLQHuGelSA/e7rL0kiCvoGRK+l+6IqrJrBJ7+IoHO6YXpDro9ainUiGEK5uFMXpetGX+ky
+	k0T4n4ZBgcRLl7oHoP/ktb+MbA7vwaJ7haA4Oq+J+OLGrKg+aNkK/RLTS0GpG9D0iBbQ29aqp+7Tq
+	LdAqU+t6KhzbFbgP/LZoFbzAh7+5TzCGjtn8tUYlRIZQiLx0hymK05dzjXhEicFrUY4I120w2Hm2z
+	Doao4oCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHTN9-00000001SpO-3Fat;
-	Thu, 15 Oct 2026 21:52:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xHTgV-00000001Tpo-24jT;
+	Thu, 15 Oct 2026 22:12:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHTN6-00000001Sot-2PlU
+	id 1xHTgS-00000001Tp1-2arc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 21:52:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792101139;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vvufauZzLYW0JHYDGiG8zwwIzvncUu8gfygsgQRO7M4=;
-	b=cmVetcyZ0NXU/8rIjiN/3zO2ZEgeUXaQkToeCZxihujIMW1FbMMIC5lHZGHuvtxaqYdiVU
-	QsYZJilBLlOKMSaZlsXWsYSZWQwrAhc0A6l79RXZsVJpl1pQVfVpyuZIlNEt5WHtkaN4yL
-	w/EI2eEXfer3pWXIbHtmLlKEG+SadNs=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-112-UjHSQRwZOC2gk0MrlpEdZQ-1; Thu,
- 15 Oct 2026 21:52:09 +0000
-X-MC-Unique: UjHSQRwZOC2gk0MrlpEdZQ-1
-X-Mimecast-MFC-AGG-ID: UjHSQRwZOC2gk0MrlpEdZQ_1792101128
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3221F1955E93;
-	Thu, 15 Oct 2026 21:52:08 +0000 (UTC)
-Received: from [172.20.178.115] (unknown [10.30.44.133])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A8F07180057F;
-	Thu, 15 Oct 2026 21:52:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.3.0-rc7,
- upstream-arm-next, 7a19f0cc)
-Date: Thu, 15 Oct 2026 21:52:06 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Thu, 15 Oct 2026 22:12:22 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69FI3PHq406122
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 22:12:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=u91t8PE5PNM5uF0C/lBcc+9N4yzpNajRaYi
+	6mYstLnU=; b=G6I/SeBLHeLwIHth7W092RYE7L1QUYlqEuJmyHtVKHMqbL/00ia
+	esdHU7vX1BUoDW5ejTzl/ouqW1ce9bCYI91Tb/ja4PWECTxbn4tncSjGaP/SrkqD
+	J7ymX6gzRbTEPpyBoKteUVarrJo8P9m1jcOGd8E5BCw/XNR9tkDmAgjBKw2S36MG
+	pVUBeSwCbqYbeoW1AtCrFggHlxfJJcuIHXZWRytT2RK2NbmB744donNB2pE5CZPk
+	oZKR+CxbLKzvCJOsETdTpCwICawJy9D5dWSYAh38eZHEJbPHCdnMTF3wc/XmLSdV
+	VwspqVRAVMcjalQkE9IQJOzEKf4ATpVfgbw==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hb3sa0wtu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 22:12:18 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-35fb6be0f9fso2091868eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 15:12:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792102338; x=1792707138; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=u91t8PE5PNM5uF0C/lBcc+9N4yzpNajRaYi6mYstLnU=;
+        b=LvL5gOtiMhwGGvBUhek5F7Q90ybWEdJXDJW+rQeYdTLxAzUVKnwIljXM8GL8Gjuu+J
+         Qp+O8NrVMEEvUIxVHvqNLI8eGp/j1vyTHKHjeaY58HZL/OA7Wlt89sSEnwRUEUa5SKN3
+         19oCBdjDpUkDV6JGFwnTdb8K3R7D5L5EeKYuHQmSJYh12IKc729DQR92owQGOJ3MGoAA
+         l99RZ9njx17yiMw/+GN9eA/EYZlGDDkRWTcMrpy4mKtE+GO2+qsFCdrBFdO7u04kF2Td
+         OlYBv760/FyQ7ArM9y6iJZOQucFUExFStmPAxIm/x2MTaxUnUnsD1EoOdq7rhebP/ipx
+         aBvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792102338; x=1792707138;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=u91t8PE5PNM5uF0C/lBcc+9N4yzpNajRaYi6mYstLnU=;
+        b=xyIIZJzjW8+SCbIKwVrBiCinW88nd59oJOKuVDEZJmdrH3VWuNfeWczPW7KVDYHyXo
+         Fa8Ox4Zy1EqA6GSY2gb8bIRboim1nQ6B9x+ayKRGDMtkZPT5DDD0R0FHR3fdYOeHt4lm
+         fDqfOQ+KE97UAQElTkVi/uJz5jiGXnBKOXiWbl2gW7XavXThJV8XpgO8lZ0aHOYYYaM5
+         W2+afGBMFyQc2/eUrl3Dmg6xwp05/BchePhQ4Q0dsmfMxpiAoNoDZIHuRL0oinHRLF8c
+         t4wxuvsygvIMQ+jOfntiVrD5patXZsP1CGEhf5PRwvsczNKarRvypmVUG1nXU/YQI+MD
+         L3Lw==
+X-Forwarded-Encrypted: i=1; AKwUvBzbMZeDDNftJyp6WIyegcDdQ+YlUHSxxbE0mUBlN2cUCo3izR9UoogO8oDBrUeF+jMvhPoyb51kC8ro76LbrZU6@lists.infradead.org
+X-Gm-Message-State: AFq9FYJrmRFqd1TCuRJnE49b6qKQz+czaSppzBtzBJ2cZH76LuEQMYLB
+	OUFkIILu7cwLo/D5l6QFYPOBLNWKipfLCPo1igOTKPpcrGpey10wDSZSkFHemsVGkCZZV+srP6Z
+	yLFZPiz/g3CjvCt9db0WEAtPmcx2q2IbaOmIrYg2Yf2eKUPq/TIIYVwT3eiuft+AoJ3SyWHGRLW
+	p+Qw==
+X-Gm-Gg: AYBFou3lwnXD4wFJWAHl7vwo/+TV47AMbU0SQ5zHfNyoAF+HwW29SA0usPCIK3y3EcV
+	cfd7Zv04OoXHNgj6OezmSbL4hGouICA7JMgidwODmpQ63kTZhepr82Ds+NGk3kERJU9bFf6e4KS
+	w3QEXWNuGP/k1iLbB4/dLAtWQPZcxfepolYvKjmeV1llc6ALNJF2cG5qvAYelxDhhhVXn35rdoS
+	BQQP9+RXJIwrFhdtEazcLMnU6VZcEaDdJLuwkA3MLGKsjeME4oFgvRgErwZKo3oIfdPRhtT6T6Y
+	DwvRSIj78tK3Bjy/w/MWmF87w27SqcDjs7uYldVecZ9ZANraDn0KY2pA926XGv+JqJJQTZwiZww
+	7/9cfv7Uz/1jYN/2eBB/V9UylBmy6cEVUMVBBSZ2J/08UkPXF3VjA/JbqjfBkyw==
+X-Received: by 2002:a05:7300:8a1d:b0:351:35b3:c5b6 with SMTP id 5a478bee46e88-3537e0fbed7mr31113752eec.27.1792102337754;
+        Thu, 15 Oct 2026 15:12:17 -0700 (PDT)
+X-Received: by 2002:a05:7300:8a1d:b0:351:35b3:c5b6 with SMTP id 5a478bee46e88-3537e0fbed7mr31113711eec.27.1792102337152;
+        Thu, 15 Oct 2026 15:12:17 -0700 (PDT)
+Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36081bafa7asm810987eec.14.2026.10.15.15.12.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Oct 2026 15:12:16 -0700 (PDT)
+From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+To: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        lorenzo.bianconi@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com,
+        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
+        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>,
+        Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+Subject: [PATCH net-next v4] net: stmmac: dwxgmac2: enable L2 split header support
+Date: Thu, 15 Oct 2026 15:12:15 -0700
+Message-Id: <20261015221215.1714047-1-sagar.cheluvegowda@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <53782.126101517520900407@us-mta-112.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5Oh6iULFAXi75RnQZSJnhoAInSlB_199Nuy3MXhQXWo_1792101128
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE1MDA4OCBTYWx0ZWRfXzmYyWkV88jOF
+ iUHmqqxCbWghHEnfzCxpeEibBL290Q/HPowQy+/f4pAHmm6LxOVp3rHd/7VtdnQiqXr8aMx/Xfe
+ nWRQdkJE/wWnG/Zyixnpxbfe7j0wnv0=
+X-Proofpoint-ORIG-GUID: DHtCN5xnuKuFR7txQR145QwCUHgNynQ-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE1MDA4OCBTYWx0ZWRfX3SKBTPSlhq2c
+ OJr1FAoyqtSI6UvA2YDLqarAg8FgJrA0J7IyfFr+jH9vWau/2yXKShs4VpJYMj1yHmXncnlK2aY
+ 8DVNoCSAVt/5OGsaDYBYMNobpsGIiJ9RqVA3DiKphp5F+5RSTcjZALDtW7zv8i7xEQZorXkQwzT
+ R6Ttszzb9L2B6YTWZj2QCQkTj/UdRnMbbTU+OOePrcQR6X5oMaxcPucVPaOABdDXQQKPvZ83E9U
+ dxXHgpojS/OJb+wOHuVRd4pDRO/kJ45hQu8NINM6ukNa4ZxbQeVwpyPw9lwmc8NYwxAcTxTdwRK
+ JUg1QQdv/FKZZI9TPrrt5Qcvu07r0TizEbaGcsIQqRbBUmKblEa3xadNlLHZetdD9d3Sa1q8b6C
+ CUBtOMcSDdO2pez6a7SCottqU5nTi4NJVm1bExv/ETRe085Yh3bMPbbcGD9JymWn11cGEl8qNsU
+ Jn+wYOyvVzJKTxc5N3w==
+X-Proofpoint-GUID: DHtCN5xnuKuFR7txQR145QwCUHgNynQ-
+X-Authority-Analysis: v=2.4 cv=AN0XGc5Z c=1 sm=1 tr=0 ts=6ad14fc2 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=4efHNOip1X5BxVcu0mkA:9 a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-14_01,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 phishscore=0 malwarescore=0 spamscore=0
+ clxscore=1015 bulkscore=0 priorityscore=1501 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610150088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_145220_690052_453AB2B7 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_151220_792396_7D6BD542 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +147,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+XGMAC2 doesn't program the MAC extended configuration registers
+needed for L2 header splitting when split-header mode is enabled,
+so tagged AV packets can't use the split-header path. Configure
+split mode (SPLM) and header saving (SAVE_EN) in XGMAC_EXT_CFG1,
+extending the dwmac4 sequence added by commit d10f1a4e44c3 ("net:
+stmmac: Programming sequence for VLAN packets with split header")
+to XGMAC2.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Also fix the RX header-length calculation for split-header
+descriptors. Per the XGMAC2 descriptor format, the header
+length is only defined on the first descriptor (FD set), and RDES3's
+L34T and L2T fields are only valid on the last descriptor (LD set);
+on a non-last descriptor they can hold stale write-back data from a
+previous packet. Read the header length only on the first descriptor:
+from RDES2[9:0] directly for non-last descriptors, and via L34T/L2T
+on the last descriptor: RDES2[9:0] for IP packets (L34T set) and
+RDES2[9:2] for non-IP packets (L2T set).
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Finally, disable the variable-length preamble when L2 splitting
+is enabled. A variable-length preamble shifts the position of the
+Ethernet header, making the L2 split offset non-deterministic.
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+---
+v4:
+  - Only read the header length on the first descriptor (FD=1)
+v3: https://lore.kernel.org/netdev/20261013192759.776537-1-sagar.cheluvegowda@oss.qualcomm.com/
+  - Use zero-padded 0x00000140 for XGMAC_EXT_CFG0
+v2: https://lore.kernel.org/netdev/20261007183905.2582759-1-sagar.cheluvegowda@oss.qualcomm.com/
+  - Add XGMAC_CONFIG1_SPLM_MASK and use it in XGMAC_CONFIG1_SPLM()
+v1: https://lore.kernel.org/netdev/20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com/
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2952315403
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h   |  9 +++++++++
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 16 +++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_dma.c   | 10 ++++++++++
+ 3 files changed, 34 insertions(+), 1 deletion(-)
 
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-        Issue: selinux-policy: serge-testsuite: Client ioctl BINDER_WRITE_R=
-EAD error: Invalid argument
-            URL: https://example.com/TBA
-            Affected tests:
-                selinux-policy: serge-testsuite [aarch64]
-        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
-robe of ARMHC500:20 failed with error -17
-            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
-YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..7f43a0b17083 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -167,6 +167,12 @@
+ #define XGMAC_HW_FEATURE4		0x0000012c
+ #define XGMAC_HWFEAT_EASP		BIT(4)
+ #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
++#define XGMAC_EXT_CFG0			0x00000140
++#define XGMAC_EXT_CFG0_VPRE		BIT(8)
++#define XGMAC_EXT_CFG1			0x00000144
++#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
++#define XGMAC_CONFIG1_SPLM_MASK		GENMASK(9, 8)
++#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
+ #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+ #define XGMAC_MAC_FSM_CONTROL		0x00000158
+ #define XGMAC_PRTYEN			BIT(1)
+@@ -434,13 +440,16 @@
+ #define XGMAC_RDES2_L4FM		BIT(28)
+ #define XGMAC_RDES2_L3FM		BIT(27)
+ #define XGMAC_RDES2_HL			GENMASK(9, 0)
++#define XGMAC_RDES2_NONIPHL		GENMASK(9, 2)
+ #define XGMAC_RDES3_OWN			BIT(31)
+ #define XGMAC_RDES3_CTXT		BIT(30)
+ #define XGMAC_RDES3_IOC			BIT(30)
++#define XGMAC_RDES3_FD			BIT(29)
+ #define XGMAC_RDES3_LD			BIT(28)
+ #define XGMAC_RDES3_CDA			BIT(27)
+ #define XGMAC_RDES3_RSV			BIT(26)
+ #define XGMAC_RDES3_L34T		GENMASK(23, 20)
++#define XGMAC_RDES3_L2T			GENMASK(19, 16)
+ #define XGMAC_RDES3_ET_LT		GENMASK(19, 16)
+ #define XGMAC_L34T_IP4TCP		0x1
+ #define XGMAC_L34T_IP4UDP		0x2
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395b..b28aa39f9947 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -292,8 +292,22 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+ 
+ static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+ {
+-	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
++	u32 rdes3 = le32_to_cpu(p->des3);
++
++	/* HL is only defined on the first descriptor */
++	if (!(rdes3 & XGMAC_RDES3_FD))
++		return;
++
++	/* when FD=1 and LD=0, HL is RDES2[9:0] */
++	if (!(rdes3 & XGMAC_RDES3_LD)) {
++		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
++		return;
++	}
++
++	if (rdes3 & XGMAC_RDES3_L34T)
+ 		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
++	else if (rdes3 & XGMAC_RDES3_L2T)
++		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
+ }
+ 
+ static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index ff83858ebc1f..0a9c787305a4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 	value |= XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
+ 	writel(value, ioaddr + XGMAC_RX_CONFIG);
+ 
++	value = readl(ioaddr + XGMAC_EXT_CFG1);
++	value |= XGMAC_CONFIG1_SPLM(1);
++	value |= XGMAC_CONFIG1_SAVE_EN;
++	writel(value, ioaddr + XGMAC_EXT_CFG1);
++
++	/* Disable variable preambles to keep the L2 split offset deterministic. */
++	value = readl(ioaddr + XGMAC_EXT_CFG0);
++	value &= ~XGMAC_EXT_CFG0_VPRE;
++	writel(value, ioaddr + XGMAC_EXT_CFG0);
++
+ 	value = readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
+ 	if (en)
+ 		value |= XGMAC_SPH;
+-- 
+2.34.1
 
 
