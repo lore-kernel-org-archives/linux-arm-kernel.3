@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8FACC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8EBCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Noy49yD8e/Ob4wG2MgzxDSK75qjmJvYApwzUtIvu0QU=; b=LVaXlftVImpOE0EWMN9THcIdNN
-	GUoBVrWnnDbxAQ/UhI9RO2oTPeyTs5H4wLvGsWjF2xf1gcOyNEwkT0JQLrg4lYg4UcsejwaP/KUr3
-	hDXgq3xCZYRQhke6zFpAVrf97Zfz2xsEROi09f2GxJn2CXK5Vba7vqso9DLoYRc5JcmTlLwym844q
-	Ww40OZkZD2FreOHBo59Ohl1YRK7GBW3SMb2AcfEF5stC8q2ok9eoTBC6XVVf2I3OaBOyAFApHPilI
-	XphqwfckChUJn6ujiWyv0NyJx541atoEosUFdSqtqf6AWPBgxI5F0xlQSUGYdTbg95IaE05h8B33K
-	U1urKuwQ==;
+	bh=jrD8iMQpGrXv+6P9BDKZqISE7Mm2HK9N4DXQXzF098U=; b=s/qLAVQlZu/iNi4cgYZEk+RhXv
+	qhhn3uMPcir9yg++EGrPuo0jmjz2iKvtjw0/kLJDRbkMuRwYrwfyuLoxIpNGdfMcO3QM4ZbV3X46A
+	I92PKfu3zhtbSxUF7IesfF3SFPDozdeLzCYm4FBkMRJi6xeUMx+qPtWIC8sCPUuk9dXX0o3yldvmk
+	GXL0B1Q0Ua5EGQ7LHxIdJCQ2O51p3opdICDQ4xJtA0vJdSDP4oVLT4iKrNEZHBnkkE/NhmKHEgUiA
+	RjI1K6Zap/dikY0+Wr+a33lGZnohLkFKv7MgPWs+MmwR86+jS6lYdvK1EqaW7LN62l8X0QbmPDFYO
+	4GV0p7+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHL9K-00000000DEr-47r1;
-	Thu, 15 Oct 2026 13:05:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHLGb-00000000Dy3-1ikV;
+	Thu, 15 Oct 2026 13:13:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHL9J-00000000DEd-0I6x;
-	Thu, 15 Oct 2026 13:05:33 +0000
+	id 1xHLGZ-00000000Dxr-48KP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 13:13:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CA41601EF;
-	Thu, 15 Oct 2026 13:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916351F000C4;
-	Thu, 15 Oct 2026 13:05:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 15A48601EF;
+	Thu, 15 Oct 2026 13:13:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C01B11F000C5;
+	Thu, 15 Oct 2026 13:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792069532;
-	bh=Noy49yD8e/Ob4wG2MgzxDSK75qjmJvYApwzUtIvu0QU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=X11q/huxrkAqwJCmxammjG0KJNkKW/HeV7vwW/AZE/pVPt4r02Y8MELs228K0/yCY
-	 /+HUXERfLkTuOSjrnt/oZ0WlpjAWRdzH/0AyNkiysGhZWcD+btWG0ZGi3IgB8Y3a1s
-	 +S1i6BhGLSMoxQxdZCVvgZ2iwCxrkEk9yxuIKESop73gfhNF9Y0LiK2JkwxnLmx5nm
-	 e6NeKBeY8eX4MVKjA912aq4LlTWdCrk3zgICGY5v5V/GbQlkSUvYxVAe/0iq4cy/MR
-	 nBu9T2bXCvWVziYbkRCLhinBob0P6L5+NrhuTkinqc1qqIkdjaEqwbttACABcjlvBN
-	 w0EuAS2t5oUAw==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Logan Odell <loganodell@google.com>
-Cc: arnd@arndb.de,  pasha.tatashin@soleen.com,  rppt@kernel.org,
-  pratyush@kernel.org,  graf@amazon.com,  akpm@linux-foundation.org,
-  pbonzini@redhat.com,  maz@kernel.org,  oupton@kernel.org,
-  seanjc@google.com,  bhelgaas@google.com,  alex@shazbot.org,
-  jgg@nvidia.com,  kevin.tian@intel.com,  dwmw2@infradead.org,
-  baolu.lu@linux.intel.com,  joro@8bytes.org,  will@kernel.org,
-  robin.murphy@arm.com,  linux-arch@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  kexec@lists.infradead.org,
-  linux-mm@kvack.org,  kvm@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
-  linux-pci@vger.kernel.org,  iommu@lists.linux.dev
-Subject: Re: [RFC PATCH 2/3] luo: Export feature support to vmlinux section
-In-Reply-To: <20260903023452.721732-3-loganodell@google.com> (Logan Odell's
-	message of "Wed, 2 Sep 2026 19:34:51 -0700")
-References: <20260903023452.721732-1-loganodell@google.com>
-	<20260903023452.721732-3-loganodell@google.com>
-Date: Thu, 15 Oct 2026 15:05:26 +0200
-Message-ID: <2vxzv773glm1.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-MIME-Version: 1.0
-Content-Type: text/plain
+	s=k20260515; t=1792069982;
+	bh=jrD8iMQpGrXv+6P9BDKZqISE7Mm2HK9N4DXQXzF098U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ChdvvS1fd01T4OTX0JJNwSoMM6Jxgoh9E220FtYZutyq2qBfs5G3bl57QKSA98tns
+	 /7uSr/E1H1HhkaJehP8eVknMrPPSPtqNYDFCpgg3Ty2uwjnGlg50L4itHxBwfodKe4
+	 4WvA/y/ce416BSGUi2iDrz2+z0zV2yUsu+RgPJIv5YAJzCKu/fdQcLhmktI/kRmEDD
+	 jSUESRQ5jPWpjm9VDzQP8G92+bQxZrbIhNmukqffjPvCOu38XhuxkqogPTUNdCsf43
+	 ebf3muFH38VCD2qS2neScQfz/WN4Dwoh8RDirM58klusub+yycOjKEb2FYp41N+eOY
+	 HMo3NxO7o78dQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xHLGW-00000003Jgg-2drl;
+	Thu, 15 Oct 2026 13:13:00 +0000
+Date: Thu, 15 Oct 2026 14:13:00 +0100
+Message-ID: <86ld7z150j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 5/7] KVM: arm64: Add helpers to halt a vCPU
+In-Reply-To: <20261015125716.2650737-1-fuad.tabba@linux.dev>
+References: <20261015100539.1011760-6-maz@kernel.org>
+	<20261015125716.2650737-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,176 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Logan,
+On Thu, 15 Oct 2026 13:57:16 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 15 Oct 2026 11:05:37 +0100, Oliver Upton <oupton@kernel.org> wrote:
+> [...]
+> > Signed-off-by: Oliver Upton <oupton@kernel.org>
+> > Link: https://patch.msgid.link/20260929212925.31775-2-oupton@kernel.org
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> Should this one have a Cc: stable too? Patch 6 is tagged for stable and
+> calls kvm_pause_vcpu() and kvm_resume_vcpu(), so it won't build in
+> stable without this patch.
 
-On Wed, Sep 02 2026, Logan Odell wrote:
+My take is that there is no need to backport this patch at all. A
+valid backport of patch #6 should simply halt the full VM, not just a
+single vcpu.
 
-> Create a liveupdate_features section that contains the feature
-> information for a given liveupdate component. Add the LUO component
-> first. These can be compared between two kernels to determine live
-> update compatibility. Features marked as required in the running kernel
-> will need to have that feature marked as supported in the next kernel to
-> be eligible for compatibility.
->
-> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
-> Signed-off-by: Logan Odell <loganodell@google.com>
+Thanks,
 
-I was thinking about this a bit more. We don't really ship the vmlinux
-directly. On x86 it is a PE/COFF image, on arm64 the Image format strips
-ELF information and is a raw binary file.
-
-So this information would not be accessible to the kexec loader/luod. So
-perhaps as part of the build we parse the section and output a file with
-the versions? And then it can be packaged with the likes of System.map
-for example?
-
-> ---
->  include/asm-generic/vmlinux.lds.h | 12 +++++++++++
->  include/linux/kho/abi/luo.h       | 34 +++++++++++++++++++++++++++++++
->  include/linux/liveupdate.h        | 12 +++++++++++
->  kernel/liveupdate/luo_core.c      | 16 +++++++++++++++
->  4 files changed, 74 insertions(+)
->
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> index 5659f4b5a125..aed4e282a78c 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -359,6 +359,17 @@
->  #define THERMAL_TABLE(name)
->  #endif
->  
-> +#ifdef CONFIG_LIVEUPDATE
-> +#define LIVEUPDATE_FEATURES						\
-> +	. = ALIGN(8);							\
-> +	.liveupdate_features : AT(ADDR(.liveupdate_features) - LOAD_OFFSET) {	\
-> +		KEEP(*(.liveupdate_sec_hdr))				\
-> +		KEEP(*(.liveupdate_features))				\
-> +	}
-> +#else
-> +#define LIVEUPDATE_FEATURES
-> +#endif
-> +
->  #define KERNEL_DTB()							\
->  	STRUCT_ALIGN();							\
->  	__dtb_start = .;						\
-> @@ -554,6 +565,7 @@
->  	RO_EXCEPTION_TABLE						\
->  	NOTES								\
->  	BTF								\
-> +	LIVEUPDATE_FEATURES						\
->  									\
->  	. = ALIGN((align));						\
->  	__end_rodata = .;
-> diff --git a/include/linux/kho/abi/luo.h b/include/linux/kho/abi/luo.h
-> index 0a7662a0cf9a..5b25e1b48cf5 100644
-> --- a/include/linux/kho/abi/luo.h
-> +++ b/include/linux/kho/abi/luo.h
-> @@ -230,4 +230,38 @@ struct luo_flb_ser {
->  #define LIVEUPDATE_TEST_FLB_COMPATIBLE(i)	"liveupdate-test-flb-v" #i
->  #endif
->  
-> +#define LIVEUPDATE_VER_HDR_MAGIC	0x4c565550 /* 'LVUP' */
-> +#define LIVEUPDATE_VER_HDR_VER		1
-> +
-> +/**
-> + * struct liveupdate_ver_hdr - Header of vmlinux section with version lists
-> + * @magic:     Magic number ('LVUP').
-> + * @version:   Version of the header format.
-> + *
-> + * This struct is the header for the vmlinux section ".liveupdate_features". The
-> + * section contains the list of feature/version entries that the kernel supports.
-> + */
-> +struct liveupdate_ver_hdr {
-> +	u32 magic;
-> +	u32 version;
-
-Should we do feature flags along with the version to extend in
-backwards-compatible way?
-
-> +} __packed;
-> +
-> +/**
-> + * struct liveupdate_feature_entry - Live update feature/version entry
-> + * @name:       Name of the subsystem or feature ("luo" for core).
-> + * @feat_bytes: Number of bytes covered by supp, req, and active bitmaps (e.g. 8).
-> + * @reserved:   Reserved / padding for alignment.
-> + * @supp:       Bitmask of supported features.
-> + * @req:        Bitmask of required features.
-> + * @active:     Bitmask of active features.
-> + */
-
-How should we model FLB dependencies here? And how do we export FLB
-capabilities?
-
-> +struct liveupdate_feature_entry {
-> +	char name[LIVEUPDATE_HNDL_COMPAT_LENGTH];
-> +	u32 feat_bytes;
-> +	u32 reserved;
-> +	u64 supp;
-> +	u64 req;
-> +	u64 active;
-> +} __packed;
-> +
->  #endif /* _LINUX_KHO_ABI_LUO_H */
-> diff --git a/include/linux/liveupdate.h b/include/linux/liveupdate.h
-> index 6051abc0612c..e058df23fed1 100644
-> --- a/include/linux/liveupdate.h
-> +++ b/include/linux/liveupdate.h
-> @@ -229,6 +229,16 @@ struct liveupdate_flb {
->  
->  #ifdef CONFIG_LIVEUPDATE
->  
-> +#define LIVEUPDATE_FEATURE_ENTRY(_id, _name, _supp, _req, _active)	\
-> +	static const struct liveupdate_feature_entry __lu_feat_##_id	\
-> +	__used __section(".liveupdate_features") __aligned(8) = {	\
-> +		.name       = _name,					\
-> +		.feat_bytes = sizeof(u64),				\
-> +		.supp       = (_supp),					\
-> +		.req        = (_req),					\
-> +		.active     = (_active),				\
-> +	}
-> +
->  /* Return true if live update orchestrator is enabled */
->  bool liveupdate_enabled(void);
->  
-> @@ -259,6 +269,8 @@ int liveupdate_get_token_outgoing(struct liveupdate_session *s,
->  
->  #else /* CONFIG_LIVEUPDATE */
->  
-> +#define LIVEUPDATE_FEATURE_ENTRY(_id, _name, _supp, _req, _active)
-> +
->  static inline bool liveupdate_enabled(void)
->  {
->  	return false;
-> diff --git a/kernel/liveupdate/luo_core.c b/kernel/liveupdate/luo_core.c
-> index 6add1ecc463f..27413f895174 100644
-> --- a/kernel/liveupdate/luo_core.c
-> +++ b/kernel/liveupdate/luo_core.c
-> @@ -64,6 +64,22 @@
->  #include "kexec_handover_internal.h"
->  #include "luo_internal.h"
->  
-> +/*
-> + * This is the header for the ".liveupdate_features" section in vmlinux.
-> + * The linker makes sure that this header precedes the entries.
-> + */
-> +static const struct liveupdate_ver_hdr ver_hdr
-> +	__used __section(".liveupdate_sec_hdr") __aligned(8) = {
-> +	.magic   = LIVEUPDATE_VER_HDR_MAGIC,
-> +	.version = LIVEUPDATE_VER_HDR_VER,
-> +};
-> +
-> +/* Core LUO features */
-> +LIVEUPDATE_FEATURE_ENTRY(luo_core, "luo",
-> +			 LUO_CORE_FEATURES_SUPP,
-> +			 LUO_CORE_FEATURES_REQ,
-> +			 LUO_CORE_FEATURES_ACTIVE);
-> +
->  static struct {
->  	bool enabled;
->  	struct luo_ser *luo_ser_out;
+	M.
 
 -- 
-Regards,
-Pratyush Yadav
+Without deviation from the norm, progress is not possible.
 
