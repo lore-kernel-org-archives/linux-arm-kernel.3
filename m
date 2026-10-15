@@ -4,51 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CD5CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A190ECC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 15:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/GynnbQk0ORjlmIVBWW4Y0/Gml4epfj5gR5IlEldqk=; b=JIxlJAnp8ZTr2/w39rY95HcCP2
-	D/N2l4ZPxFdmB3pNecLgXpU+3PXJfHZAR/wIwNxH6/2C2Ao3vYjdww2rsvBbF9GiEN5X43aY1tubX
-	gWFao0LT79vuxdFCaJj3j2iUOANeebraCKu5W2sUb3sIylKx5M5o/3hRtURqHIAZNdAddbTvgajaf
-	bp4A0KD3888jimLEGJA7tKHEA5iBrEa0+85/VycwWfbJU3m7ffZvcu3MXw3Cd0FI8eNYnDFRv0BuE
-	nGwKUZvmR48pGMkUvU7AHs5heEspZE7xn/aJOrm1XgGyHc7P2mORrNW2jx1h5r6E6aX7pQeWlvztK
-	DYaiNwZg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S0QDHFMY3MEYfdvdAb5kPowvAiKS22tWo4crOS1PH78=; b=NSQQTRLvQh7r71
+	jTvaloO0fqFZxQMHtZpa/Y7odQK/uROufUSLGTMbrJ4oyKVMt+9zKuyHDDchAqgvXHXC2MI1dyzGa
+	KTpb5Sl3uD9s3L9b9ctSnmnA+Jz09iSXe2wrPvgVdF3qgnq67eZk39dVLoxE4QyazAz96Z8qJjba3
+	QklTTNPhOXxckETMISM55vGgWPjw3ojbB7MWl7gnKFKJsOnkv7TV509iFEvPX9i9MTGklG20q8TL6
+	dJoK8fzvzE4G4icyBllLeZySdqC/WXY9Vqi23mVSV/FvlgSl2FYFs519d6e5FP5HK5b4JnpcdjWQ8
+	tgoGBuQiyPE+NjoVmHLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNkh-00000000ccK-1UUK;
+	id 1xHNkh-00000000ccC-0K41;
 	Thu, 15 Oct 2026 15:52:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNka-00000000caw-02Sb
+	id 1xHNkY-00000000cag-1gzh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 15:52:17 +0000
+	Thu, 15 Oct 2026 15:52:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7400D1516;
-	Thu, 15 Oct 2026 08:52:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D92114BF;
+	Thu, 15 Oct 2026 08:52:05 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33BFD3F7B4;
-	Thu, 15 Oct 2026 08:52:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 555B23F7B4;
+	Thu, 15 Oct 2026 08:52:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792079530; bh=CHzi+P9m5petahE5T3ggExjx5Ji6RcvGl9WKuhEkeQI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Zt6XUBe/ci7svn8AnMsCYgze34uLuwspaJxCWAaahd+8F8pQ40o0imSWtreKsk4/z
-	 uT06yYE30jceNQ3//fFVGQIdIGz5pTWlg5dfIeMe6/yBHaiUUEwqHxihKoWazeMVm8
-	 sWesWbxEDr1NDjPkt+srP3cT33eM9IKm3afn21rw=
+	t=1792079528; bh=gELyVh2LE6u3v6a4/bZ7gMH0X/a3oaoXrVoknaD9/jY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=UfSD0OjhjRzRc2nvK15zgz91Jm+uC+ECcRkkY79xc0leQKYg8a6TUZHBKMULiHsmW
+	 VLHWQZMj/7DYFPLFfafrdZiCoh6YHnPcQMRbKTIlMsCscld8NYA93dVuLEFFOtxvab
+	 zQ4s78YZ7SjKLLxfEHuzrLguJEkpQbVaXR3XpOGE=
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 15 Oct 2026 16:51:58 +0100
-Subject: [PATCH 1/2] perf: arm_spe: Order padding before publishing AUX
+Subject: [PATCH 0/2] perf: Order SPE and TRBE padding before publishing AUX
  head
+Date: Thu, 15 Oct 2026 16:51:57 +0100
+Message-Id: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-add_barriers_for_perf_aux_output_skip-v1-1-5847d0578859@arm.com>
-References: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
-In-Reply-To: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
+X-B4-Tracking: v=1; b=H4sIAJ320GoC/x2NQQrCMBAAv1L2bCCJpIpfEVkSs9FFaMJuI4XSv
+ xs8zmFmdlASJoXbtIPQl5XrMsCdJni+4/Iiw3kweOtnZ10wMWdMUYYkiqUKNpKCsW9Y+9r6ivr
+ hZi72HOarC8mnDKPVhApv/8/9cRw/459rzXcAAAA=
+X-Change-ID: 20261015-add_barriers_for_perf_aux_output_skip-70356815b2bd
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
  James Clark <james.clark@linaro.org>, 
@@ -59,16 +61,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792079527; l=1283;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792079527; l=1132;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=CHzi+P9m5petahE5T3ggExjx5Ji6RcvGl9WKuhEkeQI=;
- b=zjQfriJA5axeJt3hkdUHMD+NbBgSFhhvyzlc1ouUkDmp0XbsuJi5uivH3qQil2SWGU2ywrKzt
- /q7Scx5oclzBit9UHnzjuYylGs7J9REnu73XWohJINkUXuCCmBwcUA9
+ bh=gELyVh2LE6u3v6a4/bZ7gMH0X/a3oaoXrVoknaD9/jY=;
+ b=+IklPEIB+tA+LBpopP0HvZoM0sQgYLKmbHbrxALjQJUthC7b0AakzwraX3AkZqTt9OqxbdyTk
+ uUASvDFpepLAAu76/doK6E0JEFmJ+v4rDqsvHpYKxJDbRLLmB4G6to6
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_085216_096258_0531821C 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20261015_085210_483841_2F9401F7 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver fills alignment gaps and calls perf_aux_output_skip(), which
-publishes the new aux_head without a memory barrier. A userspace
-consumer on another CPU can therefore observe the new head before the
-padding stores become visible.
+SPE and TRBE write padding into their AUX buffers before advancing
+aux_head. Add the missing write barriers so that a userspace reader on
+another CPU cannot observe the new head before the padding stores
+become visible.
 
-Add smp_wmb() between the padding stores and perf_aux_output_skip().
+AUX producers must make their data visible before publishing aux_head.
+The required synchronization depends on the trace hardware and CPU
+memory model, so the barriers belong in the drivers rather than in
+perf_aux_output_skip() or perf_aux_output_end(). The TRBE change also
+covers padding inserted by the overwrite erratum workaround before
+perf_aux_output_end().
 
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-Assisted-by: LLM
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/perf/arm_spe_pmu.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Leo Yan (2):
+      perf: arm_spe: Order padding before publishing AUX head
+      coresight: trbe: Order padding before publishing AUX head
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index b70f3fedf0282baba1395ce1116272ec5f961ea8..e105462ec5f38eab4776b0a654ba7c8a84f70f71 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -487,8 +487,11 @@ static void arm_spe_pmu_pad_buf(struct perf_output_handle *handle, int len)
- 	u64 head = PERF_IDX2OFF(handle->head, buf);
- 
- 	memset(buf->base + head, ARM_SPE_BUF_PAD_BYTE, len);
--	if (!buf->snapshot)
-+	if (!buf->snapshot) {
-+		/* Order the padding stores before publishing the new aux_head. */
-+		smp_wmb();
- 		perf_aux_output_skip(handle, len);
-+	}
- }
- 
- static u64 arm_spe_pmu_next_snapshot_off(struct perf_output_handle *handle)
+ drivers/hwtracing/coresight/coresight-trbe.c | 2 ++
+ drivers/perf/arm_spe_pmu.c                   | 5 ++++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+---
+base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
+change-id: 20261015-add_barriers_for_perf_aux_output_skip-70356815b2bd
 
+Best regards,
 -- 
-2.34.1
+Leo Yan <leo.yan@arm.com>
 
 
