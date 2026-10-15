@@ -4,153 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4015ACC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8164CC6B3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MEb2Ph0vd+OANpH0/6hBcRYs6jC6LiXNsqQkv2LF4u0=; b=s183Mwt1O2+29FpGF0XtK44iCY
-	chPViIhyPSS8jOruEpMLKXvwJ4iw8EoTJ/pDpqd9PC684CNxjfNRInff54XvSVlvDsVO2F2mNmZOI
-	LW9D/zwNPb9r5dOMP242+pi2Mngz1jV+FSOU8wB8rUe7p1ZFB6SbmyZwoJ6ScJXddT88Se6XbDwL0
-	4M5t8nku1ZsCINbYnktosJPWCic5rCR7wdjJAuauqDw+mt49bzYQEBjzC3DTvzgSoZkb26WQWqIW7
-	pgVnGoeQr0OeJYwck/6WuJAGIR93mw/JF0o6lD24VxfevUigl1eO+vcJO0368kXK3dZC/d0G0w7t7
-	ChRHWt2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MqSDYo6KhD6hgEBtaTlJT8L3XlR4DxinwiqBOqVxw9E=; b=VyIrmi7OOuX/abCVriv7wTXc94
+	ycNLVMN3zMQbnNs9ite662cVDojq31L2YdMYF/gY2qpvlNSvNXPltzhfqiDIeS2LZXeqmREgMMlmY
+	SCHGL9ce2K38Oh9Rnd9VJAY2MTwpyimJ8E06ChI+cN8Nhuq/4OEQFMF1pAfj1kwQnsgsLGqMxsTtm
+	l/oekqJ4ud4jczSO+ZGlVGUgz6MZ2+nhE+G0IIrf5AZqPsgmzlTEJ139EciGh2ZLbot+5o3rXJC4B
+	TfFFUcn/ZhBMAMFcV0OVvS0xkDkm8TNx+/XcjBWWeWKDoaSHAAMwaFIIHA5lnY1/Hsk00AZqrE8X9
+	zxFOiRCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMcO-00000000PYd-2JWE;
-	Thu, 15 Oct 2026 14:39:40 +0000
-Received: from mail-northeuropeazon11011000.outbound.protection.outlook.com ([52.101.65.0] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMcK-00000000PXk-3bFw
+	id 1xHMcS-00000000PaF-357V;
+	Thu, 15 Oct 2026 14:39:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMcO-00000000PYc-4APH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:39:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wR3Ef0Lz6X76w3ZGYpMp2vYiEkOPQizt//v+wCfXmNm5n3E6G0JAN31M6E5vh0hZ3wHWkxX1zHj5DUFdwKP2wn7kQzYTKLgfpg8QTHxn6ZmSsNH5T9GjEGbb0qDgl4V63UMlsEquk7NCr3AosCphNJWlPvcRQLonu0PCbDjQz+guKsgpbycbSwqToXuCBSXP1W8t/6SWmBSrG2LOzjeFbhaZPg3TU1bajdaAYOQRVlZ1u3S+nXa3wE+wq7nNLMWaiD2dxV4b5SuHSplg7MqakusaBwDA4GyT7I1rsxBsriM60EelEX7zIE8f4o3Dh7FLdmFnIijofypwPk9SlpEhYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MEb2Ph0vd+OANpH0/6hBcRYs6jC6LiXNsqQkv2LF4u0=;
- b=LUyl6BKdRHml1sat1/ABayoXFRJEk6QX3BCeN4u5J75/drpMgcjoZDtH5qGTJ0P/GNBaaJHztSXANuSg/hNof6uKxhMocEhRg8hPaoYK9lzkceJFpjTe4SBdeEAETp+egyiSEVR2iukeyvQcJlGOFncBKaDr52E+kDt9NS7a2g432GBSf3vLGwV0UHGtt9NdxlKUOhalRyxdJdE4FhH1FcJD/HMgagh2uGgALuYWJcQzJDstVVgMLYra5ohP4EgOe5EUV4URck8FgViM1PJomx6Bwj1g7wFp2GQsOmP0eoTsCWB5KPVTeEPtCHEbpOqnQP82p0h1wb0Ujn/PVd7QDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MEb2Ph0vd+OANpH0/6hBcRYs6jC6LiXNsqQkv2LF4u0=;
- b=vu0snf6F3NvVkCiGF4l9ir38UlKDY2Px54XVIXqWtor9wWrqCYY4lgEx98u/skxhGCLupmEoI2kjxzfdcSJZjq6LFD/Q9Nc0yhGGag0a9OcxdNaAbSO8DQqItVCFyIjBQfSTnLtchwEkC1QayoW7DtHm3vT4YVyG5TEDtmO6uJHRj0djV6NSG0kCkIyhBUrOBVbRLxFohpLyw+x+VuIHtVyMZwxWw3wJvl2GJpr1YbrMJUmIv67dXIvn/gopj1romu3JflgM3gM3aT15e6CLYhzBd6fAhCmTMLtCub0LPAP9qQn32x7jii6AoK+JXEutgoylO/V3Kytph+pCdg2ytw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB6881.eurprd04.prod.outlook.com (2603:10a6:208:18b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Thu, 15 Oct
- 2026 14:39:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 14:39:31 +0000
-From: Frank.Li@oss.nxp.com
-Subject: [PATCH v5 0/3] remoteproc: imx_rpoc: use memory-region-names to
- avoid hidden ABI.
-Date: Thu, 15 Oct 2026 10:39:21 -0400
-Message-Id: <20261015-memory-region-name-v5-0-abc358b39a96@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJnl0GoC/22NQQ6CMBBFr0Jm7ZjaUCuuuIdhUcoANWkhLTYYw
- t1tMe5cvsyb/zYI5A0FuBcbeIommMklEKcC9KjcQGi6xMAZv7LqItCSnfwbPQ3JRKcsYV8JRqR
- 4K28dpMfZU2/WY/TRfDm82ifpJS9lYzRhSStHNZbZ+wXkv0AskWE6SyEqzqjta7fOZz1ZaPZ9/
- wD7r+7pxAAAAA==
-X-Change-ID: 20260915-memory-region-name-f950eea2b78d
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792075166; l=2748;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=q5xGx+tn23zBqcJ9hlTBG0wRKneYkrFas7q40HFZ2p8=;
- b=cGxitOq1XQkze3PM1zpGspRzx1JPNH1nvXbCwuLOEY681R+fTVnacAN38SG3KqCqYNVnF9sey
- e0iT4JGl2AYD8YHREklvg1BhDhkwelsW4y4/CV4s6N+VzTVnM8os+fu
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: DM6PR03CA0083.namprd03.prod.outlook.com
- (2603:10b6:5:333::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 15 Oct 2026 14:39:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E27D1516;
+	Thu, 15 Oct 2026 07:39:36 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B010C3F871;
+	Thu, 15 Oct 2026 07:39:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792075179; bh=Fb36/syZUNEYWdl3Bd5gIsdA6lsDxAgZ75KGLzG1fss=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FWXUtV5zaitH826ccfvPYjomPlFmVtSeNOI6RA12yH7xkeg3VE985hpe97OSP6/tq
+	 KNyaSJQbiNlaGn6slCznCJZNl756BSzO0c+9fmdJVbflg//LUF2Z2R07xFJaLMyqTh
+	 3ZhmHaBDsFr6pH5a7iIx5wOD6t2/ALdTRvQOFC5Q=
+Date: Thu, 15 Oct 2026 15:39:36 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ondrej Mosnacek <omosnace@redhat.com>
+Cc: cki-project@redhat.com, linux-arm-kernel@lists.infradead.org,
+	mmalik@redhat.com, will@kernel.org
+Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
+ for-kernelci (7.3.0-rc4, upstream-arm-next, d820e3ba)
+Message-ID: <atDlqCgB72yHmDHN@arm.com>
+References: <81706.126101500420900200@us-mta-510.us.mimecast.lan>
+ <atC4Ce9AQxjCwYIB@arm.com>
+ <CAFqZXNsV_P_jxt9ZVYBYdh9vuFDPrsCh-Ch7niccns0WRgbs8A@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6881:EE_
-X-MS-Office365-Filtering-Correlation-Id: 622efe12-ce62-46cb-4d2d-08df2aca1fa3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|7416014|19092799006|366016|5023799004|56012099006|11063799006|261009223027099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: kF/Q+hD8Z4bXDnCmnBwjSNzTXE9Saa9z9GCJL4rvY3ZIrb0rhIQ90U7JnpcN/YLQNgtDpTnxmFnLSlvzVtjoPK6M1p9P7ItnzlRyMaaYAbNMemisRem5bRdmnXP3XOSDlDIWOM32yTpXOTROLEsShLQeYiuVl92okdr3EF1LxDEC1rO73DCQx4eVZkkw+dYh1IYidI5reFGxT/z5nE4FnB3TOGpLBu5iT/8YI181V8I6WDs9j2PwoI7IKgAPUEGM1/p3dPUMAe9CE3TuLGwzUvXww+MIjYBeFZq/9txqkA6vlrlaekYMts+pIXtbCETAff8q8UYOcB55skY+piaKHsXGd+kh4usPtljv3PZgd7xamGT9Zg5M/MBThMmJDJoaL2jmOdLUM6KGXfBhc6YmJ/CVEG1JbC8GWd4tYeJbUqPHyKvlJsK515ZnLdBCTATr81aD4ykxmaOVHhtdhG2EpKOTqzO6HDrgXqFfOzsiEFU2RTjAz2evOpjzkVodtfHZkJU2BkXzMwHWdahtFzosE4+BOFgBT6qU6IE+jvSBYSMuubLl3xdgVAdjf1q9A+C1jnJE0aJyuGtvp5Yd/qaDSTtsINiHvPsh9BxRg2bxOPBa14dj1Wurv/99AMc5WLfs
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(7416014)(19092799006)(366016)(5023799004)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OXIyNG9JaUYwNnNWUFlOU1dPeVhMS09KRXR2RTVtV2o2bUZUOE5oSzhsdzZR?=
- =?utf-8?B?ODV2TkVnTmRWeXBXU3BjTkhKVWZQNEJMWkVoV0FhT2dUUEk1SFpJRnhVRU55?=
- =?utf-8?B?ZmJEaDh1cHRHcmZRM0xhNzlQNWw0TXFaYnNrZkRmRTN4N0toQ01LZDdhR0Va?=
- =?utf-8?B?U0NHMFk2a1JFVWVXWUpNcUEwRXRIdXkvVWM1NTBaZ2dVU0o3V1ZSbHU1RFZq?=
- =?utf-8?B?TEt1bFZhakFQZzVDalNSaG4xVTVKVjM4MXhVa2FzMXkrQXZEUHBEYWJZS2p5?=
- =?utf-8?B?Nit1TENVaXc1TUgwTXlwejlpZDhvUVlPRjl1Y0NERHN2ZVNpZEpSSWRkaXRD?=
- =?utf-8?B?L3NSbmlqR0J0aGNmUnNGRklLQlNYQkQvY3ZmL21PejhiV0ptVkFwRUdxUUt0?=
- =?utf-8?B?dVJ0dCtCNm9MbXVuQVBEZzJpSlNKQzdZQnRLd3hpL0d0L041SHNyOUpCRzg1?=
- =?utf-8?B?cVVTVlhmSHdOWkJpVzdTcEtNYXgrRjZEVVBYb0xiaEQvcnNWOVBXeTB3Y25a?=
- =?utf-8?B?OWtpVExvOU1Rek5YREtJR1l2dHFZaEdCeUdaUnB1ZGZVbW9ac3MrbjBwQUdt?=
- =?utf-8?B?Z1M1RXBaQVIxUjVQbVFmQm15VS9xaG9ML21BZFNYd3MyWW0zd0RyMXVTbmM2?=
- =?utf-8?B?QjZHMnpLZUt4RzVwcUd0QVF0MVFkUXhIa0pIT0VNYXIwY3pBcWxmSnBUUjNB?=
- =?utf-8?B?blI0YjVPTnQ2a1oxNXZKTFl1QnN1RGVSVGl2ZXkycjlORHhkUkVrcThKQTV2?=
- =?utf-8?B?TnJ0dkRFalhZMWVyLzZ0YUxFZ2JOWkNHaGxheFd1SnBaZkYzSElMV3c4QXNn?=
- =?utf-8?B?aEM1M0xTbHVpTmlCQWU1WVAxeFY4ZXdtTHBYTUN1QklIeFBxNno1NzFjL296?=
- =?utf-8?B?dmlGY0FsMHpxVHAybDdlSlVJdkp1dDZZVGdFMUV2UUk5S2JzdUZVaVNuZjU2?=
- =?utf-8?B?MkVBVUV5cTJKVnZuN3JtSVZ1UWdWUlFBSUNGMHE2N3JlaU5majRjWTN0RFlF?=
- =?utf-8?B?WTh5ck1Xbk9ydEJhYlpHNnVZTys1bGtRaE1DdFRXeHpjV2NpdlBWOWdpbUhr?=
- =?utf-8?B?YnlHYU9qWGRZN1dNQnhBdWo4Zkk0UkFTb0M5c3lZNEhQb3JZeEt5Y2NpRHZl?=
- =?utf-8?B?TXNNRDRxNHIzdzdFM0Q2UUdueS92MjMvM2VIUDFEeXBFdUVxSDFZRnRtZ0k1?=
- =?utf-8?B?Q3Yra2VpWUxWa0NaSWtEOUJVeThrQzBVSTlXc2RndXdObEVkSGk5dmRVUHFY?=
- =?utf-8?B?MFJPcmgvWFVYME5tUUxFMGUvWGdYMUpqQ05Ga05RSkhEVUtPb1FRdnhNQ29a?=
- =?utf-8?B?M1lxVmN1cmMwSjdhd1lUMnZYczdVRkUwZTN1d1F5ajRydllSN09MZHFsdkla?=
- =?utf-8?B?QTMzNnpxTjZrbmpKT1pSLzRrRlYvbVNPWGhWQWU5L1A2T0h6eFBKTCt0QThs?=
- =?utf-8?B?bktJYUtnUUQ0bWpPZUU3M2xQQzIwTk1FRTdEVWZiOFJWZFhUckNpNFhLVjBE?=
- =?utf-8?B?MVh3VUcxeUZ2YnhYeC90M3N2Y0c2N3VWeWxiK05GUjg4bHJLOGJqQnlaT2dE?=
- =?utf-8?B?MzRqbHFrSlczc3VnU3o1TUtLd2dmbEwyRDNoUEJlbEJEeXhpOFRWbFp5ZlFF?=
- =?utf-8?B?dUl4RENWck81MXA3eVhqbGZMMGcrd015Q0taR1d4N1NTeUpXckR4SXZFN0pa?=
- =?utf-8?B?V1RwNU02Y3hLL3RUR3RiaU5SRzNuaGZlNHd3ZFl4L0pEaXVtNlF4NGRkVGFR?=
- =?utf-8?B?d1ltZWVJblIvMzl1RmtXOGQybWVuQlloWmw1djJ4TVB3Rk1ndjVqdEpNK3p0?=
- =?utf-8?B?Rml4TXY4V01Cb3RMZDZIYmZ5Z1ZZc2pyMkptbFU3YjFJQXJtVjNYYm1XaXJq?=
- =?utf-8?B?NkRWdkVWbks0QlB5MmZ3Q3Z3Rk4vdUdDTk1WaFp0aHlBUzdlZkJVODJqMXQv?=
- =?utf-8?B?Q3FEb05IZEtHOVdFSmV0SDV4Z3RCKzY1SWhBaW1Zc0ZnOGxFY1NJRXNmeGg4?=
- =?utf-8?B?Ymk4YS9FSGxHQnJyUTNPOTFsTGFUSEc0Wm9xanpsdTNSUTV5RFJUR0pZWUkz?=
- =?utf-8?B?bHdST1VKT3VPTVB2SHlzY0xaK2xJeXNZd0I3eXoweXdOWDdPVTUxckd3UFVr?=
- =?utf-8?B?eEVXd1BXaEhWaVFFdjFpM1FGcFFxVG5WeDEzaitOWUVMaHlVc1BSUSsxSm9O?=
- =?utf-8?B?VjJlWi9YNlJ5NW5zT2tRM3BzSmU5SkxQdUxibTVUVDVrTGtvRHFtVFFqQWgy?=
- =?utf-8?B?R09QMzluY0dwejRXS1lRNDdkdVpEMXBveVNTOWEybTNZVVVLZmMvWml0eVYw?=
- =?utf-8?B?UW1hZC8vOTdMaGJtb2lrci9JcitkQzYyRzJuM3NqaW5UNDRMUjArbzlwS0xa?=
- =?utf-8?Q?wVf8xR+HdeG4xMT8v90fAEVBZC1auKh0X9IAT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 622efe12-ce62-46cb-4d2d-08df2aca1fa3
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 14:39:31.4324
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kp7N81n1OTbtf2HP10OQg4KSb+mxH8d8s9ZfMS29NWMCoitn25MZh5EGxQ8OPdV2x4sfY75eIY95vNKKXOTbsn9B7A0nHLnBnV7FCdFdxPiLbWZe2XLEeiwBEwaFbMMA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6881
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAFqZXNsV_P_jxt9ZVYBYdh9vuFDPrsCh-Ch7niccns0WRgbs8A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_073936_920886_80E2AED9 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20261015_073941_102146_6EBFD9B7 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,82 +72,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver currently derives the memory region type from the referenced
-memory node name, creating a hidden DT ABI.
+On Thu, Oct 15, 2026 at 02:39:43PM +0200, Ondrej Mosnacek wrote:
+> On Thu, Oct 15, 2026 at 1:31 PM Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > On Thu, Oct 15, 2026 at 04:42:05AM -0000, cki-project@redhat.com wrote:
+> > > Hi, we tested your kernel and here are the results:
+> > >
+> > >     Overall result: FAILED
+> > >              Merge: OK
+> > >            Compile: OK
+> > >               Test: FAILED
+> > >
+> > >
+> > > Kernel information:
+> > >     Commit message: Merge branch 'for-next/fw-rmi' into for-next/core
+> > >
+> > > You can find all the details about the test run at
+> > >     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2947827228
+> > >
+> > > One or more kernel tests failed:
+> > >     Unrecognized or new issues:
+> > >         selinux-policy: serge-testsuite
+> > >              aarch64
+> > >                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:2947827228_aarch64_kernel_kcidb_tool_1200470666_8
+> > >                    Non-passing ran subtests:
+> > >                        ❌ FAIL Test
+> > >
+> > >     We also see the following known issues which are not related to your changes:
+> > >         Issue: [upstream] Hardware - Firmware test suite - auto-waive failures
+> > >             URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
+> > >             Affected tests:
+> > >                 Hardware - Firmware test suite [aarch64]
+> >
+> > Is this another infrastructure issue? From the logs:
+> >
+> > + nft -f /root/selinux-testsuite/tests/sctp/nftables-flush
+> > /root/selinux-testsuite/tests/sctp/nftables-flush:1:17-24: Error: Could not process rule: No such file or directory
+> > delete table ip security
+> 
+> the above is not the source of the failure, that part is expected to
+> fail normally.
 
-rsc_table: rsc-table@90000000
-           ^^^^^^^^
-{	ret  = <0x90000000>;
-	no-map;
-}
+I have yet to learn how to look at these logs properly ;).
 
-m4 {
-	...
-	memory-region = <&rsc_table>;
-}
+> The problem is the failing binder/test, which is a
+> recent regression in mainline that I'm currently investigating. I
+> created DW issue https://datawarehouse.cki-project.org/issue/11475 to
+> waive these failures for now. I'll update it with a proper link once I
+> report the bug / post a fix.
 
-Current require node name have to be rsc-table, but no any binding doc
-to restrict it.
+Thanks, good to know. So it's unlikely to be something I pushed into the
+for-kernelci branch.
 
-Since memory node names are not constrained by the binding, incorrect names
-can silently pass DT validation, as seen in examples using "vdevbuffer"
-instead of "vdev0buffer" ([1] and [2]).
-
-Add optional memory-region-names property to define such ABI. To keep
-back compactiblity, use "optional".
-
-Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
-Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
-
-Prevous version
-https://lore.kernel.org/imx/ail0sH1UhnQBPRkr@SMW015318/
-
----
-Changes in v5:
-- fix binding region-memory-names's pattern
-- add vdev1vring0 and vdev1vring1 at dts
-- collect pan peng's review by tags
-- Link to v4: https://patch.msgid.link/20260917-memory-region-name-v4-0-260755920ebf@nxp.com
-
-Change in v3
-- rephrase commit message and cover letter to correct descritpion and
-reasons.
-
-To: Bjorn Andersson <andersson@kernel.org>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
----
-Laurentiu Mihalcea (3):
-      dt-bindings: remoteproc: imx_rproc: document memory-region-names to avoid hidden ABI
-      remoteproc: imx_rpoc: use memory-region-names to avoid hidden ABI
-      arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
-
- .../bindings/remoteproc/fsl,imx-rproc.yaml         | 11 +++
- arch/arm64/boot/dts/freescale/Makefile             |  3 +
- .../boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 81 ++++++++++++++++++++++
- drivers/remoteproc/imx_rproc.c                     | 13 +++-
- drivers/remoteproc/imx_rproc.h                     | 21 ++++++
- 5 files changed, 127 insertions(+), 2 deletions(-)
----
-base-commit: d419d682257d813f6cb7a28e42b35d0edf4ad038
-change-id: 20260915-memory-region-name-f950eea2b78d
-
-Best regards,
---  
-Frank Li <Frank.Li@nxp.com>
-
+-- 
+Catalin
 
