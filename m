@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A438CC6B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 04:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF894CC6B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 04:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+Eb9tCuiyVMoFaxMfA80p+Gcz1W0kSVrOgRtayB2Yew=; b=iuTXu/FBERUMTIqe7qNVk6pxQJ
-	AWc96O9ifFflzpmgL1oUv71eSEEGVzIBCeOp3BdOZtESDycDZq2LDUz217UVRXVFP+rnpKu6lBVRO
-	XCeomGS1RYINIvCE7I1kxwLvHiVmvePZ+uErLkCInue1qoC/ud2MemUJrU6ogoGslkjrT4+m89Rcj
-	do4BWmVGOCaU8U/1y8yZzJs3lgZBv8WuUx6mF2m7qT5KSU1FVpHuWNFwW7WrKn3m1Keejzmv4bpAp
-	obnANnPUIpdb2oK56j506jiyKgbXFVpw+KAGAHva8l7LmYZ/uOTUa0C8/E4bDTNhxKITiH4H0U5v5
-	asmYfcAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w+jfCAPL434xcgnvX7nRAqhlGjDAZsb5VkATAEbZbjM=; b=1e3oEhs6gqPE/3JdwQspwsqLua
+	6mpY5GD+F9Nea1f6VX3XFtxHYJWaZ8BnoMTUfzQxFSMcQGUCDaLVRxgOQRQmbZaCeQgZm8QeNB5A1
+	/+lisF0VL/UQX3maz4l1dKjsk299HZUCCudQO5enD7VoT6L+TZdgpl274uN4rtJdfwy/QJ+GtmA7z
+	gie67/h/Hui9qMlW+cNFzJAbLd8sbs3cpP9fTdnsYt9yykjcP6ebb40GC4+f7XnqaA4IYD7E6Wl1o
+	o24WARSs6lTFaWeyOHzN89PmXE348bB22VlBzAt6R0BoBqkinypKR0KNvgehPJJ5EZLZyH2UfZ0HL
+	sy0efMqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHDIJ-0000000Goad-2ueE;
-	Thu, 15 Oct 2026 04:42:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHDIG-0000000Goa7-0TBU
+	id 1xHDVe-0000000GpcO-1Gft;
+	Thu, 15 Oct 2026 04:56:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHDVT-0000000GpbS-3mjg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 04:42:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792039333;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+Eb9tCuiyVMoFaxMfA80p+Gcz1W0kSVrOgRtayB2Yew=;
-	b=g/5LiiEZ7GqxWitF0Gk/tCK0OR/7GS6WkKSpms35RJ4m0V4AOB37FePEsyxGSn13GIghx+
-	X+AolWJH2GwWbF78y7NU+xA97EYhwv54hDd2/WgkFLkmYDsE/mvhupZxLCb3rMgUcFo9oa
-	vCfymwRsEyiXldTLCtZ1uGM7viXYNhA=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-510-oDcxWsaxMmCVtinsa1qJ5w-1; Thu,
- 15 Oct 2026 04:42:09 +0000
-X-MC-Unique: oDcxWsaxMmCVtinsa1qJ5w-1
-X-Mimecast-MFC-AGG-ID: oDcxWsaxMmCVtinsa1qJ5w_1792039328
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE427180059E;
-	Thu, 15 Oct 2026 04:42:07 +0000 (UTC)
-Received: from [172.20.178.115] (unknown [10.30.44.133])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2549C1956087;
-	Thu, 15 Oct 2026 04:42:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.3.0-rc4,
- upstream-arm-next, d820e3ba)
-Date: Thu, 15 Oct 2026 04:42:05 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- mmalik@redhat.com, will@kernel.org, omosnace@redhat.com
+	Thu, 15 Oct 2026 04:55:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 679981516;
+	Wed, 14 Oct 2026 21:55:49 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED25A3F871;
+	Wed, 14 Oct 2026 21:55:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792040152; bh=DYm+etoHR3zNYbhtHG1R4AN3vVGImJ6ZW5Qomh/pmDg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h7HAF7FYATg4eCjmDj57DAFLfy1kQnGIC3BWZg/3co7F6JU2g8y8pjOMgelGFqZlE
+	 LBGHqxwBERJhTrUahiwBtYFiRjEfGLd5NVrb0JSkWybp537bI3UXql1Br2Xc3srC7u
+	 iz22Ot6G3DXMOnu23/ii8tkQIKAI6LSf/K2nw03E=
+Date: Thu, 15 Oct 2026 10:25:49 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Iurii Trukhin <yuri@trukhin.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit and
+ 52-bit VA
+Message-ID: <x4iu6sii7fsxksdfur3wcpu4kb63eubsp5d6pzklxuhta7xtj7@rskyoy7ajncj>
+References: <CAOx7e9Jm0N9O_ndL1UApMPrXUN=P4RiptSNibdDP+9prUsNPOw@mail.gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <81706.126101500420900200@us-mta-510.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: u9HXJZdjOTyeLg1QVv6QJXLiYdEtqGk4nYF1N8HfK2o_1792039328
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAOx7e9Jm0N9O_ndL1UApMPrXUN=P4RiptSNibdDP+9prUsNPOw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261014_214216_230879_062519D2 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261014_215556_330103_3B32D0EE 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +72,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Wed, Oct 14, 2026 at 07:26:48PM -0500, Iurii Trukhin wrote:
+> Since commit f101c5644771 ("arm64: Support ARM64_VA_BITS=52 when
+> setting ARCH_MMAP_RND_BITS_MAX"), arm64 supports up to 33, 31, and 29
+> bits of mmap ASLR entropy on 48-bit and 52-bit virtual address spaces
+> for 4K, 16K, and 64K pages respectively. However, ARCH_MMAP_RND_BITS
+> still defaults to ARCH_MMAP_RND_BITS_MIN (18, 16, and 14 bits), which
+> was set in commit 8f0d3aa9de57 ("arm64: mm: support ARCH_MMAP_RND_BITS")
+> when 39-bit VA was the 4K default.
+> 
+> Set the default ARCH_MMAP_RND_BITS for 48-bit and 52-bit VA to 28 (4K
+> pages), 26 (16K pages), and 24 (64K pages), matching x86_64's 1 TiB
+> randomization range (5 bits below ARCH_MMAP_RND_BITS_MAX) while keeping
+> ARCH_MMAP_RND_BITS_MIN unchanged for smaller VA configurations.
+> 
+> Closes: https://github.com/KSPP/linux/issues/371
+> Signed-off-by: Iurii Trukhin <yuri@trukhin.com>
+> ---
+>  arch/arm64/Kconfig | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index cab741a695f5..59a53d7a75c5 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -313,6 +313,11 @@ config ARCH_MMAP_RND_BITS_MAX
+>  	default 16 if ARM64_16K_PAGES
+>  	default 18
+> 
+> +config ARCH_MMAP_RND_BITS
+> +	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
+> +	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
+> +	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
+> +
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+Overriding ARCH_MMAP_RND_BITS inside the platform effectively makes this config
+look something like the following on arm64.
 
+config ARCH_MMAP_RND_BITS
+	int "Number of bits to use for ASLR of mmap base address" if EXPERT
+	range ARCH_MMAP_RND_BITS_MIN ARCH_MMAP_RND_BITS_MAX
+	-------------
+	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
+	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
+	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
+	-------------
+	default ARCH_MMAP_RND_BITS_MIN
+	depends on HAVE_ARCH_MMAP_RND_BITS
+	help
+	  This value can be used to select the number of bits to use to
+	  determine the random offset to the base address of vma regions
+	  resulting from mmap allocations. This value will be bounded
+	  by the architecture's minimum and maximum supported values.
 
-Kernel information:
-    Commit message: Merge branch 'for-next/fw-rmi' into for-next/core
+	  This value can be changed after boot using the
+	  /proc/sys/vm/mmap_rnd_bits tunable
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2947827228
+ARCH_MMAP_RND_BITS_MIN still gets used when VA_BITS != 48 or 52. But this seems
+like a subtle detail. Just wondering - should a comment explaining this default
+random bits fallback sequence be added here as well ?
 
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        selinux-policy: serge-testsuite
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2947827228_aarch64_kernel_kcidb_tool_1200470666_8
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL Test
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>  config ARCH_MMAP_RND_COMPAT_BITS_MIN
+>  	default 7 if ARM64_64K_PAGES
+>  	default 9 if ARM64_16K_PAGES
+> -- 
+> 2.56.0
 
