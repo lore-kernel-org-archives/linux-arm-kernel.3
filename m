@@ -4,148 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD38ACC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 17:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9415CC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 17:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUb4cagls44kE5et9qrliHAU76p7w/thb7bKXpN7Lxs=; b=IfFo171nzIc3IwK8yxbRnr5kw5
-	alVvH7ZIg2898+mWhJTdTBak4zT9QrzbF6Tcg4f3TrmzdEikNQCDvxzofHE+in4b92uLbjUyDEkS9
-	fx0rjxenroILjpDGWWteq1KLXG93fNFVrZHMIodC9IubyhWgusLBOuQkFlkrnUQw/Hp0Tv9LkdjMv
-	SuUL/z49WdolIZ0f9b4S0rhn4UxCr03X7tSnKZFiSo4Pw24DjAb914Q3kSGH9M5qNu+rLAAlyi9Xi
-	1eGHDqxa3j1XnilwTeFc2OTd/1Q9SN29KzkBYdn3LyvGJaMifMay05aWsFt7wqowvgVCha8puaZfa
-	/ovDxqNg==;
+	bh=QJ7AwNTLGK0qJotpIP2/0w2WrkX374IVRj5Elec6DwE=; b=zxNST3iZTyC8brON9udJJAEjtL
+	z1SN0TtbZS1vdB0x67jjKJ6fEZPiWk79jnOOVc7FqT10b+d1DYZ6vBP+ZBTXlIOP+TUaKUhWoPrG4
+	5XfpaGl0qfb6GJCTfR+Rz88W3U1unA1EpMk69ZX6nKA1NaAOFOyH7SSQGYurmxfMrWi3KFWqD2C4p
+	FesJLldDeOUC1tIYV7+jd+axzuBsOO536tdOfFiEYASaEz4B56Nxj4oY7CFPK4EC9FtfGesthBsYh
+	XyBZxytbolvu7F07hH6MjB3xYZZoH7u9TE41nxokMp2CKkXMMiga0x1oubhYGZ6GiaywZDbDstOqc
+	IROd5kKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHP5X-00000000y2E-3ME0;
-	Thu, 15 Oct 2026 17:17:55 +0000
+	id 1xHPC0-00000000z5D-2nYR;
+	Thu, 15 Oct 2026 17:24:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHP5V-00000000y1k-3c1m
+	id 1xHPBz-00000000z4W-0zaI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Oct 2026 17:17:54 +0000
+	Thu, 15 Oct 2026 17:24:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nUb4cagls44kE5et9qrliHAU76p7w/thb7bKXpN7Lxs=; b=pIt5c4rt2cCxCd+UWiIG1qBKMp
-	VIFyYDkTMdts1UfhwEd6ssfv2bpplnPWN222vJRDF2+siQDk+sATXcLLuG3zvqM1tXvbSDprjz7K9
-	ygcdfImkc9gfzgX83SeapLnkokRsf3GnGukrl9tz4E9QGWtNUeOFmtWjDzs/fcTDQ0xl4v+aBJKag
-	muTw7i3hBCMCn7v61MY92wP865/UiZtXFOl6lMP7tyED5CbN3I7jdB4Lp6Qc/0U0gSEldUuynUOPw
-	7F5me+rNn0PtefO8vlcYro+Ll4MbuhdY2RcyP8PF8I5MqANmi1kSW3ps186x0MCcMWRQMXhBrapD+
-	gSvXRqpg==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	bh=QJ7AwNTLGK0qJotpIP2/0w2WrkX374IVRj5Elec6DwE=; b=WYBWMZZUgRei3WHNgN3U7pS77d
+	Pc9KUvVF/HJBJexr7ZEwgwxqDBNvfgxkeUSWjdJLNZTVgb9MNWX7N6GvlvjwWcEelpYCVLIOKvbGv
+	5+lmBnbhwJH6QjTKTYfAOh7rBRTOzA+c81azCAXSK5FkmcMD8QXbPeIvg3e+gxMcwjXOWlnji1Vkw
+	x7Fjmfl+PMhwnaj1L8DEtzizYNBjpQ9HfY17t7+TF9wZIBLPNIEn08JpYQzhv/hxArmDxCIOYvcAm
+	aP1/zgFFsxZ3sLhuqIEwHM31mHcHR2gt1NmjUFlRScah3Ofgb71Hkk0aMm8iuzd8+JZEwxhwsKGmX
+	8PqzB2Ag==;
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHP5S-00000000f4w-2l9w
+	id 1xHPBw-00000000fTF-1Jfv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 17:17:52 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-486e70f2457so889167f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 10:17:50 -0700 (PDT)
+	Thu, 15 Oct 2026 17:24:34 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-6767d92cde6so5757882d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 10:24:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792085070; cv=none;
+        d=google.com; s=arc-20260327;
+        b=S/FWi1dZZGx7+PkAb+MFvnbDYH2MH4UpIQIuv4HnM9SkX1CYcHyJ4NpZ4P4PZ3RmoY
+         m2X5PvgSFUI8rSJgPxQxJkpFkE+AE7uQXE7F1bJxhWGe+QxJCoLkj0sAduxARUSYp9R2
+         Yp1EdydklvBoty1dXJbZ1PMSRXl67YLMoCFI4sHLA5/3AqEcdJkUORpsfjgaDARekq9b
+         jBaon0iEHTtAYRsE7E4YxR8POOvR6d552ZuXqxRjsH2wD2k1I/LXBlAlZZbJOuRgICG7
+         8gUgGKuYXV9UbQqZ8ztMabMjjkFpkID7vc9CyDDpo07rn+r5dwOBTuXvoNJRVRWcJsgG
+         oAkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QJ7AwNTLGK0qJotpIP2/0w2WrkX374IVRj5Elec6DwE=;
+        fh=GYBkCsOUaxgU5wz1oK/1eLqX5UGVI0CLlRlaMPaL1zE=;
+        b=g1AzEOBUnhN6hjgMPO6A1WQTKbXmmuzpjup01zGbQI/uWOdkpahKVigjNrR9fN2Ckz
+         z/mkLUELAufGnHS+Pr4QXQx8QBZiGjykqfYBDJx6+ezM146e6ImiD398VsjEkxkzV6CR
+         vACJcwa9LJiGM4pcOn8yimjSXJhlOxUGrsMDp5gLrhdLhSMCk52FeDNCCJZ1yrX2pTt7
+         TAOP1XebI+eewHkTHAj1viTDX++pKP+lHM8inXMqGDpVDlaZKPX9PtKlpJ7OISLcmnxl
+         lOl2Y1kjWQ7ddB5cIb5TNUw6rnhjFHKQ40xU8LUpiYZ3EsUhcFsCXVBwICooK4TI0Ic3
+         uK1Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792084669; x=1792689469; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1792085070; x=1792689870; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=nUb4cagls44kE5et9qrliHAU76p7w/thb7bKXpN7Lxs=;
-        b=oWpryt2dIVs/MGVWvsShYdL1LmSM40wqNead17aNrGuncKwZl/2M7Nk893NQJV0O1x
-         diF8/X7mLqFLh/c7lZXvmidQNb/IEpgLAa72yvLrjcKc2hXjg+DJsp4bMdfK0rQaze2I
-         oySfM31VqDJWCgPu5ITncx6WBeCMbWvhy/Rcq/uqcG/F/VoDelZEUQr5YvhQtnXP29MR
-         pudWcI/CE6371hJlpM7PQREw3RFnDf3hC/yIzEnHyZ5j5CXzoe9lzWUAeQeSfQ7w5ekM
-         N83k2GBQ7DOqk6SV4FZHr/h6+/d/W+u0FCw0x3lGWkfF6vQGhCHssc2OMrXSoIeDtfCN
-         9wxg==
+        bh=QJ7AwNTLGK0qJotpIP2/0w2WrkX374IVRj5Elec6DwE=;
+        b=Ti7HYClGUbBNkexVgTX/6TJsIAlmBmHlkARL07hPSs0eABZnorzKqpHlzQzodyhpHf
+         /RomfWsO0gidt85B5H1yxDSc6J5GuwneclFiZw4uMt5snAv26kUo6cbd+QwJNB/RwSSX
+         5d1y/veij/E9M51H8HRvD5t4wCDZLlMiHFtZ9uGhf0+SP4lRfTuOXGXk82uX23oWW91f
+         o77KIgm4e1xIxlPplepxMjaU4mRLVUQyTy/hxka8Uh5qu6lLX/fR5L6biAN4tFgIw/Nz
+         C88vx1KLo6R4miPWoVjA4crRNOrcR+HdgQRihjBIJD44vFwJsDMtJd032kIttp7qGCSS
+         5vyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792084669; x=1792689469;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1792085070; x=1792689870;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nUb4cagls44kE5et9qrliHAU76p7w/thb7bKXpN7Lxs=;
-        b=zM1yHmoK/K9GWi1G6x8bNAEkGe0p1M7lKjnbesayGUomH6LSmAS/CItHXDiWZJQ/sj
-         D9DevQjRH2w6QZ3ujnLQzerf7TDpbXWHG3qKv1g0RaSY0DHxbO5TaR3UV/ryLdLZK6Yo
-         xAtF1Igz+Fw+bpGzGKbB8Lwel0mVtygPuoDEL3ZN2W8kw4p8qxwDKsX0JC2e3EI56XU1
-         nPXaTKXNDMv7pcZLCLf8ZBY44zlIlZqOv7L+yFTjMncLlTt6GSyHsBhgrxZVRIdJgywr
-         Ysv8Nn/PA/yFcDakIIh4XHGd1RKw73DEWz69n0cBp1FP53JUlGWj/B98c6/DCMyPuv5R
-         HNKA==
-X-Forwarded-Encrypted: i=1; AKwUvByIoMPbMs3g+9K+gyiPeTrBsH4lyneKynXPrpQfgmoYeWqQFRt412XXLUngQlMkFfHfl9IhQIOlDPm/eT9FMbvm@lists.infradead.org
-X-Gm-Message-State: AFq9FYK/ds2I1dqz2q9AvHoRcMZitq3B4Pq39t+2FJsJ8QV8ke05BPal
-	ieoTGKvnTI+M8x6EiZ1qi9K4gaoCJtH/+pdM2LEjGATKgKQd5rT10nb2
-X-Gm-Gg: AYBFou14i3ZDWblbXdbE+IogwBbTYx9Is71E9Uo2M6yiQ+nA8ILaovNaMDCb8tBDyma
-	gawrvghcRZiXrCnvGvOldnKIP0pYIhzJCzdmVlijQv+OF0kCOl7isQ6Vw6ocfFMJvIMX4kz8m2D
-	s81+rJeaKCj3+GlqzF6kd01rL0fwEhRktMANRX1LUwBbk0XFR5nnuZ3kH+vWXZ5G/+rQvakj8BX
-	U3adcQeENnaIk/Xv250aOaznnenLuDBC7hEqtFeJZ3wBxbNa4hJobOzsSD+plmBgUH0JWBeKkx2
-	D4yMqBJS0oq0AyUr93xDkpIwnunhYPQTYulZLxTKUSadyDO4ggjhybnAwzv70F92e3PD81SD7ks
-	bU+110o7kEODulVizL1xQmfB27Kd/mkNTkisY7UU5QJpbEi9M3ANLfOYTTdASIBhG5OqIrPsPQ+
-	nS9tA4bHbweCrZGP/mmk/XZ8sH71LXvty95a0soNRuleQB/thAEGEr3KZdpJ1GjwNFOGapbFrz8
-	RI2a4LpTyb/S8NTBoxI9mi0VxO1vbbfy7u8xOJw/ZhBriwatLwrYysoHXF0AD3kYB6jqdjP5Yad
-	GlcF8GE0R2bKLcA6D56hUm2Gj6YYWGEnjBI=
-X-Received: by 2002:a5d:44cd:0:b0:488:89e4:c3af with SMTP id ffacd0b85a97d-48dbaae4869mr30499724f8f.45.1792084668569;
-        Thu, 15 Oct 2026 10:17:48 -0700 (PDT)
-Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfaf1acd7sm1180327f8f.1.2026.10.15.10.17.46
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 15 Oct 2026 10:17:48 -0700 (PDT)
-From: Fred Griffoul <griffoul@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Ackerley Tng <ackerleytng@google.com>
-Cc: David Woodhouse <dwmw2@infradead.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [RFC PATCH 0/9] mm: Memory providers for guest_memfd and iommufd
-Date: Thu, 15 Oct 2026 17:17:46 +0000
-Message-ID: <20261015171746.51538-1-griffoul@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <CAEvNRgHtB8j6=9r=txjsKvQM0F85nRN4KW5sdnuv_-Og=cWEfg@mail.gmail.com>
-References: <20260720111259.122911-1-dwmw2@infradead.org> <20261006183235.16576-1-griffoul@gmail.com> <CAEvNRgEseLO+LbkwXrEit0H2LH5Wx-srSvHEMpt0=upPL3tF=g@mail.gmail.com> <20261014095702.39676-1-griffoul@gmail.com> <CAEvNRgHtB8j6=9r=txjsKvQM0F85nRN4KW5sdnuv_-Og=cWEfg@mail.gmail.com>
+        bh=QJ7AwNTLGK0qJotpIP2/0w2WrkX374IVRj5Elec6DwE=;
+        b=zWSjqefNT3BxRW2XTmQsIGAzN9+1H6uKwqd13CWl1RKisXszVMfbOAoeG7ooi5xLNI
+         G8znIpB7YnSlX0mt3iKxDxStX5GxQEriI27jManAgcdbRfbJ5cbJAKmZifGke48swI3M
+         nWjS3OmTMAxbx8kzozPQ5QrbufCnPJrfopEXv7wG1g6RjHFs48XfwqLh4Qt4HM9y2B2k
+         u8KUVbDURWQiJu5yqp1+ddUqNDCmbsozn54TYII662Z503v3gBqzZMwCw/9Yt5jEOh7F
+         VM3LcyRES0jKAEqmDGYaZj73yfgwUkpiNNv0tMMIj1CtltQNzN4be3kQ+2kR6zafW5Nm
+         UWcw==
+X-Forwarded-Encrypted: i=1; AKwUvBwx5droqr0Alx9wmr/JYSS/gX44gHp2x+bCnzyJAitKEODiuirivxPZ4LoJY4PbfOE5V/4xqUOo0MBo/zU9Z8Wb@lists.infradead.org
+X-Gm-Message-State: AFq9FYIlKwI18EdLukbJmBF4xrqbVVyI7K6wOrJRj+fULk0MtHYnCzyH
+	oXqQs3DnISb+ZyjvOLBjTtrW+A0IfzHjIgvhX0RBWSLPEiEasxPyo/B+7bEAzv7uk/xbUZ7RK3h
+	swxJBHTpzoZTC5HchoopS9ZzVerSnlE4=
+X-Gm-Gg: AYBFou2m93ZAZwXgO+OzTy+0HEbYBTbax1IN8yDT+ZnZxpNYFJBCHkxsCIvEX2mIgq9
+	EYShCjA0RJ2MYlZLL2X8mRjaYS0f1Tqz1GweRpKY4M6BcLz8QFIZaj4UBecEFJS+46kokDWPrwq
+	uabbPTu2a7J1u+XkBwSA0pQaXYddcfqyGEdVNwceFo3PsXtDSiTZW+83KESGbG1T7lmciFaVRuj
+	ipY0Ir28CMLdJiv9lYXhyLq5c1jqCapMP5fIrBcZgCribuUSNG02j6YdtNJ71e7D4tq4Tdo9c5f
+	Ed/7ndyxaEqFCBpI4TzaS00o+hN0FFFNSf8RxI7D7ICq2o0iV0qSe489lBun6TQNDcTxCmVULP7
+	hoqhbfddVYJDDP6Qzplw=
+X-Received: by 2002:a05:690e:1689:b0:672:f272:f629 with SMTP id
+ 956f58d0204a3-6793630d90emr8360068d50.104.1792085069711; Thu, 15 Oct 2026
+ 10:24:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260923055103.949540-1-gongtao0607@gmail.com> <10d0c5a6-98d0-45d5-a196-aa839b452172@redhat.com>
+In-Reply-To: <10d0c5a6-98d0-45d5-a196-aa839b452172@redhat.com>
+From: Tao Gong <gongtao0607@gmail.com>
+Date: Thu, 15 Oct 2026 10:24:19 -0700
+X-Gm-Features: AclHuK8ES2Kd8skfs6udor0Fpl5ne5f6cGaytsMa82tMXcwNkOjHwfvDn2lGZGA
+Message-ID: <CACmSHQse_McSbBfEiyvCCePp97Azb7a5c7q5rr3AdXncrcSfUg@mail.gmail.com>
+Subject: Re: [PATCH net v2 0/2] net: dsa: mt7530: fix trapped frame forwarding
+ and egress tagging
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, "Chester A . Unal" <chester.a.unal@arinc9.com>, 
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_181750_742732_D77A515A 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20261015_182432_475216_70D3E879 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,82 +141,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ackerley Tng <ackerleytng@google.com> writes:
+Sorry, I overlooked the existing fix, commit 4cb3cd670b2a ("net: dsa:
+mt7530: untag VLAN-aware bridge PVID"). I saw the issue on real
+hardware (AN7581) running a 6.18 stable kernel, which doesn't have
+that commit. After picking it up, the issue is gone and neither patch
+is needed. Please drop this series.
 
-> To borrow David's words, the part about this that makes me itch is
-> conversion. We have to support conversions. Even if it doesn't merge in
-> the first patch series, we have to have line of sight to how conversions
-> would work.
+On Tue, Sep 29, 2026 at 2:08=E2=80=AFAM Paolo Abeni <pabeni@redhat.com> wro=
+te:
 >
-> Conversion requests originate from the guest and then the host handles
-> the guest request by making calling an ioctl on guest_memfd. Hopefully
-> this part doesn't change with alternative provider support.
-
-Agreed, and it doesn't change. Conversions still go through
-guest_memfd. It is the only one that knows which pages are private.
-
-> Suppose guest_memfd still gets the conversion request first, in RFCv2,
-> to reach all the mappings in various page tables, it would have to be
+> On 9/23/26 07:51, Tao Gong wrote:
+> > This series resolves two issues in the MT7530 DSA switch driver prevent=
+ing
+> > trapped link-local control frames (such as STP BPDUs) from reaching the=
+ CPU
+> > host when bridge VLAN filtering is enabled:
+> >
+> > 1. Commit 3ac85bcfd404 ("net: dsa: mt7530: preserve VLAN tags on trappe=
+d
+> >     link-local frames") set MT7530_VLAN_EG_DISABLED to preserve VLAN ta=
+gs,
+> >     but in hardware this disables the per-packet override and causes
+> >     trapped frames to follow the CPU port's active VLAN table (VAWD2) r=
+ule.
+> >     When bridge VLAN filtering is active, the CPU port is in stack mode=
+,
+> >     causing incoming untagged BPDUs (01:80:C2:00:00:00) to be egressed =
+with
+> >     a VLAN tag, which userspace STP daemons (such as ustpd) and the ker=
+nel
+> >     bridge drop. MT7530_VLAN_EG_CONSISTENT correctly preserves wire sta=
+te
+> >     (untagged frames stay untagged, tagged frames stay tagged).
+> >
+> > 2. On Airoha EN7581 and AN7583 switch IP, setting MT7531_CFC (0x04)
+> >     CPU_PMAP alone is insufficient; the switch MAC forwarding control
+> >     (MT753X_MFC, 0x10) must also have CPU_EN and CPU_PORT configured fo=
+r
+> >     trapped frames to exit to the CPU conduit.
+> It's unclear to me if you are observing the issue with real H/W or if the
+> patches comes from LLMs or static analysis. Please clarify such info
+> in the next iteration.
 >
-> + [GUEST_MEMFD] -> [KVM], [USERSPACE]
-> + [GUEST_MEMFD] -> [PROVIDER] -> [IOMMU]
+> Also clashiko feedback looks relevant, please have a look. You should
+> address LLM's feedback proactively.
 >
-> since guest_memfd must ensure no IOMMU mappings to guest private pages?
-> There's that extra step through the [PROVIDER]...
+> /P
+>
 
-Right, there is a step through [PROVIDER]. But it can be a step through
-the mem_provider code in mm, which every provider shares, rather than
-through each provider driver. Then guest_memfd doesn't need to know who
-else maps the frames, and providers don't have to get it right one by
-one.
 
-Here is the idea, on top of your in-place conversion. The VMM gives the
-same provider file to guest_memfd and to iommufd, as in v2. When
-guest_memfd converts a range to private, it claims the range:
-
-  int mem_provider_claim(struct mem_provider_attachment *att,
-                         loff_t offset, loff_t len);
-  void mem_provider_unclaim(struct mem_provider_attachment *att,
-                            loff_t offset, loff_t len);
-
-The claim revokes the range for every other consumer of the file. After
-that, get_page() returns a hole to them. So iommufd unmaps the pages
-and can't map them again, and nothing changes on the iommufd side.
-guest_memfd zaps its own mappings, as it does today.
-
-Going back to shared is the reverse. guest_memfd returns the frames to
-the host first, then unclaims the range. The other consumers then map
-the frames again. So a conversion looks like:
-
-  [GUEST_MEMFD] -> [KVM], [USERSPACE]
-  [GUEST_MEMFD] -> [PROVIDER] -> [IOMMU]
-
-That is your second chain, but the [PROVIDER] step is the common code
-in mm/mem_provider.c. It does the revokes and hands out the holes. The
-provider driver itself only gets one callback, and it can refuse a
-claim. For example, it would refuse if it also lends those frames
-through another file. Conversions can already fail, so this fits. If a
-later step fails, guest_memfd just unclaims the range.
-
-This also answers your earlier question. The provider doesn't need to
-know what is shared or private. It only needs to know which ranges are
-claimed, so that it doesn't move or share them, and only takes them
-back once the guest has given them up.
-
-I haven't implemented this yet. My plan is to rebase on kvm-x86 next,
-which has your conversion code. Then I'd demo it with a
-KVM_X86_SW_PROTECTED_VM and the sample provider. A device sees a shared
-page, loses it when the page becomes private, and sees the same frame
-again when it goes back to shared.
-
-Does that match what you have in mind?
-
-> Thanks, I will prototype what I have in mind too to make sure things
-> work as I think they will :)
-
-Thanks, that would really help. The sample provider and the KVM
-selftest in the series could be a starting point.
-
-Thanks,
-Fred
+--=20
+~Tao
 
