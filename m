@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B549FCCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289DCCC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dyB/6NmFZRGdrRTP5KsJ3jOecvhsS5ZTpQOfRco2vuc=; b=sWkjiVgG750JbhFpPoIUZSfA8c
-	Vq9K7K5KTQO0tItX8HZgVulNIz5tP2tkb+Y/pNIvsfr7iki5QNSFDXlhfo8QVEReCh/uKxEEbK5PX
-	0UwLdELG47lADOEangwRiuVRRMnyK28o0Ncj1fm0n56cBVjJCwfsINjoz5FvDHvBdbkfzz8YZoflV
-	2i1heY59zmWrDBvUnDKthClBABa4A7KkYV3b88OSfvrCLzRiCVrYzv6Q9kk1A1/Kxj0GqPWy6f+Nl
-	ChxitY7+HHnnr8IgUMYqi/NaXzys6RquHPeLfXeP08Ggc6+hymBGCErE9btM0A0uG74ugwaa0H+MJ
-	95tn42yA==;
+	bh=henc3B1x6U66Cc4wCHQGaVrAN5txXPadaIqIa3phigg=; b=cZtVQvMUkTf5lmAuBTC/KbjNTP
+	4lYIVZLt3De7yRq6JWdiobhlM81iOASw2Bf+lc1ANcEvc6pqsuh5iYX07oyxuCEr7xg3wWY410pDu
+	ToabWO7Gxe8NdVOlnNDjqAaV8nD078vx68XgkL0igNq9tMpJ1mSqqchnpRWZ8qMlIIrL5VjpX09W4
+	L2TQE3slASWm2Kt4hOifyrXl6JpRVRqAUmVP/LnAcXgb6LcPAySZadJIuYec4n4W0RtKCktA/e8HR
+	ZUcUM79h8FsnSNmtgrrDq3Qh2p1+yVurERx37vcroh3uGBgWIQIJUqy1UrAn7tO81dZrm+qKcuFYM
+	IHlWLN5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOSw-00000000rfP-3mqb;
-	Thu, 15 Oct 2026 16:38:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHOW8-00000000sTl-29rw;
+	Thu, 15 Oct 2026 16:41:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHOSp-00000000rcW-2giC;
-	Thu, 15 Oct 2026 16:37:55 +0000
+	id 1xHOW7-00000000sTH-29mA
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 16:41:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D02B40A39;
-	Thu, 15 Oct 2026 16:37:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4019C1F000C6;
-	Thu, 15 Oct 2026 16:37:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4555243DE8;
+	Thu, 15 Oct 2026 16:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25A601F000C4;
+	Thu, 15 Oct 2026 16:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792082274;
-	bh=dyB/6NmFZRGdrRTP5KsJ3jOecvhsS5ZTpQOfRco2vuc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XQSQ4lYdZyh71183NKR1fUb/KSjbuLiil4dINwYsiQOs3lIRiHgMXCptxbpKkmhDz
-	 a/X3K2lWp+bDJoGHX6feWzthtGNOn0UZr5PYiSbz0XEV7zXsEvOSAGSMrSGQnAjiZ0
-	 NqxKCpMsQArqjosMi5CwsqglRY77PCl/6W5JHHLpnAUgKDObX5hNVxrrGbRB76Y/LU
-	 tI/khRPWUlc5yTzg+aTzNO+NrAhaM0VJuIdPTrzcr4umpYenn9ji5jQadmSZPeLajf
-	 6EMgL2rbtc/5zrpyCLAfs3MZ5HAbxdgYTmwk4sW0Q+4w2Wd4/61SV6bB4gJ0yFsWE0
-	 Ol29ynRUCrpuQ==
-Subject: Re: [PATCH net v2 3/3] can: rockchip_canfd: cancel bus-off restart
- before closing the device
-From: netdev-bot+sashiko@kernel.org
-To: 1579567540@qq.com
-Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
- davem@davemloft.net, wg@grandegger.com, socketcan@hartkopp.net,
- kernel@pengutronix.de, linux-can@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, stable@vger.kernel.org, kuba@kernel.org
-Date: Thu, 15 Oct 2026 16:37:53 +0000
-Message-ID: <179208227384.1406898.15110321342582191229@kernel.org>
-In-Reply-To: <tencent_B15E13184DA04C4382F48848C006A2B51F06@qq.com>
-References: <tencent_B15E13184DA04C4382F48848C006A2B51F06@qq.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	s=k20260515; t=1792082479;
+	bh=henc3B1x6U66Cc4wCHQGaVrAN5txXPadaIqIa3phigg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=NJHxIYDaSvcn1zskfakCyzzkc4KWk3YVFRCCFczSgr9+0yFWlKhBdpJBkyXq9TYCm
+	 UpnV/NdQv/Uai4CJwhme57ZoMqNE+fi6g2DBo1JuZ+tKOI2rlzyrappiw537FK2L/M
+	 +cxsHhaQTaDhaqT48R/MhPUHuIP3m2djDD55Pe4CvQFroaLfCf7ZmNc1mfSah1HBh6
+	 TGVgaDxGN65O5ma+wW77JN8Eojz79vvI4xLTEcgznOKA1DrNqgYuCxpdp8QvEwq1h2
+	 97xsMCBod6WJ+hYnrGuGLMrVJNPQ3PMwcuusePSij0E6VG5N/y+xCbs5rYOKrR4Es6
+	 Z44/hp0IG1asg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xHOW4-00000003OzH-2KmN;
+	Thu, 15 Oct 2026 16:41:16 +0000
+Date: Thu, 15 Oct 2026 17:41:16 +0100
+Message-ID: <86h5im29xv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Only enable S1PIE and S1POE for a guest with TCR2 and ATS1A
+In-Reply-To: <20261015153041.3770032-1-fuad.tabba@linux.dev>
+References: <20261015153041.3770032-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, broonie@kernel.org, ljs@kernel.org, tabba@google.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,140 +92,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] can: rockchip_canfd: disable_irq() called on shared IRQ
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the restart
-  callback the patch modifies re-initializes a delayed_work that may…
-
---
-
-can: rockchip_canfd: cancel bus-off restart before closing the device
-
-This commit calls close_candev_cancel_restart_sync() at the start of
-rkcanfd_stop(), so a running bus-off restart finishes while the IRQ and
-other resources are still available. It also brackets the hardware
-reinitialization in rkcanfd_set_mode() with disable_irq()/enable_irq().
-That keeps the IRQ handler out while the controller is restarted.
-
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> index 37c1c22c40c9f..fb8f6b0675022 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> @@ -356,8 +356,10 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+On Thu, 15 Oct 2026 16:30:41 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> The world switch skips PIR_EL1, PIRE0_EL1 and POR_EL1 for a guest
+> without TCR2, but KVM doesn't trap them for a guest with S1PIE or
+> S1POE. Userspace can hide TCR2 while leaving either visible, and such a
+> guest then accesses registers that are neither trapped nor switched.
+> 
+> Under VHE, that leaks values between guests. POR_EL1, which the host
+> kernel doesn't use, leaks between guests in every mode. On nVHE and
+> hVHE, pKVM included, the host's own EL1 registers are saved and restored
+> according to the running guest's features, so the host kernel resumes
+> with its stage-1 permissions taken from the guest's PIR_EL1 and
+> PIRE0_EL1.
+> 
+> As per the architecture, S1PIE and S1POE imply TCR2 and ATS1A. Only
+> enable them for a guest that has both. A guest that has S1PIE or S1POE
+> without TCR2 or ATS1A still sees the feature in its ID registers, but
+> its accesses to that feature's registers UNDEF.
+> 
+> Fixes: 70ed7238297fb ("KVM: arm64: Sanitise ID_AA64MMFR3_EL1")
+> Fixes: d4a89e5aee23e ("KVM: arm64: Expose S1PIE to guests")
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Link: https://lore.kernel.org/r/20260930-arm64-gcs-v21-2-3556644cd927@kernel.org
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Link: https://lore.kernel.org/r/86fqyn2che.wl-maz@kernel.org
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+> I'm sending this on its own because it affects the host on nVHE and in
+> pKVM, so that it can go to kvmarm/fixes and stable rather than land
+> with the GCS series. It's the data-driven fix Marc asked for on Mark's
+> v21 02/15 [1].
+> 
+> Following Mark's point on Lorenzo's draft [2], only feat_s1pie() and
+> feat_s1poe() test TCR2 and ATS1A, so kvm_has_s1pie() and the world
+> switch are unchanged. I've left the guest's ID registers alone, since
+> updating them is the larger rework Mark described.
+> 
+> I've got a reproducer showing the host's PIR_EL1 overwritten on nVHE
+> and in pKVM, and can share it privately.
+> 
+> Based on Linux 7.3-rc3 (fd73f4a665989; also applies to kvmarm/fixes
+> 71cc2c67fb8f8).
+> 
+> [1] https://lore.kernel.org/r/86fqyn2che.wl-maz@kernel.org
+> [2] https://lore.kernel.org/r/ae24e80c-1b34-4827-9c93-e80b987e9cd7@sirena.org.uk
+> 
+>  arch/arm64/kvm/config.c | 23 +++++++++++++++++++----
+>  1 file changed, 19 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 1053676551aff..5e5277c721d52 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -280,6 +280,21 @@ static bool feat_anerr(struct kvm *kvm)
+>  		kvm_has_feat(kvm, ID_AA64MMFR3_EL1, SNERR, FEAT_ANERR));
+>  }
 >  
->  	switch (mode) {
->  	case CAN_MODE_START:
-> +		disable_irq(ndev->irq);
->  		rkcanfd_chip_start(priv);
+> +/* S1PIE and S1POE imply TCR2 and ATS1A, but userspace can set them independently */
+> +static bool feat_s1pie(struct kvm *kvm)
+> +{
+> +	return (kvm_has_feat(kvm, FEAT_S1PIE) &&
+> +		kvm_has_feat(kvm, FEAT_TCR2) &&
+> +		kvm_has_feat(kvm, FEAT_ATS1A));
+> +}
+> +
+> +static bool feat_s1poe(struct kvm *kvm)
+> +{
+> +	return (kvm_has_feat(kvm, FEAT_S1POE) &&
+> +		kvm_has_feat(kvm, FEAT_TCR2) &&
+> +		kvm_has_feat(kvm, FEAT_ATS1A));
 
-[Severity: Medium]
-rkcanfd_open() requests ndev->irq with IRQF_SHARED, and the commit
-message itself relies on the line being shared. disable_irq() masks
-the whole line at the irqchip, not only this controller's source.
-It also waits in synchronize_irq() for the handlers of every other
-device on that line.
+Where's what the relevant bits of the JSON say:
 
-Every device sharing the line therefore loses interrupt delivery for
-as long as rkcanfd_chip_start() and rkcanfd_chip_interrupts_enable()
-run. That window covers:
+(FEAT_S1POE ==> FEAT_TCR2)
+(FEAT_S1POE ==> FEAT_ATS1A)
+(FEAT_S1POE ==> FEAT_HPDS)
 
-- the reset and work mode transitions
-- FIFO setup
-- bittiming programming
-- timestamp init and start
+So this is missing an additional check on FEAT_HPDS, which is advertised
+as:
 
-The window can be opened from outside the box. Another node on the
-CAN bus can drive this controller into bus-off. With restart-ms
-configured, restart_work then runs rkcanfd_set_mode(), and a manual
-can_restart_now() takes the same path. Each restart stalls the
-unrelated devices sharing the IRQ.
+(FEAT_AA64EL1 ==> (FEAT_HPDS <=> (UInt(ID_AA64MMFR1_EL1.HPDS) >= 1)))
 
-Drivers on a shared IRQ are generally expected not to use
-disable_irq() for their own exclusion, for exactly this reason.
+Thanks,
 
-Would it be possible to exclude rkcanfd_irq() with a real lock
-instead? For example, the handler could take a spinlock, and
-spin_lock_irqsave() could be held around the chip_start and
-interrupts_enable sequence here.
-
-That only works if everything reached from rkcanfd_chip_start() is
-safe in atomic context. Can you confirm that? Or is there a reason
-the restart path has to be able to sleep while the handler is held
-off?
-
-I would rather not see a software flag checked in the handler for
-this. Without a lock it does not actually exclude a handler that
-has already passed the check.
-
-[Severity: High]
-This issue was not introduced by this patch. It sits in the restart path
-the patch modifies, though. Can rkcanfd_chip_start() here re-initialize
-priv->timestamp while its timer is still queued?
-
-On bus-off, the IRQ path stops the timestamp work without waiting for it:
-
-rkcanfd_irq()
-  rkcanfd_handle_state_error_int()
-    rkcanfd_chip_stop(priv, CAN_STATE_BUS_OFF)
-      rkcanfd_timestamp_stop()
-        cancel_delayed_work(&priv->timestamp);
-
-The work callback always re-arms itself:
-
-drivers/net/can/rockchip/rockchip_canfd-timestamp.c:rkcanfd_timestamp_work() {
-    ...
-	timecounter_read(&priv->tc);
-
-	schedule_delayed_work(&priv->timestamp, priv->work_delay_jiffies);
-}
-
-Bus-off may be handled while rkcanfd_timestamp_work() is running, either on
-another CPU or because the IRQ preempted it on the same CPU. In that case
-cancel_delayed_work() finds nothing pending, and the callback then re-queues
-itself. From then on the work keeps re-arming.
-
-When the restart runs (restart_work or can_restart_now()), it goes through:
-
-rkcanfd_set_mode()
-  rkcanfd_chip_start()
-    rkcanfd_timestamp_init()
-      INIT_DELAYED_WORK(&priv->timestamp, rkcanfd_timestamp_work);
-    rkcanfd_timestamp_start()
-      timecounter_init(&priv->tc, ...);
-      schedule_delayed_work(&priv->timestamp, ...);
-
-INIT_DELAYED_WORK() clears the PENDING bit and the timer's linkage while the
-timer_list is still in a timer-wheel bucket. The following
-schedule_delayed_work() then sees the work as idle and enqueues the same
-timer_list a second time. Can that corrupt the timer wheel hlist?
-timecounter_init() also writes priv->tc while the old work may still be
-using it.
-
-The new disable_irq()/enable_irq() pair keeps the IRQ handler out. It does
-not stop the timestamp work. One option is to cancel priv->timestamp
-synchronously in this sleepable restart path before re-initializing it.
-Another is to call INIT_DELAYED_WORK() once at probe or open time rather
-than on every rkcanfd_chip_start().
-
->  		rkcanfd_chip_interrupts_enable(priv);
-> +		enable_irq(ndev->irq);
->  		netif_wake_queue(ndev);
->  		break;
-
-[ ... ]
+	M.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_196A2433801631CD2FA42998465E26316105%40qq.com
+Without deviation from the norm, progress is not possible.
 
