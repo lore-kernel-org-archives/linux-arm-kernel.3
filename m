@@ -4,147 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35EACC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2BDCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Cc:References:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=; b=3eZnLerLAUlohCVBBV9vNluusk
-	FTfN9rlH/R9k+RUyTbBxrs3M4NJCMteV5hwh8VjqfQzhrJu5lL0klIF/LUq4WyLI5BrYk+umY4Czf
-	wvyRXYxwfCe32Q4ZUXZVTTPQ5Wpod52MivMOqrzeVMJAGcq39SqbnM7GzSxBRUBbOfTECIO4aQatu
-	SzZIHL43xsZmzx7ylaXt5bCQOPQr4iIxW87jfg5c3UBQW97GeHv7lVyeez6gOSevWTAYHt7NHmJmk
-	Ids5GHj/nh0tWlEJx8O+t8ibXNMDIvbvKz8GTKcyIjwT/KeRaWdAGg6ri3pDQUEGlcDWmhZ0O3mFt
-	B6N6MYuQ==;
+	bh=Fj8G0lh/T0uv2YxD5gx/OqL46rcU+a5LXrh9IDCCfAM=; b=gffHRJ+Tw89p2ghP8XJQtX5bkp
+	pSHXjv8Tmtal3XL3WKJ9D1VXguDxLRwE49Ez4D6+iho5iIJPvgMC+Ef5FyRaEhzohWPOSrwD3YKL/
+	G9PNuxJH4xkH/pNNifu/l9//0N67nC314dDN6ldQYpoCJFbj6/ILUKMQcihHMWCzsQGfHa+3K8eAg
+	jlssER/qOdllXx6Tn+K2vIP/ZZu9tx3OuZzd6pT2gNnpVF87I9bscqTx6aGFPbu90Ai+mIZ/Fhdeh
+	rP2T8yHBu2X0HLEBBHQ8Jkkk1tEhRtPRoUnLm8d99tt5txQpBoGw61iB7zP55CO7zZs7kkpkNQaUs
+	MamkUYYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMVT-00000000OaN-489B;
-	Thu, 15 Oct 2026 14:32:32 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMVM-00000000OYJ-2scl
+	id 1xHMVw-00000000Ohb-2P5i;
+	Thu, 15 Oct 2026 14:33:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMVr-00000000OgB-03lW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:32:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BjoFXrdXyckisdIOBJJfTRM2ASeSO5wGRVcJykPBD8zFJUzmh8PuVsinMAi6CgPipDoo8V7Pq8v6xjz4ngi2Qi8athi7Qoepd5iDBekQMgD0nM+b0356wXRkvDLjRqIyB945TBMr/wNn4eG+8XwlROUFIbj2Fy51nBOqzoLV5XWFISq5MUlTlSu8Q2myi8U6wOJjoZPkskWmvL/TrHl1ar2R6mueyDzDmb7YXcNkVH7jnBLi2wHC7ohw7+MNqf03wCaF9k5qVq+OCyZdv+MFskHogCph8UNFrsfDrSCSimbTB9UYt62MGpibvKo2VATuaCKm/WXcXhKkSAGV+LwpQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=;
- b=MY/K3wvntDYEtg8pmElzGDSMSedb0pBxyvHvgcCwaVqP4HJuYadbqYD5DZLcXEJOjZ9ZmdyScQja7GwNT1wxr7D/zj81IQLXPr4i9+mkQAjsKVclpSqKErZG0nhS5CzG+qYWLob53MNCascGue/J/LnK3m3ZVBom879m2da2dWnR79P6FIcFKQwN/4l+TAxZKO8mni+UjgC+s8iHYf+bTGXbroACE2U+e3zz6NFZmFaLH3QiTMw+ZSXgGMeRPVYdACntuqEG7UutI3r1nMQOhY/d8XPmrdHAPAf65qeuYE0ep54GazijdpFBILOEdbKxWjlEVic8Ur6biwAV5zyIoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=;
- b=l0LKAB4Jgi/8uq9sFmfcMqomdrAvpiGRlOfAqlGkz8TKoLhSF6I5trjf2tLUYNU+7/Yzn07bMF2Kth3AmBgLVdyKbo1GR+UbkCzDQZdMW/nJrsMysv7JPbNXNBGEQdw+FK9ooGvSGlw91O25VxT+sv9DY3X4K8lhy0Gie5GrAaQ=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) by
- MN2PR12MB4286.namprd12.prod.outlook.com (2603:10b6:208:199::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Thu, 15 Oct
- 2026 14:32:18 +0000
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a]) by DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a%4]) with mapi id 15.21.0496.021; Thu, 15 Oct 2026
- 14:32:18 +0000
-Message-ID: <1f6afb5d-47d6-4c15-9ea6-d4a96da9ee68@amd.com>
-Date: Thu, 15 Oct 2026 07:32:15 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] dt-bindings: remoteproc: Add RPMsg resources to AMD
- BRAM rproc
-To: Krzysztof Kozlowski <krzk@kernel.org>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-6-ben.levinsky@amd.com>
- <20261015-ethereal-cicada-of-perspective-c1aaca@quoll>
- <DM4PR12MB64480F027338BA7A1EF91E17839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Language: en-US
-Cc: "Levinsky, Ben <ben.levinsky@amd.com> jassisinghbrar@gmail.com"
- <jassisinghbrar@gmail.com>, "andersson@kernel.org" <andersson@kernel.org>,
- "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Shah, Tanmay" <tanmay.shah@amd.com>
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <DM4PR12MB64480F027338BA7A1EF91E17839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR13CA0043.namprd13.prod.outlook.com
- (2603:10b6:a03:2c2::18) To DM4PR12MB6448.namprd12.prod.outlook.com
- (2603:10b6:8:8a::7)
+	Thu, 15 Oct 2026 14:32:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0A171477;
+	Thu, 15 Oct 2026 07:32:50 -0700 (PDT)
+Received: from e121740.arm.com (e121740.arm.com [10.33.8.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 238BA3F871;
+	Thu, 15 Oct 2026 07:32:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792074773; bh=qyawegKgr7KmH/89SsM3Ua3ftIQXLYUPg7IMiER6aPc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u6duZc4/VnqunKshGSpsjVhyxzmOxOYIac1TTevcRt1EAB8yLhwmsW9U8FAEVtEMq
+	 I+YJGaLUhefbS1+H94N1jGgqB6Vkh25ty1vgtGzzjV0s7SHCpu6Ljx6N5VAGgTG8kZ
+	 +7QSS3qF29tjLi60tPDAwNUHWJQTo46IDhEQGhzk=
+Date: Thu, 15 Oct 2026 15:32:42 +0100
+From: Philip Radford <philip.radford@arm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH v9 09/13] powercap: arm_scmi: Enable multiple constraints
+ support
+Message-ID: <atDjzW/XnTVLlR9S@e121740.arm.com>
+References: <20260909220437.1254412-1-philip.radford@arm.com>
+ <20260909220437.1254412-10-philip.radford@arm.com>
+ <20261015-urban-porcelain-smilodon-edbc1d@sudeepholla>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB6448:EE_|MN2PR12MB4286:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92bec665-49b4-4e14-9966-08df2ac91db2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|56012099006|11063799006|4143699003|261009223027099003|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: DtsM1gLykeb77/t3tEapSFrJFpPIlCLiacQR/eqyhcbDSpWdKqOqLWhNWjbI2GNvyDLykc1H986jsr1BhjoaPbGOxIHwI8O8ZK9N7jR03d9XHawZogghhhcB+ogEyI3YWFymDev0exHvJNAduEwS44sAHSYA/I+GwTzGJukpXjlsSEaoOA8BdaCGmK+10mZVPJiWHutlsgA669fimcYaaQCruHiqG/0MsGLx6zAwsGNYiNvjy+XVLN9+1+9RKlRLjyNQ/Yqzlkfod6Ei16Fb5jhaXbS6uEevHCIpHkLEi4kbWYeAPEqMQbSiOHTRGy7120O9e1RvRoWIg9+7LM1sbyAbPiNn5ZToEYWwQ/kiaGCKf0va2s6EUsQO1WTfwrbb9ODbgK1rDDyAAV3otaARFgRY9GrmlA7MLloQ3s3JyYxPXkUeP8rZqEAzs9Lz+h2m4mDiyB/lyQsI1lJt3y0kFJ2Gl9STq3C3yVI4z4FrPIyOV8KNUICw7d/lnxkqIIzAHGUb+GbKTfTlWwVm2NPfvAgUe/vtKEkxJrolybWPvdVxziCpwwrBzv0TLS6FObTt6Dx4pu2875AaF1W3fUI+XdNgkZQVGjogNxchh18lBRycI8vA60noooJAlieL0IBPt3MfhStQMFgk6mPGqjC1n7hU1NVjBErUkNbcT7KE7ww=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6448.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1cwOFozeUUwYkNrR25tV0l2dTBpMkFZNndXSVFRVjNmZTBKaGR2eVc5aFJt?=
- =?utf-8?B?UVhSdlFoTThuclRuM0pZc0NhY1hwM0FheHBuWlhaRjJlanBtNlpncTQ5cDFi?=
- =?utf-8?B?Qy9nbTIvaHp1ZGRwK0gyb2pNQkpoL0tqLzdaak1RNmhTTGVFWk9XcWpUSzhz?=
- =?utf-8?B?Z0ZNSDJlWjhPWkpLVmdDNVlWUUk1MjVVeWk2YVFIWlk1Z1BINFQ1NHVkTHdC?=
- =?utf-8?B?RHlKSWh3V01NSGpoc1JQb2t6Y1o0MEdSbEx2dTduRm53cW1qT2JaQVB3TDln?=
- =?utf-8?B?VlExTmxwNmRvVEhrZ1BIWmtZdzNSc0QyYXMvc0VGdDVLeWxsQ1VqRG0ycml4?=
- =?utf-8?B?TVZ4WkN2T0RzK1d3dVZoci9hcFBhS25SZ1VqWTRLN05NOVJJbmVnbU5EUzdz?=
- =?utf-8?B?NE9vdi9OSUh2ZVVoREtjcUFJUDBDbjBIRm1CV1NLVlVsSWVhQ0NrT3JoQ2pm?=
- =?utf-8?B?S2tsOFlrK2d3VlNuRTFOLzdBMjRvY0tZTHlQcGJiSjA1K2UrUTVHU29OMTVW?=
- =?utf-8?B?bjBRQUx5cVZHZmRtUHRqSVcrc2hzcVlSMkdVTFY0K1RuZW9IK3A2cXI0Kzhy?=
- =?utf-8?B?c1RIN2xraGdmemhzdGpLc0pvZVF5c2hxemFHS2UxWVhNL05LNXhwY1RjYXBZ?=
- =?utf-8?B?YzFuR0lRZVNxSG1ITWNaeG5tNTlkVU9IYXZQaVVIdDNKMkZ1QW5hWVFSejNk?=
- =?utf-8?B?ZHNRKzkyUDZhT1lwcStLUU0rTVZwMW13dUMwRHVFSkg0NlVIdTdQNEVRS1Vk?=
- =?utf-8?B?OWRwcEFMUER6SW1sd045MFJkbDkzWGZEeFFCRXdtWnZ4QXhRRHEycXV6UVdT?=
- =?utf-8?B?akhzNXFGOS80aStBeGlnempFV2NWb3ZKdUpMSXlqU1JaK1pGR1RzeFNobk92?=
- =?utf-8?B?M2swYVJYRTFzYnFDdmEzRkY4eTNlbUViRk9vRCtlQjZNeUlvdHdKUm81TzdZ?=
- =?utf-8?B?Y0F6NGlFd1RxU3dZNjZDYTlRMWc5VzdzeEMxRHdabGJiQ1FnanJMdWlvS2NI?=
- =?utf-8?B?NDIyNnpwYm1qT0RhRWdTNlFCZE5paGNQOG9QQ3VoTHVSU2I4YTl6ajZIcEpi?=
- =?utf-8?B?ZlprTHZQcVV0SGFhcXJOUlJtd3hxc2d3ZUgyOGs1V2kvdzVUc0UxWkNUV1Rz?=
- =?utf-8?B?UTlRbVp5KzB1Zm1iQk5FNldoeEZBZnJWOFdXcGRhVW5OZjBNT0N3eERnSHBS?=
- =?utf-8?B?Q2xDSHpGNXBiWHJBb1hCVzNIZHpxcjU5MnB6RFdRQk5HYUY2c3lhcjFuY2lz?=
- =?utf-8?B?WUtPWnN2SHEzNlRXelo0MXo4SXVCNkNRMnVSK0Z6Mm1PeFJPZFZaS2dySTda?=
- =?utf-8?B?dXJ3a0lsQ00rdllQUlhwY2tjd2Z2Wlp3bUw5WVRYS29lcDg0cE9OTzFNaWRB?=
- =?utf-8?B?NTFab012RjVsbjJnNW11a25NamYrQ0RQNUdrL0J0SFhBM1BxSk1COXFQWjR6?=
- =?utf-8?B?UXBGNmNTVDRPaC9vNC9TdmFYQ2ZHaHJqVFlwdU5ianlTZWFYUEJLdGVuQW5Y?=
- =?utf-8?B?Y0lGQkNtdUVqc283eTFHM2NNZk1hTm9yMk0ybHEraWRFSU14bW9kZzR2M2Rj?=
- =?utf-8?B?dTB5NElPbkt3NmpGeUVvRXBZYUdTOUFaVXdVSzcxa3UxZFVHT0liVE90SjBM?=
- =?utf-8?B?c2grL3EraXZHejV5cCtEaFgyVTAzYlk5N2tmWWtkZVpIak12Q2RlS3N5Tlp3?=
- =?utf-8?B?T3RKY2Fxb2ErU05PR05VRVU2WnJiWE8xYmlFQzZBMXd6RXVEdWpEbmNhZWtu?=
- =?utf-8?B?d3k5UjBBM0srR3FOYW4vdXk3ZEh5YXFyZEdsbDlPU2xGWnpPNkVjUTd5dlo3?=
- =?utf-8?B?YmdNZnBMMTIrTUxkNGd3OHEyVjhzTGx3a1h3ajRwelNWZnZ6SUluajlYV2NR?=
- =?utf-8?B?OHYvcGtmMFN6TEpCOXBJeWg5Z3RjR1I2UDdRRVMzMWx4dFJOcXZWZ2lhUXJk?=
- =?utf-8?B?WjdLM08xZ3Z5MHcvaUZIbi9QVTVtVUZmTG5BQ2drYk42WFcrRzBJWEZkY0cr?=
- =?utf-8?B?WFROZ1gvcVU0Q0JKTFp3VkxJOGpQc2srSnd6aUZyR3pFdFNWQ29XRnVaUXVo?=
- =?utf-8?B?dFB1WFJJT3hyamo5bDY2NkRyeUloSjFkdGpjYVBKSFdjc3Z0bWZYRVhFQzE1?=
- =?utf-8?B?WkF5UmhRUTVCeDVWN2VuS0pFMnc5Y245dmlWYlZrajQybVNRa3phLzFrcE9q?=
- =?utf-8?B?dWY2VHZQMFE2R2hRUG9yeXhDa0JPQlVyNWZQa3AwZVdqWVFzcWJnTTU5U0VY?=
- =?utf-8?B?MXlOV0VKZHhzSFp6SFNIekpFa3N4ZkRFNDBMYW5KM2pZR2pVOUZKaS8rNkxL?=
- =?utf-8?B?Z21BNHpTUXhMemZISCtxMmdnS1FXdjZETUtZRndINGJMNkkwaHhNdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92bec665-49b4-4e14-9966-08df2ac91db2
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6448.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 14:32:18.6087
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3xRUpWQdTfA/cdVujmfiDVyowbmf0twmzcu0OmKN65/Tq2fE0ZGaWiCaEhRgqtmw2NjfFA4BojXyp5H+qAEBPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4286
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261015-urban-porcelain-smilodon-edbc1d@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_073224_975806_BCB5A53E 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20261015_073255_099942_D42A8FA0 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,94 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 15, 2026 at 02:24:40PM +0100, Sudeep Holla wrote:
+> On Wed, Sep 09, 2026 at 10:04:33PM +0000, Philip Radford wrote:
+> > From: Cristian Marussi <cristian.marussi@arm.com>
+> > 
 
+Hi,
 
+> > Initialize the domains with all the discovered available constraints,
+> > making available multiple per-domain constraints when the platform has
+> > advertised support for multiple concurrent power limits.
+> > 
+> > CC: "Rafael J. Wysocki" <rafael@kernel.org>
+> > CC: linux-pm@vger.kernel.org
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > [Philip: Amended Copyright]
+> > Signed-off-by: Philip Radford <philip.radford@arm.com>
+> > ---
+> > V8->V9
+> > - Added validation check to make sure powercap domain doesn't have too
+> > many constraints
+> > ---
+> >  drivers/powercap/arm_scmi_powercap.c | 11 +++++++++--
+> >  1 file changed, 9 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+> > index 2d9370aaaf5d..bcd1ba0bde8c 100644
+> > --- a/drivers/powercap/arm_scmi_powercap.c
+> > +++ b/drivers/powercap/arm_scmi_powercap.c
+> > @@ -2,7 +2,7 @@
+> >  /*
+> >   * SCMI Powercap support.
+> >   *
+> > - * Copyright (C) 2022 ARM Ltd.
+> > + * Copyright (C) 2022-2026 ARM Ltd.
+> >   */
+> >  
+> >  #include <linux/device.h>
+> > @@ -491,7 +491,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
+> >  
+> >  	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
+> >  				   parent ? &parent->zone : NULL,
+> > -				   &zone_ops, 1, &constraint_ops);
+> > +				   &zone_ops, spz->info->num_cpli, &constraint_ops);
+> >  	if (!IS_ERR(z)) {
+> >  		spz->height = scmi_powercap_get_zone_height(spz);
+> >  		spz->registered = true;
+> > @@ -649,6 +649,13 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+> >  		 */
+> >  		spz->info = powercap_ops->info_get(ph, i);
+> >  
+> > +		if (spz->info->num_cpli > MAX_CONSTRAINTS_PER_ZONE) {
 > 
-> *From: *Krzysztof Kozlowski <krzk@kernel.org>
-> *Date: *Thursday, October 15, 2026 at 2:50 AM
-> *To: *Levinsky, Ben <ben.levinsky@amd.com>
-> *Cc: *jassisinghbrar@gmail.com <jassisinghbrar@gmail.com>; andersson@kernel.org 
-> <andersson@kernel.org>; mathieu.poirier@linaro.org <mathieu.poirier@linaro.org>; 
-> robh@kernel.org <robh@kernel.org>; krzk+dt@kernel.org <krzk+dt@kernel.org>; 
-> conor+dt@kernel.org <conor+dt@kernel.org>; Simek, Michal <michal.simek@amd.com>; 
-> linux-remoteproc@vger.kernel.org <linux-remoteproc@vger.kernel.org>; 
-> devicetree@vger.kernel.org <devicetree@vger.kernel.org>; linux-arm- 
-> kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; linux- 
-> kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; Shah, Tanmay 
-> <tanmay.shah@amd.com>
-> *Subject: *Re: [PATCH 5/6] dt-bindings: remoteproc: Add RPMsg resources to AMD 
-> BRAM rproc
-> 
-> On Wed, Oct 14, 2026 at 02:34:25PM -0700, Ben Levinsky wrote:
->  > Describe the optional mailbox channels and named reserved-memory
->  > regions used for RPMsg communication with a BRAM-based MicroBlaze
->  > remote processor.
->  >
->  > The three named memory regions provide the two virtio vrings and the
->  > shared RPMsg buffer pool. Firmware and its loaded resource table remain
->  > in the executable BRAM described by reg.
->  >
->  > Assisted-by: LLM sparse
-> 
-> How sparse can assist here?
-
-
-  Hi Krzysztof,
-
-  It did not. As in patch 3, the trailer was applied to the whole series
-  by mistake. I will correct it in v2.
-
-> 
->  > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
->  > ---
->  >  .../bindings/remoteproc/amd,bram-rproc.yaml   | 31 +++++++++++++++++++
->  >  1 file changed, 31 insertions(+)
->  >
->  > diff --git a/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml 
-> b/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
->  > index c0359f447ea8..daff8e615ab6 100644
->  > --- a/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
->  > +++ b/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
->  > @@ -84,6 +84,33 @@ properties:
->  >      description:
->  >        GPIO specifier controlling the soft-core reset input.
->  >
->  > +  mboxes:
->  > +    maxItems: 2
->  > +
->  > +  mbox-names:
->  > +    items:
->  > +      - const: tx
->  > +      - const: rx
->  > +
->  > +  memory-region:
->  > +    maxItems: 3
->  > +
->  > +  memory-region-names:
->  > +    items:
->  > +      - const: vdev0vring0
->  > +      - const: vdev0vring1
->  > +      - const: vdev0buffer
->  > +
->  > +dependentRequired:
->  > +  mboxes:
->  > +    - mbox-names
->  > +  mbox-names:
->  > +    - mboxes
-> 
-> Why do you add this? Please instruct your LLM to actually understand and
-> learn dtschema.
-> 
-> Best regards,
-> Krzysztof
+> Since MAX_CONSTRAINTS_PER_ZONE = 10 and our SCMI f/w can return upto 15,
+> we may have to warn or clamp it to 10 or both.
 > 
 
-  You are right. The core mailbox consumer schema already requires mboxes
-  when mbox-names is present, and this block is not something bindings
-  normally add. I will remove the whole dependentRequired block in v2.
-  Thank you for pointing it out.
+Noted. I will address this in the next version, thank you.
 
-  Thanks,
-  Ben
-
+Regards,
+Phil
 
