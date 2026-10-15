@@ -4,135 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18588CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FDCCC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lfNaC7G0CFtt6g5HK84/0GmEi2YR+Up4b6D59qzUdj8=; b=EHZ4lycup1Th0W3RZ4mOmpVMst
-	+BIjkwQp/00+7qw9xRfYMwz1+SxYP5tYx8SVJ3wZblilDGzZQG0F1NoW+TST7/F+ixYuF7+M86EX0
-	rqqODJF6z88UcRodpzEMGLzYJGT+BHrflHMAWizPZdobykpC6Lzub09W+pAZZtsK/lZnGBm5BoDHI
-	dJYjN2hG7qDXRPfUubFybVAn37Uh6pp0MwB3ZxhJLmnl/Vsfx0kzvKDBP7op7nffmt9eWrEo5nyzZ
-	BohcIeYtZSBHWwQ+MOn7cti1FBgq4MP72eNDebNBoa+Jd10RLzBPPmq66fQQholcK4gt4Sv+Lv0XT
-	Oe07643A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=; b=IX1Xdybt8vUDQMdg8Lq8jao8Ne
+	kcM+ipmAekrHVOJa0Vx6OU4FLMiwnEhH4SUI+OfkK9nYwMMrTTc76afJTmooa550jAe+Y1HQSop1/
+	1RAHX1p9WrLsUTIMYoBJCe4vSCwqeUkyBEUsZIcODbmp/tKiwmUYNxpmIE0qPx20RsNFgOBgLJF7s
+	AMgR0RQ09O4qhtoO6/+PIik+JzpUlECfZsYfbpTW2Wz/HBp2gwxzsiqCelizGXgtHb/hziaBcMdxH
+	FQ4wMCWNs9YMoYXTK3GmAHrVRnqNFM1UXDBNp9Q+1YOWAatHpKthB/I0G2cZ8cunQ1nf45WRrqxSh
+	zRgL4n2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHW6-0000000HEA5-28eM;
-	Thu, 15 Oct 2026 09:12:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHHcj-0000000HF0n-0yVB;
+	Thu, 15 Oct 2026 09:19:41 +0000
+Received: from mail-northeuropeazhn150100000.outbound.protection.outlook.com ([2a01:111:f403:da00::] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHW5-0000000HE9G-32D4;
-	Thu, 15 Oct 2026 09:12:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lfNaC7G0CFtt6g5HK84/0GmEi2YR+Up4b6D59qzUdj8=; b=bdZUEbceMkzdN+aORzkkO78arR
-	0Dev+bSmk8dDcjRJzwIHr+gLZ/QiK7p4nDS8KR97VKU/HBA0nAb22NtUj10qqlCWffQpIpSRgNyad
-	k/TEg4ae/tA2rec7sFEe82yfpQ/abBSeHeGEssF439lWebdHzZqG1C5NvJ3/Q/XVlWJiHh7VaU/UW
-	iU0KGHAbqlBNbUf0Ay0VPEJ7tdwOBJkFjgFWn7Eg+vU2CMebLEhHF4IFQump7aHWkAJKqGW2wtsv0
-	KB2ElLmZ2F+CJYie9rBEJkXJdornoU+cijZ0kCOSxfRBJxKh/WhF4i6G0pcsmtY9DekGXnDxtl7v2
-	UWz3lnvA==;
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHHW0-000000009cG-0sE0;
-	Thu, 15 Oct 2026 09:12:47 +0000
-X-UUID: 8946baf0c87811f1a87c2323a98e90a4-20261015
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.20,REQID:fccc4dd7-6bdf-4c38-a5f6-ae467af890c4,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:291e20b,CLOUDID:7e5718fd-82fa-4755-85ae-ebe9525ab585,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8946baf0c87811f1a87c2323a98e90a4-20261015
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 149126805; Thu, 15 Oct 2026 17:12:24 +0800
-X-UUID: 85f07972c87811f1a9f9c99e036204b4-20261015
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:6c0fc86c-41a4-4d2d-8bb1-fd28e0d23b8d,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e276073,CLOUDID:42af6095-3103-4fdb-b79c-08de0e281a5d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 85f07972c87811f1a9f9c99e036204b4-20261015
-Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 985879827; Thu, 15 Oct 2026 17:12:19 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Thu, 15 Oct 2026 17:12:17 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a%11]) with mapi id
- 15.02.2562.043; Thu, 15 Oct 2026 17:12:17 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-CC: Sergey Ryazanov <ryazanov.s.a@gmail.com>, Johannes Berg
-	<johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Wen-Zhi Huang
-	<wen-zhi.huang@mediatek.com>, Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, "Minano
- Tseng" <Minano.tseng@mediatek.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "Simon Horman" <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"Yu. Robert (GSM)" <robert_yu@compal.com>, "Chang. Jeff (GSM)"
-	<Jeff_Chang@compal.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v10 1/6] net: wwan: t9xx: Add PCIe core
-Thread-Topic: [PATCH v10 1/6] net: wwan: t9xx: Add PCIe core
-Thread-Index: AQHdXIVGsyD+Aq2AK0OYcS5BD0f6eA==
-Date: Thu, 15 Oct 2026 09:12:17 +0000
-Message-ID: <1686fe2dfdfd4a0890c037a53818aec1@compal.com>
-References: <20261014-t9xx_driver_v1-v10-0-4d0dde3613f5@compal.com>
- <20261014-t9xx_driver_v1-v10-1-4d0dde3613f5@compal.com>,<CAFEp6-0d86Mx1gardmN74WNFCerY00Pm1B=720tqOqKhz5EE1Q@mail.gmail.com>
-In-Reply-To: <CAFEp6-0d86Mx1gardmN74WNFCerY00Pm1B=720tqOqKhz5EE1Q@mail.gmail.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30258.005
-x-tm-as-result: No-10--15.752000-8.000000
-x-tmase-matchedrid: q6+TWfRxf4cuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZuZd
-	NI5cmL7EqJ63gZLKrOBDdLXYWGnDb52vFMfvZjTGiu6u4shZ+fFtT5dsVizXEi+IwZW+xLvQ9PE
-	ncRVMUNt0GOgwQ+Y9+BEz71V9WVMe28Nv2hpJvnB4lyF1lyvUrRnz+kO152KHwnWkERiSip3i9D
-	rRYAMc5Df8MHPNq3cEyrzRjZhtElOvngkjHjojpPe3el8uYlFT28gAxP/Ts6IH2l80MvY9heUo4
-	N9PjSkTthRFAcCnfMqUTGVAhB5EbQ==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--15.752000-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30258.005
-x-tm-snts-smtp: 6D4F98746250E19D728C3E331916E799E093B7B9BF113165B5D1611D73E97CB82000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1xHHcf-0000000HEzw-0CNV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 09:19:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YWh/ohwIUeO0zg+fJo9YzPIVe5Bzq7Sql/dqswfTGzN/B9ul5oLIutxK5fWR5Sp12F+IdxM0pSa2PFLTDPv61tK2p07qULA/xmkKgMSXtbhwFrCKlAspTrz28g1/isUpVbfDN5NviUYEO1hNc1Yj2I8EE9PW1WRJrey0DLF/THwKnDEP0fN3I5ykCIpnIzqT4ywHmJAXUUrqfgEefpKT3ryWJC78GJxFMziq+gdOHes/vWOWlFSpeOOh3zLSrITvaEiyw//AkHKiNi/rHTM69F5Cc35dV3wziyT+3OlhwYQ+Iamd5tPzDbFGmXlDdhAGHSweYtNjjds6Lv/y/6kWiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=;
+ b=GtoaGjwVXa/muo7QZArLkNglYWr06f+IFREw6D3c8TJJB2JOlhT3KVjfHgQUuReMRRpWgZTGBpJ5Y/rivimzc76NDadDfJPVMg0biu7ezvhssfxImaPkTg763Ng5BjLK1+fP1whGTEHjOg6MSWBSDNfYeu/gUixa/km2Cx8WtqLjAsyn8A+UbVazHQMeFzbKcsVUkrv7TO6+rYU/Yxu+LZVY/EZig8OJeu7Up3P7O64soNQOUEIzFIG/Ke5Ij3E7dA5uUGfrMMW3C/N+Js9edjtA12VZCchRTPUTy476w15PQRiji92x4AmQBIYQ52BwBqsicZh3bqj+WeShONQMlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u4yyzQ3ChG9Lhm5tQTnYsOcaWp53qqsuz2ze0mCqK80=;
+ b=BHM9Kf/GeZTLI/Rs60QAU5bXc/93IpWuprf8D5+Ctdf5msnJ3C+NrV8cf/1rOHFHQDQTCntN3gEKcaj0zKDV5Z1FajEJOGl2XOI3hC7WFq7O+KP0T9oPyhDI6GiJCEhPQE8fEtPK6u/+GKY48MHX5MMXVT2fv2olM2bz0OqZ9sSrguviOB9VTNQuoBs+O+sl8SLwHo34g65UFCIag2OBNzP8gPwRy2H62xiujDJsm9coATDM+MTrjhZl43HP2UetCTHZ+FGYjjdQumobeFBr3SjOhrhD5zRpPfRjhxAHC/s1PE24SQ9njIi0hu7gCslbVWOYthG1RAsihL5dfsJTYQ==
+Received: from AS8PR04CA0168.eurprd04.prod.outlook.com (2603:10a6:20b:331::23)
+ by DU0PR10MB6344.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:410::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.24; Thu, 15 Oct
+ 2026 09:19:25 +0000
+Received: from CPH1EPF0000052C.eurprd05.prod.outlook.com
+ (2603:10a6:20b:331:cafe::5b) by AS8PR04CA0168.outlook.office365.com
+ (2603:10a6:20b:331::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Thu, 15
+ Oct 2026 09:19:24 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ CPH1EPF0000052C.mail.protection.outlook.com (10.167.241.167) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Thu, 15 Oct 2026 09:19:24 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
+ 2026 11:19:37 +0200
+Received: from [10.48.87.64] (10.48.87.64) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 15 Oct
+ 2026 11:19:21 +0200
+Message-ID: <436ef0bf-4146-435d-8252-acec68e64b9e@foss.st.com>
+Date: Thu, 15 Oct 2026 11:19:19 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+To: Conor Dooley <conor@kernel.org>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+ <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ <20261001-tribesman-gauze-862e1ef0cdd8@spud>
+ <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+ <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
+ <950f2801-a613-4f5a-a5a7-cb30101cf293@foss.st.com>
+ <20261009-8db882a9fa159f8759aa7327@squawk>
+ <2ba9235f-182e-4906-92e2-e35cf831d289@foss.st.com>
+ <20261014-untrimmed-partly-81a4a21db49c@spud>
+ <48e528a5-0c54-4778-bd29-b6f44ae95be7@foss.st.com>
+ <20261014-unmade-sphinx-71cb25110d58@spud>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20261014-unmade-sphinx-71cb25110d58@spud>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.64]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CPH1EPF0000052C:EE_|DU0PR10MB6344:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4f96cf35-b4ff-4f92-0a83-08df2a9d67a4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|34020700016|82310400026|23010399003|36860700016|56012099006|261009221727099003|11063799006|4143699003|261009223327099003|261009220027099003|261009223027099003|261009221227099003|10067099003|18002099003|6133799003|13003099007|22082099003|3023799007|12100799066;
+X-Microsoft-Antispam-Message-Info: 3hY7nlWWB8F0Q1kXr4zF6nI/attkFCXgdUPI3BnhroFdZnFOh48UOIztOjLts032Z9RXFVMIYzBrcWqigXYHys9LmtPJdmrs1xbOZXHc5E789b3vN2WPuD9wQXr5D+w7PZhY0mZnnV/jCNLZWBgpw4yg21wgIiDB8YpplLy4yDo+l45SHn1I+xAf3kEkWRmukPs8q8aTN0OYGNnLG8AAeAjqT7lOl4Htz2/uy9eWW9afrbr5K9Sy7N41+Z5cNB6roGxEoqbv3bXS0BAxeet2/+05y9Uj0Ea3NRYtk6VgC+MUqm2DJSWSf66nUet2KCzPhPb1bDJls3yoSY3XcwTg1UziWiO3PextqMapRUv5mz8ZyamuOcU5TIXU8imn8F8dzoAyHrVi45V2jpvChegavF2AQzPN9pG7UIriDUQXhic3mnSsOKo6+Y5yNAuMeYCtq1ekxKYR7DF6FOfqcLFMsbre4239pPlhCta7mtsUaD3s0D2d+OOGeVxzI7MV7WSa7h/D9ZK4VBsQrKWBpLAqK6mbftWY5ObrG24lv4KX0j33c3uwLOO7UVMA/QkbTj5TFvxUJVScVDUEl98vMw6y5kOGPlV8O2QPJTvlVXUpf99k/Y+sGP5Osh2fKNPevH5RqDSLWMjvQoJ5f1mfVb7Z4w==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(34020700016)(82310400026)(23010399003)(36860700016)(56012099006)(261009221727099003)(11063799006)(4143699003)(261009223327099003)(261009220027099003)(261009223027099003)(261009221227099003)(10067099003)(18002099003)(6133799003)(13003099007)(22082099003)(3023799007)(12100799066);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vLPT1DzigKuJKThgrf1wD0/xTDnG/2VUeb4sj9ZJ7OcZrwIT/5gx9lbf+GdUAipRig0krAjf2YYZYsQSSlTqXryOYTm7jrtdQdY/X2gmBxnlv6O4+q9O1gUVN+I8NzI28O5lVZNo4kTLEusTp819kVTQEKhhO5uWM7LMuRaVsP02S2Qed+PG954sdMSHdowQRrQLDgd4noFHI+QPj0xQNDcfT/ZvcXjnl1ll8uxsv3QKtnqOwHFXHSyzrG699SJdtvFkPRXfTTYGLo7B53rC5IEEAIK/BhNa7nGdE5PZwb7FnYZeJzPU1xQOw+SWCLDXO3rCTigTT5r5sFYo+5Eh46eojpqaF2Yd5MmnGDjjfS4KoRUGlE4muBi/DNdEeexfm8ANLMa52xi8EpC2/H2+lbo+sr3RTye/W6eAArLIjJx6yxSIyL3TCmAhPYX1+KCs
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 09:19:24.5983
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4f96cf35-b4ff-4f92-0a83-08df2a9d67a4
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF0000052C.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6344
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_101245_054564_DB6A5385 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20261015_021937_470518_036F2551 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,27 +143,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTG9pYywNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQpPbiBXZWQsIE9jdCAxNCwgMjAy
-NiBhdCA4OjQ5IFBNIExvaWMgUG91bGFpbg0KPGxvaWMucG91bGFpbkBvc3MucXVhbGNvbW0uY29t
-PiB3cm90ZToNCj4gPiArI2luY2x1ZGUgPGxpbnV4L2RtYS1tYXBwaW5nLmg+DQo+ID4gKyNpbmNs
-dWRlIDxsaW51eC9kbWFwb29sLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4NCj4g
-PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPg0KPiA+ICsjaW5jbHVkZSA8bGludXgvc2NoZWQu
-aD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L3NsYWIuaD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L3Nw
-aW5sb2NrLmg+DQo+DQo+IExvb2tzIGxpa2UgYSBsb3Qgb2YgaGVhZGVycyBmb3Igc3VjaCBhIHNt
-YWxsIGhlYWRlciBmaWxlLiBDb3VsZCB5b3UNCj4gdHJpbSB0aGUgdW5uZWNlc3NhcnkgaW5jbHVk
-ZXM/IEZvciBleGFtcGxlLCBzcGlubG9jay5oIGRvZXNuJ3QgYXBwZWFyDQo+IHRvIGJlIHVzZWQu
-DQoNCldpbGwgZml4IGluIHYxMS4gIEFsbCBzZXZlbiBnbzogdGhlIGhlYWRlciBvbmx5IHVzZXMg
-QklUKCkgYW5kIHUzMiwgc28NCjxsaW51eC9iaXRzLmg+IGFuZCA8bGludXgvdHlwZXMuaD4gYXJl
-IGxlZnQsIHBsdXMgYSBmb3J3YXJkIGRlY2xhcmF0aW9uDQpmb3Igc3RydWN0IGRldmljZS4NCg0K
-PiA+ICsjZGVmaW5lIFNFVF9IV19CSVRTKGRlc3QsIGNocywgbWhjY2lmLCBkZXYpCQlcDQo+ID4g
-KwkoewkJCQkJCVwNCj4gPiArCQlpZiAoKGNocykgJiAoZGV2KSkJCQkJCVwNCj4gPiArCQkJKGRl
-c3QpIHw9IEZJRUxEX1BSRVAobWhjY2lmLCAxKTsJCVwNCj4gPiArCX0pDQo+DQo+IEEgc3RhdGlj
-IGlubGluZSBoZWxwZXIgd291bGQgYmUgY2xlYW5lci4NCg0KV2lsbCBmaXggaW4gdjExOg0KDQog
-IHN0YXRpYyBpbmxpbmUgdTMyIG10a19wY2lfbWFwX2V2dF9iaXQodTMyIHZhbCwgdTMyIGZyb20s
-IHUzMiB0bykNCiAgew0KCXJldHVybiAodmFsICYgZnJvbSkgPyB0byA6IDA7DQogIH0NCg0KRXZl
-cnkgbWFzayBpbnZvbHZlZCBpcyBhIHNpbmdsZSBiaXQsIHNvIEZJRUxEX1BSRVAobWFzaywgMSkg
-d2FzIGp1c3QNCm1hc2suICBUaGUgc2FtZSBoZWxwZXIgYWxzbyByZXBsYWNlcyB0aGUgRklFTERf
-UFJFUChGSUVMRF9HRVQoKSkgcGFpcnMNCmluIG10a19wY2lfZXh0X2QyaF9ldnRfY2hzKCksIHdo
-aWNoIGlzIHRoaXMgdHJhbnNsYXRpb24gaW4gdGhlIG90aGVyDQpkaXJlY3Rpb24uDQoNClRoYW5r
-cywNCkphY2s=
+Hi Conor,
+
+On 10/15/26 00:49, Conor Dooley wrote:
+> On Wed, Oct 14, 2026 at 06:51:45PM +0200, Olivier MOYSAN wrote:
+>> On 10/14/26 17:15, Conor Dooley wrote:
+>>> On Mon, Oct 12, 2026 at 02:56:04PM +0200, Olivier MOYSAN wrote:
+>>>> On 10/9/26 21:12, Conor Dooley wrote:
+>>>>> On Thu, Oct 08, 2026 at 06:37:26PM +0200, Olivier MOYSAN wrote:
+>>>>>> On 10/8/26 12:11, Conor Dooley wrote:
+>>>>>>> On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wrote:
+>>>>>>>> On 10/1/26 20:32, Conor Dooley wrote:
+>>>>>>>>>
+>>>>>>>>>> +
+>>>>>>>>>> +required:
+>>>>>>>>>> +  - compatible
+>>>>>>>>>> +  - reg
+>>>>>>>>>> +  - ranges
+>>>>>>>>>> +  - clocks
+>>>>>>>>>> +  - clock-names
+>>>>>>>>>> +  - clock-ranges
+>>>>>>>>>> +  - "#address-cells"
+>>>>>>>>>> +  - "#size-cells"
+>>>>>>>>>> +
+>>>>>>>>>> +additionalProperties: false
+>>>>>>>>>> +
+>>>>>>>>>> +patternProperties:
+>>>>>>>>>> +  "^sitf@[0-9]+$":
+>>>>>>>>>> +    type: object
+>>>>>>>>>> +    description: Serial interface child node
+>>>>>>>>>
+>>>>>>>>> Why is this a child node at all?
+>>>>>>>>> Probably not worth reviewing more without a link to the docs for this
+>>>>>>>>> device so I can figure out what on earth is going on!
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> The MDF is a digital filter for sigma-delta bitstreams, rather than the
+>>>>>>>> analog-to-digital converter itself.
+>>>>>>>>
+>>>>>>>> Here is the link to STM32MP25 reference manuel
+>>>>>>>> https://www.st.com/resource/en/reference_manual/rm0457-stm32mp2325xx-advanced-armbased-3264bit-mpus-stmicroelectronics.pdf
+>>>>>>>> Chapter 45: Multi-function digital filter (MDF)
+>>>>>>>>
+>>>>>>>> On STMP32MP25 SoC, the MDF provides 8 serial interfaces (SITF) and 8 digital
+>>>>>>>> filters (DFLT) which can be connected through a multiplexer.
+>>>>>>>>
+>>>>>>>> Below is a schematic view of typical applications targeted by this
+>>>>>>>> peripheral
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> Audio use case:
+>>>>>>>>
+>>>>>>>> 		mdf
+>>>>>>>>                 +-------------------------------------+
+>>>>>>>> +------+    | +------+    +------+    +------+    |
+>>>>>>>> | dmic | -> | | sitf | -> | mux  | -> | dflt | -- | -> audio device
+>>>>>>>> +------+    | +------+    +------+    +------+    |
+>>>>>>>>                 +-------------------------------------+
+>>>>>>>>
+>>>>>>>> For instance, in an audio use case the serial interface can be configured to
+>>>>>>>> provide the clock to the digital microphone (cck0, cck1 or both) at a common
+>>>>>>>> predefined rate, and to retrieve the PDM samples.
+>>>>>>>> The serial interface provides this samples to a digital filter, which
+>>>>>>>> delivers PCM samples on its output.
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> Analog use case:
+>>>>>>>>
+>>>>>>>> 		mdf
+>>>>>>>>                   +-------------------------------------+
+>>>>>>>> +--------+    | +------+    +------+    +------+    |
+>>>>>>>> | sd adc | -> | | sitf | -> | mux  | -> | dflt | -- | -> iio device
+>>>>>>>> +--------+    | +------+    +------+    +------+    |
+>>>>>>>>                   +-------------------------------------+
+>>>>>>>
+>>>>>>>
+>>>>>>> So, looking at the docs and a brief chat with Jonathan about this
+>>>>>>> device, I believe you've got things backwards and this is actually the backend,
+>>>>>>> and the adc should be the one populating the io-backends property
+>>>>>>> pointing to this device. You should have io-backend-cells, and I assume
+>>>>>>> that there should be a cell for the adc to select which dlft it is connected
+>>>>>>> to.
+>>>>>>>
+>>>>>>
+>>>>>> There have already been lengthy discussions in the past about a DFSDM
+>>>>>> peripheral on STM32MP1, which has features similar to those of the MDF and
+>>>>>> similar implementation constraints. For the DFSDM, a solution based on an
+>>>>>> IIO backend had been upstreamed. The MDF follows the same architecture. I
+>>>>>> need to take a little time to dive back into this issue.
+>>>>>
+>>>>> One thing to note there is that you retrofitted the backends onto that
+>>>>> device, and the original design here is much older (it's a text
+>>>>> binding).
+>>>>>
+>>>>>
+>>>>>>
+>>>>>> DFSDM sources:
+>>>>>> drivers/iio/adc/stm32-dfsdm-adc.c
+>>>>>> drivers/iio/adc/stm32-dfsdm-core.c
+>>>>>>
+>>>>>> Here is a sample of DFSDM DT
+>>>>>>
+>>>>>> sd_adc0: simple-sd-adc0 {
+>>>>>> 	compatible = "sd-modulator";
+>>>>>> 	#io-backend-cells = <0>;
+>>>>>> 	vref-supply = <&v3v3>;
+>>>>>
+>>>>> Yeah, pretty sure this is wrong (backwards). The backend is the thing
+>>>>> that gets data from an ADC not the ADC.
+>>>>>
+>>>>
+>>>> The backend framework was introduced to implement complex IIO aggregate
+>>>> devices. The hardwares that were driving this need were analog device ad9467
+>>>> and ST DFSDM.
+>>>>
+>>>> https://lore.kernel.org/linux-iio/20231204144925.4fe9922f@jic23-huawei/T/#m222f5175273b81dbfe40b7f0daffcdc67d6cb8ff
+>>>>
+>>>>   From drivers/iio/industrialio-backend.c:
+>>>>
+>>>> "The typical architecture is to have one device as the frontend device which
+>>>> can be "linked" against one or multiple backend devices. All the IIO and
+>>>> userspace interface is expected to be registers/managed by the frontend
+>>>> device which will callback into the backends when needed (to get/set some
+>>>> configuration that it does not directly control)."
+>>>>
+>>>>    *                                    ---------------------
+>>>>    * ------------------                 | ------------
+>>>>    * |     ADC        |-----------------| | ADC CORE |
+>>>>    * | (Frontend/IIO) | Serial Data (eg | |(backend) |-------
+>>>>    * |                |-----------------| ------------
+>>>>    * ------------------                 ---------------------
+>>>>
+>>>> The MDF (or DFSDM) use case, follows this topology:
+>>>> - The SD modulator (ADC core) registers in backend framework
+>>>> - The MDF registers in IIO framework and exposes the IIO devices
+>>>>     It also get configuration (ref voltage) from SD modulator, to compute
+>>>> scaling.
+>>>>
+>>>> I agree that if we consider the terms frontend and backend, the elements in
+>>>> the data flow do not have the roles that we would naturally expect. However,
+>>>> if we consider the expected role of the elements using the iio-backend
+>>>> framework, the usage seems coherent to me.
+>>>
+>>> I didn't even get as far as sd modulators or whatever, if I understand
+>>> correctly the ADC inputs on this device are fed by the onboard ADC?
+>>> (https://lore.kernel.org/linux-iio/20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com/)
+>>> In that case, I can't really see how it makes sense for the primary iio
+>>> device to change when data is fed back through the mdf or taken
+>>> directly from the ADC itself, particularly given how that would affect
+>>> the userspace interface.
+>>>
+>>> The "serial" side of this seems in a similar vein to the adi,axi-adc
+>>> stuff, which when considered with the ADC inputs, really does give me
+>>> the impression this is backwards.
+>>
+>> Some clarifications about the STM32MP25. This SoC does indeed provide ADCs,
+>> and these can be connected to the MDF via a dedicated interface. (but not
+>> the serial interface).
+>>
+>> However, this use case is not supported by the driver. Only sigma-delta
+>> modulators, external to the SoC and connected via the serial interface, are
+>> supported. On ST boards, the only available SD modulators are digital
+>> microphones.
+> 
+> Quite frankly, I don't care what you are choosing to implement in the
+> driver or what your first-party boards support. The binding must
+> represent the capabilities of the device, not what subset you deem
+> relevant at this point in time. I'm not going to ack anything that does
+> not consider all use cases for the device, especially since I the more I
+> look the more I am convinced that this is the wrong way to model the
+> relationship between devices and therefore intentionally ignoring a use case
+> is likely to be problematic when someone does decide that they want to use
+> that feature.
+> 
+>> Anyway, if the internal ADC to MDF use case was supported, the issue would
+>> be the same. The whole ADC + MDF set would be presented at the interface as
+>> an aggregated device, and the ADC data would not be directly accessible to
+>> the user.
+> 
+> Of course, that's what I was talking about when I said:
+> | In that case, I can't really see how it makes sense for the primary iio
+> | device to change when data is fed back through the mdf or taken
+> | directly from the ADC itself, particularly given how that would affect
+> | the userspace interface.
+> 
+> To me, in that ADC to MDF use case, the frontend portion of the aggregate
+> device presented to userspace needs to be the ADC and the MDF needs to be
+> the backend, since otherwise the ADC will simultaneously be frontend and
+> backend, depending on which channel is considered. That makes no sense to me
+> when the MDF can always be the backend, for all use cases and avoid that
+> sort of problem entirely.
+> I've heard no argument as to why the MDF cannot be a backend, just that you
+> don't want to because the previous device didn't, but copying what was
+> done before isn't a justification that bears weight if how it was done
+> before isn't the way it should be done.
+> 
+
+These topology problems were discussed at length in the case of DFSDM.
+The main blocking point being support for interleaved channels (scan 
+mode), a problematic issue that is still found with MDF.
+The constraints that led to this approach are in the following thread:
+https://lore.kernel.org/all/20210919191414.09270f4e@jic23-huawei/
+
+FYI: An implementation attempt had been made also via the "concverter 
+framework" proposal, but this approach has been abandoned in favor of 
+the backend framework.
+https://marc.info/?l=linux-iio&m=169347396021802&w=2
+
+BRs
+Olivier
+
+> Thanks,
+> Conor.
+
 
