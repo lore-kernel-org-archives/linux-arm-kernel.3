@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DCECC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7513CC6B39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 16:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=; b=mzy4jcCju4yNJY1BV5xWOT0OD9
-	CUEDSr6OGJa7jmBY3InTu1YW1FXHhbJ1Ue0SJxE/YhmmBbAq9BTe2io8Iy4Eq4/RNK1fEDhoTIMd5
-	Gx3mTUFhXrMBJ8VZj8lp0be5xMa0as+si40SS+vPWhAzZHEcHwAJ/EKVAA4GH1Cyj01hos18zzKNM
-	FqxCKLAROplgQkebWa/9iUxWpppaZNSr1uwvyqWInhi6wjgV2zFIj+KD2B6EByHb6Q6Lhie4jJDDd
-	fd7tkEn27tV/i37YSEiNyvfmvr6xouF9YA0k53jE4JDedA+6Wz7IdpnvL/Tbut5XZN3KNjohiFSXs
-	n8wMhbjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YQTGBfFwNel//r8LlIYPNIa3fcgK1JxEP6QLmF4X6hk=; b=yDar2jEsTAJJ9LMFTG7eZIUUQ9
+	M76ervoHDV0hfnpnRW3c5xOT6S9M8Kbu8RUQOO6kNOdtzIaTo2UWql/uV7+1BCL1RWZz8D4eJ0Bsk
+	Seopdtz87jV2c/c3HuDGQ0hamz1qsn8uvbwKmPK1Ym6XH0LLVKSFvmzu7qXRruO6beO+daBA11MEF
+	quMAziEaePhMJcCz6CE9K4KNmjAv1SC/A6errKg8Dl8mwNbqIx1/uqTz/BX0KgsyC6S6tEgI+ehTi
+	uTMJuJ2Rm0XuXY+lOCZbbOIPvJj7Qo9BA6CTBIaB2eVebe2cDmZErYvUOpd9RuE+XAXWgO3YU6ZY1
+	LEsRFdVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNux-00000000eMw-4Bot;
-	Thu, 15 Oct 2026 16:02:56 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xHO4Y-00000000mV9-1OQQ;
+	Thu, 15 Oct 2026 16:12:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHNuq-00000000eG1-01Cy
+	id 1xHO3i-00000000lOl-1Q8d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 16:02:54 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 95CB91A1245;
-	Thu, 15 Oct 2026 16:02:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 674526075C;
-	Thu, 15 Oct 2026 16:02:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 160EA10328CF5;
-	Thu, 15 Oct 2026 18:02:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792080163; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=;
-	b=oS25sV93XSD557wIB4lBXK1AG3ECjXQ3/Xlt8i7iz5CqRstbNl9cYZbGW70uIC1wRn5iNg
-	ExzMWfb8ZDgKP7VxkURJiqTz4/JC91q9DmmWR2rdv7Hml3dQ9b8NKfvLAvZEMCBE6dFCBd
-	MjlEZIyMoearzV0TbcgmMTd6JWLu+HpzAOjM8wrqNUEmCaB5LuWctAB84QR8v77Fw2n1dA
-	Hc42OYjblLicTn3fhzlEAuAB1WbhnHsACYUtXAsPpBIg4lss4dthUKiIGCGP5+Iw1mcQaZ
-	xizj3KcIO3aEn9DMnW2WfwJR3kSm18N0uw10Q1vIsTZc302ETniRGUF2mLn68g==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 15 Oct 2026 18:01:23 +0200
-Subject: [PATCH v10 10/10] arm64: dts: nuvoton: ma35d1: Add LXT crystal and
- clock-names
+	Thu, 15 Oct 2026 16:11:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C509E447A9;
+	Thu, 15 Oct 2026 16:11:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1761E1F000C4;
+	Thu, 15 Oct 2026 16:11:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792080717;
+	bh=YQTGBfFwNel//r8LlIYPNIa3fcgK1JxEP6QLmF4X6hk=;
+	h=From:To:Cc:Subject:Date;
+	b=RZai9/z79OYUC0eiNxX0mHMcKQCYOVSiskf067Enc30o/eBuQfcMWQqU3KAp039eH
+	 bTe28SvdHGtJmCVMbm2luhB13qUvkfbba3/J8dUCUDh4YzHo406KssBxQzMhbdYby/
+	 UeERvMkBZZ2+iJZqBaE0llWiobDjEal4F5FwyqXaOqs1nytAIPXjTfNtYem+J63+na
+	 Kto390FO0dz4ybAtJVDnTFgV+p9UF45XNiQ7wTjsqTfrTe3lqRvbFO5hMdDirZdAkh
+	 utHpgrNSjCfZOHAjrtvWpyVYpvVn6LUU0J4WEt/G44a49VY+YoZ9szscn4wkWziqyA
+	 erQ7mUFxRdUHQ==
+From: Thorsten Blum <blum@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Yureka Lilian <yureka@cyberchaos.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: Thorsten Blum <blum@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: idreg-override: Detect trailing "--" in __parse_cmdline()
+Date: Thu, 15 Oct 2026 18:10:54 +0200
+Message-ID: <20261015161054.357595-3-blum@kernel.org>
+X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-perso-ma35d1-upstream-clk-v10-10-47c97b54a809@bootlin.com>
-References: <20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com>
-In-Reply-To: <20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com>
-To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
- Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_090248_502946_F49FF13B 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1229; i=blum@kernel.org; h=from:subject; bh=8GJ6MqaiB/hV1Yci8GKT5lwH/8wWOtZYYCjwlS41Rw8=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFkXfvOHG97S5uI4V/nKg13ZrHWTlbHrmYOhGR2LlMsLd DS+HT3fUcrCIMbFICumyPJg1o8ZvqU1lZtMInbCzGFlAhnCwMUpABPheczIsFtEO1JFqGWruVh1 BpNZttO6eRWnpkdMmxt43j5fZYEaKyPD0xlsUzre5fO7bea+zX1VPq42/4NtstZ6F5nFwWXvE+S YAA==
+X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock controller takes its two crystal oscillator inputs from the
-board: HXT and LXT. The LXT crystal is not described at all: add the
-fixed clock node for it and reference both inputs from the clock
-controller node, with their respective clock-names.
+__parse_cmdline() detects "--" only if it is followed by whitespace.
+However, at the end of the command line, it converts the dashes to
+underscores and tries to match "__" as an option.
 
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Fixes: b69af0984732 ("arm64: dts: nuvoton: Add initial ma35d1 device tree")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Detect trailing "--" directly instead of converting it to "__".
+
+Fixes: dc3f5aae0638 ("arm64: idreg-override: Avoid parameq() and parameqn()")
+Signed-off-by: Thorsten Blum <blum@kernel.org>
 ---
----
- arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi         | 3 ++-
- 3 files changed, 14 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/pi/idreg-override.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-index d7670afb0a63..7752e85734ac 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
- };
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index acaf56234973..38aa28d19650 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -352,8 +352,9 @@ static __init void __parse_cmdline(const char *cmdline, bool parse_aliases)
  
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index 8f3cb18d39b6..5c65f1fe5da9 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
- };
+ 		cmdline = skip_spaces(cmdline);
  
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..9a341c2b1397 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -92,7 +92,8 @@ clk: clock-controller@40460200 {
- 			compatible = "nuvoton,ma35d1-clk";
- 			reg = <0x00000000 0x40460200 0x0 0x100>;
- 			#clock-cells = <1>;
--			clocks = <&clk_hxt>;
-+			clocks = <&clk_hxt>, <&clk_lxt>;
-+			clock-names = "hxt", "lxt";
- 		};
+-		/* terminate on "--" appearing on the command line by itself */
+-		if (cmdline[0] == '-' && cmdline[1] == '-' && isspace(cmdline[2]))
++		/* Stop at "--" appearing as a separate argument. */
++		if (cmdline[0] == '-' && cmdline[1] == '-' &&
++		    (!cmdline[2] || isspace(cmdline[2])))
+ 			return;
  
- 		pinctrl: pinctrl@40040000 {
-
--- 
-2.55.0
-
+ 		for (len = 0; cmdline[len] && !isspace(cmdline[len]); len++) {
 
