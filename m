@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0B6CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F85CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgKPVZ2e357Rb0z+ZGzfAhokRDWTxHYeRTuy+cn/s8g=; b=zEQRxvMPlqCcR0t3+QXuicju1y
-	hwEAUd0Ibx6VsQEUTI2BDt3ZY2fPgHs5ixICrexFgDNeAWzZw1k1EJbK3b63Z3b11l+/+09NzyW0+
-	eLICdSWXTL0V5/b868ZAwZ5W6L84qDOsrFyD9k3hLRa9zVzWOTxguSZpUzNVqUilBCAD0HClOApjQ
-	3GuPwa8aww5rK4bsG/TfGrdbMQNP9aCUmR68BkjACmoPk/AGSIYHGlwgqO+VLszszthl3a1FuBbrv
-	UJ/4hTolg1MWnh4m5VdiKhKU/QEqg90bruiKouXqdCDJH690dHOHNbZiCvWj5R/mC0OV0s4vpl4Mk
-	alfRK2QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MycHCtKOpCViJUeUQ3alLvxWUMdQesuZvEMWTh9BpTU=; b=MJXz1OdW1AjqSjFjs/vY/rsV1/
+	gxPXfBqWcMGNF9GGAssbvMM+0g83l6JS3iqWrJM8r55ABILdaqrBuWZt0Vj4PiiPDXgR5lF0s+vgs
+	KnyR6tZAeZ3DT0uLobIyNDcsb3n4YTHXKl7BFoh5vrCl7WvJ9ajg/LohwSkHwE2lyGjax3tJWCQ8L
+	VnaxVcjR15kdvF6bSxI4z08gS10sRIydlMsRkZ+pJo4JdFluGj0pgG0Cwid0damIxtdzwK1iN4SNV
+	bV0csk63KPWZlyHU8QMjmDau+jmUzWmlwjJMyQPRdA/g2taztOsxcRb0uMOimmvM6gIGkC92DKI7R
+	cJAB/I4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHm8-0000000HGkb-0v7J;
-	Thu, 15 Oct 2026 09:29:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHm7-0000000HGkS-00IU;
-	Thu, 15 Oct 2026 09:29:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30F14601F0;
-	Thu, 15 Oct 2026 09:29:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE5F91F000C4;
-	Thu, 15 Oct 2026 09:29:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792056561;
-	bh=HgKPVZ2e357Rb0z+ZGzfAhokRDWTxHYeRTuy+cn/s8g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ga7E1uNX2JLUwn3p2Jgx5FUxgmjbldoWqRc6sEp3V6Ymuk1jNvloxJNdJQ/tiJyp9
-	 eyd3fm7KGNjyDZHB+VPrO6cds1TTYgBqkVavjM1SM6f/x9uaFBB1XQrINTQv4tlxAL
-	 2O6VUfjxEore5O4DANBID3OUuPHc1qiWl8Hs4ZdFQtKfhTlWja8WXRv0eYop56QOJp
-	 9UxemPFG/kRh0miA7l37cbf8RUR0rUklGqh4adebf88675tlRVcCo3EwoCfkK3cKL8
-	 772CEum32XcHwLOBVoa4owV+64s/Av7dDwad+7o/RJXx21FnkFCjnPlHBD8zr1pcye
-	 KaS72h4m6sCsg==
-Date: Thu, 15 Oct 2026 11:29:18 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de, 
-	stefandoesinger@gmail.com, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 10/24] dt-bindings: phy: Add ZTE ZX279128S PCIe PHY
- binding
-Message-ID: <20261015-celestial-wealthy-cockatrice-7f100d@quoll>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-11-ghahramani.navid@gmail.com>
+	id 1xHHnq-0000000HGwz-2gMx;
+	Thu, 15 Oct 2026 09:31:10 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHHno-0000000HGwG-2aS8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 09:31:09 +0000
+Received: from [10.94.176.134] (unknown [4.194.122.162])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 900F720B7166;
+	Thu, 15 Oct 2026 02:30:59 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 900F720B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1792056662;
+	bh=MycHCtKOpCViJUeUQ3alLvxWUMdQesuZvEMWTh9BpTU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HsS7G5z2YTlyMJh+eltF/Bob62gbHOQPMm0/uY+RUwcHz/a/n9Q7DHaDm6Nf6CLAF
+	 79v7iwxOtdcJ0XgDImeJ+bgCeYQWMLG3q3SveAuSHE1Up5OqX4XKoh7C51G/xWqxmn
+	 LeFvjc3+6mIVpVxjYBuim3ZfN6F2BnZYsdful1Uc=
+Message-ID: <20175a31-2ef8-4c12-b329-616cb07d3d0b@linux.microsoft.com>
+Date: Thu, 15 Oct 2026 15:01:01 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261014072109.1759502-11-ghahramani.navid@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: xilinx: versal-net: Remove CPU idle states
+To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, git@amd.com,
+ ptsm@microsoft.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, michal.simek@amd.com, sven@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
+ <b9213a36eb1d28f3e7b8610592c085f627f5c7cf.1791374721.git.jay.buddhabhatti@amd.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <b9213a36eb1d28f3e7b8610592c085f627f5c7cf.1791374721.git.jay.buddhabhatti@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_023108_696896_D0C58CCC 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +72,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 08:20:50AM +0100, Navid Ghahremani wrote:
-> Add Device Tree binding for the PCIe SerDes PHY found inside the
-> topcrm block of the ZTE ZX279128S SoC.
+
+
+On 07-10-2026 17:49, Jay Buddhabhatti wrote:
+> The sleep state powers down the CPU core, and the wake-up time cannot be
+> guaranteed because the firmware may be busy handling other tasks at the
+> time of the wake-up request. This leads to unpredictable and potentially
+> high wake-up latency during CPU idle.
 > 
-> Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
+> Remove the sleep state to avoid this dependency on firmware. The default
+> backend CPU idle state simply puts core in WFI and retains its context
+> without being powered off. Since wake-up from WFI is handled entirely in
+> hardware, it is effectively immediate (a few cycles) and does not depend
+> on firmware availability.
+> 
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 > ---
->  .../bindings/phy/zte,zx279128s-pcie-phy.yaml  | 40 +++++++++++++++++++
->  1 file changed, 40 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
+> Changes in v2:
+> - Remove the idle state instead of replacing it with a retention state.
+> - Update the subject and commit description.
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
-> new file mode 100644
-> index 0000000000..7bfa363294
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/zte,zx279128s-pcie-phy.yaml
-> @@ -0,0 +1,40 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/zte,zx279128s-pcie-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ZTE ZX279128S PCIe PHY
-> +
-> +maintainers:
-> +  - Navid Ghahremani <ghahramani.navid@gmail.com>
-> +
-> +description:
-> +  PCIe PHY block inside the ZTE ZX279128S Top CRM.
-> +
-> +properties:
-> +  compatible:
-> +    const: zte,zx279128s-pcie-phy
-> +
-> +  reg:
-> +    description: Port index (0 or 1)
-> +    items:
-> +      - enum: [0, 1]
+> Link to v1: https://lore.kernel.org/all/20260727121842.3410495-1-jay.buddhabhatti@amd.com/
+> ---
+>   arch/arm64/boot/dts/xilinx/versal-net.dtsi | 29 ----------------------
+>   1 file changed, 29 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+> index 21bb917bcba1..9b74e59fd64a 100644
+> --- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+> +++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+> @@ -103,7 +103,6 @@ cpu0: cpu@0 {
+>   			enable-method = "psci";
+>   			reg = <0>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -133,7 +132,6 @@ cpu100: cpu@100 {
+>   			enable-method = "psci";
+>   			reg = <0x100>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -163,7 +161,6 @@ cpu200: cpu@200 {
+>   			enable-method = "psci";
+>   			reg = <0x200>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -193,7 +190,6 @@ cpu300: cpu@300 {
+>   			enable-method = "psci";
+>   			reg = <0x300>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -223,7 +219,6 @@ cpu10000: cpu@10000 {
+>   			enable-method = "psci";
+>   			reg = <0x10000>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -253,7 +248,6 @@ cpu10100: cpu@10100 {
+>   			enable-method = "psci";
+>   			reg = <0x10100>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -283,7 +277,6 @@ cpu10200: cpu@10200 {
+>   			enable-method = "psci";
+>   			reg = <0x10200>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -313,7 +306,6 @@ cpu10300: cpu@10300 {
+>   			enable-method = "psci";
+>   			reg = <0x10300>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -343,7 +335,6 @@ cpu20000: cpu@20000 {
+>   			enable-method = "psci";
+>   			reg = <0x20000>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -373,7 +364,6 @@ cpu20100: cpu@20100 {
+>   			enable-method = "psci";
+>   			reg = <0x20100>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -403,7 +393,6 @@ cpu20200: cpu@20200 {
+>   			enable-method = "psci";
+>   			reg = <0x20200>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -433,7 +422,6 @@ cpu20300: cpu@20300 {
+>   			enable-method = "psci";
+>   			reg = <0x20300>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -463,7 +451,6 @@ cpu30000: cpu@30000 {
+>   			enable-method = "psci";
+>   			reg = <0x30000>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -493,7 +480,6 @@ cpu30100: cpu@30100 {
+>   			enable-method = "psci";
+>   			reg = <0x30100>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -523,7 +509,6 @@ cpu30200: cpu@30200 {
+>   			enable-method = "psci";
+>   			reg = <0x30200>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -553,7 +538,6 @@ cpu30300: cpu@30300 {
+>   			enable-method = "psci";
+>   			reg = <0x30300>;
+>   			operating-points-v2 = <&cpu_opp_table>;
+> -			cpu-idle-states = <&CPU_SLEEP_0>;
+>   			d-cache-size = <0x10000>; /* 64kB */
+>   			d-cache-line-size = <64>;
+>   			/* 4 ways set associativity */
+> @@ -632,19 +616,6 @@ llc: l4-cache { /* LLC inside CMN */
+>   			cache-size = <0x1000000>; /* 16MB */
+>   			cache-unified;
+>   		};
+> -
+> -		idle-states {
+> -			entry-method = "psci";
+> -
+> -			CPU_SLEEP_0: cpu-sleep-0 {
+> -				compatible = "arm,idle-state";
+> -				arm,psci-suspend-param = <0x40000000>;
+> -				local-timer-stop;
+> -				entry-latency-us = <300>;
+> -				exit-latency-us = <600>;
+> -				min-residency-us = <10000>;
+> -			};
+> -		};
+>   	};
+>   
+>   	cpu_opp_table: opp-table {
 
-No, that's pointless. What is this index meaning on the bus?
+This change works fine.
 
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-
-No other resources? Then this belongs to the parent node.
-
-Best regards,
-Krzysztof
+Tested-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 
 
