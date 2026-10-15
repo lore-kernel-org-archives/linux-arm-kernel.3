@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E72CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 11:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BCBCC6B3A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 11:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rVKbslMBu6CF5quy/19Uyj5RN4onsoLySqMkVldnW5c=; b=2xT2YITbhlaXR0ytQwcoHVXU3o
-	V2j5Sd9HQ5L2/4asT5DAmcbDiYDMzVKBLCTtsOe3POdLAcHNVsOhuhZv3BUoFIJyQuMlQ4Yd4EVUW
-	BwI6OhSeSn9HWQ8e/4+INVaQFB0Cu4SDylx4vK3pNA9Pzz44MCC+i/JBJeP+zY5OQv1W05wkfuaXv
-	4mBgfUY0amSMPEeLA6aA+Q39U3xtsyqxz3G8BINYRE0LNxT7Ti4xo+O/p3fDommVWZ25C+av5LkMT
-	cz7gm2gILYKiiZAscEXcGnaPxDRQRxTteqD2XBed+jqKSC43GAR/UWDxAzHlU1/2/JPkeOL7WreCJ
-	TONBmClw==;
+	bh=81xDklTWGU+AmdrjBK/MxEzrPsfFoRwViVGtyxcHsTY=; b=xlA9mXoSOfpybm6n3jxOOImNvB
+	FAQuyFjoE4Xb1sJGwB50rDcGeghS+wNpIsNx93Ph5tCUJLZe2oQBXIyjZgerB+9AJvKRcHiIylBzX
+	7HGihuVV+srFQiuBL8gGZXQeP9U8RWLK9tEQu7+8B/bDnaAmbXyzHkZEO/0KhURlyJd5UmzDuZEOe
+	UlRc/ez2dkoPWQWOMQD8p88LOsn3D8uJHMOQt780HE3HqgETPGtZYF7fb8KNmk03GLMtnCtlRA6C2
+	CyXEAPoAW4Qg41l6IEvb+Jm6mozhJfN2JiFFL5nT9gfBb4ugJRgp1wIVQLiY2TlCJ7D56KXuIPQaS
+	LKNMjaUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHJEe-0000000HVkq-3cwO;
+	id 1xHJEe-0000000HVkQ-2Q9h;
 	Thu, 15 Oct 2026 11:02:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHJEU-0000000HVfE-3ThE
+	id 1xHJER-0000000HVbf-1JCG
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Oct 2026 11:02:46 +0000
+	Thu, 15 Oct 2026 11:02:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=rVKbslMBu6CF5quy/19Uyj5RN4onsoLySqMkVldnW5c=; b=XrYgy2Px6h5W6CIimjvyHB9sJP
-	zN90Q4emhSxKwELS48IqYvWvOvUqj1Ietq60WZFFFXIwmVrzUlbq/HKtXKQhvyGXLWtFMMgVN4ya0
-	o+f6vJ0VqY+OpaJHX7xE60n5rtyjkazLNZyZkas6lQnMx2JXRWcNKtDKttPruAslN1N0LXjfah3Or
-	2swCnvaF4v3KNCzDPOdfZGgoxgGPOo2S9D8Fg2V2bcUCgk9ry9n+O/gO/SSQqPMPEm+0+cxVSA1sz
-	JZRfBYIMDHPYhqzAmyOIY4DaJkoD5LcIdwr8mgZsJ3A8vzcHuw/pnq+B2E+ZHdACUb6xq3aYLhjDt
-	YuMLq5IQ==;
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	bh=81xDklTWGU+AmdrjBK/MxEzrPsfFoRwViVGtyxcHsTY=; b=gGTKdI+Gu59US2U2t2OqzDPaUD
+	6tOTIe9jXZs6pLCGAVry/MuABc4IEYVgYLqXqzrHGKav/KgWNZ9Q98pLjCqqPrj9QOrayPSOVHF5h
+	XnZW+/Mi3TI+qPY+K8r8qQf7jtqyY06EygssxzbagekGT3Q5FoMxfu/3Lyc016wD/mUlYuivOG/Fp
+	IjZIuzy+aDeozNUFmr3SN9ZXZUGq+ArSNtiaFCyUnXMJL/Z0xXlOQoaQojb17AVGfTZeUCFp/jAYN
+	BoxvTaulzdMpUVU8/mp4Ab3+E/tItCq/GMWLUDTXLH4KqNQxb8eoZcxa8R0fl8MJPpe6nBAIOOINs
+	dZ5D/71A==;
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHJEQ-00000000HTx-3ed2
+	id 1xHJEO-00000000HTP-1XAV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 11:02:44 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so390660e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 04:02:41 -0700 (PDT)
+	Thu, 15 Oct 2026 11:02:42 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5bccc73eea4so2634332e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 04:02:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792062160; x=1792666960; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792062159; x=1792666959; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rVKbslMBu6CF5quy/19Uyj5RN4onsoLySqMkVldnW5c=;
-        b=FLG7mhRWhdAWSWBOpLK/o6rPDtRIbeTIZpetp2/Hn4c5wF3lfUWwCjg2x8o6s3Bh7C
-         5mWjyszh2b2QSdSzOX5tdo+Px1j8CGqQh9OQIWtBqxmOyn0h4Kju5j9sZxXuSaxOM7qB
-         MA+7gFeHWzZw/Bnx3XMk4NX4j8lGzTmdufPyLhqBfnsfayHmMehzSU7L0CaeIwzzPy0H
-         dLsEeAeyzprNrlb4CO8v87F/XfD7oJF1fXch0aooW6zaGWfcxy2/Kby4AIyHded1YdvW
-         nF1eIsuy/nm8cX6a4F4fFSFTQXCxdeRh+P1GD/muJ+b7D4ZiKyWnfJ3sfaqa4NhO8mY5
-         V86A==
+        bh=81xDklTWGU+AmdrjBK/MxEzrPsfFoRwViVGtyxcHsTY=;
+        b=GxBuc9vfotyRDC8T929vBOcbfW052bgGizuFe2bJEUyWAduHoy6FiRbSx5svRpgu1s
+         uB3UckK4XpXfHYvjv5SAd2PQM96uz4Lb9EmZS7BpEhRpFWM/gdg/u6Rwzh4yLdbfKtqG
+         XffYUyA5vLM7ysRKHoLuLleNYz/emUO8FBtFjopo7sc5aOdSGTT5rORnIgF8GFmDdNyq
+         uyFMIT1UCNt985q/Usmp5MPksHpIbzKh0X/OQUDLQYJ0qsJ8Oftb20CqcacCtYlh5MMo
+         Br72LnsG4UM8aRZzkReLQiDPy5alaC3aKi0dQuyXiT1V51U74brbB4uuD1rXPKQ8f6gd
+         Kv3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792062160; x=1792666960;
+        d=1e100.net; s=20260707; t=1792062159; x=1792666959;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rVKbslMBu6CF5quy/19Uyj5RN4onsoLySqMkVldnW5c=;
-        b=gYR7viWCKylm22SEWOgQj2lx/14P1S7wqa4SgPz1FyNMuvhfAQSQTFZTstsj5Zm07c
-         wCy+EmGrX53UuafAaGY5AiiKytg5s8Vw5RZpGZK2M+nAq3yXulYuAcOGBu+r/5pD+7rn
-         lbuSzZ9M+tF7T1a4lYKC3CMQORfhwX3hnReg0mh0c/ey33PZycUPhZEGH52PR1aM6pOW
-         KYMGnSQdDsFWKHMQyyWd0Hc+4Dy3B9WRJWio0zDxg3VdeQg0VUtpKbgdSIGNx4bMhBOk
-         gwxTaNlPLbJXJB2RAtKDlRrnT5ADhJEDe3D/734zscDh5gsZ4AAluQXlmjwMNjL7Kj93
-         EX8Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwvcsWrbWVSi0lLRDpCmiJQgNihKTGb3hPUA2HjaCNYPdnQTTBcocxIGn1nlQEDviHqr3c/17IhEcPhHNWgJhcY@lists.infradead.org
-X-Gm-Message-State: AFq9FYKwXW5UCwYZH91SASBYTJPfF0fqsfaHooA8xEuTeaPq0r3LW7SV
-	0KFVqx+OUWprypscUy+lsZLLPKUjhmGlmhsHGj0Kb8sW5vXTQgOiCZQvFVbsBUaS
-X-Gm-Gg: AYBFou2cr97ET8D3ytEk31gqvCnHAK+Ib2/eN4pZjR0joMHMIfKI37TVE+hwrRhT9mD
-	vWbPyG9Lr+akDzB901E2D+Bx27nMMR6BI59XNk2gqbHtMRPf9MzlWYJC6vv911J98JgYLsaHjdP
-	3Z0/Dun3ahwDbMlJCofnv78Vhc0BxYCmwZQX1S9i83tTmWVQx/uaaEJDjqfYaCPcs+yAYFhXmrp
-	6P7MIWOYsoHdkdZEq7GnY7lgebSDnvnbcSViIfHx/XjkGnH6ncLbmg6s5WwnLKtdNZdxY5j7zM9
-	V3kCzcp/wYr/xQk4B3cvT6VKtTHbUZs6XVzO91ems1FZ2TNVgvI+Do1d28w2swHcDGBvfClHBzo
-	18DtqPQjty5MKx4D//fP1Wx3fNBsCLr8wG9mwumTuj2P2hEaKvCX6uJFi1jUWMFQoe3qHP2lJHH
-	d8GumKe2bvCwRDufyV7g1ThWMF1hBTeiPcCU+6AC46jYS/b0Yl65McDSusGGMD8o1qQbfSTpPf5
-	FO8I9z8SgkmSxsWVqAWv+li8xH7eSF4uqjIWCp+NT0W2Q8xGSC0s7sNIlVbqg==
-X-Received: by 2002:a05:6512:110e:b0:5bc:ca67:c343 with SMTP id 2adb3069b0e04-5bcde6c7391mr7040404e87.28.1792062159834;
-        Thu, 15 Oct 2026 04:02:39 -0700 (PDT)
-Received: from [192.168.1.135] (81-229-40-193-no2450.tbcn.telia.com. [81.229.40.193])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be3739b5d1sm905465e87.22.2026.10.15.04.02.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=81xDklTWGU+AmdrjBK/MxEzrPsfFoRwViVGtyxcHsTY=;
+        b=b3JzUaXjaylD9JbYRxbeN6FPPdEN8N3hfuzLrgXx8pJM/xG//cofd5MAlWl3AhVF23
+         v4NNzBVO7tQBQvBM5nVFdaIhx7LKGxtnd3WfZ4gNe18NokVF9IilYozmjMb5+ZFpBZ3s
+         L5hRV7q+G57cKHy59AVnzPyI9kD6R/PM8XdzlZAISHT4wbceYbkoKC9jVBMFVOdAWKyz
+         9n48LsBYXMSd2wXPx7X5i1BKJmNIg00x/pp9YT33tRLE49agcj6sByvStm+GS7j/R/Uc
+         Qa5S4kANSy/EyKnQK9i/R9xDeb4kurh68SGO4t3ZxgFRsEVslEPJ0k4DVJ32sAYm2mVL
+         1M4Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzvHyZPOAFJZ/o9BXOsB4gRgg5sSMCMBrlf20uCw6Jtte1TBA944LMCcVPynPzm1/LFXHH7kCRPyazYeJ+J8CKx@lists.infradead.org
+X-Gm-Message-State: AFq9FYI/+eVyZPyLVGNtqXUHY/4h9LP91hLdY9GS/dezPyevLlxaXnlR
+	hUkVbdD251hm9hZ74a4II2gqbizlb+PTBXJCpNgrZ/Pbeg1EHb26xBB4HWFTO6VP
+X-Gm-Gg: AYBFou36vqsOVYDHO2PghAscs84BlLkHpefLeCReAcSd/i92U6/mGjL+8kxoIw8sdNo
+	FReBPLAyiYGMMnIaoEpss0TKKscTikjv+tarUuQ+nb08CKPW2qSgEfEFQLeEmCz7lo1AQFeRtCe
+	bHgbGOl1n8lXieeW9WpnMZuxwERSYwUyUUAEsECRXcP5WfJt/ebewGmREwhHl6MLVjWo+D6f5y6
+	Z4Y6sjHCyFO2N0FIH/oDp1OxCQf6QkhWFc2gAzf28uo/HK9PjzIue0XlU0NZIaQf+oUtxig5ZSu
+	Blu+UUXuYXRTppYjRCEKPEYuYs1R4Wbb1tkO1sS5nmxLTBiiEs6/2u9dZO6VlNEXLGIm0FsPz5O
+	hyKLPjn1Mi5kOzTWF3UfQyU0dVz5sB4B6oPRzd1s/H9es5Gzmcm92BzsbHp8SAO+Ei9HQ065f1g
+	vl67oEofnjIx2cv7sbUu/4b7dLAY31gQjZe2Z2bW2TZBo6CuvBaxih9K8Wmm+jOa2vG+M/KVosC
+	qvfrU4yatrUyvaN8ni3ZBvVL/Od1Jgx4DpYyj0jbI8cv5ks9BQ=
+X-Received: by 2002:a05:6512:6406:b0:5bc:e430:9c8e with SMTP id 2adb3069b0e04-5bce4309e16mr4572278e87.2.1792062158525;
         Thu, 15 Oct 2026 04:02:38 -0700 (PDT)
+Received: from [192.168.1.135] (81-229-40-193-no2450.tbcn.telia.com. [81.229.40.193])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be3739b5d1sm905465e87.22.2026.10.15.04.02.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Oct 2026 04:02:37 -0700 (PDT)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Thu, 15 Oct 2026 13:01:53 +0200
-Subject: [PATCH v13 6/8] i2c: mux: ltc4306: set correct idle_state in
- i2c_mux_core
+Date: Thu, 15 Oct 2026 13:01:52 +0200
+Subject: [PATCH v13 5/8] i2c: davinci: add support for setting bus
+ frequency
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-i2c-mux-v13-6-778a12cfe93b@gmail.com>
+Message-Id: <20261015-i2c-mux-v13-5-778a12cfe93b@gmail.com>
 References: <20261015-i2c-mux-v13-0-778a12cfe93b@gmail.com>
 In-Reply-To: <20261015-i2c-mux-v13-0-778a12cfe93b@gmail.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
@@ -104,28 +104,29 @@ To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Peter Rosin <peda@lysator.liu.se>
 Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=832;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4390;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=zngBcOzPJZNXJXBSaO+Bhwj3certzptc+V1LRBF/HJk=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBq0LK7uxsiuf5sSWuXq08m4qXSSXd9tuLkxQadi
- el4mHZgHKmJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCatCyuwAKCRCIgE5vWV1S
- MuSPEAClGqQeffmMOx41qycz0kx7UJFVmXuNT74EfDW5aSAK0d72cYbdTBkpngz63r/6jBZr00s
- xVd/Xahid1XaEr7Hib9vyhUn0GK4R5FOPiYxK8Od8iDa8SiEo4r06Wb6AjwkoTSFp7UWax3m6Tt
- jZ6l7Di5M0tQ+aHjrd+or8pyJfomwn8ouf3lCq3xuz+cu8DNobGA6c13ClmsdEMdgDcL3MRPUcT
- HNA3/Jz79vSVNq3p/AlFRNRKoZgzkS33TZtp0EYBqj0Iszym5vsQa6x+dkodnKA7NKe2IYFSaaU
- xHsaCDiDHxDkyuhzttaV++AEmqv/L9UofoCFBJtVWB3TSvCtXPWMLkeizSpTWe/5gq3rFpxKf0y
- v3rEPE/8i271U5VOKIS2uj8cJskgfgLmwZeXe6OthM+5gdgmkjRswVNHIz2z1zLjGcitZgdP9ae
- s0JfyL+yHjnpg1nNmAVl9R/YIQ+ixhtUHDNvectfRuXskocuYDiZTam+tF65EI0xn6DLCrmDdOk
- 5+VDR0MQmCwp1pXwSkWpZsQrjbATZitOS5b2mzKU9HAor3qXh2Gzot4kXHH0JjAHzTltUkbbkat
- pnov1NOrg5f6Y1ekNvXxuYfWJ1rWiGBKT5RVhLP5KVXVU51eXaef8ch0Q41T3mVK6wHHu7owf/T
- 9c3zJ7G07j0DNQA==
+ bh=e22RJbTG82qr6LFGcR9T8dUEuzukljfrT5Pej2KkyeY=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBq0LK3mj507AETOdbw46lZppl0qAw95zzMLoF8o
+ 0d940H2IMaJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCatCytwAKCRCIgE5vWV1S
+ MlAyD/0fe/EPWjUKTiqAoGRE2frTsmsr1CF3v0fMY8hyetxKC0DXLxZXMZlYeRn2LtemqfBE6T0
+ d04rmEdaXKko3c/xo5ZlddxD42tl7Eu3+SH8NnZxSXb+x+Z62I/0lcPeAPt3b7nJPEczZIMY3io
+ 0bkUAm7heIPNHiU+pLd5ejzmRX3OhJLzWBGUmaLxwq0zyKXWO7d4w6jSJ9NgqWClIC1fg1m5t4H
+ GcPVhWKDPdketPaclvQw6W6mRZlZU5vtfIaVksVaak5zla5aU9vOY4Xsh0tLUVHV5kKQYgYXnaA
+ rl7Sdz5PUnOctAdXxK33Ruqo7nkc42QcVdw8sXvJsL2lRnyZcipEvbB/2E2ACrKrO1y/OKandJ/
+ 4DSTCv7XE6k0gx7qEZJ/TQh+nSggX5+plUESl6P5POa9hjHjHRyljdsXfyAgLZgCI5AHlJ2nmnl
+ 7UBYOY19xeyLFbMvjjZNkzHf6y3ZqQVI3l2rZQrt+f9RIowDWFhkrleeUs/109d5FuSW/XwUmWW
+ 3I2qr74vubjU46fH2MK9BeckQKzBJFzd/6d/rGpaAmyuT9AkO7OtL3yLLkgStVHDCbxeKje2g58
+ WBFOgeJR10hvHuo2L+kaQdjBenD1ObHIq8aIdlw20G6O2WYdyGJu+QMETKzicRCp7l4CP7O8WFP
+ rxzVLVKoPyaj8vA==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_120243_164360_D710D4AA 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20261015_120240_549079_760DBB60 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,29 +141,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Inform the core if we intend to disconnect channels during idle.
+Populate adapter with clock_Hz and .set_clk_freq() to enable support for
+dynamic bus frequency.
 
+Remove bus_freq_Hz entirely and only use clock_Hz instead.
+
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- drivers/i2c/muxes/i2c-mux-ltc4306.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/i2c/busses/i2c-davinci.c | 37 +++++++++++++++++++++++++++++--------
+ 1 file changed, 29 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/i2c/muxes/i2c-mux-ltc4306.c b/drivers/i2c/muxes/i2c-mux-ltc4306.c
-index 18228f5b80e8..b1150a18ed06 100644
---- a/drivers/i2c/muxes/i2c-mux-ltc4306.c
-+++ b/drivers/i2c/muxes/i2c-mux-ltc4306.c
-@@ -232,6 +232,11 @@ static int ltc4306_probe(struct i2c_client *client)
- 	data = i2c_mux_priv(muxc);
- 	data->chip = chip;
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index f543997c31e9..e27cb3bbf34a 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -132,8 +132,6 @@ struct davinci_i2c_dev {
+ #ifdef CONFIG_CPU_FREQ
+ 	struct notifier_block	freq_transition;
+ #endif
+-	/* standard bus frequency */
+-	unsigned int		bus_freq_Hz;
+ 	/* Chip has a ICPFUNC register */
+ 	bool			has_pfunc;
+ };
+@@ -171,6 +169,7 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
+ 	u32 clkh;
+ 	u32 clkl;
+ 	u32 input_clock = clk_get_rate(dev->clk);
++	u32 bus_freq_Hz = dev->adapter.clock_Hz;
  
-+	if (idle_disc)
-+		i2c_mux_set_idle_state(muxc, I2C_MUX_IDLE_DISCONNECT);
-+	else
-+		i2c_mux_set_idle_state(muxc, I2C_MUX_IDLE_AS_IS);
+ 	/* NOTE: I2C Clock divider programming info
+ 	 * As per I2C specs the following formulas provide prescaler
+@@ -207,16 +206,16 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
+ 	if (device_is_compatible(dev->dev, "ti,keystone-i2c"))
+ 		d = 6;
+ 
+-	clk = (input_clock / (psc + 1)) / (dev->bus_freq_Hz);
++	clk = input_clock / (psc + 1) / bus_freq_Hz;
+ 	/* Avoid driving the bus too fast because of rounding errors above */
+-	if (input_clock / (psc + 1) / clk > dev->bus_freq_Hz)
++	if (input_clock / (psc + 1) / clk > bus_freq_Hz)
+ 		clk++;
+ 	/*
+ 	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
+ 	 * least 1.3uS, which is not the case with 50% duty cycle. Driving HIGH
+ 	 * to LOW ratio as 1 to 2 is more safe.
+ 	 */
+-	if (dev->bus_freq_Hz > I2C_MAX_STANDARD_MODE_FREQ)
++	if (bus_freq_Hz > I2C_MAX_STANDARD_MODE_FREQ)
+ 		clkl = (clk << 1) / 3;
+ 	else
+ 		clkl = (clk >> 1);
+@@ -267,7 +266,7 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKL_REG));
+ 	dev_dbg(dev->dev, "CLKH = %d\n",
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKH_REG));
+-	dev_dbg(dev->dev, "bus_freq_Hz = %dHz\n", dev->bus_freq_Hz);
++	dev_dbg(dev->dev, "bus_freq_Hz = %dHz\n", dev->adapter.clock_Hz);
+ 
+ 
+ 	/* Take the I2C module out of reset: */
+@@ -279,6 +278,23 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
+ 	return 0;
+ }
+ 
++static int davinci_i2c_set_clk(struct i2c_adapter *adap, u32 clock_Hz)
++{
++	struct davinci_i2c_dev *dev = i2c_get_adapdata(adap);
 +
- 	i2c_set_clientdata(client, muxc);
++	/* put I2C into reset */
++	davinci_i2c_reset_ctrl(dev, 0);
++
++	/* compute clock dividers */
++	adap->clock_Hz = clock_Hz;
++	i2c_davinci_calc_clk_dividers(dev);
++
++	/* Take the I2C module out of reset: */
++	davinci_i2c_reset_ctrl(dev, 1);
++
++	return clock_Hz;
++}
++
+ /*
+  * This routine does i2c bus recovery by using i2c_generic_scl_recovery
+  * which is provided by I2C Bus recovery infrastructure.
+@@ -723,6 +739,10 @@ static inline void i2c_davinci_cpufreq_deregister(struct davinci_i2c_dev *dev)
+ }
+ #endif
  
- 	data->regmap = devm_regmap_init_i2c(client, &ltc4306_regmap_config);
++static const struct i2c_bus_ops davinci_bus_ops = {
++	.set_clk_freq = davinci_i2c_set_clk,
++};
++
+ static const struct i2c_algorithm i2c_davinci_algo = {
+ 	.xfer = i2c_davinci_xfer,
+ 	.functionality = i2c_davinci_func,
+@@ -755,12 +775,13 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 	dev->dev = &pdev->dev;
+ 	dev->irq = irq;
+ 	platform_set_drvdata(pdev, dev);
++	adap = &dev->adapter;
+ 
+ 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+ 	if (r)
+ 		prop = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+-	dev->bus_freq_Hz = prop;
++	adap->clock_Hz = prop;
+ 
+ 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+ 
+@@ -800,12 +821,12 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 		goto err_unuse_clocks;
+ 	}
+ 
+-	adap = &dev->adapter;
+ 	i2c_set_adapdata(adap, dev);
+ 	adap->owner = THIS_MODULE;
+ 	adap->class = I2C_CLASS_DEPRECATED;
+ 	strscpy(adap->name, "DaVinci I2C adapter", sizeof(adap->name));
+ 	adap->algo = &i2c_davinci_algo;
++	adap->bus_ops = &davinci_bus_ops;
+ 	adap->dev.parent = &pdev->dev;
+ 	adap->timeout = DAVINCI_I2C_TIMEOUT;
+ 	adap->dev.of_node = dev_of_node(&pdev->dev);
 
 -- 
 2.55.0
