@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4ECCC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 07:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1F3CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 07:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xj4hLpHjzheP4AEGLpAFn5JMjwlG+fQsoZ3qshX2rR0=; b=hK1m+Hozmli1Msq+H8+3GsNnG5
-	+axe+bYmeb61Ro/9xrZIgWo7WHOfuylehb2GMafingrYkRs0qZlyTKuljjySDeJ1Kv03RsIsWOolU
-	VJclBj/X/XpqkxPieEX2z92S3a8lVA3UQKjKGigsICNH4Lnlddh/0jahVmi9RZAbRYy9uaTxzol+2
-	o1RwQ9V+DIh+8vYwlunBoyqrwtRI34Cx3RGjl/hOtKbKR73n32YmuUF+sQFHxZdIJtWjs9bxFnI9f
-	TzBFEMGd0yNvV9jkliYUpH0z1LWggLB2MWcjbc4qKC62QZ/ky4sfB0A774RnGX9mhbnTOOsQmgbH9
-	d/MjAinA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KcDkoczLZtkXZLmEqUsWfJpdm+QFtb7s3+UB08BN4c4=; b=jeeCd0XFKu1YmhuFsqIJtS9cWW
+	kGLA3iWWLAz1JmjSCXsjEukHvvGcW1xAqN0Aj5id0RVitSBFHM4A+IEA+JuVY2pdujQj+fWegC5AP
+	141mGwJOXTk6bThMyUql3aQNofCS8CH74b3QQXzpaTVZgDYOur9eb9zbhBMsKs/UNK6IB1KDWoIDn
+	LIIc6u9K8U25/Mcrh/z2uBvd/RLTy2xB828NBaktKFeTT+QqFL4rQMbGwT22frLlQKu+D1APNraxl
+	BdiG7e4Qg6ZXmO9sGGYROPl5PDwLdAGqZ6cMYd+Ps9vWR5tT0qY7VP9r7gOiTo+dobRplbs5IF2l5
+	kWcOLkYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGB7-0000000H4JV-42iB;
-	Thu, 15 Oct 2026 07:47:05 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xHGGA-0000000H51f-3TYV;
+	Thu, 15 Oct 2026 07:52:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGB4-0000000H4Gf-2jDM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 07:47:04 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B820F4E41246;
-	Thu, 15 Oct 2026 07:46:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 73D0960360;
-	Thu, 15 Oct 2026 07:46:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B966010328B8D;
-	Thu, 15 Oct 2026 09:46:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792050414; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Xj4hLpHjzheP4AEGLpAFn5JMjwlG+fQsoZ3qshX2rR0=;
-	b=I4aZWQJa5eiMyD2REL02NTzzy7IuxQ8lj0letekuQ91rK5zrme4YUkJhRJysD+FfKkEYuT
-	PEkt0FYKr1T6q2KU797FoRXLy7yRKSncC0itrLXXM3ogzKDH12QxTatZIPgFeiginCetqK
-	wBObo6K1YafbwYlRDsar1dzlynLMsRa/2JFV3KWAYffJA0xLoLskd9OQ13dVitcYQcdL3k
-	y+od1ZIbNhZcK8fkgkx1zCtPpem8AlyfVrri8SQRzW7d340wK5lXpTRlZWN2kjEBDHTFbc
-	dgB9wfe1wfWQLBdqqk0XkA/thJiXwYCdxMwbOr9qZqyzH6zQEZl5PWG7/Tadsw==
-Message-ID: <cccfd292-6169-449e-a675-a9bb54ec4191@bootlin.com>
-Date: Thu, 15 Oct 2026 09:46:41 +0200
+	id 1xHGG9-0000000H51M-2kAb;
+	Thu, 15 Oct 2026 07:52:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KcDkoczLZtkXZLmEqUsWfJpdm+QFtb7s3+UB08BN4c4=; b=o2JbxUQynwPIsa8krrwXrFIdmF
+	4RElsF95/oQTSa/WYzPavhCHGYnwpzsg/Zx3PUGfkOAQkAJRAgkCEz2do9kjPhkOEnCbBmFaLUDBz
+	UEclrll02K7dZzjTwni1nJyrlqmGlCDG3D2aA4kfCT06P4oiLXqhm13S/w6vRRLTGUXnuLG82PNk4
+	GIHj+9A6JPGhGupcY33CPJllHA3bQwVeOelJJ4ckuhlH1tiGxdghJLsG7rO/aK69Ohewuqu6eAyJQ
+	jYKNBzPbyVBs0Z6H67gwaM/O0l0ZeoRSsbd9MDW3/zZfGj0SWoPMfOFuowc05T3Rtna6nB082R+Yo
+	KGfQPBGw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHGG3-0000000BteX-3Ak5;
+	Thu, 15 Oct 2026 07:52:11 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 517013006DD; Thu, 15 Oct 2026 09:52:11 +0200 (CEST)
+Date: Thu, 15 Oct 2026 09:52:11 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	Haris Okanovic <harisokn@amazon.com>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
+	will@kernel.org, akpm@linux-foundation.org, mark.rutland@arm.com,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+	david.laight.linux@gmail.com, broonie@kernel.org,
+	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+	konrad.wilk@oracle.com, ashok.bhat@arm.com
+Subject: Re: [PATCH v15 12/16] cpuidle/poll_state: Wait for need-resched via
+ tif_need_resched_relaxed_wait()
+Message-ID: <20261015075211.GN2009045@noisy.programming.kicks-ass.net>
+References: <20260831202251.305046-1-ankur.a.arora@oracle.com>
+ <20260831202251.305046-13-ankur.a.arora@oracle.com>
+ <178908146776.2725577.2613699832033292946.b4-review@b4>
+ <878q58z2ej.fsf@oracle.com>
+ <3e8bda45-0aa7-d0be-8aad-dab95902dcde@gentwo.org>
+ <as9EospGcR2e1mpO@arm.com>
+ <20261014130306.GK2009045@noisy.programming.kicks-ass.net>
+ <as-eaNfjOAUnfvVF@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/3] net: selftests: use skb_share_check() in the
- loopback receive hook
-To: Nicolai Buchwitz <nb@tipi-net.de>, netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, o.rempel@pengutronix.de,
- andrew+netdev@lunn.ch, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, Jose.Abreu@synopsys.com, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org, dtatulea@nvidia.com,
- alazar@nvidia.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org
-References: <20261007-nb-net-selftest-shared-net-v1-1-458369bfa1ba@tipi-net.de>
- <179149509090.434549.9918598206439291164@kernel.org>
- <533b88ce917b59f4f59f52145d2f035f@tipi-net.de>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <533b88ce917b59f4f59f52145d2f035f@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_004702_837152_3A7A3D67 
-X-CRM114-Status: GOOD (  10.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <as-eaNfjOAUnfvVF@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 10/9/26 08:49, Nicolai Buchwitz wrote:
-> Hi Clashiko
+On Wed, Oct 14, 2026 at 04:23:20PM +0100, Catalin Marinas wrote:
+> On Wed, Oct 14, 2026 at 03:03:06PM +0200, Peter Zijlstra wrote:
+> > On Wed, Oct 14, 2026 at 10:00:18AM +0100, Catalin Marinas wrote:
+> > > It
+> > > would also be nice to get some acks from the atomic infrastructure
+> > > maintainers.
+> > 
+> > That'd be Mark and me I suppose. I don't see anything substantial
+> > happening, just plumbing the new function.
 > 
-
-[...]
-
->>
->> Could an IPv4 frame that arrives during ethtool -t make the hook read up
->> to about 64 bytes past skb->tail? Examples would be a minimum-size TCP
->> segment or a frame with ihl=15.
->>
->> The over-read seems to stay inside the skb head allocation, because
->> skb_shared_info follows skb->end. If so, the only effect is a possibly
->> wrong selftest result.
+> Thanks!
 > 
-> The length check is pre-existing, will address that in a follow-up patch.
+> > Now, I really rather dislike timeout based schemes, but given we have
+> > users, I suppose this does improve things. We should however be weary of
+> > new ones I suppose.
+> 
+> There's some arm64 precedent in commit ebababcd0372 ("rqspinlock:
+> Hardcode cond_acquire loops for arm64"). This one went in without any of
+> the arm64 maintainers' ack and we've since been trying to come up with a
+> generic interface instead of reverting it. It was fixing a bug where
+> arm64 smp_cond_load_acquire() does not evaluate cond_expr unless the
+> pointer is also written by another CPU. Arguably the bug was in the
+> rqspinlock code for not using a plain cpu_relax() loop.
+> 
+> Anyway, we had several incarnations of this series, some with a default
+> timeout but others objected to it (Arnd and Rafael IIRC), hence the
+> proposal here that pleased most people (not all though ;)).
 
-I'm unsure about this, Can we instead assume that when one is running the
-"ethtool -t" selftests on a machine, they are doing so in some controlled
-conditions ?
+Yeah, I didn't mean to say I'm against this series -- just weary of
+timeout based schemes in general.
 
-IOW can we take the assumption that we won't get incoming traffic at the same
-time as we run the selftests, and if we do get some and that triggers a wrong
-result, this is expected ? ethtool selftests are very cheap to run, only a
-handful of seconds, and don't require any extra dependency, it doesn't cost
-much to re-run them if something unexpected happens during them.
-
-ofc. getting a stray frame during the selftests mustn't crash :)
-
-That's my take on these tests, but feel free to disagree :)
-
-Maxime
+So feel tree to pick up this series when it seems ready.
 
