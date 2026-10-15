@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EB3CC6B39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 17:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8AACCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 17:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FEG/VAjAcHH5Q/D2MIVWcgHJsvBvnxs5hUqZT/aI/yc=; b=xBQcrKR08Vrb2cbvIonNgXqOod
-	1v8KlBk10ugdEQKhsz6h2207fYZl8ucLMgoETP39vB8mWNk+fWKsym12E/gJBlrn+fF6ehc9WEjLE
-	nNmQzN+KODcUQYbKi8R32rf7K8rYN769x6Ua2KGglZMuIz9FP/FtvR8Ecg/tcdgtf2+CMCwXVyueI
-	toJm7kU4KqX7Pyz0YpGnIRuFJf3PajTHNzftl1Z0yBdsMdzi3/6uGicZkmUmX8mH14v16lZG8ZFdJ
-	Frx3Wqn47xg5mj3WqhsSAoBAr2eQNuFHBd8NdlTzhL+OkmnnbpjYoXL9aMK0MAdQq939+Ftc9Ubwt
-	3+/WEicg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NgkYS8W41TWW7Qh0J3Gb/1uoJw3SePkNINmDDJhIeDQ=; b=q7n/EjX3YGUT8cEA1iEK0zU9VZ
+	FlHWLjTa5UJmDDYakwcsSi4voK3DFhwmhJWMG3vvitJLEwVDssAGzanKXn6eUREi2fTRU++pvMvvg
+	aeiQiUOgl2yHV1SQtgw0TRa3ttbVPP86UIY0zU9qly82Q/zvdyMTOiVhN6qjtk1xf5pwj9eDKR2Uz
+	jWoRUP0QzEub4F0qqsaWBQ4G53M6QywAol1UCq659Fwm5Lx2ZWkn8v+7XVpflvt69pGMDMMKKloRV
+	FhDiikdcae9HOOhrgXOvIg6BSSDbaNd4AlUABVeY+BkBDUED0AuK/dYySuyKKm+w0rh7jJlYIMkoP
+	Yk5AlXww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPND-000000010s0-49zm;
+	id 1xHPNE-000000010sR-20MJ;
 	Thu, 15 Oct 2026 17:36:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHPNC-000000010rJ-3nru
+	id 1xHPNC-000000010rL-4ApC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 17:36:10 +0000
+	Thu, 15 Oct 2026 17:36:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A17E436FF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 720CF43ED2;
 	Thu, 15 Oct 2026 17:36:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CC961F000C4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A511F000C7;
 	Thu, 15 Oct 2026 17:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1792085770;
-	bh=FEG/VAjAcHH5Q/D2MIVWcgHJsvBvnxs5hUqZT/aI/yc=;
-	h=From:To:Cc:Subject:Date;
-	b=dPXO9WxGcZniEhYNw0YlmFZlGsspCf76PXmzpJQT+No+9oHJrX5PJf63lWEtse+qZ
-	 /Ew/LjiSbE0bgaadMnqfOFVdbsYjgfStoe50rvwimtMK9UJjbSRi6siqtEs342kxaJ
-	 ZWMaXYvM7P7xBoWiw9z4JhtzSac/mYqFKSNqWeb66gQbT7vIdjMP3kMYpYvxOlf5tG
-	 GBzoSS1UafdrUZZrQKVQ5xkibimyPIYgZDup186Z1UpUut0YABDvyExM3/juzdtgXa
-	 yR5aVquaS6KUGv0zg+bT4IFSRQXGlEkEpTymqa4UujuKq88IWDAkWXcoxdcAPiJpBv
-	 v02wu1pSVEKrg==
+	bh=NgkYS8W41TWW7Qh0J3Gb/1uoJw3SePkNINmDDJhIeDQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Pt32eBppSHO6O9Iy1mACmhSAlKzeXbofrCsUOXjNg/gh4ODe7GqKWzJja3HR7vsq+
+	 7zynSzC23ux0/u8xH62WLLzyXMaBRlgrpOQ5wVdb36/E16s6Q0sU3dPa8k6/auKGIF
+	 KLy3yUbuJLH1KJ63YW/v8oSShmfQDFmzfm5PcmSbiIlmjZ1swlPxjCAgukF6JGTwL8
+	 Dh91H2Jw43IuY06Lp4lU/oJm0fmUXcq9XR5rePgr82iwY6Ax0wMc2Oxl6xeibh+i1l
+	 suCQWseSg+/onCLEE15szp9FM4UV2MCh+7cd+5H7AQw2wKGRM9VgUV1juWgr/KpTlw
+	 x6NlHVzY2lhlQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xHPNA-00000003Q3a-06QO;
+	id 1xHPNA-00000003Q3a-2Q87;
 	Thu, 15 Oct 2026 17:36:08 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,10 +58,12 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH 0/2] KVM: arm64: Cleanup the HCR_xyz macros
-Date: Thu, 15 Oct 2026 18:36:03 +0100
-Message-ID: <20261015173605.1072963-1-maz@kernel.org>
+Subject: [PATCH 2/2] KVM: arm64: Get rid of compatibility HCR_EL2 aliases
+Date: Thu, 15 Oct 2026 18:36:05 +0100
+Message-ID: <20261015173605.1072963-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261015173605.1072963-1-maz@kernel.org>
+References: <20261015173605.1072963-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -82,47 +84,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I've been postponing this for some time, but it finally happened: no
-more HCR_xyz macros.
+Now that we dropped out reliance on the old HCR_EL2 aliases, do the
+right thing and purge the kernel of the compatibility definitions.
 
-This series converts the whole thing in one go, using the script
-fragment contained in the first patch. No AI agent involved, all bugs
-are mine! I intend to take this in for 7.4-rc1.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_arm.h | 65 --------------------------------
+ 1 file changed, 65 deletions(-)
 
-Patches on top of kvmarm-7.4.
-
-Marc Zyngier (2):
-  KVM: arm64: Convert HCR_xyz to HCR_EL2_xyz
-  KVM: arm64: Get rid of compatibility HCR_EL2 aliases
-
- arch/arm64/include/asm/el2_setup.h      |   4 +-
- arch/arm64/include/asm/hardirq.h        |   6 +-
- arch/arm64/include/asm/kvm_arm.h        |  79 ++--------------
- arch/arm64/include/asm/kvm_emulate.h    |  18 ++--
- arch/arm64/include/asm/kvm_mte.h        |   4 +-
- arch/arm64/include/asm/kvm_ptrauth.h    |   4 +-
- arch/arm64/kernel/head.S                |   4 +-
- arch/arm64/kvm/arm.c                    |  28 +++---
- arch/arm64/kvm/at.c                     |  18 ++--
- arch/arm64/kvm/emulate-nested.c         | 116 ++++++++++++------------
- arch/arm64/kvm/guest.c                  |   2 +-
- arch/arm64/kvm/handle_exit.c            |   2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h |  14 +--
- arch/arm64/kvm/hyp/nvhe/host.S          |   2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-init.S      |   2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  20 ++--
- arch/arm64/kvm/hyp/nvhe/mem_protect.c   |   6 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c          |  32 +++----
- arch/arm64/kvm/hyp/vgic-v3-sr.c         |   4 +-
- arch/arm64/kvm/hyp/vhe/switch.c         |  12 +--
- arch/arm64/kvm/hyp/vhe/tlb.c            |   2 +-
- arch/arm64/kvm/inject_fault.c           |   6 +-
- arch/arm64/kvm/mmu.c                    |   8 +-
- arch/arm64/kvm/nested.c                 |   8 +-
- arch/arm64/kvm/sys_regs.c               |  24 ++---
- arch/arm64/kvm/vgic/vgic-v3-nested.c    |   4 +-
- 26 files changed, 182 insertions(+), 247 deletions(-)
-
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index b78e5ce08905b..ae2dafd21cb7c 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -14,71 +14,6 @@
+ #include <asm/esr.h>
+ #include <asm/sysreg.h>
+ 
+-/*
+- * Because I'm terribly lazy and that repainting the whole of the KVM
+- * code with the proper names is a pain, use a helper to map the names
+- * inherited from AArch32 with the new fancy nomenclature. One day...
+- */
+-#define	__HCR(x)	HCR_EL2_##x
+-
+-#define HCR_TID5	__HCR(TID5)
+-#define HCR_DCT		__HCR(DCT)
+-#define HCR_ATA_SHIFT	__HCR(ATA_SHIFT)
+-#define HCR_ATA		__HCR(ATA)
+-#define HCR_TTLBOS	__HCR(TTLBOS)
+-#define HCR_TTLBIS	__HCR(TTLBIS)
+-#define HCR_ENSCXT	__HCR(EnSCXT)
+-#define HCR_TOCU	__HCR(TOCU)
+-#define HCR_AMVOFFEN	__HCR(AMVOFFEN)
+-#define HCR_TICAB	__HCR(TICAB)
+-#define HCR_TID4	__HCR(TID4)
+-#define HCR_FIEN	__HCR(FIEN)
+-#define HCR_FWB		__HCR(FWB)
+-#define HCR_NV2		__HCR(NV2)
+-#define HCR_AT		__HCR(AT)
+-#define HCR_NV1		__HCR(NV1)
+-#define HCR_NV		__HCR(NV)
+-#define HCR_API		__HCR(API)
+-#define HCR_APK		__HCR(APK)
+-#define HCR_TEA		__HCR(TEA)
+-#define HCR_TERR	__HCR(TERR)
+-#define HCR_TLOR	__HCR(TLOR)
+-#define HCR_E2H		__HCR(E2H)
+-#define HCR_ID		__HCR(ID)
+-#define HCR_CD		__HCR(CD)
+-#define HCR_RW		__HCR(RW)
+-#define HCR_TRVM	__HCR(TRVM)
+-#define HCR_HCD		__HCR(HCD)
+-#define HCR_TDZ		__HCR(TDZ)
+-#define HCR_TGE		__HCR(TGE)
+-#define HCR_TVM		__HCR(TVM)
+-#define HCR_TTLB	__HCR(TTLB)
+-#define HCR_TPU		__HCR(TPU)
+-#define HCR_TPC		__HCR(TPCP)
+-#define HCR_TSW		__HCR(TSW)
+-#define HCR_TACR	__HCR(TACR)
+-#define HCR_TIDCP	__HCR(TIDCP)
+-#define HCR_TSC		__HCR(TSC)
+-#define HCR_TID3	__HCR(TID3)
+-#define HCR_TID2	__HCR(TID2)
+-#define HCR_TID1	__HCR(TID1)
+-#define HCR_TID0	__HCR(TID0)
+-#define HCR_TWE		__HCR(TWE)
+-#define HCR_TWI		__HCR(TWI)
+-#define HCR_DC		__HCR(DC)
+-#define HCR_BSU		__HCR(BSU)
+-#define HCR_BSU_IS	__HCR(BSU_IS)
+-#define HCR_FB		__HCR(FB)
+-#define HCR_VSE		__HCR(VSE)
+-#define HCR_VI		__HCR(VI)
+-#define HCR_VF		__HCR(VF)
+-#define HCR_AMO		__HCR(AMO)
+-#define HCR_IMO		__HCR(IMO)
+-#define HCR_FMO		__HCR(FMO)
+-#define HCR_PTW		__HCR(PTW)
+-#define HCR_SWIO	__HCR(SWIO)
+-#define HCR_VM		__HCR(VM)
+-
+ /*
+  * The bits we set in HCR:
+  * TLOR:	Trap LORegion register accesses
 -- 
 2.47.3
 
