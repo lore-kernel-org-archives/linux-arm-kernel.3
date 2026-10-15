@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5EDCC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0B9CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBq4SZEcwNj1I/SZaHaY4ubXn6ev37pFFkaWpeQhOVU=; b=c52CBWyrO3xTWLC4IVvg7g8KwY
-	s4xLQ/hsMQ+opg5JqYYpkvZ9DL/0QOA1ixkMJ5rB0WHRy0mAjshjb450I3V4NVu4u+gph2QSQ19Oh
-	trw1v8wl8M+JiDp385QITTrkfXEvtcDX8gbI9ePKvFoQhJDNbkJG59dN6yhc/lq1O8qT2lsxsIiN0
-	bEd6wD/En6qIZW+6ZGB4DcmkD1piWUmPlvlLsGTBKDXWIWsnfRkGxbCC1I/BfuPm0FpVML1GnDaU7
-	dqiKyPNE34hOWPnfKMCHUGCZBBmdcXHai7vlvL20RcAWO7hYGookrlXqSzOAxVJ31PzGmtQa4eQIs
-	gWbDhRwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W12XDrvw7f+AKX3qBwyOQ7szCXeUEBebRu6XXPPodDI=; b=X9mzOepA6qrC1pyRBR+Vlva/qC
+	vajGpTBPO1uY3aTYRt5IPWwYZPNLZGjhMS+oNWifPUoOXL4r8lECgrQjp3UcOGasKkRtRcifi3Ijj
+	ZvJTHUS2tmnHnSd4Q/F+q6F5wIz6ovipmCt9TEB2n5H5J0jXVtD0Xnn9XSqMZcq3ykT1jis8FjJQz
+	ej4SOFGS3hNJUXyPt5mh895yTWiHl2jI6KHnP1Ugha8G78B3K1vOyCP44Sq1lnSSbJBJl3cylQwu9
+	SqCslCmygG/ziyyIOrnt35QQwJzWUc4u8Xg2hWTFg/PZp3B71fXc8xayVZk0GLYmQ6OgSTFE/Sdyg
+	yRzE6P9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKjx-000000008eA-0xw4;
-	Thu, 15 Oct 2026 12:39:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHKqF-000000009Nk-1TST;
+	Thu, 15 Oct 2026 12:45:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKjv-000000008dO-2I6n;
-	Thu, 15 Oct 2026 12:39:19 +0000
+	id 1xHKqD-000000009Nc-3NcX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 12:45:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F7B843E7F;
-	Thu, 15 Oct 2026 12:39:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 433BF1F000C4;
-	Thu, 15 Oct 2026 12:39:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2433D439A2;
+	Thu, 15 Oct 2026 12:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1743F1F000C4;
+	Thu, 15 Oct 2026 12:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792067959;
-	bh=lBq4SZEcwNj1I/SZaHaY4ubXn6ev37pFFkaWpeQhOVU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Y45KVJ0dmr/B5PkXwhasr0fP3fd/QUyN4JPjsKxxqeZlERH+rLc1lOkvysz1c5vdq
-	 AUIZeKz1BsFhnIXwUJVpwpate/sKttVq2HyHOFb60wV1vVj8iApvAJ4Zp2wiZhVyG5
-	 HFdtNFhDiwytCXy2YKD+H31gsf/NLqz5DyxkJlBWNM3E69ZXEYx3xW9gFnn83Cd0W4
-	 H16iXDPiV9JcVVkTQ+ntsdOQWO+qxCsfRd9dQbVB0dVZPfx+NY0/tRcA4OWG8CSmDl
-	 PEnbzvhU5fzAXJJRxpUKQYAQARjXwTASDly/qCTZXhmTPa4qgM3/Inx1ULtvJPV9d5
-	 LLtYLa1AuP9Hg==
-From: Mark Brown <broonie@kernel.org>
-To: neil.armstrong@linaro.org, khilman@baylibre.com, 
- Hongjian Dai <daihongjian@kylinsec.com.cn>
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- xianwei.zhao@amlogic.com
-In-Reply-To: <35143466F2F5166F+20261008124704.87708-1-daihongjian@kylinsec.com.cn>
-References: <35143466F2F5166F+20261008124704.87708-1-daihongjian@kylinsec.com.cn>
-Subject: Re: [PATCH] spi: meson-spicc: fix invalid DMA unmap on mapping
- failure
-Message-Id: <179192404716.1606900.7933098605518290477.b4-ty@b4>
-Date: Tue, 13 Oct 2026 21:40:47 +0100
+	s=k20260515; t=1792068349;
+	bh=W12XDrvw7f+AKX3qBwyOQ7szCXeUEBebRu6XXPPodDI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=le6uPVllewTN5EAXowJ8xOcxIlFmLfrEKnM516I8nrvzPao8bCK2e37+CtcQOsl4/
+	 k8bW9nNY5M7YnHMBZVzcPr2bZi4YwV3FhwZKQ3s2CYPrIPvv3ZiRzL/M6I8vuzyQHL
+	 FIz/KBhwqKcgiAPbu6ZlJwmOUvz+3eZOdEeHCZFZzs/Lyr7PQGsstQAaqq1cisNXqT
+	 6iitL6D7/H12m1qFZLcTxKyhHt1hNm2QJPT+MQBze2+1X/sDC6EqADMmKpr7vLbZUb
+	 kCcrp1HnFk/IooaG9cfXJ+Wtg+b4we+SfjCDbVAYYt/zJ+XiXx5j82UUR7h5G040yh
+	 E9Fp29B444Icg==
+Date: Thu, 15 Oct 2026 13:45:44 +0100
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: mark.rutland@arm.com, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] perf/arm_cspmu: Add Arm system PMU
+Message-ID: <atDK-H_Qrufjc2WW@willie-the-truck>
+References: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1130; i=broonie@kernel.org;
- h=from:subject:message-id; bh=oU+aflSH8ieUXdoa4wTiNkL+faVHwEFgPlXfrXSVKMU=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIunCwutjhRFrGLs+urCfstZd+pwgXPXj1SX5MqwXfgz
- AR7tfPLO0pZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRDAGG/6lCmpZbVdU8Suz7
- jdffbvwtsa/UvbCOVa+n55x5jWryMoZ/mrxqcQnrN4pI790z4Xhg+2q3QOPmS3fEXVbM+sd5Wju
- IEwA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <222d98feab5ca2836fdef69fee9113f6f860167d.1791209460.git.robin.murphy@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +68,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 Oct 2026 20:47:04 +0800, Hongjian Dai wrote:
-> spi: meson-spicc: fix invalid DMA unmap on mapping failure
+Hi Robin,
 
-Applied to
+On Mon, Oct 05, 2026 at 03:11:00PM +0100, Robin Murphy wrote:
+> Arm's latest Compute Subsystems and SoCs are using a common PMU block
+> in various places which can mostly just be driven as a generic 64-bit
+> CoreSight PMU, but does have an IMP-DEF register for additional
+> filtering. The details of event and filter encodings depend on the
+> particular PMU instance, so are left to the higher level Arm Telemetry
+> Solution tooling.
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+> 
+> v3: Fix 32-bit COMPILE_TEST to match arm_cspmu.c
+> 
+>  drivers/perf/arm_cspmu/Kconfig      |  7 +++
+>  drivers/perf/arm_cspmu/Makefile     |  1 +
+>  drivers/perf/arm_cspmu/arm_cspmu.c  |  7 +++
+>  drivers/perf/arm_cspmu/arm_cspmu.h  |  1 +
+>  drivers/perf/arm_cspmu/arm_syspmu.c | 67 +++++++++++++++++++++++++++++
+>  5 files changed, 83 insertions(+)
+>  create mode 100644 drivers/perf/arm_cspmu/arm_syspmu.c
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
+Sorry, but with LPC last week and us now being at -rc7, this finalised
+just a little too late for 7.4. I'll pick it up next cycle (but please
+resend at -rc1 so I don't forget!).
 
-Thanks!
+Cheers,
 
-[1/1] spi: meson-spicc: fix invalid DMA unmap on mapping failure
-      https://git.kernel.org/broonie/spi/c/9d71f9fe5b5d
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Will
 
