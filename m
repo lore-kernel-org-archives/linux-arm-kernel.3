@@ -4,65 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A34CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FBECC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 13:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBqSEJS1pKlmdf3ndF5libgTsU24GBtrkgdWyEsVvC0=; b=SmaWtc26YNbjLRYwTw40yHdR3U
-	9jp5HpU/ijDqFU9dkZctxkswhmXQFx60nYKD2t3Ms69C4OzRmh+o54BvKSXZOFCzE6igInS9QsA1n
-	YNalo7/9CTlcNRlvCJ4EDWCdiCk8hpVY0LudZ25fgYTlOesmjVjAvjFNp3OkIwQ7yic+FtSpB13uY
-	P6ckGYM0PAma5wpdkabqDKq09WLlrlDDqtb3uyPBgKSKoQvXOCBL4VWt/BkpZZTQF64Jtxiedjzuy
-	nQ4CW+ev9xrAaJwmi7ycWeY7+2La+NEq1m+aIGN/KhhbdsFFrUloYcGABi1O0LuGNzgvKqha50ZOc
-	B8gG39ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fatwg6Ql10eF4yUkxnXRufoS1VKiolsiumheXDiVcQ=; b=DQsTv4bao/Vxse7Cpeov5bdKNv
+	ezIiTyL119YsunS8eLmQOujrtDk4wM86DhV2HE2axMtHFbq900FrXoxHFIcj7Oi3wuIkCZP9kbEcS
+	HnQd+eGISnRi4I2HHvwKXGZbi05Tashy9TsnE7N+bUIkJ86ZCpbSt7Hziros6DEUceBTn85LbsZNb
+	tq4wRzE4GYE1lNkpEnaumMCt1TZBMp6s1FHXb3F6vxEaOvvOQjcnD0MjiUz+88keqOh8p4DklPU86
+	ka9A87L+cEvhSdZT6A9p6nFlKVnpXEk8XWQ1wSGx4KAOPUh6b7bPZEJBom7nh2sxMEw0psqn89lEM
+	W0KbOnUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLRv-00000000FQT-33OA;
-	Thu, 15 Oct 2026 13:24:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHLSS-00000000FXZ-4ANx;
+	Thu, 15 Oct 2026 13:25:21 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHLRu-00000000FQ2-3NlW
+	id 1xHLSQ-00000000FWk-1Qqv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 13:24:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4283B6020C;
-	Thu, 15 Oct 2026 13:24:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B0541F000C4;
-	Thu, 15 Oct 2026 13:24:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792070686;
-	bh=CBqSEJS1pKlmdf3ndF5libgTsU24GBtrkgdWyEsVvC0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DtyPL9TiozyW9P2rRYtq2WOT/lRgIOwc68mh4Mn3huviP5OWls6WyR8q4PWcDdXQU
-	 zkAGHQTdqrMIQrbD/38CjQ6VMTcYhjdTLruMdZ53E+KbAK9eMZA8gG00oLnjrlsqgn
-	 Jeo40wExX/LQ1OBst6rMBue65usx3sG7T2IIeKG+emXIC5XJLMhKMwu/tf5pQaZPyc
-	 Ov3PNzRpb6p6LI1RAM/2c2yG3DFFYGh8B6fsjUciksIIeIzI2gxKptv7DB3N69q2ph
-	 z//9IN06Z1kvu2lbubltus3KSDwNRfL7P3M81VyS8jrPW/scen1evNeuC/qFFbM70g
-	 KgpHR/6uio0Gg==
-Date: Thu, 15 Oct 2026 14:24:40 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Philip Radford <philip.radford@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v9 09/13] powercap: arm_scmi: Enable multiple constraints
- support
-Message-ID: <20261015-urban-porcelain-smilodon-edbc1d@sudeepholla>
-References: <20260909220437.1254412-1-philip.radford@arm.com>
- <20260909220437.1254412-10-philip.radford@arm.com>
+	Thu, 15 Oct 2026 13:25:19 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48afe75f055so433791f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 06:25:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792070716; x=1792675516; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0fatwg6Ql10eF4yUkxnXRufoS1VKiolsiumheXDiVcQ=;
+        b=f5ukXwtgO0X02wQWvowvNp+qZASPhPWbB5b5ZDyEDo34nOGs4zIkKUW1PHC2rE8v14
+         MyX636r7wPNdoMqe6Mvj0UEOniWZLDAwffMVYrOmmGw5g8/vHbs45t+96IEj8SPPh4IJ
+         /hodpp5kU6Z1o+m2Q6836yqdCQi3T0KULjQlo10OpFhfD92EEZIL6ar3utsXNsLMJyry
+         mgx29K+VYrU2YH8DAfsXvtWoAGY0Jc3Wu1YGD4mE72X+N0Qs5Nwzlw/sdYDFN5lnXDSi
+         b+YlLy/vE+VFaip0Q2p0eKKp6f3NZWO9H07611XbP7EqZ31dP440TlhK5oCglV9nfRQw
+         Njxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792070716; x=1792675516;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0fatwg6Ql10eF4yUkxnXRufoS1VKiolsiumheXDiVcQ=;
+        b=WtY/nrN5qkoZ/Bpw3U5G0NaRt1yzc5wiYhJC1HD2mJyaIm/2FTC/QxDBv9Ig62GxUu
+         HkaHeAfHR0dVj8JZqMUmJrpUlquH7373oR9ZCB4E2+Hwvk9sRfNLvyKwG7JfLtD9pgKa
+         h05R/lJKI+2yjCzdnulcHIBDqATdU9zkumyeVzvdYJ3GIMqZSSMzcAIF86AjLNNrzPY+
+         Eh4ZNS+usluvQECmb0AzWXG9uKtz/+A6XeHxT+0gEPjJw9AFBwQdALvjTTKaXALTRBqL
+         KKkI5SBFotfPhDuLQt9jORm1Il0JD5tCp3DL/vqJngvBnuUB9bDlTBCTNNCF75sIeNdj
+         13Ow==
+X-Forwarded-Encrypted: i=1; AKwUvByEWLw8qkg5MgR6M79QOZrFQgDPuPZMpaWW2w7QIU5UjLuNP98oLxG2Hvm9ipAof4kulWFgBmXb8KJ/z4o7Y74q@lists.infradead.org
+X-Gm-Message-State: AFq9FYIlPFHeBtsupv/pMma1u+PCEM66frVqCvPmmr0gf6DMEsmw+I95
+	j3c81aXdWP1DVcNAy1nbr0dgj+5iPdEr6tBu59EgRhnKBOE56tEzxkmu
+X-Gm-Gg: AYBFou3zNCw9qhJ8xT+03DRtJWBBjD6GwQYvvyJY/WN2kUDaXIFOhMMiyBd1N6hAK7C
+	d/Xv4tyyAg+5N9qwapwAS9fGtLLsflgRYo26Ai56FTBzRmkACVjShJsGNc9Zu2rWAGsnqaUetkz
+	9YtHOzlNA3Mi6iEgUFLpLy8yE3kqg/DHSKX55q63XKUiLgsQ3Xd+V1xR7zaagVB4rbiEVB9enGn
+	jTlsccPnRctcKapCBFnC1kElZGtbit6qLSfDwVRMYXX1EPij/J6aN2vy6cotA8G3t27FLlPJ24v
+	brS3t1ioEUreRA5usx+TKtz5x2N/aAPwr5UxLzwPgHjb3w4x+3X4fKuzIA6JFdu0Esml7br+L2B
+	O9tWwIXc8xyBWs64XjbkHagt3IEDlLJWHD8+kEuVPge6/rIEmnL2yg1cxF6YwWnITFV5H9lsbd4
+	VaUrHXh/BkETqthqYg1OIhOmERbCEw6hSyG7cdyzx/qp13o7MIjcrxqUJCrsHADSyvx3rfmNCw+
+	K3nY9w6q8n/xkpZIuRWUPOnZ5PKw7AOwiLOdT/0pdqWriG3L4oaGSuAxQ==
+X-Received: by 2002:a05:6000:4549:b0:48d:facb:5939 with SMTP id ffacd0b85a97d-48dfacb5b8fmr147377f8f.8.1792070715607;
+        Thu, 15 Oct 2026 06:25:15 -0700 (PDT)
+Received: from [127.0.1.1] (ip-024-215.users.dtel.ru. [91.210.24.215])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de09693c7sm23470807f8f.4.2026.10.15.06.25.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Oct 2026 06:25:15 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH v3 02/11] irqchip: Add Cortina Systems CS75xx peripheral
+ interrupt controller
+In-Reply-To: <87tsmndu0p.ffs@fw13>
+References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+ <20261013-b4-cs75xx-s2-v3-2-181bb0d23f4c@gmail.com> <87tsmndu0p.ffs@fw13>
+Date: Thu, 15 Oct 2026 16:25:06 +0300
+Message-ID: <179207070645.418589.10399440167204506807@gmail.com>
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909220437.1254412-10-philip.radford@arm.com>
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_062518_398346_BB7B1CF6 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +110,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 10:04:33PM +0000, Philip Radford wrote:
-> From: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> Initialize the domains with all the discovered available constraints,
-> making available multiple per-domain constraints when the platform has
-> advertised support for multiple concurrent power limits.
-> 
-> CC: "Rafael J. Wysocki" <rafael@kernel.org>
-> CC: linux-pm@vger.kernel.org
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> [Philip: Amended Copyright]
-> Signed-off-by: Philip Radford <philip.radford@arm.com>
-> ---
-> V8->V9
-> - Added validation check to make sure powercap domain doesn't have too
-> many constraints
-> ---
->  drivers/powercap/arm_scmi_powercap.c | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> index 2d9370aaaf5d..bcd1ba0bde8c 100644
-> --- a/drivers/powercap/arm_scmi_powercap.c
-> +++ b/drivers/powercap/arm_scmi_powercap.c
-> @@ -2,7 +2,7 @@
->  /*
->   * SCMI Powercap support.
->   *
-> - * Copyright (C) 2022 ARM Ltd.
-> + * Copyright (C) 2022-2026 ARM Ltd.
->   */
->  
->  #include <linux/device.h>
-> @@ -491,7 +491,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
->  
->  	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
->  				   parent ? &parent->zone : NULL,
-> -				   &zone_ops, 1, &constraint_ops);
-> +				   &zone_ops, spz->info->num_cpli, &constraint_ops);
->  	if (!IS_ERR(z)) {
->  		spz->height = scmi_powercap_get_zone_height(spz);
->  		spz->registered = true;
-> @@ -649,6 +649,13 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
->  		 */
->  		spz->info = powercap_ops->info_get(ph, i);
->  
-> +		if (spz->info->num_cpli > MAX_CONSTRAINTS_PER_ZONE) {
+On Thu, Oct 15 2026 at 14:32, Thomas Gleixner wrote:
+> On Tue, Oct 13 2026 at 09:07, Fil Dunsky via B4 Relay wrote:
+>> +static int __init cs75xx_intc_init(struct device_node *np,
+>> +				   struct device_node *parent)
+>
+> No line break required. You have 100 characters. Please fix that all
+> over the place.
 
-Since MAX_CONSTRAINTS_PER_ZONE = 10 and our SCMI f/w can return upto 15,
-we may have to warn or clamp it to 10 or both.
+Done for the next version, the declaration and the calls in the init
+function are on one or two lines now.
 
--- 
-Regards,
-Sudeep
+> Other than that this looks good.
+
+Thanks for the review. The next version will come after v7.4-rc1, with
+the interrupt controller as a series of its own (binding and driver),
+split from the GPIO, I2C and watchdog patches.
+
+Fil
+
 
