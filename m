@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73C2CC6B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEA1CC6B3A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tJuw0HG6b0/g50rFnImD3mqXWKPn47lEKfqXU/zgoNc=; b=c7eUt7CbYXDGF2WmsP0ZRZI2s7
-	BlZjz40hFQpaLwkm2Gk0mzmEqAAP8GnxYO+Eq4KuJgFRteAI4mwjUB8NQZbkD6e8JxRO3oG9m8TP+
-	BfftjPgs5L2eQrm8VsOfWpmkCnoAKlqs2gV9RSm8kgo2ZuBOwoXmf566J+ARMh9O2ZJAIwZrjYu/p
-	aJ41g3AmbBsfpmSkEGwUnRjsZQeDMdHVPTkXiqecDdeK4wH3LYJC6f6sbmp/rZWqTONaE01vSf8wH
-	PAbQvYDLD0keD5A92GRFs3dFRtj0nAvtTvvOyVaB7BFlfYxpXszajlLlatnSau2BvD0wI6Alcoadz
-	//7gybag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/g4HQu5UdzQeNim7+4cxYTFdG2dsVY/hmSvjIkvj5U=; b=3jmff6+KQHoynehKNTLK8I8olw
+	mAvTkCp9XEhBRO6Kdp2C2WTh7vsPf+6pKHr6hSsgZKtmpp1vJT+LMoEZVSI5zXdo4xRN/9XBnP1vJ
+	XI6Merl+z+6JJKHiEpx0S2DVyIehtsRqHuYDrq4jetnahCn0nvzOAkZv/9LIg63RyldFcSf+j37hc
+	IW+Ehb1L/rd2LYRl1bRc6I0aBdfMQECGP2uy1E0TL0rBJeCg4I3yd1sirT83O7Ng0x+K/XghEfWc0
+	sPcxKf6YvGfnVqZA/OKr43qXKzaqJzmZ19SEXL3xIz8YV/PhZsPHb1a0M1YEv4CySxNk4Ap+jPTBr
+	c5eOUDVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGYw-0000000H7AL-1MtL;
-	Thu, 15 Oct 2026 08:11:42 +0000
-Received: from mail-ej2-f11.google.com ([74.125.228.139])
+	id 1xHGZ8-0000000H7Dz-1tTH;
+	Thu, 15 Oct 2026 08:11:54 +0000
+Received: from mail-ej2-x07.google.com ([2a00:1450:4864:34::7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHGYt-0000000H79D-3YJg
+	id 1xHGZ6-0000000H7D2-2xrW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 08:11:40 +0000
-Received: by mail-ej2-f11.google.com with SMTP id a640c23a62f3a-c2e25574351so104002766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 01:11:39 -0700 (PDT)
+	Thu, 15 Oct 2026 08:11:53 +0000
+Received: by mail-ej2-x07.google.com with SMTP id a640c23a62f3a-c3e0e38c8c2so43583766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 01:11:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792051897; x=1792656697; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tJuw0HG6b0/g50rFnImD3mqXWKPn47lEKfqXU/zgoNc=;
-        b=s7GDslNoMP7+QxAP5qgkBPSR4J8QSaTib+8pMUFxZv/NgEPnB6GN8aL0NCaqLP5drH
-         0exr+zM3O25DlKDYYTOWRWYvHT631prmSAestOmOq6nVLeAfJVnVlkpxbGpgOY9Go9Uk
-         B5Y/XABvLR5YAGCFVna1Ed4fVTxmnbkEBerhN+uiZIcJ583zeTbABUZu56FM5iisMvbp
-         5x/G75KSnFygI0Qn4UTsHXpqLvDgZfIQyZe1WgPZKMChBsLQGdA9kCjRn33k/3/Zp/Zu
-         bK5FNaGtzpdulGcXiWQ+mtOgw0DbZKJlCWQqra+vcAGe1BatPwYHne7Bo2CLWE74sN4X
-         UcGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792051897; x=1792656697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792051911; x=1792656711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tJuw0HG6b0/g50rFnImD3mqXWKPn47lEKfqXU/zgoNc=;
-        b=ASYsqH0XPi9t5at3iYS/2T5wTEyJyusOS12w3MMEjxDdKLD/Dkqfs8BigejZ86+9GG
-         DuBEQ8/si4HSeijPFiCnY9rjkw6BUz4I5UJchJdqsWuWdL6qHkLfHUwiMgfWa1QmyaJE
-         /481MhRBqbbaxnPCH1MTLDqYSyQ2nDTY4ByVckeoEMMLf6xMy6zWOruwi3PH5WPWmziF
-         i9201uifV6rUX/RJF+7Mg4xt60Bq2N4wX7GDvO/QzUsclyAztxtysuF61tUspUwIAbDR
-         G92gqVLQq3MAO1qB36rWn1xeIaBI4d/6aDPSQrfYi/2Igsb4OfzyHg/IOxTkL67lSC9J
-         1Cqw==
-X-Gm-Message-State: AFq9FYIy0d+fZMWijAAhpcHP1CcKsLnpwQF3UY+8vqgXTCv7DqriZn6o
-	56+5vqp/jXHgUveHHlOWsOVtXnzgUY3hfRTEMOCIAMKeMYmsU9fOl9v0
-X-Gm-Gg: AYBFou3e/FCAqS60+87U1ZYy+4sVPKJpBY2n/eNyL3hmR+VR4rT7eGT2lM/1SUQXNsz
-	ghX7we3JL6q5Y//QeZXgp26G8E93AFgSxFbhLO3QWQx1HyZ77lr4KGODZ3HvuwiDoXbOyEPXaJY
-	ulk302UI4Ek8VCdl4lAgD9IDPHMXkpTlqFQwqY98/vNh5WqmT4AM9/bha176g/H6tct4V0LUwkt
-	wspLkumE0uWvs/dmMu4i2bqKuTs2TMiWEYB+I4aDU6e5how9ZVPjy0+PxAauiRxWVTO52nCPAx9
-	bvdMZcEdoHc/HNQ2GUXTx3LZbJdLaKujRHnGoyNNg4aN4vL7HKdruRZ6RLrdxX/5VYERd46VNPL
-	KTOBfk83eSCy78cRJjPyJPst+5dfVW+zNlInXAlAUaTK/EDChvtC01owpTYE/jnkrmJaMbxiM/z
-	lBF2tMM1jPnGUd9KpgwRmqdAz1M2rMdAxwgqAH3oGRvY3X/CLhDm9Z5J/sTPFVHDOQGyjwRlTrx
-	hbSwfHZnvAIP8HC5kpXg6dgn4Z71JDw9SY+QA58cmb6UW/iaFCTBnUJ4OrZRMZqe5ZPoWuEBBEz
-	fePJ+GRRo/GewnkvqbTaLbhayg==
-X-Received: by 2002:a17:907:3f87:b0:c2e:2e1b:30e3 with SMTP id a640c23a62f3a-c31aa00e12fmr1974043666b.21.1792051896835;
-        Thu, 15 Oct 2026 01:11:36 -0700 (PDT)
+        bh=q/g4HQu5UdzQeNim7+4cxYTFdG2dsVY/hmSvjIkvj5U=;
+        b=qUq0EVVxy5F1l+sqpudH2kEPYA6gc5vyGJ5+5VjZnGgAipZ/tThxUeXHoQckUluG4m
+         n9hfbV0JZ4pDL8tB0DKoQjh9HJBKAUc38fTkXYldlUVoTdsUpyTCEzIpxUcy0tzz0wgn
+         vY4D9jeo1GPgmCBcNSG0hi7ibPyDTtuXE42PFrOiEv55FQxz5/OgP3efUpxr8lqZdo+U
+         rHv6o3Rm/5bfiSsGUhOffWY9CJUzIj9y/hFLRXxBoe2OYVYMWwPR56ofdApx+Bc5mov/
+         OKmEACW34bkXcrdxVsGdP7hQMVckFZC1cLeTeuTtZB2blaxflGMMXSP+DDp55hktlB/u
+         GgmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792051911; x=1792656711;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q/g4HQu5UdzQeNim7+4cxYTFdG2dsVY/hmSvjIkvj5U=;
+        b=zDPN/k2dbe4icoNNGVZqlleMemQmhW1kDyKlBcAz+wuCOlEoC3xG1sfNkaBrz2PrGE
+         o3SU+iwKQ17zxGpJAbJ3I3+sQ5LywtOuecynSSJuaYFPN8vjuhcbeotQTz/sqtY56u4J
+         VlJdbQ2yobpe9SaIV26GqfsxNIca27OVPIKk5LIxdHhfD2cOh+AEmX7XzxTu4buQWsHx
+         CMmGfPfDbRrTIeVnRw7D1HElMroZAoGVqL50L5Pa1vnvI1vhdy0JtKuaH7lSBz3xHLlJ
+         6GaTbwrl95FtC6zlEmuWGPx+tpZt8xN9mmy2VggyE2QjEr2mNjnZNw2v72seTXQmk5KI
+         NVgQ==
+X-Gm-Message-State: AFq9FYJAwg7yO8BuRdJuFA54g6ktuQuShVu0UMnUVgbb9cqKMMJzevv2
+	ybbvNFwowJgcZPRDpWrdssH3zrNWCbt/RpvdDKcquVjYuByWdCUuEJa8
+X-Gm-Gg: AYBFou2p/tME1SNZ9vJVXzronO6u1BB8DXtU7TrsgS/bxmOkmJxUl2Ohqw2lBepj82K
+	g84lXTQBnf/Wtj/vPC9a09yaLymfY1z93zvPrRhzwTXduhjAI1i8jUNPlcrsXZgwfVBpnLrd6QX
+	f2lrzA/KsqnAFjKv97x5iLElPpQpvVFVhOylHe/N/IqnmMUYvLS7I80npKAz99/uRgYCHx+Tnnu
+	i8GdkRrD0Z2Z8w6RDCdgkc9q6J/4N9KOmi9wSbvPMjNOcR8tWyqShAitqMSxbbtSzWLP28XTFEF
+	vTs/v3x4/3hlFHnEGudJIJjXDnl5khnbB3UrRn+XhdKjZ2rqeRmJvOVuEylfL+S5nkRKZ5eS2X+
+	E7VztETrr4EzjjhnpU/nqDWmpGgIPj9xY8qG6bXg5/BbAQSGZfrjvFw1zr8lmyw2g6OHAjOSV/e
+	Vr05LSnsoFck0jHc1mn6EJAGw9++JegevmGkQ1CCybeauvrbVz9r3CfxV8ZQHxb288v0zIx7irZ
+	UxX1Pr+27rds+1nDZi6fK944c7FFSHWTh/Rer2Xh6UJJXF2mg2nFV1SNzIFrPgYVOCIhQw5xJo9
+	D/UEHx9SERgAsemdqmWFohHPMA==
+X-Received: by 2002:a17:907:3da7:b0:c26:2fc8:4e91 with SMTP id a640c23a62f3a-c31a9d579d8mr1702132566b.29.1792051910602;
+        Thu, 15 Oct 2026 01:11:50 -0700 (PDT)
 Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c3eda5297b0sm96080666b.63.2026.10.15.01.11.35
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c3eda5297b0sm96080666b.63.2026.10.15.01.11.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 01:11:36 -0700 (PDT)
+        Thu, 15 Oct 2026 01:11:50 -0700 (PDT)
 From: Thilo Zirnstein <thi.zirnstein@gmail.com>
 To: michal.simek@amd.com,
 	andi.shyti@kernel.org
@@ -76,16 +77,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Thilo Zirnstein <thi.zirnstein@gmail.com>
-Subject: [PATCH v2 0/1] i2c: i2c-xiic: fix clearing of bnb irq
-Date: Thu, 15 Oct 2026 10:11:26 +0200
-Message-ID: <20261015081127.1566244-1-thi.zirnstein@gmail.com>
+Subject: [PATCH v2 1/1] i2c: i2c-xiic: fix clearing of bnb irq
+Date: Thu, 15 Oct 2026 10:11:27 +0200
+Message-ID: <20261015081127.1566244-2-thi.zirnstein@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261015081127.1566244-1-thi.zirnstein@gmail.com>
+References: <20261015081127.1566244-1-thi.zirnstein@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_011139_900759_0CAC525F 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261015_011152_765592_BEAACBC7 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +102,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear all,
+Add a function for clearing the bnb bit,
+It waits for all preconditions before clearing the bnb bit or times out.
 
-This patch fixes the clearing routine for the bus not busy (bnb) irq.
-The bnb is used to indicate that the current transfer is done.
-A high level view of the software flow for tx:
+Tested on Zynqmp dev board with some custom logic.
+Tested-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
 
-* init i2c controller
-* prepare all registers ( fill fifo, enable irqs, ... )
-* start i2c txfer
-* clear and enable bnb
-* wait for completion
-* ( serve interrupts )
-* ( bnb interrupt ): complete completion
-
-The datasheet ( pg090-axi-iic, Interrupt-Status-Register ISR)
-states that the bnb bit can only be cleared if
-the bus busy bit in the status register is set.
-So the iic controller must have recognized that their is some activity
-on the bus. ( Start condition )
-
-Currently the bnb bit is cleared without checking or waiting for this
-condition. This can lead to spurious bnb interrupts.
-
-I am kind of unsure which branch to use for handing in my patch, 
-this one is based i2c/i2c-fixes. 
-
-Kind regards, 
-
-Thilo Zirnstein
+Signed-off-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
 ---
-
-Changes in v2: 
-- Unintentional changes removed .
-
-Thilo Zirnstein (1):
-  i2c: i2c-xiic: fix clearing of bnb irq
-
  drivers/i2c/busses/i2c-xiic.c | 42 +++++++++++++++++++++++++++--------
  1 file changed, 33 insertions(+), 9 deletions(-)
 
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 5e397a7e63f6..da9cedb86f94 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -230,7 +230,9 @@ static const struct timing_regs timing_reg_values[] = {
+ 
+ #define XIIC_RESET_MASK             0xAUL
+ 
+-#define XIIC_PM_TIMEOUT		1000	/* ms */
++#define XIIC_PM_TIMEOUT 1000 /* ms */
++/* timeout waiting for bus busy */
++#define XIIC_BB_TIMEOUT		(msecs_to_jiffies(1))
+ /* timeout waiting for the controller to respond */
+ #define XIIC_I2C_TIMEOUT	(msecs_to_jiffies(1000))
+ /* timeout waiting for the controller finish transfers */
+@@ -392,6 +394,30 @@ static int xiic_wait_tx_empty(struct xiic_i2c *i2c)
+ 	return 0;
+ }
+ 
++static int xiic_clear_en_bnb(struct xiic_i2c *i2c)
++{
++	u8 sr = 0, isr = 0;
++	unsigned long timeout;
++
++	timeout = jiffies + XIIC_BB_TIMEOUT;
++	for (isr = xiic_getreg8(i2c, XIIC_IISR_OFFSET);
++		(isr & XIIC_INTR_BNB_MASK);
++		isr = xiic_getreg8(i2c, XIIC_IISR_OFFSET)) {
++
++		sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET);
++		if (sr & XIIC_SR_BUS_BUSY_MASK)
++			xiic_setreg8(i2c, XIIC_IISR_OFFSET, XIIC_INTR_BNB_MASK);
++
++		if (time_after(jiffies, timeout)) {
++			dev_err(i2c->dev, "Failed to clear bnb\n");
++			return -ETIMEDOUT;
++		}
++	}
++
++	xiic_irq_en(i2c, XIIC_INTR_BNB_MASK);
++	return 0;
++}
++
+ /**
+  * xiic_setclk - Sets the configured clock rate
+  * @i2c: Pointer to the xiic device structure
+@@ -881,9 +907,6 @@ static irqreturn_t xiic_process(int irq, void *dev_id)
+ 	}
+ 
+ 	if (pend & XIIC_INTR_BNB_MASK) {
+-		/* IIC bus has transitioned to not busy */
+-		clr |= XIIC_INTR_BNB_MASK;
+-
+ 		/* The bus is not busy, disable BusNotBusy interrupt */
+ 		xiic_irq_dis(i2c, XIIC_INTR_BNB_MASK);
+ 
+@@ -1028,7 +1051,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+ 
+ 		xiic_setreg16(i2c, XIIC_DTR_REG_OFFSET, val);
+ 
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1095,7 +1118,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+ 
+ 	if (i2c->nmsgs == 1)
+ 		/* very last, enable bus not busy as well */
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+ 
+ 	/* the message is tx:ed */
+ 	i2c->tx_pos = msg->len;
+@@ -1179,11 +1202,11 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+ 				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK |
+ 				((i2c->nmsgs > 1 || xiic_tx_space(i2c)) ?
+ 				XIIC_INTR_TX_HALF_MASK : 0));
+ 
+ 		xiic_fill_tx_fifo(i2c);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1225,8 +1248,9 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+ 
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+-				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK);
++						XIIC_INTR_TX_ERROR_MASK);
++
++		xiic_clear_en_bnb(i2c);
+ 	}
+ 
+ 	i2c->prev_msg_tx = true;
 -- 
 2.43.0
 
