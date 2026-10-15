@@ -4,66 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11D2CC6B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 08:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926ACCC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 09:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQ5ecVPNy31vU8tc5VU+V4etDkTRdGoX/2WdYTpz/+A=; b=lBAU1Yhp+sPI6u2xCjGEMSmq41
-	l4VFpG9M291fL3gxtTkCKyzM6FlQoKpqfBjAQ1FkYCTx2jfo+tfIm4JFc27oWn59qasDtpqF1l3KJ
-	aHhs0XIptvIUqU7rKOAdSICJFnIt/0qqSzdGqWdGlmmP1s5/jpbqKShbLFx1qUPu7kZEDK1MlUQ4S
-	SM0VlVZmm5HY6Z8zUByAzfDBv2133T3dvF0IsPaB5dJUcOZ/RFRXN+i16H0vY9Zc5vurRsTCTnbFf
-	O3UiNDiNcpMQaBwjw4fkWpj/BUP6HbQXopvh6r4n+ptXyC8woJdp4+SR3LHOph6zHzBOzo17Lw/u7
-	GkMITH7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DUNUX8l614Cu1T9gRDJe8kT9crA5BfHrMBGut1MO0uM=; b=113TQ0Ra9vUzQu32tiQi/coisw
+	yEJWKV/r6VKdYCd00nSomfeR46NBL47Q0sUA5KwMd30buSjavoenc3W926VD2mgzrLMosAneiXAdA
+	4m2UHob7AZujmdRdwvkkbuD9+Yk0QKcTpenwbHV/877nW1qevYt+FXcWDo6aI5affrmA7wS5NYV/H
+	MDugq9U75vwXWdZQ+xFa8avgXB4yZpnJj9NeUguU7A+pquvz3qOsvilMx5SYtMC+SHTPMQxUyQBfH
+	bYtlGjK/lJZkragT+/UUwK/vMccaC0XkCThnPAul0eKNyCpyWNTvBmCkslFwRo6EolyFPqrQ03vwy
+	guhdhM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHAA-0000000HBzL-2hya;
-	Thu, 15 Oct 2026 08:50:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHHSh-0000000HDly-3CDK;
+	Thu, 15 Oct 2026 09:09:19 +0000
+Received: from mail-norwayeastazon11013038.outbound.protection.outlook.com ([40.107.159.38] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHHA8-0000000HByr-1KZS;
-	Thu, 15 Oct 2026 08:50:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A514F43E3D;
-	Thu, 15 Oct 2026 08:50:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 830541F000C4;
-	Thu, 15 Oct 2026 08:50:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792054207;
-	bh=iQ5ecVPNy31vU8tc5VU+V4etDkTRdGoX/2WdYTpz/+A=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=b3AH3KelbwRFgVeh4Vhsc+l01AwMf9zHvNYO7Q1KFKpz/lYDv3AepmfnVa7xD5k+m
-	 8IMco0ZtY4kMDqeVaJHOJjxoDPii5e85+OsN55Qin5z1ytZ+NjKRCrV4F+ZuH2Pyit
-	 NB2z+rv4Qz2M6hTh9t6jVbvv7RfHgsW+steohOT4P0KQxF/P4X/RdakSZcQvmJlr5M
-	 KslpU8WeuO5Dq0L6YwxCJQbjqHqrmHq4Dbg0CbZHhywctjKe1e6Uqx5YncbBWQE9qG
-	 P+qfQ6HwgTPtNUM9hfnhwPmCjYlJp7h57aHJmSBDCPIgXqnfTVCX32WN2CRqVvuUwc
-	 D8afj4GJsWm0g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774C9392E9EB;
-	Thu, 15 Oct 2026 08:50:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xHHSf-0000000HDlW-0tCV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Oct 2026 09:09:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NrkyVb0s4knD5Sjkls6oa8gj5X8te5+71CPrepTZ8DzffswP73Lerht5wT/ygDMSDAoBmYASxMEJmE21yP6QZFvfp9TGHUt1aL+b/VnZD1JJCyySBvHPOCeA7tRszWmCpNBAI00xjLZSb/yJHihnQfkmnbcWyKIyK0sB5SGseyl6P0mkY3rWIj8MLW6CBu+ob1egqwPt0A+0eEyiMiUMY0k6O6+ax7KdBh3B0UhvIODl9+r20IPXD4jdMUrqIerdj7BH+xhWBPzcdbiRs/yNX+jSfLz72MxQ0FOgYHcJ69wkNFL1JSbJIJ4g4fqFc/5VBLZ9cHVWSLpylkFiXkJDWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DUNUX8l614Cu1T9gRDJe8kT9crA5BfHrMBGut1MO0uM=;
+ b=kT+wQdrvz7AA2uz0jgz42fyAs3p3CUWi6bN2JIa/4ZFmZQO7RgVYCGrcOWR3mUtj11e9r9tAv/0llk83mr1WGcCX9C7FswzLXStY7FrDh56w1bBApWCrNv0I4SNKv2GcqQbRD3W6G2K+ywRE+GXZ2UnqDTvkLSlHKaoIlAMZPadCMhgIS7K69bswzHgC/OaxDtnyDvT872k0J7ngzO/5Y0E5BGBRJh8HQOjkWDYAfPBFYb/sywdodafkXlTrgq7XyOpqYHMSZdX6uvt25XO0vtLUwRvfRwVZkvGBzuwlqdi8aAqm8MPwXdiZoGoRqt4zzmVszXWuGLgJR8kiimqJ0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DUNUX8l614Cu1T9gRDJe8kT9crA5BfHrMBGut1MO0uM=;
+ b=aFDS/VBQrpd9Q4MS75f1GbHpAvxt+TvsQZsZu02hCrI8qjVn9exNNrYWMvJui1iLDJjYwV6qqk23qbm2MNauASCAL/9T40zYcyzTGMCtNaE2yeWirEc84uWKD89INFycAxKBmBcl0PEdDTh6CuMTgHXV9UMKvC81RmYGKaJRbD78PifFqmr+ALD3QuBC8Do/GWTkQSVxbV4sNK8845df3oivsOVBpSG278ZdTtPcd/5mnn14fAZtl4yjjCU6Ioqtk2kMGeKHmdajh1nyEHtbS3kuS/dIXZr5hG9QDBdaUIosutqbtEuw8DCdjcryi4dJMF7ZyDKMa05gcXdMkJWiGQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by PAXPR04MB9217.eurprd04.prod.outlook.com (2603:10a6:102:232::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
+ 2026 09:09:08 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0522.013; Thu, 15 Oct 2026
+ 09:09:07 +0000
+Date: Thu, 15 Oct 2026 17:13:43 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Lee Jones <lee@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, mfd@lists.linux.dev,
+	linux-watchdog@vger.kernel.org, upstream@lists.phytec.de,
+	andrej.picej@norik.com
+Subject: Re: [PATCH v2 0/4] da9062/da9061 watchdog timeout mode
+Message-ID: <atCZR27iTkoDuxoG@shlinux89>
+References: <20260924065044.368341-1-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260924065044.368341-1-primoz.fiser@norik.com>
+X-ClientProxiedBy: MA5PR01CA0027.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:178::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net 00/10] net: Move setting of netops to fix crash
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179205420627.3286272.11847066903047422427.git-patchwork-notify@kernel.org>
-Date: Thu, 15 Oct 2026 08:50:06 +0000
-References: <20261008022656.3592191-1-mmyangfl@gmail.com>
-In-Reply-To: <20261008022656.3592191-1-mmyangfl@gmail.com>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, afaerber@suse.de,
- mani@kernel.org, ciprian.regus@analog.com, andreas@gaisler.com,
- shenjian15@huawei.com, shaojijie@huawei.com, sebastian.hesselbarth@gmail.com,
- parthiban.veerasooran@microchip.com, danishanwar@ti.com,
- parvathi@couthit.com, rogerq@kernel.org, pmohan@couthit.com,
- runyu.xiao@seu.edu.cn, horms@kernel.org, jacob.e.keller@intel.com,
- sdf@fomichev.me, nb@tipi-net.de, maxime.chevallier@bootlin.com,
- linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
- linux-kernel@vger.kernel.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PAXPR04MB9217:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44643faf-4930-4e69-5ce6-08df2a9bf771
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|7416014|376014|1800799024|6133799003|18002099003|18092099006|22082099003|10067099003|11063799006|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: eeszQ81CFVf4t+egsL3CWqwvlsgBZxLuTS5k4eBSiPDIPGFULBT2Hd1ul5GR10v/XY4cW5qfgqfLT1PyWkrMAblpJ+RO9r1c3HBb0zsJaNJ4LfaVvaOuMvvpzKRjl6rYHYTCwNgUDmbk4f1RHmauY82rCSawc2HKB4VBvTbyXkgmc25ssWbLX8dN2S2avQNQt3rzt1rBfXPsyXGL/mVz+ate/Ac8UVsluJUpqwNvXokrrQ57PiHNnoHvEVZgVRCHPE7Nh4NJ/kDKmRq0IwOJOGPJNLZFpO5x5ngNEFgNZCzKmCoNKuDtVie5HbpmTbIpqAbnlvtf3mk88U/jcgdS/oJbBNKzpkU+B/wihHgkzt5FxNylYHT7f9Ty1MXRw3vgxCxeyP35byObh+neyjlHKZPhbEzNQ2BObterCF3NE5OA0mTvlFdIdLKkyE5vB/Q2PEO1C2vOPpnOQ78iLcKbEsshDe70na/dFDMOsMC1+Y2GaqZTjrmh26j5nhQuFUVUtTyasyAe1mv+eR5NY4Jj3vAmC8kxoRXzD2yRAOz1tbnNBg+YtW/se6UPZ8VVvYOxxxYCKQ5PYw8OlLBAdpEn0y19dTvCFzlvWldKb7lXRUCtQ3PkhpdrzlE4k1CeK9JR
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(7416014)(376014)(1800799024)(6133799003)(18002099003)(18092099006)(22082099003)(10067099003)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U/UxRbiGL3/3PtyNJWn2d0pgnMKR82GY1kNVU+T8osQDmlaJWz6lgcv6FT3W?=
+ =?us-ascii?Q?O7Sbwsf13euAUktyqI18spc4uU+YmfjXN0d27OpFMes5MxMknbijkRE7YtQV?=
+ =?us-ascii?Q?RJB5KU8JFxMXW9n2KYg2SC+Q6BB+BKbIdDwsIRUoagupBlt6+2keazEGpIUs?=
+ =?us-ascii?Q?nThvPbe+dn9IhNysEn1WqYi9cZGksaqVgAQ9K8u/grpdEa9A6Yzhl6wDExUl?=
+ =?us-ascii?Q?9rheuczrzRpOJgZQgvX88nlLJlBwZwf7Ec06ITYA87cPF3nunGZ5Irvgw1y4?=
+ =?us-ascii?Q?JWWlA4zpE4QoauC+Lm5zlW+nC7k/kLIpKz4KirHn8JGZwJFPqbXSylyf8E4i?=
+ =?us-ascii?Q?Yn0cVc8hdH1BhgIb+bd4K3b9IE6q7VYrxKv5pgLdL7hnlJneLA0LXSBv13K5?=
+ =?us-ascii?Q?UxDKPbQhJiNjeYtqU8jgSDKUDDTy/f4boOa5YQeQDMD6if92V0EDlpCWuwbO?=
+ =?us-ascii?Q?qB/0sM9Czm/pCq3dGinBSvbjzQYHPdRcHh86P5PInh05MOqWb7DHbTJt8B+u?=
+ =?us-ascii?Q?GxQ3YrbBwMjTqQAU6Hi+VWr2cetXx9Q6GY6hWuYxuqSh3/sVfj5sYxSRH7ZK?=
+ =?us-ascii?Q?doqRoEFEL4Sp7WCqcYQ3SAUsT5kBBD66q9odRsQ8o3L2FmuZMUgVKbsiE1kb?=
+ =?us-ascii?Q?cNh5dnsbiEF34kWms8SMMtAX+KZU8sGvsXJTYjpzPzi4tJGHJBVkiwkcpJcA?=
+ =?us-ascii?Q?jZrDsaPhwYoYoH0MsyRQvlL61GAMthLx7zBPtkTNJsdYZ9aSSBBNEmoLqRRV?=
+ =?us-ascii?Q?TQJSBbktR/CrsUwq6jKMSfd/w+h4nWjks3KnF3fywHSM1Kqmtmg0E98sFgHl?=
+ =?us-ascii?Q?9CCF+aM9jUHBXN8PzoOavZbnxF7goNr0x6wC8NZUCvJjQmU0Q23kYSX9fnU4?=
+ =?us-ascii?Q?OKYvmkbSjhkb/yI1M6MxOKngXii7KhJ5rC9GPJeKXeFshWkmZqMnkObo54lA?=
+ =?us-ascii?Q?kEw0/14FyuAn3zGI4EZvkhU1XMfOndceqJP6ZBix9mlUO5yqe+9dBdjGimxl?=
+ =?us-ascii?Q?JV1BYi1W5mfCvYnhZhAZFobCoDYSGQ1SkN/Txq/44u8rXjx5ycrHVdCdOVdP?=
+ =?us-ascii?Q?6S66G20fKOVg4LoqsxsgDL8vo6QdCVVTSTWDsu7zp6lx8Bi5awv22LuzX870?=
+ =?us-ascii?Q?gk/dautlLMcTgrII3tCfwv4eQMFcttLV3zcIqj2KVdAgDXNj3jAsZSe25/uP?=
+ =?us-ascii?Q?d6j24jfL0qjQEHF9idiOmeLAVAY8fBFYdk3FqA+uKCd0/k0acYdTVhCtx+jc?=
+ =?us-ascii?Q?80d8BqSYE4q+HPvswcHfFkc1mtThaD1q8oyw3AFk0JlSfALmbLulJUVJS+Ei?=
+ =?us-ascii?Q?O+4CIiJ4aCeJjNDOzdQEbyVMsn4tHvedord1tAu4FitjW1jfFLpOj2OXj2JF?=
+ =?us-ascii?Q?1xc+MJjP4dXX/Cgc4qdbwH3O+qGbV0yumnk1yuubksTuHXwUgloGFZzQTa0y?=
+ =?us-ascii?Q?sZwIGF959KGkbwJ/kMnCf1XgSARgmj/RISJ94OlsCFXS2MmWSI2kSl3MRTRX?=
+ =?us-ascii?Q?82DgylQjwQlAoZCwOLoVfGYjsaanXIsyftZ58SYPTlCIpHw7R0zRfjSQdsI4?=
+ =?us-ascii?Q?21+pkGO+xJ/7sWehrvfWanS9GDKJ6o6W0HNWMTd8LtmucAHOMqC3ftzmy/IC?=
+ =?us-ascii?Q?BL9QlN+0cNnNmelgU2cl2nLvk2kWWaunkf6j0JX8Mc1RCy4KGq/a9q1mwFrX?=
+ =?us-ascii?Q?hfCSk0qqlzqEg+LlT283gupmxyStmBrc3T+5Y3jdVcGnhZAHHYA27jCXj65J?=
+ =?us-ascii?Q?sHFLPqaPAObclBeceppBVn0Z6KS4AlrGvTMgEpjxRC1p8978oMmY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44643faf-4930-4e69-5ce6-08df2a9bf771
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 09:09:07.8774
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AoeCrYii2J2PpE/tmXXIO8J+PWY3kYamKaqoTjbBJJwi+z/60Rr/KQlByEwg8FaVKA5QfXBMhKABI2+w5avZJVI5kQwiYRNjh1kym7pFzfWule4UhSTrt35XpHyceRcD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9217
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261015_020917_259374_8F9DE937 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +146,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Thu,  8 Oct 2026 10:26:42 +0800 you wrote:
-> Commit ded86da4bbb7 ("net: ethtool: relax ethnl_req_get_phydev()
-> locking assertion") put a netdev_need_ops_lock() check on the
-> phy_attach_direct() path, in phy_link_topo_add_phy(). With
-> CONFIG_NET_SHAPER enabled netdev_need_ops_lock() reads
-> dev->netdev_ops->net_shaper_ops, so any driver that connects a PHY
-> before assigning ndev->netdev_ops now dies with a NULL pointer
-> dereference at probe time. The breakage showed up in v7.3-rc1.
+On Thu, Sep 24, 2026 at 08:50:40AM +0200, Primoz Fiser wrote:
+>This is a revival of a series originally posted by Andrej Picej in              
+>December 2021 [1]. It lets the DA9061/2 PMIC watchdog be configured via         
+>the "dlg,wdt-sd" DT property, to trigger a full SHUTDOWN instead of the         
+>default POWERDOWN on watchdog timeout, and enables that on the PHYTEC           
+>phyCORE-i.MX6 SOM.                                                              
+>                                                                                
+>From v5 of original series this resend drops patch 4/5 ("dt-bindings:           
+>watchdog: da9062: add watchdog timeout mode") because it already landed         
+>upstream as commit 382256b219fb, later converted from .txt to YAML by           
+>bd888a4377ae. Thus dlg,da9062-watchdog.yaml already documents dlg,wdt-sd        
+>property.                                                                       
+>                                                                                
+>Patches 1 and 2 (the mfd prerequisites making register CONFIG_I                 
+>writable) needed a rebase: an unrelated commit has since added                  
+>CONFIG_J, the register immediately adjacent to CONFIG_I, to the same            
+>writeable-range tables. Rather than reapplying the original single-             
+>register insert next to it, these merge CONFIG_I and CONFIG_J into one          
+>range, matching the existing CONFIG_G-CONFIG_K style already used in            
+>this file.                                                                      
+>                                                                                
+>Patch 3 (the watchdog driver support) still applies unmodified.                 
+>                                                                                
+>Patch 4 only needed its target path updated for the arch/arm/boot/dts           
+>vendor sub-directory move (imx6qdl-phytec-phycore-som.dtsi is now under         
+>nxp/imx/); its content is unchanged.
+>
+>Changes in v2:
+>
+>Patch 1 and 2: 
+>- capitalize subject description
 > 
-> [...]
+>Patch 3:
+>- implement Guenter's remarks (code refactor and update commit message)
+>
+>Patch 4:
+>- capitalize subject description
+>
+>Link to v1: https://lore.kernel.org/all/20260923111719.2032012-1-primoz.fiser@norik.com/                                         
+>                                                                                
+>[1] https://lore.kernel.org/all/20211206064732.280375-1-andrej.picej@norik.com/
+>
+>Andrej Picej (3):
+>  mfd: da9061: Make register CONFIG_I writable
+>  watchdog: da9062: Add support for dlg,wdt-sd property
+>  ARM: dts: imx6: phycore-som: Set watchdog timeout mode to shutdown
+>
+>Stefan Christ (1):
+>  mfd: da9062: Make register CONFIG_I writable
+>
 
-Here is the summary with links:
-  - [net,01/10] net: hisilicon: hisi_femac: Move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/444889dfa27b
-  - [net,02/10] net: hisilicon: hip04_eth: Move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/0d9342701f14
-  - [net,03/10] net: ethernet: actions: Move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/c2c482431985
-  - [net,04/10] net: ethernet: adi: Move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/ea1565cbf063
-  - [net,05/10] net: mv643xx: move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/a3eef3d2cca0
-  - [net,06/10] net: au1000: move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/beabbafdd0f6
-  - [net,07/10] net: ethoc: move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/c9f8ce62a5fa
-  - [net,08/10] net: ethernet: aeroflex: move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/d71483f0716e
-  - [net,09/10] net: ti: icssm-prueth: Move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/955bb7cf680d
-  - [net,10/10] microchip: lan865x: move setting of netops to fix crash
-    https://git.kernel.org/netdev/net/c/2a3f6d2a9ac3
+LGTM:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
