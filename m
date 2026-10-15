@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F56CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 20:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1FECC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 20:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awhRxtTb59uFrw9BcmOadR/YY1+NLLAGsGfYTgdJp4k=; b=ngBicMf2Wb1LXoroaXd1V80GuB
-	FSPwPo45rcD/XONrvptb3Mjegr2Sdkkkx9jNPhNOYNm9PY0W8gSPx/sk9a9RxQZ9W0SlC6eAQS1KF
-	tImwR/3nxYIkaj5YlYZ5I6Ml1rnxn7cMP148RBXVeWKNiVBcuidI15WXYqeo6mUa2XV0NmQj+UxBO
-	L4QTBJafz+ulTxP5V6T4l2Bqf8VeTWWxh+Ybsx5cp5xhLCASUgB5hOg55pVuD7ZvvdSA9VDhlCEFT
-	72OFEodbSOjwNiEte5daf3ZPgJppjEctiYrrs2+ZmfTiVY6Wkc3haRdQINjw4VOyE9hFZ8uuy3W4+
-	/CmrRGEg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=JI8cos0DeBZwqgU3xgKQTheXjtcLPhmJEiAcd1ht54c=; b=rIeBKeDunUfLvN
+	j5j2ftO5w59PFDQvTWCMJpglRdbI6mJY96f7g6N2/yIyXaj2JEldOTmTBu/z6Vj/FNsW9oU6Sl37d
+	7FNmf4E6Izc13IuZ1tMi8gH5u9k/j2hFy8MDjBk1au9z2E4lTrLWxRG9104zP9ar66NjlLmr84nRI
+	7ZZppzwSZtFNUaDbdag3FiNbcEAdc2oG8IksN/3EQI7RmaC6rONHDrieNZttcbi6WcYHcrOkvtoSA
+	4LN/cndrN94YWIBO7KnB0TaSsgF4J34pAwXYZ/jQzQn05Ml7BgQdCZI9YT+AtwF5WvUPlErfNayR6
+	/wX65tq2L1KQ9AliTvXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHSFw-00000001MO6-0NTr;
-	Thu, 15 Oct 2026 20:40:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHSKm-00000001MuG-2rPn;
+	Thu, 15 Oct 2026 20:45:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHSFv-00000001MNs-00q2
+	id 1xHSKl-00000001Mtz-2OGu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 20:40:51 +0000
+	Thu, 15 Oct 2026 20:45:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6762443770;
-	Thu, 15 Oct 2026 20:40:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 721E81F000C4;
-	Thu, 15 Oct 2026 20:40:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0AF3742DC6;
+	Thu, 15 Oct 2026 20:45:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B655F1F000C4;
+	Thu, 15 Oct 2026 20:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792096850;
-	bh=awhRxtTb59uFrw9BcmOadR/YY1+NLLAGsGfYTgdJp4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FeSobAKIBHtsxNGahwJm3YVst3IQFjTWGtlNOyojnC4A4Fp4N4J5cTYEiE1h91DaU
-	 OsaDc+zbFhl+6ZKDHlpSyTfUrqBj89vMq9bAvgY+CIjVg9cn7ZRTLpdOm99Hqi55Mj
-	 VzT5lUBy2+PqY29fF3sPnlIwL+ZBRctYw7Nx/SGjpn98ZffztBF7d+0/8gK5219gZ/
-	 oXzlXZFgxGnuCN/foPqyif7We/eTR+W8T2+byTpzDTQ0YbXJM9v9P6oFh30lKdf9eB
-	 3fNb3ka6aDBRjT65LsFNLQ6GjScvxyD33SyucdF4Led0g8s5ERzpPhyMyVh25vdzZT
-	 Vt46uaxBjk45w==
-Date: Thu, 15 Oct 2026 22:40:46 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
-Message-ID: <atE6LA8SFpFvZfzZ@zenone.zhora.eu>
-References: <20261014-i2c-xiic-restore-runtime-pm-teardown-v8-1-40668c270069@nexthop.ai>
+	s=k20260515; t=1792097150;
+	bh=JI8cos0DeBZwqgU3xgKQTheXjtcLPhmJEiAcd1ht54c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=ax2S36DhvUA8wOkFm9CYDx04QXNVvIwoMel2dK5m9srQ0Ek8mVfYd92X8iS+rCPt9
+	 Tc7lhO6qisGJd0cSRW2jNB3X2yHspyE4+FLLQ4ZQ2Pfbl4nmC7ru2N81vUqQ/7FKeB
+	 KMsyTOFmCbu2jdTAlKAvdzmbCyMvx0aIyMKPv8q4lHGJnBXQtW9vot86pXNrw5iaER
+	 3LCEJKhgjMdQX5O6mnwIZNZq0b7nx5Bi9DNgq8BQycHtadTBGsjXXznnBZU6lK475F
+	 nf1V+cKuxVobIcf1jZr4ZzL72H5GxQ4x0Hwu/+s3nXi3s9DhBC+MSCUfMAWGSp/N08
+	 15rPgAFj5j2FA==
+Date: Thu, 15 Oct 2026 15:45:49 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Semih Baskan <strst.gs@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rosen Penev <rosenp@gmail.com>,
+	Rani Hod <rani.hod@gmail.com>,
+	bcm-kernel-feedback-list@broadcom.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v4 0/2] PCI: iproc-bcma: Use EROM instead of devicetree
+Message-ID: <20261015204549.GA1796999@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261014-i2c-xiic-restore-runtime-pm-teardown-v8-1-40668c270069@nexthop.ai>
+In-Reply-To: <f7cf09c5-dba1-4501-b93e-ce4ad555edeb@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,23 +78,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Abdurrahman,
+On Thu, Oct 15, 2026 at 12:10:22PM -0700, Florian Fainelli wrote:
+> On 10/15/26 11:51, Semih Baskan wrote:
+> > > Humm, this is not materially different for me before/after applying tihs
+> > > patch and unfortunately but here is what I am getting with these two
+> > > patches applied on top of Linus' master at
+> > > 0fcb05b72344f40806cbe810de8872f1698bf053:
+> > [...]
+> > > Unhandled fault: external abort on non-linefetch (0x1008) at 0xc896df40
+> > [...]
+> > > r3 : c896df40  r2 : 0000ffff  r1 : 00000f40  r0 : c1ce1a00
+> > [...]
+> > >    pci_host_probe from iproc_pcie_setup+0x8a0/0xd94
+> > >    iproc_pcie_setup from iproc_pltfm_pcie_probe+0x10c/0x1d4
+> > 
+> > The series only changes the pcie-iproc-bcma path, and this kernel probes
+> > the controller with pcie-iproc-platform, so the patches do not run here.
+> 
+> Yes, clearly not enough coffee, thank you Semih.
+> 
+> > I think the abort is the read of APB_ERR_EN at offset 0xf40 (r1). I
+> > measured the same on an RT-N18U (core revision 0x01) in September: the
+> > platform-only kernel does not come up, and with this one line it boots
+> > and enumerates the BCM4360 [1]:
+> > 
+> > --- a/drivers/pci/controller/pcie-iproc.c
+> > +++ b/drivers/pci/controller/pcie-iproc.c
+> > @@ -1388,7 +1388,7 @@
+> >           break;
+> >       case IPROC_PCIE_PAXB:
+> >           regs = iproc_pcie_reg_paxb;
+> > -        pcie->has_apb_err_disable = true;
+> > +        pcie->has_apb_err_disable = false;
+> >           if (pcie->need_ob_cfg) {
+> >               pcie->ob_map = paxb_ob_map;
+> >               pcie->ob.nr_windows = ARRAY_SIZE(paxb_ob_map);
+> 
+> Yes that works for me, and I was able to establish the last working baseline
+> was v7.0 which did not include 76701239797698b620f2b7ec713fe08ef50ee664
+> ("ARM: dts: BCM5301X: Describe PCIe controllers fully"), whereas v7.1 and
+> onwards crashes unless your patch is applied.
 
-On Wed, Oct 14, 2026 at 04:56:55PM -0700, Abdurrahman Hussain wrote:
-> The devres conversion replaced manual pm_runtime_enable()/disable() with
-> devm_pm_runtime_set_active_enabled() and dropped the remove-time runtime
-> PM teardown. The managed release tears runtime PM down in the wrong
-> order: it calls pm_runtime_dont_use_autosuspend() before
-> pm_runtime_disable(), i.e. while runtime PM is still enabled, and devres
-> is LIFO so the devm_clk_get_enabled() release runs afterwards.
+I assume this means
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/iproc-bcma&id=9850907ee1dd4376c09c4129e0adbe3b39d191b7
+is ok after all?
 
-...
+I do think it's unexpected that the kernel would panic even if the
+correct driver hasn't been loaded.
 
-> Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+If we don't have the right driver for the PCI controller, ideally the
+wrong driver's .probe() method wouldn't be called at all, and if it
+*is* called, its .probe() should fail gracefully.
 
-pushed to i2c/i2c-fixes.
+The kernel shouldn't panic until it fails to find a root filesystem.
 
-Thanks,
-Andi
+> Also, the good thing is that my local test bed has been resurrected and will
+> be more regularly testing now.
+> 
+> > 
+> > [1] https://lore.kernel.org/all/CAAsRjRnV-RTddO6h2XCUz2N5pB0pS8i_-_2XRcD=WOTA7AAFZQ@mail.gmail.com/
+> > 
+> > Best regards,
+> > Semih
+> 
+> 
+> -- 
+> Florian
 
