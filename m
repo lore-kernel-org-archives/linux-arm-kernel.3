@@ -4,59 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E01CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35EACC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Cc:References:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0y5gsl/BaToZB61EhRs0018eaLuU1oAhGUHW1F3Vroc=; b=iDTK0P2rZrLP+2pApJI7gYA0v+
-	+s43K7mx0ofSr/Uv7QUszkb4qUVg1Vp9dCPKlSxw0oMh+ty1Tu89t7eHTq7lirnQEGVZ/rTVyljWb
-	d8QGTGU9jwEUpntB5M8dtCbmlUCHVaHJftv/WuIJGbKWE2wKV1Lq7Hnud+AirDQG7dHxH7iNt5fgV
-	u+LGxNeKaKCdP/84p3sjTq8JLVqIaBIIZ8O++wpMVtvk1JhKR86+PgIICRA5w1wY1BqI1K01IR8Sq
-	PT69Eaz8uiY38tA2K7AQZu6oMHZh+m3WyveEE0CiwfKqYugCcRkP3kRPyNI2oX+UWsBJTOkRnBhXC
-	jeTdQZXg==;
+	bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=; b=3eZnLerLAUlohCVBBV9vNluusk
+	FTfN9rlH/R9k+RUyTbBxrs3M4NJCMteV5hwh8VjqfQzhrJu5lL0klIF/LUq4WyLI5BrYk+umY4Czf
+	wvyRXYxwfCe32Q4ZUXZVTTPQ5Wpod52MivMOqrzeVMJAGcq39SqbnM7GzSxBRUBbOfTECIO4aQatu
+	SzZIHL43xsZmzx7ylaXt5bCQOPQr4iIxW87jfg5c3UBQW97GeHv7lVyeez6gOSevWTAYHt7NHmJmk
+	Ids5GHj/nh0tWlEJx8O+t8ibXNMDIvbvKz8GTKcyIjwT/KeRaWdAGg6ri3pDQUEGlcDWmhZ0O3mFt
+	B6N6MYuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMVN-00000000OZ6-2dcg;
-	Thu, 15 Oct 2026 14:32:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMVD-00000000OWS-1GXu
+	id 1xHMVT-00000000OaN-489B;
+	Thu, 15 Oct 2026 14:32:32 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMVM-00000000OYJ-2scl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:32:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F58F1477;
-	Thu, 15 Oct 2026 07:32:09 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 551113F871;
-	Thu, 15 Oct 2026 07:32:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792074732; bh=9N8a5ngkbOk+a5udBrKH9SRAp/o0FTe0zB4kzWSWoX0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CsA7gsOcmoOYjFAgzAeA9MaqduWINywOeGugNuLGiccXEs+ZXjbsSZDEoJX2h016M
-	 Lvk18HtpSrPC2hcgxdNhwlQKkHwTHE/cAWmznvHoWg4hhf8/Sq/SqvJwe7kCxaf56Q
-	 9Bi978jSIm5WszDXMdEmP1A40QzLTLPJ9NUbC2+s=
-Date: Thu, 15 Oct 2026 15:31:48 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH] arm64/debug: mask debug exceptions when called from
- common code
-Message-ID: <atDj1Fk9SpuX36SP@J2N7QTR9R3.cambridge.arm.com>
-References: <20260907163101.131569-1-ada.coupriediaz@arm.com>
+	Thu, 15 Oct 2026 14:32:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BjoFXrdXyckisdIOBJJfTRM2ASeSO5wGRVcJykPBD8zFJUzmh8PuVsinMAi6CgPipDoo8V7Pq8v6xjz4ngi2Qi8athi7Qoepd5iDBekQMgD0nM+b0356wXRkvDLjRqIyB945TBMr/wNn4eG+8XwlROUFIbj2Fy51nBOqzoLV5XWFISq5MUlTlSu8Q2myi8U6wOJjoZPkskWmvL/TrHl1ar2R6mueyDzDmb7YXcNkVH7jnBLi2wHC7ohw7+MNqf03wCaF9k5qVq+OCyZdv+MFskHogCph8UNFrsfDrSCSimbTB9UYt62MGpibvKo2VATuaCKm/WXcXhKkSAGV+LwpQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=;
+ b=MY/K3wvntDYEtg8pmElzGDSMSedb0pBxyvHvgcCwaVqP4HJuYadbqYD5DZLcXEJOjZ9ZmdyScQja7GwNT1wxr7D/zj81IQLXPr4i9+mkQAjsKVclpSqKErZG0nhS5CzG+qYWLob53MNCascGue/J/LnK3m3ZVBom879m2da2dWnR79P6FIcFKQwN/4l+TAxZKO8mni+UjgC+s8iHYf+bTGXbroACE2U+e3zz6NFZmFaLH3QiTMw+ZSXgGMeRPVYdACntuqEG7UutI3r1nMQOhY/d8XPmrdHAPAf65qeuYE0ep54GazijdpFBILOEdbKxWjlEVic8Ur6biwAV5zyIoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MZTJ4L9vahBZUDt4Lip9E4w4Tnb0yT70qmvGInjEqMc=;
+ b=l0LKAB4Jgi/8uq9sFmfcMqomdrAvpiGRlOfAqlGkz8TKoLhSF6I5trjf2tLUYNU+7/Yzn07bMF2Kth3AmBgLVdyKbo1GR+UbkCzDQZdMW/nJrsMysv7JPbNXNBGEQdw+FK9ooGvSGlw91O25VxT+sv9DY3X4K8lhy0Gie5GrAaQ=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) by
+ MN2PR12MB4286.namprd12.prod.outlook.com (2603:10b6:208:199::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Thu, 15 Oct
+ 2026 14:32:18 +0000
+Received: from DM4PR12MB6448.namprd12.prod.outlook.com
+ ([fe80::62c2:71cd:7fdc:987a]) by DM4PR12MB6448.namprd12.prod.outlook.com
+ ([fe80::62c2:71cd:7fdc:987a%4]) with mapi id 15.21.0496.021; Thu, 15 Oct 2026
+ 14:32:18 +0000
+Message-ID: <1f6afb5d-47d6-4c15-9ea6-d4a96da9ee68@amd.com>
+Date: Thu, 15 Oct 2026 07:32:15 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] dt-bindings: remoteproc: Add RPMsg resources to AMD
+ BRAM rproc
+To: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20261014213426.2957480-1-ben.levinsky@amd.com>
+ <20261014213426.2957480-6-ben.levinsky@amd.com>
+ <20261015-ethereal-cicada-of-perspective-c1aaca@quoll>
+ <DM4PR12MB64480F027338BA7A1EF91E17839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
+Content-Language: en-US
+Cc: "Levinsky, Ben <ben.levinsky@amd.com> jassisinghbrar@gmail.com"
+ <jassisinghbrar@gmail.com>, "andersson@kernel.org" <andersson@kernel.org>,
+ "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "Simek, Michal" <michal.simek@amd.com>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "Shah, Tanmay" <tanmay.shah@amd.com>
+From: Ben Levinsky <blevinsk@amd.com>
+In-Reply-To: <DM4PR12MB64480F027338BA7A1EF91E17839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR13CA0043.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c2::18) To DM4PR12MB6448.namprd12.prod.outlook.com
+ (2603:10b6:8:8a::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907163101.131569-1-ada.coupriediaz@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB6448:EE_|MN2PR12MB4286:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92bec665-49b4-4e14-9966-08df2ac91db2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|56012099006|11063799006|4143699003|261009223027099003|10067099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: DtsM1gLykeb77/t3tEapSFrJFpPIlCLiacQR/eqyhcbDSpWdKqOqLWhNWjbI2GNvyDLykc1H986jsr1BhjoaPbGOxIHwI8O8ZK9N7jR03d9XHawZogghhhcB+ogEyI3YWFymDev0exHvJNAduEwS44sAHSYA/I+GwTzGJukpXjlsSEaoOA8BdaCGmK+10mZVPJiWHutlsgA669fimcYaaQCruHiqG/0MsGLx6zAwsGNYiNvjy+XVLN9+1+9RKlRLjyNQ/Yqzlkfod6Ei16Fb5jhaXbS6uEevHCIpHkLEi4kbWYeAPEqMQbSiOHTRGy7120O9e1RvRoWIg9+7LM1sbyAbPiNn5ZToEYWwQ/kiaGCKf0va2s6EUsQO1WTfwrbb9ODbgK1rDDyAAV3otaARFgRY9GrmlA7MLloQ3s3JyYxPXkUeP8rZqEAzs9Lz+h2m4mDiyB/lyQsI1lJt3y0kFJ2Gl9STq3C3yVI4z4FrPIyOV8KNUICw7d/lnxkqIIzAHGUb+GbKTfTlWwVm2NPfvAgUe/vtKEkxJrolybWPvdVxziCpwwrBzv0TLS6FObTt6Dx4pu2875AaF1W3fUI+XdNgkZQVGjogNxchh18lBRycI8vA60noooJAlieL0IBPt3MfhStQMFgk6mPGqjC1n7hU1NVjBErUkNbcT7KE7ww=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6448.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1cwOFozeUUwYkNrR25tV0l2dTBpMkFZNndXSVFRVjNmZTBKaGR2eVc5aFJt?=
+ =?utf-8?B?UVhSdlFoTThuclRuM0pZc0NhY1hwM0FheHBuWlhaRjJlanBtNlpncTQ5cDFi?=
+ =?utf-8?B?Qy9nbTIvaHp1ZGRwK0gyb2pNQkpoL0tqLzdaak1RNmhTTGVFWk9XcWpUSzhz?=
+ =?utf-8?B?Z0ZNSDJlWjhPWkpLVmdDNVlWUUk1MjVVeWk2YVFIWlk1Z1BINFQ1NHVkTHdC?=
+ =?utf-8?B?RHlKSWh3V01NSGpoc1JQb2t6Y1o0MEdSbEx2dTduRm53cW1qT2JaQVB3TDln?=
+ =?utf-8?B?VlExTmxwNmRvVEhrZ1BIWmtZdzNSc0QyYXMvc0VGdDVLeWxsQ1VqRG0ycml4?=
+ =?utf-8?B?TVZ4WkN2T0RzK1d3dVZoci9hcFBhS25SZ1VqWTRLN05NOVJJbmVnbU5EUzdz?=
+ =?utf-8?B?NE9vdi9OSUh2ZVVoREtjcUFJUDBDbjBIRm1CV1NLVlVsSWVhQ0NrT3JoQ2pm?=
+ =?utf-8?B?S2tsOFlrK2d3VlNuRTFOLzdBMjRvY0tZTHlQcGJiSjA1K2UrUTVHU29OMTVW?=
+ =?utf-8?B?bjBRQUx5cVZHZmRtUHRqSVcrc2hzcVlSMkdVTFY0K1RuZW9IK3A2cXI0Kzhy?=
+ =?utf-8?B?c1RIN2xraGdmemhzdGpLc0pvZVF5c2hxemFHS2UxWVhNL05LNXhwY1RjYXBZ?=
+ =?utf-8?B?YzFuR0lRZVNxSG1ITWNaeG5tNTlkVU9IYXZQaVVIdDNKMkZ1QW5hWVFSejNk?=
+ =?utf-8?B?ZHNRKzkyUDZhT1lwcStLUU0rTVZwMW13dUMwRHVFSkg0NlVIdTdQNEVRS1Vk?=
+ =?utf-8?B?OWRwcEFMUER6SW1sd045MFJkbDkzWGZEeFFCRXdtWnZ4QXhRRHEycXV6UVdT?=
+ =?utf-8?B?akhzNXFGOS80aStBeGlnempFV2NWb3ZKdUpMSXlqU1JaK1pGR1RzeFNobk92?=
+ =?utf-8?B?M2swYVJYRTFzYnFDdmEzRkY4eTNlbUViRk9vRCtlQjZNeUlvdHdKUm81TzdZ?=
+ =?utf-8?B?Y0F6NGlFd1RxU3dZNjZDYTlRMWc5VzdzeEMxRHdabGJiQ1FnanJMdWlvS2NI?=
+ =?utf-8?B?NDIyNnpwYm1qT0RhRWdTNlFCZE5paGNQOG9QQ3VoTHVSU2I4YTl6ajZIcEpi?=
+ =?utf-8?B?ZlprTHZQcVV0SGFhcXJOUlJtd3hxc2d3ZUgyOGs1V2kvdzVUc0UxWkNUV1Rz?=
+ =?utf-8?B?UTlRbVp5KzB1Zm1iQk5FNldoeEZBZnJWOFdXcGRhVW5OZjBNT0N3eERnSHBS?=
+ =?utf-8?B?Q2xDSHpGNXBiWHJBb1hCVzNIZHpxcjU5MnB6RFdRQk5HYUY2c3lhcjFuY2lz?=
+ =?utf-8?B?WUtPWnN2SHEzNlRXelo0MXo4SXVCNkNRMnVSK0Z6Mm1PeFJPZFZaS2dySTda?=
+ =?utf-8?B?dXJ3a0lsQ00rdllQUlhwY2tjd2Z2Wlp3bUw5WVRYS29lcDg0cE9OTzFNaWRB?=
+ =?utf-8?B?NTFab012RjVsbjJnNW11a25NamYrQ0RQNUdrL0J0SFhBM1BxSk1COXFQWjR6?=
+ =?utf-8?B?UXBGNmNTVDRPaC9vNC9TdmFYQ2ZHaHJqVFlwdU5ianlTZWFYUEJLdGVuQW5Y?=
+ =?utf-8?B?Y0lGQkNtdUVqc283eTFHM2NNZk1hTm9yMk0ybHEraWRFSU14bW9kZzR2M2Rj?=
+ =?utf-8?B?dTB5NElPbkt3NmpGeUVvRXBZYUdTOUFaVXdVSzcxa3UxZFVHT0liVE90SjBM?=
+ =?utf-8?B?c2grL3EraXZHejV5cCtEaFgyVTAzYlk5N2tmWWtkZVpIak12Q2RlS3N5Tlp3?=
+ =?utf-8?B?T3RKY2Fxb2ErU05PR05VRVU2WnJiWE8xYmlFQzZBMXd6RXVEdWpEbmNhZWtu?=
+ =?utf-8?B?d3k5UjBBM0srR3FOYW4vdXk3ZEh5YXFyZEdsbDlPU2xGWnpPNkVjUTd5dlo3?=
+ =?utf-8?B?YmdNZnBMMTIrTUxkNGd3OHEyVjhzTGx3a1h3ajRwelNWZnZ6SUluajlYV2NR?=
+ =?utf-8?B?OHYvcGtmMFN6TEpCOXBJeWg5Z3RjR1I2UDdRRVMzMWx4dFJOcXZWZ2lhUXJk?=
+ =?utf-8?B?WjdLM08xZ3Z5MHcvaUZIbi9QVTVtVUZmTG5BQ2drYk42WFcrRzBJWEZkY0cr?=
+ =?utf-8?B?WFROZ1gvcVU0Q0JKTFp3VkxJOGpQc2srSnd6aUZyR3pFdFNWQ29XRnVaUXVo?=
+ =?utf-8?B?dFB1WFJJT3hyamo5bDY2NkRyeUloSjFkdGpjYVBKSFdjc3Z0bWZYRVhFQzE1?=
+ =?utf-8?B?WkF5UmhRUTVCeDVWN2VuS0pFMnc5Y245dmlWYlZrajQybVNRa3phLzFrcE9q?=
+ =?utf-8?B?dWY2VHZQMFE2R2hRUG9yeXhDa0JPQlVyNWZQa3AwZVdqWVFzcWJnTTU5U0VY?=
+ =?utf-8?B?MXlOV0VKZHhzSFp6SFNIekpFa3N4ZkRFNDBMYW5KM2pZR2pVOUZKaS8rNkxL?=
+ =?utf-8?B?Z21BNHpTUXhMemZISCtxMmdnS1FXdjZETUtZRndINGJMNkkwaHhNdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92bec665-49b4-4e14-9966-08df2ac91db2
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6448.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 14:32:18.6087
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3xRUpWQdTfA/cdVujmfiDVyowbmf0twmzcu0OmKN65/Tq2fE0ZGaWiCaEhRgqtmw2NjfFA4BojXyp5H+qAEBPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4286
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_073215_564569_A4C2252D 
-X-CRM114-Status: GOOD (  32.65  )
+X-CRM114-CacheID: sfid-20261015_073224_975806_BCB5A53E 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,146 +159,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:31:01PM +0100, Ada Couprie Diaz wrote:
-> We can currently take debug exceptions while manipulating the hardware
-> breakpoint registers and perf slots when called from generic kernel code.
-> This can lead to errors and unsound behaviours in some pathological
-> (and self-inflicted) edge cases[0].
-> 
-> Save and restore the interrupt mask around those manipulations.
-> 
-> This is to avoid a superfluous save/restore when calling
-> `toggle_bp_registers()` and `hw_breakpoint_control()` from our arch code,
-> as debug exceptions will already be masked in all cases.
-> It should also allow some clean ups by batching ISBs when we update
-> multiple registers, rather than doing one for each register write.
-> 
-> Clarify some comments and specify a few functions which should be called
-> with debug exceptions masked (even though that is true for most of them).
-> 
-> [0]: https://lore.kernel.org/linux-arm-kernel/adeE4MD0RgapI8aL@J2N7QTR9R3/
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-FWIW, this looks good to me, so:
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+> 
+> *From: *Krzysztof Kozlowski <krzk@kernel.org>
+> *Date: *Thursday, October 15, 2026 at 2:50 AM
+> *To: *Levinsky, Ben <ben.levinsky@amd.com>
+> *Cc: *jassisinghbrar@gmail.com <jassisinghbrar@gmail.com>; andersson@kernel.org 
+> <andersson@kernel.org>; mathieu.poirier@linaro.org <mathieu.poirier@linaro.org>; 
+> robh@kernel.org <robh@kernel.org>; krzk+dt@kernel.org <krzk+dt@kernel.org>; 
+> conor+dt@kernel.org <conor+dt@kernel.org>; Simek, Michal <michal.simek@amd.com>; 
+> linux-remoteproc@vger.kernel.org <linux-remoteproc@vger.kernel.org>; 
+> devicetree@vger.kernel.org <devicetree@vger.kernel.org>; linux-arm- 
+> kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; linux- 
+> kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; Shah, Tanmay 
+> <tanmay.shah@amd.com>
+> *Subject: *Re: [PATCH 5/6] dt-bindings: remoteproc: Add RPMsg resources to AMD 
+> BRAM rproc
+> 
+> On Wed, Oct 14, 2026 at 02:34:25PM -0700, Ben Levinsky wrote:
+>  > Describe the optional mailbox channels and named reserved-memory
+>  > regions used for RPMsg communication with a BRAM-based MicroBlaze
+>  > remote processor.
+>  >
+>  > The three named memory regions provide the two virtio vrings and the
+>  > shared RPMsg buffer pool. Firmware and its loaded resource table remain
+>  > in the executable BRAM described by reg.
+>  >
+>  > Assisted-by: LLM sparse
+> 
+> How sparse can assist here?
 
-Mark.
 
-> ----
-> This is a follow-up of [1], which blanketly masks debug exceptions rather
-> than fiddling with specific edge cases one by one as discussed with Will.
+  Hi Krzysztof,
+
+  It did not. As in patch 3, the trailer was applied to the whole series
+  by mistake. I will correct it in v2.
+
 > 
-> I'm not sure about specifying that `toggle_bp_registers()` and
-> `hw_breakpoint_control()` must be called with debug exceptions masked,
-> as most other functions here do too, but those are the only one that need it
-> which are called via common code, rather than arch entry or debug code.
+>  > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
+>  > ---
+>  >  .../bindings/remoteproc/amd,bram-rproc.yaml   | 31 +++++++++++++++++++
+>  >  1 file changed, 31 insertions(+)
+>  >
+>  > diff --git a/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml 
+> b/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
+>  > index c0359f447ea8..daff8e615ab6 100644
+>  > --- a/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
+>  > +++ b/Documentation/devicetree/bindings/remoteproc/amd,bram-rproc.yaml
+>  > @@ -84,6 +84,33 @@ properties:
+>  >      description:
+>  >        GPIO specifier controlling the soft-core reset input.
+>  >
+>  > +  mboxes:
+>  > +    maxItems: 2
+>  > +
+>  > +  mbox-names:
+>  > +    items:
+>  > +      - const: tx
+>  > +      - const: rx
+>  > +
+>  > +  memory-region:
+>  > +    maxItems: 3
+>  > +
+>  > +  memory-region-names:
+>  > +    items:
+>  > +      - const: vdev0vring0
+>  > +      - const: vdev0vring1
+>  > +      - const: vdev0buffer
+>  > +
+>  > +dependentRequired:
+>  > +  mboxes:
+>  > +    - mbox-names
+>  > +  mbox-names:
+>  > +    - mboxes
 > 
-> Thanks,
-> Ada
+> Why do you add this? Please instruct your LLM to actually understand and
+> learn dtschema.
 > 
-> [1]: https://lore.kernel.org/r/20260527161553.97676-1-ada.coupriediaz@arm.com
-> ---
->  arch/arm64/kernel/hw_breakpoint.c | 32 ++++++++++++++++++++++++++++---
->  1 file changed, 29 insertions(+), 3 deletions(-)
+> Best regards,
+> Krzysztof
 > 
-> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-> index 73cce8ac8368..32b38967433e 100644
-> --- a/arch/arm64/kernel/hw_breakpoint.c
-> +++ b/arch/arm64/kernel/hw_breakpoint.c
-> @@ -20,6 +20,7 @@
->  #include <linux/uaccess.h>
->  
->  #include <asm/current.h>
-> +#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/esr.h>
->  #include <asm/exception.h>
-> @@ -221,6 +222,12 @@ static int hw_breakpoint_slot_setup(struct perf_event **slots, int max_slots,
->  	return -ENOSPC;
->  }
->  
-> +/*
-> + * Configure hardware breakpoint registers from a perf event,
-> + * according to operation.
-> + *
-> + * Must be called with debug exceptions masked.
-> + */
->  static int hw_breakpoint_control(struct perf_event *bp,
->  				 enum hw_breakpoint_ops ops)
->  {
-> @@ -286,15 +293,24 @@ static int hw_breakpoint_control(struct perf_event *bp,
->  
->  /*
->   * Install a perf counter breakpoint.
-> + *
-> + * Perf can and will call this with debug exceptions unmasked.
-> + * Mask them to avoid triggering one while manipulating their registers.
->   */
->  int arch_install_hw_breakpoint(struct perf_event *bp)
->  {
-> -	return hw_breakpoint_control(bp, HW_BREAKPOINT_INSTALL);
-> +	unsigned long daif = local_daif_save();
-> +	int ret = hw_breakpoint_control(bp, HW_BREAKPOINT_INSTALL);
-> +
-> +	local_daif_restore(daif);
-> +	return ret;
->  }
->  
->  void arch_uninstall_hw_breakpoint(struct perf_event *bp)
->  {
-> +	unsigned long daif = local_daif_save();
->  	hw_breakpoint_control(bp, HW_BREAKPOINT_UNINSTALL);
-> +	local_daif_restore(daif);
->  }
->  
->  static int get_hbp_len(u8 hbp_len)
-> @@ -586,7 +602,10 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
->  /*
->   * Enable/disable all of the breakpoints active at the specified
->   * exception level at the register level.
-> - * This is used when single-stepping after a breakpoint exception.
-> + * This is used when single-stepping after a breakpoint exception or switching
-> + * threads.
-> + *
-> + * Must be called with debug exceptions masked.
->   */
->  static void toggle_bp_registers(int reg, enum dbg_active_el el, int enable)
->  {
-> @@ -908,7 +927,11 @@ bool try_step_suspended_breakpoints(struct pt_regs *regs)
->  NOKPROBE_SYMBOL(try_step_suspended_breakpoints);
->  
->  /*
-> - * Context-switcher for restoring suspended breakpoints.
-> + * Context-switcher for restoring suspended CPU-bound breakpoints.
-> + *
-> + * Breakpoints of the previous task are uninstalled before
-> + * this function is called, in perf_event_task_sched_out(), and those
-> + * of the next task are installed after, in perf_event_task_sched_in().
->   */
->  void hw_breakpoint_thread_switch(struct task_struct *next)
->  {
-> @@ -922,6 +945,7 @@ void hw_breakpoint_thread_switch(struct task_struct *next)
->  	 */
->  
->  	struct debug_info *current_debug_info, *next_debug_info;
-> +	unsigned long daif = local_daif_save();
->  
->  	current_debug_info = &current->thread.debug;
->  	next_debug_info = &next->thread.debug;
-> @@ -937,6 +961,8 @@ void hw_breakpoint_thread_switch(struct task_struct *next)
->  		toggle_bp_registers(AARCH64_DBG_REG_WCR,
->  				    DBG_ACTIVE_EL0,
->  				    !next_debug_info->wps_disabled);
-> +
-> +	local_daif_restore(daif);
->  }
->  
->  /*
-> 
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> -- 
-> 2.43.0
-> 
+
+  You are right. The core mailbox consumer schema already requires mboxes
+  when mbox-names is present, and this block is not something bindings
+  normally add. I will remove the whole dependentRequired block in v2.
+  Thank you for pointing it out.
+
+  Thanks,
+  Ben
+
 
