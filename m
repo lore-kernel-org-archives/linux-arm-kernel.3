@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80661CC6B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 07:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F7ECC6B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 07:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AfFy6KfLE+4KLuU3ZwrUcLBflPtmLzVW3MEDG7MNIAc=; b=gLMQvJEM7w0Jqa/dJWX/Ke/I/p
-	0CkmaNjcfji5GzFkQbrt+kHR9JkvTyfpJQARCRHxa0OiJU7ky3C7wKqNZ3WmMOiPaRijBftzS0+hh
-	H7185NN8/BUQaajnxNE6UnEzNyA1yNKRvs5awqWUCK4Na6nqUjPrmckxTpL+MkX2tVwnuWA/D8Pn7
-	Sfi6wBIENkGGb+83Y/7ReEaqhBWtcC6c5jO3h4uBzwp3VVKVEXROB9wCg3pJdyAA4OakOtx+MVoKM
-	Hyo7n8JC6t/LhuniT2rcHGEOln1ijkFdYPQbLFnBFB9T8yrqBFa15Y7a3YIQOoDMzUKwT2dyiBAHx
-	ixXukecw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wHbtPw6Fpa3W67Ti492QqigdUKJyYU9HzcZKUgG/dMg=; b=dYDFaT27aEmRnrCwpgFwS2YD7N
+	2ole3WNd3Cn23oVAa85hPXT6t/t3wH4GNAQ15Wu1AzbyO7UBOY/9Ox1YKSNnXw6cQpgf+D6JRs6pf
+	M0xlYJ54iezCbjmQCdWYIHE2gvwOeo6a8cBB01kA1tkk+XMTWEUtfzpVsaumCF427A6fuydYIil9N
+	OkgCO6TWPd9aNo20nM4LxvbHUR9yVlJUWUExyKDhMNUZoyLhRaRucydG8rN40qQpwTSD5EfiQg69z
+	bFMRN+MOnMYz/+WVjFgRWtkP2cGq+lPPgXBsV4JLRB5HRWrDkxnMfJuEtTV4A9WigaW0FMUc0iRCf
+	ih2JPUBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHG0X-0000000H2uP-0WUQ;
-	Thu, 15 Oct 2026 07:36:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xHG2W-0000000H35v-2Qk1;
+	Thu, 15 Oct 2026 07:38:12 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHG0T-0000000H2tr-107J
+	id 1xHG1l-0000000H33K-3AdN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 07:36:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1792049764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AfFy6KfLE+4KLuU3ZwrUcLBflPtmLzVW3MEDG7MNIAc=;
-	b=jLEy61tZ/tMyiWMIv3YT6nOCuMilmaLF+trr2Bi1zTHEvyRhfzJCg4ezYNMFIpHnsgJ3P9
-	3s+g6Q/vQE/+1AAQ7ALIRUjsdFBz2VTd1HzAxAXkarxH7qwf+Je85dLGu/7JdbzMm/Tud/
-	oxpCWg8p9Mtl2hgOgqxHdOrqd1w/bdk=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-412-910HKQQqNaOKiksFi93faQ-1; Thu, 15 Oct 2026 07:36:02 +0000
-X-MC-Unique: 910HKQQqNaOKiksFi93faQ-1
-X-Mimecast-MFC-AGG-ID: 910HKQQqNaOKiksFi93faQ_1792049761
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-487038bc9b8so3960679f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 00:36:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792049761; x=1792654561;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AfFy6KfLE+4KLuU3ZwrUcLBflPtmLzVW3MEDG7MNIAc=;
-        b=Svzq7nUhf/sPGMWgiW/BB0YHGbNqhv6E8Yzj2NNV99k13hrHt53rJ0ZwIRwLQxIgDu
-         mupnCpiJPtyuazVCh2D159jsVR15RkNNAjOf44rDMk1ev0EfDc6lBttr+XjOEXybNKO9
-         +cNLaTQ3F6RnHdOfLggj4p7p0luRsPm4pXR+qNl0/y1dnyCTKDJx5Y3tUoAbN6racnmr
-         ZP2118s/KadvRWwpvH4xFJOYbYgPNvVml+Vd7zfqXCbc1o8GhKga+0et1lua+ok2Ssfn
-         +axYEGDs/bYVIxKZNWlrxihWLizmlltKpDcYQOOusRDfF344ZJ3m+lZNBrCfJDXvz1Yz
-         3uaA==
-X-Forwarded-Encrypted: i=1; AKwUvBwE9OOZ3fPav3wByg60HOqAJg8pdWjoqi+BeG6yWlw426StFISsfr/qWoX8o0ID8tJKUivUPx80012fZgx80vSq@lists.infradead.org
-X-Gm-Message-State: AFq9FYLX1pZxO3ftE5cKh/Edjp7BUrDbR3xosp+Jjlm/bphohErDNO13
-	TbXjdvNKASDE5ksHVWWZN+T6urZlYv93/XLe1hRbmyeCbim1ZLFPEoPK08e/kHvJEOmEwsWpD5S
-	hYWi1xlYbvCvG8hw61SOQQ4E+/8k9WDxndKtU2VPqVSZaZAZBn+PhuaS0RsgTjrOxR7MeHxECf0
-	29
-X-Gm-Gg: AYBFou1Ko9Cdvm0nyRxIrw68NJ3f77DCK/2se2bVqMdh8/SQsmdnLB22TJENW+3sUpk
-	8Ctr8VGLKwWls/Xt+9XqOb4mp03cX2OYCWeXR42SArcrSPHxc/wVL0eP9neVH/EqCbzkpYl8eCc
-	e1QMXeTyCu7lN+x+2iwpPr17Xj9L8pu6167/S1Cxpa53RYnL3j0Ilg28rX2v0EIt+nFOx6L3M5C
-	JLT7QSJ02uJgV7JkkI0t5R5GSvk19s3424TnjAwY4S9wcMhFdwohnn6QVyj3MDDwRzXt2Cw78mQ
-	WoSALniWCSBrFhGYXzu3G/zFiz6b4WYRmJs3OJ4kA1Hv6c+P3mxpPoUpYriBiZ5zvQIqUgCpq/R
-	1Lbt09LLdq+AnRvNp3FXe97sAEHPJ30YmPZQLiSga48u/jmlq1l3UIx7x69shzI5YUjxHHhmGuQ
-	==
-X-Received: by 2002:adf:e013:0:20b0:487:930:8acc with SMTP id ffacd0b85a97d-48dbaaddbd5mr25917376f8f.16.1792049760947;
-        Thu, 15 Oct 2026 00:36:00 -0700 (PDT)
-X-Received: by 2002:adf:e013:0:20b0:487:930:8acc with SMTP id ffacd0b85a97d-48dbaaddbd5mr25917342f8f.16.1792049760546;
-        Thu, 15 Oct 2026 00:36:00 -0700 (PDT)
-Received: from [192.168.188.234] (ip232-47-231-195.pool-bba.aruba.it. [195.231.47.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48de0bc6b82sm17520870f8f.51.2026.10.15.00.35.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Oct 2026 00:36:00 -0700 (PDT)
-Message-ID: <d832de5c-a01a-471d-b935-5ea00d1c5794@redhat.com>
-Date: Thu, 15 Oct 2026 09:35:58 +0200
+	Thu, 15 Oct 2026 07:38:11 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id BAA741FAE5;
+	Thu, 15 Oct 2026 09:37:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1792049843;
+	bh=wHbtPw6Fpa3W67Ti492QqigdUKJyYU9HzcZKUgG/dMg=; h=From:To:Subject;
+	b=vDb0hcRN771AToJfOrVaFxj3rLlsOVGPKBFGmNtk30XW/pxEFUJrys1rDuyft1sXq
+	 NaHw8v5QCRABpLwNtJA0wd9sC5dTjB7rzZmMQLoDG9NAPlWrcTH+ESYdok7G1W2i32
+	 jZMxXFn+1+uNP27M1HRhcmE0nB4kmIFE/RT41qTYSvbQB1JrBImyNNV8ds5OLxtOqM
+	 K5F48olx2/BrPo3ZkFxLOlg75hFqAdutW3UZ0rytCzl8lBauxlnWWQyGSLSCF7NDUL
+	 3FfOdfcsy2677F0iM58cSnNzQKsM8cWuOI9F3qmocdXInxP/ji5MwbKxXQg2CWHosE
+	 m+zWaX01X3u+g==
+Date: Thu, 15 Oct 2026 09:37:19 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] arm64: dts: freescale: imx95-toradex-osm-dev:
+ Remove ETH_A PHY interrupt
+Message-ID: <20261015073719.GA58156@francesco-nb>
+References: <20261014075812.29154-1-francesco@dolcini.it>
+ <20261014075812.29154-2-francesco@dolcini.it>
+ <as-Pp99xLXk0nRJd@SMW015318>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-To: Daniel Machon <daniel.machon@microchip.com>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: Sagi Maimon <maimon.sagi@gmail.com>, Joe Damato <joe@dama.to>,
- netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- daniel@iogearbox.net, jacob.e.keller@intel.com, suraj.gupta2@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261004083759.1016519-1-maimon.sagi@gmail.com>
- <asQ1pF9AAqOiEo3r@devvm20253.cco0.facebook.com>
- <CAMuE1bGXcNwKKX1firkq6eEzymkrDOp8PnnowMzz97SibtpoSQ@mail.gmail.com>
- <20261006180210.03a15e52@kernel.org>
- <20261011084652.c5y3zj7wzmj53ur4@DEN-DL-M70577>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261011084652.c5y3zj7wzmj53ur4@DEN-DL-M70577>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 0IvYVcLreF14OekwmdW3VVDdtZs6vsmjrtqDQNK82Kg_1792049761
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <as-Pp99xLXk0nRJd@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_003606_118579_24A4C8D5 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20261015_003725_959628_7E2F045E 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,31 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/26 10:46, Daniel Machon wrote:
->> On Tue, 6 Oct 2026 06:44:55 +0300 Sagi Maimon wrote:
->>> Agreed on the helper.  As on v2, I kept the fix minimal for net, and
->>> will send the helper to net-next once this has reached it, with both
->>> axienet_dma_bd_release() and axienet_dma_err_handler() using it.
->>
->> Let's do this now, trying to keep fixes small is a bit of
->> an anti-pattern
+Hello Frank,
+
+On Wed, Oct 14, 2026 at 09:20:23AM -0500, Frank Li wrote:
+> On Wed, Oct 14, 2026 at 09:58:09AM +0200, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> >
+> > GPIO_A7 is a boot strap on the OSM iMX95 module. The pull-up on the OSM
+> > Development Board Ethernet PHY interrupt line causes the module to enter
+> > USB loader mode instead of booting normally when the reset button is
+> > held for more than 0.5 seconds.
+> >
+> > The PHY interrupt connection has been removed from the carrier board,
 > 
-> Out of curiosity, why is that an anti-pattern?
+> Look like it is hardware modification, can declear the version number here
 > 
-> I'd think that small fixes are, in general, easier to backport to stable. Is this
-> more of procedural question - if the whole fix gets into net, it will get merged
-> into net-next by the end of the week anyway?
-I'm answering here because I can only guess how scarefully long is
-Jakub's email backlog, and possibly this could get lost.
+> Since V_x.y, the PHY interrupt connection has been removed...
 
-I think the key here is the context. This revision is incorrect because
-in order to be minimal intentionally adds a significant chunk of duplicate
-code, but such duplication must be avoided, the 'keep is small' is not a
-good argument to allow that.
+Valid point. It deserves a better explanation.
 
-I guess a one-line alternative implementing a different solution
-(if existing) could have been ok.
+ 1. There is no change in the actual board revision.
+ 2. Moving from interrupt to polling works always, so it does not
+    require any change on the board.
+ 3. On our board is possible to disconnect the interrupt just removing a
+    jumper. The actual board revision stay the same. This is a new
+    product, that is going to be generally available in a few days. We
+    are going to ship boards with such jumper removed to
+    solve the i.MX95 strap option issue on reset.
+ 4. Future board revisions might completely disconnect the ethernet
+    interrupt, removing the actual connection from the schematics. Given
+    we work in polling (after this patch is merged), this will be a
+    transparent change that will not create any kind of software
+    incompatibility.
 
-/P
+
+Should I incorporate this detailed information in the commit message and
+send a v2 or the current commit message is fine ?
+
+Francesco
 
 
