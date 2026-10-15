@@ -4,133 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3813FCCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69325CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 18:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7jV1QkpQvi5xFROUTCJVBSueJRcHlbbQtmxP5HKm6q8=; b=vrurN+TCCMSoijo4S6e2GuTmlE
-	JTFcDMuU97NiiJUQE+WtA8Aa5Svn/aErYbizhCTXxuUVEg6g4QWuAjyC4y0oJNzESHVKiLQT0Qlz1
-	Fwub5xLD4KZN6ZJ6T9H+mEqdK1i/Y3S0F0OBIZ/b1f5dco559kuKXvJvuuMhkV3spN4W0cP50/nBC
-	aQVGZXLg7HlpWXMiPuPD/VAd/w69Ybtj/wc7+VvOSUZ57h/8IbLKuzT2UqJTRloI31FukdR+HLUVM
-	EkMGJ/63G85RrzxCUpaqjvttVaYQ2hpWdx+uWr4+XD2DJ4QiyUfcZqieIT1eNsr8k9lHZooxxvcZY
-	s5rKXVxg==;
+	bh=SBCToxam7lH6D1Zy4CTeR8nhuH4qVrhsoveYwS13PKc=; b=b9v2UYZ4+3qswC7Bdj5O1RnLfe
+	4gNjKZ2zYrgn92pueQv++vV9fKLcPJHJK+Pc7y7WSB+bfVdrJ12u4KKwVruuSFhSPc6+jKiwGOBMk
+	N8peCM2/hAgpKEjWgao8suRKqLBKz6X53tHbYSV1z3yYOuYTqeXtewg8VJOhPSZSD5MtsIiDuhUi4
+	FHrhtrrUE/d3gdUxL6qZXeXDwzykBJog5wcx3UKuFiyrcAcoRvoySBND9WN+wSteCsRvMjNniGDfT
+	VwJimqHoiuqck28AaZNEpLFis23aYyYAE4F2YB29eAy5dgsas7QRuMfXdHZ+ZZazh58gvmyX46Kai
+	9ae7Lu6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHQHK-00000001AgG-2Dlb;
-	Thu, 15 Oct 2026 18:34:10 +0000
-Received: from mail-westeuropeazon11011028.outbound.protection.outlook.com ([52.101.70.28] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xHQKA-00000001BBV-0gth;
+	Thu, 15 Oct 2026 18:37:06 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHQHD-00000001Aee-3wWA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 18:34:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WAZfEoNsZw2jfg+Sk2HyyOtB2/bTsMYQB1dTzkNoDKKuxUVz+MAadiYEvf5Wd0q30Ry4Znj0Q7tnEsjKJZs2sd+QmHmWFB7KLq4WcvL7nQJ4eIKhT3vkMpsZP2NsuF9ODSGO7Gi+sPiEXwYQOTp4eVOlrT2yxeep1m9y5k19ATqQO6tJEuopTTfA7gWvz6Rq51Smo/BKCDdL89u65wkcOFQasUonGz2jeq3G2VB9JOA1mLsXd68o5GSMhB+7DXyNEaVN7X/XWrEf4Ke43mWzrluL4j3m41cWUM+tcwY3Uxn/I1o5W47cWriYiFdIBSd59KdshUlw53aSmXaOv7V4zQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7jV1QkpQvi5xFROUTCJVBSueJRcHlbbQtmxP5HKm6q8=;
- b=cEXOBk/Nt3trZ37ZkH05/e6YfvoKy+ZiQecLtdo6/KePoMPDO144htu+oV9s9pZtXZzyLligWe9cA3H8Fp9uDtqTuezoB4NCgkL3vWNrgIxMkA9Rge/uDHT+eupUwNVI+suV4HjI3uE8CYW3XS/08EB0rD75ko+iFJhDfyXpjG0pwMs8uCL1/SjJzjsG6Ze7WwMUUscPE1lStHF/xUea6cD4cKqxqGXyI4vpg5RNNKM9IYWOFz5wRZMGD9xfKtlpT8ETPl2L5vMKWFJe9LIo+QviLadRH1xEf/fMIVjv9M9M4HpMUPu295lk5CNA/SwiFi4lwaP8Cs3FweObKv/h3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7jV1QkpQvi5xFROUTCJVBSueJRcHlbbQtmxP5HKm6q8=;
- b=YcVJeSwMD74Sd8NhiWfY0fwXaewlkdszArE4azkt8fajXY9u/Ofx8MB90bT+VCQYzv7H5hrVmHqX1t9qens7Yv6XeCaSW9/jArwacuUEkVGiFP8KKN6h3JTW52HLcwnV59gseXT6Yiu5sOsmSfn1ItMQ0lnqna3jiS9P5uwUJYT30sAYmJhYAWEKTam760gvhipiKTRh6Pau8REoRe9uWK+fTrsipK0D+i+JZu9RNp5Hivkgy3Qxdgo5P1ye9msRUnjdnelGaa3UNG+sAnMxQYi+tVR0p0Umc9FI5EyVyrXAeSB0KYo7Rk43H8v8CduEliP9FDC3g5dBTuvaGMMr3A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8600.eurprd04.prod.outlook.com (2603:10a6:10:2db::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 18:33:59 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 18:33:58 +0000
-Date: Thu, 15 Oct 2026 13:33:47 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v1 1/1] arm64: dts: imx8mm-var-dart-sonata: Add OV5640
- camera support
-Message-ID: <atEci_KwxUdvAekv@SMW015318>
-References: <20261015162301.63838-1-stefano.r@variscite.com>
+	id 1xHQK7-00000001BAC-3U8K;
+	Thu, 15 Oct 2026 18:37:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1792089408; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CuWzWNG412sDNpIVBCmeo+WtprfTM7ZyG+yUBzd1MdznPwZoQseROmiH1vA+dzieTpp+eoXzBx/yTafA+jonkYw5MnW3Ir/LiT6rQqFSkDmWcCLWs7EbkFWMYREbwym3JZ9lyla6LYfV8RDgrNlLztPaS8vGSSK6s+XqP2kTCoM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1792089408; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SBCToxam7lH6D1Zy4CTeR8nhuH4qVrhsoveYwS13PKc=; 
+	b=J8HfK+pkKuWPvTlEFjVwkJgolkWl3s1jKU9Prgj6r17WeuQnLC+Wev1CHUugdn7vE757yIUu7/OJHP2PSQOLbzUfxOJ4da5/Bb92iUlWH33LcFP38kNWacNe+ct/6iw1LIXY9Xa1c7xmJ39TOgj4xnE5RTv7THBy8GiPjWk3eOQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792089408;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
+	bh=SBCToxam7lH6D1Zy4CTeR8nhuH4qVrhsoveYwS13PKc=;
+	b=cBYCwRLgF9N7aPy3H8aFbSHbNioMm/BGKK3zaKxfQpssdkm3FaLPqhJH6ZpdAqQY
+	F1ICdhmWBjaOcJ3uhbfv1zWUdGZvDsEg9+gWfAfFv4V0tZCgAHLoRNArQJ0jps+1yR0
+	vR7rNXHa0CdG+IwciZ4xqXDyP/m4dnbKVDBr+aHI=
+Received: by smtp.zohomail.com with SMTPS id 1792089405357896.4451913582732;
+	Thu, 15 Oct 2026 11:36:45 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 8F2C418036E; Thu, 15 Oct 2026 20:36:40 +0200 (CEST)
+Date: Thu, 15 Oct 2026 20:36:40 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Igor Paunovic <royalnet026@gmail.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
+	"kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH v16 4/6] usb: dwc3: rockchip: support PHY reset
+ notifications
+Message-ID: <atEZ1pHZOqoIoQma@venus>
+References: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-0-126a2e9133c3@collabora.com>
+ <20260924-b4-rockchip-dwc3-rockchip-glue-v16-4-126a2e9133c3@collabora.com>
+ <asA211DtVMDPAuAL@vbox>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261015162301.63838-1-stefano.r@variscite.com>
-X-ClientProxiedBy: SJ0PR13CA0005.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8600:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f07b792-5322-4458-4905-08df2aeae052
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|19092799006|23010399003|56012099006|11063799006|261009223027099003|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: DpPsKWBgcsu6k6O49+GBMPvONm5vibrT9N2VSUnHs8ZslKL6CUOmGw/dTX/h8c2rRNNOqrFtEV8NKm/yTB+WXCq9O+RgIbQyqXyBZTNojEIMjD/UxobQt39lOPUciZFscZGZdnIR1F19eh9iUbOB8r55OFRuBH9jxi5yY3pqzWFBSJbKAk8mdvdEb7c4ui0Myb5qQXo/4ZVFaxsHknRL1LBrlAkT4nrQJZtw+Q+DyFWz/Qrrq+UhEmfR8RGPHad0br2ff80JmYLAlsg9i8crTIoXXp8ldBs1P5O3c+kZwEY+UZwcAciKHS0AjpBZnJlLK9MzBWPDRbjYl/RyzwzVXceYXVym9TT0/MdjAKyPmjRs49KQqcxU1iY5HdQCIK3cCOv0ErEwFvQUyapDm8pcGgSvI72lyXE/faIAnBgpejYh6bgaWnnK2okumUcne5fmUdxLYQDtEZloOmtPMpfvTHUp9T9UVh7f7C79aY4eZzE8UcpQtkD2f5GFK3pjJugj1vTUA8QvraWXag7qk412ROs2yqUmU2H8Vsc3OWWvmY4dbckZdbfospmsgNh4/YJXGij7uRB1bKCfOKP0+03oBT1COFFRVqpmd1SEgnOgNq37bLraYh2aOLOKcLrp/L7ocJVDSj5JhGLd0AfGL6A45Dj8pswHnGFz7B8l5uITgos=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(19092799006)(23010399003)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JySTtqmJMJ8ZWUVt570ZJpqT8+mscCt9EMl/5Sq+lj6bd1TTGxt9757do9r4?=
- =?us-ascii?Q?zh7hdkTdnO50mq1W1PBl7jea8h4kiOXDQ3P1qmk/DCmyUXohI0DnMRnOOrSq?=
- =?us-ascii?Q?l54UdxhlTNk0fmKG1yzpIeQVy2p7JwrHwwtmVX9ByNh+eojKrZ4mMi+ATWOM?=
- =?us-ascii?Q?KyuAutf6o39bvn9hkmKk8/gSlHdpBD4eK9uNcxdGJ5ytxHNkwCirXE1bJ+29?=
- =?us-ascii?Q?74yRn1ktawEAk647PZYkmQtaqzE57lgx+0mSxfpYY1Q1JM0JpxKDsz93IgHM?=
- =?us-ascii?Q?dToYYuT6SNgzRG+qSw5enaLihobPB2tA7gROZDAKL/tqSoVz6p7I+zOiUihn?=
- =?us-ascii?Q?GKfnb7/2JOFeLJ3F0fUUAVRVLTUnHQP+wVN3ARFTWVuzEybzfzAWxtowR/tt?=
- =?us-ascii?Q?bPF3uuNp1L7gFnY53Qp3x7ktqJk8tL8GoLewWgMi4/lFU24+0XMdfG78bSZy?=
- =?us-ascii?Q?sX/wfBGNP3pMH09Cbqdbbe6Stq2u8EJK60jySOFDvQJUHXuwm83VcrC3t51/?=
- =?us-ascii?Q?fA3PLx/bN1MqfMbgyKYjXBN6169hZxFNPA2mHIgWTSGmJWMpSeYv0Jl+v34W?=
- =?us-ascii?Q?qoPXYkPEo4+Yz+mYn56xmpq2rkJ2iahbSLyzxy7IRvW9vW2Xq5r7srMN5USa?=
- =?us-ascii?Q?/vJscwOVQuQfmk0Skj2U5WZlYo1dXM7AQ01P0nux9aR2iXdduvzzeq5HCgs6?=
- =?us-ascii?Q?8IuhJc0Uuw0pxtWm/2CJay/0cF00BBpwv9/gHW6VQ7c6RYkw/zpPCBZR9d10?=
- =?us-ascii?Q?gVyLYdP30JyELk5+4petoZhdJe7nAPxgla7aVE3JdlmTIriKfLFJ/jt+A4/c?=
- =?us-ascii?Q?KTgjJMWH6CQmponHt6QuWIrW7eG1hN3t13T1nMx3Z5rbfxusZXC5aLga7M0r?=
- =?us-ascii?Q?BuDBHugxOf7yyjoPUyU1/IGL5yd3SjzFpH/WE+O4yBLb4rqUueXc2MyPkoDd?=
- =?us-ascii?Q?L9PP+27cEErolGzeHwRVlrbCWS0wmlDvZ3XJza87aSXu3Qx1sRFbL1DklXlU?=
- =?us-ascii?Q?7yUiKpx12W/8s1Ug4/FrEtcdYkjus7KDeM8CRoXWbgmP0j+8rVcGMVQet2kt?=
- =?us-ascii?Q?kJQ7Vm6y39XMvoqXrCK1N3z90P1xwXTCSmz7AEYfaaN9Rwz7NKwm9nYcD9i4?=
- =?us-ascii?Q?PhX2w7SGPPpc3wBGBNygxLyWxZhp65l+qV6GWRmo4hZNeLpvx9o+su2pUuBN?=
- =?us-ascii?Q?Poiy2JZ6FmW7/IxY8YDOjYXZG3miMfZGoJ3OXHYbG72Ui85SP4FOIL5ExlBJ?=
- =?us-ascii?Q?QS1Xydbhv7Kgo/GI6e7wcdkaQRGDDxpc5YMoPREvhzp95PH50u6PGUxv2gCc?=
- =?us-ascii?Q?dG8wfyTenWI3Xb/REkpjQQyWI6qrNRYty6OcuFRvIwDDJs29Y5k0WPgZrrbn?=
- =?us-ascii?Q?W0Lj7q0muXWmT68kk/836TSfZ2EZBAFVebuJ5R/ckcGvllgaUowtV1kvrOVV?=
- =?us-ascii?Q?z81QRqCPBQjFD+Pm4H71tEbPk3pP6q5bmplRnljvPomaDbYL/GVxn3/KQVm5?=
- =?us-ascii?Q?wPLFqpgsTIIVoaY9SbhY4z5Jq+jxmVpre7/GyHbMh4aqxphOn64JChwdoOTJ?=
- =?us-ascii?Q?YZTrXbxRz+X4Cncwf7E50FiAlPQ+uH2kbh3VdObIOQX77SvJkh82zP6DcLGV?=
- =?us-ascii?Q?VmMqf9Mw49NuaNXjeuHLyfpPNLAw0ADxNVpF2Ul9IVuu/87aTohRxJDDJ+xi?=
- =?us-ascii?Q?xnkMqCMSdywiGGg5yRHP/SLG5/Uo1ki9fAQfk2+gWQi4M0lILfdM3VLImT8z?=
- =?us-ascii?Q?64h8GJY+XgacAm85XRiGxxPT55bEoxhXD+aOcjDZdeZwFc96qYGO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f07b792-5322-4458-4905-08df2aeae052
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 18:33:58.7592
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NHP4ZqJvNFrTBQYMcNDpYo9JMKaCabaLzctKlZgBrdhYGL6lHr8B9nvP8OnXDIeDRZUp5T4eS3AnfpiuUacoBSZAmPFoxJDjPxNWWPizRTOqI7qGqiAaHXqY1AaB7ZLE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8600
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <asA211DtVMDPAuAL@vbox>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/292.75.81
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_113404_485201_9100C306 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20261015_113703_936055_4FE4C850 
+X-CRM114-Status: GOOD (  46.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,137 +90,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 06:23:01PM +0200, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> Add support for the OV5640 camera connected to the Sonata carrier
-> board's first MIPI CSI port.
+Hi,
 
-Does this board only support ov5640 camera? Suppose ov5640 module also use
-for other boards.
+On Fri, Oct 02, 2026 at 11:39:22PM +0000, Thinh Nguyen wrote:
+> On Thu, Sep 24, 2026, Sebastian Reichel wrote:
+> > On recent Rockchip platforms (at least RK3588 & RK3576), DWC3 IP is used
+> > with a USBDP PHY providing USB3 and DP. This PHY needs to be reset when
+> > the mode changes, which may happen when plugging in different USB-C
+> > devices.
+> >=20
+> > If the USBDP PHY resets with the DWC3 IP running, its internal state
+> > corrupts resulting in the USBDP PHY not being able to lock some PLL
+> > clocks, which effectively renders USB3 unusable.
+> >=20
+> > To fix the issue this adds handling for the new PHY framework reset
+> > notifications, which will assert PHYSOFTRST before the actual PHY
+> > is disabled and will deassert it once the PHY returns.
+> >=20
+> > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+> > Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > ---
+> >  drivers/usb/dwc3/dwc3-rockchip.c | 127 +++++++++++++++++++++++++++++++=
++++++++-
+> >  drivers/usb/dwc3/trace.c         |   3 +
+> >  2 files changed, 129 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-r=
+ockchip.c
+> > index 4129aefd6a8b..17b6c2ca9e19 100644
+> > --- a/drivers/usb/dwc3/dwc3-rockchip.c
+> > +++ b/drivers/usb/dwc3/dwc3-rockchip.c
+> > @@ -2,11 +2,136 @@
+> >  /* Copyright (c) 2026, Collabora Ltd. */
+> >  #include <linux/module.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/phy/phy.h>
+> >  #include <linux/pm_runtime.h>
+> >  #include "glue.h"
+> > +#include "io.h"
+> > +
+> > +struct dwc3_rockchip;
+> > +
+> > +/**
+> > + * struct dwc3_rk_phy_nb - wrapper for PHY notifier block
+> > + * @nb: notifier block
+> > + * @dwc: back-pointer to the DWC3 controller
+>=20
+> I missed this from the last review: dwc here is supposed to be dwc_rk.
+>=20
+> > + * @port_index: USB3 port index this notifier is registered for
+> > + */
+> > +struct dwc3_rk_phy_nb {
+> > +	struct notifier_block	nb;
+> > +	struct dwc3_rockchip	*dwc_rk;
+> > +	u8			port_index;
+> > +};
+> > =20
+> >  struct dwc3_rockchip {
+> >  	struct dwc3		dwc;
+> > +	struct dwc3_rk_phy_nb	usb3_phy_nb[DWC3_USB3_MAX_PORTS];
+> > +	u8			phy_reset_active;
+> > +};
+> > +
+> > +static int dwc3_usb3_phy_notify(struct notifier_block *nb,
+> > +				unsigned long action, void *data)
+> > +{
+> > +	struct dwc3_rk_phy_nb *pnb =3D container_of(nb, struct dwc3_rk_phy_nb=
+, nb);
+> > +	struct dwc3_rockchip *dwc_rk =3D pnb->dwc_rk;
+> > +	struct dwc3 *dwc =3D &dwc_rk->dwc;
+> > +	int port =3D pnb->port_index;
+> > +	unsigned long flags;
+> > +	u32 reg;
+> > +	int ret;
+> > +
+> > +	switch (action) {
+> > +	case PHY_NOTIFY_PRE_RESET:
+> > +		/*
+> > +		 * If already suspended, the resume path will reinit GUSB3PIPECTL
+> > +		 * via dwc3_core_init(). A forced resume is not possible as that
+> > +		 * would call phy_init() resulting in a deadlock. Due to the
+> > +		 * phy_init() in the resume path there is also no need to block
+> > +		 * async RPM resume on our side, since the PHY synchronizes it
+> > +		 * for us.
+> > +		 *
+> > +		 * pm_runtime_get_if_active() returns 0 when suspended (skip),
+> > +		 * 1 when active (ref held), or -EINVAL when PM is disabled
+> > +		 * (device always active). In the -EINVAL case PM ref counting
+> > +		 * is a no-op, so the unconditional put in POST_RESET is safe.
+>=20
+> The -EINVAL case is not no-op here. No reference is taken, but
+> pm_runtime_put_autosuspend() in POST_RESET still decrements the usage
+> count, causing underflow or taking some other reference. Should we skip
+> if ret < 0 too?
 
-Can you refer https://lore.kernel.org/imx/20261011-expulsion-frivolous-690de090cf9d@spud/
-to define connectors?
+It's only fine to skip when PM=3Doff, because then the GUSB3PIPECTL
+is off anyways. If Runtime PM is disabled (and thus the hardware
+is always on), the quirk is needed. But in that case the rpm_put
+should be a noop. This only runs into problems, when the user
+enables runtime PM between pre and post reset. I'm not sure how
+to best avoid that. Also the reset happens relatively fast, so
+this will basically never happen.
 
-Frank
+> > +		 */
+> > +		ret =3D pm_runtime_get_if_active(dwc->dev);
+> > +		if (!ret)
+> > +			return NOTIFY_OK;
+> > +
+> > +		/*
+> > +		 * Assert USB3 PHY soft reset within DWC3 before the external
+> > +		 * PHY resets. This disconnects the PIPE interface, preventing
+> > +		 * the DWC3 from interfering with PHY reinitialization and
+> > +		 * avoiding LCPLL lock failures.
+> > +		 */
+> > +		spin_lock_irqsave(&dwc->lock, flags);
+> > +		dwc_rk->phy_reset_active |=3D BIT(port);
+> > +		reg =3D dwc3_readl(dwc, DWC3_GUSB3PIPECTL(port));
+> > +		reg |=3D DWC3_GUSB3PIPECTL_PHYSOFTRST;
+> > +		dwc3_writel(dwc, DWC3_GUSB3PIPECTL(port), reg);
+> > +		spin_unlock_irqrestore(&dwc->lock, flags);
+> > +		break;
+> > +
+> > +	case PHY_NOTIFY_POST_RESET:
+> > +		spin_lock_irqsave(&dwc->lock, flags);
+> > +		if (!(dwc_rk->phy_reset_active & BIT(port))) {
+> > +			spin_unlock_irqrestore(&dwc->lock, flags);
+> > +			return NOTIFY_OK;
+> > +		}
+> > +
+> > +		dwc_rk->phy_reset_active &=3D ~BIT(port);
+> > +
+> > +		/*
+> > +		 * Deassert PHY soft reset to reconnect the PIPE interface
+> > +		 * after PHY reinitialization.
+> > +		 */
+> > +		reg =3D dwc3_readl(dwc, DWC3_GUSB3PIPECTL(port));
+> > +		reg &=3D ~DWC3_GUSB3PIPECTL_PHYSOFTRST;
+> > +		dwc3_writel(dwc, DWC3_GUSB3PIPECTL(port), reg);
+> > +		spin_unlock_irqrestore(&dwc->lock, flags);
+> > +
+> > +		pm_runtime_put_autosuspend(dwc->dev);
+> > +		break;
+> > +	}
+> > +
+> > +	return NOTIFY_OK;
+> > +}
+> > +
+> > +static void dwc3_rk_phy_unregister_notifiers(void *data)
+>=20
+> BTW, when does this get executed? Could it be executed after the
+> dwc3_core_exit() powering off the phy and turning off the clocks? The
+> reset notifier may still be called in this case and read dwc3 registers.
+> Can we make sure this is done before dwc3_core_remove() in
+> dwc3_rockchip_remove()?
 
->
-> Describe the sensor on I2C2, its 24 MHz reference clock, fixed supplies,
-> and reset and power-down signals controlled by the GPIO expander.
-> Connect the sensor to the MIPI CSI receiver using two data lanes and
-> enable the receiver and CSI bridge.
->
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
->  .../dts/freescale/imx8mm-var-dart-sonata.dts  | 66 +++++++++++++++++++
->  1 file changed, 66 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata.dts
-> index 57d29a5c3821..427a255fe8ec 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata.dts
-> @@ -75,12 +75,39 @@ clk40m: oscillator {
->  		clock-output-names = "can_osc";
->  	};
->
-> +	camera_clk: oscillator-cam {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <24000000>;
-> +	};
-> +
->  	pcie0_refclk: pcie0-refclk {
->  		compatible = "fixed-clock";
->  		#clock-cells = <0>;
->  		clock-frequency = <100000000>;
->  	};
->
-> +	reg_camera_1v5: regulator-camera-1v5 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "CAM_1V5";
-> +		regulator-min-microvolt = <1500000>;
-> +		regulator-max-microvolt = <1500000>;
-> +	};
-> +
-> +	reg_camera_1v8: regulator-camera-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "CAM_1V8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +	};
-> +
-> +	reg_camera_2v8: regulator-camera-2v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "CAM_2V8";
-> +		regulator-min-microvolt = <2800000>;
-> +		regulator-max-microvolt = <2800000>;
-> +	};
-> +
->  	reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
->  		compatible = "regulator-fixed";
->  		pinctrl-names = "default";
-> @@ -95,6 +122,10 @@ reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
->  	};
->  };
->
-> +&csi {
-> +	status = "okay";
-> +};
-> +
->  &ecspi1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_ecspi1>;
-> @@ -200,6 +231,26 @@ ft5x06_ts: touchscreen@38 {
->  		wakeup-source;
->  	};
->
-> +	ov5640_mipi1: camera@3c {
-> +		compatible = "ovti,ov5640";
-> +		reg = <0x3c>;
-> +		clocks = <&camera_clk>;
-> +		clock-names = "xclk";
-> +		AVDD-supply = <&reg_camera_2v8>;
-> +		DOVDD-supply = <&reg_camera_1v8>;
-> +		DVDD-supply = <&reg_camera_1v5>;
-> +		powerdown-gpios = <&pca6408_1 3 GPIO_ACTIVE_HIGH>;
-> +		reset-gpios = <&pca6408_1 1 GPIO_ACTIVE_LOW>;
-> +
-> +		port {
-> +			ov5640_mipi1_ep: endpoint {
-> +				remote-endpoint = <&mipi1_sensor_ep>;
-> +				clock-lanes = <0>;
-> +				data-lanes = <1 2>;
-> +			};
-> +		};
-> +	};
-> +
->  	extcon_ptn5150: typec@3d {
->  		compatible = "nxp,ptn5150";
->  		reg = <0x3d>;
-> @@ -263,6 +314,21 @@ st33ktpm2xi2c: tpm@2e {
->  	};
->  };
->
-> +&mipi_csi {
-> +	status = "okay";
-> +
-> +	ports {
-> +		port@0 {
-> +			reg = <0>;
-> +
-> +			mipi1_sensor_ep: endpoint {
-> +				remote-endpoint = <&ov5640_mipi1_ep>;
-> +				data-lanes = <1 2>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &pcie_phy {
->  	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
->  	fsl,tx-deemph-gen1 = <0x2d>;
-> --
-> 2.47.3
->
->
+mh; this might actually happen. I didn't notice, because I just
+followed the PHY registration, which uses devm.
+
+But for the next version I will replace the PHY reset notifier API
+with direct calls between the DWC3 rockchip glue driver and the
+USBDP PHY driver as Vinod Koul does not want the PHY reset notifier
+API and asked for it to be done that way instead. With that I can
+ensure that the function is only called while the PHY is powered.
+
+Greetings,
+
+-- Sebastian
+
+>=20
+> Thanks,
+> Thinh
+>=20
+> > +{
+> > +	struct dwc3_rockchip *dwc_rk =3D data;
+> > +	struct dwc3 *dwc =3D &dwc_rk->dwc;
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < dwc->num_usb3_ports; i++)
+> > +		phy_unregister_notifier(dwc->usb3_generic_phy[i],
+> > +					&dwc_rk->usb3_phy_nb[i].nb);
+> > +
+> > +	/* Release any PM references from in-flight resets */
+> > +	for (i =3D 0; i < dwc->num_usb3_ports; i++) {
+> > +		if (dwc_rk->phy_reset_active & BIT(i))
+> > +			pm_runtime_put_autosuspend(dwc->dev);
+> > +	}
+> > +	dwc_rk->phy_reset_active =3D 0;
+> > +}
+> > +
+> > +static int dwc3_rk_phy_register_notifiers(struct dwc3 *dwc)
+> > +{
+> > +	struct dwc3_rockchip *dwc_rk =3D container_of(dwc, struct dwc3_rockch=
+ip, dwc);
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < dwc->num_usb3_ports; i++) {
+> > +		dwc_rk->usb3_phy_nb[i].nb.notifier_call =3D dwc3_usb3_phy_notify;
+> > +		dwc_rk->usb3_phy_nb[i].dwc_rk =3D dwc_rk;
+> > +		dwc_rk->usb3_phy_nb[i].port_index =3D i;
+> > +		phy_register_notifier(dwc->usb3_generic_phy[i],
+> > +				      &dwc_rk->usb3_phy_nb[i].nb);
+> > +	}
+> > +
+> > +	return devm_add_action_or_reset(dwc->dev, dwc3_rk_phy_unregister_noti=
+fiers, dwc_rk);
+> > +}
+> > +
+> > +static struct dwc3_glue_ops dwc3_rockchip_glue_ops =3D {
+> > +	.post_phy_registration =3D dwc3_rk_phy_register_notifiers,
+> >  };
+> > =20
+> >  static int dwc3_rockchip_probe(struct platform_device *pdev)
+> > @@ -26,7 +151,7 @@ static int dwc3_rockchip_probe(struct platform_devic=
+e *pdev)
+> >  		return -ENOMEM;
+> > =20
+> >  	dwc_rk->dwc.dev =3D &pdev->dev;
+> > -	dwc_rk->dwc.glue_ops =3D NULL;
+> > +	dwc_rk->dwc.glue_ops =3D &dwc3_rockchip_glue_ops;
+> > =20
+> >  	probe_data.dwc =3D &dwc_rk->dwc;
+> >  	probe_data.res =3D res;
+> > diff --git a/drivers/usb/dwc3/trace.c b/drivers/usb/dwc3/trace.c
+> > index 088995885678..8c4e2a7b142e 100644
+> > --- a/drivers/usb/dwc3/trace.c
+> > +++ b/drivers/usb/dwc3/trace.c
+> > @@ -9,3 +9,6 @@
+> > =20
+> >  #define CREATE_TRACE_POINTS
+> >  #include "trace.h"
+> > +
+> > +EXPORT_TRACEPOINT_SYMBOL_GPL(dwc3_readl);
+> > +EXPORT_TRACEPOINT_SYMBOL_GPL(dwc3_writel);
+> >=20
+> > --=20
+> > 2.53.0
+> >=20
 
