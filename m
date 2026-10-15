@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656B2CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB147CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hknBwdOobDFBq9SWOoVzNpEOW9eSZ86xCbruz506nEI=; b=GPdrCsn/xVYTnUa13z2ahbrBdj
-	HTsA8gQj98r2hCNoqD+KnnM84+nZUtkzUCrffDALrOSm5i7lHlWMhavBkWKoyD/xeVbZ2BJS9Dpeg
-	jmnyIuSUOBW+zJqHhVcETG3gvVLjbZ2Ya/nYm3shLin1EZiCLRHG19U+aCUknFsizwee0birmX02q
-	LRMTgLSxd69/cHMC/qhBqFZpM0Hk1r0HtbkL23PuIrU6XU8yWG01JkCE4+enEk26Gv2WTy8cQHZV0
-	GaLeYK5NJMgXbe71QSjyIaX6/+QJbLIJv3AAGFvLFRy4vf2Hcc1Lrn+SUrSFB+r2luCEJXaEeoF4y
-	2NCvTZGA==;
+	bh=Ea9IWsCeD09j98ilJsUEEHsq1UpfLk0qemcn5duHRIw=; b=efq3Au5a9iSZLiadHVVlftzMw4
+	BMEa1FkDJSDMklPQi26ojauYeamM/OF3DMHdUigxp9kr2b7UIjoRTGxhmCvohextj/ylKA0nKrJTm
+	RsU6E20RdJySdh8p6SsYhOe2wlvQUc0fRB1xY95SWc7roem2KsGYrjfba2F2sexOAcG8X83O0RrrC
+	VKc2SKsV1Q5qZl6ot/8HgncBM7O/fpIxibBVG9QyRVnVuxQB18riPI/g6zPy8/8d8bZSDkcs43RmC
+	+1GwHaRobssvKQAWmKeodnkMj+ZMtq4IDGN3Pa0+qr91DX8bHEc83dtKZ5YU3oaZ8dpzycb37DCrD
+	lip5ZwOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKdl-000000007fL-27Dw;
-	Thu, 15 Oct 2026 12:32:57 +0000
+	id 1xHKex-000000007tY-2zib;
+	Thu, 15 Oct 2026 12:34:11 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKdj-000000007ew-2SRv
+	id 1xHKev-000000007tM-2RE5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:32:55 +0000
+	Thu, 15 Oct 2026 12:34:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 587FC418E1;
-	Thu, 15 Oct 2026 12:32:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DA731F000C4;
-	Thu, 15 Oct 2026 12:32:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 57D1B400AA;
+	Thu, 15 Oct 2026 12:34:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3D01F000C4;
+	Thu, 15 Oct 2026 12:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792067575;
-	bh=hknBwdOobDFBq9SWOoVzNpEOW9eSZ86xCbruz506nEI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Z9tUWqZx+6+eiXlIF9iF04KadtrsgrXJAbXensNxOYykBfoLlWuAWLHSJkOw0fpV5
-	 HHGfNM/BZYVM8LFuQKINe7zUa7TgFV/NU5oy+NY4jWeqGu5NB5NXxpdNYSHJ8uG2Ih
-	 cXY1usxM3qDl83rvj83UzaXbouVfgUim8mAUKHFRxCcmSo9m8wXxj1SLDLBCHUPOG8
-	 5k+PNqP320ELICm2XXIjawtyB/xoG3wCau4Hse3theA5fWhJtOHxN5djvUEVa+4aTW
-	 /JGZ/Mx8MyJNmvcDFaA6chhZn42yPtfMemOgLd1To8Qwi3VjimlfEIxFnQqhnAHBIQ
-	 GjM7F6MnU/BOA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Oliver
- Upton <oupton@kernel.org>, Eric Auger <eauger@redhat.com>, Joey Gouly
- <joey.gouly@arm.com>, Steffen
- Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, Sascha
- Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene
- <sebastianene@google.com>, Yuan Yao <yaoyuan@linux.alibaba.com>, Fuad
- Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init
- error paths
-In-Reply-To: <86o6cv1d2n.wl-maz@kernel.org>
-References: <20260921072958.2918477-1-fuad.tabba@linux.dev>
- <87wlrje2cx.ffs@fw13> <86o6cv1d2n.wl-maz@kernel.org>
-Date: Thu, 15 Oct 2026 14:32:52 +0200
-Message-ID: <87qzhrdtzf.ffs@fw13>
+	s=k20260515; t=1792067649;
+	bh=Ea9IWsCeD09j98ilJsUEEHsq1UpfLk0qemcn5duHRIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J7BZb1fxR0O7goAxUfGpjxhAU08AxKj+AOfsHnwVLKlkGnyA4153xUiHLRauTv+Uz
+	 DaTVkp0j+6yXVeiu2JVXVd94I+KxEhLlm1YhYu4iuDza5ccCAtIujijTdrzd82c/UY
+	 3cXfeaq9Qmx3j+upU5o6lkryTkcrju69Fx1o09kILj+3VWlTC3beaBTqSy5A4JMXgP
+	 4CeK3sXPwLrVgWsfL4U4Po22PJ9papa8VdLY3Ye97o6UukjPRFhogehGomXagBOfP5
+	 i/1S5ufBPJ8VZ+9IDI3sDTmmmp6zKNu9j5nC/p9nKG2p7YDc3jPJT74ntPNMZ/v+JV
+	 FdhzOdOp8wfwA==
+Date: Thu, 15 Oct 2026 13:34:04 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Olivier MOYSAN <olivier.moysan@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+Message-ID: <20261015-attentive-conflict-1a1f538de77d@spud>
+References: <20261001-tribesman-gauze-862e1ef0cdd8@spud>
+ <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+ <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
+ <950f2801-a613-4f5a-a5a7-cb30101cf293@foss.st.com>
+ <20261009-8db882a9fa159f8759aa7327@squawk>
+ <2ba9235f-182e-4906-92e2-e35cf831d289@foss.st.com>
+ <20261014-untrimmed-partly-81a4a21db49c@spud>
+ <48e528a5-0c54-4778-bd29-b6f44ae95be7@foss.st.com>
+ <20261014-unmade-sphinx-71cb25110d58@spud>
+ <436ef0bf-4146-435d-8252-acec68e64b9e@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FGGwO6lNFVG+3aVf"
+Content-Disposition: inline
+In-Reply-To: <436ef0bf-4146-435d-8252-acec68e64b9e@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +88,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15 2026 at 11:18, Marc Zyngier wrote:
-> On Thu, 15 Oct 2026 10:31:58 +0100,
-> Thomas Gleixner <tglx@kernel.org> wrote:
->> 
->> On Mon, Sep 21 2026 at 08:29, Fuad Tabba wrote:
->> > Hi folks,
->> >
->> > Changes since v2 [1]:
->> >   - Patch 3: a vgic_v4_init() failure now frees only the SPI array,
->> >     since that function unwinds its own state; the teardown label is
->> >     for the routing failure. (Yuan Yao)
->> >   - Rebased on kvmarm/next, where the routing failure already tears
->> >     down the GICv5 state. Patch 3 moves that into the shared label, so
->> >     the SPI array is freed on that path too.
->> >   - Collected Reviewed-by from Yuan Yao on patches 1 and 2. (thanks!)
->> >
->> > Four fixes on the paths that run when vgic init fails partway. Each one
->> > needs an allocation failure to reach.
->> 
->> Marc?
->
-> I was about to say that I had already queued that, except that it
-> appears it only happened in my head, and nowhere else... :-(
->
-> If that's OK with you, I'll queue (for real!) the whole thing via the
-> kvmarm tree, targeting 7.4-rc1.
+--FGGwO6lNFVG+3aVf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Ack
+On Thu, Oct 15, 2026 at 11:19:19AM +0200, Olivier MOYSAN wrote:
+> Hi Conor,
+>=20
+> On 10/15/26 00:49, Conor Dooley wrote:
+> > On Wed, Oct 14, 2026 at 06:51:45PM +0200, Olivier MOYSAN wrote:
+> > > On 10/14/26 17:15, Conor Dooley wrote:
+> > > > On Mon, Oct 12, 2026 at 02:56:04PM +0200, Olivier MOYSAN wrote:
+> > > > > On 10/9/26 21:12, Conor Dooley wrote:
+> > > > > > On Thu, Oct 08, 2026 at 06:37:26PM +0200, Olivier MOYSAN wrote:
+> > > > > > > On 10/8/26 12:11, Conor Dooley wrote:
+> > > > > > > > On Wed, Oct 07, 2026 at 11:01:28AM +0200, Olivier MOYSAN wr=
+ote:
+> > > > > > > > > On 10/1/26 20:32, Conor Dooley wrote:
+> > > > > > > > > >=20
+> > > > > > > > > > > +
+> > > > > > > > > > > +required:
+> > > > > > > > > > > +  - compatible
+> > > > > > > > > > > +  - reg
+> > > > > > > > > > > +  - ranges
+> > > > > > > > > > > +  - clocks
+> > > > > > > > > > > +  - clock-names
+> > > > > > > > > > > +  - clock-ranges
+> > > > > > > > > > > +  - "#address-cells"
+> > > > > > > > > > > +  - "#size-cells"
+> > > > > > > > > > > +
+> > > > > > > > > > > +additionalProperties: false
+> > > > > > > > > > > +
+> > > > > > > > > > > +patternProperties:
+> > > > > > > > > > > +  "^sitf@[0-9]+$":
+> > > > > > > > > > > +    type: object
+> > > > > > > > > > > +    description: Serial interface child node
+> > > > > > > > > >=20
+> > > > > > > > > > Why is this a child node at all?
+> > > > > > > > > > Probably not worth reviewing more without a link to the=
+ docs for this
+> > > > > > > > > > device so I can figure out what on earth is going on!
+> > > > > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > The MDF is a digital filter for sigma-delta bitstreams, r=
+ather than the
+> > > > > > > > > analog-to-digital converter itself.
+> > > > > > > > >=20
+> > > > > > > > > Here is the link to STM32MP25 reference manuel
+> > > > > > > > > https://www.st.com/resource/en/reference_manual/rm0457-st=
+m32mp2325xx-advanced-armbased-3264bit-mpus-stmicroelectronics.pdf
+> > > > > > > > > Chapter 45: Multi-function digital filter (MDF)
+> > > > > > > > >=20
+> > > > > > > > > On STMP32MP25 SoC, the MDF provides 8 serial interfaces (=
+SITF) and 8 digital
+> > > > > > > > > filters (DFLT) which can be connected through a multiplex=
+er.
+> > > > > > > > >=20
+> > > > > > > > > Below is a schematic view of typical applications targete=
+d by this
+> > > > > > > > > peripheral
+> > > > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > Audio use case:
+> > > > > > > > >=20
+> > > > > > > > > 		mdf
+> > > > > > > > >                 +-------------------------------------+
+> > > > > > > > > +------+    | +------+    +------+    +------+    |
+> > > > > > > > > | dmic | -> | | sitf | -> | mux  | -> | dflt | -- | -> au=
+dio device
+> > > > > > > > > +------+    | +------+    +------+    +------+    |
+> > > > > > > > >                 +-------------------------------------+
+> > > > > > > > >=20
+> > > > > > > > > For instance, in an audio use case the serial interface c=
+an be configured to
+> > > > > > > > > provide the clock to the digital microphone (cck0, cck1 o=
+r both) at a common
+> > > > > > > > > predefined rate, and to retrieve the PDM samples.
+> > > > > > > > > The serial interface provides this samples to a digital f=
+ilter, which
+> > > > > > > > > delivers PCM samples on its output.
+> > > > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > Analog use case:
+> > > > > > > > >=20
+> > > > > > > > > 		mdf
+> > > > > > > > >                   +-------------------------------------+
+> > > > > > > > > +--------+    | +------+    +------+    +------+    |
+> > > > > > > > > | sd adc | -> | | sitf | -> | mux  | -> | dflt | -- | -> =
+iio device
+> > > > > > > > > +--------+    | +------+    +------+    +------+    |
+> > > > > > > > >                   +-------------------------------------+
+> > > > > > > >=20
+> > > > > > > >=20
+> > > > > > > > So, looking at the docs and a brief chat with Jonathan abou=
+t this
+> > > > > > > > device, I believe you've got things backwards and this is a=
+ctually the backend,
+> > > > > > > > and the adc should be the one populating the io-backends pr=
+operty
+> > > > > > > > pointing to this device. You should have io-backend-cells, =
+and I assume
+> > > > > > > > that there should be a cell for the adc to select which dlf=
+t it is connected
+> > > > > > > > to.
+> > > > > > > >=20
+> > > > > > >=20
+> > > > > > > There have already been lengthy discussions in the past about=
+ a DFSDM
+> > > > > > > peripheral on STM32MP1, which has features similar to those o=
+f the MDF and
+> > > > > > > similar implementation constraints. For the DFSDM, a solution=
+ based on an
+> > > > > > > IIO backend had been upstreamed. The MDF follows the same arc=
+hitecture. I
+> > > > > > > need to take a little time to dive back into this issue.
+> > > > > >=20
+> > > > > > One thing to note there is that you retrofitted the backends on=
+to that
+> > > > > > device, and the original design here is much older (it's a text
+> > > > > > binding).
+> > > > > >=20
+> > > > > >=20
+> > > > > > >=20
+> > > > > > > DFSDM sources:
+> > > > > > > drivers/iio/adc/stm32-dfsdm-adc.c
+> > > > > > > drivers/iio/adc/stm32-dfsdm-core.c
+> > > > > > >=20
+> > > > > > > Here is a sample of DFSDM DT
+> > > > > > >=20
+> > > > > > > sd_adc0: simple-sd-adc0 {
+> > > > > > > 	compatible =3D "sd-modulator";
+> > > > > > > 	#io-backend-cells =3D <0>;
+> > > > > > > 	vref-supply =3D <&v3v3>;
+> > > > > >=20
+> > > > > > Yeah, pretty sure this is wrong (backwards). The backend is the=
+ thing
+> > > > > > that gets data from an ADC not the ADC.
+> > > > > >=20
+> > > > >=20
+> > > > > The backend framework was introduced to implement complex IIO agg=
+regate
+> > > > > devices. The hardwares that were driving this need were analog de=
+vice ad9467
+> > > > > and ST DFSDM.
+> > > > >=20
+> > > > > https://lore.kernel.org/linux-iio/20231204144925.4fe9922f@jic23-h=
+uawei/T/#m222f5175273b81dbfe40b7f0daffcdc67d6cb8ff
+> > > > >=20
+> > > > >   From drivers/iio/industrialio-backend.c:
+> > > > >=20
+> > > > > "The typical architecture is to have one device as the frontend d=
+evice which
+> > > > > can be "linked" against one or multiple backend devices. All the =
+IIO and
+> > > > > userspace interface is expected to be registers/managed by the fr=
+ontend
+> > > > > device which will callback into the backends when needed (to get/=
+set some
+> > > > > configuration that it does not directly control)."
+> > > > >=20
+> > > > >    *                                    ---------------------
+> > > > >    * ------------------                 | ------------
+> > > > >    * |     ADC        |-----------------| | ADC CORE |
+> > > > >    * | (Frontend/IIO) | Serial Data (eg | |(backend) |-------
+> > > > >    * |                |-----------------| ------------
+> > > > >    * ------------------                 ---------------------
+> > > > >=20
+> > > > > The MDF (or DFSDM) use case, follows this topology:
+> > > > > - The SD modulator (ADC core) registers in backend framework
+> > > > > - The MDF registers in IIO framework and exposes the IIO devices
+> > > > >     It also get configuration (ref voltage) from SD modulator, to=
+ compute
+> > > > > scaling.
+> > > > >=20
+> > > > > I agree that if we consider the terms frontend and backend, the e=
+lements in
+> > > > > the data flow do not have the roles that we would naturally expec=
+t. However,
+> > > > > if we consider the expected role of the elements using the iio-ba=
+ckend
+> > > > > framework, the usage seems coherent to me.
+> > > >=20
+> > > > I didn't even get as far as sd modulators or whatever, if I underst=
+and
+> > > > correctly the ADC inputs on this device are fed by the onboard ADC?
+> > > > (https://lore.kernel.org/linux-iio/20261006-adc-stm32mp25-v1-v4-0-d=
+31ec75aecf3@foss.st.com/)
+> > > > In that case, I can't really see how it makes sense for the primary=
+ iio
+> > > > device to change when data is fed back through the mdf or taken
+> > > > directly from the ADC itself, particularly given how that would aff=
+ect
+> > > > the userspace interface.
+> > > >=20
+> > > > The "serial" side of this seems in a similar vein to the adi,axi-adc
+> > > > stuff, which when considered with the ADC inputs, really does give =
+me
+> > > > the impression this is backwards.
+> > >=20
+> > > Some clarifications about the STM32MP25. This SoC does indeed provide=
+ ADCs,
+> > > and these can be connected to the MDF via a dedicated interface. (but=
+ not
+> > > the serial interface).
+> > >=20
+> > > However, this use case is not supported by the driver. Only sigma-del=
+ta
+> > > modulators, external to the SoC and connected via the serial interfac=
+e, are
+> > > supported. On ST boards, the only available SD modulators are digital
+> > > microphones.
+> >=20
+> > Quite frankly, I don't care what you are choosing to implement in the
+> > driver or what your first-party boards support. The binding must
+> > represent the capabilities of the device, not what subset you deem
+> > relevant at this point in time. I'm not going to ack anything that does
+> > not consider all use cases for the device, especially since I the more I
+> > look the more I am convinced that this is the wrong way to model the
+> > relationship between devices and therefore intentionally ignoring a use=
+ case
+> > is likely to be problematic when someone does decide that they want to =
+use
+> > that feature.
+> >=20
+> > > Anyway, if the internal ADC to MDF use case was supported, the issue =
+would
+> > > be the same. The whole ADC + MDF set would be presented at the interf=
+ace as
+> > > an aggregated device, and the ADC data would not be directly accessib=
+le to
+> > > the user.
+> >=20
+> > Of course, that's what I was talking about when I said:
+> > | In that case, I can't really see how it makes sense for the primary i=
+io
+> > | device to change when data is fed back through the mdf or taken
+> > | directly from the ADC itself, particularly given how that would affect
+> > | the userspace interface.
+> >=20
+> > To me, in that ADC to MDF use case, the frontend portion of the aggrega=
+te
+> > device presented to userspace needs to be the ADC and the MDF needs to =
+be
+> > the backend, since otherwise the ADC will simultaneously be frontend and
+> > backend, depending on which channel is considered. That makes no sense =
+to me
+> > when the MDF can always be the backend, for all use cases and avoid that
+> > sort of problem entirely.
+> > I've heard no argument as to why the MDF cannot be a backend, just that=
+ you
+> > don't want to because the previous device didn't, but copying what was
+> > done before isn't a justification that bears weight if how it was done
+> > before isn't the way it should be done.
+> >=20
+>=20
+> These topology problems were discussed at length in the case of DFSDM.
+> The main blocking point being support for interleaved channels (scan mode=
+),
+> a problematic issue that is still found with MDF.
+
+If I am not mistaken, you're talking about what's described in the
+section labelled "Interleaved-transfer mode" of the document you
+provided previously?
+
+> The constraints that led to this approach are in the following thread:
+> https://lore.kernel.org/all/20210919191414.09270f4e@jic23-huawei/
+
+That to me seemed like a discussion about why the MDF/interleaver needs
+to be represented as a separate device, I don't see anything that
+explains why the MDF cannot be a backend.
+
+Reading the document, "Interleaved-transfer mode" doesn't trash the
+association between data and which fifo, and thereby which sensor or
+ADC, it came from. Using #io-backend-cells =3D <1> in the MDF, the
+sensor/ADC can provide the channel to which it is linked, and the data
+association restored. You already know what the set of interleaved channels
+is from the st,interleave property so there's no extra properties required
+for this I think.
+
+The problem here must be that you want to access the interleaved data? That
+could be handled by having a cell value that represents the interleaved
+data (e.g. -1), rather than a channel (1-N)? That'd support systems that
+want interleaved data (like an array of identical sensors?) and systems
+using the mode for the stated aim of it in documentation of optimising
+DMA request resources who have disparate devices where interleaved data
+itself is not useful?
+
+Thanks,
+Conor.
+
+--FGGwO6lNFVG+3aVf
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatDIPAAKCRB4tDGHoIJi
+0lSLAP4+83dGmyYNV8OdycrYzvbbmgn56o9ZFI7sRbVCNVHMAQD/eQxpY2Ywsgh3
+eVcR9wfNHtbq0BalljDqp9VRLdn8YAU=
+=Da9G
+-----END PGP SIGNATURE-----
+
+--FGGwO6lNFVG+3aVf--
 
