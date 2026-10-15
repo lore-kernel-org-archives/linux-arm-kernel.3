@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA885CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A48CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aW04Fxw6QOvKQXXCTwvZLbew+4xaP2fETNEReXYyrUI=; b=MY0VKWzInH/PQ/fFVESjocvYsT
-	ojhy+dooqOXJO95YHw27uwL6R/nCSn/cbD/xAGL/1ohrHG62KOyS+iGKz/iocwW+qeHKmSKigDIKb
-	RF2A6/UOEbx1IWjAZgEJ2LWfgAdLoQ2IiQyNnijzURkohMBIWi7edtpQJ1JbxFfEeRG5y5EBdQkPj
-	MoDhTz7hZjJdiasIRJcP0IvqaR39Nf4kJqSHClWjSp+mu1YIyh4dFqQ+l/6gqRfUIo8zhUH7gDmJ3
-	fjo60pitBTSDWfXJTEYPWIIm0PoSjH6k9jdm4pbaoRqUaIRAoCEzlQ4iz23tDN5wbsIMIDagcbM+y
-	sApCZoTA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IhG4jffIGwAnKsWCbdCKfAORmvrwBaGFyz6m8g6OWew=; b=IaujMUXSm2s0nS0Bbobz+r5FeE
+	qHQhKsqRuKwhHLHRkEgupEcqx/B4SaIJRIE426HlcWOPHDyHlJD4qHi3fxhJLesuShEEE5g0G+4Es
+	+nRyHB8S6JHzUT4qJiEISjFW3l4esN/d0PVypAP40Gtn65Lk4vRGivSkokrAasDShzUVVJduPYy2e
+	Ut2mlzvrtXDOtRcM9U+14TaUCK5lOtH14e7Lcm0FpZlAhIbLAa4vBT78eAkL03SZRcc0UroAgBwrI
+	ikeen/qq02lyz61HElfYE91Ov3gkr/pM4JuklJAVx2ykU+FXo9YkwH2y5vyfin+RpkwnoWeGX0hoz
+	N6CUsO/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMPK-00000000M87-0Djj;
-	Thu, 15 Oct 2026 14:26:10 +0000
+	id 1xHMPi-00000000MPR-4AzO;
+	Thu, 15 Oct 2026 14:26:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMPg-00000000MLb-1Dep
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 Oct 2026 14:26:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=IhG4jffIGwAnKsWCbdCKfAORmvrwBaGFyz6m8g6OWew=; b=lXHpzSzqLetaP5OUkqGEdbQmJn
+	iYIaN3nxoh559+egsQkjg/IdNhABDjY4+hLfRwXDAWPd+19jwgN15V/SIwsBWtV/LYk7R2+44732C
+	z7OxGY1yFw9iK2pjqASiQMLHD6I/2ro/F9E6vF8dqjhjqGEuWkI3uhe416nJySLZuL1e2d24Zt+ly
+	g4+ehe7NGPaFef+WjiP/S1BszWeuncEUMQwwpq0CO6cs/YkRN6K1Otl3mLzrnai+LD2WSxz4T9amm
+	rsiEYY86KKgqFceri3AwkbHMIbCqiSxNIqaQMxCuPfKG2kpXzxV9jTkjCQYw00FTKuo8unordhYB5
+	5s2LXWBw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMPH-00000000M7A-1TcM
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHMPd-00000000TCD-07vZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:26:08 +0000
+	Thu, 15 Oct 2026 14:26:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CC911477;
-	Thu, 15 Oct 2026 07:26:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E33115A1;
+	Thu, 15 Oct 2026 07:26:24 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6F6B3F871;
-	Thu, 15 Oct 2026 07:26:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09FD13F871;
+	Thu, 15 Oct 2026 07:26:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792074363; bh=nRMhCWv1VYJE0ooCA755xJ6dFPiezH5+ScPUC6Dphts=;
-	h=From:To:Cc:Subject:Date:From;
-	b=QcG0e46uz/7hlMfHpaXW1ozPdaqgTVqNUy1PeqfN2lkSTvz+SkpiTinzKAox+EXrg
-	 W5meia0bwgyrfC9AS0HoJ9neI2kdDzSj5qtgQAsmYJNv3ddD/rPgPHM7kPSfjc15/J
-	 oEU9YCoUQojOnp17pewfxUDuFTan4gdxPZ/GD0Mc=
+	t=1792074387; bh=8nTqK/gXGNpBA+7zpgdbk84taZTWcv+6ZB6Xx4LiXow=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nvoCIcaYVX/M+nkfRxZxnsW4WBC6eqMTL9bQlMjOLUyhc7E0U0zSrEaAfz8ri7xuH
+	 DEd+xCSjAC7Q6cL+zkrjTFh25cwBU49kQG5kkhxfabhCxph0XE3fXfM01XDMup41TH
+	 0cFv16GLInzBr5OzeKSW0LX/qH2d9uG/dingM8vg=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Arnd Bergmann <arnd@arndb.de>,
@@ -63,15 +78,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v2 00/15] Arm Core Local Accelerator Driver
-Date: Thu, 15 Oct 2026 15:25:34 +0100
-Message-ID: <20261015142552.4128028-1-ryan.roberts@arm.com>
+Subject: [RFC PATCH v2 07/15] misc/arm-cla: Set up memory translation context
+Date: Thu, 15 Oct 2026 15:25:41 +0100
+Message-ID: <20261015142552.4128028-8-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_072607_488314_61B40418 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20261015_152629_575382_80DBC75B 
+X-CRM114-Status: GOOD (  36.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,151 +103,412 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+CLA accelerators use a Memory Translation Context to describe the
+page-table and memory-system configuration used for DMA through the CPU
+MMU. Set up the kernel-owned MTC during CLA bringup so later context
+switches only need to replace the user TTBR0 value.
 
-This is v2 of an RFC to introduce a driver for the Arm Core Local Accelerator
-(CLA), a CPU-local interface for programming attached accelerators. While the
-interface is agnostic to the accelerator type, the initial (and currently only)
-target is a compute engine.
+Populate the MTC from the CPU EL1 configuration, including SCTLR, MAIR,
+TCR and TCR2 where present. Configure the accelerator to run as EL0, put
+the ASID in TTBR0 and disable TTBR1 translations because the driver only
+installs user contexts in the TTBR0 range. When running at EL2, also
+program the host HCR state.
 
-The RFC aims to engage the community and get feedback on some key aspects. This
-will help plan our approach for eventual upstreaming. Based on feedback from
-Will and Marc in RFCv1, the driver now supports both bare metal and virtualized
-environments. I also have commitments to publish the CLA spec, a supporting FVP
-and a representaive user space, all to support upstreaming the driver, as per
-Will's feedback.
+Add SETCTX and GETCTX launch helpers for MTC register access. Use the
+first available accelerator ID for these operations, since the MTC is
+shared by the CLA but the operation still requires a valid accelerator
+ID.
 
-For now you can find documentation included with patch 1, which describes the HW
-and driver design. Note that the CLA is not part of the Arm Architecture.
+Clear the MTC on CPU teardown, and add helpers to install and uninstall
+a user translation context by updating TTBR0 with the process page
+table, ASID and CnP state.
 
-Patch 1 documents the hardware and driver design, and adds a driver skeleton.
-Patches 2-5 initialize and probe the device. Patches 6-9 add context management
-for switching the device between different users. Patches 10-12 add some (small)
-changes to KVM and VFIO, which then enables patches 13-15 to expose the HW for
-device assignment into a VM.
-
-Aspects I'm seeking feedback for:
-
-* The general structure of the driver: The current shape addresses the
-  performance requirements we have for the use cases, and is therefore our
-  preferred approach. But there are some unusual aspects due to the HW design.
-
-* Driver interaction with architectural support: I've opted to treat the CLA as
-  a device rather than a CPU extension, so it's implemented as a (mostly)
-  self-contained driver. It has some unavoidable coupling to the arch code since
-  it needs to share page tables and ASIDs/VMIDs. All arm64 arch interaction is
-  contained in cla-mtc.c.
-
-* The location of the driver: although most accelerators will likely be compute
-  ones, CLA is a generic MMIO interface that could handle any kind of
-  accelerator. It's currently implemented as a misc driver. accel is another
-  potential option, but given the current SVA approach, we would not use any of
-  the services (memory-management or otherwise) that accel provides.
-
-* Virtualization support: since the HW uses the CPU's MMU, we introduced a new
-  VFIO_CPU_MMU group type, and added the kvm_arch_[get|put]_guest_mmu() API to
-  KVM/arm64 so that the CLA can share the stage2 pgtables and VMID. The CPU
-  pinning problem remains unsolved; the vCPU must be pinned to the pCPU that
-  owns the CLA in order to access it. If the pCPU goes offline or the vCPU is
-  otherwise unpinned, it would look to the guest like the HW is faulty. This
-  issue is therefore contained to the guest. I've additionally improved the
-  robustness of the core driver to deal with this eventuality gracefully.
-
-I consider the core driver to be well tested and robust. The virtualization
-portion is prototype and has known issues that would be addressed assuming the
-approach gets positive feedback.
-
-Changes since RFCv1 [1]
-=======================
-
- - Added KVM guest support through VFIO mdev, including exclusive domain
-   assignment, stage-2 memory translation and VMID pinning
- - Changed the userspace ABI to expose one `/dev/cla/<class-id>` device per
-   accelerator class; `ARM_CLA_PARAM_DEV_ACCELS` now reports only accelerators
-   belonging to the opened class (per Arnd)
- - Removed `ARM_CLA_UABI_VERSION` and the `ARM_CLA_PARAM_UABI_VERSION` query
-   (per Arnd)
- - Various driver bug fixes and robustness improvements
-
-
-Source, along with some tests, is available at [2]. Patches based on v7.3-rc5.
-
-[1] https://lore.kernel.org/all/20260717104759.123203-1-ryan.roberts@arm.com/
-[2] https://gitlab.arm.com/linux-arm/linux-rr/-/tree/features/cla-driver-v2-rfc-tests
-
-Thanks,
-Ryan
-
-
-Jean-Philippe Brucker (10):
-  misc/arm-cla: Add driver skeleton and documentation
-  misc/arm-cla: Add launch operation helpers
-  misc/arm-cla: Probe firmware-described devices
-  misc/arm-cla: Initialize devices on CPU bringup
-  misc/arm-cla: Accelerator context save and restore
-  KVM: arm64: Export stage-2 MMU config
-  vfio: Support VFIO devices that access the CPU MMU
-  misc/arm-cla: Add stage-2 MTC and VM context switch
-  misc/arm-cla: Support exclusive context assignment
-  misc/arm-cla: Add vfio-mdev user interface
-
-Ryan Roberts (4):
-  dt-bindings: misc: Add Arm Core Local Accelerator
-  misc/arm-cla: Set up memory translation context
-  misc/arm-cla: Manage domain contexts
-  misc/arm-cla: Add userspace interface
-
-Shameer Kolothum (1):
-  KVM: arm64: Introduce support to pin VMIDs
-
- .../devicetree/bindings/misc/arm,cla.yaml     |  77 +++
- Documentation/misc-devices/arm-cla.rst        | 217 +++++++
- Documentation/misc-devices/index.rst          |   1 +
- MAINTAINERS                                   |   9 +
- arch/arm64/include/asm/kvm_host.h             |  14 +
- arch/arm64/include/asm/kvm_mmu.h              |   1 +
- arch/arm64/kvm/mmu.c                          | 102 ++++
- arch/arm64/kvm/sys_regs.c                     |  14 +-
- arch/arm64/kvm/vmid.c                         |  77 ++-
- drivers/misc/Kconfig                          |   1 +
- drivers/misc/Makefile                         |   1 +
- drivers/misc/arm-cla/Kconfig                  |  26 +
- drivers/misc/arm-cla/Makefile                 |  15 +
- drivers/misc/arm-cla/arm-cla-regs.h           | 192 ++++++
- drivers/misc/arm-cla/arm-cla.h                | 393 ++++++++++++
- drivers/misc/arm-cla/cla-ctx.c                | 229 +++++++
- drivers/misc/arm-cla/cla-init.c               | 562 ++++++++++++++++++
- drivers/misc/arm-cla/cla-mdev.c               | 469 +++++++++++++++
- drivers/misc/arm-cla/cla-mtc.c                | 335 +++++++++++
- drivers/misc/arm-cla/cla-ops.c                | 417 +++++++++++++
- drivers/misc/arm-cla/cla-regs.c               | 370 ++++++++++++
- drivers/misc/arm-cla/cla-sched.c              | 474 +++++++++++++++
- drivers/misc/arm-cla/cla-topology.c           | 202 +++++++
- drivers/misc/arm-cla/cla-user.c               | 541 +++++++++++++++++
- drivers/vfio/group.c                          |  37 +-
- drivers/vfio/vfio.h                           |   5 +
- drivers/vfio/vfio_main.c                      |  16 +-
- include/linux/vfio.h                          |   1 +
- include/uapi/linux/arm-cla.h                  | 198 ++++++
- 29 files changed, 4969 insertions(+), 27 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/misc/arm,cla.yaml
- create mode 100644 Documentation/misc-devices/arm-cla.rst
- create mode 100644 drivers/misc/arm-cla/Kconfig
- create mode 100644 drivers/misc/arm-cla/Makefile
- create mode 100644 drivers/misc/arm-cla/arm-cla-regs.h
- create mode 100644 drivers/misc/arm-cla/arm-cla.h
- create mode 100644 drivers/misc/arm-cla/cla-ctx.c
- create mode 100644 drivers/misc/arm-cla/cla-init.c
- create mode 100644 drivers/misc/arm-cla/cla-mdev.c
+Co-developed-by: Jean-Philippe Brucker <jpb@kernel.org>
+Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ drivers/misc/arm-cla/Makefile   |   1 +
+ drivers/misc/arm-cla/arm-cla.h  |  24 ++++
+ drivers/misc/arm-cla/cla-init.c |  10 +-
+ drivers/misc/arm-cla/cla-mtc.c  | 206 ++++++++++++++++++++++++++++++++
+ drivers/misc/arm-cla/cla-ops.c  |  52 ++++++++
+ 5 files changed, 291 insertions(+), 2 deletions(-)
  create mode 100644 drivers/misc/arm-cla/cla-mtc.c
- create mode 100644 drivers/misc/arm-cla/cla-ops.c
- create mode 100644 drivers/misc/arm-cla/cla-regs.c
- create mode 100644 drivers/misc/arm-cla/cla-sched.c
- create mode 100644 drivers/misc/arm-cla/cla-topology.c
- create mode 100644 drivers/misc/arm-cla/cla-user.c
- create mode 100644 include/uapi/linux/arm-cla.h
 
---
+diff --git a/drivers/misc/arm-cla/Makefile b/drivers/misc/arm-cla/Makefile
+index c1b14155454d..df3ad7e4a1b4 100644
+--- a/drivers/misc/arm-cla/Makefile
++++ b/drivers/misc/arm-cla/Makefile
+@@ -2,6 +2,7 @@
+ 
+ arm-cla-y := \
+ 	cla-init.o \
++	cla-mtc.o \
+ 	cla-ops.o \
+ 	cla-regs.o \
+ 	cla-topology.o
+diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
+index 6d72d57e5422..40e95d3128ad 100644
+--- a/drivers/misc/arm-cla/arm-cla.h
++++ b/drivers/misc/arm-cla/arm-cla.h
+@@ -83,8 +83,20 @@ struct cla_regs_pl0 {
+ 	u64 regstate[];
+ };
+ 
++/**
++ * struct cla_ctx_key - Unique context identifier
++ * @mm: For PL0 contexts, the mm.
++ * @file: for PL0 contexts, the file.
++ */
++struct cla_ctx_key {
++	struct mm_struct *mm;
++	struct file *file;
++};
++
+ struct cla_ctx {
++	struct cla_ctx_key key;
+ 	void **regs;
++	unsigned int asid;
+ };
+ 
+ extern struct xarray cla_domains;
+@@ -139,6 +151,10 @@ int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
+ 		   size_t nregs, u64 *regs);
+ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 		    unsigned int regidx, size_t nregs, u64 *regs);
++int cla_op_setctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs);
++int cla_op_getctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs);
+ int cla_op_entersr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
+ int cla_op_exitsr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
+ 
+@@ -149,4 +165,12 @@ int cla_regs_uninstall(struct cla_dev *dev, struct cla_ctx *ctx,
+ int cla_ctx_alloc_regs(struct cla_domain *domain, struct cla_ctx *ctx);
+ void cla_ctx_free_regs(struct cla_domain *domain, struct cla_ctx *ctx);
+ 
++int cla_mtc_setup(struct cla_dev *dev);
++int cla_mtc_clear(struct cla_dev *dev);
++int cla_mtc_install(struct cla_dev *dev, struct cla_ctx *ctx);
++int cla_mtc_uninstall(struct cla_dev *dev, struct cla_ctx *ctx);
++int cla_mtc_get_ctx(struct cla_ctx *ctx);
++void cla_mtc_put_ctx(struct cla_ctx *ctx);
++void cla_mtc_leak_ctx(struct cla_ctx *ctx);
++
+ #endif /* _ARM_CLA_H_ */
+diff --git a/drivers/misc/arm-cla/cla-init.c b/drivers/misc/arm-cla/cla-init.c
+index a4d2ffaa3136..58f37787a59c 100644
+--- a/drivers/misc/arm-cla/cla-init.c
++++ b/drivers/misc/arm-cla/cla-init.c
+@@ -184,7 +184,8 @@ static void cla_dev_reinit(struct cla_dev *dev)
+ 	if (dev->broken)
+ 		return;
+ 
+-	if (WARN_ON(cla_op_reset_all(dev))) {
++	if (WARN_ON(cla_op_reset_all(dev)) ||
++	    WARN_ON(cla_mtc_clear(dev))) {
+ 		dev->broken = true;
+ 		return;
+ 	}
+@@ -242,9 +243,14 @@ static int cla_dev_setup(unsigned int cpu)
+ 
+ 	cla_reg_write(dev, CLA_REG_PL0CTRL, plxctrl_val);
+ 
+-	if (dev->accelerators)
++	if (dev->accelerators) {
++		ret = cla_mtc_setup(dev);
++		if (ret)
++			goto err;
++
+ 		cla_info(dev, "available accelerators: 0x%02x\n",
+ 			 dev->accelerators);
++	}
+ 
+ 	dev->discovered = true;
+ 	return 0;
+diff --git a/drivers/misc/arm-cla/cla-mtc.c b/drivers/misc/arm-cla/cla-mtc.c
+new file mode 100644
+index 000000000000..9ab25085dfdf
+--- /dev/null
++++ b/drivers/misc/arm-cla/cla-mtc.c
+@@ -0,0 +1,206 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Arm CLA driver - memory translation context
++ *
++ * Copyright 2026 Arm Limited.
++ */
++
++#include <asm/kvm_arm.h>
++#include <linux/mmu_context.h>
++
++#include "arm-cla.h"
++
++#define cla_kernel_mtc \
++	(cla_kernel_pl == 2 ? CLA_MTC_REGIDX_PL2 : CLA_MTC_REGIDX_PL1)
++
++/**
++ * cla_mtc_setup - initialize the memory translation context
++ * @dev: CLA device
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_setup(struct cla_dev *dev)
++{
++	int ret;
++	u64 tcr;
++	u64 regs[2 * CLA_MTC_PL_SIZE] = {};
++	u64 *kregs = &regs[cla_kernel_mtc];
++	size_t regs_size = cla_kernel_pl * CLA_MTC_PL_SIZE;
++	u64 reserved_ttbr = phys_to_ttbr(page_to_phys(ZERO_PAGE(0)));
++
++	/*
++	 * The MTC registers deliberately have the same layout as their arm64
++	 * sysreg counterparts. Where MTC registers don't define a particular
++	 * field, it is specified as "reserved RAZ/WI", so we can safely copy
++	 * the whole arm64 register value to the MTC register without needing to
++	 * do any masking. That just leaves the possibility of the CPU
++	 * supporting a VMSA feature which is necessary for correct sharing of
++	 * pgtables that the MTC doesn't support (e.g. MTE, PIE, POE);
++	 * Fortunately, CLA is part of the CPU implementation so this is
++	 * guaranteed never to happen.
++	 */
++
++	/* The accelerator always runs as EL0 */
++	kregs[CLA_MTC_PSTATE] = FIELD_PREP(CLA_MTC_PSTATE_EL, 0) |
++				FIELD_PREP(CLA_MTC_PSTATE_PAN,
++					   system_uses_hw_pan());
++	kregs[CLA_MTC_TTBR0] = reserved_ttbr;
++	kregs[CLA_MTC_TTBR1] = reserved_ttbr;
++	kregs[CLA_MTC_SCTLR] = read_sysreg(sctlr_el1);
++	kregs[CLA_MTC_MAIR] = read_sysreg(mair_el1);
++
++	if (cpus_have_final_cap(ARM64_HAS_TCR2))
++		kregs[CLA_MTC_TCR2] = read_sysreg_s(SYS_TCR2_EL1);
++
++	tcr = read_sysreg(tcr_el1);
++	/*
++	 * Put ASID in TTBR0, so that we only have one reg to update when
++	 * switching context.
++	 */
++	FIELD_MODIFY(TCR_EL1_A1, &tcr, 0);
++	/*
++	 * We never map anything in the TTBR1 VA range so explicitly disable
++	 * translations via TTBR1.
++	 */
++	FIELD_MODIFY(TCR_EL1_EPD1_MASK, &tcr, 1);
++	kregs[CLA_MTC_TCR] = tcr;
++
++	if (cla_kernel_pl == 2) {
++		/* E2H and TGE */
++		regs[CLA_MTC_HCR_EL2] = HCR_HOST_VHE_FLAGS;
++	}
++
++	/*
++	 * All accelerators are idle, meaning there can't be any memory
++	 * transactions happening. So it is safe to setup the MTC in any order.
++	 * i.e. there is no issue with setting SCTLR.M=1 before we have
++	 * configured MAIR or TCR2.
++	 */
++	ret = cla_op_setctx(dev, CLA_MTC_REGIDX_PL1, regs_size, regs);
++	if (ret) {
++		WARN_ON(cla_mtc_clear(dev));
++		return ret;
++	}
++
++	return 0;
++}
++
++/**
++ * cla_mtc_clear - clear the memory translation context
++ * @dev: CLA device
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_clear(struct cla_dev *dev)
++{
++	/* Don't set the RES1 bit in VTCR_EL2 because in MTC they are RAZ/WI. */
++	u64 regs[2 * CLA_MTC_PL_SIZE] = {};
++	size_t regs_size = cla_kernel_pl * CLA_MTC_PL_SIZE;
++
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	/*
++	 * All accelerators are idle, meaning there can't be any memory
++	 * transactions happening. So it is safe to clear the MTC in any order.
++	 * i.e. there is no issue with clearing TTBRx before setting SCTLR.M=0.
++	 */
++	return cla_op_setctx(dev, CLA_MTC_REGIDX_PL1, regs_size, regs);
++}
++
++static int cla_mtc_install_s1(struct cla_dev *dev, struct cla_ctx *ctx)
++{
++	u64 ttbr0;
++
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	ttbr0 = phys_to_ttbr(virt_to_phys(ctx->key.mm->pgd)) |
++		FIELD_PREP(TTBRx_EL1_ASID_MASK, ctx->asid);
++
++	if (system_supports_cnp())
++		ttbr0 |= TTBRx_EL1_CnP;
++
++	return cla_op_setctx(dev, cla_kernel_mtc + CLA_MTC_TTBR0, 1, &ttbr0);
++}
++
++static int cla_mtc_uninstall_s1(struct cla_dev *dev)
++{
++	u64 ttbr0 = phys_to_ttbr(page_to_phys(ZERO_PAGE(0)));
++
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	return cla_op_setctx(dev, cla_kernel_mtc + CLA_MTC_TTBR0, 1, &ttbr0);
++}
++
++/**
++ * cla_mtc_install - enable a translation context
++ * @dev: CLA device
++ * @ctx: context to install
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_install(struct cla_dev *dev, struct cla_ctx *ctx)
++{
++	return cla_mtc_install_s1(dev, ctx);
++}
++
++/**
++ * cla_mtc_uninstall - disable the translation context
++ * @dev: CLA device
++ * @ctx: context to remove
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_uninstall(struct cla_dev *dev, struct cla_ctx *ctx)
++{
++	return cla_mtc_uninstall_s1(dev);
++}
++
++/**
++ * cla_mtc_get_ctx - Get translation information
++ * @ctx: context to get
++ *
++ * Grab the information needed for installing this context.
++ * For stage 1 MTC, pin the ASID.
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_get_ctx(struct cla_ctx *ctx)
++{
++	ctx->asid = arm64_mm_context_get(ctx->key.mm);
++	if (ctx->asid == 0)
++		return -ENOSPC;
++
++	return 0;
++}
++
++/**
++ * cla_mtc_put_ctx - Release translation information
++ * @ctx: context to release
++ *
++ * Undo cla_mtc_get_ctx().
++ */
++void cla_mtc_put_ctx(struct cla_ctx *ctx)
++{
++	arm64_mm_context_put(ctx->key.mm);
++}
++
++/**
++ * cla_mtc_leak_ctx - Leak the memory translation config
++ * @ctx: the stuck context
++ *
++ * On catastrophic hardware failure, when we lose control of the device and
++ * cannot uninstall the context, take a reference to the memory context so that
++ * it doesn't get freed. The page directory may be accessed by the hardware
++ * sometime in the future and must not be reallocated.
++ */
++void cla_mtc_leak_ctx(struct cla_ctx *ctx)
++{
++	WARN(1, "leaking PL0 context\n");
++	mmgrab(ctx->key.mm);
++}
+diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
+index bb0bac5c2d35..ceca84fd58a9 100644
+--- a/drivers/misc/arm-cla/cla-ops.c
++++ b/drivers/misc/arm-cla/cla-ops.c
+@@ -249,6 +249,10 @@ static int cla_op_access_reg(struct cla_dev *dev, u8 op,
+ 	case CLA_LAUNCH_OP_REGWRITE:
+ 		max_regidx = 0x100000000;
+ 		break;
++	case CLA_LAUNCH_OP_SETCTX:
++	case CLA_LAUNCH_OP_GETCTX:
++		max_regidx = 0x80;
++		break;
+ 	default:
+ 		WARN_ON(1);
+ 		return -EINVAL;
+@@ -315,6 +319,54 @@ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 				 accid, regidx, nregs, regs);
+ }
+ 
++/**
++ * cla_op_setctx - launch SETCTX operation.
++ * @dev: CLA device.
++ * @regidx: first MTC register index.
++ * @nregs: number of registers to set. Can be greater than 8 (accessed with
++ *         multiple SETCTX operations).
++ * @regs: register content, array of length @nregs.
++ *
++ * Return: 0 on success, or an error.
++ */
++int cla_op_setctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs)
++{
++	/*
++	 * Even though the MTC is shared between all accelerators, accid must be
++	 * valid. If no accelerator is attached, the op fails.
++	 */
++	if (!dev->accelerators)
++		return -ENODEV;
++
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_SETCTX, CLA_DATA_IN,
++				 __ffs(dev->accelerators), regidx, nregs, regs);
++}
++
++/**
++ * cla_op_getctx - launch GETCTX operation.
++ * @dev: CLA device.
++ * @regidx: first MTC register index.
++ * @nregs: number of registers to get. Can be greater than 8 (accessed with
++ *         multiple GETCTX operations).
++ * @regs: register content, array of length @nregs.
++ *
++ * Return: 0 on success, or an error.
++ */
++int cla_op_getctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs)
++{
++	/*
++	 * Even though the MTC is shared between all accelerators, accid must be
++	 * valid. If no accelerator is attached, the op fails.
++	 */
++	if (!dev->accelerators)
++		return -ENODEV;
++
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_GETCTX, CLA_DATA_OUT,
++				 __ffs(dev->accelerators), regidx, nregs, regs);
++}
++
+ /**
+  * cla_op_entersr - launch ENTERSR operation.
+  * @dev: CLA device.
+-- 
 2.43.0
 
 
