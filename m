@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF25CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656B2CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 12:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0G1u5/k4DcckxQeq3RlZifz6+ya0XrhqOvHOHu/ECU=; b=NkN1CedEffVitUcb3XvgPOVII9
-	+lCbJNxJxZx6dNIN6CGMASuLLiOwFyy6lWoeWqAZA2K4rrmq+Nj/BfYP2+effqhhkPsQTkdN3kI9R
-	/kO6pU0k5+51s3+Wh60cOE0iKHpp0xEIu3u3y5Bp9nAF1LFYAjnkX+krDkhHjs5D07wcoWLSemmBQ
-	seuoVGcwvaWrVcyh0ryUlQTzIhTYCqPR6Zh0Ke9PqDBcheXODslGnKpYhA7PlFcHNZL1GLREkh3t/
-	WYNSC7E5/dHVUM+Mc9Y8pP767r9cs3aPojtFBL+by5TLgIgIytcCnQZD4NW/VlU3x690kjV4NNSeC
-	6IWAEFnw==;
+	bh=hknBwdOobDFBq9SWOoVzNpEOW9eSZ86xCbruz506nEI=; b=GPdrCsn/xVYTnUa13z2ahbrBdj
+	HTsA8gQj98r2hCNoqD+KnnM84+nZUtkzUCrffDALrOSm5i7lHlWMhavBkWKoyD/xeVbZ2BJS9Dpeg
+	jmnyIuSUOBW+zJqHhVcETG3gvVLjbZ2Ya/nYm3shLin1EZiCLRHG19U+aCUknFsizwee0birmX02q
+	LRMTgLSxd69/cHMC/qhBqFZpM0Hk1r0HtbkL23PuIrU6XU8yWG01JkCE4+enEk26Gv2WTy8cQHZV0
+	GaLeYK5NJMgXbe71QSjyIaX6/+QJbLIJv3AAGFvLFRy4vf2Hcc1Lrn+SUrSFB+r2luCEJXaEeoF4y
+	2NCvTZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKd1-000000007U3-0eFy;
-	Thu, 15 Oct 2026 12:32:11 +0000
+	id 1xHKdl-000000007fL-27Dw;
+	Thu, 15 Oct 2026 12:32:57 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHKd0-000000007Ti-1WTh
+	id 1xHKdj-000000007ew-2SRv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 12:32:10 +0000
+	Thu, 15 Oct 2026 12:32:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C530743B03;
-	Thu, 15 Oct 2026 12:32:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04A611F000C4;
-	Thu, 15 Oct 2026 12:32:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 587FC418E1;
+	Thu, 15 Oct 2026 12:32:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DA731F000C4;
+	Thu, 15 Oct 2026 12:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792067529;
-	bh=l0G1u5/k4DcckxQeq3RlZifz6+ya0XrhqOvHOHu/ECU=;
+	s=k20260515; t=1792067575;
+	bh=hknBwdOobDFBq9SWOoVzNpEOW9eSZ86xCbruz506nEI=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=WoXuu5iVYKzi0YL78zWXnX1DzmJ9moh6C+TQj5egRlmmHOKiGZopRHDcl5ahXN4jO
-	 UijgWMZFE6Wakd4tlP8zhkv2mYEc1+Y9DXIBSd1JujYrZAKw8959VM5rR2sRFXrzLK
-	 +lMXbP80hpSBDDq3NxjBhcouNDhyAqjkXSsF/v1XtYeAAyVxvJI3NBJg3EjLe5qDb+
-	 +wzbLMyZUS6SWTyx4nQ3BAgIhUPS1v9zHFtBbcmMpoMcwL6wtvWoop8Zl2dnNSTUoH
-	 0miTYK7WiOJ090Q/1u4tQW7fXC7lt7OejPe89lrNrsZQSA/8ATyEywSehgxhDOPms9
-	 BIJkjWi0xatog==
+	b=Z9tUWqZx+6+eiXlIF9iF04KadtrsgrXJAbXensNxOYykBfoLlWuAWLHSJkOw0fpV5
+	 HHGfNM/BZYVM8LFuQKINe7zUa7TgFV/NU5oy+NY4jWeqGu5NB5NXxpdNYSHJ8uG2Ih
+	 cXY1usxM3qDl83rvj83UzaXbouVfgUim8mAUKHFRxCcmSo9m8wXxj1SLDLBCHUPOG8
+	 5k+PNqP320ELICm2XXIjawtyB/xoG3wCau4Hse3theA5fWhJtOHxN5djvUEVa+4aTW
+	 /JGZ/Mx8MyJNmvcDFaA6chhZn42yPtfMemOgLd1To8Qwi3VjimlfEIxFnQqhnAHBIQ
+	 GjM7F6MnU/BOA==
 From: Thomas Gleixner <tglx@kernel.org>
-To: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>,
- Radu Rendec <radu@rendec.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Linus
- Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Andi
- Shyti <andi.shyti@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-watchdog@vger.kernel.org, Fil Dunsky
- <filipp.dunsky@gmail.com>
-Subject: Re: [PATCH v3 02/11] irqchip: Add Cortina Systems CS75xx peripheral
- interrupt controller
-In-Reply-To: <20261013-b4-cs75xx-s2-v3-2-181bb0d23f4c@gmail.com>
-References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
- <20261013-b4-cs75xx-s2-v3-2-181bb0d23f4c@gmail.com>
-Date: Thu, 15 Oct 2026 14:32:06 +0200
-Message-ID: <87tsmndu0p.ffs@fw13>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Oliver
+ Upton <oupton@kernel.org>, Eric Auger <eauger@redhat.com>, Joey Gouly
+ <joey.gouly@arm.com>, Steffen
+ Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, Sascha
+ Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene
+ <sebastianene@google.com>, Yuan Yao <yaoyuan@linux.alibaba.com>, Fuad
+ Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init
+ error paths
+In-Reply-To: <86o6cv1d2n.wl-maz@kernel.org>
+References: <20260921072958.2918477-1-fuad.tabba@linux.dev>
+ <87wlrje2cx.ffs@fw13> <86o6cv1d2n.wl-maz@kernel.org>
+Date: Thu, 15 Oct 2026 14:32:52 +0200
+Message-ID: <87qzhrdtzf.ffs@fw13>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,16 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13 2026 at 09:07, Fil Dunsky via B4 Relay wrote:
-> +static int __init cs75xx_intc_init(struct device_node *np,
-> +				   struct device_node *parent)
+On Thu, Oct 15 2026 at 11:18, Marc Zyngier wrote:
+> On Thu, 15 Oct 2026 10:31:58 +0100,
+> Thomas Gleixner <tglx@kernel.org> wrote:
+>> 
+>> On Mon, Sep 21 2026 at 08:29, Fuad Tabba wrote:
+>> > Hi folks,
+>> >
+>> > Changes since v2 [1]:
+>> >   - Patch 3: a vgic_v4_init() failure now frees only the SPI array,
+>> >     since that function unwinds its own state; the teardown label is
+>> >     for the routing failure. (Yuan Yao)
+>> >   - Rebased on kvmarm/next, where the routing failure already tears
+>> >     down the GICv5 state. Patch 3 moves that into the shared label, so
+>> >     the SPI array is freed on that path too.
+>> >   - Collected Reviewed-by from Yuan Yao on patches 1 and 2. (thanks!)
+>> >
+>> > Four fixes on the paths that run when vgic init fails partway. Each one
+>> > needs an allocation failure to reach.
+>> 
+>> Marc?
+>
+> I was about to say that I had already queued that, except that it
+> appears it only happened in my head, and nowhere else... :-(
+>
+> If that's OK with you, I'll queue (for real!) the whole thing via the
+> kvmarm tree, targeting 7.4-rc1.
 
-No line break required. You have 100 characters. Please fix that all
-over the place.
-
-Other than that this looks good.
-
-Thanks,
-
-        tglx
+Ack
 
