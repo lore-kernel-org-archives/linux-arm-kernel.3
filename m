@@ -4,150 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51E9CC6B34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE758CC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fiZWd8AlTiZ+tcFUreyvujFn/ipmSR8uZ1sabdahXZw=; b=2k2fVhVkVw7In2l8PgkfVDG/Uy
-	ywNrVcJoLE2/FhsMD08w4CXluakXcOTxxrMssi2xPubcz0jsdM00tPtmviLL6NFqCeKz48j2BL59r
-	Sk2tyX9XRGyY9UtRuN+hRpUIg0xUwPHfGA6NDZFToByC1TUW1HGRggp9oQadJIWHA1aF/CuHIwero
-	iYpDcC47cvUH/TW826kWQqZoiykTTyomQ4DxqTWJIzJ2viqvbjqHHOoZCPs1qfJB6jEMmP0Ct16+2
-	TvVZDwtlSTaaMswVK3vuzUlkWKi2eXsDGraldw/5812fi/CNb0/vZxlKIHbxdhCak/m6Gsw+/Agxo
-	akDF7brg==;
+	bh=x+WbW2/AMhXZdEubCnrJgm7dbLwFj9qtF+7pjh0jU2E=; b=rw08eyNPdeeHj9DrzY4lIQnAC7
+	Y9psak20bmCi6LW90WcuwmjumaeJnsdqVnUVb5WL7La1136I61XCldZD/q8mQmaBmLQv5ZECIBxDk
+	KEh07nqugHTrQ944/sloHhHc5ILIExN8UNwla2YQvaM+QMmJU9mTerup54CQypYd7f07PYN79FgEL
+	pnawbk5giah2V/buRD0Ue8ukdoe3W2mKd5N0RHm1DxDu4ErxXYPfnyQFopXufwWjqlnECCTkpVz45
+	FzDlAL392Y3D4Frkl5fFWx624IWpXjOFraVjp9hoNXm+AU8l8Cn7H6+9RGd/evQPjoknMgqldJBMm
+	McsVkW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMch-00000000PiQ-0TI5;
-	Thu, 15 Oct 2026 14:40:00 +0000
-Received: from mail-francesouthazon11011042.outbound.protection.outlook.com ([40.107.130.42] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xHMd1-00000000Puf-1PnK;
+	Thu, 15 Oct 2026 14:40:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMcc-00000000Pef-1meV
+	id 1xHMcz-00000000Ptv-497O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:39:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vcax7CLzET6phG2erNLdt+x46f2PN6ZEdTzmANA9P7ay37D86plJy73xzL2WpiTPYMBJAwNehISYVpD0ChdgkGYgcMAnetfAKlJiMn6JZxvuO/zDK7Im11BLCLNBUP/eCKypfQF1W2lE9B5no0S6YeUY+/vd1uONuzDK8GfyYCyDNnVZcYpCmzFAsxiPeBgJBecuI4fN2kpn4BL4nIVDJ/SOakr/sTDVNgG9LLGCyUo8CeqwwbbA5LinavCswGZglLC3mR5eR3jWue40DwLBs9G5VT5pmfrkxb2qxy3pMz1Yp9krd4F+6VK3izjGbYYnuC2rHGLzsAjB2aA4LTXe1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fiZWd8AlTiZ+tcFUreyvujFn/ipmSR8uZ1sabdahXZw=;
- b=c5/+AbMsBGPV5tzelg8a9rDw00iBo2vfGPvdugCARxiLTWtsquSRVCYSqQjX0m4Jvhsvc8eYEmV0uH2WS1D3mGakFpOWpt89yNjIPZyJ2ckqR3CPVOXXBAX1Ios5UfsDGJ3fa3XzSeHssu6cOpdhp73yZ9eXepmLIIg71jrF1ET9UlQuEZiI/LMdjA+wXDbAnbzgXH+xtbWYhDaUNfetej229U7PKpDf7kYO5e/poTUMyI7AsvKpRU57SRguN0feSIKldmmPsLX5I5T7WwonkSHPI8Il1Ft5/HljzBEUwqM0ti/ufMD+Ajt97br25LQluqs9M9uXmAQug/0kgPGQlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fiZWd8AlTiZ+tcFUreyvujFn/ipmSR8uZ1sabdahXZw=;
- b=mHbp8WSz+hl+Nmqfvi2JqEvB0GJRZiNhgxlgjd2bch4KNU/enbj6vrHa2+p74SXNOZ7ewyy2Kg3OAntvFLCV3v8Vkub99xBq5GVDKf07+26bdHfLFWAQKSd/8EjaN+e0V7FzaFduPIvjb1zYanq7i68z0x0xeivp/b0huZAtyZxVzw6JH60q6FbvYnNf7QZZgMujMneSTMGcc+jRsAZIfCt2cDz7X0nzfzEwCz87enXmw2QqJvcoZLqDRHGosFWNBqUAfkRgaDyaUc+ekEF/SIBJQ1i1uVh5PpFZkCk3vioGDhJesT1YovXdbjk+aKA6NsNGc/2wmg/t89HFIOp78A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB10755.eurprd04.prod.outlook.com (2603:10a6:150:220::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Thu, 15 Oct
- 2026 14:39:45 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.012; Thu, 15 Oct 2026
- 14:39:45 +0000
-From: Frank.Li@oss.nxp.com
-Date: Thu, 15 Oct 2026 10:39:24 -0400
-Subject: [PATCH v5 3/3] arm64: dts: freescale: add DT overlay for
- MX95-15x15-FRDM RPMSG usage
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-memory-region-name-v5-3-abc358b39a96@nxp.com>
-References: <20261015-memory-region-name-v5-0-abc358b39a96@nxp.com>
-In-Reply-To: <20261015-memory-region-name-v5-0-abc358b39a96@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792075166; l=3525;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=xE1XRUTnNpL+MpbKEKt1DoCVFlhqAbth/FxePUpAeJw=;
- b=cOB+6KzghLxPhRV90qeQ3OtnPB39ww8LjqbIKOZcFwU/rHegS4wz3okwvNqwCxlnUh7qTdUBk
- tIgaDiBijRYDDay2m53MP0KU2Wc072/E6Za70Jv45hrmjFyXSLDhF1+
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: DS7PR03CA0184.namprd03.prod.outlook.com
- (2603:10b6:5:3b6::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 15 Oct 2026 14:40:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C91B60120;
+	Thu, 15 Oct 2026 14:40:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73BE1F000C4;
+	Thu, 15 Oct 2026 14:40:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792075216;
+	bh=x+WbW2/AMhXZdEubCnrJgm7dbLwFj9qtF+7pjh0jU2E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=apf57+B3qo2bNygvN+Rge7NO4qF6q6JofjpUvYbWCm1IoR71qccfsx7EqtONodgIo
+	 wXK6Ag2NlWGx4zGWGABznTEexPi0A66v71B6r/PN7dqlJypF3w1wtlNxemZxiafXsV
+	 e6tlZ5R36fSJNjRaNooV5u45XuIEqlODGHrUnWb5tYdNGT5SBN7xLIwyusgN7vbdZ5
+	 MFivwOGSTDU/wUTwsWRcLeKarHj2H+ATjw4SA1b/ETeMBE6xLP4MmtWZzlKQ4QDDtU
+	 E15YNSxPiGeb+pvPG2MjQIHHUtfds0IZpVM2At6bBU6kogrLPL/aMb/cfyCKk7vTNU
+	 N+nd1M4bdZDtQ==
+Date: Thu, 15 Oct 2026 15:40:09 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, james.clark@linaro.org
+Subject: Re: [RFC PATCH v7 04/28] perf: arm_spe_pmu: Move struct arm_spe_pmu
+ to a separate header file
+Message-ID: <atDgBR0WOGHUsLaF@gremlin>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <20260903160623.315525-5-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10755:EE_
-X-MS-Office365-Filtering-Correlation-Id: f74ad555-3342-4bc6-c9e8-08df2aca27e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|23010399003|56012099006|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: vEncw9K4yK0zwdUzwfpiCIAQjtya58r6x64cg1XaPcXyQc/Y2d8DOJJMX4U+d5fEhra+qLbyfR0DvyzdVnxNNEyzpcr7/WiyM3aiFQTfSrB21d/V33tAFi++PWxCB9QlJowKtaOKLtJNPLtwp11e0w7YPebUFh/ErmWnOGjl1bL6xCi//h5Zn/4WHHyzHLGaj03iry8yLqk0OtNS/DXPJ6Bu0/a8gr0AEBe54nWivqUE0tCOfVz8CND3+LLZdqkCnn29P9sHE4M6IpKInhd1Du9gDUf2UB7Za+QX+qdRobS+J2Of3x04y66ZD3h00DepsNWc7j2j32Bt4NbKXjv9h9fdOn3p+IGGgBo2DA4s23MIhOYvDTrhCqf6EFEwNXf9vngzsIhFAaKRHg41iAze6WafALzSyFcvKA4zKAzC+cT6Skjt3jWEt9BmzDHNF1+GJrHqya6qpIpIKXEPPnYDoQ40nKoJicNmrwl8MXxXK+CvtHTZwF5Nwk4oOM/QxxOkGzA0iNcJwvb1XYZMKwcUbpUo78ByaG+dtyQLDUdxRThDWM/Awni044gP7aAk862WNocI5avUqJyzYBOkkTdTW9vvrpluNIvIWW4c042eoLe26J+6Ne4PexGOyte60kd83S806IGhhxXK6Nc0FkUU4qLgN12ZvYT0CYaNndliNXA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(23010399003)(56012099006)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STZpRWZxaWJhY1JsNWEzTkc3WTB2Rm1uanhRbWlWTVFuYzIyVEcyMjNDSFVI?=
- =?utf-8?B?NlptTE9WV3pGVzZvNS9jK2g2NzhwWm12OTEvdmlDeHhMNFBuY2o3QWpjd3Fq?=
- =?utf-8?B?MEVuVnY3dFJNYmtsYUgycEFGbjltVHY3NWY4ZGpmTmUrKzdjUWkzemlmenov?=
- =?utf-8?B?TzczSmNnREtuc2lvam1sS05KWGdqcDNLN1RWbitocWkrQUNmWG1VbTBCbXZN?=
- =?utf-8?B?aDNFem1tQm0rUHMvcm55cWU0cGJhVElCZWxiVGlGclYrcEw3SXM5Nk5ENDA5?=
- =?utf-8?B?SjNldEI3UVZuNUVTSk5iNDgzNzkvOGhwM0hKZ1R0UlRJQ0VjUXJsZEQveEp5?=
- =?utf-8?B?RFQxU1Q3VGMzRVJFalVLTmw4Z01KYUxEczAwYVJYbjJVd2ZOQzBUZ3ZQbmND?=
- =?utf-8?B?TjQ3M0J6NUZnK29yclE1aGNPMmJsQ3BoeGhjd3IrdS9qcmlld09DOTN0U0xK?=
- =?utf-8?B?OXR3VHkyWTBnTk1DcXdxakVKdnQ2ZWpaMElUQkY5K3FsOXltOFZhNlRKSm9H?=
- =?utf-8?B?MzVJaDZ5RzZ0TzlJeVFyckhUUld1NElaRUxYRVQwSEFyNktTZ1JpYXRaYTMr?=
- =?utf-8?B?TUxDWFZBUEh2VFZtTmxqcUxINlBUR3Z4anMyZ0ZBaEVtNlBGeTV1YWgwNGFp?=
- =?utf-8?B?WGQvamxsSW5ZK3ovbktPUDZJajdFU2dlcGRkOXBEUFVybVpLRzdTcFg2TjJR?=
- =?utf-8?B?K0x1KzRna2Vxb2RUSVhCQThjaXJ3bWpCNGpsQTcxKzhoT0szVEsxMTlrWGNB?=
- =?utf-8?B?cVBqMm1lSEVCdnBiY2RvRHUxQW1UeEpjaXhQNFEwRTZ3cWZsWTF1N0FmeEZJ?=
- =?utf-8?B?RFdTSE01UUNKMVFENXh6TTVNa1pTK0luOU1oSHFRMW5QY1FjR2xNR1lkb0tI?=
- =?utf-8?B?dEk5UnlHK25kL1FVa2ZtMUExSm8vVkZxb1VPNlVkdjVFQy9xY1VFM0ZLTyt4?=
- =?utf-8?B?MWdRcFdYTjhoNkcxMnhkdm9ZbU1UM2FNc2FMOUFxUVp6WlBmeHBoa0tmbkgy?=
- =?utf-8?B?RWdWa2gvcWZFdlpHQWJHZ1E3ZTY2WXE0b1RLdlJVckRNZnVCN0VDVFIrL3Ja?=
- =?utf-8?B?Uks4Q0tNZWlnMldoMUZlQUVWQWhHM0Q1ZGl5NWd0cmI3UCtkN1hCbGFZZTVB?=
- =?utf-8?B?bC9hcW9NQXBUZk16TDRtUXdoYys5eWZkSGh5OXdNWlQ3dnlrbEw3QVI3V0pR?=
- =?utf-8?B?czA5SjVldm1nNFpmSEtqaXY4QS9EUzlJWTBSemtTODBKWEIvQXJUUlNLVmRH?=
- =?utf-8?B?RjhiaWVPbnA4ampVVExLNk9oeDY1a0d3NnlLOEZlRXN3L0MvYUJKQXZuMVow?=
- =?utf-8?B?OEZIRmw4Tjg2VVIvZm9BdkltNHNCSVlJQmFLeGh5UlExNnk3dUttSjc3NFhh?=
- =?utf-8?B?ZDJyczJ4bHF3L0RORzc4OWdVNExVNTNxK0dBZG9GMS90OVdLdW1TRGdtalhP?=
- =?utf-8?B?RlpvQ3l3VUJTZjlFWGZkdWFta2FBTUxwYXV3cmZQN202TEZneFkyY25aeHpm?=
- =?utf-8?B?akNYYlVmangwWC9meThEa2FFTjlhdXdyUFVVdkR3U3M2WDZxNHl5c2hpSkt4?=
- =?utf-8?B?Z1ZTeGlMckpRVVFDK05zcy9ManVJQ285VkRzQ2FGbzRFZDZwcHhCTmNLTUxp?=
- =?utf-8?B?dWtwdTVVeUdseTBSSW0xUEVYbWNma3NpNzFweUtWU2wza1pSRGxYRzNaSWdr?=
- =?utf-8?B?dFZjQzJSUkU1c2NpTTJib0hRdU4yUjhXRTgzYTdqOTN2Zy9VY1JmVXRobnRw?=
- =?utf-8?B?aisxUkJvQVc2NUh2YklScEk0RWYrK201WFVRcjVHcHF2OTdaZXNzSmh4Smpy?=
- =?utf-8?B?STR3YXlQNjlraDU4azMvbnBRY2hucFVVcVVBenJwMFVjQVdXUXREQ3VFQXR2?=
- =?utf-8?B?Qkx1SE1sOUtRQkhPRFI5TXJXZFNydjJtbHBCSC9lWFJxOXFpb0dqeXdtRDJC?=
- =?utf-8?B?RnlTMHRLL2c4Sy9QY1g4N1UybEV3Nm1kd21oMXlmRWxRTlJyQktvUmFkd3dT?=
- =?utf-8?B?U1ZsOWtqRDhPWER4cEp0aXMwNnR5Mmd2c1A2WkVFUXBxZ2FPWjVxQzlmOENR?=
- =?utf-8?B?Z0pXMGtieEQ5alYxak9OODAySkdzSGRKcUlaa1o1d3NraVdsWTlDL2FuOHlh?=
- =?utf-8?B?RWxBU2l3Q0I1VGRTZHhKdUZ4eUdCYmhLc0VYNk8weUFmcXMwL1VIS1Y1SE5p?=
- =?utf-8?B?akxCRVB3azViZU95cExwQk13WVBUNUYwbDR2K2Z2anZpbk5uMUFQd0FwaEdw?=
- =?utf-8?B?NTVheWxhTmFlaU5hbjF5ZnlSS1ZkdkQ5VEtSTGJoM1RsTWh0RXNiVThXb0tB?=
- =?utf-8?B?Z0ZVdTFYdlJHM09KOG9HQTB3NUp4eXduMmlYbmNDNGN3bnVrUkhNampxMkRr?=
- =?utf-8?Q?WAcA5CIx4NzRxc4uAlsRgXtikuTjLmFXkk92o?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f74ad555-3342-4bc6-c9e8-08df2aca27e4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 14:39:45.2427
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: InKyjLjjNRtxUYNPWXdyy4wQlbFvDbF9s02k5wZpZGCO/DBuFx2C6Ie0xiv3oO9kGmFUri3Prx7r288zomwN9V3ibjA5MzWqSl4MyYy2i4N8l71is5VTdvdFT/+GDxgt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10755
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_073954_488182_F51EB3C0 
-X-CRM114-Status: GOOD (  13.89  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903160623.315525-5-alexandru.elisei@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,130 +73,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Thu, Sep 03, 2026 at 05:05:59PM +0100, Alexandru Elisei wrote:
+> KVM will soon want to make use of struct arm_spe_pmu, move it to a separate
+> header where it will be easily accessible.
+>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 
-Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
-to be used with the mx95evkrpmsg system manager configuration for
-remoteproc and audio over rpmsg-usecases.
+Looks to be a straightforward mechanical change, couple nits below but with
+those addressed:
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile             |  3 +
- .../boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 81 ++++++++++++++++++++++
- 2 files changed, 84 insertions(+)
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb56..f3b19f3b1488e 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -960,6 +960,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-mqs.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm-rpmsg.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-frdm-pro.dtb
-@@ -984,6 +985,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
- 
-+imx95-15x15-frdm-rpmsg-dtbs = imx95-15x15-frdm.dtb imx95-15x15-frdm-rpmsg.dtbo
-+
- imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-new file mode 100644
-index 0000000000000..c3deb277edabf
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-@@ -0,0 +1,81 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * This DT overlay is meant to be used alongside the mx95evkrpmsg SM
-+ * configuration for remoteproc and audio over rpmsg.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	remoteproc-cm7 {
-+		compatible = "fsl,imx95-cm7";
-+		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		memory-region = <&vdev0buffer>,
-+				<&vdev0vring0>, <&vdev0vring1>,
-+				<&vdev1vring0>, <&vdev1vring1>,
-+				<&rsc_table>;
-+		memory-region-names = "vdev0buffer",
-+				      "vdev0vring0", "vdev0vring1",
-+				      "vdev1vring0", "vdev1vring1",
-+				      "rsc-table";
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		vdev0vring0: memory@88000000 {
-+			reg = <0 0x88000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: memory@88008000 {
-+			reg = <0 0x88008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring0: memory@88010000 {
-+			reg = <0 0x88010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring1: memory@88018000 {
-+			reg = <0 0x88018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: memory@88020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x88020000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		rsc_table: memory@88220000 {
-+			reg = <0 0x88220000 0 0x1000>;
-+			no-map;
-+		};
-+	};
-+
-+	sound-micfil {
-+		status = "disabled";
-+	};
-+};
-+
-+&edma1 {
-+	/* reserved for M7 */
-+	dma-channel-mask = <0x40>;
-+};
-+
-+&edma2 {
-+	/* reserved for M7 and V2X */
-+	dma-channel-mask = <0xf>;
-+};
-+
-+&micfil {
-+	/* reserved for M7 */
-+	status = "reserved";
-+};
+> ---
+>  drivers/perf/arm_spe_pmu.c       | 33 +--------------------
+>  include/linux/perf/arm_spe_pmu.h | 50 ++++++++++++++++++++++++++++++++
 
--- 
-2.43.0
+This should be added to MAINTAINERS too I think?
 
+>  2 files changed, 51 insertions(+), 32 deletions(-)
+>  create mode 100644 include/linux/perf/arm_spe_pmu.h
+>
+> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> index b70f3fedf028..79c571a649d5 100644
+> --- a/drivers/perf/arm_spe_pmu.c
+> +++ b/drivers/perf/arm_spe_pmu.c
+> @@ -28,6 +28,7 @@
+>  #include <linux/of.h>
+>  #include <linux/perf_event.h>
+>  #include <linux/perf/arm_pmu.h>
+> +#include <linux/perf/arm_spe_pmu.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/printk.h>
+>  #include <linux/slab.h>
+> @@ -67,38 +68,6 @@ struct arm_spe_pmu_buf {
+>  	void					*base;
+>  };
+>
+> -struct arm_spe_pmu {
+> -	struct pmu				pmu;
+> -	struct platform_device			*pdev;
+> -	cpumask_t				supported_cpus;
+> -	struct hlist_node			hotplug_node;
+> -
+> -	int					irq; /* PPI */
+> -	u16					pmsver;
+> -	u16					min_period;
+> -	u16					counter_sz;
+> -
+> -#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
+> -#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
+> -#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
+> -#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
+> -#define SPE_PMU_FEAT_LDS			(1UL << 4)
+> -#define SPE_PMU_FEAT_ERND			(1UL << 5)
+> -#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
+> -#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
+> -#define SPE_PMU_FEAT_EFT			(1UL << 8)
+> -#define SPE_PMU_FEAT_FDS			(1UL << 9)
+> -#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
+> -	u64					features;
+> -
+> -	u64					pmsevfr_res0;
+> -	u16					max_record_sz;
+> -	u16					align;
+> -	struct perf_output_handle __percpu	*handle;
+> -};
+> -
+> -#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
+> -
+>  /* Convert a free-running index from perf into an SPE buffer offset */
+>  #define PERF_IDX2OFF(idx, buf) \
+>  	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
+> diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
+> new file mode 100644
+> index 000000000000..af86fd184050
+> --- /dev/null
+> +++ b/include/linux/perf/arm_spe_pmu.h
+> @@ -0,0 +1,50 @@
+> +// SPDX-License-Identifier: GPL-2.0
+
+Pedantic I know, sorry :P but as per Documentation/process/license-rules.rst:
+
+      C source:	// SPDX-License-Identifier: <SPDX License Expression>
+      C header:	/* SPDX-License-Identifier: <SPDX License Expression> */
+      ...
+
+So should be /* */ here.
+
+> +/*
+> + * Split from driver/perf/arm_spe_pmu.c
+
+NIT: should be drivers/...
+
+> + *
+> + * Copyright (C) 2016 ARM Limited
+> + */
+> +
+> +#ifndef __PERF_ARM_SPE_PMU_H__
+> +#define __PERF_ARM_SPE_PMU_H__
+> +
+> +#include <linux/cpumask.h>
+> +#include <linux/container_of.h>
+> +#include <linux/list.h>
+> +#include <linux/perf_event.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/types.h>
+> +
+> +struct arm_spe_pmu {
+> +	struct pmu				pmu;
+> +	struct platform_device			*pdev;
+> +	cpumask_t				supported_cpus;
+> +	struct hlist_node			hotplug_node;
+> +
+> +	int					irq; /* PPI */
+> +	u16					pmsver;
+> +	u16					min_period;
+> +	u16					counter_sz;
+> +
+> +#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
+> +#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
+> +#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
+> +#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
+> +#define SPE_PMU_FEAT_LDS			(1UL << 4)
+> +#define SPE_PMU_FEAT_ERND			(1UL << 5)
+> +#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
+> +#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
+> +#define SPE_PMU_FEAT_EFT			(1UL << 8)
+> +#define SPE_PMU_FEAT_FDS			(1UL << 9)
+> +#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
+> +	u64					features;
+> +
+> +	u64					pmsevfr_res0;
+> +	u16					max_record_sz;
+> +	u16					align;
+> +	struct perf_output_handle __percpu	*handle;
+> +};
+> +
+> +#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
+> +
+> +#endif /* __PERF_ARM_SPE_PMU_H__ */
+> --
+> 2.43.0
+>
+>
+
+--
+Cheers, Lorenzo
 
