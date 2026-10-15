@@ -4,147 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E30CC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E01CC6B34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Oct 2026 14:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Cc:References:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PchfO2/vF8/TFvQIJgEvaxAYMqXp3inSABhb4CzMN+g=; b=EkK9yGprGMHB46aQgTbXMuk5l7
-	m0dmmGrwCpqvBm9ycsjMladdx98CUVcW8S0eOlPkaH0QYlUb15sMl4nOZWVcGxiF+sCP0j+bUXNoB
-	yNjDL9l4hPAcU2QyD16f7GmGgql/ceKVz8p41SX+m9Ge+rFA1gewb9hYVHmSmE+MTvAqt7oGzje2f
-	H10q5H/tseS9xx4Ix+eCZd0/7so79M6tfBteEfwcbAFg/0KnJoeMlu0jpIwbVO8twvXJEBdD3Yi0Z
-	tAXPJh0TVKMKwIiMG+koGXoMFEJEnBuH6K1fgKGOenPjiOVzNmsjAHFktDSXdZpXe3qLUJPoaP18l
-	RP7FexMg==;
+	bh=0y5gsl/BaToZB61EhRs0018eaLuU1oAhGUHW1F3Vroc=; b=iDTK0P2rZrLP+2pApJI7gYA0v+
+	+s43K7mx0ofSr/Uv7QUszkb4qUVg1Vp9dCPKlSxw0oMh+ty1Tu89t7eHTq7lirnQEGVZ/rTVyljWb
+	d8QGTGU9jwEUpntB5M8dtCbmlUCHVaHJftv/WuIJGbKWE2wKV1Lq7Hnud+AirDQG7dHxH7iNt5fgV
+	u+LGxNeKaKCdP/84p3sjTq8JLVqIaBIIZ8O++wpMVtvk1JhKR86+PgIICRA5w1wY1BqI1K01IR8Sq
+	PT69Eaz8uiY38tA2K7AQZu6oMHZh+m3WyveEE0CiwfKqYugCcRkP3kRPyNI2oX+UWsBJTOkRnBhXC
+	jeTdQZXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMUE-00000000OLm-2TVq;
-	Thu, 15 Oct 2026 14:31:15 +0000
-Received: from mail-southcentralusazon11011026.outbound.protection.outlook.com ([40.93.194.26] helo=SN4PR0501CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHMU8-00000000OKe-0I24
+	id 1xHMVN-00000000OZ6-2dcg;
+	Thu, 15 Oct 2026 14:32:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHMVD-00000000OWS-1GXu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Oct 2026 14:31:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Aaxj2hWPQy8NTtZccHzZ5HcokVYk2G1taw7XUhFv5p8FXAlezYLX4Vkc72HcqYRFo+W0IBW0Fxshn/OosXKWq2ZIDbN2UmUM5999cysREk1sGT9AM0IWwV6bFqvcqW2eHUjhmXZdl2Kh5VvGeUZxE8iIlI61gYjGIAQW9AcrSicf3iPZlgDMwfeRmEK9OJvcc53JkHnQhfFkF4IW1tunZ3M+CrOPNUHz9E4+DzK417tJi+F4vypL+T8cv6rD3e30D+sV4En1n6D7pj8aYqcwegbDFC4P8R+OiQIRFTxHMuSy7GCJ0+/ZQDBN4Y96qqk6Rf16xxzaXYYHZCGYw8PI2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PchfO2/vF8/TFvQIJgEvaxAYMqXp3inSABhb4CzMN+g=;
- b=Wmr1mvFjLwcGhvY11wH6z6CwhZ2yHXXAHHW2068UOCLnG+ov2dSlzyYOWHmy8qJkMSpezCekVaRdhA2ZNjD6TqwJnjzRm3GC/7V7Jpbp7q/b3znEh4uZtgNRaOVePwKPVPopvsUJwPUp9/HCBJWKsa3ac2QuYhBhn1jGoBTa9qIRlMK8vQeXvR/OJp0NQLo999pesmln61EcSNtV9mQ2+c/Cl2Sp1obZ/MvooaWcpdxO1SlA+nJBULgCD4rn0yKWf6NdnPDWbgNezP4WEGj3XCbfvkgK1kStZpDqIgJGiidjI88qTG9Q9L5RV9BhDSzMNTMx0OjBYw+H1I0sTmDhOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PchfO2/vF8/TFvQIJgEvaxAYMqXp3inSABhb4CzMN+g=;
- b=wzFXNxw5TrUSm8DqZ4wQtLjADl8+vAeeSDMN20qsIs70MFizRbdEuAbflKBEb4IvakBbHem/Prvk7l6mWmkMW/UZJ2XXT2j/z3zrxM9mqsN0goDnmJpQeZ62t2ftC2otu14qIu9NRWe7jrMwJLQAw1bSrNi0jHxtuNr8ivxYAOc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) by
- MN2PR12MB4286.namprd12.prod.outlook.com (2603:10b6:208:199::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Thu, 15 Oct
- 2026 14:31:03 +0000
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a]) by DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a%4]) with mapi id 15.21.0496.021; Thu, 15 Oct 2026
- 14:31:03 +0000
-Message-ID: <b9e5863b-cf74-46e4-a1f1-a379be779ad1@amd.com>
-Date: Thu, 15 Oct 2026 07:30:59 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] mailbox: Add AMD PL Mailbox soft IP controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-5-ben.levinsky@amd.com>
- <20261015-aromatic-ibex-of-opposition-dafb43@quoll>
- <DM4PR12MB6448B4B18D0B45CCA678814F839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Language: en-US
-Cc: "Levinsky, Ben" <ben.levinsky@amd.com>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "andersson@kernel.org" <andersson@kernel.org>,
- "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Shah, Tanmay" <tanmay.shah@amd.com>
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <DM4PR12MB6448B4B18D0B45CCA678814F839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P220CA0097.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32d::15) To DM4PR12MB6448.namprd12.prod.outlook.com
- (2603:10b6:8:8a::7)
+	Thu, 15 Oct 2026 14:32:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F58F1477;
+	Thu, 15 Oct 2026 07:32:09 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 551113F871;
+	Thu, 15 Oct 2026 07:32:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792074732; bh=9N8a5ngkbOk+a5udBrKH9SRAp/o0FTe0zB4kzWSWoX0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CsA7gsOcmoOYjFAgzAeA9MaqduWINywOeGugNuLGiccXEs+ZXjbsSZDEoJX2h016M
+	 Lvk18HtpSrPC2hcgxdNhwlQKkHwTHE/cAWmznvHoWg4hhf8/Sq/SqvJwe7kCxaf56Q
+	 9Bi978jSIm5WszDXMdEmP1A40QzLTLPJ9NUbC2+s=
+Date: Thu, 15 Oct 2026 15:31:48 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH] arm64/debug: mask debug exceptions when called from
+ common code
+Message-ID: <atDj1Fk9SpuX36SP@J2N7QTR9R3.cambridge.arm.com>
+References: <20260907163101.131569-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB6448:EE_|MN2PR12MB4286:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86947341-9d24-4640-39ca-08df2ac8f0d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|56012099006|11063799006|4143699003|261009223027099003|10067099003|18002099003|22082099003|6133799003|13003099007;
-X-Microsoft-Antispam-Message-Info: tjxvdc4zdvHuNKTQRsgPRj5EMI/2t3CIVAl2+zOUVa0QBCcxxRmJEcE5ng0TumyRtN/PwYnWRSsa4Ac9rijk200JX1DQnA4RoTJxfRJyOm0nb5ws8/9P4zrxROJX9i9T9ZeLal1mRIX0+fauNkKw5rcxwMUNoIwGamezSdvLiujMcKa/V9ObJN8lVRwtIFfjiUDVo1l7x9/wdElOAs8mTLpGrZNHLstXH2h5UWGN34MoB0mV04qnCDEsVDcbIs34hVUoIGxq4pCflBCythspO5WhCtilyj6MnVIoa5t7NIJArhkz9cQYHjDvsLDrcnvanTDtXcvLmcT0AVKZ+B+3V7faGMrNz57hs0pxmzB5doP5wTwq+j3Pas5iFPOrvGNSV+KOfr4B9tG3zN4DLRkx/wZAtBqKUM80qyHXcg69ZmjVr5NXfTXB0aLQALhfWP825iY8j6kBpIvvb29BuFNuMKs4k500o1pid2vdR28MyXTlqI02d838Alc26mM3aY0BHHCE0RuamhSoB2VvIi7Is8TRia4Lfi1kEK9i9uhxC7B8+ed+jFhETTivLBn5ea+RIr6sthZl64UZ0cGBBmrRULtCtHt+IyOF0uPWlxwKmRw1dGV/jTkjziBagegy0mhp
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6448.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(56012099006)(11063799006)(4143699003)(261009223027099003)(10067099003)(18002099003)(22082099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUZaQ3ZUS3lZZ0Z5VFZiSEdvTWxwckMwajNkdXhKYWQvdytqVTFjU2RWZEIz?=
- =?utf-8?B?QitzeTh3UHNFTExtZVBWRGRyQ2dJb25IZmlTNHN0MUtPMzVSOXE4aFpnS3R1?=
- =?utf-8?B?TUc4bXZxUC9CUlhwUFFjVzhjWUo3Q0h2K253cE5rc2UyYStSQmkyVFovNGky?=
- =?utf-8?B?T2ZFMTVYQ3JFSkh4OWt0M0J1bWdMNHZobEIzN3lHKzJlUFIzSkFSV3QwWWRW?=
- =?utf-8?B?VHJ4Y3kzRDMvbnlhb1ZVVWJnQnk1V0lta2ZZa2g2YllMY01JQVl3RFIva2hh?=
- =?utf-8?B?L0ZEei9XalhGdjFodnFsSkFZSTlUamt1MkdFa2U4ckRqMnVCQ1hnbzFtNzdV?=
- =?utf-8?B?WkN1RlpvNW5JYXNLSm1UTnNmSGhtdG1aUXVWNjFDbDhvY3F3R1dwNmo0M0V2?=
- =?utf-8?B?aDJzdUdVZ2hvclJoaVlRMjdQUVAwN3NwaWZ4UEZEZDc0eGxraFBWR0ErR1dU?=
- =?utf-8?B?SXlBQWhIZjJ6OS9kV0pzYW9PdUtORXNqd0dJVUk0L3hoVFlWYlRmTEJqYy9u?=
- =?utf-8?B?WEQxbjZpRVJpd3h3cVgrVGlTMldtZnQ4dHdnL0QxMTZEY2graDNTeFlXeEJ3?=
- =?utf-8?B?QkNIWm1DMGFUYUQyYUs3a0NMa2QrbW1XOUJPYTlnR2h4WHpJcmszZ3o4cHBM?=
- =?utf-8?B?MjVvQnJvdjZjbkk3MU9BZjdVZlJOakJRSTJlSGIrNDA1ekhJNEQ2eG5wS3dx?=
- =?utf-8?B?eE8vRlJnTGhGWktIbVpoSGhkVVhIQ0NuYzNodm90c1Nibjd5Ujh4OEI4eEVi?=
- =?utf-8?B?bTZDMGNScFhSTlVRalczZlVVV0xZZjZBcTMvNG5LTHYvN2dQQlYrcnA0MGxz?=
- =?utf-8?B?RlY5NVVwbXlaU21Lc2tlWENqYklwSVNiMy8wSGRhZ1pRY1Qzd01VOXAvSHhk?=
- =?utf-8?B?bmdlckxldHVOcWdQZHhZeU9YanVkWnlkVXJIU3ZsV2s2K0p4c0s4OE0zMUVw?=
- =?utf-8?B?TlVLV0dheFhkWFFtaytyT3czN2pKblQ4OHR1OHFYSTcyNmhNUTNjWVpnMGNN?=
- =?utf-8?B?RE01MU9YZjJXSjlZdzNsYndJd2s5Vm5mTHFJbXZOais1NHFKNTR5Z3BLYmVk?=
- =?utf-8?B?S0lNQnhhcDVMUkxFVzc3RUtKU1UvVHNsY1dvRGwweGcxTWdZa3pRMXFPNEVk?=
- =?utf-8?B?MDladnZ0cldkVVNzWFhnaDhUbFo4bEVpRXExU2lkUjQ5ZldOTjcvcWphVWFo?=
- =?utf-8?B?S3JOamFoVnNUdnkzUFpGMFVzSGcyRHV2TGppTk1jUG80dFBSMmhIUzBlNUVJ?=
- =?utf-8?B?QTJCQmh2Q1RiNGY3SGlsaUtoMlFONi9vWGJXUUphSUNDNkFGMkJEQ1RLcGJL?=
- =?utf-8?B?Uk9DQXRJK0h2UWlTRlJGRGYrM1FVSXlpSmxxcEl6bEhtUlNFOFdKbndCeWk1?=
- =?utf-8?B?aVRxazhRVGZCakFvZXRjcVVodjlsemNSUU5MTmVhdVNnRHZxdHhlMENOQVRz?=
- =?utf-8?B?Nk9jMTZRWmFkR3dRL3FKZFhNaVVwbVNzZHRiQmVuS2tERjMvN0JIMHFkYm04?=
- =?utf-8?B?aUl0MTRud05Ea0tGMkYyS0JFbkh1YUlQMEcvdWtOZWhYRkZhUUYxN09Da3ht?=
- =?utf-8?B?S1Mya0RJNHBWU1NOWlh6U2xaakZBdTlEeWRYeExOUzRqQlVZemZPcTF2b0Nx?=
- =?utf-8?B?NEhVTU5qUGpyTjVjU2g4bXFxaEJUdVJhN2hmMjY5YWdIUzIvSkFRS0NWVmY1?=
- =?utf-8?B?ZTFVVE9JZnpkbW5KTWQzWVZTL1psT3lXaS9VUjNzdkpNMFV0L0t0ODFad3FB?=
- =?utf-8?B?bTVqYjBCaC9Wc3ZUN1dIa0d2VFVTWVB5WWJWdVJjb2gvZjdweGRodkliMm0r?=
- =?utf-8?B?dVIyMW1Ic3llVkc0clZpcWQ4NExCTm9FV0lyMkFmei94QTVyMDNRM0lBc1Zo?=
- =?utf-8?B?Qjd6RjhpZ3M3NUdLd0VXNEFnQlJiVzNsTjRZRFYrMDYvd0craUU1c1A5TkVU?=
- =?utf-8?B?cWo2VlFGVFJ2KzZMVlpwdkp4T0ExRk5GbHJMYnc3QUUvMnRxQ0gzRXJYWGJW?=
- =?utf-8?B?L3BLV3ZFc1ljMCtSZG9kV2JiYWJxZ1lnZjRRbHBLd0s3ZkZlbm4wV1ZCcElE?=
- =?utf-8?B?dWIxbE5rMTAvcFppSCs3VzJpMkhrK09KU3V5Q0p5SVN0MFdqODVxQ1F3aDQr?=
- =?utf-8?B?cTV2NzIwNDBXN29LTEFxTE10cDJGOHV0N1hCVDlSVzNxNUZocWpKcUtVM2Ro?=
- =?utf-8?B?WWMrUGpDdUJZUVhGNTRNbnFMekMyUEY0YWxKZitWSW92QXpEMDFBVVFlL1gw?=
- =?utf-8?B?ZmxiVUZ5WHhFd281TmxRS1kzN3d3UVltUmVIczNZdTZnUUtyNlFPcEdVNVBY?=
- =?utf-8?B?cVZNSlZHVk83NzArb0ovS0FpRXFNZ1pLT1RHOEpOK3VFN2w5YlZiUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86947341-9d24-4640-39ca-08df2ac8f0d8
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6448.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2026 14:31:03.3639
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rweGjK4tCuUkA12FsmfHcmhUI7G8SLfVgGvDa3mnMwmb/bBh1/ROmjNWg/HbIg55khqtT9iLMUkzgbpP5V6Jpw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4286
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260907163101.131569-1-ada.coupriediaz@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_073108_646494_2F7E44AA 
-X-CRM114-Status: GOOD (  33.37  )
+X-CRM114-CacheID: sfid-20261015_073215_564569_A4C2252D 
+X-CRM114-Status: GOOD (  32.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,144 +71,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
+On Mon, Sep 07, 2026 at 05:31:01PM +0100, Ada Couprie Diaz wrote:
+> We can currently take debug exceptions while manipulating the hardware
+> breakpoint registers and perf slots when called from generic kernel code.
+> This can lead to errors and unsound behaviours in some pathological
+> (and self-inflicted) edge cases[0].
 > 
-> *From: *Krzysztof Kozlowski <krzk@kernel.org>
-> *Date: *Thursday, October 15, 2026 at 2:48 AM
-> *To: *Levinsky, Ben <ben.levinsky@amd.com>
-> *Cc: *jassisinghbrar@gmail.com <jassisinghbrar@gmail.com>; andersson@kernel.org 
-> <andersson@kernel.org>; mathieu.poirier@linaro.org <mathieu.poirier@linaro.org>; 
-> robh@kernel.org <robh@kernel.org>; krzk+dt@kernel.org <krzk+dt@kernel.org>; 
-> conor+dt@kernel.org <conor+dt@kernel.org>; Simek, Michal <michal.simek@amd.com>; 
-> linux-remoteproc@vger.kernel.org <linux-remoteproc@vger.kernel.org>; 
-> devicetree@vger.kernel.org <devicetree@vger.kernel.org>; linux-arm- 
-> kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; linux- 
-> kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; Shah, Tanmay 
-> <tanmay.shah@amd.com>
-> *Subject: *Re: [PATCH 4/6] mailbox: Add AMD PL Mailbox soft IP controller
+> Save and restore the interrupt mask around those manipulations.
 > 
-> On Wed, Oct 14, 2026 at 02:34:24PM -0700, Ben Levinsky wrote:
->  > Add a mailbox-framework controller for the AMD programmable-logic
->  > Mailbox soft IP. Expose separate transmit and receive FIFO channels.
->  >
->  > Enable the interface clock only while a channel is started, before any
->  > register access, and disable it last when the channel shuts down. Keep
->  > provider probe free of register accesses and leave the IRQ disabled until
->  > a client starts the receive channel. Initialize each FIFO when its channel
->  > starts, use receive-threshold interrupts for incoming words, and poll the
->  > send-threshold status for transmit completion. Stop that polling from
->  > accessing registers once the transmit channel begins to shut down.
->  >
->  > Carry mailbox payloads in struct zynqmp_ipi_message, limited to the FIFO
->  > depth given by the device tree. The FIFO transfers 32-bit words and the
->  > hardware conveys neither a byte count nor the FIFO occupancy, so a
->  > transmit length that is not a multiple of four is zero-padded to a whole
->  > word.
->  >
->  > On a receive-threshold interrupt, read up to one FIFO depth of words and
->  > deliver them as one message, then acknowledge the interrupt. The event
->  > latches only when the FIFO goes from empty to nonempty, so a word that
->  > arrives between the drain and the acknowledge, or words left by the
->  > bounded drain, raise no new event. If the FIFO is nonempty after the
->  > acknowledge, toggle the threshold to latch a new event for them.
->  >
->  > Assisted-by: LLM sparse
->  > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
->  > ---
->  >  MAINTAINERS                      |   7 +
->  >  drivers/mailbox/Kconfig          |  10 +
->  >  drivers/mailbox/Makefile         |   1 +
->  >  drivers/mailbox/amd-pl-mailbox.c | 369 +++++++++++++++++++++++++++++++
->  >  4 files changed, 387 insertions(+)
->  >  create mode 100644 drivers/mailbox/amd-pl-mailbox.c
->  >
->  > diff --git a/MAINTAINERS b/MAINTAINERS
->  > index f53047aa8d3c..4e28e0c311c0 100644
->  > --- a/MAINTAINERS
->  > +++ b/MAINTAINERS
->  > @@ -1287,6 +1287,13 @@ S:     Supported
->  >  T:   git https://gitlab.freedesktop.org/agd5f/linux.git <https:// 
-> gitlab.freedesktop.org/agd5f/linux.git>
->  >  F:   drivers/gpu/drm/amd/pm/
->  >
->  > +AMD PROGRAMMABLE LOGIC MAILBOX DRIVER
->  > +M:   Ben Levinsky <ben.levinsky@amd.com>
->  > +L:   linux-kernel@vger.kernel.org
->  > +S:   Maintained
->  > +F:   Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl-mbox-2.1.yaml
->  > +F:   drivers/mailbox/amd-pl-mailbox.c
->  > +
->  >  AMD PSTATE DRIVER
->  >  M:   Huang Rui <ray.huang@amd.com>
->  >  M:   Mario Limonciello <mario.limonciello@amd.com>
->  > diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
->  > index ab869769e278..3c3f262c903c 100644
->  > --- a/drivers/mailbox/Kconfig
->  > +++ b/drivers/mailbox/Kconfig
->  > @@ -8,6 +8,16 @@ menuconfig MAILBOX
->  >
->  >  if MAILBOX
->  >
->  > +config AMD_PL_MAILBOX
->  > +     tristate "AMD PL Mailbox soft IP controller"
+> This is to avoid a superfluous save/restore when calling
+> `toggle_bp_registers()` and `hw_breakpoint_control()` from our arch code,
+> as debug exceptions will already be masked in all cases.
+> It should also allow some clean ups by batching ISBs when we update
+> multiple registers, rather than doing one for each register write.
 > 
-> Missing depends on Zynq/Xilinx.
-
-  Hi Krzysztof,
-
-  Thanks, I will add "depends on ARCH_ZYNQMP || COMPILE_TEST" in v2.
-  ARCH_ZYNQMP covers the ZynqMP, Versal, Versal NET and Versal Gen 2
-  families, which are the platforms this has been used and tested on.
-
-
+> Clarify some comments and specify a few functions which should be called
+> with debug exceptions masked (even though that is true for most of them).
 > 
->  > +     depends on HAS_IOMEM
->  > +     depends on OF
->  > +     help
->  > +       Mailbox controller for the AMD Programmable Logic Mailbox soft IP.
->  > +       The controller exposes transmit and receive FIFO channels to mailbox
->  > +       clients. It supports interrupt-driven receive notification and
->  > +       polling-based transmit completion through the common mailbox framework.
+> [0]: https://lore.kernel.org/linux-arm-kernel/adeE4MD0RgapI8aL@J2N7QTR9R3/
 > 
-> ...
-> 
->  > +     mb->controller.dev = dev;
->  > +     mb->controller.ops = &amd_pl_mbox_ops;
->  > +     mb->controller.chans = mb->chans;
->  > +     mb->controller.num_chans = AMD_PL_MBOX_NUM_CHANS;
->  > +     mb->controller.txdone_poll = true;
->  > +     mb->controller.txpoll_period = 1;
->  > +     mb->controller.of_xlate = amd_pl_mbox_xlate;
->  > +
->  > +     ret = devm_request_irq(dev, mb->irq, amd_pl_mbox_irq,
->  > +                            IRQF_NO_AUTOEN,
->  > +                            dev_name(dev), mb);
->  > +     if (ret)
->  > +             return ret;
->  > +
->  > +     return devm_mbox_controller_register(dev, &mb->controller);
->  > +}
->  > +
->  > +static const struct of_device_id amd_pl_mbox_of_match[] = {
->  > +     { .compatible = "amd,zynqmp-pl-mbox-2.1" },
->  > +     { .compatible = "amd,versal-pl-mbox-2.1" },
->  > +     { .compatible = "amd,versal-net-pl-mbox-2.1" },
->  > +     { .compatible = "amd,versal2-pl-mbox-2.1" },
-> 
-> So all of them are compatible? Then why do you need all this?
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-  Yes, they are the same IP on every SoC, so there is no reason to list
-  them separately. As described in my reply to patch 3, v2 uses the
-  single compatible "xlnx,mailbox-2.1", and the match table will have
-  just that one entry.
+FWIW, this looks good to me, so:
 
-  Thanks,
-  Ben
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 
+Mark.
+
+> ----
+> This is a follow-up of [1], which blanketly masks debug exceptions rather
+> than fiddling with specific edge cases one by one as discussed with Will.
 > 
-> Best regards,
-> Krzysztof
+> I'm not sure about specifying that `toggle_bp_registers()` and
+> `hw_breakpoint_control()` must be called with debug exceptions masked,
+> as most other functions here do too, but those are the only one that need it
+> which are called via common code, rather than arch entry or debug code.
 > 
-
+> Thanks,
+> Ada
+> 
+> [1]: https://lore.kernel.org/r/20260527161553.97676-1-ada.coupriediaz@arm.com
+> ---
+>  arch/arm64/kernel/hw_breakpoint.c | 32 ++++++++++++++++++++++++++++---
+>  1 file changed, 29 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+> index 73cce8ac8368..32b38967433e 100644
+> --- a/arch/arm64/kernel/hw_breakpoint.c
+> +++ b/arch/arm64/kernel/hw_breakpoint.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/uaccess.h>
+>  
+>  #include <asm/current.h>
+> +#include <asm/daifflags.h>
+>  #include <asm/debug-monitors.h>
+>  #include <asm/esr.h>
+>  #include <asm/exception.h>
+> @@ -221,6 +222,12 @@ static int hw_breakpoint_slot_setup(struct perf_event **slots, int max_slots,
+>  	return -ENOSPC;
+>  }
+>  
+> +/*
+> + * Configure hardware breakpoint registers from a perf event,
+> + * according to operation.
+> + *
+> + * Must be called with debug exceptions masked.
+> + */
+>  static int hw_breakpoint_control(struct perf_event *bp,
+>  				 enum hw_breakpoint_ops ops)
+>  {
+> @@ -286,15 +293,24 @@ static int hw_breakpoint_control(struct perf_event *bp,
+>  
+>  /*
+>   * Install a perf counter breakpoint.
+> + *
+> + * Perf can and will call this with debug exceptions unmasked.
+> + * Mask them to avoid triggering one while manipulating their registers.
+>   */
+>  int arch_install_hw_breakpoint(struct perf_event *bp)
+>  {
+> -	return hw_breakpoint_control(bp, HW_BREAKPOINT_INSTALL);
+> +	unsigned long daif = local_daif_save();
+> +	int ret = hw_breakpoint_control(bp, HW_BREAKPOINT_INSTALL);
+> +
+> +	local_daif_restore(daif);
+> +	return ret;
+>  }
+>  
+>  void arch_uninstall_hw_breakpoint(struct perf_event *bp)
+>  {
+> +	unsigned long daif = local_daif_save();
+>  	hw_breakpoint_control(bp, HW_BREAKPOINT_UNINSTALL);
+> +	local_daif_restore(daif);
+>  }
+>  
+>  static int get_hbp_len(u8 hbp_len)
+> @@ -586,7 +602,10 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
+>  /*
+>   * Enable/disable all of the breakpoints active at the specified
+>   * exception level at the register level.
+> - * This is used when single-stepping after a breakpoint exception.
+> + * This is used when single-stepping after a breakpoint exception or switching
+> + * threads.
+> + *
+> + * Must be called with debug exceptions masked.
+>   */
+>  static void toggle_bp_registers(int reg, enum dbg_active_el el, int enable)
+>  {
+> @@ -908,7 +927,11 @@ bool try_step_suspended_breakpoints(struct pt_regs *regs)
+>  NOKPROBE_SYMBOL(try_step_suspended_breakpoints);
+>  
+>  /*
+> - * Context-switcher for restoring suspended breakpoints.
+> + * Context-switcher for restoring suspended CPU-bound breakpoints.
+> + *
+> + * Breakpoints of the previous task are uninstalled before
+> + * this function is called, in perf_event_task_sched_out(), and those
+> + * of the next task are installed after, in perf_event_task_sched_in().
+>   */
+>  void hw_breakpoint_thread_switch(struct task_struct *next)
+>  {
+> @@ -922,6 +945,7 @@ void hw_breakpoint_thread_switch(struct task_struct *next)
+>  	 */
+>  
+>  	struct debug_info *current_debug_info, *next_debug_info;
+> +	unsigned long daif = local_daif_save();
+>  
+>  	current_debug_info = &current->thread.debug;
+>  	next_debug_info = &next->thread.debug;
+> @@ -937,6 +961,8 @@ void hw_breakpoint_thread_switch(struct task_struct *next)
+>  		toggle_bp_registers(AARCH64_DBG_REG_WCR,
+>  				    DBG_ACTIVE_EL0,
+>  				    !next_debug_info->wps_disabled);
+> +
+> +	local_daif_restore(daif);
+>  }
+>  
+>  /*
+> 
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> -- 
+> 2.43.0
+> 
 
