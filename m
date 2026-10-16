@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBDBCCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C316BCCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlTrUEnRZVx+j7axS6IuyLIe6jm/VwYwyUkOeXEqth4=; b=rHmrBsswyBDOsBW19gF2rpciV3
-	w5UJFeTtl04mdm/9bh0e7lc8oB7aST1HOlu9S/6WqA9NGn3ynpcuRpcd1CUr6rUCgR5byp4YU1QYw
-	b8QufT3tIQKpAAzwwJjBYGXeAEfnxOqpNNuj32a2QhJm0DFafWAh8JZ7t4aDrmxT14LWotMr8TlFk
-	tRk76ypGsyqjTelFArmsuH+NAMJ0oSxLx8gi8MkHL2zFlCwYgQrDznXtgitgso4Q1s22QbZk8mdzI
-	5RU+YBGcnA77UCP28BYmc3Zweba+pAn2urJkTeCGdX0T6Z1CcZASmpnPKDOhObZpsurh898wiTnx5
-	7Le9IAVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lGEBRcJuBadT0nEChufnBWhb95U4eWHE7CdKm+Xledo=; b=ZNuKKUlzfvmEZlt+aBtmu9yE4c
+	bnFzLS3WXqKcKXQWlrLCSkxRsHlfSMHiecL8SOZfC4U4lp3VfUuGx7HkwSVgPKLgeMTAMuYNYTuJ/
+	chnInVb1+L+nNYN7xdQAq49LbduhEjMg3SbOWaTLzgoa72mN80rRw9fU57FmO02GNb6r5PGkZoKeE
+	IPREgNT7K08a6g92yGe4toDZD+JdKTC+4fkRUdgDnyZ8m7feQkz+Z/LQ5OQKkB3Z9spOgihGX7q/f
+	M9MYWNC680u4Iupt7LF0rFJKe+iQmXHpP9kFYPGVxLEdofL0Cn+QwatgbiKNJUfHE1qblDZT+979d
+	sZJpRrcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhKu-00000002xAo-34WX;
-	Fri, 16 Oct 2026 12:47:00 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1xHh8F-00000002tVO-06kR;
+	Fri, 16 Oct 2026 12:33:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhKr-00000002x8T-1DZL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 12:46:59 +0000
+	id 1xHh88-00000002tD7-2f8h;
+	Fri, 16 Oct 2026 12:33:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=dlTrUEnRZVx+j7axS6IuyLIe6jm/VwYwyUkOeXEqth4=; b=NLMwkmijk5ThyIm5lEeHXDiZOs
-	BpIdQyt9l2SgBRBTGubhZqY9Aha7FpVPoGVIS1wBVXEl+lkbyxHLo+6Q5fRkY9TNcjZUd6h6zNrO1
-	RFcPls/njlg8+IiXMSXGR77t8tdcSlZZojLdmAQnYtst9H00Hn43fzvXQvsrpo2HrabbqnJq6lub+
-	SRXE4Nf2LyeEZkeQW8nXWbmwNxnPlCpmv++nDOA9PjKGXQCeLLbEm15mnHO6dCXnLWRgdjQ5hD/0c
-	K4QZug2zXTDWXWFdCtwmlOPgg3otdl/GcOTZIlnIzXFarnpdC+Ew1xzUH6fBrkeOGtbtNoOzVOaNI
-	jA4dT3Sg==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xHhKj-000Ei6-1B;
-	Fri, 16 Oct 2026 14:46:49 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xHhKi-000065-2R;
-	Fri, 16 Oct 2026 14:46:48 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 2/5] arm64: dts: imx8qxp: Add display controller subsystem
-Date: Fri, 16 Oct 2026 14:46:47 +0200
-Message-ID: <7640235.DvuYhMxLoT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <atBLglf0gSLS7XkW@raspi>
-References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
- <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
- <atBLglf0gSLS7XkW@raspi>
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=lGEBRcJuBadT0nEChufnBWhb95U4eWHE7CdKm+Xledo=; b=WBIqQr1fZtLTnsNjG0MRpHFrH+
+	ZVd2hgKK/ZCGVleW7bc0LY8SOldDx4KNCdiunZ4X8Hyfkpx9VMfICv2mu4qzE6Q2i1XcVy3/3rDgP
+	hC16MDwazFzM8u6CrZ8MAuW/2licfMIOIAfDbFB6s3Y4Saz8gzp/OYtmN46zeyKtquTSSeR5993UY
+	9+Cv5qTiZGaq/shzgrhYLguOZJg3lVogRSa621BbnGqT60fEIIuX1vytFyd5KS/xjuXSfrECjQ4ru
+	BdFeKt3HJmzI/7BJVlKts3ZxHFjjK244J3ksjCkIQmetI6z9XJPofV6xfireyRi7qbQZGCYlQeWfo
+	YDXktOCQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHh84-00000001UB5-0kOz;
+	Fri, 16 Oct 2026 12:33:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792154022;
+	bh=gVXDkcgwtLBOI6Ilf1aoJ5viLS6I+n9IayoxZynJ/x0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=etkA+EdJqHenSzoVcNNELCxfwSwCpxo5etmfsUiil27XqJmLfmbdKi0h+8KUTSZRR
+	 efm2YiCo7qZUqtIVy9ZKx3/E5RyLzREVBtikD57L7wEFHoy4k1P/AnUo423ISTGWQf
+	 kge/QNVWv+Y/EosEzIZFuN49Gr49ga6xJjfVOe0OpaMpfiPXGH8s572luHURZ/0ttG
+	 CSXc1k9NThvRxR8PPVu99HsdJl1gH1sNcfp9mvR433qG6gHKRjepXJzvXSu47KplJh
+	 jHBNHQEcaAJsvA9/WsZVJIHcnA57G3f60Ika9AWwrK7ebn+Q5Wf+Ey2OE+VE0Y+1oG
+	 lAqe/IC58WFGA==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DEE6117E36BA;
+	Fri, 16 Oct 2026 14:33:41 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 16 Oct 2026 14:33:03 +0200
+Subject: [PATCH v14 11/23] scsi: ufs: mediatek: Handle misc host voltage
+ regulators
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28155/Fri Oct 16 08:24:17 2026)
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-mt8196-ufs-v14-11-e8d565e0cd45@collabora.com>
+References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Wang <peter.wang@mediatek.com>, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <mkp@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=3082;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=OdtFgKBxIwzWhhGlcZ/KbXGq3zzN9DoI7wIcozTVuEM=;
+ b=jJkVfMtPkVKkMmzNat4mUFMNPUt0hAhxwBH3JSlKrZMGk9/s+iIas7cYJ1yTqRuzFBbKlixVL
+ NCBz00eHxlEAmbnsb3iVZI7ANrLXo5dIGKepp5u+B19FcmB7pO9gnNd
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_054657_591946_339622DA 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20261016_133344_493364_48A696AD 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,276 +114,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Am Donnerstag, 15. Oktober 2026, 05:41:54 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Liu Ying:
-> Hi Alexander,
->=20
-> On Wed, Oct 14, 2026 at 09:16:46AM +0200, Alexander Stein wrote:
->=20
-> [...]
->=20
-> > +	dc0: display-controller@56180000 {
-> > +		reg =3D <0x56180000 0x40000>;
-> > +		clocks =3D <&dc0_lpcg IMX_LPCG_CLK_4>;
-> > +		power-domains =3D <&pd IMX_SC_R_DC_0>;
-> > +		#address-cells =3D <1>;
-> > +		#size-cells =3D <1>;
-> > +		ranges;
-> > +		status =3D "disabled";
-> > +
-> > +		dc0_intc: interrupt-controller@56180040 {
-> > +			reg =3D <0x56180040 0x60>;
-> > +			clocks =3D <&dc0_lpcg IMX_LPCG_CLK_5>;
-> > +			interrupt-controller;
-> > +			interrupt-parent =3D <&dc0_irqsteer>;
-> > +			#interrupt-cells =3D <1>;
-> > +			interrupts =3D <448>, <449>, <450>,  <64>,
-> > +				      <65>,  <66>,  <67>,  <68>,
-> > +				      <69>,  <70>, <193>, <194>,
-> > +				     <195>, <196>, <197>,  <72>,
-> > +				      <73>,  <74>,  <75>,  <76>,
-> > +				      <77>,  <78>,  <79>,  <80>,
-> > +				      <81>, <199>, <200>, <201>,
-> > +				     <202>, <203>, <204>, <205>,
-> > +				     <206>, <207>, <208>,   <5>,
-> > +				       <0>,   <1>,   <2>,   <3>,
-> > +				       <4>,  <82>,  <83>,  <84>,
-> > +				      <85>, <209>, <210>, <211>,
-> > +				     <212>;
-> > +			interrupt-names =3D "store9_shdload",
-> > +					  "store9_framecomplete",
-> > +					  "store9_seqcomplete",
-> > +					  "extdst0_shdload",
-> > +					  "extdst0_framecomplete",
-> > +					  "extdst0_seqcomplete",
-> > +					  "extdst4_shdload",
-> > +					  "extdst4_framecomplete",
-> > +					  "extdst4_seqcomplete",
-> > +					  "extdst1_shdload",
-> > +					  "extdst1_framecomplete",
-> > +					  "extdst1_seqcomplete",
-> > +					  "extdst5_shdload",
-> > +					  "extdst5_framecomplete",
-> > +					  "extdst5_seqcomplete",
-> > +					  "disengcfg_shdload0",
-> > +					  "disengcfg_framecomplete0",
-> > +					  "disengcfg_seqcomplete0",
-> > +					  "framegen0_int0",
-> > +					  "framegen0_int1",
-> > +					  "framegen0_int2",
-> > +					  "framegen0_int3",
-> > +					  "sig0_shdload",
-> > +					  "sig0_valid",
-> > +					  "sig0_error",
-> > +					  "disengcfg_shdload1",
-> > +					  "disengcfg_framecomplete1",
-> > +					  "disengcfg_seqcomplete1",
-> > +					  "framegen1_int0",
-> > +					  "framegen1_int1",
-> > +					  "framegen1_int2",
-> > +					  "framegen1_int3",
-> > +					  "sig1_shdload",
-> > +					  "sig1_valid",
-> > +					  "sig1_error",
-> > +					  "reserved",
-> > +					  "cmdseq_error",
-> > +					  "comctrl_sw0",
-> > +					  "comctrl_sw1",
-> > +					  "comctrl_sw2",
-> > +					  "comctrl_sw3",
-> > +					  "framegen0_primsync_on",
-> > +					  "framegen0_primsync_off",
-> > +					  "framegen0_secsync_on",
-> > +					  "framegen0_secsync_off",
-> > +					  "framegen1_primsync_on",
-> > +					  "framegen1_primsync_off",
-> > +					  "framegen1_secsync_on",
-> > +					  "framegen1_secsync_off";
-> > +		};
-> > +
-> > +		dc0_pixel_engine: pixel-engine@56180800 {
-> > +			reg =3D <0x56180800 0xac00>;
-> > +			clocks =3D <&dc0_lpcg IMX_LPCG_CLK_5>;
-> > +			#address-cells =3D <1>;
-> > +			#size-cells =3D <1>;
-> > +			ranges;
-> > +
-> > +			dc0_constframe0: constframe@56180960 {
-> > +				reg =3D <0x56180960 0xc>, <0x56184400 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_extdst0: extdst@56180980 {
-> > +				reg =3D <0x56180980 0x1c>, <0x56184800 0x28>;
-> > +				reg-names =3D "pec", "cfg";
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <3>, <4>, <5>;
-> > +				interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			};
-> > +
-> > +			dc0_constframe4: constframe@561809a0 {
-> > +				reg =3D <0x561809a0 0xc>, <0x56184c00 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_extdst4: extdst@561809c0 {
-> > +				reg =3D <0x561809c0 0x1c>, <0x56185000 0x28>;
-> > +				reg-names =3D "pec", "cfg";
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <6>, <7>, <8>;
-> > +				interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			};
-> > +
-> > +			dc0_constframe1: constframe@561809e0 {
-> > +				reg =3D <0x561809e0 0xc>, <0x56185400 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_extdst1: extdst@56180a00 {
-> > +				reg =3D <0x56180a00 0x1c>, <0x56185800 0x28>;
-> > +				reg-names =3D "pec", "cfg";
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <9>, <10>, <11>;
-> > +				interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			};
-> > +
-> > +			dc0_constframe5: constframe@56180a20 {
-> > +				reg =3D <0x56180a20 0xc>, <0x56185c00 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_extdst5: extdst@56180a40 {
-> > +				reg =3D <0x56180a40 0x1c>, <0x56186000 0x28>;
-> > +				reg-names =3D "pec", "cfg";
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <12>, <13>, <14>;
-> > +				interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			};
-> > +
-> > +			dc0_fetchwarp2: fetchwarp@56180a60 {
-> > +				reg =3D <0x56180a60 0x10>, <0x56186400 0x190>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_fetchlayer0: fetchlayer@56180ac0 {
-> > +				reg =3D <0x56180ac0 0xc>, <0x56188400 0x404>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_layerblend0: layerblend@56180ba0 {
-> > +				reg =3D <0x56180ba0 0x10>, <0x5618a400 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_layerblend1: layerblend@56180bc0 {
-> > +				reg =3D <0x56180bc0 0x10>, <0x5618a800 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_layerblend2: layerblend@56180be0 {
-> > +				reg =3D <0x56180be0 0x10>, <0x5618ac00 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +
-> > +			dc0_layerblend3: layerblend@56180c00 {
-> > +				reg =3D <0x56180c00 0x10>, <0x5618b000 0x20>;
-> > +				reg-names =3D "pec", "cfg";
-> > +			};
-> > +		};
-> > +
-> > +		dc0_display_engine0: display-engine@5618b400 {
-> > +			reg =3D <0x5618b400 0x14>, <0x5618b800 0x1c00>;
-> > +			reg-names =3D "top", "cfg";
-> > +			interrupt-parent =3D <&dc0_intc>;
-> > +			interrupts =3D <15>, <16>, <17>;
-> > +			interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			power-domains =3D <&pd IMX_SC_R_DC_0_PLL_0>;
-> > +			#address-cells =3D <1>;
-> > +			#size-cells =3D <1>;
-> > +			ranges;
-> > +
-> > +			dc0_framegen0: framegen@5618b800 {
-> > +				reg =3D <0x5618b800 0x98>;
-> > +				clocks =3D <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <18>, <19>, <20>, <21>,
-> > +					     <41>, <42>, <43>, <44>;
-> > +				interrupt-names =3D "int0", "int1", "int2", "int3",
-> > +						  "primsync_on", "primsync_off",
-> > +						  "secsync_on", "secsync_off";
-> > +			};
-> > +
-> > +			dc0_tcon0: tcon@5618c800 {
-> > +				reg =3D <0x5618c800 0x588>;
-> > +
-> > +				port {
-> > +					dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
-> > +						remote-endpoint =3D <&dc0_pixel_combiner_ch0_dc0_disp0>;
-> > +					};
-> > +				};
-> > +			};
-> > +		};
-> > +
-> > +		dc0_display_engine1: display-engine@5618b420 {
-> > +			reg =3D <0x5618b420 0x14>, <0x5618d400 0x1c00>;
-> > +			reg-names =3D "top", "cfg";
-> > +			interrupt-parent =3D <&dc0_intc>;
-> > +			interrupts =3D <25>, <26>, <27>;
-> > +			interrupt-names =3D "shdload", "framecomplete", "seqcomplete";
-> > +			power-domains =3D <&pd IMX_SC_R_DC_0_PLL_1>;
-> > +			#address-cells =3D <1>;
-> > +			#size-cells =3D <1>;
-> > +			ranges;
-> > +
-> > +			dc0_framegen1: framegen@5618d400 {
-> > +				reg =3D <0x5618d400 0x98>;
-> > +				clocks =3D <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
-> > +				interrupt-parent =3D <&dc0_intc>;
-> > +				interrupts =3D <28>, <29>, <30>, <31>,
-> > +					     <45>, <46>, <47>, <48>;
-> > +				interrupt-names =3D "int0", "int1", "int2", "int3",
-> > +						  "primsync_on", "primsync_off",
-> > +						  "secsync_on", "secsync_off";
-> > +			};
-> > +
-> > +			dc0_tcon1: tcon@5618e400 {
-> > +				reg =3D <0x5618e400 0x588>;
-> > +
-> > +				port {
-> > +					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
-> > +						remote-endpoint =3D <&dc0_pixel_combiner_ch1_dc0_disp1>;
-> > +					};
-> > +				};
-> > +			};
-> > +		};
-> > +	};
->=20
-> I'm thinking that it would be good to have a complete display controller
-> DT node in the first place, including those prefetch engines attached to
-> fetchunits through the fsl,prg property.  In this way, display controller
-> driver's life would be easier - all child/grandchild devices are always
-> available.  I'm considering to adding a check to the Linux display contro=
-ller
-> driver to ensure the availability(at least for critical child/grandchild
-> devices).
+MediaTek SoCs handled by this driver contain a per-SoC specific set of
+miscellaneous supplies. These feed parts of the UFS controller silicon
+inside the SoC, as opposed to the UFS card.
 
-Well, this sounds reasonable, but this is beyond my knowledge about the
-internals of the display controller.
-=46WIW it works (at least in my case), any additional DT node could be added
-later on. If there is something to test/review feel free to send it onto the
-list. Please keep me on CC.
+Add the necessary driver code to acquire these supplies using the
+regulator bulk API. They should be kept on during suspend, so enable
+them when acquiring.
 
-Thanks and best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-http://www.tq-group.com/
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/ufs/host/ufs-mediatek.c | 34 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 32 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 2bcf35bfabb7..58ae8499ebf7 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -42,6 +42,8 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
+ struct ufs_mtk_soc_data {
+ 	bool has_avdd09;
+ 	bool has_avdd09_1;
++	u8 num_reg_names;
++	const char *const *reg_names;
+ };
+ 
+ static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+@@ -1237,10 +1239,22 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
+ {
+ 	struct device *dev = host->hba->dev;
+ 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
++	int ret;
+ 
+ 	if (!data)
+ 		return 0;
+ 
++	if (data->num_reg_names) {
++		ret = devm_regulator_bulk_get_enable(dev, data->num_reg_names,
++						     data->reg_names);
++		if (ret) {
++			dev_err_probe(dev, ret,
++				      "Failed to get misc regulators: %pe\n",
++				      ERR_PTR(ret));
++			return ret;
++		}
++	}
++
+ 	if (data->has_avdd09) {
+ 		host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
+ 		if (IS_ERR(host->reg_avdd09)) {
+@@ -2423,14 +2437,30 @@ static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
+ 	.config_scsi_dev     = ufs_mtk_config_scsi_dev,
+ };
+ 
++static const char *const ufs_mtk_regs_avdd12_avdd18[] = {
++	"avdd12", "avdd18"
++};
++
++static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
++	"avdd12", "avdd12-ckbuf", "avdd18"
++};
++
+ static const struct ufs_mtk_soc_data mt8183_data = {
+ 	.has_avdd09 = true,
++	.reg_names = ufs_mtk_regs_avdd12_avdd18,
++	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_avdd18),
++};
++
++static const struct ufs_mtk_soc_data mt8192_8195_data = {
++	.has_avdd09 = false,
++	.reg_names = ufs_mtk_regs_avdd12_ckbuf_avdd18,
++	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
+ };
+ 
+ static const struct of_device_id ufs_mtk_of_match[] = {
+ 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
+-	{ .compatible = "mediatek,mt8192-ufshci" },
+-	{ .compatible = "mediatek,mt8195-ufshci" },
++	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
++	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+
+-- 
+2.56.0
 
 
