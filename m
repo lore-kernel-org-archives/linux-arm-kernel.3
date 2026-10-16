@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E734CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DA9CCF2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=FtiGdjgqtjT1pvwqeEY6y9aTlaYLGZB6OmGXYll3xpI=; b=QL6I1qGO7pUnYO
-	jAWbGRKhaJI80PETAoqOG8Mve6xDfw0cz6QyJ7N6zO4iCgJeKtiCYvTfyt7ol3JlYPqXNLkzHPXQk
-	+hraMVo+XSOn7yn6kGffZSMz6nO7NzNV9p/pvsQd7zk22iKStCFJsx7Ckard8Irx7vb5Nn31lMk99
-	O2bUIhAhcniRRR75ZmEOwMjp66vGyfCgVpHJn0TaOR7vm2itIj/dMbMxzuuu04rDfswFAW0gQ3Yog
-	ZSE3XEn2VUTqXYf/Y8XJ5oauoJcbpeMYtr6utpFuZLiF5ijMAQo27VCCOfkD6GzM6Av8sHDMooazy
-	JSyylF+36jIp0Z9RjtLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Nuar1OcVnvTTPAc/HcpiDhdm7yeKpaRfpB+6hlQOPKI=; b=j9uEqJYXb1fRsW
+	tATtVTpJLNcleLC061imcX5qGO53Q1EjY5LtdotYEernWEAEgRlSfTG/QDj+xweq12Did46pQvCs6
+	fZO/Cy8/9Y/vgQA1xmbZ+IPny9e+KZoW+qHZGmv8OqJL7ERCUxeUz5So/zXdyL+4K2sZrBo8Qqjn1
+	R9Yvs066Mk3Mfk1095fuGrgLiWKbRRLEoRR+Cou+GStEelHeZ9CKh6Wln2QAcwdp4Ias4+u0awRCv
+	F1JTWDrbs5PNtjWgV/ZGfMqNJAvqliZEi+M47IWtqiu3xhiPHsO4a2M10pfhvOcIZOx1IJH0JPFl/
+	2JGFTUPfzfvslmfhsnzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmYb-00000003eJ1-0Vsl;
-	Fri, 16 Oct 2026 18:21:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmYZ-00000003eIm-24qD
+	id 1xHmeM-00000003f1R-3BLD;
+	Fri, 16 Oct 2026 18:27:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHmeJ-00000003f0u-1WXh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 18:21:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7457A43267;
-	Fri, 16 Oct 2026 18:21:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26CB01F000C4;
-	Fri, 16 Oct 2026 18:21:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792174886;
-	bh=FtiGdjgqtjT1pvwqeEY6y9aTlaYLGZB6OmGXYll3xpI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=Ru5sFJDIojnoKUslABrY/JiS9gVMLdFF+C6MPIMI4ixlj6hyIKP8xDr/FB+iNQog4
-	 t13WWgvXQQSY5wkHVZ9bshp2LLRGLN5S58md1dn8fawhIGs3+G7FYPwN59D6s4Tgis
-	 WiWMX+qVuwLiSNR0r1Kw87MxAG5Usxd6XhaxMZqLq9Fe+skj+F0JEEbi/O8nOZ6XSR
-	 Xka4+4l83bYE9AJ+TjeZTd0Q8lqQ5I/j+eADQhZ0lNjlKw3AkVD4fLDxPIzF0fiq/W
-	 BlRoXKw8UG+a4XV7eo+ti6DlMIudETfY7emrUvSm4IOImIuCYB36pHI8DFZGswhRJG
-	 lDILvsAIjPXuw==
-Date: Fri, 16 Oct 2026 13:21:24 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Eugen Hristev <ehristev@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: iproc-msi: Bound events handled per IRQ
-Message-ID: <20261016182124.GA1884550@bhelgaas>
+	Fri, 16 Oct 2026 18:27:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70A8D14BF;
+	Fri, 16 Oct 2026 11:27:19 -0700 (PDT)
+Received: from e142021.manchester.arm.com (e142021.arm.com [10.33.8.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBC323F7B4;
+	Fri, 16 Oct 2026 11:27:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792175242; bh=NALqzJpWWgc9wyCZgTKGgjifFJ6L+Jn6MpaGxt92zqA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=u8OLkoM6Zh6Ok2habtCKhG1sKxMd28cXPKSIixKcw3BJnVO/bPzf6HS/LF0GIe0BR
+	 TKYs3msXsje8t41/LF9phY3SPSiS7ctwZ6wRFeQj2JmOg9GChgPp0v2bYxkAm3ctYJ
+	 lCYvHJ+zQw5nkmYXL4FsrILxuab4ZyYMKRJGkiSE=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v5 0/8] Arm Live Firmware Activation (LFA) support
+Date: Fri, 16 Oct 2026 19:27:04 +0100
+Message-ID: <20261016182714.1835813-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016-iproc-irq-v1-1-ebaaf027f29e@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_112723_507943_CAF92E75 
+X-CRM114-Status: GOOD (  34.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,103 +64,228 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 03:18:53PM +0300, Eugen Hristev wrote:
-> Limit each iProc MSI parent IRQ to 16 event-queue entries.
-> 
-> A continuously fed queue could otherwise keep the chained handler running
-> and starve other work. The budget still drains pending events and lets the
-> next parent interrupt continue processing, improving fairness and bounding
-> interrupt-handler latency.
-> 
-> Without this starvation avoidance, one CPU can stall indefinitely
-> in the loop and not serve other interrupts, timers, etc.
-> 
-> While testing it with an Ethernet NIC,  when too many MSI interrupts
-> come in, CPU might get starved:
-> 
-> Connecting to host 192.168.30.1, port 5201
-> [  5] local 192.168.30.2 port 52586 connected to 192.168.30.1 port 5201
-> [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-> [  5]   0.00-1.00   sec   240 MBytes  2.01 Gbits/sec    2    334 KBytes
-> [  5]   1.00-2.00   sec  63.2 MBytes   531 Mbits/sec    1   1.41 KBytes
-> [  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   3.00-4.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   6.00-7.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-> [  177.568497] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> [  177.568913] rcu:     0-...!: (1 GPs behind) idle=28ac/1/0x4000000000000002 softirq=28922/28930 fqs=1
-> [  177.569457] rcu:     (detected by 1, t=5256 jiffies, g=21629, q=819 ncpus=4)
-> [  177.569870] Sending NMI from CPU 1 to CPUs 0:
-> 
-> With this bounded approach, IRQ handler will complete and continue
-> to serve MSI events on the next handler invocation.
+Hi all,
 
-Is there something unique about iproc that makes this an issue, or do
-we need to worry about this in every MSI interrupt handler?
+an decent overhaul of the series for the "Live Firmware Activation"
+kernel support, based on feedback from Mark and Sudeep. Two patches have
+been squashed into the main feature patch, the name attribute has been
+removed, and documentation (hopefully) improved. Other than that quite
+some smaller changes, renames and reworks, hopefully for the better.
 
-> Assisted-by: Github Copilot
-> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
-> ---
->  drivers/pci/controller/pcie-iproc-msi.c | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
-> index 9ba242ab9596..6649807822d2 100644
-> --- a/drivers/pci/controller/pcie-iproc-msi.c
-> +++ b/drivers/pci/controller/pcie-iproc-msi.c
-> @@ -29,6 +29,9 @@
->  /* Number of entries in each event queue */
->  #define EQ_LEN                         64
->  
-> +/* Bound parent interrupt handler such that a queue cannot starve CPU. */
-> +#define IPROC_MSI_MAX_EVENTS_PER_IRQ   16
-> +
->  /* Size of each event queue memory region */
->  #define EQ_MEM_REGION_SIZE             SZ_4K
->  
-> @@ -326,6 +329,7 @@ static void iproc_msi_handler(struct irq_desc *desc)
->  	struct iproc_msi_grp *grp;
->  	struct iproc_msi *msi;
->  	u32 eq, head, tail, nr_events;
-> +	unsigned int event_budget = IPROC_MSI_MAX_EVENTS_PER_IRQ;
->  	unsigned long hwirq;
->  
->  	chained_irq_enter(chip, desc);
-> @@ -360,9 +364,11 @@ static void iproc_msi_handler(struct irq_desc *desc)
->  			break;
->  
->  		/* process all outstanding events */
-> -		while (nr_events--) {
-> +		while (nr_events && event_budget) {
->  			hwirq = decode_msi_hwirq(msi, eq, head);
->  			generic_handle_domain_irq(msi->inner_domain, hwirq);
-> +			nr_events--;
-> +			event_budget--;
->  
->  			head++;
->  			head %= EQ_LEN;
-> @@ -373,6 +379,8 @@ static void iproc_msi_handler(struct irq_desc *desc)
->  		 * head pointer.
->  		 */
->  		iproc_msi_write_reg(msi, IPROC_MSI_EQ_HEAD, eq, head);
-> +		if (!event_budget)
-> +			break;
->  
->  		/*
->  		 * Now go read the tail pointer again to see if there are new
-> 
-> ---
-> base-commit: b810335a0699d1810683796b0e3ffe8827ddfe6c
-> change-id: 20261016-iproc-irq-9c58cfe39158
-> 
-> Best regards,
-> --  
-> Eugen Hristev <ehristev@kernel.org>
-> 
+I added the two SMCCC bus prerequisite patches to this series, just to
+trigger a Sashiko review, which was missing so far. I am sure it will be
+a feast for Sashiko to tear this apart ;-) Those two patches have already
+been queued in arm64/for-next, for the v7.4 merge window, but I will need
+to send at least another revision after the merge window anyway, so I just
+added them here meanwhile, for this one version. Please ignore them for
+review purposes.
+
+For a high level overview of LFA see the rest of this commit message and
+the commit message of the main features patch (4/8). Some simplified over
+of the spec is in the top comment in patch 4/8. Also the sysfs ABI
+documentation in the last patch contains some more information.
+
+Based on v7.3-rc1, plus those first two patches from Aneesh's SMCCC bus[1]
+series. Changelog below.
+==============================
+
+This series implements the kernel side support of the Arm Live
+Firmware Activation (LFA) specification [2]. LFA enables the activation
+of updated firmware components without requiring a system reboot,
+reducing downtime and allowing quicker deployment of critical bug fixes
+in environments such as data centers and hyperscale systems.
+It requires explicit firmware support, both via an agent running in EL3
+(for instance in TF-A, already merged), but also in the firmware
+component to be activated. TF-RMM recently merged support for this.
+
+Unlike the usual firmware update process (which may use tools like
+fwupd), LFA focuses solely on the activation of an already updated
+firmware component, called "pending activation" in LFA lingo. This works
+by signalling the LFA agent (part of the EL3 runtime firmware) via an
+SMC call, which then does the heavy lifting of the live update, in
+cooperation with the to-be-updated firmware component.
+
+Key features of the driver:
+* Detects LFA support in system firmware (EL3).
+* Lists all firmware components that support live activation, identified
+  by their UUID.
+* Exposes component attributes (e.g., activation capability, and
+  activation pending) via sysfs under /sys/firmware/lfa/<UUID>/.
+* Provides interfaces to:
+  - Trigger activation of an updated firmware component.
+  - Cancel an ongoing activation if required.
+A more detailed list of features can be found in patch 4/8.
+Based on v7.3-rc1.
+
+This work is conceptually similar to Intel’s Platform Firmware Runtime
+Update and telemetry (PFRUT) [3] and TDX module updates [4], but
+targets Arm platforms. The driver has been used to successfully activate
+a Realm Management Monitor (RMM) firmware image in a controlled test
+environment. RMM is analogous to Intel’s TDX module.
+
+There is effort on similar work from the OCP [5]. Future work may
+include integration with utilities like fwupd to automatically select
+the appropriate driver, based on platform architecture, for Live/Runtime
+firmware updates.
+
+Please have a look, test and comment!
+
+Best regards,
+Salman and Andre
+
+Changes in v5:
+- merge the timeout and the lock patch into original feature patch
+- drop "name" attribute altogether
+- rename firmware "image" to "component" everywhere
+- add explanation of LFA concepts in top comment
+- use switch/case for error strings and error mapping
+- define error codes with negative numbers
+- rename SMCCC register variable to from "reg" to "regs"
+- don't open code bit masking
+- use only one SMCCC register set where possible
+- rewrite retry:/goto into do/while() loop
+- make example IRQ to be edge triggered
+- update activation_pending in pending_version_show()
+- check SMCCC version to be v1.2 or higher
+- check all SMCCC functions are implemented
+- remove blank lines before return statements
+- use UUID instead of GUID everywhere
+- improve comments
+- filter for ACPI notification 0x80 only
+- update ABI doc to use component, not image
+- add activation_pending attribute
+- fix IRQ/ACPI registration error handling
+- add comments documenting lock requirements
+- print LFA error number when printing error strings
+- explicitly free IRQ in remove() routine
+- reorder functions to avoid early empty prototype
+- adjust SMCCC function ID names to match spec
+- copy list of activatable images to avoid infinite loop
+- update pending status when showing pending_version
+- cast error returns to s64
+- replace "N/A" error return with empty string
+
+Changes in v4:
+- streamline threaded IRQ handler (drop empty hard IRQ part)
+- add lfa_to_linux_error() conversion function
+- use Linux errno codes in more functions
+- drop bogus LFA error numbers for -EAGAIN and -EBUSY
+- clarify interrupt purpose and edge trigger requirement in binding
+- honour signal related return from msleep_interruptible()
+- call clean_fw_images_tree() first in driver teardown
+- streamline ACPI and DT registration
+- cache rendezvous status to avoid race during activation
+- only trigger activation when writing 1/Y/true to sysfs file
+- adapt to new version of Aneesh's SMCCC bus patches ([1])
+
+Changes in v3:
+- change node name in DT binding example
+- move SMCCC function identifiers into generic SMCCC header
+- rework to use the new SMCCC bus instead of a using a faux device
+- add missing workqueue cleanup in probe() routine
+- squash former patch v2 3/8 into base patch
+- use get_image_name() more consistently
+- also consider -LFA_BUSY return in activate call
+
+Changes in v2:
+- restrict build to arm64 (the LFA spec only supports AArch64)
+- rename and extend central data structure to fw_image
+- use separate GPR register sets for some SMC calls
+- provide wrapper for error messages to prevent out-of-bound access
+- return GUID in the "name" sysfs file when image is unknown
+- fix wrong attribute in pending version number show function
+- add missing include files and order them properly
+- fix memory leaks in error cleanup paths
+- handle lifetime using embedded kobjects and a kset
+- drop global lfa_lock, use kset list lock and kobject refcount instead
+- add DT binding documentation
+- add timeout and watchdog re-arming (contributed by Veda)
+- relax timeout period and do not block while waiting
+- register ACPI notification (contributed by Veda) and DT interrupt 
+- refactor ACPI notification code to allow sharing with DT code
+- use faux device instead of platform driver
+- add auto_activate file to control automatic activation
+- introduce rwsem mutex to prevent using stale sequence ID
+- use labels and goto instead of infinite loop when retrying activation
+- initialise workqueue only once (thanks to Nirmoy)
+- various cleanups on reported messages and code formatting
+- rebase on top of v7.0-rc1
+
+Changes in v1:
+- Updated SMCCC version 1.1 to 1.2 per the LFA specification requirement.
+- Changed "image_props" array to a linked list to support the dynamic
+  removal and addition of firmware images.
+- Added code to refresh firmware images following a successful activation.
+- Added a work_queue to handle the removal of firmware image attribute
+  from it's respective kobject "_store" handle.
+- Refactored prime and activate into separate functions.
+- Kernel config for LFA now defaults to "y" i.e. included by default.
+- Added individual kernel attribute files removal when removing the
+  respective kobjects using kobject_put().
+- mutex_lock added to activate_fw_image() and prime_fw_image() calls.
+- Renamed create_fw_inventory to update_fw_image_node.
+- Renamed create_fw_images_tree to update_fw_images_tree.
+- Added two more attributes due to specs update from bet0 to bet1:
+  current_version: For retrieval of the current firmware's version info.
+  pending_version: For retrieval of the pending firmware's version info.
+- Minor changes such as, improved firmware image names, and code comments.
+- do...while loops refactored to for(;;) loops.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20260914060511.277948-1-aneesh.kumar@kernel.org/
+[2] https://developer.arm.com/documentation/den0147/latest/
+[3] https://lore.kernel.org/all/cover.1631025237.git.yu.c.chen@intel.com/
+[4] https://lore.kernel.org/all/20250523095322.88774-1-chao.gao@intel.com/
+[5] https://www.opencompute.org/documents/hyperscale-cpu-impactless-firmware-updates-requirements-specification-v0-7-9-29-2025-pdf
+
+
+Andre Przywara (4):
+  dt-bindings: arm: Add Live Firmware Activation
+  firmware: smccc: lfa: Add auto_activate sysfs file
+  firmware: smccc: lfa: Register DT interrupt
+  firmware: smccc: lfa: add sysfs ABI documentation
+
+Aneesh Kumar K.V (Arm) (2):
+  firmware: smccc: Add an Arm SMCCC bus
+  firmware: hwrng: arm_smccc_trng: Register as an SMCCC device
+
+Salman Nabi (1):
+  firmware: smccc: Add support for Live Firmware Activation (LFA)
+
+Vedashree Vidwans (1):
+  firmware: smccc: lfa: Register ACPI notification
+
+ Documentation/ABI/testing/sysfs-firmware-lfa  |  106 ++
+ .../devicetree/bindings/arm/arm,lfa.yaml      |   50 +
+ MAINTAINERS                                   |    2 +
+ arch/arm/include/asm/archrandom.h             |    2 +-
+ arch/arm64/include/asm/archrandom.h           |    2 +-
+ drivers/char/hw_random/arm_smccc_trng.c       |   32 +-
+ drivers/firmware/smccc/Kconfig                |   10 +
+ drivers/firmware/smccc/Makefile               |    3 +-
+ drivers/firmware/smccc/bus.c                  |  158 +++
+ drivers/firmware/smccc/lfa_fw.c               | 1057 +++++++++++++++++
+ drivers/firmware/smccc/smccc.c                |   67 +-
+ include/linux/arm-smccc-bus.h                 |   48 +
+ include/linux/arm-smccc.h                     |   15 +
+ include/linux/device-id/arm_smccc.h           |   19 +
+ include/linux/mod_devicetable.h               |    1 +
+ scripts/mod/devicetable-offsets.c             |    3 +
+ scripts/mod/file2alias.c                      |    8 +
+ 17 files changed, 1560 insertions(+), 23 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-lfa
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
+ create mode 100644 drivers/firmware/smccc/bus.c
+ create mode 100644 drivers/firmware/smccc/lfa_fw.c
+ create mode 100644 include/linux/arm-smccc-bus.h
+ create mode 100644 include/linux/device-id/arm_smccc.h
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.43.0
+
 
