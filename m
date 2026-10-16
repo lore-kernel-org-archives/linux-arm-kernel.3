@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90C8CCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846FFCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7C5XCknT24grCMl5hYL97m60TRY7ENbsiIvxQN7uLeY=; b=kirVgPW/LEpQVMrUbhLSKsw6PW
-	Ut5UyoUWdDAOUCze3Qe1zJNkqLQ8pbkcPBRN0nk2qZD7Upw6D3c8jPYjqlb9aVhDx7wOmlmwf0QTV
-	JkP/xpYPK1U2GoLnC4bW45kZxsqdxgOK52pdaJjSbQ8xHX6+F/bbqUO4WkNz5WEGjaFsq26EyJMsq
-	O6YJysC2/AwN5lLkBbGJx4IkrgKN8Zv+PHWymGx3DjFYwBVLU4ohkDo/bp9meZymHkHN+bByEu0fm
-	wvxnDjjcHBk3U4yl9iVvTRrhlbpXEnBJPS0wjTHWFjHvGD1INm9H/94HJh5oFzfvpOUoPXdLfELlf
-	oMDongPA==;
+	bh=AY/o/kn2al6k/r+D6a/ShOVwiPgEDXAfFpjHPYqVD6Q=; b=VMXwxLP+UVIpZDtqqDz3YT2UVg
+	U/HUcWjNP2u9BWgx5JwG03KS05+x1RGjm1fZFQ5v62O+dlWD2HOgd7KF0G/Xs0oW4bVLRS9Q5pl04
+	zRQcCegzJRDCDwGMjxTxD7ftYw6eCMBE7C3U4GmV9kslK6JGSLe/ntXzja84eXPqmtVuyFtnMij1k
+	/aWOHu9DP0Lm3MA0FDFsElkr81eaSjIIWf4JpBS5e9HHdKvLzASSrZA7RHBcHeXhg64RxVmXWQeoH
+	i/9VmpENoR7f+RtFdR2Zug3QlGIt9C/pIRaJrZMMU+hAt1Rxcm7ovGgvU35ze8BbAWObRdmUKSh+C
+	SHRqn/cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDI-00000003TiQ-0Dta;
-	Fri, 16 Oct 2026 16:55:24 +0000
+	id 1xHlDH-00000003Ti7-3Txk;
+	Fri, 16 Oct 2026 16:55:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDE-00000003Tfz-15xX
+	id 1xHlDC-00000003Tel-0Aba
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:21 +0000
+	Fri, 16 Oct 2026 16:55:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14E9D1477;
-	Fri, 16 Oct 2026 09:55:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3ECD01516;
+	Fri, 16 Oct 2026 09:55:14 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C40933F7B4;
-	Fri, 16 Oct 2026 09:55:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC1C63F7B4;
+	Fri, 16 Oct 2026 09:55:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169719; bh=BQnVzx45dLwktCWppCQITl2/9OmBRkvh1ThhzFT93O0=;
+	t=1792169717; bh=FAfYRNcwGOqb2dGzqQkyQAmanFpEh4raI/GRcP6unT8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MN7Yxs8+MvNwV9LH6ztqB5TqK2dPaw/993Q+acsgtKYMlIy6qusDbZ6iIBYGgPlm9
-	 8xUZTdPdKfXLY1DMnyqCIl1lS0uO/0VKRmrS1SoBayZyXiyzy+xoiPAiNCWN/584UC
-	 KLMVciWr8Dt9EgMisZ2bISkv1C8A7Urd5CimOqXk=
+	b=ilngyQjumPlaCZ1rTAb2T3ylkuG6vRvmCdbMFW8kSZqCZtYoXcrhFXzKJKVs441ot
+	 izYphg7YfV8VMRPLRjboUBAPCz65evy0sbU0UBWAvQjSuf0k1s5AK+AyfsJX/IA2Dc
+	 aIGVxHjtjvt2urYIkWtz58Gxk+jgWqRtzLZnmkXs=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:02 +0100
-Subject: [PATCH v2 04/23] coresight: trbe: Check the buffer association
- before IRQ validation
+Date: Fri, 16 Oct 2026 17:55:01 +0100
+Subject: [PATCH v2 03/23] coresight: trbe: Use helpers for checking errata
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-4-3f57cf3199b1@arm.com>
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-3-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -58,16 +57,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1534;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=2030;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=BQnVzx45dLwktCWppCQITl2/9OmBRkvh1ThhzFT93O0=;
- b=59eZUh7H+BmqdJco1rMWNKh0LUP5VH2FLq6f5rtq0E0JBoPE/c0V86QEeHBOek+EzKXMuuj7k
- VtsCXQUuembDslgdY4xavgJybWW1ABVOF6DA//LMWklaD2HVXHjMkv0
+ bh=FAfYRNcwGOqb2dGzqQkyQAmanFpEh4raI/GRcP6unT8=;
+ b=iCDPV0eGNJBH9AAF9ztR1T3QIVAmyPD27hmA4MsF6tAxbVp+RE7r/2sHzk6KBPt5cN0VfZNUF
+ huffIKcRxBcA+mETsTzmtyOTddpQG3j6CkJJkzL5b07S0ZequYw+AFh
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_095520_346581_A0A38ECF 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20261016_095518_209354_560536D8 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +81,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-is_perf_trbe() obtains the sink buffer from the output handle and
-dereferences buf->cpudata before validating either pointer. A live AUX
-transaction does not guarantee that the selected buffer has a CPU
-association.
+Use the existing helpers for checking errata instead of open coded
+equivalent.
 
-Reject a missing buffer or CPU association before reading CPU driver
-data or checking the hardware buffer addresses. Treat these configurations
-as an invalid perf TRBE session.
-
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 8ec0b4c4987f25d10ee0b2f80c27e10f76357387..91fbdbad3676ffae399df0b4d4ddcd603a40e86c 100644
+index 02d12445763a86d58c79bdf5143f761827456bc3..8ec0b4c4987f25d10ee0b2f80c27e10f76357387 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -1111,10 +1111,16 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
- static bool is_perf_trbe(struct perf_output_handle *handle)
- {
- 	struct trbe_buf *buf = etm_perf_sink_config(handle);
--	struct trbe_cpudata *cpudata = buf->cpudata;
--	struct trbe_drvdata *drvdata = cpudata->drvdata;
-+	struct trbe_cpudata *cpudata;
-+	struct trbe_drvdata *drvdata;
- 	int cpu = smp_processor_id();
+@@ -738,7 +738,7 @@ static unsigned long trbe_get_trace_size(struct perf_output_handle *handle,
+ 	 * the space we skipped with IGNORE packets. And we are always
+ 	 * guaranteed to have at least a PAGE_SIZE space in the buffer.
+ 	 */
+-	if (trbe_has_erratum(buf->cpudata, TRBE_WORKAROUND_OVERWRITE_FILL_MODE) &&
++	if (trbe_may_overwrite_in_fill_mode(buf->cpudata) &&
+ 	    !WARN_ON(size < overwrite_skip))
+ 		__trbe_pad_buf(buf, start_off, overwrite_skip);
  
-+	if (!buf || !buf->cpudata)
-+		return false;
-+
-+	cpudata = buf->cpudata;
-+	drvdata = cpudata->drvdata;
-+
- 	WARN_ON(buf->trbe_hw_base != get_trbe_base_pointer());
- 	WARN_ON(buf->trbe_limit != get_trbe_limit_pointer());
- 
+@@ -961,7 +961,7 @@ static int trbe_apply_work_around_before_enable(struct trbe_buf *buf)
+ 	 *  - At trace collection:
+ 	 *     - Pad the 256bytes skipped above again with IGNORE packets.
+ 	 */
+-	if (trbe_has_erratum(buf->cpudata, TRBE_WORKAROUND_OVERWRITE_FILL_MODE)) {
++	if (trbe_may_overwrite_in_fill_mode(buf->cpudata)) {
+ 		if (WARN_ON(!IS_ALIGNED(buf->trbe_write, PAGE_SIZE)))
+ 			return -EINVAL;
+ 		buf->trbe_hw_base = buf->trbe_write;
+@@ -985,7 +985,7 @@ static int trbe_apply_work_around_before_enable(struct trbe_buf *buf)
+ 	 *     - Adjust the TRBLIMITR.LIMIT to leave the extra PAGE outside
+ 	 *       the TRBE's range (i.e [TRBBASER, TRBLIMITR.LIMI] ).
+ 	 */
+-	if (trbe_has_erratum(buf->cpudata, TRBE_WORKAROUND_WRITE_OUT_OF_RANGE)) {
++	if (trbe_may_write_out_of_range(buf->cpudata)) {
+ 		s64 space = buf->trbe_limit - buf->trbe_write;
+ 		/*
+ 		 * We must have more than a PAGE_SIZE worth space in the proposed
 
 -- 
 2.34.1
