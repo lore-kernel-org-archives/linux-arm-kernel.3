@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C71BCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0C6CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INWXxLCTOEEgIkmqQIiAfdlYe0QOm5Zo0esRtafJx04=; b=VGR9XjS/KYmsiRQPayvzBgrmcG
-	KYrFbfZUHcwNVVT9KFz7J4+Kkp/vp+nwwDCA7IorH+jZG3h+KdoDA4Z8f8Fo0Ub6D0aY6o/a3G1HJ
-	73LVkWkMKmeNhkLvafa5AtGoOo8c8dQkoqOu83RAKuyiNhp/Y8+WDLtu44s+oU1J0c31CLxegzIsN
-	rL7r8wcwy/CZERdZ16Ed5UpRiZaUUs5ZhsQqAmyntV4cvFdA1GdvUArNtKbdhxcFmZf6DbBnN7Htg
-	6G58pIbwmvHpXgnPMPud6+/cX2TDmYOtJamOTbtPwAnqeNUqbAparFTREB+NjiRKgJ9wBzh4FzuRq
-	/cORAFJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D6SG43mHsHGUs5imH1Rk9lZLOCzzEMaWfOhJt2v6hsE=; b=G3/ffVXFMcP/tdkCvfbBAjjdJb
+	pG6r8BPzf2Tu64CVDiaUFfN/xl1kwVjHnwSOTpP6XzHRargHT459Nw6VxMXzwenOri+c//x8rCUaW
+	00ksgMYhVcfXenRSn6p9gl6Tqhfg7ZoCZNCMCM1e3yf7g4Kun1dMiQal7PM+ESHOFIpiRD97EwBCD
+	Mf4Pt0aJKLlP0TgNmgNyDvotbcfm2ES4xLKf1a8Bh9HsKapnp7Lg3vQHMnDazvB5e/o9MWHRL0/D+
+	mXotQ/OICudSe/tWdBVG01xFoVB63iJG30aBhd+lVubhjbieKtJVC2GwVPnyjUY6EJ+M3+RmpBItn
+	u1zTpMKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh8A-00000002tGa-03bH;
-	Fri, 16 Oct 2026 12:33:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xHhYr-00000002zWX-0vDh;
+	Fri, 16 Oct 2026 13:01:25 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh7z-00000002t5I-2huS;
-	Fri, 16 Oct 2026 12:33:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154017;
-	bh=tHkxgoeGmFLf5fvdHv6jIQH7FrSUP2b2Q4iZ0NBdCp4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TM3AxajCDnVOdJmN2E2Ppm7AlkVde1QHcgyqAs9gZbP0GJBGcLdj8X2y5i0ZnDjhk
-	 VFAOJs5tHWIXTeZ1DntWns6dWRCf6BtgTnWSh1QSX99IevIII7eTtIw79Np5H8SY5y
-	 6OQTGy3cD6FtPL4n2Q7h5g8B3UyAX8n775YjzlI62v++jBdNTLvLMRRApvUlGPpRhl
-	 FhBO/Cfik7ImjxDCKm01jzuK8LqIbzE9GMGME+xrwJxgCmrDKss1scxA4N0tnimIZ3
-	 UQTLdHARbf4kkOpJd3xCEeSt1eQxyBhUpqHpwJ+ni1KyYHwPuLhVEFKhkvFUVt4pXb
-	 QjPk5QZli4FNw==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75DD217E153E;
-	Fri, 16 Oct 2026 14:33:36 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:32:58 +0200
-Subject: [PATCH v14 06/23] scsi: ufs: mediatek: Rework resets
+	id 1xHhYo-00000002zUa-1aYC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 13:01:23 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48b127f1cc8so878086f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792155680; x=1792760480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D6SG43mHsHGUs5imH1Rk9lZLOCzzEMaWfOhJt2v6hsE=;
+        b=C0dITxcW8G6YsytdPcpvOWSotGYz4j2cZmsyW+/UxONWOLBfOoSSWHLh41ecgGjgT8
+         8ukJc6jd76DAscMH3JonjGc1HzuYLD7do2a68O84cFOgGR2m80L9QlbwxXrC5hznE4FA
+         SUSkSuU4203R7HOwFgLTOsGC4XjPAY8zME2SrIyUpn4gAf4AjadYHmDz97Nb7ojEs1Xm
+         XhAB2O9emwzqmYVsXwpXuqfOEXwTwomFmJ1r8x+Ni2IGyMovdLNEucEBLd8qA/X2r8OJ
+         bCq7o3knuTuHIWphIKvPPFC4EkpdXfqUdIqEA4g7lGqESSwlEwq5C1zwH+Emfb73SfuV
+         OHRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792155680; x=1792760480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D6SG43mHsHGUs5imH1Rk9lZLOCzzEMaWfOhJt2v6hsE=;
+        b=1pz5UXAur8e5hk21SelF3XNfT8lwsJLgRb4cKal0sn9N5VeAOz8t7v/MIo0MFvjRt9
+         25lEl/jrL7ZsCFVlEHLtqihLPzVLmOtn6DHOudWgytHSETesxQ7HnaiUKrRW9PbvJb4c
+         LMP/EBrPumg7X7yhxYxGVBwwO2zaFgZ0HHLR2SIRWWNqQJn7JXGDLUXDXLXFqbT3a4ZT
+         bpkl4g5PjwCs5ziWFnrAXzDTKXxoiMnQRsal1jpjbMPnlXcgYxsZgIY+ziqtUQ4kdtQo
+         VKY33n/Dwft8HEIs7of84FIfsDl5FxC5Umjpq4Ik5XG1sWzKkacsy5OXBV2yPWaZ1cGC
+         yr2g==
+X-Forwarded-Encrypted: i=1; AKwUvBwStmxRdR4/xa6SoiBB0wrIMot2bb8/DOCYfQHkWZ7XTc3kojIgXaor92JxE0Oa8T6v5w0bUBcsPiBrfg/HYulC@lists.infradead.org
+X-Gm-Message-State: AFq9FYLQoLqFWE7MFI7ClNMrpFzWQhl0py02MSWxNrbjhrm7WP2G2SIA
+	laz9MhKp/W0gz3JByTjN1hY/GEn7+JX0tWi9g8CqJbDbPdUoXtMNzlJU
+X-Gm-Gg: AYBFou3H5sM9eAtu+H7JP3wPR543EA90tkTV7pVWir785odVNEIpRI7NqpH3S4mohzK
+	hwpElrlJrSlP9BgTmT2VBH9Aew5SMxigY/amunORpKRzWoUvX9jtA3XWTkhyqpFoTvYJpetZlcQ
+	nXRgLS1EyfGhajkEhrUVyg7D6n3WDmOmXE2UjMPdk53k3uydKtLP2TtIZ6xNGeAFnLNUjqR6yoR
+	4vB3+q4nLLwwBnd+WqqCG3J7pwUE2rWrFYBMQeb3rPzih5S5RBT9ri+FhaxAK5sMPZs1duJ74O0
+	UPugEIjlBdXwTWlA4edAF9CgmILIJXGfk9dMbgmqCu6aFY2supP7yrrhLrtJoaIWOFRRag/Anpf
+	NASnu1XTJsZnZ9p1jHQDg2zWKmBS+E/RvQw3MxnJAUMtLloqp1vZhFVcPU4lLsFJPvU6IkhLvHf
+	zYKpMemFMGrS1ZTbDmMKjrCYiHh+yaRU/PnjTXma4//jigA/3EpgXCifrmYUbY+gPtQ6xrU3lwU
+	2aCRKWc/CqDQmpXmBQFo8+4EVOuYn4Odpd6ietyJHBiABV+g/wlUAx916112G9qXoQ=
+X-Received: by 2002:a05:600c:404f:b0:4a1:d05f:3efb with SMTP id 5b1f17b1804b1-4a1d05f3fe9mr18704235e9.0.1792155679827;
+        Fri, 16 Oct 2026 06:01:19 -0700 (PDT)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-149.paris.inria.fr. [128.93.83.149])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48dfd471a35sm4331624f8f.7.2026.10.16.06.01.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 06:01:19 -0700 (PDT)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	MD Danish Anwar <danishanwar@ti.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Markus Elfring <elfring@users.sourceforge.net>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Kevin Hao <haokexin@gmail.com>,
+	Diogo Ivo <diogo.ivo@siemens.com>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:TI ICSSG ETHERNET DRIVER (ICSSG)),
+	netdev@vger.kernel.org (open list:TI ICSSG ETHERNET DRIVER (ICSSG)),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH net-next] net: ti: icssg-prueth: Fix dma_unmap_single() direction
+Date: Fri, 16 Oct 2026 14:55:28 +0200
+Message-ID: <20261016125534.36024-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-mt8196-ufs-v14-6-e8d565e0cd45@collabora.com>
-References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=6225;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=E+fe+uSlqDcN4d9IJBGNLtUcTRsEZ5Yfc3xFc1tusFA=;
- b=vpvNmLc5xMUe34I78OOk9rDhXueRGHGeyKtFVgQWh0uY9mCWLKSVkExkMTeupbmweNek1NXNE
- tKL9R1N8hOuA5anl6k1FVwnmYTZYWNQkVOdvBtqYZ7MJcQ/vKGKKGCT
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_053339_856382_7846A5CA 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20261016_060122_438730_4B9035E4 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,199 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+In emac_send_command_sr1(), the command data is mapped with direction
+DMA_TO_DEVICE. However, in prueth_process_rx_mgm(), dma_unmap_single()
+is called with direction DMA_FROM_DEVICE. It seems like the buffer is
+written to by the CPU before mapping the buffer; and, after mapping the
+buffer, the device writes to the buffer. The DMA_TO_DEVICE direction will
+handle well the cache maintenance operations, however, if the IOMMU is
+enabled, it may cause issues with device write permissions.
 
-Rework the reset control getting in the driver's probe function to use
-the bulk reset APIs. Use the optional variant instead of defaulting to
-NULL if the resets fail, so that absent resets can be distinguished from
-erroneous resets.
+Change direction to DMA_BIDIRECTIONNAL.
 
-Also remove all remnants of the MPHY reset ever having lived in this
-driver.
+This bug was statically found and compile-tested only.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Fixes: e654b85a693e ("net: ti: icssg-prueth: Add ICSSG Ethernet driver for AM65x SR1.0 platforms")
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
 ---
- drivers/ufs/host/ufs-mediatek-sip.h |  8 ----
- drivers/ufs/host/ufs-mediatek.c     | 79 +++++++++++++++++++------------------
- drivers/ufs/host/ufs-mediatek.h     |  7 ++--
- 3 files changed, 43 insertions(+), 51 deletions(-)
+ drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
-index d627dfb4a766..256598cc3b5b 100644
---- a/drivers/ufs/host/ufs-mediatek-sip.h
-+++ b/drivers/ufs/host/ufs-mediatek-sip.h
-@@ -31,11 +31,6 @@ enum ufs_mtk_vcc_num {
- 	UFS_VCC_MAX
- };
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+index b8115ca47082..6f4a3f64ad39 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+@@ -98,7 +98,7 @@ static int emac_send_command_sr1(struct prueth_emac *emac, u32 cmd)
+ 	tx_chn = &emac->tx_chns[emac->tx_ch_num - 1];
  
--enum ufs_mtk_mphy_op {
--	UFS_MPHY_BACKUP = 0,
--	UFS_MPHY_RESTORE
--};
--
- /*
-  * SMC call wrapper function
-  */
-@@ -84,9 +79,6 @@ static inline void _ufs_mtk_smc(struct ufs_mtk_smc_arg s)
- #define ufs_mtk_device_pwr_ctrl(on, ufs_version, res) \
- 	ufs_mtk_smc(UFS_MTK_SIP_DEVICE_PWR_CTRL, &(res), on, ufs_version)
- 
--#define ufs_mtk_mphy_ctrl(op, res) \
--	ufs_mtk_smc(UFS_MTK_SIP_MPHY_CTRL, &(res), op)
--
- #define ufs_mtk_mtcmos_ctrl(op, res) \
- 	ufs_mtk_smc(UFS_MTK_SIP_MTCMOS_CTRL, &(res), op)
- 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index ef416c6ae098..2aa13b595480 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -94,6 +94,12 @@ static const char *const ufs_uic_dl_err_str[] = {
- 	"PA_INIT"
- };
- 
-+static const char *const ufs_reset_names[] = {
-+	"hci",
-+	"crypto",
-+	"unipro",
-+};
-+
- static bool ufs_mtk_is_boost_crypt_enabled(struct ufs_hba *hba)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-@@ -204,49 +210,46 @@ static void ufs_mtk_crypto_enable(struct ufs_hba *hba)
- static void ufs_mtk_host_reset(struct ufs_hba *hba)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
--	struct arm_smccc_res res;
--
--	reset_control_assert(host->hci_reset);
--	reset_control_assert(host->crypto_reset);
--	reset_control_assert(host->unipro_reset);
--	reset_control_assert(host->mphy_reset);
--
--	usleep_range(100, 110);
-+	int ret;
- 
--	reset_control_deassert(host->unipro_reset);
--	reset_control_deassert(host->crypto_reset);
--	reset_control_deassert(host->hci_reset);
--	reset_control_deassert(host->mphy_reset);
-+	ret = reset_control_bulk_assert(MTK_UFS_NUM_RESETS, host->resets);
-+	if (ret)
-+		dev_warn(hba->dev, "Host reset assert failed: %pe\n", ERR_PTR(ret));
- 
--	/* restore mphy setting aftre mphy reset */
--	if (host->mphy_reset)
--		ufs_mtk_mphy_ctrl(UFS_MPHY_RESTORE, res);
--}
-+	ret = phy_reset(host->mphy);
- 
--static void ufs_mtk_init_reset_control(struct ufs_hba *hba,
--				       struct reset_control **rc,
--				       char *str)
--{
--	*rc = devm_reset_control_get(hba->dev, str);
--	if (IS_ERR(*rc)) {
--		dev_info(hba->dev, "Failed to get reset control %s: %ld\n",
--			 str, PTR_ERR(*rc));
--		*rc = NULL;
-+	/*
-+	 * Only sleep if there is no MPHY or MPHY doesn't have a reset
-+	 * implemented (which already sleeps) or the PHY reset function failed
-+	 * somehow, just to be safe
-+	 */
-+	if (!host->mphy || ret) {
-+		usleep_range(100, 110);
-+		if (ret && (ret != -EOPNOTSUPP))
-+			dev_warn(hba->dev, "PHY reset failed: %pe\n", ERR_PTR(ret));
+ 	/* Map the linear buffer */
+-	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_TO_DEVICE);
++	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_BIDIRECTIONAL);
+ 	if (dma_mapping_error(tx_chn->dma_dev, buf_dma)) {
+ 		netdev_err(emac->ndev, "cmd %x: failed to map cmd buffer\n", cmd);
+ 		ret = -EINVAL;
+@@ -108,7 +108,7 @@ static int emac_send_command_sr1(struct prueth_emac *emac, u32 cmd)
+ 	first_desc = k3_cppi_desc_pool_alloc(tx_chn->desc_pool);
+ 	if (!first_desc) {
+ 		netdev_err(emac->ndev, "cmd %x: failed to allocate descriptor\n", cmd);
+-		dma_unmap_single(tx_chn->dma_dev, buf_dma, pkt_len, DMA_TO_DEVICE);
++		dma_unmap_single(tx_chn->dma_dev, buf_dma, pkt_len, DMA_BIDIRECTIONAL);
+ 		ret = -ENOMEM;
+ 		goto err_unlock;
  	}
-+
-+	ret = reset_control_bulk_deassert(MTK_UFS_NUM_RESETS, host->resets);
-+	if (ret)
-+		dev_warn(hba->dev, "Host reset deassert failed: %pe\n", ERR_PTR(ret));
- }
+@@ -303,7 +303,7 @@ static struct page *prueth_process_rx_mgm(struct prueth_emac *emac,
+ 	page = swdata->data.page;
+ 	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
  
--static void ufs_mtk_init_reset(struct ufs_hba *hba)
-+static int ufs_mtk_init_reset(struct ufs_hba *hba)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-+	int ret, i;
-+
-+	for (i = 0; i < MTK_UFS_NUM_RESETS; i++)
-+		host->resets[i].id = ufs_reset_names[i];
+-	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
++	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_BIDIRECTIONAL);
+ 	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
  
--	ufs_mtk_init_reset_control(hba, &host->hci_reset,
--				   "hci_rst");
--	ufs_mtk_init_reset_control(hba, &host->unipro_reset,
--				   "unipro_rst");
--	ufs_mtk_init_reset_control(hba, &host->crypto_reset,
--				   "crypto_rst");
--	ufs_mtk_init_reset_control(hba, &host->mphy_reset,
--				   "mphy_rst");
-+	ret = devm_reset_control_bulk_get_optional_exclusive(hba->dev, MTK_UFS_NUM_RESETS,
-+							     host->resets);
-+	if (ret) {
-+		dev_err(hba->dev, "Failed to get resets: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	return 0;
- }
- 
- static int ufs_mtk_hce_enable_notify(struct ufs_hba *hba,
-@@ -1260,11 +1263,9 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 	if (err)
- 		goto out_variant_clear;
- 
--	ufs_mtk_init_reset(hba);
--
--	/* backup mphy setting if mphy can reset */
--	if (host->mphy_reset)
--		ufs_mtk_mphy_ctrl(UFS_MPHY_BACKUP, res);
-+	err = ufs_mtk_init_reset(hba);
-+	if (err)
-+		goto out_variant_clear;
- 
- 	/* Enable runtime autosuspend */
- 	hba->caps |= UFSHCD_CAP_RPM_AUTOSUSPEND;
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index 73cdc726f290..f95f12eb9926 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -7,12 +7,14 @@
- #define _UFS_MEDIATEK_H
- 
- #include <linux/bitops.h>
-+#include <linux/reset.h>
- 
- /*
-  * MCQ define and struct
-  */
- #define UFSHCD_MAX_Q_NR 8
- #define MTK_MCQ_INVALID_IRQ	0xFFFF
-+#define MTK_UFS_NUM_RESETS 3
- 
- /* REG_UFS_MMIO_OPT_CTRL_0 160h */
- #define EHS_EN                  BIT(0)
-@@ -175,10 +177,7 @@ struct ufs_mtk_mcq_intr_info {
- struct ufs_mtk_host {
- 	struct phy *mphy;
- 	struct regulator *reg_va09;
--	struct reset_control *hci_reset;
--	struct reset_control *unipro_reset;
--	struct reset_control *crypto_reset;
--	struct reset_control *mphy_reset;
-+	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
- 	struct ufs_hba *hba;
- 	struct ufs_mtk_crypt_cfg *crypt;
- 	struct ufs_mtk_clk mclk;
-
+ 	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
 -- 
-2.56.0
+2.53.0
 
 
