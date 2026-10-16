@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7BFCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62662CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rvm8OBzhQTTfVH1WKV2Qv9Ve23EL13SDm3/jUL+bWWk=; b=XfLRdNDWCok+8MeVxsw0CfGXdo
-	Q0YflvV9UnVUJwl3QAxxvVTmZGOtS56mlmYZdpsEa20jL7dTEpr3Dxtl2ydVQMfXV4GnHYf74j3Km
-	SVZW5Yj6RkOMdSSkj9qOBrnXKWKYo9nufKHGKzqlJr24pcbbl/NN4xF4rS1yajpHR57x2Q/Q1ia9x
-	ommhfPlrYUSRMAKZpkJTLxkIX1M5fkFcPP10ZILyhoSBcG9+XzD1E7FiFajFh6Bg4R4R1IPbaEe73
-	len/n406GeAKfDDW7DQHX450o95LmrGBhZZILN0j6zKNX4pPqKpRsJhRwIulRDy8aegn9m80z7SNb
-	+KAd7+ag==;
+	bh=kA+vTZ/Eeoad9jIjZ1JZy2rB2AcKRzVxwNFQY1s/X5o=; b=d0dJXb2ixtA11HP45NRTOYptDb
+	kWS//vsk2X7op55Uvt73S+fTnuLyv6WOxLAHLhm9gqZIk2cL+XtfcRFeKOoaNUiWWqPsRijpDcwWc
+	sb6jz3YWcAA63uGygKgiipAbjas4BOGfacjskhAjL4nNbGKveiiTVYnDa3qMeRbtP4lT6zU84abDD
+	ls2ngGklmpqCCwv4xxBAHJpvp27g/AMhtaUTW8AfCLk6plwC3vmYygTUhaBxbRm9hcdOgIEtAokvq
+	DXxD6HnvThWdXDWpR7danz36Jp0NPkqQ8VuTldsVYhTvrHCDA6KUond62j4RvvBUAJO9XmmLHr8Cf
+	Jop/cyHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh8G-00000002tbJ-3wV7;
-	Fri, 16 Oct 2026 12:33:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xHhQV-00000002y3q-2KyZ;
+	Fri, 16 Oct 2026 12:52:47 +0000
+Received: from mail-ej2-x08.google.com ([2a00:1450:4864:34::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh88-00000002tCD-1D5V;
-	Fri, 16 Oct 2026 12:33:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154026;
-	bh=9IWkSOAA/9OmHCvBDUJbz8n9sCcMZcke+alN8NoiQJ8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=m1pLWdDtKTpLLfSh73pKEC9pDAHPjcXvVTscraNVPsUiwW/tP8dn4NiYodxjwgz65
-	 cOxuqYsIaNObKXkujNs53dHFl5V8xoqRwglV76bWkPBDS291MOQUBvi4X6bGkVuvPg
-	 dCf9Ht/qj82G1JQ58tfGIEPHB6ZGB27O9TvlkXrbLWFGwlcQUi9ZIZZS7h87WFCLe9
-	 Xw/BE02ZIkbga8WHOx05lP5OKTvT4EaEptjIph8QBZNZ86RAgrInpTOV9f5izJpMGE
-	 uhWWh8TJZ2DT5s83XgNXazlrM3cfCh8ES1Pa7EBn9gpe8CPthPaZae/HDEgKVb384L
-	 C+Xx4JkwxCHKA==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D7AF17E05D6;
-	Fri, 16 Oct 2026 14:33:45 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:33:06 +0200
-Subject: [PATCH v14 14/23] scsi: ufs: mediatek: Use the common PHY
- framework
+	id 1xHhQQ-00000002y1H-1JmC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 12:52:43 +0000
+Received: by mail-ej2-x08.google.com with SMTP id a640c23a62f3a-c41346bffc1so11962966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 05:52:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792155161; x=1792759961; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kA+vTZ/Eeoad9jIjZ1JZy2rB2AcKRzVxwNFQY1s/X5o=;
+        b=ZiFPTgyYfTOvMcIYWaoeRoD5HTlOWZRoXSEb+0TqYsorpeGCSjN1fzkeXLGz5seixj
+         lnNnC5ibRSsbIs44a3CDWBk30Rw2jSrgX3m4Y37MY6dnggLiqQIAe2QmIGPmtanYKJb9
+         AXeKmvKnJsoayoI5S3XD7Jrdlti7PSUXN78YN/n2LVrWDhmxKbXqm3p8WBSOAoIcl8+K
+         1PHhbkCcC8XNybnKS29VK7VcNBClShTKbZWluw7n0wM5eWGdeMBc8zmADK0edFg3bnTI
+         fYs4G8C8W5F6R9ZvTfO9yoNPSV75A14kHAG/L+aDW35EnajyGCIhpROtFDMA6vagvyiA
+         xRxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792155161; x=1792759961;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kA+vTZ/Eeoad9jIjZ1JZy2rB2AcKRzVxwNFQY1s/X5o=;
+        b=pz0LWWUVi5FlXkHgaXJcagRuzIFHiLS+OeCHn8ay1DWxv8wqukrwiczO1QK5D3QBs2
+         YlOLyh7V9i6iXZbdqcbvDOGht7fviUFE5hscczpnmJbpqlUOJQ4hQAoiMk5if/Rp5N5p
+         xYhQI/tGYlnOw7DNAVJv16TeDsFDRGowhujsig91BkzgnTfRJq7BEsuPGADBjCDiqjHq
+         423n4mi8BF8Ul65x7k23wMrP5XLUDCQQnx7Khytqm93j4w3gejYRA2Vt6ZiRFpugKL42
+         QwUEb8vJwR/1wl4S7qo3kMDHLXxVhjbjAQbrmoWdDoC9nTKA6EIYJXj9WH1zqe14qdvW
+         9EdQ==
+X-Gm-Message-State: AFq9FYLdAmGlMpxTdWL5X9hctw/Rcv6rl2HB8gj7+gA0u7lcSvsYpdyK
+	WuhQNvvH309+pTyHNO/QOzu4PbIykk0kP/XFwcFImGy51BGib+0PI39O
+X-Gm-Gg: AYBFou2y/QgI5hQAoyPbfMF03t5DPnntLGrPOAGqTyZfP24bYKlxyf0bg6m2ZyPMfd1
+	VstRZUeMHfPV5AqTqxWwzG5UHp0+pWfOPvRJJ84sXl7cM+Sm69iXhFRp74mf1S8xTeWUzao5cMJ
+	36Mcr2nWOY72p4jAqK5EZpfNA2gET0a/nEDSHCjNOIObB4hM+9g4Cdo8QwcZYWL+BAQPl9RnVOL
+	qidDRO5g7dvAxGsC3qxlivJOEOfXiFIzdW/FFPJpwX/WGc/jw2c00DpwF9OClhneoTj6C8nFe4v
+	/aATcrf7h7CjVoTSHd7Npz8EQVlWYUw6YNeJLPn2MIskYXO/9KKfM6Gm26D8j93bTeIGWoZDX0B
+	DUaacgDATMRxnSyIUdgLdvqBav0i10ucNkAVGkTjGm15gXpnrpRWHZhajSuTSIB8nkBd2fvtTom
+	CBsfcoeeQHobW4BPjJcJ7khUycrWsFkzf2+nGphFOb2By4YrFTkalED+DZg/Sok96V7Od3DysoQ
+	ZibRDWceaAiYjeKOBz66EB/+hyugdoY8cXD2O31qJ4foK9VBS8oXut77zFAyCJ8NaQuKYQpDCeo
+	dLxLzShT0GFfXYsBqedVQ0DURsA=
+X-Received: by 2002:a17:907:8687:b0:c16:4e5:944a with SMTP id a640c23a62f3a-c31aa02a1ebmr1954672466b.21.1792155160445;
+        Fri, 16 Oct 2026 05:52:40 -0700 (PDT)
+Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c408e32876asm69433966b.10.2026.10.16.05.52.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 05:52:39 -0700 (PDT)
+From: Thilo Zirnstein <thi.zirnstein@gmail.com>
+To: michal.simek@amd.com,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Thilo Zirnstein <thi.zirnstein@gmail.com>
+Subject: [PATCH v3 1/2] i2c: i2c-xiic: fix clearing of bnb irq
+Date: Fri, 16 Oct 2026 14:52:28 +0200
+Message-ID: <20261016125229.1798791-2-thi.zirnstein@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261016125229.1798791-1-thi.zirnstein@gmail.com>
+References: <20261016125229.1798791-1-thi.zirnstein@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-mt8196-ufs-v14-14-e8d565e0cd45@collabora.com>
-References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=7542;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=gWMMd9Ff7DLofb/nHlubyewkrk3IkvkM05Vfs2d1Px8=;
- b=SOhDQdWms34j2hEuUTyODyk3bWWxPT46Qr5eh9OVLM2K2V+peDQPAHBJaAolhq4lgJ0WT0tJr
- K+r6SvaIRKWBHRXzPztmbjI2NoCVOL8r12bC4bb9XxvXUU16Wn616FM
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_053348_644199_E3B84594 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20261016_055242_370458_7A3B5685 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,269 +102,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Add a function for clearing the bnb bit,
+It waits for all preconditions before clearing the bnb bit or times out.
 
-There is no need to reinvent the PHY framework, especially not its OF
-parsing.
-
-Change the code to simply use the PHY framework to acquire the device's
-PHY in the ufshcd init, so that it's device linked to the right device.
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Signed-off-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 134 +++++++++++++---------------------------
- drivers/ufs/host/ufs-mediatek.h |   1 -
- 2 files changed, 42 insertions(+), 93 deletions(-)
+ drivers/i2c/busses/i2c-xiic.c | 40 ++++++++++++++++++++++++++++-------
+ 1 file changed, 32 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 41e2e9f86701..808365b880fd 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -296,44 +296,6 @@ static int ufs_mtk_hce_enable_notify(struct ufs_hba *hba,
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index ba560462d451..e68e17bdf0ba 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -233,6 +233,8 @@ static const struct timing_regs timing_reg_values[] = {
+ #define XIIC_RESET_MASK             0xAUL
+
+ #define XIIC_PM_TIMEOUT		1000	/* ms */
++/* timeout waiting for bus busy */
++#define XIIC_BB_TIMEOUT_US	1000
+ /* timeout waiting for the controller to respond */
+ #define XIIC_I2C_TIMEOUT	(msecs_to_jiffies(1000))
+ /* timeout waiting for the controller finish transfers */
+@@ -394,6 +396,30 @@ static int xiic_wait_tx_empty(struct xiic_i2c *i2c)
  	return 0;
  }
- 
--static int ufs_mtk_bind_mphy(struct ufs_hba *hba)
--{
--	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
--	struct device *dev = hba->dev;
--	struct device_node *np = dev->of_node;
--	int err = 0;
--
--	host->mphy = devm_of_phy_get_by_index(dev, np, 0);
--
--	if (host->mphy == ERR_PTR(-EPROBE_DEFER)) {
--		/*
--		 * UFS driver might be probed before the phy driver does.
--		 * In that case we would like to return EPROBE_DEFER code.
--		 */
--		err = -EPROBE_DEFER;
--		dev_info(dev,
--			 "%s: required phy hasn't probed yet. err = %d\n",
--			__func__, err);
--	} else if (IS_ERR(host->mphy)) {
--		err = PTR_ERR(host->mphy);
--		if (err != -ENODEV) {
--			dev_info(dev, "%s: PHY get failed %d\n", __func__,
--				 err);
--		}
--	}
--
--	if (err)
--		host->mphy = NULL;
--	/*
--	 * Allow unbound mphy because not every platform needs specific
--	 * mphy control.
--	 */
--	if (err == -ENODEV)
--		err = 0;
--
--	return err;
--}
--
- static int ufs_mtk_setup_ref_clk(struct ufs_hba *hba, bool on)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-@@ -1247,13 +1209,21 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 
- 	ufs_mtk_init_mcq_irq(hba);
- 
--	err = ufs_mtk_bind_mphy(hba);
--	if (err)
-+	host->mphy = devm_phy_optional_get(dev, NULL);
-+	if (IS_ERR(host->mphy)) {
-+		err = dev_err_probe(dev, PTR_ERR(host->mphy), "Failed to get PHY\n");
-+		goto out_variant_clear;
-+	}
-+
-+	err = phy_init(host->mphy);
-+	if (err) {
-+		dev_err_probe(dev, err, "Failed to initialize PHY\n");
- 		goto out_variant_clear;
-+	}
- 
- 	err = ufs_mtk_init_reset(hba);
- 	if (err)
--		goto out_variant_clear;
-+		goto out_phy_exit;
- 
- 	/* Enable runtime autosuspend */
- 	hba->caps |= UFSHCD_CAP_RPM_AUTOSUSPEND;
-@@ -1292,7 +1262,7 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 
- 	err = ufs_mtk_get_supplies(host);
- 	if (err)
--		goto out_variant_clear;
-+		goto out_phy_exit;
- 
- 	/*
- 	 * ufshcd_vops_init() is invoked after
-@@ -1319,11 +1289,22 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 
- 	return 0;
- 
-+out_phy_exit:
-+	phy_exit(host->mphy);
- out_variant_clear:
- 	ufshcd_set_variant(hba, NULL);
- 	return err;
- }
- 
-+static void ufs_mtk_exit(struct ufs_hba *hba)
+
++static void xiic_clear_en_bnb(struct xiic_i2c *i2c)
 +{
-+	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
++	u8 sr = 0, isr = 0;
++	int ret;
 +
-+	ufs_mtk_mphy_power_on(hba, false);
++	isr = xiic_getreg8(i2c, XIIC_IISR_OFFSET);
++	if (!(isr & XIIC_INTR_BNB_MASK)) {
++		xiic_irq_en(i2c, XIIC_INTR_BNB_MASK);
++		return;
++	}
 +
-+	phy_exit(host->mphy);
++	ret = read_poll_timeout_atomic(xiic_getreg8, sr,
++			sr & XIIC_SR_BUS_BUSY_MASK, 0, XIIC_BB_TIMEOUT_US, 0,
++			i2c, XIIC_SR_REG_OFFSET);
++
++	if (ret) {
++		dev_err(i2c->dev, "Failed to clear bnb\n");
++		return;
++	}
++
++	xiic_setreg8(i2c, XIIC_IISR_OFFSET, XIIC_INTR_BNB_MASK);
++	xiic_irq_en(i2c, XIIC_INTR_BNB_MASK);
 +}
 +
- static int ufs_mtk_negotiate_pwr_mode(struct ufs_hba *hba,
- 				      const struct ufs_pa_layer_attr *dev_max_params,
- 				      struct ufs_pa_layer_attr *dev_req_params)
-@@ -2344,6 +2325,7 @@ static void ufs_mtk_config_scsi_dev(struct scsi_device *sdev)
- static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
- 	.name                = "mediatek.ufshci",
- 	.init                = ufs_mtk_init,
-+	.exit                = ufs_mtk_exit,
- 	.get_ufs_hci_version = ufs_mtk_get_ufs_hci_version,
- 	.setup_clocks        = ufs_mtk_setup_clocks,
- 	.hce_enable_notify   = ufs_mtk_hce_enable_notify,
-@@ -2404,48 +2386,15 @@ MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
-  */
- static int ufs_mtk_probe(struct platform_device *pdev)
- {
--	int err;
-+	struct device *dev = &pdev->dev;
- 	struct ufs_hba *hba;
--	struct platform_device *phy_pdev = NULL;
--	struct device *dev = &pdev->dev, *phy_dev = NULL;
--	struct device_node *phy_node = NULL;
--	struct ufs_mtk_host *host;
--
--	/* find phy node */
--	phy_node = of_parse_phandle(dev->of_node, "phys", 0);
--
--	if (phy_node) {
--		phy_pdev = of_find_device_by_node(phy_node);
--		if (!phy_pdev)
--			goto skip_phy;
--		phy_dev = &phy_pdev->dev;
--
--		pm_runtime_set_active(phy_dev);
--		pm_runtime_enable(phy_dev);
--		pm_runtime_get_sync(phy_dev);
--
--		put_device(phy_dev);
--		dev_info(dev, "phys node found\n");
--	} else {
--		dev_notice(dev, "phys node not found\n");
--	}
-+	int ret;
- 
--skip_phy:
--	/* perform generic probe */
--	err = ufshcd_pltfrm_init(pdev, &ufs_hba_mtk_vops);
--	if (err) {
--		dev_err(dev, "probe failed %d\n", err);
--		goto out;
--	}
-+	ret = ufshcd_pltfrm_init(pdev, &ufs_hba_mtk_vops);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Generic platform probe failed\n");
- 
- 	hba = platform_get_drvdata(pdev);
--	if (!hba)
--		goto out;
--
--	if (phy_node && phy_dev) {
--		host = ufshcd_get_variant(hba);
--		host->phy_dev = phy_dev;
--	}
- 
- 	/*
- 	 * Because the default power setting of VSx (the upper layer of
-@@ -2454,16 +2403,12 @@ static int ufs_mtk_probe(struct platform_device *pdev)
- 	 */
- 	ufs_mtk_dev_vreg_set_lpm(hba, false);
- 
--out:
--	of_node_put(phy_node);
--	return err;
-+	return 0;
- }
- 
  /**
-  * ufs_mtk_remove - set driver_data of the device to NULL
-  * @pdev: pointer to platform device handle
-- *
-- * Always return 0
-  */
- static void ufs_mtk_remove(struct platform_device *pdev)
- {
-@@ -2520,9 +2465,8 @@ static int ufs_mtk_system_resume(struct device *dev)
- static int ufs_mtk_runtime_suspend(struct device *dev)
- {
- 	struct ufs_hba *hba = dev_get_drvdata(dev);
--	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct arm_smccc_res res;
--	int ret = 0;
-+	int ret;
- 
- 	ret = ufshcd_runtime_suspend(dev);
- 	if (ret)
-@@ -2533,8 +2477,11 @@ static int ufs_mtk_runtime_suspend(struct device *dev)
- 	if (ufs_mtk_is_rtff_mtcmos(hba))
- 		ufs_mtk_mtcmos_ctrl(false, res);
- 
--	if (host->phy_dev)
--		pm_runtime_put_sync(host->phy_dev);
-+	ret = ufs_mtk_mphy_power_on(hba, false);
-+	if (ret) {
-+		dev_err(dev, "Failed to power off PHY: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
- 
- 	return 0;
- }
-@@ -2542,14 +2489,17 @@ static int ufs_mtk_runtime_suspend(struct device *dev)
- static int ufs_mtk_runtime_resume(struct device *dev)
- {
- 	struct ufs_hba *hba = dev_get_drvdata(dev);
--	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct arm_smccc_res res;
-+	int ret;
- 
- 	if (ufs_mtk_is_rtff_mtcmos(hba))
- 		ufs_mtk_mtcmos_ctrl(true, res);
- 
--	if (host->phy_dev)
--		pm_runtime_get_sync(host->phy_dev);
-+	ret = ufs_mtk_mphy_power_on(hba, true);
-+	if (ret) {
-+		dev_err(dev, "Failed to power on PHY: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
- 
- 	ufs_mtk_dev_vreg_set_lpm(hba, false);
- 
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index 477fb9e36555..bde2b53f5798 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -196,7 +196,6 @@ struct ufs_mtk_host {
- 	bool is_mcq_intr_enabled;
- 	int mcq_nr_intr;
- 	struct ufs_mtk_mcq_intr_info mcq_intr_info[UFSHCD_MAX_Q_NR];
--	struct device *phy_dev;
- };
- 
- /* MTK delay of autosuspend: 500 ms */
+  * xiic_setclk - Sets the configured clock rate
+  * @i2c: Pointer to the xiic device structure
+@@ -883,9 +909,6 @@ static irqreturn_t xiic_process(int irq, void *dev_id)
+ 	}
 
--- 
-2.56.0
+ 	if (pend & XIIC_INTR_BNB_MASK) {
+-		/* IIC bus has transitioned to not busy */
+-		clr |= XIIC_INTR_BNB_MASK;
+-
+ 		/* The bus is not busy, disable BusNotBusy interrupt */
+ 		xiic_irq_dis(i2c, XIIC_INTR_BNB_MASK);
+
+@@ -1030,7 +1053,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+
+ 		xiic_setreg16(i2c, XIIC_DTR_REG_OFFSET, val);
+
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1097,7 +1120,7 @@ static void xiic_start_recv(struct xiic_i2c *i2c)
+
+ 	if (i2c->nmsgs == 1)
+ 		/* very last, enable bus not busy as well */
+-		xiic_irq_clr_en(i2c, XIIC_INTR_BNB_MASK);
++		xiic_clear_en_bnb(i2c);
+
+ 	/* the message is tx:ed */
+ 	i2c->tx_pos = msg->len;
+@@ -1181,11 +1204,11 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+ 				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK |
+ 				((i2c->nmsgs > 1 || xiic_tx_space(i2c)) ?
+ 				XIIC_INTR_TX_HALF_MASK : 0));
+
+ 		xiic_fill_tx_fifo(i2c);
++		xiic_clear_en_bnb(i2c);
+ 	} else {
+ 		/*
+ 		 * If previous message is Tx, make sure that Tx FIFO is empty
+@@ -1227,8 +1250,9 @@ static void xiic_start_send(struct xiic_i2c *i2c)
+
+ 		/* Clear any pending Tx empty, Tx Error and then enable them */
+ 		xiic_irq_clr_en(i2c, XIIC_INTR_TX_EMPTY_MASK |
+-				XIIC_INTR_TX_ERROR_MASK |
+-				XIIC_INTR_BNB_MASK);
++				XIIC_INTR_TX_ERROR_MASK);
++
++		xiic_clear_en_bnb(i2c);
+ 	}
+
+ 	i2c->prev_msg_tx = true;
+--
+2.43.0
 
 
