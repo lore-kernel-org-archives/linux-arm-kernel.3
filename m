@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05153CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0668FCCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKmyIWt43Wn/d/APqXrWdvq+rkEmc05Mvkd3GYPmTCo=; b=EcUFTuFM9MZDEmKSUYccHEcX1w
-	YAbL+CiV6NFJ7euOGsw+t+CHf2IC8nIuk97ccSaKuVAqLt9DM9d7dtPfVHzEWtqvnBUaZf18qK0p0
-	HAAlHatjNaHmMTJtQZJAm7oHl4GCTLw8O0XaJD08Fr8zJBHASQ8KhhmpTSDXI3pyvv6pPEA27u9oF
-	m8x1yduGQToAiUaLdu1NoBGJHY1nxoS7+48WOh21uNhURZdsa0a5heEEArsRs090FihK2ZkEbjJtq
-	YswFuf9IR3Sp5zzszFYyzmtihY42T2Iz2o5a3XkFFix3TBYZzFG50F1Qjv5EepxBp5eH7GKjRJQdD
-	dsj1GbzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ojjYtQh43bC+vi04ki8U6V/KKjiHj8BalpRCWljStRA=; b=jx7AwyK3KeK+FlHxfi17R9RQbF
+	oFMl1XV5cLVjD2E6eftayP7vSy2RSvuXrFaNVIvcw6iW+Er0WccpwJVK5KK/wMVQOPR+4dlFAtFqX
+	QFaG21COMKQXbug1Km4M6sKTqa3vlqZAipJ4kqPzi8zdkdIIhRAylbBI0Lcdyryw1NMhcmmKgRFiA
+	TQCJ+FHju4hTw7GjH/4b1phvEyqumwtMplEl3uNem0Vfw9QN7PK0OymfPjmPJwBxQ5D/8q2zUHNE/
+	+CszMi8EA5ccEvksox/5Hw9cqq0p+LMbMCw2k0YmVEVd0hB9D0WR9HvpO1D7zDo5SQ4O3X2JWB46O
+	ldjuIJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgk7-00000002p8b-2MT6;
-	Fri, 16 Oct 2026 12:08:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgk5-00000002p8E-0Hzv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 12:08:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B073914BF;
-	Fri, 16 Oct 2026 05:08:51 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE35C3F871;
-	Fri, 16 Oct 2026 05:08:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792152535; bh=VFMH9dN/WQRl6EcUgR05d3+nY7m15apBlHJFVXqVwaM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YZueOI6wp4sAix2W59PLrWZY2Wfb/pUbddS5jR0dFXrqo1hImpFPo9X4bSWf82m0K
-	 5E7Erv9pXv7+Ivxz3n/gRoQ4PjKJyFnCiN4LJed73EILzQytL4TH9BC1tzgYcUrDTx
-	 ZBmd5Lb0iKIE0sdJQzdz7/sYpspWNAZPw5oSfKPA=
-Date: Fri, 16 Oct 2026 13:08:49 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Kohei Enju <enju.kohei@fujitsu.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 3/4] perf: arm_pmu: Add workaround for FUJITSU-MONAKA
- Erratum E#030002
-Message-ID: <atIT0dmeqAXLoThW@J2N7QTR9R3.cambridge.arm.com>
-References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
- <20261016-monaka-fix-for-upstream-v2-3-fc7ede7f9f48@fujitsu.com>
+	id 1xHgrD-00000002pnk-3jwP;
+	Fri, 16 Oct 2026 12:16:19 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHgrB-00000002pnM-1eOi;
+	Fri, 16 Oct 2026 12:16:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description;
+	bh=ojjYtQh43bC+vi04ki8U6V/KKjiHj8BalpRCWljStRA=; b=TqLQ666WDqV6RUZk6NR3JQVIMB
+	UdPqLqaQASkk+l9mOiFruRm1XgkrHgdxqKrLAJYNh8BfzfsWlEThrehslrsoupb3EXFUGwWFrWAd5
+	2J9KSzBpiZs1o+WxwPv2CHf/b9FFskwTGiuWR0P+4PSDLwdZi+bxukuG3EYekD6bhMwQeNtfp8iGz
+	2o+IIOIAQOM2LZolMMjzEQ661AW4yf/jPtmKAqddXaLIRIh02Xst4Du7pTrNyLfYvWb9M8mPY2RY9
+	02o9+f+bEfG1LYwKIeHcd9nkqKoCIcdGFXgFiaPqkAYJtM+MPUjxhfqqmmAuXrfn8JQcCukHrCg+F
+	HZK98GSA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xHgqy-005xSg-2j;
+	Fri, 16 Oct 2026 12:16:05 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Fri, 16 Oct 2026 05:15:41 -0700
+Subject: [PATCH v6 1/7] mm/memory-failure: efi: add the
+ LINUX_EFI_POISONED_MEMORY configuration table
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016-monaka-fix-for-upstream-v2-3-fc7ede7f9f48@fujitsu.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-hwpoison-kho-v6-1-f304255147da@debian.org>
+References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
+In-Reply-To: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
+To: Ard Biesheuvel <ardb@kernel.org>, 
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Miaohe Lin <linmiaohe@huawei.com>, 
+ Naoya Horiguchi <nao.horiguchi@gmail.com>, 
+ Oscar Salvador <osalvador@suse.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, kas@kernel.org, 
+ kexec@lists.infradead.org, Brendan Jackman <brendan.jackman@linux.dev>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, 
+ shakeel.butt@linux.dev
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-cxl@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, rmikey@meta.com, riel@surriel.com, 
+ Breno Leitao <leitao@debian.org>, harry@kernel.org, kernel-team@meta.com
+X-Mailer: b4 0.16-dev-f8e9d
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6024; i=leitao@debian.org;
+ h=from:subject:message-id; bh=TZAZEdFgh6ZrIGE/ZagpHGTrCcQOqwFNn+LakPr479E=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBq0hV0jUKXc63ziNZ+4w5tiGa2kxptbOf6tsMC/
+ PqxCb4wd5uJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCatIVdAAKCRA1o5Of/Hh3
+ bUk8D/sE89175sxKV2NWtklw5VOucGRb/VKl+hHa52CSou+cw8zYPs7yE8HYkKD5mjHiBPV+LO7
+ QVfyTJNPpUW56oD6cPPOY6uzXsnERX+Jm+sF1S7JnCqPgrwQPTh1pEUFAn0vXwZ7FuN5UmVQSvE
+ oUpa9QPFwcFgTktFfvcj+Pz0UaAiTynKIaemLFCkcebZcv+EM5+7Q6I2/iV/mTnpaK1WWFUR2GR
+ +e+HRlwsSuWlIAp+ysmgRIZSYtH64a2pxEioBfaW0+ESjsc55WC/vb944OFJGVmODP3LJh10u4C
+ R5YqREIO4SYuB02HBmxINO3edi9gTCeXinhmAzEHwrTaMilkn9+lUTZVOWr4rlQBJY9X2ehGzyr
+ Cd+jM2ZYkfYT9ThXRK/g0C/iZhaUJ8y7NI6W0Wg3JfVn1vll1xly9e7MUwB+UiOMNjT9y6ScCBN
+ UrdYQQ5ORXV07MfLx9l7rIehodFWrTB1gE28SKL82+WrbjsrLwLAmglTKj6lnmbdHRd/lktnCxc
+ YeZ8YdPCRnU0nGipcoC2VlbW8LiXnCir8IOjCHb3ETponoqXu+teQA7fkgYhUz+BCEfTdK5gT63
+ 8DK58p+CIWKIR1qIX8fTfpFsZzaRGhj02OKUkMBz2JR9SlzS9nV97vl1wxcI/AoiLk3KBgEIli9
+ TWAANAHmG6N2F7Q==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_050857_190171_DCD5137B 
-X-CRM114-Status: GOOD (  41.02  )
+X-CRM114-CacheID: sfid-20261016_051617_598207_735763ED 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,186 +110,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 07:00:47PM +0900, Tomohiro Misono wrote:
-> FUJITSU-MONAKA Erratum E#030002 affects FUJITSU-MONAKA CPU.
-> 
-> On affected FUJITSU-MONAKA CPUs, after a PMU event counter is
-> stopped at a value just before overflow, an overflow might still
-> be incorrectly detected, resulting interrupt storm in some case.
-> 
-> For example, if the following conditions are met:
->   1) Running perf to count an event in user space only
->   2) The event can also occur in kernel space
->   3) The counter value is set just before the overflow
->      (when using the -F option, initial counter value is -1)
-> 
-> when the kernel is about to return to user space after enabling
-> the count, an overflow interrupt is incorrectly triggered by an
-> event that occurred in kernel space. Since the counter value is
-> not updated (correctly), the interrupt handler does nothing and
-> returns with the same condition. This leads to another wrong interrupt
-> and results in an interrupt storm and eventually a softlockup.
+Hardware-poisoned page frames are tracked only in the running kernel's
+data structures, so a kexec loses them and the next kernel doesn't have
+this information, thus, tripping into them again.
 
-I don't fully understand this.
+Add an EFI configuration table to carry that information across kexec.
 
-Surely the relevant PMOVS{CLR,SET}[n] bit set as if the counter n
-overflowed?
+It is a bitmap with one bit per EFI_POISON_UNIT_SIZE (2MiB) of physical
+memory starting at phys_base, modeled on the LINUX_EFI_UNACCEPTED_MEMORY
+table, and it rides the EFI system table to every kernel in the chain.
+Basing the bitmap keeps a machine whose RAM starts high from paying for
+the hole below it.
 
-If that bit is set, the handler will certainly do *something*.
+List the table in the x86 efi_tables[] too, so an SME host maps it
+unencrypted like every other EFI table.
 
-If that bit is not set, the interrupt shouldn't be asserted at all. When
-does it get de-asserted?
+The Kconfig symbol has no prompt. There is nothing for a user to decide,
+so it is on wherever it can be, and it only costs 64K per TiB of RAM on
+a kernel that already has the EFI stub and MEMORY_FAILURE. It is
+restricted to 64BIT because the unit arithmetic divides by a runtime
+unit_size, which needs div_u64() on 32-bit. That combination is
+reachable, X86_32 with FLATMEM selects ARCH_SUPPORTS_MEMORY_FAILURE and
+has an EFI stub, so the dependency is what keeps the division out rather
+than a config nobody can build.
 
-> Work around the erratum by avoiding programming PMU event counters
-> with values within five counts of overflow.
+The bitmap is an unsigned long array reached with the native bitops, like
+the unaccepted memory table it copies. That is endian dependent, but
+EFI_STUB && 64BIT is little-endian everywhere: arm64 turns EFI off under
+CPU_BIG_ENDIAN, and no other architecture with the stub is big-endian.
 
-Without more detail, I don't think that can be sufficient, because you
-can end up in a scenario where:
+Suggested-by: Kiryl Shutsemau <kas@kernel.org>
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ arch/x86/platform/efi/efi.c  |  3 +++
+ drivers/firmware/efi/Kconfig |  8 ++++++++
+ drivers/firmware/efi/efi.c   |  6 ++++++
+ include/linux/efi.h          | 14 ++++++++++++++
+ 4 files changed, 31 insertions(+)
 
-1. The kernel confugures the counter to -5.
+diff --git a/arch/x86/platform/efi/efi.c b/arch/x86/platform/efi/efi.c
+index 0c39adb96b912b..2b37b96a36e099 100644
+--- a/arch/x86/platform/efi/efi.c
++++ b/arch/x86/platform/efi/efi.c
+@@ -93,6 +93,9 @@ static const unsigned long * const efi_tables[] = {
+ #ifdef CONFIG_UNACCEPTED_MEMORY
+ 	&efi.unaccepted,
+ #endif
++#ifdef CONFIG_EFI_POISONED_MEMORY
++	&efi.poisoned_memory,
++#endif
+ };
+ 
+ u64 efi_setup;		/* efi setup_data physical address */
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 29e0729299f5bd..aafcd41bc00630 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -263,6 +263,14 @@ config EFI_COCO_SECRET
+ 	  virt/coco/efi_secret module to access the secrets, which in turn
+ 	  allows userspace programs to access the injected secrets.
+ 
++config EFI_POISONED_MEMORY
++	def_bool y
++	depends on EFI_STUB && MEMORY_FAILURE && 64BIT
++	help
++	  Record page frames that are hardware-poisoned while this kernel runs
++	  into an EFI configuration table, and honor that table early on the
++	  next kernel so a kexec does not hand known-bad RAM back out.
++
+ config OVMF_DEBUG_LOG
+ 	bool "Expose OVMF firmware debug log via sysfs"
+ 	depends on EFI
+diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+index 6d987d7f97781f..af1fa443839c4d 100644
+--- a/drivers/firmware/efi/efi.c
++++ b/drivers/firmware/efi/efi.c
+@@ -55,6 +55,9 @@ struct efi __read_mostly efi = {
+ #ifdef CONFIG_UNACCEPTED_MEMORY
+ 	.unaccepted		= EFI_INVALID_TABLE_ADDR,
+ #endif
++#ifdef CONFIG_EFI_POISONED_MEMORY
++	.poisoned_memory	= EFI_INVALID_TABLE_ADDR,
++#endif
+ };
+ EXPORT_SYMBOL(efi);
+ 
+@@ -677,6 +680,9 @@ static const efi_config_table_type_t common_tables[] __initconst = {
+ #ifdef CONFIG_UNACCEPTED_MEMORY
+ 	{LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID,	&efi.unaccepted,	"Unaccepted"	},
+ #endif
++#ifdef CONFIG_EFI_POISONED_MEMORY
++	{LINUX_EFI_POISONED_MEMORY_TABLE_GUID,	&efi.poisoned_memory,	"POISON"	},
++#endif
+ #ifdef CONFIG_EFI_GENERIC_STUB
+ 	{LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID,	&primary_display_table			},
+ #endif
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index c35446a0b66fac..efaf63f9a54edd 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -23,6 +23,7 @@
+ #include <linux/pstore.h>
+ #include <linux/range.h>
+ #include <linux/reboot.h>
++#include <linux/sizes.h>
+ #include <linux/uuid.h>
+ 
+ #include <asm/page.h>
+@@ -422,6 +423,7 @@ void efi_native_runtime_setup(void);
+ #define LINUX_EFI_COCO_SECRET_AREA_GUID		EFI_GUID(0xadf956ad, 0xe98c, 0x484c,  0xae, 0x11, 0xb5, 0x1c, 0x7d, 0x33, 0x64, 0x47)
+ #define LINUX_EFI_BOOT_MEMMAP_GUID		EFI_GUID(0x800f683f, 0xd08b, 0x423a,  0xa2, 0x93, 0x96, 0x5c, 0x3c, 0x6f, 0xe2, 0xb4)
+ #define LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID	EFI_GUID(0xd5d1de3c, 0x105c, 0x44f9,  0x9e, 0xa9, 0xbc, 0xef, 0x98, 0x12, 0x00, 0x31)
++#define LINUX_EFI_POISONED_MEMORY_TABLE_GUID	EFI_GUID(0xaf828a15, 0x0ef4, 0x439a,  0xb8, 0x6a, 0xd6, 0xd6, 0x9e, 0xaf, 0xba, 0xfa)
+ 
+ #define RISCV_EFI_BOOT_PROTOCOL_GUID		EFI_GUID(0xccd15fec, 0x6f73, 0x4eec,  0x83, 0x95, 0x3e, 0x69, 0xe4, 0xb9, 0x40, 0xbf)
+ 
+@@ -650,6 +652,7 @@ extern struct efi {
+ 	unsigned long			mokvar_table;		/* MOK variable config table */
+ 	unsigned long			coco_secret;		/* Confidential computing secret table */
+ 	unsigned long			unaccepted;		/* Unaccepted memory table */
++	unsigned long			poisoned_memory;	/* Hardware-poisoned memory table */
+ 
+ 	efi_get_time_t			*get_time;
+ 	efi_set_time_t			*set_time;
+@@ -1272,6 +1275,17 @@ struct linux_efi_memreserve {
+ #define EFI_MEMRESERVE_COUNT(size) (((size) - sizeof(struct linux_efi_memreserve)) \
+ 	/ sizeof_field(struct linux_efi_memreserve, entry[0]))
+ 
++/* Bit N covers the unit at @phys_base + N * @unit_size. */
++struct linux_efi_poisoned_memory {
++	u32		version;
++	u32		unit_size;	/* bytes of phys space per bitmap bit */
++	u64		phys_base;	/* address the first bit covers */
++	u64		size;		/* bitmap size in bytes */
++	unsigned long	bitmap[];
++};
++
++#define EFI_POISON_UNIT_SIZE	SZ_2M
++
+ void __init efi_arch_mem_reserve(phys_addr_t addr, u64 size);
+ 
+ /*
 
-2. The kernel returns to userspace.
+-- 
+2.53.0-Meta
 
-3. In userspace, 4 events occur, and are counted, leaving the counter at
-   -1.
-
-4. Some unrelated interrupt is taken, entering the kernel.
-
-5. Upon return to userspace, a kernel event occurs, triggering this
-   issue.
-
-6. The PMU interupt handler runs, does nothing, leading right back to
-   the original issue.
-
-What am I missing?
-
-Mark.
-
-> Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-> 
-> ---
-> Changes in v2:
-> - Add user impact explanation in the commit message
-> ---
-> ---
->  Documentation/arch/arm64/silicon-errata.rst |  2 ++
->  arch/arm64/Kconfig                          | 17 +++++++++++++++++
->  arch/arm64/include/asm/cpucaps.h            |  2 ++
->  arch/arm64/kernel/cpu_errata.c              | 10 ++++++++++
->  arch/arm64/tools/cpucaps                    |  1 +
->  drivers/perf/arm_pmu.c                      | 13 +++++++++++++
->  6 files changed, 45 insertions(+)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 527af20b26468..0efb24ec01b4c 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -377,6 +377,8 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM_030001      |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| Fujitsu        | MONAKA          | E#030002        | FUJITSU_ERRATUM_030002      |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ASR            | ASR8601         | #8601001        | N/A                         |
->  +----------------+-----------------+-----------------+-----------------------------+
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 5d1a17ab0f593..43fd265156e46 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1361,6 +1361,23 @@ config FUJITSU_ERRATUM_030001
->  
->  	  If unsure, say Y.
->  
-> +config FUJITSU_ERRATUM_030002
-> +	bool "FUJITSU-MONAKA erratum E#030002: PMU overflow may be incorrectly detected"
-> +	depends on ARM_PMUV3
-> +	default y
-> +	help
-> +	  This option adds a workaround for FUJITSU-MONAKA erratum E#030002.
-> +	  On affected FUJITSU-MONAKA CPUs, after a PMU event counter is
-> +	  stopped at a value just before overflow, an overflow might still
-> +	  be incorrectly detected.
-> +
-> +	  Work around the erratum by avoiding programming PMU event counters
-> +	  with values within five counts of overflow.
-> +
-> +	  The workaround only affects the FUJITSU-MONAKA.
-> +
-> +	  If unsure, say Y.
-> +
->  config HISILICON_ERRATUM_161600802
->  	bool "Hip07 161600802: Erroneous redistributor VLPI base"
->  	default y
-> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-> index 9220b917ec207..c0a0452daf949 100644
-> --- a/arch/arm64/include/asm/cpucaps.h
-> +++ b/arch/arm64/include/asm/cpucaps.h
-> @@ -68,6 +68,8 @@ cpucap_is_possible(const unsigned int cap)
->  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
->  	case ARM64_WORKAROUND_FUJITSU_030001:
->  		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
-> +	case ARM64_WORKAROUND_FUJITSU_030002:
-> +		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030002);
->  	case ARM64_MPAM:
->  		/*
->  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index a11135f83e858..6363b694b4478 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -1048,6 +1048,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  					{}
->  				})),
->  	},
-> +#endif
-> +#ifdef CONFIG_FUJITSU_ERRATUM_030002
-> +	{
-> +		.desc = "FUJITSU-MONAKA Erratum E#030002",
-> +		.capability = ARM64_WORKAROUND_FUJITSU_030002,
-> +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
-> +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-> +					{}
-> +				})),
-> +	},
->  #endif
->  	{
->  		.desc = "Known broken GICv3 SEIS implementation",
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 1e57a0105395b..ef8ce70ab7121 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -133,3 +133,4 @@ WORKAROUND_SPECULATIVE_SSBS
->  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
->  WORKAROUND_BROKEN_AMU_CONSTCNT
->  WORKAROUND_FUJITSU_030001
-> +WORKAROUND_FUJITSU_030002
-> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> index 1150695653892..c0b8580d80bae 100644
-> --- a/drivers/perf/arm_pmu.c
-> +++ b/drivers/perf/arm_pmu.c
-> @@ -234,6 +234,19 @@ int armpmu_event_set_period(struct perf_event *event)
->  	if (left > (max_period >> 1))
->  		left = (max_period >> 1);
->  
-> +#if IS_ENABLED(CONFIG_ARM64)
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030002)) {
-> +		/*
-> +		 * Due to the errata, overflow might be incorrectly detected in the handler
-> +		 * when the counter is about to overflow in a single increment, resulting
-> +		 * interrupt storm in some case. As the counter can increase by up to
-> +		 * 5 at a time, set 6 here to prevent the condition.
-> +		 */
-> +		if (left > 0 && left < 6)
-> +			left = 6;
-> +	}
-> +#endif
-> +
->  	local64_set(&hwc->prev_count, (u64)-left);
->  
->  	armpmu->write_counter(event, (u64)(-left) & max_period);
-> 
-> -- 
-> 2.43.0
-> 
 
