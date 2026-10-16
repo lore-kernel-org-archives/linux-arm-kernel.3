@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C38DBCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3A9CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ez3WTV3wXyvA2qsEtDAAQhPoUgCZjt1BQZubvtpWNZk=; b=QEfJcRFE7+e0cGz2stErGSDlEi
-	dccazhLIKDqXjy8L6XdBbbUezWIRyuRwYrfKW1Ri9JI8wu1WNsIb5UsXpEZP+ZmFxF5ab4hhCT7sH
-	iKPAmjYmerHElrzjyu35JX5kCMQhBmo+V61ZS9Np9wJ7JumZchI6fb8WwvZdIEHcJ6m8fw7C9axgG
-	lIqh0autDryZeXfIvh4pzc+4G3kaBmT+mWXGefgrgYcksgntIYKo5nUVNF0X/NH9RaON+bePTVSJj
-	XHv4nsoC9o92EZdRAW//REY6bPje9Ks+Yh3xP8UYX3icDTgyOpY8sfUBUsRcSXRciZdgmmwq+OKY9
-	X/EO2QmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ymzV+PvlZ6Qlp2rp7tv8nLpG+Mbi+vrxYO8uUghQlNw=; b=EXBrASIiUy5ef1kjrrJQ2Dld6j
+	KBN43/+4LDIeL10TVp72ocRJWbpN1+ifjcQcDQLuuaInmnTmPYTn55dXVM1dsmxXeBRE/+B6CvISv
+	MWT1aGLdXU5m6zFaRXXZH2dT6Jx6DI3Xsyoxun6gmvRKgN14ivSOqW9V9GDNxQ6UkrHhxPuC3JqoR
+	CSNcZdQVjndgA80Rt/GmK6I2FUbsfXR1ObNYZOE1GKjpBP4a4vCwvHi7ZUNGtDdPSsJuuT5OV9Fo8
+	3oWx/kl86GntDmVPaARkQDgqHDGoztMdowc2LKeHBxzqr/UW2D/XyWCcx/30lgRTb/Kt5fzHaZisD
+	HgfwQ7Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHguD-00000002qxd-3tZW;
-	Fri, 16 Oct 2026 12:19:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHguC-00000002qxS-0UQp
+	id 1xHgx7-00000002rL0-0wMu;
+	Fri, 16 Oct 2026 12:22:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHgx5-00000002rKP-2Lyb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 12:19:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83EEE43C50;
-	Fri, 16 Oct 2026 12:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D8B31F000C4;
-	Fri, 16 Oct 2026 12:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792153163;
-	bh=ez3WTV3wXyvA2qsEtDAAQhPoUgCZjt1BQZubvtpWNZk=;
-	h=From:Date:Subject:To:Cc;
-	b=ekWjNZ3oSUYSugEFRILIitc33dot8jDfMAsAu3L7ZxBrfGUkTXBND8H8f3sHfaeB5
-	 YhuhBLru0j1fax7LCg2S+n4m5DoAF1j3s50gEkd9f1SlcKg0tgoUPWj8GO1I2az//v
-	 mTngxnRLSentOqEJb/9148sDZz0+e782qQAzbC4TEhtSARDbvIph8DcAXTX+DO+JZS
-	 AflpWonu+iXo1y8Qtld7zpLvvJ4o7hhjQgRc1s89xZl7cp01bKpr04RpGpijqwnyt0
-	 8VtB7PEh7uLoisupMcQgCbXVQXG5L14/+XiI3O+nhLZz+G4TWzT3LlwYChvJFBOJki
-	 qe+0FtkLPrVLw==
-From: Eugen Hristev <ehristev@kernel.org>
-Date: Fri, 16 Oct 2026 15:18:53 +0300
-Subject: [PATCH] PCI: iproc-msi: Bound events handled per IRQ
+	Fri, 16 Oct 2026 12:22:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE4C914BF;
+	Fri, 16 Oct 2026 05:22:18 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1F923F871;
+	Fri, 16 Oct 2026 05:22:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792153342; bh=NULbTvIQZ/oHcmP/aTrGATa4IJHfneiO9zb4SUFhYOw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=shhqUlli7w1Npoly5BGrBS9Jy9AZY2n6Qb6sU26nBEEnyq71sbkEQEBxvCyhG8TkX
+	 g9tiyckxqyXXZraYz+0AqS9HqbmBj0vPQm+YEl3Fp3yPWsjb16Hsdua5atbQo6HLCb
+	 /BewOKm9GMLZuErY0jpDtTffJNkkLeQHDbyrauGg=
+Date: Fri, 16 Oct 2026 13:22:16 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+	peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+	david.laight.linux@gmail.com, broonie@kernel.org,
+	boris.ostrovsky@oracle.com, ashok.bhat@arm.com,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Christoph Lameter <cl@linux.com>
+Subject: Re: [PATCH v16 03/16] arm64/delay: move, fixup usecs_to_cycles()
+Message-ID: <atIW-GIWaN6-w44R@arm.com>
+References: <20261016070837.440748-1-ankur.a.arora@oracle.com>
+ <20261016070837.440748-4-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-iproc-irq-v1-1-ebaaf027f29e@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACwW0moC/yXMTQ5AMBBA4avIrDVpiQZXEQvGYCz8TBFJ4+6K5
- Ze8PA+OhMlBGXkQOtnxMgeYOAIcm3kgxV0wJDqxRhureJUFFcumCsxy7CktTJZD6Fehnq/vVdW
- /3dFOhPs7gPt+ANvf8extAAAA
-X-Change-ID: 20261016-iproc-irq-9c58cfe39158
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3668; i=ehristev@kernel.org;
- h=from:subject:message-id; bh=DSH+AvFSx4rSB2I3L8SguVd7gi22r4ADmAr9vYB5kcU=;
- b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLIuiTmaH81mvvydS+xJknra+zdi0Ruqila8a7yUvfF2m
- dR+i7DJHaUsDGJcDLJiiizVJv9qhft3uJ90tVSBmcPKBDKEgYtTACZi+o3hf8qOixl2CeGVK1tu
- v10b+czn3r+ne3dVzQ5ccmdmfKGqfSwjw4PkKO2mFPW/bzwzV2Usuil/qUwvm3c790/hgw+q40/
- 3swEA
-X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
- fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016070837.440748-4-ankur.a.arora@oracle.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_052223_647823_31E7CF6A 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +80,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Limit each iProc MSI parent IRQ to 16 event-queue entries.
+On Fri, Oct 16, 2026 at 12:08:24AM -0700, Ankur Arora wrote:
+> diff --git a/arch/arm64/include/asm/delay-const.h b/arch/arm64/include/asm/delay-const.h
+> new file mode 100644
+> index 000000000000..6ccdfe0a4130
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/delay-const.h
+> @@ -0,0 +1,35 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _ASM_DELAY_CONST_H
+> +#define _ASM_DELAY_CONST_H
+> +
+> +#include <linux/math64.h>
+> +#include <linux/types.h>
+> +#include <asm/param.h>	/* For HZ */
+> +
+> +/* 2**32 / 1000000 (rounded up) */
+> +#define __usecs_to_xloops_mult	0x10C7UL
+> +
+> +/* 2**32 / 1000000000 (rounded up) */
+> +#define __nsecs_to_xloops_mult	0x5UL
+> +
+> +extern unsigned long loops_per_jiffy;
+> +static inline u64 xloops_to_cycles(u64 xloops)
+> +{
+> +	u64 loops_per_sec = (u64)loops_per_jiffy * HZ;
+> +
+> +	return mul_u64_u64_shr(xloops, loops_per_sec, 32);
+> +}
+> +
+> +static inline u64 usecs_to_cycles(u64 time_usecs)
+> +{
+> +	return xloops_to_cycles(time_usecs * __usecs_to_xloops_mult);
+> +}
+> +
+> +static inline u64 nsecs_to_cycles(u64 time_nsecs)
+> +{
+> +	return xloops_to_cycles((time_nsecs) * __nsecs_to_xloops_mult);
+> +}
+> +
+> +u64 notrace __delay_cycles(void);
+> +
+> +#endif	/* _ASM_DELAY_CONST_H */
 
-A continuously fed queue could otherwise keep the chained handler running
-and starve other work. The budget still drains pending events and lets the
-next parent interrupt continue processing, improving fairness and bounding
-interrupt-handler latency.
+The bot reports are valid, moving these into headers pulled elsewhere
+will clash with existing functions with the same name. You fixed one but
+there's another. Isn't it easier to just add an arm64_ prefix to these?
 
-Without this starvation avoidance, one CPU can stall indefinitely
-in the loop and not serve other interrupts, timers, etc.
+Alternatively, I think we only need nsecs_to_cycles(). We have an out of
+line call to __delay_cycles() already, so can we not just add a new
+function to use directly and avoid polluting the headers:
 
-While testing it with an Ethernet NIC,  when too many MSI interrupts
-come in, CPU might get starved:
+u64 arm64_wfet_deadline(u64 timeout_ns)
+{
+        return __delay_cycles() + nsecs_to_cycles(timeout_ns);
+}
+EXPORT_SYMBOL_GPL(arm64_wfet_deadline);
 
-Connecting to host 192.168.30.1, port 5201
-[  5] local 192.168.30.2 port 52586 connected to 192.168.30.1 port 5201
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec   240 MBytes  2.01 Gbits/sec    2    334 KBytes
-[  5]   1.00-2.00   sec  63.2 MBytes   531 Mbits/sec    1   1.41 KBytes
-[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   3.00-4.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   6.00-7.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  177.568497] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-[  177.568913] rcu:     0-...!: (1 GPs behind) idle=28ac/1/0x4000000000000002 softirq=28922/28930 fqs=1
-[  177.569457] rcu:     (detected by 1, t=5256 jiffies, g=21629, q=819 ncpus=4)
-[  177.569870] Sending NMI from CPU 1 to CPUs 0:
+I prefer the latter if it works.
 
-With this bounded approach, IRQ handler will complete and continue
-to serve MSI events on the next handler invocation.
-
-Assisted-by: Github Copilot
-Signed-off-by: Eugen Hristev <ehristev@kernel.org>
----
- drivers/pci/controller/pcie-iproc-msi.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
-index 9ba242ab9596..6649807822d2 100644
---- a/drivers/pci/controller/pcie-iproc-msi.c
-+++ b/drivers/pci/controller/pcie-iproc-msi.c
-@@ -29,6 +29,9 @@
- /* Number of entries in each event queue */
- #define EQ_LEN                         64
- 
-+/* Bound parent interrupt handler such that a queue cannot starve CPU. */
-+#define IPROC_MSI_MAX_EVENTS_PER_IRQ   16
-+
- /* Size of each event queue memory region */
- #define EQ_MEM_REGION_SIZE             SZ_4K
- 
-@@ -326,6 +329,7 @@ static void iproc_msi_handler(struct irq_desc *desc)
- 	struct iproc_msi_grp *grp;
- 	struct iproc_msi *msi;
- 	u32 eq, head, tail, nr_events;
-+	unsigned int event_budget = IPROC_MSI_MAX_EVENTS_PER_IRQ;
- 	unsigned long hwirq;
- 
- 	chained_irq_enter(chip, desc);
-@@ -360,9 +364,11 @@ static void iproc_msi_handler(struct irq_desc *desc)
- 			break;
- 
- 		/* process all outstanding events */
--		while (nr_events--) {
-+		while (nr_events && event_budget) {
- 			hwirq = decode_msi_hwirq(msi, eq, head);
- 			generic_handle_domain_irq(msi->inner_domain, hwirq);
-+			nr_events--;
-+			event_budget--;
- 
- 			head++;
- 			head %= EQ_LEN;
-@@ -373,6 +379,8 @@ static void iproc_msi_handler(struct irq_desc *desc)
- 		 * head pointer.
- 		 */
- 		iproc_msi_write_reg(msi, IPROC_MSI_EQ_HEAD, eq, head);
-+		if (!event_budget)
-+			break;
- 
- 		/*
- 		 * Now go read the tail pointer again to see if there are new
-
----
-base-commit: b810335a0699d1810683796b0e3ffe8827ddfe6c
-change-id: 20261016-iproc-irq-9c58cfe39158
-
-Best regards,
---  
-Eugen Hristev <ehristev@kernel.org>
-
+-- 
+Catalin
 
