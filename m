@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8448CCA490
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90C8CCF2C2
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F3S0tT4y8CKe4q86fkRXB29qxDrT+lYfYaHou/Uummk=; b=KtjejDIUxba45nPuWYLotRnut+
-	QfQKn3nFBfIi+B9SkOPtRwm1K9kdNMydAVngiupet2yeW3kFsaRjprV5uQ89016tGiKzDjmpmD+fR
-	Zj3yPTxpedcv1S9LFOCNAkW07y4EMl/4eaUFDm2ggjMRwp/1as5+qtpIfyaKxDbCfzEe3bdVorJfl
-	/R0F2aR+ge6yCu75llAj7R9qJjlXeaHz1UIj87x6xSHWPRgItiTT8tzEzo69onklXY5viRXBtI5qX
-	NXIpY2gjAkjlxVMsLMR/W3fbQBBZg4fKA285v1RSC+QaDfB+mBoO534NgECYsLyq7biv3hX9IEWjo
-	PTphqw1g==;
+	bh=7C5XCknT24grCMl5hYL97m60TRY7ENbsiIvxQN7uLeY=; b=kirVgPW/LEpQVMrUbhLSKsw6PW
+	Ut5UyoUWdDAOUCze3Qe1zJNkqLQ8pbkcPBRN0nk2qZD7Upw6D3c8jPYjqlb9aVhDx7wOmlmwf0QTV
+	JkP/xpYPK1U2GoLnC4bW45kZxsqdxgOK52pdaJjSbQ8xHX6+F/bbqUO4WkNz5WEGjaFsq26EyJMsq
+	O6YJysC2/AwN5lLkBbGJx4IkrgKN8Zv+PHWymGx3DjFYwBVLU4ohkDo/bp9meZymHkHN+bByEu0fm
+	wvxnDjjcHBk3U4yl9iVvTRrhlbpXEnBJPS0wjTHWFjHvGD1INm9H/94HJh5oFzfvpOUoPXdLfELlf
+	oMDongPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDH-00000003Thd-2tmV;
-	Fri, 16 Oct 2026 16:55:23 +0000
+	id 1xHlDI-00000003TiQ-0Dta;
+	Fri, 16 Oct 2026 16:55:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDA-00000003TeB-3XEF
+	id 1xHlDE-00000003Tfz-15xX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:18 +0000
+	Fri, 16 Oct 2026 16:55:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6784B1691;
-	Fri, 16 Oct 2026 09:55:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14E9D1477;
+	Fri, 16 Oct 2026 09:55:16 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2017D3F7B4;
-	Fri, 16 Oct 2026 09:55:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C40933F7B4;
+	Fri, 16 Oct 2026 09:55:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169715; bh=9Vg1KwTsPnGP0rd+0YO3fvy/Cq8edx+YmEonMySYO+s=;
+	t=1792169719; bh=BQnVzx45dLwktCWppCQITl2/9OmBRkvh1ThhzFT93O0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EgI7HuLZsApO3MM+ecCNknPLh3fTuUxWvXtIM5632PMu3WaATDGrN3B+V6xTs4rmE
-	 6aqo7qsv8R66caTjDSxpyu34cz3zCj7Jf+h7WYgCcNGfKw/l0yHchMSlxmYjHZ202o
-	 zH+eKlzy9cH96ysyjq8m72T5yQK1kZEabAp2PoZg=
+	b=MN7Yxs8+MvNwV9LH6ztqB5TqK2dPaw/993Q+acsgtKYMlIy6qusDbZ6iIBYGgPlm9
+	 8xUZTdPdKfXLY1DMnyqCIl1lS0uO/0VKRmrS1SoBayZyXiyzy+xoiPAiNCWN/584UC
+	 KLMVciWr8Dt9EgMisZ2bISkv1C8A7Urd5CimOqXk=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:00 +0100
-Subject: [PATCH v2 02/23] coresight: trbe: Make watermark range check
- overflow safe in __trbe_normal_offset()
+Date: Fri, 16 Oct 2026 17:55:02 +0100
+Subject: [PATCH v2 04/23] coresight: trbe: Check the buffer association
+ before IRQ validation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-2-3f57cf3199b1@arm.com>
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-4-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -58,16 +58,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1341;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1534;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=9Vg1KwTsPnGP0rd+0YO3fvy/Cq8edx+YmEonMySYO+s=;
- b=MZyhAr29SMEIn2620PIxOjTVLznCFoBunZS90a3WNKuIUkGrCJXlnqPQc4rh+6xwwme9Tir1M
- u7ESq1hhX3VA/7RpczwEgM1o3WF/tuEvnJijQUO6mB1+Fum+YlGPtPT
+ bh=BQnVzx45dLwktCWppCQITl2/9OmBRkvh1ThhzFT93O0=;
+ b=59eZUh7H+BmqdJco1rMWNKh0LUP5VH2FLq6f5rtq0E0JBoPE/c0V86QEeHBOek+EzKXMuuj7k
+ VtsCXQUuembDslgdY4xavgJybWW1ABVOF6DA//LMWklaD2HVXHjMkv0
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_095516_927203_E266CC66 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20261016_095520_346581_A0A38ECF 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current code checks whether the wakeup point lies before the current
-tail by comparing against handle->head + handle->size. That addition can
-overflow when the monotonically increasing perf AUX head is close to
-ULONG_MAX, causing a valid wakeup point in the current writable range to
-be missed.
+is_perf_trbe() obtains the sink buffer from the output handle and
+dereferences buf->cpudata before validating either pointer. A live AUX
+transaction does not guarantee that the selected buffer has a CPU
+association.
 
-Use unsigned subtraction to compare the distance from head to wakeup
-against the buffer size instead. This keeps the check correct across
-potential wrap.
+Reject a missing buffer or CPU association before reading CPU driver
+data or checking the hardware buffer addresses. Treat these configurations
+as an invalid perf TRBE session.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index eca8e13a97447b46a4b383049aacb3fa7ad3c329..02d12445763a86d58c79bdf5143f761827456bc3 100644
+index 8ec0b4c4987f25d10ee0b2f80c27e10f76357387..91fbdbad3676ffae399df0b4d4ddcd603a40e86c 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -526,7 +526,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 	 * +----|---------------|-------|-------+
- 	 * trbe_base		limit		trbe_base + nr_pages
- 	 */
--	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup)
-+	if ((handle->wakeup - handle->head) < handle->size && head <= wakeup)
- 		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+@@ -1111,10 +1111,16 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
+ static bool is_perf_trbe(struct perf_output_handle *handle)
+ {
+ 	struct trbe_buf *buf = etm_perf_sink_config(handle);
+-	struct trbe_cpudata *cpudata = buf->cpudata;
+-	struct trbe_drvdata *drvdata = cpudata->drvdata;
++	struct trbe_cpudata *cpudata;
++	struct trbe_drvdata *drvdata;
+ 	int cpu = smp_processor_id();
  
- 	/*
++	if (!buf || !buf->cpudata)
++		return false;
++
++	cpudata = buf->cpudata;
++	drvdata = cpudata->drvdata;
++
+ 	WARN_ON(buf->trbe_hw_base != get_trbe_base_pointer());
+ 	WARN_ON(buf->trbe_limit != get_trbe_limit_pointer());
+ 
 
 -- 
 2.34.1
