@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72718CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC4BCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
 	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6n/ZjZ2OIMP6lyuBqMBR5OqO2p3A3f429iS/YeL0TM=; b=EnMoGY83towdclXH0eqmX5S45q
-	7TPGzX2y8RkkUwU+N538IdSZP+hLTwFPY+Fyz39LLt93zQoBQD4hbW7tcxp9/NpaSdZp/SLIk0bfn
-	p+xDRqdoASutMebLthHhzLgZTX+gKBzmDXWeoVJRn3HKN1fG5KawnfIbhEGxfth3pj/eGroJ6N90i
-	8AtitR93CDvq4AS6uMc4UvPjzs34M3lX+kJNq0ucMD6i+vWgp6mBKwBVKWYCg2z4btpCcm1y3mjuI
-	YLD0jiKXiLqWILAMsvkLTrwL3dleeC+qOfg9ArJ1zk0bVX7ryc+7wMUAVsHrnAmwQkgis8u6XdZEH
-	AAvVE/Gw==;
+	bh=LfnYK9wuqqNvQYXwL+C7ZhSJlmFE6g+Vm0Z+GDaNmYU=; b=Ma1oiVlzwrGQYoZx8FUd64y/g6
+	AiGHZ0SIF1vQ1fEn+9sFX5tiyuDJTDqcDthHJJ1ppt1oCzmI1IJ8zxp4VNTd6NXZFm+2/TU/Bvnh+
+	Q8FVUa5rvYbKZ/ZCv509YXvwE1oRH5iBTcOxwljmS/FxkN8uEpiqy+UyZkPud54fzTRJ+x1cTuj+F
+	q2wb2oSFyn7TdMzZVxvyGPJl+mf7+PT63YP5MiEIj3Qk/esdqs13B2vXeDrEJH9XijICfbMs9n6Zz
+	NiuInrFF/4dJD67JjcAQwRl8G9mfKd6pQdp513y6W34WLEzmPSg1n2QeaC9G32x3P473oJ9MxL9eo
+	RaBF+1vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcmw-00000002H48-2wzF;
-	Fri, 16 Oct 2026 07:55:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xHcn0-00000002H63-3MeF;
+	Fri, 16 Oct 2026 07:55:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcmv-00000002H3D-24RY
+	id 1xHcmz-00000002H5d-3BFP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 07:55:37 +0000
+	Fri, 16 Oct 2026 07:55:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4B4B600D4;
-	Fri, 16 Oct 2026 07:55:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A4851F000C4;
-	Fri, 16 Oct 2026 07:55:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 38BB360A8B;
+	Fri, 16 Oct 2026 07:55:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 331861F000C5;
+	Fri, 16 Oct 2026 07:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792137336;
-	bh=j6n/ZjZ2OIMP6lyuBqMBR5OqO2p3A3f429iS/YeL0TM=;
+	s=k20260515; t=1792137340;
+	bh=LfnYK9wuqqNvQYXwL+C7ZhSJlmFE6g+Vm0Z+GDaNmYU=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=YF+dKR6yM5v6UDIIr8S+PXF1O+nlvbIgVGV7Y43J3ORBkjWrhKNjplk2d7AZmOSbB
-	 Vsf7kRv5NVSuY0KkYzP2F2y7MagHAwM8yYDbHdlGLDtBTIcc7JNRlkUwsz7rLqZ92v
-	 m3J0IjY3GGZO8Pb37VtVICMFG7sMkzIpoqKzuPKXOq2DrTCceZNnJnlezz9ahPqUXZ
-	 2A78+1m1Wk9oLu0wpKvKnffi4uNz9bNsnT6+JnSlxO5KuplvDffRe568AmjLHS6GvK
-	 qfwTNFBaNeELYts/xEUmof7v2O8/5uWYu/7vooKOLojn109xaXUIm2qk1eJhz6qNwk
-	 yAJvdaC4Tu44w==
-Content-Type: multipart/mixed; boundary="===============0314830124621368691=="
+	b=YGJWk1NdE3s6iWwTJlsbjI8oPUGeiGVdn00Uf/zNNuJ8svicsxzQ+ax9qYK0SRNE7
+	 WCYC3ZrfXH3HMnDUKcddXsqYngI/SP3Ni59N9Z/5Dc9DUoCnCE0bpWz1l54skdrHZE
+	 xsEWL6iGX33jCZczTzYCqapqxESUaa988Fd81gkRkuuXFj5eKe+FQcnyvNtgjS2OLO
+	 pQYiYhitTbZkshOjKDjhKdHbFWUylzCZXzv7WJwtCWcF6z++yrGD1zEAU0ffDGjU33
+	 gXQfCwQhlYuDG0kFeHLOTZtrdAvccooO7gV2fmeg278SmH43w0ssfzP1BEFx6C4/lV
+	 YonIDIlyEOXFA==
+Content-Type: multipart/mixed; boundary="===============6623771970694444259=="
 MIME-Version: 1.0
-Message-Id: <39f6de0b5e2388ef5857634f3df37a650c778e190b346409e4712064556c6aef@mail.kernel.org>
-In-Reply-To: <20261016070837.440748-4-ankur.a.arora@oracle.com>
-References: <20261016070837.440748-4-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v16 03/16] arm64/delay: move, fixup usecs_to_cycles()
+Message-Id: <afe82bcf3be90afbd548fc12aa07092f1216d45c90f5a6df7143c71657e566e4@mail.kernel.org>
+In-Reply-To: <20261016070837.440748-15-ankur.a.arora@oracle.com>
+References: <20261016070837.440748-15-ankur.a.arora@oracle.com>
+Subject: Re: [PATCH v16 14/16] barrier: add tests for smp_cond_load_*_timeout()
 From: bot+bpf-ci@kernel.org
 To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@kernel.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,boris.ostrovsky@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,andersson@kernel.org,konradybcio@kernel.org,cl@linux.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Fri, 16 Oct 2026 07:55:33 +0000 (UTC)
+Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@kernel.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,boris.ostrovsky@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,julianbraha@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Fri, 16 Oct 2026 07:55:38 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,72 +66,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============0314830124621368691==
+--===============6623771970694444259==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> arm64/delay: move, fixup usecs_to_cycles()
+> barrier: add tests for smp_cond_load_*_timeout()
 
-TL;DR: The new generic usecs_to_cycles() in arm64 delay-const.h likely
-conflicts with gpio-aspeed.c's function of the same name once a later patch
-includes it, so arm64 builds with CONFIG_GPIO_ASPEED (allmodconfig, defconfig)
-would fail.
+TL;DR: Nit only, in the KUnit test patch: the suite name
+"smp-cond-load-*-timeout" and file name barrier-timeout-test.c may not follow
+KUnit naming conventions (underscores, _kunit.c suffix).
 
-> diff --git a/arch/arm64/include/asm/delay-const.h b/arch/arm64/include/asm/delay-const.h
+> diff --git a/lib/tests/barrier-timeout-test.c b/lib/tests/barrier-timeout-test.c
 > new file mode 100644
-> index 000000000000..6ccdfe0a4130
+> index 000000000000..9c12cd36e7d2
 > --- /dev/null
-> +++ b/arch/arm64/include/asm/delay-const.h
-> @@ -0,0 +1,35 @@
+> +++ b/lib/tests/barrier-timeout-test.c
+> @@ -0,0 +1,129 @@
 
 [ ... ]
 
-> +static inline u64 usecs_to_cycles(u64 time_usecs)
-> +{
-> +	return xloops_to_cycles(time_usecs * __usecs_to_xloops_mult);
-> +}
+> +static struct kunit_suite barrier_timeout_test_suite = {
+> +	.name = "smp-cond-load-*-timeout",
+> +	.test_cases = barrier_timeout_test_cases,
+> +};
 
-[ ... ]
+this isn't a bug, but would a different suite name fit the KUnit naming
+conventions better?
 
-Can these generic names conflict with other file-scope definitions once this
-header is included widely?
+Documentation/dev-tools/kunit/style.rst asks for underscores rather than
+dashes in suite names, and for the test file to be named
+tests/<suite>_kunit.c.  The current name "smp-cond-load-*-timeout" uses
+dashes and a literal '*', and the file is barrier-timeout-test.c.
 
-The commit message says the rpmh-rsc.c helpers were renamed because they
-"were occupying the same namespace", but drivers/gpio/gpio-aspeed.c also
-defines a function with the same name and a different signature:
-
-drivers/gpio/gpio-aspeed.c:
-static int usecs_to_cycles(struct aspeed_gpio *gpio, unsigned long usecs,
-		u32 *cycles)
-
-Later in this series, commit 117729ec2d64 ("arm64: support WFET in
-smp_cond_load_relaxed_timeout()") adds this to
-arch/arm64/include/asm/cmpxchg.h:
-
-+#include <asm/delay-const.h>
-
-gpio-aspeed.c reaches it through:
-
-linux/spinlock.h -> linux/atomic.h -> asm/atomic.h -> asm/cmpxchg.h ->
-asm/delay-const.h
-
-At that point 'static inline u64 usecs_to_cycles(u64)' and 'static int
-usecs_to_cycles(struct aspeed_gpio *, unsigned long, u32 *)' are two
-file-scope declarations of one identifier with incompatible types, which
-should fail with "conflicting types for 'usecs_to_cycles'".
-
-GPIO_ASPEED depends on ARCH_ASPEED || COMPILE_TEST, and ARCH_ASPEED is an
-arm64 platform option that is enabled in arch/arm64/configs/defconfig.  So
-it looks like any arm64 config enabling CONFIG_GPIO_ASPEED, including
-allmodconfig and allyesconfig, would fail to build.
-
-The build first breaks at 117729ec2d64, but the cause is the namespace
-cleanup here only covering rpmh-rsc.c.  Nothing up to the end of the series
-(c43dfae4ee10) changes the gpio-aspeed definition.
-
-Would renaming the gpio-aspeed helper, or giving the arm64 helpers a
-namespaced prefix (for example arch_ or __arm64_), avoid the collision?
+Would something like smp_cond_load_timeout (with the file named
+lib/tests/barrier_timeout_kunit.c or similar) work instead?
 
 
 ---
@@ -139,5 +108,5 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/38867477666
---===============0314830124621368691==--
+--===============6623771970694444259==--
 
