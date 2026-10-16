@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7386FCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73CACCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZUoUIhvbfC88KaoKHqYu/qRtIDZmc0/E3twtrLwIIw=; b=IZsWbdbFKBy3Pn6KtamEbEud9C
-	zPETWnaCvq2l303uLDic0r02BjShylfGL+Jq/1AV0yJmTcQKBhI3CTsA2e7M3zOSJN5VjuKqbr2HW
-	OHS2RMdhbLYizgbLk7qHEbYP8jECJOVXzphUikACRjsNUeC74248w8AJK4L+Fe1UV8+IRgjdifdcQ
-	+BwyWVdqtKUxq3ZHcuhMFJTnh2EXyWzaXevoLBpeks/yfT+XO4IX2X7+ft57YPxj7M2E+AAZTpqIt
-	IHX5JAlnCkrqqGMwp23xioDrFMdTiCKP+sszj9koRpQd7Kf3LKTDoxYWwaExfMg68QUsXJNwfUA3L
-	O3ULai8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=; b=SUxlmKpaOBLeFD
+	cEVbJkq9ksEzVBuieXIH7MKkkQ/VvIZBIfbTq8ooO2hf3u9U1E8Mtvcws0rxStGFsRltCJTWMttZj
+	yfk56mBfh0sB5J9o3M+eUARucWOS907myiqq3p3tTDbH91djyf+PPAS/WHB5gjf32UnfoYG2M4UQH
+	qN4sZYQeVCDy/AnH3c1PC4PfJT6IGcfm/xG3YR/T5YR4OYzqnCqt0eyDDPxcjSN4hPHm3w55IlS+o
+	+a2PtXm4sdr8XELasnMk9EGnCHt2JWDUdFYO77l5G/TNekwUI6F1cc2Jy9agRFT+8IlwfQ3rAIXh7
+	ODYNFqyRCwqAOBCUXuUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlYQ-00000003XbT-4ANR;
-	Fri, 16 Oct 2026 17:17:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHlmB-00000003Z1I-3s73;
+	Fri, 16 Oct 2026 17:31:27 +0000
+Received: from mail-northcentralusazon11013056.outbound.protection.outlook.com ([40.107.201.56] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlYP-00000003Xa2-28he
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 17:17:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4ZUoUIhvbfC88KaoKHqYu/qRtIDZmc0/E3twtrLwIIw=; b=ft1e8iy4BdodMqSrO0VgNd9gWs
-	4FPlisJfRwv0CygdC6AgQqiBoryrjRhglvN9GzOIXk+V4wg9yopAacC48SyhEiXTnI/oH8d+4uinq
-	YlkHzsllL9sb30JjRVWQkg1NMEnb/G+KlCaHMdEBIV3ByqLpkmXmy07XcZs2FrPhozh87yGbFmzM2
-	nleHHeE2W0KwFf9CFQEi/CroyEDUV3Fn5yUEj+eLCBPuHhg8A/jhgFVnU/QlenKTOmAm5niYf8vmZ
-	PtQhP5JA5EvqE6USLlH51drqLJi0IEi3EFMmEEkDAsFuFTnLeF2quDV0XSq67idqSEJUlvv8U9jNZ
-	hwcHtNrw==;
-Received: from mail.hugovil.com ([162.243.120.170])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHlYM-00000001mn2-2u4j
+	id 1xHlm6-00000003Z0t-3cIv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 17:17:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=4ZUoUIhvbfC88KaoKHqYu/qRtIDZmc0/E3twtrLwIIw=; b=Y5jyN7+6fkrqvRGCCNcN/Vv9PN
-	/YKyPjNLZhH3ACLt6EV0NMevlYRKfyhgXmwj+071FePYm88/hsCj3z6hvDwiysuu27EKKu27xroek
-	WeC+SSVAzvq/W9ZPJD+AMVMNx4PyQG5hR+/WKB1L/Ox3ZVDxFkTouOOE4/KnOwAV8s0s=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1xHlYF-000000006as-28rg;
-	Fri, 16 Oct 2026 13:17:01 -0400
-Date: Fri, 16 Oct 2026 13:17:00 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Arnd Bergmann" <arnd@kernel.org>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Jiri Slaby" <jirislaby@kernel.org>,
- "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>, Uwe
- =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
- "Hugo Villeneuve" <hvilleneuve@dimonoff.com>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-Id: <20261016131700.b93fa4f7e31f3d2355d4a132@hugovil.com>
-In-Reply-To: <5743b352-ffa2-4d38-9abb-a06085dea56d@app.fastmail.com>
-References: <20261016130328.1037616-1-arnd@kernel.org>
-	<20261016115604.a89ef44986bb3620c327feaf@hugovil.com>
-	<5743b352-ffa2-4d38-9abb-a06085dea56d@app.fastmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Fri, 16 Oct 2026 17:31:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rv1PEdKkJT6aWsWRPR8HN5kAxTh42srxXE5JcJPNptpIcgwAqFJxWIZicB+HJz+gWDlZNrGewrflIPlIV31MMilHGH1e7KuGC9BvHsivU52sXvKHq5R0/ViCpCUnMdd8xeupmxcL7TK1ZsBn5/OCa3DCFep1f1DE3ioh69sptdlXFFMIOUYnfF7fwqPUlB9tLHZa5QNUIirtsSdg83zfN1YC7pjZHSBC8Vv1LNEkNO/deCHCIJq8UGlnALD1k+yeliKLXW5lt5/Fy5C6VOJWGXIGCmA8q417+nEO4SHPn8AjbpUDa9ReVMtwOHJZW95lagHz97u5odFbFfVZMSUNEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=;
+ b=disdB0EKsu8MOelIWcWkh3lnC1s9I8Op4GgR5WLUYIXroKXE3DfOPo/d8dv9dueP0TqE6vZ2OgxzEt0LWJvx40cs3WiMYpdafmB/4cIn7AMtsGL+L5TGhh6JCnUuKG6iNIK662m2IcMmHzvqPwAZNbbak+SM+gmkdDlLJ/WPYsSV6N5pESSP3HMCy1cYr8rneeSAYUk7K0SfnV4mzzGeIzkBv+FSH7YAxzLmzczpZ1lY4jrH7tRVAFSw3F6xUiJm+njX7gUZU/4dVNGH+jtTKVreizVefYEI7A05fEJmgdeVO1KN8Zf8seXZh7kiO54hnEDkKe6b964klpllKO9J7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=;
+ b=1lihawgwWlvEVJs4jCPoQrqxtzA4yZsv4k6rM3wHO8g1M9Dyg8NBmY+0JDKou+oQka5hhwLqdI2Dt58ghe/j5vBvgaTRmxXsB5BBQTnimsBSRRBRIr9EcG/MDWuM3+aKZmx7AU/KGf0HsGOl5e4YcNaRHnWXSZT0kJTdSU/U/Wk=
+Received: from CH2PR16CA0011.namprd16.prod.outlook.com (2603:10b6:610:50::21)
+ by DM4PR12MB5842.namprd12.prod.outlook.com (2603:10b6:8:65::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
+ 2026 17:31:13 +0000
+Received: from LV8PEPF0000005D.namprd02.prod.outlook.com
+ (2603:10b6:610:50:cafe::93) by CH2PR16CA0011.outlook.office365.com
+ (2603:10b6:610:50::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
+ Oct 2026 17:31:13 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ LV8PEPF0000005D.mail.protection.outlook.com (10.167.245.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 17:31:12 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
+ 2026 12:31:05 -0500
+Received: from [192.168.1.205] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Fri, 16 Oct 2026 12:31:02 -0500
+Message-ID: <cf779b51-0124-4fde-956e-ddce76ae7dc4@amd.com>
+Date: Fri, 16 Oct 2026 12:30:57 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Q] zynqmp-ipi-mailbox and SGI interrupts
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, <tanmay.shah@amd.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>, Michal Simek <michal.simek@amd.com>,
+	Harini T <harini.t@amd.com>, Saeed Nowshadi <saeed.nowshadi@amd.com>
+References: <20261015083937.8SDbdK8P@linutronix.de>
+ <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
+ <20261016162356.m2X9jbCa@linutronix.de>
+ <4c9b533f-251a-4569-bc78-fd7af664c831@amd.com>
+ <20261016171029.wSftndCb@linutronix.de>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <20261016171029.wSftndCb@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000005D:EE_|DM4PR12MB5842:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90a1c67b-8ca2-4971-b8bd-08df2bab463b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|82310400026|36860700016|1800799024|6133799003|22082099003|18002099003|10067099003|11063799006|5023799004|261009223027099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: gbKvSEnH1ta4AoFl5XMyO+/rvM2cNsrAm8WEy3c+x9DxOgiCKx4HtdMRsOeXUQZ6aURkhfK2Eb6GShKh6fDBekcXRw7VHIHy/RsUiVlieWbd9MWepuCYtMPc5n00a8Xqc29qG7Gcktvw/roC/JgrxuEqnP9tWkNpU8Na1QL9WOxov1tRA6rKHPhcvKXOyCOwDxh1iezgrxzkeisa7FypLeLVioeb0AMD4TG8i5F/cNFdozWHpdS+jQZbS/dQugTbDabECamBUFeIDD3ry/vkAEBDnnjBKX/pRSW6fuP4QkYxX4NNd5RJfi8N2odvvd77uAqTWAVhlEMfcJSh1IYk9UyXXoUhz5+e8Q4GDxqDQO2abCttXMC0sFjPpz+XjFThUoUC6j4AqFZj5ZoK9DdSHe5c9ZcDkQVlK2pwenlSTvfJcp1mk1YLBty10ZSnsVxGq+72UTHDrwaPg4SJ3dcNsltqSUJU7Ds+bBfHp5z3HHcNt72oFRPEqStJqXF4TS+fM0vdRMPHVfuXHZnrphijXymjuaXKTdAIbJrZR3ndyDW8mqtVHrrKYGvDNUmSfDT7E2TiQJd4dDBQ2ZXY3BwQ3Yotiyox1bvdcrUVdcd5fjsRh1C3pkSIaDsjbj7uZ8HqOQQylc5Rh5lB6oKQuo+64XCleHm4f6FTarT5KDCK8N7IPXa3aiT0Nqoi6AbIJnaZyebBV3S3hSUQYfz1OmMPvw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(82310400026)(36860700016)(1800799024)(6133799003)(22082099003)(18002099003)(10067099003)(11063799006)(5023799004)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: a1AJz1ev+1kNWPRAB+lQ2s8p3yup8WTRgBBnF1pEXHU5SsOlF4P7j40qJ9ayumuI2Ds/Ku1dW+eM5/D7HckL7JoGWLOwyxlUI7htUma/NqYBo1b8CryA9BhRzF+eYQgDuGIDds4iouBZrxH9lA9BoNohvBReXl/IFmNBio749sQyPO9SPrG2saJbBpIc7pfDzw4l+TvEdTqyKmCLMOMNWeySYglBFR9PERG5J1sBJ+9yTbW5yL0T7+UTz9gU6UKCasP4wbCkO8FCANzw5QAzAfKZSmeSvetGEsK6FG4sH85c2OKH61feb1e+ME3WDikaBrc4LpJ2QJ3xBYMQC9m9E2O7WBqI/DguIFj4zhu6rkLcDDlQHkTls3/V75dBO1E9Na70huuDeSFohPxVrz8lbF+mI3uLE1G6aLBTbB9mpR7xPpK/cz22aBBD5heiqAoA
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 17:31:12.7136
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90a1c67b-8ca2-4971-b8bd-08df2bab463b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF0000005D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_181710_778945_9797F300 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20261016_103123_047088_D0C0E9EF 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,78 +123,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-On Fri, 16 Oct 2026 18:16:20 +0200
-"Arnd Bergmann" <arnd@arndb.de> wrote:
-
-> On Fri, Oct 16, 2026, at 17:56, Hugo Villeneuve wrote:
-> > On Fri, 16 Oct 2026 14:59:47 +0200
-> 
-> >>  	retinfo->custom_divisor  = uport->custom_divisor;
-> >> -	retinfo->hub6	    = uport->hub6;
-> >> +	retinfo->hub6		 = 0;
-> >
-> > Would a comment here help?
-> >
-> > 	retinfo->hub6		 = 0; /* No longer supported */
-> 
-> Good idea, added.
-> 
-> >> @@ -924,7 +921,6 @@ static int uart_set_info(struct tty_struct *tty, struct tty_port *port,
-> >>  	change_port = !(uport->flags & UPF_FIXED_PORT)
-> >>  		&& (new_port != uport->iobase ||
-> >>  		    (unsigned long)new_info->iomem_base != uport->mapbase ||
-> >> -		    new_info->hub6 != uport->hub6 ||
-> >
-> > Maybe keep this so that change_port is true if someone sets hub6 to a
-> > value other than zero (see below)?
-> 
-> Right, this would be fairly harmless as nothing looks at the field
-> afterwards but it makes sense for consistency.
-> 
-> I've moved the hub6 check up before change_port now to behave the
-> same way for regular users and root:
-
-Yes that works too.
-
-Reviewed-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
 
+On 10/16/2026 12:10 PM, Sebastian Andrzej Siewior wrote:
+> On 2026-10-16 11:44:07 [-0500], Shah, Tanmay wrote:
+>>> And it has to be a per-CPU interrupt? It can't become a regular
+>>> interrupt which is not per-CPU? Does the driver at some point access
+>>> per-CPU registers?
+>>>
+>>
+>> As per my understanding, it has to be a per-CPU interrupt.
 > 
-> @@ -935,6 +935,11 @@ static int uart_set_info(struct tty_struct *tty, struct tty_port *port,
->                 if (uartclk == 0)
->                         return -EINVAL;
->         }
-> +
-> +       /* hub6 is no longer supported */
-> +       if (new_info->hub6 != 0)
-> +               return -EINVAL;
-> +
->         if (!capable(CAP_SYS_ADMIN)) {
->                 if (change_irq || change_port ||
->                     (new_info->baud_base != uport->uartclk / 16) ||
-> @@ -950,10 +955,6 @@ static int uart_set_info(struct tty_struct *tty, struct tty_port *port,
->                 goto check_and_exit;
->         }
->  
-> -       /* hub6 is no longer supported */
-> -       if (new_info->hub6 != 0)
-> -               return -EINVAL;
-> -
->         if (change_irq || change_port) {
->                 retval = security_locked_down(LOCKDOWN_TIOCSSERIAL);
->                 if (retval)
+> I see.
 > 
-> Thanks for taking a look!
+>> Driver access those registers via percpu APIs, for example:
+>> xlnx_mbox_cpuhp_start() uses enable_percpu_irq(). It is called for each CPU.
 > 
->      Arnd
+> Yes I know that part but this is not the question.
+> 
+> I meant _why_ the interrupt has to be per-CPU. I'm not sure if this is
+> internal wired as such or just configured.
 > 
 
+I think the SGI is configured that way in the driver. Probably at the
+implementation time couldn't find the better way.
 
--- 
-Hugo Villeneuve
+> For instance a timer is using a per-CPU interrupt. While the timer is
+> programmed for the next expiry it uses per-CPU registers. So the timer
+> accessed from CPU0 is different than the one accessed from CPU1. Once
+> the interrupt fires, the processing that follows is different on both
+> CPUs.
+> 
+> Looking through zynqmp_sgi_interrupt() which just invokes
+> zynqmp_ipi_interrupt() I don't see the difference. The OP-TEE firmware
+> is invoked at least the bits I saw, it just masks the source and moves
+> on. So I am not sure what is the difference between the interrupt on
+> CPU0 vs CPU1. Both could fire at the same time and handle the same
+> request unless the firmware returns a different
+> IPI_MB_STATUS_RECV_PENDING bit. I don't see how the remote side would
+> make a difference between those two CPUs.
+> 
+
+There is no difference between the interrupt on CPU0 vs CPU1. The CPU
+affinity is decided by the TF-A when configuring the SGI. The driver has
+just lazy implementation where it doesn't check for the SGI's CPU
+affinity before configuring it and will assume that SGI can happen for
+any CPU. The driver can be improved to find out SGI's CPU affinity and
+request SGI only for that particular CPU. But current implementation is
+not optimized that way.
+
+I am not expert in the GIC interrupt handling of SGI, but I think your
+question is valid. The answer IMHO is the driver's implementation might
+not be the most optimized.
+
+Thank you,
+Tanmay
+
+> So this is what I am wondering about. Based on your response so far this
+> has to be that way.
+> 
+
+>>>> Thank you,
+>>>> Tanmay
+> 
+> Sebastian
+
 
