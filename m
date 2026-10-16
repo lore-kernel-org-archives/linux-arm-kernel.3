@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51BDCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EAFCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8AZLnJTPa8wX1pZieqb250DY53PVfT0l/gCS0GpXSrI=; b=yxV3LGTkj4NQyBvtLE3PlL0uEp
-	oyjHcYyvbOcr83XY5K/wi9MzXq9Qg920lINmzcuygnHD8QhWam+inlFjsBXrUydO2rRdFKifuQe/B
-	IyAVbngJLU+sRKbydZ/6SzfjTx+nV3FwI6e021eNq+jM8fGB+NeFYjoiP3cSTrGVP2xDxfCh8PHCv
-	ZPCgUmC2V0HEMBIKQnMbadeB9wPiyeYwRoQPMjZBegj/osSNxPGXZG7OvG8wYgNP5i23mfh6kRmiD
-	XFULQrxAZA/fbRYKq+JXlLa7AeJtuzLu9uyUNOCBU6MDoQJ9rkfLgQ/NqoO62T2jQRj4sO0JYSPyi
-	YiUZno2Q==;
+	bh=9qidRa2FBgCR2y0sBJPJyGy5f82k6s8UrQ9M/kGZ7II=; b=o6lWGSh+PohWEDRmf6jO0dLaof
+	URfVxyAhfCZDPKJaxhYeSRLyzCl72AS+9iuFBeA9N+uvAfz3Wft6bQO/rYEzxYNr2NliNM5S5HoNU
+	j7VpqoR2DllqaUsMQR/+14KY9Qs4XJFFeKLBnPp1A5Pqgyt4SyrLIeHtcKu13tjy6Jnd66orc4VmL
+	Rnt/Zo0/BB0Ow5qTmvkpZIploqL+JGW3DpkBTR+XEFkTjlNEuhQG1BFAoqmHMUzt63Kn/eCwwtnOm
+	H1BZ4S93NdkZWBygwdx54rRmfyGjjgKNPasGM9LKOPcDUmZcp7EKlxVLATPKSSpyJ9SRDBzocgi5T
+	P+4dTFAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkdL-00000003Pou-2vsw;
-	Fri, 16 Oct 2026 16:18:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHkj2-00000003Q6J-14G0;
+	Fri, 16 Oct 2026 16:24:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkdK-00000003Poo-1XQK
+	id 1xHkj1-00000003Q6D-0Bfr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Oct 2026 16:24:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9qidRa2FBgCR2y0sBJPJyGy5f82k6s8UrQ9M/kGZ7II=; b=kG5O99WWx57bXaQoe8GXAjlUHc
+	72OqcLqM0sb1J7jxYTUDhvOp/q5rhKXd/TDxxD/K9LKhsVGK7sghSfDchwMTcUbaEzalE77OWZpBn
+	4RiIZ0Hf6yM284cuCbQA5DcjIdyzuwgu4P+azlhZ7H815Hld8UZtOlR4oG+Cwk3lZy2PCz4qlSkiZ
+	TZnHITeuQzg++SKwnyVCBt74U35WBzAl6qqYPgj8TJkT863Q/4Ri0KIM/zWhP4uee0LfQ5Z77SYh6
+	lMsBqP+h1OCuv4eqm26oPFd8wsIVqNy/ghkoXfVMwXChaGry34lt6iZBJ29Al6NDy9X50BtJ40F5J
+	Z2rg7wvw==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHkix-00000001jEL-3Prr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:18:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A44960202;
-	Fri, 16 Oct 2026 16:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AE6E1F000C4;
-	Fri, 16 Oct 2026 16:18:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792167493;
-	bh=8AZLnJTPa8wX1pZieqb250DY53PVfT0l/gCS0GpXSrI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dQbmMsZGHo+u7BRY0QBalZamSBEzv+PEx9vV5J08fw7Yag9Y5WNId8f+ybzv3cvLP
-	 kGWQSGVzYU3BwoSW9actmRWKvpO/MR/FIM1NoHtXi6tzLxjaPsggnkgJ+xMtWy4Jx4
-	 cZX4oTVhC31EIHn3n4lH2tkO+RXsfDnzKM0QbsNBxVFXCtgRt/C0Ja4YN25cxbUWRi
-	 47DkDd8U2Ekpm+rmyCW+KHc+kA80eUqm0GWs8NNeR5yFlazGtXpIaiMzSVx1Z382p1
-	 ViLZdI+X/FURRKCwYeqmiTGQR9YUm/dzQpfCTH/B30mEjISuxgai5/psd+vncEPdVC
-	 +w8ZeG8/q1K+w==
-Date: Fri, 16 Oct 2026 17:18:09 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: jaidevshastri@vt.edu
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scpi: publish scpi_ops with release
- semantics
-Message-ID: <20261016-curly-nano-reindeer-44cfa7@sudeepholla>
-References: <20260921-mb-arm-scpi-v1-1-6aabb6533a40@vt.edu>
+	Fri, 16 Oct 2026 16:24:05 +0000
+Date: Fri, 16 Oct 2026 18:23:56 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1792167838;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9qidRa2FBgCR2y0sBJPJyGy5f82k6s8UrQ9M/kGZ7II=;
+	b=DKozTNJEW2AwvZQuAgQg2+mTJJGqe+kkw/MO1d4Yqtn+W9a/xKdX3KFkLlnxMvjL2+pQg8
+	dbyE11B6RrL1FCd2fRh4+97Ce5LXbqRmzoasHYW1ZD11taY+6lc56+dnqdpvZCHvu58aMK
+	LcdH6V8qt8R9XEBaTR7+jhsH4xa26S/l2heU/8P1OiKbMUsMFmJVj3TBbjBpMU0i45hY+J
+	i62t/yY5DOV9iYt265DWMnjMwGlPVrY0xgLrB6lVpB2w8STHezLO8cFe4y7qQrxvI63BvL
+	0+G3pQaRkxI2+I5D2BubbY8CohV3UtJbdWjwKtnR6ZsE4h6V4Pa9mGZI02mPOw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1792167838;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9qidRa2FBgCR2y0sBJPJyGy5f82k6s8UrQ9M/kGZ7II=;
+	b=qYj/q64n/vggtFXpYq0P7zeGT3FC4Vf5ih14OTPFnqEExbJEnVjqq8Ol4VxNbQt+7y26aT
+	89OYe8ZEwBZ4vgCw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: tanmay.shah@amd.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Harini T <harini.t@amd.com>,
+	Saeed Nowshadi <saeed.nowshadi@amd.com>
+Subject: Re: [Q] zynqmp-ipi-mailbox and SGI interrupts
+Message-ID: <20261016162356.m2X9jbCa@linutronix.de>
+References: <20261015083937.8SDbdK8P@linutronix.de>
+ <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260921-mb-arm-scpi-v1-1-6aabb6533a40@vt.edu>
+In-Reply-To: <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_172403_959871_8CA09ECA 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,20 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 09:06:04PM -0400, Jaidev Shastri via B4 Relay wrote:
-> From: Jaidev Shastri <jaidevshastri@vt.edu>
-> 
-> scpi_probe() stores scpi_info early because scpi_init_versions() sends
-> messages through it, and sets scpi_drvinfo->scpi_ops as its last step.
-> get_scpi_ops() returns scpi_info->scpi_ops, so the ops pointer is the
-> gate that scpi-cpufreq, scpi_pm_domain, clk-scpi and scpi-hwmon test
-> before they use the driver.
-> 
+On 2026-10-16 11:10:29 [-0500], Shah, Tanmay wrote:
+> Hello,
+Hello,
 
-None of these can be probed through the drivers are initialised until
-the devm_of_platform_populate() after the scpi_drvinfo->scpi_ops is set.
+> Thank you for your email, please find my response below:
 
--- 
-Regards,
-Sudeep
+Thank you for your email, too.
+
+> > So is this SGI-IPI a thing or not?
+> > 
+> 
+> Yes it is. Ideally, TF-A and Linux can share the IPI. If the IPI
+> interrupt is used by the TF-A and the expectation is that Linux mailbox
+> work on the same IPI (because all other IPIs are busy) then the work
+> around is, TF-A will generate SGI for the linux mbox driver, and the
+> mbox driver will use that SGI via device-tree.
+> 
+> It is a vendor specific use case. So the dt-node for this use case, may
+> not be available in the usptream kernel, but can be enabled if correct
+> SGI is configured via the device-tree.
+
+And it has to be a per-CPU interrupt? It can't become a regular
+interrupt which is not per-CPU? Does the driver at some point access
+per-CPU registers?
+
+> Thank you,
+> Tanmay
+> 
+Sebastian
 
