@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622EBCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C545CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8Pen9walkmj2UUnJ1DEhqGl/5qPfXJdBufqm0wWBySg=; b=aUGXerkmRf61fI
-	KG9XpEh0ISxwjCoQooviJkysKrY2mCGuuyppWRctu9xfetVRa55zPYJn4hAMTlrwg2l5UVFB8Bx1A
-	3JpxEji2nTIKKq64P63DDBcLNljEo65Pm7mOjx6u00TvBRg8IaNe1Z6tuFj5HSy+tzW7aUJU/RAvE
-	2NGkiHRAmWI84KHXSpSx2avrCfnHnsYlgRWg22wtdStV7Nn3l1/jD9FNrUt7iJWF9DaoD2WLntQkn
-	cSp3km6ypV1YHAXWJtX+b+acRkQrYtFH3eyzoDWLt9aUT0vOzvInhimrKJ12sGWNqRr9ZhR7r1Exc
-	LSKQKCrkZnUzRM3a++2A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9oJJKQjQWJKJna3KtJkNjB8DVyWbsU4VXlvPjkVvw7Q=; b=qnvrLZWvVNt3O/
+	bWvj6klKcRm2tm+F2l9GY2yl/F4CRoATkLGmdbmxMug6DDTU7hOvFPWrI/4zJkmPT8oxKWjC0oMac
+	Otjt9NZoZ+iB6xx+EpSQ55US3rQkxAsh+xvAalPjtsiECPg7MzvIFy7khFtHSZsCgR13fLAEmaZQz
+	zYaHvBqra5HG2t/452PBBe4hUlc2Z7NyZlFL6Z7SrDO4ooeyFKuM5JpGWyCqSS/rqmgrljTX9dpus
+	bKk1EvqkxoezhEwlJlcrKySNVppHrN+C4TI7r4WMnTrcgcTpeehi2f0dpoquXvZmjKhwsNY1aBVID
+	tgKnAeuPhZsjskDjXMtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlA9-00000003T1A-0MrZ;
+	id 1xHlA9-00000003T1S-0om7;
 	Fri, 16 Oct 2026 16:52:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl9w-00000003SxJ-0TFC
+	id 1xHlA0-00000003Sz0-2Vva
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:51:57 +0000
+	Fri, 16 Oct 2026 16:52:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D8F71516;
-	Fri, 16 Oct 2026 09:51:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C1931477;
+	Fri, 16 Oct 2026 09:51:55 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.15.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2AEE63F7B4;
-	Fri, 16 Oct 2026 09:51:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F36EE3F7B4;
+	Fri, 16 Oct 2026 09:51:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169514; bh=2bABSb/41IED0X+wtS7K7nZ+vu7Otf6PIXSlBZEEins=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iowByFxoLj6vwmFUpLsVXl1bp4qeFWWFuI8oLQX6XuwgZepdj29x4yo75eADnbRhb
-	 H7DD4IShYDKohRWiFbiJlDMknQM/W1nxNnOBZ/QYLkaH1E8yGg5JilHu/ubffCcOMM
-	 M6IXsVGy9l0sDlVmu8iFCS7QHGMnTsmO694F05pA=
+	t=1792169518; bh=o/Fc9Dj0uXK9GaHV4FTmUUEUF5qCX1ZduGdJXm40pyo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FIk5DsfjrgMksbrnghHxscwJUO3EQPCFMDvNBlRMlwtI9qLsLMhWdMSruBDQkxt8d
+	 izS7f9Iiz0cmORzIptGoPFYXKmJLz5jyO2zpNtCg1E4aNh2dKZJufCfTgG0IzLG4Qj
+	 HPKU5h0S3swbN3Sqzm8+zrPA8v6eBHORePkJvapg=
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 0/2] arm64: insn: clean-up memory barrier generation
-Date: Fri, 16 Oct 2026 17:51:38 +0100
-Message-ID: <20261016165140.254791-1-ada.coupriediaz@arm.com>
+Subject: [PATCH 1/2] arm64: insn: clean-up memory barrier types
+Date: Fri, 16 Oct 2026 17:51:39 +0100
+Message-ID: <20261016165140.254791-2-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261016165140.254791-1-ada.coupriediaz@arm.com>
+References: <20261016165140.254791-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_095156_229511_3F07DF30 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261016_095200_720696_B2C18EB7 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,39 +67,152 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Barry So
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Replace magic-numbers for offset and mask with shared defines.
 
-This is a small follow-up from [0], taking Vladimir's comments into
-account and going a bit further in cleaning-up DMB/DSB generation.
+Re-order the types enum by value, matching the Arm ARM, and
+define them with their proper values, simplifying their use.
 
-The first patch prepares for inlining and cleans-up the enum cases,
-encoding the values directly and matching their numerical order.
+Arm ARM DDI 0487 version M.c[0] deprecated a number of types
+used as options for the DMB and DSB instructions, with no change
+in behaviour.
+The deprecated types are not used in the kernel, so remove them
+from our instruction generation framework and add the missing
+`AARCH64_INSN_MB_OSH` case in `__get_barrier_crm_val()`.
 
-The second patch inlines the barrier type check and the instruction
-generation functions, allowing checking at compile time for invalid
-barrier types (only non-deprecated types are allowed now) and safe
-usage in alternative callbacks.
+This simplifies the switch-case and now covers all the enum types,
+which allows for making the DSB and DMB generation non instrumentable
+in a follow-up commit.
 
-The "empty" switch-case statements with a default `BUILD_BUG` might
-not be the best way to check for valid type, but I thought that
-it might be a bit better than a three-/six-way && if, do let me know !
+[0]: https://support.arm.com/documentation/ddi0487/mc/
+     (See C6.2.150, C6.2.152)
 
-Thanks in advance,
-Ada
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+---
+ arch/arm64/include/asm/insn.h | 22 ++++++++----------
+ arch/arm64/lib/insn.c         | 44 ++++++++++++-----------------------
+ 2 files changed, 25 insertions(+), 41 deletions(-)
 
-[0]: https://lore.kernel.org/r/20260928133034.243541-1-ada.coupriediaz@arm.com 
-
-Ada Couprie Diaz (2):
-  arm64: insn: clean-up memory barrier types
-  arm64: insn: make `aarch64_insn_gen_d{m,s}b()` alternative-safe
-
- arch/arm64/include/asm/insn.h | 68 +++++++++++++++++++++++++++--------
- arch/arm64/lib/insn.c         | 58 ------------------------------
- arch/arm64/net/bpf_jit.h      |  2 +-
- 3 files changed, 55 insertions(+), 73 deletions(-)
-
-
-base-commit: 93f51579e7df248780214094418f205253383cc5
+diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+index 1ce75a442638..2d19f48aab81 100644
+--- a/arch/arm64/include/asm/insn.h
++++ b/arch/arm64/include/asm/insn.h
+@@ -7,6 +7,7 @@
+  */
+ #ifndef	__ASM_INSN_H
+ #define	__ASM_INSN_H
++#include <linux/bits.h>
+ #include <linux/build_bug.h>
+ #include <linux/types.h>
+ 
+@@ -297,19 +298,16 @@ enum aarch64_insn_mem_order_type {
+ 	AARCH64_INSN_MEM_ORDER_ACQREL,
+ };
+ 
++#define AARCH64_INSN_MB_TYPE_OFFSET 8
++#define AARCH64_INSN_MB_TYPE_MASK GENMASK(11, AARCH64_INSN_MB_TYPE_OFFSET)
++
+ enum aarch64_insn_mb_type {
+-	AARCH64_INSN_MB_SY,
+-	AARCH64_INSN_MB_ST,
+-	AARCH64_INSN_MB_LD,
+-	AARCH64_INSN_MB_ISH,
+-	AARCH64_INSN_MB_ISHST,
+-	AARCH64_INSN_MB_ISHLD,
+-	AARCH64_INSN_MB_NSH,
+-	AARCH64_INSN_MB_NSHST,
+-	AARCH64_INSN_MB_NSHLD,
+-	AARCH64_INSN_MB_OSH,
+-	AARCH64_INSN_MB_OSHST,
+-	AARCH64_INSN_MB_OSHLD,
++	AARCH64_INSN_MB_OSH	= 0b0011 << AARCH64_INSN_MB_TYPE_OFFSET,
++	AARCH64_INSN_MB_NSH	= 0b0111 << AARCH64_INSN_MB_TYPE_OFFSET,
++	AARCH64_INSN_MB_ISH	= 0b1011 << AARCH64_INSN_MB_TYPE_OFFSET,
++	AARCH64_INSN_MB_LD	= 0b1101 << AARCH64_INSN_MB_TYPE_OFFSET,
++	AARCH64_INSN_MB_ST	= 0b1110 << AARCH64_INSN_MB_TYPE_OFFSET,
++	AARCH64_INSN_MB_SY	= 0b1111 << AARCH64_INSN_MB_TYPE_OFFSET,
+ };
+ 
+ #define	__AARCH64_INSN_FUNCS(abbr, mask, val)				\
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index e70ac0238515..fa61a631d687 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -1561,60 +1561,46 @@ u32 aarch64_insn_gen_extr(enum aarch64_insn_variant variant,
+ 	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RM, insn, Rm);
+ }
+ 
+-static u32 __get_barrier_crm_val(enum aarch64_insn_mb_type type)
++static bool __is_valid_barrier_type(enum aarch64_insn_mb_type type)
+ {
+ 	switch (type) {
+-	case AARCH64_INSN_MB_SY:
+-		return 0xf;
+-	case AARCH64_INSN_MB_ST:
+-		return 0xe;
+-	case AARCH64_INSN_MB_LD:
+-		return 0xd;
+-	case AARCH64_INSN_MB_ISH:
+-		return 0xb;
+-	case AARCH64_INSN_MB_ISHST:
+-		return 0xa;
+-	case AARCH64_INSN_MB_ISHLD:
+-		return 0x9;
++	case AARCH64_INSN_MB_OSH:
+ 	case AARCH64_INSN_MB_NSH:
+-		return 0x7;
+-	case AARCH64_INSN_MB_NSHST:
+-		return 0x6;
+-	case AARCH64_INSN_MB_NSHLD:
+-		return 0x5;
++	case AARCH64_INSN_MB_ISH:
++	case AARCH64_INSN_MB_LD:
++	case AARCH64_INSN_MB_ST:
++	case AARCH64_INSN_MB_SY:
++		return true;
+ 	default:
+ 		pr_err("%s: unknown barrier type %d\n", __func__, type);
+-		return AARCH64_BREAK_FAULT;
++		return false;
+ 	}
+ }
+ 
+ u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type)
+ {
+-	u32 opt;
+ 	u32 insn;
+ 
+-	opt = __get_barrier_crm_val(type);
+-	if (opt == AARCH64_BREAK_FAULT)
++	if (!__is_valid_barrier_type(type))
+ 		return AARCH64_BREAK_FAULT;
+ 
+ 	insn = aarch64_insn_get_dmb_value();
+-	insn &= ~GENMASK(11, 8);
+-	insn |= (opt << 8);
++	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
++	insn |= type;
+ 
+ 	return insn;
+ }
+ 
+ u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
+ {
+-	u32 opt, insn;
++	u32 insn;
+ 
+-	opt = __get_barrier_crm_val(type);
+-	if (opt == AARCH64_BREAK_FAULT)
++	if (!__is_valid_barrier_type(type))
+ 		return AARCH64_BREAK_FAULT;
+ 
+ 	insn = aarch64_insn_get_dsb_base_value();
+-	insn &= ~GENMASK(11, 8);
+-	insn |= (opt << 8);
++	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
++	insn |= type;
+ 
+ 	return insn;
+ }
 -- 
 2.43.0
 
