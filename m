@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3F1CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1BDCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jTA/E6KagxCsXAcjrRnC+iKPqmNPE9H/PtvqQ3MoRHU=; b=SjZVSjk1IIHo5DiF/4AU4XeFFv
-	8DW+IhlCtpj29vrtrLUO3sJmUMD2ar5+ucygO3KtfC3UZeO1l9jw72ZvwQLJm3aSmzmviCaKmWBcz
-	2BbrUZ6EzdugC7cYJkmsOGEcsdGrSxGdfJaBLevGI8xsG7dxojjyB9QXaVsGdZ6pxuYkP3hW0OgsV
-	LRjArVSuz6nP3F3B8CwQrOQ73UH0W0r7IBEXh+IP2FPAYbbcdOsG5zH1HlwUJxU6T6fmSyOhZl6TF
-	RWILk61zgWJmvqwib5TF3SSUt4LFp7CdVIiYKoswy3qqXnonzKrhMukqnRNvclRM+vRbIGwV6zjat
-	unwW1WaA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ut85BCycGaEFxyxv7Y5H7I8rAvWGWrQ70tJ77lun2L8=; b=vzzfpg8fJOBDPRQJFSXbD7OdDh
+	bNX5qEq7jhloDXEXXjdjy2uutVIAE8F5NUOk7/AaTIBcftdt/4zst6aLZwSliUmwFexehzTeHmMKt
+	5p1riY7yWeVdDc6hOGEjt7uGnLfw8HuI5GRabeqcTF2bwjlQ623DDrQ1fv5qyDKuub5qTkh5EP2tc
+	K6oLJRIcMR4W1bx1nM6QZedWk6x5RqD8BOU+gUk0YqCn42wqOyfkINp0ZvMu89IQVkjChj5fDlzU3
+	VsO1THPY0jXknBMNGQLw7fcPoTRRIG0x7AtjxRheSKLW6VcskC4bzNx5hMNJaDRi1fKINnH37kqeh
+	l9n+uG5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdEC-00000002KE8-0vZA;
-	Fri, 16 Oct 2026 08:23:48 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+	id 1xHdEG-00000002KFy-1wTz;
+	Fri, 16 Oct 2026 08:23:52 +0000
+Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdE9-00000002KCr-2cp1
+	id 1xHdEB-00000002KDJ-0E4t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 08:23:47 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4a009f82bedso48217925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 01:23:44 -0700 (PDT)
+	Fri, 16 Oct 2026 08:23:48 +0000
+Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-48b01a74792so4028043f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 01:23:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792139023; x=1792743823; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jTA/E6KagxCsXAcjrRnC+iKPqmNPE9H/PtvqQ3MoRHU=;
-        b=Kef6wS+KJRed8g87IZaswPvzNZKLqfcRwrZd26L2enA82QFIXc8/5xx/U3H9eSne7S
-         7GerZ1hBklmGG3W4x7BxlbxAbe1ybDV/Ypd3xQVEchaHuFyYbeWpWaZjE6TtZZ58Fn1Q
-         ZVFZj3bESng7opw8yHOarevVXmFVhksAONuZRJHaU8h5nm1aWbsPDQacmeIPWtPK96Gi
-         oomEnNDbnGSuCDIXIBFvm9fH1m/+zhW93sC2SRl0YB+sJLQfWg5kcyilOvmyfYu3jMQo
-         0Xb/+0zsreAhXhqkNo4j8F1CvWaJxnEpAofvqOofNiZYeT5TPp0KToh/NrMEOvuCo0I8
-         E70g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792139023; x=1792743823;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1792139025; x=1792743825; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jTA/E6KagxCsXAcjrRnC+iKPqmNPE9H/PtvqQ3MoRHU=;
-        b=EEmg8BRVhHaXrdz3Yqw+7dgCKhOheGsJiCKuqhIarjGZwbWa9LXVoVYz12+V8yZU2F
-         1tEu9sok4H7PXaFYFlVbm9m7gakFMcLRxSN8R1fLiPiyBTnCU/pcgu8oeLAROw9qHvf8
-         rxZPSUdZye49GRVIpz9Ra34GPruIjn7NkblNpL4DTKHLI+upfKt/n5TqQJ7n3Gq6R+06
-         CfmMY/GAS9fSSiLqvQSUoNsgse/wBoj1BVncb/LtBILzsKr57UO4sG3sUNyuTyv3+Zoj
-         L+sVWgXVYWMzMpakb149f7Dem0vUdaeNtxw+HYByQPWR56RK80pklzRHWBczppRkMVyT
-         GxJA==
-X-Forwarded-Encrypted: i=1; AKwUvBzgv8QVC8/TZP+0V2F1eVweyZ3o2C+M5H05vUIY0KwYSq3wHjFbiY6fmw0YUGyz/xjeqdKVuR5GMKkXTjlb5yuU@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ0kSqFeS7Fl2hHMXX8bJztcipKM2sc/Z9BnHbYQWK24UF1OM4j
-	zETToeSTsPvhiaQNYIwz6dp+X34LvwNFHFU0cWfVOWdhWaLJzr6tY0Hn4a+DvxZ3YzTI2Asepte
-	Qj00N8D83TJBqW0oTxb0L1YLBsg==
-X-Received: from wmsz15.prod.google.com ([2002:a05:600c:c16f:b0:4a0:2a5:ce1a])
+        bh=Ut85BCycGaEFxyxv7Y5H7I8rAvWGWrQ70tJ77lun2L8=;
+        b=NJmr74sqNEWZsXaCRQGyb8qGsEN/4RQjshOBprC2TVD42UnpGQgrK4xg4M8Q0O3LTd
+         uqpgQagVhrHI4GKEoEWF3SnWA/YOgZFInzIm0am0DNxKPk6OKqcdb5KoiL5Ek0ao1Qcw
+         AldaL8kPnApJUOubz19XO7Rc4dS4as8hDRjwq6ZQmQk3nJEqxPckHouT9prT+xmcJJPm
+         uKffbv5xrn/GOa6bE5DiDDBEa+UHnHB9vjNFEjSpf38RflQVV4Gv2vxlq3S4FF7wY8bt
+         Pib0xQ1+SX2TwEB0t4pBk0JiYKDgJiFYXnmM1JQBBm/zLBmp5HoDoHSusyGUgQ/ZTEGZ
+         7ZAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792139025; x=1792743825;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ut85BCycGaEFxyxv7Y5H7I8rAvWGWrQ70tJ77lun2L8=;
+        b=DOAoPLIEkWD7VGCBP075awzZZAnu9OxejgQhiqztDa72Ze4fXdhnFCRMKT2YH5xyGE
+         nI2z6q9axnxZFQeepgTmSOu+SnUQh8kZBWZdULUFXQqQjkh++XTVJSQl8/34Kt/N5hCE
+         /vEW4aTQz/PEqngYRHUS00DJk7XjTgQFibsX6cL08LmL+M3hEQHGzltoHks4a0sSYKbB
+         W1XVY+tPtrlWL4G9kT45Rk+EHcEjmZKTDGtb+hxwwWH/22VrDeRNiiTWxMQIXZGhejaL
+         usXyv9g6fEfu+u76xtvLyKEP8HS6vYuzi2lPhXVELG1sI3qB72q1SWrbjfpZ4GK/jwJ1
+         0qmQ==
+X-Forwarded-Encrypted: i=1; AKwUvBylMDwakB3DddNUHFMqA8auQ2jrgpsGUNHote3hLaEhs9eacby+xNlbyPBI57hy9+rFXrHA3TGNodY7auVHB70N@lists.infradead.org
+X-Gm-Message-State: AFq9FYKoKVXukwrZQxwn8mA8at3JqXcssyCCP+RtckgJ+FrpBqvhe6fS
+	tCu8sCNFZ1uw/2wbWq5Ww1uoi9gLGub7d89tBV7hXTMvjyyWpMWm56+H8kdvHjvg2HYKRAbXVax
+	Am42VLMz7xt4Tuc0qER458BRehw==
+X-Received: from wmqy19.prod.google.com ([2002:a05:600c:3653:b0:4a1:7af8:4771])
  (user=snehalreddy job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:310b:b0:4a1:813f:2a5b with SMTP id 5b1f17b1804b1-4a18e4a9da8mr407450355e9.14.1792139022921;
- Fri, 16 Oct 2026 01:23:42 -0700 (PDT)
-Date: Fri, 16 Oct 2026 08:23:39 +0000
+ 2002:a05:600c:6215:b0:49c:fa20:cbfc with SMTP id 5b1f17b1804b1-4a18e4b72e4mr395445945e9.19.1792139024859;
+ Fri, 16 Oct 2026 01:23:44 -0700 (PDT)
+Date: Fri, 16 Oct 2026 08:23:41 +0000
+In-Reply-To: <20261016082341.4030770-1-snehalreddy@google.com>
 Mime-Version: 1.0
+References: <20261016082341.4030770-1-snehalreddy@google.com>
 X-Mailer: git-send-email 2.56.0.176.g3575e65682-goog
-Message-ID: <20261016082341.4030770-1-snehalreddy@google.com>
-Subject: [RFC PATCH v2 0/2] KVM: arm64: Support FFA_MEM_RECLAIM2 in host handler
+Message-ID: <20261016082341.4030770-3-snehalreddy@google.com>
+Subject: [RFC PATCH v2 2/2] KVM: arm64: Support FFA_MEM_RECLAIM2 in host handler
 From: Snehal Koukuntla <snehalreddy@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -78,8 +81,8 @@ Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <fuad.tabba@linux.dev>
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_012345_681686_394153BD 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20261016_012347_124153_981EC3C2 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +97,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm Firmware Framework for Arm A-profile (FF-A) v1.3 ALP5
-specification (DEN0140 rev J) [1] introduces the optional
-FFA_MEM_RECLAIM2 (0xC4000091) ABI.
-
-Reclaiming large memory regions with the existing FFA_MEM_RECLAIM ABI
-can take significant time, or relies on a stateful time-slicing
-mechanism in the Relayer. FFA_MEM_RECLAIM2 allows an Owner to reclaim
-exclusive access to a subset of pages from a shared or lent memory
-region by passing an array of constituent memory region descriptors in
+FF-A v1.3 ALP5 (DEN0140 rev J) adds the FFA_MEM_RECLAIM2 interface,
+allowing an Owner to reclaim a subset of pages from a shared or lent
+memory region by populating constituent memory region descriptors in
 its TX buffer along with a starting descriptor byte offset and initial
-page index. The Relayer returns the number of 4K pages reclaimed in
-that invocation without maintaining intermediate transaction state.
+page index. Upon completion, the Relayer returns the number of 4K pages
+reclaimed in x3.
 
-This series adds the FFA_MEM_RECLAIM2 function ID definition and
-implements host proxy support in the pKVM nVHE FF-A handler, unsharing
-the reclaimed pages in the host stage-2 page tables upon a successful
-reclaim response from EL3/SPMD.
+Support FFA_MEM_RECLAIM2 in the host FF-A proxy handler. Validate the
+register arguments, copy the constituent descriptors from the host TX
+buffer into the hypervisor's TX buffer, and check the descriptor bounds,
+the total page count and the initial page index on that copy before
+forwarding the call to the SPMD. On success, unshare the reclaimed page
+ranges from the host stage-2 page tables.
 
-As the FF-A v1.3 specification is still at ALPHA, this series is
-posted as an RFC and is not intended for merging until the
-specification reaches BETA.
-
-This series is based on kvmarm/next, as Patch 2 uses
-ffa_check_unused_args_sbz() introduced in commit 3e9df0b0ebd5
-("KVM: arm64: Enforce strict SBZ checks in the FF-A proxy").
-
+Link: https://support.arm.com/documentation/den0140/j
+Signed-off-by: Snehal Koukuntla <snehalreddy@google.com>
+---
 Changes in v2:
-- Mark as RFC until the FF-A v1.3 specification reaches BETA (Sudeep)
-- Rename FFA_FN64_MEM_RECLAIM2 to FFA_MEM_RECLAIM2 (sashiko)
-- Check total_pages against the sum of constituent pg_cnt (Vincent)
+- Rename FFA_FN64_MEM_RECLAIM2 to FFA_MEM_RECLAIM2
+- Check that the sum of pg_cnt across all constituent descriptors
+  matches total_pages, guarding against overflow (Vincent)
 - Simplify the flags and offset alignment checks (Vincent)
-- Rebase on latest kvmarm/next
-- Link to v1: https://lore.kernel.org/r/20260921164748.2958578-1-snehalreddy@google.com
-
-[1] https://support.arm.com/documentation/den0140/j
-
-Snehal Koukuntla (2):
-  firmware: arm_ffa: Add FFA_MEM_RECLAIM2 function ID
-  KVM: arm64: Support FFA_MEM_RECLAIM2 in host handler
 
  arch/arm64/kvm/hyp/nvhe/ffa.c | 126 ++++++++++++++++++++++++++++++++++
- include/linux/arm_ffa.h       |   1 +
- 2 files changed, 127 insertions(+)
+ 1 file changed, 126 insertions(+)
 
-
-base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 5ad74ab265b5..2f49ffaa9361 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -232,6 +232,19 @@ static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
+ 	}, res);
+ }
+ 
++static void ffa_mem_reclaim2(struct arm_smccc_1_2_regs *res, u64 handle,
++			     u64 flags, u64 x3, u64 x4, u64 x5)
++{
++	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_MEM_RECLAIM2,
++		.a1 = handle,
++		.a2 = flags,
++		.a3 = x3,
++		.a4 = x4,
++		.a5 = x5,
++	}, res);
++}
++
+ static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
+ {
+ 	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+@@ -611,6 +624,116 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
+ 	} while (0);
+ 
++static void do_ffa_mem_reclaim2(struct arm_smccc_1_2_regs *res,
++				struct kvm_cpu_context *ctxt)
++{
++	DECLARE_REG(u64, handle, ctxt, 1);
++	DECLARE_REG(u64, flags, ctxt, 2);
++	DECLARE_REG(u64, x3, ctxt, 3);
++	DECLARE_REG(u64, x4, ctxt, 4);
++	DECLARE_REG(u64, x5, ctxt, 5);
++	u32 req_desc_cnt = (u32)(x3 >> 32);
++	u32 total_pages = (u32)x3;
++	u32 desc_size = (u32)x4;
++	u32 offset = (u32)x5;
++	u32 page_index = (u32)(x5 >> 32);
++	struct ffa_mem_region_addr_range *range;
++	u32 declared_pages = 0;
++	u32 reclaimed_pages;
++	u32 reclaimed_count = 0;
++	u32 in_idx;
++	int ret = 0;
++
++	if (ffa_check_unused_args_sbz(ctxt, 6) || flags > 1 || (x4 >> 32)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if (!req_desc_cnt || !total_pages) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if (desc_size != sizeof(struct ffa_mem_region_addr_range)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if ((u64)req_desc_cnt * desc_size > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if (offset % desc_size) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if (offset >= (u64)req_desc_cnt * desc_size) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	hyp_spin_lock(&host_buffers.lock);
++	if (!host_buffers.tx) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out_unlock;
++	}
++
++	memcpy(hyp_buffers.tx, host_buffers.tx, (u64)req_desc_cnt * desc_size);
++
++	for (in_idx = 0; in_idx < req_desc_cnt; in_idx++) {
++		range = (void *)hyp_buffers.tx + in_idx * desc_size;
++		if (check_add_overflow(declared_pages, range->pg_cnt, &declared_pages)) {
++			ret = FFA_RET_INVALID_PARAMETERS;
++			goto out_unlock;
++		}
++	}
++
++	range = (void *)hyp_buffers.tx + offset;
++	if (declared_pages != total_pages || page_index >= range->pg_cnt) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out_unlock;
++	}
++
++	ffa_mem_reclaim2(res, handle, flags, x3, x4, x5);
++	if (res->a0 != FFA_SUCCESS)
++		goto out_unlock;
++
++	reclaimed_pages = res->a3;
++
++	for (in_idx = offset / desc_size; in_idx < req_desc_cnt; in_idx++) {
++		struct ffa_mem_region_addr_range temp;
++		u32 pg_cnt, to_reclaim;
++
++		if (reclaimed_count >= reclaimed_pages)
++			break;
++
++		range = (void *)hyp_buffers.tx + in_idx * desc_size;
++		if (!range->pg_cnt)
++			continue;
++
++		pg_cnt = range->pg_cnt - page_index;
++		to_reclaim = min(pg_cnt, reclaimed_pages - reclaimed_count);
++
++		temp = (struct ffa_mem_region_addr_range) {
++			.address = range->address + (u64)page_index * FFA_PAGE_SIZE,
++			.pg_cnt = to_reclaim,
++		};
++
++		WARN_ON(ffa_host_unshare_ranges(&temp, 1));
++
++		reclaimed_count += to_reclaim;
++		page_index = 0;
++	}
++
++out_unlock:
++	hyp_spin_unlock(&host_buffers.lock);
++
++	if (ret)
++		ffa_to_smccc_res(res, ret);
++}
++
+ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 			       struct kvm_cpu_context *ctxt)
+ {
+@@ -1107,6 +1230,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_MEM_RECLAIM:
+ 		do_ffa_mem_reclaim(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_MEM_RECLAIM2:
++		do_ffa_mem_reclaim2(&res, host_ctxt);
++		goto out_handled;
+ 	case FFA_MEM_LEND:
+ 	case FFA_FN64_MEM_LEND:
+ 		do_ffa_mem_xfer(FFA_FN64_MEM_LEND, &res, host_ctxt);
 -- 
 2.56.0.176.g3575e65682-goog
 
