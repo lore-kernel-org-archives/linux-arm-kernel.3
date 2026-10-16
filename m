@@ -4,134 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BFFCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 09:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C3BCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 09:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYSy2ar4Jq6NNz8SsotcCJ3s2mksFHmZ5rRpB7OsP+Q=; b=AmnLj/GFIGEi4QOSVWTGgy+0Oc
-	cH7rsqSnE0/524RiWbu8rlf+T9gRA10Got0jEPDct2QLaa+OnqbUSXtU68PFVs+4d/Ycoh563ig8a
-	GbwCnItfcIPUYyNqcTT4qPF+3+2cTEpih8rWkWVNji/0516NgKHn3soGos3tMr/oNRqxT8TeSVHad
-	cag6wFvxsLVYCBEp1RG9XRw9CLbZBQ9hFOjeG+QGEl0mqzDKTFO7sPle6+0+oO2zNosOHqFnXutIh
-	Px39pct8jYcmPu4HAveNHoXDc5oRZOCwPUA1b0VEqXD4EfbdumwzcEnITtIjpjyoFFNVGK9lk66ru
-	q6bw3XYA==;
+	bh=WBdGcxWiDrcVKqaT6IjY7dlU/wWj/hMB+CXmv51CihE=; b=KGSrHi2pGp6a/oi6Fog8e/UBL/
+	eIPzb50EyL4miGk/gcQNG365zGiIkTqe0rgXd0U5F+LGpxhiaVPd7Tn+p701dAB7uVDCIfKMMrj5E
+	uf7tUYW++JDhiqcX+3og4J9MSmjQT2SWX/899B/eHvzXdTPr8xWsJ3m5roo5U+nCCPm9TvUYcKCbL
+	6ILQ0N1nfaPKUowl14RKCD9td0RmExSS0t49UPmnc7vDv1nhExdJVb5vBbBPmmbqyZ9L8zwn6QfCa
+	jRihUSLeJKcIquMtBh5nFd/1chmSmFQo5iVVoZhhirwo96WkR91IU9/o0EDQx6KabrWVF3QFt4+zN
+	gx3iwzQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHeKi-00000002UpB-45fA;
-	Fri, 16 Oct 2026 09:34:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHeW1-00000002Wte-1yFK;
+	Fri, 16 Oct 2026 09:46:17 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHeKi-00000002Uoe-0lFT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 09:34:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XYSy2ar4Jq6NNz8SsotcCJ3s2mksFHmZ5rRpB7OsP+Q=; b=qxR9F0euuUVIVLWtdCvtPi02uY
-	XS8R7nmb8PHssSv/bSyLl/RINhuCswu8338FWYFFMc1z61MHeyT2VZNpup4xJjMD8+somaBhsSrrj
-	L6hopp6TjIlXeXDsOt9glqRoBUttSzIPMGnY6Jm933weYbANNYNzCNS17NdIb9x6QCaZBxxnGvWNa
-	RdqKMPfjKIJq1BqUyXrK83oZ5CJJoNuhCV4dsFesA9OQ+zrxtrcZ4bwc1kaFpBVVT4X63u37a4m6g
-	KvLoGjHpRZUaEk/Re5feRyN3ee5R58LnJlF1QAjPYGBLaMHQwZdSgao/RB1ncN/6Tz9pjnFAZb8jV
-	YS3a3PRA==;
-Received: from mail-centralusazon11010005.outbound.protection.outlook.com ([52.101.61.5] helo=DM1PR04CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHeKe-00000001KQJ-3GSB
+	id 1xHeVz-00000002WtC-092Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 09:34:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y6nbkCdCU+uJscCrSp5SPluUJZWmeTc5LVrNA0tx8gSSMXZgZm+CVPlBGRbokSN9DED49IOHTAzgrwNn1Yim6sb3+v5c7JW2xHBTTzqUxVaD4iI7Rokj9+GRTDvyNTe/dF86sZPXktx/UAoOX0tq6jvlfwQr8eHDhAB8PeTHLuSaleriRXuE5FjhCz0nrYCAnErA42+NKr3KECosc3VoGaxbYU/cgQ279Stk3oaUrmeFEcrL+F8nAd6Pgz300TfmOaZeAuK5+qkRD24T7vAiq4P2fRSvrjLqhz5M/lb3PxV6DVqmXWJsVQQsDAr7JSJSMd4kquWePkgP+fB5ol73gw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XYSy2ar4Jq6NNz8SsotcCJ3s2mksFHmZ5rRpB7OsP+Q=;
- b=soOjg1NFDQAaSefU1c3R9DpM7F/SBDp21Zc2DSojj+EBWMB8fEkGIvORRwrkk7vbCXKZRemEkDIZTbqJd1rdPAzfDV6utPJUdMj6s3M1WHouZ7WcLS5okmQG01wJx+kb7lpYafXf3BTNQdCPwnBMfl+cVYMqSM2y4UPfxRAVbjn1aADwEx/wRN/jTQrSFhwGiNlZOrucqNKNXfBCjTvqFqjyFcfxQ/vseWNq9Hs0jVEZb8PjHPVF/vNwNwRy77zDALJQFETEOKPh7Kl3Dp4xErBpjGV6eSVNDW1NAEvViPvYj/m2ih924DsJUFQ9och3B710DKmg73kQq8SV3yuhIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=redhat.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XYSy2ar4Jq6NNz8SsotcCJ3s2mksFHmZ5rRpB7OsP+Q=;
- b=bDXKJ1K/JxPchCWwNFP2tjuXEJ/5QwxI4kB2yJ+RNK0SK/syVF0kkVXmdZ0K3UaOvQmsXMtEokUm1SjIwGtlA8slW033dIG12gWeRCY0SCRu1nOvVL0kezeDYjl1IfbmbDG3jiv7q+YWPEt8bHIZbE/NuQBbmFuTljknG6SBTmw=
-Received: from PH8P222CA0003.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:2d7::18)
- by LV2PR12MB5896.namprd12.prod.outlook.com (2603:10b6:408:172::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
- 2026 09:33:25 +0000
-Received: from SJ5PEPF00000204.namprd05.prod.outlook.com
- (2603:10b6:510:2d7:cafe::9a) by PH8P222CA0003.outlook.office365.com
- (2603:10b6:510:2d7::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
- Oct 2026 09:33:25 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF00000204.mail.protection.outlook.com (10.167.244.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 09:33:25 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
- 2026 04:33:15 -0500
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Fri, 16 Oct 2026 04:33:10 -0500
-From: Srinivas Neeli <srinivas.neeli@amd.com>
-Date: Fri, 16 Oct 2026 15:02:07 +0530
-Subject: [PATCH net-next v3 8/8] net: xilinx: tsn: deliver endpoint RX
- frames to DSA user ports
+	Fri, 16 Oct 2026 09:46:16 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a01933b584so52872895e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 02:46:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792143973; x=1792748773; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WBdGcxWiDrcVKqaT6IjY7dlU/wWj/hMB+CXmv51CihE=;
+        b=EIZKuxn8mgWI9D0Fn/BHAtOptdK4H8YMI854BTuVlEwN79fQ6Yc4n7U2bx7UA2OBPA
+         Olg4uIKiEwvEtuho+q3w51MVxHxBIh1QafsPShikIaEyft6nfwL7HifWUfrxcpxdLcaX
+         oFKuRnTTxnKaR428SO3PbyJydTwaeh3WbR/njswSD+YHpMsOVRsskrB2DMS0YKmcm0Uu
+         ChXKts8WAIErgPln0/TkJP8PV/AOKmM8f5gFLHwzwc5sjWdGYNR4lNpjfG8uHp876+fh
+         iEHoNVyFacbawRdcJCYalqtmfflRWDT3v+d053N0dLm8zmUoEKzLgLQ5UrU0/TCc8uXC
+         RHJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792143973; x=1792748773;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WBdGcxWiDrcVKqaT6IjY7dlU/wWj/hMB+CXmv51CihE=;
+        b=OuuekygrqDPptBai6Hq+Gt1I74UVDmPEzfyykQ+rcskjCvDoDzPxP3cEqLmL5VxaNx
+         kE/wMk7ciZDZEiQXZ2FHlxF/QJX28H/7uLUE0wVaTggjaRKkl3/4uD5yLqw2E2Ziw7Gi
+         SQlmXxioc/GCarKa/Dxcl7DAwfyljkJO7VqmEkUpoNMK/P6+eMCzH5bjigzlWqiciLBp
+         7/HzSAziW2CcLCBVj98Jn7+3LBFLgKv1zQqKuRNbXY1Aclfzx5gJRtmxaB1xDAQyLzrX
+         URr44qS1sibLU7FJ+pVGtNRrHh3U5eEB9yzlSjFvnRoAlflHFsT15UDYPxY9xH4tRgXf
+         9ChA==
+X-Forwarded-Encrypted: i=1; AKwUvBzn+FcRQFd7OtxeVjcW0MNkSVgWTjrkErNBaybtKI/2J1Tfh4Aih3JX0NSPUXJbQ+5flwiRsN5VCcTHBIzNp/nR@lists.infradead.org
+X-Gm-Message-State: AFq9FYLP8WrboO3FlXYWPw6JGepR4sz8Zp7Oj6mULr0mHEieIl5kOAje
+	6LAVkQ3VNpvP9HZDEKgmc3JdeQBxFHC0eu9EsIEf6SUvNTO9d98RRAPu
+X-Gm-Gg: AYBFou3hlQNjIY8svjfP356coGbj1m1DZuU68vb98K9QNe4d99MUwt8sWs88fQX/mUP
+	Cq7hvBxi1+NgZmwTR3CNRQGEednOkuoG6UXAkng3EPLLVyZfDHtKFcD24da1GlEye3NnLZ/RNM1
+	B00eHMcxYecWXQW+naVpB3LG/d9gBxU0dZn51f48zMA1wNApF5CDp22ima6r/MVYpwxFoGbtdF7
+	aDQoFIanfuINb/vEI6fNsnwx5iAw4e7UTcrhW5KT65ajClyrts9+vv+fcD2iyNdORY8s5rwoC1+
+	wT0ZgXUMnAL9WQS0k+iEHL7oXrqqorGUGNa9uLqn1oNCSBeoTEyRYexM49yalmVuZoNyWTd6sic
+	kTR5H2TaoVbdRQ46Uf1LXSgQZnuoNd3XyURs3/ep2BXZL0N4O/kJxI3EtnZcjwYC/kHNpZYs3Xq
+	uFxWDWwYcnRoTAvPklLekVr6r6gQdLol10wfly53YEey7fGFMjB0pnUnZW4xivCQeBHpMo/+X9j
+	kGgsw6nI41MDM6YX+FttgLavk7lnbLwN70xHHEYve+xICZzgGbSSzf9gynfKZuSWWqdXk/gRghk
+	gBpwJFDCRjnrHlalzb/UsLGExg9SGrccaBc=
+X-Received: by 2002:a05:600c:83c6:b0:4a1:7093:40c7 with SMTP id 5b1f17b1804b1-4a18e493048mr406737735e9.8.1792143972697;
+        Fri, 16 Oct 2026 02:46:12 -0700 (PDT)
+Received: from dev-dsk-fgriffo-1c-93421965.eu-west-1.amazon.com (54-240-197-234.amazon.com. [54.240.197.234])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1cca43012sm17041055e9.3.2026.10.16.02.46.10
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Oct 2026 02:46:12 -0700 (PDT)
+From: Fred Griffoul <griffoul@gmail.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Cc: David Woodhouse <dwmw2@infradead.org>,
+	Ackerley Tng <ackerleytng@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 07/11] iommufd: Use large IOMMU pages for provider mappings
+Date: Fri, 16 Oct 2026 09:46:10 +0000
+Message-ID: <20261016094610.57849-1-griffoul@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261016001448.GC14213@ziepe.ca>
+References: <20261014093733.90312-1-griffoul@gmail.com> <20261014093733.90312-8-griffoul@gmail.com> <20261016001448.GC14213@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261016-patches_v2_external-v3-8-e33d3960ca1e@amd.com>
-References: <20261016-patches_v2_external-v3-0-e33d3960ca1e@amd.com>
-In-Reply-To: <20261016-patches_v2_external-v3-0-e33d3960ca1e@amd.com>
-To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>, "Michal
- Simek" <michal.simek@amd.com>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, Eric Dumazet <edumazet@kernel.org>, "Eric
- Dumazet" <edumazet@kernel.org>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rt-devel@lists.linux.dev>, Srinivas Neeli <srinivas.neeli@amd.com>,
-	<neelisrinivas18@gmail.com>, <git@amd.com>
-X-Mailer: b4 0.16.0
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000204:EE_|LV2PR12MB5896:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23e825bf-5f51-4dae-1571-08df2b6886f6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|7416014|376014|82310400026|11063799006|56012099006|921020|261009223027099003|18002099003|10067099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: vAV9E58hgXVxPytWFW3CoNj5HFMajy5q0X/OPS5v7DL4GeW0hmyWba8EdharT282j4254d5uSKQ1F2nEdLjfGhJ2V2BPQ77t/g2lrQi+rafsoVD6B7ntMeB0bkVe7tQeuKfTI+ZjZ5BM531hWCNsaqy2tOgEQawg4QnwlEGLjrmR1/Igabov2a6RL48hvoDdgmOCntrOB5uC8xgYVwYegEnN4vJLqfWYyj9zAMxwTiBBB8v7npJQfusFu9ytbWu227rt+4kjDmlJffNS58gCupGdN6FFQwlfsIBXGrjE/pD4c+kchLfEN0xfctXWNXqG4FdSWAe4N01/H7lUPWBJpJ1y/uQfhKq9QnWCbMOS6QBbCKCsWJR+aU2jTKj39u5fVR3VN1mkOk+nJqtkarmtOfcFIAOpf7CGpUhL/EODFk187BkPhbAEiUGGcajtjhkCqnYzO9yxMiDxAhXVoYsaaLa+D+jJtge5rBGy3JhLFah0Wt2zcWaGXJs4zagBFmb+XC0HruN3wFCXnI83lmy88Z6Zkl6EsdDBEevx9sP4/OpG+Dmy/474BoUnRtYOpX10+9miilNqr+qNzyoyoyknKqNQMSUTiJKHFTX5XEZ+iDp/7UqIQZraXzSva+ruJzqeFI0BjNHFRmk/ELIDNu/rVSi9NPwn9dQT+fMK3B7oHrGYHpwGvio+Tjhk0F+XKV3PuEWvn9JIXTXUabu7H+eFbjGyUXt63b124qR0xIFZRd1Z2JYckpviImFnYn1epVGO
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(7416014)(376014)(82310400026)(11063799006)(56012099006)(921020)(261009223027099003)(18002099003)(10067099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rmh85wHPN6+f07wa/5kR9u1IyU3H7hOULlKEEjVSF+TbsNSiK3ZVaSDGCIndaQqTI26lcmxOE0K0jTBlNqJ9zv6OVZycKd/Dg2qsWhGUJPvV8m5mg2U/vaxwSNFo5pW8afESxy3cF8rtQmTSupRF/2XkccfYQkbZdysAX9Icf/VdFEbmiL/QE2o9WNiz2c5/Y/VACefGzWqv2BFyEOHtgc9WnftGpN9XlNRRnofjhl5/2/HxBSjSLXevx4Ncse13d+ZQqQYR/4sx+6K2aLy2vNfivG0/GdqyyLH3QQcY5jzniw6ghKyyQTrG70Xx/iSQxYuV3uhJ4/gxV09Ia5xymo2xWce2TEDLCihgSc9FJTCiPyieWzu1yB0ymk7db5DzAJpXDoEAUxV54wf8U/Z/kv/kN1NStFGZszUD9ZcRoC3jxgk1Z+CHCECFChhXWk+n
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 09:33:25.0039
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23e825bf-5f51-4dae-1571-08df2b6886f6
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000204.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5896
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_103433_167218_725FC74C 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20261016_024615_086650_F4F37A23 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,153 +145,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+On Thu, Oct 15, 2026 at 09:14:48PM -0300, Jason Gunthorpe wrote:
+> You are going to need to go into generic_pt and implement cut and a
+> more suitable unmap to make this stuff work properly. We can't over
+> unmap on conversions.
 
-The endpoint MAC is the DSA conduit for the three-port TSN switch. DSA
-selects an RX frame's user port from the port metadata on the skb, so a
-frame from either MAC needs that metadata to reach its swpN netdev.
+Agreed. I'll drop this patch from v3 for now.
 
-Allocate a METADATA_HW_PORT_MUX entry per MAC port at probe and attach it
-to each RX frame by its TUSER port_id (1 for MAC1, 2 for MAC2), guarded by
-netdev_uses_dsa() so it runs only while a switch is bound as the conduit.
+Just to check I understand what you have in mind: a cut operation in
+generic_pt that splits a large entry in place into smaller ones, so
+that the revoke unmaps exactly its range, and iommufd uses large pages
+only on domains that support it?
 
-The RX callback runs in softirq and hands the frame to __netif_rx(), which
-queues it on the backlog, so the attached dst must be a counted reference
-(dst_hold() + skb_dst_set()) to survive the handoff.
+> Also please don't write commit messages with AI. WTF is this even
+> trying to say? The subject is "use large pages" and this text says
+> "map each page with its own call"
 
-Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
-Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
----
- drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c | 55 ++++++++++++++++++++++++-
- 1 file changed, 54 insertions(+), 1 deletion(-)
+Sorry about that. It goes away with the patch, and I'll check and
+rewrite the other commit messages for v3.
 
-diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-index bd8cd504cefb..5103a3b4b018 100644
---- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-+++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-@@ -28,6 +28,8 @@
- #include <linux/timer.h>
- #include <linux/types.h>
- 
-+#include <net/dsa.h>
-+#include <net/dst_metadata.h>
- #include <net/netdev_queues.h>
- 
- #include "xilinx_tsn.h"
-@@ -57,6 +59,9 @@
- #define TSN_TUSER_PORT_MAC1		0x1
- #define TSN_TUSER_PORT_MAC2		0x2
- 
-+/* Sized to index port_md[] by TUSER port_id (1 or 2, slot 0 unused) */
-+#define XLNX_TSN_EP_PORT_MD_SLOTS	(TSN_TUSER_PORT_MAC2 + 1)
-+
- /**
-  * struct skbuf_dma_descriptor - skb container for each in-flight DMA descriptor
-  * @sgl: scatter-gather list backing the DMA mapping
-@@ -115,6 +120,8 @@ struct xlnx_tsn_ep_dma_chan {
-  * @tx_chans: array of TX channels (size @num_tx_queues)
-  * @rx_chans: array of RX channels (size @num_rx_queues)
-  * @closing: set in ndo_stop so the RX completion callback stops re-arming
-+ * @port_md: per-TUSER-port METADATA_HW_PORT_MUX entries attached on RX,
-+ *	indexed by port_id (1 for MAC1, 2 for MAC2)
-  */
- struct xlnx_tsn_ep {
- 	struct net_device *ndev;
-@@ -131,6 +138,8 @@ struct xlnx_tsn_ep {
- 	struct xlnx_tsn_ep_dma_chan **rx_chans;
- 
- 	bool closing;
-+
-+	struct metadata_dst *port_md[XLNX_TSN_EP_PORT_MD_SLOTS];
- };
- 
- static inline struct skbuf_dma_descriptor *
-@@ -302,6 +311,10 @@ static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result)
- 	}
- 
- 	skb_put(skb, rx_len);
-+	if (netdev_uses_dsa(ndev)) {
-+		dst_hold(&ep->port_md[port_id]->dst);
-+		skb_dst_set(skb, &ep->port_md[port_id]->dst);
-+	}
- 	skb->dev = ndev;
- 	skb->protocol = eth_type_trans(skb, ndev);
- 	skb->ip_summed = CHECKSUM_NONE;
-@@ -900,6 +913,37 @@ static int ep_count_dma_channels(struct device *dev, u32 *out_tx, u32 *out_rx,
- 	return 0;
- }
- 
-+static void ep_free_port_md(struct xlnx_tsn_ep *ep)
-+{
-+	int i;
-+
-+	for (i = 0; i < XLNX_TSN_EP_PORT_MD_SLOTS; i++) {
-+		if (ep->port_md[i]) {
-+			dst_release(&ep->port_md[i]->dst);
-+			ep->port_md[i] = NULL;
-+		}
-+	}
-+}
-+
-+static int ep_alloc_port_md(struct xlnx_tsn_ep *ep)
-+{
-+	int i;
-+
-+	for (i = TSN_TUSER_PORT_MAC1; i <= TSN_TUSER_PORT_MAC2; i++) {
-+		struct metadata_dst *md;
-+
-+		md = metadata_dst_alloc(0, METADATA_HW_PORT_MUX, GFP_KERNEL);
-+		if (!md) {
-+			ep_free_port_md(ep);
-+			return -ENOMEM;
-+		}
-+		md->u.port_info.port_id = i;
-+		ep->port_md[i] = md;
-+	}
-+
-+	return 0;
-+}
-+
- static int xlnx_tsn_ep_probe(struct platform_device *pdev)
- {
- 	u32 num_tx_dma_channels, num_rx_dma_channels, num_prio;
-@@ -985,16 +1029,24 @@ static int xlnx_tsn_ep_probe(struct platform_device *pdev)
- 			 ndev->dev_addr);
- 	}
- 
-+	ret = ep_alloc_port_md(ep);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "failed to allocate per-port metadata\n");
-+		goto err_release_chans;
-+	}
-+
- 	platform_set_drvdata(pdev, ep);
- 
- 	ret = register_netdev(ndev);
- 	if (ret) {
- 		dev_err_probe(dev, ret, "failed to register net device\n");
--		goto err_release_chans;
-+		goto err_free_md;
- 	}
- 
- 	return 0;
- 
-+err_free_md:
-+	ep_free_port_md(ep);
- err_release_chans:
- 	ep_release_dma_chans(ep);
- err_free_ndev:
-@@ -1010,6 +1062,7 @@ static void xlnx_tsn_ep_remove(struct platform_device *pdev)
- 		return;
- 
- 	unregister_netdev(ep->ndev);
-+	ep_free_port_md(ep);
- 	ep_release_dma_chans(ep);
- 	free_netdev(ep->ndev);
- }
-
--- 
-2.44.4
-
+Fred
 
