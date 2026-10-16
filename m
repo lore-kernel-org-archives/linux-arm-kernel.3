@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7531CCCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5426CCCF2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9zVdZ+60UPJ7jM3vWMuHHt67z2QYJr3Ac8P9XHs1+M=; b=he2aMG2+Q9gx9x3WJnW6hxR1Pe
-	cU3d+nclSsaBFyvjTmaK2QLOE+5ZmcOpJqJCIE4zzgRUKdmESNDvkrfrnHsGHG2Te4wY20kMhIuBj
-	23nCBV5rrxnAtH5Z1m+iltyNnRMLR3hQ7iC1w1XtymWJGs1+IwFh4Hj4iBa6uhOALXGThqt4eUGOk
-	DvxvdaCq6Y+f+TZ+LA44HwoFxxbGV1zitLKahZTZQw0XPil68RwnZG778rJIcHLtCabTfrW9yZ8Z5
-	TRcOfXrzE5nxCS9T9tJmy7yKssbYu3lJ8cApWLsqzg0KyIISqrwRtM9ntSbsC4rMfExObg4VMWxQR
-	bzR8aYBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=br2GX12R/HfpiLwzsj1/S/8DyFMuLHUl83yTUA1p69k=; b=NRDq9ErSlGMi2gkrZoPFPnHdSr
+	t7sOwjHTPFdBZXc0299Wq/KAel44yD5YqGw6VOJ/PtzZgrMqqOamIo/JN8LSkgOCEJnjKvHlgMQU3
+	d963s6li5x1Rg7amRDLsTLixddSvs/sHj4LWMC2BUn1HW6f79WUviq97fCd5fdDOqnhCchi8Albqe
+	BNmygxZwZufcQwnNrWCejE+waATcZSrbVaVyDw08reeb9Fw+aksw5wOsGOJuJabt9BVbpRtEdU+n9
+	pNOkuPAKrwqFHsbYvmPtfCpRujN5WeEgA5JrwsfG3vnIw4UMUYJ91qbRqJS6Qi5jb/GuNmC6owci9
+	bTq+tgRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnaA-00000003tPX-2uhj;
-	Fri, 16 Oct 2026 19:27:10 +0000
+	id 1xHnfU-00000003uBI-1ddG;
+	Fri, 16 Oct 2026 19:32:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHna9-00000003tP1-23vK;
-	Fri, 16 Oct 2026 19:27:09 +0000
+	id 1xHnfS-00000003uAp-27vu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 19:32:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DA7740B44;
-	Fri, 16 Oct 2026 19:27:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA7761F000C4;
-	Fri, 16 Oct 2026 19:27:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 41806437FC
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 19:32:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2916E1F000CF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 19:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792178829;
-	bh=u9zVdZ+60UPJ7jM3vWMuHHt67z2QYJr3Ac8P9XHs1+M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Eavl7/umDyhp+rfXD0qTHvLLemfRf4zYdG6nBp6UbrEXrxDNAOpfUBtzXyfCAmadw
-	 4g/FLa2uilQMhD2/P46Fj3ZHyIxQBaMmPj+/4qjtaCRNSlVSFjOH6t1QpKNwWPkMBc
-	 t3uAdqfvw7q9apekFqD+85XuV5fSMDyA7YhGprwTA/zmNiiBiegVzJZwon+UEdXyj8
-	 HULUQLlrxS/RTNJazNZBPelCvOr/bReNbpgUieRbnNHAvQvw9fzP+MHILK3TVJBwB+
-	 TC+5K1yjTpIn31Ohgmrjrp/Q8uKmvN+d5gpCIYadVyVgeTcILVyZdNzj+QvGfzJ+Ub
-	 IwJDBGWIp5aDw==
-Date: Fri, 16 Oct 2026 14:27:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-phy@lists.infradead.org, Pankaj Dev <pankaj.dev@st.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Rahul Kumar <rahul.kumar05@st.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Rosen Penev <rosenp@gmail.com>, Vinod Koul <vkoul@kernel.org>,
-	devicetree@vger.kernel.org, kernel@dh-electronics.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v5 1/2] dt-bindings: phy: Document ST STM32MP25
- USB2-FEMTO PHY
-Message-ID: <20261016192708.GA138068-robh@kernel.org>
-References: <20260902141312.649406-1-marex@nabladev.com>
+	s=k20260515; t=1792179157;
+	bh=br2GX12R/HfpiLwzsj1/S/8DyFMuLHUl83yTUA1p69k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aReIlCrf8fopyF3ChiCIeEC1hCVb1THWDlgJCVjWvzHnaPg3t3MAIyhg8Fr1qc9/g
+	 bAFQSCdM5MdEygdgrMT8ldLha9m7P76w8w6j/7Xw2O2MUqWQ6S1ORocCep7vvCWVnv
+	 6hN0Z+UiwikKN26uxBoYDhnDL75AwoLrOZrzm4Wl/DB//rug2d1E8QgBEjZqYKxW3W
+	 5tky7SVtLE2Zvp2ombz8vwf/m0T1ZSSfLSpKAT5HChrlAldlFv5MPjciI1qM4I3hEq
+	 xfKCn0ertUbTqq5kBKCae86MJZ9OOf7Y0gtSgJIidcPulfTy0uOrszZtTvLLlEs46h
+	 k+Gm5MHX5lKIg==
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c3fd91337baso36439866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 12:32:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwBFcnniUrME8F8xsTyGv80hcTL5eC+uITOnp8n63EPtDVmQHxQB8PFwfxBlgMCj6CSQa1hLl/zNkpPhO2LYEkf@lists.infradead.org
+X-Gm-Message-State: AFq9FYKEQQuNdOKiNLKSItJYN9EpLhrUfMfkxC/SsYvMOteHJH6NciJ9
+	FKca9HS36AfaydE+2qiU4jnPxu0sKq3G/WdlMdjMKwiRjCKjQKFXqA8S5mbmJ6Cpky14hslZOze
+	7Wnuah41oa1OuHUh7Z+tKtGRWDc00BA==
+X-Received: by 2002:a17:907:3f95:b0:c34:c5e8:1dc5 with SMTP id
+ a640c23a62f3a-c419da41344mr62932166b.20.1792179155493; Fri, 16 Oct 2026
+ 12:32:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260902141312.649406-1-marex@nabladev.com>
+References: <cover.1790606188.git.andrea.porta@suse.com> <ad9bc35d7c30f7925fed4c6621ed0f67c39c3f09.1790606188.git.andrea.porta@suse.com>
+ <7c437a10-985b-402c-b3ac-cfa97c53d014@broadcom.com>
+In-Reply-To: <7c437a10-985b-402c-b3ac-cfa97c53d014@broadcom.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 16 Oct 2026 14:32:24 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+rjfk-EGKy+sf-S7QRpGy_7SC38ZUASs28gWm_PuNDvQ@mail.gmail.com>
+X-Gm-Features: AclHuK-3lCKkhjPmvIybYNhFqPMhoSBVuchxzZzjM1TnQd3DNXu0J5TqQN1c3O4
+Message-ID: <CAL_Jsq+rjfk-EGKy+sf-S7QRpGy_7SC38ZUASs28gWm_PuNDvQ@mail.gmail.com>
+Subject: Re: [PATCH v10 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	linux-pwm@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>, 
+	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com, Sean Young <sean@mess.org>, 
+	Julian Braha <julianbraha@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,65 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 04:13:02PM +0200, Marek Vasut wrote:
-> From: Pankaj Dev <pankaj.dev@st.com>
-> 
-> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
-> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
-> Two such PHYs in total are present in STM32MP25 SoC, they both are
-> slightly different, therefore they use different compatible string
-> to discern them.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
-> Co-developed-by: Rahul Kumar <rahul.kumar05@st.com>
-> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
-> Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Co-developed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> Co-developed-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Patrice Chotard <patrice.chotard@foss.st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
-> V2: - Fix up Sob/Cdb lines
->     - Fix up compatible string in example
->     - Use additionalProperties: false
->     - Expand description:
->     - Use clock-cells = <1> to discern OSC and future PLL clock from the PHY
-> V3: - Move clock-cells next to PHY cells
->     - Fix the bindings
->     - Fix up Sob/Cdb lines further
-> V4: - Reorder the properties: list, put #...cells at the end, reg after compatible
->     - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
->       https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
-> V5: Add RB from Krzysztof
-> ---
->  .../bindings/phy/st,stm32-usb2phy.yaml        | 68 +++++++++++++++++++
->  1 file changed, 68 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+On Mon, Sep 28, 2026 at 1:26=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> On 9/28/26 07:42, Andrea della Porta wrote:
+> > From: Stanimir Varbanov <svarbanov@suse.de>
+> >
+> > The RP1 chipset used on the Raspberry Pi 5 features an integrated
+> > PWM controller to drive the cooling fan.
+> >
+> > Add the corresponding DT node for this PWM controller.
+> >
+> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> > Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+>
+> Applied to devicetre-arm64/next, thanks!
 
-Applied because the schema depending on this one is already applied.
+And that introduces warnings because the PWM binding is not applied.
+Either wait for the binding to be applied or apply the binding with
+the .dts change. IOW, Broadcom is warning free (you're welcome), don't
+introduce warnings.
 
 Rob
 
