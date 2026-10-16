@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892C5CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B995CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=707YQ5WOW5OhLWsgc1Mn0RWZVRHccpuv4G8HLhK/9eU=; b=c4ogumEMInHuZtcWBTyLa3im4/
-	6Oso24Ipk10GznuOeOCJ7PvsX8/5wSwVgDRfY+9PDw+F3Nd1aAQSsllI+QBd2kJHVQv0q4X+hmw4O
-	iCnU3pu6jDex93z53EZbwmiJIy+oeVPn7lKLTRIJViXZ9UTXdRasnuz+oKx+enJEA/mEnOJzwOg5s
-	0GiPogShh/KUQDaMwgBDfrFxfZhuIVIHEQNDtZyK/RYg4KOnkJtSUN91vp5Bmm7X0vrOoku36ypdA
-	WCbsBZxU9v2jSAxg6oAu1GFHVM9Q+6YYHjUkF/KH0gNrHhYrGAoQlCqaQU7KGOcg5DUCYCKqE/0ee
-	D/MpdAqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+GyvDCXoOZxhaF1YO2iBjYziahy1VyrzPfIWpLTL1Is=; b=c6dD+N03XkfT6sk2n98pLAS5I1
+	uYA16WCcCny4/1qdU5tV/rK8R1Fg6OzbBRb9mY2SL2WfcXgSrRRvgc4JmLFmaCkRBErvZcwcWmpeH
+	OP2IqLsPm6PXVVAzVS/TWifyt8Npy1totJc1w5g5K4Gk/K5vLY7Jdw4UVk1qptzg6oZUQ/44RXtbm
+	h8YLhfRTO2fQLHJ9puQJ6GFWj3cxfMCUrtLDWvF4ev+76gJcf3avNIAtrL7CvZfEOmPUYDOGxKHuy
+	BA/vom1IE13/ciD+2hwf1Od+5MZ0GcUbV3YKN7b2d4mbv7EI7xEEzvGXWtNhtUX8f6t3JZCh+EQBJ
+	/3AetFBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdEG-00000002KFl-1R1m;
-	Fri, 16 Oct 2026 08:23:52 +0000
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
+	id 1xHdUn-00000002Lw6-1e7K;
+	Fri, 16 Oct 2026 08:40:57 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdEA-00000002KCv-3brx
+	id 1xHdUl-00000002LvK-0gL4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 08:23:48 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a1ac6663e1so35139835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 01:23:45 -0700 (PDT)
+	Fri, 16 Oct 2026 08:40:56 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a0286c981dso27657595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 01:40:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792139024; x=1792743824; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=707YQ5WOW5OhLWsgc1Mn0RWZVRHccpuv4G8HLhK/9eU=;
-        b=D3ctTMfgaXvVfCit4tQgeyeVyoV6exFoG98+gr/tAof8ubzVw+6R4T+hJZqsW9Z6VZ
-         3OJScbdx1tq5T0yHbUrRDg6igd+K1KD6HBOpfYQiNcqEGsuRlk4I1J+bS+zM2WIlgfwL
-         Qqt1LEPcL42dlgZQmxqG9SxpaBZBP5eh31GccOlc43Rk7AhSW3mqIgAIrEljm3RFvrAj
-         njMlQpQA6ZzmEhW7aP7soE/HnJ2mb1Z+N4fLuh1TFrwGL0ztjhNii9hj3fwYBez4PmaK
-         sKsRoqj6nQpqFUiQzB3ZP5lY8ePCjVX9vFEA8/umE3+EAZ8T0Vgj01AGHm0rlZGfKLpv
-         mYvQ==
+        d=gmail.com; s=20251104; t=1792140053; x=1792744853; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+GyvDCXoOZxhaF1YO2iBjYziahy1VyrzPfIWpLTL1Is=;
+        b=MBJWzEn9wRSSvXbDjPZ5EIIasZXBaBbqgsybyJBqOzf378FOFr2gRTUHq8HIBGylcf
+         r3ZdQ33zIGc4l3sU3WxuP5i8DuSVVpvhM1QMgZZk4Y/CCguGWlhrjEHICVwpnguCmEqm
+         W0o6nvf34Dd92M/zcbT5Bh/6DtbllJxdNvgrep7q2HkjIgTcY5NIPGnpeq+YE74GUYWU
+         QC+T9pCXuPdbG/3kExAZ860Tj6alDBq/W99ZDW9iEpGQpSuPn35Cbi2B4GpwWwRih54W
+         zzqo0kt+j5pM4RH9xdgNoLJZ2wmBUxwjPV/J6CNtfFot4wuF3nOFab6yo+t2HHJYLKf2
+         0Clg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792139024; x=1792743824;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1792140053; x=1792744853;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=707YQ5WOW5OhLWsgc1Mn0RWZVRHccpuv4G8HLhK/9eU=;
-        b=SJyYq+DKUhG3YKWBEFau+Y+rooF3kRei0oh7Sv9XdTcm0Inrg3KRbn28NKFjvgdNbF
-         DHfFS8laQcPTmtjtsC6Pb3/aRRyOCaD9+mnbbEweWY3UmmnsBvpWvwvF+/yPFdHleJEk
-         LmixRcdZQvhYoZMNpUy38GHM9k3nVNDLc1hUN0HzypGzYwA7mKrq3OZUH899sudGxeFy
-         cLXBOWCEer0a6A+GRsW1T8rWF1JlJV+qah5YRNbfKqNv1iW6Vy7HhPxogw3vE+aDJJIv
-         qTJ/Kf8Bpk2eWPH3ir15UFxeBYUadn0HsKY3J5pAedvtBmFKuF05Lafm8ib4lkltoB4w
-         jNig==
-X-Forwarded-Encrypted: i=1; AKwUvBxMEKaIPD/yNEv+oU+pylHjtNCK9rsMd0yGgBjtbSDKNkU7bYDkO9R4MnW5Lhl7mEVeKe7woLzM4RGaZahLrIxI@lists.infradead.org
-X-Gm-Message-State: AFq9FYKJHuGy7ZE1xkgBhIF4QXZObZ+D76hLxvAENYBBpLGdPhxYPfry
-	ARP9zzjIKfrhZ9yENqZ3vEQA5CRtyaRKIEpkPbw+gTN1v2lgssOSt1pv2yqco/2mFPhfu/4AjeB
-	Hc898s4F1jcLbK5je3vE0enCF7Q==
-X-Received: from wmbhc20.prod.google.com ([2002:a05:600c:8714:b0:4a1:93c0:d3c2])
- (user=snehalreddy job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e86:b0:4a1:ad49:7b3 with SMTP id 5b1f17b1804b1-4a1ad4909c6mr230452255e9.22.1792139023899;
- Fri, 16 Oct 2026 01:23:43 -0700 (PDT)
-Date: Fri, 16 Oct 2026 08:23:40 +0000
-In-Reply-To: <20261016082341.4030770-1-snehalreddy@google.com>
-Mime-Version: 1.0
-References: <20261016082341.4030770-1-snehalreddy@google.com>
-X-Mailer: git-send-email 2.56.0.176.g3575e65682-goog
-Message-ID: <20261016082341.4030770-2-snehalreddy@google.com>
-Subject: [RFC PATCH v2 1/2] firmware: arm_ffa: Add FFA_MEM_RECLAIM2 function ID
-From: Snehal Koukuntla <snehalreddy@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, Snehal Koukuntla <snehalreddy@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        bh=+GyvDCXoOZxhaF1YO2iBjYziahy1VyrzPfIWpLTL1Is=;
+        b=eQaz5uNY/lPTsvFX2aZRChZQOYcg3bv5f/Qhiui5YPARIDorOdhY/NvWrN0JnPyVtq
+         zb52IGkOhcv1UySLepnN/tCyq6nuLMFTSqkQCMb2Z+34cKdr6L1kDF2+IAPCgK1SJ914
+         tu5h+lhQV3riwgoAX0sJaOx2YmiwT/XrWbacuLQt1aNzLBT1SMo3m+p2+ezZhKHuh8Pv
+         451F9unyIjliwplmbNrIPteHFMxO055F1hJEAxoFgOZu+wh2QMKNcXazRfJA9MJcVvQT
+         0hSe8pASHanWvu2I4p+pGems6UMv1geDe6swnHzyxu4den5sSId0wpO4qiHTPk6V/mEm
+         rpOw==
+X-Forwarded-Encrypted: i=1; AKwUvBwRDK+BhNq3i3pm+fJbnl3x1TA60Brj1j3SeQKLfPqHXpwCbkjWlIqVVn22e0O+q3F59T18N5urg/hgMS+gcLaL@lists.infradead.org
+X-Gm-Message-State: AFq9FYKptQqSTOZnBM/NaTyZCWCUKItGcJPN9pvh4nPnWqUgC+uUlYa9
+	ZXqc9O37Hdm2vGcSWwEfHMuvVs7c5AAz8GNGcxUa5S20K3O7RA8UNzzx
+X-Gm-Gg: AYBFou2/yIGDJ+HDS4jiZtvCNxmeXGY7d5enbgZZiEz3yEXXzlNnGrPbXs1jhc0Qr+X
+	JDPCgjBHv9Fj8qNmYR82U4qNjGE+gnUxNQnoQjvCRqGgDkGyivpe1Vmxqtdvh2v8L7082r7VNDQ
+	YTiAF8cobGg+SmjGI0SPCHWfsKw+D473tDpWq8oPF11pcKpf4cvR0q4wp9N1iq0sAGpx0sNJHQQ
+	UznoY5DfBISlJrgSbcRhZXi/YGUk0NTsVsvxrJFVfidf/On5vZwvBCd0fNNn3GSpoEr9ZFtLQWY
+	f46l3kRrlocuZm3Cr2R49Y0vIQm7PRtyznHVFa/K+nt9RHFgkDyB1rPXw6Izfr4B7GTWqKVujxo
+	wNQfvS0GDVQ6pRV0RUbtVguq0GeLEkQSGHcty29ApF7rhcYK/XYGl9hAEUKEsh/f2Dq+1Lz8ABH
+	/gQRLVJQ9adgvwNA6F8Llbyr1i3QWIYrxRyArtI6888PjiOMaZ7aHYQxeshvXK4w6QyyJKWbUqE
+	PmSQqy1W0GmK3CwGHnCKfIuBPJG79t0na5K8RFJXE8qWDS892wPk4GGh2u89XYFoJeDpC//f9Uq
+	MeuS+YLg1hgFhCck7RNozvhLgZFFQrWa
+X-Received: by 2002:a05:600c:3e8f:b0:4a0:263c:704f with SMTP id 5b1f17b1804b1-4a18e4a3fbdmr441778475e9.16.1792140052601;
+        Fri, 16 Oct 2026 01:40:52 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.66.71.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd5033a2sm3715233f8f.45.2026.10.16.01.40.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 01:40:51 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v1 0/2] arm64: dts: imx8mm: Enable DMIC input on Variscite boards
+Date: Fri, 16 Oct 2026 10:40:09 +0200
+Message-ID: <cover.1792139809.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_012346_903336_CE9D6259 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20261016_014055_206297_707B9CB9 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +109,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FF-A v1.3 ALP5 (DEN0140 rev J) introduces the optional FFA_MEM_RECLAIM2
-(0xC4000091) ABI, which enables an Owner to reclaim exclusive access to
-a subset of pages of a memory region without requiring the Relayer to
-maintain intermediate transaction state.
+This series describes the digital microphone connection to the WM8904
+codec on the Variscite DART-MX8M-MINI and VAR-SOM-MX8M-MINI platforms.
 
-Add the FFA_MEM_RECLAIM2 function ID definition to arm_ffa.h.
+Configure IN1L as DMICDAT1 on both platforms to enable the digital
+microphone capture path.
 
-Link: https://support.arm.com/documentation/den0140/j
-Signed-off-by: Snehal Koukuntla <snehalreddy@google.com>
----
-Changes in v2:
-- Rename FFA_FN64_MEM_RECLAIM2 to FFA_MEM_RECLAIM2, following the
-  existing convention for 64-bit-only ABIs (sashiko)
+Stefano Radaelli (2):
+  arm64: dts: imx8mm-var-dart: Enable WM8904 DMIC input
+  arm64: dts: imx8mm-var-som: Enable WM8904 DMIC input
 
- include/linux/arm_ffa.h | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/imx8mm-var-dart.dtsi | 2 ++
+ arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi  | 2 ++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index e71d83ee0aef..85c2e490a387 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -78,6 +78,7 @@
- #define FFA_EL3_INTR_HANDLE		FFA_SMC_32(0x8C)
- #define FFA_MSG_SEND_DIRECT_REQ2	FFA_SMC_64(0x8D)
- #define FFA_MSG_SEND_DIRECT_RESP2	FFA_SMC_64(0x8E)
-+#define FFA_MEM_RECLAIM2		FFA_SMC_64(0x91)
- 
- /*
-  * For some calls it is necessary to use SMC64 to pass or return 64-bit values.
+
+base-commit: 31f9ec9f38735f42e1f0ba57347c420e56b99824
 -- 
-2.56.0.176.g3575e65682-goog
+2.47.3
 
 
