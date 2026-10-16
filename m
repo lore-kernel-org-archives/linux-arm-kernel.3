@@ -4,132 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB36DCCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 06:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98A1CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 06:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Date:To:
+	In-Reply-To:Message-Id:From:References:Content-Transfer-Encoding:Mime-Version
+	:Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKmXp2d3TpfvxuGqVqHnwKm3WEcWPeyk8O3QNAPgerw=; b=grd5ouWg1hQknvx2AdZ7zxlHPh
-	OjJQIFIxXJFlGgp5VmGCWQ05OnbhlIt0Dq8JQjuVGU7EYjOVfPrmMLhT7YYzV+dOlbIJvOBwnM/T5
-	CqdAxN8b2x+1rFhsOuyCxi4FSKvXz9wF4U4JKUKjQyjVDL+MJrj3QuF/7SF9DcwlfXrgfgJHF6u5X
-	kciPD9XgAPGnLtiNk9PwbdoV+7seVX4FoLV954VBcf9dk07/vG8vwb8AGQKcIoDN1Qwz3c97aNgEG
-	gNwLVealKBEhWsP2QZMehq+7PGSYPv41HS0fYuhMJdRGjlHH/y96TDLfFnNDo5mvzjTa19HX3fVkm
-	HgD6hLqA==;
+	bh=CfbTlnpulMZSnkTZ0v/+czU1W90GNJRnt5mWzrYoJog=; b=mlfcANXPJCNbWMUObM+O1SKMre
+	a2GTqjSloi02sIgezOSwxi2VWay8dObBjNdjlXPn8KmU77Knw8e5DZXehK02W2Fa+IKrSB1FwAcqx
+	OUZ6u92Rhl8wpBqTHvgidcL87RapGal5jQSMwcas+NNytHc/GfQi9PEuvbXp2W9s5CZl0VZt3+Vgg
+	4ai8gUZXxIF7z2/aCGrF8B/tO2QfwdVurZKnQJe1Ta4+La5iqGxgGLaNSK2Gn5us18uWTE7O4VESt
+	4UdAyaBwkgWnXA/3pWXHRO0nlG7P01F36KF+3h4vMMngg7MLgZmzkGBoRdRHZ6ePx/iCTeuzDfAMu
+	q9mqMF0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHbGL-000000026Hu-38DC;
-	Fri, 16 Oct 2026 06:17:53 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xHbH8-000000026eu-487s;
+	Fri, 16 Oct 2026 06:18:42 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHbGK-000000026G2-0xdQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 06:17:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=oKmXp2d3TpfvxuGqVqHnwKm3WEcWPeyk8O3QNAPgerw=; b=pu93NbLWma1+12xNiAZ6PhJj7+
-	fFpVWE7bV9HAbqxcsYwW5OXGL8ECqHRhsxDKTDFadkTEXsyrJN/MHFWx6TnS/SSSt9fHbDxUau2nf
-	8dFr3suP0iOpTboPLfZkOyq9TXU+ujVjIBwCrHNP0TPXIcHSCjwKOpVzXz4BI/O+456a+j3FuSjt0
-	BlJjWh14hUA+vlaA51esZdfGdp6HxEe39hzEo43H9DlNopmATuv5F4xtBIlFoK6cLeBcgsk9o2oXl
-	wRtEMfZCu5yQW7eZydYnONmA1BPdQpPYCFxq5EMuRZHe1y7DztrjDoRtjVq+KC4rtqSIb54Ptg3Sk
-	c6QotvKw==;
-Received: from mail-pz2-x0a.google.com ([2607:f8b0:4864:3b::a])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHbGG-00000001SDF-1HT2
+	id 1xHbH5-000000026cT-3ayY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 06:17:51 +0000
-Received: by mail-pz2-x0a.google.com with SMTP id 41be03b00d2f7-cd5cd8e8104so622813a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 23:17:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792131465; x=1792736265; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oKmXp2d3TpfvxuGqVqHnwKm3WEcWPeyk8O3QNAPgerw=;
-        b=qYkfzWew8phzI8+fGLWG54hKmqZzMkgOc8wWznzVXlApKfCS65xsAgLKBfR7ZxOmk6
-         UYvn73tjgi/Favpi3CJPqVGRKw3yaWDZ1ndN/jM+8+RL74eivnSPC8iFWD/Tb9vm8Zew
-         +cxUdBxJch2tpSIqPYHZjefp2Zz2wPpxCEUpCghfjewO1MfXqgJUmsduVQ9mndmpw/oA
-         k3W2z39moXxhUTZpjCc2mmyZdoPKzgv8gq0UxW1oqshbYr/2cF9Yx96V2RzdHnAPYHym
-         4X0I8RSsBujrd0JexiqVRNeHHG1oazEnPrWk5gsnjnN1NIRzs5WdxmUb47Rsu7DWKv7f
-         ZTBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792131465; x=1792736265;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oKmXp2d3TpfvxuGqVqHnwKm3WEcWPeyk8O3QNAPgerw=;
-        b=YwTRpkH/RDmLtJhBdDgbFNL9rkhi9Xwqvt5sF1vaLpwUqRiG+wlQsjwuICJQTaa3DS
-         ErudNwArWA6L4ZoKj3DW6YVESMUMuvg7Wnp/DIFv5JC8Le59grG/C2c/2GCSzalvM8I6
-         D0R12q120NNRg/uO4yzk825hFdd9jfth4u51m3FDnGBJNheYeYuEpksVg9XcukJlY8yi
-         YMIVIfR1hDxzVzujkumn9RoR9qw2FiCNQqjmO6HidCIoq00PBw0TvnxUfWWc1R8KlyPy
-         qBqnuLy1q5MaG5A2dyhgZHY/X/t5ZZrd+jVeY6YqmLg5pa/8Yq0QwPjZyU1l5njDqvy3
-         CJKg==
-X-Forwarded-Encrypted: i=1; AKwUvByu7daAFzmXG19cwX8a5h/x/U4ai2UZCokwHiun8k1qIJ/qztibUgVR1r+6pJ+xRYjFuOvO4HeQvh08XRcFYUq4@lists.infradead.org
-X-Gm-Message-State: AFq9FYIzzseYQpoDhVTamtKwwuEO0AW8Hb33lGb8OdHjHZOub1K3oF2R
-	YjjCoUmMdiXfsLt0abj7ZCOzCr21jPoSCWPcdqZdCLAMUYsM3ECQG8r1
-X-Gm-Gg: AYBFou3/YK5F08tdZT0C7CpS3V2DUUZvW4xhD/O82V3Gpv1AmTg9MF555PsHX/2I98q
-	yd9oys6UHXBE7/7HU+/rr5gH9lgnKdbj9D9nzMrYhSrAMaasU3PGFXW1ShTVQr774V2eA7r2DEN
-	S0/mQn9verXnzT74JlAYFtLPAtgPUSrInzM2wlWOP62FXbw9qfbZZMhLnUw+teuZlr8ntljrrwN
-	fWlW1zelcQ/N3JuejO7vEysPJOLGq53jBmyb9vomLfvSI7OFBIbuRGupjMGgwcO/Ul1ae5ABGzZ
-	q//PMzsy5G5bWjjLg4BseEeAIKIMC3rsAgNoG5VlGZT+kbxrLaK1Eq6vieMctfVFUID7eFjm/Bj
-	LxTwq7qnNKFPFKO3mwD4Ae9pShAc6H46owjCS6HgiuagvRje+FbXYRiH3YJ1UjiDw/0O96pHjdK
-	C+RUxVf5dSs1z34LsMkICogQPSmDN2YU32REszngYByvB2BHZIdGnkoqINgDo7qB9dniXyHqLnD
-	hjppeWL1LgGjJmx2pk0LA==
-X-Received: by 2002:aa7:88c2:0:b0:886:cae0:fb64 with SMTP id d2e1a72fcca58-897c700e74emr16786375b3a.31.1792131465299;
-        Thu, 15 Oct 2026 23:17:45 -0700 (PDT)
-Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f57b334e6sm586375b3a.42.2026.10.15.23.17.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 23:17:44 -0700 (PDT)
-From: Wandun Chen <chenwandun1@gmail.com>
-To: robh@kernel.org,
-	baoquan.he@linux.dev,
-	rppt@kernel.org,
-	m.szyprowski@samsung.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	saravanak@kernel.org,
-	akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	ruirui.yang@linux.dev,
-	robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Subject: [RESEND PATCH v8 8/8] crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF header
-Date: Fri, 16 Oct 2026 14:15:49 +0800
-Message-ID: <20261016061549.4181390-9-chenwandun1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261016061549.4181390-1-chenwandun1@gmail.com>
-References: <20261016061549.4181390-1-chenwandun1@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Fri, 16 Oct 2026 06:18:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1792131511; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=CfbTlnpulMZSnkTZ0v/+czU1W90GNJRnt5mWzrYoJog=;
+ b=PEU+PT0HYC+D9Wexd7ivowvxB5PD8hbFpiYGbh1DaGdlVLuvmeJkn5RZsx74J7Rmc26PuJ
+ zhOH6LJ2iqUbsoRofh4/iK5Z1HdGz+jn+LS9OtvEDXYT8lxC+XXRXZvZGgaA/ddlm4xUrb
+ kpnCZttysDRN0Qc10wXI9W10Qrtq60kn5XWHwKAzmC/hAnSlPHicHOaEYcxuvyTGaB0/fm
+ 8s08mtrMK0jcY7sjq/JHZPt2iL4dhLUyGtEtYdI1A1QVicsuXwNrI3scnmt34Gv1FXU6Ox
+ FGQ7Mo7otS2EYcpDeWD3ofr8XgDKiYk8QCIgtU1pvoKM/c5d+M9MWiWbpd52Fg==
+Cc: <will@kernel.org>, <mark.rutland@arm.com>, <ardb@kernel.org>, 
+	<song@kernel.org>, <dylanbhatch@google.com>, 
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH 2/3] arm64: patching: Fix instruction byte order in aarch64_insn_set()
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+References: <20261010084721.2197683-1-qirui.001@bytedance.com> <20261010085055.2200241-1-qirui.001@bytedance.com> <atEGBsR3eI3cXKay@arm.com>
+From: "Rui Qi" <qirui.001@bytedance.com>
+Message-Id: <e8020121-d771-4a23-80bb-aff20b21efe4@bytedance.com>
+In-Reply-To: <atEGBsR3eI3cXKay@arm.com>
+User-Agent: Mozilla Thunderbird
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+X-Lms-Return-Path: <lba+26ad1c1b5+d1f4fe+lists.infradead.org+qirui.001@bytedance.com>
+To: "Catalin Marinas" <catalin.marinas@arm.com>
+Date: Fri, 16 Oct 2026 14:18:13 +0800
+Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_071748_363833_BA0A0EB8 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20261015_231839_993514_10EC7D1C 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,38 +71,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wandun Chen <chenwandun@lixiang.com>
+On 10/16/26 12:57 AM, Catalin Marinas wrote:
+> On Sat, Oct 10, 2026 at 04:50:54PM +0800, Rui Qi wrote:
+>> aarch64_insn_set() passes the host-endian u32 instruction straight to
+>> text_poke_memset(), which memset32()'s it into memory in host byte order.
+>> AArch64 instructions must be little-endian in memory, so on a big-endian
+>> kernel the written bytes are reversed and the CPU takes an UNDEFINED
+>> instruction exception when fetching them.  The sibling aarch64_insn_write()
+>> already converts with cpu_to_le32(); aarch64_insn_set() does not.
+>>
+>> This is reachable in-tree: bpf_arch_text_invalidate() fills freed JIT
+>> regions with AARCH64_BREAK_FAULT through aarch64_insn_set(), and arm64
+>> selects HAVE_EBPF_JIT without a big-endian guard, so the path is taken on
+>> BE kernels with BPF JIT.  The direct-fill loop in the same file already
+>> cpu_to_le32()'s the constant, confirming the expected byte order.
+>>
+>> Convert the instruction to little-endian before the memset, mirroring
+>> aarch64_insn_write().  On LE the conversion is a no-op, so behaviour is
+>> unchanged.
+> 
+> We are just about to remove big-endian support (in 7.4).
+> 
 
-Reserve regions (for GPU, DSP, ...) carry no data useful for crash
-analysis. Exclude MEMBLOCK_NODUMP regions from the vmcore ELF header to
-reduce vmcore size and capture time. crash_should_skip_region() now also
-returns true for MEMBLOCK_NODUMP.
+Thanks for the heads-up.
 
-Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Acked-by: Baoquan He <baoquan.he@linux.dev>
----
- kernel/crash_core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I'm fine with dropping the big-endian-specific patches for mainline if
+arm64 BE support is going away.  The remaining patch, however, is not
+related to BE: patch 3/3 fixes late PLT/veneer emission into a ROX
+module .plt section in the livepatch/module relocation path.
 
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index e161c8b65e00..0e2ddc933b22 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -283,10 +283,10 @@ static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
- }
- 
- #ifdef CONFIG_ARCH_KEEP_MEMBLOCK
--/* Exclude NOMAP regions from the vmcore. */
-+/* Exclude NOMAP and NODUMP regions from the vmcore. */
- static bool crash_should_skip_region(struct memblock_region *reg)
- {
--	return memblock_is_nomap(reg);
-+	return memblock_is_nomap(reg) || memblock_is_nodump(reg);
- }
- 
- unsigned int __weak arch_get_system_nr_ranges(void)
--- 
-2.43.0
+Could you please review that one separately?
 
+Thanks,
+Rui
 
