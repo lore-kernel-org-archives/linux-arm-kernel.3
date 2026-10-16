@@ -4,150 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94040CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9A6CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3KHyZja5uP6lklSHh29m0AbjdLpE25SIXYCjKqNrfbo=; b=EZD6Vs33zhAd+1/4JjsduKfJNc
-	0fCtv5u0hk/SHwLNgZQUbY8XGkfCs72jqDyU5KfDZRF0v4d3HtILNdB8m3STlWT6dTfPjw5AWPufm
-	CSFwUlU5Rb8qN+qOPYnGwJZk084gduwRFj5W/+/2b+O9YJ5GzN3LtfzAnPRXPouDmiubWvULKrlx5
-	oL2lr6/jGS6oyDvMoL7xIX+rnISt3uQq5u42l/hmmMzCWzti+cuxpKRA2Pff/3JsXBUmfgTgbmgoA
-	DuAOkq7KmKEx0UaWU+1mNSG1YlxMPciRYb+8M8oxBVQHAL70TNjyshCs6ewxQAmNZKTsGjWDA+xby
-	5Utp0GQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=83Aj4f+5NsBgyuf5dIR6BTfkkLlq/tnMxmCVHEhCh2o=; b=xa+Cqt20k8cb4J/Fh/OdSMT89p
+	GuSplgK0tJKUCmZcLQvpo9k2QkazO6P7fialeY/mISIhI9WJPRLBmJPiKpwT9S6oIKJrbN4TDeveD
+	RFLP32vPZtj1WPYFOvxJrMsR3Z5216SwLQuBm8RjHPPrEQ8s0iJMzNBAoAXYgbHuA3UdoRe7W9/u1
+	pqwZCut87WEdQO328E/aM/+SCaHkE1Co9mIKAxRUfMIoiqSq8nuuFC5+Mx/fdo7M24UkqEI78byfs
+	XXPTSV35l+5N47+0JhAQGXTQaMAVcjoDjVmfa/U73a+8S/uE8NAJSgIehIez2ZLSeKeeeqvu0niuh
+	onJwgvqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHilS-000000037ni-0mzQ;
-	Fri, 16 Oct 2026 14:18:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHims-000000037yT-2FLX;
+	Fri, 16 Oct 2026 14:19:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHilM-000000037mK-44Uh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 14:18:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3KHyZja5uP6lklSHh29m0AbjdLpE25SIXYCjKqNrfbo=; b=NY8bLO7sb+wMrMJ1KponTbZFR/
-	E7qVR9Qfg7tpoyYyriiRY6GTG8pLN3AVTNs/ok1pYjlhlSQlVzdAZRNY+XVnVA+QyOF4t/iDnwwST
-	C9wJ96H3n7fuWDTo58KozrwRR7DwrbYv/CcXI7aw3lEusxWWk1FQ6vLT41xhWFCNmgZ7Awln25B7c
-	Gpzl5o8cMXAonxTtW2JsMJfyltOHMm293yX9Kmiuzqbubasyx3MvE5wE3TDRL76FKLuo6NKIdyTXw
-	ZX71gMpiZheW274PuuBy/5xEXRV5EZXwjCUR7boIxyufOsTq9MxBWAmguoe3+7nzZxS+3Ez3k7u2l
-	4HFpDWSA==;
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHilJ-00000001aQZ-1Oo8
+	id 1xHimr-000000037yH-0YEM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:18:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o7/3gNFtbEyVvR5wGrI/WJLW5SmKdTQRI6t6RVRSQicqzTwV9Cfx31mkB/NnIKRaJ5IDk6YSQIRicRh63d0v7ygcylPrPQ5vAA5IzN4TXZPrtQUlGWKuJXDSTIrp21kVGIcfRrzJg+ycTSfaCPcQw02vC61mRk3pFCdRb9i5Z3x/93cjqF06xQaNr3CgZF18IMZwlPtOF8Xw/fDevfaVYhjcSzMgu/9qT/0K383VXANSGG2vsjzABdd//kqUpIdOhbhV5BfBKbNiGVfDQP6FKR7wPemeVdZCwb1fTIRPyRYTSZj/36gJukGddGP7BesGKFNm+o0XlgKJ0T2SL+MIeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3KHyZja5uP6lklSHh29m0AbjdLpE25SIXYCjKqNrfbo=;
- b=nuSlxYlHGteasBtB6SpfgLLVC4DlPIKolUY9gYhBMEUeRr1dBeeUuuQmnHkJIzV4HPDwo2lNh2hw0Cb88+aGA4JReB99PCizNozEdzpz3DFjyaYIGPMRjXe8o3NbRCyORlM6tMpFTT1MsOjg4B+yAxY/OQoTyOZVhKWs2NU97l2BzXNldnflD4hNI9X5YdmEBo/24NHmqHiBNK6h/QTpt6OvFXVQnKs2m2Ps5n7JbTOk8x46c4OtyiKE2btIwAJLT6020sQHozb4Mn1XQ49JkLFf/G7RmDE29P/uy7PwBPu3BLfTHVZ/iAkkgFeb6uyzLk7NGtErpMpeq9jJDyJBng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3KHyZja5uP6lklSHh29m0AbjdLpE25SIXYCjKqNrfbo=;
- b=smU5upkKqE50tAr5xu8NCMWtZVIeAlJJw+iE4tHy6nOVG28gx+FoS04HQg4iDdGt0VHzDR/v2tl51Va+jmFF9815jlWIE8OwlXGuDLSEFDPmBiEnQUKRcMOBkYZ7HhTMu3GXZodxKrsnRQxfyYTlkrkbInW91AJZ4CETgRIQUGsvv/WQ6eCVUf3lRZ0OEuMDFRjSyMTWX+d8WOki8QcN5Lflq3t3wzzVfTZdukD+w5qgrbEhTjpwTwLPxhoqXJkc3sFu/54ZKVVxQ0H6zoBK+TVQAD52JxtLrQRgNOHK6b9q0b29jkhk6EsNKyXZIkZgIO0D5OXr3XryryAPNaP2fA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU0PR04MB9369.eurprd04.prod.outlook.com (2603:10a6:10:358::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
- 2026 14:18:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
- 14:18:16 +0000
-Date: Fri, 16 Oct 2026 09:18:06 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 2/5] arm64: dts: imx8qxp: Add display controller
- subsystem
-Message-ID: <atIyHjPaKLlfdv5W@SMW015318>
-References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
- <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
- <atBLglf0gSLS7XkW@raspi>
- <atD9yeOeHZiKzhZD@SMW015318>
- <atH5htXNBjFYq6wn@raspi>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atH5htXNBjFYq6wn@raspi>
-X-ClientProxiedBy: PH7P220CA0126.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:327::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 16 Oct 2026 14:19:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AED8543F2C;
+	Fri, 16 Oct 2026 14:19:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6C741F000C4;
+	Fri, 16 Oct 2026 14:19:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792160396;
+	bh=83Aj4f+5NsBgyuf5dIR6BTfkkLlq/tnMxmCVHEhCh2o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GI6wISk0D5sX15J9jlwNWrQpqHxp5vfV8yO1GxDv18ZphrJKZ89A4pYjnyVFB98JK
+	 /y0j/lejHHUNn8+QXcP3C/NCYqGJzLsBeMg33KqN20iX80mIUEeJr0vV3FfJmB+QkZ
+	 cAD7oakhLjw4XVBk7EjTO8W2xMqEFFYdJtYFLufDTPLOOkPuP74V9V0sZaIOBmTs/b
+	 x4mgZmEGY326qwfbyHnB0myxhMbutUVFtN6wvpSWy2KF1TpPmqmLbxb92yHGlLE9we
+	 IC+UohPD3MRE5MNhl75r1vyYpoE5T4phVFvt2DeEm81t+4Zrh8bNHPhO6vr0wRq/EB
+	 QfBGnmHYuD+Lw==
+Message-ID: <ddfe83b7-d4b8-4d56-a295-fde63519bdde@kernel.org>
+Date: Fri, 16 Oct 2026 16:19:50 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9369:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5c8963c-46f0-44da-005f-08df2b9051c6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|19092799006|56012099006|11063799006|5023799004|4143699003|261009223027099003|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: pasIsfDvw4gdAGUVtr2AGoe3k291kWoQHpReHmvWTYZ7eMnIdR5BOwlFlSnuAuRnbx7uGX9CHgXCewwz1YNNfiu4rueEuUh6tvK3bo0TVndkM2k2ZBZfkq/CtcgcuXUbPn0UM8GOq98OO1BO0r0IFyFxQPW3UiwOCgrnCWDveszOR9GLvij46eAKyo0fBRNbZqxlGCXWj1OMS40FlQeYTFPwH/9ltyooNdS97xjY7GSZGbCKRFXpm0BZGXVd8knAPMCuTSzVCa81IlUqteZU14z0fLK4UnXMQVYNYWUbEObKytwCZVCHnlgflpnK6BGMo01W3Uok7Ih8wiCvTFs1TtxI47+hRz0zbYP+f0B8wTmRkCJ8LbDUtMDU1hWuKt5e68nnuToRvXGbqSAHXIq2npvIXRcrchhlX4jXtQ/mVvoVFMXdxxd5vdldCy9l9JLA9jdDLchMdupiw2le0blyLJHxxWDBGndIFYu2Xv9zK3xyReqi31nxYnDZ7vsLBHjjFpG0PIsTGJNHkAloDfT+8N0VJCuiw56oyyLrUfqUFSb24X6R9tVirniOSeclyhKMPurlzKKPIG2h3rP56JGL3+0CwSc/rZNys6SJgOsO/OPusGAvdJBJfEuzi1yaJOBjC4cC179OsyUvyw7K/zhihufYWxOW9fPDxOIEsfwqyN4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(19092799006)(56012099006)(11063799006)(5023799004)(4143699003)(261009223027099003)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K0Z/NM2aY/ivoVzj/tQehnmyTjzZCwBG8hhCRHnc+UakfJt2LP+YbPydoy2G?=
- =?us-ascii?Q?2utfI/NxaCJ1aNpytw70rOnPqL+dkZ5xY94mo33w8t0Z58Y2nkXLHr3PVyz8?=
- =?us-ascii?Q?AJRCRHKybo0XBv5F2gYCDfti4FQIBCFYtdo9Yel93H661wVrepsEA/OhZcai?=
- =?us-ascii?Q?Crrz8KNrm4qQ4+ok8KMxSXoBq4ahbk5R5c82YfUmMzHz3f9FuuXuf5bwJ3gK?=
- =?us-ascii?Q?e/wh7Or5m5bF9DmShJ/LEYyhRrGQ6wCQgqEyXf9yWVeRNT11Ypa1451FoFQf?=
- =?us-ascii?Q?EVfBiobzamQekmvZJ3AbgntVNgNPk5eHq7GMvixTpZGiAPYEIRN1ye1SF5kh?=
- =?us-ascii?Q?JbHNdgPW5TcNU+FDA6rujFFabMwc6HEgnab9hws4aZ1YQe3OGoNP/jDGhdPa?=
- =?us-ascii?Q?SxkUZysLFaZyYSWkHAx7GiMLG8kQ8emjgJY4OAuEftE7WIq/x0tU6YoKGY6w?=
- =?us-ascii?Q?kd1LO6HHLBGx8skbM0J60A6ZUreofe8GiQosQJyuiNHguoCGu7Kdx3n8ot+t?=
- =?us-ascii?Q?2fAtMOzUNiQc5KY8RyDqa70FPAmQg2/at8UGjAj0WMMh+Tpkq+FLWJy55kfM?=
- =?us-ascii?Q?2rwXBgvCuS7QbvLrEgKX8mnJrfiHRdgrAt1NcQrY373YahHjyG/4783ML7pp?=
- =?us-ascii?Q?LBhrSnp5GnCduVlaRsop2UvIrEyM51+LkCAhtgdua88TzpLf1HvKd/w6hiHG?=
- =?us-ascii?Q?mgJjmX2uRRYJ99JX0+SuSMP9HI618Ph+wrqooxE/NlEbzBU0djCJZEv6xxK9?=
- =?us-ascii?Q?UweQYX2CRtpPDng/4ieMWJn46//KXz9TYZK//XjkYNF3SWjV9+KxgJc0mnDP?=
- =?us-ascii?Q?YJMMu8P4EX7WIYxDLbxLvB1Eb3dq3MLz7VVdEIeWqMLH8ZG/l9a7Sz4156+6?=
- =?us-ascii?Q?RWEDtoDQldcN5rSGlBwoaKXLK2gk3/0vJJ0yzu+6Zj1w8eDj/O/UWQEi54u4?=
- =?us-ascii?Q?HA7BT6aqxusQNVkS/XgCV5rFYcvZTfIvCIVqc/J2LxLbqKpNKfgFGDvk7lLR?=
- =?us-ascii?Q?rNVowW8ndz9wr5NSdOELv1PKXDRHUO8fBizUSfmyUT4IawYW095zvoQ7RU+4?=
- =?us-ascii?Q?lSnE96Zj+ybE5Br601S09l6WUCDG0QiuJnM5EVzUym4abfegFNP8nJgzdaY/?=
- =?us-ascii?Q?CR+xZg6PE2oczLgxi5w8AF5G3JkAepqsLmbWBvlY6K8R4ODaLVu9N2vni3IE?=
- =?us-ascii?Q?chdQhAJWEh9giiviY7q8QVvYMqvXgS5M2jTZinOur/CvvlUIx72dNsSU7H+S?=
- =?us-ascii?Q?1FmRY9NiA9DgVnIH9RBWqoOAyr8YI1jyZmwRjBQj7mW6WWQkX2ywHpHlI9bs?=
- =?us-ascii?Q?NmNMIZUhRcwf29ZxR0oZm/FMCbShJ42QbcA3Iv3EF3Byky0bNdNByQp2uqCk?=
- =?us-ascii?Q?v1J++yuevhE1VmRZ0EAaQUySYnKONB0DKM9A/xb+nUDvH+3JhRJvcVjFnYFp?=
- =?us-ascii?Q?RbhYt1dds9yt4lauCvkfzM1LtINt9dsSkgIYdiSIPs/JSZh/Axoc1iJtpeoF?=
- =?us-ascii?Q?TqIIipRclX7bMKRxpN50PBWr4XQWxszofSkFq4/pO2JYTnyKpmzGXKdU+S0O?=
- =?us-ascii?Q?CEy7oeuPjBkJmhPtQbDs6i9gwB39A3M43zEmT2HGg4gS3VST9M0i9DYtlKf7?=
- =?us-ascii?Q?PLszMq71BLxmvf8497MZ4b5FBUvaSQKsCiV7x1OhA2O6NHxEckosvQtXnOds?=
- =?us-ascii?Q?6TZRlV+DAHRVyWcjSeyS3IAEp1idrPAEyiVzSL5nzKJ2+1teD2gqY0QM2ZHo?=
- =?us-ascii?Q?xx/ihl9d1lSuEJ+Z71UmIg0H7ohQsPlrkU7WUQyR61c1fQIhjGb5?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5c8963c-46f0-44da-005f-08df2b9051c6
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 14:18:16.0142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PtnHWUT61yp9Tyjp76ZDe9Zs8ZZJYRvfchKJAIWjWKpS0TbPSBphkJQyACaJwZZaYMmCOh+WxoZzfxd0Twf9QBS6ibhgrxVwKKjmG/sMnGWuxQ+5SiPAaKXPZhgWJ1DR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9369
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_151821_543191_D72A9ADA 
-X-CRM114-Status: GOOD (  22.55  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/5] dt-bindings: mfd: Describe the BCM6846 PMC
+ complex
+To: Linus Walleij <linusw@kernel.org>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ William Zhang <william.zhang@broadcom.com>,
+ Anand Gore <anand.gore@broadcom.com>, Kursad Oney
+ <kursad.oney@broadcom.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <rafal@milecki.pl>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261014-xg6846b-bcmbca-xrdp-reset-v1-0-daf5d177e113@kernel.org>
+ <20261014-xg6846b-bcmbca-xrdp-reset-v1-1-daf5d177e113@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261014-xg6846b-bcmbca-xrdp-reset-v1-1-daf5d177e113@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,74 +125,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 06:16:38PM +0800, Liu Ying wrote:
-> On Thu, Oct 15, 2026 at 11:22:33AM -0500, Frank Li wrote:
-> > On Thu, Oct 15, 2026 at 11:41:54AM +0800, Liu Ying wrote:
-> > > Hi Alexander,
-> > >
-> > > On Wed, Oct 14, 2026 at 09:16:46AM +0200, Alexander Stein wrote:
-> > >
-> > > [...]
-> > >
-> > ...
-> > > > +
-> > > > +			dc0_framegen1: framegen@5618d400 {
-> > > > +				reg = <0x5618d400 0x98>;
-> > > > +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
-> > > > +				interrupt-parent = <&dc0_intc>;
-> > > > +				interrupts = <28>, <29>, <30>, <31>,
-> > > > +					     <45>, <46>, <47>, <48>;
-> > > > +				interrupt-names = "int0", "int1", "int2", "int3",
-> > > > +						  "primsync_on", "primsync_off",
-> > > > +						  "secsync_on", "secsync_off";
-> > > > +			};
-> > > > +
-> > > > +			dc0_tcon1: tcon@5618e400 {
-> > > > +				reg = <0x5618e400 0x588>;
-> > > > +
-> > > > +				port {
-> > > > +					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
-> > > > +						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
-> > > > +					};
-> > > > +				};
-> > > > +			};
-> > > > +		};
-> > > > +	};
-> > >
-> > > I'm thinking that it would be good to have a complete display controller
-> > > DT node in the first place, including those prefetch engines attached to
-> > > fetchunits through the fsl,prg property.
-> >
-> > what's current prefetch engines status?
->
-> I need to address quite a few comments on v6.
-> Some are difficult.
+On 14/10/2026 11:48, Linus Walleij wrote:
+> The third generation Platform Management Controller (PMC3) has
+> different subdevices.
+> 
+> Identify the parent with Broadcom's "brcm,bca-pmc-3-1" compatible
+> for the version 3.1 complex.
+> 
+> Describe the complex as a simple-mfd with two system-controller children
+> and a bus child, each owning its register resource.
 
-If needn't big change when add prefetch engines, should it be fine add this
-part firstly? It'd better than nothings.
+That's RFC, but I skimmed cover letter and did not find what you
+actually ask us for and why this is not ready for review, thus few
+things to spare you one more cycle when this is ready for review:
 
-Frank
+> 
+> Assisted-by: LLM
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  .../devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml  | 98 ++++++++++++++++++++++
+>  1 file changed, 98 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml b/Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml
+> new file mode 100644
+> index 000000000000..7ddf84b561aa
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml
+> @@ -0,0 +1,98 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/brcm,bcm6846-pmc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Broadcom BCM6846 Platform Management Controller
+> +
+> +maintainers:
+> +  - Linus Walleij <linusw@kernel.org>
+> +
+> +description: |
 
->
-> > Is it possible merge at v7.5 ?
->
-> Not sure.
->
-> >
-> > Frank
-> >
-> > >  In this way, display controller
-> > > driver's life would be easier - all child/grandchild devices are always
-> > > available.  I'm considering to adding a check to the Linux display controller
-> > > driver to ensure the availability(at least for critical child/grandchild
-> > > devices).
-> > >
-> > > --
-> > > Regards,
-> > > Liu Ying
-> > >
->
-> --
-> Regards,
-> Liu Ying
+Drop |
+
+> +  The third generation Platform Management Controller (PMC3) contains
+> +  separate register banks for PMC control and message queues, the
+> +  Processor Monitor Bus (PMB) interface within Procmon, and the Maestro
+> +  processor control registers. Each child owns its register bank. The
+> +  parent provides address translation and does not own a register bank.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: brcm,bca-pmc-3-1
+
+This should be rather SoC specific.
+
+> +      - const: simple-mfd
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  '^system-controller@[0-9a-f]+$':
+> +    type: object
+> +    additionalProperties: false
+> +    description:
+> +      PMC control and message queue registers, or Maestro processor
+> +      control, status and interrupt registers
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - brcm,bcm6846-pmc-control
+> +          - brcm,bcm6846-pmc-maestro
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+
+No resources here except address space, so I question whether these are
+really separate devices. I guess address space is at least big enough to
+mark this as really separate device?
+
+
+> +
+> +  '^bus@[0-9a-f]+$':
+> +    $ref: /schemas/soc/bcm/brcm,bcm6846-pmb.yaml#
+
+No such file. Are you sure this passes tests?
+
+> +    description: PMB configuration, keyhole and address mapping registers
+> +
+> +required:
+> +  - compatible
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +  - ranges
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    system-controller@ffb00000 {
+> +        /* Broadcom BCA Platform Management Complex version 3.1 */
+> +        compatible = "brcm,bca-pmc-3-1", "simple-mfd";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        ranges = <0x0 0xffb00000 0x21000>;
+
+ranges should be the second.
+
+
+Best regards,
+Krzysztof
 
