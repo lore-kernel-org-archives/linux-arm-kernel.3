@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655FACCF2C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE88CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c79mCn/1nYurBgODztRRbDvLhY3Vw34PrjUiu+4Lp4M=; b=bZd0rR6xiCbTLUdXtsxpEWALwT
-	w8NEfO3KgSzF0rch19FxxYj8xnze4qGOunJWyMVqbjjmBhfW+5Bdnav3i52rHc5vRsgy5nRRFsORe
-	xh5BcWnP7DqjhCYPhdtN7lxVP+JUfzEHtRy2f+A/UvCuVmoENBa9SRFO5lZjdrEbWlJPA3iUSfrnn
-	uc0yRisv/JlIcTjKuUsLZpSBG8m/ctZ8KA2ATs6ZZsygBDCybrKiAelCbvGnVsnNNwe49X5Oxam9+
-	JyArjoW7dAKqMm+x2maWRf3P8taTPcHgKJAEBtAX4kw+odLaQ4OElDOoRqFoQD2K9Yfosl9XOHVe+
-	cAZh8jxw==;
+	bh=p/+aeuq10lahFxV4sPbqMVgugB6iAyCbfMnZjrybFR8=; b=e7LM/aw/isqTEH8kAwu83+1tUp
+	kKwpDLFbrJDlvzO1fLY0dCL6QBowLw9DRLFdZbkVpToIjgLmliAontI0nIQ/impbJL25TGgAp80Ys
+	ct4QqvkKQc+4G/iQzzNZKd0TRDN/oN02dlZZ8ghnt6WpKCu78uyazKfAKd6dZ1vHHW9P5CLhcOcVK
+	nCUUfEX02/IS3xRnbDr6au4QvIBn5EAvvL0r7Q6UYQXOI8uSTUJLVIdt3IOAHx3WHoRXO6gdeMXmU
+	ACM+DLQWh2zqb0NofhdCzZUsk84fpKi7Iq4uDttUlEH77GMNmAYBPjuIQ1LexqoKvrCt1CBTSTbcZ
+	lUStOTCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDY-00000003TwQ-1BGh;
-	Fri, 16 Oct 2026 16:55:40 +0000
+	id 1xHlDy-00000003UOP-3qaR;
+	Fri, 16 Oct 2026 16:56:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDR-00000003Tq7-2L0u
+	id 1xHlDb-00000003U1F-20k7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 16:55:33 +0000
+	Fri, 16 Oct 2026 16:55:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=c79mCn/1nYurBgODztRRbDvLhY3Vw34PrjUiu+4Lp4M=; b=p4nMZopSaBSWUcel9W3JdArBuv
-	fnZmPKnmpTZOgDhYEQugdm/ckLk/RyjMm9YclvcYgNAUMwrbS5MVkD//vjjTMK2HEpZyqa5LuA4Sj
-	u1QZL7jLZJkwu0OUVSMLarHgQ0kCiUSZp5e86Fxd3skUYMnXVXFJKbE9jpVXUJ1N7PSltvtClHwS+
-	3ySlGiiGLewxGp1pN7TKTG0ERgs9DnxmpXmSdyVzno/8JXrNEZXJd7EZ/pHQaGHsK/CJBx+2dBZnE
-	D0Q/CsWj+dyC7W2pN5MV01FjNXyxbfUhXYAfRWsY+kXG1h2Jx8WFmeoKsg+Tl0aDP4G1d5Kamvzh3
-	41tcddzA==;
+	bh=p/+aeuq10lahFxV4sPbqMVgugB6iAyCbfMnZjrybFR8=; b=kErh0do2+RtB6EgxmbjmGmOv8C
+	Fgg8mjycLFUB+o3Qhy5zZSP9mi7ACptkmTK83Qyc/+laVymaI+1HVzijMB7isMUMNEVhOH+emdk2H
+	mnC5N+1uEAHVfwUQRaIAOuNxynEQ4bousBIOZhxoNWsjPn0sW2EeubAF93BBSqVt5IAofPHVh1oH0
+	FdLzwejBQBeU7Y6/jW+IPTGXSKjoTHKB/aCo3PqX64x6As/ry1SvPuo63svcN2LPSuRrQnaejrBXB
+	AfbIXt4PaV6TdDin46oLqvhkR9jO+1yXEd7Y4L12mAM1IVRZSCyirmCpOFCPT3GBNhayjQAKCSrVQ
+	+g4tnXvw==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHlDO-00000001lJZ-0JRo
+	id 1xHlDY-00000001lL7-2zKY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:32 +0000
+	Fri, 16 Oct 2026 16:55:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 435691516;
-	Fri, 16 Oct 2026 09:55:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49EC01691;
+	Fri, 16 Oct 2026 09:55:36 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F00133F7B4;
-	Fri, 16 Oct 2026 09:55:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F41013F7B4;
+	Fri, 16 Oct 2026 09:55:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169728; bh=7a5LM0omtRuxo1GY+8/etcO0DB5cgJyVFb0k9uB3eCM=;
+	t=1792169739; bh=i8NvbVpuzfjMiO2TYqnvpJ+XUXrLAwhczqa0ubO6Urw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TAHb/taJYqC/Yzsg/GaktFpDrYnFaTOMGfQau9gLqS8pONtIjMLuHG/26sw4IdvaZ
-	 /tRVvzC+EGR4UjB3htGmHnc6OOJoXMCMGU1F3pEZHkVmIsA6aEJGB3ktnXduBnSDm/
-	 4ArO3I5g4ynKNMx7qZBzBuPOu0DzmOLTO5hmuC9k=
+	b=vFbivNU214iNvGciB4ZiTH/AcVgosJp3nYP4qO6naTtG0r7vQX2Y4XDSiaaYT2aej
+	 jNDPlr2SMPW4zKHorMNaVCrKCgg8jItAJuax6CGhOolcXk33ukrHALVJeWE4E28RH2
+	 oYUBbkLcAFpWk8PPlKQe0Gy0VwnLLLJSuFJWRnWE=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:07 +0100
-Subject: [PATCH v2 09/23] coresight: trbe: Clear TRBSR status at stop sites
+Date: Fri, 16 Oct 2026 17:55:13 +0100
+Subject: [PATCH v2 15/23] coresight: trbe: Report truncated trace on buffer
+ update errors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-9-3f57cf3199b1@arm.com>
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-15-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -72,16 +73,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=2109;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1077;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=7a5LM0omtRuxo1GY+8/etcO0DB5cgJyVFb0k9uB3eCM=;
- b=ry8ADQrujTTFdEbFxyecPPqDjhNg7eET/vbVKpX+EPc6vBXJ9jKOsQ2foozk6MhEfBwdUjTZU
- VJwoW6ObtIzCTZ82mdUuDCtbc8QlakBH0U1WFWBzpUsNZUQ6TrnvRpw
+ bh=i8NvbVpuzfjMiO2TYqnvpJ+XUXrLAwhczqa0ubO6Urw=;
+ b=/o5/cCMcND1q+Zxgjbp/2XyQGRR9Qmn4+kmWPIxpvOQnMD1CVZGIpIKd9+hsNPkXc/yUm6yrk
+ X5s8CeLKMCGBBI4Ppz0FGwfUN8ou9YEBR1gus12JiBUAG+OAkhF1L15
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_175530_748048_88BE5B86 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20261016_175540_983317_2DCB5DB4 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +97,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TRBSR_EL1 records the status of the buffer that just stopped. Clearing
-it in trbe_enable_hw() postpones cleanup until another run starts. If
-AUX output cannot restart, for example when AUX space is exhausted,
-that clear never executes. Clear the status in arm_trbe_disable()
-after disabling TRBE instead.
+When arm_trbe_update_buffer() handles a pending interrupt that is
+not a wrap event, it discards the buffer by returning zero. The AUX
+output is not marked as truncated, so userspace is not informed of
+the lost trace.
 
-trbe_handle_overflow() can start the next run without calling
-arm_trbe_disable(). Clear the stopped buffer's syndrome and status bits
-while TRBE is disabled, before attempting the AUX restart. This also
-leaves the status clean when the restart fails.
+Set PERF_AUX_FLAG_TRUNCATED before returning zero so perf reports
+the trace loss when closing the AUX output.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 26e7554d6bdd31f8a55a8bc3a7b6d4c49b984b9b..dd9c9330bb0c739795f300dafc6ce34e72fbf280 100644
+index 1c585b6123df2f20d08747678d836742ce9564cc..ac49098aa08412a23a20d32f84c2e1977ee4a223 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -655,7 +655,6 @@ static void trbe_enable_hw(struct trbe_buf *buf)
- 	WARN_ON(buf->trbe_hw_base < buf->trbe_base);
- 	WARN_ON(buf->trbe_write < buf->trbe_hw_base);
- 	WARN_ON(buf->trbe_write >= buf->trbe_limit);
--	clr_trbe_status();
- 	set_trbe_base_pointer(buf->trbe_hw_base);
- 	set_trbe_write_pointer(buf->trbe_write);
- 
-@@ -1069,6 +1068,8 @@ static int arm_trbe_disable(struct coresight_device *csdev)
- 		return -EINVAL;
- 
- 	trbe_drain_and_disable_local(cpudata);
-+	clr_trbe_status();
-+
- 	buf->cpudata = NULL;
- 	cpudata->buf = NULL;
- 	cpudata->mode = CS_MODE_DISABLED;
-@@ -1095,6 +1096,13 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
- 	unsigned long size;
- 	struct etm_event_data *event_data;
- 
-+	/*
-+	 * Clear the status. No context synchronization is required here,
-+	 * since context synchronization will be performed before TRBE is
-+	 * re-enabled (see trbe_enable_hw()).
-+	 */
-+	clr_trbe_status();
-+
- 	size = trbe_get_trace_size(handle, buf, true);
- 	if (buf->snapshot)
- 		handle->head += size;
+@@ -903,6 +903,7 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
+ 		 * errors and as such buffer is empty.
+ 		 */
+ 		if (act != TRBE_FAULT_ACT_WRAP) {
++			perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+ 			size = 0;
+ 			goto done;
+ 		}
 
 -- 
 2.34.1
