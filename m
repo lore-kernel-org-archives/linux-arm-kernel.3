@@ -4,142 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8F7CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99229CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/RlYOYW18NWdq1ZUTnrvC/scmLlgIlSh6V8pxQbHT20=; b=OcvIHnQ7yQCyiKAjamZ5mhEkeO
-	0Vg7zpnGeew6s6gmgNzTCEs34nsecqD+cpv0cyGSwhZ7SnXxi0RNShZvHBxFWlEwXYcse9Uqnbe5n
-	ohn45uyxCPzMebRLZK6WEEw02wi5WMjm03dihRZwptmRT0lk9LpA4tZTqYctcy0+pQy15QxjADstX
-	aP71xIxpTrDZxLwL/rcwQk7yCosMYqb0QzaW1gWk2SDfU4rvJfq3h5Zylv4/QmpyYBYM6Tb8ZTyd3
-	UME40k77WMKkJgu4po7aLPXXjcK6nLdzyIDrj0zLz4cdqzeXnh3keZT0pGv8JDjMBg9hIcoN9n3OS
-	2o1hB/MA==;
+	bh=zV1tkuQVhB7asiK+J7N184oVAmpF7qz9rFGuGv/mKyw=; b=iuYIVBOnO5iIrdr3evoBJFhKkE
+	IQBk+9C8s6NEhDNNiGh3yd6biylu4gY7In1sU+7VtbPAtWuQ/DkAEJXyGSLPnJ8MgZJf1Nlx9pJfK
+	91qQVJXX3sn0ZmZiM7oBjPEfcMdV9o6PbfbJKKfQ1Y09bmVXF0Kj7vBybfJGX3HB+HmMweSZKOIcT
+	Y2Dfj5zerL9lCvzZAwl/8HxzvQm7vhfQZhJ8QNq3b2B73QcOp54YeOHbC73OHrEifUT3FxZ4Bv5AT
+	t99L33ynbCxeQMh/8E4RHCUEu4r/pGnin2t0U4bK+MzFo2AEdjoGrSSja3/Jq6TCcCr3iMgVkbabv
+	OZO5T8Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHk24-00000003IuE-1OpC;
-	Fri, 16 Oct 2026 15:39:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHk3D-00000003J9n-291G;
+	Fri, 16 Oct 2026 15:40:55 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHk22-00000003Ith-3U2b
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 15:39:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/RlYOYW18NWdq1ZUTnrvC/scmLlgIlSh6V8pxQbHT20=; b=JG3jnURgP58HHRpSGyfBACyL+C
-	KDRvlSr761D96pnG2jsVMXoA355DYjX0WUrFyS8zO2omPRibnQ80WlxwU0o9c1UPXcZgr3WUvCdd5
-	RANaNyY13c3db4AVImoXGdY+/VRZttZfSc+Df2g6zlO3lwNpb5BpSFz1C5LDuViZM9VgHGp1HFN/E
-	x+53OUY3SOXgvnNCEJUGVM7/qyVKWEv/UbNMpTW+JR7ql3LWbEO0WTuNnRes0GQGm7ooQZU+4CAuv
-	NL0sU7Vy/ecYE31Qhxay+wA4TW5p47HX7xUGMtBe1AlTvKt6y0aw+AG+BrwWK+Srb4RYwzKWkjSFb
-	mLs02azw==;
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHk1y-00000001gU2-0Tae
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 15:39:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y1mmR9XWEfNo9VROqLYMHbwoOlNkYAF9JGG+DJstR7ObFaHxJjCE3bD72DzPn3qrdqazEYWDf335hlGNXMvXcsZoG5WGo6qr9vaYqbNukDUbJNUvkaKDGAdAbv00+kjqfOoUKs7Sf3DQqgiD4BvUyZT2+WoY6w2T1srXG3NwsXtYAZtxGDSP/5/1F4asOhElwRT5Zr3KSLKCcqeym7I0MRfIHs9XDpJxC8jWdKRbuhwOFabKwGa7kQmIsb7Rbfq8TxJJNRPGnIYiFDPwRvbTB9ni3yRG2R9i6iOyp/LcrqcItEIilmTZKfzm1lgH/CFLiqygAodiiKXvvP56YrSa2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/RlYOYW18NWdq1ZUTnrvC/scmLlgIlSh6V8pxQbHT20=;
- b=CKtcwai/BJR5+qQXYalSK3Wf56/ZJ8pYsuUDBEEfV/3JZxk2IwY0EZaesH6OfJsQPseiJdWvg9NQ7mrhefDX2an4n69+xey4FmQb9pskJeDVYx6bYPUdoPNlxpVhsG9xsyovmYQtmyZr1FWwJ/VYTzMKlaj19DHlPA7SvLgWoRk8eqGrE4goFA6r6hzDonzVHko5rVcUWdbcK61evtkB5WFcoN2lP/EuwFXpkvrjnpMV0h4b9SmFQEYOnPetxb8mPppIoe9F8gkCPfcRcKOL5UYUY1l03J9qLopL33vgFQpHXYkkn3b4c/QmtGShZjZjfCHyM0hoWiOOZDgLG7YMLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/RlYOYW18NWdq1ZUTnrvC/scmLlgIlSh6V8pxQbHT20=;
- b=Oi75RQERsUNm5wBnQUMtf2T8L5OSQkMbF3VjoVpfjO7W1MZedC9m2EoWtcDQtXtZhzSD86copGVElnmx9gDetP03R/Iac8vGeAqUWCLp6xnb2jIKSrVBRp+s0yfi2rgslRvTr2SxN/kVvBFs9UR5Am1ubIPmFs6YJHRgny5BcZmWlZhiJV6rty1RwiQS+YwmdYn4Syybu5MVzWG+QEfa1q2IDu2tSkaqK5oCngZ/wGvkfzZoMW1OHr2GbJjePNL0JPhvmnMJqTk8py429yiIlb6DokCYPyMaGnxz5d120wcHoffmmDPc1ieK64EewQ42eF/FCjT30MWzwo7GtzrJvg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMDPR04MB11680.eurprd04.prod.outlook.com (2603:10a6:20b:71a::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Fri, 16 Oct
- 2026 15:39:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
- 15:39:31 +0000
-Date: Fri, 16 Oct 2026 11:39:22 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org,
-	arnd@arndb.de, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, zhongling0719@126.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] dmaengine: sun6i: Fix potential deadlock on sdev->lock
-Message-ID: <atJFKnNXdtFjTsQ9@lizhi-Precision-Tower-5810>
-References: <20260706031721.24415-1-zenghongling@kylinos.cn>
+	id 1xHk3A-00000003J7r-3gYP;
+	Fri, 16 Oct 2026 15:40:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=zV1tkuQVhB7asiK+J7N184oVAmpF7qz9rFGuGv/mKyw=; b=nW8dNfcxTDYiFECGGfWoIX/Ku7
+	sNm/7PDt5sXWvnWyXzhpOQ2gJNbHyuDrk9MvdSwog/lwmUtPRdYxf/cY8s5vrupvCYCd5nLhfXZkc
+	T+HCLAIsl4EYA1mG6U13D3Fg74Ln3knSk4rATAMC7bC7iRz98pywJkmpdcpg8OX3tMa0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xHk2y-00BArn-3k; Fri, 16 Oct 2026 17:40:40 +0200
+Date: Fri, 16 Oct 2026 17:40:40 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Biao Huang <biao.huang@mediatek.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@kernel.org>, kernel@collabora.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v3 2/9] dt-bindings: net: mediatek-dwmac: add
+ support for MT8189 SoC
+Message-ID: <b4950f82-0163-4482-9799-a5e3c6eb5964@lunn.ch>
+References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
+ <20261016-dwmac-mediatek-mt8189-v3-2-25daf2bbcf35@collabora.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260706031721.24415-1-zenghongling@kylinos.cn>
-X-ClientProxiedBy: PH7PR10CA0015.namprd10.prod.outlook.com
- (2603:10b6:510:23d::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMDPR04MB11680:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2bcf4d70-fe53-4db4-ccab-08df2b9babbb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|1800799024|7416014|366016|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: CnV/QoIS0zn7F8MTfVd5nkP6Lb+N0k1//lAtr2tmnIfC4LivVdrSHQn6UUavgqqIo8tUYSP1o3+Xb5NaJ7vaAngWgScO8N0W0RwQd4gzoWcTn2fpqHcR3ZDr2JK2Ry7O4fXKnA37GchHYSIeS/HcJ6WfDGrM3LPF/KsqcR6n8YxhnsIDCRcCPJFeYpDoBMABOiAtwU/k2y0+9uvE5PRfACHSE+wKMDETickF56wJxX9HS8PddnjbUO6phTODAmkj6yHbITkfu7QtfObDCs+7RuWZqG10xTOo7ZCyQeeJGL4O4OOwuiJjXbaHEoIpqyxylt67dtidnmz+4jajYhHAN9FkDWVmow9E0X70sweV2+Ba7SSouYsIxRNM3eJ8K9LwR3yG+k8QqESAG+uSSodlkgnFy1JCwK4uRRKLWlWCKLVrBY87gHWcKMLtkjLau9192P1nlBSAw6OyJU8MLAvp3l8CBrUlo5ziEd+b86X8NKLL6QVbPulne07AvCmwF7PVGYngmkQ1CUimXEt0FAMa4IsjkJrB3GdT1nGQizUDhFyOBu78INU1dkLL5QKdkqRWr3VPOcOiaBE9pm06MEMu/fG1KTZMnFb+urqGqkoq/v8RJuHbVSXa2jNWxfo3hZatYpKw9t6TjEyInIJvsR9pbqNbKJQNWC2CaqX9q6IHwKA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(1800799024)(7416014)(366016)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5cat6XnIYvL2DHqAhgYSjfQb8tcapH3KbyvrtrcD2CzdpZOTMFMP03QKbboE?=
- =?us-ascii?Q?9LqUI5PTZVat3fqzoh+zpc2JBLcAZvMDELoFT6rmqm41w2lI3osJx1ILX4f6?=
- =?us-ascii?Q?8zmz7meSh9JUhbbSkQ3UEYXGbDj6zkECuwCdTu4iFmC6dqp5BuwfQWz0tUO2?=
- =?us-ascii?Q?yDpkSDEBhMjWvFl0ANERyyZbDmfdnpISpM0JiZvr2ypHa/4NtJhcurbtyWeh?=
- =?us-ascii?Q?NeY57ZxJvUdA7T6taQjwkI9zp87Tz21RPSEqpfoyI3HlRemLasi7FvbGQwrh?=
- =?us-ascii?Q?CM08Od610VJaTnbIQpN+Ax0e5riXgaQtWoKpwY2F4Rc1byiqHLQ2o/pa9467?=
- =?us-ascii?Q?YWM8Wdacjfz3vyVIibq315J/NSzxq3bmoZq2Sj/xoaS6/HwQHTemAa1wg9Zq?=
- =?us-ascii?Q?PfIyS8gxQ6R0gi0jnPE327DBXvZ+JC12mUxw7Cd9UP7AahYocpyLZJn2Yij2?=
- =?us-ascii?Q?R15q2rNevSmx6hRkvaWmTELZv9Szije8UrbwcSWaCN+3v5iBtNNCFLQ22Fhy?=
- =?us-ascii?Q?cBXtqsW5SbPqeSQ03aMcGV43q4yt7B8XzW9kMrUr45NucWf5dVO8AA7kI5PW?=
- =?us-ascii?Q?UE8EyCr0IzaBWZkY42BRTNBWMiN57V/SWUksI70gv6D/kUAJFphAknK120L+?=
- =?us-ascii?Q?rSzVj+7hgNfeJl6CC7Wwfi3DlPPqMgfoppcunR2XFzqh4ts/ixAj8bonQPqE?=
- =?us-ascii?Q?o1ppH3q07sGTLMXHnv/JTH7NrCNYXvlxGolJ7dXoCgN/jdmazcZCSA7CU8Ta?=
- =?us-ascii?Q?j6PcaSbI3RH9zGWDpwefa8iNidG09NxlJFpv4KkiDgnkW4S1JoZZYAq0dmMu?=
- =?us-ascii?Q?svTBE25kjgxbAXaF8v7etraJEnkFqI7gz/bdfy4sZ40bcPokhDS9h5L5BDLH?=
- =?us-ascii?Q?bixxbUfZHAIOYRSZ75svhuTQsyjsbxndClClyy63HmRz2lmkfJ7CDvybIIO4?=
- =?us-ascii?Q?tdWxGULO81sJ8Vr6h7a7xFZrtaen/qI3hjgzvhGt7lxNgEZJffC8OPNHzqv2?=
- =?us-ascii?Q?G9GEGb4eJGUREX8qDdgN1NW9wqcXHCDsMD3cFWgdDA6ekzHtTPSuFGDkOzsT?=
- =?us-ascii?Q?UEgT95xvHfklT08WUwK2fX4vLJge1mEIU8ykY2rA6rZ0rMYqqj397ZMc/UqS?=
- =?us-ascii?Q?25X+ofDolD6sJNx/csx+UvbaCM21OUaSap2yhqMdBaVzy6jnlH3beFCJUSD2?=
- =?us-ascii?Q?bGV7IvictzJR8FvrmT/xcw/7j5AKpggRnIYkUzH3SyjgJOmAxlkSsetZByqs?=
- =?us-ascii?Q?Tfubm3RTQiHxRjoQxoQ3pnmN4wOzxZrp1JxRrFALRii+PW2xoTIJeGIRI5b4?=
- =?us-ascii?Q?vfslkkZD8DW0/M0QO2uTfJJUoVbXb74IjGbudYhte1Iv2Tqm1ir0VZeQI1tP?=
- =?us-ascii?Q?bDag9Pms5L5RpGXJJm115Xz/TB8uKrfwxKRdimrvmvODcKRWdrbHHzRoeA7f?=
- =?us-ascii?Q?ECDyglfzAsMkbUhcK7MhI9x1rEqm8zo+jbOfLreJu5T8666bXjbWZpNoBWys?=
- =?us-ascii?Q?g0r4ltv6yhzDeSD1dcpZvMsLNm8RS3zWHVhFyvMSVfpuKfa0NZ2RsgS+fLTe?=
- =?us-ascii?Q?oii6IyLuE0YcEOozH6vfpcIvybcV8MZDATwHw7WW3SQLnuegVt36aE9karQ0?=
- =?us-ascii?Q?OuBHJ8zeTHefSWVUj9JLZ+8cQ9PkbkrB5z55sJEMgCX/TAHnOY8HIYTpPFoT?=
- =?us-ascii?Q?6WdpYlkWFRrr1EgrO2aFsB9mPBu6MySDQi+vBdiku2q4nP5GiUKVaUhBAb8B?=
- =?us-ascii?Q?7hC1yeZ79n07TAKo5FdUKTMJzRIJgFDTKPAKVZmSSXNWn4XPX+Ja?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2bcf4d70-fe53-4db4-ccab-08df2b9babbb
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 15:39:31.2444
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: grFJAVnr5wB+i9Gf9ACAu3hS3eXSmc2JJeYoEd0860hTjnTU6i2Uyr5fKExgdPlQwersvDgL0Kpym+GsEBTiOYyKH9KrPMxV8LrgaHfFVrYwn9wWccD4u3EsyCdOf8d1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11680
+In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-2-25daf2bbcf35@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_163938_318588_7B1E4C79 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20261016_084052_917893_D233084B 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,69 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 11:17:21AM +0800, Hongling Zeng wrote:
-> sun6i_dma_terminate_all() and sun6i_dma_pause() acquire sdev->lock
-> with plain spin_lock() from process context. If a DMA interrupt fires
-> on the same CPU while the lock is held, the interrupt handler schedules
-> sun6i_dma_tasklet(), which runs in softirq context and attempts to
-> acquire the same lock with spin_lock_irq(), causing a deadlock.
->
-> Fix by using spin_lock_irq() to disable interrupts while holding
-> sdev->lock, consistent with other call sites.
->
-> Fixes: ba489fd46ab6 ("dmaengine: sun6i: Add support for Allwinner A31 DMA controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
->
+> Finally, update "mediatek,rx-delay-ps" and "mediatek,tx-delay-ps" property
+> description to add MT8189 RX/TX delay stage divider values, as they
+> differ from existing supported SoC.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+These should be mark deprecated and the standard rx-internal-delay-ps
+and tx-internal-delay-ps used in there place for new devices.
 
-> ---
-> Change in v2:
->  -Fix by using spin_lock_irqsave() and spin_unlock_irqrestore() to
->   disable interrupts while holding sdev->lock and properly save/restore
->   interrupt state.
-> ---
->  drivers/dma/sun6i-dma.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index a9a254dbf8cb..a6487971ad09 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -891,6 +891,7 @@ static int sun6i_dma_pause(struct dma_chan *chan)
->  	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(chan->device);
->  	struct sun6i_vchan *vchan = to_sun6i_vchan(chan);
->  	struct sun6i_pchan *pchan = vchan->phy;
-> +	unsigned long flags;
->
->  	dev_dbg(chan2dev(chan), "vchan %p: pause\n", &vchan->vc);
->
-> @@ -898,9 +899,9 @@ static int sun6i_dma_pause(struct dma_chan *chan)
->  		writel(DMA_CHAN_PAUSE_PAUSE,
->  		       pchan->base + DMA_CHAN_PAUSE);
->  	} else {
-> -		spin_lock(&sdev->lock);
-> +		spin_lock_irqsave(&sdev->lock, flags);
->  		list_del_init(&vchan->node);
-> -		spin_unlock(&sdev->lock);
-> +		spin_unlock_irqrestore(&sdev->lock, flags);
->  	}
->
->  	return 0;
-> @@ -939,9 +940,9 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
->  	unsigned long flags;
->  	LIST_HEAD(head);
->
-> -	spin_lock(&sdev->lock);
-> +	spin_lock_irqsave(&sdev->lock, flags);
->  	list_del_init(&vchan->node);
-> -	spin_unlock(&sdev->lock);
-> +	spin_unlock_irqrestore(&sdev->lock, flags);
->
->  	spin_lock_irqsave(&vchan->vc.lock, flags);
->
-> --
-> 2.25.1
->
+> @@ -86,8 +85,10 @@ properties:
+>        or will round down. Range 0~31*170.
+>        For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
+>        or will round down. Range 0~31*550.
+> -      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a multiple of 290,
+> -      or will round down. Range 0~31*290.
+> +      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a
+> +      multiple of 290, or will round down. Range 0~31*290.
+> +      For MT8189 RGMII/RMII/MII interface, Allowed value need to
+> +      be a multiple of 180, or will round down. Range 0~31*180.
+
+Please make this:
+
+For MT8189 RGMII/RMII/MII interface, this property is not used, the
+standard tx-internal-delay-ps should be used instead.
+
+> @@ -96,8 +97,10 @@ properties:
+>        or will round down. Range 0~31*170.
+>        For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
+>        or will round down. Range 0~31*550.
+> -      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a multiple
+> -      of 290, or will round down. Range 0~31*290.
+> +      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a
+> +      multiple of 290, or will round down. Range 0~31*290.
+> +      For MT8189 RGMII/RMII/MII interface, Allowed value need to
+> +      be a multiple of 180, or will round down. Range 0~31*180.
+
+Same here.
+
+     Andrew
 
