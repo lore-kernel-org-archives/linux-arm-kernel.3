@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7AFCC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 04:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1BCCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 04:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rczNXeActkyUZxhNs2zIIuhfq4VixMAxBK569RVDfs=; b=l/7NWSoANwzrOOUGbiHvXVCbXa
-	K+wTi4j9Ir5uKO4ONwI4PAaarU/i/MG+Wknpm0zlgMjTbslP1z5GeM7SRU8qgpfTFogLHEhgaWTN8
-	zRJlri6KN1z7nFRkp3Qhnn2rj0dSHOSxGplmRJjeaP5OzoFVcnm4/mFtmDooNVnbr9d3t3XKtLEVE
-	4eHLSVQG8cZvWEjVyfDeG5NY6Gy7UbXCV92akvJr8+XNDY1pbA0NNFv+vXhJtn33c7TuwRZiQ7alL
-	7BerOTpFmDaUU6lhuV5F0NOpYk5dF/tVliQE9315Rb65DbbpO8hF2upssjFQPuPmaWaGqys0XEHzR
-	rYH2pxqw==;
+	bh=b+uyWszwAFvFc8JbK1nSE8GaRzk3E1Kb/gXy0IKu03o=; b=MRruqLIoQzoIMBgrz81fAgH9MA
+	WvdrXQV+J+gjO/yBKUpfoiiw2hV5VBgcQOE9oel5EUnyML3J95UMts4eNRifbP8YwmzYNqMBdTeW6
+	Dy2K4qiz7rO2JkBfEuI47WJpMPn0PAAeXbjsUjxW1xlaig9CUe4pf0j3mqpY9oCIVqEGeVxoWAlGY
+	XVuKkyMiO9KpPIHM94QoJAEt8BTE6jqr3+DqXofixj2Om0IbKT2deIx+wxrU5guHKgdG/cD9vx2MI
+	GzU49QtLL9iamh9Fk1t/fk280zSvtUrg/7lXzF/FCUJIhtfAYM33EQsRclhlEZvLsQix92HlHip7B
+	mrj1BnQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHYtT-00000001t73-2XKm;
-	Fri, 16 Oct 2026 03:46:07 +0000
+	id 1xHYtI-00000001sk8-4A5c;
+	Fri, 16 Oct 2026 03:45:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHYtH-00000001sh9-3GQ5
+	id 1xHYt7-00000001sSQ-2JAf
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 03:45:55 +0000
+	Fri, 16 Oct 2026 03:45:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2rczNXeActkyUZxhNs2zIIuhfq4VixMAxBK569RVDfs=; b=N91SbyOM8T7BrqcPXCNcpWYQV6
-	9ap3RlfYtySv6pBgTZ7F8I5evFQAVVPntgJ/cZ/K7LwwLZUs9q5Bu9coWQ/qYt/wjLsJfxOkDe8lP
-	VVKIkg356gLhoxSd++2zblAkgRs/mILT/Ff0zzctW5wMdYRkhOK53zDojMcb1/dndxoow0fC/nPNg
-	grXCwBTiUzmE/RygoyGUxLua8tyQkAnfwn0bS5sMqmLrPsEBxsUgK6JcUp7DHNGp+8vNI/R77ppkC
-	hdAWsXUAetBBgq7TY1DxY4KNkSBAqaE59ZvcyOcDSqxhVJ5L1OnhvYDmzs5D674lXZQevjyifF96o
-	pBIFhJNQ==;
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	bh=b+uyWszwAFvFc8JbK1nSE8GaRzk3E1Kb/gXy0IKu03o=; b=N7wlUwv5r+aDFzQelKzrZ2Rmmc
+	ohQQ6huiLBFAhMr5BTbjSBIrwScIThA632bD9TlVodBgtRYzITLF/7ch2ANYTzt66sJahLHKQqP6P
+	EL3Q1hAkCKgAjNdGQcscpBDiaRCE8JmGe4E0rIpzolqE+pzfPbsUyXoUSVSYfq5V2L2cI4YyMMa8K
+	OPBWRB1cxvpFyQ+cX8bHgq8j1jgrbpa5TmNzeOkvWw/7pV+aKhz4bXYTwRjSNzeWyVYtRsAaB4/LA
+	6X6R+I3evla3CWQJ4PXEcwXgzFNYqZ+/5Mkcmacg+EzgHCkIC6/bLItUTb3E1HEKnsSbMHzjOJIFI
+	gifeWlDQ==;
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHYtD-00000001488-3faT
+	id 1xHYt2-00000001431-3DzG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 03:45:54 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-824e6e6ed71so2262359a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:45:51 -0700 (PDT)
+	Fri, 16 Oct 2026 03:45:44 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7f84a55cc06so3810100a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:45:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792122350; x=1792727150; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792122339; x=1792727139; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2rczNXeActkyUZxhNs2zIIuhfq4VixMAxBK569RVDfs=;
-        b=Cj4bZ1O6gnQaJYDhc6O3x7FA8qzF2e+OEQm7kaB+xi16pYS/G57NKaoMLpyWB0WYhW
-         cbgiYPX/1pspuHmTeVwhQv/+IlD8I67CU7GBrq+BHZuqca3NYZm1SV+O4dty9jXv5VSi
-         yZs3cRJ/kq6xmjmXkfrcMLtguwq36wOkkFkc48X01M1P6jdzvuYv98W3TpcUIy/MrDHN
-         LMUvel2eF36Nh73KDWqsfFxOpg58TUS9I41uHFR9dqyAiWH4gLDgcXSGQHr+oVRPH8v1
-         iVZE0d8u+Sge3wPO6ZV9oIeTxB4LJrb+DdtnrJZuikSCpS79+C/38jzEVWcqVFoTfzMc
-         E2hw==
+        bh=b+uyWszwAFvFc8JbK1nSE8GaRzk3E1Kb/gXy0IKu03o=;
+        b=MnK9LRE5y8N4dTzMo9MJYsm6csQNEtASvvj8xFy0meuS0T2JTfLSUWvA3Jqi1DXJkg
+         BPC8vecSKGKv2ubvTsFcgIJgzj5/xxCchlASC0jt1FEXXaxQXA2isd3MGpkb4Yc3PQvw
+         Es7ETGGdDhB468LI3VWAvziD75Mn2F4CLgM3cbM3m5LaXHhqbY6i5MxiYvqKRIIs9aek
+         BYm3zPugabGwibsj2G7vcznnuwhUCpYEqTMT/Zp2Y5bZgVfkxJA+2t63USrSpukbS0sU
+         7y0SaaUghDgIft7QrKE/ZiIA6LfZS6s9hr7zzjt6x24sJU2TcxSsGsnDW/GNED5qygrT
+         rCRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792122350; x=1792727150;
+        d=1e100.net; s=20260707; t=1792122339; x=1792727139;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2rczNXeActkyUZxhNs2zIIuhfq4VixMAxBK569RVDfs=;
-        b=xfKYm6lPSXveV+s1yLyhJSos66RlC/1B5+rdUOn72Fj+VP3YHz3NGxltmjQi1FDgge
-         eyx8Sl8/KAFtPKEk52lCL95JdKFxtqMniFUwHrSJIQsiivRbAo5Q0WeR4s03aMiILd+e
-         d7o4huTNWJZedjnUGuyzklFvH7Nn35KlUeIgoWag/QOR8knJfLZ7Vo4ECXDV7RaDVlEZ
-         EXOEp449Gowv1UgsM1ajvQvjr5mTUXbuAuf0p8LBmMTcam3l+PY1r5fppZWorqdkvplw
-         6Q9sw5SKglEbgv7WaaHEChGgwpxcGHcLbDWU7yDaQ04r4VEIBZlzIkIOgKxijv5/38+H
-         o1GA==
-X-Forwarded-Encrypted: i=1; AKwUvBxY09oq8a2BRqtxKO+bn4VDxH/SUgfZF2LQgoi6F2liZ+Xj5EPylQ0WkknyAfHKfSUv6QFnWWoVwgZNkgeQYR+E@lists.infradead.org
-X-Gm-Message-State: AFq9FYIqA9mRjwD2AMf9eDWKQqrc2fhusKKgrlY2jY6VDj11v3kUs133
-	gNh/M6Us3zXwOPwpSwVL+hWgqz7O9MQpHFOIeXGxmUBG1Dhk+yJ6YBiC
-X-Gm-Gg: AYBFou0Eu5X6lZ0gYURqPzBCV6eAkt/bcgO4Hq3XtDUJa9Z+kcBft9cHRk2PLt9Kr5I
-	HDkc+y6BSXhrrMPp72I/jJU4nyGttuhmcyMfOiZinjYSNU3zaupBSk5On1WDL0n7ZbQvJs2UWza
-	OXLMPv1D7G95jVhDF2/Wz7tsrzTf/y5ULHIRQZ2gcqo+6j8Bi9Ou42auTbJUkuStaSFnVW7B2sO
-	sL0XC6Lcil1OboSRng4tKNEk6wO1uIesVg3iLhoDVov5I3e8NMgbD+grCxDOY/UX3f6DiHdQWDa
-	u/eQcnZvIdUdTTr9gfTP/ZH4BNMGfZIG0m8JfZrsTNAKLvDSAwWuK/5MzHk6TD0yn3Krd0knEtA
-	ze/qd4KNNFH3TnmQ0GS4j7AD4QM3zBQepyNc2KUu/dSGePOChRznyWVwjeJnhL4KslDMMQwp+pf
-	EITE4QGxx544+kiXxk69r7pvg6EVxpnRbTlYFaP05hfZIM8gHnIMx2O4V83pyAiOit98IkLQUwx
-	t3Oic6MXUMZb27ZmjWjI2ykUw4qoHrS/hFxgOdA+YY3JoCvDoSb07No+/fO3BqLzcUftX1Hh3ow
-	yo03WEYt+qv6kCTcLvFWt4za2YF57Qgf/R5cOJ4/zDsXUmPnGN4eUeIrik45x6PPvqWPKazeHKx
-	G5REwTHCjKn0j8qo7EpOjqA==
-X-Received: by 2002:a05:6830:640d:b0:804:ca33:4aff with SMTP id 46e09a7af769-83094e783f6mr19887903a34.9.1792122350229;
-        Thu, 15 Oct 2026 20:45:50 -0700 (PDT)
+        bh=b+uyWszwAFvFc8JbK1nSE8GaRzk3E1Kb/gXy0IKu03o=;
+        b=t2nAQz/7sYNvJ+oZoHooK1nGrfBvGnqx1dkg842fUEI2fiC4sU2UcF5n+bHDVRy1qn
+         vb4FBeg+Dfonye0DXHEDnfziswTy8DGdc6ZkcJaZ65U/6u1HLhu4qyCSgatJDXeChsvU
+         VE4Np5UmG/RdvonoeXT5Nww5WpG0stC4TQlOOwI4xSl2oiPWIMyGI1Z5i2LE8GVxZPJt
+         BU1K97AwbhqExmaDdMRd7pwxMgv6CyC6sdjD3wjfYvk14sqi01OeOPcpUq01jYvgYSE+
+         1StVlU145Jr7SGhMqg6FjgUep1EmBvMeQFS1c+nt047Gi2FUXoDBm3V1RLbd5+v3KpBC
+         HQMQ==
+X-Forwarded-Encrypted: i=1; AKwUvBypSsU0UGu0cBwebd0weeG+SV0ybrriXm50kxeWj2vfsF0w1VbEbNujsNC3tv1cv0FvK+HdTxpU62AoBi+/r4O6@lists.infradead.org
+X-Gm-Message-State: AFq9FYIj4OF2ckkahXIcddDjcxXn9ORz6yQPJBQR80cqB+2bH7Qpce45
+	2imh4CZ0L5rpQv0tKbjBtfVPV941b4FDsiTiXFirkeFN7ZDhWRSbRna5
+X-Gm-Gg: AYBFou35ghF/QFdFd69/S9yG1xFecmQx+7CWWYpz4yGAmoE59xICEx2mly5wHC6L3sV
+	1fEQFuP5yaHyMGWmMlXo83ZYVq49VaUcLI2K0ZpJYOdYMDwOkDn9d9naM1AaB4mgrLEno1ZDJzb
+	EN6jBDyTLaBVPwZd1T5DZVPXZQRHxsE4Ma5cmWFclKMjkUbotg/Qb6Jjg3+Tu8yN+eotVp041GB
+	7y+TkmT6TkPCgOFJKA1Fy0g6A4QHYHVrLZ8yXsoLbLDv2StLSd2U6Z0Wtom+Iy7S4rcpgXzB01b
+	2HSEMyRk2PnsTJbgk5j2exrwKsmA34XNEPcg0WfckFcWTFzdanxWlNM2ENE8WQe6DmgbKjWEKBN
+	B1FyHgGbFSHZ/ifx2oZhJ+SQsd16oP+pS3sGRtrgW8AADesBUUB/E638JxahQNqh0iOvy8i5M7/
+	zz9lVoLwLycQzxRPgXsbivRFhsvMts5xbFtvHiWX4yutOz7Q/dxTAK+qwZL4OeCeO4gnEn333a0
+	lmiF32jd5Wth1tH5e400dxBAJfg5ixA991DaXYV/turGEMBNrV57w/VqwpcAt9SdWuSE5zsB8Oc
+	K2YLywvgmaJ6jIuDbLbUrTsKqXitcEgRwhW4iq1KVS4tpqs5/XuD93hHrtEKS1b5orV10inuB//
+	nFUvxPcXQKcNUMwuzdjN4pM2wjS4woFViAA==
+X-Received: by 2002:a05:6830:82b9:b0:822:27d6:c281 with SMTP id 46e09a7af769-83094f728ebmr20703536a34.8.1792122338629;
+        Thu, 15 Oct 2026 20:45:38 -0700 (PDT)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8429b57870fsm834402a34.0.2026.10.15.20.45.48
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8429b57870fsm834402a34.0.2026.10.15.20.45.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 20:45:49 -0700 (PDT)
+        Thu, 15 Oct 2026 20:45:38 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 15 Oct 2026 21:45:28 -0600
-Subject: [PATCH v8 13/17] mtd: rawnand: sunxi: avoid redundant column
- changes for extra OOB
+Date: Thu, 15 Oct 2026 21:45:22 -0600
+Subject: [PATCH v8 07/17] mtd: rawnand: sunxi: preserve synthesized
+ zero-pattern data and OOB
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-13-8ba4881fbee8@gmail.com>
+Message-Id: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-7-8ba4881fbee8@gmail.com>
 References: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-0-8ba4881fbee8@gmail.com>
 In-Reply-To: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-0-8ba4881fbee8@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>, 
@@ -113,11 +113,12 @@ Cc: Chen-Yu Tsai <wens@kernel.org>,
  Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
- devicetree@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+ devicetree@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_044552_375395_808612DE 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20261016_044540_978030_A4C50C19 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,37 +133,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extra OOB is the spare-area tail after the last ECC step's protected
-user data and parity. The PIO write loop tracks cur_off as an absolute
-NAND column, starting at zero in the main-data area. The extra-OOB
-helper instead compares it with an offset relative to the OOB start. It
-therefore requests a column change even when the last step has already
-reached the tail.
+ECC exception mode recognizes physical all-zero and all-ones chunks.
+sunxi_nfc_hw_ecc_correct() fills their data and requested OOB buffers with
+the detected pattern, but sets its erased flag only for all-ones chunks.
 
-Add mtd->writesize to the comparison, as the read helper already does.
-The comparison and the column-change command then refer to the same
-byte. Keep the command when the cursor differs or is unknown, including
-the DMA path, which passes no cursor. No transferred data or OOB layout
-changes.
+The caller skips normal buffer retrieval only when that flag is set. For
+an all-zero chunk, PIO therefore overwrites the synthesized zeros with
+SRAM contents. With scrambling enabled, those contents are descrambled
+data rather than the physical zero pattern, yet the read reports success.
+Requested OOB is also reloaded after synthesis, in both PIO and DMA.
 
+After checking for ECC errors, skip buffer retrieval for either detected
+pattern. Keep the erased flag separate: only all-ones chunks may set the
+page's has_erased_chunk state, which controls randomization when reading
+the trailing OOB. Preserve that state if an earlier chunk was erased.
+ECC-error steps still take the existing raw reread and erased-page check.
+
+Fixes: cc6822fb756b ("mtd: nand: sunxi: move some ECC related operations to their own functions")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/r/sashiko-outbox-172123@kernel.org
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 105374e93b37..dfb2a64c6b50 100644
+index 661ced4e07de..a244d2158d76 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1620,7 +1620,7 @@ static int sunxi_nfc_hw_ecc_write_extra_oob(struct nand_chip *nand,
- 	if (len <= 0)
- 		return 0;
+@@ -1219,8 +1219,9 @@ static int sunxi_nfc_oob_read_batch(struct nand_chip *nand,
+ 			continue;
+ 		}
  
--	if (!cur_off || *cur_off != offset) {
-+	if (!cur_off || *cur_off != (offset + mtd->writesize)) {
- 		ret = nand_change_write_column_op(nand, offset + mtd->writesize,
- 						  NULL, 0, false);
- 		if (ret)
+-		if (erased) {
+-			read->has_erased_chunk = true;
++		/* Both patterns are already filled; only all-ones is erased. */
++		if (pattern_found & BIT(i)) {
++			read->has_erased_chunk |= erased;
+ 			continue;
+ 		}
+ 
 
 -- 
 2.53.0
