@@ -4,102 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A082CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7DDCCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=; b=YoKiGjuLJ+mdmQcCPEPj/ZUIGW
-	rWC5C342alquAkw1tSNgCU4k4UN/YOqfDzrHGQfKpQMMAlxmvuCFj61/0Dqj/Kx0uQ9NUJReQak9c
-	7ZUK9PCv/HKnmUq0lCFMtipo4teatTWHjQATpmGbDn8e08AjxO1nSMPmADLErHcDRY1XM0pbaXv5d
-	jRzZpc16vHnQ9Z2Nj/RVI1H3OHkRH0ccwNk69YUr241BVWTqpnNGlEi91i0wYueEFCK+aTmCpiQzh
-	uxtoflThcvcNVizQ2FQs4YQ4el056p5vh/GtfqmdFJqbxBoGmCyxd9HqBuwZF41QueobP3oomabPH
-	/3jkh5bA==;
+	bh=p8jDBE2UNrUxeT63TxF4ZOOeuznoK/UEekUGg2ZBp4I=; b=H3cDzI3uVMX3mZz6Sg27zQckcR
+	iNyXzo3G8FhrnYSX/FFJqPB7EUNfmBS4FIoYcewMR9PdPQwc0LzvhR9JxbQmFQ19Wl5a3aD3UPCg+
+	yqNfIS4s8/qRL6Wzhbo/YvKIb+5/J8kmf81uicjU67bEOYVJbzknurdXa8R/KWtiTEt1f5uyFYoDM
+	PZyoQnQadvv42ofy6tnhhDMxQyrccCPfzn1pKazN+Z7dXA4FeLB128CMWuOXo+IJJPxYtsbZIXhLM
+	yZazySSBgNrJYxM+k/40B1gaqJiUAP/K3PrHDZTh8Itmfm/klJGrYRZdpAgElRhyJCTzGt6O2f6iP
+	ORbd1RcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHi0D-000000032ml-2hTA;
-	Fri, 16 Oct 2026 13:29:41 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1xHh89-00000002tFS-2PQ5;
+	Fri, 16 Oct 2026 12:33:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHi0B-000000032lt-0MpH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 13:29:40 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-486e70f2457so1262250f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:29:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792157377; x=1792762177; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=;
-        b=Iq84VIOuWPOO6KAAw55sVy4QcyYA6ZJ0SudOb7WbywNIlZoErYNfkVtJspQDuH5cEU
-         4pmjn2MrqJL8ctgsevSypR8n5NKe4I7V1KtOIcFfjh+P60SNKkCRSbSGMrFEB8hRtl7d
-         67qwjcLxJXYcc5dFe35u4PiEgPPTXnfhKTzpyHUaaV1hlKHv5PGbWelwTiXOLr7NDwO7
-         hOwc0rvrsUkV9d/Rn4cROaVmyS8Lz8rHp4veEmmqhONdX7tGjSxoWl1iuz/tl0te1YRf
-         dN0U+WtLP+M3gEzyrYkKvAyyiivBpmIo8gAbB58FN12dh9mvTCbcmDcYoqYSlb/ZaIP8
-         s5dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792157377; x=1792762177;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=;
-        b=v9J+7Fs/xvZKWc9sWK1rVUcVmI8BMYhpcVsKQAaCO8TAxXdwyj3VRRXlNglTxy4t80
-         lfDxCIyxEOxQjoDi0YyjTyv62iNrbboSqa5wuMdLMLX9nKOOkZ6EjB8q/CzddVK3eya4
-         hg4p+8DdcPAUlcqcPAXPcnULPP7w3yerT+JRImlS0XJCJ/wdSFyM3dBSQbqyZPcbBY/0
-         uUy3TOtGN2mhgpy7qgxYVkJNS7BEp3yLbm7m7FQvONuOsTBvQa027jlS7y8tX8LkPmLK
-         4ZDKejDM5TbMWW5/vfCgfUuCGQi/JVEjEAgUbRsNytpS9Fep6j8LbPeDIblhcH3NuRS4
-         xyLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwFErcfsEAcJGLJPsn7vK0piYDiD7Rx6BIIsmXOYPD7h+vl/1Y/8Cro7ZlTjXKIAhrWqCfdP6MApVergOuoFpck@lists.infradead.org
-X-Gm-Message-State: AFq9FYI1WyQ8GCtvHOBKYl8LhPjccBXx7MBtICiL2NcWtv9NKMG/RR5n
-	9fsDYzpUI0Vl5ocTjNDAm8HBNhcVvGABQfFHsnq4A3X6FEpE3XOhFKyjSsHBmD8rxkU=
-X-Gm-Gg: AYBFou2zvIhxjencLILfsQ0HEIcBEjEEAWk270xdGASd5JaT92ux/9uaGjkXKc1odJR
-	NuJdFbEqYBu/ua84u4WIkJUyLPyFYNYA93X26Rl2upuYzoJZYFiMP42cSX9O/W17r9wQW2XGdjJ
-	pxLf5WsLWSXZlCllEVH6mKXpc7g9OFqk6PN4mpXztv0MxmnlXsIVlGUysNup6liLPZ7VaTvoKPe
-	jGD2uqZnQE4t3Kmuyg9YDRfeRbrsSS3Y8RziOvB7eva4ODD7Ee3Gu8j3xBGvhgeBsvDmgQ6sjXb
-	+jyzb4e2FYpXmbQkTzK8VPHqEV9HwdtNvxOiadIVGylpfu25P0oApum3UNVhGtLYUn26Su6GeCM
-	XzA0tPsBV6REGn7IYSYVJY19iRKCLVogp3oYmeyZcJvpb6753+ZTxs1t7lxdujFIwr1d0S3Ip84
-	igVXGUnoae+xYsZkiW3/PWewppHrujOpIxMahVqNxR/hecs1WTEzzeqd1/FFA6kX6BPO2ic7C3W
-	QQ=
-X-Received: by 2002:a05:6000:26c7:b0:48d:f851:ee5f with SMTP id ffacd0b85a97d-48df851f00dmr9820547f8f.24.1792157377206;
-        Fri, 16 Oct 2026 06:29:37 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4d4dddsm5173034f8f.22.2026.10.16.06.29.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Oct 2026 06:29:36 -0700 (PDT)
-Message-ID: <f1a7dac8-5a01-4fc2-bf81-b7609e332e9d@linaro.org>
-Date: Fri, 16 Oct 2026 14:29:35 +0100
+	id 1xHh7y-00000002t4B-0OV7;
+	Fri, 16 Oct 2026 12:33:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792154015;
+	bh=Yx74k9FBc1k/4s/wqGih7fG59PtJCXH6WArab5XivVg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=g0/myGBUGA3eWIVdKI0rfI8mInP2nfTF/6FA6oXVl/tGOzfQBQkaDGPhppVd4IRWT
+	 5NZowpSg6bt57MRDbUvWLc/2G/GdwEz6KC+IXEgpMUr6g/Gjx430JBXku4U73NdFwe
+	 9laH8wpvq6FOITyDY8Rk4FeGQzeIvf4V1Buw5Y3GvfJ9GFiPC7lLstp+ZMnoQ4Hy78
+	 NKldHDBt2EDkHOBBpy4pP6pHOB/k0FJcZpCBPdyjWgxwmj/6y/5/Ce0HY8K+U18B9A
+	 Kb6D8SWwSgjuBKXRnBerTmmLyl2ETRI6z28QCac1r4MlHzm3LV7OZeGYa8cV6vK1oS
+	 eLWt/Hscj4w9Q==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 425BA17E150A;
+	Fri, 16 Oct 2026 14:33:34 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 16 Oct 2026 14:32:56 +0200
+Subject: [PATCH v14 04/23] scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to
+ mtk_sip_svc.h
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/25] perf/core: Prevent AUX sampling from racing with
- pause/resume
-To: Leo Yan <leo.yan@arm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
- <20260915-arm_cs_support_aux_sample-v1-2-35cf6f297d20@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-2-35cf6f297d20@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-mt8196-ufs-v14-4-e8d565e0cd45@collabora.com>
+References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Wang <peter.wang@mediatek.com>, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <mkp@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=1832;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=e11uj3DE6zvd4oYfRMlams6rLdYNXhiR9LbrPBoXvrA=;
+ b=ztPolG/plmM7/McYm3/1WAnOVFSO7sXVprjlyojcnDDZY8OTz/JIJUoBvA7QrqcCuVi0EjCI6
+ VACM361HSwSBngOw36wG+oDoWZQ0PjY9lhTCp9Z1ItzSO0d1BpWGxQe
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_062939_165288_53A8412B 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20261016_053338_306986_80CDA2E8 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,79 +100,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
+SMC commands used by multiple drivers need to live in a shared header
+file somewhere to avoid code duplication. In order to rework the MPHY
+reset control to be in the phy-mtk-ufs.c driver, both ufs-mediatek and
+the phy driver need access to this command.
 
-On 15/09/2026 16:48, Leo Yan wrote:
-> AUX snapshot sampling and AUX pause/resume can both run from NMI
-> context. Each path currently guards only against its own recursion.
-> An NMI can therefore enter one path while the other is changing the
-> AUX hardware or buffer state, allowing snapshot_aux() and the PMU
-> pause/resume callbacks to overlap.
-> 
-> Use aux_in_sampling and aux_in_pause_resume as a shared exclusion
-> scheme. If sampling nests inside pause/resume, emit the regular sample
-> without an AUX payload. If pause/resume nests inside AUX sampling, drop
-> the AUX action, matching the existing behavior for recursive
-> pause/resume.
-> 
-> This prevents overlapping PMU operations without waiting in NMI
-> context.
-> 
-> Assisted-by: Codex:gpt-6
+Move it to mtk_sip_svc.h, where other such command definitions already
+live.
 
-Does this need a fixes tag? Seems like using these two things at the 
-same time could have gotten you into a state where tracing was enabled 
-but aux_paused=1 etc.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/ufs/host/ufs-mediatek-sip.h      | 1 -
+ include/linux/soc/mediatek/mtk_sip_svc.h | 3 +++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   kernel/events/core.c | 17 +++++++++++------
->   1 file changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 17355e4b8b7c6c106117153c9eb8509e6f9a41e3..a524eb381d4b5731650ec0105d9794b8c89fba4d 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -7990,10 +7990,12 @@ static unsigned long perf_prepare_sample_aux(struct perf_event *event,
->   		goto out;
->   
->   	/*
-> -	 * If this is an NMI hit inside sampling code, don't take
-> -	 * the sample. See also perf_aux_sample_output().
-> +	 * If this is an NMI hit inside AUX sampling or pause/resume, don't
-> +	 * include AUX data in the sample. See also perf_aux_sample_output()
-> +	 * and perf_event_aux_pause().
->   	 */
-> -	if (READ_ONCE(rb->aux_in_sampling)) {
-> +	if (READ_ONCE(rb->aux_in_sampling) ||
-> +	    READ_ONCE(rb->aux_in_pause_resume)) {
+diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
+index 7d17aedf6fb8..d627dfb4a766 100644
+--- a/drivers/ufs/host/ufs-mediatek-sip.h
++++ b/drivers/ufs/host/ufs-mediatek-sip.h
+@@ -11,7 +11,6 @@
+ /*
+  * SiP (Slicon Partner) commands
+  */
+-#define MTK_SIP_UFS_CONTROL               MTK_SIP_SMC_CMD(0x276)
+ #define UFS_MTK_SIP_VA09_PWR_CTRL         BIT(0)
+ #define UFS_MTK_SIP_DEVICE_RESET          BIT(1)
+ #define UFS_MTK_SIP_CRYPTO_CTRL           BIT(2)
+diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
+index 6c95a29b79fa..36ab3153fe44 100644
+--- a/include/linux/soc/mediatek/mtk_sip_svc.h
++++ b/include/linux/soc/mediatek/mtk_sip_svc.h
+@@ -22,6 +22,9 @@
+ 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, MTK_SIP_SMC_CONVENTION, \
+ 			   ARM_SMCCC_OWNER_SIP, fn_id)
+ 
++/* UFS related SMC call */
++#define MTK_SIP_UFS_CONTROL		MTK_SIP_SMC_CMD(0x276)
++
+ /* Modem related SMC call */
+ #define MTK_SIP_KERNEL_CCCI_CONTROL	MTK_SIP_SMC_CMD(0x505)
+ 
 
-I suppose this means that sampling could be quite unpredictable for 
-users if sometimes samples are dropped while pausing is happening. You 
-might expect to receive a non empty sample even if its triggered while a 
-pause is happening? But preventing concurrent use of the two features 
-would be difficult and restrictive.
-
->   		data->aux_size = 0;
->   	} else {
->   		size = min_t(size_t, size, perf_aux_size(rb));
-> @@ -8869,10 +8871,13 @@ static void perf_event_aux_pause(struct perf_event *event, bool pause)
->   
->   	scoped_guard (irqsave) {
->   		/*
-> -		 * Guard against self-recursion here. Another event could trip
-> -		 * this same from NMI context.
-> +		 * Guard against self-recursion and AUX sampling. Another event
-> +		 * could trigger either path from NMI context, in which case the
-> +		 * AUX action is dropped instead of waiting for the preempted
-> +		 * context.
->   		 */
-> -		if (READ_ONCE(rb->aux_in_pause_resume))
-> +		if (READ_ONCE(rb->aux_in_pause_resume) ||
-> +		    READ_ONCE(rb->aux_in_sampling))
->   			break;
->   
->   		WRITE_ONCE(rb->aux_in_pause_resume, 1);
-> 
+-- 
+2.56.0
 
 
