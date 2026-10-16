@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FF4CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47815CCA491
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yK0WQACtshO1o4FrXw+zV9TJ9Wu6OvYxJ52uJZRAsB8=; b=MSgDwXTl0u+Xy0MMJn8ypyquI6
-	lQXMboL4JzD+6cfErXDWv5QoRfhL5nSF0DJbb805ZwRr1MyaqW5cJRmfkq5V2ePDS7MsfGpN1aoCe
-	CtK15aYIkAsC0B/TgLpeBAtppX/I8F/GHCQWgWbHV0sEWdPPkmEwtn+TCHKvrZszfFKLDWQk2LR3t
-	komDxs4XPK7LLP9TScW3/gSyVwFj/xSMimTj1U5NTy9NrVO/vcdI9tBSVGpl/3weeJJXp88LiaAiz
-	u7PxSzzXKGRqPXbzbSr3X70Kl8VAMRzXvydDAbrOUQ2fXbAQrAuWI+alf+sLmTCf4kxQNNoPfdAF3
-	R1A2FHog==;
+	bh=0oQ+MUsY862yw3W6ThUw80i4Mg92NlZLEJzdN0dO65I=; b=Dn2ckkxuRTIl21xFDp5/J1UeyB
+	6AfUHNjfbB7lkJfv1/kTPgrcWQrI7aaDtSCHY7Q27ZgnFeBap33Y8GqfEwGWQnn/8sdyZlleOCiHu
+	w1X2xbKOjx7uZ/QL9cZk+wKz4fkqn8EylNpkyED3DiTjnt+3b4xOs5ItiObe2/Epjmfaup4EW5gUP
+	49SiJ5aKfZMQFKTPnwWlqnS0efqr9LcNED7oUBVkZTJNy2RefYhvyu9Wy56axUYC4z3hXoH6ZBnkG
+	MtIEhswvYlu7QZFZ069dVZNPAXLy0opxxWHOsk3/JQoiFcNfmgTMson273TLekn7mDzos/gGdtClV
+	hF5CxoHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHekq-00000002YXr-0DRQ;
-	Fri, 16 Oct 2026 10:01:36 +0000
-Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
+	id 1xHel4-00000002Yf1-2fzY;
+	Fri, 16 Oct 2026 10:01:50 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHekn-00000002YWJ-0TJY
+	id 1xHel0-00000002YbW-2HPs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:01:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1792144899; x=1823680899;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=4HLtUEu6vOSWthchY0abaCAXnqmO5hM988d7N6N6Jvk=;
-  b=Zzd5UgMxkXicfhW0eVJbmfaCL72XcQjOnQ5mTQ/MTgBu/sO7LqK8uyUB
-   8PHi3gPd9/zajnvQyP4jwzVFyYC6qjGsyqzxmHIkGmPb7KwF1TJBcCEZs
-   l+8k8SGZVBPmnyFJDYZFyZyQ3eRbGPweG/HLK7R9UB42u085YrYpH6LlW
-   OmmxUjp2/8+xozVEloLBmL25kik3ifxNrIAm0jWV4+U9xHRA/K5JsHX7j
-   Q1/P4o1lc9okytu72k68jqMrLoLoG95vw9SZyQlTtdE+cKnsVgZMg+9Zn
-   dUbYi8UN5Ue2qhturcI10rsk2yrQNO/zFm/tRDmLV3xmD2/Enph8VKr7o
-   w==;
-X-CSE-ConnectionGUID: t71zfxebTRK16ja55gpaaA==
-X-CSE-MsgGUID: z9RauOJSQ8+1Yn1TY2SjZg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11936"; a="258446674"
-X-IronPort-AV: E=Sophos;i="6.27,161,1786978800"; 
-   d="scan'208";a="258446674"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Oct 2026 19:01:37 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 7295C820C23
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 10:01:30 +0000 (UTC)
-Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 26CCEC041DF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 10:01:30 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2nlsmom3.fujitsu.com (Postfix) with ESMTP id E73F5101A408;
-	Fri, 16 Oct 2026 10:01:22 +0000 (UTC)
-From: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Date: Fri, 16 Oct 2026 19:00:45 +0900
-Subject: [PATCH v2 1/4] arm64: cputype: Add FUJITSU MONAKA definition
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-monaka-fix-for-upstream-v2-1-fc7ede7f9f48@fujitsu.com>
-References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
-In-Reply-To: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- kvmarm@lists.linux.dev
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792144875; l=1258;
- i=misono.tomohiro@fujitsu.com; s=20261002; h=from:subject:message-id;
- bh=4HLtUEu6vOSWthchY0abaCAXnqmO5hM988d7N6N6Jvk=;
- b=ob2a5dW1Cp7erGw46/nu4XJECdkaC2iBygiES5mJCTg2NCwW0aQp5ra6LnTWj09KYplfnJF4i
- hlwhi1qe8cnDCoTV5TZSvBfK9d8n39jNsCQg122rO6r9jEYl3BiBVLL
-X-Developer-Key: i=misono.tomohiro@fujitsu.com; a=ed25519;
- pk=VLRxj5y4GJrHLmj3e2NBg30fX2U//ydi7c2G2qiNo10=
+	Fri, 16 Oct 2026 10:01:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EABE94E4122C;
+	Fri, 16 Oct 2026 10:01:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A49E26075D;
+	Fri, 16 Oct 2026 10:01:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 48592103282F6;
+	Fri, 16 Oct 2026 12:01:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792144900; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=0oQ+MUsY862yw3W6ThUw80i4Mg92NlZLEJzdN0dO65I=;
+	b=vyD+tY6xP8Z9RwR2xkuRI3THWcN7/fM4teqUX1np32hkVH7TkufocT2ZYa6FtlaQBDdDH7
+	te3j/Gizl0ssUbuKOsSfk8OtdVDkiDyuOpWMz8/fyhCT2TxbzR10qiGtKEv7tYEmSvQS7v
+	783OU8Re4ArvppviTidEbsVnPzjqr2s4ZwnE6TqsClHC5nLI/CxQ2JwQncMYHecL5G6HjA
+	P8aUPsBy7QVIAWbhY+Nw4n8xWwSeQDEPGNDbuZeTAw25i2mrSiYwQZvquaODtICLqfSJ6q
+	lvS+LGmzfw/gafx3TI8ZfNV8jq+1B+BM3qtfPzXtW8hhG/OHFfaaXglJAKIQgA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 16 Oct 2026 12:01:25 +0200
+Message-Id: <DM66CANKPVNS.SGWB73YDX55M@bootlin.com>
+Cc: <kernel@collabora.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-rockchip@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: "Johan Jonker" <jbx6244@yandex.com>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>, "Sandy Huang" <hjc@rock-chips.com>,
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Andy Yan"
+ <andy.yan@rock-chips.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Cristian Ciocaltea"
+ <cristian.ciocaltea@collabora.com>, "Huseyin BIYIK" <boogiepop@gmx.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 0/2] drm: devm_drm_bridge_alloc() conversion and cleanup
+X-Mailer: aerc 0.22.0
+References: <20261001-bridge-alloc-conv-v1-0-f0a1fe040a86@collabora.com>
+ <179213353665.3058528.14437637653539699061.b4-ty@b4>
+ <d1f0369c-ff43-4b76-9092-5c638b132f15@yandex.com>
+In-Reply-To: <d1f0369c-ff43-4b76-9092-5c638b132f15@yandex.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_030133_477229_8B80AC62 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20261016_030146_713257_03C8D04F 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cpu part definition for FUJITSU-MONAKA.
+Hello Johan,
 
-Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
----
- arch/arm64/include/asm/cputype.h | 2 ++
- 1 file changed, 2 insertions(+)
+On Fri Oct 16, 2026 at 10:11 AM CEST, Johan Jonker wrote:
+> Hi,
+>
+> If any decency or Code of Conduct left in the DRM group then also credit =
+the original author.
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 1fa29616e586e..3f648cb10e61c 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -138,6 +138,7 @@
- #define NVIDIA_CPU_PART_OLYMPUS		0x010
- 
- #define FUJITSU_CPU_PART_A64FX		0x001
-+#define FUJITSU_CPU_PART_MONAKA		0x003
- 
- #define HISI_CPU_PART_TSV110		0xD01
- #define HISI_CPU_PART_HIP09			0xD02
-@@ -235,6 +236,7 @@
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
- #define MIDR_NVIDIA_OLYMPUS MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_OLYMPUS)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
-+#define MIDR_FUJITSU_MONAKA MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_MONAKA)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
- #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
- #define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
+I'm sorry your prior patch was not applied. I was not in Cc I just hadn't
+seen it, and no one else had reviewed or applied it so far.
 
--- 
-2.43.0
+This is a communication issue, sometimes patches just fall into the cracks
+(it happened to mine several times). This can easily happen with a complex
+development workflow and high amount of patches as DRM has. The workflow
+can be possibly improved, as well as my personal workflow perhaps.
 
+But I don't see any lack of decency here. Definitely a polite and
+respectful answer would be appreciated and would help the communication.
+
+> Also remove driver_private.
+
+Removing driver_private where it is unused would be good. Would you mind
+sending a patch doing that? I'll try to spot it, but if I'm in Cc it will
+be much easier.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
