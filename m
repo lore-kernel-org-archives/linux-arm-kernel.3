@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B2ECCF2C3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A92CCA490
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VNArSgUPdJL/PiNygWUtGx22Q4iHj2oR8kiCFkp+C/I=; b=Z9tOuhRuTiD2a74b8UwF0U2fNn
-	ZA1oObpAxV0EeRJwcSwUD6lRUYiG0LvAY72ItlroVgL1vRod5MguDDIHMe/soo21uo/YJnfCb52st
-	jhI71olgOxQWqO1GpywBvG/AAcdjSeM+lpgkszSnX9AnEw3eNXIledkMCPxmA7ic0/O69CfHYEzqr
-	fo4zZAego99H3pT+/8VdrQzmdrQS7fAqPlrP91zD435B7p88pE5vYUoxazU/7HILTRpBxQ8pzXd46
-	XDgzw9JYw65+lw/D7wANxrGRcbL3QjE+kaFquRcUL7QUOJMfxG5WLXDZ7HMnmUwDlq2cnBmcWcKdp
-	9BEUE5sQ==;
+	bh=QFtUlM31un+5my/BJKk0R8h7m3ui30NM7M56Ek7eJu8=; b=kt2vSuDGMrGbrTnQntNAiRAZ+x
+	cKk30PvvsHWojWANZIs5XdpUkUDmZkh5W9gfVuj4onAtqerKnluOGHpZyHxhrgJ0X5NFxnzRmYNv4
+	P66T6gfA5U1AzysLWEeAZtaNKYa3r1d0LIDk31O4WZoqQi/LmbfskbdX6FBrlPSaApX3vt9yRlEfN
+	fpjFfnFla3+X0LYZPxw8h+Q2xtNzuB1skQ1wRAb4ozzxm3imRJAUwVGWNWhQCe+6UsU7Sk+YA6g01
+	nTnA6ZgeBodEfdB4uV3jGr9IynIrVODQY6Ol+dmZpSKAJ1DiwmsZ1NKO+drwViSq/NRlC8cIVZEeQ
+	yy/MkJFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDY-00000003Tw2-0S3s;
-	Fri, 16 Oct 2026 16:55:40 +0000
+	id 1xHlDX-00000003TuS-1nnQ;
+	Fri, 16 Oct 2026 16:55:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDP-00000003TpP-2gxV
+	id 1xHlDH-00000003ThD-2Hyz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:32 +0000
+	Fri, 16 Oct 2026 16:55:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AE6C175A;
-	Fri, 16 Oct 2026 09:55:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC30F175A;
+	Fri, 16 Oct 2026 09:55:19 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C7F813F7B4;
-	Fri, 16 Oct 2026 09:55:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 754C53F7B4;
+	Fri, 16 Oct 2026 09:55:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169730; bh=8p7DoDoVQ9JeNmV8R2sDKkxWf/X/r7C7kriTV3IjJT8=;
+	t=1792169723; bh=2mWM0NIrrr+JQA1RmHKfyU3uP0bXY9WQf31AeWam5BY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QO+0MXYYGArcPwsn6ilRXGRAVlrm5rztpCnUVMT9V+XcoF1jAPWNfFy3c+qeH2gfg
-	 ZUy0rwp9qVemJliSBJ5xgPyRxPJzqk8UBvWILqfSRBixEFVA0OTvT5r8g8E3QmCGxP
-	 eEl+jSmQ1tinjtATaltzhiWqD0uqL1GtxSQeI1Yg=
+	b=C7FT4xOO7CQbAFjHHN0XGHiJl1kFLLAEXy4KgqyFz7Br7YLlFZ5fTjgq1xvdd7dgq
+	 9MyixdjJ9GJjNT1doqlp+SjtOp7bEWKO72Sqv7rC5wY/LqlalG9JoKKSuYjzKUX5s5
+	 0h39BgzNaynzvpi2B2kDRTuugR99lPKBBQYKGbHQ=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:08 +0100
-Subject: [PATCH v2 10/23] coresight: trbe: Drop redundant disables
+Date: Fri, 16 Oct 2026 17:55:04 +0100
+Subject: [PATCH v2 06/23] coresight: trbe: Drop redundant disable from
+ enable path
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-10-3f57cf3199b1@arm.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-6-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -57,16 +58,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=2682;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1810;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=8p7DoDoVQ9JeNmV8R2sDKkxWf/X/r7C7kriTV3IjJT8=;
- b=G6P4UKywD6/gIhUFZ1/Cz9+0RhFAefqFfyFpXUdPpvQh8CZM5Kd1GXNF7/c7nzOTMzwk/Qfwt
- L30vPar3nw2C1Q/9H8ahD9MZb9ZzdMjutACGZj7/ytBDV1MwKkoweVu
+ bh=2mWM0NIrrr+JQA1RmHKfyU3uP0bXY9WQf31AeWam5BY=;
+ b=qHU4MHw/WoIADWQQAWk+I8IpdL+muDzbXHo+rQ3Jz3ObeU7ucks4ACybmP4MCJdF4WCuF1XGc
+ KucRVzeP3mbADIgh53GvTDRvgsFXUsX3uDE7aeQtaNMOQ3aNnU/sGzq
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_095531_767832_6C093138 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20261016_095523_658099_F78DE1BF 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IRQ handler has a common point that disables TRBE before dispatching
-the fault action. Once execution reaches the overflow handling or
-truncate path, the trace buffer has already been stopped.
+The Arm ARM (ARM DDI 0487 M.c) rule RDJMDD says:
 
-The __arm_trbe_enable() error path does not need a disable there either,
-as TRBE is already in disabled state.
+ | When the following conditions apply, the PE might ignore a direct or
+ | external write to any of certain Trace Buffer Unit registers, other
+ | than a direct write or external write to TRBLIMITR_EL1 that clears
+ | the conditions:
+ | • TRBLIMITR_EL1.E is 1, and either FEAT_TRBE_EXT is not implemented
+ |   or the Trace Buffer Unit is using Self-hosted mode.
 
-Remove TRBE disable from the truncate helper and from the overflow
-failure path. The truncate helper only needs to mark and end the AUX
-output, so rename it to trbe_truncate_event() to reflect its remaining
-purpose.
+trbe_enable_hw() calls set_trbe_disabled() first to ensure TRBE has
+already been disabled before programming any other TRBE registers.
+
+However, TRBE is already expected to be disabled before trbe_enable_hw()
+runs:
+
+ 1. CPU probe resets TRBLIMITR_EL1 via trbe_reset_local();
+ 2. Interrupt handling disables the buffer before re-enabling it;
+ 3. The normal disable path clears TRBLIMITR_EL1.E.
+
+Calling set_trbe_disabled() from the enable path is therefore redundant.
+Drop the call from trbe_enable_hw(), which only needs to program a
+known-disabled TRBE.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index dd9c9330bb0c739795f300dafc6ce34e72fbf280..4a041bbc6e970d72a7d735e15f7221037cb091d6 100644
+index a7c1037a048f5236598f8f3a7cc4f47bff9d329c..979d0fa84c1c7b448c1ce5cd7a37dff8845795ef 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -301,18 +301,10 @@ static void trbe_report_wrap_event(struct perf_output_handle *handle)
- 	perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
- }
- 
--static void trbe_stop_and_truncate_event(struct perf_output_handle *handle)
-+static void trbe_truncate_event(struct perf_output_handle *handle)
- {
- 	struct trbe_buf *buf = etm_perf_sink_config(handle);
- 
--	/*
--	 * We cannot proceed with the buffer collection and we
--	 * do not have any data for the current session. The
--	 * etm_perf driver expects to close out the aux_buffer
--	 * at event_stop(). So disable the TRBE here and leave
--	 * the update_buffer() to return a 0 size.
--	 */
--	trbe_drain_and_disable_local(buf->cpudata);
- 	perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
- 	perf_aux_output_end(handle, 0);
- 	*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
-@@ -1024,7 +1016,7 @@ static int __arm_trbe_enable(struct trbe_buf *buf,
- 	trbe_enable_hw(buf);
- 	return 0;
- err:
--	trbe_stop_and_truncate_event(handle);
-+	trbe_truncate_event(handle);
- 	return ret;
- }
- 
-@@ -1117,7 +1109,6 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
- 		 * is able to detect this with a disconnected handle
- 		 * (handle->event = NULL).
- 		 */
--		trbe_drain_and_disable_local(buf->cpudata);
- 		*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
- 		return -EINVAL;
- 	}
-@@ -1208,7 +1199,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
- 		trbe_handle_spurious(handle);
- 		break;
- 	case TRBE_FAULT_ACT_FATAL:
--		trbe_stop_and_truncate_event(handle);
-+		trbe_truncate_event(handle);
- 		truncated = true;
- 		break;
- 	}
+@@ -652,7 +652,6 @@ static void trbe_enable_hw(struct trbe_buf *buf)
+ 	WARN_ON(buf->trbe_hw_base < buf->trbe_base);
+ 	WARN_ON(buf->trbe_write < buf->trbe_hw_base);
+ 	WARN_ON(buf->trbe_write >= buf->trbe_limit);
+-	set_trbe_disabled(buf->cpudata);
+ 	clr_trbe_status();
+ 	set_trbe_base_pointer(buf->trbe_hw_base);
+ 	set_trbe_write_pointer(buf->trbe_write);
 
 -- 
 2.34.1
