@@ -4,76 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3434BCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81326CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0AXPlFze0BOG/sBmlCYKyCygdQcae/LGncpPghnnwQ=; b=qA2E2HEJKQ0vTUbteLEW24tQV5
-	2q6DEiMigkkiCvy5hHzRcN86ohATWmDAsCIxri9X70FSFUWvqPindAUozusvJKRiSqtB6Zfn1EhSK
-	K/oh4upjQ6nFX1v3HSxyhiWsIgNH/2f3oV5tLlI4UDh8Hk80fTGJAe7tE2uL1fcvdeYLg0iT8gBux
-	05mRMZ3yREhsJUV4uyS1dJ3RR9XN6DrQdUF6lQpscQx031/b4I6/Gx1zQMNCu9Tsk9nZKDmsxcF3+
-	MIWHpjdog7ipGIl+IlTpcz338/dldIvHRbijXIkRCrXZhOW7p6jubs8mFxVmuZPOzFYchbOvo4GYf
-	8B9VtqWw==;
+	bh=FS4akPMmTKn/XxnyNATR0rYZuSEvn1Rz3NANKinyLK8=; b=ycsrt83kB8anR3UsgNOm7jE9QH
+	Dimv8lvzIJgzjwhvsiSu53jW9My47FHQs5mbahpbebCCBal8eX68L6ZKdJVNN+Fytrv+hxGav2hbO
+	FswR0VA6zpNWCpqphlTrzmHJnJYq2+jCtNz5G6q+r+uqG+oSOfbCXuXtCstJqy+y0bxLKa0SqeZ8o
+	8z6iE4o7giRGkqnPleXHSbko5w0gS37RYAWwlAsLG5IeCx2Ni5ntqABSePtNZ200AFlkI/zR3ec+B
+	dQV10YY2vDp1CP+1/FjF2dEh/Apyy0G1/vo8wH0PL0YYTi1lpf5wDXEvsrRQ/LHEEiFrfGPbKJO1Z
+	nYi+kK8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjB5-00000003BtQ-1xix;
-	Fri, 16 Oct 2026 14:44:59 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xHjHb-00000003CgV-2gfA;
+	Fri, 16 Oct 2026 14:51:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjB2-00000003BsV-165j
+	id 1xHjHa-00000003Cg9-1TKj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:44:58 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D06331A1255;
-	Fri, 16 Oct 2026 14:44:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 961C56075D;
-	Fri, 16 Oct 2026 14:44:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DD5F610328BE6;
-	Fri, 16 Oct 2026 16:44:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792161887; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=+0AXPlFze0BOG/sBmlCYKyCygdQcae/LGncpPghnnwQ=;
-	b=FlcfR7Q91vBQss0fvH4P2vn74rnf/dSWcAk19bc1YL+ZzYIqTNd+sTzpsadrwo1YMBZwc1
-	KFo7GSvZlkhHgiM6SmUy5UtIf/UTf3ibwwID6IXU8/40PopfES4v+kZvSeoOaNTH+Qftdg
-	zWKsoi8qvy/ZOa2NLg7FyIJwNfxCUxqYTvP6Tutft6rskOT+LYTfDBKBt9lgbvSHqjz0QM
-	1qjCc2sRqtRFL+YFOONbQVLaIhaxvoyirkmOFHisS5QIKEvwshEM9WQFY1VAQhiWvTrFob
-	Tmsw0D6TnzrikjJGbdaOn3cbI/zDNM+puNaPFzjjsUNV9DHSdC6SuMl+l+035g==
-Message-ID: <12b18559-3e8e-4a09-94a1-0d303ad7c2c6@bootlin.com>
-Date: Fri, 16 Oct 2026 16:44:35 +0200
+	Fri, 16 Oct 2026 14:51:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B93A341A8C;
+	Fri, 16 Oct 2026 14:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2C8B1F000C5;
+	Fri, 16 Oct 2026 14:51:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792162301;
+	bh=FS4akPMmTKn/XxnyNATR0rYZuSEvn1Rz3NANKinyLK8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gl2/odbWolkTtsI8DbH/fRUIGtRdbBf5mzbeQrIdAcoJ8kMHhYbh8fgY/b7d0baTm
+	 JNiochyMaCS/hBbtJdjoopVjJ6PP3wKR6fKAtWEU0bDniHx030vR/wjHPygwUAb+oH
+	 F8W8vXWxOvzfNXMDhMAPUhmMf953Bm9aReNRsA9Nq/XD9GrhrPdZogClQUL24phpsn
+	 N0Ib/K7TtcySCh0i8wLImPmLzr+wNCCoCP/ZborLM+k5l25Z5R/rte+skwiGAZ5Tgt
+	 c7VvJSEBxPBwgeWfeIsmj9FJVFdGR4AGqTzc4mugU6hIVj8GQFsPTf/vY4AbJqJ30x
+	 ISwvJ9JSGfpTA==
+Message-ID: <ec27fd26-1862-43cf-803a-428846d66663@kernel.org>
+Date: Fri, 16 Oct 2026 16:51:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v5] net: stmmac: fix error path cleanup in DMA
- descriptor ring allocation
-To: Ding Hui <dinghui1111@163.com>, netdev-bot+sashiko@kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "open list:STMMAC ETHERNET DRIVER" <netdev@vger.kernel.org>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
- liuxuanjun@lixiang.com
-References: <20261012142458.2845385-1-dinghui1111@163.com>
+Subject: Re: [PATCH 02/10] dt-bindings: pinctrl: Add devicetree bindings for
+ DM816x SoC Pinctrl
+To: Ettore Chimenti <ettore.chimenti@linaro.org>,
+ Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Christopher Obbard <chris.obbard@oss.qualcomm.com>,
+ Andrew Goodbody <andrew.goodbody@linaro.org>,
+ Linus Walleij <linusw@kernel.org>,
+ Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+ <20261016-patch-ektor5-dm8168-dts-v1-2-b4ce30217028@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261012142458.2845385-1-dinghui1111@163.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20261016-patch-ektor5-dm8168-dts-v1-2-b4ce30217028@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_074456_588006_5306744B 
-X-CRM114-Status: GOOD (  36.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,397 +125,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 10/12/26 16:24, Ding Hui wrote:
-> From: Ding Hui <dinghui@lixiang.com>
+On 16/10/2026 16:41, Ettore Chimenti wrote:
+> Add devicetree bindings for TI DM816x SoC pinctrl configuration.
+> Using same definition as OMAP2/3 except pullup/down enable macros, which
+> are inverted in this SoC.
 > 
-> __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
-> allocate resources in multiple steps but return early on failure
-> without cleaning up what they have already allocated. The outer
-> error paths then call the free helpers on partially-initialized
-> queues, which dereference pointers that were never allocated:
-> 
->   - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
->     rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool
->     may be NULL if its kzalloc_objs() failed.
-> 
->   - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
->     stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
->     kzalloc_objs() failed.
-> 
->   - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
->     tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff
->     may be NULL if its allocation failed while tx_skbuff_dma
->     succeeded.
-> 
-> Fix this by making each allocation function responsible for undoing
-> its own allocations on error, following the standard kernel error
-> handling pattern of cleaning up in reverse order. Also add NULL
-> checks in the free helpers as a defensive measure, since they may
-> be called on partially-initialized queues.
-> Additionally, make __free_dma_rx_desc_resources() and
-> __free_dma_tx_desc_resources() clear the pointers they free, so that
-> the NULL guards in the free helpers hold reliably when the long-lived
-> priv->dma_conf is reused across XDP open/release cycles.
-> Free the RX resources in alloc_dma_desc_resources() when the TX
-> allocation fails, as the callers only free dma_conf itself on
-> that path.
-> After __stmmac_open() copies a temporary dma_conf into priv->dma_conf,
-> release the descriptor resources through priv->dma_conf on an open
-> failure. This keeps the long-lived configuration consistent with the
-> resource cleanup while callers only free the temporary container.
-> Finally, hold RTNL while descriptors_status inspects the descriptor
-> rings. This serializes the debugfs reader with control-plane resource
-> teardown paths and allows it to safely report queues whose descriptor
-> rings are not allocated. Skip queues whose descriptor rings are not
-> allocated in stmmac_rings_status_show() to avoid dereferencing a NULL
-> pointer.
-> 
-> Signed-off-by: Ding Hui <dinghui@lixiang.com>
-
-In V1 Andrew requested that this targets net-next yet this series kept
-targetting the "net" tree since then.
-
-I think this is an omission on your side as you replied to the bots that
-you removed the Fixes: tag on purpose :) You need to have "net-next" in
-the patch topic : [PATCH net-next v5]
-
-This is starting to look good, but as you need to respin, is it possible
-that you split that patch down into simpler patches ? There are multiple
-classes of problems being addressed here :
- - Error paths being reworked
- - Null checks being added
- - Some pointers being Nulled
-
-It would make it easier to digest during review.
-
-Thanks,
-
-Maxime
-
-> 
+> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
 > ---
-> Changes in v5:
->   - Release copied descriptor resources through priv->dma_conf when
->     __stmmac_open() fails, avoiding stale pointers in the long-lived
->     configuration.
->   - Hold RTNL while descriptors_status reads descriptor rings.
->   - Correct the commit message to refer to descriptors_status as a
->     debugfs entry rather than a sysfs entry.
->   - Link to v4:
->     https://lore.kernel.org/netdev/20261001035045.3305816-1-dinghui1111@163.com/
-> Changes in v4:
->   - Free the RX resources in alloc_dma_desc_resources() when the TX
->     allocation fails.
->   - Skip queues whose descriptor rings are not allocated in
->     stmmac_rings_status_show() and print a hint instead.
->   - Link to v3:
->     https://lore.kernel.org/netdev/20260919121436.1642724-1-dinghui1111@163.com/
-> Changes in v3:
->   - Use addr directly in __alloc_dma_rx_desc_resources() error path
->     instead of the if/else block on rx_q->dma_erx/dma_rx.
->   - Clear the freed pointers in __free_dma_rx_desc_resources() and
->     __free_dma_tx_desc_resources().
->   - Link to v2:
->     https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
-> Changes in v2:
->   - Instead of only adding NULL checks in the free helpers, also fix
->     __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
->     to clean up their own allocations on error, as suggested by Andrew.
->   - Update commit message.
->   - Link to v1:
->     https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
-> ---
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 112 +++++++++++++++---
->  1 file changed, 96 insertions(+), 16 deletions(-)
+>  include/dt-bindings/pinctrl/dm816x.h | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f2fc89176654..852a8b103c45 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1728,7 +1728,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
->  					 DMA_TO_DEVICE);
->  	}
->  
-> -	if (tx_q->xdpf[i] &&
-> +	if (tx_q->xdpf && tx_q->xdpf[i] &&
->  	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
->  	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
->  		xdp_return_frame(tx_q->xdpf[i]);
-> @@ -1738,7 +1738,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
->  	if (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XSK_TX)
->  		tx_q->xsk_frames_done++;
->  
-> -	if (tx_q->tx_skbuff[i] &&
-> +	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
->  	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
->  		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
->  		tx_q->tx_skbuff[i] = NULL;
-> @@ -1761,6 +1761,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
->  	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
->  	int i;
->  
-> +	/* buf_pool may not be allocated if alloc failed early */
-> +	if (!rx_q->buf_pool)
-> +		return;
+> diff --git a/include/dt-bindings/pinctrl/dm816x.h b/include/dt-bindings/pinctrl/dm816x.h
+> new file mode 100644
+> index 000000000000..15aa15bca9bd
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/dm816x.h
+> @@ -0,0 +1,20 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * This header provides constants specific to DM816X pinctrl bindings.
+> + */
 > +
->  	for (i = 0; i < dma_conf->dma_rx_size; i++)
->  		stmmac_free_rx_buffer(priv, rx_q, i);
->  }
-> @@ -1802,6 +1806,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
->  	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
->  	int i;
->  
-> +	/* buf_pool may not be allocated if alloc failed early */
-> +	if (!rx_q->buf_pool)
-> +		return;
+> +#ifndef _DT_BINDINGS_PINCTRL_DM816X_H
+> +#define _DT_BINDINGS_PINCTRL_DM816X_H
 > +
->  	for (i = 0; i < dma_conf->dma_rx_size; i++) {
->  		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
->  
-> @@ -2097,6 +2105,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
->  	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
->  	int i;
->  
-> +	/* tx_skbuff_dma may not be allocated if alloc failed early */
-> +	if (!tx_q->tx_skbuff_dma)
-> +		return;
-> +
->  	tx_q->xsk_frames_done = 0;
->  
->  	for (i = 0; i < dma_conf->dma_tx_size; i++)
-> @@ -2154,13 +2166,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
->  
->  	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-> +	rx_q->dma_erx = NULL;
-> +	rx_q->dma_rx = NULL;
-> +	rx_q->dma_rx_phy = 0;
->  
->  	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
->  		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
->  
->  	kfree(rx_q->buf_pool);
-> -	if (rx_q->page_pool)
-> +	rx_q->buf_pool = NULL;
-> +
-> +	if (rx_q->page_pool) {
->  		page_pool_destroy(rx_q->page_pool);
-> +		rx_q->page_pool = NULL;
-> +	}
->  }
->  
->  static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
-> @@ -2202,9 +2221,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
->  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
->  
->  	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
-> +	tx_q->dma_etx = NULL;
-> +	tx_q->dma_entx = NULL;
-> +	tx_q->dma_tx = NULL;
-> +	tx_q->dma_tx_phy = 0;
->  
->  	kfree(tx_q->tx_skbuff_dma);
-> +	tx_q->tx_skbuff_dma = NULL;
-> +
->  	kfree(tx_q->tx_skbuff);
-> +	tx_q->tx_skbuff = NULL;
->  }
->  
->  static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
-> @@ -2272,15 +2298,19 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	}
->  
->  	rx_q->buf_pool = kzalloc_objs(*rx_q->buf_pool, dma_conf->dma_rx_size);
-> -	if (!rx_q->buf_pool)
-> -		return -ENOMEM;
-> +	if (!rx_q->buf_pool) {
-> +		ret = -ENOMEM;
-> +		goto err_destroy_pool;
-> +	}
->  
->  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
->  
->  	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
->  				  GFP_KERNEL);
-> -	if (!addr)
-> -		return -ENOMEM;
-> +	if (!addr) {
-> +		ret = -ENOMEM;
-> +		goto err_free_buf_pool;
-> +	}
->  
->  	if (priv->extend_desc)
->  		rx_q->dma_erx = addr;
-> @@ -2296,10 +2326,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
->  	if (ret) {
->  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
-> -		return -EINVAL;
-> +		goto err_free_dma;
->  	}
->  
->  	return 0;
-> +
-> +err_free_dma:
-> +	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-> +	rx_q->dma_erx = NULL;
-> +	rx_q->dma_rx = NULL;
-> +err_free_buf_pool:
-> +	kfree(rx_q->buf_pool);
-> +	rx_q->buf_pool = NULL;
-> +err_destroy_pool:
-> +	page_pool_destroy(rx_q->page_pool);
-> +	rx_q->page_pool = NULL;
-> +	return ret;
->  }
->  
->  static int alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
-> @@ -2352,14 +2394,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
->  
->  	tx_q->tx_skbuff = kzalloc_objs(struct sk_buff *, dma_conf->dma_tx_size);
->  	if (!tx_q->tx_skbuff)
-> -		return -ENOMEM;
-> +		goto err_free_skbuff_dma;
->  
->  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
->  
->  	addr = dma_alloc_coherent(priv->device, size,
->  				  &tx_q->dma_tx_phy, GFP_KERNEL);
->  	if (!addr)
-> -		return -ENOMEM;
-> +		goto err_free_skbuff;
->  
->  	if (priv->extend_desc)
->  		tx_q->dma_etx = addr;
-> @@ -2369,6 +2411,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
->  		tx_q->dma_tx = addr;
->  
->  	return 0;
-> +
-> +err_free_skbuff:
-> +	kfree(tx_q->tx_skbuff);
-> +	tx_q->tx_skbuff = NULL;
-> +err_free_skbuff_dma:
-> +	kfree(tx_q->tx_skbuff_dma);
-> +	tx_q->tx_skbuff_dma = NULL;
-> +	return -ENOMEM;
->  }
->  
->  static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
-> @@ -2411,6 +2461,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
->  		return ret;
->  
->  	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-> +	if (ret)
-> +		free_dma_rx_desc_resources(priv, dma_conf);
->  
->  	return ret;
->  }
-> @@ -4182,6 +4234,7 @@ static int __stmmac_open(struct net_device *dev,
->  
->  	stmmac_release_ptp(priv);
->  init_error:
-> +	free_dma_desc_resources(priv, &priv->dma_conf);
->  	return ret;
->  }
->  
-> @@ -4214,8 +4267,13 @@ static int stmmac_open(struct net_device *dev)
->  	}
->  
->  	ret = __stmmac_open(dev, dma_conf);
-> -	if (ret)
-> -		goto err_serdes;
-> +	if (ret) {
-> +		stmmac_legacy_serdes_power_down(priv);
-> +		phylink_disconnect_phy(priv->phylink);
-> +		pm_runtime_put(priv->device);
-> +		kfree(dma_conf);
-> +		return ret;
-> +	}
->  
->  	kfree(dma_conf);
->  
-> @@ -4224,8 +4282,6 @@ static int stmmac_open(struct net_device *dev)
->  
->  	return ret;
->  
-> -err_serdes:
-> -	stmmac_legacy_serdes_power_down(priv);
->  err_disconnect_phy:
->  	phylink_disconnect_phy(priv->phylink);
->  err_runtime_pm:
-> @@ -6130,7 +6186,6 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
->  
->  		ret = __stmmac_open(dev, dma_conf);
->  		if (ret) {
-> -			free_dma_desc_resources(priv, dma_conf);
->  			kfree(dma_conf);
->  			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
->  			return ret;
-> @@ -6501,8 +6556,10 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
->  	u8 tx_count = priv->plat->tx_queues_to_use;
->  	u8 queue;
->  
-> +	rtnl_lock();
-> +
->  	if ((dev->flags & IFF_UP) == 0)
-> -		return 0;
-> +		goto out;
->  
->  	for (queue = 0; queue < rx_count; queue++) {
->  		struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
-> @@ -6510,10 +6567,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
->  		seq_printf(seq, "RX Queue %d:\n", queue);
->  
->  		if (priv->extend_desc) {
-> +			if (!rx_q->dma_erx) {
-> +				seq_puts(seq, "Extended descriptor ring not allocated\n");
-> +				continue;
-> +			}
-> +
->  			seq_printf(seq, "Extended descriptor ring:\n");
->  			sysfs_display_ring((void *)rx_q->dma_erx,
->  					   priv->dma_conf.dma_rx_size, 1, seq, rx_q->dma_rx_phy);
->  		} else {
-> +			if (!rx_q->dma_rx) {
-> +				seq_puts(seq, "Descriptor ring not allocated\n");
-> +				continue;
-> +			}
-> +
->  			seq_printf(seq, "Descriptor ring:\n");
->  			sysfs_display_ring((void *)rx_q->dma_rx,
->  					   priv->dma_conf.dma_rx_size, 0, seq, rx_q->dma_rx_phy);
-> @@ -6526,16 +6593,29 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
->  		seq_printf(seq, "TX Queue %d:\n", queue);
->  
->  		if (priv->extend_desc) {
-> +			if (!tx_q->dma_etx) {
-> +				seq_puts(seq, "Extended descriptor ring not allocated\n");
-> +				continue;
-> +			}
-> +
->  			seq_printf(seq, "Extended descriptor ring:\n");
->  			sysfs_display_ring((void *)tx_q->dma_etx,
->  					   priv->dma_conf.dma_tx_size, 1, seq, tx_q->dma_tx_phy);
->  		} else if (!(tx_q->tbs & STMMAC_TBS_AVAIL)) {
-> +			if (!tx_q->dma_tx) {
-> +				seq_puts(seq, "Descriptor ring not allocated\n");
-> +				continue;
-> +			}
-> +
->  			seq_printf(seq, "Descriptor ring:\n");
->  			sysfs_display_ring((void *)tx_q->dma_tx,
->  					   priv->dma_conf.dma_tx_size, 0, seq, tx_q->dma_tx_phy);
->  		}
->  	}
->  
-> +out:
-> +	rtnl_unlock();
-> +
->  	return 0;
->  }
->  DEFINE_SHOW_ATTRIBUTE(stmmac_rings_status);
+> +#include <dt-bindings/pinctrl/omap.h>
 
+I do not see this being used here, IWYU.
+
+> +
+> +#undef PULL_UP
+> +#undef PULL_ENA
+
+Why are you undefining other macros? That's not a easy to follow code.
+
+
+> +
+> +/* DM81xx mux bit defines */
+> +#define PULL_ENA		(0 << 3)  /* Pullup enabled  => 0 */
+> +#define PULL_DIS		(1 << 3)  /* Pullup disabled => 1 */
+> +#define PULL_DN			(0 << 4)
+> +#define PULL_UP			(1 << 4)
+
+I do not see this used by drivers, so why do we need one more header?
+What part of SW are you binding here?
+
+
+Best regards,
+Krzysztof
 
