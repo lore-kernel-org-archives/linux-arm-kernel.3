@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99471CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACDBCCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=99panwqtff1qipNpiTkmFuZABnrrWoB6PQ6JmxiG6OM=; b=tDAjenhGERlIUSPdy+8WTDhnoR
-	/xI1TxQh1A2yedtVTzkkLThsVDwanR4jf68Ze4sH5JUfopFuqPC9Ygs4jAzgFri2hLtBwQY9GSggq
-	zvyPMHmAsGIIIg6ooshRcqhraEjocD4NYN2mNSvrsMnKjTf7mED+T0mUJtd6hLlTR3rM6HHtwik+N
-	vFm1Qb73WWtbPsB9+/mLsakNpU9cSKMaL1TvtfjX48L+q0K6uJz2Tk/iJPxEn5PO0SNMR7vuG4buI
-	pMsWM+Hidh1HMYMkW+MhOIPKVbg7mThavvqggJgLhL8kxF1EQXHWMSuR5HNGaovNGbXys7GEpd5wg
-	HH2IaQDg==;
+	bh=iMoA37VfYfgjy0OKDKx6ttg+8OaSl2YMWOYrw4kMjWU=; b=fmkvChgAxoWTd3KZX7NMAEluqx
+	5EPjBxpzfES3GInN7lHxzzIWgDMFTmRSdQsjdPHqPW0T6s8ZYmXUskqLUGRuZeGFp8u7oiil8qoTH
+	p0hnFt0mFwqT6U6WCD5PUrFv5jSieMeA0FEPj8VTWfVHFJR1ECZlfFrPUNd4OTn4FIn7DtntWGTp0
+	99h9J8d4f0xt8tIoYfWsO8z75bYuYy6w829r+y+JeXL9hri+lV5yf0QHkLEjZE8sSfvLIzJrBG8yj
+	nc/sepgrrZIfDUokSDeITXrUm1/vh4m8ex+Q80m6lagt47rUl5ZWo23ejI0qqrzx8v2tv6fy67VAv
+	rTh+a8Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiUA-000000035Zj-3gdN;
-	Fri, 16 Oct 2026 14:00:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHiUg-000000035gb-0JzC;
+	Fri, 16 Oct 2026 14:01:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiU9-000000035Za-3uoL
+	id 1xHiUe-000000035gO-2GBU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:00:38 +0000
+	Fri, 16 Oct 2026 14:01:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61F0160008
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 14:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165821F000C5;
-	Fri, 16 Oct 2026 14:00:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BFC4F60018
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 14:01:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5D011F000C4;
+	Fri, 16 Oct 2026 14:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792159237;
-	bh=99panwqtff1qipNpiTkmFuZABnrrWoB6PQ6JmxiG6OM=;
+	s=k20260515; t=1792159267;
+	bh=iMoA37VfYfgjy0OKDKx6ttg+8OaSl2YMWOYrw4kMjWU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gKVswL7g7BW9sIVtPdjRFvUZ25zHCrrOECBue3+2/aWlA2P7nWpoKrq/6/nJjpJJ+
-	 55l/XrCBzTv6paQut123x1O32GImHjI8Kf5CEw+z/IB6jB2eudD+QEbkBbRX8H2J37
-	 wOuKGvAFhcWt2WB6uulRbUGVc+jj7eJycKql8ML827oZ/Ot0vz+yKgRGIrlIXGfICA
-	 M5qgXol1VUNwZPKBoeNHmgP7+uqWwLc/0w0ybxi0/KxfhIGxsutx6bav625Bwxryu7
-	 K8TF3PtSgh397fDlZwl+vBakcaMRmrVg2z5g3aJGEmrUBberHs1DD14GybnUNaaN8d
-	 lW2Zt1vXOdaOw==
-Message-ID: <ef373b76-de10-4361-9d55-29f730f7442b@kernel.org>
-Date: Fri, 16 Oct 2026 16:00:32 +0200
+	b=ZIEVHXpUFD1dJmMQqgIVy30dLS4iPkATSnoToE6WmEmWInCv+R6tAaohKwKK4lY5U
+	 4B+PK6Ra/pvqIvgs0OTNq6JFLceUNkgFRnYicQBohx7fGqIql1JyuUHw/u6+SO4UyI
+	 HYvjio5+/P3lrJ1v/FldgKe6Ek5/JBmAkCojRiO6G/7RSrqN32ZzCN8MP/i0cbMkQ5
+	 lzdONyCziBWBIomBKUJoBGqol+VWVLqMEJyRI2UCnIVYekO7PiruzrIWAD0ib6ldOl
+	 QHnTsEBtb9Nit52xU6YcEeAD0Ki5H5HVpLzwrqD1m2f4p3zQ44VA2SlBUNFpAHGnWi
+	 qSTXYC58JFGdg==
+Message-ID: <4934162e-96da-4291-b94a-9c58f6bb9b5d@kernel.org>
+Date: Fri, 16 Oct 2026 16:01:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2 1/2] dt-bindings: arm: altera: document the Agilex27
+Subject: Re: [PATCHv2 2/2] arm64: dts: altera: Add support for the Agilex27
  platform
 To: Dinh Nguyen <dinguyen@kernel.org>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20261015123700.2137706-1-dinguyen@kernel.org>
+ <20261015123700.2137706-2-dinguyen@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,7 +98,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261015123700.2137706-1-dinguyen@kernel.org>
+In-Reply-To: <20261015123700.2137706-2-dinguyen@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -114,24 +115,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2026 14:36, Dinh Nguyen wrote:
-> The Altera SoCFGPA Agilex72 platform will be rebranded as the Agilex27.
-> 
-> Add the "altr,socfpga-agilex27" and "altr,socfpga-agilex27-socdk" bindings
-> for the SoCFPGA Agilex27 platform.
+On 15/10/2026 14:37, Dinh Nguyen wrote:
+> The Agilex72 platform is being rebranded to Agilex27. The Agilex27 is
+> exactly the same as the Agilex72. Add the base DTSI and the devkit's
+> DTS.
 > 
 > Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
 > ---
-> v2: do not deprecate the agilex72 platform
+> v2: leave the agilex72 files
 > ---
+>  arch/arm64/boot/dts/altera/Makefile           |   1 +
+>  .../boot/dts/altera/socfpga_agilex27.dtsi     | 156 ++++++++++++++++++
+>  .../dts/altera/socfpga_agilex27_socdk.dts     |  27 +++
+>  3 files changed, 184 insertions(+)
 
-Again, no. Your rebranding does not matter. We do not add compatibles
-for the same device. We do not rename them. We do not deprecate them
-because you want to rebrand something.
 
-Whatever marketing company does, it does not matter for the compatibles.
-
-NAK
+This makes no sense, you have now two SAME boards. We do not do such
+dances in Linux kernel.
 
 Best regards,
 Krzysztof
