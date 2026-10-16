@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFF7CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E437CCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hj1KH8boNQyeqb0RG6bTHrI9yRinPTXtodZqXvdAi2Q=; b=WGBim+N73UWPCcTJRVCGrKsbqP
-	zkFC87KyvqiuTTGoXppDVseUL69Hjuq6uWJlyCa0or0DydWi4SD1H0Mg5yWFLCfh4UISnikaccXKm
-	YTjzSGYboj/FQxbmn94+4pDHCkhmLIrO2V8gE0Km6OnvzWXy56xWtclBZpi9bNQtdlBC6mw4Vv6SW
-	2+NUOYW4LSTkOtAe/QGhWaNoapdU/bZpG5N3/G12Zu6Xpq9WypnQ1lWgNiZ9qV0MWIxxOgH7Iv6kt
-	5GcWrHvcUiaT0940/Df/a/N8t9PIInjFCqEveASQo8X+X7qcSqdqDso278d9ZR906yrVsgF1si8+g
-	VSvPckXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uflAwfv4pgBe00mPZASrj8nK8vm7+mx19rpyox+Hzkk=; b=CWzRBbwbqarX0m28cq/JWRdit4
+	RMOg7JSBpvpvk8yKM9ZVc9DPsByCLc49dEgPjfnEq80OT3ofYfUxm+Q3CoMDQ5RvqZCDHrVqwc3X9
+	yMnTWZJsRGK4EYRTFWDBL62pmv2nH9EnxS3a51iCkoh7Wc0zKKl936jtTCPZ9Lwv/YqEA5+PXVyuZ
+	hiCue9GZN+JGSjITAJdWMDEebbviHzYnxDq9BcDsOAEBWLuA98NvG46Zc559DfVDgnaMSXb20gBdh
+	AG7mWMq7PK8CmXX9rMwqyOH8GrPpgG5iquOsN4Yf2x1J6Cen+BKSS5U9rab5Xi2xVfM+s0LuQEHI7
+	uSM9sEAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiyJ-000000039HL-2K8G;
-	Fri, 16 Oct 2026 14:31:47 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1xHj3G-000000039pt-1y8g;
+	Fri, 16 Oct 2026 14:36:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiyG-000000039Ge-3KEL
+	id 1xHj3F-000000039pN-2DG1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:31:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792161105; x=1823697105;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=dt+a4a6W70jAxDMgMbHMH1fPbQ/npH5no4bHOhmOJ1Q=;
-  b=JnsL+wuucZLIkfT+SrI7YmWny7Wu7TOhVg23dUYGE6EI7dIuLhpZnzXN
-   XTV6t5u7CMO3ybPfwp5dDQZyVzvOVrytPr/6Th/EDMlgOk/Wj30xoAuyZ
-   ZTCllxJ04PadPeYLHz+bD1NBKVnkJKyhIc1r5UwJP/6uUKh+6mqm+fjJo
-   +ng6Ao6vsjI49dZ92/ZyrE36JKqVC+QeCMDoYJz25zOvCdUfEIfpxYVWY
-   +8/MpTFl18ywGHGs/pMIyY4s6nUMLg18gbPqgqrpHQM88bsEEihYYE52T
-   dG5W/p6oIIJQ8zSK02kUqBOnoUTtOyC34npUekQ0taXaOgPikyP15VuRe
-   g==;
-X-CSE-ConnectionGUID: XEe2GL+tTJabTNt+VPJIHg==
-X-CSE-MsgGUID: x2y40ZQmRLSh2TFE7pINAw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11936"; a="950270"
-X-IronPort-AV: E=Sophos;i="6.27,161,1787036400"; 
-   d="scan'208";a="950270"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Oct 2026 07:31:43 -0700
-X-CSE-ConnectionGUID: mRWJKeS1S0+qnz5vjEKOLw==
-X-CSE-MsgGUID: 52fbFazJTpmxta21tS5qsw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,161,1787036400"; 
-   d="scan'208";a="1954568"
-Received: from dawidgla-mobl.ger.corp.intel.com (HELO [10.94.249.157]) ([10.94.249.157])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Oct 2026 07:31:41 -0700
-Message-ID: <f7c98fbe-2880-4769-bf09-53134cdfc63d@linux.intel.com>
-Date: Fri, 16 Oct 2026 16:31:33 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] ARM: dts: aspeed: add Intel AVCRP BMC
-To: Tan Siewert <tan.siewert@9elements.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- maciej.lawniczak@intel.com
-References: <cover.1791825961.git.dawid.glazik@linux.intel.com>
- <12f8124fea31a6c6b1401d6aee640842c8d896a7.1791825961.git.dawid.glazik@linux.intel.com>
- <7d703c43-e462-41d6-a488-87342fd139a2@9elements.com>
-Content-Language: en-US
-From: Dawid Glazik <dawid.glazik@linux.intel.com>
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298
- Gdansk - KRS 101882 - NIP 957-07-52-316
-In-Reply-To: <7d703c43-e462-41d6-a488-87342fd139a2@9elements.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_073144_899221_6109ED11 
-X-CRM114-Status: GOOD (  26.78  )
+	Fri, 16 Oct 2026 14:36:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DEEB9439C0;
+	Fri, 16 Oct 2026 14:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F0D1F000C4;
+	Fri, 16 Oct 2026 14:36:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792161412;
+	bh=uflAwfv4pgBe00mPZASrj8nK8vm7+mx19rpyox+Hzkk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=hHm9YjaiPam4pOBh45KFrpmp+76rcRCkKwZmdOjW9Q7QCW7vJ+GLhmIG+2LrhraQ/
+	 jYZ6jPUgTOxtyANFNfA9Hrf3jGX5dj0wo7tjWAkhedvR5D2LhzCSR4vuiPQ2KX38Wk
+	 e9ARjisbV1UnbuuCHa6RAA1BWvTgVm59XR7zYbPd7mfSC/b2HpaLhntWv7qHiVXK0J
+	 5R6cCLldRhZ/YBzPbNTQtFDnBZ3tnpefVfNXvpWC90ZnOTquajBoM0iR0RPhTAdr7X
+	 uPdm0kftJHGYwEIlc3DKpPN0jKU5MdJMFZJEO4CFKdbGWXl1c3wLf704IvnWCOuHmF
+	 Dt9H+mSZ4CeOQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xHj3C-00000003ndV-2mXh;
+	Fri, 16 Oct 2026 14:36:50 +0000
+Date: Fri, 16 Oct 2026 15:36:50 +0100
+Message-ID: <868q3x1zlp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jiale Yao <yaojiale02@163.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/6] irqchip/gic-v3: validate MADT records before use
+In-Reply-To: <20261016141357.2793046-4-yaojiale02@163.com>
+References: <20261016141357.2793046-1-yaojiale02@163.com>
+	<20261016141357.2793046-4-yaojiale02@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yaojiale02@163.com, tglx@kernel.org, radu@rendec.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,209 +83,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/12/2026 7:19 PM, Tan Siewert wrote:
-> On 10/12/26 7:39 PM, Dawid Glazik wrote:
->> Add the initial AST2600 device tree for the Intel AVCRP BMC platform.
->>
->> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+On Fri, 16 Oct 2026 15:13:54 +0100,
+Jiale Yao <yaojiale02@163.com> wrote:
 > 
-> You got Review trailers from Andrew Lunn in v1. Unless you think Andrew 
-> has to re-review it (which should be then reasoned), please keep them in 
-> new revisions.
+> The GICv3 ACPI paths cast generic MADT headers to distributor,
+> redistributor, and CPU interface records before confirming that the
+> corresponding fixed-size structures are present. Truncated records can
+> therefore cause out-of-bounds field reads while probing or setting up
+> virtualization data.
+>
+> Check each typed MADT record before its first field access. Also reject
+> a short distributor record in the version validator, which runs before
+> the probe callback.
 > 
->  From the kernel docs [0]:
+> Signed-off-by: Jiale Yao <yaojiale02@163.com>
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 > 
-> "Both Tested-by and Reviewed-by tags, once received on mailing list from 
-> tester or reviewer, should be added by author to the applicable patches 
-> when sending next versions. However if the patch has changed 
-> substantially in following version, these tags might not be applicable 
-> anymore and thus should be removed. Usually removal of someone’s Acked- 
-> by, Tested-by or Reviewed-by tags should be mentioned in the patch 
-> changelog with an explanation (after the ‘---’ separator)."
-> 
->> ---
->> v2:
->>   - Replace bootargs console=ttyS4,115200n8 with stdout-path = &uart5
->>   - Remove the unreferenced video_memory reserved-memory node
->> ---
->>   arch/arm/boot/dts/aspeed/Makefile             |   1 +
->>   .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 315 ++++++++++++++++++
->>   2 files changed, 316 insertions(+)
->>   create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
->>
->> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/ 
->> aspeed/Makefile
->> index 767f7c7652d5..ea4645ef9872 100644
->> --- a/arch/arm/boot/dts/aspeed/Makefile
->> +++ b/arch/arm/boot/dts/aspeed/Makefile
->> @@ -54,6 +54,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
->>       aspeed-bmc-ibm-rainier-4u.dtb \
->>       aspeed-bmc-ibm-sbp1.dtb \
->>       aspeed-bmc-ibm-system1.dtb \
->> +    aspeed-bmc-intel-avcrp.dtb \
->>       aspeed-bmc-intel-s2600wf.dtb \
->>       aspeed-bmc-inspur-fp5280g2.dtb \
->>       aspeed-bmc-inspur-nf5280m6.dtb \
->> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts b/ 
->> arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
->> new file mode 100644
->> index 000000000000..7c088c89d417
->> --- /dev/null
->> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
->> @@ -0,0 +1,315 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +// Copyright 2026 Intel Corporation
->> +
->> +/dts-v1/;
->> +
->> +#include "aspeed-g6.dtsi"
->> +#include <dt-bindings/gpio/aspeed-gpio.h>
->> +
->> +/ {
->> +    model = "Intel AVCRP BMC";
->> +    compatible = "intel,avcrp-bmc", "aspeed,ast2600";
->> +
->> +    aliases {
->> +        serial4 = &uart5;
->> +    };
->> +
->> +    chosen {
->> +        stdout-path = &uart5;
->> +        bootargs = "earlycon";
->> +    };
->> +
->> +    memory@80000000 {
->> +        device_type = "memory";
->> +        reg = <0x80000000 0x40000000>;
->> +    };
->> +
->> +    reserved-memory {
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        ranges;
->> +
->> +        video_engine_memory: jpegbuffer {
->> +            size = <0x02000000>; /* 32M */
->> +            alignment = <0x01000000>;
->> +            compatible = "shared-dma-pool";
->> +            reusable;
->> +        };
->> +    };
->> +
->> +};
->> +
->> +&rtc {
->> +    status = "okay";
->> +};
-> 
-> Please sort your nodes, as described in the device tree design guideline 
-> [1]. There's also a tool called `scripts/dtc/dt-check-style` that can 
-> help with this.
-> Note on that: we usually run `--mode strict` but it is known to report 
-> false-positives, so please check any reported errors twice ^^
-> 
->> +
->> +&fmc {
->> +    status = "okay";
->> +    flash@0 {
->> +        status = "okay";
->> +        m25p,fast-read;
->> +        label = "bmc";
->> +        spi-rx-bus-width = <4>;
->> +        spi-max-frequency = <50000000>;
->> +#include "openbmc-flash-layout-64.dtsi"
->> +    };
->> +};
->> +
->> +&uart1 {
->> +    status = "okay";
->> +};
->> +
->> +&uart3 {
->> +    status = "okay";
->> +};
->> +
->> +&uart4 {
->> +    status = "okay";
->> +};
->> +
->> +&uart5 {
->> +    status = "okay";
->> +};
->> +
->> +&uart_routing {
->> +    status = "okay";
->> +};
->> +
->> +&mdio1 {
->> +    status = "okay";
->> +
->> +    ethphy1: ethernet-phy@0 {
->> +        compatible = "ethernet-phy-id001c.c916";
->> +        reg = <0>;
->> +        reset-gpios = <&gpio0 ASPEED_GPIO(C, 1) GPIO_ACTIVE_LOW>;
->> +        reset-assert-us = <10000>;
->> +        reset-deassert-us = <50000>;
->> +    };
->> +};
->> +
->> +&mac1 {
->> +    status = "okay";
->> +    pinctrl-names = "default";
->> +    pinctrl-0 = <&pinctrl_rgmii2_default>;
->> +    clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>,
->> +         <&syscon ASPEED_CLK_MAC2RCLK>;
->> +    clock-names = "MACCLK", "RCLK";
->> +    phy-mode = "rgmii-id";
->> +    phy-handle = <&ethphy1>;
->> +};
->> +
->> +&lpc {
->> +    lpc_snoop: lpc-snoop@80 {
->> +        snoop-ports = <0x80>;
->> +        status = "okay";
->> +    };
-> 
-> Why's this named if you don't use it as reference anywhere.
-> 
->> +};
->> +
->> +&i3c_global {
->> +    status = "okay";
->> +};
-> 
-> That's enabled by default.
-> 
->> +
->> +&vhub {
->> +    status = "okay";
->> +};
->> +
->> +&video {
->> +    status = "okay";
->> +    memory-region = <&video_engine_memory>;
->> +};
->> +
->> +&gpio0 {
->> +    gpio-line-names =
->> +        /*A0-A7*/ "", "", "", "", "SMB_CPU_PIROM_SCL", 
->> "SMB_CPU_PIROM_SDA",
->> +                "SMB_IPMB_STBY_LVC3_SCL", "SMB_IPMB_STBY_LVC3_SDA",
->> +        /*B0-B7*/ "", "", "", "FM_CPU1_ERR2_LVT3_N",
->> +                "RGMII_BMC_RMM4_LVC3_R_MDC", 
->> "RGMII_BMC_RMM4_LVC3_R_MDIO",
-> 
-> Why do you name reserved GPIO lines (in this case the RGMII lines)? 
-> They're used by the kernel anyways.
-> 
-> Tan
-> 
-> [0] https://docs.kernel.org/process/submitting-patches.html#using- 
-> reported-by-tested-by-reviewed-by-suggested-by-and-fixes
-> [1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
-Hi Tan,
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..0588d6d83b31 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -2299,6 +2299,9 @@ gic_acpi_parse_madt_redist(union acpi_subtable_headers *header,
+>  			(struct acpi_madt_generic_redistributor *)header;
+>  	void __iomem *redist_base;
+>  
+> +	if (BAD_MADT_ENTRY(redist, end))
+> +		return -EINVAL;
+> +
+>  	redist_base = ioremap(redist->base_address, redist->length);
+>  	if (!redist_base) {
+>  		pr_err("Couldn't map GICR region @%llx\n", redist->base_address);
+> @@ -2325,6 +2328,9 @@ gic_acpi_parse_madt_gicc(union acpi_subtable_headers *header,
+>  	u32 size = reg == GIC_PIDR2_ARCH_GICv4 ? SZ_64K * 4 : SZ_64K * 2;
+>  	void __iomem *redist_base;
+>  
+> +	if (BAD_MADT_ENTRY(gicc, end))
+> +		return -EINVAL;
+> +
+>  	/* Neither enabled or online capable means it doesn't exist, skip it */
+>  	if (!(gicc->flags & (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
+>  		return 0;
+> @@ -2391,6 +2397,9 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
+>  	struct acpi_madt_generic_interrupt *gicc =
+>  				(struct acpi_madt_generic_interrupt *)header;
+>  
+> +	if (BAD_MADT_ENTRY(gicc, end))
+> +		return -EINVAL;
+> +
+>  	/*
+>  	 * If GICC is enabled and has valid gicr base address, then it means
+>  	 * GICR base is presented via GICC. The redistributor is only known to
+> @@ -2437,6 +2446,9 @@ static bool __init acpi_validate_gic_table(struct acpi_subtable_header *header,
+>  	int count;
+>  
+>  	dist = (struct acpi_madt_generic_distributor *)header;
+> +	if (header->length < sizeof(*dist))
+> +		return false;
+> +
 
-Thanks for the instructions. I'll implement them in the new revision
+Why is this open-coded instead of using the checking macro?
 
-Dawid
+>  	if (dist->version != ape->driver_data)
+>  		return false;
+>  
+> @@ -2457,6 +2469,9 @@ static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *hea
+>  	int maint_irq_mode;
+>  	static int first_madt = true;
+>  
+> +	if (BAD_MADT_ENTRY(gicc, end))
+> +		return -EINVAL;
+> +
+
+Why isn't this using BAD_MADT_GICC_ENTRY()?
+
+>  	if (!(gicc->flags &
+>  	      (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
+>  		return 0;
+> @@ -2547,6 +2562,9 @@ gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
+>  
+>  	/* Get distributor base address */
+>  	dist = (struct acpi_madt_generic_distributor *)header;
+> +	if (BAD_MADT_ENTRY(dist, end))
+> +		return -EINVAL;
+> +
+
+Why does this need to be re-checked if the validation phased has succeeded?
+
+>  	acpi_data.dist_base = ioremap(dist->base_address,
+>  				      ACPI_GICV3_DIST_MEM_SIZE);
+>  	if (!acpi_data.dist_base) {
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
