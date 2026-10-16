@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D757CCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B0FCCF2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0PLJG7H7vyyuMFaGHkJB3da6Ap1o1HEBDlsI5xHsNn4=; b=2K2NQ++P99kHNisC9daqpLlxTW
-	ft7VbSg+iHkMMalX4ikGLHG2XmdPel9y/ni4dImIVTk4z4GxR3rkPYkDEdlgwB50f7QtIvRQ//iI4
-	hMgvPeGU8+qiH5d6fPGKC4cR+/nWnlLWXxHGNzTMLI+PbN1AY2Ix2mAcNIDKFCh+vPYxW58+kocfu
-	vpfvP9vOdAV2n/lUpGBmRwFNXTO4Ckm55QKIK5/to2lwLyL82uvVQTog4GxS4sdhVlEmImdKIJM8m
-	trFr3+fv/7RyZXGUfo+iIcaOONjf6w/r+tceflP4eSc5ecmFvCrspg+nPQMsbqfYlD60J3cHGl8Hh
-	qHqwg1+w==;
+	bh=FrRLzPVLgizd6wdoUjViFGVj6Wd4K2T/hBmEhjqG+OU=; b=XS/mjXXDnP8yt8v6zL0t0etsKH
+	mXjgRAumcf1aUtXoyKWrlCrpFZCKa0Psy4lwdeRBZRwDwSQ3gnEuTOiX8DNr2efdtdw37xHQz032j
+	pOOrHxKXOvEjbbfkkz0gw3cd73PH59+hgIkXdqIo2g5qYZKn2w2Wwq+s6yahk75aC6sOuLSWznVPC
+	V13E5KoGiD79RdzCxths/633wn0PBbSgQb+tR5Wz9CqJhDOQ+xseFWZnZdA88cdVrrr4zd/QJwSNb
+	C9UhMewPxaiRw2gBYGz1bTqKhMXMi+0yWv1LesmtxRRueCYoneNFavFZ2tud6gzdT2yS71zvP3Z7C
+	y3oH9JEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnnk-00000003uyy-2zqK;
-	Fri, 16 Oct 2026 19:41:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHnse-00000003vKk-1JvV;
+	Fri, 16 Oct 2026 19:46:16 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnnj-00000003uyk-3wA9
+	id 1xHnsb-00000003vK3-2Cyw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 19:41:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C61443C62;
-	Fri, 16 Oct 2026 19:41:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4239DC2BCF4;
-	Fri, 16 Oct 2026 19:41:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792179671;
-	bh=d+OTnrc88PzEEzO/MJrVSNR+emog6i7NC0B66fW0sLY=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=LiO3GSwpv0QtC6I1JrN0wVK+pc6AXfaHicJi26n61QePE2DVXfyJiuv+RMsBx2H6Q
-	 SpMUWkI9t6OvnpWYtGaDWxhSTNyHghKqrvfbMVnCKadTOraBKPbYZ9QXaWwerdMyn4
-	 sorMGhRQSx3b1AScYbNKd/gNpI/MVXyx5Jr/DoIBFUcKjAY01E5YmPzAsLzVG+QuGR
-	 5dHRI9cur5UGHHmjdPceRPT/VrjvrmYqY8iLGMKJ61IOOuYa+WFmcA4gLbzO9/BNeb
-	 +XEqxQ/m6u14RNVMtW8CB5rcW+gKu6A9tIgZhDe+S4D1KB5JoVn5Z7kbDQkhOCSDDC
-	 legwS7W398PPg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DAECCCF2C2;
-	Fri, 16 Oct 2026 19:41:11 +0000 (UTC)
-From: alex todadze via B4 Relay <devnull+todadzealexi19.proton.me@kernel.org>
-Date: Fri, 16 Oct 2026 19:40:28 +0000
-Subject: [PATCH net] net: stmmac: fix rx checksum offload with extended
- descriptors
+	Fri, 16 Oct 2026 19:46:14 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-35ef6b49813so480553eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 12:46:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792179971; x=1792784771; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FrRLzPVLgizd6wdoUjViFGVj6Wd4K2T/hBmEhjqG+OU=;
+        b=h6vFkcdtEOYElf3lft+4/4Ybd8nNJ6gPBsvLfWmw0r7yKwIxYlggBfpv7hX3111hv6
+         jFfKyIf+FdQpglj91Sbd2xxUvHWxEeoLi4hxqYluAGwATIaxyWBkfImOaIjHz4WyeiZg
+         tzaSNdWX216wVSCaagF1uQOFC8S4jiioBpyTmOnhDq9E3ieFhidx/YHZN3x7FSXGqmn2
+         qT96gGdR0zUjDF1sJX+qzWcGvIQ9zZ3fgZOji3reBBiARUUmlMsTsxS8eb94l+4vVWO5
+         rcvr25hlSnr0AHAzwjnU7RQux5+SYp5a28gioiS9hw8uxSEmLXL+5YmlrMbTTDvBs2o+
+         GzbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792179972; x=1792784772;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FrRLzPVLgizd6wdoUjViFGVj6Wd4K2T/hBmEhjqG+OU=;
+        b=KCpxfq+w2A9ewhC4lADQ3qksaeu/Up5An3UWpAqGBqP3YxqyTLFeV80x6LXf2YX8uc
+         DmdwBfKKwOWh/bRFG7fd+aTkR666sI94B2hIdADL01PW6VQA5QIrvJZliTHMc+owqp0l
+         CAb0wMc+r95cn6AMnK1mtitLpRnq8WZoKs1IIAOa4+HwyX8ZwU3NiJ4erGoTdkY2XTB2
+         ajnUk2G4Kihktl+W/gZFKuyU2ZFQ4MWFi5TT9QSg9T/sbUfhFJl5io0YzLH+Sgjc7qGH
+         /vqVtsMqT3vOP4UnGt3hkGmeERvahmWvEriEcAydMiHlu9JEOtn7Dz9LBe4n/otLZw9J
+         csug==
+X-Forwarded-Encrypted: i=1; AKwUvBzDir97zAjsaBpLUMT4DBDdyHmoLnyWWP5wKi8Upq2TzZXHEiVx6XB98qi7V4eONjiOOVwoj9tau591ywvtMskF@lists.infradead.org
+X-Gm-Message-State: AFq9FYK0rslHUvvqSBrgLq+7q/HaHkNrSIBi1WXko/2x4sGsl3BbdKhf
+	un7NcQ3iVA76aZPucmO+LIF+2E+S4086+wMfBt3xQv6h/Xt2/kAaZSpK
+X-Gm-Gg: AYBFou2KK4JWzYkLGmZAckhx2vBWVtx6n7OqV1bRyiYG1cerPnj048QoAoCYg/lrFFV
+	uOVu+JCdbJCatSvOyAfCompt9ItGpa6O9GaEUcGKe4leHl1p0cWfojIaXgkDWmWzPi/qFd7Nwnn
+	PRwnNTBd1eVA6YCaZkmOrPQOl9nHW2GzfFzZ4RtlWVQGqNvmbcZFWCbNDNvu9hzqvuTOirBM8ZZ
+	yXI3jY77tTu7IXXVC35iBo/XVbPHU/dFe93lgzNupc91DqIWdKkUWQn/EOGf0Y+2jThZ7aoOUEa
+	XGoLa8MUcvCOT0IRoEMzjdtoJwDaY69i+UXViZjtnwKfDASVCHXkkbJLXpIEEDc/MxKg2NS9f3A
+	6ETuW3itEhHTUV1OOUNSz/hJ82cAvOgdS4ldhirQbIUkQ69dtZfndD2alOp/EozcrWfgiv4tqj1
+	31ph8PCpP8gzGDPc1Dv/NgzD4QQw2CCnAb0t1ZRnGbPjooskFUCeIWR5OYwJ+KfSU4
+X-Received: by 2002:a05:701b:4212:20b0:143:3c9f:10a6 with SMTP id a92af1059eb24-1850c40d561mr1220093c88.4.1792179971397;
+        Fri, 16 Oct 2026 12:46:11 -0700 (PDT)
+Received: from unix.. ([181.229.23.179])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831b75be5esm11008321c88.16.2026.10.16.12.46.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 12:46:10 -0700 (PDT)
+From: =?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>
+Subject: [PATCH 0/4] arm64, riscv: release shadow stacks on failed fork
+Date: Fri, 16 Oct 2026 16:45:59 -0300
+Message-ID: <cover.1792179433.git.ivanrwcm25@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-stmmac-rx-csum-v1-1-986342ec40df@proton.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMwQrCMBAFf6W8cxeaBqP4K9JDjFtdIalk01Io/
- XdTPc7AzAblLKy4NhsyL6IypQqmbRBePj2Z5FEZfdc70xlHWmL0gfJKQedIzjpv7Xg5ndmjRp/
- Mo6y/4Q2JC4a/1Pn+5lCOFfb9C3s5FfR3AAAA
-X-Change-ID: 20261016-stmmac-rx-csum-636a33f857ea
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- alex todadze <todadzealexi19@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792179669; l=6604;
- i=todadzealexi19@proton.me; s=20261016; h=from:subject:message-id;
- bh=14jA977WtCT5IUsuAjwlQ5pv0h0Z3gG4xUUw3unqDZs=;
- b=eCaOR4JAjZ4DQofNJSQF0/MPYnV6II0DsWU2qs66Huum1f5zQ264OMo409LaOYvUnCIxthZix
- odHHUE2SqDPDE5qyjHrujQCpOEGphVbFIXt3d+FouUA1peEjZENwcps
-X-Developer-Key: i=todadzealexi19@proton.me; a=ed25519;
- pk=j+Ld51xwndyrS6RE9s1B4vZjwvTeSSbcKp/mOdWy9PE=
-X-Endpoint-Received: by B4 Relay for todadzealexi19@proton.me/20261016 with
- auth_id=1216
-X-Original-From: alex todadze <todadzealexi19@proton.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_124613_575139_91219F81 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,167 +115,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: todadzealexi19@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: alex todadze <todadzealexi19@proton.me>
+This is not a port of the x86 TLS fix i sent yesterday. That leak was inside
+copy_thread() when set_new_tls() failed, so copy_process() skipped
+exit_thread(). Here copy_thread() returns 0 and a later
+copy_process() step fails. The concrete hole is clone3() with
+CLONE_VM|CLONE_PIDFD and an unwritable pidfd pointer: put_user()
+returns -EFAULT after the architecture has mapped a shadow stack.
+exit_thread() does run, but arm64 and riscv did not implement it, so
+that mapping stays in the parent's mm.
 
-With extended descriptors, bit 0 of RDES0 is the Extended Status
-Available flag. enh_desc_get_rx_status() still reads it as the payload
-checksum error bit of the checksum offload table, so every IP frame that
-has extended status is reported as csum_none and its checksum is
-verified again in software.
+Normal exit already frees via deactivate_mm(). The failed-fork path
+never reaches that. The free helpers already refuse a foreign mm
+and a cleared base, so wiring them to exit_thread() does not unmap
+the parent on !CLONE_VM or double-free on a normal exit. A
+successful clone3() child with the same flags exits through
+deactivate_mm() and then exit_thread(); that is the usual teardown
+order this series also enables.
 
-When extended status is available, take the result from RDES4 instead.
-A TCP, UDP or ICMP payload with no IP header error, no payload error and
-no checksum bypass is a good frame. Everything else keeps the status
-from RDES0. While at it, fix the IP payload type mask, which covered
-bits 6:2 instead of 2:0 and had no users.
+riscv's shstk_release() comment already described this
+exit_thread() call. The architecture never selected
+HAVE_EXIT_THREAD, so the documented path was not connected.
 
-Tested on a Siflower SF19A2890 (GMAC 3.70) with the board as the iperf3
-endpoint. TCP receive goes from 326 to 378 Mbit/s with one stream and
-from 259 to 329 Mbit/s with four, and CPU use while receiving 200 Mbit/s
-drops from 26.6% to 21.5%. Frames with a bad TCP, UDP or ICMP checksum,
-over IPv4 and IPv6 and including fragmented UDP, are still dropped.
+Do not free on a copy_thread() allocation error: the child still
+aliases the parent's base, and copy_process() skips exit_thread()
+when copy_thread() fails. kernel_thread() uses CLONE_VM, so a
+failed copy_process() still shares the caller's mm and the mm check
+in the free helpers does not save us; the kthread path clears
+inherited tracking for that reason.
 
-Fixes: c24602ef8664 ("stmmac: support extend descriptors")
-Signed-off-by: alex todadze <todadzealexi19@proton.me>
----
- drivers/net/ethernet/stmicro/stmmac/descs.h       |  6 +++++-
- drivers/net/ethernet/stmicro/stmmac/enh_desc.c    | 26 +++++++++++++++++++++--
- drivers/net/ethernet/stmicro/stmmac/hwif.h        |  6 +++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  9 +++++---
- 4 files changed, 38 insertions(+), 9 deletions(-)
+The selftests assume /proc is mounted. A clone3() with a valid
+pidfd must succeed and write a pidfd before the rejected calls
+count. ENOSYS, EINVAL, and EPERM from that clone skip; any other
+error fails the test.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/descs.h b/drivers/net/ethernet/stmicro/stmmac/descs.h
-index 846007cc2..0af819a98 100644
---- a/drivers/net/ethernet/stmicro/stmmac/descs.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/descs.h
-@@ -116,7 +116,7 @@
- #define	ETDES1_BUFFER2_SIZE_MASK	GENMASK(28, 16)
- 
- /* Extended Receive descriptor definitions */
--#define	ERDES4_IP_PAYLOAD_TYPE_MASK	GENMASK(6, 2)
-+#define	ERDES4_IP_PAYLOAD_TYPE_MASK	GENMASK(2, 0)
- #define	ERDES4_IP_HDR_ERR		BIT(3)
- #define	ERDES4_IP_PAYLOAD_ERR		BIT(4)
- #define	ERDES4_IP_CSUM_BYPASSED		BIT(5)
-@@ -147,6 +147,10 @@
- #define RDES_PTP_SIGNALING		0xa
- #define RDES_PTP_PKT_RESERVED_TYPE	0xf
- 
-+#define RDES_EXT_PAYLOAD_UDP		0x1
-+#define RDES_EXT_PAYLOAD_TCP		0x2
-+#define RDES_EXT_PAYLOAD_ICMP		0x3
-+
- /* Basic descriptor structure for normal and alternate descriptors */
- struct dma_desc {
- 	__le32 des0;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-index 051253601..7620246f6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-@@ -109,8 +109,26 @@ static int enh_desc_coe_rdes0(int ipc_err, int type, int payload_err)
- 	return ret;
- }
- 
--static void enh_desc_get_ext_status(struct stmmac_extra_stats *x,
--				    struct dma_extended_desc *p)
-+static int enh_desc_ext_rx_csum(u32 rdes0, u32 rdes4, int status)
-+{
-+	u32 type = FIELD_GET(ERDES4_IP_PAYLOAD_TYPE_MASK, rdes4);
-+
-+	if (status != csum_none || !(rdes0 & RDES0_FRAME_TYPE) ||
-+	    (rdes0 & RDES0_IPC_CSUM_ERROR))
-+		return status;
-+	if (!(rdes4 & (ERDES4_IPV4_PKT_RCVD | ERDES4_IPV6_PKT_RCVD)) ||
-+	    (rdes4 & (ERDES4_IP_HDR_ERR | ERDES4_IP_PAYLOAD_ERR |
-+		      ERDES4_IP_CSUM_BYPASSED)))
-+		return status;
-+	if (type != RDES_EXT_PAYLOAD_UDP && type != RDES_EXT_PAYLOAD_TCP &&
-+	    type != RDES_EXT_PAYLOAD_ICMP)
-+		return status;
-+
-+	return good_frame;
-+}
-+
-+static int enh_desc_get_ext_status(struct stmmac_extra_stats *x,
-+				   struct dma_extended_desc *p, int status)
- {
- 	u32 rdes0 = le32_to_cpu(p->basic.des0);
- 	u32 rdes4 = le32_to_cpu(p->des4);
-@@ -170,7 +188,11 @@ static void enh_desc_get_ext_status(struct stmmac_extra_stats *x,
- 			x->l4_filter_match++;
- 		if (rdes4 & ERDES4_L3_L4_FILT_NO_MATCH_MASK)
- 			x->l3_l4_filter_no_match++;
-+
-+		status = enh_desc_ext_rx_csum(rdes0, rdes4, status);
- 	}
-+
-+	return status;
- }
- 
- static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 5e2654c91..9925b789b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -70,8 +70,8 @@ struct stmmac_desc_ops {
- 	/* Return the reception status looking at the RDES1 */
- 	int (*rx_status)(struct stmmac_extra_stats *x,
- 			 struct dma_desc *p);
--	void (*rx_extended_status)(struct stmmac_extra_stats *x,
--				   struct dma_extended_desc *p);
-+	int (*rx_extended_status)(struct stmmac_extra_stats *x,
-+				  struct dma_extended_desc *p, int status);
- 	/* Set tx timestamp enable bit */
- 	void (*enable_tx_timestamp) (struct dma_desc *p);
- 	/* get tx timestamp status */
-@@ -128,7 +128,7 @@ struct stmmac_desc_ops {
- #define stmmac_rx_status(__priv, __args...) \
- 	stmmac_do_callback(__priv, desc, rx_status, __args)
- #define stmmac_rx_extended_status(__priv, __args...) \
--	stmmac_do_void_callback(__priv, desc, rx_extended_status, __args)
-+	stmmac_do_callback(__priv, desc, rx_extended_status, __args)
- #define stmmac_enable_tx_timestamp(__priv, __args...) \
- 	stmmac_do_void_callback(__priv, desc, enable_tx_timestamp, __args)
- #define stmmac_get_tx_timestamp_status(__priv, __args...) \
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b837e8e27..efedd0504 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5605,8 +5605,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 			break;
- 
- 		if (priv->extend_desc)
--			stmmac_rx_extended_status(priv, &priv->xstats,
--						  rx_q->dma_erx + entry);
-+			status = stmmac_rx_extended_status(priv, &priv->xstats,
-+							   rx_q->dma_erx + entry,
-+							   status);
- 		if (unlikely(status == discard_frame)) {
- 			xsk_buff_free(buf->xdp);
- 			buf->xdp = NULL;
-@@ -5788,7 +5789,9 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 		prefetch(np);
- 
- 		if (priv->extend_desc)
--			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
-+			status = stmmac_rx_extended_status(priv, &priv->xstats,
-+							   rx_q->dma_erx + entry,
-+							   status);
- 		if (unlikely(status == discard_frame)) {
- 			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
- 			buf->page = NULL;
+Sixteen clone3() calls with CLONE_VM|CLONE_PIDFD and an unwritable
+pidfd pointer leaked 16 shadow-stack VMAs without the fix. With it,
+the count stayed unchanged and call/return on the parent still used
+the original mapping.
 
----
-base-commit: 191aa41548b2d2b6af534a6d5cf84a552435c74c
-change-id: 20261016-stmmac-rx-csum-636a33f857ea
+Base: 2f2f7eeef8b0 ("Merge tag 'soc-fixes-7.3-3' of
+git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc").
 
-Best regards,
---  
-alex todadze <todadzealexi19@proton.me>
+arm64: QEMU 11.1.2 -machine virt -cpu max, CONFIG_ARM64_GCS, one
+vCPU. Unpatched ss_vmas=1->17 (+512 kB). Patched ss_vmas=1->1.
 
+riscv: QEMU 11.1.2 -machine virt
+-cpu rv64,zimop=on,zcmop=on,zicfiss=on, CONFIG_RISCV_USER_CFI, one
+vCPU. Unpatched ss_vmas=1->17 (+1024 kB). Patched ss_vmas=1->1.
 
+Assisted-by: LLM
+
+Iván Ezequiel Rodriguez (4):
+  arm64/gcs: release GCS on failed fork
+  riscv/shstk: release shadow stack on failed fork
+  selftests/arm64: GCS must not leak on a failed clone3
+  selftests/riscv: shadow stack must not leak on a failed clone3
+
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/kernel/process.c                   |  21 ++
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/kernel/process.c                   |  18 +
+ tools/testing/selftests/arm64/gcs/Makefile    |   3 +-
+ .../selftests/arm64/gcs/gcs-clone-pidfd.c     | 355 ++++++++++++++++++
+ tools/testing/selftests/riscv/cfi/Makefile    |   5 +-
+ .../selftests/riscv/cfi/shstk-clone-pidfd.c   | 317 ++++++++++++++++
+ 8 files changed, 719 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
+ create mode 100644 tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
+
+-- 
+2.43.0
 
