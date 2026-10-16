@@ -4,46 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B09CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16539CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u9kCNXMGX1OrIECKosrvZm24GXjj3Mp2UkAktpIbES4=; b=vveGTBZn/X/IqK0i7QO7IF17v2
-	U1gEuegIvA+LDIDVrbFsNN53/W24/zh3JLMbAkCCdWErJzcj1QMV/BLy8sYwcmkrDLcV4dUO6IdBD
-	kpz+uVeYXXHlg4knovqZhyE5XLdWz+S0L0esVaqx1KQyVWXak28r8KgJbuG8rInChPrAFTdf3PGMo
-	ERSqD/NGLDln1XqOgXIMx2AiQsssudbNLcw6vspXdjohKEfMO+bamCShmuwNfzt5wd5UE6j96L6zj
-	X1Xyl6C6a3GS8Zd4qr+qxy/FfP1fExLGAkaaz9EQKTSmGS4NUA7wFHQIgAjKbAF7PTh1Bcq/JLq3l
-	GlznFjAw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rq6SMlQuCiakYGNieZYuyvDSsk5kerjEngv1ARm94rA=; b=iRd3a16FQ7Cgrs36hDp2ePcMUK
+	fOF746nfNgHOTItInrDwomqX5fPsyd7Ed/2tjTLF5OsIfXQcMuhiSUUeuiR7PxEBTSeb2Q31TG3gK
+	Ls4XrIpyskm84WCsm35PlU+Oqa5aoRTPC5/Pse4HawGpfIiVn5iIG5a/BTYMH/J/6676YGbJAp/Tf
+	X7KO5J7o2I0DLMWWiHobPlFB/8dItzWuxvpnr44baek1PIPZUH+SxSHS/nbsqNlbDrrZ31vkez6tA
+	SUiDOGMA4+gTyXppS6ud7WW2tibgw34FRXr+bgeeQyz4vwNBXnVOJFWmybXpUGq67kDVPuIN4JBrV
+	olzmblwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcv3-00000002Hw4-2wxn;
-	Fri, 16 Oct 2026 08:04:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xHd2X-00000002IcU-28TO;
+	Fri, 16 Oct 2026 08:11:45 +0000
+Received: from forward501d.mail.yandex.net ([31.44.14.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcv2-00000002Hvv-18Kh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 08:04:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C69060008;
-	Fri, 16 Oct 2026 08:03:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FAEF1F000C4;
-	Fri, 16 Oct 2026 08:03:57 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] firmware: arm_scmi: Grammar s/thing/things/
-Date: Fri, 16 Oct 2026 10:03:54 +0200
-Message-ID: <5128072dc75dbf239dff6c967a88060a4d64b3c0.1792137751.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	id 1xHd2R-00000002Iaf-3qFG;
+	Fri, 16 Oct 2026 08:11:43 +0000
+Received: from mail-nwsmtp-smtp-production-main-94.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-94.yp-c.yandex.net)
+	by forward501d.mail.yandex.net (postfix) with ESMTPS id E1EFB8C89B;
+	Fri, 16 Oct 2026 11:11:27 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-94.klg.yp-c.yandex.net (smtp) with ESMTPSA id JBRg126jYuQ0-DVbcivsL;
+	Fri, 16 Oct 2026 11:11:26 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.com; s=mail;
+	t=1792138286; bh=rq6SMlQuCiakYGNieZYuyvDSsk5kerjEngv1ARm94rA=;
+	h=From:In-Reply-To:Cc:Date:References:To:Subject:Message-ID;
+	b=f7qE8oi8x9EViSgs5j3yIQIvEdvIJ7JRnJK2OPlDA+pKZsr3oe84ND5ICPhNVrLsR
+	 Gocrh9iQ2tHoSPTTgG+pp+u5lkmia/cIEiCTxRuxpEXmnxgtIVn8Fv7fzI/cJuaibv
+	 +LHaNQiSFiDh9RwwzXfuoF1d3dyNuw1c7b45YysQ=
+Authentication-Results: mail-nwsmtp-smtp-production-main-94; dkim=pass header.i=@yandex.com
+Message-ID: <d1f0369c-ff43-4b76-9092-5c638b132f15@yandex.com>
+Date: Fri, 16 Oct 2026 10:11:19 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] drm: devm_drm_bridge_alloc() conversion and cleanup
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Huseyin BIYIK <boogiepop@gmx.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261001-bridge-alloc-conv-v1-0-f0a1fe040a86@collabora.com>
+ <179213353665.3058528.14437637653539699061.b4-ty@b4>
+Content-Language: en-US, ar-EG
+From: Johan Jonker <jbx6244@yandex.com>
+In-Reply-To: <179213353665.3058528.14437637653539699061.b4-ty@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_011140_441667_8894882A 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,28 +84,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix grammar in the help text for the ARM_SCMI_RAW_MODE_SUPPORT_COEX
-symbol.
+Hi,
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/firmware/arm_scmi/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+If any decency or Code of Conduct left in the DRM group then also credit the original author.
+Also remove driver_private.
 
-diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-index 783c24a20e29190f..9f6241efd5923fcf 100644
---- a/drivers/firmware/arm_scmi/Kconfig
-+++ b/drivers/firmware/arm_scmi/Kconfig
-@@ -52,7 +52,7 @@ config ARM_SCMI_RAW_MODE_SUPPORT_COEX
- 	  Allow SCMI Raw transmission mode to coexist with normal SCMI stack.
- 
- 	  This will allow regular SCMI drivers to register with the core and
--	  operate normally, thing which could make an SCMI test suite using the
-+	  operate normally, things which could make an SCMI test suite using the
- 	  SCMI Raw mode support unreliable. If unsure, say N.
- 
- config ARM_SCMI_DEBUG_COUNTERS
--- 
-2.43.0
+Johan
+
+===
+
+[PATCH v3] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() API
+https://lore.kernel.org/linux-rockchip/20260904-drm-v3-1-5b36532a3b72@gmail.com/  
+
+[PATCH v2] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() API
+https://lore.kernel.org/linux-rockchip/20260824-drm-v2-1-7f9273c6020b@gmail.com/
+
+https://lore.kernel.org/linux-rockchip/dea8a038-577b-45da-bff3-703e9099b7e1@gmail.com/
+[PATCH v1] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() API
+
+On 10/16/26 08:52, Luca Ceresoli wrote:
+> 
+> On Thu, 01 Oct 2026 11:25:10 +0300, Cristian Ciocaltea wrote:
+>> Bridge drivers are expected to allocate their private data via
+>> devm_drm_bridge_alloc(), which also initializes the embedded struct
+>> drm_bridge, including its funcs pointer.  Most drivers were converted by
+>> commit 9c399719cfb9 ("drm: convert many bridge drivers from
+>> devm_kzalloc() to devm_drm_bridge_alloc() API"), but a couple of
+>> leftovers remain.
+>>
+>> [...]
+> 
+> Applied, thanks!
+> 
+> [1/2] drm/rockchip: rk3066_hdmi: Convert to devm_drm_bridge_alloc() API
+>       commit: 5c0cdbee4fa4a621f871d6dc825e759db08a1a4a
+> [2/2] drm/bridge: lontium-lt8713sx: Drop redundant bridge funcs assignment
+>       commit: 382c1e8ba409d1611cd256dccebdfa828c832bb1
+> 
+> Best regards,
 
 
