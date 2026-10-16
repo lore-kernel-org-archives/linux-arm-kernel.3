@@ -4,68 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301F5CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDE2CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCT6orX277V/eXrgGHXRg277x8AusfyPsqCSasnsFic=; b=KLNZHPwvrEBGKJ6CGlAzm8j34Q
-	Q1q01xfDL2JIFW7qJZVtlCjpnkCHJ58fthVZaCtoNKFsdCMzfps59swECCK9BtnMf0shm6Fk/dJp7
-	1PpSjIsNexXHHgNUor2o8PLBt5eO0dgSE/7M15r3zJacuUurt65ZDrmMDbrvaxWoXW1y0hYSa5PRE
-	u/B0LfKHsCi9X6Ik1wfzvApu6oPokh1infllxNtSoCnfOHb7kp8x6JobbhnNnFA2t1WkZ+Ts8ABo8
-	VThNNDMFYR/vhq7PoCMqqkLjPUdAiK6ndFycON5DZ/5QRYs5QTnzVAkVKJ1U7ipweIeULX3h/rHPj
-	VJ7jKcOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S1eCJyYP6zvzSL58EPlStO4BsCLHm7I3zghN15Chmro=; b=w8Du6PK3ty5Vv3r6IHUrpswEv2
+	iB39ruXsdRL1v7LwgnEA6iqMWMtYiBjwpeL0vgWk4KvE1eyTib9VEcYDERVT81GF85rwbgSo2xTtt
+	eAvSKMrm3m8pmMkVOp2ojUI0lbAHqDy4SosJa+tUr2ibtRCyZLluICsI9lENamarYFLjnhxlqZCUI
+	yOucX9Nvgo7pCXQL53KQ//m8rgy8bQEgn8aGbx0bwvqgDWp5q1b/WrOgnq9iUm8GUKMgt3J2ZstR5
+	mh9evQ/P8tqL7MEyvrlm3jnDHjOsi9faCe2ZLJpvM3YK5Qic6cdHhiwPZdZkvX4S15cKNA55lf5xT
+	TgppKNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlS5-00000003Wfn-0hOa;
-	Fri, 16 Oct 2026 17:10:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1xHlUC-00000003Wu0-1eTS;
+	Fri, 16 Oct 2026 17:12:52 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlS1-00000003WfB-1mzN
+	id 1xHlUA-00000003WtY-1UeU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 17:10:39 +0000
-Date: Fri, 16 Oct 2026 19:10:29 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1792170630;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xCT6orX277V/eXrgGHXRg277x8AusfyPsqCSasnsFic=;
-	b=FgDsF/D5Edeyu2Mo0sHNinfcY38reKu9+5gIxKRxJnaXTDW1+G+diQgxfT9prblrVYGcDW
-	1t92YvUYk8vfEBGJ1+Jei5BonJZ0GBBFoWEZAFdbW4BhvusA1X7riVY7mzVnl6+tzUZ7ev
-	sBGj+5RpAGPOhizB40jp9gvF1hgPG5nYc/lldkkLrhiJKJDhgS/iiwVgCQ0ZbRKRxduSKs
-	ftKWOu07I+6hArLCi3hBG9vHOanv1bqqKibky1FpDos1GisURUJS+X1QIhRlARns4eSiEx
-	RvCjJE1KilOr1hX2AtiyONBqvey6YSTFgnhBcEunV0JtGEe/dbl3VDZiVKZwqQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1792170630;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xCT6orX277V/eXrgGHXRg277x8AusfyPsqCSasnsFic=;
-	b=jBw2PMJzPZmXpNqNVTH/hpYeoIqJ86JtMYBJn0cK+Gw+QTUJK7WBCFizx/58pyPVJnI8Lm
-	z3dPFRl9cT+Mw+AQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: tanmay.shah@amd.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Harini T <harini.t@amd.com>,
-	Saeed Nowshadi <saeed.nowshadi@amd.com>
-Subject: Re: [Q] zynqmp-ipi-mailbox and SGI interrupts
-Message-ID: <20261016171029.wSftndCb@linutronix.de>
-References: <20261015083937.8SDbdK8P@linutronix.de>
- <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
- <20261016162356.m2X9jbCa@linutronix.de>
- <4c9b533f-251a-4569-bc78-fd7af664c831@amd.com>
+	Fri, 16 Oct 2026 17:12:51 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 22DB1140009C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 13:12:49 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Fri, 16 Oct 2026 13:12:49 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1792170765;
+	 x=1792257165; bh=S1eCJyYP6zvzSL58EPlStO4BsCLHm7I3zghN15Chmro=; b=
+	CuBbJFPUiluyvjyq5F+i8FcDlyoPrXkt5CzfLsrimQVoBPpCZYtsLQcRw1Qz3njI
+	30fz+ooNdUo6fwxi+DweoBU+ydL2YFYDmsoAohoLVmT/XsCAFojsQ4rnlM9QIjiW
+	NLLml28s2kOdZbZEQkujU8Hcl6Lr9ijwKaClCS1p/bze8UQw9raUD1U0LOO1ofoo
+	MbQQaGNhhT5bj0atQvgYR/5VnakgXin/o3k5gvWGZGeri3nZg3MfnbMVmIGKrNgq
+	zuqwAaOO3OgmCXiQrCLv+o+DhkTjX93ybBvzgpfR55aMcrCFuAid7E2E1Rlp7l10
+	hGQBmqmza/W/AzFdYhICuA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792170765; x=
+	1792257165; bh=S1eCJyYP6zvzSL58EPlStO4BsCLHm7I3zghN15Chmro=; b=K
+	47iH6m+21jSE13QQDkWi3fyW7VE6AoSHX2SsNSl18ZbmKGWSdip2WOSIxM48OuZu
+	27zUgYuD04SoHLpyaCdzgcqBAdNqyteA4SrNnsCcQsTjCN0t94fkSB5lKTpstE2g
+	NQbK6xLn1JwxewwCoCFQr/8esrhoxo0Op7FJs+ed+a5I5iFVJ91V4nqbsmk5/o/V
+	X7fNxgr0XU+a6Fp6ctYQaSzeA9blgmt3DQRKPaNTs75Zi4znzKdtujsE504NEo8v
+	uazNEwy9x1uNzXp7SNggxLctYzFeCkgcWW5pYOJpp5qhe8eKPmg49aCq6XexQWvr
+	XX5wv8gZVyaZ0adAwuc/g==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1792170765; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:IRf6WPqYo7n5ZZqsB8WbCBl/peYefH27hXKc61nBfuS/gCT
+	OsMA2dVVOaN5OcOwXZv0afc9tV0uGIUgiy7pmn3NYbh+tQwe58aE1KzKWF+scfMs
+	Ob2e80YBbrl+w4WSCXlYiifTFC0+eUkf1p6cdnd3S8h0GSOBlO5FE7VsOtSynTnY
+	Ta8ZPFinRXBN3cUwyqfOCTa0tO6ggvRMKCc75b4h/gojnYV5eeuPdTHJXsrXgJWP
+	CjUHzWZRGWB1Lhu2ureeJMvF4w0EVN+a1xcScJ86OXS02CuEKJynbKniCJKugpPn
+	605jZ8jrNL6SVvZD/VM/rsO2verewWAIZNMg9pA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:cDtuQHZVCFgaSoidsPDi/aAYkhqTeRG54fWVxKdPpN0=:bRX4vdTwM0uOkJPPEDFyz3oV42mOf5PihQ8xFO95TNU=;
+X-ME-Sender: <xms:CFvSaqA2pehRpXgV9syxx7nBjYjv4JtdP75XiXJ8WUGN7WkHvOCPxQ>
+    <xme:CFvSavXVenSOPhs8VSDPQkp3rgTGy4FJ7XXhGlvHkX8UV5hcKdRWxu5RanAg-OGIM
+    LD-ebC1eNykIxZlbNY2WUm4ahjilKyv1SuDsjoaCs7VTiPwdaSiUzWO>
+X-ME-Proxy-Cause: dmFkZTEePUHGAZhuWrU9DSd/9CBcIP0ODRfy6jaCyM2UMwXEhqrm4+Ely0VpVZcrsM5ce4
+    zbNa+k+TvmAhyKYsdVQPaRiRStkGnBIiOYOdo79JO1LkYc5Dp26jcrgVK/Lp4v/wfIxIUL
+    J7EcNPSBkc3y4SxkJOZNSH4U3u1S1h6MAgMfrPiCc7JaqnJWvmx/DUcu3OApMHYkOoe2wa
+    Ar6uUvk8zMkoUL3yob2bPdkH9g7oApcvHGuYDrDITUYG1u8qoCHY+RiAzwX3ABkd7UX8Tp
+    a18Cd23UIHCEi5OzVerQL2diprke7uH/XooUZn3GAOtgjFTNTISv/cs3MjCTy5pexvuBO8
+    rQKAnbol0sgFTUiwfOK4uEmyNs/BBl6dynj27C0aXMFOWSqrs6cX9khewKqzDBWAL/OGnx
+    JCXxG87gxC3VpHlIVCjl6bJDvbiLojzTQ83s1RGJLpQyoR0UAkXH/AY+wYWkh0/rXexVpX
+    tNLlSptMTP/VZ4qLvzU6dpTsgOUMFqYxqo9iKiSiXC4+ZmPlZ+7ql+AKEUBSSpsnfwpFYW
+    qfcThBjjMXFHNBAz8ImL9mYWUwochXms4wt8+RPKZ48JjZRS9hDl6XXuPCXFpLIAkK8Byu
+    utfDAAxtckoOOELtAu+M13EIYK7vbED74OxhwJ+cLkU5dNhTZgxrLQ6nJVBA
+X-ME-Proxy: <xmx:ClvSan5ZzT8sfCyUhOHvN8lKazYZAWzAG32mlGo1Se3AcygTW6H8_A>
+    <xmx:ClvSalAg_ZfV5V6Yol2gCDqRaHO10Wt2jTXTihpwjoyCohm1916cbg>
+    <xmx:ClvSat-vJxXUmrn8ENu5W6fqp06ig7KxzayIjCrW0QYap4y__6CKmQ>
+    <xmx:ClvSaoG65n9UMSGQDrhfl7ojV0HbBAcVt3uUfLF8QgwmoqyhhINrxA>
+    <xmx:DVvSarOYx1aAg05uKqzR6kHlJtXfeItkKZg-g-wwX0QgBTJKsvK2JXDz>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 373FC32A008F; Fri, 16 Oct 2026 13:12:40 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <4c9b533f-251a-4569-bc78-fd7af664c831@amd.com>
+X-ThreadId: A4WN0AQLOakc
+Date: Fri, 16 Oct 2026 19:12:19 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Hugo Villeneuve" <hugo@hugovil.com>, "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Jiri Slaby" <jirislaby@kernel.org>,
+ "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ "Hugo Villeneuve" <hvilleneuve@dimonoff.com>, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev
+Message-Id: <aace8c7a-61ab-4b54-8563-3e1ab0f99e56@app.fastmail.com>
+In-Reply-To: <20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
+References: <20261016130328.1037616-1-arnd@kernel.org>
+ <20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
+Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_101037_609510_57BA63B3 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20261016_101250_464887_ABA48E50 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +132,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-16 11:44:07 [-0500], Shah, Tanmay wrote:
-> > And it has to be a per-CPU interrupt? It can't become a regular
-> > interrupt which is not per-CPU? Does the driver at some point access
-> > per-CPU registers?
-> > 
-> 
-> As per my understanding, it has to be a per-CPU interrupt.
+On Fri, Oct 16, 2026, at 18:48, Hugo Villeneuve wrote:
+> On Fri, 16 Oct 2026 14:59:47 +0200
 
-I see.
+>> -			scnprintf(buf, size, " I/O:0x%lx, offset 0x%x", port->iobase, port->hub6);
+>> +		scnprintf(buf, size, " I/O:0x%lx", port->iobase);
+>>  	}
+>
+> With this simplification, you can now remove the {} braces...
 
-> Driver access those registers via percpu APIs, for example:
-> xlnx_mbox_cpuhp_start() uses enable_percpu_irq(). It is called for each CPU.
+Done
 
-Yes I know that part but this is not the question.
+>> diff --git a/drivers/tty/serial/sunsu.c b/drivers/tty/serial/sunsu.c
+>> index 4ff3e5c41dab..f43b802add12 100644
+>> --- a/drivers/tty/serial/sunsu.c
+>> +++ b/drivers/tty/serial/sunsu.c
+>> @@ -106,10 +106,6 @@ static unsigned int serial_in(struct uart_sunsu_port *up, int offset)
+>>  	offset <<= up->port.regshift;
+>>  
+>>  	switch (up->port.iotype) {
+>> -	case UPIO_HUB6:
+>> -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
+>> -		return inb(up->port.iobase + 1);
+>> -
+>>  	case UPIO_MEM:
+>>  		return readb(up->port.membase + offset);
+>
+> Maybe change to a simple if/else?
+>
+> 	if (up->port.iotype == UPIO_MEM)
+> 		return readb(up->port.membase + offset);
+> 	else
+> 		return inb(up->port.iobase + offset);
+>
 
-I meant _why_ the interrupt has to be per-CPU. I'm not sure if this is
-internal wired as such or just configured.
+I think I'd rather not change sunsu.c any more than necessary.
 
-For instance a timer is using a per-CPU interrupt. While the timer is
-programmed for the next expiry it uses per-CPU registers. So the timer
-accessed from CPU0 is different than the one accessed from CPU1. Once
-the interrupt fires, the processing that follows is different on both
-CPUs.
-
-Looking through zynqmp_sgi_interrupt() which just invokes
-zynqmp_ipi_interrupt() I don't see the difference. The OP-TEE firmware
-is invoked at least the bits I saw, it just masks the source and moves
-on. So I am not sure what is the difference between the interrupt on
-CPU0 vs CPU1. Both could fire at the same time and handle the same
-request unless the firmware returns a different
-IPI_MB_STATUS_RECV_PENDING bit. I don't see how the remote side would
-make a difference between those two CPUs.
-
-So this is what I am wondering about. Based on your response so far this
-has to be that way.
-
-> >> Thank you,
-> >> Tanmay
-
-Sebastian
+      Arnd
 
