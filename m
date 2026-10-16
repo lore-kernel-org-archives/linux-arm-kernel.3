@@ -4,52 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167C1CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 22:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FDACCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 23:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OIdajx1AC8ugqYiL+Ehn0uiLIubAtd5Cp9SN33d2y8=; b=MdBlYsk5oSr5xS2l7xKvl8Rycv
-	/U2ejce/50nMeLTw3OpVyy1dMMId4tvaLzIBWWykvDuwJ++40GUTcbV3fDm8+s+LUyxSxHH+RrJlD
-	szsWMn3F9ejZedC97ubdwaJ+0Sv6wA9DicPIlPjeBFgPmtFW6hNWjA7U8fUsMDTPRxuaL28L1rRNa
-	V8q/NnFlBZP+MCS9ED87vV+4Hkgl5/9/OL8DXr2yn3AwiHqhKc1hqwU69rfj8XcR1u4d+63vI0ZNd
-	hM0bLcwK+abxoSm8Wy+0VKDAELEeMC5KV2FwzozPyR8yvvrJl4z6vXnKtkmFNDltVB8QHuYERA+5R
-	4wSUaFFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L+nHfvIYCrgROUwGVGZYqdh67rBw+LFFXBTqFw6Ps2c=; b=EauUiMYqzE691yxkFflcZXSVL9
+	4RkYIPlqtGFyCK4tYOh2+5UNOEkzhuLFNKBHi9EW5hMfTbdCHgtgVGYQH026kw2OEqupO+X6DHPNv
+	t5dTIlN5aQ3pB+EWCM1J2UdX20Q2UXu7A97r3VIzyNdusCKEM+qJSFbpqaeixpPVssMm/kOJ2atPT
+	OUwwl3FrMZcTMFWhO5/xZZiC+vcpzF9bKamC3D3e3M5JVXPT8ylUwnV8YPxMM5gAvkJk5BYjZ2VD4
+	MSnm3bl0aRQmKH1jafVrm2HoP1pwlMuuFDyxYEXpg3fhZNs/B20+CJui53hKmhEJi00BFsCMtAaFX
+	8cPOpMzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHqXt-00000004BDq-2KgT;
-	Fri, 16 Oct 2026 22:37:01 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xHrLV-00000004Cex-20DT;
+	Fri, 16 Oct 2026 23:28:17 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHqXr-00000004BDM-1o9O;
-	Fri, 16 Oct 2026 22:37:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=1OIdajx1AC8ugqYiL+Ehn0uiLIubAtd5Cp9SN33d2y8=; b=ckLBauByU8LiGS+iOGmWnvoPCs
-	qtYSD2lPhfiqIO2+yDB7SYsjufItglhuWkLay6X2/EmI0R8w6DcjD28qZplPlwa6IDmG8JJYF4jck
-	IbK46fQkvXsvNKgeh18s0WK9GFv5g4uy6doHl228Rkq0ZZln9ds+1732G4AHoG75pDmWNEZZWmo54
-	skKD49uYCWSLCeUauzPyJ3nfLkrRfIZ9bPbGC7f7KPFwZkYQlGoUF8xeqPcFuqV2Fj1XhHkH2B+At
-	ZnKjqBgNX4EbKQj+61fCaV0Bvxi5ln0H2oxwBIPLQX+0eEsgohu509hfL+m4f/FxX1uzPEUwtGXeM
-	cZi3+7tA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Russell King <linux@armlinux.org.uk>, jbx6244@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Johan Jonker <jbx6244@gmail.com>
-Subject: Re: [PATCH v2] ARM: rockchip: smp: enable secondary rk3066a/rk3188 CPUs
-Date: Sat, 17 Oct 2026 00:36:55 +0200
-Message-ID: <1979829.CQOukoFCf9@diego>
-In-Reply-To: <20261013-cpu-v2-v2-1-fe3bbc9edd33@gmail.com>
-References: <20261013-cpu-v2-v2-1-fe3bbc9edd33@gmail.com>
+	id 1xHrLT-00000004CeB-1v3W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 23:28:16 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-7c03744ef27so119397137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 16:28:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792193294; x=1792798094; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L+nHfvIYCrgROUwGVGZYqdh67rBw+LFFXBTqFw6Ps2c=;
+        b=ZB2XbTIz5zWppt2XChS85WpnxGlTGOiDj8V7k9PY6wpxIfnLDUpklifvrcHexKEznc
+         ukERMFyJ5bqsPe9eBGeImBhFQOK0tQ4mL28JFCIx917HZNeI8jq1RnWpbs3S0e00DGAE
+         e1fLEYVmid5gZujTnJssqoURok9R2gNCBJi6eQwV4NGBK1Y1H2Lf6D8AMIYEirVF7joo
+         jwZ1kTKKNtPZNR+0SBTQySCQTKFMqUVhRBNu6ofehFJHIQ6iOEg4otkEqBn7tpcl+Kbt
+         ZL8fYG4QIBvAeMUDcuV3kWUHIQE73S7P5lVDzG0mX/fMkpL+Z7CtqUZrmbhXsNs1/1pa
+         gaww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792193294; x=1792798094;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L+nHfvIYCrgROUwGVGZYqdh67rBw+LFFXBTqFw6Ps2c=;
+        b=SIjU2pf0YMuTVSr5dgCYp/+Td8SPVnsJ2Zo0iJGs4i3i/LLuxUTb+C40st7uOX9o/b
+         c1v052yn2g0Xpgf0gZbKZjupxNBHrkmpI9TCqdlx8ms/MkKoKjfR1wgf6NvM/rs2rxKa
+         pNOKp8h27B7ndUU9kl43dPVRemqHJXaTHR2WTIYIJGWV7kO94KzXErnIbEaOyN7+rpld
+         VOhuEGUFe+e5rk/NxU5ADIYtwRGA0LITf++9juKxdz+EBObJqErRPbOjSzw9rf8eGPVG
+         /UNiIlwSYDPxmqQ3ur0eIG/g6XGxme46sD+bKBLXzW/wXjQK6ao+HGuXaMAb15O/c1op
+         mGlw==
+X-Forwarded-Encrypted: i=1; AKwUvBzJBEax++Q1sVnffOiGpm9bdzNpc2rdCjCzESGMLZnGUWr5S+bK+y55699d/Oxw7wwRq+UDh1altyH4mpKkw0jz@lists.infradead.org
+X-Gm-Message-State: AFq9FYL1kqk8utN5+BX4y1B1cWDx9KGcYM8TEdZcpUdlnxIKIfrzzuvQ
+	/xD5NTAbgaADCvvTbLxAWYrqYKg23o0UQJVP6h88HqUddCmj6n9dDkXeO9jFeg==
+X-Gm-Gg: AYBFou1dYKncaRBz/go1hiy5mR4muOt7vO4CcHF2iOq4FpiQ+fNhD71hVLk3i7FhYUT
+	ID0wLE3QfGAGaJrKTQVl4gEv8l/IBF6Rd9lH9q7AA3F0hIAGPFwhbT0ivl9PKlsMvguHLJu0Dhj
+	iNICKNLvJG5i5pxYgkHIDZlREx7wgjSSPwoX3YOEH3JUOrjnt2FUpt21RScQ18cjd3jWgiwsK69
+	Dd8rGetKQ9FjfEPGKfNu9jFlZRuu834dyN9CMLa6OsfJYE20aZOdoB53hoo+qAbTwR7ffry5rOJ
+	mQTN8QAgKuaD4m+QzaVkmMn1063xhvmVJwtnjTFqvoClSrw25zmt6StwIYCEHjkomvxBcl7fYll
+	1jGDoObxfWYRbIJgMmxdfPWrNbUhN5Fqil6N5n7MX09NwWPpiUZRUxvjMR4cJuvVWLhyKkL7FVy
+	bwncmkVE6suS9hkxp1p7gb8ilv/aQk+fhijNPXXQbi1MqPsKkHHj2AzHHgI/VwGPVuAnVPXhvxa
+	OOEB5+QjrwAkljDoPLPMQNAEp7MPZlIiA5gbhO8fe8BA9M=
+X-Received: by 2002:a05:6102:4247:b0:785:c39b:6a1 with SMTP id ada2fe7eead31-7cc3691f50bmr274471137.6.1792193293549;
+        Fri, 16 Oct 2026 16:28:13 -0700 (PDT)
+Received: from fabio-X870-EAGLE-WIFI7.. ([2804:1b3:a801:42fc:16d8:d66b:d6c1:caeb])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ea9b4f58bbsm2804299e0c.10.2026.10.16.16.28.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 16:28:12 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: Frank.Li@nxp.com
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] dt-bindings: nvmem: imx-iim: Allow syscon fallback on i.MX5
+Date: Fri, 16 Oct 2026 20:27:59 -0300
+Message-ID: <20261016232800.536654-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_153659_519921_229136AB 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20261016_162815_534681_255A6EA2 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,91 +102,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Johan,
+The i.MX51 and i.MX53 SoC device code reads the unique ID through
+syscon_regmap_lookup_by_compatible(). Their IIM nodes therefore need the
+syscon fallback so the syscon core can instantiate a regmap.
 
-Am Dienstag, 13. Oktober 2026, 18:20:49 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Johan Jonker via B4 Relay:
-> From: Johan Jonker <jbx6244@gmail.com>
->=20
-> Early Rockchip SoCs like rk3066a and rk3188 had boot loaders
-> that remapped the boot ROM and the internal memory. Currently
-> U-boot makes use of a common board file without remapping
-> resulting in the secondary CPUs power up hanging in a wait loop.
->=20
-> Make the various boot loader methods work by:
->=20
-> * add code that disables remapping on both rk3066 and rk3188
-> * change to use the same boot ROM path for all socs in rockchip_boot_seco=
-ndary()
-> * drop the rockchip_smp_prepare_sram() part
->=20
-> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+Allow the two-item compatible sequence for these SoCs. This prepares for
+restoring the fallback removed while making the IIM nodes conform to the
+binding.
 
-in general this seems to work on both my rk3188-rock and rk3066-marsboard,
-after I did some changes:
+Cc: stable@vger.kernel.org
+Fixes: d5b55c35e033 ("ARM: dts: imx: Fix the iim compatible string")
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
+---
+ .../devicetree/bindings/nvmem/imx-iim.yaml    | 20 +++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-> --- a/arch/arm/mach-rockchip/core.h
-> +++ /dev/null
-> @@ -1,10 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-or-later */
-> -/*
-> - * Copyright (c) 2013 MundoReader S.L.
-> - * Author: Heiko Stuebner <heiko@sntech.de>
-> - */
-> -
-> -extern char rockchip_secondary_trampoline;
-> -extern char rockchip_secondary_trampoline_end;
-> -
-> -extern unsigned long rockchip_boot_fn;
-
-that file is included rockchip.c as well, not sure why that is in there,
-but this include needs to be removed too.
-
-[...]
-
-> diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/pl=
-atsmp.c
-> index f659d894bfae..ece17e9cbaca 100644
-> --- a/arch/arm/mach-rockchip/platsmp.c
-> +++ b/arch/arm/mach-rockchip/platsmp.c
-
-[...]
-
-> @@ -320,9 +279,27 @@ static void __init rockchip_smp_prepare_cpus(unsigne=
-d int max_cpus)
->  	for (i =3D 1; i < ncores; i++)
->  		pmu_set_power_domain(0 + i, false);
-> =20
-> +	/* Make sure that the remap function is disabled */
->  	if (read_cpuid_part() =3D=3D ARM_CPU_PART_CORTEX_A9) {
-> -		if (rockchip_smp_prepare_sram(node)) {
-> -			of_node_put(node);
-> +		unsigned int reg;
-> +		int ret;
-> +
-> +		if (of_machine_is_compatible("rockchip,rk3066a")) {
-> +			reg =3D RK3066_GRF_SOC_CON0;
-> +			grf =3D syscon_regmap_lookup_by_compatible("rockchip,rk3066-grf");
-> +		} else {
-> +			reg =3D RK3188_GRF_SOC_CON0;
-> +			grf =3D syscon_regmap_lookup_by_compatible("rockchip,rk3188-grf");
-> +		}
-> +
-> +		if (IS_ERR(grf)) {
-> +			pr_err("%s: could not find grf dt node\n", __func__);
-> +			return;
-> +		}
-> +
-> +		ret =3D regmap_update_bits(grf, reg, NOC_REMAP, 0);
-
-the GRF registers use highword-masks, so this should probably be like
-	ret =3D regmap_write(grf, reg, NOC_REMAP << 16);
-enabling the NOC_REMAP bit for writing and thus having "0" written
-to that bit.
-
-
-Heiko
-
-
+diff --git a/Documentation/devicetree/bindings/nvmem/imx-iim.yaml b/Documentation/devicetree/bindings/nvmem/imx-iim.yaml
+index bb37d72c9eaa..ebfd947e6800 100644
+--- a/Documentation/devicetree/bindings/nvmem/imx-iim.yaml
++++ b/Documentation/devicetree/bindings/nvmem/imx-iim.yaml
+@@ -20,13 +20,17 @@ allOf:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - fsl,imx25-iim
+-      - fsl,imx27-iim
+-      - fsl,imx31-iim
+-      - fsl,imx35-iim
+-      - fsl,imx51-iim
+-      - fsl,imx53-iim
++    oneOf:
++      - enum:
++          - fsl,imx25-iim
++          - fsl,imx27-iim
++          - fsl,imx31-iim
++          - fsl,imx35-iim
++      - items:
++          - enum:
++              - fsl,imx51-iim
++              - fsl,imx53-iim
++          - const: syscon
+ 
+   reg:
+     maxItems: 1
+@@ -50,7 +54,7 @@ examples:
+     #include <dt-bindings/clock/imx5-clock.h>
+ 
+     iim: efuse@63f98000 {
+-        compatible = "fsl,imx53-iim";
++        compatible = "fsl,imx53-iim", "syscon";
+         reg = <0x63f98000 0x4000>;
+         interrupts = <69>;
+         clocks = <&clks IMX5_CLK_IIM_GATE>;
+-- 
+2.43.0
 
 
