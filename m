@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FEACCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655FACCF2C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ma9n40PrHYxAJ1JIzoWY1yP1AtpSc1ksCHNdgaDzul4=; b=ktoy3/wRIstiI9/u661RzkQ2Ic
-	fM8iWVNpW72r+IIF6unsqiBavf+tGN/vUsadT0u3qkZc8TnbBce+ER482FBS1uFU19YQlCTFo50OR
-	5EybqCVJ1RO2pkgjMrdBx9DIcXn6x7qU/76/VdJnfG+0bRWXBgbkpXUYMwlppzMj/YQ/657Z/k+5m
-	fwQ6FXxw+VlBUxum0jbaq0H5PlutH6B4zHxqNDSLNeuP25DUjR2d3qR+W/xq+/U3SZAClwnGzS3GO
-	ao3HKEjb8juZSM91uv9PNVr8/WobbgpI+eYV4gU2vhb1jJERcOD9Ge2715GI0jBKYZHfdquuoLvFJ
-	KPLOVqfQ==;
+	bh=c79mCn/1nYurBgODztRRbDvLhY3Vw34PrjUiu+4Lp4M=; b=bZd0rR6xiCbTLUdXtsxpEWALwT
+	w8NEfO3KgSzF0rch19FxxYj8xnze4qGOunJWyMVqbjjmBhfW+5Bdnav3i52rHc5vRsgy5nRRFsORe
+	xh5BcWnP7DqjhCYPhdtN7lxVP+JUfzEHtRy2f+A/UvCuVmoENBa9SRFO5lZjdrEbWlJPA3iUSfrnn
+	uc0yRisv/JlIcTjKuUsLZpSBG8m/ctZ8KA2ATs6ZZsygBDCybrKiAelCbvGnVsnNNwe49X5Oxam9+
+	JyArjoW7dAKqMm+x2maWRf3P8taTPcHgKJAEBtAX4kw+odLaQ4OElDOoRqFoQD2K9Yfosl9XOHVe+
+	cAZh8jxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDY-00000003TxK-2Wn5;
+	id 1xHlDY-00000003TwQ-1BGh;
 	Fri, 16 Oct 2026 16:55:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDT-00000003Ts6-3UNo
+	id 1xHlDR-00000003Tq7-2L0u
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 16:55:35 +0000
+	Fri, 16 Oct 2026 16:55:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ma9n40PrHYxAJ1JIzoWY1yP1AtpSc1ksCHNdgaDzul4=; b=Ptkpv88pqaMrGpd8xBD8Sb8f/+
-	A1XvsGIoFX8g2nkeFy3gHHSgsPGnb+K8W2/N1sIsGp9mIdrh2Hq78YoMS3lENukegdJfNMtgwQAMY
-	mi2+LOPaRV7C+rWoqHXo24dkaLTYOtZjpUsYUvcqXWkTAJ0RhvbPS3bEKyGAgawuwgxHB6L4NhBpl
-	LKsYghaTWXnwp60U0xBjRB/lre5g9Gir2FpDSf2tfICAYSCG67rHbmGNb2WJRyU5VtypNtG+57+xI
-	jiGClvG6nx/bHjdElc6xaOWgieFBu869M1QxL53oVQBzL2Vd7ix4LCPHXuRcVfUdra8v+LVS2EV7X
-	jXovr4Qg==;
+	bh=c79mCn/1nYurBgODztRRbDvLhY3Vw34PrjUiu+4Lp4M=; b=p4nMZopSaBSWUcel9W3JdArBuv
+	fnZmPKnmpTZOgDhYEQugdm/ckLk/RyjMm9YclvcYgNAUMwrbS5MVkD//vjjTMK2HEpZyqa5LuA4Sj
+	u1QZL7jLZJkwu0OUVSMLarHgQ0kCiUSZp5e86Fxd3skUYMnXVXFJKbE9jpVXUJ1N7PSltvtClHwS+
+	3ySlGiiGLewxGp1pN7TKTG0ERgs9DnxmpXmSdyVzno/8JXrNEZXJd7EZ/pHQaGHsK/CJBx+2dBZnE
+	D0Q/CsWj+dyC7W2pN5MV01FjNXyxbfUhXYAfRWsY+kXG1h2Jx8WFmeoKsg+Tl0aDP4G1d5Kamvzh3
+	41tcddzA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHlDR-00000001lJZ-01pi
+	id 1xHlDO-00000001lJZ-0JRo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:34 +0000
+	Fri, 16 Oct 2026 16:55:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E74131691;
-	Fri, 16 Oct 2026 09:55:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 435691516;
+	Fri, 16 Oct 2026 09:55:25 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FE513F7B4;
-	Fri, 16 Oct 2026 09:55:30 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F00133F7B4;
+	Fri, 16 Oct 2026 09:55:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169732; bh=Ci4jQGVodjiB+/z/lfOy/LyT2edA351Qgh0wmsig4rY=;
+	t=1792169728; bh=7a5LM0omtRuxo1GY+8/etcO0DB5cgJyVFb0k9uB3eCM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KVLOmbDVKubejrK78neacC+V0Rhbz32I/P1WLQo5Sm2j3hTtKwIEHrvWSi/hhmbfI
-	 7KoXZhLTw2EJhGaWXbo78cGyLmGkLUlN1Hp/x8V+N4AP2yx5NIuBdqp16BR7TBvgoV
-	 LB7rWLiwzW/mANW71CMsyPbIEfzes8k6lR5QaXEU=
+	b=TAHb/taJYqC/Yzsg/GaktFpDrYnFaTOMGfQau9gLqS8pONtIjMLuHG/26sw4IdvaZ
+	 /tRVvzC+EGR4UjB3htGmHnc6OOJoXMCMGU1F3pEZHkVmIsA6aEJGB3ktnXduBnSDm/
+	 4ArO3I5g4ynKNMx7qZBzBuPOu0DzmOLTO5hmuC9k=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:09 +0100
-Subject: [PATCH v2 11/23] coresight: trbe: Assign the perf handle in enable
- and disable
+Date: Fri, 16 Oct 2026 17:55:07 +0100
+Subject: [PATCH v2 09/23] coresight: trbe: Clear TRBSR status at stop sites
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-11-3f57cf3199b1@arm.com>
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-9-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -73,16 +72,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=3418;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=2109;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Ci4jQGVodjiB+/z/lfOy/LyT2edA351Qgh0wmsig4rY=;
- b=7cpRKItxfN8/08ZsQgsas0Sp4YJg0iK/kZoIm4+dwIdfR1CjzvzPJQnQE/dSZfI2f95+JNrvi
- DO4P7w50Qm6Acd0Sco+V4JidJzI2sfQU6kwEMVjO5ckHF+188ABUIZ/
+ bh=7a5LM0omtRuxo1GY+8/etcO0DB5cgJyVFb0k9uB3eCM=;
+ b=ry8ADQrujTTFdEbFxyecPPqDjhNg7eET/vbVKpX+EPc6vBXJ9jKOsQ2foozk6MhEfBwdUjTZU
+ VJwoW6ObtIzCTZ82mdUuDCtbc8QlakBH0U1WFWBzpUsNZUQ6TrnvRpw
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_175533_335786_A8EF7080 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20261016_175530_748048_88BE5B86 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,93 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-etm-perf owns the perf output handle embedded in its per-CPU etm_ctxt and
-passes it to TRBE through arm_trbe_enable(). TRBE binds that handle after
-successful sink enable and unbinds it in arm_trbe_disable(). The handle
-object remains valid throughout this interval, even if the current AUX
-transaction ends or a new transaction begins.
+TRBSR_EL1 records the status of the buffer that just stopped. Clearing
+it in trbe_enable_hw() postpones cleanup until another run starts. If
+AUX output cannot restart, for example when AUX space is exhausted,
+that clear never executes. Clear the status in arm_trbe_disable()
+after disabling TRBE instead.
 
-The inner enable helper currently publishes the handle, while truncation
-and failed rollover clear it. Sink disable leaves the handle installed
-after dropping the buffer association. These assignments track the AUX
-transaction rather than the enabled sink session.
-
-Publish the handle only in arm_trbe_enable() after successful setup and
-clear it in arm_trbe_disable() before dropping the buffer association.
-Remove the assignments from the inner enable, overflow and truncation
-paths so the handle association follows the enabled sink session.
-
-A valid handle object may have no active AUX transaction, so the IRQ
-handler continues to check perf_get_aux() before accessing the
-transaction's configuration.
+trbe_handle_overflow() can start the next run without calling
+arm_trbe_disable(). Clear the stopped buffer's syndrome and status bits
+while TRBE is disabled, before attempting the AUX restart. This also
+leaves the status clean when the restart fails.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 20 +++++++-------------
- 1 file changed, 7 insertions(+), 13 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 4a041bbc6e970d72a7d735e15f7221037cb091d6..1f51c33de83638479436683fd96e31d69c3b860f 100644
+index 26e7554d6bdd31f8a55a8bc3a7b6d4c49b984b9b..dd9c9330bb0c739795f300dafc6ce34e72fbf280 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -303,11 +303,8 @@ static void trbe_report_wrap_event(struct perf_output_handle *handle)
+@@ -655,7 +655,6 @@ static void trbe_enable_hw(struct trbe_buf *buf)
+ 	WARN_ON(buf->trbe_hw_base < buf->trbe_base);
+ 	WARN_ON(buf->trbe_write < buf->trbe_hw_base);
+ 	WARN_ON(buf->trbe_write >= buf->trbe_limit);
+-	clr_trbe_status();
+ 	set_trbe_base_pointer(buf->trbe_hw_base);
+ 	set_trbe_write_pointer(buf->trbe_write);
  
- static void trbe_truncate_event(struct perf_output_handle *handle)
- {
--	struct trbe_buf *buf = etm_perf_sink_config(handle);
--
- 	perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
- 	perf_aux_output_end(handle, 0);
--	*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
- }
+@@ -1069,6 +1068,8 @@ static int arm_trbe_disable(struct coresight_device *csdev)
+ 		return -EINVAL;
  
- /*
-@@ -1012,7 +1009,6 @@ static int __arm_trbe_enable(struct trbe_buf *buf,
- 	if (ret)
- 		goto err;
- 
--	*this_cpu_ptr(buf->cpudata->drvdata->handle) = handle;
- 	trbe_enable_hw(buf);
- 	return 0;
- err:
-@@ -1042,6 +1038,7 @@ static int arm_trbe_enable(struct coresight_device *csdev, enum cs_mode mode,
- 		return ret;
- 	}
- 
-+	*this_cpu_ptr(drvdata->handle) = handle;
- 	cpudata->buf = buf;
- 	cpudata->mode = mode;
- 	return 0;
-@@ -1062,6 +1059,7 @@ static int arm_trbe_disable(struct coresight_device *csdev)
  	trbe_drain_and_disable_local(cpudata);
- 	clr_trbe_status();
- 
-+	*this_cpu_ptr(drvdata->handle) = NULL;
++	clr_trbe_status();
++
  	buf->cpudata = NULL;
  	cpudata->buf = NULL;
  	cpudata->mode = CS_MODE_DISABLED;
-@@ -1102,16 +1100,12 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
- 	trbe_report_wrap_event(handle);
- 	perf_aux_output_end(handle, size);
- 	event_data = perf_aux_output_begin(handle, event);
--	if (!event_data) {
--		/*
--		 * We are unable to restart the trace collection,
--		 * thus leave the TRBE disabled. The etm-perf driver
--		 * is able to detect this with a disconnected handle
--		 * (handle->event = NULL).
--		 */
--		*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
-+	/*
-+	 * If trace collection cannot be restarted, leave TRBE disabled.
-+	 * The etm-perf driver detects this through handle->event == NULL.
-+	 */
-+	if (!event_data)
- 		return -EINVAL;
--	}
+@@ -1095,6 +1096,13 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
+ 	unsigned long size;
+ 	struct etm_event_data *event_data;
  
- 	return __arm_trbe_enable(buf, handle);
- }
++	/*
++	 * Clear the status. No context synchronization is required here,
++	 * since context synchronization will be performed before TRBE is
++	 * re-enabled (see trbe_enable_hw()).
++	 */
++	clr_trbe_status();
++
+ 	size = trbe_get_trace_size(handle, buf, true);
+ 	if (buf->snapshot)
+ 		handle->head += size;
 
 -- 
 2.34.1
