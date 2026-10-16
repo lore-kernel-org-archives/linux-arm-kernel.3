@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD29CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF676CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8lC+3QuyhSeSDfWPg49wFSQP1WWmXzv+SO1bTfVf9QQ=; b=vG4MAPUon68iS+tb28jla/7vKe
-	frPRrMfGPkAPbP7kdMsHfPDTjvHzyo0b7n+BKLwRfGIW1PbZhSwVjrBgxmJk/UOMTjFjw8T/Omef5
-	kFMM0DQ2B1EEkvAyYIkETPl5mZdOVDG6ugXa5px49NRplWaUkc4gf8SAG3LOuFB63QxUii+pVArci
-	ozagLmrCMkmu1HUFOTQiT4MO7Lh7RNI0tuvzlQOncZOqwk5d8lTlmV3dODQMGu1qlsuECehShJkf8
-	HxwjlEDdeM8Onz24Ts4D3P2VkHeSiTRzAUwhpaxb74X7ruJn3PYmwW1EtTvFx45ElwaoHg+aLqYFn
-	r7Gz9RKQ==;
+	bh=WyVgdQOJ2lLJ0wl//yOKImwK8hAJpf48U17WojJT4FU=; b=Rz0JFD17wQzt72fuS6Cc4+dR1X
+	dlu13/cJxQ69qqvpBIfsibfJeXZPVENcXoTtlJuyCJWuYJm51PZqRJwFfvZXLn/e6TggEd3BmyDaj
+	8w1GEZsx/HrkX6KBn0d7GcIho1SDBwdaRtDNO7rekAh46vRXRKXe6Bb8o4JiN2U1gyPvowsh/InFE
+	v4GWgxMyLFlNirRUnwPVeNdilq4l7Ii69a2A8azZ5sKZkbGpVATasd8nwqD1JRRvgiC2AFQF7QBPd
+	wmfYP/cADXg6QhCbzJGLyQTchO+zy1XhV9cR6thArjIMo0JGHAXIhiy77PByHwlIDOsiEqw30mHok
+	qTDU6Bow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHetV-00000002ZoR-1Uip;
-	Fri, 16 Oct 2026 10:10:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHewM-00000002a40-37XX;
+	Fri, 16 Oct 2026 10:13:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHetU-00000002ZoF-1Jzg
+	id 1xHewL-00000002a3e-1Yzf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:10:32 +0000
+	Fri, 16 Oct 2026 10:13:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65111601FE;
-	Fri, 16 Oct 2026 10:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9831F000C4;
-	Fri, 16 Oct 2026 10:10:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 625476022B;
+	Fri, 16 Oct 2026 10:13:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE061F000C4;
+	Fri, 16 Oct 2026 10:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792145431;
-	bh=8lC+3QuyhSeSDfWPg49wFSQP1WWmXzv+SO1bTfVf9QQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PCkV+VjPEAbPVnwsmhUyCGHvwkW9is05IsSldUUc0jyYvVlhvfueTj7fa8oB2keil
-	 xAzKBOW7NtS/qJyh1VEZSe8eHpzwBlo/GTt2WfF0TI49xl37eMTM3sxJ2sPOSxP6vv
-	 +ONFn+3vDxPlE2dqlmwmp7VWkFeIfLCtQ9DpvFpaqoZRoNhDzb8gyS4N5zLQJsiiqj
-	 d547wc0OYXsILmkfaG/RbPg2RxHCBNXk5hRLogXTDMuRAweLjS16vt1Sev4BDT69bT
-	 rtZNhWB80fByfnfn6bW8o9bk1db6ubyJ6kcDL9vynE3Bz9LIzMNqDhCQZsxAfm3OPZ
-	 KSJMQ0FE9lQjw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xHetQ-00000003hIw-3TGV;
-	Fri, 16 Oct 2026 10:10:28 +0000
-Date: Fri, 16 Oct 2026 11:10:28 +0100
-Message-ID: <86cxta0xd7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Set HCR_EL2.BSU to Inner Shareable for guests
-In-Reply-To: <20261016081558.805411-1-fuad.tabba@linux.dev>
-References: <20261016081558.805411-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1792145607;
+	bh=WyVgdQOJ2lLJ0wl//yOKImwK8hAJpf48U17WojJT4FU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MHfbgzlUIZRJdPWIE0no3IgTioOtANvbTrN96zf1hnfZNjewVLMpiT2SGNze7NNxb
+	 p4MphMQmmT1pBOQKJrhfmwDL5MpVE0/fmHeUTfXXp1VvrwyWoDKXBF5/uw02dBnDUo
+	 8/CF4tYHbvQ367xcSrBdSgnEgRMv+lMfBbhDAk976/x5JCVLhkeV9Tt7LXQ9l2tYsY
+	 5+4OuMqsQ5QbEDOhW+O6tYGQiBrBWkmJggXEulgYHSz+ui0XQNVW0/jJtmrs01CUjO
+	 WFhuMvak/6KMPYsH6waYO23tMb5Vtx74F56BzklZBf2n9AGQUsu8c4FwmRrgwQ/nEc
+	 qXIbidDQLhUgQ==
+Date: Fri, 16 Oct 2026 11:13:22 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Philip Radford <philip.radford@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-pm@vger.kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH v9 05/13] firmware: arm_scmi: Add SCMIv4.0 Powercap FCs
+ support
+Message-ID: <20261016-admirable-modern-bandicoot-d7cc15@sudeepholla>
+References: <20260909220437.1254412-1-philip.radford@arm.com>
+ <20260909220437.1254412-6-philip.radford@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909220437.1254412-6-philip.radford@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +76,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Oct 2026 09:15:58 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Wed, Sep 09, 2026 at 10:04:29PM +0000, Philip Radford wrote:
+> From: Cristian Marussi <cristian.marussi@arm.com>
 > 
-> KVM sets HCR_EL2.BSU to Inner Shareable for guests, so that a guest's
-> barriers cover the TLB and I-cache invalidations that HCR_EL2.FB
-> broadcasts. However, since HCR_BSU_IS became an alias of the generated
-> HCR_EL2_BSU_IS, it is the unshifted field value 0b01, which sets bit
-> 0 (VM, already set) and leaves BSU at 0b00. A guest's DSB NSH is then
-> not required to wait for a broadcast TLBI to complete on other CPUs.
+> Add support for new SCMIv4.0 Powercap Fastchannels.
 > 
-> Build the field with SYS_FIELD_PREP_ENUM().
-> 
-> Fixes: d0f39259eff4 ("arm64: sysreg: Add layout for HCR_EL2")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> [Philip: removed reference to old versioning logic]
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
 > ---
-> Found while testing Marc's HCR cleanup [1]. Its patch 1 carries this
-> line over as HCR_EL2_BSU_IS, so on top of this fix that hunk would
-> keep SYS_FIELD_PREP_ENUM() instead. I can also rebase this on top of
-> the series if that's easier.
+>  drivers/firmware/arm_scmi/powercap.c | 331 ++++++++++++++++++---------
+>  1 file changed, 229 insertions(+), 102 deletions(-)
 > 
-> [1] https://lore.kernel.org/r/20261015173605.1072963-1-maz@kernel.org
-> 
->  arch/arm64/include/asm/kvm_arm.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 4bfbd827c5aa7..b3e9dd302730e 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -98,7 +98,7 @@
->   * TID1:	Trap REVIDR_EL1, AIDR_EL1, and SMIDR_EL1
->   */
->  #define HCR_GUEST_FLAGS (HCR_TSC | HCR_TSW | HCR_TWE | HCR_TWI | HCR_VM | \
-> -			 HCR_BSU_IS | HCR_FB | HCR_TACR | \
-> +			 SYS_FIELD_PREP_ENUM(HCR_EL2, BSU, IS) | HCR_EL2_FB | HCR_EL2_TACR | \
->  			 HCR_AMO | HCR_SWIO | HCR_TIDCP | HCR_RW | HCR_TLOR | \
->  			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
->  #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK)
 
-Huh. That's a bad one. I've added a Cc: stable to that, and queued it
-as a prefix of the cleanup series.
+[...]
 
-Thanks,
+> +static int
+> +scmi_powercap_xfer_avg_interval_get_v3(const struct scmi_protocol_handle *ph,
+> +				       u32 domain_id, u32 cpl_id, u32 *ivl)
+> +{
+> +	int ret;
+> +	struct scmi_xfer *t;
+> +	struct scmi_msg_powercap_cap_or_cai_get_v3 *msg;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_CAI_GET, sizeof(*msg),
+> +				      sizeof(u32), &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msg = t->tx.buf;
+> +	msg->domain_id = cpu_to_le32(domain_id);
+> +	msg->cpli = cpu_to_le32(cpl_id);
 
-	M.
+Is this inconsistent with scmi_powercap_xfer_cap_{g,s}et_v3() which IMO
+correctly uses pc->cpli[cpl_id].id instead of cpl_id or am I just confusing
+the flow ? The spec is clear that it must be concurrent power limit identifier.
+
+
+[...]
+
+> +static int
+> +scmi_powercap_xfer_avg_interval_set_v3(const struct scmi_protocol_handle *ph,
+> +				       u32 domain_id, u32 cpl_id, u32 ivl)
+>  {
+>  	int ret;
+>  	struct scmi_xfer *t;
+> -	struct scmi_msg_powercap_set_cap_or_pai *msg;
+> +	struct scmi_msg_powercap_cai_set *msg;
+>  
+> -	ret = ph->xops->xfer_get_init(ph, POWERCAP_PAI_SET,
+> -				      sizeof(*msg), 0, &t);
+> +	ret = ph->xops->xfer_get_init(ph, POWERCAP_CAI_SET, sizeof(*msg), 0, &t);
+>  	if (ret)
+>  		return ret;
+>  
+>  	msg = t->tx.buf;
+>  	msg->domain_id = cpu_to_le32(domain_id);
+>  	msg->flags = cpu_to_le32(0);
+> -	msg->value = cpu_to_le32(pai);
+> +	msg->cai = cpu_to_le32(ivl);
+> +	msg->cpli = cpu_to_le32(cpl_id);
+
+Ditto here.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Regards,
+Sudeep
 
