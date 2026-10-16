@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F596CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 11:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D23CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 11:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9GRmkk0d7/PC2JYZ6s87MIdsq4qp1zD1dJ0+v2vwEqA=; b=w2VBx1kcRYqcYgTJdL+7aWP0hR
-	/AqV68gcNZXT2HpY9U981B3e0IauDYyeQDJ5GMSgSRwffW0Us/Ij6gWh8pCJ2KBr1IS8zotC4MZZR
-	oIo/2V7wEHxAUkAisfupj9V4ghqUxPqubRpjS85u3/Z1fdHXTdIb0Zy4Ka4wS5/4cM7M9MVFjwjD6
-	lDy2IwdJNoGFM4/Q7EDtHWYzYEeGQJ0TAw2s9TxM4EOk2nlpb55qTT9siI0CIM/JgnmUaaPXOc2w8
-	eaPQKZpNKjgrhOG3TMYjVMzVMZ9NwAflH0VFXMrIJnNBczogvvEL/oetP8WPHhlO2A/7GpWGbdclt
-	vwHleCvw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I2to3/HS5QrqXW5ag9oyRzHLN+O7mWCd99D09pX0/80=; b=ot7eJwx4zJtmdvpYkqDKsJkmup
+	8V+jZa0Bqy1ryuSOBUD+X5QxiUKtp37hFiSpOvtmvPY8JcgkdDx9ZNfE/iL+oGK6+17+O1tlmYHwO
+	DWlLwG2c3N8Cr41VHoHOBaFStwDLY1ZqEl1bqqjuW+D5B3D/qnmhGTy66S0PgU1OVoYKhnxXuq366
+	HhcsDUMOCffK4nKNHKtMzwQNYIby4kiY4Ugstbpcn9qi6su7gjULwytTkzvhP4xG4lbwAaZZpOqwn
+	Z6YNwcNcGfnZ8GLzvsPe6C+PReR3rtXbTA/E4RarvgVZ2W04TVYs8+ZyPYQvbTffdVdVk0MFmN2AA
+	0LuM3hjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgG9-00000002m76-2vPw;
-	Fri, 16 Oct 2026 11:38:01 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xHgGK-00000002mB7-03zC;
+	Fri, 16 Oct 2026 11:38:12 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgG7-00000002m6K-1ewJ;
-	Fri, 16 Oct 2026 11:38:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1CC501A1251;
-	Fri, 16 Oct 2026 11:37:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DD40E6075D;
-	Fri, 16 Oct 2026 11:37:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 38F5610328153;
-	Fri, 16 Oct 2026 13:37:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792150669; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=9GRmkk0d7/PC2JYZ6s87MIdsq4qp1zD1dJ0+v2vwEqA=;
-	b=DOVSw9oI99DtbYEp6j/IMxmzCvhQrVrV9IRzEyczUgqy6HHPbxXruaeiDSNanNAfldxFfj
-	QBmgYZpLAo5JLMjFMRsN65bzPuPjoadxWuVMjgEBsuc7gtos1IvD9hrJoyUjtVpc+kgvgt
-	ojQ0upsve+H0brWS+pQEPLnkB6VmNkoUU2VfkryWBniwZnaLTRjB6UNY7Mp4QuPZiilxWd
-	e7QnoyiDYek5sVmIs/gOKJrB3YxCnIsaJfRQRJgJbogTl2FoAKkpuqoOOY2ia5MvI2aoZD
-	pIfHxwpdC0CsLbBbaKR1KWFR1j+JBjqgZF/zoYR8P3rco2vIudsLUJo8Tg4nXg==
-Message-ID: <34608ab8-18f3-4680-8276-cd8611c05cb1@bootlin.com>
-Date: Fri, 16 Oct 2026 13:37:37 +0200
+	id 1xHgGI-00000002m9p-0XeM
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 11:38:11 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso29628585e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 04:38:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792150688; x=1792755488; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=I2to3/HS5QrqXW5ag9oyRzHLN+O7mWCd99D09pX0/80=;
+        b=P12RRX8dnasrNoCPTNx6MGtUKmc8/gjCTqeDaCJWRDDxiPLaJu9NMkmyi/3+0szjJ4
+         kV3TMjXRmLd9cT9OtzmULsAfBM3sMat6Nsi6aggMtD7O44D3TqFJpXcQAKEH+O0j2s9i
+         +zfYeiVSUNeehjJ8MFwi0fVc/JejiK7Qp8glsO6FjHqKPtQNW3EHlKigXdKHqBN6nQbd
+         9KDvukwejIV5AYDq680FIDnkHtjwkJcC6bGy6ADfEMxJBoIcBq9rczjF8n/UtWRt/vzj
+         Yu2aZCgvArk9+HDlddGsk6v853UPb6eVO9qFQn0BnEOCfYfJ9DeCJxEuFiHqyh4ecyQy
+         S9QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792150688; x=1792755488;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I2to3/HS5QrqXW5ag9oyRzHLN+O7mWCd99D09pX0/80=;
+        b=Gmf+wp8bA6fOSBKIUp7AY5YgsS5aVSMfUlQrgXS5T3Z2FyIjXBjODMadS3xkDftVeB
+         U2TsXlQBrZEF7p7YwvHkX3Wf2ZfZ5WUULAXWg/56Yi4J+onbG9blsudYBwWV54rh1tLQ
+         HoCtF/BNLNVfujnc4HTj/mOQbc5v1y0qz43DCL3bM6duePgLhS9Te5F4a9vuVRAFE1Ud
+         AMoez8Aq0uzt2KTnnKQkziPlFpATuNQiD6LBYqhOYaS48+q0bJncDbCNgHZ9+VZNB8TP
+         rt7pPMrlAKZAooU9dfCCb5vlGc+u3rwEfUegp7ndpEwWYYbkSGkUprZ9z1FcVZBIzRAi
+         AlvA==
+X-Forwarded-Encrypted: i=1; AKwUvByOePE2uynBVB3vf1tCqnQZhDJiPBteb3rZjFzaEW5ANglPkJ72PMWS+UEG3KiA7bi2OYXHASeXSGuQJllfc31R@lists.infradead.org
+X-Gm-Message-State: AFq9FYLEMju8sUtpcNv/p/0hv/fpMVihSQL8Ki19K4PMHSfIIpiwaFy4
+	69lL2xd65qLnupWy1PL532fZG5mnkM0LDj6ASNJcxdCP6uHFY/yRPnSu60EwjpVCr+E=
+X-Gm-Gg: AYBFou3AlWiRV429Nb5CNI2x64Ey4JOXn1HB8QOddHkqZpJ+SOIoUYqmxNqziLNCLYT
+	uMfyGRCL0g5rpRX+XOIVZ20OKdrjevf1STPtRTFOxEdtzTQv1lf0Yfe4PXsiizKiPSTAshx5vOO
+	2WY5B72ZFgyxUUMlxvysi9lOcEFVJasc7S2+FD9DWES61VrdidrjUFM1xJNc1UXbBrD7XAFDTqh
+	Y2i0oHpBDzJlGiwdEQG44e5hNurRcl9VfC/0Vdws3q4egPIw0EMwNwNjuzVBuZlJGhZbiKEAFIC
+	APU9e4WATWGUESr8m5aKXh376MMFd1FeBjcgl0Pp4zsR4FTgdLnbl+z3xSFwQy5DdZGt1KCqwQa
+	PkGLaaHKTh9f9074dM6PWaSC31wy5RL1xTj6Lo0TIVQ4FuTeildkk3j+SxkqRhjpkr99SujgGBp
+	WFn5p0xxvOojqR+Zwp5s27RwQAwn3fCN70xITrByZ8rvCKS7CMQJgU95z8c3/hv6Z25DQv7tU5q
+	mR6KfivcXHnrp49KBKhzcw0CGnwmh9C40oWYOQu/n/J32gbT5oW8Ezivg==
+X-Received: by 2002:a05:600c:3b2a:b0:4a1:d248:25b5 with SMTP id 5b1f17b1804b1-4a1d2482659mr19130645e9.24.1792150687905;
+        Fri, 16 Oct 2026 04:38:07 -0700 (PDT)
+Received: from thinkpad ([2.176.196.112])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1bd9b8b5fsm156650875e9.9.2026.10.16.04.38.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 04:38:06 -0700 (PDT)
+From: Arash Golgol <arash.golgol@gmail.com>
+To: linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: yong.deng@magewell.com,
+	paulk@sys-base.io,
+	mchehab@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	laurent.pinchart@ideasonboard.com,
+	Arash Golgol <arash.golgol@gmail.com>
+Subject: [PATCH v1 0/3] media: sun6i-csi: Improve capture and bridge
+Date: Fri, 16 Oct 2026 15:08:43 +0330
+Message-Id: <20261016113846.8602-1-arash.golgol@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 5/9] net: stmmac: mediatek: add RX/TX delay
- stage divider in platform data
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Eric Dumazet <edumazet@kernel.org>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
- <20261016-dwmac-mediatek-mt8189-v3-5-25daf2bbcf35@collabora.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-5-25daf2bbcf35@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_043759_580955_F5D72885 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20261016_043810_182002_2F82141A 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Louis-Alexis,
+Hi,
 
-On 10/16/26 12:31, Louis-Alexis Eyraud wrote:
-> In preparation of newer SoC support, that have like MT8189 SoC
-> different RX and TX internal delay stage steps than MT8188/MT8195, add
-> the RX and TX delay stage divider values in the variant platform data
-> and replace the hardcoded value uses in mt2712_set_delay and
-> mt8195_set_delay.
-> 
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 46 ++++++++++++++++++----
->  1 file changed, 38 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 596411d4a5b2..cb5bda53edb9 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -108,6 +108,10 @@ struct mediatek_dwmac_variant {
->  
->  	u32 rx_delay_max;
->  	u32 tx_delay_max;
-> +	u16 rx_rmii_delay_stage_div;
-> +	u16 tx_rmii_delay_stage_div;
-> +	u16 rx_rgmii_delay_stage_div;
-> +	u16 tx_rgmii_delay_stage_div;
->  	u8 dma_bit_mask;
->  };
->  
-> @@ -146,14 +150,22 @@ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	u32 fine_val = 0;
->  
->  	if (phy_interface_mode_is_rgmii(plat->phy_mode)) {
-> -		rx_delay_stage_div = MT2712_RGMII_DLY_RXC_STAGE_DIV;
-> -		tx_delay_stage_div = MT2712_RGMII_DLY_TXC_STAGE_DIV;
-> +		rx_delay_stage_div = plat->variant->rx_rgmii_delay_stage_div;
-> +		tx_delay_stage_div = plat->variant->tx_rgmii_delay_stage_div;
->  	} else {
-> -		rx_delay_stage_div = MT2712_RMII_DLY_RXC_STAGE_DIV;
-> -		tx_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV;
-> +		rx_delay_stage_div = plat->variant->rx_rmii_delay_stage_div;
-> +		tx_delay_stage_div = plat->variant->tx_rmii_delay_stage_div;
+This series improves sun6i-csi capture and bridge.
 
-Looking closer at this, what's RMII delay ? There's no delays in RMII, and
-it's a single clock not a RX and TX clock like RGMII, there's no RMII TXC/RXC.
+Patch 1 fixes sun6i_csi_capture_format_prepare() to align both width
+and height to 16 for NV12_16L16, as its 16x16 tiles require.
 
-I think it's the same as on allwinner, the delay handling has been mixed-up between
-RMII and RGMII in the glue, you should be able to simplify this even more by
-ditching the RMII case.
+Patch 2 adds vidioc_enum_framesizes() to sun6i-csi-capture, using the
+same alignment.
 
-Maxime
+Patch 3 removes duplicated mbus codes from sun6i-csi-bridge. It was
+posted earlier and carries Paul's Reviewed-by.
+Link: https://patchwork.linuxtv.org/project/linux-media/patch/20260527124552.33815-1-arash.golgol@gmail.com/
+
+Tested on LicheePi Zero Dock (Allwinner V3s) with:
+  ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-csi-capture
+
+As ov5647 only outputs Bayer, streaming HM12/NV12 is not possible on
+this setup, so I did not test real streaming. I checked that
+v4l2-ctl --try-fmt-video, --set-fmt-video, --get-fmt-video and
+--list-framesizes report the expected sizes for HM12 (16 aligned) and
+NV12 (2 aligned).
+
+Arash Golgol (3):
+  media: sun6i-csi: capture: Align size to 16 for NV12_16L16
+  media: sun6i-csi: capture: Add enum_framesizes support
+  media: sun6i-csi: bridge: Remove duplicate mbus format entries
+
+ .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 12 -----
+ .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 45 ++++++++++++++++---
+ 2 files changed, 39 insertions(+), 18 deletions(-)
+
+-- 
+2.34.1
+
 
