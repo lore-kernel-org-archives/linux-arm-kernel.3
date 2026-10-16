@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34656CCF2C7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F596CCF2C6
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvbMDgra2U1UoaGxz8XvkRbfg6cBMr5E7IJr0sspiBw=; b=rmQOKDOrfax4uXb72RLAAfkuHO
-	3Yv00Gyt/bYfyB3gvt9PBCsqQkuiOhcua5XUZiD5FbebShywI8sLc4Wq3KP0GlnGJm0V8rhT0KZiX
-	yRQjSMh6veerW8rW4XlLOPZXTYWgyXTTKiBazTBV8Fbix9rw/+Gyc7up9dmSGMwHO19uz1whYh+sV
-	Ps3BcfwVNisDnKEfR2uC11blk5uRe6KeN8cmXajWGuyGBWdXQbD6plXM7fz/UEI4hTeJVLZaGXaOv
-	6erpG5ziNdqsp0o9JueUO1v7VjM1yNSO8KKBGROVKmRBUHsBZaDMw8kPPYGdxRWqumKw8DX7TJUXF
-	ZIqd6LmQ==;
+	bh=PPm26vsD7C2oD7LjNQsP2D7iLMxNFzVvLLOXAe/5a1Q=; b=cxYwxDD5M8oera9g8AdG9fgFL7
+	ghpDOZha2FbhXlHow6eD1+ASOQ/rgTV2m2pDLuOKLKkV4ULTCOISEfogXgYdpABONXSdqth1xyyCj
+	eOIugPOXwJj9OiqXj7ufkc1n57AcG3ntE3EGwFpHW1Yf+mD35Jog11TflhKSxBbh5HjkRdmmKRvBu
+	ftrwfv5x1Ax1303r5S6we+H3mNjVGPBskSx2GQE8R2FHJZEXAlSeFu3UyXkF0dmdSsL5Prx+g/n8/
+	qFI4Z2q/stvWMmTct7z/wfX2LzpCwvCJ0hH8F5UwyCY0C0mtrgonD4cLsO9hIMs1iXyhn4UCFF2Xf
+	KizhXEsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpE7-000000044FE-166E;
-	Fri, 16 Oct 2026 21:12:31 +0000
+	id 1xHpE5-000000044DV-3mow;
+	Fri, 16 Oct 2026 21:12:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDl-0000000446S-3uy9
+	id 1xHpDt-0000000446n-20u2
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 21:12:17 +0000
+	Fri, 16 Oct 2026 21:12:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZvbMDgra2U1UoaGxz8XvkRbfg6cBMr5E7IJr0sspiBw=; b=LxrH+qoSpD9LOojlIAjG7fvjNq
-	3jkQxcnPMsM7ZxrkCWZdPccTfBY7wQBosfsncOeIc0vRD4Yv+PNjARbI/6TrWph/q4mGcwumYJiOR
-	WHAUFJysh5H05ZatROU/ONR+NIefdgN6zFSZklrW6vC1wC3Iax6T2d0+aMwleLGJIUOiQldxof85t
-	SaJI9pt3VCNbczG5fH3NKGtnfDkThwZ/u1Q0+3YKV8VxhwihgnbfupHfTVE6sIW18DByGuTJ37lRL
-	XLy0yXjMa2xZnD9lrMPiJdhyHpcgtrLog8wG6GnLSM96vV2Q9ePyUXtQKxnjfjg6cvHaj0c6G7kVo
-	6fovRkjw==;
+	bh=PPm26vsD7C2oD7LjNQsP2D7iLMxNFzVvLLOXAe/5a1Q=; b=XIMOIiOvPGO5nPYj7f1TLiWzBg
+	2LXDgz4wSWCt6siTLG9siAcG8+gwfIDDpXWtt2Jxm0VMq0zotvmuQmrD0rUd3c1LIGAd4lea9gKxB
+	34mMpIIPrmBJs+8Qvbc+iMQgCRT+kb1uD5chE5GdpSvHr+IiEYeg87yAeI3kEbn3sdzqZM/pyT4tE
+	BsKtkxOV61iF5Lcm2jbIF01Ifx7g0GQixRG2lX7JvmH5T9rTjMe0sbw6yEVFmpPAM3kfd9I99C+Ws
+	+EXNlh/EctWrO4G3JEn2WgbvlqF26TWzuSknQEKhD8xpt0SVoIS4zlADpBnUtssO6wHvlBdBVNfi/
+	5hJIoOHg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHpDi-00000001xSa-2VJ7
+	id 1xHpDo-00000001xTb-0VWJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 21:12:08 +0000
+	Fri, 16 Oct 2026 21:12:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDBC216F3;
-	Fri, 16 Oct 2026 14:12:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74F2E1762;
+	Fri, 16 Oct 2026 14:12:07 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB81A3F673;
-	Fri, 16 Oct 2026 14:12:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 334E03F673;
+	Fri, 16 Oct 2026 14:12:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792185125; bh=vkTR0c01qLKuGP/MBGuCwxrpk2UfwNHK062KXd1/KcM=;
+	t=1792185130; bh=WinRZcQJ2thC4qrPCAsf4pxVvrWRPdI5x9Ud16MKKJ4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hhIWKh3Q/5nlf7aPdkufCLSSSYQsXy0I7e7u8E1G/pfqOtckLEsGHDxhF4etljP1R
-	 X4tVUROFGlCJADnsDTukG5aN+oCXC0YCzTA0y91YKqDI/tMsswMQHIDuljoByuoxwi
-	 I6Ntavo/42NzrFodRW1dvvvYHEuhlaIRmL+PcyTM=
+	b=WAIk804gq6YpDzW40p2RJT2iwnlgZCwKR9VkC9YbUjhuzMOMc7ouOSeZ9PEBHKQ7R
+	 PQFlu2FyGQiI05YBA5rTg38vVzmGMeOgpDM9+hn7sZb49yC2GSatTmSn1+jgGMx/5m
+	 4GqE95DuupSGmAAea3foFcM1apcSMcKlicJRfMFo=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 22:11:44 +0100
-Subject: [PATCH v2 06/11] coresight: trbe: Save and restore trigger counter
+Date: Fri, 16 Oct 2026 22:11:47 +0100
+Subject: [PATCH v2 09/11] perf cs-etm: Reset per-thread decoder on CPU
+ migration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_buffer_refactor_v2-v2-6-383ac26382fa@arm.com>
+Message-Id: <20261016-trbe_buffer_refactor_v2-v2-9-383ac26382fa@arm.com>
 References: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 In-Reply-To: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -72,16 +73,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=1650;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=3810;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=vkTR0c01qLKuGP/MBGuCwxrpk2UfwNHK062KXd1/KcM=;
- b=dyQNi+IMy9C/+FRYKYyUyMYuiCHOCCAEo7Pe5orDfqWdwxv96+k+GABYO4x0FxybQler+3Z71
- 3F65qmjw9eXCaQ1qxJ1B4rDLsfsj4SWSxRLisqnweqHTDC0E2KBltrO
+ bh=WinRZcQJ2thC4qrPCAsf4pxVvrWRPdI5x9Ud16MKKJ4=;
+ b=E06a9BXdgsu4XZGeU2DFfO/qhH5ny03CnBjr0YDj0GJI+FHSjfVEySfflZHEnH1YQJS+D09j4
+ A6EP5ytlyhmBO1NC49EZn6m+C671dZ3MfXfIg0Noc8dLyr8IMd6JKhC
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_221206_868025_AE205057 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20261016_221212_545659_9FD602AD 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +97,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add TRBTRG_EL1 to the saved TRBE state and restore it along with the other
-TRBE registers.
+In per-thread mode all AUX fragments for a thread are decoded by a
+single decoder, even if the task migrates between CPUs. If independent
+fragments come from different CPUs, the trace stream may not be
+contiguous for that decoder context.
+
+Retain the CPU from each AUX sample in its queued fragment. Compare the
+preceding and fetched buffer CPUs in cs_etm__get_trace() and request a
+reset when either CPU is unknown or their CPU IDs differ. Indexed files
+can omit PERF_SAMPLE_CPU and hardware-ID records while remaining
+decodable through TID matching and the legacy metadata mapping. An
+unknown CPU therefore cannot establish trace continuity.
+
+On 32-bit hosts, queuing a large AUX fragment can split it into several
+buffers while returning only the final piece. Save the queue tail
+before queuing and tag every newly added piece with the AUX sample CPU.
+Do this after queuing to preserve CPU filtering based on the original
+AUXTRACE record. Per-CPU fragments already match the sample CPU, so use
+the same assignment in both modes.
+
+Skip CPU comparisons for internally split continuation buffers, which
+belong to the same AUX fragment. Keep AUX flags on the final piece so a
+collision applies after the whole fragment.
+
+Check CPU metadata even for empty fragments. Preserve any reset request
+until the next nonempty block is decoded.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ tools/perf/util/cs-etm.c | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 8187e264ff3c86d445b96c4935a8dbdf5ad9e77c..391e5013647477ae145d777d406c63355bc38278 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -127,12 +127,14 @@ static int trbe_errata_cpucaps[] = {
-  * @trbbaser		- Trace Buffer Base Register value
-  * @trbptr		- Trace Buffer Write Pointer Register value
-  * @trbsr		- Trace Buffer Status Register value
-+ * @trbtrg		- Trace Buffer Trigger Counter Register
-  */
- struct trbe_save_state {
- 	u64 trblimitr;
- 	u64 trbbaser;
- 	u64 trbptr;
- 	u64 trbsr;
-+	u64 trbtrg;
- };
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 6f95730fe3b94ae3f534eee505132a2efbc4ff96..8f04d7ceddd9d1f7ff22af234b19400efe27ba2b 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -1486,6 +1486,16 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
+ 			   (old_buffer->aux_flags & PERF_AUX_FLAG_COLLISION)))
+ 		etmq->reset_decoder = true;
  
- /*
-@@ -1537,6 +1539,7 @@ static int arm_trbe_save(struct coresight_device *csdev)
- 	state->trbbaser = read_sysreg_s(SYS_TRBBASER_EL1);
- 	state->trbptr = read_sysreg_s(SYS_TRBPTR_EL1);
- 	state->trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-+	state->trbtrg = read_sysreg_s(SYS_TRBTRG_EL1);
++	/*
++	 * Unknown or different CPUs cannot establish per-thread continuity.
++	 * Internally split buffers still belong to the same AUX fragment.
++	 */
++	if (etmq->etm->per_thread_decoding && old_buffer &&
++	    !aux_buffer->consecutive &&
++	    (old_buffer->cpu.cpu == -1 || aux_buffer->cpu.cpu == -1 ||
++	     old_buffer->cpu.cpu != aux_buffer->cpu.cpu))
++		etmq->reset_decoder = true;
++
  	return 0;
  }
  
-@@ -1548,6 +1551,7 @@ static void arm_trbe_restore(struct coresight_device *csdev)
- 	write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1);
- 	write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
- 	write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
-+	write_sysreg_s(state->trbtrg, SYS_TRBTRG_EL1);
+@@ -3251,10 +3261,15 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 	if (aux_offset >= auxtrace_event->offset &&
+ 	    aux_offset + aux_size <= auxtrace_event->offset + auxtrace_event->size) {
+ 		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, auxtrace_event->cpu);
++		struct auxtrace_buffer *pos;
++		struct list_head *head;
  
- 	if (!(state->trblimitr & TRBLIMITR_EL1_E)) {
- 		write_sysreg_s(state->trblimitr, SYS_TRBLIMITR_EL1);
+ 		if (!etmq)
+ 			return -EINVAL;
+ 
++		head = &etm->queues.queue_array[etmq->queue_nr].head;
++		pos = list_last_entry_or_null(head, struct auxtrace_buffer, list);
++
+ 		/*
+ 		 * If this AUX event was inside this buffer somewhere, create a new auxtrace event
+ 		 * based on the sizes of the aux event, and queue that fragment.
+@@ -3272,9 +3287,22 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 		if (err)
+ 			return err;
+ 
+-		if (buffer)
++		if (buffer) {
+ 			buffer->aux_flags = aux_event->flags;
+ 
++			/*
++			 * Preserve queue-time CPU filtering and tag every split
++			 * piece added after the previous tail, up to the returned
++			 * buffer, for migration detection.
++			 */
++			pos = list_prepare_entry(pos, head, list);
++			list_for_each_entry_continue(pos, head, list) {
++				pos->cpu.cpu = sample->cpu;
++				if (pos == buffer)
++					break;
++			}
++		}
++
+ 		format = (aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW) ?
+ 				UNFORMATTED : FORMATTED;
+ 		if (etmq->format != UNSET && format != etmq->format) {
 
 -- 
 2.34.1
