@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78511CCF2CA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAF6CCF2C8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZOCrJukz5I9fgZNccOyeVfaQmdelsT52M0B1L0OD4Q=; b=RB+yb2A30/oXoRfVxttmoywgE/
-	Eb9K9VGFLG52Gvk/tFFs/dbWVOyuSx3/jCJ7AIRMXnYAaSS6KoxBRhN9yfoLkBw8ZibtkcVd+rKHD
-	UXNvFC2l19NwId18Xj5Mf3rLkbwaunZxqS02AIeXQVoesUgbCXKSZLB+ScoYi4RRYpR/fJEsOG2Iq
-	yMYP+/ued1mv2QCtGsG7Qi8pswCH650LGJPbIs4bbAja/P+lW6ivKnaXtWLP+YmHniXfWvnuLTq4B
-	dP0+SG/SGhVb0vEOm/5L/zR/XzCYxDjNpu/Te7zO9JBQMEnf0b+iZZr9WMlZz9iquJY4coaKpwVE9
-	uC1GYp8A==;
+	bh=VMDLClYM6hMUj5XXRkPD+WRf0/0oAjtVnvfO62AhbQY=; b=GY/6rk46noRcJGwHfqSupLjmsw
+	V0b2nLbwiIqEucyLgC4sjYmVjpmuUbqjq/GhsqAd96u9oLZepcmRKrrR11q8pvIkfWmwWvHe5DyM+
+	Y12f71l5/elQx9qSfB8UX1/fllNs0PDDMeC/b6Vgi9YLTw7WvmTVCxiieuVIw6Nv23YpjO39HV/Hq
+	OS9Y4I3vY78oiMlaLVHTkqmAwHzztjoRnaosL6ijYoJBFb0GY36Utaxm7NxtI2r/4ATFbx1Z/yTHc
+	rz5U+na5fbPcBl/VUcYmTeiPpvGQfWq33eeJx0LY1zhlSGt7/xYvuyDoc9R7n2tu0xB7fVGaFDVhF
+	5wfTIlOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpE7-000000044Fz-2l7G;
-	Fri, 16 Oct 2026 21:12:31 +0000
+	id 1xHpE6-000000044EX-2p5J;
+	Fri, 16 Oct 2026 21:12:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDt-0000000446l-3VIs
+	id 1xHpDo-0000000446b-2bx5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 21:12:18 +0000
+	Fri, 16 Oct 2026 21:12:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XZOCrJukz5I9fgZNccOyeVfaQmdelsT52M0B1L0OD4Q=; b=cg/TksoS4tLszOsTGZkHNrdXDS
-	v/+D8KbP9tHjSJ8gZYvrCwCmG9QG11I5hCjmWdTdSV4KEnyr/M8sPg6TKIR2sr8NyC0LWpQRZUeYb
-	7euh5rg8Xy6kA9kdQoD3R3sMNH7LCHVeGIHS0lakaJ1D6xIFRR6I2dDsLA4+JT66cn2zCTl/MIQW0
-	ABWXl2X2TNEj23RA2nw0Lz/B3k1kaqYEToCAA/DHF11S4R+OPJmxwLxOR1++qrgE5ddeReG3Yl/s6
-	1186af5R/V4IKEQiNp5CkeLiQRxa+ZS+MRfmxACyjT8wHSsgfhz7NQmWT4EnkGRBG8dynopFBCI+I
-	6zpmMhOg==;
+	bh=VMDLClYM6hMUj5XXRkPD+WRf0/0oAjtVnvfO62AhbQY=; b=PBKd07DXDOulINiVn0Ars8F8XT
+	odypu2RjYPyJ0U9X59RzP3PZ7i20aWdeGNvGAuKTCCdoNWQk5/ReYuyDqIJNP3f5GrwNPQKccBSby
+	wScijPN4FAmE1TdhHVrBs7GXB5CwpSjWOj6oFrMhz3LEL7QF/gw0iYQ3ZAoOfTlQtg9K8uAuWaQBL
+	nrbgDNe9KXAw0zUJ8THRgEz1JVCsIl3D0RSC9mEdNmsq8c/5F0c+22mzYCYO5j1aUnyVyvh0G/DVu
+	2yXZf9ej+tnlHy4YPTWBhME4RKMG7aYEXzgZQgjIw7v11hx+4BKJZSW2ZWFN3Uo8/KoPrInvev1eI
+	QD1jPasg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHpDn-00000001xTa-3fqM
+	id 1xHpDl-00000001xSa-1wSL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 21:12:16 +0000
+	Fri, 16 Oct 2026 21:12:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EC6C16F3;
-	Fri, 16 Oct 2026 14:12:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C41A514BF;
+	Fri, 16 Oct 2026 14:12:03 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B7513F673;
-	Fri, 16 Oct 2026 14:12:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 83B833F673;
+	Fri, 16 Oct 2026 14:12:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792185128; bh=v1LAhb2I0+3CyA4TRLYHmPRAnmRqKBFBaITXlBKMXvw=;
+	t=1792185127; bh=Yb33cOuTUan89daVdDy+8O81MtxGJJ0INJ/6zE/fbfU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=f2CPc+79kObMka5QjflCmP5zLp/Dr97mFK+PaWOgXTI/BfTKn9YTvt3yMaMYyV1za
-	 ziuXLBNtwselu6D1xTK+TpR4Osn2gF93KOTg6Y2cVuE/o++tUSabtA4lbWkR4F030d
-	 2dih7R59FpqaMyC+G+peFwjPMif363881cMRDNM4=
+	b=SBtjen+wt1HELbj+DJIV8mwlKKvunt3ae+aamOHvKgX5pH4uES2ZZUP8f4ibFC1dY
+	 aSQuUw9QV82Hu10k0MiAvQwsnnZwmnIS2UyzLQt51zuuKbVh321h8fQpsWYi7xgMx3
+	 xaRdVzrdg8lfKrh4HJP9Fus0665uPsRxIYoClfEY=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 22:11:46 +0100
-Subject: [PATCH v2 08/11] perf cs-etm: Reset decoder on COLLISION flag
+Date: Fri, 16 Oct 2026 22:11:45 +0100
+Subject: [PATCH v2 07/11] coresight: trbe: Add KUnit tests for compute
+ normal buffer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_buffer_refactor_v2-v2-8-383ac26382fa@arm.com>
+Message-Id: <20261016-trbe_buffer_refactor_v2-v2-7-383ac26382fa@arm.com>
 References: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 In-Reply-To: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -72,16 +73,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=6438;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=26807;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=v1LAhb2I0+3CyA4TRLYHmPRAnmRqKBFBaITXlBKMXvw=;
- b=cBXrjgRyUeaptbN5lHxtB6Gf0hoWBYLOasi+72DzbPpb2NAzzI28CLV6AM6u5JiKkQYBMWUbt
- +1wV5GhkezaBUaE+LZDFjCcpOK1s2Xwqn7+A0KKzEpXbm6Xf2ptw5aq
+ bh=Yb33cOuTUan89daVdDy+8O81MtxGJJ0INJ/6zE/fbfU=;
+ b=7DelROUAaB2piFu8AFoLkmqmkJvCLrh078/1/MBpd86RU+J4KrAjxg1gxy1sZyzF4pPZL60Lv
+ 7+D00uRGwb2AW5z34J8FR2ZfuaTG/NB6bMc3rrZqVZvEQVBri1CXpNM
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_221212_182356_2FE79BAB 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20261016_221210_021457_B68E21FC 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,164 +97,862 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resetting the decoder at every AUX fragment boundary can discard pending
-decode state even when the trace stream is continuous.
+For normal buffer mode, the TRBE computes both the programmed limit and
+the optional trigger count. This logic has several boundary cases around
+head/tail wrapping, wakeup placement, alignment padding, trigger-count
+headroom, and erratum-specific handling.
 
-Store AUX flags when queuing indexed fragments. Preserve decoder state
-across their boundaries and request an explicit reset for the next block
-when the current fragment reports PERF_AUX_FLAG_COLLISION. Source restarts
-with in-band synchronization are handled by the decoder. Keep resetting
-between blocks queued without AUX records, where the flags are unavailable.
+Add KUnit coverage for trbe_normal_offset(). The tests call the helper
+and verify the returned trbe_limit and trbe_trg_count fields.
 
-Keep setting and clearing the queue reset flag in cs_etm__get_trace(),
-where the preceding fragment is available. Clear a request after its
-nonempty block has been consumed and derive collision resets from that
-fragment. Preserve deferred requests through empty buffers.
-cs_etm__get_data_block() only performs the requested reset before
-processing the fetched block.
+Compile the tests into coresight-trbe.c so they can exercise private TRBE
+helpers without exposing data structures. Use the fixture trigger-support
+flag to cover both supported and unsupported trigger-count configurations.
 
-Keep flushing retained context-ID thread stacks at every data block
-boundary. AUX records do not distinguish buffer maintenance from normal
-event disable/re-enable. In-band restart packets synchronize the decoder,
-but only the current thread's stack is flushed when processing a
-discontinuity. Another thread may have changed its stack while tracing was
-disabled, and its first instruction sample after restart can otherwise
-contain stale return addresses before branch bookkeeping clears the stack.
+Route all TRBE handle-to-buffer lookups through trbe_handle_buf(), which
+uses the perf sink configuration for genuine handles.
 
-Flush those stacks before decoding the new block. This conservatively
-limits callchains and branch history to each chunk while preserving decoder
-continuity. Improving stack continuity can be handled separately.
+Use a test-scoped static stub to provide the synthetic buffer only for the
+handle under test and simulate padding for that handle. Genuine perf
+handles keep normal buffer lookup, padding and AUX accounting, including
+when an IRQ interrupts the test task. Compile the stub support only when
+the TRBE tests are enabled.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/auxtrace.h |  2 ++
- tools/perf/util/cs-etm.c   | 46 +++++++++++++++++++++++++++++++++-------------
- 2 files changed, 35 insertions(+), 13 deletions(-)
+ drivers/hwtracing/coresight/Kconfig                |  15 +
+ .../coresight/coresight-trbe-kunit-tests.c         | 644 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-trbe.c       |  58 +-
+ 3 files changed, 705 insertions(+), 12 deletions(-)
 
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index 6947f3f284c029286837e4e1dd9f535a5f0b6334..6ea212802e418ebd6536e3ea5456bab7530eeb26 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -243,6 +243,7 @@ struct auxtrace {
-  * @buffer_nr: used to number each buffer
-  * @use_size: implementation actually only uses this number of bytes
-  * @use_data: implementation actually only uses data starting at this address
-+ * @aux_flags: AUX event flags
-  */
- struct auxtrace_buffer {
- 	struct list_head	list;
-@@ -261,6 +262,7 @@ struct auxtrace_buffer {
- 	u64			buffer_nr;
- 	size_t			use_size;
- 	void			*use_data;
-+	u64			aux_flags;
- };
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index 6a4239ebb582e95f0ebe8e9c8738a726f27f60a1..845c0691f0eba9f0cc9be22cdc6fc27ff82d437e 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -214,6 +214,21 @@ config CORESIGHT_TRBE
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-trbe.
  
- /**
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 114b3cd2da495e54e78df8fbd707898312f95079..6f95730fe3b94ae3f534eee505132a2efbc4ff96 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -136,6 +136,9 @@ struct cs_etm_queue {
- 	 */
- 	struct intlist *own_traceid_list;
- 	u32 sink_id;
++config CORESIGHT_TRBE_KUNIT_TESTS
++	bool "Enable Coresight TRBE unit tests" if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	depends on CORESIGHT_TRBE
++	depends on KUNIT=y if CORESIGHT_TRBE=y
++	default KUNIT_ALL_TESTS
++	help
++	  Enable KUnit coverage for the Coresight TRBE buffer offset
++	  calculations. The tests are compiled into the TRBE driver and
++	  exercise private helpers through the in-source KUnit pattern.
++	  This is only useful for development and not intended for production.
 +
-+	/* Reset decoder before processing the fetched data block. */
-+	bool reset_decoder;
- };
- 
- static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm);
-@@ -1436,6 +1439,13 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
- 	struct auxtrace_buffer *old_buffer = aux_buffer;
- 	struct auxtrace_queue *queue;
- 
++	  These tests are not expected to run concurrently with perf tracing
++	  sessions.
++
+ config ULTRASOC_SMB
+ 	tristate "Ultrasoc system memory buffer drivers"
+ 	depends on ACPI || COMPILE_TEST
+diff --git a/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c b/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..a594881a10c4aa31258c14bd1240fb16e9619935
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c
+@@ -0,0 +1,644 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <kunit/test.h>
++#include <linux/limits.h>
++
++struct trbe_test_context {
++	struct perf_output_handle *handle;
++	struct trbe_buf *buf;
++};
++
++static struct trbe_buf *trbe_test_handle_buf_stub(struct perf_output_handle *handle)
++{
++	struct trbe_test_context *ctx = kunit_get_current_test()->priv;
++
++	/* An IRQ on the test task can still use a genuine perf handle. */
++	return handle == ctx->handle ? ctx->buf : NULL;
++}
++
++static void trbe_test_init(struct perf_output_handle *handle,
++			   struct trbe_buf *buf,
++			   struct trbe_cpudata *cpudata,
++			   int nr_pages, u64 trbe_align,
++			   u64 trbe_hw_align,
++			   bool trig_is_supported)
++{
++	*handle = (struct perf_output_handle) { };
++	*buf = (struct trbe_buf) { };
++	*cpudata = (struct trbe_cpudata) {
++		.trbe_align = trbe_align,
++		.trbe_hw_align = trbe_hw_align,
++		.trig_is_supported = trig_is_supported,
++	};
++
++	buf->nr_pages = nr_pages;
++	buf->cpudata = cpudata;
++}
++
++static void __trbe_test_assert_normal_offset(struct kunit *test,
++					     struct perf_output_handle *handle,
++					     struct trbe_buf *buf,
++					     int expected_ret,
++					     unsigned long expected_limit,
++					     unsigned long expected_count,
++					     unsigned int line)
++{
++	struct trbe_test_context ctx = {
++		.handle = handle,
++		.buf = buf,
++	};
++	void *priv = test->priv;
++	unsigned long limit;
++	unsigned long count;
++	int ret;
++
++	buf->trbe_limit = 0;
++	buf->trbe_trg_count = 0;
++
++	test->priv = &ctx;
++	kunit_activate_static_stub(test, trbe_test_handle_buf,
++				   trbe_test_handle_buf_stub);
++	ret = trbe_normal_offset(handle);
++	kunit_deactivate_static_stub(test, trbe_test_handle_buf);
++	test->priv = priv;
++
++	limit = buf->trbe_limit;
++	count = buf->trbe_trg_count;
++
++	KUNIT_ASSERT_EQ_MSG(test, ret, expected_ret,
++			    "line %u: ret=%d expected=%d",
++			    line, ret, expected_ret);
++	KUNIT_ASSERT_EQ_MSG(test, limit, expected_limit,
++			    "line %u: limit=%#lx expected=%#lx",
++			    line, limit, expected_limit);
++	KUNIT_ASSERT_EQ_MSG(test, count, expected_count,
++			    "line %u: count=%#lx expected=%#lx",
++			    line, count, expected_count);
++}
++
++#define trbe_test_assert_normal_offset(...) \
++	__trbe_test_assert_normal_offset(__VA_ARGS__, __LINE__)
++
++static void test_normal_offset_limit(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 1, false);
++
 +	/*
-+	 * Clear the reset request for the consumed block. Empty buffers have
-+	 * no decoded bytes, so preserve requests deferred through them.
++	 * ### : Free space, $$$ : Filled space
++	 *
++	 * |################|################|
++	 * `head            `wakeup
++	 * `tail            `limit
 +	 */
-+	if (etmq->buf_used)
-+		etmq->reset_decoder = false;
++	handle.head = 0;
++	handle.size = SZ_1M;
++	handle.wakeup = SZ_1M / 2;
 +
- 	queue = &etmq->etm->queues.queue_array[etmq->queue_nr];
- 
- 	aux_buffer = auxtrace_buffer__next(queue, aux_buffer);
-@@ -1467,6 +1477,15 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
- 	etmq->buf_used = 0;
- 	etmq->buf_len = aux_buffer->size;
- 	etmq->buf = aux_buffer->data;
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M / 2, 0);
 +
 +	/*
-+	 * A collision requires a reset after its fragment. Without AUX flags,
-+	 * reset between all blocks.
++	 * |################|################|
++	 * `head            `wakeup         `tail
++	 *                  `limit
 +	 */
-+	if (old_buffer && (!etmq->etm->data_queued ||
-+			   (old_buffer->aux_flags & PERF_AUX_FLAG_COLLISION)))
-+		etmq->reset_decoder = true;
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M / 2;
 +
- 	return 0;
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M / 2, 0);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 * `wakeup                         `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 *                                   `wakeup
++	 *                                 `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|########|#######|
++	 *                  `head           `tail
++	 *                           `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, 0);
++
++	/*
++	 * |$$$$$$$$|$$$$$$$|################|
++	 *                  `head           `tail
++	 *          `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 1 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|################|
++	 *                  `head           `tail
++	 *                                  `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M - 1;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |#########|$$$$$$$$$$|########|###|
++	 *           `tail      `head    `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = handle.head + SZ_1M / 8;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 7 / 8, 0);
++
++	/*
++	 * |####|####|$$$$$$$$$$|############|
++	 *           `tail      `head
++	 *      `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M, 0);
++
++	/*
++	 * |#######|########|$$$$$$$$$$$$$$$$|
++	 * `head   `wakeup  `>tail
++	 *         `limit
++	 */
++	handle.head = SZ_1M;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++	handle.size = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M / 8, 0);
++
++	/*
++	 * |#######|$$$$$$$$$$$$$$$$$|#######|
++	 *         `tail             `head
++	 *         `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M, 0);
++
++	/*
++	 * |#######|$$$$$$$$|$$$$$$$$|#######|
++	 *         `tail    `wakeup  `head
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M, 0);
++
++	/*
++	 * |$$$$$$$|########|########|$$$$$$$|
++	 *         `head    `wakeup  `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M / 2, 0);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 *         `head             `tail
++	 *                           `wakeup
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, 0);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 * `wakeup `head             `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, 0);
++
++	/*
++	 * |$$$$$$|$$$$$$$$$$$$$$$$$$$$$$$$$$|
++	 *        `head
++	 *        `tail
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$|#$|
++	 *                                `head
++	 *                                  `tail
++	 */
++	handle.head = SZ_1M - SZ_1K * 2;
++	handle.size = SZ_1K;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++}
++
++static void test_normal_offset_limit_and_counter(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 1, true);
++
++	/*
++	 * ### : Free space, $$$ : Filled space
++	 *
++	 * |################|################|
++	 * `head            `wakeup          `limit
++	 * `tail
++	 * `----- count ----'
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M;
++	handle.wakeup = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M, SZ_1M / 2);
++
++	/*
++	 * |################|################|
++	 * `head            `wakeup         `tail
++	 *                                 `limit
++	 * `----- count ----'
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, SZ_1M / 2);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 * `wakeup                         `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 *                                   `wakeup
++	 *                                 `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|########|#######|
++	 *                  `head           `tail
++	 *                           `wakeup
++	 *                                 `limit
++	 *                  [  count ]
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, SZ_1M / 4);
++
++	/*
++	 * |$$$$$$$$|$$$$$$$|################|
++	 *                  `head           `tail
++	 *          `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 1 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|################|
++	 *                  `head           `tail
++	 *                                  `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M - 1;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M - PAGE_SIZE, 0);
++
++	/*
++	 * |#########|$$$$$$$$$$|########|###|
++	 *           `tail      `head    `wakeup
++	 *                                   `limit
++	 *                      [  count ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = handle.head + SZ_1M / 8;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M, SZ_1M / 8);
++
++	/*
++	 * |####|####|$$$$$$$$$$|############|
++	 *           `tail      `head
++	 *      `wakeup
++	 *                                   `limit
++	 *                      [   count  >>>
++	 * >>>       ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M,
++				       SZ_1M / 2 - TRBE_TRIGGER_STOP_HEADROOM);
++
++	/*
++	 * |#######|########|$$$$$$$$$$$$$$$$|
++	 * `head   `wakeup  `>tail
++	 *                  `limit
++	 * [ count ]
++	 */
++	handle.head = SZ_1M;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++	handle.size = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M / 2, SZ_1M / 8);
++
++	/*
++	 * |#######|$$$$$$$$$$$$$$$$$|#######|
++	 *         `tail             `head
++	 *         `wakeup
++	 *                                   `limit
++	 *                           [ count >
++	 * >>>     ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M,
++				       SZ_1M / 2 - TRBE_TRIGGER_STOP_HEADROOM);
++
++	/*
++	 * |#######|$$$$$$$$|$$$$$$$$|#######|
++	 *         `tail    `wakeup  `head
++	 *                                   `limit
++	 *                           [ count >
++	 * >>>     ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M,
++				       SZ_1M / 2 - TRBE_TRIGGER_STOP_HEADROOM);
++
++	/*
++	 * |$$$$$$$|########|########|$$$$$$$|
++	 *         `head    `wakeup  `tail
++	 *                           `limit
++	 *         [ count  ]
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, SZ_1M / 4);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 *         `head             `tail
++	 *                           `wakeup
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, 0);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 * `wakeup `head             `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M * 3 / 4, 0);
++}
++
++static void test_normal_offset_alignment_padding(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 1, false);
++
++	handle.head = 128;
++	handle.size = 2 * PAGE_SIZE;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       2 * PAGE_SIZE, 0);
++
++	handle.head = SZ_1M - PAGE_SIZE / 2;
++	handle.size = PAGE_SIZE / 4;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++}
++
++static void test_normal_offset_small_range_padding(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 1, false);
++
++	handle.head = 2 * PAGE_SIZE;
++	handle.size = PAGE_SIZE / 4;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++}
++
++static void test_normal_offset_trigger_count_alignment(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 256, true);
++
++	handle.head = 0;
++	handle.size = SZ_1M;
++	handle.wakeup = PAGE_SIZE + 1;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, SZ_1M,
++				       PAGE_SIZE + 256);
++
++	handle.head = 0;
++	handle.size = 2 * PAGE_SIZE;
++	handle.wakeup = 2 * PAGE_SIZE - 1;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       2 * PAGE_SIZE, 0);
++}
++
++static void test_normal_offset_trigger_count_over_u32(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++	unsigned long wakeup = (unsigned long)U32_MAX + 1;
++	int nr_pages = (wakeup + PAGE_SIZE) / PAGE_SIZE;
++
++	trbe_test_init(&handle, &buf, &cpudata, nr_pages, PAGE_SIZE, 1, true);
++
++	handle.head = 0;
++	handle.size = (unsigned long)nr_pages * PAGE_SIZE;
++	handle.wakeup = wakeup;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0, wakeup, 0);
++}
++
++static void test_normal_offset_trigger_count_handle_wrap(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE,
++		       PAGE_SIZE, 1, true);
++
++	handle.head = ULONG_MAX - PAGE_SIZE + 1;
++	handle.size = 2 * PAGE_SIZE;
++	handle.wakeup = handle.head + PAGE_SIZE / 2;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       SZ_1M, PAGE_SIZE / 2);
++}
++
++static void test_normal_offset_min_trace_size(struct kunit *test)
++{
++	struct perf_output_handle handle;
++	struct trbe_buf buf;
++	struct trbe_cpudata cpudata;
++	unsigned long head = 2 * PAGE_SIZE - 32;
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE, 1, 1, false);
++
++	handle.head = head;
++	handle.size = PAGE_SIZE + 96;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, 0,
++				       3 * PAGE_SIZE, 0);
++
++	trbe_test_init(&handle, &buf, &cpudata, SZ_1M / PAGE_SIZE, 1, 1, false);
++	set_bit(TRBE_WORKAROUND_WRITE_OUT_OF_RANGE, cpudata.errata);
++
++	handle.head = head;
++	handle.size = PAGE_SIZE + 96;
++	handle.wakeup = 0;
++
++	trbe_test_assert_normal_offset(test, &handle, &buf, -ENOSPC, 0, 0);
++}
++
++static struct kunit_case coresight_trbe_testcases[] = {
++	KUNIT_CASE(test_normal_offset_limit),
++	KUNIT_CASE(test_normal_offset_limit_and_counter),
++	KUNIT_CASE(test_normal_offset_alignment_padding),
++	KUNIT_CASE(test_normal_offset_small_range_padding),
++	KUNIT_CASE(test_normal_offset_trigger_count_alignment),
++	KUNIT_CASE(test_normal_offset_trigger_count_over_u32),
++	KUNIT_CASE(test_normal_offset_trigger_count_handle_wrap),
++	KUNIT_CASE(test_normal_offset_min_trace_size),
++	{}
++};
++
++static struct kunit_suite coresight_trbe_test_suite = {
++	.name = "coresight_trbe_test_suite",
++	.test_cases = coresight_trbe_testcases,
++};
++
++kunit_test_suites(&coresight_trbe_test_suite);
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 391e5013647477ae145d777d406c63355bc38278..7cea3542ad0797435c9deac3b5017da9f30b884c 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -20,6 +20,9 @@
+ #include <linux/iopoll.h>
+ #include <linux/kvm_host.h>
+ #include <linux/vmalloc.h>
++#ifdef CONFIG_CORESIGHT_TRBE_KUNIT_TESTS
++#include <kunit/static_stub.h>
++#endif
+ 
+ #include "coresight-etm4x.h"
+ #include "coresight-self-hosted-trace.h"
+@@ -377,10 +380,37 @@ static void __trbe_pad_buf(struct trbe_buf *buf, u64 offset, int len)
+ 	memset((void *)buf->trbe_base + offset, ETE_IGNORE_PACKET, len);
  }
  
-@@ -2162,17 +2181,15 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- 	if (!etmq->buf_len)
- 		return 0;
- 
--	/*
--	 * We cannot assume consecutive blocks in the data file
--	 * are contiguous, reset the decoder to force re-sync.
--	 */
--	ret = cs_etm_decoder__reset(etmq->decoder);
--	if (ret)
--		return ret;
-+	if (etmq->reset_decoder) {
-+		ret = cs_etm_decoder__reset(etmq->decoder);
-+		if (ret)
-+			return ret;
++static struct trbe_buf *trbe_test_handle_buf(struct perf_output_handle *handle)
++{
++#ifdef CONFIG_CORESIGHT_TRBE_KUNIT_TESTS
++	KUNIT_STATIC_STUB_REDIRECT(trbe_test_handle_buf, handle);
++#endif
++	return NULL;
++}
++
++static struct trbe_buf *trbe_handle_buf(struct perf_output_handle *handle)
++{
++	struct trbe_buf *buf = trbe_test_handle_buf(handle);
++
++	if (buf)
++		return buf;
++
++	return etm_perf_sink_config(handle);
++}
++
+ static void trbe_pad_buf(struct perf_output_handle *handle, int len)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
+-	u64 head = PERF_IDX2OFF(handle->head, buf);
++	struct trbe_buf *buf;
++	u64 head;
++
++	if (trbe_test_handle_buf(handle)) {
++		handle->head += len;
++		handle->size -= len;
++		return;
 +	}
++
++	buf = trbe_handle_buf(handle);
++	head = PERF_IDX2OFF(handle->head, buf);
+ 
+ 	__trbe_pad_buf(buf, head, len);
+ 	if (!buf->snapshot)
+@@ -389,7 +419,7 @@ static void trbe_pad_buf(struct perf_output_handle *handle, int len)
+ 
+ static int trbe_snapshot_offset(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
  
  	/*
--	 * Since the decoder is reset, this causes a global trace
--	 * discontinuity. Flush all thread stacks.
-+	 * AUX records do not distinguish buffer maintenance from a source
-+	 * restart. Flush all thread stacks before sampling the new block.
+ 	 * The ETE trace has alignment synchronization packets allowing
+@@ -403,7 +433,7 @@ static int trbe_snapshot_offset(struct perf_output_handle *handle)
+ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
+ {
+ 	u64 size = TRBE_TRACE_MIN_BUF_SIZE;
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	struct trbe_cpudata *cpudata = buf->cpudata;
+ 
+ 	/*
+@@ -443,7 +473,7 @@ static bool trbe_wakeup_before_tail(struct perf_output_handle *handle,
+ static u32 trbe_normal_trigger_count(struct perf_output_handle *handle,
+ 				     u64 head, u64 wakeup, u64 limit)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	struct trbe_cpudata *cpudata = buf->cpudata;
+ 	const u64 bufsize = buf->nr_pages * PAGE_SIZE;
+ 	u64 count;
+@@ -507,7 +537,7 @@ static u32 trbe_normal_trigger_count(struct perf_output_handle *handle,
+ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle,
+ 					  struct trbe_buf_next *next)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	struct trbe_cpudata *cpudata = buf->cpudata;
+ 	const u64 bufsize = buf->nr_pages * PAGE_SIZE;
+ 	u64 limit = bufsize;
+@@ -650,7 +680,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle,
+ 
+ static int trbe_normal_offset(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	struct trbe_buf_next next = { };
+ 	u64 limit;
+ 
+@@ -679,7 +709,7 @@ static int trbe_normal_offset(struct perf_output_handle *handle)
+ 
+ static int trbe_compute_next(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	int ret;
+ 
+ 	perf_aux_output_flag(handle, PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW);
+@@ -1193,7 +1223,7 @@ static int arm_trbe_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 	struct trbe_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
+ 	struct perf_output_handle *handle = path->handle;
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	int ret;
+ 
+ 	WARN_ON(cpudata->cpu != smp_processor_id());
+@@ -1333,7 +1363,7 @@ static int trbe_handle_overflow(struct trbe_cpudata *cpudata,
+ {
+ 	struct perf_output_handle *handle = cpudata->handle;
+ 	struct perf_event *event = handle->event;
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	unsigned long size;
+ 	struct etm_event_data *event_data;
+ 	u64 trcprgctlr = 0;
+@@ -1381,7 +1411,7 @@ static int trbe_handle_overflow(struct trbe_cpudata *cpudata,
+ 	 * truncate the trace to stop the event. A subsequent normal restart
+ 	 * installs the buffer and its CPU association through sink enable.
  	 */
- 	cs_etm__flush_all_stack(etmq);
+-	buf = etm_perf_sink_config(handle);
++	buf = trbe_handle_buf(handle);
+ 	if (!buf || buf->cpudata != cpudata) {
+ 		ret = -EINVAL;
+ 		goto truncate_event;
+@@ -1408,7 +1438,7 @@ static int trbe_handle_overflow(struct trbe_cpudata *cpudata,
  
-@@ -3154,9 +3171,8 @@ static u64 *cs_etm__create_meta_blk(u64 *buff_in, int *buff_in_offset,
-  * file_offset.
-  *
-  * Normally, whole auxtrace buffers would be added to the queue. But we
-- * want to reset the decoder for every PERF_RECORD_AUX event, and the decoder
-- * is reset across each buffer, so splitting the buffers up in advance has
-- * the same effect.
-+ * want to check every PERF_RECORD_AUX event to decide if need to reset
-+ * decoder across each buffer, so splitting the buffers up in advance.
-  */
- static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_offset, size_t sz,
- 				      struct perf_record_aux *aux_event, struct perf_sample *sample)
-@@ -3168,6 +3184,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 	union perf_event auxtrace_fragment;
- 	__u64 aux_offset, aux_size;
- 	enum cs_etm_format format;
-+	struct auxtrace_buffer *buffer = NULL;
- 
- 	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
- 						   struct cs_etm_auxtrace,
-@@ -3251,10 +3268,13 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
- 			  " tid: %d cpu: %d\n", aux_size, aux_offset, sample->tid, sample->cpu);
- 		err = auxtrace_queues__add_event(&etm->queues, session, &auxtrace_fragment,
--						 file_offset, NULL);
-+						 file_offset, &buffer);
- 		if (err)
- 			return err;
- 
-+		if (buffer)
-+			buffer->aux_flags = aux_event->flags;
+ static bool is_perf_trbe(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf = trbe_handle_buf(handle);
+ 	struct trbe_cpudata *cpudata;
+ 	struct trbe_drvdata *drvdata;
+ 	int cpu = smp_processor_id();
+@@ -1988,3 +2018,7 @@ module_exit(arm_trbe_exit);
+ MODULE_AUTHOR("Anshuman Khandual <anshuman.khandual@arm.com>");
+ MODULE_DESCRIPTION("Arm Trace Buffer Extension (TRBE) driver");
+ MODULE_LICENSE("GPL v2");
 +
- 		format = (aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW) ?
- 				UNFORMATTED : FORMATTED;
- 		if (etmq->format != UNSET && format != etmq->format) {
++#ifdef CONFIG_CORESIGHT_TRBE_KUNIT_TESTS
++#include "coresight-trbe-kunit-tests.c"
++#endif
 
 -- 
 2.34.1
