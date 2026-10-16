@@ -4,109 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0065DCCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF162CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 20:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BejmUJayYXc+px7VFw82eKlRmA2IpD+Hx93b9PlXnk=; b=rdaDyhQE7TSaM6taKrsKv8/3Wr
-	lX9sPd/aKaqrYqKMFXMXoEhNDezRL0uMKiPMul+giwD7/yDGvLfFrTHNqCfkdm1vrg6wLJe1OG79K
-	sH5lyk/1n7vSbVqJn35jvpMC7mFdiJYSccaryryeuZ0H4wJyrryTJrnJ0ywkT7lIXfKzpQwrTZqtp
-	/zJInCynVacrNwaYIwiG4ycksidgmqUZNR6NbhGBb5qYkiHnbRDFqI4zGRbeBL7WyD71qinT2pb2B
-	BQ6iCYaG8U8q1BmCxhJYsrsBVO+3dpKdq/A0YLrPlWRQx+LYJjULad7n2X36ytfncCO1e1iX1KTjb
-	z/vL9ttA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C18b9HSGMPw0L46fNtigi+g7MMS8VXgK6KifXzqgpOk=; b=AwizF3WlAH+fA0sBK2vIAqoM3n
+	DspP2L0V9k9SGs7IVM/oKlLE5y5dENznSUVkRptfrEM7FSKDfwulz85XZL1IVXrlyMa/G60dqsF+k
+	Av8wKVQMOOZ2vhyC9FYqzkPGDpZxSy3qm5kyFrXjOnKYGPQTTwWtF8nlrZt81wq0VY0QxdPZ5oXVA
+	r6KBoBZBAnvOyCRiwyBAKMUCAuY6RwokSh7v5FXX+kmWB+a6Zu0NCIiv7zGyqkyenIyos31L68j2n
+	6GtcyRHFGVvn24l2Pdz8HY/tpq65YOI/+Heqsr4QWajWM2rPJ22fAXr5ZcfVDP+350+w4FqtZQFvg
+	TPCeLtHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnt2-00000003vbl-2weI;
-	Fri, 16 Oct 2026 19:46:40 +0000
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
+	id 1xHo5x-00000003wrE-09ri;
+	Fri, 16 Oct 2026 20:00:01 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnsz-00000003vXk-0kfv
+	id 1xHo5u-00000003wq6-0sp8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 19:46:39 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-15ea896ddc8so292269c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 12:46:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792179996; x=1792784796; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6BejmUJayYXc+px7VFw82eKlRmA2IpD+Hx93b9PlXnk=;
-        b=JC9s+WyZWdsdmtOYadwknBhb2U1D9cU5fSnTzzvNrhAc9CNsr5pjEeJ7d2YImBdmC1
-         bCZkzNHr9AVSYZbPBL3IrbaQgzNf6GY3iQJJNDDSl0nORlKn4ustjdmFHjkXzeH1vTQa
-         HUcFgwPrQW8bGwU5PKJCs+rM2/kHPHX9hz/VrGYokHmvKPp+CFbds8/FlTFCSaBEe6+o
-         Y75c18JhyLekITRAY/EBXDKAtNS3cBjLx0zuL/sb+BADAh2wGUuVSC9asIIMTXVLlArp
-         +1g5n1S/MqS4Uj1bgputBMMEREKTfKV9ChsETalYzvkgvjtGLy3fx0rKI6Sxusl0VbwP
-         0m/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792179996; x=1792784796;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6BejmUJayYXc+px7VFw82eKlRmA2IpD+Hx93b9PlXnk=;
-        b=bzRp2jbutgBnkxygJqQMJvEaQ1AM+eABv+WsD0vu01Ch9gNLi4zXbQy75YYa9XYa60
-         eS0eOiwMSy/ihdBXTaaXNNS+xBtv3a0YSk8sRv+MtwYup6byinf3lXXuXN2Rh2rdgi8B
-         CZZPo2md2a9Qgbb/X/ozVXPEIcJAoW7A5JHlsmVmzP4+rXCijRyySfavj2OYuQ2sj/WB
-         2xYYvkmUE/wjTjpLuRYtgTsjwsxCKGhWYP45VVWZlXnhHWmUWlxUMVJ4dlsY83ltdTNH
-         3GsFncp2LP+1SpZdtOGpoosaD7ZUXe4kKso3AqKA9LXBL/14jb0sMYbE1JOXPfVtf7lj
-         gTWA==
-X-Forwarded-Encrypted: i=1; AKwUvBwoSlVhObMv6ncfNZumfpCjKESuFGIxH11jWAOlEn5TMg/1QhrY5+fntKZrZb2sxxwVNdNEoeqSDlJc779essC2@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFPpi8Ww0jev8ndA8550LVh+jS6ZFjr+STFPpcBD+4E9qJ/hOH
-	hkz/u3hGusa7BuGGMwVgKMHt1GfI3inywTWP4cZgOVelA0r0nLneen3Z
-X-Gm-Gg: AYBFou3TB79iffUZjmi86wc9elTgiROSAGED8In3slMAUaxwwaHopHF144MWs4zmjl8
-	glMx+RhM4DzLjGrYX4Gy1hqVe/s90n6KSDO4+D9n/8czEK2nBeazsjNCduz0f0hjMM7jDpJTaAv
-	crLVABraHVM3S2Ls4MPBop1xPSEQHVz+phLAfohTqc8ww93LMt+QMEPqeOQTxHeptHlxjuD8RJ7
-	N2xRHMTXSGusu/nLxJjFQ+94KoxbUleqB+Me4/dokDw7ZMKCa/Q1rS/uM5RhPMi9VzUdtkZw6px
-	P7JMlM2Yo7avX3TodOFA7+L6U7Hafmq3/y4rQQhIpKBJtCakVUH+QuEXSloDTI2Q3zkQufwmuVK
-	KzXa8pHSPDEVvCLNhPRdizeCqwe6P64ulAuH47Ike2hhrv5+RbCrCUFAE+IjxS0hxF5lZR5R3bZ
-	nWIZ7NC3CaqSAbrYzbUysIBX6OE1KDVo3OzHKN9foY0irs4YjNbHuG+sBXudo+J9M2
-X-Received: by 2002:a05:7022:fe0a:b0:169:bef5:f445 with SMTP id a92af1059eb24-1850c5f77b4mr1596666c88.4.1792179995901;
-        Fri, 16 Oct 2026 12:46:35 -0700 (PDT)
-Received: from unix.. ([181.229.23.179])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831b75be5esm11008321c88.16.2026.10.16.12.46.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 12:46:34 -0700 (PDT)
-From: =?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: [PATCH 4/4] selftests/riscv: shadow stack must not leak on a failed clone3
-Date: Fri, 16 Oct 2026 16:46:03 -0300
-Message-ID: <71829fed122c74000a2ac8b7de89aca811d40b0a.1792179433.git.ivanrwcm25@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1792179433.git.ivanrwcm25@gmail.com>
-References: <cover.1792179433.git.ivanrwcm25@gmail.com>
+	Fri, 16 Oct 2026 19:59:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lx7KohWuMluhcL7KHp3hNGoh7WIfHvOQko5yQbMZy/0Lq5boRUXej0R7p4KXPu923J4Ihi0j1auPImbjfUy89J99RKq4Wa1k6UTyqx76Af2SZy6qfLKbEr4MhNwxmZsqoujDTg2KPAIplyAMps9Z5TCjnX5VC+oU3WFY7LfV2Xslv0+6zdAMBXpbjdK9BT4YKxrpEAKlCgcznLUk8YSGn6JLPkwbyVYFXEi3ua78fxUCn8ZhrhDFXE4qiI2OCmr9fPvLvYNiUiW4Fy/BB+3aBnvALcGpLIR9Fv4q3XM5WH3dFfl9a2EANNQvOjhAcsX9JdskQJKjtx3qrsUdMgDCgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C18b9HSGMPw0L46fNtigi+g7MMS8VXgK6KifXzqgpOk=;
+ b=oZNopwHYSgCYCbNOvIei9jn5xepd36dvdAVEPv7wjPmMbuSVxFAF8avw2ob83gdC9y87PW4SpyrxRDizwlXwvWq4lr2y3adkvVgiKpXkxzwlcHbV7cNHP6IRaoKLxPLWs6sR8SeoznsNp2AMyy31yd4DZZDAbN+h8f26R40KB2psNKaE8ofwdTQARuoV/4/S1XvwYfAIjG7TBeVkTc+1EEeIuxxcLHiTgFgmscK2yIeA1HFcxS7BoPCfC3WJRamxSKqEnzsnNAMFhaaGCYMPEwAYs8nv0HJaROiNqX0HlnRiGmXrGFH+LmY4m+4ehgKU0F4Kjs8CGhyz1rjDihP6VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C18b9HSGMPw0L46fNtigi+g7MMS8VXgK6KifXzqgpOk=;
+ b=ch7VwI7fSqYtBDTG/o8IXpO5eihU9AtVtBuXiIfU6f6zGhicFvAmkq16oo2uNsbDMqI0+oiHhPGj5Xj9NXE6665Mg7qOeAOx4WBwXO0cyQ64XGdp+Ah69HmqxqkSHqPuFxvZlRpm/NBGVxJXJR9kSsmlEg45aHnKMpq5MLaXCdnXE9vUIxqyY+fccETabk1O03j6n4tfXG00xkVwXqxuCJIvV9E9a3vEa/DpYNNOYh3xL3hWFq21lpHwgiA2De+vbsnejT5fUDmEowweMb1YHMkjL8mYz/K1A6u/IPK62R0LhUrdkGcwgj9ZNYjr34/3y802knHQ6XJ2OLdADujn1g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB7190.eurprd04.prod.outlook.com (2603:10a6:20b:115::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
+ 2026 19:59:53 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
+ 19:59:53 +0000
+Date: Fri, 16 Oct 2026 14:59:42 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: netdev@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eric Dumazet <edumazet@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+	UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [net-next,PATCH 1/2] dt-bindings: net: enetc-mdio: Document
+ optional MDC clock
+Message-ID: <atKCLsgM2V4_RxyY@SMW015318>
+References: <20261016193344.115518-1-marex@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016193344.115518-1-marex@nabladev.com>
+X-ClientProxiedBy: PH0P220CA0016.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB7190:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6b4bcf05-4a5d-4798-e446-08df2bc00ad9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|376014|7416014|366016|22082099003|18002099003|10067099003|261009223027099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 0BHFqfblMdqrkODqWu7m0DxP7uyzQXz4EENWq3VR9vwP2/PhP0DQZDB5FEEmZDTVg/k6TEbyCTfE/+d6a78LM4qRP5DgFwkk7MVCmyeamRCcKNLdpZFntjYBNRk72rYElPwCXJ7G+wmB5l7WFEMiyf3rb3Hkp0LoluM9ycLk/5+eeNOAB41fGsBRCP5Dq6zdK0mplUwUCj43lQ6HlCjdVseNYALPFjIcf/7wIOlzP+MK0n99jEPOZX+RR+zsr8cOlkVq4n4UEHnKqG57mPMLKEI6W+G1FjLEtm38yyLWXpr0ahXLVXAeQZvpDp2TY6AENNNCAFe94VU/ghCs4tk4064mUTQNiyqjxi4xkF/gs8GKIKELlwT9K8b17bFdgebv218NR8N1/xgVLBnDIxMzk5XRzjmQNUJLzODscDwJ6IPLfnhZ/fV/VR0I62PbnRknH+3rzhnObWF9ZmMUyen/xG54PJWYktiQ25s/qS6YwGI0ZuU+vbjsYb3F/blWVDK5kltHjjyu3QpC/g4HdgZLZbrroX60QnskNW0dTuwrCJ2Pvobp9LFAstXTakPaJYHYZ6s9Ecr3JU+gjlzC7bZoNfP5jJpBcPIQxjI0MEzWVJH1Ip8htWCg5E8yZYyWcXPgSeCKUjpUI5EbpKpYOJoTY2odUQq5e9IbFGxqyIuSkwY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(376014)(7416014)(366016)(22082099003)(18002099003)(10067099003)(261009223027099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AjgF99lN488KpWYj+Dzgfi2FQcMQhDNd8tMbYrFln+8MYFQ2Aa0YMVm2YfO4?=
+ =?us-ascii?Q?s1Sp7xxDUDY1E+9d75fgcZ0MmHFfvLYqJwmK5OYTsgS0zL/ZvtcDD+Rnq9vr?=
+ =?us-ascii?Q?L0kom2UqNzEDymnGBMJlgSoxRuobXtL5xzvcBfokKzFHZLpakeYt0iK2Y2eb?=
+ =?us-ascii?Q?pXW0ofK629Y4QW240SXsDr8ggV63KpIzPzrMR8mCkFr7L6RFfgKj/3+5JQW8?=
+ =?us-ascii?Q?3ZLJz+VJxRX3Sgg63/eeNNqimrr5/20pg2YiGFux/lKev6Nf1suVgDCwk1VO?=
+ =?us-ascii?Q?D7U2BmH4sexJftoEfgOB4tUEJ0a6jgqjI/RXLoAaNcVcUeZ8xuz5mmRg/oW1?=
+ =?us-ascii?Q?a1wWIq+EY1c1kaTU6SBqB3mzWA5N7EiiiezezmmU2vdT1RSXao3/zmTxKY5C?=
+ =?us-ascii?Q?laMG6/O58Iua0tuL453zcnAcfEW0IKNNWwi+8H6ZIYxQ5qZak4t0NG8xMnEw?=
+ =?us-ascii?Q?ZGDaA4RHNPQFtfWjwSmmpnSeiCBZmU1iA64zNPNIgX1ha7P/PCCdRDkRYmw1?=
+ =?us-ascii?Q?8nYWAScOVaq+mu6S3lveGYd3BT6G8okKEHhJZdKVI+5W7c31m5ByZolCeO9/?=
+ =?us-ascii?Q?ccbL5kUp/FH4nCB+7xTETDuXQfcDgp403Jiwq6WWnUw/4qUHrj3SIuHX+8rF?=
+ =?us-ascii?Q?C74mnQkiDNTCuOusnAP+I4hlHxDGyvYXIufq9dTPrLSsgMypiJbmRfsHD5XO?=
+ =?us-ascii?Q?QWGL089GPO32+0sf+hvgcWzg1meU0Nfx0s8dABGwKOAj3p0tex/nhAvpN1/h?=
+ =?us-ascii?Q?RG8maCZu3CaHPYPI3HZq/3MSzINAXDiKuJoZzfJKFdprO1TaoRFcc3qPcETv?=
+ =?us-ascii?Q?McLkTtY5+dbjkG427yr12oqZhf4bVufcsx+MVNBb1CQ1EQeKKJqAo0nao/1i?=
+ =?us-ascii?Q?u1O+rjcQOKvPeJiRmCzMkL8mMjq9d3ut612phH+Xat8uzuk2JemjlWoO16SR?=
+ =?us-ascii?Q?3QCbQE7YlKpzcd+rI4Lczk9sE6JEaozYcX2rBzu+Y/DMvMZDZ2qqg+P+BFqe?=
+ =?us-ascii?Q?wsvWo1FHnuswo4/xwjw00mezWmip6xlTQ5Tlya4Q1Sfza6/LV0Ipx1s00cs2?=
+ =?us-ascii?Q?JClNdPmTSRwtd0CC6Qg1TkyUCPKVnGgpxUg3hgvdoJr3WB6vWh+1UICl6xG9?=
+ =?us-ascii?Q?dQoIkOEq/IofY1VM1dAChX7lg8NM5wBtIONPsTq8QH9ZDlnoNLCdiYRSWMUP?=
+ =?us-ascii?Q?zYwlRY/jT7YOTy14ykIwgKppDWizp95C/gEp+1b7MLcjM1LoLKm9bxXhc9qQ?=
+ =?us-ascii?Q?BASzp+SO3nJctE+1ss1OrxEzFb0jJNxq4pQWCmZ4nhNtdptoUZSQK6SP2zPa?=
+ =?us-ascii?Q?lgfuG56bpGNSyDBVR4nqPAg7zVvD0HGBfNZkLmChx0YwvjcqsMfZHyrG2dKr?=
+ =?us-ascii?Q?wWrcpX6NvkqpukreOgASTOUPI6ZtsMwGyruHq6t/PtqlZVhRGMHMtGbj0n/K?=
+ =?us-ascii?Q?PsPV5Pk0C3l/ytMQUyeksJ3M/2RXuQUUw2uh/0c73K0kFLZRC7KGJgtc1b/h?=
+ =?us-ascii?Q?qc3zJmWGrcoe8eO1H/5O3sUDpyxvQ94eZ8Bh35EmQCicwhVM+YGmp/3nRxwl?=
+ =?us-ascii?Q?xTFe/2CkX1K4ur7j3/2TtuxRLYuHX6qGzevsArMJ6/GfIarU6C855tgVfomu?=
+ =?us-ascii?Q?d2UbNAwJ8jII/FktqqMdetcahWwzbfMHCtqqeouYjbo2cp81yVYd9mtbyaeA?=
+ =?us-ascii?Q?dtZXb70yP7rtMbgGjnxwAwmyJjW6m9MB1Hdd0xdavWa9EM+nqnVqVSd4aw1a?=
+ =?us-ascii?Q?NNlZ+DatXYqd2ZpqpwmmnkUv8+XyBsON/q2z9Wya/9dwHEPrc1Hc?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6b4bcf05-4a5d-4798-e446-08df2bc00ad9
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 19:59:52.8859
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dzw1JHNonSmOp+yh0uQHa28ctVuUJJZROsTJT4/L6dyr8buzYFdTl6t1eiPH2nCuX4H6z+dPlaoAwKuWXKSQ0xTZ8hnmodtGl5xhIRwPI+RpoNUXf7G3iRsLXVeoDQ/j
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7190
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_124637_264950_0CEDFD47 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20261016_125958_253622_A2AD59C4 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,380 +150,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
-in put_user() after copy_thread() has mapped a shadow stack.
-copy_process() then calls exit_thread(). Without HAVE_EXIT_THREAD
-that free is a no-op and the VMA stays in the parent's mm.
+On Fri, Oct 16, 2026 at 09:32:00PM +0200, Marek Vasut wrote:
+> Document clock from which the MDIO MDC clock are derived from.
+> While those clock are always present in every SoC, they are not
+> described in legacy DTs, make them optional. The clock-frequency
+> DT property is not described here, it is already part of mdio.yaml .
+>
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
 
-Enable user shadow stack, reject 16 such clones, and require the
-shadow-stack VMA count to stay unchanged. The original mapping must
-remain, and a call/return on that stack must succeed, so the cleanup
-cannot be unmapping the parent's shadow stack.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-A clone3 with the same flags and a valid pidfd has to succeed first
-and write a pidfd. That child exits normally, so deactivate_mm()
-and exit_thread() both run. ENOSYS, EINVAL, and EPERM skip; any
-other error from that clone, or a success that leaves pidfd unset,
-fails the test. The rejected child's empty shadow stack is left
-with a raw exit syscall.
-
-Skip when the kernel returns EOPNOTSUPP or EINVAL, or when the
-feature is locked. The test expects /proc already mounted, as in a
-normal kselftest run. The toolchain CFLAGS already request
-zicfiss/zicfilp; the Makefile skips this binary when the compiler
-cannot target them.
-
-Assisted-by: LLM
-Signed-off-by: Iván Ezequiel Rodriguez <ivanrwcm25@gmail.com>
----
- tools/testing/selftests/riscv/cfi/Makefile    |   5 +-
- .../selftests/riscv/cfi/shstk-clone-pidfd.c   | 317 ++++++++++++++++++
- 2 files changed, 321 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-
-diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
-index 418b4b5325a5..dbecb1fd3b82 100644
---- a/tools/testing/selftests/riscv/cfi/Makefile
-+++ b/tools/testing/selftests/riscv/cfi/Makefile
-@@ -13,10 +13,13 @@ endif
- 
- 
- ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null > /dev/null 2>&1; echo $$?),0)
--TEST_GEN_PROGS := cfitests
-+TEST_GEN_PROGS := cfitests shstk-clone-pidfd
- 
- $(OUTPUT)/cfitests: cfitests.c shadowstack.c
- 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
-+
-+$(OUTPUT)/shstk-clone-pidfd: shstk-clone-pidfd.c
-+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
- else
- 
- $(shell echo "Toolchain doesn't support CFI, skipping CFI kselftest." >&2)
-diff --git a/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c b/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-new file mode 100644
-index 000000000000..3f9f6827bd4d
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/shstk-clone-pidfd.c
-@@ -0,0 +1,317 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer must
-+ * not leak a shadow-stack VMA. copy_thread() maps one, then put_user()
-+ * fails and copy_process() calls exit_thread(). Without HAVE_EXIT_THREAD
-+ * that free is a no-op and the VMA stays in the parent's mm.
-+ *
-+ * Enable shadow stack with an inlined prctl. A libc return across that
-+ * point has no address on the shadow stack, so main() must not return
-+ * after enable.
-+ */
-+#define _GNU_SOURCE
-+
-+#include <errno.h>
-+#include <linux/prctl.h>
-+#include <linux/sched.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/mman.h>
-+#include <sys/syscall.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+
-+#include "cfi_rv_test.h"
-+
-+#ifndef __NR_clone3
-+#define __NR_clone3 435
-+#endif
-+
-+#ifndef PR_GET_SHADOW_STACK_STATUS
-+#define PR_GET_SHADOW_STACK_STATUS	74
-+#endif
-+#ifndef PR_SET_SHADOW_STACK_STATUS
-+#define PR_SET_SHADOW_STACK_STATUS	75
-+#endif
-+#ifndef PR_SHADOW_STACK_ENABLE
-+#define PR_SHADOW_STACK_ENABLE		(1UL << 0)
-+#endif
-+
-+#define KSFT_SKIP		4
-+#define NCLONE			16
-+#define STACK_SIZE		(64 * 1024)
-+
-+static void on_fault(int sig)
-+{
-+	static const char msg[] = "[FAIL]\tparent shadow stack faulted\n";
-+
-+	(void)sig;
-+	if (write(2, msg, sizeof(msg) - 1) < 0)
-+		_exit(2);
-+	_exit(2);
-+}
-+
-+struct ss_span {
-+	unsigned long start;
-+	unsigned long end;
-+};
-+
-+static void ss_scan(int *vmas, int *kb, unsigned long addr, struct ss_span *hit,
-+		    const struct ss_span *want, int *kept)
-+{
-+	FILE *f;
-+	char line[256];
-+	unsigned long start = 0, end = 0;
-+	int size = 0;
-+	int saw_size = 0;
-+
-+	*vmas = 0;
-+	*kb = 0;
-+	if (hit) {
-+		hit->start = 0;
-+		hit->end = 0;
-+	}
-+	if (kept)
-+		*kept = 0;
-+	f = fopen("/proc/self/smaps", "r");
-+	if (!f) {
-+		perror("smaps");
-+		_exit(1);
-+	}
-+	while (fgets(line, sizeof(line), f)) {
-+		unsigned long a, b;
-+
-+		if (sscanf(line, "%lx-%lx", &a, &b) == 2) {
-+			start = a;
-+			end = b;
-+			saw_size = 0;
-+			continue;
-+		}
-+		if (sscanf(line, "Size: %d kB", &size) == 1) {
-+			saw_size = 1;
-+			continue;
-+		}
-+		if (strncmp(line, "VmFlags:", 8) || !saw_size)
-+			continue;
-+		if (!strstr(line, " ss")) {
-+			saw_size = 0;
-+			continue;
-+		}
-+		(*vmas)++;
-+		*kb += size;
-+		if (hit && addr == end) {
-+			hit->start = start;
-+			hit->end = end;
-+		} else if (hit && !hit->start && addr >= start && addr < end) {
-+			hit->start = start;
-+			hit->end = end;
-+		}
-+		if (kept && want && start == want->start && end == want->end)
-+			*kept = 1;
-+		saw_size = 0;
-+	}
-+	fclose(f);
-+}
-+
-+static int clone_pidfd(void *stack, size_t stack_size, int *pidfd_ptr)
-+{
-+	struct clone_args args = {
-+		.flags = CLONE_VM | CLONE_PIDFD,
-+		.pidfd = (uint64_t)(uintptr_t)pidfd_ptr,
-+		.exit_signal = SIGCHLD,
-+		.stack = (uint64_t)(uintptr_t)stack,
-+		.stack_size = stack_size,
-+	};
-+	register long num __asm__("a7") = __NR_clone3;
-+	register long ret __asm__("a0") = (long)&args;
-+	register long sz __asm__("a1") = sizeof(args);
-+	int st;
-+
-+	asm volatile("ecall"
-+		     : "+r"(ret)
-+		     : "r"(num), "r"(sz)
-+		     : "memory", "cc");
-+	if (ret == 0) {
-+		register long n __asm__("a7") = __NR_exit;
-+		register long e __asm__("a0") = 0;
-+
-+		asm volatile("ecall" : : "r"(n), "r"(e) : "memory");
-+		__builtin_unreachable();
-+	}
-+	if (ret < 0)
-+		return ret;
-+	if (waitpid((pid_t)ret, &st, 0) < 0)
-+		return -errno;
-+	if (!WIFEXITED(st) || WEXITSTATUS(st) != 0)
-+		return 1;
-+	return 0;
-+}
-+
-+static int depth(int n);
-+static int (*depth_fn)(int) = depth;
-+
-+static int depth(int n)
-+{
-+	int (*go)(int n);
-+
-+	if (n <= 0)
-+		return 1;
-+	asm volatile("" : "=r"(go) : "0"(depth_fn) : "memory");
-+	return go(n - 1) + 1;
-+}
-+
-+static int skip_enable(long rc)
-+{
-+	if (rc == -EOPNOTSUPP || rc == -EINVAL) {
-+		printf("[SKIP]\tkernel has no user shadow stack\n");
-+		return KSFT_SKIP;
-+	}
-+	if (rc == -EBUSY) {
-+		printf("[SKIP]\tshadow stack is locked\n");
-+		return KSFT_SKIP;
-+	}
-+	printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
-+	return 1;
-+}
-+
-+int main(void)
-+{
-+	struct sigaction sa;
-+	struct ss_span parent;
-+	void *stack;
-+	void *bad_pidfd;
-+	unsigned long ssp, ssp_mid;
-+	unsigned long ss_mode;
-+	long rc;
-+	int pidfd;
-+	int vmas0, kb0, vmas1, kb1;
-+	int i, kept, d, cret;
-+
-+	setbuf(stdout, NULL);
-+
-+	stack = mmap(NULL, STACK_SIZE, PROT_READ | PROT_WRITE,
-+		     MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK, -1, 0);
-+	if (stack == MAP_FAILED) {
-+		perror("mmap stack");
-+		return 1;
-+	}
-+	bad_pidfd = mmap(NULL, 4096, PROT_NONE,
-+			 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (bad_pidfd == MAP_FAILED) {
-+		perror("mmap pidfd");
-+		return 1;
-+	}
-+
-+	rc = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+			 (long)&ss_mode, 0, 0, 0);
-+	if (rc) {
-+		if (rc == -EOPNOTSUPP || rc == -EINVAL) {
-+			printf("[SKIP]\tkernel has no user shadow stack\n");
-+			return KSFT_SKIP;
-+		}
-+		printf("[FAIL]\tPR_GET_SHADOW_STACK_STATUS returned %ld\n", rc);
-+		return 1;
-+	}
-+	if (!(ss_mode & PR_SHADOW_STACK_ENABLE)) {
-+		rc = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				 PR_SHADOW_STACK_ENABLE, 0, 0, 0);
-+		if (rc)
-+			return skip_enable(rc);
-+	}
-+
-+	ssp = csr_read(CSR_SSP);
-+	if (!ssp) {
-+		printf("[FAIL]\tenable left SSP at 0\n");
-+		_exit(1);
-+	}
-+
-+	pidfd = -1;
-+	cret = clone_pidfd(stack, STACK_SIZE, &pidfd);
-+	if (cret == -ENOSYS || cret == -EINVAL || cret == -EPERM) {
-+		printf("[SKIP]\tclone3 with a valid pidfd failed: %s\n",
-+		       strerror(-cret));
-+		_exit(KSFT_SKIP);
-+	}
-+	if (cret < 0) {
-+		printf("[FAIL]\tclone3 with a valid pidfd failed: %s\n",
-+		       strerror(-cret));
-+		_exit(1);
-+	}
-+	if (cret) {
-+		printf("[FAIL]\tclone3 with a valid pidfd did not exit 0\n");
-+		_exit(1);
-+	}
-+	if (pidfd < 0) {
-+		printf("[FAIL]\tclone3 succeeded but did not write a pidfd\n");
-+		_exit(1);
-+	}
-+	close(pidfd);
-+
-+	memset(&sa, 0, sizeof(sa));
-+	sa.sa_handler = on_fault;
-+	if (sigaction(SIGSEGV, &sa, NULL) || sigaction(SIGBUS, &sa, NULL)) {
-+		perror("sigaction");
-+		_exit(1);
-+	}
-+
-+	ssp = csr_read(CSR_SSP);
-+	ss_scan(&vmas0, &kb0, ssp, &parent, NULL, NULL);
-+	if (!parent.start) {
-+		printf("[FAIL]\tSSP %lx matches no shadow-stack VMA\n", ssp);
-+		_exit(1);
-+	}
-+
-+	for (i = 0; i < NCLONE; i++) {
-+		cret = clone_pidfd(stack, STACK_SIZE, bad_pidfd);
-+		if (cret == -EFAULT)
-+			continue;
-+		if (cret < 0)
-+			printf("[FAIL]\tbad pidfd errno %d, want EFAULT\n",
-+			       -cret);
-+		else
-+			printf("[FAIL]\tbad pidfd was accepted\n");
-+		_exit(1);
-+	}
-+
-+	ss_scan(&vmas1, &kb1, 0, NULL, &parent, &kept);
-+	ssp_mid = csr_read(CSR_SSP);
-+	d = -1;
-+	if (kept && ssp_mid)
-+		d = depth(16);
-+	ssp = csr_read(CSR_SSP);
-+
-+	printf("ss_vmas=%d->%d delta=%d ss_kb=%d->%d\n",
-+	       vmas0, vmas1, vmas1 - vmas0, kb0, kb1);
-+	printf("parent=%lx-%lx kept=%d ssp_before_depth=%lx depth=%d ssp=%lx\n",
-+	       parent.start, parent.end, kept, ssp_mid, d, ssp);
-+
-+	if (vmas1 != vmas0 || kb1 != kb0) {
-+		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
-+		       vmas1 - vmas0, kb1 - kb0);
-+		_exit(1);
-+	}
-+	if (!kept) {
-+		printf("[FAIL]\tparent shadow stack %lx-%lx was unmapped\n",
-+		       parent.start, parent.end);
-+		_exit(2);
-+	}
-+	if (!ssp_mid) {
-+		printf("[FAIL]\tparent SSP was 0 before call/return\n");
-+		_exit(2);
-+	}
-+	if (d != 17) {
-+		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
-+		_exit(2);
-+	}
-+	if (!ssp) {
-+		printf("[FAIL]\tparent SSP is 0 after call/return\n");
-+		_exit(2);
-+	}
-+
-+	printf("[OK]\tno shadow-stack VMA leak; parent stack still works\n");
-+	_exit(0);
-+}
--- 
-2.43.0
-
+> Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Andrew Lunn <andrew+netdev@lunn.ch>
+> Cc: Clark Wang <xiaoning.wang@nxp.com>
+> Cc: Claudiu Manoil <claudiu.manoil@nxp.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Eric Dumazet <edumazet@kernel.org>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Jakub Kicinski <kuba@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Paolo Abeni <pabeni@redhat.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: UNGLinuxDriver@microchip.com
+> Cc: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Cc: Wei Fang <wei.fang@nxp.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: netdev@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/net/fsl,enetc-mdio.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/net/fsl,enetc-mdio.yaml b/Documentation/devicetree/bindings/net/fsl,enetc-mdio.yaml
+> index 71c43ece82954..708d410187baa 100644
+> --- a/Documentation/devicetree/bindings/net/fsl,enetc-mdio.yaml
+> +++ b/Documentation/devicetree/bindings/net/fsl,enetc-mdio.yaml
+> @@ -31,6 +31,11 @@ properties:
+>    reg:
+>      maxItems: 1
+>
+> +  clocks:
+> +    items:
+> +      - description: A reference to the input clock of the controller
+> +          from which the MDC frequency is derived.
+> +
+>  required:
+>    - compatible
+>    - reg
+> --
+> 2.53.0
+>
+>
 
