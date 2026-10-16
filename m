@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9DB6CCF2C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9C4CCF2C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCOssGC3fJ3o3ujxU/0UoaTklTa5OtsoPRrPROKWjDk=; b=b+Cjqywgv+xyslIDl0l8SagOct
-	H5jIBRLwdA6kr/XmQEL5f/Bv9vt5UhfjuH9feYE+Xw4i8yLMxnz6kbj9KA1iXqQV6DSy0r0MuKKVI
-	XCazB+OlDnwNBCwZfOz8GjNS+lPXGR5Y/1WJsOOq+TNEaSzH3hPHIo1K9IzJRsVADZHCbNKk7IqeK
-	gE3TIfyWyZxjlxowVGkLiFBfh0sSxZSc4xkNVD4/Vt/rtCdiOOMbTqik6jTHG9zuQKmkvvXIErS2/
-	R6IhX/WOIDW3LV2oLZVOV5Y/hESodjADeyalC1CnSSnucOwxKVIJZqIrxSLu2M80MsFhsUbCtht7K
-	fw6eK+pg==;
+	bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=; b=TQhrHKrFzCKpekr9l95wRtU7tQ
+	uoQBvHyCC9MX1PMcb2IDyNruCn3hFGDYJEu+enSgW3rdqhXyX75H2Jn9WY1YHsR4Tj6fqfSXOsLN4
+	PIiyBc+bIuTEqSzAC/JHBpQu89zDIeMQiilMgt19VDzAT4wrpNcdhdPqCLYkcsuCoynjis9xFgdsQ
+	YugS0YnT4Kk0SSIxvCsn3FRSW+ki7gp0vGG7qjVCNtsCpoUqMMu3Tu6WU7qIXS8nfmSYSogdGBbww
+	7o137BEhJHbqKUbO7FmMT6iJky0vD0MQFGtp+8OkXhagW36iLanhZgExVoxEZErxtJISDoxsyCvfe
+	vqkFnQCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmGt-00000003cJj-1avL;
-	Fri, 16 Oct 2026 18:03:11 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1xHmJ5-00000003cfG-0nG8;
+	Fri, 16 Oct 2026 18:05:27 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmGq-00000003cJ1-2ydD
+	id 1xHmJ2-00000003ceW-2Oj5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 18:03:10 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-5363316fa0cso1724631cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 11:03:08 -0700 (PDT)
+	Fri, 16 Oct 2026 18:05:25 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-92ed3993c1eso17187685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 11:05:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792173787; x=1792778587; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oCOssGC3fJ3o3ujxU/0UoaTklTa5OtsoPRrPROKWjDk=;
-        b=b9E+Ibvoiu4pD4Qz/CF8gDZYB5OiGEg7k0GGd6A8zs13twE4MdP8iuMuq2tGlaW82u
-         dAp4qEALwh9scf7SmqP/dem8oT2s0qf0ItfF4NIXF2VqbJnXc/B7RCRmUbOZFjuXxk9L
-         iD7eJ+it70d+1zjRtIFe31rfgWAXkgQpCye4FHG8MwacRUFh33zCLq1hG6zQG35cU0VG
-         blNZk1Z/OqOFtWt5DLVPWLyLySwdGXB/RWe9o1ajr1spDpdrMOwxEtL/QMXNkYAfBw9Y
-         mYxEI/0pOCJfv6F35nmH2JX7UDI+2qgWtEN6ijy+ZqaVROEh/VjfO53+nuHTvhzCey6r
-         ix6w==
+        d=ziepe.ca; s=google; t=1792173923; x=1792778723; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=;
+        b=A8ez+q1HQLTacW7je6Ofc1eB26r/vAbdaoj9Y0aDbODWr9jABT1bsfJdlT6GzpqUJy
+         pU3rQbEEksyGfCgiF2E707xbNnuuH4ns5tT3oe1SAPCVGPgdim99170GwWcvTSrmud7w
+         Z/eEaJ2PsYrv5hwbyo30iTOL/M8xbkhjNHqhyv865HINOq6fzFyoMMhRRQS5LWGJREdK
+         puFZu0m720uXmDZS+G3sPdzP7Qh1C9kuTChzTxqR2gsvDp2QqFzN149tVi5tFSaB4Pd/
+         JoD69uhuLZgPb4BjUURwkjpjLavp/Xg5tJgz3fSX0GBabsniZDkXpQ6z3hBLeWbOctVK
+         Q/GA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792173787; x=1792778587;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=oCOssGC3fJ3o3ujxU/0UoaTklTa5OtsoPRrPROKWjDk=;
-        b=qHyzx0g6CrjypH/zXEzpwQJf6RgKFPu1gzqFGc6ATKz00fwDN+r8X1bLkGkoS93nKI
-         Iihb7mkquAYfGoXmCNMv7RCaBtae2cTCLzKaNHhZUz8GTg8FbsmrF5xirfA+jiNY5344
-         OnZQGXEk6YcE//jQsMz/wkGDbcaUo0X0Wb3RwUEJ2GKPDgUIIzinsVwVKn0Qdr2dzxkw
-         qDQbtgod7e+iFLxbiBraF3GNQp7R41hu87gjzIodqAmNg6VmHYRbzyWG0X/pX2acn+jA
-         BSU9Wf4xaFRZYTqZSHhzguNkdWBhhKu/FyWsyxFqtLKh00IFlwkzc8rAvDoBo77ylpN2
-         kkqw==
-X-Forwarded-Encrypted: i=1; AKwUvBxB7vvsdwSaZFKG58Ltw15LBy4oeOV0xCvNLDhfS1CaNPD+cWl6J8gmQ7LLM/Va+xjadq26PwZPkY98F8M5otsk@lists.infradead.org
-X-Gm-Message-State: AFq9FYKVpY74y0aQR31qna4zvjqJsPPn7DxZ8AqL1f2/cYrLssVsupwm
-	OaLCi8XtPDJCt5AlHP6b/jiHsG+GjXS0nH53c9GHEnUOND6JUmO+pkN/X9FASMEYXIg=
-X-Gm-Gg: AYBFou15w+VyymbxrVEgI8Gov3tPXPxrekonvyv7M6RRf6LeHPJpAaGRVSvnJjodzpb
-	FaSbWnQ6BWIePDOXOw/SAlcKhTTCE0we0vUerTQZ13JLiJzEK76OoPBLmeJymyg+vfB02GEmA7q
-	lz5f8tEZJa3GUp24ntZiRQxu5K7arxq/0VkMLOLzgZoHmRoqQqx9kCDavooteFiD+gZr8dheemh
-	WuDJRwInuNeJKC49QCN5gMZwReV6EeJ7wrZqA/jqVIpTGVVKOho0GWpoRy5MdOHTVUMmNFdwJgE
-	N1Wqg03GC9LiAAvQL6v6wxiHFlcDuJee8GaXrbOzonymh+tXHkVTFfa4ZVhZygOw30M3ippL/nZ
-	o4KIF/yl2PXVfAYSbbpfcn3gscWzWiswCzVPEi6HXEQWDRaWiDJBCHsIwvPUm/g80FaYPykzo1r
-	Ghg/7IYP/ZKTACx6+/7ra12YNNOKP7IosrznyhT0+Jny9eO1eFr1svd2Qza5HgZYYGumRHzUUft
-	XlFCst72Z7IH2po0Nyhgd3AVjnp5Ao73XGVFcG/qRCNyMkS7T21xifC
-X-Received: by 2002:a05:620a:1a1d:b0:93f:1cd7:7341 with SMTP id af79cd13be357-93f29d388f8mr119685685a.35.1792173787295;
-        Fri, 16 Oct 2026 11:03:07 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792173923; x=1792778723;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=;
+        b=pnhLXwKSy43Dp1LvUyRTv/u8c1ijAihiBCQI2cD2h/g1CcrenanVifohq6MVd1jM6y
+         Zhjb+jF0+VHFjci3fkXQiK3g8XVgplmpUyrKY40oeReIo9QUIL2rdS0d8g/ebLcLa63O
+         o0IuCj6cKvj5QfrBhsxnxParhgxzsqEVoLMFfFuxkESU666gVoD4nsgcsyUr+HRBSmAb
+         Tojm1UmcObqrNkjID5aopIiP7XgEcEP2M+aJCyIubK9OYuBWHoyA5HKXT2d5LOuMBObo
+         lFIwSYvndCvWVyl2ooteAgYh4xOwKnLDYoffpWQ0pX4/TSBfrA4mfRGXDr6AS+x2G//6
+         6l2A==
+X-Forwarded-Encrypted: i=1; AKwUvByR3P60VS4Zr1Bv2rS9gWZ8yb2b4EWilR+6KIlJ0xp+K3SZshc8wq/pxYYTMpoVHR/98Kj3mWcTwSpRblPG4Bp3@lists.infradead.org
+X-Gm-Message-State: AFq9FYIlXveZcyo+DuUpS2xTAp/UbMBg//3cuMjC1M6iASRU16pvGRNC
+	KmjDNXNdHOtItr0jCVw90cWm9R81xzYzf5WfUQ8YDdTVJ58v4h5gmwo/uqRc4GehvNXjCKd3LOB
+	TKjpU
+X-Gm-Gg: AYBFou1FrDEVKjiuakVibJNC2Qe0siSME5cKbVRandmA2K3h7NPvME4GCyKxKZTZCgZ
+	K0YzFaifafs9VlCPMPHfZeOOh367jw8Owja4+fnAu3Wnj/h2L5t0GJpGcbJ6UnTD6gWb38rC76/
+	fmzLDt0E9VFRTO4kziS8kvXeYQMMa1r518Co8qXqUSoud1hlRVOgiVNPzoP90HdTuHhEeuzGyi5
+	/XB9m9gsUHplVOaxkx2YWsqZ3cl3vtbYc4bAJWwGRPwz/mA8W7ybtvyQZ3RUM6uRpAzlyHXLi1Q
+	X1EoQ/UCZ0m4esJwGrtopq0ffq5SILtwmt+0kvTIU8t1HVEn/ZpgxQ0IWmuMyATHlXUoOeuDI5Z
+	isekDctn7EvgHVnZvXd75fsa/cpYZRhjxNjoquOV0tQdzJInBoHSIkXeurpmpsYlNiwIwGgmWpn
+	nKNFnGqYg5qZkddwgcmAi/HY8iIKphxP+h7sEHype4bTsomK8MDpTBQMUXPRzA6f+X1Ab5mYmz8
+	QoP1p8385WxT0hEQYqm7zZ7U+XOGiFZbN046TC3JZJBu6jEcZ2DshRJIzKN8WrgcYQ=
+X-Received: by 2002:a05:620a:2990:b0:93c:c08f:ecf with SMTP id af79cd13be357-93f29d69e08mr105371785a.53.1792173923072;
+        Fri, 16 Oct 2026 11:05:23 -0700 (PDT)
 Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f1a19ce5asm271055585a.32.2026.10.16.11.03.03
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f23eb7ba5sm131256785a.27.2026.10.16.11.05.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 11:03:04 -0700 (PDT)
+        Fri, 16 Oct 2026 11:05:22 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1xHmGk-00000002F39-2Fc1;
-	Fri, 16 Oct 2026 15:03:02 -0300
-Date: Fri, 16 Oct 2026 15:03:02 -0300
+	id 1xHmIz-00000002FIM-2VOf;
+	Fri, 16 Oct 2026 15:05:21 -0300
+Date: Fri, 16 Oct 2026 15:05:21 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Daniel Mentz <danielmentz@google.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
-	will@kernel.org, joro@8bytes.org, nicolinc@nvidia.com,
-	smostafa@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dawei.li@linux.dev, praan@google.com
+Cc: iommu@lists.linux.dev, will@kernel.org, robin.murphy@arm.com,
+	joro@8bytes.org, nicolinc@nvidia.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dawei.li@linux.dev, praan@google.com
 Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Align memory attributes for
  SMMU-originated accesses
-Message-ID: <20261016180302.GI14213@ziepe.ca>
+Message-ID: <20261016180521.GJ14213@ziepe.ca>
 References: <20261004195027.227748-1-danielmentz@google.com>
- <92758f79-d5b7-4c15-a55d-6bea5f84a028@arm.com>
- <CAE2F3rAJdC9pAqMKcXhxpw1keGzH_kQUNBoPHXjTP8+7TOhfwQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAE2F3rAJdC9pAqMKcXhxpw1keGzH_kQUNBoPHXjTP8+7TOhfwQ@mail.gmail.com>
+In-Reply-To: <20261004195027.227748-1-danielmentz@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_110308_763639_B001F1CB 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20261016_110524_619720_A99D506D 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +108,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2026 at 02:26:08PM -0700, Daniel Mentz wrote:
-> On Mon, Oct 5, 2026 at 9:42 AM Robin Murphy <robin.murphy@arm.com> wrote:
-> > This still isn't answering the question of "why?" though. Yes the
-> > architecture says some things, but if we were strict about avoiding
-> > mismatched attributes then Linux couldn't ever support non-coherent DMA
-> > at all! Similarly while the architecture does permit SMMU
-> > implementations to be picky about their output attributes, does any such
-> > implementation actually exist at all, let alone in a system capable of
-> > running mainline Linux?
+On Sun, Oct 04, 2026 at 07:50:27PM +0000, Daniel Mentz wrote:
+> The SMMU specification defines several types of SMMU-originated memory
+> accesses, including Stage 1 and Stage 2 translation table walks, stream
+> table accesses (L1STD and STE fetches), CD table accesses (L1CD and CD
+> fetches), and queue accesses (CMDQ fetch, EVENTQ write, PRIQ write).
 > 
-> Fair point that existing implementations have been forgiving in
-> practice. My thinking here is simply that a small, self-contained
-> cleanup that brings the driver into line with the architecture spec is
-> worthwhile on its own merits, even without a known implementation where
-> this currently causes problems.
+> While the memory attributes used for Stage 1 and Stage 2 translation
+> table walks are configured in io-pgtable-arm based on whether the SMMU
+> is coherent (ARM_SMMU_FEAT_COHERENCY), the attributes for stream tables,
+> CD tables, and queues are currently hardcoded to Inner Shareable,
+> Write-Back.
+> 
+> On non-coherent systems, however, memory for stream tables, CD tables,
+> and queues is allocated via dma_alloc_coherent() /
+> dmam_alloc_coherent(), which provides CPU mappings with Normal
+> Non-Cacheable attributes. Having a non-coherent SMMU access these
+> buffers with Inner Shareable, Write-Back attributes results in
+> mismatched memory attributes between the CPU and the SMMU.
+> 
+> Configure the memory attributes for tables and queues in
+> arm_smmu_device_reset() and arm_smmu_make_cdtable_ste() based on
+> ARM_SMMU_FEAT_COHERENCY, matching the attributes used for translation
+> table walks:
+> 
+> - In SMMU_CR1, use Outer Shareable, Non-Cacheable for non-coherent
+>   SMMUs, while retaining Inner Shareable, Write-Back for coherent SMMUs.
+>   This applies to stream table accesses as well as queue accesses (CMDQ
+>   fetch, EVENTQ write, PRIQ write).
+> - In STE.{S1CIR, S1COR, S1CSH}, use Outer Shareable, Non-Cacheable for
+>   non-coherent SMMUs, while retaining Inner Shareable, Write-Back
+>   Read-Allocate for coherent SMMUs. This applies to CD table accesses.
+> 
+> Assisted-by: LLM
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Daniel Mentz <danielmentz@google.com>
+> ---
+> Changes in v2:
+> - Rename local variables 'cache' and 'sh' to 'cr1_cache' and 'cr1_sh' in
+>   arm_smmu_device_reset() (Nicolin, Will)
+> - Collect Reviewed-by from Nicolin
+> - Link to v1: https://lore.kernel.org/linux-iommu/20260929032229.3532247-1-danielmentz@google.com/
+> 
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 37 +++++++++++++++------
+>  1 file changed, 27 insertions(+), 10 deletions(-)
 
-I think we should fix this. At least we have HW that respects these
-attributes and they have a performance impact depending on how they
-are set. Fortunately at least our HW does not have a functional
-"mismatched attribute" issue.
+I think this looks OK
 
-If the FW has selected to run the SMMU in non-coherent mode then all
-of the bits should be set to ask the SMMU to run non-coherent. Ditto
-for coherent.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-No sense in giving up performance due to mis set bits.
-
-These IP integrations are complicated, the FW may be saying to use
-non-coherent because some small slice of the system needs that. It
-doesn't mean that every access on every bus the SMMU has is forced
-non-coherent.
+Did you check the spec that this is every access? I remember there is
+a table outlining every access and where the memory attribute lives?
 
 Jason
 
