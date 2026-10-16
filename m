@@ -4,201 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5985CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D203DCCA46D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=reWmY6xJB4PGm3KildW1hDEyntbhMIL832NVeDWBiws=; b=fltx2SOouxxMeIhAyS0EHRO1RZ
-	ydKMfe0IL3bLyzdoNZnLlJ2ToyiQHPlUvZcuXEC8jdmYmmMzOihkqlC0yqmcQSAU8VCuaW4XXNZcz
-	AoGLd44UJsGi8Kdv9ZnU0rowYGRpDTK7cqTbGjDDmOz/mRZMTeb/ER/vEOsyRyYuu6elZMLNLyiHF
-	/xHxvbn5Dq+7WBPXKmq+ja0Ru/b+7MwUVO5INpMf6vkwSNNuc7vB15qH4yxgM0+7s1dzmXkVSYiN5
-	NhV04s6JXmzAzK2IclLMLsmp3dnrsp+yAdIlJdNOAVlZ7Mcpy+ZMKbl9HUh2EVB9VKR7uq0xVbQ0p
-	JL2ZwTIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0i4EWzFPDrCBGPxvUTW0hZsml2U+08zpz7E33Xi4YAg=; b=HGrjhknRLsSV7Jm/DqTSAWTTsS
+	tUsCEz+FFGPkh5mpsWePZ5Nbx3bbgIWCcsDSTdgI+nu0udfpd3nBJPrIk60jb8/IhRNek2Nzyh0Az
+	vlDkCWgKd4d1kTWpubsYdG5rFWGADYAi8IlLAg4wPGEZqwUbQQ5R6R/rDaxYLg/GCb6YbVO3VL7hh
+	lFzhmLMDPXHitXtQb6Eto3wiIH8FPyqtWzbMvSKIU7ZSCUHlOs9PCwVujSPTq/6AwGi9uYsls9XrL
+	ubQLobA+jvTO09y7kHpaWdfiXaj/E2OqA+lfI2YuOab9EPLOcsRCJgMln1Hkq+c8Nd2MMatqK/2Xj
+	pu0K1eLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHc5L-00000002Cg1-0MQh;
-	Fri, 16 Oct 2026 07:10:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHc7J-00000002D6z-21MO;
+	Fri, 16 Oct 2026 07:12:37 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHc59-00000002CSM-3dzC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 07:10:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=reWmY6xJB4PGm3KildW1hDEyntbhMIL832NVeDWBiws=; b=lGfM3OzhgwTJws5HMed8O1d7z2
-	YExQ0G+fmlDdKNbFmPq9ao7J0krQlJ0KwDS9jpM2NWgO0hrIOr1meJKz+DHLhc7epz5Iqyo5rVx/r
-	9BDLMxLSysQrLnSFBDCzdlFOGpZRcBp2N7Q95mEE+FARUUD1UKLUZxNeG9VMBStMfUVAVtxiA/N7i
-	UVdnAg4CaRHG7dlkQOktNCIqDfL9lpQBLrhXa1EcSxpmQv6RKFTrzElix7RV9qygFNq3zh9NOl4tQ
-	yU7B3EyPkso3+nx98Gm0KN2dHnzJot/yw3QVFsnIULpaFIw7kjS1oXEc3uBd2mm8AuwPOKZWiS9Aq
-	Edk3TSiA==;
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHc4z-00000001CER-2gU8
+	id 1xHc7H-00000002D6C-2tqB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 07:10:22 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69FN6w9U2717190;
-	Fri, 16 Oct 2026 07:09:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=reWmY6xJB4PGm3KildW1hDEyntbhMIL832NVeDWBiws=; b=
-	ENNEIki1EOYJEuo1AHP+pr4EZzX/2RYDizvF5q++LoOsTbVNvb5Em039ob7rgu35
-	eOKPo4/ynMfcXboQi5EtFVMzs2POv6GvtRQguA1kidyfJJO4IKJSnL3rp/Zdm7Mq
-	QyD25yj9O/VFg0REt9werjCcNVaJPvje5qPsefHDr9cs8NjJbgqRi5ltO0qSOElH
-	eehyCTQc2fuvb06VyKTAQMhug8jDX+Jx8cmk1u9ULt/KecdfEaNc1Asacjwqtp/p
-	vqLUPXEcBIAltMe0RHyJlj5lHbKYWrzK5e0uvyeu3YeEWehAgPwV2i9/iUCL4ZjF
-	zE11sYc6PIxQEXOxn2n0Fw==
-Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4h7dbksex0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 16 Oct 2026 07:09:46 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 69G76MvP004365;
-	Fri, 16 Oct 2026 07:09:45 GMT
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013028.outbound.protection.outlook.com [40.107.201.28])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4h7btcty0g-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 16 Oct 2026 07:09:45 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iOPlx79QOnO8JQAcOdmlFAOti6ag4aXJCdp9NvTcPj9ZoNYzzHiAgcEu5819jX1PxU6lGZUqHV6My+kdwoZ1sIU+2sYIzySW/e+jeahtbcwO1z0z5wfgybFDmSCOCn8zVv7DSZPl3hgz0k8bU0wvWaHqBKxsKR5jF439X4MlephMoY3JMqUtfThHmkzvDum9dQUfOsVJetCHoyfDjMBXv1MsWYowaIytRE6aG/vYyVn5wroiN0ejPYtD7pXjmju31gkBMK0qDFlSp1Uf7I4Ot3dr1dz4xLsNpNDowMbau1FyUSJO6F4xSsJXxhfa2PnOfllUq4Q2Qb230PsCaIaqDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=reWmY6xJB4PGm3KildW1hDEyntbhMIL832NVeDWBiws=;
- b=ej1If7J5ha84oJq9ThXfF1gUxwdwzEvco9x0JBgQqIBFEzGiXXJ/uat5JBsyftR26j3n5cSfHgXP9YW5REtdUimPmB8kDYYy3K3HCH5EpYN7oZbnvzCR8rkQPtZfYcgOX+VVmMl3GQMczOuDu8ea9PmgG3Joyj9GUGb5pSUoaxLRZX2VyXXM6cDkw4mZzmJBBQYc8lNvKu4+eagwdVIS1UKrlj3FwGmnHf2e2y02vG2+YH835vUjli0xsaEqRZJthmriVjyz+cPD2QUdAt02EVU54vf2oBcKVULKQ8se6/2rvaMDb+G/fL9rjNUcIRWD9/5sClls1pkXa1CJeQAf5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Fri, 16 Oct 2026 07:12:36 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a1682bff3cso12939235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 00:12:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=reWmY6xJB4PGm3KildW1hDEyntbhMIL832NVeDWBiws=;
- b=Oa5l9fxOuyYgj3JxksGLpzjEkc1/TvCQTnOBqORxTkM3/7F+D+6+yu6TkUgBq70x+19OESzw5PRqP/nAU13yVy41qJNHCVLKcAJIB7dZHBi/DeBauVftFD4HygcXZwOO0UIpH9TU6DfJW1rigHuQWPHwRd2eE/NXHJW9PgdLMqg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oracle.com;
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by MW5PR10MB5668.namprd10.prod.outlook.com (2603:10b6:303:1a3::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.7; Fri, 16 Oct
- 2026 07:09:40 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%5]) with mapi id 15.21.0546.010; Fri, 16 Oct 2026
- 07:09:40 +0000
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        bpf@vger.kernel.org
-Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
-        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
-        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
-        daniel.lezcano@kernel.org, memxor@gmail.com, zhenglifeng1@huawei.com,
-        xueshuai@linux.alibaba.com, rdunlap@infradead.org,
-        david.laight.linux@gmail.com, broonie@kernel.org,
-        boris.ostrovsky@oracle.com, ashok.bhat@arm.com,
-        Ankur Arora <ankur.a.arora@oracle.com>
-Subject: [PATCH v16 16/16] barrier: timeout validity checks for smp_cond_load_acquire_timeout()
-Date: Fri, 16 Oct 2026 00:08:37 -0700
-Message-Id: <20261016070837.440748-17-ankur.a.arora@oracle.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20261016070837.440748-1-ankur.a.arora@oracle.com>
-References: <20261016070837.440748-1-ankur.a.arora@oracle.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0038.namprd03.prod.outlook.com
- (2603:10b6:303:8e::13) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+        d=gmail.com; s=20251104; t=1792134752; x=1792739552; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0i4EWzFPDrCBGPxvUTW0hZsml2U+08zpz7E33Xi4YAg=;
+        b=r5rev4b2apw6NI+63hkesSXVgpJdk3UGhSuqQQv+QXT7PUnNxHtWnf1eCmbygwmvd4
+         APLAnnGYdDaMXF3Ad6mdm00fm3KqBNg4n/d/+NyAwTh8g1zi40e7hRlRmF4ohswzxVo1
+         lgghhYEXmQ86YftOmDzDQrKLiW7MqyeOJnWm6u4Bx+zqHrPlsoPlbfEOSmXCFc6xpPgu
+         qaSWEpM3wHoveYezHoA/4tc6nhG90D1DVErOs/nkEzwQvfBcV4ou5JNpDsOPp6njXLaf
+         GN2z2aZ+XTkAu18Gg+qq/MfAmq8wJQu98kARkAmnVcMXMDmj4NSNlT8dAiDahz7xQfh2
+         A7iQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792134752; x=1792739552;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0i4EWzFPDrCBGPxvUTW0hZsml2U+08zpz7E33Xi4YAg=;
+        b=NGD63tg8YOTUtGnO6+1aE/++gNE07KF1v8mPqt8cpMzX7mNBdrh4sYk6oxwf7Axvai
+         Pv4zEGxeE5IRKHWqqWf42Gh/u6OOzVriLk8F6QTsRtRWhmbLNB5aVBqOLPg9u1+6aDXd
+         XNoBktjgfPBzNCWtThggsrAY11oiTS8gX8hRemqdnDZ4SsHAbtNjxjwWGs5GRNYl1eIh
+         AR6ZDGJRD8Y/9VsqkEexsMaC15bTwYtf6UHg0w5BB9MUZ4uZ3o9Zt9mJF4vqdbtD3mgL
+         2jBjVe7KxBQkoWtROGTIUgnX5pHE6gyub2NKp3Hq7XPvJJPfCpI0u2VcgYukPjqjsKLS
+         EXqg==
+X-Forwarded-Encrypted: i=1; AKwUvBxB2Fy+T1jYw0+b685nIW5TCOuCJR/tT1EwLcD5dsju+EU3rj81EXN8giC4REawrzYKyMu951bQLh3ulFzgPhow@lists.infradead.org
+X-Gm-Message-State: AFq9FYKdWoAe3f0ukB7ti2Ak0vH7Ri6dCrfzohk3YXKD2oBX0kY4vLk3
+	cbk8XJFAehfl6alIMra08Wb8+YsVKAtb2X8f1dXlRnLBFSkfAa59v2iK
+X-Gm-Gg: AYBFou10hptV6IxHg5IFMOKFmnqBxNKXU+uaP+kVzMiYqhAlffwKTiDYsEqxpd0yoez
+	c7MTO/n1AuaLGFdgwUCWGj8PSHZaKslFdpdcixcN9cc47iu9u4h8EPn7ZiJ0EeEc6IxgpzZ5+mW
+	l0lxsASj0YP7k0SsaXrriQjUOuhKeu6UEglVXdL7FjFfnjuY4a0pbp7NUSlsbrBOV87eqKxdCMR
+	VCJ5JWPpK3Y4UWb1KJYNt31p5zX2nhj0CcdA1y+sTu/k9d6XmJq4Qt+zjIim0RY+7KU1GL4Vkq8
+	ygxdsT55eSexE3ygDj7+R7wltsifAAdS1xfAI9ElQaYOq+AwsF4j/x66JovyUjiQ0U8t9likCnt
+	2AMp410NXxrzdDXMkNOhznFsA52w93cQJXqg0qxmXhiPAI/eSHJWg0NGhI5r4kvsXsB5fYB/Qsp
+	9S0TAyPz1Qd/ZPZzNH6QBTFeefYCrJZzCbQEFXKP8DKpb1qfA1FQ/usRJ+N+RdWjsWhuRMeoFTo
+	T0CkYcAJRgWpyus6XJsBTvFkBWbB/VR+nDrnGFUfAdVD94dXLRCDsjt/+chIDAquM9Ok+7j8GLp
+	/FdtscVvij4q4PVoj0ozKnID
+X-Received: by 2002:a05:600c:4504:b0:49c:fc6e:a3da with SMTP id 5b1f17b1804b1-4a18e4a7839mr459117355e9.25.1792134752197;
+        Fri, 16 Oct 2026 00:12:32 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-95-235-252-189.retail.telecomitalia.it. [95.235.252.189])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4a1c8a1b377sm61802015e9.0.2026.10.16.00.12.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 00:12:30 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/2] phy: airoha: add support for AN7583 PCIe PHY driver
+Date: Fri, 16 Oct 2026 09:12:22 +0200
+Message-ID: <20261016071225.2092-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|MW5PR10MB5668:EE_
-X-MS-Office365-Filtering-Correlation-Id: fec6dcf4-2c61-4a05-196f-08df2b54724a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|56012099006|261009223027099003|22082099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: f3vunYPPr+nCGa3FGvsbQnu6Luk4emhktgYbPfRr1qqyZshalXCgJ2JUl1sLj/Q5M/22Gw7NTtsoPz039la7yJl5ekwJcv2qD4jph5MJaV5WQ9GNRFSEy9JFldwLRcAd0ZJaKNbq58mEvr5Jb0jIDskfod1fI/kMuvoh0au0ajJYpGhQE3H7cdstiOErCAu381/Jud/IHTu7KZtARdp1TvCk2/1kwBeH6cLHBFe73bKkM5OPt6c8o953DW5FLNAn7t3GlBRVpLkV2n5mRqtOCXXIJd7Li5bCYZqjq3PIv1Ot6gYMG45hG7yLw02jfc1hdsbKGikz8SEtmW+bdx1et6VMng1v6ufEmBc3CUUkzMn4pS03IicMqkZlRsG5G+RNyfdTS2DOdFuogS1zC+339W51oDniJIC5Xm7ODfC8iL6ZQLm20nGx58is1x/IElwdvhC6bFP5XLSZ/AVopmEHCokruACnp5h+xf8hJoZa5wloY77UfzqzWz1+VCqxkq3m7beTCyrbWM7Pi1zlf7dlCNeTwEWja1D2ypm9FOOGU9Ri4ajyimXceQjSYpZUFmCB2pidIShCUvaVg5m8yfu3eT3gCOUjb8/0O/j/Nz1mI2CG3y6tD4a/yx2S5HYpitGNgWEIZy2UjMvH0uokoRy1aOAulEqdGZjSs8nnA/Jvgjw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(56012099006)(261009223027099003)(22082099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NK//B71saz8H/9hUA10qEjVVCn26UtbxmBx6MgPkX/E08tb0OAfsY2sotyb+?=
- =?us-ascii?Q?x7qXbrdBY2MawaPpAK0oLP1m4mLUXQsNdYIq0chKUxdKi9ywPxDQjfqYWT+9?=
- =?us-ascii?Q?VVXgQdRVhohHkeuOZQX4o5dCiojlGbDPLOmaU+eeFeDD95RPJ3H8+LsbTXPL?=
- =?us-ascii?Q?SoXIogOGKwQOF4ZPa0td8xzL0lXw1UWibM4OgZ0XDj6c851LBrXoPa37wQ9B?=
- =?us-ascii?Q?kVblauiAqx7fXMD7ofrclgZepFTDxmiNkcX2HOT3Y1dDkyMKcH/te85nBfMK?=
- =?us-ascii?Q?QgJi78uWfrRliHjr5TCvfDOq4lqWycQM/8HJ2wCos6EU8THo2xVks8INxRl2?=
- =?us-ascii?Q?qQCzauYzrL+qEo57ATOHyCZllbkONnzEfUSqc51sdaRiIpYHgQm+4xcbH1tX?=
- =?us-ascii?Q?6Qa36FVEC+YI4q4ufDK35pACLrY4c7rYfoiNA9TdOj9tRr0mJ3opCVDbWFv7?=
- =?us-ascii?Q?LqpHOyhOmPTALQ1YYkdfLiMrI7d6X/AhHOBFfbtaYQPuUyWEn1SSwHnZ7AdW?=
- =?us-ascii?Q?fj7SeLfRcNX/8yVzPrs5aAPqtFErCtfbFCAh6BuvuK5HNGf5bJGQ4OF5VWZ7?=
- =?us-ascii?Q?Y2Iod0Xv4SR7SJBsmNJjgxeKQleToTJWZgDXhIk+ah5xwRaHHbEyseQWjFOB?=
- =?us-ascii?Q?WGrPfAOxBBheXYKi+mZRMaf/PqmOK55w7uy1aFjKqBMdfTsHlrgZur16+7QQ?=
- =?us-ascii?Q?FC56/Pz/bs5/B2jMIJFMAdFzs3DujwEdTj/MHy0RHbI5yEp0zQI77rNl5kJ3?=
- =?us-ascii?Q?rT0swxyyd6Yw3eQVtPQ1Tt/kE+B2nZiRGZcnBfihjZ97bZjISTcG550plrlO?=
- =?us-ascii?Q?z9QGaxnswZrrslPUn34EtQcHMWvT33BEPjL3xpwIawbiKectc262ueabixFy?=
- =?us-ascii?Q?vEERf1txorCt41aNOOGUWrgIquS5nCamj7jIDHak1JjFhSrYSHHx5cePPoP4?=
- =?us-ascii?Q?dq1D1KTIg1Zy3qCFOeflB3Qc6utfk/dtmlbGsvrmZbE8dhpWxBA+nl7JRmoC?=
- =?us-ascii?Q?483/hE45okV1CjMPnq/DDrMsB4PhyiEd5R0Mf/YRDb2LaI5bv2wWsGCEVyrG?=
- =?us-ascii?Q?wNKZ0REmBw5OHy0hL098Czn87NsHD+wNzn18iBiuRHjxaaceEOU05TXs2BTv?=
- =?us-ascii?Q?Z95pJgYRjpxDcgheAgsnWJc7qbgfTnbCb/IxwvXxiHDZJ0t0f+iiwfbRdwit?=
- =?us-ascii?Q?N8/5xBzcV2SWbhwcq/h5jFZ9Ncp+vX/9Rzi2NR3rT4q/h50QcV6UFItS5BV4?=
- =?us-ascii?Q?ujlCJ1qd3TSdPXEiIvzqJOhAf2kDZdNw1nTA0quF3+GMS4tNdgVJ67rVTU7l?=
- =?us-ascii?Q?wYM1X2Di+GgkbEnvF3g2NV7653OdWc2Nzm1PC+4wMPzyftlAjUa7QqVoEUfK?=
- =?us-ascii?Q?Nloi58nnH156dTyTJAqkPM3a1HY+F6NQrx4RM8X55V4KMmL65GIKxqURn01B?=
- =?us-ascii?Q?FywjIDXoE72+XrMorTA/0yFcV4ma7uflaYX3WR+sP6WNGG37a5JXk3mmKEOI?=
- =?us-ascii?Q?OOcijOv054XrbOFAVW9t9VhMPVlA1RSYnbj7cnu1O1Fl4vpZYiSAFr8Jgpma?=
- =?us-ascii?Q?gtvFv6yJzoaRlnO89Wh+b7RKKOK3R0djlZMGLOyLn2scG5UB8slypOC+g/TA?=
- =?us-ascii?Q?S89PwaTRqlCAGAUUKsnJIh11GObIUmWS2pAAJj1ph1xpx7Gi9w5KZHFmhjHL?=
- =?us-ascii?Q?bBgiJwke5PWYe3r9Sfir0wvSEbLdy0Ug1IDeeH0WFGvagI39Bq9q5AnHPn8B?=
- =?us-ascii?Q?oQRANVPcjvtAerYSU+C5hYg66XmF52Y=3D?=
-X-Exchange-RoutingPolicyChecked: kUKgZH3mOmzUqzT0dOsbeGMh5rdFwP16TwUcaArq3wHAa0Ff3ZmBx31dKbFaeeNjr5gy0xZGcYUfNj1cCWalDx4i9ZPgQkqCyGyxZmqhDvgdA3x/JwxHJ8E30rgIyz/+IkWnHuhe9UBUk2gSzlMiOWyYsdM5HJO3iS+s9dfnqrNlNJjF/jy3zeCKMhoTTgW3OiIivSihZ3oWpBJiNkNF03/ryCi+5Ny8AjzhIBGuwkK49Z0yOSY7XDkdqVJ54yz8rfR4W8NgkpwzY/jqwpli7aOERu50wxmqCI2zWmwalPiU2kajS1FBtQn3NgO2FotK+LBjBTXFd3xGWJL+YDjpLQ==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: IqdGyOtBkPV/d6Qya6STDw9gEU0ZTma1p7C1F3JvQVVHOGi3b+12lkpZohUofnoeZF5DziExN3w/7CA7yLG0dEYQ0dlznHq+xNgkIDYMPWtpA8I9+/lyGUyRzNntOFlDpBfGwJ0CZbrXfWIp0+eqPluBX9FTjyV2vyURvbEAKrwePMebkUtmRj3xJhu7zkyw144zGmbxRlMI4tipELnJjdecCWT8RyayyXch0K58V/IES0SJvhwdEYFw4dzf6+7fHA8Y9gfxNPsazcpD2WThwXIRMsK0CS1Y3SyFWWRCI6hh5aXUHLnEOuvuk5H3VZqoHx77gX/rQXsIfyEy1YoZ9BG7X7nN/3xcb4sxgoMkJ0MPZ07SdgJmN/Dp4xb7HvqGSVHJumZMQOl1vOsaDvGs17pSsuDLZQSNgtvri89Vh1txWxa4AjWbztMs//QjZJqitq6K15uxNi49XFsjdsWhwtKfcLePXbOLyCtkoDJ1mZatnBMAqUjY+XMYcZAMwd1KMqC2la+c0mPPvhoMsSMXTs6YF8AdgHadl1yH20Qk0BNQSpjO3/jFWS6qtDBTCPk33SwOrs1r0eHBOVMlcx5DNBZ1G1EQa3G9eBX4nmYCKZE=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fec6dcf4-2c61-4a05-196f-08df2b54724a
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 07:09:40.5311
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: o4Khd1KzLuErLXoiIos1jmAt3P/ix+xwK+vaWypLtg/fkRO6APVhq5NAYXZxyRVu6E/KckPWMb70f578cvHxUnEOilf3+UH4ZnM8rolC6Bo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5668
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-14_01,2026-10-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
- phishscore=0 adultscore=0 bulkscore=0 lowpriorityscore=0 mlxlogscore=999
- mlxscore=0 suspectscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2610020000 definitions=main-2610160028
-X-Authority-Analysis: v=2.4 cv=Ra0FmFtv c=1 sm=1 tr=0 ts=6ad1cdba cx=c_pps
- a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=660iZSQnnn4A:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=x0eKOSpe3m1H3M0S9YoZ:22 a=vggBfdFIAAAA:8 a=yPCof4ZbAAAA:8
- a=ZPAOx-6ZxAKxcsEDc8oA:9
-X-Proofpoint-GUID: -Vxd4D4PPW1syM2USBqj5w5NC5DWZ9dl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE2MDAyOCBTYWx0ZWRfX3PmkxV7wp6vC
- PzSUtMTbfFrxCLOQfiRkJqPMHRPhJpIi++UO3Cju06aRGF/dqSpaTLwzs9k7x6GugGzxqdE6/iP
- cTZTcYYhHvgTtamgTsH3wEU8sn3S9mHsW2kjM07M29iLxPEtM1CZVBiEMe/iruBSK8zBJN4khSh
- zIRhBp6vXtckFIc3W1AiP2MQsRVZZwga7fDyzhDGpR2nxZfYAMMJnzcN6nO3tD11rQ43Y6A67XR
- 1CiG4tiFg+AEV1nW6LqVk/THC3H5Wir/57NGOq/AN0iTMi2JfBNXbuJ+kThJXc/MSQ7p/fd3FSg
- geu3Gqq4u1D8QcfMCEuMHAEdAZnU1768bF2jS7JfX/eNcMbEXF9yyKVTYZAjKf/xYUaWov6OW7t
- JO3FPyTMsxxb9a3YfrGzN1EaBTkHYl3JMyF8JnS9iNqHR4Sv+gcTBpKR4NKLPW8lzEwpfmfEYpc
- sE7Cn4s01W8yA8alHXA==
-X-Proofpoint-ORIG-GUID: -Vxd4D4PPW1syM2USBqj5w5NC5DWZ9dl
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE2MDAyOCBTYWx0ZWRfX5gPAc8sGKMX8
- YwX+SMH1CtS7ONKQQB4QwHNOhk4jfYpr4T9SuOAacHXpvCV21E+SGNnp/Tq7fbtJzptEdLpOntN
- SSYZ9vslrcuGjqAQqjhzhc7r4xdOPYS2jXehaUahZhWXtYrrjwGO
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_081020_906234_9379FF3A 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20261016_001235_737380_71B8583A 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,100 +105,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend timeout tests in smp_cond_expiry_params to also test
-smp_cond_load_acquire_timeout().
+This small series introduce support for Airoha AN7583 Gen3 PCIe PHY.
 
-The interface supports clocks that can return error on timeout.
-These are used by rqspinlock. Test that by using a similar clock
-that starts returning error past timeout.
+It's not possible to reuse the EN7581 code as the register changed between
+the 2 SoC and also the setup method changed (different calibration logic)
 
-Tested-by: Haris Okanovic <harisokn@amazon.com>
-Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
----
- lib/tests/barrier-timeout-test.c | 58 +++++++++++++++++++++++++++++++-
- 1 file changed, 57 insertions(+), 1 deletion(-)
+Putting the PHY in a dedicated directory is also needed for other series
+current pending that will add USB PHY support.
 
-diff --git a/lib/tests/barrier-timeout-test.c b/lib/tests/barrier-timeout-test.c
-index 88b374ceb78b..addb83ceca2d 100644
---- a/lib/tests/barrier-timeout-test.c
-+++ b/lib/tests/barrier-timeout-test.c
-@@ -158,7 +158,7 @@ static void expiry_param_to_desc(const struct smp_cond_expiry_params *p, char *d
- 
- 	snprintf(desc, KUNIT_PARAM_DESC_SIZE,
- 		 "smp_cond_*_timeout: clock=%s,  timeout=%s, iterations %s",
--		 "synthetic", p->desc, iters);
-+		 "synthetic/failing", p->desc, iters);
- }
- 
- static char *expiry_skip_test(const struct smp_cond_expiry_params *p)
-@@ -223,10 +223,66 @@ static void test_smp_cond_relaxed(struct kunit *test)
- 		KUNIT_EXPECT_GE(test, runtime, p->timeout_ns);
- }
- 
-+/*
-+ * Use a clock similar to the one used in rqspinlock where it start
-+ * returning failure value once it goes beyond the timeout.
-+ */
-+static s64 failing_clock(const struct smp_cond_expiry_params *p,
-+			 struct clock_state *clk)
-+{
-+	clk->end_time += clk->extra;
-+	clk->niters++;
-+
-+	if ((u64)clk->end_time >= (u64)p->timeout_ns)
-+		return -ETIMEDOUT;
-+
-+	return clk->end_time;
-+}
-+
-+static void test_smp_cond_acquire_error(struct kunit *test)
-+{
-+	const struct smp_cond_expiry_params *p = test->param_value;
-+	struct clock_state clk = {
-+		.start_time = 0,
-+		.end_time = 0,
-+		.extra = p->clk_unit,
-+		.niters = 0,
-+	};
-+	unsigned int result;
-+	s64 ret = -ETIMEDOUT;
-+	char *reason;
-+
-+	reason = expiry_skip_test(p);
-+	if (reason)
-+		kunit_skip(test, "%s", reason);
-+
-+	scu_flag = 0;
-+
-+	preempt_disable();
-+	result = smp_cond_load_acquire_timeout(&scu_flag,
-+						0,
-+						(ret = failing_clock(p, &clk)),
-+						p->timeout_ns);
-+	preempt_enable();
-+
-+	KUNIT_EXPECT_EQ(test, result, scu_flag);
-+	if (p->miniters != -1)
-+		KUNIT_EXPECT_GE(test, clk.niters, p->miniters);
-+	if (p->maxiters != -1)
-+		KUNIT_EXPECT_LE(test, clk.niters, p->maxiters);
-+
-+	/*
-+	 * scu_flag is never updated so the clock should eventually
-+	 * hit the timeout and error out.
-+	 */
-+	KUNIT_EXPECT_EQ(test, ret, -ETIMEDOUT);
-+}
-+
- KUNIT_ARRAY_PARAM(smp_cond_expiry_params, expiry_params_list, expiry_param_to_desc);
- static struct kunit_case barrier_timeout_test_cases[] = {
- 	KUNIT_CASE_PARAM(test_smp_cond_timeout, smp_cond_update_params_gen_params),
- 	KUNIT_CASE_PARAM(test_smp_cond_relaxed, smp_cond_expiry_params_gen_params),
-+	KUNIT_CASE_PARAM(test_smp_cond_acquire_error, smp_cond_expiry_params_gen_params),
- 	{}
- };
- 
+Also a dedicated schema is added as the register names is entirely
+different compared to EN7581.
+
+Changes v4:
+- Add REGMAP_MMIO to kconfig
+- Better handle exit
+- Add additional info on QPHY usage
+
+Changes v3:
+- Improve example for Documentation patch
+- Deinit G3 PHY on QPHY error
+
+Changes v2:
+- Drop move patch (handled in different series)
+- Rework to regmap implementation
+- Rename files to more specific name
+- Add .exit logic
+- Drop QPHY in favor of external PHY handling
+- Update schema with new requirement and improve example
+  Link: https://lore.kernel.org/all/20260827122127.18874-1-ansuelsmth@gmail.com/
+
+Christian Marangi (2):
+  dt-bindings: phy: airoha: Document support for AN7583 Gen3 PCIe PHY
+  phy: airoha: add support for AN7583 Gen3 PCIe PHY driver
+
+ .../phy/airoha,an7583-pcie-gen3-phy.yaml      |  65 ++
+ MAINTAINERS                                   |   8 +
+ drivers/phy/Kconfig                           |   1 +
+ drivers/phy/Makefile                          |   3 +-
+ drivers/phy/airoha/Kconfig                    |  14 +
+ drivers/phy/airoha/Makefile                   |   2 +
+ drivers/phy/airoha/phy-an7583-pcie-regs.h     | 377 ++++++++
+ drivers/phy/airoha/phy-an7583-pcie.c          | 823 ++++++++++++++++++
+ 8 files changed, 1292 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7583-pcie-gen3-phy.yaml
+ create mode 100644 drivers/phy/airoha/Kconfig
+ create mode 100644 drivers/phy/airoha/Makefile
+ create mode 100644 drivers/phy/airoha/phy-an7583-pcie-regs.h
+ create mode 100644 drivers/phy/airoha/phy-an7583-pcie.c
+
 -- 
-2.43.7
+2.55.0
 
 
