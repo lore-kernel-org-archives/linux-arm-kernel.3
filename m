@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9C4CCF2C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336BDCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=; b=TQhrHKrFzCKpekr9l95wRtU7tQ
-	uoQBvHyCC9MX1PMcb2IDyNruCn3hFGDYJEu+enSgW3rdqhXyX75H2Jn9WY1YHsR4Tj6fqfSXOsLN4
-	PIiyBc+bIuTEqSzAC/JHBpQu89zDIeMQiilMgt19VDzAT4wrpNcdhdPqCLYkcsuCoynjis9xFgdsQ
-	YugS0YnT4Kk0SSIxvCsn3FRSW+ki7gp0vGG7qjVCNtsCpoUqMMu3Tu6WU7qIXS8nfmSYSogdGBbww
-	7o137BEhJHbqKUbO7FmMT6iJky0vD0MQFGtp+8OkXhagW36iLanhZgExVoxEZErxtJISDoxsyCvfe
-	vqkFnQCA==;
+	bh=sR+3zBqJSRJxrgUu/ZoPRSfwXq7qeuc537gmdYybxOc=; b=JgAE5r5gGGBpmZsI2EhcggtFxV
+	WPKZjm72wCiq4JTwghf/CWmD/vh9sQBpzOsD9+b/Ei5hzqVErxrerH8gAeXO8M4FnAfiPbOJB+6d7
+	0T8TJz0gu6KB8J1OCa9S1c7olHLvLYwmBdgt+56XYxCbi9qPlIDOouAGxjk184keFMpCSbAPbZOVI
+	/47CZ/SzWOdtskCwpzjxkPBZUdNgeQFM9Dubzt3QnBh6ThojiA9GIyoMcKah52V2uUdZ88blrXvOE
+	pHa3ckZJGSIwoCcBWIeRRB050/BVGaKOL1jjGn7g82ksJ9UJcjeysm7s9BxPNNOVnE6m4m7XXIgK5
+	WKbZsIyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmJ5-00000003cfG-0nG8;
-	Fri, 16 Oct 2026 18:05:27 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHmJ2-00000003ceW-2Oj5
+	id 1xHmR9-00000003dLN-00ed;
+	Fri, 16 Oct 2026 18:13:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHmR5-00000003dKH-3OHx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 18:05:25 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-92ed3993c1eso17187685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 11:05:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792173923; x=1792778723; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=;
-        b=A8ez+q1HQLTacW7je6Ofc1eB26r/vAbdaoj9Y0aDbODWr9jABT1bsfJdlT6GzpqUJy
-         pU3rQbEEksyGfCgiF2E707xbNnuuH4ns5tT3oe1SAPCVGPgdim99170GwWcvTSrmud7w
-         Z/eEaJ2PsYrv5hwbyo30iTOL/M8xbkhjNHqhyv865HINOq6fzFyoMMhRRQS5LWGJREdK
-         puFZu0m720uXmDZS+G3sPdzP7Qh1C9kuTChzTxqR2gsvDp2QqFzN149tVi5tFSaB4Pd/
-         JoD69uhuLZgPb4BjUURwkjpjLavp/Xg5tJgz3fSX0GBabsniZDkXpQ6z3hBLeWbOctVK
-         Q/GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792173923; x=1792778723;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bcPINE8kLYO7ad2h8AzZJW55DUCIX7EGWisyHohuTdg=;
-        b=pnhLXwKSy43Dp1LvUyRTv/u8c1ijAihiBCQI2cD2h/g1CcrenanVifohq6MVd1jM6y
-         Zhjb+jF0+VHFjci3fkXQiK3g8XVgplmpUyrKY40oeReIo9QUIL2rdS0d8g/ebLcLa63O
-         o0IuCj6cKvj5QfrBhsxnxParhgxzsqEVoLMFfFuxkESU666gVoD4nsgcsyUr+HRBSmAb
-         Tojm1UmcObqrNkjID5aopIiP7XgEcEP2M+aJCyIubK9OYuBWHoyA5HKXT2d5LOuMBObo
-         lFIwSYvndCvWVyl2ooteAgYh4xOwKnLDYoffpWQ0pX4/TSBfrA4mfRGXDr6AS+x2G//6
-         6l2A==
-X-Forwarded-Encrypted: i=1; AKwUvByR3P60VS4Zr1Bv2rS9gWZ8yb2b4EWilR+6KIlJ0xp+K3SZshc8wq/pxYYTMpoVHR/98Kj3mWcTwSpRblPG4Bp3@lists.infradead.org
-X-Gm-Message-State: AFq9FYIlXveZcyo+DuUpS2xTAp/UbMBg//3cuMjC1M6iASRU16pvGRNC
-	KmjDNXNdHOtItr0jCVw90cWm9R81xzYzf5WfUQ8YDdTVJ58v4h5gmwo/uqRc4GehvNXjCKd3LOB
-	TKjpU
-X-Gm-Gg: AYBFou1FrDEVKjiuakVibJNC2Qe0siSME5cKbVRandmA2K3h7NPvME4GCyKxKZTZCgZ
-	K0YzFaifafs9VlCPMPHfZeOOh367jw8Owja4+fnAu3Wnj/h2L5t0GJpGcbJ6UnTD6gWb38rC76/
-	fmzLDt0E9VFRTO4kziS8kvXeYQMMa1r518Co8qXqUSoud1hlRVOgiVNPzoP90HdTuHhEeuzGyi5
-	/XB9m9gsUHplVOaxkx2YWsqZ3cl3vtbYc4bAJWwGRPwz/mA8W7ybtvyQZ3RUM6uRpAzlyHXLi1Q
-	X1EoQ/UCZ0m4esJwGrtopq0ffq5SILtwmt+0kvTIU8t1HVEn/ZpgxQ0IWmuMyATHlXUoOeuDI5Z
-	isekDctn7EvgHVnZvXd75fsa/cpYZRhjxNjoquOV0tQdzJInBoHSIkXeurpmpsYlNiwIwGgmWpn
-	nKNFnGqYg5qZkddwgcmAi/HY8iIKphxP+h7sEHype4bTsomK8MDpTBQMUXPRzA6f+X1Ab5mYmz8
-	QoP1p8385WxT0hEQYqm7zZ7U+XOGiFZbN046TC3JZJBu6jEcZ2DshRJIzKN8WrgcYQ=
-X-Received: by 2002:a05:620a:2990:b0:93c:c08f:ecf with SMTP id af79cd13be357-93f29d69e08mr105371785a.53.1792173923072;
-        Fri, 16 Oct 2026 11:05:23 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f23eb7ba5sm131256785a.27.2026.10.16.11.05.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 11:05:22 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xHmIz-00000002FIM-2VOf;
-	Fri, 16 Oct 2026 15:05:21 -0300
-Date: Fri, 16 Oct 2026 15:05:21 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: iommu@lists.linux.dev, will@kernel.org, robin.murphy@arm.com,
-	joro@8bytes.org, nicolinc@nvidia.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dawei.li@linux.dev, praan@google.com
-Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Align memory attributes for
- SMMU-originated accesses
-Message-ID: <20261016180521.GJ14213@ziepe.ca>
-References: <20261004195027.227748-1-danielmentz@google.com>
+	Fri, 16 Oct 2026 18:13:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E16F14BF;
+	Fri, 16 Oct 2026 11:13:37 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E59213F7B4;
+	Fri, 16 Oct 2026 11:13:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792174420; bh=U7yEG8UPjnbkYVj7PAK2SWUfhEahVqNNM5HNCuTOawo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FMjzzyfk8F/+tjNxuUgszUujlARXNNzXOvPi9KToA/YXsqvsvqaX2SAuL7maUJNw8
+	 PziVrP5emG/KFg1A8AY0YgivxX6KBkzDVrM4tv8dYITcXIZN7rB/s7j53wQUt2wDiH
+	 I/1M2XXnAXbs3BQAVawj7/iiSM+6zr0Y+CPMZsiQ=
+Date: Fri, 16 Oct 2026 19:13:28 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v4 2/8] firmware: smccc: Add support for Live Firmware
+ Activation (LFA)
+Message-ID: <atJpPoYAsUECh7p0@J2N7QTR9R3.cambridge.arm.com>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-3-andre.przywara@arm.com>
+ <aq1XmaBemuGybxp2@J2N7QTR9R3>
+ <0c2c5cec-3e16-49a4-b304-ddd75de4cb19@arm.com>
+ <as5EvNM9IUkGe6Lk@J2N7QTR9R3.cambridge.arm.com>
+ <cf0ccb1c-42fd-409e-ba77-3837d5c905d4@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261004195027.227748-1-danielmentz@google.com>
+In-Reply-To: <cf0ccb1c-42fd-409e-ba77-3837d5c905d4@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_110524_619720_A99D506D 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20261016_111343_944968_BE12CD91 
+X-CRM114-Status: GOOD (  50.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +69,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 07:50:27PM +0000, Daniel Mentz wrote:
-> The SMMU specification defines several types of SMMU-originated memory
-> accesses, including Stage 1 and Stage 2 translation table walks, stream
-> table accesses (L1STD and STE fetches), CD table accesses (L1CD and CD
-> fetches), and queue accesses (CMDQ fetch, EVENTQ write, PRIQ write).
+On Fri, Oct 16, 2026 at 06:42:52PM +0100, Andre Przywara wrote:
+> On 10/13/26 16:48, Mark Rutland wrote:
+> > On Mon, Sep 21, 2026 at 05:25:25PM +0200, Andre Przywara wrote:
+> > > On 9/18/26 17:24, Mark Rutland wrote:
+> > > > On Fri, Sep 18, 2026 at 04:11:05PM +0200, Andre Przywara wrote:
+> > > > > From: Salman Nabi <salman.nabi@arm.com>
+> > > > > 
+> > > > > The Arm Live Firmware Activation (LFA) is a specification [1] to describe
+> > > > > activating firmware components without a reboot. Those components
+> > > > > (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
+> > > > > usual way: via fwupd, FF-A or other secure storage methods, or via some
+> > > > > IMPDEF Out-Of-Bound method. The user can then activate this new firmware,
+> > > > > at system runtime, without requiring a reboot.
+> > > > > The specification covers the SMCCC interface to list and query available
+> > > > > components and eventually trigger the activation.
+> > > > 
+> > > > It'd be helpful to have a few basic concepts covered here or in the
+> > > > code. For example, I have no idea what a "rendezvous" is, and it's not
+> > > > at all obvious from the code.
+> > > 
+> > > OK, I can give a brief summary of the concepts, but I guess doing this a top
+> > > comment in the source file is more useful than here in the commit message?
+> > 
+> >  From my PoV, even placing that in the cover letter would be fine. The
+> > key thing is just to get enough context to be able to review this
+> > without having to ingest the entire LFA spec.
+> > 
+> > In particular with "rendezvous", I have no idea why the admin should
+> > have any choice at all, and without some context I can't tell if there's
+> > some sensible use-case I'm missing.
 > 
-> While the memory attributes used for Stage 1 and Stage 2 translation
-> table walks are configured in io-pgtable-arm based on whether the SMMU
-> is coherent (ARM_SMMU_FEAT_COHERENCY), the attributes for stream tables,
-> CD tables, and queues are currently hardcoded to Inner Shareable,
-> Write-Back.
+> The admin should indeed not have a say, and if the firmware component
+> requires rendezvous, it will always be used.
+> But for firmware that claims to not need any rendezvous, we default to using
+> it anyway, because it's the safest way to guarantee continuity for the
+> kernel. We don't know which firmware services might be affected, and if they
+> respond with something like -EAGAIN or just block for a longer period during
+> the activation. The kernel seems to rely on the firmware services (TRNG,
+> SoC-ID, SCMI, ...) replying, once they have been initialised, so them
+> suddenly returning an (even transient) error will probably confuse the
+> drivers.
+> So the safe way to do this is to send all cores into the firmware
+> regardless, there they cannot do any harm.
 > 
-> On non-coherent systems, however, memory for stream tables, CD tables,
-> and queues is allocated via dma_alloc_coherent() /
-> dmam_alloc_coherent(), which provides CPU mappings with Normal
-> Non-Cacheable attributes. Having a non-coherent SMMU access these
-> buffers with Inner Shareable, Write-Back attributes results in
-> mismatched memory attributes between the CPU and the SMMU.
-> 
-> Configure the memory attributes for tables and queues in
-> arm_smmu_device_reset() and arm_smmu_make_cdtable_ste() based on
-> ARM_SMMU_FEAT_COHERENCY, matching the attributes used for translation
-> table walks:
-> 
-> - In SMMU_CR1, use Outer Shareable, Non-Cacheable for non-coherent
->   SMMUs, while retaining Inner Shareable, Write-Back for coherent SMMUs.
->   This applies to stream table accesses as well as queue accesses (CMDQ
->   fetch, EVENTQ write, PRIQ write).
-> - In STE.{S1CIR, S1COR, S1CSH}, use Outer Shareable, Non-Cacheable for
->   non-coherent SMMUs, while retaining Inner Shareable, Write-Back
->   Read-Allocate for coherent SMMUs. This applies to CD table accesses.
-> 
-> Assisted-by: LLM
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Daniel Mentz <danielmentz@google.com>
-> ---
-> Changes in v2:
-> - Rename local variables 'cache' and 'sh' to 'cr1_cache' and 'cr1_sh' in
->   arm_smmu_device_reset() (Nicolin, Will)
-> - Collect Reviewed-by from Nicolin
-> - Link to v1: https://lore.kernel.org/linux-iommu/20260929032229.3532247-1-danielmentz@google.com/
-> 
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 37 +++++++++++++++------
->  1 file changed, 27 insertions(+), 10 deletions(-)
+> Now as users asked for it on the list, if the admin knows exactly that this
+> firmware component does not provide any services to the kernel (say some fan
+> controller), they can override this policy and allow a single CPU to trigger
+> the activation. This was meant as a compromise to keep the kernel side sane,
+> but still allow less disruptive updates. The idea would be that some user
+> space component sets this attribute at boot time, if it matches some UUID
+> that is known to be safe.
 
-I think this looks OK
+I don't think it's a good idea to leave this up to the admin. The admin
+has no idea what the kernel will depend upon (especially as this can
+change over time), and if they get it wrong, everything is broken.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+If LFA permits arbitrary firmware components to enter a transiently
+broken state, then the LFA design sounds broken.
 
-Did you check the spec that this is every access? I remember there is
-a table outlining every access and where the memory attribute lives?
+You said someone asked for this on the list; can you shre a link?
 
-Jason
+[...]
+
+> > > > > +static const char *get_image_name(const struct fw_image *image)
+> > > > > +{
+> > > > > +	if (image->image_name && image->image_name[0] != '\0')
+> > > > > +		return image->image_name;
+> > > > > +
+> > > > > +	return kobject_name(&image->kobj);
+> > > > > +}
+> > > > 
+> > > > As before, please just use the UUID.
+> > > > 
+> > > > I *assume* that we cannot have more than one image for a given
+> > > > component, and hence we cannot have two entries for the same UUID? Is
+> > > > that mandated by the LFA spec?
+> > > 
+> > > The LFA spec speaks about "firmware components" as its area of interest, by
+> > > design all the real firmware *image* related parts, for instance how the
+> > > firmware update image lands on the system, is left implementation defined.
+> > > So yes, each firmware component, identified by its UUID, appears only once
+> > > in the system, by design.
+> > 
+> > Ok; does the spec *clearly* mandate that?
+> 
+> Well, there is only one logical bit (somewhat confusingly named "activation
+> pending") to say whether an update image has been provided for a specific
+> component or not. If someone pushes another image, it would replace the
+> already "pending" one (depending on firmware policy).
+
+My concern here was more that each UUID appears only once. Where I said
+"image" above, please read that as "component".
+
+Does the spec clearly mandate that each component UUID shows up at most
+once?
+
+I know it's "obvious", but people WILL get this sort of thing wrong
+unless it's in black-and-white in the spec.
+
+Mark.
 
