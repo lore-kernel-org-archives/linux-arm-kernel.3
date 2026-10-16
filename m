@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1E1CCF2CB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B844CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRSGP4EkTpjaP8ikhGifE89Rqs96cJ2tofmmbq1YDTQ=; b=RY4sRJDRdQymuXndCysCtVFcYb
-	xO67lkU39WLaCFj7v0vZjITvIG5dXV9cVdS3WeUJId0k15gB1SN0um6tiRb5ndn6kwLDZOqYO/cRS
-	kgy6s9M7OLy8a6HgHA6ayLdHMvDt3gVnrzWLJI794Xx1WXBp1Acb7Fr/o8rxjsyqmM1soaAG8xYXz
-	w0DgxhqIHBt+L9vbt/VmP00xS+UB2fftTJdnPQ9JsAbPSpOup5IXzGS+RawXf6gNKvtqF21whsSmd
-	NUx0mLW7CDGAPlTFraLXNUB9n+bqlR4LEpcPGpxThczR0zilgskvOjhuVijA0HpgyOCyRmehAtuPB
-	cvqb/5tg==;
+	bh=7DJXcVXeH2612xf2PKGIHlzDNUZS1igHzWjiz9dAsHs=; b=F2vgN9/eSSGoBBlFMz4xfb7R49
+	AjGf3A8KcQPCtGwA9aqUs9KA2wSCuIoZmyJ5oW/q+k0HG+Vgdl/LwvEnOwllaz5FDJ9NW4iRTnCxi
+	1zfm5ooXPmd5jSl+4jZvSfT3KOpIjDN61tpd2flJhBLHgX6CHMGGW+D5x28IPXrCDimumjmMX97pc
+	EHNlI5Dw12JHUPxD5wGyR4EV1qm5UNg/rsLj664GtCNxFEc62AHDrm3+1KPRKaVLLfGL8+ba56jWV
+	gjB+b5sjG4q7kGX0BXszFuXX+NkAiRwQy095T2G3/jHOMmZaTs+1HRZSCdpeXYPDMN8vG0GoEwo1y
+	WMRPAQuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpE7-000000044Gc-3sAI;
-	Fri, 16 Oct 2026 21:12:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDv-0000000447t-0Nkx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 21:12:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TRSGP4EkTpjaP8ikhGifE89Rqs96cJ2tofmmbq1YDTQ=; b=QUvEwGU+B21YyIwrvBpW3LJmyW
-	Zqxx8oQCSZP2nego7sx4p6UTPPWaOK1R8i+DdblaSovkfeFTTebz6di7R+jEzjjtZucZoogBjrQXY
-	aEL9Ha6phpiz+hvp+ladXezedL57Y1twDHd7+jSNkJ2g4klKw1aBXLYpHW/1gerlQS8FJfJ90r4XE
-	tOS0AMF3OMhbdFlura+BMYM5UNXkEAFrusBKoSXVIqgtTeS2O8cNpWSK22INjPJwNKFJLVkDBSsAv
-	jqCF+js+52v4FUxoi++o4trasajMlcrDDrerC17QZxSuqPDdrrXWGMRelorfMCmG/ZCa6atZiwEmA
-	x+HZFHXg==;
+	id 1xHpE6-000000044Dk-0A3D;
+	Fri, 16 Oct 2026 21:12:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHpDs-00000001xUq-0w3i
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHpDf-00000004410-3wS6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 21:12:17 +0000
+	Fri, 16 Oct 2026 21:12:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 239FE1764;
-	Fri, 16 Oct 2026 14:12:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20DBD1516;
+	Fri, 16 Oct 2026 14:12:00 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D673D3F673;
-	Fri, 16 Oct 2026 14:12:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3B2B3F673;
+	Fri, 16 Oct 2026 14:12:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792185134; bh=odB4IVmHAE0cO3FyTTEtE7ltEbt7Y3v/azgxS4p/Qy8=;
+	t=1792185123; bh=qu1AgX5nZvAwm7yz08mHTH7BHavVeMMILxgLJeeuNL4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TTe6IyY3z/gRvdssqiTxmQYMmw8PwpHbPTj78b6YCTkmbATpS+aAgFcNoi7Z6xbwE
-	 2j65Je3HKUIP3EdyO6PpIwy6oYYg/JE4zoocgfi78JL9xxLaHlIJgEPcyrD0feQIwu
-	 nULRnQ8ZLRdNNZlei/j+BlY3Xidlxc7SR1WJqJjs=
+	b=YNtUHuN5tq+ZyA6yHNz2ZFaC6CGotvd0C8JP9i/xwxRUUyAey4I1LT6LeHgVm0wb4
+	 nTEGmSEQrLGwqPqlAAhWOqtirq7Phqrk+QT9C7RZaBTDr0Kfdh399IxyZ7lzKFPNgX
+	 6Of8o+42SWo4m9Btu3QWnBwbjtKhuhs0d/vg3kbE=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 22:11:49 +0100
-Subject: [PATCH v2 11/11] perf cs-etm: Set watermark for AUX trace
+Date: Fri, 16 Oct 2026 22:11:43 +0100
+Subject: [PATCH v2 05/11] coresight: trbe: Leave headroom for
+ stop-on-trigger mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_buffer_refactor_v2-v2-11-383ac26382fa@arm.com>
+Message-Id: <20261016-trbe_buffer_refactor_v2-v2-5-383ac26382fa@arm.com>
 References: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 In-Reply-To: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -72,16 +58,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=1957;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=3111;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=odB4IVmHAE0cO3FyTTEtE7ltEbt7Y3v/azgxS4p/Qy8=;
- b=y0UuvGWrgW81YUULLpdhMtovKFv4pBBYJmBEzCG1h0joDfu/oWeSNI4i65dsioMv7tdMnYp+2
- D5tjrwRNWhBC8YLmLtU180UlQJhglJ7DibFFXyhbkYEXPZtS/9MXRgc
+ bh=qu1AgX5nZvAwm7yz08mHTH7BHavVeMMILxgLJeeuNL4=;
+ b=Ami5tfZtfhiQQihX+fyQfImMnAlf05k08qAlMdv8heny++hnRux4kbH1IpDp6rnGQp9zoagBK
+ JDYGRFsMpfCCPOrT4RpNZurld8hierWhRR1wL2td/SyeBH/OdfUo1s6
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_221216_494459_2AF6490F 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20261016_141204_062468_A3A3370B 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +82,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kernel defaults to a watermark of half the AUX buffer. With small
-buffers, the reader can be notified too late to drain the trace before
-the available space is exhausted.
+Arm ARM (ARM DDI 0487 M.c), rule R_XRRWP says:
 
-Use a quarter-buffer watermark for normal recording to wake the reader
-earlier and leave more space for trace generated while it handles the
-notification.
+ | If a Trigger Event is generated when collection is not stopped and
+ | the trigger mode is Stop on trigger, then all of the following occur:
+ | The Trace Buffer Unit initiates a trace unit flush of the trace unit.
+ | ...
 
-If the computed watermark is at most one page, set it to zero so the
-kernel selects its default. TRBE's write-out-of-range workaround requires
-PAGE_SIZE + 64 bytes per trace span and disables trigger counts. A
-one-page watermark can leave every span too small to enable tracing.
-The fallback retains a two-page watermark for a four-page AUX mapping.
+A Stop-on-trigger event may initiates a trace flush. The TRBE might
+therefore continue writing trace data after the trigger event is
+generated. If the trigger is programmed exactly at the boundary of the
+free space, that flush can overwrite unconsumed trace data.
 
-Leave snapshot and AUX sampling behavior unchanged.
+Reserve 4KiB of headroom when calculating the wrap-protection trigger
+count. If the available space is not large enough to provide that
+headroom, returns 0 for counter so effectively do not use it.
+
+Subtract the headroom before rounding the count down to the hardware
+alignment, retaining the check that the resulting trigger lies beyond
+LIMIT. Rounding down preserves at least the requested headroom.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/hwtracing/coresight/coresight-trbe.c | 27 +++++++++++++++++++++++----
+ 1 file changed, 23 insertions(+), 4 deletions(-)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index d2861d66a6612ea213066258672ba41769e578cb..2b29cd5fde4b8cc18e04d02308635d7b0c13ccf6 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -438,6 +438,21 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 		pr_debug2("%s snapshot size: %zu\n", CORESIGHT_ETM_PMU_NAME,
- 			  opts->auxtrace_snapshot_size);
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 95bbdbaca81bd59ac97b272216489c2f66393fa7..8187e264ff3c86d445b96c4935a8dbdf5ad9e77c 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -171,6 +171,21 @@ struct trbe_drvdata {
+ 	struct platform_device *pdev;
+ };
  
-+	if (!opts->auxtrace_snapshot_mode && !opts->auxtrace_sample_mode) {
-+		size_t aw = opts->auxtrace_mmap_pages * (size_t)page_size / 4;
-+		u32 aux_watermark = aw > UINT_MAX ? UINT_MAX : aw;
++/*
++ * Arm ARM (ARM DDI 0487 M.B), section D6.5.3 Trigger event, R_XRRWP states:
++ *
++ * "If a Trigger Event is generated when collection is not stopped and the
++ *  trigger mode is Stop on trigger, then all of the following occur:
++ *  - The Trace Buffer Unit initiates a trace unit flush of the trace unit.
++ *  - The TRB_TRIG event is generated."
++ *
++ * The TRBE might therefore continue writing trace data after the trigger event
++ * is generated. When Stop-on-trigger is used to protect unconsumed data after
++ * buffer wrap, reserve 4KiB of headroom in the trigger count so it is safe to
++ * complete flush without overwriting that data.
++ */
++#define TRBE_TRIGGER_STOP_HEADROOM	SZ_4K
 +
-+		/*
-+		 * TRBE workarounds can require more than one page per trace
-+		 * span. If the watermark is too small, let the kernel select
-+		 * its default.
-+		 */
-+		if (aux_watermark <= page_size)
-+			aux_watermark = 0;
-+
-+		cs_etm_evsel->core.attr.aux_watermark = aux_watermark;
-+	}
-+
- 	/*
- 	 * To obtain the auxtrace buffer file descriptor, the auxtrace
- 	 * event must come first.
+ /* Compute the buffer next state */
+ struct trbe_buf_next {
+ 	u64 head;
+@@ -460,11 +475,15 @@ static u32 trbe_normal_trigger_count(struct perf_output_handle *handle,
+ 	 *                                      limit
+ 	 *
+ 	 *                              |>>>>>>>>
+-	 * >>>>>>>>>>>>>>>>>>>>>|
+-	 *   ` Trigger counter covers the writable region, rounded down
+-	 *     to the hardware alignment.
++	 * >>>>>>>>>>>>>>>>>|---|
++	 *                    ` headroom
++	 *
++	 * Trigger counter covers the writable region, but leave headroom
++	 * to avoid overwrite risk caused by trace unit flush after
++	 * trigger event is generated.
+ 	 */
+-	count = round_down(handle->size, cpudata->trbe_hw_align);
++	count = round_down(handle->size - TRBE_TRIGGER_STOP_HEADROOM,
++			   cpudata->trbe_hw_align);
+ 	if (count <= limit - head)
+ 		return 0;
+ 
 
 -- 
 2.34.1
