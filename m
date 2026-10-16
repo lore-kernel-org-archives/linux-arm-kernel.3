@@ -4,88 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4352ACCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A082CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Bify14k/37IbJ7FTiPfXcHiNAtEqDGJAtzCTvfLK9o=; b=xV4xsG0vRwZ0Xy93PrYH0aPAtA
-	pl11U+t5DZy6n8+teEpEs0Wl7Li7/EJFc8Vo71yM1uq4FqBj8pwLz9Fsg+EB4xLc+/3Mkdf3WxiLj
-	+NPs1XknF25/L814dQnfVVgzCoWP7XGCZhIdTUHtn3Y8OYG2s4H/1aCR/KOtEdLSxb+3Vcd++kV/c
-	WPGjO9AKq/roiSwheQbxPF0RaQj6dkkBRCTYOyk+3tPigi9oR2nyqpD7QWl/J1wkWdnFdLQwF8INd
-	lnc9mZcBSlsaBTQzhB6BWZLozDKLH6kSMi2f3d8zJtR1TpRbdM7wr76n9Q5Qw55eX1zleZz5LHTnV
-	cDaWfCzg==;
+	bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=; b=YoKiGjuLJ+mdmQcCPEPj/ZUIGW
+	rWC5C342alquAkw1tSNgCU4k4UN/YOqfDzrHGQfKpQMMAlxmvuCFj61/0Dqj/Kx0uQ9NUJReQak9c
+	7ZUK9PCv/HKnmUq0lCFMtipo4teatTWHjQATpmGbDn8e08AjxO1nSMPmADLErHcDRY1XM0pbaXv5d
+	jRzZpc16vHnQ9Z2Nj/RVI1H3OHkRH0ccwNk69YUr241BVWTqpnNGlEi91i0wYueEFCK+aTmCpiQzh
+	uxtoflThcvcNVizQ2FQs4YQ4el056p5vh/GtfqmdFJqbxBoGmCyxd9HqBuwZF41QueobP3oomabPH
+	/3jkh5bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh89-00000002tEb-13au;
-	Fri, 16 Oct 2026 12:33:49 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xHi0D-000000032ml-2hTA;
+	Fri, 16 Oct 2026 13:29:41 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh7v-00000002t3O-3PzV;
-	Fri, 16 Oct 2026 12:33:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154013;
-	bh=K/26MzkU9FCqjSme/Jf95F7IV6yqA5hZhDlcUzEyluk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pceZrIPhc/nOzB8zN/PXNlRWcfAYkeYwCaYzvdyTxhSdTgF5MnwW9h9kfQA6i6eLj
-	 /I4uL7edCzh7+IhK9Ft/wsMMkqh0xvFOBHiiEZ5L5PQcWn2oEu+GrCysai2xwy4og+
-	 YhjJfy8LFtcpONYEfgEPSbs+0FRtGzEeMJwR4mqM9a39RC6WHcO1VMQhPcBA2jmiqf
-	 aXJIeo2mJtpEckQ47/oPxrCMXq4Xa0GsSab99pj4AFHEUZuWgRAWP1o/Dv6K663ODn
-	 xdaGDbSb509+P3JLSzFEKKbHpBustac2EZoqGdLuSD04xy2KWY763YgRTyGIkBtLHT
-	 U2prIdMPcH00g==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 118EA17E142F;
-	Fri, 16 Oct 2026 14:33:32 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:32:54 +0200
-Subject: [PATCH v14 02/23] dt-bindings: ufs: mediatek,ufs: Complete the
- binding
+	id 1xHi0B-000000032lt-0MpH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 13:29:40 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-486e70f2457so1262250f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:29:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792157377; x=1792762177; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=;
+        b=Iq84VIOuWPOO6KAAw55sVy4QcyYA6ZJ0SudOb7WbywNIlZoErYNfkVtJspQDuH5cEU
+         4pmjn2MrqJL8ctgsevSypR8n5NKe4I7V1KtOIcFfjh+P60SNKkCRSbSGMrFEB8hRtl7d
+         67qwjcLxJXYcc5dFe35u4PiEgPPTXnfhKTzpyHUaaV1hlKHv5PGbWelwTiXOLr7NDwO7
+         hOwc0rvrsUkV9d/Rn4cROaVmyS8Lz8rHp4veEmmqhONdX7tGjSxoWl1iuz/tl0te1YRf
+         dN0U+WtLP+M3gEzyrYkKvAyyiivBpmIo8gAbB58FN12dh9mvTCbcmDcYoqYSlb/ZaIP8
+         s5dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792157377; x=1792762177;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8jpDLmMBbHfkeVF10s2tGINPrgBL1dTjWhJOL3aqJTw=;
+        b=v9J+7Fs/xvZKWc9sWK1rVUcVmI8BMYhpcVsKQAaCO8TAxXdwyj3VRRXlNglTxy4t80
+         lfDxCIyxEOxQjoDi0YyjTyv62iNrbboSqa5wuMdLMLX9nKOOkZ6EjB8q/CzddVK3eya4
+         hg4p+8DdcPAUlcqcPAXPcnULPP7w3yerT+JRImlS0XJCJ/wdSFyM3dBSQbqyZPcbBY/0
+         uUy3TOtGN2mhgpy7qgxYVkJNS7BEp3yLbm7m7FQvONuOsTBvQa027jlS7y8tX8LkPmLK
+         4ZDKejDM5TbMWW5/vfCgfUuCGQi/JVEjEAgUbRsNytpS9Fep6j8LbPeDIblhcH3NuRS4
+         xyLQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwFErcfsEAcJGLJPsn7vK0piYDiD7Rx6BIIsmXOYPD7h+vl/1Y/8Cro7ZlTjXKIAhrWqCfdP6MApVergOuoFpck@lists.infradead.org
+X-Gm-Message-State: AFq9FYI1WyQ8GCtvHOBKYl8LhPjccBXx7MBtICiL2NcWtv9NKMG/RR5n
+	9fsDYzpUI0Vl5ocTjNDAm8HBNhcVvGABQfFHsnq4A3X6FEpE3XOhFKyjSsHBmD8rxkU=
+X-Gm-Gg: AYBFou2zvIhxjencLILfsQ0HEIcBEjEEAWk270xdGASd5JaT92ux/9uaGjkXKc1odJR
+	NuJdFbEqYBu/ua84u4WIkJUyLPyFYNYA93X26Rl2upuYzoJZYFiMP42cSX9O/W17r9wQW2XGdjJ
+	pxLf5WsLWSXZlCllEVH6mKXpc7g9OFqk6PN4mpXztv0MxmnlXsIVlGUysNup6liLPZ7VaTvoKPe
+	jGD2uqZnQE4t3Kmuyg9YDRfeRbrsSS3Y8RziOvB7eva4ODD7Ee3Gu8j3xBGvhgeBsvDmgQ6sjXb
+	+jyzb4e2FYpXmbQkTzK8VPHqEV9HwdtNvxOiadIVGylpfu25P0oApum3UNVhGtLYUn26Su6GeCM
+	XzA0tPsBV6REGn7IYSYVJY19iRKCLVogp3oYmeyZcJvpb6753+ZTxs1t7lxdujFIwr1d0S3Ip84
+	igVXGUnoae+xYsZkiW3/PWewppHrujOpIxMahVqNxR/hecs1WTEzzeqd1/FFA6kX6BPO2ic7C3W
+	QQ=
+X-Received: by 2002:a05:6000:26c7:b0:48d:f851:ee5f with SMTP id ffacd0b85a97d-48df851f00dmr9820547f8f.24.1792157377206;
+        Fri, 16 Oct 2026 06:29:37 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4d4dddsm5173034f8f.22.2026.10.16.06.29.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Oct 2026 06:29:36 -0700 (PDT)
+Message-ID: <f1a7dac8-5a01-4fc2-bf81-b7609e332e9d@linaro.org>
+Date: Fri, 16 Oct 2026 14:29:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/25] perf/core: Prevent AUX sampling from racing with
+ pause/resume
+To: Leo Yan <leo.yan@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
+ <20260915-arm_cs_support_aux_sample-v1-2-35cf6f297d20@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-2-35cf6f297d20@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-mt8196-ufs-v14-2-e8d565e0cd45@collabora.com>
-References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=7040;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=ivetEHKHrEcHXNR72NMAsGGEUoJvHUIhuJ+Bhsd2DUU=;
- b=Tte1Vu9STHeF9yb577g5cI89EFylBtLLCi5aIAIKAR2GA5WGckebn51xH5C3AwO1jypv6JsCs
- dyUJqEfLuNfCSbj4xHboX9lDcMQVNTr0Rlpu/FAyk+Z5F4xmZ0WvGgb
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_053336_019322_915FAB31 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20261016_062939_165288_53A8412B 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,226 +114,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-As it stands, the mediatek,ufs.yaml binding is startlingly incomplete.
-Its one example, which is the only real "user" of this binding in
-mainline, uses the deprecated freq-table-hz property.
 
-The resets, of which there are three optional ones, are completely
-absent.
+On 15/09/2026 16:48, Leo Yan wrote:
+> AUX snapshot sampling and AUX pause/resume can both run from NMI
+> context. Each path currently guards only against its own recursion.
+> An NMI can therefore enter one path while the other is changing the
+> AUX hardware or buffer state, allowing snapshot_aux() and the PMU
+> pause/resume callbacks to overlap.
+> 
+> Use aux_in_sampling and aux_in_pause_resume as a shared exclusion
+> scheme. If sampling nests inside pause/resume, emit the regular sample
+> without an AUX payload. If pause/resume nests inside AUX sampling, drop
+> the AUX action, matching the existing behavior for recursive
+> pause/resume.
+> 
+> This prevents overlapping PMU operations without waiting in NMI
+> context.
+> 
+> Assisted-by: Codex:gpt-6
 
-The clock description for MT8195 is incomplete, as is the one for
-MT8192. It's not known if the one clock binding for MT8183 is even
-correct, but I do not have access to the necessary code and
-documentation to find this out myself.
+Does this need a fixes tag? Seems like using these two things at the 
+same time could have gotten you into a state where tracing was enabled 
+but aux_paused=1 etc.
 
-The power supply situation is not much better; the binding describes one
-required power supply, but it's the UFS card supply, not any of the
-supplies feeding the controller silicon.
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   kernel/events/core.c | 17 +++++++++++------
+>   1 file changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index 17355e4b8b7c6c106117153c9eb8509e6f9a41e3..a524eb381d4b5731650ec0105d9794b8c89fba4d 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -7990,10 +7990,12 @@ static unsigned long perf_prepare_sample_aux(struct perf_event *event,
+>   		goto out;
+>   
+>   	/*
+> -	 * If this is an NMI hit inside sampling code, don't take
+> -	 * the sample. See also perf_aux_sample_output().
+> +	 * If this is an NMI hit inside AUX sampling or pause/resume, don't
+> +	 * include AUX data in the sample. See also perf_aux_sample_output()
+> +	 * and perf_event_aux_pause().
+>   	 */
+> -	if (READ_ONCE(rb->aux_in_sampling)) {
+> +	if (READ_ONCE(rb->aux_in_sampling) ||
+> +	    READ_ONCE(rb->aux_in_pause_resume)) {
 
-No second example is present in the binding, making verification
-difficult.
+I suppose this means that sampling could be quite unpredictable for 
+users if sometimes samples are dropped while pausing is happening. You 
+might expect to receive a non empty sample even if its triggered while a 
+pause is happening? But preventing concurrent use of the two features 
+would be difficult and restrictive.
 
-Disallow freq-table-hz and move to operating-points-v2. It's fine to
-break compatibility here, as the binding is currently unused and would
-be impossible to correctly use in its current state.
-
-Add the three resets and the corresponding reset-names property. These
-resets appear to be optional, i.e. not required for the functioning of
-the device.
-
-Move the list of clock names out of the if condition, and expand it for
-the confirmed clocks I could find by cross-referencing several clock
-drivers. For MT8195, increase the minimum number of clocks to include
-the rx_symbol ones, as they're internal to the SoC and should always
-be present, and should therefore not be omitted.
-
-MT8192 gets to have at least 3 clocks, as these were the ones I could
-quickly confirm from a glance at various trees. I can't say this was an
-exhaustive search though, but it's better than the current situation.
-
-Properly document all supplies, with which pin name on the SoCs they
-supply. Complete the example with them.
-
-Also add a MT8195 example to the binding, using supply labels that I am
-pretty sure would be the right ones for e.g. the Radxa NIO 12L.
-
-Finally, remove the 'ufs_' prefix from all clock names containing it
-and rename 'ufs' clock to 'main'.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 115 +++++++++++++++++----
- 1 file changed, 96 insertions(+), 19 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-index 15c347f5e660..945cb986b06b 100644
---- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-+++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-@@ -19,11 +19,25 @@ properties:
- 
-   clocks:
-     minItems: 1
--    maxItems: 8
-+    maxItems: 10
- 
-   clock-names:
-     minItems: 1
--    maxItems: 8
-+    items:
-+      - const: main
-+      - const: aes
-+      - const: tick
-+      - const: unipro_sysclk
-+      - const: unipro_tick
-+      - const: unipro_mp_bclk
-+      - const: tx_symbol
-+      - const: mem_sub
-+      - const: rx_symbol0
-+      - const: rx_symbol1
-+
-+  operating-points-v2: true
-+
-+  freq-table-hz: false
- 
-   phys:
-     maxItems: 1
-@@ -31,8 +45,36 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  resets:
-+    items:
-+      - description: reset for the UniPro layer
-+      - description: reset for the cryptography engine
-+      - description: reset for the host controller
-+
-+  reset-names:
-+    items:
-+      - const: unipro
-+      - const: crypto
-+      - const: hci
-+
-+  avdd09-supply:
-+    description: Phandle to the 0.9V supply powering the AVDD09_UFS pin
-+
-+  avdd12-supply:
-+    description: Phandle to the 1.2V supply powering the AVDD12_UFS pin
-+
-+  avdd12-ckbuf-supply:
-+    description: Phandle to the 1.2V supply powering the AVDD12_CKBUF_UFS pin
-+
-+  avdd18-supply:
-+    description: Phandle to the 1.8V supply powering the AVDD18_UFS pin
-+
-   vcc-supply: true
- 
-+  vccq-supply: true
-+
-+  vccq2-supply: true
-+
-   mediatek,ufs-disable-mcq:
-     $ref: /schemas/types.yaml#/definitions/flag
-     description: The mask to disable MCQ (Multi-Circular Queue) for UFS host.
-@@ -54,29 +96,41 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            enum:
--              - mediatek,mt8195-ufshci
-+            const: mediatek,mt8183-ufshci
-     then:
-       properties:
-         clocks:
--          minItems: 8
-+          maxItems: 1
-         clock-names:
-           items:
--            - const: ufs
--            - const: ufs_aes
--            - const: ufs_tick
--            - const: unipro_sysclk
--            - const: unipro_tick
--            - const: unipro_mp_bclk
--            - const: ufs_tx_symbol
--            - const: ufs_mem_sub
--    else:
-+            - const: main
-+        avdd12-ckbuf-supply: false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8192-ufshci
-+    then:
-       properties:
-         clocks:
--          maxItems: 1
-+          minItems: 3
-+          maxItems: 3
-         clock-names:
--          items:
--            - const: ufs
-+          minItems: 3
-+          maxItems: 3
-+        avdd09-supply: false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8195-ufshci
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 10
-+        clock-names:
-+          minItems: 10
-+        avdd09-supply: false
- 
- examples:
-   - |
-@@ -94,9 +148,32 @@ examples:
-             phys = <&ufsphy>;
- 
-             clocks = <&infracfg_ao CLK_INFRA_UFS>;
--            clock-names = "ufs";
--            freq-table-hz = <0 0>;
-+            clock-names = "main";
- 
-             vcc-supply = <&mt_pmic_vemc_ldo_reg>;
-         };
-     };
-+  - |
-+    ufshci@11270000 {
-+        compatible = "mediatek,mt8195-ufshci";
-+        reg = <0x11270000 0x2300>;
-+        interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-+        phys = <&ufsphy>;
-+        clocks = <&infracfg_ao 63>, <&infracfg_ao 64>, <&infracfg_ao 65>,
-+                 <&infracfg_ao 54>, <&infracfg_ao 55>, <&infracfg_ao 56>,
-+                 <&infracfg_ao 90>, <&infracfg_ao 93>, <&topckgen 212>,
-+                 <&topckgen 215>;
-+        clock-names = "main", "aes", "tick", "unipro_sysclk", "unipro_tick",
-+                      "unipro_mp_bclk", "tx_symbol", "mem_sub", "rx_symbol0",
-+                      "rx_symbol1";
-+
-+        operating-points-v2 = <&ufs_opp_table>;
-+
-+        avdd12-supply = <&mt6359_vrf12_ldo_reg>;
-+        avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
-+        avdd18-supply = <&mt6359_vio18_ldo_reg>;
-+        vcc-supply = <&mt6359_vemc_1_ldo_reg>;
-+        vccq2-supply = <&mt6359_vufs_ldo_reg>;
-+
-+        mediatek,ufs-disable-mcq;
-+    };
-
--- 
-2.56.0
+>   		data->aux_size = 0;
+>   	} else {
+>   		size = min_t(size_t, size, perf_aux_size(rb));
+> @@ -8869,10 +8871,13 @@ static void perf_event_aux_pause(struct perf_event *event, bool pause)
+>   
+>   	scoped_guard (irqsave) {
+>   		/*
+> -		 * Guard against self-recursion here. Another event could trip
+> -		 * this same from NMI context.
+> +		 * Guard against self-recursion and AUX sampling. Another event
+> +		 * could trigger either path from NMI context, in which case the
+> +		 * AUX action is dropped instead of waiting for the preempted
+> +		 * context.
+>   		 */
+> -		if (READ_ONCE(rb->aux_in_pause_resume))
+> +		if (READ_ONCE(rb->aux_in_pause_resume) ||
+> +		    READ_ONCE(rb->aux_in_sampling))
+>   			break;
+>   
+>   		WRITE_ONCE(rb->aux_in_pause_resume, 1);
+> 
 
 
