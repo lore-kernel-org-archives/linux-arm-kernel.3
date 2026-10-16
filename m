@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352E0CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6C7CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 08:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GMg5kz65ccKVHX/a+K+NBL1Pp+ZE1LkwLEZuPO0SOM=; b=wnveuK+3TRu5c/46XSrGrKN4rl
-	ga5U3LrNM2lTi7bH7RRJ/Dw+dPW42xUorjNUtcste5gvGgm3H5er+VbdgppyvsF1fl+xMt7m25H6v
-	tY6Wcn3L3a9hBSJOtRYgpcYSQdtDgmkPr3AqJeKJFKwAVW8t2PCvNySyifh4ek2TcSoKQJR1oxxGs
-	utsqNtUMkLHSb871SnkqeX5j4CqKDEF1fNERounv5uVTTkuAjsebGtRb6QxdjFhv+Tln+G6esDhGg
-	RSbVOOrXXx24kIUR+o5TpcjUl26cZ0chV4/E7Xfnco2hOy2Qj01MAbLXolSiQChWo41Epgm1ESGGX
-	E3tQWOjg==;
+	bh=ChS8CbLEvyFZVuYslDWXhsoD8DGk8VUp5ILUon7wnlY=; b=NDFa8eAwjOAAC5f7UtLcj75+ay
+	OIP+A7gAM3dE09l98Igy2SwavJ89YG6EAnte2foPlaz/RXOW9hXQNMaxywpn/VS7j+c+vIazxzDv0
+	ZnG26gBUQUyiHEgKf1gmPSyB1AhqQObI2lUBagF+VS5x2Kk8o/T3u3Yv6CCeH91RAuwJDfF9/w+V1
+	5RRw8/a13tFYCJzhVdiW47WOPJ3AraPpXrepjpVz91UnP047yBHUKe2QHZ4HsuUpj93p2GuNEN4T7
+	9nvY9rV5kW7JeFxDf8pC2NXaojwgJW3X+4T7rQFtmKT/A0Q69mOBH1Cvi3t5OIyWuolXnUcyfqMj4
+	EfAQEH4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdcz-00000002NE5-1eip;
-	Fri, 16 Oct 2026 08:49:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHdfU-00000002NS0-02zK;
+	Fri, 16 Oct 2026 08:52:00 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHdcy-00000002NDr-2BD3
+	id 1xHdfP-00000002NOq-122c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 08:49:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D87060008;
-	Fri, 16 Oct 2026 08:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47EA41F000C4;
-	Fri, 16 Oct 2026 08:49:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792140563;
-	bh=/GMg5kz65ccKVHX/a+K+NBL1Pp+ZE1LkwLEZuPO0SOM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=akIDcMki/a1I5poNoyypeGbCXhvRvwN1XlH+yL+WF0P3kCYiPOL88fLa0uVBCRL7J
-	 CZzXe7Qlu+x1ZRK9yhO2OkD8g3MTb0rUIQB4sPNLGz32k/hHFStGJuE5LfcKf+b/cX
-	 PRw6irLM42ybL6TMDLoI1MrojR9VvD6bPLNAStWj07tuRJQDSYqU/qCEdkmm2xoA6g
-	 qx48BgW6aa/gYkit/STZHK0SUVSnlPXfQhBZmVE9+BNJ7i45cDUBQumOzjla6U5WdB
-	 3K7ePv+VMvVOZUfpasK1KSnoB/Ja8CYIoi5nkjAgciYWivR0z3L7tIw2zNesnAG69b
-	 GTbJAB6Zh1GaA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH] firmware: arm_scmi: Grammar s/thing/things/
-Date: Fri, 16 Oct 2026 09:49:16 +0100
-Message-ID: <179214049480.148762.14846907069636180971.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <5128072dc75dbf239dff6c967a88060a4d64b3c0.1792137751.git.geert+renesas@glider.be>
-References: <5128072dc75dbf239dff6c967a88060a4d64b3c0.1792137751.git.geert+renesas@glider.be>
+	Fri, 16 Oct 2026 08:51:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 7A43C4E4124C;
+	Fri, 16 Oct 2026 08:51:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 48DB36075D;
+	Fri, 16 Oct 2026 08:51:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5481B10328C00;
+	Fri, 16 Oct 2026 10:51:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792140708; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ChS8CbLEvyFZVuYslDWXhsoD8DGk8VUp5ILUon7wnlY=;
+	b=FyCLCVxkCDn6SxkXHmUNA69irjP1CxhoV/CWQHtcj/s82zfmdSuPFeHZcqDwuI6y2RZgwc
+	wIev23C/pJfx83qUOIuOWk1zftExtkKtkdIwQ0IIFjjI/xCSIGSzbK+8YtsHQMksKb5QOW
+	gVpfKo+NHJiF47Q8YidnxrqEySqpEmuRheElrrfeFa9rtFMRHDWYM/Qzn6+tRRBQ9i21ii
+	NmV0nCvarkBkTupW8iHUMUonhdAMrNN0Q/O7QPLlV5V18cL6gu+QH4QFF2Y4yOnNh1DIN5
+	LT1+gdlbxOSU71IeNW1Xhtw34nFeySDy3R+5ybE2YAAC95oEvPJWD1RCm6YHTw==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 5/8] drm/bridge: ite-it66121: Advertise HDMI 1.2
+ capabilities
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andy Yan <andy.yan@rock-chips.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+In-Reply-To: <20261001-bridge-advert-hdmi-caps-v1-5-f8806570e243@collabora.com>
+References: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
+ <20261001-bridge-advert-hdmi-caps-v1-5-f8806570e243@collabora.com>
+Date: Fri, 16 Oct 2026 10:51:32 +0200
+Message-Id: <179214069221.3071818.10591269637696395115.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_015155_422010_D2BAAE76 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,16 +91,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Oct 2026 10:03:54 +0200, Geert Uytterhoeven wrote:
-> Fix grammar in the help text for the ARM_SCMI_RAW_MODE_SUPPORT_COEX
-> symbol.
+On Thu, 01 Oct 2026 04:14:36 +0300, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> wrote:
+> Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
+> supported HDMI version.  This is not yet enforced, but will become
+> mandatory once the migration to the new caps-based HDMI connector
+> initialization API is completed.
+> 
+> Since none of the chip variants handled by the driver can drive a TMDS
+> character rate exceeding 148.5 MHz, advertise HDMI 1.2 as the supported
+> version.  HDMI 1.2 allows up to 165 MHz, so set the bridge's
+> max_tmds_char_rate to ensure the connector limit derived from
+> supported_hdmi_ver remains within the hardware capabilities.
+> 
+> [...]
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Tested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-[1/1] firmware: arm_scmi: Grammar s/thing/things/
-      https://git.kernel.org/sudeep.holla/c/16ca2aea66b1
 -- 
-Regards,
-Sudeep
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
