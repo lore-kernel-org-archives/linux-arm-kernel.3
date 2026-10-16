@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C317BCCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C3FCCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 12:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XpD6LwEkRQXB1kPXZcyiij+bDGEAapsqKkCmdVn9Is=; b=X0/cf92MxCLUN2VftbfdIG6mTc
-	s7tcmzzjg9XwgZQ/WSDcIIgJoLhtE6//D2DWmYfP2+NqNacvjK4DPfG/iBqpMYSGhrflVSbgsC873
-	qAefU2yl4epqkFlCdyoEQkvll88RWsq8iv78Mp9vaY8PGaT/LD50hiCBAzLHUWRDhTit/XYV2yFVU
-	EJwjQbJuD0v+0Wm0ZU0HmV9MVQaBWpnFvn/Xc2PrAeJGbT7RAs0aMpgYaFI+pk1fwhjU3Bbk2rTmL
-	VjUhKMCjpLKnbBQfCUeES00nK5uYgFSZ6iUSswyRoI6l9D801YGeWw1O5BvQzFcEEEgkct8tUPmbO
-	b7NleYVw==;
+	bh=BsCJhFkWFgShsurARgSu2X9svmJZzEQG04Gde0FYsuI=; b=iiJ8oA40zL5bZF3sf8VPjPQMoE
+	93w+Nzc5oJ7B5DsOG92kYY5Pm40XF0yE/jipfPMGhJG8CaD52gl+aPibjbPDGYmQEZfmS71hrYirY
+	JHgRDOQ64XyQSoaMNB4+HkJBxCdMQwTw1sJKsf4YDhr4TdR2jdnUbyMEYSuu88RWPBHu5DeEuX8wM
+	r7qBV1G1Godg2l8t17PcJSpH9fwDG0vfyBsfUYoLw6CQWZcqxkbFLqwVuQcolnfH5lkg32nZkMkB5
+	gA48OdfQNnY4GugP6k2PV1Kbf5tLJVOMGvyIcmLyHhBKA8Yqgb1pmwHPyiVD/XXARUjVrhYdtTtLU
+	DumE15XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh8C-00000002tOm-3VSH;
-	Fri, 16 Oct 2026 12:33:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xHh8A-00000002tHk-1c6f;
+	Fri, 16 Oct 2026 12:33:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh83-00000002t8O-3HE4;
-	Fri, 16 Oct 2026 12:33:45 +0000
+	id 1xHh80-00000002t61-2Otj;
+	Fri, 16 Oct 2026 12:33:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154021;
-	bh=LnDN71zBmnghJgf22oZAFV2IgN4Qz8LaYeEh/iwGY40=;
+	s=mail; t=1792154018;
+	bh=/ymll5kBdC/XvR8b9LXgLGd2ViuuHxJPYrVpOYEW+v4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lxl85AIixRi3ijqgvpWfiORgGNkHJEUKkR0kRHiwKqnR7CF9y45tx28t7oAVkD2v7
-	 B7S5/k6csHuvMvgeIRWky6bYbF5Ek8BibRqMlDSAW8v0AtU72JZLdp81MHZ72BDBQq
-	 46Bp06EwOrK1CjWGr7+CnnIckDM38hhAPxlkW/xSjaWkpG5LfCvjOnAMX3+SeUmklL
-	 /y8SboHunedkZnFcF0nQTbfd0xqTzXXFrCmbF4AoLAbYgDI3dg6HuRYyLJcOHp/r06
-	 QnrK6cH9xV3rJteTR/6IeYN6FGg2b/khJV6HbYOPnK1dvMKtzjiRxwt+jeXip6diPI
-	 YH+n0qiRIoe1A==
+	b=B1fJ9HKDt/G+wvkodKtc5E+TyRqz9g4u5kGM/i1x8jRxo/o7tKt9Ra543QXxMj6WN
+	 DW0z8X0R8XrAT0ByK0Q7BGCK1WRkT6HA4RfyCwOyZ7rfcPh8kzyMtRv5YsXwkwtwQG
+	 xmX7Xgkj45mJsc2alhueNP1x4AWQT4As6FwMLNKSL2LWkZvD1zAWPU24a2m2Cc/CaD
+	 3ko43bVe47iy2aNXISmDs7p0fyuUYF9Ku7wHpf9oyI8D2qKEvPe+n9HEqt60pFRKV9
+	 tMQzbNpSHCVfjrPryn+nYxYH7oX2DkukJZjuljAOmlVb4WKwCUQkp09VmCVlOQGRAX
+	 fSVUPQjNYkOQQ==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C99B317E3643;
-	Fri, 16 Oct 2026 14:33:40 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8C18317E0099;
+	Fri, 16 Oct 2026 14:33:37 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:33:02 +0200
-Subject: [PATCH v14 10/23] scsi: ufs: mediatek: Rework the crypt-boost
- stuff
+Date: Fri, 16 Oct 2026 14:32:59 +0200
+Subject: [PATCH v14 07/23] scsi: ufs: mediatek: Rework 0.9V regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261016-mt8196-ufs-v14-10-e8d565e0cd45@collabora.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-mt8196-ufs-v14-7-e8d565e0cd45@collabora.com>
 References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
 In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -76,16 +75,16 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=4293;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=8108;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=Q2Qx2eRppKfrjg0+xsG2wdryOA7BoTrGsrnKsVzyv8Y=;
- b=KfCaHibW39uBOpXy3arSkOwcseZfrQuNXs0z72ky5Lcx6+70gjVoX50+eZT/Gk00Erg+/9HD0
- rwtMoFR00Y4A/j8CiAB1oPGLWI6HkME1o5HqbsiI7hU4XgQvvVBVMZ6
+ bh=yQZ26hs/PmSODEHhAs1QA/XIZ8H25aJCTguf9D0zvbI=;
+ b=TFVie28rd4zr9muSLZRrFWCON5ZJnpXHJaNM01+6eueYTSu1wvesKEjQ0KaRKkCu78CS6hBQJ
+ l7RLxI9RIaKAY4xm/kLpe+sWr4UJ1CzTbln+Aa4r7kKjoqFCF9q/Gb9
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_053344_128023_9E310F01 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20261016_053340_796834_16EDF112 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,145 +101,279 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-I don't know whether the crypt-boost functionality as it is currently
-implemented is even appropriate for mainline. It might be better done in
-some generic way. But what I do know is that I can rework the code to
-make it less obtuse.
+The mediatek UFS host driver does some pretty bad stuff with regards to
+the 0.9V regulator. Instead of just checking for the presence of the
+regulator, it adds a cap if it's there, and then checks for the cap. It
+also sleeps to stabilise the supply after enabling the regulator, which
+is something that should be done by the regulator framework with the
+appropriate delay properties in the DTS instead of random sleeps in the
+driver code.
 
-Prefix the boost stuff with the appropriate vendor prefix, remove the
-pointless clock wrappers, and rework the function.
+Rework this code and rename it to the avdd09 name I've chosen in the
+binding for this supply name, instead of the downstream "va09" name that
+isn't used by the datasheets for any of these chips.
 
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang (王信友) <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 89 ++++++++++++++---------------------------
- 1 file changed, 31 insertions(+), 58 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 153 +++++++++++++++++++++++++---------------
+ drivers/ufs/host/ufs-mediatek.h |   3 +-
+ 2 files changed, 99 insertions(+), 57 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 1be533020ed4..2bcf35bfabb7 100644
+index 2aa13b595480..bcb7f350984c 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -609,21 +609,6 @@ static int ufs_mtk_mphy_power_on(struct ufs_hba *hba, bool on)
- 	return 0;
+@@ -39,6 +39,10 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
+ #define MAX_SUPP_MAC 64
+ #define MCQ_QUEUE_OFFSET(c) ((((c) >> 16) & 0xFF) * 0x200)
+ 
++struct ufs_mtk_soc_data {
++	bool has_avdd09;
++};
++
+ static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+ 	{ .wmanufacturerid = UFS_ANY_VENDOR,
+ 	  .model = UFS_ANY_MODEL,
+@@ -49,8 +53,13 @@ static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+ 	{}
+ };
+ 
++static const struct ufs_mtk_soc_data mt8183_data = {
++	.has_avdd09 = true,
++};
++
+ static const struct of_device_id ufs_mtk_of_match[] = {
+-	{ .compatible = "mediatek,mt8183-ufshci" },
++	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
++	{ .compatible = "mediatek,mt8192-ufshci" },
+ 	{ .compatible = "mediatek,mt8195-ufshci" },
+ 	{},
+ };
+@@ -107,13 +116,6 @@ static bool ufs_mtk_is_boost_crypt_enabled(struct ufs_hba *hba)
+ 	return host->caps & UFS_MTK_CAP_BOOST_CRYPT_ENGINE;
  }
  
--static int ufs_mtk_get_host_clk(struct device *dev, const char *name,
--				struct clk **clk_out)
+-static bool ufs_mtk_is_va09_supported(struct ufs_hba *hba)
 -{
--	struct clk *clk;
--	int err = 0;
+-	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
 -
--	clk = devm_clk_get(dev, name);
--	if (IS_ERR(clk))
--		err = PTR_ERR(clk);
--	else
--		*clk_out = clk;
--
--	return err;
+-	return host->caps & UFS_MTK_CAP_VA09_PWR_CTRL;
 -}
 -
- static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
+ static bool ufs_mtk_is_broken_vcc(struct ufs_hba *hba)
  {
  	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-@@ -680,65 +665,53 @@ static void ufs_mtk_boost_crypt(struct ufs_hba *hba, bool boost)
- 	clk_disable_unprepare(cfg->clk_crypt_mux);
+@@ -508,56 +510,77 @@ static int ufs_mtk_wait_link_state(struct ufs_hba *hba, u32 state,
+ 	return -ETIMEDOUT;
  }
  
--static int ufs_mtk_init_host_clk(struct ufs_hba *hba, const char *name,
--				 struct clk **clk)
--{
--	int ret;
--
--	ret = ufs_mtk_get_host_clk(hba->dev, name, clk);
--	if (ret) {
--		dev_info(hba->dev, "%s: failed to get %s: %d", __func__,
--			 name, ret);
--	}
--
--	return ret;
--}
--
- static void ufs_mtk_init_boost_crypt(struct ufs_hba *hba)
++static int ufs_mtk_09v_off(struct ufs_mtk_host *host, bool allow_pwr_on)
++{
++	struct arm_smccc_res res;
++	int ret;
++
++	if (!host->reg_avdd09)
++		return 0;
++
++	ufs_mtk_va09_pwr_ctrl(res, 0);
++	ret = regulator_disable(host->reg_avdd09);
++	if (ret) {
++		dev_err(host->hba->dev, "Failed to disable avdd09-supply: %pe\n",
++			ERR_PTR(ret));
++		if (allow_pwr_on)
++			ufs_mtk_va09_pwr_ctrl(res, 1);
++
++		return ret;
++	}
++
++	return 0;
++}
++
++static int ufs_mtk_09v_on(struct ufs_mtk_host *host)
++{
++	struct arm_smccc_res res;
++	int ret;
++
++	if (!host->reg_avdd09)
++		return 0;
++
++	ret = regulator_enable(host->reg_avdd09);
++	if (ret) {
++		dev_err(host->hba->dev, "Failed to enable avdd09-supply: %pe\n",
++			ERR_PTR(ret));
++		return ret;
++	}
++
++	ufs_mtk_va09_pwr_ctrl(res, 1);
++
++	return 0;
++}
++
+ static int ufs_mtk_mphy_power_on(struct ufs_hba *hba, bool on)
  {
  	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct ufs_mtk_crypt_cfg *cfg;
- 	struct device *dev = hba->dev;
--	struct regulator *reg;
- 	u32 volt;
+ 	struct phy *mphy = host->mphy;
+-	struct arm_smccc_res res;
+-	int err;
+-	int ret = 0;
 +	int ret;
  
--	host->crypt = devm_kzalloc(dev, sizeof(*(host->crypt)),
--				   GFP_KERNEL);
--	if (!host->crypt)
--		goto disable_caps;
-+	cfg = devm_kzalloc(dev, sizeof(*cfg), GFP_KERNEL);
-+	if (!cfg)
-+		return;
+-	if (!mphy || !(on ^ host->mphy_powered_on))
++	if (!mphy || on == host->mphy_powered_on)
+ 		return 0;
  
--	reg = devm_regulator_get_optional(dev, "dvfsrc-vcore");
--	if (IS_ERR(reg)) {
--		dev_info(dev, "failed to get dvfsrc-vcore: %ld",
--			 PTR_ERR(reg));
--		goto disable_caps;
-+	cfg->reg_vcore = devm_regulator_get_optional(dev, "dvfsrc-vcore");
-+	if (IS_ERR(cfg->reg_vcore)) {
-+		dev_err(dev, "Failed to get dvfsrc-vcore: %pe\n", cfg->reg_vcore);
-+		return;
+ 	if (on) {
+-		if (ufs_mtk_is_va09_supported(hba)) {
+-			ret = regulator_enable(host->reg_va09);
+-			if (ret < 0)
+-				goto out;
+-			/* wait 200 us to stablize VA09 */
+-			usleep_range(200, 210);
+-			ufs_mtk_va09_pwr_ctrl(res, 1);
+-		}
++		ret = ufs_mtk_09v_on(host);
++		if (ret)
++			return ret;
+ 		ret = phy_power_on(mphy);
+ 		if (ret) {
+-			if (ufs_mtk_is_va09_supported(hba)) {
+-				ufs_mtk_va09_pwr_ctrl(res, 0);
+-				err = regulator_disable(host->reg_va09);
+-				if (err)
+-					dev_err(hba->dev,
+-						"failed to unwind va09: %d\n", err);
+-			}
+ 			dev_err(hba->dev, "failed to enable mphy: %d\n", ret);
++			ufs_mtk_09v_off(host, false);
+ 			return ret;
+ 		}
+ 	} else {
+ 		phy_power_off(mphy);
+-		if (ufs_mtk_is_va09_supported(hba)) {
+-			ufs_mtk_va09_pwr_ctrl(res, 0);
+-			ret = regulator_disable(host->reg_va09);
+-		}
+-	}
+-out:
+-	if (ret) {
+-		dev_info(hba->dev,
+-			 "failed to %s va09: %d\n",
+-			 on ? "enable" : "disable",
+-			 ret);
+-	} else {
+-		host->mphy_powered_on = on;
++		ret = ufs_mtk_09v_off(host, true);
++		if (ret)
++			return ret;
  	}
  
--	if (of_property_read_u32(dev->of_node, "boost-crypt-vcore-min",
--				 &volt)) {
--		dev_info(dev, "failed to get boost-crypt-vcore-min");
--		goto disable_caps;
-+	ret = of_property_read_u32(dev->of_node, "mediatek,boost-crypt-vcore-min",
-+				   &volt);
-+	if (ret) {
-+		dev_err(dev, "Failed to get mediatek,boost-crypt-vcore-min: %pe\n",
-+			ERR_PTR(ret));
-+		return;
- 	}
-+	cfg->vcore_volt = volt;
- 
--	cfg = host->crypt;
--	if (ufs_mtk_init_host_clk(hba, "crypt_mux",
--				  &cfg->clk_crypt_mux))
--		goto disable_caps;
-+	cfg->clk_crypt_mux = devm_clk_get(dev, "crypt_mux");
-+	if (IS_ERR(cfg->clk_crypt_mux)) {
-+		dev_err(dev, "Failed to get clock crypt_mux: %pe\n", cfg->clk_crypt_mux);
-+		return;
-+	}
- 
--	if (ufs_mtk_init_host_clk(hba, "crypt_lp",
--				  &cfg->clk_crypt_lp))
--		goto disable_caps;
-+	cfg->clk_crypt_lp = devm_clk_get(dev, "crypt_lp");
-+	if (IS_ERR(cfg->clk_crypt_lp)) {
-+		dev_err(dev, "Failed to get clock crypt_lp: %pe\n", cfg->clk_crypt_lp);
-+		return;
-+	}
- 
--	if (ufs_mtk_init_host_clk(hba, "crypt_perf",
--				  &cfg->clk_crypt_perf))
--		goto disable_caps;
-+	cfg->clk_crypt_perf = devm_clk_get(dev, "crypt_perf");
-+	if (IS_ERR(cfg->clk_crypt_perf)) {
-+		dev_err(dev, "Failed to get clock crypt_perf: %pe\n", cfg->clk_crypt_perf);
-+		return;
-+	}
- 
--	cfg->reg_vcore = reg;
--	cfg->vcore_volt = volt;
-+	host->crypt = cfg;
- 	host->caps |= UFS_MTK_CAP_BOOST_CRYPT_ENGINE;
--
--disable_caps:
--	return;
+-	return ret;
++	host->mphy_powered_on = on;
++
++	return 0;
  }
  
+ static int ufs_mtk_get_host_clk(struct device *dev, const char *name,
+@@ -692,17 +715,6 @@ static void ufs_mtk_init_boost_crypt(struct ufs_hba *hba)
+ 	return;
+ }
+ 
+-static void ufs_mtk_init_va09_pwr_ctrl(struct ufs_hba *hba)
+-{
+-	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-
+-	host->reg_va09 = regulator_get(hba->dev, "va09");
+-	if (IS_ERR(host->reg_va09))
+-		dev_info(hba->dev, "failed to get va09");
+-	else
+-		host->caps |= UFS_MTK_CAP_VA09_PWR_CTRL;
+-}
+-
  static void ufs_mtk_init_host_caps(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+@@ -711,9 +723,6 @@ static void ufs_mtk_init_host_caps(struct ufs_hba *hba)
+ 	if (of_property_read_bool(np, "mediatek,ufs-boost-crypt"))
+ 		ufs_mtk_init_boost_crypt(hba);
+ 
+-	if (of_property_read_bool(np, "mediatek,ufs-support-va09"))
+-		ufs_mtk_init_va09_pwr_ctrl(hba);
+-
+ 	if (of_property_read_bool(np, "mediatek,ufs-disable-ah8"))
+ 		host->caps |= UFS_MTK_CAP_DISABLE_AH8;
+ 
+@@ -1219,6 +1228,36 @@ static void ufs_mtk_init_mcq_irq(struct ufs_hba *hba)
+ 	host->mcq_nr_intr = 0;
+ }
+ 
++/**
++ * ufs_mtk_get_supplies - acquire variant-specific supplies
++ * @host: pointer to driver's private &struct ufs_mtk_host instance
++ *
++ * Returns 0 on success, negative errno on error.
++ */
++static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
++{
++	struct device *dev = host->hba->dev;
++	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
++
++	if (!data || !data->has_avdd09)
++		return 0;
++
++	host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
++	if (IS_ERR(host->reg_avdd09)) {
++		if (PTR_ERR(host->reg_avdd09) == -ENODEV) {
++			host->reg_avdd09 = NULL;
++			return 0;
++		}
++
++		return dev_err_probe(dev,
++				     PTR_ERR(host->reg_avdd09),
++				     "Failed to get avdd09 regulator: %pe\n",
++				     host->reg_avdd09);
++	}
++
++	return 0;
++}
++
+ /**
+  * ufs_mtk_init - find other essential mmio bases
+  * @hba: host controller instance
+@@ -1302,6 +1341,10 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 
+ 	ufs_mtk_init_clocks(hba);
+ 
++	err = ufs_mtk_get_supplies(host);
++	if (err)
++		goto out_variant_clear;
++
+ 	/*
+ 	 * ufshcd_vops_init() is invoked after
+ 	 * ufshcd_setup_clock(true) in ufshcd_hba_init() thus
+diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
+index f95f12eb9926..c63740b98e85 100644
+--- a/drivers/ufs/host/ufs-mediatek.h
++++ b/drivers/ufs/host/ufs-mediatek.h
+@@ -125,7 +125,6 @@ enum {
+  */
+ enum ufs_mtk_host_caps {
+ 	UFS_MTK_CAP_BOOST_CRYPT_ENGINE         = 1 << 0,
+-	UFS_MTK_CAP_VA09_PWR_CTRL              = 1 << 1,
+ 	UFS_MTK_CAP_DISABLE_AH8                = 1 << 2,
+ 	UFS_MTK_CAP_BROKEN_VCC                 = 1 << 3,
+ 
+@@ -176,7 +175,7 @@ struct ufs_mtk_mcq_intr_info {
+ 
+ struct ufs_mtk_host {
+ 	struct phy *mphy;
+-	struct regulator *reg_va09;
++	struct regulator *reg_avdd09;
+ 	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
+ 	struct ufs_hba *hba;
+ 	struct ufs_mtk_crypt_cfg *crypt;
 
 -- 
 2.56.0
