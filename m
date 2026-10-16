@@ -4,63 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770C0CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80791CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prK2fXj+7vVBcZ/To0OkR39zHZ2AiIcCzHv7JdDz8OA=; b=rRG4jrK5ECLp/C/uCfnaTeU1M9
-	prE1PfZEENL13E+ftnPh7tyIfRyFJc64NTOqlTaM2TxyWI0bC/ViEgLdRAPZZFCo2RCmHcSwq18xd
-	Jtkhqo3XhFUM+5e3qGlCei1GhMgHk+YDAK2ttyZvFLlmAUhLjCrzORs+dVbpfMM6Tj+K2hEqeg6BF
-	hV8FLaXLacj8UxdEyoXKPhOc2o544Kqlf4GPmAUOS9Z0KZTwq4LQvpPwhdb7cYsK6G7J1V6SafelU
-	xtNgGUj8lNFb3HkQu47BkPsMTgAJHza7tL0Kq/Tqc5fCROnFa2nJv/g2Z1EJiCiUdD3rG0ZLIlNlP
-	ZZ0JogOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=; b=nOELEU759Z00ye1k9ysM4dOea8
+	+zAUExRIX346GrmeqTlpGxZLx+Boer6v0gTaOVIoSeIHVk7ZcRSp7JY2Om2HJvtAEGUFRVx3lBHOa
+	DoqwNTCclnVz9j4xgykAJzH2dpp4to6HrWaPBDXEfSHUKyKbFmKSkgVqlg9zxoA+2MRuSnYlCKyC+
+	QNSaTLOREUE5KSkIOnArzNSsic+MlMN8Vsfv90wDyCEfIKm0ENoiDGL3RN98sd6fEHIAM9gqT7LhR
+	h/l4Fd5c3fl0RmBWhDqFZTs+AAeOwzUyTbxyPbviR4wVz5SDtpr9lA+XxfLskd3Fn4CaL8cw6V4Ae
+	FNWkiKtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl6x-00000003Sag-0kRr;
-	Fri, 16 Oct 2026 16:48:51 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1xHl9u-00000003Swm-3tVx;
+	Fri, 16 Oct 2026 16:51:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl6t-00000003SZt-3Jmb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:48:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=prK2fXj+7vVBcZ/To0OkR39zHZ2AiIcCzHv7JdDz8OA=; b=QkhcK/VPrXGqebfqSEsqto00s8
-	msAN8OXD+MmF1lEyFQnADgrcfESRcr1fONXADcjh4KbkKyodT7GgXOZF6waNI7DvmRzSYaU3b9I0G
-	aYYA0ZgsMoAL4BjqTTnGf2rr185aKDxjmd9G61QgenC6KK5lwxeWEfIcZgQBMqtiksrk=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1xHl6o-000000006NH-1BEn;
-	Fri, 16 Oct 2026 12:48:42 -0400
-Date: Fri, 16 Oct 2026 12:48:39 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jirislaby@kernel.org>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- (The Capable Hub) <u.kleine-koenig@baylibre.com>, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-Id: <20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
-In-Reply-To: <20261016130328.1037616-1-arnd@kernel.org>
-References: <20261016130328.1037616-1-arnd@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+	id 1xHl9t-00000003Sw6-0F4X;
+	Fri, 16 Oct 2026 16:51:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=; b=f0HnWYw6Ow95wv1K+gzWKcfxkb
+	gVTTsuYxKByPAs6v3Wkd6Jsze6/8ElOtLuGklivEog9moza7+vZ0F1wTDD/dhNBWiELw2De6xjH5U
+	d4GCWG7MC/g9ZO8GHJsHwETCsgY6V5k+8MXirIRAX1FbApNq6EXYRUBiuyyUUswZ36AY0vKxSVUMH
+	N+qMDxWk7W7jNVw8vtUzHlOMWoqf+/YwhqrRXFgOcxKr2nY/pKpTlD+uYVCDCuZuf7Ubyfvgz+nB2
+	OaCXgowTqfa3YLLfur35Uty7DEoS9oPn19APuqwZ9PiNBq+PStLGM/YWS5tA8S/+Vvn0DjT1ZXr8X
+	UNXjSatQ==;
+Received: from mail-westcentralusazon11010013.outbound.protection.outlook.com ([40.93.198.13] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHl9p-00000001l5l-2OnU;
+	Fri, 16 Oct 2026 16:51:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QyLl1OMq3kHztAkshuhAQWYmh2RNqyaanrQywWyH5tvQzsqE9ozZ529173PSidDWRKK/Na4CnXbRdC1NiVUJBilruVm7ex1S4+P8QuSsFjU3O1Xb18Ce5ImIlcBWcxnKFgI0ZsWhDxY+5cSmsWh1W4RYVpoub52JZulfH3/TxjcfX9goxo92xDM0cTBP1OInufnN7KaMY9OZeFeEE6AjxzCpEvqN4HVietsgHwGpo5kb+cai6m8sf0UGuXN/HoSyQew1qvfG99QXmnAPKID02+UVUCtGtmiRQJWfDZL/v0ivhMa4kUc7Pp3YQJMZhEcbh7MiP2mY6hmVBqifnXHUqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=;
+ b=nUlYG0cwVQD4VgU12e4tCAT1JdqaR9mIM0LXqBKAbVIojxGc6DaynLpn/pem4EdVPDPiDXlHlqZ5PgOnfb1Vj7hLC4cDz99OK23Gj9Aczw9v/TNKZfdDnO5C176Exk6lwlzXNDV/KOPMSihN4PXHvc2hrs0lIihlCs1WVRAhkipDKc+jazTMLRsGkTQijFngepS9oaOQ8ZMgGHHccsFVLKaVlhcA0sm7dcbKx+SfGc4Zk2GZXpDENOgrRiqYl6uBRDyat7RGB7zeVgdtxwOEgPtD3kAMPMtZZLIGE761Wcj4Wmk5nyIKXRb14/H5V0CbPfSOZh7qePbWypnqycq/zQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qJW8AKNKZvmeX2LjshLcL0LMhAvgplepmTkSU1c2zdk=;
+ b=FkpaHwTuqyIQY9INp0xvPs9BEEM6s1xYguC+mrl4w2T7d7El9TB9fWQzgfktFkyxzz/45b1neXrOKYLEfCsip/CN7SzCvuWid2stS0sZ6tOVfjU7yEfshjtFk+HrVR67RpQLcvm+Yz84trLMXXq4dg0nBeWU8KG1QAMrkmu0XZzuaJjT3BDV4PFNQGQdqm2PrHUVisMAp1iM3cMZ4fHUpkSfha+9Sx8Slk3XRNWo3urX4YmjNHK6aVIrrsbLN+VoVtGuPH33i+1MvSXzek5XncU59kljqEpeB0w2CNG2FMtRq6Gsn0alfjLc84wvGitDWTnKBmTC0ThyfPjsIYn1NQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CH2PR12MB4165.namprd12.prod.outlook.com
+ (2603:10b6:610:a4::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Fri, 16 Oct
+ 2026 16:51:37 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
+ 16:51:36 +0000
+Date: Fri, 16 Oct 2026 13:51:35 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Piotr =?utf-8?B?S3LDs2w=?= <piotr.krol@3mdeb.com>,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v2 00/15] arm64: DRTM, boot portion
+Message-ID: <20261016165135.GA494690@nvidia.com>
+References: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com>
+X-ClientProxiedBy: CH0PR04CA0103.namprd04.prod.outlook.com
+ (2603:10b6:610:75::18) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH2PR12MB4165:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea142555-71bd-458e-adb9-08df2ba5be0f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|921020|56012099006|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: ZP0hwSp6bKc9SiyHxM11NKN9afTWQHyeu4RZGNwQ0InoHvIAzayReBkYG3DYcYQR121ujdQUJYAl9ZnA7MWrnJC6/LQhSAFu+AZFehdWWT+YmJwtggff6AfXfy1LhnxKg9JZpXzccAFURF3nm9+48mKvYc6+CFqBYugSZFeJf+tzRqW892Ps0r9VpLIiLlAUofv0sVvWZue4nAxkGGDuMuO5PckPpJtrpLFaVpf1PM4z8a7+WJvIHDYOPKMHk7HcNfbnkDXB1JPljaknVEXL184N+XcGidmLXYd4ihT40dgtYD1Y8f0PbDrTLWL9fOnjfmgukDi352cqTqh/xziNyS6Fvc3QwPnIQbbZF+yPQD1/CrCF9JNpkF/i1oq2wlEswM3ZNEpKhjUEbutnY/RMTSRNuEUeCNn1syIlipwl/5q1QcF1V6H1T3IFaZsdOaJtgSkcFwbnI90FE3xZF+0wxCZRNMo5Ij65yFsVT43E1E1Y8DxEwincP23lokWiQ3lMfc3i0bfdnwBjeqL8RhINLg3LnCNTHi/ro1xCwvitYP4gbnwN802htuBfL2rXmniL6BCTTwmHT1NxDNC7ohMzIylgLn9MfsisRXesMTseCg8GdQM0S9W4dQq8BnhU+zetNpugemeSYcRj/WYA78/mxPZqAlO+eXXeUM4ehLwnGIZiM5VJ110L8sB/ilQKHwcYtGgLDEko8baB4swzDrl+Bw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(921020)(56012099006)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CRr2urvtZQQW0el4TaKPlzpsM7qQ6zht3ROIPwFl4mJh0C5n0TcLwpNVtdr+?=
+ =?us-ascii?Q?EnVmCjyV/EXnXuysxRgoQFTeOdr0h9oEPUp+vrJK5WH/RR3HhQPBn+unVo3U?=
+ =?us-ascii?Q?JuFbjGzAlAj45tkUi5Nh2eaxToLVA7/LDIqVHESgrUFiYXkMFHfOlXEV6au3?=
+ =?us-ascii?Q?ZJdZkjGus9Fp2tJOcQuNu/MSIL5Rr+GWlK1xo71AUPKRp3mTt8m/Zsklm71i?=
+ =?us-ascii?Q?+Y9npcORITk3/Bc3l4dhPZ5EL1rsc6xlEToWwD6yhOh9m7NBM68IFm9Xxkn/?=
+ =?us-ascii?Q?hGlh3REa2nLuKeYW3Xt/AYwTYNAhszYeh3Tx062rWTyQ5pZgQys2awZQ/c2D?=
+ =?us-ascii?Q?YOs3z3T7pLX8HKDPPm3fQ4iYM6+58y8E5t61/3JsHGMN9xqyHZtfL31Wyq3a?=
+ =?us-ascii?Q?eRLDl1XO+LtJhF24D8yi34PKTZVu5EXlbkPvwKyStthR+1N3VaY0/rd/oCkD?=
+ =?us-ascii?Q?Zs+8nSnf7+mAwrDBjEv4zTtgbCtQG0pqXgxNONB1RsrR+1cv4LGzSlDPDkaX?=
+ =?us-ascii?Q?oYhZTkm9WkOP1/X0NmV3LrVs2DjoAEh220RoV7t3I9Jv/RIFJRTeu7z/WbGp?=
+ =?us-ascii?Q?VTFIyqV9IZ3CxOFAd8cTsyME7zipKG7FsNPLCa8njzMsIgg+Bz8yErajkOzj?=
+ =?us-ascii?Q?ZNIjgwMJgUtgOMSA25PO4AMjs2Ad8UstJrFI3ywOctkWz/H0T/EPQtooM4Po?=
+ =?us-ascii?Q?hOdvtbaLm0tCJPX7ECdczz98gIKBAKQ7Z1Vr0peBTryN42I1mnCN1G3uWPHr?=
+ =?us-ascii?Q?/q3xpMKSwcdAFplstmFbW0e3Z+73CPPhez+EihRof/c4ZlYpkp2QtOK6uI7T?=
+ =?us-ascii?Q?4jm3vFrreQUhBz9q6n/3x2ThKMTUqZbwvI/vdGT7Jc8AHo4++uG44R7qM8aa?=
+ =?us-ascii?Q?mlyn9Q6ADG28iICh8mOosWZrBeT0hN+7+wVJAvH9ty46ZhBMurmzQ7xz840W?=
+ =?us-ascii?Q?rqKNnPj1HA96fngywGxcpQoY5V9M20p2wg4URpA+mGMKUkFwYofzkjR44Axb?=
+ =?us-ascii?Q?sEk8szFsr1/up4L3UtY5AFwCDgUvkMyWb3nM6JyHz/Y11Xg8RaIcA1+K5NbE?=
+ =?us-ascii?Q?uxJSyD5tkAUxA/ap1Y0mCL52e9V4DHQem2Zdc9VMHe5Mvx9yopsmYmeSCqux?=
+ =?us-ascii?Q?npFmcaLV4bS46vbs7xssJhF38BTI5DChubBZx/x9wNGiM4tIlzBKB02Tqa+Z?=
+ =?us-ascii?Q?NHA5vVQjLJrHIUFOXNYuhgoL9fly+K3erzOiAIIGLOxCrhHJdCohbQQGK9E4?=
+ =?us-ascii?Q?xnQ9O03SbF5LzzSVNyZNsUF5fAoO2n27cBTSPtDuMW8mhXdFcQvVIVA/xlwy?=
+ =?us-ascii?Q?gkaWgMKI3xD2YiZYsVQWBmi+PwwYj4+W9xPnTT2t7z7hypnt2+G50BWJCedn?=
+ =?us-ascii?Q?Ce1Hahhx9/IK31N2VA0lCMdL6GDS8siGH97OL2BmSQE9j1HC51+Zqbttv/GL?=
+ =?us-ascii?Q?Pb8jgNFu7rpNZxYcz+c6ztDkth5P0u/ChIkC4fALc9F78J6Fo1/6N7qfiTUm?=
+ =?us-ascii?Q?ZJYD1wzaPJoboeZeoc7ldzPmCjBdiscDN0FkaIo1ZXKyzyZaDtJKYtlF//4u?=
+ =?us-ascii?Q?FfX07l1Fc9u7WJCkT5v0LQtfotZbo0YsdVv6DOrbc7l+KFBvoEr9nfTaVE7J?=
+ =?us-ascii?Q?anH9fzB8ViiZTax0rGdkba7bJwkBYmxbOPjhxQ8NAvjaTFjim/MS8J4zwlNo?=
+ =?us-ascii?Q?+ndhBrLcspafwjasUUCKeh+oYYul7A2e1piWak9FGc8scBm3?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea142555-71bd-458e-adb9-08df2ba5be0f
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 16:51:36.9408
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qn31JklQuX28XUrAIp3ZERIY76HXSg8dzOfIdeWr/9OTY8VoUk3Yil2/DoMcymP8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_094847_975055_77E54C7E 
-X-CRM114-Status: GOOD (  38.94  )
+X-CRM114-CacheID: sfid-20261016_175149_825076_71F6F00A 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,566 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Fri, Oct 02, 2026 at 08:31:37PM -0300, Jason Gunthorpe wrote:
+>  - Non-EFI boot, particularly kexec
 
-On Fri, 16 Oct 2026 14:59:47 +0200
-Arnd Bergmann <arnd@kernel.org> wrote:
+At least the kexec issue seems like it has a good solution, Ard
+created a way for kexec to use the EFI entry point, and we've shown
+now that this series plus Ard's work can kexec directly into a UKI and
+DRTM into the successor kernel. Pretty amazing.
 
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> hub6 support was added in linux-0.99 and the hardware was already old at
-> the time, being discontinued in 1990. The code for it has always been a
-> mess since it adds another dimension to the I/O addressing in the driver
-> that has leaked into many individual files.
-> 
-> Hugo and Uwe have attempted several times this year alone to isolate
-> the hub6 handling into the 8250_hub6.c file, but I feel that none of
-> this has been a real improvement over the original standalone loadable
-> module support.
-> 
-> Any machine that would have used this ISA card in practice is likely
-> 30 to 40 years old, and with i486 support now removed, it is clearly
-> safe to just kill this all off. The only bit that has to remain
-> is the ioctl interface, to ensure the serial_struct field is always
-> zero.
-> 
-> Link: https://mirrors.nycbug.org/pub/The_Unix_Archive/Unix_Usenet/comp.unix.sysv386/1990-December/007174.html
-> Fixes: a300273c458c ("serial: 8250: hub6: Add cleanup code")
-> Fixes: c526404a4a92 ("serial: 8250: Fix corner case for port matching")
-> Fixes: 7ab80d1e7243 ("serial: 8250: fix compile error with hub6_match_port() when compiled as a module")
-> Fixes: da7b5fd4e17f ("serial: 8250_hub6: add missing include for hub6_match_port()")
-> Fixes: 3d406299d882 ("serial: 8250_hub6: add hub6_match_port()")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  drivers/tty/serial/8250/8250.h          | 15 -------
->  drivers/tty/serial/8250/8250_core.c     |  2 -
->  drivers/tty/serial/8250/8250_hub6.c     | 60 -------------------------
->  drivers/tty/serial/8250/8250_platform.c | 11 +----
->  drivers/tty/serial/8250/8250_port.c     | 23 ----------
->  drivers/tty/serial/8250/Kconfig         | 15 ++-----
->  drivers/tty/serial/8250/Makefile        |  1 -
->  drivers/tty/serial/atmel_serial.c       |  2 -
->  drivers/tty/serial/fsl_lpuart.c         |  2 -
->  drivers/tty/serial/imx.c                |  2 -
->  drivers/tty/serial/mpc52xx_uart.c       |  3 +-
->  drivers/tty/serial/sa1100.c             |  2 -
->  drivers/tty/serial/serial_core.c        | 18 +++-----
->  drivers/tty/serial/sunsu.c              |  9 ----
->  drivers/tty/serial/xilinx_uartps.c      |  2 -
->  include/linux/serial_8250.h             |  2 -
->  include/linux/serial_core.h             |  2 -
->  17 files changed, 12 insertions(+), 159 deletions(-)
->  delete mode 100644 drivers/tty/serial/8250/8250_hub6.c
-> 
-> diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
-> index 21ed9c41b751..75afeb8c0cef 100644
-> --- a/drivers/tty/serial/8250/8250.h
-> +++ b/drivers/tty/serial/8250/8250.h
-> @@ -323,14 +323,6 @@ static inline int serial8250_pnp_init(void) { return 0; }
->  static inline void serial8250_pnp_exit(void) { }
->  #endif
->  
-> -#ifdef CONFIG_SERIAL_8250_HUB6
-> -int serial8250_hub6_init(void);
-> -void serial8250_hub6_exit(void);
-> -#else
-> -static inline int serial8250_hub6_init(void) { return 0; }
-> -static inline void serial8250_hub6_exit(void) { }
-> -#endif
-> -
->  #ifdef CONFIG_SERIAL_8250_RSA
->  void univ8250_rsa_support(struct uart_ops *ops, const struct uart_ops *core_ops);
->  void rsa_enable(struct uart_8250_port *up);
-> @@ -351,13 +343,6 @@ int fintek_8250_probe(struct uart_8250_port *uart);
->  static inline int fintek_8250_probe(struct uart_8250_port *uart) { return 0; }
->  #endif
->  
-> -#if IS_ENABLED(CONFIG_SERIAL_8250_HUB6)
-> -bool hub6_match_port(const struct uart_port *port1, const struct uart_port *port2);
-> -#else
-> -static inline bool hub6_match_port(const struct uart_port *port1, const struct uart_port *port2)
-> -{ return false; }
-> -#endif
-> -
->  #ifdef CONFIG_ARCH_OMAP1
->  #include <linux/soc/ti/omap1-soc.h>
->  static inline int is_omap1_8250(struct uart_8250_port *pt)
-> diff --git a/drivers/tty/serial/8250/8250_core.c b/drivers/tty/serial/8250/8250_core.c
-> index 42319843cb5b..96c99f0ae683 100644
-> --- a/drivers/tty/serial/8250/8250_core.c
-> +++ b/drivers/tty/serial/8250/8250_core.c
-> @@ -686,8 +686,6 @@ static bool serial8250_match_port(const struct uart_port *port1,
->  		return false;
->  	else if (port1->iotype == UPIO_PORT)
->  		return port1->iobase == port2->iobase;
-> -	else if (port1->iotype == UPIO_HUB6)
-> -		return hub6_match_port(port1, port2);
->  	else if (uart_iotype_mmio(port1->iotype))
->  		return port1->mapbase == port2->mapbase;
->  	else
-> diff --git a/drivers/tty/serial/8250/8250_hub6.c b/drivers/tty/serial/8250/8250_hub6.c
-> deleted file mode 100644
-> index 848d9723ac56..000000000000
-> --- a/drivers/tty/serial/8250/8250_hub6.c
-> +++ /dev/null
-> @@ -1,60 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> -/*
-> - *  Copyright (C) 2005 Russell King.
-> - *  Data taken from include/asm-i386/serial.h
-> - */
-> -#include <linux/module.h>
-> -#include <linux/init.h>
-> -#include <linux/serial_8250.h>
-> -
-> -#include "8250.h"
-> -
-> -#define HUB6(card, port)						\
-> -	{								\
-> -		.iobase		= 0x302,				\
-> -		.irq		= 3,					\
-> -		.uartclk	= 1843200,				\
-> -		.iotype		= UPIO_HUB6,				\
-> -		.flags		= UPF_BOOT_AUTOCONF,			\
-> -		.hub6		= (card) << 6 | (port) << 3 | 1,	\
-> -	}
-> -
-> -static struct plat_serial8250_port hub6_data[] = {
-> -	HUB6(0, 0),
-> -	HUB6(0, 1),
-> -	HUB6(0, 2),
-> -	HUB6(0, 3),
-> -	HUB6(0, 4),
-> -	HUB6(0, 5),
-> -	HUB6(1, 0),
-> -	HUB6(1, 1),
-> -	HUB6(1, 2),
-> -	HUB6(1, 3),
-> -	HUB6(1, 4),
-> -	HUB6(1, 5),
-> -	{ },
-> -};
-> -
-> -static struct platform_device hub6_device = {
-> -	.name			= "serial8250",
-> -	.id			= PLAT8250_DEV_HUB6,
-> -	.dev			= {
-> -		.platform_data	= hub6_data,
-> -	},
-> -};
-> -
-> -bool hub6_match_port(const struct uart_port *port1, const struct uart_port *port2)
-> -{
-> -	return port1->iobase == port2->iobase && port1->hub6 == port2->hub6;
-> -}
-> -EXPORT_SYMBOL_GPL(hub6_match_port);
-> -
-> -int __init serial8250_hub6_init(void)
-> -{
-> -	return platform_device_register(&hub6_device);
-> -}
-> -
-> -void serial8250_hub6_exit(void)
-> -{
-> -	platform_device_unregister(&hub6_device);
-> -}
-> diff --git a/drivers/tty/serial/8250/8250_platform.c b/drivers/tty/serial/8250/8250_platform.c
-> index 7ce7ad295fae..8aa769085bfa 100644
-> --- a/drivers/tty/serial/8250/8250_platform.c
-> +++ b/drivers/tty/serial/8250/8250_platform.c
-> @@ -86,7 +86,6 @@ static void __init __serial8250_isa_init_ports(void)
->  		port->irqflags = 0;
->  		port->uartclk  = old_serial_port[i].baud_base * 16;
->  		port->flags    = old_serial_port[i].flags;
-> -		port->hub6     = 0;
->  		port->membase  = old_serial_port[i].iomem_base;
->  		port->iotype   = old_serial_port[i].io_type;
->  		port->regshift = old_serial_port[i].iomem_reg_shift;
-> @@ -169,7 +168,6 @@ static int serial8250_probe_platform(struct platform_device *dev, struct plat_se
->  		uart->port.flags		= p->flags;
->  		uart->port.mapbase	= p->mapbase;
->  		uart->port.mapsize	= p->mapsize;
-> -		uart->port.hub6		= p->hub6;
->  		uart->port.has_sysrq	= p->has_sysrq;
->  		uart->port.private_data	= p->private_data;
->  		uart->port.type		= p->type;
-> @@ -317,14 +315,10 @@ static int __init serial8250_init(void)
->  	if (ret)
->  		goto unreg_uart_drv;
->  
-> -	ret = serial8250_hub6_init();
-> -	if (ret)
-> -		goto unreg_pnp;
-> -
->  	serial8250_isa_devs = platform_device_alloc("serial8250", PLAT8250_DEV_LEGACY);
->  	if (!serial8250_isa_devs) {
->  		ret = -ENOMEM;
-> -		goto unreg_hub6;
-> +		goto unreg_pnp;
->  	}
->  
->  	ret = platform_device_add(serial8250_isa_devs);
-> @@ -340,8 +334,6 @@ static int __init serial8250_init(void)
->  	platform_device_del(serial8250_isa_devs);
->  put_dev:
->  	platform_device_put(serial8250_isa_devs);
-> -unreg_hub6:
-> -	serial8250_hub6_exit();
->  unreg_pnp:
->  	serial8250_pnp_exit();
->  unreg_uart_drv:
-> @@ -369,7 +361,6 @@ static void __exit serial8250_exit(void)
->  	platform_driver_unregister(&serial8250_isa_driver);
->  	platform_device_unregister(isa_dev);
->  
-> -	serial8250_hub6_exit();
->  	serial8250_pnp_exit();
->  
->  #ifdef CONFIG_SPARC
-> diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-> index 36b2b0a2c05c..3593e7209879 100644
-> --- a/drivers/tty/serial/8250/8250_port.c
-> +++ b/drivers/tty/serial/8250/8250_port.c
-> @@ -354,22 +354,6 @@ static void default_serial_dl_write(struct uart_8250_port *up, u32 value)
->  	serial_out(up, UART_DLM, value >> 8 & 0xff);
->  }
->  
-> -#ifdef CONFIG_HAS_IOPORT
-> -static u32 hub6_serial_in(struct uart_port *p, unsigned int offset)
-> -{
-> -	offset = offset << p->regshift;
-> -	outb(p->hub6 - 1 + offset, p->iobase);
-> -	return inb(p->iobase + 1);
-> -}
-> -
-> -static void hub6_serial_out(struct uart_port *p, unsigned int offset, u32 value)
-> -{
-> -	offset = offset << p->regshift;
-> -	outb(p->hub6 - 1 + offset, p->iobase);
-> -	outb(value, p->iobase + 1);
-> -}
-> -#endif /* CONFIG_HAS_IOPORT */
-> -
->  static u32 mem_serial_in(struct uart_port *p, unsigned int offset)
->  {
->  	offset = offset << p->regshift;
-> @@ -450,13 +434,6 @@ static void set_io_from_upio(struct uart_port *p)
->  	up->dl_write = default_serial_dl_write;
->  
->  	switch (p->iotype) {
-> -#ifdef CONFIG_HAS_IOPORT
-> -	case UPIO_HUB6:
-> -		p->serial_in = hub6_serial_in;
-> -		p->serial_out = hub6_serial_out;
-> -		break;
-> -#endif
-> -
->  	case UPIO_MEM:
->  		p->serial_in = mem_serial_in;
->  		p->serial_out = mem_serial_out;
-> diff --git a/drivers/tty/serial/8250/Kconfig b/drivers/tty/serial/8250/Kconfig
-> index 82e761b8298a..9917b7e1bb26 100644
-> --- a/drivers/tty/serial/8250/Kconfig
-> +++ b/drivers/tty/serial/8250/Kconfig
-> @@ -208,9 +208,9 @@ config SERIAL_8250_EXTENDED
->  	depends on SERIAL_8250
->  	help
->  	  If you wish to use any non-standard features of the standard "dumb"
-> -	  driver, say Y here. This includes HUB6 support, shared serial
-> -	  interrupts, special multiport support, support for more than the
-> -	  four COM 1/2/3/4 boards, etc.
-> +	  driver, say Y here. This includes shared serial interrupts, special
-> +	  multiport support, support for more than the four COM 1/2/3/4 boards,
-> +	  etc.
->  
->  	  Note that the answer to this question won't directly affect the
->  	  kernel: saying N will just cause the configurator to skip all
-> @@ -303,15 +303,6 @@ config SERIAL_8250_EXAR_ST16C554
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called 8250_exar_st16c554.
->  
-> -config SERIAL_8250_HUB6
-> -	bool "Support Hub6 cards"
-> -	depends on SERIAL_8250_MANY_PORTS && ISA
-> -	help
-> -	  Say Y here if you have a HUB6 serial board.
-> -
-> -	  To compile this driver as a module, choose M here: the module
-> -	  will be called 8250_hub6.
-> -
->  config SERIAL_8250_PCI1XXXX
->  	tristate "Microchip 8250 based serial port"
->  	depends on SERIAL_8250 && PCI
-> diff --git a/drivers/tty/serial/8250/Makefile b/drivers/tty/serial/8250/Makefile
-> index 5ff2ba414e13..d241ce486953 100644
-> --- a/drivers/tty/serial/8250/Makefile
-> +++ b/drivers/tty/serial/8250/Makefile
-> @@ -7,7 +7,6 @@ obj-$(CONFIG_SERIAL_8250)		+= 8250.o
->  8250-y					:= 8250_core.o
->  8250-y					+= 8250_platform.o
->  8250-$(CONFIG_SERIAL_8250_PNP)		+= 8250_pnp.o
-> -8250-$(CONFIG_SERIAL_8250_HUB6)		+= 8250_hub6.o
->  
->  obj-$(CONFIG_SERIAL_8250)		+= 8250_base.o
->  8250_base-y				:= 8250_port.o
-> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-> index c3880259e3bc..9c40ccee0c82 100644
-> --- a/drivers/tty/serial/atmel_serial.c
-> +++ b/drivers/tty/serial/atmel_serial.c
-> @@ -2448,8 +2448,6 @@ static int atmel_verify_port(struct uart_port *port, struct serial_struct *ser)
->  		ret = -EINVAL;
->  	if (port->iobase != ser->port)
->  		ret = -EINVAL;
-> -	if (ser->hub6 != 0)
-> -		ret = -EINVAL;
->  	return ret;
->  }
->  
-> diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpuart.c
-> index c8575c965203..6e1248840022 100644
-> --- a/drivers/tty/serial/fsl_lpuart.c
-> +++ b/drivers/tty/serial/fsl_lpuart.c
-> @@ -2432,8 +2432,6 @@ static int lpuart_verify_port(struct uart_port *port, struct serial_struct *ser)
->  		ret = -EINVAL;
->  	if (port->iobase != ser->port)
->  		ret = -EINVAL;
-> -	if (ser->hub6 != 0)
-> -		ret = -EINVAL;
->  	return ret;
->  }
->  
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 986fefb45c63..d89be62e3852 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -1936,8 +1936,6 @@ imx_uart_verify_port(struct uart_port *port, struct serial_struct *ser)
->  		ret = -EINVAL;
->  	if (port->iobase != ser->port)
->  		ret = -EINVAL;
-> -	if (ser->hub6 != 0)
-> -		ret = -EINVAL;
->  	return ret;
->  }
->  
-> diff --git a/drivers/tty/serial/mpc52xx_uart.c b/drivers/tty/serial/mpc52xx_uart.c
-> index 472ec39caf27..240009333fb5 100644
-> --- a/drivers/tty/serial/mpc52xx_uart.c
-> +++ b/drivers/tty/serial/mpc52xx_uart.c
-> @@ -1339,8 +1339,7 @@ mpc52xx_uart_verify_port(struct uart_port *port, struct serial_struct *ser)
->  	if ((ser->irq != port->irq) ||
->  	    (ser->io_type != UPIO_MEM) ||
->  	    (ser->baud_base != port->uartclk)  ||
-> -	    (ser->iomem_base != (void *)port->mapbase) ||
-> -	    (ser->hub6 != 0))
-> +	    (ser->iomem_base != (void *)port->mapbase))
->  		return -EINVAL;
->  
->  	return 0;
-> diff --git a/drivers/tty/serial/sa1100.c b/drivers/tty/serial/sa1100.c
-> index 72b1bb76415c..ee5f3960d1e4 100644
-> --- a/drivers/tty/serial/sa1100.c
-> +++ b/drivers/tty/serial/sa1100.c
-> @@ -556,8 +556,6 @@ sa1100_verify_port(struct uart_port *port, struct serial_struct *ser)
->  		ret = -EINVAL;
->  	if (sport->port.iobase != ser->port)
->  		ret = -EINVAL;
-> -	if (ser->hub6 != 0)
-> -		ret = -EINVAL;
->  	return ret;
->  }
->  
-> diff --git a/drivers/tty/serial/serial_core.c b/drivers/tty/serial/serial_core.c
-> index 9eea8d1a0e8a..15d8c3ed6edc 100644
-> --- a/drivers/tty/serial/serial_core.c
-> +++ b/drivers/tty/serial/serial_core.c
-> @@ -812,7 +812,7 @@ static int uart_get_info(struct tty_port *port, struct serial_struct *retinfo)
->  				ASYNC_CLOSING_WAIT_NONE :
->  				jiffies_to_msecs(port->closing_wait) / 10;
->  	retinfo->custom_divisor  = uport->custom_divisor;
-> -	retinfo->hub6	    = uport->hub6;
-> +	retinfo->hub6		 = 0;
->  	retinfo->io_type         = uport->iotype;
->  	retinfo->iomem_reg_shift = uport->regshift;
->  	retinfo->iomem_base      = (void *)(unsigned long)uport->mapbase;
-> @@ -834,13 +834,12 @@ static int uart_change_port(struct uart_port *uport,
->  			    unsigned long new_port)
->  {
->  	unsigned long old_iobase, old_mapbase;
-> -	unsigned int old_type, old_iotype, old_hub6, old_shift;
-> +	unsigned int old_type, old_iotype, old_shift;
->  	int retval;
->  
->  	old_iobase = uport->iobase;
->  	old_mapbase = uport->mapbase;
->  	old_type = uport->type;
-> -	old_hub6 = uport->hub6;
->  	old_iotype = uport->iotype;
->  	old_shift = uport->regshift;
->  
-> @@ -849,7 +848,6 @@ static int uart_change_port(struct uart_port *uport,
->  
->  	uport->iobase = new_port;
->  	uport->type = new_info->type;
-> -	uport->hub6 = new_info->hub6;
->  	uport->iotype = new_info->io_type;
->  	uport->regshift = new_info->iomem_reg_shift;
->  	uport->mapbase = (unsigned long)new_info->iomem_base;
-> @@ -867,7 +865,6 @@ static int uart_change_port(struct uart_port *uport,
->  	 */
->  	uport->iobase = old_iobase;
->  	uport->type = old_type;
-> -	uport->hub6 = old_hub6;
->  	uport->iotype = old_iotype;
->  	uport->regshift = old_shift;
->  	uport->mapbase = old_mapbase;
-> @@ -924,7 +921,6 @@ static int uart_set_info(struct tty_struct *tty, struct tty_port *port,
->  	change_port = !(uport->flags & UPF_FIXED_PORT)
->  		&& (new_port != uport->iobase ||
->  		    (unsigned long)new_info->iomem_base != uport->mapbase ||
-> -		    new_info->hub6 != uport->hub6 ||
->  		    new_info->io_type != uport->iotype ||
->  		    new_info->iomem_reg_shift != uport->regshift ||
->  		    new_info->type != uport->type);
-> @@ -954,6 +950,10 @@ static int uart_set_info(struct tty_struct *tty, struct tty_port *port,
->  		goto check_and_exit;
->  	}
->  
-> +	/* hub6 is no longer support */
-> +        if (new_info->hub6 != 0)
-> +                return -EINVAL;
-> +
->  	if (change_irq || change_port) {
->  		retval = security_locked_down(LOCKDOWN_TIOCSSERIAL);
->  		if (retval)
-> @@ -2010,7 +2010,6 @@ bool uart_iotype_io(enum uart_iotype iotype)
->  {
->  	switch (iotype) {
->  	case UPIO_PORT:
-> -	case UPIO_HUB6:
->  		return true;
->  	default:
->  		return false;
-> @@ -2538,10 +2537,7 @@ void uart_get_ioinfos(struct uart_port *port, char *buf, size_t size)
->  	if (uart_iotype_mmio(port->iotype)) {
->  		scnprintf(buf, size, " MMIO%s:%pa", uart_get_mmio_width(port), &port->mapbase);
->  	} else if (uart_iotype_io(port->iotype)) {
-> -		if (port->iotype == UPIO_PORT)
-> -			scnprintf(buf, size, " I/O:0x%lx", port->iobase);
-> -		else if (port->iotype == UPIO_HUB6)
-> -			scnprintf(buf, size, " I/O:0x%lx, offset 0x%x", port->iobase, port->hub6);
-> +		scnprintf(buf, size, " I/O:0x%lx", port->iobase);
->  	}
+There is a thread here:
 
-With this simplification, you can now remove the {} braces...
+ https://lore.kernel.org/r/5236ef55-28b4-4331-8c7d-a6d112aa185f@app.fastmail.com
 
->  }
->  EXPORT_SYMBOL(uart_get_ioinfos);
-> diff --git a/drivers/tty/serial/sunsu.c b/drivers/tty/serial/sunsu.c
-> index 4ff3e5c41dab..f43b802add12 100644
-> --- a/drivers/tty/serial/sunsu.c
-> +++ b/drivers/tty/serial/sunsu.c
-> @@ -106,10 +106,6 @@ static unsigned int serial_in(struct uart_sunsu_port *up, int offset)
->  	offset <<= up->port.regshift;
->  
->  	switch (up->port.iotype) {
-> -	case UPIO_HUB6:
-> -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
-> -		return inb(up->port.iobase + 1);
-> -
->  	case UPIO_MEM:
->  		return readb(up->port.membase + offset);
+Based on this, I think a clean picture for x86 is coming into focus
+now.
 
-Maybe change to a simple if/else?
+I recommend that the x86 side create a "EFI helper", this would be a
+dedicated project and include something similar to the EFI package
+with GUID and the trampolines. As a dedicated github with as its own
+upstream it doesn't require any help from the grub community.
 
-	if (up->port.iotype == UPIO_MEM)
-		return readb(up->port.membase + offset);
-	else
-		return inb(up->port.iobase + offset);
+The general boot flow would have this helper provide functions to the
+Linux stub, like has already been sketched out with the EFI package
+guid scheme.
 
->  
-> @@ -136,11 +132,6 @@ static void serial_out(struct uart_sunsu_port *up, int offset, int value)
->  	offset <<= up->port.regshift;
->  
->  	switch (up->port.iotype) {
-> -	case UPIO_HUB6:
-> -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
-> -		outb(value, up->port.iobase + 1);
-> -		break;
-> -
->  	case UPIO_MEM:
->  		writeb(value, up->port.membase + offset);
->  		break;
+The helper would implement something very similar to ARM's DRTM spec,
+with the same kind of DLME layout and so on. This will give us a very
+strong cross-arch alignment and help create a basis for any furture
+industry work on DRTM.
 
-Similar here:
+I feel like this is not a hard job with some AI assistance. If this is
+still unlcear I may be able to help show it with more details.
 
-	if (up->port.iotype == UPIO_MEM)
-		writeb(value, up->port.membase + offset);
-	else
-		outb(value, up->port.iobase + offset);
+That doesn't change anything about this series. I think anyone who can
+implement a sane protocol natively should just do so in the built in
+EFI stub. The external helper is more because x86 has so many tricky
+platform details, needs more ACPI parsing, external binary blob
+firmware and so on.
 
-
-
-
-> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
-> index a072b75dbaf2..4066cc99fe1a 100644
-> --- a/drivers/tty/serial/xilinx_uartps.c
-> +++ b/drivers/tty/serial/xilinx_uartps.c
-> @@ -1079,8 +1079,6 @@ static int cdns_uart_verify_port(struct uart_port *port,
->  		return -EINVAL;
->  	if (port->iobase != ser->port)
->  		return -EINVAL;
-> -	if (ser->hub6 != 0)
-> -		return -EINVAL;
->  	return 0;
->  }
->  
-> diff --git a/include/linux/serial_8250.h b/include/linux/serial_8250.h
-> index d91c0477be9d..d55bce4d4709 100644
-> --- a/include/linux/serial_8250.h
-> +++ b/include/linux/serial_8250.h
-> @@ -41,7 +41,6 @@ struct plat_serial8250_port {
->  	void            *private_data;
->  	unsigned char	regshift;	/* register shift */
->  	unsigned char	iotype;		/* UPIO_* */
-> -	unsigned char	hub6;
->  	unsigned char	has_sysrq;	/* supports magic SysRq */
->  	unsigned int	type;		/* If UPF_FIXED_TYPE */
->  	upf_t		flags;		/* UPF_* flags */
-> @@ -75,7 +74,6 @@ enum {
->  	PLAT8250_DEV_ACCENT,
->  	PLAT8250_DEV_BOCA,
->  	PLAT8250_DEV_EXAR_ST16C554,
-> -	PLAT8250_DEV_HUB6,
->  	PLAT8250_DEV_AU1X00,
->  	PLAT8250_DEV_SM501,
->  };
-> diff --git a/include/linux/serial_core.h b/include/linux/serial_core.h
-> index 4eeb8253752a..ca8d009e5c36 100644
-> --- a/include/linux/serial_core.h
-> +++ b/include/linux/serial_core.h
-> @@ -430,7 +430,6 @@ typedef unsigned int __bitwise upstat_t;
->  enum uart_iotype {
->  	UPIO_UNKNOWN	= -1,
->  	UPIO_PORT	= SERIAL_IO_PORT,	/* 8b I/O port access */
-> -	UPIO_HUB6	= SERIAL_IO_HUB6,	/* Hub6 ISA card */
->  	UPIO_MEM	= SERIAL_IO_MEM,	/* driver-specific */
->  	UPIO_MEM32	= SERIAL_IO_MEM32,	/* 32b little endian */
->  	UPIO_AU		= SERIAL_IO_AU,		/* Au1x00 and RT288x type IO */
-> @@ -590,7 +589,6 @@ struct uart_port {
->  	unsigned char		has_sysrq;
->  	unsigned char		sysrq_seq;		/* index in sysrq_toggle_seq */
->  
-> -	unsigned char		hub6;			/* this should be in the 8250 driver */
->  	unsigned char		suspended;
->  	unsigned char		console_reinit;
->  	const char		*name;			/* port name */
-> -- 
-> 2.53.0
-> 
-> 
-> 
-
-
--- 
-Hugo Villeneuve
+Regards,
+Jason
 
