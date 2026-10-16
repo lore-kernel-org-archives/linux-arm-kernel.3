@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0A2CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4E1CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMETo+/lNeHmtI8EcUdJOoZ7Xda/I3m8iLFHrbnLwwo=; b=ekp5qfIotZTMIEWNj5XlOJW5PZ
-	bVxkEizCx22V/vNG7XYxLSTuyZHnwB3DfOW8p8Zgh7qpQYN3MVp2AbZ/Y1J5BosKf/QjN1OQU53vb
-	D253qIpS0wZ3XihT4JvtLTuw3hvZgX++0gb+7qONx5Bq22Vw/s+Jho141xJrwFUIgxQAu5WqVfViO
-	esGI4xj/4insSA+w2X7DRgr0EHMMZcg7W6EIBcKdj4EO1eA4y7iHd68CHApdw7W3kcnrUrtpfJXyH
-	L8ZxZuaVS6u6YJ0kOABXqsrdSE33WnZWExi4scgMkQzCDv31nX/spPHKyhmtpwO3fYe7iBoPQAqoC
-	oKv6Qwig==;
+	bh=woro4Y2qnFHe0aIyx4cnmRuA10wmKxQEHreCK8YbS8c=; b=VyTYSi7hflqlQ5Y/TwNWMYSzW8
+	aZH+dTk+ZVctYw7G87gdm29QsJk/8Bc20pRTs6qPwE6Mnbjz4daxhucbts2iONNno1RxYlduYFtN2
+	Tpq+N6ZnUB9wNBSbjXq0at1Rl/KatyacrGCZAAH5c1FtpWPee8ojgkT+waeG2+jTRgY7QKtL6yto4
+	ib3r4SPLk33X3zq+EHohDvu34r9bXpIMGXvFQATAc+qcoHFzjd5PHv5wsxgytfz1bvvfa9v5Va/2s
+	y1rQlrwfaUmOvMeFyoDySm1bYrDttnmbwaYz3z555Wwymq3PpsVrsJimbT9fUzJq/wKoryNqRzZjZ
+	l8wfaGTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHn7g-00000003kfd-1tDS;
-	Fri, 16 Oct 2026 18:57:44 +0000
+	id 1xHn7u-00000003krU-17cZ;
+	Fri, 16 Oct 2026 18:57:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHn7f-00000003keD-3Rhg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Oct 2026 18:57:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=woro4Y2qnFHe0aIyx4cnmRuA10wmKxQEHreCK8YbS8c=; b=eiznTkNk0vRVECFk/HwU2DAhfo
+	yzh2wB6KuCdAC23Eco1DRb7YLXNroFiXwRNI5fQGrIHI49IJ48CAPHTDOyitgZ4npOLxjFJ8INSM2
+	s6IEaDDlGhyu0XHKVsy24/b0I2A03plqD+n8RAuMd1HYIy6fKjXbfW/+pewangnaOL4h01SzwbTBx
+	R1E0stLj9U34qtoRWs4Fdjw+Bc6hoYIYa5w17QzKtsWAIVCKl+n0WIYgsfvdrBneBiEbiGXVualgP
+	3dQAKJh+R0uJCqvdHqvSFH51lMgtvEphJ09k866hACkH2FSGa8LREoHNEAmzCTd5kY7kxOapDYyXt
+	LvyXfo+Q==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHn7Y-00000003kYH-36Cn
+	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHn7c-00000001rno-43gC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 18:57:39 +0000
+	Fri, 16 Oct 2026 18:57:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A89D414BF;
-	Fri, 16 Oct 2026 11:57:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CDFD1516;
+	Fri, 16 Oct 2026 11:57:36 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 755323F7B4;
-	Fri, 16 Oct 2026 11:57:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34A2B3F7B4;
+	Fri, 16 Oct 2026 11:57:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792177055; bh=gDOtF2GNlYf/BPqIHxmyVaLRvouE3tB+p+BD2jzqKbI=;
+	t=1792177059; bh=i4iwi8vXN/zCSC/Hr5lg193BlICgS/pJueKSLf7oWv0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tyDFOjMNLJzrqwaLyLiCNoEFzxcV9c+GoOZOKVmG+EiEqIi8I//qwMXz2Cd6iWP2K
-	 Uj1JQHSch4qd9AkRTkC7JI33wyxdIP3Ge8k8uaiRracvOIvby4G2I7jsmAKNTAzXTj
-	 b+pi8cP/5qXqkWEFVjpwPFcyyz+VvINUadxjxh1A=
+	b=Q//aOHc6zuhZRmvzooNgqY4b00BOEyQZEa+oojwfG0NX/ZLa0oyeVlBTxGkKfROVb
+	 +fg/4mEygvzWSh287PINsmaXv6zY9MBiKeueMyBkYTj++4CVUYayV/T5oAo3TDVewy
+	 ebWvipcQP38gKFQD0vhbx79OBcqtvaLWcxz+P3II=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +79,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v14 16/32] firmware: arm_scmi: Add Telemetry DataEvent read capabilities
-Date: Fri, 16 Oct 2026 19:55:37 +0100
-Message-ID: <20261016185553.2794459-17-cristian.marussi@arm.com>
+Subject: [PATCH v14 17/32] firmware: arm_scmi: Add Telemetry reset logic
+Date: Fri, 16 Oct 2026 19:55:38 +0100
+Message-ID: <20261016185553.2794459-18-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261016185553.2794459-1-cristian.marussi@arm.com>
 References: <20261016185553.2794459-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_115737_043475_992E3A9F 
-X-CRM114-Status: GOOD (  35.05  )
+X-CRM114-CacheID: sfid-20261016_195741_365854_5A8188A5 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,734 +104,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Telemetry operations needed to read DataEvent values and
-timestamps as single entities or all together in a single bulk buffer.
-The returned values are effectiely retrieved from the platform only
-when strictly needed, i.e. when no fresh recent cached value was already
-available.
-The DataEvent values are fetched transparently from the platform origins
-using the proper synchronization and consistency primitives, directly from
-the SHMTIs areas or the FastChannels memory depending on the configuration.
+Add support for Telemetry operations needed to request platform to
+reset telemetry current configuration and data events values.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v13 --> v14
- - report scmi_telemetry_line_data_parse errors
- - add traces for CACHED_DE_UPDATED
- - moved some definitions from earlier patches
- - using a less regular time interval for TDCF scan retries
- - renamed some fields to more strictly adhere to spec nomenclature
+ - add a barrier to acquire rinfo->num_des on reset
+ - avoid lock inversion on config_mtx
 v12 --> v13
- - use new RAW macros in line_data_parse and check for line validity
- - handle PARTIAL_ERROR by logging and carrying on
  - relocate tde->mtx guards higher up and add lockdep assertions
- - better tdcf/eplg init within tde->mtx
- - do not cache tde->base between DE read retries
- - retry scan on payld sanity errors
+ - unlink BLKTS under tde->mtx on local free
 v11 --> v12
- - using new TDCF_INVALID_MATCH_SEQ macro
- - reporting transient DATA_INVALID lines as -EINVAL
- - added cacheable param to msg_payld_process
+ - using config_mtx to sync with ongoing configurations
+ - use proper helpers to update cache state
 v10 --> v11
- - split out and relocate unrelated code to previous patches
- - add TDE mutex_lock when getting payload address
- - check LINE_TYPE while parsing payloads
- - check overflows and boundary on single sample replies
-v8 -->v9
- - Fix Sashiko reports for v8
-   - check if TS supported on FC line before using it
-   - check for unexpected shorter reply on sample_get
-   - use non-LE accessors in msg_payld where appropriate
-v7 --> v8
- - Fixes for some Sashiko issues on v7
-  - added CACHED_DE_READ trace
-  - reworked locking around line handling: blkts/uuid
-v6 -->v7
- - usse proper le32 accesors, fix sparse warns
+ - protect TDE updates on reset
+ - use des_enable mutex when clearing des cache
+ - zero also active_update_interval
+v8 --> v9
+ - add a commment on why NOT unlinking UUID
+v6 --> v7
+ - add proper cleanup of sid/offs/uuids and caches on RESET
 v5 --> v6
- - fixed some Sashiko review
- - add new macros parse TDCF-like content on regular ram (non IO)
- https://sashiko.dev/#/patchset/20260703123601.381275-1-cristian.marussi%40arm.com?part=10
-   - fix retry loop in DE parse to avoid exiting on transient errors
-   - use proper non-IO accessors for msg payld parsing
-   - add msg payld boundary check
-v4 --> v5
- - removed UAPI structures dependency
- - cleaned up sample_get logic around groups
- - fixes sparse warnings
+ - added missing reset of global state
 v3 --> v4
- - fix typos in comments
- - extend TDE cache helpers with cache lookup routine and use cumulative
-   scmi_telemetry_de_sample param
+ - reset tracked Telemetry DE state
 v2 --> v3
  - split from monolithic Telemetry patch
- - simplity using a few assignement using ternary ops
- - remove useless ts param from scanning function
- - use a compound literal to simplify samples init
- - add a missing __must_check on telemetry_ops
- - changed errno on DE read troubles:
-   - ENODEV/ENOENT: DE is UNKNOWN
-   - EINVAL: DE is marked as DATA_INVALID
-   - ENODATA: TLM susbsystem or the specific DE is OFF
+ - use scmi_telemetry_de_unlink
 ---
- drivers/firmware/arm_scmi/telemetry.c | 578 ++++++++++++++++++++++++--
- include/linux/scmi_protocol.h         |  24 ++
- 2 files changed, 569 insertions(+), 33 deletions(-)
+ drivers/firmware/arm_scmi/telemetry.c | 80 +++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h         |  2 +
+ 2 files changed, 82 insertions(+)
 
 diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index 8b5e212197e8..0825a0d38296 100644
+index 0825a0d38296..a5ba21fbfed7 100644
 --- a/drivers/firmware/arm_scmi/telemetry.c
 +++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -171,6 +171,11 @@ struct scmi_msg_telemetry_config_set {
- 	__le32 sampling_rate;
- };
- 
-+struct scmi_msg_resp_telemetry_reading_complete {
-+	__le32 num_dwords;
-+	__le32 array[] __counted_by_le(num_dwords);
-+};
-+
- /* TDCF */
- 
- #define _I(__a)		(ioread32((void __iomem *)(__a)))
-@@ -218,6 +223,17 @@ struct uuid_line {
- 	__be32 dwords[SCMI_TLM_DE_IMPL_NUM_DWORDS];
- };
- 
-+#define LINE_DATA_GET_RAW(f)				\
-+({							\
-+	typeof(f) _f = (f);				\
-+	u32 _high = le32_to_cpu(_f->data_high);		\
-+	u32 _low = le32_to_cpu(_f->data_low);		\
-+	u64 _res;					\
-+							\
-+	_res = (((u64)(_high)) << 32) | (_low);		\
-+	_res;						\
-+})
-+
- #define LINE_DATA_GET(f)				\
- ({							\
- 	typeof(f) _f = (f);				\
-@@ -229,6 +245,17 @@ struct uuid_line {
- 	_res;						\
- })
- 
-+#define LINE_TSTAMP_GET_RAW(f)				\
-+({							\
-+	typeof(f) _f = (f);				\
-+	u32 _high = le32_to_cpu(_f->ts_high);		\
-+	u32 _low = le32_to_cpu(_f->ts_low);		\
-+	u64 _res;					\
-+							\
-+	_res = (((u64)(_high)) << 32) | (_low);		\
-+	_res;						\
-+})
-+
- #define LINE_TSTAMP_GET(f)				\
- ({							\
- 	typeof(f) _f = (f);				\
-@@ -400,6 +427,7 @@ struct telemetry_de {
- 	enum timestamps ts_type;
- 	u32 ts_rate;
- 	bool enumerated;
-+	bool cached_msg;
- 	void __iomem *base;
- 	struct eplg __iomem *eplg;
- 	u32 sid;
-@@ -603,16 +631,40 @@ scmi_telemetry_tde_cache_unchanged(struct telemetry_de *tde, u32 magic)
- }
- 
- static void
--scmi_telemetry_tde_cache_update(struct telemetry_de *tde, u64 val,
--				u64 *tstamp, u32 *magic)
-+scmi_telemetry_tde_cache_update(struct telemetry_de *tde,
-+				struct scmi_telemetry_de_sample *sample,
-+				u32 *magic)
- {
- 	lockdep_assert_held(&tde->mtx);
- 
- 	tde->last_magic = magic ? *magic : TDCF_BAD_END_SEQ;
--	tde->last_val = val;
--	tde->last_ts = tstamp && scmi_tde_has_tstamp(tde) ? *tstamp : 0;
--	if (tstamp)
--		*tstamp = tde->last_ts;
-+	tde->last_val = sample->val;
-+	tde->last_ts = scmi_tde_has_tstamp(tde) ? sample->tstamp : 0;
-+	/* Update returned value too */
-+	sample->tstamp = tde->last_ts;
-+
-+	trace_scmi_tlm_collect(tde->last_ts, tde->de.info->id,
-+			       tde->last_val, "CACHED_DE_UPDATED");
-+}
-+
-+static int
-+scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
-+				struct scmi_telemetry_de_sample *sample,
-+				u32 *magic)
-+{
-+	guard(mutex)(&tde->mtx);
-+
-+	if (magic && tde->last_magic != *magic)
-+		return -EAGAIN;
-+
-+	sample->id = tde->de.info->id;
-+	sample->val = tde->last_val;
-+	sample->tstamp = tde->last_ts;
-+
-+	trace_scmi_tlm_collect(sample->tstamp, sample->id,
-+			       sample->val, "CACHED_DE_READ");
-+
-+	return 0;
- }
- 
- struct scmi_tlm_de_priv {
-@@ -1830,7 +1882,8 @@ scmi_telemetry_tde_allocate(struct telemetry_info *ti, u32 de_id,
- }
- 
- static inline int
--scmi_telemetry_line_data_parse(struct telemetry_de *tde, u64 *val, u64 *tstamp,
-+scmi_telemetry_line_data_parse(struct telemetry_de *tde,
-+			       struct scmi_telemetry_de_sample *sample,
- 			       struct payload __iomem *payld, u32 magic)
- {
- 	u32 meta = PAYLD_META(payld);
-@@ -1838,36 +1891,35 @@ scmi_telemetry_line_data_parse(struct telemetry_de *tde, u64 *val, u64 *tstamp,
- 	lockdep_assert_held(&tde->mtx);
- 
- 	/* Clear returned values in case of errors */
--	*val = 0;
--
--	if (tstamp) {
--		*tstamp = 0;
--		if (USE_BLK_TS_RAW(meta)) {
--			/* Read out the actual BLK_TS */
--			*tstamp = scmi_telemetry_blkts_read(magic, tde);
--		} else if (LINE_TS_VALID_RAW(meta)) {
--			/*
--			 * Note that LINE_TS_VALID implies HAS_LINE_EXT and that
--			 * the per DE line_ts_rate is advertised in the DE
--			 * descriptor, BUT we check anyway against buggy FW.
--			 */
--			if (!HAS_LINE_EXT_RAW(meta)) {
--				trace_scmi_tlm_access(tde->de.info->id,
--						      "SHMTI_BAD_TS_LINE", 0, 0);
--				return -EPROTO;
--			}
-+	sample->tstamp = 0;
-+	sample->val = 0;
- 
--			*tstamp = LINE_TSTAMP_GET(&payld->tsl);
-+	if (USE_BLK_TS_RAW(meta)) {
-+		/* Read out the actual BLK_TS */
-+		sample->tstamp = scmi_telemetry_blkts_read(magic, tde);
-+	} else if (LINE_TS_VALID_RAW(meta)) {
-+		/*
-+		 * Note that LINE_TS_VALID implies HAS_LINE_EXT and that
-+		 * the per DE line_ts_rate is advertised in the DE
-+		 * descriptor, BUT we check anyway against buggy FW.
-+		 */
-+		if (!HAS_LINE_EXT_RAW(meta)) {
-+			trace_scmi_tlm_access(tde->de.info->id,
-+					      "SHMTI_BAD_TS_LINE", 0, 0);
-+			return -EPROTO;
- 		}
-+
-+		sample->tstamp = LINE_TSTAMP_GET(&payld->tsl);
- 	}
- 
- 	/* Data is always valid since we are NOT handling BLK TS lines here */
--	*val = LINE_DATA_GET(&payld->l);
-+	sample->val = LINE_DATA_GET(&payld->l);
- 
--	trace_scmi_tlm_collect(tstamp ? *tstamp : 0, tde->de.info->id,
--			       *val, "SHMTI_DE_READ");
-+	/* Trace originally read tstamp */
-+	trace_scmi_tlm_collect(sample->tstamp, tde->de.info->id,
-+			       sample->val, "SHMTI_DE_READ");
- 
--	scmi_telemetry_tde_cache_update(tde, *val, tstamp, &magic);
-+	scmi_telemetry_tde_cache_update(tde, sample, &magic);
- 
- 	return 0;
- }
-@@ -1975,9 +2027,9 @@ static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
- 					   struct telemetry_block_ts *active_bts,
- 					   struct telemetry_uuid *active_uuid)
- {
-+	struct scmi_telemetry_de_sample sample = {};
- 	bool use_blk_ts = USE_BLK_TS(payld);
- 	struct telemetry_de *tde;
--	u64 val, tstamp = 0;
- 	u32 de_id;
- 
- 	de_id = PAYLD_ID(payld);
-@@ -2032,8 +2084,7 @@ static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
- 	 * Parse data words ... only for the sake of updating TDE cache,
- 	 * any error is logged by ignored.
- 	 */
--	scmi_telemetry_line_data_parse(tde, &val, &tstamp, payld,
--				       shmti->last_magic);
-+	scmi_telemetry_line_data_parse(tde, &sample, payld, shmti->last_magic);
- }
- 
- /**
-@@ -2831,6 +2882,464 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
+@@ -3340,6 +3340,85 @@ static int scmi_telemetry_des_sample_get(const struct scmi_protocol_handle *ph,
  	return ret;
  }
  
-+static inline void
-+scmi_telemetry_de_data_fc_read(struct telemetry_de *tde,
-+			       struct scmi_telemetry_de_sample *sample)
-+{
-+	struct fc_tsline __iomem *fc = tde->base + tde->offset;
-+
-+	lockdep_assert_held(&tde->mtx);
-+
-+	sample->val = LINE_DATA_GET(fc);
-+	sample->tstamp = tde->ts_type == TSTAMP_LINE ? LINE_TSTAMP_GET(fc) : 0;
-+
-+	/* Trace originally read tstamp */
-+	trace_scmi_tlm_collect(sample->tstamp, tde->de.info->id, sample->val,
-+			       "FC_READ");
-+
-+	scmi_telemetry_tde_cache_update(tde, sample, NULL);
-+}
-+
-+static void scmi_telemetry_scan_update(struct telemetry_info *ti)
-+{
-+	struct telemetry_de *tde;
-+
-+	/* Scan all SHMTIs ... */
-+	for (int id = 0; id < ti->num_shmti; id++) {
-+		int ret;
-+
-+		ret = scmi_telemetry_shmti_scan(ti, id, SCAN_LOOKUP);
-+		if (ret)
-+			dev_warn(ti->ph->dev,
-+				 "Failed update-scan of SHMTI ID:%d - ret:%d\n",
-+				 id, ret);
-+	}
-+
-+	if (!ti->info.fc_support)
-+		return;
-+
-+	/* Need to enumerate resources to access fastchannels */
-+	ti->res_get(ti);
-+	list_for_each_entry(tde, &ti->fcs_des, item) {
-+		struct scmi_telemetry_de_sample sample = {};
-+
-+		guard(mutex)(&tde->mtx);
-+		if (!tde->de.enabled)
-+			continue;
-+
-+		/* Only for the sake of updating TDE cache */
-+		scmi_telemetry_de_data_fc_read(tde, &sample);
-+	}
-+}
-+
-+/*
-+ * TDCF and TS Line Management Notes
-+ * ---------------------------------
-+ *
-+ * TDCF Payload Metadata notable bits:
-+ *  - Bit[3]: USE BLK Tstamp
-+ *  - Bit[2]: Line-Extension Field present (LineTstamp)
-+ *  - Bit[1]: Tstamp VALID
-+ *  - Bit[0]: Data INVALID
-+ *
-+ * CASE_1:
-+ * -------
-+ *	+ A DE is enabled with timestamp disabled, so the TS fields are
-+ *	  NOT present
-+ *	  -> BIT[3:0] = 0000b
-+ *
-+ *	  - 1/A LINE_TSTAMP
-+ *	  ------------------
-+ *	     + that DE is then 're-enabled' with TS: so it was ON, it remains
-+ *	       ON but using DE_CONFIGURE I now enabled also TS, so the
-+ *	       platform relocates it at the end of the SHMTI and return the
-+ *	       new offset
-+ *	       -> BIT[3:0] = 0110b
-+ *
-+ *	  - 1/B BLK_TSTAMP
-+ *	  ------------------
-+ *	     + that DE is then 're-enabled' with BLK TS: so it was ON, it
-+ *	       remains ON but using DE_CONFIGURE, we now also enabled the TS,
-+ *	       so the platform will:
-+ *	       - IF a preceding BLK_TS line exist (with same clk rate)
-+ *	         it relocates the DE at the end of the SHMTI and return the
-+ *	         new offset (if there is enough room, if not in another SHMTI)
-+ *	       - IF a preceding BLK_TS line DOES NOT exist (with same clk rate)
-+ *	         it creates a new BLK_TS line at the end of the SHMTI and then
-+ *	         relocates the DE after the new BLK_TS and return the
-+ *	         new offset (if there is enough room, if not in another SHMTI)
-+ *	       -> BIT[3:1] = 1010b
-+ *
-+ *	+ the hole left from the relocated DE can be reused by the platform
-+ *	to fit another equally sized DE. (i.e. without shuffling around any
-+ *	other enabled DE, since that would cause a change of the known offset)
-+ *	anyway it will be marked as:
-+ *	-> BIT[3:0] = 0101b iff it was a LINE_TSTAMP
-+ *	-> BIT[3:0] = 0001b iff it was a BLK_TSTAMP
-+ *
-+ * CASE_2:
-+ * -------
-+ *	+ A DE is enabled with LINE timestamp enabled, so the TS_Line is there
-+ *	  -> BIT[3:0] = 0110b
-+ *	+ that DE has its timestamp disabled: again, you can do this without
-+ *	  disabling it fully but just disabling the TS, so now that TS_line
-+ *	  fields are still physically there but NOT valid
-+ *	  -> BIT[3:0] = 0100b
-+ *	+ the hole from the timestamp remain there unused until
-+ *		- you enable again the TS so the hole is used again
-+ *		  -> BIT[3:0] = 0110b
-+ *			OR
-+ *		- you disable fully the DE and then re-enable it with the TS
-+ *		  -> potentially CASE_1 the DE is relocated on enable
-+ *	+ same kind of dynamic applies if the DE had a BLK_TS line
-+ */
-+static struct payload __iomem *
-+scmi_telemetry_tdcf_de_payld_get(struct telemetry_de *tde)
-+{
-+	struct payload __iomem *payld;
-+
-+	lockdep_assert_held(&tde->mtx);
-+
-+	payld = tde->base + tde->offset;
-+	if (DATA_INVALID(payld)) {
-+		trace_scmi_tlm_access(PAYLD_ID(payld), "DE_DATA_INVALID", 0, 0);
-+		return IOMEM_ERR_PTR(-EINVAL);
-+	}
-+
-+	if (IS_BLK_TS_LINE(payld)) {
-+		trace_scmi_tlm_access(tde->de.info->id, "BAD_DE_META", 0, 0);
-+		return IOMEM_ERR_PTR(-EPROTO);
-+	}
-+
-+	if (PAYLD_ID(payld) != tde->de.info->id) {
-+		trace_scmi_tlm_access(tde->de.info->id, "DE_ID_MISMATCH", 0, 0);
-+		return IOMEM_ERR_PTR(-ENODEV);
-+	}
-+
-+	/*
-+	 * A valid line using BLK_TS should have been initialized with the
-+	 * related BLK_TS when enabled, unless is a torn read.
-+	 */
-+	if ((USE_BLK_TS(payld) && !tde->bts)) {
-+		trace_scmi_tlm_access(tde->de.info->id, "BAD_USE_BLK_TS", 0, 0);
-+		return IOMEM_ERR_PTR(-EPROTO);
-+	}
-+
-+	return payld;
-+}
-+
-+static int
-+scmi_telemetry_tdcf_de_parse(struct telemetry_de *tde,
-+			     struct scmi_telemetry_de_sample *sample)
-+{
-+	u32 startm = TDCF_INVALID_MATCH_SEQ, endm = TDCF_BAD_END_SEQ;
-+	int retries = SCMI_TLM_TDCF_MAX_RETRIES;
-+	struct tdcf __iomem *tdcf;
-+	int err = 0;
-+
-+	lockdep_assert_held(&tde->mtx);
-+
-+	do {
-+		struct payload __iomem *payld;
-+
-+		/* A bit of exponential backoff between retries */
-+		fsleep((SCMI_TLM_TDCF_MAX_RETRIES - retries) * SCMI_TLM_TDCF_RETRY_GAP);
-+
-+		/*
-+		 * Refresh tdcf on each retry, since it could have changed
-+		 * by the platform while relocating the DE.
-+		 */
-+		tdcf = tde->base;
-+		if (!tdcf)
-+			continue;
-+
-+		startm = TDCF_START_SEQ_GET(tdcf);
-+		if (IS_BAD_START_SEQ(startm)) {
-+			trace_scmi_tlm_access(tde->de.info->id, "MSEQ_BADSTART",
-+					      startm, 0);
-+			continue;
-+		}
-+
-+		/* Return last readings if nothing changed */
-+		err = scmi_telemetry_tde_cache_lookup(tde, sample, &startm);
-+		if (!err)
-+			return 0;
-+
-+		/*
-+		 * In this context any anomaly detected on the payload could
-+		 * due to a torn read, and it is worth a retry.
-+		 * Unless the entry was marked as DATA_INVALID (-EINVAL) which
-+		 * indicates an entry referring a DE which has been disabled by
-+		 * the user or some other sort of error platform side: if we
-+		 * get all down here, though, it cannot be due to a disabled DE,
-+		 * so bail-out to avoid retrying on permament/transient errors.
-+		 */
-+		payld = scmi_telemetry_tdcf_de_payld_get(tde);
-+		err = PTR_ERR_OR_ZERO(payld);
-+		if (!err)
-+			err = scmi_telemetry_line_data_parse(tde, sample,
-+							     payld, startm);
-+		else if (err == -EINVAL)
-+			return err;
-+
-+		endm = TDCF_END_SEQ_GET(tde->eplg);
-+		if (startm != endm)
-+			trace_scmi_tlm_access(tde->de.info->id, "MSEQ_MISMATCH",
-+					      startm, endm);
-+	} while (startm != endm && --retries);
-+
-+	if (startm != endm) {
-+		trace_scmi_tlm_access(tde->de.info->id, "TDCF_DE_FAIL",
-+				      startm, endm);
-+		return -EPROTO;
-+	}
-+
-+	return err;
-+}
-+
-+static int scmi_telemetry_de_access(struct telemetry_de *tde,
-+				    struct scmi_telemetry_de_sample *sample)
-+{
-+	lockdep_assert_held(&tde->mtx);
-+
-+	if (!tde->de.fc_support)
-+		return scmi_telemetry_tdcf_de_parse(tde, sample);
-+
-+	scmi_telemetry_de_data_fc_read(tde, sample);
-+
-+	return 0;
-+}
-+
-+static int scmi_telemetry_de_collect(struct telemetry_info *ti,
-+				     struct scmi_telemetry_de *de,
-+				     struct scmi_telemetry_de_sample *sample)
-+{
-+	struct telemetry_de *tde = to_tde(de);
-+
-+	guard(mutex)(&tde->mtx);
-+
-+	if (!de->enabled)
-+		return -ENODATA;
-+
-+	/*
-+	 * DE readings returns cached values when:
-+	 *  - DE data value was retrieved via notification/delayed_response
-+	 */
-+	if (tde->cached_msg)
-+		return scmi_telemetry_tde_cache_lookup(tde, sample, NULL);
-+
-+	return scmi_telemetry_de_access(tde, sample);
-+}
-+
-+static int scmi_telemetry_de_data_read(const struct scmi_protocol_handle *ph,
-+				       struct scmi_telemetry_de_sample *sample)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+	struct scmi_telemetry_de *de;
-+
-+	if (!ti->info.enabled || !sample)
-+		return -ENODATA;
-+
-+	de = xa_load(&ti->xa_des, sample->id);
-+	if (!de)
-+		return -ENOENT;
-+
-+	return scmi_telemetry_de_collect(ti, de, sample);
-+}
-+
-+static int
-+scmi_telemetry_samples_collect(struct telemetry_info *ti, int grp_id,
-+			       int *num_samples,
-+			       struct scmi_telemetry_de_sample *samples)
++static void scmi_telemetry_local_resources_reset(struct telemetry_info *ti)
 +{
 +	struct scmi_telemetry_res_info *rinfo;
-+	int max_samples;
++	unsigned int num_des;
 +
-+	max_samples = *num_samples;
-+	*num_samples = 0;
++	ti->info.enabled = false;
++	ti->info.notif_enabled = false;
++	ti->info.current_mode = SCMI_TLM_ONDEMAND;
++	ti->info.active_update_interval = 0;
 +
-+	rinfo = ti->res_get(ti);
-+	for (int i = 0; i < rinfo->num_des; i++) {
++	/* Get rinfo without triggering an enumeration, cannot be NULL anyway */
++	rinfo = __scmi_telemetry_resources_get(ti);
++	/* Make sure to see the latest num_des */
++	num_des = smp_load_acquire(&rinfo->num_des);
++	/* Clear all local state...*/
++	for (int i = 0; i < num_des; i++) {
 +		struct telemetry_de *tde = to_tde(rinfo->des[i]);
 +
-+		guard(mutex)(&tde->mtx);
++		scoped_guard(mutex, &tde->mtx) {
++			tde->last_ts = 0;
++			tde->last_val = 0;
++			tde->last_magic = 0;
++			if (!tde->de.fc_support) {
++				tde->sid = SHMTI_ID_INVALID;
++				tde->base = NULL;
++				tde->offset = 0;
++				tde->eplg = NULL;
++			}
 +
-+		/* Skip disabled DEs and not belonging to the selected Group */
-+		if (!tde->de.enabled ||
-+		    (grp_id != SCMI_TLM_GRP_INVALID &&
-+		     (!tde->de.grp || tde->de.grp->info->grp_id != grp_id)))
-+			continue;
++			scmi_telemetry_de_state_update(ti, ENA_STATE,
++						       &tde->de.enabled, false);
 +
-+		/* Must be checked here to skip disabled and non selected */
-+		if (*num_samples == max_samples)
-+			return -ENOSPC;
++			if (tde->de.tstamp_support)
++				scmi_telemetry_de_state_update(ti, ENA_TSTAMP,
++							       &tde->de.tstamp_enabled,
++							       false);
 +
-+		/* Note that this cannot fail when passing a NULL magic */
-+		scmi_telemetry_tde_cache_lookup(tde, &samples[(*num_samples)++], NULL);
++			/*
++			 * Unlinking ONLY BLK_TS lines since, per the SCMI spec,
++			 * the UUID/DE associations are permanent within the same
++			 * session boot: after a reset has cleared the server-side
++			 * configuration the next time SHMTIs will be re-populated,
++			 * these same UUID/DE associations will be re-instated.
++			 */
++			scmi_telemetry_blkts_unlink(tde);
++		}
 +	}
 +
-+	return 0;
++	for (int i = 0; i < rinfo->num_groups; i++) {
++		rinfo->grps[i].enabled = false;
++		rinfo->grps[i].tstamp_enabled = false;
++		rinfo->grps[i].current_mode = SCMI_TLM_ONDEMAND;
++		rinfo->grps[i].active_update_interval = 0;
++	}
 +}
 +
-+static int scmi_telemetry_des_bulk_read(const struct scmi_protocol_handle *ph,
-+					int grp_id, int *num_samples,
-+					struct scmi_telemetry_de_sample *samples)
++static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
 +{
 +	struct telemetry_info *ti = ph->get_priv(ph);
-+
-+	if (!ti->info.enabled || !num_samples || !samples)
-+		return -EINVAL;
-+
-+	/* Trigger a full SHMTIs & FCs scan */
-+	scmi_telemetry_scan_update(ti);
-+
-+	/* Collect all last cached values */
-+	return scmi_telemetry_samples_collect(ti, grp_id, num_samples, samples);
-+}
-+
-+static void
-+scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
-+				 unsigned int num_dwords, __le32 *dwords,
-+				 size_t payld_bytes, bool cacheable)
-+{
-+	struct scmi_telemetry_res_info *rinfo;
-+	u32 next = 0;
-+
-+	rinfo = ti->res_get(ti);
-+	if (!rinfo->fully_enumerated) {
-+		dev_warn_once(ti->ph->dev,
-+			      "Cannot process DEs in message payload. Drop.\n");
-+		return;
-+	}
-+
-+	while (next < num_dwords) {
-+		struct payload *payld = (struct payload *)&dwords[next];
-+		struct scmi_telemetry_de *de;
-+		struct telemetry_de *tde;
-+		u32 de_id, meta = le32_to_cpu(payld->meta);
-+		unsigned int wlen;
-+
-+		wlen = LINE_LENGTH_WORDS_RAW(meta);
-+		/* Check Boundary */
-+		if (next + wlen > payld_bytes / sizeof(u32))
-+			return;
-+
-+		next += wlen;
-+		de_id = le32_to_cpu(payld->id);
-+		if (DATA_INVALID_RAW(meta)) {
-+			trace_scmi_tlm_access(de_id, "MSG_INVALID", 0, 0);
-+			continue;
-+		}
-+
-+		if (LINE_TYPE_RAW(meta) != TDCF_DATA_LINE) {
-+			trace_scmi_tlm_access(de_id, "MSG_BAD_TYPE", 0, 0);
-+			continue;
-+		}
-+
-+		if (USE_BLK_TS_RAW(meta)) {
-+			trace_scmi_tlm_access(de_id, "MSG_BAD_USE_BLKTS", 0, 0);
-+			continue;
-+		}
-+
-+		de = xa_load(&ti->xa_des, de_id);
-+		if (!de || !de->enabled) {
-+			dev_err(ti->ph->dev,
-+				"MSG - Received INVALID DE - ID:%u  enabled:%c\n",
-+				de_id, de ? (de->enabled ? 'Y' : 'N') : 'X');
-+			continue;
-+		}
-+
-+		tde = to_tde(de);
-+		guard(mutex)(&tde->mtx);
-+		tde->cached_msg = true;
-+		tde->last_val = LINE_DATA_GET_RAW(&payld->tsl);
-+		/* TODO BLK_TS in notification payloads */
-+		tde->last_ts = HAS_LINE_EXT_RAW(meta) &&
-+			LINE_TS_VALID_RAW(meta) ?
-+			LINE_TSTAMP_GET_RAW(&payld->tsl) : 0;
-+
-+		trace_scmi_tlm_collect(tde->last_ts, tde->de.info->id,
-+				       tde->last_val, "MESSAGE");
-+	}
-+}
-+
-+static int scmi_telemetry_des_sample_get(const struct scmi_protocol_handle *ph,
-+					 int grp_id, int *num_samples,
-+					 struct scmi_telemetry_de_sample *samples)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+	struct scmi_msg_telemetry_config_set *msg;
 +	struct scmi_xfer *t;
-+	bool is_group;
-+	u32 control;
 +	int ret;
 +
-+	if (!ti->info.enabled || !num_samples || !samples)
-+		return -EINVAL;
++	/* Stall concurrent configuration request */
++	guard(mutex)(&ti->config_mtx);
 +
-+	is_group = grp_id != SCMI_TLM_GRP_INVALID;
-+	if (is_group && grp_id >= ti->info.base.num_groups)
-+		return -EINVAL;
-+
-+	ret = ph->xops->xfer_get_init(ph, TELEMETRY_CONFIG_SET,
-+				      sizeof(*msg), 0, &t);
++	ret = ph->xops->xfer_get_init(ph, TELEMETRY_RESET, sizeof(u32), 0, &t);
 +	if (ret)
 +		return ret;
 +
-+	msg = t->tx.buf;
-+	msg->group_identifier = cpu_to_le32(grp_id);
-+	control = TELEMETRY_ENABLE;
-+	control |= !is_group ? TELEMETRY_SET_SELECTOR_ALL :
-+		TELEMETRY_SET_SELECTOR_GROUP;
-+	control |= TELEMETRY_MODE_SINGLE;
-+	msg->control = cpu_to_le32(control);
-+	msg->sampling_rate = 0;
++	put_unaligned_le32(0, t->tx.buf);
++	ret = ph->xops->do_xfer(ph, t);
++	if (!ret)
++		scmi_telemetry_local_resources_reset(ti);
 +
-+	ret = ph->xops->do_xfer_with_response(ph, t);
-+	/*
-+	 * PARTIAL_ERRORs are reported as -EBADMSG and related lines,
-+	 * marked as DATA_INVALID, will be properly skipped by
-+	 * scmi_telemetry_msg_payld_process.
-+	 */
-+	if (!ret || ret == -EBADMSG) {
-+		struct scmi_msg_resp_telemetry_reading_complete *r = t->rx.buf;
-+		u32 num_dwords = le32_to_cpu(r->num_dwords);
-+
-+		if (ret == -EBADMSG)
-+			trace_scmi_tlm_access(0, "BAD_SAMPLE_PARTIAL_ERROR", 0, 0);
-+
-+		/* Update cached DEs values from payload */
-+		if (num_dwords) {
-+			size_t payld_sz = 0, dwords_sz;
-+
-+			if (check_mul_overflow(num_dwords, sizeof(r->array[0]), &dwords_sz) ||
-+			    check_add_overflow(sizeof(*r), dwords_sz, &payld_sz) ||
-+			    payld_sz > t->rx.len) {
-+				dev_err(ph->dev,
-+					"Malformed Telemetry delayed response - num_dwords:%u  payld_sz:%zd  rx_len:%zd\n",
-+					num_dwords, payld_sz, t->rx.len);
-+				ret = -EPROTO;
-+				goto out;
-+			}
-+
-+			scmi_telemetry_msg_payld_process(ti, num_dwords, r->array,
-+							 payld_sz - sizeof(*r), false);
-+		}
-+
-+		/* Scan and update SMHTIs and FCs */
-+		scmi_telemetry_scan_update(ti);
-+
-+		/* Collect all last cached values, override any PARTIAL_ERROR */
-+		ret = scmi_telemetry_samples_collect(ti, grp_id, num_samples,
-+						     samples);
-+	}
-+
-+out:
 +	ph->xops->xfer_put(ph, t);
 +
 +	return ret;
@@ -825,62 +228,31 @@ index 8b5e212197e8..0825a0d38296 100644
  static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
  	.info_get = scmi_telemetry_info_get,
  	.de_lookup = scmi_telemetry_de_lookup,
-@@ -2838,6 +3347,9 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.state_get = scmi_telemetry_state_get,
- 	.state_set = scmi_telemetry_state_set,
- 	.collection_configure = scmi_telemetry_collection_configure,
-+	.de_data_read = scmi_telemetry_de_data_read,
-+	.des_bulk_read = scmi_telemetry_des_bulk_read,
-+	.des_sample_get = scmi_telemetry_des_sample_get,
+@@ -3350,6 +3429,7 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
+ 	.de_data_read = scmi_telemetry_de_data_read,
+ 	.des_bulk_read = scmi_telemetry_des_bulk_read,
+ 	.des_sample_get = scmi_telemetry_des_sample_get,
++	.reset = scmi_telemetry_reset,
  };
  
  /**
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index cadb7610c98f..52c9031c266b 100644
+index 52c9031c266b..7656db822f30 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -987,6 +987,13 @@ struct scmi_telemetry_info {
- 	enum scmi_telemetry_collection current_mode;
- };
- 
-+struct scmi_telemetry_de_sample {
-+	unsigned int id;
-+	unsigned int pad;
-+	unsigned long long tstamp;
-+	unsigned long long val;
-+};
-+
- /**
-  * struct scmi_telemetry_proto_ops - represents the various operations provided
-  *	by SCMI Telemetry Protocol
-@@ -1000,6 +1007,15 @@ struct scmi_telemetry_info {
-  * @collection_configure: choose a sampling rate and enable SHMTI/FC sampling
-  *			  for on demand collection via @de_data_read or async
-  *			  notificatioins for all the enabled DEs.
-+ * @de_data_read: on-demand read of a single DE and related optional timestamp:
-+ *		  the value will be retrieved at the proper SHMTI offset OR
-+ *		  from the dedicated FC area (if supported by that DE).
-+ * @des_bulk_read: on-demand read of all the currently enabled DEs, or just
-+ *		   the ones belonging to a specific group when provided.
-+ * @des_sample_get: on-demand read of all the currently enabled DEs, or just
-+ *		    the ones belonging to a specific group when provided.
-+ *		    This causes an immediate update platform-side of all the
-+ *		    enabled DEs.
+@@ -1016,6 +1016,7 @@ struct scmi_telemetry_de_sample {
+  *		    the ones belonging to a specific group when provided.
+  *		    This causes an immediate update platform-side of all the
+  *		    enabled DEs.
++ * @reset: reset configuration and telemetry data.
   */
  struct scmi_telemetry_proto_ops {
  	const struct scmi_telemetry_info __must_check *(*info_get)
-@@ -1019,6 +1035,14 @@ struct scmi_telemetry_proto_ops {
- 				    unsigned int res_id, const bool *enable,
- 				    const unsigned int *update_interval_ms,
- 				    const enum scmi_telemetry_collection *mode);
-+	int __must_check (*de_data_read)(const struct scmi_protocol_handle *ph,
-+					 struct scmi_telemetry_de_sample *sample);
-+	int __must_check (*des_bulk_read)(const struct scmi_protocol_handle *ph,
-+					  int grp_id, int *num_samples,
-+					  struct scmi_telemetry_de_sample *samples);
-+	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
-+					   int grp_id, int *num_samples,
-+					   struct scmi_telemetry_de_sample *samples);
+@@ -1043,6 +1044,7 @@ struct scmi_telemetry_proto_ops {
+ 	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
+ 					   int grp_id, int *num_samples,
+ 					   struct scmi_telemetry_de_sample *samples);
++	int (*reset)(const struct scmi_protocol_handle *ph);
  };
  
  /**
