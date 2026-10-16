@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19196CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF657CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSW2WThj73JXjd4G/88Mui+8Sx1DN1Ao1kVmiqTqMR4=; b=ImGYxqP5gIDqmF1yMtHsyQy+xu
-	g7MOMBqR6gEH9yqKUKPUw6OSAYGLlRWYJK8p2NcMVkONWMBBen9u41SFnREEz4TXJQqIJ9kcaM4DH
-	b1UvE8k9OgBTMN7DNt143gEbLQCZVKu7kOir9lDgYM9dEsfFQyWl5SfW2yEEVH43CRZnAo2VtZA+e
-	CtMpA4bayjIoIOi6oOSjHjl4Vk9+CX/TSDFvQ4C0YqBjNtqt0VHXlBUEtwPHiW3RrWqrciSBurbwk
-	YIMviMGssm0Ge1xgUgq5bIaZes4Q1b3pfnHhsM6Enb4H1S/xFR8JuOpjTrxeH7yZAuSIp8B4qRuTK
-	1G6IblCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rhJI7F0zU+E/8xsIkBIN5MZPJE26Grg+5HNG9FQ1W7Q=; b=LYCvZz0hMJIkE/WCpz0zJ1K1bI
+	PNSRbmhHz4762TqC0aLV2lLYP45Md39j8g2h5ENGthSnL36J4GPZkuuXmkl3/9bOZGL8QWfHJjU7O
+	Sjec1iMU7ILSJzvpQ0o/CGNEZti2LD25LNoo3BQiBa1/Fm9nak/HuCHC4wlkbNerXdXGHL0RGjYEk
+	5y8W7IIY6ZjXjavS4dUmjIZQT6MQXAGqKhLIhw8Ii2hcByzKBYvp2D/4damPmpxQhh6kD85T3of2G
+	9aK7xzBk+GsCyhBaSN8yH8NaWAExUQ7UY4lHIqgLjEMKwdQuZZBJTcBocP4Sf0NvQXK04DJU+f9sj
+	Ueyt04DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfSb-00000002heV-1avo;
-	Fri, 16 Oct 2026 10:46:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHfa9-00000002jAc-3DU0;
+	Fri, 16 Oct 2026 10:54:37 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfSZ-00000002hcb-05CH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 10:46:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TSW2WThj73JXjd4G/88Mui+8Sx1DN1Ao1kVmiqTqMR4=; b=ktO1D7yBiRhPQbM67bBxlc6ICY
-	GD9Y7zzxjIOFqdQo4hD/L06dUGKHfkHZ0YygdsdvO82L95rd8ZI4QHeLkVz830lsklrqTf3VPUH/S
-	nKoFEps2JgffyuhHtiUa8yXxqbG3sT5p4z5i2/PA5eb8ygxO7W2NxTSIBvOsfFl60Yv0DVj3vk2EV
-	xP5JNU+KWDuXz1Xcz48Ug5jnH2Qe93qn8JgmsT8HHdrvlockcEWkBRwRae9bQ/FfLx3FOdiJ3CxsU
-	N+mwzo9z5Seu/ucg4r/zRGIsXGBwncnxa8ZUEf3jogMTPIyYjtmlr758ctoDu0qkLfGCCrYz0KSgM
-	F4Sc/hIw==;
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHfSW-00000001PHT-17t1
+	id 1xHfa5-00000002j9E-4BmI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:46:45 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48b060ec084so4074641f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 03:46:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792147602; x=1792752402; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TSW2WThj73JXjd4G/88Mui+8Sx1DN1Ao1kVmiqTqMR4=;
-        b=RSP4t9aTRiu6fjkj7m7TRwhu97esjerMXCckYVKPXRdFZyQEV5I1ttjrwtI61arnXR
-         GxZba4t90F3XdbxEZxjJo7OcwU27I/JWGPgvac5QtXrUBCO8CzRV0t76wONHebUQTJ+u
-         uM6Dw9cLQa30NqbI6EPfx99LDYsyXIlT5DDhHMnoOKorHN2lSwKD2sEWZT8MiKVDeRDC
-         SRSzPfDxX3MLocfKkSWU4V6CE3oG8jZk7UgQdAx5jCB1dFIal3nKzh7IPe+Lv7ZvV5ZG
-         OUs8qG8+mmqiIJFsUXwJs/QL7fswZbkFfVQW9U9p/83MsPtg0glGL2sE/WnSpSBShgaL
-         B7sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792147602; x=1792752402;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TSW2WThj73JXjd4G/88Mui+8Sx1DN1Ao1kVmiqTqMR4=;
-        b=CASyqXgYogNYbHFx8nSRz4uvIdK2ueOEoK5G/0rFW4dHsZ2uam+dNyTQIL3kDX7Zl4
-         PsBIOG3xquKkxeX3J/Aske/HzvAy3S17a8ATFbPjax1EMjUuNJtNmj+6V+14tPXw4cVp
-         uIb7nDGkX9sIZCneRHxoEmXHlIPhektZy2BsIVvtHexuAJUWBPo4tpNoS9mOBCjVD/Ya
-         PGovxRJrARE+xsq9pwZ56b7+ZrgrUp8Jk4BCXkeXCLXMn8TF3YPat++ELio1gcUiqxoH
-         yJhevpSU7qy5tXwIGu4H57eDhVEkhEYYCm/MxaYkc2QQ3Bdxj3Dq4LdRZN7D6zwVussc
-         a9XA==
-X-Forwarded-Encrypted: i=1; AKwUvBwzJ1ihTpRXQ9NCt+vkYLFqWAUBVnkeEUlShKBF7JdzRdgp/ollmUWlcrTyFaCy8/6jiLm2LuFYA05fr7r5MUku@lists.infradead.org
-X-Gm-Message-State: AFq9FYJHb/Ifceh8I0A1ARiFu7YihX0ndeSxlHNXjUnz+RaujMY6O4zD
-	glezVlJjKscvnIku64LyLfGLZyeIQPDL51VOs0naDS6Oq/QwT1eha5D8asUl9os3KOY=
-X-Gm-Gg: AYBFou1epairBYCQsPknCcMof5T+Ry53LE10PIqVNImAPuCCLQzFrszXDVLF4/+Ldyb
-	Qf4nYVtDwq0kvXNij8r1u5fPs+ySFikkiolgZt3BDY9Bv4Chw22D/lB3g+VJ1dfvadgDpjjJVTE
-	nXEFErCiqoN3Pkx3ChrFpmfjksJQbMRxD6jS672Eng9zThPLBRsNWrpKqxnjbeU+rlyt0o/mgch
-	RYKioZLwOfs/51rkuULQswyH8X0of6wsD3fNSOUkmsPPaorZN2vi7ltKT1A+wQJ1Fu9W9c6IEnF
-	OXJTTO8AqKYOVq1YNmoDUwx1i9Xh9cSs6sUADtfQq+1BQoBFF0ZUENi9rRNL3/tJ06qsZQeG9wO
-	GltF7ywDH//0JMpa6+m5lr3agxc3QLpJyRG0G51Z8sdrvfkRz8g5BMzda5cTn/031TmVUydenqE
-	aoE6kKWysfBpO9ObEReNuJQGebrTUhntQPX+ZzKQt9M5IhSZDsRNko7Y85FsSOYKVvtIqxt/JLH
-	2OOpx1psEog
-X-Received: by 2002:adf:fc50:0:b0:48b:69d4:bb35 with SMTP id ffacd0b85a97d-48dbaadf5eemr31637435f8f.12.1792147601803;
-        Fri, 16 Oct 2026 03:46:41 -0700 (PDT)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4e7ff1sm4556570f8f.25.2026.10.16.03.46.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 03:46:41 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Fri, 16 Oct 2026 11:46:11 +0100
-Subject: [PATCH v4 01/10] coresight: configfs: Don't assume active until
- cscfg_mgr is set
+	Fri, 16 Oct 2026 10:54:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=rhJI7F0zU+E/8xsIkBIN5MZPJE26Grg+5HNG9FQ1W7Q=; b=2kAsX4y/5GbY0reGuaB8BzWyQE
+	As/CswEbTraGIaIcVuHy6YLEFtKTdg2nXf7aHrJdoY0Wg2P6PgMeRtJHmcIE9LKy8mgEJ3ZMSTuDD
+	gEaJvL66/pUVTQiBSnr5DfEHYExnLgKdFMp5oJUQB1OUt0u96veNd5zZI2AV1Z4QKb1nhIfa6KRUx
+	5imqGV+rS6ZHyg9XovESgdDR9WIdIachTCkzINYniuXMT493bS2wNs9yEsKk11WfNHuzpph9DBVxN
+	JbD1bv1tZOwIUerHu2iGfvZF1xpalL0ZVUsPhop0tLT5box48EfWyFJ07nFXHhBRHlF2CC58aDFPo
+	FKZBqtSw==;
+Received: from [115.246.246.98] (port=28851 helo=bulbasuar.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <saivarun@couthit.com>)
+	id 1xHfZP-0000000FERK-27cF;
+	Fri, 16 Oct 2026 06:53:51 -0400
+From: Sai Varun Mudepally <saivarun@couthit.com>
+To: danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	afd@ti.com,
+	basharath@couthit.com,
+	horms@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	pratheesh@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	j-rameshbabu@ti.com,
+	m-malladi@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com,
+	Sai Varun Mudepally <saivarun@couthit.com>
+Subject: [PATCH net-next] net: ti: icssm-prueth: use dev_close()/dev_open() in icssm_prueth_change_mode()
+Date: Fri, 16 Oct 2026 16:21:35 +0530
+Message-ID: <20261016105206.167094-1-saivarun@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-james-cs-multiple-per-threads-v4-1-dedf961aca0e@linaro.org>
-References: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
-In-Reply-To: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
- Suyash Mahar <smahar@meta.com>, Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>, 
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
- Jonathan Cameron <jic23@kernel.org>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: saivarun@couthit.com
+X-Authenticated-Sender: server.couthit.com: saivarun@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_114644_430032_BD61987C 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20261016_035434_121870_E6E357BB 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,63 +104,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Perf's etm_setup_aux() calls cscfg_activate_config() and dereferences
-cscfg_mgr, which can be done after coresight_init() has initialized the
-Perf PMU but before cscfg_init() has finished while the driver is still
-loading.
+In icssm_prueth_change_mode(), if ndev->netdev_ops->ndo_open(ndev) fails
+and returns an error, the function aborts without restoring the NAPI state.
+Later, when the interface is brought down, the kernel naturally invokes
+ndo_stop() again. A second napi_disable() call on an already disabled NAPI
+might trigger an infinite sleep waiting for NAPI_STATE_SCHED.
 
-Fix it by only assuming cscfg is initialized if cscfg_mgr is set.
+Use dev_close()/dev_open() so the core keeps IFF_UP consistent. If
+dev_open() fails, close the ports already reopened and fall back to
+EMAC mode.
 
-Fixes: a0114b4740dd ("coresight: etm-perf: Update to activate selected configuration")
-Signed-off-by: James Clark <james.clark@linaro.org>
+Also undo the br_members update in icssm_prueth_ndev_port_link() when
+icssm_prueth_port_offload_fwd_mark_update() fails.
+
+Test Log:
+https://gist.github.com/SaiVarun754/688a21038f1b2bd2b89d2db65224edb0
+
+Fixes: eca327ae9aa6 ("net: ti: icssm-prueth: Add support for ICSSM RSTP switch")
+Signed-off-by: Sai Varun Mudepally <saivarun@couthit.com>
 ---
- drivers/hwtracing/coresight/coresight-syscfg.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c | 38 ++++++++++++++------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 2bfdd7b45e49..7e3c9844bc00 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -26,6 +26,11 @@ static DEFINE_MUTEX(cscfg_mutex);
- /* only one of these */
- static struct cscfg_manager *cscfg_mgr;
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index b42c98e861e0..d50aa0992c33 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -1100,7 +1100,7 @@ static int icssm_prueth_change_mode(struct prueth *prueth,
+ 	bool portstatus[PRUETH_NUM_MACS];
+ 	struct prueth_emac *emac;
+ 	struct net_device *ndev;
+-	int i, ret;
++	int i, j, ret;
  
-+static enum cscfg_load_ops cscfg_get_state(void)
-+{
-+	return cscfg_mgr ? cscfg_mgr->load_state : CSCFG_UNLOAD;
-+}
+ 	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+ 		if (!prueth->emac[i]) {
+@@ -1115,11 +1115,7 @@ static int icssm_prueth_change_mode(struct prueth *prueth,
+ 		if (!portstatus[i])
+ 			continue;
+ 
+-		ret = ndev->netdev_ops->ndo_stop(ndev);
+-		if (ret < 0) {
+-			netdev_err(ndev, "failed to stop: %d", ret);
+-			return ret;
+-		}
++		dev_close(ndev);
+ 	}
+ 
+ 	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH) {
+@@ -1141,14 +1137,25 @@ static int icssm_prueth_change_mode(struct prueth *prueth,
+ 		if (!portstatus[i])
+ 			continue;
+ 
+-		ret = ndev->netdev_ops->ndo_open(ndev);
++		ret = dev_open(ndev, NULL);
+ 		if (ret < 0) {
+ 			netdev_err(ndev, "failed to start: %d", ret);
+-			return ret;
++			goto err_dev_open;
+ 		}
+ 	}
+ 
+ 	return 0;
 +
- /* load features and configuations into the lists */
++err_dev_open:
++	for (j = 0; j < i; j++) {
++		if (portstatus[j])
++			dev_close(prueth->emac[j]->ndev);
++	}
++
++	/* Fall back to EMAC mode */
++	prueth->eth_type = PRUSS_ETHTYPE_EMAC;
++
++	return ret;
+ }
  
- /* get name feature instance from a coresight device list of features */
-@@ -581,7 +586,7 @@ int cscfg_load_config_sets(struct cscfg_config_desc **config_descs,
- 	int err = 0;
+ /* VLAN-tag PCP to priority queue map for EMAC/Switch/HSR/PRP used by driver
+@@ -1639,6 +1646,8 @@ bool icssm_prueth_sw_port_dev_check(const struct net_device *ndev)
  
- 	mutex_lock(&cscfg_mutex);
--	if (cscfg_mgr->load_state != CSCFG_NONE) {
-+	if (cscfg_get_state() != CSCFG_NONE) {
- 		mutex_unlock(&cscfg_mutex);
- 		return -EBUSY;
+ static int icssm_prueth_port_offload_fwd_mark_update(struct prueth *prueth)
+ {
++	struct prueth_emac *emac;
++	unsigned long flags;
+ 	int set_val = 0;
+ 	int i, ret = 0;
+ 	u8 all_slaves;
+@@ -1661,11 +1670,20 @@ static int icssm_prueth_port_offload_fwd_mark_update(struct prueth *prueth)
+ 	 */
+ 	if (set_val && !PRUETH_IS_SWITCH(prueth)) {
+ 		ret = icssm_prueth_change_mode(prueth, PRUSS_ETHTYPE_SWITCH);
+-		if (ret < 0)
++		if (ret < 0) {
+ 			dev_err(prueth->dev, "Failed to enable Switch mode\n");
+-		else
++			emac = prueth->emac[0];
++			spin_lock_irqsave(&emac->addr_lock, flags);
++
++			prueth->br_members &= ~BIT(emac->port_id);
++			if (!prueth->br_members)
++				prueth->hw_bridge_dev = NULL;
++
++			spin_unlock_irqrestore(&emac->addr_lock, flags);
++		} else {
+ 			dev_info(prueth->dev,
+ 				 "TI PRU ethernet now in Switch mode\n");
++		}
  	}
-@@ -662,7 +667,7 @@ int cscfg_unload_config_sets(struct cscfg_load_owner_info *owner_info)
- 	struct cscfg_load_owner_info *load_list_item = NULL;
  
- 	mutex_lock(&cscfg_mutex);
--	if (cscfg_mgr->load_state != CSCFG_NONE) {
-+	if (cscfg_get_state() != CSCFG_NONE) {
- 		mutex_unlock(&cscfg_mutex);
- 		return -EBUSY;
- 	}
-@@ -902,7 +907,7 @@ static int _cscfg_activate_config(unsigned long cfg_hash)
- 	struct cscfg_config_desc *config_desc;
- 	int err = -EINVAL;
- 
--	if (cscfg_mgr->load_state == CSCFG_UNLOAD)
-+	if (cscfg_get_state() == CSCFG_UNLOAD)
- 		return -EBUSY;
- 
- 	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
-
+ 	/* Bridge is deleted, switch to Dual EMAC mode */
 -- 
 2.43.0
 
