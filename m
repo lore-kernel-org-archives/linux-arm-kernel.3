@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DF2CCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5162ECC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1GuIjwnutapXL5RSBydFeEzZIlwcykWtwbrgx8uSRFI=; b=vpk5f8EKfxMe9v0OQO4LQ9urk2
-	CieT5tt+moiu0Gos+liYvzQNpvVwNNfrOsqmH1bZDLROoLq95BcBzhG4aw7uQO/8Y2EQzdrau4gpi
-	hBtj11jVdm6C1kOUHqhuqeEZfbyimccHlKF8BFlMsxaX6gXxzvRf0N7xo5HjTTyVUSf3nsRHpCR0l
-	kr3QjNkk0AwJ5uZx+SvlPqYp1GFwJ1d6gU9LbczAQHUhSb9MhFcaqB1EZNfEbG66DrBxBm7BEXL1a
-	Es83vFb4siGaP38D+YqBhzPMttFzTvt14gLU+VhMh7Xv3l+I1/cqF/lQZjMYq4f02kVEn42QJM+Mu
-	T5MOfVQg==;
+	bh=9gJEy8R3fVBH6Cq++PWhCCjionGdbV/hp10N5/23EDw=; b=iZJ4ef5iqYUtYOPuF5laHwBRfL
+	GsXgVlh2yqhXwpZjDwAgK2HOPaE4Zrz0dc++LxPJVyXbYNLFYFaWfqPMEf1w+2Upqk4mEqcGLhQsB
+	SjBdMlbhDIVyYjX2xTOQcKOKNpkh67noXUc5cM7isJ0hWURU1dtJM8O7v0py+LnCWR8FEEEi9pHOH
+	IKCTMwJ/odisjY3SCGREuj5DjsWfmbUDnzUSDj5cKvROKZoIqFJOuzNCyzss6sxeUAbY9nTCR+bcu
+	huX5iQZLDD0z9STPmofLk9HRkhZ0VsKJpce4hf6E+2kx2dXMOxl7nEL/B9O+WSKYV2YiLc1mSRq6X
+	2/WqYQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkSC-00000003OER-1Z92;
-	Fri, 16 Oct 2026 16:06:44 +0000
+	id 1xHkSI-00000003OJl-3Qqx;
+	Fri, 16 Oct 2026 16:06:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkSB-00000003ODY-0ntu;
-	Fri, 16 Oct 2026 16:06:43 +0000
+	id 1xHkSI-00000003OIR-06O4;
+	Fri, 16 Oct 2026 16:06:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1GuIjwnutapXL5RSBydFeEzZIlwcykWtwbrgx8uSRFI=; b=pI5eHEriagnnfJmqgmrHf+pvLm
-	x0z6xgRzyIHW/6yrtUFignoAe9Ru4CVAw/xQMp4iaHUycaGw0FfTHU5WM6a21sycCROf9dYjh52XD
-	yUR+u0IT+IKAdWA4CQwHpRt3sAvPWtmA9g/aNskgEO9brx957kT6c5sI4bU4EyRTb973X8706lDUE
-	xLlleizqXBbq3l7KrrFO5zoyMs0ryRQpbc+9uUYOuBrkVffB1mvxOJkyvARFArQHavGvjBXkNvdNx
-	7e/YY9CrWosNZuQu4uYb/re1BuUjwqEsNazoHUDJwiPJ7YBfVZxtPtBnQmdlgNFrDFLuK00jQAxrr
-	8ddmTpGw==;
+	bh=9gJEy8R3fVBH6Cq++PWhCCjionGdbV/hp10N5/23EDw=; b=gJGQf2Mq9Rr88cDn6Xu9TIyoak
+	srSqYkSqOJc6++zOlVa6L8BwbwoZTZ56bd9tgO8g2WoRpAeGv4/LvFQJ9NJp+2mnuLCZKFJBClFt7
+	gw4kqLdbl5tKTSUdAogL2Nrcn/2Fyt9tBmdKGxJJl5rrC2VP+lslm7denk7EA0hyRuv2iLLWtIPUb
+	P4eBxTLlBsYTpZHj+fswIW2ZL4XcYvD0bie1XtObMFfYmrQh0BauPyxtTU6jtX3uE1Q8VqtrM5FdP
+	19L4gvYiw8g9jrOWXVbyiPU7jRfdHMXA8lcFRd1y3DXLdeYowYOXdXGTpJ36gyqm0AwljIal0/tdl
+	pPvzzubA==;
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHkS8-00000001i8G-2Ee3;
-	Fri, 16 Oct 2026 16:06:42 +0000
+	id 1xHkSF-00000001i9K-1WZs;
+	Fri, 16 Oct 2026 16:06:49 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
 	 (Exim 4.100.1)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1xHkS0-0000000086I-3HYE;
-	Fri, 16 Oct 2026 16:06:32 +0000
-Date: Fri, 16 Oct 2026 17:06:29 +0100
+	id 1xHkS7-0000000086N-2vvQ;
+	Fri, 16 Oct 2026 16:06:39 +0000
+Date: Fri, 16 Oct 2026 17:06:36 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Paul Elder <paul.elder@ideasonboard.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -61,17 +61,17 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] media: rkisp2: Add parameters output video node
-Message-ID: <atJLhTeuvukW4XFx@makrotopia.org>
+Subject: Re: [PATCH v3 3/5] media: rkisp2: Add statistics capture video node
+Message-ID: <atJLjCV3Z8V7DsqY@makrotopia.org>
 References: <20260827-rkisp2-v3-0-e91ff0a604d6@ideasonboard.com>
- <20260827-rkisp2-v3-2-e91ff0a604d6@ideasonboard.com>
+ <20260827-rkisp2-v3-3-e91ff0a604d6@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260827-rkisp2-v3-2-e91ff0a604d6@ideasonboard.com>
+In-Reply-To: <20260827-rkisp2-v3-3-e91ff0a604d6@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_170640_664279_CA90988C 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20261016_170647_544646_2A2A22E5 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,168 +86,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 07:48:31PM +0900, Paul Elder wrote:
-> Implement support for setting parameters on the ISP by queueing
-> parameter buffers to rkisp2.
+On Thu, Aug 27, 2026 at 07:48:32PM +0900, Paul Elder wrote:
+> Implement support for getting statistics out of the ISP by dequeueing
+> statistics buffers from rkisp2.
 [...]
 
 Hi Paul,
 
-A few comments from running this on the RV1126; the RK3588 statements
-are by code inspection.
+Comments from running the statistics on the RV1126; the RK3588
+statements are by code inspection.
 
 [...]
 > +++ b/Documentation/userspace-api/media/v4l/metafmt-rkisp2.rst
 [...]
-> +The configuration parameters are passed to the :ref:`rkisp2_params
-> +<rkisp2_params>` metadata output video node, using the
+> +:ref:`rkisp2_stats <rkisp2_stats>` metadata capture video node, using
 
-There is no rkisp2_params label anywhere under Documentation/ (rkisp1
-defines its labels in admin-guide/media/rkisp1.rst), so Sphinx warns
-about an undefined label. The same holds for rkisp2_stats in patch 3.
+Undefined label, as rkisp2_params in patch 2.
+
+[...]
+> +                const struct v4l2_isp_stats_block_header *block =
+> +                        (void*)(stats->data + block_offset);
+[...]
+> +                                printf("ae_lite.exp_mean_r[%u] = 0x%08x\n",
+> +                                        i, ae_lite.exp_mean_r[%i]);
+
+struct v4l2_isp_stats_block_header does not exist, the header is
+struct v4l2_isp_block_header; and ae_lite is a pointer and %i is not
+an index (ae_lite->exp_mean_r[i]).
 
 [...]
 > +++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-params.c
 [...]
-> +static void rkisp2_params_goc(struct rkisp2_params *params,
+> +static void rkisp2_params_hist_big(struct rkisp2_params *params,
 [...]
-> +	if (arg->mode == RKISP2_ISP_GOC_MODE_EQUIDISTANT)
-> +		control = ISP3X_GAMMA_OUT_CTRL_MODE_EQUIDISTANT;
-> +	if (arg->mode == RKISP2_ISP_GOC_SEGMENTS_48)
-> +		control |= ISP3X_GAMMA_OUT_CTRL_SEGMENTS_48;
-
-The second test is meant for arg->segments. As
-RKISP2_ISP_GOC_SEGMENTS_48 and RKISP2_ISP_GOC_MODE_EQUIDISTANT are both
-1, equidistant mode always gets the 48 segment layout and the segments
-member of the uapi is dead.
-
-[...]
-> +static void rkisp2_params_crop_init(struct rkisp2_params *params)
-> +{
-> +	struct rkisp2_device *rkisp2 = params->rkisp2;
-> +
-> +	/* Create an initial crop configuration to configure */
-> +	struct rkisp2_params_crop arg = {
-> +		.header.type = RKISP2_PARAMS_BLOCK_CROP,
-> +		.header.flags = 0,
-> +		.header.size = sizeof(struct rkisp2_params_crop),
-> +		.crop_en = RKISP2_ISP_CROP_ENABLE_MAIN | RKISP2_ISP_CROP_ENABLE_SELF,
-> +
-> +		.mp_crop.h_offs = 0,
-> +		.mp_crop.v_offs = 0,
-> +		.mp_crop.h_size = rkisp2->resizer_devs[0].source_size.width,
-> +		.mp_crop.v_size = rkisp2->resizer_devs[0].source_size.height,
-
-Without a params buffer at stream start this crops a window of the
-output size at the top left corner, so a 1920x1080 capture from a
-3864x2192 sensor shows that corner only. The sink size (what the CROP
-block uses when it is disabled), scaled by the resizer, is what rkisp1
-does and what a plain v4l2-ctl capture expects.
-
-[...]
-> +static void rkisp2_params_configure(struct rkisp2_params *params,
-[...]
-> +	/* update shadow register immediately */
-> +	rkisp2_param_set_bits(params, RKISP2_CIF_ISP_CTRL,
-> +			      RKISP2_CIF_ISP_CTRL_ISP_CFG_UPD);
-> +
-> +	if (prio == RKISP2_PARAMS_CONFIG_PRIO_NONE)
-> +		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
-> +}
-[...]
-> +void rkisp2_params_pre_configure(struct rkisp2_params *params,
-[...]
-> +	spin_lock_irq(&params->buf_lock);
-> +	buf = list_first_entry_or_null(&params->params,
-> +				       struct rkisp2_params_buffer, queue);
-> +	spin_unlock_irq(&params->buf_lock);
-> +
-> +	if (!buf) {
-> +		/*
-> +		 * Initialize crop in the event that are no pre-queued
-> +		 * parameter buffers
-> +		 */
-> +		rkisp2_params_crop_init(params);
+> +	default:
+> +		WARN_ONCE(1, "invalid big histogram base %x\n", reg_base);
 > +		return;
-> +	}
-> +
-> +	rkisp2_params_configure(params, buf, RKISP2_PARAMS_CONFIG_PRIO_PRE);
 
-When a buffer is queued but carries no CROP block, neither path
-programs the dual crop and the resizer, so they keep the state of the
-previous stream (the IRCL pulse in rkisp2_isp_stop() resets the ISP
-and MIPI blocks only) or the reset state. With a capture size that
-differs from the sink size the MI is then fed frames of the wrong
-size. Running rkisp2_params_crop_init() first and letting a CROP block
-override it covers both cases.
+reg_base is uninitialised in the default branch (clang warns);
+block.header->type is what you want to print.
 
-> +}
-> +
-> +void rkisp2_params_post_configure(struct rkisp2_params *params)
-> +{
-> +	struct rkisp2_params_buffer *buf;
-> +
-> +	spin_lock_irq(&params->buf_lock);
-> +	buf = list_first_entry_or_null(&params->params,
-> +				       struct rkisp2_params_buffer, queue);
-> +	if (buf)
-> +		list_del(&buf->queue);
-> +	spin_unlock_irq(&params->buf_lock);
-> +
-> +	if (!buf)
+[...]
+> +++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-stats.c
+[...]
+> +static const struct v4l2_isp_stats_block_type_info
+> +rkisp2_stats_blocks_info[] = {
+> +	RKISP2_STATS_BLOCK_INFO(AE_LITE, ae_lite),
+> +	RKISP2_STATS_BLOCK_INFO(HIST_LITE, hist),
+> +	RKISP2_STATS_BLOCK_INFO(HIST_BIG0, hist),
+> +	RKISP2_STATS_BLOCK_INFO(HIST_BIG1, hist),
+> +	RKISP2_STATS_BLOCK_INFO(HIST_BIG1, hist),
+> +	RKISP2_STATS_BLOCK_INFO(AWB, awb),
+> +};
+
+HIST_BIG1 twice, and HIST_BIG2 is left with size 0.
+v4l2_isp_stats_init_block() then writes a zero-sized header for
+HIST_BIG2 without advancing data_size, the 256 bins are written after
+it and the AWB block overwrites both, so user space never sees a
+HIST_BIG2 block. With the entry fixed the block shows up on the RV1126.
+
+[...]
+> +static void rkisp2_stats_get_rawae_lite(struct rkisp2_stats *stats,
+[...]
+> +	block = rkisp2_init_stats_block(rkisp2, pbuf,
+> +					RKISP2_STATS_BLOCK_AE_LITE);
+> +	if (IS_ERR(block))
 > +		return;
 > +
-> +	rkisp2_params_configure(params, buf, RKISP2_PARAMS_CONFIG_PRIO_POST);
-> +}
-
-The buffer is taken off the list here and configured with PRIO_POST,
-which does not complete it (see above), so a params buffer queued
-before STREAMON never comes back from DQBUF; at STREAMOFF vb2 warns
-that stop_streaming left a buffer in active state and releases it
-itself. rkisp1_params_post_configure() completes the buffer after the
-LSC group; vb2_buffer_done() belongs here after the POST pass.
-
-[...]
-> +	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-> +	if (ret) {
-> +		dev_err(rkisp2->dev,
-> +			"failed to register %s, ret=%d\n", vdev->name, ret);
-> +		return ret;
-> +	}
+> +	ae_lite = &block->ae_lite;
 > +
-> +	return 0;
-> +
-> +err_media:
-> +	media_entity_cleanup(&vdev->entity);
-> +	mutex_destroy(&node->vlock);
-> +	return ret;
+> +	/* TODO figure out what the other channels are for */
+> +	if (!(status & ISP2X_3A_RAWAE_CH0))
+> +		return;
 
-goto err_media here as well. Neither path releases the vb2 queue that
-was initialised above.
+The block is reserved and its header written before the status check,
+and v4l2_isp_stats_init_block() does not clear the payload, so when
+the bit is not set the block goes out with whatever the buffer held
+from its previous use, done flag included (every frame after AE lite
+was disabled through the params node, for instance). Reserve the block
+after the check, or clear done and the means when the measurement is
+missing. rkisp2_stats_get_rawawb() has the same pattern.
 
 [...]
-> +++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-resizer.c
-[...]
-> +void rkisp2_resizer_configure(struct rkisp2_resizer *rsz,
-[...]
-> +	if (crop->width == rsz->source_size.width && crop->height == rsz->source_size.height)
-> +		rkisp2_resizer_disable_rsz(rsz);
-> +	else
-> +		rkisp2_resizer_config_rsz(rsz, crop,
-> +					  &rsz->source_size,
-> +					  &rsz->source_format);
+> +irqreturn_t rkisp2_stats_isr_eof(struct rkisp2_stats *stats)
+> +{
+> +	struct rkisp2_device *rkisp2 = stats->rkisp2;
+> +	u32 status = rkisp2_read(rkisp2, ISP_ISP3A_MIS);
 
-The bypass test compares the luma size only. The ISP delivers 4:2:2,
-and rkisp2_resizer_config_rsz() handles the chroma subsampling when it
-runs, but an unscaled 4:2:0 stream (crop equal to the output size)
-disables the resizer and the MI gets one chroma row per luma row. On
-the RV1126 main path the chroma plane offset wraps halfway through the
-frame and the chroma of the lower half lands on the upper half
-(displaced colour ghosts and neutral halos). rkisp1_rsz_config()
-bypasses only when the size and the subsampling are both unchanged;
-the same test here fixed it for me. I do not know whether the 3.0 MI
-subsamples on its own in the ISP32_MI_OUTPUT_YUV420 mode; if it does
-not, this applies to the RK3588 too.
+Is the 3A interrupt on its own line on the RK3588? On the RV1126 it
+shares the ISP line: the measurements complete early in the frame, the
+ISP handler returns IRQ_NONE for the rest of the frame as ISP_MIS is
+clear, and the line stays asserted until this clears it, about 1400
+unhandled interrupts per frame until the kernel disables the line.
+Leaving ISP3A_IMSC clear (the params handlers set it) and reading
+ISP3A_RIS here instead works on both.
+
+[...]
+> +	rkisp2_stats_init_vb2_queue(vdev->queue, stats);
+
+The return value is ignored.
+
+[...]
+> +++ b/include/uapi/linux/media/rockchip/rkisp2-config.h
+[...]
+> +/**
+> + * Same as struct rkisp2_params_hist_lite but for big channel
+> + *
+> + * RkISP2 parameters histogram configuration block.
+> + * Identified by :c:type:`RKISP2_PARAMS_BLOCK_HIST_BIG{0,1,2}`.
+> + *
+> + * @window_num: 0 or 1 for 5x5, 2 or 3 for 15x15
+> + */
+> +struct rkisp2_params_hist_big {
+
+scripts/kernel-doc warns that this is not a kernel-doc comment; it
+needs the "struct rkisp2_params_hist_big - ..." title and the other
+members, since the header is pulled into the documentation.
 
 Best regards,
 Daniel
