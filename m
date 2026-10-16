@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E981CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 05:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A4CCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 05:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9S/3scpv8TmDMpc3q9HAsNyW70EViJX64k08LJms7E=; b=BrBRhb5yof4UJeR15wV6t/Vi2s
-	AoS+AfWNO+BGScmeB/ktFANnE8u1So6b4CF0unbmsFavHJp/oOsSd0eDXcsENtC1Lsl+4kC9qYtmL
-	YUK6BzM1W7Lq4ikBGnAUf7szlh+vwRgmDMPf3neR9m7efc86B8/iLnB94dLGGVUHHqUCzk/6XVVTF
-	y5ODayNtaqShzVhHFEDoqQhohKHTtvJAxgb5/E/aP8O4e3Hj+by9zqzAVeW2kHKHuFMJmPyt4Qzgv
-	jXJjyBqtkh2zhM/mDlN1x3cBvAYFJGzP9ywmXtvfBANO3Hi8yY6IeIx8oQKtR6MusjnOmNYmungrS
-	4yIQ+9SQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LoKtrw7hyNRnwwtzfdOXkXTi9AGhOrp6JERxAlqfWSs=; b=XEZMXFq5zMSP1o
+	6zNs9Qo7ZrOKMRhXkWSu2sSO2Wl7rQ2MZR0+xRL/wCrEwNhyVlYc9FDZ0D8+t3Jdmwspz7D8nf8Yn
+	F16vcIRCizdgl+zm3IufRC31LieNU8WRnX1Rzjx3xz9gpL6x1FmSAG+0lQmOflAEM/g/olf0xJIhL
+	da2dpXpXaCa4Jw5ptYtRiVpz2R5njn2ezQZC2sTGW1xohFXASXdXmBkS4Cpcw8zavF3NG3k+0/jBF
+	gKUUUnEZrvJqqtUjRytx30QpXF/Tj3zVZRCmpD93k0jnIW0Ih7ABcC4yQVjLb9o4ITfhI3XYFHewY
+	2SnbjUq8sadFFb1bzRBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHae7-000000022cM-3unp;
-	Fri, 16 Oct 2026 05:38:23 +0000
-Received: from out203-205-221-239.mail.qq.com ([203.205.221.239])
+	id 1xHald-000000023Pm-0cOK;
+	Fri, 16 Oct 2026 05:46:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHae4-000000022bd-3kVJ;
-	Fri, 16 Oct 2026 05:38:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1792129097; bh=I9S/3scpv8TmDMpc3q9HAsNyW70EViJX64k08LJms7E=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=cxP/9htKshkcGlqtR4PvqVrttAC60cxFdU3CFwAtVdMna9nJUCuGcFYHgqj0JYOM7
-	 590j5kv3z7felF+xg7pg5NzW5a8zyCK9qQQhIUZt+8XgiSZKnvFMghRzF0EHYe7FXm
-	 8ij3wmlTIst7OSxdj2lX8dSYrycWjL67PIJ5hT9I=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-XMAILINFO: MYbC+rXBLyObodfQCA4D7TaoC77kH8yp+juHBOTeycoxYspZxP8BMQM5plRqXp
-	 zbvO/D7gGuVDNON12sGweqj9HkecQI4fZdeQtgAf1H6bnhUZfr8LRxHn5k8b0uE8Wo2TLq75I38VY
-	 0ebyvfRz6/Zi7lyNeEk7JwBPtXFp8/m6nTP/SXbxRGJFon3KvSxWFVCgKj/6pPp41Z/qbPqohN2fX
-	 XPn6RlPVn/woGfgLwefe588P4RvHw0q5J78CFmV6tijn2hlCNhwMm5eDZzd+PWGVWUWkGF+doB7gJ
-	 rpvnLW87wnglxDOV3aSGqiOL8cfxlW86STqrxcyTcqDYjsMtOHJj2uj97DGLNUyTKS4NWRPCDwKYg
-	 7L7CKTFFkWbQyOzkvIrHekv94DixLNKaUZc/mZ1rZglKBJL8YO2s/kHiVSxFlciinot5mMnk+98Bh
-	 eNBspZUi2qlD5d+8wfWmwjU1Tmi1f1ZkI5Bq+vjWg38iE5kD7/zF0dWF0cifVX6dn257A4A2oTNdq
-	 sbc9rm4fO6RyAHoBe4MZ6LpA4p5r4xHPDwrTFkD0C7rOV0pNuoT44E+LluRhECc5PR0AXcfvJtuow
-	 c3PQNqJLzLL4b/SlNICw8piy5WMwbDG/9bFKVP0vnJuKpEOBXC5W0/Ny3UKWgzNgLhWFDvSjAzMx1
-	 gAcWME4YV6xUkumRdI4ai0eG+xLxS3iNQMDZ3q+H7TapI5wLcfRzhJMo2ssLaVdkjzpKmAn/Z40BX
-	 dRWsFCoVgYKeRVn9JQ1hA0a6YBeEIRJX9TGK4f+AX/XXWbraDLdX65RPfygGvWTjzslM2IL9KjTIp
-	 BniCtuPJi/F6r418IHXaw9rTQlSzCN9AbIG9R7PQrwjU88rb68DvwqACQaC3ydKS57IDP7GtNh1Wq
-	 GAYT7PnwxekubUkpk0SFywKN5wWvGoExUeDr+Ltwb+kVBvfu/xoNM8cQcU1B77baOackPJuT7dZSi
-	 UJ7IlCp43FxSDPrYerbSF9vQPpPZupFEm7VdaBjs3oSi8eaZwYK3HU1ye7Zm5ENVtl1GI70Y0QHj2
-	 E5aFPDjlYbhyLT77QicDd4corlf6N9UQCPwZ1
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
-Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?d2c=?=" <wg@grandegger.com>, "=?utf-8?B?c29ja2V0Y2Fu?=" <socketcan@hartkopp.net>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>
-Subject: Re: [PATCH net v3 1/5] can: dev: prevent bus-off recovery when the interface is not running
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Fri, 16 Oct 2026 13:38:15 +0800
-X-Priority: 3
-Message-ID: <tencent_F6326E09D62380013188767E4F4D66345808@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <20261014-rockchip-canfd-restart-close-v3-1-f0eb41090242@qq.com>
-	<179212694915.1406898.5096495212984871051@kernel.org>
-In-Reply-To: <179212694915.1406898.5096495212984871051@kernel.org>
-X-QQ-mid: xmsezb41-0t1792129095tq0zz4chp
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_223821_269212_B2F80A15 
-X-CRM114-Status: GOOD (  17.83  )
+	id 1xHalb-000000023PU-3vPw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 05:46:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6007643D4A
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 05:46:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A9D1F000CA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 05:46:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792129567;
+	bh=LoKtrw7hyNRnwwtzfdOXkXTi9AGhOrp6JERxAlqfWSs=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=JWyV6FqOv9QQWa1oVzJgkTyXA0h1PgnXMa5/dRfAxiA9L9E/+kQI1uUr6tkciK5KX
+	 4Ti73fLs44mN99sMYAWSNNVM3JnWOWl5LeudwYgQUdn4jCg+oGTGVZDMcAliLFRsGN
+	 49u0h71/rNIcINv6KH4Hq0qOxoX7HN0D8P3loAaP0vtJp65rJ1FKa72xPOqoFLoMS5
+	 nmMzFPMs1r2EB7QA9SLXH9AYz+SdN54asOWpwyE7vKsfp0CZCSqnRr68hXpXnqJCGf
+	 3XQJk5kKMXgIYSuNZrVdBY/LsWN1P0he7gqlmhyJ2BqD1aDQGx9x+KvnJIzF8gi2iJ
+	 +y0oEn6bx3yEw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3aae7df0971so10147601fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 22:46:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwhCubXA1t7AuI1+tj17DVzdpTNehnReE4CQp8AN+hRuD0g4ubYLPtfszkpeHiHH0qmIzQfWMc5kclhv7HPMgx0@lists.infradead.org
+X-Gm-Message-State: AFq9FYJQYqEnpZI2m302vETSS02aZH0H79tRBtMTUYvKTp2u+EEjX8Lm
+	2H8AYx/p593EypnzqUK5zjEoNWt7TkG1u3Cknvn7gzaBoygYbAm//mUzwwPwcS3o3AByxZbu4cS
+	9lSn1xvgPkLF5W1qmgUqWjc3GIujy3cI=
+X-Received: by 2002:a05:651c:211e:b0:3a9:8450:813e with SMTP id
+ 38308e7fff4ca-3a9c56df14cmr54234641fa.20.1792129565639; Thu, 15 Oct 2026
+ 22:46:05 -0700 (PDT)
+MIME-Version: 1.0
+References: <20261016-helios64-power-tree-v1-0-31d6c8dc5092@iav.lv> <20261016-helios64-power-tree-v1-2-31d6c8dc5092@iav.lv>
+In-Reply-To: <20261016-helios64-power-tree-v1-2-31d6c8dc5092@iav.lv>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 16 Oct 2026 14:45:51 +0900
+X-Gmail-Original-Message-ID: <CAGb2v64pcvwak2kC7rPwiZm4=BCnb+Kh3WUps3J-19=DC6pkzw@mail.gmail.com>
+X-Gm-Features: AclHuK8uVlitNY7i2NB9uFdKYW8oiH_IPPYtbAi4f1OZkEfiAEY-pnEtxZkD2cM
+Message-ID: <CAGb2v64pcvwak2kC7rPwiZm4=BCnb+Kh3WUps3J-19=DC6pkzw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Describe the unused RK808
+ outputs on Kobol Helios64
+To: iav@iav.lv
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +79,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksCgo+IFtTZXZlcml0eTogTWVkaXVtXQo+IElzIHRoaXMgY2hlY2sgZW5vdWdoIHRvIHBy
-ZXZlbnQgdGhlIGZhaWx1cmUgZGVzY3JpYmVkIGluIHRoZSBjb21taXQKPiBtZXNzYWdlLCAi
-cG90ZW50aWFsbHkgcmUtZW5hYmxpbmcgaGFyZHdhcmUgd2hpbGUgdGhlIGRyaXZlciBpcyB0
-ZWFyaW5nIGl0Cj4gZG93biI/CgpObywgbmV0aWZfcnVubmluZygpIGFsb25lIGRvZXMgbm90
-IHNlcmlhbGl6ZSByZXN0YXJ0IHdpdGggbmRvX3N0b3AoKS4gQQpyZXN0YXJ0IHRoYXQgaGFz
-IGFscmVhZHkgcGFzc2VkIHRoZSBjaGVjayBjYW4gc3RpbGwgb3ZlcmxhcCB3aXRoIGhhcmR3
-YXJlCnRlYXJkb3duLiBUaGUgY29tbWl0IG1lc3NhZ2UgZXhwbGljaXRseSBkb2N1bWVudHMg
-dGhpcyBsaW1pdGF0aW9uIGFuZCB0aGUKbmVlZCBmb3IgZHJpdmVycyB0byBjYW5jZWwgcmVz
-dGFydCB3b3JrIGJlZm9yZSB0ZWFyaW5nIGRvd24gcmVzb3VyY2VzLgoKRm9yIFJvY2tjaGlw
-LCB0aGUgc2VyaWVzIGFscmVhZHkgY2FsbHMgY2xvc2VfY2FuZGV2X2NhbmNlbF9yZXN0YXJ0
-X3N5bmMoKQphdCB0aGUgc3RhcnQgb2YgcmtjYW5mZF9zdG9wKCkuIFRoaXMgY2FuY2VscyBw
-ZW5kaW5nIHdvcmsgYW5kIHdhaXRzIGZvciBhbnkKcmVzdGFydCBhbHJlYWR5IGluIHByb2dy
-ZXNzIGJlZm9yZSBkaXNhYmxpbmcgaW50ZXJydXB0cywgZnJlZWluZyB0aGUgSVJRCm9yIHN0
-b3BwaW5nIHRoZSBjb250cm9sbGVyLiBUaGUgZmluYWwgY2xvc2VfY2FuZGV2KCkgcmVtYWlu
-cyBhZnRlciBJUlEKdGVhcmRvd24gZm9yIGZpbmFsIGNhbmNlbGxhdGlvbiBhbmQgZWNobyBj
-bGVhbnVwLgoKQXMgZGlzY3Vzc2VkIGVhcmxpZXIsIHRoaXMgc2VyaWVzIGxpbWl0cyB0aGUg
-ZHJpdmVyLXNpZGUgZml4IHRvIFJvY2tjaGlwLgpZb3UgYXJlIHJpZ2h0IHRoYXQgc2phMTAw
-MCBhbmQgZmxleGNhbiBzdGlsbCBoYXZlIHRoZSB3aW5kb3cgeW91IGRlc2NyaWJlLgpUaG9z
-ZSBwcmUtZXhpc3RpbmcgcmFjZXMgbmVlZCBzZXBhcmF0ZSBkcml2ZXIgZml4ZXM7IHRoZSBj
-b3JlIGNoZWNrcyBkbwpub3QgcmVzb2x2ZSB0aGVtLiBGb3IgUm9ja2NoaXAsIHRoZSBzZXJp
-ZXMgdXNlcyB0aGUgZWFybHktY2FuY2VsbGF0aW9uCmFwcHJvYWNoIHlvdSBzdWdnZXN0IHJh
-dGhlciB0aGFuIGFkZGluZyBSVE5MIGxvY2tpbmcgdG8gdGhlIHdvcmtlci4KCj4gW1NldmVy
-aXR5OiBMb3ddCj4gVGhpcyBpc24ndCBhIGJ1ZywgYnV0IHRoZSBjb21tZW50IGFib3ZlIGNh
-bl9idXNfb2ZmKCkgc3RpbGwgZGVzY3JpYmVzIHRoZQo+IG9sZCBjb25kaXRpb246Cj4KPiAv
-KiBDQU4gYnVzLW9mZgo+ICAqCj4gICogVGhpcyBmdW5jdGlvbnMgc2hvdWxkIGJlIGNhbGxl
-ZCB3aGVuIHRoZSBkZXZpY2UgZ29lcyBidXMtb2ZmIHRvCj4gICogdGVsbCB0aGUgbmV0aWYg
-bGF5ZXIgdGhhdCBubyBtb3JlIHBhY2tldHMgY2FuIGJlIHNlbnQgb3IgcmVjZWl2ZWQuCj4g
-ICogSWYgZW5hYmxlZCwgYSB0aW1lciBpcyBzdGFydGVkIHRvIHRyaWdnZXIgYnVzLW9mZiBy
-ZWNvdmVyeS4KPiAgKi8KPgo+IENvdWxkIGl0IG1lbnRpb24gdGhhdCByZWNvdmVyeSBpcyBu
-b3cgb25seSBzY2hlZHVsZWQgd2hlbiB0aGUgaW50ZXJmYWNlCj4gaXMgcnVubmluZz8KCkFn
-cmVlZC4gSSB3aWxsIHVwZGF0ZSB0aGUgY29tbWVudCB0byByZWZlciB0byBkZWxheWVkIHdv
-cmsgYW5kIHN0YXRlIHRoYXQKcmVjb3ZlcnkgaXMgc2NoZWR1bGVkIG9ubHkgd2hlbiBhdXRv
-bWF0aWMgcmVjb3ZlcnkgaXMgZW5hYmxlZCBhbmQgdGhlCmludGVyZmFjZSBpcyBydW5uaW5n
-LiBJIHdpbGwgYWxzbyBjbGFyaWZ5IHRoZSBydW5uaW5nLWludGVyZmFjZSBjb25kaXRpb24K
-aW4gdGhlIHJlc3RhcnQtbXMgZG9jdW1lbnRhdGlvbi4gSWYgdjUgaXMgYWNjZXB0ZWQsIEkg
-d2lsbCBzZW5kIGEKc2VwYXJhdGUgZG9jdW1lbnRhdGlvbiBjbGVhbnVwIHBhdGNoIGxhdGVy
-LgoKUmVnYXJkcywKQ3VuaGFvIEx1Cg==
+On Fri, Oct 16, 2026 at 2:34=E2=80=AFPM Igor Velkov via B4 Relay
+<devnull+iav.iav.lv@kernel.org> wrote:
+>
+> From: Igor Velkov <iav@iav.lv>
+>
+> The Helios64 schematic lists RK808 LDO_REG1, LDO_REG2, LDO_REG5,
+> LDO_REG7 and SWITCH_REG2 as unused (sheet 2). Each output has only a
+> 0.1 uF capacitor and goes nowhere else (sheet 6).
+>
+> Describe them with the names from the schematic and no constraints, so
+> the regulator core switches them off as unused.
 
+To be honest this seems a bit odd. If something is unused you should
+not need to describe it.
+
+ChenYu
+
+
+> Link: https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics=
+_Rev1.2.pdf
+> Assisted-by: LLM
+> Signed-off-by: Igor Velkov <iav@iav.lv>
+> ---
+>  .../boot/dts/rockchip/rk3399-kobol-helios64.dts      | 20 ++++++++++++++=
+++++++
+>  1 file changed, 20 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+> index cf247d6c6212..35e92e1c8ff8 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts
+> @@ -436,6 +436,14 @@ regulator-state-mem {
+>                                 };
+>                         };
+>
+> +                       vcc1v8_dvp: LDO_REG1 {
+> +                               regulator-name =3D "vcc1v8_dvp";
+> +                       };
+> +
+> +                       vcc3v0_touch: LDO_REG2 {
+> +                               regulator-name =3D "vcc3v0_touch";
+> +                       };
+> +
+>                         vcc1v8_s3: LDO_REG3 {
+>                                 regulator-name =3D "vcc1v8_s3";
+>                                 regulator-always-on;
+> @@ -462,6 +470,10 @@ regulator-state-mem {
+>                                 };
+>                         };
+>
+> +                       vcca3v0_codec: LDO_REG5 {
+> +                               regulator-name =3D "vcca3v0_codec";
+> +                       };
+> +
+>                         vcc1v5_s3: LDO_REG6 {
+>                                 regulator-name =3D "vcc1v5_s3";
+>                                 regulator-always-on;
+> @@ -475,6 +487,10 @@ regulator-state-mem {
+>                                 };
+>                         };
+>
+> +                       vcca1v8_codec: LDO_REG7 {
+> +                               regulator-name =3D "vcca1v8_codec";
+> +                       };
+> +
+>                         vcc3v0_s3: LDO_REG8 {
+>                                 regulator-name =3D "vcc3v0_s3";
+>                                 regulator-always-on;
+> @@ -497,6 +513,10 @@ regulator-state-mem {
+>                                         regulator-off-in-suspend;
+>                                 };
+>                         };
+> +
+> +                       vcc3v3_s0: SWITCH_REG2 {
+> +                               regulator-name =3D "vcc3v3_s0";
+> +                       };
+>                 };
+>         };
+>
+>
+> --
+> 2.43.0
+>
+>
+>
 
