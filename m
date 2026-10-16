@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFE7CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 11:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1E1CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 11:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xf9aqDEB2ABb/PUaNcWQ+D8Pgss+XS8jNScelABQvc=; b=GlLXgqU/+82TDhyICrvLr6VL+g
-	X0NBbD4PNIjxizX1xftrrHmwTmlp+FzL1wLJIrn3Ssw1v+3uakfSJ7rRKCyJd9q7MvuuT7Za7wXgg
-	eDp0OMuf6VUZwEM9TGLVkD1EQJ+rUEvy/8qj1Y6VgcBBURfiOM9dyw3kGVCkaRZjhRn0XF26ozh2/
-	NJPv5PUBkf0t53Wi5M7xNIFJGW0RkRyD+VLE1wWBzEDNuKgxpeKLeNaEXGL7uqYqZLyqznmlnK6Y4
-	m58ITCV/Dr+g8FpevRTwyQqee+1RMIy4T37yLhbuZ0fMRsIRFz18ZoNl1V3AckCE0m9ZksK8RN3FC
-	uUqTkkRA==;
+	bh=KPspX2Hn9/pLldYx6EAuwYvgxkGw1LitNgeC2lI4gEs=; b=Mj0PdxCGpzK//jM3BqO5R6Luwo
+	YyEVc+AUxLJpOR81hYjIFHn1LKfu1u3X2Hc/kwe1Ei6oo33rYLRxyPVGyVuLt2fE1oIvS+jY5juzr
+	K43oy5n6Uou0iuEEFoI6Owo8DbSTLN9DGVN4R/wsF4CstvaxMFZW6nTLiJ+NTvoDaorpNwH0A0ttZ
+	qZ/fuw3XVRnf4XeE93Rh5rU7jEJ5WkLoTsWtmYTQ5+Oxgzj1U128SqafKrdpugEboT/iOMw/xU7u1
+	0lpbzBVcVogb5ngeE87bvXzHWuA0T1YimpdnlThZmT2Fi9x3/vz4h/Qd0ZFjBgIntYUYu7PaKiVbP
+	W4OboNXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgNx-00000002nHz-3QJa;
-	Fri, 16 Oct 2026 11:46:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHgNv-00000002nHJ-2KCG;
-	Fri, 16 Oct 2026 11:46:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=0xf9aqDEB2ABb/PUaNcWQ+D8Pgss+XS8jNScelABQvc=; b=wwlo6iHZCJAUeOFDpzHHQ37CHT
-	utNFt53Nbnz0vB2LQNSwuV/fzBTLIPmlwPr27mVmZtCgNk7RFhO0D04ecYNRAm4kzay40ZdjONpWT
-	dmczjPfCoRQyFOgQOAjBKBvLS1rfmbGDeNBoCKDdXO1gpKgJi37q10cwwDM+PbdTpCUu2t0ZBc88d
-	UFEVQH2YhPy6Bh5NiHTKoYk2HYdfMpLozrAewFwbOIrP1AOih195/PUXsiX/MJxkQWV06igSTa0o5
-	eVkaYULwETuyawXTNcJx8nErl6dbn1xtJBjy+kmj97tO9cA+gKq7URZWaEPjtjP6UV/Z2uvowyXt/
-	KtMysznQ==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Huseyin BIYIK <boogiepop@gmx.com>, Johan Jonker <jbx6244@yandex.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] drm: devm_drm_bridge_alloc() conversion and cleanup
-Date: Fri, 16 Oct 2026 13:45:22 +0200
-Message-ID: <2372538.iZASKD2KPV@diego>
-In-Reply-To: <d1f0369c-ff43-4b76-9092-5c638b132f15@yandex.com>
-References: <20261001-bridge-alloc-conv-v1-0-f0a1fe040a86@collabora.com>
- <179213353665.3058528.14437637653539699061.b4-ty@b4>
- <d1f0369c-ff43-4b76-9092-5c638b132f15@yandex.com>
+	id 1xHgSK-00000002nfN-10LM;
+	Fri, 16 Oct 2026 11:50:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHgSH-00000002ner-3yXG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 11:50:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 143D814BF;
+	Fri, 16 Oct 2026 04:50:27 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11CB43F673;
+	Fri, 16 Oct 2026 04:50:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792151430; bh=7eDJICq300beGRALQlJrXpadKotDns99R6Gkf0Dn3K0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b6aCiRzyo8Ricc4Cu/UQrCIx5RdmoRJA/N8urMfg+lfcww7o1ATQzA3vnzny9Vd/i
+	 hrA3iQrIfOQolHhNl9JwGaP9OkclDKp64NhP5DggjXbIY6GSq+HFlhxbrD9Q3AHUjU
+	 9sPBj8fWR3ig8Cr3FOOmD7yCEQUB1lrFmjLZrJ+E=
+Date: Fri, 16 Oct 2026 12:50:17 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>,
+	Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 2/4] arm64: tlb: Add tlbi workaround for
+ FUJITSU-MONAKA Erratum E#030001
+Message-ID: <atIPeT7SLSLjQIcl@J2N7QTR9R3.cambridge.arm.com>
+References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
+ <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_044603_617762_BDA8B221 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20261016_045034_169964_77E13A1D 
+X-CRM114-Status: GOOD (  36.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +83,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Johan,
+On Fri, Oct 16, 2026 at 07:00:46PM +0900, Tomohiro Misono wrote:
+> FUJITSU-MONAKA Erratum E#030001 affects FUJITSU-MONAKA CPU
+> when using TLBI range operations.
+> 
+> On affected FUJITSU-MONAKA CPUs, range-based TLBI operations
+> targeting a VA or IPA may fail to invalidate TLB entries when
+> addr[34:29] == all 1 && addr[28:0] == 0 for 512MB mappings.
+> The affected instructions are:
+>   RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*.
+> 
+> Work around the erratum by issuing additional non-range
+> TLBI instructions corresponding to the affected VA or IPA
+> range-based TLBI operations.
+> 
+> Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
 
-Am Freitag, 16. Oktober 2026, 10:11:19 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Johan Jonker:
-> If any decency or Code of Conduct left in the DRM group then also credit =
-the original author.
-> Also remove driver_private.
+As Will and I suggested last time, we'd prefer to disable range
+operations on these parts (and ensure that the relevant ID field is
+hidden from KVM guests).
 
-after letting that stew in my mind over a lunch break:
+Regardless of whether eventually accept the approach you propose here,
+we first need something simple to backport to stable trees (as I assume
+you'll want to run standard Linux distributions on this hardware). The
+TLB invalidation code has changed a lot over time, and I don't think
+it's practical or sensible to backport this patch.
 
-=2D yes, your patch was earlier
-=2D yes, I should've gotten around to it earlier - I am sorry about that
-=2D so yes, this got mishandled
+As a first step, I think we should simply disable the use of range
+operations on these parts, and ensure that KVM hides the relevant ID
+field. After that, we can consider optimizing the workaround, as you
+propose here.
 
-Nevertheless, this in no way justifies attacking the "drm-group", which
-consists of a big number of individuals (most of which had no contact with
-either variant of the patch at all) on a personal level :-( .
+Marc, does that align with your expectations? Is there an existing
+pattern to follow for hiding the ID field?
 
-The change itself of moving to devm_drm_bridge_alloc, also is somewhat
-straight-forward  that two different people could easily just create the
-same change separately, as we saw here.
+Mark.
 
-
-Heiko
-
-
-> =3D=3D=3D
->=20
-> [PATCH v3] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() =
-API
-> https://lore.kernel.org/linux-rockchip/20260904-drm-v3-1-5b36532a3b72@gma=
-il.com/ =20
->=20
-> [PATCH v2] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() =
-API
-> https://lore.kernel.org/linux-rockchip/20260824-drm-v2-1-7f9273c6020b@gma=
-il.com/
->=20
-> https://lore.kernel.org/linux-rockchip/dea8a038-577b-45da-bff3-703e9099b7=
-e1@gmail.com/
-> [PATCH v1] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc() =
-API
->=20
-> On 10/16/26 08:52, Luca Ceresoli wrote:
-> >=20
-> > On Thu, 01 Oct 2026 11:25:10 +0300, Cristian Ciocaltea wrote:
-> >> Bridge drivers are expected to allocate their private data via
-> >> devm_drm_bridge_alloc(), which also initializes the embedded struct
-> >> drm_bridge, including its funcs pointer.  Most drivers were converted =
-by
-> >> commit 9c399719cfb9 ("drm: convert many bridge drivers from
-> >> devm_kzalloc() to devm_drm_bridge_alloc() API"), but a couple of
-> >> leftovers remain.
-> >>
-> >> [...]
-> >=20
-> > Applied, thanks!
-> >=20
-> > [1/2] drm/rockchip: rk3066_hdmi: Convert to devm_drm_bridge_alloc() API
-> >       commit: 5c0cdbee4fa4a621f871d6dc825e759db08a1a4a
-> > [2/2] drm/bridge: lontium-lt8713sx: Drop redundant bridge funcs assignm=
-ent
-> >       commit: 382c1e8ba409d1611cd256dccebdfa828c832bb1
-> >=20
-> > Best regards,
->=20
->=20
-
-
-
-
+> 
+> ---
+> Changes in v2:
+>  - remove page size restrictions as this errata affects both S1 and S2 tables
+>  - use __always_inline instead of inline
+>  - call workaround from NV TLBI operations too (comment by sashiko)
+>   - TODO: test using NV
+> ---
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 19 +++++++++++++
+>  arch/arm64/include/asm/cpucaps.h            |  2 ++
+>  arch/arm64/include/asm/tlbflush.h           | 35 +++++++++++++++++++++++
+>  arch/arm64/kernel/cpu_errata.c              | 10 +++++++
+>  arch/arm64/kvm/hyp/vhe/tlb.c                | 44 +++++++++++++++++++++++++++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  7 files changed, 113 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 99a1eb4b833dd..527af20b26468 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -375,6 +375,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM_010001      |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM_030001      |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ASR            | ASR8601         | #8601001        | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index cab741a695f52..5d1a17ab0f593 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1342,6 +1342,25 @@ config FUJITSU_ERRATUM_010001
+>  
+>  	  If unsure, say Y.
+>  
+> +config FUJITSU_ERRATUM_030001
+> +	bool "FUJITSU-MONAKA erratum E#030001: Range TLBI may fail to invalidate some entries"
+> +	default y
+> +	help
+> +	  This option adds a workaround for FUJITSU-MONAKA erratum E#030001.
+> +	  On affected FUJITSU-MONAKA CPUs, range-based TLBI operation
+> +	  targeting a VA or IPA may fail to invalidate some TLB entries
+> +	  when hugepage is used in a certain condition. The affected
+> +	  instructions are RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*
+> +	  and this affects on both S1 and S2 tables.
+> +
+> +	  Work around the erratum by issuing additional non-range TLBI
+> +	  instructions corresponding to the affected VA or IPA range-based
+> +	  TLBI operations.
+> +
+> +	  The erratum only affects the FUJITSU-MONAKA.
+> +
+> +	  If unsure, say Y.
+> +
+>  config HISILICON_ERRATUM_161600802
+>  	bool "Hip07 161600802: Erroneous redistributor VLPI base"
+>  	default y
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 76350b38f0d7a..9220b917ec207 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -66,6 +66,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
+>  	case ARM64_WORKAROUND_4193714:
+>  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
+> +	case ARM64_WORKAROUND_FUJITSU_030001:
+> +		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
+>  	case ARM64_MPAM:
+>  		/*
+>  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 14a78ac0f8009..2636c273b8111 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -487,6 +487,39 @@ static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+>  	op(arg);
+>  }
+>  
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +static __always_inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end, u16 asid)
+> +{
+> +	u64 addr;
+> +
+> +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030001))
+> +		return;
+> +
+> +	/*
+> +	 * The erratum fails to invalidate TLBI entries in the range when
+> +	 * addr[34:29] == all 1 && addr[28:0] == all 0 for 512M hugepage.
+> +	 * This affects both on S1 and S2 tables and 4k guest may be affected
+> +	 * if host uses 64k page size. Therefore it cannot be determined
+> +	 * reliably if the target entry is affected or not here. So, always
+> +	 * assume hugepage is used.
+> +	 * The workaround is to issue extra non-range TLBI ops corresponding
+> +	 * to the affected VA or IPA range-based ops in the range.
+> +	 */
+> +	addr = (start & GENMASK_ULL(63, 35)) | GENMASK_ULL(34, 29);
+> +	while (addr < end) {
+> +		__tlbi_level_asid(lop, addr, TLBI_TTL_UNKNOWN, asid);
+> +		if (addr + BIT_ULL(35) < addr)
+> +			/* overflow */
+> +			break;
+> +		addr += BIT_ULL(35);
+> +	}
+> +}
+> +#else
+> +static __always_inline void fujitsu_erratum_wa(tlbi_op lop, u64 start, u64 end, u16 asid)
+> +{
+> +}
+> +#endif /* CONFIG_FUJITSU_ERRATUM_030001 */
+> +
+>  static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
+>  						 u64 start, size_t pages,
+>  						 u64 stride, u16 asid,
+> @@ -518,6 +551,8 @@ static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
+>  		__tlbi_level_asid(lop, addr, level, asid);
+>  		addr += stride;
+>  	}
+> +
+> +	fujitsu_erratum_wa(lop, start, end, asid);
+>  }
+>  
+>  #define __flush_s1_tlb_range_op(op, start, pages, stride, asid, tlb_level) \
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index e0c09402540ce..a11135f83e858 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -1039,6 +1039,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = has_impdef_pmuv3,
+>  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+>  	},
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +	{
+> +		.desc = "FUJITSU-MONAKA Erratum E#030001",
+> +		.capability = ARM64_WORKAROUND_FUJITSU_030001,
+> +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
+> +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
+> +					{}
+> +				})),
+> +	},
+> +#endif
+>  	{
+>  		.desc = "Known broken GICv3 SEIS implementation",
+>  		.capability = ARM64_WORKAROUND_GICv3_BROKEN_SEIS,
+> diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
+> index c386d9f1c1016..2f1a7fab5eb97 100644
+> --- a/arch/arm64/kvm/hyp/vhe/tlb.c
+> +++ b/arch/arm64/kvm/hyp/vhe/tlb.c
+> @@ -8,6 +8,7 @@
+>  
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> +#include <asm/kvm_nested.h>
+>  #include <asm/tlbflush.h>
+>  
+>  struct tlb_inv_context {
+> @@ -218,6 +219,45 @@ void __kvm_flush_vm_context(void)
+>  	__tlbi_sync_s1ish_hyp();
+>  }
+>  
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +static __always_inline void __vae1is(u64 arg)
+> +{
+> +	__tlbi(vae1is, arg);
+> +}
+> +static __always_inline void __vale1is(u64 arg)
+> +{
+> +	__tlbi(vale1is, arg);
+> +}
+> +static __always_inline void __vaae1is(u64 arg)
+> +{
+> +	__tlbi(vaae1is, arg);
+> +}
+> +static __always_inline void __fujitsu_erratum_wa(tlbi_op op, u64 va)
+> +{
+> +	u64 start, size;
+> +	u16 asid;
+> +
+> +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030001))
+> +		return;
+> +
+> +	start = decode_range_tlbi(va, &size, &asid);
+> +	fujitsu_erratum_wa(op, start, start + size, asid);
+> +}
+> +#else
+> +static __always_inline void __vae1is(u64 arg)
+> +{
+> +}
+> +static __always_inline void __vale1is(u64 arg)
+> +{
+> +}
+> +static __always_inline void __vaae1is(u64 arg)
+> +{
+> +}
+> +static __always_inline void __fujitsu_erratum_wa(tlbi_op op, u64 va)
+> +{
+> +}
+> +#endif
+> +
+>  /*
+>   * TLB invalidation emulation for NV. For any given instruction, we
+>   * perform the following transformtions:
+> @@ -322,6 +362,7 @@ int __kvm_tlbi_s1e2(struct kvm_s2_mmu *mmu, u64 va, u64 sys_encoding)
+>  	case OP_TLBI_RVAE1ISNXS:
+>  	case OP_TLBI_RVAE1OSNXS:
+>  		__tlbi(rvae1is, va);
+> +		__fujitsu_erratum_wa(__vae1is, va);
+>  		break;
+>  	case OP_TLBI_RVALE2:
+>  	case OP_TLBI_RVALE2IS:
+> @@ -336,6 +377,7 @@ int __kvm_tlbi_s1e2(struct kvm_s2_mmu *mmu, u64 va, u64 sys_encoding)
+>  	case OP_TLBI_RVALE1ISNXS:
+>  	case OP_TLBI_RVALE1OSNXS:
+>  		__tlbi(rvale1is, va);
+> +		__fujitsu_erratum_wa(__vale1is, va);
+>  		break;
+>  	case OP_TLBI_RVAAE1:
+>  	case OP_TLBI_RVAAE1IS:
+> @@ -344,6 +386,7 @@ int __kvm_tlbi_s1e2(struct kvm_s2_mmu *mmu, u64 va, u64 sys_encoding)
+>  	case OP_TLBI_RVAAE1ISNXS:
+>  	case OP_TLBI_RVAAE1OSNXS:
+>  		__tlbi(rvaae1is, va);
+> +		__fujitsu_erratum_wa(__vaae1is, va);
+>  		break;
+>  	case OP_TLBI_RVAALE1:
+>  	case OP_TLBI_RVAALE1IS:
+> @@ -352,6 +395,7 @@ int __kvm_tlbi_s1e2(struct kvm_s2_mmu *mmu, u64 va, u64 sys_encoding)
+>  	case OP_TLBI_RVAALE1ISNXS:
+>  	case OP_TLBI_RVAALE1OSNXS:
+>  		__tlbi(rvaale1is, va);
+> +		__fujitsu_erratum_wa(vaale1is, va);
+>  		break;
+>  	default:
+>  		ret = -EINVAL;
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 58b6c084f9f25..1e57a0105395b 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -132,3 +132,4 @@ WORKAROUND_SPECULATIVE_AT
+>  WORKAROUND_SPECULATIVE_SSBS
+>  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+>  WORKAROUND_BROKEN_AMU_CONSTCNT
+> +WORKAROUND_FUJITSU_030001
+> 
+> -- 
+> 2.43.0
+> 
 
