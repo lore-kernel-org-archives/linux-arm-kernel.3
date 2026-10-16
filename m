@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493D2CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D881CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9w68fWCqg4l2isDVl1L82y8T1UJfptwNj16UD83Tq6Q=; b=Ulr+rAMeB5X9Mvbhs3o4WW7uL/
-	8F8MEKvK2s0bQUJSxWlJIrXOs3euDbUIbntyTrmoIXTko6ftldpM6X3yJTbKLU46hO/Eee+nyofIQ
-	0gYy2AYgLndSdrINZqoLLx9yn7bleRPns9cYXjOW2DOMdHfLMaAYPxWhivHxAAnqTQFlIGvvhpUxu
-	vP8qdkfd5Fdjrhq7e+ULCT9tC9K3vpWGHxJw/u+56rG8w5eOvWjE1IxiTdZaBn91BHBFI2f1rC3lu
-	PfRTz+P42KxplvjUXd+FgfzSw6FPqzvx83B8nJ0dvJWjYcvD/fTAvvP1yO+GpKGwULx0kkJuWup9P
-	UcL9Te+A==;
+	bh=Me8xE9/+Q42HSlzVQJcqG9CFCufmL51mc1y5dA1P6VI=; b=yawA/hKgVIzLd/TLsRW2/9cd5H
+	SuqAy9XdUknzkqTlobNVhbS6KToxss6z9Uapiw5CoK+MdibiGUj+NteGnf+E1YGALIKKNyryziJ3a
+	aOexRyDRBhgMTxoxHyYIssDoBb1RzBViCEaJiNmFIYqnpTxE5Ya3Dqr+nL+6M835EYcn1PWWznuFb
+	HUi5Yn5vt6bGKlOyy4UDyhWtz9AsDLyDipBCqJHF+y9KYjIDX2YrRXIc8O4QvU4vxqdsNH6+zonpG
+	NeOruAXXIV9iW3zI9OM+zrdRv6RLt7yOG8ymArFiKG0NRdIlVnYf8RHSFpWpnuzqVBkXtEGRHV3k2
+	NQ0SdZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjld-00000003GXm-2bXh;
-	Fri, 16 Oct 2026 15:22:45 +0000
+	id 1xHjlm-00000003Gb0-32UQ;
+	Fri, 16 Oct 2026 15:22:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjla-00000003GWo-348G
+	id 1xHjli-00000003GZb-1f3e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 15:22:43 +0000
+	Fri, 16 Oct 2026 15:22:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 501AF1516;
-	Fri, 16 Oct 2026 08:22:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 437FA143D;
+	Fri, 16 Oct 2026 08:22:46 -0700 (PDT)
 Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 421193F673;
-	Fri, 16 Oct 2026 08:22:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36D1A3F673;
+	Fri, 16 Oct 2026 08:22:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792164161; bh=1ByMCRr6p8I+R8yMKLoV7ZxxkuBb8xs4yGUkzdxHkiI=;
+	t=1792164169; bh=uF3gHfbdma2orZBXGO3W33CSKmBuY31e2U0A16wUtI4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JGa1KPA01QlxEP2masHqvNUjqiBSF++TSYs3I7/haQcB4mPuQ/L1Tg9xyHohYRg0z
-	 o2IZSOeGLKpYmzpHxAnM4BiKuqKzkSnlzRnIZt7HoTHKK8Yu8sxasNagYlYjnZMpL9
-	 dbeSPR6VGV6PgMjWOGrp4N5XjMD6Q8tvs1lzgs9M=
+	b=XfBBoZWegND7u2jVP+pM2ziUVDPyA3kq4qCgfdFsV3k0sHlQtGnZSXHOqGZui4ald
+	 s0pXh1Q4aXSLGw/iarRK4ZHnYXVS/ODu2EMXO8M2dzweWg64EJ+FuCmhIaaX6MSmTB
+	 3073N9Li0kUX6yhKE4iIEh8v9fi4pCl0SEKcHOFA=
 From: Sascha Bischoff <sascha.bischoff@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -50,17 +50,17 @@ Cc: maz@kernel.org,
 	seiden@linux.ibm.com,
 	suzuki.poulose@arm.com,
 	yuzenghui@huawei.com
-Subject: [PATCH 1/2] KVM: arm64: vgic: Require matching VGIC model for GICv3 ITS
-Date: Fri, 16 Oct 2026 16:22:23 +0100
-Message-Id: <20261016152225.898761-2-sascha.bischoff@arm.com>
+Subject: [PATCH 2/2] KVM: selftests: Reject GICv3 ITS with a GICv5 VGIC
+Date: Fri, 16 Oct 2026 16:22:24 +0100
+Message-Id: <20261016152225.898761-3-sascha.bischoff@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261016152225.898761-1-sascha.bischoff@arm.com>
 References: <20261016152225.898761-1-sascha.bischoff@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_082242_811884_5319C076 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20261016_082250_484943_D0E14F9D 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,78 +75,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On a GICv5 host with legacy support, KVM registers both VGICv3 and
-VGICv5 devices. A VM can create a GICv3 ITS with another VGIC model,
-setting has_its even though that model cannot use the GICv3 ITS.
-
-Reject GICv3 ITS creation when the VM already has an incompatible VGIC.
-KVM also permits creating an ITS before its VGIC, so record the model
-required by the ITS and reject a later incompatible VGIC. Preserve
-either creation order when the models match.
+Check that a GICv3 ITS and a GICv5 VGIC cannot be paired, regardless
+of which device is created first. Skip the check when the host does not
+expose a GICv3 ITS.
 
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 5 +++++
- arch/arm64/kvm/vgic/vgic-its.c  | 9 +++++++++
- include/kvm/arm_vgic.h          | 2 ++
- 3 files changed, 16 insertions(+)
+ tools/testing/selftests/kvm/arm64/vgic_v5.c | 32 +++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index b5ea1e39c6862..48a92555fa6ab 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -125,6 +125,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 		goto out_unlock;
- 	}
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+index d5df742b23001..5bf7d99d29147 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+@@ -2003,8 +2003,40 @@ int test_kvm_device(u32 gic_dev_type)
+ 	return 0;
+ }
  
-+	if (kvm->arch.vgic.its_model && kvm->arch.vgic.its_model != type) {
-+		ret = -ENODEV;
-+		goto out_unlock;
++static void test_vgic_v3_its_with_vgic_v5(void)
++{
++	struct kvm_vm *vm = vm_create_barebones();
++	int gic_fd, its_fd, ret;
++
++	if (__kvm_test_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS)) {
++		pr_info("No GICv3 ITS support; skipping mixed-model test.\n");
++		kvm_vm_free(vm);
++		return;
 +	}
 +
- 	if (kvm_id_regs_final(kvm))
- 		goto out_unlock;
- 	ret = 0;
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index e5657cb603567..bf901626ea6df 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1875,6 +1875,14 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
- 
- 	mutex_lock(&dev->kvm->arch.config_lock);
- 
-+	if ((irqchip_in_kernel(dev->kvm) && !vgic_is_v3(dev->kvm)) ||
-+	    (dev->kvm->arch.vgic.its_model &&
-+	     dev->kvm->arch.vgic.its_model != KVM_DEV_TYPE_ARM_VGIC_V3)) {
-+		mutex_unlock(&dev->kvm->arch.config_lock);
-+		kfree(its);
-+		return -ENODEV;
-+	}
++	gic_fd = kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V5);
++	ret = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS);
++	TEST_ASSERT(ret < 0 && errno == ENODEV,
++		    "GICv3 ITS created after GICv5 VGIC: ret=%d errno=%d",
++		    ret, errno);
++	close(gic_fd);
++	kvm_vm_free(vm);
 +
- 	if (vgic_initialized(dev->kvm)) {
- 		ret = vgic_v4_init(dev->kvm);
- 		if (ret < 0) {
-@@ -1903,6 +1911,7 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
++	vm = vm_create_barebones();
++	its_fd = kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS);
++	ret = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V5);
++	TEST_ASSERT(ret < 0 && errno == ENODEV,
++		    "GICv5 VGIC created after GICv3 ITS: ret=%d errno=%d",
++		    ret, errno);
++	close(its_fd);
++	kvm_vm_free(vm);
++}
++
+ void run_tests(u32 gic_dev_type)
+ {
++	pr_info("Test VGICv5 and GICv3 ITS model mismatch\n");
++	test_vgic_v3_its_with_vgic_v5();
++
+ 	pr_info("Test VGICv5 address attrs\n");
+ 	test_vgic_v5_addr_attrs();
  
- 	dev->kvm->arch.vgic.msis_require_devid = true;
- 	dev->kvm->arch.vgic.has_its = true;
-+	dev->kvm->arch.vgic.its_model = KVM_DEV_TYPE_ARM_VGIC_V3;
- 	its->enabled = false;
- 	its->dev = dev;
- 
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 7be81b936bf10..a2b6b328808ba 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -548,6 +548,8 @@ struct vgic_dist {
- 	struct vgic_io_device	cpuif_iodev;
- 
- 	bool			has_its;
-+	/* VGIC model required by the VM's ITS devices. */
-+	u32			its_model;
- 	bool			table_write_in_progress;
- 
- 	/*
 -- 
 2.34.1
 
