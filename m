@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E4FCCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A396CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYrA4alYLnpWk7LMWSg9VZG/4/dspGuqfh+8t9FeWkA=; b=CnY8M3+iCLuGS7mk53Qlqfyv+I
-	xn9ffHEBL8+LipHYIB7147tjNNG4NO+r4sc2L3ihE72pDv7Rx6RuRNs/fMFwQv+B1637G+jg27U0I
-	lAB1X3nCFPDNfL7KejmQHtITyePsMT0jia1kZZnPHqOduucNYyYVAsdzm/lHKSaBoJfemvkSr2vh8
-	4/o8szQ4RA+UhgEFpCpBM5QjgBm91IM0zIv46wBBGZYurxpFRVZ1QoGOX11wpSYslc39dtgXb//Oa
-	ZA+8scBvdALxzsar6D2/Yo0GiOTJBVe3TsZ2rTxsCm1bMjnZejYrBDJp0vRdRFjDH5O59v9PAU/GZ
-	X8m0KEzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+aJqStC13vO2Rm4uiX/d7O0vpZVh1jAA68DpDqcwtJI=; b=rkul5B3b3SNZ8mRg5lT2E/9bNn
+	OXF2NGzIurrwd0oMlvJ1oPse4SKMlPVnwDHk7aATfoFE9iShamsVYkxy44vDaowu+JSj/Z9j9Atjz
+	z0SQwR+U6eriiCysn9HcZ1l3gqqO3yUugRpjbJVMJzL7OsDBFoIus6tjQirVD1wUqknyWI1izjbVZ
+	TFqG48XjkR7pU0PmRD0TxbF330bh9v3ffxKQaOTPyvow32krGMXLhymCe8paNhKnMS0/bIaL43hyb
+	xXZ07CKM8FIpBTkSHp2xEGdGv4nDFz6TCuooV6n0xAbbbBM4wWzoByAoUTkE1sHO6H/dKStaI7Po+
+	N+McBIow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkDd-00000003KWq-2RFB;
-	Fri, 16 Oct 2026 15:51:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHkHv-00000003L0Z-12rU;
+	Fri, 16 Oct 2026 15:56:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkDc-00000003KWZ-1o1G
+	id 1xHkHs-00000003L08-2DAP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 15:51:40 +0000
+	Fri, 16 Oct 2026 15:56:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2BEF40289;
-	Fri, 16 Oct 2026 15:51:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F611F000C5;
-	Fri, 16 Oct 2026 15:51:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792165899;
-	bh=qYrA4alYLnpWk7LMWSg9VZG/4/dspGuqfh+8t9FeWkA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=cyEsOz5WDZ/fh13BKcjsRgcbrrf4NSXU1ME4JbcFbsqs+wjT7fkOrgP+GG2Fb9RfR
-	 UAtvcBPB2E0oKx8GP82e/y+x9oADQNLJWp9g0HEpG60A5rTUP5CudT3SjiSd9GOGEN
-	 as1oj+01MgD40tHhRKDjunaUKyZ7TVsFt+pqp+aYnmz05AgMyQY/z+r4cB+kb0z9HS
-	 gLgd2jZvGGsWDpZe8MyK9vwEZHjyu+Esk9yG/AAT86Y3QWYbXVMhn+Z6JL6Zh3aKcf
-	 77c2KEru32TS1XGRR9DWf4HKfG5XsW7ws3O1bHUMdnqzDDh7hNaSZQTMkJD8XbTns9
-	 NSinEzCKwOuRg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xHkDZ-00000003pee-298p;
-	Fri, 16 Oct 2026 15:51:37 +0000
-Date: Fri, 16 Oct 2026 16:51:37 +0100
-Message-ID: <867bjh1w52.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 2/2] KVM: arm64: vgic-its: Remove the pending state of a discarded LPI
-In-Reply-To: <20261013081646.933312-3-fuad.tabba@linux.dev>
-References: <20261013081646.933312-1-fuad.tabba@linux.dev>
-	<20261013081646.933312-3-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	by tor.source.kernel.org (Postfix) with ESMTP id BAA8560018;
+	Fri, 16 Oct 2026 15:56:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A8C41F000C4;
+	Fri, 16 Oct 2026 15:55:58 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clegoffic@baylibre.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH v4 0/8] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
+Date: Fri, 16 Oct 2026 17:55:39 +0200
+Message-ID: <cover.1792163045.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,87 +80,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Oct 2026 09:16:46 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> DISCARD removes the mapping of an event and instructs the Redistributor
-> to remove the pending state of its LPI (IHI 0069H.b, 5.3.4). KVM only
-> frees the ITE, so an LPI that is pending when the guest discards it
-> stays queued on its target vCPU, and the guest still takes it.
-> 
-> Clear the pending state before freeing the ITE. A queued LPI can be
-> pending in a running vCPU's list register, so halt the guest first when
-> the LPI is queued, to fold that state back. A forwarded LPI already
-> loses its pending state in its_free_ite(), whose unmap from the vPE
-> sends a DISCARD to the host ITS.
-> 
-> Fixes: df9f58fbea9bc ("KVM: arm64: vgic-its: Implement ITS command queue command handlers")
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/vgic/vgic-its.c | 24 +++++++++++++++++++-----
->  1 file changed, 19 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index 44b92c01bc727..3b8e0e5b097e0 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -829,13 +829,27 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
->  		struct its_device *device = find_its_device(its, device_id);
->  		int ite_esz = vgic_its_get_abi(its)->ite_esz;
->  		gpa_t gpa = device->itt_addr + ite->event_id * ite_esz;
-> -		/*
-> -		 * Though the spec talks about removing the pending state, we
-> -		 * don't bother here since we clear the ITTE anyway and the
-> -		 * pending state is a property of the ITTE struct.
-> -		 */
-> +		struct vgic_irq *irq = ite->irq;
-> +		bool queued;
-> +
->  		vgic_its_invalidate_cache(its);
->  
-> +		/*
-> +		 * A queued LPI can be pending in a running vCPU's list register,
-> +		 * which the exit path folds back: halt the guest before clearing.
-> +		 */
-> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
-> +			queued = irq->vcpu;
+	Hi all,
 
-Is this comment correct? This is only checking that the LPI is on the
-AP list of a vcpu, not that it is in the LRs.
+TL;DR:
 
-> +
-> +		if (queued)
-> +			kvm_arm_halt_guest(kvm);
+    Describe hardware in DT, and perform mapping to abstractions offered
+    by SCMI in Linux.
 
-And should we move this to kvm_pause_vcpu() instead of the big hammer,
-this still works because
+The Renesas R-Car X5H-based Ironhide board is the first Renesas
+SoC/board combination that implements the ARM System Control and
+Management Interface (SCMI).
 
-- we hold the ITS lock, so no MOVI can be issued on the same ITS
+This means Linux can no longer perform various system operations (e.g.
+clock, power domain, and reset control) by accessing the hardware
+directly.  Instead, these operations are abstracted according to various
+SCMI sub-protocols, and Linux has to send messages to an SCMI-compliant
+firmware running on a System Control Processor (SCP).
+More specifically, the R-Car X5H SCP FW SCMI controls access to:
+  1. Core clocks and module clocks,
+  2. Module resets,
+  3. Power domains,
+  4. System power.
+The latter is not relevant for this discussion.
 
-- mapping of the same LPI is already prevented by the previous patch,
-  so no sneaky MOVI generated somewhere else can impact this LPI
+Using SCMI also has an impact on the board DTS: besides the addition of
+a firmware/scmi node with protocol-specific subnodes, devices using
+SCMI-abstracted system resources now have to refer to these resources
+using resource specifiers containing phandles to the SCMI protocol
+subnodes, and firmware-specific object IDs[1].
 
-Do you agree?
+Unfortunately we encountered several issues with this:
+  - The clock, reset, and power domain IDs are not stable by design,
+    causing DT incompatibilities.
+    SCMI requires that the ID space exposed to an agent (i.e. Linux)
+    starts at zero and is contiguous.  Hence any change in system
+    partitioning (Application CPU core vs. Realtime CPU core,
+    virtualization, ...) may mean a renumbering of all SCMI IDs,
+    implying a massive change to the DT.
+  - There may be different SCP firmware lineages, e.g. proprietary and
+    certified variants, and FLOSS variants,
+  - SCMI features may differ across firmware versions,
+  - SCMI may abstract the hardware in a different way, requiring changes
+    in (possibly existing) DT bindings and drivers to support the same
+    hardware with and without SCMI:
+      - E.g. the number of SCMI clocks inputs to a hardware block may
+	differ from the actual hardware,
+      - E.g. hardware clock inputs may be abstracted as SCMI power
+	domains (or vice versa), like on Qualcomm SA8255P[2].
+    Experience has taught that not describing the hardware in DT may
+    lead to major issues later.
+  - SCMI does not support the concept of a clock domain, so existing
+    drivers can no longer rely on Runtime PM, but need to be changed to
+    manage functional clocks explicitly,
+  - U-Boot IPL (Initial Program Loader) needs a proper hardware
+    description in DT, not using SCMI.
 
-> +
-> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
-> +			irq->pending_latch = false;
-> +
-> +		if (queued)
-> +			kvm_arm_resume_guest(kvm);
-> +
->  		its_free_ite(kvm, ite);
->  
->  		return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
+This list deliberately ignores ID instability and the need for SCMI
+quirks during development of the SCMI firmware.  While upstream Linux
+must only support sufficiently mature firmware versions, vendor trees
+(e.g. renesas-lts) may still want to support development firmware
+versions.
 
-If you're OK with the above, I'll make the corresponding changes as I
-apply the patches.
+During last OSSJ/LPC, Marek Vasut pondered if we could keep our own ID
+lists stable, and perform a mapping to the IDs used by the actual SCMI
+implementation running on the system.  This was also briefly discussed
+at LPC[3].  After some refining of the initial idea, this series takes a
+slightly different approach, by:
+  1. Describing the actual hardware components in DT, plus a minimum
+     SCMI glue,
+  2. Mapping DT hardware descriptions to SCMI-backed objects and
+     abstractions (or replacements, in case they are unusable,
+     unavailable, or too different), in Linux drivers, based on the
+     detected firmware version.
 
-Thanks,
+This has the following advantages:
+  1. The DT ABI is stable,
+  2. DT bindings and drivers for existing hardware blocks do not need to
+     be modified,
+  2. Current and future firmware can be handled in driver code,
+  3. U-Boot IPL can use almost the same DT; it just needs stripping of
+     the SCMI node and subnodes,
+  4. If ever needed, the Clock Pulse Generator (CPG) and Module
+     Controller (MDLC) drivers can be extended to program the hardware
+     directly if SCMI is not present,
 
-	M.
+Last week I gave a presentation about the issues and our solution at
+ELCE2026 in Prague[4].
+
+This series consists of four parts:
+  A. Patches 1-2 prepare and add SCMI remapping support to the R-Car X5H
+     CPG clock driver,
+  B. Patches 3-6 fix and add new interfaces needed for remapping in the
+     R-Car X5H MDLC pmdomain driver,
+  C. Patch 7 adds SCMI remapping support to the R-Car X5H MDLC pmdomain
+     driver,
+  D. Patch 8 enables more SCMI protocols on R-Car X5H Ironhide.
+
+Dependencies:
+  - C depends on B,
+  - D depends on A, B, C, and out-of-tree SCMI quirks.
+
+Changes compared to v3[5]:
+  - Remove dependencies by making assumptions and dropping disputed
+    items, to move this series forward:
+      - Assume all SCMI IDs are stable.
+        This let us drop the addition of scmi_get_base_info(), and
+	support for handling different ID spaces.
+      - Drop the "renesas,scmi-firmware" DT property, and find a device
+        node compatible with "arm,scmi" instead.
+        This let us drop the addition of fw_devlink support for this
+	property, too, but required a new probe deferral fix in the
+	pmdomain code: "pmdomain: Make genpd_get_from_provider() return
+	-EPROBE_DEFER".
+	This will have to be revisited when systems with multiple SCMI
+	providers appear.
+  - Drop unneeded IS_ERR() check after __clk_get_hw(),
+  - Mark scmi_{clk,reset,power}_np __free(device_node),
+  - Include initial mapping tables for R-Car X5H SCP FW SDKv4.31.0 and
+    later, supporting clocks, power domains, and resets used by serial,
+    I2C, and SPI devices.
+  - Try SCMI clocks first, and fall back to the default fixed-frequency
+    clocks when not available, as recent firmware versions no longer
+    restrict access to some bus clocks,
+  - Fall back to the non-SCMI defaults when SCMI provider support is
+    disabled,
+  - Keep RESET_CONTROL_FLAGS_BIT_OPTIONAL clearing in
+    __fwnode_reset_control_get(),
+  - Return directly in __reset_control_get_from_provider(), instead of
+    assigning to a local variable, letting us drop the latter and
+    simplify scoped_guard() to plain guard(),
+  - Add Reviewed-by,
+  - Check for overflow when converting (u64) fwnode args to (uint32_t)
+    OF args,
+  - Document that reset_control_get_from_provider_exclusive() must not
+    be given a reference to a GPIO provider,
+  - Let the dummy return ERR_PTR(-ENOTSUPP) instead of NULL,
+  - Improve patch description,
+  - Let r8a78000_mdlc_attach_dev() return success when the MDLC instance
+    is not found, to avoid breaking users referring in DT to an SCMI
+    power-domain directly,
+  - Extract scmi_get_clk(),
+  - Add support for gateable functional clock parents,
+  - Propagate all reset failures, as SCP FW SDKv4.28.0 which restricted
+    HSCIF0 reset is no longer supported.
+
+Changes compared to v2[6]:
+  - New patches:
+    "[PATCH v3 06/12] reset: Extract __reset_control_get_from_provider()",
+    "[PATCH v3 08/12] clk: renesas: r8a78000: Add clk_hw to clk_map",
+  - Move DT binding patches forward in series,
+  - Add "renesas" vendor prefix and "scmi-" function prefix to the
+    "firmware" property (I still think the vendor property should be
+    dropped, or replaced by "arm"),
+  - Add "of_" prefix to genpd_get_from_provider(),
+  - Replace reset_controller_get_provider() by
+    reset_control_get_from_provider_exclusive(),
+  - Add kerneldoc,
+  - Rebase,
+  - Consistently use /* sentinel */ for zero sentinels,
+  - Call reset_control_*() APIs instead of internal reset_control_ops
+    methods,
+  - Rename struct mod_map to struct mod_map_in,
+  - Add struct mod_map, which also contains a reset_control pointer,
+  - Add fill_mod_map() to obtain all SCMI reset_control structures
+    up-front, as one can no longer use lazy look-up,
+  - Prefix DEFINE_MDLC_RESET_WRAPPER() parameters with underscores.
+
+Changes compared to v1[7]:
+  - Drop SCMI quirks and SCMI mapping tables,
+  - Move CPG/MDLC DT bindings and minimal base drivers to a separate
+    series,
+  - Add that SCMI may provide different abstractions,
+  - Add missing asterisk to blank kerneldoc line,
+  - Let scmi_get_base_info() return -EPROBE_DEFER or -EOPNOTSUPP instead
+    of -ENOENT, and propagate these errors in callers,
+  - Fall back to the default support when SCMI support or firmware is
+    not available, or when the detected SCMI firmware version is not
+    supported by the driver,
+  - Improve error message on scmi_get_base_info() failure,
+  - Check if SCMI firmware node is available,
+  - Use reverse xmas ordering in r8a78000_cpg_probe(),
+  - Replace the scmi_*_np members of struct r8a78000_*_priv by local
+    variables in the probe functions, and pass them to the fill_*_map()
+    functions,
+  - Join split short lines,
+  - Move check for supported firmware version up,
+  - Fix DT misindentations,
+  - Add scmi_clk node, as it is no longer added in earlier commits.
+
+Notes:
+  - In reponse of feedback on v1, I did try to use SCMI IDs in DT, and
+    handle most issues in Linux SCMI drivers and SCMI quirks[8].  While
+    the result worked, it did not solve everything in the issues list
+    above.
+  - This series does not include actual SCMI quirks; the SCMI firmware
+    for R-Car X5H is still under development.
+
+For testing, I have pushed this series plus additional work to[9].
+
+Thanks for your comments!
+
+[1] Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+[2] "[PATCH net-next v11 1/7] dt-bindings: phy: document the serdes PHY on sa8255p"
+    https://lore.kernel.org/20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com
+[3] "Firmware ABI stability" at Linux Plumbers Conference 2025
+    https://lpc.events/event/19/contributions/2153/
+[4] "Marrying Device Tree and SCMI" (https://sched.co/2RaWR)
+[5] "[PATCH v3 00/12] R-Car X5H Ironhide CPG/MDLC SCMI remapping
+     support"
+    https://lore.kernel.org/cover.1788338320.git.geert+renesas@glider.be/
+[6] "[PATCH v2 00/10] R-Car X5H Ironhide CPG/MDLC SCMI remapping
+     support"
+    https://lore.kernel.org/cover.1783505329.git.geert+renesas@glider.be
+[7] "[PATCH/RFC 00/14] R-Car X5H Ironhide SCMI CPG/MDLC remapping"
+    https://lore.kernel.org/cover.1776793163.git.geert+renesas@glider.be
+[8] "[PATCH/RFC 0/9] R-Car X5H Ironhide pure SCMI proof-of-concept"
+    https://lore.kernel.org/cover.1781171705.git.geert+renesas@glider.be/
+[9] topic/rcar-x5h-ironhide-scmi-cpg-mdlc-remapping-v4 branch of
+    https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git
+
+Geert Uytterhoeven (8):
+  clk: renesas: r8a78000: Add clk_hw to clk_map
+  clk: renesas: r8a78000: Add SCMI remapping support
+  reset: Extract __reset_control_get_from_provider()
+  reset: Add reset_control_get_from_provider_exclusive()
+  pmdomain: Make genpd_get_from_provider() return -EPROBE_DEFER
+  pmdomain: Make genpd_get_from_provider() public
+  pmdomain: renesas: r8a78000: Add SCMI remapping support
+  arm64: dts: renesas: ironhide: Enable SCMI devpd, sys, clock, and
+    reset
+
+ .../boot/dts/renesas/r8a78000-ironhide.dts    |  19 +
+ drivers/clk/renesas/r8a78000-cpg.c            | 217 +++++++--
+ drivers/pmdomain/core.c                       |  26 +-
+ drivers/pmdomain/renesas/r8a78000-mdlc.c      | 410 +++++++++++++++++-
+ drivers/reset/core.c                          | 116 +++--
+ include/linux/pm_domain.h                     |   7 +
+ include/linux/reset.h                         |   8 +
+ 7 files changed, 698 insertions(+), 105 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
