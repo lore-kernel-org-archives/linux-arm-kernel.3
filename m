@@ -4,80 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F67CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42A9CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4IzSxY5F+HMjumQYpLQgv1VgHUd/a3qHH2cQv2H0rc=; b=eN+MeG5eIE8JljcD+PMBn/lc27
-	WfukD3P1AB8fXfmjUGKU4PxQfbn2ZfeZPyrPZH7alxVgNOCEAL5quMpAmaCCeWdX2wK76TW4992Yi
-	cdPP4zHZHOHkSokjblZ9zT9Ks84LkN4xSujKObZGjrf9Ow4x7Ctx58W49A2ENlnio+BbByPzF0stk
-	ZKi3ZIHz1V8S7i8Rm0iJdkd5YEoHFiuuWn8VFZDa+YOVxJBNSAL936Dahf23S9IS97zlcKr2iJFRa
-	f2ya7BEXJrk5fZFndMhkvCG/ZtYv0KbkcEsrb1CNZDBxkHM8Ha/KFnLKmuSgjIrukWQZ8DWrB5688
-	o3zMMpNg==;
+	bh=1G3X/wKLWQ8BtSB601M3ucPdAke4dgZzTbZ/O9Bh7aA=; b=WTu105f2iZEQn2Mvka1gwVFKQl
+	QooufnuxhwyhtrN24ZS2JZLIkSTJjh/CD+M3DpzuCDngfdH7uSggoTdYpWmYTEuHDjQcBOJKJ3DsR
+	NjPNYv9QQZIjqLQD66n0z6Rf6af8wQyqh5q6YlwCC3q8zaKF4/htmdVYhPjcnsi9Qj2uhBfamlZxg
+	pYrbZ6kWOluexGTgJhNj0dc1h5w0QCr6WJ0jnVdu1ZNdkv0aQ+JU5N5wtTrSa6LinzY+spCrI+PSJ
+	HdCE1VvDh/DRFTfREJzw5INHOrtj5kjtCs/WXVe0FVEFvYeq9GDgwQpsSOp8dBIuJZM3199EgRs3o
+	iTg31dRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHckm-00000002Gnb-0p5V;
-	Fri, 16 Oct 2026 07:53:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHcms-00000002H2e-22zO;
+	Fri, 16 Oct 2026 07:55:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHckk-00000002Gn4-1QHf
+	id 1xHcmq-00000002H2O-3eFi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 07:53:22 +0000
+	Fri, 16 Oct 2026 07:55:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8C0B4400F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 07:53:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEDD1F000CC
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 07:53:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DBCE60008;
+	Fri, 16 Oct 2026 07:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DD101F000C4;
+	Fri, 16 Oct 2026 07:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792137201;
-	bh=B4IzSxY5F+HMjumQYpLQgv1VgHUd/a3qHH2cQv2H0rc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=dT5tTDMVwARRICgF/BJtr/AAl0dIOaT24SeXD5WFiEgDpxXdnXhjnBVsg3GZLDih2
-	 Z6CPE9XFxQmC7TaQjQGhJUJwPMR39f6/UZh5pKalCqhaRZz2IFMXKEjeLUfOhgemmy
-	 mJxSF57AAHR3yeSudCXeaeufm5LomhHETaK77JWwFYpfMoTbGNCWptuzjT6ZHA1S/e
-	 Stqe+TUw6gfJm47IcgWoW69FRg/zeyO9GTOQQbcRQezTFXn4M2GmTIg1BD6G8o2cs/
-	 sdc1LZzU3KLFdP2AlS8bdZD85bXP3zluUnCfCRgP6/8Yp8fcb4G6UqanZpqYwkQNt7
-	 REUgWELe6y61w==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5ba3fba0080so4398401e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 00:53:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByWprUJ13ndq86t9hvRkcy+6YVLklBDg8bdId+soTuyTuH0Yac2M+H5Xgibw8nfd2v+KndMSxte3D6pSC+tMnEK@lists.infradead.org
-X-Gm-Message-State: AFq9FYKFj+1t+BKx3yVoXPSGVnc4ix4XOCdJu9vaJdKyZI55F59v9KD/
-	n5Lzk8HcbyLBuhgKzku3HxYLovxGH0vsL7pD4rQY09l0sY9uagwfhQ0AUHrv0MpyUVXREEMgpQx
-	rjpp69XJBGW3YlLoNDekpSX3Q/10vI59ixFLVuPezYw==
-X-Received: by 2002:a05:6512:2399:b0:5b8:f9b0:5779 with SMTP id
- 2adb3069b0e04-5bcde35b9f5mr7386749e87.8.1792137200300; Fri, 16 Oct 2026
- 00:53:20 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 16 Oct 2026 03:53:19 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 16 Oct 2026 03:53:19 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <atGIRTRuhFILV9pz@gondor.apana.org.au>
+	s=k20260515; t=1792137331;
+	bh=1G3X/wKLWQ8BtSB601M3ucPdAke4dgZzTbZ/O9Bh7aA=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=d79fYZ1l/3iad7+p0OOm0c4iu1ttaMzqjl5q6/IAYOjO5oyKyDkxbXjMp2exDnFi8
+	 ErcZPHJFK4lX7BbYenXGuGDmuiqS9oOWTdUgwyAwx6ulkRr/pjuMWvBLkAuqkMq4ii
+	 Hf1lQJtKyzbdDvcFwfa8Jwce5iuXBk1uXnDl9xhH2RakAMVgdY8cGlJL6kPClo9ugg
+	 Yv4R9CnT1A42bVkf71OFoVdjGEg56v89XoIds+2J1t4PPpP0gHIBBxZXq4DFqu/dXr
+	 qSjmiX+ArNBuP/NDcWJ99efsQ+WyUDdWCkjqaQi7U2WF5Io3Huxda+4pe5vrBelwOn
+	 bMeNRPIYTK4Vw==
+Content-Type: multipart/mixed; boundary="===============7152762966294616627=="
 MIME-Version: 1.0
-References: <20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com>
- <CAMRc=MejhYpC6QNXwK_cG_NuJs5XpOviK2NPsEwtnK0RxDi61Q@mail.gmail.com> <atGIRTRuhFILV9pz@gondor.apana.org.au>
-Date: Fri, 16 Oct 2026 03:53:19 -0400
-X-Gmail-Original-Message-ID: <CAMRc=MeNk8RSRPvd7u6ZsrTk=yT6nWiEGuB8ARb_mV8tDdpWHQ@mail.gmail.com>
-X-Gm-Features: AclHuK8gYInkzaF2IUtMPvsqDxyb_UtfI2wLBn_4ZvR4nTK7V8zh1xtSkrWeKJc
-Message-ID: <CAMRc=MeNk8RSRPvd7u6ZsrTk=yT6nWiEGuB8ARb_mV8tDdpWHQ@mail.gmail.com>
-Subject: Re: [PATCH v10 00/14] crypto: qce - Fix crypto self-test failures
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, linux-crypto@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Thara Gopinath <thara.gopinath@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, 
-	Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Message-Id: <e8d14ff76206a79ef0d97847df7802345cf747603e554bb2c015c155113fd3f3@mail.kernel.org>
+In-Reply-To: <20261016070837.440748-16-ankur.a.arora@oracle.com>
+References: <20261016070837.440748-16-ankur.a.arora@oracle.com>
+Subject: Re: [PATCH v16 15/16] barrier: timeout validity checks for smp_cond_load_relaxed_timeout()
+From: bot+bpf-ci@kernel.org
+To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
+Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@kernel.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,boris.ostrovsky@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Fri, 16 Oct 2026 07:55:29 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +66,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Oct 2026 04:13:25 +0200, Herbert Xu
-<herbert@gondor.apana.org.au> said:
-> On Thu, Oct 15, 2026 at 10:49:37AM -0400, Bartosz Golaszewski wrote:
->>
->> It came back with some more issues. And seems I have a build failure midway
->> in the series so that needs fixing too.
->
-> How about breaking the large series into smaller chunks?
->
-> Just make sure that each fix is independent and makes an
-> improvement without regressing.
->
+--===============7152762966294616627==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Yeah, makes sense and likely will get the changes upstream faster.
+> barrier: timeout validity checks for smp_cond_load_relaxed_timeout()
 
-Thanks,
-Bartosz
+TL;DR: Nits only, in the new KUnit test: iteration bounds print as unprefixed
+hex ("10" for 16), which is confusing in test names, and a format string has a
+stray double space.
+
+> diff --git a/lib/tests/barrier-timeout-test.c b/lib/tests/barrier-timeout-test.c
+> index 9c12cd36e7d2..88b374ceb78b 100644
+> --- a/lib/tests/barrier-timeout-test.c
+> +++ b/lib/tests/barrier-timeout-test.c
+
+[ ... ]
+
+> +static void expiry_param_to_desc(const struct smp_cond_expiry_params *p, char *desc)
+> +{
+> +	char iters[32] = "";
+> +
+> +	if (p->miniters != -1)
+> +		snprintf(iters, 32, ">= %llx", (u64)p->miniters);
+> +	else if (p->maxiters != -1)
+> +		snprintf(iters, 32, "%s %llx", p->maxiters == 0 ? "==" : "<=", (u64)p->maxiters);
+> +
+> +	snprintf(desc, KUNIT_PARAM_DESC_SIZE,
+> +		 "smp_cond_*_timeout: clock=%s,  timeout=%s, iterations %s",
+> +		 "synthetic", p->desc, iters);
+> +}
+
+This isn't a bug, but would printing the iteration bound in decimal (%lld)
+or with a 0x prefix make the test names easier to match against the checks?
+
+With "%llx" and no prefix, the U32_MAX row (miniters = 1 << (32-28)) is
+reported as "iterations >= 10" and the 1<<33 row (miniters = 1 << (33-28))
+as "iterations >= 20", while test_smp_cond_relaxed() actually checks for
+>= 16 and >= 32.  The timeout labels in the same table use the "1<<33"
+style, so the hex counts read inconsistently in the KTAP output.
+
+Also, is the double space after "clock=%s," in the format string intended?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/38867477666
+--===============7152762966294616627==--
 
