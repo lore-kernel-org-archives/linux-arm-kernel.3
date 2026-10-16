@@ -4,96 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835C4CC6B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 03:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077F9CC6B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 03:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FiSWddY//7cIxkgjPTVJ04fT7tu3WDIsuOMUv0HXBC4=; b=3E07A4KhWWjMR7rSbMFiuDQlfa
-	usU04nJpz8TPmjVbQByN9qLA6hT2/kSxwDFgvmzk1vg594UIQRURKIarRn1u7rLCKbCl/vVZBvLBs
-	D8jxWbRDznm56acJPgLG0IWriYHcyUrd1/K9EnrY3NaqJW+1HEdNBi5BByFtyvTrKpo3b+FV+/biM
-	GUhcVksUzi+IXqyQ4txOXhFIQRz34FSmHGU7B+uXL9NHG8Y580sajSl0QNKkgbhLTT6786QacDLKZ
-	vRr7SMBaqEQJyrH72aN/pju9GHAv5eXumadsy5nRoMSaPdRDpxRLzt+eoSQ7N+Xn/6HUxU0voOqqL
-	2H49hgXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hlWVFZs9qMdbAGtAdGz2zNdnsjoirOAt+ztYuqFoEV4=; b=vNXND0z+EWW2Pabk0PhGK0q11E
+	JLFl/UzU8VJv6SoKqVbg+BOurOqhkF54MIINBMMO70W0571MnG0CdyNjnZQs1D/J3y+BQOS3SxqMX
+	3UlxASG2R+PooqeXR3xN/5c1MJhAUeYddbO/UvM4dpW7WYciq8FtvrImI2OUpQ8ZkU5ru3hI6BON5
+	DZv6EmAgxql+plyy71MItyyQAJZ68AkkyXyoxjcUy6XoJv8ZM364NDGThmohNDoDeK684emcmG1oN
+	EaHqNsb6RWEvs1EfbaYQmznyXTyo4kF5OjoVPZ4eTigncru/JswTx0b18tCycD6UfUIJ2bMi//itj
+	SQXVHZUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHYoP-00000001rwl-1JlS;
-	Fri, 16 Oct 2026 03:40:53 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1xHYt0-00000001sIv-3X8r;
+	Fri, 16 Oct 2026 03:45:38 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHYoM-00000001rw0-2mLM
+	id 1xHYsu-00000001sCK-08Vj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 03:40:52 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-5350d9ea106so72961311cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:40:49 -0700 (PDT)
+	Fri, 16 Oct 2026 03:45:33 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6b19e291cc6so5523557eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 20:45:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792122049; x=1792726849; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:content-type:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FiSWddY//7cIxkgjPTVJ04fT7tu3WDIsuOMUv0HXBC4=;
-        b=oFc2FbsPE4638AnYx5IfOozy/lsOpXrW5q39plFj+ooMNHp9sIP7MlICyFv7LnSdC3
-         cNOIUd/aEU/vDOhYPK8FH0oHdkS1Lf5Hr/rZ+Q63AYxwiHFitsyebeKrBLNAzkXrPRBV
-         Jn/6Esixb22Zuv9KF+L4iK7Uf+pQ53Y1uGpK22kExzDyaLsShNiakX4tEYL0nImqbfhO
-         1wy515KWU80+0uCe8Va8pKGWXicAjzNJdL6w/uLV4tI9Uz7OrVq7e9T2/mXtVMTzP4ii
-         XTyIiro78sYSSC0js0JBnu5QcPxHNAj/XZ1sZo0rHnuHZ1SzNgmrjOaqBVWMr5w+KQ47
-         1aTQ==
+        d=gmail.com; s=20251104; t=1792122331; x=1792727131; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hlWVFZs9qMdbAGtAdGz2zNdnsjoirOAt+ztYuqFoEV4=;
+        b=rE9Cot+EeW/A9Fdv4TgoPF0AJvdoEyNMd3dRC/vjzAlJuRQ4/zqH04p0i94Xy1Qde1
+         y1cUEcYGPULwiVVNKJU0qE0aM/8SH2XrKCEwqn/vw62bfv3jX2X5XEV1X6kQDW9VHNFD
+         SufvbA+33tMC8bXu+kSYeY+/sXad6Xy0n9k0MVlsqncJSrmHWrXiPgYNYcykd59k4Y7p
+         D2a3anSoZH/gP/ocHEDcFKxFpuSrvOvkpFBfBVRV7ELDEBQdLGZ89zpz910ppecgB4WC
+         bEm38jghiq8gesGrpZ7SE7BQcCpsGiyEQl1pTYhvsbknQROrFxk9Ba0EcebhgeUuHCHi
+         cDvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792122049; x=1792726849;
-        h=content-transfer-encoding:mime-version:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FiSWddY//7cIxkgjPTVJ04fT7tu3WDIsuOMUv0HXBC4=;
-        b=op+kbTb38vPxrKl7QgiZ24DL2Mh244pO6AGAzeYsoT6z9p1u8CIQTfP7XTcKctYWDM
-         X8Cqi/7CsRHtmPscCH3n/GLa6MOkZsHMCLqY8AGXAKLjK3nBLhaw/XTiimeWi9jvd8jA
-         UFRtTPFLew2HnQrHLPJtDe6b893Y+/qHCj4NVxCWx61l+Rn9W3lDW9HvBCsrE8us4X/X
-         LmM1oM1PYiM8DHro8jlwtFLX//+e1yf5bHvan7ZA5vWijrTaf/gZh3ugI8FMh6dPytEw
-         iueoIvPgKlHYxABnNziLXa2u634Ksnof1qpMLUFjq+cDjK5s3H81pXuoQ5NhFLWfIWfK
-         1KIA==
-X-Forwarded-Encrypted: i=1; AKwUvBx19lhcRbcOVGrC2hUZ+yR7jq3tDiMhFGI/IhuJl+Q9GUDnrdEKta/tUElx6Ox15BoXF8Eu57XTe79G4JwYYB6+@lists.infradead.org
-X-Gm-Message-State: AFq9FYLQtxbBL2MWdueR/V+E1pNl2sIUrEH3OcX1hyGxAafXXbsEWxUN
-	9+ss6cNqAT1owyUTxdP9YJtDh6YXZfhdp2uUag97C91vnEKax94luKU=
-X-Gm-Gg: AYBFou1oHKVa5IMWyvK2mcyiyuxoipgpbHVT8uJZl0Qc4yMrYCVZ0Hagh1vxlTecaJP
-	bshn1b/UEHZEWQnohAxLTuAZjkQZY6YXif8zKaR0j3lyh0aIunYc5LLX7VXQh4yKMWu2+VOF1h8
-	CQjobMdem0vs2uZ8Ety0h17aiqUIR3DFNuip+aXNA7ha0DIdwjJKhr7A76W/aqswlK+W30bntxo
-	Pl82sAC7PQeiAcpXY/pPZKLov1n73Oj/olyCRiHAGJdZpt/t/q5i0joMgEb3BieOWF0mCVoPg7F
-	ktW7BtZfJ3twVZaeIWjaJSzPiMXGGR9HVsraZQ7xUnLbIKgR/1hmW21b4XKDKtX7Or6lTWFjSeO
-	zYNZmTXoaHuLixV5MhEiI9/3LO3XoAc/qa+LtiYDhlsq7GSciZNLxbJJCNy0QO73U5V8ixxukD3
-	cQjhdauRgYqzY74GLKo9Fac9QVZ5tKV/oIdr1URTqNCPH9vsm7Zvbg5Gv2qit+Np8VFCxlUzQNR
-	WnJM+wz6iqQxfB7nok7c5WD7uS3mSpGFDR6ZwV1TAyjCUoPPeFyInVH/qhCFZyAgiEj3DxOdU89
-	GU0Lm4S1LVwKvXN1QFezyOXRRCi6
-X-Received: by 2002:a05:622a:558c:b0:535:232f:ca21 with SMTP id d75a77b69052e-5359f486ebemr346542441cf.11.1792122048786;
-        Thu, 15 Oct 2026 20:40:48 -0700 (PDT)
-Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5362a9dbdb5sm11198881cf.22.2026.10.15.20.40.47
+        d=1e100.net; s=20260707; t=1792122331; x=1792727131;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hlWVFZs9qMdbAGtAdGz2zNdnsjoirOAt+ztYuqFoEV4=;
+        b=WbpDbm6GX3dJC62KWEn45IDMYEpvUTDGI0/kGk1NfO8ronTmm1XpaGqtlovW8BbL1j
+         oruHf+qpwaMHWC/OgXSzjbxsNafVqVUwVw6AqXk047+e7PMDMAqv/dTIECcssx/CMQy6
+         hK/obfaUIgxTOcn64+qMGxsUXSGNuq95xwWPp2t33QvW1G5DdBU3ck31EWovDt33WKJP
+         eswVCYPhZyHqZfSEQp/xSJQO8t1dwF0CoI2LaA1MV+7aJET0eCAymNuF+IH07j8PpbbP
+         rmEZqSh6qBLKMi+g7/UBOgiOQfZXNwdGqnIXh+7CGWCCafWEaT1rDR0bE+U9XdNrBB0M
+         YvXg==
+X-Forwarded-Encrypted: i=1; AKwUvBw5kE0wdJ85211QnEbaMPmLTeS6UvwrFwEnRhJrALjt0vlDfztnS30WUZfbp2Plty7vm2AGAETHNo2l6tCZ0Grw@lists.infradead.org
+X-Gm-Message-State: AFq9FYJYRGiGFf0oNHlHHnwW6XIHsLYnneD46Zbkjoxe8KxCIk24b9ht
+	SHO9tHHe13g8Sc8o1oQN0SYj9TItEHo3fzbaqPmo6O5EcDXUNqws4Wm9AlHf918P
+X-Gm-Gg: AYBFou35fhuQ0GZYKCq4h7Aj6iZwOxTjI0QqgI7jCcaWsd/Md3Y/CIMPk0Z2rb0NioO
+	ysjn23FJvT1o26XUftdUp5LteRZNYWQaDcZFBj1yLf4aLCZ9MGGzXHrirhbE0H0jo0ji+/B2uqQ
+	6/i8VhedyudcCDDyL3M/hp7KyknSNIj99U60NoDDy3mwcIh2FdwoclKdLiztVKh86VkueUydrGI
+	A93Em+H8oslvhHaLiB7fmC7uK/i14O40iMulLXmqivRoP8T+kKr8wCu4wJ2JRH2T2IZNr/yMgvb
+	dGwUi+TX01lM79odmajeYZfhTnXbEhhK5AhG8/kfYTYU4pmZgQkLO+pCuJJEenMWbwtvPUR5qMV
+	T38VQVjyDQoyqKwQGxEn1/rr5pTY4o0v6fwkNvzbhbGMVF1tcn8cq+ha2TxPdIaRsBP1BkPV1Kf
+	OODi9Ts8vy0LPkzbbA00c6J/ATjKvUFr1UcGG3V8BGiMghc0jcW2HL53kpH9U4JQU5U3M6i4hiE
+	12OBoDmVuBGHHYFgb2LSsbeuM04+SoytVFppH9qrXGHY8Qpb60yUhwUjEDqCUQKPozusVNEI0gZ
+	5VcPLuJnWuZLlsPW3GCVJxc9X/CE54BNoi30lKskrnYEjzodtoHgMPY91rEkzSEN5KattBVWuIf
+	HoUhIjtbSBc1FFSApeqzKHw==
+X-Received: by 2002:a05:6820:1503:b0:6d7:cd0c:752a with SMTP id 006d021491bc7-6ef0faaa6f2mr17901293eaf.54.1792122331029;
+        Thu, 15 Oct 2026 20:45:31 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8429b57870fsm834402a34.0.2026.10.15.20.45.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 20:40:47 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Myeonghun Pak <mhun512@gmail.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH] ASoC: mediatek: mt2701: join the IRQ before managed cleanup
-Date: Thu, 15 Oct 2026 23:40:45 -0400
-Message-ID: <gm-top10-20261015191529-g154-c729db287fde@mhun512.gmail.com>
-X-Mailer: git-send-email 2.53.0
-Content-Type: text/plain; charset="utf-8"
+        Thu, 15 Oct 2026 20:45:30 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 15 Oct 2026 21:45:18 -0600
+Subject: [PATCH v8 03/17] mtd: rawnand: sunxi: propagate page-setup and
+ erased-check errors
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-3-8ba4881fbee8@gmail.com>
+References: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-0-8ba4881fbee8@gmail.com>
+In-Reply-To: <20261015-submit-sunxi-nand-vendor-oob-layout-v1-v8-0-8ba4881fbee8@gmail.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
+ Masahiro Yamada <yamada.masahiro@socionext.com>, 
+ Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+ devicetree@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_204050_729046_DA2D83E5 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20261015_204532_086418_3510733D 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,183 +117,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IRQ is published before the handler's arrays, regmap and clock state
-are ready. Remove drops the PM reference before managed IRQ release, so
-a handler may also overlap clock shutdown or subsequent resource
-cleanup.
+The ECC read callbacks ignore nand_read_page_op() failures. A command or
+ready timeout can therefore leave the requested page unselected, yet the
+driver continues with data transfers and can report success for stale
+data. Return the setup error before starting PIO or DMA.
 
-Initialize the dependencies and acquire the PM reference before
-requesting the IRQ. Register a PM cleanup action before the IRQ
-resource, and a final IRQ-disable action after component registration.
-Reverse release then joins the IRQ, removes the components, frees the
-IRQ and drops PM before releasing the backing arrays.
+After an ECC error, the driver rereads the physical data and OOB with
+randomization disabled to distinguish an erased chunk from corrupt data.
+Those rereads can also fail. Do not pass stale buffers to
+nand_check_erased_ecc_chunk() or count a transport failure as an ECC
+result: return the reread error instead. Successful erased checks retain
+their existing statistics and correction-count behavior.
 
-Disable and join the IRQ explicitly when component registration fails.
-Use pm_runtime_resume_and_get() so a failed resume does not retain a new
-usage reference. If manual clock resume succeeded while runtime PM
-stayed disabled, unwind those clocks if the later PM get fails.
+Route PIO read errors through ECC disable. DMA has already released its
+transfer resources before interpreting the results, and its caller
+retries a failed read in PIO. Restore the corrected/failed counters from
+before that DMA attempt so earlier steps are not counted again by the
+retry; leave bad-block counters unchanged.
 
-This issue was identified as part of our ongoing research while
-reviewing kernel code.
+These unchecked returns were found by inspecting the read callbacks and
+their NAND-operation helpers.
 
-Fixes: 43a6a7e71063 ("ASoC: mediatek: add mt2701 platform driver implementation.")
-Assisted-by: LLM
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+Fixes: 97d90da8a886 ("mtd: nand: provide several helpers to do common NAND operations")
+Fixes: 25f815f66a14 ("mtd: nand: force drivers to explicitly send READ/PROG commands")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
-The final devres action disables the IRQ rather than looking up and
-freeing another managed resource during devres release. Independent
-PCM/card lifetime and system-suspend clock ordering are outside this
-change.
+ drivers/mtd/nand/raw/sunxi_nand.c | 56 ++++++++++++++++++++++++++++++---------
+ 1 file changed, 44 insertions(+), 12 deletions(-)
 
-Compiled with Clang 22.1.2 and W=1 in the accompanying validation
-bundle. The prior G154 diff received independent source review. The
-revised manual-resume failure cleanup received coordinator
-counterexample review. No runtime reproducer, hardware test or
-full-kernel link was performed.
-
-Base: 0fcb05b72344f40806cbe810de8872f1698bf053
-
- sound/soc/mediatek/mt2701/mt2701-afe-common.h |  1 +
- sound/soc/mediatek/mt2701/mt2701-afe-pcm.c    | 65 ++++++++++++-------
- 2 files changed, 44 insertions(+), 22 deletions(-)
-
-diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-common.h b/sound/soc/mediatek/mt2701/mt2701-afe-common.h
-index c9477bc24ee9..c7ffae5b6fb0 100644
---- a/sound/soc/mediatek/mt2701/mt2701-afe-common.h
-+++ b/sound/soc/mediatek/mt2701/mt2701-afe-common.h
-@@ -89,6 +89,7 @@ struct mt2701_soc_variants {
- };
- 
- struct mt2701_afe_private {
-+	int irq_id;
- 	struct clk *base_ck[MT2701_BASE_CLK_NUM];
- 	struct clk *mrgif_ck;
- 	struct clk *hadds2pll_ck;
-diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-index d56b498e8c0c..ef051157a0c7 100644
---- a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-+++ b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-@@ -1591,12 +1591,31 @@ static int mt2701_afe_runtime_resume(struct device *dev)
- 	return mt2701_afe_enable_clock(afe);
+diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
+index c2e97b8656f7..6c0d3e2d2be2 100644
+--- a/drivers/mtd/nand/raw/sunxi_nand.c
++++ b/drivers/mtd/nand/raw/sunxi_nand.c
+@@ -1030,7 +1030,10 @@ static void sunxi_nfc_hw_ecc_update_stats(struct nand_chip *nand,
+ 	}
  }
  
-+static void mt2701_afe_pm_disable(void *data)
-+{
-+	struct device *dev = data;
-+
-+	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	if (!pm_runtime_status_suspended(dev))
-+		mt2701_afe_runtime_suspend(dev);
-+}
-+
-+static void mt2701_afe_irq_disable(void *data)
-+{
-+	struct mtk_base_afe *afe = data;
-+	struct mt2701_afe_private *afe_priv = afe->platform_priv;
-+
-+	disable_irq(afe_priv->irq_id);
-+}
-+
- static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
+-/* Return whether the chunk is erased, and account for its ECC result. */
++/*
++ * Return 1 for an erased chunk or 0 for an uncorrectable chunk, with ECC
++ * statistics updated in either case. Negative values report transport errors.
++ */
+ static int sunxi_nfc_hw_ecc_read_error(struct nand_chip *nand,
+ 				       u8 *data, int data_off,
+ 				       u8 *oob, int oob_off,
+@@ -1042,10 +1045,16 @@ static int sunxi_nfc_hw_ecc_read_error(struct nand_chip *nand,
+ 	int ret;
+ 
+ 	/* Check the physical representation for bitflips in erased pages. */
+-	if (nand->options & NAND_NEED_SCRAMBLING)
+-		nand_change_read_column_op(nand, data_off, data, ecc->size, false);
++	if (nand->options & NAND_NEED_SCRAMBLING) {
++		ret = nand_change_read_column_op(nand, data_off, data,
++						 ecc->size, false);
++		if (ret)
++			return ret;
++	}
+ 
+-	nand_change_read_column_op(nand, oob_off, oob, oob_len, false);
++	ret = nand_change_read_column_op(nand, oob_off, oob, oob_len, false);
++	if (ret)
++		return ret;
+ 
+ 	ret = nand_check_erased_ecc_chunk(data, ecc->size, oob, oob_len, NULL, 0,
+ 					  ecc->strength);
+@@ -1308,6 +1317,7 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, u8 *buf,
  {
- 	const struct mt2701_soc_variants *soc;
- 	struct mtk_base_afe *afe;
- 	struct mt2701_afe_private *afe_priv;
- 	struct device *dev;
-+	bool manual_resume = false;
- 	int i, irq_id, ret;
- 
- 	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
-@@ -1619,13 +1638,7 @@ static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
- 	irq_id = platform_get_irq_byname(pdev, "asys");
- 	if (irq_id < 0)
- 		return irq_id;
--
--	ret = devm_request_irq(dev, irq_id, mt2701_asys_isr,
--			       IRQF_TRIGGER_NONE, "asys-isr", (void *)afe);
--	if (ret) {
--		dev_err(dev, "could not request_irq for asys-isr\n");
+ 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
+ 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
++	struct mtd_info *mtd = nand_to_mtd(nand);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+ 	struct sunxi_nfc_ecc_read read = {
+ 		.buf = buf,
+@@ -1315,6 +1325,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, u8 *buf,
+ 		.oob_required = oob_required,
+ 		.dma = true,
+ 	};
++	unsigned int corrected = mtd->ecc_stats.corrected;
++	unsigned int failed = mtd->ecc_stats.failed;
+ 	struct scatterlist sg;
+ 	int ret, i;
+ 	u32 status, pattern_found, wait;
+@@ -1366,9 +1378,19 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, u8 *buf,
+ 	ret = sunxi_nand->oob_ops->read_batch(nand, &read, status, pattern_found,
+ 					    0, nchunks);
+ 	if (ret)
 -		return ret;
--	}
-+	afe_priv->irq_id = irq_id;
- 
- 	afe->regmap = syscon_node_to_regmap(dev->parent->of_node);
- 	if (IS_ERR(afe->regmap)) {
-@@ -1687,14 +1700,27 @@ static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
- 		ret = mt2701_afe_runtime_resume(dev);
- 		if (ret)
- 			goto err_pm_disable;
-+		manual_resume = true;
- 	}
--	pm_runtime_get_sync(dev);
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		goto err_pm_disable;
++		goto err_stats;
 +
-+	/* Keep the AFE powered until the components and IRQ are released. */
-+	ret = devm_add_action_or_reset(dev, mt2701_afe_pm_disable, dev);
-+	if (ret)
-+		return ret;
++	ret = sunxi_nand->oob_ops->finish_read(nand, &read, NULL);
++	if (ret < 0)
++		goto err_stats;
 +
-+	ret = devm_request_irq(dev, irq_id, mt2701_asys_isr,
-+			       IRQF_TRIGGER_NONE, "asys-isr", afe);
-+	if (ret)
-+		return ret;
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev, &mtk_afe_pcm_platform,
- 					      NULL, 0);
- 	if (ret) {
- 		dev_warn(dev, "err_platform\n");
--		goto err_platform;
-+		goto err_irq_disable;
- 	}
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev,
-@@ -1703,27 +1729,23 @@ static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
- 					 ARRAY_SIZE(mt2701_afe_pcm_dais));
- 	if (ret) {
- 		dev_warn(dev, "err_dai_component\n");
--		goto err_platform;
-+		goto err_irq_disable;
- 	}
- 
--	return 0;
-+	/* Drain the IRQ before releasing the managed components. */
-+	return devm_add_action_or_reset(dev, mt2701_afe_irq_disable, afe);
- 
--err_platform:
--	pm_runtime_put_sync(dev);
-+err_irq_disable:
-+	disable_irq(irq_id);
 +	return ret;
- err_pm_disable:
- 	pm_runtime_disable(dev);
-+	if (manual_resume)
-+		mt2701_afe_runtime_suspend(dev);
+ 
+-	return sunxi_nand->oob_ops->finish_read(nand, &read, NULL);
++err_stats:
++	/* The caller retries the whole read in PIO mode. */
++	mtd->ecc_stats.corrected = corrected;
++	mtd->ecc_stats.failed = failed;
++	return ret;
+ }
+ 
+ static int sunxi_nfc_hw_ecc_write_chunk(struct nand_chip *nand,
+@@ -1456,7 +1478,9 @@ static int sunxi_nfc_hw_ecc_read_page(struct nand_chip *nand, uint8_t *buf,
+ 
+ 	sunxi_nfc_select_chip(nand, nand->cur_cs);
+ 
+-	nand_read_page_op(nand, page, 0, NULL, 0);
++	ret = nand_read_page_op(nand, page, 0, NULL, 0);
++	if (ret)
++		return ret;
+ 
+ 	sunxi_nfc_hw_ecc_enable(nand);
+ 
+@@ -1464,10 +1488,11 @@ static int sunxi_nfc_hw_ecc_read_page(struct nand_chip *nand, uint8_t *buf,
+ 	for (i = 0; i < ecc->steps; i++) {
+ 		ret = sunxi_nfc_hw_ecc_read_chunk(nand, &read, i, &cur_off);
+ 		if (ret < 0)
+-			return ret;
++			goto out;
+ 	}
+ 
+ 	ret = sunxi_nand->oob_ops->finish_read(nand, &read, &cur_off);
++out:
+ 	sunxi_nfc_hw_ecc_disable(nand);
  
  	return ret;
- }
+@@ -1480,7 +1505,9 @@ static int sunxi_nfc_hw_ecc_read_page_dma(struct nand_chip *nand, u8 *buf,
  
--static void mt2701_afe_pcm_dev_remove(struct platform_device *pdev)
--{
--	pm_runtime_put_sync(&pdev->dev);
--	pm_runtime_disable(&pdev->dev);
--	if (!pm_runtime_status_suspended(&pdev->dev))
--		mt2701_afe_runtime_suspend(&pdev->dev);
--}
--
- static const struct mt2701_soc_variants mt2701_soc_v1 = {
- 	.i2s_num = 4,
- };
-@@ -1752,7 +1774,6 @@ static struct platform_driver mt2701_afe_pcm_driver = {
- 		   .pm = pm_ptr(&mt2701_afe_pm_ops),
- 	},
- 	.probe = mt2701_afe_pcm_dev_probe,
--	.remove = mt2701_afe_pcm_dev_remove,
- };
+ 	sunxi_nfc_select_chip(nand, nand->cur_cs);
  
- module_platform_driver(mt2701_afe_pcm_driver);
+-	nand_read_page_op(nand, page, 0, NULL, 0);
++	ret = nand_read_page_op(nand, page, 0, NULL, 0);
++	if (ret)
++		return ret;
+ 
+ 	ret = sunxi_nfc_hw_ecc_read_chunks_dma(nand, buf, oob_required, page,
+ 					       nand->ecc.steps);
+@@ -1505,7 +1532,9 @@ static int sunxi_nfc_hw_ecc_read_subpage(struct nand_chip *nand,
+ 
+ 	sunxi_nfc_select_chip(nand, nand->cur_cs);
+ 
+-	nand_read_page_op(nand, page, 0, NULL, 0);
++	ret = nand_read_page_op(nand, page, 0, NULL, 0);
++	if (ret)
++		return ret;
+ 
+ 	sunxi_nfc_hw_ecc_enable(nand);
+ 
+@@ -1514,10 +1543,11 @@ static int sunxi_nfc_hw_ecc_read_subpage(struct nand_chip *nand,
+ 	     i < DIV_ROUND_UP(data_offs + readlen, ecc->size); i++) {
+ 		ret = sunxi_nfc_hw_ecc_read_chunk(nand, &read, i, &cur_off);
+ 		if (ret < 0)
+-			return ret;
++			goto out;
+ 	}
+ 
+ 	ret = read.max_bitflips;
++out:
+ 	sunxi_nfc_hw_ecc_disable(nand);
+ 
+ 	return ret;
+@@ -1532,7 +1562,9 @@ static int sunxi_nfc_hw_ecc_read_subpage_dma(struct nand_chip *nand,
+ 
+ 	sunxi_nfc_select_chip(nand, nand->cur_cs);
+ 
+-	nand_read_page_op(nand, page, 0, NULL, 0);
++	ret = nand_read_page_op(nand, page, 0, NULL, 0);
++	if (ret)
++		return ret;
+ 
+ 	ret = sunxi_nfc_hw_ecc_read_chunks_dma(nand, buf, false, page, nchunks);
+ 	if (ret >= 0)
+
+-- 
+2.53.0
+
 
