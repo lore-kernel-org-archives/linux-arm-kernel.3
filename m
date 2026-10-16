@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CADCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E4FCCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QunjdoyS2VP8sVHK+P0nXc1zdB5/E8xy4McPChK5nU8=; b=FPdeCpW+/cxRN09aJUclHDChdx
-	4lX0Gmvu2lLvPjT5rnkEnszHtMMbLZJ60JhlBky7pG8/xNDdC2I/BeMs91/MzfxHzCP03f6sUjlTe
-	W4yv/3XKvVRy9ViIlSrFOmA7x0Q1KCaNmmLOtYvhIYYQpTxJhIC/J5KiVnWMwKvoOPIkMJ4+Lg4Wt
-	8OFel0nQ7NMsm+gGwB5WgxEi1wNrpfSnFfwWlhBWu9VyX7wyBowhksmac0s73XAzN8RigBfyN/XvF
-	PzOobdEPvu4LCeX10zPeE/JzL5b/0dIZcOZpwQxmoVOWZSr3M0H2bS0lYhtw02+JCcLQD+sodab2P
-	Oh/dVa5Q==;
+	bh=qYrA4alYLnpWk7LMWSg9VZG/4/dspGuqfh+8t9FeWkA=; b=CnY8M3+iCLuGS7mk53Qlqfyv+I
+	xn9ffHEBL8+LipHYIB7147tjNNG4NO+r4sc2L3ihE72pDv7Rx6RuRNs/fMFwQv+B1637G+jg27U0I
+	lAB1X3nCFPDNfL7KejmQHtITyePsMT0jia1kZZnPHqOduucNYyYVAsdzm/lHKSaBoJfemvkSr2vh8
+	4/o8szQ4RA+UhgEFpCpBM5QjgBm91IM0zIv46wBBGZYurxpFRVZ1QoGOX11wpSYslc39dtgXb//Oa
+	ZA+8scBvdALxzsar6D2/Yo0GiOTJBVe3TsZ2rTxsCm1bMjnZejYrBDJp0vRdRFjDH5O59v9PAU/GZ
+	X8m0KEzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkAV-00000003KDX-49zJ;
-	Fri, 16 Oct 2026 15:48:28 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xHkDd-00000003KWq-2RFB;
+	Fri, 16 Oct 2026 15:51:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkAS-00000003KCl-3Q7E;
-	Fri, 16 Oct 2026 15:48:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=QunjdoyS2VP8sVHK+P0nXc1zdB5/E8xy4McPChK5nU8=; b=2nnl7trSgRrRUbAJxW1SdJLoWN
-	K04uHr8nJfWn8jwwmC7nWzH0RF3e2neTXAB/KvB6LoE+YfjktMLA2/NREFk2DVUV6Ye601vessMks
-	ui1BXN10jjodbJUb58fqOwUYCyRlAoMiv1zQGtaQ85Jh1M8OSm0j9ztH9exwJI3proO0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xHkAF-00BAwL-HC; Fri, 16 Oct 2026 17:48:11 +0200
-Date: Fri, 16 Oct 2026 17:48:11 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Biao Huang <biao.huang@mediatek.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Eric Dumazet <edumazet@kernel.org>, kernel@collabora.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v3 7/9] net: stmmac: mediatek: use TX clock
- phase shift in RGMII mode with 1Gbps speed
-Message-ID: <1f347450-a68b-44e2-8b57-53204eb61e55@lunn.ch>
-References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
- <20261016-dwmac-mediatek-mt8189-v3-7-25daf2bbcf35@collabora.com>
- <eabe305d-bb0f-4927-919a-21b025ec145d@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eabe305d-bb0f-4927-919a-21b025ec145d@bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_084824_854519_77E746C3 
-X-CRM114-Status: GOOD (  14.15  )
+	id 1xHkDc-00000003KWZ-1o1G
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 15:51:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D2BEF40289;
+	Fri, 16 Oct 2026 15:51:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F611F000C5;
+	Fri, 16 Oct 2026 15:51:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792165899;
+	bh=qYrA4alYLnpWk7LMWSg9VZG/4/dspGuqfh+8t9FeWkA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=cyEsOz5WDZ/fh13BKcjsRgcbrrf4NSXU1ME4JbcFbsqs+wjT7fkOrgP+GG2Fb9RfR
+	 UAtvcBPB2E0oKx8GP82e/y+x9oADQNLJWp9g0HEpG60A5rTUP5CudT3SjiSd9GOGEN
+	 as1oj+01MgD40tHhRKDjunaUKyZ7TVsFt+pqp+aYnmz05AgMyQY/z+r4cB+kb0z9HS
+	 gLgd2jZvGGsWDpZe8MyK9vwEZHjyu+Esk9yG/AAT86Y3QWYbXVMhn+Z6JL6Zh3aKcf
+	 77c2KEru32TS1XGRR9DWf4HKfG5XsW7ws3O1bHUMdnqzDDh7hNaSZQTMkJD8XbTns9
+	 NSinEzCKwOuRg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xHkDZ-00000003pee-298p;
+	Fri, 16 Oct 2026 15:51:37 +0000
+Date: Fri, 16 Oct 2026 16:51:37 +0100
+Message-ID: <867bjh1w52.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: vgic-its: Remove the pending state of a discarded LPI
+In-Reply-To: <20261013081646.933312-3-fuad.tabba@linux.dev>
+References: <20261013081646.933312-1-fuad.tabba@linux.dev>
+	<20261013081646.933312-3-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +92,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +static void mt8195_fix_mac_speed(void *priv, phy_interface_t interface,
-> > +				 int speed, unsigned int mode)
-> > +{
-> > +	struct mediatek_dwmac_plat_data *priv_plat = priv;
-> > +	const struct mediatek_dwmac_variant *variant;
-> > +	struct mac_delay_struct *mac_delay;
-> > +	u32 tx_delay_stage_val, reg_offset;
-> > +	u32 reg_val = 0;
-> > +
-> > +	if (!priv_plat)
-> > +		return;
-> > +
-> > +	mac_delay = &priv_plat->mac_delay;
-> > +	variant = priv_plat->variant;
-> > +
-> > +	if (!mac_delay->tx_delay ||
-> > +	    (interface != PHY_INTERFACE_MODE_RGMII &&
-> > +	     interface != PHY_INTERFACE_MODE_RGMII_RXID))
-> > +		return;
+On Tue, 13 Oct 2026 09:16:46 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> I don't think this is right. PHY_INTERFACE_MODE_RGMII in that context comes
-> from the devicetree, and therefore means "RGMII delays are implemented through
-> traces on the PCB", the MAC isn't supposed to insert any. RXID means "TX delays
-> are on PCB, RX delays are internal).
+> DISCARD removes the mapping of an event and instructs the Redistributor
+> to remove the pending state of its LPI (IHI 0069H.b, 5.3.4). KVM only
+> frees the ITE, so an LPI that is pending when the guest discards it
+> stays queued on its target vCPU, and the guest still takes it.
 > 
-> I'd expect the condition here to be:
+> Clear the pending state before freeing the ITE. A queued LPI can be
+> pending in a running vCPU's list register, so halt the guest first when
+> the LPI is queued, to fold that state back. A forwarded LPI already
+> loses its pending state in its_free_ite(), whose unmap from the vPE
+> sends a DISCARD to the host ITS.
 > 
-> > +	if (!mac_delay->tx_delay ||
-> > +	    (interface != PHY_INTERFACE_MODE_RGMII_ID &&
-> > +	     interface != PHY_INTERFACE_MODE_RGMII_TXID))
-> > +		return;
+> Fixes: df9f58fbea9bc ("KVM: arm64: vgic-its: Implement ITS command queue command handlers")
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 24 +++++++++++++++++++-----
+>  1 file changed, 19 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 44b92c01bc727..3b8e0e5b097e0 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -829,13 +829,27 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
+>  		struct its_device *device = find_its_device(its, device_id);
+>  		int ite_esz = vgic_its_get_abi(its)->ite_esz;
+>  		gpa_t gpa = device->itt_addr + ite->event_id * ite_esz;
+> -		/*
+> -		 * Though the spec talks about removing the pending state, we
+> -		 * don't bother here since we clear the ITTE anyway and the
+> -		 * pending state is a property of the ITTE struct.
+> -		 */
+> +		struct vgic_irq *irq = ite->irq;
+> +		bool queued;
+> +
+>  		vgic_its_invalidate_cache(its);
+>  
+> +		/*
+> +		 * A queued LPI can be pending in a running vCPU's list register,
+> +		 * which the exit path folds back: halt the guest before clearing.
+> +		 */
+> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
+> +			queued = irq->vcpu;
 
-I would maybe base it on the value of tx-internal-delay-ps. If it is
-2000, then add the delay here. But that has implications for the
-interface mode value passed to the PHY.
+Is this comment correct? This is only checking that the LPI is on the
+AP list of a vcpu, not that it is in the LRs.
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> +
+> +		if (queued)
+> +			kvm_arm_halt_guest(kvm);
 
-We could keep mt8195 KISS, and reject all these properties, and let
-the PHY add the delays.
+And should we move this to kvm_pause_vcpu() instead of the big hammer,
+this still works because
 
-	Andrew
+- we hold the ITS lock, so no MOVI can be issued on the same ITS
+
+- mapping of the same LPI is already prevented by the previous patch,
+  so no sneaky MOVI generated somewhere else can impact this LPI
+
+Do you agree?
+
+> +
+> +		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
+> +			irq->pending_latch = false;
+> +
+> +		if (queued)
+> +			kvm_arm_resume_guest(kvm);
+> +
+>  		its_free_ite(kvm, ite);
+>  
+>  		return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
+
+If you're OK with the above, I'll make the corresponding changes as I
+apply the patches.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
