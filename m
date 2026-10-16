@@ -4,114 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73CACCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ABAFCCF2C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=; b=SUxlmKpaOBLeFD
-	cEVbJkq9ksEzVBuieXIH7MKkkQ/VvIZBIfbTq8ooO2hf3u9U1E8Mtvcws0rxStGFsRltCJTWMttZj
-	yfk56mBfh0sB5J9o3M+eUARucWOS907myiqq3p3tTDbH91djyf+PPAS/WHB5gjf32UnfoYG2M4UQH
-	qN4sZYQeVCDy/AnH3c1PC4PfJT6IGcfm/xG3YR/T5YR4OYzqnCqt0eyDDPxcjSN4hPHm3w55IlS+o
-	+a2PtXm4sdr8XELasnMk9EGnCHt2JWDUdFYO77l5G/TNekwUI6F1cc2Jy9agRFT+8IlwfQ3rAIXh7
-	ODYNFqyRCwqAOBCUXuUQ==;
+	List-Owner; bh=V1hXT0Eas8m5c2ygL15nSTqRjFllfaynDlQoaInIYnQ=; b=ER9bsEJuSFdBgt
+	q2KUeIGEczE+4zX2AdK5oCEGhWUnokjUVGOU5ZG+y0/o5Nf+VFiIUsqzZwXt2KlCbZ9u12dXvvsBq
+	TiEpVTlSjr1hbTKhInagKH79W8edYDnJERF++zuJS6mPurLBwdWG1CE69tOLgpeMusHBo+cw79pPs
+	8OzwIbUwJ9YqlJmkZh6FAb1ZU68XM+Kg+eJWhjAAp7tbdc+Ahc8DYAfuIg0GMOxfHAGVmsx9jz2ad
+	gUOc7TSKkA0dxLpjZopGxII1BK3xKPSoUep222j74E1hot6x+0jy36v0sEHgBIt+Xd84VxhCGQWqW
+	XxNh1vDE6EmT5sMHiqqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlmB-00000003Z1I-3s73;
-	Fri, 16 Oct 2026 17:31:27 +0000
-Received: from mail-northcentralusazon11013056.outbound.protection.outlook.com ([40.107.201.56] helo=CH4PR04CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlm6-00000003Z0t-3cIv
+	id 1xHlxT-00000003a70-0qgq;
+	Fri, 16 Oct 2026 17:43:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHlxP-00000003a6K-18gg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 17:31:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rv1PEdKkJT6aWsWRPR8HN5kAxTh42srxXE5JcJPNptpIcgwAqFJxWIZicB+HJz+gWDlZNrGewrflIPlIV31MMilHGH1e7KuGC9BvHsivU52sXvKHq5R0/ViCpCUnMdd8xeupmxcL7TK1ZsBn5/OCa3DCFep1f1DE3ioh69sptdlXFFMIOUYnfF7fwqPUlB9tLHZa5QNUIirtsSdg83zfN1YC7pjZHSBC8Vv1LNEkNO/deCHCIJq8UGlnALD1k+yeliKLXW5lt5/Fy5C6VOJWGXIGCmA8q417+nEO4SHPn8AjbpUDa9ReVMtwOHJZW95lagHz97u5odFbFfVZMSUNEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=;
- b=disdB0EKsu8MOelIWcWkh3lnC1s9I8Op4GgR5WLUYIXroKXE3DfOPo/d8dv9dueP0TqE6vZ2OgxzEt0LWJvx40cs3WiMYpdafmB/4cIn7AMtsGL+L5TGhh6JCnUuKG6iNIK662m2IcMmHzvqPwAZNbbak+SM+gmkdDlLJ/WPYsSV6N5pESSP3HMCy1cYr8rneeSAYUk7K0SfnV4mzzGeIzkBv+FSH7YAxzLmzczpZ1lY4jrH7tRVAFSw3F6xUiJm+njX7gUZU/4dVNGH+jtTKVreizVefYEI7A05fEJmgdeVO1KN8Zf8seXZh7kiO54hnEDkKe6b964klpllKO9J7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zHFBa41LGusqjAcfDcnqGnTiMscvXPssA2NvSGX5gEA=;
- b=1lihawgwWlvEVJs4jCPoQrqxtzA4yZsv4k6rM3wHO8g1M9Dyg8NBmY+0JDKou+oQka5hhwLqdI2Dt58ghe/j5vBvgaTRmxXsB5BBQTnimsBSRRBRIr9EcG/MDWuM3+aKZmx7AU/KGf0HsGOl5e4YcNaRHnWXSZT0kJTdSU/U/Wk=
-Received: from CH2PR16CA0011.namprd16.prod.outlook.com (2603:10b6:610:50::21)
- by DM4PR12MB5842.namprd12.prod.outlook.com (2603:10b6:8:65::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
- 2026 17:31:13 +0000
-Received: from LV8PEPF0000005D.namprd02.prod.outlook.com
- (2603:10b6:610:50:cafe::93) by CH2PR16CA0011.outlook.office365.com
- (2603:10b6:610:50::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
- Oct 2026 17:31:13 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- LV8PEPF0000005D.mail.protection.outlook.com (10.167.245.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 17:31:12 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
- 2026 12:31:05 -0500
-Received: from [192.168.1.205] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Fri, 16 Oct 2026 12:31:02 -0500
-Message-ID: <cf779b51-0124-4fde-956e-ddce76ae7dc4@amd.com>
-Date: Fri, 16 Oct 2026 12:30:57 -0500
+	Fri, 16 Oct 2026 17:43:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 848FB1477;
+	Fri, 16 Oct 2026 10:42:56 -0700 (PDT)
+Received: from [10.33.8.90] (e142021.arm.com [10.33.8.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 620213F673;
+	Fri, 16 Oct 2026 10:42:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792172579; bh=NAZHyT2atFiJYBiJAFfmnJeLnvjFVgLahATNzx2m8Lc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bmJtleZ2Qqx4dX3KEutj1VVY/gr2KR3zvcSvZ2FofnRLoWpOrmpDyLSJcC8e3e8K0
+	 /ES4oLL+oH13EMK0zsErcYli/00SZXMrG376kYBopDP743Y/MvzVazAjn08tZzyHCW
+	 S7ARiUVj75xm72hnb5cCsk/HbIHSmb8eAhOlKrCM=
+Message-ID: <cf0ccb1c-42fd-409e-ba77-3837d5c905d4@arm.com>
+Date: Fri, 16 Oct 2026 18:42:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Q] zynqmp-ipi-mailbox and SGI interrupts
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, <tanmay.shah@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>, Michal Simek <michal.simek@amd.com>,
-	Harini T <harini.t@amd.com>, Saeed Nowshadi <saeed.nowshadi@amd.com>
-References: <20261015083937.8SDbdK8P@linutronix.de>
- <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
- <20261016162356.m2X9jbCa@linutronix.de>
- <4c9b533f-251a-4569-bc78-fd7af664c831@amd.com>
- <20261016171029.wSftndCb@linutronix.de>
-Content-Language: en-US
-From: "Shah, Tanmay" <tanmays@amd.com>
-In-Reply-To: <20261016171029.wSftndCb@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v4 2/8] firmware: smccc: Add support for Live Firmware
+ Activation (LFA)
+To: Mark Rutland <mark.rutland@arm.com>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-3-andre.przywara@arm.com>
+ <aq1XmaBemuGybxp2@J2N7QTR9R3> <0c2c5cec-3e16-49a4-b304-ddd75de4cb19@arm.com>
+ <as5EvNM9IUkGe6Lk@J2N7QTR9R3.cambridge.arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <as5EvNM9IUkGe6Lk@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PEPF0000005D:EE_|DM4PR12MB5842:EE_
-X-MS-Office365-Filtering-Correlation-Id: 90a1c67b-8ca2-4971-b8bd-08df2bab463b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|82310400026|36860700016|1800799024|6133799003|22082099003|18002099003|10067099003|11063799006|5023799004|261009223027099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: gbKvSEnH1ta4AoFl5XMyO+/rvM2cNsrAm8WEy3c+x9DxOgiCKx4HtdMRsOeXUQZ6aURkhfK2Eb6GShKh6fDBekcXRw7VHIHy/RsUiVlieWbd9MWepuCYtMPc5n00a8Xqc29qG7Gcktvw/roC/JgrxuEqnP9tWkNpU8Na1QL9WOxov1tRA6rKHPhcvKXOyCOwDxh1iezgrxzkeisa7FypLeLVioeb0AMD4TG8i5F/cNFdozWHpdS+jQZbS/dQugTbDabECamBUFeIDD3ry/vkAEBDnnjBKX/pRSW6fuP4QkYxX4NNd5RJfi8N2odvvd77uAqTWAVhlEMfcJSh1IYk9UyXXoUhz5+e8Q4GDxqDQO2abCttXMC0sFjPpz+XjFThUoUC6j4AqFZj5ZoK9DdSHe5c9ZcDkQVlK2pwenlSTvfJcp1mk1YLBty10ZSnsVxGq+72UTHDrwaPg4SJ3dcNsltqSUJU7Ds+bBfHp5z3HHcNt72oFRPEqStJqXF4TS+fM0vdRMPHVfuXHZnrphijXymjuaXKTdAIbJrZR3ndyDW8mqtVHrrKYGvDNUmSfDT7E2TiQJd4dDBQ2ZXY3BwQ3Yotiyox1bvdcrUVdcd5fjsRh1C3pkSIaDsjbj7uZ8HqOQQylc5Rh5lB6oKQuo+64XCleHm4f6FTarT5KDCK8N7IPXa3aiT0Nqoi6AbIJnaZyebBV3S3hSUQYfz1OmMPvw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(82310400026)(36860700016)(1800799024)(6133799003)(22082099003)(18002099003)(10067099003)(11063799006)(5023799004)(261009223027099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: a1AJz1ev+1kNWPRAB+lQ2s8p3yup8WTRgBBnF1pEXHU5SsOlF4P7j40qJ9ayumuI2Ds/Ku1dW+eM5/D7HckL7JoGWLOwyxlUI7htUma/NqYBo1b8CryA9BhRzF+eYQgDuGIDds4iouBZrxH9lA9BoNohvBReXl/IFmNBio749sQyPO9SPrG2saJbBpIc7pfDzw4l+TvEdTqyKmCLMOMNWeySYglBFR9PERG5J1sBJ+9yTbW5yL0T7+UTz9gU6UKCasP4wbCkO8FCANzw5QAzAfKZSmeSvetGEsK6FG4sH85c2OKH61feb1e+ME3WDikaBrc4LpJ2QJ3xBYMQC9m9E2O7WBqI/DguIFj4zhu6rkLcDDlQHkTls3/V75dBO1E9Na70huuDeSFohPxVrz8lbF+mI3uLE1G6aLBTbB9mpR7xPpK/cz22aBBD5heiqAoA
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 17:31:12.7136
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90a1c67b-8ca2-4971-b8bd-08df2bab463b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF0000005D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_103123_047088_D0C0E9EF 
-X-CRM114-Status: GOOD (  28.38  )
+X-CRM114-CacheID: sfid-20261016_104303_439843_9F7DCD27 
+X-CRM114-Status: GOOD (  78.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,73 +69,350 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
+Cc: Conor Dooley <conor+dt@kernel.org>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
 
+thanks for the reply, your input is much appreciated!
 
-On 10/16/2026 12:10 PM, Sebastian Andrzej Siewior wrote:
-> On 2026-10-16 11:44:07 [-0500], Shah, Tanmay wrote:
->>> And it has to be a per-CPU interrupt? It can't become a regular
->>> interrupt which is not per-CPU? Does the driver at some point access
->>> per-CPU registers?
+On 10/13/26 16:48, Mark Rutland wrote:
+> On Mon, Sep 21, 2026 at 05:25:25PM +0200, Andre Przywara wrote:
+>> On 9/18/26 17:24, Mark Rutland wrote:
+>>> On Fri, Sep 18, 2026 at 04:11:05PM +0200, Andre Przywara wrote:
+>>>> From: Salman Nabi <salman.nabi@arm.com>
+>>>>
+>>>> The Arm Live Firmware Activation (LFA) is a specification [1] to describe
+>>>> activating firmware components without a reboot. Those components
+>>>> (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
+>>>> usual way: via fwupd, FF-A or other secure storage methods, or via some
+>>>> IMPDEF Out-Of-Bound method. The user can then activate this new firmware,
+>>>> at system runtime, without requiring a reboot.
+>>>> The specification covers the SMCCC interface to list and query available
+>>>> components and eventually trigger the activation.
 >>>
+>>> It'd be helpful to have a few basic concepts covered here or in the
+>>> code. For example, I have no idea what a "rendezvous" is, and it's not
+>>> at all obvious from the code.
 >>
->> As per my understanding, it has to be a per-CPU interrupt.
+>> OK, I can give a brief summary of the concepts, but I guess doing this a top
+>> comment in the source file is more useful than here in the commit message?
 > 
-> I see.
+>  From my PoV, even placing that in the cover letter would be fine. The
+> key thing is just to get enough context to be able to review this
+> without having to ingest the entire LFA spec.
 > 
->> Driver access those registers via percpu APIs, for example:
->> xlnx_mbox_cpuhp_start() uses enable_percpu_irq(). It is called for each CPU.
-> 
-> Yes I know that part but this is not the question.
-> 
-> I meant _why_ the interrupt has to be per-CPU. I'm not sure if this is
-> internal wired as such or just configured.
-> 
+> In particular with "rendezvous", I have no idea why the admin should
+> have any choice at all, and without some context I can't tell if there's
+> some sensible use-case I'm missing.
 
-I think the SGI is configured that way in the driver. Probably at the
-implementation time couldn't find the better way.
+The admin should indeed not have a say, and if the firmware component 
+requires rendezvous, it will always be used.
+But for firmware that claims to not need any rendezvous, we default to 
+using it anyway, because it's the safest way to guarantee continuity for 
+the kernel. We don't know which firmware services might be affected, and 
+if they respond with something like -EAGAIN or just block for a longer 
+period during the activation. The kernel seems to rely on the firmware 
+services (TRNG, SoC-ID, SCMI, ...) replying, once they have been 
+initialised, so them suddenly returning an (even transient) error will 
+probably confuse the drivers.
+So the safe way to do this is to send all cores into the firmware 
+regardless, there they cannot do any harm.
 
-> For instance a timer is using a per-CPU interrupt. While the timer is
-> programmed for the next expiry it uses per-CPU registers. So the timer
-> accessed from CPU0 is different than the one accessed from CPU1. Once
-> the interrupt fires, the processing that follows is different on both
-> CPUs.
+Now as users asked for it on the list, if the admin knows exactly that 
+this firmware component does not provide any services to the kernel (say 
+some fan controller), they can override this policy and allow a single 
+CPU to trigger the activation. This was meant as a compromise to keep 
+the kernel side sane, but still allow less disruptive updates. The idea 
+would be that some user space component sets this attribute at boot 
+time, if it matches some UUID that is known to be safe.
+
+ > [...]>
+>>>> +static const char *get_image_name(const struct fw_image *image)
+>>>> +{
+>>>> +	if (image->image_name && image->image_name[0] != '\0')
+>>>> +		return image->image_name;
+>>>> +
+>>>> +	return kobject_name(&image->kobj);
+>>>> +}
+>>>
+>>> As before, please just use the UUID.
+>>>
+>>> I *assume* that we cannot have more than one image for a given
+>>> component, and hence we cannot have two entries for the same UUID? Is
+>>> that mandated by the LFA spec?
+>>
+>> The LFA spec speaks about "firmware components" as its area of interest, by
+>> design all the real firmware *image* related parts, for instance how the
+>> firmware update image lands on the system, is left implementation defined.
+>> So yes, each firmware component, identified by its UUID, appears only once
+>> in the system, by design.
 > 
-> Looking through zynqmp_sgi_interrupt() which just invokes
-> zynqmp_ipi_interrupt() I don't see the difference. The OP-TEE firmware
-> is invoked at least the bits I saw, it just masks the source and moves
-> on. So I am not sure what is the difference between the interrupt on
-> CPU0 vs CPU1. Both could fire at the same time and handle the same
-> request unless the firmware returns a different
-> IPI_MB_STATUS_RECV_PENDING bit. I don't see how the remote side would
-> make a difference between those two CPUs.
+> Ok; does the spec *clearly* mandate that?
+
+Well, there is only one logical bit (somewhat confusingly named 
+"activation pending") to say whether an update image has been provided 
+for a specific component or not. If someone pushes another image, it 
+would replace the already "pending" one (depending on firmware policy).
+
 > 
-
-There is no difference between the interrupt on CPU0 vs CPU1. The CPU
-affinity is decided by the TF-A when configuring the SGI. The driver has
-just lazy implementation where it doesn't check for the SGI's CPU
-affinity before configuring it and will assume that SGI can happen for
-any CPU. The driver can be improved to find out SGI's CPU affinity and
-request SGI only for that particular CPU. But current implementation is
-not optimized that way.
-
-I am not expert in the GIC interrupt handling of SGI, but I think your
-question is valid. The answer IMHO is the driver's implementation might
-not be the most optimized.
-
-Thank you,
-Tanmay
-
-> So this is what I am wondering about. Based on your response so far this
-> has to be that way.
+>> So I guess using "image" everywhere is a bit imprecise, but I am bit
+>> reluctant to change all identifiers now. Not even sure "firmware component"
+>> is a well recognised term in the first place.
+>>
+>> Let me know what you think about that.
 > 
-
->>>> Thank you,
->>>> Tanmay
+> Using "component" sounds fine by me. Then we can clearly describe
+> loading an image *for* a component.
 > 
-> Sebastian
+> ... unless I'm still misunderstanding the terminology here? I assume
+> "component" is a logical entity, and "image" is a specific binary blob.
+
+Yes, that's correct.
+
+> 
+> [...]
+> 
+>>>> +static int activate_fw_image(struct fw_image *image)
+>>>> +{
+>>>> +	int ret;
+>>>> +
+>>>> +retry:
+>>>> +	/*
+>>>> +	 * cpu_rendezvous_forced is set by the administrator, via sysfs,
+>>>> +	 * cpu_rendezvous is dictated by each firmware component.
+>>>> +	 */
+>>>> +	image->use_cpu_rendezvous = image->cpu_rendezvous_forced ||
+>>>> +				    image->cpu_rendezvous;
+>>>> +	if (image->use_cpu_rendezvous)
+>>>> +		ret = stop_machine(call_lfa_activate, image, cpu_online_mask);
+>>>
+>>> What prevents cpu_online_mask changing under your feet here?
+>>
+>> Right, I see. Is cpus_read_lock() safe to hold around stop_machine()?
+> 
+> Looking at the core code, the locking is handled within stop_machine(),
+> and since cpu_online_mask is a pointer, we can safely pass that around
+> without extra locking.
+> 
+> So this is fine as-is. Sorry for the noise.
+> 
+> [...]
+> 
+>>> This looks odd given call_lfa_activate() doesn't seem to distinguish
+>>> secondaries from one another. Does LFA expect all callers to pass the
+>>> exact same arguments for a "rendezvous"?
+>>
+>> Yes, even though the spec doesn't explicitly mention this. But there aren't
+>> many arguments to deviate anyway: the FID and sequence ID are naturally the
+>> same, and the flags just indicate whether we skip the rendezvous, so that
+>> doesn't really apply here (and inconsistencies are checked and handled by
+>> TF-A).
+>> The LFA agent (the firmware side) just elects one primary core doing the
+>> work, I think in TF-A it's the first one doing the SMC. The others just wait
+>> in EL3, to not mess with the update process.
+> 
+> I think i'd be worth describing this somewhere. Even if just the level
+> of detail above, with a reference ot the relevant part of the spec.
+
+OK, I added a sentence to that effect.
+And btw: TF-A uses the last core to call in to do the activation, but 
+this is an implementation detail.
+
+> 
+> [...]
+> 
+>> We had it like this originally in v1, I don't remember why we changed that,
+>> and it wasn't mentioned in any of the reply emails.
+>> Maybe I thought it looked neater to explicitly mark this as a retry, as we
+>> don't expect this to happen, normally.
+>> Will try to change it back and see what happens ;-)
+>>
+>>>> +
+>>>> +	lfa_cancel(image);
+>>>> +
+>>>> +	pr_err("LFA_ACTIVATE for image %s failed\n", get_image_name(image));
+>>>> +
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>> +static int prime_fw_image(struct fw_image *image)
+>>>> +{
+>>>> +	struct arm_smccc_1_2_regs reg = { 0 }, res;
+>>>
+>>> Do you need separate input and output strutctures?
+>>
+>> As mentioned above: in this case yes, since we call LFA_PRIME potentially
+>> multiple times, and then the function ID would be overwritten by the error
+>> return code, at least.
+> 
+> Ok, but you reinitialise 'a1' every time round the loop, so can you just
+> reinitialise the few registers you need each time around?
+> 
+> See below for a more concrete example.
+> 
+>>>
+>>>> +	int ret;
+>>>> +
+>>>> +	if (image->may_reset_cpu) {
+>>>> +		pr_err("CPU reset not supported by kernel driver\n");
+>>>> +
+>>>> +		return -EINVAL;
+>>>> +	}
+>>>
+>>> Unnecessary newline again.
+>>>
+>>>> +
+>>>> +	reg.a0 = ARM_SMCCC_LFA_PRIME;
+>>>> +retry:
+>>>> +	/*
+>>>> +	 * LFA_PRIME will return 1 in reg.a1 if the firmware priming
+>>>> +	 * is still in progress. In that case LFA_PRIME will need to
+>>>> +	 * be called again.
+>>>> +	 * reg.a1 will become 0 once the prime process completes.
+>>>> +	 */
+>>>> +	reg.a1 = image->fw_seq_id;
+>>>> +	arm_smccc_1_2_invoke(&reg, &res);
+>>>> +	if ((long)res.a0 < 0) {
+>>>> +		pr_err("LFA_PRIME for image %s failed: %s\n",
+>>>> +		       get_image_name(image),
+>>>> +		       lfa_error_string((long)res.a0));
+>>>> +
+>>>> +		return lfa_to_linux_errno((long)res.a0);
+>>>> +	}
+>>>> +
+>>>> +	if (res.a1 & LFA_PRIME_CALL_AGAIN)
+>>>> +		goto retry;
+>>>
+>>> Should this be a loop?
+> 
+> 
+> As above, if this were a loop you could do something like:
+> 
+> 	bool retry;
+> 
+> 	do {
+> 		struct arm_smccc_1_2_regs regs = {
+> 			.a0 = ARM_SMCCC_LFA_PRIME,
+> 			.a1 = image->fw_seq_id,
+> 		};
+> 
+> 		arm_smccc_1_2_invoke(&regs, &regs);
+> 
+> 		if ((long)args.a0 < 0) {
+> 			...
+> 		}
+> 		
+> 		retry = res.a1 & LFA_PRIME_CALL_AGAIN;
+> 	} while (retry)
+> 
+> ... and the initialization of the registers isn't a special case.
+
+OK, I had the loop quite similar to this meanwhile, but can add the regs 
+declaration inside, to avoid the "res" variable.
+
+> [...]
+> 
+>>>> +static ssize_t pending_version_show(struct kobject *kobj,
+>>>> +				    struct kobj_attribute *attr, char *buf)
+>>>> +{
+>>>> +	struct fw_image *image = kobj_to_fw_image(kobj);
+>>>> +	struct arm_smccc_1_2_regs reg = { 0 };
+>>>> +
+>>>> +	/*
+>>>> +	 * Similar to activation pending, this value can change following an
+>>>> +	 * update, we need to retrieve fresh info instead of stale information.
+>>>> +	 */
+>>>> +	reg.a0 = ARM_SMCCC_LFA_GET_INVENTORY;
+>>>> +	reg.a1 = image->fw_seq_id;
+>>>> +	arm_smccc_1_2_invoke(&reg, &reg);
+>>>> +	if (reg.a0 == LFA_SUCCESS) {
+>>>> +		if (reg.a5 != 0 && image->activation_pending) {
+>>>> +			u32 maj, min;
+>>>> +
+>>>> +			image->pending_version = reg.a5;
+>>>> +			maj = reg.a5 >> 32;
+>>>> +			min = reg.a5 & 0xffffffff;
+>>>
+>>> You could use upper_32_bits() and lower_32_bits() here.
+>>>
+>>>> +
+>>>> +			return sysfs_emit(buf, "%u.%u\n", maj, min);
+>>>> +		}
+>>>> +	}
+>>>> +
+>>>> +	return sysfs_emit(buf, "N/A\n");
+>>>
+>>> Why a string rather than an error code?
+>>
+>> This value is somewhat optional, it's only valid if there is an "activation
+>> pending" (read: an update image has been provided and waits for its
+>> activation).
+> 
+> I'm confused. This function is called pending_version_show(); is that a
+> different thing that's "pending"?
+
+I meant that there is naturally no *update* version number to report 
+until an update image has been provided. Maybe the confusion is about 
+the word "pending" here, which is a bit of an overloaded term, I think.
+
+>> But it's not really the firmware's or the user's fault here if
+>> that's the case (in fact it's the common case), so I am not sure if an error
+>> return is appropriate, since in the current state the value is simply not
+>> applicable. And the "cat" command returning with an error looks ugly. Since
+>> it's a string, it's easy to distinguish from any actual version number from
+>> userland, in scripts.
+>>
+>> Any suggestion how to handle this otherwise? Just return -ENXIO?
+> 
+> If this is a legitimate state, returning a string is fine so long as it
+> is clearly documented.
+
+I chose to return 0 from this function, as in: zero bytes read. This 
+should be distinguishable for userland from a real error or any other 
+version string. Hope that's fine, if not, feel free to comment on v5.
+
+> 
+>>> [...]
+>>>
+>>>> +static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+>>>> +{
+> 
+>>>> +}
+>>>
+>>> There was an interrupt in the binding, not detected or used here. What's
+>>> going on?
+>>
+>> That's implemented in patch 6/8.
+>> That patch here is already quite large, also different parts (ACPI, timeout,
+>> DT, locking) were contributed by different authors, so I kept them as
+>> separate patches, to give credit and simplify review.
+>> I can of course squash them all in one patch, maybe it's time to do this
+>> now, but this makes attribution a bit fuzzy.
+> 
+>  From my perspsecitve, if the interrupt is expected, it's odd to add the
+
+The interrupt is completely optional, and really only useful if you do 
+out-of-band provisioning of the update image. And the automatic 
+activation feature comes in a separate patch anyway.
+
+> probing support later. At this stage inthe series, the LFA driver will
+> probe even without an interrupt, but then suddenly stops later in the
+> series.
+
+Well, this would only be the case if the interrupt would be wrongly 
+configured, not sure that is something that it that critical from a 
+regression point of view, especially if we really only talk about like 
+four patches in between?
+
+I would rather keep at least the ACPI patch separate, and be it for 
+given Vedashree her commit.
+
+Cheers,
+Andre
+
+> 
+> Mark.
 
 
