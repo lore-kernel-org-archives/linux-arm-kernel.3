@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AC1CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863C1CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8WOzmiFfBrAe/Oe3rHa3h1CnFfol+AsZ/xb5/Ndfqc=; b=TNyFMvSEkTwMJs5EfXZwn5JUfo
-	l4qSWdltIxMnVRjzktmZ1OC+RVh5ounKeiX248mGnZ1iDuvDeHT2JYFgHd6XfKSqq5C7exIP2Rc4q
-	/nV51CBTDWYt3tq0Sl2/ZkPDuN2LoXffTjI3jefpAu3QKn3A0WvEZyEpXLfIMs5Ovvnsx4nomlSJL
-	AV+q8aZMDIvjrIjfkODauNvPKNi0Mcfx3EJsIf6W5FylqkTeYlvL5VXECgVWdYcuTwyH6OTcxYxyf
-	Uj4VLkEMAV2Nsv+YR3tmIpjEjcamlsLyibZFjR3IcTaJCOWN9BX0v4ek7GeJ1NFsPlgqV3zNdODKx
-	x+HjudCw==;
+	bh=F/Z8XFWsq6LtUxoUzzb0FzHPSNNkSN8I1TF8y52/Oas=; b=Ao7hjSTwwWS3CladoGVPIwODtt
+	QM6CagsFaGsFj8kdVJgpkR+i70rtbILG17oY1sCdcTgYdNOF/W8BvCiOiYGViPaREpA4lqRvvgFE3
+	rbx10hVYZY88YKx4ByjTX65mTqNIBYfxc08Bfc46S54WRrUKwV0qLuv71uvrm8d2SiUC1uOyF3VPf
+	YUjjadiLXMmA1sbN6SNV0hdUrGek+ViTQXwKRXd+4/C/wLF8kvn1vs1YK/98gQ++Ot0n1aXYV9TcV
+	gf559rK93Fh3oWA+tbkM2ufNwDnEFXAHoC34w0q/HT1if0ZBVDoKvSF8zzqn4vN5f4vHQAZ2s65jh
+	6dlpU93Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlE3-00000003UXw-3FeR;
-	Fri, 16 Oct 2026 16:56:11 +0000
+	id 1xHlE0-00000003USN-2vZc;
+	Fri, 16 Oct 2026 16:56:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDo-00000003UGD-3ujV
+	id 1xHlDj-00000003UB9-1NRh
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 16:55:58 +0000
+	Fri, 16 Oct 2026 16:55:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=j8WOzmiFfBrAe/Oe3rHa3h1CnFfol+AsZ/xb5/Ndfqc=; b=YohsjFzUehrhvaQHbqWJrqET8F
-	Y9NIgIfRXP2Gro+nP0t/hKmJdT95SeRckdTba0LBa7l6zEhaF+rHR7GeJjsXKx10u6TPcjAmdYz17
-	LrY1g90NfQ53C9Qt4UWeJBsp/5omJylL1gD3zgOnXYc+XkVgSyY+dEWuH4hN5fXk0lhh1YhmKMYDF
-	8xzh1ZB8+2zHPM+Ia7Qcclu5KFvzLflA/nLdH4Diybn252yrn1aWxj8Zon/rTwvhlmxeLG/rHFxlI
-	fj96S8JYA/4ynut5Z2cgltEdxyDttORC9TWcrOvcryl3PTB17f6mWXY7xUrcooD4z0EGjSQoC2FsY
-	C7HJGonA==;
+	bh=F/Z8XFWsq6LtUxoUzzb0FzHPSNNkSN8I1TF8y52/Oas=; b=WkILb66y9wG1+qEV6pL8uk7hGX
+	JHTJkD3EuidJLn1sT3Rc+MNJmBP8jpSOj6cTODT+2KDuhGo4WT+auA0W+ViNPsRjHYKWvVi0/aNfT
+	hNKRp1kVJ2fCiw0V6WHkw60LzQTeT7TRSw4IDXMMnf7X40220Psm4FvdC/iWtk5ELAC01GjMzfrW/
+	lnQTHQBVwNevHL486ycC9RRF2xIjA2Z+EHXnB1Gy9CZlhRUjkxcNdw/1qQLQcKwcTOwkpuuTM32rI
+	lGHjb+uLPYjm8wEOIDvIK7aEPy1liQ+seqBZriykpbNrYDlzAkk/iukOuSHHvp8hk+Q9M935ZJxod
+	NQcWj1og==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHlDm-00000001lOW-0OKc
+	id 1xHlDe-00000001lLn-3ww5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:55 +0000
+	Fri, 16 Oct 2026 16:55:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26F94175A;
-	Fri, 16 Oct 2026 09:55:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3A4D1477;
+	Fri, 16 Oct 2026 09:55:41 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1B783F7B4;
-	Fri, 16 Oct 2026 09:55:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DAC53F7B4;
+	Fri, 16 Oct 2026 09:55:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169752; bh=BvLu6cpm6zpybvEvvULEk+E4+hqOj0523fLkGhrmUY8=;
+	t=1792169745; bh=jQSDfTX7KCQlGmetCLaTuTzuwp7c813o4Owy5qOzP5k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nxUWApFdIF5go77go/gkUIQHLh4gWSAbExADi3FKHUv7lHOwGeEhjfHRjUC5Sf2Er
-	 ER0OUY6Sp7ytIRoHtuFa9nMnA6Sn+EnOCcRzLJb5hbXNTK7G+MVfTCNviXRcT11Q1n
-	 vXMArzs0sKQdr3+kfxG04CeIl3qAZHww2Nbe08JA=
+	b=cRBRyz/+8IvKSIgFbSMvA9uvCSG+7tuNdOevrrp5ZPluwJdMZBbv7Ht1VQu3LNdad
+	 nRS/uVQYbqfynQRItAWey2VCbDFb0wA86wCUGEBBjQo91S5fwT39zapEJ9KVL/J+Lh
+	 /1BVkk48fkqlZLpUTcnA9s2obzlN8DgjjqeWdIao=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 17:55:20 +0100
-Subject: [PATCH v2 22/23] coresight: trbe: Restart trace source for stopped
- buffers
+Date: Fri, 16 Oct 2026 17:55:16 +0100
+Subject: [PATCH v2 18/23] coresight: trbe: Keep the perf handle in per-CPU
+ data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-22-3f57cf3199b1@arm.com>
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-18-3f57cf3199b1@arm.com>
 References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -73,16 +73,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=5429;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=6252;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=BvLu6cpm6zpybvEvvULEk+E4+hqOj0523fLkGhrmUY8=;
- b=OP/ONtQmKrOtKCR6nHRXZ/27H//JIwhmkJ+eFab6S1eyGwtVsbnd71xN9jWIpBHFJchZLlq9T
- Yofrkqaw+H8CfglI7U5uP+DT6h2HNAujQgniblJTN5BbXU1rBZxKrFn
+ bh=jQSDfTX7KCQlGmetCLaTuTzuwp7c813o4Owy5qOzP5k=;
+ b=84njST0tvAq3njdeyxxpj5VhIeB3ZB9auar3XXibVCo/xfmzc5wtv/DsEjQBI58X6AyvpxEOp
+ 4CLncgktzulAZOOdJKQnC4dRK1PsHGm17jZ+1bwo8G+z/xwf2M1jWzL
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_175554_456270_6CD85282 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20261016_175547_332708_150FA798 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,191 +97,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When TRBSR reports a stopped buffer, the IRQ handler closes the current
-AUX buffer and programs TRBE for the next run. This creates a trace
-discontinuity. User tool has to reset the decoder when moving to the
-next AUX data block, which can reduce decoded trace coverage.
+Arm SPE owns a per-CPU perf output handle for the PMU lifetime. TRBE
+instead receives a handle from CoreSight when enabling its sink.
 
-Stop and restart the trace source around TRBE reprogramming for stopped
-buffers. This emits ASYNC packets, allowing the decoder to recognize
-discontinuity without a full reset.
+Store that session handle in trbe_cpudata instead of a separate per-CPU
+pointer array, and pass the CPU data as the per-CPU IRQ context. Use this
+context directly for overflow and spurious interrupt handling so local
+hardware control does not depend on the current AUX buffer configuration.
 
-This duplicates part of the trace source enable/disable code in the
-ETMv4 driver. Reusing that code would require splitting the ETMv4
-callbacks into finer-grained helpers that TRBE can call, which would
-make the change much larger. Keep the TRBE change self-contained for
-now.
+Allocate the CPU data before registering the IRQ and free it after
+releasing the IRQ, keeping the IRQ context valid throughout registration.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 121 +++++++++++++++++++++++++--
- 1 file changed, 116 insertions(+), 5 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 44 ++++++++++++----------------
+ 1 file changed, 19 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 36f143a15e680b28aa6ca6a43ad7d3ee134693be..6bc82d5b55539795059da37039d2929b4ea504e3 100644
+index 9a469c8009ce8a8a8b804c2b63a68e741f1dceaa..2328aab0a084a0ac123e950f846f404d120ec2c0 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -17,9 +17,11 @@
+@@ -139,6 +139,7 @@ struct trbe_save_state {
+  * @cpu			- CPU this TRBE belongs to.
+  * @mode		- Mode of current operation. (perf/disabled)
+  * @buf			- Buffer configuration retained for the enabled session.
++ * @handle		- Perf output handle from successful enable until disable.
+  * @drvdata		- TRBE specific drvdata
+  * @errata		- Bit map for the errata on this TRBE.
+  */
+@@ -149,6 +150,7 @@ struct trbe_cpudata {
+ 	int cpu;
+ 	enum cs_mode mode;
+ 	struct trbe_buf *buf;
++	struct perf_output_handle *handle;
+ 	struct trbe_drvdata *drvdata;
+ 	struct trbe_save_state save_state;
+ 	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
+@@ -156,7 +158,6 @@ struct trbe_cpudata {
  
- #include <asm/barrier.h>
- #include <asm/cpufeature.h>
-+#include <linux/iopoll.h>
- #include <linux/kvm_host.h>
- #include <linux/vmalloc.h>
+ struct trbe_drvdata {
+ 	struct trbe_cpudata __percpu *cpudata;
+-	struct perf_output_handle * __percpu *handle;
+ 	struct hlist_node hotplug_node;
+ 	int irq;
+ 	cpumask_t supported_cpus;
+@@ -1091,7 +1092,7 @@ static int arm_trbe_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 		return ret;
+ 	}
  
-+#include "coresight-etm4x.h"
- #include "coresight-self-hosted-trace.h"
- #include "coresight-trbe.h"
+-	*this_cpu_ptr(drvdata->handle) = handle;
++	cpudata->handle = handle;
+ 	cpudata->buf = buf;
+ 	cpudata->mode = mode;
+ 	return 0;
+@@ -1112,16 +1113,15 @@ static int arm_trbe_disable(struct coresight_device *csdev)
+ 	trbe_drain_and_disable_local(cpudata);
+ 	clr_trbe_status();
  
-@@ -1132,14 +1134,106 @@ static void trbe_handle_spurious(struct trbe_cpudata *cpudata)
- 	set_trbe_enabled(cpudata, trblimitr);
+-	*this_cpu_ptr(drvdata->handle) = NULL;
+ 	buf->cpudata = NULL;
++	cpudata->handle = NULL;
+ 	cpudata->buf = NULL;
+ 	cpudata->mode = CS_MODE_DISABLED;
+ 	return 0;
  }
  
-+static u64 read_sys_trcstatr(void)
-+{
-+	/* Context synchronization for each polling */
-+	isb();
-+	return read_sysreg_s(SYS_TRCSTATR);
-+}
-+
-+static int arm_trbe_start_tracer(u64 trcprgctlr)
-+{
-+	u64 val;
-+
-+	/* A pending IRQ after AUX pause? */
-+	if (!(trcprgctlr & BIT(0)))
-+		return 0;
-+
-+	/* Restore the saved tracer state */
-+	write_sysreg_s(trcprgctlr, SYS_TRCPRGCTLR);
-+
-+	/*
-+	 * Context synchronization between writing to the TRCPRGCTLR and
-+	 * reading the TRCSTATR.
-+	 */
-+	isb();
-+
-+	/* Wait for TRCSTATR.IDLE to go down to 0 */
-+	if (read_poll_timeout_atomic(read_sys_trcstatr, val,
-+				     !(val & BIT(TRCSTATR_IDLE_BIT)),
-+				     1,		/* delay_us */
-+				     TIMEOUT_US, /* timeout_us */
-+				     false)) {	/* delay_before_read */
-+		pr_err("TRBE: timeout for TRCSTATR IDLE\n");
-+		return -ETIME;
-+	}
-+
-+	/* Context synchronization after programming the tracer */
-+	isb();
-+
-+	return 0;
-+}
-+
-+static int arm_trbe_stop_tracer(u64 *trcprgctlr)
-+{
-+	u64 val;
-+
-+	/* Disable tracer and save trcprgctlr */
-+	*trcprgctlr = read_sysreg_s(SYS_TRCPRGCTLR);
-+
-+	/* No need to stop tracer again */
-+	if (!(*trcprgctlr & BIT(0)))
-+		return 0;
-+
-+	write_sysreg_s(*trcprgctlr & ~BIT(0), SYS_TRCPRGCTLR);
-+
-+	/*
-+	 * Context synchronization between writing to the TRCPRGCTLR and
-+	 * reading the TRCSTATR.
-+	 */
-+	isb();
-+
-+	/*
-+	 * PMSTABLE alone does not permit re-enabling the tracer.
-+	 * Wait for TRCSTATR.IDLE to go to 1.
-+	 */
-+	if (read_poll_timeout_atomic(read_sys_trcstatr, val,
-+				     val & BIT(TRCSTATR_IDLE_BIT),
-+				     1,
-+				     TIMEOUT_US,
-+				     false)) {
-+		pr_err("TRBE: timeout for TRCSTATR IDLE=1\n");
-+		return -ETIME;
-+	}
-+
-+	/* Context synchronization after programming the tracer */
-+	isb();
-+
-+	return 0;
-+}
-+
- static int trbe_handle_overflow(struct trbe_cpudata *cpudata,
--				enum trbe_fault_action act)
-+				enum trbe_fault_action act,
-+				bool is_buffer_stopped)
+-static void trbe_handle_spurious(struct perf_output_handle *handle)
++static void trbe_handle_spurious(struct trbe_cpudata *cpudata)
  {
- 	struct perf_output_handle *handle = cpudata->handle;
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
+ 	u64 trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
+ 
+ 	/*
+@@ -1129,11 +1129,12 @@ static void trbe_handle_spurious(struct perf_output_handle *handle)
+ 	 * back without modifying the buffer parameters to
+ 	 * retain the trace collected so far.
+ 	 */
+-	set_trbe_enabled(buf->cpudata, trblimitr);
++	set_trbe_enabled(cpudata, trblimitr);
+ }
+ 
+-static int trbe_handle_overflow(struct perf_output_handle *handle)
++static int trbe_handle_overflow(struct trbe_cpudata *cpudata)
+ {
++	struct perf_output_handle *handle = cpudata->handle;
  	struct perf_event *event = handle->event;
  	struct trbe_buf *buf = etm_perf_sink_config(handle);
  	unsigned long size;
- 	struct etm_event_data *event_data;
-+	u64 trcprgctlr = 0;
-+	int ret = 0;
-+
-+	/*
-+	 * Since the trace buffer has stopped, disable and re-enable the
-+	 * tracer to generate ASYNC packets. This allows the decoder to
-+	 * recognize the discontinuity in the trace stream.
-+	 */
-+	if (is_buffer_stopped) {
-+		ret = arm_trbe_stop_tracer(&trcprgctlr);
-+		if (ret)
-+			goto truncate_event;
-+	}
+@@ -1203,9 +1204,8 @@ static u64 cpu_prohibit_trace(void)
  
- 	/*
- 	 * Clear the status. No context synchronization is required here,
-@@ -1172,11 +1266,27 @@ static int trbe_handle_overflow(struct trbe_cpudata *cpudata,
+ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
+ {
+-	struct perf_output_handle **handle_ptr = dev;
+-	struct perf_output_handle *handle = *handle_ptr;
+-	struct trbe_buf *buf;
++	struct trbe_cpudata *cpudata = dev;
++	struct perf_output_handle *handle = cpudata->handle;
+ 	enum trbe_fault_action act;
+ 	u64 status;
+ 	bool truncated = false;
+@@ -1232,18 +1232,17 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
+ 	 * Ensure the trace is visible to the CPUs and
+ 	 * any external aborts have been resolved.
  	 */
- 	buf = etm_perf_sink_config(handle);
- 	if (!buf || buf->cpudata != cpudata) {
--		trbe_truncate_event(handle);
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto truncate_event;
-+	}
-+
-+	ret = __arm_trbe_enable(buf, handle);
-+	if (ret)
-+		return ret;
-+
-+	if (is_buffer_stopped) {
-+		ret = arm_trbe_start_tracer(trcprgctlr);
-+		if (ret) {
-+			trbe_drain_and_disable_local(cpudata);
-+			goto truncate_event;
-+		}
- 	}
+-	buf = etm_perf_sink_config(handle);
+-	trbe_drain_and_disable_local(buf->cpudata);
++	trbe_drain_and_disable_local(cpudata);
+ 	clr_trbe_irq();
+ 	isb();
  
--	return __arm_trbe_enable(buf, handle);
-+	return 0;
-+
-+truncate_event:
-+	trbe_truncate_event(handle);
-+	return ret;
- }
- 
- static bool is_perf_trbe(struct perf_output_handle *handle)
-@@ -1267,7 +1377,8 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
  	act = trbe_get_fault_act(handle, status);
  	switch (act) {
  	case TRBE_FAULT_ACT_WRAP:
--		truncated = !!trbe_handle_overflow(cpudata, act);
-+		truncated = !!trbe_handle_overflow(cpudata, act,
-+						   !is_trbe_running(status));
+-		truncated = !!trbe_handle_overflow(handle);
++		truncated = !!trbe_handle_overflow(cpudata);
  		break;
  	case TRBE_FAULT_ACT_SPURIOUS:
- 		trbe_handle_spurious(cpudata);
+-		trbe_handle_spurious(handle);
++		trbe_handle_spurious(cpudata);
+ 		break;
+ 	case TRBE_FAULT_ACT_FATAL:
+ 		trbe_truncate_event(handle);
+@@ -1507,10 +1506,6 @@ static int arm_trbe_probe_coresight(struct trbe_drvdata *drvdata)
+ {
+ 	int cpu;
+ 
+-	drvdata->cpudata = alloc_percpu(typeof(*drvdata->cpudata));
+-	if (!drvdata->cpudata)
+-		return -ENOMEM;
+-
+ 	for_each_cpu(cpu, &drvdata->supported_cpus) {
+ 		/* If we fail to probe the CPU, let us defer it to hotplug callbacks */
+ 		if (smp_call_function_single(cpu, arm_trbe_probe_cpu, drvdata, 1))
+@@ -1531,7 +1526,6 @@ static int arm_trbe_remove_coresight(struct trbe_drvdata *drvdata)
+ 		smp_call_function_single(cpu, arm_trbe_disable_cpu, drvdata, 1);
+ 		arm_trbe_remove_coresight_cpu(drvdata, cpu);
+ 	}
+-	free_percpu(drvdata->cpudata);
+ 	return 0;
+ }
+ 
+@@ -1618,14 +1612,14 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 
+ 	cpumask_copy(&drvdata->supported_cpus, affinity);
+ 
+-	drvdata->handle = alloc_percpu(struct perf_output_handle *);
+-	if (!drvdata->handle)
++	drvdata->cpudata = alloc_percpu(typeof(*drvdata->cpudata));
++	if (!drvdata->cpudata)
+ 		return -ENOMEM;
+ 
+ 	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler, DRVNAME,
+-					  affinity, drvdata->handle);
++					  affinity, drvdata->cpudata);
+ 	if (ret) {
+-		free_percpu(drvdata->handle);
++		free_percpu(drvdata->cpudata);
+ 		return ret;
+ 	}
+ 	return 0;
+@@ -1633,8 +1627,8 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 
+ static void arm_trbe_remove_irq(struct trbe_drvdata *drvdata)
+ {
+-	free_percpu_irq(drvdata->irq, drvdata->handle);
+-	free_percpu(drvdata->handle);
++	free_percpu_irq(drvdata->irq, drvdata->cpudata);
++	free_percpu(drvdata->cpudata);
+ }
+ 
+ static int arm_trbe_device_probe(struct platform_device *pdev)
 
 -- 
 2.34.1
