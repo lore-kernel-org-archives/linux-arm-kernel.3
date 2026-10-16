@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E86CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4352ACCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNFB3fJvU7gsY8QnEC8l3tLzTMMWU8773DcNzsG7Cao=; b=u99rdxa0fAsDusmemMfORGV2XB
-	A+HogM7UecVf33nV7N+LEYM7MZmIpThtTpo4PAbICc0+FujYeE8eGb3GYWK0YKMQp9Jpx0Ky8b0Ie
-	YeXLtLUQgeo7KKCg3ewPDmziF5I620vJtxkamG278krTGncVqpMdxZpGH6RYn67e1hrsA6Scqi3M4
-	eBEZ3+VjILLcV0tMVpYi27oPJxrs7XpQj2/0fxhMdWxSVzVuHnpfaubbJnbTK6JojMPfFcMei8byy
-	sU4kMe1V7PqLfGHb7uDdLylc1X+y+6i8C8I+riqOEXW00LJ/A5pASqKMepUEfsOGHvmWCAirBXDH9
-	5OluGXig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Bify14k/37IbJ7FTiPfXcHiNAtEqDGJAtzCTvfLK9o=; b=xV4xsG0vRwZ0Xy93PrYH0aPAtA
+	pl11U+t5DZy6n8+teEpEs0Wl7Li7/EJFc8Vo71yM1uq4FqBj8pwLz9Fsg+EB4xLc+/3Mkdf3WxiLj
+	+NPs1XknF25/L814dQnfVVgzCoWP7XGCZhIdTUHtn3Y8OYG2s4H/1aCR/KOtEdLSxb+3Vcd++kV/c
+	WPGjO9AKq/roiSwheQbxPF0RaQj6dkkBRCTYOyk+3tPigi9oR2nyqpD7QWl/J1wkWdnFdLQwF8INd
+	lnc9mZcBSlsaBTQzhB6BWZLozDKLH6kSMi2f3d8zJtR1TpRbdM7wr76n9Q5Qw55eX1zleZz5LHTnV
+	cDaWfCzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhzg-000000032g3-29B1;
-	Fri, 16 Oct 2026 13:29:08 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1xHh89-00000002tEb-13au;
+	Fri, 16 Oct 2026 12:33:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhze-000000032fa-0nBe
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 13:29:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792157346; x=1823693346;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qrmyAJan3ddL+IKZXWZokvY60Dv+5gWUoDVjnOeoLQ0=;
-  b=njCtlt9rW5TSAD7JZSreg422dQtDNPGZhK8g/9W9H9NJQ93+W6sTXdQC
-   eE/i7+fOo7D5A9Bl1HYIFfjM077s8oaTCh/7d65aiV+QmR2JnEqG/YLMl
-   qfQy7GM1bgZh7fpUGU0PUoCJMWem4Rfql06BabXQc3FvZQNrbzLlMNq08
-   htA0yOZGL5kouxo//MmIifJ7SsRvXBXlTigDXTlSdR64teDsWfDH7OxZa
-   +Wsci1fvaRUjgqDNZM3ZaQeeXSofmdZoAoCRbqhT9Rsfqw5PAaPimltDq
-   DK2poC+yYRpmZJUgXPLPaqtzl6f3TP+/stTouI8IbBqQhbtebMu6Mtxvf
-   g==;
-X-CSE-ConnectionGUID: JSS7K1atRqeY4QAmJdn+6A==
-X-CSE-MsgGUID: J7X8+SjmQoC6xKKPEf5xaQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11936"; a="840119"
-X-IronPort-AV: E=Sophos;i="6.27,161,1787036400"; 
-   d="scan'208";a="840119"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Oct 2026 06:29:04 -0700
-X-CSE-ConnectionGUID: vuUJ7bOGQ0e1Bv2Ol6WUdg==
-X-CSE-MsgGUID: Ra7ZWSNhQ12RHc3GdKsrVA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,161,1787036400"; 
-   d="scan'208";a="2192496"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.35])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Oct 2026 06:29:02 -0700
-Date: Fri, 16 Oct 2026 16:28:59 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-ID: <atImm4Ixv_PwUqLb@ashevche-desk.local>
-References: <20261016130328.1037616-1-arnd@kernel.org>
+	id 1xHh7v-00000002t3O-3PzV;
+	Fri, 16 Oct 2026 12:33:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792154013;
+	bh=K/26MzkU9FCqjSme/Jf95F7IV6yqA5hZhDlcUzEyluk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=pceZrIPhc/nOzB8zN/PXNlRWcfAYkeYwCaYzvdyTxhSdTgF5MnwW9h9kfQA6i6eLj
+	 /I4uL7edCzh7+IhK9Ft/wsMMkqh0xvFOBHiiEZ5L5PQcWn2oEu+GrCysai2xwy4og+
+	 YhjJfy8LFtcpONYEfgEPSbs+0FRtGzEeMJwR4mqM9a39RC6WHcO1VMQhPcBA2jmiqf
+	 aXJIeo2mJtpEckQ47/oPxrCMXq4Xa0GsSab99pj4AFHEUZuWgRAWP1o/Dv6K663ODn
+	 xdaGDbSb509+P3JLSzFEKKbHpBustac2EZoqGdLuSD04xy2KWY763YgRTyGIkBtLHT
+	 U2prIdMPcH00g==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 118EA17E142F;
+	Fri, 16 Oct 2026 14:33:32 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 16 Oct 2026 14:32:54 +0200
+Subject: [PATCH v14 02/23] dt-bindings: ufs: mediatek,ufs: Complete the
+ binding
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016130328.1037616-1-arnd@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-mt8196-ufs-v14-2-e8d565e0cd45@collabora.com>
+References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Wang <peter.wang@mediatek.com>, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <mkp@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=7040;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=ivetEHKHrEcHXNR72NMAsGGEUoJvHUIhuJ+Bhsd2DUU=;
+ b=Tte1Vu9STHeF9yb577g5cI89EFylBtLLCi5aIAIKAR2GA5WGckebn51xH5C3AwO1jypv6JsCs
+ dyUJqEfLuNfCSbj4xHboX9lDcMQVNTr0Rlpu/FAyk+Z5F4xmZ0WvGgb
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_062906_275335_CDCA3DBB 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20261016_053336_019322_915FAB31 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +100,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 02:59:47PM +0200, Arnd Bergmann wrote:
-> 
-> hub6 support was added in linux-0.99 and the hardware was already old at
-> the time, being discontinued in 1990. The code for it has always been a
-> mess since it adds another dimension to the I/O addressing in the driver
-> that has leaked into many individual files.
-> 
-> Hugo and Uwe have attempted several times this year alone to isolate
-> the hub6 handling into the 8250_hub6.c file, but I feel that none of
-> this has been a real improvement over the original standalone loadable
-> module support.
-> 
-> Any machine that would have used this ISA card in practice is likely
-> 30 to 40 years old, and with i486 support now removed, it is clearly
-> safe to just kill this all off.
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Please!
+As it stands, the mediatek,ufs.yaml binding is startlingly incomplete.
+Its one example, which is the only real "user" of this binding in
+mainline, uses the deprecated freq-table-hz property.
 
-> The only bit that has to remain
-> is the ioctl interface, to ensure the serial_struct field is always
-> zero.
+The resets, of which there are three optional ones, are completely
+absent.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-But there are some minor issues to fix, see below.
+The clock description for MT8195 is incomplete, as is the one for
+MT8192. It's not known if the one clock binding for MT8183 is even
+correct, but I do not have access to the necessary code and
+documentation to find this out myself.
 
-...
+The power supply situation is not much better; the binding describes one
+required power supply, but it's the UFS card supply, not any of the
+supplies feeding the controller silicon.
 
->  {
->  	unsigned long old_iobase, old_mapbase;
-> -	unsigned int old_type, old_iotype, old_hub6, old_shift;
-> +	unsigned int old_type, old_iotype, old_shift;
+No second example is present in the binding, making verification
+difficult.
 
-Move it line up, so we will have reversed xmas tree order.
+Disallow freq-table-hz and move to operating-points-v2. It's fine to
+break compatibility here, as the binding is currently unused and would
+be impossible to correctly use in its current state.
 
->  	int retval;
+Add the three resets and the corresponding reset-names property. These
+resets appear to be optional, i.e. not required for the functioning of
+the device.
 
-...
+Move the list of clock names out of the if condition, and expand it for
+the confirmed clocks I could find by cross-referencing several clock
+drivers. For MT8195, increase the minimum number of clocks to include
+the rx_symbol ones, as they're internal to the SoC and should always
+be present, and should therefore not be omitted.
 
-> +	/* hub6 is no longer support */
-> +        if (new_info->hub6 != 0)
-> +                return -EINVAL;
+MT8192 gets to have at least 3 clocks, as these were the ones I could
+quickly confirm from a glance at various trees. I can't say this was an
+exhaustive search though, but it's better than the current situation.
 
-Please, fix the indentation, should use tabs.
+Properly document all supplies, with which pin name on the SoCs they
+supply. Complete the example with them.
+
+Also add a MT8195 example to the binding, using supply labels that I am
+pretty sure would be the right ones for e.g. the Radxa NIO 12L.
+
+Finally, remove the 'ufs_' prefix from all clock names containing it
+and rename 'ufs' clock to 'main'.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 115 +++++++++++++++++----
+ 1 file changed, 96 insertions(+), 19 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+index 15c347f5e660..945cb986b06b 100644
+--- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
++++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+@@ -19,11 +19,25 @@ properties:
+ 
+   clocks:
+     minItems: 1
+-    maxItems: 8
++    maxItems: 10
+ 
+   clock-names:
+     minItems: 1
+-    maxItems: 8
++    items:
++      - const: main
++      - const: aes
++      - const: tick
++      - const: unipro_sysclk
++      - const: unipro_tick
++      - const: unipro_mp_bclk
++      - const: tx_symbol
++      - const: mem_sub
++      - const: rx_symbol0
++      - const: rx_symbol1
++
++  operating-points-v2: true
++
++  freq-table-hz: false
+ 
+   phys:
+     maxItems: 1
+@@ -31,8 +45,36 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  resets:
++    items:
++      - description: reset for the UniPro layer
++      - description: reset for the cryptography engine
++      - description: reset for the host controller
++
++  reset-names:
++    items:
++      - const: unipro
++      - const: crypto
++      - const: hci
++
++  avdd09-supply:
++    description: Phandle to the 0.9V supply powering the AVDD09_UFS pin
++
++  avdd12-supply:
++    description: Phandle to the 1.2V supply powering the AVDD12_UFS pin
++
++  avdd12-ckbuf-supply:
++    description: Phandle to the 1.2V supply powering the AVDD12_CKBUF_UFS pin
++
++  avdd18-supply:
++    description: Phandle to the 1.8V supply powering the AVDD18_UFS pin
++
+   vcc-supply: true
+ 
++  vccq-supply: true
++
++  vccq2-supply: true
++
+   mediatek,ufs-disable-mcq:
+     $ref: /schemas/types.yaml#/definitions/flag
+     description: The mask to disable MCQ (Multi-Circular Queue) for UFS host.
+@@ -54,29 +96,41 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            enum:
+-              - mediatek,mt8195-ufshci
++            const: mediatek,mt8183-ufshci
+     then:
+       properties:
+         clocks:
+-          minItems: 8
++          maxItems: 1
+         clock-names:
+           items:
+-            - const: ufs
+-            - const: ufs_aes
+-            - const: ufs_tick
+-            - const: unipro_sysclk
+-            - const: unipro_tick
+-            - const: unipro_mp_bclk
+-            - const: ufs_tx_symbol
+-            - const: ufs_mem_sub
+-    else:
++            - const: main
++        avdd12-ckbuf-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8192-ufshci
++    then:
+       properties:
+         clocks:
+-          maxItems: 1
++          minItems: 3
++          maxItems: 3
+         clock-names:
+-          items:
+-            - const: ufs
++          minItems: 3
++          maxItems: 3
++        avdd09-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8195-ufshci
++    then:
++      properties:
++        clocks:
++          minItems: 10
++        clock-names:
++          minItems: 10
++        avdd09-supply: false
+ 
+ examples:
+   - |
+@@ -94,9 +148,32 @@ examples:
+             phys = <&ufsphy>;
+ 
+             clocks = <&infracfg_ao CLK_INFRA_UFS>;
+-            clock-names = "ufs";
+-            freq-table-hz = <0 0>;
++            clock-names = "main";
+ 
+             vcc-supply = <&mt_pmic_vemc_ldo_reg>;
+         };
+     };
++  - |
++    ufshci@11270000 {
++        compatible = "mediatek,mt8195-ufshci";
++        reg = <0x11270000 0x2300>;
++        interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
++        phys = <&ufsphy>;
++        clocks = <&infracfg_ao 63>, <&infracfg_ao 64>, <&infracfg_ao 65>,
++                 <&infracfg_ao 54>, <&infracfg_ao 55>, <&infracfg_ao 56>,
++                 <&infracfg_ao 90>, <&infracfg_ao 93>, <&topckgen 212>,
++                 <&topckgen 215>;
++        clock-names = "main", "aes", "tick", "unipro_sysclk", "unipro_tick",
++                      "unipro_mp_bclk", "tx_symbol", "mem_sub", "rx_symbol0",
++                      "rx_symbol1";
++
++        operating-points-v2 = <&ufs_opp_table>;
++
++        avdd12-supply = <&mt6359_vrf12_ldo_reg>;
++        avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
++        avdd18-supply = <&mt6359_vio18_ldo_reg>;
++        vcc-supply = <&mt6359_vemc_1_ldo_reg>;
++        vccq2-supply = <&mt6359_vufs_ldo_reg>;
++
++        mediatek,ufs-disable-mcq;
++    };
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.56.0
 
 
