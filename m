@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73B2CCA48B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70016CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqpnYJyy9CaB5KcPa7stQcOAcAqWpvkK1ALgggGpC40=; b=W2sQNRZNccEDzPE8JM/KQkP7Bk
-	5uEn91oCs9p7CSFWAknmrzFHuHBlToDB4BcCNN7qIuYYN1vZ4xl1dYh6VTL3kFaOP6XxrMKzEUdRr
-	2yMadZXJXW/INf+7+wcz5yPqarXC7G+t76Wk4w9TkBdc0nB/UN9hLvMNY5qqxNlRSxDcHsv1xPQd7
-	aGXrVbKcZmk5M54OWkMbfVGLlsGla2/08GiTv3ka4JZnBcy0lhBi+WTOQPWN6mJuqnxfbaF9CnF23
-	xVkFacMwlbinVSL2+GiIfprzA952G7dXhHPvK3tpnYqjE71ZgVWkJh3j2Z2Ui62kJoxAhaGRnlqoe
-	/5vBDbgg==;
+	bh=9YaCjw20LTq/ayd9DJ6yoEmXY2EAJpVERol/nsbTH/c=; b=bZs3xmScb7VyOwFpBTL283ZWwf
+	nupyE5D0xxaM5mUHvsBqm7HRcaVyGc68BAYYJLWqJLHXcaxo6aplUUbBu4yhvHTL5fy0oT7pftGRZ
+	4ji+dO28OxLLgUhvjOwHDGFVsBnQJ3NZvulkXWxna6i8JtW9y2s+xmVE1++QRZsXNSyTaCXEwrNFZ
+	mEAft9GwyGUxzSaFE2JvFxOCNp98nwy31kMH65xbVlEF7i0CKlpp5SlffOOqiYRr76pk/MygU2rPl
+	E67HoznrfxbHIwX+PWcnASAQ7Rc7ALQoi2p+QogjSheB0X1ZaZEmSIQEusCH7YhDpjgePHR9yPmke
+	EtIPBJvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfEN-00000002dcW-35W8;
-	Fri, 16 Oct 2026 10:32:07 +0000
+	id 1xHfEO-00000002ddq-0iKI;
+	Fri, 16 Oct 2026 10:32:08 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfEH-00000002dXJ-0kEb;
-	Fri, 16 Oct 2026 10:32:02 +0000
+	id 1xHfEJ-00000002dYi-4Bqv;
+	Fri, 16 Oct 2026 10:32:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792146718;
-	bh=lG2vCtPPSlLu5VxC3eKEiovpnrWmPRAG9ZOmwU3KX0M=;
+	s=mail; t=1792146721;
+	bh=a0AS66wd95Jj0Kyrt89QUpczsVf6smrzrXD5/0CRXCI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Bf10P6VSvCyVQI2C23JB4Kj7sQJOR0U/XZX1rkbq32k/bvv+2PQ5EnuWqazqzkOwR
-	 D2tyjx+xPvRI16Fn0MPbMLQW7/89A9c3TzDTsPnfHLM66ms4O6J5/ow5XVG39Ptebl
-	 1NIZACHGuDBlMq2GeC1aPfpSqMCghzShFj4e4HFAOz+3u4ikAJG9LiM1FTfx5imWMP
-	 2rtSLYoW4pUnzYk6ZNvVYWv+FjdMeCTWr8O7001qmJdihLTo0enqxM1ZTXikHfPDl0
-	 HbHUdwHgZ53akwKX7GJXWZ+zayHwjPrMuL8kxhmu/Dd1QcRUELe1amJ0m/pAZO0CTP
-	 IxAdFbi/4+OaA==
+	b=aGEliin8PQqTBWFXjDCBPjQrZxm/8+eZouNdhxfahvmzJn8CmUL8JdNWdkkkmgDKz
+	 uCUoFutL7gH0SucEj/ZZTqfmPej9rJw9jwG4qy9guWgUMuz4sUgbSCve4oCnF41eux
+	 zI58o6o0kRor/zS4xXLzIIpLpMepLF+v5aWovuhftbAJSzo75y8izeNUnV4SRCblAv
+	 9VptYyWw3NJg7YyR3RyWDyNWwrn5/gWrmVVNBvOf9+cZnFzvF+tFQsd9f7BR3fqqyC
+	 G5Py5X+wk1jQiKTufRZ3zWR2ldj0LIn812ByhTs2kSyIvMptx9tAjSvq3KQFYD53mA
+	 I/m8UmJX/QG/g==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 802F817E0539;
-	Fri, 16 Oct 2026 12:31:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDCF017E09A2;
+	Fri, 16 Oct 2026 12:32:00 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 12:31:05 +0200
-Subject: [PATCH net-next v3 1/9] dt-bindings: net: mediatek-dwmac: fix unit
- in rx/tx delay property description
+Date: Fri, 16 Oct 2026 12:31:08 +0200
+Subject: [PATCH net-next v3 4/9] net: stmmac: mediatek: simplify TX/RX
+ delay handling in mt2712_set_delay
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-dwmac-mediatek-mt8189-v3-1-25daf2bbcf35@collabora.com>
+Message-Id: <20261016-dwmac-mediatek-mt8189-v3-4-25daf2bbcf35@collabora.com>
 References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
 In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -72,16 +72,16 @@ Cc: kernel@collabora.com, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792146716; l=1792;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792146716; l=9409;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=lG2vCtPPSlLu5VxC3eKEiovpnrWmPRAG9ZOmwU3KX0M=;
- b=SG+788vjuS63RFrLd9GgC2y/0FfuOkhVfyjINYRg3QxrqqOAuqHtT0amj9yIe3qo8SOHuRUDj
- gbGX7vNkgUjC1ASioPRjr6ivxx/r9FjGIm/cgvx1ECZ72dLfdJykVdB
+ bh=a0AS66wd95Jj0Kyrt89QUpczsVf6smrzrXD5/0CRXCI=;
+ b=cKNUOqj4rl6AP4hULR/iul/gFFfG20yRPE7sJ1xV7wH6egXHq7kZX9SLbUTbIjGLAkgHA/1ix
+ 8ptOLWZNLbiBp+s7x3aKWqQXVROqZlr0aRXXB8FLhpIvZAMkUozCbXk
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_033201_402039_9B14DEE3 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20261016_033204_203392_630A192D 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +96,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "mediatek,rx-delay-ps" and "mediatek,tx-delay-ps" descriptions say
-their values are in nanoseconds but their names with the "ps" suffix
-suggest it is picoseconds.
-They are in fact used in both driver and devicetree as picosecond.
-So, modify the two properties unit description to fix their unit.
+The mt2712_set_delay function modifies at its beginning the TX and RX
+internal delay variables, located in the driver data, by dividing
+them by a constant (550 for RGMII, 170 for MII/RMII) and restores their
+original values by multiplying them again at the function end. It is
+done in order to convert them into a step value, used by the hardware
+registers for setting these delays.
 
-Fixes: 150b6adda6b1 ("net: dt-bindings: dwmac: Convert mediatek-dwmac to DT schema")
+But this is rather pointless to modify the driver data for that, while
+it could be done locally in the function. The original delay values
+cannot be used anymore (if needed) during mt2712_set_delay processing.
+Finally, they are altered after the function call if they are not a
+multiple of the delay stage divider.
+
+So, simplify these delay variable handling by using local variables to
+convert them into the register value and use those in the write calls.
+Also, remove the two private conversion functions, that are not useful
+anymore and add definitions for MT2712 RX/TX delay maximum and divider
+values.
+
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- Documentation/devicetree/bindings/net/mediatek-dwmac.yaml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 137 +++++++++------------
+ 1 file changed, 60 insertions(+), 77 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
-index 3aab21b8e8de..14f9683f20fe 100644
---- a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
-@@ -81,7 +81,7 @@ properties:
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+index f7eb85110df0..596411d4a5b2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+@@ -36,6 +36,14 @@
+ #define ETH_FINE_DLY_GTXC	BIT(1)
+ #define ETH_FINE_DLY_RXC	BIT(0)
  
-   mediatek,tx-delay-ps:
-     description:
--      The internal TX clock delay (provided by this driver) in nanoseconds.
-+      The internal TX clock delay (provided by this driver) in picoseconds.
-       For MT2712 RGMII interface, Allowed value need to be a multiple of 170,
-       or will round down. Range 0~31*170.
-       For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
-@@ -91,7 +91,7 @@ properties:
++#define MT2712_RMII_DLY_RXC_STAGE_DIV	170 /* 170ps per stage */
++#define MT2712_RMII_DLY_TXC_STAGE_DIV	170 /* 170ps per stage */
++
++#define MT2712_RGMII_DLY_RXC_STAGE_DIV	550 /* 550ps per stage */
++#define MT2712_RGMII_DLY_RXC_MAX	17600 /* 32 x 550ps */
++#define MT2712_RGMII_DLY_TXC_STAGE_DIV	550 /* 550ps per stage */
++#define MT2712_RGMII_DLY_TXC_MAX	17600 /* 32 x 550ps */
++
+ /* Peri Configuration register for mt8195 */
+ #define MT8195_PERI_ETH_CTRL0		0xFD0
+ #define MT8195_RMII_CLK_SRC_INTERNAL	BIT(28)
+@@ -129,71 +137,36 @@ static int mt2712_set_interface(struct mediatek_dwmac_plat_data *plat,
+ 	return 0;
+ }
  
-   mediatek,rx-delay-ps:
-     description:
--      The internal RX clock delay (provided by this driver) in nanoseconds.
-+      The internal RX clock delay (provided by this driver) in picoseconds.
-       For MT2712 RGMII interface, Allowed value need to be a multiple of 170,
-       or will round down. Range 0~31*170.
-       For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
+-static void mt2712_delay_ps2stage(struct mediatek_dwmac_plat_data *plat)
+-{
+-	struct mac_delay_struct *mac_delay = &plat->mac_delay;
+-
+-	switch (plat->phy_mode) {
+-	case PHY_INTERFACE_MODE_MII:
+-	case PHY_INTERFACE_MODE_RMII:
+-		/* 550ps per stage for MII/RMII */
+-		mac_delay->tx_delay /= 550;
+-		mac_delay->rx_delay /= 550;
+-		break;
+-	case PHY_INTERFACE_MODE_RGMII:
+-	case PHY_INTERFACE_MODE_RGMII_TXID:
+-	case PHY_INTERFACE_MODE_RGMII_RXID:
+-	case PHY_INTERFACE_MODE_RGMII_ID:
+-		/* 170ps per stage for RGMII */
+-		mac_delay->tx_delay /= 170;
+-		mac_delay->rx_delay /= 170;
+-		break;
+-	default:
+-		dev_err(plat->dev, "phy interface not supported\n");
+-		break;
+-	}
+-}
+-
+-static void mt2712_delay_stage2ps(struct mediatek_dwmac_plat_data *plat)
+-{
+-	struct mac_delay_struct *mac_delay = &plat->mac_delay;
+-
+-	switch (plat->phy_mode) {
+-	case PHY_INTERFACE_MODE_MII:
+-	case PHY_INTERFACE_MODE_RMII:
+-		/* 550ps per stage for MII/RMII */
+-		mac_delay->tx_delay *= 550;
+-		mac_delay->rx_delay *= 550;
+-		break;
+-	case PHY_INTERFACE_MODE_RGMII:
+-	case PHY_INTERFACE_MODE_RGMII_TXID:
+-	case PHY_INTERFACE_MODE_RGMII_RXID:
+-	case PHY_INTERFACE_MODE_RGMII_ID:
+-		/* 170ps per stage for RGMII */
+-		mac_delay->tx_delay *= 170;
+-		mac_delay->rx_delay *= 170;
+-		break;
+-	default:
+-		dev_err(plat->dev, "phy interface not supported\n");
+-		break;
+-	}
+-}
+-
+ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
+ {
+ 	struct mac_delay_struct *mac_delay = &plat->mac_delay;
+-	u32 delay_val = 0, fine_val = 0;
++	u32 rx_delay_stage_val, tx_delay_stage_val;
++	u16 rx_delay_stage_div, tx_delay_stage_div;
++	u32 delay_val = 0;
++	u32 fine_val = 0;
+ 
+-	mt2712_delay_ps2stage(plat);
++	if (phy_interface_mode_is_rgmii(plat->phy_mode)) {
++		rx_delay_stage_div = MT2712_RGMII_DLY_RXC_STAGE_DIV;
++		tx_delay_stage_div = MT2712_RGMII_DLY_TXC_STAGE_DIV;
++	} else {
++		rx_delay_stage_div = MT2712_RMII_DLY_RXC_STAGE_DIV;
++		tx_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV;
++	}
++	rx_delay_stage_val = mac_delay->rx_delay / rx_delay_stage_div;
++	tx_delay_stage_val = mac_delay->tx_delay / tx_delay_stage_div;
+ 
+ 	switch (plat->phy_mode) {
+ 	case PHY_INTERFACE_MODE_MII:
+-		delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE, !!mac_delay->tx_delay);
+-		delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES, mac_delay->tx_delay);
++		delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE,
++					!!tx_delay_stage_val);
++		delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES,
++					tx_delay_stage_val);
+ 		delay_val |= FIELD_PREP(ETH_DLY_TXC_INV, mac_delay->tx_inv);
+ 
+-		delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
+-		delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES, mac_delay->rx_delay);
++		delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE,
++					!!rx_delay_stage_val);
++		delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES,
++					rx_delay_stage_val);
+ 		delay_val |= FIELD_PREP(ETH_DLY_RXC_INV, mac_delay->rx_inv);
+ 		break;
+ 	case PHY_INTERFACE_MODE_RMII:
+@@ -203,12 +176,16 @@ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
+ 			 * The egress timing can be adjusted by GTXC delay macro circuit.
+ 			 * The ingress timing can be adjusted by TXC delay macro circuit.
+ 			 */
+-			delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE, !!mac_delay->rx_delay);
+-			delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES, mac_delay->rx_delay);
++			delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE,
++						!!rx_delay_stage_val);
++			delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES,
++						rx_delay_stage_val);
+ 			delay_val |= FIELD_PREP(ETH_DLY_TXC_INV, mac_delay->rx_inv);
+ 
+-			delay_val |= FIELD_PREP(ETH_DLY_GTXC_ENABLE, !!mac_delay->tx_delay);
+-			delay_val |= FIELD_PREP(ETH_DLY_GTXC_STAGES, mac_delay->tx_delay);
++			delay_val |= FIELD_PREP(ETH_DLY_GTXC_ENABLE,
++						!!tx_delay_stage_val);
++			delay_val |= FIELD_PREP(ETH_DLY_GTXC_STAGES,
++						tx_delay_stage_val);
+ 			delay_val |= FIELD_PREP(ETH_DLY_GTXC_INV, mac_delay->tx_inv);
+ 		} else {
+ 			/* case 2: the rmii reference clock is from external phy,
+@@ -222,16 +199,20 @@ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
+ 				 * to RXC pin, the reference clock will be adjusted
+ 				 * by RXC delay macro circuit.
+ 				 */
+-				delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
+-				delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES, mac_delay->rx_delay);
++				delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE,
++							!!rx_delay_stage_val);
++				delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES,
++							rx_delay_stage_val);
+ 				delay_val |= FIELD_PREP(ETH_DLY_RXC_INV, mac_delay->rx_inv);
+ 			} else {
+ 				/* the rmii reference clock from outside is connected
+ 				 * to TXC pin, the reference clock will be adjusted
+ 				 * by TXC delay macro circuit.
+ 				 */
+-				delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE, !!mac_delay->rx_delay);
+-				delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES, mac_delay->rx_delay);
++				delay_val |= FIELD_PREP(ETH_DLY_TXC_ENABLE,
++							!!rx_delay_stage_val);
++				delay_val |= FIELD_PREP(ETH_DLY_TXC_STAGES,
++							rx_delay_stage_val);
+ 				delay_val |= FIELD_PREP(ETH_DLY_TXC_INV, mac_delay->rx_inv);
+ 			}
+ 			/* tx_inv will inverse the tx clock inside mac relateive to
+@@ -248,12 +229,16 @@ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+ 		fine_val = ETH_FINE_DLY_GTXC | ETH_FINE_DLY_RXC;
+ 
+-		delay_val |= FIELD_PREP(ETH_DLY_GTXC_ENABLE, !!mac_delay->tx_delay);
+-		delay_val |= FIELD_PREP(ETH_DLY_GTXC_STAGES, mac_delay->tx_delay);
++		delay_val |= FIELD_PREP(ETH_DLY_GTXC_ENABLE,
++					!!tx_delay_stage_val);
++		delay_val |= FIELD_PREP(ETH_DLY_GTXC_STAGES,
++					tx_delay_stage_val);
+ 		delay_val |= FIELD_PREP(ETH_DLY_GTXC_INV, mac_delay->tx_inv);
+ 
+-		delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
+-		delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES, mac_delay->rx_delay);
++		delay_val |= FIELD_PREP(ETH_DLY_RXC_ENABLE,
++					!!rx_delay_stage_val);
++		delay_val |= FIELD_PREP(ETH_DLY_RXC_STAGES,
++					rx_delay_stage_val);
+ 		delay_val |= FIELD_PREP(ETH_DLY_RXC_INV, mac_delay->rx_inv);
+ 		break;
+ 	default:
+@@ -263,19 +248,17 @@ static int mt2712_set_delay(struct mediatek_dwmac_plat_data *plat)
+ 	regmap_write(plat->peri_regmap, PERI_ETH_DLY, delay_val);
+ 	regmap_write(plat->peri_regmap, PERI_ETH_DLY_FINE, fine_val);
+ 
+-	mt2712_delay_stage2ps(plat);
+-
+ 	return 0;
+ }
+ 
+ static const struct mediatek_dwmac_variant mt2712_gmac_variant = {
+-		.dwmac_set_phy_interface = mt2712_set_interface,
+-		.dwmac_set_delay = mt2712_set_delay,
+-		.clk_list = mt2712_dwmac_clk_l,
+-		.num_clks = ARRAY_SIZE(mt2712_dwmac_clk_l),
+-		.rx_delay_max = 17600,
+-		.tx_delay_max = 17600,
+-		.dma_bit_mask = 33,
++	.dwmac_set_phy_interface = mt2712_set_interface,
++	.dwmac_set_delay = mt2712_set_delay,
++	.clk_list = mt2712_dwmac_clk_l,
++	.num_clks = ARRAY_SIZE(mt2712_dwmac_clk_l),
++	.rx_delay_max = MT2712_RGMII_DLY_RXC_MAX,
++	.tx_delay_max = MT2712_RGMII_DLY_TXC_MAX,
++	.dma_bit_mask = 33,
+ };
+ 
+ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat,
 
 -- 
 2.56.0
