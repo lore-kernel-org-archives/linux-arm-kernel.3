@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A396CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E9FCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+aJqStC13vO2Rm4uiX/d7O0vpZVh1jAA68DpDqcwtJI=; b=rkul5B3b3SNZ8mRg5lT2E/9bNn
-	OXF2NGzIurrwd0oMlvJ1oPse4SKMlPVnwDHk7aATfoFE9iShamsVYkxy44vDaowu+JSj/Z9j9Atjz
-	z0SQwR+U6eriiCysn9HcZ1l3gqqO3yUugRpjbJVMJzL7OsDBFoIus6tjQirVD1wUqknyWI1izjbVZ
-	TFqG48XjkR7pU0PmRD0TxbF330bh9v3ffxKQaOTPyvow32krGMXLhymCe8paNhKnMS0/bIaL43hyb
-	xXZ07CKM8FIpBTkSHp2xEGdGv4nDFz6TCuooV6n0xAbbbBM4wWzoByAoUTkE1sHO6H/dKStaI7Po+
-	N+McBIow==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4fHl+b3seiO2Ne0fBQcPB5yXelud644iIQwQtTIzG0=; b=WRi+E2FhfWcLquXUQSoyYNAPn6
+	Eg+lJ+CsbtS+PUslftNfv+dhEta4NG2ttUM0XPNaFS8g5iiWZPyNHRtc5YKEbpjfB1aiLdwbFvQKc
+	XTSsFEq7z8dt1TN0Mg8RdB68T77Ikzgzd9kTPJR7oDhzngeWeKaWB759ncnqO/PHgyva7trJfPRrn
+	VK1BgCN5I5TrveCdRCAlYmDQJT/6grf4qAuvyP4chp5DFSz2GeiXqeKBxjf1B0+iWGajobXIHnKhW
+	fd3IQCaSMgQuExDcHCJxfbDrdj1JvpXpa0fmDxR6DQSQRFOv4VwH8JdIBZTd5edMAqsLYUEVztE7P
+	8nyHUAIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkHv-00000003L0Z-12rU;
-	Fri, 16 Oct 2026 15:56:07 +0000
+	id 1xHkHz-00000003L2O-1uRp;
+	Fri, 16 Oct 2026 15:56:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkHs-00000003L08-2DAP
+	id 1xHkHx-00000003L1X-31su
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 15:56:05 +0000
+	Fri, 16 Oct 2026 15:56:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BAA8560018;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B49260202;
+	Fri, 16 Oct 2026 15:56:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF51F1F000C6;
 	Fri, 16 Oct 2026 15:56:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A8C41F000C4;
-	Fri, 16 Oct 2026 15:55:58 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -60,10 +60,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v4 0/8] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
-Date: Fri, 16 Oct 2026 17:55:39 +0200
-Message-ID: <cover.1792163045.git.geert+renesas@glider.be>
+Subject: [PATCH v4 1/8] clk: renesas: r8a78000: Add clk_hw to clk_map
+Date: Fri, 16 Oct 2026 17:55:40 +0200
+Message-ID: <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1792163045.git.geert+renesas@glider.be>
+References: <cover.1792163045.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -80,256 +82,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+Prepare for mapping to other than fixed-rate clocks by adding a clk_hw
+pointer to the clk_map structure, and populating it up-front.
 
-TL;DR:
+Move r8a78000_cpg_priv.fixed_hws into fill_clk_map(), as it is no longer
+needed afterwards, and drop NUM_FIXED_CLKS.
 
-    Describe hardware in DT, and perform mapping to abstractions offered
-    by SCMI in Linux.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+v4:
+  - No changes,
 
-The Renesas R-Car X5H-based Ironhide board is the first Renesas
-SoC/board combination that implements the ARM System Control and
-Management Interface (SCMI).
+v3:
+  - New.
+---
+ drivers/clk/renesas/r8a78000-cpg.c | 78 +++++++++++++++++++++---------
+ 1 file changed, 56 insertions(+), 22 deletions(-)
 
-This means Linux can no longer perform various system operations (e.g.
-clock, power domain, and reset control) by accessing the hardware
-directly.  Instead, these operations are abstracted according to various
-SCMI sub-protocols, and Linux has to send messages to an SCMI-compliant
-firmware running on a System Control Processor (SCP).
-More specifically, the R-Car X5H SCP FW SCMI controls access to:
-  1. Core clocks and module clocks,
-  2. Module resets,
-  3. Power domains,
-  4. System power.
-The latter is not relevant for this discussion.
-
-Using SCMI also has an impact on the board DTS: besides the addition of
-a firmware/scmi node with protocol-specific subnodes, devices using
-SCMI-abstracted system resources now have to refer to these resources
-using resource specifiers containing phandles to the SCMI protocol
-subnodes, and firmware-specific object IDs[1].
-
-Unfortunately we encountered several issues with this:
-  - The clock, reset, and power domain IDs are not stable by design,
-    causing DT incompatibilities.
-    SCMI requires that the ID space exposed to an agent (i.e. Linux)
-    starts at zero and is contiguous.  Hence any change in system
-    partitioning (Application CPU core vs. Realtime CPU core,
-    virtualization, ...) may mean a renumbering of all SCMI IDs,
-    implying a massive change to the DT.
-  - There may be different SCP firmware lineages, e.g. proprietary and
-    certified variants, and FLOSS variants,
-  - SCMI features may differ across firmware versions,
-  - SCMI may abstract the hardware in a different way, requiring changes
-    in (possibly existing) DT bindings and drivers to support the same
-    hardware with and without SCMI:
-      - E.g. the number of SCMI clocks inputs to a hardware block may
-	differ from the actual hardware,
-      - E.g. hardware clock inputs may be abstracted as SCMI power
-	domains (or vice versa), like on Qualcomm SA8255P[2].
-    Experience has taught that not describing the hardware in DT may
-    lead to major issues later.
-  - SCMI does not support the concept of a clock domain, so existing
-    drivers can no longer rely on Runtime PM, but need to be changed to
-    manage functional clocks explicitly,
-  - U-Boot IPL (Initial Program Loader) needs a proper hardware
-    description in DT, not using SCMI.
-
-This list deliberately ignores ID instability and the need for SCMI
-quirks during development of the SCMI firmware.  While upstream Linux
-must only support sufficiently mature firmware versions, vendor trees
-(e.g. renesas-lts) may still want to support development firmware
-versions.
-
-During last OSSJ/LPC, Marek Vasut pondered if we could keep our own ID
-lists stable, and perform a mapping to the IDs used by the actual SCMI
-implementation running on the system.  This was also briefly discussed
-at LPC[3].  After some refining of the initial idea, this series takes a
-slightly different approach, by:
-  1. Describing the actual hardware components in DT, plus a minimum
-     SCMI glue,
-  2. Mapping DT hardware descriptions to SCMI-backed objects and
-     abstractions (or replacements, in case they are unusable,
-     unavailable, or too different), in Linux drivers, based on the
-     detected firmware version.
-
-This has the following advantages:
-  1. The DT ABI is stable,
-  2. DT bindings and drivers for existing hardware blocks do not need to
-     be modified,
-  2. Current and future firmware can be handled in driver code,
-  3. U-Boot IPL can use almost the same DT; it just needs stripping of
-     the SCMI node and subnodes,
-  4. If ever needed, the Clock Pulse Generator (CPG) and Module
-     Controller (MDLC) drivers can be extended to program the hardware
-     directly if SCMI is not present,
-
-Last week I gave a presentation about the issues and our solution at
-ELCE2026 in Prague[4].
-
-This series consists of four parts:
-  A. Patches 1-2 prepare and add SCMI remapping support to the R-Car X5H
-     CPG clock driver,
-  B. Patches 3-6 fix and add new interfaces needed for remapping in the
-     R-Car X5H MDLC pmdomain driver,
-  C. Patch 7 adds SCMI remapping support to the R-Car X5H MDLC pmdomain
-     driver,
-  D. Patch 8 enables more SCMI protocols on R-Car X5H Ironhide.
-
-Dependencies:
-  - C depends on B,
-  - D depends on A, B, C, and out-of-tree SCMI quirks.
-
-Changes compared to v3[5]:
-  - Remove dependencies by making assumptions and dropping disputed
-    items, to move this series forward:
-      - Assume all SCMI IDs are stable.
-        This let us drop the addition of scmi_get_base_info(), and
-	support for handling different ID spaces.
-      - Drop the "renesas,scmi-firmware" DT property, and find a device
-        node compatible with "arm,scmi" instead.
-        This let us drop the addition of fw_devlink support for this
-	property, too, but required a new probe deferral fix in the
-	pmdomain code: "pmdomain: Make genpd_get_from_provider() return
-	-EPROBE_DEFER".
-	This will have to be revisited when systems with multiple SCMI
-	providers appear.
-  - Drop unneeded IS_ERR() check after __clk_get_hw(),
-  - Mark scmi_{clk,reset,power}_np __free(device_node),
-  - Include initial mapping tables for R-Car X5H SCP FW SDKv4.31.0 and
-    later, supporting clocks, power domains, and resets used by serial,
-    I2C, and SPI devices.
-  - Try SCMI clocks first, and fall back to the default fixed-frequency
-    clocks when not available, as recent firmware versions no longer
-    restrict access to some bus clocks,
-  - Fall back to the non-SCMI defaults when SCMI provider support is
-    disabled,
-  - Keep RESET_CONTROL_FLAGS_BIT_OPTIONAL clearing in
-    __fwnode_reset_control_get(),
-  - Return directly in __reset_control_get_from_provider(), instead of
-    assigning to a local variable, letting us drop the latter and
-    simplify scoped_guard() to plain guard(),
-  - Add Reviewed-by,
-  - Check for overflow when converting (u64) fwnode args to (uint32_t)
-    OF args,
-  - Document that reset_control_get_from_provider_exclusive() must not
-    be given a reference to a GPIO provider,
-  - Let the dummy return ERR_PTR(-ENOTSUPP) instead of NULL,
-  - Improve patch description,
-  - Let r8a78000_mdlc_attach_dev() return success when the MDLC instance
-    is not found, to avoid breaking users referring in DT to an SCMI
-    power-domain directly,
-  - Extract scmi_get_clk(),
-  - Add support for gateable functional clock parents,
-  - Propagate all reset failures, as SCP FW SDKv4.28.0 which restricted
-    HSCIF0 reset is no longer supported.
-
-Changes compared to v2[6]:
-  - New patches:
-    "[PATCH v3 06/12] reset: Extract __reset_control_get_from_provider()",
-    "[PATCH v3 08/12] clk: renesas: r8a78000: Add clk_hw to clk_map",
-  - Move DT binding patches forward in series,
-  - Add "renesas" vendor prefix and "scmi-" function prefix to the
-    "firmware" property (I still think the vendor property should be
-    dropped, or replaced by "arm"),
-  - Add "of_" prefix to genpd_get_from_provider(),
-  - Replace reset_controller_get_provider() by
-    reset_control_get_from_provider_exclusive(),
-  - Add kerneldoc,
-  - Rebase,
-  - Consistently use /* sentinel */ for zero sentinels,
-  - Call reset_control_*() APIs instead of internal reset_control_ops
-    methods,
-  - Rename struct mod_map to struct mod_map_in,
-  - Add struct mod_map, which also contains a reset_control pointer,
-  - Add fill_mod_map() to obtain all SCMI reset_control structures
-    up-front, as one can no longer use lazy look-up,
-  - Prefix DEFINE_MDLC_RESET_WRAPPER() parameters with underscores.
-
-Changes compared to v1[7]:
-  - Drop SCMI quirks and SCMI mapping tables,
-  - Move CPG/MDLC DT bindings and minimal base drivers to a separate
-    series,
-  - Add that SCMI may provide different abstractions,
-  - Add missing asterisk to blank kerneldoc line,
-  - Let scmi_get_base_info() return -EPROBE_DEFER or -EOPNOTSUPP instead
-    of -ENOENT, and propagate these errors in callers,
-  - Fall back to the default support when SCMI support or firmware is
-    not available, or when the detected SCMI firmware version is not
-    supported by the driver,
-  - Improve error message on scmi_get_base_info() failure,
-  - Check if SCMI firmware node is available,
-  - Use reverse xmas ordering in r8a78000_cpg_probe(),
-  - Replace the scmi_*_np members of struct r8a78000_*_priv by local
-    variables in the probe functions, and pass them to the fill_*_map()
-    functions,
-  - Join split short lines,
-  - Move check for supported firmware version up,
-  - Fix DT misindentations,
-  - Add scmi_clk node, as it is no longer added in earlier commits.
-
-Notes:
-  - In reponse of feedback on v1, I did try to use SCMI IDs in DT, and
-    handle most issues in Linux SCMI drivers and SCMI quirks[8].  While
-    the result worked, it did not solve everything in the issues list
-    above.
-  - This series does not include actual SCMI quirks; the SCMI firmware
-    for R-Car X5H is still under development.
-
-For testing, I have pushed this series plus additional work to[9].
-
-Thanks for your comments!
-
-[1] Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-[2] "[PATCH net-next v11 1/7] dt-bindings: phy: document the serdes PHY on sa8255p"
-    https://lore.kernel.org/20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com
-[3] "Firmware ABI stability" at Linux Plumbers Conference 2025
-    https://lpc.events/event/19/contributions/2153/
-[4] "Marrying Device Tree and SCMI" (https://sched.co/2RaWR)
-[5] "[PATCH v3 00/12] R-Car X5H Ironhide CPG/MDLC SCMI remapping
-     support"
-    https://lore.kernel.org/cover.1788338320.git.geert+renesas@glider.be/
-[6] "[PATCH v2 00/10] R-Car X5H Ironhide CPG/MDLC SCMI remapping
-     support"
-    https://lore.kernel.org/cover.1783505329.git.geert+renesas@glider.be
-[7] "[PATCH/RFC 00/14] R-Car X5H Ironhide SCMI CPG/MDLC remapping"
-    https://lore.kernel.org/cover.1776793163.git.geert+renesas@glider.be
-[8] "[PATCH/RFC 0/9] R-Car X5H Ironhide pure SCMI proof-of-concept"
-    https://lore.kernel.org/cover.1781171705.git.geert+renesas@glider.be/
-[9] topic/rcar-x5h-ironhide-scmi-cpg-mdlc-remapping-v4 branch of
-    https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git
-
-Geert Uytterhoeven (8):
-  clk: renesas: r8a78000: Add clk_hw to clk_map
-  clk: renesas: r8a78000: Add SCMI remapping support
-  reset: Extract __reset_control_get_from_provider()
-  reset: Add reset_control_get_from_provider_exclusive()
-  pmdomain: Make genpd_get_from_provider() return -EPROBE_DEFER
-  pmdomain: Make genpd_get_from_provider() public
-  pmdomain: renesas: r8a78000: Add SCMI remapping support
-  arm64: dts: renesas: ironhide: Enable SCMI devpd, sys, clock, and
-    reset
-
- .../boot/dts/renesas/r8a78000-ironhide.dts    |  19 +
- drivers/clk/renesas/r8a78000-cpg.c            | 217 +++++++--
- drivers/pmdomain/core.c                       |  26 +-
- drivers/pmdomain/renesas/r8a78000-mdlc.c      | 410 +++++++++++++++++-
- drivers/reset/core.c                          | 116 +++--
- include/linux/pm_domain.h                     |   7 +
- include/linux/reset.h                         |   8 +
- 7 files changed, 698 insertions(+), 105 deletions(-)
-
+diff --git a/drivers/clk/renesas/r8a78000-cpg.c b/drivers/clk/renesas/r8a78000-cpg.c
+index b8024e76743ea53d..5ffd7b89cb48e41c 100644
+--- a/drivers/clk/renesas/r8a78000-cpg.c
++++ b/drivers/clk/renesas/r8a78000-cpg.c
+@@ -16,19 +16,24 @@
+ 
+ #include <dt-bindings/clock/renesas,r8a78000-cpg.h>
+ 
++struct clk_map_in {
++	int dt_id;		/* DT binding clock ID or -1 sentinel */
++	u32 fw_id;		/* FIXED_CLK() ID */
++};
++
+ struct clk_map {
+ 	int dt_id;		/* DT binding clock ID or -1 sentinel */
+ 	u32 fw_id;		/* FIXED_CLK() ID */
++	struct clk_hw *hw;
+ };
+ 
+ enum fixed_clk {
+ 	FIXED_CLK_66M,
+ 	FIXED_CLK_133M,
+ 	FIXED_CLK_266M,
+-	NUM_FIXED_CLKS
+ };
+ 
+-static const unsigned long fixed_clk_rates[NUM_FIXED_CLKS] = {
++static const unsigned long fixed_clk_rates[] = {
+ 	[FIXED_CLK_66M] = 66666000,
+ 	[FIXED_CLK_133M] = 133330000,
+ 	[FIXED_CLK_266M] = 266660000,
+@@ -41,12 +46,10 @@ static const unsigned long fixed_clk_rates[NUM_FIXED_CLKS] = {
+  *
+  * @dev: CPG device
+  * @map: Mapping from DT clock IDs to fixed-rate clocks
+- * @fixed_hws: Fixed rate clocks
+  */
+ struct r8a78000_cpg_priv {
+ 	struct device *dev;
+ 	const struct clk_map *map;
+-	struct clk_hw *fixed_hws[NUM_FIXED_CLKS];
+ };
+ 
+ static const struct clk_map *clk_map_find(const struct clk_map *map, u32 id)
+@@ -83,8 +86,7 @@ static struct clk_hw *r8a78000_clk_get(struct of_phandle_args *spec,
+ 	}
+ 
+ 	dev_dbg(dev, "Mapping DT clock %u to fixed clock %u\n", id, map->fw_id);
+-
+-	hw = priv->fixed_hws[map->fw_id];
++	hw = map->hw;
+ 
+ 	dev_dbg(dev, "clock %u is %s at %lu Hz\n", id, clk_hw_get_name(hw),
+ 		clk_hw_get_rate(hw));
+@@ -92,35 +94,69 @@ static struct clk_hw *r8a78000_clk_get(struct of_phandle_args *spec,
+ 	return hw;
+ }
+ 
+-static int register_fixed_clks(struct r8a78000_cpg_priv *priv)
++static struct clk_hw **register_fixed_clks(struct device *dev)
+ {
+-	struct device *dev = priv->dev;
++	unsigned int n = ARRAY_SIZE(fixed_clk_rates);
++	struct clk_hw **hws, *hw;
+ 	unsigned long rate;
+-	struct clk_hw *hw;
+ 	const char *name;
+ 
+-	for (unsigned int i = 0; i < ARRAY_SIZE(fixed_clk_rates); i++) {
++	hws = devm_kcalloc(dev, n, sizeof(*hws), GFP_KERNEL);
++	if (!hws)
++		return ERR_PTR(-ENOMEM);
++
++	for (unsigned int i = 0; i < n; i++) {
+ 		rate = fixed_clk_rates[i];
+ 		name = devm_kasprintf(dev, GFP_KERNEL, "cpg-%lu", rate);
+ 		if (!name)
+-			return -ENOMEM;
++			return ERR_PTR(-ENOMEM);
+ 
+ 		hw = devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+ 		if (IS_ERR(hw))
+-			return PTR_ERR(hw);
++			return ERR_CAST(hw);
+ 
+-		priv->fixed_hws[i] = hw;
++		hws[i] = hw;
+ 	}
+ 
+-	return 0;
++	return hws;
++}
++
++static const struct clk_map *fill_clk_map(struct r8a78000_cpg_priv *priv,
++					  const struct clk_map_in *map_in)
++{
++	struct device *dev = priv->dev;
++	struct clk_hw **fixed_hws;
++	struct clk_map *map;
++	unsigned int i;
++
++	fixed_hws = register_fixed_clks(dev);
++	if (IS_ERR(fixed_hws))
++		return ERR_CAST(fixed_hws);
++
++	for (i = 0; map_in[i].dt_id >= 0; i++) { }
++
++	map = devm_kcalloc(dev, i + 1, sizeof(*map), GFP_KERNEL);
++	if (!map)
++		return ERR_PTR(-ENOMEM);
++
++	for (i = 0; ; i++) {
++		map[i].dt_id = map_in[i].dt_id;
++		if (map[i].dt_id < 0)
++			break;
++
++		map[i].fw_id = map_in[i].fw_id;
++		map[i].hw = fixed_hws[map[i].fw_id];
++	}
++
++	devm_kfree(dev, fixed_hws);
++	return map;
+ }
+ 
+ static int r8a78000_cpg_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct r8a78000_cpg_priv *priv;
+-	const struct clk_map *map;
+-	int ret;
++	const struct clk_map_in *map;
+ 
+ 	map = of_device_get_match_data(dev);
+ 	if (!map)
+@@ -131,16 +167,14 @@ static int r8a78000_cpg_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	priv->dev = dev;
+-	priv->map = map;
+-
+-	ret = register_fixed_clks(priv);
+-	if (ret)
+-		return ret;
++	priv->map = fill_clk_map(priv, map);
++	if (IS_ERR(priv->map))
++		return PTR_ERR(priv->map);
+ 
+ 	return devm_of_clk_add_hw_provider(dev, r8a78000_clk_get, priv);
+ }
+ 
+-static const struct clk_map r8a78000_cpg_default[] = {
++static const struct clk_map_in r8a78000_cpg_default[] = {
+ 	{ R8A78000_CPG_SGASYNCD4_PERW_BUS,	FIXED_CLK(266M) },
+ 	{ R8A78000_CPG_SGASYNCD8_PERW_BUS,	FIXED_CLK(133M) },
+ 	{ R8A78000_CPG_SGASYNCD16_PERW_BUS,	FIXED_CLK(66M) },
 -- 
 2.43.0
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
