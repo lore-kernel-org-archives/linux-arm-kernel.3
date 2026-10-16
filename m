@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6872CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4B0CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sf5mNV00o+lGDyI9JqU7bAnCuIzXEFZ1o+IyRJ4mbCg=; b=ziTefnIjWvBS52
-	UlVymst6sw1UXoeMxVqj0hnC5AtOivZS4G5qtxfvMNon0+ezUOqDDDhvWRATlf/dBcpwsMjnWZxNO
-	fEgvyfV/eSQxx5ne2B5aQInlps4WndrlsffmSh7puFftKDFeJvFyHqlKGTb2ekMfMO0ps7ID/9Vtk
-	FxE3tJQl16By9LjcV5dgwE8hHlev29HQgGvl9W6HgcxMYzhaM3bM/1+vAYMAlHojCDawI7erjj5Pw
-	wIrKMECEFY9mCkxOyXtN735L8yIU1OrJJAkdT54Qa0mSPV9K4gwTZT59dy14bnH4RXQs9rexe+hHH
-	f3M7Ss90BnnGTFoVh3pg==;
+	List-Owner; bh=CljSiDbhHb9XTrRXJBWNdQogfmC8HGLrtGvjQowOzCs=; b=jYZcvLNNnJITi/
+	sOYWspwnAARXRvNqioFqlUlSczAUE1D+g7eanPeedOiaRg9NtYwU0Mx9aT7Eo6EzN2Aq/I4saf7vH
+	D32tCs28tVSXP5e89EZVBkTkDXR7n8BGzvx3lSqzkAmZ0zXQbN2L0YpwJMB/KwWomrJFLINjbyylW
+	IFVPIJ55kZ/+iYEhtkUlnXzYiXTwIz3K/mC+ioS/yqjSSFWh0Ofs9icMV6fU612sfuj6adNarlPrf
+	zc5ZSqEHZamzHZip74HRUkHMgvMzAtxwyXegEBUtjlLZ+t5uVWE3fBENlSz5ta7ZHKFEzDq0762JA
+	TFUYZlokWrkSFY9n11Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl5L-00000003S7B-0AS0;
+	id 1xHl5L-00000003S7V-0bFD;
 	Fri, 16 Oct 2026 16:47:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHl5C-00000003S2d-2qNA
+	id 1xHl5F-00000003S4k-3jI0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:47:04 +0000
+	Fri, 16 Oct 2026 16:47:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA3C31691;
-	Fri, 16 Oct 2026 09:46:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E466E1477;
+	Fri, 16 Oct 2026 09:47:01 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.15.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE6633F7B4;
-	Fri, 16 Oct 2026 09:46:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4F63B3FBF5;
+	Fri, 16 Oct 2026 09:47:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169221; bh=qXBUaA5KxL5AWjSLYun7xW85mAuFz3llcknF2KTjWFQ=;
+	t=1792169225; bh=nXw/6iDHjEohi9yDRYJ7TIMg35EP3knrRAshEW40adY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V1oKCD6lJLYUBL2/H4PPBABwwwmw3yvMgPiHJY50kP9sa2qCmUpqHGTkFErsYjUku
-	 zxzOMh12/pg6AeDbZAo1yNBy0H7oclh6ErJ2j5JQZMfile+PlWWkfM5dsKKHhVhkpu
-	 iVwmFfFJx8Ozjdv/VRghinBzPBgmLMks+pWCsYUY=
+	b=ax1bszOzXYKbx1wLrKgkitvuxnmCkC66sKbllmn8vWGmwqSb951Ud6pshwCyG1+AY
+	 /wB2ulEsPKCVFxLiFen8wfOSM7kBSgpItUG8ptvhlq1xsMIgON8vbPRYukzuWHcoDX
+	 CRgsVck1olCiNkSjn8gZi7NByX7X+yRfJFbLQunA=
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/4] arm64: sysreg: generate TPIDR, SP and DAIF encodings
-Date: Fri, 16 Oct 2026 17:46:45 +0100
-Message-ID: <20261016164648.251258-2-ada.coupriediaz@arm.com>
+Subject: [PATCH 2/4] arm64: insn: fix system register inconsistencies
+Date: Fri, 16 Oct 2026 17:46:46 +0100
+Message-ID: <20261016164648.251258-3-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261016164648.251258-1-ada.coupriediaz@arm.com>
 References: <20261016164648.251258-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_094702_792707_62868667 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261016_094706_021062_5455F1AA 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,140 +67,77 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Barry So
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce missing SYS_DAIF and SYS_SP_EL0 encodings in preparation
-for a future commit.
-While we are here, replace SYS_SP_EL{1,2} manual encodings with
-automatically generated ones.
+Two registers in `enum aarch64_insn_special_register` are defined
+incorrectly :
+ - SPSR_IRQ is named SPSR_I*N*Q
+ - SP_EL2's encoding is incorrect and does not correspond to ant register
 
-As the future commit will make use of SYS_TPIDR_EL{1,2} encodings,
-replace their and related registers manual encodings with
-automatically generated ones as well.
+Fix those issues and re-order the registers by value.
+Update `enum aarch64_insn_system_register` values and order to be in line
+with `enum aarch64_insn_special_register`, so that we can make
+`aarch64_insn_gen_mrs()` use the same mask as
+`aarch64_insn_extract_system_reg()` while we're here.
 
-Clean up manual `SYS_CONTEXTIDR_EL2` definition, as it was already
-generated.
+This does not change the behaviour, as `aarch64_insn_encode_register()`
+always masks the lower bits and the top bit of registers are always set.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/include/asm/sysreg.h |  8 -------
- arch/arm64/tools/sysreg         | 37 +++++++++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+), 8 deletions(-)
+ arch/arm64/include/asm/insn.h | 12 ++++++------
+ arch/arm64/lib/insn.c         |  2 +-
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 7aa08d59d4944..7948b8c74cf49 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -418,10 +418,6 @@
- #define SYS_PMUSERENR_EL0		sys_reg(3, 3, 9, 14, 0)
- #define SYS_PMOVSSET_EL0		sys_reg(3, 3, 9, 14, 3)
+diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+index c91a8431c961e..2e45f6e80d15f 100644
+--- a/arch/arm64/include/asm/insn.h
++++ b/arch/arm64/include/asm/insn.h
+@@ -119,27 +119,27 @@ enum aarch64_insn_special_register {
+ 	AARCH64_INSN_SPCLREG_SP_EL0	= 0xC208,
+ 	AARCH64_INSN_SPCLREG_SPSEL	= 0xC210,
+ 	AARCH64_INSN_SPCLREG_CURRENTEL	= 0xC212,
+-	AARCH64_INSN_SPCLREG_DAIF	= 0xDA11,
+ 	AARCH64_INSN_SPCLREG_NZCV	= 0xDA10,
++	AARCH64_INSN_SPCLREG_DAIF	= 0xDA11,
+ 	AARCH64_INSN_SPCLREG_FPCR	= 0xDA20,
+ 	AARCH64_INSN_SPCLREG_DSPSR_EL0	= 0xDA28,
+ 	AARCH64_INSN_SPCLREG_DLR_EL0	= 0xDA29,
+ 	AARCH64_INSN_SPCLREG_SPSR_EL2	= 0xE200,
+ 	AARCH64_INSN_SPCLREG_ELR_EL2	= 0xE201,
+ 	AARCH64_INSN_SPCLREG_SP_EL1	= 0xE208,
+-	AARCH64_INSN_SPCLREG_SPSR_INQ	= 0xE218,
++	AARCH64_INSN_SPCLREG_SPSR_IRQ	= 0xE218,
+ 	AARCH64_INSN_SPCLREG_SPSR_ABT	= 0xE219,
+ 	AARCH64_INSN_SPCLREG_SPSR_UND	= 0xE21A,
+ 	AARCH64_INSN_SPCLREG_SPSR_FIQ	= 0xE21B,
+ 	AARCH64_INSN_SPCLREG_SPSR_EL3	= 0xF200,
+ 	AARCH64_INSN_SPCLREG_ELR_EL3	= 0xF201,
+-	AARCH64_INSN_SPCLREG_SP_EL2	= 0xF210
++	AARCH64_INSN_SPCLREG_SP_EL2	= 0xF208,
+ };
  
--#define SYS_TPIDR_EL0			sys_reg(3, 3, 13, 0, 2)
--#define SYS_TPIDRRO_EL0			sys_reg(3, 3, 13, 0, 3)
--#define SYS_TPIDR2_EL0			sys_reg(3, 3, 13, 0, 5)
--
- #define SYS_SCXTNUM_EL0			sys_reg(3, 3, 13, 0, 7)
+ enum aarch64_insn_system_register {
+-	AARCH64_INSN_SYSREG_TPIDR_EL1	= 0x4684,
+-	AARCH64_INSN_SYSREG_TPIDR_EL2	= 0x6682,
+-	AARCH64_INSN_SYSREG_SP_EL0	= 0x4208,
++	AARCH64_INSN_SYSREG_SP_EL0	= 0xC208,
++	AARCH64_INSN_SYSREG_TPIDR_EL1	= 0xC684,
++	AARCH64_INSN_SYSREG_TPIDR_EL2	= 0xE682,
+ };
  
- /* Definitions for system register interface to AMU for ARMv8.4 onwards */
-@@ -520,7 +516,6 @@
- #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
- #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
- #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
--#define SYS_SP_EL1			sys_reg(3, 4, 4, 1, 0)
- #define SYS_SPSR_irq			sys_reg(3, 4, 4, 3, 0)
- #define SYS_SPSR_abt			sys_reg(3, 4, 4, 3, 1)
- #define SYS_SPSR_und			sys_reg(3, 4, 4, 3, 2)
-@@ -580,8 +575,6 @@
- #define SYS_ICH_LR14_EL2		__SYS__LR8_EL2(6)
- #define SYS_ICH_LR15_EL2		__SYS__LR8_EL2(7)
+ enum aarch64_insn_variant {
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index 5c37f3a4c402b..94ee1aae2f5b7 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -1566,7 +1566,7 @@ u32 aarch64_insn_gen_mrs(enum aarch64_insn_register result,
+ {
+ 	u32 insn = aarch64_insn_get_mrs_value();
  
--#define SYS_CONTEXTIDR_EL2		sys_reg(3, 4, 13, 0, 1)
--#define SYS_TPIDR_EL2			sys_reg(3, 4, 13, 0, 2)
- #define SYS_SCXTNUM_EL2			sys_reg(3, 4, 13, 0, 7)
- 
- #define __AMEV_op2(m)			(m & 0x7)
-@@ -623,7 +616,6 @@
- #define SYS_CNTV_CTL_EL02		sys_reg(3, 5, 14, 3, 1)
- #define SYS_CNTV_CVAL_EL02		sys_reg(3, 5, 14, 3, 2)
- 
--#define SYS_SP_EL2			sys_reg(3, 6,  4, 1, 0)
- 
- /* AT instructions */
- #define AT_Op0 1
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index e2d37ee221b84..7349744f14211 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2958,6 +2958,10 @@ Res0	4:1
- Field	0	PCRSEL
- EndSysreg
- 
-+Sysreg	SP_EL0	3	0	4	1	0
-+Field	63:0	SP
-+EndSysreg
-+
- Sysreg	ALLINT	3	0	4	3	0
- Res0	63:14
- Field	13	ALLINT
-@@ -3811,6 +3815,15 @@ Sysreg	GCSPR_EL0	3	3	2	5	1
- Fields	GCSPR_ELx
- EndSysreg
- 
-+Sysreg	DAIF	3	3	4	2	1
-+Res0	63:10
-+Field	9	D
-+Field	8	A
-+Field	7	I
-+Field	6	F
-+Res0	5:0
-+EndSysreg
-+
- Sysreg	SVCR	3	3	4	2	2
- Res0	63:2
- Field	1	ZA
-@@ -3885,6 +3898,22 @@ UnsignedEnum	2:0	F8S1
- EndEnum
- EndSysreg
- 
-+Sysreg	TPIDR_EL0	3	3	13	0	2
-+Field	63:0	ThreadID
-+EndSysreg
-+
-+Sysreg	TPIDRRO_EL0	3	3	13	0	3
-+Field	63:0	ThreadID
-+EndSysreg
-+
-+Sysreg	TPIDR2_EL0	3	3	13	0	5
-+Field	63:0	ThreadID
-+EndSysreg
-+
-+Sysreg	SP_EL1	3	4	4	1	0
-+Field	63:0	SP
-+EndSysreg
-+
- Sysreg	SCTLR_EL2	3	4	1	0	0
- Field	63	TIDCP
- Field	62	SPINTMASK
-@@ -5425,6 +5454,10 @@ Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
- Fields	CONTEXTIDR_ELx
- EndSysreg
- 
-+Sysreg	TPIDR_EL2	3	4	13	0	2
-+Field	63:0	ThreadID
-+EndSysreg
-+
- Sysreg	CNTPOFF_EL2	3	4	14	0	6
- Field	63:0	PhysicalOffset
- EndSysreg
-@@ -5465,6 +5498,10 @@ Sysreg	CONTEXTIDR_EL12	3	5	13	0	1
- Mapping	CONTEXTIDR_EL1
- EndSysreg
- 
-+Sysreg	SP_EL2	3	6	4	1	0
-+Field	63:0	SP
-+EndSysreg
-+
- SysregFields TTBRx_EL1
- Field	63:48	ASID
- Field	47:1	BADDR
+-	insn &= ~GENMASK(19, 0);
++	insn &= ~GENMASK(20, 5);
+ 	insn |= sysreg << 5;
+ 	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RT,
+ 					    insn, result);
 -- 
 2.43.0
 
