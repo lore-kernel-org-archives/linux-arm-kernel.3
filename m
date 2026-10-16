@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB20CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78511CCF2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UeMl9uql1AFyJurPPbhyn9zcg6a0jaSRIelhEhPEu38=; b=0x+PaaMhhCmyUNf5xcu0giG/eM
-	B0BLz1e88a5V9B0vNwGgU96GWkiR0BLeXusoS/p/COJ2/HfRnQ1AZc3wqCW6jhf9ZxLK+AuwTrP3R
-	t9f0dJgeiEWptZvqcRK6ldZQADMbrEg8BPO3J8GM/jDj4hFVOfw9+hnNY1PIbIk7bVeyghHAzu3ZR
-	uxS5bk49PrGpSk7nH6f6cmqYwGkYcvjTAXO1s8sdpwMlunZhCa8FQzb0nZhvljc7w7FZA4hzJN5k5
-	iRaKYmOj+yNmHFlt7tlxjWeyzJRh/y5wOUdVBujC4U5PgTgLTYjh7D6py6ibmoNH04lWrPY+mofgS
-	guitFrsg==;
+	bh=XZOCrJukz5I9fgZNccOyeVfaQmdelsT52M0B1L0OD4Q=; b=RB+yb2A30/oXoRfVxttmoywgE/
+	Eb9K9VGFLG52Gvk/tFFs/dbWVOyuSx3/jCJ7AIRMXnYAaSS6KoxBRhN9yfoLkBw8ZibtkcVd+rKHD
+	UXNvFC2l19NwId18Xj5Mf3rLkbwaunZxqS02AIeXQVoesUgbCXKSZLB+ScoYi4RRYpR/fJEsOG2Iq
+	yMYP+/ued1mv2QCtGsG7Qi8pswCH650LGJPbIs4bbAja/P+lW6ivKnaXtWLP+YmHniXfWvnuLTq4B
+	dP0+SG/SGhVb0vEOm/5L/zR/XzCYxDjNpu/Te7zO9JBQMEnf0b+iZZr9WMlZz9iquJY4coaKpwVE9
+	uC1GYp8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpE2-000000044C6-45kZ;
-	Fri, 16 Oct 2026 21:12:28 +0000
+	id 1xHpE7-000000044Fz-2l7G;
+	Fri, 16 Oct 2026 21:12:31 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDj-0000000444X-1NjU
+	id 1xHpDt-0000000446l-3VIs
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 21:12:07 +0000
+	Fri, 16 Oct 2026 21:12:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=UeMl9uql1AFyJurPPbhyn9zcg6a0jaSRIelhEhPEu38=; b=JyKnyAQvhdTAEgGkky2bg/OaD8
-	8ecT65tg8sQVIzhmmbkKa10s7/nYMoU9G/ndJ1ojynX34+pMF4eEje8Hn2s4kWzpZEDkDoniLOWyW
-	1Dry5k2rzv8mVuoaRovGTDX23yhjcdnHGuUPjaJPHoERVYI5CqbQiGXOOYVaWpNwcGG/tjl5vfvCE
-	0D29VQOArI8vSoFFRb8jHXrLGIFfmg+TuPAHF0NJknG2r8WY+E268fTnuLZ6zrRWHWF0aWPh/sYhQ
-	JRPKGOaEZLH/Nnixmi9VaeiuCNRyaCZZU1Jc4TcLLDnHyKbYAAC3hFQus3d30mSFSr8qbo3qlp7+o
-	m6kPJpyg==;
+	bh=XZOCrJukz5I9fgZNccOyeVfaQmdelsT52M0B1L0OD4Q=; b=cg/TksoS4tLszOsTGZkHNrdXDS
+	v/+D8KbP9tHjSJ8gZYvrCwCmG9QG11I5hCjmWdTdSV4KEnyr/M8sPg6TKIR2sr8NyC0LWpQRZUeYb
+	7euh5rg8Xy6kA9kdQoD3R3sMNH7LCHVeGIHS0lakaJ1D6xIFRR6I2dDsLA4+JT66cn2zCTl/MIQW0
+	ABWXl2X2TNEj23RA2nw0Lz/B3k1kaqYEToCAA/DHF11S4R+OPJmxwLxOR1++qrgE5ddeReG3Yl/s6
+	1186af5R/V4IKEQiNp5CkeLiQRxa+ZS+MRfmxACyjT8wHSsgfhz7NQmWT4EnkGRBG8dynopFBCI+I
+	6zpmMhOg==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHpDf-00000001xSD-4Al2
+	id 1xHpDn-00000001xTa-3fqM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 21:12:06 +0000
+	Fri, 16 Oct 2026 21:12:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48F4C14BF;
-	Fri, 16 Oct 2026 14:11:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EC6C16F3;
+	Fri, 16 Oct 2026 14:12:05 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E09113F673;
-	Fri, 16 Oct 2026 14:11:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B7513F673;
+	Fri, 16 Oct 2026 14:12:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792185121; bh=QDqbFTNQ8Jyz1W6hfN8VAlMEIi6t7zvXVwMS9WRaAkk=;
+	t=1792185128; bh=v1LAhb2I0+3CyA4TRLYHmPRAnmRqKBFBaITXlBKMXvw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gx7CmBRHhvUfexRU2b0z4P9k9I/YmhxyheDLluMD1XTZyon8vTzl27LwfXyuhYI0p
-	 kLPSeM8DRi5zv6MUUF9/jH0jMLPIYwZPJ0vvENhaAQZv2VbgtPZ0foiKku03GpA5RR
-	 fzJqL1vCeyntte9aurYZDPD9+MmZazho6yGbzDEU=
+	b=f2CPc+79kObMka5QjflCmP5zLp/Dr97mFK+PaWOgXTI/BfTKn9YTvt3yMaMYyV1za
+	 ziuXLBNtwselu6D1xTK+TpR4Osn2gF93KOTg6Y2cVuE/o++tUSabtA4lbWkR4F030d
+	 2dih7R59FpqaMyC+G+peFwjPMif363881cMRDNM4=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 22:11:42 +0100
-Subject: [PATCH v2 04/11] coresight: trbe: Use trigger mode for buffer
- maintenance
+Date: Fri, 16 Oct 2026 22:11:46 +0100
+Subject: [PATCH v2 08/11] perf cs-etm: Reset decoder on COLLISION flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_buffer_refactor_v2-v2-4-383ac26382fa@arm.com>
+Message-Id: <20261016-trbe_buffer_refactor_v2-v2-8-383ac26382fa@arm.com>
 References: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 In-Reply-To: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -73,16 +72,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=15895;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=6438;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=QDqbFTNQ8Jyz1W6hfN8VAlMEIi6t7zvXVwMS9WRaAkk=;
- b=XvfPi9FHI6HXlF2tj0Ji0dP0kf6vz3uGYsra5MFMxjb0jNOSieXa/NcmImRsIdjd93zvpWztt
- maihuO5fS6fAayawm3ASiamH0d7BNB9sSw9IvQ4lLsI/ABrMn2c3iB9
+ bh=v1LAhb2I0+3CyA4TRLYHmPRAnmRqKBFBaITXlBKMXvw=;
+ b=cBXrjgRyUeaptbN5lHxtB6Gf0hoWBYLOasi+72DzbPpb2NAzzI28CLV6AM6u5JiKkQYBMWUbt
+ +1wV5GhkezaBUaE+LZDFjCcpOK1s2Xwqn7+A0KKzEpXbm6Xf2ptw5aq
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_221204_474915_127631AE 
-X-CRM114-Status: GOOD (  34.52  )
+X-CRM114-CacheID: sfid-20261016_221212_182356_2FE79BAB 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,436 +96,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TRBE currently uses FILL mode for AUX record. When the write pointer
-reaches LIMIT, trace collection stops and a maintenance interrupt is
-raised. However, due to IRQ latency, trace data may be lost during the
-window in which tracing is halted but the program continues to run.
+Resetting the decoder at every AUX fragment boundary can discard pending
+decode state even when the trace stream is continuous.
 
-Use TRBTRG_EL1 to request maintenance without always stopping trace.
+Store AUX flags when queuing indexed fragments. Preserve decoder state
+across their boundaries and request an explicit reset for the next block
+when the current fragment reports PERF_AUX_FLAG_COLLISION. Source restarts
+with in-band synchronization are handled by the decoder. Keep resetting
+between blocks queued without AUX records, where the flags are unavailable.
 
- 1) If the perf wakeup point is before the programmed LIMIT, program a
-    trigger event at the wakeup point while keeping FILL mode so LIMIT
-    remains the hard stop.
+Keep setting and clearing the queue reset flag in cs_etm__get_trace(),
+where the preceding fragment is available. Clear a request after its
+nonempty block has been consumed and derive collision resets from that
+fragment. Preserve deferred requests through empty buffers.
+cs_etm__get_data_block() only performs the requested reset before
+processing the fetched block.
 
-          head            watermark tail
-     +----+---------------+---------+-------+
-     |$$$$|               |         |$$$$$$$|
-     +----+---------------+---------+-------+
-     base `---- count ----'         limit   base + nr_pages
+Keep flushing retained context-ID thread stacks at every data block
+boundary. AUX records do not distinguish buffer maintenance from normal
+event disable/re-enable. In-band restart packets synchronize the decoder,
+but only the current thread's stack is flushed when processing a
+discontinuity. Another thread may have changed its stack while tracing was
+disabled, and its first instruction sample after restart can otherwise
+contain stale return addresses before branch bookkeeping clears the stack.
 
-     $$$ : Filled trace data
-
- 2) If the writable range extends past the end of the buffer, use WRAP
-    mode with Stop-on-trigger so tracing continues past the limit but
-    stops at the trigger before overwriting unconsumed data.
-
-    Do not program a trigger count that exceed the 32-bit TRBTRG_EL1.TRG
-    field.
-
-              watermark   tail      head
-     +--------+-----------+---------+-------+
-     |        |           |$$$$$$$$$|       |
-     +--------+-----------+---------+-------+
-     base                                   base + nr_pages
-                                            limit
-
-                                    `------->
-     >-- counter ---------'
-
-The available AUX space can be unaligned even when the head and tail
-are aligned, because perf reserves one byte to distinguish a full ring
-from an empty one. Round the wrap-protection count down to the
-TRBIDR_EL1.Align granule before programming TRBTRG_EL1. Use the LIMIT
-fallback if the rounded count no longer extends beyond the limit.
-
-Keep the LIMIT-based wakeup path when trigger mode is bypassed. Add a
-TRIG fault action so trigger events can be handled separately from WRAP
-events. Keep access not allowed stops ahead of WRAP and TRG classification.
-The driver sets TRG when arming the counter, so a set TRG bit alone does
-not establish that the counter has expired.
+Flush those stacks before decoding the new block. This conservatively
+limits callchains and branch history to each chunk while preserving decoder
+continuity. Improving stack continuity can be handled separately.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 193 ++++++++++++++++++++-------
- drivers/hwtracing/coresight/coresight-trbe.h |  18 +++
- 2 files changed, 166 insertions(+), 45 deletions(-)
+ tools/perf/util/auxtrace.h |  2 ++
+ tools/perf/util/cs-etm.c   | 46 +++++++++++++++++++++++++++++++++-------------
+ 2 files changed, 35 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 92cd9c28cb4f6d9da7d41aa9eeedf4295a810006..95bbdbaca81bd59ac97b272216489c2f66393fa7 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -49,6 +49,7 @@
- #define TRBE_TRACE_MIN_BUF_SIZE		64
- 
- enum trbe_fault_action {
-+	TRBE_FAULT_ACT_TRIG,
- 	TRBE_FAULT_ACT_WRAP,
- 	TRBE_FAULT_ACT_SPURIOUS,
- 	TRBE_FAULT_ACT_FATAL,
-@@ -68,6 +69,7 @@ struct trbe_buf {
- 	unsigned long trbe_hw_base;
- 	unsigned long trbe_limit;
- 	unsigned long trbe_write;
-+	unsigned long trbe_trg_count;
- 	int nr_pages;
- 	void **pages;
- 	bool snapshot;
-@@ -169,6 +171,13 @@ struct trbe_drvdata {
- 	struct platform_device *pdev;
+diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
+index 6947f3f284c029286837e4e1dd9f535a5f0b6334..6ea212802e418ebd6536e3ea5456bab7530eeb26 100644
+--- a/tools/perf/util/auxtrace.h
++++ b/tools/perf/util/auxtrace.h
+@@ -243,6 +243,7 @@ struct auxtrace {
+  * @buffer_nr: used to number each buffer
+  * @use_size: implementation actually only uses this number of bytes
+  * @use_data: implementation actually only uses data starting at this address
++ * @aux_flags: AUX event flags
+  */
+ struct auxtrace_buffer {
+ 	struct list_head	list;
+@@ -261,6 +262,7 @@ struct auxtrace_buffer {
+ 	u64			buffer_nr;
+ 	size_t			use_size;
+ 	void			*use_data;
++	u64			aux_flags;
  };
  
-+/* Compute the buffer next state */
-+struct trbe_buf_next {
-+	u64 head;
-+	u64 limit;
-+	u32 count;
-+};
+ /**
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 114b3cd2da495e54e78df8fbd707898312f95079..6f95730fe3b94ae3f534eee505132a2efbc4ff96 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -136,6 +136,9 @@ struct cs_etm_queue {
+ 	 */
+ 	struct intlist *own_traceid_list;
+ 	u32 sink_id;
 +
- static void trbe_check_errata(struct trbe_cpudata *cpudata)
- {
- 	int i;
-@@ -291,6 +300,7 @@ static void trbe_reset_local(struct trbe_cpudata *cpudata)
- 	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
- 	isb();
- 	trbe_drain_buffer();
-+	write_sysreg_s(0, SYS_TRBTRG_EL1);
- 	write_sysreg_s(0, SYS_TRBPTR_EL1);
- 	write_sysreg_s(0, SYS_TRBBASER_EL1);
- 	write_sysreg_s(0, SYS_TRBSR_EL1);
-@@ -392,6 +402,77 @@ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
- 	return size;
++	/* Reset decoder before processing the fetched data block. */
++	bool reset_decoder;
+ };
+ 
+ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm);
+@@ -1436,6 +1439,13 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
+ 	struct auxtrace_buffer *old_buffer = aux_buffer;
+ 	struct auxtrace_queue *queue;
+ 
++	/*
++	 * Clear the reset request for the consumed block. Empty buffers have
++	 * no decoded bytes, so preserve requests deferred through them.
++	 */
++	if (etmq->buf_used)
++		etmq->reset_decoder = false;
++
+ 	queue = &etmq->etm->queues.queue_array[etmq->queue_nr];
+ 
+ 	aux_buffer = auxtrace_buffer__next(queue, aux_buffer);
+@@ -1467,6 +1477,15 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
+ 	etmq->buf_used = 0;
+ 	etmq->buf_len = aux_buffer->size;
+ 	etmq->buf = aux_buffer->data;
++
++	/*
++	 * A collision requires a reset after its fragment. Without AUX flags,
++	 * reset between all blocks.
++	 */
++	if (old_buffer && (!etmq->etm->data_queued ||
++			   (old_buffer->aux_flags & PERF_AUX_FLAG_COLLISION)))
++		etmq->reset_decoder = true;
++
+ 	return 0;
  }
  
-+/*
-+ * Wakeup may be arbitrarily far into the future. If it's not in the
-+ * current generation, either we'll wrap before hitting it, or it's
-+ * in the past and has been handled already.
-+ *
-+ * Return true when the wakeup point belongs to the current writable
-+ * generation and is located between the current head but before tail.
-+ *
-+ *	head		wakeup	tail
-+ * +----|---------------|-------|-------+
-+ * |$$$$|###############|%%%%%%%|$$$$$$$|
-+ * +----|---------------|-------|-------+
-+ * trbe_base		limit		trbe_base + nr_pages
-+ */
-+static bool trbe_wakeup_before_tail(struct perf_output_handle *handle,
-+				    u64 head, u64 wakeup)
-+{
-+	return ((handle->wakeup - handle->head) < handle->size &&
-+		head <= wakeup);
-+}
-+
-+static u32 trbe_normal_trigger_count(struct perf_output_handle *handle,
-+				     u64 head, u64 wakeup, u64 limit)
-+{
-+	struct trbe_buf *buf = etm_perf_sink_config(handle);
-+	struct trbe_cpudata *cpudata = buf->cpudata;
-+	const u64 bufsize = buf->nr_pages * PAGE_SIZE;
-+	u64 count;
-+
-+	if (!cpudata->trig_is_supported)
-+		return 0;
-+
-+	/*
-+	 * Set a trigger at the watermark if it can be reached before the
-+	 * programmed limit.
-+	 */
-+	if (trbe_wakeup_before_tail(handle, head, wakeup)) {
-+		count = round_up(wakeup - head, cpudata->trbe_hw_align);
-+		if (count && head + count < limit)
-+			goto out;
+@@ -2162,17 +2181,15 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+ 	if (!etmq->buf_len)
+ 		return 0;
+ 
+-	/*
+-	 * We cannot assume consecutive blocks in the data file
+-	 * are contiguous, reset the decoder to force re-sync.
+-	 */
+-	ret = cs_etm_decoder__reset(etmq->decoder);
+-	if (ret)
+-		return ret;
++	if (etmq->reset_decoder) {
++		ret = cs_etm_decoder__reset(etmq->decoder);
++		if (ret)
++			return ret;
 +	}
-+
-+	if (limit != bufsize)
-+		return 0;
-+
-+	/*
-+	 * Otherwise, when LIMIT is at the end of the buffer and the writable
-+	 * region wraps, use a trigger count to stop before unconsumed data
-+	 * can be overwritten after wrap.
-+	 *
-+	 *	wakeup          tail    head
-+	 * +----|---------------|-------|-------+
-+	 * |####|###############|$$$$$$$|#######|
-+	 * +----|---------------|-------|-------+
-+	 * trbe_base                            trbe_base + nr_pages
-+	 *                                      limit
-+	 *
-+	 *                              |>>>>>>>>
-+	 * >>>>>>>>>>>>>>>>>>>>>|
-+	 *   ` Trigger counter covers the writable region, rounded down
-+	 *     to the hardware alignment.
-+	 */
-+	count = round_down(handle->size, cpudata->trbe_hw_align);
-+	if (count <= limit - head)
-+		return 0;
-+
-+out:
-+	/* Ensure the count fits in the 32-bit TRBTRG_EL1.TRG field */
-+	return count > U32_MAX ? 0 : count;
-+}
-+
- /*
-  * TRBE Limit Calculation
+ 
+ 	/*
+-	 * Since the decoder is reset, this causes a global trace
+-	 * discontinuity. Flush all thread stacks.
++	 * AUX records do not distinguish buffer maintenance from a source
++	 * restart. Flush all thread stacks before sampling the new block.
+ 	 */
+ 	cs_etm__flush_all_stack(etmq);
+ 
+@@ -3154,9 +3171,8 @@ static u64 *cs_etm__create_meta_blk(u64 *buff_in, int *buff_in_offset,
+  * file_offset.
   *
-@@ -402,13 +483,15 @@ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
-  * %%%% - Free area, disabled, trace will not be written
-  * ==== - Free area, padded with ETE_IGNORE_PACKET, trace will be skipped
+  * Normally, whole auxtrace buffers would be added to the queue. But we
+- * want to reset the decoder for every PERF_RECORD_AUX event, and the decoder
+- * is reset across each buffer, so splitting the buffers up in advance has
+- * the same effect.
++ * want to check every PERF_RECORD_AUX event to decide if need to reset
++ * decoder across each buffer, so splitting the buffers up in advance.
   */
--static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
-+static unsigned long __trbe_normal_offset(struct perf_output_handle *handle,
-+					  struct trbe_buf_next *next)
- {
- 	struct trbe_buf *buf = etm_perf_sink_config(handle);
- 	struct trbe_cpudata *cpudata = buf->cpudata;
- 	const u64 bufsize = buf->nr_pages * PAGE_SIZE;
- 	u64 limit = bufsize;
- 	u64 head, tail, wakeup;
-+	u32 count = 0;
+ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_offset, size_t sz,
+ 				      struct perf_record_aux *aux_event, struct perf_sample *sample)
+@@ -3168,6 +3184,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 	union perf_event auxtrace_fragment;
+ 	__u64 aux_offset, aux_size;
+ 	enum cs_etm_format format;
++	struct auxtrace_buffer *buffer = NULL;
  
- 	head = PERF_IDX2OFF(handle->head, buf);
+ 	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
+ 						   struct cs_etm_auxtrace,
+@@ -3251,10 +3268,13 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
+ 			  " tid: %d cpu: %d\n", aux_size, aux_offset, sample->tid, sample->cpu);
+ 		err = auxtrace_queues__add_event(&etm->queues, session, &auxtrace_fragment,
+-						 file_offset, NULL);
++						 file_offset, &buffer);
+ 		if (err)
+ 			return err;
  
-@@ -453,10 +536,12 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 	wakeup = PERF_IDX2OFF(handle->wakeup, buf);
- 
- 	/*
--	 * Lets calculate the buffer area which TRBE could write into. There
--	 * are three possible scenarios here. Limit needs to be aligned with
--	 * PAGE_SIZE per the TRBE requirement. Always avoid clobbering the
--	 * unconsumed data.
-+	 * Calculate the buffer limit. There are three possible scenarios.
-+	 * The limit needs to be aligned with PAGE_SIZE per the TRBE
-+	 * requirement. Always avoid clobbering the unconsumed data.
-+	 *
-+	 * How tracing proceeds after the limit is reached (e.g. wrapping
-+	 * or stopping) depends on the subsequent buffer management.
- 	 *
- 	 * 1) head < tail
- 	 *
-@@ -466,9 +551,8 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 	 * +----|-----------------------|-------+
- 	 * trbe_base			limit	trbe_base + nr_pages
- 	 *
--	 * TRBE could write into [head..tail] area. Unless the tail is right at
--	 * the end of the buffer, neither an wrap around nor an IRQ is expected
--	 * while being enabled.
-+	 * TRBE could write into [head..tail] area. Programming the limit at
-+	 * 'tail' prevents from overwriting into unconsumed data.
- 	 *
- 	 * 2) head == tail
- 	 *
-@@ -500,20 +584,20 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 		limit = round_down(tail, PAGE_SIZE);
- 
- 	/*
--	 * Wakeup may be arbitrarily far into the future. If it's not in the
--	 * current generation, either we'll wrap before hitting it, or it's
--	 * in the past and has been handled already.
-+	 * The trigger count is used either to generate an early maintenance
-+	 * interrupt at the watermark or to guard unconsumed data before
-+	 * wrapping.
-+	 */
-+	count = trbe_normal_trigger_count(handle, head, wakeup, limit);
++		if (buffer)
++			buffer->aux_flags = aux_event->flags;
 +
-+	/*
-+	 * A zero count value indicates that no trigger should be programmed,
-+	 * so notification relies on the programmed limit.
- 	 *
- 	 * If there's a wakeup before we wrap, arrange to be woken up by the
- 	 * page boundary following it. Keep the tail boundary if that's lower.
--	 *
--	 *	head		wakeup	tail
--	 * +----|---------------|-------|-------+
--	 * |$$$$|###############|%%%%%%%|$$$$$$$|
--	 * +----|---------------|-------|-------+
--	 * trbe_base		limit		trbe_base + nr_pages
- 	 */
--	if ((handle->wakeup - handle->head) < handle->size && head <= wakeup)
-+	if (!count && trbe_wakeup_before_tail(handle, head, wakeup))
- 		limit = min(limit, round_up(wakeup, PAGE_SIZE));
- 
- 	/*
-@@ -532,8 +616,12 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 	 * +------------|------|--------|-------+
- 	 * trbe_base				trbe_base + nr_pages
- 	 */
--	if (limit > head)
-+	if (limit > head) {
-+		next->head = head;
-+		next->limit = limit;
-+		next->count = count;
- 		return limit;
-+	}
- 
- 	trbe_pad_buf(handle, handle->size);
- 	return 0;
-@@ -542,8 +630,10 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- static int trbe_normal_offset(struct perf_output_handle *handle)
- {
- 	struct trbe_buf *buf = etm_perf_sink_config(handle);
--	u64 limit = __trbe_normal_offset(handle);
--	u64 head = PERF_IDX2OFF(handle->head, buf);
-+	struct trbe_buf_next next = { };
-+	u64 limit;
-+
-+	limit = __trbe_normal_offset(handle, &next);
- 
- 	/*
- 	 * If the head is too close to the limit and we don't
-@@ -553,16 +643,16 @@ static int trbe_normal_offset(struct perf_output_handle *handle)
- 	 * We might have to do this more than once to make sure
- 	 * we have enough required space.
- 	 */
--	while (limit && ((limit - head) < trbe_min_trace_buf_size(handle))) {
--		trbe_pad_buf(handle, limit - head);
--		limit = __trbe_normal_offset(handle);
--		head = PERF_IDX2OFF(handle->head, buf);
-+	while (limit && next.limit - next.head < trbe_min_trace_buf_size(handle)) {
-+		trbe_pad_buf(handle, next.limit - next.head);
-+		limit = __trbe_normal_offset(handle, &next);
- 	}
- 
- 	if (!limit)
- 		return -ENOSPC;
- 
--	buf->trbe_limit = buf->trbe_base + limit;
-+	buf->trbe_limit = buf->trbe_base + next.limit;
-+	buf->trbe_trg_count = next.count;
- 	return 0;
- }
- 
-@@ -607,6 +697,7 @@ static void set_trbe_limit_pointer_enabled(struct trbe_buf *buf)
- {
- 	u64 trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
- 	unsigned long addr = buf->trbe_limit;
-+	u64 to_limit = buf->trbe_limit - buf->trbe_write;
- 
- 	WARN_ON(!IS_ALIGNED(addr, (1UL << TRBLIMITR_EL1_LIMIT_SHIFT)));
- 	WARN_ON(!IS_ALIGNED(addr, PAGE_SIZE));
-@@ -616,24 +707,32 @@ static void set_trbe_limit_pointer_enabled(struct trbe_buf *buf)
- 	trblimitr &= ~TRBLIMITR_EL1_TM_MASK;
- 	trblimitr &= ~TRBLIMITR_EL1_LIMIT_MASK;
- 
--	/*
--	 * Fill trace buffer mode is used here while configuring the
--	 * TRBE for trace capture. In this particular mode, the trace
--	 * collection is stopped and a maintenance interrupt is raised
--	 * when the current write pointer wraps. This pause in trace
--	 * collection gives the software an opportunity to capture the
--	 * trace data in the interrupt handler, before reconfiguring
--	 * the TRBE.
--	 */
--	trblimitr |= (TRBLIMITR_EL1_FM_FILL << TRBLIMITR_EL1_FM_SHIFT) &
--		     TRBLIMITR_EL1_FM_MASK;
-+	if (!buf->trbe_trg_count || buf->trbe_trg_count == to_limit) {
-+		/*
-+		 * No separate trigger is needed. Use FILL mode so tracing stops
-+		 * and raises a maintenance interrupt when the write pointer
-+		 * reaches the limit.
-+		 */
-+		trblimitr |= TRBE_LIMIT_MODE(TRBLIMITR_EL1_FM_FILL,
-+					     TRBLIMITR_EL1_TM_IGNR);
-+	} else if (buf->trbe_trg_count < to_limit) {
-+		/*
-+		 * The trigger lies before the limit. Use FILL mode to preserve
-+		 * the limit as the hard stop, and enable trigger IRQs for
-+		 * early maintenance, such as watermark handling.
-+		 */
-+		trblimitr |= TRBE_LIMIT_MODE(TRBLIMITR_EL1_FM_FILL,
-+					     TRBLIMITR_EL1_TM_IRQ);
-+	} else if (buf->trbe_trg_count > to_limit) {
-+		/*
-+		 * The trigger lies beyond the limit. Use WRAP mode so tracing
-+		 * can continue past the limit, and stop on the trigger before
-+		 * it can overwrite unconsumed trace data.
-+		 */
-+		trblimitr |= TRBE_LIMIT_MODE(TRBLIMITR_EL1_FM_WRAP,
-+					     TRBLIMITR_EL1_TM_STOP);
-+	}
- 
--	/*
--	 * Trigger mode is not used here while configuring the TRBE for
--	 * the trace capture. Hence just keep this in the ignore mode.
--	 */
--	trblimitr |= (TRBLIMITR_EL1_TM_IGNR << TRBLIMITR_EL1_TM_SHIFT) &
--		     TRBLIMITR_EL1_TM_MASK;
- 	trblimitr |= (addr & PAGE_MASK);
- 	set_trbe_enabled(buf->cpudata, trblimitr);
- }
-@@ -645,6 +744,7 @@ static void trbe_enable_hw(struct trbe_buf *buf)
- 	WARN_ON(buf->trbe_write >= buf->trbe_limit);
- 	set_trbe_base_pointer(buf->trbe_hw_base);
- 	set_trbe_write_pointer(buf->trbe_write);
-+	set_trbe_trigger_count(buf->trbe_trg_count);
- 
- 	/*
- 	 * Synchronize all the register updates
-@@ -692,8 +792,7 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
- 	case TRBSR_EL1_BSC_FILLED:
- 		break;
- 	case TRBSR_EL1_BSC_TRIGGER_EVENT:
--		err_str = "Unsupported trigger event";
--		goto out_fatal;
-+		break;
- 	case TRBSR_EL1_BSC_MANUAL_STOP:
- 		err_str = "Unsupported manual stop";
- 		goto out_fatal;
-@@ -716,6 +815,9 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
- 	if (is_trbe_wrap(trbsr))
- 		return TRBE_FAULT_ACT_WRAP;
- 
-+	if (is_trbe_trg(trbsr))
-+		return TRBE_FAULT_ACT_TRIG;
-+
- 	return TRBE_FAULT_ACT_SPURIOUS;
- 
- out_fatal:
-@@ -1370,6 +1472,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
- 
- 	act = trbe_get_fault_act(handle, status);
- 	switch (act) {
-+	case TRBE_FAULT_ACT_TRIG:
- 	case TRBE_FAULT_ACT_WRAP:
- 		truncated = !!trbe_handle_overflow(cpudata, act,
- 						   !is_trbe_running(status));
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.h b/drivers/hwtracing/coresight/coresight-trbe.h
-index 8ba9ef4056e4dc3968816c6a7cbf2859f2bbed36..fe84af94525f8c2dc40ac9c472bec5c1117a40b9 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.h
-+++ b/drivers/hwtracing/coresight/coresight-trbe.h
-@@ -19,6 +19,10 @@
- 
- #include "coresight-etm-perf.h"
- 
-+#define TRBE_LIMIT_MODE(fm, tm) \
-+	(FIELD_PREP(TRBLIMITR_EL1_FM_MASK, (fm)) | \
-+	 FIELD_PREP(TRBLIMITR_EL1_TM_MASK, (tm)))
-+
- static inline bool is_trbe_available(void)
- {
- 	u64 aa64dfr0 = read_sysreg_s(SYS_ID_AA64DFR0_EL1);
-@@ -104,6 +108,20 @@ static inline void set_trbe_write_pointer(unsigned long addr)
- 	write_sysreg_s(addr, SYS_TRBPTR_EL1);
- }
- 
-+static inline void set_trbe_trigger_count(unsigned long count)
-+{
-+	u64 trbsr;
-+
-+	write_sysreg_s(count, SYS_TRBTRG_EL1);
-+
-+	/* TRBSR_EL1.TRG has been cleared in clr_trbe_status() */
-+	if (!count)
-+		return;
-+
-+	trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-+	write_sysreg_s(trbsr | TRBSR_EL1_TRG, SYS_TRBSR_EL1);
-+}
-+
- static inline unsigned long get_trbe_limit_pointer(void)
- {
- 	u64 trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
+ 		format = (aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW) ?
+ 				UNFORMATTED : FORMATTED;
+ 		if (etmq->format != UNSET && format != etmq->format) {
 
 -- 
 2.34.1
