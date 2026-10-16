@@ -4,159 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2861CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C71BCCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F1Qq8yTO6ayTcSnpYdPFKlCgpCuwwLG83gU5RMJ4hAA=; b=UGwZhcA5AWbdNVpXso/6d3ZB1D
-	5tt8kywQ323y9417Dl9TLtD9i6aRlAqHBBozzpqaGh+SJxjFtGwBaH/kwN0wvmHA5zi1pgCYYJiZn
-	6Dms/9e9y9EewY+lMVRHAiwqqluaKtgq4SaLpnS80epbdDmGzjfVuhzpn0pL1HB3l0vudIk2u1EVq
-	JReDTUwqfZq3SQbqJgKx1eLFpcqNIrEjIxxMWlaSMM/0laYO1cJRkQL6qBh68uLpJK4mVmcokawN8
-	i9+m3AmykPb0JQIOCt3PSwP0+mzaMxExTmSx0Ku5roo+ArhU+EUnRkHCAhSr0s6qudybDBRvVORjP
-	VVR+ojOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INWXxLCTOEEgIkmqQIiAfdlYe0QOm5Zo0esRtafJx04=; b=VGR9XjS/KYmsiRQPayvzBgrmcG
+	KYrFbfZUHcwNVVT9KFz7J4+Kkp/vp+nwwDCA7IorH+jZG3h+KdoDA4Z8f8Fo0Ub6D0aY6o/a3G1HJ
+	73LVkWkMKmeNhkLvafa5AtGoOo8c8dQkoqOu83RAKuyiNhp/Y8+WDLtu44s+oU1J0c31CLxegzIsN
+	rL7r8wcwy/CZERdZ16Ed5UpRiZaUUs5ZhsQqAmyntV4cvFdA1GdvUArNtKbdhxcFmZf6DbBnN7Htg
+	6G58pIbwmvHpXgnPMPud6+/cX2TDmYOtJamOTbtPwAnqeNUqbAparFTREB+NjiRKgJ9wBzh4FzuRq
+	/cORAFJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhY5-00000002zLK-2gUs;
-	Fri, 16 Oct 2026 13:00:37 +0000
-Received: from mail-japaneastazon11011016.outbound.protection.outlook.com ([52.101.125.16] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1xHh8A-00000002tGa-03bH;
+	Fri, 16 Oct 2026 12:33:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhXx-00000002zK8-0Lza
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 13:00:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J7nn6ywz1k6q68qUily/Ah6cLnA7eRg+bjvwO2w+LjMzZ/TvFOfVBGhy2TZsPeprMlM8ZgqLKGJDfkTkF5KJxQVwTU4N3aRnxhtSNTfKhESnOb4ilBY/F4k1RzJvj865h5T4gP2LlK3zLTU/SpL700QytNcB51kHNfgHAjwPl0g5Cm6y4aDPlEuZyUjADpd2ethBqVRLMpzS8Y1QjzLJDxZ/2imvZBn7uPAHPubED3mq4CmukrbfC9CD3UbGrsen30sVAK1O1QOUKRxpTWXPGl7kY/cye0sOaWmuHKdAKMXCdvaXdWoiyOdG6Yhq+SO0fuxFqxfxkQyLibPsWY+JGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F1Qq8yTO6ayTcSnpYdPFKlCgpCuwwLG83gU5RMJ4hAA=;
- b=wC5b48GJtW0AJdQSwNuc+wE/6BDVWIP5eR1RX8Kttb8IET6FPrM/Xe4TYIMJjG/tzbDP/pZpnU/T9rwjcyU/h5AsgX4yTtJmT+QacqI/9qHlF83Tls8W6G0KGFUNiZph+UNgNE4E+pt1jowqFdIURIlyhs5zM19uzDRNSGH3ArAx0RZOlCkMb58oMk12Bc+8yMrrvVIj7/EqwEjcaVTtYq6GvJ9TXFwh5aHKr5Cg35RCpXP12mf4J4KsQqf9flGoek+pl301gTIl6VcWGRtuUr1LOcd4wX+kcQQBlmwcaOTUIOd1cRlxSIO68+ZCPIZnd0q3Q/9Aw5qqNbKNMu35Xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F1Qq8yTO6ayTcSnpYdPFKlCgpCuwwLG83gU5RMJ4hAA=;
- b=XsDfSYYAY8HL2MyqOj3z4xFBmxlyP10RTLuN/kWUtbRHVR1mp2Hs2nCN9bMB6Le6tcQsZpbCYgqfb5ZDiNPyNn4xgW5x1jBCVBSP/OLKnLVsV1jKEYAlXFZzobqeLRNKpqPnKbD8R3DTth34XgS06EoKsgiUuLgxjWknQOwRjuGg+nGv/k0z4QgFl8Uk3XKD5iKuHBPNEqYoNoE8xwbdOwYRaqBKj58mvpdWoK0nwA0MZuCLzqqywIMY8mDNJ4Q2BP387Hek7vYPexXmg65G1SNeaf+AimJlge62xyns/qMlChhqSTPXgh4QdExA6JKKeHmtAuxjwGoqXrWDxN/gnQ==
-Received: from OSCPR01MB15739.jpnprd01.prod.outlook.com
- (2603:1096:604:3cb::14) by TYRPR01MB12287.jpnprd01.prod.outlook.com
- (2603:1096:405:ff::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.15; Fri, 16 Oct
- 2026 13:00:21 +0000
-Received: from OSCPR01MB15739.jpnprd01.prod.outlook.com
- ([fe80::acf8:3415:5b7f:12c0]) by OSCPR01MB15739.jpnprd01.prod.outlook.com
- ([fe80::acf8:3415:5b7f:12c0%5]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
- 13:00:20 +0000
-From: "Tomohiro Misono (Fujitsu)" <misono.tomohiro@fujitsu.com>
-To: 'Mark Rutland' <mark.rutland@arm.com>
-CC: 'Catalin Marinas' <catalin.marinas@arm.com>, 'Will Deacon'
-	<will@kernel.org>, 'Jonathan Corbet' <corbet@lwn.net>, 'Shuah Khan'
-	<skhan@linuxfoundation.org>, 'Randy Dunlap' <rdunlap@infradead.org>, 'Marc
- Zyngier' <maz@kernel.org>, 'Thomas Gleixner' <tglx@kernel.org>, 'Radu Rendec'
-	<radu@rendec.net>, 'Oliver Upton' <oupton@kernel.org>, 'Fuad Tabba'
-	<fuad.tabba@linux.dev>, 'Joey Gouly' <joey.gouly@arm.com>, 'Steffen Eiden'
-	<seiden@linux.ibm.com>, 'Suzuki K Poulose' <suzuki.poulose@arm.com>, 'Zenghui
- Yu' <yuzenghui@huawei.com>, "Kohei Enju (Fujitsu)" <enju.kohei@fujitsu.com>,
-	"'linux-arm-kernel@lists.infradead.org'"
-	<linux-arm-kernel@lists.infradead.org>, "'linux-kernel@vger.kernel.org'"
-	<linux-kernel@vger.kernel.org>, "'linux-doc@vger.kernel.org'"
-	<linux-doc@vger.kernel.org>, "'linux-perf-users@vger.kernel.org'"
-	<linux-perf-users@vger.kernel.org>, "'kvmarm@lists.linux.dev'"
-	<kvmarm@lists.linux.dev>
-Subject: RE: [PATCH v2 3/4] perf: arm_pmu: Add workaround for FUJITSU-MONAKA
- Erratum E#030002
-Thread-Topic: [PATCH v2 3/4] perf: arm_pmu: Add workaround for FUJITSU-MONAKA
- Erratum E#030002
-Thread-Index: AQHdXVVbzJOi/425oUyzsr9T2p9p/LcAE4mAgAADN9A=
-Date: Fri, 16 Oct 2026 13:00:13 +0000
-Deferred-Delivery: Fri, 16 Oct 2026 12:59:15 +0000
-Message-ID: <OSCPR01MB1573944ED57DC682897594F06E59B2@OSCPR01MB15739.jpnprd01.prod.outlook.com>
-References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
- <20261016-monaka-fix-for-upstream-v2-3-fc7ede7f9f48@fujitsu.com>
- <atIT0dmeqAXLoThW@J2N7QTR9R3.cambridge.arm.com>
-In-Reply-To: <atIT0dmeqAXLoThW@J2N7QTR9R3.cambridge.arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=93366836-92ea-417c-9514-fd1f02ffbe5f;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2026-10-16T12:58:38Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Tag=10,
- 0, 1, 1;
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSCPR01MB15739:EE_|TYRPR01MB12287:EE_
-x-ms-office365-filtering-correlation-id: 0f6b0d57-2cba-42db-3971-08df2b856f42
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|38070700021|56012099006|4143699003|11063799006|5023799004|261009223027099003|10067099003|18002099003|22082099003|6133799003|1580799027;
-x-microsoft-antispam-message-info: 0eskU3ENX5zqO2arnOjRCQx1O7oFpFyNh+Od8M9zVNz9ED2yHZYIQYGw185WQ85kpc+n3r/mX3UtCPc5MQXNk9lUfUoQUHxkfdogtl+AoU28E9aJNrxsID/Jc52AtxxC3t3XsfJ+XGm5BKzZPGeZNu7XP1T+HpnsgzO3iB7xKYw6wdtsXi+HdQYOQf5k5wFF8eTYOObgJaBi9O1Gr/ObINRoAyNpsb8g/OoK3c/Bt2Uo4P/DfpfZFlwGRQLsUZh5tu9GnkZEDiREnFU0D+7Yp5Y5LPHJVKTkUGxT5hEwv/EoK/g8z1qPEwNP5aIuFXESzYM8/Rf9Zwredrrm9jRoz5eXk15h1cJp1zyJkdJGJN7+Wk81SeYpx18cHgFOYcXPLUA42s4yo+eYA1BcKnxoNBxfNCy/3C/kZ/1yY04lN1peHyfT17cR5W+dj6imZbX5HXI1K7gJkxFp7h1Sb1ArT5pfI8qo9JhSzlchbkxXfJA7lpE+KcimMIYLy4s25ETO2QvUz21On41N+ZYv9N4hXsszy5DGbv3/VvUsF17StsSv8OC0vQVIqKOzd5O5vKrkadh322RYiiS5hqxrmihX5jkWeVVxoE7p+7yy799JsDhU+lfiRQuFdUZ/lQKAxpQJbEsVUdZY26fECP3e1z5eqGBFmYg6/wYVaUBaX4wHCpnHmn9MqXNQuWn0JcI6w2GGrEQ7PyCDiLSHz62oJqKLkQrvrl3/qDCJZZjgHlazn+U1Mx51d60VnQKn5r+gSxSg
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSCPR01MB15739.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(38070700021)(56012099006)(4143699003)(11063799006)(5023799004)(261009223027099003)(10067099003)(18002099003)(22082099003)(6133799003)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?ZDFoM2ExaDdrRmJsSEZjc005RXB6NmJlSWZYWnZXNmNCa25wbUNkcStw?=
- =?iso-2022-jp?B?V213VkszalU3MzYxV3RUZ1NHWFk1SEgzNkU1T2E4R2JEQ0Fxb0RWQWhp?=
- =?iso-2022-jp?B?VXBLbGUrUTVaQmJQWlFMTlNCZkxzV0dBay96Y0U2TFJoQ0FCbC96TkNW?=
- =?iso-2022-jp?B?OXh0bDMyYTZ0MGhCZ01KYlhERzJKUWJSNUNDd0Jqb2FjcWJLTGgyKzRn?=
- =?iso-2022-jp?B?SmFVVnFpZ3pYZmplYlp4Q1dGbHhuSTBodmJxNENCNm1INVQ4ZThJVTFk?=
- =?iso-2022-jp?B?RTdNNlNKMnN0RlR5c0JJclQxUEp0YkRROUh3TFlBZlBFUElXbmRJcGRU?=
- =?iso-2022-jp?B?ZVZCVmltbGRxOFdET0JWMWdOdnY1eGkwSEYra09pTTBkelQ0ZUVQalA4?=
- =?iso-2022-jp?B?Z0xlZE04dE1hamZYcTBDUVBSejk0V01wcGNxQ1J4OTRiWFY1L0Rmenlw?=
- =?iso-2022-jp?B?M3BydUN0WGh4OEtrdFNmMVEvVXRoNlpQVENETWxPWUZLQ3UzV1Y1allx?=
- =?iso-2022-jp?B?VXppbXRiaTVNR2RRY0RmeUh4VU5QRk0wRmxvMUN2eUo0Q1RZelB2WS91?=
- =?iso-2022-jp?B?S1VxaEdyL3QzeXN3d0thZG5ZUklGY0ZnRnJoSUtDdWt5R3dhbDlHZ2hC?=
- =?iso-2022-jp?B?ZTFhTUZvZVV5c0UrN09aYm5MOVcwNzRzMy9GQUZrYnpXa3ExSVhYTzlm?=
- =?iso-2022-jp?B?dm5xcElaT2NKVVdxOG9WSUZ3TWd0VnFzNnI1V2xuVHVETXhwc1dubzdO?=
- =?iso-2022-jp?B?a0hKdng2VWpnY2h5UXAzQnBvQU1zVlFzTjQ0a1JrWm9lUm1BbExOZXRi?=
- =?iso-2022-jp?B?VmxuUnlKdjRJbUF2djhwTHVCQ1dFeWgxY3hDYTg4clRwMUdkSXBvenZq?=
- =?iso-2022-jp?B?ZHB3WU0vZmIzbEVMMjVXSVdLNXBhYzVIWHNmWlg0bmhTRmdGK1pBM1dX?=
- =?iso-2022-jp?B?ZlF2bXlxUlp1QVBHemJVa1dtRmc0a2VYQVFncW5lQUs5VmRzVFhVSkhX?=
- =?iso-2022-jp?B?a2duTUloUDlrVGl3eGxTRndVODRMcVdtNE1uRDFCanA0RWN6eGM2azhr?=
- =?iso-2022-jp?B?eVplQTVnZVU2OFRWbHpvUWlSdGhDTUFWMVhhdTZvVnBVd2tkcS94Rmth?=
- =?iso-2022-jp?B?ZU1XQ1I1QnVKNDBuY2dlekpnREJLYmtIVG9vdGpsTmQ5aFBrN3IzTWdp?=
- =?iso-2022-jp?B?dzcwTWtMOStzOWJkWGc0QkNYLzcrOVBhUWI2V1NhNW50Znk1K1haUnM5?=
- =?iso-2022-jp?B?em5ITzcvanlnb0ZjZ2p4emhsMzFldnVGUG8wMHhRMndOaUxUS3VkU1R1?=
- =?iso-2022-jp?B?bDh3b2pFK0ttT293d05FdElQN3U3VlhMQVRmaEZudmRBNzFRL0E1c01w?=
- =?iso-2022-jp?B?Q2ZEdEdOL25zV3BuODRQUXdjT0J6aEVmMUtlaXdqaHhQcnFrN2ltRHBa?=
- =?iso-2022-jp?B?VmhFT1VUaTBsWUdhWmJpRFFNQ1MxOS85dnJWWWluSHlMMEhVMkZXdy9G?=
- =?iso-2022-jp?B?YjVQalBwY2dsUEZQNTRsZWRxS3ZrOTZrSG01WnlmODIwNFRpcEtnUjNq?=
- =?iso-2022-jp?B?NDhuM2h0alFPcFVJSVdHeEZ5aFpJb29rT0cyVDU2QjRJVWV1N1MzWERQ?=
- =?iso-2022-jp?B?Rk5hcWw2WDZiV3BWOFA5UGdYQVBXU2F2ZC95clZaS294ZG4zMS9uOHcx?=
- =?iso-2022-jp?B?ZGV6VWQ3T2dmdzdGYU94K3BwVktDbTc4aDRLWGdaME1XakVsNlVLRnha?=
- =?iso-2022-jp?B?bGxGR0JHSVZ5NHIzd1pIL3AzT1E5ZS9rUXZHbGtUalpoY1Y4MnFNcGpX?=
- =?iso-2022-jp?B?b3hrVE9sZE0ya04ySGVSQ2l1MVdVWi80bytQWGg1Z05oOStXUjJFSHht?=
- =?iso-2022-jp?B?OUhQQ1FWcFA1L0VsdnlxbXVBZGNqL1NWemMwTks5VHNjV2RFekt3Z3VQ?=
- =?iso-2022-jp?B?NEM1NVdRbjlyVWdqVEZJL2RJYUYrR2NsWGJCdFVrWXNhRFh3bWIyNklU?=
- =?iso-2022-jp?B?b29icTQybUw1OExxRis0RUVLSVpPeXZBcGJzUUFvYmxsZUxCSXBNZU9r?=
- =?iso-2022-jp?B?cjVnVm9UN0RXNjFUc3QyMml3elYzSE1WSkM1Vm8xajVSYXNvNDB3N3U3?=
- =?iso-2022-jp?B?eG1PcDNNdUo2UnFyV013dkFGbG1TQWtCRWRUYms4d09oSUt2Z25WTHhX?=
- =?iso-2022-jp?B?eDk5UlJyTk1Yalk5S1h3S2JjYkhlZ1Y4TzJOTklJSVlxc1RoamoxRmdT?=
- =?iso-2022-jp?B?RzhMYXFsMnJvUXcyZTAyY1l6L3JUalhnUUNsUzJMM1paaDNKUGNpeWgv?=
- =?iso-2022-jp?B?WVF4cnpmYzYraUx6ZDJMM0xqTFF0cGRFenFsd1VrZ0tEYXpTR1ovNXZj?=
- =?iso-2022-jp?B?djZOT1JuMHNRUzBHbTdQT3ZWaGNMZzA3Z1F2UEY0a01PK1pFNFV6Vm9D?=
- =?iso-2022-jp?B?Z1NpMjFnRkRlRTZCWW1ZMVBzWTRLNm9oVFNXZGZBQWVTQU0wSE9CcDYv?=
- =?iso-2022-jp?B?eGRURTdKQ2IyZk0xeSttb0ZjZHo5NXpuTUNIY05OTFBPU2J1eEZaRmZ1?=
- =?iso-2022-jp?B?dmlvMG1mZz0=?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	id 1xHh7z-00000002t5I-2huS;
+	Fri, 16 Oct 2026 12:33:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1792154017;
+	bh=tHkxgoeGmFLf5fvdHv6jIQH7FrSUP2b2Q4iZ0NBdCp4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TM3AxajCDnVOdJmN2E2Ppm7AlkVde1QHcgyqAs9gZbP0GJBGcLdj8X2y5i0ZnDjhk
+	 VFAOJs5tHWIXTeZ1DntWns6dWRCf6BtgTnWSh1QSX99IevIII7eTtIw79Np5H8SY5y
+	 6OQTGy3cD6FtPL4n2Q7h5g8B3UyAX8n775YjzlI62v++jBdNTLvLMRRApvUlGPpRhl
+	 FhBO/Cfik7ImjxDCKm01jzuK8LqIbzE9GMGME+xrwJxgCmrDKss1scxA4N0tnimIZ3
+	 UQTLdHARbf4kkOpJd3xCEeSt1eQxyBhUpqHpwJ+ni1KyYHwPuLhVEFKhkvFUVt4pXb
+	 QjPk5QZli4FNw==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75DD217E153E;
+	Fri, 16 Oct 2026 14:33:36 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 16 Oct 2026 14:32:58 +0200
+Subject: [PATCH v14 06/23] scsi: ufs: mediatek: Rework resets
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: QK863yrltTwPyQNxeyOsLKXikfxxWbJdJkydMCJCS57P8gWgiS9nPVJ5iFBH9Eh6DnDCaNmiG3aR5STBYRpCW+tD8uskJPVhERhn7pKTtfwnwzAG8HW7L4FkRmfa9ZAiv/aWfBJj27vjxl7oZL+06JYFzqOAsWj7TGNYkN32GRyD2TlYmUNxqWgmiBR7LJY2mRaRZ6iGAnthVywJ+uIXnzfZ6mh1yrdW66/NT5x/0EqaKg0nUfVhK4XgSovNg3e0MlmlEUVESO/yvlI2c60WocRC1nRe+bIePIGXRPvM1UuaKJXYMdNqABHs/2KzzGs2r0/3D2OF5uQNhP6rruHi5g==
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB15739.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f6b0d57-2cba-42db-3971-08df2b856f42
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Oct 2026 13:00:20.6355
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vHvFbZZ0kFAkwGOE1h28SMaYOdChIDSHE8rQgujlXJYY3GbZInMXKZfOuUyDqbdGO9nBzTRXydjAYZxtoNSSql8diB1AN6H+wEQN6+0DK3Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB12287
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-mt8196-ufs-v14-6-e8d565e0cd45@collabora.com>
+References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Wang <peter.wang@mediatek.com>, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <mkp@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=6225;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=E+fe+uSlqDcN4d9IJBGNLtUcTRsEZ5Yfc3xFc1tusFA=;
+ b=vpvNmLc5xMUe34I78OOk9rDhXueRGHGeyKtFVgQWh0uY9mCWLKSVkExkMTeupbmweNek1NXNE
+ tKL9R1N8hOuA5anl6k1FVwnmYTZYWNQkVOdvBtqYZ7MJcQ/vKGKKGCT
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_060029_464507_48AA582A 
-X-CRM114-Status: GOOD (  36.01  )
+X-CRM114-CacheID: sfid-20261016_053339_856382_7846A5CA 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,230 +99,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
-Thanks for the reviews.
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-> Subject: Re: [PATCH v2 3/4] perf: arm_pmu: Add workaround for FUJITSU-MON=
-AKA Erratum E#030002
->=20
-> On Fri, Oct 16, 2026 at 07:00:47PM +0900, Tomohiro Misono wrote:
-> > FUJITSU-MONAKA Erratum E#030002 affects FUJITSU-MONAKA CPU.
-> >
-> > On affected FUJITSU-MONAKA CPUs, after a PMU event counter is
-> > stopped at a value just before overflow, an overflow might still
-> > be incorrectly detected, resulting interrupt storm in some case.
-> >
-> > For example, if the following conditions are met:
-> >   1) Running perf to count an event in user space only
-> >   2) The event can also occur in kernel space
-> >   3) The counter value is set just before the overflow
-> >      (when using the -F option, initial counter value is -1)
-> >
-> > when the kernel is about to return to user space after enabling
-> > the count, an overflow interrupt is incorrectly triggered by an
-> > event that occurred in kernel space. Since the counter value is
-> > not updated (correctly), the interrupt handler does nothing and
-> > returns with the same condition. This leads to another wrong interrupt
-> > and results in an interrupt storm and eventually a softlockup.
->=20
-> I don't fully understand this.
->=20
-> Surely the relevant PMOVS{CLR,SET}[n] bit set as if the counter n
-> overflowed?
->=20
-> If that bit is set, the handler will certainly do *something*.
->=20
-> If that bit is not set, the interrupt shouldn't be asserted at all. When
-> does it get de-asserted?
+Rework the reset control getting in the driver's probe function to use
+the bulk reset APIs. Use the optional variant instead of defaulting to
+NULL if the resets fail, so that absent resets can be distinguished from
+erroneous resets.
 
-Sorry, my explanation wasn't clear. The interrupt will be de-asserted as us=
-ual.
-The problem is that armpmu_event_set_period() will not update the counter
-value if, for example, the counter is -1. Therefore, false overflow detecti=
-on will continue.
-With this patch, armpmu_event_set_period() will force the counter to -6 so =
-that
-false overflow detection won't occur in the kernel, since the maximum event
-count at a time is 5.
+Also remove all remnants of the MPHY reset ever having lived in this
+driver.
 
->=20
-> > Work around the erratum by avoiding programming PMU event counters
-> > with values within five counts of overflow.
->=20
-> Without more detail, I don't think that can be sufficient, because you
-> can end up in a scenario where:
->=20
-> 1. The kernel confugures the counter to -5.
->=20
-> 2. The kernel returns to userspace.
->=20
-> 3. In userspace, 4 events occur, and are counted, leaving the counter at
->    -1.
->=20
-> 4. Some unrelated interrupt is taken, entering the kernel.
->=20
-> 5. Upon return to userspace, a kernel event occurs, triggering this
->    issue.
->=20
-> 6. The PMU interupt handler runs, does nothing, leading right back to
->    the original issue.
->=20
-> What am I missing?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/ufs/host/ufs-mediatek-sip.h |  8 ----
+ drivers/ufs/host/ufs-mediatek.c     | 79 +++++++++++++++++++------------------
+ drivers/ufs/host/ufs-mediatek.h     |  7 ++--
+ 3 files changed, 43 insertions(+), 51 deletions(-)
 
-When the interrupt is falsely triggered, armpmu_event_set_period() will
-force the counter to -6 in this case too. Then, we can return to the user s=
-pace
-without triggering another false overflow.
+diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
+index d627dfb4a766..256598cc3b5b 100644
+--- a/drivers/ufs/host/ufs-mediatek-sip.h
++++ b/drivers/ufs/host/ufs-mediatek-sip.h
+@@ -31,11 +31,6 @@ enum ufs_mtk_vcc_num {
+ 	UFS_VCC_MAX
+ };
+ 
+-enum ufs_mtk_mphy_op {
+-	UFS_MPHY_BACKUP = 0,
+-	UFS_MPHY_RESTORE
+-};
+-
+ /*
+  * SMC call wrapper function
+  */
+@@ -84,9 +79,6 @@ static inline void _ufs_mtk_smc(struct ufs_mtk_smc_arg s)
+ #define ufs_mtk_device_pwr_ctrl(on, ufs_version, res) \
+ 	ufs_mtk_smc(UFS_MTK_SIP_DEVICE_PWR_CTRL, &(res), on, ufs_version)
+ 
+-#define ufs_mtk_mphy_ctrl(op, res) \
+-	ufs_mtk_smc(UFS_MTK_SIP_MPHY_CTRL, &(res), op)
+-
+ #define ufs_mtk_mtcmos_ctrl(op, res) \
+ 	ufs_mtk_smc(UFS_MTK_SIP_MTCMOS_CTRL, &(res), op)
+ 
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index ef416c6ae098..2aa13b595480 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -94,6 +94,12 @@ static const char *const ufs_uic_dl_err_str[] = {
+ 	"PA_INIT"
+ };
+ 
++static const char *const ufs_reset_names[] = {
++	"hci",
++	"crypto",
++	"unipro",
++};
++
+ static bool ufs_mtk_is_boost_crypt_enabled(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+@@ -204,49 +210,46 @@ static void ufs_mtk_crypto_enable(struct ufs_hba *hba)
+ static void ufs_mtk_host_reset(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	struct arm_smccc_res res;
+-
+-	reset_control_assert(host->hci_reset);
+-	reset_control_assert(host->crypto_reset);
+-	reset_control_assert(host->unipro_reset);
+-	reset_control_assert(host->mphy_reset);
+-
+-	usleep_range(100, 110);
++	int ret;
+ 
+-	reset_control_deassert(host->unipro_reset);
+-	reset_control_deassert(host->crypto_reset);
+-	reset_control_deassert(host->hci_reset);
+-	reset_control_deassert(host->mphy_reset);
++	ret = reset_control_bulk_assert(MTK_UFS_NUM_RESETS, host->resets);
++	if (ret)
++		dev_warn(hba->dev, "Host reset assert failed: %pe\n", ERR_PTR(ret));
+ 
+-	/* restore mphy setting aftre mphy reset */
+-	if (host->mphy_reset)
+-		ufs_mtk_mphy_ctrl(UFS_MPHY_RESTORE, res);
+-}
++	ret = phy_reset(host->mphy);
+ 
+-static void ufs_mtk_init_reset_control(struct ufs_hba *hba,
+-				       struct reset_control **rc,
+-				       char *str)
+-{
+-	*rc = devm_reset_control_get(hba->dev, str);
+-	if (IS_ERR(*rc)) {
+-		dev_info(hba->dev, "Failed to get reset control %s: %ld\n",
+-			 str, PTR_ERR(*rc));
+-		*rc = NULL;
++	/*
++	 * Only sleep if there is no MPHY or MPHY doesn't have a reset
++	 * implemented (which already sleeps) or the PHY reset function failed
++	 * somehow, just to be safe
++	 */
++	if (!host->mphy || ret) {
++		usleep_range(100, 110);
++		if (ret && (ret != -EOPNOTSUPP))
++			dev_warn(hba->dev, "PHY reset failed: %pe\n", ERR_PTR(ret));
+ 	}
++
++	ret = reset_control_bulk_deassert(MTK_UFS_NUM_RESETS, host->resets);
++	if (ret)
++		dev_warn(hba->dev, "Host reset deassert failed: %pe\n", ERR_PTR(ret));
+ }
+ 
+-static void ufs_mtk_init_reset(struct ufs_hba *hba)
++static int ufs_mtk_init_reset(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
++	int ret, i;
++
++	for (i = 0; i < MTK_UFS_NUM_RESETS; i++)
++		host->resets[i].id = ufs_reset_names[i];
+ 
+-	ufs_mtk_init_reset_control(hba, &host->hci_reset,
+-				   "hci_rst");
+-	ufs_mtk_init_reset_control(hba, &host->unipro_reset,
+-				   "unipro_rst");
+-	ufs_mtk_init_reset_control(hba, &host->crypto_reset,
+-				   "crypto_rst");
+-	ufs_mtk_init_reset_control(hba, &host->mphy_reset,
+-				   "mphy_rst");
++	ret = devm_reset_control_bulk_get_optional_exclusive(hba->dev, MTK_UFS_NUM_RESETS,
++							     host->resets);
++	if (ret) {
++		dev_err(hba->dev, "Failed to get resets: %pe\n", ERR_PTR(ret));
++		return ret;
++	}
++
++	return 0;
+ }
+ 
+ static int ufs_mtk_hce_enable_notify(struct ufs_hba *hba,
+@@ -1260,11 +1263,9 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 	if (err)
+ 		goto out_variant_clear;
+ 
+-	ufs_mtk_init_reset(hba);
+-
+-	/* backup mphy setting if mphy can reset */
+-	if (host->mphy_reset)
+-		ufs_mtk_mphy_ctrl(UFS_MPHY_BACKUP, res);
++	err = ufs_mtk_init_reset(hba);
++	if (err)
++		goto out_variant_clear;
+ 
+ 	/* Enable runtime autosuspend */
+ 	hba->caps |= UFSHCD_CAP_RPM_AUTOSUSPEND;
+diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
+index 73cdc726f290..f95f12eb9926 100644
+--- a/drivers/ufs/host/ufs-mediatek.h
++++ b/drivers/ufs/host/ufs-mediatek.h
+@@ -7,12 +7,14 @@
+ #define _UFS_MEDIATEK_H
+ 
+ #include <linux/bitops.h>
++#include <linux/reset.h>
+ 
+ /*
+  * MCQ define and struct
+  */
+ #define UFSHCD_MAX_Q_NR 8
+ #define MTK_MCQ_INVALID_IRQ	0xFFFF
++#define MTK_UFS_NUM_RESETS 3
+ 
+ /* REG_UFS_MMIO_OPT_CTRL_0 160h */
+ #define EHS_EN                  BIT(0)
+@@ -175,10 +177,7 @@ struct ufs_mtk_mcq_intr_info {
+ struct ufs_mtk_host {
+ 	struct phy *mphy;
+ 	struct regulator *reg_va09;
+-	struct reset_control *hci_reset;
+-	struct reset_control *unipro_reset;
+-	struct reset_control *crypto_reset;
+-	struct reset_control *mphy_reset;
++	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
+ 	struct ufs_hba *hba;
+ 	struct ufs_mtk_crypt_cfg *crypt;
+ 	struct ufs_mtk_clk mclk;
 
-I hope this answers your questions.
-Best Regards,
-Tomohiro Misono
+-- 
+2.56.0
 
->=20
-> Mark.
->=20
-> > Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-> >
-> > ---
-> > Changes in v2:
-> > - Add user impact explanation in the commit message
-> > ---
-> > ---
-> >  Documentation/arch/arm64/silicon-errata.rst |  2 ++
-> >  arch/arm64/Kconfig                          | 17 +++++++++++++++++
-> >  arch/arm64/include/asm/cpucaps.h            |  2 ++
-> >  arch/arm64/kernel/cpu_errata.c              | 10 ++++++++++
-> >  arch/arm64/tools/cpucaps                    |  1 +
-> >  drivers/perf/arm_pmu.c                      | 13 +++++++++++++
-> >  6 files changed, 45 insertions(+)
-> >
-> > diff --git a/Documentation/arch/arm64/silicon-errata.rst
-> b/Documentation/arch/arm64/silicon-errata.rst
-> > index 527af20b26468..0efb24ec01b4c 100644
-> > --- a/Documentation/arch/arm64/silicon-errata.rst
-> > +++ b/Documentation/arch/arm64/silicon-errata.rst
-> > @@ -377,6 +377,8 @@ stable kernels.
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> >  | Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM=
-_030001      |
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> > +| Fujitsu        | MONAKA          | E#030002        | FUJITSU_ERRATUM=
-_030002      |
-> > ++----------------+-----------------+-----------------+----------------=
--------------+
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> >  | ASR            | ASR8601         | #8601001        | N/A            =
-             |
-> >  +----------------+-----------------+-----------------+----------------=
--------------+
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 5d1a17ab0f593..43fd265156e46 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -1361,6 +1361,23 @@ config FUJITSU_ERRATUM_030001
-> >
-> >  	  If unsure, say Y.
-> >
-> > +config FUJITSU_ERRATUM_030002
-> > +	bool "FUJITSU-MONAKA erratum E#030002: PMU overflow may be incorrectl=
-y detected"
-> > +	depends on ARM_PMUV3
-> > +	default y
-> > +	help
-> > +	  This option adds a workaround for FUJITSU-MONAKA erratum E#030002.
-> > +	  On affected FUJITSU-MONAKA CPUs, after a PMU event counter is
-> > +	  stopped at a value just before overflow, an overflow might still
-> > +	  be incorrectly detected.
-> > +
-> > +	  Work around the erratum by avoiding programming PMU event counters
-> > +	  with values within five counts of overflow.
-> > +
-> > +	  The workaround only affects the FUJITSU-MONAKA.
-> > +
-> > +	  If unsure, say Y.
-> > +
-> >  config HISILICON_ERRATUM_161600802
-> >  	bool "Hip07 161600802: Erroneous redistributor VLPI base"
-> >  	default y
-> > diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/=
-cpucaps.h
-> > index 9220b917ec207..c0a0452daf949 100644
-> > --- a/arch/arm64/include/asm/cpucaps.h
-> > +++ b/arch/arm64/include/asm/cpucaps.h
-> > @@ -68,6 +68,8 @@ cpucap_is_possible(const unsigned int cap)
-> >  		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
-> >  	case ARM64_WORKAROUND_FUJITSU_030001:
-> >  		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
-> > +	case ARM64_WORKAROUND_FUJITSU_030002:
-> > +		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030002);
-> >  	case ARM64_MPAM:
-> >  		/*
-> >  		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_err=
-ata.c
-> > index a11135f83e858..6363b694b4478 100644
-> > --- a/arch/arm64/kernel/cpu_errata.c
-> > +++ b/arch/arm64/kernel/cpu_errata.c
-> > @@ -1048,6 +1048,16 @@ const struct arm64_cpu_capabilities arm64_errata=
-[] =3D {
-> >  					{}
-> >  				})),
-> >  	},
-> > +#endif
-> > +#ifdef CONFIG_FUJITSU_ERRATUM_030002
-> > +	{
-> > +		.desc =3D "FUJITSU-MONAKA Erratum E#030002",
-> > +		.capability =3D ARM64_WORKAROUND_FUJITSU_030002,
-> > +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
-> > +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-> > +					{}
-> > +				})),
-> > +	},
-> >  #endif
-> >  	{
-> >  		.desc =3D "Known broken GICv3 SEIS implementation",
-> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > index 1e57a0105395b..ef8ce70ab7121 100644
-> > --- a/arch/arm64/tools/cpucaps
-> > +++ b/arch/arm64/tools/cpucaps
-> > @@ -133,3 +133,4 @@ WORKAROUND_SPECULATIVE_SSBS
-> >  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> >  WORKAROUND_BROKEN_AMU_CONSTCNT
-> >  WORKAROUND_FUJITSU_030001
-> > +WORKAROUND_FUJITSU_030002
-> > diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> > index 1150695653892..c0b8580d80bae 100644
-> > --- a/drivers/perf/arm_pmu.c
-> > +++ b/drivers/perf/arm_pmu.c
-> > @@ -234,6 +234,19 @@ int armpmu_event_set_period(struct perf_event *eve=
-nt)
-> >  	if (left > (max_period >> 1))
-> >  		left =3D (max_period >> 1);
-> >
-> > +#if IS_ENABLED(CONFIG_ARM64)
-> > +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_FUJITSU_030002)) {
-> > +		/*
-> > +		 * Due to the errata, overflow might be incorrectly detected in the =
-handler
-> > +		 * when the counter is about to overflow in a single increment, resu=
-lting
-> > +		 * interrupt storm in some case. As the counter can increase by up t=
-o
-> > +		 * 5 at a time, set 6 here to prevent the condition.
-> > +		 */
-> > +		if (left > 0 && left < 6)
-> > +			left =3D 6;
-> > +	}
-> > +#endif
-> > +
-> >  	local64_set(&hwc->prev_count, (u64)-left);
-> >
-> >  	armpmu->write_counter(event, (u64)(-left) & max_period);
-> >
-> > --
-> > 2.43.0
-> >
 
