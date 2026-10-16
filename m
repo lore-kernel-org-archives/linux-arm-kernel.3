@@ -4,146 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EC1CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58502CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVFY48KRdqYrK8YFZ3aCqe1gk+BBNBRnJg871UJjKrc=; b=YqTfpSZfJtGHuNlaZlgpCZXjv3
-	R/oD81nDil9wqdS/dtOIXnBBSY00jf6J6UeCvsjI88fOcl6nvqqviGYqWXj2dslC/4I/Xqiggq58T
-	R0Bn5wDF+Y8j128W+FuU6xLBqPkH6J3zFPpxBRHuPz4zHLyz4IpXNPOH/yB20MCQIozq5zXzR7Hl+
-	iqWtDPnzQjuL3t7t86Z/w/vjQSbs3SG+mhJo92yQQiexB0cNkjms7lpxQOOXiCYygZ+kS7qsu3oT9
-	hB4VwG7gtTvZFUvgDTdFmJDcsA6o79fp6vLj81dMjBIffhMJUEOC5fOqyn3ogJZSciBY4XwAU5tUb
-	pFU98I+A==;
+	bh=rby9aMUP3wS4QVj+L75VJHl3m44mIgdEySaWpDHMJtU=; b=VCtXGI7sSC5JMx7yv8y2Kln76v
+	QU1OK5auGEZqitRjcfqjkdWOL/MFxIr7clUC/PLBfXC6mjpSLLzsDiQACDp4CxFSUvgnO+B/AF110
+	jL2RY8lf22EH6LukejuVQ7bMTvxBqavvN1VDmSqhy1LzbsXA68e1QfSYhOwPW7hd3iKvjyFNO2JmR
+	lqGBeRIZzywmkX3kHoRxWBMPN02DLy1Y1om4y0/Da1BAqnag8VSMaLw796mxhlRnNIogyjvZ+FVG9
+	XOGvs708pKk/uWrW5+V5dt9dqeflKgjryT2+eeVrKcv+8CftBZnWamaFUnwNsLrOj2ukUCldqHvLW
+	/I6SRsGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiAD-000000033bC-0GRr;
-	Fri, 16 Oct 2026 13:40:01 +0000
-Received: from mail-swedencentralazon11013071.outbound.protection.outlook.com ([52.101.83.71] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xHiAs-000000033i6-1NAI;
+	Fri, 16 Oct 2026 13:40:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiAA-000000033aU-0RDr
+	id 1xHiAr-000000033hP-3ynU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Oct 2026 13:40:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=rby9aMUP3wS4QVj+L75VJHl3m44mIgdEySaWpDHMJtU=; b=AYVcUBa7PP8spyOGaVejvJNoCf
+	aY0wv9gad1UKybP+AFJCHxqtRyG8T0cWEXYDZRuVg+w+yIK/pVoCUywzg9DQKfZxEKODXJSrlT8bm
+	qqy7ft1xFlaH12JULvH18SW/C+DESrdQr+2o+eUdAokI7txgjql80DQQudm7L/OUpmQ8Fj0oJbe8D
+	70c8t23XSf6ivXp3t9ESNKmFX0wwnzFXo7+DzPeh7UWwMoH7OjBLuRk0oZNDH0YIAygSQ2BWObozu
+	V3Wb8PLtvMDj3voBCiZ5iapY6R0AvvXdfOP33FRx0qoEpYRzfn7XD8GFDHSGtHbrFv4LhL5b/2n/8
+	nqoW8S8g==;
+Received: from smtp-bc0e.mail.infomaniak.ch ([2001:1600:19:7ff8::bc0e])
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHiAp-00000001YZF-0MJN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 13:39:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xfvv9qQHJpu1lWIGTcxhBpCc/UgHwo4/bTxrmc71ig9pF7638IwdAj55OAAmiCx/MjdPBZk5tK4QKm7d6zB47IaeeyyWyfkL7zyZgCLlSupuIQABnsSnZgzWlxhvv7bcSoOKYPwo9gzGQK7WxAsPuDjP6AEKYgAh94sMZ741zPvSVWpCXZGNdkVLuT82Pt1g9/B3mXbIW5o8Y11dn+RIMVj+2ryHkmT5jWEDdynmLRzOWw90hVeJhE9K23irqxvKkhIXJ5Z8DcjPjNPoYbPyhsuzKZqqCP9i6vFt5bmxRe0vv29WsQNLv7y2WTkiaEm1ux6IJoRzhrE7mNt3C3n5eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vVFY48KRdqYrK8YFZ3aCqe1gk+BBNBRnJg871UJjKrc=;
- b=N6loF+3x3epKoC1fXCoN9V+u0WKSRd6qr7wLPBFrxwOwRkuO6Ql7rXvuaQiVC6jHjHI+m77MtzN833hbNcaGEufEzgEP58L/5lnv9XcS2d0e04qfFORn+KUTB06MLzhSadlZq6vWmklrCXoRPm06oPWLAbe1Yd1y6XSINwahjV4P8tH3Ox9v9o7oOBiiLnCeHGh9emFqqBVW36yYLjsU0ESby1csATe2e0p2mN3uRxq9CTt91cBSjzB7FEBHn72kYsF5+A6SLiOJ8l3tFuyRNYtRrVSC7RxMyNQYMNWID1yNPEtctgM0azFnoeicPCc4tJlKPzK/v0qU6CmBjhSRhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vVFY48KRdqYrK8YFZ3aCqe1gk+BBNBRnJg871UJjKrc=;
- b=VpNO577UyJGWbvBFpIY7LEG4IvzHHNRT5Hs0FO8TOjRowcrf2qT4zNomsE0Uj+37DK6nb6OFZPJivkiqTgAYZlvk4Kig4k7BKaNauYBtKa9otRZ8ZPHpICKHPVVQX21C0FBPKdtf59Y8fd0B1N4aURYN82wE0FpRsgs6H/w+LItHqyvBOYGGJSQAkWVHWO2RHX73t+Q9OHaGR0RbaxgJ58CadfZ8id3q5lchlwxYM7kdzwuLqXvy9zmi0QILKaFlikrTieWq0UNX4veAbh7LVOEYm4EZ/8NgJntKE/Rl05UcnH8RFbOD/OpXYgOweYMwgaWb4tTRWmaOA03+u8eNWA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by BR2PPF9D47B45B4.eurprd04.prod.outlook.com (2603:10a6:2d0::cd) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
- 2026 13:39:51 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
- 13:39:51 +0000
-Date: Fri, 16 Oct 2026 21:44:28 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v6 07/13] gpio: mxc: convert pad wakeup compatible checks
- to hwdata flags
-Message-ID: <atIqPOBaflct369Q@shlinux89>
-References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
- <20261011-gpio-mxc-cleanup-v6-7-cb47ce2ad758@nxp.com>
- <CAD++jLnDxTAz2=ge5RgvO02mp+BJyLBV0zR8xqsm8LSsSEcRYQ@mail.gmail.com>
- <as8+sqlBEuhfdtZ8@shlinux89>
- <CAD++jL=tKnT0qr5chD-fhxgTM-f9kcdFRsKVBbbqionBp9iTyw@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=tKnT0qr5chD-fhxgTM-f9kcdFRsKVBbbqionBp9iTyw@mail.gmail.com>
-X-ClientProxiedBy: SI2PR04CA0006.apcprd04.prod.outlook.com
- (2603:1096:4:197::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Fri, 16 Oct 2026 13:40:40 +0000
+Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4j5mKZ1rZTzbDV;
+	Fri, 16 Oct 2026 15:40:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
+	s=20231125; t=1792158034;
+	bh=rby9aMUP3wS4QVj+L75VJHl3m44mIgdEySaWpDHMJtU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=PJ2jYvhCE2ltzTYfbPhrdNhg7OORW9X6b7wwaaMvOTLdJ52mTAP7qj7z/BcNMrf9c
+	 Z1KpIBAZwlzbFIkECW+Zj8TBQhulMcAQV4483QXizeVdzjnfWZ088VB7PpfF1NPnM0
+	 /Mp76YRHtzQzWER6TJhTZ1TjCs1u5Q9oa6a5FqMq89LeE5A10hfBORceq1dpJVMY9d
+	 XCbbX9JyfX8/60eR2xhz91bDBZLN/625WG1stsw1At1UGFxpPF7LnZD8y6AW3ze1pk
+	 0jzXAeL7l2a82V0p3recGqJbxUU80chlwcZnQKhXT2D7DA3CldNONQtubQPtirIDjn
+	 OsIznf/31S4QA==
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4j5mKY1fMjzFrp;
+	Fri, 16 Oct 2026 15:40:33 +0200 (CEST)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Fri, 16 Oct 2026 15:39:57 +0200
+Subject: [PATCH 1/3] media: v4l2-common: add V4L2_PIX_FMT_Y10 to
+ v4l2_format_info
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|BR2PPF9D47B45B4:EE_
-X-MS-Office365-Filtering-Correlation-Id: 433ac22c-45f0-4397-ca56-08df2b8af408
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|19092799006|1800799024|376014|22082099003|18002099003|10067099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: m9tVdce0M4ofKCmzqvpVjOf9oSIRaFrILfT6GfFsjzq3eo8TnOBz294a7PsKVGcAXaLKJ9csfpSqCBCr8PjkGSRQ1/TG6m4Fl8TJvSF0jnoDs3MvcGY0yTKPzy8si7vAMRc4ZjFXnpXLVEhwo5hTCWA5NYo6gNVQsgUDq2g20ShgQL9IWB6HsavFXme6Bg2kZ6ESczIIvP//eUXUltXD0A0JdBzqpSWUIAU8rkZPse9Yq9wegIvudk8jLHnxkFz6QN3xM9MGeKGf22kKljnqclbDjdU0m8cL6VI1KSAm9gq7ckNbcSKtn3KrPHd+1+wPPWXbhHi3jMl522PnCrXkNvr9DFy0M6TFW6WmdUFAl2KK9b57dj3BnS+NBOm5JjvkaP+Aacc12Ru4/JbN0TFNwddcKSrUY72AAvdjeXChnGDARzJd8o+US6Opu11cbkttd2cAZf8ObeMtjcmUbwpbmAG3MEvU2Er7LGnmhmGmKww7SYgzatC65EQd4FhDNe6uI9pG4690ijo/c8f90qkxrFuyQnQyRhFBVG/iwmc9qK+Ly8fKvlEQXpBoW2Bc2X7ihU74iZhdkoP9/+oXEZWSmOR1+TlgFpnckMlZyBp5vMNcL/lsdIyWj44eLiGa3nKpXjWpqpELyEUF8RwJTTZ3ddFym+o+6frEUke2GT0YZOk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(19092799006)(1800799024)(376014)(22082099003)(18002099003)(10067099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RXNRV0EvaUdLK29PZWo3L3o4MkdyZE1UM3ppb09ZbTRrelpSMXBWN3M5UkNt?=
- =?utf-8?B?OUgxSEJhYVk2UGgxYjdrYjFXckxtbFh2d1c1Q1cvWDdvUGNlQmg0eWN5YXkv?=
- =?utf-8?B?alZaNDg1WXBVQ2hIakoyTSt5Yk1MMFd0V1R2Q2NQYmo2T0VvU2ZoUW10Y29v?=
- =?utf-8?B?b3hZVW93MlVMN1pGYlpnb1JodDFYbE9KOVE4S2oyTCtpMDl4d3NxWW5xNDFO?=
- =?utf-8?B?QUJBak5LSDZRdWZLWVNYYnpMWEpJQjdpNUdpczBDZXprMTJiU2VWUWJ2dFNJ?=
- =?utf-8?B?bUJMMjgrYlB3MnhpZUJJanF4QTVRMWNYWkJVTUp6RENPWTZRU3Jqa05SQXUx?=
- =?utf-8?B?aE0xVGFRb3VxUHB2eW5yOXhIQzJXRllRekxId0hON0JGN21yK0JEcUpGZWdH?=
- =?utf-8?B?ZURPV3p1a041WmlQb2Zjc1laU3V4Rk5XMTE1R3Ywam5Pa2lCYlRTRXNoS0pp?=
- =?utf-8?B?RlVET214RDhiY00wa0hlWFVXOVNYK3ZzYjlEWVhDUUUrN3dQN2hGcWdGYjh4?=
- =?utf-8?B?YWtNS3B2bTNsZTZjdmc5cFRSNUV2Y3NlWWJOelJtR0RUVitlTzk2UFhZZUFp?=
- =?utf-8?B?ckV3bUdBNWVReWZCdmw0NS9KVlR6WmNVRUpxTTJGQzVESzh1dGx6ZWtYbkoy?=
- =?utf-8?B?UnMwRHlhUTZ3eWc2VTcyRTRJMUoyUmtiUXFwdHRCV0E0OTlCdGY0cUMzazRD?=
- =?utf-8?B?LzlMOWpINk5nRXE4ai9XTW1raE1lUlRZLzFsR0xSK3pZZ1FkS0JFNElJK2pm?=
- =?utf-8?B?aXh2ajVXOXBoU3BBbCtJTEJqbHI0eUNiZHdHdTk1eEVHbjY3WWJZNjM4Mkt0?=
- =?utf-8?B?NG8zSVdHd0tFbXM3WERXcGNiRkk4Q2wrTDc5eGJSOXpEM0hQL2hjQnNzNmp5?=
- =?utf-8?B?eC9ZRDY3MnhWS0xVWGVMV0h5bzdCUlFLeitlNGNsS1Z1dlMyT2E0bGI5ZURt?=
- =?utf-8?B?dk5VZTg5RGJhY0FCNnZKZTFFTEM1a2pLaXR6NEZnZ0MzdjZaZ2J6ejEwQlIz?=
- =?utf-8?B?Q1hNOVJQcmlqRms3QVdNaUl6YUc3NmZqcUU2bStNN3pSUFRnL09aRXFGaUVz?=
- =?utf-8?B?b0k3Vm50RjBpc0UyN2NSYkhqMWtzRW8zeTJRQkIzbFAvcU5jcjI4ZnRnQ0h4?=
- =?utf-8?B?U0hyRXhFRjFRVkIyb1VRZE5qUXhWQmJzWVk1b3VnbnZGUWZZS1ZBUjFGcFZD?=
- =?utf-8?B?eVdBWTBsRXl6ZEZ5bEI3VUZmMVZ6bXJoYnJZUEFMbHJzUEI5VndESEszWkkw?=
- =?utf-8?B?dFZmYllCR0NiUVZZRWpWcFgzM29PWjQwYkZ6UHdKa2N4Mi80ZVpKb1FRUW5t?=
- =?utf-8?B?T01wR3k2WlpNL3EyZ1BQeGcwVFJyZW1Hdmhvclc0NkNxdThPSmszejJ0YS9p?=
- =?utf-8?B?RlJlNDh3Qmo5NlhDaHVHTTFCd0FsS2xyRWZNVUtYeGlPekZVOFpDSVNDTXRi?=
- =?utf-8?B?Vy9RLzl3ZE1EdHg0QXpPVHhONmlncXczenBKMnJCdnNSUjRXd0R3NFJEM3BM?=
- =?utf-8?B?dDVkbzNqNGxFeHRKR04rZjhmdURPbUF1S2YxbFZ0RmdiZ2duNUFERTg3aCtS?=
- =?utf-8?B?VFN5anlGT3ZwazNtZ08zWTBLSi93a0NHMFlMQzhHeXFyckV5U3VvcXMwTUFD?=
- =?utf-8?B?UVpMeElJM1JJV3ZFZUYvYmk1LzRNVjVvK09XTGcrQ1BUeVV0aUtxdmRBb0s1?=
- =?utf-8?B?R3RGWlpnSmNFSTdqOVVaS2dDNytoM0FzczJueEpMRkFlNHZOY2JtaFFYdG13?=
- =?utf-8?B?YkVwcExXSWRzOVVXbUlZekdabDF4RXdnZWl5dkkxTDh2VkhJeTNzdDRicUZJ?=
- =?utf-8?B?SGhpeUN2SVpkOE5KMi9nam1tTUsyTHl1aUFwdG5SaEtUQkNJb2RYeU1PTnB2?=
- =?utf-8?B?NkxsYmpmMU40Zlhtd3Z4eC9UakNPVjk2Y1FDTEhCbDBSaUdqbXdjazdnQTBm?=
- =?utf-8?B?bmE3M1BlUU1pK0M3ZkkvbS9QZC9QQ0RaOEtJeFdPV1g4bmtUbzhpMW9yWlQr?=
- =?utf-8?B?WlVVa2duZWpUdVZpbDdTZTVnVi80bG9qSjFhL1o1b09VNE1EN1lVem5CUTUv?=
- =?utf-8?B?cDgzKzdYanFSb0hMam1OY3I3LzBJQXQvMjdpNE5GVmdzVVdEK081TlVBTC9G?=
- =?utf-8?B?Mm02bVdaWWpQZDFlMlRtY0wxTW5QYjVDZDQzMkgyNmlpbzJ3RERtcTBwVEgw?=
- =?utf-8?B?MkFYQVRQanhNS1U5YSt6VVZsVzlGMnNoWU1QeVh0WTZEUVVTdEcxcFNTc3ZU?=
- =?utf-8?B?U1NYczZFZ2hEVGs2UWJaa2xxeXlTRjZmb3piYnoxWHZqZ2Q2eFJjNjZiOXlj?=
- =?utf-8?B?aWlFaGlRUVRsSWtlUmsrMlFibUJFYlVNdTFrVkM4elk3NDZtWFA2UjNlSUpC?=
- =?utf-8?Q?0OuLnCfeDbfNRRV1Dk57p1bbxcns5TCbGhV1e?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 433ac22c-45f0-4397-ca56-08df2b8af408
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 13:39:51.1542
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vAkC+FWglpxeX4M00dCoIj6fJi24KgskaSO0VEFa7Z/TP7429WBbOLnv4gzdTM9cua5POsn4DZXnSzBerRAlvnCGmlmJh7RPkDpp3x5oRNaYcJ0NhsUeMQtm1WCd5WB/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR2PPF9D47B45B4
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261016-v4l-y8-y10-csi-vicap-v1-1-27bb87aa745d@cherry.de>
+References: <20261016-v4l-y8-y10-csi-vicap-v1-0-27bb87aa745d@cherry.de>
+In-Reply-To: <20261016-v4l-y8-y10-csi-vicap-v1-0-27bb87aa745d@cherry.de>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.17-dev
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_063958_178303_03177B18 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20261016_144039_274763_09B1C4EC 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,85 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-On Fri, Oct 16, 2026 at 11:13:28AM +0200, Linus Walleij wrote:
->On Wed, Oct 14, 2026 at 10:30 AM Peng Fan <peng.fan@oss.nxp.com> wrote:
->> On Wed, Oct 14, 2026 at 01:10:48AM +0200, Linus Walleij wrote:
->
->> >Hi Peng,
->> >
->> >On Sun, Oct 11, 2026 at 1:51 PM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->> >
->> >>  static bool mxc_gpio_generic_config(struct mxc_gpio_port *port,
->> >>                 unsigned int offset, unsigned long conf)
->> >>  {
->> >> -       struct device_node *np = port->dev->of_node;
->> >> +       int ret;
->> >> +
->> >> +       if (!mxc_gpio_has_pad_wakeup(port))
->> >> +               return false;
->> >
->> >Why is the entire call to mxc_gpio_generic_config()
->> >bailing out here if the port does not have pad wakeup?
->> >
->> >> -       if (of_device_is_compatible(np, "fsl,imx8dxl-gpio") ||
->> >> -           of_device_is_compatible(np, "fsl,imx8qxp-gpio") ||
->> >> -           of_device_is_compatible(np, "fsl,imx8qm-gpio"))
->> >> -               return (gpiochip_generic_config(&port->gen_gc.gc,
->> >> -                                               offset, conf) == 0);
->> >> +       ret = gpiochip_generic_config(&port->gen_gc.gc, offset, conf);
->> >> +       if (ret)
->> >> +               return false;
->> >
->> >Then no generic config can happen.
->> >
->> >This looks weird, isn't it just some of the configs that
->> >don't work?
->>
->> The early return is correct and matches the original behavior - only
->> i.MX8 SoCs with SCU have pad wakeup hardware.
->>
->> gpiochip_generic_config() here calls into the pinctrl backend's
->> pin_config_set(), which on i.MX8 programs the SCU firmware with the
->> PAD wakeup source type.  Non-i.MX8 SoCs don't have an SCU pinctrl backend.
->>
->> The function name is misleading - its only caller is mxc_gpio_set_pad_wakeup().
->
->This is just a big hack and I want it removed.
->
->Implicit in this reasoning is: the only config we support on
->the pinctrl back-end is wakeups so let's gate the entire function
->call if we don't support wakeup.
->
->This is a *generic* back-end like the function says:
->gpiochip_generic_config() so the GPIO driver can't make
->assumptions about what the pinctrl backend can and
->cannot do. In a new SoC using the same driver the
->pinctrl back-end could be something different.
->
->So this is breaking modularization and encapsulation.
->
->It is better to let the pin controller return -ENOTSUPP
->or whatever is appropriate instead of gating the
->call like this,
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-Sure. To get rid of the hack in gpio-mxc.c, we need update pinctrl imx driver
-and gpio-mxc driver both, which will create cross-dependency. So I need
-to take two steps:
+Add Y10 format to the v4l2_format_info table.
 
-1. Update pinctrl-imx.c to return -ENOTSUPP for non-i.MX8 SoC
-2. get rid of the hack in gpio-mxc.c
+Co-developed-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+ drivers/media/v4l2-core/v4l2-common.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-The current patch is mainly code style change. Could the above 2 steps based
-on current patch/patchset? Then we no need to carry more changes in one
-patchset.
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 65db7340ad384..2c36ae15610e1 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -333,6 +333,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_YVU420,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 		{ .format = V4L2_PIX_FMT_YUV422P, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_GREY,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_Y10,     .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 
+ 		/* Tiled YUV formats */
+ 		{ .format = V4L2_PIX_FMT_NV12_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
 
-Thanks
-Peng
+-- 
+2.56.0
 
->
->Yours,
->Linus Walleij
->
->
 
