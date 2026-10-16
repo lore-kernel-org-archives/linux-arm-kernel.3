@@ -4,116 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C57CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44537CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4YkMEnEcFAsesSJUaufOq7VhqrmQqlZmujS8ZU12sw=; b=EVKqWaeXzlI1gRMAn7KcEYV/aq
-	1HsebYNp7o4WPvoJH2hawIey9G1ryqm+E9oyE5dycp8KzFABkHk08EtzKJR7rDhkMxXQyaOuzCnvX
-	WVkz0944tDaN1Dk5EDiX/38ynM4qmwmB/onMxRrS5fzsRJ7vkpV+iA/UTZMM+l548uQQSWc8aFICa
-	h0vdYod3JDFzc8MbAVXyFcTl2H2XlX9u8OGsVpg/Rv1TEa+Af9Y+RwXa9Q6OuHPaH37Q7GinAwS6W
-	PnQLAAJjSDpKpu/oXFr+0x6BCoJElKb6ZAhuY4JLmXOK+JESfjDjJ4LaDQtyNXnM0S1bhkEaLr2If
-	I4wdgeqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uTBIuaJ6iARLuZWV7QgcnGg8p6Ik2I67yfxC7ANuV5M=; b=YCjrAOGj6xJrac
+	vpOM4ySBTVAvD+/4uZ10PPTIsgP5hKq4Upwkf/RzXa9Ts8qKyQpXXiNqdnsD2J4ONiUEti9PikeBt
+	SMVWi0HTUOp8hFLd0by8UJpCUMlXfbGVLcx4rPPsgGpucoCdiaqUtLxRt2UG7qjc9x4kMu91/cEfS
+	gNouEwsXoFgMTAW8TngK7uH3qdgznQcONlRrl/k/HvaI2erTLEVLNDYFLgvv2Z+vQ5GRjeJeYFgWg
+	N/+xuuwNKMb7Ve5u82Ya80KMA+oHzzTiB+7kNZ8e1J3dK/74Zau2fl4kfQGcEpLp5J4AIyGL8BCGt
+	cmR/BQnJgECvEPOs6yJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfPp-00000002hHu-3cdP;
-	Fri, 16 Oct 2026 10:43:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHfSW-00000002hc3-3pXD;
+	Fri, 16 Oct 2026 10:46:44 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfPo-00000002hHY-2ySk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 10:43:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=C4YkMEnEcFAsesSJUaufOq7VhqrmQqlZmujS8ZU12sw=; b=kURA2vo25/m7MygP8q4xjQfS6F
-	uI7afq3i8mNPC0EvyW06Lh7l2+eBBZYesQDG609B27+c9sh6Tkdcgc5uvG8W0lfJcBKsfuhg6fdTh
-	4+KsWcBwvk/GZ3//TI38iToD9RouqsGnhTcXDJZp4ohP9e6JNOVUefJh2jKz123xjmjD1yDJYOj2D
-	DZmDgn2xY5EopjWxjnwISIlVN89RexhoXPjy6kuuVB01fS+zh3KuAG1ZVHJ0Iliv8PZwbTfWDin7p
-	DKqhQkpo98+LMwssVHtHnhSf9lvjH/13XL8Kp1RfvRjIbS7eV2//1h4lMWqq88oZhae4P8PZdzPUO
-	NgbawDsg==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHfPf-00000001P4G-2uLE
+	id 1xHfSU-00000002ham-22Kk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:43:49 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a1af482519so6999875e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 03:43:47 -0700 (PDT)
+	Fri, 16 Oct 2026 10:46:43 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-48dee593f18so1069725f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 03:46:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792147426; x=1792752226; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=C4YkMEnEcFAsesSJUaufOq7VhqrmQqlZmujS8ZU12sw=;
-        b=JnLOtINQkuc89/x+8oAm+JVtma69/HdhGSkl9Mo5Ro2uvYWgdaiTF8Om/Pp0bw5kfd
-         MhEyNR4BUMMny3hkz/mwf1Mz3LcQEJDDSGijopXnYXJXcf30dMMV7DrEFB1176HUPX4A
-         lEqbjNZ+fGgGUVpPB6BVYeyI++tFo90pNOvW+f+MBWTs7tccqO1gYWReE6Mtb5lp1v2N
-         zOpqIi/GWn5GnEf2Y2umIV27i0pthifJCHZqINqX4dZj7ik6gdEl0F0ZNamcs90Le5Tv
-         WoJYgU/CnjfWSvvjOiytn8B7cnUOUBF44EoKN611430exWrjNqZyJwoKkSYb28Evu75X
-         o2kQ==
+        d=linaro.org; s=google; t=1792147601; x=1792752401; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=uTBIuaJ6iARLuZWV7QgcnGg8p6Ik2I67yfxC7ANuV5M=;
+        b=DeXoeOu55rBO42LW5GCEWvs/O0SEYu0ndY13cyzTAGGtEvk65qYmNmftJBNQ8OBuMw
+         2K53XWZdoazozvFAk5WynbqpJoIq7SHu0EKBtU9qqGPel0NzuLAWkelSbT6Hv8K7yo4L
+         4MDdy3IlU/d8r4R/f2MEtVrgm2zM/iySQ0pKPhhKcMFH1NWRzA0m23+PkzmwaTv9iPR8
+         5nt0ul3XoRyRuU5APHNAmMDfAuVsbKf4XKBPmTQFNqhKLyKbPt4L5c73+t0XuIfpsVTg
+         iMaskf1kiD/iMvNv8bCI1djAUCbZzeLPtuKHwpTS4RrHF0F5A7L9WODeCisrz7xxwNNi
+         F3uA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792147426; x=1792752226;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C4YkMEnEcFAsesSJUaufOq7VhqrmQqlZmujS8ZU12sw=;
-        b=oMZWP5ItZw5+Rzc/WTjDDdeEvnkS60oIqaBORY7y2JDiFA8wDTea/F2AElJAg96t6I
-         1d89Skbv5+lcjkPDxMOhk3hd3Bxl0RloiT/urQhPwgf6fnvFmWhmKdpcV8ZOORPXooEJ
-         z40qMhRlKu7w9TwgreXbTfCezvBdL/ym08zQVqJ7fjJ29Aymawsh5ClkrWnsTQnctSoN
-         M+8WajkL3kWZUYGGwAVLrAOsjNDaLA1OatWUT1xbtVFFxZPky/0MWnuejIcAzXBXmqMu
-         UAurVLD5XF828nJw6xKvm3gsrv+6aSJsaLuSxj30vmmCH2Ekbhe9zxLqzPYROlVofVyZ
-         L2HA==
-X-Forwarded-Encrypted: i=1; AKwUvBzAbyCmaVchOW3Td0iDsjSOa3z6u6xI1xSPXV/+kOsO5ZvrH87ZEEIQaP+qLRFNMuLhwU1fwUhKmb9hBxfszGRl@lists.infradead.org
-X-Gm-Message-State: AFq9FYIUqyijHeZm+9fVmAFpkwwBCt8lGwVYI2PE+kDctjyXg3VB3nS9
-	2ywp42E2fQKIGtpoHBi/tKPXNLuv+/gyShV0mqKp/8fPedGVAC8VUrP+TcGzmazoWQI=
-X-Gm-Gg: AYBFou3bwF4oAsrTJWKyfcnC+rWYhSLbCgN13e1XmIz8w52CLklPkF/rXsPuBSRdZS6
-	e4lCq1t+iLiZKcxhziPlFwGDHFkxyC23OYSc5Yqzo4axG9C9Qhrq17+joBy1/CA9ufERiBRYfjg
-	9ozYI3CANwzz/HUnaQhmbDK3OLt2u28owmoBrn6ElXttS0yikZpjVlf0b1jbCvFF76zZuAXIdzH
-	ZYlr4XxbolALdHfERjXNY2jw85FNmMj1kd+30iAx8G8Q4+509ypb6VXsM7QT70HIXEmKv0jLFmr
-	7fhmdkrZzu/y1bSQpO/O31myVGJEpVs6dtkl4eBzwShgM8pD/F6e5Q5+O7Ub2GusbQ+loLE79A2
-	wxDBvjadQbi5AxiM6GsCHHGdhv3OA0pWf0FDaPeW9Xekbv5d8OcvOv1dpTKJrO+kmpYJgBJ7rb9
-	Ygb1P//DOzvP4CvfeNMUdbhbZZnHuEZz9//HLKX+PPM3cEUU4rTiNw4Mh7WzOxXeMTq8sjtbHez
-	Tps4CI15eH+
-X-Received: by 2002:a7b:c3c1:0:b0:4a1:8849:17ae with SMTP id 5b1f17b1804b1-4a1c663b460mr49457595e9.1.1792147425952;
-        Fri, 16 Oct 2026 03:43:45 -0700 (PDT)
-Received: from [192.168.0.167] ([109.78.92.136])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f9c41sm4500725f8f.38.2026.10.16.03.43.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Oct 2026 03:43:45 -0700 (PDT)
-Message-ID: <f337f41f-2ada-4958-b0f9-379e78e96a3d@linaro.org>
-Date: Fri, 16 Oct 2026 11:43:43 +0100
+        d=1e100.net; s=20260707; t=1792147601; x=1792752401;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uTBIuaJ6iARLuZWV7QgcnGg8p6Ik2I67yfxC7ANuV5M=;
+        b=UbAvREwG3Oep8929tYYO1gd4fuytYEmcX5YKpq5CAOsIe+VfzoMwJ8m/f7xPOF7f49
+         aDsK6sO7wtH+RGbXCD4vAQ/m7UxCnB5KsusmjpMjQzrSPMJLIXZ7GyaghAp9Lq29vQ22
+         x4OcIFP4mdMg5OiuPzRhlmvwB98laDFIm/c2VwLo+zvP0j0nFPYYAo+A6iR5aUu2yOzF
+         Z3346e4HbUAqiOOoGaNJ2L950cNjZjJe+YFfR7hg0dtzcptXPbcYMBsovGLUxd0TWVWO
+         FkTtOjCVbMnXADXxJAtwIq7+qfS1W04pz9NmZ7L+3H4F7Skhvf5UvJdKQnQJKfUAGsUX
+         lNOQ==
+X-Forwarded-Encrypted: i=1; AKwUvBygSesJULhVOsBJUeM5SHZMr1aPdpgCRrSN0BZU9xE+XGP+rY8F1j03Xsy0CpIysNJ1oUI/ucVwm6oy/htcLn/7@lists.infradead.org
+X-Gm-Message-State: AFq9FYKthEdn5Y9a++YxMzR0V4s8srVghYmWNlcG92SGPCEjk8CFKvja
+	K/4ojGmW3Af34igD+Qyw74PFZB5epJssxu6zOiBUUlP3VK+XvnRoXBfVUREn553V/Lw=
+X-Gm-Gg: AYBFou0s5sH0IwV6Aa1MXyZYhXlVOldhoqedEugpT9KYcvkXu+Hxig/VdOS2YW5r2se
+	x0knYTANhbTK/dY0McAqyV9GBXCYGcnQdC3c/CASx6grtJ0a75qNUHvJnY0Jd46bR6JJaKjUliP
+	omzA1bvoX0CUCr41lJ3o3ehpyzB2KyYf56I1dmrBgJhdUZAxb41EtIW/AGWUHhQh99bGygnH5sm
+	QSeFx+cZDryr0TJa4vaD7YUdZBsyF5BWglNljE5Ci4aqTtqybnRtsRWPgbIeYPHM1NhLSRLMQ1j
+	/HpdsULFwkEO1ykCMTyqOP70CU6vm2iQetqgI4ePlAuNKK4zOl+kxY6skpK59eoMAXiU5/Zp9pT
+	JlRwJIrYrkS9I1pLBdZiQgwNXCgB5bak7uH/hCJFp4ulCA3c7ryvR3Ub2UleTMZUX80RX0UxeqS
+	ayMYo81rRBkuWknYg57XSEPL7YlsQpheGaj6m5nWTlmbMiz4v4+TJLsfCdrUa+fAgoJe5znUwjE
+	Q==
+X-Received: by 2002:a05:6000:400e:b0:48d:ee35:b3fe with SMTP id ffacd0b85a97d-48dee35b532mr15189988f8f.8.1792147600645;
+        Fri, 16 Oct 2026 03:46:40 -0700 (PDT)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4e7ff1sm4556570f8f.25.2026.10.16.03.46.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Oct 2026 03:46:40 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v4 00/10] coresight: Prevent per-thread events from sharing
+ a sink
+Date: Fri, 16 Oct 2026 11:46:10 +0100
+Message-Id: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
- a cell to select TX or RX
-To: Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHMA0moC/5XPTQrCMBAF4KtI1o4kaZq0rryHuIjNtI30j6QGp
+ fTupgVBcVHcDLxZfG9mIh6dRU+Ou4k4DNbbvotB7HekqHVXIVgTM+GUS6poBjfdoofCQ3tvRjs
+ 0CAM6GGuH2nhAwwxP41SJINEYHJb2sfrnS8y19WPvnmtdYMv2LecbcmBAwSSZQGmEUro4NbbTr
+ j/0riILHfhfHI8co7qIktQlvf5wyQfHt/4OSeSkRlSpyktmvq+b5/kFNDipk2kBAAA=
+X-Change-ID: 20260708-james-cs-multiple-per-threads-ed1d25ed1734
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Suyash Mahar <smahar@meta.com>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
+ Jonathan Cameron <jic23@kernel.org>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_114347_838984_571DEA05 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20261016_034642_602460_59C9AE6C 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,101 +109,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2026 09:56, Jason Yang wrote:
-> The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
-> for DSI and a receiver for CSI-2, and two consumers can use them at the
-> same time. 
+Concurrent per-thread events results in a WARN on N1SDP which leads to
+the realization that per-thread events shouldn't have been sharing sinks
+in the first place.
 
-Two consumers use them - which them ? Two consumers use the receivers at 
-the same time ?
+This slips through because different per-thread events will have the
+same PID if owned by the same process, and we only check the PID and
+nothing else. That results in unexpected WARNs because it looks like we
+assumed it couldn't happen (although exclusive PMU rules allow it). But
+even if it was supported it would result in trace from the wrong thread
+in another event's per-thread buffer, so we should disallow it.
 
-Its minor but instead of "them" define what the them is.
+Fix it by determining if sharing can happen at setup time. Then remove
+everywhere the same PID checking logic was copy pasted in each sink.
 
-The single cell of this binding selects the mode and refers
-> to the transmitter, so the receiver cannot be described.
-> 
-> Allow a second cell that selects the transmitter or the receiver. With
-> D-PHY:
-> 
-> 	/* the MIPI DSI host, driving the transmitter */
-> 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_TX>;
-> 
-> 	/* the MIPI CSI-2 host, driving the receiver */
-> 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_RX>;
-> 
-> and with C-PHY:
-> 
-> 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_TX>;
-> 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_RX>;
-> 
-> The transmitter and the receiver cannot operate in different modes [1],
-> so the first cell must match in both consumers.
-> 
-> Two cells describe the receiver as well. A single cell keeps referring
-> to the transmitter, so existing device trees are unaffected.
-> 
-> [1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
->      operate in the same PHY mode."
-> 
-> Signed-off-by: Jason Yang <jason98166@gmail.com>
-> ---
->   .../bindings/phy/rockchip,rk3588-mipi-dcphy.yaml     | 20 +++++++++++++++++---
->   1 file changed, 17 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> index c8ff5ba22a86..6e8cc56e4986 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> @@ -20,11 +20,25 @@ properties:
->       maxItems: 1
->   
->     "#phy-cells":
-> -    const: 1
-> +    enum: [1, 2]
->       description: |
-> -      Argument is mode to operate in. Supported modes are:
-> +      The first cell selects the mode to operate in:
->           - PHY_TYPE_DPHY
->           - PHY_TYPE_CPHY
-> +
-> +      A single cell refers to the transmitter and is kept for existing
-> +      device trees.
-> +
-> +      The second cell selects the transmitter or the receiver, so that a
+The first three patches fix configuration initialization, AUX cleanup
+and topology locking. The remaining patches enforce the sharing rules
+and simplify the sink drivers.
 
-The second cell, if present
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v4:
+- Count CPU sources in the registered topology and retain each sink's
+  sharing classification until its last AUX session ends.
+- Serialize AUX topology access and provide locked and locking path
+  release functions.
+- Reject unexpected path setup errors while retaining silent skips for
+  missing ETMs and unreachable sinks.
+- Prevent all problematic sharing cases at aux setup rather than at
+  runtime. (Leo)
+- Drop "coresight: tmc-etr: Don't stop Perf cleanup for active sysfs
+  reads". It was a pre-existing bug and is even more unrelated now with
+  the new model.
+- Remove workqueue rather than fix the lifecycle, its no longer
+  needed. (Leo)
+- Add a getter for the config manager, cscfg_get_state(). (Leo)
+- Link to v3: https://lore.kernel.org/r/20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org
 
--> you want to make clear it is optional.
+Changes in v3:
+- Storing and accessing event owners at runtime causes problems due to
+  various scenarios of: events (and sibling events) exiting, children
+  inheriting event FDs, PID reuse, CPU affine events that also have a
+  target process set but different inherit settings. Fix it by creating
+  a session ID in etm_setup_aux() and holding the references in it for
+  the duration of the whole session. (Leo)
+- Make the ETR buffer allocator consistent with sink sharing rules by
+  not doing numeric PID comparisons there either.
+- Fix up some Sashiko reports that it sees after interacting with cscfg
+  and taking extra references to tasks and PIDs.
+- Link to v2: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org
 
-> +      MIPI DSI host and a MIPI CSI-2 host can be described as independent
-> +      consumers of the same PHY node:
-> +        - PHY_DIRECTION_TX
-> +        - PHY_DIRECTION_RX
-> +
-> +      The transmitter and the receiver cannot operate in different modes,
-> +      so when both are described, the first cell must match in both
-> +      consumers.
-> +
-
-Not really related to this patch but how do you envision that 
-requirement being enforced, per driver ?
->         See include/dt-bindings/phy/phy.h for constants.
->   
->     clocks:
-> @@ -82,6 +96,6 @@ examples:
->                    <&cru SRST_S_MIPI_DCPHY0>;
->           reset-names = "m_phy", "apb", "grf", "s_phy";
->           rockchip,grf = <&mipidcphy0_grf>;
-> -        #phy-cells = <1>;
-> +        #phy-cells = <2>;
->         };
->       };
-> 
-
-Looks pretty good to me I'm interested in adding an RB here - please 
-include me in CC for next versions so I may do so.
+Changes in v2:
+- Fix inherited events by following event->parent
+- Link to v1: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org
 
 ---
-bod
+James Clark (10):
+      coresight: configfs: Don't assume active until cscfg_mgr is set
+      coresight: etm-perf: Remove workqueue for freeing AUX data
+      coresight: etm-perf: Serialize AUX topology access
+      coresight: etm-perf: Reject event if building path fails
+      coresight: etm-perf: Prevent sink sharing at setup time
+      coresight: tmc-etr: Reflect new sharing rules in allocator
+      coresight: tmc-etr: Remove sharing guards from ETR
+      coresight: tmc-etf: Remove sharing guards from ETF
+      coresight: etb10: Remove sharing guards from ETB10
+      coresight: ultrasoc-smb: Remove sharing guards from SMB
+
+ drivers/hwtracing/coresight/coresight-core.c     | 104 +++++++++++++++--
+ drivers/hwtracing/coresight/coresight-etb10.c    |  28 +----
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 119 ++++++++++---------
+ drivers/hwtracing/coresight/coresight-etm-perf.h |   2 -
+ drivers/hwtracing/coresight/coresight-priv.h     |   4 +-
+ drivers/hwtracing/coresight/coresight-syscfg.c   |  11 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c    |   4 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c |   6 +-
+ drivers/hwtracing/coresight/coresight-tmc-etf.c  |  22 +---
+ drivers/hwtracing/coresight/coresight-tmc-etr.c  | 142 +++++++----------------
+ drivers/hwtracing/coresight/coresight-tmc.h      |  16 +--
+ drivers/hwtracing/coresight/coresight-trace-id.c |  97 ++++++++++++++--
+ drivers/hwtracing/coresight/coresight-trace-id.h |  26 +++--
+ drivers/hwtracing/coresight/ultrasoc-smb.c       |  20 +---
+ drivers/hwtracing/coresight/ultrasoc-smb.h       |   3 -
+ include/linux/coresight.h                        |  26 ++++-
+ 16 files changed, 346 insertions(+), 284 deletions(-)
+---
+base-commit: 343cfcbb3ecfdb80aa576a428cfa3b65ad783842
+change-id: 20260708-james-cs-multiple-per-threads-ed1d25ed1734
+
+Best regards,
+--  
+James Clark <james.clark@linaro.org>
 
 
