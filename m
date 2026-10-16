@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9F0CCA463
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 01:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256E8CCA463
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 01:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PtpsWlwRVaneZFjF+7ofxpGp4s57Txr3eN6Q7YNC+/E=; b=wFnUXtZ3HqghCNY/Ec14kYLmvm
-	h0V5lh0knWC7YoFg4aYkELktr/d1MWqpfNAzI7py/XrT4HxVY8742KPSPnJK6EILEvSD5j3v4D2dx
-	iIsGdhL7+Fzv2zg8tVB00XcxtwzhTx77IqVu5zhK5ZOW0MTVTZHTMZiSY+VkGJuECR2cFYgXHBuix
-	GeDVfknQGLMsq5RLakg1j/QytuV2fHArquyc6wSPcXkxO4jNiOOPOcYDNq2qZ3qVnpD7K0Ib3ukTX
-	ZxZimNXMRT/9psBsU7fZV761VQqogK7y9ZJ4E3ZMH+BnY6LaQb+/vDAhb4d5cqD9biktGkdT4Won4
-	Ojjq+sBw==;
+	bh=z1IfMfNgxmNnTVwhoMZ/I9bCV5F2hA5W5b2zHBAEC4U=; b=Ewft3OEbD1N7z00nPa9rtkMGXV
+	G8sXlm5atctHqKtTufmZiqPiKe+ISrCleJfQ/YsvwGNbT87r15WJuT+/gb4+nu697P3pOD1MHsW6M
+	vbM19WjExRfy0aBW3lxVr7yHdJnlJSsshRsDN5yF1JVkmApa5kXdSMwGnr0sFlm4XT7kMA/VT2kmf
+	3f573IkFjPBmMh/q4NSynmwmbZb6xIiRhG+fLdtbA3NiAc3+nnqMxEFU4pwpREyE+UrDjmzI7B/D9
+	3x2tWCciFnqCqhuIg9LjXMpxvwjK8jrKyBQSb7aBkK0bToVSp902gz7z/+rUUNhZPQD/N7l/h3zfn
+	MChlMP2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHWcL-00000001gTX-3uWP;
-	Fri, 16 Oct 2026 01:20:17 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1xHWur-00000001hoM-1Ve7;
+	Fri, 16 Oct 2026 01:39:25 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHWcK-00000001gT5-0N7k
+	id 1xHWuo-00000001hnp-3KII
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 01:20:17 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-93f1e5d7450so2258285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 18:20:15 -0700 (PDT)
+	Fri, 16 Oct 2026 01:39:24 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5352a876d5aso73903971cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Oct 2026 18:39:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792113615; x=1792718415; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:content-type:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PtpsWlwRVaneZFjF+7ofxpGp4s57Txr3eN6Q7YNC+/E=;
-        b=TJIr5wVhdCy7nkXDLiAL7uNg0b44EG/3GD8RTIX2ij2UnML4LY4YeKLX6adnr4z16H
-         1zXkdHdrH1MbMmOZ3ZQXkXaWZqZCYJnNoGaNRBA1jqa005i51pc9KNpPSNRcI9SyoqVK
-         CdlsqptZb0DotMTx2XfVGE9J+6d2O5sLlycrtJLrCKatli7jdyyHUHUSaWyVO7zRgImd
-         4pJbYENAlmVSzLa+lGoeUAcoVtMEACy5nY701ylMX0RI2KHEkNCaA1y6UnMgq0NWpbhj
-         YCr8jPicKVc093GFrFVheZ0BO5bvbzYkK6bLsWgrcd++8Zp3/V9KmF3hKFH0Ysj5vpus
-         djnQ==
+        d=gmail.com; s=20251104; t=1792114761; x=1792719561; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z1IfMfNgxmNnTVwhoMZ/I9bCV5F2hA5W5b2zHBAEC4U=;
+        b=KjQHKsBpHXYzIYh/fOo1X9kOw8EnOYYM8w/BG5RjFG2KImPREVvi4qbCITjgqgqkQu
+         eb7AEJmFGY4lLXwSr1TN2hmCOdK3w5AHobzcTT4U/2QYClN8WBitj7vxZSLVI2KqJs1t
+         xsOioMcN5nVUzTRtLUQoMy986OefJ7IA8p2N8668CHTQzKOKpKcPpRG9ZUoF93wnnwx3
+         vN0SnpDzsEEfKrDTVr0vkilTOif+HpmeXU4n5N8/z5p3imdUNrrohdTQY7NWBCIW0Ihn
+         YDzrjQh2smjzNgfWsQbjkTs6Z32Zf/74WO29FcC1go0XTZYLc9irC77AjAS/B/t/Ddf/
+         25sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792113615; x=1792718415;
-        h=content-transfer-encoding:mime-version:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PtpsWlwRVaneZFjF+7ofxpGp4s57Txr3eN6Q7YNC+/E=;
-        b=DXBDsPZ4mfvKxtoi6MP+yT2uuN5D2AZ0YBufW1X8lKvk/M2qJYh43H60DNQuz3bkxU
-         761cIpSn4qLJVjrh1OB33fLWM1vDOwPffCbaSSctCYc+YaMnGc/f5Dagu5+1U6ZwHvMg
-         wzzdB3JU5upK4EUqfhKxks+igrORbalIkMVK8hMqSGi479awyDpZKvx7gOtIod9Ho2Rq
-         v8ZIugwxFlEOfchdMRSHVkjXjBiMcNOdXZBToTSwlq7xuqb+Qdt7WDYrKeLVrp8CF83Q
-         KEW1Pg3vIzq/e1jR4WUIU9vYr0jvobpYF/6OUMsieRsicUYGnp8FoQKtsf4AVfpDF73X
-         pQBg==
-X-Forwarded-Encrypted: i=1; AKwUvBw/VWxyzrYwi2iDQzT0A0Trl1nb53hS9HXZ+7jf1S+4+onB3UFTJDgX7SAHFaAhg1ha//aiuklDkJYRTaPrLg4h@lists.infradead.org
-X-Gm-Message-State: AFq9FYIwMuONzzxkVHna9cOJU8njv14sWzU84sNOxaioe0aBTAwkRNHa
-	Tfs9ZfRicKvt32EtlcGQf+7IEKYZ/dG5GyhmNRAb9Q0nMFtuU2xbjjQM2O7kVLE2FA==
-X-Gm-Gg: AYBFou2BCDkrHVh30uX/ZLq8Friu+j+q8o8CoyXyZ7CwIct/9ADaDoHc1XW46ZJbCCO
-	yLeSX91qTZD1XEkvmvXbzlOVlTw373RDUnOCHvIR+6/Nv7KKqCtjKzR4kk/ZT8AQiGC9jbgtahH
-	/DBJJt09vG5SOr92opP6tuwrOJazNjjSe83UgG2+sBZh2p8apx6yy9dlppmYJyY2yOngzExiAk8
-	Xk965P3DN+I6lajuhbSJZpgTH+0z/eGeKWGpmM5xiCbDnmOtVjrCP7K+TIYOPrcbRtRViobVYEp
-	v3CvUa6bwjHY8+Upg9ga0NmXBgoilG5lkd+T508j7oZ3vQ0OBUkehXA41vq4tX5JhR/AiMYfjD2
-	uO+wMFI9O6eJDroNvY041nTmlMCQmFWoVXYbvyZ2GY3MwrEo02bYSIsXTgfL2AXzfULswsyq/T+
-	MWWO4hilDL1n5Nw6GrL1yJJ6Zx8/gn+lpN7zUpKypzjSBlPvAHPSOVgyNj0ArtORHwYjIjzO1tl
-	yKTONkq8Y6OrKaJt4J0EPsSFtUgy5o8d1dNlhJmnlT7ri/CDg7yx4BYlG8YXSWJKSnNrQr4DJIO
-	6ae/IJutDxT8VMg3F0o/IdyHB420
-X-Received: by 2002:a05:620a:6c01:b0:93c:23e4:359e with SMTP id af79cd13be357-93f1891428amr288853885a.50.1792113614608;
-        Thu, 15 Oct 2026 18:20:14 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792114761; x=1792719561;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z1IfMfNgxmNnTVwhoMZ/I9bCV5F2hA5W5b2zHBAEC4U=;
+        b=lk7XXFiFmAI0Qyw0OK9ZkLIbnzR4dHhRf1yeOWyapV35J0k7JwAKyKUlY2wa92v0Ke
+         LSU6nBHIV+xsxXpJwEe+pSuiRWa0m31rnxYK4X2FbN7RpU4kneGbopsSf0elt7CiJdwP
+         t3MES2n6jTqziCNpwQamjE0/mHUnk2Xs9k4jYKgzioSUahA8xyGeM4jGYW62VwwE+Mc3
+         2iIMakKo02m1vXetM6jy3E7zKP1UjxU9WrwGDtwGKq7wNiMFBNnXes2pm1iWKSMShNFN
+         0bmSMF3rhvJx+5pOZvOrVtsk4IdazE0a0yuXc53Krb1hzfcAHFx1Kj12sZKnIGFCPDe9
+         eNyw==
+X-Forwarded-Encrypted: i=1; AKwUvByW0KpK16qGguR2VsgZpNP7jbBYSO1QolvStuap3e+5CpdxJ68pKlOdyTrxX2cOZ/attsrzw14QMnj+VL+a4Yx3@lists.infradead.org
+X-Gm-Message-State: AFq9FYLW25FP07Q43qfFn7icWerLdVCYMn6fu2cFksi8RjWh+/YndpjJ
+	dfDE0f+SqeHzf56EEOS1+Wp1Txrf/uCDPu2uEgvhMoI09zeVa0/Jjiey4SeK7qkHJg==
+X-Gm-Gg: AYBFou3FLX3i/+w3ch0dh5hyb/s//RNc6qiNIxIM5IzxzjC0FmNeiKuxezWGfZdkSIs
+	pSMmBn6jqrIhdvWav4C4NyoOb+cxLUdIsFW38v1CkUeVXc2y0OGCvUiUbM/Pj8jtdeqzAGv2+GI
+	mbqGOBKNGcRdsvCnwbf8wDIuFm7luNkdwuJMbyA1k/N1K6tcvIYmgoGpJwSzwK0dS8suvU8URgF
+	TWggG9rFwtR0WnBhPESBg2HgyHlMfdr2ZQ+qt7f0clF9EFKxEIu58LdQ66C/pIyvmEugJY2FZ8I
+	Sm4WUxOeLRYtkDymyRLRMY1WhJZTkiIqpN1LSpr6ogdX5HYVahMy1tKUZGs0C9G4567mps8A3RA
+	gGAe6WTlE24AfNdbOJlRnlUaFI6rAhfrRy9pBPdcFEgZaRZieinH+ExaD5eijQP3ldZ1msFU2CB
+	ft8qGwKezgxrEhfFxbGFIUzox0LOhzBzjcKAplhJTsZfcUdk6FsYLzRHzFlpu4bd62JMKH5rJCt
+	s6msw2WcWVOEGc7iZuFHJOmuzUAkiGsuVzB2aem8bDIJsFQ8/hYPb4FcnW8JYfXPAK4bJEzkVU8
+	tpU/gAcDkijqkVMK8RthWb9pEwmFxg==
+X-Received: by 2002:a05:622a:1441:b0:535:864d:b821 with SMTP id d75a77b69052e-5359fac48aamr342803671cf.17.1792114761291;
+        Thu, 15 Oct 2026 18:39:21 -0700 (PDT)
 Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f1a1a990fsm76619985a.35.2026.10.15.18.20.12
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5362a9c273esm8981861cf.20.2026.10.15.18.39.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2026 18:20:12 -0700 (PDT)
+        Thu, 15 Oct 2026 18:39:20 -0700 (PDT)
 From: Myeonghun Pak <mhun512@gmail.com>
-To: eajames@linux.ibm.com,
-	mchehab@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: ryan_chen@aspeedtech.com,
-	billy_tsai@aspeedtech.com,
-	linux-media@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
+To: =?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	soc@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] media: aspeed: acquire IRQ after reset and clock resources
-Date: Thu, 15 Oct 2026 21:20:08 -0400
-Message-ID: <gm-top10-20261015191529-g65-295aa0ac5211@mhun512.gmail.com>
-Content-Type: text/plain; charset="utf-8"
+	Myeonghun Pak <mhun512@gmail.com>,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] platform: cznic: turris-omnia-mcu: stop button emulation producers
+Date: Thu, 15 Oct 2026 21:39:18 -0400
+Message-ID: <20261016013918.3492835-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_182016_145383_AB798601 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20261015_183922_882167_EFED0164 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,76 +100,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The threaded IRQ uses the reset and clock resources, but it is
-registered before those managed handles are acquired. Reverse devres
-cleanup can release the handles before the IRQ action has been removed
-and joined.
+The legacy MCU IRQ thread can requeue button-release emulation work
+after its managed cleanup has canceled it. Since the IRQ is still active
+at that point, the newly queued work can outlive device teardown and
+access freed MCU state.
 
-On a resolution-change interrupt, aspeed_video_irq() calls
-aspeed_video_irq_res_change(), which invokes aspeed_video_reset() and
-accesses video->reset through reset_control_assert() and
-reset_control_deassert().
-
-Request the IRQ after reset, clock and JPEG-table initialization so
-managed IRQ release precedes release of those handles. Add rollback for
-the JPEG allocation, reserved-memory association and prepared clocks if
-the later IRQ request fails.
+Use disable_delayed_work_sync() to prevent further queueing and drain
+the worker before the IRQ action is released. Keep the parent IRQ active
+while the worker completes. devm_add_action_or_reset() also drains the
+work if action registration fails.
 
 This issue was identified as part of our ongoing research while
 reviewing kernel code.
 
-Fixes: d2b4387f3bdf ("media: platform: Add Aspeed Video Engine driver")
+Fixes: dfa556e45ae9 ("platform: cznic: turris-omnia-mcu: Add support for MCU connected GPIOs")
 Assisted-by: LLM
 Co-developed-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Ijae Kim <ae878000@gmail.com>
 Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
-This fixes managed handle lifetime only.
+ .../platform/cznic/turris-omnia-mcu-gpio.c    | 31 +++++++++----------
+ 1 file changed, 15 insertions(+), 16 deletions(-)
 
-Compile-tested with Clang 22.1.2, W=1. No runtime or hardware testing.
-
-Base: 0fcb05b72344f40806cbe810de8872f1698bf053
-
- drivers/media/platform/aspeed/aspeed-video.c | 19 +++++++++++--------
- 1 file changed, 11 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/platform/aspeed/aspeed-video.c b/drivers/media/platform/aspeed/aspeed-video.c
-index a292275f6b7b..234001a93ad4 100644
---- a/drivers/media/platform/aspeed/aspeed-video.c
-+++ b/drivers/media/platform/aspeed/aspeed-video.c
-@@ -2232,14 +2232,6 @@ static int aspeed_video_init(struct aspeed_video *video)
- 		return -ENODEV;
- 	}
+diff --git a/drivers/platform/cznic/turris-omnia-mcu-gpio.c b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
+index 4e430d6c3fc4..8f43bfa92373 100644
+--- a/drivers/platform/cznic/turris-omnia-mcu-gpio.c
++++ b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
+@@ -11,7 +11,6 @@
+ #include <linux/bug.h>
+ #include <linux/cleanup.h>
+ #include <linux/device.h>
+-#include <linux/devm-helpers.h>
+ #include <linux/errno.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+@@ -841,6 +840,18 @@ static void button_release_emul_fn(struct work_struct *work)
+ 	generic_handle_irq_safe(mcu->client->irq);
+ }
  
--	rc = devm_request_threaded_irq(dev, irq, NULL, aspeed_video_irq,
--				       IRQF_ONESHOT, DEVICE_NAME, video);
--	if (rc < 0) {
--		dev_err(dev, "Unable to request IRQ %d\n", irq);
--		return rc;
--	}
--	dev_info(video->dev, "irq %d\n", irq);
--
- 	video->reset = devm_reset_control_get(dev, NULL);
- 	if (IS_ERR(video->reset)) {
- 		dev_err(dev, "Unable to get reset\n");
-@@ -2286,8 +2278,19 @@ static int aspeed_video_init(struct aspeed_video *video)
- 
- 	aspeed_video_init_jpeg_table(video->jpeg.virt, video->yuv420);
- 
-+	/* Release the IRQ before the reset and clock handles on devres unwind. */
-+	rc = devm_request_threaded_irq(dev, irq, NULL, aspeed_video_irq,
-+				       IRQF_ONESHOT, DEVICE_NAME, video);
-+	if (rc < 0) {
-+		dev_err(dev, "Unable to request IRQ %d\n", irq);
-+		goto err_free_jpeg;
-+	}
-+	dev_info(video->dev, "irq %d\n", irq);
++static void omnia_disable_button_release_work(void *data)
++{
++	struct delayed_work *work = data;
 +
- 	return 0;
++	/*
++	 * The IRQ thread may requeue this work while the IRQ remains active.
++	 * Disable and drain it before releasing the IRQ action and the MCU
++	 * state used by the worker.
++	 */
++	disable_delayed_work_sync(work);
++}
++
+ static void
+ fill_int_from_sts(unsigned long *rising, unsigned long *falling,
+ 		  unsigned long rising_sts, unsigned long falling_sts,
+@@ -1082,21 +1093,9 @@ int omnia_mcu_register_gpiochip(struct omnia_mcu *mcu)
+ 		return dev_err_probe(dev, err, "Cannot request IRQ\n");
  
-+err_free_jpeg:
-+	aspeed_video_free_buf(video, &video->jpeg);
- err_release_reserved_mem:
- 	of_reserved_mem_device_release(dev);
- 	clk_unprepare(video->vclk);
+ 	if (!new_api) {
+-		/*
+-		 * The button_release_emul_work has to be initialized before the
+-		 * thread is requested, and on driver remove it needs to be
+-		 * canceled before the thread is freed. Therefore we can't use
+-		 * devm_delayed_work_autocancel() directly, because the order
+-		 *   devm_delayed_work_autocancel();
+-		 *   devm_request_threaded_irq();
+-		 * would cause improper release order:
+-		 *   free_irq();
+-		 *   cancel_delayed_work_sync();
+-		 * Instead we first initialize the work above, and only now
+-		 * after IRQ is requested we add the work devm action.
+-		 */
+-		err = devm_add_action(dev, devm_delayed_work_drop,
+-				      &mcu->button_release_emul_work);
++		err = devm_add_action_or_reset(dev,
++					       omnia_disable_button_release_work,
++					       &mcu->button_release_emul_work);
+ 		if (err)
+ 			return err;
+ 	}
 
