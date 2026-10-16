@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2254ECCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA64CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+P33/sA4gGKMdrtPonMZZt7DDO16tTuj+Ea0EHreBIs=; b=yLfRs6q8yMIaYTQ1n+MFIso1vc
-	fmK6Ztca+qt8nvEmHLMDb2egMsd0G0NbUwhXMO4BjS5XgrMiLJhjHehpCS2TW/HkpHkHceBBBGSrI
-	J9rKnTzoW+YVejItYz8LKvNt/h7CY+4/i1FifP8sLZjhjknWg0JlrBHXPaQ1/3FUIZNetKK7rWLnj
-	b7of+67Ypkn0cwoL2ez9/1dVe7s7nwOfsO4i7aJMuoY5VgqYvXx+Y9ADchFFwpfHkcm94s7uC6cQ+
-	ge57u175gRHA/K/TLeAFPqXNC9CNRyD2mM1IjCCA0ohvDrT127hZ+8EXdtHhAOxgGqLvceh0Q/pys
-	Q70QKr+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZLLh+H6AvF3pOzsah8RxxbzU39nSJ9TcPLlAcIWH0Mg=; b=ktVBDxuShKITdWFPofRMvOGUh/
+	pUcLGKe0IbQzi6vpEZNi2UISiWPoss4xTMl2ydQI8SXI1wFq6G3+B7PAmi5hfUbuWsnHVZwx1Q5aw
+	I/7Gk/WVsv0s4TvK2mTmHaeVUg73fFi5OYizjzB7JkYdujWlOGki+WEfwNkMoLmXwG0FDC0E4pBRP
+	33Inn9oIaqQE57sId+rdGhab4GZXI8c4GLUwg1jRu7jtUwPuSyvYM9Eef7n4/lhqAMDa0RzaBMAbK
+	liSFvNtfNKdyzT7dy1BxjZau5I8iJJgqKU8lcyvQiHTsgy8QluIvMkeMVFoWeYtFszntppFywlhC8
+	A4daVyow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHf1W-00000002b3O-123z;
-	Fri, 16 Oct 2026 10:18:50 +0000
-Received: from mail-wr1-f41.google.com ([209.85.221.41])
+	id 1xHf4H-00000002bP1-2MIq;
+	Fri, 16 Oct 2026 10:21:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHf1U-00000002b20-0N4R
+	id 1xHf4F-00000002bOp-2Jba
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 10:18:49 +0000
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so599032f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 03:18:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792145926; x=1792750726; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+P33/sA4gGKMdrtPonMZZt7DDO16tTuj+Ea0EHreBIs=;
-        b=dDFqpzWapYjum+i36qHrtjX/8qBoE1LpISXz+pS0ZE9L2qr8nTPNS8t/KI/w8bkQPo
-         LuSzO1P6lzZIeAPNnxqYIvPs3tli5eK1xlDPxLazlAjEltS2ytB22D2weyrcJmS1T480
-         1zQtbwBaRs1puV+OqwKi42voghTpU7hT8g4U2qaqGtu+ifmnbjIWABBo20ae3oGlY55/
-         lfST25cQ/pEo6hfhI71ek5LYoxTEAOFBVq3BZ0cIuCI3fmambzDEG/9h37LWZpESEk/Q
-         9a3vEfPfZM1e38RBciWA2DxYkVHnfJDqCkDtD+xin/Dlv8zktiR06Wj/gM1Gu1mZXVkI
-         IBdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792145926; x=1792750726;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+P33/sA4gGKMdrtPonMZZt7DDO16tTuj+Ea0EHreBIs=;
-        b=i4p0c4NAaDQESDZC3DSTCfbQtmJqD114KkcP7I0mg8HbJ2M7iezUxPrDUlYXbTYLqt
-         Czne8vsC6rDRDyhTOaJmOJDFgpbPGpNHQ50xFaYnnDk6D2hOjPkUBv7KDQHODOgVYpOz
-         PYXoZZlSu5aO0Vt750E6G1+9kNhI6tWXu2BiRvou7Z+uV8CsnVYY/CtxMSP916LFKQIr
-         le74u6qhX6703wKadtUE51PS098YJAlkljbNspUTMf6QqsPaXJyZ0yJQqrWIFZaATL79
-         CnpVI71Quh/c9sr/MxKbsaf9kJHC0LU5ub4mDnFo9ytxsfxjMbMe0d6dryk47Ii+tF8r
-         pBGQ==
-X-Gm-Message-State: AFq9FYLdHY9HO4cS00RWlAhxf/WtQkzFYn5an6JKSyZ6yuEZXymm5xH7
-	jU9CHFMtLCTOI9qILVpWJnO6OgwMZc0HNWhDNYONcv+tAl/u1ARNwV0W2lQlv6bvToM=
-X-Gm-Gg: AYBFou3wjEXD6fpI6/7e8/92vC4BKO1qGl1mXFS7r5mOJWU/Q+lM6RSYuDkf7MabmeC
-	D8Kus2F9mdCxqQCG+EvwXWGpXIsXD2ls7Z2uNsDga6kQllJqURhyR+AQwO2bpupGvL001pj0+fs
-	6bg1z779r2tARKe1JjLUl1yi8/iWTGyIQCin0PotJQ9TxehQXXdCxwDcEiiLktCgfqOc+NvEPdy
-	Rd5/fMno7e2YDyf3hJ2fIDsp4IQCR69He8wz6MdKCuyUsQlXZjjQY125cPKeVT4/0qFSRKv+o2q
-	arhIOGp1DKONOXd/7QMDnTfhhnCWhIWhXds5wLkzAY541zKdmw8Erces3rc3+CMk62wGWuNreLR
-	RYiiU+lkiingBRBL/6XwLZjJU7dt0Lbawkdsq55iejo+PsNmkVfhc567flojOlOduCcv3CWG4jO
-	SBP3foB+0z+9/N1vzio1t23gzrqnk5M+pi+rC4/OQkynFozHZB+R4StrR1BLxNuRPOr0LmSvwj6
-	rY=
-X-Received: by 2002:adf:e195:0:b0:48b:123e:2f5c with SMTP id ffacd0b85a97d-48dbaaed96dmr43622879f8f.29.1792145925501;
-        Fri, 16 Oct 2026 03:18:45 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfe4d2321sm3840867f8f.19.2026.10.16.03.18.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Oct 2026 03:18:45 -0700 (PDT)
-Message-ID: <53999f08-bbfb-462e-8521-383aba65f2a9@linaro.org>
-Date: Fri, 16 Oct 2026 11:18:44 +0100
+	Fri, 16 Oct 2026 10:21:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C71946022B;
+	Fri, 16 Oct 2026 10:21:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F671F000C4;
+	Fri, 16 Oct 2026 10:21:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792146098;
+	bh=ZLLh+H6AvF3pOzsah8RxxbzU39nSJ9TcPLlAcIWH0Mg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SA5y25c5Ax9XiL89LHF60r7LTjc/isW/mANFnBpopAF7cnYAH68fLLHwbl1/OVtkd
+	 nurZ8/hyMKyst8EuUgHLk1ctDT2FNTC1X1UwhqJee9Yz7/+6gLU3Ase+3LoxnKUtbU
+	 D2+c9LWzP3DuNy8b4SQsWU12QwdVokU7l7zIifnGyYQZEguEO5b6WLau/Vee49QXmf
+	 PKdqLRCbvFFrR7FCt9HPFQdkxEdm9gPG9sc5H2zD5z9TOHutnFDhAHCKHV8raPJMmS
+	 GavfobPpuZyGynW0TZKRfAUSXMjrSgQoUM4wcU1xv3vSQs5E4MmFvIxvUP+TuyFKKq
+	 hHnVrmV03MAzw==
+Date: Fri, 16 Oct 2026 11:21:34 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Philip Radford <philip.radford@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com
+Subject: Re: [PATCH v9 12/13] powercap: arm_scmi: Add get_power_uw to
+ synthetic node
+Message-ID: <20261016-nostalgic-adaptable-crab-4eea62@sudeepholla>
+References: <20260909220437.1254412-1-philip.radford@arm.com>
+ <20260909220437.1254412-13-philip.radford@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] perf: Order SPE and TRBE padding before publishing
- AUX head
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>
-References: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_031848_149721_88F0484A 
-X-CRM114-Status: GOOD (  13.33  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909220437.1254412-13-philip.radford@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/10/2026 16:51, Leo Yan wrote:
-> SPE and TRBE write padding into their AUX buffers before advancing
-> aux_head. Add the missing write barriers so that a userspace reader on
-> another CPU cannot observe the new head before the padding stores
-> become visible.
+On Wed, Sep 09, 2026 at 10:04:36PM +0000, Philip Radford wrote:
+> Exposes the current power usage from the immediate children of the
+> synthetic (root) powercap node. Iterates over pr->spzones and sums per-zone
+> power.
 > 
-> AUX producers must make their data visible before publishing aux_head.
-> The required synchronization depends on the trace hardware and CPU
-> memory model, so the barriers belong in the drivers rather than in
-> perf_aux_output_skip() or perf_aux_output_end(). The TRBE change also
-> covers padding inserted by the overwrite erratum workaround before
-> perf_aux_output_end().
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
 > ---
-> Leo Yan (2):
->        perf: arm_spe: Order padding before publishing AUX head
->        coresight: trbe: Order padding before publishing AUX head
-> 
->   drivers/hwtracing/coresight/coresight-trbe.c | 2 ++
->   drivers/perf/arm_spe_pmu.c                   | 5 ++++-
->   2 files changed, 6 insertions(+), 1 deletion(-)
+> V8->V9
+> - Removed redundant if (!pr) check from instance_root_get_power_uw()
+> - Stopped returning a partial sum if one child read fails
 > ---
-> base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
-> change-id: 20261015-add_barriers_for_perf_aux_output_skip-70356815b2bd
+>  drivers/powercap/arm_scmi_powercap.c | 34 ++++++++++++++++++++++++++--
+>  1 file changed, 32 insertions(+), 2 deletions(-)
 > 
-> Best regards,
+> diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+> index b5397d7675e6..aac0b00490b2 100644
+> --- a/drivers/powercap/arm_scmi_powercap.c
+> +++ b/drivers/powercap/arm_scmi_powercap.c
+> @@ -17,6 +17,9 @@
+>  #define to_scmi_powercap_zone(z)		\
+>  	container_of(z, struct scmi_powercap_zone, zone)
+>  
+> +#define to_scmi_powercap_root(z)		\
+> +	container_of(z, struct scmi_powercap_root, instance_root.zone)
+> +
+>  static const struct scmi_powercap_proto_ops *powercap_ops;
+>  
+>  struct scmi_powercap_zone {
+> @@ -453,9 +456,36 @@ static int instance_root_release(struct powercap_zone *pz)
+>  	return 0;
+>  }
+>  
+> -static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
+> +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
+>  {
+> -	*v = 0;
+> +	struct scmi_powercap_root *pr = to_scmi_powercap_root(pz);
+> +	struct scmi_powercap_zone *child;
+> +
+> +	u64 p, acc = 0;
+> +	int i, ret;
+> +
+> +	if (!pz || !power_uw)
+> +		return -EINVAL;
+> +
+> +	for (i = 0; i < pr->num_zones; i++) {
+> +		child = &pr->spzones[i];
+> +
+> +		if (!child->registered || child->invalid)
+> +			continue;
+> +
+> +		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
+> +			continue;
+> +
+> +		ret = scmi_powercap_get_power_uw(&child->zone, &p);
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Should we skip domains without monitoring here as scmi_powercap_get_power_uw()
+return -EINVAL for such domains always ? If the system has one such node, you
+will always return error here ?
 
+-- 
+Regards,
+Sudeep
 
