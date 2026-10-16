@@ -4,61 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B8DCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 03:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358B5CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 04:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTVoV+gBOsZ6rOZ5w9p7Hh0T69lXfyi++mqrWhYN8ks=; b=enUHB4mVmfiED2X0/3gHzEW4xc
-	1B50TGJtWl++tLPqb9j0R/gvXdhoWuljhAc3PIGvQQaGyBVXcTDvE6ysBVi4oUD86j6VKlClRfcld
-	+cbvXNvI5LgNSYqS6q27Hw03OEODlPg1qf6eXWaKVGAVil9i6qrAwX913FBp6W6cuQ7SmP2tpt8EK
-	VpFD6U8mOLJPDQfHMjPnktas5uPoXgqN1UC6IlIDbCoL1+ZiB80cV70uEu08Lz2OvJLjbW0HnZkSX
-	TDgmEQYqsPKy9cvmsQMgEGCPK3RPl3gXZLQztWS7uKmV/rqi4x2e3+gflEKJugtCrImQYjlCkrNZN
-	IT+HHmYA==;
+	bh=uiqCA4qnLtnX4DF1IZrq2kWLRAqrZAuGv1yrVlnPGcg=; b=JD5aIsEKrwuovo4MkyYhkbxB5/
+	ZR4YTUj7+cAEYxaO2wjVWTFAf20pc1lBkhwItqVbAmXoNoEs/hbvpw/7xgopAQspwAxgCMd6ibk6V
+	9cmDK3Iz6d+i7+n0UmhmqedZ38eHw5liK4T3ID4Lo9YayPabi2d/ltnS7gDHC+YrVJVEiX3+44L1l
+	gSaOC7PQVkOVcFZL0GEmsL5ca2a7gA/HgMxsRqtnBRYCeIqOQhJNZvP4Hppu1hcAR084xvDsTa23i
+	re6SRsVflTi26Pl8pVrqxwzje8iyLH2KgAoYW5yor1pCU0CvQ/0GFTfBadONOPjuIo7vgiuJTxpzR
+	7UOd0tMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHZ4Y-00000001vQb-0Z4x;
-	Fri, 16 Oct 2026 03:57:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHZ4W-00000001vQ4-035K
+	id 1xHZR5-00000001xag-26co;
+	Fri, 16 Oct 2026 04:20:51 +0000
+Received: from mail-koreacentralazon11023099.outbound.protection.outlook.com ([40.107.44.99] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHZR2-00000001xaF-1wGi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 03:57:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 580FB14BF;
-	Thu, 15 Oct 2026 20:57:26 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7E303F673;
-	Thu, 15 Oct 2026 20:57:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792123049; bh=nr+2Ba/wperxrB0oPnvRIv6ziasoepMJ6kBz6i1UOM8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n1mO5ZXHj64DVV9mh+/Muwc2p+1XILKpQ0uALrqw2Llxill/F821gw8aaTJHv7L4E
-	 8r4DppLWdfkcJte2yYja7cjjsnWb1RPEdrbEidDg7uTR+ZDzUr3fxIrfyBqR1mC9Ru
-	 pLRex3uB4/qqK8+GZz138MbPz6Cp+kuicURpklks=
-Date: Fri, 16 Oct 2026 09:27:26 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Iurii Trukhin <yuri@trukhin.com>, Will Deacon <will@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: raise default ARCH_MMAP_RND_BITS for 48-bit
- and 52-bit VA
-Message-ID: <4udh7nwi3is7xb4jhgsznyrm6w7i4hk5oeteqzzpswapi76ppk@65y3efxvo2bb>
-References: <CAOx7e9K5sgNcWNj4CemyZd0Ar1ZjR4o44B4nryohq-Ue6TNdKA@mail.gmail.com>
- <atEAtHiHh0eeVPn3@arm.com>
+	Fri, 16 Oct 2026 04:20:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ats6Oro/zdhKAoRqIMpd3PYZA47ok+CSnQ1wJD9fLShHW4hBZCxWSj4rTUAwzXm7CCX19cuEGsr5WYvLkAYsDtA1d4nAppIrOEP1DxQpdwFpF6MIw0AO7Acj3tmFUHm3+0AMgkCcbdV9iN5jviA++CcfCaaelxRCGhcmcjDnQnAFqENokicVGkL4Paaybq5l/6yrsduklJ1FfRSUX5JwKOFOq6aIoBRhhk6jNKT86zhE5wqWXNeT2n2V3zYdBPc/NQOK+2I2ObjJsV4wxIIxVbGChTD8yQlzN5TTpDoO4hzjlJKGnLL5UOK0u4kmJQkpZ4g4yCTbzstuCIwg4KpOCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uiqCA4qnLtnX4DF1IZrq2kWLRAqrZAuGv1yrVlnPGcg=;
+ b=e8xA6s4jA+9qO46RnY/fz8Gao0Ex4JYAdhYAZE5NkM3ACP78sb9hraOCTgMOzp0O2V5E4osgUpwlUdTRuU/e2psY+Og8bPNGAs/tJ1AvBZhgJWXzX1t4+c7tUCB8HTD1ost3RYNOKYMDHRnuWsbgzHGrb3KRlVCesxRe9bJ8dyhMaJK9F2I5No2aaweDcNc4fzFvw6/+Fu6sF6l4CrB9p5/8ujntUcBBdWs9J/vYL10s7DIBtg89axox2Z2N/Cvic/ydPIYOa73qI1sH7gHHhKVXvjm8BhzhAqsEY7sYk4w/haJUySBnJJl9YsmseJZmOrxFv5iI6Q4xIyUroS5Q4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI1PR02CA0006.apcprd02.prod.outlook.com (2603:1096:4:1f7::11)
+ by TY0PR06MB5684.apcprd06.prod.outlook.com (2603:1096:400:272::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Fri, 16 Oct
+ 2026 04:20:16 +0000
+Received: from OSA0EPF000000CB.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7:cafe::8c) by SI1PR02CA0006.outlook.office365.com
+ (2603:1096:4:1f7::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
+ Oct 2026 04:20:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CB.mail.protection.outlook.com (10.167.240.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 04:20:15 +0000
+Received: from JohnnyFan (unknown [172.21.64.24])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 7508442C6441;
+	Fri, 16 Oct 2026 12:20:14 +0800 (CST)
+Date: Fri, 16 Oct 2026 12:20:13 +0800
+From: Johnny Fan <johnny.fan@cixtech.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, mark.rutland@arm.com, james.clark@linaro.org,
+	leo.yan@arm.com, cix-kernel-upstream@cixtech.com,
+	bob.zhang@cixtech.com, jie.fu@cixtech.com, fugang.duan@cixtech.com
+Subject: Re: [PATCH] perf: arm_spe: Support heterogeneous ACPI systems
+Message-ID: <atGl/ZTg49t/VfVj@JohnnyFan>
+References: <20261015062908.3565761-1-johnny.fan@cixtech.com>
+ <86mrsf1bnv.wl-maz@kernel.org>
+ <atC+lsWALy6ueGAB@JohnnyFan>
+ <14d16970-915b-4c86-afeb-bfc3058564df@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <atEAtHiHh0eeVPn3@arm.com>
+In-Reply-To: <14d16970-915b-4c86-afeb-bfc3058564df@arm.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CB:EE_|TY0PR06MB5684:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4321b928-25f0-4f8a-c337-08df2b3cc78d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|376014|36860700016|261009223027099003|10067099003|4143699003|18002099003|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: oOklGPSFVHekC3g5CO1VYL4jaIVEmrA1QI0hluUmgPjThTIJAvJ4BH/e+KiEpUbfaU2hJS0tddnzL1/Md8xgbVFtR7l+hsf+U9GBWIvdMR/eYTkF5GSfom4LAVK1shpR11fE7V66XtXn5Pe9i1Ob+cO7DKn4G7PvsUyPs/a7q6cAufnaym41V2tYwBwPBfjN5moWVozsnw+8eDfmWJV4Naui/LfI0t+ZBvaW7NVuDmFpQzM1vg/uWrtPE9cS1mQd6Vird2uX4aT//rzUM+9a+uf+KEBC0XLG1K6u/x1g8lOGFFcPecH8LgZryquudhr2Y5mGZ3CxNgNb5aW6qUSjgtrLRoxGUHNDdyMhwJNHFDMkreT2NKC30p9An7FTGC7bS5JEg81qt6HauBSXadaWAp7fKZm1Yj9zR1xoZ2TcT4w83soiT8s1NTHfKiW1L4pvK4b5A86NJ3wWKwvANfscgyD+yWai3/vayY8tgWw+beS5vaWI5gllTX9BVO7A9wp+UsvspSwCwfeAzyazf9XPHxmp0riSAabkoHsAlJkZxFSfjDAhmj3YbzmF7OzBcxpplgX05Fo1m6z/NGhgb8gTBdjT0tcBGk4qL5MVEGDccPz1yFuXMyt9CGSfggzj635XKthe6aWmmQq3iYC1KZSGL3IRAz/ET3DRnEn2Yr8yCuQ6ANvj0oKmsX4EAl5xttup0jKDTUBkalktYMVXc8FFzw==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(376014)(36860700016)(261009223027099003)(10067099003)(4143699003)(18002099003)(56012099006)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: uU4SupIF14hTm3yspd+ovLYaKu2TfvRWjvQMvmCGIBEOaFENeaMgR9AZyAQEqGht9np1Ah+/QMvNf9YFjkdL/UPAEOiAyFqRaQtto6iW7g0fQUWerKKVybHVQrJP9j2DG4eUAXGk/MR43tqfORBysyiqtETEFQMZbHnerrp6bwVYEnw65kGg8tkUeI1wcv+0eI/aLdSeHqhI5LfvNT4kUx176/BOy/cinvL+RuTxJBTLjzViDY9CbyPqlsA1FmSilEINQY7r6GHROL9ofO6sYy7AWT3d51oS3c0bEfuycI6q1V1HRtz3KS9lL1P2S7fT650DcWrm5eRePryDo4hki6VwBDq5MCcRiD/BGOS0b1GlXx3vZjVApZEI3ko1x9wPEk35CDX+yI1I/2pDJR9YHajl8NXwqyjBUbFTQfqodPU+RZDZKvAm8LgXSxI+Zirz
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 04:20:15.3851
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4321b928-25f0-4f8a-c337-08df2b3cc78d
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CB.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5684
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261015_205732_174272_F10CDF9A 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20261015_212048_535040_179F3438 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +117,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 05:35:00PM +0100, Catalin Marinas wrote:
-> On Wed, Oct 14, 2026 at 10:23:35PM -0700, Iurii Trukhin wrote:
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index cab741a695f5..7bca47269dd5 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -313,6 +313,14 @@ config ARCH_MMAP_RND_BITS_MAX
-> >  	default 16 if ARM64_16K_PAGES
-> >  	default 18
-> > 
-> > +# default to 1 TiB (5 bits below ARCH_MMAP_RND_BITS_MAX) on 48-bit and
-> > +# 52-bit VA; smaller VA sizes fall back to ARCH_MMAP_RND_BITS_MIN in
-> > +# arch/Kconfig
-> > +config ARCH_MMAP_RND_BITS
-> > +	default 24 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_64K_PAGES
-> > +	default 26 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52) && ARM64_16K_PAGES
-> > +	default 28 if (ARM64_VA_BITS=48 || ARM64_VA_BITS=52)
+On Thu, Oct 15, 2026 at 10:58:10AM -0500, Jeremy Linton wrote:
+> I don't think the GICC is sufficient, you have to consider actual
+> heterogeneous machines that have differing SPE implementations with the
+> same PMSVer, which mean you have to keep the PPTT hetid check, and set
+> the mask based on both it and the GSIV. Then, like DT create multiple
+> platform devices. Which is true with the current patch as well, the
+> hetid still needs to be there even if you have differing PPI's because
+> it could have more than two differing implementations.
+
+Following that direction, the question on ACPI is how each registered
+SPE device gets its supported_cpus: the platform devices are created
+without an fwnode, so platform_get_irq_affinity() falls back to
+cpu_possible_mask today, regardless of which CPUs actually implement
+SPE. That's the plumbing question I asked Marc about -- would be good
+to know if you have a preference here too.
+
+Thanks,
+
+Johnny
 > 
-> This looks fine but I was wondering what ARCH_MMAP_RND_BITS_DEFAULT (and
-> the compat equivalent) is for. It turns out that an int always evaluates
-> to 'n', so not taken into account. It might be worth removing them
-> altogether as a separate patch. No-one seems to be using them.
-
-I had the same observation looking into v7.3-rc7 but seems like that option
-is already being removed via the following patch, already in next-20261015.
-
-commit 8cdae75cebe06b8abea9cd3402442d47cf50b485
-Author: Julian Braha <julianbraha@gmail.com>
-Date:   Mon Aug 31 00:00:16 2026 +0100
-
-    arch/Kconfig: fix dead conditions by removing dead options
-
-    These two 'int' options:
-
-    ARCH_MMAP_RND_BITS_DEFAULT
-    ARCH_MMAP_RND_COMPAT_BITS_DEFAULT
-
-[---snip---]
-
-https://lore.kernel.org/all/20260830230016.2730093-1-julianbraha@gmail.com/
-
-> 
-> -- 
-> Catalin
 
