@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E244CCF2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A4ACCF2C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 21:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mN2Kzlf05Vt1VICnIXW7SINAOe1Q6DRTEnGDMvqFe4=; b=oyfpx8Yxw6N7zVjKBAG8VI5w9t
-	dLbi/jOzEUJftdGnXrtu+rRNWD96rpd1gjHrHN7OSMf1YlQNwnYcWwVnH0A6QdMatl/EnOyRg8Wdb
-	GWPrBGoN9PiZx5gSYe0bujNgacKTzSANZ8SgWfNgHajbRcFgsb0fJLN/3MHD8NSgMG+dXg5L/+rKX
-	oMJYk8TDREOGZ8YuOfo8AE6CSMs2YysMh5rxahjq1DBSu2zC4zfz1+LSbcBYn7c9cabK91lnLDe3A
-	hcUsO07rG4mGKCAXSBQ86h++M9QLkTGLneg/OMrmBkIBBgm9YgXMYU2C5P64Zc++T2MNPwMxnNXq1
-	2RP2SobQ==;
+	bh=GvH2sAe8aMHAMZdlX98rxcCEqSf2GM4TGWO/smgWhWE=; b=0N695LhcPWHKIZ4r5WzwkR93OB
+	/mTIaRydgN9UDoFWDMUVdF8PqNdmXKmT8mhr+JAV3hydNPixQWPlbD4E0BZ859fdf89hzcUmytlQ8
+	JugZPRao25gnRJzp5W4ztDoZz/4JYOdnZ3r+wMBjLbFZZA/hh5i/xijIs36Clb/CK77hQbfxIfbtO
+	Md2EeaIyoB0FGWOd3h/J4xPPTNfwPd+NjTpvJd86odnBieVgYTYbprIKOD7HWPiyGzUKVRCJFUlzp
+	XuKatsBtnsJydNbRCrTOcSjwEXhFLywQ8mzvwLJOwohNjbp4o5KM8ZPA9QO0bsaydz4pobUlWmZ2P
+	9v9A4k+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDg-0000000444F-40AQ;
+	id 1xHpDi-0000000445E-3ILA;
 	Fri, 16 Oct 2026 21:12:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHpDc-0000000441f-2wiI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 21:12:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+mN2Kzlf05Vt1VICnIXW7SINAOe1Q6DRTEnGDMvqFe4=; b=keC2e7OzfWFmOIeVozoovBt+lB
-	geHF0Qf27dgRGH/diG0L9Q8FlXlY12ejbzUcE3v2g0qf8CtXzX7NRD9mzxaonCIKJ8v8BBEEcG8rg
-	pEeExjUxejqIVlj3etNoplg/NH054Fwnnq7snh6l897H4stmtXEgVYfU+MkjKTBhUErmuWJAHpLpv
-	SyF05THlLNWVsUv0GQOj+teUz1QPfDrC3s0bbR4wJMOD9SslwilGdkhCIjE6P5l5vZz43HU5q7DhU
-	NBEKprsAak0jV7ijO4dEpilOYWte4D8CvmeEe8NNnYrtkA/XTVw4rVpk+st785JN/+fvRMwqKzz23
-	18kofujw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHpDZ-00000001xRK-2DT0
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHpDc-00000004410-3EO2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 21:11:59 +0000
+	Fri, 16 Oct 2026 21:12:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9EE61516;
-	Fri, 16 Oct 2026 14:11:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55D8A16F3;
+	Fri, 16 Oct 2026 14:11:56 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6604E3F673;
-	Fri, 16 Oct 2026 14:11:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1520A3F673;
+	Fri, 16 Oct 2026 14:11:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792185115; bh=6v8UMEXHuka5k9rxoMuSILT2vaa5s7iMzgRF1vhX86w=;
+	t=1792185119; bh=ExQeQe5rMEnrrEzFDBhCn/rhnjJ0LyHdeLTBAPO2zxQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=il7wfM23w5c+hwRVNzHkkh2L4ZOSKqeTX9E1kGbPsWNs5foeh+ffWtaABS2Sodn/R
-	 C8z4bE+oRk6AUZFApFUaNDrmk/quQLsvUjZRnicPd4F9Bln+z3VNo1gAFBPDTpRA2i
-	 fPbKuYB2gAxyfgIBP1XPpIfnkWlcy6AYDi/glGTQ=
+	b=K23x+65G0j7SYJ9UWUslMt3VfinswDnOd3jQhLtgP2fZjhcUge/4zTNdpb6Pvsabm
+	 EMVdN7IK7/MHA5aISNNj44bAqW0q+4FzSiS23X9gHmn4s8m/iVTAG1Pn3TN66qzDao
+	 vakNb1KWLduL+nXJ6li4H3Z9fjWUzwL2WNUo7PDc=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 16 Oct 2026 22:11:39 +0100
-Subject: [PATCH v2 01/11] coresight: trbe: Remove misleading comment
+Date: Fri, 16 Oct 2026 22:11:41 +0100
+Subject: [PATCH v2 03/11] coresight: trbe: Track trigger count support per
+ CPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-trbe_buffer_refactor_v2-v2-1-383ac26382fa@arm.com>
+Message-Id: <20261016-trbe_buffer_refactor_v2-v2-3-383ac26382fa@arm.com>
 References: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 In-Reply-To: <20261016-trbe_buffer_refactor_v2-v2-0-383ac26382fa@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -72,16 +58,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=1975;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792185112; l=2244;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=6v8UMEXHuka5k9rxoMuSILT2vaa5s7iMzgRF1vhX86w=;
- b=9/hrQ62uFYqwBiE1FyM9+/w9e5H55spZ6D9uPOiLBrqtBwsWarl/MM74ekbObXSN5qtcJd0Cf
- vhUyKNjV0V5AKz2gZN5+57EJsZch1d0NPGrr7DJcEJieajUS53k79Th
+ bh=ExQeQe5rMEnrrEzFDBhCn/rhnjJ0LyHdeLTBAPO2zxQ=;
+ b=QQ3StaQhOPPUgEas3xo7KGhtyzKPwXWHnHZHABdoKGB5QO7p5ivdXv9LJVnmCDrQiDQvGDfsF
+ 0TOsYtkYCDUC8I5PXqlpTUgCeIB7h3BV9PSbPoCfYpfhZZjtY7R0fI6
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_221157_941866_55884404 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20261016_141200_892767_DE32C0DC 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +82,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the rounded-up wakeup address is always higher than the head, the
-limit cannot be less than the head caused by wakeup capping.
+Some TRBE errata are not compatible with using trigger count mode. In
+particular, CPUs affected by the overwrite-in-fill-mode or out-of-range
+workarounds must continue to use the existing fill-mode handling.
 
-The described scenario is never valid caused by wakeup capping, remove
-the comment to avoid confusion.
+Record whether trigger count mode is supported in each CPU's probe.
+This prepares the enable path to avoid programming TRBTRG_EL1 on
+affected CPUs.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-trbe.c | 16 ++--------------
- 1 file changed, 2 insertions(+), 14 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
 diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 29a1882b1f3c2eb7166f71eeef37badece67039c..ada4794c51f3eb9142cd62f4209affe308142d1b 100644
+index 09ed9bcf4a70479169094697dcc3d445629cfaae..92cd9c28cb4f6d9da7d41aa9eeedf4295a810006 100644
 --- a/drivers/hwtracing/coresight/coresight-trbe.c
 +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -505,10 +505,10 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+@@ -140,6 +140,7 @@ struct trbe_save_state {
+  * @trbe_align		- Software alignment used for the TRBPTR_EL1.
+  * @cpu			- CPU this TRBE belongs to.
+  * @mode		- Mode of current operation. (perf/disabled)
++ * @trig_is_supported	- Trigger count support flag.
+  * @buf			- Buffer configuration retained for the enabled session.
+  * @handle		- Perf output handle from successful enable until disable.
+  * @drvdata		- TRBE specific drvdata
+@@ -151,6 +152,7 @@ struct trbe_cpudata {
+ 	u64 trbe_align;
+ 	int cpu;
+ 	enum cs_mode mode;
++	bool trig_is_supported;
+ 	struct trbe_buf *buf;
+ 	struct perf_output_handle *handle;
+ 	struct trbe_drvdata *drvdata;
+@@ -222,6 +224,15 @@ static bool trbe_is_broken(struct trbe_cpudata *cpudata)
+ 	return trbe_has_erratum(cpudata, TRBE_IS_BROKEN);
+ }
  
- 	/*
--	 * There are two situation when this can happen i.e limit is before
-+	 * There is a situation when this can happen i.e limit is before
- 	 * the head and hence TRBE cannot be configured.
- 	 *
--	 * 1) head < tail (aligned down with PAGE_SIZE) and also they are both
-+	 * head < tail (aligned down with PAGE_SIZE) and also they are both
- 	 * within the same PAGE size range.
- 	 *
- 	 *			PAGE_SIZE
-@@ -519,18 +519,6 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
- 	 * |$$$$$$$$$$$$$$$$$$$|========|$$$$$$$|
- 	 * +------------|------|--------|-------+
- 	 * trbe_base				trbe_base + nr_pages
--	 *
--	 * 2) head < wakeup (aligned up with PAGE_SIZE) < tail and also both
--	 * head and wakeup are within same PAGE size range.
--	 *
--	 *		PAGE_SIZE
--	 *	|----------------------|
--	 *
--	 *	limit	head	wakeup  tail
--	 * +----|------|-------|--------|-------+
--	 * |$$$$$$$$$$$|=======|========|$$$$$$$|
--	 * +----|------|-------|--------|-------+
--	 * trbe_base				trbe_base + nr_pages
- 	 */
- 	if (limit > head)
- 		return limit;
++static bool trbe_trigger_count_supported(struct trbe_cpudata *cpudata)
++{
++	if (trbe_may_overwrite_in_fill_mode(cpudata) ||
++	    trbe_may_write_out_of_range(cpudata))
++		return false;
++
++	return true;
++}
++
+ static int trbe_alloc_node(struct perf_event *event)
+ {
+ 	if (event->cpu == -1)
+@@ -1609,6 +1620,7 @@ static void arm_trbe_probe_cpu(void *info)
+ 	else
+ 		cpudata->trbe_align = cpudata->trbe_hw_align;
+ 
++	cpudata->trig_is_supported = trbe_trigger_count_supported(cpudata);
+ 	cpudata->trbe_flag = get_trbe_flag_update(trbidr);
+ 	cpudata->cpu = cpu;
+ 	cpudata->drvdata = drvdata;
 
 -- 
 2.34.1
