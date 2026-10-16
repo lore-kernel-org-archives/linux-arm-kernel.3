@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635B7CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CDACCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXys7ckdfZsaSqIv9WG3c/zyDXcn3l1gqjz0lpcesqU=; b=ggz8/GdGs6uGXYqE1MerEZxwn9
-	ddQOiBSg6vLGs0lqTxVt4DOpLOfFRBORez560M0crCqJo+B8W1UkIJzkcOhFpHkSZhEtArcSqc4OM
-	yPm/pvLuLbAIsxlnwp3DyvmF0VVuKY40po7ZVXCALRbEuQdlYY8p4RfAeKRvR7ij+lzgapcI5n5SS
-	s4tO5dd6IP2oljyRWvj36AQE1DpZIDSuNIdCf7YdoWA+Qw5bCNbZxW/OeVZd9lh8pf8pC07gavael
-	011sro81EgtgfFBaPJE2pLgBuAyFx286lgCMY6p4cXa50fBD+Vnm0BAkp+DMGmbbZ31xyx6Id8ByN
-	tnIQpHNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BD0vTTmZbJbjWrHvwT4Prxm0MMYME1zVn1/sAV8HjfA=; b=nICXbUq7O4SVQVecfuXZ+rpDzB
+	dX1n7j+VkmPN4292Pj8EN9/4ksXjaY7DGVh19auBWvCOlJbeV+YTFHx8cpygj3G8gfOv0a6V8JdOl
+	Ydz+FiNkbHz75uqkDhbEe5hSc+DmTSCNLRRrooNCQ3h/A2zOE7MM4yEwqpGgMcecfNaGpEyyNcz1z
+	x3et5XAt4SB8cl0O0wy0W6gV1KhSIB9ru58WV0NJ1jGDyZoDhPa1DZSEX87tqBQdnX0X5RmgFCSDJ
+	QFT94hkC+Mlh2tGTnV/bvqXQ+IBp7g+lETHkB5y0askudbSIgJlALew+VGyxyl5Kk6YhxorYPSvOw
+	Cs02OONg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiUo-000000035j3-0kml;
-	Fri, 16 Oct 2026 14:01:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xHiaU-0000000368k-49a3;
+	Fri, 16 Oct 2026 14:07:11 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHiUm-000000035ie-3MHv;
-	Fri, 16 Oct 2026 14:01:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53AE643BD0;
-	Fri, 16 Oct 2026 14:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12F121F000C4;
-	Fri, 16 Oct 2026 14:01:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792159276;
-	bh=MXys7ckdfZsaSqIv9WG3c/zyDXcn3l1gqjz0lpcesqU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HZkt9gnOetdK3cwJqZfyf/TaDWY69f6OurRre/WUGRspavzKJHxiM/DA5SgOexPGZ
-	 QRM4nwBBkDe3HPz4PednxZVmccKXPcMmcWatazO0SKDJDa37pAdak66NbQF9qef0Gp
-	 yAYJXMbhivsxdxsLds6zAp+mpjn3GRmPgcnNO5gac331CmQc+6oawJiflBx2SB0HE+
-	 1plY9j94/R430Bpu1i86kczeeRrqHuWJ2xQgnmN9rq8jxFkZn/kV/q4FI4QhnA2E0j
-	 HpTDYraqKa0RFdHemRUoFCYHwKgOrMevxLyB4fhP03tZTli8/Hpvv6p27NSZwNkyZv
-	 Pj6kQhag62uWg==
-Date: Fri, 16 Oct 2026 09:01:15 -0500
-From: Rob Herring <robh@kernel.org>
-To: Jason Yang <jason98166@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Guochun Huang <hero.huang@rock-chips.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
- a cell to select TX or RX
-Message-ID: <20261016140115.GA1798470-robh@kernel.org>
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
+	id 1xHiaR-0000000368G-0wNU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 14:07:09 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B906CC62214;
+	Fri, 16 Oct 2026 14:07:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BA34A6075D;
+	Fri, 16 Oct 2026 14:07:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA80010328528;
+	Fri, 16 Oct 2026 16:06:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792159620; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BD0vTTmZbJbjWrHvwT4Prxm0MMYME1zVn1/sAV8HjfA=;
+	b=Aas02fFbKUmXUHNqndlu2XUd7+6W/U6dB1Tm27lr02R+A2qMN2O0R9v8ruxm2WNFvdsfLW
+	l8yCQVtkBhorGhIVKGCNHnwBFVplaCyCBVnQ1ztThQha063N1ZrI0wmZMCEAJWXBj9Wp8C
+	l2AeKN9K6Y0BKvV99m9tptTugLlFa9P0Gg9O/FhDnvCDUlyMAutb3EBvmDm3LPXDRCDn1L
+	6hZPFGsMYg83E49JuSWEZY+liHemd3FhWVSe0OPiYF3ffXYfQI2QdEgJBzNOcwHdjWXLeP
+	vOx4IvBKnSu6garwy/OXQPVhbh2FPHNgPaIgtxj56JwMk7PoRc0+7Cxk0/SNnA==
+Message-ID: <60e0e45f-4bab-4cd1-9693-42db061c2aa2@bootlin.com>
+Date: Fri, 16 Oct 2026 16:06:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: stmmac: leave the datapath running for
+ normal-size MTU changes
+To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christian Marangi <ansuelsmth@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Nicolai Buchwitz <nb@tipi-net.de>
+References: <20261013-stmmac-mtu-fastpath-v2-1-1e4ce8137689@gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261013-stmmac-mtu-fastpath-v2-1-1e4ce8137689@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_070707_461731_ACE4484C 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 04:56:36PM +0800, Jason Yang wrote:
-> The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
-> for DSI and a receiver for CSI-2, and two consumers can use them at the
-> same time. The single cell of this binding selects the mode and refers
-> to the transmitter, so the receiver cannot be described.
-> 
-> Allow a second cell that selects the transmitter or the receiver. With
-> D-PHY:
-> 
-> 	/* the MIPI DSI host, driving the transmitter */
-> 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_TX>;
-> 
-> 	/* the MIPI CSI-2 host, driving the receiver */
-> 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_RX>;
-> 
-> and with C-PHY:
-> 
-> 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_TX>;
-> 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_RX>;
-> 
-> The transmitter and the receiver cannot operate in different modes [1],
-> so the first cell must match in both consumers.
-> 
-> Two cells describe the receiver as well. A single cell keeps referring
-> to the transmitter, so existing device trees are unaffected.
-> 
-> [1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
->     operate in the same PHY mode."
+Hi James,
 
-The problem here is this is an ABI break. An existing OS will not know 
-what to do with 2 cells. Perhaps adding flags to the upper bits of the 
-existing cell would work.
+On 10/13/26 19:54, James Hilliard wrote:
+> When both MTUs are at most ETH_DATA_LEN, the receive buffer size and MAC
+> receive limit do not change. Update the MTU without restarting the
+> datapath.
+> 
+> This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
+> rejects jumbo MTUs, so all supported XDP MTU changes take this path.
+> Jumbo transitions still use the existing reopen path.
+> 
+> Found by source review while working on the stmmac MTU/resume recovery
+> series. The fast path was tested on Allwinner H616 with sun8i EMAC1 and
+> an AC300 PHY. The AF_XDP scenario was identified by inspection.
+> 
+> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
-Rob
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+> Changes in v2:
+> - Target net-next and drop the Fixes tag as requested by Jakub Kicinski.
+> - Clarify the standalone commit message and how the issue was found.
+> - Add Nicolai Buchwitz's Reviewed-by.
+> - No code changes.
+> - Link to v1: https://patch.msgid.link/20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 56d89a696272..50eaee656cfb 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6257,7 +6257,12 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
+>  	if ((txfifosz < new_mtu) || (new_mtu > BUF_SIZE_16KiB))
+>  		return -EINVAL;
+>  
+> -	if (netif_running(dev)) {
+> +	/* Normal-size frames use the same buffers and MAC receive limits.
+> +	 * In particular, do not disturb a live AF_XDP pool: XDP does not
+> +	 * support jumbo frames, so it never needs the ring replacement below.
+> +	 */
+> +	if (netif_running(dev) &&
+> +	    (dev->mtu > ETH_DATA_LEN || mtu > ETH_DATA_LEN)) {
+>  		netdev_dbg(priv->dev, "restarting interface to change its MTU\n");
+>  		/* Try to allocate the new DMA conf with the new mtu */
+>  		dma_conf = stmmac_setup_dma_desc(priv, mtu);
+> 
+> ---
+> base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
+> change-id: 20260930-stmmac-mtu-fastpath-68813ead3b90
+> 
+> Best regards,
+> --  
+> James Hilliard <james.hilliard1@gmail.com>
+
 
