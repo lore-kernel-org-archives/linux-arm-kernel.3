@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2952ACC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20BECC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 07:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lCuGU0UcRcG2jar7uHkOsLcZmTEy3MKGt9gOjdNOtis=; b=ptRwCIw1KFpjjiTtH6WN0iwmwG
-	rB61Rz6Rj06IXE1R6wYsSzE8FDHAlz/eKezdP9rVYLN9xMGtBWs6DWJzazvkasjpONsYQinIfpuHk
-	6UjcMufvgrj+jE4yjTtmLhgbvLEirqyywcxwt4U7MjtZnMr8YTFwF9SujF5Uc/JksBqRHAIH9qha1
-	ywFnZfgRVGP3Y/hrZfQeOSQpwD7PGdiAqTqrPrbVq+iXJ9hcIPDO2N5d5VBeFYPwLc40VbF6O6oRK
-	EbZn7jzZ5i/uxdwvVyRLVXe4dLHk0FiCW+FZCnavmBHXnfgJ7L3DuhJrQz3G3TCbozTEUMlIdfQVI
-	T/yNiT3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZU0ITcIU0RDlLux+WU+QTQ4pBSZPCHTEfxzBG0C718=; b=1hqLupnJKo9viSRmVm3kfIsKaO
+	p0+gDR5A7A/doeOfzZdCM/PHaC6sjWraT7QRh5zTpJSZxgWyYQpdGcz+RXOpRAuDRx0Sg/8UXALMr
+	al2n/pcsJBdN0ChRTGJ/KawD8KNbKydwF1fuERVEWrrcRkWjaLyY1lO5OHhAdWjGCrLFiycoTZqUR
+	4gg/RHYB2SRmmne6emL9tktmVhTcAj0QbFADpwxrgwdTtKbldphIyjVc1C9pFQjDUEQBCVqUDeeo9
+	OISIDV5n7vpvJ04UV5PbdEUP17ffAy9ykdE45kXYlo9Ulm6bYGvmJ0s0/O0OaYitPYH5zvjdFVrTJ
+	EctNzjiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcbB-00000002FeJ-3GaD;
-	Fri, 16 Oct 2026 07:43:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xHchA-00000002GRa-2xDR;
+	Fri, 16 Oct 2026 07:49:40 +0000
+Received: from out-195.mta0.migadu.com ([2001:41d0:1004:224b::c3] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHcb7-00000002FcR-119Q
+	id 1xHch7-00000002GRA-3JLz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 07:43:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A687043D08;
-	Fri, 16 Oct 2026 07:43:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7D922C2BCFC;
-	Fri, 16 Oct 2026 07:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792136602;
-	bh=noP7SLtTy6bRV7+vDOu0XXWL530DjmB63o88p0NEPPI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HVJiNCM/quOAbTCBag8x7KJRCIuuuh7euAHOmLlzzRK3GhvOB2+F22QQDE7AaxP3H
-	 68frG/FO4VLCqISCwZyv+Ael7Ysyi2VE/i75m/64YEKcR3dM+XajkpgeXvLf4z4kbk
-	 69VHTBpewteBk9Ub7hQBjLGxGYyfKDoXuI64q2x1/Srf4ZT5bkNRePx9wvhJyOt/d1
-	 YfgL1fGD+rtcOa3rzsFxq71MorCuBwelLyV0PDC9y8CzZLWhZXxMOsxJWowxP5cFd8
-	 aCdRTEHXd7m9Q7pWqIFWju0QGgMaAXKNGwDMAjA4hbgV9sKG5ctfWaYX5DLzVvVUeY
-	 UAxMLG0HA+v3g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C360CC6B38;
-	Fri, 16 Oct 2026 07:43:22 +0000 (UTC)
-From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Date: Fri, 16 Oct 2026 15:43:18 +0800
-Subject: [PATCH RESEND v11 1/3] dt-bindings: thermal: imx: Document
- calibration offset property
+	Fri, 16 Oct 2026 07:49:39 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=WZU0ITcIU0RDlLux+WU+QTQ4pBSZPCHTEfxzBG0C718=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792136975; v=1; x=1792741775;
+ b=Z5v09qg6T7waZcENXLM9+Y6P+8KwwuKNCHaTp/BKjgjpTthfbtKa1oa0f3ekPc0dUfmBjRc7
+ oinmZNe4du3g356X/N3HZhRTt0F6wmKAbxfY4uVX/aW+5VzZhfwR73S+qTHMYdfOUWhR8f5o6lT
+ oGRkeNxoCF5tAr/L5eK7gKEM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a5e8366da7d9bfb1;
+	Fri, 16 Oct 2026 07:49:35 +0000
+X-Mizu-Trace-ID: a5e8366da7d9bfb1
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5be4a7b9e6fso3306e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 00:49:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByNp447PJ8xBWuUXsJi5idW9DNc0KU2gHx00qtmGiFVD9Z/duRcsTMNQODHuwMbjOlqweXOzhNZFNMOoLEZhAZx@lists.infradead.org
+X-Gm-Message-State: AFq9FYJtZZNAwGaJaTnBHZPKPz5hfbFeypG2VgpFMpByhyDb0neockC4
+	vHzu31HXj1ODec/DUx6i3lk4QtVsUXENIdvixU2i7SRWiKAh9PLwU6+O3XcZksqN6MKLuW5MQJD
+	iuOPXg2i6VFKTMLTtqTsZJHbFIytWjqX8PZna3iQH
+X-Received: by 2002:a05:6512:b95:b0:5bc:b2ec:eaee with SMTP id
+ 2adb3069b0e04-5be493c4cb3mr93309e87.11.1792136969950; Fri, 16 Oct 2026
+ 00:49:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261016-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-1-b80952ad27d6@cn.bosch.com>
-References: <20261016-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-0-b80952ad27d6@cn.bosch.com>
-In-Reply-To: <20261016-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-0-b80952ad27d6@cn.bosch.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792136598; l=2030;
- i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=Ue37UPF1teuZxiSxC/xhzQKQfZyk1Yq+nuequgJPOG4=;
- b=xymH7t4a1lMCFtRIptL4P675z9HocSCjT4Je85l5feu6a3I94FBxrk73jF9oTG50XXBKLa8Uu
- 3WLscEKcsvoAX4JoXCEah7CICWNDagpFnWHoAuQbb8NJCcY1/9wqOlq
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
- pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
-X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
- with auth_id=860
-X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+References: <20261015173605.1072963-1-maz@kernel.org>
+In-Reply-To: <20261015173605.1072963-1-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 16 Oct 2026 08:48:53 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzdN53MvWmvk+KcD2XEthjpgSivGkYAsc7r8JpEb=02LQ@mail.gmail.com>
+X-Gm-Features: AclHuK8kpSMVjBqTkfq4Ie2CF_wEvKZrjX3oALmxM5tl73nYKwHuhkhXFGvtnPw
+Message-ID: <CA+EHjTzdN53MvWmvk+KcD2XEthjpgSivGkYAsc7r8JpEb=02LQ@mail.gmail.com>
+Subject: Re: [PATCH 0/2] KVM: arm64: Cleanup the HCR_xyz macros
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_004937_971490_5E2DB0F6 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +79,28 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+Hi Marc,
 
-The TEMPMON sensor reading may deviate from the theoretical SoC
-junction temperature. Document the optional
-fsl,temp-calibration-offset-millicelsius property, a signed offset
-in millicelsius applied to correct the sensor reading toward the
-theoretical junction temperature.
+On Thu, 15 Oct 2026 18:36:03 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> Patches on top of kvmarm-7.4.
 
-The offset is determined through thermal characterization by
-comparing the sensor output against the calculated junction
-temperature. When absent, the offset is zero.
+On kvmarm-7.4, every object under arch/arm64/kvm and arch/arm64/kernel
+builds to the same code and data with and without the series (debug
+info aside). Protected and non-protected guests boot in pKVM.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
----
- Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+While testing it I found an older bug on a line patch 1 converts:
+HCR_BSU_IS has been the unshifted enum value since the HCR_EL2 sysreg
+layout went in, so guests run with BSU at 0b00. I'll send a fix
+separately.
 
-diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-index 949b154856c5..503a6e7a2c68 100644
---- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-@@ -59,6 +59,17 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  fsl,temp-calibration-offset-millicelsius:
-+    minimum: -20000
-+    maximum: 20000
-+    description:
-+      A signed offset, in millicelsius, applied to the TEMPMON
-+      sensor reading to correct it toward the theoretical SoC
-+      junction temperature. The offset is determined through
-+      thermal characterization by comparing the sensor output
-+      against the calculated junction temperature. The range is
-+      limited to ±20 °C. When absent, no offset is applied.
-+
-   "#thermal-sensor-cells":
-     const: 0
- 
-@@ -109,6 +120,7 @@ examples:
-             nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
-             nvmem-cell-names = "calib", "temp_grade";
-             clocks = <&clks IMX6SX_CLK_PLL3_USB_OTG>;
-+            fsl,temp-calibration-offset-millicelsius = <(-6400)>;
-             #thermal-sensor-cells = <0>;
-         };
-     };
+For the series:
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 
--- 
-2.43.0
-
-
+Cheers,
+/fuad
 
