@@ -4,108 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14424CC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE09CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8/Xk2PZDV84vw6TpgqIZSg/Fqm5aTct485yHDlUUv0=; b=1xD8p79rLVWjdNRyL7+XO048S4
-	Bv+pdBlccW+H3Al+1bRuMnd5Amgt5I5w6jgt3A60yVcTZQSZvp8VXC1WWqzEdMyAJPLXTkdohkI6G
-	d/qqN5e4idWu9jED7PDExncDHDYreQrGgcqBiHcBXuHR5E1Dfbp9zJObJt5OYSaDmwsDZBaAT+Qil
-	9yLgQM/4pxssZLkCcrkX1jX3vYNdurf0xp1YVoUH4+Wx8VTarsPtyKqkLy0bsh+Bh6Z7T8xWI2BRK
-	JaWTz0SvOxr0rzmOGjRccuM7gtqA+XSVa73rmMtFWw+JWG/xGDkQy7ElGAO6GxG6hZPgCRHb9eea7
-	ZnMij4cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eeo4UlR7k9ii5pcApr0byuh6zl14tsTVmNFEH/do4mk=; b=AaMKAqGOx9CTqadzAJPtr5Sjrb
+	C2ZPkfVWs++irFbW5uN7BUUJGmGUoTiQFjWZNvCjUbzDtY85qh48BMYW3UUfmzAPPVeNHj6ooYZf8
+	qzYXHGMFBHCK1qKc94MKpa0S7VP8TDUKp0XQAOfRGf2U7gnRl63M90z+Rb6PSlynnnLuqMY0ji+Bj
+	YueYaCaKc19Wn04tkYGF/5aJ1v45QrFBBGHxDPSDvycYj3c51eglgrbEzO8zEdC4iSDg9E2vkqDND
+	ddb5+rMSEHs/ZtlKCRQVS30OwC+z5lqR6ruWiCCSxUmSTQly+DJpwhShi4AWujmPDETqs4g5w4wQd
+	w0eWLeXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj88-00000003B2N-2mX3;
-	Fri, 16 Oct 2026 14:41:56 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1xHj8g-00000003BMf-3O26;
+	Fri, 16 Oct 2026 14:42:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj7o-00000003AlE-28rn
+	id 1xHj8g-00000003BLh-0dLM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Oct 2026 14:42:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eeo4UlR7k9ii5pcApr0byuh6zl14tsTVmNFEH/do4mk=; b=kktmk3V0QRBTZV+2bWV2Oq47Su
+	ajYKYAmTlKGg/NDbn6M3BxkpQF6jbfUvSjt/mYx17t4TgVELgt6PMulFqlA/lVolaNlNwZn187yyP
+	ubgbXN8/eMRN6WCMiHTw72vpUM1Fx61UCzYPimwD9x+rMnkUfAhUEGtgHsLB3N193Nh2EsLfP5hRp
+	2PvYDViyrGx2AsSFc9celfKvXaZktQh0QKdbpyUcfSH+IiVwTR3EKAKExlXAHRmyVexcMxqbhoyUj
+	UHeS2rJGa5EVP+wboj1wCmq+Z4LRfTHhNFlJCoTZn5M0USVuWcBzcTsSDFJY0Dv0SHFPm5RZq29qd
+	PZpqGGNw==;
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
+	id 1xHj8d-00000001cIX-1HM9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:41:37 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-48c6955a7c3so1945430f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 07:41:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792161695; x=1792766495; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z8/Xk2PZDV84vw6TpgqIZSg/Fqm5aTct485yHDlUUv0=;
-        b=pDmd7MomQyheYaN5OjVM+Q/GTVuRgpdcZJcyjXM051ppd2lCxwlrX1TYk4NfbJ3FmN
-         p857vQgehoaKoJnCBpSTFBU6IRz1Nd74QR6c1HAa6OgoLShZWGoSlvRLqGrMLFnvDnaj
-         PqJ+8FY9MpJNrfhQR8Nj+BSQcz6qhfmLIVs0xMdKC8od+568YqbZtVOMzQA0gKDXAmcF
-         4R3b6fgSldTajWw0+VG5Xe2QGeGAR0xI5ueRuCyMJQa4mMTIaO4qEkLjKwlsl4Dxbjka
-         FvRbmDBtipUIEd1YsmYonubwub16hmczlFGsrK3x2aE5qn+thCTxGRl0MPDJnjCtjkL6
-         4ngg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792161695; x=1792766495;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z8/Xk2PZDV84vw6TpgqIZSg/Fqm5aTct485yHDlUUv0=;
-        b=fLWyiPiF6eJPSz/jNEqFupDFGbNvPJqfsttrK9vWNSUvX3oC/LQElV7jtNdR/WqaD8
-         fzPz5BrhNbgS04wgV9YiZftldfPFMIZZ8Rsh0h3wAnH4LcvKqexvyV64FUkiPjTOgqSF
-         brLVbJ1DduIoLDlQnVxSH+6J7sY2nee5raS2+cU/1i28vFOVxZ4AC+q9hiJpyUw+yJT/
-         WU0bFZup8LeozfwUW0KAAO0iSgnxszhg9Bo9BXdRn8lp6y94HrLkkoxbjh43cehoJF20
-         kzCQc6fgZk7DGhWUaYowUnLfZoTLo85sJRRVq7vor9f6KYMkGngCBb8rqUe6LpXpw7/s
-         lCPg==
-X-Forwarded-Encrypted: i=1; AKwUvBxMMW349XtqDLKEctKQec+F+WBn6aUIy8EdibPPdu8nnvapJ1nsPi/+xY+ojrOmYto+/o6WMNX7ufU1Frf2GQ9q@lists.infradead.org
-X-Gm-Message-State: AFq9FYKMgc1wypV/5ro9nSSPYwuGWpZvWyIpiEPhw84ubPOx3qsqkTw1
-	CzanahG1k6ZN1Q0/7ehOFxcyRiXHNKHhmfKiBao1i0CE3yY/8K0yBw8NX7xy21WJxFQ=
-X-Gm-Gg: AYBFou033J855NZyejs0EyAi3YxjMJFOfKfmMwFmt24rOlXzYILBOv7mo6AW0Fds3i9
-	wtTyWxpv2/zs9TmIKkDt9lIvTZqrG9LXOi8B0xUiYUBRFFbFgE3e8nrvQhM9LeWycgDRN49pkL6
-	vkdLdEpf/5qOgOpKkC2ImX0WOjJKZUU38DHIDRYNMcftAhoVlKBHNSk1setPmM3P5jpuqVi+bOI
-	1B2YWAO32+r7iINo3UUcFnWTPrg/UXgrkQq2T8Cx6Sift44R0rByegH4aAJSMYVSw5ZGhV3ihqK
-	O7ruFFwumn27BfGwSNlfST2B9677/mmpIepw7+Ir7pIp+1HD97hlT5D+0lsRbFtQDAXfYJgDfdS
-	695KDkf7AnKIQaUVIpCb0ubMLwIL5HI8a2jo6obXMye0ZVXqlqBOmR2umsBUfLqCMv4LBNSjKsj
-	nYfmwimEbfvsw6oWjL6herqDjDJdrJYIbBvzDXg8UNSFeNylSUevqR5dhxOEhT0Qdkhvwwy2Epd
-	5QBn4fq9DWJQI5H0mN/5mqB8Sawbs/cYGE77ciN5Vd0Xkn4+hp05ZECIBD1rvyx5EPSC9Y=
-X-Received: by 2002:a05:6000:1788:b0:48d:dc6f:219a with SMTP id ffacd0b85a97d-48ddc6f2463mr32085591f8f.27.1792161694722;
-        Fri, 16 Oct 2026 07:41:34 -0700 (PDT)
-Received: from z13-ek5.local ([151.41.28.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4ecac3sm5949648f8f.27.2026.10.16.07.41.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 07:41:34 -0700 (PDT)
-From: Ettore Chimenti <ettore.chimenti@linaro.org>
-Date: Fri, 16 Oct 2026 16:41:25 +0200
-Subject: [PATCH 10/10] ARM: dts: omap: dm8168-evm: enable MUSB multipoint
- support
+	Fri, 16 Oct 2026 14:42:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LeNhcAJwZCtD+888P71e24/2/1UVvUWiKxMvlpDPRqfhNeH5jbSTDmfaBLrSvdWkLBaCdC/6LhM+ZvaoUv+VKuXBbm1GoIDEwL4tBWT+raT76n1mHYmIlz+6Wixay6H3xMGuat2eXSLvxIj2GadtUPRteGco4KhQa+yHDzjiFW2sI57zXaTkTwR4tjUdAJbOUCMTxuv3D1Wi2/5FFNHEyl/rTYZMgfMgBgTY+mTEIrLEqqG0PWRqbSwoqjqIPm1Jfu/z6+TIldKutlZZaZaYk606KAGoY08sDBe9d6LTYmWiNnWP51U1Q9y8Eu1VXCncji9hwopOv8OE8KQX5TFDWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eeo4UlR7k9ii5pcApr0byuh6zl14tsTVmNFEH/do4mk=;
+ b=b6lk8pr+SfzFlRcvenjLJH+fKa1pmvlifOm0lGXGFDEPAlKpPjZWaSRRx0BsLLPi2doEHrWE1fddot7FknVAIwVlK7s1R43NfCosOBMzeHyqgmaLEowQ60roJHnIq6UjMmbdG7lVtrifiBtgToGbifL6Z8XzkoEMd8yoOr/AF3Qn1VP2qSots5DCNeUpAM7fltsrblpqBYgdsvZt6Ae8Ha9ncd+MbMbA0HCu1FNSg1il+ZFF5KuaCkSfbFncUtiMUDjvdxPtF97zX+FjsnGs8Q2MLT/RyFO8rmvQv+gJh8Ob/D/Kxnr2EqrqLkMKszqPnw37yufYU1ruxz3oOVC4AA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eeo4UlR7k9ii5pcApr0byuh6zl14tsTVmNFEH/do4mk=;
+ b=o9tnFaACfjoSIlktuB3ZYXPWvycrGNZZY9Z7bMX4coHABx4AFS/91ZFKp1UuRggOCenQAAwMX7GHpXozHMyKxaVHkRkR3mzgho3V0cPppcaO/RbqydF613JElm4zqe0cUUBniqoZhI3Nc2+Z7YBGepntMVf69EMyJQxBhLiNQ/Czsd2Mb0rjrSFfIwjDMWWZR8CWaNnhcpCpYN6HpRM5VrV2qjqRtbzeL6ydySxpZUvO42xQqMCAmSKBWqbHTZx1BBVFRUzbZUKGG5LsxOCmfX38MOni7qAxDIy7q5W/SrUnclnRa16kHfWmPXQjK7iBF0/S1yLYXQrz0880/yxN4A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CH1PR12MB9696.namprd12.prod.outlook.com
+ (2603:10b6:610:2b0::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Fri, 16 Oct
+ 2026 14:42:03 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0522.013; Fri, 16 Oct 2026
+ 14:42:03 +0000
+Date: Fri, 16 Oct 2026 11:42:02 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jean-Philippe Brucker <jpb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Alex Williamson <alex@shazbot.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [RFC PATCH v2 15/15] misc/arm-cla: Add vfio-mdev user interface
+Message-ID: <20261016144202.GG13920@nvidia.com>
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
+ <20261015142552.4128028-16-ryan.roberts@arm.com>
+ <20261015164102.GC13920@nvidia.com>
+ <CABCqBse_aZL-EH0us2uA5X10q6E4WP02MoHTYf+M9ezRZr26WQ@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CABCqBse_aZL-EH0us2uA5X10q6E4WP02MoHTYf+M9ezRZr26WQ@mail.gmail.com>
+X-ClientProxiedBy: YT4PR01CA0215.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:ad::24) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-patch-ektor5-dm8168-dts-v1-10-b4ce30217028@linaro.org>
-References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
-In-Reply-To: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
-To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
- Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Christopher Obbard <chris.obbard@oss.qualcomm.com>, 
- Andrew Goodbody <andrew.goodbody@linaro.org>, 
- Linus Walleij <linusw@kernel.org>, 
- Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Ettore Chimenti <ettore.chimenti@linaro.org>, 
- Christopher Obbard <chris.obbard@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792161680; l=1428;
- i=ettore.chimenti@linaro.org; s=20261014; h=from:subject:message-id;
- bh=T/OTFeU/v/eoDvotZ5j14Er/J0T6ty7EyR4RK8RPU/Y=;
- b=El6cBgAWcx1/Y1oiKVFS0M3auY1+K99qcECWB2yFtM7I86gnakEGU9Bvizfq9fy23L7kDfbMS
- ScFiJnh5fvIBHFd2bCgcrvsyWrFDxrSkC7g69bVRVa/PyuUddV23MyM
-X-Developer-Key: i=ettore.chimenti@linaro.org; a=ed25519;
- pk=wCaUblFVaqhuBTQt/hAtysafsAaEsqj/yOD9SPlz6NM=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH1PR12MB9696:EE_
+X-MS-Office365-Filtering-Correlation-Id: c078ee85-1e09-4269-1428-08df2b93a4e3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|56012099006|5023799004|4143699003|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: luTy4I5MeNJoC2lX1K1KwquUU+RrCSez7DMm1K8AH2i/Cl+7n3VgkrMQkUWuU2ktIRbugWSUiaCdIQ39a2ZRL/dzE1S9n+/HEqjEAMrSJwWB9L3BaZwfjfGEOpEvJPmkdtBgZHNTFVgCvLh2xEkuRxD+elWq4jAjiwhMkk+5VkzvcQ5fUkBHl1kd1IFEZrXyJ7uKd/7joYLlBHD7UzCe2FZIms54Lsr+qVqd+h13X9Ah23Xi9kMSeRU6CFWBb4oJeEIvTAyDG80n8P5yGssRfOsNNWSMl48twMclorPdBhdqhQ9SVNWgOAUVavwxLFkWNIagI41c5y5CMY/sJLLt7qHQvcspysN+H1Z914B/G+XD+jS7i8HpGYv+lP6O/4L0xRWeGYqlGXJjim0jbpWZSYBj/MsibhTGf+BWMSYZMbbwDiUROfpnLJYu53nQrmAxmU1W8d2RE9AHZ6rJ5LjeoTTITg1sNFvG3eqr+7WfzcbTDKiIduJTLVdKODGuAydMQjmtqV+jUpQ/Fg68Ng0ZSTPALo9HbVXj8g1g995BkKk+ZZIj1WjTH98oGUWMQrPJEvMfBZtTF/ZqkyEv3spq2nuUkqQf6JJMpE5khn+OJc8+uEySi0QvIkZwPNJ1rTThcC5gdPQ/S3JSS1zS0L4cBwvK2QQkCpOsA9JjKhyhlDs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(56012099006)(5023799004)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4qGvtiRciud8Qja3vBAYUVRggMSOleDBs07xQia/qu3pXXU2+ehHMStAZP+j?=
+ =?us-ascii?Q?8Ke6rDsEFs84uqzJTLrOvY28yRzxZbRO1nsTQVMvfjzP3ItMfSYuxkJhxKjH?=
+ =?us-ascii?Q?360gtiMcTHmx2aAklby5ZBj5iB4ex0ar+iZdn33xGMYUlz+ol2bpqjUBZgu0?=
+ =?us-ascii?Q?Snqo6pib+iBAwKhTB6q+TQsAsXbqmZAJITqTjIKH/pr8vUWPs3EySS3Jkk7M?=
+ =?us-ascii?Q?6cK6Mx/SPEUUK919NykhZwNY9Az9qliEhorp2l4mi0psxwcjTtw8t+LFMLeV?=
+ =?us-ascii?Q?XhiM8BPbJIg8tDV47EVOaEG7hEai/SNAArPktpIT/saXhjiJ9bj5BOM6KFD6?=
+ =?us-ascii?Q?mJFc5lpCZTi8yfSvvJQcqCtQnYKqkSEqtFKMB2HDr5QmN3E75yiXra5uVOEm?=
+ =?us-ascii?Q?g0ZyqmZS+VTUOQLHP1NVYGo82p9w+0jLZBsxlvlQXAJ67uZo4OUWosmTSU9X?=
+ =?us-ascii?Q?azzQoroIIfft8wBiLd/YTtAuA4g0vsD+VcqfczdbKQJZTBLa0REMOfx/PBZV?=
+ =?us-ascii?Q?Q4+d8MqWI84HwGUL0o8anD4dVI7OyM29U07amUyW0X0Lxv2PTxQGYC1Snt6Q?=
+ =?us-ascii?Q?JXtckzPQCVMhMhejfnE8mO5fP6+WP9fvWylGq4HqrMh9U3h4pWG6fkO3mDiS?=
+ =?us-ascii?Q?tWXtoi0R6iJTxox2aZljoei7i+M3NXue0zMa0RgPo2qEl0eFApZHwXsGBzRA?=
+ =?us-ascii?Q?XB1FAa/RMW9GWFY9LUwRhopw8EO40LFZd957uLerDE3xX8v0ynkwiGU1hLjR?=
+ =?us-ascii?Q?UW4cI0iNjBIkIEbDpoGu+UMS9c3ymdBOrfV8QR57xsoSq6j8zMZEx2n2ySQT?=
+ =?us-ascii?Q?8mWR4WqX06Xo8NouCOR5x5J2P9fYKTzO0MprW/pU1WM7mmlbhGJ/TbCUanzL?=
+ =?us-ascii?Q?YpzTnRiVeOgg+N56dRCCFfxQcA1xZZLKqXku3XdJ3S6BVlsZOljmwa95p0tH?=
+ =?us-ascii?Q?3iv+fUjr8RuPsVkhqRCbJvkrgTIqv5HwTRQtDzZ5zf3mkYr4kyUrzGQUVmF2?=
+ =?us-ascii?Q?YssdCR+gDhpVJsq6V4lADae0hyu/B1SuhBDD5k+KgHSZVuk8oykF8i38Qmu0?=
+ =?us-ascii?Q?MtyiNbsvRvXTctEtMs8A/H7e5uqmEdzmA2xWEfKNo+sLVcP+GrpIOA9a3WQg?=
+ =?us-ascii?Q?oDygiyZrCRLjbyrcX/431CA63kwd7wSrPRv+4RDiDabjT4ZtjmLMdfp63qaA?=
+ =?us-ascii?Q?J4lt2X7Nq5h/8T7o4/mNUUeKDQlCFVBRno3334wCXc/qOm+FwbUqR6MENHwR?=
+ =?us-ascii?Q?w1cQ4y7fyQj72voSXw3GzYFKm3m7WZ9UiLvVgRUuHEjAhmfOb2PdSkxc8kTZ?=
+ =?us-ascii?Q?sthPiJUJJZ6CKPqUao7zdDxG1UATmhWV4ltLHG+5eiBTrj71tAwNt34Yygg4?=
+ =?us-ascii?Q?n+6uMhK5N/SA/Xvvcce/DpTSYXEhm5vZI+lGLEpMrsXj/oqgg+phDuB9Jtnd?=
+ =?us-ascii?Q?Ly+A7u/wkjKKdVaeag82JtM4xEzowQzeX3t4vbiQODchu0n5Dd1Uj9mk9TyD?=
+ =?us-ascii?Q?lLbCYyHPqgN1Zz8wCz1ZuVyaocBZ3GnwJW00OZevw1Oq6ciO+QZp/BaT8EoV?=
+ =?us-ascii?Q?W5GYPGtFJZuD5Js3MvSTAviskF0QjmLxWJZa4+KF4fwaMAjTqL8ZfOgvSXXb?=
+ =?us-ascii?Q?rPXEr4kGDws54L8sDpB6pe+7dYSWawjvd1zOkvZDNqQxG4GKXbqAG6+fHC1X?=
+ =?us-ascii?Q?CK3a069aDVf5FVgCuP3HColxswijIiAt0oax0JzzlYPEfkS4?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c078ee85-1e09-4269-1428-08df2b93a4e3
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 14:42:03.7323
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5jDHCnPjEGqPTqWVP8aaAt5ndfR4m9ntZLf5wWnohvVckKkpEIQwNF/eXomr0Ijj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9696
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_074136_582964_C48FABB7 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20261016_154227_468860_18E75AF4 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +164,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christopher Obbard <christopher.obbard@linaro.org>
+On Fri, Oct 16, 2026 at 03:22:00PM +0100, Jean-Philippe Brucker wrote:
+> On Thu, 15 Oct 2026 at 17:41, Jason Gunthorpe <jgg@nvidia.com> wrote:
+> > I think I said this last time, please don't use vfio mdev for
+> > anything. There is nothing mediated about this.
+> 
+> We don't multiplex a device between guests, but the host driver must
+> control part of the device registers while the remainder is assigned to
+> a guest. The host configures accelerator access, stage-2 translation,
+> handles CPUHP and context save/restore. So we can't bind the device to
+> vfio-platform.
 
-The DM8168 USB controllers are used in host mode and must advertise
-multipoint support to the MUSB core. Without this the kernel disables
-external hub support and warns:
+That's fine, you can make a proper vfio-cla driver.
 
-    musb-hdrc: kernel must disable external hubs, please fix the
-	configuration
-
-On the affected board this also prevents devices from enumerating
-reliably, with descriptor reads failing with -EPROTO:
-
-    usb 1-1: device descriptor read/all, error -71
-
-Set mentor,multipoint to the default value of 1 for both MUSB instances.
-With this enabled, USB devices enumerate successfully on the host ports.
-
-Signed-off-by: Christopher Obbard <christopher.obbard@linaro.org>
-Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
----
- arch/arm/boot/dts/ti/omap/dm8168-evm.dts | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/arch/arm/boot/dts/ti/omap/dm8168-evm.dts b/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-index a6d42766a496..4b4e4d850231 100644
---- a/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-+++ b/arch/arm/boot/dts/ti/omap/dm8168-evm.dts
-@@ -198,17 +198,14 @@ &mmc1 {
- 	wp-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
- };
- 
--/* At least dm8168-evm rev c won't support multipoint, later may */
- &usb0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&usb0_pins>;
--	mentor,multipoint = <0>;
- };
- 
- &usb1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&usb1_pins>;
--	mentor,multipoint = <0>;
- };
- 
- &sata {
-
--- 
-2.56.0
-
+Jason
 
