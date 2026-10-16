@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1C6CCF2C3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D00CC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pte3u3WxOgw3Qgy52tQrveaoQhV4YTR7h3cZS1HtB1I=; b=Wg4i2nc4e/izhlk6+1wL64M1HV
-	o2MqwKCwk/6x4EHWCrJaen1STVHmNqCHdgtWJkAthsKiyPht82rECO2c7XOm8Ton05GKIKQls1lkl
-	3QrfN4vqCSS0bW8gCTyjQGQFEftEGaGzbt0dhqLQ+4g17xO3pYWKFgJiKBdlZmuJyNRULvWQSOSOT
-	k8ie5/8/WRN6gyLbW7olnUQgdEabXxNymGrYhZg3xzulXkHLibEjBjqUKzr7jNHUJa7UwfPfrSVmA
-	Iohf2sLkjIJaEb4heTG3BlSd8l1YZQa1c8c2qZ+Jm8M2IPFIN3+yPqNcnoVWwYpcxuFtrUKAU8kWh
-	UWkNPgcQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lDTSx29sE7yGWUgL48SizWkNhxpx8cSnW73JxIctDwM=; b=Jgmk0kMqFymwBW
+	4qmGcMkndl2LqqJFAPdRxFjgwpi7svJsBhKGVSqivF3isw2SZt4u4eowFVxinsdsunjwCf+wHF+rI
+	2q+VNtQZ+pddUiH142WQPiKOTC5LiEPDfBXNnminobwnK1X+rXHg9mY4U1hf96QBAJa2xmJolhEiM
+	gwPZqNqgby5BFzdF/uMTkksyAQCw6JsqFKl5p4TmcKfM5Nj2kWyROeSfhJaC5Hg5DPiryIRQDUwPI
+	ih3fbtC2wiZQAzT26SqRv1htpQJI2DEsrY68Kl6dPr/R2okQHJdQbx1hjVGaXPjyZf5HnzNdDhnB6
+	XfixP7n+lp44x9mYjz6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj7m-00000003AkD-3wsV;
-	Fri, 16 Oct 2026 14:41:34 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1xHj7e-00000003AfU-2OX1;
+	Fri, 16 Oct 2026 14:41:26 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHj7e-00000003Af7-47sC
+	id 1xHj7c-00000003Ae6-0Ld4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:41:28 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a1d665a5efso263985e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 07:41:26 -0700 (PDT)
+	Fri, 16 Oct 2026 14:41:25 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a021c809e3so396805e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 07:41:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792161685; x=1792766485; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Pte3u3WxOgw3Qgy52tQrveaoQhV4YTR7h3cZS1HtB1I=;
-        b=gxCluD3jaNAYPGFzgKTrqyzl4Knb9i4tLgurEx28Y+kRL6wmhs8RKqDIgESUXDJTfU
-         HNhZ84IKf+Hz+xSnuV2zITv7u2iw4ZGRl+nZFI7NzcZ8obGZ8+XyqmdsFS3zPeVC1C+Q
-         hpU2uv1iX3uKexDHfHDAORwR8QGAEQvyH2Sa63Pb+88ZIVzo8equBKuldn1SZzyJ3mU5
-         njSxQcD1i7rSf36i6DJnoNt/voiK28EF4KYCmf1e0I2QGifZJGjcDwgnaJzweH9moTzr
-         z5p49LQjZ4nt2DQhxUqC8K+EvaABGXsq6tzocSe4xcmVWRprgS9je2sf/Th7u5JgzhLK
-         t4tA==
+        d=linaro.org; s=google; t=1792161681; x=1792766481; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=lDTSx29sE7yGWUgL48SizWkNhxpx8cSnW73JxIctDwM=;
+        b=xuti/Iu+uH1p20C7m3CsLq4glRnOHuo1PrK1ctHnXgmFl+EqRKUDp2h+h19yasghzK
+         xXabWugHB4D9m+5luPDK4KVGthX1lJMzdnP4DCzRUxFu2E76wEjMkcW/52YZduK/XPgc
+         oZT2ncooN/5MuaPOJGxGOGrbeyj6t6DErkKIY0+X5cEtdhyJemxJ+AX04pA/EVBchcBA
+         o33jsNpRGxmIBlWvoCS0ale9Xd7l4jt7VDdv7ftxeL6Spuk/05u6pifLdUapwoOi5CFG
+         nq5O3Oddvz0XfBrB1bkqHeAiOVYln04YDqZJjKxsF9iYWqo2ein53TMCyPQvoZ5P4Hrr
+         kBxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792161685; x=1792766485;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Pte3u3WxOgw3Qgy52tQrveaoQhV4YTR7h3cZS1HtB1I=;
-        b=l9+2Q2jFZw/SxMx5Q9hx0RpLfTHwvbnUjVCRalL43PwaTtK81dy1JyBWVOOj0opzW2
-         CVb1khI+tpJIMOJiDo7GpGWbfTZwYCHUW3yKt4uY63gf83Shdp6kJBwofxMLraGNTCG9
-         5VFI/uWe5QOZ9IDeocqafC6xHv/3MFVvop/I5svu42EbfCVTKtq4SHZWHMZFVjxJivji
-         ISDwzWqt7zVWfdsCZ+HekxucT+6AVE2PXerZYaaiTq+xEfSLMslv7VBNWd6uTcfaKSw8
-         WPKnNUaw4dASjuqWIO6Cy03r67OeL3hgCPyXw2dlsyYRNFU40YV8OErOeK+c2utMpKPH
-         YnyA==
-X-Forwarded-Encrypted: i=1; AKwUvByzUwoB5MHAHhExcxdyQ0Vw3dQthPoBLMVSp+ytt8CRw5/r1e9JyOFc2MaagX9ECr8c8Z/f2BmN6Mq/PGggwYDm@lists.infradead.org
-X-Gm-Message-State: AFq9FYIxUyNalMEjEko6lIV5Qpl4D+7uwH5m1vJdKjqfzMyAMZeLwFkk
-	a8U9fkoANxrgg/oHvJLLQhYbDXes9rFNVBDLSidG4U9TChbskcEvEe6TJox7WvkJcgo=
-X-Gm-Gg: AYBFou3L4z+n2Nhfd9RsjkjHwVJPVxj0XZh+C5Z5c5vjQmpEV3MlwpZ1J4eUzOtu5Vv
-	FQafl36B5Jsl1BbYWXObEJSbi8oEjkJwancfQkrwikRebECyevG4pIV2TmtXC4DN7Z5uyD3nZyO
-	k82BH1VBaJtZ9T2kBMt5HG8eMpHO4eDeLQ6o1uiFFDstduw0jZJ2FKRKLJi4bmkhDQRJyaOF1o8
-	8mEz5+5ScB7/9gQtqeYtdR7s9+as+URBn5BlLAA1NgLLzxNKfu38r//ZayAdhVJPv9kAiDiuhTp
-	HEuIHJ4EVt720NJ0JgFqL3G8cytek0vfnnDQA/vhuu1kjdYwvbg9ha1MZvZY22c0W7OTH86I6qi
-	x8N26jkx57QepT69L3aKB9oHwbrdnOlVP5WUp5oobwbRKTR3Edh7qkcoEY7+o5+uw5HXppGFAkF
-	sesI+xBLGVAdc+HHcuQwRUS2JLYgxbpn2resa7dobuTCRY+wQNuSNnNriw5jt6p6uqsGx83RuK2
-	9b6YZ8M3iZavEAH5FXLytm5IFsvXbT4qosQWHZrMrJHSrhTtDAgXkRiLo0cI3zECTS0kA==
-X-Received: by 2002:a05:600c:1394:b0:4a1:d492:1604 with SMTP id 5b1f17b1804b1-4a1d75f2524mr381415e9.11.1792161685121;
-        Fri, 16 Oct 2026 07:41:25 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792161681; x=1792766481;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lDTSx29sE7yGWUgL48SizWkNhxpx8cSnW73JxIctDwM=;
+        b=feeTUkYRxeBsPsmJogsYSUf3Ho+ly8h+MkQ1RFteEX0jmgFzNFRTbLFd8u6ian1ZRQ
+         ZU8MngUvLcPBlVE1WYnKNyzxSv0O2w/cshXWsk9kVjp1ztj2QO/jqyIULpp0E74B+SUZ
+         ggrhEZ5F7CCWdsJgfcM/l8IJLbRpTrBxhrVdPw5yPDFwMMKql8l7Cvytjw9DzIILyK9D
+         QYvMtL8zdUqILxvQrszrvUk0S1OZvg8DtX00OI9GVpDMzTHJVQfZ8TtOwKFT2qK6vKmE
+         Wssy3M6iJAUfAjOQ9Ym6ffxbQYBAY+m6Gog4suXGDGESFLZzfhyI1rTuAb2ELccKMnEJ
+         pzsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz7Tmf7ATV3LlkAZb0W5/jIU8kMMw4ZL5JxDUvLU2RCHuhswr2gYkGgSpFBowDrWLECk5Tcbere8R+o1EwczQdO@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ+B4ogWLKYMwoCa4j5vSqUOMaPcGIqfHimGes9j9GvNNbNM+fN
+	Pkmq3NKh1yNPEONDE38FHtPmjtL+45ltwP2d/aYgbYAVCmzvXsBocnmpRchx01/5atY=
+X-Gm-Gg: AYBFou0WBegDU0PFrLhATY9bGW+LxTpSzBNpCSFX8O6dXlAMcKu5UGAz11EsyQ/ZUgj
+	FZZDYwwNOsZgCfov/FrCg8cpqktBfvrrtFRYADpgLaKItXjBrD+WbWLP1oKt8B2oe8V03jDcFxg
+	3CWKOTWmk+I8ckRGpeeGS61diDJEEM4wFDnGZ+pkXwbuZX378cin9r/DUYCdiV0LC8U0UyBcmm8
+	J0dHqXGM/8PnW1b+dU8665MH6ixM8Zd6skhiRjlzdmZNCZf0vSHHNy6vO+VnJKFA349GBCpMJua
+	pJbaWdyP+N9rmd13Ph+O3g/CS9E40QxvnKN+KMWlPjLbx/422Bey7xWzByFEnyPNTKrHpIQoFuF
+	TWzn10sbxVfnn+F7OgveCCszAa7Z51RNCpg9gRA5hwMtNxEzEszK6fIg8pTW75UJcrwxyc7Ci0H
+	AF++9ljrFqGCt6K0SvbLNogZ/j3D3d0Z8Sa68b983WarKUqa2YiTRx12xaKGeLZVfxA2Wqbh/mK
+	MJ38y+y+OUrYVaIvpLIxZdYhMr10BgiGFGaEUgAamjHi5d2Hs1XbEelOqA09yigvCFRYw==
+X-Received: by 2002:a05:600c:4e50:b0:4a0:1ea2:10c6 with SMTP id 5b1f17b1804b1-4a1d7600357mr109635e9.17.1792161681292;
+        Fri, 16 Oct 2026 07:41:21 -0700 (PDT)
 Received: from z13-ek5.local ([151.41.28.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4ecac3sm5949648f8f.27.2026.10.16.07.41.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4ecac3sm5949648f8f.27.2026.10.16.07.41.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 07:41:24 -0700 (PDT)
+        Fri, 16 Oct 2026 07:41:20 -0700 (PDT)
 From: Ettore Chimenti <ettore.chimenti@linaro.org>
-Date: Fri, 16 Oct 2026 16:41:18 +0200
-Subject: [PATCH 03/10] ARM: dts: omap: dm816x: use dedicated SoC pinctrl
+Subject: [PATCH 00/10] ARM: dts: dm816x: fixes and peripheral updates for
+ DM8168 SoC
+Date: Fri, 16 Oct 2026 16:41:15 +0200
+Message-Id: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-patch-ektor5-dm8168-dts-v1-3-b4ce30217028@linaro.org>
-References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
-In-Reply-To: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBA0auQWTtJp9KmehXjAtpBRiOQTjUkh
+ LtbdfkW/2+gnIUVzs0Gmd+iMk8VdGggjt10Y5RUDdZYT4YcLl2JI/KjzNlhegbyAVNRtG1/dDE
+ YOg0ear1kHmT9nS/Xv/XV3zmW7w72/QMPW1QjewAAAA==
+X-Change-ID: 20261015-patch-ektor5-dm8168-dts-24b35c8019f6
 To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
  Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
  Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
@@ -92,18 +94,20 @@ To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
  Rouven Czerwinski <rouven.czerwinski@linaro.org>
 Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Ettore Chimenti <ettore.chimenti@linaro.org>
+ linux-gpio@vger.kernel.org, Ettore Chimenti <ettore.chimenti@linaro.org>, 
+ Christopher Obbard <chris.obbard@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792161680; l=991;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792161680; l=1767;
  i=ettore.chimenti@linaro.org; s=20261014; h=from:subject:message-id;
- bh=rQYMzDtVh44VYgzn8ZF81rVqoyDsHoJv3ovI5wxNPaA=;
- b=3S50pMz7zQmvtFmL+2YZ1KgPdiCvRypjaxgUOOH+3aWGkFuLX2ipy1EzPmzd3M2yImYr6voQo
- syqhbr54WckBewNboAWAqmAJKY/GJNXAurDQYOCbAHJZBNcilzj5MjP
+ bh=1fzbjOZRndfB87fivaUbcLVWuyZChYe1cIR0MU0Y99Y=;
+ b=c/xAc8G0qC65I2XNar40/+2zImigpn/uTTDF3dZn5BMSqPFymPmfzcSOUI6tdaHJ9aRtkU296
+ KILAivamL85A1EvitrGzqXoQSSI9sfjEmI+hWkMKrjghp8c2KNVL8ob
 X-Developer-Key: i=ettore.chimenti@linaro.org; a=ed25519;
  pk=wCaUblFVaqhuBTQt/hAtysafsAaEsqj/yOD9SPlz6NM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_074127_045339_7B388151 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20261016_074124_175480_7556C754 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,32 +122,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the TI Sitara DM816x SoCs, the pinctrl configuration macros are not
-identical to OMAP2/3. They are actually inverted between Pullup/down
-enabled and disabled (third bit in pinctrl registers). Using dedicated
-DM816x pinctrl header to differentiate between the SoC families.
+This patch series collects several fixes and peripheral enhancements for TI
+DM816x SoCs and the DM8168-EVM board:
 
-Tested-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+- Pinctrl: add correct pullup/down enable defines for DM816X SoCs, which
+  they appear to be inverted respect to OMAP2/3.
+- SD: explicit pullup disable in DM8168-EVM SD card pinmuxing.
+- Clocks & Timers: Correct sysclk5 frequency definition in DT.
+- Storage (MMC): Update MMC node settings.
+- USB: Update MUSB node, enable multipoint mode, and prevent USB idle issues.
+
 Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
 ---
- arch/arm/boot/dts/ti/omap/dm816x.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Andrew Goodbody (7):
+      ARM: ti81xx: Prevent USB being put into idle
+      ARM: dts: omap: dm816x: Fix pinctrl range
+      ARM: dts: omap: dm816x: refactor and align MMC node
+      ARM: dts: omap: dm816x: Update USB node
+      ARM: omap: dm816x: Match up capability flags for USB
+      ARM: dts: omap: dm816x: Correct speed for sysclk5
+      ARM: dts: omap: dm8168-evm: Correct SD card pinmux
 
-diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-index ee0090f7aa64..de4d48babf77 100644
---- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-@@ -3,7 +3,7 @@
- #include <dt-bindings/bus/ti-sysc.h>
- #include <dt-bindings/clock/dm816.h>
- #include <dt-bindings/gpio/gpio.h>
--#include <dt-bindings/pinctrl/omap.h>
-+#include <dt-bindings/pinctrl/dm816x.h>
- 
- / {
- 	compatible = "ti,dm816";
+Christopher Obbard (1):
+      ARM: dts: omap: dm8168-evm: enable MUSB multipoint support
 
--- 
-2.56.0
+Ettore Chimenti (2):
+      dt-bindings: pinctrl: Add devicetree bindings for DM816x SoC Pinctrl
+      ARM: dts: omap: dm816x: use dedicated SoC pinctrl
+
+ arch/arm/boot/dts/ti/omap/dm8168-evm.dts     | 17 +++---
+ arch/arm/boot/dts/ti/omap/dm816x-clocks.dtsi |  2 +-
+ arch/arm/boot/dts/ti/omap/dm816x.dtsi        | 78 +++++++++++++++++++---------
+ arch/arm/mach-omap2/omap_hwmod_81xx_data.c   |  3 +-
+ include/dt-bindings/pinctrl/dm816x.h         | 20 +++++++
+ 5 files changed, 84 insertions(+), 36 deletions(-)
+---
+base-commit: 045958acaa75205b31578cb22c4345e28dd2e4bf
+change-id: 20261015-patch-ektor5-dm8168-dts-24b35c8019f6
+
+Best regards,
+--  
+Ettore Chimenti <ettore.chimenti@linaro.org>
 
 
