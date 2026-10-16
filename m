@@ -4,74 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A3CCCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69943CCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1gIffdK9o3coHibHNHj3tZa0EFqFikCeK79HR+JBPM=; b=MsmiI+cpDohpflml8uNDimsXL0
-	5Q1mTFPg/I/89s7bWxoHpTYNBpj5LSA3ZA3MUey9wH/MO6vvzfYgrY9PKakw1FufMA44VE/zqhZLc
-	QNO+NLPl46MXTxPoTg1TUemye89ugjiP3V8ZILJrZS8LbokmMwhj1/YOsCies02XJ4+ia9Ur5zpyY
-	qCetPPE51vX6P0jt3K9tKgAjeuSgQ/tnEijaIYniG9b38O9ogX1w2IxEebgr8FpeSCWTIJ2hQFWCn
-	YfYCvIKFHYD+Lt8R9PKQlQ3/ygI5gZriSU29QT/5BFtJp703twfnZ+rUOtvW3fYBrctcvJ66IbGKZ
-	gNDhGEgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=irui3gbhJY9Ye3T55Qd5RXUki/6FJbqt8Mpaw/STXT0=; b=yMxuHod7qwllUR
+	kUGUhaHyzwET8Afybg6LUkZPEJuHCbwutCAQq/8KirWFD6/b0oAjXpKnbtcLv3D5ureyXWMKIMb4/
+	62JET784lUj1ujcAaeSmgPKLK/W0Si89Z6EjVR5Fz1rjbQJa6dK9L+2cYCJ60pgIh+W1tTkA1MfvY
+	5avCtwhoSOay2pZO7naVo7adwfXvUCO5NCIXxQ41jcdUxCYt+9b0/1hjK/dWL9aYnmcSkL+h9BsjD
+	tgBxgVBTHteDP2boBWjqJri45+Dm7uf6jW+F8KF1QpdQOZo5vthl3cSq1228AmD7IeUcpJa7C58KQ
+	tKc6Zr85l41GXYnzwQqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkSX-00000003OUB-0dbg;
-	Fri, 16 Oct 2026 16:07:05 +0000
+	id 1xHkWD-00000003P6T-0DY0;
+	Fri, 16 Oct 2026 16:10:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHkSV-00000003OTD-2Xwf;
-	Fri, 16 Oct 2026 16:07:03 +0000
+	id 1xHkWB-00000003P6N-49UN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Oct 2026 16:10:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=O1gIffdK9o3coHibHNHj3tZa0EFqFikCeK79HR+JBPM=; b=UetgYUYguZwqL6y5lVO9FfoZ31
-	qlC4QYwXUoqRFCsZabvNaKEUW3zQ6FPuJarI8s+AMxQKdljTieivb3e/QJjClWAVRYkBKztzaewEQ
-	KmrNPZ6dh0HBoEQLrfzDUIbMzngGj6V2dhEObSIvYUI6PIBYTxXtkCwpuzxWxtaMfzS66+KINyaBz
-	+f9BiT7WsOwyfnmts7qD4Vo07A16L/BDHr0hRRJsvaLBopF6viZtU4MMACQZdnO3lKsM0W5hJE1zD
-	l009ndg2L/zm9m/GoFPCBVOGNomgqAO4Qua1uNjIJdJCMUQbdwDVO5QcuEpMoQG7/d3lmsV05cgZg
-	Xka87f9w==;
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:Reply-To:MIME-Version:Date:
+	Message-ID:Sender:Content-ID:Content-Description;
+	bh=irui3gbhJY9Ye3T55Qd5RXUki/6FJbqt8Mpaw/STXT0=; b=qs0llMwfmQPqPKouaY2xRpTJ6K
+	TEU0BPkqCFF2v+FLSMRIKgQI3thjmq5sylzVMsCrF0+JMMYGwSbFWjRFWCMKMriaQkLxCEYKwkA2l
+	XroC27LOO0grXpOSh2JjGk80fPlEUto1uZ+SsnAhNCPc9SysXa5fvUjNhSMML1pLPN2goKO/F5mr2
+	+2xeu3LeJNPZQgm0zTVHUeprz4YhyMEvCaHPSWFNA/WqdBok8LulzTH8gJabx2Fha2QMwU94qwtNW
+	7QswUD7NGOANcwi6pSQDRX0+7lLOqHVvcVOMKScDkRDpycdCttm8vQq6MHD2JRGr9rwz5i3sUD0fB
+	oXCGPxng==;
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHkST-00000001iBM-0BEm;
-	Fri, 16 Oct 2026 16:07:02 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xHkSL-0000000086k-1X6n;
-	Fri, 16 Oct 2026 16:06:53 +0000
-Date: Fri, 16 Oct 2026 17:06:50 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Paul Elder <paul.elder@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, michael.riesch@collabora.com,
-	stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com,
-	xuhf@rock-chips.com, zyc@rock-chips.com, dalong.deng@rock-chips.com,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 5/5] arm64: dts: rockchip: add ISP nodes to rk3588
-Message-ID: <atJLmq50uRVfeuyX@makrotopia.org>
-References: <20260827-rkisp2-v3-0-e91ff0a604d6@ideasonboard.com>
- <20260827-rkisp2-v3-5-e91ff0a604d6@ideasonboard.com>
+	id 1xHkW8-00000001iXK-19yl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 16:10:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wMnLiWMe4c99ExxRMwA9aQALzc6mixawihfvSOfieVTw72bUfbPoxvrHPdAXYrA1Ock+Hh0wLjljZHX0Qaj6AVvfVpL/Ets8NTMrQsNZL7HO/S1paEqmk7CRofG3aFQ+KlaPhPq2w0J3w8H1mUEjoRdI3gCaoGbF7K33th1nE8erCwOkBWN/M91sjdMXByrBSeGLkIPYTej2yaaJmEBpntnmVuscG0L/ZKF/9Ra5efJ9oaB5MLtJ6WFL7Xaqlha34xlX54QSRmEA8SgOg6fYEPKP4uOjdFWDCJldjffHu8gElvtoZpIaaIpYDYdUFzRmJMgi6HrjI1gobNPqJR5asg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=irui3gbhJY9Ye3T55Qd5RXUki/6FJbqt8Mpaw/STXT0=;
+ b=KkdpgeM4M4usme/JkHblf2sjIedSqnEFQ0x9ijJKrrgcOUmSgetqfaKHEgUaqZcW9XFb5YXE/Aglj5KsCOwWTAHNCJKz/A6W4mqxwstlwW0OQfQSyzoV9IPyng2T1rpegKbtLZ1Giss0p/ETo03AaB4aMLEt6FeiRSYD8r+Gn005XZr2wDflj3+niLMKOcDoLCfj+Jmx2LbOS5JLMIUNAuLi6TxFeHqd50OuUarjQYXPaancp/5mhA21tz6eAI3LV5wfq2x2YSFrXjnS9NQfE2XSt6K+mdMVE6XhIEYBDEOgG+HPpMdxYCpOEnj06Lv5RXOBPqMdgOBL5np9lFDZLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=irui3gbhJY9Ye3T55Qd5RXUki/6FJbqt8Mpaw/STXT0=;
+ b=IrFpBpIZBHXpmiRmpQCZ/2P5sovf8OxSuVjYwFXFwyVC2n5bh/OvI3V58EfZgZnsi0jzhbdfqy7xQ30fc8xavIf4PU4TIIiuu3kISGFwWqeTSxyGD3BC+dyz9G/s7v3pGI4J/7Vnhf/M5e9XgH/1BPNLy1lSGzU6ZKN7wkDvOb8=
+Received: from MN0PR03CA0017.namprd03.prod.outlook.com (2603:10b6:208:52f::11)
+ by CH2PR12MB4325.namprd12.prod.outlook.com (2603:10b6:610:a9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.15; Fri, 16 Oct
+ 2026 16:10:37 +0000
+Received: from MN7PEPF00000150.namprd04.prod.outlook.com
+ (2603:10b6:208:52f:cafe::4a) by MN0PR03CA0017.outlook.office365.com
+ (2603:10b6:208:52f::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Fri, 16
+ Oct 2026 16:10:37 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ MN7PEPF00000150.mail.protection.outlook.com (10.167.254.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 16:10:36 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
+ 2026 11:10:30 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
+ 2026 11:10:30 -0500
+Received: from [192.168.1.205] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Fri, 16 Oct 2026 11:10:29 -0500
+Message-ID: <1ee3f542-e0b2-41d4-bf6a-b103dabf50cd@amd.com>
+Date: Fri, 16 Oct 2026 11:10:29 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260827-rkisp2-v3-5-e91ff0a604d6@ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Q] zynqmp-ipi-mailbox and SGI interrupts
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: Jassi Brar <jassisinghbrar@gmail.com>, Michal Simek
+	<michal.simek@amd.com>, Harini T <harini.t@amd.com>, Tanmay Shah
+	<tanmay.shah@amd.com>, Saeed Nowshadi <saeed.nowshadi@amd.com>
+References: <20261015083937.8SDbdK8P@linutronix.de>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <20261015083937.8SDbdK8P@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN7PEPF00000150:EE_|CH2PR12MB4325:EE_
+X-MS-Office365-Filtering-Correlation-Id: a812218b-57ce-4a8b-9ce9-08df2ba003e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|1800799024|18002099003|22082099003|10067099003|13003099007|261009223027099003|11063799006|56012099006|5023799004;
+X-Microsoft-Antispam-Message-Info: cYKzPr3M6wVHneguciJZv8HnQ63lhwtyp3YRO5XhR8f3AT032XiNvxz6OUHFT2sUNjRV4IZYpqzetX5lekGPBAll6vea4qjFK+cMylLUWOD07WR05YMHDfhgAbv0qF3OHKSplXRIcrvFLvTycN8Nv1Xdpg+eH2NHGH0jEuN9JDARNHnEYu4M71gLiq6rFlN9Wszy45hk5hfptdkGBMKoaHrF1KuVPGU7w7aObFtJLc/ik1rbkDhEn2ekLLsYHrYwIzDXGlCtOAxivd79NM4iXl3SS0EmyBq17hsj+SC4FGc8W5iNophorC3XjgQ+txUIv20WJQiQmZebhNSslvYnmtkcBP/I6jDfCSL6H4bFuE5UglSjcRJeAwvTiVvAgkBLlrfveZqVnQkWMklZ9aMFy2HCRPsnq6sVe+8NDR7LNYPT7kLNp9g1cunzoynImE6Kn3Cw90gYJ4GkPvXbv6n/PRLnlHyEE/kGKgzCFpNjNevE1lV2D+TI1LwNhBPRtxMMhFHC7Ulo+Qz3dRM8/Vio7m5xFanesewZK68uB9XPW7cDABOeleQEnwFrxSAYC9VFVxPPEwBmAoe6NzXLaus5jZ16ABQMjif6vM+Xc1JjLdNLs+NjpVQL2dmOoztv5kOvZbd6M3mXAvJcImYubU/GvqpXFHBu1ZoFtJ6cDImDCA+PKRMoyUQcYoG6OvgkLJC1DEqUlv2nooe/K94Oy935/Q==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(1800799024)(18002099003)(22082099003)(10067099003)(13003099007)(261009223027099003)(11063799006)(56012099006)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Q1R0fg1+IjM/tkEKLEhd1aaFi0Vfxanm7MKpx/8Ez+cPzt8HnMDYM+Inez4WDiIZYx6VvTNGUH2CTxvIArpWJuYsfElVDXm4s89pIPxeQ7P6AiuqnNRvN6ISkO6Q9MDf+PQTgZ3RCww4jK/xNXItJtA8rjR1EWPV2kPHwqZlSYPHpu6XS/EA+JGqBOTzU95DMlMYc63igKTVQAcjupFx4BrY3wIdpoBgIpJaOkz9V5YoC0UOmCAE+ujzhMvJ5q0OnBnFo659U1wjIqLyWyR8MpbX7+cC+ca2Ram5w0v477nDiQOokNjcLIc1yFJH4KhYDgbZR85+pzoxAa0zLWMuftki5vr0m6dBWN8+Q+iK5pa0vIVpf6rUKJSsZqv4aByQgSX/nY6ey9/PgU2BVnzx0gj9iJuPPdvNKTnztSxCm9vFLFhzgTIHVcWeso//lxXU
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 16:10:36.9525
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a812218b-57ce-4a8b-9ce9-08df2ba003e4
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN7PEPF00000150.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4325
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_170701_130269_9515A628 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20261016_171048_491999_AF181061 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +139,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 07:48:34PM +0900, Paul Elder wrote:
-> From: Xu Hongfei <xuhf@rock-chips.com>
->
-> Add device tree nodes for the ISP and their iommus on the RK3588.
-[...]
-> +	isp0: isp@fdcb0000 {
-> +		compatible = "rockchip,rk3588-isp";
-> +		reg = <0x0 0xfdcb0000 0x0 0x7f00>;
-> +		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupt-names = "isp_irq", "mi_irq";
+Hello,
 
-Three interrupts with two names, while the binding in patch 4 has
-maxItems: 2 and isp1 below lists two, so dtbs_check rejects isp0. If
-134 is the MIPI line it needs a name and an entry in the binding (the
-RV1126 has that third line and the driver can use it for the CSI-2
-receiver errors); otherwise drop it.
+Thank you for your email, please find my response below:
 
-Best regards,
-Daniel
+On 10/15/2026 3:39 AM, Sebastian Andrzej Siewior wrote:
+> Hi,
+> 
+> The ZynqMP IPI Mailbox driver supports two bindings of which
+> xlnx,versal-ipi-mailbox is not present in any kernel dts file and
+
+This new bindings are for Versal and later SoCs which has buffer-less
+IPI. It supports only notification to the other core without any data
+transfer. The device-tree nodes may not be available in the upstream
+kernel yet, but it is used by other consumers. Here is an example:
+
+https://github.com/Xilinx/u-boot-xlnx/blob/master/arch/arm/dts/versal-net-vn-x-b2197-01-revA.dts#L100
+
+
+> xlnx,zynqmp-ipi-mailbox is used in two .dtsi files.
+> For the per-CPU interrupts the irq-type should be 2 (which would
+> correspond with GIC_ESPI in the dts, no?) which I can't find.
+> Before the IPI_IRQ_TYPE_SGI it used to check for the value less than 16
+> I also can't find this in the two available dts file.
+> I did browse over the "AMD Versal Virt" but it also looks not present.
+> 
+> My question is whether this is used or just a development step that
+> never got somewhere. 
+
+No, it is the actual use case supported by the driver. Just the
+device-tree node is not in the upstream kernel, because it is usually
+project/vendor/consumer specific.
+
+> My guess is that the device tree here is preconfigured from the boot
+> firmware.
+
+Yes.
+
+> So is this SGI-IPI a thing or not?
+> 
+
+Yes it is. Ideally, TF-A and Linux can share the IPI. If the IPI
+interrupt is used by the TF-A and the expectation is that Linux mailbox
+work on the same IPI (because all other IPIs are busy) then the work
+around is, TF-A will generate SGI for the linux mbox driver, and the
+mbox driver will use that SGI via device-tree.
+
+It is a vendor specific use case. So the dt-node for this use case, may
+not be available in the usptream kernel, but can be enabled if correct
+SGI is configured via the device-tree.
+
+Thank you,
+Tanmay
+
+> Sebastian
+
 
