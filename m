@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C548ECC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8448CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 16:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4hUNvzUm+i/fvb3rIFA3gDriyPT42ImnXZwFydw5ffQ=; b=FNVlJTM0ETUXIr
-	TRKiE3qp5HPc+oKhOZk/w0HYoYnIleY3p7rn/vZ5PFrG3BrwpBguYpHsu/O4AYERDn/5wrCwzTMe2
-	n8rcuPEi8a3hNO9QK0hJkbHYU9mX0C175Qd10fCte+C13e7rWQEBcfvcVdNvwyWGj96oFf4WhWd7U
-	EMKW8pUDaLVhHSxgpcpBrtIwyGOLVDbfZYrE9p3HeWLkPgQ9Mzbhm4vGtWZw6OK3MwkB+HfYzGrvC
-	H1TYxKwqyfy+J4MebuJCEhWMSLV8R+Lw5WAzDGEvCj3vsWT9UVjzFSLobJSrEtA9iid5W7gk2ZHYX
-	HjnZFS/cu5FGCnTjoWBA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F3S0tT4y8CKe4q86fkRXB29qxDrT+lYfYaHou/Uummk=; b=KtjejDIUxba45nPuWYLotRnut+
+	QfQKn3nFBfIi+B9SkOPtRwm1K9kdNMydAVngiupet2yeW3kFsaRjprV5uQ89016tGiKzDjmpmD+fR
+	Zj3yPTxpedcv1S9LFOCNAkW07y4EMl/4eaUFDm2ggjMRwp/1as5+qtpIfyaKxDbCfzEe3bdVorJfl
+	/R0F2aR+ge6yCu75llAj7R9qJjlXeaHz1UIj87x6xSHWPRgItiTT8tzEzo69onklXY5viRXBtI5qX
+	NXIpY2gjAkjlxVMsLMR/W3fbQBBZg4fKA285v1RSC+QaDfB+mBoO534NgECYsLyq7biv3hX9IEWjo
+	PTphqw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDH-00000003ThF-2Ogp;
+	id 1xHlDH-00000003Thd-2tmV;
 	Fri, 16 Oct 2026 16:55:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlDA-00000003TdF-0Eiv
+	id 1xHlDA-00000003TeB-3XEF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 16:55:17 +0000
+	Fri, 16 Oct 2026 16:55:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD4231477;
-	Fri, 16 Oct 2026 09:55:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6784B1691;
+	Fri, 16 Oct 2026 09:55:12 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F36A3F7B4;
-	Fri, 16 Oct 2026 09:55:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2017D3F7B4;
+	Fri, 16 Oct 2026 09:55:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792169712; bh=uNbBU/EY9WXBUNkGG0itsEkzVgBaX+yaH0M52uUwmFg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=RoGf6tzMTOFAIheS9Av7Qpk1ycv7xrTNG/TLOnfGLq2UCY/KFb1twwh3dPIeRV5zO
-	 5+ggGpf1quan/BmBv0S7CSXmB+UVXNibwkFRQE0MY1cNcoQLYG4w1HzEGoflryLauD
-	 VdudypJsjmsb5WNiHNaIxqlf0xRjcuDPI5mfY9S8=
+	t=1792169715; bh=9Vg1KwTsPnGP0rd+0YO3fvy/Cq8edx+YmEonMySYO+s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=EgI7HuLZsApO3MM+ecCNknPLh3fTuUxWvXtIM5632PMu3WaATDGrN3B+V6xTs4rmE
+	 6aqo7qsv8R66caTjDSxpyu34cz3zCj7Jf+h7WYgCcNGfKw/l0yHchMSlxmYjHZ202o
+	 zH+eKlzy9cH96ysyjq8m72T5yQK1kZEabAp2PoZg=
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 00/23] coresight: trbe: Refactor buffer and IRQ handling
-Date: Fri, 16 Oct 2026 17:54:58 +0100
-Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+Date: Fri, 16 Oct 2026 17:55:00 +0100
+Subject: [PATCH v2 02/23] coresight: trbe: Make watermark range check
+ overflow safe in __trbe_normal_offset()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOJW0moC/x2NXQqEMAyEryJ53kJs/QGvsiyl2qgBqW4qIoh3N
- /g08zHDzAWZhClDV1wgdHDmNSnYTwHDHNJEhqMyWLRNiWVjdunJUwr9Qj5yfpXl77Uc1QqNYdh
- XMRhcVeOIrmod6NqmCZ/v0/d33w8NUt8EeQAAAA==
-X-Change-ID: 20261016-trbe_enable_disable_irq_handle_refactor-0a3450f03473
+Message-Id: <20261016-trbe_enable_disable_irq_handle_refactor-v2-2-3f57cf3199b1@arm.com>
+References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -59,17 +58,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  coresight@lists.linaro.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=3375;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792169710; l=1341;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=uNbBU/EY9WXBUNkGG0itsEkzVgBaX+yaH0M52uUwmFg=;
- b=S+gfnRqM3iuzcg6PNNIY1km7seugr627QKpCGxWjlpn1gBUIRtG3376n6jmPSj1q9lWwl6PAA
- oUd0bCVc24iC9XR5J/ULjUo2UegnPTQtxnQBGTavEWm4mpIJbnk8UHz
+ bh=9Vg1KwTsPnGP0rd+0YO3fvy/Cq8edx+YmEonMySYO+s=;
+ b=MZyhAr29SMEIn2620PIxOjTVLznCFoBunZS90a3WNKuIUkGrCJXlnqPQc4rh+6xwwme9Tir1M
+ u7ESq1hhX3VA/7RpczwEgM1o3WF/tuEvnJijQUO6mB1+Fum+YlGPtPT
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_095516_191359_52A4EE8D 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261016_095516_927203_E266CC66 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series follows the earlier TRBE buffer refactoring posting [1].
-The work is now split into two parts. This first part contains fixes
-and refactoring in preparation for wrap and trigger mode support.
-Support for those modes will be sent separately.
+The current code checks whether the wakeup point lies before the current
+tail by comparing against handle->head + handle->size. That addition can
+overflow when the monotonically increasing perf AUX head is close to
+ULONG_MAX, causing a valid wakeup point in the current writable range to
+be missed.
 
-The patches are grouped as follows for easier review:
-
-  Patches 1-5: Minor fixes
-    Add register definitions, fix the watermark range check, and
-    improve erratum checks and perf handle validation.
-
-  Patches 6-11: Enable/disable lifecycle fixes
-    Clean up session setup, status clearing and IRQ handle ownership.
-
-  Patches 12-17: Refine status classification
-    Decode stop reasons, report truncation on errors and improve
-    trace-size accounting.
-
-  Patches 18-23: Improve IRQ and overflow handling
-    Keep the handle in per-CPU data, stabilize status reads, and
-    improve AUX restarts and trace-gap reporting.
-
-A race also remains between TRBE interrupt handling and AUX pause/resume
-from a sampling NMI. This should be resolved as part of the state
-machine refactoring in the CoreSight AUX sampling series [2].
-
-[1] https://lore.kernel.org/linux-arm-kernel/20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com/
-[2] https://lore.kernel.org/linux-arm-kernel/20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com/T/#t
+Use unsigned subtraction to compare the distance from head to wakeup
+against the buffer size instead. This keeps the check correct across
+potential wrap.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-Leo Yan (23):
-      arm64/sysreg: Define TRBSR_EL1.EC event classes
-      coresight: trbe: Make watermark range check overflow safe in __trbe_normal_offset()
-      coresight: trbe: Use helpers for checking errata
-      coresight: trbe: Check the buffer association before IRQ validation
-      coresight: trbe: Validate perf handle before using sink data
-      coresight: trbe: Drop redundant disable from enable path
-      coresight: trbe: Publish the session after successful enable
-      coresight: trbe: Clear stale external abort status
-      coresight: trbe: Clear TRBSR status at stop sites
-      coresight: trbe: Drop redundant disables
-      coresight: trbe: Assign the perf handle in enable and disable
-      coresight: trbe: Decode TRBSR status codes
-      coresight: trbe: Simplify wrap status handling
-      coresight: trbe: Treat access not allowed stops as fatal
-      coresight: trbe: Report truncated trace on buffer update errors
-      coresight: trbe: Always classify TRBSR when updating buffer
-      coresight: trbe: Calculate trace size across buffer wrap
-      coresight: trbe: Keep the perf handle in per-CPU data
-      coresight: trbe: Reload the AUX buffer on overflow restart
-      coresight: trbe: Add fault action argument to trbe_handle_overflow()
-      coresight: trbe: Read TRBSR after prohibiting and flushing trace
-      coresight: trbe: Restart trace source for stopped buffers
-      coresight: trbe: Report trace gaps with PARTIAL instead of COLLISION
+ drivers/hwtracing/coresight/coresight-trbe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- arch/arm64/include/asm/sysreg.h              |   6 +
- arch/arm64/tools/sysreg                      |   8 +-
- drivers/hwtracing/coresight/coresight-trbe.c | 481 ++++++++++++++++++---------
- drivers/hwtracing/coresight/coresight-trbe.h |   8 -
- 4 files changed, 345 insertions(+), 158 deletions(-)
----
-base-commit: 343cfcbb3ecfdb80aa576a428cfa3b65ad783842
-change-id: 20261016-trbe_enable_disable_irq_handle_refactor-0a3450f03473
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index eca8e13a97447b46a4b383049aacb3fa7ad3c329..02d12445763a86d58c79bdf5143f761827456bc3 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -526,7 +526,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+ 	 * +----|---------------|-------|-------+
+ 	 * trbe_base		limit		trbe_base + nr_pages
+ 	 */
+-	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup)
++	if ((handle->wakeup - handle->head) < handle->size && head <= wakeup)
+ 		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+ 
+ 	/*
 
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
