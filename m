@@ -4,102 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046C4CCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFFDCCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5SM0ELWb3f1rnD9eJjxT3f0sXZwPSM6qFPlcQfUFKw=; b=VS2rr/qovQkxBZVvN434fHViFb
-	ooIkiBZqSJWD6rtAxQiQsQGGU/Hb+kjFUpp5vDh44fVIifRW22DWM88LW2rJVrXX0BB3imnMgYmH4
-	FTdLZMfcTtkzGPIL8q6vO4jV3ed3CsaKy7JOy/79wGPPm9euuvdU7jgCvIePGNNjQff84hefOV0tn
-	MyD1tYCiHMkJj6ysLPjGmYuBWtHQ5oUIA8YynD8rQiRgEahbp6evD+JM8rHXhVA9g9hkGUH2WJjJE
-	Cep5a700JkMpS7A6Qpvp7YpNkFN53irbXtQzzochMVvpFCNj5VRxRGNaKmJf4Wysq1A0p3NRvU77n
-	fKXmukbg==;
+	bh=IBtsww379ucVBkMmo8yYkba7gIdGc8re+3xjl0WWVV4=; b=KLXVDGMFpCPdgn/3wPtkTMzeum
+	T9H17yXzo0SSXr4+L2tapAmxUqBiW69CZ+USxfKHEY6DPxn9TP+2rlE2kHZBzKvANhPiKcFc1Wz6k
+	DGsP4SM+dEgToN6xEqbyuMuKaEts0IyyILrK525VniIbMnZgmUljfH0TKeYqamZYfDj8eoVyXK4o8
+	FKm5ptGghbJLYQAEMACKUavMvx4m2GRmdtQ1hJKNPqx2usihCpTnO/j8p3q21iAx/X+uSu3oMvrgb
+	aQpe8dSxO5tUfKOwLxZpPBf9LLUR/dmc1R2ipvc1RLUjKOcbewqenAAkylSh4K1W/LG1KeDdQS10y
+	R8kURcYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh8E-00000002tSi-12H9;
-	Fri, 16 Oct 2026 12:33:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHhll-000000031BE-1Q66;
+	Fri, 16 Oct 2026 13:14:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh88-00000002tD1-2Hpj;
-	Fri, 16 Oct 2026 12:33:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=/5SM0ELWb3f1rnD9eJjxT3f0sXZwPSM6qFPlcQfUFKw=; b=GNzGxZnnEgXgClKfXF1J5Bd8+H
-	jXvrjYoO4UoMsk64z3cqotDpBBxonD78VwvlYR8dUa/2oUpqJS2bDghBJ4fPZH/9BZZhVEyAZVkd9
-	cscH0WkAcLA+1KQWPH4Egq3CflDS6sNKZnSNeNAvENoabDazWX/+qIq1Lp3bcAJIraovYyjY5MZyf
-	lkYiwBe3RkdB4cy2lUA/0T6g16mOfi8jGnmtk7PBjcQyw2sobDdiLNw70nKywLQ0gMMPztvkleQdJ
-	E5EGGEmmkQu8UzFBkCvB75Q6z3xtmOCx+99EpQf5W7OWjUgQE2iEjgf5/bt4d3iRC9TOvfuood933
-	6PUWgiWw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHh81-00000001UAC-2GJM;
-	Fri, 16 Oct 2026 12:33:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154019;
-	bh=3OjaJ0Jwue4KIRgb+NR+YYZzAVgjAUo5mirg5t33LtI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eGW5hF4TsCOq9DJ98GbC6D2MDUEGMx7cbqHXjm5iOraDe2cn15HuqHEuTriNZMkR0
-	 DjDTIMbGFFxjQP437eNjM55i4Oo+C+Ypf3Pynq6x/91l8jcrZUlW+Lbu5JkrzlRfrv
-	 iu+6++X5q5lWHrO2MkXquqnnfHqKR9vv1kSF5t5nacNfKphOWbueh29CNa7StBc/uj
-	 6B3rXB++3Ruy+NmOWwhnwsL+6fIpIQ3DHuwi8KKPlda61JGm4ppsPgS+Rh3fbBhlos
-	 M7j5wWLclp+Rdoixkth68xhIVTKtqOTenV1K0Meuth8mv26blMEaMr2Y+91KbQg806
-	 EDH6IzSSs/KjQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9F9A817E011B;
-	Fri, 16 Oct 2026 14:33:38 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:33:00 +0200
-Subject: [PATCH v14 08/23] scsi: ufs: mediatek: Add dual 0.9V supply
- support
+	id 1xHhlg-0000000319Q-1oI4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 13:14:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F76860A56
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 13:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37EEF1F000CD
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 13:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792156479;
+	bh=IBtsww379ucVBkMmo8yYkba7gIdGc8re+3xjl0WWVV4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=V0WGVumeTedEHR2AoRQDo1rd35kxpGTR5Rco75l54SLLNp9tfdxKm2bSXoIUdCuhI
+	 1ur4JAJozcXoz0KGYEqwE4KdS/J9M1DMiVf2XZo9TmhVD3qrvLSBu7rAhEIccXmM2s
+	 zM9++t42GyzOu8UikZZ6UhtlQ64REpWMzRi3GFYFe6DKdigTIhlwHnX75lbPF9a4Xh
+	 f/wTZbdzX369cL4C4jqD9k1HeLlckcjRMRvILAnRZS+16M1fcpoaXSu0dgCJ5BBw4C
+	 QZ/Q8P7mFVIRByEDdWNuWG16se9GjqK/xXfGav7ekMFSXlFlI1b1aPRfxkhfPZpyUF
+	 cJpbikXvONepA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ab27b4924aso374151fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:14:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwhpJ06zkR/Ed7jZ1tbS70O0MN/KKuVOyayz7JUYfmbCNkAg5gcoozl2xwi4AoGVB/ZYWymfL94Jr1vDS73yuRq@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ4NNuFYC+JtgG37UvgkS0r0nJ5Qg52iBC2/pxTeexjzSZ4DxP0
+	XMqVr/Zoy4mNouJjsNUqwl2FBVxFLcqD2Jc7IOVheuBRaXYUWbGW4ovJVhe6YisBFdQzA6P1sid
+	LnEHrYmtpWyx34igE1sta7kd52NkQ+rk=
+X-Received: by 2002:a05:6512:1193:b0:5b8:f523:6886 with SMTP id
+ 2adb3069b0e04-5bcde8d5ddemr7061879e87.66.1792156477967; Fri, 16 Oct 2026
+ 06:14:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-mt8196-ufs-v14-8-e8d565e0cd45@collabora.com>
-References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=5198;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=3OjaJ0Jwue4KIRgb+NR+YYZzAVgjAUo5mirg5t33LtI=;
- b=Aw680jt/R+7NSxt93XTUo1GFnWGnqUyqyIyTxakq1Hu/hYyrd/jEeN4h3C3Uv1yRZQB0scwvu
- QTnT52ivcuDD7GgLBFhJFoQqdygqbQafTHyxq4x19vaYn67KConq9ps
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_133343_815889_4EA76C88 
-X-CRM114-Status: GOOD (  18.93  )
+References: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20261008071436.596651-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20261008-1e3e0aa3fab167d544c21e68@squawk> <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
+In-Reply-To: <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 16 Oct 2026 15:14:25 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=k3xFcFMsAS9gOc-tnGd0nOxidqST093YXzL+4mvM3PA@mail.gmail.com>
+X-Gm-Features: AclHuK89SeERPwraJjQ-sXSvZlY9dT774wPNQR4vvufG9BfgRm39fBetpzFZiak
+Message-ID: <CAD++jL=k3xFcFMsAS9gOc-tnGd0nOxidqST093YXzL+4mvM3PA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: s32g2-siul2: describe EIRQ
+ input mux registers
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Conor Dooley <conor@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,177 +94,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8196 SoC has an additional pin in comparison of the MT8183 SoC,
-that is used to feed the host controller with a 0.9V supply.
+On Wed, Oct 14, 2026 at 12:16=E2=80=AFPM Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> wrote:
 
-In preparation of this SoC support, add in platform data and
-driver the management a second optional 0.9V regulator named
-"avdd09-1".
+> On timing: I'll hold the v2 respin a bit longer.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek.c | 99 +++++++++++++++++++++++++++++++----------
- drivers/ufs/host/ufs-mediatek.h |  1 +
- 2 files changed, 76 insertions(+), 24 deletions(-)
+There will be merge window on monday.
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index bcb7f350984c..c8c5f85507af 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -41,6 +41,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
- 
- struct ufs_mtk_soc_data {
- 	bool has_avdd09;
-+	bool has_avdd09_1;
- };
- 
- static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
-@@ -513,20 +514,43 @@ static int ufs_mtk_wait_link_state(struct ufs_hba *hba, u32 state,
- static int ufs_mtk_09v_off(struct ufs_mtk_host *host, bool allow_pwr_on)
- {
- 	struct arm_smccc_res res;
--	int ret;
-+	int ret, ret2;
- 
--	if (!host->reg_avdd09)
-+	if (!host->reg_avdd09 && !host->reg_avdd09_1)
- 		return 0;
- 
- 	ufs_mtk_va09_pwr_ctrl(res, 0);
--	ret = regulator_disable(host->reg_avdd09);
--	if (ret) {
--		dev_err(host->hba->dev, "Failed to disable avdd09-supply: %pe\n",
--			ERR_PTR(ret));
--		if (allow_pwr_on)
--			ufs_mtk_va09_pwr_ctrl(res, 1);
- 
--		return ret;
-+	if (host->reg_avdd09) {
-+		ret = regulator_disable(host->reg_avdd09);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to disable avdd09-supply: %pe\n",
-+				ERR_PTR(ret));
-+			if (allow_pwr_on)
-+				ufs_mtk_va09_pwr_ctrl(res, 1);
-+
-+			return ret;
-+		}
-+	}
-+
-+	if (host->reg_avdd09_1) {
-+		ret = regulator_disable(host->reg_avdd09_1);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to disable avdd09-1-supply: %pe\n",
-+				ERR_PTR(ret));
-+
-+			if (host->reg_avdd09) {
-+				ret2 = regulator_enable(host->reg_avdd09);
-+				if (ret2)
-+					dev_err(host->hba->dev,
-+						"Failed to re-enable avdd09-supply: %pe\n",
-+						ERR_PTR(ret2));
-+			}
-+			if (allow_pwr_on)
-+				ufs_mtk_va09_pwr_ctrl(res, 1);
-+
-+			return ret;
-+		}
- 	}
- 
- 	return 0;
-@@ -537,14 +561,28 @@ static int ufs_mtk_09v_on(struct ufs_mtk_host *host)
- 	struct arm_smccc_res res;
- 	int ret;
- 
--	if (!host->reg_avdd09)
-+	if (!host->reg_avdd09 && !host->reg_avdd09_1)
- 		return 0;
- 
--	ret = regulator_enable(host->reg_avdd09);
--	if (ret) {
--		dev_err(host->hba->dev, "Failed to enable avdd09-supply: %pe\n",
--			ERR_PTR(ret));
--		return ret;
-+	if (host->reg_avdd09) {
-+		ret = regulator_enable(host->reg_avdd09);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to enable avdd09-supply: %pe\n",
-+				ERR_PTR(ret));
-+			return ret;
-+		}
-+	}
-+
-+	if (host->reg_avdd09_1) {
-+		ret = regulator_enable(host->reg_avdd09_1);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to enable avdd09-1-supply: %pe\n",
-+				ERR_PTR(ret));
-+			if (host->reg_avdd09)
-+				regulator_disable(host->reg_avdd09);
-+
-+			return ret;
-+		}
- 	}
- 
- 	ufs_mtk_va09_pwr_ctrl(res, 1);
-@@ -1239,20 +1277,33 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
- 	struct device *dev = host->hba->dev;
- 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
- 
--	if (!data || !data->has_avdd09)
-+	if (!data)
- 		return 0;
- 
--	host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
--	if (IS_ERR(host->reg_avdd09)) {
--		if (PTR_ERR(host->reg_avdd09) == -ENODEV) {
-+	if (data->has_avdd09) {
-+		host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
-+		if (IS_ERR(host->reg_avdd09)) {
-+			if (PTR_ERR(host->reg_avdd09) != -ENODEV) {
-+				return dev_err_probe(dev,
-+						     PTR_ERR(host->reg_avdd09),
-+						     "Failed to get avdd09 regulator: %pe\n",
-+						     host->reg_avdd09);
-+			}
- 			host->reg_avdd09 = NULL;
--			return 0;
- 		}
-+	}
- 
--		return dev_err_probe(dev,
--				     PTR_ERR(host->reg_avdd09),
--				     "Failed to get avdd09 regulator: %pe\n",
--				     host->reg_avdd09);
-+	if (data->has_avdd09_1) {
-+		host->reg_avdd09_1 = devm_regulator_get_optional(dev, "avdd09-1");
-+		if (IS_ERR(host->reg_avdd09_1)) {
-+			if (PTR_ERR(host->reg_avdd09_1) != -ENODEV) {
-+				return dev_err_probe(dev,
-+						     PTR_ERR(host->reg_avdd09_1),
-+						     "Failed to get avdd09-1 regulator: %pe\n",
-+						     host->reg_avdd09_1);
-+			}
-+			host->reg_avdd09_1 = NULL;
-+		}
- 	}
- 
- 	return 0;
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index c63740b98e85..477fb9e36555 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -176,6 +176,7 @@ struct ufs_mtk_mcq_intr_info {
- struct ufs_mtk_host {
- 	struct phy *mphy;
- 	struct regulator *reg_avdd09;
-+	struct regulator *reg_avdd09_1;
- 	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
- 	struct ufs_hba *hba;
- 	struct ufs_mtk_crypt_cfg *crypt;
+At this point it's probably best to wait for v7.4-rc1 and rebase on that
+before you resend.
 
--- 
-2.56.0
-
+Yours,
+Linus Walleij
 
