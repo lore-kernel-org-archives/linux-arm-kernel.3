@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7920CCA464
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02698CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 10:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVWzBWolNb7/3cWSgXWCuO2Me5i6M9ko/70PWgwjB5w=; b=R1yLj2mGMn+ddE641KnsQxJnL8
-	ddI4RXeW54IfI+EYIYq+qD3/tOvYsSJWEaIN4mk61Nwgp219HfJK6H0cGu1j5lQ6+W9uXZdpM11bo
-	WaadwGTXZQ26AW/HK86b04HIPQztpgcxFKJqeIEWwJ2PploOkDGbblKqM6tgl9ai93GsPHYvxbAwZ
-	kZRLYp1omjXoaRralDX3Ash8vWxdCLUbm5v5TUGXwGT3YLlFrQe9QkBDMMGkBJp51vgRNo0naySws
-	NXh67xjgKvtDmRipvpkIXz8NXqUKedQHZCza8zbbVfLz0Hz3nnRjYh5KkjfDU6kTStwMlGcR1zcFd
-	OiGTZCIQ==;
+	bh=wtX6moLiEDyyb54iFO36REzn2dsxYfnFv7RF12DwwdA=; b=p3w9nCVjHkGi0IuZ2ZW+0uZt4L
+	LH4eFqMf/nl0deyz3tPit/wJ+w7n5WXOvy0fEws3e0QKrBC+2YMox3/eldBxmc+GYLLuieSQQGImm
+	walZEoZ5hQWs0IFqe19BI+zyZG/9or+QNRLXc7I7yalO4BfGF2c8BeuN1tERsWgSluGtJsonDJgh0
+	AyT66U8RNUFwJwk58kVriCPWQp3VsjlLCaN2SJQ5pvmUS/Bzg+2ZLA8rxzH6s98FFPaK27gU2MSr8
+	FUykEhtFb3PZLvlCP8KdJvRhBQHRocLCPTNGFmXghxdgjZI1gELAUE8ap6vmei9CHbbo8JLd4ZfnQ
+	xYcm/Neg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfEV-00000002dlw-25KK;
-	Fri, 16 Oct 2026 10:32:15 +0000
+	id 1xHfEd-00000002dsW-40tf;
+	Fri, 16 Oct 2026 10:32:23 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHfEL-00000002dZg-2o8s;
-	Fri, 16 Oct 2026 10:32:06 +0000
+	id 1xHfEM-00000002dad-3yWH;
+	Fri, 16 Oct 2026 10:32:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792146723;
-	bh=VFqBuDg+MHmypOZ1tY1WQ2KCI8cVVVwGmugyCH+F/Rk=;
+	s=mail; t=1792146725;
+	bh=Ev55+tgmhSJO+uziRYJNFGaoM3W5u7vYucKkCPu54NY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nGWnhFltN46q2pDuBt67YVVjFMnAM6Zfkhgg4d3zuvLT+UV0SUH+reX83HVd1qwzV
-	 3PMMANNq/GleFXEWV0k2+39V1oFtRZZ1iDKO9l7KGHH5JvG2Uxr55wCISGiig+FKAy
-	 aoxqMhcLUrZnTbWQBB5iVHLNfJqLg30uj2nX8lzRNsplJ3FNeG2ZViTJvN3MPFB2RR
-	 dfZj7zAiJqPXjNxlr8BdjnVHmjX3cIJfdvMo8MCm1FMpR/OIkcvyLgAaCXEFzO2CRN
-	 mWzc7g55S1pEdT/TzGQPFY/2+Gv9Y2+Nm4PivTffFUkhEhFQXUFhPpF8W8axkXmSuo
-	 XtqJIMWDpMIdA==
+	b=QRNE9vVr6+OV4GmISThs/htm3+vdpqPN01hPmVCrIpFoYS468R2q6OuZPaecpW1QH
+	 VroQXPwvoc06iJYIsSsXJWHCuQDu3mCt0+YmgVUKA3yE2GQKdV7spmGKybUVlOgCR8
+	 kvpUri6jdf+64mZ2ekImdwNQBNp/0JlSJ8dzDBp2TCEy7WXWB3hbU0Ilq0yUTt20cS
+	 ZCNoKsEVE4z2RWge0NZ0/Jz5pUU2w9tM0n8YV7LoZBcVcvqBm/8YBFFyGa93WX4n0C
+	 4l3wCrPjJDG/GXSHEI3bnKOXzoDJYc2PKDddCePA8BPjyJ2zlwM2iRcGXABOHz4vS4
+	 yQf08vCecwZBA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0522F17E0A5D;
-	Fri, 16 Oct 2026 12:32:02 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1F40917E0A5F;
+	Fri, 16 Oct 2026 12:32:04 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 12:31:10 +0200
-Subject: [PATCH net-next v3 6/9] net: stmmac: mediatek: add PERI_ETH_CTRLx
- register offset in platform data
+Date: Fri, 16 Oct 2026 12:31:11 +0200
+Subject: [PATCH net-next v3 7/9] net: stmmac: mediatek: use TX clock phase
+ shift in RGMII mode with 1Gbps speed
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-dwmac-mediatek-mt8189-v3-6-25daf2bbcf35@collabora.com>
+Message-Id: <20261016-dwmac-mediatek-mt8189-v3-7-25daf2bbcf35@collabora.com>
 References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
 In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -72,16 +72,16 @@ Cc: kernel@collabora.com, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792146716; l=4318;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792146716; l=5192;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=VFqBuDg+MHmypOZ1tY1WQ2KCI8cVVVwGmugyCH+F/Rk=;
- b=cA3ClWS5m1dqYMiQDYBriRcoxVts4Oxb09+EM096jX239JnsIgRHHUY97gTfEQjuzV/t02uTZ
- h9IS2yHSlo9CPhMzMU4vnkHqaSg7/Fapbyhprasa0Byh5lBkPr3+XYO
+ bh=Ev55+tgmhSJO+uziRYJNFGaoM3W5u7vYucKkCPu54NY=;
+ b=xQaJp8M7VImuQGCBpE8lI/kabQra9OAnuRKQlLcXlQlGJbyweHSIfFHq7K8h8XiCff/DEMf98
+ kNNPwSLfUL4BiS/sHSFlQloMcL1jBM8fOVQjYbyCpjzPMPUaZqp2noL
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_033205_869321_6141E3D2 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20261016_033207_151351_65A0F743 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,116 +96,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation of newer SoC support, that use like MT8195 the Ethernet
-control registers from the peripheral configuration syscon but at a
-different base offset, add a new base offset in the variant platform
-data to access the PERI_ETH_CTRLx registers and use it in implemented
-methods.
+Currently, if the devicetree of a board based on MT8195 (or compatible)
+configures the use of RGMII PHY mode and insert at MAC level additional
+delay on TX clock at MAC (with "mediatek,tx-delay-ps" vendor property
+presence), the driver inserts this delay by setting TX coarse delay
+bits (bit 0 to 5) of the Ethernet control 0 register from the
+peripheral configuration (pericfg) at probe time.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+The HW delay macro circuit, that these bits enable, can be affected by
+external factors such as environment temperature or vcore voltage and
+thus applied delay value can change. For 10/100M link speed cases the
+variations are not problematic, but it can be for 1G link speed cases,
+that require much precise and stable timings (around 2ns).
+
+The Ethernet control 0 register of MT8195 SoC has another bit (bit 22:
+MT8195_RGMII_TXC_PHASE_CTR) to enable the TX clock phase shift and
+insert a 2ns clock delay in a more consistence way, as it is not
+affected like the HW delay macro circuit under the same conditions.
+This only works though for 1G speed cases so it cannot be set
+unconditionally at probe time, thus needs to be set after link speed
+negotiation.
+
+In order to allow the TX clock phase shift use in the driver, add in
+the variant platform data and probe sequence the support of
+fix_mac_speed callback, provided by dwmac core. This callback allows
+driver configuration update when the link speed has been negotiated.
+Implement it for MT8195 so that, when a delay needs to be inserted
+for TX clock (due to the devicetree configuration), it enables the
+TX clock phase shift in Ethernet control 0 register only and only if
+the PHY mode allows it and negotiated link speed is 1G, and fallback
+to the HW delay macro circuit otherwise.
+
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 26 ++++++++++++++++------
- 1 file changed, 19 insertions(+), 7 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 62 ++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-index cb5bda53edb9..7dd46cd5a49e 100644
+index 7dd46cd5a49e..4b2d5280f703 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-@@ -45,7 +45,9 @@
- #define MT2712_RGMII_DLY_TXC_MAX	17600 /* 32 x 550ps */
+@@ -104,6 +104,9 @@ struct mediatek_dwmac_variant {
+ 				       u8 phy_intf_sel);
+ 	int (*dwmac_set_delay)(struct mediatek_dwmac_plat_data *plat);
  
- /* Peri Configuration register for mt8195 */
--#define MT8195_PERI_ETH_CTRL0		0xFD0
-+#define MT8195_PERI_ETH_CTRL_OFFSET	0xFD0
++	void (*dwmac_fix_mac_speed)(void *priv, phy_interface_t interface,
++				    int speed, unsigned int mode);
 +
-+#define MT8195_PERI_ETH_CTRL0		0x0
- #define MT8195_RMII_CLK_SRC_INTERNAL	BIT(28)
- #define MT8195_RMII_CLK_SRC_RXC		BIT(27)
- #define MT8195_ETH_INTF_SEL		GENMASK(26, 24)
-@@ -55,7 +57,7 @@
- #define MT8195_DLY_GTXC_ENABLE		BIT(5)
- #define MT8195_DLY_GTXC_STAGES		GENMASK(4, 0)
- 
--#define MT8195_PERI_ETH_CTRL1		0xFD4
-+#define MT8195_PERI_ETH_CTRL1		0x4
- #define MT8195_DLY_RXC_INV		BIT(25)
- #define MT8195_DLY_RXC_ENABLE		BIT(18)
- #define MT8195_DLY_RXC_STAGES		GENMASK(17, 13)
-@@ -63,7 +65,7 @@
- #define MT8195_DLY_TXC_ENABLE		BIT(5)
- #define MT8195_DLY_TXC_STAGES		GENMASK(4, 0)
- 
--#define MT8195_PERI_ETH_CTRL2		0xFD8
-+#define MT8195_PERI_ETH_CTRL2		0x8
- #define MT8195_DLY_RMII_RXC_INV		BIT(25)
- #define MT8195_DLY_RMII_RXC_ENABLE	BIT(18)
- #define MT8195_DLY_RMII_RXC_STAGES	GENMASK(17, 13)
-@@ -106,6 +108,7 @@ struct mediatek_dwmac_variant {
+ 	/* clock ids to be requested */
  	const char * const *clk_list;
  	int num_clks;
- 
-+	u32 peri_eth_ctrl_offset;
- 	u32 rx_delay_max;
- 	u32 tx_delay_max;
- 	u16 rx_rmii_delay_stage_div;
-@@ -281,6 +284,7 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat,
- 				u8 phy_intf_sel)
- {
- 	u32 intf_val = FIELD_PREP(MT8195_ETH_INTF_SEL, phy_intf_sel);
-+	u32 reg_offset = plat->variant->peri_eth_ctrl_offset;
- 
- 	if (phy_intf_sel == PHY_INTF_SEL_RMII) {
- 		if (plat->rmii_clk_from_mac)
-@@ -292,7 +296,9 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat,
- 	/* MT8195 only support external PHY */
- 	intf_val |= MT8195_EXT_PHY_MODE;
- 
--	regmap_write(plat->peri_regmap, MT8195_PERI_ETH_CTRL0, intf_val);
-+	regmap_write(plat->peri_regmap,
-+		     reg_offset + MT8195_PERI_ETH_CTRL0,
-+		     intf_val);
- 
+@@ -430,9 +433,65 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
  	return 0;
  }
-@@ -302,6 +308,7 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
- 	u16 rx_delay_stage_div = plat->variant->rx_rgmii_delay_stage_div;
- 	u16 tx_delay_stage_div = plat->variant->tx_rgmii_delay_stage_div;
- 	struct mac_delay_struct *mac_delay = &plat->mac_delay;
-+	u32 reg_offset = plat->variant->peri_eth_ctrl_offset;
- 	u32 rx_delay_stage_val;
- 	u32 tx_delay_stage_val;
- 	u32 gtxc_delay_val = 0;
-@@ -407,14 +414,18 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
- 	}
  
- 	regmap_update_bits(plat->peri_regmap,
--			   MT8195_PERI_ETH_CTRL0,
-+			   reg_offset + MT8195_PERI_ETH_CTRL0,
- 			   MT8195_RGMII_TXC_PHASE_CTRL |
- 			   MT8195_DLY_GTXC_INV |
- 			   MT8195_DLY_GTXC_ENABLE |
- 			   MT8195_DLY_GTXC_STAGES,
- 			   gtxc_delay_val);
--	regmap_write(plat->peri_regmap, MT8195_PERI_ETH_CTRL1, delay_val);
--	regmap_write(plat->peri_regmap, MT8195_PERI_ETH_CTRL2, rmii_delay_val);
-+	regmap_write(plat->peri_regmap,
-+		     reg_offset + MT8195_PERI_ETH_CTRL1,
-+		     delay_val);
-+	regmap_write(plat->peri_regmap,
-+		     reg_offset + MT8195_PERI_ETH_CTRL2,
-+		     rmii_delay_val);
++static void mt8195_fix_mac_speed(void *priv, phy_interface_t interface,
++				 int speed, unsigned int mode)
++{
++	struct mediatek_dwmac_plat_data *priv_plat = priv;
++	const struct mediatek_dwmac_variant *variant;
++	struct mac_delay_struct *mac_delay;
++	u32 tx_delay_stage_val, reg_offset;
++	u32 reg_val = 0;
++
++	if (!priv_plat)
++		return;
++
++	mac_delay = &priv_plat->mac_delay;
++	variant = priv_plat->variant;
++
++	if (!mac_delay->tx_delay ||
++	    (interface != PHY_INTERFACE_MODE_RGMII &&
++	     interface != PHY_INTERFACE_MODE_RGMII_RXID))
++		return;
++
++	/*
++	 * When link speed is 1Gbps with RGMII interface, and a TX internal
++	 * delay needs to be applied on MAC, prefer to override the delay
++	 * settings with a 2ns fixed delay which is controlled by
++	 * RGMII_TXC_PHASE_CTRL. Otherwise, fallback to HW delay macro circuit
++	 * for 10/100Mbps link speeds.
++	 */
++	if (speed == SPEED_1000) {
++		reg_val = MT8195_RGMII_TXC_PHASE_CTRL;
++	} else {
++		if (variant->tx_rgmii_delay_stage_div) {
++			tx_delay_stage_val = mac_delay->tx_delay /
++					     variant->tx_rgmii_delay_stage_div;
++		} else {
++			tx_delay_stage_val = 0;
++		}
++
++		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
++				      !!tx_delay_stage_val);
++		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES,
++				      tx_delay_stage_val);
++		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_INV,
++				      mac_delay->tx_inv);
++	}
++
++	reg_offset = variant->peri_eth_ctrl_offset + MT8195_PERI_ETH_CTRL0;
++	regmap_update_bits(priv_plat->peri_regmap,
++			   reg_offset,
++			   MT8195_RGMII_TXC_PHASE_CTRL |
++			   MT8195_DLY_GTXC_ENABLE |
++			   MT8195_DLY_GTXC_INV |
++			   MT8195_DLY_GTXC_STAGES,
++			   reg_val);
++}
++
+ static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
+ 	.dwmac_set_phy_interface = mt8195_set_interface,
+ 	.dwmac_set_delay = mt8195_set_delay,
++	.dwmac_fix_mac_speed = mt8195_fix_mac_speed,
+ 	.clk_list = mt8195_dwmac_clk_l,
+ 	.num_clks = ARRAY_SIZE(mt8195_dwmac_clk_l),
+ 	.rx_delay_max = MT8195_DLY_RXC_MAX,
+@@ -591,6 +650,9 @@ static int mediatek_dwmac_common_data(struct platform_device *pdev,
+ 	plat->resume = mediatek_dwmac_init;
+ 	plat->clks_config = mediatek_dwmac_clks_config;
  
- 	return 0;
- }
-@@ -429,6 +440,7 @@ static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
- 	.rx_rgmii_delay_stage_div = MT8195_DLY_RXC_STAGE_DIV,
- 	.tx_rgmii_delay_stage_div = MT8195_DLY_TXC_STAGE_DIV,
- 	.dma_bit_mask = 35,
-+	.peri_eth_ctrl_offset = MT8195_PERI_ETH_CTRL_OFFSET,
- };
- 
- static int mediatek_dwmac_config_dt(struct mediatek_dwmac_plat_data *plat)
++	if (priv_plat->variant->dwmac_fix_mac_speed)
++		plat->fix_mac_speed = priv_plat->variant->dwmac_fix_mac_speed;
++
+ 	plat->safety_feat_cfg = devm_kzalloc(&pdev->dev,
+ 					     sizeof(*plat->safety_feat_cfg),
+ 					     GFP_KERNEL);
 
 -- 
 2.56.0
