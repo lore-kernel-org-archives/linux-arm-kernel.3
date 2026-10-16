@@ -4,128 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38347CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1CBCCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2mi1hfsS+U4PF7+bQSAL/vrygZAW6B+VNoCGU9SbXW4=; b=q2wzTNG7Kkd38n
-	A9O53D7IDd2MFGtnn6NiJbdtpOgStOVbmxD13kiqSIXhLbMwpIotg8/6VyohWwk6OFw0ICOB18xSR
-	EVG74xZRoQ2X3I/WrnaETwk3ZNhjEdAcz0iIVYpfiyWcrHCndPx+Q4h2KP0tw5VeJJxUhLefqOalN
-	dWNhgA5hhVCh/oEfpnkcq2NgdD/KkFp990EIAVbWreHatyY3yX8WRmf8vX8bNs3IUaDua7wk6gsEz
-	Nozgwh/v+LetuP/GNN6VROq92fq8uIziUIVvTlgHXKsop06LDevloMdsvavPRGVHciRCBXiQdZzz2
-	6ILE0WuoIS3TzOqZmh3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZJ2733YwARgE1Qwcji1IsWT4iPJBGi64T05DaYIrqJI=; b=Be/D3vBBxADNvxSCGFRxRhwIfQ
+	99UPbHddFH+pdYCvwJ5sqNqWkOFKeujpXF7N5YO3wRLcl+0FCcd91QJzYjTG8rolz4X/uC+gGs6QR
+	mh8JfllMkuRpW7MhQ4skmhTDS573HXRocNP6sNlOBNMWBnnyYS5aCBHNarc3+gcaF8KD0bhvaCprY
+	swQgFU9TWFJpYFcBQlu8kew5fE5xVpkcpUU3Dzs3q01z8Mzol5CZFcPaTcOr4+hQTG96QmKJsf4U7
+	i5vAKOAIH0lzl1DiilL99Dn62WgBouA4Mb42diUiqUYH3CyWK+z7Oc+QOpCp7dW6WpudxALQPYzXy
+	e8h3NpHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHihf-000000037BP-20EU;
-	Fri, 16 Oct 2026 14:14:35 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xHilL-000000037lt-0Lqm;
+	Fri, 16 Oct 2026 14:18:23 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHihb-0000000378N-02h4
+	id 1xHilI-000000037lD-04cN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:14:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eBpd03fSVhEofHNGICaRGJqit/oL0yNpEfMrvMx4F3f3k0JaG6gLj5hz8P14bE98stLPsLrWDpXfxMkEVrUvturwF5EgfK7RD0qmjlFL+49CZQJIUPxFvrdd88/WRuptQUqxlWRhpp2uUfDpjxgrCmr1RXTMmLKRgVuTGH0t3iHWtLCs5QU1LUn5Q/MLHFZ4vAV9eo56sDc+AYcch44IdCbXwUAAMpGyTJShgs+h+oa2GExyrtvgam+KM1S1sghRnqi8I7xHPa+QMFsz03aqH+7tpuw5LoLp7nEjrlsLaKEf9J9QDpFyYqdS8Q0O0dB0m42uDmJTLzWfsPjy2S6kbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2mi1hfsS+U4PF7+bQSAL/vrygZAW6B+VNoCGU9SbXW4=;
- b=cuobKhMx4By0qXxvyl68AP44Hr/W5m4DlAj7xFzGyUmif3aS9hJcY9ccMiD9nOsLagAHtD8Qm6jCrzAHz7+rwKTLVo0WZ+UvUG6Qpii8vpN0ZzzyrF+bADv6e+KdRYxfx31anWHES0wrKe60L2vdp6tbiv7tknI20li/dmFaQJe0Vf9QUSLktE1yXHEb8d75a7A11dRkXhEFl6tf5bjH7jwpcf6aPaWgdDQEu2wcdV3HRseABRgh50/wppoSUwdgPn/Rxx4a2yJD4Z9k7yy6bZ7nMKwLBNZwQn4Q9j7FqdU4g6BfqfHTpC+jLyOGxGjpVBBr+YtTiNVidBWo2MTn3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2mi1hfsS+U4PF7+bQSAL/vrygZAW6B+VNoCGU9SbXW4=;
- b=LeJQmFPx18Or8HdE0MfZJezUsVoY8CJV/c7uk7uMyq9DIZDwz9ik5l/6AuHEk82i9M2R7o1NGiXyWOyBgOQi34o8oPheGuysPz3E0Zp7ulPi8Wp7RCTHTy7kA2WXSGnyOJ3YuRwkkDbi5m3Dess0nc9I5GZ8UPjbUu12brLHqDs=
-Received: from SJ0PR05CA0059.namprd05.prod.outlook.com (2603:10b6:a03:33f::34)
- by PH7PR12MB5782.namprd12.prod.outlook.com (2603:10b6:510:1d1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Fri, 16 Oct
- 2026 14:12:11 +0000
-Received: from SJ1PEPF000037AD.namprd03.prod.outlook.com
- (2603:10b6:a03:33f:cafe::6c) by SJ0PR05CA0059.outlook.office365.com
- (2603:10b6:a03:33f::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
- Oct 2026 14:12:11 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF000037AD.mail.protection.outlook.com (10.167.244.180) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 14:12:11 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
- 2026 09:12:03 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
- 2026 09:12:02 -0500
-Received: from [192.168.1.205] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Fri, 16 Oct 2026 09:12:01 -0500
-Message-ID: <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
-Date: Fri, 16 Oct 2026 09:11:56 -0500
+	Fri, 16 Oct 2026 14:18:21 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C7E034E41220;
+	Fri, 16 Oct 2026 14:18:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 98E7C6075D;
+	Fri, 16 Oct 2026 14:18:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B1C2F10328528;
+	Fri, 16 Oct 2026 16:18:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792160291; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ZJ2733YwARgE1Qwcji1IsWT4iPJBGi64T05DaYIrqJI=;
+	b=VGpBpV3/mIpN8RCvaqNdFYhlEv8JpqL/IKivBqkMOrjOuWJqcA7bEDCo3rUg6z5C5nrr0s
+	454BQNZGYsXDory6vk9waOY9JZE/GvN9H71zUVkhP5rfPxyHm5RvdtCe4ITjX17k1C5cg7
+	+Ac6PvEwWTeBz6KayzJ6Fo8clSJR96Y9YrfuBn34m1j8Vqoeari2xi8GCiqKVV/JJcBfmg
+	Gcrso3ExZUxSzKGWlkH1yjqfEoQTCdJ2pdHTYX4Bv0+ASeX/CrYt/JA6m+0xe3rl7Q9L7D
+	FUM5Zi9+1sB/5MF87OmJkeBdVpM8gdAlU4GZWLq7WOf6dRHcvHkj2X3hO9+oSA==
+Message-ID: <6d1d99b5-1c3c-4e59-a0b2-e4d671e594ce@bootlin.com>
+Date: Fri, 16 Oct 2026 16:18:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
-To: Krzysztof Kozlowski <krzk@kernel.org>, <tanmay.shah@amd.com>, Ben Levinsky
-	<blevinsk@amd.com>
-CC: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
-	"andersson@kernel.org" <andersson@kernel.org>, "mathieu.poirier@linaro.org"
-	<mathieu.poirier@linaro.org>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Levinsky, Ben" <ben.levinsky@amd.com>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-4-ben.levinsky@amd.com>
- <20261015-humble-eager-mushroom-9db4aa@quoll>
- <DM4PR12MB644859F1CA3A936684A3338B839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
- <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
- <0df4bfd4-2bcc-42fd-a22d-e704e4b41d5f@amd.com>
- <cbd2e370-c8f1-46c1-87a8-fa25fdf6ea97@kernel.org>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload for
+ jumbo frames on bugged cores
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>,
+ Ong Boon Leong <boon.leong.ong@intel.com>, Jisheng Zhang <jszhang@kernel.org>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ bpf@vger.kernel.org
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+ <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
 Content-Language: en-US
-From: "Shah, Tanmay" <tanmays@amd.com>
-In-Reply-To: <cbd2e370-c8f1-46c1-87a8-fa25fdf6ea97@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000037AD:EE_|PH7PR12MB5782:EE_
-X-MS-Office365-Filtering-Correlation-Id: 651e5591-824a-4352-b9a2-08df2b8f788c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|36860700016|7416014|376014|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: ItGHoWxUUDcQogEKhW+2bu8A0AH756yWTaQTOv1S2JVhdnj6sptjz0m80pNAZT8vBaaLtzWxPbe+TtMhinQCv0CkYg0ot26PYk0xTXHgLkWklC0lZroPb5MUg6GbRNh+Aq4BKsOcPfid2xPgHgyS99mPqlFwonP0dN3BTRQS8NMO14p0SfD2E4YpeANaS0b3Rh+OVMtTxPi5jsKKdAFuWvWUi34MA6oCYauu0kNFPdSjfLjVKsDysXsvDm4NEvke1dzjngr/pOLul4J4Udv2byqv69NSTd5YV5+mdfD1y2Y86TleL4O/GJH+UjaTFiV50w8BkL8cJXGlPyjnc1Lvge/d2DUCPyejMkEumP1eu4XBlJzyQPiyupF2ecu9y9nQUzBbAKDIMAAaH56BZCgu3CI3iUM/Bs+zCbSgJjeVH/9MgKMvZs+BfX4/S8WXEHSi8Fdu+oWZP/a1NWp2SUe7eekwnjt8dKtQslmpe7SGwkmHsqJeK0tnmt0Cg0phkhXKaMYMdUN0LOc675IomHRGRifZIllBNJsprpYk2SMvpKBbBW6rTYmwjUqNEnY0gaCYH+6Pvu9GIE3AXc577iP4LabEeopxL1P9PEuLuuQJkJT6wgqaxpkzKNzjqypMUn3NX82+QVExFGPqhHos/zlM2uuC2e0tejWRLY6HH9opwLIVQ3VhBz8ANzyh2G9xqoC34SCfkIsDGo/mQ/Xp1kaVVA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(36860700016)(7416014)(376014)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: YlmFvzw8r5xOv/TI1xjna0QQzKUZgKTwVcrhYAJHHQVkArlMWj6tOMzDJ5B4ZfrqZ6DttA3M37uXuSLAQEAxmPUoAONO6KtZix1WvKFRLYo0dU8peTwvoXJQiAuUfmFSyoei707fNx+FUerNMtF0PEA7PuyBtAuRTtNLmjcCk+zXnJ64q4dbiXHtjv0h/j15zjFK+fyHAHu0kKXQOKdDryeq1pma1J438itLZpTtGLzjsBNk+vsFua2jrQuczUFCc1knfcHjmGh+CfxbLLji8LdzufzOq/uJ41675xBh7yj1p4+ppQS3R/9wnx4o2LFjua8nBdh1d1L2di5c+GW34FzAEM42/e2Fw9urApdf7xmV82A5m/qKwSqzACzCr9jVci4d4LILDgW5TJ//QcDNgwgBQnFR6LNvNhcjMmxWSLvFh1x/gv5b2Sq4M2eBkEZP
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 14:12:11.1423
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 651e5591-824a-4352-b9a2-08df2b8f788c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000037AD.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5782
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_071431_090647_67F0C7C0 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20261016_071820_202269_96DA7CA5 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,36 +85,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lorenzo,
 
-
-On 10/16/2026 8:59 AM, Krzysztof Kozlowski wrote:
-> On 15/10/2026 17:31, Shah, Tanmay wrote:
->> We use 'amd' vendor prefix for all new drivers & bindings. Also, there
->> is dedicated IPI hardware which can be used as mailbox too, and we
->> should distinguish it with this PL mailbox. So I that is included in the
->> compatible string. (pl-mbox).
->>
->> If we are also to include SOC name as well (per compatible property
->> guideline), then we should include one of the SOC name as well:
->>
->> So, I think 'amd,zynqmp-pl-mbox-2.1' is good.
->>
->> Krzysztof, are you okay with above name? The 2.1 is FPGA IP design
->> version number and not the SOC version number. So in future let's say
->> that FPGA IP design is improved then the name (pl-mbox) will remain
->> same, but only version number will be updated i.e. (from 2.1 to 3.0). Is
->> it okay if we explicitly mention this in the binding description?
+On 10/12/26 17:24, Lorenzo Bianconi wrote:
+> stmmac_xdp_xmit_xdpf() decides TX checksum insertion from the queue COE
+> capability only:
 > 
-> So you will release the same SoC with different versions of the block?
+> 	csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
 > 
+> and lets the enhanced descriptor set TX_CIC_FULL accordingly. On the
+> bugged_jumbo cores (snps,dwmac-3.40a, snps,dwmac-3.610 and
+> snps,dwmac-3.710) hardware checksum insertion is broken for jumbo
+> frames; the skb path works around it by clearing NETIF_F_CSUM_MASK in
+> stmmac_fix_features() when the MTU exceeds ETH_DATA_LEN, so skbs are
+> never marked CHECKSUM_PARTIAL and no checksum is inserted. The XDP TX
+> path bypasses that workaround, so once XDP is allowed at MTU >
+> ETH_DATA_LEN, jumbo frames sent via XDP_TX or redirected into the
+> device would leave the interface with a full checksum insertion enabled
+> on those cores - exactly what the workaround is meant to avoid.
+> 
+> Disable checksum insertion for oversized frames on bugged_jumbo cores in
+> the XDP TX path too.
+> 
+> Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-Yes correct.
+Looks cleaner to me than the alternative patch from Jisheng :
 
-> Best regards,
-> Krzysztof
+https://lore.kernel.org/netdev/20260929121025.20821-1-jszhang@kernel.org/
+
+It sure seems there're a lot of people interested in getting XDP/XSK
+working properly on stmmac :)
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index ca61ab449e32..0e29c5d04714 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5276,6 +5276,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+>  		return STMMAC_XDP_CONSUMED;
+>  	}
+>  
+> +	/* Disable TX checksum offload for jumbo frames on cores where
+> +	 * checksum insertion is broken for oversized frames, matching the
+> +	 * stmmac_fix_features() workaround used by the skb path.
+> +	 */
+> +	if (priv->plat->bugged_jumbo &&
+> +	    xdp_get_frame_len(xdpf) > ETH_FRAME_LEN)
+> +		csum = false;
+> +
+>  	while (true) {
+>  		skb_frag_t *frag = i ? &sinfo->frags[i - 1] : NULL;
+>  		int len = frag ? skb_frag_size(frag) : xdpf->len;
+> 
 
 
