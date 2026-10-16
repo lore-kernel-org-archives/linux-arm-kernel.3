@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599F1CCF2C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BF8CCF2C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 19:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzEjDaJTDISex2ZPOiizRCuwngZ28JcDGHKte0m6HrM=; b=xR+TqpVk+vbWk2+GgS3M/otJ3V
-	fHlArR5Rx5Jt6ynRrco3kB/GE6N0T+CvuU7znVinl34WfWXSur+kf6LH5KxWObdTnqg8vlyNkOyYQ
-	CquwmqZCZMy6cHQUWN+VTLT2Pwv2fqrGpsRh4l0pyCNH8UaJvdrwmYI+9+GkCxh0C8M/R8gNx+i0+
-	OxPkLLsma9Di7ZYXPhGtPIR0WdMIkKRPR9MHiSCz6nw2e1D8iJhabUqtxX8OjiD1HrZBdNUG8E/MW
-	F+wAWvWcTy2sQT1NPkfPkWU2fJRKb9ni9tzupwSe/l04zQvUZR/8RhFl4KK8Ryswu/bNNl/QfKfuK
-	koNNgurg==;
+	bh=m/dXBgoz0ituzVPypJqvKFSanJLtBP1uVeLtKCNjUy0=; b=UKnYktY5uZlZIBqGiKFaE6g1Ib
+	zK5QwkHTIZGPDIcYhfI+xe70p+jtMXbpCYx2qxfU9jxC8jdIni5mY6B5CiFNNOhtvqmMRB/ACQp30
+	srvaHj+KOgn14jQEsDAZyWFIz5hSRtHbfUe2266LQqTW8M1Wly43Os94Q/VTBmhhUlkpZvc9NH8G3
+	B8QCt2tFpjSrXMcRerDwGhxUhFNwhjjvnY7LRimKpHCL+Lnb20SdaA2W2JoyB1FrcejnrlP+/YaJ9
+	xOPofh/paw6Yal/megPE8MiLTRYp1mP3Dlowh4aSg9UVsTvdLTdbWq7GBtJT5Zlkv04oZ2uTLGse2
+	8afxhYVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnsq-00000003vQY-19e7;
-	Fri, 16 Oct 2026 19:46:28 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
+	id 1xHnsv-00000003vUy-23YT;
+	Fri, 16 Oct 2026 19:46:33 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHnso-00000003vOM-0Z41
+	id 1xHnst-00000003vSn-1O4n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 19:46:27 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-35cd4e8bdbdso540940eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 12:46:25 -0700 (PDT)
+	Fri, 16 Oct 2026 19:46:32 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-3535bf8b3e0so583818eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 12:46:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792179985; x=1792784785; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792179990; x=1792784790; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=mzEjDaJTDISex2ZPOiizRCuwngZ28JcDGHKte0m6HrM=;
-        b=r9PfYDJwdiNRuAMyuxviHc5jEeujW2CkjUybgXmEa0X08aTEGEyXa8J7Lrn0h0o9wm
-         e7iCoRsvxLgh7IQVnekM66gXhPxi+3o9CjRR+b0EDy06L9YVNi8a+7veVfvIDts3yIy7
-         YixxTB92maPnTo1EczUC/pdSHnemC8RzmevI+ErJvT3mRKZAX2782Pcgplzl6+ThnnFi
-         wOZmoQnkVt6SmVe7TFr0GrHRFpCT0Sqr8rvzUrAA+3kRC/EPJJXprCrsh58qZQl8G5hq
-         65nUIx6EVrWsSMygSmlr75xRRV9Pldc2zKsIF4fO8/wErwuhlDJ1VXmZOE6HScwCQbyn
-         TKug==
+        bh=m/dXBgoz0ituzVPypJqvKFSanJLtBP1uVeLtKCNjUy0=;
+        b=TKrI/cRBtFLB4+Lb6Aoo05T5nepgC57utv8o9b7jNgGCZYF7eEDP7RZw55ejfn2I6F
+         R/xLpvU0MBe9i710iS+SJUk59+Sw/7INDbPUHgEolRBqr/bF78MDglCdzLuwsdrjSlVh
+         8AORKP9eNPRHXV0lBft5yobmauuJJFi80NBMaCd0cXNesVbbBRJdG4NSK3lkx9p1ByaO
+         flLbBqyxDz+v/bpFYKH4XvDHSVx8HJJXyez9UoDhLyksXRGDoYR4GOdWxuwr/ZtOJbjl
+         LPFDSVKF2CvmUZ3V2IE5i+x24neSkzn15upHMKj9Cebl+IDvQoqe4LwSPbLbmsVkTEWg
+         3rig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792179985; x=1792784785;
+        d=1e100.net; s=20260707; t=1792179990; x=1792784790;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mzEjDaJTDISex2ZPOiizRCuwngZ28JcDGHKte0m6HrM=;
-        b=2WVjWWGokzdL/p6Ls5HOfw4Zriw1CQcrLussfea9UMVQFWwZaRghRxQAFfDazJxVz7
-         JCuLVo562TyGw37Kwz/M74opb6FYgMhAuTRdfSIFPdfyF53bJ1nPIkzTeOB7Lp06u4eO
-         eoSPPH+JoDvaXZUdwS6DajTjVBLdLqnF5pAGlOLfc8wKfifac8f9oKOXnfhCcNrpawaB
-         x0kDbAD/isW6JYYt7Y/TnV2E26Awdt4i/K5BKhhUaJ9HcgMEJ5DnGsbbVp0OvcLneTps
-         5yq6Ao9ZevpCXbR4Hk/rUeQoX2HvSPYAWndM2kXO0aA0W4n1neMLi6BMgk5e8rCiCOfD
-         sxHA==
-X-Forwarded-Encrypted: i=1; AKwUvByfKVsFoLWDDR5RFfb+LnsI3Td80998hUUUJFK4dOFrSp3K3JKceKizx9fmPYZroE41KahOZB6cJlHpgNl55rks@lists.infradead.org
-X-Gm-Message-State: AFq9FYIK8pODQtInz0+4G7Ei8rE/Fu+yhSBCN+MnwsrEbbhY4Q1Xfe16
-	uBroEDyMoWm6rsRONPykPYZ1xpAkfEJY4yct4cRi0r4UwE50ii20+Rn4
-X-Gm-Gg: AYBFou1fVcdmILaBX52eQoUgrys91bD6bGexQJ6zITOZWdnx9bZNF8ltp34yDf0ofjc
-	mOb0zeXNooqnDHsScw2vNrxendMSuGQw2vFNxirInP6rGZT23kKIbpCioT8v1262xKSt3uMJvkB
-	YvuHH2o+ygJZVUFuptKvI2PwH9ZiYdqaPHvlIDrFdqMNJyMKl87gkzothFokGeg2GBQIy2uU2O7
-	+KnF3mCnhQMsW7igGxWhG/Ecg9lEY/Xx91ndB+JF35jcJwKRQDpt+Y6gWzopjZBJ+x3D0XNAOt3
-	79bcHk2QAsoUcm43OAMOyYn3527el+DOgGNx12MuEGyUS20R5ptocwjPyDr0ulDWU/LsGzajt64
-	DIRi6l2lAQjNIHq0+BJO1knHMMso4HwQrrlZtvJmEaLovK0M5hdiyb/qv7NCs6otlofEoMPTV0W
-	JesLhhVQqeLX67/POZ1ZV8eXeWyPphLViVdH46UfzW3kkUTVg8S2mQ7LgEp7Lr7dUCVZCssjnAz
-	5s=
-X-Received: by 2002:a05:7022:f90e:b0:168:3243:c937 with SMTP id a92af1059eb24-185119e3cfamr1015727c88.16.1792179983649;
-        Fri, 16 Oct 2026 12:46:23 -0700 (PDT)
+        bh=m/dXBgoz0ituzVPypJqvKFSanJLtBP1uVeLtKCNjUy0=;
+        b=Wzvlv4PpkdhdWNEmGMf+f6nqMQ6nCqeT6UTdyERNOpkiwuIgsf8FpZDkoDWXiYDirz
+         LZ0moaGhaTcz45N9XhH/l24I+h+u982Ne0lWsIQ63rAWlco3FXB3uImEclpo9rHcN5xe
+         4XrraaSpKynjOyt6bgK6fYDpkorHGuGi+7xDxALcR1ZVEptMyjSGYLAmk6pvBxYgXYkV
+         /H8lBotfA2H0N/WzkdcVlx8ZNaiIeHLMyROlsBdRJcd/nMCsMpjJyq95PzdxtFV9DxE7
+         JbmL22jZegLogscv0pwCcJhRAHTwl0pT+/xccckRV5UeMHl5TaYPOkk6Tia0jaqnZ3lq
+         u0aw==
+X-Forwarded-Encrypted: i=1; AKwUvByPY7K1PCYjlB1C0PjT5MCJJoRsTYw0+33gT9bZxwhwuLvbrrbdNiwMBCmYlHMeAxDmVfUtFR2WVfZGa/hnuqPJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBSd2HdsT9u03z0a1snSR7YwzHntAWg+teggsyl577O43CK87Z
+	zAerrg3Pv63pmsG4Izw86x8NteEI5kaV4Rjzaq+7Huai7uXOECgOFovV
+X-Gm-Gg: AYBFou1YWyyBaR7wZFGInW7FIMdBCEmCDWda3OHrkU+1efFHwXaZrPfJnyEgiq8xnGA
+	BzL+ZBtPNOEwtkQIHNY6uKZmLoPHa74bccqjDryc7kd+9uKZ4awYcvKP5UK+48vQ9TBZlNF0zVJ
+	2BTzU+gu2QHeaKSVBDLeMhkxS+awUMrT5E/2lZPALNTqJtjnuD0e6bgv+GaqxOTXkLkBolkLaSd
+	G6ONlHf6hvYtdPiaY+ulIvdhqSq1BaicsfaSto25P4RRfPRw3J2ZpeLS0xI950oqe4yzoT11LMY
+	KAk2CWY3eIKSJgkE/uZPoy8ck5zWb5322Rgnxu0Cxsz4AICZpnBtASB19y4Caw+jDa2Uj0/u7r5
+	WSWYzRzCWdag4jKY/9uGoHTCG+CyA+twKclGPoMWOSdhGHg8nlCCuzRycnP/KUxBRXAfDGtFPIM
+	BHDbaZIy9SaVOPXnypeipG9lBAaQIQJ6ZzVhohXkUig7GpiyQWI6eYUF4+5zr3aKMmCslGxetWC
+	nM=
+X-Received: by 2002:a05:7023:a4d:20b0:144:fb42:52 with SMTP id a92af1059eb24-18512f1ed6amr977259c88.28.1792179989988;
+        Fri, 16 Oct 2026 12:46:29 -0700 (PDT)
 Received: from unix.. ([181.229.23.179])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831b75be5esm11008321c88.16.2026.10.16.12.46.18
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831b75be5esm11008321c88.16.2026.10.16.12.46.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 12:46:22 -0700 (PDT)
+        Fri, 16 Oct 2026 12:46:28 -0700 (PDT)
 From: =?UTF-8?q?Iv=C3=A1n=20Ezequiel=20Rodriguez?= <ivanrwcm25@gmail.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -95,11 +95,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
 	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/4] riscv/shstk: release shadow stack on failed fork
-Date: Fri, 16 Oct 2026 16:46:01 -0300
-Message-ID: <75e29a5db0166247c407bd51f184864b398a2ee6.1792179433.git.ivanrwcm25@gmail.com>
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>
+Subject: [PATCH 3/4] selftests/arm64: GCS must not leak on a failed clone3
+Date: Fri, 16 Oct 2026 16:46:02 -0300
+Message-ID: <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1792179433.git.ivanrwcm25@gmail.com>
 References: <cover.1792179433.git.ivanrwcm25@gmail.com>
@@ -107,8 +106,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_124626_175762_5A864645 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20261016_124631_404973_42C855E8 
+X-CRM114-Status: GOOD (  32.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,94 +122,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-copy_thread() maps a shadow stack for a CLONE_VM child and can still
-return 0. A later copy_process() failure, including clone3()
-CLONE_PIDFD when put_user() fails, goes through
-bad_fork_cleanup_thread and exit_thread(). riscv did not select
-HAVE_EXIT_THREAD, so that free was a no-op. shstk_release() already
-documents this call; deactivate_mm() is the only path that actually
-reached it.
+clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
+in put_user() after copy_thread() has mapped a GCS. copy_process()
+then calls exit_thread(). Without HAVE_EXIT_THREAD that free is a
+no-op and the VMA stays in the parent's mm.
 
-Select HAVE_EXIT_THREAD and call shstk_release() from
-exit_thread(). The helper already refuses a different mm and a
-cleared base, so CLONE_VFORK, !CLONE_VM, and a second call after
-deactivate_mm() stay no-ops.
+Enable GCS, reject 16 such clones, and require the shadow-stack VMA
+count to stay unchanged. The original mapping must remain, and a
+call/return on that stack must succeed, so the cleanup cannot be
+unmapping the parent's GCS.
 
-Do not free when shstk_alloc_thread_stack() fails. That error
-returns from copy_thread() with the inherited parent base still in
-place, and copy_process() skips exit_thread() on that path.
+A clone3 with the same flags and a valid pidfd has to succeed first
+and write a pidfd. That child exits normally, so deactivate_mm()
+and exit_thread() both run. ENOSYS, EINVAL, and EPERM skip; any
+other error from that clone, or a success that leaves pidfd unset,
+fails the test. The rejected child's empty GCS is left with a raw
+exit syscall.
 
-A kthread copies the caller's tracking via arch_dup_task_struct().
-kernel_thread() uses CLONE_VM, so during a failed copy_process()
-the child still shares the caller's mm and shstk_release()'s mm
-check does not save us. Clear the inherited tracking as part of
-kthread setup.
+Skip when HWCAP has no GCS, or when the kernel returns EOPNOTSUPP,
+EINVAL, or EBUSY. Any other PR_SET_SHADOW_STACK_STATUS error fails
+the test. The test expects /proc already mounted, as in a normal
+kselftest run.
 
-Fixes: fd44a4a85516 ("riscv/shstk: If needed allocate a new shadow stack on clone")
-Cc: stable@vger.kernel.org
-Cc: Deepak Gupta <debug@rivosinc.com>
+The prctl wrapper matches gcs-locking.c. The recursive call goes
+through an indirect call; a visible recursive body is optimized
+into a closed form and does not execute a BL/RET.
+
 Assisted-by: LLM
 Signed-off-by: Iván Ezequiel Rodriguez <ivanrwcm25@gmail.com>
 ---
- arch/riscv/Kconfig          |  1 +
- arch/riscv/kernel/process.c | 18 ++++++++++++++++++
- 2 files changed, 19 insertions(+)
+ tools/testing/selftests/arm64/gcs/Makefile    |   3 +-
+ .../selftests/arm64/gcs/gcs-clone-pidfd.c     | 355 ++++++++++++++++++
+ 2 files changed, 357 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5874ca30f4f6..7635f8cb0397 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -169,6 +169,7 @@ config RISCV
- 	select HAVE_FUNCTION_GRAPH_FREGS
- 	select HAVE_FUNCTION_TRACER if HAVE_DYNAMIC_FTRACE
- 	select HAVE_EBPF_JIT if MMU
-+	select HAVE_EXIT_THREAD
- 	select HAVE_GENERIC_TIF_BITS
- 	select HAVE_GUP_FAST if MMU
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 7cc5a6a5c020..def1f520d9ef 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -12,6 +12,7 @@
- #include <linux/kernel.h>
- #include <linux/sched.h>
- #include <linux/sched/debug.h>
-+#include <linux/sched/task.h>
- #include <linux/sched/task_stack.h>
- #include <linux/tick.h>
- #include <linux/ptrace.h>
-@@ -213,6 +214,16 @@ void arch_release_task_struct(struct task_struct *tsk)
- 		riscv_v_thread_free(tsk);
- }
+diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
+index 1fbbf0ca1f02..f1365eea31c9 100644
+--- a/tools/testing/selftests/arm64/gcs/Makefile
++++ b/tools/testing/selftests/arm64/gcs/Makefile
+@@ -6,7 +6,8 @@
+ # nolibc.
+ #
  
-+void exit_thread(struct task_struct *tsk)
+-TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking gcs-stress gcspushm gcsstr
++TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking gcs-stress gcspushm gcsstr \
++		  gcs-clone-pidfd
+ TEST_GEN_PROGS_EXTENDED := gcs-stress-thread
+ 
+ LDLIBS+=-lpthread
+diff --git a/tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c b/tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
+new file mode 100644
+index 000000000000..c8515e65c947
+--- /dev/null
++++ b/tools/testing/selftests/arm64/gcs/gcs-clone-pidfd.c
+@@ -0,0 +1,355 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer must
++ * not leak a GCS VMA. copy_thread() maps one, then put_user() fails
++ * and copy_process() calls exit_thread(). Without HAVE_EXIT_THREAD
++ * that free is a no-op and the VMA stays in the parent's mm.
++ *
++ * Pass: shadow-stack VMA count is unchanged, the original mapping is
++ * still there, and a call/return on this thread still works.
++ * Fail: one new shadow-stack VMA per rejected clone.
++ *
++ * Enable GCS with an inlined prctl. A libc return across that point
++ * has no address on the GCS, so main() must not return after enable.
++ */
++#define _GNU_SOURCE
++
++#include <errno.h>
++#include <linux/sched.h>
++#include <sched.h>
++#include <signal.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/auxv.h>
++#include <sys/mman.h>
++#include <sys/syscall.h>
++#include <sys/wait.h>
++#include <unistd.h>
++
++#include <asm/hwcap.h>
++
++#include "gcs-util.h"
++
++#ifndef HWCAP_GCS
++#define HWCAP_GCS		(1UL << 32)
++#endif
++
++#ifndef __NR_clone3
++#define __NR_clone3 435
++#endif
++
++/* Same value as KSFT_SKIP in kselftest.h. */
++#define KSFT_SKIP		4
++
++#define NCLONE			16
++#define STACK_SIZE		(64 * 1024)
++
++/* Same wrapper as gcs-locking.c: extra prctl args must be zero. */
++#define my_syscall2(num, arg1, arg2)					\
++({									\
++	register long _num  __asm__ ("x8") = (num);			\
++	register long _arg1 __asm__ ("x0") = (long)(arg1);		\
++	register long _arg2 __asm__ ("x1") = (long)(arg2);		\
++	register long _arg3 __asm__ ("x2") = 0;				\
++	register long _arg4 __asm__ ("x3") = 0;				\
++	register long _arg5 __asm__ ("x4") = 0;				\
++									\
++	__asm__ volatile (						\
++		"svc #0\n"						\
++		: "=r"(_arg1)						\
++		: "r"(_arg1), "r"(_arg2),				\
++		  "r"(_arg3), "r"(_arg4),				\
++		  "r"(_arg5), "r"(_num)					\
++		: "memory", "cc"					\
++	);								\
++	_arg1;								\
++})
++
++static void on_fault(int sig)
 +{
-+	/*
-+	 * shstk_release() documents this call for a failed CLONE_VM
-+	 * clone. copy_process() reaches it only after copy_thread()
-+	 * returns 0; deactivate_mm() does not run on that path.
-+	 */
-+	shstk_release(tsk);
++	static const char msg[] = "[FAIL]\tparent guarded control stack faulted\n";
++
++	(void)sig;
++	if (write(2, msg, sizeof(msg) - 1) < 0)
++		_exit(2);
++	_exit(2);
 +}
 +
- int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- {
- 	fstate_save(src, task_pt_regs(src));
-@@ -261,6 +272,13 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		p->thread.s[0] = (unsigned long)args->fn;
- 		p->thread.s[1] = (unsigned long)args->fn_arg;
- 		p->thread.ra = (unsigned long)ret_from_fork_kernel_asm;
++struct ss_span {
++	unsigned long start;
++	unsigned long end;
++};
++
++static void ss_scan(int *vmas, int *kb, unsigned long addr, struct ss_span *hit,
++		    const struct ss_span *want, int *kept)
++{
++	FILE *f;
++	char line[256];
++	unsigned long start = 0, end = 0;
++	int size = 0;
++	int saw_size = 0;
++
++	*vmas = 0;
++	*kb = 0;
++	if (hit) {
++		hit->start = 0;
++		hit->end = 0;
++	}
++	if (kept)
++		*kept = 0;
++	f = fopen("/proc/self/smaps", "r");
++	if (!f) {
++		perror("smaps");
++		_exit(1);
++	}
++	while (fgets(line, sizeof(line), f)) {
++		unsigned long a, b;
++
++		if (sscanf(line, "%lx-%lx", &a, &b) == 2) {
++			start = a;
++			end = b;
++			saw_size = 0;
++			continue;
++		}
++		if (sscanf(line, "Size: %d kB", &size) == 1) {
++			saw_size = 1;
++			continue;
++		}
++		if (strncmp(line, "VmFlags:", 8) || !saw_size)
++			continue;
++		if (!strstr(line, " ss")) {
++			saw_size = 0;
++			continue;
++		}
++		(*vmas)++;
++		*kb += size;
 +		/*
-+		 * kernel_thread() uses CLONE_VM, so a failed
-+		 * copy_process() still shares the caller's mm.
-+		 * Inherited tracking would then look like a child
-+		 * mapping to shstk_release().
++		 * An empty GCS leaves GCSPR at the exclusive end. If
++		 * the next VMA is contiguous that address is also the
++		 * start of the next range; prefer the mapping that
++		 * ends here.
 +		 */
-+		set_shstk_base(p, 0, 0);
- 	} else {
- 		/* allocate new shadow stack if needed. In case of CLONE_VM we have to */
- 		ssp = shstk_alloc_thread_stack(p, args);
++		if (hit && addr == end) {
++			hit->start = start;
++			hit->end = end;
++		} else if (hit && !hit->start && addr >= start && addr < end) {
++			hit->start = start;
++			hit->end = end;
++		}
++		if (kept && want && start == want->start && end == want->end)
++			*kept = 1;
++		saw_size = 0;
++	}
++	fclose(f);
++}
++
++/*
++ * CLONE_VM maps a new GCS. CLONE_PIDFD lets put_user() fail after that.
++ * No CLONE_THREAD: a created child is a separate process. The child
++ * resumes on an empty GCS, so it must not return into libc.
++ */
++static int clone_pidfd(void *stack, size_t stack_size, int *pidfd_ptr)
++{
++	struct clone_args args = {
++		.flags = CLONE_VM | CLONE_PIDFD,
++		.pidfd = (uint64_t)(uintptr_t)pidfd_ptr,
++		.exit_signal = SIGCHLD,
++		.stack = (uint64_t)(uintptr_t)stack,
++		.stack_size = stack_size,
++	};
++	register long num __asm__("x8") = __NR_clone3;
++	register long ret __asm__("x0") = (long)&args;
++	register long sz __asm__("x1") = sizeof(args);
++	int st;
++
++	asm volatile("svc #0"
++		     : "+r"(ret)
++		     : "r"(num), "r"(sz)
++		     : "memory", "cc");
++	if (ret == 0) {
++		register long n __asm__("x8") = __NR_exit;
++		register long e __asm__("x0") = 0;
++
++		asm volatile("svc #0" : : "r"(n), "r"(e) : "memory");
++		__builtin_unreachable();
++	}
++	if (ret < 0)
++		return ret;
++	if (waitpid((pid_t)ret, &st, 0) < 0)
++		return -errno;
++	if (!WIFEXITED(st) || WEXITSTATUS(st) != 0)
++		return 1;
++	return 0;
++}
++
++/*
++ * GCC can fold a visible recursive body. Hide the callee in an asm
++ * output so each level stays a real BL/RET that uses the GCS.
++ */
++static int depth(int n);
++static int (*depth_fn)(int) = depth;
++
++static int depth(int n)
++{
++	int (*go)(int n);
++
++	if (n <= 0)
++		return 1;
++	asm volatile("" : "=r"(go) : "0"(depth_fn) : "memory");
++	return go(n - 1) + 1;
++}
++
++static int skip_enable(long rc)
++{
++	if (rc == -EOPNOTSUPP) {
++		printf("[SKIP]\tkernel has no GCS\n");
++	} else if (rc == -EINVAL) {
++		printf("[SKIP]\tkernel built without GCS\n");
++	} else if (rc == -EBUSY) {
++		printf("[SKIP]\tGCS is locked\n");
++	} else {
++		printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
++		return 1;
++	}
++	return KSFT_SKIP;
++}
++
++int main(void)
++{
++	struct sigaction sa;
++	struct ss_span parent;
++	void *stack;
++	void *bad_pidfd;
++	unsigned long gcspr, gcspr_mid;
++	unsigned long gcs_mode;
++	long rc;
++	int pidfd;
++	int vmas0, kb0, vmas1, kb1;
++	int i, kept, d, cret;
++
++	setbuf(stdout, NULL);
++
++	if (!(getauxval(AT_HWCAP) & HWCAP_GCS)) {
++		printf("[SKIP]\tHWCAP has no GCS\n");
++		return KSFT_SKIP;
++	}
++
++	stack = mmap(NULL, STACK_SIZE, PROT_READ | PROT_WRITE,
++		     MAP_PRIVATE | MAP_ANONYMOUS | MAP_STACK, -1, 0);
++	if (stack == MAP_FAILED) {
++		perror("mmap stack");
++		return 1;
++	}
++	bad_pidfd = mmap(NULL, 4096, PROT_NONE,
++			 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
++	if (bad_pidfd == MAP_FAILED) {
++		perror("mmap pidfd");
++		return 1;
++	}
++
++	rc = my_syscall2(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode);
++	if (rc) {
++		printf("[FAIL]\tPR_GET_SHADOW_STACK_STATUS returned %ld\n", rc);
++		return 1;
++	}
++	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
++		rc = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
++				 PR_SHADOW_STACK_ENABLE);
++		if (rc)
++			return skip_enable(rc);
++	}
++
++	gcspr = (unsigned long)get_gcspr();
++	if (!gcspr) {
++		printf("[FAIL]\tenable left GCSPR_EL0 at 0\n");
++		_exit(1);
++	}
++
++	pidfd = -1;
++	cret = clone_pidfd(stack, STACK_SIZE, &pidfd);
++	if (cret == -ENOSYS || cret == -EINVAL || cret == -EPERM) {
++		printf("[SKIP]\tclone3 with a valid pidfd failed: %s\n",
++		       strerror(-cret));
++		_exit(KSFT_SKIP);
++	}
++	if (cret < 0) {
++		printf("[FAIL]\tclone3 with a valid pidfd failed: %s\n",
++		       strerror(-cret));
++		_exit(1);
++	}
++	if (cret) {
++		printf("[FAIL]\tclone3 with a valid pidfd did not exit 0\n");
++		_exit(1);
++	}
++	if (pidfd < 0) {
++		printf("[FAIL]\tclone3 succeeded but did not write a pidfd\n");
++		_exit(1);
++	}
++	close(pidfd);
++
++	memset(&sa, 0, sizeof(sa));
++	sa.sa_handler = on_fault;
++	if (sigaction(SIGSEGV, &sa, NULL) || sigaction(SIGBUS, &sa, NULL)) {
++		perror("sigaction");
++		_exit(1);
++	}
++
++	gcspr = (unsigned long)get_gcspr();
++	ss_scan(&vmas0, &kb0, gcspr, &parent, NULL, NULL);
++	if (!parent.start) {
++		printf("[FAIL]\tGCSPR %lx matches no shadow-stack VMA\n", gcspr);
++		_exit(1);
++	}
++
++	for (i = 0; i < NCLONE; i++) {
++		cret = clone_pidfd(stack, STACK_SIZE, bad_pidfd);
++		if (cret == -EFAULT)
++			continue;
++		if (cret < 0)
++			printf("[FAIL]\tbad pidfd errno %d, want EFAULT\n",
++			       -cret);
++		else
++			printf("[FAIL]\tbad pidfd was accepted\n");
++		_exit(1);
++	}
++
++	ss_scan(&vmas1, &kb1, 0, NULL, &parent, &kept);
++	gcspr_mid = (unsigned long)get_gcspr();
++	d = -1;
++	if (kept && gcspr_mid)
++		d = depth(16);
++	gcspr = (unsigned long)get_gcspr();
++
++	printf("ss_vmas=%d->%d delta=%d ss_kb=%d->%d\n",
++	       vmas0, vmas1, vmas1 - vmas0, kb0, kb1);
++	printf("parent=%lx-%lx kept=%d gcspr_before_depth=%lx depth=%d gcspr=%lx\n",
++	       parent.start, parent.end, kept, gcspr_mid, d, gcspr);
++
++	if (vmas1 != vmas0 || kb1 != kb0) {
++		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
++		       vmas1 - vmas0, kb1 - kb0);
++		_exit(1);
++	}
++	if (!kept) {
++		printf("[FAIL]\tparent GCS %lx-%lx was unmapped\n",
++		       parent.start, parent.end);
++		_exit(2);
++	}
++	if (!gcspr_mid) {
++		printf("[FAIL]\tparent GCSPR was 0 before call/return\n");
++		_exit(2);
++	}
++	if (d != 17) {
++		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
++		_exit(2);
++	}
++	if (!gcspr) {
++		printf("[FAIL]\tparent GCSPR is 0 after call/return\n");
++		_exit(2);
++	}
++
++	printf("[OK]\tno GCS VMA leak; parent stack still works\n");
++	_exit(0);
++}
 -- 
 2.43.0
 
