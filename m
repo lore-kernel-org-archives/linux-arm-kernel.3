@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFDACCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD06CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 17:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKQ62B/68glF3VJQl3TwnzQ09ixoOo9aoTa47BHK5rg=; b=X1489fuTUoGeMiWobI7KPkfnPw
-	uDiXYACfuFv+wWs+TmGcqNw8qcnw45AbC54hCzWD0EFg5NCrQwLpMco8akfuJD87HTFJ+x5a01b8N
-	NqHhgqc3ZOTUqyyE0dzmNqujloptctOpQgGK2nSGMEgodeX8Sw30NJcV0CGQewnXqfc9GbvUqqpM6
-	YcFvlykpG8IAnztCmveru9JzGBl0FrzdEmmVSVOmyRcwK5ytKpGDc9aC58MvvAfTEHXlw8UuRZIgW
-	OLryNSXdSm2z4WHAtPLEa1lU/it5A/axuKMzlKDanLhD+kd/dVsJWmiReyscWTBzTSarNNvGccc3b
-	NWesmTSQ==;
+	bh=b2rNZOnJYuelXIMlnfPNSAx4HvD3+zbeEhVvMC2ZyCc=; b=e85N8+ytHsHGsi7mMce8/i8D8x
+	xim0SlARelU6E48sWgOt/ufl6dmrk/CMY8pyb3tiQGDHnkJfrukyAMfx6I04NqQnKylLTLQI3EoKu
+	KhXukC8HG+pXiEji0a75YavLj5vRctJcIS43Uk1XqEKjcs+Qzy9azHbNpoRr7If4/QYOfvWSYTllx
+	K4KZ70HOHcohDt+rGHnMWQGA8X53BONTkd8vq1jtoZ+q7tLz2O3rPV4uhvR1qM9y88rYmw5etymQG
+	zZ0HVRXnTx26k2QIVrAqwU+l9kLucyVbgIwovQb6W1XGmHFgi8xiVpz5eKMuf7v1FlYuzXhbeu/Yx
+	A25vJiNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlXl-00000003XEo-46zo;
-	Fri, 16 Oct 2026 17:16:34 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1xHlY7-00000003XKf-3Hrn;
+	Fri, 16 Oct 2026 17:16:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHlXi-00000003XDx-3WGD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 17:16:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=dKQ62B/68glF3VJQl3TwnzQ09ixoOo9aoTa47BHK5rg=; b=lr+bokTDzJ+s+ioETGpBVlCIxj
-	KWS1zr5+gCEXjzc4fwVwvQQ12wlJvQg9pX34AuWejVkS7CfuQWTNWVCyHa9Yjst5M08WNJEK3T02H
-	wqcGY7WUHkSIv1E6UGzHLtS8yj7rvUSbE9fsBRkVa64lkd//g7TEppVJ/KQJCPBpIBOk=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1xHlXf-000000006af-2Iq4;
-	Fri, 16 Oct 2026 13:16:25 -0400
-Date: Fri, 16 Oct 2026 13:16:24 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Arnd Bergmann" <arnd@kernel.org>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Jiri Slaby" <jirislaby@kernel.org>,
- "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>, Uwe
- =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
- "Hugo Villeneuve" <hvilleneuve@dimonoff.com>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-Id: <20261016131624.0fda5a185bf5c5ae67f09112@hugovil.com>
-In-Reply-To: <aace8c7a-61ab-4b54-8563-3e1ab0f99e56@app.fastmail.com>
-References: <20261016130328.1037616-1-arnd@kernel.org>
-	<20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
-	<aace8c7a-61ab-4b54-8563-3e1ab0f99e56@app.fastmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_101631_455358_88564153 
-X-CRM114-Status: GOOD (  14.90  )
+	id 1xHlY6-00000003XIJ-2MoM;
+	Fri, 16 Oct 2026 17:16:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BD694424A;
+	Fri, 16 Oct 2026 17:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0870CC32781;
+	Fri, 16 Oct 2026 17:16:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792171014;
+	bh=NNesoLElBUv09j/SE4YghbtNRl4bZejc+cTkcFayRsU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=l4wjyq0y0CCj5Ej3wqmWhtxF8IxpQAJfdhaH5B04GNYJDeEXB7XJl+dBnmAvhO+53
+	 lk1lCStn6TgCZ1hKpcg4iNoGf/g6YHiWzSjAE5Y0vZMZE4ir2N1ZY/sSWSsS7yrajg
+	 tjYW5f9s9VhMpCv8Yy3zMtNkB2fTkqWkt5RhJQibBr9khPKBd2VXA5a99JCDNGk5ak
+	 3t317KuAslkSdhgBLetTaUqBj4vgCwjC1WGFn1RJHViRIVLwz8ZPSkJVwWqQBit9fO
+	 Evb6OgNWjCGMbRyaX+YreOL0fv/BIcrgbwoxmoO/zJmQHxdX14s5hDDhIEyeDw4jmn
+	 TCfeaQysqPLiQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E5DA6CCA490;
+	Fri, 16 Oct 2026 17:16:53 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Fri, 16 Oct 2026 19:16:10 +0200
+Subject: [PATCH v7 4/4] arm64: dts: amlogic: t7: khadas-vim4: Add fan
+ cooling to thermal zones
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261016-add-thermal-t7-vim4-v7-4-6eede5450fd4@aliel.fr>
+References: <20261016-add-thermal-t7-vim4-v7-0-6eede5450fd4@aliel.fr>
+In-Reply-To: <20261016-add-thermal-t7-vim4-v7-0-6eede5450fd4@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2933;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=B2WWh69HSsHWgo7xf4TXcX+65d8XeYi4tsHrfwMtAdI=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9alGCbhuMMxewSdHW5J/bTbm3vzxt4FD3qeyHybsE3D7
+ kx7qpxuRykLgxgXg6yYIkv/XMsT7y4fPfN1j3oKzBxWJpAhDFycAjCRNGWG/ylXt64L33lEQSjl
+ j37/lOztvFMqs+0lV507tvDzp4l6kxcw/OEU8A6WvNiz+s03MW7RlUFt9185qp37p8645SNnYtf
+ tDTwA
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +86,148 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Oct 2026 19:12:19 +0200
-"Arnd Bergmann" <arnd@arndb.de> wrote:
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-> On Fri, Oct 16, 2026, at 18:48, Hugo Villeneuve wrote:
-> > On Fri, 16 Oct 2026 14:59:47 +0200
-> 
-> >> -			scnprintf(buf, size, " I/O:0x%lx, offset 0x%x", port->iobase, port->hub6);
-> >> +		scnprintf(buf, size, " I/O:0x%lx", port->iobase);
-> >>  	}
-> >
-> > With this simplification, you can now remove the {} braces...
-> 
-> Done
-> 
-> >> diff --git a/drivers/tty/serial/sunsu.c b/drivers/tty/serial/sunsu.c
-> >> index 4ff3e5c41dab..f43b802add12 100644
-> >> --- a/drivers/tty/serial/sunsu.c
-> >> +++ b/drivers/tty/serial/sunsu.c
-> >> @@ -106,10 +106,6 @@ static unsigned int serial_in(struct uart_sunsu_port *up, int offset)
-> >>  	offset <<= up->port.regshift;
-> >>  
-> >>  	switch (up->port.iotype) {
-> >> -	case UPIO_HUB6:
-> >> -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
-> >> -		return inb(up->port.iobase + 1);
-> >> -
-> >>  	case UPIO_MEM:
-> >>  		return readb(up->port.membase + offset);
-> >
-> > Maybe change to a simple if/else?
-> >
-> > 	if (up->port.iotype == UPIO_MEM)
-> > 		return readb(up->port.membase + offset);
-> > 	else
-> > 		return inb(up->port.iobase + offset);
-> >
-> 
-> I think I'd rather not change sunsu.c any more than necessary.
+Add an active trip at 50°C to all six thermal zones and map it to the
+khadas_mcu fan controller, using cooling states 1 to 5.
 
-Ok
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 102 +++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+index 0fa83362b4179..91f81f7949bf8 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+@@ -256,6 +256,74 @@ xtal: xtal-clk {
+ 	};
+ };
+ 
++&a53_thermal {
++	trips {
++		a53_active: a53-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&a53_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
++
++&a73_thermal {
++	trips {
++		a73_active: a73-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&a73_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
++
++&gpu_thermal {
++	trips {
++		gpu_active: gpu-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&gpu_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
++
++&hevc_thermal {
++	trips {
++		hevc_active: hevc-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&hevc_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
++
+ &i2c_m_ao_a {
+ 	status = "okay";
+ 	pinctrl-0 = <&i2c0_ao_d_pins>;
+@@ -269,6 +337,23 @@ khadas_mcu: system-controller@18 {
+ 	};
+ };
+ 
++&nna_thermal {
++	trips {
++		nna_active: nna-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&nna_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
++
+ &pwm_ab {
+ 	status = "okay";
+ 	pinctrl-0 = <&pwm_a_pins>;
+@@ -389,3 +474,20 @@ &uart_a {
+ 	clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_A>, <&xtal>;
+ 	clock-names = "xtal", "pclk", "baud";
+ };
++
++&vpu_thermal {
++	trips {
++		vpu_active: vpu-active {
++			temperature = <50000>; /* millicelsius */
++			hysteresis = <2000>; /* millicelsius */
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map {
++			trip = <&vpu_active>;
++			cooling-device = <&khadas_mcu 1 5>;
++		};
++	};
++};
 
 -- 
-Hugo Villeneuve
+2.49.0
+
+
 
