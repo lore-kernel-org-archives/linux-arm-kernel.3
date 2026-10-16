@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DF5CCF2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6282CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 18:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZlEDxtte9SLarNJHwjxxOuuFSKmoxWUEPtAVjDg/gc=; b=EpopgdsL6v+RXHGJZtGDCS2Kuw
-	V8c/t77ETAodbRzO7Ooa+uh6gxbPN0AxnN7Etx9BlvqSc7hyRYQDC9zy8wTBNfu3TK7GSln/2t+9x
-	tyFmgoiJ3bMznHYucatsVn0k8E1TComm8xMgU885fTLecuHFjOdkQWF6OqZeNp7CzsOEbGjQktMvS
-	wKm2uiMO4FPbBagq/EcL0leySKAukkvQHoQKHniioDZ0sJg0UCePoxwwXpDzkbfXu5VOXSWaMW80e
-	8WvX4D7mG7YxJjdzoxIrGfzl2AukkGYdllKCn+f8VMAbm+hN+qYBbQtkS/urV6fOax2K6IOLXIRMy
-	ChArupsQ==;
+	bh=mFzdRQr2xigUKju97Am9EcQKO0EbiAOc/v9K0obVI4A=; b=IZtEXhzGiE+xzS6Ro7TRdaREAS
+	xABPGpIbd5PIDgXO+P9UMpyhau2SCD1H7ZJKWOgj2J46w/2jE4tZcd3GqiRT8BXaVbAXMUvKocK02
+	1QEt/qx/rE8HuFI2+ck65zm7/oG7DwzxGbeVZngopxNSNBcvZqm1zIoc86psVIP3BMnHl0iEZEXxP
+	V5vjbx8err7ZXDEIIg/o8Nn0T8EeC1sRP1+wvoE8nLh3g+A+5MtM39bHmGE/vj0nEx4p/G8WmzSPc
+	2sSb2dPbUfPC9pvi3WTY7/KuBtsPO2N9c/HDZ8jT3wgT0bXoEvWiax8tDgCOEhCS7+mfPutUnGoDN
+	wTeVY++A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHn8E-00000003lFB-18sp;
-	Fri, 16 Oct 2026 18:58:18 +0000
+	id 1xHn8D-00000003lES-43uX;
+	Fri, 16 Oct 2026 18:58:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHn85-00000003l7E-42Ux
+	id 1xHn7z-00000003kzh-1wF8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 18:58:11 +0000
+	Fri, 16 Oct 2026 18:58:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34E5F1762;
-	Fri, 16 Oct 2026 11:58:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBF8514BF;
+	Fri, 16 Oct 2026 11:57:58 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA56F3F7B4;
-	Fri, 16 Oct 2026 11:58:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7950D3F7B4;
+	Fri, 16 Oct 2026 11:57:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792177089; bh=Tk1437yj1YDurdPxguGLIUt3way4ghWVbFuHwko1SOY=;
+	t=1792177082; bh=D1egR04TzY+K21UapbR2oQWnp8Xtg0GzhfYC2Dgq8m8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iwsFaMilYAXqBhKi16u4qrDTOCcznNsAhjemhguqhXP/VzG4Uw2O0/OJMqTJMqXwo
-	 kBounCrHm4wyYftgro6/T7A5Y1/iwyV6QSK4xDlEY83pf7iiSPF5VOS3jEKYZxZpfl
-	 hAQhmRfPIQc+uo/KYoDA1b18cFRUguddA0gnVQeY=
+	b=u4vMowNNir9YSoB1L9gjW9seND0ltW1wQunuBaRaWle9TrYPOZjlpw/s1ayUGkfDH
+	 O/pFmZ7xjPQpdSLFscMupiW5HPoQf1KpM8a5o66k1jSCxdCC+vezPDU/aVwB0D+7Cg
+	 cyYfdqm78hWzSbwiz1D4eqpmH9pz91BvusnAXDhU=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v14 25/32] firmware: arm_scmi: Expose per-instance identifier
-Date: Fri, 16 Oct 2026 19:55:46 +0100
-Message-ID: <20261016185553.2794459-26-cristian.marussi@arm.com>
+Subject: [PATCH v14 23/32] firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+Date: Fri, 16 Oct 2026 19:55:44 +0100
+Message-ID: <20261016185553.2794459-24-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261016185553.2794459-1-cristian.marussi@arm.com>
 References: <20261016185553.2794459-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_115810_200052_6243C020 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20261016_115803_595857_70C0CC7E 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +89,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When multiple SCMI instances are configured, the SCMI stack probes and
-it is initialized multiple times: one core stack for each defined instance.
+Expose one debugfs entry for each discovered SHMTI that can be used to
+dump the related SHMTI in binary form from TBGN up to TEND markers.
 
-Each istance is simply identified internally with a number and such number
-is already exposed to the user to name the root of the per-instance debugfs
-subtree, if enabled.
-
-Expose such unique identifier to the SCMI drivers so that they can use
-that same identifier when in need to name their per-instance resources.
+No processing is done kernel side, beside using proper accessors for
+device memory.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v7 --> v8
- - fixed Doxygen 'non-negative' integer
+v12 --> v13
+ - get inode lock on time update
+v11 --> v12
+ - fix debugfs shmti dump file to use the SID as name
+v8 --> v9
+ - use kvzalloc/kfree
+ - use file_update_time to update debugfs file ts
+v5 --> v6
+ - added mutex to protect binary dump buffer during reads (Sashiko)
+ - using debugfs_create_file_size() (Sashiko)
 ---
- drivers/firmware/arm_scmi/driver.c | 1 +
- include/linux/scmi_protocol.h      | 5 +++++
- 2 files changed, 6 insertions(+)
+ drivers/firmware/arm_scmi/telemetry.c | 98 +++++++++++++++++++++++++++
+ 1 file changed, 98 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 601f2e569d64..9531027a12c4 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3374,6 +3374,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	idr_init(&info->rx_idr);
+diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+index a28d13048b54..6e76cfebdf1b 100644
+--- a/drivers/firmware/arm_scmi/telemetry.c
++++ b/drivers/firmware/arm_scmi/telemetry.c
+@@ -9,10 +9,12 @@
+ #include <linux/bitfield.h>
+ #include <linux/compiler_types.h>
+ #include <linux/completion.h>
++#include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/eventfd.h>
++#include <linux/fs.h>
+ #include <linux/hash.h>
+ #include <linux/io.h>
+ #include <linux/limits.h>
+@@ -419,6 +421,14 @@ struct telemetry_shmti {
+ 	struct scmi_telemetry_shmti_info info;
+ };
  
- 	handle = &info->handle;
-+	handle->id = info->id;
- 	handle->dev = info->dev;
- 	handle->version = &info->version;
- 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index fbed0229c3f3..3714be973bd0 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -1125,6 +1125,10 @@ struct scmi_notify_ops {
- /**
-  * struct scmi_handle - Handle returned to ARM SCMI clients for usage.
-  *
-+ * @id: A unique non-negative natural integer identifying the SCMI Instance
-+ *	associated with this handle to be used across all drivers for
-+ *	naming purposes: same identifier used internally as the root for
-+ *	the debugfs per-instance tree.
-  * @dev: pointer to the SCMI device
-  * @version: pointer to the structure containing SCMI version information
-  * @devm_protocol_acquire: devres managed method to get hold of a protocol,
-@@ -1145,6 +1149,7 @@ struct scmi_notify_ops {
-  * @notify_ops: pointer to set of notifications related operations
-  */
- struct scmi_handle {
-+	unsigned int id;
- 	struct device *dev;
- 	struct scmi_base_info *version;
++struct scmi_telemetry_dbg_shmti {
++	struct telemetry_shmti *shmti;
++	size_t buf_sz;
++	void *buf;
++	/* Protect this descriptor from concurrent readers using it */
++	struct mutex mtx;
++};
++
+ #define SHMTI_EPLG(s)						\
+ 	({							\
+ 		struct telemetry_shmti *_s = (s);		\
+@@ -1523,6 +1533,91 @@ scmi_telemetry_enumerate_common_intervals(struct telemetry_info *ti)
+ 					ti->info.intervals);
+ }
+ 
++static int scmi_telemetry_dbg_shmti_open(struct inode *inode, struct file *filp)
++{
++	struct scmi_telemetry_dbg_shmti *sblob;
++	struct telemetry_shmti *shmti;
++
++	if (!inode->i_private)
++		return -ENODEV;
++
++	shmti = inode->i_private;
++	sblob = kzalloc_obj(*sblob);
++	if (!sblob)
++		return -ENOMEM;
++
++	sblob->shmti = shmti;
++	sblob->buf = kvzalloc(shmti->info.len, GFP_KERNEL);
++	if (!sblob->buf) {
++		kfree(sblob);
++		return -ENOMEM;
++	}
++
++	mutex_init(&sblob->mtx);
++
++	filp->private_data = sblob;
++
++	return 0;
++}
++
++static ssize_t scmi_telemetry_dbg_shmti_read(struct file *filp, char __user *buf,
++					     size_t count, loff_t *ppos)
++{
++	struct scmi_telemetry_dbg_shmti *sblob = filp->private_data;
++
++	/* Dump on first read and again after each rewind to start pos */
++	guard(mutex)(&sblob->mtx);
++	if (!sblob->buf_sz || *ppos == 0) {
++		struct inode *ino = file_inode(filp);
++
++		memcpy_fromio(sblob->buf, sblob->shmti->base,
++			      sblob->shmti->info.len);
++		sblob->buf_sz = sblob->shmti->info.len;
++		/* update inode timestamps */
++		inode_lock(ino);
++		file_update_time(filp);
++		inode_unlock(ino);
++	}
++
++	return simple_read_from_buffer(buf, count, ppos, sblob->buf, sblob->buf_sz);
++}
++
++static int scmi_telemetry_dbg_shmti_release(struct inode *inode, struct file *filp)
++{
++	struct scmi_telemetry_dbg_shmti *sblob = filp->private_data;
++
++	kvfree(sblob->buf);
++	kfree(sblob);
++
++	return 0;
++}
++
++static const struct file_operations scmi_telemetry_dbg_shmti_fops = {
++	.open = scmi_telemetry_dbg_shmti_open,
++	.release = scmi_telemetry_dbg_shmti_release,
++	.read = scmi_telemetry_dbg_shmti_read,
++	.llseek = generic_file_llseek,
++	.owner = THIS_MODULE,
++};
++
++static void scmi_telemetry_debugfs_initialize(struct telemetry_info *ti)
++{
++	const struct scmi_protocol_handle *ph = ti->ph;
++	struct dentry *top, *shmti_top;
++
++	top = ph->hops->debugfs_proto_dentry_get(ph);
++	shmti_top = debugfs_create_dir("shmtis", top);
++
++	for (unsigned int i = 0; i < ti->num_shmti; i++) {
++		char id[16];
++
++		snprintf(id, 16, "%u", ti->shmti[i].info.sid);
++		debugfs_create_file_size(id, 0444, shmti_top, &ti->shmti[i],
++					 &scmi_telemetry_dbg_shmti_fops,
++					 ti->shmti[i].info.len);
++	}
++}
++
+ static int iter_shmti_update_state(struct scmi_iterator_state *st,
+ 				   const void *response, void *priv)
+ {
+@@ -4410,6 +4505,9 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+ 		}
+ 	}
+ 
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		scmi_telemetry_debugfs_initialize(ti);
++
+ 	return 0;
+ }
  
 -- 
 2.54.0
