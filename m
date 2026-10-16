@@ -4,82 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFFDCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCF4CCF2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IBtsww379ucVBkMmo8yYkba7gIdGc8re+3xjl0WWVV4=; b=KLXVDGMFpCPdgn/3wPtkTMzeum
-	T9H17yXzo0SSXr4+L2tapAmxUqBiW69CZ+USxfKHEY6DPxn9TP+2rlE2kHZBzKvANhPiKcFc1Wz6k
-	DGsP4SM+dEgToN6xEqbyuMuKaEts0IyyILrK525VniIbMnZgmUljfH0TKeYqamZYfDj8eoVyXK4o8
-	FKm5ptGghbJLYQAEMACKUavMvx4m2GRmdtQ1hJKNPqx2usihCpTnO/j8p3q21iAx/X+uSu3oMvrgb
-	aQpe8dSxO5tUfKOwLxZpPBf9LLUR/dmc1R2ipvc1RLUjKOcbewqenAAkylSh4K1W/LG1KeDdQS10y
-	R8kURcYg==;
+	bh=tsX0Fx1Vu5oxDkz2SE9XCwKJJhLzTUajSbyoGIgpXkI=; b=Qy1AdCwbou1fXJTynfpTTDdRn9
+	w0GzQBgu6MIjDp58PfiDuy0lSkIbre5sR8myzfhwIvhf8aXM+5F28fw63lRIiV1buoirJWmfsskwz
+	tOiyTEVnpiqnOIKE8vY6WUeScC56ZryE0RdtHo6PtI/YjsWkYsxQnsu4e2k57PvWyKSbU74aA1XK+
+	L8wuzfuDf+OhETEaUHN+ySUr41r2D06oEau9c9cIfEaXi71vbYokiyP2leT1K0Ga6XPHhtZjQGuwL
+	86mZfGz2Cld5FFrA1Q9113VTrFi834xl8n216pMXuzkWBZsFc91s4ts7fgOzIQB94a1yn1KE7rOQR
+	g115NBvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhll-000000031BE-1Q66;
-	Fri, 16 Oct 2026 13:14:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHhlg-0000000319Q-1oI4
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xHhlg-0000000319T-0OCb;
 	Fri, 16 Oct 2026 13:14:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F76860A56
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 13:14:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37EEF1F000CD
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 13:14:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792156479;
-	bh=IBtsww379ucVBkMmo8yYkba7gIdGc8re+3xjl0WWVV4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=V0WGVumeTedEHR2AoRQDo1rd35kxpGTR5Rco75l54SLLNp9tfdxKm2bSXoIUdCuhI
-	 1ur4JAJozcXoz0KGYEqwE4KdS/J9M1DMiVf2XZo9TmhVD3qrvLSBu7rAhEIccXmM2s
-	 zM9++t42GyzOu8UikZZ6UhtlQ64REpWMzRi3GFYFe6DKdigTIhlwHnX75lbPF9a4Xh
-	 f/wTZbdzX369cL4C4jqD9k1HeLlckcjRMRvILAnRZS+16M1fcpoaXSu0dgCJ5BBw4C
-	 QZ/Q8P7mFVIRByEDdWNuWG16se9GjqK/xXfGav7ekMFSXlFlI1b1aPRfxkhfPZpyUF
-	 cJpbikXvONepA==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ab27b4924aso374151fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:14:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwhpJ06zkR/Ed7jZ1tbS70O0MN/KKuVOyayz7JUYfmbCNkAg5gcoozl2xwi4AoGVB/ZYWymfL94Jr1vDS73yuRq@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ4NNuFYC+JtgG37UvgkS0r0nJ5Qg52iBC2/pxTeexjzSZ4DxP0
-	XMqVr/Zoy4mNouJjsNUqwl2FBVxFLcqD2Jc7IOVheuBRaXYUWbGW4ovJVhe6YisBFdQzA6P1sid
-	LnEHrYmtpWyx34igE1sta7kd52NkQ+rk=
-X-Received: by 2002:a05:6512:1193:b0:5b8:f523:6886 with SMTP id
- 2adb3069b0e04-5bcde8d5ddemr7061879e87.66.1792156477967; Fri, 16 Oct 2026
- 06:14:37 -0700 (PDT)
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xHhlc-0000000318T-2ZOz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 13:14:38 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso28014915e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:14:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792156474; x=1792761274; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tsX0Fx1Vu5oxDkz2SE9XCwKJJhLzTUajSbyoGIgpXkI=;
+        b=XH6Rp3CbDE0TflciPk6c8kCAltHIAI5EONFk9KJGltQ9tZSLgQY0mHYYjAB7E80Wyl
+         67yretPqRBpP9Zwet3N96tmVMMeZxOC1kUAFMikDGBZHWciMQrqKKbzUsVs5k3mOk1H/
+         f/SxUbz2amSI6WCil4OSqLD32Zn+P+XFhNjSk1KYND71UoJyC8Ykm+qUZD1kAVQaPA1t
+         4GX7P9gJltbjEwJameOWsCERaXJuHcWfeVaym4keTwISI0t7tQvWFG2MZVUbWJsquPSI
+         dNxJrF/YLRBGP3pKlMRMdji6wyGC678Ija5VMOLGP1tNNYbrKIQbci+oi76ejlI7iD82
+         0K+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792156474; x=1792761274;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tsX0Fx1Vu5oxDkz2SE9XCwKJJhLzTUajSbyoGIgpXkI=;
+        b=FrwSRDvjvdiEji5p8+QDB8vH3TUtL+kYzJJqbVt7y9pv5Ujx+ktjkNFa84vTH26KkN
+         nbKmef6GnJMUmpqxblwNyUj0ONZ/qG/NIm+/T2zEl0EEhnLp66aRtff36K7mzr+Gnyjr
+         yAAj4RX2ID7+VWhgF5voNpRI3UpauhR9NAvm4cAo1CCb0P00JffugyxcNDNn1P5mkI8S
+         VJHd+waufxQGZlPCMZRnQeyd/u5fSVSyMtrGhij4N9HaEKU0xGFNjqQa+d4WEdNlo/QJ
+         gZ93bOgItGcl4V3NWCaYlElQDr1/PBWBXh/v+3TVW5HhSAONuKIhUDBipAHUCu3Em/CA
+         1Xug==
+X-Forwarded-Encrypted: i=1; AKwUvBxkYPXEbeEvnIT6ax4iPSpRk9j2amdKNvIv6cxZor1ZiXf3esG1ybD2skFHRKuEPiaf18Surw6eYanf8aHpzl5x@lists.infradead.org
+X-Gm-Message-State: AFq9FYJl11Wx2i8y8AdxaxY+kdkaDnGS7MUtNeELao7Mc+qj/HFS2+IE
+	wXibApfK/rq/nB59r6nlk6uG0yyCofQYg1B+NnwMCt0gKvQndjfkbiwiLsnZbYMy79s=
+X-Gm-Gg: AYBFou3ifssmECvANFkXJ5SzltDQzubo5NmOH1nWcZvyckrp2IX7boYmqAZteBNgz2J
+	8AgCgukUHLfOsICZH4VUUpLrWJbsRCbZk05GTX6sEl18ncIAP1+y1lYfW2PXaMCVFHAOEsuzYiE
+	llEpDfwHdwunYmF+TnOtrjBfwgGazfGKE3nIDEsZzzbjuBY46MB7Jj4eub9GQ7RV7EUy98QjZTM
+	O7RcJiEgCK9tKUldwKmKD0nE5ZFLME5DqouF7nq39Id5SzKhn6ULxCD1DGcqzgilRfAU5dUBTVC
+	WhNzNtxuOW+FFFCJdAeuaorZzVhJKYl7L9OSleEe0dpGAy11pDn4CleDouugPwWbyAxikg4zsuE
+	PoxG00ejT7wpcJMsNTb8tGKrRpUqfnbKBAVhHfZ94ICztNYGRFU9BAZGLThC2A0ZvQrB3QTbTHP
+	OW9UwTljqOLPg14vOLKQe2Upq3RoV7JwKK3Xg7YbLj8onopHH0uYRy1d8lfajj+R5bxeXCqnk/m
+	C0=
+X-Received: by 2002:a05:600c:3144:b0:4a1:70b2:8dbb with SMTP id 5b1f17b1804b1-4a18e4b0347mr432306165e9.19.1792156474596;
+        Fri, 16 Oct 2026 06:14:34 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ac4c70sm45400235e9.2.2026.10.16.06.14.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Oct 2026 06:14:34 -0700 (PDT)
+Message-ID: <13ac34bc-fc8e-43b8-8976-05e91ae46e71@linaro.org>
+Date: Fri, 16 Oct 2026 14:14:32 +0100
 MIME-Version: 1.0
-References: <20261008071436.596651-1-khristineandreea.barbulescu@oss.nxp.com>
- <20261008071436.596651-2-khristineandreea.barbulescu@oss.nxp.com>
- <20261008-1e3e0aa3fab167d544c21e68@squawk> <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
-In-Reply-To: <5738951b-4856-41c1-8766-c41f2e63f3d2@oss.nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 16 Oct 2026 15:14:25 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=k3xFcFMsAS9gOc-tnGd0nOxidqST093YXzL+4mvM3PA@mail.gmail.com>
-X-Gm-Features: AclHuK89SeERPwraJjQ-sXSvZlY9dT774wPNQR4vvufG9BfgRm39fBetpzFZiak
-Message-ID: <CAD++jL=k3xFcFMsAS9gOc-tnGd0nOxidqST093YXzL+4mvM3PA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: s32g2-siul2: describe EIRQ
- input mux registers
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Conor Dooley <conor@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
-	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/25] perf/core: Reject non-positive AUX snapshot sizes
+To: Leo Yan <leo.yan@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
+ <20260915-arm_cs_support_aux_sample-v1-1-35cf6f297d20@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-1-35cf6f297d20@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261016_061436_675732_A43D5A80 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,16 +113,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 12:16=E2=80=AFPM Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
 
-> On timing: I'll hold the v2 respin a bit longer.
 
-There will be merge window on monday.
+On 15/09/2026 16:48, Leo Yan wrote:
+> The existing validation rejects negative copy errors but allows a zero
+> return. In that case no AUX data was copied, but it is incorrectly
+> passed to the alignment-padding check.
+> 
+> Reject zero together with negative errors before calculating the padding.
+> This reports the invalid snapshot result and avoids treating a missing
+> AUX payload as alignment padding.
+> 
+> Fixes: a4faf00d994c ("perf/aux: Allow using AUX data in perf samples")
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   kernel/events/core.c | 9 ++++-----
+>   1 file changed, 4 insertions(+), 5 deletions(-)
+> 
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index fe33fe15689d077e7f445c0b17d9c2e638c884a1..17355e4b8b7c6c106117153c9eb8509e6f9a41e3 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -8058,12 +8058,11 @@ static void perf_aux_sample_output(struct perf_event *event,
+>   	size = perf_pmu_snapshot_aux(rb, sampler, handle, data->aux_size);
+>   
+>   	/*
+> -	 * An error here means that perf_output_copy() failed (returned a
+> -	 * non-zero surplus that it didn't copy), which in its current
+> -	 * enlightened implementation is not possible. If that changes, we'd
+> -	 * like to know.
+> +	 * A negative return means that perf_output_copy() failed, while zero
+> +	 * means that no AUX data was copied despite a non-zero request. Neither
+> +	 * can be treated as alignment padding below.
+>   	 */
+> -	if (WARN_ON_ONCE(size < 0))
+> +	if (WARN_ON_ONCE(size <= 0))
+>   		goto out_put;
+>   
+>   	/*
+> 
 
-At this point it's probably best to wait for v7.4-rc1 and rebase on that
-before you resend.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-Yours,
-Linus Walleij
+
 
