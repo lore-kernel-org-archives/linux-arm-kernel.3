@@ -4,88 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7DDCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EF3CCA462
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 13:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8jDBE2UNrUxeT63TxF4ZOOeuznoK/UEekUGg2ZBp4I=; b=H3cDzI3uVMX3mZz6Sg27zQckcR
-	iNyXzo3G8FhrnYSX/FFJqPB7EUNfmBS4FIoYcewMR9PdPQwc0LzvhR9JxbQmFQ19Wl5a3aD3UPCg+
-	yqNfIS4s8/qRL6Wzhbo/YvKIb+5/J8kmf81uicjU67bEOYVJbzknurdXa8R/KWtiTEt1f5uyFYoDM
-	PZyoQnQadvv42ofy6tnhhDMxQyrccCPfzn1pKazN+Z7dXA4FeLB128CMWuOXo+IJJPxYtsbZIXhLM
-	yZazySSBgNrJYxM+k/40B1gaqJiUAP/K3PrHDZTh8Itmfm/klJGrYRZdpAgElRhyJCTzGt6O2f6iP
-	ORbd1RcA==;
+	bh=apXFfUjY7v6M2DPDE8emOTN5c6EUenT2ynsNF+r1xeQ=; b=VsRBwdvJR24wscqwpJ66hctvNM
+	/RG//v3WGSCpHFRayXSmou5wqCgikTY1gcyayx6DU1wbNENIE8FQJeW7x1eIpnkvj46G643Rcsl8B
+	nT86CeZB/olPV+TBYKJiHvL+Ss+roNaOqZHA0LDrebataKufElTlpRW6X9F5ualxXvR6EacTQcCEI
+	EvngaQ2wav6lq99BO3lw3YmQxrM+9zcCKIbo0QggGHiIaMEOhi0mfQrOl2o1stxOq4pTH6TEDAlIq
+	Gq1vSnAmnRSFvIX7gxJHKrFBLydpbtCVKpUtx3Bc8R7nE4S8Jw4Dn7JmKKLylpp2EISC2ji0WplDo
+	OeFc185A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh89-00000002tFS-2PQ5;
-	Fri, 16 Oct 2026 12:33:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xHi1I-000000032yU-05Ve;
+	Fri, 16 Oct 2026 13:30:48 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHh7y-00000002t4B-0OV7;
-	Fri, 16 Oct 2026 12:33:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1792154015;
-	bh=Yx74k9FBc1k/4s/wqGih7fG59PtJCXH6WArab5XivVg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=g0/myGBUGA3eWIVdKI0rfI8mInP2nfTF/6FA6oXVl/tGOzfQBQkaDGPhppVd4IRWT
-	 5NZowpSg6bt57MRDbUvWLc/2G/GdwEz6KC+IXEgpMUr6g/Gjx430JBXku4U73NdFwe
-	 9laH8wpvq6FOITyDY8Rk4FeGQzeIvf4V1Buw5Y3GvfJ9GFiPC7lLstp+ZMnoQ4Hy78
-	 NKldHDBt2EDkHOBBpy4pP6pHOB/k0FJcZpCBPdyjWgxwmj/6y/5/Ce0HY8K+U18B9A
-	 Kb6D8SWwSgjuBKXRnBerTmmLyl2ETRI6z28QCac1r4MlHzm3LV7OZeGYa8cV6vK1oS
-	 eLWt/Hscj4w9Q==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 425BA17E150A;
-	Fri, 16 Oct 2026 14:33:34 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 16 Oct 2026 14:32:56 +0200
-Subject: [PATCH v14 04/23] scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to
- mtk_sip_svc.h
+	id 1xHi1F-000000032xw-2Qya
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Oct 2026 13:30:47 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49fbb2acc90so55880155e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 06:30:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792157443; x=1792762243; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=apXFfUjY7v6M2DPDE8emOTN5c6EUenT2ynsNF+r1xeQ=;
+        b=c92+hLagXKvTnbqWPKgmae+Tz56I1EhzI0rc7Oh4De2FShnQ2c638bsA1IfwdWYy0C
+         2GBFsZnC+K+7X4EBsMyPJAVEpandce/LgVDrxS0h9+04OzolEeqTmd8U716Rh75ALN7w
+         hbMRERiKzYy3ybqVQSogEeD4uLZCvG8dgZMGE79bPhXzNImgisgxXrxQBYj9O+MIOBUh
+         ZPra7vAy2oJP640a40futRwtCchrEwzniWODmrYLqSi0e+Pl/3DfVVd/g2ldBPq2Qd6D
+         wwh2oGGRV4El8lJW9zLdcQXX5S0Ob3/c9ddMoE3ltGFhPm+ypxr87xa5ngqEZhPyQqEM
+         seIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792157443; x=1792762243;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=apXFfUjY7v6M2DPDE8emOTN5c6EUenT2ynsNF+r1xeQ=;
+        b=wqEdcibhIsZQLkFJeeK9Lq3TnD1weZvqFE1f9vMLz7G0ctxICUcMBSUC2nV0UlD+8Z
+         4pJX0B2uQFrydBG+3BJTw64olEkxy+H2UWlYeoB9sx/7m+MIjInvoDkHmX+tqw8KHV6d
+         bJruSzp94s6CkGBz11rhgzsAL8uzMPNlaSr9tnm5vyqQZOB296BF4g8jac165CwZfXX2
+         A8w2eo+EFb4odydgSLg321fqQqhPMy9LPdzTv88qTp9TZVzJJF8b2zp8Dh8a0t8fscV8
+         EKX9Fvw5cmQJW2WN1ID9Aja6n1QyRTFBroDxF8l75xyNMDroBaFpuSmhpZGMis2UZecf
+         I8wg==
+X-Forwarded-Encrypted: i=1; AKwUvBwt7W2ZCKqhjnS63ESB+w2KpELbczLIfOGPysxAifOuc+LTDEDk8XQ1ybReU7MkNpLk0S5wzIlRKSJdidS8+uDM@lists.infradead.org
+X-Gm-Message-State: AFq9FYIgNrQ6YSIFC/tb9sCY4NM1Nj86WHKqNdIJH6J0I/DUywWWF1wM
+	D/1L4vygEXGasg5a68LRlxwt+U0Fd81PT74SxAf3d+igmcEGgC+gOKDjWL2zYHqogKE=
+X-Gm-Gg: AYBFou3qW4CF//HUhKMmschwpKJt1Bthem4n3UHtpBWvNpWoOm15/tHtYTy0mi1W7Go
+	1nf/SLYqkoPF+5T923ptHKh8/0B+C1wv8qds8z59YW7sAcQCNa3OKgdYbNBZe9v1aKtj33wejQd
+	zz4z+r2ayIAiIBgXq7ohEgITvLsO2iWaaxJOd6GCMzn5iXie8E8e9e2LdyekKNgKG2InH/aSjWW
+	ykKTmu3Ji9qSGH2ps7SFXDGpj2BtoUaRMhvVr9ZuC6jVhMyphI0n7LWJSyuWChUDIGmI43nDEDR
+	5Nlnve2+XMsnalgKU8lBErknNdY2Z3hhXlmngj/YVaOl4sinaPgvLKStjupGNLQmboBCtuQmrt+
+	8NCW5FBmZ7QMTi+26qnXpG+eZ1vr68joia2novTad5kgCvxj1fJFFG1UlQi2w/WRGYkAL8h52hO
+	E/zEt9ZsbzVdZfpE1lLSxOfGzj6zD+FZ6uHcoSgucCtzUNUOAUX5zLbX4ZNz/fWDGjeDfjnc0xH
+	x/eusy0ZqBacmGa6Ouky1LyXcP9UR5eK3eBVmQ1QBVyNHXn/uozTjr1RWsqCoJfaEPDQs+WZBJK
+	m6ceTw==
+X-Received: by 2002:a05:600c:83c7:b0:4a1:d456:dda9 with SMTP id 5b1f17b1804b1-4a1d456e0a2mr15854635e9.9.1792157443112;
+        Fri, 16 Oct 2026 06:30:43 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ae6d2esm60109555e9.6.2026.10.16.06.30.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Oct 2026 06:30:42 -0700 (PDT)
+Message-ID: <ad5f5981-7133-431e-ac8d-8ac064a97f02@linaro.org>
+Date: Fri, 16 Oct 2026 14:30:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/25] perf/core: Export output copy helpers for CoreSight
+To: Leo Yan <leo.yan@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
+ <20260915-arm_cs_support_aux_sample-v1-3-35cf6f297d20@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-3-35cf6f297d20@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-mt8196-ufs-v14-4-e8d565e0cd45@collabora.com>
-References: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-In-Reply-To: <20261016-mt8196-ufs-v14-0-e8d565e0cd45@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792154009; l=1832;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=e11uj3DE6zvd4oYfRMlams6rLdYNXhiR9LbrPBoXvrA=;
- b=ztPolG/plmM7/McYm3/1WAnOVFSO7sXVprjlyojcnDDZY8OTz/JIJUoBvA7QrqcCuVi0EjCI6
- VACM361HSwSBngOw36wG+oDoWZQ0PjY9lhTCp9Z1ItzSO0d1BpWGxQe
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_053338_306986_80CDA2E8 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20261016_063045_643506_4B7FC922 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +114,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-SMC commands used by multiple drivers need to live in a shared header
-file somewhere to avoid code duplication. In order to rework the MPHY
-reset control to be in the phy-mtk-ufs.c driver, both ufs-mediatek and
-the phy driver need access to this command.
 
-Move it to mtk_sip_svc.h, where other such command definitions already
-live.
+On 15/09/2026 16:48, Leo Yan wrote:
+> CoreSight AUX sampling needs perf_output_copy_aux() to copy trace data
+> into samples and perf_output_copy() to prepend zero bytes when the
+> available trace is shorter than the requested snapshot.
+> 
+> Export both helpers so the CoreSight snapshot_aux() callback can use
+> them when CONFIG_CORESIGHT=m.
+> 
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   kernel/events/ring_buffer.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+> index 1b1ffe0533e58a9d976d0eb0fc23e09d5936da2b..e69ea5b077a5e94b5b6bb1f4c6f0ca5b8a94a6cc 100644
+> --- a/kernel/events/ring_buffer.c
+> +++ b/kernel/events/ring_buffer.c
+> @@ -298,6 +298,7 @@ unsigned int perf_output_copy(struct perf_output_handle *handle,
+>   {
+>   	return __output_copy(handle, buf, len);
+>   }
+> +EXPORT_SYMBOL_GPL(perf_output_copy);
+>   
+>   unsigned int perf_output_skip(struct perf_output_handle *handle,
+>   			      unsigned int len)
+> @@ -617,6 +618,7 @@ long perf_output_copy_aux(struct perf_output_handle *aux_handle,
+>   
+>   	return len;
+>   }
+> +EXPORT_SYMBOL_GPL(perf_output_copy_aux);
+>   
+>   #define PERF_AUX_GFP	(GFP_KERNEL | __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY)
+>   
+> 
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek-sip.h      | 1 -
- include/linux/soc/mediatek/mtk_sip_svc.h | 3 +++
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
-index 7d17aedf6fb8..d627dfb4a766 100644
---- a/drivers/ufs/host/ufs-mediatek-sip.h
-+++ b/drivers/ufs/host/ufs-mediatek-sip.h
-@@ -11,7 +11,6 @@
- /*
-  * SiP (Slicon Partner) commands
-  */
--#define MTK_SIP_UFS_CONTROL               MTK_SIP_SMC_CMD(0x276)
- #define UFS_MTK_SIP_VA09_PWR_CTRL         BIT(0)
- #define UFS_MTK_SIP_DEVICE_RESET          BIT(1)
- #define UFS_MTK_SIP_CRYPTO_CTRL           BIT(2)
-diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
-index 6c95a29b79fa..36ab3153fe44 100644
---- a/include/linux/soc/mediatek/mtk_sip_svc.h
-+++ b/include/linux/soc/mediatek/mtk_sip_svc.h
-@@ -22,6 +22,9 @@
- 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, MTK_SIP_SMC_CONVENTION, \
- 			   ARM_SMCCC_OWNER_SIP, fn_id)
- 
-+/* UFS related SMC call */
-+#define MTK_SIP_UFS_CONTROL		MTK_SIP_SMC_CMD(0x276)
-+
- /* Modem related SMC call */
- #define MTK_SIP_KERNEL_CCCI_CONTROL	MTK_SIP_SMC_CMD(0x505)
- 
-
--- 
-2.56.0
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
