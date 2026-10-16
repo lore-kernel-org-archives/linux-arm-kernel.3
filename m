@@ -4,119 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4413FCCA462
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 09:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4402CCA464
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 09:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EEa/2At4h8ZJit76fcYpbi2gFdx3R7gwg1DXrCjiWtw=; b=4x1XmkYxBDMg1QT+Xflu1IyMAc
-	GgoYNmcJLWYf165n7YRCEpAWAekSwhSJ2Af2ko22zxXTaOROBgmuuKmg9iczYC8edCxGfS/6OuxL9
-	w7N35f4sIk68t7L+r47qXLzVStjXaQiUZi2j7JsNMTfpI45+fhYXJQXzuaf2LLIrZjYLjbejhXQ2n
-	U/CWbMqnlWZujMJNBzpZesF5f6LLrLX8q/X55M1NMl1n3GdW4YXZe7ITb2KfJqX9HcQJ0rFzAOI0c
-	+DCTHBmhEO5oLANQ1XfU+C3oyYjimxkvjl4W2tVx3aHwCfye5IE6V0FNCn/vA4jQA8Ihxr9iBR9Bn
-	9x6r7PcQ==;
+	bh=5i6MhlYke8rnqKO/tS98g5fBrnPRxzSkJ1XspPZU0EE=; b=XoCARKXSwDI0CzhRFxJmZE7q0K
+	T3y3lwfwY1YAYbZ7BB6h5f6VuaYfXELVJukJEcgReuifN+vu7uREJr5jAA3w6/ErqthywXTaBkf0v
+	cJJwfmGIZoJ2TwdiPuFXT4cG6rdjjoKzWShqT7bzhneZ7U41uzDit9blUbND9Vu2GA7gNPb4rksR5
+	ZeUFLrZWVeueNV7hWTeiJ78QOJWsfQf9Ktj1Tc/51pGJT4o/RRyZ+rLEFdHwpJgiCFcM3nXdheCJl
+	eAtO7iJ3lOxolgz44GF1iQ2WhkJ+j2jvUXAzp/RvROTYe1KNd5rZxo1supFc2whATinB2ym+aXqzo
+	1/Z75DRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHe0F-00000002Rjc-07hh;
-	Fri, 16 Oct 2026 09:13:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xHe0V-00000002RuM-1UOf;
+	Fri, 16 Oct 2026 09:13:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHe07-00000002Rbd-1Y3t
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Oct 2026 09:13:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=EEa/2At4h8ZJit76fcYpbi2gFdx3R7gwg1DXrCjiWtw=; b=qAvvap3Q0OkQ+WQTw+EGvZdMD/
-	ET/GrH4rWZz26KiZ/2bHm8+WTUc2MBK0cNfnV7g+7DWKPnoI6FgrbL+rSNXUbk/wMZEh9PP5BjVa6
-	fiCwOYnN1SW8Atz1Ly0G1B97Y8PPJ2ShAstSa60j35d/4rJOuMUkxptBuhN6lay6vEtSLDyWYUKqD
-	VgBQqyCBJjXYhFHAa3yjf5iSwZFaK5SAqz/rTW6u8AC+PoVmnoc4BuTwNIkoaD7wOY1D2s2/7xTqJ
-	klOlgT0SeiL8VTpvMh2jYaNDR5kfsKnT/dMR1bBoORor7PGcyxFvNTRgIpeCzSzcMLHxTd1Xu1jM7
-	/+8W2wxw==;
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xHdzx-00000001J4C-15rF
+	id 1xHe0U-00000002RtU-2D2B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 09:13:16 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cd60d155070so1435322a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 02:13:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792141986; x=1792746786; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EEa/2At4h8ZJit76fcYpbi2gFdx3R7gwg1DXrCjiWtw=;
-        b=TquWuaU60D5hjHViuaDCzdG3NfMPIFGfw2NbJe/F4dkA4eNEvLvcoX8PCqNaSoem/z
-         OzOdMOfBNyb+uPHohO8Y7zgOoh4GGURvGOOQzkFm1JTR7VyODw6uRM3T7OY9XrNS3pUz
-         APOTygRoV3ZkIcHVMiuxRZcJR177vMDIrAjHDZrHDnCiZqPNv2ayeafXvYYYHFUjlZ2m
-         qS6JHpW5EMafukAO+uD8nA0ewDJy3xYyVDNRp/21BfMEkQDCHvCUPhslHK+3dmAiVB6Z
-         GegGPysXREF5v1XUHPyeo2XvGjjvCll0QB5pMOkFwj8THPXmLNlA3cDVMkogVgjzM1qi
-         un0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792141986; x=1792746786;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EEa/2At4h8ZJit76fcYpbi2gFdx3R7gwg1DXrCjiWtw=;
-        b=u6vE8GcK4vmdvaLN1kbIF2kIPjMd087LT/w3gh3w0l5+pS1zyrVkfl1ytte3xhCXKn
-         2m71YQbOETwWgYiVL/Zgtl4PF/3cxsPIX7njc+24m3DR44MUwzd1SyTipgNx8NYhctgp
-         9nKivAzRUnbBq1APlQVnjBZzn0kg3/tYBUnga+zQDJ984D0+q5H0KlPj7k2qPh2af84F
-         SehWxLJeksgihRe3cdYRRSrjI9ipCFwvt9QSddw69zuswKA1/DUg0XHWD9R2AJ9B7Cdk
-         KLEBrLDTKnKBN3VWSGY22Z5o921e98xVWRWf6V7fnrzubUEH6pF1h9C2Tdq5nZUrCnfK
-         TdcQ==
-X-Forwarded-Encrypted: i=1; AKwUvByfZkmmOlf7PA061Hw0yv/F8wvNiGgQwggtLrJWinE8+e1TttrQBNNQG3Xj1Kr8o5jyNFthGKQts65ZN6X79IWf@lists.infradead.org
-X-Gm-Message-State: AFq9FYICNyzwV5oRCPEJIS1xJEjGmdS/ActDdUheGdr3BxWWRxAtcbaD
-	G9fZuWJ7koun4yUx6qHywDGVTcMSssCkzA5ecIS6HcNC1KSUxp1zaMDW
-X-Gm-Gg: AYBFou2I9hXLGzImXMKoETsPf6toXuMHx43EN6+3fBXmX6ZfJWMf00iQwjBtVU6AYbX
-	VsCuV29afEisZeXemKg6Ek8vChBrzkgBcJXjA8NVFlD0DBxbf+Igs3KL/qQh2H5ivKcgvgf18O9
-	2UYKZ6Cj0US/YblUaMTN8ADGs49p/AR2pS3h528JA7si0KmQ2DuUOZsmSdY21Re79+Fg64Q1MMM
-	glzjeEndoHtmevl6yMeZKWrkNzl6vNnnQ44VofaP/XKLsh+FVsEzLlctPwOQAG2FhgxqZIYooMA
-	V8Wxt141oB0ruvipbGEPvS6SdOWTqxSWIisttzSOPTDPlM3vAYpBni4J/SG8vTPcmMNYGBnIoG8
-	f8eUCZPmWKEdeR+eDgjr8352dQsJGeuHIZdenWaFtUiL24Sv1xUNugs0TLJmurwYsmLRzWx7rsv
-	BFekmsMzQx42SVzL+stOfy7t2z5HJsvpLD3wrk2DMXhI6F95cccBYQoP3Jki6ztOhxpDjrZ+O2Q
-	a0XPPhwEaRgtlpDvHMSSjzt7YFOZmL8/kgKxL8AhJOe7O50nqJiJ1PNxQpD
-X-Received: by 2002:a05:6a21:1bc2:b0:3dd:a197:7368 with SMTP id adf61e73a8af0-3e16c0b3393mr19115807637.65.1792141986248;
-        Fri, 16 Oct 2026 02:13:06 -0700 (PDT)
-Received: from DESKTOP-VNSSJ2S.localdomain (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cd65497e28esm767274a12.7.2026.10.16.02.13.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Oct 2026 02:13:05 -0700 (PDT)
-From: Zhi-Jun You <hujy652@gmail.com>
-Date: Fri, 16 Oct 2026 17:12:35 +0800
-Subject: [PATCH net v5 3/5] net: ethernet: mtk_wed: free up rings during
- detach
+	Fri, 16 Oct 2026 09:13:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE1F3601F0
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 09:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 872E01F000CA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 09:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792142021;
+	bh=5i6MhlYke8rnqKO/tS98g5fBrnPRxzSkJ1XspPZU0EE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Ylc4MP6shCeSJV4WrGsrfrjjA/Fz8tO0A+VDlxgExXH9rrTOXeyGrHARmllzf3Zr8
+	 T2H+Bkd5SvDMAreRqiewzPCByEFzDEo4EEdDfAWEmGey38Owg9KqeUXmUbpgbSad66
+	 OzT2ZyWl/NuZVjnKm8EHBlUtD8/+ygkrIKh0soevDAva5qxApnwYfgG3kNkdX1VJzy
+	 Vo4VU/Z7rKdETYzdpEAJio8clCXfAID1Vu92GR2vKVV6Cp3FeR+Bjvsh3nhwLxxTjr
+	 hI9qRrtEZuxR6/QrneYK4bWvw+NFhXP3yWeWgwwjsQxvac2bJQDfF69YgEyoHZevIc
+	 IU0nC4ulTDzVA==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be42ae8eb1so936324e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 02:13:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByefuJthkkdrrib54y8HSk1aUlpB8/MXeThvOu8WJHUta7A64nvQndW/Nq/Tf8DGD8SAYNm13m3DileHxua8Dag@lists.infradead.org
+X-Gm-Message-State: AFq9FYKAzW683UFO9Ovileg8TRrShnYm/2r6CMuBwzdMHHjPyr0MmnMu
+	61T6+Vdixh2+Vgz3YvrkvebYZY09XtbChqNbCfCybrUnjonT5g3EtArdvwgsir9LB1k4tHc8VyK
+	Ds23UBeJxeDK8Og6wPawkjbcQf3v2KIo=
+X-Received: by 2002:a05:6512:2251:b0:5be:323a:358f with SMTP id
+ 2adb3069b0e04-5be323a362bmr3949389e87.24.1792142020304; Fri, 16 Oct 2026
+ 02:13:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261016-wedfix-v5-3-8b02e78fd34f@gmail.com>
-References: <20261016-wedfix-v5-0-8b02e78fd34f@gmail.com>
-In-Reply-To: <20261016-wedfix-v5-0-8b02e78fd34f@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sujuan Chen <sujuan.chen@mediatek.com>, Rex Lu <rex.lu@mediatek.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Zhi-Jun You <hujy652@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792141973; l=3046;
- i=hujy652@gmail.com; s=20261016; h=from:subject:message-id;
- bh=U6JZO9nx3rPOiVZRdnCq19XQmBvRUGHPkux0rhIb7wY=;
- b=nho+TYyw4v1ERH9ayHCtI/6QwLa6MGM/Qf8gpXAuCuRUXlco0OF1n/jItA5a2GBAW2NuSlqtz
- 6PqqC3ACTmFAmO1YrmJ7m8BXbsbZYKG9hA4G/3QUJ68hCZj+vVdi8Au
-X-Developer-Key: i=hujy652@gmail.com; a=ed25519;
- pk=AYHrGhtLNb9z7JIsGOOYWmKKIoVPH7ZZgT+CLIDMuEM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_101314_643450_1CF53FCF 
-X-CRM114-Status: GOOD (  14.41  )
+References: <20261011-gpio-mxc-cleanup-v6-0-cb47ce2ad758@nxp.com>
+ <20261011-gpio-mxc-cleanup-v6-7-cb47ce2ad758@nxp.com> <CAD++jLnDxTAz2=ge5RgvO02mp+BJyLBV0zR8xqsm8LSsSEcRYQ@mail.gmail.com>
+ <as8+sqlBEuhfdtZ8@shlinux89>
+In-Reply-To: <as8+sqlBEuhfdtZ8@shlinux89>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 16 Oct 2026 11:13:28 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=tKnT0qr5chD-fhxgTM-f9kcdFRsKVBbbqionBp9iTyw@mail.gmail.com>
+X-Gm-Features: AclHuK-rmknBFrbVZQXIDXh4F4e2O13GZgGSgm2vgJ2GpZVzPlYS8PS1UAie0Ck
+Message-ID: <CAD++jL=tKnT0qr5chD-fhxgTM-f9kcdFRsKVBbbqionBp9iTyw@mail.gmail.com>
+Subject: Re: [PATCH v6 07/13] gpio: mxc: convert pad wakeup compatible checks
+ to hwdata flags
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,84 +86,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During __mtk_wed_detach, rx_ring and tx_wdma aren't freed up.
+On Wed, Oct 14, 2026 at 10:30=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wr=
+ote:
+> On Wed, Oct 14, 2026 at 01:10:48AM +0200, Linus Walleij wrote:
 
-Fix this by add them to mtk_wed_free_rx_rings, also set
-MTK_WED_RING_CONFIGURED flag in tx/rx ring and wdma tx/rx ring setup.
-Only free rings that has the flag set.
+> >Hi Peng,
+> >
+> >On Sun, Oct 11, 2026 at 1:51=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp=
+.com> wrote:
+> >
+> >>  static bool mxc_gpio_generic_config(struct mxc_gpio_port *port,
+> >>                 unsigned int offset, unsigned long conf)
+> >>  {
+> >> -       struct device_node *np =3D port->dev->of_node;
+> >> +       int ret;
+> >> +
+> >> +       if (!mxc_gpio_has_pad_wakeup(port))
+> >> +               return false;
+> >
+> >Why is the entire call to mxc_gpio_generic_config()
+> >bailing out here if the port does not have pad wakeup?
+> >
+> >> -       if (of_device_is_compatible(np, "fsl,imx8dxl-gpio") ||
+> >> -           of_device_is_compatible(np, "fsl,imx8qxp-gpio") ||
+> >> -           of_device_is_compatible(np, "fsl,imx8qm-gpio"))
+> >> -               return (gpiochip_generic_config(&port->gen_gc.gc,
+> >> -                                               offset, conf) =3D=3D 0=
+);
+> >> +       ret =3D gpiochip_generic_config(&port->gen_gc.gc, offset, conf=
+);
+> >> +       if (ret)
+> >> +               return false;
+> >
+> >Then no generic config can happen.
+> >
+> >This looks weird, isn't it just some of the configs that
+> >don't work?
+>
+> The early return is correct and matches the original behavior - only
+> i.MX8 SoCs with SCU have pad wakeup hardware.
+>
+> gpiochip_generic_config() here calls into the pinctrl backend's
+> pin_config_set(), which on i.MX8 programs the SCU firmware with the
+> PAD wakeup source type.  Non-i.MX8 SoCs don't have an SCU pinctrl backend=
+.
+>
+> The function name is misleading - its only caller is mxc_gpio_set_pad_wak=
+eup().
 
-This patch is pulled from mtk-openwrt-feeds to address Sashiko's review.
+This is just a big hack and I want it removed.
 
-Link: https://github.com/mediatek/mtk-openwrt-feeds/blob/main/25.12/files/target/linux/mediatek/patches-6.12/999-wed-04-Fix-reinsert-wifi-module-cause-memory-leak-issue.patch
-Fixes: 4c5de09eb0d0 ("net: ethernet: mtk_wed: add configure wed wo support")
-Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
----
- drivers/net/ethernet/mediatek/mtk_wed.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+Implicit in this reasoning is: the only config we support on
+the pinctrl back-end is wakeups so let's gate the entire function
+call if we don't support wakeup.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-index 3f0be70c3f14..b8264435acbe 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-@@ -949,6 +949,16 @@ mtk_wed_free_ring(struct mtk_wed_device *dev, struct mtk_wed_ring *ring)
- static void
- mtk_wed_free_rx_rings(struct mtk_wed_device *dev)
- {
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(dev->rx_ring); i++)
-+		if ((dev->tx_ring[i].flags & MTK_WED_RING_CONFIGURED))
-+			mtk_wed_free_ring(dev, &dev->rx_ring[i]);
-+
-+	for (i = 0; i < ARRAY_SIZE(dev->tx_wdma); i++)
-+		if ((dev->tx_wdma[i].flags & MTK_WED_RING_CONFIGURED))
-+			mtk_wed_free_ring(dev, &dev->tx_wdma[i]);
-+
- 	mtk_wed_free_rx_buffer(dev);
- 	mtk_wed_free_ring(dev, &dev->rro.ring);
- }
-@@ -959,9 +969,11 @@ mtk_wed_free_tx_rings(struct mtk_wed_device *dev)
- 	int i;
- 
- 	for (i = 0; i < ARRAY_SIZE(dev->tx_ring); i++)
--		mtk_wed_free_ring(dev, &dev->tx_ring[i]);
-+		if ((dev->tx_ring[i].flags & MTK_WED_RING_CONFIGURED))
-+			mtk_wed_free_ring(dev, &dev->tx_ring[i]);
- 	for (i = 0; i < ARRAY_SIZE(dev->rx_wdma); i++)
--		mtk_wed_free_ring(dev, &dev->rx_wdma[i]);
-+		if ((dev->rx_wdma[i].flags & MTK_WED_RING_CONFIGURED))
-+			mtk_wed_free_ring(dev, &dev->rx_wdma[i]);
- }
- 
- static void
-@@ -1885,6 +1897,8 @@ mtk_wed_wdma_rx_ring_setup(struct mtk_wed_device *dev, int idx, int size,
- 					 dev->hw->soc->wdma_desc_size, true))
- 		return -ENOMEM;
- 
-+	wdma->flags |= MTK_WED_RING_CONFIGURED;
-+
- 	wdma_w32(dev, MTK_WDMA_RING_RX(idx) + MTK_WED_RING_OFS_BASE,
- 		 wdma->desc_phys);
- 	wdma_w32(dev, MTK_WDMA_RING_RX(idx) + MTK_WED_RING_OFS_COUNT,
-@@ -1931,6 +1945,8 @@ mtk_wed_wdma_tx_ring_setup(struct mtk_wed_device *dev, int idx, int size,
- 		}
- 	}
- 
-+	wdma->flags |= MTK_WED_RING_CONFIGURED;
-+
- 	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_BASE,
- 		 wdma->desc_phys);
- 	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_COUNT,
-@@ -2504,6 +2520,7 @@ mtk_wed_tx_ring_setup(struct mtk_wed_device *dev, int idx, void __iomem *regs,
- 
- 	ring->reg_base = MTK_WED_RING_TX(idx);
- 	ring->wpdma = regs;
-+	ring->flags |= MTK_WED_RING_CONFIGURED;
- 
- 	if (mtk_wed_is_v3_or_greater(dev->hw) && idx == 1) {
- 		/* reset prefetch index */
+This is a *generic* back-end like the function says:
+gpiochip_generic_config() so the GPIO driver can't make
+assumptions about what the pinctrl backend can and
+cannot do. In a new SoC using the same driver the
+pinctrl back-end could be something different.
 
--- 
-2.47.3
+So this is breaking modularization and encapsulation.
 
+It is better to let the pin controller return -ENOTSUPP
+or whatever is appropriate instead of gating the
+call like this,
+
+Yours,
+Linus Walleij
 
