@@ -4,140 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D07CCA46C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF6BCC6B38
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 15:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qc22DhCR5XedJweYazdf3YRWylHrbaJAaVnfeNECM14=; b=4sl7pnJ0xkUhJ4+yYJ2Rq83tqI
-	ppnmejuTKbAwFhBoeOa5Nopauu9LLWANcMArNqtUrCcnu9dmdSmlKoXdABTO0h1zjyPampjh6CxA+
-	hGZvRsk9cJWtWtVNFNCEMyiRkInTuWa457UBHvrrVKsVB8UFyYlX781rELdCSB1s3eCTn1yJPb9rN
-	mZMfwfRd/FMHD6lGpTgZYvtUWKpwxDBcQjTCOUaZ7UQjdsIMsqefkb4XURs6MkbJJlFw1PQJv7ct5
-	MvgKw68ygJB9xQZEb3f9nqgm5zzVgVMBVUl2Z/oGlECb/rI5kE4ZuoCvJ7xzc4X7HnG1Trpm8HWtX
-	bUX7+WlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQBXFtSQf7WJJHzyT6nR2Bw3zqoZgRsxsOc7UBU3Xv4=; b=AmFMoM1pbEw340THjuyN+CggyB
+	Yqfsm5mNov5MsehdMNkvvNI1I/Z6doeEG9r1VqO0SUMcJC+SOR1FNQPkOvVkvL0kclvnTxpfRyvDp
+	LeaGw9rgJeS7xZ4D3PypBdkRLzxzg1M8PC1W5XZfnx5r0LcrnDmi6vuMukgfzAQhMly2lMivLJokg
+	SglImV7Z7bf7btM2XI7rBu5AidNndu7XyCvvpNK49wxu+XRWmqsVKQTGzMTVakjmTvjD1WN/qyuRA
+	WNq4/2krT6ElAvi90hHTeCU63JivvGkgqggVDpObD7hfnf0rgfRs1XBeyqTCrN907PtWIVkS2tuLD
+	z7KO1h4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjSa-00000003EUw-2pbS;
-	Fri, 16 Oct 2026 15:03:04 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xHjX2-00000003F2y-1I83;
+	Fri, 16 Oct 2026 15:07:40 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjSX-00000003ETl-38v1
+	id 1xHjWz-00000003F2E-3OPe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 15:03:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EqcA0luBhJvbglQMoRCdUFntkncQQ+47KkmozDF42rqNJu+K94vCchjhxwQn2KfN2lDgR3A322+CRIMjE8sNWPCrS9HJDlIRQZfrZGPguvu0etYBVQY4L1QvAKQ6emwDn5Cbu1VViedjDkc4R3pd1yAO1mgcjzyUEgEvmMuz9dkzyPAz6LX9USGaBzhh7WNyt4ylEqBpzwDs8d9JFnBy5UUhJSqK5WrRPfhP9yQQDB+HROBF7+qWBlgcOIM4yodmZsHU7rnR73sdntwuQvFpPwLkT0Xx2e1kkxYPKCOdH73tR01veCrW7qGN0gNnqM3xUshJ89j5/4Ug7WO3p85Apg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qc22DhCR5XedJweYazdf3YRWylHrbaJAaVnfeNECM14=;
- b=d4Sjm7EV1n08vg1yGC5U0r/ScKJbhRXhh36YVMgOGFOiTsWhmAAdhQDlpUpYXC//L3I72B85i+e4VC8XzOUj6hlwHL53gH7RfxsVsfP4Nks/yugD7Y3pNSdnWFX99OY7jAGk6xS1GkiGwMa4p6a0u1XYbvOtyZM/NJiNvSxd5F2sEzfn824hPgJjFOMU0sr4vlbU7eQ60Jn/gcjb0H/C3TB+cD0fyOexD9F82GolEDj/opPHyM4vlgh/QFJY3J79CYnTEe7mSEiQipbDrVN6TaUftAgR7UpxOcBphtMDcfbVhCFZL6Weck/hUxwB0o4IHAA7eObNtQV481i7Qs8rBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qc22DhCR5XedJweYazdf3YRWylHrbaJAaVnfeNECM14=;
- b=vJIlPuc26BViMeubaFGc5KAwSJHbgDUWAej5lkGUAzzXkzSsaF3m5aLMidwah/5B8kQD94/Hu6QRDLSkAJMAqBECBvHcWmk6K2p4HQRQUa2vzMquhW4WJhcpvCdo32hcoMhtALwy4oO1/X/au0Ypez3zdEPHUUVfK34yJqqW87g=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) by
- DS7PR12MB6192.namprd12.prod.outlook.com (2603:10b6:8:97::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.23; Fri, 16 Oct 2026 15:02:52 +0000
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a]) by DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a%4]) with mapi id 15.21.0496.021; Fri, 16 Oct 2026
- 15:02:52 +0000
-Message-ID: <9c95afa2-d580-4a24-999d-fc0ff8d46038@amd.com>
-Date: Fri, 16 Oct 2026 08:02:47 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] mailbox: Add AMD PL Mailbox soft IP controller
-To: Krzysztof Kozlowski <krzk@kernel.org>, tanmay.shah@amd.com,
- Ben Levinsky <ben.levinsky@amd.com>
-Cc: jassisinghbrar@gmail.com, andersson@kernel.org,
- mathieu.poirier@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, michal.simek@amd.com, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-5-ben.levinsky@amd.com>
- <20261015-aromatic-ibex-of-opposition-dafb43@quoll>
- <0ad96f34-97d6-4998-9cf3-4b09ab6c94a2@amd.com>
- <48ac1f6a-3de8-401b-a348-502178f7ff1c@kernel.org>
-Content-Language: en-US
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <48ac1f6a-3de8-401b-a348-502178f7ff1c@kernel.org>
+	Fri, 16 Oct 2026 15:07:38 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso419235e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 08:07:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1792163256; x=1792768056; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VQBXFtSQf7WJJHzyT6nR2Bw3zqoZgRsxsOc7UBU3Xv4=;
+        b=jSXQSTHDM8POVIc2YgX5Qky3pQ+mHctDsgJv5PeYR8Bbpe9FTFV5JVdvLYPaX+KG56
+         AfAgpQRZVYsclSwuw6596sKoTA+PPc7CQE04l6HeZGyfhMw/MCOBdKxcIYHaYpBjD0uO
+         xhWX47tf0AWsDj2gbpGqYdQSbmb9ewUVNG9QvaQLem5ZFGv5wkIyU1DfLiJ3uQ/myWVN
+         M9ZkphFnj31QugwJU1NV0hN7aje6vb+UWXReTYRY62txdzl+oSxsE5iwHglPq69v/nhz
+         JMzhRrJW3ksdT6sC5p4lBA2zueT9QZyN6IxHxQkWPTNFPmZjP3JbvMjq7qQQF1oq/HeR
+         z4mQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792163256; x=1792768056;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VQBXFtSQf7WJJHzyT6nR2Bw3zqoZgRsxsOc7UBU3Xv4=;
+        b=aEfMNC1WloXHiUlCT703leWQQ046rfYKj5DtNJrgZBHJcLE7YunI+t5fcMDhd6/pQ1
+         lBBmH81QqiUFqVHAMpaSdpi+EFcl8bUjSeB0i54KOEsuyXVtXAArJV+VGuXJlm4lSefG
+         ODA3qhDjwD1aGQHBuqeRhAQfJBr0TpQJdWbSrVv/kl+aeFP1yv6FqKWcDaTl2i390qYt
+         T9IT1zv4vdAoLP6120RCLg0RJ3SddFWUHHQN8PITxVzCyMdjrrMRiUEXwXgruvYHD1j+
+         MdqW+FvwUmNCbGWLuCLYaxJD0jTPcLWYj+XWqn7OPk3Omkpj6urzciF2YyvwWk4kA8p/
+         a1qw==
+X-Forwarded-Encrypted: i=1; AKwUvBxN4Odzm+87mVB8BZ6TujAMwdknGl5JcBr8POXqPxFo3F2ljMQ+vEl1gzp5GHdLhgYssz+nbJWpz7ewJKgfY6w2@lists.infradead.org
+X-Gm-Message-State: AFq9FYImB1smOcV1JZgbpBDtuiAtWp4YMBauN9ugd/TE2Sw3zV1BiOMT
+	qnzT7IDjtvVtA4ZfW2Resm96iuTtyIxNRyNiX4oJULowfYE8JsvsarKr8AImO7PdTps=
+X-Gm-Gg: AYBFou3RUNW8rMmrAix1XdfUzLZiNeHKetnXwqeMR8265ghOwMYhGQSfEhwLlFAFRcb
+	74hcj/fJjrB/h/+95rYF0OKH+pDEPWG9OuyJSQXjTC65Ip8NCSYqRXDTR5mXDdJ05eOknEfoLnp
+	MC1UmmMWOr2UrA4etBZ2zI3ES5VyWJjht/eMvHEJHSyOW3Cw5Tg5XtoBBaKEsA8OIWspCCW4RiP
+	3q/PlFbKBtOmWBB4rEOvhsPxQCsuOfy2TS/X98ICtOM3LLTL+dk5RiaIVhFVZZQ3OR7VafvlNyL
+	Z3EjTinZKjyVcqOf5P/OIX7BU9S+PkvOkIYTB8hZYKlTL05BghfzCHrdkDFGKjG3GkM3LO47DS0
+	Jey3F4UDFtHUMZn6CJxU0kjCyYfTmg1kZN7s1Qg1jJsJXj0GBlN2QBcxeOqk5S9L0/wMAjElVqs
+	5fokzz5Fb1AsAzfF9o9XZfgz6v+h6krYKYA6O5+20DlzW/3iSmz+zyUk07Nt5SFN5ULvFNf9G8N
+	xUB5Sc/K8I/DZRGDGhuV7fI5C5prs1wsY0bNltNi4nHgAsC9OniJU2HuiGqxwoA
+X-Received: by 2002:a05:600d:644f:20b0:4a1:d307:d56f with SMTP id 5b1f17b1804b1-4a1d75fa37fmr1458705e9.15.1792163255733;
+        Fri, 16 Oct 2026 08:07:35 -0700 (PDT)
+Received: from localhost ([151.41.28.233])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd510ba3sm5544284f8f.56.2026.10.16.08.07.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Oct 2026 08:07:35 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0147.namprd13.prod.outlook.com
- (2603:10b6:a03:2c6::32) To DM4PR12MB6448.namprd12.prod.outlook.com
- (2603:10b6:8:8a::7)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB6448:EE_|DS7PR12MB6192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06360f9b-21d4-41cc-1b22-08df2b968d1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|56012099006|11063799006|4143699003|18002099003|10067099003|22082099003;
-X-Microsoft-Antispam-Message-Info: YQ806f1KmUqtuxZyZAgbrQ39CxJfjpWKF58US5QltjA5gZumgyHzIQQ8K9feKJBGYxNuJp/R4zDxtX6JaP+WjjsS9D4MLgkWlaHR8yCeBxsC+ID3buIY3A80d2an2Sx/3x4QMD1+yjilUtVlmdGbvyPgj8wuAWueI73c/icELD17WKiX71s9ePKbOkWUn5xIzUoPo0AtyH6+oyMHDjDx9ZRWBOeSj1o96ZQXcGAvIgkXVZBkV0VIhFL7sCqqEGUklcYX2Of5YRsw48dtfmWUAqovYv1vhC5NmGZL8161bmvRXsh+DzS4S2RFgSkKIkcWydVZosf0gHXvQrLPCTjUbmj4C3Hs1hRjs0ttqJDmodvj3WnzjB7M8aY2ur0XrlzTAwHo7hl0nPwATuiMkIjPzaUQFbs6mGkBC9j4v58Xi7fx0q3+lBuLX5xbomJEsCcbQkCEvcZ5SwE16wGyLMWKWVE/DgszqhVOKwpi1sh2GUsepWis8nkR3R+5fZkR5KvH5tJvaTsFyJ00tOAUIgKCfT5zrfolzM6ydseJjfhUts7xrCObBZkwYxfQBlo7iiHFVcbK/spyRN7/Jzhw/AU5rm711AESBFDw4UyUu+iMJsUcs1Geui0xGQPFEyCmHNQtIr3liIsocDVqTj1dQgpTedF0n8kyF3GOMyVOtRestHo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6448.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(56012099006)(11063799006)(4143699003)(18002099003)(10067099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXIzbmMrZlNRbDg0ekNUandCVmVqbkVCS0VYT1Y5dWZtZkU2R01OTEhHekVJ?=
- =?utf-8?B?eStoVkx4ckx1SUJ2czhENUxTNWQwMEJqMXc3dHl4bmJHdHQ1QXZyaGtlVkUv?=
- =?utf-8?B?T1NLMHRjblY1U00zZjJaeTVkQ0pmbkd5TVBuU21YV2NhWDNXZkxJWks2aFRx?=
- =?utf-8?B?N2JrN2Z1Unp6YjBUcXJKRG05V0pad1lJcXpiOTI2RXhuSXhjbkh5UVFmbFJs?=
- =?utf-8?B?UjJZSmJZcUlUWlY5QzhCTmZQbUZlbTZWdWNRNUdIZGJRWmYreDBtam5Ua2FO?=
- =?utf-8?B?RlRYdUpaTVJvLzkrcC9YYzltYVZBQ0JZaGgvaFovcitvSmpHTjlwZVMwWmkx?=
- =?utf-8?B?Z3RGYWdIQ3JvWXVSOWZzMGx1MGFZTEVqNEUwdW5uNnJMSjlSRVphT1NSY2Ry?=
- =?utf-8?B?RDV0M0E0RGxNREMweXVJYnljVXJ0N052OUsxNGc4THZwWlBTbi9wTjcvVXMw?=
- =?utf-8?B?MThZRXA4QkFaS3FQWnNucm13MFdPc0tjT3pHMXRnUmJzb09OeWhvKzhYU2Vm?=
- =?utf-8?B?TllESHpSWXFtNHEyaTBVQmZGRFhtNHZOK3ZyTytmZldYNXU2RFNTbWJtWUZZ?=
- =?utf-8?B?aTFKVkpHSGpUaDRzdldHd0pML21NWFJCa3VpbEF6UWh1TkgrTFRkU1hJNjFw?=
- =?utf-8?B?VkJacFhMNlhwTEdxVnpIOEREU1BVNnR0NEtXYmlWNC8vUGJiaFN6MVgwYVU1?=
- =?utf-8?B?eXNVQTJSZWVmdmovaEVQUkpmYWtLb2RJS1VGQ0pRSTA5ZmtHeHZrZ1NINi9P?=
- =?utf-8?B?bXYrMDJJZmN4bHhsY1JzVXJBakxYVnAzTkd5YnJyM1o1dXFNRzIzUm5kK0hG?=
- =?utf-8?B?YncwUXIvY1VSVXBJNm1uanJuMW5WNEQvZERXVjNZN2YrZm8zTW9zWDk0NHNs?=
- =?utf-8?B?d21qU0tBV3RjbXhnZW5RZHV3bGh4Q2JiSzdLblkxQTA2UU41bDhGV0ZhMCs4?=
- =?utf-8?B?RjRva3d6eks2bytZbDZ4dFVBbnM3RjVJNzYvQW5aOEdSTldacTJwNEZHeVcz?=
- =?utf-8?B?aW1nZXpwUndaeXdIMy9tN3hFTkJLd2lPOG1iUTAvdlIyVWxvamFkT3d3Vzk4?=
- =?utf-8?B?cW9NMHNYaFJTY09RdStteCtBOEJyL0ZFY3VBMjUrN1h1U0RjTDNYV3FERlVp?=
- =?utf-8?B?RjhSamsydEZRSjErZm9MVFU1djdBUmhBUGFjeWZISVZjOERGeUJoTkswdWVJ?=
- =?utf-8?B?NTh4aGRla3FTZlF0TmY4YkRMZDg1aVRLMUFvY0JwdEN3UjNBNmdqVHN6SEM5?=
- =?utf-8?B?ZU1BdDU5TWxIWUlGRFdlTXIxUUxLVUtNOG5idzJteTcvSHZjZWlPWGsyYWdW?=
- =?utf-8?B?emsvaXZnV1hTU3BmZEp1S1NWbHgvaFo1amhGL2p1MVQzbWluVVJCaWdEUEs1?=
- =?utf-8?B?YkswYzhvSnUzU2J1NHpCQk9aVG5zRXp2QXJ3bmVWa2FuSUhPRFU3ZWtERE1z?=
- =?utf-8?B?YmFLNW5vTWlDTU4yS0ZJUWV6WEE3RUwvbGpkUHlxZDk0cWtBRWR1d0VtZnVZ?=
- =?utf-8?B?d2JQUG43VUdySDhUbjNHRFVIeElvR3NKOTBRTU9jYnRaNXEyeVhrTGVtSlUz?=
- =?utf-8?B?THNhWXlNaU9xam1ITzBjUU9IQzRwdFFiWWxaMDRFNFVsSmdmOHRhdCs5K3pG?=
- =?utf-8?B?ZGthc01ZWjA1Y0RUazFRbjdCbFZlNVhRdGc5TEVHZHk5ZmdUS3kzY2V5MGhq?=
- =?utf-8?B?MlVobUhJc3VyQUVGU25DOGFkcGJDd3NkK09Ua2pGRkRNVTAwV2lwVHhJT3o2?=
- =?utf-8?B?WllsTzZKeEJ4ekZYbEFrbWxCVTFhNXFRbm5xdmZuUFoxWFBDQzQxNFVBc3J6?=
- =?utf-8?B?M2svRTNwdnhKdGtRSXRNRG14K3FLMTNtQ3IzOG52ZEdFa0o0cXk1K0s4Vzd5?=
- =?utf-8?B?bjFRM0IwS0s5RkliSVhVVjhzS1JvWlNCV001M2VjVmJSbWY3ckRqWmhlZnBa?=
- =?utf-8?B?cHJxQjBVU1QrYjNZbm5Ic05qN1Y0bUVsNHFnTjF0YXByN0RRcFBGT1IxaVBB?=
- =?utf-8?B?VmxaaXY0UnNRU2VoeUJ2Zks4ZHAzS0llc2V4V1YvVmVTKzBaZXNaM0JuUUNX?=
- =?utf-8?B?VitPaUxrUE1WVHRQb0JRV3haZ3JxUjd3UkVPWVJESXl1SjZhaDZucHZWMEpF?=
- =?utf-8?B?TlBVSmtBd0MxK1Q4RWtmR1U1Y3ZVOG5PTTlKMk91NVpXdU9CS3ExOWFXL2pF?=
- =?utf-8?B?a1VrRTFMVE41dTRPaDJzYzZyQ3MyQmRXWUZWMmErU2IxZEx6NlVMRDkvdkJD?=
- =?utf-8?B?Q2dnaEdOSUxtRTE1WDk3Y0pBNjhVSzA0ZTc0Q3gyQXY1VnlDNE5scG5Ia0F0?=
- =?utf-8?B?c1hzbnVyUG1NdFJCMk5tbzcwRnJ3a1NJRlVWUGxGTlFMWWNublRadz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06360f9b-21d4-41cc-1b22-08df2b968d1d
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6448.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 15:02:52.4178
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3mi5Igm0U0pkwjz89h/JjTNQyNvKRMzEyMt6bAx0mI7ROhGHBiwvF7Ty1+7Nye6UvfezAucnO6n6C0tL1kmuKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6192
+Date: Fri, 16 Oct 2026 17:07:34 +0200
+Message-Id: <DM6CUP7TSOMH.31T789KQ3Q6OB@linaro.org>
+Subject: Re: [PATCH 02/10] dt-bindings: pinctrl: Add devicetree bindings for
+ DM816x SoC Pinctrl
+From: "Ettore Chimenti" <ettore.chimenti@linaro.org>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Ettore Chimenti"
+ <ettore.chimenti@linaro.org>, "Paul Walmsley" <paul@pwsan.com>, "Aaro
+ Koskinen" <aaro.koskinen@iki.fi>, "Andreas Kemnade" <andreas@kemnade.info>,
+ "Kevin Hilman" <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>,
+ "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Christopher
+ Obbard" <chris.obbard@oss.qualcomm.com>, "Andrew Goodbody"
+ <andrew.goodbody@linaro.org>, "Linus Walleij" <linusw@kernel.org>, "Rouven
+ Czerwinski" <rouven.czerwinski@linaro.org>
+Cc: <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-gpio@vger.kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+ <20261016-patch-ektor5-dm8168-dts-v1-2-b4ce30217028@linaro.org>
+ <ec27fd26-1862-43cf-803a-428846d66663@kernel.org>
+In-Reply-To: <ec27fd26-1862-43cf-803a-428846d66663@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_080301_798113_1758DC64 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20261016_080737_866305_D8D5E00D 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,39 +114,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzyszrof,
 
+On Fri Oct 16, 2026 at 4:51 PM CEST, Krzysztof Kozlowski wrote:
+> On 16/10/2026 16:41, Ettore Chimenti wrote:
+>> Add devicetree bindings for TI DM816x SoC pinctrl configuration.
+>> Using same definition as OMAP2/3 except pullup/down enable macros, which
+>> are inverted in this SoC.
+>>=20
+>> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+>> ---
+>>  include/dt-bindings/pinctrl/dm816x.h | 20 ++++++++++++++++++++
+>>  1 file changed, 20 insertions(+)
+>>=20
+>> diff --git a/include/dt-bindings/pinctrl/dm816x.h b/include/dt-bindings/=
+pinctrl/dm816x.h
+>> new file mode 100644
+>> index 000000000000..15aa15bca9bd
+>> --- /dev/null
+>> +++ b/include/dt-bindings/pinctrl/dm816x.h
+>> @@ -0,0 +1,20 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * This header provides constants specific to DM816X pinctrl bindings.
+>> + */
+>> +
+>> +#ifndef _DT_BINDINGS_PINCTRL_DM816X_H
+>> +#define _DT_BINDINGS_PINCTRL_DM816X_H
+>> +
+>> +#include <dt-bindings/pinctrl/omap.h>
+>
+> I do not see this being used here, IWYU.
+>
+>> +
+>> +#undef PULL_UP
+>> +#undef PULL_ENA
+>
+> Why are you undefining other macros? That's not a easy to follow code.
 
-On 10/16/26 7:56 AM, Krzysztof Kozlowski wrote:
-> On 16/10/2026 16:54, Shah, Tanmay wrote:
->>>> +static const struct of_device_id amd_pl_mbox_of_match[] = {
->>>> +	{ .compatible = "amd,zynqmp-pl-mbox-2.1" },
->>>> +	{ .compatible = "amd,versal-pl-mbox-2.1" },
->>>> +	{ .compatible = "amd,versal-net-pl-mbox-2.1" },
->>>> +	{ .compatible = "amd,versal2-pl-mbox-2.1" },
->>>
->>> So all of them are compatible? Then why do you need all this?
->>>
->>
->> Hi Krzysztof,
->>
->> This block will be used on 4 SoC - zynqmp, versal, versal-net & versal2.
->> IIRC we should list each SoC where the device/hw block is available.
-> 
-> No, you do not list here every compatible device. You only list
-> fallbacks. Please open other drivers to see how this is done. Only hwmon
-> is an exception here with its own reason.
-> 
-> 
+Do you prefer to duplicate `omap.h` defines? Only the defines above do not
+apply to DM816x.
+
+>
+>
+>> +
+>> +/* DM81xx mux bit defines */
+>> +#define PULL_ENA		(0 << 3)  /* Pullup enabled  =3D> 0 */
+>> +#define PULL_DIS		(1 << 3)  /* Pullup disabled =3D> 1 */
+>> +#define PULL_DN			(0 << 4)
+>> +#define PULL_UP			(1 << 4)
+>
+> I do not see this used by drivers, so why do we need one more header?
+> What part of SW are you binding here?
+>
+
+I added those (DN/UP) because they are not defined in `omap.h`. It may be
+convenient for future board upstreaming. I can drop those if undesired.
+
+>
 > Best regards,
 > Krzysztof
 
-Hi Krzysztof,
+Best regards,
+Ettore
 
-Thanks, understood. In v2 the binding keeps the SoC-specific compatibles
-with amd,zynqmp-pl-mbox-2.1 as the fallback, and the driver matches only
-the fallback. I also withdraw the xlnx,mailbox-2.1 proposal from my
-earlier reply.
-
-Thanks,
-Ben
 
