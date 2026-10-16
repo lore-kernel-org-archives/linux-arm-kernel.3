@@ -4,60 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF0DCC6B38
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4BFCCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Oct 2026 14:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cjprWE6K3Nly2L6PH94+1sy0KKUhw4DBb15orbHwdWY=; b=a1j9LKNZitj7jGYzLiq9FTbbpx
-	9TfoDmNpWM5dUiG+CR6LIqBG8+pLLvQqGIDqgxStOB5D74WoL/sT8GL2DKF3n9NuFKlI5pn3oxo+s
-	EBQXr4fumRc2NldPf3fKr5VkAhV5Ivw3KVb39UJJhFZYdEoYOOwz+/hDAyOkuuQ0a/hVVYGwEVItW
-	AfUv0gjjpsf7BAOKxGBDSNxP6B9iTYDsEzLzcc9c9O7u4dpnUEZ/eH8bF/C1oqcde6LPEOI+wVN9f
-	S79MMFQsci9ZJsajVzyjg0I5Zzmjn7viIH2en4G7pj3gN3ALEYUnMiYUHsw0u8rwP30n0gY1AZVYM
-	sSta+PjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e6LSxNlWAru9Xau3l1LiOwRsA+K0x1DXr0VLtPzrlLM=; b=ehfZ4sQJEqgybu
+	h40D6MsYtWX0P/TOo5ZTHWileXs9WA58wJUDE4AXugXDwn+oVZgvEGHYv+NWSIk4tBWbjUBFpmnog
+	2TgawfVSgxwX9sAqqhxmOmcf26GDDilwRr8g/Neyg6carGMQXQjdOSl4zPEwsVyEKKfqGkKa7vZ98
+	QN1WPRp29IbcXLMmjLU8xkAYF+/vAW32ufqG+x85u6MFnHbhclWp0ux3Ru5MYy+7E/zwPq/EtUZ/Z
+	sKQlnT9/sE4yrex2Crqi04izGSeLCZVY3V/tRN0rgPjxnw2MUBMHocXuseHYjtFEXzMm66lq39i7x
+	PafdgQdwSYjYA4hklT0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjIY-00000003Coh-3Mj4;
-	Fri, 16 Oct 2026 14:52:42 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1xHjKq-00000003D3A-1xqS;
+	Fri, 16 Oct 2026 14:55:04 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHjIV-00000003CnA-3tvs
+	id 1xHjKn-00000003D2A-0u81
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Oct 2026 14:52:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=cjprWE6K3Nly2L6PH94+1sy0KKUhw4DBb15orbHwdWY=; b=q
-	E3xqvOhmA4YM8BHvfkcVh6Kig1+VzwusTgwYgtI2efTEnt5aXMQpvnIu7yzRykB/
-	8W1eHSmZkaafHf5Rcsf2+wLzd1iQ/6UqqEAnbXKxgAxr8PGRBwzlPp9gq1mGIUXJ
-	+V11azybDyBMoSJTdxyp3mmx+q84MpMrMksK3TjhUk=
-Date: Fri, 16 Oct 2026 22:52:26 +0800 (CST)
-From: "jiale yao" <19888972804@163.com>
-To: "Marc Zyngier" <maz@kernel.org>
-Cc: "Thomas Gleixner" <tglx@kernel.org>, "Radu Rendec" <radu@rendec.net>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH 3/6] irqchip/gic-v3: validate MADT records before use
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <868q3x1zlp.wl-maz@kernel.org>
-References: <20261016141357.2793046-1-yaojiale02@163.com>
- <20261016141357.2793046-4-yaojiale02@163.com>
- <868q3x1zlp.wl-maz@kernel.org>
-X-NTES-SC: AL_Qu2SAP2dvUsv4CCYYukdnEkQgO0/WsS1vfQu2Y5Wc8IFtC/38yUlZ0NYPnfp6+2NJSWJvAGKTRpq5clFWJF9iQ5bpAI4KkhxMKCqBJTpCg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Fri, 16 Oct 2026 14:55:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W4aQZZLN6ip4wJcA4MiCYcLKBmpgn/DGj6DJvSnendM3I/vJIGz35l5zEFpJstl+OvooyeFebGdzQ4deGOJsZim55h/u6McPV4m5sjI4VmdxXv8fpJCoAEUBcqIOe+ITlrolNAhn4Bo9I2ot1oEaL1MINGrcJql8Kiadby64KQr5ZrQZD0G5G6HIv+IAq8clj2azzSclt+UcRZp6Xr83Ib8ytgiO6h/kGB1N24iE8c0GrkrxfV7v7gBOG8pP8gl5Qz3MDT0DQr0xCfwYFaDsnTiRfbAl327+gLPJRVmCgVbY3udY+C0Pfnas7PIxBegekkphO15WerJEhb/449mkBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e6LSxNlWAru9Xau3l1LiOwRsA+K0x1DXr0VLtPzrlLM=;
+ b=RVDC70XJ7+Na8faTrPbOf8XD423JiB9zWdWe0YLkk7Y2WhF4Nbs/dceWPDvhN1eKs+mmOMKNepP8KUpaaPT1fu/OhHB060iBbqJDPQJRgqL8sVPTmrY4K47W9TCysNabXk1yomFUsak2D/+C956qJZ8yHJ1XyAXgyT0/120n46QripCggl3u0wcRmxxCeF4uRzUQXDt/eGu6yAx3VkcbvU1SDRmW5zbLqsjwAiN8vMIUv7Y7H9Z5s9QxIBzcqnXw0I/s74FQarLxCvzFYTpdB4lguMfYCK6MTNmJKRW2kw0pik01maDCeIiNi/lXUYKEdev2fgXlZJ6Hrtdj39yT2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e6LSxNlWAru9Xau3l1LiOwRsA+K0x1DXr0VLtPzrlLM=;
+ b=SzxrV0OCjVvBlYT5xVwYmVB4oYCxOGRrcor/REsMdJ4LjfKKfU1hmsemvHtV9PX5l4UN5D0ejENVb6V3TgAwm6os4eQltvjwCkVNTEk/f8kalBdyMqovDH4Z12orM6KZ+ZkDV9qw3iQ7b8sCyZ4EYudwPVJkLuIb0NOedRd2+7M=
+Received: from SJ0PR05CA0204.namprd05.prod.outlook.com (2603:10b6:a03:330::29)
+ by IA0PR12MB8326.namprd12.prod.outlook.com (2603:10b6:208:40d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Fri, 16 Oct
+ 2026 14:54:52 +0000
+Received: from PH7PEPF0000000A.namprd04.prod.outlook.com
+ (2603:10b6:a03:330:cafe::4c) by SJ0PR05CA0204.outlook.office365.com
+ (2603:10b6:a03:330::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Fri, 16
+ Oct 2026 14:54:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ PH7PEPF0000000A.mail.protection.outlook.com (10.167.243.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Fri, 16 Oct 2026 14:54:51 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
+ 2026 09:54:44 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Fri, 16 Oct
+ 2026 09:54:44 -0500
+Received: from [192.168.1.205] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Fri, 16 Oct 2026 09:54:43 -0500
+Message-ID: <0ad96f34-97d6-4998-9cf3-4b09ab6c94a2@amd.com>
+Date: Fri, 16 Oct 2026 09:54:37 -0500
 MIME-Version: 1.0
-Message-ID: <4b6cf75b.9d04.1a145333423.Coremail.19888972804@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: hCgvCgD3fxoqOtJqvn9aAA--.31792W
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzgrnImrSOippvQAA39
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] mailbox: Add AMD PL Mailbox soft IP controller
+To: Krzysztof Kozlowski <krzk@kernel.org>, Ben Levinsky <ben.levinsky@amd.com>
+CC: <jassisinghbrar@gmail.com>, <andersson@kernel.org>,
+	<mathieu.poirier@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <michal.simek@amd.com>,
+	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<tanmay.shah@amd.com>
+References: <20261014213426.2957480-1-ben.levinsky@amd.com>
+ <20261014213426.2957480-5-ben.levinsky@amd.com>
+ <20261015-aromatic-ibex-of-opposition-dafb43@quoll>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <20261015-aromatic-ibex-of-opposition-dafb43@quoll>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PEPF0000000A:EE_|IA0PR12MB8326:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d52b61d-e491-4559-fbeb-08df2b956e8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|23010399003|36860700016|13003099007|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003|4143699003|6133799003;
+X-Microsoft-Antispam-Message-Info: nHqkaEh4r10zH7E2VwrvGzg5mUexWzTGottt+mDiXfzMvBknOgA7EZIJnCgHUK6xT5PezXKbVP8b6VW7jU2k6P2Gb4hmR7yJw/Q4pReKH3RLPxhbmQbNY66aCYhjvb7gjbcpaZ2DaufhyVpFOC5bq/QMv0vWWDvbomV6KErvbT77YZjgqsP0ZyOdaWMDhcDYb+sLe6MmiNTNAGros/OQaHTP7JLieQvQt4d+kCWWV+KXC8awwQFLXEk6WdXqS6FbHnLDwy15Z6Ef3BxAvQXAa2EnGjekVuhH4wDcFBNMwVFv8dm+Ftcl3ZdvAElTtJJ54c99JWoHX2eS8RO1jnwqpBPRhscD4JAtHvAl0c0DHQlNNLJcJ/deYgqLK/5kul1MScKm5LMlYbx3Nqediapvi7plk/PX8+SgsALTTbnY8Jl9j6YYDQhcrRKRts1gb376DlQ2zocWDW1yuSW0pL8+hmLuewuHYwmA7y4xF+KXUWeFjr41cl0a49BIUdkMBsdJVhaOtzl8h6ebUR2z7sIBLjOKS4kS7YZIAKjOfu2UaLioIvrRAL0cqCZdXp2/F5VLatqVCbuvBalmvx1vWiHbCBGmxlk8g0/AdNjZVR9psfCoK3jE2Ntdpr2DmwWofPW0z6zrbNaVPNqSFW709Bapsg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(23010399003)(36860700016)(13003099007)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RwxIVHxTf7XIdBwFQ0YVRrCwdXc1SmJYsY8vpzF4L/a6OOCOIN/Bw2kh96r+oNzH6mHFB3Q3t5wDzdLvaBuW4iulhaArNaR1xgAlSZevWwa6FEpC2IqSRNEFoK89w50K54J6YsFWmhnCvgMtW33InrTZiOFscEs7E09rz3wan7L+uGqzH1YcyeCNhLMQOVfjGcpleILk4q99g7Yo3MLE0tKrGmPoDqk9mN55hURsgOC33DzXT1OBqZ7V5THkrjCXmFYa659zqtF7MlB4NRpB0B7EgVJRgzMhF2EsQnQSkOeGjzRdjLNq5nWarcIcyCp07xWFc8I06daYWaxsYfI5jsOCaSlmpOis0fvjuLj2s/iwVo0taKK/ATJYuC8t3QXcpWLh+rOocQ0JxxiWTKZDTPqP3SqqNxlnw8PDQ55dLgZ/wEsD4cYhN/H0s2tA7sH7
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2026 14:54:51.3821
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d52b61d-e491-4559-fbeb-08df2b956e8f
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: PH7PEPF0000000A.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8326
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_075240_365519_949E7BEE 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20261016_075501_655704_FFFB5F86 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,82 +128,126 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFyYywKQXQgMjAyNi0xMC0xNiAyMjozNjo1MCwgIk1hcmMgWnluZ2llciIgPG1hekBrZXJu
-ZWwub3JnPiB3cm90ZToKPk9uIEZyaSwgMTYgT2N0IDIwMjYgMTU6MTM6NTQgKzAxMDAsCj5KaWFs
-ZSBZYW8gPHlhb2ppYWxlMDJAMTYzLmNvbT4gd3JvdGU6Cj4+IAo+PiBUaGUgR0lDdjMgQUNQSSBw
-YXRocyBjYXN0IGdlbmVyaWMgTUFEVCBoZWFkZXJzIHRvIGRpc3RyaWJ1dG9yLAo+PiByZWRpc3Ry
-aWJ1dG9yLCBhbmQgQ1BVIGludGVyZmFjZSByZWNvcmRzIGJlZm9yZSBjb25maXJtaW5nIHRoYXQg
-dGhlCj4+IGNvcnJlc3BvbmRpbmcgZml4ZWQtc2l6ZSBzdHJ1Y3R1cmVzIGFyZSBwcmVzZW50LiBU
-cnVuY2F0ZWQgcmVjb3JkcyBjYW4KPj4gdGhlcmVmb3JlIGNhdXNlIG91dC1vZi1ib3VuZHMgZmll
-bGQgcmVhZHMgd2hpbGUgcHJvYmluZyBvciBzZXR0aW5nIHVwCj4+IHZpcnR1YWxpemF0aW9uIGRh
-dGEuCj4+Cj4+IENoZWNrIGVhY2ggdHlwZWQgTUFEVCByZWNvcmQgYmVmb3JlIGl0cyBmaXJzdCBm
-aWVsZCBhY2Nlc3MuIEFsc28gcmVqZWN0Cj4+IGEgc2hvcnQgZGlzdHJpYnV0b3IgcmVjb3JkIGlu
-IHRoZSB2ZXJzaW9uIHZhbGlkYXRvciwgd2hpY2ggcnVucyBiZWZvcmUKPj4gdGhlIHByb2JlIGNh
-bGxiYWNrLgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogSmlhbGUgWWFvIDx5YW9qaWFsZTAyQDE2My5j
-b20+Cj4+IC0tLQo+PiAgZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMuYyB8IDE4ICsrKysrKysr
-KysrKysrKysrKwo+PiAgMSBmaWxlIGNoYW5nZWQsIDE4IGluc2VydGlvbnMoKykKPj4gCj4+IGRp
-ZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLWdpYy12My5jIGIvZHJpdmVycy9pcnFjaGlw
-L2lycS1naWMtdjMuYwo+PiBpbmRleCA2ZTFmYTViMjQ3ZmMuLjA1ODhkNmQ4M2IzMSAxMDA2NDQK
-Pj4gLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMuYwo+PiArKysgYi9kcml2ZXJzL2ly
-cWNoaXAvaXJxLWdpYy12My5jCj4+IEBAIC0yMjk5LDYgKzIyOTksOSBAQCBnaWNfYWNwaV9wYXJz
-ZV9tYWR0X3JlZGlzdCh1bmlvbiBhY3BpX3N1YnRhYmxlX2hlYWRlcnMgKmhlYWRlciwKPj4gIAkJ
-CShzdHJ1Y3QgYWNwaV9tYWR0X2dlbmVyaWNfcmVkaXN0cmlidXRvciAqKWhlYWRlcjsKPj4gIAl2
-b2lkIF9faW9tZW0gKnJlZGlzdF9iYXNlOwo+PiAgCj4+ICsJaWYgKEJBRF9NQURUX0VOVFJZKHJl
-ZGlzdCwgZW5kKSkKPj4gKwkJcmV0dXJuIC1FSU5WQUw7Cj4+ICsKPj4gIAlyZWRpc3RfYmFzZSA9
-IGlvcmVtYXAocmVkaXN0LT5iYXNlX2FkZHJlc3MsIHJlZGlzdC0+bGVuZ3RoKTsKPj4gIAlpZiAo
-IXJlZGlzdF9iYXNlKSB7Cj4+ICAJCXByX2VycigiQ291bGRuJ3QgbWFwIEdJQ1IgcmVnaW9uIEAl
-bGx4XG4iLCByZWRpc3QtPmJhc2VfYWRkcmVzcyk7Cj4+IEBAIC0yMzI1LDYgKzIzMjgsOSBAQCBn
-aWNfYWNwaV9wYXJzZV9tYWR0X2dpY2ModW5pb24gYWNwaV9zdWJ0YWJsZV9oZWFkZXJzICpoZWFk
-ZXIsCj4+ICAJdTMyIHNpemUgPSByZWcgPT0gR0lDX1BJRFIyX0FSQ0hfR0lDdjQgPyBTWl82NEsg
-KiA0IDogU1pfNjRLICogMjsKPj4gIAl2b2lkIF9faW9tZW0gKnJlZGlzdF9iYXNlOwo+PiAgCj4+
-ICsJaWYgKEJBRF9NQURUX0VOVFJZKGdpY2MsIGVuZCkpCj4+ICsJCXJldHVybiAtRUlOVkFMOwo+
-PiArCj4+ICAJLyogTmVpdGhlciBlbmFibGVkIG9yIG9ubGluZSBjYXBhYmxlIG1lYW5zIGl0IGRv
-ZXNuJ3QgZXhpc3QsIHNraXAgaXQgKi8KPj4gIAlpZiAoIShnaWNjLT5mbGFncyAmIChBQ1BJX01B
-RFRfRU5BQkxFRCB8IEFDUElfTUFEVF9HSUNDX09OTElORV9DQVBBQkxFKSkpCj4+ICAJCXJldHVy
-biAwOwo+PiBAQCAtMjM5MSw2ICsyMzk3LDkgQEAgc3RhdGljIGludCBfX2luaXQgZ2ljX2FjcGlf
-bWF0Y2hfZ2ljYyh1bmlvbiBhY3BpX3N1YnRhYmxlX2hlYWRlcnMgKmhlYWRlciwKPj4gIAlzdHJ1
-Y3QgYWNwaV9tYWR0X2dlbmVyaWNfaW50ZXJydXB0ICpnaWNjID0KPj4gIAkJCQkoc3RydWN0IGFj
-cGlfbWFkdF9nZW5lcmljX2ludGVycnVwdCAqKWhlYWRlcjsKPj4gIAo+PiArCWlmIChCQURfTUFE
-VF9FTlRSWShnaWNjLCBlbmQpKQo+PiArCQlyZXR1cm4gLUVJTlZBTDsKPj4gKwo+PiAgCS8qCj4+
-ICAJICogSWYgR0lDQyBpcyBlbmFibGVkIGFuZCBoYXMgdmFsaWQgZ2ljciBiYXNlIGFkZHJlc3Ms
-IHRoZW4gaXQgbWVhbnMKPj4gIAkgKiBHSUNSIGJhc2UgaXMgcHJlc2VudGVkIHZpYSBHSUNDLiBU
-aGUgcmVkaXN0cmlidXRvciBpcyBvbmx5IGtub3duIHRvCj4+IEBAIC0yNDM3LDYgKzI0NDYsOSBA
-QCBzdGF0aWMgYm9vbCBfX2luaXQgYWNwaV92YWxpZGF0ZV9naWNfdGFibGUoc3RydWN0IGFjcGlf
-c3VidGFibGVfaGVhZGVyICpoZWFkZXIsCj4+ICAJaW50IGNvdW50Owo+PiAgCj4+ICAJZGlzdCA9
-IChzdHJ1Y3QgYWNwaV9tYWR0X2dlbmVyaWNfZGlzdHJpYnV0b3IgKiloZWFkZXI7Cj4+ICsJaWYg
-KGhlYWRlci0+bGVuZ3RoIDwgc2l6ZW9mKCpkaXN0KSkKPj4gKwkJcmV0dXJuIGZhbHNlOwo+PiAr
-Cj4KPldoeSBpcyB0aGlzIG9wZW4tY29kZWQgaW5zdGVhZCBvZiB1c2luZyB0aGUgY2hlY2tpbmcg
-bWFjcm8/CgpBZ3JlZWQuIEkgd2lsbCB1c2UgQkFEX01BRFRfRU5UUlkoKSB3aXRoIHRoZSBlbmQg
-b2YgdGhlIGN1cnJlbnQgcmVjb3JkIGluc3RlYWQgb2Ygb3Blbi1jb2RpbmcgdGhlCm1pbmltdW0t
-c2l6ZSBjaGVjay4KCj4KPj4gIAlpZiAoZGlzdC0+dmVyc2lvbiAhPSBhcGUtPmRyaXZlcl9kYXRh
-KQo+PiAgCQlyZXR1cm4gZmFsc2U7Cj4+ICAKPj4gQEAgLTI0NTcsNiArMjQ2OSw5IEBAIHN0YXRp
-YyBpbnQgX19pbml0IGdpY19hY3BpX3BhcnNlX3ZpcnRfbWFkdF9naWNjKHVuaW9uIGFjcGlfc3Vi
-dGFibGVfaGVhZGVycyAqaGVhCj4+ICAJaW50IG1haW50X2lycV9tb2RlOwo+PiAgCXN0YXRpYyBp
-bnQgZmlyc3RfbWFkdCA9IHRydWU7Cj4+ICAKPj4gKwlpZiAoQkFEX01BRFRfRU5UUlkoZ2ljYywg
-ZW5kKSkKPj4gKwkJcmV0dXJuIC1FSU5WQUw7Cj4+ICsKPgo+V2h5IGlzbid0IHRoaXMgdXNpbmcg
-QkFEX01BRFRfR0lDQ19FTlRSWSgpPwoKR29vZCBwb2ludC4gR0lDQyByZWNvcmRzIGhhdmUgYSB2
-ZXJzaW9uLWRlcGVuZGVudCBzaXplLCBhbmQgcmVxdWlyaW5nIHNpemVvZigqZ2ljYykgY2FuIHJl
-amVjdCB2YWxpZCByZWNvcmRzCmZyb20gb2xkZXIgQUNQSSByZXZpc2lvbnMuIEkgd2lsbCB1c2Ug
-QkFEX01BRFRfR0lDQ19FTlRSWSgpIGhlcmUgYW5kIGluIHRoZSBvdGhlciB0d28gR0lDQyBjYWxs
-YmFja3MgYWRkZWQgYnkKdGhpcyBwYXRjaC4KCj4KPj4gIAlpZiAoIShnaWNjLT5mbGFncyAmCj4+
-ICAJICAgICAgKEFDUElfTUFEVF9FTkFCTEVEIHwgQUNQSV9NQURUX0dJQ0NfT05MSU5FX0NBUEFC
-TEUpKSkKPj4gIAkJcmV0dXJuIDA7Cj4+IEBAIC0yNTQ3LDYgKzI1NjIsOSBAQCBnaWNfYWNwaV9p
-bml0KHVuaW9uIGFjcGlfc3VidGFibGVfaGVhZGVycyAqaGVhZGVyLCBjb25zdCB1bnNpZ25lZCBs
-b25nIGVuZCkKPj4gIAo+PiAgCS8qIEdldCBkaXN0cmlidXRvciBiYXNlIGFkZHJlc3MgKi8KPj4g
-IAlkaXN0ID0gKHN0cnVjdCBhY3BpX21hZHRfZ2VuZXJpY19kaXN0cmlidXRvciAqKWhlYWRlcjsK
-Pj4gKwlpZiAoQkFEX01BRFRfRU5UUlkoZGlzdCwgZW5kKSkKPj4gKwkJcmV0dXJuIC1FSU5WQUw7
-Cj4+ICsKPgo+V2h5IGRvZXMgdGhpcyBuZWVkIHRvIGJlIHJlLWNoZWNrZWQgaWYgdGhlIHZhbGlk
-YXRpb24gcGhhc2VkIGhhcyBzdWNjZWVkZWQ/CgpJdCBkb2VzIG5vdC4gVGhlIHByb2JlIGNhbGxi
-YWNrIGlzIGludm9rZWQgd2l0aCB0aGUgc2FtZSByZWNvcmQgaW1tZWRpYXRlbHkgYWZ0ZXIgYWNw
-aV92YWxpZGF0ZV9naWNfdGFibGUoKQpzdWNjZWVkcywgc28gdGhlIGNoZWNrIGluIGdpY19hY3Bp
-X2luaXQoKSBpcyByZWR1bmRhbnQuIEkgd2lsbCByZW1vdmUgaXQgYW5kIGtlZXAgdGhlIGRpc3Ry
-aWJ1dG9yLXNpemUKdmFsaWRhdGlvbiBpbiB0aGUgdmFsaWRhdGlvbiBjYWxsYmFjay4KCj4KPj4g
-IAlhY3BpX2RhdGEuZGlzdF9iYXNlID0gaW9yZW1hcChkaXN0LT5iYXNlX2FkZHJlc3MsCj4+ICAJ
-CQkJICAgICAgQUNQSV9HSUNWM19ESVNUX01FTV9TSVpFKTsKPj4gIAlpZiAoIWFjcGlfZGF0YS5k
-aXN0X2Jhc2UpIHsKPgo+VGhhbmtzLAo+Cj4JTS4KPgo+LS0gCj5XaXRob3V0IGRldmlhdGlvbiBm
-cm9tIHRoZSBub3JtLCBwcm9ncmVzcyBpcyBub3QgcG9zc2libGUuCgpJIHdpbGwgZml4IHRoZW0g
-aW4gdjIsIHRoYW5rcyBmb3IgeW91ciByZXZpZXcuCg==
+
+
+On 10/15/2026 4:48 AM, Krzysztof Kozlowski wrote:
+> On Wed, Oct 14, 2026 at 02:34:24PM -0700, Ben Levinsky wrote:
+>> Add a mailbox-framework controller for the AMD programmable-logic
+>> Mailbox soft IP. Expose separate transmit and receive FIFO channels.
+>>
+>> Enable the interface clock only while a channel is started, before any
+>> register access, and disable it last when the channel shuts down. Keep
+>> provider probe free of register accesses and leave the IRQ disabled until
+>> a client starts the receive channel. Initialize each FIFO when its channel
+>> starts, use receive-threshold interrupts for incoming words, and poll the
+>> send-threshold status for transmit completion. Stop that polling from
+>> accessing registers once the transmit channel begins to shut down.
+>>
+>> Carry mailbox payloads in struct zynqmp_ipi_message, limited to the FIFO
+>> depth given by the device tree. The FIFO transfers 32-bit words and the
+>> hardware conveys neither a byte count nor the FIFO occupancy, so a
+>> transmit length that is not a multiple of four is zero-padded to a whole
+>> word.
+>>
+>> On a receive-threshold interrupt, read up to one FIFO depth of words and
+>> deliver them as one message, then acknowledge the interrupt. The event
+>> latches only when the FIFO goes from empty to nonempty, so a word that
+>> arrives between the drain and the acknowledge, or words left by the
+>> bounded drain, raise no new event. If the FIFO is nonempty after the
+>> acknowledge, toggle the threshold to latch a new event for them.
+>>
+>> Assisted-by: LLM sparse
+>> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
+>> ---
+>>  MAINTAINERS                      |   7 +
+>>  drivers/mailbox/Kconfig          |  10 +
+>>  drivers/mailbox/Makefile         |   1 +
+>>  drivers/mailbox/amd-pl-mailbox.c | 369 +++++++++++++++++++++++++++++++
+>>  4 files changed, 387 insertions(+)
+>>  create mode 100644 drivers/mailbox/amd-pl-mailbox.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index f53047aa8d3c..4e28e0c311c0 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -1287,6 +1287,13 @@ S:	Supported
+>>  T:	git https://gitlab.freedesktop.org/agd5f/linux.git
+>>  F:	drivers/gpu/drm/amd/pm/
+>>  
+>> +AMD PROGRAMMABLE LOGIC MAILBOX DRIVER
+>> +M:	Ben Levinsky <ben.levinsky@amd.com>
+>> +L:	linux-kernel@vger.kernel.org
+>> +S:	Maintained
+>> +F:	Documentation/devicetree/bindings/mailbox/amd,zynqmp-pl-mbox-2.1.yaml
+>> +F:	drivers/mailbox/amd-pl-mailbox.c
+>> +
+>>  AMD PSTATE DRIVER
+>>  M:	Huang Rui <ray.huang@amd.com>
+>>  M:	Mario Limonciello <mario.limonciello@amd.com>
+>> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+>> index ab869769e278..3c3f262c903c 100644
+>> --- a/drivers/mailbox/Kconfig
+>> +++ b/drivers/mailbox/Kconfig
+>> @@ -8,6 +8,16 @@ menuconfig MAILBOX
+>>  
+>>  if MAILBOX
+>>  
+>> +config AMD_PL_MAILBOX
+>> +	tristate "AMD PL Mailbox soft IP controller"
+> 
+> Missing depends on Zynq/Xilinx.
+> 
+>> +	depends on HAS_IOMEM
+>> +	depends on OF
+>> +	help
+>> +	  Mailbox controller for the AMD Programmable Logic Mailbox soft IP.
+>> +	  The controller exposes transmit and receive FIFO channels to mailbox
+>> +	  clients. It supports interrupt-driven receive notification and
+>> +	  polling-based transmit completion through the common mailbox framework.
+> 
+> ...
+> 
+>> +	mb->controller.dev = dev;
+>> +	mb->controller.ops = &amd_pl_mbox_ops;
+>> +	mb->controller.chans = mb->chans;
+>> +	mb->controller.num_chans = AMD_PL_MBOX_NUM_CHANS;
+>> +	mb->controller.txdone_poll = true;
+>> +	mb->controller.txpoll_period = 1;
+>> +	mb->controller.of_xlate = amd_pl_mbox_xlate;
+>> +
+>> +	ret = devm_request_irq(dev, mb->irq, amd_pl_mbox_irq,
+>> +			       IRQF_NO_AUTOEN,
+>> +			       dev_name(dev), mb);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return devm_mbox_controller_register(dev, &mb->controller);
+>> +}
+>> +
+>> +static const struct of_device_id amd_pl_mbox_of_match[] = {
+>> +	{ .compatible = "amd,zynqmp-pl-mbox-2.1" },
+>> +	{ .compatible = "amd,versal-pl-mbox-2.1" },
+>> +	{ .compatible = "amd,versal-net-pl-mbox-2.1" },
+>> +	{ .compatible = "amd,versal2-pl-mbox-2.1" },
+> 
+> So all of them are compatible? Then why do you need all this?
+> 
+
+Hi Krzysztof,
+
+This block will be used on 4 SoC - zynqmp, versal, versal-net & versal2.
+IIRC we should list each SoC where the device/hw block is available.
+That is why we listed all 4 of them. I am not sure if the compatible
+property in the YAML is presenting this correctly, but here I think it
+is good. Please suggest if there is a better way.
+
+Thank You.
+
+> Best regards,
+> Krzysztof
+
 
