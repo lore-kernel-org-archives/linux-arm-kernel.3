@@ -4,143 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A9ACC6B2A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E3FCC6B2A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9fvpEDXxRo4joGgx4s5iXFjBycG9jJi06nMAvOqQPE=; b=vsdKclc3soZIpKq5UcjG0EJxzf
-	tsScGxj7lvHZTMTRmLFitcCG5GWdlAa7cnZAbGINWVBoFzdGuo5f19ILtOSWO465mwsny4Xlf8C8e
-	uDy9yxNwiAexThpDT7Vx2XHc2l6dkmonYjMTCXmqNTiUOPo7VzjfOVllGbfT1HnxLCKlOj7mHLPM1
-	WXqvRYBnZvoovHPz5ZrWc6ukt/QOtwXgb+hwUU+vGbzfEnT12LQ6zX2uvg6M6NuzY+b9S4fiAPVuy
-	3O/i2P4xIr9PrZvUPmw7yGWUHGDpbNTPQVAX+EOmjOGm/ObMoTO7lg+xlA/tb+khVlFV/7eyME+MB
-	BA7hIIaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HKyrajglvkZym7GVxjZbY9UdP4w2Ty0ujD/pRoAfYBE=; b=jvqRaH1SepP0E81BCZ2zeKEZkp
+	t3qsrAdeSGtQlHTHzpDGNTVNEhXiYjTC3I0beY4L7//qxzQolzvF/uuUVYfmcgbigA8+BtRvKGIK3
+	h8QGN3z1beE2FAv1DSioEnpeGPw0R/VjvWBkjlQ+iPCHr7iIUSUjLpaQPZWKPhAw7t0bSqrW8W89Y
+	gFqwT7WsWlchq8AbHLibyngdUpxP94nVFGoDLjuKDGXqu7k01JOBVwFn/Dunu2KUxi3auH4GONePS
+	6ZoiGka981eoXzoYdIEoaBVOGAsoh43LTrdznHpYKcoGWsFVZnQPNXp+oq8cx5MZ1wLRRrHSZltge
+	GXrnrgQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHymI-00000004Vhg-0r1Z;
-	Sat, 17 Oct 2026 07:24:26 +0000
-Received: from mail-bjschn02on20702.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::702] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1xHyr5-00000004W9p-01S8;
+	Sat, 17 Oct 2026 07:29:23 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHymC-00000004VhD-1NvG
+	id 1xHyr2-00000004W98-125U
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 07:24:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Gw4gT+xw66Sp+rS2wr03QLc0hX58v+3NlKhjJYbDO8brDCm5uIiRUCKn1C9E376iBw+hYwehroB+r4FTzdYm3O9HexFqzyebSt8Un2ddir1uSwJ39PzZ0kDhMDiNQJJTOO5t3qaHzjtuonciLB9FmBauG8UDk2tcw5kKra+jaoe+nog4nvoHeMbfyiVxJnm230G6EK8pNo8vvpXgbFdziGeBPnTLcgzPx8U/elfLuOyNdVj533t4GO8+WxMjbzNjkCDhtMEzN/nump1zwZUTH3SNlJz/o+dfkG4T8QfbbCPmPa44FIEeybC0bpXyTk4e533jzvjVR/wwf02ax7Twpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P9fvpEDXxRo4joGgx4s5iXFjBycG9jJi06nMAvOqQPE=;
- b=k2WotCrsHT1X94X3vZ0I1tflassA2LiIAxX2MquIgGFm7z77/Z2HAySnZ16vTlF4Zr1aKhi3r4Vr3dGdjd5SqURKCrQ8uMOScoKkUdfztT6qpzRIz8GjBP81d7pq08qjbAUyXT0in8Z/9tUHyKBuy8HOOrxCkLF8FOAAjm+zXRJLbKZysE8UJFX2irYDkgkOr7/zS6BkT2CnRC7tzuL3l85LhWWP46JD+v2hJebXYTwgGHv0ZddZ49hy6J8pc4TTZdfreZyJqSEgGgPyevhjSO0UTV4AgqJxU7jUWvtWsNYpGsL4OscBh2kGvJb8r3llMlqXBJxwXWXfyuLcMdAJSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1156.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:14::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.17; Sat, 17 Oct
- 2026 07:07:50 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0522.016; Sat, 17 Oct 2026 07:07:50 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Breno Leitao <leitao@debian.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Joel
- Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Chia-Wei Wang <chiawei_wang@aspeedtech.com>, Oskar Senft <osk@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shuah Khan
-	<skhan@linuxfoundation.org>, Jani Nikula <jani.nikula@intel.com>, Vitaly
- Lubart <lubvital@gmail.com>, Hanjun Guo <guohanjun@huawei.com>, Andrew Morton
-	<akpm@linux-foundation.org>, Alexander Usyskin <alexander.usyskin@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Philipp Zabel <p.zabel@pengutronix.de>, James
- Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>, Stephen
- Hemminger <stephen@networkplumber.org>, Dave Penkler <dpenkler@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jonathan Cameron <jic23@kernel.org>, Dan
- Williams <djbw@kernel.org>, Mukesh Rathor <mrathor@linux.microsoft.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, Alexandra Winter
-	<wintera@linux.ibm.com>, Julian Braha <julianbraha@gmail.com>, Karthikeyan KS
-	<karthiproffesional@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>
-Subject: Re: [PATCH v2 1/4] uart-routing: Add common UART routing framework
-Thread-Topic: [PATCH v2 1/4] uart-routing: Add common UART routing framework
-Thread-Index: AQHdPSFocjktLUPKVk6wGx4cu9RnpLb+m6cAgAL2hSA=
-Date: Sat, 17 Oct 2026 07:07:50 +0000
-Message-ID: <ZQ4PR01MB12025942CE5D2F83D82BD1BCF29A2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260905102901.126035-1-changhuang.liang@starfivetech.com>
- <20260905102901.126035-2-changhuang.liang@starfivetech.com>
- <atCibvmbCSTMTMYD@gmail.com>
-In-Reply-To: <atCibvmbCSTMTMYD@gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1156:EE_
-x-ms-office365-filtering-correlation-id: a036de3e-805d-45b2-1520-08df2c1d5b06
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|22082099003|18002099003|4143699003|261009223027099003|38070700021|56012099006;
-x-microsoft-antispam-message-info: utRJekgtv75KZ6hbikRcPwP3g3AMvj/lP6rydsEhUkVBc7wo8Ka/DkxMvfD4jzcmFve9UZVHly3MDAwLLiQwI+LbA2cGyH7g0mDIreIUDqbP/gSITjtL6LLhauo4NVjBhOnW7w0O4fCDGEvBJxNyQ3G1g7zVDrSgTztXkX7ryN79X7V/dSmOQmnXvlx2iN8QL0JZ1ve3Ponpi3+UodJbk/r80zimh7CrJ7GoR3QeWwFqDaZD5hJqq7ecpY6Z3lRypM5DECNg6y+EsZ5patGbSfxO8yxLOpWfzQe5vyO39loz/bgJcAm+VEsMZGD742kDdxO4Pl/inbMj6xkEdag0xKVTvOXZ8hC1H8QGokolKQd4Sj/yBQRjN2doLjkYy4sti7MhsOmoWlDQXfJGrpKzKs7r3PJZjSdHxYo8YKu0UNLhGFaik0b60R34wWeXfSkgIUBL/JObeh9OffZc1w6tOXQqcrywFqynscQe+KdPmppITWurM4YH8PUy1g0GEX1zsMHSnoIJJ1PhYdvHsKiu2hN6klvyMrKDQYO7mS+3WKyuwexva55zbpcJ5vG+7x3A
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(22082099003)(18002099003)(4143699003)(261009223027099003)(38070700021)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?O2wuCtjpR4/HkokmUVsZ6yzWuRW4oc/VqfJbhtJsQ8j0xB2nj1KFxuWfdcNW?=
- =?us-ascii?Q?v2bpEHhq6q3fXgQmbEqqbpC7JJuqNqRUks/c24jQ/o9Iqyj3bBZjlWHLlDyH?=
- =?us-ascii?Q?i10g/V11rGedpZq3CWQv/+qRHFiQvkuCr1gyjg6xBNIaarRLniZb5hPRdC9s?=
- =?us-ascii?Q?f9SykGzmcq/6NgUTPTNHeH0Dhs1052IhqQyHIz88uPnQfQh4LIO0qblI7f9a?=
- =?us-ascii?Q?x2mehoOAjo2OhlxwL8lIwb9KgGWSGP0m6QTHB39KdeL4yq1mQvbHHLwWyEnS?=
- =?us-ascii?Q?uHgrvvmQR2Nt6zdxdHBrrHGEGpr5mmTcHGfNoHygK2zAHpnwPd64cR7XsQ89?=
- =?us-ascii?Q?kprwmCaGViCGxGLFGUf4Qx/Uvs3UBKPGwyvXAxKAjmbY7aE8zaUyvbJzN+cM?=
- =?us-ascii?Q?GwMslLjZgKRqWR/G1+soDVe6JIAuoudpiBDTlisQCM/3xXpDZsmUrs6+BuUM?=
- =?us-ascii?Q?5WSvof+X+ypZRjvATwfcFiwLyZqeU0CYMPXJaYOHpZq/PVEcQilyjFTGLKVu?=
- =?us-ascii?Q?oNHYdVBhU+zo+LXb5VIutnnXnSw9fZ3FRDKIRkNmkgo9XvTLy/oW/Pvc+zyZ?=
- =?us-ascii?Q?A4Hr3OAF5j29Fkc3+ESUc2hzzEekYMVNjt68NW4liRPoux4X4JJiSaqNjLZm?=
- =?us-ascii?Q?fAeSH11WhK3+ur9Y6FhRKl5+st0yiPU8iVAl3qdgKmvWiUXUYkW9zA7HKQ5t?=
- =?us-ascii?Q?NdUGlDh5B8oEWyVeGxN2lw4Rr9V1W1rVKO7K6Za7BElmBHwRAKwSn8zCu1Dc?=
- =?us-ascii?Q?hqmS0nj1mQbTPOZGKZTstDDpNGfElN/9u1bIWu81iA0zkGei2PYqCgZILT/4?=
- =?us-ascii?Q?yiG6M+Y9P+bD/YwjPCWmBPRyc76VuKQFp5wAUf+UVUb0BltgDD3w1dfAggcF?=
- =?us-ascii?Q?x+cro2jppSSmt4q8V+mON7zmq7ES17IP6JroYVfEB5xZRZar00fBiiHAcnej?=
- =?us-ascii?Q?e1OnxxAtPSP0kVkmBJLs6Pu4TuREBcsYoUbiJF1r+aRmngAQKEQZJbpqH4i9?=
- =?us-ascii?Q?cDdMqh6LsVL9qBBQ+HcZZvBiz0qg1ezgMl0tGTIz+ln0U57+hmpKrEDmSJIt?=
- =?us-ascii?Q?qB0wQucupfKojesWQuQj+xzgNDrLaJTvX1DC9V2E2OdirgYxILzu0N3KhIT9?=
- =?us-ascii?Q?X9wxLWX/NLs7i5WCogTK6QiC2cNk7i1iYu9WReuxQOidljR3e+ldHaxQF08C?=
- =?us-ascii?Q?x1XJWuwUg148vicfiSfAAZJkt6xJNPmN5v8Jt7Hi/Y123qLIbR6cG7+Z2gzd?=
- =?us-ascii?Q?ajfievEw7HTBqogLrNhUcDC44BUIl4xeq0kLZdMuwTMHZiYycJEFE1CzsQPG?=
- =?us-ascii?Q?u29W6XfnmWEw9R1OLYwTK0deHdp58faUCxIiHgq5R8kO8DHM0QgGvCPR4hEH?=
- =?us-ascii?Q?ebJrfM2poA0IvYyeQQYtTVWwJ7WQp2OqgSuAeWTbERKxfItp2OADTh+rbTUH?=
- =?us-ascii?Q?HQzDn74dO2EIZas3TVj8EB6zqGQh6WBTBfgYJbomcF95/Fx1C3RtsaWMLpIP?=
- =?us-ascii?Q?9OszPwXxGW4r2QuC1PNcccYBlbRK/MqUKNYyh/NRik0eBOYacEKlWpleyKjZ?=
- =?us-ascii?Q?kDyIx7gOEUfrkdJ1EC4SiJQtWfn/QXEeMNLHjqmV4ejZ4ro21VU0JSD4ueRg?=
- =?us-ascii?Q?dNkkhaDjAzhODiW9+evyAj+F3kXCVeiPqihQxPnCtORuRXVUOmBpAxPv05iN?=
- =?us-ascii?Q?WB2/PiqCoGY1kbI2xXCB1hUrjZmaLSp0EYBNujl/+NAXaUkD9ZHi88JEZNE9?=
- =?us-ascii?Q?QtqEYaWJEyi4MHkHwxLX55BOJWZe4c0=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Sat, 17 Oct 2026 07:29:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=HKyrajglvkZym7GVxjZbY9UdP4w2Ty0ujD/pRoAfYBE=; b=o
+	Rm7JJB4txNDoYAuBRgHgDpgCcjD6vBF81b/9PmMeC5Ve4Fqw4sxFqhJwJ0Dmcy2/
+	ck7NQYzUwAaizmUmfZn6vsTDXL5j7IWCDxv9QSQXyjCpWaSQQVGs2JU/HkcHnOmH
+	KQ7F9n0ectGaQWLkURK73mGI8WU0vPGdDqBLzkDbs8=
+Date: Sat, 17 Oct 2026 15:29:10 +0800 (CST)
+From: "jiale yao" <19888972804@163.com>
+To: "Marc Zyngier" <maz@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+	"Radu Rendec" <radu@rendec.net>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH 2/6] irqchip/gic-v3-its: validate MADT ITS entries
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20261016141357.2793046-3-yaojiale02@163.com>
+References: <20261016141357.2793046-1-yaojiale02@163.com>
+ <20261016141357.2793046-3-yaojiale02@163.com>
+X-NTES-SC: AL_Qu2SAP6ZvUku5iSZbekdnEkQgO0/WsS1vfQu2Y5Wc+wEgCbN4z0YdHxaDHHN8e6DOSarnDiOagNHzNRcb4JH46+Glb8VrgXrm+pkFOCPxQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: a036de3e-805d-45b2-1520-08df2c1d5b06
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Oct 2026 07:07:50.1890
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Ohhki4sPohoPiX7ARVEE5zvNCg5zHqO2isikhZ4PNd7rbBa1RvxOarTsaVH+bDJaoxu9HTyTUJhKHnz6d1dLges4gOJB02F1xIY85FdVIl669IyheX6t9gn7LhaVJmgF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1156
+Message-ID: <626e9340.182e.1a148c3bf1f.Coremail.19888972804@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZygvCgD3X4bGI9NqMPtaAA--.138W
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzQaJw2rTI8YH7QAA33
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_002420_413156_0D737BD9 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20261017_002920_704078_814B904C 
+X-CRM114-Status: UNSURE (   4.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,50 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Breno
+QXQgMjAyNi0xMC0xNiAyMjoxMzo1MywgIkppYWxlIFlhbyIgPHlhb2ppYWxlMDJAMTYzLmNvbT4g
+d3JvdGU6Cj5UaGUgTUFEVCBJVFMgY2FsbGJhY2sgcmVhZHMgdGhlIHRyYW5zbGF0b3IgYmFzZSBh
+ZGRyZXNzIGFuZCBJRCB3aXRob3V0Cj5jaGVja2luZyB0aGF0IGZpcm13YXJlIHN1cHBsaWVkIGEg
+Y29tcGxldGUgZ2VuZXJpYyB0cmFuc2xhdG9yIHJlY29yZC4gQQo+dHJ1bmNhdGVkIGVudHJ5IGNh
+biB0aGVyZWZvcmUgY2F1c2Ugb3V0LW9mLWJvdW5kcyByZWFkcy4KPgo+UmVqZWN0IGluY29tcGxl
+dGUgSVRTIGVudHJpZXMgYmVmb3JlIGFjY2Vzc2luZyB0aGVpciB0eXBlZCBmaWVsZHMuCj4KCkZp
+eGVzOiAzZjAxMGNmMTk3MzIgKCJpcnFjaGlwL2dpY3YzLWl0czogUHJvYmUgSVRTIGluIHRoZSBB
+Q1BJIHdheSIpCgo+U2lnbmVkLW9mZi1ieTogSmlhbGUgWWFvIDx5YW9qaWFsZTAyQDE2My5jb20+
+Cj4tLS0KPiBkcml2ZXJzL2lycWNoaXAvaXJxLWdpYy12My1pdHMuYyB8IDMgKysrCj4gMSBmaWxl
+IGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKQo+Cj5kaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlw
+L2lycS1naWMtdjMtaXRzLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLWdpYy12My1pdHMuYwo+aW5k
+ZXggZTk4MDdhZjIzNTM3Li40ODVhNzkwZTQ4NTYgMTAwNjQ0Cj4tLS0gYS9kcml2ZXJzL2lycWNo
+aXAvaXJxLWdpYy12My1pdHMuYwo+KysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMtaXRz
+LmMKPkBAIC01NzI1LDYgKzU3MjUsOSBAQCBzdGF0aWMgaW50IF9faW5pdCBnaWNfYWNwaV9wYXJz
+ZV9tYWR0X2l0cyh1bmlvbiBhY3BpX3N1YnRhYmxlX2hlYWRlcnMgKmhlYWRlciwKPiAJaW50IGVy
+cjsKPiAKPiAJaXRzX2VudHJ5ID0gKHN0cnVjdCBhY3BpX21hZHRfZ2VuZXJpY190cmFuc2xhdG9y
+ICopaGVhZGVyOwo+KwlpZiAoQkFEX01BRFRfRU5UUlkoaXRzX2VudHJ5LCBlbmQpKQo+KwkJcmV0
+dXJuIC1FSU5WQUw7Cj4rCj4gCW1lbXNldCgmcmVzLCAwLCBzaXplb2YocmVzKSk7Cj4gCXJlcy5z
+dGFydCA9IGl0c19lbnRyeS0+YmFzZV9hZGRyZXNzOwo+IAlyZXMuZW5kID0gaXRzX2VudHJ5LT5i
+YXNlX2FkZHJlc3MgKyBBQ1BJX0dJQ1YzX0lUU19NRU1fU0laRSAtIDE7Cj4tLSAKPjIuMzQuMQo=
 
-> On Sat, Sep 05, 2026 at 03:28:58AM -0700, Changhuang Liang wrote:
-> > +ssize_t uart_routing_show(struct device *dev, struct device_attribute =
-*attr,
-> > +                       char *buf)
-> > +{
-> > +     const struct uart_routing_selector *sel =3D
-> to_uart_routing_selector(attr);
-> > +     struct uart_routing *routing =3D uart_routing_from_dev(dev);
-> > +     unsigned int val, pos;
-> > +     int len, ret;
-> > +
-> > +     ret =3D regmap_read(routing->regmap, sel->reg, &val);
->=20
-> It seems routing can be NULL here if the file is read while the device is=
- being
-> unbound, and uart_routing_store() has the same problem.
->=20
-> I hit this while testing v2 on arm64 (next-20261008 with KASAN), and the
-> code is unchanged in v3.
->=20
->         d=3D/sys/bus/platform/devices/$DEV
->         drv=3D/sys/bus/platform/drivers/aspeed-uart-routing
->         while :; do cat $d/uart1; done >/dev/null 2>&1 &
->         while :; do echo $DEV > $drv/unbind; echo $DEV > $drv/bind; done
->=20
-> and then got:
->=20
->     KASAN: null-ptr-deref in range
-> [0x0000000000000000-0x0000000000000007]
->     Internal error: Oops: 0000000096000006 [#1]  SMP
->     pc : uart_routing_show+0x64/0x288 [uart_routing]
->     Call trace:
->      uart_routing_show+0x64/0x288 [uart_routing] (P)
->      dev_attr_show+0x64/0xc0
->      sysfs_kf_seq_show+0x21c/0x380
->      kernfs_seq_show+0x138/0x1c8
->      seq_read_iter+0x358/0xa30
->      kernfs_fop_read_iter+0x438/0x500
->      vfs_read+0x484/0x6f0
-
-Thank you for pointing out the issue. I will reproduce and fix it.
-
-Best Regards,
-Changhuang
 
