@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00A9CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BDDCCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSDpwvN0yoSV1vrqdzCv4HHzV9QnxibI1Q5Gk8f/Jl8=; b=HyprVPezeotZQ4UlskrS+dAzKR
-	MS6BVwQAtr3IU2MUGhnbXF42JIP+tRji5uHN/7JBHPQaoj9GxfKBVNXgWxozf2RUAR87kBWeoPk/Q
-	nQTxPJyBzR557+SbxEdPc8Z7bZCLbOwL4LnoM+QRICAPCMtuL35I8q+TV6AbgCl70PcZjyN1OvLQb
-	om6R2QhcWkYlyXORl0fxDu9bb+cE+UQ3yQyyCGcJBlNB4qm7rknT4Arl1o0UeeeqNGgicTwM71uU6
-	nLvlTkcIRrwN7Kpghl64xnrnJD0AItCllb30BBluBFQ5+YenvzcsCUid6EjqxrdCLgCvBGz2UT/5G
-	QhfesQBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RaBeQnCwHY8G7B8rrXpPRwFMVOEwoG8B4YibXghGcdg=; b=mWwWAYUBnNrva/Ok1iySqTq+Dh
+	yff7H6si9uHywNAv25SL8vc6nRjOQBNS0q+DXn9yVaLUBbw7YdTxhmvSUHwIBP53rGNBlJKz9LDER
+	2FnXrrBfnIzczcFFlZPXOZ/cvZw9HjIaGgP/VzIpym4HKwFgRFEMxIhzUTbMhly+C10bcS4u+oNWY
+	U+2uJuboQ6iCvOgkTyx0QE3jtCsijgsCaMi3tTZXS6S0sp7RFVBVZPJgeGqZqJLxtnQaPjrBozp8D
+	rlbVaeQw8KOfOad6NzXpgl5roHUE8ZQw+86USeMy3O+OYOQEXQnIDGI5OQK0xSF3lrhBH2SNNw0j+
+	PGfloD1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI893-00000004zb5-2cOz;
-	Sat, 17 Oct 2026 17:24:33 +0000
+	id 1xI8GK-0000000506B-1fpl;
+	Sat, 17 Oct 2026 17:32:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI893-00000004zas-0AQq;
-	Sat, 17 Oct 2026 17:24:33 +0000
+	id 1xI8GI-00000005060-2ZlZ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Oct 2026 17:32:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6B2842DB0;
-	Sat, 17 Oct 2026 17:24:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 003A71F000C4;
-	Sat, 17 Oct 2026 17:24:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792257872;
-	bh=sSDpwvN0yoSV1vrqdzCv4HHzV9QnxibI1Q5Gk8f/Jl8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ORf3IN3ieNKp3nEkixkDrUvQWzbomLdlA+SRHSLCDzLpC4Rtb1fcX3rH05tjOQrea
-	 V5MuOw96wMT3IuIfmeNXHE4HiSAWtXzadA5sMzr6ZTBlsFrphODQuB5NUJyb+Vf6sO
-	 sBoi3OLggVRyEqXPI5HfD3nJJ1dgs8ZL4DmS4RTamSqnh925mREQWlrW2RxflvFRA3
-	 Ihq674RpOyfvXBN+UOIptJ5btQplfQ2vNX2gd5+DE9VI9SiAPIw7kPKcKBSB2tbi8s
-	 nTjTpCOIzWE8MErPWpgUMl2s2Gof3Xoys2+9mOAQ1dm4EoEf9ZA7EHkONvZoFOkZD+
-	 2idtfG4elTVHg==
-Date: Sat, 17 Oct 2026 19:24:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jason Yang <jason98166@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Guochun Huang <hero.huang@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Michael Riesch <michael.riesch@collabora.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 5/8] phy: rockchip-samsung-dcphy: Add a second PHY for
- the receiver
-Message-ID: <20261017-merry-crystal-crow-d2a4c9@quoll>
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-5-e63b49eabe2d@gmail.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id EF3C74002F;
+	Sat, 17 Oct 2026 17:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 594AE1F000C4;
+	Sat, 17 Oct 2026 17:32:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1792258321;
+	bh=RaBeQnCwHY8G7B8rrXpPRwFMVOEwoG8B4YibXghGcdg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=UyxUEEFQGTALfL5LlZIbq5nU6b++d3laUfqCA8MAZX5Fm2lo07ihpIboqFQkvPk8Q
+	 89dw4aaQe8SMwUDXMytY0u4RH3dWER9n/Z1FLjywJCjUhCjeD3aZZ99exlp2tn+jYh
+	 AhejHTLPGIUNDhV4PxOZLXmTDvmimfgwQbdIYOEI=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Randy Dunlap <rdunlap@infradead.org>,
+	kernel test robot <lkp@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Michal Simek <michal.simek@amd.com>,
+	Jassi Brar <jaswinder.singh@linaro.org>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6 0805/1674] mailbox: zynqmp-ipi: fix an Excess struct member kernel-doc warning
+Date: Sat, 17 Oct 2026 17:51:17 +0200
+Message-ID: <20261017160451.777260502@linuxfoundation.org>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261017160431.119607952@linuxfoundation.org>
+References: <20261017160431.119607952@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261016-dcphy-rx-v1-v5-5-e63b49eabe2d@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 04:56:39PM +0800, Jason Yang wrote:
-  static const struct phy_ops samsung_mipi_dcphy_tx_ops = {
->  	.configure = samsung_mipi_dcphy_tx_configure,
->  	.power_on  = samsung_mipi_dcphy_tx_power_on,
-> @@ -1520,6 +1538,15 @@ static const struct phy_ops samsung_mipi_dcphy_tx_ops = {
->  	.owner	   = THIS_MODULE,
->  };
->  
-> +static const struct phy_ops samsung_mipi_dcphy_rx_ops = {
-> +	.configure = samsung_mipi_dcphy_rx_configure,
-> +	.power_on  = samsung_mipi_dcphy_rx_power_on,
-> +	.power_off = samsung_mipi_dcphy_rx_power_off,
-> +	.init = samsung_mipi_dcphy_init,
-> +	.exit = samsung_mipi_dcphy_exit,
-> +	.owner	   = THIS_MODULE,
-> +};
-> +
->  static const struct regmap_config samsung_mipi_dcphy_regmap_config = {
->  	.name = "dcphy",
->  	.reg_bits = 32,
-> @@ -1532,19 +1559,42 @@ static struct phy *samsung_mipi_dcphy_xlate(struct device *dev,
->  					    const struct of_phandle_args *args)
->  {
->  	struct samsung_mipi_dcphy *samsung = dev_get_drvdata(dev);
-> +	/* Device trees without the second cell describe the transmitter. */
-> +	u32 direction = PHY_DIRECTION_TX;
-> +	u32 type;
->  
-> -	if (args->args_count != 1) {
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-So this is the part which prevents change in the ABI (see Rob's comment).
+------------------
 
-Why was the driver coded that way?
+From: Randy Dunlap <rdunlap@infradead.org>
 
-> +	if (args->args_count < 1 || args->args_count > 2) {
+[ Upstream commit b3734a8291ad7fd61e5a51cc540e414bcfbdc0cf ]
 
-And you repeat the pattern, so if third argument is added, DTS does not
-work with existing kernel.
+kernel test robot reports 2 Excess struct member warnings:
 
-Why?
+zynqmp-ipi-mailbox.c:92: warning: Excess struct member 'irq' description in 'zynqmp_ipi_mbox'
+zynqmp-ipi-mailbox.c:112: warning: Excess struct member 'ipi_mboxes' description in 'zynqmp_ipi_pdata'
 
-Best regards,
-Krzysztof
+The second one is a false positive that is caused by the
+__counted_by() attribute. Kees has posted a patch for that, so just
+fix the first one.
+
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202312150705.glrQ4ypv-lkp@intel.com/
+Cc: linux-arm-kernel@lists.infradead.org
+Reviewed-by: Michal Simek <michal.simek@amd.com>
+Signed-off-by: Jassi Brar <jaswinder.singh@linaro.org>
+Stable-dep-of: 0aead8197fc1 ("mailbox: zynqmp-ipi: Fix out-of-bounds access in mailbox cleanup loop")
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/mailbox/zynqmp-ipi-mailbox.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
+index 90f248ef2a1fc..c3953abe74b8e 100644
+--- a/drivers/mailbox/zynqmp-ipi-mailbox.c
++++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
+@@ -81,7 +81,6 @@ struct zynqmp_ipi_mchan {
+  * @remote_id:            remote IPI agent ID
+  * @mbox:                 mailbox Controller
+  * @mchans:               array for channels, tx channel and rx channel.
+- * @irq:                  IPI agent interrupt ID
+  */
+ struct zynqmp_ipi_mbox {
+ 	struct zynqmp_ipi_pdata *pdata;
+-- 
+2.53.0
+
+
 
 
