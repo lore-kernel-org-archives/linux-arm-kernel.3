@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185E3CCF2D5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F76CCF2D8
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 14:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovNA/CLS6+iFz0OpFQaVFejefV2xgJzAekjyPeVYFLA=; b=LHtwywZWVVB8lInEzqLba1Dr1I
-	4OjA2UkE8p+txh2gGfv3Af38DQx8iORVUPmna1b8/JBXTtu0QJXA9wehcTeQYLjzP5rlZfyCbG2wP
-	CZ6O3Z+TWwb9ZmjLAbEhji/dwntel0HZqvJ9zkRk2GnC5L+MS/KW1rIPkL2V6IeSaIJiGS4qZfR+S
-	FcTVD/EUn3klP+7PMtMbHJT3SYdyef7yk2sP/8pXNNzVAmqGSCQSAQEXR/rvDUtmuWZT5dROYwG0s
-	SqLhoSRlxKLHNFnuOG82J3tAIHEHZQ3b0hXGKqhBV1HpAypYh/+4gJJpSB1KsOHbaLg7tjHt9wX0g
-	TrygGIrA==;
+	bh=X6BqTaX9K/aTEFAmYB4DDBgoh6mXwvUEKVwJKpfp6AM=; b=P2Rf0EcKJhlK5oZyMF04nwWaf3
+	iMVdhw0tF46Vvk6og3wYxX8R3ZTVhWE+1n7hUB2O5DIRx86nPoNjdV65wKAtUCt5Bu20Mr3cioTpB
+	Ar/KDUNhYxNvx18JQLsRXPfY+xCVlacEUW6+k328SqQ+rWIRyFYYxgaBPF9ryu0SMS005UHkWnie5
+	kZBQc7A0ja/gi3p+TFiQX4p6EhVk2zLYBZbZq8EPHXw4/4zf1obKD4HutEoivzHV3Nm+WHC/T2//A
+	txU1a9pTyRGWT/hH+TCREh78JwKB3UHV1Zw3+No/6FDAIye4xUbfOoBTMkBjFjrG2E1XhptFzUkUu
+	F2BeA0/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI5kR-00000004qUQ-1Ibc;
+	id 1xI5kR-00000004qVH-34gB;
 	Sat, 17 Oct 2026 14:50:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI5kP-00000004qRk-1FQZ;
+	id 1xI5kP-00000004qRa-1hNE;
 	Sat, 17 Oct 2026 14:50:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E146447E7;
+	by tor.source.kernel.org (Postfix) with ESMTP id 736BB60A9D;
 	Sat, 17 Oct 2026 14:50:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8126BC2BCFA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0DE63C2BCFD;
 	Sat, 17 Oct 2026 14:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792248656;
-	bh=mXB6tIL/+qLpJiz4Sn4FUNs0zYbvBZ/cActaGcwuZns=;
+	bh=HpjYOLfBJm5ttjl2VKp8Qd+WjxxgiMjYtLa1agXHI3U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=o6McW2T7vbO4CyNy9OouBAAjrvPz/CwRj3+jigb8koaxo5R7GpaKUTe1+Nfe0/4yQ
-	 h/ZmuD2Iyu4luOMJADAkMny0H2CN+OdwOsBUGv4SPm7CczflfM8adyV4btTp0IRC3r
-	 J2mzgcYjrTaUvobg2LiXT5Fs08s0gjQm7puhMLBOlMWUhkvBmy2qtink6lnNd8l8N/
-	 mgigMtyQnJVX+5xMFMtAzvaZ1iUkFhkRjMVKbCyGYJa7iPT4LGtXxSU2ZjLJ2fhPWV
-	 1Pv2ImueT7AlGx6LsJsnkTk3C4spP92T+TfvJY2ueKi9c2m3dY5N3vbqAwufLv/z/t
-	 q9oLzHrE7l5DA==
+	b=WeIzBhmC8gt9sw0LCMH2t6/sakhJ+hIRsWK+31oslbEfei01bj0rqTbyuJ+Kcg4Yz
+	 +KqgLJvy/Mvmgc028XSsXKgI7diEAnY34eudvHeaECz0jOEArQt67bUVgm2iB3HKEU
+	 Ab2pVJvy1WdD+fTqN8tr31TytzVP0lGglLWf12+II7j+jMu/mnUc5j66fg9HH9edwT
+	 SufkhzFJuaZC4fVbgdu6h17Rpt7bb99ANMGeFAAvKyWhuF0YSvubTpCmUYWtZrxTVw
+	 GO+ptfoUyTC8ZdemZW7hlHFlF4P7CK9Da+TQW0sLAm4tnpfPUGQJwRu+oNwrGel7bA
+	 YAMJpX5y33uDA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F308CCF2C1;
-	Sat, 17 Oct 2026 14:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E15B7CCF2C1;
+	Sat, 17 Oct 2026 14:50:55 +0000 (UTC)
 From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Sat, 17 Oct 2026 22:50:56 +0800
-Subject: [PATCH net v6 6/6] can: rockchip_canfd: serialize timecounter
- timestamp conversion
+Date: Sat, 17 Oct 2026 22:50:51 +0800
+Subject: [PATCH net v6 1/6] can: dev: prevent bus-off recovery when the
+ interface is not running
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261017-rockchip-canfd-restart-close-v6-6-ed605feb4b6e@qq.com>
+Message-Id: <20261017-rockchip-canfd-restart-close-v6-1-ed605feb4b6e@qq.com>
 References: <20261017-rockchip-canfd-restart-close-v6-0-ed605feb4b6e@qq.com>
 In-Reply-To: <20261017-rockchip-canfd-restart-close-v6-0-ed605feb4b6e@qq.com>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, 
@@ -68,11 +68,11 @@ Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
  netdev@vger.kernel.org, linux-doc@vger.kernel.org, stable@vger.kernel.org, 
  Cunhao Lu <1579567540@qq.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792248654; l=2940;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792248654; l=3984;
  i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=PpQslORihJNgfj4mzr9VTzdMu4X2EvQLejo/FRw489Q=;
- b=ePvaeQozhEYsa/ePirwiG2llAcEhxRrpEqR3ehdU7AuYWHAd5VaNp20yypzZH4+YrUsFIHWgZ
- JWbt8OX2FdoDP/5PCcHX9Cm4poP6MxPECQMx3e4fZ5LUQhEs6I2HeWB
+ bh=g1Lt1jcKFwF1Vjymzk/CqbM4Jz0xSuU4KCs88UQRpAk=;
+ b=/fF4/xeJUnIWzANKza1S3FgMd5nX/SnOpmAQl5M2yU02k2VzrFPe70CFxgfVUZs5tAyjgKhdD
+ Ize2Ycj1rkaASV/xSlc1WPJIsUXe6UkEXJ2QytF/fQHliljzYwPGHN+
 X-Developer-Key: i=1579567540@qq.com; a=ed25519;
  pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
 X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
@@ -95,73 +95,101 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Cunhao Lu <1579567540@qq.com>
 
-The timestamp worker advances the timecounter with timecounter_read()
-while RX, TX completion and error-frame paths use timecounter_cyc2time()
-to convert hardware timestamps without holding timestamp_lock.
+The networking core clears __LINK_STATE_START before calling ndo_stop(),
+but CAN bus-off recovery neither checks this state before queuing work
+nor before calling the driver's restart callback. Recovery can therefore
+be queued or started after the interface has begun closing, potentially
+re-enabling hardware while the driver is tearing it down.
 
-timecounter_read() updates frac, cycle_last and nsec in separate steps.
-A concurrent conversion can observe the new cycle_last with the old
-nsec and produce an incorrect timestamp.
+Check netif_running() in can_restart() before flushing echo skbs, sending
+the restart notification or enabling the carrier. Keep the existing
+unsupported-operation check first. In can_bus_off(), only schedule
+recovery for a running interface and make the log message reflect that
+decision. Keep reporting bus-off and disabling the carrier.
 
-Hold timestamp_lock across timecounter_cyc2time(), using the same lock
-as timecounter_read() and timecounter_init(). Keep the SKB timestamp
-assignment outside the critical section.
+These checks do not wait for recovery that has already passed the check,
+nor serialize the check with work submission. Drivers still need to
+cancel restart work before tearing down resources and quiesce its
+producers before their final cleanup.
 
-TX completion nests timestamp_lock inside tx_lock; no timestamp-lock
-holder acquires tx_lock.
-
-Fixes: 4e1a18bab124 ("can: rockchip_canfd: add hardware timestamping support")
+Fixes: 39549eef3587 ("can: CAN Network device driver and Netlink interface")
 Cc: stable@vger.kernel.org
 Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
- drivers/net/can/rockchip/rockchip_canfd-timestamp.c | 5 ++++-
- drivers/net/can/rockchip/rockchip_canfd.h           | 4 ++--
- 2 files changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-index 0fa791849c95..05f1005ee506 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-timestamp.c
-@@ -15,13 +15,16 @@ static u64 rkcanfd_timestamp_read(struct cyclecounter *cc)
- 	return rkcanfd_get_timestamp(priv);
- }
+---
+Changes in v6:
+- Update the can_bus_off() comment and document the running-interface
+  requirement for automatic recovery.
+---
+ Documentation/networking/can.rst |  6 ++++--
+ drivers/net/can/dev/dev.c        | 11 ++++++++---
+ 2 files changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/networking/can.rst b/Documentation/networking/can.rst
+index 536ff411da1d1..861397e4ce906 100644
+--- a/Documentation/networking/can.rst
++++ b/Documentation/networking/can.rst
+@@ -1298,7 +1298,8 @@ More info to the above output:
+ 	Automatic restart delay time. If set to a non-zero value, a
+ 	restart of the CAN controller will be triggered automatically
+ 	in case of a bus-off condition after the specified delay time
+-	in milliseconds. By default it's off.
++	in milliseconds, provided the interface is running. By default
++	it's off.
  
--void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
-+void rkcanfd_skb_set_timestamp(struct rkcanfd_priv *priv,
- 			       struct sk_buff *skb, const u32 timestamp)
+ "bitrate 125000 sample-point 0.875"
+ 	Shows the real bit-rate in bits/sec and the sample-point in the
+@@ -1372,7 +1373,8 @@ before you can start it to avoid error-prone default settings::
+ A device may enter the "bus-off" state if too many errors occurred on
+ the CAN bus. Then no more messages are received or sent. An automatic
+ bus-off recovery can be enabled by setting the "restart-ms" to a
+-non-zero value, e.g.::
++non-zero value. Recovery is only scheduled and started while the
++interface is running, e.g.::
+ 
+     $ ip link set canX type can restart-ms 100
+ 
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 769745e22a3c7..d5cb22db2a346 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
+ 	if (!priv->do_set_mode)
+ 		return -EOPNOTSUPP;
+ 
++	if (!netif_running(dev))
++		return -ENETDOWN;
++
+ 	if (netif_carrier_ok(dev))
+ 		netdev_err(dev, "Attempt to restart for bus-off recovery, but carrier is OK?\n");
+ 
+@@ -259,13 +262,15 @@ int can_restart_now(struct net_device *dev)
+  *
+  * This functions should be called when the device goes bus-off to
+  * tell the netif layer that no more packets can be sent or received.
+- * If enabled, a timer is started to trigger bus-off recovery.
++ * If automatic recovery is enabled and the interface is running,
++ * delayed work is scheduled to trigger bus-off recovery.
+  */
+ void can_bus_off(struct net_device *dev)
  {
- 	struct skb_shared_hwtstamps *hwtstamps = skb_hwtstamps(skb);
-+	unsigned long flags;
- 	u64 ns;
+ 	struct can_priv *priv = netdev_priv(dev);
++	const bool restart = priv->restart_ms && netif_running(dev);
  
-+	spin_lock_irqsave(&priv->timestamp_lock, flags);
- 	ns = timecounter_cyc2time(&priv->tc, timestamp);
-+	spin_unlock_irqrestore(&priv->timestamp_lock, flags);
+-	if (priv->restart_ms)
++	if (restart)
+ 		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
+ 			    priv->restart_ms);
+ 	else
+@@ -273,7 +278,7 @@ void can_bus_off(struct net_device *dev)
  
- 	hwtstamps->hwtstamp = ns_to_ktime(ns);
+ 	netif_carrier_off(dev);
+ 
+-	if (priv->restart_ms)
++	if (restart)
+ 		schedule_delayed_work(&priv->restart_work,
+ 				      msecs_to_jiffies(priv->restart_ms));
  }
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 4a2bdc205296..63f146ff8e6b 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -489,7 +489,7 @@ struct rkcanfd_priv {
- 
- 	struct cyclecounter cc;
- 	struct timecounter tc;
--	/* Protects timestamp_active and worker reads/requeueing. */
-+	/* Protects tc, timestamp_active and worker requeueing. */
- 	spinlock_t timestamp_lock;
- 	struct delayed_work timestamp;
- 	unsigned long work_delay_jiffies;
-@@ -557,7 +557,7 @@ void rkcanfd_ethtool_init(struct rkcanfd_priv *priv);
- 
- int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv);
- 
--void rkcanfd_skb_set_timestamp(const struct rkcanfd_priv *priv,
-+void rkcanfd_skb_set_timestamp(struct rkcanfd_priv *priv,
- 			       struct sk_buff *skb, const u32 timestamp);
- void rkcanfd_timestamp_work_init(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_init(struct rkcanfd_priv *priv);
 
 -- 
 2.34.1
