@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7A2CCF2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00A9CCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KzFzxYaDpiw3v2cN1wsy4A4fK7ubLLV9aUEhhmv9Kg=; b=IvUmIMz54H3fUC/RPZWOkgO9OE
-	2+or/nrHGKoqvrqg+j+x1q4rhhkUCsGXtdeoWYeicsEKTLGJP4nXTp1IKbwvSJxQy5hs636IAYffz
-	HNl3/KkOe6iaWkDTLqgRYStYEPdLgYuAwEb8h7Q2KyBrUsQXHftWpfh+2EAwJDLkr61000JkGcpi8
-	iriiPi5hflRHu65clcDnnqNWO3AcgmtQyX7Anw6gDGDPeZ+Lec97k5RXqr6WW3trEbmAcTeNWW75A
-	xMWb5z9m9cfsdIFIpgxSoL/gYvWcJa0f3F26l4CXvwC/HDbNGJ1opA7UTdk040vLMWwrAHNQV1O74
-	7DTGY/LQ==;
+	bh=sSDpwvN0yoSV1vrqdzCv4HHzV9QnxibI1Q5Gk8f/Jl8=; b=HyprVPezeotZQ4UlskrS+dAzKR
+	MS6BVwQAtr3IU2MUGhnbXF42JIP+tRji5uHN/7JBHPQaoj9GxfKBVNXgWxozf2RUAR87kBWeoPk/Q
+	nQTxPJyBzR557+SbxEdPc8Z7bZCLbOwL4LnoM+QRICAPCMtuL35I8q+TV6AbgCl70PcZjyN1OvLQb
+	om6R2QhcWkYlyXORl0fxDu9bb+cE+UQ3yQyyCGcJBlNB4qm7rknT4Arl1o0UeeeqNGgicTwM71uU6
+	nLvlTkcIRrwN7Kpghl64xnrnJD0AItCllb30BBluBFQ5+YenvzcsCUid6EjqxrdCLgCvBGz2UT/5G
+	QhfesQBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI87a-00000004zPZ-0zWy;
-	Sat, 17 Oct 2026 17:23:02 +0000
+	id 1xI893-00000004zb5-2cOz;
+	Sat, 17 Oct 2026 17:24:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI87T-00000004zNn-3qaI;
-	Sat, 17 Oct 2026 17:22:55 +0000
+	id 1xI893-00000004zas-0AQq;
+	Sat, 17 Oct 2026 17:24:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 62E5843C65;
-	Sat, 17 Oct 2026 17:22:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B13151F000C6;
-	Sat, 17 Oct 2026 17:22:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C6B2842DB0;
+	Sat, 17 Oct 2026 17:24:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 003A71F000C4;
+	Sat, 17 Oct 2026 17:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792257775;
-	bh=+KzFzxYaDpiw3v2cN1wsy4A4fK7ubLLV9aUEhhmv9Kg=;
+	s=k20260515; t=1792257872;
+	bh=sSDpwvN0yoSV1vrqdzCv4HHzV9QnxibI1Q5Gk8f/Jl8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nR8OzMr9ja/piPNdLePtX45279Zm/W8WgW597xg8U+B2nad5YzQnDYRVKbtdBQAn4
-	 T8ddc5IcuhUwebCEHtCsQm30HyPt+m8W73nWWwCLAbU0JmNo24pyX5HE/v5d549VDn
-	 FbPaa1mnmVpcszeQBq9qZhZnlJtZmI5HfwXSduugtiGULIT/j5qhK75TVMPFY0u7/b
-	 QPC7dh0dAbwHaOXU8R63Som1r2qwDiC6g8h3aWeykTqZwZOM2dSdVLzVoFqODeUuK7
-	 bsl0IM8mWb1tsA+xKtZBcrN8MJIvsBwKwOBbDld/dYWmu/b3UpSovI5P835GTyZvkd
-	 CZ5GuRox3ufuw==
-Date: Sat, 17 Oct 2026 19:22:52 +0200
+	b=ORf3IN3ieNKp3nEkixkDrUvQWzbomLdlA+SRHSLCDzLpC4Rtb1fcX3rH05tjOQrea
+	 V5MuOw96wMT3IuIfmeNXHE4HiSAWtXzadA5sMzr6ZTBlsFrphODQuB5NUJyb+Vf6sO
+	 sBoi3OLggVRyEqXPI5HfD3nJJ1dgs8ZL4DmS4RTamSqnh925mREQWlrW2RxflvFRA3
+	 Ihq674RpOyfvXBN+UOIptJ5btQplfQ2vNX2gd5+DE9VI9SiAPIw7kPKcKBSB2tbi8s
+	 nTjTpCOIzWE8MErPWpgUMl2s2Gof3Xoys2+9mOAQ1dm4EoEf9ZA7EHkONvZoFOkZD+
+	 2idtfG4elTVHg==
+Date: Sat, 17 Oct 2026 19:24:29 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
+To: Jason Yang <jason98166@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
 	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
- a cell to select TX or RX
-Message-ID: <20261017-gainful-goldfish-of-climate-bef863@quoll>
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Guochun Huang <hero.huang@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Michael Riesch <michael.riesch@collabora.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 5/8] phy: rockchip-samsung-dcphy: Add a second PHY for
+ the receiver
+Message-ID: <20261017-merry-crystal-crow-d2a4c9@quoll>
 References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
- <20261016140115.GA1798470-robh@kernel.org>
+ <20261016-dcphy-rx-v1-v5-5-e63b49eabe2d@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261016140115.GA1798470-robh@kernel.org>
+In-Reply-To: <20261016-dcphy-rx-v1-v5-5-e63b49eabe2d@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 09:01:15AM -0500, Rob Herring wrote:
-> On Fri, Oct 16, 2026 at 04:56:36PM +0800, Jason Yang wrote:
-> > The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
-> > for DSI and a receiver for CSI-2, and two consumers can use them at the
-> > same time. The single cell of this binding selects the mode and refers
-> > to the transmitter, so the receiver cannot be described.
-> > 
-> > Allow a second cell that selects the transmitter or the receiver. With
-> > D-PHY:
-> > 
-> > 	/* the MIPI DSI host, driving the transmitter */
-> > 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_TX>;
-> > 
-> > 	/* the MIPI CSI-2 host, driving the receiver */
-> > 	phys = <&mipidcphy0 PHY_TYPE_DPHY PHY_DIRECTION_RX>;
-> > 
-> > and with C-PHY:
-> > 
-> > 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_TX>;
-> > 	phys = <&mipidcphy0 PHY_TYPE_CPHY PHY_DIRECTION_RX>;
-> > 
-> > The transmitter and the receiver cannot operate in different modes [1],
-> > so the first cell must match in both consumers.
-> > 
-> > Two cells describe the receiver as well. A single cell keeps referring
-> > to the transmitter, so existing device trees are unaffected.
-> > 
-> > [1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
-> >     operate in the same PHY mode."
-> 
-> The problem here is this is an ABI break. An existing OS will not know 
-> what to do with 2 cells. Perhaps adding flags to the upper bits of the 
-> existing cell would work.
+On Fri, Oct 16, 2026 at 04:56:39PM +0800, Jason Yang wrote:
+  static const struct phy_ops samsung_mipi_dcphy_tx_ops = {
+>  	.configure = samsung_mipi_dcphy_tx_configure,
+>  	.power_on  = samsung_mipi_dcphy_tx_power_on,
+> @@ -1520,6 +1538,15 @@ static const struct phy_ops samsung_mipi_dcphy_tx_ops = {
+>  	.owner	   = THIS_MODULE,
+>  };
+>  
+> +static const struct phy_ops samsung_mipi_dcphy_rx_ops = {
+> +	.configure = samsung_mipi_dcphy_rx_configure,
+> +	.power_on  = samsung_mipi_dcphy_rx_power_on,
+> +	.power_off = samsung_mipi_dcphy_rx_power_off,
+> +	.init = samsung_mipi_dcphy_init,
+> +	.exit = samsung_mipi_dcphy_exit,
+> +	.owner	   = THIS_MODULE,
+> +};
+> +
+>  static const struct regmap_config samsung_mipi_dcphy_regmap_config = {
+>  	.name = "dcphy",
+>  	.reg_bits = 32,
+> @@ -1532,19 +1559,42 @@ static struct phy *samsung_mipi_dcphy_xlate(struct device *dev,
+>  					    const struct of_phandle_args *args)
+>  {
+>  	struct samsung_mipi_dcphy *samsung = dev_get_drvdata(dev);
+> +	/* Device trees without the second cell describe the transmitter. */
+> +	u32 direction = PHY_DIRECTION_TX;
+> +	u32 type;
+>  
+> -	if (args->args_count != 1) {
 
-Existing OS should ignore surplus cell if the driver is coded properly.
-Same as adding new properties or new front-compatible.  The question is
-how the existing driver behaves?
+So this is the part which prevents change in the ABI (see Rob's comment).
+
+Why was the driver coded that way?
+
+> +	if (args->args_count < 1 || args->args_count > 2) {
+
+And you repeat the pattern, so if third argument is added, DTS does not
+work with existing kernel.
+
+Why?
 
 Best regards,
 Krzysztof
