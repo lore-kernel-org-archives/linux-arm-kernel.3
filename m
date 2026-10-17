@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189EECCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22ADCCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GucSTx+vMay15N5xRgcUGHqnmTXGCCFC1khzIlrgII0=; b=Ocg73QiY4wRYAPLYrOYXKDNcPQ
-	zcimpkLEbI6bc6ijUEXJEMJBeetMQaJe1a3kJ46aViFs7F71sLmow1M3CJ8w6XBPhjqjnkNLEujGv
-	XGkBkNkjxKLNaQrVPPw/Zg1+P1BnfZVu73vLAMrw3i/Z1rzN98ybGxIvl+QyX1INHedHgAV3DwUro
-	rj7ZLVApf+456fGzeZ0p18z6wtE3QRBR/m9F5sn9BC3Zj8W8feQSvtGgOH430NTbC0ziTDr7A/kJr
-	slLEmc2nqaziVlNGa6SLSodyKG6L0pfcwEuO3S3tFnjc27TsWarBMPhxoERR5h0kluvyIgEuN2oOW
-	zgvdPPTg==;
+	bh=W0pT3v1bP5u5egIRZK8Pll14PDueEtMuF5Fy1J42OkM=; b=HUMY2R+T25aKaPrDKYNOnymPKF
+	JxDZvShV94JE6WNUQZecJIBesi2XMJGwkiWJsVKoMLzAscDWzDqQcvoYLoTcmW6ZwimOVpIcxTG8q
+	uvYWLvkHJYJHtUS5z1CsA9ny6fWOLQuBmanJWnSWD+0LplAgP6QqzShNpKe5dGtkzXCOkkqiBHRi2
+	FdgVDNHUSeTTzagGLWpEfhTr1tZ7UzprOg92YJ8P5VJFziQv2fvWozODqKo3VMI5p7eZbEFgSL4IQ
+	+FlIYm8evs0RyoV4QuHO6bhFn6LERRStHDH8M8XpP1zDo5cjUGeGFryVCCS5mqBnf8zqJO/SE9Wp9
+	UetWz03g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8O1-0000000512e-2y3w;
-	Sat, 17 Oct 2026 17:40:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xI8US-000000051YV-23FD;
+	Sat, 17 Oct 2026 17:46:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8O0-0000000512A-3p1x
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 17:40:01 +0000
+	id 1xI8UR-000000051Y8-2vbz;
+	Sat, 17 Oct 2026 17:46:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A73AB43F3D;
-	Sat, 17 Oct 2026 17:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1AC41F000C5;
-	Sat, 17 Oct 2026 17:39:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 12F5E42B0F;
+	Sat, 17 Oct 2026 17:46:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF90C1F000C6;
+	Sat, 17 Oct 2026 17:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792258800;
-	bh=GucSTx+vMay15N5xRgcUGHqnmTXGCCFC1khzIlrgII0=;
+	s=k20260515; t=1792259199;
+	bh=W0pT3v1bP5u5egIRZK8Pll14PDueEtMuF5Fy1J42OkM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HKmt+38T+BLu5TvojRf4ZV39zzF/QcTdZh6TMuC0SeWukADTM5OZbQWRCRm9BXPrf
-	 otvBn5jW6nB28dnbzgpimUuEE6zPZN2coyB+5J96jDmS0xwvAUhu/MxxCUqzo178xa
-	 KLk7/iPwbiDVus+uFpd2s10NoHfG2I9M6hmBI2VzzhL2RHxuCT4Isv1EKsm6L5a+uW
-	 swTUDKi9E2OznM1/bxm82kmOJQJ8CdHpkVPKHLT0OVj0x7BLW1HKHJCGSCLObTyfZi
-	 S25d6HyYlYADJdzDj81v3O6vXP4OPn3ek9Vgxhtoe9EgEnFiTULs5QF1WEzqTAMpzn
-	 WSdy1dWLiaUjg==
-Date: Sat, 17 Oct 2026 19:39:57 +0200
+	b=T1ccYreFRLXizIIFK9f+52h0P5q33zrnJPciwiNz7DB98X9XEcFb3C+pypdLey462
+	 xL0UALMtlGysgv45uecuQEtImEA54aqWjcmLbLm2U5VlG8vOgYVYcSXI4MyY00N5gQ
+	 Fu7RMxYhROAuvoI4RQ44m4X72KKHOp6cl48GEtqklQy0XZX5zPqkLf57tAHLl9+g7B
+	 bzWVHvsrcWVGPPU6KoFCk9mWX/dA3SyiNJw1H82u4Hz6Nwk8i+0pf9VRjFPpZMAyX2
+	 x7Hckhd7G1Rl9Yiy03KfH/p+ab6lEudh5HfE70jBE1JJOroTX4G4cc+as2IbJZ4u3V
+	 HH6eMqZ9sLziA==
+Date: Sat, 17 Oct 2026 19:46:35 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ishu Brar <patches@brar.si>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm-smmu: Document SM7250 SMMU
-Message-ID: <20261017-fluffy-porpoise-of-brotherhood-0f8c19@quoll>
-References: <20261016-smmu-sm7250-v1-0-e11fc0384cfa@brar.si>
- <20261016-smmu-sm7250-v1-1-e11fc0384cfa@brar.si>
+	Richard Cochran <richardcochran@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Biao Huang <biao.huang@mediatek.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Eric Dumazet <edumazet@kernel.org>, kernel@collabora.com, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v3 1/9] dt-bindings: net: mediatek-dwmac: fix
+ unit in rx/tx delay property description
+Message-ID: <20261017-imperious-prompt-wyvern-6cb00c@quoll>
+References: <20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35@collabora.com>
+ <20261016-dwmac-mediatek-mt8189-v3-1-25daf2bbcf35@collabora.com>
+ <08b7abcf-a738-4ad8-956d-a6205046151e@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261016-smmu-sm7250-v1-1-e11fc0384cfa@brar.si>
+In-Reply-To: <08b7abcf-a738-4ad8-956d-a6205046151e@lunn.ch>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 03:16:40PM +0530, Ishu Brar wrote:
-> Document the SMMU found on the Qualcomm SM7250 SoC: the apps SMMU, which
-> is an MMU-500 implementation, and the GPU SMMU, which additionally
-> carries qcom,adreno-smmu.
+On Fri, Oct 16, 2026 at 05:33:42PM +0200, Andrew Lunn wrote:
+> On Fri, Oct 16, 2026 at 12:31:05PM +0200, Louis-Alexis Eyraud wrote:
+> > The "mediatek,rx-delay-ps" and "mediatek,tx-delay-ps" descriptions say
+> > their values are in nanoseconds but their names with the "ps" suffix
+> > suggest it is picoseconds.
+> > They are in fact used in both driver and devicetree as picosecond.
+> > So, modify the two properties unit description to fix their unit.
+> > 
+> > Fixes: 150b6adda6b1 ("net: dt-bindings: dwmac: Convert mediatek-dwmac to DT schema")
+> > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 > 
-> Signed-off-by: Ishu Brar <patches@brar.si>
-> ---
+> Maybe this patch should be for net, not net-next. Documentation fixes
+> often are. Lets see what the Device Tree Maintainers say.
 
-Seems valid Sashiko comments.
+It has no real impact, because the schema is what matters, not open
+text.
+
+Anyway, regardless:
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
