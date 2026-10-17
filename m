@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEB7CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A50CCF2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZMZTPvh9tMJLNdO7mYMSY3WuW2Rj56qTgdyt1nrogg=; b=ViZE+7zsgLutc01oYQaARKrAUb
-	75b3LAFaGZly3COhifxZhJGZ7W3RXdqclIARxGtfKOHcQ8ngz+6rhLw8nlZ173XPbUYhUlMCXaUhZ
-	dHrIdGMx2uFUbJWJIXhP3gqIX7/6zck1kKmyKmGeUiIDwgKlNjOs82kL7IdZuAb0vR3yw7dcrbiOJ
-	YqMGXokfXl7cf9X1ZCrLcWqTbsnWA/XtySR+fgHYldZ7k5Z5T4Ri7Uwxtta5ATdwvgW3CaI4eTqlG
-	tiVwPx3it8d+qnUNdZik6EL4AvP1j/NWXRJKevfgTKc8qHjLGGDBRqWWMx2Mb5gp40I51Xtr4XjWv
-	hI6yaz2w==;
+	bh=flMBGY41EGoDAI7ETuBnT4GorZ4XpKflNGkIAnWjCZo=; b=OISmTbDEwVM0/I/RRkMNMHaOf3
+	sSM7olQHiNQeeWIT7+YPQLWoKX59K0Bg8s2se83NwjW0BtFQ29YxC259em16ABJJowmkAFWAd/Ggd
+	q9ueiI3KIYKP2z3ucdV8qucO6m2VJ2LYO89wB4cITVbxjylawGcR3hddcsTBmtBjU7K8CS9v/ZwPB
+	98XRAYmZCG0xLvlT+hO77vZsvX9TS8fz4c0fKFWGOT6/vpDWHomIV739wST/khGnhlo7Du70jH5Q8
+	bmG5SUc79oz3KlNNBF2v6sjnoQuRMb++EIWdIK3M+8guI0fP6wDjKIPxe83utbOlVtPVukT47uTgc
+	1vwdvR/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8IL-000000050PE-0u6w;
-	Sat, 17 Oct 2026 17:34:09 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1xI8IP-000000050QI-1MnH;
+	Sat, 17 Oct 2026 17:34:13 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8II-000000050Og-12GY
+	id 1xI8IL-000000050Oh-1bWX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 17:34:07 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D57DB105FB3;
+	Sat, 17 Oct 2026 17:34:10 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4j6TSV0mK2zKmy7;
 	Sat, 17 Oct 2026 19:34:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1792258444;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=7ZMZTPvh9tMJLNdO7mYMSY3WuW2Rj56qTgdyt1nrogg=;
-	b=JUi7yPBlYsym0othMpS5J+dTlNByXsPSEu0yY4K0tzee4Mt9vKkHtjALk4Ja3quKrwHpRh
-	RgJqSt5ELaOBgXRZRS0gPjFgRJF1KwXPCRMzrVv0zXYULmKVTka5wtOtbm3aFb9p1SThEa
-	4IBTpweRBmkOciJT6N8lDjHSoxwuthk1O3O8yfEBQs4Z1O1+uf1wucrSW58ruCmicU0k2J
-	Wf+yJTTG0evga8/qKX6V02dmTc7LgNUVNjEMo9iS7vB3ukx+ClYxZkXpKevehAxUfujOMV
-	ELmsH9+znF2F2K3wsV9+j63Rwlo9faZGEv7X0Dd7ewh9APWWWIKnN+52fUyByA==
-Message-ID: <661412ff-3942-4d1c-be6f-1ef6c54620fd@nabladev.com>
-Date: Sat, 17 Oct 2026 19:30:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1792258442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=flMBGY41EGoDAI7ETuBnT4GorZ4XpKflNGkIAnWjCZo=;
+	b=Ef+FvwkVgR1R1J47Lb1BrSoIDlUiMg0nlJQy3kcjnzuFdESYRY8UPC9BXAIC9uRxpIoN0x
+	xgJeIL1jUgnt/B1/fG8dXbzvJg3fanJlzRqMKJbHIbizCVkIbohYG6JLDD9W+RxZJ5XZ4T
+	2bH6Pnex+Bzk4QprghZLsa9eUbDQUoDxqWqNJTPAVx1G5j6DFoXy7p1Lp9H3u4pv0AHn6y
+	qR6RjY6RnXZwOpF2xT3E7aFwcZ6W1OzF2SCNEhavKrxLud/Z/V/4MarYfPPMK7SN3jVkkB
+	42o/kFKnKkezR5P+SC2ReZfbEawiBMyi6NA/cmz4OdAgbPiHNgjQ76I3hPbvuw==
+Message-ID: <51d8ba05-76e5-45ab-91da-3c6cb02505d7@mailbox.org>
+Date: Sat, 17 Oct 2026 19:28:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next,PATCH 2/2] enetc: Make eMDIO MDC rate configurable from
- DT
-To: Wei Fang <wei.fang@nxp.com>, "Frank Li (OSS)" <frank.li@oss.nxp.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Clark Wang <xiaoning.wang@nxp.com>,
- Claudiu Manoil <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
- Eric Dumazet <edumazet@kernel.org>, Frank Li <frank.li@nxp.com>,
- Jakub Kicinski <kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- "UNGLinuxDriver@microchip.com" <UNGLinuxDriver@microchip.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-References: <20261016193344.115518-1-marex@nabladev.com>
- <20261016193344.115518-2-marex@nabladev.com> <atKDNdxl0w65s8yQ@SMW015318>
- <DB9PR04MB933217F7ADCB6223A44DACA7889A2@DB9PR04MB9332.eurprd04.prod.outlook.com>
+Subject: Re: [PATCH v4 1/8] clk: renesas: r8a78000: Add clk_hw to clk_map
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf Hansson <ulfh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <cover.1792163045.git.geert+renesas@glider.be>
+ <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
 Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <DB9PR04MB933217F7ADCB6223A44DACA7889A2@DB9PR04MB9332.eurprd04.prod.outlook.com>
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MBO-RS-ID: 19b5cfb291ce5ddd7a6
+X-MBO-RS-META: rcst5wwoaupxhedzsu64aao9k3oaqo6b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_103406_443702_9D3365CB 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20261017_103409_609841_8B881169 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,39 +97,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/17/26 4:24 AM, Wei Fang wrote:
+On 10/16/26 5:55 PM, Geert Uytterhoeven wrote:
 
 [...]
 
->>> +int enetc_mdio_update_mdc_div(struct mii_bus *bus)
->>> +{
->>> +	struct enetc_mdio_priv *mdio_priv = bus->priv;
->>> +	struct device *dev = bus->parent;
->>> +	struct clk *enet_clk;
->>> +	u32 div, mdc_freq;
->>> +
->>> +	if (device_property_read_u32(dev, "clock-frequency", &mdc_freq))
->>> +		return 0;
->>> +
->>> +	enet_clk = devm_clk_get(dev, NULL);
->>> +	if (IS_ERR(enet_clk))
->>> +		return dev_err_probe(dev, PTR_ERR(enet_clk),
->>> +				     "Input clock unknown, not changing MDC
->> frequency\n");
->>
->> binding said clock is optional. If return failure here, it will block
->> existing dts, which have not clock property.
->>
-> 
-> For EMDIO device, the clocks property is not added to
-> fsl,enetc-mdio.yaml, I suppose this property should be added to the
-> dt-binding doc if the clock is really needed here.
+>   static int r8a78000_cpg_probe(struct platform_device *pdev)
+>   {
+>   	struct device *dev = &pdev->dev;
+>   	struct r8a78000_cpg_priv *priv;
+> -	const struct clk_map *map;
+> -	int ret;
+> +	const struct clk_map_in *map;
 
-Isn't this what 1/2 in this series does ? (maybe I misunderstood this 
-paragraph)
+Super-nitpick, use reverse xmas tree ordering here if there will be V5.
 
-> For ENETC device, we already have a 'ref' clock in the enetc node,
-> so devm_clk_get(dev, NULL) may get the 'ref' clock rather than the
-> system clock of NETC.
-Shouldn't the clock be described in the MDIO DT node ?
+>   	map = of_device_get_match_data(dev);
+>   	if (!map)
+[...]
 
