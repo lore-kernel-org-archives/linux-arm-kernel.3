@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A356CCF2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51342CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=; b=dN1urm7b6+ubZ9I/jc3h3tNPmH
-	p8jsXj6hAdDTjW20AepDJPyvL/ysQyYCgI/tkOkCi7baEgGCT9MKfL++LkRD6FjiSLKT3stsB6bik
-	NkeOxO7sGGOBPVMl2UujY3BNcbsngwX08vsUrzzJJrvs3/fGNkS/t6SeiDOIREn5bGljWyH6iyXV8
-	hvQuNswPzEbTfTOCMOgdp3IB6uFK+YFbkoSWcI6/2bJXLheqVJUidQFkbcz3cyu9zNIcgFOXL6yqK
-	EjSs6VLn7YrnhS0VTmw4VofjAPKLW0UNvkzJbfRGl9BJ3eSy48XWXYzIeKNYKRgY+AGnyi8IrcjdL
-	7//5ClqA==;
+	bh=KIEnM8kSnE++SjvuuMHdYxk0kLmjaVprnb+UtVbFbO0=; b=PXoXM6L63IH66b1b4RHUSGT0hs
+	QBkTNN0DLAMhoazfCye5ztx7luii27QMgLAFgnUYBBwG/RGMDR2ZPklRQEHbhZaThBy8wj+w9WK46
+	TP0w7aM7cv3gVJnyycIFbvH0ytULY/wzfm3GynxJgEpMVf1fv2Sp86ZfH33xjawDR3RL5ysLd4/UR
+	2NBQI9JcQSzXEdAek1N0Qecs1xWLtxJM+KgJRKCnS2Yap9ZiajaSqkjJluwZmybDNJVaZwu5A6yDI
+	ZJKTKCXhNT4HBSqQxSVpFgMOusXbbA88rKzvxD9ayH1VtzCd2b3bUOwhYtBWnG+/DkK1Z7fH1olIx
+	8zjWcoqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2Bc-00000004h6h-2tyZ;
-	Sat, 17 Oct 2026 11:02:48 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1xI2Bw-00000004hHB-3nuE;
+	Sat, 17 Oct 2026 11:03:08 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2BV-00000004h3w-3bgz
+	id 1xI2Bi-00000004hAr-42Li
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 11:02:44 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2e95bd1c14cso5450245ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 04:02:41 -0700 (PDT)
+	Sat, 17 Oct 2026 11:02:58 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2e985106c0cso4580895ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 04:02:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792234961; x=1792839761; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792234974; x=1792839774; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=;
-        b=QYEcXdHsU+phoVZ7NuSWqwRqbuQ6jaRP/RidPPrd5ptEOFmQv/XY4Y+DvWH9OSHOMo
-         cXhERYKqexp6b+EW6OXtkvb3FccsaDXH5bbTHjNb+qF1IYC6/RyUrBbsMor8UbOuH88Q
-         SBb64Kr+0jdVkqwoRHY/L6HdMDOZTyoY0RlQcXEEGRTTbn8YFrU5d7jFxbMBKt3pyyjr
-         BqpI8E1dfyYcQTkPq7WRrVjHsbMEqjCft4ccQxFQdPFm1dc5OXN3MXuqkHIO6Rx62bBv
-         B0Se+GVCMYbpnCdMOQoB0vnu17JCvFpCA+wiGPL3VeXokqraH+FOG7CBB9gRGD0McAsX
-         Z6Jg==
+        bh=KIEnM8kSnE++SjvuuMHdYxk0kLmjaVprnb+UtVbFbO0=;
+        b=iHA799ZpbMZpbnEYsPJHGJMrYIkW2/ZZA5KbDrZilNHsPKO4CChPbD8MZCo91yxaJg
+         jBkQ+nf+SLcuv0EdqHrbcJ4gK3G5NkYh5lr2i344ypxuiIHHfZz1HbY139MyApKDQOgG
+         NL/ZrIi02xh1cFW9ALXHbyZc4/kKVoCPCVHECPteZQEAIR+4UiWMHYSiTNzfchsw4Evm
+         BMNxpZRkQRQRlqqTeXhgeTu7iAshfYm2CV1AU5BskehkOPJaloZlbejxEPmeatZKpyHe
+         jTxLkQNCb9yX6qCajTKBSxdTTlG3wlMHgviCTvFS+Z6KwTiM3l5z0u0g3dy3g9IOMUFC
+         ZcRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792234961; x=1792839761;
+        d=1e100.net; s=20260707; t=1792234974; x=1792839774;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=;
-        b=hmo2nNcPRVRfF7M4nY27HysNsuHpRqgTJonD6Vlm4zbkgniyAbTiRXlg9bXci29zZT
-         ihyAb/Jpx2iFeibwSCawFMyl1GZtXKYm0LV0My5IB+FeH8OS3Ev3cEHLthAQDpF2byz9
-         codt9nX4nkOEKlJmrjopp+8zvJp4iQ6xrJ6zjZ4gpYxgcHM0f8Bsi9sDNv0rjJ8gvAsM
-         vlul61nVJGZSmTdJkC25rio2ADi3M45GgvUVKONiOtVUj0jSDxoJiIMg7hcwm/NO3W4i
-         PdIlt+M77uLP2FdAmvuXN7bx9yjBK37gZWsonDxMk6WQLKP/FqYyf1fwqNWC1u8C2X7F
-         RG+A==
-X-Forwarded-Encrypted: i=1; AKwUvBwSd06C0wKJZsLra2Z3aOJSG9P+4a0USJ+ryIxkvRSMMKsUMO+BHjyHe2TSyJdALMJmBzY6sIz5H19tJ/0N/iE6@lists.infradead.org
-X-Gm-Message-State: AFq9FYLBIEYhsRZyfAKc7FPbRrWY4QmJoM7F9elFeI7700V1DnPMZzf6
-	4RR3gOQjG0pcxv3zvscZhbXqmBApUrucWP3JSaBxlfFm2Ti2pDOfoVBI
-X-Gm-Gg: AYBFou1nFFNLoorKVPHUoIu4Sk46d9NV/Z3SNx5I1QjSMUtYt3tQ2NtF2ihEuAYZYHW
-	vbSS5J/i7WY3rw1JDBBd/U51Owc7l58UG7cmKhjlva0S6CiBWY6qmKBeADbXIOtOjhrZypA1Jif
-	3wUGqEZXnYleGWDVnJz3AeCimDYv/K2R1elNEPaRyill7D4HdMdDCQWqCCjhx/KBlgaKPPJgEv4
-	yUJoZ4xaKp6OdWMDIOsB1bFb3jyrUi3s82JtzC9wkAfJDHiSkUHHcV8p6T103vmOEUTXJFZXlqJ
-	iD1QIqkVQNXVGAUzpkB4CTVkvdOhcAiELaG+oiq8RrsuWoxEoGN0UKq70NmLCvuWrTzci5JvJCm
-	1VbCmwDtK4OoY6ZTa+rwezdMbQglXTx6zCxBDe1B8xqTAONMGUEzm6fweG53Q6ZQn59Y2hUOZpT
-	HGFE58C3QvsmQihau+d14c+SSZmNZmNAl/oUgq9YGMp5j7ZSDcOBVyMam41al0IBlfxgULntwV/
-	0ipDA59WBGJ+FjRH68SQAWJRxHMFuPn
-X-Received: by 2002:a17:903:283:b0:2e7:4a2f:68e6 with SMTP id d9443c01a7336-2e9a6c0de31mr22453835ad.39.1792234960910;
-        Sat, 17 Oct 2026 04:02:40 -0700 (PDT)
+        bh=KIEnM8kSnE++SjvuuMHdYxk0kLmjaVprnb+UtVbFbO0=;
+        b=p0jwQfgEWl1Y4ENEcoQ5hUpA66xWHKL45DQyBCBYR5wfv0f9YYdikwPf4VyXrmw41X
+         q+Oj2Htb+ba3tbIXqdk8gkPF6ilinL2s8jbCfVaMWef+RvYJvT3PfsQSsE5kmNXvxN6n
+         AmAfMUEtEL4UfOxkvw/NAta1V9eiuAobeqmPfT8/K/Qn6uBQX7NF/qrxnBciCQU0XyMc
+         /eShvWdqkivy4/O+KNKRmsuATwawUr56Wz1ppu4zZ9m/2pw93W9sABCAoVWwU6SZ7hSe
+         BUJnJ4owt73ipf5awHVKIroQn9873QVfd+Q5hb4gvMcpjg2QkRhYaGe2SgbEHXAVwyq1
+         lHtg==
+X-Forwarded-Encrypted: i=1; AKwUvBxQBVh01ArX0ALhgT+euM1UscBGJc3Cg7d2sP72k6wLJdjhoadEqTFbDFZC4f3xglnIwwkZktwPYayVCpIy2lHV@lists.infradead.org
+X-Gm-Message-State: AFq9FYL8upr8FjYXKrLfxsRqdLhQpjZfLCGd1TZVy/ZEqHXmMl3vaeHF
+	gfIoRrcRt8PAXDFs9S8SBRGVastR5uA5gC5q6SuXv7CyLOY2T62T5x4U/zw3fg==
+X-Gm-Gg: AYBFou07Im/1VA/yskF/z7VsYEkPJYF81S3volcLwYIC4c487IBeLCgF71VSZm1IqGM
+	sg84XxgExrz1Iz0ejG3fVcdT3iQrBd+KdpCE3rsoQNzSCdwPPC8V25w8MFgifYiRzgx2aWx0joU
+	pPuhIQXmn0xp6gDGyxJQnLt6VIEsSA8q9ugeII0JIMyCRR9Oax49Nu1I404o4Ddj7BuRl19ik3u
+	nMiFojJDsR2Bq5R4FxDLQSfur0KdSHyusl5YSZWYo4K5gZzJ5gaN5wxxeyNYOmDNVkbImjg9eNv
+	X1eGqf29xRcS2odFdkcsnmC0qOELsC9yhU1Rm00Q7ZfPColzBo8eo/VEnZa2BQS4RlP1qTUVdjM
+	MxcKcLQ9fg9Mn6kLsQVm1cxhLhAs1iiH7xz9M0XWrWPDMACLAg6AuKgjHyhwdyNptargGemM1FS
+	Rw/lI+VkPpjCjw9u9+YIDpW9AbPsMaZNhFTG2/IDKnvB6J2ppB8izMPgV4ikhuv83ci8+zYpkGY
+	2PyYcRQaYqlMZmT88Ud0L8=
+X-Received: by 2002:a17:903:f84:b0:2e8:1f8a:9113 with SMTP id d9443c01a7336-2e9a6f58265mr21900555ad.40.1792234973971;
+        Sat, 17 Oct 2026 04:02:53 -0700 (PDT)
 Received: from x1c ([2405:9800:b670:b64b:7c65:ff3e:80ba:b06])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e804dd9sm20559955ad.16.2026.10.17.04.02.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e804dd9sm20559955ad.16.2026.10.17.04.02.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 04:02:40 -0700 (PDT)
+        Sat, 17 Oct 2026 04:02:53 -0700 (PDT)
 From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>
@@ -99,17 +99,17 @@ Cc: Shuah Khan <shuah@kernel.org>,
 	me@brighamcampbell.com,
 	jkoolstra@xs4all.nl,
 	Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Subject: [PATCH 1/5] KVM: selftests: Introduce a shared base for test memslots
-Date: Sat, 17 Oct 2026 18:02:09 +0700
-Message-ID: <20261017110213.46199-2-tharitt97@gmail.com>
+Subject: [PATCH 2/5] KVM: selftests: Use the shared memslot base in memslot_perf_test
+Date: Sat, 17 Oct 2026 18:02:10 +0700
+Message-ID: <20261017110213.46199-3-tharitt97@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261017110213.46199-1-tharitt97@gmail.com>
 References: <20261017110213.46199-1-tharitt97@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_040241_915118_33C64407 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20261017_040255_808418_577216E4 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,210 +124,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace hardcoded slot 1 assignments with TEST_MEM_SLOT_BASE
-This prepares tests for reserving slot 1 for library use.
+Use TEST_MEM_SLOT_BASE for test memslot IDs and account for the
+reserved slots when calculating the available slot count. This
+prepares memslot_perf_test for reserving slot 1 for library use.
 
 Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 ---
- tools/testing/selftests/kvm/arm64/hypercalls.c               | 3 ++-
- tools/testing/selftests/kvm/arm64/sea_to_user.c              | 2 +-
- tools/testing/selftests/kvm/arm64/stage2_block_transitions.c | 2 +-
- tools/testing/selftests/kvm/arm64/vgic_its_save.c            | 2 +-
- tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c          | 2 +-
- tools/testing/selftests/kvm/dirty_log_test.c                 | 2 +-
- tools/testing/selftests/kvm/guest_memfd_test.c               | 2 +-
- tools/testing/selftests/kvm/include/kvm_util.h               | 1 +
- tools/testing/selftests/kvm/kvm_page_table_test.c            | 2 +-
- tools/testing/selftests/kvm/mmu_stress_test.c                | 2 +-
- tools/testing/selftests/kvm/riscv/sbi_pmu_test.c             | 3 ++-
- tools/testing/selftests/kvm/steal_time.c                     | 3 ++-
- tools/testing/selftests/kvm/x86/nested_dirty_log_test.c      | 2 +-
- tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c  | 2 +-
- 14 files changed, 17 insertions(+), 13 deletions(-)
+ .../testing/selftests/kvm/memslot_perf_test.c | 62 +++++++++++--------
+ 1 file changed, 35 insertions(+), 27 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
-index 391e2ba58b0b..ff7c21738a96 100644
---- a/tools/testing/selftests/kvm/arm64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
-@@ -191,7 +191,8 @@ static void steal_time_init(struct kvm_vcpu *vcpu)
- 	unsigned int gpages;
- 
- 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE);
--	vm_userspace_mem_region_add(vcpu->vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
-+	vm_userspace_mem_region_add(vcpu->vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    TEST_MEM_SLOT_BASE, gpages, 0);
- 
- 	vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PVTIME_CTRL,
- 			     KVM_ARM_VCPU_PVTIME_IPA, &st_ipa);
-diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
-index d4af6e0eed28..bb552debc61c 100644
---- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
-+++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
-@@ -323,7 +323,7 @@ static struct kvm_vm *vm_create_with_sea_handler(struct kvm_vcpu **vcpu)
- 		/*vm=*/vm,
- 		/*src_type=*/src_type,
- 		/*gpa=*/start_gpa,
--		/*slot=*/1,
-+		/*slot=*/TEST_MEM_SLOT_BASE,
- 		/*npages=*/num_guest_pages,
- 		/*flags=*/0);
- 
-diff --git a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-index 5fd47f4ada1f..0e23d7b55782 100644
---- a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-+++ b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-@@ -41,7 +41,7 @@
- #include "test_util.h"
- #include "ucall.h"
- 
--#define DATA_SLOT		1
-+#define DATA_SLOT		TEST_MEM_SLOT_BASE
- #define TEST_GVA		0xc0000000UL
- #define BLOCK_SIZE		SZ_2M
- 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_its_save.c b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
-index 864da01539f3..e858a4aa741d 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_its_save.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
-@@ -29,7 +29,7 @@
- #include "ucall.h"
- #include "vgic.h"
- 
--#define TEST_MEMSLOT_INDEX	1
-+#define TEST_MEMSLOT_INDEX	TEST_MEM_SLOT_BASE
- 
- /* All three ITS table entry sizes are 8 bytes in ABI 0. */
- #define ESZ			8
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
-index 9a69c439a0f8..1d5c56481053 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
-@@ -18,7 +18,7 @@
- #include "ucall.h"
- #include "vgic.h"
- 
--#define TEST_MEMSLOT_INDEX	1
-+#define TEST_MEMSLOT_INDEX	TEST_MEM_SLOT_BASE
- 
- #define GIC_LPI_OFFSET	8192
- 
-diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
-index af5eb0334a74..75084fe3bec6 100644
---- a/tools/testing/selftests/kvm/dirty_log_test.c
-+++ b/tools/testing/selftests/kvm/dirty_log_test.c
-@@ -26,7 +26,7 @@
- #define PAGE_SHIFT_4K  12
- 
- /* The memory slot index to track dirty pages */
--#define TEST_MEM_SLOT_INDEX		1
-+#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
- 
- /* Default guest test virtual memory offset */
- #define DEFAULT_GUEST_TEST_MEM		0xc0000000
-diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-index 2233d871a38f..231bfe238e31 100644
---- a/tools/testing/selftests/kvm/guest_memfd_test.c
-+++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-@@ -510,7 +510,7 @@ static void test_guest_memfd_guest(void)
- 	 * the PCI hole and other MMIO regions that need to be avoided.
- 	 */
- 	const gpa_t gpa = SZ_4G;
--	const int slot = 1;
-+	const int slot = TEST_MEM_SLOT_BASE;
- 
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 5a7a455b5387..759d604d44ce 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -30,6 +30,7 @@
- 
- #define KVM_DEV_PATH "/dev/kvm"
- #define KVM_MAX_VCPUS 512
-+#define TEST_MEM_SLOT_BASE 1
- 
- #define NSEC_PER_SEC 1000000000L
- 
-diff --git a/tools/testing/selftests/kvm/kvm_page_table_test.c b/tools/testing/selftests/kvm/kvm_page_table_test.c
-index 974813ea8953..f18720109319 100644
---- a/tools/testing/selftests/kvm/kvm_page_table_test.c
-+++ b/tools/testing/selftests/kvm/kvm_page_table_test.c
-@@ -20,7 +20,7 @@
- #include "guest_modes.h"
- #include "ucall_common.h"
- 
--#define TEST_MEM_SLOT_INDEX             1
-+#define TEST_MEM_SLOT_INDEX             TEST_MEM_SLOT_BASE
- 
- /* Default size(1GB) of the memory for testing */
- #define DEFAULT_TEST_MEM_SIZE		(1 << 30)
-diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index 741e343962ed..b965a8b9d214 100644
---- a/tools/testing/selftests/kvm/mmu_stress_test.c
-+++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -273,7 +273,7 @@ int main(int argc, char *argv[])
- 	 * 1gb-3gb,but it's simpler to skip straight to 4gb.
- 	 */
- 	const u64 start_gpa = SZ_4G;
--	const int first_slot = 1;
-+	const int first_slot = TEST_MEM_SLOT_BASE;
- 
- 	struct timespec time_start, time_run1, time_reset, time_run2, time_ro, time_rw;
- 	u64 max_gpa, gpa, slot_size, max_mem, i;
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index 20388f0b959d..6abd74870e01 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-+++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -605,7 +605,8 @@ static void test_vm_events_test(void *guest_code)
- static void test_vm_setup_snapshot_mem(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
- {
- 	/* PMU Snapshot requires single page only */
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE, 1, 1, 0);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE,
-+				    TEST_MEM_SLOT_BASE, 1, 0);
- 	/* PMU_SNAPSHOT_GPA_BASE is identity mapped */
- 	virt_map(vm, PMU_SNAPSHOT_GPA_BASE, PMU_SNAPSHOT_GPA_BASE, 1);
- 
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index 785d19f9ee8f..e386580ef540 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -509,7 +509,8 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- 	/* Create a VM and an identity mapped memslot for the steal time structure */
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
- 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE * nr_vcpus);
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    TEST_MEM_SLOT_BASE, gpages, 0);
- 	virt_map(vm, ST_GPA_BASE, ST_GPA_BASE, gpages);
- 
- 	return vm;
-diff --git a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-index 26b474bf1353..e86d625b3e89 100644
---- a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-@@ -16,7 +16,7 @@
- #include "vmx.h"
- 
- /* The memory slot index to track dirty pages */
--#define TEST_MEM_SLOT_INDEX		1
-+#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
- 
- /*
-  * Allocate four pages total.  Two pages are used to verify that the KVM marks
-diff --git a/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c b/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
-index a130759f39a1..4bc57e5e40e3 100644
---- a/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
-@@ -17,7 +17,7 @@
-  * interpreted as a direct L1 GPA or translated using NPT as an L2 GPA, depends
-  * on which VMCB is accessed.
+diff --git a/tools/testing/selftests/kvm/memslot_perf_test.c b/tools/testing/selftests/kvm/memslot_perf_test.c
+index e1299611be32..cbb900ab58af 100644
+--- a/tools/testing/selftests/kvm/memslot_perf_test.c
++++ b/tools/testing/selftests/kvm/memslot_perf_test.c
+@@ -60,7 +60,7 @@
+  * other memslot(s).
+  *
+  * We have different number of memory slots, excluding the reserved
+- * memory slot 0, on various architectures and configurations. The
++ * memory slots 0 and 1, on various architectures and configurations. The
+  * memory size in this test is calculated by picking the maximal
+  * last memory slot's memory size, with alignment to the largest
+  * supported page size (64KB). In this way, the selected memory
+@@ -68,9 +68,9 @@
+  *
+  * architecture   slots    memory-per-slot    memory-on-last-slot
+  * --------------------------------------------------------------
+- * x86-4KB        32763    16KB               160KB
+- * arm64-4KB      32766    16KB               112KB
+- * arm64-16KB     32766    16KB               112KB
++ * x86-4KB        32762    16KB               176KB
++ * arm64-4KB      32765    16KB               128KB
++ * arm64-16KB     32765    16KB               128KB
+  * arm64-64KB     8192     64KB               128KB
   */
--#define TEST_MEM_SLOT_INDEX		1
-+#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
- #define TEST_MEM_PAGES			2
- #define TEST_MEM_BASE			0xc0000000
+ #define MEM_TEST_MOVE_SIZE		(3 * SZ_64K)
+@@ -276,7 +276,7 @@ static u64 get_max_slots(struct vm_data *data, u32 host_page_size)
+ 		rempages = mempages % pages_per_slot;
+ 		if (check_slot_pages(host_page_size, guest_page_size,
+ 				     pages_per_slot, rempages))
+-			return slots + 1;	/* slot 0 is reserved */
++			return slots + TEST_MEM_SLOT_BASE;
+ 	}
+ 
+ 	return 0;
+@@ -313,38 +313,42 @@ static bool prepare_vm(struct vm_data *data, int nslots, u64 *maxslots,
+ 	data->hva_slots = malloc(sizeof(*data->hva_slots) * data->nslots);
+ 	TEST_ASSERT(data->hva_slots, "malloc() fail");
+ 
+-	pr_info_v("Adding slots 1..%i, each slot with %"PRIu64" pages + %"PRIu64" extra pages last\n",
+-		data->nslots, data->pages_per_slot, rempages);
++	pr_info_v("Adding slots %u..%u, each slot with %" PRIu64
++		  " pages + %" PRIu64 " extra pages last\n",
++		  (u32)TEST_MEM_SLOT_BASE,
++		  TEST_MEM_SLOT_BASE + data->nslots - 1,
++		  data->pages_per_slot, rempages);
+ 
+ 	clock_gettime(CLOCK_MONOTONIC, &tstart);
+-	for (slot = 1, guest_addr = MEM_GPA; slot <= data->nslots; slot++) {
++	for (slot = 0, guest_addr = MEM_GPA; slot < data->nslots; slot++) {
+ 		u64 npages;
+ 
+ 		npages = data->pages_per_slot;
+-		if (slot == data->nslots)
++		if (slot == data->nslots - 1)
+ 			npages += rempages;
+ 
+ 		vm_userspace_mem_region_add(data->vm, VM_MEM_SRC_ANONYMOUS,
+-					    guest_addr, slot, npages,
+-					    0);
++					    guest_addr, TEST_MEM_SLOT_BASE + slot,
++					    npages, 0);
+ 		guest_addr += npages * guest_page_size;
+ 	}
+ 	*slot_runtime = timespec_elapsed(tstart);
+ 
+-	for (slot = 1, guest_addr = MEM_GPA; slot <= data->nslots; slot++) {
++	for (slot = 0, guest_addr = MEM_GPA; slot < data->nslots; slot++) {
+ 		u64 npages;
+ 		gpa_t gpa;
+ 
+ 		npages = data->pages_per_slot;
+-		if (slot == data->nslots)
++		if (slot == data->nslots - 1)
+ 			npages += rempages;
+ 
+-		gpa = vm_phy_pages_alloc(data->vm, npages, guest_addr, slot);
++		gpa = vm_phy_pages_alloc(data->vm, npages, guest_addr,
++					 TEST_MEM_SLOT_BASE + slot);
+ 		TEST_ASSERT(gpa == guest_addr,
+ 			    "vm_phy_pages_alloc() failed");
+ 
+-		data->hva_slots[slot - 1] = addr_gpa2hva(data->vm, guest_addr);
+-		memset(data->hva_slots[slot - 1], 0, npages * guest_page_size);
++		data->hva_slots[slot] = addr_gpa2hva(data->vm, guest_addr);
++		memset(data->hva_slots[slot], 0, npages * guest_page_size);
+ 
+ 		guest_addr += npages * guest_page_size;
+ 	}
+@@ -631,9 +635,10 @@ static void test_memslot_move_loop(struct vm_data *data, struct sync_area *sync)
+ 	u64 movesrcgpa;
+ 
+ 	movesrcgpa = vm_slot2gpa(data, data->nslots - 1);
+-	vm_mem_region_move(data->vm, data->nslots - 1 + 1,
++	vm_mem_region_move(data->vm, TEST_MEM_SLOT_BASE + data->nslots - 1,
+ 			   MEM_TEST_MOVE_GPA_DEST);
+-	vm_mem_region_move(data->vm, data->nslots - 1 + 1, movesrcgpa);
++	vm_mem_region_move(data->vm, TEST_MEM_SLOT_BASE + data->nslots - 1,
++			   movesrcgpa);
+ }
+ 
+ static void test_memslot_do_unmap(struct vm_data *data,
+@@ -988,8 +993,10 @@ static bool parse_args(int argc, char *argv[],
+ #endif
+ 		case 's':
+ 			targs->nslots = atoi_paranoid(optarg);
+-			if (targs->nslots <= 1 && targs->nslots != -1) {
+-				pr_info("Slot count cap must be larger than 1 or -1 for no cap\n");
++			if (targs->nslots <= TEST_MEM_SLOT_BASE &&
++			    targs->nslots != -1) {
++				pr_info("Slot count cap must be larger than %d or -1 for no cap\n",
++					TEST_MEM_SLOT_BASE);
+ 				return false;
+ 			}
+ 			break;
+@@ -1027,20 +1034,21 @@ static bool parse_args(int argc, char *argv[],
+ 	}
+ 
+ 	max_mem_slots = kvm_check_cap(KVM_CAP_NR_MEMSLOTS);
+-	if (max_mem_slots <= 1) {
+-		pr_info("KVM_CAP_NR_MEMSLOTS should be greater than 1\n");
++	if (max_mem_slots <= TEST_MEM_SLOT_BASE) {
++		pr_info("KVM_CAP_NR_MEMSLOTS should be greater than %d\n",
++			TEST_MEM_SLOT_BASE);
+ 		return false;
+ 	}
+ 
+-	/* Memory slot 0 is reserved */
++	/* Memory slots below TEST_MEM_SLOT_BASE are reserved. */
+ 	if (targs->nslots == -1)
+-		targs->nslots = max_mem_slots - 1;
++		targs->nslots = max_mem_slots - TEST_MEM_SLOT_BASE;
+ 	else
+-		targs->nslots = min_t(int, targs->nslots, max_mem_slots) - 1;
++		targs->nslots = min_t(int, targs->nslots, max_mem_slots)
++				- TEST_MEM_SLOT_BASE;
+ 
+ 	pr_info_v("Allowed Number of memory slots: %"PRIu32"\n",
+-		  targs->nslots + 1);
+-
++		 (u32)(targs->nslots + TEST_MEM_SLOT_BASE));
+ 	return true;
+ }
  
 -- 
 2.53.0
