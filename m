@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49AECCF2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 09:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A504CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 09:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzE/Q16vHCGMwmevYtx35ZN8QzUMpEh2gX+wjYeXZXI=; b=wtlkWcbTG9gdD0dAjJ30JLfqMj
-	YD2T0AlC7LguER1BK/ilg8I1LXzwGCTmRtHLegxsHihTfZNqIkbWlVr8uYxRTfp0zE9vpiAbjKY4q
-	G9MqpCPOwrQDI3WXjv0ozvTlP1z3y8EAFZquzqJW2yn72zi+oWrLar83BvxfKoNO9rx/8yycJviGW
-	SI6LJbB7XsxHwRqca56HvLyeCOBbEzx1lRVGTH2vOrNGCm2MtfdUgpIMPL/XfoRwpsKAGvJcXSB8R
-	sUKW2Q/0VAm1OH/bSVusxLACJVZcoLEgRWXvSuTXePFmb7SZkRNQNLNeKtIMa5K1xE6kDDmmtqq1R
-	bFNntxCw==;
+	bh=N5JsDfOM/FZljuyIYonxoFSWj6Bl/lINX9Srt6X9Eks=; b=GedVMRGF25L68WgA7miqwtj/AY
+	gTkyLZsVcDRcfiUjbPuh25sapBgPmjJv3VUc5QM4BuWkJgpDyD5GksWa9oAhIfP1GvAEFg6ME8JNr
+	TRnZYsi2wcoMX9TgjMz98p2S8DO83OVbeqaLTBEz7oBhquFRW/OGHOb8BxFIMJ9QXoLkXm+vydL9n
+	aHeL6JDzUjqAGSGGFaL3cNbluaFmIgbTNgq4MV6MotGeWPLmHjV0vp90bgl1XjCQlDUbQ6KhO4FE4
+	Ap1bc44QwWBX+bjYk114vNg0RJI0co0o4dSnmG9ApIC/zCXZtnQoMwrAyHnHgEZpbdgzQYpduQqHB
+	k4WqD1dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI0zD-00000004dMq-21y3;
-	Sat, 17 Oct 2026 09:45:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xI0zH-00000004dOv-0Bxf;
+	Sat, 17 Oct 2026 09:45:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI0z4-00000004dKb-1SQu
+	id 1xI0zB-00000004dLd-45so
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 09:45:54 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69H6o9LC352311
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:45:45 GMT
+	Sat, 17 Oct 2026 09:45:57 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69H6o1qw389388
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:45:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jzE/Q16vHCGMwmevYtx35ZN8QzUMpEh2gX+wjYeXZXI=; b=is91o+eakQSvu+YA
-	41mkYzQVs3UllcmUPE4QHpGVa5esOKREV7CLOZPkeeChuCtbLE3qqAg3Yu687bac
-	UWV9ZbyDMMVKkI7z37vW94ZYuDCqc2v5jDC8bb40/DUXa0wSfc5P49314X0T1Bl4
-	I/kvJppeQ/ic+wEFefBC2//GJVsmQDvgjTvyYJAUWSw0AbhqqGgZfAPCn1AcrsoF
-	dXsmUYW6/E7AMC3K/ha9dzBgsBSwSYrzJYnXnwfuPctCyRKlWEI7yWw49JjRoyGp
-	1sQDttekEU8l9euXMadYPIE+17QXZ530cnEfC2CioXnpcgqty00HN+dzq9pK20Zi
-	KgY2nA==
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hc13urmn3-1
+	N5JsDfOM/FZljuyIYonxoFSWj6Bl/lINX9Srt6X9Eks=; b=XJhtJmtcW9wyS2D8
+	wluey3x0dO8JuICXbqhbYG4oCdepQjsu6hB4XndxdZzr9uj18X56jb/hi1xs3rM3
+	0ypTyLj0083+4OJNwU/MX37RBzmNZV4sFgfLN21VU6kPqc8Vr4fm3WqNuvjV7NQv
+	NZyTtPXjzNktZdjhP1xV+DdUNW5uFY4ow8KfvPfBQcxn/mClzLgbTlirtK52Ih7V
+	K4XPNPmUhXGe4u0/htP1PtCApsqrLCEMJna8OZ/U6Kx4QkSX5qgMFTVLad3W5FlN
+	l1Rwv5hpu9TntGMVbgQV35zxL8r8p72ENtTZZ4J+5bHc/cU7zLms43insmq0b2hu
+	YUocbw==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hc1838mjs-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:45:44 +0000 (GMT)
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-152d1363a29so2688108c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 02:45:44 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:45:53 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso1186628eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 02:45:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792230344; x=1792835144; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1792230353; x=1792835153; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jzE/Q16vHCGMwmevYtx35ZN8QzUMpEh2gX+wjYeXZXI=;
-        b=Bshm9/6mrs9HNmWjLFCEGel6P2cNRJ2Z8CGf60+166Ii8I8mjpp2dstaMp6xizX0jJ
-         Fh95ugSY7W4/U+rCFkUFBtZfuBLBIZhkAZIHj6ZoHAbxOcVERK24N5H1dGgRquxk+vCZ
-         1r4C45wyLFvEHxN46hId1y1CgrRxX7URouuLvf02ZufYJVZJUcEKtFDI3hsnmJ/ZQD6M
-         7pUl9q+lRE7GIWY2jRPfVVDVEq7mIF5AgxTINzxJiz1vPkx56FneBu786IbsUv+b/+lc
-         kuMcZCD43nXTht1wPDDvYBW/qvKMJF20ROAO3M8CssxGpvl8FK2bWvy8AwivSvCJUYAQ
-         yGdw==
+        bh=N5JsDfOM/FZljuyIYonxoFSWj6Bl/lINX9Srt6X9Eks=;
+        b=TjMj13fq6LqAEn9uqmmp8NVd8YIj7shYjG/YgHjDkRobtYDHRGUDgYWP1SDdZRbaap
+         Ns/tyDaur63CeaxTztHq9KVH+WvQr4OmZJRX1kMjNAcYzBFjp53lpHIQzT5Zftjl2CTy
+         h9+Nu9NUq1pvNLZl7Obit9HV7hXluIv6p50/N8rLca/pQ8BtaDQXrTq0pMTdhib2w+r0
+         4z9gY75l0qxMz0S4fqgirzFjSJhPJIVRirVvqH+WjVGG9vwSwnqgPG6NNzIL8bWLPsV5
+         nFOnOuVlspjvxVPe3KhIc1xrVx8PrXXNo4EYVyYaCrIMtc0lnJwBVlYLV65dz9TzWnB5
+         HZVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792230344; x=1792835144;
+        d=1e100.net; s=20260707; t=1792230353; x=1792835153;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jzE/Q16vHCGMwmevYtx35ZN8QzUMpEh2gX+wjYeXZXI=;
-        b=bsXLxq4pVX5Bp+PkQatEJrhyHRLBx2lvkcrGI7s/EbxE9hWaWAAErm4SrMEVrBd+Im
-         zvsl1OUCvl3alK7NtOPZ4wkX4Px/6TZ9h3J4OrokuaC8B2+QDJ/JSCit4RLi/uYHRZsJ
-         U5ZTqaKpS2MAyd/RXxV1HKyJ9MNnLeB39KzdruMQ5xObRNrTj01KMPadMMTR/NRkqN/q
-         vArI5wL4oz0DHUB23QYLX67Fp3gTfb2Fj2uTC771bPT16UUu8LjVmUOpVrFitKlsF4Nt
-         +0WwMqpGb58oHBRkp0/IwdlhvRX8lN6pbKchLBkzTzeqYmzlYnNtLrVy6D0eiUpn0UMe
-         n8BA==
-X-Forwarded-Encrypted: i=1; AKwUvByUW/lqkwrbZfOXGEDT9Nnav/ALrSWC3l/3TIVToTv20kCAI092GjQPM7zb9lLfWNdFAun7qWVzv3Wplwm9tMfR@lists.infradead.org
-X-Gm-Message-State: AFq9FYLIrMBpA+Uu+CZtqcpkgTJAzl9Ct3vlXzJ0i0yFUhifU/DKnnJK
-	KO668BDPlsB9mWM48kOxzHfybQVwb35GdzcM2LX+86YRAHSituS3sM2EHdHnPn8Pb1tA0wbuJOd
-	pvXFHpLl08s+aaIgv7FxmSObZiDr5wLJ9m4FMQQfGHa3XpAuSpkGUQ+3sPRS3TCwZAtxcsXVCHn
-	datzzHFu57LA==
-X-Gm-Gg: AYBFou2CqW4v8OHc0f207jjw5foN9ocMEMcI+qy1ktwktRBlsTMwITAnaWhBUHDdGvL
-	/OTMKK/wTNk35oLGcRBggMpej0qHiCrT8/BdA3s8wfKWxXpyuWOLq63Ol7dHz5MOz131hH5C1mY
-	LwTPsgu9Dh4pXQ0PAaMIl8cUUm3icLDimVEXgQSbszt9heq/sVFps6YvNm88byCv2nXedQaZ1Ba
-	sSF08Rj5p8WQ9aG58NluUis1w6v+sH2Ri95vsyOzLa9UNOHAKCwrcOCQvGYsh+eEPyVxOb6eAVo
-	eVlZIHc30rPjVCVIV4x+nHPzAlQrbp+ienges3OqIJexLswozfM7LjHqggCTokzfyy3N3B7idwZ
-	ip5rxOx9epWIrsA2ry8vT6CqKV5jUhw==
-X-Received: by 2002:a05:701b:204a:20b0:14e:cc3a:9f32 with SMTP id a92af1059eb24-18511ad88f3mr3460872c88.7.1792230343731;
-        Sat, 17 Oct 2026 02:45:43 -0700 (PDT)
-X-Received: by 2002:a05:701b:204a:20b0:14e:cc3a:9f32 with SMTP id a92af1059eb24-18511ad88f3mr3460812c88.7.1792230343061;
-        Sat, 17 Oct 2026 02:45:43 -0700 (PDT)
+        bh=N5JsDfOM/FZljuyIYonxoFSWj6Bl/lINX9Srt6X9Eks=;
+        b=SNKxw5VlsDEA2y09IaRJ4ORy9yCgBQzqH6w8LYwFecfm4Pc+6ZhCsyyl6tWOlF6vJc
+         7KDOKzn2UalTpvihEZ+8l515OZoYc46Yix2qKwrsszAYzzUCANXw8GRMCEiT13OQ7cqt
+         VbHLkCkFVYFudtuT05XkUDoy4CtjzE1iqWnn3sa2h+YR2FxLGi86Gs4N3J13f8lHZ4Gy
+         1yvfN4MLcuET7+8sDtH+MnoErBNr/s6MR5pu5xqUN/5WXaIQZAewYbWa4HrUlTc5/cRE
+         bVuKgmtmCINy+/Ap9+9bif3G3dNCI/RyvIM16JOqqPAc71YI/HiZsPZ8zDLl512efluM
+         793A==
+X-Forwarded-Encrypted: i=1; AKwUvBzNfQgvYKRvMgzoVISL+nSK3cT5mRrn94/5ShCNeNiwHQ4DK08Fk+8PZQ9Q51HwKKA046TVHfwRqe2j8zOZfnQs@lists.infradead.org
+X-Gm-Message-State: AFq9FYLjl7TLxUlju5yc//tTE750X8A/qstbYkyTAEFi+cp6fvQiRi4f
+	HhYGa/BMt0CA6wSildceKGQ2294p3PPPQge2S+zfHEFAWVfnqzqhKLAHq1INAL2Q79+eYMCx2AY
+	GQfZuvfQ1QZxsUe1H2gL8UiyKK8cVg4fZIn2YzxiVbD67gmTnUSDbQW79gfYqp5rfcMrR5mNhJp
+	AqLQ==
+X-Gm-Gg: AYBFou2lbkRE5FM23qB0lrOM6GgPn/Kg/G91wzwUpNaBV8A7Sr+Qp/AmFddCdNxGolZ
+	cqtSaelLG2vbNsylmTFU3S+qtdMvLdZkzEwTexHhi6QJ/i/PZq0jVGTdwRamKz0J4/y69JplWR6
+	Mb5LljKONDZCcl2S+ELo5Drp9ktLy/xDzcultmfbI759xaJOTMfWgogwSbvk6u6s8ZIBRgRCK45
+	63m8a0jt0DZSkz+cgMwm07nzrtJZkYYCAlvh0PdcNu6dsLU3sSjThO0hzFdhNmrKCtIklIKN8P5
+	S1FJ+JbifuqHDGFtaqKwyhM/DqcupLzBjroH8YMUVBmxId/T85+7/tmZ8IwerNlKpztY1xBai4c
+	8VE42mKJ4IimigVzbs8CbVpZ6aO6mxw==
+X-Received: by 2002:a05:7022:ea47:20b0:143:2719:566e with SMTP id a92af1059eb24-18515a66a98mr3299718c88.42.1792230352667;
+        Sat, 17 Oct 2026 02:45:52 -0700 (PDT)
+X-Received: by 2002:a05:7022:ea47:20b0:143:2719:566e with SMTP id a92af1059eb24-18515a66a98mr3299673c88.42.1792230352015;
+        Sat, 17 Oct 2026 02:45:52 -0700 (PDT)
 Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831a6f58c2sm19450327c88.11.2026.10.17.02.45.33
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831a6f58c2sm19450327c88.11.2026.10.17.02.45.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 02:45:42 -0700 (PDT)
+        Sat, 17 Oct 2026 02:45:51 -0700 (PDT)
 From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Date: Sat, 17 Oct 2026 15:15:12 +0530
-Subject: [PATCH net-next v3 1/9] net: phy: dp83867: add regulator supply
- management
+Date: Sat, 17 Oct 2026 15:15:13 +0530
+Subject: [PATCH net-next v3 2/9] dt-bindings: net: qcom,ethqos: add
+ qcom,shikra-ethqos compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261017-shikra_ethernet-v3-1-26a8beb44b8f@oss.qualcomm.com>
+Message-Id: <20261017-shikra_ethernet-v3-2-26a8beb44b8f@oss.qualcomm.com>
 References: <20261017-shikra_ethernet-v3-0-26a8beb44b8f@oss.qualcomm.com>
 In-Reply-To: <20261017-shikra_ethernet-v3-0-26a8beb44b8f@oss.qualcomm.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -123,43 +123,43 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792230324; l=2447;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792230324; l=4186;
  i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
- bh=WVSHBlAoKrJDFHjSHgKUOHwT3ILmdd9Bv1++uwfX2CM=;
- b=UQBsoFxKJfv5tbLctgXh4QAgGFocXPnjAeq6p48mkcMMGBNr5pjE5YFrDHwIxZnoEKYFdwpl/
- C2zcyKxXDyeC2ggJgEVgQUe783OQ7JesLTnG1GO4YI46rkrkIm9ShMT
+ bh=7H1dQan4dtYXbkBmTtDxfLj4GbZbSaGELvYCjH5tXhs=;
+ b=Nl8ymVl6J93gLBLMvJKMojOsdAWgSXv8yLIYcYzfWJuRm11xD4pZL9pkdLz2/iYRlOwWCptYV
+ MA4l3Neu2TABWN7m0CtopijlW4CzxsG32zYUmwWQPHuy19ER29nM39W
 X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
  pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
-X-Proofpoint-GUID: Yk35BJeFpQuutuFh8de0FI760SYJw6nx
-X-Proofpoint-ORIG-GUID: Yk35BJeFpQuutuFh8de0FI760SYJw6nx
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE3MDAzOCBTYWx0ZWRfX7K4XiwMG77vz
- VazCYMoX0UIsfOSeIPCa+W6oPD/8f7cmuDMqiufReqFmNxNx5frGq+ijm2ytHSNbrrRUATy7ppk
- X3uwy+eaPCvPJUPm+iilLR4TY7r57Fc=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE3MDAzOCBTYWx0ZWRfXxPaoJsyPMjtq
- GaLcTSwT//Xle48Rts9LrX5amIygFrr+JAreJZqH2FszLhChxGm3rMPd2wWipLrdc1y0U49omES
- uYxA5DVTX9yY3MrMVnaS3a8Y74Bi5ezBg5fDBSY5qarPZmccpv9I7KS1ZoSFo6MhwPpiqSnk7vJ
- 0U4ZZgz4RPI5HB44oK/f7ibFXjuZrANyB363UdON1bEdV2txU3Ct8YNCn/U/vtQJY89FkyV7+zN
- GdJHOA21HH6cI0zEKwURtzafA4FNgSLjo50f/k3jBLJrVZnfFrP3B2tgUCiCBgQMzoBiOrHfTz1
- lpkAUglZCqvBaLsoNAQ97OoHbWy7g4vUJB+6460zB5SpG3gFjlhoZ5OivQ00WFitUwpp1huawJV
- 4teNhcIIvl40eh9JSaFmdIvgeJ5ygGFl6kHP2KWcMBEDDDyTjZQdDWV5ke30T4iO/nBZ1YrxbKg
- iC2v9NONcUPhG2WC32w==
-X-Authority-Analysis: v=2.4 cv=SKzXx+vH c=1 sm=1 tr=0 ts=6ad343c8 cx=c_pps
- a=kVLUcbK0zfr7ocalXnG1qA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE3MDAzOCBTYWx0ZWRfX2Bc66z9SyRAJ
+ /xRfjb1XhsebfMji6+IQYkr0JbqW3GyLahhMCtOIs2A7zgdlP/Da617yvJQ2nkvfd+6n7bFGCdb
+ 9CnVRzlB4HvUgLG/TpASzUyh9C/ltQo=
+X-Proofpoint-GUID: yiShvSde2UAZDyOrMiLXRd9x0LzlL1SB
+X-Authority-Analysis: v=2.4 cv=Bu8IUoX5 c=1 sm=1 tr=0 ts=6ad343d1 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=sozttTNsAAAA:8 a=uuhe7hOpKvpPPjRdXc0A:9 a=QEXdDO2ut3YA:10
- a=vr4QvYf-bLy2KjpDp97w:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=iZY8vWlYZPOy4iMPn4IA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE3MDAzOCBTYWx0ZWRfX5JtsEJMFeH69
+ 67Z8hbrABEDVe0YW6QSxg6H7DVtIEspjGFyRovY+e3a530p+wCx6TDmUkyFAO8BkSbObShgLRlu
+ lEPJqNhr7kaV1v1V3WxhfRi5wAbAvOScGH2xT0t8K5Ew6XE0nu1Kbrl5StWb5T5OpZx2lfkdBQR
+ sWJPp/Me4f1mCGhWiZbtpxiZ/57YN5WWKC692ZlsNHJky0EVEdD7GjWufxQQLpkX3yOLdU3CWty
+ X3PRed3oM5GsfNaBRN4HzTPbJHyjX3ijNL+hrjC2Xy7UINWOjMVza05Lu7/AsZPJiwaw+y7hVVr
+ BAY290t6YKKAJZiG11RGKcmQyGOzm7XbUtmO4BxhltEAkuGe2omN58eu8JavzmT/Pikbx4xrEFa
+ U7aXSBxf4/F7gsMtHXBm+AFZWsTCz8FumZv80bdEpzVLerKMnb3ieLHyBu9Q0PkUTiVjOtmxzuK
+ Mk6ZtFk6RzjS8k+RkYg==
+X-Proofpoint-ORIG-GUID: yiShvSde2UAZDyOrMiLXRd9x0LzlL1SB
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-17_02,2026-10-14_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 impostorscore=0 spamscore=0 suspectscore=0
- phishscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 lowpriorityscore=0
+ lowpriorityscore=0 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ adultscore=0 priorityscore=1501 phishscore=0 spamscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610170038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_024546_859210_733D8968 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20261017_024554_710921_D89517B8 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,81 +174,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some embedded board designs use GPIO-controlled regulators for the
-DP83867 power rails. Add dp83867_power_on() to enable all four supply
-domains at probe time. Absent supplies are silently skipped, so boards
-that do not describe them are unaffected.
+Shikra's EMAC requires two additional clocks for NOC interconnect
+access (axi-noc, pcie-tile-axi-noc) beyond the standard four, and an
+OPP table with required-opps to vote VDD_CX to SVS when the NOC clocks
+are enabled.
 
-When any supply is newly enabled the driver sleeps for 200 ms before
-returning.  This satisfies the post power-up stabilisation requirement
-mentioned in section 6.6 of the DP83867E/IS/CS datasheet.
+Add qcom,shikra-ethqos to the compatible enum and use an if/else
+block to constrain Shikra to exactly six clocks and require
+operating-points-v2, while leaving existing compatibles unchanged.
 
-Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Acked-by: Andrew Davis <afd@ti.com>
+Add the relevant compatible to the binding document for snps,dwmac as
+well.
+
 Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 ---
-I have kept the Acked-by's since the overall premise of the change
-remains the same between v2 and v3, please let me know if you would like
-me to remove them.
----
- drivers/net/phy/dp83867.c | 32 ++++++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../devicetree/bindings/net/qcom,ethqos.yaml       | 55 ++++++++++++++++++++--
+ .../devicetree/bindings/net/snps,dwmac.yaml        |  2 +
+ 2 files changed, 53 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/phy/dp83867.c b/drivers/net/phy/dp83867.c
-index a3cd5cb11ea0ac108219e05d990b378483b67d7a..092bc68bb9bc6561e2457f596206453dd84e56fc 100644
---- a/drivers/net/phy/dp83867.c
-+++ b/drivers/net/phy/dp83867.c
-@@ -16,6 +16,7 @@
- #include <linux/etherdevice.h>
- #include <linux/bitfield.h>
- #include <linux/nvmem-consumer.h>
-+#include <linux/regulator/consumer.h>
+diff --git a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+index 423959cb928d945aa3e758a3c803d12bd61ec42b..1167f11adbf30c234186a415004a75a774aa4492 100644
+--- a/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
++++ b/Documentation/devicetree/bindings/net/qcom,ethqos.yaml
+@@ -14,9 +14,6 @@ description:
+   dwmmac based Qualcomm ethernet devices which support Gigabit
+   ethernet (version v2.3.0 and onwards).
  
- #include <dt-bindings/net/ti-dp83867.h>
+-allOf:
+-  - $ref: snps,dwmac.yaml#
+-
+ properties:
+   compatible:
+     oneOf:
+@@ -32,6 +29,7 @@ properties:
+           - qcom,qcs404-ethqos
+           - qcom,sa8775p-ethqos
+           - qcom,sc8280xp-ethqos
++          - qcom,shikra-ethqos
+           - qcom,sm8150-ethqos
  
-@@ -730,11 +731,42 @@ static int dp83867_resume(struct phy_device *phydev)
- 	return 0;
- }
+   reg:
+@@ -57,9 +55,11 @@ properties:
+       - const: sfty
  
-+static int dp83867_power_on(struct phy_device *phydev)
-+{
-+	static const char * const supply_names[] = {
-+		"vdda-2p5", "vdd-1p0", "vdda-1p8", "vddio",
-+	};
-+	struct device *dev = &phydev->mdio.dev;
-+	bool supplies_enabled = false;
-+	int i, ret;
-+
-+	for (i = 0; i < ARRAY_SIZE(supply_names); i++) {
-+		ret = devm_regulator_get_enable_optional(dev, supply_names[i]);
-+		if (ret == -ENODEV)
-+			continue;
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to enable %s supply\n",
-+					     supply_names[i]);
-+		supplies_enabled = true;
-+	}
-+
-+	/* Datasheet section 6.6 suggests a 200ms post power-up stabilization */
-+	if (supplies_enabled)
-+		fsleep(200000);
-+
-+	return 0;
-+}
-+
- static int dp83867_probe(struct phy_device *phydev)
- {
- 	struct dp83867_private *dp83867;
- 	int ret;
+   clocks:
+-    maxItems: 4
++    minItems: 4
++    maxItems: 6
  
-+	ret = dp83867_power_on(phydev);
-+	if (ret)
-+		return ret;
+   clock-names:
++    minItems: 4
+     items:
+       - const: stmmaceth
+       - const: pclk
+@@ -67,6 +67,8 @@ properties:
+       - enum:
+           - rgmii
+           - phyaux
++      - const: axi-noc
++      - const: pcie-tile-axi-noc
+ 
+   iommus:
+     maxItems: 1
+@@ -81,6 +83,11 @@ properties:
+       - const: cpu-mac
+       - const: mac-mem
+ 
++  operating-points-v2: true
 +
- 	dp83867 = devm_kzalloc(&phydev->mdio.dev, sizeof(*dp83867),
- 			       GFP_KERNEL);
- 	if (!dp83867)
++  opp-table:
++    type: object
++
+   phys: true
+ 
+   phy-names:
+@@ -92,6 +99,46 @@ required:
+   - clock-names
+   - reg-names
+ 
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: qcom,shikra-ethqos
++    then:
++      properties:
++        clocks:
++          minItems: 6
++        clock-names:
++          items:
++            - const: stmmaceth
++            - const: pclk
++            - const: ptp_ref
++            - const: rgmii
++            - const: axi-noc
++            - const: pcie-tile-axi-noc
++        operating-points-v2:
++          description: |
++            The OPP table specifies the rates for the NOC access
++            clocks in "stmmaceth", "axi-noc", "pcie-tile-axi-noc"
++            order.
++      required:
++        - operating-points-v2
++    else:
++      properties:
++        clocks:
++          maxItems: 4
++        clock-names:
++          items:
++            - const: stmmaceth
++            - const: pclk
++            - const: ptp_ref
++            - enum:
++                - rgmii
++                - phyaux
++
+ unevaluatedProperties: false
+ 
+ examples:
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 2218a492817fd3d864e0bc529b83fdcbb4ed023b..20b1da2f1096c94215902834a1ea014fb4ae44b2 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -75,6 +75,7 @@ properties:
+         - qcom,qcs404-ethqos
+         - qcom,sa8775p-ethqos
+         - qcom,sc8280xp-ethqos
++        - qcom,shikra-ethqos
+         - qcom,sm8150-ethqos
+         - renesas,r9a06g032-gmac
+         - renesas,r9a08g046-gbeth
+@@ -585,6 +586,7 @@ allOf:
+                 - qcom,qcs404-ethqos
+                 - qcom,sa8775p-ethqos
+                 - qcom,sc8280xp-ethqos
++                - qcom,shikra-ethqos
+                 - qcom,sm8150-ethqos
+                 - snps,dwmac-4.00
+                 - snps,dwmac-4.10a
 
 -- 
 2.34.1
