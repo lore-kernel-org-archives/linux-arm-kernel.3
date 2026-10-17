@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603B4CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC73CCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRLqlklMHo9ZCSuWpQYdrWIL15ypvdyDW0jPICD6Gas=; b=ZsZlakGx0uoxpl8KdCtHG7aJDM
-	0BQTSj5hRCXkAh+X/Qwcv7Y0Sa9vFIz9NObyloytPKnT9qHxzviJWDk5zfgeQDos3ZsIERFDRs5YI
-	/MKjMqUPhl8ZTdGe/TatXM+aNmodwpcSqyU3/adw2UICGQk3ob17aa8zUFt0Jc7OPDlkqaR3xwoaX
-	2zAJ3BOwoP+v0Ef6oIDa4Yjbl8XcyTc7G2+5/N5mS9jgQzT0d0c+QNcvF8Z8JUQAhSQOkGEY3D7Qr
-	bSaD8al/i5S9x/GGbpwufiisVyd3T5iB1K/IoZhVwE1R7RKXxhvqjaxWftBAp0FsR68C3PTRuaT9z
-	SC5Zoiow==;
+	bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=; b=ovGaj8yp1FnH3Bt5vg5N5XN0Py
+	d59AXbNzuJNUlJd99URK3mYaTP8H2dacN/omc3Nt7pVAP7DM8lmdLXsXuBrQQs1vFs5XlyqgzdOIj
+	Yi1DQPG0OVDSrS/b7RivXPRTK2SrQJHMY4Wj/9HySHFs3yehvTMBIwYh58wgrCF3rWjyLWuS5HkR/
+	V05CRaWiOqygY/Q9DTif7NUihSqRtHreMh6JmH6OzRO71vrrPXB+wQxJUrnU9XX7T10NK2ZBVqVgt
+	iar0kSVKAGdhO63BN79knZa4XSCuyQBaNw1G2SXvW3+DUcD+ky5jqDkdzA1GHCpazyXOIOybg1JWf
+	BZfAPlkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI7Ut-00000004wuN-3MRS;
-	Sat, 17 Oct 2026 16:43:05 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xI7Uy-00000004wy9-2uow;
+	Sat, 17 Oct 2026 16:43:08 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI7Un-00000004wpG-0WYd
+	id 1xI7Uu-00000004wuP-27YN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 16:42:58 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso413841a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:42:57 -0700 (PDT)
+	Sat, 17 Oct 2026 16:43:06 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3ab98332238so666952a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:43:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792255376; x=1792860176; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792255383; x=1792860183; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nRLqlklMHo9ZCSuWpQYdrWIL15ypvdyDW0jPICD6Gas=;
-        b=MYhwkoHmEHeb9te3bLQekZnjPo7ERxOOwUccPqxjuZakTxScDsISAuRqE6d3Hkhikh
-         XnwZVsHfls2+p9F0gd/V5uvZrqRvus6lWcgK+lFswk6Vw1dxmcVL3dfYeCHR1jXl5RxV
-         EDva5IHwkSOAW8+3ni9Jndn7FAoAjPnTvaFWnICv7RIHBK8SMgo3imnkIO0bD5QTfLuE
-         6Px8zTG6HnWfbDYoDFXgUOD6VKxlcOAms0PZaS13UD7WClJ8IvlM+dpn4PA9Tk4wXQLN
-         461Qz7uMp6iy4EmmFcbQnVmrJncLZiSbTuthCTyg86E+dk6BEACdaDz8fou2QMDyGxhL
-         1Raw==
+        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
+        b=kivGv9zxPYOVwmT7i1LzMN0l8BEd6+PsGUjoWvkq42FlXbradgRhWyDgEw2hCqkgoO
+         d/79/n3i8reO32q0A7rvrZTHBz/4Eunc0JVmxKUK1bwAQxaq0saPnnkFiyLxfAbAemfJ
+         vMvo6mncOwjEjhLJJdtekg+td+aB/AuxlB2guLw0IxeOAuupTUcxIuSRcK49Fjxy2BOj
+         yY7pfhE6w68NqQIVkwserr6FVvVhV+gG7wfud+TPiFLEgy5EBwqwXZ4C1myURfSfSeuO
+         NsVc9oZWLM/rxvAqc03CRjDcBxoO+jzl1nqyhnsqSbr79ZCdFMK7bWea9teBUGg56W4C
+         45XA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792255376; x=1792860176;
+        d=1e100.net; s=20260707; t=1792255383; x=1792860183;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nRLqlklMHo9ZCSuWpQYdrWIL15ypvdyDW0jPICD6Gas=;
-        b=X4gfEqK5ZDnKh21fnTxpmy6/X48DaEsr8/GKv1eZiklytrObEmJaSXnKpeytXSdsoq
-         djzsQofKdWqXWtUbdKCQ3vhgDAuuv+AuJpK9CzmdF5yzZFMY0MhwcvUpgosnWxncWx3h
-         X4Nk4Tua3OZ14UR88zYe7/c3hMlfEaFS+9b8VQmCLuRtuB9tTGlnfi28J/CsvpplgulN
-         GtFLTe7Dxm6TJYAJoLYzNTFHb7rIRbXvOXNabSi0IDu1q5xsLpoYEjW7ThZB7g627Yjm
-         fLASH5yOoMuN6P4HF4zuAp5k18SL5qVB36GRGiWNZJ8wtvjs6tunQm+c9P72sTaEdqAI
-         rU8w==
-X-Gm-Message-State: AFq9FYI8uaHX60Yv5E7ZdNwyuLaFhXmnoe0EhoqUGSIipRPZNY0+S6bz
-	3z/brVWHh1DXyPMeUU1FmGpvRX3uKSVVMa500NGXbI31AbiC7m3S5Bb+
-X-Gm-Gg: AYBFou2A/AQEYsU+v0WKTKLT+cOz9UACVKOgg/ebsXj9JFT+WJYdHvVTtJ9//sGC2O0
-	+EC6PN/569pqbq0P6/sQLFUW7eFsKgRibIz+QmgWQNlu0wF6lk1XK0xYQXRa/UJZvNEH8TMgHIM
-	v1NHr4BiTD+lzZ73fkCEcufk+wygKJLmbWVs1qT10eA1hQ7UJPjW2JcFBQr4fPrbsAUQYBUxyEb
-	6aO8KVOedeYNRx09eznDFSucX14DjVrB2ceu1RWdc1bMBSbxD6kN0UO7jAuC6WWVFHqY4Tz8NQF
-	fWTfcI0OzXgDIKk3apC4KTGeDKjBNH6IevMVwpD6NyzSqhKYifPgUgpefJw4+o+aeoWDt8XkT9L
-	5Z4rrRKZg9XudQ9vq8Kd/8WWWhv6hUy45HuViw1H6X+1B+8JVn8ynKBWEV3QtwOy0AAcKatKTQj
-	TuRr3+pWdCVRtUSBsjWPDZE3x+ZYeb3BxtyylI2YOPCBF/kV9m8iZ0g2R1wq+tHg==
-X-Received: by 2002:a17:90a:fc48:b0:3aa:f875:3385 with SMTP id 98e67ed59e1d1-3acef14544bmr3161802a91.26.1792255376492;
-        Sat, 17 Oct 2026 09:42:56 -0700 (PDT)
+        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
+        b=pWSc2tHuwl4B+QbNym+dyLhD5HhwTLoDc58fb8kX5absM1sBdf+Ss5kr5vUqhqAnkg
+         jqWbTmyQyTtJLDOBJzA97WJTv5/yMGnusfxpRSYsRyO+TZG5LIIvfT2ZObZRaNebfSWh
+         pvO7ILyJFtTCLPLHIzJxivvCHaW0d5LXJoV0EAlhJGGiwiiJMHVTaUIMhF3OMY596/2q
+         5ZCWfKwnS5FEnv1CbA7oFiJmn1zd86ZFsNffAv4k7L6xCGvlwNCnVpC073UfLiprDT9M
+         d7JCqYauoq0GoFQEBsuO7fjnZ/EHzo9d/aLkomf06sD/iIQrRoDHAPgUMiWrkaYGaAoC
+         kKzw==
+X-Gm-Message-State: AFq9FYLnzaiUtE78aPGTWYq2AoCq+d6lNHURlooj3oV414T/Br2Xfy8z
+	5hlEbmWJJ32CpuKwY4g8RttKkkiVM+J7d75gZVYlARs8kdTtExHXxS7G5FR2+A==
+X-Gm-Gg: AYBFou3pOc6ipXDD5zpJsjpDYGCXWTgyeazral2aUCs3s2pYecDRjaI5MbO7RXVjgDk
+	sZyugL3LT8RH2JGxMWILeeDEBUgklkSI7G7cDh+gMgH5pI9Z+HR6rfkfHjp+DtMBg1641x/29J5
+	6722xBBNJnotWcCryH52DpDiawTXHjGZ2CPpqo0do4uK/T/UNKd1l6v1O9A0RDwAeB/OA7xP3zG
+	M8dvn4lNMEARZv/HKxuRy3SRfOR+ERGeMj8XHy490Ni4LJ3Rqu0e8DBm9GolIL+G3G00bVp+z6z
+	v0vYckCuTfJDdXPvtocE/M0X4gctgQQpMS+FEwcKclm4vGQ5fHL965hQ+FKQYb8ofPbrCv0X2I+
+	FlUNQbuMYsQbdpiqORMQEBdpki7+fLRGH+lDS6wwnDMIzpG/CjfQzFsUBSax9qbxAdKCyLV/LHu
+	Rj+0q57O4fmv10VcVoKJin7PJFs2oQW/E5GwGBmVCrf3O7vzTrHk4gRJcvWgf+Mg==
+X-Received: by 2002:a17:90b:582d:b0:3ac:8897:7b98 with SMTP id 98e67ed59e1d1-3acef1455edmr2772023a91.32.1792255383602;
+        Sat, 17 Oct 2026 09:43:03 -0700 (PDT)
 Received: from [127.0.0.2] ([2404:c0:7618:4e1c:2cb7:b2e6:ffb7:d23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac94798212sm13816164a91.14.2026.10.17.09.42.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac94798212sm13816164a91.14.2026.10.17.09.42.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 09:42:55 -0700 (PDT)
+        Sat, 17 Oct 2026 09:43:02 -0700 (PDT)
 From: Reza Kurniawan <imkyufie@gmail.com>
-Date: Sat, 17 Oct 2026 23:41:25 +0700
-Subject: [PATCH 3/4] arm64: dts: qcom: Skip suspend mode switch on MSM8917
- and MSM8937
+Date: Sat, 17 Oct 2026 23:41:26 +0700
+Subject: [PATCH 4/4] arm64: dts: qcom: msm8917: Use a shallower cluster
+ state to fix unresponsive idle
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261017-psci-fix-v1-3-dedae27e4a31@gmail.com>
+Message-Id: <20261017-psci-fix-v1-4-dedae27e4a31@gmail.com>
 References: <20261017-psci-fix-v1-0-dedae27e4a31@gmail.com>
 In-Reply-To: <20261017-psci-fix-v1-0-dedae27e4a31@gmail.com>
 To: Mark Rutland <mark.rutland@arm.com>, 
@@ -93,8 +93,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, Reza Kurniawan <imkyufie@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_094257_185391_E57757D8 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20261017_094305_504721_150A7877 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PSCI firmware on Qualcomm MSM8917 and MSM8937 reports to support
-OS-initiated suspend mode but rejects call to PSCI_SET_SUSPEND_MODE with
-NOT_SUPPORTED. psci_set_osi_mode() then fails with -EOPNOTSUPP and
-probe of psci-cpuidle-domain is aborted:
+MSM8917 is a single cluster SoC, so powering down the cluster means
+powering down the whole system. This causes two problems:
 
-  psci-cpuidle-domain psci: probe with driver psci-cpuidle-domain failed
-  with error -95
+1. The system becomes unresponsive, even to common interrupts. Waking it
+   requires an interrupt from the MPM (MSM Power Manager) or scheduling
+   the MPM to wake the system later. Linux currently has no way of doing
+   the latter, so the cluster may never resume operation.
 
-Skip the mode switch on these platforms and continue with the topology
-that was already built.
+2. Entering power collapse blanks the screen. When the state is entered
+   and exited repeatedly, this shows up as visible flicker.
 
-This is expected to be safe since it matches the downstream kernel
-behavior, which manages the cluster power level in addition to the CPU
-power level, just like Linux does when OSI is supported.
+Even if MPM scheduling were implemented, the second problem would remain
+and it wouldn't fix the system being unresponsive at idle.
+
+Replace the idle state with PSCI mode 4 (dubbed GDHS downstream), which
+is less aggressive and can wake up from conventional interrupt sources.
 
 Signed-off-by: Reza Kurniawan <imkyufie@gmail.com>
 ---
- arch/arm64/boot/dts/qcom/msm8917.dtsi | 1 +
- arch/arm64/boot/dts/qcom/msm8937.dtsi | 1 +
- 2 files changed, 2 insertions(+)
+ arch/arm64/boot/dts/qcom/msm8917.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/msm8917.dtsi b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-index a2907f8a63..f0771187d0 100644
+index f0771187d0..7730977e6e 100644
 --- a/arch/arm64/boot/dts/qcom/msm8917.dtsi
 +++ b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-@@ -182,6 +182,7 @@ pmu {
- 	psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
-+		skip-suspend-mode-switch;
+@@ -112,10 +112,10 @@ core3 {
+ 		domain-idle-states {
+ 			cluster_sleep_0: cluster-sleep-0 {
+ 				compatible = "domain-idle-state";
+-				arm,psci-suspend-param = <0x41000053>;
+-				entry-latency-us = <700>;
+-				exit-latency-us = <1000>;
+-				min-residency-us = <6500>;
++				arm,psci-suspend-param = <0x41000043>;
++				entry-latency-us = <240>;
++				exit-latency-us = <280>;
++				min-residency-us = <806>;
+ 			};
+ 		};
  
- 		cluster_pd: power-domain-cluster {
- 			#power-domain-cells = <0>;
-diff --git a/arch/arm64/boot/dts/qcom/msm8937.dtsi b/arch/arm64/boot/dts/qcom/msm8937.dtsi
-index 7de6447de4..a66a544f30 100644
---- a/arch/arm64/boot/dts/qcom/msm8937.dtsi
-+++ b/arch/arm64/boot/dts/qcom/msm8937.dtsi
-@@ -311,6 +311,7 @@ pmu {
- 	psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
-+		skip-suspend-mode-switch;
- 	};
- 
- 	rpm: remoteproc {
 
 -- 
 2.55.0
