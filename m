@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BCFCCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 01:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417ADCCF2C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 01:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4j55LpyEzQqGZji30wH6uo27jlh2slcCgrKqqgdzSd0=; b=YDoFUPrTk5NqSQbINKgs4Fhs4Y
-	4cgV87/etqLCjUranVMqMCtgT4Lmo/31d3sBXFg/7YW74LKc7hso2+vxbcDET5fCdsIsbd7HbfgK+
-	FY3Y20usaEtTUJUqNujHsq63EOmbw1lH1FwNeZ7kl8oUtzvhhZdaLr7l6LwvaLUQFEPHWt/CnQTja
-	iZM60ooJ/oWOONE1W2En6gQ3CPuQosHjOYmk7fLUPTXsbChOj2qlvaxTKcW4amxjir52eYMyarqUs
-	nmkzXTNLY0YEhkGxrx/q/ttbLA//wWFnALSNFHSHLFxGQMg3rXpIk7CarveLmdU6qXhdiss9AvvhG
-	A58Ai4QQ==;
+	bh=S4QWG8iL9mfl/dhfo2RsR4M7cwNDRqdBeBp9keTXYPE=; b=N9WrQ+JF1ftvorLNiXdg0bC1Hx
+	GvQyjTrE4EGVoDTtISv68XmlCtJzCMKobBTSy2nf+yfmr5vHeM4hlPOjz4BG5Y9QWRsFTEoxGHkEh
+	VBv7BYFcifhu4lcc10fVIR5oapvfYSEAf33lH0/Pa+5JImgiubcCrW0LV7iYY9o2/0aFvQgqpdUQP
+	LWVcMOLNcrWnBQ7DSovHNonDrxNfetzJ3QYyOExWk9BmxEGgKDD1WOmWmS3Kh5dVSkUrWRf9UojVq
+	nHiORAmhg3nfL9yim1Z5pc3ZrjpxEjpIIRDQGZsWIVf7HYHtiixcrQPaixXl4y9OQDda7A8koeJ+T
+	2eDuMGlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHsmy-00000004HhP-3SNC;
-	Sat, 17 Oct 2026 01:00:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHsn5-00000004HjG-0uNW;
+	Sat, 17 Oct 2026 01:00:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHsmy-00000004HhA-0CI1;
-	Sat, 17 Oct 2026 01:00:44 +0000
+	id 1xHsmz-00000004Hhe-3Jgy;
+	Sat, 17 Oct 2026 01:00:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2160A6053E;
-	Sat, 17 Oct 2026 01:00:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 264F01F000C4;
-	Sat, 17 Oct 2026 01:00:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 766A844512;
+	Sat, 17 Oct 2026 01:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A77801F000C4;
+	Sat, 17 Oct 2026 01:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792198842;
-	bh=4j55LpyEzQqGZji30wH6uo27jlh2slcCgrKqqgdzSd0=;
+	s=k20260515; t=1792198845;
+	bh=S4QWG8iL9mfl/dhfo2RsR4M7cwNDRqdBeBp9keTXYPE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fNUH0f8mUl0ONLtRGMszF3YX7K0flj8GBgM78D0CbsVswCBUmji4YYgFc2shnFNzd
-	 t/pWiKSk32Tw9rpflI97pBaUnbE06URQT+tCPEsQG10DAtlMbfN02zgHER6wQT4U0K
-	 +PmQVkS3FUiZ62nqFF78kDhtFiNYruMQxrxaPOQf8EFzIfqy3pwvG6kN5eIQrLfTqg
-	 lWN5efeCAJgOjPkb0oZDlLOBdMhFIvchzeJJo7xIMkYWyfxqX13Ap/g2yJ5C8Ntqcg
-	 EHXpA2apnDi3E/pYE7D7qwbM96LR8QZDPi80eTJ/OMpsvTP7jjJTPKXdnJIW3al2aw
-	 1cC0cX6pvz3kw==
-Subject: Re: [PATCH net v5 1/6] can: dev: prevent bus-off recovery when the
- interface is not running
+	b=Sggz42U+vvkvhddKw1jnhpFRzpbHV5ovSzaKRxOPwG2B3o/+mk3l5Z+PxKbE0Dp2E
+	 UTkXifp811PubD9ZlmQ2OgS3SDUPhjHfZwJrD5Ed5qrW5kKPW51wI4E3jaRCBZ9rCR
+	 HTjpFfEKFKpFxMRMkssI4+uCEegoibs3qUC0BPw5VBxt3iHHxzUlnD/k2JnlzlG6vc
+	 vVzw+cwyDaUSa+wRhcWzVL5ukGoGNO8LveVrkb5na3T6NBxyneFr6Juf1l0+L4FbEb
+	 AAsjkq0qpQYXbpruOze+Vu2z7+dGUsf4a50t3ZBz+d2S4eyABJG+ps21XVYxRbgIlV
+	 LVX1roSf9+66w==
+Subject: Re: [PATCH net v5 5/6] can: rockchip_canfd: serialize TX with bus-off
+ and restart
 From: netdev-bot+sashiko@kernel.org
 To: 1579567540@qq.com
 Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
@@ -50,11 +50,11 @@ Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
  kernel@pengutronix.de, linux-can@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, stable@vger.kernel.org, kuba@kernel.org
-Date: Sat, 17 Oct 2026 01:00:41 +0000
-Message-ID: <179219884173.1406898.3472467604167875171@kernel.org>
-In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-1-ae77327037c9@qq.com>
-References: <20261015-rockchip-canfd-restart-close-v5-1-ae77327037c9@qq.com>
-X-sashiko-severity: Medium
+Date: Sat, 17 Oct 2026 01:00:44 +0000
+Message-ID: <179219884425.1406898.18319979032484933416@kernel.org>
+In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-5-ae77327037c9@qq.com>
+References: <20261015-rockchip-canfd-restart-close-v5-5-ae77327037c9@qq.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -72,174 +72,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In can_restart() (drivers/net/can/dev/dev.c), the new
-  netif_running() check is lockless and is not serialized with…
+- [Low] This patch takes spin_lock_irqsave(&priv->tx_lock, flags) near
+  the top of rkcanfd_start_xmit()…
 
 Pre-existing issues:
-- [High] can_bus_off() (drivers/net/can/dev/dev.c:270-282) reads
-  netif_running() into `restart` and only later calls…
+- [Medium] This problem wasn't introduced by this patch, but
+  rkcanfd_start_xmit() does not handle a can_put_echo_skb() failure.
 
 --
 
-can: dev: prevent bus-off recovery when the interface is not running
+can: rockchip_canfd: serialize TX with bus-off and restart
 
-This commit adds a netif_running() check to can_restart(), so a bus-off
-restart is skipped when the interface is not running. It also changes
-can_bus_off() to schedule restart_work only when restart_ms is set and
-the interface is running.
+This adds a private tx_lock and tx_enabled flag. They serialize
+rkcanfd_start_xmit() and the RX-side echo completion and retry against
+bus-off handling and CAN restart. TX is disabled before CAN_STATE_BUS_OFF
+is published, and carrier, TX, IRQs and the queue are re-enabled together
+under the lock after the controller has been reinitialized.
 
-> diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-> index 769745e22a3c7..92492c503446e 100644
-> --- a/drivers/net/can/dev/dev.c
-> +++ b/drivers/net/can/dev/dev.c
-> @@ -198,6 +198,9 @@ static int can_restart(struct net_device *dev)
->  	if (!priv->do_set_mode)
->  		return -EOPNOTSUPP;
+> diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+> index 12200dcfd3389..f49ed6d2266d9 100644
+> --- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
+> +++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+> @@ -69,12 +69,19 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+
+[ ... ]
+
+>  	if (can_dev_dropped_skb(ndev, skb))
+>  		return NETDEV_TX_OK;
 >  
-> +	if (!netif_running(dev))
-> +		return -ENETDOWN;
+> +	spin_lock_irqsave(&priv->tx_lock, flags);
+> +	if (unlikely(!priv->tx_enabled)) {
+> +		netif_stop_queue(ndev);
+> +		goto out_busy;
+> +	}
 > +
 
+[Severity: Low]
+This lock stays held with hard IRQs disabled until the end of
+rkcanfd_start_xmit(). The locked region includes the echo skb handling:
+
+drivers/net/can/rockchip/rockchip_canfd-tx.c:rkcanfd_start_xmit() {
+    ...
+	frame_len = can_skb_get_frame_len(skb);
+	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
+	if (!err)
+		netdev_sent_queue(priv->ndev, frame_len);
+    ...
+}
+
+can_put_echo_skb()->can_create_echo_skb() clones the skb and then calls
+consume_skb() on the original. If the clone fails, it calls kfree_skb()
+instead. can_put_echo_skb() also calls kfree_skb() in three cases: IFF_ECHO
+is clear, the protocol check fails, or the echo slot is still occupied.
+
+Freeing the original skb runs the socket destructor (sock_wfree()). If this
+is the last TX skb of a closed socket, that can continue into __sk_free().
+
+The comment above dev_kfree_skb_irq() in include/linux/netdevice.h says
+kfree_skb() and consume_skb() must not be called with hardware interrupts
+disabled. Before this patch, ndo_start_xmit() ran with only BH disabled.
+
+Nothing seems to fail visibly today. skb_release_head_state() only warns
+on in_hardirq(), not on irqs_disabled(), and peak_canfd uses a similar
+pattern. Even so, should the clone and the free of the original skb happen
+outside tx_lock, with only the echo slot pointer and tx_head published
+under the lock?
+
+[ ... ]
+
+> @@ -137,7 +144,14 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+>  				  RKCANFD_TX_STOP_THRESHOLD,
+>  				  RKCANFD_TX_START_THRESHOLD);
+>  
+> +	spin_unlock_irqrestore(&priv->tx_lock, flags);
+> +
+>  	return NETDEV_TX_OK;
+
 [Severity: Medium]
-Is this check enough to deliver what the subject line promises? It reads
-the running bit once without any lock. can_restart_work() runs on the
-system workqueue without RTNL or any CAN-private lock, so nothing orders
-it against __dev_close_many() and ndo_stop().
+This is a pre-existing issue that this patch did not introduce. What
+happens when can_put_echo_skb() fails earlier in this function?
 
-The commit message describes the problem as:
+If the GFP_ATOMIC clone in can_create_echo_skb() fails, can_put_echo_skb()
+frees the original skb and returns -ENOMEM. That leaves
+priv->can.echo_skb[tx_head] set to NULL. In that case rkcanfd_start_xmit()
+only skips netdev_sent_queue():
 
-  "Recovery can therefore be queued or started after the interface has
-  begun closing, potentially re-enabling hardware while the driver is
-  tearing it down."
+	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
+	if (!err)
+		netdev_sent_queue(priv->ndev, frame_len);
 
-That still seems possible if the work passes this check just before
-__dev_close_many() clears __LINK_STATE_START:
+	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
 
-restart_work                          ip link set canX down
-can_restart()
-  netif_running() == true
-                                      __dev_close_many()
-                                        clear_bit(__LINK_STATE_START)
-                                        ndo_stop() -> sja1000_close()
-                                          set_reset_mode(dev);
-                                          free_irq(dev->irq, dev);
-  can_flush_echo_skb()
-  netif_rx(skb)
-  netif_carrier_on()
-  priv->do_set_mode(dev, CAN_MODE_START)
-                                          close_candev()
-                                            cancel_delayed_work_sync()
+	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
 
-cancel_delayed_work_sync() in close_candev() waits for the work to
-finish, but it does not undo the restart. The controller ends up in
-operating mode with interrupts enabled and no IRQ handler registered.
-The carrier is also on while the interface is down.
+When the self-received frame comes back, rkcanfd_handle_rx_int_one() sees
+tx_pending != 0 and calls rkcanfd_rxstx_filter(). That function then hits
+the NULL slot:
 
-With a shared IRQ line, could this cause an unhandled interrupt storm
-and get the line disabled for other devices? On runtime-PM drivers, can
-do_set_mode() touch registers after the clocks have been cut?
+drivers/net/can/rockchip/rockchip_canfd-rx.c:rkcanfd_rxstx_filter() {
+    ...
+	skb = priv->can.echo_skb[tx_tail];
+	if (!skb) {
+		netdev_err(priv->ndev, ...);
 
-Many drivers (sja1000, cc770, at91, c_can, flexcan, sun4i, ti_hecc and
-others) reset the chip and free the IRQ before they call close_candev().
-Later in the series, close_candev_cancel_restart_sync() is added and
-called early in ndo_stop(), but only for rockchip_canfd ("can:
-rockchip_canfd: cancel bus-off restart before closing the device").
-
-Should the other drivers get the same change? Or could the core
-serialize this so the window is closed for every driver?
-
-> @@ -264,8 +267,9 @@ int can_restart_now(struct net_device *dev)
->  void can_bus_off(struct net_device *dev)
->  {
->  	struct can_priv *priv = netdev_priv(dev);
-> +	const bool restart = priv->restart_ms && netif_running(dev);
->  
-> -	if (priv->restart_ms)
-> +	if (restart)
->  		netdev_info(dev, "bus-off, scheduling restart in %d ms\n",
->  			    priv->restart_ms);
->  	else
-> @@ -273,7 +277,7 @@ void can_bus_off(struct net_device *dev)
->  
->  	netif_carrier_off(dev);
->  
-> -	if (priv->restart_ms)
-> +	if (restart)
->  		schedule_delayed_work(&priv->restart_work,
->  				      msecs_to_jiffies(priv->restart_ms));
->  }
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch. The
-patch makes the window smaller, but can restart_work still be queued
-after close_candev() has cancelled it?
-
-restart is read before netdev_info() and netif_carrier_off() run.
-Nothing ties that read to the later schedule_delayed_work(), or to the
-single cancel_delayed_work_sync() in close_candev().
-
-Some drivers call close_candev() before they stop their bus-off
-producer. mcp251x_stop() is one example:
-
-drivers/net/can/spi/mcp251x.c:mcp251x_stop() {
-	...
-	close_candev(net);
-
-	priv->force_quit = 1;
-	free_irq(spi->irq, priv);
-	...
+		return -ENOMSG;
+	}
+    ...
 }
 
-Meanwhile the threaded IST, mcp251x_can_ist(), calls can_bus_off().
-hi3110_stop(), mscan_close(), peak_usb_ndo_stop() and f81604_close()
-use the same order.
+tx_tail never advances, because the only normal advance happens after a
+successful echo match. rkcanfd_handle_rx_int() also stops draining the
+FIFO when it gets the error.
 
-One possible sequence:
+After that, does every RX IRQ consume and drop one FIFO entry with another
+-ENOMSG? TX would then stall once the ring is full, until a bus-off
+restart or an interface down/up reinitializes the controller.
 
-mcp251x_can_ist()                     unregister / ifdown
-  can_bus_off()
-    restart = true
-    <preempted>
-                                      __dev_close_many()
-                                        clear_bit(__LINK_STATE_START)
-                                        mcp251x_stop()
-                                          close_candev()
-                                            cancel_delayed_work_sync()
-                                          free_irq()  /* waits for IST */
-    netif_carrier_off()
-    schedule_delayed_work(&priv->restart_work, ...)
-
-After that, nothing cancels the work. free_candev() is only:
-
-void free_candev(struct net_device *dev)
-{
-	free_netdev(dev);
-}
-
-unregister_candev() does not touch restart_work either. On driver unbind
-or USB unplug, the device can be freed before restart_ms expires. Would
-the pending delayed_work timer and work item then sit inside freed
-netdev_priv memory?
-
-The device might instead be reopened before the work runs. __dev_open()
-sets __LINK_STATE_START before ndo_open(), and open_candev() does not
-cancel the work. Would the stale work then pass the new netif_running()
-check in can_restart() and call do_set_mode(CAN_MODE_START) while the
-driver's own open sequence is running?
-
-The series does not add a cancel in free_candev() or unregister_candev().
-Would cancelling or disabling restart_work there close this window?
+This patch keeps the same error propagation in rkcanfd_handle_rx_int_one().
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9%40qq.com
