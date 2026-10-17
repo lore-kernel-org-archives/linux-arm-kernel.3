@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6437CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2A0CCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QpGyoQykc3liLZie3yUFqmZ5bf5eC2Ns8mV45/9/ryw=; b=Wn61LsWFKJe1SKCXpqz1Rd/KU6
-	0eri0gd/YJfUXBLlo4hPR62E9GKUzjnMes9SeK4/BGMw3pskHz97SRUpRoOLStpIOwIWBINj2Vgd/
-	yU+vux0LhrAefLXQcCChn9/NkR+lfqDXhyDwwL25NWv6I7pbusJ6yGrPLlX9VCOe5/9YWO88zTkwq
-	KbPIIBUpuXedPyPc4oK2XkfYDozUzyqs5AJTgPLLKh0mX7wKt33E22Y3bKdXj66s+0bXlS4T/1/Yo
-	GZ74OhXzWyL6LP7CKjCoeTXfRrZw6GjsT0gMi38mGxxFfXEVbvGVLt1PwruXGvto17Vp5pP4TMHSV
-	JI+PmuXg==;
+	bh=Sn6oltEz1l2gbSTEtMRaMGw2g3dSBbPeiQre/ajrvSI=; b=W9skK02g+8UANV7Pqoxv9wwdJQ
+	028hHxQD7qx6mO0t4RW7TgNvgInin4at3sgTCIfJPOQVpHm7aQ4IfXamkeuOhszHqviUzvlqbL7u1
+	4sx3XZlhTzetL+YZn1o25aQJ40W/kaE/joQgYn3RUy0BPj8rgWKcE0vKDEqfq2KugN3B2m6WUckft
+	MZSUEJwVhKwnYmlErLlvOj6/1QDwP5vMJbCafpnME1lKadWVnqKDpTr0uc/2SVl2d1jH5bcK66Zn+
+	8cTtjjGRRX5naSG3O0xbFrPUbW4GzMXucaYM67obCGI8dyku9/jo82tWOgQm7DUgQcfl18BW0wDLO
+	SmqAPLdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI78p-00000004up9-46LP;
-	Sat, 17 Oct 2026 16:20:15 +0000
+	id 1xI7Cj-00000004v7z-0yCB;
+	Sat, 17 Oct 2026 16:24:17 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI78o-00000004up0-1rhH
+	id 1xI7Ch-00000004v7s-3UT6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 16:20:14 +0000
+	Sat, 17 Oct 2026 16:24:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 45D8260AAE;
-	Sat, 17 Oct 2026 16:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 346DD1F000C4;
-	Sat, 17 Oct 2026 16:20:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37E4A60A9D;
+	Sat, 17 Oct 2026 16:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A011F000C4;
+	Sat, 17 Oct 2026 16:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792254012;
-	bh=QpGyoQykc3liLZie3yUFqmZ5bf5eC2Ns8mV45/9/ryw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NKCLBzIspt3WK/W1vyS0P5NtbOSFGGOuReVcNtQArGkc/GGqhEctHmCW83O/RR/Hk
-	 o/ftvfeED7Gm4Ma2Mt0LBd72yCCU10UTwyMawkfutRux8VX/7mUltBZuVCBpCGI06U
-	 lqIv3Le2E5WzpzFoP0jnHnSTOsxhUVRc7gCYW3vlN74mcf42j+r1qUTCWDHeyJLBKD
-	 CR/vHj/BzaxE3Fg0ySJiKmsjLdpfR+xoDjlRe9fd8tmbd9IlK4ALYXdxL/uo1+yVTf
-	 suFeK4aVA8vTGq8JpZISvbOJL4fnPhKJNL0v4V/M75jHX2q7Tsw9LKMYJn6Xq9kDzp
-	 2ieuUcLTtee0w==
-Date: Sat, 17 Oct 2026 18:20:08 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de, 
-	stefandoesinger@gmail.com, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tony Lindgren <tony@atomide.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 09/24] dt-bindings: pinctrl: pinctrl-single: Add ZTE
- ZX279128S pin mux
-Message-ID: <20261017-lion-of-noble-management-d94cfe@quoll>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-10-ghahramani.navid@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261014072109.1759502-10-ghahramani.navid@gmail.com>
+	s=k20260515; t=1792254254;
+	bh=Sn6oltEz1l2gbSTEtMRaMGw2g3dSBbPeiQre/ajrvSI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jJUye3F71L6g7gXBMb4EwJv4URAOh3FVM+EV/DoYqFRNTmSIzHAmrX2JvlEtbC/AL
+	 b6OxHpY2Jl+E1DJ2WHt+UlRnG5FbiY9wqOyLfndPwyUSKgmGctEEn97wtmfsbnxs2c
+	 iLEUjbrOBbr2m8ydOX9WoGmSG1/5PACeLRGORO7OFdsuPi+H3oTRgecNjjV0F33tW1
+	 Bbn+qlfJipAP0sw3igJyGh585gBx1ej6PG9ojGvGN2NKQ9B75MeEaaNQDjW4yd2T8j
+	 wJ3S6WU0//4Q8jesK1KWtD8i1mRcbBqAGmkc8W805ONV0knOEazkamnVevvuIi6tZS
+	 BuSg5FTjWvSTw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xI7Ce-0000000487K-0c5q;
+	Sat, 17 Oct 2026 16:24:12 +0000
+Date: Sat, 17 Oct 2026 17:24:11 +0100
+Message-ID: <865wz01ej8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	Sascha.Bischoff@arm.com,
+	steven.price@arm.com,
+	tabba@google.com
+Subject: Re: [PATCH v3 1/5] KVM: arm64: Reject the GICv5 CPU interface hypercalls under pKVM
+In-Reply-To: <20261012161524.4016464-2-fuad.tabba@linux.dev>
+References: <20261012161524.4016464-1-fuad.tabba@linux.dev>
+	<20261012161524.4016464-2-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, vdonnefort@google.com, qperret@google.com, Sascha.Bischoff@arm.com, steven.price@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 08:20:49AM +0100, Navid Ghahremani wrote:
-> Use pinctrl-single for the verified PCIe and external-PHY bit selections
-> without guessing the unverified field layout.
+On Mon, 12 Oct 2026 17:15:20 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Signed-off-by: Navid Ghahremani <ghahramani.navid@gmail.com>
+> __vgic_v5_save_apr() and __vgic_v5_restore_vmcr_apr() remain callable
+> once pKVM has finalised. pKVM never registers a GICv5 vgic, so neither
+> has a valid caller in protected mode, and on a GICv3 machine both reach
+> a register that is UNDEFINED at EL2 and panic the hypervisor.
+> 
+> Move both into the band the dispatcher rejects once pKVM has finalised.
+> 
+> Fixes: af325e87af5da ("KVM: arm64: gic-v5: Add vgic-v5 save/restore hyp interface")
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->  Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/include/asm/kvm_asm.h   | 4 ++--
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 4 ++--
+>  2 files changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index e5b92ac09e69e..ea319c496bb26 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -62,6 +62,8 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___kvm_enable_ssbs,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
+> +	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+> +	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+>  
+>  	MARKER(__KVM_HOST_SMCCC_FUNC_MIN_PKVM),
+>  
+> @@ -87,8 +89,6 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> -	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+> -	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+>  
+>  	MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 9a3b92e626adb..7c939baf9c1ba 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -911,6 +911,8 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__kvm_enable_ssbs),
+>  	HANDLE_FUNC(__vgic_v3_init_lrs),
+>  	HANDLE_FUNC(__vgic_v3_get_gic_config),
+> +	HANDLE_FUNC(__vgic_v5_save_apr),
+> +	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+>  	HANDLE_FUNC(__pkvm_prot_finalize),
+>  
+>  	HANDLE_FUNC(__kvm_adjust_pc),
+> @@ -932,8 +934,6 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__tracing_write_event),
+>  	HANDLE_FUNC(__vgic_v3_save_aprs),
+>  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> -	HANDLE_FUNC(__vgic_v5_save_apr),
+> -	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+>  
+>  	HANDLE_FUNC(__pkvm_host_share_hyp),
+>  	HANDLE_FUNC(__pkvm_host_unshare_hyp),
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In order to minimise the number of conflicts while merging this, I've
+dropped the last two hunks that only serve a cosmetic purpose. Same
+thing for the following patch.
 
-Best regards,
-Krzysztof
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
