@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6844ECCA463
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9B8CC6B2A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMR9NHx2zb2FLTQwDhokawfL6JKdx49X0IlMyOlscr4=; b=EX2SwhXs3YaHBrN+UKmjIXRndT
-	XZYevHgQS7RTZx+kDUhBXBE15K6hck1QsfxtIb9kz4oSq2gUszDyyfvs6lpNeRmjXj3vP6r8Ri83K
-	Zmj3XHIiNHKlIxlMnodNRW24iv3W2A5EWWVZ2IrFUeyOlYHi7cSDNnX+8aIIeZhtv9W3sVH19YL+6
-	sNwzR+0dBX/2txcrA/IiKxfLUDLIjY+f0NnkEnzqFyE5RuqQ3SiCx2ysitMN+YHBpCVYNbv1blLcS
-	PRl/khq8luXIFzk5UP0uEzYf6lQ+NnlP+ZIg9GxYwv8JTuyA2bx9l5Hubl2RVE/1Mko3eN6+1CeGt
-	b+uaDheQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uos9h2nhlqX1b6lCVgLo7T0zLRlH7JLBNl1Frq1snAA=; b=zb+FWtEREuvVhX
+	YWsokgQZdxLyYKhzmCZZjwsDglj93zi9OIevhaul/yLARQTwDyeYTFwPwQtjbx+M/yXaTnF7qt21Z
+	5xH7EEduro1Z7l8lCOXoRmcLFSoSDKORSa7DKglqEZhmI6NXUnvPKNUoi8Bzz+Px727dp8BrXgZhD
+	V3xfM9galcZbpeQk5ByLtYwFNg/P3WJ37eVK6Z7SVxkLyxt3Q1RNj6q9q81irkDqLDzSWeNpi68cm
+	MSatbU0GPyft9D5glh/gQbFrrD0ktQMjyNg2PvY1KLMiiDW8Z7tGPcPdCsMeAuVjYPwGj76JsWuYj
+	TTIx8j0ptvCXJUzfSsfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHz8c-00000004Y3e-3if2;
-	Sat, 17 Oct 2026 07:47:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xHz8W-00000004Y2b-3Lsr;
+	Sat, 17 Oct 2026 07:47:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHz8Z-00000004Y38-3LSu
+	id 1xHz8V-00000004Y2V-19BC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 07:47:27 +0000
+	Sat, 17 Oct 2026 07:47:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9236E6022E;
-	Sat, 17 Oct 2026 07:47:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187381F000C4;
+	by sea.source.kernel.org (Postfix) with ESMTP id BA2B2439C2;
 	Sat, 17 Oct 2026 07:47:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D7C1F000C4;
+	Sat, 17 Oct 2026 07:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792223245;
-	bh=RMR9NHx2zb2FLTQwDhokawfL6JKdx49X0IlMyOlscr4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=EQRqheCaALCCTfQcx3Mpyk8Ae1CXrMoOWqDNV1iP8vGP43RZ7eZ/u44xdtoQvtMhb
-	 w380ttZmHPFz5Y324ENEkD/Y+5uiueFwpjBsoen/5sV15rTBTuVm3oxw6rOCJkSr2o
-	 Yc2uAxeLBPCL9wkA2cOF02v4OzlUrMAs1aT3wc1gvAZ8IuswwBgvMI+hcPtmOjATdn
-	 BY8Y7voOUAaH9mY0MNrALVJfLuc/tk6mE8rbklF8M4iz3XctbXEy26zu6K0HUTek7Q
-	 aiTLiqe+clZFfbIlR3xNu2RqYK4cO/9j1MC0L2Yi1uxPk7VGLqW6ZYHkqVv2L/QfI5
-	 Wv4WPlD+EEHig==
+	s=k20260515; t=1792223242;
+	bh=uos9h2nhlqX1b6lCVgLo7T0zLRlH7JLBNl1Frq1snAA=;
+	h=From:Subject:Date:To:Cc;
+	b=nnMyPnwM6pAaiHx/6A2mSFvL4y4dtXOyO0LNc7J72oSBMRyD6flwD9yEpoYA7Ax7v
+	 mfwChS+/G8q8qUeaevIVOVNN1VC1uW8A5nk1RSOfgJDOfbbZTwgAnlGQWPbYZmMNEJ
+	 eY4hqRTrcoFgY+03htsFXsRk8wsUNJbRi6dtorEanFITwGLblerPFkUBMkDAUugf3H
+	 ELHwB1WKx9CAaM99niYxxqfSi4vTTDJLHM2GEoaVyPZl5+XScR4q6GRCAafzn+HX5j
+	 cuyBP+TT+SBs4TaxoJFNRIsXHeMr7WGK5By8zRk9QXa/VtPG00O24z4ASfFD6OoLUv
+	 Z/8zt3Wpr8N6Q==
 From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 17 Oct 2026 09:47:18 +0200
-Subject: [PATCH v2 1/3] ARM: dts: broadcom: Preserve the XG6846B CFE
- holding pen
+Subject: [PATCH v2 0/3] ARM: bcm: Enable SMP on the Genexis XG6846B
+Date: Sat, 17 Oct 2026 09:47:17 +0200
+Message-Id: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-1-bf6b4b374b6e@kernel.org>
-References: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org>
-In-Reply-To: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBCF4auQrh3TqYUaV97DsKgwlIlayNQ0G
+ MLdrSZuXf5v8b1VJRKmpE7VqoQyJ55iCbOrVDf6GAi4L62MNg1qRAgUaeEES2iOtoH0mCE7OIB
+ 0CFfr9KDJaOtqVYRZaODlq1/a0iOn5ySv71nGz/pzzV83I2jwNfbWDz1Z7843kkj3/SRBtdu2v
+ QG4TR47xwAAAA==
+X-Change-ID: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
 To: William Zhang <william.zhang@broadcom.com>, 
  Anand Gore <anand.gore@broadcom.com>, 
  Kursad Oney <kursad.oney@broadcom.com>, 
@@ -75,41 +77,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CFE copies the secondary CPU holding pen to physical address 0x1000.
-The secondary-boot reservation covers this area, but its no-map
-attribute prevents the reservation from taking effect with the normal
-ARM kernel placement.
+When booted through CFE and mainline U-Boot, the XG6846B has no PSCI
+provider. CFE powers up CPU1 and leaves it waiting in a holding pen.
 
-ARM reserves its initial page tables before scanning reserved-memory.
-With TEXT_OFFSET=0x8000, those tables overlap the secondary-boot region.
-The reserved-memory code rejects a no-map region overlapping an existing
-reservation, leaving the CFE holding pen available for allocation.
-
-Use an ordinary reservation, which can overlap the page-table
-reservation while keeping the holding pen reserved. This also matches
-the semantics of the vendor device tree's /memreserve/ entry.
+Preserve the holding pen, add a board-specific SMP method using CFE's
+GPIO mailbox and a wakeup IPI, and disable the inherited PSCI setup.
+Tested on the XG6846B with both CPUs coming online.
 
 Assisted-by: LLM
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Read the CFE mailbox address from CPU1's cpu-release-addr property,
+  as suggested by William Zhang.
+- Link to v1: https://patch.msgid.link/20261012-genexis-xg6846-smp-v7-3-rc1-v1-0-a51d4afde4a7@kernel.org
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-index a3616fb7b3a8..6cb221dca0ac 100644
---- a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
-@@ -34,7 +34,7 @@ reserved-memory {
- 		ranges;
- 
- 		secondary-boot@0 {
--			no-map;
-+			/* Includes the kernel's initial page tables. */
- 			reg = <0x00000000 0x00008000>;
- 		};
- 		pmc3-firmware@8000 {
+---
+Linus Walleij (3):
+      ARM: dts: broadcom: Preserve the XG6846B CFE holding pen
+      ARM: bcm: Add CFE SMP support for the Genexis XG6846B
+      ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
 
--- 
-2.56.0
+ .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 16 +++++-
+ arch/arm/mach-bcm/Makefile                         |  2 +-
+ arch/arm/mach-bcm/board_bcmbca.c                   | 65 ++++++++++++++++++++++
+ 3 files changed, 81 insertions(+), 2 deletions(-)
+---
+base-commit: 6356fd3dd29d8b5620507a0ce037c644e052b5dd
+change-id: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
