@@ -4,74 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06294CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA80CCF2C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wxuk6IDriLl7MXn594d/LjgaXzjR4puXOU8/hIVUu9c=; b=pu9w5uaYDzdVwHY9RGcVaKBKof
-	XyecOvf+4L5Ae7MtvwSPOKlogwm3mW+D4T2qF5OGwzZTTbgynZVpyYY6DoX2FhH/ns9nlIyR9P5pc
-	rWWF9SKvnckOdoo7lte/25PeWRrWlwUolYi3W6IFEOaU+rm0rJYINHHdgwAsfUrZZvNb8uYkXdWF3
-	fldRBrhI51D+waow4SsVde6iGLm/2LCLEqjjVxO/TaBuzKlhZVxuyC970p3fIwzaIiKI4b/X8OeOe
-	iPE16xB+cHAynUKsunPJPUWpAa2ONUHy93f+QnBfUT3hp8s9bYdmExOAqhVVWRiyaJEcH4/WJP5Mr
-	bdqihmmA==;
+	bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=; b=P5gtmuRwTdSykZ3b4ghcWzAWTn
+	0cICjQgAzNmJzrwRjTV8aHq9XPTXOLLvmk6ydl3Y8M4zesLhmCJ3lu5AlmdtmJpcbwAUr8KVSabmu
+	0PHxX5Tzw0N9an7K/xjEMNyFxfPWz1Jod8jfrSoI4d6VPyfZQomXocG/MY63tdCW1uDka8SGDfftY
+	XYx71IvOeyYH04J9gEu+EI1iDs5wbCkTWzMfahK1ZCrZexkdtQusqsZgKMjPawLrar8h8465Zlb5B
+	YEIO/J9Nu8wPHPQI/wqtSCU8Mjlw3JOlaZ5ie4K+NE/G6wY7nOOkXO1kdxcmC/VQqXmA00rRpyYrL
+	y61MDblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2QF-00000004iKz-2Wcm;
-	Sat, 17 Oct 2026 11:17:55 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1xI2mN-00000004j8v-1obk;
+	Sat, 17 Oct 2026 11:40:47 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2QB-00000004iKL-1tWg
+	id 1xI2mF-00000004j7q-31is
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 11:17:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=wxuk
-	6IDriLl7MXn594d/LjgaXzjR4puXOU8/hIVUu9c=; b=c/d1+QMqtQyDgaUoeZH6
-	ERLHM6l26dA0mOpWZEIpoRWkLzN0XWkgma+AeD36oEsGg5o3EfdzYX5Cp5/eNCqE
-	ZGY2axdqXfL48EsScQ63GecPZRcY7sZ6nUlB2Ylr+CW2IR6OMwsXSXGgTNRJT6i6
-	v52jeP409R6LS0ERvQhF/AyWBv3jip8SDH3HXI7EHBbo73+SA7EPdLrAnkKd/4OI
-	2tk5DWbM+4MdAIO2pKaKElHilapT8folp/DDiZ+nSbrNrg9um27iF3PT18TrOrkd
-	Goa+tyLk8oU1lkUEPPKeBlEYpwLrTxeJn8LfXnneWZvqJuroxZ71FbAstfVgUiPd
-	ZA==
-Received: (qmail 984 invoked from network); 17 Oct 2026 13:17:42 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Oct 2026 13:17:42 +0200
-X-UD-Smtp-Session: l3s3148p1@5eDrbQdeOsMujnuO
-Date: Sat, 17 Oct 2026 13:17:41 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clegoffic@baylibre.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 0/8] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
-Message-ID: <atNZVWSjJV8GiK9n@shikoro>
-References: <cover.1792163045.git.geert+renesas@glider.be>
-MIME-Version: 1.0
+	Sat, 17 Oct 2026 11:40:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ehXjVZLVydIENP10GfqYZhnP3fDRSlYNpiUHhYKPyH21nO9a2xSjUKrWAFtnHC5yWUTO2HWPV7s8r1fFExfxDqfxjzZync6g/6a8Gk5KshHGl4lOVTVrXLBdFGNlVMoXOPFY5iqDWuLNmYT32aePrVuzvr+aNeBuXv6ndQHValm/Pa9mVh5Wnkal7VVGpTYWdvMI7hH0DanpWvJKcG3W9OViz9bxLEH+b02hl0lmmtAFmOTDELSRgQUGbjzK6VZ26WtZCywU7nkumVE4dFOuhmJNO3CQAJx42ELJp0d1PA3IvCaZt4ppOGN2ji8mVW0MVK/WPG97F+0YpnZc5jeWJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=;
+ b=qGMqt7nPJMiqSLpZXQuqF3aUXRmQ1dM4kMZnF1kX0YY0xEF15lHHq9L/vCBs4l3qQa39oIAgH2RaKRzDGoeY5Ji+kSFqBf1sVmYbJtC7VSx/hbDtWzcuvEGLl094zuL6U9M9o6zfRr8HthsMdrgrsDeWjucAtniopXgcxXZxm8cXat9q68+IgUAjOYUHHxi2s3JRHpLqTKQcAwafr66k0jr1Jgdd6x1uNx8vCTbjn8aPoSWDw/pxVCrebbzZZK1arKTIiHT9kMnIjAIZH1XFxQITe1pTXrZXhOCzqU6jpdpp65H9ArR7LAj2HC2gyEXE9ojah8PaYEDHC02qysaMig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=;
+ b=sm9cAx7SEXCL9jLdk7tlAItAyslkJH/GIeu2wOWyw+NDJvvNjAwciY6LuLWPfEdLQZb+LHPbnnL3fGG7SGV/SJttsZIWE/dzs6Y19MMDpwVQx37Dklo8ht4eRBZ6EONnxk7Du3fuUti5wilEGXC+A+JWfOgFzG1QJyefzYnJrdEuFlCse2fdr7n2KsOn1KoTi2mazmKSuLEIpVh9/HFAxaR18NTkEic9SIEXTbxwiEyzFnmm2qos0X+opfzvIecNtmPMr6Oo4EHrYyiKPv6Cq02GlLdB7Ks3Zw4qBKpp4v+UgDZSstVBpJmlVR82NRfl7xvRtMWr4vSz3sMjxOdyWw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by MW6PR12MB8914.namprd12.prod.outlook.com
+ (2603:10b6:303:244::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.17; Sat, 17 Oct
+ 2026 11:40:26 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0522.017; Sat, 17 Oct 2026
+ 11:40:26 +0000
+Date: Sat, 17 Oct 2026 08:40:25 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
+	kevin.tian@intel.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
+	Cristian Prundeanu <cpru@amazon.com>,
+	Breno Leitao <leitao@kernel.org>
+Subject: Re: [PATCH v11 00/11] iommu/arm-smmu-v3: Adopt the crashed kernel's
+ stream table for kdump
+Message-ID: <20261017114025.GL13920@nvidia.com>
+References: <cover.1791226953.git.nicolinc@nvidia.com>
+ <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1792163045.git.geert+renesas@glider.be>
+In-Reply-To: <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
+X-ClientProxiedBy: YT4PR01CA0301.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10e::10) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MW6PR12MB8914:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d6f9fdf-a3aa-4b6d-dc6d-08df2c43701c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: vMgX5T7kEhKxztKbwl3y1isAeqbz6eTTPoDkQ84nTjldbeJrN9dvb24CXz81U6x8C7lXL6YFWSIQue28oB+Hamf+xLXu76SmIZkNxxHpCFVbUbX8unU30Kj0SZ3McLdJAwPtLFAIMsmX49hWAjw/W69XcgRmAEEypTHEVcrbm0cHV2fLVLC002cvBIIwzT063gQBe+JsB6Tl3nAV1zHGcXecWCJ29lFoiFRoQ7mWQvvbX411QXNQdll7BhSZ2veDkAFvW+JR+ObSchtYjqFLVxKGBEpTg6EI/8hpJ/250kt0J8plAZ7Cr7B14scOAYy34Tpsg0c9amCSMM80y4uhk8ucWMV3djjF16fuDSWtsu2UtTx6nOfKQj7iqsAMBdPFMsDHJgwPliE+KLHz5WuRc8CDc/SvZcdXy10xSEawEuNSvU7FU/5JDOqnAzMNFMAMcpkJXIvLrR+y+UCiiMq9927KfTThlhRBk9pefHZX/U/pWimOs/r3MCWZTtTtiP5Z7r9rLzYal8CA+l2rmILzinxQIGH2lJJv1a08nCWzM1payHko+2x8B7q8XV91BnbvRVAobroJbRT51LWCQsatA4raJuoaAVNtLys4vfGXEcCSWg6MnhgVv2Uk2ttRF36Ze2seuKv6U7SXiLfzgXbJJajRnJj/YR9/nIiJScPF4RI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jazau589mUeO2nNC9SbH69bQc2blX0rlk3Jz4VL+F+cmtfUUbmrcAhhLQlIs?=
+ =?us-ascii?Q?42IRSOsJG/jK0qEQvz1mEvzCQSGUahHH/vfCoHcFkcqWzA3qwwow4CY8dbEW?=
+ =?us-ascii?Q?KwhnD3tnvvqcMxVnyJ/NpO33SnIHB06UyjUwTxtt38OHRs8FcE+EfGeaN8ms?=
+ =?us-ascii?Q?XTlB0SjX17LQImMhI7FoDWqFokPuZSWbXKfysW56gqh7Z87OfGOTUHqOaqyV?=
+ =?us-ascii?Q?XeOxeE7DavmYL85jVugCvxZ0clZXtBW7Ru9TKBzn/CO7Ii/cjdd8fMGjfbM8?=
+ =?us-ascii?Q?bs6o8FJHydtH7e9FFZNtEpYtXK/G56v92T+KK4hl9TEFiZkzVYBE5mM/BwxT?=
+ =?us-ascii?Q?a9yifjfyhz7/zMHf4qJTqVyf+PxdQnbacfucWrqQBKbWsiYmihj8siXlKNZo?=
+ =?us-ascii?Q?Ho5Rj45K7my+0KdogU9eArvNFT39t0wbc+938eIMb1cf958c4MVBxd7XC0d4?=
+ =?us-ascii?Q?u/T2lLdrm+rK6FTWUc6yNYwf7OOA9yOF+eOWoRkj1m2O6Qg4kgb/rV2tGDdI?=
+ =?us-ascii?Q?9SBvLOLSSqRrq3a8/0iaB2wVk+2XJaKVx3ttlEIpv4OFOMJ/986ojEaMkGHY?=
+ =?us-ascii?Q?PXRKwYg6611g2YwefVgMQORH0n79mR0O70IrSgP0EBIwdIPIq/IpUmw6Vl7W?=
+ =?us-ascii?Q?Lt7cTaPg/OKrU7g/t5tsXlrhPu6sW246OaSJcwLBwRMtuFILQm7e+r3ru8l1?=
+ =?us-ascii?Q?tTBUuT4+47aA5Of5lNTIjhHkPRgcCTZu4X8fwz3ztTcWw/w9nQc3wAJgpEG+?=
+ =?us-ascii?Q?mKo3fMFGFpJFpwJQxPrh8zwKELCRulE+YZ8XZ/jAwv78NR3QRRHIbrvJBrz8?=
+ =?us-ascii?Q?DjjH7ibfvbA/2ANU4KEYwPdFmUIFSQ7ZXtMGDXWCb0zLyDPkoN9AEb+CPDy2?=
+ =?us-ascii?Q?QtHmgRnECa1QWmaTU3yPuqoYRJCiPlmdghn6BEeO1Se8Y5hphvKBg/8FiMMW?=
+ =?us-ascii?Q?XL5NOUqxXy5s0uENUcLQw68vx3c4Qv57Z9+eXGiAXQVNFHnPTphtqu5X1y7e?=
+ =?us-ascii?Q?PW3fMlwSW6Lt2Eyju+BaXMU6wTxp8FW/n0LPVJc4ufzAb9fyfGiXRj+IBcE1?=
+ =?us-ascii?Q?DE5aOWhsDCY4BgJnqFslrum6Lb/QvpcFQqP804H3ED/4Tm4sIBtKB0jcqPe6?=
+ =?us-ascii?Q?k6+SBLR/O2Cz+SnC9yJEpSYd+nlIDFB00zXCEZSHZiVPgVzBJOMJFTwqC32L?=
+ =?us-ascii?Q?jrGlUEoXhGtNQ1IWGsGU3Klg2dyCBIo2yiE+XUW+lC0wNBrT9P2Kh6lBuM9T?=
+ =?us-ascii?Q?kmx7R17iNgkIFOjH7pC5uAx6u1AEFyWMbcfLQEJvAOdBdpmLCv3m+/AcpUqY?=
+ =?us-ascii?Q?r0qAHP4SpU1Fp4i/51K91cJsmOvn8lJPW5zipzCPH7PqKRNW/zfc2Yd63ajA?=
+ =?us-ascii?Q?uU9E87FZFD7roQxLyMvdhqUjcQqaJ4c3T35HgDNjf36UIaBX7QnOmcWhHj5D?=
+ =?us-ascii?Q?6hDPMXxi8UYFW6rbMrSnQanSnGaDKWf/pkFFX86KK+h/AW9zwR2BKtgagSpV?=
+ =?us-ascii?Q?K0I1bhR2DdUMOy3beOrRx18/gDcfW+9ie9eBjVIOanfi/zqE7PlZhTxXicrm?=
+ =?us-ascii?Q?0clx5UtRQLdfVH4UbpzOcxCyhlZx6u/b914ENdsHkrPI18XDkZyj9gIJWztO?=
+ =?us-ascii?Q?RzqbyNm+yprNTMEukjH6ZdzQLMEn7Iek2v3CfzEWzFD0quSKfei2awpWnFBL?=
+ =?us-ascii?Q?2NrF3dka3YziaWNgMWL1Svu/58cBBCjHsoVaeX7l4DcGosKX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d6f9fdf-a3aa-4b6d-dc6d-08df2c43701c
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2026 11:40:26.6260
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3sddnaeRRz31Ay4rfuV65PL4hXS41uvXd7T6XXrvZm32mON7rLsDvic/RQJwUy2r
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8914
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_041752_420507_16322E72 
-X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-CacheID: sfid-20261017_044040_201955_ADA2F287 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,35 +142,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+On Sat, Oct 17, 2026 at 04:19:20PM +0800, Shuai Xue wrote:
 
-thank you very much for this update!
+> We tested this series (v11, backported onto our 6.6-based kernel) on two
+> arm64 server platforms that differ in how PCIe errors are reported: one
+> with firmware-first reporting (GHES/CPER), the other with OS-first AER
+> plus DPC. The test triggers a kdump crash (echo c > /proc/sysrq-trigger)
+> on an otherwise idle machine and compares the capture kernel's dmesg
+> between the unpatched baseline and the kernel carrying this series.
 
-> During last OSSJ/LPC, Marek Vasut pondered if we could keep our own ID
+Thanks, this is a nice description of the challenges server type
+systems face!
 
-Well, it is not the last LPC anymore ;) Time flies...
-
-> This series consists of four parts:
->   A. Patches 1-2 prepare and add SCMI remapping support to the R-Car X5H
->      CPG clock driver,
->   B. Patches 3-6 fix and add new interfaces needed for remapping in the
->      R-Car X5H MDLC pmdomain driver,
->   C. Patch 7 adds SCMI remapping support to the R-Car X5H MDLC pmdomain
->      driver,
->   D. Patch 8 enables more SCMI protocols on R-Car X5H Ironhide.
-
-I rebased my I2C branch to it, enabled the debug output and can confirm
-that the clocks and resets are now mapped and I2C still works fine. So,
-for the whole series:
-
-Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-
-The branch is here:
-
-git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/x5h/i2c-experimental
-
-All the best,
-
-   Wolfram
-
+Jason
 
