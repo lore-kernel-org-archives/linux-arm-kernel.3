@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51B9CCA463
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6844ECCA463
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 07:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:To:From
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s7Jp/43JCGcioHrezXAQzyss1rOMOoJtpTpqn9ONHl0=; b=HUHXiOAkTfDSgo8K1YEDpBO4z9
-	gudoyYwhdIdLT+NUarTTX7nIDDT5Hyjz7MPN7b10djAfFcDTY4kshpoenu/YND/4zzEfdDcI+79Q0
-	40A46jwWtS/pBgzz9kk4944KXmDBDfIv7klYiK+Bopeq6Jx29fHbUVz7MCTizDtp1D227HET6+7pV
-	SvWqBmhi3B368qg3d660UmyLGANwZblB4MPZb3cr9J0MSiRIU0S/VRkvpXFA4BWKlXh7ppEfUUiiL
-	Swf2kqWxwxYqHi+iGN9vFNuh7Oet6ncYSpbXv7BXzBiwbv++0cj+uP6nu07ASp8JUd0Qkbo03yu7D
-	+xm8UjeA==;
+	bh=RMR9NHx2zb2FLTQwDhokawfL6JKdx49X0IlMyOlscr4=; b=EX2SwhXs3YaHBrN+UKmjIXRndT
+	XZYevHgQS7RTZx+kDUhBXBE15K6hck1QsfxtIb9kz4oSq2gUszDyyfvs6lpNeRmjXj3vP6r8Ri83K
+	Zmj3XHIiNHKlIxlMnodNRW24iv3W2A5EWWVZ2IrFUeyOlYHi7cSDNnX+8aIIeZhtv9W3sVH19YL+6
+	sNwzR+0dBX/2txcrA/IiKxfLUDLIjY+f0NnkEnzqFyE5RuqQ3SiCx2ysitMN+YHBpCVYNbv1blLcS
+	PRl/khq8luXIFzk5UP0uEzYf6lQ+NnlP+ZIg9GxYwv8JTuyA2bx9l5Hubl2RVE/1Mko3eN6+1CeGt
+	b+uaDheQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHysh-00000004WOF-2LY8;
-	Sat, 17 Oct 2026 07:31:03 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1xHz8c-00000004Y3e-3if2;
+	Sat, 17 Oct 2026 07:47:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHyse-00000004WNT-2zjP
+	id 1xHz8Z-00000004Y38-3LSu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 07:31:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=s7Jp/43JCGcioHrezXAQzyss1rOMOoJtpTpqn9ONHl0=; b=l
-	KkmUHs8dycvmPGR8TvXE6m8i8nAUwGViOw0a5F4bLhhnXa8/kAPHbuCu07YF5t16
-	Tp1HtM1mQ/oHYNOWTxGQfmrtCoNP+CXfLbADDGy6jppXGRnCt7kvGtAHSr7su966
-	XtuwSDDQDpvTJJUlKreJIb3GkUZ+jlh5Llt9LJPgOM=
-Date: Sat, 17 Oct 2026 15:30:44 +0800 (CST)
-From: "jiale yao" <19888972804@163.com>
-To: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
-	"Marc Zyngier" <maz@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
-	"Radu Rendec" <radu@rendec.net>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:[PATCH 4/6] irqchip/gic-v5-its: validate MADT translate frames
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20261016141357.2793046-5-yaojiale02@163.com>
-References: <20261016141357.2793046-1-yaojiale02@163.com>
- <20261016141357.2793046-5-yaojiale02@163.com>
-X-NTES-SC: AL_Qu2SAP6ZvUov4iefZukdnEkQgO0/WsS1vfQu2Y5Wc+wEgCbN4z0YdHxaDHHN8e6DOSarnDiOagNHzNRcb4JHLLJCVivUBoruVTrV2HBgPQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Sat, 17 Oct 2026 07:47:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9236E6022E;
+	Sat, 17 Oct 2026 07:47:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187381F000C4;
+	Sat, 17 Oct 2026 07:47:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792223245;
+	bh=RMR9NHx2zb2FLTQwDhokawfL6JKdx49X0IlMyOlscr4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=EQRqheCaALCCTfQcx3Mpyk8Ae1CXrMoOWqDNV1iP8vGP43RZ7eZ/u44xdtoQvtMhb
+	 w380ttZmHPFz5Y324ENEkD/Y+5uiueFwpjBsoen/5sV15rTBTuVm3oxw6rOCJkSr2o
+	 Yc2uAxeLBPCL9wkA2cOF02v4OzlUrMAs1aT3wc1gvAZ8IuswwBgvMI+hcPtmOjATdn
+	 BY8Y7voOUAaH9mY0MNrALVJfLuc/tk6mE8rbklF8M4iz3XctbXEy26zu6K0HUTek7Q
+	 aiTLiqe+clZFfbIlR3xNu2RqYK4cO/9j1MC0L2Yi1uxPk7VGLqW6ZYHkqVv2L/QfI5
+	 Wv4WPlD+EEHig==
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 17 Oct 2026 09:47:18 +0200
+Subject: [PATCH v2 1/3] ARM: dts: broadcom: Preserve the XG6846B CFE
+ holding pen
 MIME-Version: 1.0
-Message-ID: <1c8e50a6.184c.1a148c52fb0.Coremail.19888972804@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: ZygvCgD3T3ckJNNqXPtaAA--.855W
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzQSh22rTJCQNhwAA3A
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_003101_388036_E3F5CDEA 
-X-CRM114-Status: UNSURE (   5.58  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-1-bf6b4b374b6e@kernel.org>
+References: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org>
+In-Reply-To: <20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org>
+To: William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +75,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QXQgMjAyNi0xMC0xNiAyMjoxMzo1NSwgIkppYWxlIFlhbyIgPHlhb2ppYWxlMDJAMTYzLmNvbT4g
-d3JvdGU6Cj5UaGUgR0lDdjUgSVRTIHRyYW5zbGF0ZS1mcmFtZSBjYWxsYmFjayBhY2Nlc3NlcyBJ
-RHMgYW5kIHRoZSBiYXNlIGFkZHJlc3MKPndpdGhvdXQgY2hlY2tpbmcgdGhhdCB0aGUgTUFEVCBl
-bnRyeSBjb250YWlucyB0aGUgY29tcGxldGUgZml4ZWQtc2l6ZQo+cmVjb3JkLiBBIHRydW5jYXRl
-ZCBmaXJtd2FyZSBlbnRyeSBjYW4gdGhlcmVmb3JlIGNhdXNlIG91dC1vZi1ib3VuZHMKPnJlYWRz
-Lgo+Cj5SZWplY3QgaW5jb21wbGV0ZSB0cmFuc2xhdGUtZnJhbWUgZW50cmllcyBiZWZvcmUgdXNp
-bmcgdGhlaXIgZmllbGRzLgo+CgpGaXhlczogYTk3ZWZhNWJhNTk0ICgiaXJxY2hpcC9naWMtdjU6
-IEFkZCBBQ1BJIElUUyBwcm9iaW5nIikKCj5TaWduZWQtb2ZmLWJ5OiBKaWFsZSBZYW8gPHlhb2pp
-YWxlMDJAMTYzLmNvbT4KPi0tLQo+IGRyaXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXY1LWl0cy5jIHwg
-MyArKysKPiAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4KPmRpZmYgLS1naXQgYS9k
-cml2ZXJzL2lycWNoaXAvaXJxLWdpYy12NS1pdHMuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtZ2lj
-LXY1LWl0cy5jCj5pbmRleCAyOGUzOWIwNjVkZTAuLmRhZDNiOTViYTE1MCAxMDA2NDQKPi0tLSBh
-L2RyaXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXY1LWl0cy5jCj4rKysgYi9kcml2ZXJzL2lycWNoaXAv
-aXJxLWdpYy12NS1pdHMuYwo+QEAgLTEyMzMsNiArMTIzMyw5IEBAIHN0YXRpYyBpbnQgX19pbml0
-IGdpY19hY3BpX3BhcnNlX21hZHRfaXRzX3RyYW5zbGF0ZSh1bmlvbiBhY3BpX3N1YnRhYmxlX2hl
-YWRlcnMKPiAJaW50IGVycjsKPiAKPiAJaXRzX2ZyYW1lID0gKHN0cnVjdCBhY3BpX21hZHRfZ2lj
-djVfdHJhbnNsYXRlX2ZyYW1lICopaGVhZGVyOwo+KwlpZiAoQkFEX01BRFRfRU5UUlkoaXRzX2Zy
-YW1lLCBlbmQpKQo+KwkJcmV0dXJuIC1FSU5WQUw7Cj4rCj4gCWlmIChpdHNfZnJhbWUtPmxpbmtl
-ZF90cmFuc2xhdG9yX2lkICE9IGN1cnJlbnRfaXRzX2VudHJ5LT50cmFuc2xhdG9yX2lkKQo+IAkJ
-cmV0dXJuIDA7Cj4gCj4tLSAKPjIuMzQuMQo=
+CFE copies the secondary CPU holding pen to physical address 0x1000.
+The secondary-boot reservation covers this area, but its no-map
+attribute prevents the reservation from taking effect with the normal
+ARM kernel placement.
+
+ARM reserves its initial page tables before scanning reserved-memory.
+With TEXT_OFFSET=0x8000, those tables overlap the secondary-boot region.
+The reserved-memory code rejects a no-map region overlapping an existing
+reservation, leaving the CFE holding pen available for allocation.
+
+Use an ordinary reservation, which can overlap the page-table
+reservation while keeping the holding pen reserved. This also matches
+the semantics of the vendor device tree's /memreserve/ entry.
+
+Assisted-by: LLM
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+ arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
+index a3616fb7b3a8..6cb221dca0ac 100644
+--- a/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
++++ b/arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
+@@ -34,7 +34,7 @@ reserved-memory {
+ 		ranges;
+ 
+ 		secondary-boot@0 {
+-			no-map;
++			/* Includes the kernel's initial page tables. */
+ 			reg = <0x00000000 0x00008000>;
+ 		};
+ 		pmc3-firmware@8000 {
+
+-- 
+2.56.0
+
 
