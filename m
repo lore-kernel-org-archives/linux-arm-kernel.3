@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC03CCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A356CCF2C7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EooerGosbt9uNoLNk2R3r8CmWtmPXhr2JTyWgkAeP44=; b=mlQN34Lm9M9eXf1Cubqf4BbQWU
-	FcX8DMh+zN22taHWxtKtxYiPmAQrSBmazjgE0lzuMyAS7jcKS/+cAJM5sZp12KVGFEraDkVna4G5A
-	F4mrBuD2K8ilDt9CXWSGJy/Ib4lArhFqNkJIjBdq9kWj2JhkHiGBCtHd75V7scVY3Hq2uj6xgVr3m
-	u4XwSJJa1eiEKJkdu/AxcilM7N6YEMpLllG24ZEnagl+pCm06j1Z+EyIF/EW329Qt/z7eCZL/QRpJ
-	olMJN1y3JVC91UiLqS/g4DMxrArv/1DKWO99SPRHJqonVwZh6TG4MrldIZ8eHOhTz+HF+uuPNZYa1
-	rY8WMmew==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=; b=dN1urm7b6+ubZ9I/jc3h3tNPmH
+	p8jsXj6hAdDTjW20AepDJPyvL/ysQyYCgI/tkOkCi7baEgGCT9MKfL++LkRD6FjiSLKT3stsB6bik
+	NkeOxO7sGGOBPVMl2UujY3BNcbsngwX08vsUrzzJJrvs3/fGNkS/t6SeiDOIREn5bGljWyH6iyXV8
+	hvQuNswPzEbTfTOCMOgdp3IB6uFK+YFbkoSWcI6/2bJXLheqVJUidQFkbcz3cyu9zNIcgFOXL6yqK
+	EjSs6VLn7YrnhS0VTmw4VofjAPKLW0UNvkzJbfRGl9BJ3eSy48XWXYzIeKNYKRgY+AGnyi8IrcjdL
+	7//5ClqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2BN-00000004h1c-0n0Q;
-	Sat, 17 Oct 2026 11:02:33 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1xI2Bc-00000004h6h-2tyZ;
+	Sat, 17 Oct 2026 11:02:48 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2BK-00000004h0b-39fH
+	id 1xI2BV-00000004h3w-3bgz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 11:02:32 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2e87c66e556so8991955ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 04:02:29 -0700 (PDT)
+	Sat, 17 Oct 2026 11:02:44 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2e95bd1c14cso5450245ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 04:02:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792234949; x=1792839749; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EooerGosbt9uNoLNk2R3r8CmWtmPXhr2JTyWgkAeP44=;
-        b=eyPN9INruwfMbeQ860L/JWHxU9aABGGNzDVeuvxwwZlYvlT6m/o7wr2xFrB+xAr8AM
-         SPiW+ynVKiPaI+L32T3hT3N+lFV6tpM3ImhfkOJPcJIj5S9/oIS8CHB4hkhxmhaSf1Jo
-         HJtmzQ1t+OZdtSaS2Q/YLesvNrdaji7PzdtERSanzaIcasSz5LxTnJAYzCEWOv7A+K5D
-         0LkFZNPiXDuUqCu+krWaF8I50r2zjyTmvoL4xmZRdFIgLm8NqbvHUJBySXoqUm88bxKe
-         36gXriPTZfm2Q1uQUD5xZ2JxrWtX0inpzpcXV1qd7AxbSxN6sP5J0tue3tuDiEhNTWMp
-         SKmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792234949; x=1792839749;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792234961; x=1792839761; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=EooerGosbt9uNoLNk2R3r8CmWtmPXhr2JTyWgkAeP44=;
-        b=TXrmUxN4HrCV7JyLCDxc2ZoPUtZjhyNvmXCCoysvj0TQYZIRWPoKUrelro1ECjXXWN
-         MPqdpY3b6uR/IVbagLG65E/6D6/KtLJxtWRpfN/SI0Jk0guYjLRz4j7/7VAshDawKLat
-         dWiqIwZbpMDhUKRiKjov75loneiMk4DP7cU05SU/Kg9mx/FlSRaLsZYQh/RC7TnOsKbK
-         Xcp9BQuCAEHwR1qiK07AtSW4/CkZoHEPWJ9wsBW52CpXBd5BnNsKWVCBU9wc6YXrXWxl
-         n9LowurKn2z8e8uxw8YNVwF7SDTDCnaAS28Hk3AuDsrjmuM5lE4eGzrL/Gyc30rOXqlm
-         R63Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwomg5WzAF5C7oYNBFlgnT8BAT3enQCPTecfmB3N0+MgWSukp0UgKW49PI5CMo3UvqvlThuVjiIN2dSvtHjcS3H@lists.infradead.org
-X-Gm-Message-State: AFq9FYKTwE0u7GLoCzm6FsgWxp+rfU7XSNHqi1IhrGyIh9fiHCu8FEhh
-	jprb4bq7bc1EOJKH6qiTk0GwQ+smxLXCyFuEw+16FISvLU4g8MVfX24w
-X-Gm-Gg: AYBFou2++gG+pGgz/nMRJuoTuEPNsplBR8qovVfCkb9mLV+CupAQqqmZjgnD0NYcFYs
-	WEfBJsoa2TMhBdeAwcWudnivhHS8JvJAApaQJgUrEj0sQxDzSF95PRMnDtFy3OOE6LJ2p71HRcw
-	zgHYafQlIHeIkHFYmbeI1J198tOPLF4v3jru5JhjO/S/RpfPQ4vb5kLdvpGPLsO2aL12x3e2+MG
-	5kLLmArXcGxogvknfXZF/Bt0MphTUl5gDXail4RBKljnmtjFWlYxqyb71IapL9pPa8ZrTLPIdks
-	SSSVqv6KevyTuDjzO+ubUe37o19oRcK/IFuihVxJVB9m45+lFQf/wNBgxOVPU2fLjQU3WzqbSQa
-	SQCuA1Qoqf1GzvtFcREs4cwN2BhcQPoO+55hpcyy6hsWURA+PQWP/O5JAPc3NFDfERHSwLAkS7x
-	7ZmdnD+6BOmnDxReYm7fnt0s7eN6+1+zsNYHhlTBOnJdg4u2sHNcKUmBl1GRuj/d280OSeYAOJX
-	hc8LxGnOUGrR2O61dEHvg==
-X-Received: by 2002:a17:903:1a10:b0:2df:a0d4:71de with SMTP id d9443c01a7336-2e9a66ebc71mr15900275ad.0.1792234948529;
-        Sat, 17 Oct 2026 04:02:28 -0700 (PDT)
+        bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=;
+        b=QYEcXdHsU+phoVZ7NuSWqwRqbuQ6jaRP/RidPPrd5ptEOFmQv/XY4Y+DvWH9OSHOMo
+         cXhERYKqexp6b+EW6OXtkvb3FccsaDXH5bbTHjNb+qF1IYC6/RyUrBbsMor8UbOuH88Q
+         SBb64Kr+0jdVkqwoRHY/L6HdMDOZTyoY0RlQcXEEGRTTbn8YFrU5d7jFxbMBKt3pyyjr
+         BqpI8E1dfyYcQTkPq7WRrVjHsbMEqjCft4ccQxFQdPFm1dc5OXN3MXuqkHIO6Rx62bBv
+         B0Se+GVCMYbpnCdMOQoB0vnu17JCvFpCA+wiGPL3VeXokqraH+FOG7CBB9gRGD0McAsX
+         Z6Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792234961; x=1792839761;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Khy5mpRZBeQDtqVcHeSI4CoZNFAypt9Icm1BgzV+FWo=;
+        b=hmo2nNcPRVRfF7M4nY27HysNsuHpRqgTJonD6Vlm4zbkgniyAbTiRXlg9bXci29zZT
+         ihyAb/Jpx2iFeibwSCawFMyl1GZtXKYm0LV0My5IB+FeH8OS3Ev3cEHLthAQDpF2byz9
+         codt9nX4nkOEKlJmrjopp+8zvJp4iQ6xrJ6zjZ4gpYxgcHM0f8Bsi9sDNv0rjJ8gvAsM
+         vlul61nVJGZSmTdJkC25rio2ADi3M45GgvUVKONiOtVUj0jSDxoJiIMg7hcwm/NO3W4i
+         PdIlt+M77uLP2FdAmvuXN7bx9yjBK37gZWsonDxMk6WQLKP/FqYyf1fwqNWC1u8C2X7F
+         RG+A==
+X-Forwarded-Encrypted: i=1; AKwUvBwSd06C0wKJZsLra2Z3aOJSG9P+4a0USJ+ryIxkvRSMMKsUMO+BHjyHe2TSyJdALMJmBzY6sIz5H19tJ/0N/iE6@lists.infradead.org
+X-Gm-Message-State: AFq9FYLBIEYhsRZyfAKc7FPbRrWY4QmJoM7F9elFeI7700V1DnPMZzf6
+	4RR3gOQjG0pcxv3zvscZhbXqmBApUrucWP3JSaBxlfFm2Ti2pDOfoVBI
+X-Gm-Gg: AYBFou1nFFNLoorKVPHUoIu4Sk46d9NV/Z3SNx5I1QjSMUtYt3tQ2NtF2ihEuAYZYHW
+	vbSS5J/i7WY3rw1JDBBd/U51Owc7l58UG7cmKhjlva0S6CiBWY6qmKBeADbXIOtOjhrZypA1Jif
+	3wUGqEZXnYleGWDVnJz3AeCimDYv/K2R1elNEPaRyill7D4HdMdDCQWqCCjhx/KBlgaKPPJgEv4
+	yUJoZ4xaKp6OdWMDIOsB1bFb3jyrUi3s82JtzC9wkAfJDHiSkUHHcV8p6T103vmOEUTXJFZXlqJ
+	iD1QIqkVQNXVGAUzpkB4CTVkvdOhcAiELaG+oiq8RrsuWoxEoGN0UKq70NmLCvuWrTzci5JvJCm
+	1VbCmwDtK4OoY6ZTa+rwezdMbQglXTx6zCxBDe1B8xqTAONMGUEzm6fweG53Q6ZQn59Y2hUOZpT
+	HGFE58C3QvsmQihau+d14c+SSZmNZmNAl/oUgq9YGMp5j7ZSDcOBVyMam41al0IBlfxgULntwV/
+	0ipDA59WBGJ+FjRH68SQAWJRxHMFuPn
+X-Received: by 2002:a17:903:283:b0:2e7:4a2f:68e6 with SMTP id d9443c01a7336-2e9a6c0de31mr22453835ad.39.1792234960910;
+        Sat, 17 Oct 2026 04:02:40 -0700 (PDT)
 Received: from x1c ([2405:9800:b670:b64b:7c65:ff3e:80ba:b06])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e804dd9sm20559955ad.16.2026.10.17.04.02.18
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e804dd9sm20559955ad.16.2026.10.17.04.02.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 04:02:28 -0700 (PDT)
+        Sat, 17 Oct 2026 04:02:40 -0700 (PDT)
 From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>
@@ -98,16 +99,17 @@ Cc: Shuah Khan <shuah@kernel.org>,
 	me@brighamcampbell.com,
 	jkoolstra@xs4all.nl,
 	Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Subject: [PATCH 0/5] KVM: selftests: Reserve memslot 1 for ucall MMIO
-Date: Sat, 17 Oct 2026 18:02:08 +0700
-Message-ID: <20261017110213.46199-1-tharitt97@gmail.com>
+Subject: [PATCH 1/5] KVM: selftests: Introduce a shared base for test memslots
+Date: Sat, 17 Oct 2026 18:02:09 +0700
+Message-ID: <20261017110213.46199-2-tharitt97@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261017110213.46199-1-tharitt97@gmail.com>
+References: <20261017110213.46199-1-tharitt97@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_040230_787250_14BCF461 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261017_040241_915118_33C64407 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,59 +124,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series addresses the TODO in __vm_create() to reserve memslot 1
-for the ucall MMIO region. It introduces a shared base for test
-memslots, migrates existing test users, and adds a read-only region to
-prevent overlapping allocations.
+Replace hardcoded slot 1 assignments with TEST_MEM_SLOT_BASE
+This prepares tests for reserving slot 1 for library use.
 
-A regression test verifies overlap rejection and continued ucall
-operation.
+Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+---
+ tools/testing/selftests/kvm/arm64/hypercalls.c               | 3 ++-
+ tools/testing/selftests/kvm/arm64/sea_to_user.c              | 2 +-
+ tools/testing/selftests/kvm/arm64/stage2_block_transitions.c | 2 +-
+ tools/testing/selftests/kvm/arm64/vgic_its_save.c            | 2 +-
+ tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c          | 2 +-
+ tools/testing/selftests/kvm/dirty_log_test.c                 | 2 +-
+ tools/testing/selftests/kvm/guest_memfd_test.c               | 2 +-
+ tools/testing/selftests/kvm/include/kvm_util.h               | 1 +
+ tools/testing/selftests/kvm/kvm_page_table_test.c            | 2 +-
+ tools/testing/selftests/kvm/mmu_stress_test.c                | 2 +-
+ tools/testing/selftests/kvm/riscv/sbi_pmu_test.c             | 3 ++-
+ tools/testing/selftests/kvm/steal_time.c                     | 3 ++-
+ tools/testing/selftests/kvm/x86/nested_dirty_log_test.c      | 2 +-
+ tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c  | 2 +-
+ 14 files changed, 17 insertions(+), 13 deletions(-)
 
-Testing:
-- Intel Core i5-10210U and Rockchip RK3588 (arm64).
-
-These tests are changed but not tested: 
-- arm64/sea_to_user.c: not enough memory allocation.
-- x86/nested_vmsave_vmload_test.c: requires X86_FEATURE_SVM.
-- riscv/sbi_pmu_test.c: riscv hardware unavailability.
-
-The following test failures reproduce on both the unmodified base
-<8edffbc1f6272db167037e1a8c49b99e9cd04803> with host kernel 
-7.3.0-rc1-gd4b7fb647204 on RK3588 and with this series applied:
-- arm64/vgic_its_save.c
-- arm64/hypercalls.c
-
-These failures are unchanged by this series.
-
-Tharit Tangkijwanichakul (5):
-  KVM: selftests: Introduce a shared base for test memslots
-  KVM: selftests: Use the shared memslot base in memslot_perf_test
-  KVM: selftests: Use the shared memslot base in memstress
-  KVM: selftests: Reserve memslot 1 for the ucall MMIO address
-  KVM: selftests: Test protection of the ucall MMIO region
-
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../testing/selftests/kvm/arm64/hypercalls.c  |  3 +-
- .../testing/selftests/kvm/arm64/sea_to_user.c |  2 +-
- .../kvm/arm64/stage2_block_transitions.c      |  2 +-
- .../selftests/kvm/arm64/vgic_its_save.c       |  2 +-
- .../selftests/kvm/arm64/vgic_lpi_stress.c     |  2 +-
- tools/testing/selftests/kvm/dirty_log_test.c  |  2 +-
- .../testing/selftests/kvm/guest_memfd_test.c  |  2 +-
- .../testing/selftests/kvm/include/kvm_util.h  |  1 +
- .../testing/selftests/kvm/include/memstress.h |  2 +-
- .../selftests/kvm/kvm_page_table_test.c       |  2 +-
- tools/testing/selftests/kvm/lib/kvm_util.c    | 19 ++++--
- .../testing/selftests/kvm/memslot_perf_test.c | 62 +++++++++++--------
- tools/testing/selftests/kvm/mmu_stress_test.c |  2 +-
- .../selftests/kvm/reserved_slot_test.c        | 61 ++++++++++++++++++
- .../selftests/kvm/riscv/sbi_pmu_test.c        |  3 +-
- tools/testing/selftests/kvm/steal_time.c      |  3 +-
- .../selftests/kvm/x86/nested_dirty_log_test.c |  2 +-
- .../kvm/x86/nested_vmsave_vmload_test.c       |  2 +-
- 19 files changed, 128 insertions(+), 47 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/reserved_slot_test.c
-
+diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
+index 391e2ba58b0b..ff7c21738a96 100644
+--- a/tools/testing/selftests/kvm/arm64/hypercalls.c
++++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
+@@ -191,7 +191,8 @@ static void steal_time_init(struct kvm_vcpu *vcpu)
+ 	unsigned int gpages;
+ 
+ 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE);
+-	vm_userspace_mem_region_add(vcpu->vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
++	vm_userspace_mem_region_add(vcpu->vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
++				    TEST_MEM_SLOT_BASE, gpages, 0);
+ 
+ 	vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PVTIME_CTRL,
+ 			     KVM_ARM_VCPU_PVTIME_IPA, &st_ipa);
+diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+index d4af6e0eed28..bb552debc61c 100644
+--- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
++++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+@@ -323,7 +323,7 @@ static struct kvm_vm *vm_create_with_sea_handler(struct kvm_vcpu **vcpu)
+ 		/*vm=*/vm,
+ 		/*src_type=*/src_type,
+ 		/*gpa=*/start_gpa,
+-		/*slot=*/1,
++		/*slot=*/TEST_MEM_SLOT_BASE,
+ 		/*npages=*/num_guest_pages,
+ 		/*flags=*/0);
+ 
+diff --git a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
+index 5fd47f4ada1f..0e23d7b55782 100644
+--- a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
++++ b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
+@@ -41,7 +41,7 @@
+ #include "test_util.h"
+ #include "ucall.h"
+ 
+-#define DATA_SLOT		1
++#define DATA_SLOT		TEST_MEM_SLOT_BASE
+ #define TEST_GVA		0xc0000000UL
+ #define BLOCK_SIZE		SZ_2M
+ 
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_its_save.c b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
+index 864da01539f3..e858a4aa741d 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_its_save.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
+@@ -29,7 +29,7 @@
+ #include "ucall.h"
+ #include "vgic.h"
+ 
+-#define TEST_MEMSLOT_INDEX	1
++#define TEST_MEMSLOT_INDEX	TEST_MEM_SLOT_BASE
+ 
+ /* All three ITS table entry sizes are 8 bytes in ABI 0. */
+ #define ESZ			8
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+index 9a69c439a0f8..1d5c56481053 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+@@ -18,7 +18,7 @@
+ #include "ucall.h"
+ #include "vgic.h"
+ 
+-#define TEST_MEMSLOT_INDEX	1
++#define TEST_MEMSLOT_INDEX	TEST_MEM_SLOT_BASE
+ 
+ #define GIC_LPI_OFFSET	8192
+ 
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index af5eb0334a74..75084fe3bec6 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -26,7 +26,7 @@
+ #define PAGE_SHIFT_4K  12
+ 
+ /* The memory slot index to track dirty pages */
+-#define TEST_MEM_SLOT_INDEX		1
++#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
+ 
+ /* Default guest test virtual memory offset */
+ #define DEFAULT_GUEST_TEST_MEM		0xc0000000
+diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+index 2233d871a38f..231bfe238e31 100644
+--- a/tools/testing/selftests/kvm/guest_memfd_test.c
++++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+@@ -510,7 +510,7 @@ static void test_guest_memfd_guest(void)
+ 	 * the PCI hole and other MMIO regions that need to be avoided.
+ 	 */
+ 	const gpa_t gpa = SZ_4G;
+-	const int slot = 1;
++	const int slot = TEST_MEM_SLOT_BASE;
+ 
+ 	struct kvm_vcpu *vcpu;
+ 	struct kvm_vm *vm;
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 5a7a455b5387..759d604d44ce 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -30,6 +30,7 @@
+ 
+ #define KVM_DEV_PATH "/dev/kvm"
+ #define KVM_MAX_VCPUS 512
++#define TEST_MEM_SLOT_BASE 1
+ 
+ #define NSEC_PER_SEC 1000000000L
+ 
+diff --git a/tools/testing/selftests/kvm/kvm_page_table_test.c b/tools/testing/selftests/kvm/kvm_page_table_test.c
+index 974813ea8953..f18720109319 100644
+--- a/tools/testing/selftests/kvm/kvm_page_table_test.c
++++ b/tools/testing/selftests/kvm/kvm_page_table_test.c
+@@ -20,7 +20,7 @@
+ #include "guest_modes.h"
+ #include "ucall_common.h"
+ 
+-#define TEST_MEM_SLOT_INDEX             1
++#define TEST_MEM_SLOT_INDEX             TEST_MEM_SLOT_BASE
+ 
+ /* Default size(1GB) of the memory for testing */
+ #define DEFAULT_TEST_MEM_SIZE		(1 << 30)
+diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
+index 741e343962ed..b965a8b9d214 100644
+--- a/tools/testing/selftests/kvm/mmu_stress_test.c
++++ b/tools/testing/selftests/kvm/mmu_stress_test.c
+@@ -273,7 +273,7 @@ int main(int argc, char *argv[])
+ 	 * 1gb-3gb,but it's simpler to skip straight to 4gb.
+ 	 */
+ 	const u64 start_gpa = SZ_4G;
+-	const int first_slot = 1;
++	const int first_slot = TEST_MEM_SLOT_BASE;
+ 
+ 	struct timespec time_start, time_run1, time_reset, time_run2, time_ro, time_rw;
+ 	u64 max_gpa, gpa, slot_size, max_mem, i;
+diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+index 20388f0b959d..6abd74870e01 100644
+--- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
++++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+@@ -605,7 +605,8 @@ static void test_vm_events_test(void *guest_code)
+ static void test_vm_setup_snapshot_mem(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ {
+ 	/* PMU Snapshot requires single page only */
+-	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE, 1, 1, 0);
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, PMU_SNAPSHOT_GPA_BASE,
++				    TEST_MEM_SLOT_BASE, 1, 0);
+ 	/* PMU_SNAPSHOT_GPA_BASE is identity mapped */
+ 	virt_map(vm, PMU_SNAPSHOT_GPA_BASE, PMU_SNAPSHOT_GPA_BASE, 1);
+ 
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 785d19f9ee8f..e386580ef540 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -509,7 +509,8 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
+ 	/* Create a VM and an identity mapped memslot for the steal time structure */
+ 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+ 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE * nr_vcpus);
+-	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
++				    TEST_MEM_SLOT_BASE, gpages, 0);
+ 	virt_map(vm, ST_GPA_BASE, ST_GPA_BASE, gpages);
+ 
+ 	return vm;
+diff --git a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
+index 26b474bf1353..e86d625b3e89 100644
+--- a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
++++ b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
+@@ -16,7 +16,7 @@
+ #include "vmx.h"
+ 
+ /* The memory slot index to track dirty pages */
+-#define TEST_MEM_SLOT_INDEX		1
++#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
+ 
+ /*
+  * Allocate four pages total.  Two pages are used to verify that the KVM marks
+diff --git a/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c b/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
+index a130759f39a1..4bc57e5e40e3 100644
+--- a/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
++++ b/tools/testing/selftests/kvm/x86/nested_vmsave_vmload_test.c
+@@ -17,7 +17,7 @@
+  * interpreted as a direct L1 GPA or translated using NPT as an L2 GPA, depends
+  * on which VMCB is accessed.
+  */
+-#define TEST_MEM_SLOT_INDEX		1
++#define TEST_MEM_SLOT_INDEX		TEST_MEM_SLOT_BASE
+ #define TEST_MEM_PAGES			2
+ #define TEST_MEM_BASE			0xc0000000
+ 
 -- 
 2.53.0
 
