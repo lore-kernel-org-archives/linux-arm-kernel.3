@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DD0CCA463
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 05:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A06ECCA463
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 06:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NQoVsKz0LnNjJ4rVcBhJaqVhtFod/04Q9AhzSfJg/Y=; b=v7HrskaKdKwx7kkOac/YwvttdJ
-	DgkKegKs1pKCFITbDFu66ReVWVEFmxbpA/Glwu+PCdQlCXSDUaisSZz+IfUSs60CNNfSM2dFAaDfR
-	8H0/A6HK7V9RW61CeYAG8R4ly/IY8x6QUjDVAt6MngTt07gg/h5ODIdMEnrz0wwIg7YC811QHUyZ8
-	7d1dt2+QTvKMjxpbXFlG+I7B71yTd/WELsoy8e1NZsyd9oXLj26aG9PtlS19FJj5K+UzXBJ1hcJtE
-	LGpo7o9MWEZfJdAdFkrOCrVGG9hF0qs4++aKF6sbbXKXi4fePtrEJNVFecw8LuALJtJApk/syyMMc
-	XGmbYJ6Q==;
+	bh=PANH83LO9KrofHVTq/98fVVjN62lrjOODBRAe7r1vek=; b=FBlsb8BF564EJpqPxmSFBaEIUs
+	YottQeDuuky0DtSjkIZB/dzlEXjiIHIs7ZjUOqTgvYdEFXBZvWOGS7HOxZjRj+FwVFonLme465per
+	+lQVcV0eZR8NvSnbpA+IF/LL5coIzeAWSWY+9AVj46IqA/6Qzgk+xQIL37f47xhLqOC6KFrNjZcRJ
+	dWysHfDVQY+LH5gtFSCsxOeZqNIvxOYWLSWu+983KWTQbiLDP8ODMxH3sOGncD6fCBOeeiFftp1MN
+	J0QJakd6LiXQsYaiIQHCRLLY8a7cWs5A82tDWsvDYafIvFYz9YD45nb0M+diiEkyORCSU5Qo+xSZl
+	2ZFFA9vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHxKw-00000004TFi-1OVV;
-	Sat, 17 Oct 2026 05:52:06 +0000
-Received: from mail-ed2-x04.google.com ([2a00:1450:4864:33::4])
+	id 1xHy5k-00000004UZL-24Ej;
+	Sat, 17 Oct 2026 06:40:28 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHxKt-00000004TEi-0GOk
+	id 1xHy5h-00000004UYi-3qs6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 05:52:04 +0000
-Received: by mail-ed2-x04.google.com with SMTP id 4fb4d7f45d1cf-6afe183a704so201546a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Oct 2026 22:52:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792216321; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XmBFqoda0/B8Ks+yEpZhA+9gzdvyMlUbs8f2ttY54acx9xgHjjntAGcxKMRWjqW1Rr
-         6gW9vHUUkRts8PbGBBZVUgLcSd5hTNWtIwgzG25NtMnIPyPopOonbumeq6r7HGmFHG9q
-         tcYREHYwqX+Zp02/oY5UfKcgluJ9arbQEwJGOKelL1LGt9GqmFQj9JOdJ4sSnX70k/we
-         J2FwSDcTqKv38IGBnIbvIN3GG9GA9GVAm4KJ7DSdl4HEo7ugaQ9FN61uYAB1QG0iOEt3
-         4Y6KTaZVH0kWNNeIgPXjuU0hwWcb5rRIEpYTj66TaFkU/6qK9nwpCD+u6yOR4KvElBCb
-         R5Ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1NQoVsKz0LnNjJ4rVcBhJaqVhtFod/04Q9AhzSfJg/Y=;
-        fh=ICfbZqqzVtKXINJ9djAoIJPC8C0u2osmpqgq0KgClac=;
-        b=o6b/i1rAJp8WGRbqJn7yTOxM3sn2CEYKhECSfrFP4635irrsBhPJp4o3XIdYz3p4vN
-         5X0d6JuhmRxLgW0q5QA9oowJTwwWK/g6IycTFgn+2jciihAN/zV+7w0WByiJirO0QQMC
-         pyJyIRNrb0O6ZMBRAVuof28wSOtV5P4M4lAkWA50grn7mALvmk8yZM5Yx0aG3GqNJxdN
-         263fAHt93IFQS75F5mmYH6Df2AWHPpcURVgvsE4z+qbMC7XouDde0kG4B2mU1j/N4Lq2
-         uFbiUObVTZpEZco0y+u9xit9azhVf4nl2f5AOKw67dyyzppbtHbWjqB4eJYJQhTWeINj
-         lv7A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792216321; x=1792821121; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1NQoVsKz0LnNjJ4rVcBhJaqVhtFod/04Q9AhzSfJg/Y=;
-        b=Di5fzN6uGnbITvngAV6lcNhNGiFfplDafIuxrzlTbp+mP+CgTb4WI3UxGaK+XO/x7z
-         pRUzoFzNQ3ZDPUCnuehMPBUKlnhxLek9rGyrt7ADhRaQ6uRM3Km06ctGhX3hGSNyMDFp
-         mazC/IoTkdOQldKu44rE+Kzs10hGQxi3qy5CnhSpO5GeoVu+cdGklk52U/v7s1L8fObT
-         xnGrTIMNbZoT7VuiBuAzoPE8PpqhJLoOBsos36zfHgYRCsjJt8Jtrq6RECJgAKnn4P4U
-         rnIVXRZorkptwvuXdAXBVcCb96TX1YhBivSAYe45PHPGjNgdBCFmBzsVORaPPLCef7Ro
-         YM1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792216321; x=1792821121;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1NQoVsKz0LnNjJ4rVcBhJaqVhtFod/04Q9AhzSfJg/Y=;
-        b=B4GSKPsWnPos3Yx2WDtTavx8ZdyiYvsiSGj4rhZNrWEx1Wb5h1zJplMqikerLqIfMc
-         IYi5REQAuFB5QhyR7f3pRbwWYXoocqTcTbWXV1T1xjS7E4byZmpNscWEYS9fFgsXiGmN
-         W7t1zp2CJWPbbCbz+l26oy7c5BM6b5OB3fVQa+R/MGaNe+kyhP0xf1YASQZbFQgjh4iO
-         lhDgkJCBUKcgDoNwFowTSQiPIrg3gCCWkjruepAUvZUM9J01Evk6rcf6AoU1Lychyssk
-         6pesrhWa5R7HZOtyvROCJW1hHW72IkGSN+69AHJmXqkp6nY3rD7D8013Yr4zvKBroKHq
-         iv1g==
-X-Forwarded-Encrypted: i=1; AKwUvBzdsgEhlZmJDVhlu2H0KDtIzf7XNW1seCX896Q1HK3n9DY9i3DaLWL6JAi0Uhu5HUL2qNGKVZ5dV+khhf8vKVH+@lists.infradead.org
-X-Gm-Message-State: AFq9FYKvohox7d5PvTiS4ziUGL2jQK+hGhmxY3zygAvO6xNQn4y1u9fQ
-	vR8l2kEF4wZkfc/iTLNoubVatLX5vlDyUkXRcVV5qh/akP/OvWPvb8kMmNw7ZLY0eboRM+fElJD
-	Ha7AF+tw2Q47+o5DxOubXeq3JfaoQ7Fc=
-X-Gm-Gg: AYBFou2h/TCmdZzRXu5pM1DILa4ZA6ubkhPuzv/6kMI6HHI+/IHqq7lDY9Oud2ykyxB
-	Ncul3Sn2uc98/xyCF1QRwfdUn+JPGHJdyOAN8h7lfqwvL7DCZLNMZKo1RULE5H7bIPTTaZzojS0
-	LRw0aDHrMw3Ld52HiUtc/PzDDTs5qg/5xtLjWrD8jjcL0rZpZ3vbvt2S2RxLsLDsm3NMACE4lRL
-	daw5ECQK4mQFHYWOqIOwabGWxgWhpiSV7m8vsh7Z8LScrKA9uWBTNV+zqCdnctUScatpmh2e4wq
-	0wdkQo/6DbdaqGuHQEVOVLC+AaJGzpTVFNkKD/qXW052xF7wIGGVUXvssQ==
-X-Received: by 2002:a17:907:930e:b0:c31:8c48:e18b with SMTP id
- a640c23a62f3a-c419df3d9e2mr123713166b.14.1792216320815; Fri, 16 Oct 2026
- 22:52:00 -0700 (PDT)
+	Sat, 17 Oct 2026 06:40:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=PANH83LO9KrofHVTq/98fVVjN62lrjOODBRAe7r1vek=; t=1792219225; x=1793428825; 
+	b=r6bjTEuT7oyr/qJ38GyhqfDG9BJAGcTFZIWbcq8cQlhnuSDymVNHXfjDPiB7HPjpjDqMIDhZBt8
+	/mLKZ7ZNkOZXMTwwUbEnhQgaCb6c7HjYQNC+wkmLAhtCsYkhjLUF7/jMuRCYPdbg+axspaJ3VHtWc
+	eFUx4O0uh+UeyCQHfEw70mr2JkchiQlHalD9ZWPd2ZtjLmH4UVfIzCfkjhSXhJCqVuigy1Q1mh4sH
+	9yiwdIQiKBwf26TFHNSXgbZaQ8dZK3+hosMO5ESbUyAMozOcZriaQHA6MfM98/oSJOsNt3M3qpkTp
+	NcJd9IoCZJ214LHz6jKNXc3mD8/ILk4lnmKg==;
+Date: Sat, 17 Oct 2026 08:39:57 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Ettore Chimenti <ettore.chimenti@linaro.org>
+Cc: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
+ Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Christopher Obbard
+ <chris.obbard@oss.qualcomm.com>, Andrew Goodbody
+ <andrew.goodbody@linaro.org>, Linus Walleij <linusw@kernel.org>, Rouven
+ Czerwinski <rouven.czerwinski@linaro.org>, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH 06/10] ARM: dts: omap: dm816x: Update USB node
+Message-ID: <20261017083957.7c2696f5@kemnade.info>
+In-Reply-To: <20261016-patch-ektor5-dm8168-dts-v1-6-b4ce30217028@linaro.org>
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+	<20261016-patch-ektor5-dm8168-dts-v1-6-b4ce30217028@linaro.org>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20261008175225.3375274-1-coiaprant@gmail.com> <20261008175225.3375274-4-coiaprant@gmail.com>
- <20261016163709.00cc7c12@kernel.org>
-In-Reply-To: <20261016163709.00cc7c12@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Sat, 17 Oct 2026 13:51:48 +0800
-X-Gm-Features: AclHuK9gR2DkSi4xw_m2fA1Jz76Zlk0PlqVhdG4GFOV5ZHbiAG1eg9HG8sAydCI
-Message-ID: <CALj3r0jc4GECe=Dp_gngTsVL03YmXhAt+BSQJei4QRrwLRrerA@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 3/6] net: pcs: xpcs: add Rockchip RK3568
- platform glue driver
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	David Wu <david.wu@rock-chips.com>, linux-rockchip@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_225203_151929_8EF71C0F 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20261016_234025_968310_11BD70D9 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,45 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B410=E6=9C=8817=E6=97=
-=A5=E5=91=A8=E5=85=AD 07:37=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Fri,  9 Oct 2026 01:51:57 +0800 Coia Prant wrote:
-> > +config PCS_XPCS_PLATFORM
-> > +     tristate "Generic XPCS controller support"
-> > +     default PCS_XPCS
->
-> Why the default? Surely there are platforms with PCS_XPCS enabled
-> which work today =3D=3D don't care about the new code?
->
-> Linus is known to hate _any_ new symbols defaulting to enabled
-> on olddefconfig.
->
-> > +     help
-> > +       Generic DWXPCS driver for platforms that don't require any
-> > +       platform specific code to function or is using platform
-> > +       data for setup.
-> > +
-> > +       If you have a controller with this interface, say Y or M here.
-> > +
-> > +config PCS_XPCS_ROCKCHIP
-> > +     tristate "Rockchip XPCS controller support"
-> > +     default ARCH_ROCKCHIP
->
-> Same here.
->
+On Fri, 16 Oct 2026 16:41:21 +0200
+Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
 
-Thanks, both defaults are dropped in v12:
+> From: Andrew Goodbody <andrew.goodbody@linaro.org>
+> 
+> USB node was not working correctly with DMA enabled as the supporting
+> code had been updated without updating this SoC's device tree. Bring the
+> device tree more up to date so that it works with DMA enabled.
+> 
+> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+> ---
+>  arch/arm/boot/dts/ti/omap/dm816x.dtsi | 41 +++++++++++++++++++++--------------
+>  1 file changed, 25 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> index 7f3ef3a00ab8..5be9efc60785 100644
+> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> @@ -574,18 +574,27 @@ uart3: serial@48024000 {
+>  		};
+>  
+>  		/* NOTE: USB needs a transceiver driver for phys to work */
+> -		usb: usb_otg_hs@47401000 {
+> -			compatible = "ti,am33xx-usb";
+> -			reg = <0x47401000 0x400000>;
+> -			ranges;
+> +		usb: target-module@47400000 {
+> +			compatible = "ti,sysc-omap4", "ti,sysc";
+> +			ti,hwmods = "usb_otg_hs";
 
-- PCS_XPCS_PLATFORM no longer defaults to PCS_XPCS. There is no
-  in-tree user of the generic snps,dw-xpcs glue that needs it selected
-  by default, so platforms that need it select it explicitly.
+Why do we still need this? It is depcrecated.
 
-- PCS_XPCS_ROCKCHIP no longer defaults to ARCH_ROCKCHIP. DWMAC_ROCKCHIP
-  already selects it.
-
-Link: https://lore.kernel.org/all/20261017054406.1828061-1-coiaprant@gmail.=
-com/T/#t
-
-- Coia
+Regards,
+Andreas
 
