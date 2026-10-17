@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC73CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03EECCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 16:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=; b=ovGaj8yp1FnH3Bt5vg5N5XN0Py
-	d59AXbNzuJNUlJd99URK3mYaTP8H2dacN/omc3Nt7pVAP7DM8lmdLXsXuBrQQs1vFs5XlyqgzdOIj
-	Yi1DQPG0OVDSrS/b7RivXPRTK2SrQJHMY4Wj/9HySHFs3yehvTMBIwYh58wgrCF3rWjyLWuS5HkR/
-	V05CRaWiOqygY/Q9DTif7NUihSqRtHreMh6JmH6OzRO71vrrPXB+wQxJUrnU9XX7T10NK2ZBVqVgt
-	iar0kSVKAGdhO63BN79knZa4XSCuyQBaNw1G2SXvW3+DUcD+ky5jqDkdzA1GHCpazyXOIOybg1JWf
-	BZfAPlkg==;
+	bh=3vbcLPl9Ae1u6zg9Rk4ugkwF/dOBqR4NA2hwmpe9z3s=; b=otXkXfdgRkFZ1cu5fY57V/RhJ6
+	AQfwy3e7lRMhrqHaC6IhcFzy2cCRCY65aYpYRP1zYigVuk7OptOxolXy8v5cE11AUnPTs3n+KaLPl
+	ejfXZkzTdbO5Au79ZR2PstfotKHUnmgpgf8v1Npa2/terYaqRgr6TKb5L+JrbEHrXBuagYGQVr+ep
+	bTIvMlfVnKFYBQ/tadv+8/bPdzAvp13a27AZzaULXUbMfGgYLRhS8q2O6DHgs0/9fzukkdwmsCYJx
+	Al1cGq+mJYprm/UvDq5wqgPPxfROHfPpu0gBKHBjCEkPRYIJEW+/T9vrn5WMTIazBNjQOAbZLWKcd
+	zXcPIACg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI7Uy-00000004wy9-2uow;
-	Sat, 17 Oct 2026 16:43:08 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1xI7dh-00000004xgg-1z03;
+	Sat, 17 Oct 2026 16:52:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI7Uu-00000004wuP-27YN
+	id 1xI7df-00000004xfT-2N4W
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 16:43:06 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3ab98332238so666952a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 09:43:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792255383; x=1792860183; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
-        b=kivGv9zxPYOVwmT7i1LzMN0l8BEd6+PsGUjoWvkq42FlXbradgRhWyDgEw2hCqkgoO
-         d/79/n3i8reO32q0A7rvrZTHBz/4Eunc0JVmxKUK1bwAQxaq0saPnnkFiyLxfAbAemfJ
-         vMvo6mncOwjEjhLJJdtekg+td+aB/AuxlB2guLw0IxeOAuupTUcxIuSRcK49Fjxy2BOj
-         yY7pfhE6w68NqQIVkwserr6FVvVhV+gG7wfud+TPiFLEgy5EBwqwXZ4C1myURfSfSeuO
-         NsVc9oZWLM/rxvAqc03CRjDcBxoO+jzl1nqyhnsqSbr79ZCdFMK7bWea9teBUGg56W4C
-         45XA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792255383; x=1792860183;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
-        b=pWSc2tHuwl4B+QbNym+dyLhD5HhwTLoDc58fb8kX5absM1sBdf+Ss5kr5vUqhqAnkg
-         jqWbTmyQyTtJLDOBJzA97WJTv5/yMGnusfxpRSYsRyO+TZG5LIIvfT2ZObZRaNebfSWh
-         pvO7ILyJFtTCLPLHIzJxivvCHaW0d5LXJoV0EAlhJGGiwiiJMHVTaUIMhF3OMY596/2q
-         5ZCWfKwnS5FEnv1CbA7oFiJmn1zd86ZFsNffAv4k7L6xCGvlwNCnVpC073UfLiprDT9M
-         d7JCqYauoq0GoFQEBsuO7fjnZ/EHzo9d/aLkomf06sD/iIQrRoDHAPgUMiWrkaYGaAoC
-         kKzw==
-X-Gm-Message-State: AFq9FYLnzaiUtE78aPGTWYq2AoCq+d6lNHURlooj3oV414T/Br2Xfy8z
-	5hlEbmWJJ32CpuKwY4g8RttKkkiVM+J7d75gZVYlARs8kdTtExHXxS7G5FR2+A==
-X-Gm-Gg: AYBFou3pOc6ipXDD5zpJsjpDYGCXWTgyeazral2aUCs3s2pYecDRjaI5MbO7RXVjgDk
-	sZyugL3LT8RH2JGxMWILeeDEBUgklkSI7G7cDh+gMgH5pI9Z+HR6rfkfHjp+DtMBg1641x/29J5
-	6722xBBNJnotWcCryH52DpDiawTXHjGZ2CPpqo0do4uK/T/UNKd1l6v1O9A0RDwAeB/OA7xP3zG
-	M8dvn4lNMEARZv/HKxuRy3SRfOR+ERGeMj8XHy490Ni4LJ3Rqu0e8DBm9GolIL+G3G00bVp+z6z
-	v0vYckCuTfJDdXPvtocE/M0X4gctgQQpMS+FEwcKclm4vGQ5fHL965hQ+FKQYb8ofPbrCv0X2I+
-	FlUNQbuMYsQbdpiqORMQEBdpki7+fLRGH+lDS6wwnDMIzpG/CjfQzFsUBSax9qbxAdKCyLV/LHu
-	Rj+0q57O4fmv10VcVoKJin7PJFs2oQW/E5GwGBmVCrf3O7vzTrHk4gRJcvWgf+Mg==
-X-Received: by 2002:a17:90b:582d:b0:3ac:8897:7b98 with SMTP id 98e67ed59e1d1-3acef1455edmr2772023a91.32.1792255383602;
-        Sat, 17 Oct 2026 09:43:03 -0700 (PDT)
-Received: from [127.0.0.2] ([2404:c0:7618:4e1c:2cb7:b2e6:ffb7:d23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ac94798212sm13816164a91.14.2026.10.17.09.42.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 09:43:02 -0700 (PDT)
-From: Reza Kurniawan <imkyufie@gmail.com>
-Date: Sat, 17 Oct 2026 23:41:26 +0700
-Subject: [PATCH 4/4] arm64: dts: qcom: msm8917: Use a shallower cluster
- state to fix unresponsive idle
+	Sat, 17 Oct 2026 16:52:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 097A743A13;
+	Sat, 17 Oct 2026 16:52:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 527551F000C4;
+	Sat, 17 Oct 2026 16:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792255926;
+	bh=3vbcLPl9Ae1u6zg9Rk4ugkwF/dOBqR4NA2hwmpe9z3s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XNhL7+OjP7duuKUengT2ZtHzLbuqJA4edwW1Wsuw0Huot//DZVqbUeBbdA/sCGeEc
+	 Un3m8//Kel2+St8rtwJjI6X10WmS+tbiYYYjJ+3HTcoMVGDGcjlzhBvHP7IbL/S1Gx
+	 9VW320qUeI+Q/sgmrRBHeDRNYvQqYqNge4M1I9/C4vfD2bdCZjhPpqskoY6DDTSThW
+	 Il5+pAi3zJFblIW9RfwvlKgGvnowQtVRvFbdKW9chJzwv72i9cc6l3IpGo1jS1j3D7
+	 PnQsQFG7CsQvDlgi4Eub+8HC1db2HPgqnH3SfTEJkxHjYAvP+D/nYmM1taUEuS2wwm
+	 Nov3t9BtPRonA==
+From: Sasha Levin <sashal@kernel.org>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH] KVM: arm64: Take a protected vCPU's TWI and TWE only at vCPU load
+Date: Sat, 17 Oct 2026 12:52:04 -0400
+Message-ID: <20261017165204.3343275-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261014162126.964330-1-maz@kernel.org>
+References: <20261014162126.964330-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261017-psci-fix-v1-4-dedae27e4a31@gmail.com>
-References: <20261017-psci-fix-v1-0-dedae27e4a31@gmail.com>
-In-Reply-To: <20261017-psci-fix-v1-0-dedae27e4a31@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Christian Loehle <christian.loehle@arm.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, Reza Kurniawan <imkyufie@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_094305_504721_150A7877 
-X-CRM114-Status: GOOD (  14.16  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +81,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MSM8917 is a single cluster SoC, so powering down the cluster means
-powering down the whole system. This causes two problems:
+Commit 06499de8f998 ("KVM: arm64: Skip fixed-feature state flush for
+protected vCPUs") moved the copy of the host's TWI and TWE in
+flush_hyp_vcpu() into the non-protected branch: a protected vCPU takes
+them in __pkvm_vcpu_load() instead, and only VSE comes from the host on
+each entry.
 
-1. The system becomes unresponsive, even to common interrupts. Waking it
-   requires an interrupt from the MPM (MSM Power Manager) or scheduling
-   the MPM to wake the system later. Linux currently has no way of doing
-   the latter, so the cluster may never resume operation.
+Commit 04447b95c62b ("KVM: arm64: Use the host's HCR_EL2 for
+non-protected VMs in pKVM") was written against the old code, where
+both VM types took TWI, TWE and VSE on each entry, and kept that for a
+protected VM as PKVM_HCR_EL2_HOST_PVM. The merge of the two applies
+PKVM_HCR_EL2_HOST_PVM in the common path, so a protected vCPU takes TWI
+and TWE from the host's vCPU on every entry again.
 
-2. Entering power collapse blanks the screen. When the state is entered
-   and exited repeatedly, this shows up as visible flicker.
+That doesn't change what a protected guest runs with today: once the
+vCPU is initialised, the host only changes TWI and TWE in
+vcpu_set_wfx_traps(), which pkvm_vcpu_load() calls right before
+__pkvm_vcpu_load(). But it undoes part of 06499de8f998, and has EL2
+read a protected vCPU's trap configuration from host memory on every
+entry, which nothing needs.
 
-Even if MPM scheduling were implemented, the second problem would remain
-and it wouldn't fix the system being unresponsive at idle.
+Make PKVM_HCR_EL2_HOST_PVM VSE alone and add TWI and TWE to
+PKVM_HCR_EL2_HOST_NPVM, so that each mask again lists what EL2 takes
+from the host on each entry for its VM type. A non-protected VM takes
+the same bits as before. Say in the comments that a protected vCPU's
+TWI and TWE come at vCPU load.
 
-Replace the idle state with PSCI mode 4 (dubbed GDHS downstream), which
-is less aggressive and can wake up from conventional interrupt sources.
+llminus, an LLM-assisted merge conflict resolution tool, found the
+difference while resolving the same conflict in an integration tree.
 
-Signed-off-by: Reza Kurniawan <imkyufie@gmail.com>
+Fixes: 439d8f9cb01c ("Merge tag 'kvmarm-7.4' of git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm into HEAD")
+Assisted-by: LLM
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/boot/dts/qcom/msm8917.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+With KVM's own host code this changes nothing a guest can observe: the
+per-entry copy writes back the TWI/TWE value __pkvm_vcpu_load() already
+set. It restores the split 06499de8f998 made.
 
-diff --git a/arch/arm64/boot/dts/qcom/msm8917.dtsi b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-index f0771187d0..7730977e6e 100644
---- a/arch/arm64/boot/dts/qcom/msm8917.dtsi
-+++ b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-@@ -112,10 +112,10 @@ core3 {
- 		domain-idle-states {
- 			cluster_sleep_0: cluster-sleep-0 {
- 				compatible = "domain-idle-state";
--				arm,psci-suspend-param = <0x41000053>;
--				entry-latency-us = <700>;
--				exit-latency-us = <1000>;
--				min-residency-us = <6500>;
-+				arm,psci-suspend-param = <0x41000043>;
-+				entry-latency-us = <240>;
-+				exit-latency-us = <280>;
-+				min-residency-us = <806>;
- 			};
- 		};
+Marc's resolution in kvmarm/fixes, aca73c1d23f1 ("Merge branch
+kvmarm-7.4 into kvmarm-master/fixes"), is the same as the one in
+kvm/next, so this applies to both.
+
+Build-tested only: arm64 defconfig with gcc and clang, W=1, no new
+warnings. The only code generation change is the protected vCPU's
+per-entry mask, 0x6100 to 0x100. Not runtime-tested, as the in-tree
+selftests can't create protected VMs.
+
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h | 13 +++++++------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c         |  5 ++++-
+ 2 files changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 4373e9b63e87f..0261b2bc681f7 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -14,13 +14,14 @@
+ #include <nvhe/spinlock.h>
  
+ /*
+- * HCR_EL2 bits EL2 takes from the host on each entry, per VM type. The rest
+- * are EL2's own and nothing the host sets there reaches the guest.
++ * HCR_EL2 bits EL2 takes from the host on each entry, per VM type. A protected
++ * VM also takes TWI and TWE, at vCPU load. The rest are EL2's own and nothing
++ * the host sets there reaches the guest.
+  */
+-#define PKVM_HCR_EL2_HOST_PVM	(HCR_EL2_TWI | HCR_EL2_TWE | HCR_EL2_VSE)
+-#define PKVM_HCR_EL2_HOST_NPVM	(PKVM_HCR_EL2_HOST_PVM | HCR_EL2_VI | HCR_EL2_VF |	\
+-				 HCR_EL2_TVM | HCR_EL2_TID2 | HCR_EL2_TID4 |		\
+-				 HCR_EL2_TID5 | HCR_EL2_TTLBOS)
++#define PKVM_HCR_EL2_HOST_PVM	HCR_EL2_VSE
++#define PKVM_HCR_EL2_HOST_NPVM	(PKVM_HCR_EL2_HOST_PVM | HCR_EL2_TWI | HCR_EL2_TWE |	\
++				 HCR_EL2_VI | HCR_EL2_VF | HCR_EL2_TVM | HCR_EL2_TID2 |	\
++				 HCR_EL2_TID4 | HCR_EL2_TID5 | HCR_EL2_TTLBOS)
+ 
+ /*
+  * Holds the relevant data for maintaining the vcpu state completely at hyp.
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 237483d2442a5..fc0475f0877d1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -38,7 +38,10 @@ unsigned int kvm_host_sve_max_vl;
+  */
+ static DEFINE_PER_CPU(struct pkvm_hyp_vcpu *, loaded_hyp_vcpu);
+ 
+-/* The PKVM_HCR_EL2_HOST_{PVM,NPVM} bits of this value come from the host on each entry. */
++/*
++ * The PKVM_HCR_EL2_HOST_{PVM,NPVM} bits of this value come from the host on
++ * each entry, and a protected vCPU's TWI and TWE at vCPU load.
++ */
+ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+ {
+ 	vcpu->arch.hcr_el2 = HCR_GUEST_FLAGS;
 
+base-commit: 2ea3a929fe01ec5ae7313a94badaf9b70a8c69b1
 -- 
-2.55.0
+2.53.0
 
 
