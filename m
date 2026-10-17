@@ -4,94 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F6FCCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 18:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD4CCCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 18:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMiB8dh6dsfFg4997+NtGDJuD1DGrADZtiME1dFQP+c=; b=D1mQVQt2CZWUC+w+cgiZIw+t7F
-	gOaQheQdCGL1zJFiII4dUr4WSTv5SuWU0297pJwypFQWAUGhWogfJsuaoIljjUqxvNdFTfGq47Gii
-	ilIdMzA7lU8lX80MAatGE82oEAXO/NQ8Yzm6manR68mK7sqSJyaopg5FZYI2XLu1ahqvZEVY0J2nr
-	2mNE1+E9BE80n+5qoLZ9SBhewfPPfltmOv+UAkWYXPa4HP5dw8y11eQGJ0KWxcvz4R7S28ajBdB7o
-	IWPFNleKYyN8GFFQLdcYb+GwEV/alxj2TfOsUDxcIOAmTsu56f9NG7ImyIokZMms1YYm+/L1tgPzu
-	QZVJU+aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fnG1IHbKdrW5+1vo0oRNSVva4D3AZOkREuzQNjGzOQQ=; b=zz8LJg/1XKho7OMQuj5+CYXeUc
+	KVulNmGd8A5UymQU6+ObMfByOXhbOnmGLZW41juelJPthJ63I4PD+RIVSS+MmBoQ7ML3/zSyxKzGh
+	TF8flt1rnpiqAICnDU2PAqGSNV+BC5oYKysoOdHTbPE/d4eMIes4YYgt0KD2lWAE/42q5MDltptgE
+	lh1fhd8a9eonegia2de94KLJj0WuA3s64F9/UIO1r02sVm6TZ0L8cNMhQKe6KczkPCNdDDM08ml+C
+	MqA/pvjmgr3RersfxbUhlbn+ZXEQd5hImlWDrNpAPXJxzMBeO7bbAvBEZrOYhy09ilqpiZZUgE0xN
+	+z/JRZJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI96P-000000054DE-3o94;
-	Sat, 17 Oct 2026 18:25:53 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1xI9Wk-00000005625-47J8;
+	Sat, 17 Oct 2026 18:53:06 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI96N-000000054CV-02Ta
+	id 1xI9Wg-0000000560s-1TRV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 18:25:52 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8a05b210703so104392b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 11:25:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792261550; x=1792866350; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tMiB8dh6dsfFg4997+NtGDJuD1DGrADZtiME1dFQP+c=;
-        b=kvJtuwLMaaP628w12SpPTQIfBEqnU4eZ7PWWb0qr1I09I1rljXIvXqne4ga/pJbw+9
-         WqHsXXnqD1oXihBZVjZDcBHNsmakt4pTd0XU6RellvVFouUh4kPbn0OwYnQ1m1ZoTFA8
-         vWju6LUVbPTw97g1vpBLN+m/lBRXxS1efXvYNSQ4fu/NjAmGL/Gwi5pX7FkHvR+tu2kU
-         1abTbaGOVJXaPXG8Z8Re+lRLKihEn1ZubPYP5AYgrS3XuI/HfzBOtZUCuAkV2f4E/Ty7
-         /3L1hD9RmNoeH5EJjGVJuRlJqGC1n2ioumNg18fvWW9b6ev74ttusg1/u1F5RzPYc92v
-         /yBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792261550; x=1792866350;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tMiB8dh6dsfFg4997+NtGDJuD1DGrADZtiME1dFQP+c=;
-        b=rXR1vki4oEv9i+/REj8JdJ2sDf2fdnuOU39tPSmEr/wUJsdvJO+IdZamUZIGEu90E8
-         BLoOANd9L9OfkmN0+kUlDWldjPdLh6aTEhfEqilLPcICxeFL/mqMPE8ChyW6LeZHr2Mp
-         NJnne9ploVZGzcU5WTMjk7EmAeIzL1LPedCSaHEec91Le8o6xP/ER+BumcORFElR2Esa
-         1CfH12wEsiDB0Ujj/50g/RK2WAKyQwfW9RXjCU7Da7MWBVOz/ImHdR+Y0qltNDyBHo4X
-         jLEkCEyuIcpkx2fwCvVZ2UHRLrav7jAyDQV9NmmZR//Q3oL4tkB59ZWWECILqcvRIDNa
-         E7IQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzFpDDit64Woy/rXh7sJfr0bAgzAkyp0LM/vjO+piTAP+83nbjpI1caFLnVMkRwQQVt0ZQ3NeAwHAsU2KuRttci@lists.infradead.org
-X-Gm-Message-State: AFq9FYIeEzL9/nmPMns94vkJiVJt73yzbropHjVEtCioP9U4UqLPAurk
-	R+8RF2NJJcbv/BWCAFwSH2wnyIY4D1oNqd44uaaszY2ipiUvsF/Tt4puz0uAliJO
-X-Gm-Gg: AYBFou1lY/suqQ0rISI9uY9RAPowEf7GrNdxVamTGfkDDlmkFrlOqG9n+DE7fwE5ZdN
-	hoxnNFHlRK3qaOFuEDo7MJRbgri5Cl71VCVJRLghEWqmpwuHyDSFbdOUeXdf5izFnuD3JO2Rnyw
-	rk1mgHUmIQly5h6R0dsXfxhPgXy2tm2cLj4zr2efVm1+6+shcBg38Bn9X1rUTc1QELDAsTeV0fh
-	nhr914i0GXnB2MKesT5YKZuVYjrZ6A3IL6HXeLNg5rXH8od6s3+sHD4mWO9/Bi9v3x5HSsquUaF
-	6osd4JY/okCxwxIGyMHDUMwDjBfXAl6eePfvvjlVJ8Ivp2voRH7iWtvUuU1WxPmOAuETUhv93aw
-	gCt+tKgOCOQ3DI76kGUUmggFFTuR6ik7DAYLgEe0ITTjx8HaQcP+R+CBkLIHaRWqxJDNUqJptaU
-	X2enfHdaViHeegMouQgIly6Ff/+eCVIsi7HhfJPyT+1wDhfdKBWjXW8qECgQWzfFqXqrU75ZryY
-	iP140lMKcc++t5LlCfnAs8wOCku2SLhAHaFzZC/n3kLVuwnspUw271Q5ECEUBhMgQdiSMFHTj55
-	9Q==
-X-Received: by 2002:a17:90b:4c8e:b0:3ac:9a03:20bb with SMTP id 98e67ed59e1d1-3aceefbec6emr3109229a91.18.1792261550287;
-        Sat, 17 Oct 2026 11:25:50 -0700 (PDT)
-Received: from localhost.localdomain ([2001:56a:78dc:9300:8846:761:63e4:6d67])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acc46ecd32sm9241586a91.3.2026.10.17.11.25.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 11:25:50 -0700 (PDT)
-From: Abdalla Eldoumani <aamsdoumani@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Abdalla Eldoumani <abdalla.eldoumani@ucalgary.ca>
-Subject: [PATCH 2/2] kselftest/arm64: Check that PR_SVE_VL_INHERIT survives a second exec
-Date: Sat, 17 Oct 2026 12:24:54 -0600
-Message-ID: <20261017182455.1884-3-aamsdoumani@gmail.com>
-X-Mailer: git-send-email 2.49.0.windows.1
-In-Reply-To: <20261017182455.1884-1-aamsdoumani@gmail.com>
-References: <20261017182455.1884-1-aamsdoumani@gmail.com>
+	Sat, 17 Oct 2026 18:53:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SOtauT+41YUPIDGcnPR48TmjHAp8ZZ7eGxE8zC1yC2hKG3dZVIPIs70eGpyw6UROLWdLSn4oXjOjZ8aR2dPZsIANrhAF1q80lPaxPxWTeh5UxKoNXZB0lX8q9MOKIorpTouMgCUCmgR9qfGhdpEME6eLc48gXVKT3VDF1B5hQQ/GotmOpS4+0+0m7bO6sMqo5vRO0wx7slUh6pJBt77CVxF+VySkho0xrkfyp1C/f5qi/f3SMwrALj53TzjDfmk0ut9VsnWPWWE2glEW73M2Bo6eqeuUzKBHJOIxuviM+uluhK6mSyDuPNIfx0LuLvvWnXKHB49gRxH/TBTWWt8gvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fnG1IHbKdrW5+1vo0oRNSVva4D3AZOkREuzQNjGzOQQ=;
+ b=e0vT2W9Ex53WmycrAcotrx6F1UkdYWwKumNWRs/qHBScoOOThpNLktaUqEcQ2qqtvFtf/bYRUl0sWCTvDpJnLuWstYwWMNw43ri6oak0z2YH4626umhiV1QeD6a1sE1LhMCI//kZ9rytO/t/aX4xH4iilCrbDkCgdkJcq3xlZvg2ugD/YGzHFH+Hm/N7SUJ2CaHNlP+RG2lUJ30a+Jm/hokvG/ovBE7zJUgT5QnRcvPp9ogJdJugYY5M0zZhZ1vMnW5PVb1XD6GjG/CFNbFb0UnWaWjRxDoS1HSNMru2SaNCNN3hJADGSaFae3kKYrdzWhrIkUiJZnEkMI9SK5zTSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=linux.alibaba.com
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fnG1IHbKdrW5+1vo0oRNSVva4D3AZOkREuzQNjGzOQQ=;
+ b=ULXkPGq+nWguu9U8G6cBRE41jRRuvsCdmfAPXmWTZU5o6ba1b7wLqtAJICo4CnNpZiHyeURO4CBo0+w0mKu3eRRo8J+kJ7n7GYBi5z9PtwBYppZCgtAGOT7QOe4jlwaPq9vhX5u7CNhYi+aDVNipuoenYPmVpWDhVACzoa/DhZSFyK56iOsxlRkUMalcACNJIrPFdE8twhLCeKFPSdyIy1FZd2rTuNKxBLtPTquzFZyP7x6AxYfD6HKoxH2Aq+A5YdQk84V883revaB8QgMgKVyxdQQc0NbM3aeuoyBOla0mfaVkjZWLcdd4oeqvGmQ4L4Hhs/TKmLmOwpilVt5RsA==
+Received: from PH7P221CA0058.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:33c::28)
+ by PH7PR12MB5951.namprd12.prod.outlook.com (2603:10b6:510:1da::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.20; Sat, 17 Oct
+ 2026 18:52:52 +0000
+Received: from BY1PEPF00026964.namprd05.prod.outlook.com
+ (2603:10b6:510:33c:cafe::a3) by PH7P221CA0058.outlook.office365.com
+ (2603:10b6:510:33c::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Sat, 17
+ Oct 2026 18:52:52 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BY1PEPF00026964.mail.protection.outlook.com (10.167.244.148) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Sat, 17 Oct 2026 18:52:52 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Sat, 17 Oct
+ 2026 11:52:51 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Sat, 17 Oct 2026 11:52:51 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Sat, 17 Oct 2026 11:52:50 -0700
+Date: Sat, 17 Oct 2026 11:52:47 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@nvidia.com>, <praan@google.com>, <kevin.tian@intel.com>,
+	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <jamien@nvidia.com>,
+	<kas@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, Breno Leitao
+	<leitao@kernel.org>
+Subject: Re: [PATCH v11 00/11] iommu/arm-smmu-v3: Adopt the crashed kernel's
+ stream table for kdump
+Message-ID: <atPD/yTKA1Jw3bS1@nvidia.com>
+References: <cover.1791226953.git.nicolinc@nvidia.com>
+ <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF00026964:EE_|PH7PR12MB5951:EE_
+X-MS-Office365-Filtering-Correlation-Id: c068e7dc-89b8-4488-eb35-08df2c7fd8db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|7416014|376014|4143699003|56012099006|18002099003|22082099003|6133799003|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: nIbCEIq3wVML9+dCGxIYI3EwinKQcP0XZ4qmrXUiTF/YJmXHKQUssjrGx9vx1B6zLqm/mBl2nmVTYX5N8m910MkajryUGTRLCUfp5QXLhSXiw7lQW3Oa1cGWhknBN6Zmshzk09b0+PQBzSgukXmSk5RxO7fFolFFSnIupeefgrpgV3XEzz29QCr0V8IjSbUOJCmHf0aOBz6/u1cPTzxa2Ivokrotk75mkqsL6PsPhjk48xoSN6jmYfpfhMm78qlh/vFcibuXwypoJOYPFUFGXRTEikXxZJlQBIQMqmET3MAyOWuvFkDxHT6qByg0vKycOky0Sh2oetPRXDatQdIQAjepWebhR704J+WjVUxRLQf2YhWVx9MwOWv/ejtbx+r648IwFCkMGMMBrJYaujLjZsb7stHIonaEKRJ1dHApBiSH/n4y7WtjXC0oppn2isSwGIw+uy0dMZfS0r2ZDW609EQy3u7Vu0KVX6x/WLVCjw6OgDDtMgTtfR7DCaBk0FQmCgvg4RLe0dmTCKtV223xe5fRYIHdfAeRi08dpIte4Lm5135XyIaH336Y8hi+f8ld3+IZsySYYmKHRCGGYdgnDkXuv/HgM2J69jJFsgF/BBp5w1oSUN5ReWRDsabYStA/GaT7lkEMeuDxlSj+ukmQ79GgBFzpzbEnDybU3Y2E7tOnj9uuplHJwRJuCiBLqgBK8ckMMNlnsbMfhTlViKHxvg==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(7416014)(376014)(4143699003)(56012099006)(18002099003)(22082099003)(6133799003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Y/2BpgpMVeCtGiTgQupv+bCDJRhQptll+bf64fDbZefIoMkcYZyAZjNRX6vmWSMiNavp8wFQlAu0QWH3TaZ4n9qPT6oS+Ps/AKxU2G+CAdlfh244TxSudtXAWME8LInkzQr2VTPoX2XZHhQJc97aRccS4UiMRiaeMljm8ZsfHnN4e+nX+juzT5I4pJY+x1MuiqnrRa/DyJ/LFj+BAo9VDzGYMe425eDYHA611TjKxqamVWhz5xtKGp9rtJoQl7H9XKipfoRBu4BHNT+WiUEaLRKuQKGHaukoUw7NGS0frUtPd2ThOG0gWGTDDSb25OlV3mMvr9m2FXc2pqQ8Wk/5PiiV56eJrfs/ZvXrOu16I2uvyrWmkAjJ2ftXEyIVsfD58Bx+6t/Sbg78SB2iu4SZTRjgfMRNvifV4yLJjd2z22FecOGAb45opFfXc0zBf2DT
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2026 18:52:52.0503
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c068e7dc-89b8-4488-eb35-08df2c7fd8db
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF00026964.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5951
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_112551_060533_BC3213FF 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20261017_115302_393995_CB6ACF4C 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,153 +132,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abdalla Eldoumani <abdalla.eldoumani@ucalgary.ca>
+On Sat, Oct 17, 2026 at 04:19:20PM +0800, Shuai Xue wrote:
+> We tested this series (v11, backported onto our 6.6-based kernel) on two
+> arm64 server platforms that differ in how PCIe errors are reported: one
+> with firmware-first reporting (GHES/CPER), the other with OS-first AER
+> plus DPC. The test triggers a kdump crash (echo c > /proc/sysrq-trigger)
+> on an otherwise idle machine and compares the capture kernel's dmesg
+> between the unpatched baseline and the kernel carrying this series.
+> 
+> On the firmware-first platform (10 SMMUv3 instances):
+> 
+>   Unpatched, every SMMU logs:
+> 
+>     arm-smmu-v3.0.auto: SMMU currently enabled! Resetting...
+> 
+>   and the destructive reset immediately aborts in-flight DMA. The capture
+>   kernel then drowns in a storm of GHES/CPER records together with PCIe
+>   AER "Poisoned TLP" (Data Link Layer) errors from the devices that were
+>   bus-mastering at crash time. Devices behind the reset SMMUs fail to
+>   recover in the capture kernel, and in some runs the capture kernel
+>   hangs in the error storm instead of saving the vmcore.
+> 
+>   With the series applied, all 10 SMMUs log:
+> 
+>     arm-smmu-v3.0.auto: kdump: retaining SMMUEN for in-flight DMA
+> 
+>   and the capture kernel boots with zero AER/GHES error records. A
+>   complete vmcore is saved and the machine reboots normally.
+> 
+> On the OS-first AER/DPC platform (8 SMMUv3 instances):
+> 
+>   Unpatched: 8x "SMMU currently enabled! Resetting..." followed within
+>   seconds by PCIe AER Completion Abort errors reported by the root
+>   complex, along with DPC containment events and EDR notifications. The
+>   NICs behind the contained link never recover in the capture kernel.
+> 
+>   With the series applied: 8x "kdump: retaining SMMUEN for in-flight DMA",
+>   no PCIe error events at all, a complete vmcore and a clean reboot.
+> 
+> The baseline symptom is load-independent: it reproduces on idle machines,
+> since even an idle server has periodic DMA in flight (NIC rings, NVMe
+> admin queues, etc.).
+> 
+> Overall, on both platforms this series turns a capture-kernel boot that
+> used to be buried under fatal PCIe error storms into a quiet one that
+> reliably produces a usable vmcore.
+> 
+> Please feel free to add:
+> 
+> Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
 
-The prctl_set_for_child test sets a vector length with
-PR_SVE_VL_INHERIT and checks that a forked and exec()ed child sees it.
-That only covers the first exec(). The kernel keeps the inherit flag
-and the on-exec VL across exec() so that later descendants keep the VL
-too, and nothing checks that part, which the fp TODO list notes as
-testing PR_SVE_VL_INHERIT after a double fork.
+Thanks for the test report. I'll add your tag in v12 (on rc1).
 
-Extend the test to also read the VL in a grandchild. The child
-re-executes vec-syscfg in a mode that forks and execs the rdvl helper,
-so the VL is read after two fork() and exec() generations. Both SVE and
-SME are covered since the test runs for each vector type.
-
-With a kernel modified to clear the inherit flag on exec() the existing
-check still passes and the new check fails for both vector types, with
-the grandchild getting the default VL. Drop the item from the TODO list.
-
-Assisted-by: LLM
-Signed-off-by: Abdalla Eldoumani <abdalla.eldoumani@ucalgary.ca>
----
- tools/testing/selftests/arm64/fp/TODO         |  1 -
- tools/testing/selftests/arm64/fp/vec-syscfg.c | 62 ++++++++++++++++++-
- 2 files changed, 59 insertions(+), 4 deletions(-)
-
-diff --git a/tools/testing/selftests/arm64/fp/TODO b/tools/testing/selftests/arm64/fp/TODO
-index 44004e5..90ee128 100644
---- a/tools/testing/selftests/arm64/fp/TODO
-+++ b/tools/testing/selftests/arm64/fp/TODO
-@@ -4,4 +4,3 @@
-  - Ensure ptraced processes actually see the register state visible through
-    the ptrace interface.
-  - Big endian.
--- Test PR_SVE_VL_INHERIT after a double fork.
-diff --git a/tools/testing/selftests/arm64/fp/vec-syscfg.c b/tools/testing/selftests/arm64/fp/vec-syscfg.c
-index 2c8ccbe..b441dbf 100644
---- a/tools/testing/selftests/arm64/fp/vec-syscfg.c
-+++ b/tools/testing/selftests/arm64/fp/vec-syscfg.c
-@@ -24,6 +24,8 @@
- 
- #define ARCH_MIN_VL SVE_VL_MIN
- 
-+#define FORK_EXEC_ARG "--fork-exec"
-+
- struct vec_data {
- 	const char *name;
- 	unsigned long hwcap_type;
-@@ -85,8 +87,12 @@ static int stdio_read_integer(FILE *f, const char *what, int *val)
- 	return 0;
- }
- 
--/* Start a new process and return the vector length it sees */
--static int get_child_rdvl(struct vec_data *data)
-+/*
-+ * Start a new process and return the vector length it sees.  With
-+ * grandchild set the child re-executes this program, which forks and
-+ * execs once more, so the VL is read two fork()/exec() generations down.
-+ */
-+static int get_descendant_rdvl(struct vec_data *data, bool grandchild)
- {
- 	FILE *out;
- 	int pipefd[2];
-@@ -123,6 +129,14 @@ static int get_child_rdvl(struct vec_data *data)
- 			exit(EXIT_FAILURE);
- 		}
- 
-+		if (grandchild) {
-+			execl("/proc/self/exe", "vec-syscfg", FORK_EXEC_ARG,
-+			      data->rdvl_binary, NULL);
-+			fprintf(stderr, "execl(/proc/self/exe) failed: %d (%s)\n",
-+				errno, strerror(errno));
-+			exit(EXIT_FAILURE);
-+		}
-+
- 		/* exec() a new binary which puts the VL on stdout */
- 		ret = execl(data->rdvl_binary, data->rdvl_binary, NULL);
- 		fprintf(stderr, "execl(%s) failed: %d (%s)\n",
-@@ -174,6 +188,37 @@ static int get_child_rdvl(struct vec_data *data)
- 	return read_vl;
- }
- 
-+static int get_child_rdvl(struct vec_data *data)
-+{
-+	return get_descendant_rdvl(data, false);
-+}
-+
-+/* FORK_EXEC_ARG mode: fork, exec path and pass on its exit status */
-+static int fork_exec(const char *path)
-+{
-+	pid_t child;
-+	int status;
-+
-+	child = fork();
-+	if (child == -1) {
-+		fprintf(stderr, "fork() failed: %d (%s)\n",
-+			errno, strerror(errno));
-+		return EXIT_FAILURE;
-+	}
-+
-+	if (child == 0) {
-+		execl(path, path, NULL);
-+		fprintf(stderr, "execl(%s) failed: %d (%s)\n",
-+			path, errno, strerror(errno));
-+		_exit(EXIT_FAILURE);
-+	}
-+
-+	if (waitpid(child, &status, 0) != child || !WIFEXITED(status))
-+		return EXIT_FAILURE;
-+
-+	return WEXITSTATUS(status);
-+}
-+
- static int file_read_integer(const char *name, int *val)
- {
- 	FILE *f;
-@@ -498,6 +543,14 @@ static void prctl_set_for_child(struct vec_data *data)
- 		return;
- 	}
- 
-+	/* _INHERIT must survive the child's exec(), check a grandchild */
-+	child_vl = get_descendant_rdvl(data, true);
-+	if (child_vl != data->min_vl) {
-+		ksft_test_result_fail("%s set %d _INHERIT but grandchild VL is %d\n",
-+				      data->name, data->min_vl, child_vl);
-+		return;
-+	}
-+
- 	ksft_test_result_pass("%s vector length was inherited\n", data->name);
- 
- 	file_write_integer(data->default_vl_file, data->default_vl);
-@@ -759,11 +812,14 @@ static const struct {
- 	{ "change_sve_with_za", change_sve_with_za },
- };
- 
--int main(void)
-+int main(int argc, char **argv)
- {
- 	bool all_supported = true;
- 	int i, j;
- 
-+	if (argc == 3 && strcmp(argv[1], FORK_EXEC_ARG) == 0)
-+		return fork_exec(argv[2]);
-+
- 	ksft_print_header();
- 	ksft_set_plan(ARRAY_SIZE(tests) * ARRAY_SIZE(vec_data) +
- 		      ARRAY_SIZE(all_types_tests));
--- 
-2.49.0.windows.1
-
+Nicolin
 
