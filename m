@@ -4,141 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DF6CCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 02:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A4CCC6B2A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 03:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RlmdC/ZrC2wE8s5bUwcx60nsjLZEKFAjdQUiwuhb7TU=; b=gV2OnrctAAdqhgrdEvS9UTRr7c
-	O6zQMu83JMqFlBqC/0sYFW04SJkPfbWiAd++0EEhd4TmJROVxJCBb5681BfQDiHqs3yI+fX2Lxx9E
-	enCm3zULh+lrcdxnZh5Y6/fpKvIF1kPTqWh3vXENavts2Q8G43d9bS4q9beqMk8WBMtQUQmsma9JY
-	tsrFi2EKyc845D8SB/g9NwiL9p5yoM+K9gqIegBumNIPSk1SuGxMqwXHMSNZfV4IuumkU2V3Td6gM
-	uKgTPhabPF0uRbH+6FotfygPrWL+YKDZ3sP3+3FV68MKp1i92NfqvnWWvTQHVjSyAYg4ffd4Um205
-	5a9rhz4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oPvpngYgb3gDSbNgR2i6nItLp+8/l01MxAbIoxQYnPk=; b=RzLnQp0EByWw5IFGAnyt6AmhjE
+	CLgo/45UdnJhuU7MKS3r4B9feiH3wtdmO40cMJimMGT2Ih+0iKuPF/bFQwl7LHYZ5JSOGZoGeGkZT
+	gjusTynXSsNOE+rfYNFUMlyRGwOnsVDY/OH3cL8n3HGe3dW431gEDleHJ7hMMcRC+O/lDVeoKatJM
+	enZ9y6YzFPPByQJCpxa7NUKho1/ZrF3DMU3U9DZ5E7CZq8ot3GihgU9gZbasi8d7taYpc8ZCB+wc2
+	WzMO2PhjQz374DkDrogfWLCAdprfmxBF1BPUKVOX5b90Fe3LepCqvVNeFPWyDokZ50agYDobXx/mz
+	fjpCTAqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHu6a-00000004LDJ-37RB;
-	Sat, 17 Oct 2026 02:25:04 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xHv4n-00000004NTO-1Ck4;
+	Sat, 17 Oct 2026 03:27:17 +0000
+Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHu6W-00000004LCY-1Gd5
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 02:25:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fGRSqtPrGB1UWsIMBLXKAIEibVODe0iFB2TSq3/iRpqLPjDZeA46wmE6FnzE3PFr0Wlwqbz8mAZXogsvLSkIod5k4aMrcg1/QKfheqwWY8aKSbx7Hu3difETiVrfwQCWY6L4l4TSjjvF86gpN/m90GVCFdSsVWvYaihk9yFqTW4dkg9bKb4FSzlJJLobXI3Y932Vi5gi33ifZAvuCwHqKgb+4Gjbz9/ip1zEYICKCMbZ1lHHvgGZzQx/8P43Y11O/58+m+y6pzKbN8QAFaeaE0+69JeZ24ymQet3PaN+g6Pq4CI+5SQoT486vOaX4syoblp56hPBWLKY1rcCf0XwIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RlmdC/ZrC2wE8s5bUwcx60nsjLZEKFAjdQUiwuhb7TU=;
- b=EnnTZ7efK97Oa86yOnDGb5DG5W9SRY1gv5xlsJgA8mcqhw+HJXs26zGQce9vT+9X60SGAdl8GPYzwtT8LEZ6g3GX2FDoP4uvSPqrCuPqOZnlpwSmoRMBK1lDuLV22Y3vw+mrbREfX7ga6SLSLEhaO1jZA2WHXBVawIaJGe4uBea62fv7L9m/bJhvUBiGkizw15Y+l7zpGmUAFKbsfVK3lmsgJYOXnPMAsp2U+oRlvb0oeaJ82oNrmTu57Z3ASlsiGXajGUTgjuCjboeKEbfziYIQjYoUUSqT9xmNqcfT4WGZvlgZ/oPpaYfsdBZGd7bCZRPDUFvddPpjr20tTsb/XA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RlmdC/ZrC2wE8s5bUwcx60nsjLZEKFAjdQUiwuhb7TU=;
- b=jSMcoIF7eu67kLk7m2ZS/jG5rrVVp45RenXa+oaKDmpAWZP3g+nb5vT3UImcPB6xHorkDGedLnHZrpsrLM8afg0N8v/IeAxVOLWf8TJasj0UMwPEcTzOqcHoOHmKaC3gwP+M1hIK0dxtu4wT28I9L1uZpfPV8fsrykgC/7MQlWjHxEfZjbJ44cclBy9fdwBQMi3qeJDQ4SFaRXtnHRfHk/098FWwpB7qxRbNBJmYWVxghc2TVmhwgLlw5XkHJKmoc5HWOwrIrBQq+7QTsIEwizLn1REMl3cV8VFp4SZyPmH3LUEi5i9wqMnO6XyrihV3L//YttyAwR1D12wGtd4MBg==
-Received: from DB9PR04MB9332.eurprd04.prod.outlook.com (2603:10a6:10:36c::6)
- by GVXPR04MB10754.eurprd04.prod.outlook.com (2603:10a6:150:225::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.14; Sat, 17 Oct
- 2026 02:24:50 +0000
-Received: from DB9PR04MB9332.eurprd04.prod.outlook.com
- ([fe80::75d8:3bd9:28df:cfdb]) by DB9PR04MB9332.eurprd04.prod.outlook.com
- ([fe80::75d8:3bd9:28df:cfdb%2]) with mapi id 15.21.0522.013; Sat, 17 Oct 2026
- 02:24:50 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, Marek Vasut <marex@nabladev.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, "Christophe Leroy (CS GROUP)"
-	<chleroy@kernel.org>, "David S. Miller" <davem@davemloft.net>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Clark Wang <xiaoning.wang@nxp.com>, Claudiu Manoil
-	<claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>, Eric Dumazet
-	<edumazet@kernel.org>, Frank Li <frank.li@nxp.com>, Jakub Kicinski
-	<kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-	"UNGLinuxDriver@microchip.com" <UNGLinuxDriver@microchip.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>
-Subject: RE: [net-next,PATCH 2/2] enetc: Make eMDIO MDC rate configurable from
- DT
-Thread-Topic: [net-next,PATCH 2/2] enetc: Make eMDIO MDC rate configurable
- from DT
-Thread-Index: AQHdXaVPTB8CJdKLoUewahs8NUD/ZLcAl7OAgABoBfA=
-Date: Sat, 17 Oct 2026 02:24:50 +0000
-Message-ID: <DB9PR04MB933217F7ADCB6223A44DACA7889A2@DB9PR04MB9332.eurprd04.prod.outlook.com>
-References: <20261016193344.115518-1-marex@nabladev.com>
- <20261016193344.115518-2-marex@nabladev.com> <atKDNdxl0w65s8yQ@SMW015318>
-In-Reply-To: <atKDNdxl0w65s8yQ@SMW015318>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB9332:EE_|GVXPR04MB10754:EE_
-x-ms-office365-filtering-correlation-id: 886d8eae-da9c-4722-6146-08df2bf5d273
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|1800799024|7416014|366016|261009223027099003|6133799003|18002099003|10067099003|22082099003|4143699003|11063799006|38070700021|56012099006;
-x-microsoft-antispam-message-info: giYjXPglTBeQWDBLuEXOHODYW3VeC/AddZnYh2zykdTi3fxSKePv3mMOyUJCVq5onkFATkW4Gs79DDYPVOBL2FSZQqa7MnB9aCKf7ss8CNlmUZxExm/UouCGxRhTNDXXniGsRhHsSE5Kt9KK4UPvaSR+pjwEW6R66MAxgiKGm0bLHRyYMWQBJk+o43Zr5NJIvxb+tyoj8Kcg1C4GgeslSAE5uw+GMJjD0Bet03EGUcpEecz/KrivWkOIBqwHS4EC6Hm/74C8OenK10f8O5P9HijiPOka8AVrUDAhic2Ddhcc90kUHzlNfeBM4FJFXcPlxF1SVpbTwMvPHeybx+e5S679HSj8xRsAAZJO197OwxySixUbqqMdI37s/5afipTlAUVC8I5m5YIC2gHXF2C/UK5Dy3jejIvF+l7Toa9d30Fm9kM+rnvvxCwbMbNs61rZBTAzXKvUG/tGjQLVl7hMJ9Ut/HO5We1rNBSKoL/5mAoK+BXfJSgnKkA2+g/XwO3LwWZV4BH0i4tKzvSIT3WWWi5A1dNgAVL63aha7Dw0YIpoou89MTwfvhZMOJ5Hr2GlYfKMXO69RlBAAXVM8/LMMDAWVY3OJPAiOLpevdmTqmYVkGONX3gnH3vnRJ04ffmo+w+DOEaF55iaMEx5pMh//enOasg9W6ERI4dOaRJ/M8bpXCeQ+LPlSjMpfhiRimXJ6kH0gBrgHq65ZWwWcQL78w9siplbhWw+mfBq4gDRmiQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9332.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(1800799024)(7416014)(366016)(261009223027099003)(6133799003)(18002099003)(10067099003)(22082099003)(4143699003)(11063799006)(38070700021)(56012099006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?TXoMRRWqcoF2V1IhUfs6nIOWYB5jWNG3KyaQjCVanuqwItF2ZeP5wFsTWTUc?=
- =?us-ascii?Q?52OxOxyx7RzCJeiHre4PqgpaUByfFmvq+hwi1o3gPdu7UsaoyoDbXFJGUQuo?=
- =?us-ascii?Q?JxXyondc5H3yDc4lZ9y7SMnuPQdksxpZVfrMlyfffoSedK4KtiM3VjDifiuJ?=
- =?us-ascii?Q?XPdPMRSkpGN+vRx0vtb+VtjyhJM5/AgNHEoEQzrV1+Un3F0B0IEBlAJ1mks3?=
- =?us-ascii?Q?bDLDlVKrHNTJEF0BJ+dpcXdIT8jluRhZqSn/uGqw7vh1MkOPiIkrA2nDfIOo?=
- =?us-ascii?Q?5WGWE5Sx5W0A5OQxcFBcXG6rC2sWb27N+6W3SI/0QMtogF3psCq4qniDJj4H?=
- =?us-ascii?Q?Ze+vBB9GZn5kORTPuGlYJL5WXW1+0R/qaj4731SLjg7s0oodQEDZuCRdM7Z8?=
- =?us-ascii?Q?EzUpExAp577SLvEvG+iYrShLJ7IVdT5W33Tx8GuzVEUhWqnz2J/c7qrKraVO?=
- =?us-ascii?Q?R20mNkMpCyUnoXnc4G0PGda0oyfUGKyou5rk+JyjaawHvLQZMPQYZzUL/kY7?=
- =?us-ascii?Q?Ay9BMraypVRIt7PMGNSj639h4kzHOiFn34+JuL74H+5wmjyofE203fvpdq2M?=
- =?us-ascii?Q?tiviGpwT9HVDwv7SEdRboNTREBopkROWPMjGgypn+TZsvPuA27kZyLcLL/li?=
- =?us-ascii?Q?whbPCn5rjV+RZM0sVsVeB+vFNu+ccvencAOXKc+3nVPPuVOuHPfFmOiCdO9a?=
- =?us-ascii?Q?KveOujJZ//LGsBVmrYRqFW0nBdwsQvJTuqubS8zZVeaiUzlIufz++a2rgYSG?=
- =?us-ascii?Q?pI9/QTSV7a9g9xFC+eJbVue/JCCT4UmLQpBfG/LXKVHFDov6GZ8mi70vlf4n?=
- =?us-ascii?Q?pM152kYMJfMr/Lz273GDSddJK3UsjIr/3mpH9TdACaVfl17HW7EFFwp/wmEg?=
- =?us-ascii?Q?H2KMPcheE0/lZFOFNfrD7Ny7sW0WPoHFPrCOXcZiRgVBlHrqBeFc+A/m7ZVy?=
- =?us-ascii?Q?QDZ9kpRPPJgrcI5YAOt87i5+A1/OEAgzFoisQoBRhFPzbdzuh0AxnO5/Pyx+?=
- =?us-ascii?Q?a9atvfLp3v0zxF5y2iBWcac1y5J+vtz9+a+x8/pLx+iNPUKhnMs/sDOu2vRm?=
- =?us-ascii?Q?aARCkEV8eQCMxg5tGE1CpAYfWIQI4fSmO1untf0Apua0ulfEWVVSLPa1B8lZ?=
- =?us-ascii?Q?JV8LxrR1tbV9tAZNCxFPLQNvNZ7cPZD5UIslrn4/2cElxdqfPnexRadAMkoY?=
- =?us-ascii?Q?DvO4vPyeIFWl64N5ONzN+oVI2XAF4ArRnrf4vnyQLMdM8YquYyfVRUb96UNO?=
- =?us-ascii?Q?415xX/yIPXX8y8XKtOzPQ8x6GOF3pQ+yTcWkps5jK9LHkcvYYVMBU2cGZBZN?=
- =?us-ascii?Q?+J+J0/SC0xN+TqKnEC9dLPkStE1Xy1jshNgKhMtDAMlltIc4H5ZI/1rImAUE?=
- =?us-ascii?Q?6IZRhrwKV8r2RTW2na8Ainth1J/V4ZTt8FGF8bliXMrY2ohia1PsMUNVBJ1/?=
- =?us-ascii?Q?iOaS1T79dX2bM2u0YpKHL4Bu+JM/4jZMYQFqZMo9PJvzoDoH4SQBebtLScor?=
- =?us-ascii?Q?PvGVBGOn++6UvEsHK2iVhVBHD6Py9hneWPBsBBdUJswPOADc9xqACboEPaoQ?=
- =?us-ascii?Q?G8sSe9uZiDAKus/GtIbbb7UAyWx8vlQ+FtXQnhZqMKuageU0FvA7CDgBJFCW?=
- =?us-ascii?Q?zHf83kj6Np4TYsZAjNwL4soqroybt8IP/q3Z7SSa6jPLfALLdzTCpDdjd3qO?=
- =?us-ascii?Q?HJZ+vw4Nq+ZXQWqinSKliXlW6k4WEjWAX3Yc3YDQNBg8h6dF?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9332.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 886d8eae-da9c-4722-6146-08df2bf5d273
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Oct 2026 02:24:50.7335
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MXpGZIatfbKKxUfTK3B59AUPDBD0FwoN+GRKqtDpf2qrirz8/lF6UOhxjFDOevHjG71kBL/Oq32ps08iehIp7w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10754
+	id 1xHv4k-00000004NSl-0qYG;
+	Sat, 17 Oct 2026 03:27:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1792207625; bh=oPvpngYgb3gDSbNgR2i6nItLp+8/l01MxAbIoxQYnPk=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=jyRkvwq8F5spYxmKdsFv9Bdn64KIAYRJpssWfbGiZ2U6ccSdczsuW3DSC5eFVIfDt
+	 ubPCKdDGmpRjNHbU/xm6CQBBYmUQlaPD8F8F0stvFUKOl2ZOowwDmALD4SM+7el3nJ
+	 ZEiAlNxivZAx3nER/4w4eXFlQsx5T5m08Gx9fCVg=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-XMAILINFO: N/Vcqssfup8JQjUcZJqhvtZnz0BM1ovXR1FQrDMUcw43sIlBo0ec2E7J6fTSPm
+	 99rBKKqRA0X8/g8znrLel5OZReJE8SnpzJPCH1Xy9Ad44Qlyb/Yd2/COi2/nzV0+ifFhk5faskbik
+	 iogObJWwosHWc1UFZ13gA8sHm+fjFUsbV92xoMRHmrbVuaPKSrFXNqpvAdl1nPNRCXRBAgS23JO3+
+	 S26px2QISMzyzzcN3Bgm9lYOAAAl9Y8ulT89XuKNnljaCur9hzX5FtDmufmMHlsCCmq7fjEroR3t+
+	 7bSz8LBtaeu/qH/JRTP8QNIhV4J9miIj4UueaKGH0dbq+p7oIj7dCeBqo/s/s+8X4Au48HnQ+PM6U
+	 cn8RNAI7bVHyTrYRbl8nseyJe1ucs+Qg9hmKf2MZ1qfHveSGxUi/VoMlN6FbqQKXON9zlovAhNPS4
+	 kmv2Rkyw/I+E5EE5TwN7rSGv2Spy+ExFiP249ipYHA5UPNAjZZ3T4582mtXi1ejhB7KXNC6D52QGH
+	 kGSfk8uxlM1JfPBabHnE6G9UOZzWnT8l4h/umZNzIyzRl5/dl0kDpr0N+Wk36ht8thXnkOQiq74FH
+	 oBZ67SRvIMprALVb76h1LMhw2NITwrB8v5DMqR9k+clTFtV3tKc1UHkheRMpZLyAE4Gps5ZBmO4ut
+	 gSGk0MKGga/jit1hucE27G3gsjv0lWJB/gd+M3xWNAI17ogA8hfBtYA0BNpr4YGPpdEc11YI+T/gK
+	 ywwNI/qh+of/jjaZtELyuMKyHcBXkCKCFC6l7B7m3v+wx/DfdwONP+Z/OavEkAIFe6A3iPs9evwUK
+	 9RXsTm5QcZC+UnqPsodOg9F0mt1MxnFX1CS8c2QKlnc9OZkU4N72xr80noEGvXCl+dSSaegTeSLwq
+	 sy2Ykn1LgywfILS/7F5DrFtVfwvfEgdSfnepRmwtew7JBq/lcviMli6wjIBwdyWdtzLioDYQjL99q
+	 gyoONzmfyxh5IcwzybNVrZktD4itjnmQQvNWYsaiOz0C9k2Au+cSLHUPr7wht8ErCXNO2iNzUslzm
+	 WOfAYJxqfSxmHQ6b0ry+8ootz2fol8RJ7g5UWFqoHLUZhkDg2W4LapuCtKj53VJDRk1t5VOJDcx4W
+	 9hjbVzUXf8ACoTrD+iSkZ4nu69mFNm5P7drA75ySsjCQJDIE9kYNX7tBrncevk3uhsINDbknSktmc
+	 w==
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
+Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?d2c=?=" <wg@grandegger.com>, "=?utf-8?B?c29ja2V0Y2Fu?=" <socketcan@hartkopp.net>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>
+Subject: Re: [PATCH net v5 1/6] can: dev: prevent bus-off recovery when the interface is not running
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Sat, 17 Oct 2026 11:27:03 +0800
+X-Priority: 3
+Message-ID: <tencent_AB234A019188927E4F4DAB34DF32E2091E08@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <20261015-rockchip-canfd-restart-close-v5-1-ae77327037c9@qq.com>
+	<179219884173.1406898.3472467604167875171@kernel.org>
+In-Reply-To: <179219884173.1406898.3472467604167875171@kernel.org>
+X-QQ-mid: xmsezb41-0t1792207623tzsdiwpov
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261016_192500_673875_640BAD76 
-X-CRM114-Status: GOOD (  32.38  )
+X-CRM114-CacheID: sfid-20261016_202714_967677_29630E13 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,170 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, Oct 16, 2026 at 09:32:01PM +0200, Marek Vasut wrote:
-> > The current eMDIO MDC rate is hard-coded in the drivers which use the
-> > eMDIO MDC, this is not flexible for various deployments of SoCs which
-> > use the eMDIO interface, for example i.MX95 B0 MDC clock is currently
-> > set to 644 kHz.
-> >
-> > Introduce enetc_mdio_priv .mdc_div field which contains the divider
-> > used for MDC clock and pass it around, including into functions which
-> > configure the MDC clock. This way, drivers which use the eMDIO can set
-> > the divider as needed. Introduce enetc_mdio_update_mdc_div() function
-> > which calculates the divider from upstream clock and clock-frequency
-> > DT property, both of which are optional to retain compatibility with
-> > older DTs. This is modeled according to xgmac_mdio_set_mdc_freq().
-> >
-> > Suggested-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> > Signed-off-by: Marek Vasut <marex@nabladev.com>
-> > ---
-> > Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-> > Cc: "David S. Miller" <davem@davemloft.net>
-> > Cc: Andrew Lunn <andrew+netdev@lunn.ch>
-> > Cc: Clark Wang <xiaoning.wang@nxp.com>
-> > Cc: Claudiu Manoil <claudiu.manoil@nxp.com>
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Cc: Eric Dumazet <edumazet@kernel.org>
-> > Cc: Frank Li <Frank.Li@nxp.com>
-> > Cc: Jakub Kicinski <kuba@kernel.org>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Paolo Abeni <pabeni@redhat.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: UNGLinuxDriver@microchip.com
-> > Cc: Vladimir Oltean <vladimir.oltean@nxp.com>
-> > Cc: Wei Fang <wei.fang@nxp.com>
-> > Cc: devicetree@vger.kernel.org
-> > Cc: imx@lists.linux.dev
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: linuxppc-dev@lists.ozlabs.org
-> > Cc: netdev@vger.kernel.org
-> > ---
-> > NOTE: I could only test i.MX95 , I could not test LS or Felix
-> > ---
-> >  drivers/net/dsa/ocelot/felix_vsc9959.c        |  5 +++
-> >  .../net/ethernet/freescale/enetc/enetc_mdio.c | 39 ++++++++++++++++---
-> >  .../ethernet/freescale/enetc/enetc_pci_mdio.c |  5 +++
-> >  .../freescale/enetc/enetc_pf_common.c         | 10 +++++
-> >  include/linux/fsl/enetc_mdio.h                |  6 +++
-> >  5 files changed, 59 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/net/dsa/ocelot/felix_vsc9959.c
-> b/drivers/net/dsa/ocelot/felix_vsc9959.c
-> > index 8387dd208adb9..dbeec1b229325 100644
-> > --- a/drivers/net/dsa/ocelot/felix_vsc9959.c
-> > +++ b/drivers/net/dsa/ocelot/felix_vsc9959.c
-> > @@ -1008,8 +1008,13 @@ static int vsc9959_mdio_bus_alloc(struct ocelot
-> *ocelot)
-> >  	 * starting with the proper offset.
-> >  	 */
-> >  	mdio_priv->mdio_base =3D 0;
-> > +	mdio_priv->mdc_div =3D ENETC_MDIO_DEFAULT_DIVIDER;
-> >  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-imdio", dev_name(dev));
-> >
-> > +	rc =3D enetc_mdio_update_mdc_div(bus);
-> > +	if (rc)
-> > +		return rc;
-> > +
-> >  	/* Needed in order to initialize the bus mutex lock */
-> >  	rc =3D mdiobus_register(bus);
-> >  	if (rc < 0) {
-> > diff --git a/drivers/net/ethernet/freescale/enetc/enetc_mdio.c
-> b/drivers/net/ethernet/freescale/enetc/enetc_mdio.c
-> > index 998aaa394e9c4..93d61c2f1464f 100644
-> > --- a/drivers/net/ethernet/freescale/enetc/enetc_mdio.c
-> > +++ b/drivers/net/ethernet/freescale/enetc/enetc_mdio.c
-> > @@ -1,6 +1,7 @@
-> >  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> >  /* Copyright 2019 NXP */
-> >
-> > +#include <linux/clk.h>
-> >  #include <linux/fsl/enetc_mdio.h>
-> >  #include <linux/mdio.h>
-> >  #include <linux/of_mdio.h>
-> > @@ -22,9 +23,9 @@
-> >   /* external MDIO only - driven on neg MDC edge */
-> >  #define MDIO_CFG_NEG		BIT(23)
-> >
-> > -#define ENETC_EMDIO_CFG \
-> > +#define ENETC_EMDIO_CFG(mdc_div) \
-> >  	(MDIO_CFG_HOLD(2) | \
-> > -	 MDIO_CFG_CLKDIV(258) | \
-> > +	 MDIO_CFG_CLKDIV(mdc_div) | \
-> >  	 MDIO_CFG_NEG)
-> >
-> >  #define MDIO_CTL_DEV_ADDR(x)	((x) & 0x1f)
-> > @@ -63,7 +64,7 @@ int enetc_mdio_write_c22(struct mii_bus *bus, int
-> phy_id, int regnum,
-> >  	u16 dev_addr;
-> >  	int ret;
-> >
-> > -	mdio_cfg =3D ENETC_EMDIO_CFG;
-> > +	mdio_cfg =3D ENETC_EMDIO_CFG(mdio_priv->mdc_div);
-> >  	dev_addr =3D regnum & 0x1f;
-> >  	mdio_cfg &=3D ~MDIO_CFG_ENC45;
-> >
-> > @@ -95,7 +96,7 @@ int enetc_mdio_write_c45(struct mii_bus *bus, int
-> phy_id, int dev_addr,
-> >  	u32 mdio_ctl, mdio_cfg;
-> >  	int ret;
-> >
-> > -	mdio_cfg =3D ENETC_EMDIO_CFG;
-> > +	mdio_cfg =3D ENETC_EMDIO_CFG(mdio_priv->mdc_div);
-> >  	mdio_cfg |=3D MDIO_CFG_ENC45;
-> >
-> >  	enetc_mdio_wr(mdio_priv, ENETC_MDIO_CFG, mdio_cfg);
-> > @@ -133,7 +134,7 @@ int enetc_mdio_read_c22(struct mii_bus *bus, int
-> phy_id, int regnum)
-> >  	u16 dev_addr, value;
-> >  	int ret;
-> >
-> > -	mdio_cfg =3D ENETC_EMDIO_CFG;
-> > +	mdio_cfg =3D ENETC_EMDIO_CFG(mdio_priv->mdc_div);
-> >  	dev_addr =3D regnum & 0x1f;
-> >  	mdio_cfg &=3D ~MDIO_CFG_ENC45;
-> >
-> > @@ -176,7 +177,7 @@ int enetc_mdio_read_c45(struct mii_bus *bus, int
-> phy_id, int dev_addr,
-> >  	u16 value;
-> >  	int ret;
-> >
-> > -	mdio_cfg =3D ENETC_EMDIO_CFG;
-> > +	mdio_cfg =3D ENETC_EMDIO_CFG(mdio_priv->mdc_div);
-> >  	mdio_cfg |=3D MDIO_CFG_ENC45;
-> >
-> >  	enetc_mdio_wr(mdio_priv, ENETC_MDIO_CFG, mdio_cfg);
-> > @@ -231,6 +232,32 @@ struct enetc_hw *enetc_hw_alloc(struct device
-> *dev, void __iomem *port_regs)
-> >  }
-> >  EXPORT_SYMBOL_GPL(enetc_hw_alloc);
-> >
-> > +int enetc_mdio_update_mdc_div(struct mii_bus *bus)
-> > +{
-> > +	struct enetc_mdio_priv *mdio_priv =3D bus->priv;
-> > +	struct device *dev =3D bus->parent;
-> > +	struct clk *enet_clk;
-> > +	u32 div, mdc_freq;
-> > +
-> > +	if (device_property_read_u32(dev, "clock-frequency", &mdc_freq))
-> > +		return 0;
-> > +
-> > +	enet_clk =3D devm_clk_get(dev, NULL);
-> > +	if (IS_ERR(enet_clk))
-> > +		return dev_err_probe(dev, PTR_ERR(enet_clk),
-> > +				     "Input clock unknown, not changing MDC
-> frequency\n");
->=20
-> binding said clock is optional. If return failure here, it will block
-> existing dts, which have not clock property.
->=20
-
-For EMDIO device, the clocks property is not added to
-fsl,enetc-mdio.yaml, I suppose this property should be added to the
-dt-binding doc if the clock is really needed here.
-
-For ENETC device, we already have a 'ref' clock in the enetc node,
-so devm_clk_get(dev, NULL) may get the 'ref' clock rather than the
-system clock of NETC.
+SGksCgo+IFtTZXZlcml0eTogTWVkaXVtXQo+IElzIHRoaXMgY2hlY2sgZW5vdWdoIHRvIGRl
+bGl2ZXIgd2hhdCB0aGUgc3ViamVjdCBsaW5lIHByb21pc2VzPyBJdCByZWFkcwo+IHRoZSBy
+dW5uaW5nIGJpdCBvbmNlIHdpdGhvdXQgYW55IGxvY2suIGNhbl9yZXN0YXJ0X3dvcmsoKSBy
+dW5zIG9uIHRoZQo+IHN5c3RlbSB3b3JrcXVldWUgd2l0aG91dCBSVE5MIG9yIGFueSBDQU4t
+cHJpdmF0ZSBsb2NrLCBzbyBub3RoaW5nIG9yZGVycwo+IGl0IGFnYWluc3QgX19kZXZfY2xv
+c2VfbWFueSgpIGFuZCBuZG9fc3RvcCgpLgoKVGhlIGNoZWNrIGFsb25lIGRvZXMgbm90IHNl
+cmlhbGl6ZSByZXN0YXJ0IHdpdGggbmRvX3N0b3AoKSwgYXMgbm90ZWQgaW4KdGhlIGNvbW1p
+dCBtZXNzYWdlLiBGb3IgUm9ja2NoaXAsIHRoaXMgc2VyaWVzIGFsc28gY2FsbHMKY2xvc2Vf
+Y2FuZGV2X2NhbmNlbF9yZXN0YXJ0X3N5bmMoKSBhdCB0aGUgYmVnaW5uaW5nIG9mIHJrY2Fu
+ZmRfc3RvcCgpLAp3aGlsZSB0aGUgcmVzb3VyY2VzIGFyZSBzdGlsbCBhdmFpbGFibGUsIHRv
+IHdhaXQgZm9yIGFueSByZXN0YXJ0IHRoYXQKaGFzIGFscmVhZHkgcGFzc2VkIHRoZSBjaGVj
+ayBiZWZvcmUgdGVhcmluZyBkb3duIHRoZSBoYXJkd2FyZSBhbmQgSVJRLgpUaGUgcHJlLWV4
+aXN0aW5nIHRlYXJkb3duIHJhY2VzIGluIG90aGVyIGRyaXZlcnMgYXJlIG91dHNpZGUgdGhl
+IHNjb3BlCm9mIHRoaXMgc2VyaWVzIGFuZCBzaG91bGQgYmUgYWRkcmVzc2VkIGluIHNlcGFy
+YXRlIHBhdGNoZXMuCgo+IFtTZXZlcml0eTogSGlnaF0KPiBUaGlzIGlzIGEgcHJlLWV4aXN0
+aW5nIGlzc3VlIGFuZCB3YXMgbm90IGludHJvZHVjZWQgYnkgdGhpcyBwYXRjaC4gVGhlCj4g
+cGF0Y2ggbWFrZXMgdGhlIHdpbmRvdyBzbWFsbGVyLCBidXQgY2FuIHJlc3RhcnRfd29yayBz
+dGlsbCBiZSBxdWV1ZWQKPiBhZnRlciBjbG9zZV9jYW5kZXYoKSBoYXMgY2FuY2VsbGVkIGl0
+PwoKWWVzLCBpZiBhIGJ1cy1vZmYgcHJvZHVjZXIgaXMgc3RpbGwgcnVubmluZywgdGhlIGNo
+ZWNrIGRvZXMgbm90IHByZXZlbnQKaXQgZnJvbSBxdWV1aW5nIHdvcmsgYWZ0ZXIgY2FuY2Vs
+bGF0aW9uLiBGb3IgUm9ja2NoaXAsIHRoZSBzZXJpZXMga2VlcHMKdGhlIGZpbmFsIGNsb3Nl
+X2NhbmRldigpIGFmdGVyIGZyZWVfaXJxKCkgaGFzIGRyYWluZWQgdGhlIGJ1cy1vZmYKcHJv
+ZHVjZXIuIFRoaXMgZmluYWwgY2FuY2VsbGF0aW9uIGNhdGNoZXMgd29yayBxdWV1ZWQgYWZ0
+ZXIgdGhlIGVhcmx5CmNhbmNlbGxhdGlvbiwgYW5kIHRoZSBydW5uaW5nIGNoZWNrIHByZXZl
+bnRzIHN1Y2ggd29yayBmcm9tIHJlc3RhcnRpbmcKdGhlIGhhcmR3YXJlIHdoaWxlIHRoZSBp
+bnRlcmZhY2UgaXMgZG93bi4KClRoZSBsYXRlLWVucXVldWUgYW5kIGxpZmV0aW1lIGlzc3Vl
+cyBpbiBvdGhlciBkcml2ZXJzIHNob3VsZCBhbHNvIGJlCmhhbmRsZWQgaW4gc2VwYXJhdGUg
+cGF0Y2hlcy4gVGhpcyBzZXJpZXMgaXMgbGltaXRlZCB0byB0aGUgUm9ja2NoaXAKQ0FOLUZE
+IHJlc3RhcnQvY2xvc2UgcmFjZXMgYW5kIGRvZXMgbm90IGFkZCBhIGdlbmVyaWMgZnJlZS91
+bnJlZ2lzdGVyCnNhZmVndWFyZC4KClJlZ2FyZHMsCkN1bmhhbyBMdQo=
 
 
