@@ -4,45 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417ADCCF2C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 01:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25DECCA46C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 01:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S4QWG8iL9mfl/dhfo2RsR4M7cwNDRqdBeBp9keTXYPE=; b=N9WrQ+JF1ftvorLNiXdg0bC1Hx
-	GvQyjTrE4EGVoDTtISv68XmlCtJzCMKobBTSy2nf+yfmr5vHeM4hlPOjz4BG5Y9QWRsFTEoxGHkEh
-	VBv7BYFcifhu4lcc10fVIR5oapvfYSEAf33lH0/Pa+5JImgiubcCrW0LV7iYY9o2/0aFvQgqpdUQP
-	LWVcMOLNcrWnBQ7DSovHNonDrxNfetzJ3QYyOExWk9BmxEGgKDD1WOmWmS3Kh5dVSkUrWRf9UojVq
-	nHiORAmhg3nfL9yim1Z5pc3ZrjpxEjpIIRDQGZsWIVf7HYHtiixcrQPaixXl4y9OQDda7A8koeJ+T
-	2eDuMGlg==;
+	bh=WLKAVyMVSmQOjN6SHuX6n9xWSw2+Rtn3bZHkHCgeQho=; b=FHSw1iFJZV2GIlpoq8J3N5I+Vh
+	sY9AwVfia07oqmliG5CCSmxFI/Newiy+hqHeTt/c39jxA6JaGFDHqUVpaT5GW9VFPMlnZc/y4eDhD
+	vXMYIFZO14/1zCLZjzDRFPGDLiH8Ay7BeGeXYqmtnweC4b3+QO2XghDsA32mNC6e4fRtd7sdAHS4w
+	1BRfOGCBDEqAeVFkQMQMVlM4GhCZ7vZd/8PrbyFE/UVbiEfK556NIgM09hbjh+dkT3pcaSVGYxact
+	H9Zp+BtdgHn6u7yL03I+WiNiS1U7W2Wier3MIbFguLg2DajosAo4TQsPU7C8JUXQA3aSngF38El/4
+	H8fZBj1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHsn5-00000004HjG-0uNW;
+	id 1xHsn5-00000004Hip-08ML;
 	Sat, 17 Oct 2026 01:00:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xHsmz-00000004Hhe-3Jgy;
-	Sat, 17 Oct 2026 01:00:45 +0000
+	id 1xHsmy-00000004HhJ-3LFj;
+	Sat, 17 Oct 2026 01:00:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 766A844512;
-	Sat, 17 Oct 2026 01:00:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A77801F000C4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 31B6E43CAB;
 	Sat, 17 Oct 2026 01:00:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651501F000C5;
+	Sat, 17 Oct 2026 01:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792198845;
-	bh=S4QWG8iL9mfl/dhfo2RsR4M7cwNDRqdBeBp9keTXYPE=;
+	s=k20260515; t=1792198844;
+	bh=WLKAVyMVSmQOjN6SHuX6n9xWSw2+Rtn3bZHkHCgeQho=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Sggz42U+vvkvhddKw1jnhpFRzpbHV5ovSzaKRxOPwG2B3o/+mk3l5Z+PxKbE0Dp2E
-	 UTkXifp811PubD9ZlmQ2OgS3SDUPhjHfZwJrD5Ed5qrW5kKPW51wI4E3jaRCBZ9rCR
-	 HTjpFfEKFKpFxMRMkssI4+uCEegoibs3qUC0BPw5VBxt3iHHxzUlnD/k2JnlzlG6vc
-	 vVzw+cwyDaUSa+wRhcWzVL5ukGoGNO8LveVrkb5na3T6NBxyneFr6Juf1l0+L4FbEb
-	 AAsjkq0qpQYXbpruOze+Vu2z7+dGUsf4a50t3ZBz+d2S4eyABJG+ps21XVYxRbgIlV
-	 LVX1roSf9+66w==
-Subject: Re: [PATCH net v5 5/6] can: rockchip_canfd: serialize TX with bus-off
- and restart
+	b=E12KcGjtaayPBL4g8g1vaqI+AYz5jzQd2vvaGZfmQO9jAH7CMQmjOnIolCfAkHqKP
+	 gAcLN6YgxgpzwDmt6ICy7g1Ip1Q3Bzfx7n81wgeurXwnrsiQgBW3W4y+qv2S5BNmTp
+	 O21bWfMBEzENvmA3HvTomx3tlNWexxx7vCFy+dB58txADDbUj8o6XBXxif9lSa0eGQ
+	 g/hG2iBs4IQvp3HfSbB+nUUjk5+tyYi4ff1lMSVkDzA+mxahYZPz892midFdmEAJpo
+	 72GNwCnfuvuUN4yPnmdR9iX3dW4RA++3kxDea/DLzZ4SWNjfXNKoLGSMiOrESkyJMq
+	 eIwQCdpvd9sVQ==
+Subject: Re: [PATCH net v5 2/6] can: dev: add close_candev_cancel_restart_sync()
 From: netdev-bot+sashiko@kernel.org
 To: 1579567540@qq.com
 Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
@@ -50,10 +49,10 @@ Cc: mkl@pengutronix.de, mailhol@kernel.org, heiko@sntech.de,
  kernel@pengutronix.de, linux-can@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, stable@vger.kernel.org, kuba@kernel.org
-Date: Sat, 17 Oct 2026 01:00:44 +0000
-Message-ID: <179219884425.1406898.18319979032484933416@kernel.org>
-In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-5-ae77327037c9@qq.com>
-References: <20261015-rockchip-canfd-restart-close-v5-5-ae77327037c9@qq.com>
+Date: Sat, 17 Oct 2026 01:00:43 +0000
+Message-ID: <179219884300.1406898.17794218418731765550@kernel.org>
+In-Reply-To: <20261015-rockchip-canfd-restart-close-v5-2-ae77327037c9@qq.com>
+References: <20261015-rockchip-canfd-restart-close-v5-2-ae77327037c9@qq.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,123 +77,85 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] This patch takes spin_lock_irqsave(&priv->tx_lock, flags) near
-  the top of rkcanfd_start_xmit()…
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but
-  rkcanfd_start_xmit() does not handle a can_put_echo_skb() failure.
+- [Low] Concern: close_candev_cancel_restart_sync() is added to
+  include/linux/can/dev.h, but the only call site is a no-op refactor in…
+- [Low] Concern: the commit has 'Cc: stable@vger.kernel.org' but no
+  Fixes: tag and no '# prerequisite for ...' note, while being a no-op…
 
 --
 
-can: rockchip_canfd: serialize TX with bus-off and restart
+can: dev: add close_candev_cancel_restart_sync()
 
-This adds a private tx_lock and tx_enabled flag. They serialize
-rkcanfd_start_xmit() and the RX-side echo completion and retry against
-bus-off handling and CAN restart. TX is disabled before CAN_STATE_BUS_OFF
-is published, and carrier, TX, IRQs and the queue are re-enabled together
-under the lock after the controller has been reinitialized.
+This adds an inline helper, close_candev_cancel_restart_sync(), to
+include/linux/can/dev.h. It only cancels the bus-off restart work, so
+drivers can cancel it before tearing down IRQ and hardware resources.
+close_candev() now uses the helper and keeps its existing order: cancel
+the restart work, then flush the echo skbs.
 
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-> index 12200dcfd3389..f49ed6d2266d9 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-> @@ -69,12 +69,19 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
-
-[ ... ]
-
->  	if (can_dev_dropped_skb(ndev, skb))
->  		return NETDEV_TX_OK;
->  
-> +	spin_lock_irqsave(&priv->tx_lock, flags);
-> +	if (unlikely(!priv->tx_enabled)) {
-> +		netif_stop_queue(ndev);
-> +		goto out_busy;
-> +	}
-> +
+> Use the helper in close_candev(), preserving its existing cancellation
+> and echo cleanup order.
+>
+> Cc: stable@vger.kernel.org
 
 [Severity: Low]
-This lock stays held with hard IRQs disabled until the end of
-rkcanfd_start_xmit(). The locked region includes the echo skb handling:
+This isn't a bug, but could the commit message say why this is going to
+stable?
 
-drivers/net/can/rockchip/rockchip_canfd-tx.c:rkcanfd_start_xmit() {
-    ...
-	frame_len = can_skb_get_frame_len(skb);
-	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
-	if (!err)
-		netdev_sent_queue(priv->ndev, frame_len);
-    ...
-}
+On its own, the patch is a no-op refactor of close_candev() plus a new
+helper. It has no Fixes: tag and no "# prerequisite for ..." annotation.
 
-can_put_echo_skb()->can_create_echo_skb() clones the skb and then calls
-consume_skb() on the original. If the clone fails, it calls kfree_skb()
-instead. can_put_echo_skb() also calls kfree_skb() in three cases: IFF_ECHO
-is clear, the protocol check fails, or the echo slot is still occupied.
+The only new user seems to be the next patch in the series, "can:
+rockchip_canfd: cancel bus-off restart before closing the device". That
+patch has its own Fixes: ff60bfbaf67f and Cc: stable.
 
-Freeing the original skb runs the socket destructor (sock_wfree()). If this
-is the last TX skb of a closed socket, that can continue into __sk_free().
+Would it help backporters to mark this patch as a prerequisite for that
+fix? If the rockchip fix were picked without it, the build would fail
+rather than the code misbehaving, so this only affects commit metadata.
 
-The comment above dev_kfree_skb_irq() in include/linux/netdevice.h says
-kfree_skb() and consume_skb() must not be called with hardware interrupts
-disabled. Before this patch, ndo_start_xmit() ran with only BH disabled.
-
-Nothing seems to fail visibly today. skb_release_head_state() only warns
-on in_hardirq(), not on irqs_disabled(), and peak_canfd uses a similar
-pattern. Even so, should the clone and the free of the original skb happen
-outside tx_lock, with only the echo slot pointer and tx_head published
-under the lock?
+> diff --git a/include/linux/can/dev.h b/include/linux/can/dev.h
+> index 6d0710d6f571d..a277d12332f15 100644
+> --- a/include/linux/can/dev.h
+> +++ b/include/linux/can/dev.h
 
 [ ... ]
 
-> @@ -137,7 +144,14 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->  				  RKCANFD_TX_STOP_THRESHOLD,
->  				  RKCANFD_TX_START_THRESHOLD);
+> @@ -115,6 +116,17 @@ struct can_priv *safe_candev_priv(struct net_device *dev);
 >  
-> +	spin_unlock_irqrestore(&priv->tx_lock, flags);
+>  int open_candev(struct net_device *dev);
+>  void close_candev(struct net_device *dev);
 > +
->  	return NETDEV_TX_OK;
+> +/* Cancel bus-off restart before tearing down resources used by the restart
+> + * callback. The driver must still call close_candev() for the final cleanup.
+> + */
+> +static inline void close_candev_cancel_restart_sync(struct net_device *dev)
+> +{
+> +	struct can_priv *priv = netdev_priv(dev);
+> +
+> +	cancel_delayed_work_sync(&priv->restart_work);
+> +}
 
-[Severity: Medium]
-This is a pre-existing issue that this patch did not introduce. What
-happens when can_put_echo_skb() fails earlier in this function?
+[Severity: Low]
+In this patch, the only caller of close_candev_cancel_restart_sync() is
+close_candev() in drivers/net/can/dev/dev.c, and that conversion keeps
+the old behaviour. As a result, no driver's ndo_stop gets the early
+cancellation that the commit message describes.
 
-If the GFP_ATOMIC clone in can_create_echo_skb() fails, can_put_echo_skb()
-frees the original skb and returns -ENOMEM. That leaves
-priv->can.echo_skb[tx_head] set to NULL. In that case rkcanfd_start_xmit()
-only skips netdev_sent_queue():
+Is the helper meant to be used only by later patches?
 
-	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
-	if (!err)
-		netdev_sent_queue(priv->ndev, frame_len);
+This looks resolved later in the series. In "can: rockchip_canfd: cancel
+bus-off restart before closing the device", rkcanfd_stop() calls the
+helper first:
 
-	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
+	close_candev_cancel_restart_sync(ndev);
+	rkcanfd_tx_disable(priv);
 
-	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
+	rkcanfd_chip_interrupts_disable(priv);
+	free_irq(ndev->irq, priv);
 
-When the self-received frame comes back, rkcanfd_handle_rx_int_one() sees
-tx_pending != 0 and calls rkcanfd_rxstx_filter(). That function then hits
-the NULL slot:
+It then calls close_candev() after the IRQ teardown.
 
-drivers/net/can/rockchip/rockchip_canfd-rx.c:rkcanfd_rxstx_filter() {
-    ...
-	skb = priv->can.echo_skb[tx_tail];
-	if (!skb) {
-		netdev_err(priv->ndev, ...);
-
-		return -ENOMSG;
-	}
-    ...
-}
-
-tx_tail never advances, because the only normal advance happens after a
-successful echo match. rkcanfd_handle_rx_int() also stops draining the
-FIFO when it gets the error.
-
-After that, does every RX IRQ consume and drop one FIFO entry with another
--ENOMSG? TX would then stall once the ring is full, until a bus-off
-restart or an interface down/up reinitializes the controller.
-
-This patch keeps the same error propagation in rkcanfd_handle_rx_int_one().
+Could the commit message mention that user, so the helper doesn't look
+unused when this patch is reviewed alone?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261015-rockchip-canfd-restart-close-v5-0-ae77327037c9%40qq.com
