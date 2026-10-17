@@ -4,85 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A50CCF2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408B6CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 17:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flMBGY41EGoDAI7ETuBnT4GorZ4XpKflNGkIAnWjCZo=; b=OISmTbDEwVM0/I/RRkMNMHaOf3
-	sSM7olQHiNQeeWIT7+YPQLWoKX59K0Bg8s2se83NwjW0BtFQ29YxC259em16ABJJowmkAFWAd/Ggd
-	q9ueiI3KIYKP2z3ucdV8qucO6m2VJ2LYO89wB4cITVbxjylawGcR3hddcsTBmtBjU7K8CS9v/ZwPB
-	98XRAYmZCG0xLvlT+hO77vZsvX9TS8fz4c0fKFWGOT6/vpDWHomIV739wST/khGnhlo7Du70jH5Q8
-	bmG5SUc79oz3KlNNBF2v6sjnoQuRMb++EIWdIK3M+8guI0fP6wDjKIPxe83utbOlVtPVukT47uTgc
-	1vwdvR/Q==;
+	bh=xsAM52aO8oCfFmEQVHl1+Nqf2uFQbTYQrEoP7LKZYUA=; b=koxcyGIYAEak7/u7d1JBtb9gXq
+	l2hwd3d3ERqGYVjVzUB2+rehghh99SMlriMmEOqrKteSXDoMYdSjs7ChtpVRGxE1+5lbN3GgwWe8V
+	F4ZN0Ia7o3W4S4Ba84lBVur8QWOZ85udcaoQcbVIjzzCq8hujFbNjm2fc41eDNaYoHDSnFd8/Imzn
+	X+np4v1OVyavn+jK1QPup9nbHsHMh4YKcagHqUn0KdBVcoOA3L977HW3p/tMAyb8OLR2hXQ1K2kDD
+	v6XWMeCvqo5Xp48rUOCT52z8GK1l7dOwBfWz/G1lggCtSDFN2+t+D9wGbdbaHv/YKsedHikDGX96N
+	QgMNoeww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8IP-000000050QI-1MnH;
-	Sat, 17 Oct 2026 17:34:13 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1xI8Li-000000050mI-0cCN;
+	Sat, 17 Oct 2026 17:37:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI8IL-000000050Oh-1bWX
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 17:34:10 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4j6TSV0mK2zKmy7;
-	Sat, 17 Oct 2026 19:34:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1792258442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=flMBGY41EGoDAI7ETuBnT4GorZ4XpKflNGkIAnWjCZo=;
-	b=Ef+FvwkVgR1R1J47Lb1BrSoIDlUiMg0nlJQy3kcjnzuFdESYRY8UPC9BXAIC9uRxpIoN0x
-	xgJeIL1jUgnt/B1/fG8dXbzvJg3fanJlzRqMKJbHIbizCVkIbohYG6JLDD9W+RxZJ5XZ4T
-	2bH6Pnex+Bzk4QprghZLsa9eUbDQUoDxqWqNJTPAVx1G5j6DFoXy7p1Lp9H3u4pv0AHn6y
-	qR6RjY6RnXZwOpF2xT3E7aFwcZ6W1OzF2SCNEhavKrxLud/Z/V/4MarYfPPMK7SN3jVkkB
-	42o/kFKnKkezR5P+SC2ReZfbEawiBMyi6NA/cmz4OdAgbPiHNgjQ76I3hPbvuw==
-Message-ID: <51d8ba05-76e5-45ab-91da-3c6cb02505d7@mailbox.org>
-Date: Sat, 17 Oct 2026 19:28:10 +0200
+	id 1xI8Le-000000050lt-3Gf9;
+	Sat, 17 Oct 2026 17:37:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 32F8341FAA;
+	Sat, 17 Oct 2026 17:37:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5B1B1F000C6;
+	Sat, 17 Oct 2026 17:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792258654;
+	bh=xsAM52aO8oCfFmEQVHl1+Nqf2uFQbTYQrEoP7LKZYUA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=f/67l5lJScZBdZQiIzjyjmalHk+M5GsSWPwIZmSKpiKUPq3m1/ovyym+qYJSeZWiP
+	 GZacy7h5dsOmsk4C7o+RLtEKg9fHn6fvbl6FwDLtb9qyt4Tu+q7xbazzDNi2kRWFqz
+	 LT3SqQYBmKkN+uWZhMx9zyIu32OGz+2WMNQlAs+BIA2FhYM7vRGcRsz3LCNnCA2Oy6
+	 JfhLZB0rha230U2rAGmr35uI6XeabWu8FA5xXCLd5fxz0/p823n4wcY9KZTyDzpzlr
+	 17vx/6XL6IJ6ldSuHK+KV42IRh/XNG6m9x63f7n5B5Lj7v/U+eD68AAfLG95RmQcWY
+	 vJAnf9mRujfIA==
+Message-ID: <64a1cbc4-1379-4dd3-a583-aaf09680d883@kernel.org>
+Date: Sat, 17 Oct 2026 19:37:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/8] clk: renesas: r8a78000: Add clk_hw to clk_map
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf Hansson <ulfh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <cover.1792163045.git.geert+renesas@glider.be>
- <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
+Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: use two phy cells for the
+ rk3588 mipi dcphys
+To: Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Michael Riesch <michael.riesch@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
+ <20261016-dcphy-rx-v1-v5-7-e63b49eabe2d@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261016-dcphy-rx-v1-v5-7-e63b49eabe2d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 19b5cfb291ce5ddd7a6
-X-MBO-RS-META: rcst5wwoaupxhedzsu64aao9k3oaqo6b
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_103409_609841_8B881169 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,21 +124,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/16/26 5:55 PM, Geert Uytterhoeven wrote:
+On 16/10/2026 10:56, Jason Yang wrote:
+> The MIPI DC-PHY binding takes a second cell that selects the transmitter
+> or the receiver. Switch mipidcphy0 and mipidcphy1 to two cells and let
+> dsi0 and dsi1 select the transmitter.
 
-[...]
+This breaks existing/older users of this DTS, because old kernel will
+not accept it. It also creates dependency on the drivers which is
+NOWHERE explained as merging constraint in cover letter.
 
->   static int r8a78000_cpg_probe(struct platform_device *pdev)
->   {
->   	struct device *dev = &pdev->dev;
->   	struct r8a78000_cpg_priv *priv;
-> -	const struct clk_map *map;
-> -	int ret;
-> +	const struct clk_map_in *map;
+If you are silent about this, how maintainers can make proper call?
 
-Super-nitpick, use reverse xmas tree ordering here if there will be V5.
+Your cover letter AND THIS PATCH must be very explicit about all
+constraints.
 
->   	map = of_device_get_match_data(dev);
->   	if (!map)
-[...]
+Best regards,
+Krzysztof
 
