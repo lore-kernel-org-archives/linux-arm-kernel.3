@@ -4,130 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA80CCF2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67888CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 11:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=; b=P5gtmuRwTdSykZ3b4ghcWzAWTn
-	0cICjQgAzNmJzrwRjTV8aHq9XPTXOLLvmk6ydl3Y8M4zesLhmCJ3lu5AlmdtmJpcbwAUr8KVSabmu
-	0PHxX5Tzw0N9an7K/xjEMNyFxfPWz1Jod8jfrSoI4d6VPyfZQomXocG/MY63tdCW1uDka8SGDfftY
-	XYx71IvOeyYH04J9gEu+EI1iDs5wbCkTWzMfahK1ZCrZexkdtQusqsZgKMjPawLrar8h8465Zlb5B
-	YEIO/J9Nu8wPHPQI/wqtSCU8Mjlw3JOlaZ5ie4K+NE/G6wY7nOOkXO1kdxcmC/VQqXmA00rRpyYrL
-	y61MDblg==;
+	bh=jJmc5s72fxnzrSisazlCiSA9/N+0IuorH4FcHqR8R3Q=; b=sxY99QcpWXvUL3iQoH88BxguXl
+	oeQUKuDZqzabRhauV7nKP3f/kWo7mTUTqYNVzYjSitxTcvOafFkajGRCq9zT/idWJ6vdhJ5xSrolw
+	RANuUnyhY1uMOW+pPP+iTF9duZLRJThnuhwrSoMaAcTONVeSQuIAaelqOHgBGTxRm+hWHDcVb9srp
+	TnzQ3HFTKInCeK8zNaLrYWgiYZ9FR8mul4bna/rysMPOPJttZPLnFMXW2IQ27qWAPBF60Rkw2L5PM
+	PNmJksq5r/k8KoiKOkK5BewLJbw6m/pWVcROmB0JDQ19yjzO1CgDoqfQr3A+MUC/7aHmbRJS/5Wsi
+	ekJcUgSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2mN-00000004j8v-1obk;
-	Sat, 17 Oct 2026 11:40:47 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1xI2tu-00000004jVi-0f44;
+	Sat, 17 Oct 2026 11:48:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xI2mF-00000004j7q-31is
+	id 1xI2tq-00000004jVV-3wNt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 11:40:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ehXjVZLVydIENP10GfqYZhnP3fDRSlYNpiUHhYKPyH21nO9a2xSjUKrWAFtnHC5yWUTO2HWPV7s8r1fFExfxDqfxjzZync6g/6a8Gk5KshHGl4lOVTVrXLBdFGNlVMoXOPFY5iqDWuLNmYT32aePrVuzvr+aNeBuXv6ndQHValm/Pa9mVh5Wnkal7VVGpTYWdvMI7hH0DanpWvJKcG3W9OViz9bxLEH+b02hl0lmmtAFmOTDELSRgQUGbjzK6VZ26WtZCywU7nkumVE4dFOuhmJNO3CQAJx42ELJp0d1PA3IvCaZt4ppOGN2ji8mVW0MVK/WPG97F+0YpnZc5jeWJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=;
- b=qGMqt7nPJMiqSLpZXQuqF3aUXRmQ1dM4kMZnF1kX0YY0xEF15lHHq9L/vCBs4l3qQa39oIAgH2RaKRzDGoeY5Ji+kSFqBf1sVmYbJtC7VSx/hbDtWzcuvEGLl094zuL6U9M9o6zfRr8HthsMdrgrsDeWjucAtniopXgcxXZxm8cXat9q68+IgUAjOYUHHxi2s3JRHpLqTKQcAwafr66k0jr1Jgdd6x1uNx8vCTbjn8aPoSWDw/pxVCrebbzZZK1arKTIiHT9kMnIjAIZH1XFxQITe1pTXrZXhOCzqU6jpdpp65H9ArR7LAj2HC2gyEXE9ojah8PaYEDHC02qysaMig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rNkl/cwsFV0KZsYFk5EUTQpm1Sh80iTgT8Lz9pbwlds=;
- b=sm9cAx7SEXCL9jLdk7tlAItAyslkJH/GIeu2wOWyw+NDJvvNjAwciY6LuLWPfEdLQZb+LHPbnnL3fGG7SGV/SJttsZIWE/dzs6Y19MMDpwVQx37Dklo8ht4eRBZ6EONnxk7Du3fuUti5wilEGXC+A+JWfOgFzG1QJyefzYnJrdEuFlCse2fdr7n2KsOn1KoTi2mazmKSuLEIpVh9/HFAxaR18NTkEic9SIEXTbxwiEyzFnmm2qos0X+opfzvIecNtmPMr6Oo4EHrYyiKPv6Cq02GlLdB7Ks3Zw4qBKpp4v+UgDZSstVBpJmlVR82NRfl7xvRtMWr4vSz3sMjxOdyWw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by MW6PR12MB8914.namprd12.prod.outlook.com
- (2603:10b6:303:244::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.17; Sat, 17 Oct
- 2026 11:40:26 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0522.017; Sat, 17 Oct 2026
- 11:40:26 +0000
-Date: Sat, 17 Oct 2026 08:40:25 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
-	kevin.tian@intel.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
-	Cristian Prundeanu <cpru@amazon.com>,
-	Breno Leitao <leitao@kernel.org>
-Subject: Re: [PATCH v11 00/11] iommu/arm-smmu-v3: Adopt the crashed kernel's
- stream table for kdump
-Message-ID: <20261017114025.GL13920@nvidia.com>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
- <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <27f2e050-10c0-4a77-8d59-00a95a162912@linux.alibaba.com>
-X-ClientProxiedBy: YT4PR01CA0301.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10e::10) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MW6PR12MB8914:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d6f9fdf-a3aa-4b6d-dc6d-08df2c43701c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: vMgX5T7kEhKxztKbwl3y1isAeqbz6eTTPoDkQ84nTjldbeJrN9dvb24CXz81U6x8C7lXL6YFWSIQue28oB+Hamf+xLXu76SmIZkNxxHpCFVbUbX8unU30Kj0SZ3McLdJAwPtLFAIMsmX49hWAjw/W69XcgRmAEEypTHEVcrbm0cHV2fLVLC002cvBIIwzT063gQBe+JsB6Tl3nAV1zHGcXecWCJ29lFoiFRoQ7mWQvvbX411QXNQdll7BhSZ2veDkAFvW+JR+ObSchtYjqFLVxKGBEpTg6EI/8hpJ/250kt0J8plAZ7Cr7B14scOAYy34Tpsg0c9amCSMM80y4uhk8ucWMV3djjF16fuDSWtsu2UtTx6nOfKQj7iqsAMBdPFMsDHJgwPliE+KLHz5WuRc8CDc/SvZcdXy10xSEawEuNSvU7FU/5JDOqnAzMNFMAMcpkJXIvLrR+y+UCiiMq9927KfTThlhRBk9pefHZX/U/pWimOs/r3MCWZTtTtiP5Z7r9rLzYal8CA+l2rmILzinxQIGH2lJJv1a08nCWzM1payHko+2x8B7q8XV91BnbvRVAobroJbRT51LWCQsatA4raJuoaAVNtLys4vfGXEcCSWg6MnhgVv2Uk2ttRF36Ze2seuKv6U7SXiLfzgXbJJajRnJj/YR9/nIiJScPF4RI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jazau589mUeO2nNC9SbH69bQc2blX0rlk3Jz4VL+F+cmtfUUbmrcAhhLQlIs?=
- =?us-ascii?Q?42IRSOsJG/jK0qEQvz1mEvzCQSGUahHH/vfCoHcFkcqWzA3qwwow4CY8dbEW?=
- =?us-ascii?Q?KwhnD3tnvvqcMxVnyJ/NpO33SnIHB06UyjUwTxtt38OHRs8FcE+EfGeaN8ms?=
- =?us-ascii?Q?XTlB0SjX17LQImMhI7FoDWqFokPuZSWbXKfysW56gqh7Z87OfGOTUHqOaqyV?=
- =?us-ascii?Q?XeOxeE7DavmYL85jVugCvxZ0clZXtBW7Ru9TKBzn/CO7Ii/cjdd8fMGjfbM8?=
- =?us-ascii?Q?bs6o8FJHydtH7e9FFZNtEpYtXK/G56v92T+KK4hl9TEFiZkzVYBE5mM/BwxT?=
- =?us-ascii?Q?a9yifjfyhz7/zMHf4qJTqVyf+PxdQnbacfucWrqQBKbWsiYmihj8siXlKNZo?=
- =?us-ascii?Q?Ho5Rj45K7my+0KdogU9eArvNFT39t0wbc+938eIMb1cf958c4MVBxd7XC0d4?=
- =?us-ascii?Q?u/T2lLdrm+rK6FTWUc6yNYwf7OOA9yOF+eOWoRkj1m2O6Qg4kgb/rV2tGDdI?=
- =?us-ascii?Q?9SBvLOLSSqRrq3a8/0iaB2wVk+2XJaKVx3ttlEIpv4OFOMJ/986ojEaMkGHY?=
- =?us-ascii?Q?PXRKwYg6611g2YwefVgMQORH0n79mR0O70IrSgP0EBIwdIPIq/IpUmw6Vl7W?=
- =?us-ascii?Q?Lt7cTaPg/OKrU7g/t5tsXlrhPu6sW246OaSJcwLBwRMtuFILQm7e+r3ru8l1?=
- =?us-ascii?Q?tTBUuT4+47aA5Of5lNTIjhHkPRgcCTZu4X8fwz3ztTcWw/w9nQc3wAJgpEG+?=
- =?us-ascii?Q?mKo3fMFGFpJFpwJQxPrh8zwKELCRulE+YZ8XZ/jAwv78NR3QRRHIbrvJBrz8?=
- =?us-ascii?Q?DjjH7ibfvbA/2ANU4KEYwPdFmUIFSQ7ZXtMGDXWCb0zLyDPkoN9AEb+CPDy2?=
- =?us-ascii?Q?QtHmgRnECa1QWmaTU3yPuqoYRJCiPlmdghn6BEeO1Se8Y5hphvKBg/8FiMMW?=
- =?us-ascii?Q?XL5NOUqxXy5s0uENUcLQw68vx3c4Qv57Z9+eXGiAXQVNFHnPTphtqu5X1y7e?=
- =?us-ascii?Q?PW3fMlwSW6Lt2Eyju+BaXMU6wTxp8FW/n0LPVJc4ufzAb9fyfGiXRj+IBcE1?=
- =?us-ascii?Q?DE5aOWhsDCY4BgJnqFslrum6Lb/QvpcFQqP804H3ED/4Tm4sIBtKB0jcqPe6?=
- =?us-ascii?Q?k6+SBLR/O2Cz+SnC9yJEpSYd+nlIDFB00zXCEZSHZiVPgVzBJOMJFTwqC32L?=
- =?us-ascii?Q?jrGlUEoXhGtNQ1IWGsGU3Klg2dyCBIo2yiE+XUW+lC0wNBrT9P2Kh6lBuM9T?=
- =?us-ascii?Q?kmx7R17iNgkIFOjH7pC5uAx6u1AEFyWMbcfLQEJvAOdBdpmLCv3m+/AcpUqY?=
- =?us-ascii?Q?r0qAHP4SpU1Fp4i/51K91cJsmOvn8lJPW5zipzCPH7PqKRNW/zfc2Yd63ajA?=
- =?us-ascii?Q?uU9E87FZFD7roQxLyMvdhqUjcQqaJ4c3T35HgDNjf36UIaBX7QnOmcWhHj5D?=
- =?us-ascii?Q?6hDPMXxi8UYFW6rbMrSnQanSnGaDKWf/pkFFX86KK+h/AW9zwR2BKtgagSpV?=
- =?us-ascii?Q?K0I1bhR2DdUMOy3beOrRx18/gDcfW+9ie9eBjVIOanfi/zqE7PlZhTxXicrm?=
- =?us-ascii?Q?0clx5UtRQLdfVH4UbpzOcxCyhlZx6u/b914ENdsHkrPI18XDkZyj9gIJWztO?=
- =?us-ascii?Q?RzqbyNm+yprNTMEukjH6ZdzQLMEn7Iek2v3CfzEWzFD0quSKfei2awpWnFBL?=
- =?us-ascii?Q?2NrF3dka3YziaWNgMWL1Svu/58cBBCjHsoVaeX7l4DcGosKX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d6f9fdf-a3aa-4b6d-dc6d-08df2c43701c
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2026 11:40:26.6260
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3sddnaeRRz31Ay4rfuV65PL4hXS41uvXd7T6XXrvZm32mON7rLsDvic/RQJwUy2r
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8914
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_044040_201955_ADA2F287 
-X-CRM114-Status: UNSURE (   7.20  )
-X-CRM114-Notice: Please train this message.
+	Sat, 17 Oct 2026 11:48:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D1A1D6022E;
+	Sat, 17 Oct 2026 11:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4251F000C4;
+	Sat, 17 Oct 2026 11:48:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792237709;
+	bh=jJmc5s72fxnzrSisazlCiSA9/N+0IuorH4FcHqR8R3Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=T6XsGeLv6DMHkSP68KPe1EP4tk+yLjiPAPERFWjp/cc64HhPR9M/EY5g4KzGqPhsq
+	 s9ZyCRe/Wte5Br0+77Xt/SJ59TP13Z5thDfc1ow5ctTsb09aF1aUA7Ev9UuUz1qUpJ
+	 ANXbRY3WzL6cdisADF0z+2IsINIYz4hwohQzHNGNTD9czKTtejHj4R3LfhP17TM/x0
+	 jwrIaKz3earIeawjC36RR5TNjyjy7IbAWn2lpYVkAXgeGzWdCqpgIyjI1LvcQz4vAm
+	 0iApAkw+VRn0SW96Vp1J3vzN4kN3lZukFsyqY0kIu2kTFL0WAX0XlSPWjAvtLDBD1m
+	 AQBhgOLqPYTIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xI2tn-0000000459f-0Czq;
+	Sat, 17 Oct 2026 11:48:27 +0000
+Date: Sat, 17 Oct 2026 12:51:41 +0100
+Message-ID: <87y0bw8rzm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH 1/2] KVM: arm64: vgic: Require matching VGIC model for GICv3 ITS
+In-Reply-To: <20261016152225.898761-2-sascha.bischoff@arm.com>
+References: <20261016152225.898761-1-sascha.bischoff@arm.com>
+	<20261016152225.898761-2-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sascha.bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,17 +88,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 17, 2026 at 04:19:20PM +0800, Shuai Xue wrote:
+On Fri, 16 Oct 2026 16:22:23 +0100,
+Sascha Bischoff <sascha.bischoff@arm.com> wrote:
+> 
+> On a GICv5 host with legacy support, KVM registers both VGICv3 and
+> VGICv5 devices. A VM can create a GICv3 ITS with another VGIC model,
+> setting has_its even though that model cannot use the GICv3 ITS.
+> 
+> Reject GICv3 ITS creation when the VM already has an incompatible VGIC.
+> KVM also permits creating an ITS before its VGIC, so record the model
+> required by the ITS and reject a later incompatible VGIC. Preserve
+> either creation order when the models match.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-init.c | 5 +++++
+>  arch/arm64/kvm/vgic/vgic-its.c  | 9 +++++++++
+>  include/kvm/arm_vgic.h          | 2 ++
+>  3 files changed, 16 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index b5ea1e39c6862..48a92555fa6ab 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -125,6 +125,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  		goto out_unlock;
+>  	}
+>  
+> +	if (kvm->arch.vgic.its_model && kvm->arch.vgic.its_model != type) {
+> +		ret = -ENODEV;
+> +		goto out_unlock;
+> +	}
+> +
+>  	if (kvm_id_regs_final(kvm))
+>  		goto out_unlock;
+>  	ret = 0;
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index e5657cb603567..bf901626ea6df 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -1875,6 +1875,14 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+>  
+>  	mutex_lock(&dev->kvm->arch.config_lock);
+>  
+> +	if ((irqchip_in_kernel(dev->kvm) && !vgic_is_v3(dev->kvm)) ||
+> +	    (dev->kvm->arch.vgic.its_model &&
+> +	     dev->kvm->arch.vgic.its_model != KVM_DEV_TYPE_ARM_VGIC_V3)) {
+> +		mutex_unlock(&dev->kvm->arch.config_lock);
+> +		kfree(its);
+> +		return -ENODEV;
+> +	}
+> +
 
-> We tested this series (v11, backported onto our 6.6-based kernel) on two
-> arm64 server platforms that differ in how PCIe errors are reported: one
-> with firmware-first reporting (GHES/CPER), the other with OS-first AER
-> plus DPC. The test triggers a kdump crash (echo c > /proc/sysrq-trigger)
-> on an otherwise idle machine and compares the capture kernel's dmesg
-> between the unpatched baseline and the kernel carrying this series.
+A comment would go a long way to make it clear what this is checking
+for:
 
-Thanks, this is a nice description of the challenges server type
-systems face!
+	- if a GIC already exists and is not v3, fail
+	- if an ITS already exists and is not v3, fail
 
-Jason
+>  	if (vgic_initialized(dev->kvm)) {
+>  		ret = vgic_v4_init(dev->kvm);
+>  		if (ret < 0) {
+> @@ -1903,6 +1911,7 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+>  
+>  	dev->kvm->arch.vgic.msis_require_devid = true;
+>  	dev->kvm->arch.vgic.has_its = true;
+> +	dev->kvm->arch.vgic.its_model = KVM_DEV_TYPE_ARM_VGIC_V3;
+>  	its->enabled = false;
+>  	its->dev = dev;
+>  
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 7be81b936bf10..a2b6b328808ba 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -548,6 +548,8 @@ struct vgic_dist {
+>  	struct vgic_io_device	cpuif_iodev;
+>  
+>  	bool			has_its;
+> +	/* VGIC model required by the VM's ITS devices. */
+> +	u32			its_model;
+
+I reckon that has_its and its_model can be made the same thing, since
+its_model == 0 indicates the lack of ITS, and it is otherwise the same
+as vgic_model.
+
+I ended up with this (untested). Thoughts?
+
+	M.
+
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 2d915769cdc7c..c70390b7fcab6 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -456,6 +456,9 @@ int kvm_vgic_vcpu_init(struct kvm_vcpu *vcpu)
+ 		 */
+ 		if (vcpu->vcpu_id >= kvm_vgic_global_state.max_gicv5_vcpus)
+ 			return -EINVAL;
++		break;
++	default:
++		unreachable();
+ 	}
+ 
+ 	return ret;
+@@ -572,6 +575,8 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+ 		kfree(dist->vgic_v5_irs_data);
+ 		dist->vgic_v5_irs_data = NULL;
+ 		break;
++	default:
++		unreachable();
+ 	}
+ 
+ 	xa_destroy(&dist->lpi_xa);
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 0ec461df74cd9..171e5e345c220 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -1963,7 +1963,6 @@ static int vgic_its_create(struct kvm_device *dev, u32 type)
+ 	xa_init(&its->translation_cache);
+ 
+ 	dev->kvm->arch.vgic.msis_require_devid = true;
+-	dev->kvm->arch.vgic.has_its = true;
+ 	dev->kvm->arch.vgic.its_model = KVM_DEV_TYPE_ARM_VGIC_V3;
+ 	its->enabled = false;
+ 	its->dev = dev;
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 636c576b2b99e..282fac37b6642 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -42,10 +42,7 @@ bool vgic_has_its(struct kvm *kvm)
+ {
+ 	struct vgic_dist *dist = &kvm->arch.vgic;
+ 
+-	if (dist->vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
+-		return false;
+-
+-	return dist->has_its;
++	return (dist->its_model == dist->vgic_model);
+ }
+ 
+ bool vgic_supports_direct_msis(struct kvm *kvm)
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index c4135815884b6..4b2c41917b77c 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -503,7 +503,9 @@ struct vgic_dist {
+ 	bool			initialized;
+ 
+ 	/* vGIC model the kernel emulates for the guest (GICv2 or GICv3) */
+-	u32			vgic_model;
++	enum kvm_device_type	vgic_model;
++	/* VGIC model required by the VM's ITS devices. */
++	enum kvm_device_type	its_model;
+ 
+ 	/* Implementation revision as reported in the GICD_IIDR */
+ 	u32			implementation_rev;
+@@ -548,9 +550,6 @@ struct vgic_dist {
+ 	struct vgic_io_device	dist_iodev;
+ 	struct vgic_io_device	cpuif_iodev;
+ 
+-	bool			has_its;
+-	/* VGIC model required by the VM's ITS devices. */
+-	u32			its_model;
+ 	bool			table_write_in_progress;
+ 
+ 	/*
+
+-- 
+Jazz isn't dead. It just smells funny.
 
