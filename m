@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D85CCF2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 10:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AE3CCF2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 10:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hab7+141CDQa1JBhM1GvMqH/8AaEC11ek9yvkq2uC0=; b=m/jeWGx01NIbv9bBVMUiNQQH/B
-	iArOmIC2f6aHoGPYlCHKuUkJdgSCikXjJzZrhb4xiIVxHe2xSNqkcKwSzcFIBZCFn105TR7GYdhWV
-	6CnejrehPAg6sUpEVdewr40CzV3+eTVz+5b1FKZdaEH2ZlS2MF3GaeTsbWpyKxXv0gmrtHJnB0MRY
-	py8A7NI7A1azdTswkYTA4GN0/JdvlAqpnsDbHgl6+zNvo27JCBKKElwpRpH57lhApGNB7g6jzBBuq
-	wJArZdJmoFx0K9ozRFW2z8jV2LNOJZklPQUg61ApB7jraftIsLbs8uwpkwTTItaP/b5Mig1HYmHSM
-	rb4N8FgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tvdWDrbzXQPcRArKbRRazwOwJZcvcz3zMV26SeCgv8E=; b=SdAU0ZDoJF/HqCRmoNP3z1e6tX
+	qYBLO0XRqunGjvCecrGc9oDXwdxhqR3p3hWPuIIbSNrI4n8Iw6UUYXZsJXyte0TmGWf74K2x4+fiL
+	bQPnUElZaIP0TXbWLWrBn+IPBic68HMmttNtofQFuq3ZNlUDjv2jqR2ha7Kj+ger8taLGdH8QKwsC
+	y7ZZAnYxVIRzkINT0eVCHtz8WHRPbZ1TaoXnxwwnXHz+qj3zz7InfFO0rqk/ekHZihDc+cJXDmQRK
+	hoI6lDOBu3XCP9rNAGsefQV4qtxnDGEYFi6tJkCCqb2tBFvKfswAK+IZyWuI4KObug1MYsokjkJAi
+	e6BX7t/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIOQj-00000005lhd-29fH;
-	Sun, 18 Oct 2026 10:47:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIOQz-00000005luF-3TCR;
+	Sun, 18 Oct 2026 10:48:09 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIOQZ-00000005ldC-2hkr
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 10:47:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05DE760A95;
-	Sun, 18 Oct 2026 10:47:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 593231F000C8;
-	Sun, 18 Oct 2026 10:47:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792320462;
-	bh=5hab7+141CDQa1JBhM1GvMqH/8AaEC11ek9yvkq2uC0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fPEalO6xUETTCLQJJT/mlPgbrqyjtJydGt/bhAGwWsovPYXyOkOBp4aaRwFA4Wo8J
-	 G+WrRulRhyNHpDMuKhugSKWtS9L/y8oim7tjcaIUrhjO/kzgtMbu9dMh7RnNCDxz9a
-	 9OL5c4OaKmBifWcbRriSd3wJHKG690aw2VpOP8Ooe+J1V7vdqKprEoqkVpyiiWs0ks
-	 b78MlsSO+NX30tWF2BJQCY4u5mLfPx8hq1qEAwZ17C38W/VaYKK6uln33+Mdcv3d3R
-	 I3id92GQj9ydDLczlg8VjW5T4bqhF/WSThBfDhURcgEn1GqlUYJSkkQ6XEoxlDDmPX
-	 762ZrJEuMzB9A==
-Subject: Re: [PATCH net-next v3 9/9] net: stmmac: qcom-ethqos: add Shikra EMAC support
-From: netdev-bot+sashiko@kernel.org
-To: mohd.anwar@oss.qualcomm.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, afd@ti.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, richardcochran@gmail.com, andersson@kernel.org,
- konradybcio@kernel.org, alexandre.torgue@foss.st.com, peppe.cavallaro@st.com,
- joabreu@synopsys.com, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, lorenzo.bianconi@oss.qualcomm.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Sun, 18 Oct 2026 10:47:40 +0000
-Message-ID: <179232046091.3135.7041326304068020426@kernel.org>
-In-Reply-To: <20261017-shikra_ethernet-v3-9-26a8beb44b8f@oss.qualcomm.com>
-References: <20261017-shikra_ethernet-v3-9-26a8beb44b8f@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xIOQp-00000005lky-3FnP;
+	Sun, 18 Oct 2026 10:48:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=tv
+	dWDrbzXQPcRArKbRRazwOwJZcvcz3zMV26SeCgv8E=; b=Pbb2CIJFMeGe5pl1yd
+	UGALXvCC9SaN+QWa/2PfA1R43TKs3occoXYAwd1j4gOjahn64zTEE8KX7ZJ4N45S
+	ZgTu5t3BI/e1gObSVJ23m60aHmQQWKGjBrJvA0SN60FzKAEIhqC8t1DmCBSpjPBM
+	fEXI/H7lcJOFGazMNHfqMPYUU=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDXHyjOo9Rq9DXFAw--.17380S4;
+	Sun, 18 Oct 2026 18:47:47 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Jiale Yao <yaojiale02@163.com>
+Subject: [PATCH 2/2] wifi: mt76: mt7996: clear all link WCIDs before RCU removal
+Date: Sun, 18 Oct 2026 18:47:39 +0800
+Message-Id: <20261018104740.865520-3-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261018104740.865520-1-yaojiale02@163.com>
+References: <20261018104740.865520-1-yaojiale02@163.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDXHyjOo9Rq9DXFAw--.17380S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZr1rKr15uF15Ary3JF1UWrg_yoW5Jw1rp3
+	yDZas09ryUArs7X3W3Cr4jvF45Za1rKry3ArZ7Wwn5JFyIkF92qF18ZFZrZFy5CF93Cay3
+	Xr1ktFnrGan0va7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pR0_MsUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzhPsJ2rUo9M0RgAA3q
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261018_034800_476411_24238495 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,161 +79,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+mt7996 registers a separate WCID pointer for every link of an MLD
+station. The generic mt76 sta_pre_rcu_remove callback only clears the
+WCID embedded at the start of sta->drv_priv.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+The remaining link WCIDs can therefore still be acquired by the RX path
+after station removal starts and outlive the synchronization performed
+by mac80211, resulting in a use-after-free.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Add an mt7996 callback that clears every allocated station link WCID
+before mac80211 waits for network readers.
 
-- [Medium] The new shikra_data descriptor
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:317-324) has…
-- [Medium] The commit message justifies taking a second enable reference
-  on 'stmmaceth' (by putting it in shikra_noc_clk_names, so it goes…
+Fixes: a9eae65d97f3 ("wifi: mt76: mt7996: Export MLO AP capabilities to mac80211")
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ .../net/wireless/mediatek/mt76/mt7996/main.c  | 27 ++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
---
-
-net: stmmac: qcom-ethqos: add Shikra EMAC support
-
-This patch adds Shikra EMAC support. It registers the qcom,shikra-ethqos
-compatible with a new shikra_data descriptor. The descriptor enables three
-NOC clocks (stmmaceth, axi-noc, pcie-tile-axi-noc), whose rates are set
-through an OPP table, and sets a 36-bit DMA address width.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 9c602755532e1..a4e083a8517d0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -307,6 +307,22 @@ static const struct ethqos_emac_driver_data emac_v4_0_0_data = {
->  	.dwmac4_addrs = &ethqos_dwmac4_addrs,
->  };
->  
-> +static const char * const shikra_noc_clk_names[] = {
-> +	"stmmaceth",
-
-[Severity: Medium]
-The commit message says that managing "stmmaceth" through the same
-clk_bulk path:
-
-  keeps the rate-setting and enable/disable together.
-
-Is that accurate? The stmmac core still enables stmmac_clk by itself,
-before the OPP vote is applied.
-
-At probe, stmmac_probe_config_dt() calls
-clk_prepare_enable(plat->stmmac_clk). That happens well before
-qcom_ethqos_init_noc_clks() and ethqos_clks_config(ethqos, true) set up
-the OPP.
-
-On runtime resume and noirq system resume, stmmac_bus_clks_config()
-enables stmmac_clk first, and only then calls the glue clks_config():
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:stmmac_bus_clks_config() {
-    ...
-	if (enabled) {
-		ret = clk_prepare_enable(plat_dat->stmmac_clk);
-		...
-		ret = clk_prepare_enable(plat_dat->pclk);
-		...
-		if (plat_dat->clks_config) {
-			ret = plat_dat->clks_config(plat_dat->bsp_priv, enabled);
-    ...
-}
-
-On suspend, ethqos_clks_config(false) calls dev_pm_opp_set_rate(dev, 0).
-That reaches _disable_opp_table(), which drops the bandwidth, level and
-required-opps votes but does not change clock rates. So stmmaceth stays at
-120 MHz.
-
-On the next resume, is stmmaceth then enabled at 120 MHz before
-qcom_ethqos_set_opp() restores the VDD_CX required-opps vote? The binding
-commit says that vote is needed when the NOC clocks are enabled.
-
-If so, the second enable reference doesn't keep rate-setting and
-enable/disable together. Should the commit message rationale be updated?
-
-> +	"axi-noc",
-> +	"pcie-tile-axi-noc",
-> +	NULL,
-> +};
-> +
-> +static const struct ethqos_emac_driver_data shikra_data = {
-> +	.dma_addr_width = 36,
-> +	.has_emac_ge_3 = true,
-> +	.noc_clk_names = shikra_noc_clk_names,
-> +	.num_noc_clks = ARRAY_SIZE(shikra_noc_clk_names) - 1,
-> +	.rgmii_config_loopback_en = false,
-> +	.dwmac4_addrs = &ethqos_dwmac4_addrs,
-> +};
-
-[Severity: Medium]
-Is it intentional that shikra_data has no .rgmii_por and .num_rgmii_por?
-
-Every other descriptor has a POR table. That includes the other
-has_emac_ge_3 descriptors, emac_v3_0_0_data and emac_v4_0_0_data.
-
-Shikra still uses the RGMII path. qcom_ethqos_probe() installs
-ethqos_fix_mac_speed_rgmii() for every RGMII phy-mode, and the binding
-requires the "rgmii" link clock for Shikra.
-
-With num_rgmii_por == 0, the reset loop in ethqos_fix_mac_speed_rgmii()
-does nothing:
-
-	/* Reset to POR values and enable clk */
-	for (i = 0; i < ethqos->num_rgmii_por; i++)
-		rgmii_writel(ethqos, ethqos->rgmii_por[i].value,
-			     ethqos->rgmii_por[i].offset);
-
-Most of the programming after this loop is read-modify-write. It seems to
-rely on the POR rewrite to clear bits left over from an earlier speed.
-
-For example, in ethqos_rgmii_macro_init(), the 10/100 branch sets
-SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN. The 1G branch only sets
-PRG_RCLK_DLY and PRG_DLY_EN:
-
-	if (speed != SPEED_1000) {
-		...
-		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN,
-			      SDCC_HC_REG_DDR_CONFIG);
-	} else {
-		...
-		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_PRG_DLY_EN,
-			      SDCC_HC_REG_DDR_CONFIG);
-	}
-
-On v3/v4, the POR value 0x80040800 for SDCC_HC_REG_DDR_CONFIG clears this
-bit first. After a 10/100 to 1G renegotiation on Shikra, would the external
-RX clock delay stay enabled along with the 1G programmed delay?
-
-The reverse case has the same problem. The 1G path and
-ethqos_dll_configure() set DLL_EN, CK_OUT_EN, CDR_EN and CDR_EXT_EN in
-SDCC_HC_REG_DLL_CONFIG. After a 1G to 10/100 change, nothing clears them,
-even though the 10/100 path deliberately skips enabling the DLL:
-
-	if (speed != SPEED_100 && speed != SPEED_10) {
-		/* Set DLL_EN */
-		rgmii_setmask(ethqos, SDCC_DLL_CONFIG_DLL_EN,
-			      SDCC_HC_REG_DLL_CONFIG);
-
-On v3/v4, the POR value 0x2004642c clears these bits.
-
-The driver also never programs some fields itself.
-SDCC_DDR_CONFIG_TCXO_CYCLES_CNT is one: the v3/v4 POR sets it to 4, which
-matches the "52 * 4" comment in the PRG_RCLK_DLY calculation.
-
-In rgmii-id mode, SDCC_HC_REG_DDR_CONFIG and SDCC_HC_REG_DLL_CONFIG2 are not
-touched at all. On Shikra they keep whatever the hardware reset or the
-bootloader left there.
-
-Could Shikra get its own POR table? If skipping it is safe, could the
-commit message explain why?
-
-[ ... ]
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index dd7a01c02a7c..dc7401319ed5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1510,6 +1510,31 @@ mt7996_sta_state(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 	return mt7996_mac_sta_event(dev, vif, sta, ev);
+ }
+ 
++static void
++mt7996_sta_pre_rcu_remove(struct ieee80211_hw *hw,
++			  struct ieee80211_vif *vif,
++			  struct ieee80211_sta *sta)
++{
++	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
++	struct mt7996_dev *dev = mt7996_hw_dev(hw);
++	struct mt7996_sta_link *msta_link;
++	unsigned int link_id;
++
++	mutex_lock(&dev->mt76.mutex);
++	spin_lock_bh(&dev->mt76.status_lock);
++
++	for (link_id = 0; link_id < ARRAY_SIZE(msta->link); link_id++) {
++		msta_link = mt7996_sta_link_protected(dev, msta, link_id);
++		if (!msta_link)
++			continue;
++
++		rcu_assign_pointer(dev->mt76.wcid[msta_link->wcid.idx], NULL);
++	}
++
++	spin_unlock_bh(&dev->mt76.status_lock);
++	mutex_unlock(&dev->mt76.mutex);
++}
++
+ static void mt7996_tx(struct ieee80211_hw *hw,
+ 		      struct ieee80211_tx_control *control,
+ 		      struct sk_buff *skb)
+@@ -2568,7 +2593,7 @@ const struct ieee80211_ops mt7996_ops = {
+ 	.vif_cfg_changed = mt7996_vif_cfg_changed,
+ 	.link_info_changed = mt7996_link_info_changed,
+ 	.sta_state = mt7996_sta_state,
+-	.sta_pre_rcu_remove = mt76_sta_pre_rcu_remove,
++	.sta_pre_rcu_remove = mt7996_sta_pre_rcu_remove,
+ 	.link_sta_rc_update = mt7996_link_sta_rc_update,
+ 	.set_key = mt7996_set_key,
+ 	.ampdu_action = mt7996_ampdu_action,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261017-shikra_ethernet-v3-0-26a8beb44b8f%40oss.qualcomm.com
+2.34.1
+
 
