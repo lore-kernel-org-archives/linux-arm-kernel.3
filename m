@@ -4,98 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859DCCCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 04:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AEB4CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 04:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=; b=fEc1cI39ZzzeLsK2sy7aG2J8wc
-	ECYv64W5ardJv8/iv2JHMZJeKiW/xdKUk1MgwYELtpreeAkGjV9TE5Tp8V24pTXVE33L5qBn3HRL0
-	z6yZPPLjNrddxTSxeHPSjsdLKrOmOStjrvQV6YRqZmtEH0k0vCB6fN7aGy8qqO9KbJa/mBwNO/WLj
-	To0hGdg+n3mUZkPsqHL+SuoOq/AyvpaD507nLhPU9zgxxg716lnqn0RoAPs29i0ME3oauYOcfT63L
-	M0W+2kWD8YjXFc8pyrXDFPCfgmkfiTIINc90vyDHUCBtlfh9hk6+weSvqvvt/t2XJZg6uzm6wHB18
-	4LVZDvxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9d2WAfWhD+z1t4WxC82EqCrzgASj2EMx0oLCQlcU+xM=; b=xdRxrcENA0ZjW7xSmexNnQ4Z3z
+	U0Oc6NcHmyEfkzbK2xgw/8ki7ik+3nN7lFvejpWwRzM+jBZ+VS4y1tmTUZXwxUkGxoaTA4WmKvHYg
+	hPrJ7O8AjXgXiIrVrCYOahvK8ub4hKMamPueaKnnV2FqbsuwStJSCpx3xqp9AF/d8ylrxrAa7eG97
+	wcwWYUR+BaTCRxeDAiH4wT0W0eLImQi9HBCS/X/c8vxsUn9Wcev+KKwf+1fgafdLQtMIsvvtOGaIs
+	cK7x19x3ssfjrDmMM0rzDjJtW+EpO4mHkY65pTscb5LXYmkQ03D0EjQQABWrCLzx4AHv8N9CaLR3F
+	GUJGPMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIIXi-00000005WY8-2KGC;
-	Sun, 18 Oct 2026 04:30:42 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xIIvT-00000005XOQ-1HWV;
+	Sun, 18 Oct 2026 04:55:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIIXg-00000005WWZ-0fDq
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 04:30:42 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-38759bcd877so653302a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 21:30:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792297839; x=1792902639; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
-        b=h6GaDXH94qH+sgl+y/fYIBj0ppuSGfPrrm/X/K+pJN2h/dloDWo2N0tx+uKqqW8VNT
-         LrCSCCDOs9EY79If8RE3MbLPy/hnbedOlNax6uw8yGviKhItH+iGfQU4oTT1oorch16K
-         aGAtsAQGZvInq6yTAmLYBFLkCyfxnaSbLGBWDC97ZssTQ2V+6lxzWejKsM0uEdGVQand
-         qPKBPkvgde0wUqkpFvuz6nzxjwYclNtmgx+BOFtwbqXL9mxThaE2MhRBpiir/z3HNUn+
-         Eom8a0HykEk+Vx+vCgPrr6QF3ZDT9azN1LxfaOqN8PplFoSnDRfHd/tMNHC0K/NcG71N
-         aClg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792297839; x=1792902639;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JyrovHosLdX2LQj1aC6ideMoPUaKKiI6CstREEz9Rbg=;
-        b=W9M0wpvF0yeTS/F7Si8eQofDtLOLPLz0e9uKzPqRQBmwkKajKgzEEeu/yN6ojhboWs
-         SRpotWg0lw3TLR7P5JbDVB4iVqjiVWbMa7/Jjh0aM/ZsrPQR2HBeYTLLWj2awfdYiZ37
-         JBPSxU1DOgYjTaQxnoklxe9VliuspIu/2uXzDF3bsPqg/gD+IkSSGEBsxPntwL98tDlZ
-         GPlyVAVKV3AN2hCc6YIJC+STYu1URvRjbxbt9Jxwgh4Wo3QiwPVWlHW+C6ea3qIdafNJ
-         gGQNCanWLrC1nP7slLBtMAKFPM358QHPCUQv5miNbinw2Yf7B7gw1OTds4vEazMFhkAw
-         IHpw==
-X-Gm-Message-State: AFq9FYL7J7Yb18ekMwQYDzqYLi/YlCr9biAyHB6ed6TV8jbRyuIV+M/9
-	f3JgMZ4Dp8HxYUr5l0Sd0ypIKKVGvyMkPLFNoHmz0ErSxYoxwi/YH3Ke
-X-Gm-Gg: AYBFou2rdY7yOclA/sz4CijqeXHRq0sYq89ojiVjGQvB/HV9i+yPgd+SboRRvPzkgaf
-	N2yYhzV6lsn1H92IFiZNE9cy86F/746aT7CWc9i65Ny+2K5gvlfMDyZcVm0r9yOm0t9Hp8L4gEp
-	7n71vkNhAdTVR3scyOWk04UTSpY0PC6IHJWmYhm3Woqs4fC8Fj92ER87KPmKHadu5lsA836HYt2
-	Zc8Rn6R/NTGbm3O87rdAdPzI1c/KSzqC70AMjC4mHbCbak8fOPbmAy+NegKEOKrAY4OIg7Jz8w6
-	2vi6FQODhEtx7IbGODeXunfPoqbBPSocRwe1nqQdl8gUgoTNgm0Ar8O9GZgLDAAQfm97SV9ejB2
-	a1SuXfI2QSl4kWoG6vOUPLHwSdUwqwAgUmBTj4gLvQIKPvXjKVKa2Lv0Zi0eO3EZKh262dc3XeB
-	Ao6o9Di7YyGVofmKYEkKqTW3CKMHYD/XElD0TYeoHq8FWaFMnYMtxoJOJqxIMWKcg=
-X-Received: by 2002:a17:90b:380b:b0:39e:59a0:46b5 with SMTP id 98e67ed59e1d1-3acef14451fmr3843389a91.24.1792297839161;
-        Sat, 17 Oct 2026 21:30:39 -0700 (PDT)
-Received: from [127.0.0.2] ([2404:c0:7618:4e1c:8841:a092:12c2:47d7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acc9e47588sm5885369a91.1.2026.10.17.21.30.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 21:30:38 -0700 (PDT)
-From: Reza Kurniawan <imkyufie@gmail.com>
-Date: Sun, 18 Oct 2026 04:29:24 +0000
-Subject: [PATCH v2 4/4] arm64: dts: qcom: msm8917: Use a shallower cluster
- state to fix unresponsive idle
+	id 1xIIvR-00000005XO7-2V2E;
+	Sun, 18 Oct 2026 04:55:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 076BD40D3F;
+	Sun, 18 Oct 2026 04:55:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D28DCC2BCFD;
+	Sun, 18 Oct 2026 04:55:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792299312;
+	bh=fUdq2VvosvV5UWVKEKg821xAaTCVqPc2wV9SA9hzTFA=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=F8kp6cvPLCznrDZQRsfWwsbMwi8ryaNHvXrMLCEVa08Wfi/crE7frkp4zq/LIWvKN
+	 8snGkDu4d6PluMefPivoYxgwdyC12loGvdTOcyL1bAcKRRk9+2ncvKMfEyvfa8Cr+U
+	 1+Ao1VduB4YEgTv1QxigHtWFY7Xd942cFcSHjj9iydth/d+PEAAkHD8evBP26Lp0gI
+	 JF6DNQl0MK0wZD00EJLTXYl2BIIVlbpzynBmqBuXBSiRkPMyhhSB6X/SR1ORIKnCS1
+	 qaEzP8H4XL8RkJwJIaKq0s6+RE18hylbrWYXoqPDbBiiUnmk2Wmp3ro29+FJJA+8ni
+	 vXWO7jPIalrrg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD78CCF2C4;
+	Sun, 18 Oct 2026 04:55:12 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Subject: [PATCH 0/2] Label the fans on Kobol Helios64
+Date: Sun, 18 Oct 2026 07:54:58 +0300
+Message-Id: <20261018-helios64-fan-label-v1-0-69a3f96d4efa@iav.lv>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261018-psci-fix-v2-4-35f65b59eb9a@gmail.com>
-References: <20261018-psci-fix-v2-0-35f65b59eb9a@gmail.com>
-In-Reply-To: <20261018-psci-fix-v2-0-35f65b59eb9a@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Christian Loehle <christian.loehle@arm.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Val Packett <val@packett.cool>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, Reza Kurniawan <imkyufie@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_213040_195333_91B1E1B5 
-X-CRM114-Status: GOOD (  14.56  )
+X-B4-Tracking: v=1; b=H4sIACJR1GoC/x3MQQqEMAxG4atI1gaMDipeRVykM79joFRpQYTi3
+ S0uv8V7mRKiIdFUZYo4LdkeCqSu6Ltp+IPtV0xt0/bSyMgbvO2p//Cqgb06eFYZOsUgDg5UwiN
+ iteudzst9P0FKSfJkAAAA
+To: Guenter Roeck <linux@roeck-us.net>, Jean Delvare <jdelvare@suse.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1298; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=fUdq2VvosvV5UWVKEKg821xAaTCVqPc2wV9SA9hzTFA=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFlXAlVnOwqGVKsLxp8pFLmVty+gpnDn3QfGWpO672yNT
+ Nv5MPtuRykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZjIcSeG/znP3I4tdzJ2dc71
+ 3fzX/M6ErX+XmzBnMzFNmvo3fOa0nU2MDM8+G82JLt9QcuiksMlzXQGPoD3Kc49b287pUZ18Wmx
+ uNCcA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +83,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MSM8917 is a single cluster SoC, so powering down the cluster means
-powering down the whole system. This causes two problems:
+Helios64 has two identical PWM fans, and userspace can tell them apart
+only by their platform device names. Patch 1 makes pwm-fan.yaml
+reference fan-common.yaml, as Rob suggested, which also allows label;
+the hwmon core already exposes it as the label attribute. Patch 2 names
+the fans after their headers, P6 and P7.
 
-1. The system becomes unresponsive, even to common interrupts. Waking it
-   requires an interrupt from the MPM (MSM Power Manager) or scheduling
-   the MPM to wake the system later. Linux currently has no way of doing
-   the latter, so the cluster may never resume operation.
+To: Guenter Roeck <linux@roeck-us.net>
+To: Jean Delvare <jdelvare@suse.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-hwmon@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 
-2. Entering power collapse blanks the screen. When the state is entered
-   and exited repeatedly, this shows up as visible flicker.
-
-Even if MPM scheduling were implemented, the second problem would remain
-and it wouldn't fix the system being unresponsive at idle.
-
-Replace the idle state with PSCI mode 4 (dubbed GDHS downstream), which
-is less aggressive and can wake up from conventional interrupt sources.
-
-Signed-off-by: Reza Kurniawan <imkyufie@gmail.com>
+Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
- arch/arm64/boot/dts/qcom/msm8917.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Igor Velkov (2):
+      dt-bindings: hwmon: pwm-fan: Reference the common fan schema
+      arm64: dts: rockchip: Label the fans on Kobol Helios64
 
-diff --git a/arch/arm64/boot/dts/qcom/msm8917.dtsi b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-index f0771187d0..7730977e6e 100644
---- a/arch/arm64/boot/dts/qcom/msm8917.dtsi
-+++ b/arch/arm64/boot/dts/qcom/msm8917.dtsi
-@@ -112,10 +112,10 @@ core3 {
- 		domain-idle-states {
- 			cluster_sleep_0: cluster-sleep-0 {
- 				compatible = "domain-idle-state";
--				arm,psci-suspend-param = <0x41000053>;
--				entry-latency-us = <700>;
--				exit-latency-us = <1000>;
--				min-residency-us = <6500>;
-+				arm,psci-suspend-param = <0x41000043>;
-+				entry-latency-us = <240>;
-+				exit-latency-us = <280>;
-+				min-residency-us = <806>;
- 			};
- 		};
- 
+ .../devicetree/bindings/hwmon/pwm-fan.yaml         | 22 +++++-----------------
+ .../boot/dts/rockchip/rk3399-kobol-helios64.dts    |  4 ++--
+ 2 files changed, 7 insertions(+), 19 deletions(-)
+---
+base-commit: d2abcbb905b0e4b2e06b257fa1e5bcf4faa6dbda
+change-id: 20261018-helios64-fan-label-a173ae71bebe
 
+Best regards,
 -- 
-2.55.0
+Igor Velkov <iav@iav.lv>
+
 
 
