@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FD3CCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 12:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF197CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 13:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K67aSMdZxcM3oK3NMOeHN0YPY+i1nG2+CE3+Mxl/Mf8=; b=CH4E95BgFdW7cEHOSVU48so1JE
-	IA9ckoAbJilFK1Hftyxw2FuwQxtlwJti21deTnA+yjCGbRVqH/ukRfI5vuGli7KwE0yCWiFaJq7Gl
-	HGQecTAsKbDl/rWg+ffk9lJn4HORB1oWHM0kHm+hZnDJyMUqzQ0MLhCgkr/dzLyi2s7L3PIJKnaqD
-	SH6pdvkIdag0zVLMSvgUfqijoc6H4MnWk/rCnojB1cTh1jKFeAkiOyYpUxBsfA6/v/jTAydnrf5hu
-	MmQ8LGZSTC2oSNK0O7vwdnM9roEsDaPEFBNgGJRmbbxZsQ09WTWVIjEsEBSghKZHpXElcO58z/WKK
-	np1NxggA==;
+	bh=+Gzpq1l6pKCs17WMz6bfBuoemMm27hA7D/+U5mMg/A0=; b=eOF4ljvaeVkjzCeNYgHV//UHIG
+	lmLI4gqBgY6k3jX2jbK6/SDeaDj6mfAM0mr7WdAxkuQqpXKUcCEEyxdMNH5UJ1JX9V65OEZlKIeHu
+	/kh11gjsLlTSR9OGN7mV/XMSE1YZ5MCFsLf5FOGLKbJRCwMhc7p8DJUhdDrdtuEVf6JaT4GKl3WXp
+	AJQcw2oPusT3oPQQD7TRolcoAdE+BPyRZtObYKULk8YjqzrqyOVDLuFSV/fswPTMwKYbjFWtYbKsg
+	6CVsNfhFhJMqI1TBbMHAN3JPjLA0+d912+Vs5/BIXtCX7FhiOZaAWBF1HHzy4hVF8/tz/+txhT6pp
+	q1ChceTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQGJ-00000005ruU-2L9s;
-	Sun, 18 Oct 2026 12:45:15 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xIQb2-00000005sdl-0lsQ;
+	Sun, 18 Oct 2026 13:06:40 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQG8-00000005rqR-3QsH
+	id 1xIQay-00000005sdD-0p1k
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 12:45:06 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a1d293b293so6920095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 05:45:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792327503; x=1792932303; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K67aSMdZxcM3oK3NMOeHN0YPY+i1nG2+CE3+Mxl/Mf8=;
-        b=NqO2iau4KKc12lEnFweRPTgsdUqSj3PhUu3tqWBg6Ha9cv5dZEKPOnZq1zizDu+zFq
-         tI9AZQBcSquPdxMUIr0PoAMiavCiEftZQMC58UOvrNZ/SJxsrleaSQHaOSEGOv4+q6iK
-         Mbv7pM+OGhj5oufb9RM7FbM8UkA9I4Wes264VGTQhjhUqf3K+cF5mH6BjdsJQ3H8ODMF
-         In7b96ug1olLv9iOvXNyTOhOsQjPSWdfYbGa80ASTLVmSH4eAGF5QjH9QLQ+FBhM/M8o
-         /UNH87hKuyxVAKfRVzXqpWwf6JYXNhIq8/UhTp+5nva1pA/zXyy5+cMdqcCIrBVWr9pj
-         1ozw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792327503; x=1792932303;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=K67aSMdZxcM3oK3NMOeHN0YPY+i1nG2+CE3+Mxl/Mf8=;
-        b=C5/dBc2Pok94lbe1pcwz9VV3CqJwFVJLSCWqHFjGXSa3W1bkY8X8fgXU1FUy79CUue
-         ui3E4l3v0rTyMzuxRYvV+yfM41L03p6ZL9pHwwz3ODQH0xU398oNqymucpKx5IUXPHDq
-         hrX4kO4tU03tI5TGyN50zW/DNiWErKkTyJG+6+02p7cGaGYwCBpc2EBazCx+f33l7ddP
-         ekyGE7S9z4KhLXNYa/sDISjCxvo/BZeznoJzEaeaLYJYIlZRtYrHEnCI5hD1JrnUfCZk
-         7Qv/l4EZqC95Z85YhlO85CvAEr4QY/y67VcbkQBx28jS1BNRy+r0fU1qdZi0NnL1w5uR
-         JdqQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxRofx9JmnPWJWsu1NBXpNqmLlEVRwNUsNSXF96cbhayxMsmkyshGGH9OCvf1aapUJmDB5YIjF75DZA6dUF7QX6@lists.infradead.org
-X-Gm-Message-State: AFq9FYIkwN4E7Xjgk6qDXM3G9YtWtWLDLUUD4dSUqkS2ko/HXhYQJzwj
-	kNU2cB3lDtZykVQMBK8V6AtkB6P46/4ik3zF7ZbEpY64JqsQzEd1YncD
-X-Gm-Gg: AYBFou1nif3AIyOtAnA/WwtDA8HFLt92CSMMSJCSiT8Y6ml3GTMYIoF4qN9VVkvixSr
-	M6gHiaGriHNLl8dh3zulz4+j2A1nmlkBdQJGtSHCsNL01hOZ/v5YyYCbKnfeUjhIh44VKXSXc/O
-	exmq+MINORmnHlXTw0tgMdqKlY3VrqVfJjcVXY6FNo++Nt7HmWKGnUhpbQvdbeB5pqvigUWXjYb
-	Vs0pkS5KCvfXZqJfk9rwQstK1aQmBmrDfsQOWXiCbNwBLmpFAE8RYLEegJIj/eJ/bi/v//NmqAL
-	WoOR6dfpNlrT1B3N0XsRPRjoZaIkvHVNfE9q4kOcnCu1s76ye26jyuelbjBT4qNCM8DYHPysc9K
-	1x6taMR0B2R6osDbGTWt+Y2QbUIXNNSpkh1M0LrFN4M9x0iGTc7h2CStm4Jf2LDBy3DaPprjdu4
-	82dD2sgyqxmm/ZJXmdwDep2fSEEUVuOcK80TTaQJng3uY9N7wPaumpJaFFHvzZ/OdT//skqrfSi
-	dhvWyecPDP3Z+6GSVqtHD7IoSes4AQ3oEYYGUFiVNAJ6nVgDebakuqychxpU+gyj7nYlx3/RYjU
-	KH3QHIM9Oj5AhwV6674gHuhVGg+4OGTt206FsaMHVw4wXTnSZSLlr6OWwzY5KXb0aWoElVDK+Ql
-	4sv9tKMKUQjrqwvyegBFoW8Y=
-X-Received: by 2002:a05:6000:4a12:b0:48d:ef75:8b37 with SMTP id ffacd0b85a97d-48e07fa8816mr9257345f8f.36.1792327502920;
-        Sun, 18 Oct 2026 05:45:02 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-318a-f58b-5e43-a2b9.ipv6.o2.cz. [2a00:1028:8388:a84e:318a:f58b:5e43:a2b9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd500e75sm16386408f8f.42.2026.10.18.05.45.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 18 Oct 2026 05:45:02 -0700 (PDT)
-From: Josef Schlehofer <pepe.schlehofer@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Sun, 18 Oct 2026 13:06:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=+Gzpq1l6pKCs17WMz6bfBuoemMm27hA7D/+U5mMg/A0=;
+	b=fNVwazYxeJEJD/IOwoHxmWI3o0B3s8NsJ525CLmDDsK9weKZxu+71EgSh1cECL
+	9wM3XsqVpK+kYxaRL5zcgzO6Inq+RaI1/IUH9O0Kh+khx7f8Yqkh2ZWklMEcVUx0
+	YPHMfd8sN17dgNTk7dQZMhPXqxG+/RKMrhEY/6WmTaT7Y=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgC33z4TxNRq1VFhAg--.9618S2;
+	Sun, 18 Oct 2026 21:05:38 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: maxime.chevallier@bootlin.com
+Cc: alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	dinghui1111@163.com,
+	dinghui@lixiang.com,
+	edumazet@google.com,
+	kuba@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] ARM: dts: samsung: Add Hardkernel ODROID-U2
-Date: Sun, 18 Oct 2026 14:44:59 +0200
-Message-ID: <20261018124459.3026-3-pepe.schlehofer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261018124459.3026-1-pepe.schlehofer@gmail.com>
-References: <20261018124459.3026-1-pepe.schlehofer@gmail.com>
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	liuxuanjun@lixiang.com,
+	mcoquelin.stm32@gmail.com,
+	netdev-bot+sashiko@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com
+Subject: Re:Re: [PATCH net v5] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+Date: Sun, 18 Oct 2026 21:05:23 +0800
+Message-Id: <20261018130523.1935638-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <12b18559-3e8e-4a09-94a1-0d303ad7c2c6@bootlin.com>
+References: <12b18559-3e8e-4a09-94a1-0d303ad7c2c6@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgC33z4TxNRq1VFhAg--.9618S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXF15try5Jr17ZFWfCw1rWFg_yoWrCr4xpr
+	WfKws8KrWDXryxAr4DXa18W3WfC3ySkr45Wr4fKr17ursxZFySgF9IyrW5WFW8CrWvya1Y
+	9rZ8ua4xAF4DAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0z_Xo7JUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0QIJNWrUxCJK5gAA3b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_054504_915292_C7F14715 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20261018_060636_802957_1C86681C 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,226 +87,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ODROID-U2 is a single board computer from Hardkernel based on the
-Samsung Exynos4412 Prime SoC with 2 GB of LPDDR2 RAM. It is the
-predecessor of the ODROID-U3 and shares most of its design:
-- microSD card slot and eMMC module socket
-- SMSC LAN9730 10/100 Ethernet on HSIC0
-- SMSC USB3503A hub on HSIC1 with two USB 2.0 host ports
-- micro-HDMI port with CEC
-- MAX98090 audio codec with a 3.5 mm headphone jack and an on-board
-  digital microphone
-- MAX77686 PMIC
-- 2-pin header for an optional PWM controlled cooling fan
-- blue heartbeat LED
+Hi,
+Thanks for the review.
 
-Unlike the ODROID-U3, the micro-USB port has no VBUS supply switch, so
-it can only work in peripheral mode, and there is no expansion header
-with SPI. The 3.5 mm jack is headphone only and the speaker outputs of
-the codec are not connected.
+At 2026-10-16 22:44:35, "Maxime Chevallier" <maxime.chevallier@bootlin.com> wrote:
+>Hi,
+>
+>On 10/12/26 16:24, Ding Hui wrote:
+>> From: Ding Hui <dinghui@lixiang.com>
+>> 
+>> __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
+>> allocate resources in multiple steps but return early on failure
+>> without cleaning up what they have already allocated. The outer
+>> error paths then call the free helpers on partially-initialized
+>> queues, which dereference pointers that were never allocated:
+>> 
+>>   - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
+>>     rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool
+>>     may be NULL if its kzalloc_objs() failed.
+>> 
+>>   - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
+>>     stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
+>>     kzalloc_objs() failed.
+>> 
+>>   - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
+>>     tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff
+>>     may be NULL if its allocation failed while tx_skbuff_dma
+>>     succeeded.
+>> 
+>> Fix this by making each allocation function responsible for undoing
+>> its own allocations on error, following the standard kernel error
+>> handling pattern of cleaning up in reverse order. Also add NULL
+>> checks in the free helpers as a defensive measure, since they may
+>> be called on partially-initialized queues.
+>> Additionally, make __free_dma_rx_desc_resources() and
+>> __free_dma_tx_desc_resources() clear the pointers they free, so that
+>> the NULL guards in the free helpers hold reliably when the long-lived
+>> priv->dma_conf is reused across XDP open/release cycles.
+>> Free the RX resources in alloc_dma_desc_resources() when the TX
+>> allocation fails, as the callers only free dma_conf itself on
+>> that path.
+>> After __stmmac_open() copies a temporary dma_conf into priv->dma_conf,
+>> release the descriptor resources through priv->dma_conf on an open
+>> failure. This keeps the long-lived configuration consistent with the
+>> resource cleanup while callers only free the temporary container.
+>> Finally, hold RTNL while descriptors_status inspects the descriptor
+>> rings. This serializes the debugfs reader with control-plane resource
+>> teardown paths and allows it to safely report queues whose descriptor
+>> rings are not allocated. Skip queues whose descriptor rings are not
+>> allocated in stmmac_rings_status_show() to avoid dereferencing a NULL
+>> pointer.
+>> 
+>> Signed-off-by: Ding Hui <dinghui@lixiang.com>
+>
+>In V1 Andrew requested that this targets net-next yet this series kept
+>targetting the "net" tree since then.
+>
+>I think this is an omission on your side as you replied to the bots that
+>you removed the Fixes: tag on purpose :) You need to have "net-next" in
+>the patch topic : [PATCH net-next v5]
+>
+The "net" prefix is indeed an omission on my side. Andrew asked for
+net-next targeting back in v1, and I kept the wrong subject prefix
+when respinning. The next revision will be sent as [PATCH net-next v6].
 
-Add an initial device tree for the board, based on the ODROID-U3 one,
-and update the comments in the common dtsi, as the LDO22 and BUCK8
-constraints are now also set by the ODROID-U2.
+>This is starting to look good, but as you need to respin, is it possible
+>that you split that patch down into simpler patches ? There are multiple
+>classes of problems being addressed here :
+> - Error paths being reworked
+> - Null checks being added
+> - Some pointers being Nulled
+>
+>It would make it easier to digest during review.
+>
+Agreed. Here is the plan — 4 patches, ordered as follows:
 
-Also route "HiFi Capture" to "Mixer DAI RX", as on the ODROID-XU3. The
-odroid sound card driver adds only the playback routes for boards with
-a single CPU DAI, so without it the DPCM capture path to the I2S
-back-end is incomplete and recording from the digital microphone fails
-with "no backend DAIs enabled for Primary".
+  1/4: add NULL guards in the free helpers and clear the pointers
+       they free, so that a NULL pointer reliably means "not
+       allocated";
 
-Link: https://www.hardkernel.com/shop/odroid-u2/
-Link: https://www.hardkernel.com/blog-2/odroid-u2-u-schematics/
-Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
----
- arch/arm/boot/dts/samsung/Makefile            |   1 +
- .../dts/samsung/exynos4412-odroid-common.dtsi |   6 +-
- .../boot/dts/samsung/exynos4412-odroidu2.dts  | 139 ++++++++++++++++++
- 3 files changed, 143 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
+  2/4: rework the allocation error paths, making
+       __alloc_dma_rx_desc_resources() and
+       __alloc_dma_tx_desc_resources() undo their own allocations on
+       error, and free the RX resources when the TX allocation
+       fails;
 
-diff --git a/arch/arm/boot/dts/samsung/Makefile b/arch/arm/boot/dts/samsung/Makefile
-index e0143ee8c82d..2a173e4b3e1a 100644
---- a/arch/arm/boot/dts/samsung/Makefile
-+++ b/arch/arm/boot/dts/samsung/Makefile
-@@ -16,6 +16,7 @@ dtb-$(CONFIG_ARCH_EXYNOS4) += \
- 	exynos4412-i9305.dtb \
- 	exynos4412-itop-elite.dtb \
- 	exynos4412-n710x.dtb \
-+	exynos4412-odroidu2.dtb \
- 	exynos4412-odroidu3.dtb \
- 	exynos4412-odroidx.dtb \
- 	exynos4412-odroidx2.dtb \
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-index 93ddbd4b0a18..b56b92c78c1d 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-@@ -414,8 +414,8 @@ ldo21_reg: LDO21 {
- 
- 			ldo22_reg: LDO22 {
- 				/*
--				 * Only U3 uses it, so let it define the
--				 * constraints
-+				 * Only U2 and U3 use it, so let them define
-+				 * the constraints
- 				 */
- 				regulator-name = "LDO22";
- 				regulator-boot-on;
-@@ -486,7 +486,7 @@ buck7_reg: BUCK7 {
- 			buck8_reg: BUCK8 {
- 				/*
- 				 * Constraints set by specific board: X,
--				 * X2 and U3.
-+				 * X2, U2 and U3.
- 				 */
- 				regulator-name = "BUCK8_2.8V";
- 			};
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-new file mode 100644
-index 000000000000..5cb5f874b562
---- /dev/null
-+++ b/arch/arm/boot/dts/samsung/exynos4412-odroidu2.dts
-@@ -0,0 +1,139 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Hardkernel's Exynos4412 based ODROID-U2 board device tree source
-+ *
-+ * Copyright (c) 2014 Marek Szyprowski <m.szyprowski@samsung.com>
-+ * Copyright (c) 2026 Josef Schlehofer <pepe.schlehofer@gmail.com>
-+ *
-+ * Device tree source file for Hardkernel's ODROID-U2 board which is based
-+ * on Samsung's Exynos4412 SoC.
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/leds/common.h>
-+#include "exynos4412-odroid-common.dtsi"
-+#include "exynos4412-prime.dtsi"
-+
-+/ {
-+	model = "Hardkernel ODROID-U2 board based on Exynos4412";
-+	compatible = "hardkernel,odroid-u2", "samsung,exynos4412", "samsung,exynos4";
-+
-+	aliases {
-+		ethernet = &ethernet;
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x40000000 0x7ff00000>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led1 {
-+			function = LED_FUNCTION_HEARTBEAT;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpc1 0 GPIO_ACTIVE_LOW>;
-+			default-state = "on";
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	fan0: pwm-fan {
-+		compatible = "pwm-fan";
-+		pwms = <&pwm 0 10000 0>;
-+		#cooling-cells = <2>;
-+		cooling-levels = <0 102 170 230>;
-+	};
-+};
-+
-+&adc {
-+	vdd-supply = <&ldo10_reg>;
-+	/* Nothing connected to ADC inputs, keep it disabled */
-+};
-+
-+/* Supply for LAN9730/SMSC95xx */
-+&buck8_reg {
-+	regulator-name = "BUCK8_P3V3";
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+};
-+
-+&cpu_thermal {
-+	cooling-maps {
-+		map0 {
-+			trip = <&cpu_alert1>;
-+			cooling-device = <&cpu0 9 9>, <&cpu1 9 9>,
-+					 <&cpu2 9 9>, <&cpu3 9 9>,
-+					 <&fan0 1 2>;
-+		};
-+		map1 {
-+			trip = <&cpu_alert2>;
-+			cooling-device = <&cpu0 15 15>, <&cpu1 15 15>,
-+					 <&cpu2 15 15>, <&cpu3 15 15>,
-+					 <&fan0 2 3>;
-+		};
-+		map2 {
-+			trip = <&cpu_alert0>;
-+			cooling-device = <&fan0 0 1>;
-+		};
-+	};
-+};
-+
-+&ehci {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	phys = <&exynos_usbphy 2>, <&exynos_usbphy 3>;
-+	phy-names = "hsic0", "hsic1";
-+
-+	ethernet: ethernet@2 {
-+		compatible = "usb424,9730";
-+		reg = <2>;
-+		local-mac-address = [00 00 00 00 00 00]; /* Filled in by a bootloader */
-+	};
-+};
-+
-+&hdmicec {
-+	needs-hpd;
-+};
-+
-+/* No VBUS supply switch on the micro-USB port */
-+&hsotg {
-+	dr_mode = "peripheral";
-+};
-+
-+/* VDDQ for MSHC (eMMC card) */
-+&ldo22_reg {
-+	regulator-name = "LDO22_VDDQ_MMC4_2.8V";
-+	regulator-min-microvolt = <2800000>;
-+	regulator-max-microvolt = <2800000>;
-+};
-+
-+&mshc_0 {
-+	vqmmc-supply = <&ldo22_reg>;
-+};
-+
-+&pwm {
-+	pinctrl-0 = <&pwm0_out>;
-+	pinctrl-names = "default";
-+	samsung,pwm-outputs = <0>;
-+	status = "okay";
-+};
-+
-+&sound {
-+	model = "Odroid-U2";
-+	samsung,audio-widgets =
-+		"Headphone", "Headphone Jack",
-+		"Microphone", "DMIC";
-+	audio-routing = "Headphone Jack", "HPL",
-+			"Headphone Jack", "HPR",
-+			"DMICL", "DMIC",
-+			"DMICR", "DMIC",
-+			"Mixer DAI RX", "HiFi Capture";
-+};
-+
-+&usb3503 {
-+	clock-names = "refclk";
-+	clocks = <&pmu_system_controller 0>;
-+	refclk-frequency = <24000000>;
-+};
--- 
-2.54.0 (Apple Git-157)
+  3/4: release the descriptor resources through priv->dma_conf when
+       __stmmac_open() fails after copying the temporary dma_conf,
+       adjusting the callers accordingly;
+
+  4/4: hold RTNL while the descriptors_status debugfs entry inspects
+       the rings, and skip queues whose rings are not allocated.
+
+Does this split and ordering look reasonable? If so, I'll
+send v6 shortly.
+
+Best regards,
+Ding Hui
 
 
