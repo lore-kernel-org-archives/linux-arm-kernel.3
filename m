@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D16CCCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 21:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ADACCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 22:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmuebTtapyafAqg/MZz1PoSj/pPTFJ0VaRJlQ3t8Yhg=; b=IF0poFotK61I3Eh2blcMcIt/Qj
-	d5ZpNzcooTTguNJglULbgbSa4WI2OhpVT6Xywe5Dy77JluPTMO7xoe9ZWLeZhxSNGnhZd7gaEGFj3
-	HANG6bJAlRhzQW/cezPCeyMqaawkoSg10oCkmB/x+Ce/nZPSTPpZKNwUA47kwvIkiNBW1iCToHHg5
-	FGe+hpFr4cfjJU2UDWdLTVlhy4QNNrGTP3TOmSplwdp8+7+fStMPG/pjYwHS6sf3+4lAH7xzX6JoI
-	8r3M9EUF+yKAJHN3vvN3gejg8HKuKwVYJ6laBSkxqZcyASNcJUthv+qMVRfyFYP17ffoTQEv84SHC
-	YgmXm6mA==;
+	bh=wNMvtaeNogKpfQrytqvvbaLOlr19nHijax0++efnMV8=; b=A5XFH/9qW7uBH4gO5vs5TRcl0H
+	rv1J9GXzarI1DXA9qn31muP4poI8nrYwxFSKQueLwR5KI8y4KfWlOvNj7DyYAcUJxX34f30SBYW37
+	75PFSL8e0W1qTbJfyPFfy4nAN9t2iL+c93tjs//NDJaIi0CFcydCIfYFGjv+Et4/bxQsesrQ33KSY
+	HB7P+YMIDTnx0laGpH3IDYnh7/lK8pipDfxzMdFdRUrF8InSTE2r2r3G6B4BvGF20JJ2uIsOjv1ei
+	mqjGNH6MlXbLFoDLgnqlucRC4BUY5zLRPQBwXz+oWU4b1e3zJqOQYq+fN39vL9kbLasvftyG4nP1F
+	J3W98q7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXzh-00000006E5d-0Ogs;
-	Sun, 18 Oct 2026 21:00:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIZSS-00000006GoO-0Hqj;
+	Sun, 18 Oct 2026 22:34:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXzf-00000006E5X-0ROi
+	id 1xIZSQ-00000006GoI-3zLM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 21:00:35 +0000
+	Sun, 18 Oct 2026 22:34:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC8C043C33
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 21:00:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80A61F000C7
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 21:00:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E703460D9D;
+	Sun, 18 Oct 2026 22:34:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75F2F1F000C4;
+	Sun, 18 Oct 2026 22:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792357232;
-	bh=lmuebTtapyafAqg/MZz1PoSj/pPTFJ0VaRJlQ3t8Yhg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=YtMp+ymRPWyQ7hmja30jNOBaDQwwuI1782ArVM54H4yDKQ6vMlbBrHJh9/j6vMCQQ
-	 kkco7+IJ6KuhBq32eHqDCuhf/pnUgjT5WjSoyw2mx1CvBY8c/O1pd7fbbu+pz8Gbpo
-	 fsemPDeRIRM9iAV7f6WJTkBihbhI2yTu6UL/ipU4htWwMjc5qYWa9kme+ZCZxjvncS
-	 hVbikVC+fQn1oX/BSOxrsTtOLfupRHkKOezACijZhgQ9BZ5on7HtqMMFVCLL0ENf62
-	 5BSBjb3zwB53tvC7eFeQgKKS4ExHk+UfqDwodHlxgTa7+A16pPA2DcE6hO+Rince/1
-	 uGyNY5Cyi87Sg==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5ba3ac592faso1682321e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 14:00:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwMyc72LSdg+huXRGnaHOLY4iUXC3Br+hoBy+YigYLYFkMKrgVxd8+10YMqnSzGVsv26Nx02F+6ym6Gy+uOyo3T@lists.infradead.org
-X-Gm-Message-State: AFq9FYIjhGOqDxO+6RnvIu7fwL6Q7JH/0OmgW7sCa827mVBLsksC54GH
-	oCTI6Zq2K5l1Tk4xToTaI4pgS3fVKI7h9Yh5JV/INolDq4J+xQZefX9p5RgfqCKMgJmoQMJZ0yn
-	eMiAvP6fvZwM307KkY/b8U9syhIkjDZk=
-X-Received: by 2002:a05:6512:3d8c:b0:5b6:4ae:d87 with SMTP id
- 2adb3069b0e04-5be50a655e4mr2028129e87.27.1792357231440; Sun, 18 Oct 2026
- 14:00:31 -0700 (PDT)
+	s=k20260515; t=1792362860;
+	bh=wNMvtaeNogKpfQrytqvvbaLOlr19nHijax0++efnMV8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=bpnwcdIJ4V3mbTDUCzSl1a2GjmcOe1wrdAU1d93mIPpvkGAQjEv1GEqAMxzFQIn2I
+	 5QlCDwfrjMBpbYiDoPZUgm9jlNtzpQzkg9Ffp0FD+6lPiH+nxqI2UJ+aaBzRwSqKe+
+	 gXh39Tg//hWWa4FZ75ytZQil0gkNp8IK2GsHykYfuHtwSB6VvB35yf1i73u3aioEwN
+	 hpQYDyq45CNQ8uVpq/tj0CzSl+S0Wk4W/2onh57udOmQExBCPXzTROv3AES/jNIuP2
+	 EkTyw6yyQi7DLjXP1V2rkSTrVTmq3kl/A0mPJi0smuoUi8Vi+n9e0U77+D4Zrtp5px
+	 PvNfJPaJ0rdfw==
+Date: Sun, 18 Oct 2026 23:34:11 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Joshua Crofts
+ <joshua.crofts1@gmail.com>, Marek Vasut <marex@nabladev.com>,
+ <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Cheick Traore
+ <cheick.traore-ext@st.com>, Olivier Moysan <olivier.moysan@foss.st.com>,
+ Patrice Chotard <patrice.chotard@foss.st.com>, Cheick Traore
+ <cheick.traore@foss.st.com>
+Subject: Re: [PATCH v4 00/15] iio: adc: stm32: add support for stm32mp23 and
+ stm32mp25
+Message-ID: <20261018233411.31d4e6a0@jic23-hlaptop>
+In-Reply-To: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
+References: <20261006-adc-stm32mp25-v1-v4-0-d31ec75aecf3@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20261018040724.534641-1-yaojiale02@163.com> <20261018040724.534641-8-yaojiale02@163.com>
-In-Reply-To: <20261018040724.534641-8-yaojiale02@163.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 18 Oct 2026 23:00:17 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=DqXggfdAq6yU8=OBm5atks77CcQ4AnuR9RcAS6QQsrg@mail.gmail.com>
-X-Gm-Features: AclHuK-3fui0U03t7CAaiKHddUwpmQ1nyZ2GG7y4wk-UNeVfMtV2nvH5lucn1Ag
-Message-ID: <CAD++jL=DqXggfdAq6yU8=OBm5atks77CcQ4AnuR9RcAS6QQsrg@mail.gmail.com>
-Subject: Re: [PATCH 7/7] dmaengine: ste_dma40: synchronize tasklet when
- releasing a channel
-To: Jiale Yao <yaojiale02@163.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
-	Dan Williams <djbw@kernel.org>, Srinidh Kasagar <srinidhi.kasagar@stericsson.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,25 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 18, 2026 at 6:07=E2=80=AFAM Jiale Yao <yaojiale02@163.com> wrot=
-e:
+On Tue, 6 Oct 2026 09:57:31 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
-> DMA completion handling schedules a per-channel tasklet that processes
-> completed descriptors and invokes client callbacks. Channel release
-> terminates and frees the descriptor state without draining a tasklet
-> that was already queued.
->
-> After d40_free_dma() removes the channel from the interrupt lookup
-> tables, kill the tasklet before returning the channel to the DMAengine
-> core.
->
-> Fixes: 8d318a50b3d7 ("DMAENGINE: Support for ST-Ericssons DMA40 block v3"=
-)
-> Signed-off-by: Jiale Yao <yaojiale02@163.com>
+> Add support for STM32MP23 and STM32MP25 Analog to Digital Converter.
+> It's a variant of other supported STM32MP ADCs. Add the DT bindings,
+> driver, SOC DTS and an example on stm32mp257f-ev1 board.
+> 
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Applied patches 1-10 to the testing branch of iio.git.
 
-This makes sense.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Thanks,
 
-Yours,
-Linus Walleij
+Jonathan
 
