@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F528CCF2CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 14:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ECACCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 14:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n3DJbxmkboj1OAhxZEyDr3Uvgwh3hmsUvlr/gkiBoQ4=; b=Dd8Q9tWcIxXcH7r5dyl5a/pgMT
-	q3Abi13XJ53zKPoA3Kk9dxz5C23KtCkC+mPqNpsoC0RFUJc1rJP6m//ssibZlzR6jwS8PnH1GK9o3
-	f/gZBKb+dp5Dwckb1CUx9/jT2P9+xE0sOgOqrw2QktkOO01LKHmiX5sfxSuJUntS/Jer5h61ePDCo
-	npeWE6nXzhxgiKpSyDCj+83B6G4BSildAImeClnXxIjKcbnyQMcfLf8Vy7FRKx6lvzsonrka/DHE4
-	dAaL90caynpr5F7LOLdhrVzcs1tR9rbGAdj95scny5c7OvCMZBz9PbcO7eRrEQMot6Cc9rNC6pqqG
-	cPYFNILA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nWxzefpcJg0qDNsmpAebrGOTXx+vSlOchKFuJ9yDqa0=; b=Pq9yZvLGZAGclpIt8a46sJI57S
+	SUiYFUeKdYpp3UTjTgmGkKJ+r1zldVumzrOMKLZsRxTcceKUegQABN/8GwNtrepFVIleysqOPH313
+	5/e1eu+O6SdF9e02BQ3TBjUxjtENBrqlrOUKltNZ2ugraFzOiC3tqK4oXbJY6j1wlQD7b6T3tInYZ
+	lZv16aXGnVBUM/RrOVi7+97ojjlEAlu2rxNLxaGOEy6YUGm7FouSznIpLXgmRflGcjNYgxWcSkKCv
+	DtiSTJaZGyjI7KywkWCBwNjQGCahaedoA397eLbJzKZhz6s9lSZizR7skNkzMDLQwNS7hCzw7Y6Gm
+	qe2oV52g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIRwG-00000005w6e-4503;
-	Sun, 18 Oct 2026 14:32:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xIRx0-00000005wFR-0seo;
+	Sun, 18 Oct 2026 14:33:26 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIRwF-00000005w60-45jL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 18 Oct 2026 14:32:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=n3DJbxmkboj1OAhxZEyDr3Uvgwh3hmsUvlr/gkiBoQ4=; b=LOhCy4uKmhCw49iIkqQWICLcP4
-	pbvCjgOqi/+12Wn0n+UPsXrqZH/dfJslt+6iuqN7TvfV9iJlXGxDWHHNCSepOPmE8Hrv/lxMOiisB
-	P8z6EQwqYNJRYluMkWKkar8z+w9A8dAM1qNz1ivzWjk8TVPKVJwn0GHbd+Qs0RLPMAh1FAr8HNnK4
-	MICzKssEEy4DfKDmJJydNGT5sAOWNsfkzSZ0w/A/zTHYOx8bMP/smZMJLOcsC9PMUolhkXYwAfiOd
-	c6hzG3Y7RrXFmKwgy1ARVrNlIce6m0NfSDRfg8rT/4CHe0/5UsnZxFlyNzXf0atODwANzwLzTB9Z0
-	2retgOww==;
-Received: from mout.web.de ([212.227.15.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xIRwC-00000002xmB-45eo
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 14:32:38 +0000
+	id 1xIRwx-00000005wE6-1hYY;
+	Sun, 18 Oct 2026 14:33:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1792333906; x=1792938706; i=jan.claussen10@web.de;
-	bh=n3DJbxmkboj1OAhxZEyDr3Uvgwh3hmsUvlr/gkiBoQ4=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	s=s29768273; t=1792334000; x=1792938800; i=jan.claussen10@web.de;
+	bh=nWxzefpcJg0qDNsmpAebrGOTXx+vSlOchKFuJ9yDqa0=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=D+vXeAEGFgHXHiQE8/0Ci4pQGJ7Siu6ejq+eHGOEZPuuQPK7u5MZUTSeNyZXCOK4
-	 swiwFbDIrngha1d5ud9UQxKb4RIKPOd6yG3S/40yr2PRJU3sZSqaIMgSbG/SMQ/uu
-	 2XfqrhN+c1utc+TfJqnfTJ5qd8OJa3YbnQ028p3aK8r3jRFIG2GS0yrH9b9Sn+l2z
-	 PWSCaiThVjNYwB8U6jnm59k+gAD6CTZNnK9iK+QMLN+TmddGF1j9eak0Pduyjs6S0
-	 wuTTziJBXw0VHkABisYvUUcvJ0gLMWDIpoZGQ3z2rJ9jCATc5eHT3HiwPdCe4FQ9L
-	 4ipvFkXFE4NRTNmb6w==
+	b=M4gbJNhBvzvWoP1+qalzE9NjvT5PceXtbspH3oVulL1vGsPHnxowFZsvevFq53ho
+	 DOxaaKVY3/VQE1Xi6B7k+Vs0R28bVdgf/SF3cnFPchvDYd9T1cnCQJLx7YAOs17T6
+	 SSo0HQRVrSbc12rLocTspsrJIB43vyrx241a0ZgXinBGPTtzn1knX239Ksp2fdB18
+	 LRQvA1M2nubq+KsuDRMtFx9SzLWaJ2D33sMQpMNaut4v5vFttAkqBDcMHzbItgyZR
+	 bUdwAA5dbT3O4K7IeAtQ7bRco2ShGSRRBpLD45V0FKx3N7AvdKgvATnUBkyla29ZO
+	 rEQd6mZfWY5J8jiaeA==
 X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MIyaM-1x3Wbj3ry6-00KRgP; Sun, 18
- Oct 2026 16:31:46 +0200
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N7gbW-1wWPp40J2g-00uLpc; Sun, 18
+ Oct 2026 16:33:20 +0200
 From: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
 To: Sandy Huang <hjc@rock-chips.com>,
 	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
 	Andy Yan <andy.yan@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Daniel Stone <daniels@collabora.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	=?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
-Cc: dri-devel@lists.freedesktop.org,
+	Simona Vetter <simona@ffwll.ch>
+Cc: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>,
+	dri-devel@lists.freedesktop.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 0/7] drm: Add colorspace property support to the HDMI helpers
-Date: Sun, 18 Oct 2026 16:31:06 +0200
-Message-ID: <20261018143135.5745-1-jan.claussen10@web.de>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 7/7] drm/rockchip: dw_hdmi_qp: Advertise BT.709 and BT.2020 colorimetries
+Date: Sun, 18 Oct 2026 16:31:13 +0200
+Message-ID: <20261018143135.5745-8-jan.claussen10@web.de>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261018143135.5745-1-jan.claussen10@web.de>
+References: <20261018143135.5745-1-jan.claussen10@web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:vGcEIDBUptGQ8eK+sTEEJ1RfCPPWcGstJIXWjzQz1JYUT40wT+v
- hqXCtWfBlat+VRV3XIVzr2DDDBCfqa+MkfPBcEtVKwPgI9t2aNNFbDU0rkwMXprLTFBHf0Y
- nt+8r+pyc1XKZowU2yyv80+dbPuaSucOO+WSkPb+0QISdpDeQX1/wZ4cB8t7I3d1e0lr3nH
- R5V3lM7cwDQnfBjXVNHWA==
-UI-OutboundReport: notjunk:1;M01:P0:5bhJv8J2OGo=;ZBETUUeNsvA+bNyZsLDctmrE4Ci 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 t2/lU38PIABC3y9DlSIA=
+X-Provags-ID: V03:K1:vgJJz9wHClKoXxywE9jHWXa8QvwqPcQT9qjduanBMqbfmrHh3F6
+ UkyRVC6ZYcg4UlNd7+tZlunBjopp8M4zUvvsbgauAEJQNI5J/J3dI5j/qO6Odfcb6QvacD8
+ sN581rXoVvObSsynh2CRJiTD4juo+SLoGB821NbdEwg0o6a1Vjeb73ly2+nwQ5Iz9HKW7Ve
+ hgMJJ4GOuVnaypFH7pVfg==
+UI-OutboundReport: notjunk:1;M01:P0:lCwU8gFuzSI=;94U+FAFQO3nOZWAqjbFVXYpL1p8 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_153237_132975_406BCD94 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20261018_073323_736168_38FD267A 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,56 +90,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HDMI connectors set up through drmm_connector_hdmi_init() don't expose
-the colorspace property, so userspace can't signal BT.2020 colorimetry
-for HDR. KWin, for example, doesn't offer HDR without it.
-
-This series lets drivers declare which colorspaces they support and has
-the HDMI helpers create the property and force a modeset when it
-changes. dw-hdmi-qp on RK3588 is the first user.
+Expose BT.2020 RGB and YCC colorimetry so userspace can enable HDR
+output. Also explicitly expose BT.709 YCC as it is listed in the
+Rockchip RK3588 TRM V1.0-Part2 20220309 data sheet.
 
 Tested on a Radxa Rock 5B (RK3588) with an LG OLED55B87LC in KDE
-Plasma 6.7.5. Only BT.2020 RGB is tested.
+Plasma 6.7.5: enabling HDR switches the colorspace to BT.2020, and
+disabling it restores the default.
 
-Changes in v4:
-- Set the VOP2 color space from the connector colorspace, so YCbCr output
-  is converted with the matching matrix (Sashiko)
+Signed-off-by: Jan Clau=C3=9Fen <jan.claussen10@web.de>
+=2D--
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Changes in v3:
-- Move colorspace handling into the HDMI helpers (Maxime)
-- Let drivers declare supported colorspaces instead of exposing all
-- Split into a series
-
-Changes in v2:
-- Fix possible null pointer dereferencing requested by the Sashiko bot
-
-v3: https://lore.kernel.org/all/20261018123037.19560-1-jan.claussen10@web.=
-de
-v2: https://lore.kernel.org/all/20261011142733.7806-1-jan.claussen10@web.d=
-e
-v1: https://lore.kernel.org/all/20261011132024.2833-1-jan.claussen10@web.d=
-e
-
-Jan Clau=C3=9Fen (7):
-  drm/connector: Fix typo in colorspace error messages
-  drm/display: hdmi-state-helper: Force modeset on colorspace change
-  drm/connector: hdmi: Create the colorspace property
-  drm/bridge-connector: Pass supported colorspaces to the HDMI helpers
-  drm/bridge: dw-hdmi-qp: Forward supported colorspaces from platform
-    data
-  drm/rockchip: dw_hdmi_qp: Set the VOP2 color space from the connector
-  drm/rockchip: dw_hdmi_qp: Advertise BT.709 and BT.2020 colorimetries
-
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  |  3 +++
- .../gpu/drm/display/drm_bridge_connector.c    |  4 ++++
- .../gpu/drm/display/drm_hdmi_state_helper.c   |  3 ++-
- drivers/gpu/drm/drm_connector.c               | 17 ++++++++++++----
- .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 20 +++++++++++++++++++
- include/drm/bridge/dw_hdmi_qp.h               |  2 ++
- include/drm/drm_bridge.h                      |  7 +++++++
- include/drm/drm_connector.h                   |  7 +++++++
- 8 files changed, 58 insertions(+), 5 deletions(-)
-
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/=
+drm/rockchip/dw_hdmi_qp-rockchip.c
+index 10c5b6d6406e..e677aacf5a33 100644
+=2D-- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -621,6 +621,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+ 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
+ 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
+=20
++	plat_data.supported_colorspaces =3D BIT(DRM_MODE_COLORIMETRY_BT709_YCC) =
+|
++				      BIT(DRM_MODE_COLORIMETRY_BT2020_RGB) |
++				      BIT(DRM_MODE_COLORIMETRY_BT2020_YCC);
++
+ 	encoder =3D &hdmi->encoder.encoder;
+ 	encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm, dev->of_node=
+);
+=20
 =2D-=20
 2.56.0
 
