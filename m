@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F32CCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 18:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E33CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 19:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvK5NFJp9PSzi9hRYXJM0Oi1MlUUKy+sqFwkKYu8iFs=; b=bU7SDnL76TqIEm69Ic3hQDQx3u
-	6sA705h0+WI8P1BvS7ggHCtUqHJb1b2K73YYjxdzP0XTP/dpAKE+gwdA22nxPN7UHCQsFgnhP/q57
-	0TvyCs6dG3ukwd9VW96Kc8771A5J5tBHiAKBH0AePw+HESi4zvTB3umRy6S9TrO+883K32qHa2cwm
-	rgwOcKFNw3WVcge+onRwVCu0p19JyY5MyiUlwiDR6W3wetCsL+Vf2FpHbb9t2PlzbV/rAwYHMVWep
-	6sZ8d/qkMhyOfaN+f9gFLs+p2fKkbrIW5sL0isMy5h6nRuWnfq02YVkJIphScvkNbjElux5PclRUa
-	cAQ8ZJ7Q==;
+	bh=d6EGb2ugrbt7//+Eojbe2jEyLxPgQ0l7cnMhVIpHK1A=; b=cdqfkGg3oASHq1pdnKVzyngOxs
+	9WWUuYDMch4jn+8ceXBuwGDbcXx3Nlh8w3Exa2FC3nHP6rc0BaXyOiF3i1eFZJjcJ/x0TKBYNhLKa
+	/BKE03Q6dVYSOiQmfhEkI4dwg319e5vTK9FMtIK7EUY0STwCLr3yRnjoIktVnmie8uSp81jqUAOM+
+	J85IpVetFa9c03u+xs4inpO/IUyf01+RBsvpJWnDZVND3VTaIYNAG/4DYs0ZQgPVX/qzzMW5Xd9DS
+	FNuBWkb/oez6XrLt7k7xHpq5blCnOki4I9rtiWNCmMif1dunvJYnUCXiorthphsWgXT0UMhQTdhpC
+	apZxZ52Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIW0Y-000000069y6-03PF;
-	Sun, 18 Oct 2026 18:53:22 +0000
-Received: from out-1.mta0.migadu.com ([2001:41d0:1004:224b::1] helo=mta0.migadu.com)
+	id 1xIWCA-00000006ATr-0R1h;
+	Sun, 18 Oct 2026 19:05:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIW0U-000000069xl-3O7t
+	id 1xIWC8-00000006ATi-3VEz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 18:53:20 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=gvK5NFJp9PSzi9hRYXJM0Oi1MlUUKy+sqFwkKYu8iFs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792349593; v=1; x=1792954393;
- b=dyD9V4zWFb81O7FzhY6EGMAzOP2fP6g7FzdFPL5L3Lpnq4vuziLb7Tyf0snLWJsd1SPQgvyG
- OE50OyO/NwA8dW53zkyaqxjv6xB3ffbzjqHkFXNYHFhEZp2TQhPobm3XGTtFQ9dxQpkn21zlD3g
- pLfaI/aEPpb0Vud8gxMKKRlI=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f63848b78e00d965;
-	Sun, 18 Oct 2026 18:53:13 +0000
-X-Mizu-Trace-ID: f63848b78e00d965
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be4a7b9e6fso5158e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 11:53:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwMY8KikkU7lg4DcXutw4lgWHXAdPHq2EbkhQZTtvqS0yCbo0jCToX2mmqnp5aF6H0w3GaFolHz/sBj/kbDkGlc@lists.infradead.org
-X-Gm-Message-State: AFq9FYKUFGrvxoROwjMK6qAPNTjeJbuyJUSyEbzmEan3I7k0QeMqbiX3
-	PWV9A8+5BvWlmHNtrNgFhVwKLvgIo5+DvGBWpkyV0kYbyreDqxltCX70m3aRtYAiXps5jZKmM6z
-	hJdsTBd9hDhxaOMVuHkCTnbt6ARuC9SgHdkuCgxgE
-X-Received: by 2002:a05:6512:3a95:b0:5bc:ce5b:96f3 with SMTP id
- 2adb3069b0e04-5be51cf3ca3mr112016e87.4.1792349592319; Sun, 18 Oct 2026
- 11:53:12 -0700 (PDT)
+	Sun, 18 Oct 2026 19:05:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 40F5443245;
+	Sun, 18 Oct 2026 19:05:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D851F000C4;
+	Sun, 18 Oct 2026 19:05:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792350320;
+	bh=d6EGb2ugrbt7//+Eojbe2jEyLxPgQ0l7cnMhVIpHK1A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qp2z8ENqhXHUJx4/KuHRL8eb5l6cKZdJPn9YFJB7400ICo4nwiRcdR5hV5OKrUIKo
+	 QUg8xoma1OKOjpRUp9jNBx3ZkoMvGk7YGr+KD0Ujml/MWDC0WhXBn9c06gLZx1Nivy
+	 lxg40xVVbrZH7PWnj62PTUCSCOuGDA74vGDcatHUsF2EPM0F1yW7DBWuauxc9dW2tE
+	 gTS0jMDB/MYQ73O7FcTJmjQIek6Ubc2t9f1raUm4IW8Hzsb+1zAQCEg0ei2MYyyv87
+	 2H5B3jDG2F+wC0NSez8fpKdE8c/E8IQbmcj62dEoG1oyxSATcddyTj7+BOJU9nV9E9
+	 Qdj/inDcBWTYA==
+Date: Sun, 18 Oct 2026 20:05:16 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: nvmem: imx-iim: Allow syscon fallback
+ on i.MX5
+Message-ID: <20261018-suspend-uphill-7fab7a4dd8b2@spud>
+References: <20261016232800.536654-1-festevam@gmail.com>
 MIME-Version: 1.0
-References: <20261018080921.3942517-1-fuad.tabba@linux.dev> <8633u229lq.wl-maz@kernel.org>
-In-Reply-To: <8633u229lq.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 18 Oct 2026 19:52:35 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwHP7h_=e1s-iCDekMNvHGAQA3K1zv5v_4=PXQw9ueiFg@mail.gmail.com>
-X-Gm-Features: AclHuK_UQW_4n5Vfv2y3fMN8nLjYC3wYR4AsLV2Y4-Ndgvu9PNfAVf7ecY50duQ
-Message-ID: <CA+EHjTwHP7h_=e1s-iCDekMNvHGAQA3K1zv5v_4=PXQw9ueiFg@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: Only enable S1PIE and S1POE with the
- features they imply
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_115319_237370_F70A2057 
-X-CRM114-Status: GOOD (  16.36  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sFPwHorryreAelGg"
+Content-Disposition: inline
+In-Reply-To: <20261016232800.536654-1-festevam@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +72,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+--sFPwHorryreAelGg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, 18 Oct 2026 18:37:37 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> I'm afraid that this only addresses part of the problem. Ultimately,
-> the idregs themselves require some sanitisation because KVM uses this
-> as the source of truth. I was pointing this in my reply to Broonie,
-> and this is (probably) what sashiko is blabbing on about.
+On Fri, Oct 16, 2026 at 08:27:59PM -0300, Fabio Estevam wrote:
+> The i.MX51 and i.MX53 SoC device code reads the unique ID through
+> syscon_regmap_lookup_by_compatible(). Their IIM nodes therefore need the
+> syscon fallback so the syscon core can instantiate a regmap.
+>=20
+> Allow the two-item compatible sequence for these SoCs. This prepares for
+> restoring the fallback removed while making the IIM nodes conform to the
+> binding.
 
-It seems so. The trap tables were only one of the places that read
-S1PIE and S1POE. Sashiko found another: PIR_EL2, PIRE0_EL2 and POR_EL2
-accessed from vEL2 have no FGT bit, so accesses to them reached the
-hardware registers.
+Making it a syscon is only the right thing to do if it genuinely is a
+syscon. If it's not, then don't. The nvmem driver doesn't treat this as
+a syscon, so the inbuilt regmap locking doesn't actually do anything
+here.
+Surely the right thing to do is for the soc driver to access the efuse
+through the nvmem subsystem somehow?
 
-> I hacked something that could be used as the bases for such
-> sanitisation, although it is quite crude and doesn't cover all of the
-> possible requirements, see below. I've only boot-tested it in a nested
-> guest, and I'm not even sure it actually works (my test box doesn't
-> have these features).
+>=20
+> Cc: stable@vger.kernel.org
+> Fixes: d5b55c35e033 ("ARM: dts: imx: Fix the iim compatible string")
 
-I'll send your patch as v3, rebased on -rc3 with you as the author,
-once I've tested it. I'm dropping v2's trap table changes, since
-they're redundant once the ID registers are sanitised. I made two
-changes to your patch. The sanitisation now runs before
-kvm_init_nv_sysregs(), so the nested RESx masks are computed from the
-sanitised values. I dropped the res1 half, which isn't set by
-anything.
+A binding should not have a fixes tag pointing to a devicetree.
 
-Cheers,
-/fuad
+> Signed-off-by: Fabio Estevam <festevam@gmail.com>
+> ---
+>  .../devicetree/bindings/nvmem/imx-iim.yaml    | 20 +++++++++++--------
+>  1 file changed, 12 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/nvmem/imx-iim.yaml b/Docum=
+entation/devicetree/bindings/nvmem/imx-iim.yaml
+> index bb37d72c9eaa..ebfd947e6800 100644
+> --- a/Documentation/devicetree/bindings/nvmem/imx-iim.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/imx-iim.yaml
+> @@ -20,13 +20,17 @@ allOf:
+> =20
+>  properties:
+>    compatible:
+> -    enum:
+> -      - fsl,imx25-iim
+> -      - fsl,imx27-iim
+> -      - fsl,imx31-iim
+> -      - fsl,imx35-iim
+> -      - fsl,imx51-iim
+> -      - fsl,imx53-iim
+> +    oneOf:
+> +      - enum:
+> +          - fsl,imx25-iim
+> +          - fsl,imx27-iim
+> +          - fsl,imx31-iim
+> +          - fsl,imx35-iim
+> +      - items:
+> +          - enum:
+> +              - fsl,imx51-iim
+> +              - fsl,imx53-iim
+> +          - const: syscon
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -50,7 +54,7 @@ examples:
+>      #include <dt-bindings/clock/imx5-clock.h>
+> =20
+>      iim: efuse@63f98000 {
+> -        compatible =3D "fsl,imx53-iim";
+> +        compatible =3D "fsl,imx53-iim", "syscon";
+>          reg =3D <0x63f98000 0x4000>;
+>          interrupts =3D <69>;
+>          clocks =3D <&clks IMX5_CLK_IIM_GATE>;
+> --=20
+> 2.43.0
+>=20
+
+--sFPwHorryreAelGg
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatUYbAAKCRB4tDGHoIJi
+0hGqAP9cN5ysdapdPoSFATbC17Mn3qlNsgq8HEDLk97mv8+bsgEAg9wSDBftuEge
+7S0vKI81Zp2CRYt1yIBEbxvF8zAs4gM=
+=gzqd
+-----END PGP SIGNATURE-----
+
+--sFPwHorryreAelGg--
 
