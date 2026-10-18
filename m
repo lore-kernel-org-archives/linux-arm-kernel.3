@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F17CCF2C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 01:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3113DCCF2C7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 02:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3poXjPlgrYbaoLZ20pYt73out2gTIqX1HAZG1VT5Dy4=; b=e6FSItwcB33NrTn9mwcgc25xUi
-	Qfyo7We3sqC+iLPYNWWoFr28suq0qDrqpjuGIzqk14WgXoQgzu7Hmm/EkoD7bhzLijgyMPRymifCo
-	B0xtDPwEsIcVg/Q6adpXhl8AAzwj9tiGDoAT6mh8RgJ/FbaW46Ctv+psJv1JZp3LlRQQQgmdU5aX2
-	tPBFOgGUPikl00TLoO/0+I/2NAOktp2wKP3iBvNBtXv2do3I7EUdPfxPkFYiX6+gryRVAz48o+Mrt
-	dRhbENXm//LmL9M6VdpgYgFPvGtFwF2u7s5IbXc7k6P8cRUfpSJkMxhSeKPxNo/02JgO+uIASUIov
-	x+xhTAFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s0staK1toosvVTYdUZvQImybVckAdiMM5CzJz98ALkE=; b=JKLcMSD0jcSXPFlhewHGihJOnS
+	Ssiu+jWod0ObgdASmbnFNwdsIjYXTq/OsLVfaXbaC6sliINpe2VBGDl4D7BRX0qJ8vdpvdmmOgPAX
+	6xLglPKhKtPevtDjLGT+Qw7RGpsc/lrV5Mk/9q2ykyL2g3MvhNW67oXgnVzRxBDn56oYaXBFxwTHP
+	0sN3t8PhEByfzJo5f8NZnV3hvUb0LJ7CsH911eZbn4ZququhJPd9d8KOV75mzsxY9hV7OlnJ32MX4
+	m91v/0waLvPSrb9kBXDveK5aCJ21WCu6zdgy1/x4Oo0E4q9aFDp+HaJlQnAN0MVp/vKNTaBKGluUD
+	aSk0W9Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIFyP-00000005QEM-3Y5f;
-	Sun, 18 Oct 2026 01:46:05 +0000
-Received: from mail.netfilter.org ([217.70.190.124])
+	id 1xIGJB-00000005R2d-28bn;
+	Sun, 18 Oct 2026 02:07:33 +0000
+Received: from mail-oi1-f198.google.com ([209.85.167.198])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIFyN-00000005QDv-2RoO;
-	Sun, 18 Oct 2026 01:46:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1792287960;
-	bh=3poXjPlgrYbaoLZ20pYt73out2gTIqX1HAZG1VT5Dy4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kGRHu5iAIhla0Zcp/5NsynD5QmwmgyQ3no6QBW/TGZmg1TTg+MI1qvmcK+Mj+TxAf
-	 Da6/QRHR5+wSR2DOKmeFJMR9qhX5d+OT1Bs+7kGDk9Fczv+QxwRWEvdl3ofkAAvjSV
-	 RPDFiROXYCbakP5/wlOi2/zIlda6fdtH6+R8ygsoMtPfW4Ed2+gvM/eGuFCsQISUfa
-	 0djIcEz655r0Ne7rI7rPRu3eeJ+DsNpDCRWP9R9lPVsU01B/fFQfwasxKHFqVMpCOT
-	 m8VO9LEgyZHyojjY7CZMlRyW5h5G7tPEKIwR3l0B9UUGLjNpGnXa2PPiWP1aoRUsa1
-	 8/+JZAja4jiIA==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id B651460060;
-	Sun, 18 Oct 2026 03:46:00 +0200 (CEST)
-Date: Sun, 18 Oct 2026 03:45:57 +0200
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Julius Bairaktaris <julius@bairaktaris.de>
-Cc: fw@strlen.de, phil@nwl.cc, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, netdev@vger.kernel.org, lorenzo@kernel.org,
-	nbd@nbd.name, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
-	rdunlap@infradead.org, skhan@linuxfoundation.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, saeedm@nvidia.com,
-	leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
-	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH nf-next v3 0/3] netfilter: flowtable: carry a priority
- into the offload
-Message-ID: <atQk1d8Tv03iPN7d@chamomile>
-References: <20261004171636.3545085-1-julius@bairaktaris.de>
+	id 1xIGJ6-00000005R2A-1mrG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 Oct 2026 02:07:31 +0000
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4dc57e2a3f2so1821411b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 19:07:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792289246; x=1792894046;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=s0staK1toosvVTYdUZvQImybVckAdiMM5CzJz98ALkE=;
+        b=WO6Nk0Oj1GOCPNYBq+GsrJYFWOpFGzpZUCNJrCrNTKvPMhmbMClIn6CNhg5Ucz60JQ
+         Hw42V084qKTMaIorr56bxHHlfaXo5J19n8aQ4rm8BakkfENwXcqKUJIyv914EF1kkvSt
+         RxwyP1+eUjfZVnKqe1gzOVGuioOSAevLlwFDA2P/FiY098uWgYQ4Za05wJQAYx4MR/el
+         xCnHCoB+gmPQP16FSYSb8jpkwi00KszEGY9KSm7OUVw40CkYHB04Lq0MZiE4hilkKRhC
+         ZZbc5GsQM+CuhO7p8L1HjSTwfz3laOAbD/YEOqVXiJG7WxWvgc6IF6K5By5/8zy0X21F
+         KvnQ==
+X-Gm-Message-State: AFq9FYI4k0V/OmlNrGx1wR4omsb0s0hXmbsA+xpggA2pKdeU9Ocrtvsj
+	hSIFR5epVEGksOlly/QCnF0Efp3P1ww3AIfB6LekpWZyvgXRfGC3cTmVR9dN44WrQipyj4T6VYe
+	w3Fy0w7J2/ju4mWpLCIy+e5zeGqTw6lACykoVqyO5GwQzR9WmKbMYZraFGkE=
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261004171636.3545085-1-julius@bairaktaris.de>
+X-Received: by 2002:a05:6808:199b:b0:4f3:e931:9f27 with SMTP id
+ 5614622812f47-53cd1202ba2mr4493923b6e.53.1792289246314; Sat, 17 Oct 2026
+ 19:07:26 -0700 (PDT)
+Date: Sat, 17 Oct 2026 19:07:26 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6ad429de.7f4e89eb.3d59aa.00a9.GAE@google.com>
+Subject: [syzbot] [arm?] WARNING in __run_timer_base (3)
+From: syzbot <syzbot+c4582e7bc680cba1fcfb@syzkaller.appspotmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_184603_766429_B6EAC8D8 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20261017_190728_475511_408C23E3 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +75,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 04, 2026 at 07:16:33PM +0200, Julius Bairaktaris wrote:
-> Packets forwarded by the flowtable skip the ruleset, so a priority set
-> with "meta priority set" before "flow add" is lost after the first
-> packets. Patch 2 stores skb->priority in the flow, applies it in the
-> software fast path and passes it to drivers as FLOW_ACTION_PRIORITY.
-> Patch 1 makes mlx5 ignore that action on flowtable flows, so flows it
-> offloads today stay offloaded. Patch 3 adds a selftest.
-> 
-> v2 review asked whether this should be a flowtable attribute instead.
-> A per-flow priority covers both one class per flowtable and a class
-> chosen per connection, with existing syntax:
-> 
->   meta priority set 1:3 flow add @ft
->   udp dport 5060 meta priority set 1:3 flow add @ft
-> 
-> An attribute needs one flowtable per class. nft rejects a device in
-> two flowtables of the same table with -EEXIST, so it also needs one
-> table per class. Pablo, is the per-flow approach fine with you?
+Hello,
 
-I don't understand the "one flowtable per class".
+syzbot found the following issue on:
 
-> mlx5 maintainers: patch 1 is needed before patch 2 and is meant to go
-> through nf-next; an Acked-by would allow that.
-> 
-> The selftest passes with the series, and its priority checks fail with
-> only patch 3 applied (QEMU, three runs). The mlx5, airoha and mtk
-> changes are compile-tested only; Lorenzo, a Tested-by on airoha would
-> be welcome. struct flow_offload grows by 8 bytes.
-> 
-> Changes in v3:
-> - new patch 1 for mlx5
-> - airoha uses the priority for its QoS queue (Lorenzo Bianconi)
-> - describe the tc flower effect and the TOS-derived priority
-> - rebased onto nf-next
-> 
-> v2: https://lore.kernel.org/netfilter-devel/20260902155136.4963-1-julius@bairaktaris.de/
-> v1: https://lore.kernel.org/netfilter-devel/20260901092632.369248-1-julius@bairaktaris.de/
-> 
-> Julius Bairaktaris (3):
->   net/mlx5e: Ignore FLOW_ACTION_PRIORITY on flowtable offload
->   netfilter: flowtable: carry a priority into the offload
->   selftests: netfilter: nft_flowtable.sh: check the priority a flow
->     carries
-> 
->  Documentation/networking/nf_flowtable.rst     |   4 +-
->  drivers/net/ethernet/airoha/airoha_ppe.c      |   3 +
->  .../net/ethernet/mediatek/mtk_ppe_offload.c   |   1 +
->  .../net/ethernet/mellanox/mlx5/core/Makefile  |   2 +-
->  .../mellanox/mlx5/core/en/tc/act/act.c        |   1 +
->  .../mellanox/mlx5/core/en/tc/act/act.h        |   1 +
->  .../mellanox/mlx5/core/en/tc/act/prio.c       |  22 ++++
->  include/net/netfilter/nf_flow_table.h         |   1 +
->  net/netfilter/nf_flow_table_ip.c              |   6 +
->  net/netfilter/nf_flow_table_offload.c         |  11 ++
->  net/netfilter/nft_flow_offload.c              |   2 +
->  .../selftests/net/netfilter/nft_flowtable.sh  | 110 ++++++++++++++++++
->  12 files changed, 162 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/prio.c
-> 
-> 
-> base-commit: 87b80c2f6b05cad9f0ff9136709c62a0f59923e3
-> -- 
-> 2.53.0
-> 
-> 
+HEAD commit:    7a19f0cc94ad Merge branch 'for-next/core' into for-kernelci
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
+console output: https://syzkaller.appspot.com/x/log.txt?x=128d8121580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=26d6221a572842ac
+dashboard link: https://syzkaller.appspot.com/bug?extid=c4582e7bc680cba1fcfb
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=11904895580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=113a2621580000
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/296cd4b77dbf/disk-7a19f0cc.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/e57669ed895f/vmlinux-7a19f0cc.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/c679c1ad76d4/Image-7a19f0cc.gz.xz
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+c4582e7bc680cba1fcfb@syzkaller.appspotmail.com
+
+------------[ cut here ]------------
+WARNING: kernel/time/timer.c:1786 at expire_timers kernel/time/timer.c:1786 [inline], CPU#1: swapper/1/0
+WARNING: kernel/time/timer.c:1786 at __run_timers kernel/time/timer.c:2374 [inline], CPU#1: swapper/1/0
+WARNING: kernel/time/timer.c:1786 at __run_timer_base+0x598/0x744 kernel/time/timer.c:2386, CPU#1: swapper/1/0
+Modules linked in:
+CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Tainted: G   M                syzkaller #0 PREEMPT 
+Tainted: [M]=MACHINE_CHECK
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/23/2026
+pstate: 434000c5 (nZcv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+pc : expire_timers kernel/time/timer.c:1786 [inline]
+pc : __run_timers kernel/time/timer.c:2374 [inline]
+pc : __run_timer_base+0x598/0x744 kernel/time/timer.c:2386
+lr : expire_timers kernel/time/timer.c:1786 [inline]
+lr : __run_timers kernel/time/timer.c:2374 [inline]
+lr : __run_timer_base+0x598/0x744 kernel/time/timer.c:2386
+sp : ffff80008f7f7d40
+x29: ffff80008f7f7e50 x28: ffff0001a4fdfd00 x27: 0000000000000000
+x26: ffff0000c8d96970 x25: 00000000ffff98f0 x24: ffff80008f7f7dc8
+x23: ffff0000c8d96988 x22: 1fffe000349fbfa0 x21: 1ffff00011efefb9
+x20: dfff800000000000 x19: ffff0001a4fdfcc0 x18: 1fffe000349fbc28
+x17: ffff80011b89c000 x16: ffff80008f7f0000 x15: 0000000000000000
+x14: 00000000001e00c1 x13: 0000000000000001 x12: 0000000000000003
+x11: 0000000000000000 x10: 0000000000000003 x9 : 0000000000000102
+x8 : 0000000000000000 x7 : ffff8000819951c0 x6 : 0000000000000000
+x5 : 0000000000000001 x4 : 0000000000000001 x3 : ffff800080538560
+x2 : 0000000000000002 x1 : ffff0000c1aa8000 x0 : 0000000000000000
+Call trace:
+ expire_timers kernel/time/timer.c:1786 [inline] (P)
+ __run_timers kernel/time/timer.c:2374 [inline] (P)
+ __run_timer_base+0x598/0x744 kernel/time/timer.c:2386 (P)
+ run_timer_base+0x84/0x1b8 kernel/time/timer.c:2395
+ run_timer_softirq+0x20/0x48 kernel/time/timer.c:2405
+ handle_softirqs+0x324/0xcbc kernel/softirq.c:645
+ __do_softirq+0x14/0x20 kernel/softirq.c:679
+ ____do_softirq+0x10/0x1c arch/arm64/kernel/irq.c:78
+ call_on_irq_stack+0x30/0x48 arch/arm64/kernel/entry.S:901
+ do_softirq_own_stack+0x1c/0x28 arch/arm64/kernel/irq.c:83
+ invoke_softirq kernel/softirq.c:526 [inline]
+ __irq_exit_rcu+0x10c/0x318 kernel/softirq.c:758
+ irq_exit_rcu+0x14/0x84 kernel/softirq.c:775
+ __el1_irq arch/arm64/kernel/entry-common.c:569 [inline]
+ el1_interrupt+0x40/0x60 arch/arm64/kernel/entry-common.c:581
+ el1h_64_irq_handler+0x18/0x24 arch/arm64/kernel/entry-common.c:586
+ el1h_64_irq+0x78/0x7c arch/arm64/kernel/entry.S:602
+ __daif_local_irq_enable arch/arm64/include/asm/irqflags.h:26 [inline] (P)
+ arch_local_irq_enable arch/arm64/include/asm/irqflags.h:48 [inline] (P)
+ default_idle_call+0xa0/0xb8 kernel/sched/idle.c:129 (P)
+ cpuidle_idle_call kernel/sched/idle.c:199 [inline]
+ do_idle+0x1ec/0x450 kernel/sched/idle.c:355
+ cpu_startup_entry+0x5c/0x74 kernel/sched/idle.c:454
+ secondary_start_kernel+0x1d8/0x1fc arch/arm64/kernel/smp.c:275
+ __secondary_switched+0xc0/0xc4 arch/arm64/kernel/head.S:400
+irq event stamp: 286461
+hardirqs last  enabled at (286460): [<ffff80008030a4e0>] handle_softirqs+0x1e8/0xcbc kernel/softirq.c:629
+hardirqs last disabled at (286461): [<ffff8000868a164c>] __raw_spin_lock_irq include/linux/spinlock_api_smp.h:163 [inline]
+hardirqs last disabled at (286461): [<ffff8000868a164c>] _raw_spin_lock_irq+0x28/0x70 kernel/locking/spinlock.c:189
+softirqs last  enabled at (283904): [<ffff80008030ae24>] softirq_handle_end kernel/softirq.c:491 [inline]
+softirqs last  enabled at (283904): [<ffff80008030ae24>] handle_softirqs+0xb2c/0xcbc kernel/softirq.c:673
+softirqs last disabled at (286459): [<ffff8000800203f0>] __do_softirq+0x14/0x20 kernel/softirq.c:679
+---[ end trace 0000000000000000 ]---
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want syzbot to run the reproducer, reply with:
+#syz test: git://repo/address.git branch-or-commit-hash
+If you attach or paste a git patch, syzbot will apply it before testing.
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
