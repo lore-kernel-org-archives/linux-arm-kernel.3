@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36F6CCF2CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 06:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75D7CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 06:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fOP/bMQXaA7taKz4VSpGw2+M+edO4QsSogcgYJEQgU=; b=QCm8JfTASBRyWxyNYNOA29yCjI
-	n5vmBaohRp6Fs/n5GbSxy0YqW9+oEYZytnFdVJIgZtJh8ffYYoX18YXeFIEFzjiUpcn+jgP8axee/
-	8+XHqZaYblDukI5ToE5OPlEP1t5ZRvNkjJZMkdy8/nIYQt300yRJ6OPT+KwB0pQ8GYkyl+5DMNNSi
-	TkphbtnZmHMRbIn3wm/2OXc0m9A2VmZNv98bOED1L+fAZ204/y5Vtk8lXlThKTuA6UCu/kMEKA0nd
-	iXmlAyn2EUN8miTHhsGr3IoRLd8lQaEEm0VHqoEu3Cz3MmcSqodIzxuCG3NitPeErsybQTvODIrNf
-	ANA2BV4g==;
+	bh=Aw3jt4zHNgm4deRIvVS+AZXuU23cUxhaCwFbDt3G//8=; b=dG7DBodL7E4jy3BurPsvxhAmSr
+	he//X1bsgh/F84OQE0PKcR/OwnfJAVrLW08vx82pduzV6uv5Ydcaf57SdkGaEKSVV7FRJzsd0bbSd
+	DjW1uvUjFoGAyRKZOzoRGoyuEy/dSuXw4Ikga3GJPc5QlV8c0XcI6OuS9sHejp5M83TtiHsNS3rsw
+	hpJzUrKwayqsIeFHde/NNZfmrLR4Z3jup//6mA5pJXw6+umZdLGNmICw2D/6fOvzc28CEo8XdLBto
+	t+J2/iveTNk4e6D7bwSKphb6q/kjD8RJn7aOctwsEjM/e+tc+I3fAahtSltmEXPk0LSACeOgZvXxX
+	Q055hDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIKeO-00000005dom-21zR;
+	id 1xIKeO-00000005dpV-30Yh;
 	Sun, 18 Oct 2026 06:45:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIKeF-00000005djR-2HZL;
-	Sun, 18 Oct 2026 06:45:35 +0000
+	id 1xIKeG-00000005dk1-2HrM;
+	Sun, 18 Oct 2026 06:45:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D8634451E;
-	Sun, 18 Oct 2026 06:45:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286E31F000C4;
-	Sun, 18 Oct 2026 06:45:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D5B02602BE;
+	Sun, 18 Oct 2026 06:45:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88DAC1F000C5;
+	Sun, 18 Oct 2026 06:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792305935;
-	bh=5fOP/bMQXaA7taKz4VSpGw2+M+edO4QsSogcgYJEQgU=;
+	s=k20260515; t=1792305933;
+	bh=Aw3jt4zHNgm4deRIvVS+AZXuU23cUxhaCwFbDt3G//8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=l7TiaQovMwgw7yDhFnQaELZKPzPGjLxyK8FRg14brB/pN2QmUhPhndHIcTHYH+ISD
-	 ft2+aqncxJLOiYtHWQgN0dMCbw3/oziWmdokHhJt2y9lIfwTn/CSOs3DqHXAxkSO2G
-	 tF/GVW0ywVDqH72/TDDyMxra6aO6kHRbY/TwoIBfO45WkBaHjMpMd0tlR2bcLckplH
-	 iqh9L+BXyJVzBlBJ/Nxtijjm5zamPc2wMfmWjXvKen5zBmGhDFZaeAqcsnfbOaCUK4
-	 CJ66hf0Coit5bYZCQAsvq7UI5Bvnv5HlrlJ3p+ygvdHFL6n3KPmQOBdCEtIZfVBhSE
-	 56+Jf0R1HUTHQ==
-Subject: Re: [PATCH net-next v12 5/6] net: stmmac: dwmac-rk: add SGMII support
- for RK3568
+	b=IDTtpgBKYaBm2zaIDQhOZ2PSPkv++aTyX8wVxTj2Q0K4oYfe2P93j8UmQzy8lF96z
+	 DUbtyoT9e6jjvvowflopO2xrDud7A/6k90+MWxFWOqOPUVGdheUC5VbHjxVDQb45jP
+	 QaUwTFsOn8GIQ0mzFKM0tjGXBHU4ItG8DV4W6eyd/LQWwQLPABkuzuDGL+QJwJY1ex
+	 KtxIHmkUVQ0ShJsuOFgWVp63M5Lh811FxiJz14zK5bn7wk+HGEST9FP71tDuGB+k8T
+	 K1FdW67lK9RxBnPG4N5JDaWxFeQenCyXH7NsUoxkwKtrc9Q520suhkHwmvhuF191kk
+	 Wob3D59UMvzxQ==
+Subject: Re: [PATCH net-next v12 4/6] dt-bindings: net: rockchip-dwmac:
+ document pcs-handle
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
@@ -53,11 +53,11 @@ Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
  david.wu@rock-chips.com, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Date: Sun, 18 Oct 2026 06:45:33 +0000
-Message-ID: <179230593374.3135.1162107426363265471@kernel.org>
-In-Reply-To: <20261017054406.1828061-6-coiaprant@gmail.com>
-References: <20261017054406.1828061-6-coiaprant@gmail.com>
-X-sashiko-severity: Medium
+Date: Sun, 18 Oct 2026 06:45:32 +0000
+Message-ID: <179230593214.3135.8437298852154217978@kernel.org>
+In-Reply-To: <20261017054406.1828061-5-coiaprant@gmail.com>
+References: <20261017054406.1828061-5-coiaprant@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -75,303 +75,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 3 (2) · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] On SGMII, phylink is offered more interface modes than the
-  RK3568 glue can configure.
-- [Medium] The commit message says out-of-band SGMII at 10/100 gives
-  working TX and failing RX on RK3568, because the MAC clock is fixed at…
-- [Medium] The new SGMII path cannot open a PHY-less in-band link, such
-  as a direct SGMII connection to a switch with managed = "in-band-…
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but
-  rk_gmac_resume() throws away the return value of rk_gmac_powerup() and…
-- [Medium] This problem wasn't introduced by this patch, but
-  __stmmac_dvr_probe() calls pm_runtime_get_noresume(),…
+- [Low] The rule that makes pcs-handle required is true even when phy-
+  mode is absent, and the patch adds a redundant rule that the commit…
 
 --
 
-net: stmmac: dwmac-rk: add SGMII support for RK3568
+dt-bindings: net: rockchip-dwmac: document pcs-handle
 
-This patch adds SGMII support to the RK3568 dwmac-rk glue. It sets the
-GRF mode bit and creates the Rockchip XPCS through xpcs_rk_create() in
-new pcs_init/pcs_exit/select_pcs callbacks, and it asks for in-band mode
-via default_an_inband. It also reorders rk_gmac_powerup() so the clocks
-are enabled before the SGMII check, and it merges the error unwinding
-into one clk_disable label.
+This adds a pcs-handle property to the Rockchip GMAC binding for the SGMII
+support added later in the series. It also adds two allOf rules for
+rockchip,rk3568-gmac. The first requires phy-mode. The second requires
+pcs-handle when phy-mode is "sgmii".
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 72bdbcb5e863a..c4db919ec1640 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> index 80c252845349c..c434450fd07ff 100644
+> --- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
 
 [ ... ]
 
-> @@ -1211,6 +1239,44 @@ static void rk_phy_powerdown(struct rk_priv_data *bsp_priv)
->  		dev_err(bsp_priv->dev, "fail to disable phy-supply\n");
->  }
+> @@ -159,6 +165,27 @@ allOf:
+>          clocks:
+>            minItems: 5
 >  
-> +static int rk_pcs_init(struct stmmac_priv *priv)
-> +{
-> +	struct rk_priv_data *bsp_priv = priv->plat->bsp_priv;
-> +	struct device_node *node = priv->device->of_node;
-> +	struct device_node *pcs_node;
-> +	struct dw_xpcs *xpcs;
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3568-gmac
+> +    then:
+> +      required:
+> +        - phy-mode
 > +
-> +	pcs_node = of_parse_phandle(node, "pcs-handle", 0);
-> +	if (!pcs_node)
-> +		return -ENODEV;
-> +
-> +	xpcs = xpcs_rk_create(priv->device, pcs_node, bsp_priv->id);
-> +	of_node_put(pcs_node);
-> +	if (IS_ERR(xpcs))
-> +		return PTR_ERR(xpcs);
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3568-gmac
+> +        phy-mode:
+> +          contains:
+> +            const: sgmii
+> +    then:
+> +      required:
+> +        - pcs-handle
 
-[Severity: Medium]
-This is a pre-existing issue in the stmmac core, but this new path seems
-to make it much easier to hit. xpcs_rk_create() returns -EPROBE_DEFER
-until the XPCS is bound. fw_devlink does not appear to track pcs-handle,
-so the MAC can probe first.
+[Severity: Low]
+Is the sgmii if above true when phy-mode is missing?
 
-__stmmac_dvr_probe() takes a runtime PM reference before
-stmmac_pcs_setup():
+In JSON Schema, a properties subschema passes when the property is not
+there. That means a rockchip,rk3568-gmac node without phy-mode matches
+this if. It then gets a "pcs-handle is a required property" error, even
+though nothing says the link is SGMII.
 
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:__stmmac_dvr_probe() {
-    ...
-	pm_runtime_get_noresume(device);
-	pm_runtime_set_active(device);
-	if (!pm_runtime_enabled(device))
-		pm_runtime_enable(device);
-    ...
-error_pcs_setup:
-	stmmac_mdio_unregister(ndev);
-    ...
-}
+The standalone phy-mode block before it does not make this if false.
+Each allOf entry is checked on its own, so that block only adds its own
+error.
 
-The unwind labels never drop that reference and never disable runtime PM.
+Is the standalone phy-mode block needed at all? rockchip-dwmac.yaml
+already pulls in snps,dwmac.yaml with "- $ref: snps,dwmac.yaml#" under
+allOf. That schema already requires phy-mode at the top level:
 
-Does each deferred probe attempt leak one usage count on the GMAC device?
-Runtime PM is left enabled, so pm_runtime_reinit() would not reset the
-count. After the eventual successful probe, the GMAC would then never
-runtime suspend and its clocks would stay on.
+Documentation/devicetree/bindings/net/snps,dwmac.yaml:
+required:
+  - compatible
+  - reg
+  - interrupts
+  - interrupt-names
+  - phy-mode
 
-> +
-> +	priv->hw->xpcs = xpcs;
-> +	return 0;
-> +}
+So an rk3568-gmac node with no phy-mode would get two "phy-mode is a
+required property" errors and a misleading pcs-handle error.
 
-[Severity: Medium]
-Does this work for a PHY-less in-band link? An example would be
-phy-mode = "sgmii" with managed = "in-band-status", a pcs-handle and no
-phy-handle.
+The commit message also does not say that phy-mode becomes mandatory for
+rk3568. It only says pcs-handle is required when phy-mode is "sgmii".
 
-The PCS is only stored in priv->hw->xpcs, so hw->phylink_pcs stays NULL.
-In stmmac_init_phy(), phylink_expects_phy() is true for MLO_AN_INBAND,
-and the xpcs bypass only covers clause 73:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_init_phy() {
-    ...
-	if (priv->hw->xpcs &&
-	    xpcs_get_an_mode(priv->hw->xpcs, mode) == DW_AN_C73)
-		return 0;
-    ...
-		if (addr < 0) {
-			/* If a custom PCS is in use, no PHY is needed */
-			if (priv->hw->phylink_pcs)
-				return 0;
-
-			netdev_err(priv->dev, "no phy found\n");
-			return -ENODEV;
-    ...
-}
-
-SGMII uses DW_AN_C37_SGMII. With plat->phy_addr == -1, this would log
-"no phy found" and stmmac_open() would fail with -ENODEV.
-
-If the DT has no mdio subnode, the legacy MDIO scan in
-stmmac_mdio_register() would instead fail probe with "No PHY found".
-
-The commit message recommends managed = "in-band-status", so is this
-configuration expected to work?
-
-> +
-> +static void rk_pcs_exit(struct stmmac_priv *priv)
-> +{
-> +	if (!priv->hw->xpcs)
-> +		return;
-> +
-> +	xpcs_destroy(priv->hw->xpcs);
-> +	priv->hw->xpcs = NULL;
-> +}
-> +
-> +static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
-> +					 phy_interface_t interface)
-> +{
-> +	if (!priv->hw->xpcs)
-> +		return NULL;
-> +
-> +	return xpcs_to_phylink_pcs(priv->hw->xpcs);
-> +}
-
-[Severity: Medium]
-Can phylink select an interface mode here that the glue never set up?
-
-rk_select_pcs() ignores the interface argument and returns the XPCS for
-every mode. stmmac_phylink_setup() adds the XPCS supported_interfaces to
-phylink's set, and the glue does not filter them:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_phylink_setup() {
-    ...
-	if (priv->hw->xpcs)
-		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
-    ...
-		phy_interface_or(config->supported_interfaces,
-				 config->supported_interfaces,
-				 pcs->supported_interfaces);
-    ...
-}
-
-If the XPCS uses the generic synopsys_xpcs_compat table,
-xpcs_get_interfaces() advertises 1000BASE-X, 2500BASE-X and the 10G+
-modes alongside SGMII. The GMAC4 MAC capabilities (MAC_10 | MAC_100 |
-MAC_1000 | MAC_2500FD) do not rule out 1000BASE-X or 2500BASE-X, so both
-would pass phylink validation.
-
-The glue only programs SGMII, though. rk_gmac_check_ops(), the
-rk_gmac_powerup() switch and rk3568_set_to_sgmii() each act once, on the
-phy-mode from DT.
-
-Take an SFP cage, or a PHY whose possible_interfaces includes 2500BASE-X.
-Would phylink then move the XPCS into a mode that the GRF, SerDes and
-MAC path were never configured for?
-
-This also seems to conflict with the commit message:
-
-    1000BASE-X is not enabled by this series; it may be added later if
-    there is a user for it.
-
-Should rk_select_pcs() reject anything other than
-PHY_INTERFACE_MODE_SGMII, or should the supported interfaces be masked
-down to SGMII?
-
-[ ... ]
-
-> @@ -1450,15 +1521,20 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
-
-[ ... ]
-
->  	ret = rk_phy_powerup(bsp_priv);
-> -	if (ret) {
-> -		gmac_clk_enable(bsp_priv, false);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		goto clk_disable;
->  
->  	pm_runtime_get_sync(dev);
->  
-> @@ -1466,6 +1542,10 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  		bsp_priv->ops->integrated_phy_powerup(bsp_priv);
->  
->  	return 0;
-> +
-> +clk_disable:
-> +	gmac_clk_enable(bsp_priv, false);
-> +	return ret;
->  }
-
-[Severity: Medium]
-This bug was not introduced by this patch, but rk_gmac_resume() ignores
-the return value of rk_gmac_powerup():
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_gmac_resume() {
-    ...
-	if (!device_may_wakeup(dev))
-		rk_gmac_powerup(bsp_priv);
-
-	return 0;
-}
-
-When rk_gmac_powerup() fails, the clk_disable exit runs before
-rk_phy_powerup() and pm_runtime_get_sync() have been called. A later
-rk_gmac_suspend() or rk_gmac_exit() still calls rk_gmac_powerdown():
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_gmac_powerdown() {
-    ...
-	pm_runtime_put_sync(gmac->dev);
-
-	rk_phy_powerdown(gmac);
-	gmac_clk_enable(gmac, false);
-}
-
-Would a failed resume leave the runtime PM usage count and the
-phy-supply regulator enable count unbalanced?
-
-The new exits added here (the rk_get_phy_intf_sel() failure and the
-default case) should not be reachable at resume, because probe has
-already validated the interface. The clock enable, GRF write and
-regulator enable failures can still happen.
-
-[ ... ]
-
-> @@ -1605,6 +1685,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
->  	plat_dat->suspend = rk_gmac_suspend;
->  	plat_dat->resume = rk_gmac_resume;
->  
-> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-> +		/* SGMII clock always runs at 125 MHz */
-> +		plat_dat->set_clk_tx_rate = NULL;
-> +
-> +		/* SGMII requires a PCS */
-> +		plat_dat->default_an_inband = true;
-
-[Severity: Medium]
-The commit message says out-of-band SGMII at 10/100 gives working TX and
-failing RX, because the MAC clock is fixed at 125 MHz. Does anything in
-the driver enforce or report that limit?
-
-default_an_inband only states a preference. phylink_parse_mode() turns a
-fixed-link node into MLO_AN_FIXED. A PHY whose phy_inband_caps() reports
-only LINK_INBAND_DISABLE makes phylink_pcs_neg_mode() fall back:
-
-drivers/net/phy/phylink.c:phylink_pcs_neg_mode() {
-    ...
-			neg_mode = PHYLINK_PCS_NEG_OUTBAND;
-			if (pl->phydev)
-				mode = MLO_AN_PHY;
-    ...
-}
-
-For SGMII, xpcs_inband_caps() returns LINK_INBAND_DISABLE |
-LINK_INBAND_ENABLE, so the PCS accepts the out-of-band fallback.
-
-stmmac_mac_link_up() then sets the MAC to 10/100, and
-xpcs_link_up_sgmii_1000basex() writes the speed into BMCR, but the clock
-stays at 125 MHz. Would the link then report up while RX silently does
-not work?
-
-Could the driver reject out-of-band SGMII below 1000 Mbps, or at least
-warn about it? fix_mac_speed() receives the mode and could do this, or
-the MAC capabilities could be limited.
-
-> +		plat_dat->pcs_init = rk_pcs_init;
-> +		plat_dat->pcs_exit = rk_pcs_exit;
-> +		plat_dat->select_pcs = rk_select_pcs;
-> +	}
-
-[ ... ]
+Could required: [phy-mode] go inside the sgmii if instead, which is the
+usual idiom? The standalone phy-mode block could then be dropped.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261017054406.1828061-1-coiaprant%40gmail.com
