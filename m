@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5B0CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Oct 2026 23:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A51CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 00:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIfxed9xRh6p4p/w17T6098/U45mW63EwJ8GFmqGUTs=; b=OHgo4lmTyBVFvUyKxnJaDTFnhE
-	0N/o5MLHUTpyHwkb0iHvKgoZEjM6bAAGI8RhxYCjEqZUvmKluvH/7IJlLrhQxpLj3K9q0H28zpb/C
-	8Hy5X/RqC3ztnhUfsrqy0sEDrRLVSnya1kvMndga/QEvwQigSizst32kzBUNrLYQpTe5a9W8AD7+7
-	rF/865D8qQL5E01sROwHTDct+d977sm4El1SK/CU+2gAAAM4QZYptWWPMeMGjKbTk+Y03we5astTR
-	YSXUWtAofvKbok8fZN/QEA43GBTlBG8YuKxky2OVCEM2d/otwWzXCkbO1FtsEy3mjwODRV7ET1NJh
-	Szk7AmoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CokdTGHz8vHWvWGZKlzAZG9TpYCvGqfXhGkwmfn1/VY=; b=z8IfwQ0As+viF6ViDKLoOJzCxo
+	32JFEklVgpnBZK99+qOmll3Rafxmu3pWHtt0NyCrTbISAdjib8Ov90uw+lev6QRRri0nHY2kYH4ud
+	KM8onMlKlUsAjVoWXgZFt2p/ZM7wuZU2yKq8Z1YvqhtRlEok3X2Zejn/7NOJsvQWtK9VpORo0AzkZ
+	8g1FL7i4/Z60Um4NTuio6pXMXrQiAS9PYVPSM3cqAeH2i1Eg9MpLsC1lRgoz+ZExnEDGPbDgFiWS+
+	smbf78YW23Y3ChlNoIP2ATlkRADr9KlK6wirO+hDOLY9MX5Nj+CKCzW13qCxN3I4TbQygS1cWjpQ+
+	4OCkS7Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIDQy-00000005JBs-2VcN;
-	Sat, 17 Oct 2026 23:03:24 +0000
-Received: from mail-oo2-x06.google.com ([2607:f8b0:4864:31::6])
+	id 1xIF3r-00000005Nfw-42Hh;
+	Sun, 18 Oct 2026 00:47:39 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIDQu-00000005JBB-3Jr3
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Oct 2026 23:03:22 +0000
-Received: by mail-oo2-x06.google.com with SMTP id 46e09a7af769-821480f0153so234535a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 16:03:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792278199; x=1792882999; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NIfxed9xRh6p4p/w17T6098/U45mW63EwJ8GFmqGUTs=;
-        b=B4KNK1OJ2UyTP8ABqfHDW6od9bI/mvVtVjJsH4uUVQPPo5BtIXd8xfoxzMpCCagUAQ
-         H8uS907UKQ5LpnjPPscO+WdA3T7vKOZAPY5rrwFxuaJQPvF3otEh4Mj9WNxE/GnWNg7t
-         ASdUmpy08snjkXUEtuSPfJOI2KwDSQFLRY/YRPj88nSqIGtC0r8dS0pOlHlWu+07j2YD
-         upULgCbKhodwD9IZvx/u1iuRnizvsKufC/utGCNduo4+TTsJ5kOYXGly+w/8TP/nVNp1
-         qCs1jfmOciiyanePZlL7ak1KvjruXrMeZoW2WuVxo6oxW4VjlGx2Zm69aSj+8mMoY5VL
-         jP8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792278199; x=1792882999;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NIfxed9xRh6p4p/w17T6098/U45mW63EwJ8GFmqGUTs=;
-        b=TQ1UePIydW7A7KA3nQNvUyB086CvCDUg/5TfJUJNGK9fQPVJc39b1GtHRz6ruWoV+m
-         hBsYZ2Os6jxrRw51wyPTSgJ+RzCK+JCxCnTIrnZhp5tpvLgrGeb8FM1uDL6wW/OpPTWW
-         wTshdLC6LLSikmKaoU24vEkjf0P5lHs1Pq2M9aPVo+mxb0kLz1RqURXNmu8Q9A04xEKg
-         KTp0371McjzYUX8acdxNpTvj7jEH6nc4gY9XG2PWh2ZZ/WPLJDtNujhPVIhUzzMHVX1o
-         o8NFcB7IPEtCgId3K1hgewAfnPn4lCvzLP+QPZedvMNwDhrnjdByJmDe8dXIgjOkvBG9
-         WVyQ==
-X-Forwarded-Encrypted: i=1; AKwUvByv+/5DxgiGZIFXbzsFMrAcOVSvdb/rFKUVeudjViQ6457gMs+/+Kf1uLmhnKuI+vgTmtoVLImRqh4kE4UnNwhW@lists.infradead.org
-X-Gm-Message-State: AFq9FYIANs6gDuDlEHv6BtZSevbZLxaE0cdB6BN4S5YjMeO0TdOW36Pz
-	WxllCc62V+EbSRp0/UxKOZEx80vfR21Z6BO3hnabo2nMjX/SJFE2Y3mr
-X-Gm-Gg: AYBFou2lVi9kXAM9FJ+YJdnN7ZOS1mLLyiebzjkoNaX+XJAfOi4G2j4bYX5DiKWBi72
-	1eSvzjYhHRBseEOn2ShwC5toq4Tjmhk0gjUQqF4ZGixgUYNFPO+k6jV+tcp/MFeg5if/BIocJIY
-	5hzZjLfop2lphTc/Kz4b5MYin5nxL2dj69bQkZJ6ChQgeIgDfOPBNut6J7N8AI0Jg5nFREecjVv
-	e7Wr/YZGDjxlFc7Lmm5YTaGRv03bg/QvrIOFMWo/Dj3HM6WVSWQ5ic1zrZVwuj5JNM3i72Mzs0j
-	+OIih8/zfepq4Xd40slO3yLCjnEibxtlm5YK+fR/1tTKS52roroVAtVu++LgBEYpHiM3ijtdkPC
-	kinVQZAWFf//Uj5ZK94WCMMw5ZAOPyauTouz2/NOXL3fcd4VdsbsCNPXqm3JCNAtVmpltDGGGl2
-	h2JapUJ4TZG3FagCOges/m8Lx8RvD1s0NO4KWFEgr64fB2MyQ2JViX/PuPI0VeUEMjrRmRYdgQF
-	NrZTjO2Wcbntr8=
-X-Received: by 2002:a05:6820:1529:b0:6cd:3ffc:64d7 with SMTP id 006d021491bc7-70357a97e02mr2235388eaf.82.1792278198975;
-        Sat, 17 Oct 2026 16:03:18 -0700 (PDT)
-Received: from ?IPV6:2600:8804:5716:d800::2620? ([2600:8804:5716:d800::2620])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-70190c1c106sm4927968eaf.12.2026.10.17.16.03.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 17 Oct 2026 16:03:17 -0700 (PDT)
-Message-ID: <e8389c1c-e858-4171-adff-5bd94909120c@gmail.com>
-Date: Sat, 17 Oct 2026 18:03:15 -0500
+	id 1xIF3p-00000005NfS-0PzM;
+	Sun, 18 Oct 2026 00:47:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1792284457; x=1823820457;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=daoOQm05VwaFoZ0+CpbIgWX8Bo/e4Sr3//Gl6DlQae0=;
+  b=ltODWq9Udr3rn8gdruveJSEkGaH2dYI4GhcMkscBDVkVDd4j+kQyRURm
+   HoI4qgch8o/IWMK5Q4idWmnNVUlhaKZczUqOpkFz+Rtr04N7UdgWem1sr
+   SqN3pFxgkcujbpYe6/Zulg2KGHtI/OHuZo6Ly6pIDfQCosQHcWGVdeDdx
+   VYVVLPnOE55rn3L87ii+YtH8nve5rbkuzben8lx9JgvTa3W3QAYfF1r9W
+   etw/Jmsj35LCpG1xAPheBjI3e81YpMOCCe8AnOhf8aADfxnOWJOD178Q9
+   dakdWGd5a54urq9FV/biSG8MZR8gZPr+1Dt3xfwtQGCbckKj8hMefOcPW
+   Q==;
+X-CSE-ConnectionGUID: dxWA0wcPRuO2D0VIzfSSZQ==
+X-CSE-MsgGUID: h8OOT8z4T/iKp5njtQ8iwQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11938"; a="1049618"
+X-IronPort-AV: E=Sophos;i="6.27,163,1787036400"; 
+   d="scan'208";a="1049618"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2026 17:47:35 -0700
+X-CSE-ConnectionGUID: 7QNb9IvsTCmVMcmTPGQv7w==
+X-CSE-MsgGUID: IT3zV5cIQzKxka3VbTtNMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,163,1787036400"; 
+   d="scan'208";a="2646600"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 17 Oct 2026 17:47:32 -0700
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xIF3h-00000000Juw-19NP;
+	Sun, 18 Oct 2026 00:47:29 +0000
+Date: Sun, 18 Oct 2026 08:47:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+	kernel@collabora.com,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH v17 5/7] usb: dwc3: rockchip: add USBDP PHY reset quirk
+Message-ID: <202610180841.U0qsol4i-lkp@intel.com>
+References: <20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: mediatek: mt6795: fix the FHCTL DDS mask width
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260912-mt8173-fix-dds-mask-width-v1-0-3d0c0292c85c@gmail.com>
- <20260912-mt8173-fix-dds-mask-width-v1-2-3d0c0292c85c@gmail.com>
- <88272aca-2a9e-4a75-b7f2-4f7aac8b6d18@collabora.com>
- <1j33ux8of7.fsf@starbuckisacylon.baylibre.com>
- <12e0953c-5181-45f2-b409-05163ab2a031@collabora.com>
-Content-Language: en-US
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-In-Reply-To: <12e0953c-5181-45f2-b409-05163ab2a031@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_160320_852654_5A849FF4 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20261017_174737_239982_C06D4FFE 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,30 +96,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/28/26 7:22 AM, AngeloGioacchino Del Regno wrote:
->
-> Please collect the changes that I've reviewed for this cycle... I'll 
-> start
-> sending PRs from the next one.
->
-> Thanks!
->
-> Cheers,
-> Angelo
+Hi Sebastian,
 
-Hi Brian, Jerome, and Stephen,
+kernel test robot noticed the following build warnings:
 
-Gentle ping, in case these slipped through the collection Angelo asked 
-for above: this two-patch series (FHCTL DDS mask width, mt8173 and 
-mt6795) and the related mt8173-mfgtop fix [1], both reviewed by Angelo 
-on 14 Sep. Neither is in clk-next yet, and both still apply cleanly to 
-it. If it's too late for this cycle, just let me know, and I'll ask 
-Angelo to take them in his PR for the next one.
+[auto build test WARNING on 8f56fdf3d8cb9f1dbdc93bf9ac816698aa6f70b7]
 
-[1] 
-https://lore.kernel.org/all/20260913-mfgtop-no-clk-api-power-on-v2-1-b84771a3d5bd@gmail.com/
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/phy-rockchip-usbdp-Track-PHY-power-state/20261016-204317
+base:   8f56fdf3d8cb9f1dbdc93bf9ac816698aa6f70b7
+patch link:    https://lore.kernel.org/r/20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f%40collabora.com
+patch subject: [PATCH v17 5/7] usb: dwc3: rockchip: add USBDP PHY reset quirk
+config: hexagon-randconfig-1000-20261018 (https://download.01.org/0day-ci/archive/20261018/202610180841.U0qsol4i-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 6719b9e31d6a93099612c474eec76d9f41d0275a)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261018/202610180841.U0qsol4i-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202610180841.U0qsol4i-lkp@intel.com/
 
-Best regards,
-Ryan Brue
+All warnings (new ones prefixed by >>):
+
+>> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 struct member 'dwc_rk' not described in 'dwc3_rk_phy_nb'
+>> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 Excess struct member 'dwc' description in 'dwc3_rk_phy_nb' (did you mean one of: 'dwc_rk')
+>> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 struct member 'dwc_rk' not described in 'dwc3_rk_phy_nb'
+>> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 Excess struct member 'dwc' description in 'dwc3_rk_phy_nb' (did you mean one of: 'dwc_rk')
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
