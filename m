@@ -4,71 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA35CCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 04:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5D1CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 04:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MP0xzrtUAIGCiQ3Vv4x3ZMb9VIotKDQUpwOcYx4Lefw=; b=P5c6WmCK7/Mvit/LDplIAvYNKU
-	0Awx7c3sJGtOZTNOJ/c1te5ngI8ytBdUVfHg5+fSM9STN8+6PxfnyYJJucY1JqRiPyBRh8uQ4jJjn
-	PC050LTpbd3nwAGIp/LfzucxlOAjXeE6RVFJ0nO1IjFdZSTf7ZEUnc69Qoz0B0YyRwl6lnmkU2lWq
-	jiDwQZPBD2uRuRLntrZU5JcprCGbnSzrEsAT0Ybx7tuYa47VQ+00uLXVdQzVU54+SKN6VTvWoHaiD
-	hUpv/DQCIuVIT5rIzdyny0ecsaDMWL5UUTl24tnHbXbe7cidosSANxx9pKu0ncSCgkTpwgdot1Nq0
-	F4Hi7wGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VWSV2lYeWe6uhtDKhgh0Nkoh2az0FS4A25FIOTm7cLg=; b=kUoATLL9JaMeu/
+	9gO4E4No749noeTfjxIaqldOjJ3Zq+h80ww8P5PmtVm9XrJRi7WRTP5JtLy9MWZ0VGHdtLEUjhQkd
+	GD/smAUFpZlp+5bQ0yRJasHa266ABbq8ifEinyE2+bvYrU24ASBpUW478frccJpT8ghbbk+dpo0wb
+	TsakaGV9C98YwzApK2MgMxJaCIHyNS898bkuZfId9r0FWX6Lw9MEeY9Q5rhoZ4AseAbhGGma0Z5CP
+	WOljAyGFsusIfymVW4LptYXAjeNYWL9XED/v6z4jEKpDIbbaM8MlzUsgFkIPLg5t01YnhXneV5Fhm
+	kKsG6VAQ5Vbc1OXqIx1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIIJ3-00000005Vjf-0iIt;
-	Sun, 18 Oct 2026 04:15:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIIX2-00000005WJF-4750;
+	Sun, 18 Oct 2026 04:30:00 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIIJ1-00000005VjT-43iO
+	id 1xIIX0-00000005WIa-16ml
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 04:15:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3CD94081D;
-	Sun, 18 Oct 2026 04:15:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32CB21F000C4;
-	Sun, 18 Oct 2026 04:15:23 +0000 (UTC)
+	Sun, 18 Oct 2026 04:29:59 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3ac91ac8924so676262a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 21:29:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792297797; x=1792902597; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=VWSV2lYeWe6uhtDKhgh0Nkoh2az0FS4A25FIOTm7cLg=;
+        b=RJhM6Ws9YA5KJURCsPLK3K/Z7fvpGZgd8B2V93OFLuQg9crQJSg8dgLWf7Sy0u9VkE
+         WtrrJeVIINHBSVXtImlxpWhhRJ9K9azUb5ozC2HBBeIRcGUr/7i1roon7fPz8Uy7wTV5
+         OZtjyS9Gfm7iBDpYkqgak97zzaJjFrEF6k/UqN0DFNNhIWa8R6ii1uffb/vohVKVBgG0
+         IJhND4FaedSC0TvxyJoAusHmIr+tDi+qGWRLgKPtQ3EqIfzZQEN5LHrLAZhY7PsOn08J
+         4FgOvnpB6DfmvzKquisl4LVTD37lw+63C3sLTZUF3DVcaxBo6ThADZt0DIJRhnokVoaW
+         0wjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792297797; x=1792902597;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VWSV2lYeWe6uhtDKhgh0Nkoh2az0FS4A25FIOTm7cLg=;
+        b=tG4O2XxnLEv2oYSLF3o+fKfDD2iHu5wx+lDeXDEAIfqpVd3LlsXkMAIHxM5bEE7DLP
+         uM6r4sKnEiYkSoT+xqqr0kksufJhs0soFbHI3dr5DxmQbtjvEOmddpnvsub4p1BQsyCx
+         urieHxHeF4RnAQXomrOl9+ycTFtMe83kssZ/Lyf+vRzvPPdnBs08W2vk7y7FLV9LvZKX
+         ZrGQt9Ds8lYQsLaVXPzQWefK29BXBQHX4LVpt4kZaRS1y2R2FBK3NbXWD35uPr9qeN3j
+         NqcHgT667ma9AiHMc/JwiQKc4hfIfvN8hx96EsJ8G5ehLOe0RQH80cSYzbK1W6zmEjIt
+         pRJA==
+X-Gm-Message-State: AFq9FYIDy/r5P2wZEUsFkdsUEBsK9HnfcYjADRg1AcdORKz5/nv0Ahy4
+	8yQEcgEFf8gdSSF6QpxbmZy4ojweM7P+WGDvvuixTBvyv6f97453syP1PRwXLw==
+X-Gm-Gg: AYBFou1UWSx8uVFn3DPNGoWO4qLxY9NvhgzLpTEhJpHRXp8AUm6mMRds3ipodY9xNQb
+	ItHTSjdA4wy9jJV5GNJbftYM7sXpU6Q5ecAUV3M4AOyaL9UOZu0hNacpLh51tj8ub0Zhzg4CCkC
+	6oGpMQhSYdZjKdhRqKsijM1kIjArf2Mc2fvQXaUFfSLIjPlyXVfDHA3/whJSY0BaJndC4Nu9EJV
+	LLubhc2atFtPyeMLtDHtcrN1jciJKs0eBnTdu6GMpKA6LA5pD5IRyztUOEpL3DXE/V57/d+AjCo
+	5yoxChhx9yRDm3Om31xN5Xt61L65ZYxF/k+vLaYGpUQfuO4g/Kj2ewPJrlCnMMyLhbfkqvUubG/
+	Br2FA2qNhGReklD6u8QoQr+Rmo7Ta9dvVxe2f1/otapXwN6yfPaNZVvASoQe07O7NdwybZ95PD1
+	R99oxsvXohLMn9G8QGvErg6EVR/7sVNQpQiAhURfngxibIg9k3Mq0ZU8h+FKmcIoM=
+X-Received: by 2002:a17:90b:5610:b0:3ac:8897:7b88 with SMTP id 98e67ed59e1d1-3acef5f43f0mr3344212a91.58.1792297797308;
+        Sat, 17 Oct 2026 21:29:57 -0700 (PDT)
+Received: from [127.0.0.2] ([2404:c0:7618:4e1c:8841:a092:12c2:47d7])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acc9e47588sm5885369a91.1.2026.10.17.21.29.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 17 Oct 2026 21:29:56 -0700 (PDT)
+From: Reza Kurniawan <imkyufie@gmail.com>
+Subject: [PATCH v2 0/4] Fix PSCI on MSM8917 and MSM8937
+Date: Sun, 18 Oct 2026 04:29:20 +0000
+Message-Id: <20261018-psci-fix-v2-0-35f65b59eb9a@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] PCI: iproc: Use __free(device_node) in
- iproc_pcie_msi_enable()
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- bcm-kernel-feedback-list@broadcom.com, 
- Marek Vasut <marek.vasut+renesas@mailbox.org>, 
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, 
- Fuad Tabba <tabba@google.com>
-In-Reply-To: <179229671563.2114.2272123769233816365.b4-reply@b4>
-References: <20260923180703.3901185-1-fuad.tabba@linux.dev>
- <179229671563.2114.2272123769233816365.b4-reply@b4>
-Date: Sun, 18 Oct 2026 09:45:13 +0530
-Message-Id: <179229691395.2114.1987475070162259066.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2144;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=T9fTdrsgg5r6oIEOtPR6BTlLWOX5OhYh+0fscoHJvIM=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq1EfbhorHqyd2sezkZqeA0gqx5kyIB7uVxjHZm
- IRPBrkADC6JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCatRH2wAKCRBVnxHm/pHO
- 9UKHB/9h+z2FrwH5xMEEYcUW+bPGdtfxl///RD9LpQR2hh3zxLsHRblNI3j1mbR2VoUKfUUJBS5
- PQxV3lb1W9cDQDYAO2EYg/mT0bb3Pw4ZWP+OLWXJq4tHQzNMzWrMypLYXdfcPhTuT9CXtSzGex7
- WTAfL93EF+mg9EStj9gLdqXjiQ9cXluJ1Oyw2kNSQf/XD93c6HeRhLrqIg0GnCOjVCuT7tdfeZL
- xmMwf03IRWXBn+TprsDhGevO0ZjgvaZ3PwIq2nlkHINgnByWXhOnOzg8dFCiIMI2ixzKqdkD6+c
- dHPV74SHjVnaSzVf+SwCjEFMrSJOaF/qEg9RJBJSvyo9F7MZ
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0WNQQ7CIBBFr9LMWgxQQ40r79F0gTBtx9jSQCWah
+ rsLNcblm7z/ZoOAnjDApdrAY6RAbs4gDxWYUc8DMrKZQXKpBBc1W4Ih1tOLnbU03CqpVK8h64v
+ HfN5Tbffl8Lzd0axlX4yRwur8e/8VRfF+2eafjYJxZtFqlA2edC2uw6TpcTRugi6l9AH3CMdds
+ gAAAA==
+X-Change-ID: 20261013-psci-fix-8a2c0d6266fa
+To: Mark Rutland <mark.rutland@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Christian Loehle <christian.loehle@arm.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Val Packett <val@packett.cool>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, Alejandro Tafalla <atafalla@dnyon.com>, 
+ Reza Kurniawan <imkyufie@gmail.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261017_212958_332084_3F5D321E 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +112,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-10-18 09:41 +0530, Manivannan Sadhasivam wrote:
-> On 2026-09-23 19:07 +0100, Fuad Tabba wrote:
-> > Declare msi_node with __free(device_node) and drop the out_put_node
-> > label and its goto: the scoped cleanup puts the MSI controller node on
-> > every return, as the label did.
-> > 
-> > No functional change intended.
-> > 
-> > Suggested-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > Link: https://lore.kernel.org/linux-pci/61488ddc-b346-4ba3-b32a-e972a3bd75a4@mailbox.org/
-> > Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > ---
-> > 
-> > Notes:
-> >     Changes since v1:
-> >     - Declare msi_node immediately before of_msi_xlate() rather than at the
-> >       top of the function (Jonathan).
-> >     - Kept Marek's Reviewed-by, since the generated code is unchanged.
-> > 
-> >  drivers/pci/controller/pcie-iproc.c | 10 +++-------
-> >  1 file changed, 3 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
-> > index afb3aa38ac6bb..bf455f2a9d9a9 100644
-> > --- a/drivers/pci/controller/pcie-iproc.c
-> > +++ b/drivers/pci/controller/pcie-iproc.c
-> > @@ -1338,13 +1338,13 @@ static int iproc_pcie_msi_steer(struct iproc_pcie *pcie,
-> >  
-> >  static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
-> >  {
-> > -	struct device_node *msi_node = NULL;
-> >  	int ret;
-> >  
-> >  	/*
-> >  	 * Either the "msi-parent" or the "msi-map" phandle needs to exist
-> >  	 * for us to obtain the MSI node.
-> >  	 */
-> > +	struct device_node *msi_node __free(device_node) = NULL;
-> 
-> As per cleanup.h:
-> 
-> "Given that the "__free(...) = NULL" pattern for variables defined at
-> the top of the function poses this potential interdependency problem
-> the recommendation is to always define and assign variables in one
-> statement and not group variable definitions at the top of the
-> function when __free() is used."
-> 
+PSCI on Qualcomm MSM8917 and MSM8937 advertises support for OS-initiated
+mode through PSCI_FEATURES, but rejects every PSCI_SET_SUSPEND_MODE call
+with NOT_SUPPORTED. The cpuidle-psci-domain driver treats this as a
+fatal error, so probe fails and the CPU PM domain topology is never
+registered:
 
-Hmm. I replied too fast. I think in this case, it is OK since the variable is
-passed as a reference in its first usage.
+  psci-cpuidle-domain psci: probe with driver psci-cpuidle-domain failed
+  with error -95
 
-- Mani
+This series adds a "skip-suspend-mode-switch" property to the PSCI node.
+When present, cpuidle-psci-domain does not call psci_set_osi_mode() and
+continues with the topology it has already built.
+
+Skipping the switch is expected to be safe on these platforms since it
+matches the behavior of the downstream kernel, which manages the
+cluster power level in addition to the CPU power level, just as Linux
+does when OSI is supported.
+
+Additionally, it also adds the property to the PSCI node for both
+platforms. For MSM8917, additional change is added to fix the system
+being unresponsive at idle.
+
+---
+Changes in v2:
+- Small phrase change in the property description
+- Added property check in psci_1_0_init()
+- Link to v1: https://patch.msgid.link/20261017-psci-fix-v1-0-dedae27e4a31@gmail.com
+
+---
+Alejandro Tafalla (2):
+      dt-bindings: arm: psci: Add skip-suspend-mode-switch property
+      cpuidle: psci: Allow skipping the suspend mode switch
+
+Reza Kurniawan (2):
+      arm64: dts: qcom: Skip suspend mode switch on MSM8917 and MSM8937
+      arm64: dts: qcom: msm8917: Use a shallower cluster state to fix unresponsive idle
+
+ Documentation/devicetree/bindings/arm/psci.yaml | 13 +++++++++++++
+ arch/arm64/boot/dts/qcom/msm8917.dtsi           |  9 +++++----
+ arch/arm64/boot/dts/qcom/msm8937.dtsi           |  1 +
+ drivers/cpuidle/cpuidle-psci-domain.c           | 16 ++++++++++------
+ drivers/firmware/psci/psci.c                    |  6 ++++--
+ 5 files changed, 33 insertions(+), 12 deletions(-)
+---
+base-commit: 2efb7a11f1aa4d2dc285fe2680cca22cb9f72f64
+change-id: 20261013-psci-fix-8a2c0d6266fa
+
+Best regards,
+--  
+Reza Kurniawan <imkyufie@gmail.com>
 
 
