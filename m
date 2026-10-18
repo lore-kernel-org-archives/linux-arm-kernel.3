@@ -4,151 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3610CCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 20:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83388CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 20:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=; b=m/JQVbbTAJP7YS4ay1gxRWpNSV
-	RPDogfDj3VlCV56aiMIpGtH+EvGOEd3JgzjhQT97SgwYNPtbCIPzwLkCNT1ejpQoDTHxNYHNQ/LWC
-	dydHUqnhQOUaSIYjmKX/cqqjSh2wvrEeD6f6aAa3emcmeefLlstk1rcNmXBTgq7M3UrLNv33QmGE3
-	euy+hFJsZnCJGPMbSrSVPbq0U/sH+th1wk+Fupor6u8wXq2xG4faA5JJLpJEeOqUHFzq3sVOO04DU
-	/KEZsiCL6RGZvqUHyf8RpCrYPNu48K5b9pT3NwPSGSrH7SItNSOeGSlIGZqbXN7+rdysWSESV8h78
-	vcwLmuzw==;
+	bh=Qjeya0IdQ3BzmDbZDR5yncWIDXEvsfN30Jepiufy56k=; b=3HqxEeZ3suBRc1mXfD+K70LJ5+
+	scEVB5B6FGvT1xojLhA/ygF9vXPLeajBdeB/FVXmQpbW2/ZepuiYUm/H2RLI+K9LW9wskdOekNsho
+	Q5XDmi0gaDAxg97n7SuwckVTrFeDrGkYz8O4kY5YlIwbCRDfkIJm9AyV9INJknzZegAY9eq3sbAR+
+	oGSORJGspoYU6QFoYAB1EA5nvPJzuZOO2UBwOXe2pfsV9qnAgNzZEfjC3OJ4ILqkmFRDSsMq5lYcq
+	FmxPRYLuMet3t4eYLvjKRXA1GO+9T91DhOYZHDb9D1PC7FPT3YzIKeL+RaHKXgfhKmFf2T9nQSBq3
+	l2erlvHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXpA-00000006Dfk-3cHv;
-	Sun, 18 Oct 2026 20:49:44 +0000
+	id 1xIXpo-00000006Dkc-0QDO;
+	Sun, 18 Oct 2026 20:50:24 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXp7-00000006DfP-15Vz
+	id 1xIXpk-00000006Dk0-3eTJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 20:49:43 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69IKAvVM1210430
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:49:39 GMT
+	Sun, 18 Oct 2026 20:50:22 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69IKApG4351687
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:50:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=rF1/ZI4OEGySchj6s9m7BogB
-	ZksKD2n+EkoLKNru8NY=; b=PIYa+lvIbTkIODfZiY4L8W6ZG+UezGxChljquqkr
-	tMjcgzv9csT53YZrAXEYba+gwwNYSgRsoo4pgepvBJD/OFFoTl+htQbPKpQYKOby
-	CjMtrdEFHqOm/wmnmHSfd52zep6WIFtIIwvG6aU2FQtdSEMQummh9+C+uvJfoE+b
-	KwNEv896uvNRdtjKtp6tlhNaiQh7mG8W04SLnExXBlPqDpqdXd12ImVIhbnDgn4x
-	CIxTxvFFGxZzjSCdYkUQFSImZkv19StU4fULbHhRVEs4rVZrOOIS3AlWaaUpn5B6
-	sMI6+aiCqIsorN1E89nAOzc0wqd5AvAWcKrul6dqoQqR6g==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hc0kxkxmv-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Qjeya0IdQ3BzmDbZDR5yncWIDXEvsfN30Jepiufy56k=; b=alPDUBmXZj67otSF
+	nWir/HmgR0gxkaq9xp6Blsw7Nya0qwRi1CBwOiPBMf0eMHnvVwQDhl5fdH4Ag/UL
+	LaA8KFy8Wj+qLHgKRVIP1Vaxj6VWDxhQbs/9tJnAiWfvyUhr368UuawqW8vnG7SS
+	ODCoO1dfucNZky2JVCE+IGAt/BYrSW+aLK/ICn9DQhApMT18Nskfb3r3TgXgPuBo
+	i4Mh/KCxROcs6gibcBeRmDPwcBiuc2DKpMOd0sHQ9sFwPi2U7Fuw6qzBziDRZlgC
+	Ki6jYeOX2lv6KKFD+Le25U9cMmGYoDBfzyQMugtnw0hiLx3KyPh61BlFrHw6PvCv
+	yYg+Bw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hc0bgm0u0-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:49:39 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cb71b1443so332250385a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 13:49:39 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:50:19 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f1f2fafeaso218749585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 13:50:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792356579; x=1792961379; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=;
-        b=JgCD051COje/0l0+JdmakxUbt8/JNDvfGPy0oVxEgWLLSB5l+aIMTbn08Wpt22eac2
-         sY7pkmmCqN5LuWVikvqfEghL2cLBhFIwpjX5vgM12kiTVHmy1JfsjAN1lmvJn+K46HPi
-         TxPcKn2La7vPujsqYMfygEDK6XN40UB4KX1pHhVKKbRsOqe5BmqPv2hBOQaWFfKzLrjj
-         QJ3TabLb+9zb0l/y+++D4lBUEGOvj1d5V5jPdraLywkt94RlL2gtzFxw1SZqhGYibrUF
-         iGxWh2PcR2oG5rF9y9i1hFBxf5IN5x5j9RHa6kfr3vPNbmj8vWcPb+vIUw0nBOKnaojy
-         drUA==
+        d=oss.qualcomm.com; s=google; t=1792356619; x=1792961419; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Qjeya0IdQ3BzmDbZDR5yncWIDXEvsfN30Jepiufy56k=;
+        b=MQgWj5Cp3lJMKmOPYbWUNYE5kxHEpZ/pkF8MraDx3jvfcyyOyfq7m6cX3fAHzDBmSp
+         NWswm5sSllJJxpxRHBWavmAouooC2ylT3XnNXjrpPVQJMVlEgINAGNoAwde9cp8QMs3t
+         TUkRbJ6H3mMjcMmCq0Y5qF8bcUyvCwxxTAyIiQ6juHWehLxLsDHMPuOc4FZvve6b3ugC
+         WRSg8KHY0htv5ZoA1ty2KFLeP6eUCIjHVakFfGxlnp0tc1sA0oRemzD1cwN36ujYKZdT
+         7f9Bh5bxfOpDRliU3ENaqg4XLSjHee1zLvOtyLiGHVqRFt5DeDHDGqLHR/vy5vrDEPxM
+         EhAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792356579; x=1792961379;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=;
-        b=ZyuKipSQIpI9dnYeG4mam6YD9SLjkgvrtYXL4YvIDfUpscuPiaK2LWlDf6pnfZ3IIA
-         KobkQStI5mw3S8ZSTc8cHJXNNXOd6SqFvjaEGOCsBJWtYBZbOHMIB6k9zeBV4Ec1jdRB
-         WiFGrkAFDT9htrx21qEdEW9LeEezeOPy42mQVCvlTtD75EiD7qudCL4iOEnW+kI3I85J
-         8TJXQQTsBn3CjAFG0hKiQoyQjs2rlFTJh+/XQdn1TQcxXlbX9moDtxAvtvwLyyLY6H8H
-         q96R27mZoc00TLS44lhlYlSVpADfmK/K4qkSvDGS3jrHffZ/qn4MZClTlHktkkVNz8n8
-         iI8g==
-X-Forwarded-Encrypted: i=1; AKwUvBzFeLk2iXlbaX63TJSOgnUt8vAiKx7p0Bcjvml/2ykSBk2DV0qDvH30PEukWWIpQY2ZI1LXyTzmCJEj61S+f9ud@lists.infradead.org
-X-Gm-Message-State: AFq9FYJfm9uNTCo7JyszIAcqhQ8GCye55UA/ga233Lpsol6fRZLLzlAD
-	vSd/adHWOL9sePc/aWHB/141tq8YTN3fmff+FLicktd09vmwFkQ1U+8+3p3LDUBWoPsLCdLMiKe
-	OvRgFuRbPAAJovUVeonNnEf/lEOmfuYKksx7qhOkEftuuwa9Os4pEjb2y6jZcrHhO3cMQVIQ+yJ
-	8I1Q==
-X-Gm-Gg: AYBFou21LHDpUAywPFOqnQk9eHKj1q+RHB2uE0svhDwvwqDmBv3X/fuWS+p5cMMvrwC
-	FN3Z72zqCz8LdbdgrGdhWdEnb013vWfPmdxqX9VIQWIO6nv2g6o4v35XVpkq5rRuag5qO1wuHvo
-	tYJFHKfHSNPoeTcFKoPtnxLZ6Jfpff35M6s+dZIHpwaNA/xhNnFR/cVZXuypQPZ8HcJr8LiXH/M
-	IB64+jlSPSgquKfRixg8KRaCc8i8Xwg1N7oRsa+jW/d/5A15pjpMYeq62iOiapHg38bkAoq9I9+
-	Y7CsWcUTcip/lxfYmoVyOjKva89q3sOFN/TKGkPNif/dMALVyYLVDmwOBR6sqgvZ7gxg+2adikT
-	nCyizTb5NsP2H/GWwfcmbsH80LVRYenvE0nAq5mFEdvagHNq64wJwy6I5subbnRv5F5o3nrIWZR
-	LQib+Of/yPc0Iv
-X-Received: by 2002:a05:620a:1d09:b0:93a:2d15:f84 with SMTP id af79cd13be357-93f29ce44b3mr995501485a.33.1792356578669;
-        Sun, 18 Oct 2026 13:49:38 -0700 (PDT)
-X-Received: by 2002:a05:620a:1d09:b0:93a:2d15:f84 with SMTP id af79cd13be357-93f29ce44b3mr995498485a.33.1792356578025;
-        Sun, 18 Oct 2026 13:49:38 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792356619; x=1792961419;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Qjeya0IdQ3BzmDbZDR5yncWIDXEvsfN30Jepiufy56k=;
+        b=V5FBzZMQvG6uNccUVQ2OANTEhMhO3s9Y3XvPKi3BeJ3HNKhz38m9nJ3WyjndusKHBB
+         zr7KKjCPoiVZF19qSnnhoqH2iyXVX8W77T1NxpuWNj6wLU/pEC3zhUzWhL0MWRx5mWVd
+         ylj7DHrxuKeBGYERGAapShFshmhqehMRA7xHmLkKTxonvmJ2VmfeRWoytlX4GGSA6Gkb
+         Wo5WUtVj8PeriOnoVz7X4MkJ8XvciilGNpsu7VdITZmK40y2HGBPhx9/hidWOaMliVc3
+         2G/BwVibG6KgKSHChv+AFAKTfABq6NEy8As6IGEuD6r/eTStDkTwbMNwvBzgzzzGo11j
+         sZ6A==
+X-Forwarded-Encrypted: i=1; AKwUvBxc18q7X1pCKWrgjZ+VCFcUuAuW0JrQ+gOujcW8G5C3AhGZmJgZvdgsEaOdp7F8shEUcFe/i6O1bU6tUcjtmKHJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ6mdRoculTSYpCa3LASqTb3DbREODd0cg2CSmRARFqiaqY5Daq
+	HwgO/Rq2e/mlc67+YTvaEVrwQsBkpBzyTaUjIrJx/T3HDWxBjloPdIqEMInd3lgR0V+cN/So0fI
+	mdFUCe8TIyivk1HnwQYD/2p6bbH5v1Bq1QyvNDNpKLWSeMmkRqHJToUvlahelcER3p/zoQcYCF+
+	k69A==
+X-Gm-Gg: AYBFou3QezDdnulyUybC7xt5YS6MVUaJvil54bcB4Uo8wdWD0lbJV9vF2nXX93YaCbm
+	qSR2C/LMYUb7wsulbF8fQHjAnUoWxhCeykS2NGUs6LaBB5fHxQw6sf2Heq4He9l7mbgACHAUl1x
+	Ur7nZ4bDJ0PN9eRML8fEJXRIlrFSeEh/Zw1JGgg1576obfLdqxIk+zssPiNGaQkbdr3v1vePWno
+	QGGVSpP2y112Z5pX+S3OVkXWqn+16tPK97cgETsrLMgkLBoEjfCWy5Xl7VC89kgzzQDmT7q/aNA
+	eqZV9gqyw+nd9SVXVtdNKN/jotRJ6j3aVOAlpjy/4rwhSNOIZDOTxvD+8p7DVVAv28seJmRgOKn
+	5otg1t1/rVmOOQhIVfBiq5iGKQGeQAvPRYZHPJtnVYUdxmv2ndHlclO3SJDBKMvsxfqQutOk8xo
+	XGdds8WUHaHnzP
+X-Received: by 2002:a05:620a:1a0b:b0:93e:e2a4:b0fe with SMTP id af79cd13be357-93f29dad8fbmr992433585a.66.1792356619125;
+        Sun, 18 Oct 2026 13:50:19 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a0b:b0:93e:e2a4:b0fe with SMTP id af79cd13be357-93f29dad8fbmr992430785a.66.1792356618645;
+        Sun, 18 Oct 2026 13:50:18 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be4a42aa05sm1566020e87.29.2026.10.18.13.49.35
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be4a63a2edsm1669525e87.68.2026.10.18.13.50.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 13:49:35 -0700 (PDT)
-Date: Sun, 18 Oct 2026 23:49:33 +0300
+        Sun, 18 Oct 2026 13:50:16 -0700 (PDT)
+Date: Sun, 18 Oct 2026 23:50:13 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Luca Weiss <luca.weiss@fairphone.com>
+To: =?utf-8?Q?Micha=C5=82?= Szczepaniak <m.szczepaniak.000@gmail.com>
 Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
         Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>,
         Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org,
+        Bjorn Andersson <andersson@kernel.org>,
+        Luca Weiss <luca.weiss@fairphone.com>, linux-arm-msm@vger.kernel.org,
         iommu@lists.linux.dev, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Subject: Re: [PATCH 00/12] iommu: qcom_iommu: implement support for instances
  on MSM8974
-Message-ID: <yyq4cza5oa35tfdcrm2re4jok7c5nbqy32s5hfceipjvaw52wl@kw4bqvdv6u25>
+Message-ID: <svmk5fixazvuzkkug3mvay72kah2kf73iptrrsc5tmjtqmpp6e@4663g2h5qumr>
 References: <20260809-msm8974-iommu-upstream-v1-0-87f5cd492560@oss.qualcomm.com>
- <DKL6P7G0WTM7.UJ6KZERQZDFK@fairphone.com>
- <iv5radfllym2bjvkrdu4ffs25bqixyos7k3ymncpcdtc2uobn2@zlhsybrj3pwz>
- <DKX384NK76OS.3NNOMAH72PV2P@fairphone.com>
- <ssleznoahzs4wgf5irjiagss2rjwl2s2jjnqrrnlpp74rdkgfs@au6x63ykyjfs>
- <DLBKL8SJL58R.2XQ76X6JILZ8E@fairphone.com>
- <CAO9ioeUEQ+kzBLj3KTv+uayaE-5aw-aL49-0pJ-x_Vwq4nu9JA@mail.gmail.com>
- <DLHFUAOHVWN7.1K596C038662Y@fairphone.com>
+ <1a469aa9-e4c2-4d13-b544-104f4065a14a@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <DLHFUAOHVWN7.1K596C038662Y@fairphone.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE4MDA4MiBTYWx0ZWRfX4K+8+DVgKJxV
- eqbE+lqbR1RNj8/0QlSvvZDgWlyVQEUbZCyOt66C+V+GqKoH3Ei9VUnYvh0LPXWiW12MkodG8LU
- bOnatozDMkqkYpSIclQ1dEPTfGNwlqI=
-X-Authority-Analysis: v=2.4 cv=JpZkP84C c=1 sm=1 tr=0 ts=6ad530e3 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1a469aa9-e4c2-4d13-b544-104f4065a14a@gmail.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE4MDA4MyBTYWx0ZWRfX6e6qUrcbIPBg
+ vcwIQTZYunt0KATEJ4v7bIy2Hf/VJxi0K+UNRJ8alkSAb/2oZkPvKU00vtPF3aI++HZU/Ciq3mJ
+ n2nRDWmQTbur9Q/apz/H+W+bLXbA+TU=
+X-Authority-Analysis: v=2.4 cv=FayiV5+6 c=1 sm=1 tr=0 ts=6ad5310b cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=bC-a23v3AAAA:8
- a=EUspDBNiAAAA:8 a=dlmhaOwlAAAA:8 a=6H0WHjuAAAAA:8 a=wqXmaBnu89AGqwwdg6oA:9
- a=CjuIK1q_8ugA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=FO4_E8m0qiDe52t0p3_H:22
- a=y4cfut4LVr_MrANMpYTh:22 a=Soq9LBFxuPC4vsCAQt-j:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE4MDA4MiBTYWx0ZWRfX+jHmuhSSSsyk
- LUc2rQggSoj6VKnsuIiIn0Fb/qqcfDdn5MFBIat0betrwmYCZxIRBoLW/01uZKw7qlZcYYxO6wB
- 0CXd3+s4DOSPvMjTKetISbGiayJ0mmjOJB18ad6TA3Y1/TKEymw0JmWta4h1KLP+6jU01pdiea5
- IHGvr1EE2LN0wBLRCf9g8JN4+yGQZPTMbB2KRAm51dVjaO+2TWIccggafv3ItQNImS0bmMRmSio
- XbXtJXydcyjMUatIByhsIhmVq+IlYvAo4mHfCm7U3JWVPrOHA5e9bD/x8a6pFng/mFI2O2cl+ns
- I+nv8JXeU8vyhk4ZMFzNcQlFTkc9tnrfFhypeKJLtSkyBUhwc2woV94iqXnF1PFjk4a+trGULlV
- DGkIt5Zx2cd/bynr1ePza/CIbalg1btRWW0rgA/WNqeB4VdPyYxH+16zwB87OvhEAiMho86YP99
- AUYLOuYSi+fEHQnhUWw==
-X-Proofpoint-ORIG-GUID: 7G_UXM939JVm0AZPn7umZL0tmXbwaCTZ
-X-Proofpoint-GUID: 7G_UXM939JVm0AZPn7umZL0tmXbwaCTZ
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=KAcPb9uwQpV6Y9LkPCcA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE4MDA4MyBTYWx0ZWRfX8j/2NSSIxShF
+ bZ1bT+uYyHc5SKKU7NXxlpkAhQUNPhtNnlKzmIpZ1wvNmGm87cKnaTV2aqLT2Ak03FFzQXt6epR
+ 3/oubWmCdLsFDWMqoE4MFtnNNN2FLcmtl7iUi3CVc7VLT9clbfp42fPRvmWmcoAl5ZFBM3sFWyp
+ U+Mz3w93JhuO5mWG5EQcHGhQ4CNL8HICRZ7U/uOY8DLd4c/scwrrFicPHhNnTfjYUaH15AXDQyf
+ Jpb/SkXc5ojk0I7D0I9TgfZg5JGk6RgoAudvP5wxpJPkrhk6cvOYeb+Yb4ITClbkCynt14Z7WgG
+ zMggFOwuhbgvAK0jDku7YrJUI2oGxYOa9dj8wpIvkkahE6zHtUTd3UE2dKrZEhyCq8umgA+DtXF
+ ThpCOHNUmduZb0R97h/PJ34SVKL+fZB1XwF7UZjcYb/B/7HyyKxA7pwnrowmd62JtEFGkOLm5z3
+ AkRSr2SB81t79b4oogA==
+X-Proofpoint-ORIG-GUID: eYpNVAQUVDMdZOxQnXrnlt2KmZaY412M
+X-Proofpoint-GUID: eYpNVAQUVDMdZOxQnXrnlt2KmZaY412M
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-10-18_04,2026-10-14_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 phishscore=0 suspectscore=0 malwarescore=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
- definitions=main-2610180082
+ spamscore=0 lowpriorityscore=0 impostorscore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 phishscore=0 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610180083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_134941_439863_118D97E6 
-X-CRM114-Status: GOOD (  45.10  )
+X-CRM114-CacheID: sfid-20261018_135021_637542_0C67B639 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,108 +157,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:11:27AM +0200, Luca Weiss wrote:
-> On Thu Sep 10, 2026 at 4:20 PM CEST, Dmitry Baryshkov wrote:
-> > On Thu, 10 Sept 2026 at 13:38, Luca Weiss <luca.weiss@fairphone.com> wrote:
-> >>
-> >> Hi Dmitry,
-> >>
-> >> On Tue Sep 8, 2026 at 3:28 PM CEST, Dmitry Baryshkov wrote:
-> >> > On Mon, Aug 24, 2026 at 12:04:57PM +0200, Luca Weiss wrote:
-> >> >> Hi Dmitry,
-> >> >>
-> >> >> On Tue Aug 11, 2026 at 2:43 PM CEST, Dmitry Baryshkov wrote:
-> >> >> > On Mon, Aug 10, 2026 at 12:16:19PM +0200, Luca Weiss wrote:
-> >> >> >> Hi Dmitry,
-> >> >> >>
-> >> >> >> Many thanks for working on this and sending this patch series!
-> >> >> >>
-> >> >> >> On Sun Aug 9, 2026 at 10:15 PM CEST, Dmitry Baryshkov wrote:
-> >> >> >> > Qualcomm MSM8974 platform has five SMMU instances, used by display, GPU,
-> >> >> >> > Venus, VFE (camera) and JPEG encoder. Each of them follows ARM SMMU v1
-> >> >> >> > spec, however they differ from other Qualcomm platforms in the
-> >> >> >> > implementation-specific registers and also in interaction with TZ.
-> >> >> >> > Venus, MDP and VFE SMMUs are secured and require programming only of
-> >> >> >> > CBs, while GPU and JPEG require full programming.
-> >> >> >> >
-> >> >> >> > This series skips IOMMUs which can't be tested right now (VFE and JPEG),
-> >> >> >> > and adds only MDP, GPU and Venus (although untested, it is required for
-> >> >> >> > display to work) SMMU instances.
-> >> >> >>
-> >> >> >> I do have a patch series (sent years ago to the mailing lists as well)
-> >> >> >> for CAMSS so I can definitely test this in the future.
-> >> >> >
-> >> >> > Ok, let's land these first, unless VFE IOMMU blocks display on your
-> >> >> > platform (Venus was blocking display on APQ8074 DragonBoard).
-> >> >> >
-> >> >> >> > Note, to get display to work properly one fix is necessary, [1]
-> >> >> >> >
-> >> >> >> > [1] https://patch.msgid.link/20260809-msm8974-mmcc-fix-v1-1-50f2dcf18d2e@oss.qualcomm.com
-> >> >> >>
-> >> >> >> I've applied this series on v7.2-rc7, with the extra commits between
-> >> >> >> that and linux-next for qcom_iommu.c backported so that your series
-> >> >> >> applies without conflicts.
-> >> >> >>
-> >> >> >> So far I'm stuck with the GPU not being able to probe, adding some
-> >> >> >> printk's shows that in msm_iommu_new() the call for
-> >> >> >> iommu_attach_device() is failing.
-> >> >> >>
-> >> >> >> [    5.971154] msm_mdp fd900100.display-controller: failed to load adreno gpu
-> >> >> >> [    5.972991] msm_mdp fd900100.display-controller: failed to bind fdb00000.gpu (ops a3xx_ops [msm]): -16
-> >> >> >> [    5.974073] msm_mdp fd900100.display-controller: adev bind failed: -16
-> >> >> >> [    5.974152] panel-s6d6fa1 fd922800.dsi.0: error -EBUSY: Failed to attach to DSI host
-> >> >> >> [    5.974230] panel-s6d6fa1 fd922800.dsi.0: probe with driver panel-s6d6fa1 failed with error -16
-> >> >> >
-> >> >> > See the patch [1], it's picked up for 7.3
-> >> >>
-> >> >> I missed replying to you, with this patch the display lights up again!
-> >> >>
-> >> >> Unfortunately the GPU still seems to have issues, I don't have a log
-> >> >> right now (I think even SSH was dropping then with a bunch of log lines
-> >> >> appearing in kernel log on screen). I assume kmscube + more complex
-> >> >> workloads worked fine for you?
-> >> >
-> >> > I was mostly using kmscube, but I can try running the CTS once I get
-> >> > back to it, sorry for the delays.
-> >>
-> >> Yeah, kmscube doesn't even work for me.
-> >>
-> >> Bootup works to a tty with screen on (mdss doesn't seem to have any
-> >> problems for me), but then as soon as I run kmscube the device shows a
-> >> few errors on the tty0 on the screen (USB stops working apparently since
-> >> my "dmesg -w" doesn't show anything) and a few seconds later the device
-> >> reboots.
-> >
-> > Interesting. I wonder if it's TZ tripping on the VFE IOMMU.
+On Thu, Oct 15, 2026 at 09:59:44PM +0200, Michał Szczepaniak wrote:
+> On 09/08/2026 22:15, Dmitry Baryshkov wrote:
 > 
-> Do you have any suggestions for me to try?
-
-I don't think the issue is on the SMMU side. I don't see any significant
-downstream difference between 8974 and 8974pro in respect to SMMUs.
-
-Try adding GENPD_FLAG_NO_STAY_ON to (both) oxili GDSCs. Also try
-manually enforcing the vote on VDDGFX (e.g. add a dummy node with random
-compat and power-domain pointing to VDDGFX).
-
+> > Qualcomm MSM8974 platform has five SMMU instances, used by display, GPU,
+> > Venus, VFE (camera) and JPEG encoder. Each of them follows ARM SMMU v1
 > 
-> >
-> >>
-> >> dmesg: https://public.lucaweiss.eu/tmp/fp2-iommu-dmesg.txt
-> >>
-> >> The SoC in my device should be MSM8974PRO-AA (a.k.a. MSM8974AB-AA).
-> >>
-> >> I know there are some differences for some bits between MSM8974
-> >> (Snapdragon 800) and MSM8974PRO (Snapdragon 801), which variant do you
-> >> have? Maybe that's relevant, also since downstream splits devicetree
-> >> based on 8974 and 8974pro.
-> >
-> > Mine is APQ8074, not sure if there were revisions.
+> Hi Dmitry,
 > 
-> Maybe /sys/devices/soc0/* or /sys/kernel/debug/qcom_socinfo/* has info
-> about the revision? But maybe it's also not useful. I checked a bit more
-> before and all msm8974-v2 downstream seem to have the same IOMMU config,
-> just msm8974-v1 (which was barely shipped?) has different configs. So
-> hopefully the SoC revisions shouldn't make a difference here.
+> sorry to barge in but I just wanted to let you know that I 
+> gave this series a try on the Motorola Moto X 2014 (victara,
+> MSM8974PRO-AC, PM8941 + PM8841) on top of v7.3-rc7 with the
+> msm8974-mainline patches and "clk: qcom: mmcc-msm8974: add
+> GENPD_FLAG_NO_STAY_ON".
+> 
+> Display (command mode panel) works through the MDP IOMMU. The GPU
+> works too: the Sailfish OS compositor renders on freedreno (Mesa
+> 25.1.8) through the GPU IOMMU, and I don't see the reboot reported
+> on FP2. I tried 3D acceleration, and it works without issues.
+> 
+> Hope that helps!
+
+Could you please reply to the driver patches with the Tested-by tags?
 
 -- 
 With best wishes
