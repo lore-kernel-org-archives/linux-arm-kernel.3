@@ -4,115 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18404CCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 05:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EC6CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 06:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMJIf3eDmeaMzHhnQzRW/7JZUIebuAdZzOruphxa9D8=; b=3o3sA6OoW9iTEj+jXdAv5Td/18
-	SQsqg0RM7fcZnYzu/j7f2YsLE0bvjTYzAn5LBGg54aqgZ+zk9t7eXwFXdsTc8AGMHwiQ7uWjpYpJG
-	neWHkAw2gHbwC/ZcZTdTaFQ8p3YR8CR0vAGyRPFcQdg2Fj/HisTzyY633hhfiWGd/XTOiNim9wKbV
-	fKZev0aPTf114NtLEKviW/dkBJcCC3faT0DXFQNoj5oxb96uJ2rBmFkaUqn7Isx4ed67Ta8Ufdtbi
-	xaD0DwbwgVMVBDdDmhmCfa7MgpODT4qMPtP/V2U84wFLb8dk6VF7JXCywt2n8dS3iLngH2UFut5M1
-	ELHtnJDw==;
+	bh=tCpwVytRBHG001ylJlx6CLpltdlyxsoct+VeDjqc/64=; b=eHwMm4bTh1Ksd1yIro7fHplvx9
+	X+1uNIprhOyO2HoGJFihY7DTHkHHwJoKoxVhU5oBoOwPDD8WPepI9omjENj6xN/9eVQc2f51bkUB2
+	4D27/SmdTey3wcBIxWMUiD2R1ysl1L73PjFION6BvHXOc+ckxqUn0Tlvpl5IU+/2XXoeGrpfNJOIK
+	t8JRnZTva8QHX4Q0AFLU3fH+AoHyTooZr/6VW+nc4MBl2AUl+BdtvCkIYK1Y4u+l1685AFZk2vFT9
+	FE9syG6sYIaBaOf6+oUN8FKzkp0eUPu8jUv6q1GxZ8ZQ9GOaDxc9M7f3R+lMEZwq8WBu5aDTg9FpD
+	UT6DTqOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIJuC-00000005bS9-1YGD;
-	Sun, 18 Oct 2026 05:58:00 +0000
-Received: from mail-pj1-f52.google.com ([209.85.216.52])
+	id 1xIKV8-00000005cy7-2k2p;
+	Sun, 18 Oct 2026 06:36:10 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIJu6-00000005bOc-2VCH
+	id 1xIKV4-00000005cwY-3OrO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 05:57:59 +0000
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3ab2cb8d577so1017663a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 22:57:54 -0700 (PDT)
+	Sun, 18 Oct 2026 06:36:07 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8a058315c79so231135b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 23:36:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792303074; x=1792907874; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792305366; x=1792910166; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pMJIf3eDmeaMzHhnQzRW/7JZUIebuAdZzOruphxa9D8=;
-        b=luSfvi2WrraKI6FpcQtcWMbKoADsJHR9tiCnDGrB+xmGrGDtqao1Kmag91cZLkDRK+
-         4SlJUxq0BTRwKjHskIykv4RGHSmbuIXkhrTuX8SV18MJFynsRPUe3u8oL1myiXLwdUiC
-         9S4xJUEXia7katrgBuBIsCQW/VpdB8aR21KD+C4S5pW8wBJILGI+q9N3UeFAEtGrHybf
-         7HbCE18/L3WJ3srcyLVVYw3WzMBBYzoQUfz0VU1PV0JsdsyK9Ta9YBZ2F977feKb8vpa
-         hSwHeYhQG92Q+oU3P/FTh8CSrMrpQ+tEVqYoIN5PJIm2e3l8L/+LuVxsI+hANvMhxlbi
-         Ly2w==
+        bh=tCpwVytRBHG001ylJlx6CLpltdlyxsoct+VeDjqc/64=;
+        b=S6sgD6MvJdSCNbi/dA0fSqyzPZH1rsV7mIm4DbNIbrUazItjyp7hgh9gUx+Gd46Y/R
+         ECfoZAkbgCNJgDf089Me/1G7CWBJn3zQVBGCy8AGrEEsyurgE2J7o20V7cslpBoQlWTz
+         STSuHhbEZKVyK1dKL8C1/dEJvJuYQkpk2CAlEGuvpR42pyKEvdBLmmb4icEAjI95EMuZ
+         t4CksuYzdpIzjCqIik3lxn/HTfAt4hc15qUJ7wKr/WKihZEWCxWdv8WiBjQ0VaL668f3
+         YFrv/GaeFWIhz8cdlPo9MUsi9Mdy/kw3Q3v0yCNsnPRu2mHRsvMXSxLEVlV2ixCpaoLj
+         Kkmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792303074; x=1792907874;
+        d=1e100.net; s=20260707; t=1792305366; x=1792910166;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pMJIf3eDmeaMzHhnQzRW/7JZUIebuAdZzOruphxa9D8=;
-        b=QdJAGogUdnTXLV61uY9pGgePc7OOJtAQiMblVXkX5CgxUw6U4/aXDuhgcsrz6jra7w
-         JlOnZkE0QIp60KLtx3vjQNq/Wz3unbDxMN1mlx5S+BwloPT/+FGhzDAAHkDySVYdILP4
-         OJpR33DtT4p3boMr1Bk1OYL9jJ0NcXF24DJp38f/PFCmtjA0Y2luQrPiufNpeQvtOGYN
-         f/Hw57qcyY42M2KfKDehdiFHmdw82zAIvxOPaD0HL5UvbhxfFW5dl1F28aJs3uRFXqaT
-         t6GHp9OchJZVynpTrieD92oup6T9qkI2YwUBLOiamq59E7vQsO4XWbNclmgQJyr+6kAw
-         MEaA==
-X-Forwarded-Encrypted: i=1; AKwUvByPw4E2MU3qjg0KnMYIF9O5JDlddYEB3Yvp+rdR+YHpQqPFop+s2K6PL4fFex6EtSkejzq9gqdGNwClFgEfyFUI@lists.infradead.org
-X-Gm-Message-State: AFq9FYI/3bgKrlEEXsh8glQETMmo7oR3pB9bf1po8JvIC5siSOO9p9Rd
-	ilircBt/VHNhIl2jPNkEQLmmUvZhdX8ukzpOim4n3yMQWIrGCE3nTBwB
-X-Gm-Gg: AYBFou3nCl0MMDHL4gY1b/bmvTDbwwaCLf5PRoeREXI2CFCBI7pJdJ0sjTG2+Gf24i1
-	aj3z+jAghm2vD+QwUyZtUVjrta+3rLZPlf8wVwQ4OM7T3wvtcfEjhGiGpj3kg3FasdyjM7oXzgb
-	6Me6LE/O0xTofRIzfZslYRf15BMRf5dghzJrw7cdKu+6LbhHlFGv4Z2wBdrPGct/F3zpGb9C2Bq
-	D9rVBOXTrFfoEaWLi5Z47CMMrtuMqrNef66w4cWmCzvoSIlCQCxwpi6Fqtgt3Y8soOVmnmtoMhn
-	vJoupeTk5ENC/2+cz13hyFBQIxgTAj4UUhgcLO2ZxxcDR+jI1GfTMyPb/QrbLDyAyIsyfOePoNS
-	/w1kfFwwXv8A3tJkrmmN+UOqIYNLDORcpGLoa2J5cN15BlNdcgg3lrn5AhRi3GVdKfM5orluw6M
-	FpqT2QCl1joSxFSc5UOWLQqzJlzDHr9Exy9Hno26BLEBp8aabUphJ7NhTn20nvsGjAvaGMxNG+T
-	MjM/gKyBoy4IEuecJDQb2ggNpEDs3ZNGklihExvvN2YMyYHETg+Eoia0psLOxz9jNJf6LgWmmwl
-	iXlA80yukfCBFDaoe2Z11UtWxeTjeW1Z+tVTJEf4xAHGg+8b2LcE23Yo
-X-Received: by 2002:a17:90b:1d4f:b0:3a0:ca1d:b40d with SMTP id 98e67ed59e1d1-3acef3ce33fmr3975115a91.55.1792303073667;
-        Sat, 17 Oct 2026 22:57:53 -0700 (PDT)
-Received: from [10.0.70.21] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acd0cde4fdsm5511292a91.4.2026.10.17.22.57.44
+        bh=tCpwVytRBHG001ylJlx6CLpltdlyxsoct+VeDjqc/64=;
+        b=IikpU95mQc6nUCbxuDmuDxko2/bwVtSDwOuSq7KlF275J3QXFCn1aG5cZcdBHBjf8d
+         t+MFLp2ea4sdrQFv5azzXKAYDFdXWyaUHquRzUukfeUDPpbK839FmRZVJTHf3HUnB+JE
+         twOB8aE8o8vkHPXsswV1arpllEXhoOdXCEDwEnUdC2U2VLAD8kDVKOMJ8RtcZGBvuRGN
+         z6/deCLmXustbUsGEzlpN/m6F6xryW8224yzcMYVCRmzS6srOGseXDocFqTqGDnUlRHL
+         vPqb1/Cv3Hc4+RZOqa85b8rkGLheGjJzue/4eM2kWrFeLW/CFLmFh7bG+mFzmMYSHJaj
+         D9/w==
+X-Forwarded-Encrypted: i=1; AKwUvBxy92pr/dYc+5zHmfunA+r+jEIBVOolR/XuDgKM6Wj+MeV36gt7oKnAUtmbjKxtDZLXjwD8KCcudbA5nnV6xvVz@lists.infradead.org
+X-Gm-Message-State: AFq9FYJjfzAIo6QJv2swLpSVIqdYolvpmVUFwhqv7tCx7QTjdaCgvGr1
+	RzwRw78VabPr1HsbrkVk60E0tkqi6E8RawuFLE1xZC7AVkOC+o35UQt4
+X-Gm-Gg: AYBFou3Nprtra2lKJlgd5pi09e5gOr6wkZsgBoogi0h2L+RIVC3d8dsYl0Pu8DB6w6r
+	ZlDtymmzQ+uvTkWgPtseiLQaoveSySWTmR0X/3Yg0DslhnEnBz6+TVplzjvN18zvh0U5v0cONTZ
+	9rARpay765eEnkyr1gzVXEUolf/5ANRkBa08OuIM3d8K+jA/mka/rd2m+HyMNkw7Qg9D9rljFHR
+	Z8v9TBSkw2PpO97NnT+BVYlHYCNkYWbj9ZCNwDBe4RKqdkT5f8fdxo15abkx1jEDUtGOZVmYmEf
+	gF/JeA6KfexRJK+eTkpYv849vm7i7O/QbwuS+2NKh/DoTSfKgqm+ZMK7Qo1uX3/OXTUiIgjtY+0
+	iz05xlFzQk4Rk2vb0WY2P3GtxpIEUr9wYX0RuM0Suw7LjlRBZmqGGfR3i0OH/09BWsHcNK8l3sc
+	AqV33UNQVlgs9x+Kb995JxY6RMg/RAGcXYQ8CuwtEdNwZCTmPr/0EHFLZSk5mgWGNfHcfLwRT06
+	r9oGeoy/YZbKFhljg==
+X-Received: by 2002:a05:6a00:13a0:b0:89e:ad95:e01 with SMTP id d2e1a72fcca58-8a04be6af1emr3279470b3a.46.1792305365889;
+        Sat, 17 Oct 2026 23:36:05 -0700 (PDT)
+Received: from [127.0.1.1] (2403-580b-35b2-8--43b.ip6.aussiebb.net. [2403:580b:35b2:8::43b])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f57653ea9sm2718874b3a.32.2026.10.17.23.36.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 22:57:53 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 18 Oct 2026 15:54:15 +1000
-Subject: [PATCH v3 21/21] arm64: dts: apple: t602x-j47x: Add
- speaker/headset jack nodes
+        Sat, 17 Oct 2026 23:36:05 -0700 (PDT)
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 18 Oct 2026 16:35:30 +1000
+Subject: [PATCH 1/2] arm64: dts: rockchip: Move SD card regulator to Orange
+ Pi 5/5B
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261018-macaudio-v3-21-abdff7741dea@gmail.com>
-References: <20261018-macaudio-v3-0-abdff7741dea@gmail.com>
-In-Reply-To: <20261018-macaudio-v3-0-abdff7741dea@gmail.com>
-To: David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- James Calligeros <jcalligeros99@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>
-Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
- patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
+Message-Id: <20261018-opi5pro-amp-v1-1-05c84e91bf6d@gmail.com>
+References: <20261018-opi5pro-amp-v1-0-05c84e91bf6d@gmail.com>
+In-Reply-To: <20261018-opi5pro-amp-v1-0-05c84e91bf6d@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Dennis Gilmore <dennis@ausil.us>, Alexey Charkov <alchark@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Kel Modderman <kelvmod@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2504;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=nr9+CGWG20c/KVGlppqHBL9R7cNwf/g9iBmeoDmHgmY=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFlX4vnkDzg9mCoWcqDjxoT0H5LPMpd8KQzJi39uzituw
- 3EwIuRfxwQWBjEuBksxRZYNTUIes43YbvaLVO6FmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
- jXSMdYwYuDgFYKonzGZkaH696/E3gdUNqtv36a7ffLLu7PqI1sLuRZn5AuecV22J9mH4seAo+80
- gXbd9iRv3zVguMP3KCd34U3KbTt6Ojz+emHaHFQA=
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_225754_642043_008A6D44 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20261017_233606_860560_9104F590 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,79 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M2 Pro/Max/Ultra Mac mini and Mac Studio integrate Apple-specific
-variants of the TI TAS2764 and Cirrus CS42L42. Add these nodes and
-advertise them to the machine driver via the sound node.
+vcc_3v3_sd_s0 switches SD card power via GPIO4_B5 on the Orange Pi 5 and
+5B, but the shared rk3588s-orangepi-5.dtsi is also included by the
+Orange Pi 5 Pro. On the Pro, SD power is not switched and GPIO4_B5
+enables the headphone amplifier instead, so the inherited regulator
+claims that pin.
 
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+Move the regulator and the sdmmc vmmc-supply into
+rk3588s-orangepi-5-5b.dtsi, which only the 5 and 5B include.
+
+Fixes: f47af8ebbe53 ("arm64: dts: rockchip: Add Orange Pi 5 Pro board support")
+Signed-off-by: Kel Modderman <kelvmod@gmail.com>
 ---
- .../arm64/boot/dts/apple/t6020-j474s.dts |  5 +++++
- .../arm64/boot/dts/apple/t6021-j475c.dts |  5 +++++
- .../arm64/boot/dts/apple/t6022-j475d.dts |  5 +++++
- .../boot/dts/apple/t602x-j474-j475.dtsi  | 10 ++++++++++
- 4 files changed, 25 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi | 14 ++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi    | 11 -----------
+ 2 files changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t6020-j474s.dts b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-index e3c2635d84fa..f39697490365 100644
---- a/arch/arm64/boot/dts/apple/t6020-j474s.dts
-+++ b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-@@ -46,4 +46,9 @@ &pcie0 {
- 			<0x300 &pcie0_dart_3 1 1>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+index 6e081bc06c..13351e4130 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+@@ -67,6 +67,16 @@ vbus_typec: regulator-vbus-typec {
+ 		regulator-max-microvolt = <5000000>;
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
++
++	vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
++		compatible = "regulator-fixed";
++		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
++		regulator-name = "vcc_3v3_sd_s0";
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_3v3_s3>;
++	};
  };
  
-+&sound {
-+	compatible = "apple,j474-macaudio", "apple,j473-macaudio";
-+	model = "Mac mini J474";
+ &gmac1 {
+@@ -218,6 +228,10 @@ regulator-state-mem {
+ };
+ 
+ 
++&sdmmc {
++	vmmc-supply = <&vcc_3v3_sd_s0>;
 +};
 +
- #include "hwmon-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6021-j475c.dts b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-index 9fe17f1f7f59..f8f776f9eb1e 100644
---- a/arch/arm64/boot/dts/apple/t6021-j475c.dts
-+++ b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-@@ -36,4 +36,9 @@ &pcie0_dart_1 {
+ &usb_host0_xhci {
+ 	dr_mode = "otg";
+ 	usb-role-switch;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+index fd0efa8d1b..615e914fdc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+@@ -39,16 +39,6 @@ hdmi0_con_in: endpoint {
+ 		};
+ 	};
+ 
+-	vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
+-		compatible = "regulator-fixed";
+-		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
+-		regulator-name = "vcc_3v3_sd_s0";
+-		regulator-boot-on;
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		vin-supply = <&vcc_3v3_s3>;
+-	};
+-
+ 	vcc5v0_sys: regulator-vcc5v0-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_sys";
+@@ -297,7 +287,6 @@ &sdmmc {
+ 	no-mmc;
+ 	no-sdio;
+ 	sd-uhs-sdr104;
+-	vmmc-supply = <&vcc_3v3_sd_s0>;
+ 	vqmmc-supply = <&vccio_sd_s0>;
  	status = "okay";
  };
- 
-+&sound {
-+	compatible = "apple,j475-macaudio", "apple,j375-macaudio";
-+	model = "Mac Studio J475";
-+};
-+
- #include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-index 32938a3bf96a..153899f1569b 100644
---- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
-+++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-@@ -73,3 +73,8 @@ &bluetooth0 {
- 	compatible = "pci14e4,5f72";
- 	brcm,board-type = "apple,canary";
- };
-+
-+&sound {
-+	compatible = "apple,j475-macaudio", "apple,j375-macaudio";
-+	model = "Mac Studio J475";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi b/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-index 926bb4ab77af..7f1faefcf9bb 100644
---- a/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-@@ -36,3 +36,13 @@ &hpm2 {
- &hpm3 {
- 	interrupts = <44 IRQ_TYPE_LEVEL_LOW>;
- };
-+
-+&speaker {
-+	interrupts-extended = <&pinctrl_ap 58 IRQ_TYPE_LEVEL_LOW>;
-+	shutdown-gpios = <&pinctrl_ap 57 GPIO_ACTIVE_HIGH>;
-+};
-+
-+&jack_codec {
-+	interrupts-extended = <&pinctrl_ap 59 IRQ_TYPE_LEVEL_LOW>;
-+	reset-gpios = <&pinctrl_nub 8 GPIO_ACTIVE_HIGH>;
-+};
 
 -- 
-2.56.0
+2.55.0
 
 
