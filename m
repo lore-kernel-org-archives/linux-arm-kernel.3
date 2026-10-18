@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BA5CCA490
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 23:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2404BCCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 23:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfACGKPe+h8nDKAZVwEcwCcmLmR66lsR2ZVXVM0MTwk=; b=RaEG4MSxRUIgo7anR5/k+88Nfu
-	JzIeTX9u2soxKhxCrALSmegE29Z02KLwJI9Mkq9uNfX4K6xZ4QijLBUajDCCiQ0t23zHSYXeXtDNi
-	R0iZHZ4E8Fb1mGDRBJDxxsLhvQBt3nxH3Qa84AofP2mihaq9MDy09fd5gvvEhPuLq9qoP8eMRoJut
-	2zdvFLgsq4FXSPIcMBJoQPWNpp+wGM/xLsNDlaey6MFHxgFxDiGUw8y9FDia9vlN9o0ZzQXjcZ6Z6
-	MjBJghILS7o3tpyJD2ut//msko3BnzfzuXY6lGAdh5em08VfrDhmYgR/eCJdzK80fsEJ4Q8touOXq
-	ajlQSyOQ==;
+	bh=d7lgpJVBTsYDOKCZp9reWWs+AKWsfF0gEALW6fOkYM0=; b=ViR2v13p26jGonoYZ5uXrh97vd
+	NmM7ctHNLnOYuHLrzGSd+1pRFrw4En5Qgw2pUkwF6495XlOUE2qX+iRWYGhwOfo8DXz3fLT6TZCsI
+	uKm73iWdiEeMSXpIGAhsAuRiWTWem8GEfsxFtDL2HqZ3aif9+0qXL6wZagbkdPRYW9thcchu8nP4U
+	VHjr5wdJxZXBa80ELI5ln9ADZ+T/yp50HZShi+0QhAzP2z46uuqGFSw166+CXMDcrx5jbY+MqtK4t
+	+TtmFlB7mOl2+LIbCggyS/63/1AXC2wUM70EQ/7nq5uqCLdxQd8K+YtoW5kaJY2x5tVTAxQFkBPE1
+	ciRuvAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIZwZ-00000006Ha6-2Wc9;
-	Sun, 18 Oct 2026 23:05:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIZzN-00000006Hgy-2gPN;
+	Sun, 18 Oct 2026 23:08:25 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIZwY-00000006Ha0-0ydF
+	id 1xIZzL-00000006Hge-2s9i
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 23:05:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B77AC411DD;
-	Sun, 18 Oct 2026 23:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033571F000C4;
-	Sun, 18 Oct 2026 23:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792364729;
-	bh=JfACGKPe+h8nDKAZVwEcwCcmLmR66lsR2ZVXVM0MTwk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RDhzf4vOwQ7Im6J4biLteio5aHEFnsOkSxqX8OQhAYON9Wy3OAoBwYY9NTG7IzNVP
-	 1s4R/DL9mVi71YEHjydDYoP6r2jV5dhKztw0iT8Nzt/2t5+FWA10SkZQvwnfEWI9pM
-	 aPXzExqHA94vH7Lun3e2MmNPEs9rAmro3aj5QUGHV21bO8+Gag0pjfAipubi4OQX/x
-	 otknxECxWSjbyLIVAYNIFlcyDtwpn2pLWev0imF0CHQwl9AWk2FVue7+rdcfmK7S7Z
-	 Lwg802s2blWuR8kqaMpEsxSrxf3T1zZ+smhA65Nr6zMTIBSfv7EKI6GwbHRxQashum
-	 VTF9+j6A8cHmA==
-Date: Mon, 19 Oct 2026 00:05:23 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Michal Simek
- <michal.simek@amd.com>, Conall O'Griofa <conall.ogriofa@amd.com>,
- <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <git@amd.com>, Sai Krishna Potthuri
- <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v4 04/15] iio: adc: xilinx-xadc: Drop unnecessary
- masking and dead code
-Message-ID: <20261019000523.1d43a8d1@jic23-hlaptop>
-In-Reply-To: <20261005094205.1045874-5-dileepkumar.nagavarapu@amd.com>
-References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
-	<20261005094205.1045874-5-dileepkumar.nagavarapu@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 18 Oct 2026 23:08:24 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4j7Dqk1l4TzKnP9;
+	Mon, 19 Oct 2026 01:08:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1792364898;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d7lgpJVBTsYDOKCZp9reWWs+AKWsfF0gEALW6fOkYM0=;
+	b=oT5cH/atrp9ovqdpuQIP7DfVGJ6SEhc4NYdWaebnlGknP6Lj0h/aCCi8/iTnwX5OQ9OZFb
+	3Q8h8LA/Dd8FervajaX1FzI80HpA4eYtTrsyyDzQzEP+PopebzWl5rYCY+0NTVany7lwK0
+	Lg6Xz1z9G3ULlVdx4CEvtumT8U0nV3yhIQlLM/v5cStHSL+hLtRxK//XUeYEu4U0Kg3B7F
+	RmNYQdpmFnCPXq1qg4OkqtAD3f3cJCH2j1sI/HN8bpaJLdxg98cSez1ROMcSvgSuLVxdMu
+	KhMZR869qV+ADdRnRqrTxtsCvYTZVusYgW5fKMu1tpR8Xc8QuwtSH/VzG3r5Aw==
+Message-ID: <63af69a1-3372-4986-90a8-395f0c0334db@mailbox.org>
+Date: Sun, 18 Oct 2026 16:04:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/8] clk: renesas: r8a78000: Add clk_hw to clk_map
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf Hansson <ulfh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <cover.1792163045.git.geert+renesas@glider.be>
+ <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
+ <51d8ba05-76e5-45ab-91da-3c6cb02505d7@mailbox.org>
+ <CAMuHMdVzX8fd4NDQi8ow0m+48g8p-LBHMysFi+fOqp1oDtT8LQ@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdVzX8fd4NDQi8ow0m+48g8p-LBHMysFi+fOqp1oDtT8LQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: e818b94e08cabca6903
+X-MBO-RS-META: mmgr5c94npbzb9imi9iunexn55pa6xbh
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261018_160823_895780_479A598B 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Oct 2026 15:11:54 +0530
-Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
+On 10/18/26 3:51 PM, Geert Uytterhoeven wrote:
 
-> Remove a no-operation bitwise-OR with zero (dead code) and the redundant
-> 16-bit masking when storing values into u16 destinations, where the
-> mask has no effect. Also remove the unused macros.
+Hello Geert,
 
-Hi Dileep,
-
-Why?  If they are expressing the rest of the fields in a register
-simply knowing there is stuff there an be useful even if not
-explicitly used. There are three approaches I tend to accept to
-such defines.
-
-1) Comprehensive.  Sometimes it is just easier to define anything -
-   particularly if codegen involved.
-2) Comprehensive for a subset of registers + nothing for the contents
-   of other registers - fits the above definition of useful by defining
-   what the bits we are leaving alone do.
-3) Exactly what is used.  I actually don't particularly like this and
-   prefer option (2) but I don't tend to consider it a reason to not
-   merge a driver.
-
-Now, if the stuff you are dropping is inconsistent across IPs or similar
-then that is fine, but say so here.
-
-Jonathan
-
-
+> On Sat, 17 Oct 2026 at 19:34, Marek Vasut <marek.vasut@mailbox.org> wrote:
+>> On 10/16/26 5:55 PM, Geert Uytterhoeven wrote:
+>>
+>> [...]
+>>
+>>>    static int r8a78000_cpg_probe(struct platform_device *pdev)
+>>>    {
+>>>        struct device *dev = &pdev->dev;
+>>>        struct r8a78000_cpg_priv *priv;
+>>> -     const struct clk_map *map;
+>>> -     int ret;
+>>> +     const struct clk_map_in *map;
+>>
+>> Super-nitpick, use reverse xmas tree ordering here if there will be V5.
 > 
-> No functional change intended.
-> 
-> Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-
+> I believe that's already the case. What am I missing?
+It is , sorry for the noise.
 
