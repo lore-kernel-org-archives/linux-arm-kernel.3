@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF34CCF2D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 06:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE602CCF2CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 06:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YcA1zj2YISkB4BPgDux4SbMcUShtHivbuZEW/fx56lM=; b=DCxlJKLHCbdicW
-	qYVJ/BnNCPOOveFcF0+5/YoRG5AC49kSHJjJeoYQTFsNF02oEcNnyIjZrVXx4zWvv2S0Paa8dRW1/
-	gQoeUYctL/oNC8CQVJQoFoVskn6BUWsrOAJNBB8t439tDtZtIWR/RZxSgvHj0dw1g33mQx/3I9afW
-	xrFUS86UfCTs/oTzsaFRsEEE3T2v6UPDjPF1jyLiOshHwJJ9g4MKgOeq8QNMs0ml+3XWdpTg/iytL
-	3wxE0D1ji3ACbTtJwtZDaKyA3w9Bwod8x3VlfWKUeV1oGZgykN5uC0bTUBb0BAwK8UQd+d9vX1jF7
-	VxczKtXfwfMXLMWWo6Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7foX2sltJUBrduQaVLWCnWkINXoCkL4ewEk5y5ZKQ58=; b=iX24z/4TUCxwLbgZowwumwkDOT
+	j54YF3xmDMxl1AHps+IwktubHqvrSvdbKUfPJG8ygTbeFfU9RP+hMfZwhx9y9kLLBVjKzuN8VC2y9
+	KCtUztz+Kf0IFHw/ShuEi3a+HWlOlagGBS73jUi+jRVu3BVQBaDX9RYlL8Anjyg25S6VrMrCsttkc
+	Kxd7NeOZvZhEkX3GTIMqIOski9hKXAtjqFxbScPqFIncN8W738f2Rx5hC/BDnZIhi3qEpAh3DIp/C
+	Th4a3GqxFHIpwtFz3WSuVw3k+uh8igaVTRk0JzrUnixqC9SqR4M8JiT7b+2hfndFg8BCDJHzeB+2m
+	R3RDI9jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIKV5-00000005cx2-1vc1;
-	Sun, 18 Oct 2026 06:36:07 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1xIKeE-00000005die-3qzf;
+	Sun, 18 Oct 2026 06:45:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIKV0-00000005cvg-1yGy
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 06:36:06 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8a06210b29fso39403b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 23:36:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792305361; x=1792910161; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=YcA1zj2YISkB4BPgDux4SbMcUShtHivbuZEW/fx56lM=;
-        b=ChZkXBoOBXMf2JFDXMMoBk10RMKngNXuo1ITpN2UkW9KSaTCXCU2K4I8ZUk1flqYD1
-         2ixOjZTcinf0vMUoBssU7amBR0WLNZJSmNCwWHyCh3ch9SewqKX1HlFdeFnnHfCuB5vI
-         V2PfI/P7v9mpakaPgFtQ9r8z2W0klVXobb/qFginN4wsCo0BMeIB91TSdvGbgrCt3unS
-         kdestFZaE4r8v/R0x8hayztyuw/7OolJKbwvFemtWgzT8EMt0KTonw1a72KMiFfQLRdl
-         YdY0zH8PsxSZF1vfvA/VNDSwJkYawlA5rSCNW64VwxNJ4KBkrbHKLIbPLhlzlGwKNHYq
-         7ETQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792305361; x=1792910161;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=YcA1zj2YISkB4BPgDux4SbMcUShtHivbuZEW/fx56lM=;
-        b=lwnRBYAc5ZmA9Uv+6XQDybKRgVDtPY4DA5FfTz1aGl9xzisvI9t43OQlAB4Kp9YYsG
-         p8wsccBWaow16+FAavcwLamj6OjnW8dXdjGHuD7el053z/BIGuSR2aVBGQ/hVpUTWGGg
-         jvIEopHwnjYyvs7E85qSir8bv/IAglZS1rMwdt5tcJnYMusALcBBZy7lg3vwI+WdomHI
-         0LOhsbzHX7gSlHaEzo20+p7/sR2HBI2WbC7NVlAb7ToAHCwan2L6fCx9HSAacBPNNL6v
-         IzNIPaUhcG3smFkD6rU+eEpWzSiy/AJNiJ0JDNGdb1eLUN84DzW1XUi+tRCFWk+0758q
-         lk8g==
-X-Forwarded-Encrypted: i=1; AKwUvBzT3/aosok5ll1YdjGH6E/QqiqVMcao7C7fyDOE1cB9N6uFzu2XGIoZT91kGZXcyk/cYFFJjnXAo/R3CYZ1IM+v@lists.infradead.org
-X-Gm-Message-State: AFq9FYKxJIgGAQPIOmuZrEDTgfNZKfX7u5SqUg2568pOxUZMrSPRR+u5
-	pIEkiROUaDnzbaYjWAR6ScS/ZaHGrxkEwvR9MRX3Z2VrxBKfIr1lZ8VY
-X-Gm-Gg: AYBFou1b1Vpzfz7Isp9R3fAZvFiL8QJay3X+WuXNqknQeZXVW/O/H/9VTWNA6HdK5C5
-	tyPzaHFjHecLfoZpupNlTQjTp20u0xTkC0G+j/DUVeDC7hUkQoDJqcZGZkRO4lWgfObNN5qBoxp
-	+9wVB+AD9ZMubAvKF2cyQU02ZRnfwTkIT/C+OlRJfe+e1Ey5hpuuOw6gV9y09SIaiUQ4ocB5H9z
-	v/4qN+TFYzon0pGgITVTr6qPo4d/lq+2nxgw0HhoSyzOXvFl3cHiyH+5YLdG5Kl6zzcYUCwHtiz
-	kAOkNwLQXNjAcBqocp4BTic722bElYMS+OfrLiWyzRiooz2TT+bJk/rkv0/yofLcuUhbSxZGPQE
-	fiPtOiijCgkZGD5GC9gjshGECPI015OOMcEm68fa7TwjoUNIufcKPefR6tjmlUXSBlLBXuO3Mvs
-	wl+fbTgPdRPTS2/4zOXpOG8NZ0Nd7Leh2kWtuAfabYlplqJEZCzampUkKkfjnqGyufzN9mS+CSe
-	Yj6Y7uiBm+qE3zjr48=
-X-Received: by 2002:a05:6a00:4404:b0:8a0:3ed7:93a9 with SMTP id d2e1a72fcca58-8a04d145e4emr3527900b3a.46.1792305361213;
-        Sat, 17 Oct 2026 23:36:01 -0700 (PDT)
-Received: from [127.0.1.1] (2403-580b-35b2-8--43b.ip6.aussiebb.net. [2403:580b:35b2:8::43b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f57653ea9sm2718874b3a.32.2026.10.17.23.35.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 23:36:00 -0700 (PDT)
-From: Kel Modderman <kelvmod@gmail.com>
-Subject: [PATCH 0/2] arm64: dts: rockchip: Fix Orange Pi 5 Pro headphone
- output
-Date: Sun, 18 Oct 2026 16:35:29 +1000
-Message-Id: <20261018-opi5pro-amp-v1-0-05c84e91bf6d@gmail.com>
-MIME-Version: 1.0
+	id 1xIKeA-00000005di4-2e76;
+	Sun, 18 Oct 2026 06:45:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56CD744500;
+	Sun, 18 Oct 2026 06:45:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320A71F000C5;
+	Sun, 18 Oct 2026 06:45:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792305930;
+	bh=7foX2sltJUBrduQaVLWCnWkINXoCkL4ewEk5y5ZKQ58=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Zogmw17uoSjVmvTpbTjGgSQHk/XQKQObiSDRXGOMLOqj8YxLEaWE4DCQwudfUyuzJ
+	 GEjLPRfApfAvyS6x9APx5Yr4MO9E5I5b3tCAZ13Dkxzy9mbt+Ekz4FsLZNlY/nKd2U
+	 HGStFM2SUZoqs2sWqHojVeCh/dswU9yY6cQkSWRrSmQYR3pZbp9SFVeSCJajUEv3SJ
+	 iWzKzWf9ZXpjSsIVp9Pj4sxX2VktaHgX/3fcJ3GC+2rWUAisjlXlQsKYqmQsJ5SeS/
+	 quS33+0yUAwrG7STT+Sqeo/LJ9sCsyXWivR63BWr+mj2518y1r7+JfT+BwB3K1Qirz
+	 tOmqHQkZZMKWQ==
+Subject: Re: [PATCH net-next v12 2/6] dt-bindings: net: pcs: add
+ rockchip,rk3568-xpcs support
+From: netdev-bot+sashiko@kernel.org
+To: coiaprant@gmail.com
+Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ david.wu@rock-chips.com, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 18 Oct 2026 06:45:28 +0000
+Message-ID: <179230592878.3135.12873232337699291552@kernel.org>
+In-Reply-To: <20261017054406.1828061-3-coiaprant@gmail.com>
+References: <20261017054406.1828061-3-coiaprant@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5AMBBA4avIrDWZUj9xFbGgBiOhTYtIxN0Vy
- 2/x3gWeHJOHKrrA0cGezRog4wj01K4jCe6DIcEklyhLYSxn1hnRLlZolaelKhBRSQiFdTTw+d3
- q5rffu5n09i7gvh+QkSvtbwAAAA==
-X-Change-ID: 20261018-opi5pro-amp-c46384700041
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Dennis Gilmore <dennis@ausil.us>, Alexey Charkov <alchark@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Kel Modderman <kelvmod@gmail.com>
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_233602_516401_55E601C8 
-X-CRM114-Status: GOOD (  10.20  )
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +75,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Orange Pi 5 Pro inherits vcc_3v3_sd_s0 from the shared
-rk3588s-orangepi-5.dtsi, but on the Pro GPIO4_B5 does not switch SD card
-power: it enables the headphone amplifier. With the regulator claiming
-the pin, the amplifier stays off and the headphone jack is silent.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Patch 1 moves the regulator and the sdmmc vmmc-supply into
-rk3588s-orangepi-5-5b.dtsi, which only the 5 and 5B include. The
-compiled 5 and 5B DTBs have the same nodes and properties as before.
+Low priority / nit picks for your consideration:
 
-Patch 2 describes the amplifier as a simple-audio-amplifier aux device
-on the Pro and routes the headphone path through it.
+- [Low] The new binding
+  Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml…
 
-Tested on an Orange Pi 5 Pro (Linux 7.3-rc7): SD card boot and analog
-headphone output both work.
+--
 
-Signed-off-by: Kel Modderman <kelvmod@gmail.com>
----
-Kel Modderman (2):
-      arm64: dts: rockchip: Move SD card regulator to Orange Pi 5/5B
-      arm64: dts: rockchip: Add headphone amplifier to Orange Pi 5 Pro
+dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
 
- .../boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi    | 14 ++++++++++++++
- .../boot/dts/rockchip/rk3588s-orangepi-5-pro.dts    | 21 +++++++++++++++++++--
- .../arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 11 -----------
- 3 files changed, 33 insertions(+), 13 deletions(-)
----
-base-commit: ae965b9856f033145e292b0c29082a26bcc45efd
-change-id: 20261018-opi5pro-amp-c46384700041
+This patch adds a device tree binding for the Synopsys DesignWare XPCS on
+the Rockchip RK3568 SoC. The XPCS sits on the APB3 bus and connects
+internally to the Naneng Combo SerDes PHY. It supports 1000BASE-X, SGMII
+and QSGMII.
 
-Best regards,
---  
-Kel Modderman <kelvmod@gmail.com>
+> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+> new file mode 100644
+> index 0000000000000..a331880eb11c1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
 
+[ ... ]
+
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3568-xpcs
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: APB3 bus interface clock (clk_csr_i), required for register access
+> +      - description: EEE clock (clk_eee_i), required for Energy Efficient Ethernet operation
+> +
+> +  clock-names:
+> +    items:
+> +      - const: csr
+> +      - const: eee
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - power-domains
+> +
+> +additionalProperties: false
+
+[Severity: Low]
+Should this binding let the XPCS act as a clock provider?
+
+The RK3568 CRU uses XPCS-named clocks as parents for the GMAC RX/TX
+muxes, in drivers/clk/rockchip/clk-rk3568.c:
+
+PNAME(mux_gmac0_rx_tx_p) = { "clk_gmac0_rgmii_speed", "clk_gmac0_rmii_speed", "clk_gmac0_xpcs_mii" };
+PNAME(mux_gmac1_rx_tx_p) = { "clk_gmac1_rgmii_speed", "clk_gmac1_rmii_speed", "clk_gmac1_xpcs_mii" };
+
+These are the parents of SCLK_GMAC0_RX_TX and SCLK_GMAC1_RX_TX.
+rk356x-base.dtsi passes those clocks to the GMAC as mac_clk_rx,
+mac_clk_tx and clk_mac_speed. Nothing in the tree registers
+clk_gmac0_xpcs_mii or clk_gmac1_xpcs_mii today.
+
+For SGMII on GMAC0/GMAC1, a board DT would need assigned-clock-parents
+to point SCLK_GMACn_RX_TX at the XPCS MII clock. This schema has no
+#clock-cells or clock-output-names, and additionalProperties: false
+means dt_binding_check rejects them. So the DT can't name the XPCS node
+as the source of that clock. Boards would have to use a fixed-clock
+placeholder carrying the CRU's string name instead.
+
+Documentation/devicetree/bindings/writing-bindings.rst says "DO attempt
+to make bindings complete even if a driver doesn't support some
+features". The commit message explains why the SRST_XPCS* resets are
+left out but says nothing about the MII clock outputs.
+
+Could #clock-cells (and clock-output-names, if needed) be added for the
+per-port MII clocks? Or could the commit message say why they are left
+out?
+
+> +
+> +examples:
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261017054406.1828061-1-coiaprant%40gmail.com
 
