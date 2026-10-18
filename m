@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF954CCF2CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 12:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0518FCCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 12:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZmygKiSqz+ADSHnLa4DiUmUVrmHybhmcAjGVUFB2P4=; b=JfyTpM/uk3loz1Z7VNl53SkhhI
-	pRliuiIlVSq84ZrtjmnLRPLam1vUv5fMZlNZaUp5gGyLQDrGTikGHeZP9f63Xu8gSCUij/cFV5KHm
-	VTY1KP8NtW5tQ82wjjZDT6TKsfmtqaCzOsJEDm17XBpiNpqzbhwNrLLcwmlwUjYAOFd+rf1/2Baz4
-	hVUf2PCHRJ64FDSraiOpVKzQUuepH8bZGVV0e8a4tusQPgUPOCL4AzshPMyWtbm8pQ0StwIn/zGgS
-	he/zOc2xpom6OLNiQE4wyDIrUlTiDJleZu4obdegm+O+i/wpWDFXazktvKIz0w/oDjEY9kruKgdFI
-	yv3SzX2g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GpPqZvPlIP3fXy4tW9d7V+mx955z5cVsFSY/eblWfwA=; b=QSTnUlhjWfKGnXlOyzX8r+Psaz
+	KkGUVyesHBFqr82YdKDp7w9H5B13nxNQU52edRdHGhj6H+erSLkDrjIIuwpFr+txzhd6uGbDjktTL
+	FLcALLzDyBmLMemJ7tgA9qGpXElqSTbFpnerRhsj4EeTB+QqEE8z+QEO+0thC6NKYgsbp2CBXff6y
+	hUTlB8ypPRO9ces5wzRKKe2QSLVgNBwA1y/JWxVmrcmCFipcH20jvttKIrNBiJPexHbEM/TjOFIUZ
+	Yw2KVqfASH6QKOMjW0JbLOdCWu7kEwPGrzQafpzIipv/AIjPPcXmW4t/9N7reQot8MUtlZFyNyVDx
+	gD/fMadA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQ44-00000005qaR-31Wg;
-	Sun, 18 Oct 2026 12:32:36 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1xIQ4K-00000005qhR-3W8T;
+	Sun, 18 Oct 2026 12:32:52 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIQ40-00000005qYX-3cKa;
-	Sun, 18 Oct 2026 12:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1792326731; x=1792931531; i=jan.claussen10@web.de;
-	bh=yZmygKiSqz+ADSHnLa4DiUmUVrmHybhmcAjGVUFB2P4=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=NXGf0WcJ6OXxalTv9mcMoKTCY1bjCjmvBDmXyW6be/5gYdtxPAbVr0JkQHyCYl5L
-	 FKVRn5lRFAD/YOGAQZFMh/QqDFEXRNhqXeFHu8Y3jxoN+Y2TFUPrV0Az+J9G2rZ6m
-	 DGb04BQ8oTfcvbBiQJsdKa5QMuLO4NocTMCIEuqqEaMZC6f/Ng+xcfLJHqlI2BjvR
-	 plNy2sEncz2qMDNJClimm9iz7n3utTDUdhpFUFmLa6szm0scrzp8BHX8nL3vshPS5
-	 jGlzx/SYpvpQYaCl4KNpbynHgY80fCQUdufyH1ASVaC8zKM08jsjqDj281PFfcCEY
-	 Fm8cJnA2QlUISCa4Sw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1M8Bvz-1xEpYm384J-00CQc3; Sun, 18
- Oct 2026 14:32:11 +0200
-From: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 6/6] drm/rockchip: dw_hdmi_qp: Advertise BT.709 and BT.2020 colorimetries
-Date: Sun, 18 Oct 2026 14:30:16 +0200
-Message-ID: <20261018123037.19560-7-jan.claussen10@web.de>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261018123037.19560-1-jan.claussen10@web.de>
-References: <20261018123037.19560-1-jan.claussen10@web.de>
+	id 1xIQ4H-00000005qen-0zmn
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 Oct 2026 12:32:52 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso14182245e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 05:32:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792326765; x=1792931565; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GpPqZvPlIP3fXy4tW9d7V+mx955z5cVsFSY/eblWfwA=;
+        b=HkmukWB6lSpJ7MgWUJnL4yBKD0CV87adFIQzRv2j0HX2geVcDnlpAc5sJl8GiPTdNb
+         3cqL7znPSgFjOwamA6H6RSHZothHUEvNw/smsVMmRhRxi2Wam/MCN1MEXqxgROFj7CaH
+         GZH+CAJ9tnW8x3lF2ljQsfuuFTcW9DVoiErQNGhpm1i9JbzxCLdWA+6rLn3lhDTeVtTi
+         XoVakt+ZcDlNCg9nH9Fnu+til0tkbCUGlOehWhki2lvkO4XW70sOreLoaSpcQtxSEu/z
+         ptJj8rmPs7WR3cCq8WJn49JuI7Dl+Zu+EIsnNHjm0QEho5MbuqvSVo4zJInQp6WwpAD+
+         Y4SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792326765; x=1792931565;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GpPqZvPlIP3fXy4tW9d7V+mx955z5cVsFSY/eblWfwA=;
+        b=ppZ6OOQqLZ7yIjO+cRxIOY5J+Y3Cn86fjMY10MYnznaQHqUpJKVKK2vP/7bYGoZnt0
+         U5UwCT/rS/FVRkFjYDwa2nKCSdyERcdMcoHIcEzIiylqfwuRIe+tWWEtNuWGeDoMqbyP
+         rrE5dSTpIo6QA0AFr4dMxLFuN4b2qJ6OXjhjjPO1PVBjqy3yfy4GDqdtKetJKhFuUGuH
+         w2Fy7tMayYvURm6/ccpTZKgDJ1egqSS9xXSQWmGBna0+Fqe8kwe2TsZ/prYooDoZcQNT
+         y6iJpc5ycf9K50zECpMB8ktvTMhizVA23RN+RjHt7rcFJfn40mjBWd93b6gr3lrGT1Ks
+         k0AA==
+X-Forwarded-Encrypted: i=1; AKwUvBxAAEib3wYlO07HAfrOQQ48jvA1Jgli2ffK5xsXiPC1LCjk+5/hsXejS8F8S0MHxC9RHSkY5d+Wt4/Lq45guQ+R@lists.infradead.org
+X-Gm-Message-State: AFq9FYJTGZyYHp1I2dKkulbDmQRNbZLNBCLm+4TBTJLNyqQtQ6zmFfSM
+	M8CIjDhDCtg6m2eGozihXRvGOfT8Crzet3YPErIVt6FTGgu1gvNhijUZwNvGgQ==
+X-Gm-Gg: AYBFou2ub1KhL5/Eyo/GupfluCI4ARw17mx/VwsaZg9fmm5ZD9DR6MLT1vhK5h/nlOq
+	woN7FP3/guLPP680qDC/e8eSKeoXuj0GFNlOTy4KvLzTZod83/C296KS3KCjpu8A9hRXJnRVT9V
+	DpBRhS8I8+NCCkHXDdsawIH75qpo2Ts69Evz1n3QTToJQLvqE3y2UPKyBBGyAhe6zWnHIBvtBsO
+	QoVqCMbjGl/xreJca/GxpiNxxzMBc6q6mmrd5/TWDwPf2VLE1ny2DjhezbplAlV604cKYkQq7Rp
+	OauJGlbTzxKOh4bpFIlQN924GkXLulueocOu9ZZcX/5cB5edRvW7coo7fHrxJmSDTnhdB4LJygx
+	qZ91t2hhOQwV9IVXJsUQQ6/Cmn2tGCLFh68Z61mR1j1J22O+bxSGkCaA3a2pOjefXiwR6fxUgqf
+	1yN8mGcc/ttNX6Xm29wUHeF8XqQAa7ANiu0iPe71YWkUHefyt7FUinodDy/0gE1oomYTWG5JHK5
+	NeEI50C+gSjExXqJh5MTy20JJcCi68NWuhjCrOSkQRuUUuh2N7e3rOpAqt6W08LHwyaOPoAEiSY
+	+mBFBbWJC2AGzzrLabM3ag==
+X-Received: by 2002:a05:600c:6992:b0:4a1:d7c3:d3d with SMTP id 5b1f17b1804b1-4a1d7c30dd2mr96288465e9.10.1792326765173;
+        Sun, 18 Oct 2026 05:32:45 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.66.71.207])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ddde4esm245012535e9.12.2026.10.18.05.32.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 05:32:44 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v1 0/4] arm64: dts: Mark Variscite i.MX9 I2C recovery GPIOs as open drain
+Date: Sun, 18 Oct 2026 14:32:23 +0200
+Message-ID: <cover.1792326585.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Yl0b3oIkfDSLuLblgvx+9K3NL8P1m4TMnp571Z3OwBEju4Ga0/t
- q4jIxpmAqIKuRgEIOhr9dpP0G1tWCX7kk3lFC2z+QoyAIV9a2iCCdI7KWaVNXuzh5XbU47X
- A0D0JiRLEPCqz9Cu8aNeC1z3uRa9mYnNYNE2IUWYxOuDRrqBFV81w4G343Qh5Mpe09xtl90
- oX5/A/rmNnnLCOgCOiXvg==
-UI-OutboundReport: notjunk:1;M01:P0:za1qdXZAlhc=;MxbQf88BB92tVszuaGznMjXCHtv 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
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_053233_214595_BB1D801F 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20261018_053251_155744_57D9CA7E 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,46 +109,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose BT.2020 RGB and YCC colorimetry so userspace can enable HDR
-output. Also explicitly expose BT.709 YCC as it is listed in the
-Rockchip RK3588 TRM V1.0-Part2 20220309 data sheet.
+The I2C recovery GPIOs on VAR-SOM-MX91 and VAR-SOM-MX93, including their
+Symphony carrier boards, are missing the open-drain flag.
 
-Tested on a Radxa Rock 5B (RK3588) with an LG OLED55B87LC in KDE
-Plasma 6.7.5: enabling HDR switches the colorspace to BT.2020, and
-disabling it restores the default.
+This series adds GPIO_OPEN_DRAIN to the SCL and SDA GPIO specifiers to
+match the I2C bus requirements and avoid the warning emitted when the
+I2C core enforces open-drain operation on SCL.
 
-Signed-off-by: Jan Clau=C3=9Fen <jan.claussen10@web.de>
-=2D--
+Stefano Radaelli (4):
+  arm64: dts: imx91-var-som: Mark I2C recovery GPIOs as open drain
+  arm64: dts: imx91-var-som-symphony: Mark I2C recovery GPIOs as open
+    drain
+  arm64: dts: imx93-var-som: Mark I2C recovery GPIOs as open drain
+  arm64: dts: imx93-var-som-symphony: Mark I2C recovery GPIOs as open
+    drain
 
-Not sure if BT.709 needs to be explicitly exposed here, but it is mentione=
-d in the data sheet.
-Might be covered by DRM_MODE_COLORIMETRY_DEFAULT though.
+ arch/arm64/boot/dts/freescale/imx91-var-som-symphony.dts | 4 ++--
+ arch/arm64/boot/dts/freescale/imx91-var-som.dtsi         | 4 ++--
+ arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts | 8 ++++----
+ arch/arm64/boot/dts/freescale/imx93-var-som.dtsi         | 4 ++--
+ 4 files changed, 10 insertions(+), 10 deletions(-)
 
-BT.709/BT.2020 YCC are untested.
 
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/=
-drm/rockchip/dw_hdmi_qp-rockchip.c
-index 9c4cf68d79d5..dbb87dfd000c 100644
-=2D-- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -605,6 +605,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
-v, struct device *master,
- 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
- 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
-=20
-+	plat_data.supported_colorspaces =3D BIT(DRM_MODE_COLORIMETRY_BT709_YCC) =
-|
-+				      BIT(DRM_MODE_COLORIMETRY_BT2020_RGB) |
-+				      BIT(DRM_MODE_COLORIMETRY_BT2020_YCC);
-+
- 	encoder =3D &hdmi->encoder.encoder;
- 	encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm, dev->of_node=
-);
-=20
-=2D-=20
-2.56.0
+base-commit: 31f9ec9f38735f42e1f0ba57347c420e56b99824
+-- 
+2.47.3
 
 
