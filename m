@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE4DCCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 15:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F28CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 15:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=; b=xdGYAYo/H9K8/ZKHs7zRSsLGJR
-	gIW9Y9Z5txC+7V8g5sixe0VPxl/ucWnc1lT81asJWcJfBE8q7Ly8icYWFVlOLNFgHGoa89rJ30iG3
-	Pu/UtIqpa8h8SwH6m+CBKVRLCj0IOgFmUTRqClWM8xIhiy6bgLQjTQ0495fQW2OUbl/dgIdvAxmwf
-	VXXWbWSKWdSQSlVaRrIvSfPTURBjqZLNUW6A1+pA+pw0JZiCdwoBzOTfC4jSiPaAJ53hARYlkIp7a
-	GiB1DeObiq9rEwfoCjbrDhoKneS4CelEZThFTS/EryP+Usr14rghouN6/takzT+fhgp8JF7yoQczn
-	hf/I0U1A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=349qNNoByqVYF++DU+sob8mJAJG0TZ1Jpek+vaeVwCY=; b=1TqzFNwNpjo3H1a4YgTNmXc9q0
+	lH5va7agMTrWwPkSnQdLcSYwjQDcuNWAY53DmnFxs6qXkCty1XL1cQxRpXWMPMexYyq91g7VkJzgG
+	/BKC1aevSLwGKuLq+MjII8IUGrJUC4avYhA1EzPah9MiDagDHdtwMdgfuaWfh5tt+PVxsTH+aSPBQ
+	7BLyPHOCCl2ST9V4a9Fa2I+MqPpzktgIFCQp0mE2E9zSeTQSQyN20OP6OMg1kc3p2xEgZ20X8yztG
+	al+lzUQGMOlIoPH1gZ4ROBZ2GR/2HA+Y9VKFmXwekciXHApY8qiP3+wq/d9d4Wc6OO/KFSWwRDtbJ
+	rBPR63fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xISNJ-00000005y05-3whU;
-	Sun, 18 Oct 2026 15:00:37 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xISNP-00000005y28-1zKz;
+	Sun, 18 Oct 2026 15:00:43 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xISNE-00000005xxg-2Gxp
+	id 1xISNI-00000005xyt-08ku
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 15:00:34 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a1e477fe16so2074885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 08:00:32 -0700 (PDT)
+	Sun, 18 Oct 2026 15:00:39 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49d0da752ffso10428125e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 08:00:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792335631; x=1792940431; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=;
-        b=dDWYm7j4X6C+Fzt23LpUqGgyWb68tojs7zgC/vZK/oYpRiu78hJtxYo8EBKyYvpcu5
-         G/rKu468zmfKXAUVmBUyGRsx4+ApH7YJ7flYDHCOrvLNUTCloUe7bBIIfOqmfNSrSX+b
-         vphzrKhGp/3P2jqTSlnKqN5n4sqhzH9leYN7/VgdQOphJO3eXmVNlz7/j5bLK6qZgfHw
-         MM5dCsru5Q2TET69IEIgVNwoORoJX3F0+Yxx72EN+fhT4kR5GbFEW6tZDU273jNYsBAS
-         x94D1c48OX7t+sb6Zkbhlx1LWO6uFIxWU68tvVg6Jrp7fXD/pl6BhrrCNcBVPNtDLJ7G
-         gUWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792335631; x=1792940431;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1792335634; x=1792940434; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=;
-        b=QtjVJVZbo0awnaKxSAst1DJq7e6uJ9RX+Jc1NXXonQSNBLWrYW/IFhd823P3xDv80y
-         AbApVma8kXpIv6gRgsD5Qn3NEdFbICwemlKfhx0lQf5WekoiHNfqXSMQDj8qofRfo1BP
-         YYskBUUUEH0xxoDorN7hXDqEZ1KL0A8OwE0U3mPjG7qqnQdcJEGoQSE8QI0L/1Ayj2iA
-         NFV+2VnjkkNneBIrgb/CmLYtJxKeR31aDl8BjuiWyTXoVDaQAGs4b7NOfgA1QuCIhtvg
-         7g5fyXXQp6pVQgc4LgZvJxGyHk3hFYYYkKHbs2fIVJ5nV18yYegZ+IkTE9tGaR/hsh40
-         jskw==
-X-Forwarded-Encrypted: i=1; AKwUvBzC3MnEbV3qb/Tt8+Rnn322pcS7TEa94Uq88N4ymNx05S14DqxZGr+T7t4tVk5E+SraUDDeSsOK9FwBGh+kHQAh@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ1KBk0pXVBs/cMCCUN7C76amZSoyNN1ErRXQlZHfidJ0NAsXqR
-	qDRkSsEfylT+uqfOsLGYX1wvz+GOz6936FAPUy1C95VZiheKo6Cr2zx3
-X-Gm-Gg: AYBFou2uomS6GGQ7mvs7piOaBw59BtaUCXtFnYqx3iwVMgmXUeUCVt40SLfsWa69Fo4
-	S3lbmolMyo2c4O7kbXny+8AkGzVOBNw78dygv/VhYZzljGfxFR5/L3aAiHFWpmFBRJuVuZEnVMz
-	ljS+oMm6dOwO72MWKX+MqnJEtZKCm6tvvVr7I5t3lUeY9TFCwke7SkOS5k3N8kSgtJdNizHAbl2
-	FiDDtp6g9EIZctvlpf7x9Ltm+8nQ6vznI04yruxqaL3b7MkVQUdksIp4kCF0yl6pJgHhkNmuID5
-	rhMAAnbMYQBrW+DVGyaCKL+Mu15o3sLXhsQtHarqJgToNiwYbHqGwBOzW6OtvatbGK/9KCb5dOq
-	Cm5lghwX83WD9kr6OSZlhcauxBnMQebXTaUHPvx8043fhVCERskYfnB5vp6Qb6bRr2f+bQ+8QDr
-	n0glTP4avXlAGUyN+gvs64HiOTCxGV/e8SiIpGJ78jgZ/o1Ug5rq79qnrqbHTDxnVamHkVQHBB5
-	kgRcR6gQXuZYKX8IhphGzfb5kvvm51JNrv0lJOAeyOeRA==
-X-Received: by 2002:a05:600c:c170:b0:4a0:1efa:c74a with SMTP id 5b1f17b1804b1-4a1d76060a7mr97201485e9.20.1792335630619;
-        Sun, 18 Oct 2026 08:00:30 -0700 (PDT)
+        bh=349qNNoByqVYF++DU+sob8mJAJG0TZ1Jpek+vaeVwCY=;
+        b=CFCi/E1uCPn+AuvOaK3uRjErpoQEr9MpTNKdFYW1b3zHI8LnL6zNitCmDBL+Vuy2WW
+         6BzFaoHgImXK2hNuAGQc6szGni2fLeymOGG6FqBIC8zzJV7Ch8kwd8qPJgxDdtme5vz9
+         LWh+kZZq7KUYwCb9a4zPgdKmrqeAxuRZbY07hElhAsoHu1HMn44UIZmFOudV9b0HH+mX
+         2Gon7ctOyVsl6QpitA4cOOITxEwjL7IYJRCW0sh31Qtzdw3IYBUHkDL5CE6A6/WfnVvB
+         qS/Pe47OdMCcTIiaZMqS4WWOYMEYUQ9Aymv71o8sGD8+XCeuvMjiaXvgDxRZFoTzs40q
+         O9WQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792335634; x=1792940434;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=349qNNoByqVYF++DU+sob8mJAJG0TZ1Jpek+vaeVwCY=;
+        b=JGfMWmNIxRZtQv83utKgH+wZcOGCyKEYxWiQxB5wuBO30+v8xlI+XUUNn7l+VL/ufw
+         +0Pqd/tzHsbgCN2C3ZfBDWfxwqTNcq0XUIACzI4EE4hcYSd7c5XnFcklJPBIfl5tD7ns
+         NEBR95Bry5p4RvlJanYbvn+9sZ4yUdpMwZv0Wjna3HTd+O//pQBije6AlpEBhTdOUZQJ
+         sYyEWUEkElbofvyON9wbpLPxPkp7JKx5IQMNK9Kazgx9AVqoQm/EoF4CB38Wb8X15xaL
+         H2XONCRlATLb1Wi8RV873q+uD1BKMvz54q3X6PjaOuPjjhmePTaKTyAW9tvn9TDkIEDA
+         fFMQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx8VGdMvT1oxfzSIk77w8t4XiJ1MVRn4SSidY/oX+eSvaNtC7Ty3vy+JIA7yhIXFU5cgfAVJqs0/0EMaxkQTosG@lists.infradead.org
+X-Gm-Message-State: AFq9FYKNP6D1FAxHtJGFBoL8r/5EEQh7LLonVQtPMoUGoamKZ/8lkfV1
+	33JA7hXDr0uTLcrnT6SUC/6fvTQvhiaRvB6Y99nBgqQRVL1Wsb88d1wp
+X-Gm-Gg: AYBFou38w1Y5ueYkWqyPo+2PAOqtnQT617lJMw9AsvrZWHtPyBEgBLe4CImt+hp286F
+	LgezZyMmAI6r0p2x1h26pChlRALX3mTUQMZPzs91tBPjryvRPQah9AFGwPwrIKFqS6hgm8GXsAu
+	Qqpetx58hPwI1cxvZw3XRwuKg0j615cjXdapNYxoEy5eIipexbOyC9kWSUvo7gNYD3skbZ3zG60
+	JOaCMu+Wd6mEBOpCmWb7Qf5WKSi0w2yl7pRX6x9gQgI4G5l4K9T0h1TXFuMpXlcvi0BvSwKV3Qq
+	a9deWJEerKgogSAn/AQyDr/LU8QNMqHRXwy4P2fCI5GpShnWTR7EIvlYlZGaDv9FWAopv2I8BEI
+	57zka6V595tvDDoB7DNPjn36jnJ2atUzAMjjx3vtOx+zaefcJ6zyVoSQEeIxU0adY/zRKdcExCr
+	x0MwbAV+MiikPOnCc0NtRFz+BxOsdQiWAWKn128iLi0497wYfp79N5P2FG9J4sD0y8YP+T7rDds
+	AtXfTB+IytCeX/YHlT/69Qzr2AikWDTZ1dLQxwXzbl4s7BRvGjlV/7o
+X-Received: by 2002:a05:600c:a05:b0:4a1:813f:2a57 with SMTP id 5b1f17b1804b1-4a1d7608058mr115503175e9.13.1792335634123;
+        Sun, 18 Oct 2026 08:00:34 -0700 (PDT)
 Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ad6245sm212868925e9.3.2026.10.18.08.00.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ad6245sm212868925e9.3.2026.10.18.08.00.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 08:00:30 -0700 (PDT)
+        Sun, 18 Oct 2026 08:00:33 -0700 (PDT)
 From: Sander Speetjens <sander.speetjens@gmail.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -82,16 +83,20 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	sander.speetjens@gmail.com,
-	pbrobinson@gmail.com
-Subject: [PATCH v13 0/3] Raspberry Pi 5 RTC driver
-Date: Sun, 18 Oct 2026 17:00:25 +0200
-Message-ID: <20261018150028.1047172-1-sander.speetjens@gmail.com>
+	pbrobinson@gmail.com,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v13 2/3] dt-bindings: rtc: Add property for Raspberry Pi 5 RTC
+Date: Sun, 18 Oct 2026 17:00:27 +0200
+Message-ID: <20261018150028.1047172-3-sander.speetjens@gmail.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261018150028.1047172-1-sander.speetjens@gmail.com>
+References: <20261018150028.1047172-1-sander.speetjens@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_080032_617532_6502AA1E 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20261018_080037_583157_3376228C 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +111,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Raspberry Pi 5 has a battery-backed RTC located
-on the DA9091 PMIC accessed via the I2C bus[1].
-Access to the RTC is provided exclusively through the VideoCore firmware
-mailbox interface (not via a direct I2C register interface).
+The Raspberry Pi 5 has a built-in RTC that can be battery-backed
+via the VBAT pin. When a rechargeable coin cell is used, the
+hardware requires a trickle-charge voltage to keep the battery
+topped up.
 
-As stated by jamesh on the Rasperry Pi forum [2],
-"There are no plans to release a public datasheet for the DA9091."
-So we are stuck with the firmware interface for now.
-PhilE also states that "The firmware needs full control of the DA9091,
-sometimes with extremely low latency,
-otherwise there's a risk the supply could just cut the power."
+Expose the trickle-voltage-millivolt DT property so the driver can
+program the correct charge voltage for board specific configurations with
+the attached battery.
 
-This series adds:
-  - a DT property for the charging voltage of the RTC battery
-  - the RTC driver that talks to the firmware
+The property is added to the existing raspberrypi,bcm2835-firmware
+binding (rather than creating a new RTC node) because the RTC is
+accessed exclusively through the firmware mailbox interface.
+We only $ref the individual property from rtc.yaml and do not
+reference the full schema, because the firmware node name does not
+match the $nodename pattern required by rtc.yaml.
 
-The driver and binding are based on (and largely taken from) the
-downstream Raspberry Pi kernel. The main changes for upstream are
-the addition of a dt binding property for setting the charging voltage and
-binding the driver from the raspberrypi-firmware driver instead of from
-the DT.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
+---
+V12 -> V13: No changes
 
-The driver supports time read/write, alarm, and optional trickle
-charging voltage configuration via the device-tree.
+V12: https://lore.kernel.org/linux-rtc/20261018143712.1040152-1-sander.speetjens@gmail.com
 
-Testing
-- Hardware: Raspberry Pi 5 Model B revC
-- Kernel: v7.2
-- dt_binding_check: passed
-- Basic RTC operations (read/write time, alarm) verified
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml      | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-[1] https://www.raspberrypi.com/news/introducing-raspberry-pi-5/
-[2] https://forums.raspberrypi.com/viewtopic.php?t=359073
-
-Sander Speetjens (3):
-  dt-bindings: rtc: Add missing type to trickle-voltage-millivolt
-  dt-bindings: rtc: Add property for Raspberry Pi 5 RTC
-  rtc: Add Raspberry Pi 5 RTC driver
-
- .../arm/bcm/raspberrypi,bcm2835-firmware.yaml |   6 +
- .../devicetree/bindings/rtc/rtc.yaml          |   1 +
- drivers/firmware/raspberrypi.c                |  24 ++
- drivers/rtc/Kconfig                           |  12 +
- drivers/rtc/Makefile                          |   1 +
- drivers/rtc/rtc-raspberrypi.c                 | 278 ++++++++++++++++++
- include/soc/bcm2835/raspberrypi-firmware.h    |   2 +
- 7 files changed, 324 insertions(+)
- create mode 100644 drivers/rtc/rtc-raspberrypi.c
-
-
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec9..dc71fd57834e 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -133,6 +133,11 @@ properties:
+     required:
+       - compatible
+ 
++  trickle-voltage-millivolt:
++    $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
++    minimum: 1300
++    maximum: 5000
++
+ required:
+   - compatible
+   - mboxes
+@@ -144,6 +149,7 @@ examples:
+     firmware {
+         compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+         mboxes = <&mailbox>;
++        trickle-voltage-millivolt = <3300>;
+ 
+         firmware_clocks: clocks {
+             compatible = "raspberrypi,firmware-clocks";
 -- 
 2.56.0
 
