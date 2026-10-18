@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D54DCCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 02:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8069CCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 02:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=quR7zaG5HvFKkoAcyflM6P6NFsJA2yI0PSyMysQvzs4=; b=PqQtdxcE+zoWdUYzuGdRaT4aR7
-	rKwBFPPFXCF/IDc1+p86SqxF87ty+M+yQ5Nut5BERKBpRK8FhIdGCSkSO8p12IlH8qR1RbddvaHQQ
-	mYKHESYHxblYBoi2/yznCdkNuKd6+fCztj5FCfqZ5oe9TGg/0ZihfoSLftx+fBxM4ucou0ced0Vx8
-	2gRezS46Eb7k+GPtUYJth7XVFDsFefOH5ltmXYTSjobLZif/ZwWf/9tosWHJ/7j7h9uwFzB3IrpcP
-	ef3qHIKXKw8US73hdoHdm1jBzVk4g+ru8yrFimirJvkMe169h8W0cxcSrQjhAxawwJXUovpO/r13t
-	mHKNzJ0g==;
+	bh=cOWgL4Y5aOSoL3opS9VqD9bwE2Ik8UunaS8+RLwbmv0=; b=Vpov+dF3XpVdRTFIZHWEGmJNln
+	M70l44AN0J2bvNScavRmz9CKGaprXMHC12Nujlif6TcnaMmU2YO7gAWAtWo0bxGnj1ra7/eHaIZA8
+	z1xRIVdR/urk7IB85GYLQDEd4BaSbX8yZaf2SYEh14Po8Aw85qHr9rOJGOpC6+l5fLd1q3Zu06h8e
+	8TIHFENiff8T9H68aYukx318GV1/KBXkpwmx3UWKG0/T4HxVhXa48ACxBedVzo4We0p/KzV1NsM0O
+	BB+W+KSTCfCEXJFBIbQgqCi+lESh5E2rGBHxcEtH15zSg2X43gbVTQ5qh2XQP9MgWuSbTK+cRfohy
+	BzhKjbVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIGNO-00000005RFg-3xZ3;
-	Sun, 18 Oct 2026 02:11:54 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1xIGae-00000005Rkb-0VJC;
+	Sun, 18 Oct 2026 02:25:36 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIGNM-00000005REw-0INL
+	id 1xIGac-00000005Rjl-0YJi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 02:11:53 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c3f10d2f255so78526166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 19:11:51 -0700 (PDT)
+	Sun, 18 Oct 2026 02:25:35 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c2a4e013a44so120582166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 19:25:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1792289510; x=1792894310; darn=lists.infradead.org;
+        d=bairaktaris.de; s=google; t=1792290332; x=1792895132; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=quR7zaG5HvFKkoAcyflM6P6NFsJA2yI0PSyMysQvzs4=;
-        b=cTQ3kdCI8ts/g5K2fg2b5lkMvE1ImecnwWm4lHnf/MQZdoUVbNWA5jY4b0prf1MHc3
-         vPWcA8T2C1C2wzu9YDOG2qnrG0R2gyyxlGGVA6Gpm6mQkjXm7AerpHJgPMW+yGgDGYIV
-         U4Livw9/Wl9zl6R/hk5dsIMD5zG6tXPUAGVyEU8MI1GIAUrv1QjNqeziWiwhC69xGOXx
-         36irSAMyVT6FFpfr4BWRYRIxdPH6gqoT6hQpVS+hzi00rl8EHZv0rKXztSk/l3h5Z1cJ
-         4kFuDjBU8fqfnqdAUOFHpsuFlzGpb9m9Te+qEQOUjssgPBCXMN63FN2KNp0WTl6PwTO6
-         VA8Q==
+        bh=cOWgL4Y5aOSoL3opS9VqD9bwE2Ik8UunaS8+RLwbmv0=;
+        b=wf6L5k31BbVnEuaYDaSFFEMfrW6576wxwHi9Q/MR9OGu2PfkdXruCU9wMqDkd5dpdY
+         wcYpkMWGHFK6CytTPOWcMu0toVLpbVf1vtZo6+a7I7JVzB0sYz7jSHhZUZaXADgonnJd
+         BdtmaE8riClMi8J5iphDZcmEHGmtN/vKZa2/Y3YkT1gTzdoiZzo1VLRPTXjG/JIfxH1c
+         5OaQVKUFEVaZkKr7HkSF7Tiv2R4/DNLAso8z+qOgUO8bBwckyFzB8c/0VfxC8/eBp3GT
+         FrOodl1YPJhym/y2ENujGSGMyEr+wbUifGHC/hrB2oQZd5pSiTTcVoSgPAFL/T12X1GT
+         /V9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792289510; x=1792894310;
+        d=1e100.net; s=20260707; t=1792290332; x=1792895132;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=quR7zaG5HvFKkoAcyflM6P6NFsJA2yI0PSyMysQvzs4=;
-        b=f+E29R9nFDHAz3UvI1/KLPnyPTv0toNAZRpqbR5j+t4A9PraiVcHDZziK4cm5emd8g
-         R6C/AxLaZ9iP2GLf2ZfwVw1Zf10YzlDh5/mRouksybohIsRikd8Ka7tl6nHhckNlUSAM
-         wZhujxtdMosDiQI/6QmDn+8SqArBzkd2wSDsGEYb3Iynoi71/mgkE6ZgY2XboluITcMP
-         8EsV8JL4iWwc8NIh25Ue8n2pG9TAB7+KdAXYPnaXlD1riJnHxsKrIqulGfRwQgVG11kc
-         nnn8cXVDD97+vcl9oEfOYaguRWDV7ZQ6wDbxHmwJxoLEGtUT5u0EDYSEsTK5TLXXhbyq
-         dXyg==
-X-Forwarded-Encrypted: i=1; AKwUvByrO0uMQxVwMGV+nK9H08zHucxx1I7P8tG5FzbsqcVNriuQYWsC5jpX/av3+gwGUCyIF2GvCO4iIaeK4Zrfa+eb@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ8L3cayEon2MvMdvrcC5D9N3VMXai/j8wFgGSXID90nh29l0hG
-	eaJAYwymp/cUi868sgEpw9f8s3OFpt2KZJ50xXm4gG6YkOPxMjfumS+R27PoMYWv9Q==
-X-Gm-Gg: AYBFou0b6+cjXI9sM0JjQnARdPlD67OjLzD6vqy4IYBikt+yFhUuy7gTYrA3IsG8MRH
-	ae0YGCyzZuc/qMokRmxLqknNpbXA7D032MrJXfk4+eiR/20ZAaUMe858Z/ykyCTmGdY9wS7srm0
-	axsjO9kwzitZg0w64c6b7MPAGeZZOOwZnQQfEn/D2ToYlRLLjEjfiIbMU1mAfrgjbq3JiBuTN09
-	LwNDvZobbkxXfTGnqP2JVkmTqtFLUMQLDQK1l6czA9dbdjFBz1UH3iBGHo8t4zccnpcLaFyY9Qz
-	dLNR5KobbHwNFYyPJXRFWai5WyGORcIo1mVPtVHJoCj265pE7JED3h6p99by7z4ionU20S1HdFt
-	6h+lU5Ul+47DBwwXAnI0igeDmUa4CcIxrp9UPMPWBfmaJE3PKGO2IE1MSQk/5htajq2nIk9AT/S
-	j/lbfiVQJ/OeLP3Ud3VxAXJiO8sYa2kHdkVUNkMqlrsITNYoRxFLDzgV29z0NUs5Yo9UPijk7/v
-	C96ccX9jG8gLTg1vVS5sn/v6eHVHwDEj6D0gjjF3t7mQrBxQMazf431Rj9wUkBwEIWhzm0pOjrn
-	rpxW3ZGOyrDo7UlSnn/e/BaSNQUWusCWWSNnnVrCglILA2Cri+xoxp9wD9b3WbsFlbmAgJjz+1M
-	3xDXaDLgP1Bik3e5TxppcXsY+b6vwNkqxR11CqEgflnI8lT4Fw1YPZXeDBXoWoDSkBzqvVdhI+/
-	LUgFQAyl5HoHqVziY0PdmXNO0MTW8bvVQWfJ4RFWwBHm/+zfjGwlcwr22E+Ox83nDSf2orpGXgC
-	q2D21It
-X-Received: by 2002:a17:907:c48b:b0:c35:d50a:1356 with SMTP id a640c23a62f3a-c41a08dc5fcmr283934966b.42.1792289509761;
-        Sat, 17 Oct 2026 19:11:49 -0700 (PDT)
-Received: from Desktop.fritz.box (p200300f247424f103187cc9af620d661.dip0.t-ipconnect.de. [2003:f2:4742:4f10:3187:cc9a:f620:d661])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4091eb1835sm224698366b.79.2026.10.17.19.11.47
+        bh=cOWgL4Y5aOSoL3opS9VqD9bwE2Ik8UunaS8+RLwbmv0=;
+        b=BqXfvsIeCnKXAIkUkzZRZcAqVfWxYDM8342p9//NZZYWTpAH+l/bbHQgoKEBWIn2Q8
+         oWZx+Q5Dkga05JrwbVXH4z97LdJZWETSqNV6tyiuWk6NJbKVTaLsl3B6neBYg/j5T1ID
+         HPBA/YZ5XhimN0UmQPsX2oI6p6qMm4yqFk1K9+AEjZ1P5XdbYlt4h64ghYg4K8shoo7W
+         xddrwS3tFg2rZMhpiWqJqBF5Ms9/JTztJcNmS93gpS3/9+UPglRcQGikjDAwoaOVmdl7
+         J+f3HdhK6yVaUu0wkAnz/Yy5VduOE7iqxP3Y6VvUqnzYp4EnLwFwLBC1QMIwbpVFC3vO
+         /Xrg==
+X-Forwarded-Encrypted: i=1; AKwUvBwS5F4XTSeHwnFibdGVHR7az7CLEwBKCfpCK2zhvyh9w8TfT4TO6EOydLqfw7+6x9Mc+/o4NM10Q0jM/32NPiSM@lists.infradead.org
+X-Gm-Message-State: AFq9FYIIm/4Cx4aTV4V0yPkCRejAhypPBTejTHdiLGgTRfIerc6nBrpl
+	dnBwx5vYrEMuvBP8n+dv2enH0kiLdKAN1Kttrm30FQkgGTfBSblKK0ld7C6orAQar9cZ4TpQgWx
+	0yfgBjZGr
+X-Gm-Gg: AYBFou32FafdiqZ0bTAniSgvWrWQfQ4aCVkmciA5FveDIP3ZsbUnyr47iZriXpWet1a
+	WUNOMdd4WKafZmwt4ZYzQOPwBztpd1VsG0458WbIntKS2CpXrWuf1plviImuYESRivZHD83KINF
+	VziylV0I7wwKnS0X15UwiMgdxJHVWprnlrNDYyN1bk3nD2sNhu3sNFRIO8/InBp+pf2GBM4FxaW
+	b3BrS3nEVBIJsoPTN4vIEFoUQRLAslXmTAs2DteSCmvSMB64pADSsSXEI4Bo8bnKbS5x0crUHsr
+	JSHPvg+cCqYFH8yRMc8TkYpgyARHpRDRYcchNQk408Cg6k21oVAFoqvNW60TlqN19VlTh/j9JFX
+	aWZ+y56oxKb+EwwJ71AGwqIhz4Wny1eRlmf0KYEiFsPl9c88/H8cOZdvvcFHxmhGlYpc+t8Vpwh
+	Yg1p+h/lwNFeff/Y0QN4/ZCK+qdMkFUjn8RdZM0+u/XvnV4w7OQ3S6w7NDSNzsRNohJcZTnEDxH
+	ebT5ehuR+kD6gZOoEUeXPh/FcR4fMkF2Pq9LeCQ9RSZKMnDx5Yaj9GqZHtjRKngVQYhO956PKN9
+	B8zxC+TMW1ILUZW6sS8RXSvkyQth5OLYkJnxuod6zsCf2kEQdUym2Fe6j6/W7TvHrWq9EeiMMK9
+	v6QRGarJtifeXHacDv92mGj0a+88DLK3pZHWCADTrAIG6TVInDVSUtE1nvP4efZHEG3oqrJQWIr
+	DR1yk9fj0R3g4h1rH7+CMpKbHbCtmrNDuru5DPHucbVjeN5ZJAfM5ahx3EgF4ytg==
+X-Received: by 2002:a17:907:e849:b0:c40:4320:de2c with SMTP id a640c23a62f3a-c419e73e2a1mr277700866b.15.1792290331870;
+        Sat, 17 Oct 2026 19:25:31 -0700 (PDT)
+Received: from Desktop.fritz.box (p200300f247429d100000000000000a27.dip0.t-ipconnect.de. [2003:f2:4742:9d10::a27])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c40913c4c5dsm222994366b.39.2026.10.17.19.25.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 19:11:48 -0700 (PDT)
+        Sat, 17 Oct 2026 19:25:30 -0700 (PDT)
 From: Julius Bairaktaris <julius@bairaktaris.de>
-To: pablo@netfilter.org
-Cc: fw@strlen.de,
+To: jianbol@nvidia.com
+Cc: pablo@netfilter.org,
+	fw@strlen.de,
 	phil@nwl.cc,
 	netfilter-devel@vger.kernel.org,
 	coreteam@netfilter.org,
@@ -104,17 +105,17 @@ Cc: fw@strlen.de,
 	mbloch@nvidia.com,
 	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH nf-next v3 2/3] netfilter: flowtable: carry a priority into the offload
-Date: Sun, 18 Oct 2026 04:11:45 +0200
-Message-ID: <20261018021145.3769432-1-julius@bairaktaris.de>
+Subject: Re: [PATCH nf-next v3 1/3] net/mlx5e: Ignore FLOW_ACTION_PRIORITY on flowtable offload
+Date: Sun, 18 Oct 2026 04:25:27 +0200
+Message-ID: <20261018022527.4065122-1-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <atQkUoH3aa-J5-vf@chamomile>
-References: <atQkUoH3aa-J5-vf@chamomile>
+In-Reply-To: <CAC1t37K0tEMzxmRhLeHnH-TPx61pZmCHt0xxTJ5Wq2Wxvzv8Jw@mail.gmail.com>
+References: <CAC1t37K0tEMzxmRhLeHnH-TPx61pZmCHt0xxTJ5Wq2Wxvzv8Jw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_191152_129172_56A75748 
-X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-CacheID: sfid-20261017_192534_213649_4073D5CD 
+X-CRM114-Status: UNSURE (   6.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,14 +131,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 18, 2026 at 03:43:46AM +0200, Pablo Neira Ayuso wrote:
-> I think we already mentioned this only works for hardware, this is a
-> no-go.
+Hi Jianbo,
 
-It works in software too. nf_flow_offload_forward() and
-nf_flow_offload_ipv6_forward() set skb->priority from the flow, see the
-nf_flow_table_ip.c hunks. The selftest checks it on veth, without
-hardware offload.
+v4 is ready with your Reviewed-by on 1/3, the rename to
+skbedit_prio.c and the consequence line. Pablo asked to handle one
+series at a time, so I will post it once the fdb roaming series is
+merged.
 
+Thanks,
 Julius
 
