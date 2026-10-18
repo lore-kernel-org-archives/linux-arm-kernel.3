@@ -4,65 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1942CCCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 20:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3610CCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 20:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K3vg7IqzjZiEQ62NPia2RyXT3ORHAoyMO+p50jGOtZw=; b=YJj6JH4iyh1MtIe83UpFMovRD/
-	ArA+Mchjf/RwfMeOf7ukjWwPAxWKj/tdHVKJcu/93IrjUHVtASIzyjcbSksKkPfm67jjAOXNnIU1p
-	gCzPThsMGxnBcqt8bgEFGhGOEc0hRDzHScc34ycU9HnWwinUxqYqEAvpQrtMIHCv7mzGFz4qpdyhM
-	Fnvl7gvbBAPlF/ExKuQ/MwKA0B09gxcM+gbtgkQ3lHYhfdKRngZpLMWfS1anTku/i//ic/LTHA7AB
-	Ll9gDpn6wJ/7Qr0yFG9/ajJnuV+qn6OnSPvmYZP4Y+WwhCc2nJxPaiS0tJJdeS4BXrM/UD9XWekTQ
-	ZMBmzGCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=; b=m/JQVbbTAJP7YS4ay1gxRWpNSV
+	RPDogfDj3VlCV56aiMIpGtH+EvGOEd3JgzjhQT97SgwYNPtbCIPzwLkCNT1ejpQoDTHxNYHNQ/LWC
+	dydHUqnhQOUaSIYjmKX/cqqjSh2wvrEeD6f6aAa3emcmeefLlstk1rcNmXBTgq7M3UrLNv33QmGE3
+	euy+hFJsZnCJGPMbSrSVPbq0U/sH+th1wk+Fupor6u8wXq2xG4faA5JJLpJEeOqUHFzq3sVOO04DU
+	/KEZsiCL6RGZvqUHyf8RpCrYPNu48K5b9pT3NwPSGSrH7SItNSOeGSlIGZqbXN7+rdysWSESV8h78
+	vcwLmuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXNP-00000006Cd9-11Qj;
-	Sun, 18 Oct 2026 20:21:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIXpA-00000006Dfk-3cHv;
+	Sun, 18 Oct 2026 20:49:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIXNN-00000006Cd1-3n6E
+	id 1xIXp7-00000006DfP-15Vz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 20:21:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 51D364012A;
-	Sun, 18 Oct 2026 20:21:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF8DC1F000C4;
-	Sun, 18 Oct 2026 20:20:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792354861;
-	bh=K3vg7IqzjZiEQ62NPia2RyXT3ORHAoyMO+p50jGOtZw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DN42uhjssBH86VQizcq5jBM/pAM5XiupkNkSlWnHTZxjUsb17kYByLHKkxkkceroo
-	 Ospc1wcLZnHmMoXh1HlQRyFFxqPGFFU7JM6McYvhA5pIvd4QC5En9m+/bv78D9AbM4
-	 VSPnCQY3CvOQ+E5u0Pq585FUTBtl5lnIZ1dxUDGTy676NAnSUxOUA5bOZo8mAE6hG8
-	 tERVSLls3RlCTRXt2jduw6obubdpKJzCfP8d2e6wSMtNZ496KeFMxiUHml7n0uGFBG
-	 fZhlV6uCZfK7c7TdDI5YZs421v85yOpSn6eua6appsTGcMuVrwpQLq8WjwkwY3t3/e
-	 5xeOZjueFgFRA==
-Date: Sun, 18 Oct 2026 21:20:53 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Brian Norris <briannorris@chromium.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, <linux-pm@vger.kernel.org>,
- <linux-iio@vger.kernel.org>, Andy Shevchenko <andy@kernel.org>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, <linux-stm32@st-md-mailman.stormreply.com>, David
- Lechner <dlechner@baylibre.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, <linux-kernel@vger.kernel.org>, Fabrice
- Gasnier <fabrice.gasnier@st.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 5/5] iio: adc: stm32-adc: Drop runtime_idle()
-Message-ID: <20261018212053.66b7ba14@jic23-hlaptop>
-In-Reply-To: <39d56818-922f-488e-842d-19a194654921@foss.st.com>
-References: <20261002230714.507921-1-briannorris@chromium.org>
-	<20261002160309.5.Ica1e32ae51d7975844386684d2b6a097f3ca9122@changeid>
-	<39d56818-922f-488e-842d-19a194654921@foss.st.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 18 Oct 2026 20:49:43 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69IKAvVM1210430
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:49:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=rF1/ZI4OEGySchj6s9m7BogB
+	ZksKD2n+EkoLKNru8NY=; b=PIYa+lvIbTkIODfZiY4L8W6ZG+UezGxChljquqkr
+	tMjcgzv9csT53YZrAXEYba+gwwNYSgRsoo4pgepvBJD/OFFoTl+htQbPKpQYKOby
+	CjMtrdEFHqOm/wmnmHSfd52zep6WIFtIIwvG6aU2FQtdSEMQummh9+C+uvJfoE+b
+	KwNEv896uvNRdtjKtp6tlhNaiQh7mG8W04SLnExXBlPqDpqdXd12ImVIhbnDgn4x
+	CIxTxvFFGxZzjSCdYkUQFSImZkv19StU4fULbHhRVEs4rVZrOOIS3AlWaaUpn5B6
+	sMI6+aiCqIsorN1E89nAOzc0wqd5AvAWcKrul6dqoQqR6g==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hc0kxkxmv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:49:39 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cb71b1443so332250385a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 13:49:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792356579; x=1792961379; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=;
+        b=JgCD051COje/0l0+JdmakxUbt8/JNDvfGPy0oVxEgWLLSB5l+aIMTbn08Wpt22eac2
+         sY7pkmmCqN5LuWVikvqfEghL2cLBhFIwpjX5vgM12kiTVHmy1JfsjAN1lmvJn+K46HPi
+         TxPcKn2La7vPujsqYMfygEDK6XN40UB4KX1pHhVKKbRsOqe5BmqPv2hBOQaWFfKzLrjj
+         QJ3TabLb+9zb0l/y+++D4lBUEGOvj1d5V5jPdraLywkt94RlL2gtzFxw1SZqhGYibrUF
+         iGxWh2PcR2oG5rF9y9i1hFBxf5IN5x5j9RHa6kfr3vPNbmj8vWcPb+vIUw0nBOKnaojy
+         drUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792356579; x=1792961379;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rF1/ZI4OEGySchj6s9m7BogBZksKD2n+EkoLKNru8NY=;
+        b=ZyuKipSQIpI9dnYeG4mam6YD9SLjkgvrtYXL4YvIDfUpscuPiaK2LWlDf6pnfZ3IIA
+         KobkQStI5mw3S8ZSTc8cHJXNNXOd6SqFvjaEGOCsBJWtYBZbOHMIB6k9zeBV4Ec1jdRB
+         WiFGrkAFDT9htrx21qEdEW9LeEezeOPy42mQVCvlTtD75EiD7qudCL4iOEnW+kI3I85J
+         8TJXQQTsBn3CjAFG0hKiQoyQjs2rlFTJh+/XQdn1TQcxXlbX9moDtxAvtvwLyyLY6H8H
+         q96R27mZoc00TLS44lhlYlSVpADfmK/K4qkSvDGS3jrHffZ/qn4MZClTlHktkkVNz8n8
+         iI8g==
+X-Forwarded-Encrypted: i=1; AKwUvBzFeLk2iXlbaX63TJSOgnUt8vAiKx7p0Bcjvml/2ykSBk2DV0qDvH30PEukWWIpQY2ZI1LXyTzmCJEj61S+f9ud@lists.infradead.org
+X-Gm-Message-State: AFq9FYJfm9uNTCo7JyszIAcqhQ8GCye55UA/ga233Lpsol6fRZLLzlAD
+	vSd/adHWOL9sePc/aWHB/141tq8YTN3fmff+FLicktd09vmwFkQ1U+8+3p3LDUBWoPsLCdLMiKe
+	OvRgFuRbPAAJovUVeonNnEf/lEOmfuYKksx7qhOkEftuuwa9Os4pEjb2y6jZcrHhO3cMQVIQ+yJ
+	8I1Q==
+X-Gm-Gg: AYBFou21LHDpUAywPFOqnQk9eHKj1q+RHB2uE0svhDwvwqDmBv3X/fuWS+p5cMMvrwC
+	FN3Z72zqCz8LdbdgrGdhWdEnb013vWfPmdxqX9VIQWIO6nv2g6o4v35XVpkq5rRuag5qO1wuHvo
+	tYJFHKfHSNPoeTcFKoPtnxLZ6Jfpff35M6s+dZIHpwaNA/xhNnFR/cVZXuypQPZ8HcJr8LiXH/M
+	IB64+jlSPSgquKfRixg8KRaCc8i8Xwg1N7oRsa+jW/d/5A15pjpMYeq62iOiapHg38bkAoq9I9+
+	Y7CsWcUTcip/lxfYmoVyOjKva89q3sOFN/TKGkPNif/dMALVyYLVDmwOBR6sqgvZ7gxg+2adikT
+	nCyizTb5NsP2H/GWwfcmbsH80LVRYenvE0nAq5mFEdvagHNq64wJwy6I5subbnRv5F5o3nrIWZR
+	LQib+Of/yPc0Iv
+X-Received: by 2002:a05:620a:1d09:b0:93a:2d15:f84 with SMTP id af79cd13be357-93f29ce44b3mr995501485a.33.1792356578669;
+        Sun, 18 Oct 2026 13:49:38 -0700 (PDT)
+X-Received: by 2002:a05:620a:1d09:b0:93a:2d15:f84 with SMTP id af79cd13be357-93f29ce44b3mr995498485a.33.1792356578025;
+        Sun, 18 Oct 2026 13:49:38 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5be4a42aa05sm1566020e87.29.2026.10.18.13.49.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 13:49:35 -0700 (PDT)
+Date: Sun, 18 Oct 2026 23:49:33 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Luca Weiss <luca.weiss@fairphone.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 00/12] iommu: qcom_iommu: implement support for instances
+ on MSM8974
+Message-ID: <yyq4cza5oa35tfdcrm2re4jok7c5nbqy32s5hfceipjvaw52wl@kw4bqvdv6u25>
+References: <20260809-msm8974-iommu-upstream-v1-0-87f5cd492560@oss.qualcomm.com>
+ <DKL6P7G0WTM7.UJ6KZERQZDFK@fairphone.com>
+ <iv5radfllym2bjvkrdu4ffs25bqixyos7k3ymncpcdtc2uobn2@zlhsybrj3pwz>
+ <DKX384NK76OS.3NNOMAH72PV2P@fairphone.com>
+ <ssleznoahzs4wgf5irjiagss2rjwl2s2jjnqrrnlpp74rdkgfs@au6x63ykyjfs>
+ <DLBKL8SJL58R.2XQ76X6JILZ8E@fairphone.com>
+ <CAO9ioeUEQ+kzBLj3KTv+uayaE-5aw-aL49-0pJ-x_Vwq4nu9JA@mail.gmail.com>
+ <DLHFUAOHVWN7.1K596C038662Y@fairphone.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DLHFUAOHVWN7.1K596C038662Y@fairphone.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE4MDA4MiBTYWx0ZWRfX4K+8+DVgKJxV
+ eqbE+lqbR1RNj8/0QlSvvZDgWlyVQEUbZCyOt66C+V+GqKoH3Ei9VUnYvh0LPXWiW12MkodG8LU
+ bOnatozDMkqkYpSIclQ1dEPTfGNwlqI=
+X-Authority-Analysis: v=2.4 cv=JpZkP84C c=1 sm=1 tr=0 ts=6ad530e3 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=dlmhaOwlAAAA:8 a=6H0WHjuAAAAA:8 a=wqXmaBnu89AGqwwdg6oA:9
+ a=CjuIK1q_8ugA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=FO4_E8m0qiDe52t0p3_H:22
+ a=y4cfut4LVr_MrANMpYTh:22 a=Soq9LBFxuPC4vsCAQt-j:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE4MDA4MiBTYWx0ZWRfX+jHmuhSSSsyk
+ LUc2rQggSoj6VKnsuIiIn0Fb/qqcfDdn5MFBIat0betrwmYCZxIRBoLW/01uZKw7qlZcYYxO6wB
+ 0CXd3+s4DOSPvMjTKetISbGiayJ0mmjOJB18ad6TA3Y1/TKEymw0JmWta4h1KLP+6jU01pdiea5
+ IHGvr1EE2LN0wBLRCf9g8JN4+yGQZPTMbB2KRAm51dVjaO+2TWIccggafv3ItQNImS0bmMRmSio
+ XbXtJXydcyjMUatIByhsIhmVq+IlYvAo4mHfCm7U3JWVPrOHA5e9bD/x8a6pFng/mFI2O2cl+ns
+ I+nv8JXeU8vyhk4ZMFzNcQlFTkc9tnrfFhypeKJLtSkyBUhwc2woV94iqXnF1PFjk4a+trGULlV
+ DGkIt5Zx2cd/bynr1ePza/CIbalg1btRWW0rgA/WNqeB4VdPyYxH+16zwB87OvhEAiMho86YP99
+ AUYLOuYSi+fEHQnhUWw==
+X-Proofpoint-ORIG-GUID: 7G_UXM939JVm0AZPn7umZL0tmXbwaCTZ
+X-Proofpoint-GUID: 7G_UXM939JVm0AZPn7umZL0tmXbwaCTZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-18_04,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 spamscore=0 phishscore=0 suspectscore=0 malwarescore=0
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610180082
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261018_134941_439863_118D97E6 
+X-CRM114-Status: GOOD (  45.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +163,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Oct 2026 14:42:51 +0200
-Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+On Thu, Sep 17, 2026 at 10:11:27AM +0200, Luca Weiss wrote:
+> On Thu Sep 10, 2026 at 4:20 PM CEST, Dmitry Baryshkov wrote:
+> > On Thu, 10 Sept 2026 at 13:38, Luca Weiss <luca.weiss@fairphone.com> wrote:
+> >>
+> >> Hi Dmitry,
+> >>
+> >> On Tue Sep 8, 2026 at 3:28 PM CEST, Dmitry Baryshkov wrote:
+> >> > On Mon, Aug 24, 2026 at 12:04:57PM +0200, Luca Weiss wrote:
+> >> >> Hi Dmitry,
+> >> >>
+> >> >> On Tue Aug 11, 2026 at 2:43 PM CEST, Dmitry Baryshkov wrote:
+> >> >> > On Mon, Aug 10, 2026 at 12:16:19PM +0200, Luca Weiss wrote:
+> >> >> >> Hi Dmitry,
+> >> >> >>
+> >> >> >> Many thanks for working on this and sending this patch series!
+> >> >> >>
+> >> >> >> On Sun Aug 9, 2026 at 10:15 PM CEST, Dmitry Baryshkov wrote:
+> >> >> >> > Qualcomm MSM8974 platform has five SMMU instances, used by display, GPU,
+> >> >> >> > Venus, VFE (camera) and JPEG encoder. Each of them follows ARM SMMU v1
+> >> >> >> > spec, however they differ from other Qualcomm platforms in the
+> >> >> >> > implementation-specific registers and also in interaction with TZ.
+> >> >> >> > Venus, MDP and VFE SMMUs are secured and require programming only of
+> >> >> >> > CBs, while GPU and JPEG require full programming.
+> >> >> >> >
+> >> >> >> > This series skips IOMMUs which can't be tested right now (VFE and JPEG),
+> >> >> >> > and adds only MDP, GPU and Venus (although untested, it is required for
+> >> >> >> > display to work) SMMU instances.
+> >> >> >>
+> >> >> >> I do have a patch series (sent years ago to the mailing lists as well)
+> >> >> >> for CAMSS so I can definitely test this in the future.
+> >> >> >
+> >> >> > Ok, let's land these first, unless VFE IOMMU blocks display on your
+> >> >> > platform (Venus was blocking display on APQ8074 DragonBoard).
+> >> >> >
+> >> >> >> > Note, to get display to work properly one fix is necessary, [1]
+> >> >> >> >
+> >> >> >> > [1] https://patch.msgid.link/20260809-msm8974-mmcc-fix-v1-1-50f2dcf18d2e@oss.qualcomm.com
+> >> >> >>
+> >> >> >> I've applied this series on v7.2-rc7, with the extra commits between
+> >> >> >> that and linux-next for qcom_iommu.c backported so that your series
+> >> >> >> applies without conflicts.
+> >> >> >>
+> >> >> >> So far I'm stuck with the GPU not being able to probe, adding some
+> >> >> >> printk's shows that in msm_iommu_new() the call for
+> >> >> >> iommu_attach_device() is failing.
+> >> >> >>
+> >> >> >> [    5.971154] msm_mdp fd900100.display-controller: failed to load adreno gpu
+> >> >> >> [    5.972991] msm_mdp fd900100.display-controller: failed to bind fdb00000.gpu (ops a3xx_ops [msm]): -16
+> >> >> >> [    5.974073] msm_mdp fd900100.display-controller: adev bind failed: -16
+> >> >> >> [    5.974152] panel-s6d6fa1 fd922800.dsi.0: error -EBUSY: Failed to attach to DSI host
+> >> >> >> [    5.974230] panel-s6d6fa1 fd922800.dsi.0: probe with driver panel-s6d6fa1 failed with error -16
+> >> >> >
+> >> >> > See the patch [1], it's picked up for 7.3
+> >> >>
+> >> >> I missed replying to you, with this patch the display lights up again!
+> >> >>
+> >> >> Unfortunately the GPU still seems to have issues, I don't have a log
+> >> >> right now (I think even SSH was dropping then with a bunch of log lines
+> >> >> appearing in kernel log on screen). I assume kmscube + more complex
+> >> >> workloads worked fine for you?
+> >> >
+> >> > I was mostly using kmscube, but I can try running the CTS once I get
+> >> > back to it, sorry for the delays.
+> >>
+> >> Yeah, kmscube doesn't even work for me.
+> >>
+> >> Bootup works to a tty with screen on (mdss doesn't seem to have any
+> >> problems for me), but then as soon as I run kmscube the device shows a
+> >> few errors on the tty0 on the screen (USB stops working apparently since
+> >> my "dmesg -w" doesn't show anything) and a few seconds later the device
+> >> reboots.
+> >
+> > Interesting. I wonder if it's TZ tripping on the VFE IOMMU.
+> 
+> Do you have any suggestions for me to try?
 
-> On 10/3/26 01:03, Brian Norris wrote:
-> > This runtime_idle() implementation was added in commit c537d3457542 ("iio:
-> > adc: stm32-adc: fix runtime autosuspend delay when slow polling"), to work
-> > around a suboptimal behavior in the runtime PM core. It should no longer
-> > be necessary as of "PM: runtime: Propagate last_busy from dependent to
-> > dependency".
-> > 
-> > Cc: Jonathan Cameron <jic23@kernel.org>
-> > Cc: Fabrice Gasnier <fabrice.gasnier@st.com>
-> > Cc: Ulf Hansson <ulfh@kernel.org>
-> > Signed-off-by: Brian Norris <briannorris@chromium.org>
-> > ---
-> > I do not have these devices to test. I have tested other drivers, and I've
-> > verified this behavior in unit tests as well.  
-> 
-> Hi Brian,
-> 
-> I've been able to reproduce on stm32 earlier behavior by applying this patch only.
-> With the full series, so far, everything seems fine from my point of view.
-> 
-> I haven't deeply inspected all the series, at least for the stm32-adc driver, you can add my:
-> 
-> Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> 
-I'm fine with this going through whatever tree you like
-Acked-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+I don't think the issue is on the SMMU side. I don't see any significant
+downstream difference between 8974 and 8974pro in respect to SMMUs.
 
-It seems unlikely to cause merge conflicts with other changes
-to that driver, but might be worth an immutable branch, just in case.
+Try adding GENPD_FLAG_NO_STAY_ON to (both) oxili GDSCs. Also try
+manually enforcing the vote on VDDGFX (e.g. add a dummy node with random
+compat and power-domain pointing to VDDGFX).
 
-> Thanks,
-> Best Regards,
-> Fabrice
 > 
-> > 
-> >  drivers/iio/adc/stm32-adc-core.c | 9 +--------
-> >  1 file changed, 1 insertion(+), 8 deletions(-)
-> > 
-> > diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
-> > index a42d82d61cb8..e9e113a46ccf 100644
-> > --- a/drivers/iio/adc/stm32-adc-core.c
-> > +++ b/drivers/iio/adc/stm32-adc-core.c
-> > @@ -836,17 +836,10 @@ static int stm32_adc_core_runtime_resume(struct device *dev)
-> >  	return stm32_adc_core_hw_start(dev);
-> >  }
-> >  
-> > -static int stm32_adc_core_runtime_idle(struct device *dev)
-> > -{
-> > -	pm_runtime_mark_last_busy(dev);
-> > -
-> > -	return 0;
-> > -}
-> > -
-> >  static DEFINE_RUNTIME_DEV_PM_OPS(stm32_adc_core_pm_ops,
-> >  				stm32_adc_core_runtime_suspend,
-> >  				stm32_adc_core_runtime_resume,
-> > -				stm32_adc_core_runtime_idle);
-> > +				NULL);
-> >  
-> >  static const struct stm32_adc_priv_cfg stm32f4_adc_priv_cfg = {
-> >  	.regs = &stm32f4_adc_common_regs,  
+> >
+> >>
+> >> dmesg: https://public.lucaweiss.eu/tmp/fp2-iommu-dmesg.txt
+> >>
+> >> The SoC in my device should be MSM8974PRO-AA (a.k.a. MSM8974AB-AA).
+> >>
+> >> I know there are some differences for some bits between MSM8974
+> >> (Snapdragon 800) and MSM8974PRO (Snapdragon 801), which variant do you
+> >> have? Maybe that's relevant, also since downstream splits devicetree
+> >> based on 8974 and 8974pro.
+> >
+> > Mine is APQ8074, not sure if there were revisions.
 > 
+> Maybe /sys/devices/soc0/* or /sys/kernel/debug/qcom_socinfo/* has info
+> about the revision? But maybe it's also not useful. I checked a bit more
+> before and all msm8974-v2 downstream seem to have the same IOMMU config,
+> just msm8974-v1 (which was barely shipped?) has different configs. So
+> hopefully the SoC revisions shouldn't make a difference here.
 
+-- 
+With best wishes
+Dmitry
 
