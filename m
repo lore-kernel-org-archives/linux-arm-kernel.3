@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307B6CCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 16:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86E1CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 17:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nu+Z7N/SsNbt+Rp62m67VzIkJ72Dt95OB9SPRFq2jcU=; b=QimYLIgfNgmNjsNtQiwskbAMvY
-	A5j8AoS4syE7qV/Kg9CLorqe0byIL2oi7wZvzAJT/ImcbVhqI7f22pbxiPqSqYUfwxcNgoLoBFUyn
-	A4JPgStCHxzYb8l37X1JDlRcb+v24Sqwn+m4Dql426UDckdkoSwIRpyDYwP3wP5rC1XSCDFbAb9x7
-	CjpJuyXbIIReJUlTJqJUcBNX05exzg87qmux6336Ck9kTXSuHOopAAgRmBHugtDpIcjA/IGTlY3hi
-	3BZvt9SEAtWEANWDxNCvQH+g7lg8J/GYc03Y9RrLFQm0iHvQWo3qY+hc+ziR6IQo0Ue5jgrcBhYt/
-	b3eLsWxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UqQp0/X3a9cfP9CawrgORU5i80U6c5G1RMObrYCGUFU=; b=YEGVKQAze8ip5oro5WJedeEA9/
+	kR6K3F2ihyK65WRiy/7aTI/32HfDXkkAv7avsp8sVueGAIJhuyxXPFgbRTJeNmx77J4xC7MsFMhIa
+	CfwAyF5bmbg9a/wPvde7H5S1j+QNCVQNtzSrKN0XjbmO1QlZgd70Wu5RPmD1+HAT4raKSX13fzCEM
+	D5uA3O2EFP9XlD1Z1RjtktCKwQQ9wn4Z+EnD4A0zHuQk9xotg0kbaJaMqwtakGEuF+O4iPXtWxg9W
+	l5rolsZ5P5iUtcw1fcX4tRcGFvniSpgG+j6WeT3JjN3rVL5DG18FJzr8SBPHfNrgUwc1rT0r3xhdg
+	PHU4lm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xITuV-000000063Hz-0mie;
-	Sun, 18 Oct 2026 16:38:59 +0000
-Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
+	id 1xIUF8-000000064DE-3FRo;
+	Sun, 18 Oct 2026 17:00:18 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xITuF-000000063Ce-1dyR
+	id 1xIUF6-000000064Cr-268a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 16:38:45 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1792341506;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nu+Z7N/SsNbt+Rp62m67VzIkJ72Dt95OB9SPRFq2jcU=;
-	b=VFuol8DsFV5KTwLNNvKXHLJFpF36BUETx362coC+B0ZcAMv69EIgkBH44z1sv5Nrdd4iYP
-	W9znWq7BELJopzJ6WA4bgsALNTZHwFO7dywF5li3F7UHmwx150wnnlTImZ8WFQmRw0NMU3
-	Ou0qk1+gV+6aiq2GbDoDyILMZtu/daQ=
-Date: Sun, 18 Oct 2026 18:38:11 +0200
-Subject: [PATCH 2/2] soc: apple: sart: Add SART4 support
+	Sun, 18 Oct 2026 17:00:17 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48b001cd92bso692830f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 10:00:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792342814; x=1792947614; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UqQp0/X3a9cfP9CawrgORU5i80U6c5G1RMObrYCGUFU=;
+        b=Jb9p3k+iE7wg1RifJGCgvqyWeO+1X08VxKcFn0CVREUjeDS2uWBR2eDjwDszW/PJUA
+         Ql7MCZJPcef8AMR4+Xec6wGQcnzHOV/B+MO9C7/tU8eoqiOXClMXmy28YTqe+5/mWH5h
+         hQj/jtUDqtvwxh8IvVO4wCVCETowht7wkacrNAHBpHzxZTKpi+7bUwZWoANXjj7C8zyP
+         xP76/Tsd+P+23teHWthq9CKhpVK+4pE8tahcMFrmncf643sxjs9M/nlUvgKMbfacc5TM
+         4scKPF0KD6GOVuDxTpWDr1CFbomVdwecNKRWsWIGq8idE7tIb2NJ0Kby9yRgLsfEfAbU
+         XW8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792342814; x=1792947614;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UqQp0/X3a9cfP9CawrgORU5i80U6c5G1RMObrYCGUFU=;
+        b=h7BGneP9YVrQprQ9piU4onJTIBBG4SHJr1E69MAVvcQeZ7esGERr1XJVGLYR8I6P5X
+         IEW/+43QDJi4lxJf0k88xbCSEBp0RZCtwgDxQKVPvPapcqPK2NgCc5G+ruYKoZD90HNF
+         TY17I4uNTEr09rSxUToWlYOZceunbza3Wn6OhScpdFn/asH+rVdNAMFjXd5wBrAdVIFe
+         KqIw0/a/mCwvgUxfPm+i4YO6eXVwITW3kvltoTyAwGcrDfbWZ5pB9w2hKM/WEsu8R5q+
+         cs12OsGwZKYT900UnnDy9UKc7SlNH8frxpWnfFi4ZlTZkrWkde8iCjXR06Tl2fhu+sMP
+         Uk+w==
+X-Forwarded-Encrypted: i=1; AKwUvBxC3DXh0SloxwKXY3e7TeqTiITzmcEu5T222KLWn3c+/3VlxxEGIWbJ00QCiSXZnfuzlAn288ZImrX0SRgH2wYF@lists.infradead.org
+X-Gm-Message-State: AFq9FYLluyt8aU6PIZJXiB5AkTQSUVCvGze8XIwSeQdKVpvhLWbUqht7
+	waqknsSspLLeEPhXDTxdgfcW3Fa+Qs9Da4+cudc+ON9LkazivMqKu1E7
+X-Gm-Gg: AYBFou3PlYoX7BhCMewJHrTTbTwsq3LcFtlWBgbPPx9SrgpvCinuWDVcI7wDBAmrCT2
+	2pBHgJDGS2W3PJ95PXcFg2LgkJF9uf6ONvzdzOrHiFvmsMGbqSXhZglEkWk6btss8B/n6o00EeU
+	e993x61vx1USXel1NZ4q/tiOl9yyNGGxo6xiID3/EUMbGXCWVCkI3m2BjdG4yY3NI7dvy1kwDCv
+	dnC9hHB9xGDmOf6pF2Dnkn8/0Lb6Txqn6fLLq801dIqw3FzBotxX6Vxjh9n0E0aYZ6Q9fRpa1qw
+	SnGN+6wLaaa19VT9QIMwDZ2rypWWGNqu6kYgqD00YDQ5cv0dJzzFpBR3JADBwujIAkgzarb5Gbq
+	caPwIkbhkyAqIanax4ZR/c+5UjBkgdU+6LRYvHCFutYqACI7ItTjHrv0ri0m+xrm/FGt95RuP0L
+	+8To7yvyo5kg6muLJbcM0fE9jrLiEeuI+fAofkUWdi8rnno+v4pZ+sspGGUdOEEwUNtUXszDMlx
+	/h3/LLPO11pFNkEMm/r8YFtWgxuwotUgdON3LmRrmTyhgCC9W7br2U6okjhzNfw41MEayDuCt6j
+	HWEh5VGbxaDOHFgKhlzxIfo=
+X-Received: by 2002:a5d:4390:0:b0:48d:f025:110d with SMTP id ffacd0b85a97d-48e07fa9d49mr7744225f8f.43.1792342813663;
+        Sun, 18 Oct 2026 10:00:13 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.66.71.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4ecac3sm19744454f8f.27.2026.10.18.10.00.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 10:00:12 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Luan Rafael Carneiro <luan.r@variscite.com>
+Subject: [PATCH v1 1/1] arm64: dts: imx8mm-var-som: fix touchscreen IRQ trigger
+Date: Sun, 18 Oct 2026 19:00:07 +0200
+Message-ID: <20261018170007.38381-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261018-apple-sartv4-v1-2-1eaa5d63f6a2@cyberchaos.dev>
-References: <20261018-apple-sartv4-v1-0-1eaa5d63f6a2@cyberchaos.dev>
-In-Reply-To: <20261018-apple-sartv4-v1-0-1eaa5d63f6a2@cyberchaos.dev>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_093843_617900_8686AC43 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20261018_100016_616637_37EA61C5 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,87 +110,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for SART4 found on Apple M5 Pro/Max (t6050) SoCs.
-This mirrors the SART3 implementation but with offsets adapted to the
-new capacity.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+The touchscreen interrupt is configured as level-high, causing a
+pending wakeup that prevents Symphony from entering suspend.
+
+Change the interrupt to falling-edge so the board can suspend
+with touchscreen wakeup enabled.
+
+Fixes: 5f67317bd967 ("arm64: dts: imx8mm: correct interrupt flags")
+Co-developed-by: Luan Rafael Carneiro <luan.r@variscite.com>
+Signed-off-by: Luan Rafael Carneiro <luan.r@variscite.com>
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
- drivers/soc/apple/sart.c | 45 +++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/soc/apple/sart.c b/drivers/soc/apple/sart.c
-index 66b99955b395..3be8e358248a 100644
---- a/drivers/soc/apple/sart.c
-+++ b/drivers/soc/apple/sart.c
-@@ -61,6 +61,18 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
+index fd0a1862ce90..5a60430eb96a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
+@@ -192,7 +192,7 @@ ft5x06_ts: touchscreen@38 {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_captouch>;
+ 		interrupt-parent = <&gpio5>;
+-		interrupts = <4 IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <4 IRQ_TYPE_EDGE_FALLING>;
  
- #define APPLE_SART3_FLAGS_ALLOW 0xff
- 
-+/* SARTv4 registers */
-+#define APPLE_SART4_CONFIG(idx) (0x00 + 4 * (idx))
-+
-+#define APPLE_SART4_PADDR(idx)	(0x60 + 4 * (idx))
-+#define APPLE_SART4_PADDR_SHIFT 12
-+
-+#define APPLE_SART4_SIZE(idx)  (0xc0 + 4 * (idx))
-+#define APPLE_SART4_SIZE_SHIFT 12
-+#define APPLE_SART4_SIZE_MAX   GENMASK(29, 0)
-+
-+#define APPLE_SART4_FLAGS_ALLOW 0xff
-+
- struct apple_sart_ops {
- 	void (*get_entry)(struct apple_sart *sart, int index, u8 *flags,
- 			  phys_addr_t *paddr, size_t *size);
-@@ -177,6 +189,35 @@ static struct apple_sart_ops sart_ops_v3 = {
- 	.size_max = APPLE_SART3_SIZE_MAX,
- };
- 
-+static void sart4_get_entry(struct apple_sart *sart, int index, u8 *flags,
-+			    phys_addr_t *paddr, size_t *size)
-+{
-+	phys_addr_t paddr_ = readl(sart->regs + APPLE_SART4_PADDR(index));
-+	size_t size_ = readl(sart->regs + APPLE_SART4_SIZE(index));
-+
-+	*flags = readl(sart->regs + APPLE_SART4_CONFIG(index));
-+	*size = size_ << APPLE_SART4_SIZE_SHIFT;
-+	*paddr = paddr_ << APPLE_SART4_PADDR_SHIFT;
-+}
-+
-+static void sart4_set_entry(struct apple_sart *sart, int index, u8 flags,
-+			    phys_addr_t paddr_shifted, size_t size_shifted)
-+{
-+	writel(paddr_shifted, sart->regs + APPLE_SART4_PADDR(index));
-+	writel(size_shifted, sart->regs + APPLE_SART4_SIZE(index));
-+	writel(flags, sart->regs + APPLE_SART4_CONFIG(index));
-+}
-+
-+static struct apple_sart_ops sart_ops_v4 = {
-+	.get_entry = sart4_get_entry,
-+	.set_entry = sart4_set_entry,
-+	.flags_allow = APPLE_SART4_FLAGS_ALLOW,
-+	.size_shift = APPLE_SART4_SIZE_SHIFT,
-+	.paddr_shift = APPLE_SART4_PADDR_SHIFT,
-+	.size_max = APPLE_SART4_SIZE_MAX,
-+};
-+
-+
- static int apple_sart_probe(struct platform_device *pdev)
- {
- 	int i;
-@@ -352,6 +393,10 @@ static void apple_sart_shutdown(struct platform_device *pdev)
- }
- 
- static const struct of_device_id apple_sart_of_match[] = {
-+	{
-+		.compatible = "apple,t6050-sart",
-+		.data = &sart_ops_v4,
-+	},
- 	{
- 		.compatible = "apple,t6000-sart",
- 		.data = &sart_ops_v3,
-
+ 		touchscreen-size-x = <800>;
+ 		touchscreen-size-y = <480>;
 -- 
-2.55.0
+2.47.3
 
 
