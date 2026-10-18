@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C42CCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 23:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5D1CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 23:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/n6+4JQiywJjQ1A9yAO3+Augm5SZEQ9TEZ+ptln5pQQ=; b=4aBJ0WgWrRcu6YqBRQBUioGVJM
-	vQ8QNX+I7tdDq+fhKSUDqA9jPvnpynFMXNXcrx684WCXq4uFRN1QUumW54kiZhBxmwS9OBKETtEwl
-	vBllG3PK7NdUWEojlA2JpN/BBSUj+YAvjASaLYf5wlwYBz1IosI7YI7X6gJA986uvJleq1U9QeM1j
-	GGZNeB/BjVsQ4gdapAy/6ISrAv853/rKs3XFddM96TC/aUOIkefRaDt/+ZwfnmRGMzl+9yNVMenFI
-	FOSFovMBsv+2/gDB7Tv08ceM8NqKheuEh7NbQRBrcuOY8Nwn/kKU/+XcIvr9s2uzjimZ1wH0aH74P
-	jx0740yA==;
+	bh=bg2Q9bBmj3I6B2mPNqwE8BetkFgfs8EYCHLqur8wswI=; b=iS4aWivclvgJE9b6uyzfjUdRGE
+	ATXt2gEMysurwvkA02bWQ22VMM69lffQ9PacDs6teXel61FXtciZqW6wFJcOq2J6UXYV2hqMU/IqI
+	qH6gWbAaQQfakeBBcfSC4/mBXLoeLZRLTdMsbAQJn8xDxWWFRgTQ6iNomFzAvuEeepVt9c2JBiN9J
+	gaXvPLBduuZQ8dlSLn6FqU1zsfxA8eja/mPgt+G4+aOXO1FVt6tLkpckdJtuSAwCHXmqkyyB6slNy
+	gruuClDiPl5K/EtyKELsoXl8qY6qYuTBATLOG70EKwARRJQgmrY2LBjbbqGzGl2e7tAYHU2GvwPms
+	QEM5rnGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIZzz-00000006Hke-3CXc;
-	Sun, 18 Oct 2026 23:09:03 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1xIa2P-00000006Hrd-0xvA;
+	Sun, 18 Oct 2026 23:11:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIZzv-00000006Hjm-10lf
+	id 1xIa2N-00000006HrX-0fb4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 23:09:01 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DB17C107C6D;
-	Mon, 19 Oct 2026 01:08:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1792364926;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=/n6+4JQiywJjQ1A9yAO3+Augm5SZEQ9TEZ+ptln5pQQ=;
-	b=HcRIvfCMWEq7fB6bj5ULHqxq9G25FyUmh/ZpgnmqeSnT0nnVbvV+biDvV2zJ/DRnFtGG3T
-	b36TcfhIlZ3bI5wPx9hhjn6yT3xKLT6xHv99PvBGHDdLk1V+ZZewFPLtU9OoA9UM8NghG8
-	YbzOzLNDaad9/b136x+27M8y6g6+p00ir/5PDvf+1qYYXcEU8TYEVAImexqrGuBLp6dJKw
-	iwVvb3qrjWNLSnr9SoRLy34hEYtHuj/NSK95y7YDSD03AlcxTen/ygDFN8zeEcj8WVk5E3
-	B2TuOz1MVHZoa7p6Wif/nnRDVnJWv2aVpTAM4+U9QZOMNN6QHcK83sx/cI5i6w==
-Message-ID: <d5a72893-fa46-49df-8ba1-8abaec8de621@nabladev.com>
-Date: Mon, 19 Oct 2026 00:19:50 +0200
+	Sun, 18 Oct 2026 23:11:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7069F4074A;
+	Sun, 18 Oct 2026 23:11:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF131F000C4;
+	Sun, 18 Oct 2026 23:11:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792365090;
+	bh=bg2Q9bBmj3I6B2mPNqwE8BetkFgfs8EYCHLqur8wswI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=iJX+AQm2MuweY6aGarhbr0cJWJCqkmXocS/OcCMbEBIv3w805f3+sCawQPvgaaqoU
+	 ONOD3/YgsT6EP1JhD01WlFMsAfNlYq2mj4MCCupT+s9V1/A//hHh8AU3LI+6W9m7bs
+	 1b2e7aGFJo7CFul//vsTuHc/kOOx+6YP2iq4iXOiMwIuzLtVsFxCGD8ByeGjV8kyJs
+	 TVIGmzyleeagQ9S4Hrc9wFMYAaqR5DxcYSYQukIAauTEQZO1hdwkneGSPI7odfSrL8
+	 D959hBNMsVilmzNxVltZPAoIiWwfHw1MKFGmugB3VIPWB5a0UkVcx7TPYbuCGNzETS
+	 93gOHltVcALaQ==
+Date: Mon, 19 Oct 2026 00:11:24 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Conall O'Griofa <conall.ogriofa@amd.com>,
+ <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <git@amd.com>, Sai Krishna Potthuri
+ <sai.krishna.potthuri@amd.com>
+Subject: Re: [PATCH v4 05/15] iio: adc: xilinx-xadc: Use bitfield helpers
+ and bit macros
+Message-ID: <20261019001124.5f364ca7@jic23-hlaptop>
+In-Reply-To: <20261005094205.1045874-6-dileepkumar.nagavarapu@amd.com>
+References: <20261005094205.1045874-1-dileepkumar.nagavarapu@amd.com>
+	<20261005094205.1045874-6-dileepkumar.nagavarapu@amd.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] drm/imx: upstream direction for i.MX95 display support
-From: Marek Vasut <marex@nabladev.com>
-To: Liu Ying <victor.liu@nxp.com>, Piyush Patle <piyushpatle228@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, daniel.baluta@nxp.com,
- Frank.Li@nxp.com, shawnguo@kernel.org, tzimmermann@suse.de,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
- simona@ffwll.ch
-References: <20260624100326.413699-1-piyushpatle228@gmail.com>
- <aj5MNiKSCiEDvDzL@raspi>
- <CAMB+xkayaViXeC2GyMMUfeCMzA4=fh-Dq6NYOL-hzKoLfAF19w@mail.gmail.com>
- <aksVMhFr8YzedE1w@raspi>
- <CAMB+xkY2rut-sEUMyFnXqYCNmyseP4nAGj4BfreORTTM=SN8_g@mail.gmail.com>
- <akuEOT2FRa77L0Jn@raspi>
- <CAMB+xka8Fame7aFZSiWEtVcozSTXX8g9MKJu+cycU2vtiSDHmQ@mail.gmail.com>
- <akxjwULa-p6c6IvR@raspi> <c43103f6-348c-48b9-a831-ecb9379ce46f@nabladev.com>
-Content-Language: en-US
-In-Reply-To: <c43103f6-348c-48b9-a831-ecb9379ce46f@nabladev.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_160859_502624_07C39487 
-X-CRM114-Status: GOOD (  12.46  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +75,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/21/26 8:40 PM, Marek Vasut wrote:
-> On 7/7/26 4:26 AM, Liu Ying wrote:
-> 
-> Hi,
-> 
->> I need to point out that i.MX95 display controller also has 2 display 
->> engines
->> and 1 pixel engine, which is something missing in your code.  This 
->> makes me
->> think that you have no enough i.MX95 display controller documents.
->>
->> Generally speaking, I'd say there is a lot to be improved before 
->> posting the
->> formal patch series.  Gut feeling is that maybe it's a bit too difficult
->> for you to get the drivers right.  As I said earlier, my original plan 
->> is to
->> add i.MX8QXP prefetch engine support first with the posted patch 
->> series and
->> then to add i.MX95 display controller support, but maybe I can try to 
->> add the
->> latter first - just need to find a time slot.  However, adding 
->> prefetch engine
->> support first would directly show a reason to people why two DRM 
->> drivers are
->> warranted when adding i.MX95 display controller support.
-> 
-> I haven't seen any MX95 DPU patches posted (except for my work from last 
-> year), was there any progress since this discussion ?
+On Mon, 5 Oct 2026 15:11:55 +0530
+Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
 
-+CC Daniel
+> Replace open-coded bit manipulation with FIELD_GET(),
+> FIELD_PREP(), BIT(), and GENMASK() helpers.
+> 
+> Using the kernel bitfield helpers improves readability and
+> makes bit operations less error-prone.
+> 
+> No functional changes intended.
+> 
+> Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+> Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
+> ---
+>  drivers/iio/adc/xilinx-xadc-core.c | 25 +++++++++++++------------
+>  drivers/iio/adc/xilinx-xadc.h      | 24 ++++++++++++------------
+>  2 files changed, 25 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+> index b4a3e6f967c4..9e4955016bbc 100644
+> --- a/drivers/iio/adc/xilinx-xadc-core.c
+> +++ b/drivers/iio/adc/xilinx-xadc-core.c
+> @@ -11,6 +11,8 @@
+>   *  - AXI XADC interface: Xilinx PG019
+>   */
+>  
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+>  #include <linux/clk.h>
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+> @@ -47,18 +49,17 @@ static const unsigned int XADC_ZYNQ_UNMASK_TIMEOUT = 500;
+>  #define XADC_ZYNQ_REG_CTL		0x18
+>  
+>  #define XADC_ZYNQ_CFG_ENABLE		BIT(31)
+> -#define XADC_ZYNQ_CFG_DFIFOTH_MASK	(0xf << 16)
+> -#define XADC_ZYNQ_CFG_DFIFOTH_OFFSET	16
+>  #define XADC_ZYNQ_CFG_REDGE		BIT(12)
+> -#define XADC_ZYNQ_CFG_TCKRATE_MASK	(0x3 << 8)
+> -#define XADC_ZYNQ_CFG_TCKRATE_DIV2	(0x0 << 8)
+> -#define XADC_ZYNQ_CFG_TCKRATE_DIV4	(0x1 << 8)
+> -#define XADC_ZYNQ_CFG_TCKRATE_DIV8	(0x2 << 8)
+> -#define XADC_ZYNQ_CFG_TCKRATE_DIV16	(0x3 << 8)
+> +#define XADC_ZYNQ_CFG_DFIFOTH_MASK	GENMASK(19, 16)
+> +#define XADC_ZYNQ_CFG_TCKRATE_MASK	GENMASK(9, 8)
+> +#define XADC_ZYNQ_CFG_TCKRATE_DIV2	0
+> +#define XADC_ZYNQ_CFG_TCKRATE_DIV4	BIT(8)
+> +#define XADC_ZYNQ_CFG_TCKRATE_DIV8	BIT(9)
+> +#define XADC_ZYNQ_CFG_TCKRATE_DIV16	GENMASK(9, 8)
+
+These are the values 0, 1, 2 and 3 in the field TCKRATE
+so why would we define them as bit masks.  Just use the
+numbers.
+
+>  #define XADC_ZYNQ_CFG_IGAP(x)		(x)
+>  
+>  #define XADC_ZYNQ_INT_DFIFO_GTH		BIT(8)
+> -#define XADC_ZYNQ_INT_ALARM_MASK	0xff
+> +#define XADC_ZYNQ_INT_ALARM_MASK	GENMASK(7, 0)
+>  
+>  #define XADC_ZYNQ_STATUS_DFIFOE		BIT(8)
+>  
+> @@ -86,7 +87,7 @@ static const unsigned int XADC_ZYNQ_UNMASK_TIMEOUT = 500;
+>  #define XADC_AXI_GIER_ENABLE		BIT(31)
+>  
+>  #define XADC_AXI_INT_EOS		BIT(4)
+> -#define XADC_AXI_INT_ALARM_MASK		0x3c0f
+> +#define XADC_AXI_INT_ALARM_MASK		(GENMASK(13, 10) | GENMASK(3, 0))
+
+That's an odd mask. Is it made up of fields you can break it down into?
+
+
+>  
+>  static int xadc_write_raw(struct iio_dev *indio_dev,
+> diff --git a/drivers/iio/adc/xilinx-xadc.h b/drivers/iio/adc/xilinx-xadc.h
+> index 8449fb741370..a659b7981b2f 100644
+> --- a/drivers/iio/adc/xilinx-xadc.h
+> +++ b/drivers/iio/adc/xilinx-xadc.h
+> @@ -9,6 +9,7 @@
+>  #ifndef __IIO_XILINX_XADC__
+>  #define __IIO_XILINX_XADC__
+>  
+> +#include <linux/bits.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/mutex.h>
+>  #include <linux/spinlock.h>
+> @@ -141,20 +142,19 @@ static inline int xadc_write_adc_reg(struct xadc *xadc, unsigned int reg, u16 va
+>  #define XADC_CONF0_MUX			BIT(11)
+>  #define XADC_CONF0_CHAN(x)		(x)
+>  
+> -#define XADC_CONF1_SEQ_MASK		(0xf << 12)
+> -#define XADC_CONF1_SEQ_DEFAULT		(0 << 12)
+> -#define XADC_CONF1_SEQ_CONTINUOUS	(2 << 12)
+> -#define XADC_CONF1_SEQ_SIMULTANEOUS	(4 << 12)
+> -#define XADC_CONF1_SEQ_INDEPENDENT	(8 << 12)
+> -#define XADC_CONF1_ALARM_MASK		0x0f0f
+> +#define XADC_CONF1_SEQ_MASK		GENMASK(15, 12)
+Interesting corner case. How is it documented?
+Are the bits a bitmap or is it a larger field where only
+the values 0, 2, 4 and 8 are not reserved?
+
+Hopefully it isn't that most horrible of datasheet things
+a bitmap inside a field.  Those are hard to write nice
+software for because you end up with a FIELD_PREP(BIT() like
+you have here.
+
+> +#define XADC_CONF1_SEQ_DEFAULT		0
+> +#define XADC_CONF1_SEQ_CONTINUOUS	BIT(13)
+> +#define XADC_CONF1_SEQ_SIMULTANEOUS	BIT(14)
+> +#define XADC_CONF1_SEQ_INDEPENDENT	BIT(15)
+> +#define XADC_CONF1_ALARM_MASK		(GENMASK(11, 8) | GENMASK(3, 0))
+
+Similar to above. I'm hoping that can be broken down into more
+specific fields. Otherwise we are magic number territory rather
+than a normal bitmask for a field.
+
+>  
+> -#define XADC_CONF2_DIV_MASK	0xff00
+> -#define XADC_CONF2_DIV_OFFSET	8
+> +#define XADC_CONF2_DIV_MASK	GENMASK(15, 8)
+>  
+> -#define XADC_CONF2_PD_MASK	(0x3 << 4)
+> -#define XADC_CONF2_PD_NONE	(0x0 << 4)
+> -#define XADC_CONF2_PD_ADC_B	(0x2 << 4)
+> -#define XADC_CONF2_PD_BOTH	(0x3 << 4)
+> +#define XADC_CONF2_PD_MASK	GENMASK(5, 4)
+> +#define XADC_CONF2_PD_NONE	0
+> +#define XADC_CONF2_PD_ADC_B	BIT(5)
+Smells like a value of 2
+> +#define XADC_CONF2_PD_BOTH	GENMASK(5, 4)
+and a value of 3 - so keep it as those.
+
+>  
+>  #define XADC_ALARM_VCCINT_MASK		BIT(1)
+>  #define XADC_ALARM_VCCAUX_MASK		BIT(2)
+
 
