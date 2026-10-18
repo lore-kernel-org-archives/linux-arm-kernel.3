@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A51CCF2C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 00:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC84ECCF2C7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 01:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CokdTGHz8vHWvWGZKlzAZG9TpYCvGqfXhGkwmfn1/VY=; b=z8IfwQ0As+viF6ViDKLoOJzCxo
-	32JFEklVgpnBZK99+qOmll3Rafxmu3pWHtt0NyCrTbISAdjib8Ov90uw+lev6QRRri0nHY2kYH4ud
-	KM8onMlKlUsAjVoWXgZFt2p/ZM7wuZU2yKq8Z1YvqhtRlEok3X2Zejn/7NOJsvQWtK9VpORo0AzkZ
-	8g1FL7i4/Z60Um4NTuio6pXMXrQiAS9PYVPSM3cqAeH2i1Eg9MpLsC1lRgoz+ZExnEDGPbDgFiWS+
-	smbf78YW23Y3ChlNoIP2ATlkRADr9KlK6wirO+hDOLY9MX5Nj+CKCzW13qCxN3I4TbQygS1cWjpQ+
-	4OCkS7Ww==;
+	bh=kb0DgD9gEHv7zY1qNXYNJPY5G2hG6MA/GER2shJe9w8=; b=Ixkki/FEUvwgFxjlWaLz8dBmSB
+	qJaAL2bpa1CzNiXGmTGOlDS8v5hJwyvewRX+AfLiAMAWAQ23YQ0XN/22zPaj6GLY3N1K1743ecXTP
+	Yv1F5vAq3dX1jbDPOgJI6Zer4O6piIgv1SPlyDX5OrZF9zRnMrzKICftDHSvC+JS+DcwEZNpTtaQz
+	nAFj/KR6cwnoNCO86XGO7URtjzxXYfQm+jC72xfaZ5iGcrxX8Zf9wYCWP63IJql3F1Que2cPTKdQe
+	rG8Cgatm1HfsTXBR5GLXyFj0kPZkB4iB2hVYs8i1jhre0IJc/4CK0IWd4M54px0eNxdVyeEgVBsKR
+	bYGoRkew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIF3r-00000005Nfw-42Hh;
-	Sun, 18 Oct 2026 00:47:39 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1xIFJY-00000005OTl-0cyw;
+	Sun, 18 Oct 2026 01:03:52 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIF3p-00000005NfS-0PzM;
-	Sun, 18 Oct 2026 00:47:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792284457; x=1823820457;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=daoOQm05VwaFoZ0+CpbIgWX8Bo/e4Sr3//Gl6DlQae0=;
-  b=ltODWq9Udr3rn8gdruveJSEkGaH2dYI4GhcMkscBDVkVDd4j+kQyRURm
-   HoI4qgch8o/IWMK5Q4idWmnNVUlhaKZczUqOpkFz+Rtr04N7UdgWem1sr
-   SqN3pFxgkcujbpYe6/Zulg2KGHtI/OHuZo6Ly6pIDfQCosQHcWGVdeDdx
-   VYVVLPnOE55rn3L87ii+YtH8nve5rbkuzben8lx9JgvTa3W3QAYfF1r9W
-   etw/Jmsj35LCpG1xAPheBjI3e81YpMOCCe8AnOhf8aADfxnOWJOD178Q9
-   dakdWGd5a54urq9FV/biSG8MZR8gZPr+1Dt3xfwtQGCbckKj8hMefOcPW
-   Q==;
-X-CSE-ConnectionGUID: dxWA0wcPRuO2D0VIzfSSZQ==
-X-CSE-MsgGUID: h8OOT8z4T/iKp5njtQ8iwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11938"; a="1049618"
-X-IronPort-AV: E=Sophos;i="6.27,163,1787036400"; 
-   d="scan'208";a="1049618"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2026 17:47:35 -0700
-X-CSE-ConnectionGUID: 7QNb9IvsTCmVMcmTPGQv7w==
-X-CSE-MsgGUID: IT3zV5cIQzKxka3VbTtNMw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,163,1787036400"; 
-   d="scan'208";a="2646600"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 17 Oct 2026 17:47:32 -0700
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xIF3h-00000000Juw-19NP;
-	Sun, 18 Oct 2026 00:47:29 +0000
-Date: Sun, 18 Oct 2026 08:47:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Igor Paunovic <royalnet026@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
-	kernel@collabora.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v17 5/7] usb: dwc3: rockchip: add USBDP PHY reset quirk
-Message-ID: <202610180841.U0qsol4i-lkp@intel.com>
-References: <20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f@collabora.com>
+	id 1xIFJU-00000005OSw-3vRr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 Oct 2026 01:03:50 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id B54A1D1DAD;
+	Sun, 18 Oct 2026 04:03:39 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro B54A1D1DAD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1792285421;
+	bh=kb0DgD9gEHv7zY1qNXYNJPY5G2hG6MA/GER2shJe9w8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=WoVdI/9xI465FPzgCVPPyc49W+BHYm8znGl7tAZN/9X0uStHxlJdOkcl+TJWp8W5r
+	 IFNrosVrID2R9J/TQm85e6ESrxCYps0Y/vimfZCymLiBlaEBYgUcfe1ImhBLMTnFRa
+	 K7Kz6cd63ckoRm9DsKNGl76t8084Di3ZLtoTTz/DIo0r3xwEGxn7TULVSgo9F2WT//
+	 XwuPASosLUpHQNyXLCloJj7R2xC6zZAAxL4upQRMBGFlKSsbMr/lXXHCOJalbPWy/S
+	 odJnf1ImRcW4cWsN7opkq3VGo3bij64EwaBAdzFdUlgFCfi09MySCcrjJq/+/ZdJh0
+	 bQwDPXEtzY2bQ==
+Message-ID: <85c78f925ecac67f82e98675f80520bc6f71ab16.camel@rendec.net>
+Subject: Re: [PATCH v6 2/9] irqchip/imx-irqsteer: Validate IRQ count before
+ creating domain
+From: Radu Rendec <radu@rendec.net>
+To: Zhipeng.wang_1@oss.nxp.com, Thomas Gleixner <tglx@kernel.org>, Marc
+ Zyngier	 <maz@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	 <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
+	 <jindong.yue@nxp.com>, xuegang.liu@nxp.com, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Date: Sat, 17 Oct 2026 21:03:37 -0400
+In-Reply-To: <20261008090231.796511-3-Zhipeng.wang_1@oss.nxp.com>
+References: <20261008090231.796511-1-Zhipeng.wang_1@oss.nxp.com>
+	 <20261008090231.796511-3-Zhipeng.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_174737_239982_C06D4FFE 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261017_180349_281631_24D426EF 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Thu, 2026-10-08 at 18:02 +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+> From: Fabio Estevam <festevam@nabladev.com>
+>=20
+> The IRQ count is validated after creating the IRQ domain. If it is
+> invalid, probe returns without removing the domain, leaving its host
+> data pointing at devm-managed memory that is freed on probe failure.
+>=20
+> Validate the count before allocating resources to avoid the leak and
+> dangling pointer.
+>=20
+> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts s=
+upport")
+> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> ---
+> =C2=A0drivers/irqchip/irq-imx-irqsteer.c | 7 ++-----
+> =C2=A01 file changed, 2 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx=
+-irqsteer.c
+> index 1b8d0c8eedb9..766756e76c47 100644
+> --- a/drivers/irqchip/irq-imx-irqsteer.c
+> +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> @@ -218,6 +218,8 @@ static int imx_irqsteer_probe(struct platform_device =
+*pdev)
+> =C2=A0	 */
+> =C2=A0	data->irq_count =3D DIV_ROUND_UP(irqs_num, 64);
+> =C2=A0	data->reg_num =3D irqs_num / 32;
+> +	if (!data->irq_count || data->irq_count > CHAN_MAX_OUTPUT_INT)
+> +		return -EINVAL;
+> =C2=A0
+> =C2=A0	if (IS_ENABLED(CONFIG_PM)) {
+> =C2=A0		data->saved_reg =3D devm_kzalloc(&pdev->dev,
+> @@ -246,11 +248,6 @@ static int imx_irqsteer_probe(struct platform_device=
+ *pdev)
+> =C2=A0	}
+> =C2=A0	irq_domain_set_pm_device(data->domain, &pdev->dev);
+> =C2=A0
+> -	if (!data->irq_count || data->irq_count > CHAN_MAX_OUTPUT_INT) {
+> -		ret =3D -EINVAL;
+> -		goto out;
+> -	}
+> -
+> =C2=A0	for (i =3D 0; i < data->irq_count; i++) {
+> =C2=A0		data->irq[i] =3D irq_of_parse_and_map(np, i);
+> =C2=A0		if (!data->irq[i])
 
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on 8f56fdf3d8cb9f1dbdc93bf9ac816698aa6f70b7]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/phy-rockchip-usbdp-Track-PHY-power-state/20261016-204317
-base:   8f56fdf3d8cb9f1dbdc93bf9ac816698aa6f70b7
-patch link:    https://lore.kernel.org/r/20261016-b4-rockchip-dwc3-rockchip-glue-v17-5-876f96893e2f%40collabora.com
-patch subject: [PATCH v17 5/7] usb: dwc3: rockchip: add USBDP PHY reset quirk
-config: hexagon-randconfig-1000-20261018 (https://download.01.org/0day-ci/archive/20261018/202610180841.U0qsol4i-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 6719b9e31d6a93099612c474eec76d9f41d0275a)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261018/202610180841.U0qsol4i-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202610180841.U0qsol4i-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 struct member 'dwc_rk' not described in 'dwc3_rk_phy_nb'
->> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 Excess struct member 'dwc' description in 'dwc3_rk_phy_nb' (did you mean one of: 'dwc_rk')
->> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 struct member 'dwc_rk' not described in 'dwc3_rk_phy_nb'
->> Warning: drivers/usb/dwc3/dwc3-rockchip.c:22 Excess struct member 'dwc' description in 'dwc3_rk_phy_nb' (did you mean one of: 'dwc_rk')
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
