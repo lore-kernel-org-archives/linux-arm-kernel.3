@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E1BCCF2C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 05:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C08CCCF2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 05:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkL5krI5HcwcF2aMm7pBYk9h5C6V+6rm4QZatT5Wuo4=; b=ok3y05fh5Y+1cUbOPU6uodRyLH
-	8kIn3HXtV3ILSEz4ofWvgl3H0rV/C52Ai0zYLFUGXaa7qC5zeJjpb4S9COkR2h+gck8nmS08KEMyw
-	uoPrZFzdWY+elWw/Mn6f0y8Pv/kfjGpRGnm3gI2ycRlvT/3iNrk61v3vr/3G9qRC5s1by4/ZnWUK/
-	KmCLTZ3HDQyicrKlY69OBPHKxWHxuFjpTm4NDPC8zRYRDpA7vtv8S4a0JI94qOHo9xkwKIH9j7qSO
-	BJUOiDM0yPbjwHugt/Pqag3F7E3ggR1bjC5b4RoKw/Oo4abg8lq1wYSy3EcVSpZh3/1tq+qlVEeCU
-	DH0K5Cgg==;
+	bh=tz6DpUxPfKNPf31EvMRwP84SQ1THxlAVvf/QPE9uAxw=; b=VyYOEeerFc9EDgwbv5F0SpegIR
+	FIZuqk9ziafX/S8WTk791yTLNJ4b9Pq+d0sllO4PZ4OSEKlKpBCZzkfqMojsur2jjIWUCd8pvPiUh
+	IZRLCClzeuS4N8e82mGgY7B9c4iNr2t/VARRLAyIzHPu/DrrGFD01jmU8Skq4K9e3PufXLr0R2TWt
+	1dqyqptDtBjfGyxOFyJj3/8Ts7t5yXi7JyVNDjatCm6o9P/3pichZrOuD6DNhy0IQHwbR5kDJaVuE
+	kkX21kd+MZY7CG7LHh1JrxnMs/FneKigFgCyDUngrugzqrSOj4RPxpdY6aHAwwmxFw6DAW5096Ge4
+	T3XjpmZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIJrX-00000005ZjK-498s;
-	Sun, 18 Oct 2026 05:55:15 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1xIJrh-00000005ZpA-1pht;
+	Sun, 18 Oct 2026 05:55:25 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIJrS-00000005ZgM-2bLU
+	id 1xIJrd-00000005ZmQ-15wm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 05:55:12 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e9cf928dc9so1513215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 22:55:10 -0700 (PDT)
+	Sun, 18 Oct 2026 05:55:24 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2e9cf928dc9so1513555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Oct 2026 22:55:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792302910; x=1792907710; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792302920; x=1792907720; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TkL5krI5HcwcF2aMm7pBYk9h5C6V+6rm4QZatT5Wuo4=;
-        b=V3seBbI5of/mGuYKlPlHt1hYLhUULvsIofYfJv6aQpgI8UPviV0R095uu97X0x1u05
-         HjIxwzcsXO+PcsFyNoPvLDoS87sZaYNFgfTWc8Ium4PSFRsEwgFV+wLqUz4iP9hjhQQF
-         QE2Zgtguxf/hRaM+riFKYKuBcElzpWMxJtz+5LyuOC1afUqB3+smd/2yLSfxlGaZsHp8
-         YTbE6LnmjbNZgzHpX0UOqVAj/XAU5XUoStCO5qR5cJxBSsmLOaLKim04MLlYs8DjaVzv
-         Nss+0YzMxWSFY1gsBv+videz8S0mZZ30OJglqo+yjfkwhZqxM+1PYJiz5GAXfqFDOz/g
-         UpFA==
+        bh=tz6DpUxPfKNPf31EvMRwP84SQ1THxlAVvf/QPE9uAxw=;
+        b=Yr0pl1NQNjf6tM9esduYG9jyzYFQ30aCgd6YaVV3ulJse3rpWSZddVOJCUh+ilm2tM
+         LbIcakr4NVzeeRBU8BtXT6btBCaPV6ipTVGV9LS8bjiIAlBkhAAUocb7HU2G4ijBzcbM
+         +l/7wR4SeFJjY0POU7gqmMdRgDNSxHOA1vnWvkCZ7R+2QJDVqBuWWSZXfCrEjtsJICeG
+         yYV5TI9dfBTRwVqqK33d758CpTPEpbEtKupx+YlLB3WIPzymNcafvLhcpsDHyru8utzX
+         ANrLrc16fTXpoiSimmRCTZcUF5n564cqHih4091tfhkbjc5UpZ5sArd5MJXTXyM5NIdv
+         iTUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792302910; x=1792907710;
+        d=1e100.net; s=20260707; t=1792302920; x=1792907720;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TkL5krI5HcwcF2aMm7pBYk9h5C6V+6rm4QZatT5Wuo4=;
-        b=aJMtBylleBJ7TLFZvLhdsftAntVonbMBKvACNl/k+Orwde8wj597wpCSYt1US2ERaj
-         +Mj5FcjHoDHBQUeA4XvtE6haBuo25YQfaOgqD2OBZcAWRJjmS5qGNKmtZ0aPCQmKXDJL
-         s5vsB3rIscrocdH/1WKvu1wgY4aO3Y8/iPbKxAQCULHF65GBxrwlJJOSSA5opZ+FlCWq
-         g6YIPu4zVmRSM0tZOcanrJjY63irl/06TmVYUhl5nnBDphnb4KqomJHsiFqFergpcTwp
-         cwnC5Qul+9BBEU43/v4MB9MtTKh3S40+4TLiX78Szxv4NJsnkGbZ2hAVnNzwvAjA7eSq
-         k0WA==
-X-Forwarded-Encrypted: i=1; AKwUvBxKlS10oP0ktekIKkVORemS+5u5VQtrMhxDABuGm1cQ/cdnwm2sUVB6juAsh4xSq3hGrMG1l9B87yRMfPtST9Nh@lists.infradead.org
-X-Gm-Message-State: AFq9FYJM9GO3Cmup9rijIgHiLaMjKaaT6QjfFNC/fAkcqYyFzzxFkHyy
-	E4X1qdVexIXfUuy0WgZNMV7DUKwuGm3oIZnB8qKfSJzsrG9IKOpzUuu4
-X-Gm-Gg: AYBFou2p+DXx8fQoShIU+mnZe0bpCtAeoJH7XqnrlEPhfNHeoUbFwraG197/++2DjJY
-	pmmDGcAcO8m+wvs/+WtDUx5ZbvbS1qUnFr3CFzy29nU2EYrrsa8OX/nvTvE8SraqEmDoYfpVaGA
-	9Ln7N++qMqgydC5rDL3CACln1SP4pu9YV2xbocf3rjsGM9YkfdSHhq0bpTgl0UJtjqkCyb9B3Mb
-	JJCajgmCM+P71EZcf1BtUxxPg5rA5zQDB4KxdokIXHkz6f409bSFtGTcyFAinglpxj7oe9CrqOd
-	A9CaV9viZK9JSOdvv7PSW5WLgvg2FB3UXLv0fgGrDimOigZge+1f+JKXYdp3aROeEp29lmDzK0m
-	sE8ifXYgUh7o+CnoQ3WWqQLX4wFp7UzBNxIMD1bZTHqYAFD4Fbz1cSE81kQhSC0/WNjSkQhFCCs
-	sBrsGVH1QQfxTxOYVUF9A+AJF3x7X8nBNwa1L0hetDdgRBgPviUwzowWghPPoon30XTFYKvbrEO
-	BJyYJgbgIDnfEjGh5XxmcR5FzmxBmPDHYLrHy+TwPolqilgAEjNLuEOemzvvqQipnT3XsPRAwpi
-	bBdHZeiB6qgx2aipoFj3yIehU6N/Md0CGSoXLtLyTSrCAJQ=
-X-Received: by 2002:a17:90b:580c:b0:3a8:337d:228a with SMTP id 98e67ed59e1d1-3acee2768cfmr2702377a91.6.1792302909929;
-        Sat, 17 Oct 2026 22:55:09 -0700 (PDT)
+        bh=tz6DpUxPfKNPf31EvMRwP84SQ1THxlAVvf/QPE9uAxw=;
+        b=fPGF1+mIZoguB5lztoIAYmX+RgLqSUjMsXpyY4+rs4nK347WScDFoiWId5TdEFx1JQ
+         0ByqxIzUkY0zM9lqrXMPQBQSQomv740cWd1Nku5gUaeBvkVzeuQqBha6nZHEUtYXSp7b
+         l/m57Gtv2Lq+y0ymzYpveEY19QREst5RLMoUx7aqME9VkEZ7pFA8iqCq18BtjDYwCWbt
+         BUdxoR4crk33OrlbNMi0Sm3wltect0IxzbOB4VxTDT+HHqbS/VJLytFoV6FifGKiA6OR
+         i5WqH2r7KEb4GzXvmYlWKBVU/reWg7/sO7devGbkex6Bm9qf6KPjE8K2CGqv5tsRYMl5
+         VXzw==
+X-Forwarded-Encrypted: i=1; AKwUvBxnbuNJf1O53LtY/daMK+szIOPwWFMHVDCyng2JstM3yq0OchPr1CG9enRrKd44X1QHYQZUMM93l3rY7m0OhbRB@lists.infradead.org
+X-Gm-Message-State: AFq9FYLyBGvJ48BfMS3vNnEM/11sPLsqbEjL1//xSNAQIYx6mvgYttcv
+	0E99N3RcrKGCGL4OI0RRQqWYci/pEaMWDcnkppnfvV5LwsqD65EO44ne
+X-Gm-Gg: AYBFou1ZjKzllyqDLeJJmPzE0xwtifiqbiSfE8oEVbmWw7dctbH9omBGjwJMJnFo4Xt
+	3H+RFlLH8eSVJFPJeroYgc0zjUhVIw1J5QZOaeWGCqTRiFZw4WvWt/ckzHGOzTFQd6r5kncVGP+
+	w3vurTJc8JtO4C3RRa/3qWFpMyZy6eDKDnIrQxRDB5E0QNErzVRuU3T2j6BbhcXUimPOJDEELXB
+	PUXX1kBtKtt29sHdmLWReot9+5AlI+R2Y1tT2Ugh20Tlc9n/NLRGZOjmaWsZBStkiuEtygE5yUm
+	7iwsJ0y+98xQx46aG266BoglTwSmtLmZEvsKbUl0MMQDd6yu3Qp1XkQuMDVapfqR4OEIRO9Wg+y
+	+xTIRs9Of2Q6YCy6rCK1udqq9GQUecsiOlbJD929wKrYiPgo0HOarxrCv+ujzDdf2mP2emYZ42s
+	k9BxE3YarYUz8XjZt7EWzp5xjheuixbuQwVLBKerseawn/lDu3EDh/QB33AJKQ1YuedVbUssrvU
+	bYOEYfeH7iKAmHdJzibtwJ8PIXFtzTfI+h7MF6ZXsAcKLy3uYA5PNJ59rp8hBHmc48tgmIG1zLK
+	2n4ZRyiqbQlfM3QUPIZMeeWwTiETxY86BJrGaCGYbLYHEw==
+X-Received: by 2002:a17:90b:45:b0:3ab:330d:6e47 with SMTP id 98e67ed59e1d1-3aceefbd753mr2885259a91.10.1792302920286;
+        Sat, 17 Oct 2026 22:55:20 -0700 (PDT)
 Received: from [10.0.70.21] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acd0cde4fdsm5511292a91.4.2026.10.17.22.55.01
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3acd0cde4fdsm5511292a91.4.2026.10.17.22.55.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2026 22:55:09 -0700 (PDT)
+        Sat, 17 Oct 2026 22:55:19 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 18 Oct 2026 15:53:58 +1000
-Subject: [PATCH v3 04/21] ASoC: ops: Introduce 'snd_soc_ctl_activate'
+Date: Sun, 18 Oct 2026 15:53:59 +1000
+Subject: [PATCH v3 05/21] ASoC: ops: Introduce 'soc_set_enum_kctl'
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261018-macaudio-v3-4-abdff7741dea@gmail.com>
+Message-Id: <20261018-macaudio-v3-5-abdff7741dea@gmail.com>
 References: <20261018-macaudio-v3-0-abdff7741dea@gmail.com>
 In-Reply-To: <20261018-macaudio-v3-0-abdff7741dea@gmail.com>
 To: David Rhodes <david.rhodes@cirrus.com>, 
@@ -100,18 +100,18 @@ Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2214;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3004;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=eogWKeAPSgLXuvFuxBpm0mCMpQlIZe0f6Gyo195bzv4=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFlX4nlMut3rN7jGTw++yar56Nujo3kPXr314b2V6G32L
- sVitc3hjoksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
- GukY6xgxcHEKwFRzMTMyHGOoaN6st3+KE4v2kjMP89/dODOtQUhfq3/H9G9JAnm/7jEyfGvpbTO
- UNf+wb7uxRIrgSp3Pjs/Nzff/XjRR/I1lsJ4LEwA=
+ bh=GZ5WTNP4gDv2fMsvOJFicRig6JxdLlKhDpR9KaPgb0k=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFlX4nns2I888NrlJOEYp5zy95Ev3+q6ib9LRNYacS84a
+ 5t9Zfe0joksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
+ GukY6xgxcHEKwFTvCWFkWCxXzaS0z37mFxPX29cvbV8b+vXXzNjLEmc0okyPp3zKEWT4Z7tj19H
+ +1VtPxDLUiq1XsKle16VzhXVbnHEHo1uyiOx5LgA=
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261017_225510_785726_20A9CAF3 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20261017_225522_755472_E5C8AF1B 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,69 +128,103 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Martin Povišer <povik+lin@cutebit.org>
 
-This function mirrors wraps the sound/core 'snd_ctl_activate_id'
-for ASoC. Machine drivers may call it to lock down kcontrols
-during fixup_controls.
+The new function is to be used to set enumerated controls to desired
+values. It is something a machine driver may call in fixup_controls.
 
 Signed-off-by: Martin Povišer <povik+lin@cutebit.org>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- include/sound/soc.h |  2 ++
- sound/soc/soc-ops.c | 32 +++++++++++++++++++++++++
- 2 files changed, 34 insertions(+)
+ include/sound/soc.h |  2 +
+ sound/soc/soc-ops.c | 67 +++++++++++++++++++++++++
+ 2 files changed, 69 insertions(+)
 
 diff --git a/include/sound/soc.h b/include/sound/soc.h
-index 553bb7e2be98..7509824a6b2e 100644
+index 7509824a6b2e..dcfd706a73ad 100644
 --- a/include/sound/soc.h
 +++ b/include/sound/soc.h
-@@ -578,6 +578,8 @@ int snd_soc_put_volsw_sx(struct snd_kcontrol *kcontrol,
- 	struct snd_ctl_elem_value *ucontrol);
- int snd_soc_limit_volume(struct snd_soc_card *card,
+@@ -580,6 +580,8 @@ int snd_soc_limit_volume(struct snd_soc_card *card,
  	const char *name, int max);
-+int snd_soc_ctl_activate(struct snd_soc_card *card,
-+	const char *name, int active);
+ int snd_soc_ctl_activate(struct snd_soc_card *card,
+ 	const char *name, int active);
++int snd_soc_set_enum_kctl(struct snd_soc_card *card,
++	const char *name, const char *strval);
  int snd_soc_bytes_info(struct snd_kcontrol *kcontrol,
  		       struct snd_ctl_elem_info *uinfo);
  int snd_soc_bytes_get(struct snd_kcontrol *kcontrol,
 diff --git a/sound/soc/soc-ops.c b/sound/soc/soc-ops.c
-index 142f407e3939..295056bcc081 100644
+index 295056bcc081..149a094112d2 100644
 --- a/sound/soc/soc-ops.c
 +++ b/sound/soc/soc-ops.c
-@@ -471,6 +471,38 @@ int snd_soc_limit_volume(struct snd_soc_card *card, const char *name, int max)
+@@ -503,6 +503,73 @@ int snd_soc_ctl_activate(struct snd_soc_card *card,
  }
- EXPORT_SYMBOL_GPL(snd_soc_limit_volume);
+ EXPORT_SYMBOL_GPL(snd_soc_ctl_activate);
  
-+/**
-+ * snd_soc_ctl_activate - Activate/deactivate a control matching a name
-+ *
-+ * @card: where to look for the control
-+ * @name: name
-+ * @active: zero to deactivate, nonzero to activate
-+ *
-+ * Return: 0 if unchanged, 1 if changed, or a negative error code on failure.
-+ */
-+int snd_soc_ctl_activate(struct snd_soc_card *card,
-+			 const char *name, int active)
++static int soc_set_enum_kctl(struct snd_kcontrol *kctl, const char *value)
 +{
-+	struct snd_kcontrol *kctl;
-+	int ret = -EINVAL;
++	int sel, i, ret;
 +
-+	if (!name)
++	struct snd_ctl_elem_value *evalue __free(kfree) = kzalloc_obj(*evalue);
++	if (!evalue)
++		return -ENOMEM;
++
++	struct snd_ctl_elem_info *info __free(kfree) = kzalloc_obj(*info);
++	if (!info)
++		return -ENOMEM;
++
++	info->id = evalue->id = kctl->id;
++
++	ret = kctl->info(kctl, info);
++	if (ret < 0)
 +		return ret;
 +
-+	kctl = snd_soc_card_get_kcontrol(card, name);
++	if (!kctl->put)
++		return -EINVAL;
 +
-+	if (kctl) {
-+		ret = snd_ctl_activate_id(card->snd_card, &kctl->id, active);
++	if (info->type != SNDRV_CTL_ELEM_TYPE_ENUMERATED)
++		return -EINVAL;
++
++	for (sel = 0; sel < info->value.enumerated.items; sel++) {
++		info->value.enumerated.item = sel;
++		ret = kctl->info(kctl, info);
 +		if (ret < 0)
 +			return ret;
-+	} else {
-+		dev_dbg(card->dev, "Tried to de/activate unknown control '%s'\n", name);
++
++		if (!strcmp(value, info->value.enumerated.name))
++			break;
 +	}
 +
-+	return ret;
++	if (sel == info->value.enumerated.items)
++		return -ENOENT;
++
++	for (i = 0; i < info->count; i++)
++		evalue->value.enumerated.item[i] = sel;
++
++	return kctl->put(kctl, evalue);
 +}
-+EXPORT_SYMBOL_GPL(snd_soc_ctl_activate);
++
++/**
++ * snd_soc_set_enum_kctl - Set enumerated control matching a name
++ *
++ * @card: where to look for the controls
++ * @name: name
++ * @value: string value to set the controls to
++ *
++ * Return 0 on success, else error.
++ */
++int snd_soc_set_enum_kctl(struct snd_soc_card *card,
++			  const char *name, const char *value)
++{
++	struct snd_kcontrol *kctl;
++
++	kctl = snd_soc_card_get_kcontrol(card, name);
++	if (!kctl) {
++		dev_dbg(card->dev, "Tried to set unknown control '%s' to '%s'\n", name, value);
++		return -EINVAL;
++	}
++
++	return soc_set_enum_kctl(kctl, value);
++}
++EXPORT_SYMBOL_GPL(snd_soc_set_enum_kctl);
 +
  int snd_soc_bytes_info(struct snd_kcontrol *kcontrol,
  		       struct snd_ctl_elem_info *uinfo)
