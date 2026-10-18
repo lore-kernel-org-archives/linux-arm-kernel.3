@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F24BCCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 14:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE4DCCF2C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Oct 2026 15:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=; b=d/RXHyhNQEUbJXeCMEqn4Jah4W
-	Y5jffZbmhMYFVKSn5s6+ZtqvoIcrhWMfV0zKm2C0o9dhMC+86p2l0nB1PVO+L9Dv6sf2rQ/dokigD
-	IUBruTzxn5TYT3RNXWP9kDWZo1FO7Pu+3zqP2l39sjLFhznz9OS4f9FZr2yrMjvcyHysrYTlOEcbH
-	9JRhT9IOWeSITm6wkB5UHRn3qxmB5ItondCx7F5F1AewtWegrq+parL6hTM9gyTSsKyCEZNjX9vYg
-	YZoidnr+nr4ZzoBGNgw229Vqn8EuWV1eN2EnovkCw5usNKtducM0SKB7HS5d0xkFXlM3dEFQdjQnq
-	+oiV++dg==;
+	bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=; b=xdGYAYo/H9K8/ZKHs7zRSsLGJR
+	gIW9Y9Z5txC+7V8g5sixe0VPxl/ucWnc1lT81asJWcJfBE8q7Ly8icYWFVlOLNFgHGoa89rJ30iG3
+	Pu/UtIqpa8h8SwH6m+CBKVRLCj0IOgFmUTRqClWM8xIhiy6bgLQjTQ0495fQW2OUbl/dgIdvAxmwf
+	VXXWbWSKWdSQSlVaRrIvSfPTURBjqZLNUW6A1+pA+pw0JZiCdwoBzOTfC4jSiPaAJ53hARYlkIp7a
+	GiB1DeObiq9rEwfoCjbrDhoKneS4CelEZThFTS/EryP+Usr14rghouN6/takzT+fhgp8JF7yoQczn
+	hf/I0U1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIS1T-00000005wsh-3pJd;
-	Sun, 18 Oct 2026 14:38:03 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xISNJ-00000005y05-3whU;
+	Sun, 18 Oct 2026 15:00:37 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIS1J-00000005wof-3uNp
+	id 1xISNE-00000005xxg-2Gxp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Oct 2026 14:37:56 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48bbb06e746so536034f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 07:37:53 -0700 (PDT)
+	Sun, 18 Oct 2026 15:00:34 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a1e477fe16so2074885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 08:00:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792334271; x=1792939071; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792335631; x=1792940431; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
         bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=;
-        b=eCp0FjWE7m8lPaWCk1R/dSuLKVSoQZ5PjBM3WOQR8PvNuXyAqvJYhyiZ2xhun+nvtc
-         +HVti1z27haCdTX7fdP8ZamLIyTgY+yioikSKCjk2r0jd4IoJPJkvQ1efi7u4d30TQYi
-         jJ/wrAe0KB/7SmKkvK81L5JSHrEhi8FPNXWDK1klTo224yo4REB7lSbc9MW0y2JDRDhV
-         lsvxxu3tIh/7xfh2em2PZnCYaiklo0cvtYeHjzYY92xbZ7YZkTw4/eA73hjMWpFK0LvY
-         tOtloUhg8FRVtFSxeBvuOBbJeiqZq0tVQqQeQ+9BlWggLLoxTOzQgzw/CWxri0YTgIOT
-         UdCg==
+        b=dDWYm7j4X6C+Fzt23LpUqGgyWb68tojs7zgC/vZK/oYpRiu78hJtxYo8EBKyYvpcu5
+         G/rKu468zmfKXAUVmBUyGRsx4+ApH7YJ7flYDHCOrvLNUTCloUe7bBIIfOqmfNSrSX+b
+         vphzrKhGp/3P2jqTSlnKqN5n4sqhzH9leYN7/VgdQOphJO3eXmVNlz7/j5bLK6qZgfHw
+         MM5dCsru5Q2TET69IEIgVNwoORoJX3F0+Yxx72EN+fhT4kR5GbFEW6tZDU273jNYsBAS
+         x94D1c48OX7t+sb6Zkbhlx1LWO6uFIxWU68tvVg6Jrp7fXD/pl6BhrrCNcBVPNtDLJ7G
+         gUWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792334271; x=1792939071;
+        d=1e100.net; s=20260707; t=1792335631; x=1792940431;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
         bh=LaMWXGY4wl0wzFsEiSc/F+H9DwdFVduiP9XS0WHG/PE=;
-        b=NDYjIQ55l6DpGYLvptLRQ4+n1jylhbbYCd15IwfuTvCdFnSAS0are/aOw5fO/I7w+K
-         aNu8E0PDQZrv8Q9m9NZmmLZMcCyXSvHWivLwLgS4oR/+FpPrSmAKBvncTloBXZXaf5MA
-         q9SymibnI6rvxUB3kdYbR36bNR7JZhxIa/HlqRJpD9/1hfB3C8CodQ6wOsmIVr/UPtzC
-         yq/ZIxoPMH7DXm5nwbqq1lcETvB1LM2cg3yRYUuy0zl9RJQZFZ1DMwcQG9qgdkP1Fstg
-         O/8dS3kf6jAgJeAMIKx7P1pIvQ9ca+jCeG+qyxcjplQlGHtUP4dJaU7P3NgLAmii6f1X
-         VosQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx4YOw7cf7koo41Gby7JXJmII0eQaaO2JqlRxmp3gxifq06D83yZO0E2d+bENwi84OHc6IUfOwviczUD94IXTas@lists.infradead.org
-X-Gm-Message-State: AFq9FYJAdDaDmO6fGnFr/QVc6gaws/Yxw8xpU1bizpRfufcdqO8hsm0T
-	M7XYJSBmsX8yWoHpaXkEbnAUt4gh7NBdt7OaeLooX4DW2H0hNYBVv05M
-X-Gm-Gg: AYBFou3djw52gVXUbnUOuGrJCCnTz+5bmFWjgmIV4gEzkaFhZ6/LL6vPtBA4jdljb38
-	z11WTaLfKltfTx2lvhGzybpeC8qp0IvU1c+LlSg/SkhgN4KcuceTWcYbTM4KTVFwA9aUJybOkVV
-	6xtbWgjDovXEtp7JDLSxKmVJizef6HAO1oRx4fGC3sUtNflVTJnGI7WIE7wAHrQ6s0+sBlAryqe
-	A8x87+kiHK7StBXr+ixBnBvsUMNJhe/rFExHy7SDFJk6rReqA5M2BixnqlWUp/d5l3Og+6PtZXD
-	6zOFJQ8TJZB8ScG/AgqlIZzmahVTjCcYnnoeX9hpxqh+YbrYXBTp/W2YY7mifeAormCPQHPKsg5
-	rheKMQSHNQPmq/pYStrOpKDICdzswQ0N0cpWVB2KmKcLr+mCKtKVNyAaxjEUWVKOa4sN0zvOhRW
-	0Li3kK5eXByr2dUt+2r+hjus27HYhUUmD1BV4AT1meqRhBzBimd7j4qhZ6Ls58Jsc9736DC3g5G
-	CkXbYHABcETTAv0HnHL8QLPle9dldTrZkx/YPsmW1LlLA==
-X-Received: by 2002:a05:600c:314f:b0:4a1:e6c5:e44c with SMTP id 5b1f17b1804b1-4a1e6c5e47amr12571315e9.10.1792334270968;
-        Sun, 18 Oct 2026 07:37:50 -0700 (PDT)
+        b=QtjVJVZbo0awnaKxSAst1DJq7e6uJ9RX+Jc1NXXonQSNBLWrYW/IFhd823P3xDv80y
+         AbApVma8kXpIv6gRgsD5Qn3NEdFbICwemlKfhx0lQf5WekoiHNfqXSMQDj8qofRfo1BP
+         YYskBUUUEH0xxoDorN7hXDqEZ1KL0A8OwE0U3mPjG7qqnQdcJEGoQSE8QI0L/1Ayj2iA
+         NFV+2VnjkkNneBIrgb/CmLYtJxKeR31aDl8BjuiWyTXoVDaQAGs4b7NOfgA1QuCIhtvg
+         7g5fyXXQp6pVQgc4LgZvJxGyHk3hFYYYkKHbs2fIVJ5nV18yYegZ+IkTE9tGaR/hsh40
+         jskw==
+X-Forwarded-Encrypted: i=1; AKwUvBzC3MnEbV3qb/Tt8+Rnn322pcS7TEa94Uq88N4ymNx05S14DqxZGr+T7t4tVk5E+SraUDDeSsOK9FwBGh+kHQAh@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ1KBk0pXVBs/cMCCUN7C76amZSoyNN1ErRXQlZHfidJ0NAsXqR
+	qDRkSsEfylT+uqfOsLGYX1wvz+GOz6936FAPUy1C95VZiheKo6Cr2zx3
+X-Gm-Gg: AYBFou2uomS6GGQ7mvs7piOaBw59BtaUCXtFnYqx3iwVMgmXUeUCVt40SLfsWa69Fo4
+	S3lbmolMyo2c4O7kbXny+8AkGzVOBNw78dygv/VhYZzljGfxFR5/L3aAiHFWpmFBRJuVuZEnVMz
+	ljS+oMm6dOwO72MWKX+MqnJEtZKCm6tvvVr7I5t3lUeY9TFCwke7SkOS5k3N8kSgtJdNizHAbl2
+	FiDDtp6g9EIZctvlpf7x9Ltm+8nQ6vznI04yruxqaL3b7MkVQUdksIp4kCF0yl6pJgHhkNmuID5
+	rhMAAnbMYQBrW+DVGyaCKL+Mu15o3sLXhsQtHarqJgToNiwYbHqGwBOzW6OtvatbGK/9KCb5dOq
+	Cm5lghwX83WD9kr6OSZlhcauxBnMQebXTaUHPvx8043fhVCERskYfnB5vp6Qb6bRr2f+bQ+8QDr
+	n0glTP4avXlAGUyN+gvs64HiOTCxGV/e8SiIpGJ78jgZ/o1Ug5rq79qnrqbHTDxnVamHkVQHBB5
+	kgRcR6gQXuZYKX8IhphGzfb5kvvm51JNrv0lJOAeyOeRA==
+X-Received: by 2002:a05:600c:c170:b0:4a0:1efa:c74a with SMTP id 5b1f17b1804b1-4a1d76060a7mr97201485e9.20.1792335630619;
+        Sun, 18 Oct 2026 08:00:30 -0700 (PDT)
 Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd510d60sm16559652f8f.58.2026.10.18.07.37.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1c8ad6245sm212868925e9.3.2026.10.18.08.00.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 07:37:50 -0700 (PDT)
+        Sun, 18 Oct 2026 08:00:30 -0700 (PDT)
 From: Sander Speetjens <sander.speetjens@gmail.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -83,14 +83,14 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	sander.speetjens@gmail.com,
 	pbrobinson@gmail.com
-Subject: [PATCH v12 0/3] Raspberry Pi 5 RTC driver
-Date: Sun, 18 Oct 2026 16:37:09 +0200
-Message-ID: <20261018143712.1040152-1-sander.speetjens@gmail.com>
+Subject: [PATCH v13 0/3] Raspberry Pi 5 RTC driver
+Date: Sun, 18 Oct 2026 17:00:25 +0200
+Message-ID: <20261018150028.1047172-1-sander.speetjens@gmail.com>
 X-Mailer: git-send-email 2.56.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_073753_989266_A131A44D 
+X-CRM114-CacheID: sfid-20261018_080032_617532_6502AA1E 
 X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
