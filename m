@@ -4,95 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D8BCCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CD6CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pp6yp7TIvoa7yRmVNZkIVMUscYSxuJSunfv72YiU/yE=; b=ZIgKfcWS8MAW2aYj+C+9ld7upz
-	TzhM027Qbht5FPm21N3E2+js8mb7kU/EstvySAB9NqS0nMIV3WzPAfiC1bNOr4v2Ni7bi+pLaz5hj
-	Q4+7e94DhAMDpCyyeGXtVpcocbE2LHOuDOuvNBHjDHaqHqaCkldutPtP/DCq04S5UcC/TTr3gX9gY
-	ADLKuvYYRt9/Rn5o1vxIt+TiriDD7Zb07+PhcrLuFtuME6Le90DK8wONxSg0/gjeqMpHY5Ji0N3Yw
-	PrnT9G76ug+8B65DU7kLc/fqgSHUo9EKoUfB9cykYkfkm0oMYB8iucxegm4ISraYFj1GHj2wK6VdL
-	AP0W+zPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sepzVr7nrgpA5EsitZmOH/K5pNYxCBWC0wVtKkdKrB8=; b=tVhwZZ6wWIuHnLGP7lIg9c8Sax
+	lNio1LqF+8qm1/+LzSwA0Khd9nEClqzXAISRXtveEdk6brw0jNxNhjYiQqsIJCbQD68+MWpHHpAqr
+	pBxwwp1eJUeBG3W2qXi8AXadBokIJivb3NMCSCzzErsiKFVF9GAMbQM+0LV75uT+IKNZCWp1uVC+w
+	flGMTwMCzNbgIdNYbHLhbUyl6sp1CZclLeRyy8L3moG3UbMwz1u/2Al9MUlIuenm3OZHIA0YZQ1hj
+	/6lo6EkcBWlI73JFOShJ35ykYmunNjUZ7hEmyotnqlr+3H/ZmF8C6PMykJsVCFhBO16nK07H0/DTM
+	9qAFgU/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIm3t-00000007Kzo-1G1d;
-	Mon, 19 Oct 2026 12:01:53 +0000
-Received: from inva021.nxp.com ([92.121.34.21])
+	id 1xImFj-00000007MH0-3zAS;
+	Mon, 19 Oct 2026 12:14:07 +0000
+Received: from mail-westeuropeazon11010054.outbound.protection.outlook.com ([52.101.69.54] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIm3m-00000007Kxz-3ErP;
-	Mon, 19 Oct 2026 12:01:51 +0000
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 25FCB200011;
-	Mon, 19 Oct 2026 14:01:42 +0200 (CEST)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 0C5AD200007;
-	Mon, 19 Oct 2026 14:01:42 +0200 (CEST)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id B4878202B7;
-	Mon, 19 Oct 2026 14:01:41 +0200 (CEST)
-Date: Mon, 19 Oct 2026 14:01:41 +0200
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
-	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	imx@lists.linux.dev, linux-pci@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: Re: [PATCH RFC v3 03/12] dt-bindings: PCI: nxp,s32g-pcie: Fix SerDes
- PHY phandle in example
-Message-ID: <atYGpZpI1ecM10kI@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
- <20260919-s32g_serdes-v3-3-9d68868c1e89@oss.nxp.com>
- <as0qORxP0Roh9ktO@SMW015318>
- <as5CIYxKJTra4hqM@lsv051416.swis.nl-cdc01.nxp.com>
- <as-MdloKd-7oJsUU@SMW015318>
+	id 1xImFh-00000007MFa-2ntC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 12:14:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FvrrsJ+4i2MfJhNJY5HznyYbGY1EEQQbJoW8syEOsETpgkF3XvOnSpW8LgyBp3kKrIxmD/7zYBvBDv158aTwugnsENKZ5QtGUoWvbeXyD/JytQnV6N9Py+i3InyWWRxws2YHuVTW1h/Q8Du1Uqdc+APg7dqbpn0H6hHDo0V+K1nGs58dhizkMPX7JmT9nmrZa8rmIKPSLDbzqw7PA2sl5Oc1xzZO35dx8iu54loPsC3eg+EwSRsuJz0kKvuHAD3o7WjJH7TtkPT51wRtHzSMhVa4EM1nTxD2t3X6FBSbE03xJOEP4X0mjrlOJqwnKm0qP4xKTBrvT4SpCFVIlRXnag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sepzVr7nrgpA5EsitZmOH/K5pNYxCBWC0wVtKkdKrB8=;
+ b=lxcsSoCPt7TQy4YJVMSqDk8LCVXxGTJZwRLQe0zPH9yTGh0uUkXUiKZNtH5m7lm+IMNzYHEj2iJpSJm1U1+C0wZb583VzEW9heAf7mn5kvO+I310gV8SZt9Laeffpwb2au2DSahLYWtYwYPUriquqrAS5UamXSvQG9kHnv99ZMig3UssVzd0vH+TFuWuflQNGe9hUE1MOAubhai+cH5BFmOeNEKFQNOTfQRZ+F4cOl4H/w44AveghrncT/h7jVOpJjputF5SWbpOsIlP4+l2bvSWRl4ej+MecSPnULLmVuk0RHyMwbg3JajHv8bp6Y2IzjYS0qsF3DdspXHQRwI+RQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sepzVr7nrgpA5EsitZmOH/K5pNYxCBWC0wVtKkdKrB8=;
+ b=cRl/OsFfItltPeuYMiki+K0t9DK3b6HrKSvgM03vQhrI6IMzbW8J1ldL6lc/TmJn7qRAnvhPNtSokhTzhiKotjcQclGwUAqgDScSRTPAu87cbkmUbY4K2sO5CstkBaC2Rv0rWiZ5v+moyRJfYsyKnE/J7Hqa1s9EpocgMu7ly3iOgsIT5SdQYnDX86vFH5tcQltCS1Z/ZeudaYSNcwcwH54nF9jJSm9JkwepcCLOW01OtLnv9j6GkZejJA3g/9KFXPA+PFVBCM+jN+qA6IZDzOsABIUhXpDBm6GVLns2v5M1BvuRr6bWVexCy5aTQHoPbRJJfm9CzWXlU99DlSWR3Q==
+Received: from AS4P192CA0023.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5e1::9)
+ by CPJPR10MB947795.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:380:10::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 12:13:59 +0000
+Received: from AMS1EPF00000097.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5e1:cafe::1) by AS4P192CA0023.outlook.office365.com
+ (2603:10a6:20b:5e1::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 19
+ Oct 2026 12:13:59 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS1EPF00000097.mail.protection.outlook.com (10.167.242.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 12:13:59 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 19 Oct
+ 2026 14:14:17 +0200
+Received: from localhost (10.48.87.14) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 19 Oct
+ 2026 14:13:58 +0200
+From: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Date: Mon, 19 Oct 2026 14:13:58 +0200
+Subject: [PATCH v2] clk: stm32: add support for reset_control_reset()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <as-MdloKd-7oJsUU@SMW015318>
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261019-ups_reset_control_reset-v2-1-be4ccf511cbb@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAIUJ1moC/4XNUQ6CMBAE0KuQ/bakWwwSv7wHIQSXrTRRSrq10
+ RDubsUD+PkmmZkVhINjgXOxQuDkxPk5wxwKoGmYb6zcmA1Gmxo1Vuq5SB9YOPbk5xj8/Sd1JGP
+ xqptxtAi5vQS27rUvt1325CT68N6PEn7T/5sJFSrbDDWdbE1U0cV6kVJiSf4B3bZtH+Md/VfAA
+ AAA
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-clk@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792412038; l=2469;
+ i=gabriel.fernandez@foss.st.com; s=20261013; h=from:subject:message-id;
+ bh=LU5nImmjKs0iTUGLeucW2SKzxw38mrTBcc9ZzLnb7K4=;
+ b=VaxfgZYn+ZvIqViQssLrzdbJtPyKRU6ihrapdAuk3oh42nkTf4BEUt/JF/y5SZ7JeEAnPGoX8
+ rXLpznFYpOkDlcHu1cqGQX97nMjygg9lIpHmNJpWVsWPt+pcLeAJFAe
+X-Developer-Key: i=gabriel.fernandez@foss.st.com; a=ed25519;
+ pk=BVZE1QjIfcrviw9RyyOGQGGsg9CNbaxyjYn9pAlkNyQ=
+X-Originating-IP: [10.48.87.14]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000097:EE_|CPJPR10MB947795:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6f66807b-fda1-48d5-3044-08df2dda74bf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|18002099003|11063799006|10067099003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: MwwvMMBlWlWp5rP/wqyW5SdESzuNyvKyAHt7OetRspF7djszZi2z4dscGfpiGlE4Hkx1G2LAMBMLq8bQDx1hf3Wm8SPr+jsL0dlUend/YR2cKI2WmWpstxoiOBbS5pBy+RLzUA/oEa82i+XpyLRBTfM2wsOwz9wZqRs2LApejTlYLjbT20ky9MV26ANrUzKjVBNyL8LHKbewZLigIQtV9zho37Ye9wAgVWdChGGwG2jd8jA7PqE6AIH43IrX2cH7RiJ5gT4k8mhPLk5jsZ3Y1Czk+H3KNQ9KhEwPPMbVL+ipwMirQ9Rmrbypy3D2D3+BuFk8HCdoQ1TOQHksAG6/rmO3KDe/XxYdNPC7kYNv14EzXLx8uULuAcZYIp9qX6K+5inEXzopwqlnbTPriTg2Wep6kVt3W5dFPNW/GeJHGorB3MlCmVd/tRDoX6WFtzehkPPch+HYqpQzdNEfZT6UUTw4kFpSeSOtzTJSUG+NwKAcw/la+/oieB+GhpaZs/Ca9oikVObh6AUKWHdliGoZ3J3tJ5YC/JLSpQT0xVvwYkAB0G4yOmoMsGw/5K8LwiGnuRpn7rfzl4ANSQT5Ijt070wo8b2NkoZqxjd4MoWo3BDLXIhop+LPZdJQ7y2Rv6fiFFrl6lH7ykzjhK9vj7Kb9am2a0i4Lo2rwL7dTDZSB3o=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(18002099003)(11063799006)(10067099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yCWBmK6v/7gMcw78PaXusRwtROz2hnzat3nUhY85ZLdnHf608k5066nAL7JyVspGnmZuNI0umKQVqkkMh4gFkeNPddlFWsHGMznpBbSt0+9vZn+EZqknk4tBiDDizTEfKchTbH6a4OX6K3A7u4qzhAc7UyKGf1Vc3DGFLpJPh7TRYYih6P8xF4HrafLiHGDRPfGK72T8KhinivzZ3I9D3xbfbr2q8KbVsK1vAPH4RVpySMqze9UhdDoF+ORXJ1vH0IiFhr8k9CsdAadi0WQoWSS9V501oa6/57BQnit9ere2UVSF98WZvKTTeIzIIz2EApmUZ/55aHVh0rgLR7HSnHBOKTikCxu2OAThoCHTpDuIVhSrtEySgNQoUi8HeA0eK41B8dTSudJ9w4WjnGsjP26zx0wsyato62AFZKFGvSCi9EcYmBg4SD6sp5c/DW7w
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 12:13:59.3883
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f66807b-fda1-48d5-3044-08df2dda74bf
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000097.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPJPR10MB947795
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_050147_090786_45C0535F 
-X-CRM114-Status: GOOD (  32.53  )
+X-CRM114-CacheID: sfid-20261019_051405_945945_3A4CCEC3 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,78 +138,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 09:06:46AM -0500, Frank Li wrote:
-> On Tue, Oct 13, 2026 at 04:37:21PM +0200, Jan Petrous wrote:
-> > On Mon, Oct 12, 2026 at 01:43:05PM -0500, Frank Li wrote:
-> > > On Sat, Sep 19, 2026 at 08:54:31AM +0200, Jan Petrous via B4 Relay wrote:
-> > > > [You don't often get email from devnull+jan.petrous.oss.nxp.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > > >
-> > > > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> > > >
-> > > > The example references the SerDes PHY as
-> > > >
-> > > >   phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > > >
-> > > > i.e. the SerDes node itself with three PHY cells. That does not match
-> > > > the SerDes binding: the per-lane child node is the generic PHY
-> > > > provider and carries '#phy-cells = <0>', while the SerDes node itself
-> > > > has no '#phy-cells' at all.
-> > > >
-> > > > Point the example at the PCIe lane child instead, which is also what
-> > > > the S32G3 board device trees use. The dt-bindings/phy/phy.h include is
-> > > > dropped along with the now-unused PHY_TYPE_PCIE constant.
-> > > >
-> > > > The schema itself is unchanged; 'phys: maxItems: 1' already describes
-> > > > the corrected form.
-> > > >
-> > > > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> > > > ---
-> > > >  Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml | 3 +--
-> > > >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> > > > index 66a050028278..29323e50bd8b 100644
-> > > > --- a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> > > > +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> > > > @@ -82,7 +82,6 @@ unevaluatedProperties: false
-> > > >  examples:
-> > > >    - |
-> > > >      #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > > -    #include <dt-bindings/phy/phy.h>
-> > > >
-> > > >      bus {
-> > > >          #address-cells = <2>;
-> > > > @@ -124,7 +123,7 @@ examples:
-> > > >                  ranges;
-> > > >
-> > > >                  device_type = "pci";
-> > > > -                phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > > > +                phys = <&serdes0_pcie0>;
-> > >
-> > > I don't think it fix somethings. The "serdes0" just a label, point to
-> > > provider, which is not neccsary that "#phy-cells" is 0.
-> > >
-> > > Examples just show need how many phys and don't care about phy provider's
-> > > arguments
-> > >
-> >
-> > The example validates either way, agreed. The three cells are the
-> > '#phy-cells = <3>' of the downstream nxp,s32cc-serdes binding, which
-> > was never posted upstream; patch 1 is the only SerDes binding for S32G
-> > and has no three-cell provider. I would rather have the example match
-> > it.
-> >
-> > The form depends on the outcome of your patch 1 comment, so I will
-> > keep this patch in sync with that. If you prefer the phys line
-> > untouched, I can drop it and keep only the ranges fix v4 adds here.
-> 
-> This patch is not important. suggest drop it.
->
+The STM32 RCC reset controller currently implements only .assert(),
+.deassert(), and .status().
 
-Dropped. The PCIe nodes in the DTS patch carry the 64-bit ranges on
-their own, so nothing else depends on it.
+As a result, reset_control_reset() returns -ENOTSUPP, forcing consumers
+to open-code the assert / delay / deassert sequence.
+rs.
 
-BR.
-/Jan
+Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+---
+Changes in v2:
+- Increase the assert delay from 2 us to 50 us, a value that suits all
+  STM32 IPs
+- Remove the polling of the reset status bit after deassertion and,
+  therefore, the deassert timeout: .reset() now only asserts the reset,
+  waits for the assert delay, and deasserts it.
+  If polling after deassertion is needed, it will be addressed in a
+  separate patch, as it affects all reset deassertions on STM32
+  platforms.
+ 
+- Link to v1: https://lore.kernel.org/r/20261013-ups_reset_control_reset-v1-1-f8a6c7f6cc3c@foss.st.com
+---
+ drivers/clk/stm32/reset-stm32.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/drivers/clk/stm32/reset-stm32.c b/drivers/clk/stm32/reset-stm32.c
+index fc237fccae68..774d77d6de5c 100644
+--- a/drivers/clk/stm32/reset-stm32.c
++++ b/drivers/clk/stm32/reset-stm32.c
+@@ -4,6 +4,7 @@
+  * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
+  */
+ 
++#include <linux/delay.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -13,6 +14,12 @@
+ 
+ #include "reset-stm32.h"
+ 
++/*
++ * Hold time between reset assertion and deassertion.
++ * This is a compromise value that suits all STM32 IPs.
++ */
++#define STM32_RESET_ASSERT_DELAY_US		50
++
+ struct stm32_reset_data {
+ 	/* reset lock */
+ 	spinlock_t			lock;
+@@ -119,9 +126,23 @@ static int stm32_reset_status(struct reset_controller_dev *rcdev,
+ 	return !!(reg & BIT(ptr_line->bit_idx));
+ }
+ 
++static int stm32_reset(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	int ret;
++
++	ret = stm32_reset_assert(rcdev, id);
++	if (ret)
++		return ret;
++
++	fsleep(STM32_RESET_ASSERT_DELAY_US);
++
++	return stm32_reset_deassert(rcdev, id);
++}
++
+ static const struct reset_control_ops stm32_reset_ops = {
+ 	.assert		= stm32_reset_assert,
+ 	.deassert	= stm32_reset_deassert,
++	.reset		= stm32_reset,
+ 	.status		= stm32_reset_status,
+ };
+ 
+
+---
+base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
+change-id: 20261013-ups_reset_control_reset-4c2f1b08ddf1
+
+Best regards,
+-- 
+Gabriel Fernandez <gabriel.fernandez@foss.st.com>
 
 
