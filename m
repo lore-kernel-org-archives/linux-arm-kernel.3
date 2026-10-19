@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31AACCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BFECCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHFBcSULm0DfhTGaqeLamMS07HlHbJMEAnLLd80NT9k=; b=i1AUJDbzq0TI8iIFEYGN0zq+kz
-	CfJE1Bxh86bhD6BErSxAkkiP0RD8h87oRaojYr7GKbd5sP8D+uQk+oxGX0NuaHKwiocrUm3GvwjWw
-	Z6oZx8BYZfgw86wMyCM3umB80Y+quAaxDHZIIOrzy5zAqZLtRBAf0eELL/zepY1ovCGIDeNzheWOq
-	2I2d41ttWo7FHXa2yzUfPTlv8z0Y76ah/7XjCqA3ZwChbWKpG80mRd0ZH3gd3wT+XeQESABGXdmI/
-	EDZciDe6YUb/lU0k0nj/+CvhRy7GtvafxYnsTihSP4Brmu54EBN0V28mmIuBwHolSYLj8b3a5Qf/s
-	iFSYc0hw==;
+	bh=av2i/a27mFO35q2gQgrs5PYUW708u+igcVfoCp20+Is=; b=36jyGt84BJrRDFghlGYFf0jFht
+	xme7SLPT7OTBFf+VOo14daVW4Di68kbfSmh8iIuQmp2jig32LrQKFsWKRAP9AXBKqPXjOQjRG90aA
+	WLicFhZtRILWyL8UmmfXxi0qqZC1mti02MYRQqiOy02mDJ0a/fFmzcPiu3rdIuJseHiy1ICEoe6QP
+	JgM+2ZvBJJIVPaV+N6rbKZ5vEcvkxtKdAhCD4aAgzD2fbRSdjaeW5Cv1sttByl4viQ9EiEJX5U5tY
+	EMNMDavXnUQkYNKW9FvgX2ZOgzu8Xj//8OkauGmY0+Xn79JeI3sqSqHKJU51fBIZlRakmo0TBo9vF
+	pMg5Xwmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvt-00000007dby-3ZDZ;
-	Mon, 19 Oct 2026 14:01:45 +0000
+	id 1xInvx-00000007dem-42nZ;
+	Mon, 19 Oct 2026 14:01:49 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvr-00000007dal-15sO
+	id 1xInvt-00000007dbs-44TG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:01:43 +0000
+	Mon, 19 Oct 2026 14:01:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A18586022F;
-	Mon, 19 Oct 2026 14:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33A401F000C4;
-	Mon, 19 Oct 2026 14:01:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D41660213;
+	Mon, 19 Oct 2026 14:01:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9DDE1F000CA;
+	Mon, 19 Oct 2026 14:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418502;
-	bh=nHFBcSULm0DfhTGaqeLamMS07HlHbJMEAnLLd80NT9k=;
+	s=k20260515; t=1792418505;
+	bh=av2i/a27mFO35q2gQgrs5PYUW708u+igcVfoCp20+Is=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C8ngBZQIr6tkVxb8tPjskOBAsDAjHlaWW2s7mre/eLFNUe1zr8eI4AKPwDF/ipK5j
-	 GghYOqmB3LwchxtBQIuNXum0KCo3D9mRiFCk3Z6oU0RgDhZQMhcxnUtC1fYq9DPXq7
-	 Uj1FeJdC/KlfeeeoEYW8LEEFWmt4sPw6kxxzdmsz9fSm8aGmxY71/iVjz9EWkytmgb
-	 pWJBQsTKp4F5BfaFRlJUxIOHvCue/aFSWbqsgWHqGWRryVKlXh5QKnXOtMxN6odDp4
-	 Xc4+vnPDUAeFGTjKl3wjIVo9zs4+x/ORWN05bYtkZLZ5/NneH+9REvGnyZOyfw5bVl
-	 fZK6o5zOcfHUw==
+	b=NWd5iT2JmLsYfhiq+yCC8rgx8ZJrJWcIpnqGhXWv+ZT4VvsWPzcPGQXoxkATlRgtL
+	 qxoosAtayMUDLHosAJpj5ZVUI1EcwnRlsSpR18hdV49HEyIhLWk9tGxo6DeTYWj0+m
+	 B7JNkIZdzJ05Q8/8tcRvBre+RZGRVmqYh/LHD8Nl2vXWfbSZYEf2bBcSaGTuizx24b
+	 Z7evQ+M99HefDDHe81oVS37zYN55M1w2/qIAme+SwvZ+OOebWwmoxMDFu6TVhjy6Vt
+	 7nXPKwgq0KiuxHWCACqjZpeiwLc9QFfbaycqaSgouSQzbYPe6zz8owwEXgupef+FQ/
+	 vlLgUwwU0FY6g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ruoyu Wang <ruoyuw560@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+Cc: Esteban Urrutia <esteuwu@proton.me>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] memory: stm32_omm: initialize ret in stm32_omm_set_amcr
-Date: Mon, 19 Oct 2026 09:49:45 -0400
-Message-ID: <20261019135441.1420968-294-sashal@kernel.org>
+	robin.clark@oss.qualcomm.com,
+	joro@8bytes.org,
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-6.12] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
+Date: Mon, 19 Oct 2026 09:49:47 -0400
+Message-ID: <20261019135441.1420968-296-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -80,421 +81,332 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ruoyu Wang <ruoyuw560@gmail.com>
+From: Esteban Urrutia <esteuwu@proton.me>
 
-[ Upstream commit 1527acf2295cf2d6e11e3e9b121d63709667e6e7 ]
+[ Upstream commit d149c8b2c0146a01f1be326ddb1e182b55aee638 ]
 
-stm32_omm_set_amcr() returns ret after checking whether the AMCR value
-matches the device tree description. On the normal matching path ret is
-not otherwise assigned, so initialize it to 0 before the checks.
+Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it can
+be properly configured by the IOMMU driver.
 
-Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-Link: https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com
-Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+Otherwise, there is an unhandled context fault, because the framebuffer is
+already configured in UEFI.
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **6.18.53**. `stm32_omm_set_amcr()` in that tree still
-returns uninitialized `ret` on the AMCR-match path, and the one-line
-init is a real probe/resume correctness fix.
+## Phase 1: Commit message forensics
 
-===============================================================
-PHASE 1: COMMIT MESSAGE FORENSICS
-===============================================================
+**Step 1.1: Subject line**
+Record: `[iommu/arm-smmu-qcom] [Add] SM8450 MDSS compatible so the
+Qualcomm SMMU driver can configure that display client`
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: `[memory / stm32_omm] [initialize] [set ret=0 in
-stm32_omm_set_amcr so the AMCR-match success path does not return an
-uninitialized stack value]`
-
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+**Step 1.2: Tags**
 Record:
-- `Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>` (driver
-  maintainer; MAINTAINERS lists him for ST STM32 OCTO MEMORY MANAGER)
-- `Link:
-  https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com`
-- `Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>` (author)
-- `Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>` (memory-
-  controller maintainer; applied the patch)
-- No `Fixes:` tag (expected)
-- No `Cc: stable` (expected)
-- No `Reported-by:` / `Tested-by:` / syzbot / kernel test robot tags
-- Pipeline-only tags (`[Upstream commit ...]`, `Signed-off-by: Sasha
-  Levin`) ignored
+- `Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>`
+  (Qualcomm SoC/display maintainer)
+- `Signed-off-by: Esteban Urrutia <esteuwu@proton.me>` (author)
+- `Signed-off-by: Will Deacon <will@kernel.org>` (IOMMU/arm-smmu
+  maintainer)
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Link:`, or `Cc:
+  stable@vger.kernel.org` (absence is expected for this review)
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+**Step 1.3: Body**
 Record:
-- Bug: `stm32_omm_set_amcr()` returns `ret` after the AMCR vs DT check.
-  On the matching (success) path, `ret` is not assigned `-EINVAL` and
-  may never have been assigned at all.
-- Symptom: the function can return a leftover stack value as an errno to
-  probe/configure/resume. Callers treat any non-zero as failure, so
-  garbage can fail device bring-up or resume; a lucky 0 would hide the
-  mismatch path’s intent.
-- Version info: none in the message.
-- Root cause (author): success path does not initialize `ret` before
-  `return ret`.
+- Bug: SM8450 MDSS is missing from `qcom_smmu_client_of_match`, so it
+  does not get the identity-domain workaround.
+- Symptom: unhandled ARM SMMU context fault because UEFI already
+  programmed the framebuffer with physical addresses.
+- Root cause: without a match, `qcom_smmu_def_domain_type()` returns 0
+  and the IOMMU uses a translated DMA domain instead of identity
+  mapping.
+- Version info: none in the message. SM8450 display support has been in
+  this tree since v6.3 (`drm/msm: mdss add support for SM8450`).
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: Not disguised. This is an explicit uninitialized-variable fix
-(`int ret` → `int ret = 0`). Same class as KMSAN/compiler “used
-uninitialized” fixes even without a sanitizer tag.
+**Step 1.4: Hidden bug fix?**
+Record: Not hidden. The subject says “Add”, but the body describes a
+real hardware workaround (IOMMU identity domain for a bootloader-
+configured display), not a new feature.
 
-===============================================================
-PHASE 2: DIFF ANALYSIS - LINE BY LINE
-===============================================================
+## Phase 2: Diff analysis
 
-**Step 2.1: INVENTORY THE CHANGES**
+**Step 2.1: Inventory**
 Record:
-- File: `drivers/memory/stm32_omm.c` (`1` insertion, `1` deletion)
-- Function: `stm32_omm_set_amcr`
-- Scope: single-file, one-line surgical fix
+- File: `drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c` (+1 / −0)
+- Function: static table `qcom_smmu_client_of_match[]`
+- Scope: single-file, one-line compatible addition
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record: Before, `int ret, idx;` then the loop may assign `ret` from
-`of_address_to_resource()`, mismatch sets `ret = -EINVAL`, and the
-function always `return ret`. After, `ret` starts at `0`, so AMCR match
-returns success unless an earlier path already returned an error.
+**Step 2.2: Code flow**
+Record: Before, `of_match_device(qcom_smmu_client_of_match, dev)` misses
+`qcom,sm8450-mdss`, so `qcom_smmu_def_domain_type()` returns 0. After,
+that compatible matches and the function returns
+`IOMMU_DOMAIN_IDENTITY`. Path: IOMMU default-domain selection at MDSS
+probe, not an error path.
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record: Category **uninitialized data / logic correctness**. Mechanism:
-`ret` is assigned only by a successful `of_address_to_resource()`
-(inside a loop that can `continue`) or by `ret = -EINVAL` on AMCR
-mismatch. The success `return ret` is therefore undefined if the loop
-never assigned `ret`. Fix: default `ret = 0`.
+**Step 2.3: Bug mechanism**
+Record: Hardware workaround / device-ID (compatible) addition. MDSS
+streams keep using the UEFI framebuffer mapping. Without identity domain
+those accesses translation-fault (`arm-smmu: Unhandled context fault`).
+Same pattern as SM6115, SDM670, X1E80100, QCM2290, SC8280XP.
 
-Verified from the pre-fix function (v6.18.53 and the original driver):
+**Step 2.4: Fix quality**
+Record: Obviously correct and minimal. Only devices with
+`qcom,sm8450-mdss` change behavior. Regression risk is very low;
+neighboring SoCs already use this table the same way. ACTLR table
+already listed `qcom,sm8450-mdss`; the client table was the omission.
 
-```50:50:drivers/memory/stm32_omm.c
-        int ret = 0, idx;
-```
+## Phase 3: Git history
 
-(v6.18.53 still has `int ret, idx;` — confirmed via `git show
-v6.18.53:drivers/memory/stm32_omm.c`.)
-
-Mismatch path:
-
-```116:121:drivers/memory/stm32_omm.c
-        if (amcr != read_amcr) {
-                dev_err(dev, "AMCR value not coherent with DT memory-map
-areas\n");
-                ret = -EINVAL;
-        }
-
-        return ret;
-```
-
-**Step 2.4: ASSESS THE FIX QUALITY**
-Record: Obviously correct. Error returns in the loop are unchanged
-(`return ret` / `return -EFAULT`). AMCR mismatch still returns
-`-EINVAL`. Risk is negligible: initializing an errno to 0 cannot
-deadlock, cannot change a public API, and matches the intended success
-code.
-
-===============================================================
-PHASE 3: GIT HISTORY INVESTIGATION
-===============================================================
-
-**Step 3.1: BLAME THE CHANGED LINES**
-Record: `int ret, idx;` and the `return ret` were introduced in
-`8181d061dcff1` (“memory: Add STM32 Octo Memory Manager driver”,
-2025-04-28 / committed 2025-05-07). Present from the first version of
-the driver. Driver first appears in **v6.16**; still present in v6.17
-and v6.18.
-
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: No `Fixes:` tag. The introducing commit is `8181d061dcff1`,
-which **is** an ancestor of v6.18 (`git merge-base --is-ancestor
-8181d061dcff1 v6.18` succeeded).
-
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-Record (path-limited `git log --oneline -- drivers/memory/stm32_omm.c`):
-driver add, spelling, several probe/error-handling fixes,
-`syscon_regmap_lookup_by_phandle_args`, req2ack test fix. Intermediate
-commit `6d8b18ae647bb` changed syscon lookup but left `int ret, idx;`
-and `return ret` in place. This init patch is standalone, not “patch
-X/Y”.
-
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record: Ruoyu Wang has only this commit under `drivers/memory/`. The
-driver maintainer (Patrice Chotard) reviewed it. Memory-controller
-maintainer (Krzysztof Kozlowski) applied it.
-
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-Record: None. The hunk only changes a local `int ret` declaration. No
-new helpers, types, or APIs. Can apply standalone.
-
-===============================================================
-PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-===============================================================
-
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+**Step 3.1: Blame**
 Record:
-- `b4 dig -c 1527acf2295cf2d6e11e3e9b121d63709667e6e7` →
-  https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com
-- `b4 dig -a`: single revision **v1 only**; committed version is that v1
-- Thread: author submission; Patrice Chotard `Reviewed-by`; Krzysztof
-  “Applied, thanks!” (mem-ctrl commit
-  `1527acf2295cf2d6e11e3e9b121d63709667e6e7`)
-- No NAK, no risk flags, no reviewer request for `Cc: stable`
-- lore.kernel.org WebFetch returned 403; discussion recovered via `b4
-  dig -m` and openwall/lkml mirrors
+- Table introduced in `0e764a01015df` (2020, “Allow client devices to
+  select direct mapping”).
+- This line added by `d149c8b2c0146` (2026-07-22).
+- SM8450 MDSS driver: `80056d9ac47ab` (2023-01-12, v6.3-rc1).
+- SM8450 DT: `a6dd1206e45a4` (2022-12-28).
+- Bug window: from v6.3 until this commit (about three years).
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record (`b4 dig -w`): To/Cc included Patrice Chotard (driver
-maintainer), Krzysztof Kozlowski (memory controllers), Maxime Coquelin,
-Alexandre Torgue, linux-kernel, linux-stm32, linux-arm-kernel.
-Appropriate maintainers were on the patch and it was reviewed/applied.
+**Step 3.2: Fixes: tag**
+Record: No `Fixes:` tag. Implicit introducer is `80056d9ac47ab` adding
+SM8450 MDSS without the IOMMU match. That driver and DT are in this
+tree.
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: No `Reported-by`, no bugzilla/syzbot link. No verified kernel-
-test-robot mail in the thread. The author describes the uninit return
-from code inspection.
+**Step 3.3: File history**
+Record: Several sibling “Add … MDSS compatible” commits (`f7fa8520f3037`
+SM6115, `12721e6600579` X1E80100, `28af105cb6504` QCM2290,
+`270a1470408e4` SDM670, `617937d4d5533` Glymur). Standalone one-line
+table entries; SM6115 even had `Cc: stable` and crash logs. No extra
+prerequisite beyond the existing match table.
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-Record: Standalone `[PATCH]`, not a series. No sibling patches required.
+**Step 3.4: Author**
+Record: Esteban Urrutia has only this IOMMU commit here. Reviewed by
+Konrad Dybcio; applied by Will Deacon. Not a drive-by unreviewed change.
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: **UNVERIFIED** for lore.kernel.org/stable (HTTP 403). Web search
-and the saved mbox show no stable-list discussion of this subject.
+**Step 3.5: Dependencies**
+Record: Needs `qcom_smmu_client_of_match` /
+`qcom_smmu_def_domain_type()` and a `qcom,sm8450-mdss` client. All
+present. No new APIs. Applies as a one-line insert next to
+`qcom,sm8250-mdss`.
 
-===============================================================
-PHASE 5: CODE SEMANTIC ANALYSIS
-===============================================================
+## Phase 4: Mailing list / external research
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
-Record: `stm32_omm_set_amcr` only. (semcode MCP not available; used hunk
-headers + `rg`.)
-
-**Step 5.2: TRACE CALLERS**
-Record (verified with `rg` on `drivers/memory/stm32_omm.c`):
-1. `stm32_omm_configure()` → `stm32_omm_set_amcr(dev, true)` then
-   returns that `ret` (probe, full firewall access)
-2. `stm32_omm_probe()` → `stm32_omm_set_amcr(dev, false)` when OMM
-   access is not granted; `if (ret) return ret`
-3. `stm32_omm_resume()` → `stm32_omm_set_amcr(dev, true)`; `if (ret)
-   return ret`
-
-All three are driver probe / system-resume paths, not an obscure debug
-hook.
-
-**Step 5.3: TRACE CALLEES**
-Record: `of_property_match_string`, `of_parse_phandle`,
-`of_address_to_resource`, `syscon_regmap_lookup_by_phandle_args`,
-`regmap_update_bits` / `regmap_read`. Side effects are DT parse + AMCR
-syscon R/W.
-
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record: Platform probe of `compatible = "st,stm32mp25-omm"` (SoC node in
-`arch/arm64/boot/dts/st/stm32mp251.dtsi`, enabled on
-`stm32mp257f-ev1.dts`). Reachable on STM32MP25 boot and suspend/resume.
-Not a syscall fuzzer path; hardware/DT driven.
-
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: No second copy of this AMCR helper. Binding example uses both
-`ospi1` and `ospi2` regions; in-tree board `stm32mp257f-ev1.dts` only
-sets `memory-region-names = "ospi1"`. Binding **does not require**
-`memory-region` (required list is
-compatible/reg/clocks/resets/`st,syscfg-amcr`/ranges). Omitting `memory-
-region-names` is a valid DT; the loop then never assigns `ret`.
-
-===============================================================
-PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-===============================================================
-
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+**Step 4.1: Original discussion**
 Record:
-- `git describe HEAD` / `make kernelversion`: **v6.18.53** (branch
-  `autosel`)
-- `git show v6.18.53:drivers/memory/stm32_omm.c` has `int ret, idx;` and
-  `return ret` after the AMCR compare
-- Driver exists in v6.18 (`git cat-file -e
-  v6.18:drivers/memory/stm32_omm.c`)
-- Bug introduced with the driver in v6.16 (`8181d061dcff1`)
+- `b4 dig -c d149c8b2c0146` →
+  https://patch.msgid.link/20260711-sm8450-qol-
+  smmu-v2-1-41a6fba41c3e@proton.me
+- v1: 8-patch “sm8450-qol” series (2026-06-22)
+- v2: this patch split out alone (2026-07-11)
+- Will Deacon: “Applied to iommu (arm/smmu/updates), thanks!” — no NAK
+- Cover note: “This patch allows the MDSS driver to properly function on
+  SM8450 based devices.”
+- lore.kernel.org fetches returned 403; content confirmed via patchew
+  and LKML mirror.
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: Clean apply. The one-line `int ret, idx;` → `int ret = 0, idx;`
-is present exactly once in v6.18.53. Surrounding function matches the
-upstream hunk. No rework needed.
+**Step 4.2: Recipients (`b4 dig -w`)**
+Record: Will Deacon, Robin Murphy, Joerg Roedel, Rob Clark, Konrad
+Dybcio; lists `iommu@`, `linux-arm-msm@`, `linux-arm-kernel@`, `phone-
+devel@`. Right maintainers and lists.
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-Record: `git log --oneline --grep='stm32_omm' -- drivers/memory/` on
-this history shows other stm32_omm error-handling fixes, but none
-initialize `ret` in `stm32_omm_set_amcr` in v6.18.53. No alternate fix
-for this uninit.
+**Step 4.3: Bug report**
+Record: No syzbot/bugzilla. Author describes the UEFI framebuffer
+context-fault. Same failure as SM6115 (`f7fa8520f3037`): flood of
+`Unhandled context fault` and failed DPU/GPU bind.
 
-===============================================================
-PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-===============================================================
+**Step 4.4: Series**
+Record: v2 is standalone. Other v1 QoL patches (dispcc, dts, qmp) are
+not required for this one-line match.
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-Record: `drivers/memory/` STM32 Octo Memory Manager (OSPI mux / 256MB
-map split on STM32MP25). Criticality: **PERIPHERAL** (SoC-specific), but
-it sits under flash/OSPI bring-up for that platform, so probe/resume
-failure is user-visible there.
+**Step 4.5: Stable list**
+Record: No stable-thread hit for this subject. Precedent: SM6115
+equivalent was `Cc: stable`.
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-Record: Modest, mature-enough driver (added v6.16, a handful of follow-
-up fixes). Not a staging driver. Maintainer-reviewed.
+## Phase 5: Semantic analysis
 
-===============================================================
-PHASE 8: IMPACT AND RISK ASSESSMENT
-===============================================================
+**Step 5.1: Functions**
+Record: Table `qcom_smmu_client_of_match[]` only. Consumer:
+`qcom_smmu_def_domain_type()`.
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-Record: Config-specific / platform-specific: `CONFIG_STM32_OMM` on
-STM32MP25 (`st,stm32mp25-omm`). Not universal.
+**Step 5.2: Callers**
+Record: `qcom_smmu_def_domain_type` is `.def_domain_type` on the
+Qualcomm SMMU impls. `arm_smmu_def_domain_type()` in `arm-smmu.c` calls
+it; IOMMU core `iommu_get_def_domain_type()` uses that at device attach.
+Probe-time, not IRQ/hot path.
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+**Step 5.3: Callees**
+Record: `of_match_device()` only.
+
+**Step 5.4: Reachability**
+Record: Yes, on Qualcomm SM8450 with MDSS enabled (`iommus` in
+`sm8450.dtsi`; `&mdss { status = "okay"; }` in `sm8450-hdk.dts`).
+Userspace does not need to do anything; boot + display probe is enough.
+
+**Step 5.5: Similar patterns**
+Record: Same omission pattern for many MDSS SoCs; several already
+patched. SM8450 was the gap between sm8250 and x1e80100.
+
+## Phase 6: Local tree (this checkout)
+
+**Step 6.1: Does the buggy code exist here?**
 Record:
-- Always runs during OMM probe (and again on system resume if
-  `restore_omm`).
-- Uninitialized `return ret` is **guaranteed** if the memory-region loop
-  never assigns `ret` (optional DT property missing or names do not
-  match `ospi1`/`ospi2`) **and** AMCR equals computed `amcr` (0 when no
-  ospi2 region).
-- On the in-tree ev1 board, `ospi1` is present, so
-  `of_address_to_resource` typically sets `ret = 0` before the AMCR
-  check; the uninit is then a maybe-uninitialized / custom-DT / failed-
-  phandle path. Compilers still cannot prove assignment because of the
-  `continue`s.
-- Not an unprivileged syscall trigger.
+- `git describe HEAD`: `v7.3-rc4-27-gf0100363d8c37`
+- `make kernelversion`: `7.3.0-rc4`
+- This is the 7.3-rc4 mainline checkout, not an older LTS branch.
+- Match table, `qcom_smmu_def_domain_type()`, DRM `qcom,sm8450-mdss`,
+  and DT node all exist.
+- `git merge-base --is-ancestor d149c8b2c0146 HEAD` succeeded (commit is
+  already in HEAD). That is ignored as “already selected”; it does not
+  change technical merit.
+- Without this line, SM8450 MDSS would still take a translated domain on
+  this tree’s code.
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Record: Returning uninitialized `int` as errno. Callers abort probe or
-resume on non-zero. Failure mode: OSPI/OMM device fails to probe or
-fails to resume (flash/memory-map unavailable). Severity **MEDIUM**
-(wrong control-plane result / possible resume failure; not a documented
-oops, but C undefined behavior). Garbage zero would incorrectly look
-like success on a path that never validated regions.
+**Step 6.2: Backport difficulty**
+Record: Clean one-line apply against this file. Context around
+`sm8250-mdss` / `x1e80100-mdss` is stable.
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-Record:
-- Benefit: prevents UB and spurious probe/resume failures on STM32MP25
-  OMM; makes the success path well-defined. Medium benefit for that
-  platform, low global blast radius.
-- Risk: **very low** (one initializer, no locking/API/data-structure
-  change).
-- Ratio: strongly favors backport.
+**Step 6.3: Related fixes already here?**
+Record: ACTLR prefetch entry for `qcom,sm8450-mdss` is already present
+(`f91879fdf70bd`). That does not set identity domain. No other fix
+covers this bug.
 
-===============================================================
-PHASE 9: FINAL SYNTHESIS
-===============================================================
+## Phase 7: Subsystem context
 
-**Step 9.1: COMPILE THE EVIDENCE**
+**Step 7.1**
+Record: `drivers/iommu/arm/arm-smmu/` Qualcomm implementation. IMPORTANT
+for ARM64 Qualcomm devices; not core mm/VFS, but IOMMU misconfig breaks
+display on those boards.
 
-FOR:
-- Real uninitialized return in a function whose callers treat `ret` as
-  errno
-- Reachable on probe and system resume
-- DT binding leaves `memory-region` optional, so the loop is allowed to
-  assign nothing
-- 1-line, obviously correct, reviewed by the driver maintainer, applied
-  by the subsystem maintainer
-- Driver and buggy code exist in this 6.18.53 tree since the driver
-  landed in v6.16
-- Clean apply; no prerequisites
-- Matches the uninitialized-data class that stable routinely takes
+**Step 7.2**
+Record: Actively maintained (recent Glymur, ACTLR, fastrpc fixes). The
+match-table mechanism itself dates to 2020 and is mature.
 
-AGAINST:
-- STM32MP25-only (narrow user set)
-- No crash log, syzbot, or user `Reported-by`
-- On the one in-tree board with `memory-region-names = "ospi1"`, `ret`
-  is often already 0 from `of_address_to_resource`
-- Not CORE mm/net/fs
+## Phase 8: Impact and risk
 
-UNRESOLVED:
-- Could not query lore.kernel.org/stable (403)
-- No confirmed compiler-warning/KMSAN report in the thread (web-search
-  snippets that mentioned kernel test robot were not backed by the
-  actual mails)
+**Step 8.1: Who is affected**
+Record: SM8450 (Snapdragon 8 Gen 1) boards with MDSS, e.g.
+`sm8450-hdk.dts` (`status = "okay"`). Config: `CONFIG_ARM_SMMU` +
+`CONFIG_ARM_SMMU_QCOM` (default y on `ARCH_QCOM`).
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — one initializer; maintainer
-   Reviewed-by; applied upstream
-2. Fixes a real bug that affects users? **PASS** — uninitialized errno
-   on OMM probe/resume
-3. Important issue? **PASS** at MEDIUM — probe/resume malfunction and
-   UB, not a documented panic; still a user-visible device failure mode
-4. Small and contained? **PASS** — 1 line, 1 function
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — v6.18.53 has the uninit
-   declaration unchanged
+**Step 8.2: Trigger**
+Record: Boot when UEFI left the framebuffer mapped and MDSS probes.
+Common on these phones/HDKs, not a rare race. Unprivileged userspace is
+not required.
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-Record: Not a device-ID/quirk/DT/docs patch. Closest extra: it also
-silences a typical `-Wmaybe-uninitialized` shape, but the decision is on
-the runtime uninit return, not on the build-fix exception.
+**Step 8.3: Failure mode**
+Record: Unhandled SMMU context faults; display init can fail (same class
+as SM6115: DPU/GPU bind errors). Severity: HIGH for those devices
+(broken display, fault spam). Not a universal panic.
 
-**Step 9.4: MAKE YOUR DECISION**
-Backport. The local 6.18.53 tree contains the driver and the bug; the
-fix is a one-line initialization of a returned errno with essentially no
-regression risk.
+**Step 8.4: Risk–benefit**
+Record: Benefit high for SM8450 display. Risk very low (one compatible,
+existing quirk table). Ratio strongly favors backport.
 
-What this does for 6.18.y users: STM32MP25 Octo Memory Manager probe and
-resume no longer return a stack-garbage error code when AMCR matches DT
-and `ret` was never written. That is a real, contained correctness fix.
+## Phase 9: Synthesis
 
-Risk vs benefit: benefit is defined success (`0`) vs undefined errno;
-risk is a single `= 0`.
+**Step 9.1: Evidence**
 
-### Verification
-- [Phase 1] Parsed tags: Reviewed-by Patrice Chotard, Link msgid, SOBs
-  Wang + Kozlowski; no Fixes/Cc-stable/Reported-by
-- [Phase 2] Diff: `int ret, idx` → `int ret = 0, idx` in
-  `stm32_omm_set_amcr` only
-- [Phase 2] Pre-fix function: loop may skip all `ret =
-  of_address_to_resource` stores; mismatch sets `-EINVAL`; success falls
-  through to `return ret`
-- [Phase 3] `git blame` on parent: uninit from `8181d061dcff1` (driver
-  add, 2025)
-- [Phase 3] Driver in v6.16+; `git merge-base --is-ancestor
-  8181d061dcff1 v6.18` true
-- [Phase 3] No series/prereqs; later `6d8b18ae647bb` did not fix `ret`
-- [Phase 4] `b4 dig -c 1527acf2295cf2d6e11e3e9b121d63709667e6e7`: lore
-  msgid 20260617182202.961843-1
-- [Phase 4] `b4 dig -a`: v1 only
-- [Phase 4] `b4 dig -w`: Chotard, Kozlowski, STM32/ARM lists CC’d
-- [Phase 4] mbox: Reviewed-by Chotard; Applied by Kozlowski; no NAK
-- [Phase 4] lore.kernel.org WebFetch 403; used openwall + mbox instead
-- [Phase 5] Callers verified: `stm32_omm_configure`, `stm32_omm_probe`,
-  `stm32_omm_resume`
-- [Phase 5] Binding `st,stm32mp25-omm.yaml`: `memory-region` not in
-  `required:`
-- [Phase 5] Board DT `stm32mp257f-ev1.dts` has only `ospi1` memory-
-  region
-- [Phase 6] `git describe HEAD` / Makefile: v6.18.53; `git show
-  v6.18.53:drivers/memory/stm32_omm.c` still has `int ret, idx;`
-- [Phase 6] Python check: old pattern present once in v6.18.53;
-  initialized form absent
-- [Phase 7] MAINTAINERS: Patrice Chotard owns
-  `drivers/memory/stm32_omm.c`
-- [Phase 8] Failure mode: garbage errno → probe/resume fail on STM32MP25
-  OMM
-- UNVERIFIED: stable@ mailing-list thread (lore 403); no verified
-  kernel-test-robot report
+For:
+- Real bug: missing identity-domain quirk → SMMU context faults / non-
+  working MDSS
+- Hardware quirk / compatible addition (stable exception)
+- 1 line, obviously correct
+- Reviewed by Konrad Dybcio, applied by Will Deacon
+- Same class as SM6115, which was `Cc: stable`
+- SM8450 MDSS has been in this lineage since v6.3
+- No new API, no refactor, no extra dependencies
+
+Against:
+- No `Fixes:` / `Cc: stable` (expected here, not a negative)
+- Affects one SoC family, not all machines
+- Originally in a “QoL” series (v2 is a standalone bugfix)
+
+Unresolved: lore.kernel.org 403 prevented reading every v1 reply; v2
+application and Konrad’s Reviewed-by are verified via patchew/LKML/`b4
+dig`.
+
+**Step 9.2: Stable rules**
+1. Obviously correct and tested? **PASS** — one-line OF match;
+   maintainer review/apply
+2. Real user bug? **PASS** — context faults / MDSS broken on SM8450 with
+   UEFI FB
+3. Important (crash/security/corruption/deadlock)? **PASS** — unhandled
+   SMMU faults and failed display; HIGH for that hardware
+4. Small and contained? **PASS** — +1 line, one file
+5. No new features/APIs? **PASS** — existing quirk table only
+6. Can apply to this tree? **PASS** — table, MDSS driver, and DT are
+   here
+
+**Step 9.3: Exception**
+Record: Device ID / hardware quirk on an existing driver. Automatic YES
+class.
+
+**Step 9.4: Decision**
+This tree (`v7.3-rc4`) has SM8450 MDSS and the Qualcomm SMMU client
+table. The patch is the standard identity-domain compatible for a
+bootloader-configured display. It should be treated as stable material.
+
+Explanation: Without `qcom,sm8450-mdss` in `qcom_smmu_client_of_match`,
+MDSS is attached to a translated IOMMU domain while UEFI still owns a
+physically addressed framebuffer, which produces unhandled context
+faults and can prevent the display stack from coming up. Adding the
+compatible selects `IOMMU_DOMAIN_IDENTITY`, matching every other
+Qualcomm MDSS entry in that table. Benefit is working display on SM8450;
+risk is a single OF match that cannot affect other hardware.
+
+Verification:
+- [Phase 1] Parsed tags: Reviewed-by Konrad Dybcio; SOB Esteban Urrutia,
+  Will Deacon; no Fixes/Cc stable
+- [Phase 2] Diff: +1 line in `qcom_smmu_client_of_match[]`;
+  `qcom_smmu_def_domain_type()` returns `IOMMU_DOMAIN_IDENTITY` on match
+- [Phase 3] `git log`/`git blame`: table from `0e764a01015df` (2020);
+  SM8450 DRM `80056d9ac47ab` (v6.3-rc1); this commit `d149c8b2c0146`
+- [Phase 3] Sibling SM6115 commit `f7fa8520f3037` had `Cc: stable` and
+  context-fault logs
+- [Phase 3] `git merge-base --is-ancestor d149c8b2c0146 HEAD` → yes
+  (already in this checkout)
+- [Phase 4] `b4 dig -c d149c8b2c0146`: v2 at
+  patch.msgid.link/20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me
+- [Phase 4] `b4 dig -a`: v1 8-patch QoL series → v2 standalone SMMU
+  patch
+- [Phase 4] `b4 dig -w`: Will Deacon, Robin Murphy, Rob Clark, Konrad
+  Dybcio, iommu@ and linux-arm-msm@
+- [Phase 4] patchew: Will Deacon applied; no NAK
+- [Phase 4] lore.kernel.org WebFetch: 403 — UNVERIFIED full v1 reply
+  text; v2 content verified via patchew/LKML
+- [Phase 5] Callers: `arm_smmu_def_domain_type` → IOMMU default domain
+  at probe
+- [Phase 6] `git describe HEAD`: v7.3-rc4-27-gf0100363d8c37; `make
+  kernelversion`: 7.3.0-rc4
+- [Phase 6] Confirmed `qcom,sm8450-mdss` in `msm_mdss.c`, `sm8450.dtsi`,
+  HDK `&mdss { status = "okay"; }`
+- [Phase 6] Pre-commit file still had ACTLR `sm8450-mdss` only; client
+  table lacked it
+- [Phase 7] `CONFIG_ARM_SMMU_QCOM` default y on `ARCH_QCOM`
+- [Phase 8] Failure mode: unhandled SMMU context fault / broken MDSS on
+  SM8450, severity HIGH for that platform
+- [Phase 4.5] No stable-list discussion found for this specific commit
 
 **YES**
 
- drivers/memory/stm32_omm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-index 5d06623f3f689..2a1af229d2444 100644
---- a/drivers/memory/stm32_omm.c
-+++ b/drivers/memory/stm32_omm.c
-@@ -47,7 +47,7 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
- 	struct device_node *node;
- 	struct resource res, res1;
- 	unsigned int syscon_args[2];
--	int ret, idx;
-+	int ret = 0, idx;
- 	unsigned int i, amcr, read_amcr;
- 
- 	for (i = 0; i < omm->nb_child; i++) {
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index f7cb7de80cfb9..b6493e92343be 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -394,6 +394,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
+ 	{ .compatible = "qcom,sm6375-mdss" },
+ 	{ .compatible = "qcom,sm8150-mdss" },
+ 	{ .compatible = "qcom,sm8250-mdss" },
++	{ .compatible = "qcom,sm8450-mdss" },
+ 	{ .compatible = "qcom,x1e80100-mdss" },
+ 	{ }
+ };
 -- 
 2.53.0
 
