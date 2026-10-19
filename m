@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF33CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F71CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=; b=QjbHLnr6TDC1rh9ImBFsjLdZ45
-	IAPG9tYmCpEXdHvCAGFbQ1a26uD4Ik9Vqy0tdUVeAf9Pw2VP3B6ldPfE8hJWVCNoFKyzuNvTjaq7V
-	B2x4C3I1cLF8dwV4MBZHORcU+xLFupdAc9XOJRiXCLVVE4LyI/y3Tf8dRTO8iWD11XW9BKMHv9b6j
-	2icPuNN0j9xl7AG47ykSkPNkp4vN0MzwMywv+u8kv/oidGK1HgJkPfcrSsmKq1X+LGch5wRsoFmvW
-	NOPPdQnOjdSidBvJ/sjqMLLRwP/EJn1tWPjyxTb6TGmiFKFuSqBTgm5mkFaBKVOXITdbj/6YUnoJI
-	1H63qkUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uVTV66EQARd6AtvNeKLH6twwh1vHhGz7zukKT167vwY=; b=dX1K+JCEjDIRpvxOz5lV+ZH/zW
+	OywvuWWdRga87QAzk3/KzegvVs1bxLSb5MMM1AZOVjpAqYH3R+K515p/Lo27AdzvUhGBKHXTmf9jC
+	UQkvnLCGpuYzi9nsm4RgahEGTLrr6x9OxHjC5pdudgeE0Q+3m8EmwgYnPJ4dzUDyC5QSbMq5/dGL4
+	gW+gD7lzW030mQj8FwWvM3Xu4AhSV0FdGUGXi5Jwz9ertJxilF4dJSNHjHAqwWdbWD1lrbz+onk06
+	c8MvdjNwAbqTTbpHZvKVoQ00y36d+j1YSgfVQZ0J2d2jTrr1K9WMg44WPPXMw9GqYn8CJ9Li2tum4
+	YE3UG3pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn4B-00000007SXC-195R;
-	Mon, 19 Oct 2026 13:06:15 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xIn7B-00000007SoI-2ojE;
+	Mon, 19 Oct 2026 13:09:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn48-00000007SWC-0O8m
+	id 1xIn7A-00000007SoA-423Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:06:13 +0000
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 636532018D2;
-	Mon, 19 Oct 2026 15:06:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1792415168;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=;
-	b=ez3IQRq12gsTNGODFXZzRllu3D9nArUc50OhODwJaryVGgHgr3lKN7z5gkUq6YGAjiBkUx
-	I+JWC6O3m7yg7a0Fsk8UHpl7Kwi+tRfbmM2dQ/TjHhg9GkDfT0OPQFAjJk3vsks4Yc23Tc
-	6Hjq5bdr5OtWFxAXHZrvOLHFWLR6uAqMYoPJJJKGcBKZ3pjxj+AWEeDdQ1jAsA7djkQlUc
-	K7azMvWs+RYWvE+WT7da20JU6yngSf6tUbdZqyouLP2JSg0uYbATSuxHCTzBUASiEFYk59
-	jFWfZHTuX/OlnY61kxayWjrPBLpHMUF9xnvKekXnkdMuFFcziWxnaFvrWw37RQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1792415168; a=rsa-sha256;
-	cv=none;
-	b=F7JKLT4pj0z1IeY8KRGE7/e/m+c9gCF0VBc2EaTEwJSlsYbpsJnScsEyzsdavR66yvdd86
-	ixgx6UZ6X+rhM0u0JXN3gL5VMCfZNJDywNGuHY5wt/pkxaGKOwY2pIvyYmCEunjD+0e4E1
-	fAsn/exgsqqgCXzrsabpzDqQQI0KSS51bavBaOSurR8reOWek9BiDtfxjM11J/nws15SJF
-	1REqCkSOvKewpJ3mWND24ryHn0jAuL3iUaAZ2h/3+ld9snd0G7iFuVepDvYoyT2ZSq/ikb
-	T9S2vO0BLIYQaQUQ77NA2qy58kbrFpGE1mpiwpawa2mFukjRwwl4mqZnf4jzOg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=mfe@pengutronix.de
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1792415168;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=;
-	b=MUrUnoHjrAdHgjnvm20c8PmZCK0FBPh1LvuZaMvM2bIqEKqibe8Aszc6D45bCGucyjN8HF
-	iH23iMTePkaohvp2UGF32FVgnMhF5ePIey+cVS781J/VDPcV3qoJDE5OSoB8kPvLNKxDy5
-	KnzRsTug3JRoIeJyjwZnPjYVWAnvGI5WyP/3U2lfZZ88XHnQsUPUdoCJKyqcmuBKjbMRwn
-	YSJkz/9HgI22oNOroCEaSbAtc0T5S/TkYRab5wO4cBGgIpjjHsXyDY9pW+5bVw8QqVB+vY
-	Mjm+snA6iInjdYHZvd645cJwW6XLsrLSyOAHc81SYfUv/RkgAMlVaiJDniXdZw==
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1064)
-	id 4CE841C0145; Mon, 19 Oct 2026 15:06:08 +0200 (CEST)
-Date: Mon, 19 Oct 2026 15:06:08 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Joy Zou <joy.zou@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
-	Jacky Bai <ping.bai@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add i.MX937 FRDM board
-Message-ID: <2l6vjbw6nkyq6jouilhhg7kebnuka25z36tu6yecyc5hpogluo@kljl5qqoz7s4>
-References: <20261019-b4-imx937-frdm-v1-0-76d949a61954@oss.nxp.com>
- <20261019-b4-imx937-frdm-v1-1-76d949a61954@oss.nxp.com>
+	Mon, 19 Oct 2026 13:09:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0819B60258;
+	Mon, 19 Oct 2026 13:09:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 629221F000C5;
+	Mon, 19 Oct 2026 13:09:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792415359;
+	bh=uVTV66EQARd6AtvNeKLH6twwh1vHhGz7zukKT167vwY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=KIAKJ1bfFSWtcXVF1B2lkRTfoMjdHlc2fA5Q+C67CfWsLwT1edMHgtPraNrtsjBEF
+	 yWtU+FF7QvhQWJHlZubj+2QyUSZ1EH7SoI6q7hmKjQ9mRKTJWP5Rxc5FiioznW+Vm2
+	 5SxGQxzJF0TxYJf+Yd+RDdgeJ/g42xzBW5j0pTwxB6XQKtB8C0z+ErF7/9OxWjSeB+
+	 G0kRqhW4uIPJgKM4e6GsLkt0bN7xLVEx+1UzyyN3/H65cAfb065FwQgXnzF/BSpQf8
+	 UoCfepbafHWusQM6FTjEA8pmrtDrYIrje2rJSXPT5eUQVUGYLrvV4ILklvRRdd7jZ5
+	 PzbsaxOVuubWA==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Phil Auld <pauld@redhat.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: [RFC PATCH 05/49] cpuidle: Move CPUHP_AP_CPU_PM_STARTING post stop_machine()
+Date: Mon, 19 Oct 2026 15:08:12 +0200
+Message-ID: <20261019130856.49711-6-frederic@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261019130856.49711-1-frederic@kernel.org>
+References: <20261019130856.49711-1-frederic@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261019-b4-imx937-frdm-v1-1-76d949a61954@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_060612_299179_34A87E75 
-X-CRM114-Status: GOOD (  12.37  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joy,
+Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
+all the teardown callbacks while stopping all CPUs in the system. This
+doesn't mix-up well with running RT or isolated tasks.
 
-On 26-10-19 19:10, Joy Zou wrote:
-> Add DT compatible string for NXP i.MX937 FRDM board.
-> 
-> Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index c8290a83205b..af10cac62f90 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1570,6 +1570,13 @@ properties:
->            - const: toradex,osm-imx93
->            - const: fsl,imx93
->  
-> +      - description: i.MX937 based Boards
-> +        items:
-> +          - enum:
-> +              - fsl,imx937-frdm           # i.MX937 FRDM Board
-> +          - const: fsl,imx937
-> +          - const: fsl,imx952
+In order to transition smoothly from global stop_machine to finer
+grained synchronization between teardown callbacks and the other CPUs,
+a new stop machine post function has been introduced to be executed
+after the main one with IRQs still disabled while other CPUs can exit
+stop_machine().
 
-At least to me it seems odd that you specify two SoC compatibles here.
+The teardown callback here only touches local data and also the local
+power device under its power lock. Therefore it should be safe to run
+against other CPUs.
 
-Side note (obviously not something you could influence):
+Move this teardown callback to post stop_machine() accordingly.
 
-NXP should really work on their product family names. If some
-i.mx95<foo> is compatible with i.mx95<bla> I would call it i.mx95<foo>
-and not i.mx93<foo>.
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+---
+ kernel/cpu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Regards,
-  Marco
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index f22afb213d6f..68eb8de820d5 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
+ static int take_cpu_down(void *_param)
+ {
+ 	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_RCUTREE_DYING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_CPU_PM_STARTING);
+ 	int err, cpu = smp_processor_id();
+ 
+ 	/* Ensure this CPU doesn't handle any more interrupts. */
+@@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
+ 	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
+ 	int cpu = smp_processor_id();
+ 
+-	WARN_ON(st->state != CPUHP_AP_RCUTREE_DYING);
++	WARN_ON(st->state != CPUHP_AP_CPU_PM_STARTING);
+ 	/*
+ 	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
+ 	 */
+-- 
+2.53.0
 
-> +
->        - description: i.MX94 based Boards
->          items:
->            - enum:
-> 
-> -- 
-> 2.34.1
-> 
-> 
-> 
 
