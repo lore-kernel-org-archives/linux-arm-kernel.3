@@ -4,101 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D419CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA83CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fTaWLyJQguuj+iwhlfuFOJfOVGeQt6aW3eAE90gC5/k=; b=PQIt/tmUPDyr/vQlLpWduvLKSO
-	g4LyYtVxFsje7zokI0/DNwC+7X7RO1LiyfnWous2QPIW5dREydJbFTXuJSh+YHC4cJ3FnK1gknveq
-	3/y6bStBWHppJaJ+UQCUdo286dZHkegdu/ARls7JM1GkB2CZVWUJ0HTKG9kZll9ywcIECeG5XH7hJ
-	HVhG87+6C1CJf65oZ5cK5mMxxXWQ8o+eDARe7vjL4CAhdPPJvSpvzgEisnrWDYaj7Mv0qI3Uh1Wjx
-	iHfgdLrfq0BoUMI0xwJtAKFQYEUH3PSmotTmqgs7P/3WzFJyYGeHlmELDD5XOhyyBtv9AOxbYwZ09
-	loyA+1fQ==;
+	bh=44Qa1LQ6eICE2navxqvBq6MbiOP9jzE+4MSaCPYPCfE=; b=c+t7rcc/fuh55tmP7+Xe88C04y
+	B7gr2XHv0dn+wn0+MyITCCWyqpWydbFI5aj4ZS3C1D1qeAaJGVXGyHmuQp+9KPYb5GO45LcgFBhlt
+	oaj/VoqG7iN7Ltt+RRTj1J9vyzafCMHbhL2oOnDY8WfsOZK6KJmzZmjaC2x+75eR76aq8YC+a78At
+	jRipcIEVCH++a+yDz6I4UjEsGln6ZbQ47yj+ZVgkyMagAP1Kb/wawjpUHk2mJBZUwJfcvRACKEwGQ
+	lnNf9hxSGqNFzG//4CzZDesmABQ1kCphyy3cdtuI0BMJUpj1VrOyYKmvcFqJOHIVhlr01MOYEymNp
+	ywR8GomA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjlx-000000071SG-2jt4;
-	Mon, 19 Oct 2026 09:35:13 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1xIjnP-000000071Zw-3WZw;
+	Mon, 19 Oct 2026 09:36:43 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjlw-000000071RS-0x5Z
+	id 1xIjnO-000000071ZN-0Lph
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 09:35:13 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48df54150dfso1380881f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 02:35:11 -0700 (PDT)
+	Mon, 19 Oct 2026 09:36:43 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48df54150dfso1382306f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 02:36:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792402510; x=1793007310; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1792402600; x=1793007400; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=fTaWLyJQguuj+iwhlfuFOJfOVGeQt6aW3eAE90gC5/k=;
-        b=s9UD5DEnmtNwPMy5oDNou+9uzmUAMgV9YXdmHDpn9nkdw4mRZRYAKKi3P/G1fjwRng
-         DOaQhVi/aCrqVImOWuKa0twjdwzVbsbLBiw6IuPDxB9tVyGFdT3XikFr2tbloPAOGNkq
-         a0rb4JTUZYsIJxDzabFkeqX/UDEiajTSxcHF3gRVqBIIQSJSOyJxZM0CP0M7V5ydP3b3
-         M9zdEaK1NnjqBzjLg90+pyFUg3fS/DXbWQVNSD2lwgnOI3/vVtRNKfs6dW28lnwbF3l6
-         fLO1S5a53uEBfF9rhYMuFT4GxZTzvB+ruUTZK90Sd2KH/yjcJM78ieiGo9Qf74baSufr
-         5LOg==
+        bh=44Qa1LQ6eICE2navxqvBq6MbiOP9jzE+4MSaCPYPCfE=;
+        b=ssL5ydlUdKwUmI0X2TuHlP9MiVIMY30iXspR+gw6qhzbI0xZ59u42A4/DIstjE8mLS
+         wfCjK/SEnacIqmMfCAyfGu1FtbLdJOkG+1tR+MMM9ftaXs9AKaHGcLbWkhL/pTAVq7wZ
+         OckKCQJUwVHYtu6piW5w2bf+SNAe7l84WjYHUG8ONjZwpbpum5/ByLA8rV4WPtw+oJ60
+         83Dua5wZEKAsHCv3R/kJLRCJcmyvTcRHbeA0Rbo/ijdeYf8lws96GsEcSFC6oOy1nTV6
+         Ka1xjmnFXjaU04HHzbwNbZT4fS2zek+h5wC1jNjCfb9ouenmn5q2uLhYcATyTSK4Wgma
+         xSQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792402510; x=1793007310;
+        d=1e100.net; s=20260707; t=1792402600; x=1793007400;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fTaWLyJQguuj+iwhlfuFOJfOVGeQt6aW3eAE90gC5/k=;
-        b=BLPmkSBVRl8KPgfb2Og10YP3mrtAjYLwunfFUC1N2iXzCJUOJhxEWzhQaFsgSn2cNl
-         WEYRzd3WnI+x0JPD0QSTXXuOZjia5/SymyYYszYLkB2LJwe3kBgECnsKfTEuns8XHwTU
-         Z/Bq7bDrEVwKFDyKl9xYBQwbXIym5dEvN8o8lh8DfvLEicza/ongQbQslQdEh3c0xp4W
-         3e9C+fNLU10eNSvhJB6WSyOxb9XsapEjAuS7QhAz+vlpBMgAdDktKEzgJXehlyNnXw51
-         e+iJp++kV1NqdyQAEtWnRv54LX8eOk4kSynqQEJouMBWP6g2ClLiQ+0doYMvgiKiCmTY
-         pEcw==
-X-Forwarded-Encrypted: i=1; AKwUvBxC2P0RV8AzxZ+S5nNg87gZQwVbdw6PQ6qqJTMf1I1v5fDPOmPc+inTA81oWKRTtQoGSUBLm/esk6F0NKTLsw2e@lists.infradead.org
-X-Gm-Message-State: AFq9FYJAopNqofcVvvHk+1h0ZfYFOuHMKGp+DIxI3yhpJ5STWzbGB+Hz
-	aJC7wCM625Vt+yFANxeKN0nItXr6qB0a5cpHwAJduai4g7vYNxgrh/iskc4c+MBKUYg=
-X-Gm-Gg: AYBFou15swQQ5QWSAZjL1fBW/RjPe2JrhBjIzK5BVfRSGGcmk4X8avuNzKJoPzN0b/X
-	cBFUv06CH9eP04Nv9DPZj1b46cCOw8Rum51yx2xncfrL3JOvPZM1PEL0w2oiGUwO7jgnFdhl8XG
-	fKDnTGCLTUeR0c3ewV/+eyIRnA+n7mv1due98GtxsbMe+bwSbzS9s8b/Hd3xigPqD0w8Q3wY0qg
-	9D9Dl1zwIPZkdtRWxVOEdZXo5FIiLci6V+BoX8suxVKPTp3LaoalVAD4PkZc0KAXISOR2YjqzrS
-	8IeS6Wr3cSh6Enn7LI5Vd7oxLkGoM0xRv1MQGOmFtyKGmMhclFLBes1BFkMvtvkGAyDH2ke3f18
-	WwjIHRIA8rQspp1XTtajoSnOU/5dnou1sExYJGdWV8+nx++zVCEpNndGVxslVwaGI0bHZiq28bW
-	NBmfdeQuSaq6INB4ovqu97QlRvRMmoom9B87KyI15J2HyBdYW+lSLhFXloYzAICnTpbJErNFbRI
-	XsK
-X-Received: by 2002:a05:6000:4b1a:b0:48d:f034:7fcd with SMTP id ffacd0b85a97d-48e07fa2f48mr12167246f8f.51.1792402510355;
-        Mon, 19 Oct 2026 02:35:10 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd471a1fsm18752727f8f.3.2026.10.19.02.35.09
+        bh=44Qa1LQ6eICE2navxqvBq6MbiOP9jzE+4MSaCPYPCfE=;
+        b=1dEpciQOAcJcYkSxQe2F1ev8RmMXTQx5r4uBCqgbrJ1HIdEMLV7NOMLIFB41U/H6ru
+         BdaVHnZBvNyY8nEMDzfgogeweTAphtORPMJHQlpvOw/RlJU6pKHGeRNbGaChIl3yNPAj
+         NT/HPMGgIMEtPmzDNmgiqUnOc4UKLKmymM8nbE7MWphEVoOO56DlWLZoit9UoOI6adw4
+         /i36TJnXSC1stx/efDSimi7jpJxjpwdTPUWWEj08l8X9AkI0N5XTVD93feuQfzDG7JdZ
+         roGcqtW4NgLuCcQCxlIRjSC1awSqaRJ6qoAelJtz4YejhcP7+965pM56WvPaWTu1YE/Z
+         lOwQ==
+X-Forwarded-Encrypted: i=1; AKwUvByVLCpAzhRbQH9fEv8JJK+6piPGk0SxrfLRS3q33wW71wk8ELzzyBcwCjC8fvLNiftatVV5Vdl5pE2kQbep7fTY@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ1NguNXD200jBRNUYnC0Y23i96qLSR13kg7m0aU69UcjTmEs+H
+	anbBQq6e6XNhbVxFhx5K9i4AI5smz389jhp95Gy4D8T8Q4daaqpw0oeEPmpEAQWOue4=
+X-Gm-Gg: AYBFou1SV9pHy2v2CZyav3Laz8wb1PgzaLXTFayM3AT2PJljuj4yVT/V+AKKyVn6xQO
+	A01R3ZXfZxtIXk1wNVGAPViVduCyrgEmARrJgFpIWnzC2hDYupQLYg/lDGWwzOGmcFCb1BhzQUE
+	bF6B1xTO8trmMLqGDWqcAZ4NPw1f63PyS/6leMjTrYwQ6yw1Oup8455jwokM/Q+U6msc9Zm1CgE
+	byEmt9Kxgk193zbMFHP65XqyQzM1s7ezu9UjzaoCOvBRK5eDfkuwCGgJsacJUPd0/MvODckL89e
+	UhnlK/m0zlTttSbW4q2WXWJzUfS6Y10BWCNCUwTao/8cLM1SJYoD9OqPpw0a4VzzQLjiEzf/FjW
+	FwxMxV2xdjenOZOOU0JR043dPRFTdY9JvAKwLj+5Waynq9ZQpsoGFfIxnPrTMTdZkDK17VLCl+o
+	aiMC/nu9s/MW6LIc2JBBW877hocugJedrPjWyNtckJIR5T1Lip1PrEnwHcWVwJwBgCJJ1pUlIDu
+	i2XHSADXw7hXXDoruFuW1vX9YIKxGieEm6n3hDq764ULaRC4Q==
+X-Received: by 2002:a05:600c:3b23:b0:4a1:cd83:b240 with SMTP id 5b1f17b1804b1-4a1d75ab20bmr188477405e9.1.1792402600230;
+        Mon, 19 Oct 2026 02:36:40 -0700 (PDT)
+Received: from ?IPV6:2a0a:ef40:eb0:c501:2c4e:44f:2449:8978? ([2a0a:ef40:eb0:c501:2c4e:44f:2449:8978])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4ecac3sm24062449f8f.27.2026.10.19.02.36.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Oct 2026 02:35:09 -0700 (PDT)
-Message-ID: <296f398a-a351-4290-80e5-d18427a88dac@linaro.org>
-Date: Mon, 19 Oct 2026 10:35:08 +0100
+        Mon, 19 Oct 2026 02:36:38 -0700 (PDT)
+Message-ID: <8a8313f1-d525-45d3-9044-b5f7a00b256d@linaro.org>
+Date: Mon, 19 Oct 2026 10:36:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/25] coresight: perf: Improve hardware state transitions
-To: Leo Yan <leo.yan@arm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
- <20260915-arm_cs_support_aux_sample-v1-9-35cf6f297d20@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-9-35cf6f297d20@arm.com>
+Subject: Re: [PATCH 06/10] ARM: dts: omap: dm816x: Update USB node
+To: Andreas Kemnade <andreas@kemnade.info>,
+ Ettore Chimenti <ettore.chimenti@linaro.org>
+Cc: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
+ Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Christopher Obbard <chris.obbard@oss.qualcomm.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+ <20261016-patch-ektor5-dm8168-dts-v1-6-b4ce30217028@linaro.org>
+ <20261017083957.7c2696f5@kemnade.info>
+Content-Language: en-GB
+From: Andrew Goodbody <andrew.goodbody@linaro.org>
+In-Reply-To: <20261017083957.7c2696f5@kemnade.info>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_023512_301121_057350C4 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20261019_023642_177041_D638F32E 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,35 +115,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/09/2026 16:48, Leo Yan wrote:
-> Keep hw.state consistent with event activation and AUX buffer updates.
-> Initialize events as stopped and up to date, clear both flags after a
-> successful start, and set UPTODATE after committing an AUX buffer
-> update. On resume, clear UPTODATE only on success. Preserve state on
-> resume failure and ignore duplicate stops.
+On 17/10/2026 07:39, Andreas Kemnade wrote:
+> On Fri, 16 Oct 2026 16:41:21 +0200
+> Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
 > 
-> Add helpers for setting and clearing state bits. Use READ_ONCE() and
-> WRITE_ONCE() to prevent compiler merging or refetching of state
-> accesses.
+>> From: Andrew Goodbody <andrew.goodbody@linaro.org>
+>>
+>> USB node was not working correctly with DMA enabled as the supporting
+>> code had been updated without updating this SoC's device tree. Bring the
+>> device tree more up to date so that it works with DMA enabled.
+>>
+>> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+>> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+>> ---
+>>   arch/arm/boot/dts/ti/omap/dm816x.dtsi | 41 +++++++++++++++++++++--------------
+>>   1 file changed, 25 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+>> index 7f3ef3a00ab8..5be9efc60785 100644
+>> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+>> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+>> @@ -574,18 +574,27 @@ uart3: serial@48024000 {
+>>   		};
+>>   
+>>   		/* NOTE: USB needs a transceiver driver for phys to work */
+>> -		usb: usb_otg_hs@47401000 {
+>> -			compatible = "ti,am33xx-usb";
+>> -			reg = <0x47401000 0x400000>;
+>> -			ranges;
+>> +		usb: target-module@47400000 {
+>> +			compatible = "ti,sysc-omap4", "ti,sysc";
+>> +			ti,hwmods = "usb_otg_hs";
 > 
-> Assisted-by: Codex:gpt-6
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm-perf.c | 58 ++++++++++++++++--------
->   1 file changed, 40 insertions(+), 18 deletions(-)
+> Why do we still need this? It is depcrecated.
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index e3c9d3cf84c502f357a430bc3bfa854a776618f1..f66c99b26e1862ab04105704276c901b21728207 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -150,6 +150,20 @@ etm_event_cpu_path(struct etm_event_data *data, int cpu)
->   	return *etm_event_cpu_path_ptr(data, cpu);
->   }
->   
-> +static inline void etm_event_set_hw_state(struct perf_event *event, int mask)
+> Regards,
+> Andreas
 
-Extremely minor nit, but inline does nothing here.
+Without that line we get the following on boot and USB does not work
 
+[    0.110148] omap_hwmod: usb_otg_hs: no dt node
+[    0.110163] ------------[ cut here ]------------
+[    0.110169] WARNING: arch/arm/mach-omap2/omap_hwmod.c:2332 at 
+_init+0x1a4/0x4c4, CPU#0: swapper/0/1
+[    0.110198] omap_hwmod: usb_otg_hs: doesn't have mpu register target base
+[    0.110204] Modules linked in:
+[    0.110221] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 
+7.3.0-rc7-g8e3242ad06d4 #11 VOLUNTARY
+[    0.110235] Hardware name: Generic ti816x (Flattened Device Tree)
+[    0.110242] Call trace:
+[    0.110254]  unwind_backtrace from show_stack+0x10/0x14
+[    0.110284]  show_stack from dump_stack_lvl+0x54/0x68
+[    0.110307]  dump_stack_lvl from __warn+0x8c/0x194
+[    0.110331]  __warn from warn_slowpath_fmt+0x1a8/0x1b8
+[    0.110350]  warn_slowpath_fmt from _init+0x1a4/0x4c4
+[    0.110367]  _init from omap_hwmod_for_each+0x30/0x5c
+[    0.110393]  omap_hwmod_for_each from __omap_hwmod_setup_all+0x34/0xf8
+[    0.110412]  __omap_hwmod_setup_all from do_one_initcall+0x54/0x2a4
+[    0.110431]  do_one_initcall from kernel_init_freeable+0x208/0x2bc
+[    0.110453]  kernel_init_freeable from kernel_init+0x18/0x134
+[    0.110471]  kernel_init from ret_from_fork+0x14/0x28
+[    0.110484] Exception stack(0xdf009fb0 to 0xdf009ff8)
+[    0.110496] 9fa0:                                     00000000 
+00000000 00000000 00000000
+[    0.110507] 9fc0: 00000000 00000000 00000000 00000000 00000000 
+00000000 00000000 00000000
+[    0.110516] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    0.110611] ---[ end trace 0000000000000000 ]---
+
+Andrew
 
