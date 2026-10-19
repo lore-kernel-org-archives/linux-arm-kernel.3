@@ -2,67 +2,172 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFC2C60A2600
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 17:38:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DA3E606A33F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 17:38:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Z9EiL0j;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OGHeF0po
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vyY5fBwN;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=JwEkFYRE;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=Y+BkH5Hl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3YgZ6rFjSF640oAE6K1esSmJ69BZZKZXyF8UF8PDV8=; b=0Z9EiL0jWfQYCknFTckitcGUDv
-	AvaN0bYoPHu/IxUEGSU9xJ5rUolrH6YPokdwG3U7xSGiZ39kvJBzKX4bDLZ1Gn2hwxK/R8m9AULOc
-	mf+8YN80P0ufoksFYGk5Dliwr3mvLGlPV96TyXlzEUANgIkZnHQdRLhAQ/lpBI0+l3N1yCwrz7Gbe
-	cj2iIqgezHBXdJCK1B+Nsi7Vanf8S6zWR0EJLMS1hLdBeOPYBWuRr+cuYi/z86QVXEt1pCig8ObIc
-	usiRkVGGdctJ+V6BQFwT0utn6Ed1aXrkj3X6PBOyE2943qFrhxxBGSuq3+K3f4iKR701VfMV3QpcJ
-	PHNu1E8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=; b=vyY5fBwNPWQlPZ5AzLi6cRLOyQ
+	PJ8zkPkded1oae0U9IL8H7s/ElRAzSPjWodIVqtroMApk1zOp828ieDp5sr+D6/DpTfWZ8dr7X0+A
+	vGbiY8lrPaksq0rWwvkgi3oFBLt2VTn8zfBYHNK4A2AajTfAk/Rkx03fuUw6RKOhwDRnl5taLsJHn
+	WXEdhArds9KK2BTWORbWZjVwE+sL9kk/rvzrlcDt/9e+pZ9QFYRWlO6pgGUjBGQKQrWXVzhEQ22DQ
+	X/Qxxfzn+pLJJm1KYyXC0j6E/QHmygKuL7m41Hs9TMCu64Nq9UejgoaRHRtDfzer8UYxPSwJwiQfG
+	xWG7Ex5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJq-000000085xi-3zxD;
+	id 1xIrJq-000000085x6-34G3;
 	Mon, 19 Oct 2026 17:38:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJp-000000085wO-0jBN
+	id 1xIrJj-000000085uJ-1eTh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 17:38:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52355601FD;
-	Mon, 19 Oct 2026 17:38:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1581F000CA;
-	Mon, 19 Oct 2026 17:38:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792431520;
-	bh=d3YgZ6rFjSF640oAE6K1esSmJ69BZZKZXyF8UF8PDV8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OGHeF0pozEU603615+FPvY7N67oa1EM2SWddXg5nBTC1lyYAXI5EuQfwk9LHShwNx
-	 3Qtm8ih59KhxxfknnlFsSSdo46Tl0zEsC5ScyjYBodIBd8eShsSKXXbJgoFmxNetSi
-	 4GHICW02PACle9bt6Lg/VJUsCij5q0g6wES5uj0IcN46b/oBkBtw9ideIQ5Y94IGt2
-	 BRL2TkFSwSluaO63rY5PenSzggMzEh5p5ZHVfpf3sA6lX7sWhCOCqaYjNCxc9e+c4a
-	 L49Dj3opw8IKHYlXejnw0RC0FhSfjL5qU3PMgm80Uh7tq22hjS3zEPqIxwx9zK3e4b
-	 83fPjUJpYVgrA==
-Subject: Re: [PATCH net-next v8 4/5] net: stmmac: fix VLAN tag stripping on
- non-linear RX frames
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- bpf@vger.kernel.org
-Date: Mon, 19 Oct 2026 17:38:38 +0000
-Message-ID: <179243151841.3135.10232947668205235199@kernel.org>
-In-Reply-To: <20261018-stmmac-rx-mb-v8-4-5f58c0b25849@oss.qualcomm.com>
-References: <20261018-stmmac-rx-mb-v8-4-5f58c0b25849@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 19 Oct 2026 17:38:37 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69JHCtDS3739058;
+	Mon, 19 Oct 2026 12:38:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2
+	uo=; b=JwEkFYREtVAQ143XAsdBwFjNrsx35T9dPS5jAgqk3hAKlJoGmg7F9AktT
+	Xk86/QpLDY7daqR+T+C0aCxTOtkoBcqg1Kg1nEvWw55cfTFqs/xRJMD+XHSH4K0X
+	bW/XWS8miIJeksz3Oanyimw2Ou/MPkXa7mBV1nlPIqBRDBV89sktPUXrHwKnLoCb
+	YTGAUrCiOA7SvPHovcOjUaj6wC01ipuGoK+1GzCyw6Fa2rDcNcDHe2ZiYfiRbdnu
+	Da3YZfiiktWw/elG5aI/8dh/UuyIs04iZQvcEzeVbjsByRRH9OCEox7yj5w0EjWE
+	/6IjM9otAatX15iR3EgoeyiXAUuwQ==
+Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012044.outbound.protection.outlook.com [40.107.209.44])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4hdjdaabeg-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 19 Oct 2026 12:38:21 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cPGxW3hAmeTg/A84g3p32YGGct7qqf8VE43o4enZ54ufPtM/bFDbchSXogZM289jHy9LG/sCHZMNEuJ6T99XfvB76xa5Vrz2hlrG76y6Utxsk81a6WpmJIXcLCnrmmC9fCQxOx/cxWhs4wa0VHQyHfb3bmnrPTZtDoCZxyVAD+2+Wm7xPu4J9igQhNcfdPb/WK4Lif4ihyTMxrkryIX5vAqvJJlEtiShq6no3u0Ay62HiaqA8E72yqnvbvdPpXDM8syFnm+DKwivDg7xH8U76kKgnrefyIAggnQHMbDFTEHAXHN1O/50WcfrrtXH4tt9UQFOXJK3gF7IWPeOCbwb6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=;
+ b=iuiJDHn276PUOvFgxPkZWs83DFnSM1d3jihPqio/+t1yzhMJ+dXWM0x4arZTyWzO05saNqRJysf1R/GwCetATeH/xn8JowxuFymcWCBToDS2dXv4zfstW19IsTlCa+zuFnT1+QciD74QkUuOF7Yt+gnvPS1vq+NucfBW4LbnZqTaPwhsqFxEz48+MVtf+O7nZdXPxKk13GTCH7aiacN0sb0yd9WRIeDhokyvZ+xxtF1csGXFAPAPl3hndu+CIvZHnoB+IfA2BOzojB2EiBA1LQGHdAnRrmjqaKeNdRZu2ukFzVZlX4bmQmSCxQzuxbGoEkDBn7E6Ei1xaf9OqnqDZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=;
+ b=Y+BkH5Hlg62vcVRwNkAFEiBzEofNnD7ADDuv0rHtsFlPgUfUKauBmpY3iovY61dgPxSa7xqrJjhH1iIENGNpZj2zoqtfeon7NrauR7jkIJAU3d6c2ggldy2giGss93USmCbB7AzPzsM3s44UrY53isV2AF62g6P0i4lajoKJIyw=
+Received: from DS7PR03CA0060.namprd03.prod.outlook.com (2603:10b6:5:3b5::35)
+ by IA4PR10MB243331.namprd10.prod.outlook.com (2603:10b6:207:103::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Mon, 19 Oct
+ 2026 17:38:18 +0000
+Received: from BN2PEPF000044A2.namprd02.prod.outlook.com
+ (2603:10b6:5:3b5:cafe::42) by DS7PR03CA0060.outlook.office365.com
+ (2603:10b6:5:3b5::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Mon,
+ 19 Oct 2026 17:38:18 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF000044A2.mail.protection.outlook.com (10.167.243.153) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 17:38:17 +0000
+Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
+ 2026 12:38:02 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
+ 2026 12:38:01 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 19 Oct 2026 12:38:01 -0500
+Received: from [10.249.32.38] ([10.249.32.38])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69JHc1Ia002041;
+	Mon, 19 Oct 2026 12:38:01 -0500
+Message-ID: <4f8ff34b-d16d-4215-b7ed-b23a0d8663f6@ti.com>
+Date: Mon, 19 Oct 2026 12:38:01 -0500
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] soc: ti: k3-socinfo: Export SoC registration helper
+To: Moteen Shah <m-shah@ti.com>, <conor+dt@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <linux-kernel@vger.kernel.org>, <nm@ti.com>,
+        <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <u-kumar1@ti.com>, <gehariprasath@ti.com>, <vigneshr@ti.com>,
+        <a-limaye@ti.com>, <y-abhilashchandra@ti.com>
+References: <20261019080736.944127-1-m-shah@ti.com>
+ <20261019080736.944127-3-m-shah@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20261019080736.944127-3-m-shah@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A2:EE_|IA4PR10MB243331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c2f2399-601d-4549-5227-08df2e07c26c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|261009221227099003|261009223027099003|10067099003|56012099006|3023799007|18002099003|22082099003|13003099007|4143699003|5023799004;
+X-Microsoft-Antispam-Message-Info: Qs+toQeMT6X7ULh1v4lDURqbYwd7sC94SXvU4D2ZVPytsN1Cix4KzJ3lJ3eLZqtImjeip3Fdk0+07OyL20S1cdg7vFgDbSxzcAywoT2tyDwjKyYZ4ckBYc3hnPSHXa4MwJl4567IfMYwgXWWzvyp/ZrrFHYLkQUn6DHy1cMxM2gLARK04FpVlgQenvvKzr9k9az0Gba2FjECGfIEaP9vuzVXRadXMicSa0KBz4GE7dDV360QyplMsaASbqXhMQOIvgu2eRVMe+bfOHNWqfRMJQGrQ79uhhM9MrZ2Ghyhi9zLun1NlOVBtm22bO3J+0ngeNPFFUt9QzBft7KespUVSMwr8I2yiOEaH7dAVQjrkFYEoOELXzfyINoM+z/bQuND+NlbSY+/I5tQp9fjXTnGHQUX3LrpL7n9XpEBTuPodXpFTC8hOp576y/v6nxvjziGGEowAkG0nJOwSRSblGWP/Pxt5CF3kT5k2uQJo8pDGWN4WmAg7/lKJxazHbWYg/cxCPWmL/SArutu81clc168zDiJkZiydfjWPP+XB8mROqqIl3FFJPaeY4+0bM+lGbAMVK4XorExPKx3eFepbkbGp3KIUNZmxSCczBhEPkkd6eCAg/JGj/lWC+z1NfKrqwPImj+++GFAd+Oo7j4JsA0aMg==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(261009221227099003)(261009223027099003)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(13003099007)(4143699003)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ANmD3N45Nb0Cfh98BIPOuwU0r8xhylS35X5zOoTmv593xwzZ7n42Y7FFnMN7K+dfgcWhL4q27Ej0l2FUurSApVuow637KOXGlyYljXFDpg/e2UQ+GzWewPLOlPfncitOECIEh1cBw0/P0VR5vgPZIhsbXRFBuzuahhEPgoqzNHHZoUSzP/w6JDnwFPWeWPy3HA27qWLpGfBU7eAayc3GN+otSBrb7660fahC7jkbe0ZMM9QP+Pa5CpVMbh2RynDjRyrfKB1ZcZhrknrlzit28qpNU4NQGqiffEDfnOINg/qeHeXHtAPMS4Ygd7os3po8rKTxHeFQIZ0qQPoYjHIFIpa99FrBvJ8jrIFV/39YEEOz5iVx+FaDgUMIGQed4rIJpIFrw5sVQVzbN+kBbpPsZgA5MG7bty4WkakmG6A0frw25kb0l4SV3MWFkqVl14xs
+X-Exchange-RoutingPolicyChecked: RrtKlaXQIIyEQ5tfpr6GjuaeDd+AHPfmTIeZz8IDrnMZo69FgKMDueh4KPsEyNhqcVTwBJsph/xHLtngx4j2xinq1XIwSP7057WmFtt8JHPpJ98JRfH25XB5a6SPoGVVyyWoq5+b1WxdDt2/Q2jOg5Z6QafAscrzlvLeU5s6YJHZ0nFd/FkqvGReYqpyMPKhaDtMs5ZOdQNdmGHtiQF+ko8ZDEs9RlO5xPRDpLQjuJsF9zMg9PiebEeA/EP1tJ8goUjJ5vOV99EvILVvWA4EeT1kO60axjB70dcc8v+oTIhdm3P3syXn2OYfIeEMsZ8cjynlp2fHZ9P/DFLBetihRQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 17:38:17.0302
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c2f2399-601d-4549-5227-08df2e07c26c
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A2.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB243331
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA3MCBTYWx0ZWRfX+1RMvm0yWLwO
+ DcjsqERWaE7OVs7hl9h/BaYmZrN8OYa1AR8y7aNOxanl/1SYIJTzXXBKXokHT8NR1uRwP5C6fnn
+ VDufrkhCwT6Dte7uIH/JThSMNccXWiXTq4cQcT5H1HBYPMuz3t1mFFgpbQzbWwynskL8leiDAjJ
+ 6puJz4849VVcpOeVNmNv0OJl6olDz6jsER+JiUTswHhQWffAjKdChd2ttkdgIvvpSn6cRKe1QIL
+ AIe4CrviSjSEIOcsArB6DK7FJk3v91gzy00/FvOhGJ+/CC7TARdzohjmkg7I+MOIjHxMU9OnbN8
+ gdaGjjDiEUs4G3YavsPdb0DWWCPA7BhlRuNJ3r37NtcneycVEHLgilwU9hq38REzUW0HIJAWQhK
+ v6diI3ZPYsVgk3WVxSKbe4LsCldo3w+agyevRdu2/GdKxtWvDJRsBmysjIcSGgOWZ7aNm/Y3olg
+ BgPtQu4bk/OGaDORZpQ==
+X-Proofpoint-GUID: rV0DS-PZhZIHt6mZg01MfSXNTjNAGZ3N
+X-Authority-Analysis: v=2.4 cv=HPNWhYtv c=1 sm=1 tr=0 ts=6ad6558d cx=c_pps
+ a=rlKp08D5gBKtwCtLUzcdEg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
+ a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
+ a=hW3AF2kSHox5Qd4oTxUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA3MCBTYWx0ZWRfX8EZZzG6QOoJ/
+ mWEPu6Wpyc0fsnjUEJhrqAV3u8p4+QVOWQOKO0KnQ5BP725k5KfUTpwU7mtgYBJRjtOH4XAXkQz
+ /FwxOIyz5NDcCeKwcRcqkA8KJOQ4KqA=
+X-Proofpoint-ORIG-GUID: rV0DS-PZhZIHt6mZg01MfSXNTjNAGZ3N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-19_05,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0 phishscore=0
+ suspectscore=0 clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190070
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_103835_540659_1E4F143C 
+X-CRM114-Status: GOOD (  32.04  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,227 +178,228 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 2 (1) · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message and Fixes: tag describe a crash that cannot
-  happen in any tree this patch would be backported to.
-- [Medium] The commit message says that moving meta_len bytes together
-  with the MAC addresses in stmmac_rx_vlan() keeps data_meta pointing at…
-- [Low] stmmac_rx_vlan() now calls pskb_may_pull(skb, VLAN_ETH_HLEN)
-  before checking h_vlan_proto or dev->features.
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but
-  priv->xstats.rx_dropped is a plain 'unsigned long' (common.h:241)…
-
---
-
-net: stmmac: fix VLAN tag stripping on non-linear RX frames
-
-This patch makes stmmac_rx_vlan() call pskb_may_pull(skb, VLAN_ETH_HLEN)
-before it reads the VLAN header. When the tag is popped, any XDP metadata
-is now moved along with the MAC addresses. If the pull fails, both RX
-callers drop the frame.
-
-> stmmac_rx_vlan() reads the VLAN header straight from skb->data and
-> removes it with skb_pull(), assuming the header is always in the linear
-> part of the skb. That is not true once non-linear skbs can reach it: a
-> program loaded with BPF_F_XDP_HAS_FRAGS can pass up a fragmented frame
-> whose linear head has been shortened to as little as ETH_HLEN by
-> bpf_xdp_adjust_head(), and the unguarded skb_pull() then drives skb->len
-> below skb->data_len, tripping BUG() in __skb_pull().
-
-[Severity: Medium]
-Can this scenario happen in a tree that matches the Fixes: tag?
-
-On the AF_XDP zero-copy path from bba2556efad6, stmmac_construct_skb_zc()
-always builds a linear skb:
-
-	skb = napi_alloc_skb(&ch->rxtx_napi,
-			     xdp->data_end - xdp->data_hard_start);
-	...
-	memcpy(__skb_put(skb, datasize), xdp->data, datasize);
-
-On the regular stmmac_rx() path with XDP enabled, multi-descriptor frames
-and buf2 frames are both dropped:
-
-		/* We do not support SG in XDP mode */
-		if (unlikely(!error && (status & rx_not_ls) &&
-			     stmmac_xdp_is_enabled(priv))) {
-		...
-		if (unlikely(stmmac_xdp_is_enabled(priv) && buf2_len)) {
-			rx_dropped++;
-			goto next;
-		}
-
-The XDP_PASS skb there is built with napi_build_skb() plus
-skb_put(buf1_len) and has no frags. XDP_PASS skbs with frags seem to
-appear only with the later "net: stmmac: rework stmmac_rx to support XDP
-rx multi-buff" patch in this series.
-
-Even with a 14 byte linear head, skb_pull(skb, VLAN_HLEN) here would leave
-10 bytes of headlen and would not BUG. Wouldn't the BUG() come from
-eth_type_trans()->eth_skb_pull_mac()->skb_pull_inline(skb, ETH_HLEN)
-instead?
-
-On current trees, the patch fixes a different case. An XDP program can
-use bpf_xdp_adjust_tail() to shrink a linear frame to 14..17 bytes while
-bytes 12-13 still hold a VLAN ethertype. The old code then reads
-h_vlan_TCI past skb->len and pops the tag. That leaves skb->len below
-ETH_HLEN, and eth_type_trans() passes a malformed skb up the stack.
-
-Could the commit message describe that case, and could the Fixes: tag be
-rechecked? As written, stable maintainers may conclude that 5.13+ kernels
-hit a BUG() they do not have.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index e929cc0f23125..04dc6dcaa435d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5095,22 +5095,30 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
->  	return vlan_features_check(skb, features);
->  }
->  
-> -static void stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
-> +static int stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
->  {
-> -	struct vlan_ethhdr *veth = skb_vlan_eth_hdr(skb);
-> -	__be16 vlan_proto = veth->h_vlan_proto;
-> -	u16 vlanid;
-> +	struct vlan_ethhdr *veth;
->  
-> -	if ((vlan_proto == htons(ETH_P_8021Q) &&
-> +	if (!pskb_may_pull(skb, VLAN_ETH_HLEN))
-> +		return -EINVAL;
-
-[Severity: Low]
-Does this drop every 14..17 byte frame, including untagged ones?
-
-The pull happens before h_vlan_proto and dev->features are checked. Any
-skb with skb->len < VLAN_ETH_HLEN now fails here, and both stmmac_rx()
-and stmmac_dispatch_skb_zc() free it and count it in rx_dropped.
-
-This also covers interfaces set with "ethtool -K rxvlan off". There,
-stmmac_set_features() clears hw_vlan_en, so stmmac_rx_vlan() runs for
-every frame. It also covers non-xmac cores, where hw_vlan_en is never
-set.
-
-Such frames can come from an XDP program that shrinks a frame with
-bpf_xdp_adjust_tail(), which allows lengths down to ETH_HLEN, and then
-returns XDP_PASS. Before this patch they went through eth_type_trans()
-unchanged.
-
-Would it work to check the ethertype and features first? ETH_HLEN is
-enough to read h_vlan_proto, and VLAN_ETH_HLEN would only be needed
-when the tag is about to be popped.
-
+On 10/19/26 3:07 AM, Moteen Shah wrote:
+> The k3-socinfo driver reads the JTAG ID through a dedicated MMIO region and
+> then decodes it and registers the SoC device.
+> 
+> Newer TI SoCs like TDA54 use a different path for accessing the JTAG ID
+> register, but the decoding of the JTAG ID into the SoC information remains
+> the same.
+> 
+> Split the decode and registration part out of k3_chipinfo_probe() into
+> k3_socinfo_register() and export it, so that other drivers can register the
+> SoC device once they have read the JTAG ID through their own access path.
+> 
+> Since the helper can now be called from modular drivers, it must not leak
+> the SoC device when the caller goes away. Tie the registration to the
+> calling device with a devm action, which unregisters the SoC device and
+> frees its attributes on unbind. Callers need no unregister counterpart and
+> the helper keeps returning an int. If the soc bus is not up yet, the
+> attributes are only parked for later registration and there is nothing to
+> undo, so no action is added in that case.
+> 
+> Signed-off-by: Moteen Shah <m-shah@ti.com>
+> ---
+>   drivers/soc/ti/k3-socinfo.c       | 101 +++++++++++++++++++++++-------
+>   include/linux/soc/ti/k3-socinfo.h |  11 ++++
+>   2 files changed, 90 insertions(+), 22 deletions(-)
+>   create mode 100644 include/linux/soc/ti/k3-socinfo.h
+> 
+> diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+> index 48dbef3acceb4..5fae03004e350 100644
+> --- a/drivers/soc/ti/k3-socinfo.c
+> +++ b/drivers/soc/ti/k3-socinfo.c
+> @@ -5,6 +5,8 @@
+>    * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
+>    */
+>   
+> +#include <linux/device.h>
+> +#include <linux/export.h>
+>   #include <linux/mfd/syscon.h>
+>   #include <linux/nvmem-consumer.h>
+>   #include <linux/of.h>
+> @@ -12,6 +14,7 @@
+>   #include <linux/regmap.h>
+>   #include <linux/platform_device.h>
+>   #include <linux/slab.h>
+> +#include <linux/soc/ti/k3-socinfo.h>
+>   #include <linux/string.h>
+>   #include <linux/sys_soc.h>
+>   
+> @@ -152,38 +155,44 @@ k3_chipinfo_variant_to_sr(struct device *dev, unsigned int partno,
+>   	return -ENODEV;
+>   }
+>   
+> -static const struct regmap_config k3_chipinfo_regmap_cfg = {
+> -	.reg_bits = 32,
+> -	.val_bits = 32,
+> -	.reg_stride = 4,
+> +struct k3_socinfo {
+> +	struct soc_device *soc_dev;
+> +	struct soc_device_attribute *soc_dev_attr;
+>   };
+>   
+> -static int k3_chipinfo_probe(struct platform_device *pdev)
+> +static void k3_socinfo_unregister(void *data)
+> +{
+> +	struct k3_socinfo *info = data;
 > +
-> +	veth = skb_vlan_eth_hdr(skb);
-> +	if ((veth->h_vlan_proto == htons(ETH_P_8021Q) &&
->  	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
-> -	    (vlan_proto == htons(ETH_P_8021AD) &&
-> +	    (veth->h_vlan_proto == htons(ETH_P_8021AD) &&
->  	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
-> +		__be16 vlan_proto = veth->h_vlan_proto;
-> +		u16 vlanid = ntohs(veth->h_vlan_TCI);
-> +		u8 meta_len = skb_metadata_len(skb);
+> +	soc_device_unregister(info->soc_dev);
+> +	/* The attributes must only be freed after the unregister. */
+> +	kfree(info->soc_dev_attr->revision);
+> +	kfree(info->soc_dev_attr);
+> +}
 > +
->  		/* pop the vlan tag */
-> -		vlanid = ntohs(veth->h_vlan_TCI);
-> -		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
-> +		memmove(skb->data - meta_len + VLAN_HLEN,
-> +			skb->data - meta_len, meta_len + ETH_ALEN * 2);
+> +/**
+> + * k3_socinfo_register() - Decode a JTAG ID and register the SoC device
+> + * @dev: device on whose behalf the SoC device is registered
+> + * @jtag_id: raw JTAG ID register value read by the caller
+> + *
+> + * The registration is managed by @dev: the SoC device and its attributes are
+> + * released automatically when @dev is unbound, so callers need no matching
+> + * unregister call. If the soc bus is not yet available, the registration is
+> + * deferred until it is and cannot be released by @dev.
+> + *
+> + * Return: 0 on success, negative errno on failure.
+> + */
+> +int k3_socinfo_register(struct device *dev, u32 jtag_id)
+>   {
+> -	struct device_node *node = pdev->dev.of_node;
+> +	struct device_node *node;
+> +	struct k3_socinfo *info;
+>   	struct soc_device_attribute *soc_dev_attr;
+> -	struct device *dev = &pdev->dev;
+>   	struct soc_device *soc_dev;
+> -	struct regmap *regmap;
+> -	void __iomem *base;
+>   	u32 partno_id;
+>   	u32 variant;
+> -	u32 jtag_id;
+>   	u32 mfg;
+>   	int ret;
+>   
+> -	base = devm_platform_ioremap_resource(pdev, 0);
+> -	if (IS_ERR(base))
+> -		return PTR_ERR(base);
+> -
+> -	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+> -	if (IS_ERR(regmap))
+> -		return PTR_ERR(regmap);
+> -
+> -	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
+> -	if (ret < 0)
+> -		return ret;
+> -
+>   	mfg = (jtag_id & CTRLMMR_WKUP_JTAGID_MFG_MASK) >>
+>   	       CTRLMMR_WKUP_JTAGID_MFG_SHIFT;
+>   
+> @@ -198,6 +207,10 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>   	partno_id = (jtag_id & CTRLMMR_WKUP_JTAGID_PARTNO_MASK) >>
+>   		 CTRLMMR_WKUP_JTAGID_PARTNO_SHIFT;
+>   
+> +	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+> +	if (!info)
+> +		return -ENOMEM;
+> +
+>   	soc_dev_attr = kzalloc_obj(*soc_dev_attr);
+>   	if (!soc_dev_attr)
+>   		return -ENOMEM;
+> @@ -224,6 +237,20 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>   		goto err_free_rev;
+>   	}
+>   
+> +	/*
+> +	 * A NULL handle means the soc bus is not up yet and the attributes
+> +	 * were parked for registration at soc bus init. They must stay
+> +	 * allocated and cannot be unregistered, so there is nothing to undo.
 
-[Severity: Medium]
-On the AF_XDP zero-copy path, do the meta_len bytes before skb->data
-actually hold the XDP metadata?
+This seems really messy, the only time drivers need to deal with this
+early_soc_dev_attr hackyness is if they can register before the soc bus,
+which only happens for drivers using early_initcall(), but that is
+not the case for either driver using k3_socinfo_register().
 
-stmmac_construct_skb_zc() records the metadata length but never copies
-the metadata bytes:
+Can you explain why you added all this?
 
-	skb_reserve(skb, xdp->data - xdp->data_hard_start);
-	memcpy(__skb_put(skb, datasize), xdp->data, datasize);
-	if (metasize)
-		skb_metadata_set(skb, metasize);
+Otherwise just allocate soc_dev_attr using devm, k3_socinfo_unregister()
+action can be added unconditionally, and only needs to call
+soc_device_unregister().
 
-The skb comes from napi_alloc_skb(), which does not zero the headroom,
-so the bytes in front of skb->data are stale. This memmove() moves those
-stale bytes in front of the relocated MAC header.
+Andrew
 
-After eth_type_trans(), bpf_compute_data_pointers() sets data_meta to
-skb->data - skb_metadata_len(skb). TC BPF programs would then read
-uninitialized headroom instead of what the XDP program wrote.
-
-On the regular stmmac_rx() path, skb_metadata_set() is never called at
-this commit. meta_len is therefore always 0 there, and this part of the
-change does nothing until the later rework patch adds the call in
-stmmac_build_skb(). stmmac_construct_skb_zc() is still unchanged at the
-end of the series.
-
-Peer drivers such as igc_construct_skb_zc() copy starting at
-xdp->data_meta and then call __skb_pull(skb, metasize). Should
-stmmac_construct_skb_zc() do the same, or should the metadata claim come
-out of the commit message?
-
->  		skb_pull(skb, VLAN_HLEN);
->  		__vlan_hwaccel_put_tag(skb, vlan_proto, vlanid);
->  	}
-
-[ ... ]
-
-> @@ -5530,12 +5538,15 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
->  	}
->  
->  	stmmac_get_rx_hwtstamp(priv, p, np, skb);
-> -	if (priv->hw->hw_vlan_en)
-> +	if (priv->hw->hw_vlan_en) {
->  		/* MAC level stripping. */
->  		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
-> -	else
-> -		/* Driver level stripping. */
-> -		stmmac_rx_vlan(priv->dev, skb);
-> +	} else if (stmmac_rx_vlan(priv->dev, skb)) {
-> +		dev_kfree_skb_any(skb);
-> +		priv->xstats.rx_dropped++;
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but priv->xstats.rx_dropped is
-a plain unsigned long shared by all RX queues. Per-queue NAPI contexts,
-which can run at the same time on different CPUs, update it with
-unsynchronized read-modify-write:
-
-stmmac_dispatch_skb_zc():
-	priv->xstats.rx_dropped++;
-
-stmmac_rx_zc() and stmmac_rx():
-	priv->xstats.rx_dropped += rx_dropped;
-
-stmmac_get_stats64() also reads it without READ_ONCE().
-
-Can concurrent updates from two queues lose increments here? The new
-error path adds one more writer that follows the existing pattern.
-
-> +		return;
+> +	 */
+> +	if (soc_dev) {
+> +		info->soc_dev = soc_dev;
+> +		info->soc_dev_attr = soc_dev_attr;
+> +		ret = devm_add_action_or_reset(dev, k3_socinfo_unregister,
+> +					       info);
+> +		if (ret)
+> +			return ret;
 > +	}
+> +
+>   	dev_info(dev, "Family:%s rev:%s JTAGID[0x%08x] Detected\n",
+>   		 soc_dev_attr->family,
+>   		 soc_dev_attr->revision, jtag_id);
+> @@ -236,6 +263,36 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>   	kfree(soc_dev_attr);
+>   	return ret;
+>   }
+> +EXPORT_SYMBOL_GPL(k3_socinfo_register);
+> +
+> +static const struct regmap_config k3_chipinfo_regmap_cfg = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +};
+> +
+> +static int k3_chipinfo_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct regmap *regmap;
+> +	void __iomem *base;
+> +	u32 jtag_id;
+> +	int ret;
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+> +	if (IS_ERR(regmap))
+> +		return PTR_ERR(regmap);
+> +
+> +	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return k3_socinfo_register(dev, jtag_id);
+> +}
+>   
+>   static const struct of_device_id k3_chipinfo_of_match[] = {
+>   	{ .compatible = "ti,am654-chipid", },
+> diff --git a/include/linux/soc/ti/k3-socinfo.h b/include/linux/soc/ti/k3-socinfo.h
+> new file mode 100644
+> index 0000000000000..487e69d0069d1
+> --- /dev/null
+> +++ b/include/linux/soc/ti/k3-socinfo.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __LINUX_SOC_TI_K3_SOCINFO_H__
+> +#define __LINUX_SOC_TI_K3_SOCINFO_H__
+> +
+> +#include <linux/types.h>
+> +
+> +struct device;
+> +
+> +int k3_socinfo_register(struct device *dev, u32 jtag_id);
+> +
+> +#endif /* __LINUX_SOC_TI_K3_SOCINFO_H__ */
 
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261018-stmmac-rx-mb-v8-0-5f58c0b25849%40oss.qualcomm.com
 
