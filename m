@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3449CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEDACCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Uq/eCA2xlzkcjJfv8K+X7WPkfV3LE8Yc8SBQ/q5ZR7o=; b=4a4ZGvivL8Bq+nCmqK1hG3xC94
-	UnW2MY+DolUzGMGIe749ZKqYgtVvrwCzFnxyJd8VDiUdki26aVomz5QjKqQKtezK1oPRxoKGwbbRI
-	Y+m2/SjZi3wthxwok2TuTNwjKIyKNH2aHrkjVJeQz8f/ywOpHTBRffzPUDpGoYRQ7YwgdUixj6MIy
-	k8OHhGfLb7RFYRoRuXQmz6jrna91T1f5qQ3AK6M6WD4OJ4JwAIAVbYt7YdUeNotXZC6UZQjistYIy
-	K4cWeQ6zoouxAVlf6CnMoL+NBIx7xihwnywchpeS5k1okmKVLeAJGfe+zPyvoec8cWO2wjwa6YVlS
-	uQ7+LH1w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dB0hdLpMxxmIDQktWS9HU4azdlYS/KX+Qbr0A+9hyP8=; b=gwBiJ0DqL6a0e6RrMh808Jwsun
+	dE8jb7r1p9aV435NfWPEPMuR15c5yhAKquJHQGrdzP0++9bqskwYOiU4lYENrz1yHgweRpZ3Md82Q
+	kNbkHBScxvgDrpd8EAfZSjA7LeIpYBNRx+pJvJOyusubE0+eLdWaqwnK5ThIgRfcGdZ5tLI+5DH/o
+	w74AOywljFxrCU1vhDqdEhV3Diq8DwqIernqa5/D46lm8Cl9E7YQgdyk2och66GzzVFeaizFl4bZW
+	HktDuVAtO18QjZR4XNfaJYVupa/gZf0ZF0p0b8tK77Ac6DsE3gGFyXUza/joHItiJT+9yob24z11Q
+	7bvPVwew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIgYH-00000006fqy-1FaD;
-	Mon, 19 Oct 2026 06:08:53 +0000
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
+	id 1xIgYO-00000006fuI-2PjV;
+	Mon, 19 Oct 2026 06:09:00 +0000
+Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIgYF-00000006fq0-26GV
+	id 1xIgYH-00000006fqj-09xu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 06:08:52 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-14394530ec6so490340c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 23:08:50 -0700 (PDT)
+	Mon, 19 Oct 2026 06:08:54 +0000
+Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-16079d54c17so4141222c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 23:08:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1792390130; x=1792994930; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Uq/eCA2xlzkcjJfv8K+X7WPkfV3LE8Yc8SBQ/q5ZR7o=;
-        b=DmwTyHIpVsaBobyk76puoGf/UEaKGTzEAmovEfl+omjypOEsb5RME+QFEytRzA3kR6
-         u9yogh3/R7chWhBdG2z0n6aOQ2KgUQEG3llqTMgEZUZkKvbmy52nJt43G159i0kuCZnU
-         6E0TN0F7pRNbrnwTrh6uMMSt0bA+FuKhoYyMA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792390130; x=1792994930;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1792390132; x=1792994932; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Uq/eCA2xlzkcjJfv8K+X7WPkfV3LE8Yc8SBQ/q5ZR7o=;
-        b=QLo0rXSBqwzPHPp5tvvEyjhAvTcXBWH412fvelHAlCApn+C9NECu2Ejf6w5LFVJD2l
-         6TAgxsT/KXohkWtK1ZZFlkggrhB6XArvBb2fiVZzhJPL3wdjePhyFntOPbHU9Ug08eul
-         HGhGIH9IX0NMu+C7veLqFVKmK+BBJCGwzzS8iPFdzozGG1Pa25dhUexIeuNEIhcLybFR
-         U5cLMlKym9KU8KZ7NGComoT1A1f1lo1VORqEgxqhgcwrjiZqdPbzRVTIHuXRH13FgT9Z
-         Wr2YNkpBB1nwkNu9J9+L7/rCI0q8Lxe4z+C0QAEbep3dHTxJ/qY9a6ba6YE9TfCGiNd4
-         WgTA==
-X-Forwarded-Encrypted: i=1; AKwUvBw4HN8M14gdMnXrkB09Wa58hjb8mzWL6JljWqyRMKens2ORk6X7pLPI24VyZhoY6Jk1mIP+sWnDQNGKKOpGfv2J@lists.infradead.org
-X-Gm-Message-State: AFq9FYLpL3/5bJIkmvIcu+txQNlPOt9hpkZugsNDe0sem0q9/A9jb7WR
-	0L88dplUy8gTz/0HfaMM8nhvZ4he2XOi6D91hke/uQiNw1frvvz+Wr4fPMGYynG/ow==
-X-Gm-Gg: AYBFou3WTfC1M0CccluQhEhyHPswx0jaHg2Bk33E48gd0fVDJf2hB6ZulDl6Wfi1dQd
-	phvUjm8oHfp6UNJxIYZ4YS4KwdLxQI700Eo9jB/k2wVGadD89WY+DVioqHhF6lwG/ijL3ZzKRwT
-	eZOEjB6pFvtjKKg3PQQ1h+lkabTcMEH09ovJNx8co4Z3/8Ctv0h3VzfFu/G44wAgnqMmf2TCA1x
-	vDBGlhegwwD3CR9RzD5mDdNWhiC43x+qeEHk/9r0xEw/aUp4cvqGt5Y3KTM55VieV5OpGqNORec
-	O0XQ1htJPjoDjgAx5uQo9vtU72QFRexiuhA9psdPG8AEz/1B4UVY62XCrVxlMWJQU1ZXovTMFpV
-	Nlvrp4uEfQvCPlR0NdvUpYKpQ9bqYo0uzTO65ZBYXuvxHMmd/ynSpBltZgKzwyA4PUjl7kjnMCP
-	uW7oZmMaZn4wC8je/gFfweO5+jenuFseq810Ld0LiReR40L0lne5muGRz+oOFnMwVOhou9nwzPR
-	Q9t7UkenrK0+9Cnu9UP5Nl71H8PzxHlaX3zimBeLaOkUfBYu39XWbxFWw==
-X-Received: by 2002:a05:7022:170d:b0:154:d06c:e70a with SMTP id a92af1059eb24-1851285ca17mr9287698c88.23.1792390129597;
-        Sun, 18 Oct 2026 23:08:49 -0700 (PDT)
+        bh=dB0hdLpMxxmIDQktWS9HU4azdlYS/KX+Qbr0A+9hyP8=;
+        b=SYp1L29T5Xbs7KVs4cUK+6t3NbEcrXIdqm7Qi21FnbRnKOttfOOXt9Ycg0NTibVyye
+         AAKzjmpSnVwRRfMDmzDbty8JbvD7IwMmKsRUpOHTxn81LilEUC0Ke5xZMlKcwT9g6WGI
+         526sZXdsYi6Ed0XR7Ayh3TTr//25Ea9ModVTY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792390132; x=1792994932;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dB0hdLpMxxmIDQktWS9HU4azdlYS/KX+Qbr0A+9hyP8=;
+        b=b4mv3FpDouOV/LEj5SFPVBGws5kDPT/SSe1cxTmKt7z6hPWpYlVX2Y79SWxgVuJ6bg
+         picm9Tt5+R61v9ayfxwHnDvQstBGZVaWwu1a6l8rJHXu95nyQsep1/+oR/mMw6KqX2uj
+         EPlf5e1MP7z+AylZuG7zP2pV8RbW/ZggfkS19SvIsZR2k+w8i27UOqmZ8nv3vAs0pDXm
+         9KEJHssiPcoyv1TiIBElM6aBNCI1Li/8gEOHwzNd2Z9frxMyefZxyz3PJ2X+nDLoxG1A
+         4S5ZD8vSCSQF8zqzACZJMRvuijoIm6Bf33jFC8b3qTCbTQ2S0GJ9g3i0fKP+1e75yUo6
+         f7ZQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwd+tBGCo06n74jh/TwspJ52r3DosufLsKbFrjAvDIesExEbmOq9uapVvTp3TBKOLp47vfH2MqOjTy+DYAey3NB@lists.infradead.org
+X-Gm-Message-State: AFq9FYKAWR65AFMAx1LSN7s7jgKORp+w3U9NW7VXLBUcYEKn5fgmhiDy
+	6Q3O8iB+oa1lFH1Hzlele2SVUvui8OSRgcHlsVHNLLMWePQhP4ol4NQH3O3Ec7URaw==
+X-Gm-Gg: AYBFou35XaXZcCpnSEEX2FfQzYVZcvXUzBuTvEI1iWzHPiBHcVDff8JStfdsrR9kgsw
+	O/lhDgAM2wFI6fLlT4oFBU+L7d+gO+zdBPouCooLTcdMr5pfuJxODvggrh8jC+oBbobxx8CuFeB
+	fu8RfR3/cBZmsvlJsP3T0e5Xnk+75PiuqQ1s3zi2o/9i78/Ghduul2JWp8Ovdr9zWmDlh+dqwzx
+	+u/vfyY9l25WMmeCFEPLL8N12Gf7imwHjVvsH46FOE0syhE6wfZf4kTfXrLKUgjeXMjXLkyyBdv
+	9Fk4H48lxpeWgpkaFqCHqsEEAyFivxpOTiKS7ApEW8Wd35lTRvfZl+TbFQYbVKeQCmjmi/Lx+fU
+	upKB89clVmWrSq44G1sdOi1KZ+4Cw9/sV86bMjpalBEzNUAy4Ez/1RPy7dXZ9SzCqiRQvOVguNz
+	Dg5VrMiy+m3N2UJSo98/1U9iy0UD7hp04bhnHU4AmDJi1TfVf0gp8Hh5g1XUbosRkdDN6FNVXlU
+	BkYjjWxbPCRjoCHaaMvAzVYQyODh8luMgmYdfKWaZG5/hjjhHPYAGhiGoRmGpDSXiO2ZQ==
+X-Received: by 2002:a05:7022:7e83:b0:144:c12b:dfc6 with SMTP id a92af1059eb24-18514a0bc6amr14145162c88.44.1792390132416;
+        Sun, 18 Oct 2026 23:08:52 -0700 (PDT)
 Received: from fshao-p620.tpe.corp.google.com ([2a00:79e0:203d:7:b024:9aa2:76e6:57d4])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-183190aa3ebsm23281190c88.8.2026.10.18.23.08.47
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-183190aa3ebsm23281190c88.8.2026.10.18.23.08.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 23:08:49 -0700 (PDT)
+        Sun, 18 Oct 2026 23:08:52 -0700 (PDT)
 From: Fei Shao <fshao@chromium.org>
 To: Yunfei Dong <yunfei.dong@mediatek.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -76,16 +77,17 @@ Cc: Fei Shao <fshao@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH 0/2] media: mediatek: vcodec: Fix NULL source address handling in decoders
-Date: Mon, 19 Oct 2026 14:06:18 +0800
-Message-ID: <20261019060825.4163770-1-fshao@chromium.org>
+Subject: [PATCH 1/2] media: mediatek: vcodec: Return source buffer on NULL va in stateful decoder
+Date: Mon, 19 Oct 2026 14:06:19 +0800
+Message-ID: <20261019060825.4163770-2-fshao@chromium.org>
 X-Mailer: git-send-email 2.56.0.176.g3575e65682-goog
+In-Reply-To: <20261019060825.4163770-1-fshao@chromium.org>
+References: <20261019060825.4163770-1-fshao@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_230851_554034_2ED5F92C 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261018_230853_077129_F4921B32 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +102,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both the stateful and the stateless decoder workers peek the source
-buffer and, if vb2_plane_vaddr() returns NULL, finish the m2m job without
-returning the buffer. The buffer stays at the head of the ready list, so
-the same job is scheduled again and fails the same way. In the stateless
-decoder the media request is also never completed.
+mtk_vdec_worker() peeks the source buffer with v4l2_m2m_next_src_buf().
+If vb2_plane_vaddr() returns NULL because the buffer has no kernel
+mapping, the worker finishes the m2m job with the buffer still at the
+head of the ready list. v4l2_m2m_job_finish() then schedules the same
+job again, which fails the same way, so the decoder never makes
+progress.
 
-The two fixes are split because they fix different commits, and the
-stateless fix also has to complete the media request.
+Remove the buffer from the ready list so that the job is not scheduled
+again, and return it with VB2_BUF_STATE_ERROR so that userspace gets it
+back. Print the error before that, as the buffer must not be touched
+once it is returned.
 
+Fixes: 590577a4e525 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Decoder Driver")
+Signed-off-by: Fei Shao <fshao@chromium.org>
 
-Fei Shao (2):
-  media: mediatek: vcodec: Return source buffer on NULL va in stateful
-    decoder
-  media: mediatek: vcodec: Complete request on NULL va in stateless
-    decoder
+---
 
- .../vcodec/decoder/mtk_vcodec_dec_stateful.c  |  4 +++-
- .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 22 ++++++++++++-------
- 2 files changed, 17 insertions(+), 9 deletions(-)
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c         | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
+index aa9bdee7a96c..a4cbb7c76998 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
+@@ -348,9 +348,11 @@ static void mtk_vdec_worker(struct work_struct *work)
+ 	buf.dma_addr = vb2_dma_contig_plane_dma_addr(&src_buf->vb2_buf, 0);
+ 	buf.size = (size_t)src_buf->vb2_buf.planes[0].bytesused;
+ 	if (!buf.va) {
+-		v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+ 		mtk_v4l2_vdec_err(ctx, "[%d] id=%d src_addr is NULL!!", ctx->id,
+ 				  src_buf->vb2_buf.index);
++		v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
++		v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_ERROR);
++		v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+ 		return;
+ 	}
+ 	mtk_v4l2_vdec_dbg(3, ctx, "[%d] Bitstream VA=%p DMA=%pad Size=%zx vb=%p",
 -- 
 2.56.0.176.g3575e65682-goog
 
