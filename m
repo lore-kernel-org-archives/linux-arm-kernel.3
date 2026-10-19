@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3D5CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B7FCCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4OMYiiG3ut7MrExL3jhw5ap4nPHmzyK4fpnY5BaTSw=; b=IjBjJ/VEq+qP5NYKXeFV2SHxXT
-	fXEkxoH5lZwn+DzqZBJQgKv4EpzsqOrO8TQduQUAoUmKhOYyFDQKv3UAq6qY+X0gZxdfdGRwFrB6Z
-	VLMEAkpN/SM/+dGfkOQrR7VSkAIr4u26tDeWfdP5eFSB2o7d4+fcsywSySku/ogHE0e7mUl+Yqmff
-	T5T1XsPteJfVQr9+yIxiyXdwt6ojiPWO4AvpsjUq8bt9ns3W+sm9yKdZ6CzYA49rEGa/FM2qEbB9n
-	Qi/KvLsm2kUYL4Ir3C45Dm8lirwUPB5Un1uVw+7JQux+HLWoy0zN19MMOSQQ9sGog7LlorFCXmBhl
-	/uz3uapg==;
+	bh=emrArgPAsqjY08ePzydEuGzwJRc8mfRvNdYNfd+oT14=; b=XM7JiQcmfVOyDp3diMiwRWSZAK
+	a/mgVqB6e26/bYg9mhTK16l3qPdD/W1XcRY521X5nTw/vsD4LNiVRPVtNoGb7kiLQ9NHTRv0ho9NZ
+	goiOWHsluQNaJLX+8JiuKGay6c1wRMaaSN8e/1aX4j28xL8tBZigJfUxE5k5qrIQPvub4UaXuPXxY
+	FG4W4uX+lcabSdZEdDiUE53s6uSq7YCSz7prdokVj5Iq8O+aEfJ5mqikQZqIe1PWcjslelVsC3sZs
+	rxQBuMEVczsacw7eVFzmnFEJrBuoAPprovVeKmGtSQ4Yb3hMNrEg9eF7sgLvVfNU9hvdpF1P3GsoK
+	SAP4MuFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhBS-00000006itB-3Iiz;
-	Mon, 19 Oct 2026 06:49:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIhCQ-00000006j1f-0Pxw;
+	Mon, 19 Oct 2026 06:50:22 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhBR-00000006it1-1drS;
-	Mon, 19 Oct 2026 06:49:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1FAC4160F;
-	Mon, 19 Oct 2026 06:49:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0220D1F000C4;
-	Mon, 19 Oct 2026 06:49:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792392560;
-	bh=J4OMYiiG3ut7MrExL3jhw5ap4nPHmzyK4fpnY5BaTSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BcHtS95v6TJqYLJjwqZL4FSWE2sJ4aSzOIb7ycKZjpBqYxiSxwHDR6Sk78w/Uk1b3
-	 2QYnMlfrCZD9hEY5AS9fzZ3WW32aANmCxrhvjmYGyzwrpbfnm4QKFLl8c9e42vtkuG
-	 /PFjgzg1Ejgjz0WPEc8kJ0H2T6wYKP0vGn5AuXpQvBoBmq561PxravxIKN0xL1gL02
-	 LaWS9V0GRW8heVBUe9tTZR4v+SAJnnmIrxbNF0FjEg29vrM9jzm5ip9rg9XPJNWrXs
-	 xfnUhsGWS7Pr8u8AULwpl/oPbNxSVBX9cDVS33OOQ5W9EGpeIQz49+/DlNI9J9drpe
-	 FVKjDx/2XdRKg==
-Date: Mon, 19 Oct 2026 08:49:17 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dmitry Yashin <dmt.yashin@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Johannes Berg <johannes@sipsolutions.net>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: net: rfkill-gpio: document
- reset-gpios property
-Message-ID: <20261019-aggressive-frigatebird-of-courage-9cc7d6@quoll>
-References: <20261016-ok3568-c-v2-0-068d68430e6d@gmail.com>
- <20261016-ok3568-c-v2-1-068d68430e6d@gmail.com>
+	id 1xIhCN-00000006j0k-3pyK;
+	Mon, 19 Oct 2026 06:50:21 +0000
+Date: Mon, 19 Oct 2026 08:50:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1792392615;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=emrArgPAsqjY08ePzydEuGzwJRc8mfRvNdYNfd+oT14=;
+	b=A+jIjzxXNlwnaYRh3MCvTCxo+i9IXaPhGLvG2oH466t1wTayWoBberbLAa2GuRB/wHQgTC
+	da2tJmZEYQOBdTmUpl+dQDW/kbTi+6wuwI07icPzElp34f7sgapAxeSU028PxHEAfjbzsR
+	0Hw81pH3Tf39waNxC2ODPVF0kgQpH29elyjev+0uCfBpDrmis2ZCz92in7o6+VkKiqkzSl
+	GZkKEgGxy0VAVBDGX4vTtulhRD7wbW0gcCwP5kQG1fHjuUE9BVU9w2xmyfkJke6LrYsNX/
+	pOBOu0P59WVHGR1DGkdep5xRghY6FyD/+HgUN7MK66WEGNBihMDovhjLGbLhxA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1792392615;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=emrArgPAsqjY08ePzydEuGzwJRc8mfRvNdYNfd+oT14=;
+	b=N0nc2AwPluQ0WZBDwpFX2oxBUxd7FztoVVAORN9RA8l+QPlwEeWSIu1c/c+AuEx+nY1D5I
+	CZgehYvF36e2EEAg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Brian Norris <computersforpeace@gmail.com>,
+	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, devicetree@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v9 05/18] mtd: rawnand: sunxi: drain interrupts before
+ reusing the completion
+Message-ID: <20261019065013.QUQYpnz-@linutronix.de>
+References: <20261017-submit-sunxi-nand-vendor-oob-layout-v1-v9-0-b624c09e3ee5@gmail.com>
+ <20261017-submit-sunxi-nand-vendor-oob-layout-v1-v9-5-b624c09e3ee5@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261016-ok3568-c-v2-1-068d68430e6d@gmail.com>
+In-Reply-To: <20261017-submit-sunxi-nand-vendor-oob-layout-v1-v9-5-b624c09e3ee5@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261018_235020_102099_860AB445 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +93,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 03:29:33PM +0500, Dmitry Yashin wrote:
-> rfkill-gpio driver requiers at-least one of the gpios to be defined:
-> shutdown-gpios or reset-gpios. Document missing reset-gpios property.
-> Also add example for wwan with both gpios.
+On 2026-10-17 13:46:00 [-0600], James Hilliard wrote:
 > 
-> Signed-off-by: Dmitry Yashin <dmt.yashin@gmail.com>
-> ---
->  .../devicetree/bindings/net/rfkill-gpio.yaml       | 23 +++++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
+> This keeps additional synchronization on the timeout path, without a
+> driver lock in every interrupt and wait. The caller can sleep, this IRQ
+> is not registered as shared, and the handler does not acquire the
+> controller mutex held by the caller. The tradeoff is unbounded cleanup
+> latency and no priority inheritance: a starved IRQ thread can prevent
+> timeout cleanup from returning and block other operations on the
+> controller. This is a handler-lifetime boundary, not an RT
+> recovery-latency guarantee.
 > 
-> diff --git a/Documentation/devicetree/bindings/net/rfkill-gpio.yaml b/Documentation/devicetree/bindings/net/rfkill-gpio.yaml
-> index 4a706a41ab38..66f6ad2872ff 100644
-> --- a/Documentation/devicetree/bindings/net/rfkill-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/net/rfkill-gpio.yaml
-> @@ -29,7 +29,12 @@ properties:
->        - wlan
->        - wwan
->  
-> +  reset-gpios:
-> +    description: GPIO connected to device's reset pin (RESET#)
-> +    maxItems: 1
-> +
->    shutdown-gpios:
-> +    description: GPIO connected to device's shutdown pin (W_DISABLE1#, etc.)
+> Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller support")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/r/20260909085434.C8F201F00A3A@smtp.kernel.org
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-That's the same pin. This was sent multiple times, why is this time
-different?
-
-Best regards,
-Krzysztof
-
+Sebastian
 
