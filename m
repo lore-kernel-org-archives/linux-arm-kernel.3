@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A655DCCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5161CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6AqLR++Aeo27snAuTMSODdp53to3ln5T2Z861rwD2os=; b=HpBgaQ2C03sQPIGsJj3g8SakPp
-	W5Yut0gzBEsV4CRgbjvLKneZ3BRyuIsbhmRuhdEOM8BfQZXIp7T5wX11vLh1rD0YOcHenu6OxFyFS
-	WZqok9Cajcl4MjHXCCTVOMY33307GxcT/md/2kgmaFPKSZgQY5lhQj9F1eQd+sg/3KuSCBwcd2jrb
-	00pFGU1oxeR62Mo55xUgzU+sR5YGFVcXCKgld4FvSjQCzuoX2qrRfojMF/XFoLjO0kusrvroY8NEJ
-	sbB0fNMEMSBKz8XQnzpGn6S1iBLosDtyP8d1dpOvvYS3W62QfeUKkTpPR5ex1Z4UxlzSk1nVXxXd4
-	ageauWFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=; b=QVGiwzPK3QdZ+nSGqqhIzOevm4
+	LXUzCFbLg4ljbqmGln8UCYDarOd6eh4haPeyF1VQJcFTQs46sRP0moBq13ibG/Bat1mQH/XWmp0xl
+	Ve58mPtuMm7KD9FMuIvcDSYN4norcIdBCerZT1SSZAuGO9oGwaIll/iDaNdQoqDT72sfDsYTymhvg
+	gVWGCEky/wYj3aNQ2sI5duMHLeGSn3ZU2IgEsuEKXLEb/JC/I5wRJQZij3s/RwBkN6lSoi8Ld5HX5
+	w3v6OF0Fe1DTVrzUqakxSJPac7sDM32NP0JXpNEIvprKSwbf7u9X2VVaPlw2Z3jc96Eq1M4bBB2wJ
+	FCleyyzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIk8q-000000074t5-1UE3;
-	Mon, 19 Oct 2026 09:58:52 +0000
-Received: from mail-gw01.astralinux.ru ([37.230.196.243])
+	id 1xIkC1-000000075iu-1pLY;
+	Mon, 19 Oct 2026 10:02:09 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIk8l-000000074rQ-3dQ4
+	id 1xIkBi-000000075f4-3GDp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 09:58:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
-	s=mail; t=1792403914;
-	bh=yJ9VzWJnjsUlDkFPUvQPh9MrxtG0IxT1EMet2uY3ExE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hHF+5r7+w4YGYV4lUvq5aO6JxxF4g7nYspPiRaBPa2bqLL2ju4wMoKrE6qd9V7oTq
-	 FVP4RGst5YiMfQ1eHwwETmQYeyhIzsNiBNTj9KEXv+a52VamFS2EnwRsoJBAqhhn8V
-	 wrbHDBeGOCfh5+NltBGwGWenjmfogkek9KWkPTdD9ajmlFzp59IwvCLQBvn0ZD7V0g
-	 Uc1KmrbllGBAzyGmExGNwvESnN15/CAccXabM+6yDzP0ftA2fikwmV8McGj4ImXb6S
-	 RiL2ezkI1yQ1cNWu39uTtqvvx9hIho+SiP4Ou/RyyY39YoaciGZrNmoo/B/FH4Wl9t
-	 jIK7m5OAFQ49Q==
-Received: from gca-sc-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw01.astralinux.ru (Postfix) with ESMTP id 36FFE259D9;
-	Mon, 19 Oct 2026 12:58:34 +0300 (MSK)
-Received: from new-mail.astralinux.ru (unknown [10.205.207.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw01.astralinux.ru (Postfix) with ESMTPS;
-	Mon, 19 Oct 2026 12:58:33 +0300 (MSK)
-Received: from DESKTOP-D46TNHI (unknown [10.198.51.9])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4j7VqS2cWnzDhp;
-	Mon, 19 Oct 2026 12:39:00 +0300 (MSK)
-From: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>,
-	Sasha Levin <sashal@kernel.org>,
-	Johan Hovold <johan@kernel.org>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-sound@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Olivier Moysan <olivier.moysan@st.com>
-Subject: [PATCH 5.10] ASoC: stm32: sai: fix OF node leak on probe
-Date: Mon, 19 Oct 2026 12:38:27 +0300
-Message-ID: <20261019093829.1428-1-mdmitrichenko@astralinux.ru>
-X-Mailer: git-send-email 2.54.0.windows.1
+	Mon, 19 Oct 2026 10:02:08 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a1e3b87ac5so8684925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:01:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792404107; x=1793008907; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=;
+        b=czGtJgvH7L9JQnhz5RbmoNqqSbYDTqmf74bakPpr6OtCcK5+H5/bZ9bDoZ5/p2yJE2
+         k5lUdLY+a3V/uXy7HeDK1k2yFXPpL2b26tRV98DWHaNI1N5lIgNzrK9r5SOekEPeaRli
+         egkS8TDTONVKuxvHAXndv5K4M+nTNZl4MZEzMdh5brqrB+0vbs+isSo51wU4/09tUJoG
+         TOFVit826a0q53S0nE3O1kgotb6iXevV7BMIGXEvOxFDPwdg8vM/cXj1sCBsgdeJWsEG
+         1o0ycXZ2MPZB62nCS2wCjhP2mWSanSJ6Wuegj85pqsPmn8I84ferTQCZLWcnxyUUNBOH
+         EONA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792404107; x=1793008907;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=;
+        b=CqlykdlW1SdbVHH5BVN5H30VleOZjlfaCShGS2dctGGtye58Z/iErBG+4BUAe1RNbg
+         +jzHJa7d/ipjpgPQFUmMfWqk3aWlhlEqR8e5KHzQzZxHu6I2V3oPcpG9dhhGJf2g6T7Z
+         gUoxuaW3DpBNEp1WZSy04LuVAuZNaaueTaXxQD/bPazmynauv+bjn70AFxpWlTjREORn
+         hTa+ViaXxowTVlkk9K745N/SOp04J8Ys4fXplFov0sPu/PX4KMn2z0AcAOSGbG9gL7gL
+         911gC7DD4AtZHuV9s2NTzlZCJg/DddUMvzq+Xlpv7hQMrsMFeCVlQ0DK24af8hqXK6oi
+         yXJA==
+X-Forwarded-Encrypted: i=1; AKwUvBwC9Wx9ep0bmSeX6STUp6A109sSTiRzR3i+hrLH0nlQ7xgMg/iCAJisUqn7UemJgGZh5V328kvlky08B/JtDC7U@lists.infradead.org
+X-Gm-Message-State: AFq9FYKyow9saYv9LFGkXmUcbo5a1dR82Kn5o2sEwyOaacCmkiAiT7j9
+	+n9RjgmlQ0IEGeREUqQINx9t8gXWz3EHbTVEFhL3nzt0EZ+I+5art96bT70vV+CcxA==
+X-Gm-Gg: AYBFou3Xhal65GYAmad3VWUB8sOOld3/JggoK4gercwY7kIPmBYpEzTq3AkjhdvpDa3
+	jqYeGjAvZN/q/+kTkPmGrZeXUosBWSBCXk00DdqbpH5Zt0wHq8T7Hgt0eqFV/jfoKu0Us0avfqr
+	5PWo6yZ0LtRT3zWFo0xuuGDWb4p0cktlnhUO4Gu69H90RAEFAgk4tgQ4dgs1bEwgHlmLFoO8Wmg
+	nk1LXONFv3lUrELuDfkoAh7438Y4/YuGIGhHPJcIsgklvKfIobW5X8GJ1kSm/ArnwG1Y5h0sNo3
+	m+o+wy7hVyG4YNkqUDZW+1C7kj+UHz8XXHoLCAdeToOVz9+Zb9NwuIm3kbjWWoJlU3EVdi5kMaK
+	sHZ7tOc7KbuWFBU5b5qjutQp2M5MyUfXuTjemQ9ra/i1u2WyVVeHjcNdu38AzoajftnFWT4mfU1
+	l4SnNoHa1fWDTOSGwXUC+fpLjM2aNGFHakPkJgk6KbXLKYBACV1hYKemxneDtZvezSqaoLRHHMC
+	E2WtKFeqUBE9kos/ESe3y0qGtmcjK4e45wqRWvClAk=
+X-Received: by 2002:a05:600c:674f:b0:4a1:7e76:d02f with SMTP id 5b1f17b1804b1-4a1d75fce45mr143600135e9.14.1792404021999;
+        Mon, 19 Oct 2026 03:00:21 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1d85f92d9sm190610495e9.4.2026.10.19.03.00.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 03:00:19 -0700 (PDT)
+Date: Mon, 19 Oct 2026 11:00:15 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: Ensure TLBs and I-cache are private to
+ each vCPU in pKVM
+Message-ID: <atXqLxU5bBtJ8U9W@google.com>
+References: <20261014125510.2928306-1-fuad.tabba@linux.dev>
+ <20261014125510.2928306-3-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-KSMG-AntiPhishing: NotDetected, bases: 2026/10/19 08:08:00
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: mdmitrichenko@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 127 0.3.127 0884f7b061fa529b810563f359267cd65d2ec05c, {Tracking_one_susp_tld}, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, patch.msgid.link:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;new-mail.astralinux.ru:7.1.1;astralinux.ru:7.1.1;127.0.0.199:7.1.2, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 206789 [Oct 19 2026]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.27
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2026/10/19 08:59:00 #28702808
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected, bases: 2026/10/19 08:08:00
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261014125510.2928306-3-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_025849_231742_807E985E 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20261019_030150_858386_1DBB3230 
+X-CRM114-Status: GOOD (  29.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,152 +110,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Johan Hovold <johan@kernel.org>
+On Wed, Oct 14, 2026 at 01:55:10PM +0100, Fuad Tabba wrote:
+> All vCPUs of a VM share its VMID, so KVM flushes a physical CPU's TLBs
+> and I-cache for the VM whenever a different vCPU of that VM is loaded
+> there (vcpu_prepare_mmu()). Commit fce886a602073 ("KVM: arm64: Plumb the
+> pKVM MMU in KVM") moved pKVM guests, protected or not, onto the
+> hypervisor's stage-2 and VMID, and the host stopped flushing for them.
+> Nothing at EL2 flushes instead, so a vCPU can hit TLB and I-cache
+> entries that another vCPU of the same VM left on that CPU.
+> 
+> Track the last vCPU loaded on each physical CPU in the hyp VM, and flush
+> at EL2 in __pkvm_vcpu_load() when it changes.
+> 
+> Fixes: fce886a602073 ("KVM: arm64: Plumb the pKVM MMU in KVM")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  3 +++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c     |  8 ++++++++
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 21 ++++++++++++++++++---
+>  3 files changed, 29 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> index 9abfe6b7e942b..02c8fc7a10904 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> @@ -54,6 +54,9 @@ struct pkvm_hyp_vm {
+>  	unsigned short refcount;
+>  	hyp_spinlock_t lock;
+>  
+> +	/* Per physical CPU, the vcpu_idx of the last vCPU of this VM loaded there. */
+> +	int *last_vcpu_ran;
 
-commit 23261f0de09427367e99f39f588e31e2856a690e upstream.
+Unlikely to be a problem in pratice, but vcpu_idx is "unsigned int". I wonder if
+this shouldn't be unsigned int here too and initialised to UINT_MAX?
 
-The reference taken to the sync provider OF node when probing the
-platform device is currently only dropped if the set_sync() callback
-fails during DAI probe.
-
-Make sure to drop the reference on platform probe failures (e.g. probe
-deferral) and on driver unbind.
-
-This also avoids a potential use-after-free in case the DAI is ever
-reprobed without first rebinding the platform driver.
-
-Fixes: 5914d285f6b7 ("ASoC: stm32: sai: Add synchronization support")
-Fixes: d4180b4c02e7 ("ASoC: stm32: sai: fix set_sync service")
-Cc: Olivier Moysan <olivier.moysan@st.com>
-Cc: stable@vger.kernel.org      # 4.16: d4180b4c02e7
-Signed-off-by: Johan Hovold <johan@kernel.org>
-Reviewed-by: olivier moysan <olivier.moysan@foss.st.com>
-Link: https://patch.msgid.link/20251124104908.15754-4-johan@kernel.org
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
----
-Backport fix for CVE-2025-71081
- sound/soc/stm/stm32_sai.c     | 12 +++---------
- sound/soc/stm/stm32_sai_sub.c | 23 ++++++++++++++++-------
- 2 files changed, 19 insertions(+), 16 deletions(-)
-
-diff --git a/sound/soc/stm/stm32_sai.c b/sound/soc/stm/stm32_sai.c
-index df167c389b98..026321620a20 100644
---- a/sound/soc/stm/stm32_sai.c
-+++ b/sound/soc/stm/stm32_sai.c
-@@ -122,7 +122,6 @@ static int stm32_sai_set_sync(struct stm32_sai_data *sai_client,
- 	if (!pdev) {
- 		dev_err(&sai_client->pdev->dev,
- 			"Device not found for node %pOFn\n", np_provider);
--		of_node_put(np_provider);
- 		return -ENODEV;
- 	}
- 
-@@ -131,21 +130,16 @@ static int stm32_sai_set_sync(struct stm32_sai_data *sai_client,
- 	if (!sai_provider) {
- 		dev_err(&sai_client->pdev->dev,
- 			"SAI sync provider data not found\n");
--		ret = -EINVAL;
--		goto error;
-+		return -EINVAL;
- 	}
- 
- 	/* Configure sync client */
- 	ret = stm32_sai_sync_conf_client(sai_client, synci);
- 	if (ret < 0)
--		goto error;
-+		return ret;
- 
- 	/* Configure sync provider */
--	ret = stm32_sai_sync_conf_provider(sai_provider, synco);
--
--error:
--	of_node_put(np_provider);
--	return ret;
-+	return stm32_sai_sync_conf_provider(sai_provider, synco);
- }
- 
- static int stm32_sai_probe(struct platform_device *pdev)
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 962e5606c2c9..325089a20872 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -1440,7 +1440,8 @@ static int stm32_sai_sub_parse_of(struct platform_device *pdev,
- 				dev_err(&pdev->dev,
- 					"External synchro not supported\n");
- 				of_node_put(args.np);
--				return -EINVAL;
-+				ret = -EINVAL;
-+				goto err_put_sync_provider;
- 			}
- 			sai->sync = SAI_SYNC_EXTERNAL;
- 
-@@ -1449,7 +1450,8 @@ static int stm32_sai_sub_parse_of(struct platform_device *pdev,
- 			    (sai->synci > (SAI_GCR_SYNCIN_MAX + 1))) {
- 				dev_err(&pdev->dev, "Wrong SAI index\n");
- 				of_node_put(args.np);
--				return -EINVAL;
-+				ret = -EINVAL;
-+				goto err_put_sync_provider;
- 			}
- 
- 			if (of_property_match_string(args.np, "compatible",
-@@ -1463,7 +1465,8 @@ static int stm32_sai_sub_parse_of(struct platform_device *pdev,
- 			if (!sai->synco) {
- 				dev_err(&pdev->dev, "Unknown SAI sub-block\n");
- 				of_node_put(args.np);
--				return -EINVAL;
-+				ret = -EINVAL;
-+				goto err_put_sync_provider;
- 			}
- 		}
- 
-@@ -1473,13 +1476,15 @@ static int stm32_sai_sub_parse_of(struct platform_device *pdev,
- 
- 	of_node_put(args.np);
- 	sai->sai_ck = devm_clk_get(&pdev->dev, "sai_ck");
--	if (IS_ERR(sai->sai_ck))
--		return dev_err_probe(&pdev->dev, PTR_ERR(sai->sai_ck),
--				     "Missing kernel clock sai_ck\n");
-+	if (IS_ERR(sai->sai_ck)) {
-+		ret = dev_err_probe(&pdev->dev, PTR_ERR(sai->sai_ck),
-+				    "Missing kernel clock sai_ck\n");
-+		goto err_put_sync_provider;
-+	}
- 
- 	ret = clk_prepare(sai->pdata->pclk);
- 	if (ret < 0)
--		return ret;
-+		goto err_put_sync_provider;
- 
- 	if (STM_SAI_IS_F4(sai->pdata))
- 		return 0;
-@@ -1501,6 +1506,8 @@ static int stm32_sai_sub_parse_of(struct platform_device *pdev,
- 
- err_unprepare_pclk:
- 	clk_unprepare(sai->pdata->pclk);
-+err_put_sync_provider:
-+	of_node_put(sai->np_sync_provider);
- 
- 	return ret;
- }
-@@ -1571,6 +1578,7 @@ static int stm32_sai_sub_probe(struct platform_device *pdev)
- 
- err_unprepare_pclk:
- 	clk_unprepare(sai->pdata->pclk);
-+	of_node_put(sai->np_sync_provider);
- 
- 	return ret;
- }
-@@ -1583,6 +1591,7 @@ static int stm32_sai_sub_remove(struct platform_device *pdev)
- 	snd_dmaengine_pcm_unregister(&pdev->dev);
- 	snd_soc_unregister_component(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
-+	of_node_put(sai->np_sync_provider);
- 
- 	return 0;
- }
--- 
-2.43.0
-
+> +
+>  	/*
+>  	 * The vCPU initialised RUNNABLE: claimed under vm_table_lock,
+>  	 * released only if its own init fails.
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index d715aa942577e..f0b77236c871e 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -827,11 +827,19 @@ DEFINE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
+>  	pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
+>  {
+>  	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +	int *last_ran;
+>  
+>  	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
+>  	if (!hyp_vcpu)
+>  		return;
+>  
+> +	/* TLBs and I-cache are private to each vCPU, see vcpu_prepare_mmu(). */
+> +	last_ran = &pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu)->last_vcpu_ran[hyp_smp_processor_id()];
+> +	if (*last_ran != vcpu_idx) {
+> +		__kvm_flush_cpu_context(hyp_vcpu->vcpu.arch.hw_mmu);
+> +		*last_ran = vcpu_idx;
+> +	}
+> +
+>  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+>  		u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index ac020d0501d2e..f18fa762746c9 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -489,10 +489,11 @@ static void unpin_host_vcpus(struct pkvm_hyp_vcpu *hyp_vcpus[],
+>  }
+>  
+>  static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+> -			     unsigned int nr_vcpus, pkvm_handle_t handle)
+> +			     int *last_vcpu_ran, unsigned int nr_vcpus, pkvm_handle_t handle)
+>  {
+>  	struct kvm_s2_mmu *mmu = &hyp_vm->kvm.arch.mmu;
+>  	int idx = vm_handle_to_idx(handle);
+> +	unsigned long cpu;
+>  
+>  	hyp_vm->kvm.arch.pkvm.handle = handle;
+>  
+> @@ -512,6 +513,10 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+>  	mmu->vtcr = host_mmu.arch.mmu.vtcr;
+>  	mmu->arch = &hyp_vm->kvm.arch;
+>  	mmu->pgt = &hyp_vm->pgt;
+> +
+> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
+> +		last_vcpu_ran[cpu] = -1;
+> +	hyp_vm->last_vcpu_ran = last_vcpu_ran;
+>  }
+>  
+>  static int pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *host_vcpu)
+> @@ -887,6 +892,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
+>  	size_t vm_size, pgd_size;
+>  	unsigned int nr_vcpus;
+>  	pkvm_handle_t handle;
+> +	int *last_vcpu_ran;
+>  	void *pgd = NULL;
+>  	int ret;
+>  
+> @@ -915,13 +921,19 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
+>  		goto err_unpin_kvm;
+>  	}
+>  
+> +	last_vcpu_ran = hyp_alloc(array_size(hyp_nr_cpus, sizeof(*last_vcpu_ran)));
+> +	if (!last_vcpu_ran) {
+> +		ret = hyp_alloc_errno();
+> +		goto err_free_hyp_vm;
+> +	}
+> +
+>  	ret = -ENOMEM;
+>  
+>  	pgd = map_donated_memory_noclear(pgd_hva, pgd_size);
+>  	if (!pgd)
+> -		goto err_free_hyp_vm;
+> +		goto err_free_last_ran;
+>  
+> -	init_pkvm_hyp_vm(host_kvm, hyp_vm, nr_vcpus, handle);
+> +	init_pkvm_hyp_vm(host_kvm, hyp_vm, last_vcpu_ran, nr_vcpus, handle);
+>  
+>  	ret = kvm_guest_prepare_stage2(hyp_vm, pgd);
+>  	if (ret)
+> @@ -938,6 +950,8 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
+>  	kvm_guest_destroy_stage2(hyp_vm);
+>  err_remove_mappings:
+>  	unmap_donated_memory(pgd, pgd_size);
+> +err_free_last_ran:
+> +	hyp_free(last_vcpu_ran);
+>  err_free_hyp_vm:
+>  	hyp_free(hyp_vm);
+>  err_unpin_kvm:
+> @@ -1112,6 +1126,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
+>  		hyp_free(hyp_vcpu);
+>  	}
+>  
+> +	hyp_free(hyp_vm->last_vcpu_ran);
+>  	hyp_free(hyp_vm);
+>  	hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
+>  	return 0;
+> -- 
+> 2.39.5
+> 
 
