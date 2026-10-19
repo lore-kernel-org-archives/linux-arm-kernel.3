@@ -4,66 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FE8CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA79CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkwWRSm6IVCUkMR7ZYJsN+Excc6BTQ4/9tKWmpf323I=; b=sJb8ODigx8GVmvmXbDf7Ic61Rk
-	bRRUuGcH/fhzRowiHSclU4r7DXu18Lhw4D1MkKtKg7b6NAKIN/1+D3pAFuA+wJ7/3HbEm4PSDe+7z
-	r7bj6ZCSjoYjP7hV3vUMFWPCjvADXXJ9R4NWPrL9/CcC5imQpgIyMPGk8NgWrIpzEQSoHf73FKHm2
-	PGntyaQPx1kEKDBWRECeE/zi7dfNNjAL2MYHRZseKpz9D1bxS9nk2IbFnmJ/bW5F2iJN20EqrXL8d
-	W5P0Z6sLyOUMVFt8CYh9Fk5CBqNkMF1fJc3UkGf1dCyVL8SWCU9566iekf+4M35MBq9qFbbGVTot9
-	44YzC5Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XSf73H82ilo4wZZ49JO6MMNm7tt9Ru3rczyzmw4e0VM=; b=cWkMFEa6N1FKny4Tw6hO3J7s4d
+	gP/VQXvFsnjPpdGMG4oeEr4jaaOPMT/h8nipYmNg+GK2MbnpY5Te8R5bdMaYofaFY5zu8DcuGG3MR
+	3xf8Z8FilBPXsqDoqYYSbn5LHQFw8QJlomR9lkh9HvhUGbkC43IJ6p4ue0zNrk5hsPXA5PzYSCc7q
+	4FOZndn7QBQnPAy3mepwN/LKn2ic9ZpWuA6l2asjkO05SGe9OZWxHLJvj3J8M+eyOKVNOuA10u6H2
+	Tj4O+/Nvt2C+dLg79rmhQe7Z1/zMkLkotgizcX9JakztoWFBZ0TN0+4dp863H9+BpEqQ/ZOvWOu6G
+	un5kLN8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkwS-00000007El1-0MXr;
-	Mon, 19 Oct 2026 10:50:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkwP-00000007Ekc-1zxU
+	id 1xIlBO-00000007FaW-0vUn;
+	Mon, 19 Oct 2026 11:05:34 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xIlBL-00000007FZx-3VoJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:50:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C10C143D;
-	Mon, 19 Oct 2026 03:49:59 -0700 (PDT)
-Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09EA93F673;
-	Mon, 19 Oct 2026 03:49:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792407002; bh=IqZ87T79p4v8rA9Dq15cLL8uTowBdbPbhhKw0ZN/MlY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NYFSZUuc/9suaLWc749nxL4ykoa8DJDTQM6fCDj9wTRepvPczuvlJgGrAOlcpILe4
-	 8M5PlL2UpN27svp6PQNxOwzUCKPcaOVbi7qXj8tHRB6vMUwuUDBlX95pIqzo+rCyiX
-	 O+5M0zrEBM9D2BsB3dBCmJ5xYGxDDxiVTOSes9eM=
-Message-ID: <5f1c9d90-2269-4e46-9a20-e8152153384c@arm.com>
-Date: Mon, 19 Oct 2026 11:49:56 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: insn: make `aarch64_insn_gen_d{m,s}b()`
- alternative-safe
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Tejun Heo <tj@kernel.org>,
- Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Lucas Wei <lucaswei@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>,
- Barry Song <baohua@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>, Puranjay Mohan <puranjay@kernel.org>
-References: <20261016165140.254791-1-ada.coupriediaz@arm.com>
- <20261016165140.254791-3-ada.coupriediaz@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261016165140.254791-3-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
+	Mon, 19 Oct 2026 11:05:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yYevn8QKG1LMqa/v+A45qWjvGIykSLvlD7d8pZcza1PUopqytoEYq//HI/elEDA59QgAdqvBmOW11mKKxDaPkh+stUdigwIFHhPNniQZxOapuKGqihSYqLGlSAjnJIbYg1F5n09ZyINlWsyjgdUfOYgXzM1uhCC1VsJvuJCtsmKEbPjITay9+yvFOQfNmffopbyJwB597D1C8lkQnReG7CzzPFVcSW7uybZ/OXXNE9IlJakhhhuKPou9LvVDcydyKcGmpMPYXWbVkzJCq8tXnEmQFf6L4+0LyP4ntBs21hHKJqn5Uo7IofdRVMD34JaGFAVq3wS/7eCSFJ37qWmBRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XSf73H82ilo4wZZ49JO6MMNm7tt9Ru3rczyzmw4e0VM=;
+ b=lz4Wn6RHsOn5LStlkbvI3F9+7AihW75vBW51uEsi8ysY1Hr8TYHcdnYuApcvOfdlBfV1wrw6yRMlOpE0gS3KHHfPWljl4YKYbnmENbJtaewL66Kdlwlq7mmPSrlwY81iWx10DskWd5R+9HsVm0UNN4Irqug2DshPv+c8a185S8nBVD9amLoH8aWpGiLq+WzMYjHj/pQedmV/YdFFM+aOciuiZdn9Qqz043pD0knutix4J8YuoMFpMgPVeGtFUHkX3rZdZ2xHA9Ueeg2rd49KtRGwOY8mo9TD2z0VrK0v9RfpiImvCgEhBBee0LjUM4yuEybnmxUGwufx1X3mgk1otQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XSf73H82ilo4wZZ49JO6MMNm7tt9Ru3rczyzmw4e0VM=;
+ b=OI0AsEKnuqxrmb2/stuQN9UIveR7WT6ododdOqhgehKdc7NxTJORr+quxPCpAsm23bF5zsmKimn17uGgWl0ngQjeNQkTMHxMV/oR/35ZAtoh1Y/AAXYYc7L/0fob7VfIu7RA1xftDUN6JQMFajkAP3F5tonpIrxK7g3EnWZReAnAhyXg2o5N1nFG5xNemv3RP4OC44rM75sKcqMJCM3WAuOCCc3gI/o0L3qsbHxBgtpR48mcHSQk81dH6K3CtNgOccj8Cc19qJ/DtB/qrpl0vHg8S54rQdiB0lC2QrhR+yxpKBckE2bKnfS6ACg3X408mQAqP2IIuqrGtQcTnoo7xg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com (2603:10a6:803:ec::21)
+ by AS8PR04MB8866.eurprd04.prod.outlook.com (2603:10a6:20b:42d::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 11:05:22 +0000
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de]) by VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de%4]) with mapi id 15.21.0522.017; Mon, 19 Oct 2026
+ 11:05:21 +0000
+From: joy.zou@oss.nxp.com
+Date: Mon, 19 Oct 2026 19:09:35 +0800
+Subject: [PATCH] pinctrl: imx: Use of_device_id match table for per-SoC
+ data
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261019-b4-imx937-frdm-scmi-pinctrl-v1-1-0576fb20964b@oss.nxp.com>
+X-B4-Tracking: v=1; b=H4sIAG761WoC/yXMSw6CMBAA0KuQWTsJrZ9Sr2Jc0DLVMbaSGSQkh
+ Ltbdfk2bwUlYVI4NysIzaz8KhVm10C89+VGyEM12NaeTGs8hgNyXvzeYZIho8bMOHKJkzzRhUi
+ 2S50/Jgd1GIUSL7/9cv1b3+FBcfqWsG0fb23N0X8AAAA=
+X-Change-ID: 20261019-b4-imx937-frdm-scmi-pinctrl-7bce28f895f7
+To: Peng Fan <peng.fan@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Jacky Bai <ping.bai@nxp.com>, Ye Li <ye.li@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Joy Zou <joy.zou@nxp.com>, Joy Zou <joy.zou@oss.nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI2P153CA0003.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::20) To VI1PR04MB5807.eurprd04.prod.outlook.com
+ (2603:10a6:803:ec::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR04MB5807:EE_|AS8PR04MB8866:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09085242-ab1f-4c74-03bf-08df2dd0dda2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|23010399003|366016|6133799003|18002099003|10067099003|3023799007|921020|261009223027099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: Efm23D5jAZpljo2Bi2/GtTwExSQUdOfADx4jluxeWvWWbNf1Wlvu1s5fRf6EM+lzvkZtGOrf/jHFyv66LE9qgq0iyAuY5VgdSL8HxU/ARpHTuMJPA8nyUw9JaXpWdOAofPAML0VYz8Nte1zDQkSc2WIhso8H3uYxTaEguSRMK9ZI/GG3ukAn2+URgqGYyo7X5YU1OYRyjmQ+hY5bONoQxgxlrXW8IQs/CJgW1n1f9EMJGrhJjDmzasAG7ezA+lRB5rSyqUFB9QqhM618oLVEfdoFo8qTXMa0DDJymbdDN9bp2LGb4zNQynHv0/e1FfT0PvJM68t/0pWsB2NdDivasTz+iD+8HPAysfwkJyD4UYm7Kpr3ZtK1PVT1Gq+5WMTjxlo5DmCupH+KbOGnB0hqP4iqzPXJczA39+ealqPBP79mheLopx2lOdOfYn+3lKK4a79dUeKfPp5gPB/xRyEAePve+exnzPLeQtGD3VkZqjwteql20P2GItV6dIPCzODBoDFoOzte/TDp8tgrA7yUZk7338X518oZu1WVK49F/j6E+c5enCcLMgczVzwrNVTELTC/3TwVe1B5AFhME9QBexM7A1+CsfOxpF2i9sB42KWceSeVS+cXMBC6orCfoJjav9txo6TTrNkTz4VhHg3YSJBoT3nNI1sfMTtk3A0LTSzV5+OiYOP76vvC/tE42LQeZeSmYO/w3BS8SrL3OjgNAA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5807.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(23010399003)(366016)(6133799003)(18002099003)(10067099003)(3023799007)(921020)(261009223027099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Vm8yazM5NW9uczFLbFF2Z0F6MXdqekYwUDZkOGRTQ0lhZ20zYnVoSWp6S2pT?=
+ =?utf-8?B?MHZLWVBkaSsvOUFERHZDV2x6ZHp1KzVVbEkzbC9aTkw5eEFLampwWTFPWEo2?=
+ =?utf-8?B?S0FaVU1HZ2oxeFpYY2RzcXM5Qm0zVEFIWFd4V09nNG9sck9vbEdCeHlxSlEw?=
+ =?utf-8?B?b0EyZG9sMS90dGR1d0oxem1TTWVVSTRmNURNYnNIbXBRREZFNWpEYm53Z2RP?=
+ =?utf-8?B?OXc5Zk9ZMVJzR0c4cU5zcEszSFdPZFprcWh5ZkRENGg4YXM5TU1PbGRtSFZK?=
+ =?utf-8?B?eW5CbjdFdVZ3Q1ZOY2lvd0crSGk4d25SU29rNzE0Z0tJSWd4WE5Sc2VFTVAz?=
+ =?utf-8?B?SzhzOFJEZ1J5WDRSSXcrUi9HemxuUEVtUXFrMlVldWFXL0hmNFBVWGlWOGs4?=
+ =?utf-8?B?VHpQeGpsbGlXWGhUTndqQlpJdmYrNmpJTmFUU0tseGJicjFTeDdkaEsxaXFn?=
+ =?utf-8?B?WTJ3MzlBOUJvMlk4M0FnUkVUTE9BTkVaUW1pVlE2OS9sV0hRVEJramoxVHIv?=
+ =?utf-8?B?TUx6UXVnWGJuS3RPTnpKYWx1SFZ4SGg3emhodTR1blZMOVJwMFkrOExSTXVh?=
+ =?utf-8?B?TVNqdE1yTi9GbzJGdFB1WUQySVZtUk5nT2lRZEpDS05vVi80MUFFWU54b0RJ?=
+ =?utf-8?B?VG5kSngwdXhGYnlpbTJtaDFuL3MxbWtRRmRDT0JCNDAydXhXZTEvQ1E5dE8w?=
+ =?utf-8?B?bjNmV3RwY2Y0R2x6MURHakJ4VFF4RjhlRjFXZC9uRmpOMVVTeC9XTy9BaUNl?=
+ =?utf-8?B?U3NLRmMxbTQvaEMzYjl4RFdCWGdBSGtLRnl6UU4vSDlaSExmZmhjV0tKbjkz?=
+ =?utf-8?B?d0g3YkRiZ0o2OW1RQWVmY1htUE9iREFWb3FmNGtXR2x0WDZWUDBXakJhRm9v?=
+ =?utf-8?B?T1ZoT0ZUaE9YY014ZUtkQkFiS245cEJSNy92T3lqT0RNVGUyTjFxNTV0b3pE?=
+ =?utf-8?B?T0RwWTJzbXdYcndOSUJpeDZuaU5vV3JYekRHd1JBVi9FdEY2T1lZRTlCLzdl?=
+ =?utf-8?B?L1VWSng4anBRbFE5Ykd3dGdCZ3pybnpPNWdZdExaTGtYSWNzT0FlZEVMSnlI?=
+ =?utf-8?B?aVY4cHJIRFdXOU5wVHNvVGtXaTEyb2pHSDU3Y0RlUXdINjRHR00vWEZDUUkw?=
+ =?utf-8?B?My9RdHBOMW4zYlYrU1kweGRhbHpuR3orWlVVVjlPb0p5Vko3UVl5aGx4VFR6?=
+ =?utf-8?B?M3QwdWdWa1d1UUJvL3JQV01pbTk4UEtDbDlQV3JnVUxrRGxPM1h4TWs2bXBW?=
+ =?utf-8?B?NnV4RE5RcFBFa0hSU1lZNXhuMmR2QjlBcnBCWnhiN0Q5d24xWDhySGRVbHkz?=
+ =?utf-8?B?c1dXQkR5NlpnWVlpalRQRDRJdVoxNzRRaTR6cUdFTzZKckxFejliWTZhKzJG?=
+ =?utf-8?B?bkJSM0hBWUlFd2RmN1l2L2kwcFY0S3pqQ1JDbUlDQmVmNDV3TG5lcUwrWktv?=
+ =?utf-8?B?L1EwWFJaK2JUbS84OUE0U0d1T1JMeUJIVkhSbzBWTkdWWmtha3hVeVBmeThB?=
+ =?utf-8?B?cEpWditZNHRsVFhWV3E5UVVzMk5MSUpnenEvbXRvYUQ4elJZeGZnUjNMbUUv?=
+ =?utf-8?B?VFYza2tiMTNUNWdVcW1JVFU2bkZmdFE2WkZoU3h6S0FtZHBRNzRZQ1dad2dj?=
+ =?utf-8?B?bVpkUFNqNlV0enZaS1V0aFlLbnBvL0xMMkNVOW10enZwbVdDTEZRdmZHZjBT?=
+ =?utf-8?B?VllUWWV0eFg1eGtJcnE1aTkxeDMzU0l4clFwV1VyWVNyQkJxSEM1NXY5elZ2?=
+ =?utf-8?B?cllWNStGRFFCUFl0b3RaeXlBQVNhcDUrMlYxMlNDME9LNS93MXpqQkdxZEM2?=
+ =?utf-8?B?V1FnNVNHeUdNcWxnd2tneW9kMWZPOHNHRjR3ZVhwd0h2bkVpY0taak5uL2wv?=
+ =?utf-8?B?QWd4c2RhaGMrOFdXdlNpdDVqbTI2RmNrY1c2RlN6eUh6MXg0d1N0eXp1cjZZ?=
+ =?utf-8?B?cUd2cUl1QU5LVUo1a3NYTEU1Q1oxaHg4MEZoRXFsdVVEUGM2V3hQTVdNWmhD?=
+ =?utf-8?B?bFljWkMyQmJMalRIeUNSMEx6SmdoODlCTE83NlRQeVl6S0YxWncwZ3p2aHlk?=
+ =?utf-8?B?S096b2hlUldlbkhaUC9SUE5vSjlSeFVTbDVFSE1RYmVBYjViUUxjVTNaQ2hy?=
+ =?utf-8?B?bkJZWTJrTHJweGV6MmJ2cmxTakJ5WFVXU1c1TTFFbG9BS1ZGQmlNSWw4T05X?=
+ =?utf-8?B?aXZxK2ZzeExQekFndEM1Z2EzbDIyWUgxZ3lJZ3RuZkxRRzdsZkdVZDNadmd5?=
+ =?utf-8?B?eWVoRzV5UTlmU3kxZGtLc2JmT0k0SFBtMTErTldNTWg5dG9TRlRaSDRaVCtx?=
+ =?utf-8?B?b2QzZVd0UFAwcThuUmZsOEN6c0k3RFFYbW04c1p5SjBkbk9RNEpaNEhiQjQx?=
+ =?utf-8?Q?6fUe77vcaHZKMVhtAKl3qT5A15/RxEnw/+MFd?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09085242-ab1f-4c74-03bf-08df2dd0dda2
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB5807.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 11:05:21.1090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8Xwhox65jcXIdifeZrP8ZBWfWpNlzjKtoIgcSI6I49ZHxEp4U8vbsOeX6rB4f3LCb+RXcQ84NONsBFBXh5TCx50EAHv1n269gVehWI2JZZ9ULgfStIx79APk8GICklQq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8866
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_035005_699638_0CE0A210 
-X-CRM114-Status: GOOD (  24.81  )
+X-CRM114-CacheID: sfid-20261019_040532_040947_D999FA1E 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,195 +155,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ada,
+From: Peng Fan <peng.fan@nxp.com>
 
-On 10/16/26 17:51, Ada Couprie Diaz wrote:
-> Move `aarch64_insn_gen_d{m,s}b()` and `__get_barrier_crm_val()`
+Replace the hardcoded of_machine_is_compatible() if-else chain and the
+static string allowlist with a proper of_device_id match table carrying
+per-SoC data via the .data field.
 
-__get_barrier_crm_val()/__is_valid_barrier_type() has gone, so
-reference to it confuses.
+This eliminates the static local variable anti-pattern for daisy_off
+(lazy-initialized, shared across instances) and adopts the idiomatic
+kernel of_machine_get_match_data() APIs.
 
-> to `insn.h` and mark them `__always_inline`.
-> Replace the error print by an inline build-time check
-> now that the compiler can verify all call sites.
+A new pinctrl_scmi_imx_data struct captures the daisy register offset
+for future extensibility when new SoCs may not use register-offset based
+daisy configuration.
 
-My understanding is that error printing is not alternative-safe,
-so we replace it with a build-time check. The latter requires the
-barrier type to be visible to the compiler, hence moving the
-helper to a header and marking it __always_inline (with the side
-effect that the code may be inlined into noinstr functions).
+No functional changes.
 
-However, is it safe to assume that the barrier type will always
-be visible to the compiler? This is true today, but I can imagine
-a scenario where the barrier type is passed through a helper
-defined in a separate translation units, making it impossible for
-the compiler to observe its value at build time. I'm not sure
-whether this is something we should worry about right now.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+---
+Replace the hardcoded of_machine_is_compatible() if-else chain and the
+static string allowlist with an of_device_id match table that carries the
+per-SoC daisy register offset in its .data field.
 
-Another thing I'm wondering about is how we plan to make other
-helpers alternative-safe. Do we eventually intend to move all of
-them into header?
+This drops the lazily-initialized "static uint32_t daisy_off" local and
+lets probe do the compatible match and per-SoC data lookup in one step
+via of_machine_get_match_data().
 
-I also noticed that we're not entirely consistent with error
-reporting across helpers. In several cases, we simply return
-AARCH64_BREAK_FAULT without printing anything to the log. Perhaps
-a better approach to making these helpers alternative-safe would
-be to remove error printing altogether, mark them noinstr, and
-return AARCH64_BREAK_FAULT whenever we cannot construct a valid
-opcode?
+No functional change intended.
 
-> 
-> As BPF is the only caller, with static arguments, only accept
-> non-deprecated types for each barrier, as per Arm ARM DDI 0487
-> version M.c[0], and update `A64_DMB_ISH` accordingly.
-> 
-> As all functions are now inlined and do not call any instrumentable
-> function, they are now safe to call in alternative callbacks.
-> 
-> [0]: https://support.arm.com/documentation/ddi0487/mc/
->          (See C6.2.150, C6.2.152)
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/insn.h | 46 +++++++++++++++++++++++++++++++++--
->  arch/arm64/lib/insn.c         | 44 ---------------------------------
->  arch/arm64/net/bpf_jit.h      |  2 +-
->  3 files changed, 45 insertions(+), 47 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 2d19f48aab81..c91a8431c961 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -703,8 +703,50 @@ u32 aarch64_insn_gen_cas(enum aarch64_insn_register result,
->  			 enum aarch64_insn_register value,
->  			 enum aarch64_insn_size_type size,
->  			 enum aarch64_insn_mem_order_type order);
-> -u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type);
-> -u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type);
-> +
-> +static __always_inline u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type)
-> +{
-> +	u32 insn;
-> +
-> +	switch (type) {
-> +	case AARCH64_INSN_MB_LD:
-> +	case AARCH64_INSN_MB_ST:
-> +	case AARCH64_INSN_MB_SY:
-> +		break;
-> +	default:
-> +		BUILD_BUG_ON_MSG(1, "invalid dmb type");
-> +	}
-> +
-> +	insn = aarch64_insn_get_dmb_value();
-> +	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
-> +	insn |= type;
-> +
-> +	return insn;
-> +}
-> +
-> +static __always_inline u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
-> +{
-> +	u32 insn;
-> +
-> +	switch (type) {
-> +	case AARCH64_INSN_MB_OSH:
-> +	case AARCH64_INSN_MB_NSH:
-> +	case AARCH64_INSN_MB_ISH:
-> +	case AARCH64_INSN_MB_LD:
-> +	case AARCH64_INSN_MB_ST:
-> +	case AARCH64_INSN_MB_SY:
-> +		break;
-> +	default:
-> +		BUILD_BUG_ON_MSG(1, "invalid dsb type");
-> +	}
-> +
-> +	insn = aarch64_insn_get_dsb_base_value();
-> +	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
-> +	insn |= type;
-> +
-> +	return insn;
-> +}
-> +
->  u32 aarch64_insn_gen_mrs(enum aarch64_insn_register result,
->  			 enum aarch64_insn_system_register sysreg);
->  
-> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-> index fa61a631d687..5c37f3a4c402 100644
-> --- a/arch/arm64/lib/insn.c
-> +++ b/arch/arm64/lib/insn.c
-> @@ -1561,50 +1561,6 @@ u32 aarch64_insn_gen_extr(enum aarch64_insn_variant variant,
->  	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RM, insn, Rm);
->  }
->  
-> -static bool __is_valid_barrier_type(enum aarch64_insn_mb_type type)
-> -{
-> -	switch (type) {
-> -	case AARCH64_INSN_MB_OSH:
-> -	case AARCH64_INSN_MB_NSH:
-> -	case AARCH64_INSN_MB_ISH:
-> -	case AARCH64_INSN_MB_LD:
-> -	case AARCH64_INSN_MB_ST:
-> -	case AARCH64_INSN_MB_SY:
-> -		return true;
-> -	default:
-> -		pr_err("%s: unknown barrier type %d\n", __func__, type);
-> -		return false;
-> -	}
-> -}
-> -
-> -u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type)
-> -{
-> -	u32 insn;
-> -
-> -	if (!__is_valid_barrier_type(type))
-> -		return AARCH64_BREAK_FAULT;
-> -
-> -	insn = aarch64_insn_get_dmb_value();
-> -	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
-> -	insn |= type;
-> -
-> -	return insn;
-> -}
-> -
-> -u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
-> -{
-> -	u32 insn;
-> -
-> -	if (!__is_valid_barrier_type(type))
-> -		return AARCH64_BREAK_FAULT;
-> -
-> -	insn = aarch64_insn_get_dsb_base_value();
-> -	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
-> -	insn |= type;
-> -
-> -	return insn;
-> -}
-> -
->  u32 aarch64_insn_gen_mrs(enum aarch64_insn_register result,
->  			 enum aarch64_insn_system_register sysreg)
->  {
-> diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
-> index b2fe6e6dcf44..08d514b40a5b 100644
-> --- a/arch/arm64/net/bpf_jit.h
-> +++ b/arch/arm64/net/bpf_jit.h
-> @@ -324,7 +324,7 @@
->  #define A64_NOP    A64_HINT(AARCH64_INSN_HINT_NOP)
->  
->  /* DMB */
-> -#define A64_DMB_ISH aarch64_insn_gen_dmb(AARCH64_INSN_MB_ISH)
-> +#define A64_DMB_ISH aarch64_insn_gen_dmb(AARCH64_INSN_MB_SY)
->  
+Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
+---
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 55 +++++++++++++++++-----------
+ 1 file changed, 34 insertions(+), 21 deletions(-)
 
-ISH - This option has the same behavior as SY and is deprecated.    
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+index b259a526ccc1..c287c3ef73a1 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+@@ -28,12 +28,17 @@
+ 
+ #define DRV_NAME "scmi-pinctrl-imx"
+ 
++struct pinctrl_scmi_imx_data {
++	uint32_t daisy_off;
++};
++
+ struct scmi_pinctrl_imx {
+ 	struct device *dev;
+ 	struct scmi_protocol_handle *ph;
+ 	struct pinctrl_dev *pctldev;
+ 	struct pinctrl_desc pctl_desc;
+ 	const struct scmi_pinctrl_proto_ops *ops;
++	const struct pinctrl_scmi_imx_data *data;
+ };
+ 
+ /* SCMI pin control types, aligned with SCMI firmware */
+@@ -59,6 +64,7 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 					   struct pinctrl_map **map,
+ 					   unsigned int *num_maps)
+ {
++	struct scmi_pinctrl_imx *pmx = pinctrl_dev_get_drvdata(pctldev);
+ 	struct pinctrl_map *new_map;
+ 	const __be32 *list;
+ 	unsigned long *configs = NULL;
+@@ -67,21 +73,15 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	int mux_reg, conf_reg, input_reg, mux_val, conf_val, input_val;
+ 	int i, j;
+ 	uint32_t ncfg;
+-	static uint32_t daisy_off;
+-
+-	if (!daisy_off) {
+-		if (of_machine_is_compatible("fsl,imx95")) {
+-			daisy_off = IMX95_DAISY_OFF;
+-		} else if (of_machine_is_compatible("fsl,imx94")) {
+-			daisy_off = IMX94_DAISY_OFF;
+-		} else if (of_machine_is_compatible("fsl,imx952")) {
+-			daisy_off = IMX952_DAISY_OFF;
+-		} else {
+-			dev_err(pctldev->dev, "platform not support scmi pinctrl\n");
+-			return -EINVAL;
+-		}
++	uint32_t daisy_off;
++
++	if (!pmx->data) {
++		dev_err(pctldev->dev, "platform does not support scmi pinctrl\n");
++		return -EINVAL;
+ 	}
+ 
++	daisy_off = pmx->data->daisy_off;
++
+ 	list = of_get_property(np, "fsl,pins", &size);
+ 	if (!list) {
+ 		dev_err(pctldev->dev, "no fsl,pins property in node %pOF\n", np);
+@@ -299,11 +299,23 @@ scmi_pinctrl_imx_get_pins(struct scmi_pinctrl_imx *pmx, struct pinctrl_desc *des
+ 	return 0;
+ }
+ 
+-static const char * const scmi_pinctrl_imx_allowlist[] = {
+-	"fsl,imx94",
+-	"fsl,imx95",
+-	"fsl,imx952",
+-	NULL
++static const struct pinctrl_scmi_imx_data imx94_pin_data = {
++	.daisy_off = IMX94_DAISY_OFF,
++};
++
++static const struct pinctrl_scmi_imx_data imx95_pin_data = {
++	.daisy_off = IMX95_DAISY_OFF,
++};
++
++static const struct pinctrl_scmi_imx_data imx952_pin_data = {
++	.daisy_off = IMX952_DAISY_OFF,
++};
++
++static const struct of_device_id scmi_pinctrl_imx_data[] = {
++	{ .compatible = "fsl,imx94", .data = &imx94_pin_data, },
++	{ .compatible = "fsl,imx95", .data = &imx95_pin_data, },
++	{ .compatible = "fsl,imx952", .data = &imx952_pin_data, },
++	{ }
+ };
+ 
+ static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
+@@ -318,9 +330,6 @@ static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
+ 	if (!handle)
+ 		return -EINVAL;
+ 
+-	if (!of_machine_compatible_match(scmi_pinctrl_imx_allowlist))
+-		return -ENODEV;
+-
+ 	pinctrl_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PINCTRL, &ph);
+ 	if (IS_ERR(pinctrl_ops))
+ 		return PTR_ERR(pinctrl_ops);
+@@ -329,6 +338,10 @@ static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
+ 	if (!pmx)
+ 		return -ENOMEM;
+ 
++	pmx->data = of_machine_get_match_data(scmi_pinctrl_imx_data);
++	if (!pmx->data)
++		return -ENODEV;
++
+ 	pmx->ph = ph;
+ 	pmx->ops = pinctrl_ops;
+ 
 
-so conversion is valid.
+---
+base-commit: 2efb7a11f1aa4d2dc285fe2680cca22cb9f72f64
+change-id: 20261019-b4-imx937-frdm-scmi-pinctrl-7bce28f895f7
 
-Cheers
-Vladimir
-
->  /* ADR */
->  #define A64_ADR(Rd, offset) \
-> -- 2.43.0
-> 
+Best regards,
+--  
+Joy Zou <joy.zou@oss.nxp.com>
 
 
