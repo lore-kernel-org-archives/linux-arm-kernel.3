@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF028CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCCBCCF2E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gyiydqPIB402NHvOlfWp8G1/q2d5b9orTcF5s5wfi3k=; b=ZKIUhf3wV7UCd2HEG6ZdugQfBp
-	vUKrGh46OEoer5HkmJqJtKreC1lqH43QBYsIZEFngTCPhyU7CS9LHsspcj06XtZDOxfJVOwffznia
-	AYh/HlPQxB7RatjtoAic31tIPsWcsXDC6TfMlZE2qymqJbm8g90wz+lARIfvEZ23lxFBL43NP/QRG
-	pi8KC43iGTZcS67RTg/gWbPGKwBghz/iIu2hO1D9DKIeHGPdsYVVaSYwmfDgaYOYVP9YBd+b4TxuJ
-	fn4KCtuFlyAb6eqAJB7XK0AAZTro/lTU3IPYkLYmScYF5fe/TQk/6kwI3b8EMhrpsGDEg4cXiQRPu
-	+N90nc/w==;
+	bh=w9tYo1ePiywHlsnDPw2BYj7IYsINTi3MQ626nFcaKGo=; b=efQri5dcuCLEp2/li/Gz87UwwS
+	YR0TNLslMNb5JrnMDdIqStS/v2oEc4Ot2fNVpQMB3QlP+bwGN/OONlF2k3szvmIPcpsp3YceKGH6g
+	hWo/OgbTKVaSLxD2EVWU87+Wwt8TtoexDjsq+Lkwqo74rQMcfc1WI//qcNmcNOjupyLvwu8ixbZHA
+	HOhb8IBogCy+zPSeaIDoQFYG9AbT2WQ0mGlU1QyNYepg+/K0B3xbuoFhwYMzEjk8MOQ5QSg3kES83
+	hgxs9NCRtGCpjS4j1I4pBCuNsRUSdjbiM+LL2E6FbD6SjDLsAfasmr+Dgf2C9sHGQ+6UQDiNWyMHy
+	awRtI7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInyU-00000007fZX-12LH;
-	Mon, 19 Oct 2026 14:04:26 +0000
+	id 1xInyk-00000007fir-28vI;
+	Mon, 19 Oct 2026 14:04:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInyS-00000007fYD-1Mar;
-	Mon, 19 Oct 2026 14:04:24 +0000
+	id 1xInyi-00000007fhZ-3r1y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 14:04:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12F1641A9C;
-	Mon, 19 Oct 2026 14:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 755491F000C4;
-	Mon, 19 Oct 2026 14:04:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A7ED0417B1;
+	Mon, 19 Oct 2026 14:04:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E2C41F000C5;
+	Mon, 19 Oct 2026 14:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418664;
-	bh=gyiydqPIB402NHvOlfWp8G1/q2d5b9orTcF5s5wfi3k=;
+	s=k20260515; t=1792418680;
+	bh=w9tYo1ePiywHlsnDPw2BYj7IYsINTi3MQ626nFcaKGo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fOuufbP3Nf1awuWPKTfmjJKfVuk6DZZEeVgJ8mO++uD2M/5qF/T9xl1alJKTz6mps
-	 jo+rNhpE5JIZaFdM2onr8IeHNd7re7RuwMHBU+CI0KAloUWZsERnSI467sOs0QyAtx
-	 Uk4lxcFU6Cm5DRRq37bvfuPj17J6HDE1BQaDWaE14/jHPoDi3mfOEz3pXhQ2EzLlBf
-	 8u3FcJuiO46FtpnurDWOK5n5kwNBFe2gGXvOFnCJ893EiuBvPS84HRZQpVFNPphth0
-	 gjBmtoJoIfrHwYWIr1qeE3JxLVuY1MEddK5k/4UsKmEFTl1nPVmxKzIjnJODja3hhD
-	 XTXel5xgZLsRA==
+	b=HmmUh9J5MNelStFykMUhj8x9GoR8t9pqXQ+TRzVvBg7Jowxk6Y4lBiP1AjjGU5in0
+	 fXCeEpTldbAd5Shby84u9tvZii/CPJXf4o+5ilEFCQMQ5fXNRT+3XkWAptxjBdgdPb
+	 cHLcNvIGFVoNakjji/Y2SZ+N3GLLJ3wHOXJy2X5BHE3MaANQJK3SRtnd4tlh+5jVFj
+	 UIcp7aEgM2JMPWIlaij7PYj4i5O6M9M8/g7ViiLjdRK0S+tMxHOJ3gzPR8nPlAP+eA
+	 gv6zle60pL+VzFTSrhv/WPs/voXxw+ar7vMEjx9Fqrdcgmnkhgx6Xk4n1bZU0hWy9d
+	 i2QS0q3ZfEikQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Brian Masney <bmasney@redhat.com>,
+Cc: Johan Alvarado <contact@c127.dev>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	y.oudjana@protonmail.com,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-clk@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] clk: mediatek: mt6735-vdecsys: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:51:40 -0400
-Message-ID: <20261019135441.1420968-409-sashal@kernel.org>
+	maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.15] net: stmmac: raise TX completion interrupt at the end of an xmit burst
+Date: Mon, 19 Oct 2026 09:51:51 -0400
+Message-ID: <20261019135441.1420968-420-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -83,375 +85,493 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Johan Alvarado <contact@c127.dev>
 
-[ Upstream commit 096ab64a0e69460bfb3557d09e17d2933280a1c6 ]
+[ Upstream commit d21a374995df9d7cfd193427748a19dcc87956a9 ]
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+The TX mitigation logic only sets the Interrupt on Completion bit once
+every tx_coal_frames descriptors (STMMAC_TX_FRAMES = 25), with the
+tx_coal_timer hrtimer (STMMAC_COAL_TX_TIMER = 5000 us) as the only
+fallback. TX skbs are freed exclusively from the TX completion path,
+so any flow that keeps fewer than 25 frames in flight has all of its
+skbs held for up to 5 ms after transmission.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
+Paced flows never queue enough frames to reach the frame threshold:
+TCP Small Queues caps the amount of unfreed data at roughly two pacing
+intervals worth, which at moderate pacing rates is only a couple of
+packets. Every small burst then stalls until the coalesce timer fires,
+and throughput collapses to approximately tsq_limit / tx_coal_timer
+regardless of link capacity.
 
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
+This is easily reproducible with BBR, which paces its output and thus
+keeps only a few frames in flight at a time. On a YT6801
+(dwmac-motorcomm) equipped Orange Pi 5 Pro, a BBR upload over a ~23 ms
+RTT path is capped at 5.24 Mbit/s, while CUBIC reaches 207 Mbit/s on
+the same path. BBR measures the stalled send rate as the path
+bandwidth and locks its estimate near the floor, so the connection
+never recovers. Lowering the coalesce settings with ethtool -C
+(tx-usecs 100 tx-frames 1) lifts the same transfer to 447 Mbit/s,
+confirming the mechanism.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Fix this by setting the IC bit on the last descriptor of every xmit
+burst, i.e. whenever netdev_xmit_more() reports that no further frames
+are pending in the current dequeue batch. Frame-based coalescing still
+applies within a burst, bulk traffic keeps batching through qdisc bulk
+dequeue and NAPI polling, and the coalesce timer becomes a pure
+fallback instead of the primary completion mechanism for lightly
+queued flows.
+
+tx-frames 0 keeps its meaning of timer-based mitigation only.
+
+Signed-off-by: Johan Alvarado <contact@c127.dev>
+Link: https://patch.msgid.link/20260731194522.55069-1-contact@c127.dev
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **7.3.0-rc4** (`v7.3-rc4-27-gf0100363d8c37`). The
-vdecsys driver is present here; the change is a one-line
-`MODULE_DEVICE_TABLE(of, ...)` so OF module aliases are generated.
+The local tree is **6.12.111**. The TX-coalesce stall is in this
+checkout; the four-line IC-on-burst-end change is a real, tested fix for
+a severe paced-TCP collapse on stmmac.
 
 ===============================================================
 PHASE 1: COMMIT MESSAGE FORENSICS
 ===============================================================
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: [clk: mediatek] [add] [missing MODULE_DEVICE_TABLE() for
-mt6735-vdecsys]
+Step 1.1: PARSE THE SUBJECT LINE
+Record: [net: stmmac] [raise] [set TX Interrupt-on-Completion on the
+last descriptor of each xmit burst so lightly queued/paced flows are not
+stuck on the 5 ms coalesce timer]
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 Record:
-- Signed-off-by: Pengpeng Hou \<pengpeng@iscas.ac.cn\> (author)
-- Reviewed-by: Brian Masney \<bmasney@redhat.com\> (clk co-maintainer;
-  also committed the patch)
-- Signed-off-by: Brian Masney \<bmasney@redhat.com\>
-- No Fixes:, Reported-by:, Tested-by:, Link:, or Cc: stable
-- Ignore any pipeline-added Sasha Levin SOB (none on this commit)
+- Link: https://patch.msgid.link/20260731194522.55069-1-contact@c127.dev
+- Signed-off-by: Johan Alvarado \<contact@c127.dev\> (author)
+- Signed-off-by: Jakub Kicinski \<kuba@kernel.org\> (netdev maintainer,
+  applied)
+- No Reported-by / Tested-by / Reviewed-by / Acked-by / Cc: stable in
+  the committed message
+- No Fixes: in the committed message (expected for this pipeline)
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Original mailing-list submission (v1 and RESEND) DID carry:
+- Fixes: da2024510031 ("net: stmmac: Tune-up default coalesce settings")
+That tag is treated as technical evidence of the introducing commit, not
+as a “already selected for stable” marker.
+
+Step 1.3: ANALYZE THE COMMIT BODY TEXT
 Record:
-- Bug: OF match table is wired to `.of_match_table` but not exported
-  with `MODULE_DEVICE_TABLE()`, so modpost does not emit `of:` aliases.
-- Symptom: when `CONFIG_COMMON_CLK_MT6735_VDECSYS=m`, udev/kmod cannot
-  autoload `clk-mt6735-vdecsys.ko` from the DT compatible string;
-  vdecsys clocks/resets never register unless the module is loaded by
-  hand.
-- Version info: none in the message. Driver introduced in
-  `0bd9b1211f741` (contained in v6.13-rc1); this fix is contained in
-  v7.3-rc1.
-- Root cause: omission at driver introduction, not a later regression.
+- Bug: TX IC is set only every `tx_coal_frames` descriptors (default
+  25). The 5 ms `tx_coal_timer` is the only fallback. TX skbs are freed
+  only from the completion path, so a flow with fewer than 25 frames in
+  flight holds those skbs for up to 5 ms.
+- Symptom: TCP Small Queues + pacing (BBR) never queues 25 frames. Each
+  small burst waits for the timer. Throughput collapses to ~tsq_limit /
+  tx_coal_timer. BBR then treats that stalled rate as path bandwidth and
+  never recovers.
+- Measured on Orange Pi 5 Pro / YT6801: BBR 5.24 Mbit/s vs CUBIC 207
+  Mbit/s; ethtool `-C tx-usecs 100 tx-frames 1` raises the same transfer
+  to 447 Mbit/s.
+- Root cause: coalescing designed for deep queues; lightly queued flows
+  only complete via the timer.
+- Fix: set IC when `!netdev_xmit_more()` (end of current dequeue batch).
+  Frame coalescing still applies inside a burst; `tx-frames 0` stays
+  timer-only.
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: Not hidden. It is an explicit autoload/alias publication fix.
-Author calls it a “source-level fix” with no hardware reproduction; that
-is accurate (the missing macro is visible in the file) and does not make
-the bug theoretical.
+Step 1.4: DETECT HIDDEN BUG FIXES
+Record: Not a disguised cleanup. Submitted as `[PATCH net]` (bugfix
+tree, not net-next). It is a logic/correctness fix for TX completion
+starvation interacting with TSQ, not a style change.
 
 ===============================================================
 PHASE 2: DIFF ANALYSIS - LINE BY LINE
 ===============================================================
 
-**Step 2.1: INVENTORY THE CHANGES**
+Step 2.1: INVENTORY THE CHANGES
 Record:
-- File: `drivers/clk/mediatek/clk-mt6735-vdecsys.c` (+1 / -0)
-- Function/data: file-scope after `of_match_mt6735_vdecsys[]`
-- Scope: single-file, one-line surgical fix
+- File: `drivers/net/ethernet/stmicro/stmmac/stmmac_main.c`
+- +4 / −0 (two identical two-line insertions)
+- Functions: `stmmac_tso_xmit()`, `stmmac_xmit()`
+- Scope: single-file surgical fix
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record: Before: match table exists and is used for in-kernel platform
-matching, but no module alias is published. After:
-`MODULE_DEVICE_TABLE(of, of_match_mt6735_vdecsys)` aliases the table for
-`file2alias`/modpost. Affects the modular autoload path only;
-probe/remove logic is unchanged.
+Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
+Record:
+- Before (both functions): set_ic if HW timestamp, else if
+  `tx_coal_frames==0` never set IC, else if this skb’s descriptor count
+  exceeds the threshold, else if the running modulo wrapped, else false.
+  Then arm the 5 ms timer.
+- After: same, plus `else if (!netdev_xmit_more()) set_ic = true`
+  immediately after the `tx_coal_frames==0` check, so the last skb of a
+  dequeue batch gets IC unless the user asked for timer-only (`tx-frames
+  0`).
+- Path: normal `ndo_start_xmit`, not an error/init path.
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record: [Hardware enablement / module autoload] `MODULE_DEVICE_TABLE` is
-the OF analog of exporting PCI/USB IDs. Without it, `modules.alias`
-lacks `of:N*T*Cmediatek,mt6735-vdecsys`. Platform matching still works
-if the module is already loaded or built-in.
+Step 2.3: IDENTIFY THE BUG MECHANISM
+Record:
+- Category: logic / correctness (TX completion starvation vs TCP Small
+  Queues)
+- Mechanism: IC density was bounded by frame count only. Paced flows
+  never reach 25 in-flight frames, so completion waits for the hrtimer.
+  TSQ will not queue more until skbs are freed, so send rate is timer-
+  capped. Setting IC on burst end completes those skbs promptly; intra-
+  burst coalescing and the timer remain as fallback.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-Record: Obviously correct; matches the established MediaTek clk pattern
-(`65c9ad77cbc0e` “Add MODULE_DEVICE_TABLE() where appropriate”).
-Compile-time alias generation only; no locking, no API, no runtime path
-change. Regression risk is negligible. Sibling `clk-mt6735-imgsys.c` /
-`clk-mt6735-mfgcfg.c` still lack the macro in this tree; that does not
-make this hunk wrong.
+Step 2.4: ASSESS THE FIX QUALITY
+Record:
+- Obviously correct: `netdev_xmit_more()` is the standard “more packets
+  in this dequeue” signal; many other NIC drivers already use it this
+  way. Placement after `!tx_coal_frames` preserves timer-only mode.
+- Minimal: four lines, no API/data-structure change.
+- Regression risk: more TX IRQs on short bursts. Author measured ~3.3k
+  IRQs/s (~12 packets/IRQ) at 447 Mbit/s. Bulk traffic still coalesces
+  inside qdisc bulk dequeue / TSO. XSK/XDP paths intentionally unchanged
+  (`netdev_xmit_more()` is not meaningful there; no TSQ). Maciej
+  Fijalkowski asked whether coalescing could be dropped entirely; the
+  author kept the frame bound so a bulk batch larger than the ring
+  cannot drain with zero IC bits. Low regression risk.
 
 ===============================================================
 PHASE 3: GIT HISTORY INVESTIGATION
 ===============================================================
 
-**Step 3.1: BLAME THE CHANGED LINES**
-Record: Match table from `0bd9b1211f741` (Yassine Oudjana, 2024-11-06;
-contained in v6.13-rc1). `MODULE_DEVICE_TABLE` line is this commit
-`096ab64a0e694`. Bug present from first introduction of the driver.
+Step 3.1: BLAME THE CHANGED LINES
+Record:
+- Core IC logic: c2837423cb5455 (“net: stmmac: Rework TX Coalesce
+  logic”, 2019-11-14)
+- `!tx_coal_frames` / per-queue threshold: db2f2842e6f560 (2021-03-17)
+- Default TX_FRAMES 1→25: da2024510031 (v5.5-rc1, 2019-11) — this is
+  what made “every frame gets IC” into “every 25 descriptors”
+- Timer 1 ms→5 ms: 039550960a223 (2023-10-19), present in this tree —
+  same stall, worse ceiling
+- Buggy pattern has been in tree since ~v5.5; this is long-standing, not
+  new-in-6.13+ code
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: No Fixes: tag on this commit. A later unrelated series (`[PATCH
-07/32] clk: mediatek: mt6735: Add missing MODULE_DEVICE_TABLE()`) cited
-`Fixes: 0bd9b1211f74` for the same omission across four files. Intro
-commit is an ancestor of HEAD.
+Step 3.2: FOLLOW THE FIXES: TAG
+Record:
+- Original submission tagged Fixes: da2024510031
+- `git merge-base --is-ancestor da2024510031 HEAD` → yes (exit 0)
+- That commit only retuned defaults (`STMMAC_TX_FRAMES` 1→25). Combined
+  with timer-only fallback, that is exactly the stall.
+- Intermediate related work already in this tree: c2837423cb5455
+  (rework), 2d1a42cf7f77c (timer arm vs NAPI, 2023), 039550960a223 (5 ms
+  timer). None of those set IC at burst end.
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-Record: Only two commits on this file: intro + this fix. Sibling same-
-day commit `36cf8d279ff90` does the same for vencsys. Standalone for
-vdecsys; no prerequisite refactor.
+Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+Record:
+- Recent `stmmac_main.c` work is TSO descriptor checks, PTP lock init,
+  XDP, etc. Nothing equivalent to this IC-on-burst-end change.
+- `git log --grep=netdev_xmit_more --
+  drivers/net/ethernet/stmicro/stmmac/` → empty; the helper is unused in
+  stmmac here.
+- Standalone 4-line fix, not patch N/M.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record: Pengpeng Hou is not the MT6735 clk maintainer (that is Yassine
-Oudjana). Same-day vencsys twin plus several other `MODULE_DEVICE_TABLE`
-additions (rtc, vdpa, watchdog). Brian Masney, clk co-maintainer,
-reviewed and applied it.
+Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+Record:
+- Johan Alvarado has no prior stmmac commits in this tree (end-user
+  reporter/fixer, not the subsystem maintainer).
+- Maintainers CC’d on the list: Alexandre Torgue, Jose Abreu. Applied by
+  Jakub Kicinski.
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-Record: None. Macro has long existed in `include/linux/module.h`.
-Applies standalone.
+Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+Record:
+- Needs `netdev_xmit_more()` — present in `include/linux/netdevice.h`
+  (this tree).
+- Needs the existing `set_ic` / `stmmac_set_tx_ic` / `tx_coal_frames`
+  block — present in both xmit paths.
+- Mainline context uses `CIRC_CNT` / `stmmac_get_tx_desc`; those helpers
+  are not required. The added lines sit in context that is identical
+  here:
+  `else if (!priv->tx_coal_frames[queue]) set_ic = false;`
+- Applies standalone.
 
 ===============================================================
 PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 ===============================================================
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
 Record:
-- Lore/msgid:
-  https://patch.msgid.link/20260704124450.11035-1-pengpeng@iscas.ac.cn
-- `b4 dig -a`: v1 only, applied as submitted
-- Thread (mbox): author post + Brian Masney `Reviewed-by:` on
-  2026-07-06. No NAK, no stable nomination, no requested revisions.
-- WebFetch of lore/spinics: 403/500; thread recovered via `b4 dig -m`.
+- b4 dig on the msgid did not resolve a local commit (this SHA is not in
+  the 6.12 checkout). Fallback: openwall + patchew.
+- v1: 2026-07-06, Message-ID `0100019f35ea26e0-42ad009c-01ab-4a8f-b126-
+  fa65fbacae5c-000000@email.amazonses.com`
+- RESEND: 2026-07-31, msgid `20260731194522.55069-1-contact@c127.dev`
+  after netdev queue overflow (Jakub asked for a repost). Author: no
+  code changes vs v1.
+- Reviewer Maciej Fijalkowski: agreed each TX batch should get IC at the
+  end; asked if coalescing could be dropped. Author explained why the
+  frame bound must stay (ring-full with xmit_more set on every frame
+  until the queue stops → zero IC → timer stall on the bulk path). Kept
+  the patch minimal for `net`.
+- No NAK. No reviewer concern that the change is unsafe for the IC-on-
+  burst-end approach.
+- No explicit “Cc: stable” in the thread. Submitted to `net` as a
+  bugfix.
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record (`b4 dig -w`): linux-clk, linux-mediatek, Stephen Boyd, Brian
-Masney, AngeloGioacchino Del Regno, Matthias Brugger, Yassine Oudjana.
-Review came from clk co-maintainer Brian Masney.
+Step 4.2: CHECK WHO REVIEWED THE PATCH
+Record:
+- To/Cc: netdev maintainers (Kicinski, Abeni, Dumazet, Daleck, Lunn),
+  stmmac (Torgue, Abreu, Coquelin), Pavel Machek (historical reporter),
+  linux-stm32, linux-arm-kernel.
+- Substantive review: Maciej Fijalkowski. Applied by Jakub Kicinski.
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: No Reported-by, no bugzilla/syzbot. Author states source-level
-evidence only. No in-tree DTS uses `mediatek,mt6735-vdecsys` (binding
-only in `Documentation/devicetree/bindings/clock/mediatek,syscon.yaml`).
+Step 4.3: SEARCH FOR THE BUG REPORT
+Record:
+- Concrete iperf3 numbers from the author on real hardware (Orange Pi 5
+  Pro).
+- Historical same class of bug: Pavel Machek 2016 UDP burst pauses (40
+  ms low-res timer); his “disable coalescing” patch was rejected in
+  favor of a real solution. hrtimer conversion later fixed resolution
+  but left timer-as-only-completion for light flows.
+- Severity from reporter: BBR unusable (~5 Mbit/s vs hundreds).
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-Record: Twin vencsys patch applied in the same pile. Later 07/32 series
-(Akari Tsuyukusa, Aug 2026) would have covered
-imgsys+mfgcfg+vdecsys+vencsys together; vdecsys/vencsys were already
-fixed here. This commit does not depend on that series.
+Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+Record: Single standalone patch. Author deferred any coalescing rework
+to net-next. XSK/XDP IC logic deliberately not included.
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: No dedicated stable thread found for this subject. UNVERIFIED
-whether an AUTOSEL pick already exists; that must not drive the verdict.
+Step 4.5: CHECK STABLE MAILING LIST HISTORY
+Record: lore.kernel.org/stable search returned 403. No evidence on
+openwall/patchew that stable rejected this. UNVERIFIED that it was
+discussed on stable@ specifically.
 
 ===============================================================
 PHASE 5: CODE SEMANTIC ANALYSIS
 ===============================================================
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
-Record: No function body changed. Added `MODULE_DEVICE_TABLE` next to
-`of_match_mt6735_vdecsys`. Driver uses `mtk_clk_simple_probe` /
-`mtk_clk_simple_remove` via `module_platform_driver`.
+Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+Record: `stmmac_tso_xmit`, `stmmac_xmit`. Helper used:
+`netdev_xmit_more`. Callee already present: `stmmac_set_tx_ic`.
 
-**Step 5.2: TRACE CALLERS**
-Record: Probe is invoked by the platform core when a device matches
-`mediatek,mt6735-vdecsys`. Autoload (udev/kmod) is the path that was
-broken for `=m`. Built-in (`=y`) matching already worked via
-`.of_match_table`.
+Step 5.2: TRACE CALLERS
+Record:
+- `stmmac_xmit` is `ndo_start_xmit` (`stmmac_netdev_ops` at line 7155).
+- `stmmac_tso_xmit` is called from `stmmac_xmit` for TSO/GSO packets
+  (lines 4529/4531).
+- Context: process / softirq xmit (BH off). Userspace sockets, not
+  probe-only.
 
-**Step 5.3: TRACE CALLEES**
-Record: `mtk_clk_simple_probe()` (`drivers/clk/mediatek/clk-mtk.c`)
-registers the vdecsys gates and resets from `vdecsys_clks`. Unchanged by
-this patch.
+Step 5.3: TRACE CALLEES
+Record: `stmmac_set_tx_ic` sets the hardware IC bit;
+`stmmac_tx_timer_arm` still runs after xmit (lines 4461 and 4750). Timer
+remains the fallback if IC is not set or NAPI is not scheduled.
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record: DT node `compatible = "mediatek,mt6735-vdecsys"` → (modular)
-udev alias lookup → `clk-mt6735-vdecsys.ko` → platform probe → video-
-decoder clocks. Reachable on MT6735 boards that describe that syscon; no
-in-tree board DTS. Unprivileged userspace cannot trigger it except by
-loading the module.
+Step 5.4: FOLLOW THE CALL CHAIN
+Record: userspace send/write → TCP → qdisc → `ndo_start_xmit` →
+`stmmac_xmit` / `stmmac_tso_xmit`. Reachable on every stmmac Ethernet
+device. Unprivileged users who can send on the interface (typical
+networked host) trigger it. BBR/pacing makes it easy to hit.
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: Most MediaTek clk drivers already have `MODULE_DEVICE_TABLE`.
-MT6735 core clocks (apmixedsys/infracfg/pericfg/topckgen) have it;
-imgsys and mfgcfg in this tree still do not. Same class of omission as
-the 2023 sweep `65c9ad77cbc0e`.
+Step 5.5: SEARCH FOR SIMILAR PATTERNS
+Record: `netdev_xmit_more()` is already used for doorbell/IC batching in
+many drivers in this tree (r8169, mlx5, virtio_net, qede, ionic, sfc,
+forcedeth, …). stmmac is the outlier. XSK/XDP in the same file still use
+frame-count-only IC; that is intentional and not a missed copy of this
+bug (no TSQ).
 
 ===============================================================
 PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 ===============================================================
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-Record: Yes. File exists; driver from `0bd9b1211f741` (v6.13-rc1).
-Kconfig `COMMON_CLK_MT6735_VDECSYS` is **tristate**, Makefile maps it to
-`clk-mt6735-vdecsys.o`. HEAD already contains `096ab64a0e694`
-(v7.3-rc1); the pre-fix omission is the code this candidate addresses.
+Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+Record: Yes. `stmmac_tso_xmit` ~4380–4390 and `stmmac_xmit` ~4645–4655:
+same if/else IC logic, no `netdev_xmit_more()` branch. Defaults in this
+tree: `STMMAC_TX_FRAMES` 25, `STMMAC_COAL_TX_TIMER` 5000 (`common.h`).
+`git describe HEAD` → `p-6.12-2-gd38d58a4e0359`; `make kernelversion` →
+6.12.111.
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: Clean apply. One added line at a stable match-table site; no
-refactor around it.
+dwmac-motorcomm / YT6801 is not in this tree; that was only the
+reporter’s NIC. The bug lives in common `stmmac_main.c`, which 6.12
+already uses for dwmac-rk, dwmac-sunxi, dwmac-stm32, dwmac-intel, dwmac-
+imx, dwmac-qcom-ethqos, dwmac-ipq806x, dwmac-meson, etc.
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-Record: This exact line is present (commit `096ab64a0e694`). No
-alternate fix. imgsys/mfgcfg still missing aliases — separate omissions.
+Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+Record: Expected apply: clean for the four added lines. Surrounding
+mainline helpers (`CIRC_CNT`, `stmmac_get_tx_desc`) differ, but they are
+not part of this hunk. Insertion context matches 6.12 exactly.
+
+Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+Record: 2d1a42cf7f77c (don’t re-arm timer while NAPI is scheduled) and
+039550960a223 (5 ms timer) are in this tree. They do not set burst-end
+IC. No equivalent fix present.
 
 ===============================================================
 PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 ===============================================================
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-Record: [drivers/clk/mediatek] [PERIPHERAL] — SoC-specific video-decoder
-clock/reset driver for MT6735 (Helio T1 era). Not core mm/net/fs.
+Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+Record: [net / stmmac Ethernet] [IMPORTANT — not mm/core, but the common
+DWMAC driver for a large set of ARM/x86 embedded and laptop NICs]
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-Record: MediaTek clk is actively developed; this file itself is quiet
-(two commits). MT6735 clk is listed Maintained (Yassine Oudjana).
+Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+Record: Actively maintained (recent TSO, XDP, PTP, FPE fixes). Coalesce
+core has been stable since 2019 with only timer-arm tweaks in 2023.
 
 ===============================================================
 PHASE 8: IMPACT AND RISK ASSESSMENT
 ===============================================================
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-Record: Users of MT6735 with `CONFIG_COMMON_CLK_MT6735_VDECSYS=m`. No
-in-tree defconfig enables `COMMON_CLK_MT6735`; no in-tree DTS
-instantiates the node. Built-in builds are unaffected.
+Step 8.1: DETERMINE WHO IS AFFECTED
+Record: Driver-specific, but a widely used driver. Anyone using stmmac
+with default coalescing and paced/TSQ-limited TCP (BBR is
+`CONFIG_TCP_CONG_BBR` in this tree). CUBIC is less affected because it
+queues more deeply (207 vs 5 Mbit/s in the report).
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-Record: Boot/enumeration with the DT node while the driver is a module.
-Not a race. Not unprivileged-exploitable. Workaround: `modprobe clk-
-mt6735-vdecsys` or build `=y`.
+Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+Record: Normal TCP upload with pacing/TSQ and default ethtool coalesce
+(tx-frames 25, tx-usecs 5000). Common on WAN/RTT paths, not a rare error
+path. Unprivileged users sending data can trigger it. Workaround exists
+(`ethtool -C`) but is not discoverable for most users.
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Record: Video-decoder clocks/resets never appear unless the module is
-loaded manually → decode/VPU consumers fail clock lookup. Not
-panic/UAF/corruption. Severity: MEDIUM for modular MT6735 vdec; LOW
-overall population. Failure is “device feature does not come up,” same
-class as missing device IDs.
+Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+Record: [TCP TX completion stall / order-of-magnitude throughput
+collapse; BBR bandwidth lock-in] [HIGH for affected workloads — not a
+panic/UAF/corruption, but the NIC is effectively unusable for paced TCP]
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-Record: Benefit: modular autoload for this clock controller. Risk: very
-low (one compile-time alias line). Ratio: favorable because risk is
-essentially zero.
+Step 8.4: CALCULATE RISK-BENEFIT RATIO
+Record:
+- Benefit: high for stmmac + BBR/pacing (5 → 447 Mbit/s in the report);
+  restores TSQ-friendly completion.
+- Risk: low (4 lines, well-known helper, coalescing preserved in-burst,
+  `tx-frames 0` unchanged). 2023 ipq806x pain was timer-arm frequency
+  under bulk load; this patch does not change timer arming and keeps the
+  25-descriptor IC bound so a full ring cannot drain with zero IC.
+- Ratio: benefit clearly outweighs risk.
 
 ===============================================================
 PHASE 9: FINAL SYNTHESIS
 ===============================================================
 
-**Step 9.1: COMPILE THE EVIDENCE**
-
+Step 9.1: COMPILE THE EVIDENCE
 FOR:
-- Real autoload bug on a tristate, `module_platform_driver` clock driver
-- One-line, obviously correct, clk co-maintainer Reviewed-by + applied
-- Same class as device-ID / quirk enablement (OF alias publication)
-- Established MediaTek clk precedent (`65c9ad77cbc0e`: “allow auto-load
-  at boot”)
-- Zero runtime/API/locking risk; applies cleanly
-- Buggy driver exists in this 7.3 tree (since v6.13)
+- Real, measured bug: BBR ~5 Mbit/s vs CUBIC ~207 Mbit/s; ethtool
+  experiment confirms mechanism.
+- TSQ/pacing vs delayed TX completion is a known correctness class, not
+  a micro-optimization.
+- Introducing change da2024510031 (TX_FRAMES 1→25) is in this tree since
+  v5.5; 5 ms timer (039550960a223) is also here.
+- Four-line, obviously correct change; `netdev_xmit_more()` already in
+  this tree.
+- Applies on identical context in `stmmac_xmit` / `stmmac_tso_xmit`.
+- `[PATCH net]`, reviewed, applied by netdev maintainer; reviewer agreed
+  IC belongs at batch end.
+- Workaround requires non-default ethtool; default shipped settings are
+  the broken ones.
 
 AGAINST:
-- Not crash/security/corruption/deadlock
-- No user report or hardware test
-- Niche SoC; no in-tree DTS/defconfig
-- Built-in configs already work
-- Author framed it as source-level only
+- Not a crash, UAF, deadlock, or security bug.
+- Changes IRQ pattern (more interrupts on short bursts).
+- Test NIC (dwmac-motorcomm) is not in 6.12 (common-path bug still is).
+- Original thread did not Cc stable@.
+- 2023 work raised the timer specifically to cut IRQ rate on some SoCs —
+  theoretical regression if burst-end IC is too aggressive under bulk
+  load. Mitigated by remaining in-burst coalescing and author’s IRQ
+  measurements.
 
 UNRESOLVED:
-- Whether AUTOSEL/stable already discussed this hash (lore.kernel.org
-  stable search not useful)
-- Direct fetch of lore HTML (403)
+- Could not fetch lore.kernel.org (403) or spinics (500); used
+  openwall/patchew instead.
+- Could not search stable@ archives (403).
+- No follow-up fix SHA in this tree (expected; this commit is not here).
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — one-line alias export;
-   reviewed by clk co-maintainer. No HW test, but correctness does not
-   depend on runtime.
-2. Fixes a real bug that affects users? **PASS** — modular OF autoload
-   is broken by construction when the table is not exported.
-3. Important issue? **PASS** (MEDIUM) — hardware clocks do not come up
-   on the intended modular path; same practical class as missing device
-   IDs, not a panic.
-4. Small and contained? **PASS** — +1 line, one file.
-5. No new features or APIs? **PASS** — publishes an existing match
-   table.
-6. Can apply to the local tree? **PASS** — file and match table exist;
-   hunk is identical.
+Step 9.2: APPLY THE STABLE RULES CHECKLIST
+1. Obviously correct and tested? PASS — 4 lines, list review,
+   before/after iperf3, IRQ rate reported.
+2. Fixes a real bug that affects users? PASS — paced TCP/TSQ stall with
+   measured multi-10x drop.
+3. Important issue? PASS — HIGH functional failure of a standard
+   congestion controller on a common NIC; not a panic, but the device is
+   unusable for that workload at default settings.
+4. Small and contained? PASS — +4 lines, one file, two functions.
+5. No new features or APIs? PASS — uses existing `netdev_xmit_more()` /
+   IC bit.
+6. Can apply to the local tree? PASS — buggy code and helper exist;
+   insertion context matches.
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-Record: Device-ID / module-alias publication for an existing driver (OF
-`MODULE_DEVICE_TABLE`). That exception applies.
+Step 9.3: CHECK FOR EXCEPTION CATEGORIES
+Record: None of device-ID / quirk / DT / build / docs. Qualifies as a
+normal small net driver correctness fix.
 
-**Step 9.4: MAKE YOUR DECISION**
-The bug is real for `=m` builds, the fix is trivial and already the
-subsystem’s standard pattern, and this tree has the driver. Conservative
-stable practice still takes this class because the downside is nil and
-the upside is the driver actually binding.
-
-===============================================================
-What the commit solves, and why it matters here
-===============================================================
-
-Without `MODULE_DEVICE_TABLE(of, of_match_mt6735_vdecsys)`, modpost
-never emits the `of:N*T*Cmediatek,mt6735-vdecsys` alias. On this tree
-the Kconfig is tristate, so a modular vdecsys driver will not autoload;
-video-decoder clocks and resets never register until someone loads the
-module by name. Built-in matching via `.of_match_table` was already
-fine.
-
-It meets stable rules: obviously correct, one line, no new API, no
-dependencies, and it is the OF equivalent of adding a device ID to an
-existing driver. Risk is compile-time alias generation only.
-
-Concerns: no in-tree board uses this compatible, no reporter, not a
-crash. Those lower breadth of impact; they do not make the hunk unsafe
-or non-bugfix.
+Step 9.4: MAKE YOUR DECISION
+This is a small, tested fix for a long-standing TX completion stall that
+makes paced TCP (notably BBR) collapse on stmmac at default coalesce
+settings. The buggy path and the only dependency (`netdev_xmit_more`)
+are in 6.12.y. Benefit to stable users is large; regression risk is low.
 
 Verification:
-- [Phase 1] Parsed commit `096ab64a0e694`: SOB Pengpeng Hou; Reviewed-
-  by/SOB Brian Masney; no Fixes/Reported-by/Cc: stable
-- [Phase 2] Diff: +1 `MODULE_DEVICE_TABLE(of, of_match_mt6735_vdecsys)`
-  in `clk-mt6735-vdecsys.c`
-- [Phase 3] `git blame`: match table from `0bd9b1211f741`; `git describe
-  --contains` intro v6.13-rc1, fix v7.3-rc1
-- [Phase 3] `git merge-base --is-ancestor 0bd9b1211f741 HEAD` and
-  `096ab64a0e694 HEAD`: both true
-- [Phase 3] `git log --oneline -- drivers/clk/mediatek/clk-
-  mt6735-vdecsys.c`: only intro + this fix
-- [Phase 3] Sibling `36cf8d279ff90` vencsys same change; earlier sweep
-  `65c9ad77cbc0e`
-- [Phase 4] `b4 dig -c 096ab64a0e694`: msgid
-  `20260704124450.11035-1-pengpeng@iscas.ac.cn`; v1 only
-- [Phase 4] `b4 dig -m`: Brian Masney Reviewed-by; no NAK/stable
-  discussion
-- [Phase 4] WebFetch lore/spinics: 403/500; used mbox instead
-- [Phase 5] Kconfig `COMMON_CLK_MT6735_VDECSYS` tristate; Makefile
-  builds `clk-mt6735-vdecsys.o`; probe is `mtk_clk_simple_probe`
-- [Phase 5] `MODULE_DEVICE_TABLE` in `include/linux/module.h` creates
-  file2alias symbol
-- [Phase 6] `git describe HEAD` = v7.3-rc4-27-gf0100363d8c37; `make
-  kernelversion` = 7.3.0-rc4
-- [Phase 6] No in-tree dts/dtsi for mt6735-vdecsys; binding listed in
-  `mediatek,syscon.yaml`
-- [Phase 6] No defconfig sets `COMMON_CLK_MT6735`
-- [Phase 6] imgsys/mfgcfg still lack MODULE_DEVICE_TABLE (verified by
-  grep)
-- [Phase 7] MAINTAINERS: COMMON CLK FRAMEWORK includes Brian Masney;
-  MT6735 CLOCK maintained by Yassine Oudjana
-- [Phase 8] Failure mode: modular autoload miss → vdec clocks absent;
-  severity MEDIUM/narrow
-- UNVERIFIED: whether stable@ already queued this hash; lore stable
-  search did not return this commit
+- [Phase 1] Parsed subject/body/tags from the candidate message; Link
+  msgid used to find the original `[PATCH net]` / RESEND threads.
+- [Phase 1] Original list post (openwall/patchew) still had Fixes:
+  da2024510031; committed copy in the pipeline does not.
+- [Phase 2] Diff is +4 lines in `stmmac_tso_xmit` and `stmmac_xmit`
+  only; both insertions are `else if (!netdev_xmit_more()) set_ic =
+  true` after the `tx_coal_frames==0` check.
+- [Phase 2] Read local `stmmac_main.c` 4380–4390 and 4645–4667: same IC
+  ladder, no xmit_more branch; timer still armed at 4461 and 4750.
+- [Phase 2] `STMMAC_TX_FRAMES` 25 and `STMMAC_COAL_TX_TIMER` 5000
+  confirmed in `common.h`.
+- [Phase 3] `git blame` on those lines: c2837423cb5455 (2019) and
+  db2f2842e6f560 (2021).
+- [Phase 3] `git merge-base --is-ancestor da2024510031 HEAD` exit 0;
+  `git show da2024510031` changed TX_FRAMES 1→25.
+- [Phase 3] `git merge-base --is-ancestor 039550960a223 HEAD` exit 0 (5
+  ms timer present).
+- [Phase 3] `git log --grep=netdev_xmit_more --
+  drivers/net/ethernet/stmicro/stmmac/` empty.
+- [Phase 3] `git describe HEAD` → p-6.12-2-gd38d58a4e0359; kernelversion
+  6.12.111.
+- [Phase 4] b4 dig on msgid: no local matching commit (expected).
+- [Phase 4] Openwall RESEND and patchew v1: Maciej Fijalkowski review,
+  Jakub apply-after-RESEND, no NAK; author kept frame coalescing for
+  ring-full IC bound.
+- [Phase 4] lore.kernel.org and stable@ fetches: 403. UNVERIFIED on
+  stable@ specifically.
+- [Phase 5] `stmmac_xmit` is `ndo_start_xmit`; `stmmac_tso_xmit` called
+  from it; `netdev_xmit_more()` defined in `include/linux/netdevice.h`
+  4989–5002.
+- [Phase 5] Grep: many other NIC drivers already use
+  `netdev_xmit_more()`; stmmac does not.
+- [Phase 6] Grep `netdev_xmit_more` under stmmac: no matches. Grep
+  YT6801/dwmac-motorcomm: no matches. Glob `dwmac-*.c`: 25 platform
+  files including dwmac-rk, dwmac-ipq806x, dwmac-intel, dwmac-stm32.
+- [Phase 6] Insertion context in 6.12 matches the patch;
+  CIRC_CNT/get_tx_desc differences are mainline-only context, not
+  required.
+- [Phase 7] MAINTAINERS: STMMAC ETHERNET DRIVER, Alexandre Torgue / Jose
+  Abreu.
+- [Phase 8] `CONFIG_TCP_CONG_BBR` exists in `net/ipv4/Kconfig`.
+- UNVERIFIED: whether a later mainline follow-up refined this patch (not
+  in this tree; lore search blocked).
+
+The stall is in this 6.12 tree, the fix is four obviously correct lines,
+and paced TCP is a real user-visible failure at default coalesce
+settings.
 
 **YES**
 
- drivers/clk/mediatek/clk-mt6735-vdecsys.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/clk/mediatek/clk-mt6735-vdecsys.c b/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-index 8817085fc1db4..d53ebf92e878d 100644
---- a/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-+++ b/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-@@ -63,6 +63,7 @@ static const struct of_device_id of_match_mt6735_vdecsys[] = {
- 	{ .compatible = "mediatek,mt6735-vdecsys", .data = &vdecsys_clks },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, of_match_mt6735_vdecsys);
- 
- static struct platform_driver clk_mt6735_vdecsys = {
- 	.probe = mtk_clk_simple_probe,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 63c045616c9b7..7dbb5e9bcb54b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4400,6 +4400,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		set_ic = true;
+ 	else if (!priv->tx_coal_frames[queue])
+ 		set_ic = false;
++	else if (!netdev_xmit_more())
++		set_ic = true;
+ 	else if (tx_packets > priv->tx_coal_frames[queue])
+ 		set_ic = true;
+ 	else if ((tx_q->tx_count_frames %
+@@ -4687,6 +4689,8 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		set_ic = true;
+ 	else if (!priv->tx_coal_frames[queue])
+ 		set_ic = false;
++	else if (!netdev_xmit_more())
++		set_ic = true;
+ 	else if (tx_packets > priv->tx_coal_frames[queue])
+ 		set_ic = true;
+ 	else if ((tx_q->tx_count_frames %
 -- 
 2.53.0
 
