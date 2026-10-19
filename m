@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4698CCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F75CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Me8xE9/+Q42HSlzVQJcqG9CFCufmL51mc1y5dA1P6VI=; b=b5BHHYYLEV8o2Dlz7nOZHIOz5u
-	uFV/b76SoRWhLRi/uDKST9qrgUErM8BASexZbPywWYwfpfp6jv682z42sZaEdqgaZRrE3oYpCRnpD
-	ykCnrjgghoZQoHpR3kfVkYJR70Z/I6nSiVVS3BEHJb0ZjhlXciDxX+bDfbr9pXxvP1IIi3ontH1zm
-	ZpLhIDDQiM1RfKrhzn9fxY8m24XyNLTYehaBJ0ZjgbKhKJDVLZ0z0dvA0SYO8nKGGAqdhxzMq6Tkr
-	VbsP57If9mkfYqnE4v7bmXi1SwI2b3lJXC/6KLvbjVAFnMBBXBoPlghdtMMWGIVbkY7W6CMVRHu8S
-	wp03KfMA==;
+	bh=peY+aObVcRc3+z92SmndUBTWbLH2yBpJPFW/B8sgqIg=; b=tS2VtMFRRm9xVkUH1y83OFzCe5
+	gSOgEUw5I0GzFyakJsj6UxfZDa1shc24dDa3JXC379d9hCkcUg6nFDOqOdusDOCjgJJeefE0GPUwO
+	nkYV8k9YsypX5xKsPB5oQJ9dX4cX5pvTAoSXcmDrDG5D35wAYSFG6/OHJf0yGsbgSOlf16j+jIoo0
+	RXOcfK5QJzAZVoynGEgOjrrHmOAuHlLckjs3oi3Vw7RWLdlqPLZRn/VLwOc77v2LNo5xiF1pIifYw
+	gA7cjmkjM69EBDjxbqe12gICtd+X1AOR3L8gj65Kq9NV1h7Giq04H50/F9IpUXUvfkJG+Vcc/jVlf
+	/oWRtd8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIndp-00000007Xvl-2WBZ;
-	Mon, 19 Oct 2026 13:43:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIndk-00000007XsR-0g48
+	id 1xIng1-00000007YPd-3XpW;
+	Mon, 19 Oct 2026 13:45:21 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xInfz-00000007YP0-24qo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:43:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FB7E1CE0;
-	Mon, 19 Oct 2026 06:42:55 -0700 (PDT)
-Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 699593F7D8;
-	Mon, 19 Oct 2026 06:42:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792417378; bh=uF3gHfbdma2orZBXGO3W33CSKmBuY31e2U0A16wUtI4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XYs0c9v6eCUP6TFLr/38qxMAAJ02GuUE+cvJoII+EneHNNCLsTlQhoRZ3moyfbt03
-	 z0Y8veezIvYax7sZoSx0q1Mcmj3Ss6p+myC0Kr5Cz67a4GHwYKy+QZjh0ibUW9jCIb
-	 Ttl0+1+2beS1NEXO5GaELPODbAICnc8ilCF5fQww=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com
-Subject: [PATCH v2 2/2] KVM: selftests: Reject GICv3 ITS with a GICv5 VGIC
-Date: Mon, 19 Oct 2026 14:42:42 +0100
-Message-Id: <20261019134242.1289002-3-sascha.bischoff@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261019134242.1289002-1-sascha.bischoff@arm.com>
-References: <20261019134242.1289002-1-sascha.bischoff@arm.com>
+	Mon, 19 Oct 2026 13:45:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=peY+aObVcRc3+z92SmndUBTWbLH2yBpJPFW/B8sgqIg=; t=1792417519; x=1793627119; 
+	b=R/s7O/5aVrmsJYpECQjBL6sykiSKrvqMzx0ZqmBn9DwXlUwfC3CZHrXiB68bdVUaGmQTIV8fzZ6
+	sk7RDxl9Zt49Oids6r0pTjudH920vwrwPPN+je4BdcWsQ4ptxKcgChhFoUKB0zOWLkrqv0tj0Rjo1
+	ZmvZxy2/wGi3KfKafsip7R2V8QrbJmpuQtZarrfZ9QH5jhPCbsy02OA2VnuuI0f8dOfZh1uXF9dL2
+	wgjum3YNOuKxEBWy0Wa5aLyPSFqhEgV5C2+GEjVZN0VURsGmejH5ixU1vOI7K0usZsYbJEHIjODq/
+	K2Ncz2ZGD4TxyFSRVXdKgvHMIeAXbxY1ePLA==;
+Date: Mon, 19 Oct 2026 15:45:03 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Andrew Goodbody <andrew.goodbody@linaro.org>
+Cc: Ettore Chimenti <ettore.chimenti@linaro.org>, Paul Walmsley
+ <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
+ <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
+ <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Christopher Obbard <chris.obbard@oss.qualcomm.com>,
+ Linus Walleij <linusw@kernel.org>, Rouven Czerwinski
+ <rouven.czerwinski@linaro.org>, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH 06/10] ARM: dts: omap: dm816x: Update USB node
+Message-ID: <20261019154503.2111a89c@kemnade.info>
+In-Reply-To: <8a8313f1-d525-45d3-9044-b5f7a00b256d@linaro.org>
+References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
+	<20261016-patch-ektor5-dm8168-dts-v1-6-b4ce30217028@linaro.org>
+	<20261017083957.7c2696f5@kemnade.info>
+	<8a8313f1-d525-45d3-9044-b5f7a00b256d@linaro.org>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_064300_245930_2C3C2376 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20261019_064519_537976_A952DC29 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check that a GICv3 ITS and a GICv5 VGIC cannot be paired, regardless
-of which device is created first. Skip the check when the host does not
-expose a GICv3 ITS.
+On Mon, 19 Oct 2026 10:36:37 +0100
+Andrew Goodbody <andrew.goodbody@linaro.org> wrote:
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- tools/testing/selftests/kvm/arm64/vgic_v5.c | 32 +++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+> On 17/10/2026 07:39, Andreas Kemnade wrote:
+> > On Fri, 16 Oct 2026 16:41:21 +0200
+> > Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
+> >   
+> >> From: Andrew Goodbody <andrew.goodbody@linaro.org>
+> >>
+> >> USB node was not working correctly with DMA enabled as the supporting
+> >> code had been updated without updating this SoC's device tree. Bring the
+> >> device tree more up to date so that it works with DMA enabled.
+> >>
+> >> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
+> >> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
+> >> ---
+> >>   arch/arm/boot/dts/ti/omap/dm816x.dtsi | 41 +++++++++++++++++++++--------------
+> >>   1 file changed, 25 insertions(+), 16 deletions(-)
+> >>
+> >> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> >> index 7f3ef3a00ab8..5be9efc60785 100644
+> >> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> >> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
+> >> @@ -574,18 +574,27 @@ uart3: serial@48024000 {
+> >>   		};
+> >>   
+> >>   		/* NOTE: USB needs a transceiver driver for phys to work */
+> >> -		usb: usb_otg_hs@47401000 {
+> >> -			compatible = "ti,am33xx-usb";
+> >> -			reg = <0x47401000 0x400000>;
+> >> -			ranges;
+> >> +		usb: target-module@47400000 {
+> >> +			compatible = "ti,sysc-omap4", "ti,sysc";
+> >> +			ti,hwmods = "usb_otg_hs";  
+> > 
+> > Why do we still need this? It is depcrecated.
+> > 
+> > Regards,
+> > Andreas  
+> 
+> Without that line we get the following on boot and USB does not work
+> 
+> [    0.110148] omap_hwmod: usb_otg_hs: no dt node
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-index d5df742b23001..5bf7d99d29147 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-@@ -2003,8 +2003,40 @@ int test_kvm_device(u32 gic_dev_type)
- 	return 0;
- }
- 
-+static void test_vgic_v3_its_with_vgic_v5(void)
-+{
-+	struct kvm_vm *vm = vm_create_barebones();
-+	int gic_fd, its_fd, ret;
-+
-+	if (__kvm_test_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS)) {
-+		pr_info("No GICv3 ITS support; skipping mixed-model test.\n");
-+		kvm_vm_free(vm);
-+		return;
-+	}
-+
-+	gic_fd = kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V5);
-+	ret = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS);
-+	TEST_ASSERT(ret < 0 && errno == ENODEV,
-+		    "GICv3 ITS created after GICv5 VGIC: ret=%d errno=%d",
-+		    ret, errno);
-+	close(gic_fd);
-+	kvm_vm_free(vm);
-+
-+	vm = vm_create_barebones();
-+	its_fd = kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_ITS);
-+	ret = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V5);
-+	TEST_ASSERT(ret < 0 && errno == ENODEV,
-+		    "GICv5 VGIC created after GICv3 ITS: ret=%d errno=%d",
-+		    ret, errno);
-+	close(its_fd);
-+	kvm_vm_free(vm);
-+}
-+
- void run_tests(u32 gic_dev_type)
- {
-+	pr_info("Test VGICv5 and GICv3 ITS model mismatch\n");
-+	test_vgic_v3_its_with_vgic_v5();
-+
- 	pr_info("Test VGICv5 address attrs\n");
- 	test_vgic_v5_addr_attrs();
- 
--- 
-2.34.1
+It is somewhat odd to use both ti-sysc and hwmod. It looks like a
+half conversion.
+
+For an example how usb_otg_hs was converted to ti-sysc for omap3, look at
+42a79edd4a3dc1bb8e89fd2849f9e8e1e1c13977...v6.1-rc1
+
+It has no hwmod stuff left.
+
+Regards,
+Andreas
 
 
