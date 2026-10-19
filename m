@@ -4,135 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A52CCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 01:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C34CCCF2D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 01:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFTQzldlgKRb1IEuUbDhcA/VzS3xT9SWjqU3gr1s+lU=; b=0RqPu42tNR5rt9kPzl2WujNSbK
-	mTV4Glzwk0FmS73iw3jAMtIRGy9OBbiXoAYj+NO7UvvwjPzf6cXs94W3W01CtcOCeItiHXDR4eGIg
-	5ji30aYvkIgdrSTahskg3hutHgFV/ySdAQWL/LFEjsfCiQpCPscogjmfDRbEMMEwbyzXMuFu+naDd
-	8Yr2XFQ2iF24GjRkM4XifZKJNWxrZgSn0rTNHvxk1i1SedEPEuv5mJ9gsJ6tNjHzqx+0JDrNiW8Qb
-	X9SJ2s7WHYQ86ZsWyBLOErXTDPhgxsHXdcU8Hp+VUqHCuM2oWrQDQfbUbH7Aljs9TK9FqqIzbqOm9
-	RxY19HMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DIsHUtJOv8JTVFKl2AI7iFPSk57QktOjQTbDJ2/Phac=; b=1WvAYFShz8ucp1
+	vHmqeoSmTczUjofCWd7ljRRb+jBcT3WfdtKlc3NFCBVQr5jl392qgHpUlKSvTOuqFdSrcs071S8SK
+	iNDhMHRUpvV3dFAGFZadz7fuEhAY5DDDawllW5ACu62fy1ru7dO9uJLkAJZsZoze4Si1msncO8wvm
+	JrtHlziFDo9LwTshyenLCFxOiSc/XIIYhs+2QBVLc+egYUk/uUHkM+1OleXw7bKTA9H8XxzmLekd2
+	r8m9Y21FsX194JCA4+iK9rvA3Bl5KiYGj/3U/yVehRmmQkzOE4YMmW+m/O4OhgauQrcjZVYQKUI10
+	FnzrzuJwoYes0JuxM1Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcMl-00000006PBs-1he7;
-	Mon, 19 Oct 2026 01:40:43 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xIcdt-00000006PsT-3san;
+	Mon, 19 Oct 2026 01:58:25 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcMe-00000006P9j-3sMP
+	id 1xIcdq-00000006Prn-3DZL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 01:40:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MbzshEpBvQS4RNJJPNUk0L3sl0Wq8z+RGmG9BQNDclreV9fdIwn2AlLEA1NnJ2dIwq3sv/XZozZMt5pWqN6ff6XqueEH0lzsvoOak3u9MkBTxpHtjn1Ni7awpBNz6cZCZru9QHGnuQ0/60FYlhmap68mzXpVMhM48BINv4PSrtgiOZ6Nrr4WgNnJIuxL9DsMNplEGY3SMSpApHJBRd8VSPxmh0U6/SY64WT9yEPD+UuGECOVud8L+CiI3zFHWqQBwKlYO1EFF41Q2s05wpts8EnqZMvH/eX1TS+lchyu8TAIwKp/NX5dhw71X+OHFDvbC/uAWzp/LTzTlQoMcgjVlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DFTQzldlgKRb1IEuUbDhcA/VzS3xT9SWjqU3gr1s+lU=;
- b=i2gCU7yUxj0O9lOLqAvciFfN4Al5ucYqKZZuurPpRYyECtymuGezbazSEZQxmLk2CgwsVzubNHwjwGZ+MuJdGFbGaiVuSmqFeMecFfls9P2tfnOj1op9vtR+c9X332xZDSm9v2r4kHAr10HsGlvFWRTrzlyb6hKwuO//otyt+Ohe5RmyCjLNgvTtete9aLJwGszxl3d1Af3TlBaXa/i1NNfmbgR9gTt4vSDQKkDfCjyQjeEq9DD5KC+Pg5qDsf9tQ/d36X1ud/by88foryESHL343sF3uL0VMjsbE4HblQn7nHJjIOOuhx8VhTEemn4eTBTLDKcjTRTJarxsg7TEJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DFTQzldlgKRb1IEuUbDhcA/VzS3xT9SWjqU3gr1s+lU=;
- b=ntZsclz3U/VUDYrbYMhEuGYqLHAmyOSTiR2JhsFFclJHkHol1xVu5WndYyGkyZKlcNe2QSm6UCYMxeOirl7uWpxjaYNHlsMlQ4xCKaOAzIHDym88P2pKH9JOB0uglY4RcG+HoLmEKDQq6zjbN223lPlBfB+ZZ6LYIjRBU/xHxqeabcv++0RKQLyDiBLoxFXatgW3YSZsip+9QTE5kXcu1qDgnGsnYVAjNmPUMuwVTxs9lxKYn6pkoOpkCDW2NoO5Pzgsikt2PND5O7Pc0yLQcBwRviR+k9xFgFFSYrkGdIN0/GLs/B0XIrG+Fe9besZz/7YOLxFnoR04Q1p1q2OG/Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AMBPR04MB528492.eurprd04.prod.outlook.com (2603:10a6:20b:818::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
- 2026 01:40:31 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0522.013; Mon, 19 Oct 2026
- 01:40:31 +0000
-Date: Mon, 19 Oct 2026 09:45:10 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v1 1/1] arm64: dts: imx8mn-evk: Pass GPIO_OPEN_DRAIN flag
- on i2c3 GPIOs
-Message-ID: <atV2JqYfeDfjaTtJ@shlinux89>
-References: <20261015081149.5919-1-stefano.r@variscite.com>
- <atDWGbi62U8sISS2@shlinux89>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atDWGbi62U8sISS2@shlinux89>
-X-ClientProxiedBy: SI2PR06CA0014.apcprd06.prod.outlook.com
- (2603:1096:4:186::11) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Mon, 19 Oct 2026 01:58:24 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-3535a54bed9so2151907eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 18:58:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792375101; x=1792979901; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=DIsHUtJOv8JTVFKl2AI7iFPSk57QktOjQTbDJ2/Phac=;
+        b=rsxhuubc9/d+xQlO+Y2HlngO3j1dCjXvoi+bSn2dyO1PIgX4vYh2ZFNZiwdp1x2NLp
+         SJvWRtButqIhdYfDi48KQFEL2jGmOAwUe/edOTZzHFifMARt6cqk3P62CWUTMhz9rNCB
+         vzp7C75AiJ/R1GduhflEs0s3H8KmCEwsHIp8Qr9RGf857sT4GBFuJSfaNJRdBbNUuNO9
+         Y4No3IOCDHxKJUQ0/kc4EHU+TwTznux3z4+SU8JoZKm8NY1zlXoJgF0FYf1cSsHO1wAX
+         En8sAbIQ2uGbrJJiwNhyco2yChwwF8BssoIJQmvpCDJEZrjwVzpGvlopKBwSMtwGwT49
+         BAew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792375101; x=1792979901;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=DIsHUtJOv8JTVFKl2AI7iFPSk57QktOjQTbDJ2/Phac=;
+        b=oyRwd4b3wZEqehV42OgSYp4zvVy/tT+/qFJmh7BGjVdnr1EJ5D7C+nvSmMBXQzDoFH
+         HUCq5lvOXH6YUzWBzJJd6HgBpPf/4wETCpCpDHAqwS5iwzXAAJ+0E07xmBVQw+cftcJj
+         JpqKU0n/zVNe4m/TuIaNIiQ7o52BFiHT4ATDJCXE7lBtpzI0nZDQ/J7VWAE1d7S4xcvh
+         PhFVyIQb6B4MzLTm8FlxlMj88fKIVSAGd76tm9dQ6mQJKClAp4t+/gL3UnfLU5sG/THe
+         gNclViFRnWIDojgXMilnK5RaMiPs3QWuVNpvMdCyLqqqVnsf+XD2NNKbEnoJjfYAfo/8
+         m3rg==
+X-Gm-Message-State: AFq9FYIkKgeo+Pm5+MFeRMqajvRiFYgXk+EuwpA8wn91BYW8GwpeLxN5
+	EIIEq+fWLieONYbJyQdRBzfJxJcB9ADQAwwz6wDrhjskUj240u6MUQb8
+X-Gm-Gg: AYBFou3l07GSu/bs0ivndkj5iTzr9KY5b1PmcJ8M5xLM+VcUyk9M1SHNg2TFY9YaeE6
+	TZioKi7YeiAaX/230Ho9pBnAcSe1Rhh0zepQ77vrf3siV3rdjkAho5CVTRsHZhIViik42RDmcs2
+	+fRDEVKs5JAwGR5tmalasXFpQPNpvq0b5kNiB/02XLvBXAmAvQvWfgin8pAdoiF8RKum+g/9Lz7
+	ZXIJhKJdur46UvpdeVRdfPCtXPh2a+6erg2SHVwCHh8n02VS0M4B2/Gjt/z6CAa6R0TVgLXuInP
+	/b5JwEcPmZ6A+HFJWt+QQWsGakyO+c8LWIXIQuXPLjcYMmp247GCR0NhrU7Z/mGEFA+f5NPdIUQ
+	9bTtFt0AUU3hqZXw39UEgHEZkgbJNN4yHYK7XUxKJSKz2hgjygkd4Ch/eptwSsv5zYJoEieRUme
+	heum2v5z+KsG316alpylFymGsCG7PFRPcEv3gchRw+whgFDbqhp0en9wn1JPUGrU6xnQ8=
+X-Received: by 2002:a05:7022:150e:b0:141:b2c3:d84e with SMTP id a92af1059eb24-185120a8bb4mr10990864c88.11.1792375100720;
+        Sun, 18 Oct 2026 18:58:20 -0700 (PDT)
+Received: from [127.0.1.1] ([23.254.208.9])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831ba424a6sm24177311c88.17.2026.10.18.18.58.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 18:58:19 -0700 (PDT)
+From: Qiliang Yuan <odys.yuan@gmail.com>
+Subject: [PATCH 0/2] word-at-a-time: let KASAN see load_unaligned_zeropad()
+Date: Mon, 19 Oct 2026 09:58:08 +0800
+Message-Id: <20261019-bug-word-at-a-time-zeropad-kasan-v1-0-f21a3ed6a477@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AMBPR04MB528492:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88eb4be7-6102-4a4c-2d8e-08df2d81f5ca
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|19092799006|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: uAPt/SFLg/UYx1hFFcd1WksZgNB7uCziZtkQXzokUENviq5yfcKsQOdd1/oCGfsDsdfdGKXje07wEWfbj7xTpq8mxv1QSxQgq7c4sk0JhMYoWrv+g670X+q18EMXbow2iD7z29GEYkzPPIgVBcLaUeIUYaRPjPfzrxM9zlWkjkCAlSF2lNvHB76rsR9FKxGiYdSamv0GjD6O89BdrH2en3domTrvqKZ4t+879zpb1NL0bwLXc/X7q1xd/N8B6bFMsHNx8qQEMz/MPY27rkSBno6SmKGyirnoGKdD3si55nVgU4qzixQYoYDEO/PqLW+TvJiTzCK15rThPrqBd05WJWgd88pTysX9r2Cl2SmBcEWTNgMbQhdg5g8kaEpBONIygMZ3A1zUldF2/d3GAlQ2xHX3i3IWSnYS93xomOxs1APK38Pfb6HTCwnw90tMiNRuOTy6MTgjUqnV/9XPIW93tR8fxTzfJJpgF1rzUzIcLfAomi6v0gYQDReuszoskop0vKX2iVxewc//bAy4+f/GA1Fa7DB4iWIQcNDelzjsYiN3q+lu9+h2gj7IQxgA4aUwRRfnfGPxOwuDPwSUSOvFTxsLW4PAi4K+sgcOV8EplszuCT90LPXsYnooCXyHSWQ5jph2ShNs94TEg4KcacaL/DQIzRgDeyw6+8M/A5V/Uzo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(19092799006)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vW7BWgqgzNhmjdqkw09JpNRNt4WJl+HzPyzJWvNv1l/8USODYTfIsW459KlF?=
- =?us-ascii?Q?FIU9RGLGrPQi/zE0Cyv07ItlKuJG0L/86O6oqjRivvtvWnqsb52NBX3DM5PR?=
- =?us-ascii?Q?v3FtncaecuE92PAyvQONyWG2w434OdDfFzpHrbF0xgtENaGIRJ/+sYOU1J53?=
- =?us-ascii?Q?FWRi0rnYNaZJtiZWj9q6k9d3AQqFtgirVV0FnBw+8QAqJu7oPGCi/V4n6Cxl?=
- =?us-ascii?Q?3fyR9A+AE7ybVZtaF+KEfMlxq+cL5OnEvZQmyYYv6OBUdDqxtzmc1u1PW2OA?=
- =?us-ascii?Q?hEA4/K40Gha5SCiQMxlYZkR05QL4pNJKfNOfZOp3Anw5eLQZozbzQjNu5mbN?=
- =?us-ascii?Q?bkeykXM0akEDhT0LT8QZkaS3LltGVidSUagiUif3d6MGpsCs0BCoCidR8+fK?=
- =?us-ascii?Q?VF9XZPUILSf58/2/KlHi9ptqzEpwf53c3NpalV26tHdVzzy/TgedCgLytj9/?=
- =?us-ascii?Q?O3ZICE6eSVWAxfU2xb4tXfz/g7VeeK5BfX74S3T7nhgHM+qVuaTpegSJWgT2?=
- =?us-ascii?Q?tZFgmguLLAh3+2x9HS6p0b8egLdEWFyv9nqEoSwWUTnpnCda4LwliLwbAJDB?=
- =?us-ascii?Q?myNyScslDpjYc+MWl9wn9SZLdwTCARDTja65wkHG1GCZUTvX1olszk8mEBis?=
- =?us-ascii?Q?WE54234ERGbYFhPhJ6frLR+f6gVzG3zyE8Rn7VlD0fOfLfaQ9swczWaDUfq6?=
- =?us-ascii?Q?PhT5umUb7XEfhKmIigSk1dBNIQIT1EYBW8t1LCVOWiVupbSoSSMYzI9pHFDp?=
- =?us-ascii?Q?4FXzVxKphSqdi8Opgyx/gb6AH47pH7mz/GxI+AincLLiOUw9ZChaVyOwvndi?=
- =?us-ascii?Q?lTDAbAuD4R8dCQsbZOEIuYOLaxj7anc2H6ZFVcwVl8R8yChMVXR5f3D/9hM4?=
- =?us-ascii?Q?eWLjb1muMFTlijPJ1cyU9Dlk1h+NQ9zeWAxLFOidvumSBlTKQEqPl8Wc42mi?=
- =?us-ascii?Q?1X5sa4QxSfM9qoakYKHcnJ+dkx7vxYfSxaSK60cFnkN6KPCOhMXJfLXQ2hBL?=
- =?us-ascii?Q?ZZvXX/QsN5pQv9fMq9RlnHJFjlbvI3iIXq2xLh9BbF0s7CwU2kEKX5l6J+L2?=
- =?us-ascii?Q?SsN3ftLGApS2aDMmS/jT43+zTOLPRLatGUnDtQGBD4DsIDtnUEFBxMnWUOwd?=
- =?us-ascii?Q?U/b3ACI2nmbSeIMlMVwhj2lBoyCsx0LB8AtJe33UMrean8pMT+A1pXnRLz2f?=
- =?us-ascii?Q?XUVrIm+KozLFxQZA0608+04eVuPcV5JjTvrliIoa8t+1n7aROCfYLvEeomuR?=
- =?us-ascii?Q?5cuYFzxKQs/YFFPAiyKm6rDtB/9RmWB334PK4x+N0Fwgdxjq+RVlmGhcBvQn?=
- =?us-ascii?Q?H1k++e8RbjOq4W8uZOWDI92A2wVMULiOa6KxOWlFqcj51QpOOcuh+Ncob78o?=
- =?us-ascii?Q?fJRmmqAW+jjZTlUlDjOZKjf4NDVFsQV+v0jc75wN+inoF6PqyWYLCKMTDZOt?=
- =?us-ascii?Q?exS0msiYrB0lDungjo+Zpj/fooAhiGEweUdJmH1oXgT1YE8Nc5je8I2w7HKo?=
- =?us-ascii?Q?rN3UsZ+UQwqSmqfLSIgEWTqR+jvd43/eE4NIOOcYWBZWR8TZgf7iC/X/WDGm?=
- =?us-ascii?Q?KoSRtS96+uPBPdNuRAVtuap13RqgjPoaflSfVp8YKTQ/mI8VGT0qBSoOegYV?=
- =?us-ascii?Q?7Clo0uCocH3IlJIXC7xk4g84/7BaCE1Ce/J8zjbqJIdECd9PKPWKcHDbjt2i?=
- =?us-ascii?Q?g28LRSXLp0/s45R2B49k8JA9clqrx2y4d/XBt1oOIgf0vsXHgSuf3eu6rh1X?=
- =?us-ascii?Q?403oV4MIxCCW3wG9YeB6zbRbBmiGAD4CzIjLp5Cd77HM+yn1zO+3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88eb4be7-6102-4a4c-2d8e-08df2d81f5ca
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 01:40:31.0316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e2DdDsKv5PQ/kpzjg5aPchE7h8ia81epGx4JVrURynUJSWzInZ+3G6keT/qjqnP3M35wMZa0wESTxpWIWtWha6MuQzAqZRQOa8QLFLpEC10hDREDyZFJ7gdKgtLlbNfC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB528492
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADB51WoC/x3NwQqDMAyA4VeRnBdoiwT0VcYOmY0aZK2kTsfEd
+ 1/Z8bv8/wlFTKVA35xgsmvRnCr8rYFh5jQJaqyG4AJ55zt8vic8skXkDRk3fQl+xfLKERcunJD
+ H0JJriUQIamY1GfXzX9wf1/UDDOF2FXIAAAA=
+To: Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
+ Marco Elver <elver@google.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, Kees Cook <kees@kernel.org>, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ kasan-dev@googlegroups.com, linux-mm@kvack.org, 
+ Qiliang Yuan <odys.yuan@gmail.com>, Peter Collingbourne <peter@pcc.me.uk>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_184036_994468_33B52A05 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261018_185822_808247_B8A847B8 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,22 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 15, 2026 at 09:33:13PM +0800, Peng Fan wrote:
->On Thu, Oct 15, 2026 at 10:11:49AM +0200, Stefano Radaelli wrote:
->>From: Stefano Radaelli <stefano.r@variscite.com>
->>
->>scl-gpios and sda-gpios need GPIO_OPEN_DRAIN flag, otherwise the
->>following run-time warning is seen:
->>
->>gpio-146 (scl): enforced open drain please flag it properly in DT/ACPI DSDT/board file
->>
->>Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
->
->Acked-by: Peng Fan <peng.fan@nxp.com>
+load_unaligned_zeropad() is inline assembly, so KASAN and KCSAN never
+see the word loads that sized_strscpy(), the dcache name compare, path
+name hashing and x86 csum_partial() do through it. While reviewing a
+strscpy() KASAN fix, Peter Collingbourne suggested checking the first
+byte inside load_unaligned_zeropad() itself, as read_word_at_a_time()
+does [1].
 
-After reading the gpiolib and i2c-core-base code, it is ok to just
-set the flag for scl/sda-gpios. It is not a must update PAD
-with ODE for Linux.
+Patch 1 adds that check on the six architectures that implement
+load_unaligned_zeropad(). Patch 2 adds a KASAN KUnit case for it.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+This is independent of the strscpy() fix, which makes sized_strscpy()
+copy byte by byte under software KASAN so that every byte it reads is
+checked. Either can be applied without the other.
+
+[1] https://lore.kernel.org/r/CAPQLkRhXZwozmfhNd_PEx1ihwdH1_5qthP6PANYJ_m-v9vfQTw@mail.gmail.com
+
+Signed-off-by: Qiliang Yuan <odys.yuan@gmail.com>
+---
+Qiliang Yuan (2):
+      word-at-a-time: check the first byte in load_unaligned_zeropad()
+      kasan/test: cover load_unaligned_zeropad()
+
+ arch/arm/include/asm/word-at-a-time.h              |  7 +++++++
+ arch/arm64/include/asm/word-at-a-time.h            |  7 +++++++
+ arch/powerpc/include/asm/word-at-a-time.h          |  6 ++++++
+ arch/riscv/include/asm/word-at-a-time.h            |  6 ++++++
+ arch/s390/include/asm/word-at-a-time.h             |  6 ++++++
+ arch/x86/include/asm/word-at-a-time.h              |  6 ++++++
+ mm/kasan/kasan_test_c.c                            | 24 ++++++++++++++++++++++
+ .../powerpc/primitives/linux/kasan-checks.h        |  3 +++
+ .../powerpc/primitives/linux/kcsan-checks.h        |  3 +++
+ 9 files changed, 68 insertions(+)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261019-bug-word-at-a-time-zeropad-kasan-af2460466ee6
+
+Best regards,
+-- 
+Qiliang Yuan <odys.yuan@gmail.com>
+
 
