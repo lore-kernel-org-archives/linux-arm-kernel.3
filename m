@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD9ECCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D5ACCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEfjg6P1FYqNYGIigcbrCtHbIVajWC/AZaOZAgOrtf4=; b=MWqNy1+/DSbvo/+3moWWz9/Fza
-	iZu+uDARjlc3uMmFh2wgJcTN+6lcsyAqBKBmBzLK6zUYqr7g56QOh5tKnv7vHF4e1E/rzFina5m2Q
-	X4jpuYw6Z9/y8zIZclu+TsGRKF4f6jK3ESX+Ym48h4KK8/tg1uSnZIZZanzXQK3ebNMloiE/r9FoF
-	vyh2AkvjuD7Y5w85dJBgfnH4Fjl9UbE6kUEdHFvSU46YyT+Gv25PQoR4XOB6rV0ITiTUC3eai1jN6
-	Tm649yKD6u1jhRmXe09ok88YCpx1Bl62WcXNFd/peNAm3VforPbLHPPT3OWMZMp0SrF1zXTpEqVgP
-	tmBQNL/w==;
+	bh=i2Q7aAjTJ/e0eAWK93juXRdlPT8LvAMuRr0Mso6+cQ0=; b=e7MqqM/hReqepBiO5hizYf4ZiX
+	Nirc5NrXJAp3U3olP44ZT8X6WUnVXEb0Oblq/ViIomPNwJNjRLXx3NRX0UmNNX2MBRGYmtfheZ4cP
+	kS6echVKsSl8qzsU6XFOl/UdxiYCLcvsObJ+76b78aN42TNP+FuGSKaLZkCiJVSwx0ItQyWKtiXYf
+	XSzvzskJUox+/OvL9O3ks1TAEjCV65dhT1g6wPvsOzhWiUKW0nJ2rQgdq9/1Q+EOToZvUXAzBe1CN
+	XqdVaTqGFSkh74K3Ad4/4m5vcSAw5X8ZuX1iKALQs4zmFd90xwdxXVWa8ZcV/V7Hz6BKN+zh+P0qP
+	7/l+Ulog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIntQ-00000007cD0-3W4d;
-	Mon, 19 Oct 2026 13:59:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIntU-00000007cGy-44u6;
+	Mon, 19 Oct 2026 13:59:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIntO-00000007cBu-3GWA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:59:10 +0000
+	id 1xIntT-00000007cFG-2GPK;
+	Mon, 19 Oct 2026 13:59:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8701F439AD;
-	Mon, 19 Oct 2026 13:59:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80E081F000C4;
-	Mon, 19 Oct 2026 13:59:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E2D506022F;
+	Mon, 19 Oct 2026 13:59:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 562321F000CA;
+	Mon, 19 Oct 2026 13:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418350;
-	bh=QEfjg6P1FYqNYGIigcbrCtHbIVajWC/AZaOZAgOrtf4=;
+	s=k20260515; t=1792418354;
+	bh=i2Q7aAjTJ/e0eAWK93juXRdlPT8LvAMuRr0Mso6+cQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hK+QrYeAlramjQFHe+Yn5NElxq+jbuQRMG3imO0F38+mEbOOJ67wMG4+90aFk9dC8
-	 Biv4VXIWbJidFUe0axu6xGimDSUjHWhlQS2J1n25ay28XIF46g02SkGucjRzT5GpZY
-	 KkTrwddFW1jRexvOyefnvqPpvBryzMCQ1TkVzHehgFfcerSoLhUZ7T2egWORqBdo5m
-	 JvQRpbPwPBwdhL+sFq6EMqpPJZ01q+ueoL7Zi9nL0eHH/FOeBHb9JTNRzBPyUw2JCW
-	 /A1TxPwzxAoD0icgIANIizFvrMMxWVGpT8mu4ciq2i38B8XGFSLA97flJ1PXFcdPQz
-	 W2uewv4EvJdGw==
+	b=g/VjolirWdupi0rrC1teXUWGKnr7gs/hhyxbLvNmbCPI9Unw/g/I2qrmmwM94vKE6
+	 TblB6qIcjRYjUgnH+DeI1SJHHJlV3coEMtpghG3qlUaO2DQHG9AXz+ZizQX0/jnKRl
+	 h4TalmmfnfvcyBpWDpWAzJ0tNQGQQIcNc/gI93/ZZn9SZyQzsF6jdTFamUOwhoWL2j
+	 aMpoeB0dXC9wXmF5giLD8PesFbzwqWdPExPZuU6vdvuzkdgTBx5tfSPIlL3Nq95N0v
+	 YOk+YXKIIo/5vyHTDZxVOkJ1krJ/5PDA+cryV123SlRgLxcrUeWQAPEy68XmSymujE
+	 6tLCfpW6gk80g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Geetha sowjanya <gakula@marvell.com>,
-	Will Deacon <will@kernel.org>,
+Cc: David Bauer <mail@david-bauer.net>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	mark.rutland@arm.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.1] perf: marvell: Cancel CN10K DDR PMU hrtimer on device remove
-Date: Mon, 19 Oct 2026 09:47:56 -0400
-Message-ID: <20261019135441.1420968-185-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-6.1] wifi: mt76: mt7915: configure noise floor reporting on reset
+Date: Mon, 19 Oct 2026 09:47:59 -0400
+Message-ID: <20261019135441.1420968-188-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -78,377 +81,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Geetha sowjanya <gakula@marvell.com>
+From: David Bauer <mail@david-bauer.net>
 
-[ Upstream commit 7dbcb0268d1e2a1d3badb0c6e77ee70e550b1787 ]
+[ Upstream commit a92cd5dd792a63a5d8a72142835382d4edbe9933 ]
 
-cn10k_ddr_perf_remove() did not cancel the poll hrtimer before returning.
-If the device was unbound while perf events were still active the timer
-callback could run post-free.
+When performing a full system recovery of the MCU on a dual-phy
+platform, band 0 (usually 2.4GHz) stops reading correct noise floor
+data.
 
-To fix the issue by adding hrtimer_cancel() in remove().
+This is due to noise floor reporting only being configured correctly
+for the second device PHY.
 
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Configure the respective registers correctly after restarting the MCU
+firmware to fix reported noise-floor values.
+
+Signed-off-by: David Bauer <mail@david-bauer.net>
+Link: https://patch.msgid.link/20260516144944.2574053-1-mail@david-bauer.net
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-I have enough to decide: the UAF is in this 6.1 tree, the cancel is a
-standalone 6-line fix, and it does not need the CN20K series.
+The local tree is **6.6.157** (`pending-6.6`). The buggy dual-PHY
+restart path is present here, and this commit should be backported.
 
 ===============================================================
 PHASE 1: COMMIT MESSAGE FORENSICS
 ===============================================================
 
 **Step 1.1: PARSE THE SUBJECT LINE**
-
-Record: `[perf/marvell] [Cancel] Cancel CN10K DDR PMU hrtimer on device
-remove`
-
-Subsystem `perf: marvell:` is the Marvell CN10K DDR uncore PMU driver.
-Verb `Cancel` is a stop-the-timer safety action. Claimed intent: stop
-the poll hrtimer in the platform `remove()` path so it cannot fire after
-the device is torn down.
+Record: **[wifi: mt76: mt7915]** **[configure]** configure noise floor
+reporting after MCU reset on dual-PHY platforms. “Configure” here is
+restoring register state that recovery currently skips, not a new
+feature.
 
 **Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-
-Record: tags present in the candidate message:
-- `Signed-off-by: Geetha sowjanya <gakula@marvell.com>` (author)
-- `Signed-off-by: Will Deacon <will@kernel.org>` (ARM perf maintainer
-  merge; pipeline `Signed-off-by: Sasha Levin` ignored per instructions)
-
-Tags **not** present (expected for this review queue, not treated as a
-negative):
-- No `Fixes:`
-- No `Reported-by:` / `Tested-by:` / `Reviewed-by:` / `Acked-by:`
-- No `Link:`
-- No `Cc: stable@vger.kernel.org`
-
-From mailing-list forensics (Phase 4): original submission was `[PATCH
-v8 3/3]` of a CN20K feature series, Message-ID
-`20260601073318.7098-4-gakula@marvell.com`. Will Deacon applied it to
-`arm64 (for-next/perf)` as `7dbcb0268d1e`. Krzysztof’s `Reviewed-by` is
-on patch 1/3 (dt-bindings) only, not on this UAF patch.
+Record:
+- Signed-off-by: David Bauer &lt;mail@david-bauer.net&gt; (author)
+- Link: https://patch.msgid.link/20260516144944.2574053-1-mail@david-
+  bauer.net
+- Signed-off-by: Felix Fietkau &lt;nbd@nbd.name&gt; (mt76 maintainer)
+- No Fixes:, Reported-by:, Tested-by:, Reviewed-by:, Acked-by:, or Cc:
+  stable (absence is expected)
+- Ignored: any pipeline “Upstream commit” / Sasha Levin SOB markers
 
 **Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-
 Record:
-- **Bug:** `cn10k_ddr_perf_remove()` returned without cancelling the
-  overflow-poll hrtimer.
-- **Symptom / failure mode:** if the device is unbound while events (and
-  therefore the timer) are still active, `cn10k_ddr_pmu_timer_handler()`
-  can run after `devm` frees `struct cn10k_ddr_pmu` and unmaps MMIO —
-  use-after-free / MMIO-after-unmap.
-- **Version info:** cover letter for v8 says this is **pre-existing for
-  CN10K/Odyssey**, not a CN20K-only issue.
-- **Root cause (author):** missing `hrtimer_cancel()` in `remove()`.
+- **Bug:** After full MCU recovery on a dual-PHY (DBDC) device, band 0
+  (usually 2.4 GHz) stops reporting correct noise floor.
+- **Symptom:** Wrong NF / survey noise on the primary PHY; the second
+  PHY is configured correctly.
+- **Root cause (author):** NF enable is only applied for the second PHY
+  after firmware restart.
+- **Version info:** none in the message. The restart path has been in
+  this tree since before v6.6.
 
 **Step 1.4: DETECT HIDDEN BUG FIXES**
-
-Record: Not a disguised cleanup. The message names a post-free timer
-callback. This is an explicit UAF fix. The series is mostly a CN20K
-feature add; **this patch was split out in v8 specifically as a pre-
-existing bug fix**.
+Record: Not disguised cleanup. It is an explicit hardware-init fix. The
+mechanism (clear `MT76_STATE_RUNNING` before `mt7915_run()`) also re-
+runs the primary PHY’s PM/MAC init that the same `if (!running)` guard
+skips, not only NF.
 
 ===============================================================
 PHASE 2: DIFF ANALYSIS - LINE BY LINE
 ===============================================================
 
 **Step 2.1: INVENTORY THE CHANGES**
-
 Record:
-- File: `drivers/perf/marvell_cn10k_ddr_pmu.c`
-- Scope: **+6 / -0**, single function `cn10k_ddr_perf_remove()`
-- Classification: **single-file surgical fix** (comment +
-  `hrtimer_cancel()`)
+- File: `drivers/net/wireless/mediatek/mt76/mt7915/mac.c` only
+- Scope: ~+6/−2 in `mt7915_mac_restart()` (surgical, single function)
+- Adds `bool run_main, run_ext`
+- Replaces `test_bit(MT76_STATE_RUNNING)` with `test_and_clear_bit`,
+  then uses those saved flags to decide whether to call `mt7915_run()`
 
 **Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-
 Record:
-- **Before:** `remove()` got drvdata, dropped the cpuhp instance,
-  unregistered the PMU, returned. Timer left live if it had been
-  started.
-- **After:** `hrtimer_cancel(&ddr_pmu->hrtimer)` **first**, then the
-  same teardown. `hrtimer_cancel()` also waits for a running callback,
-  so the handler cannot continue after `remove()` returns.
-- Path: **driver teardown / unbind / module unload**, not the normal
-  event add/del path (that already cancels on last `event_del`).
+- **Before:** After firmware reload, `mt7915_run()` is called while both
+  PHYs still have `MT76_STATE_RUNNING`. `mt7915_dev_running()` is
+  therefore true.
+- In this tree, `mt7915_run()` only programs primary-PHY PM/MAC/NF when
+  `!running`:
+
+```32:58:drivers/net/wireless/mediatek/mt76/mt7915/main.c
+        if (!running) {
+                ret = mt76_connac_mcu_set_pm(&dev->mt76,
+                                             dev->phy.mt76->band_idx,
+0);
+                ...
+                mt7915_mac_enable_nf(dev, dev->phy.mt76->band_idx);
+        }
+
+        if (phy != &dev->phy) {
+                ...
+                mt7915_mac_enable_nf(dev, phy->mt76->band_idx);
+        }
+```
+
+- Primary `mt7915_run()` therefore skips band-0 NF. Ext `mt7915_run()`
+  still hits `phy != &dev->phy` and enables band-1 NF. That matches the
+  commit message.
+- `ieee80211_restart_hw()` after full reset does not repair this:
+  starting the main PHY while the ext PHY still has `MT76_STATE_RUNNING`
+  keeps `running == true`, so band 0 is skipped again; starting the ext
+  PHY then enables only the ext PHY’s NF.
+- **After:** bits are cleared first, so the first `mt7915_run()` sees
+  `running == false` and programs band 0. Saved flags still prevent
+  starting a PHY that was never up.
 
 **Step 2.3: IDENTIFY THE BUG MECHANISM**
-
-Record: **Use-after-free / lifetime bug (memory safety)**
-
-Mechanism verified in this tree:
-- `ddr_pmu` is `devm_kzalloc()`’d; MMIO is
-  `devm_platform_get_and_ioremap_resource()`. Both are released after
-  `remove()` returns.
-- Timer is started on first `event_add` (`hrtimer_start`,
-  `HRTIMER_MODE_REL_PINNED`) and cancelled only when `active_events ==
-  0` in `event_del`.
-- Handler always `return HRTIMER_RESTART` after
-  `cn10k_ddr_pmu_overflow_handler(pmu)`, which dereferences
-  `pmu->events[]` and `pmu->base`.
-- `perf_pmu_unregister()` in this tree (`kernel/events/core.c`) does
-  **not** stop events or cancel driver timers; it only unlists the PMU,
-  syncs RCU, and frees PMU context.
+Record: **Logic / hardware-init.** After MCU reload, IPI/NF registers
+(`mt7915_mac_enable_nf`: `MT_WF_PHY_RXTD12_*` and
+`MT_WF_PHY_RX_CTRL1_IPI_EN`) are not programmed for band 0.
+`mt7915_mac_init_band()` does not enable NF; only `mt7915_run()` does.
 
 **Step 2.4: ASSESS THE FIX QUALITY**
-
-Record:
-- **Quality:** obviously correct. `hrtimer_cancel()` on an already-idle
-  timer is a no-op; cancelling before cpuhp/PMU teardown is the right
-  order.
-- **Regression risk:** very low. Callback only does `local_irq_save` +
-  MMIO reads; it does not take locks `remove()` holds. No API/data-
-  structure change.
-- **Red flags:** none in the hunk itself. Series context (3/3 of CN20K)
-  is a packaging concern, not a correctness concern — this hunk does not
-  use CN20K code.
+Record: Obviously correct. Same approach the mt76 maintainer asked for
+on-list. Minimal. Mutex is already held in `mt7915_mac_full_reset()`;
+`MT76_RESET` is already set. Risk is low: if `mt7915_run()` fails, the
+RUNNING bits stay clear, but full reset retries and then calls
+`ieee80211_restart_hw()`, which stop/start and restores them.
 
 ===============================================================
 PHASE 3: GIT HISTORY INVESTIGATION
 ===============================================================
 
 **Step 3.1: BLAME THE CHANGED LINES**
-
-Record:
-- Buggy `cn10k_ddr_perf_remove()` (no timer cancel) introduced in
-  `7cf83e222bce0` (`perf/marvell: CN10k DDR performance monitor
-  support`, Bharat Bhushan, 2022-03-08).
-- `git merge-base --is-ancestor 7cf83e222bce0 HEAD` succeeded; `git
-  merge-base --is-ancestor 7cf83e222bce0 v6.1` succeeded.
-- Present in this tree from the 6.1 baseline (driver landed in v5.18).
+Record: The `test_bit` + `mt7915_run()` sequence was introduced in
+`8a55712d124fd8` (“wifi: mt76: mt7915: enable full system reset
+support”, Bo Jiao / Ryder Lee, 2022). `git describe --contains` →
+`v6.2-rc1~...`. Present in this 6.6 tree (`git merge-base --is-ancestor
+8a55712d124fd8 HEAD` succeeded).
 
 **Step 3.2: FOLLOW THE FIXES: TAG**
-
-Record: No `Fixes:` tag. The introducing commit is `7cf83e222bce0`,
-which **is** in this tree.
+Record: No Fixes: tag. Not applicable. The introducing commit is in this
+tree.
 
 **Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-
-Record: only four commits on this file in this tree:
-- `7cf83e222bce0` CN10k DDR perfmon support
-- `35a43326a9e3c` overflow handling
-- `68fa55f0e05ce` core ownership
-- `6676a42f1e4f1` `!CONFIG_OF` build fix
-
-No later refactor of `remove()`. **Standalone** relative to this tree.
-Does **not** need patches 1–2 of the CN20K series.
-
-Related but **separate** bug (v7 of the same series, in patch 2/3):
-`event_add` can `hrtimer_start()` then return `-EINVAL` from
-`ddr_perf_get_event_bitmap()` without rolling back. That leak is **not**
-this commit. This commit still stands alone.
+Record: Related reset work already in this tree:
+- `c71d2db21f153` improve hardware restart reliability
+- `1e474cbe5db60` fix omac index assignment after hardware reset
+- `72eabd4c1986b` firmware restart on devices with a second PCIe link
+This patch is standalone; it does not depend on those.
+`test_and_clear_bit(MT76_STATE_RUNNING)` is **not** in this tree (`git
+grep` found no matches).
 
 **Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-
-Record: `git log --author=Geetha -- drivers/perf/` is empty in this 6.1
-tree. Author is a Marvell engineer extending a Marvell driver originally
-by Bharat Bhushan. Will Deacon (ARM perf maintainer) merged it. That is
-sufficient maintainer vetting.
+Record: David Bauer is an OpenWrt/wireless contributor; in this tree he
+already has `b6c39aaa85c4e` (mt7915 MCU re-init). Felix Fietkau (mt76
+maintainer) signed off and designed the committed approach.
 
 **Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-
-Record: **No functional prerequisites.** The only apply wrinkle is 6.1
-still has `static int cn10k_ddr_perf_remove(...)` returning `0`; later
-kernels converted platform `.remove` to `void`. The added
-`hrtimer_cancel()` line and comment apply unchanged.
+Record: No functional prerequisites. Surrounding `mt7915_init_txpower()`
+signature and `napi_enable` placement differ from later mainline; those
+are context only. The `run_main`/`run_ext` change applies with a small
+context tweak.
 
 ===============================================================
 PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 ===============================================================
 
 **Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-
-Record:
-- `b4 dig -c HEAD` was the wrong SHA (this commit is not in the 6.1
-  checkout). Direct lore fetch returned 403.
-- `b4 am` on Message-ID `20260601073318.7098-4-gakula@marvell.com`
-  succeeded: v8 series, 3 patches, DKIM-signed, no newer revision
-  flagged.
-- Lore/mirrors:
-  https://patch.msgid.link/20260601073318.7098-1-gakula@marvell.com ,
-  openwall, lkml.iu.edu, patchew, ratatoskr.
-- Cover letter v8: “Cancel the poll hrtimer in `cn10k_ddr_perf_remove()`
-  before `devm` frees `struct cn10k_ddr_pmu` (pre-existing for
-  CN10K/Odyssey).”
-- **No NAK.** Will Deacon: “Applied to arm64 (for-next/perf)” with git
-  id `7dbcb0268d1e` for this patch.
-- **No reviewer `Cc: stable` found** (not treated as a negative).
+Record: `b4 dig -c` was not usable (commit SHA not in this checkout’s
+master). `b4 mbox` on msgid `20260516144944.2574053-1-mail@david-
+bauer.net` saved a 4-message thread.
+- v1 (16 May 2026): 4-line change in `mt7915_run()`: `if (!running ||
+  (reset && phy == &dev->phy))`
+- Felix (27 May): asked to clear `MT76_STATE_RUNNING` in
+  `mt7915_mac_restart` instead
+- David: explained the per-PHY RUNNING guard (don’t start a PHY that was
+  never up)
+- Felix (1 Jun): proposed exactly the committed `test_and_clear_bit`
+  pattern
+No NAK. No reviewer `Cc: stable`. Committed diff is the maintainer
+rewrite, still linked to the v1 msgid.
 
 **Step 4.2: CHECK WHO REVIEWED THE PATCH**
-
-Record: To/Cc on the original mail: `linux-perf-users`, `linux-kernel`,
-`linux-arm-kernel`, `devicetree`, Mark Rutland, Will Deacon, Krzysztof
-Kozlowski. Will Deacon merged. No NAK on 3/3.
+Record: Recipients included Felix Fietkau, Lorenzo Bianconi, Ryder Lee,
+Shayne Chen, Sean Wang, linux-wireless, linux-mediatek. Felix both
+reviewed and applied.
 
 **Step 4.3: SEARCH FOR THE BUG REPORT**
-
-Record: No syzbot, bugzilla, or external user report. Bug was found
-during CN20K series review/development (added in v8). Still a concrete
-UAF, just not fuzzer-reported.
+Record: No syzbot/bugzilla. Author describes a real dual-PHY MCU
+recovery failure. That is a field observation, not a theoretical report.
 
 **Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-
-Record: Series is:
-1. dt-bindings CN20K — feature, not this decision
-2. CN20K driver support (+ event_add rollback) — feature / separate leak
-   fix
-3. **this UAF cancel** — independent 6-line fix
-
-Do **not** pull 1/3 or 2/3 into 6.1. This commit does not call CN20K
-pdata/helpers.
+Record: Single patch, not N/M. v1 vs committed is a maintainer rewrite
+of the same fix, not a multi-patch series.
 
 **Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-
-Record: lore.kernel.org/stable search returned 403. No evidence on the
-public v8 thread that stable rejected this. UNVERIFIED: whether
-`-stable` ever discussed this hash by name.
+Record: No useful stable-list hit for this subject. No recorded reason
+to keep it out of stable.
 
 ===============================================================
 PHASE 5: CODE SEMANTIC ANALYSIS
 ===============================================================
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
-
-Record: `cn10k_ddr_perf_remove()` only. Related existing functions:
-`cn10k_ddr_perf_event_add`, `cn10k_ddr_perf_event_del`,
-`cn10k_ddr_pmu_timer_handler`, `cn10k_ddr_pmu_overflow_handler`.
+**Step 5.1: IDENTIFY KEY FUNCTIONS**
+Record: Modified: `mt7915_mac_restart()`. Behavior depends on
+`mt7915_run()`, `mt7915_dev_running()`, `mt7915_mac_enable_nf()`.
 
 **Step 5.2: TRACE CALLERS**
-
 Record:
-- `cn10k_ddr_perf_remove` is the platform driver’s `.remove`
-  (`cn10k_ddr_pmu_driver`). Callers: device unbind, parent device
-  teardown, `platform_driver_unregister()` from `cn10k_ddr_pmu_exit()`.
-- Timer handler is the hrtimer softirq/callback path, not a syscall.
+- `mt7915_mac_restart()` ← `mt7915_mac_full_reset()` (only caller in
+  this tree)
+- `mt7915_mac_full_reset()` ← `mt7915_mac_reset_work()` when
+  `dev->recovery.restart`
+- `recovery.restart` set in `mt7915_reset()` on WA/WM watchdog
+  (`MT_MCU_CMD_WDT_MASK`), which logs “firmware crash, attempting
+  recovery”
+- `mt7915_run()` also from `mt7915_start()` (normal iface start); this
+  patch does not change that path
 
 **Step 5.3: TRACE CALLEES**
-
-Record: `remove()` calls `platform_get_drvdata`, `hrtimer_cancel` (new),
-`cpuhp_state_remove_instance_nocalls`, `perf_pmu_unregister`. Handler
-calls overflow path which does MMIO `readq_relaxed` on `pmu->base`.
+Record: After firmware load: `mt7915_mcu_init_firmware`,
+`mt7915_mcu_set_eeprom`, `mt7915_mac_init`, txpower/txbf, then
+`mt7915_run()` (PM, `mt7915_mcu_set_mac`, `mt7915_mac_enable_nf`,
+thermal, RTS, SKU, RX path).
 
 **Step 5.4: FOLLOW THE CALL CHAIN**
-
-Record: Userspace can start the timer via `perf_event_open` on this
-uncore PMU (`event_add` when `active_events == 1`). Unbind/unload is
-admin-triggered (module unload, device teardown), not an unprivileged
-syscall by itself. `event_init` does **not** validate `attr.config`;
-`event_add` can start the timer then fail `ddr_perf_get_event_bitmap()`.
-`event_sched_in()` on add failure does **not** call `pmu->del()`
-(verified at `kernel/events/core.c:2591-2595`). That can leave a running
-timer even after a failed `perf_event_open`, after which `rmmod` can run
-`remove()` with the timer still live. Reachable from userspace + admin
-unload.
+Record: Triggered by firmware watchdog recovery on `CONFIG_MT7915E`
+dual-PHY (mt7915/mt7916/mt798x DBDC), common on APs/routers. Not a
+generic syscall crash path. Userspace sees bad survey noise
+(`mt76_get_survey` → `SURVEY_INFO_NOISE_DBM`) and ACS can use it.
+Debugfs can also force full reset (`b662b71`).
 
 **Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-
-Record: In this tree, this driver only cancels the timer in `event_del`.
-`drivers/perf/thunderx2_pmu.c` also cancels on CPU offline. Sibling DDR
-PMU `fsl_imx8_ddr_perf.c` also does not cancel in `remove()` here —
-pattern exists, but that does not make this UAF fictional.
+Record: No `test_and_clear_bit(MT76_STATE_RUNNING)` in this tree’s mt76.
+Sibling chips (mt7615/mt7996) have similar NF helpers; this fix is
+mt7915-restart-specific.
 
 ===============================================================
 PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 ===============================================================
 
 **Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-
-Record: **Yes.** Local tree is **6.1.188** (`pending-6.1`, `git
-describe` `p-6.1-10-g80966a5b14be4`).
-
-```700:710:drivers/perf/marvell_cn10k_ddr_pmu.c
-static int cn10k_ddr_perf_remove(struct platform_device *pdev)
-{
-        struct cn10k_ddr_pmu *ddr_pmu = platform_get_drvdata(pdev);
-
-        cpuhp_state_remove_instance_nocalls(
-CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE,
-                                &ddr_pmu->node);
-
-        perf_pmu_unregister(&ddr_pmu->pmu);
-        return 0;
-}
-```
-
-No `hrtimer_cancel()`. Introduced with the driver in `7cf83e222bce0`
-(v5.18), present for the whole 6.1 lifetime.
+Record: Yes. `mt7915_mac_restart()` at
+`drivers/net/wireless/mediatek/mt76/mt7915/mac.c:1397-1407` still uses
+`test_bit` without clearing. Introduced v6.2-era (`8a55712d124fd8`),
+present since this 6.6 branch.
 
 **Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-
-Record: **Minor context only.** 6.1 `remove` is `int` and returns `0`;
-later kernels use `void`. OF match table in 6.1 has no `.data` / CN20K
-entries. The added call does not depend on those. Expected apply:
-**minor conflict, trivial rework**.
-
-This tree still has `suppress_bind_attrs = true`, so **sysfs**
-bind/unbind is hidden. That does **not** skip `.remove` on parent
-teardown or `platform_driver_unregister()`.
+Record: **Minor context.** Mainline hunk context uses
+`mt7915_init_txpower(&dev->phy)` / `mt7915_init_txpower(phy2)`; this
+tree still has `mt7915_init_txpower(dev, &dev->mphy.sband_* )`.
+`napi_enable` vs `local_bh_disable` order in the `out:` path also
+differs. The RUNNING-bit change itself matches this tree. Easy manual
+backport; not a rewrite.
 
 **Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-
-Record: No `hrtimer_cancel` in `remove()`. No event_add rollback (`goto
-err_free_counter`). Nothing already fixes this UAF.
+Record: Reset reliability/omac-after-reset fixes are here. This NF re-
+init after MCU recovery is not.
 
 ===============================================================
 PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 ===============================================================
 
 **Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-
-Record: `drivers/perf/` Marvell CN10K DDR PMU. **PERIPHERAL** (SoC-
-specific uncore PMU). Config `MARVELL_CN10K_DDR_PMU` depends on
-`ARCH_THUNDER || (COMPILE_TEST && 64BIT)` — Octeon 10 / Thunder-class
-ARM64.
+Record: **wifi / mt76 mt7915**
+(`drivers/net/wireless/mediatek/mt76/mt7915/`). **IMPORTANT** for users
+of these radios (filogic/mt7915 DBDC APs), not core mm/net. Not staging.
 
 **Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-
-Record: File is mature and quiet in 6.1 (four commits total). Bug is
-old, not a last-month regression.
+Record: Mature driver, still getting reset-path fixes in this 6.6 tree.
+Not a newly added subsystem.
 
 ===============================================================
 PHASE 8: IMPACT AND RISK ASSESSMENT
 ===============================================================
 
 **Step 8.1: DETERMINE WHO IS AFFECTED**
-
-Record: **Driver-specific / config-specific:**
-`CONFIG_MARVELL_CN10K_DDR_PMU` on Marvell CN10K (`ARCH_THUNDER`). Not
-universal.
+Record: Driver-specific, dual-PHY `CONFIG_MT7915E` after full MCU
+recovery. Widely used on embedded/AP hardware.
 
 **Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-
-Record:
-- Timer starts when the first perf event is added; period default
-  **100s** (`poll_period_sec`).
-- Classic trigger: device `remove()` while the timer is queued (unbind /
-  parent removal / module exit).
-- Mitigations in **this** tree: `suppress_bind_attrs = true` (no sysfs
-  unbind); successful events `try_module_get` the module so `rmmod`
-  waits for last close, and last `event_del` already cancels the timer.
-- Remaining realistic triggers: platform device teardown with events
-  still open; **failed `event_add` after `hrtimer_start`** leaving a
-  live timer so `rmmod` can hit `remove()` without `event_del`.
-- Unprivileged user can start/leak the timer via `perf_event_open`;
-  teardown is typically admin. Failure mode is still kernel UAF.
+Record: Firmware WA/WM watchdog → full recovery. Unprivileged users
+cannot trigger it directly. Timing is the recovery path, not a race.
+Debugfs reset can also hit it.
 
 **Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-
-Record: Timer callback uses freed `cn10k_ddr_pmu` and unmapped MMIO →
-**use-after-free / oops / memory corruption**. Severity: **HIGH** (UAF).
-Not a guaranteed panic on every boot; when it hits, it is a hard kernel
-memory-safety failure.
+Record: Wrong band-0 noise floor / survey after recovery; ACS can pick a
+worse channel. Not an oops, deadlock, or corruption. Connectivity was
+not reported broken; `mac_init` still runs, so MAC datapath likely
+survives. **Severity: MEDIUM.**
 
 **Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-
 Record:
-- **Benefit:** HIGH for CN10K users who unload/unbind with a live poll
-  timer; prevents UAF. Population is small but the bug class is serious.
-- **Risk:** VERY LOW (6 lines, no-op if timer idle, no locking change).
-- **Ratio:** strongly in favor of backporting.
+- **Benefit:** Medium. Restores intended PHY register state on a
+  recovery path this tree already treats as backport-worthy.
+- **Risk:** Low. ~8 lines, one function, maintainer-specified, under
+  existing reset mutex.
+- **Ratio:** Favorable.
 
 ===============================================================
 PHASE 9: FINAL SYNTHESIS
@@ -456,134 +379,126 @@ PHASE 9: FINAL SYNTHESIS
 
 **Step 9.1: COMPILE THE EVIDENCE**
 
-**FOR:**
-- Real UAF: poll hrtimer can run after `devm` free of the PMU struct.
-- Bug exists in this 6.1 tree since the driver was added
-  (`7cf83e222bce0`).
-- Surgical, obviously correct (`hrtimer_cancel` before teardown).
-- Maintainer-merged (Will Deacon).
-- Author/cover letter call it a **pre-existing CN10K** bug, not
-  CN20K-only.
-- Independent of CN20K patches 1–2.
-- Failed `event_add` in this tree can leave the timer running;
-  `pmu->add` failure does not call `del()`.
-- `hrtimer_cancel` on idle timer is safe.
+FOR:
+- Real dual-PHY bug after MCU full recovery; primary PHY NF registers
+  never reprogrammed
+- Code and introducing commit are in 6.6.157
+- Small, obviously correct, maintainer-directed
+- Same `!running` skip also omits band-0 `set_pm`/`set_mac` on that path
+- This tree already backported other mt7915 reset corrections
+- Dual-PHY mt7915/mt798x is common production AP hardware
 
-**AGAINST:**
-- Peripheral SoC PMU, not a core path.
-- No syzbot/user report.
-- `suppress_bind_attrs` hides sysfs unbind; happy-path `rmmod` after
-  clean event_del already cancels the timer.
-- Packaged as 3/3 of a feature series (but this hunk is independent).
-- Trivial `int` vs `void` `remove` context mismatch.
+AGAINST:
+- Not a crash, UAF, deadlock, or security issue
+- Trigger is firmware watchdog recovery, not a hot path
+- User-visible effect is mainly survey/ACS noise, not a reported outage
+- Apply needs a trivial context adjustment
 
-**UNRESOLVED:**
-- Could not fetch lore.kernel.org (403) or git.kernel.org (Anubis);
-  discussion reconstructed via `b4 am`, patchew, and mirrors.
-- No `-stable` thread found (403).
-- Exact mainline SHA in Linus’s tree not in this checkout; arm64
-  application id `7dbcb0268d1e` from Will’s mail.
+UNRESOLVED:
+- Upstream SHA is not on this checkout’s `master`, so `b4 dig -c <sha>`
+  was not run (thread retrieved via msgid instead)
+- No independent confirmation that band-0 MAC/PM skip causes traffic
+  loss (author only reported NF)
 
 **Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-
-1. Obviously correct and tested? **PASS** — one `hrtimer_cancel()`,
-   merged by Will Deacon, idle-timer cancel is a no-op.
-2. Fixes a real bug that affects users? **PASS** — UAF on remove with a
-   live poll timer; code present here.
-3. Important issue? **PASS** — use-after-free / crash / memory
-   corruption (HIGH). Trigger is not every boot, but severity matches
-   stable’s crash/UAF bar.
-4. Small and contained? **PASS** — 6 lines, one function, one file.
-5. No new features or APIs? **PASS**.
-6. Can apply to the local tree? **PASS** — buggy `remove()` is here;
-   only `int` vs `void` `remove` needs a one-line context tweak.
+1. Obviously correct and tested? **PASS** — logic matches
+   `mt7915_run()`; maintainer specified this form
+2. Fixes a real bug that affects users? **PASS** — wrong NF after
+   recovery on dual-PHY
+3. Important issue? **PASS** (medium) — recovery leaves hardware
+   misconfigured; not a panic, but it is a real functional failure of
+   SER
+4. Small and contained? **PASS** — one function, few lines
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — buggy code present; minor
+   context only
 
 **Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-
-Record: Not a device-ID / quirk / DT / build / docs exception. It is a
-normal small UAF fix.
+Record: Not a new device ID/API. Closest class is hardware re-init after
+reset (quirk-like). Qualifies on technical merit, not only via an
+exception.
 
 **Step 9.4: MAKE YOUR DECISION**
+Backport. The 6.6 tree has the bug, the fix is surgical, and leaving MCU
+recovery with band 0 NF unprogrammed is a real driver bug on hardware
+this series already ships.
 
-This should be backported to **this** 6.1 tree. The CN20K feature
-patches must stay out; this cancel is self-contained and matches the
-code that has been in 6.1 from day one.
+Verification:
+- [Phase 1] Parsed tags: author David Bauer, Link to msgid, SOB Felix
+  Fietkau; no Fixes/Cc stable/Reported-by
+- [Phase 1] Body: dual-PHY MCU recovery → band 0 NF wrong because only
+  PHY1 is configured
+- [Phase 2] Diff: `mt7915_mac_restart()` saves/clears RUNNING then calls
+  `mt7915_run()`
+- [Phase 2] Local `mt7915_run()`: primary NF only if
+  `!mt7915_dev_running()`; ext NF if `phy != &dev->phy`
+- [Phase 2] `mt7915_mac_init_band()` does not set IPI/NF; only
+  `mt7915_mac_enable_nf()` does
+- [Phase 3] `git blame` `mac.c:1397-1407` → `8a55712d124fd8` (v6.2-rc1);
+  ancestor of HEAD
+- [Phase 3] `git grep test_and_clear_bit(MT76_STATE_RUNNING)` → no hits
+  in this tree
+- [Phase 3] Related reset fixes already here (`c71d2db21f153`,
+  `1e474cbe5db60`); this NF fix is not
+- [Phase 4] `b4 mbox` msgid → 4-message thread; Felix requested the
+  committed approach; no NAK
+- [Phase 4] lore.kernel.org WebFetch returned 403; used b4 mbox +
+  openwall/ratatoskr instead
+- [Phase 4] No meaningful stable-list discussion found
+- [Phase 5] Call chain: WDT → `mt7915_reset()` → dump_work →
+  `mt7915_mac_reset_work()` → `mt7915_mac_full_reset()` →
+  `mt7915_mac_restart()`
+- [Phase 5] Survey path: `mt7915_update_channel()` → `state->noise` →
+  `mt76_get_survey()`
+- [Phase 6] `git describe HEAD` / `make kernelversion` → p-6.6-3 /
+  **6.6.157**
+- [Phase 6] Local `mt7915_init_txpower()` signature differs from patch
+  context; RUNNING change still maps 1:1
+- [Phase 8] Failure mode: incorrect band-0 noise after firmware crash
+  recovery; severity MEDIUM
+- UNVERIFIED: exact upstream SHA (not on this `master`); whether band-0
+  `set_mac` skip also breaks traffic (not claimed by author)
 
-===============================================================
-What the commit solves, and why it matters here
-===============================================================
-
-`cn10k_ddr_perf_remove()` tears down cpuhp and unregisters the PMU but
-never stops the overflow-poll hrtimer. The PMU object and MMIO are
-`devm`-managed, so they are freed as soon as `remove()` returns. If the
-timer is still queued, `cn10k_ddr_pmu_timer_handler()` can run on freed
-memory. That is a real UAF on Marvell CN10K systems that use this driver
-— exactly the hardware this 6.1 tree already supports.
-
-It meets stable rules: obviously correct, small, no new API, and the
-buggy function is in this checkout. Risk is negligible. Benefit is
-preventing a kernel UAF. The only backport edit is matching 6.1’s `int`
-`remove` callback.
-
-===============================================================
-Verification
-===============================================================
-
-- [Phase 1] Parsed subject/body/tags: UAF-on-remove; SOBs Geetha
-  sowjanya + Will Deacon; no Fixes/Reported-by/Cc-stable.
-- [Phase 2] Diff: +6 in `cn10k_ddr_perf_remove()` only; adds
-  `hrtimer_cancel()` before cpuhp/PMU teardown.
-- [Phase 2] `perf_pmu_unregister()` at `kernel/events/core.c:11587` does
-  not cancel driver timers or wait for `event_del`.
-- [Phase 2] Handler at lines 600–612 always `HRTIMER_RESTART` and uses
-  `pmu->base` / `pmu->events[]`.
-- [Phase 3] `git describe HEAD` → `p-6.1-10-g80966a5b14be4`; `make
-  kernelversion` → 6.1.188.
-- [Phase 3] `git merge-base --is-ancestor 7cf83e222bce0 HEAD` →
-  introducing driver commit is in this tree.
-- [Phase 3] `git blame` on `remove()` → `7cf83e222bce0` (no cancel) and
-  `68fa55f0e05ce` (cpuhp).
-- [Phase 3] File history: 4 commits; no existing remove-path timer fix.
-- [Phase 4] `b4 am` msgid `20260601073318.7098-4-gakula@marvell.com` →
-  v8 3/3; cover letter “pre-existing for CN10K/Odyssey”.
-- [Phase 4] Patchew: Will Deacon applied 3/3 as `7dbcb0268d1e`; no NAK.
-- [Phase 4] lore.kernel.org and git.kernel.org fetches: 403 / Anubis —
-  used b4/patchew/mirrors instead.
-- [Phase 5] `event_sched_in` add-failure path (`core.c:2591`) does not
-  call `pmu->del()`.
-- [Phase 5] Local `event_init` does not validate `attr.config`;
-  `event_add` can start the timer then return `-EINVAL`.
-- [Phase 6] Read local `cn10k_ddr_perf_remove()`: no `hrtimer_cancel`;
-  `devm_kzalloc` + `suppress_bind_attrs = true` confirmed.
-- [Phase 7] Kconfig `MARVELL_CN10K_DDR_PMU` depends on `ARCH_THUNDER`.
-- [Phase 8] Failure mode: UAF in hrtimer callback after `devm` free —
-  HIGH.
-- UNVERIFIED: `-stable` list discussion of this exact commit
-  (lore/stable 403).
-- UNVERIFIED: Linus-tree SHA beyond Will’s arm64 id `7dbcb0268d1e`.
+The patch is a small, maintainer-reviewed correction of MCU recovery on
+dual-PHY mt7915, and the buggy code is in this 6.6 tree.
 
 **YES**
 
- drivers/perf/marvell_cn10k_ddr_pmu.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7915/mac.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-index 72ac17efd846a..9974b62541f0d 100644
---- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-+++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-@@ -1088,6 +1088,12 @@ static void cn10k_ddr_perf_remove(struct platform_device *pdev)
- {
- 	struct cn10k_ddr_pmu *ddr_pmu = platform_get_drvdata(pdev);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mac.c b/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
+index dda4e7d179536..55d2553addb13 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
+@@ -1292,6 +1292,7 @@ mt7915_mac_restart(struct mt7915_dev *dev)
+ 	struct mt7915_phy *phy2;
+ 	struct mt76_phy *ext_phy;
+ 	struct mt76_dev *mdev = &dev->mt76;
++	bool run_main, run_ext;
+ 	int i, ret;
  
-+	/*
-+	 * Cancel the poll timer before further teardown so the handler
-+	 * cannot run after this function returns.
-+	 */
-+	hrtimer_cancel(&ddr_pmu->hrtimer);
+ 	ext_phy = dev->mt76.phys[MT_BAND1];
+@@ -1387,13 +1388,17 @@ mt7915_mac_restart(struct mt7915_dev *dev)
+ 	mt7915_init_txpower(phy2);
+ 	ret = mt7915_txbf_init(dev);
+ 
+-	if (test_bit(MT76_STATE_RUNNING, &dev->mphy.state)) {
++	run_main = test_and_clear_bit(MT76_STATE_RUNNING, &dev->mphy.state);
++	run_ext = ext_phy &&
++		  test_and_clear_bit(MT76_STATE_RUNNING, &ext_phy->state);
 +
- 	cpuhp_state_remove_instance_nocalls(
- 				CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE,
- 				&ddr_pmu->node);
++	if (run_main) {
+ 		ret = mt7915_run(dev->mphy.hw);
+ 		if (ret)
+ 			goto out;
+ 	}
+ 
+-	if (ext_phy && test_bit(MT76_STATE_RUNNING, &ext_phy->state)) {
++	if (run_ext) {
+ 		ret = mt7915_run(ext_phy->hw);
+ 		if (ret)
+ 			goto out;
 -- 
 2.53.0
 
