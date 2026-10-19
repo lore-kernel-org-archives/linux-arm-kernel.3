@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4CECCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99C6CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJnDRXaD8MXKY+HfVAGx8ycJVEcnB4lWDfYJHPvkKb0=; b=c0TIZyeLEpZFkU8gRYhLLJ/A55
-	IxLO6TsukEbcEeBA6Uc7GB4M/8/kvUnG0HqVmF6IZwFF3OMQf++wzwzfkcZc+Q0J/D5S7psotkvI7
-	juBYocr/NNb5LFjGHlN+opxQrsYHu4CgiDJ+wUaOI7TycDRx+0+QOFqcXE6A7ovJ3uEtSqQ3XMBCw
-	xv/ysfcIUCPd9Esv4JjltYAeO+g5JlSrrbNF3O67wRaQemSgvaCFQyUDclAbXLe8moCq1wgwM4aXp
-	6eALMdyX4hC2NyBjUO+quA9unEmP2uvxOmXDJ9fauNyUA0CS4IE+4HNwLSmnpd8QPuWZ4cnDRwyZM
-	hn+YzBxQ==;
+	bh=oYI5T8O+AAnnizZIZ7eRm4bWkb3nui5PR4a81p/JJF4=; b=heh9xsx0DHSO9VaQC8t4Nz+KQ6
+	R+BEtQFMf6W0HyPP+0UGamEThQTX1B642WmQ8F9iQfvd1YgKf11zN/39zfDO+b22OgWZF70cW5i21
+	jNXXxt6+dOZFucct85jDozlfGTG5KeZy+QKEm77SFbukdCRau+DiDEDuvY1iLBHKyYJ5gsVIESAh0
+	oFwZ9y+4AGHuaTkGvIiC6qd0yh/uZvNdD7lvwS4JdEZpAUzoZXfQPlvTVRC7tjqN816eywzOHwLUl
+	orbGS3cLKTVsAX/j9ZchX6rEs/tx9+d6JUfvVjLokFMp1RSTf15lsLikowtBncxPS7gY2GmI49sZ8
+	Iq4ZOBsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInzH-00000007g68-0xC8;
-	Mon, 19 Oct 2026 14:05:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xInzb-00000007gJd-0eVx;
+	Mon, 19 Oct 2026 14:05:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInzG-00000007g5N-0hFJ;
-	Mon, 19 Oct 2026 14:05:14 +0000
+	id 1xInza-00000007gIg-0J3b
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 14:05:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E533E4142A;
-	Mon, 19 Oct 2026 14:05:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43C221F000C9;
-	Mon, 19 Oct 2026 14:05:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 63A8B60238;
+	Mon, 19 Oct 2026 14:05:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B142A1F000C4;
+	Mon, 19 Oct 2026 14:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418713;
-	bh=OJnDRXaD8MXKY+HfVAGx8ycJVEcnB4lWDfYJHPvkKb0=;
+	s=k20260515; t=1792418733;
+	bh=oYI5T8O+AAnnizZIZ7eRm4bWkb3nui5PR4a81p/JJF4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bf/E01hjpu608+YAIXvBZ8sLKTH6wN4X6fCJ266yZXD9IUA84iZ5tHSbvtTkUThwg
-	 j7b75Zfd9bwTyHXiMvYncHq4rvcE65DsDqz/aIEmmci2ek9dbiCVmsmivlxi4rmXyd
-	 0hCF6sI/KvQuEynwTYJ3xs7j8KKiF54nWaVmGdVaTduzmV2qBJSfrnLNuFyQhPu7B0
-	 0DReVvYr6GaJMZb1Ucxw9mccPd0om2AQlljhVhl6eKiHMuvKaCcGbZ2BYq7EugqtFN
-	 7gGQJvbk6uaR63I2smHhQLXfeH4HjMUkcU7kYw8EBcxoGPlfWo7yzzg1aumaig8pA0
-	 2sqzRO8psMLCg==
+	b=PMZMZqmZedOF8b9GGtHKTDijHwxZw08NTe+x0xvgt6x9P4na1RSVPwX2SmaFDRiOk
+	 FAHJZFOeRbuD4Sv0YxoQUkzEXZTPgQCf9SGBDVRls13Xj/kxG9I1xH0ss6nvG9EHeT
+	 oflJkew7NlAkzMkyyIgp+XFhg+SMkJmf6HdU7q1abpg0z0Ez9u0aRVgePebN+FkKdA
+	 p+0d7TwgG9hccWheUaSzIHbSfh2PPci+zIApOSgvuO+361t/tGPx0DTsrQI5MpM0x8
+	 ZHt0Jbo7f6GP8W7Xqkk/ooEK1fZPxS0nZhdk5WlTl2N6xTLaRV7aD1scmjGyyolvCA
+	 wF9jSzKC+zlxw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Atish Patra <atishp@meta.com>,
-	Sashiko AI <sashiko-bot@kernel.org>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
+Cc: Jiawen Liu <1298662399@qq.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	atish.patra@linux.dev,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org,
+	william.zhang@broadcom.com,
+	kursad.oney@broadcom.com,
+	jonas.gorski@gmail.com,
+	anand.gore@broadcom.com,
+	florian.fainelli@broadcom.com,
+	rafal@milecki.pl,
+	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.12] RISC-V: perf: fix resource cleanup on driver probe failure
-Date: Mon, 19 Oct 2026 09:52:14 -0400
-Message-ID: <20261019135441.1420968-443-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.6] spi: bcmbca-hsspi: return error from failed controller suspend
+Date: Mon, 19 Oct 2026 09:52:28 -0400
+Message-ID: <20261019135441.1420968-457-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -84,34 +83,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@meta.com>
+From: Jiawen Liu <1298662399@qq.com>
 
-[ Upstream commit e24a1418e90beac2ef4384bc9b0b5a10f19b806e ]
+[ Upstream commit faa878d4805ca375738294bc52eae310eb287b16 ]
 
-Sashiko pointed out various UAF and memory leak issues around
-pmu_sbi_device_probe() error paths.
+spi_controller_suspend() can fail if pending transfers cannot stop.
+bcmbca_hsspi_suspend() ignored the error and still disabled the
+PLL and core clocks.
 
-If the probe fails, here are list of cleanups needed.
-a. Already registered pmu must be freed
-b. per cpu IRQ must be released
-c. pmu_ctr_list data structure must be freed
-d. cpu hotplug state must be cleaned up only if added.
+Return the error before disabling the clocks.
 
-Fix the resource cleanup by reorganizing the code around probe failure.
-
-Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Signed-off-by: Atish Patra <atishp@meta.com>
-Link: https://patch.msgid.link/20260807-counter_delegation-v9-1-58658104e487@meta.com
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
+Signed-off-by: Jiawen Liu <1298662399@qq.com>
+Link: https://patch.msgid.link/tencent_54F5634545908FBA724E758054BF03953808@qq.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-This tree is **6.12.111** (`pending-6.12`). The buggy probe cleanup is
-present here, the patch applies, and it is a real UAF/leak/crash fix — a
-YES for this tree.
+The local tree is **6.18.53** (`v6.18.53-5049-g0f0bdc2b0dffb`, branch
+`autosel`). The verdict is only about this checkout: the buggy suspend
+path is in `v6.18.53`, and the patch applies cleanly to it.
 
 ---
 
@@ -119,43 +111,42 @@ YES for this tree.
 
 **Step 1.1: PARSE THE SUBJECT LINE**
 
-Record: `[RISC-V perf / SBI PMU] [fix] [resource cleanup on driver probe
-failure]`
+Record: **[spi / bcmbca-hsspi] [return] [propagate
+`spi_controller_suspend()` failure instead of disabling clocks and
+reporting success]**
 
 **Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
 
 Record:
-- `Reported-by: Sashiko AI <sashiko-bot@kernel.org>` — static-analysis
-  bot, not a user oops, but it named concrete UAF/leak paths
-- `Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>` — RISC-V
-  reviewer
-- `Signed-off-by: Atish Patra <atishp@meta.com>` — original SBI PMU
-  driver author
-- `Link: https://patch.msgid.link/20260807-counter_delegation-v9-1-
-  58658104e487@meta.com` — **v9 01/20** of the counter-delegation series
-- `Signed-off-by: Paul Walmsley <pjw@kernel.org>` — RISC-V maintainer
-- No `Fixes:` tag (expected)
-- Ignore pipeline `Signed-off-by: Sasha Levin` / `[Upstream commit ...]`
-  — none on the real commit `e24a1418e90be`
+- **Fixes:** none (expected for this review pipeline)
+- **Reported-by / Tested-by / Reviewed-by / Acked-by:** none on this
+  specific patch (sibling Broadcom patches in the same author’s work had
+  Acked-by/Reviewed-by from Broadcom)
+- **Link:** https://patch.msgid.link/tencent_54F5634545908FBA724E758054B
+  F03953808@qq.com
+- **Cc: stable:** absent (not a negative signal)
+- **Signed-off-by:** Jiawen Liu (author); Mark Brown (SPI maintainer).
+  Ignore Sasha Levin SOB (pipeline).
+- **[Upstream commit faa878d4805c…]** / pipeline markers: ignored per
+  instructions
 
 **Step 1.3: ANALYZE THE COMMIT BODY TEXT**
 
 Record:
-- **Bug:** `pmu_sbi_device_probe()` error paths leak and leave live
-  references to freed objects
-- **Needed cleanups:** (a) unregister an already-registered PMU, (b)
-  release the per-CPU IRQ, (c) free `pmu_ctr_list`, (d) remove the CPU-
-  hotplug instance only if it was added
-- **Symptom:** UAF and memory leaks if probe fails after partial setup
-- **Root cause:** probe does `goto out_unregister` / `out_free` without
-  matching teardown
-- **Version info:** none in the message; code dates to 2022–2024
+- **Bug:** `spi_controller_suspend()` can fail when pending transfers
+  cannot be stopped; `bcmbca_hsspi_suspend()` ignored that and still
+  disabled PLL and core clocks, then returned 0.
+- **Symptom:** system suspend is reported successful while SPI clocks
+  are gated with the queue possibly still active → MMIO to unclocked
+  hardware, incomplete SPI transactions.
+- **Version info:** none in the message. Driver added in v6.3; bug
+  present from introduction.
+- **Root cause:** missing return-value check before clock teardown.
 
 **Step 1.4: DETECT HIDDEN BUG FIXES**
 
-Record: Not disguised. It is an explicit error-path UAF/leak fix.
-“Reorganizing probe failure” is the usual `goto` cleanup pattern, not a
-refactor-for-its-own-sake.
+Record: Not disguised. It is an explicit PM error-path fix: “Handle X
+properly” / missing error check. Real bug, not style.
 
 ---
 
@@ -164,73 +155,50 @@ refactor-for-its-own-sake.
 **Step 2.1: INVENTORY THE CHANGES**
 
 Record:
-- File: `drivers/perf/riscv_pmu_sbi.c` — **+27 / −6** (33 insertions, 6
-  deletions)
-- Functions: `pmu_sbi_setup_irqs()`, `riscv_pmu_destroy()`,
-  `pmu_sbi_device_probe()`
-- Scope: single-file surgical error-path fix
+- File: `drivers/spi/spi-bcmbca-hsspi.c` — **+5 / −1**
+- Function: `bcmbca_hsspi_suspend()`
+- Scope: **single-file surgical fix**
+
+Upstream/context in the provided snippet also shows `remove()`/`#ifdef
+CONFIG_PM_SLEEP` around it; the change that actually lands on this tree
+is only the suspend return check (parent of `072b287a97bf3` matches
+`v6.18.53` for this file, 0-line diff).
 
 **Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
 
 Record:
-
-1. **`pmu_sbi_setup_irqs()`**
-   - Before: domain/mapping/request failures return immediately.
-     `riscv_pmu_use_irq` can stay **true** even though no IRQ was
-     installed. Mapping leaked if `request_percpu_irq()` failed.
-   - After: those paths `goto err`, dispose a created mapping, set
-     `riscv_pmu_use_irq = false`.
-
-2. **`riscv_pmu_destroy()`**
-   - Before: always `cpuhp_state_remove_instance()` even when the
-     instance was never added.
-   - After: only if `!hlist_unhashed(&pmu->node)`.
-
-3. **`pmu_sbi_device_probe()`**
-   - Before: `riscv_pm_pmu_register` / `perf_pmu_register` failures jump
-     to `out_unregister` (destroy + `kfree(pmu)` only). Snapshot-alloc
-     and cpuhp-add failures also skip `perf_pmu_unregister`. IRQ,
-     `hw_events`, and `pmu_ctr_list` never freed.
-   - After: `irq_requested` tracks a successful IRQ request. Failures
-     before PMU register go to `out_destroy`. Failures after register go
-     to `out_unregister` which now calls `perf_pmu_unregister`. Then
-     IRQ/percpu/`pmu_ctr_list`/`pmu` are freed.
+- **Before:** `spi_controller_suspend(host)` return ignored →
+  `clk_disable_unprepare(pll)` + `clk_disable_unprepare(clk)` → `return
+  0`.
+- **After:** if `spi_controller_suspend()` fails, return that error
+  immediately; clocks stay enabled.
+- Path: **system-sleep suspend error path**, not probe/init.
 
 **Step 2.3: IDENTIFY THE BUG MECHANISM**
 
-Record: **Error-path resource leak + UAF + NULL deref**, with a logic
-fix on the IRQ fallback path.
-
-Verified mechanisms in **this** tree:
-
-| Bug | Mechanism |
-|---|---|
-| **UAF of registered PMU** | `perf_pmu_register()` then
-`pmu_sbi_snapshot_alloc()` or `cpuhp_state_add_instance()` fails →
-`kfree(pmu)` while the PMU stays in perf core |
-| **NULL deref / list corruption** | `riscv_pmu_destroy()` →
-`cpuhp_state_remove_instance()` → `hlist_del()` → `WRITE_ONCE(*pprev,
-next)` with `pprev == NULL` on a `kzalloc`’d node |
-| **IRQ + cookie UAF** | successful `request_percpu_irq(..., hw_events)`
-then later probe fail frees `pmu`/`hw_events` without `free_percpu_irq`
-|
-| **Leaks** | `alloc_percpu` `hw_events` and `kcalloc` `pmu_ctr_list`
-only freed on the new `out_free` |
-| **Wrong IRQ flag on success path** | IRQ setup failure is **non-
-fatal**; probe continues with `PERF_PMU_CAP_NO_INTERRUPT` but
-`riscv_pmu_use_irq` stayed true, so `pmu_sbi_starting_cpu()` can
-`enable_percpu_irq(0)` |
+Record:
+- **Category:** logic / PM error-path correctness (resource teardown
+  while transfers may still be running).
+- **Mechanism:** this driver sets `host->transfer_one_message`, so
+  registration calls `spi_controller_initialize_queue()` and
+  `ctlr->queued = true`. `spi_controller_suspend()` then calls
+  `spi_stop_queue()`, which polls up to 500 × ~10 ms (~5 s) and returns
+  **`-EBUSY`** if the queue/busy bit never clears. The driver used to
+  power down clocks anyway.
 
 **Step 2.4: ASSESS THE FIX QUALITY**
 
-Record: Obviously correct and minimal. `out_unregister` is only reached
-after a successful `perf_pmu_register`. `out_destroy` does not
-unregister. `hlist_unhashed` matches `cpuhp` (node is hashed only after
-successful add). IRQ free happens before `free_percpu(hw_events)`.
-
-Regression risk: **low**. Remaining gaps (sysctl not unregistered;
-`sbi_pmu_snapshot_available` static key not disabled) are pre-existing
-and not introduced here. They do not make this patch unsafe.
+Record:
+- Obviously correct and matches the usual SPI driver pattern (e.g.
+  `rockchip_spi_suspend()` in this tree).
+- Minimal; no API/data-structure changes.
+- Regression risk is low. An automated review (sashiko-bot) noted that
+  `spi_controller_suspend()` still sets `SPI_CONTROLLER_SUSPENDED` on
+  failure, and a failed device suspend does not get `resume()`. That is
+  a **pre-existing SPI core quirk** shared by most drivers that already
+  check this return. The old path is worse: same flag is set **and**
+  clocks are gated. Mark Brown applied the series without requesting an
+  unwind.
 
 ---
 
@@ -239,45 +207,42 @@ and not introduced here. They do not make this patch unsafe.
 **Step 3.1: BLAME THE CHANGED LINES**
 
 Record:
-- IRQ error returns: `4905ec2fb7e642` (Atish Patra, 2022-02-18) —
-  sscofpmf
-- Destroy / `out_unregister`: `e9a023f2b73ac3` (Eric Lin, 2022-07-05) —
-  PM notifier
-- Snapshot + moving `cpuhp_state_add_instance` **after** register:
-  `a8625217a054ca` (Atish Patra, 2024-04-20) — **this is when the
-  registered-PMU UAF became real**
-- Original `kfree(pmu)`-only `out_free`: `e9991434596f53` (2022-02-18) —
-  driver introduction
+- Ignored `spi_controller_suspend()` + clock disable introduced in
+  **`a38a2233f23b5`** (“spi: bcmbca-hsspi: Add driver for newer HSSPI
+  controller”, William Zhang, 2023-02-09).
+- First appeared: **`v6.3-rc1`**. Present for the entire life of this
+  driver, including 6.18.y.
 
-All of these are ancestors of this 6.12 tree.
+**Step 3.2: FOLLOW THE FIXES TAG**
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: No Fixes tag. Buggy code is the original driver, not a later
+regression.
 
-Record: No `Fixes:` tag. Buggy code is still in this checkout (see Phase
-6).
+**Step 3.3: CHECK FILE HISTORY**
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Record (this file, newest first):
+- `2b580ac54f40f` — modern PM macros (later autosel candidate; **not** a
+  prerequisite)
+- `072b287a97bf3` — **this** commit
+- `148a3f03aec89` — resume-side clock cleanup (**already in v6.18.53**,
+  had Fixes + Cc: stable)
+- Driver-original suspend path otherwise unchanged since v6.3
 
-Record (this tree, `git log --oneline -20 --
-drivers/perf/riscv_pmu_sbi.c`): overflow-IRQ NULL check, bitmap cmask,
-errno/firmware-event fixes. None of those replace this cleanup. `git log
---oneline e24a1418e90be..origin/master -- drivers/perf/riscv_pmu_sbi.c`
-only shows later overflow-mask/bitmap work; they do not revert or redo
-this cleanup.
+Standalone. Cover letter: *“The patches are independent and only touch
+the local error paths in each driver.”*
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+**Step 3.4: CHECK THE AUTHOR’S OTHER COMMITS**
 
-Record: Atish Patra wrote the SBI PMU driver (`e9991434596f53`) and the
-snapshot code. This is a maintainer-area fix, not drive-by.
+Record: Jiawen Liu submitted a 4-patch SPI PM error-handling series
+(atcspi200, **bcmbca-hsspi**, fsl-dspi, nxp-fspi). Additional similar
+Broadcom fixes exist for bcm63xx / bcm63xx-hsspi / bcm-qspi. Author is a
+regular contributor, not the SPI maintainer. Maintainer **Mark Brown**
+applied all 4.
 
 **Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
 
-Record: Msgid is `counter_delegation-v9-1`. Patches 2–20 add
-Smcsrind/Ssccfg/Smcdeleg and a new PMU path. They are **features**, not
-prerequisites. This hunk only uses `hlist_unhashed`,
-`perf_pmu_unregister`, `free_percpu_irq`, `irq_dispose_mapping`,
-`free_percpu`, `pmu_ctr_list` — all already in 6.12. **Standalone.**
-`git show e24a1418e90be | git apply --check` succeeded (offsets only).
+Record: None. Uses existing `spi_controller_suspend()`. Applies
+standalone. Series 2/4 is independent.
 
 ---
 
@@ -286,40 +251,45 @@ prerequisites. This hunk only uses `hlist_unhashed`,
 **Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
 
 Record:
-- `b4 dig -c e24a1418e90be`: matched patch-id; lore URL `https://patch.m
-  sgid.link/20260807-counter_delegation-v9-1-58658104e487@meta.com`
-- `b4 dig -a`: cleanup first appeared as **v7 01/22** (2026-06-22), then
-  **v9 01/20** (committed)
-- WebFetch of lore returned **403** (Anubis). Thread was recovered via
-  `b4 dig -m /tmp/riscv-pmu-cleanup.mbox`
-- No NAK on this patch. Paul Walmsley queued the first ten patches
-  (including this one) for `riscv/for-next`
+- `b4 dig -c faa878d4805c`: **[PATCH 2/4] spi: bcmbca-hsspi: return
+  error from failed controller suspend**
+- Thread: https://patch.msgid.link/tencent_54F5634545908FBA724E758054BF0
+  3953808@qq.com
+- Cover: **[PATCH 0/4] spi: fix PM error handling in several drivers**
+  (2026-06-20)
+- `b4 dig -a`: **v1 only**; committed version is that v1.
+- Human review: no NAK. Mark Brown applied to `spi/for-7.3`
+  (git.kernel.org/broonie/spi/c/faa878d4805c).
+- sashiko-bot: “permanently wedged in a suspended state” if error is
+  propagated (SPI core marks suspended even on `-EBUSY`). No maintainer
+  follow-up; patch still applied.
 
 **Step 4.2: CHECK WHO REVIEWED THE PATCH**
 
-Record: Charlie Jenkins `Reviewed-by`. Paul Walmsley applied it.
-Recipients are the RISC-V list / maintainers (from msgid and SOBs). No
-`Cc: stable` in review.
+Record (`b4 dig -w`): To Mark Brown; Cc William Zhang, Kursad Oney,
+Jonas Gorski, bcm-kernel-feedback-list, Florian Fainelli, linux-spi,
+linux-arm-kernel, etc. Right maintainers/lists. No Acked-by on this hunk
+(unlike some sibling Broadcom patches).
 
 **Step 4.3: SEARCH FOR THE BUG REPORT**
 
-Record: Reporter is Sashiko, not syzbot. v9 review of **this** patch
-restates remaining **pre-existing** issues (snapshot disable without CPU
-pin, static key, sysctl leak, init-time cpuhp leak). It does **not** NAK
-the cleanup. The UAF it describes of a registered-then-freed PMU is
-exactly what `perf_pmu_unregister` addresses.
+Record: No syzbot, bugzilla, or user crash report. Bug is from code
+inspection of the ignored return. The same driver’s **resume**
+counterpart (`148a3f03aec89`) was user/author-driven with
+Fixes+Cc:stable and is already in this tree.
 
 **Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
 
-Record: Rest of v9 is new ISA / delegation code. Not needed for this
-cleanup. Later origin/master commits on this file do not change these
-error labels.
+Record: Independent 2/4. Sibling Broadcom suspend-return patches are the
+same class, not build/runtime dependencies. Resume clock-disable-on-
+failure is already in 6.18.53; this is the suspend-side counterpart.
 
 **Step 4.5: CHECK STABLE MAILING LIST HISTORY**
 
-Record: lore.kernel.org/stable WebFetch also 403. **UNVERIFIED** whether
-stable@ already discussed this. Absence of `Cc: stable` is expected for
-this review queue.
+Record: lore.kernel.org returned 403; WebSearch of
+`lore.kernel.org/stable` for this subject found **no** stable-specific
+discussion. UNVERIFIED that anyone requested or rejected it on stable@;
+no evidence of a known reason to skip it.
 
 ---
 
@@ -327,40 +297,41 @@ this review queue.
 
 **Step 5.1: KEY FUNCTIONS**
 
-Record: `pmu_sbi_setup_irqs`, `riscv_pmu_destroy`,
-`pmu_sbi_device_probe`. Related: `pmu_sbi_starting_cpu`,
-`riscv_pmu_alloc`, `pmu_sbi_get_ctrinfo`.
+Record: `bcmbca_hsspi_suspend()` (modified). Callees of interest:
+`spi_controller_suspend()`, `spi_stop_queue()`,
+`clk_disable_unprepare()`.
 
 **Step 5.2: TRACE CALLERS**
 
-Record:
-- `pmu_sbi_device_probe` — `.probe` of `pmu_sbi_driver`
-- Called from `pmu_sbi_devinit()` (`device_initcall`) via
-  `platform_device_register_simple(RISCV_PMU_SBI_PDEV_NAME, ...)`
-- `pmu_sbi_starting_cpu` / `pmu_sbi_dying_cpu` read `riscv_pmu_use_irq`
-  (the flag this patch clears on IRQ setup failure)
+Record: Wired via `DEFINE_SIMPLE_DEV_PM_OPS(bcmbca_hsspi_pm_ops, …)` /
+`.pm` on the platform driver. Called from the PM core on **system
+sleep**, not from syscalls directly. Reachable on BCMBCA boards that
+suspend with `CONFIG_SPI_BCMBCA_HSSPI` and `CONFIG_PM_SLEEP`.
 
 **Step 5.3: TRACE CALLEES**
 
-Record: `riscv_pmu_alloc()` does `kzalloc` + `alloc_percpu_gfp` (this
-tree, `drivers/perf/riscv_pmu.c`). `pmu_sbi_get_ctrinfo()` `kcalloc`s
-`pmu_ctr_list`. `cpuhp_state_remove_instance()` always `hlist_del()`s.
+Record:
+- `spi_controller_suspend()` → `spi_stop_queue()` if queued; always
+  `__spi_mark_suspended()`.
+- Then (success only, after this patch) clock disable.
 
 **Step 5.4: FOLLOW THE CALL CHAIN**
 
-Record: Boot/init on RISC-V with SBI PMU (`CONFIG_RISCV_PMU_SBI`
-**default y**). Trigger is probe failure after partial success:
-`snapshot_alloc` ENOMEM, `perf_pmu_register` failure,
-`cpuhp_state_add_instance` failure, or `cpu_pm_register_notifier`
-failure. After a successful `perf_pmu_register` and a later fail,
-userspace `perf` can touch a PMU whose `struct riscv_pmu` is already
-`kfree`d — **userspace-reachable UAF**.
+Record:
+`pm_suspend` → `dpm_suspend` → `bcmbca_hsspi_suspend` →
+`spi_controller_suspend` → `spi_stop_queue`.
+
+In-flight work is `bcmbca_hsspi_transfer_one` → `bcmbca_hsspi_do_txrx`
+doing `__raw_readl`/`__raw_writel` on `bs->regs`. Yanking clocks while
+that runs is a hang/abort/corruption path. Userspace can keep the queue
+busy (SPI flash, sensors) across a suspend request.
 
 **Step 5.5: SEARCH FOR SIMILAR PATTERNS**
 
-Record: Same file’s `pmu_sbi_devinit()` still leaks
-`cpuhp_setup_state_multi` if `platform_driver_register` fails. Pre-
-existing, out of this patch’s scope.
+Record: Most SPI drivers in this tree already check
+`spi_controller_suspend()` (dw, tegra, rockchip, qup, pxa2xx, atmel, …).
+This driver was an outlier. Same author’s bcm63xx/bcm-qspi patches fix
+the same pattern.
 
 ---
 
@@ -368,38 +339,29 @@ existing, out of this patch’s scope.
 
 **Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
 
-Record: **Yes.** This checkout is 6.12.111; `e24a1418e90be` is **not**
-an ancestor (`git merge-base --is-ancestor` exit 1).
+Record: **Yes.** `v6.18.53:drivers/spi/spi-bcmbca-hsspi.c` still has:
 
-Current probe error path (`drivers/perf/riscv_pmu_sbi.c`):
-
-```1462:1468:drivers/perf/riscv_pmu_sbi.c
-out_unregister:
-        riscv_pmu_destroy(pmu);
-
-out_free:
-        kfree(pmu);
-        return ret;
+```c
+spi_controller_suspend(host);
+clk_disable_unprepare(bs->pll_clk);
+clk_disable_unprepare(bs->clk);
+return 0;
 ```
 
-`riscv_pmu_destroy()` still unconditionally removes the cpuhp instance.
-`pmu_sbi_setup_irqs()` still returns without clearing
-`riscv_pmu_use_irq` or disposing a mapping.
-
-Bug introduced: leaks since v5.17-era driver; UAF of registered PMU
-since snapshot/cpuhp reorder in `a8625217a054ca` (in this tree).
+`git merge-base --is-ancestor 072b287a97bf3 v6.18.53` → **not an
+ancestor**. Bug introduced in v6.3, still in 6.18.53.
 
 **Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
 
-Record: **Clean apply** (`git apply --check` — all 6 hunks succeeded
-with −54 line offset). Context differs (`bitmap_copy` vs mainline
-`pmu->cmask = cmask`) because 6.12 already has `143668c424772` (counter
-mask as bitmap). No rework required.
+Record: **Clean apply.** `git diff v6.18.53 072b287a97bf3^ --
+drivers/spi/spi-bcmbca-hsspi.c` is empty. No rework needed. Later
+“modern PM macros” commit is unrelated and not required.
 
 **Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
 
-Record: No equivalent cleanup. Bitmap and overflow-IRQ fixes in this
-tree are independent.
+Record: Resume-side `148a3f03aec89` **is** in v6.18.53. No other
+suspend-error check for this function. This is the missing counterpart,
+not a duplicate.
 
 ---
 
@@ -407,13 +369,15 @@ tree are independent.
 
 **Step 7.1: SUBSYSTEM AND CRITICALITY**
 
-Record: `drivers/perf` / RISC-V SBI PMU. **IMPORTANT** for RISC-V
-(default-on perf), not core-mm/VFS. Not staging.
+Record: **drivers/spi** — Broadcom BCMBCA HSSPI
+(`CONFIG_SPI_BCMBCA_HSSPI`, `depends on ARCH_BCMBCA || COMPILE_TEST`).
+**PERIPHERAL / platform-specific**, but SPI NOR on those SoCs is often
+boot/config flash, so a bad suspend is not cosmetic.
 
 **Step 7.2: SUBSYSTEM ACTIVITY**
 
-Record: Mature driver (2022) with ongoing RISC-V perf fixes. This is a
-long-standing error-path hole, not churn in brand-new code.
+Record: SPI core is mature; this driver is small and not heavily
+churned. Bug is long-standing (since v6.3), not a brand-new feature.
 
 ---
 
@@ -421,37 +385,39 @@ long-standing error-path hole, not churn in brand-new code.
 
 **Step 8.1: WHO IS AFFECTED**
 
-Record: RISC-V systems with `CONFIG_RISCV_PMU_SBI` (default y) and SBI
-PMU (QEMU virt, most recent boards). Driver-specific, not universal.
+Record: **Platform-specific** — Broadcom BCMBCA (ARM/ARM64 broadband
+SoCs: gateways/routers). Only if the HSSPI driver and system sleep are
+enabled.
 
 **Step 8.2: TRIGGER CONDITIONS**
 
-Record:
-- Common path: probe succeeds — no crash
-- Realistic fail: `pmu_sbi_snapshot_alloc()` ENOMEM (page alloc
-  GFP_ATOMIC per CPU) **after** `perf_pmu_register`
-- IRQ mapping fail with SSCOF/T-Head/Andes: probe **continues**,
-  `riscv_pmu_use_irq` wrongly stays true
-- Unprivileged user cannot force probe, but **can** open the registered
-  `"cpu"` PMU in the failure window
+Record: System suspend while the SPI queue stays busy for ~5 seconds
+(`spi_stop_queue` limit). Uncommon, but exactly the dangerous case
+(stuck or long transfer). Not a syzbot syscall crash; can be induced by
+userspace SPI activity plus suspend. Unprivileged trigger depends on who
+can open the SPI device and who can suspend (typically privileged).
 
 **Step 8.3: FAILURE MODE SEVERITY**
 
 Record:
-- Registered PMU then `kfree(pmu)` → **UAF** → HIGH
-- `hlist_del` on unhashed node → **oops** → HIGH
-- IRQ cookie UAF → HIGH
-- One-time leaks if probe dies before register → MEDIUM
-- `enable_percpu_irq(0)` on fallback success path → MEDIUM–HIGH
+- Clocks gated while the pump may still MMIO → bus hang, imprecise
+  abort, or torn SPI NOR write.
+- PM core is told suspend succeeded, so the machine continues into sleep
+  with live SPI I/O unclocked.
+- **Severity: HIGH** when it hits (corruption/hang); trigger is
+  uncommon.
 
 **Step 8.4: RISK-BENEFIT RATIO**
 
 Record:
-- **Benefit:** high for RISC-V 6.12 — prevents oops/UAF on probe fail
-  and a wrong IRQ flag on a continued probe
-- **Risk:** low — ~27 net lines, error path + one flag clear, applies
-  cleanly
-- **Ratio:** favor backport
+- **Benefit:** medium-high for BCMBCA devices that suspend; prevents
+  clock-off during active SPI. Completes PM error handling already fixed
+  on resume in this tree.
+- **Risk:** very low (5 lines, standard pattern). Residual:
+  `SPI_CONTROLLER_SUSPENDED` can stick if suspend fails (SPI core). That
+  already exists for the majority of SPI drivers here; old code still
+  set the flag **and** cut clocks.
+- **Ratio:** benefit outweighs risk.
 
 ---
 
@@ -459,214 +425,140 @@ Record:
 
 **Step 9.1: EVIDENCE**
 
-**FOR:**
-- Real UAF: perf-registered PMU freed without unregister (snapshot/cpuhp
-  fail after `perf_pmu_register`)
-- Real oops: `cpuhp_state_remove_instance` → `hlist_del` with NULL
-  `pprev`
-- Real IRQ leak/UAF and `pmu_ctr_list`/`hw_events` leaks
-- `riscv_pmu_use_irq` left true on non-fatal IRQ setup failure (success-
-  path bug)
-- Small, obviously correct, reviewed by Charlie Jenkins, authored by the
-  driver owner
-- Buggy code and helpers exist in 6.12; patch applies cleanly
-- Standalone despite being 01/20 of a feature series
+**For backporting:**
+- Real PM bug: ignored `-EBUSY` from `spi_controller_suspend()`, then
+  clock disable + `return 0`.
+- Can unclock MMIO and corrupt in-flight SPI (including flash).
+- 5-line, obviously correct, maintainer-applied (Mark Brown).
+- Driver and buggy code exist in **this** 6.18.53 tree since v6.3.
+- Applies cleanly; no prerequisites.
+- Same class as the resume fix already in 6.18.53.
+- Aligns this outlier with the rest of the SPI subsystem.
 
-**AGAINST:**
-- Probe-fail is uncommon (except IRQ-setup fallback, which is not fatal
-  and is common on some platforms)
-- Incomplete: sysctl, snapshot static key, init-time cpuhp still leak
-  (pre-existing)
-- RISC-V only
-- Reported by an AI bot, not a production oops
+**Against:**
+- No user/syzbot report; error path is uncommon (~5 s busy).
+- Platform-specific (not all machines).
+- Incomplete vs an unwind via `spi_controller_resume()` (SPI core marks
+  suspended on failure).
+- No Fixes/Cc:stable (expected here; not a reason to reject).
 
-**UNRESOLVED:** stable@ thread (lore 403); whether Sashiko had a
-concrete reproducer beyond code review.
+**Unresolved:**
+- Could not fetch lore.kernel.org (403). Thread recovered via `b4 dig`
+  mbox + LKML/openwall. No stable@ discussion found.
 
 **Step 9.2: STABLE RULES CHECKLIST**
 
-1. Obviously correct and tested? **PASS** — reviewed, applied by RISC-V
-   maintainer, logic matches the four listed holes
-2. Fixes a real bug that affects users? **PASS** — UAF/oops/leaks in the
-   default RISC-V PMU driver
-3. Important issue? **PASS** — UAF and NULL deref are HIGH; not a style
-   cleanup
-4. Small and contained? **PASS** — one file, +27/−6
+1. Obviously correct and tested? **PASS** — applied by SPI maintainer;
+   pattern used across `drivers/spi`.
+2. Fixes a real bug that affects users? **PASS** — ignored suspend
+   failure + clock teardown.
+3. Important issue? **PASS** — hang/abort/data corruption on active SPI
+   during suspend, not a style tweak.
+4. Small and contained? **PASS** — +5/−1, one function.
 5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — `git apply --check` clean
+6. Can apply to the local tree? **PASS** — clean on v6.18.53.
 
 **Step 9.3: EXCEPTION CATEGORIES**
 
-Record: None. Ordinary bugfix.
+Record: Not a device-ID/quirk/DT/build/doc exception. Ordinary small
+bugfix.
 
 **Step 9.4: DECISION**
 
-This 6.12 tree has the buggy probe path. The fix is small, applies, and
-closes UAF/oops/leak holes in a default-on RISC-V driver. Remaining
-cleanup gaps are not a reason to withhold the part that is correct.
+This belongs in this 6.18.y tree. The bug is in the tree, the fix is
+surgical, and leaving clocks on when the queue cannot stop is the
+correct hardware behavior.
 
 ---
 
-## What this means for 6.12 users
+### Problem for stable users
 
-On RISC-V with SBI PMU, a failed probe after `perf_pmu_register()`
-currently frees `struct riscv_pmu` while perf still holds it, and
-`riscv_pmu_destroy()` oopses by deleting an unhashed cpuhp node. The
-same path leaks the per-CPU IRQ cookie, `hw_events`, and `pmu_ctr_list`.
-IRQ setup failure is treated as non-fatal but leaves `riscv_pmu_use_irq`
-set, so hotplug can enable IRQ 0. The patch only rewires those gotos and
-frees; it does not pull in counter-delegation.
+On Broadcom BCMBCA HSSPI, suspend called `spi_controller_suspend()`
+(which can return `-EBUSY` after ~5 s if transfers will not stop) and
+then **always** disabled PLL/core clocks and returned success. That can
+cut clocks under a live transfer (`bcmbca_hsspi_do_txrx` MMIO). This
+tree already fixed the matching resume error path; suspend was still
+wrong.
 
-Risk is low relative to leaving a registered-PMU UAF in a long-term
-tree.
+### Stable rules / risk
+
+Meets the rules: real bug, small, no new API, clean apply to 6.18.53.
+Risk is a few lines in one PM callback. Benefit is avoiding unclocked
+SPI and false-successful suspend.
+
+### Concerns
+
+No extra commits needed. Sashiko’s “stuck SUSPENDED flag” note is a SPI-
+core limitation already shared by most drivers; it does not make the old
+“disable clocks anyway” path acceptable.
 
 ---
 
-## Verification
-
-- **[Phase 1]** Parsed tags: Sashiko Reported-by, Charlie Jenkins
-  Reviewed-by, Atish Patra + Paul Walmsley SOBs, msgid v9 01/20; no
-  Fixes
-- **[Phase 2]** Diff: +27/−6 in `riscv_pmu_sbi.c`; IRQ err goto,
-  `hlist_unhashed` guard, `perf_pmu_unregister`,
-  `free_percpu_irq`/`free_percpu`/`kfree(pmu_ctr_list)`
-- **[Phase 2]** Read 6.12 `pmu_sbi_device_probe` lines 1367–1468:
-  destroy + `kfree(pmu)` only
-- **[Phase 2]** Read `kernel/cpu.c` `__cpuhp_state_remove_instance`:
-  always `hlist_del(node)`
-- **[Phase 2]** Read `include/linux/list.h` `__hlist_del`:
-  `WRITE_ONCE(*pprev, next)` NULL-derefs if never hashed
-- **[Phase 2]** Read `__cpuhp_state_add_instance_cpuslocked`:
-  `hlist_add_head` only on success
-- **[Phase 3]** `git blame` IRQ path `4905ec2fb7e642` (2022); destroy
-  `e9a023f2b73ac3` (2022); snapshot/cpuhp order `a8625217a054ca` (2024,
-  in this tree)
-- **[Phase 3]** `git merge-base --is-ancestor e24a1418e90be HEAD` → not
-  in this tree; `e9a023f2b73ac3` / `a8625217a054ca` / `e9991434596f53` →
-  in this tree
-- **[Phase 3]** Follow-ups on origin/master do not redo this cleanup
-- **[Phase 4]** `b4 dig -c e24a1418e90be` → patch.msgid.link v9-1; `-a`
-  shows v7 first, v9 applied
-- **[Phase 4]** `b4 dig -m`: 31-message mbox; Sashiko comments are pre-
-  existing leftovers; Paul queued first ten patches; no NAK
-- **[Phase 4]** WebFetch lore/stable: 403 — UNVERIFIED stable-list
-  discussion
-- **[Phase 5]** Probe from `device_initcall(pmu_sbi_devinit)`;
-  `riscv_pmu_alloc` allocates `hw_events`; `pmu_sbi_get_ctrinfo`
-  allocates `pmu_ctr_list`
-- **[Phase 5]** `pmu_sbi_starting_cpu` uses `riscv_pmu_use_irq` /
-  `riscv_pmu_irq`
-- **[Phase 6]** `git describe HEAD` → `p-6.12-4-gbf6fcdf761abd`; `make
-  kernelversion` → **6.12.111**
-- **[Phase 6]** `git apply --check` of `e24a1418e90be`: all hunks OK
-- **[Phase 7]** `CONFIG_RISCV_PMU_SBI` default y in
-  `drivers/perf/Kconfig`
-- **[Phase 8]** Failure mode: UAF of registered PMU + cpuhp oops → HIGH
-- **UNVERIFIED:** live user oops; stable@ nomination history
+Verification:
+- [Phase 1] Parsed subject/tags/body from `git show 072b287a97bf3` /
+  upstream `faa878d4805c`; no Fixes/Reported-by; Link to msgid; Mark
+  Brown SOB
+- [Phase 2] Diff: +5/−1 in `bcmbca_hsspi_suspend()`; ignore →
+  check/return
+- [Phase 2] `spi_controller_suspend()` / `spi_stop_queue()` in
+  `drivers/spi/spi.c`: queued controllers can return `-EBUSY`;
+  `__spi_mark_suspended()` always runs
+- [Phase 2] Driver sets `transfer_one_message`;
+  `spi_register_controller()` initializes the queue (`ctlr->queued =
+  true`)
+- [Phase 3] `git blame 072b287a97bf3^`: buggy lines from `a38a2233f23b5`
+  (v6.3-rc1)
+- [Phase 3] `git log --oneline -- drivers/spi/spi-bcmbca-hsspi.c`:
+  resume fix `148a3f03aec89` already in v6.18.53; this commit not in
+  v6.18.53
+- [Phase 3] `git merge-base --is-ancestor 072b287a97bf3 v6.18.53` → no;
+  `git diff v6.18.53 072b287a97bf3^ -- drivers/spi/spi-bcmbca-hsspi.c` →
+  0 lines
+- [Phase 3] Author series via `git log --author="Jiawen Liu" --
+  drivers/spi/`
+- [Phase 4] `b4 dig -c faa878d4805c` / `-a` / `-w` / `-m`: v1 2/4,
+  independent series, applied by Mark Brown 2026-06-30; Broadcom/SPI
+  lists on Cc
+- [Phase 4] Cover letter from lkml.iu.edu: patches independent
+- [Phase 4] sashiko-bot mbox msg: SUSPENDED-flag concern; no NAK from
+  maintainer
+- [Phase 4] lore.kernel.org WebFetch 403; stable@ search found nothing
+  relevant — UNVERIFIED no stable@ thread
+- [Phase 5] Callers: PM ops only; callees: `spi_controller_suspend`,
+  `clk_disable_unprepare`; transfer path uses MMIO
+- [Phase 5] Similar pattern already in `spi-rockchip.c` and many other
+  SPI drivers
+- [Phase 6] `git describe HEAD` → `v6.18.53-5049-g0f0bdc2b0dffb`; `make
+  kernelversion` → 6.18.53; buggy suspend in `v6.18.53` file
+- [Phase 7] `CONFIG_SPI_BCMBCA_HSSPI` depends on `ARCH_BCMBCA`
+- [Phase 8] Failure mode: unclocked SPI MMIO / possible flash
+  corruption; trigger = suspend with busy queue for ~5 s
+- UNVERIFIED: live user reports of this suspend path; full
+  lore.kernel.org HTML (403)
 
 **YES**
 
- drivers/perf/riscv_pmu_sbi.c | 33 +++++++++++++++++++++++++++------
- 1 file changed, 27 insertions(+), 6 deletions(-)
+ drivers/spi/spi-bcmbca-hsspi.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 25f3a45dd7869..10f64b7b60c53 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1258,22 +1258,29 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 					  DOMAIN_BUS_ANY);
- 	if (!domain) {
- 		pr_err("Failed to find INTC IRQ root domain\n");
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto err;
- 	}
- 
- 	riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
- 	if (!riscv_pmu_irq) {
- 		pr_err("Failed to map PMU interrupt for node\n");
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto err;
- 	}
- 
- 	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
- 	if (ret) {
- 		pr_err("registering percpu irq failed [%d]\n", ret);
--		return ret;
-+		irq_dispose_mapping(riscv_pmu_irq);
-+		riscv_pmu_irq = 0;
-+		goto err;
- 	}
- 
- 	return 0;
-+err:
-+	riscv_pmu_use_irq = false;
-+	return ret;
- }
- 
- #ifdef CONFIG_CPU_PM
-@@ -1340,7 +1347,8 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
- 		}
- 	}
- 	riscv_pm_pmu_unregister(pmu);
--	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
-+	if (!hlist_unhashed(&pmu->node))
-+		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
- }
- 
- static void pmu_sbi_event_init(struct perf_event *event)
-@@ -1462,6 +1470,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	struct riscv_pmu *pmu = NULL;
- 	int ret = -ENODEV;
- 	int num_counters;
-+	bool irq_requested = false;
- 
- 	pr_info("SBI PMU extension is available\n");
- 	pmu = riscv_pmu_alloc();
-@@ -1490,6 +1499,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
- 	}
-+	irq_requested = (ret == 0);
- 
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
- 	pmu->pmu.parent = &pdev->dev;
-@@ -1508,11 +1518,11 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 
- 	ret = riscv_pm_pmu_register(pmu);
- 	if (ret)
--		goto out_unregister;
-+		goto out_destroy;
- 
- 	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
- 	if (ret)
--		goto out_unregister;
-+		goto out_destroy;
- 
- 	/* SBI PMU Snapsphot is only available in SBI v2.0 */
- 	if (sbi_v2_available) {
-@@ -1553,9 +1563,20 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	return 0;
- 
- out_unregister:
-+	perf_pmu_unregister(&pmu->pmu);
+diff --git a/drivers/spi/spi-bcmbca-hsspi.c b/drivers/spi/spi-bcmbca-hsspi.c
+index a1ff33f6dc095..50beb8443ea90 100644
+--- a/drivers/spi/spi-bcmbca-hsspi.c
++++ b/drivers/spi/spi-bcmbca-hsspi.c
+@@ -586,8 +586,12 @@ static int bcmbca_hsspi_suspend(struct device *dev)
+ {
+ 	struct spi_controller *host = dev_get_drvdata(dev);
+ 	struct bcmbca_hsspi *bs = spi_controller_get_devdata(host);
++	int ret;
 +
-+out_destroy:
- 	riscv_pmu_destroy(pmu);
-+	if (irq_requested) {
-+		free_percpu_irq(riscv_pmu_irq, pmu->hw_events);
-+		irq_dispose_mapping(riscv_pmu_irq);
-+		riscv_pmu_irq = 0;
-+	}
++	ret = spi_controller_suspend(host);
++	if (ret)
++		return ret;
  
- out_free:
-+	free_percpu(pmu->hw_events);
-+	kfree(pmu_ctr_list);
-+	pmu_ctr_list = NULL;
- 	kfree(pmu);
- 	return ret;
- }
+-	spi_controller_suspend(host);
+ 	clk_disable_unprepare(bs->pll_clk);
+ 	clk_disable_unprepare(bs->clk);
+ 
 -- 
 2.53.0
 
