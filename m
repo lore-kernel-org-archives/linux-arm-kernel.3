@@ -2,74 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA76B606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 20:13:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADDE3606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 20:13:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Nh1mr3nR;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Pa3/iQqA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Apyv9OPj;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=Vdc78mEU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhtdHmlzv0DKoEw+Zc7TOwdDACTcoyGMeQ8adip2B7w=; b=Nh1mr3nR2dIQUHvQrzZnr+JzKQ
-	hFSoeT4CefiTacL/lCh4PRPk376eapO+2iLJZwJc5NQOUWVyI+Kp4iYERY9l++1IRqwafwJf2IkoP
-	TFTkjutY4awPYdSQOmgNg3BQhLOowX0WhUwFZWm+EaEdVq1tOZlBQ7Bg7RG5VEYxkZHTso3AwWyzd
-	rjz4Rq4D6nNxwjDrOVsq5f3XsTDIpVpDgKdeAsU6uoCtWIswlchAwGbH+jzlIeHuJZ12KakNxJvfj
-	w1GvZazB0bbt4fpUT8whgFF3pkpAsRRZMSyvFhGaT7GR5Gt8mybl4/qi3LklNBWg7y4iMCMwujyGs
-	JUOyegCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=; b=Apyv9OPjhZJmC1UqRzIbcfDzXa
+	n97hwcyqjsxw+Vgl0bSfxgIkHS+/0vxHpgxStnNNx7JGFn8fUSoDq3yfx6W1nPtIDiEiClMjz7hni
+	93pJRnORXylzpDYO0e8vF4/8gU8aVJkWno41b3EEoV94/b/+BshftwsCkGs56E+BgJ8vSYF/t482+
+	ZHFHfJ27/8+YpaExQunKtVqihIqvUCb+Md63xD2NTgAOBew+U1F6gdXa75kYsTDfK3wKgLUZoWuSR
+	LWV+zF+s1HOSetFGr2tNmlWQnHzolhGyHfNuUzMf8FQnMN/qJrACM8fZ4b69A8ExBYDcwbljJyaVR
+	94sZhgHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xItj7-00000008ICx-3qN1;
-	Mon, 19 Oct 2026 20:12:57 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1xItjQ-00000008IGS-03ki;
+	Mon, 19 Oct 2026 20:13:16 +0000
+Received: from mail-dy1-x1345.google.com ([2607:f8b0:4864:20::1345])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xItj4-00000008IBu-3gLF
+	id 1xItjM-00000008IFH-1qtl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 20:12:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EB2E7C5CD5C;
-	Mon, 19 Oct 2026 20:13:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B800F60582;
-	Mon, 19 Oct 2026 20:12:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A795910328C52;
-	Mon, 19 Oct 2026 22:12:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792440766; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=bhtdHmlzv0DKoEw+Zc7TOwdDACTcoyGMeQ8adip2B7w=;
-	b=Pa3/iQqA6vAUfEWx2TIhJVrvDVY1bNti3mgE+dD437CyxrCLMqTJ1ErML4wYetDTmcOhYK
-	PGq7h9FpP9dgS6Ncnd/AkqwJYFSPAxzZpb4yCCAjWY741cXlg2eGwlHYPABmg57+gc+sf9
-	MbVZ5UeAITIRMWz1Eh3/oQAh6vsciD1LpJEyq2XrUfqG5VY2iX+lZm5FyMaQrAOn06ueNZ
-	gi26YmOton3sKCyOeJXz0LOqt71W7hYVDciazQm48/qe7tvcsRlzC/6olMpGP/ez9o+f2V
-	tcsQpXF00uQ0CStVQxb/29i3zXwo+y347qLAYTuhPpZg18W8E8lWlZjzlv/mqw==
-Date: Mon, 19 Oct 2026 22:12:44 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Pablo Mazzini <pmazzini@gmail.com>
-Cc: Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: (subset) [PATCH v4 00/11] ARM: sunxi: add Allwinner B288 and the
- PocketBook Verse
-Message-ID: <179244056617.104236.5769731153552958433.b4-ty@b4>
-References: <20261012100816.331033-1-pmazzini@gmail.com>
+	Mon, 19 Oct 2026 20:13:14 +0000
+Received: by mail-dy1-x1345.google.com with SMTP id 5a478bee46e88-35fb6be0f9fso6427123eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 13:13:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792440791; x=1793045591; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=;
+        b=Vdc78mEU5vSdTDw+2ExvbFlA1A1FQLRTE9fhM8u0RXXz+q6d+Wx6RkiJoIDRdHqmwf
+         N8qksJaQCQgAYd2MX3HiHWQIn9WkEPttmes3SHEU2QlbH6CSfbTxFmazaadqcYO9wtP0
+         /jeqBgdReTHdnRHm72l0m8W6cusfjt3YTDlKcRpeu8iosQg/t7kGLRITC9qWk6BCogbd
+         UaDhFagmpSAd7NuPOkpfa4qplamVKPnCguGqiFbfmFiTJwTA2ZrYS4AAwCHdWpcJ18Z4
+         ZTDb60u8yOFIi2QP1TS8Hotdi598hHCubmv/qX/ou74mO0qWeANURfgBJpNRz34YzYrG
+         roJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792440791; x=1793045591;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=;
+        b=ZPbdjKuVT4XPXTGESiXuSjjvWKS2JvA0S2ZbU/SpkGSZhKDyoZEIl1vbpnRsDVHkOu
+         s8cJTJrIxuG1y4WSEdScztr6plzdrFCKsNh0hMmhZu5YD5mPV04y0sWjLRrd6z6qj6Wx
+         Pq034h0nHx5erjqZt75JEcUUROdby9nOO+5hlew7yl1337qhjqg4MxsMKmlRvalahRyw
+         MYD10E9CWkvDt8LlcRfP7LUzbwpfBrIr8CDaPb2s7c461K0aj5OgKfuSBqS9wNcuFiLq
+         6QwfmSNLhIWPQRkOlNI9bTq19Hjz35sgeSlQ9sOdc5GlMawpmoOcuIEFmHTjtB7UwVit
+         PWCw==
+X-Forwarded-Encrypted: i=1; AKwUvBx7uv26BjBmJ+iXiHEJwltB8xePDb9QcQGJes2/1fGoTxcdRmTHqHr0uBWrmPNhbvDAtdGuuyAHZ7CcSJ1onKT1@lists.infradead.org
+X-Gm-Message-State: AFq9FYLL5xrCNZyEtIa2m2t/RQTWO6sj0fOVHlV6Tg6T7xZglhb5KdAG
+	oB+6aujh7R0AALvDRaEWOF0BjfC/6qDtcdQQQ8ibpEVHQr+vXP4wE4fWMrlx+7a4bw0oCWMzJPz
+	tOn5hWxJh3g==
+X-Received: from dyrp21.prod.google.com ([2002:a05:693c:69d5:b0:35f:390d:248a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:87c2:10b0:34b:4b99:24ab
+ with SMTP id 5a478bee46e88-361a1e501fbmr13784320eec.22.1792440790306; Mon, 19
+ Oct 2026 13:13:10 -0700 (PDT)
+Date: Mon, 19 Oct 2026 13:12:56 -0700
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261012100816.331033-1-pmazzini@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
+Message-ID: <20261019201257.3805356-1-irogers@google.com>
+Subject: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
+From: Ian Rogers <irogers@google.com>
+To: Thomas Gleixner <tglx@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Stefan Kerkmann <s.kerkmann@pengutronix.de>, Marc Kleine-Budde <mkl@pengutronix.de>, 
+	Christophe Leroy <chleroy@kernel.org>
+Cc: David Laight <david.laight.linux@gmail.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Eric Biggers <ebiggers@google.com>, Al Viro <viro@zeniv.linux.org.uk>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Ian Rogers <irogers@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_131255_463698_E2B17AED 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261019_131312_484074_4AA58B11 
+X-CRM114-Status: GOOD (  15.15  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +93,82 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
+	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 12 Oct 2026 11:08:05 +0100, Pablo Mazzini wrote:
-> The Allwinner B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book
-> readers. This series adds the CCU and pin controller drivers, the RTC,
-> I2C, NMI and watchdog compatibles, the SoC .dtsi, and one board: the
-> PocketBook Verse (PB629), a 6" reader.
-> 
-> The B288 is closest to the A64: most of its PLLs are bit-identical.
-> The clock and pin descriptions come from Allwinner's BSP, cross-checked
-> against ccu-sun50i-a64.c. Tested on a PB629, boots to userspace.
-> 
-> [...]
+Commit a339671db64b ("vdso: Switch get/put_unaligned() from packed struct
+to memcpy()") switched __get_unaligned_t() and __put_unaligned_t() from
+using a __packed struct to __builtin_memcpy() to avoid strict aliasing
+undefined behavior.
 
-Applied, thanks!
+On ARMv5 with GCC, __builtin_memcpy() may not be inlined and instead emit
+a much slower out-of-line memcpy() call. Add CONFIG_VDSO_UNALIGNED_PACKED,
+enabled on ARMv5 (CPU_32v5), to use the __packed struct implementation on
+ARMv5 while keeping __builtin_memcpy() elsewhere.
 
-[05/11] dt-bindings: rtc: sun6i-a31: add Allwinner B288
-        https://git.kernel.org/abelloni/c/51f30cb855f0
-[06/11] rtc: sun6i: add Allwinner B288 compatible
-        https://git.kernel.org/abelloni/c/3784706c87c2
+Fixes: a339671db64b ("vdso: Switch get/put_unaligned() from packed struct to memcpy()")
+Reported-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
+Closes: https://lore.kernel.org/lkml/47f8c30b-e326-4ff0-a2bc-5683209a9e2d@pengutronix.de/
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ include/vdso/unaligned.h | 16 ++++++++++++++++
+ lib/vdso/Kconfig         |  8 ++++++++
+ 2 files changed, 24 insertions(+)
 
-Best regards,
-
+diff --git a/include/vdso/unaligned.h b/include/vdso/unaligned.h
+index 9076483c9fbb..726fd15efc82 100644
+--- a/include/vdso/unaligned.h
++++ b/include/vdso/unaligned.h
+@@ -4,6 +4,20 @@
+ 
+ #include <linux/compiler_types.h>
+ 
++#ifdef CONFIG_VDSO_UNALIGNED_PACKED
++
++#define __get_unaligned_t(type, ptr) ({							\
++	const struct { type x; } __packed * __get_pptr = (typeof(__get_pptr))(ptr);	\
++	__get_pptr->x;									\
++})
++
++#define __put_unaligned_t(type, val, ptr) do {						\
++	struct { type x; } __packed * __put_pptr = (typeof(__put_pptr))(ptr);		\
++	__put_pptr->x = (val);								\
++} while (0)
++
++#else /* !CONFIG_VDSO_UNALIGNED_PACKED */
++
+ /**
+  * __get_unaligned_t - read an unaligned value from memory.
+  * @type:	the type to load from the pointer.
+@@ -41,4 +55,6 @@
+ 			 sizeof(__put_unaligned_val));			\
+ } while (0)
+ 
++#endif /* CONFIG_VDSO_UNALIGNED_PACKED */
++
+ #endif /* __VDSO_UNALIGNED_H */
+diff --git a/lib/vdso/Kconfig b/lib/vdso/Kconfig
+index 597f5f0f9681..709eb193999f 100644
+--- a/lib/vdso/Kconfig
++++ b/lib/vdso/Kconfig
+@@ -23,3 +23,11 @@ config VDSO_GETRANDOM
+ 	select VDSO_DATASTORE
+ 	help
+ 	  Selected by architectures that support vDSO getrandom().
++
++config VDSO_UNALIGNED_PACKED
++	bool
++	default CPU_32v5
++	help
++	  Use packed structs rather than memcpy() in include/vdso/unaligned.h
++	  for unaligned memory accesses. Enabled on ARMv5 where GCC may emit
++	  out-of-line memcpy() calls instead of inlining byte accesses.
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.56.0.212.g129ede20d9-goog
+
 
