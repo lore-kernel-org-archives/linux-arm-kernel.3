@@ -4,113 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D39CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E2BCCF2D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1X6Ak1b5YnhMEpM33yKsTItIXYeyxlIqpx2Kl/jIFo=; b=cf/1Z1+6/m1sfffrdNq8sJPbgr
-	bX3cdpQLor654SRo4Rf1OjuanpmX8jds8ZuFt6dobVnp6nd0DtZ6QPvzmUi4faaS5Y9yFOJbdkIc9
-	oBno3/Hw2x+GVJcXXjAU1nkBtq5Ff4WBXKzfortB2LWsmXdFT8hq0LHX1PlDnQyqBUUCGITUD7AsN
-	0p2qP7RwFgEKiZ2U4lGAi8ztU3B6s/BosrAEew9su6ut1XhMPUtJhPFsBKFVlxy/yK2uWOv+DzIgW
-	xq3mzkf83o8rEZf9s1Gp8YiYLo3c8btRUM4oGOplB8GrqCr5DBWnS5yVHNWKbHxh58PH+M2d/roCS
-	6I8/Rh2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWLBljJF+g21y6oGGUekme2PmMbMBIzShNS8HAgf7NQ=; b=W5JjQJrgLJIFu/LXO6vl5mH/Qr
+	onNtQMIAMk29sPbf/UqAgRs7GJS+KaklTcbKOP/xpudiln2tOzK7Y2a5gAeieSPPJxsP7Z5I+Orkd
+	D0AmE16Q3KR5pVFNPu2rudObqU02fVaYW/de92JWAiejQqZ0gAbbWnjm1aOq98jCOqZFMSpQGzj83
+	BYXOnf7MO8d/E5+smyhjHVV7LHgXz9tVoKErblFsyfJe0nFILM6cLkqSUvDc4BrekUacfCLy+KD2V
+	0J0PYwGV3aFLDA1ejj7ZPh/RioTZxLMh6Ajq6IarkU2EILvj/I4T5wEC7QdBiexYk/WntcAyElXcS
+	rDSmnPBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiWf-00000006qvq-3mgQ;
-	Mon, 19 Oct 2026 08:15:21 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1xIiXE-00000006r3Y-1CXd;
+	Mon, 19 Oct 2026 08:15:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiWd-00000006quu-3int
+	id 1xIiXC-00000006r3J-46MG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:15:21 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-66fbdb0a5a7so245855d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:15:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792397718; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dxSSDX8xHh/aX2wbq9HHMjltp92h91KpVPmiSb734u3Mkt0JVjVEtCZI8gYgKVbufk
-         NuJ8JwvnDhfVT7Rn+f4r84KP9izx/IWX9HIULPc/qY+RvJFsYcjBjX07vEgtX1+Mh88/
-         9x0mxENqgAPH6F0fs2DDhKN/uvUcNVkFH0lkFRQSfqrFLOWaYfg0ce7dMas//fdA+i2Y
-         2TycHQn7p3ow5gXaVdYTM805fNbvFWLlc3AmTtq1yaHEpFwvKb0CxPB1xlOQpiYMxLV2
-         dSsvu3dhmiJhBr3RqQ6B5EeXnujUNaTToz2BbWAG34U2gjpKqAxE5+OFxQCKGXba5V7F
-         6xGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=U1X6Ak1b5YnhMEpM33yKsTItIXYeyxlIqpx2Kl/jIFo=;
-        fh=YwIzgkcU2TQGccn9+O/ommb7HsFgFbTOxJO23U4isFg=;
-        b=UKTIK6Akje7e41ylEyFzV8FzFbnJ7vw1HmPN/yKrdhtqT4JLFwpdcW+wxSgKqnqq1r
-         /Wg0P8PmvgXH8+l2VPtU0a9l2pWsjxR3ASX5RatfJsNE/l6gW6xLeH/r0VPf1l6mz962
-         yvKVGc1iwKZw9+gvaXh5LsdqPZHtt4joWnA1efyVBWd8o1BwB63yhyp6rzUUe/390D0n
-         aok1UrKahRP9UbOpVO49baS6ykIrAgPzD9ydglCSIEKqm0yxom5vkEc8gUZOXY85v/1A
-         E8Z85qfPyv4/mlMagKVnhBA2SrDRaMnMRigCey73fVFfMsfGWlouUuxBh2MczJyrgKYx
-         VKEw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792397718; x=1793002518; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U1X6Ak1b5YnhMEpM33yKsTItIXYeyxlIqpx2Kl/jIFo=;
-        b=fsm5SSCw8bVv1e+oL1c+Fo3bs0i163BPOjWmRbkPN/IZIzB2pkAzAkPi71WXX9TXkD
-         uqf6Vwai4N+nwfLudyrupJozFv62N6pGDuXrCP0BZGBlT7e5tWRwRcAdmaObfcOWdGRL
-         lSd4tw6/ywrL4IyOZgY+6vlE5W5qqMkae13aoXt913wUeUlxWuk8eo6PkCMNvuzKYQt6
-         gms1b5veaCWQaDpnbmpv73r/VEJtgwwvSVXaKejaqwvNryqR/wncHANYx8Bbqr8hXMtt
-         hSgOI18OxdxdH/fh4HtJeGZZ+7V0BdIFywiDHnyCD4c8ctcukB1EQfQwH380r5DLroay
-         QlJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792397718; x=1793002518;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=U1X6Ak1b5YnhMEpM33yKsTItIXYeyxlIqpx2Kl/jIFo=;
-        b=hJl/lOHHPO4eb11k4fvfrmMkpumrfKRA8JIYULtrVKIeaXlNwDt8w/fAOJuThMaFLc
-         ZOQsT4sOjatqmNWrlzcFtQAYwJmdfMWPpYMEn8WLJIFyfbLcTMYjyHp+2WDsB9OL5jmx
-         ZwttISIyJe1QbXBiuqySfUsFWQtKnmSwTgobFSD/Es0wiwv5b9ROSEpvbZHbD5tH+/lg
-         PibfP0nYtoJDgAYWBhMFpWNX6rPyrVBtu2cn7GTNHGPGbe0ZUlsKQ5PdbD5f9q/rPSA/
-         z8Ug4DgzDfHutuNjMJD8ceKdbHDG+vCli0svO/gl/asP3jNZL5cpgextkXRSj6GKviiA
-         Lq1g==
-X-Forwarded-Encrypted: i=1; AKwUvBzSEbhz4io6PGokSBuWmnx6oKcwYu4mEDorPjPZ6UJ3jZ8vQv9bmZmYabUsxbkyXTGPn5KvS70E3QJ475Ze8zh/@lists.infradead.org
-X-Gm-Message-State: AFq9FYL4g8+xzo8hOw6ttfwirN++eJAKqAuWD5SVi/vSRhEXIMYZNDW7
-	8X4BOT8gTxq556ZxmEAFil/WFLqfNp6kh3vKVb9sKmuuQ4w66bujhCGKAjK1Al2+BNLHQb1sKgC
-	NB5Ij7mjS2wdpAbXBGNB3I7i1D8J+FoM=
-X-Gm-Gg: AYBFou0g9JMoRaW9tS39nVIo2eAn+ia4NszAAy0iZqHBCnnJjWFL0gDp4/3f+pd4Mxy
-	iYgmzd5D/V+2qz5Yll1HWmwxoQqQ+Ur4YL43JwWWeS5BMgb2wgslAxfVBkJikWayuKRODEx1z+1
-	BKVpW+J6s7OD50O/qpAbj6ciKMYHX/EEmmd5jEjuFBloNAPGd9cx1LP3AlL7O5QN4SVzpJWZqfa
-	QuaiNsRoKUBDxNHmNNwUPi8fy8za9wPiuAHUPDz10etoXupUBNe/aND6LbhIQ1IdhUsFC2osWTg
-	GCEaPtj7m53/6EcnZ3t4efaPlWRCen1oY7pI2qwy48is774cRh5Q+Q==
-X-Received: by 2002:a05:690c:686:b0:853:bc96:d834 with SMTP id
- 00721157ae682-8b0f2149354mr41098877b3.2.1792397717882; Mon, 19 Oct 2026
- 01:15:17 -0700 (PDT)
+	Mon, 19 Oct 2026 08:15:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9A4840350;
+	Mon, 19 Oct 2026 08:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCC91F000C5;
+	Mon, 19 Oct 2026 08:15:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792397754;
+	bh=kWLBljJF+g21y6oGGUekme2PmMbMBIzShNS8HAgf7NQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=TjD5A3WP2aVkCdsuXF++BwQYPbJESmbfsRs0S22sEQPsOD7ybcLmYNLKy5DpB/wbU
+	 5BTd/PNssljD8ejNVaxcFeBTH5N31+7/IQ/ji9R4jRZYy+xCo2HrxpliA1G2G5uH/R
+	 U1JC4i6Ow9n5Gu26W17/wp8lt3smPHn0ZeupT5iQa83v5VD53J+7o8vScJki0DVko0
+	 QvL8kOfgjnrOyvCm8izdE+x0kO9cZGWnxvIhwH8NoZ/uJ4HT1qVmADng61DvPdUp8E
+	 cVAj70FSHSS/EO6HBHcPOSBkWSrRHRE0v1oaEOoPvg77xRuoxTe1kTfCxmsT4QTi0c
+	 nL6a4Jrg0j/UA==
+Message-ID: <0ec5fddf-f8de-4c82-a42d-6abca1e06091@kernel.org>
+Date: Mon, 19 Oct 2026 10:15:50 +0200
 MIME-Version: 1.0
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com> <20261016140115.GA1798470-robh@kernel.org>
- <20261017-gainful-goldfish-of-climate-bef863@quoll>
-In-Reply-To: <20261017-gainful-goldfish-of-climate-bef863@quoll>
-From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Date: Mon, 19 Oct 2026 16:15:03 +0800
-X-Gm-Features: AclHuK9_kQhXB8k-ejh4iETHQ_pbinYeRno2QSundTfXAhMLFdEsJrbL5fs5ZiY
-Message-ID: <CAPwA33+bR1BF9KeA9my07Yz7gXW7TXq8EPhwQ4GvHMSFDk+uWw@mail.gmail.com>
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
- a cell to select TX or RX
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_011519_937663_67F28139 
-X-CRM114-Status: GOOD (  15.72  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
+To: Arnd Bergmann <arnd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+ <u.kleine-koenig@baylibre.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev
+References: <20261016130328.1037616-1-arnd@kernel.org>
+Content-Language: en-US
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20261016130328.1037616-1-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,45 +117,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, Rob,
+On 16. 10. 26, 14:59, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> hub6 support was added in linux-0.99 and the hardware was already old at
+> the time, being discontinued in 1990. The code for it has always been a
+> mess since it adds another dimension to the I/O addressing in the driver
+> that has leaked into many individual files.
+> 
+> Hugo and Uwe have attempted several times this year alone to isolate
+> the hub6 handling into the 8250_hub6.c file, but I feel that none of
+> this has been a real improvement over the original standalone loadable
+> module support.
+> 
+> Any machine that would have used this ISA card in practice is likely
+> 30 to 40 years old, and with i486 support now removed, it is clearly
+> safe to just kill this all off. The only bit that has to remain
+> is the ioctl interface, to ensure the serial_struct field is always
+> zero.
+> 
+> Link: https://mirrors.nycbug.org/pub/The_Unix_Archive/Unix_Usenet/comp.unix.sysv386/1990-December/007174.html
+> Fixes: a300273c458c ("serial: 8250: hub6: Add cleanup code")
+> Fixes: c526404a4a92 ("serial: 8250: Fix corner case for port matching")
+> Fixes: 7ab80d1e7243 ("serial: 8250: fix compile error with hub6_match_port() when compiled as a module")
+> Fixes: da7b5fd4e17f ("serial: 8250_hub6: add missing include for hub6_match_port()")
+> Fixes: 3d406299d882 ("serial: 8250_hub6: add hub6_match_port()")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>   drivers/tty/serial/8250/8250.h          | 15 -------
+>   drivers/tty/serial/8250/8250_core.c     |  2 -
+>   drivers/tty/serial/8250/8250_hub6.c     | 60 -------------------------
+>   drivers/tty/serial/8250/8250_platform.c | 11 +----
+>   drivers/tty/serial/8250/8250_port.c     | 23 ----------
+>   drivers/tty/serial/8250/Kconfig         | 15 ++-----
+>   drivers/tty/serial/8250/Makefile        |  1 -
+>   drivers/tty/serial/atmel_serial.c       |  2 -
+>   drivers/tty/serial/fsl_lpuart.c         |  2 -
+>   drivers/tty/serial/imx.c                |  2 -
+>   drivers/tty/serial/mpc52xx_uart.c       |  3 +-
+>   drivers/tty/serial/sa1100.c             |  2 -
+>   drivers/tty/serial/serial_core.c        | 18 +++-----
+>   drivers/tty/serial/sunsu.c              |  9 ----
+>   drivers/tty/serial/xilinx_uartps.c      |  2 -
+>   include/linux/serial_8250.h             |  2 -
+>   include/linux/serial_core.h             |  2 -
+>   17 files changed, 12 insertions(+), 159 deletions(-)
+>   delete mode 100644 drivers/tty/serial/8250/8250_hub6.c
 
-> Existing OS should ignore surplus cell if the driver is coded properly.
-> Same as adding new properties or new front-compatible.  The question is
-> how the existing driver behaves?
+Great, you would have saved me a headache if you had sent these long 
+time ago ;).
 
-As you pointed out on 5/8, the xlate checks args_count != 1. The DC-PHY
-driver was merged in v6.15, so every kernel since 6.15 fails on a second cell.
+So I will Ack both, once you repost with the reported issues fixed.
 
-1. Keep the second cell. Add the patch as follows:
-
-- if (args->args_count != 1) {
-+ if (args->args_count < 1) {
-    dev_err(dev, "invalid number of arguments\n");
-    return ERR_PTR(-EINVAL);
-  }
-
-+ if (args->args_count > 1 && args->args[1]) {
-+   dev_err(dev, "only the transmitter is supported\n");
-+   return ERR_PTR(-EINVAL);
-+ }
-
-  With Fixes: and Cc: stable, the stable kernels maintained at that
-  time (currently 6.18.y and 7.2.y) keep DSI working with the new
-  dts, and the receiver fails cleanly instead of getting the transmitter.
-  But EOL kernels (6.15, 6.16, 6.17, 6.19, 7.0, 7.1) stay affected.
-  It goes in with the series, since two-cell dts only exist after it.
-
-2. Use a flag in the upper bits of the existing cell, as Rob
-    suggested. Existing kernels are not affected, unless a board enables
-    the DC-PHY CSI-2 receiver on 7.0 or later without this series.
-
-I will write the impact clearly whichever  approach is selected in
-the related commit messages and the cover letter.
-
-I think the cell approach is easier to read and more symmetric in the
-long term,
-but it breaks more. Which one do you think is better? Thanks.
-
-Best regards,
-Jason
+thanks,
+-- 
+js
+suse labs
 
