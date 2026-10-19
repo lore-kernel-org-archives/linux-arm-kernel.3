@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B2FCCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD228CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ODWujkqTHL7NVTZ1jLG8dOyW8QG5FiXF7neQAMrOoSM=; b=DWjHb1y0Ei4Uwe50Wm7SspBEhY
-	ZdUCIlSHwKW1c0UlS6hYPMq9O8mgeUMSFPNtpI2Zy80LPT8KKftN/V8I49t+ePmDBpBKY2i3EirU1
-	G9pCf30JWzb+ejTV5QPM1HWcMLFD2IWXwNQ+J2QaDS/1iE2enjLNHtCT3ZZmwIWu4ItfE83UItiIf
-	NiZMjB/4aqnoF9zR81M1+H1zt2flizMdrAR9+orUfxY0yvDpKyovtzaZoXZqNbheOtnriKjTqperx
-	OGT1sZPRC3wom5zrz4gzn9EBtox1Lm9yM5+QQ1zYuKplD8HLRR9+r6V1ggqAU1raZSQShXqtNeHP3
-	VBSFJbvw==;
+	bh=YGltY4czcESIxrXuSo7cdUD861jpHKvBgA1Yd+aKDIY=; b=tqSn5gQBuHXuUU9jvzUzYdQrq9
+	Kmr84/SeqLwpuZkkfTIkoi0rOfFOeMFC3Kde88e0R24O3cao+zj1Zja1zRq7PI8dTMQ0Rle80X7CB
+	bAe5tNDR/D9ConbemmCim0eJCqg3qvnRfbyOHikE05xfOWT7Aj0W00fwIRpv99GBxOR0rTecjhK5k
+	7HmBAl2pPdHKrVR4sq6CMbFUu5+EsaEytF5GHXRmUWHsuieJmFSn8lnDvGRHZuSUU7JU+2EAir/75
+	smfEDTSLaWI8NJ0mI1YAI6NcjxTqqQRfHaDsovCYwC3reXyZjxEABwcy5E2vCoUPfVmfBFGdOGzNk
+	e8Nw85Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInst-00000007brH-093H;
-	Mon, 19 Oct 2026 13:58:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xInt6-00000007bzR-16lQ;
+	Mon, 19 Oct 2026 13:58:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInsr-00000007bq8-2RIO;
-	Mon, 19 Oct 2026 13:58:37 +0000
+	id 1xInt4-00000007byO-2pL9;
+	Mon, 19 Oct 2026 13:58:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC352602C2;
-	Mon, 19 Oct 2026 13:58:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4541F000CB;
-	Mon, 19 Oct 2026 13:58:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A97541A0E;
+	Mon, 19 Oct 2026 13:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA861F000C8;
+	Mon, 19 Oct 2026 13:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418316;
-	bh=ODWujkqTHL7NVTZ1jLG8dOyW8QG5FiXF7neQAMrOoSM=;
+	s=k20260515; t=1792418330;
+	bh=YGltY4czcESIxrXuSo7cdUD861jpHKvBgA1Yd+aKDIY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=J+HEl9MDA77Qhy7tOAEym86Ys4lOXLcqGO00tdiX7lAMqDcLY56qRLwu3gTNalscd
-	 mjAgjkTTTwABL3xgHBvCnO1fXNk/uV7cCVOcbLVnmJTp55Z27rQi+owoLNx3hrJ97g
-	 hJk346VMsAYpj1TbjOrH3q1M9yFkF8SWOeeqiYZVbP1kDhN868mO7bMKwbHq11JvhB
-	 7sTsHR64mcltHO7bPD/VB92xDKTuT74WwOGymaL3+JprmxrtgwcTIa0T/k3dU4mgx8
-	 z0XAqqt3MzM4y0/lGWhL23gKTI/yglKKsYlWLS7SHt536y09Ylml9G0GSiQ71EoMZ3
-	 o8J2blfjOY+Fw==
+	b=iSGd+4PzEEeitJE6AnQ0YlBx6Mufa8bhQbUAT8UGVMt+jIVrNI59uIPtsZf3M/G+L
+	 XyJ+xB4Ba91eQHU6r9hWrVM7fu4bpECd/acg1ecJutzgGUUO4Bl5a53cuYdTYgOGLY
+	 ud7QZX7eBmvu0uOXhvyxV/dn9lHViIlozvzEmjlOW5hBDPI8TWMsy7Aq1dh4X+7gNL
+	 S4Ozzr4PR2/oWdqu4WHhUhxRM6/wSyvPnedXL7QaMHzDoMNNQLB6Y8YjVWjDtpja5K
+	 PcFgAsUzdRrnMuXm8Jd/iCm2aBXB3viBbYqV4RrrOQnvc7i9MNWnr5Kqfm6DwSkO7T
+	 Zt1Qzop8jbcmA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Daniel Golle <daniel@makrotopia.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: David Bauer <mail@david-bauer.net>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	chester.a.unal@arinc9.com,
-	olteanv@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] net: dsa: mt7530: check bus->read() error in core_rmw()
-Date: Mon, 19 Oct 2026 09:47:32 -0400
-Message-ID: <20261019135441.1420968-161-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.15] wifi: mt76: mt7603: free beacon SKB on error
+Date: Mon, 19 Oct 2026 09:47:42 -0400
+Message-ID: <20261019135441.1420968-171-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -85,378 +81,430 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Golle <daniel@makrotopia.org>
+From: David Bauer <mail@david-bauer.net>
 
-[ Upstream commit 573d6e3afe3d01e34dc82c77bf22ca96a74d805e ]
+[ Upstream commit 965cbdbdfbd37a659a05ff88e49c216975bd9d2e ]
 
-core_rmw() accesses the MMD core registers directly rather than
-through the regmap and has the same unchecked bus->read() as the
-one just fixed in the MDIO regmap backend: a negative errno is
-consumed as register data, modified and written back to the switch.
-Check the read and bail out like the surrounding bus accesses do.
+The SKB containing the generated beacon is not freed when the beacon
+queue is deected stuck and scheduled for recovery.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Link: https://patch.msgid.link/48bb9f0b311a9efeda2a6b24a7e05d4792393a3b.1785811140.git.daniel@makrotopia.org
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Fixes potential memory leaks in case the beacon queue is detected stuck.
+
+Signed-off-by: David Bauer <mail@david-bauer.net>
+Link: https://patch.msgid.link/20260611215658.259324-1-mail@david-bauer.net
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit message forensics
+The local tree is **6.6.157** (`pending-6.6`). The two-line SKB leak is
+present here, was introduced by a commit already in this tree, and
+applies cleanly.
 
-**Step 1.1: Subject line**
-Record: `[net: dsa: mt7530]` [`check`] [detect `bus->read()` failure in
-`core_rmw()` instead of treating errno as register data]
+===============================================================
+PHASE 1: COMMIT MESSAGE FORENSICS
+===============================================================
 
-**Step 1.2: Tags**
+**Step 1.1: PARSE THE SUBJECT LINE**
+
+Record: **[wifi: mt76: mt7603]** **[free]** **[free the generated beacon
+SKB when queue-stuck recovery bails out]**
+
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+
 Record:
-- `Signed-off-by: Daniel Golle <daniel@makrotopia.org>` (author)
-- `Reviewed-by: Andrew Lunn <andrew@lunn.ch>` (DSA co-maintainer)
-- `Link: https://patch.msgid.link/48bb9f0b311a9efeda2a6b24a7e05d4792393a
-  3b.1785811140.git.daniel@makrotopia.org`
-- `Signed-off-by: Jakub Kicinski <kuba@kernel.org>` (netdev maintainer)
-- No `Fixes:` in the committed message
-- Mailing-list submission **did** include `Fixes: b8f126a8d543 ("net-
-  next: dsa: add dsa support for Mediatek MT7530 switch")` (verified in
-  the saved mbox); it was dropped before mainline
-- No `Reported-by:`, `Tested-by:`, `Cc: stable` in the committed message
-  (absence is expected)
+- **Fixes:** none (expected for this pipeline)
+- **Reported-by:** none
+- **Tested-by:** none
+- **Reviewed-by:** none
+- **Acked-by:** none
+- **Link:**
+  `https://patch.msgid.link/20260611215658.259324-1-mail@david-
+  bauer.net`
+- **Cc: stable:** none (expected)
+- **Signed-off-by:** David Bauer (author); Felix Fietkau (mt76
+  maintainer). Ignore any Sasha Levin SOB if present in candidate
+  wrapping.
 
-**Step 1.3: Body**
+Mainline SHA (from `origin/master`):
+`965cbdbdfbd37a659a05ff88e49c216975bd9d2e`
+AuthorDate: 2026-06-11; applied by Felix Fietkau 2026-07-31.
+
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+
 Record:
-- **Bug:** `core_rmw()` talks to MMD core registers via raw
-  `bus->read()`/`bus->write()`, not regmap. A failed `bus->read()`
-  returns a negative errno, which is used as the current register value,
-  masked/ORed, and written back.
-- **Symptom:** garbage RMW into switch MMD registers (clock-gate bits on
-  this path).
-- **Root cause:** same unchecked-read pattern as the MDIO regmap
-  backend, which this tree already has as `93d46870c5440`.
-- **Version info:** none in the body. The inlined form is from
-  `7c5e37d7ee78d` (v6.11 era, present here). The mailing-list `Fixes:`
-  points at the 2017 driver introduction; the old
-  `core_read_mmd_indirect()` had the same unchecked read.
+- **Bug:** After `ieee80211_beacon_get()`, if `mt76_poll()` times out on
+  `MT_DMA_FQCR0` (beacon/BMC queue flush stuck), the function `goto out`
+  without freeing the SKB.
+- **Symptom:** SKB leak whenever the beacon queue is detected stuck and
+  recovery is scheduled. Commit message typo: “deected”.
+- **Version info:** none in the message.
+- **Root cause (author):** beacon SKB not freed on the stuck-queue error
+  path.
 
-**Step 1.4: Hidden bug fix?**
-Record: Not hidden. Explicit error-path correctness fix: missing check →
-errno treated as data → written to hardware.
+**Step 1.4: DETECT HIDDEN BUG FIXES**
 
----
+Record: Not a disguised cleanup. Explicit leak fix: two
+`dev_kfree_skb(skb)` calls on error paths.
 
-## Phase 2: Diff analysis
+===============================================================
+PHASE 2: DIFF ANALYSIS - LINE BY LINE
+===============================================================
 
-**Step 2.1: Inventory**
+**Step 2.1: INVENTORY THE CHANGES**
+
 Record:
-- File: `drivers/net/dsa/mt7530.c`
-- Scope: ~5 insertions / 1 deletion in one function
-- Function: `core_rmw()`
-- Classification: single-file surgical fix
+- File: `drivers/net/wireless/mediatek/mt76/mt7603/beacon.c` (**+2 /
+  -0**)
+- Function: `mt7603_update_beacon_iter()`
+- Scope: **single-file surgical fix**
 
-**Step 2.2: Code flow**
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+
+Record (both hunks, same pattern):
+
+Before: `ieee80211_beacon_get()` allocates `skb`. Flush BCN or BMC via
+`MT_DMA_FQCR0`. If poll times out: set `dev->beacon_check =
+MT7603_WATCHDOG_TIMEOUT` and `goto out`. Unlock. **SKB never queued and
+never freed.**
+
+After: same, but `dev_kfree_skb(skb)` before `goto out`.
+
+Success path unchanged: `mt76_tx_queue_skb()` still takes ownership.
+
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+
 Record:
-- **Before:** after three checked MMD address writes, `val =
-  bus->read(...)`. No check. `val &= ~mask; val |= set;` then
-  `bus->write(...)`.
-- **After:** `ret = bus->read(...)`; if `ret < 0` goto the existing
-  `err` path (log + unlock); else `val = ret` and continue the RMW.
-- Path: error path of an MDIO read during RMW. Normal success path
-  unchanged.
+- **Category:** error-path resource leak (SKB)
+- **Mechanism:** mac80211 docs: *“The driver is responsible for freeing
+  the returned skb.”* Error `goto` skipped both queueing and free. Fix
+  adds the missing free.
 
-**Step 2.3: Bug mechanism**
+**Step 2.4: ASSESS THE FIX QUALITY**
+
 Record:
-- Category: logic / correctness on an error path (errno consumed as
-  register data, then written back). Same class as the already-present
-  MDIO regmap fix.
-- `mii_bus->read` returns a 16-bit value or a negative errno
-  (`include/linux/mdio.h`: “returns value or negative error code”).
-  `val` is `u32`, so `-ETIMEDOUT` (-110) becomes `0xffffff92`.
-  `bus->write()` takes `u16`, so the switch sees `0xff92` with the
-  intended bit tweaks, not the real register contents.
-- Mechanism: check `ret < 0` and skip the write, matching the
-  surrounding writes.
+- Obviously correct; only the two error returns; no API/lock/structure
+  change.
+- **Regression risk:** very low. Success path still hands the SKB to
+  DMA. `dev_kfree_skb` is `consume_skb` (stats slightly less precise
+  than `kfree_skb` on a drop); maintainer accepted it. No double-free:
+  frees only happen before queueing.
 
-**Step 2.4: Fix quality**
+===============================================================
+PHASE 3: GIT HISTORY INVESTIGATION
+===============================================================
+
+**Step 3.1: BLAME THE CHANGED LINES**
+
 Record:
-- Obviously correct; copies the existing write-error pattern in the same
-  function.
-- Minimal; no unrelated edits, no API change.
-- Regression risk: very low. On read failure it no longer writes.
-  `core_rmw()` is still `void` and still only logs (pre-existing); this
-  patch does not invent a new return convention.
-- `val = ret` after the check is safe: success values are 0..0xffff.
+- Leak `goto out` introduced by **`8caa9dd3d1a7c9`** “wifi: mt76:
+  mt7603: improve stuck beacon handling” (Greg KH, 2023-11-20), stable
+  rewrite of upstream **`3176205933494`** (Felix Fietkau, 2023-07-28).
+- `ieee80211_beacon_get(..., 0)` from `6e8912a503759` (MLO 3-arg API);
+  already in this tree.
+- Driver added in `c8846e1015022` (2018). Pre-2023 code queued the SKB
+  even if poll failed; the 2023 change moved queueing after the polls
+  and added the leaky `goto`.
 
----
+**Step 3.2: FOLLOW THE FIXES: TAG**
 
-## Phase 3: Git history
+Record: No Fixes: tag. Buggy commit in **this** tree is `8caa9dd3d1a7c9`
+(`git merge-base --is-ancestor` = yes). Upstream `3176205933494` is not
+an ancestor (stable SHA rewrite). No later origin/master commits touch
+this file after `965cbdbdfbd37`.
 
-**Step 3.1: Blame**
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+
+Record (this tree, path-limited): last functional change on this file is
+the stuck-beacon commit itself. Standalone; not patch X/Y.
+
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+
+Record: David Bauer already has mt76 commits in this tree (including
+mt7603 EEPROM ID). Felix Fietkau is listed maintainer and applied the
+patch.
+
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+
+Record: None. Same function, same `ieee80211_beacon_get(hw, vif, 0)`,
+same poll/`goto out`. `git apply --check` of `965cbdbdfbd37` succeeded.
+Standalone.
+
+===============================================================
+PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+===============================================================
+
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+
 Record:
-- Unchecked read at lines 155–156: `7c5e37d7ee78d` (“simplify core
-  operations”, Arınç ÜNAL, 2024-04-18).
-- That commit inlined `core_read_mmd_indirect()`, which already returned
-  `bus->read()` without checking. The defect dates to `b8f126a8d543`
-  (2017), driver introduction.
-- Inlined form is in this tree (`git merge-base --is-ancestor
-  7c5e37d7ee78d HEAD` succeeded). `git describe --contains` places it
-  around v6.11-rc1, so it is in 6.12.
+- `b4 dig -c 965cbdbdfbd37` →
+  https://patch.msgid.link/20260611215658.259324-1-mail@david-bauer.net
+- `b4 dig -a`: **v1 only**
+- Thread mbox: patch only, **no replies**, no NAK, no reviewer Cc:
+  stable
+- lore.kernel.org WebFetch: **403** (used b4 + openwall/patchew mirrors)
 
-**Step 3.2: Fixes: tag**
-Record: No `Fixes:` on the committed patch. Submission tagged
-`b8f126a8d543`, which **is** an ancestor of this tree. Intermediate:
-`7c5e37d7ee78d` inlined the helper and kept the bug.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
 
-**Step 3.3: File history**
+Record (`b4 dig -w`): To/Cc included Felix Fietkau, Lorenzo Bianconi,
+MediaTek mt76 reviewers, linux-wireless. Applied by Felix with his SOB.
+No Reviewed-by.
+
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+
+Record: No Reported-by, syzbot, or bugzilla. Author-found leak on code
+inspection. Openwall/Ratatoskr confirm the same v1 text, no discussion.
+
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+
+Record: Standalone `[PATCH mt76]`. No series. No follow-up on
+`origin/master` for this file.
+
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+
+Record: lore.kernel.org/stable WebFetch **403**. No stable discussion in
+the saved thread. UNVERIFIED whether anyone already asked stable@;
+absence is not a negative signal.
+
+===============================================================
+PHASE 5: CODE SEMANTIC ANALYSIS
+===============================================================
+
+semcode MCP: **not available**. Used grep/read.
+
+**Step 5.1: IDENTIFY KEY FUNCTIONS**
+
+Record: `mt7603_update_beacon_iter()` only.
+
+**Step 5.2: TRACE CALLERS**
+
 Record:
-- This tree already has the sibling: `93d46870c5440` “check bus->read()
-  errors in the MDIO regmap backend”.
-- Also: `96e0f5184af69` “error out on failed reads in MT7531 PHY
-  polling”.
-- Candidate `573d6e3afe3d0` is **not** an ancestor of HEAD.
-- Standalone vs series: mailing-list subject is `[PATCH net v2 2/6]`.
-  Diff does not depend on 1/6 or 3–6/6.
+- Called from `mt7603_pre_tbtt_tasklet()` via
+  `ieee80211_iterate_active_interfaces_atomic()`.
+- Tasklet scheduled from `mt7603_irq_handler()` on
+  `MT_HW_INT3_PRE_TBTT0`.
+- Reachable whenever the device is an AP with beacons enabled
+  (`beacon_mask`).
 
-**Step 3.4: Author**
-Record: Daniel Golle is a regular MT7530 contributor (OpenWrt/MediaTek).
-Nearby commits by him in this tree are the other MDIO-error fixes.
-Reviewed by Andrew Lunn.
+**Step 5.3: TRACE CALLEES**
 
-**Step 3.5: Dependencies**
-Record: None for this hunk. It uses existing `ret`, `goto err`, and
-`bus->read`/`bus->write`. `git apply --check` succeeded (hunk offset 28
-lines only).
+Record: `ieee80211_beacon_get` (driver owns SKB), `mt76_poll`/`mt76_wr`,
+`mt76_tx_queue_skb` → `mt76_dma_tx_queue_skb` (takes SKB; error path
+uses `ieee80211_tx_status_ext`).
 
----
+**Step 5.4: FOLLOW THE CALL CHAIN**
 
-## Phase 4: Mailing list / external research
+Record: userspace/AP stack enables beaconing → hardware pre-TBTT IRQ →
+tasklet → iterator. Unprivileged clients do not trigger it directly;
+**any AP/router using this chip in AP mode can**. Stuck DMA/FQCR0 is the
+error trigger. `mac_work` runs every `MT7603_WATCHDOG_TIME` (100 ms) and
+treats `beacon_check >= 10` as `RESET_CAUSE_BEACON_STUCK`.
 
-**Step 4.1: Original discussion**
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+
+Record: Other mt76 chips use `ieee80211_beacon_get_template` /
+`mt76x02_mac_set_beacon` and do not share this FQCR0 poll/`goto out`
+pattern. mt76x02 has no equivalent leak.
+
+===============================================================
+PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+===============================================================
+
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+
+Record: **Yes.** `drivers/net/wireless/mediatek/mt76/mt7603/beacon.c`
+lines 57–66: poll timeout → set watchdog → `goto out` with no free.
+Local: `git describe` → `p-6.6-3-g04810563abb71`, `make kernelversion` →
+**6.6.157**. Bug since 8caa9dd3d1a7c9 (stuck-beacon handling). Candidate
+`965cbdbdfbd37` is **not** an ancestor of HEAD.
+
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+
+Record: **Clean apply** (`git show 965cbdbdfbd37 | git apply --check`).
+Surrounding function matches mainline hunks.
+
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+
+Record: No other “free beacon SKB” commit. Other mt76 leak fixes
+(`ec4a608bca405` probe leak, etc.) are unrelated.
+
+===============================================================
+PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+===============================================================
+
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+
+Record: **wifi / mt76 / mt7603** (`CONFIG_MT7603E`: MT7603E PCIe and
+MT7628/MT7688 SoC WLAN). **IMPORTANT** for those devices (common OpenWrt
+APs), not CORE for every 6.6 user.
+
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+
+Record: Mature driver (2018); this file is quiet. Bug is old (2023
+stuck-beacon change), not a new-feature side effect.
+
+===============================================================
+PHASE 8: IMPACT AND RISK ASSESSMENT
+===============================================================
+
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+
+Record: **Driver-specific / config-specific:** `CONFIG_MT7603E`,
+AP/beaconing. MT7628/MT7688 SoCs are widely deployed in consumer
+routers.
+
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+
 Record:
-- `b4 dig -c 573d6e3afe3d0` → https://patch.msgid.link/48bb9f0b311a9efed
-  a2a6b24a7e05d4792393a3b.1785811140.git.daniel@makrotopia.org
-- Series: `[PATCH net v2 0/6] net: dsa: mt7530: fix remaining swallowed
-  MDIO access errors`
-- v2: “no changes” for this patch; Andrew’s `Reviewed-by` kept.
-- Cover letter: leftover companion of the first “swallowed MDIO read
-  errors” series (already on `net`); this is the unchecked `bus->read()`
-  in `core_rmw()`.
-- Sent to `net` (fixes), not `net-next`.
-- No NAK in the saved mbox. Applied by Jakub Kicinski (`0200d48477602`
-  merge).
+- Trigger: FQCR0 poll timeout (5 ms) while updating beacons — the same
+  stuck-beacon condition this driver already recovers from.
+- Frequency: pre-TBTT (~beacon interval, typically ~100 ms) per AP vif
+  (up to 4). Watchdog work every 100 ms usually resets after one such
+  event, so **~1 SKB per vif per stuck incident** if recovery works;
+  **recurring** if the MAC stays stuck.
+- Unprivileged trigger: no (AP beacon path).
 
-**Step 4.2: Recipients (`b4 dig -w`)**
-Record: Andrew Lunn, Vladimir Oltean, netdev maintainers, MediaTek,
-`netdev@`, `linux-mediatek@`. Right audience. Lunn reviewed.
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
 
-**Step 4.3: Bug report**
-Record: No syzbot/bugzilla. Found by review of the same MDIO-error class
-(cover letter cites Sashiko AI review of the parent series).
+Record: **SKB leak**, not oops/UAF/corruption. **MEDIUM** (HIGH only if
+stuck-beacon storms on a low-RAM AP). Still a real leak on a path
+already considered serious enough to backport.
 
-**Step 4.4: Series**
-Record: 6 patches. This is 2/6 and is self-contained. 3–5/6 are other
-swallowed-error sites; 1/6 is `pcs-mtk-lynxi`; 6/6 is IRQ-chip
-serialization. Not required for this hunk.
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
 
-**Step 4.5: Stable list**
-Record: **UNVERIFIED** — lore.kernel.org returned 403/503 to
-WebFetch/curl. No local evidence this was rejected for stable.
-
----
-
-## Phase 5: Code semantics
-
-**Step 5.1: Functions**
-Record: `core_rmw()` only.
-
-**Step 5.2: Callers**
 Record:
-- `core_set()` / `core_clear()` → `core_rmw()`
-- `mt7530_pll_setup()`: clear/set `REG_GSWCK_EN` on
-  `CORE_TRGMII_GSW_CLK_CG` (switch setup, 40 MHz XTAL)
-- `mt7530_setup_port6()`: clear/set `REG_TRGMIICK_EN` (port 6 TRGMII
-  clock)
-- `mt7530_pll_setup()` from `mt7530_setup()` (~line 2422)
-- `mt7530_setup_port6()` from `mt7530_mac_config()` when `port == 6`
+- **Benefit:** stops leaking beacon frames on a known hardware-stuck
+  path.
+- **Risk:** very low (2 lines, error path only, clean apply).
+- **Ratio:** favor backport.
 
-**Step 5.3: Callees**
-Record: `mt7530_mutex_lock/unlock`, `bus->write`, `bus->read`,
-`dev_err`.
+===============================================================
+PHASE 9: FINAL SYNTHESIS
+===============================================================
 
-**Step 5.4: Reachability**
-Record: Yes, from DSA probe/setup and phylink MAC config on MT7530
-(common in MediaTek routers). Not a syscall hot path; hit on bring-up
-and port-6 mode changes. Userspace/netlink can trigger `mac_config`.
+**Step 9.1: COMPILE THE EVIDENCE**
 
-**Step 5.5: Similar patterns**
-Record: Same bug already fixed in `mt7530_regmap_read()` in this tree.
-`core_write()` only writes (no analogous read). Remaining siblings
-(PHY_IAC writes, CORE_PLL_GROUP4, FDB/VLAN cmd) are other series
-patches, not prerequisites.
+FOR:
+- Confirmed leak vs mac80211 SKB ownership.
+- Buggy code is in this 6.6.157 tree (`8caa9dd3d1a7c9`).
+- +2 lines, obviously correct, clean apply, no deps.
+- Maintainer-applied.
+- Same recovery path that already justified a stable backport.
+- MT7603/MT76x8 used on production APs.
 
----
+AGAINST:
+- Error-path leak; volume per incident is small if watchdog resets.
+- No crash/CVE/syzbot/user report.
+- No Reviewed-by; mailing list silent.
+- Not a core-kernel path.
 
-## Phase 6: This tree (6.12.y)
+UNRESOLVED:
+- lore.kernel.org HTTP 403; stable@ search not fetched (b4/mbox used
+  instead).
+- Exact leak rate if reset fails repeatedly: not measured on hardware.
 
-**Step 6.1: Buggy code present?**
-Record: Yes. Tree is `pending-6.12` / `6.12.111`
-(`p-6.12-4-gbf6fcdf761abd`). Current `core_rmw()` still does `val =
-bus->read(...)` with no check (`drivers/net/dsa/mt7530.c:155-156`).
-`573d6e3afe3d0` is not an ancestor of HEAD.
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
 
-**Step 6.2: Backport difficulty**
-Record: Clean apply (`git apply --check`: hunk succeeded at offset 28).
-Surrounding `core_rmw()` matches the pre-image.
+1. Obviously correct and tested? **PASS** — ownership is documented;
+   maintainer applied. No extra Tested-by.
+2. Fixes a real bug that affects users? **PASS** — SKB leak on stuck-
+   beacon recovery.
+3. Important issue? **PASS** — resource leak on a periodic AP path (not
+   a one-shot init leak). Severity medium, not a panic.
+4. Small and contained? **PASS** — 2 lines, one function.
+5. No new features or APIs? **PASS**.
+6. Can apply to the local tree? **PASS** — verified with `git apply
+   --check`.
 
-**Step 6.3: Related fixes already here?**
-Record: Regmap-backend check is here; PHY polling check is here. This
-leftover `core_rmw()` instance is not. No alternate fix of this
-function.
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
 
----
+Record: Not a device-ID/quirk/DT/build/docs exception. Ordinary small
+leak fix.
 
-## Phase 7: Subsystem context
+**Step 9.4: MAKE YOUR DECISION**
 
-**Step 7.1**
-Record: `drivers/net/dsa/mt7530.c` — MediaTek MT7530 DSA. **IMPORTANT**
-(common embedded/router switch), not core mm/VFS, not staging.
+This is a two-line error-path `kfree` for a leak that exists in 6.6.157,
+introduced by a stuck-beacon change already on this branch. Risk is
+negligible; benefit is stopping SKB leaks on MT7603/MT76x8 APs when the
+beacon DMA path wedges. That meets stable rules for this tree.
 
-**Step 7.2**
-Record: Actively maintained; recent 6.12 backports already include other
-MT7530 MDIO-error and hardware fixes.
+------------------------------------------------
+What the commit solves for this tree
+------------------------------------------------
 
----
+In `mt7603_update_beacon_iter()`, `ieee80211_beacon_get()` returns an
+SKB the driver must free. On FQCR0 poll timeout the function sets the
+beacon watchdog and returns without queueing or freeing. That path is
+the stuck-beacon recovery added in `8caa9dd3d1a7c9`, which is already
+here. Each timeout leaks one beacon SKB per AP interface. The patch only
+adds `dev_kfree_skb(skb)` on those two returns.
 
-## Phase 8: Impact and risk
+Risk vs benefit: almost no regression surface; the leak is real whenever
+that recovery runs.
 
-**Step 8.1: Who is affected**
-Record: Driver-specific: `CONFIG_NET_DSA_MT7530` (MDIO-attached
-MT7530/MT7531, common on MT7621/MT798x-class boards).
+------------------------------------------------
+Verification
+------------------------------------------------
 
-**Step 8.2: Trigger**
-Record: `bus->read()` failure during PLL/clock RMW (timeout, NACK, flaky
-MDIO). Not every boot if the bus is healthy. Unprivileged users do not
-trigger MDIO failure directly; they can hit the RMW via interface/port
-config. Timing/hardware dependent.
-
-**Step 8.3: Failure mode**
-Record: On MDIO read failure, a truncated errno (e.g. `0xff92`) is
-written to `CORE_TRGMII_GSW_CLK_CG` (core / TRGMII clock gates) instead
-of toggling bit 0 or 1. That can leave clocks misconfigured (no link /
-switch not forwarding) rather than failing closed. Severity: **HIGH** on
-that error path (hardware misconfiguration), not a panic/UAF.
-
-**Step 8.4: Risk-benefit**
-Record:
-- Benefit: stops garbage writes to switch clock-gate MMDs; completes the
-  same class already backported via the regmap patch.
-- Risk: very low (4–5 lines, existing `err` path, no locking/API
-  change).
-- Ratio: favorable.
-
----
-
-## Phase 9: Synthesis
-
-**For backporting**
-- Real bug: negative MDIO errno used as register data and written back.
-- Consequence: corrupt RMW of switch clock-gate registers.
-- Small, obviously correct, reviewed by Andrew Lunn, taken into `net` as
-  a fix.
-- Buggy code is in this 6.12 tree; patch applies cleanly.
-- Same class as `93d46870c5440`, already in this tree; this is the
-  leftover `core_rmw()` site.
-
-**Against**
-- Error path only (MDIO must already be failing).
-- Still `void`; errors are only logged (pre-existing).
-- No syzbot/user crash report.
-- Labelled 2/6, but this hunk does not need the rest.
-
-**Unresolved**
-- Stable-list discussion (lore 403/503). Does not change the technical
-  case.
-
-**Stable rules**
-1. Obviously correct and tested? **PASS** — matches surrounding checks;
-   Lunn `Reviewed-by`; in mainline `net`.
-2. Real user-affecting bug? **PASS** — garbage written to MT7530 clock-
-   gate MMDs on read failure.
-3. Important (crash/security/corruption/deadlock)? **PASS** — hardware
-   misconfiguration of switch clocks; same class already accepted in
-   this tree.
-4. Small and contained? **PASS** — ~5 lines, one function.
-5. No new features/APIs? **PASS**.
-6. Applies to this tree? **PASS** — `git apply --check` clean.
-
-**Exception category:** none (not an ID/quirk/DT/build/doc exception).
-Qualifies as a normal small driver bugfix.
-
----
-
-### What the commit solves for this tree
-
-In 6.12, `core_rmw()` still assigns `bus->read()` to `u32 val` without
-checking. On timeout/NACK that errno is masked, OR’d, and written to
-`CORE_TRGMII_GSW_CLK_CG` during PLL setup and port-6 TRGMII clock
-enable. The fix bails out like the three preceding writes. It is the
-companion to the regmap-backend check already present here.
-
-Risk is negligible; benefit is avoiding a bad clock-gate RMW when MDIO
-fails on a widely used MediaTek DSA switch.
-
-Verification:
-- [Phase 1] Parsed tags: Lunn `Reviewed-by`, msgid link; no committed
-  `Fixes:`; mbox had `Fixes: b8f126a8d543`
-- [Phase 2] Diff: 5 insertions in `core_rmw()`; check `ret < 0` before
-  RMW write
-- [Phase 3] Blame: inlined by `7c5e37d7ee78d` (v6.11, in this tree);
-  original unchecked read in `b8f126a8d543` (2017)
-- [Phase 3] `git merge-base --is-ancestor 573d6e3afe3d0 HEAD` → not in
-  tree; `7c5e37d7ee78d` is in tree
-- [Phase 3] Sibling `93d46870c5440` is in this tree
-- [Phase 4] `b4 dig -c 573d6e3afe3d0`: v2 2/6 of “fix remaining
-  swallowed MDIO access errors”; v2 no changes; Lunn review on 1–3 and 6
-- [Phase 4] Cover letter: leftover `core_rmw()` companion of the first
-  MDIO-error series
-- [Phase 4] `b4 dig -w`: netdev + DSA + MediaTek CCs
-- [Phase 4] lore WebFetch/curl 403/503; thread recovered via `b4 dig -m`
-- [Phase 5] Callers: `mt7530_pll_setup`, `mt7530_setup_port6` → DSA
-  setup / `mac_config`
-- [Phase 5] `bus->read` contract: value or negative errno
-  (`include/linux/mdio.h`)
-- [Phase 6] `git describe HEAD`: `p-6.12-4-gbf6fcdf761abd`; `make
-  kernelversion`: 6.12.111; buggy `val = bus->read` still at
-  mt7530.c:155
-- [Phase 6] `git apply --check` of `573d6e3afe3d0`: succeeded (offset
-  28)
-- [Phase 8] Failure mode: truncated errno written to
-  `CORE_TRGMII_GSW_CLK_CG`; severity HIGH on that error path
-- UNVERIFIED: whether stable@ discussed this commit (lore unreachable)
+- [Phase 1] Tags: Link msgid `20260611215658.259324-1-mail@david-
+  bauer.net`; SOBs David Bauer + Felix Fietkau; no Fixes/Reported-
+  by/Cc:stable.
+- [Phase 1] Mainline commit `965cbdbdfbd37` on `origin/master`.
+- [Phase 2] Diff: +2 `dev_kfree_skb(skb)` in `mt7603_update_beacon_iter`
+  poll-fail paths; success path still `mt76_tx_queue_skb`.
+- [Phase 2] `include/net/mac80211.h`: “The driver is responsible for
+  freeing the returned skb.”
+- [Phase 2] `dev_kfree_skb` → `consume_skb` in `include/linux/skbuff.h`.
+- [Phase 3] `git blame`: leaky `goto out` from `8caa9dd3d1a7c9` (stable
+  form of `3176205933494`).
+- [Phase 3] `git merge-base --is-ancestor 8caa9dd3d1a7c9 HEAD` → yes;
+  `965cbdbdfbd37` → no; `3176205933494` → no (rewritten).
+- [Phase 3] `git show 8caa9dd3d1a7c9`: moved `mt76_tx_queue_skb` after
+  polls and added `goto out` without free.
+- [Phase 4] `b4 dig -c 965cbdbdfbd37`: v1 only; no replies in mbox.
+- [Phase 4] `b4 dig -w`: mt76 maintainers + linux-wireless on To/Cc.
+- [Phase 4] lore WebFetch 403; openwall/patchew/ratatoskr match v1, no
+  review replies.
+- [Phase 5] Caller: `mt7603_pre_tbtt_tasklet` ← `mt7603_irq_handler`
+  PRE_TBTT0.
+- [Phase 5] Watchdog: `MT7603_WATCHDOG_TIME` 100 ms, timeout 10;
+  `mt7603_mac_work` uses `beacon_check` with `check == NULL`.
+- [Phase 6] `git describe HEAD` → `p-6.6-3-g04810563abb71`; `make
+  kernelversion` → 6.6.157.
+- [Phase 6] Local `beacon.c` still missing the kfrees (lines 57–66).
+- [Phase 6] `git apply --check` of `965cbdbdfbd37` succeeded.
+- [Phase 7] `CONFIG_MT7603E`; MAINTAINERS: Felix Fietkau.
+- [Phase 8] Failure mode: SKB leak on stuck-beacon recovery; severity
+  MEDIUM.
+- UNVERIFIED: stable@ mailing-list archive (HTTP 403); hardware leak
+  rate if reset keeps failing.
 
 **YES**
 
- drivers/net/dsa/mt7530.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt76/mt7603/beacon.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 24c7cb225da1a..d2dcc2f1522f4 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -124,8 +124,12 @@ core_rmw(struct mt7530_priv *priv, u32 reg, u32 mask, u32 set)
- 		goto err;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
+index 6457ee06bb5a1..62e8de6949d1a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
+@@ -56,6 +56,7 @@ mt7603_update_beacon_iter(void *priv, u8 *mac, struct ieee80211_vif *vif)
+ 		FIELD_PREP(MT_DMA_FQCR0_TARGET_QID, MT_TX_HW_QUEUE_BCN));
+ 	if (!mt76_poll(dev, MT_DMA_FQCR0, MT_DMA_FQCR0_BUSY, 0, 5000)) {
+ 		dev->beacon_check = MT7603_WATCHDOG_TIMEOUT;
++		dev_kfree_skb(skb);
+ 		goto out;
+ 	}
  
- 	/* Read the content of the MMD's selected register */
--	val = bus->read(bus, MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr),
-+	ret = bus->read(bus, MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr),
- 			MII_MMD_DATA);
-+	if (ret < 0)
-+		goto err;
-+	val = ret;
-+
- 	val &= ~mask;
- 	val |= set;
- 	/* Write the data into MMD's selected register */
+@@ -63,6 +64,7 @@ mt7603_update_beacon_iter(void *priv, u8 *mac, struct ieee80211_vif *vif)
+ 		FIELD_PREP(MT_DMA_FQCR0_TARGET_QID, MT_TX_HW_QUEUE_BMC));
+ 	if (!mt76_poll(dev, MT_DMA_FQCR0, MT_DMA_FQCR0_BUSY, 0, 5000)) {
+ 		dev->beacon_check = MT7603_WATCHDOG_TIMEOUT;
++		dev_kfree_skb(skb);
+ 		goto out;
+ 	}
+ 
 -- 
 2.53.0
 
