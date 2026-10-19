@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06726CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F10FCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wT9cr19djIZjjMcHHSB8MIQuwEfBnI0V8SxyV1ge0ZY=; b=R2IpFI4mBlIMsTTmu4r7qZtHDU
-	BhvoylPSShe/IcvFVxGWzG8ZwuVJfDc4aXg19LJ4EU6+mIN2gxbRh+ixs8bDZ72aW3ygioqypnRUB
-	6kI+vqXKjdQy+rMufbFK5NEBYO7N0k7QbgRf5XDpxuPJahyg2EcJSM0iYw26jGywSYU8WiQUvheUB
-	4mD9olCY0L3gtPX6s4tCghVEdJxIIO1z8T9jj9LEwJYpQ3E+s8n9QaFl/L2xaaFOxIEVGAGIXFtJL
-	UIT2wqPS3L4ZsdRay8WnwsdAE97qqviwDkZMAFcLiujM/41qcbgeT6qwUADrmxlXcuLfs1+dQboek
-	AxSDyPAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=; b=NN902mDQnSQ49/NXw3ww0XEcE6
+	MluzifgMHbw/sHnfH8yfqv1m3Zv1iHiyk7NaBDI4JA35sCZLOV4ObU1HT9yxrPAuPMaE7H9JaEpui
+	93yGGpmwKcKPgOyganAoZB1nG2e7tnCJvwHeH71MWo3QEiaHnrZpeVlGpe2cWAyk9UUHJlyzRkUKj
+	iYI/Iy87LGs3dodGQdaID5kJUeHEwiIHmeJPDFRlqkUYZDuWZA5xgPh8IrN8n6bG56quzRRcQu0sg
+	p0NHNnNRc3D5TICy3E9iDWAt35/0Spi4ep586G+wwHfNCm5utKxAolmhjeO0ZiBjt2Y33dJIhgCP3
+	7+HkyuZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImh6-00000007PoR-3ikI;
-	Mon, 19 Oct 2026 12:42:24 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xImhB-00000007Pq1-490r;
+	Mon, 19 Oct 2026 12:42:29 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImh1-00000007Plp-0v9L
+	id 1xImh6-00000007PnE-03tX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 12:42:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3854C4E4127B;
-	Mon, 19 Oct 2026 12:42:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 095FC60582;
-	Mon, 19 Oct 2026 12:42:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 164D410328D37;
-	Mon, 19 Oct 2026 14:42:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792413733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=wT9cr19djIZjjMcHHSB8MIQuwEfBnI0V8SxyV1ge0ZY=;
-	b=FXe4IpBdbRfsFkD7ThrqoLCIoPyFdRvGilBxoMYfwQVV9TiZ+xJSUeEC8yDZiqeJ4VtbW0
-	G8Rn1rNBRDy6mgSy07K2Z/SdYzLj7vWIhiOk88FXzlLZdJbnSq1ZHTupdfDzY2MJHPo6h1
-	s+1InRofRUi/Pn1TJ5g/cBfjoUeEWfaSOKYMn81RmBwWjDU8kWRezCyjh2fVp8GSUpRJG1
-	xMMgzE0UmL4FnaZSl4DFc3uQGwBWVYNzs5UMX3lPOHbEPdPslwhW0/oAThW0L+1fOpo8lH
-	5XhzLXzBdBG3MF19bkE+3uasdzAAwiREXSHFdSfwa8iwcfCVpd2zRL/yKipcBA==
-Message-ID: <c67d8a1e-34a0-4e58-a4cc-64003526dcd7@bootlin.com>
-Date: Mon, 19 Oct 2026 14:42:07 +0200
+	Mon, 19 Oct 2026 12:42:25 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48df4f540ebso1099190f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:42:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792413742; x=1793018542; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=;
+        b=FWH5BIgDbfhHxF8ethBNstLloKKpMeWMEbnyEMKAx/yvLEdxcb4i6/+ZZ8d6ostNVG
+         m9MmsP8Wix3VQV5MlAXiWf0LXrhFx210KDOVE84G/ix9S5HZbBPkFqtcdUqmh7Jguq25
+         mn4mUzEqdzYH6qb/U5dlnqSZqEJJlACdpqh9XbrY0UvNEk7gas/5gNIQMJEh8fzn6y0w
+         UfIvmREHR4J0JHVoGrbSCelyGzJlgLlT0uyVxZl8nIriadHwjd1hA8XgJKWxU8nijYYv
+         HXEzdcpUvlI8xxBX0mymKpvqxrNXlDQ7amhAIPqKRM/b1K9CoQ4rdcKVza18Y7oaaelC
+         kv6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792413742; x=1793018542;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=;
+        b=XMawN/mVbk+bb3UqFNvh1w4Qwf/sbcEMn5NHxHtKf8qNU1rLsBf0UzrVCsaI8Fr9Ie
+         7XShwMRxbOj1ECV/ST4LwaFGHjSHtQwk/QnJe173fsJNKOJCDr2n6+61uLzZA2YeEt5r
+         FW6am2N9i88jUc7XpK5f/1S3I6O/wYWi/IY/Ml/arLvbA0U/EPe0iV9x2Yg3n8zA9uyz
+         0RZKEek6ErQe/dh7Dax/VsHUTqsxe5cTaFIsxohNRJm6ck3q1O8jQzLqrO6iJpeAwONr
+         DCvlZwsAExVJRudE+3ACYec3RK1pHMqEM7IjQsbp8pk36oKV0G1p3+BvjSMBWovKl1Fl
+         CFrw==
+X-Forwarded-Encrypted: i=1; AKwUvBzO+hfO3iBYa15Pq+5IaZnkm3Pdq3Ymh2whINunyDfG9FWturJBpkOFx6mCWJlpW+rtQKmJXwkkTA3x3G2bKGSU@lists.infradead.org
+X-Gm-Message-State: AFq9FYKm42xZ4Lyuzhx/2+kYIwb1nW2I6pgTa/A3JRv4HluEUb5lBDQs
+	CHi3BDZEge2cqd5k2tRG1NP1KovnxFjetB3ZQXglkkyzl0YJFIKq46ezBZpEtjlzDg==
+X-Gm-Gg: AYBFou0za5Zf8sp4/VU2eAGV8Tt108MGgzsbe02P7OiBqeXdi+6p2GsoP0GqBfxPsW9
+	cnFaNPkXk4gY4k1zgH0ER2lEGZVOGXQzL309NzzyfVZHuISGBi20UQfOPZnzap0cohra/r6BN4D
+	CrMQduhEd5edXjVljnqgMJo+dP4FoOuLNkmtH5fJ66Hg6KtUm3GbwLjIi3nXpoXTCB0eQAPZuoW
+	XjOH9LjDdOeOepKHoJcYSQYT1ZUzKuXk098bVUtlYTZQHBW6HqLgGmkuVyBPpWina4PY8MFB69L
+	J3q/TZnpc/dplx/rLdzJMMiLmmwwd0nHo5wmrD70iBXDf1WJk8yt79A+DqznrDtMzHFkCMeFD7b
+	954C4Vo0RT3K6EqvwviGt4fju0S7RlyOEn0Ro3fN8n7sDRwQYXZ49JPZhN+QX74BmHzVT+kNpSk
+	RXm5OVRFWqOzZG3WFFPdWREp5duQe+noj+YA7HyC1/qO8SGqaMYZQuXGih1NuPzm4dBd2yCXFcL
+	F7SxoE84Nsqr3Ma16EWyCMXT+9n0Eb7+7EiQQjhvss=
+X-Received: by 2002:a5d:4904:0:b0:488:7787:469d with SMTP id ffacd0b85a97d-48e07fbbf4emr11756626f8f.25.1792413741500;
+        Mon, 19 Oct 2026 05:42:21 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd503a0dsm23717496f8f.47.2026.10.19.05.42.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 05:42:20 -0700 (PDT)
+Date: Mon, 19 Oct 2026 13:42:17 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: Ensure TLBs and I-cache are private to
+ each vCPU in pKVM
+Message-ID: <atYQKaLo4VJDoNJn@google.com>
+References: <20261014125510.2928306-1-fuad.tabba@linux.dev>
+ <20261014125510.2928306-3-fuad.tabba@linux.dev>
+ <atXqLxU5bBtJ8U9W@google.com>
+ <20261019114357.3528498-1-fuad.tabba@linux.dev>
+ <atYPZeJuw2grFDlz@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] arm64: dts: ti: k3-j784s4-ti-ipc-firmware: Reserve
- memory for LPM metadata
-To: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Abhash Kumar <a-kumar2@ti.com>,
- Beleswar Padhi <b-padhi@ti.com>, Thomas Richard
- <thomas.richard@bootlin.com>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, prao@ti.com
-References: <20260921145325.300025-1-richard.genoud@bootlin.com>
- <20260921145325.300025-6-richard.genoud@bootlin.com>
- <702b80bc-23b1-4057-b613-aa5aef2c8c7a@ti.com>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <702b80bc-23b1-4057-b613-aa5aef2c8c7a@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <atYPZeJuw2grFDlz@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_054219_399687_BEC44680 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20261019_054224_069993_DC624B9A 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,104 +113,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 17/10/2026 à 09:05, Kumar, Udit a écrit :
+On Mon, Oct 19, 2026 at 01:39:01PM +0100, Vincent Donnefort wrote:
+> On Mon, Oct 19, 2026 at 12:43:57PM +0100, Fuad Tabba wrote:
+> > Hi Vincent,
+> > 
+> > On Mon, 19 Oct 2026 11:00:15 +0100, Vincent Donnefort <vdonnefort@google.com> wrote:
+> > [...]
+> > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > [...]
+> > > > @@ -54,6 +54,9 @@ struct pkvm_hyp_vm {
+> > > >          unsigned short refcount;
+> > > >          hyp_spinlock_t lock;
+> > > >  
+> > > > +        /* Per physical CPU, the vcpu_idx of the last vCPU of this VM loaded there. */
+> > > > +        int *last_vcpu_ran;
+> > > 
+> > > Unlikely to be a problem in pratice, but vcpu_idx is "unsigned int". I wonder if
+> > > this shouldn't be unsigned int here too and initialised to UINT_MAX?
+> > 
+> > I'd copied int and -1 from the host's mmu->last_vcpu_ran, but the
+> > vcpu_idx it's comparing against here is unsigned int, so I'll switch to
+> > unsigned int and UINT_MAX in v2.
+> > 
+> > Thanks,
+> > /fuad
 > 
+> Also,
 > 
-> On 9/21/2026 8:23 PM, Richard Genoud (TI) wrote:
->> Declare a carveout memory region to store LPM metadata on J784S4.
->>
->> For Jacinto devices, this memory region is needed for saving ATF context
->> and the certificate information of ATF and OPTEE and DM image. This LPM
->> metadata area is firewalled to be accessed only by TIFS.
->>
->> U-Boot R5 SPL/TIFS will use this area to save and restore:
->> - ATF context
->> - ATF certificate information
->> - OPTEE certificate information
->> - DM image (which has been copied in memory at boot time by U-Boot
->>    R5-SPL)
->>
->> At resume, U-Boot R5 SPL is executed and detects that the board is
->> resuming (with a flag set in the PMIC), then it:
->> - brings out of retention the DDR
->> - retrieves the LPM memory region from DTS
->> - authenticates certificates from LPM memory region and applies firewalls
->> - asks TIFS to restore TFA and its own minimal context
->> - starts TFA on remote proc
->> - loads back DM image from memory and jumps to DM
->>
->> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
->>
->> As this is used by U-Boot SPL, bootph-pre-ram is added and the device is
->> enabled.
->>
->> NB: This memory region is not part of DM memory (which is not retained
->> at suspend)
->>
->> Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
->> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
->> ---
->>   .../boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi    | 15 +++++++++++++++
->>   1 file changed, 15 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
->> index 81b508b9b05e..1c0c1533f0a3 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
->> @@ -17,6 +17,12 @@ c71_3_memory_region: memory@ab100000 {
->>   		reg = <0x00 0xab100000 0x00 0xf00000>;
->>   		no-map;
->>   	};
->> +
->> +	lpm_memory_region: memory@ac000000 {
->> +		reg = <0x00 0xac000000 0x00 0x00300000>;
->> +		no-map;
->> +		bootph-pre-ram;
->> +	};
+> as it is always allocated when pkvm_hyp_vm is, Would it make sense to add this
+> to pkvm_get_hyp_vm_size() instead of allocating separately?
 > 
-> Could you move this carveout near to optee
-> 0x9E500000 to 0x9E800000 as LPM memory,
-> 
-> Since 0xa***_**** is used by firmware and this is just place-holder for
-> lpm meta data.
-> 
-> Also better to move this k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-> file as these two SOCs are same and uses same map
-Ok I'll change to 0x9E500000 and merge with patch 7/7 (j742s2)
+> -- 
+> Vincent
 
-Thanks!
-Regards,
-Richard
-
-> 
-> Thanks
-> Udit
-> 
-> 
->>   };
->>   
->>   &mailbox0_cluster5 {
->> @@ -27,6 +33,15 @@ mbox_c71_3: mbox-c71-3 {
->>   	};
->>   };
->>   
->> +&mcu_r5fss0_core0 {
->> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->> +			<&mcu_r5fss0_core0_memory_region>,
->> +			<&lpm_memory_region>;
->> +	memory-region-names = "dma", "firmware", "lpm-metadata";
->> +	bootph-pre-ram;
->> +	status = "okay";
->> +};
->> +
->>   &c71_3 {
->>   	mboxes = <&mailbox0_cluster5 &mbox_c71_3>;
->>   	memory-region = <&c71_3_dma_memory_region>,
-> 
-
+Ha, I just saw your answer to Marc and you will switch to a per-cpu approach
+anyway it seems?
 
 -- 
-Richard Genoud, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Vincent
 
