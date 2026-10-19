@@ -4,105 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E2BCCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F279CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWLBljJF+g21y6oGGUekme2PmMbMBIzShNS8HAgf7NQ=; b=W5JjQJrgLJIFu/LXO6vl5mH/Qr
-	onNtQMIAMk29sPbf/UqAgRs7GJS+KaklTcbKOP/xpudiln2tOzK7Y2a5gAeieSPPJxsP7Z5I+Orkd
-	D0AmE16Q3KR5pVFNPu2rudObqU02fVaYW/de92JWAiejQqZ0gAbbWnjm1aOq98jCOqZFMSpQGzj83
-	BYXOnf7MO8d/E5+smyhjHVV7LHgXz9tVoKErblFsyfJe0nFILM6cLkqSUvDc4BrekUacfCLy+KD2V
-	0J0PYwGV3aFLDA1ejj7ZPh/RioTZxLMh6Ajq6IarkU2EILvj/I4T5wEC7QdBiexYk/WntcAyElXcS
-	rDSmnPBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjpKNxbRFa0QN2xvZXyNEaUJwKZqQxqRu5XGn6mWryk=; b=pwNneeteLz8XJE+hOlfdR0Qo3S
+	lxT/9J4NKrkfVhdqvL3d+VHGOu++HzPi89DCRDCDlWa0jZpPTQ9XpfCUm9MkUdimFdpAd3tjkYcHh
+	BohsZGQ2ypgctdz96Z0xTDa92zojoX98XXzhZU6DJOPsUMbu8baUuuPnRYn2NGO4lEUjzC4+PypM4
+	2+FdQo6xlO0fcib47Vf+6DLh99C8a4Ismv3c7xJdGvM63eMTQugYgpD5AB1h4CGzktXMkOk7i2NV8
+	jaCXu45sZcPpRdMk+MsHaCtrJ1u8vYCkA0V5ZEg5jNBTN1bQmgj/O3wLw5fMVQZhkKahed+RzjS9D
+	EJ8eoleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiXE-00000006r3Y-1CXd;
-	Mon, 19 Oct 2026 08:15:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIiZb-00000006rIB-3TNS;
+	Mon, 19 Oct 2026 08:18:23 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiXC-00000006r3J-46MG
+	id 1xIiZW-00000006rHa-2LRs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:15:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9A4840350;
-	Mon, 19 Oct 2026 08:15:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCC91F000C5;
-	Mon, 19 Oct 2026 08:15:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792397754;
-	bh=kWLBljJF+g21y6oGGUekme2PmMbMBIzShNS8HAgf7NQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=TjD5A3WP2aVkCdsuXF++BwQYPbJESmbfsRs0S22sEQPsOD7ybcLmYNLKy5DpB/wbU
-	 5BTd/PNssljD8ejNVaxcFeBTH5N31+7/IQ/ji9R4jRZYy+xCo2HrxpliA1G2G5uH/R
-	 U1JC4i6Ow9n5Gu26W17/wp8lt3smPHn0ZeupT5iQa83v5VD53J+7o8vScJki0DVko0
-	 QvL8kOfgjnrOyvCm8izdE+x0kO9cZGWnxvIhwH8NoZ/uJ4HT1qVmADng61DvPdUp8E
-	 cVAj70FSHSS/EO6HBHcPOSBkWSrRHRE0v1oaEOoPvg77xRuoxTe1kTfCxmsT4QTi0c
-	 nL6a4Jrg0j/UA==
-Message-ID: <0ec5fddf-f8de-4c82-a42d-6abca1e06091@kernel.org>
-Date: Mon, 19 Oct 2026 10:15:50 +0200
+	Mon, 19 Oct 2026 08:18:22 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2e8623790f8so67185ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:18:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792397898; x=1793002698; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wjpKNxbRFa0QN2xvZXyNEaUJwKZqQxqRu5XGn6mWryk=;
+        b=mLsvrb9ZElpSNFOco6uTPajGlNtF00fVSt2h6JvacuvlDDA2PCcEUn7lFq15MHqCR+
+         kvW9FgBjYf7h/U+xYvF42O3gSli8bqYa6CuMS7TuKwuUY+bNA0jewL0b4gF5fuM7qQc0
+         ZnMo9jPX26f/r/3ktitYzrwKOBPGfavcOi8RkfwcodOg7eU3min/xR2ba38gaS1CCg1i
+         ZyaqIvktiRB/Qa7+OqLSsR1lcUlia+XCIXub7YJb4pA0feDx2vHKPjDMzRSj78lkDafQ
+         8HLfGxFwMhltDVrMwTDqkvjFRWY5Ir+F2LJsEWJsWSGi4FUg7JklaQuRI0cktWBDZH+6
+         rU1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792397898; x=1793002698;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wjpKNxbRFa0QN2xvZXyNEaUJwKZqQxqRu5XGn6mWryk=;
+        b=dU52fyjJCT6y6qqC7NRYIFvacmnS1f1YH9cvTje22hrAkHVL3f1+vCULCwc3VvP7Z+
+         v2t5wGtT57uFIqqYEnrI5vFK2ftOf71ZzPyD353k1QsSmCQphga/H1QHbMxnvqkCRAcd
+         t/eZgNXmjdhTiXhV8pdECG0673vPaJ9/cGuKHSY6Yr8JR2uj+V4D85ZnNcp3RK1fkMNf
+         cfNzSAfGDzU0jAQ/hD0/ibw0rT/L9S0sTSLIDIc6lRZA01ISDiDfKTrUD4Tdz9w05mag
+         0An2aikdXaMV07mOE8WXfnpcolDgoEMaLNBCKDWblb10TecfzA8FxOSVSMWMTjzjYq0w
+         XS3w==
+X-Forwarded-Encrypted: i=1; AKwUvBwt/KFJmSr7wWFUfPHNn8uClzgW5qufpGlCHYBollaXmerzg/QSOrmaoSFHKxzRdDsqXTL4R1suqgAgw7jN/3ly@lists.infradead.org
+X-Gm-Message-State: AFq9FYKIVUn8+gy2K+zz8sKoq1gStms3kg9WBPv6tYwA7fP+FwPCn1LP
+	MaFbERERo8MoM0rU8FUI+slDq6xEqtA2aHXGDYShPdvw+93601IDsXhvbnO+bGCzAQ==
+X-Gm-Gg: AYBFou0Vdp+Mr2wqD6H3hK0Sy3AUalEaHA4d8V7/Ut5I3CRHQWrbjp/XsIi5oZK7AR+
+	Uhy8FmzcmcyjJbG6baj10g5RpTwqV6FkiWnQmCjVyaiveIPr3X9DJF0YC/tdPziqeb9kG7/bSEw
+	clPx8VV5bkauOxZAl0qTGlhv2NMeD0ISCw3KamiQg58UsHOUm5o9hZgJFzDml1ggWH0YKwU3Q11
+	wBpZn0Hl9h8AKfmenvWIMPdw2p3Za+mt39DhtKYIY/i6Q6uP+P//yKYTr7fS/jggMInLmwMyllz
+	Tvu33yAOlMAc1+X5EEARIhqAf7LpB+kVOB3b3ATN8epqStasdjjA8qw0nfFeKaPc8cavCIaOi6b
+	WhLwCzC9ihkW6Zs1A9+DiC38kUrJUy0QOAVIFNRj/AVHzLrRukTCoT+VOrH0fxXSTBkJzUXVjdG
+	NIJ9w9T5NBJBirBjc0/ks3ipR+MViYb6Rpv5qy9/E3DX/e+XDSs3Oh76eUFK8BqLuY48/vtahu0
+	emvIJeaJZ3OPVqfL5NoHE++hgxYGJeena5LiQ==
+X-Received: by 2002:a17:903:1967:b0:2d5:db38:8010 with SMTP id d9443c01a7336-2e9b332b4d8mr6634505ad.15.1792397897247;
+        Mon, 19 Oct 2026 01:18:17 -0700 (PDT)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f58017244sm3517077b3a.47.2026.10.19.01.18.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 01:18:16 -0700 (PDT)
+Date: Mon, 19 Oct 2026 08:18:08 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, Radu Rendec <radu@rendec.net>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev,
+	sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 07/16] genirq/msi: Cache MSI message in
+ irq_chip_write_msi_msg()
+Message-ID: <atXSQFvKWo_xAw9l@google.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-8-praan@google.com>
+ <875wz4eyqe.ffs@fw13>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-To: Arnd Bergmann <arnd@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-References: <20261016130328.1037616-1-arnd@kernel.org>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20261016130328.1037616-1-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <875wz4eyqe.ffs@fw13>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_011818_602295_915CA7AC 
+X-CRM114-Status: GOOD (  30.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,60 +113,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16. 10. 26, 14:59, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Wed, Oct 14, 2026 at 11:52:41PM +0200, Thomas Gleixner wrote:
+> On Tue, Sep 29 2026 at 03:45, Pranjal Shrivastava wrote:
+> > Currently, PCI MSI caches the composed MSI message into the MSI
+> > descriptor inside __pci_write_msi_msg(), whereas platform MSI and other
+> > device MSI domains do not cache the message in the core, forcing
+> > individual drivers to manually copy the message into desc->msg if they
+> > need to restore it across power transitions.
+> >
+> > Cache desc->msg in irq_chip_write_msi_msg() before invoking the chip
+> > callback so all hierarchical MSI domains automatically record the
+> > latest message. Document why the redundant assignment in
+> > __pci_write_msi_msg() must remain for direct callers outside the
+> > irq_chip hierarchy.
+> >
+> > Suggested-by: Thomas Gleixner <tglx@kernel.org>
+> > Signed-off-by: Pranjal Shrivastava <praan@google.com>
+> > ---
+> >  drivers/pci/msi/msi.c | 6 ++++++
+> >  kernel/irq/msi.c      | 9 +++++++++
+> >  2 files changed, 15 insertions(+)
+> >
+> > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+> > index 80a9db417dc8..f7bedc31d486 100644
+> > --- a/drivers/pci/msi/msi.c
+> > +++ b/drivers/pci/msi/msi.c
+> > @@ -257,6 +257,12 @@ void __pci_write_msi_msg(struct msi_desc *entry, struct msi_msg *msg)
+> >  		pci_write_msg_msi(dev, entry, msg);
+> >  	}
+> >  
+> > +	/*
+> > +	 * Although irq_chip_write_msi_msg() already caches the message,
+> > +	 * keep the assignment here for callers that invoke
+> > +	 * __pci_write_msi_msg() or pci_write_msi_msg() directly outside
+> > +	 * the irq_chip hierarchy.
+> > +	 */
+> >  	entry->msg = *msg;
+> >  
+> >  	if (entry->write_msi_msg)
+> > diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+> > index fb5f372215bf..df460a574d80 100644
+> > --- a/kernel/irq/msi.c
+> > +++ b/kernel/irq/msi.c
+> > @@ -634,6 +634,15 @@ static unsigned int msi_domain_get_hwsize(struct device *dev, unsigned int domid
+> >  static inline void irq_chip_write_msi_msg(struct irq_data *data,
+> >  					  struct msi_msg *msg)
+> >  {
+> > +	struct msi_desc *desc = irq_data_get_msi_desc(data);
+> > +
+> > +	/*
+> > +	 * PCI Multi-MSI shares a single descriptor across all vectors and
+> > +	 * the device stores only the base message. Cache the message of the
+> > +	 * first interrupt only, so that sub-vectors cannot overwrite it.
+> > +	 */
+> > +	if (desc->irq == data->irq)
+> > +		desc->msg = *msg;
+> >  	data->chip->irq_write_msi_msg(data, msg);
+> >  }
 > 
-> hub6 support was added in linux-0.99 and the hardware was already old at
-> the time, being discontinued in 1990. The code for it has always been a
-> mess since it adds another dimension to the I/O addressing in the driver
-> that has leaked into many individual files.
+> Sashiko reported correctly:
 > 
-> Hugo and Uwe have attempted several times this year alone to isolate
-> the hub6 handling into the 8250_hub6.c file, but I feel that none of
-> this has been a real improvement over the original standalone loadable
-> module support.
+> > [Severity: Critical]
+> > Does this code cause a NULL pointer dereference for domains without an
+> > msi_desc object?
 > 
-> Any machine that would have used this ISA card in practice is likely
-> 30 to 40 years old, and with i486 support now removed, it is clearly
-> safe to just kill this all off. The only bit that has to remain
-> is the ioctl interface, to ensure the serial_struct field is always
-> zero.
+> So this needs to be:
 > 
-> Link: https://mirrors.nycbug.org/pub/The_Unix_Archive/Unix_Usenet/comp.unix.sysv386/1990-December/007174.html
-> Fixes: a300273c458c ("serial: 8250: hub6: Add cleanup code")
-> Fixes: c526404a4a92 ("serial: 8250: Fix corner case for port matching")
-> Fixes: 7ab80d1e7243 ("serial: 8250: fix compile error with hub6_match_port() when compiled as a module")
-> Fixes: da7b5fd4e17f ("serial: 8250_hub6: add missing include for hub6_match_port()")
-> Fixes: 3d406299d882 ("serial: 8250_hub6: add hub6_match_port()")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->   drivers/tty/serial/8250/8250.h          | 15 -------
->   drivers/tty/serial/8250/8250_core.c     |  2 -
->   drivers/tty/serial/8250/8250_hub6.c     | 60 -------------------------
->   drivers/tty/serial/8250/8250_platform.c | 11 +----
->   drivers/tty/serial/8250/8250_port.c     | 23 ----------
->   drivers/tty/serial/8250/Kconfig         | 15 ++-----
->   drivers/tty/serial/8250/Makefile        |  1 -
->   drivers/tty/serial/atmel_serial.c       |  2 -
->   drivers/tty/serial/fsl_lpuart.c         |  2 -
->   drivers/tty/serial/imx.c                |  2 -
->   drivers/tty/serial/mpc52xx_uart.c       |  3 +-
->   drivers/tty/serial/sa1100.c             |  2 -
->   drivers/tty/serial/serial_core.c        | 18 +++-----
->   drivers/tty/serial/sunsu.c              |  9 ----
->   drivers/tty/serial/xilinx_uartps.c      |  2 -
->   include/linux/serial_8250.h             |  2 -
->   include/linux/serial_core.h             |  2 -
->   17 files changed, 12 insertions(+), 159 deletions(-)
->   delete mode 100644 drivers/tty/serial/8250/8250_hub6.c
+> 	if (desc && desc->irq == data->irq)
+> 		desc->msg = *msg;
+> 
+> Did not think about that, but that also means that this patch was not
+> tested on any recent (less than 10 years old) Intel x86 platform or a
+> x86 VM exposing HPET...
+> 
 
-Great, you would have saved me a headache if you had sent these long 
-time ago ;).
+Ack, I'll fix that, and yes, I've tested this on arm64 platforms only.
+I'll pick up a recent Intel x86 platform as well, to test this.
 
-So I will Ack both, once you repost with the reported issues fixed.
+> Thanks,
+> 
+>         tglx
+> 
+> 
 
-thanks,
--- 
-js
-suse labs
+Thanks,
+Praan
 
