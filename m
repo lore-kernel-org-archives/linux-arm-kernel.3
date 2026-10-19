@@ -2,77 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A42A606AAC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:56:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54D71606C16C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:58:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RNb3mAex;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=QeSUwDeh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VAtjyyCg;
+	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=bg//iQlO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=522dSgSX8QDg4IeydtuZ1AFaoV8ZpxNqAXq0w4tKQaU=; b=RNb3mAexKXojJmA65WQlAeVr08
-	M0/LVj6y6UCuaH2n9PpSqjwn3DIou17pD+Bq3YnC2osZYb4Y3CD4Ry2RWo0+++grcl0J+GFGFW4q3
-	Utv++gleveIe6SZGUYz61RUVz9MlsHGKr+7YDh6DOqFOtBNwz57vIAqEg3HfYbucJDV4GKdEbZk6C
-	Cckbt8QkH+ND0uFC7xUuy9TMWWT1SHoNDmrXhc+o9KB8Bvj1pctmuDv3K5rf7RCLy3Bmf91vhWuqb
-	zP76/px4jrhKJL7X6wuxRvIa4uNkrhWx4WjxCaKWqKFMY812hL88aoahdYtFzUSVjcAMDbByRRF4W
-	hYESY02g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ES/36iUYSJsd3edItbfZ0i8T8t6lEUq077AfpRWn0OA=; b=VAtjyyCgCsssLZ8cH9nTEvCgG1
+	hDJCLS+gL9AHFRChPvrUHPhqH3OlcwO84FfrDdVYpVeRNB+dhvsE1geTceTMxn7sa8TV8mKXAZI9G
+	SWt1tiEwfe7qF9yoZQ4tov7LEf5IKQDuihR88hX8vTmOLnMKKtLg9Aw4aIF8xasLzU0cFc/Bokvvf
+	p8QAWl3vqXOXXaUNQyQFSCZnLat65mSZJ57uML/CAMudj+vDJqpqzCiSHheT57QeA9JXSgmz/O3hT
+	P+RrRFocxPC8JAjAQJKifT/ARGlgyZ/pFk9NxCjo35N/vipedHeiDrOHdpfimoDNQLwXolyVzF/H/
+	8NRS1mCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIpir-00000007u0W-3bJN;
-	Mon, 19 Oct 2026 15:56:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xIpkg-00000007uLA-1EjI;
+	Mon, 19 Oct 2026 15:58:18 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIpip-00000007tzt-36TW
+	id 1xIpkX-00000007uHn-3Scf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 15:56:25 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E1E82D0;
-	Mon, 19 Oct 2026 17:54:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1792425255;
-	bh=9uCPKIsEr/8+KuBqoPLaVUoPiPXEjoFfr9QWURIr6aM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QeSUwDehkhxrrH591BEFl/mwIa5Lg0XyL0OAF1o4NQmUFpzj6s6p6mfyZvFH7UhRe
-	 FTu9nWzUZmHVuOOIZq1K2/lSn3tqWcRrApQ4GOsGtVr5wMJw3LYO/MZC73GfWsnEwr
-	 rhjruCETvAoqwmGwKXbKHUFlmu2pKpNBuryrILH8=
-Date: Mon, 19 Oct 2026 18:56:19 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Kevin Hilman <khilman@baylibre.com>, Vinod Koul <vkoul@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clegoffic@baylibre.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 2/8] clk: renesas: r8a78000: Add SCMI remapping support
-Message-ID: <20261019155619.GB3705@killaraus.ideasonboard.com>
-References: <cover.1792163045.git.geert+renesas@glider.be>
- <c38d744c09dffff550a9b882051c211b572b8daf.1792163045.git.geert+renesas@glider.be>
+	Mon, 19 Oct 2026 15:58:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZFb1zs0CD8ql/OPTeptsvB8JKBk059ZFXrdi+5dWExd4jy6t+XNQqsU56CjqCwP7Yn2uG/Vluvg+QvvGOU5oBG7i5yOPzgMAFyV0jMYMCTV5oZqYyLNI5Y8H7Y5eAP1IRAungp3t4m1ApoKYlP7DB/GxN3XfHddWGB+sBtCBRDWjl225ODpgwDT6g1Fkkh+XTc59uN7wYy/0wNk8xoMgozlvb85z8sUzOp75I8fMmIOOkB07JNsNa/WX4CdqG2J1s2rMbPzlOlVnbAkfgijuXPu3mVcjxWCZ40WC9ppwBRleo515rQD5w7ou1Bnr2qV/5fblzyPduBgOsUlIUgeVmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ES/36iUYSJsd3edItbfZ0i8T8t6lEUq077AfpRWn0OA=;
+ b=Vu/wWn4hufB0vpyWIVtnIyN9q290PpWd6XksheyXvSwOqZsIXyCtzQpSpbP7rj0BHw3XaU3aHakC9hxW5hOFXWTg+pS/F0oSWYFUbdrtdvOu0D2ALIrIp6wiREUBoOLbDJUYOGaY7l2bk9FVV6Y7bI5rkwIP54rJUqumJPVJXAH811qYQ4nIZOq1kNCXkrXTOauumxnFxXSOYiiewgXClK7DdQ/DLlZ2u4h8SkA++5eyp7aRFAyKo/X3N2HFp4CvSuwlTjFZHcYA6HmEjD1vkcuQr5074M4yXFdo8Z1FpFFbof2ZBf8gofWnAD0SWdLNbe5bqbbGHJ4qu+GzcqxfJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ES/36iUYSJsd3edItbfZ0i8T8t6lEUq077AfpRWn0OA=;
+ b=bg//iQlO/ftISWXmwqRb7tv9ORY6Jh5mRpEllAnDqlPQmql1QvWOan0Ylg6RXMdnlSGj/+KZ3iJSxnhGeWfQj41T+P8fUMM48utLSBVlXFHQsJNA4zHl0gYjzj1AvUQexovPbqBVLq6lw/hzbiCFgcWB7hlNozqtHo5HfUcHLIE=
+Received: from OSTPR01CA0075.jpnprd01.prod.outlook.com (2603:1096:604:21a::7)
+ by TY4PR01MB13059.jpnprd01.prod.outlook.com (2603:1096:405:1de::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 15:57:37 +0000
+Received: from OS3PEPF0000003C.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:21a:cafe::5f) by OSTPR01CA0075.outlook.office365.com
+ (2603:1096:604:21a::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Mon,
+ 19 Oct 2026 15:57:37 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=renesas.com;
+Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
+ 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
+Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
+ OS3PEPF0000003C.mail.protection.outlook.com (10.167.240.5) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.6
+ via Frontend Transport; Mon, 19 Oct 2026 15:57:37 +0000
+Received: from vm01.adwin.renesas.com (unknown [10.226.93.174])
+	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 326403000241;
+	Tue, 20 Oct 2026 00:57:31 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	xiaoliang.yang_1@nxp.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net v2 0/1] net: stmmac: Track the TX DMA threshold per queue
+Date: Mon, 19 Oct 2026 15:57:27 +0000
+Message-ID: <20261019155728.85318-1-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <c38d744c09dffff550a9b882051c211b572b8daf.1792163045.git.geert+renesas@glider.be>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS3PEPF0000003C:EE_|TY4PR01MB13059:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 794869d6-c8e5-4e36-4f59-08df2df9b25b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|18002099003|13003099007|11063799006|10067099003|261009223027099003|56012099006;
+X-Microsoft-Antispam-Message-Info: uehmbA2tn0bHHX/hRyP3Zf2LrWLGkhEiR6u5xtmqghaE32WOuck6SAs589Z7BQ7n67RRSvXj/ZLyy47nGNPVjovHU1hjC7WB5XMV4SMqLYj5jz7n2iWyEJFtHo7cma8Ud5/0ruqmYck5SWN1wQOxAdlmnJpFDhDxoLcrAbpq+lOPEtIOtrSTkHvRQt3iAcBS9K6Rs1gcXeWckzugyqrjAaf94OeET4fLkeeJZTzTZBOd+7aYiHH38I08zc0yRtucNXdt5Dt1nEBdi6CMUnhXhyVwilC70/79ig+eFhpvysHf8HgmMuCsRdQStNO03TvlWT9IUkbjFEpGTzu6M/vk/NlU8DzgCxDTIkcUXMFNy1JmiUt8ykT9UimamVwBXarHEn6TjYGuGiRT1yCH7LgKpHaVlrHTCZ9UswNhUAEKJ08xnlboYkuqjEJxk0QFasfa8uLFW4Dw7iv6YJAgodf0ed2fF5XlQgBtaTxXna+j5G8Psx1esOTJS3WCbMRWW6AYy5Hk35K+9ASqR3u6mab8zdedWr7ZOAKzljU8hV8wOkrQpr9h35cHwquTtKxYPTHFvxnQbow8aG0KrInKlrMzWoZiDQ8bIoixjmYxyIWKfOIRg8eNjj6C/NR3Up3DmeihCAswzKeN0EvMnWGfzBtxNscwbtwWuSayxZ6qCmGITNw=
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(18002099003)(13003099007)(11063799006)(10067099003)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2RVutyA8nMlUBAQZc7nPg2vBct8XO9BpabzE+k/IZQTpB/2nKWBKje0X4hPdUERLIfy56IgXkIURX+0MNQLsCZImIvqEaWf0EVvyyofzUbJBpZvFdiqHe0JyzBgXCN3EEFnldy1RQsRCAykgMD5QqFpR5XpkbWgcFKqW8Vg/gpOik1y0hAajFcXhYNusL7NC2xxlSIveMkwAJ8XP9OFSt0fW2BuVxnI+c9nT6mQ1+o6QJKD1+nAD7fIHSKsj6PXxSrY8MJYq37iMrmBInj4VdL9osjfbrivrqSvV6PS9yrF2VcSZcjH+0IfNX4w8g0WeXipL67RJ9Sut4NnGvMuOTS9TCg3fkv4AhfYb9G7sztq8C44637GFVTuIqG4ZYsIVGULIV0e748ET7cfjyf/uggDFXhxzi9ZFRt/qwnWkrLG/VLdF4CVK6hTDokwgKsE1
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 15:57:37.1648
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 794869d6-c8e5-4e36-4f59-08df2df9b25b
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
+X-MS-Exchange-CrossTenant-AuthSource: OS3PEPF0000003C.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB13059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_085623_926775_9B155889 
-X-CRM114-Status: GOOD (  48.15  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261019_085809_869042_A1EB0443 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,352 +126,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Geert,
+On the Renesas RZ/V2H platform, which has two dwmac4 controllers, we
+observed sporadic iperf3 TCP TX failures on one of the controllers, with
+throughput dropping from >900Mbit/s to ~1Mbit/s due to TX underflows and
+the resulting retransmissions.
 
-Thank you for the patch.
+Commit 3a6c12a0c6c3 ("net: stmmac: bump tc when get underflow error from
+DMA descriptor") made dwmac4 raise the DMA threshold of the queues that
+report TX underflows, by increasing a global module parameter 'tc'.
+However, this logic does not work correctly across multiple queues and
+controllers, and can leave the TX DMA threshold stuck at 64 bytes.
 
-On Fri, Oct 16, 2026 at 05:55:41PM +0200, Geert Uytterhoeven wrote:
-> Extend the Clock Pulse Generator driver for R-Car X5H with SCMI support,
-> to remap DT clock IDs to abstractions (clocks) offered by the SCMI
-> firmware when running on a system with SCMI, and SCMI support is
-> enabled.  Take into account some peculiarities of the current SCMI
-> firmware implementations, and fall-back to fixed-rate clocks as
-> replacements for SCMI clocks that are not available.
-> Support for bus clocks used by serial, I2C, and SPI devices is included.
-> 
-> This lets us avoid putting SCMI IDs in DT, and allows us to use the same
-> hardware description in SoC DTS for systems with and without SCMI
-> firmware.
-> 
-> For now, it is assumed SCMI clock IDs are stable, and match SCP FW
-> SDKv4.31.0 and later.
-> 
-> Suggested-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v4:
->   - Drop unneeded IS_ERR() check after __clk_get_hw(),
->   - Mark scmi_clk_np __free(device_node),
->   - Assume all SCMI clock IDs are stable, and drop support for handling
->     different ID spaces,
->   - Include initial mapping table for SCP FW SDKv4.31.0 and later,
->   - Try SCMI clocks first, and fall back to the default fixed-frequency
->     clocks when not available, as recent firmware versions no longer
->     restrict access to some bus clocks,
->   - Drop renesas,scmi-firmware support, just find an arm,scmi node
->     instead,
->   - Fall back to the non-SCMI defaults when SCMI clock support is
->     disabled,
-> 
-> v3:
->   - Rebase,
->   - Consistently use /* sentinel */ for zero sentinels,
->   - s/firmware/renesas,scmi-firmware/,
->   - Reword,
-> 
-> v2:
->   - Spin off from "clk: renesas: Add R-Car X5H CPG SCMI remapping
->     driver",
->   - Use reverse xmas ordering in r8a78000_cpg_probe(),
->   - Propagate error codes from scmi_get_base_info() now it can return
->     -EPROBE_DEFER,
->   - Improve error message on scmi_get_base_info() failure,
->   - Check if SCMI firmware node is available,
->   - Replace the scmi_clk_np member of struct r8a78000_cpg_priv by a
->     local variable in r8a78000_cpg_probe(), and pass it to
->     fill_clk_map(),
->   - Join split short lines,
->   - Fall back to the default support when SCMI support or firmware is
->     not available, or when the detected SCMI firmware version is not
->     supported by the driver,
->   - Drop mapping tables.
-> ---
->  drivers/clk/renesas/r8a78000-cpg.c | 149 ++++++++++++++++++++++++++---
->  1 file changed, 138 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/clk/renesas/r8a78000-cpg.c b/drivers/clk/renesas/r8a78000-cpg.c
-> index 5ffd7b89cb48e41c..758cfe78ae58e0fb 100644
-> --- a/drivers/clk/renesas/r8a78000-cpg.c
-> +++ b/drivers/clk/renesas/r8a78000-cpg.c
-> @@ -5,6 +5,7 @@
->   * Copyright (C) 2026 Glider bv
->   */
->  
-> +#include <linux/cleanup.h>
->  #include <linux/clk.h>
->  #include <linux/clk-provider.h>
->  #include <linux/dev_printk.h>
-> @@ -12,21 +13,27 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> +#include <linux/scmi_protocol.h>
->  #include <linux/slab.h>
->  
->  #include <dt-bindings/clock/renesas,r8a78000-cpg.h>
->  
->  struct clk_map_in {
->  	int dt_id;		/* DT binding clock ID or -1 sentinel */
-> -	u32 fw_id;		/* FIXED_CLK() ID */
-> +	u32 fw_id;		/* SCMI firmware clock ID or FIXED_CLK() ID */
->  };
->  
->  struct clk_map {
->  	int dt_id;		/* DT binding clock ID or -1 sentinel */
-> -	u32 fw_id;		/* FIXED_CLK() ID */
-> +	u32 fw_id;		/* SCMI firmware clock ID or FIXED_CLK() ID */
->  	struct clk_hw *hw;
->  };
->  
-> +struct cpg_data {
-> +	const struct clk_map_in *default_map;
-> +	const struct clk_map_in *fw_map;
-> +};
-> +
->  enum fixed_clk {
->  	FIXED_CLK_66M,
->  	FIXED_CLK_133M,
-> @@ -39,13 +46,14 @@ static const unsigned long fixed_clk_rates[] = {
->  	[FIXED_CLK_266M] = 266660000,
->  };
->  
-> -#define FIXED_CLK(rate)		FIXED_CLK_ ## rate
-> +#define FIXED_CLK_OFFSET	0x80000000
-> +#define FIXED_CLK(rate)		FIXED_CLK_OFFSET + FIXED_CLK_ ## rate
+This series fixes that logic to track the TX DMA threshold per queue for
+each controller.
 
-#define FIXED_CLK(rate)		(FIXED_CLK_OFFSET + FIXED_CLK_ ## rate)
+v2:
+- Dropped patch 2/2, as it is not suitable for net. It will be sent for
+  net-next at a later time.
+- Added "Reviewed-by" tag from Maxime.
 
->  
->  /**
->   * struct r8a78000_cpg_priv - Clock Pulse Generator Private Data
->   *
->   * @dev: CPG device
-> - * @map: Mapping from DT clock IDs to fixed-rate clocks
-> + * @map: Mapping from DT clock IDs to SCMI or fixed-rate clocks
->   */
->  struct r8a78000_cpg_priv {
->  	struct device *dev;
-> @@ -85,8 +93,19 @@ static struct clk_hw *r8a78000_clk_get(struct of_phandle_args *spec,
->  		return ERR_PTR(-ENOENT);
->  	}
->  
-> -	dev_dbg(dev, "Mapping DT clock %u to fixed clock %u\n", id, map->fw_id);
-> +	if (map->fw_id < FIXED_CLK_OFFSET)
-> +		dev_dbg(dev, "Mapping DT clock %u to SCMI clock %u\n", id,
-> +			map->fw_id);
-> +	else
-> +		dev_dbg(dev, "Mapping DT clock %u to fixed clock %u\n", id,
-> +			 map->fw_id - FIXED_CLK_OFFSET);
-> +
->  	hw = map->hw;
-> +	if (!hw) {
-> +		/* CLOCK_ATTRIBUTES is not supported */
-> +		dev_err(dev, "Clock %u is not available\n", id);
-> +		return ERR_PTR(-ENOENT);
-> +	}
->  
->  	dev_dbg(dev, "clock %u is %s at %lu Hz\n", id, clk_hw_get_name(hw),
->  		clk_hw_get_rate(hw));
-> @@ -94,6 +113,21 @@ static struct clk_hw *r8a78000_clk_get(struct of_phandle_args *spec,
->  	return hw;
->  }
->  
-> +static struct device_node *scmi_find_proto(struct device_node *scmi, u32 proto)
+v1: https://lore.kernel.org/all/20261013114503.57487-1-ovidiu.panait.rb@renesas.com/
 
-This is the kind of function name that looks prone to a namespace clash.
-I'd name it r8a78000_clk_scmi_find_proto().
+Ovidiu Panait (1):
+  net: stmmac: Track the TX DMA threshold per queue
 
-> +{
-> +	for_each_available_child_of_node_scoped(scmi, child) {
-> +		u32 reg;
-> +
-> +		if (of_property_read_u32(child, "reg", &reg))
-> +			continue;
-> +
-> +		if (reg == proto)
-> +			return_ptr(child);
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
->  static struct clk_hw **register_fixed_clks(struct device *dev)
->  {
->  	unsigned int n = ARRAY_SIZE(fixed_clk_rates);
-> @@ -122,11 +156,16 @@ static struct clk_hw **register_fixed_clks(struct device *dev)
->  }
->  
->  static const struct clk_map *fill_clk_map(struct r8a78000_cpg_priv *priv,
-> -					  const struct clk_map_in *map_in)
-> +					  const struct clk_map_in *map_in,
-> +					  const struct clk_map_in *fallback,
-> +					  struct device_node *scmi_clk_np)
->  {
-> +	struct of_phandle_args scmi_spec;
->  	struct device *dev = priv->dev;
->  	struct clk_hw **fixed_hws;
->  	struct clk_map *map;
-> +	struct clk_hw *hw;
-> +	struct clk *clk;
->  	unsigned int i;
->  
->  	fixed_hws = register_fixed_clks(dev);
-> @@ -145,7 +184,46 @@ static const struct clk_map *fill_clk_map(struct r8a78000_cpg_priv *priv,
->  			break;
->  
->  		map[i].fw_id = map_in[i].fw_id;
-> -		map[i].hw = fixed_hws[map[i].fw_id];
-> +		if (map[i].fw_id >= FIXED_CLK_OFFSET) {
-> +			enum fixed_clk idx = map[i].fw_id - FIXED_CLK_OFFSET;
-> +
-> +			map[i].hw = fixed_hws[idx];
-> +			continue;
-> +		}
-> +
-> +		scmi_spec.np = scmi_clk_np;
-
-This seems to be safe because a NULL scmi_clk_np implies usage of the
-default map, which only contains fixed clock offsets, but that makes the
-code a bit too fragile for my taste.
-
-> +		scmi_spec.args_count = 1;
-> +		scmi_spec.args[0] = map[i].fw_id;
-> +
-> +		clk = of_clk_get_from_provider(&scmi_spec);
-> +		if (IS_ERR(clk))
-> +			return dev_err_cast_probe(dev, clk,
-> +				"Failed to get SCMI clock %u\n", map[i].fw_id);
-> +
-> +		hw = __clk_get_hw(clk);
-> +		if (!hw && fallback != map_in) {
-
-And if the above is correct, fallback should always be different from
-map_in when fw_id corresponds to an SCMI clock.
-
-What issue does this catch ? Should the fw map contain a fixed clock
-entry for clocks not available in SCMI ?
-
-> +			for (unsigned int j = 0; fallback[j].dt_id >= 0; j++) {
-> +				if (fallback[j].dt_id == map_in[i].dt_id) {
-> +					enum fixed_clk idx = fallback[j].fw_id - FIXED_CLK_OFFSET;
-> +
-> +					map[i].hw = fixed_hws[idx];
-> +					break;
-> +				}
-> +			}
-> +			if (map[i].hw)
-> +				continue;
-> +		}
-> +
-> +		if (!hw) {
-> +			/* CLOCK_ATTRIBUTES is not supported */
-> +			dev_warn(dev, "SCMI clock %u is NULL\n", map[i].fw_id);
-> +			continue;
-> +		}
-> +
-> +		dev_dbg(priv->dev, "SCMI clock %u is %s at %lu Hz\n",
-> +			map[i].fw_id, clk_hw_get_name(hw), clk_hw_get_rate(hw));
-> +
-> +		map[i].hw = hw;
->  	}
->  
->  	devm_kfree(dev, fixed_hws);
-> @@ -154,20 +232,55 @@ static const struct clk_map *fill_clk_map(struct r8a78000_cpg_priv *priv,
->  
->  static int r8a78000_cpg_probe(struct platform_device *pdev)
->  {
-> +	struct device_node *scmi_clk_np __free(device_node) = NULL;
-> +	struct device_node *scmi __free(device_node) = NULL;
->  	struct device *dev = &pdev->dev;
-> +	const struct cpg_data *cpg_data;
->  	struct r8a78000_cpg_priv *priv;
->  	const struct clk_map_in *map;
->  
-> -	map = of_device_get_match_data(dev);
-> -	if (!map)
-> +	cpg_data = of_device_get_match_data(dev);
-> +	if (!cpg_data)
->  		return -ENODEV;
->  
-> +	map = cpg_data->default_map;
-> +
->  	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
->  	if (!priv)
->  		return -ENOMEM;
->  
->  	priv->dev = dev;
-> -	priv->map = fill_clk_map(priv, map);
-> +
-> +	if (!IS_ENABLED(CONFIG_COMMON_CLK_SCMI)) {
-> +		dev_dbg(dev, "SCMI clock support is disabled\n");
-> +		goto fallback;
-> +	}
-> +
-> +	scmi = of_find_compatible_node(NULL, NULL, "arm,scmi");
-> +	if (!scmi) {
-> +		dev_dbg(dev, "Cannot find SCMI firmware node\n");
-> +		goto fallback;
-> +	}
-> +
-> +	if (!of_device_is_available(scmi)) {
-> +		dev_dbg(dev, "SCMI firmware node is not available\n");
-> +		goto fallback;
-> +	}
-> +
-> +	scmi_clk_np = scmi_find_proto(scmi, SCMI_PROTOCOL_CLOCK);
-> +	if (!scmi_clk_np) {
-> +		dev_dbg(dev, "Cannot find SCMI clock management protocol\n");
-> +		goto fallback;
-> +	}
-> +
-> +	map = cpg_data->fw_map;
-> +
-> +fallback:
-> +	/*
-> +	 * We cannot do lazy look-up in r8a78000_clk_get(), as that function is
-> +	 * called with of_clk_mutex already held.
-> +	 */
-> +	priv->map = fill_clk_map(priv, map, cpg_data->default_map, scmi_clk_np);
->  	if (IS_ERR(priv->map))
->  		return PTR_ERR(priv->map);
->  
-> @@ -181,10 +294,24 @@ static const struct clk_map_in r8a78000_cpg_default[] = {
->  	{ -1 }
->  };
->  
-> +static const struct clk_map_in r8a78000_cpg_fw[] = {
-> +	{ R8A78000_CPG_SGASYNCD4_PERW_BUS,	1661 },
-> +	{ R8A78000_CPG_SGASYNCD8_PERW_BUS,	1662 },
-> +	{ R8A78000_CPG_SGASYNCD16_PERW_BUS,	1663 },
-> +	{ R8A78000_CPG_MSO_SCP_MAIN,		1459 },
-> +	{ R8A78000_CPG_MSOCK_PERW_BUS,		1667 },
-> +	{ -1 }
-> +};
-> +
-> +static const struct cpg_data r8a78000_cpg_data = {
-> +	.default_map = r8a78000_cpg_default,
-> +	.fw_map = r8a78000_cpg_fw,
-> +};
-> +
->  static const struct of_device_id r8a78000_cpg_match[] = {
->  	{
->  		.compatible = "renesas,r8a78000-cpg",
-> -		.data = &r8a78000_cpg_default,
-> +		.data = &r8a78000_cpg_data,
->  	},
->  	{ /* sentinel */ }
->  };
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 +++++++++++--------
+ 2 files changed, 21 insertions(+), 13 deletions(-)
 
 -- 
-Regards,
+2.34.1
 
-Laurent Pinchart
 
