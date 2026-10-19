@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5FBCCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6485FCCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0z+5oHpQTRQspcRGTh9XM1CoadJN2ADm1m9N7KDp00=; b=afF2JDHxJIdGlP1/LC67hhKsdP
-	N+bb5AqBoTKUaWFtitUbZ6G3TbsCmcyV253rhd5dZDRumeDVGmXr3WmP0va19xLT6ZPZn+gaww3p0
-	alTAEDi+/DnKnplDQQIwKfVtHKgI2+6ImIDFjFdUUOnjyiuUmoVnK4iEtBNXfuEMfUs3O+ZW8a2wE
-	rDQIQBM34jW8+RaXrooiwAWT6z7qlkIKF3TCEK9wIsqo5fDDeLpSZxQTUie7VgIuru3NblHzQoPXk
-	ysB0l70US53EBLIgM22HbZ+8LcqIfubSfp+FO/5fi5rNltn7jGrF7nR12frFAqLdkC+Djnpd8yWeK
-	Mx+2B4LA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DqJahHfr1UsBLx8USbl6IZSZVQjmiL0holT7orMb9uo=; b=XCeOlNjqRTp3gX9v+xcnue/hUk
+	cBuq7evyzOAsKpvjBgxaXZ9Wp80nNKkKhXX/RfiwgoWTh2yQad2XBj80DS8OkrLViYoKqJMSvYy9x
+	YD1/bsPGqAj6NDrcg026RicG+NbGtOBK90Mom5bTY7PxCq9syrWQnEzHTNnpwIxPfUyicARJkrdaR
+	2YX/eoOeiJqiDTQIHhW4GcWsmRNAdqdqsvN884qd2gECk417aP4E0uf0nYA/jlUADGHJBmsmYqW/Q
+	Oic/iN5Em0udwWpAeJwK7JD4ptbwyeuRl/40/sJ0x+du7dUQooMQFxYAB8ssBXAc7po0ueAYDJQYa
+	VjiVTB3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIizP-00000006tXF-2L07;
-	Mon, 19 Oct 2026 08:45:03 +0000
+	id 1xIizY-00000006tZ4-2htf;
+	Mon, 19 Oct 2026 08:45:12 +0000
 Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIizM-00000006tW7-26R0
+	id 1xIizV-00000006tY4-2rhe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:45:02 +0000
+	Mon, 19 Oct 2026 08:45:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=E0
-	z+5oHpQTRQspcRGTh9XM1CoadJN2ADm1m9N7KDp00=; b=COrgKVXBHlFU0hy5Ts
-	5tyQusbheb0GBgm9O+3h7b1/pAiNQnp+7+FlBxFgg8aXaidtOTfpf3iNwvOuYtaJ
-	kswSZdRkhylSPYYxWb5FLYXyXNOhzpysaU9p4h4gLnHlkMuXHkE1xcmt7u/nFIg4
-	fj5ehMj5mztjpJpSM88yOWNho=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Dq
+	JahHfr1UsBLx8USbl6IZSZVQjmiL0holT7orMb9uo=; b=m5hFG6uQBjs3cbTEJI
+	KMaz73vJMwPOM48mwB1dsGl5UTJhJC72PhMibf/BXSNFfh9vzg7P3RwsA0mplte+
+	GYBwpwR0MVyybP1nTXxEjugGFCEmH7iGNVxxZ1uh663YRXNyzcZtcn44nit+7WsC
+	vCAjggFCa7CpGKjwMsrqULQYI=
 Received: from pc.localdomain (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgBnaJF82NVqrQQEAw--.30772S3;
-	Mon, 19 Oct 2026 16:44:46 +0800 (CST)
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgBnaJF82NVqrQQEAw--.30772S2;
+	Mon, 19 Oct 2026 16:44:45 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
 To: Mark Brown <broonie@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Patrice Chotard <patrice.chotard@foss.st.com>,
 	Felix Gu <ustc.gu@gmail.com>,
+	Atsushi Nemoto <atsushi.nemoto@sord.co.jp>,
 	linux-spi@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Jiale Yao <yaojiale02@163.com>
-Subject: [PATCH 1/2] spi: stm32-ospi: handle runtime resume failure in remove
-Date: Mon, 19 Oct 2026 16:44:42 +0800
-Message-Id: <20261019084443.1824122-2-yaojiale02@163.com>
+Subject: [PATCH 0/2] spi: handle runtime resume failures
+Date: Mon, 19 Oct 2026 16:44:41 +0800
+Message-Id: <20261019084443.1824122-1-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261019084443.1824122-1-yaojiale02@163.com>
-References: <20261019084443.1824122-1-yaojiale02@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCgvCgBnaJF82NVqrQQEAw--.30772S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw13CrWrGr4xJF4kXryxZrb_yoW8WFW8pa
-	1UXa17Cr4kJa1rt3ZrZrW09FyY9a4ftrWDX3s7K3WxZ3s5Aryvqa95JryjvFs3JFykJa1k
-	KF47tw4fZF4qvF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_4E_tUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8B5ln2rV2H7GFgAA3d
+X-CM-TRANSID: QCgvCgBnaJF82NVqrQQEAw--.30772S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZr4UAr13XF47Zw1rGryxuFg_yoW3ZFg_Gw
+	4kCF97X3WjkF9Yya42vFs3ZFyj9FWUuw17ta4qy3ZxJF12qFs8Cw1UZrsrC3WDZwsIk3Z5
+	Kr42vFWxJr9xujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRM9a93UUUUU==
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8B1ln2rV2H3F-wAA33
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_014500_912974_1FE21B1B 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20261019_014510_101553_6328205B 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_ospi_remove() continues with the controller teardown when runtime
-resume fails. The register write can then access an unavailable device,
-and the final runtime PM put does not match an acquired reference.
+The STM32 OSPI remove path and the TI QSPI clock setup helper ignore
+pm_runtime_resume_and_get() failures. A failed runtime resume leaves the
+controller unavailable, so following register accesses are unsafe and a
+later runtime PM put can be unmatched.
 
-Keep the resource cleanup, but skip the register access and matching
-runtime PM put when the resume operation fails.
+Keep OSPI resource teardown on a failed resume while skipping the
+controller register write and its matching put. Return the error from the
+QSPI clock setup helper and propagate it before either caller touches the
+controller registers.
 
-Fixes: 73cd1f97946a ("spi: stm32-ospi: Fix resource leak in remove() callback")
-Signed-off-by: Jiale Yao <yaojiale02@163.com>
----
+Jiale Yao (2):
+  spi: stm32-ospi: handle runtime resume failure in remove
+  spi: ti-qspi: handle setup clock runtime resume failure
+
  drivers/spi/spi-stm32-ospi.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/spi/spi-ti-qspi.c    | 21 ++++++++++++++++-----
+ 2 files changed, 24 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index fa0e8e83cb1b..1340e62ebe1b 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -986,12 +986,15 @@ static int stm32_ospi_probe(struct platform_device *pdev)
- static void stm32_ospi_remove(struct platform_device *pdev)
- {
- 	struct stm32_ospi *ospi = platform_get_drvdata(pdev);
-+	int ret;
- 
--	pm_runtime_resume_and_get(ospi->dev);
-+	ret = pm_runtime_resume_and_get(ospi->dev);
- 
- 	spi_unregister_controller(ospi->ctrl);
--	/* Disable ospi */
--	writel_relaxed(0, ospi->regs_base + OSPI_CR);
-+	if (ret >= 0) {
-+		/* Disable ospi */
-+		writel_relaxed(0, ospi->regs_base + OSPI_CR);
-+	}
- 	mutex_destroy(&ospi->lock);
- 
- 	if (ospi->dma_chtx)
-@@ -1001,7 +1004,8 @@ static void stm32_ospi_remove(struct platform_device *pdev)
- 
- 	reset_control_release(ospi->rstc);
- 
--	pm_runtime_put_sync_suspend(ospi->dev);
-+	if (ret >= 0)
-+		pm_runtime_put_sync_suspend(ospi->dev);
- 	pm_runtime_force_suspend(ospi->dev);
- }
- 
 -- 
 2.34.1
 
