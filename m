@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70E1CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92247CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=; b=3IINll526eAEIFLTlS8qsD8Tdy
-	pGvrPxfM8Ef0fFbd0/6NGWIgVZs7/cTEBr6OR+tqWvg6MqUpKZOMXMq5VIuCE4flUEVwi/uq8+yax
-	KvBitcky4X60YgJfuxld0JXMVCLcSo6CYdYsjGFHiRbzw+wJxL8SsAqilHYHl0a7moyx+M/Ja4xuZ
-	vK4YsiS6Wum+bG/IYejoVuvPeWi91VdDBS66xh2Ngc7xLdnhc49sviqJWSk5N9i/lGemqwx9fqtxq
-	CDh0bSnCeUpVpPd45AwZNgNWuRqEVC8LujRcIHW1xhY+mPHFKXceBkuRX/WiuQzFv5d2cKFbXoY3Q
-	NDl2qwJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O7uaYzjBLQ9L6Ftx8axWfZwImCdlPLVflG9f3fBlVWs=; b=XHDBpjDvjtjyMfqICVFu2jsfN/
+	jxM7qJU1K9JvlfxJdoddw83o1DMyqYhZAfDqb4kV8th3MYwdKrjEzupAPQiD4f9UqP6qjTv+Fa+AJ
+	Zep3bVLhhQLPvZJ57WWSei7aG7A2t5AmcudjOzo+pGHD2jp/e36ipOsoCsCPVkahG1LuT7Qu5hulA
+	4q1k4DfdTv3f2UpeInb6NtUKosnUCqzT9WAVYW0QZOH8B3noJOapwEsFcauW1yZMoQEqnY59L1Rkp
+	6G9LH/UqBz4KMLax3JpCmk4wqrA+QCTQOiBhMk6Xm1OdAW5g5aGLiqgiYo0Vg1Kbv6+OT7WELgluO
+	XlY6Wefw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiKT-00000006osL-1hRK;
-	Mon, 19 Oct 2026 08:02:45 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1xIiOD-00000006pCC-1Xy7;
+	Mon, 19 Oct 2026 08:06:37 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiKQ-00000006orl-35Wa
+	id 1xIiOA-00000006p9w-1k1J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:02:43 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2e9f6a16afcso16735ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:02:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792396961; x=1793001761; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=;
-        b=iqvgaa1BGQy16hzsLvk+E5hmrGRueuhvQBgExULEjPNaZMBKtNVFE+UBDToD0xfjuA
-         VHZoW+txVwjLJwlaIQSmnOXJ/XSVmbpFJbhsvyKJL6k0Ht9zpkFZ+w/xR5ziWZsmax0j
-         /hlnv62SLJ/h7+oddJmtXu/R/ZjkZ9WSzNP0OtwVBvN3xUox6VKCx30Pqd80UOi8jiu+
-         sHHdrDC5qjPkCwvWc/y4Zt3cMPePgn4E8Y8cxaZIe7W5/s8/9fPG7ufGvsgXmhmwX+ok
-         7isK3a4Gq/ktBA3BmsM+oVcRlCHmZ7kgWPTcUZmK3sxMC+PvXk1Z4q5v0DSIDcEZC1nT
-         YEaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792396961; x=1793001761;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=;
-        b=S4e+9nnIxdrXYI6C+6zNJOOm0aIP1AoN28pvq6/zD73TuYEumzWU4Z4Sji6/nVT4Q5
-         1MKDVE3DP4akr12fiBIl1lydsYWRxkdOV6qmzyQGQijWCvSeRK3+NrJJrJznNdxp6gLJ
-         /LXHKbJ7c2hYCd38IrnjE7E82ZBUe8vho/sMSFEVSfQZ7Yd9v2yzxh4+9wVjIzjS4stw
-         OLXFPPxOwRcOEC9tLAePQzL5R0IZy9Ph0hGyBO0goPjl8xzytp9J1WVhVPzvgq5znvsI
-         GhqSaWUxrtNCxyoU4qUidi25QzmInRxklxWQsrbkliyeuA8wEXyiPl0I/dWzH4j69cT0
-         PqEw==
-X-Forwarded-Encrypted: i=1; AKwUvByijr5bNGrBH2si565LDdHKittfm3zyDTBZyXcGKpMM/BOt0KUA6gksxK+TZsUrtcnycQ7MEWr0mw/Wen3wGXBa@lists.infradead.org
-X-Gm-Message-State: AFq9FYIpJGieCnkDUMJBh2t1QWwoK4LDZcnucqnfTwv83PpenzuFvXa+
-	ceHQaaYCUXWbeEO4yEypR93p+qutKj0CPPzNBxy+SVuwFnozKphnPWvxYn+unGI6+Q==
-X-Gm-Gg: AYBFou3Qkw3vb/2kjxfUZDpDSSCsUG6GK5OehYeYZT1+xV67vvn7uYqLj/CXf+zmL+S
-	/OmsJ3iy4I7idL/44V8S9OPMjZyMki2OvO2bTRd2yyza7x18TMu2NFC1CUejYtG8o7di6LYQoNi
-	lqz0y43Op18opT2MeW1r919mODXvxtaXVQgC/cbo/1/qzBAoux1ZRTqJmw9f2MKtpla9/Gbx4yL
-	QYRMU3vz3LUVLMr52W9+PrPjU6ZwVaAb4CZmMgjot87zBejbtx/ZkLBLCnmrwC/9f3zC0NgfX3A
-	O2OvJbI7Ug+nPqx8N85k1oh2kaomd48ni/W1hrsp1w0A91/rbGBqryAEIWIxvhl/S2qe71XcOlb
-	SvQNGEcafBIyIHSfJRBhD7IOtonGfZON7n4MKI9TQ7icFRyI3hFTBlW076gsW0KYi8tVPI7g/KZ
-	LzobJ2oXKaQ1JXuOpS+oNe5u6datXoJKmaRKIH/O55k+1TEnYgTwMsdH14pokJ7ypcs2okLyYD2
-	DQablswe6zQ38F4IFohOxnrY1L5Kaa6SNPKBg==
-X-Received: by 2002:a17:903:388d:b0:2df:96ca:d7c7 with SMTP id d9443c01a7336-2e9b324cc9dmr6595855ad.10.1792396960066;
-        Mon, 19 Oct 2026 01:02:40 -0700 (PDT)
-Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e8353b1sm35762345ad.39.2026.10.19.01.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 01:02:39 -0700 (PDT)
-Date: Mon, 19 Oct 2026 08:02:31 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
-	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
+	Mon, 19 Oct 2026 08:06:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=O7uaYzjBLQ9L6Ftx8axWfZwImCdlPLVflG9f3fBlVWs=; b=BRKE4g+nPQMTIlurOfpL3sDwAa
+	czMqDgE7LFL0HRvYwpvtDlJbX/WojTNyiBi4vroab1ClLeI77K5SlAXiiQTAEKJd6/S4vwXzlWU7D
+	C7qaqeVQ3Wg/cLXWiARqFP6tSMS8wBdmuy8f1lu9wj2vAxDOZfqB1PNmlJNh0ASdf8EtwoMWhwC4G
+	Mn0zjaR+psMcD5kTFCR8YbC/5n2ivFVq0VZWA8DOm6QRW1rofWRniGkUaslkV3uSWi3RQdas9lYac
+	SBk4UpvalgOKotXrvB5KkalPAF+oc9qSPjTmFhOa1gKDKw/DS+1gHQJzPpq4MfN62CT6wgDevnXx2
+	php5Q65w==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xIiO2-000DGC-0d;
+	Mon, 19 Oct 2026 10:06:26 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xIiO1-00046E-2d;
+	Mon, 19 Oct 2026 10:06:25 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>
+Cc: Liu Ying <victor.liu@nxp.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
-	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev
-Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
- gate CMDQ submissions
-Message-ID: <atXOl-9C_HNvDT1E@google.com>
-References: <20260929034510.2023173-1-praan@google.com>
- <20260929034510.2023173-12-praan@google.com>
- <ar1yNtr7Kp2OTcDd@nvidia.com>
- <ar3yWUmi8E0k37Ml@google.com>
- <ar6gY9grmdMZcN/M@nvidia.com>
- <20261002164748.GD3481470@ziepe.ca>
- <asAeCz_rmpe5hbsh@google.com>
- <asUvUf4PZJ7JCLXp@nvidia.com>
+	linux@ew.tq-group.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v3 2/5] arm64: dts: imx8qxp: Add display controller subsystem
+Date: Mon, 19 Oct 2026 10:06:17 +0200
+Message-ID: <20261019080621.194103-3-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261019080621.194103-1-alexander.stein@ew.tq-group.com>
+References: <20261019080621.194103-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <asUvUf4PZJ7JCLXp@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28158/Mon Oct 19 08:26:01 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_010242_807438_8423FB58 
-X-CRM114-Status: GOOD (  38.54  )
+X-CRM114-CacheID: sfid-20261019_010634_870607_6953FD5C 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,91 +92,733 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 06, 2026 at 10:26:41AM -0700, Nicolin Chen wrote:
-> On Fri, Oct 02, 2026 at 09:11:39PM +0000, Pranjal Shrivastava wrote:
-> > On Fri, Oct 02, 2026 at 01:47:48PM -0300, Jason Gunthorpe wrote:
-> > > On Thu, Oct 01, 2026 at 11:03:15AM -0700, Nicolin Chen wrote:
-> > > 
-> > > > > So we can't issue ATC_INVs during suspend (the EP is already down), nor
-> > > > > during resume (the SMMU resumes *before* the EP is made active). The EP
-> > > > > can't use its ATC while suspended, and if it loses power/resets on the
-> > > > > way back to D0 (from D3cold, or D3hot with No_Soft_Reset=0), it comes 
-> > > > > back with an empty ATC.. same assumption the PCI reset path makes today
-> > > > > (pci_dev_reset_iommu_prepare()).
-> > > > 
-> > > > In that case, would the STOP flag be too late? It's only set in
-> > > > the middle of the SMMU suspend. So, an ATC command (via doamin
-> > > > invalidation) might be issued prior to the Point of Commitment,
-> > > > which will be timed out due to the unresponding EP?
-> > > 
-> > > How can you ever fix that?
-> > 
-> > The unfortunate reality is that this gap exists in the kernel even
-> > today.. upstream SMMUv3 has no RPM, so it's always on, while the EPs can
-> > runtime suspend independently. So an ATC_INV can already be issued to
-> > an EP that has suspended. I'd argue RPM improves this slightly, since
-> > once the STOP flag is set everything is elided, so the window closes at
-> > SMMU suspend instead of never.
-> 
-> That doesn't sound very convincing though...
->
+From: Liu Ying <victor.liu@nxp.com>
 
-All I'm saying is that today, EPs can get suspended without the SMMU
-ever knowing, making the SMMU aware of it helps with that.. although I
-agree we need a policy here.
+Add display controller subsystem in i.MX8qxp SoC.
 
-> > > How does power management really work, is it expected that the end
-> > > device is already quieted by its driver?
-> > > 
-> > 
-> > Yes, power management would topo-sort all dependencies and invoke
-> > suspend callbacks accordingly, i.e. in our case the suspend callbacks of
-> > all SMMU clients would be called before the SMMU's suspend callback.
-> 
-> If that's guaranteed, we should probably -EBUSY the suspend if one
-> STE isn't aborted.
-> 
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v3:
+* Sort properties using scripts/dtc/dt-check-style
+* Add blank line before status property
 
-That'd only work for (ATS-enabled) PCI devices.. for platform devices,
-the STE stays as is across RPM by design (no ATC, and the TLB/CFG state
-is covered by the invalidate-all on resume).
+Changes in v2:
+* Remove default compatible from irqsteer in generic DC .dtsi
+* Add imx8qxp-specific compatibles in imx8qxp-specific .dtsi
+* Add power-domain to irqsteer
 
-> > > Could the first step in power management install a blocked STE? Then
-> > > we don't have to worry about ATC desync and that automatically stops
-> > > generating new ATC invalidations if we go and detact the domains too
-> > > 
-> > 
-> > Partially.. at SMMU suspend we set GBPA to abort and clear SMMUEN, so
-> > nothing gets through while the SMMU is off. But that's global and only
-> > happens after all EPs are down, it doesn't stop ATC_INVs in the window
-> > Nicolin pointed out.
-> > 
-> > One way to ensure the ATC state is relying on the PCIe spec to lose ATC
-> > content during D0 entry from D3cold, or D3hot with No_Soft_Reset=0). 
-> > 
-> > Another way to enforce this, is to *somehow* ask the endpoint drivers
-> > disable ATS during *their* suspend, i.e. in the EP's driver's suspend
-> > they could call pci_disable_ats or a better suited helper from pci core
-> > and the in the pm_resume / rpm_resume they could call it's equivalent 
-> > pci_enable_ats, counterpart ensuring a clean ATS state. Or maybe the
-> 
-> pci_enable/disable_ats is used by IOMMU drivers only.
-> 
+ .../arm64/boot/dts/freescale/imx8-ss-dc0.dtsi | 412 ++++++++++++++++++
+ .../boot/dts/freescale/imx8qxp-ss-dc.dtsi     | 250 +++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi    |   4 +-
+ 3 files changed, 665 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
 
-Can't the PCI core call it too? I agree the endpoint drivers may not be
-aware of ATS, but there should be some way for us to flush + disable the
-ATC after the EP driver's suspend & before the EP sleeps (and so before
-the SMMU's suspend is called)?
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+new file mode 100644
+index 0000000000000..8cd8c27702dda
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+@@ -0,0 +1,412 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2024 NXP
++ */
++
++#include <dt-bindings/clock/imx8-lpcg.h>
++#include <dt-bindings/firmware/imx/rsrc.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++dc0_axi_ext_clk: clock-dc0-axi-ext {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <800000000>;
++	clock-output-names = "dc0_axi_ext_clk";
++};
++
++dc0_axi_int_clk: clock-dc0-axi-int {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <400000000>;
++	clock-output-names = "dc0_axi_int_clk";
++};
++
++dc0_cfg_clk: clock-dc0-cfg {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <100000000>;
++	clock-output-names = "dc0_cfg_clk";
++};
++
++dc0_subsys: bus@56000000 {
++	compatible = "simple-bus";
++	ranges = <0x56000000 0x0 0x56000000 0x1000000>;
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	dc0_irqsteer: interrupt-controller@56000000 {
++		reg = <0x56000000 0x1000>;
++		interrupt-controller;
++		interrupt-parent = <&gic>;
++		#interrupt-cells = <1>;
++		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&dc0_lis_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++		fsl,channel = <0>;
++		fsl,num-irqs = <512>;
++	};
++
++	dc0_disp_lpcg: clock-controller@56010000 {
++		reg = <0x56010000 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC0>,
++			 <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC1>;
++		clock-indices = <IMX_LPCG_CLK_0>, <IMX_LPCG_CLK_1>;
++		clock-output-names = "dc0_disp0_lpcg_clk", "dc0_disp1_lpcg_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_lis_lpcg: clock-controller@56010004 {
++		reg = <0x56010004 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_lis_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_disp_ctrl_link_mst0_lpcg: clock-controller@56010008 {
++		reg = <0x56010008 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_disp_ctrl_link_mst0_lpcg_msi_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_pixel_combiner_lpcg: clock-controller@56010010 {
++		reg = <0x56010010 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_pixel_combiner_lpcg_apb_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_lpcg: clock-controller@56010014 {
++		reg = <0x56010014 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>, <&dc0_axi_int_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>, <IMX_LPCG_CLK_5>;
++		clock-output-names = "dc0_lpcg_cfg_clk",
++				     "dc0_lpcg_axi_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_pc: pixel-combiner@56020000 {
++		reg = <0x56020000 0x10000>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		clocks = <&dc0_pixel_combiner_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "apb";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++
++		status = "disabled";
++
++		channel@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_combiner_ch0_dc0_disp0: endpoint {
++					remote-endpoint = <&dc0_disp0_dc0_pixel_combiner_ch0>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				dc0_pixel_combiner_ch0_dc0_pixel_link0: endpoint {
++					remote-endpoint = <&dc0_pixel_link0_dc0_pixel_combiner_ch0>;
++				};
++			};
++		};
++
++		channel@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_combiner_ch1_dc0_disp1: endpoint {
++					remote-endpoint = <&dc0_disp1_dc0_pixel_combiner_ch1>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				dc0_pixel_combiner_ch1_dc0_pixel_link1: endpoint {
++					remote-endpoint = <&dc0_pixel_link1_dc0_pixel_combiner_ch1>;
++				};
++			};
++		};
++	};
++
++	dc0: display-controller@56180000 {
++		reg = <0x56180000 0x40000>;
++		ranges;
++		clocks = <&dc0_lpcg IMX_LPCG_CLK_4>;
++		power-domains = <&pd IMX_SC_R_DC_0>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		status = "disabled";
++
++		dc0_intc: interrupt-controller@56180040 {
++			reg = <0x56180040 0x60>;
++			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
++			interrupt-controller;
++			interrupt-parent = <&dc0_irqsteer>;
++			#interrupt-cells = <1>;
++			interrupts = <448>, <449>, <450>,  <64>,
++				      <65>,  <66>,  <67>,  <68>,
++				      <69>,  <70>, <193>, <194>,
++				     <195>, <196>, <197>,  <72>,
++				      <73>,  <74>,  <75>,  <76>,
++				      <77>,  <78>,  <79>,  <80>,
++				      <81>, <199>, <200>, <201>,
++				     <202>, <203>, <204>, <205>,
++				     <206>, <207>, <208>,   <5>,
++				       <0>,   <1>,   <2>,   <3>,
++				       <4>,  <82>,  <83>,  <84>,
++				      <85>, <209>, <210>, <211>,
++				     <212>;
++			interrupt-names = "store9_shdload",
++					  "store9_framecomplete",
++					  "store9_seqcomplete",
++					  "extdst0_shdload",
++					  "extdst0_framecomplete",
++					  "extdst0_seqcomplete",
++					  "extdst4_shdload",
++					  "extdst4_framecomplete",
++					  "extdst4_seqcomplete",
++					  "extdst1_shdload",
++					  "extdst1_framecomplete",
++					  "extdst1_seqcomplete",
++					  "extdst5_shdload",
++					  "extdst5_framecomplete",
++					  "extdst5_seqcomplete",
++					  "disengcfg_shdload0",
++					  "disengcfg_framecomplete0",
++					  "disengcfg_seqcomplete0",
++					  "framegen0_int0",
++					  "framegen0_int1",
++					  "framegen0_int2",
++					  "framegen0_int3",
++					  "sig0_shdload",
++					  "sig0_valid",
++					  "sig0_error",
++					  "disengcfg_shdload1",
++					  "disengcfg_framecomplete1",
++					  "disengcfg_seqcomplete1",
++					  "framegen1_int0",
++					  "framegen1_int1",
++					  "framegen1_int2",
++					  "framegen1_int3",
++					  "sig1_shdload",
++					  "sig1_valid",
++					  "sig1_error",
++					  "reserved",
++					  "cmdseq_error",
++					  "comctrl_sw0",
++					  "comctrl_sw1",
++					  "comctrl_sw2",
++					  "comctrl_sw3",
++					  "framegen0_primsync_on",
++					  "framegen0_primsync_off",
++					  "framegen0_secsync_on",
++					  "framegen0_secsync_off",
++					  "framegen1_primsync_on",
++					  "framegen1_primsync_off",
++					  "framegen1_secsync_on",
++					  "framegen1_secsync_off";
++		};
++
++		dc0_pixel_engine: pixel-engine@56180800 {
++			reg = <0x56180800 0xac00>;
++			ranges;
++			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			dc0_constframe0: constframe@56180960 {
++				reg = <0x56180960 0xc>, <0x56184400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst0: extdst@56180980 {
++				reg = <0x56180980 0x1c>, <0x56184800 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <3>, <4>, <5>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe4: constframe@561809a0 {
++				reg = <0x561809a0 0xc>, <0x56184c00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst4: extdst@561809c0 {
++				reg = <0x561809c0 0x1c>, <0x56185000 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <6>, <7>, <8>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe1: constframe@561809e0 {
++				reg = <0x561809e0 0xc>, <0x56185400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst1: extdst@56180a00 {
++				reg = <0x56180a00 0x1c>, <0x56185800 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <9>, <10>, <11>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe5: constframe@56180a20 {
++				reg = <0x56180a20 0xc>, <0x56185c00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst5: extdst@56180a40 {
++				reg = <0x56180a40 0x1c>, <0x56186000 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <12>, <13>, <14>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_fetchwarp2: fetchwarp@56180a60 {
++				reg = <0x56180a60 0x10>, <0x56186400 0x190>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_fetchlayer0: fetchlayer@56180ac0 {
++				reg = <0x56180ac0 0xc>, <0x56188400 0x404>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend0: layerblend@56180ba0 {
++				reg = <0x56180ba0 0x10>, <0x5618a400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend1: layerblend@56180bc0 {
++				reg = <0x56180bc0 0x10>, <0x5618a800 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend2: layerblend@56180be0 {
++				reg = <0x56180be0 0x10>, <0x5618ac00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend3: layerblend@56180c00 {
++				reg = <0x56180c00 0x10>, <0x5618b000 0x20>;
++				reg-names = "pec", "cfg";
++			};
++		};
++
++		dc0_display_engine0: display-engine@5618b400 {
++			reg = <0x5618b400 0x14>, <0x5618b800 0x1c00>;
++			reg-names = "top", "cfg";
++			ranges;
++			interrupt-parent = <&dc0_intc>;
++			interrupts = <15>, <16>, <17>;
++			interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			power-domains = <&pd IMX_SC_R_DC_0_PLL_0>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			dc0_framegen0: framegen@5618b800 {
++				reg = <0x5618b800 0x98>;
++				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <18>, <19>, <20>, <21>,
++					     <41>, <42>, <43>, <44>;
++				interrupt-names = "int0", "int1", "int2", "int3",
++						  "primsync_on", "primsync_off",
++						  "secsync_on", "secsync_off";
++			};
++
++			dc0_tcon0: tcon@5618c800 {
++				reg = <0x5618c800 0x588>;
++
++				port {
++					dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
++						remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_disp0>;
++					};
++				};
++			};
++		};
++
++		dc0_display_engine1: display-engine@5618b420 {
++			reg = <0x5618b420 0x14>, <0x5618d400 0x1c00>;
++			reg-names = "top", "cfg";
++			ranges;
++			interrupt-parent = <&dc0_intc>;
++			interrupts = <25>, <26>, <27>;
++			interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			power-domains = <&pd IMX_SC_R_DC_0_PLL_1>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			dc0_framegen1: framegen@5618d400 {
++				reg = <0x5618d400 0x98>;
++				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <28>, <29>, <30>, <31>,
++					     <45>, <46>, <47>, <48>;
++				interrupt-names = "int0", "int1", "int2", "int3",
++						  "primsync_on", "primsync_off",
++						  "secsync_on", "secsync_off";
++			};
++
++			dc0_tcon1: tcon@5618e400 {
++				reg = <0x5618e400 0x588>;
++
++				port {
++					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
++						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
++					};
++				};
++			};
++		};
++	};
++
++	dc0_pl_msi_bus: bus@56200000 {
++		reg = <0x56200000 0x100000>;
++		ranges;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		interrupt-parent = <&dc0_irqsteer>;
++		interrupts = <320>;
++		clocks = <&dc0_disp_ctrl_link_mst0_lpcg IMX_LPCG_CLK_4>,
++			 <&dc0_disp_ctrl_link_mst0_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "msi", "ahb";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+new file mode 100644
+index 0000000000000..f440238b87ad5
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+@@ -0,0 +1,250 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2024 NXP
++ */
++
++&dc0 {
++	compatible = "fsl,imx8qxp-dc";
++};
++
++&dc0_constframe0 {
++	compatible = "fsl,imx8qxp-dc-constframe";
++};
++
++&dc0_constframe1 {
++	compatible = "fsl,imx8qxp-dc-constframe";
++};
++
++&dc0_constframe4 {
++	compatible = "fsl,imx8qxp-dc-constframe";
++};
++
++&dc0_constframe5 {
++	compatible = "fsl,imx8qxp-dc-constframe";
++};
++
++&dc0_disp_ctrl_link_mst0_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_disp_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_display_engine0 {
++	compatible = "fsl,imx8qxp-dc-display-engine";
++};
++
++&dc0_display_engine1 {
++	compatible = "fsl,imx8qxp-dc-display-engine";
++};
++
++&dc0_extdst0 {
++	compatible = "fsl,imx8qxp-dc-extdst";
++};
++
++&dc0_extdst1 {
++	compatible = "fsl,imx8qxp-dc-extdst";
++};
++
++&dc0_extdst4 {
++	compatible = "fsl,imx8qxp-dc-extdst";
++};
++
++&dc0_extdst5 {
++	compatible = "fsl,imx8qxp-dc-extdst";
++};
++
++&dc0_fetchlayer0 {
++	compatible = "fsl,imx8qxp-dc-fetchlayer";
++};
++
++&dc0_fetchwarp2 {
++	compatible = "fsl,imx8qxp-dc-fetchwarp";
++};
++
++&dc0_framegen0 {
++	compatible = "fsl,imx8qxp-dc-framegen";
++};
++
++&dc0_framegen1 {
++	compatible = "fsl,imx8qxp-dc-framegen";
++};
++
++&dc0_intc {
++	compatible = "fsl,imx8qxp-dc-intc";
++};
++
++&dc0_irqsteer {
++	compatible = "fsl,imx8qxp-irqsteer", "fsl,imx-irqsteer";
++};
++
++&dc0_layerblend0 {
++	compatible = "fsl,imx8qxp-dc-layerblend";
++};
++
++&dc0_layerblend1 {
++	compatible = "fsl,imx8qxp-dc-layerblend";
++};
++
++&dc0_layerblend2 {
++	compatible = "fsl,imx8qxp-dc-layerblend";
++};
++
++&dc0_layerblend3 {
++	compatible = "fsl,imx8qxp-dc-layerblend";
++};
++
++&dc0_lis_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_pc {
++	compatible = "fsl,imx8qxp-pixel-combiner";
++};
++
++&dc0_pixel_combiner_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_pixel_engine {
++	compatible = "fsl,imx8qxp-dc-pixel-engine";
++};
++
++&dc0_pl_msi_bus {
++	compatible = "fsl,imx8qxp-display-pixel-link-msi-bus", "simple-pm-bus";
++};
++
++&dc0_tcon0 {
++	compatible = "fsl,imx8qxp-dc-tcon";
++};
++
++&dc0_tcon1 {
++	compatible = "fsl,imx8qxp-dc-tcon";
++};
++
++&scu {
++	dc0_pixel_link0: dc0-pixel-link0 {
++		compatible = "fsl,imx8qxp-dc-pixel-link";
++		fsl,dc-id = /bits/ 8 <0>;
++		fsl,dc-stream-id = /bits/ 8 <0>;
++
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			/* from dc0 pixel combiner channel0 */
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_link0_dc0_pixel_combiner_ch0: endpoint {
++					remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_pixel_link0>;
++				};
++			};
++
++			/* to PXL2DPIs in MIPI/LVDS combo subsystems */
++			port@1 {
++				reg = <1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				status = "disabled";
++
++				dc0_pixel_link0_mipi_lvds_0_pxl2dpi: endpoint@0 {
++					reg = <0>;
++				};
++
++				dc0_pixel_link0_mipi_lvds_1_pxl2dpi: endpoint@1 {
++					reg = <1>;
++				};
++			};
++
++			/* unused */
++			port@2 {
++				reg = <2>;
++
++				status = "disabled";
++			};
++
++			/* unused */
++			port@3 {
++				reg = <3>;
++
++				status = "disabled";
++			};
++
++			/* to imaging subsystem */
++			port@4 {
++				reg = <4>;
++
++				status = "disabled";
++			};
++		};
++	};
++
++	dc0_pixel_link1: dc0-pixel-link1 {
++		compatible = "fsl,imx8qxp-dc-pixel-link";
++		fsl,dc-id = /bits/ 8 <0>;
++		fsl,dc-stream-id = /bits/ 8 <1>;
++
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			/* from dc0 pixel combiner channel1 */
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_link1_dc0_pixel_combiner_ch1: endpoint {
++					remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_pixel_link1>;
++				};
++			};
++
++			/* to PXL2DPIs in MIPI/LVDS combo subsystems */
++			port@1 {
++				reg = <1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				status = "disabled";
++
++				dc0_pixel_link1_mipi_lvds_1_pxl2dpi: endpoint@0 {
++					reg = <0>;
++				};
++
++				dc0_pixel_link1_mipi_lvds_0_pxl2dpi: endpoint@1 {
++					reg = <1>;
++				};
++			};
++
++			/* to parallel display interface in ADMA subsystem */
++			port@2 {
++				reg = <2>;
++
++				status = "disabled";
++			};
++
++			/* unused */
++			port@3 {
++				reg = <3>;
++
++				status = "disabled";
++			};
++
++			/* unused */
++			port@4 {
++				reg = <4>;
++
++				status = "disabled";
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+index 7c4a50e0ec9e9..eedca1c300d64 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+@@ -207,7 +207,7 @@ psci {
+ 		method = "smc";
+ 	};
+ 
+-	system-controller {
++	scu: system-controller {
+ 		compatible = "fsl,imx-scu";
+ 		mbox-names = "tx0",
+ 			     "rx0",
+@@ -339,6 +339,7 @@ map0 {
+ 	#include "imx8-ss-security.dtsi"
+ 	#include "imx8-ss-cm40.dtsi"
+ 	#include "imx8-ss-gpu0.dtsi"
++	#include "imx8-ss-dc0.dtsi"
+ 	#include "imx8-ss-adma.dtsi"
+ 	#include "imx8-ss-conn.dtsi"
+ 	#include "imx8-ss-ddr.dtsi"
+@@ -349,6 +350,7 @@ map0 {
+ #include "imx8qxp-ss-img.dtsi"
+ #include "imx8qxp-ss-vpu.dtsi"
+ #include "imx8qxp-ss-security.dtsi"
++#include "imx8qxp-ss-dc.dtsi"
+ #include "imx8qxp-ss-adma.dtsi"
+ #include "imx8qxp-ss-conn.dtsi"
+ #include "imx8qxp-ss-lsio.dtsi"
+-- 
+2.55.0
 
-> > pci_dev_reset_iommu_prepare/done() pair (with slight refactoring) in EP's
-> > suspend/resume?
-> 
-> That sounds right to me, though a different API for suspend/resume
-> will be required. And call them in pci_pm_runtime_suspend/resume()
-> maybe.
-> 
-
-Ack.
-
-Praan
 
