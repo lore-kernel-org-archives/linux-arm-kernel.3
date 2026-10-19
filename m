@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57274CCF2E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AAFCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jk6QeDP3er7oJrzie6h/aR641WmY6fsxB8wBz8frDWI=; b=0a6cxOKE+2QlK5I8YMwfah8TBy
-	3PeA6jZ9Q5CSL2ZUMXs+hxGhSzcfXuIqkk1WGNdbx6tgTecFwHHBpfrz6sPUHcoTMi0E8XqRNXhVx
-	nCXrSffhICOb+r6KmbFcutlZ/gAm5zg8Y4a6jgPoZQiIFBM+5uN3Oew6PB4r2hVvM3bJ1vy44cY4p
-	qedgiTI3cyH4fKYMbCLMDl31WBXSnUI2DT4NK4o2KCgj/OrrsR8N2c4vtp/ptsd+nuHXx5eafdDi8
-	+R3zpF0il1jHU6YmZQjxil+PQjC8oEpzLK3BPWRJpJ4M2p0Ges3HJQIGzSYo9KDeq+1Jv6rCDYx8s
-	0YcV+lKQ==;
+	bh=CMetwy4v9ql40qjUNT3o1j9UoheoA3hKCOVNzBdDtuI=; b=fpwEKWI4S2W8GTpMYv1bzTrgTh
+	WSZlBhn70i5pv80DOxToAy5J/cW+jTUzdMjvxPSFg591+xpvF4UrU5YaZUmPjDXs0Gl7Nxo8bWtpY
+	PDuqTzt6TdBha75ZedjVfZhVT53l+k+kJPz1qrOt9Dk8IOJmPlzR3T7lXaCcAxF8Z3U0MJQjua/89
+	F7FSb2kLn4zEC9/s8J4EAw++x1kzTEqUNwQMfolPcJUNF47B6gZ0nz7A3Do6i9fT4HHSfrbw7+guz
+	HOxb5grdIS27iaCsKQm91Rd4lcgNP26HUwmg5TkYu/z5OviMu5pMWlrgcfrRmlcY4i33i1MtzmhFl
+	0lnRD1vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInwD-00000007drO-34kG;
-	Mon, 19 Oct 2026 14:02:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xInwI-00000007dvu-3rC0;
+	Mon, 19 Oct 2026 14:02:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInw4-00000007dhK-43KS
+	id 1xInwH-00000007duc-1Crn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:01:57 +0000
+	Mon, 19 Oct 2026 14:02:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 440C66025A;
-	Mon, 19 Oct 2026 14:01:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31631F000C9;
-	Mon, 19 Oct 2026 14:01:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B517411D4;
+	Mon, 19 Oct 2026 14:02:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A14281F000C6;
+	Mon, 19 Oct 2026 14:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418516;
-	bh=Jk6QeDP3er7oJrzie6h/aR641WmY6fsxB8wBz8frDWI=;
+	s=k20260515; t=1792418528;
+	bh=CMetwy4v9ql40qjUNT3o1j9UoheoA3hKCOVNzBdDtuI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oLDLbiOZTnR66taWzBOMVQeAV9EhS6xttqVYpAkN3aMtdzOBt3dnKVbuI4Pw8mg8E
-	 Qa/G18GF8jyN1CF9FpZFLI+OTxk/quQ29CBVRyz6p7OHsAgR79WPfov2MrDOcmkfJw
-	 sMQrZhNe6Z/yDBW4/EbYmJ1n14q5zwKBj+fjs68OK7F97da06usYfvdHi/0wm3w6Gj
-	 4d6vHzx7CJTwgoBUHGaPjc1nu/WYVZZtgkiLnyRJFhFG9AiqXoWPAYIpxdSJmqSj1p
-	 Ps5gBQUUAwX48+oKk84yzmpk5pGmYbP+AgwLg0h1bVqcieZVhwwi+jpuw2q76J0/1C
-	 Nw98OgSw8gt9Q==
+	b=Z9ra/umseBq3MedA89OeRnKzeJzaU87gEFHqPxhwyc/pNdEHgj8SMG08skKWAScM7
+	 BpPTsc9906WfUExxALMxVxV2YOd0iiVkRv4tg61b7QXQFmTNbA8u7qTh+LRTwGqTPI
+	 MLMYxVBjhuWXcWh8XIlWYYhskR9+lKyu6CmILeB+IaVOYyodv52DG4xGCZuU6yUPRI
+	 OSkxSMJ9KOXxBq1jNSzS0gKSLA/xKGRGjKhLqUrKJBQWMepAEZiMDmxBT+DlbgsDx/
+	 X6FLx7rYHxKMbO/Di8kxrqwTmB+0zJzZUkblS9/UKbhNYyYAk3V9lSAT/LIhFEyCGB
+	 1MlBBmPx3P27w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: William Theesfeld <william@theesfeld.net>,
-	Brian Masney <bmasney@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	linux-clk@vger.kernel.org,
+	hverkuil@kernel.org,
+	mchehab@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-media@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] clk: zynq: handle kasprintf() failure in periph_clk registration
-Date: Mon, 19 Oct 2026 09:49:54 -0400
-Message-ID: <20261019135441.1420968-303-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] media: cec: stm32: return an error when log-address wait times out
+Date: Mon, 19 Oct 2026 09:50:03 -0400
+Message-ID: <20261019135441.1420968-312-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,468 +82,491 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: William Theesfeld <william@theesfeld.net>
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-[ Upstream commit d4d0d335e8d37c6c7e1c5664c7664288eca5a09b ]
+[ Upstream commit 3bc2e4a26465386332ee1a40219d8dafba335b0b ]
 
-zynq_clk_register_periph_clk() ignores the return value of the two
-kasprintf() calls used to build the mux and divider clock names, and
-passes the resulting (possibly NULL) pointers straight into
-clk_register_mux(), clk_register_divider() and clk_register_gate() as
-the clock '"'name'"' argument.  On allocation failure that name later
-gets dereferenced by the clock framework (e.g. in debugfs name
-formatting), causing a NULL-pointer dereference.
+stm32_cec_adap_log_addr() waits for TXSOM to clear before disabling CEC
+and updating the logical address registers. The wait result is ignored,
+so a timeout can still be reported as a successful logical address
+update.
 
-Check both kasprintf() returns.  On failure unwind any allocated name
-buffer and the spinlock, then fall through to the existing err label
-which sets clks[] to ERR_PTR(-ENOMEM).  Freeing the spinlock on the
-error path is correct here because no clk_register_*() call has had
-a chance to take ownership of it; the success path intentionally
-hands it off to the registered clocks.
+Return the polling error before touching the address registers. Compute
+the address mask only for valid logical addresses so the invalid-address
+path does not evaluate a shift based on CEC_LOG_ADDR_INVALID.
 
-The neighbouring zynq_clk_register_fclk() in the same file already
-uses this per-allocation goto-label cleanup pattern; this change
-brings periph_clk into line with it.
-
-Signed-off-by: William Theesfeld <william@theesfeld.net>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Reviewed-by: Michal Simek <michal.simek@amd.com>
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **6.18.53**. The buggy
-`zynq_clk_register_periph_clk()` path is present here, and the patch is
-an 8-line error-path fix. Full nine-phase analysis follows.
+This tree is **6.18.53** (`v6.18.53-5049-g0f0bdc2b0dffb`, branch
+`autosel`). The verdict is only for this checkout: the STM32 CEC
+timeout/shift bugs are present at `v6.18.53`, and the patch applies
+cleanly.
 
-===============================================================
-PHASE 1: COMMIT MESSAGE FORENSICS
-===============================================================
+---
+
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
 **Step 1.1: PARSE THE SUBJECT LINE**
-- Subsystem: `clk: zynq`
-- Action verb: **handle** (bug-fix verb: missing failure handling)
-- Intent: check `kasprintf()` in peripheral clock registration so a NULL
-  name is not passed into the clock framework
-- Record: `[clk/zynq] [handle] [check kasprintf failure when registering
-  periph clocks]`
+
+Record: `[media/cec/stm32] [return] return an error when log-address
+wait times out`
+
+Subsystem prefix `media: cec: stm32`. Verb `return` is error-propagation
+language (equivalent to “handle/fix”). Intent: stop treating a timed-out
+TXSOM wait as a successful logical-address update.
 
 **Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-- `Reviewed-by: Brian Masney <bmasney@redhat.com>` — clk co-maintainer;
-  also final `Signed-off-by` into clk tree
-- `Reviewed-by: Michal Simek <michal.simek@amd.com>` — ARM/Zynq
-  architecture maintainer
-- `Signed-off-by: William Theesfeld <william@theesfeld.net>` — author
-- `Signed-off-by: Brian Masney <bmasney@redhat.com>` — maintainer merge
-- No `Fixes:` tag (expected for this review pipeline)
-- No `Reported-by:`, `Tested-by:`, `Link:`, or `Cc: stable`
-- Pipeline-added markers ignored per instructions: `[Upstream commit
-  d4d0d335…]`, `Signed-off-by: Sasha Levin`
-- Record: maintainer-reviewed, no syzbot/user report, no Fixes tag
+
+Record:
+- `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
+- `Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>` (CEC
+  framework maintainer; also the committer of upstream `3bc2e4a26465`)
+- Ignored pipeline tags: `[Upstream commit
+  3bc2e4a26465386332ee1a40219d8dafba335b0b]`, `Signed-off-by: Sasha
+  Levin`
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
+  by:`, `Link:`, or `Cc: stable` (absence expected for this review)
+
+Notable: maintainer SOB, no syzbot/user report.
 
 **Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-- Bug: `zynq_clk_register_periph_clk()` ignores two `kasprintf()`
-  results used as mux/divider names and passes them into
-  `clk_register_mux/divider/gate`
-- Claimed symptom: NULL name later dereferenced in CCF (commit cites
-  debugfs name formatting) → NULL-pointer dereference
-- Fix: check both returns; on failure free the other name buffer and the
-  spinlock, then the existing `err` label sets `clks[] =
-  ERR_PTR(-ENOMEM)`
-- Author notes the sibling `zynq_clk_register_fclk()` already uses this
-  goto-cleanup pattern
-- Record: `[Bug: unchecked kasprintf] [Symptom: NPD / broken clock init]
-  [No version info] [Root cause: missing NULL checks before
-  clk_register_*]`
+
+Record:
+- **Bug:** `stm32_cec_adap_log_addr()` polls for TXSOM to clear, then
+  ignores the poll result and still disables CEC, writes OAR, re-enables
+  CEC, and returns 0.
+- **Symptom:** userspace/CEC core can be told a logical address was
+  programmed when the wait timed out and the registers may not have been
+  updated safely.
+- **Second issue:** address mask `(1 << logical_addr) << 16` is computed
+  before the `CEC_LOG_ADDR_INVALID` check, so the invalid-address path
+  still evaluates a shift of `0xff`.
+- **Root cause:** missing return-value check; mask computed too early.
+- **Version info:** none in the message. Poll wait was added in 2019
+  (`1a726df6078c2f`, v5.2-rc1).
 
 **Step 1.4: DETECT HIDDEN BUG FIXES**
-- Not disguised. Explicit error-path fix. Also closes a spinlock leak on
-  the failure path (lock is allocated before `kasprintf`; success hands
-  it to registered clocks, so failure must `kfree(lock)`).
-- Record: `[Not hidden; allocation-failure / leak / NPD-class error-path
-  fix]`
 
-===============================================================
-PHASE 2: DIFF ANALYSIS - LINE BY LINE
-===============================================================
+Record: Not disguised. It is an explicit error-path and UB fix (“return
+the polling error”, “does not evaluate a shift”).
+
+---
+
+## PHASE 2: DIFF ANALYSIS
 
 **Step 2.1: INVENTORY THE CHANGES**
-- File: `drivers/clk/zynq/clkc.c` — **+8 / -0**
-- Function: `zynq_clk_register_periph_clk()`
-- Scope: single-file surgical error-path fix
-- Record: `[clkc.c +8] [zynq_clk_register_periph_clk] [surgical]`
+
+Record:
+- File: `drivers/media/cec/platform/stm32/stm32-cec.c` — **+11 / −5**
+  (16 lines in one function)
+- Function: `stm32_cec_adap_log_addr()` only
+- Scope: single-file surgical fix
 
 **Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Verified against parent `e3b8b15ec6f0a^`:
 
-Before:
-```
-mux_name = kasprintf(...);   /* unchecked */
-div_name = kasprintf(...);   /* unchecked */
-clk_register_mux(..., mux_name, ...);
-clk_register_divider(..., div_name, mux_name, ...);
-clks[clk0] = clk_register_gate(..., clk_name0, div_name, ...);
-```
-`err` was only used for `kmalloc(lock)` failure.
+Record (verified against `v6.18.53` and the candidate diff):
 
-After: NULL `mux_name` → `err_mux_name` (`kfree(lock)`); NULL `div_name`
-→ `err_div_name` (`kfree(mux_name)` then lock). Then `err` sets
-`clks[clk0/clk1] = ERR_PTR(-ENOMEM)`. Success path unchanged.
-- Record: `[error path only: skip clk_register_* on kasprintf failure
-  and unwind]`
+**Before** (at `v6.18.53`):
+```c
+u32 oar = (1 << logical_addr) << 16;
+regmap_read_poll_timeout(...);  /* return value discarded */
+regmap_update_bits(..., CECEN, 0);
+if (logical_addr == CEC_LOG_ADDR_INVALID)
+    clear OAR;
+else
+    set oar bits;
+re-enable CECEN;
+return 0;
+```
+
+**After:**
+- Capture poll result; if nonzero, return it immediately (no CFGR
+  write).
+- Compute `BIT(logical_addr) << 16` only in the valid-address branch.
+
+Affected path: CEC logical-address claim and unconfigure
+(`adap_log_addr`), not probe/IRQ hot path.
 
 **Step 2.3: IDENTIFY THE BUG MECHANISM**
-Category: **error path / resource leak** plus **memory safety** (NULL
-name into CCF).
 
-Verified CCF behavior in this tree (`drivers/clk/clk.c`):
-- `kstrdup_const(NULL)` → `kstrdup(NULL)` returns NULL (`mm/util.c:84`)
-- `__clk_register` then fails with `-ENOMEM` if `core->name` is NULL
-  (`clk.c:4435-4438`)
-- NULL **parent** name hits `WARN(!parent_names[i], ...)` then
-  `clk_cpy_name(..., true)` returns `-EINVAL` (`clk.c:4347-4351,
-  4307-4309`)
-- `zynq_clk_setup()` then does `if (IS_ERR(clks[i])) BUG();`
-  (`clkc.c:570-575`)
+Record:
+- **(a) Error path:** ignored `regmap_read_poll_timeout()` result.
+  Typical returns: `-ETIMEDOUT` or `-EFAULT`.
+- **(g) Logic/correctness:** false success (`return 0`) after a failed
+  wait.
+- **(f/UBSAN):** `(1 << logical_addr)` with `logical_addr ==
+  CEC_LOG_ADDR_INVALID` (`0xff` in `include/uapi/linux/cec.h`) is an
+  oversized shift (UB). Result is unused on that branch, but the
+  expression is always evaluated first.
 
-So a fully failed registration already `BUG()`s. The remaining hole is
-mixed failure (mux `kasprintf` fails, div succeeds): mux/div
-registration fails, gate may still register with a valid DT name and a
-never-created parent → no `BUG()`, broken UART/SDIO/SPI/LQSPI/SMC/PCAP
-clocks, and the spinlock can leak because `err` is not taken.
-- Record: `[error-path leak + WARN + inconsistent clks[] / possible
-  silent broken periph clocks]`
+Hardware context (from `1a726df6078c2f`): CFGR/OAR must be written only
+with CECEN=0, after TXSOM clears. On timeout the old code still toggled
+CECEN and wrote CFGR.
 
 **Step 2.4: ASSESS THE FIX QUALITY**
-- Matches the existing `zynq_clk_register_fclk()` pattern (present since
-  `f8fe36f6083a70`, v3.13).
-- `kfree(lock)` on this path is correct: no `clk_register_*` has run
-  yet.
-- Does not change the success path.
-- Regression risk: very low. On failure, `clks[]` becomes
-  `ERR_PTR(-ENOMEM)` and `zynq_clk_setup()` `BUG()`s — same policy this
-  driver already uses for lock allocation / registration failure.
-- Record: `[obviously correct, 8 lines, error-path only; risk very low]`
 
-===============================================================
-PHASE 3: GIT HISTORY INVESTIGATION
-===============================================================
+Record:
+- Obviously correct: check the value the wait already returned; don’t
+  shift `0xff`.
+- Minimal; `1 <<` → `BIT()` is local to the valid-LA branch (`BIT` comes
+  from `linux/kernel.h` → `bitops.h` → `vdso/bits.h`, already included).
+- Regression risk: low. On timeout, `cec_config_log_addr()` already does
+  `if (err) return err`. On unconfigure, `cec_adap_unconfigure()` does
+  `WARN_ON(call_op(..., CEC_LOG_ADDR_INVALID))`, so a stuck TXSOM can
+  now warn instead of silently returning 0. That is the existing core
+  contract for a failed clear, not a new API. Timeout budget is
+  `CEC_XFER_TIMEOUT_MS` = 2100 ms, so this is a stuck-TX path, not a
+  normal claim.
+
+---
+
+## PHASE 3: GIT HISTORY INVESTIGATION
 
 **Step 3.1: BLAME THE CHANGED LINES**
-- Function introduced in `0ee52b157b8ed8` (“clk: zynq: Add clock
-  controller driver”), 2013, contained in **v3.11-rc1**.
-- `kasprintf` calls were unchecked from introduction until this fix.
-- Record: `[0ee52b157b8ed8 / v3.11] [bug present for the life of this
-  driver]`
+
+Record:
+- Function and `return 0` / CECEN/OAR writes: `d69ae57453c80a` (“[media]
+  cec: add STM32 cec driver”, 2017) — first in **v4.13-rc1**.
+- Poll without checking the result: `1a726df6078c2f` (“media: platform:
+  stm32: wait end of transmission”, 2019) — first in **v5.2-rc1**.
+- Buggy pattern has been in this line of kernels for years, including
+  6.18.y.
 
 **Step 3.2: FOLLOW THE FIXES: TAG**
-- No `Fixes:` tag. Buggy commit is the original driver add, which **is**
-  in this tree.
-- Record: `[no Fixes tag; original driver commit is in this tree]`
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-- `f8fe36f6083a70` (v3.13): same goto-cleanup for
-  `zynq_clk_register_fclk()` kasprintf/kmalloc
-- `7938e9ce39d67` (2024, in this tree): “Prevent null pointer
-  dereference caused by kmalloc failure” in `zynq_clk_setup()`
-- `a6aa462c3efc1`: parameter update to this function — not a
-  prerequisite for these checks
-- Standalone; not patch N/M
-- Record: `[standalone; sibling already had the pattern; related kmalloc
-  NPD fix already here]`
+Record: No `Fixes:` tag. Buggy poll commit `1a726df6078c2f` **is** an
+ancestor of HEAD and of `v6.18.53`. Intermediate related work on this
+file: `0c260d3f97e52` (RX overflow OOB) is a separate bug, not a
+prerequisite.
+
+**Step 3.3: CHECK FILE HISTORY**
+
+Record: Recent file commits are cleanup/moves plus the RX OOB fix. This
+is standalone, not “patch X/Y”. No later follow-up on this function
+after the candidate.
 
 **Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-- Only this clk/zynq commit from William Theesfeld in this tree
-- Weight comes from reviewers: Michal Simek (Zynq) and Brian Masney
-  (clk)
-- Record: `[author not subsystem maintainer; both relevant maintainers
-  reviewed]`
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-- Uses existing `kasprintf`, `kfree`, `goto err` — all present
-- Mainline context uses `kmalloc_obj`; this tree still uses
-  `kmalloc(sizeof(*lock), GFP_KERNEL)`. The hunk does not touch that
-  line, so no `kmalloc_obj` dependency.
-- Record: `[no prerequisites; applies standalone against this tree’s
-  kmalloc() form]`
+Record: Pengpeng Hou is not the CEC maintainer. In this tree, the other
+hit under `drivers/media/cec/` is unrelated (`tegra`
+MODULE_DEVICE_TABLE). Weight comes from **Hans Verkuil** (CEC FRAMEWORK
+maintainer in `MAINTAINERS`) signing off and committing upstream.
 
-===============================================================
-PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-===============================================================
+**Step 3.5: DEPENDENT/PREREQUISITE COMMITS**
+
+Record: None. Uses existing `regmap_read_poll_timeout`, `BIT()`,
+`CEC_LOG_ADDR_INVALID`. Can apply standalone. Confirmed `1a726df6078c2f`
+and `d69ae57453c80a` are in `v6.18.53`.
+
+---
+
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
 **Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-- `b4 dig -c d4d0d335e8d37c6c7e1c5664c7664288eca5a09b` →
-  https://patch.msgid.link/20260601203500.658135-1-william@theesfeld.net
-- `b4 dig -a`: **v1 only** (2026-06-01)
-- Thread saved to mbox: Michal Simek Reviewed-by (2026-06-02); Brian
-  Masney Reviewed-by (2026-06-15). No NAK, no requested respin, no Cc:
-  stable in review.
-- Lore WebFetch returned 403; discussion read from `b4 dig -m` instead
-- Record: `[lore msgid 20260601203500.658135-1-william@theesfeld.net]
-  [v1 applied] [no NAKs] [no stable nomination in thread]`
+
+Record:
+- `b4 dig -c 3bc2e4a26465` →
+  https://patch.msgid.link/20260624144015.63929-1-pengpeng@iscas.ac.cn
+- `b4 dig -a`: **v1 only**, 2026-06-24, no later revisions
+- lore.kernel.org fetches returned 403; discussion recovered from
+  LKML/Openwall/Patchew mirrors. Patch body matches the commit. No
+  replies on those archives.
+- No reviewer NAK found. Hans Verkuil applied it (CommitDate Mon Jun 29
+  2026).
 
 **Step 4.2: CHECK WHO REVIEWED THE PATCH**
-- `b4 dig -w` recipients: Turquette, Boyd, Masney, Simek, linux-clk,
-  linux-arm-kernel, linux-kernel
-- Record: `[clk maintainers + Zynq maintainer were on To/Cc; both
-  Reviewed-by]`
+
+Record (`b4 dig -w`): To/Cc included Hans Verkuil, Mauro Chehab, Maxime
+Coquelin, Alexandre Torgue, `linux-media`, `linux-stm32`, `linux-arm-
+kernel`, `lkml`. Right maintainers were on the submission. No extra
+Reviewed-by in the committed message.
 
 **Step 4.3: SEARCH FOR THE BUG REPORT**
-- No Reported-by / Link / syzbot
-- Record: `[no external bug report; found by code inspection]`
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-- Standalone v1 patch, not a series
-- Record: `[standalone]`
+Record: No `Reported-by` / bugzilla / syzbot. Static/code-correctness
+fix, not a user crash report.
+
+**Step 4.4: RELATED PATCHES AND SERIES**
+
+Record: Standalone `[PATCH]`, not a series. Sibling STM32 change
+`0c260d3f97e52` is a different RX OOB bug and already has `Cc: stable`.
 
 **Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-- `lore.kernel.org/stable/` fetch returned 403
-- Record: `[UNVERIFIED: stable-list discussion; not used for the
-  verdict]`
 
-===============================================================
-PHASE 5: CODE SEMANTIC ANALYSIS
-===============================================================
+Record: No usable stable-list hit for this subject (lore/stable blocked
+by anti-bot). UNVERIFIED that nobody previously rejected it for stable.
+No evidence of a known NAK.
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS**
-- Record: `[zynq_clk_register_periph_clk (modified); zynq_clk_setup
-  (caller)]`
+---
+
+## PHASE 5: CODE SEMANTIC ANALYSIS
+
+**Step 5.1: KEY FUNCTIONS**
+
+Record: `stm32_cec_adap_log_addr` only. Registered as `.adap_log_addr`
+in `stm32_cec_adap_ops`.
 
 **Step 5.2: TRACE CALLERS**
-Call sites in `zynq_clk_setup()` (CLK_OF_DECLARE `"xlnx,ps7-clkc"`,
-every Zynq boot):
-- lqspi, smc, pcap (single gate)
-- sdio0/sdio1, uart0/uart1, spi0/spi1 (two gates)
-- Record: `[boot-time OF clock init for Zynq PS peripherals]`
+
+Record (`call_op` in `drivers/media/cec/core/cec-priv.h`):
+- `cec_config_log_addr()` in `cec-adap.c` — claim path; error is
+  returned to the config thread.
+- `cec_adap_unconfigure()` — `WARN_ON(call_op(...,
+  CEC_LOG_ADDR_INVALID))`; then core still marks the adapter
+  unconfigured.
+
+Called with `adap->lock` held from the CEC kthread / ioctl configuration
+path, not IRQ context.
 
 **Step 5.3: TRACE CALLEES**
-- `kasprintf`, `kmalloc`/`kfree`, `clk_register_mux/divider/gate`
-- Record: `[name alloc + CCF register; gate clocks stored in clks[]]`
+
+Record: `regmap_read_poll_timeout`, `regmap_update_bits`. Sleeps up to
+~2.1 s. No alloc/new locks.
 
 **Step 5.4: FOLLOW THE CALL CHAIN**
-- `CLK_OF_DECLARE` → `zynq_clk_setup` → `zynq_clk_register_periph_clk`
-  during early boot on `CONFIG_ARCH_ZYNQ`
-- `CONFIG_ARCH_ZYNQ=y` in `arch/arm/configs/multi_v7_defconfig`
-- Not a syscall path; unprivileged users cannot trigger it except by
-  booting the platform (possibly under memory pressure)
-- Record: `[reachable on every Zynq boot; not userspace-triggerable
-  later]`
+
+Record: Userspace CEC ioctls (`CEC_ADAP_S_LOG_ADDRS` / adapter enable-
+disable) → CEC core → `adap_log_addr`. Reachable on STM32 HDMI CEC
+(`CONFIG_CEC_STM32`, `st,stm32-cec`) without extra privilege beyond
+access to the CEC device node. Not a generic syscall bug on x86.
 
 **Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-- `zynq_clk_register_fclk()` already checks every `kasprintf`
-- After this patch, no remaining unchecked `kasprintf` in
-  `drivers/clk/zynq/clkc.c`
-- Record: `[sibling already fixed; this was the remaining hole]`
 
-===============================================================
-PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-===============================================================
+Record: Other platform CEC drivers (tegra, meson) check
+`CEC_LOG_ADDR_INVALID` before building a shift mask. Tegra still uses `1
+<< logical_addr` only in the else branch. This STM32 driver was the one
+evaluating the shift first.
+
+---
+
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
 **Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-- `git describe HEAD` → **v6.18.53-5049-g0f0bdc2b0dffb**
-- `make kernelversion` → **6.18.53**
-- Parent of the candidate still has unchecked `kasprintf` in
-  `zynq_clk_register_periph_clk`
-- Driver built as `obj-$(CONFIG_ARCH_ZYNQ) += zynq/`
-- Record: `[yes, buggy code exists in 6.18.y zynq clkc; bug since
-  v3.11]`
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-- Surrounding function matches; only the 8 check/label lines are needed
-- `kmalloc_obj` in the mainline diff context is **not** used in this
-  file here
-- Record: `[clean apply / trivial context]`
+Record: **Yes**, at `v6.18.53` in `stm32_cec_adap_log_addr()`.
+Introduced 2017 (shift) / 2019 (ignored poll). Upstream fix
+`3bc2e4a26465` is **not** an ancestor of HEAD (expected: it is a later
+mainline commit being evaluated). The autosel cherry-pick
+`a1157fd7d1e0f` is already on this branch; that is ignored as selection
+evidence.
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-- `7938e9ce39d67` (kmalloc NPD in `zynq_clk_setup`) is already in this
-  tree — different allocation
-- fclk kasprintf checks already present
-- No earlier equivalent of this periph_clk check besides the candidate
-  itself
-- Record: `[no substitute fix for this function’s kasprintf]`
+**Step 6.2: BACKPORT COMPLICATIONS**
 
-===============================================================
-PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-===============================================================
+Record: **Clean apply.** Surrounding function at `v6.18.53` matches the
+pre-image exactly. No refactor of this callback on 6.18.y.
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-- `drivers/clk/zynq/` — platform clock provider for Xilinx Zynq-7000
-- Criticality: **IMPORTANT** for Zynq (UART/SDIO/SPI clocks);
-  **PERIPHERAL** vs core kernel
-- Record: `[clk/zynq] [IMPORTANT for affected SoC, not universal]`
+**Step 6.3: RELATED FIXES ALREADY HERE**
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-- File is mature (2013); recent commits are small correctness fixes, not
-  refactors
-- Record: `[mature/stable platform driver]`
+Record: No earlier timeout-return or shift-guard on this function. RX
+OOB fix is independent.
 
-===============================================================
-PHASE 8: IMPACT AND RISK ASSESSMENT
-===============================================================
+---
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-- Record: `[platform-specific: CONFIG_ARCH_ZYNQ / xlnx,ps7-clkc]`
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-- `kasprintf(GFP_KERNEL, "%s_mux"/"%s_div", clk_name0)` during `__init`
-  (~tens of bytes)
-- Trigger: allocation failure at boot (rare, but same class this file
-  already treats as fatal via `BUG()`)
-- Not triggerable later from unprivileged userspace
-- Record: `[rare boot OOM; not a syscall race]`
+**Step 7.1: SUBSYSTEM AND CRITICALITY**
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Verified, not just the commit text:
-- NULL clock **name**: CCF fails `-ENOMEM` (no debugfs NPD on that path
-  in 6.18)
-- NULL **parent** name: `WARN()` then `-EINVAL`
-- Some combinations: `clks[i]` is `ERR_PTR` → existing `BUG()` in
-  `zynq_clk_setup`
-- Mixed success: possible boot with broken peripheral clocks + spinlock
-  leak
-- Author’s debugfs-NPD example is **overstated for this CCF**, but WARN
-  / leak / inconsistent init are real
-- Record: `[WARN + leak + possible BUG() or silently broken
-  UART/SDIO/SPI] [severity HIGH on trigger, trigger rare]`
+Record: `drivers/media/cec/platform/stm32/` — STM32 HDMI CEC.
+**PERIPHERAL** (SoC HDMI-CEC), but a supported in-tree driver (`CEC
+FRAMEWORK` is Supported; Kconfig `CEC_STM32` depends on `ARCH_STM32 ||
+COMPILE_TEST`).
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-- Benefit: correct OOM handling for clocks used on every Zynq boot;
-  closes leak; avoids WARN and half-registered trees
-- Risk: 8 lines, error path only, same pattern already in-tree
-- Record: `[benefit medium-high if it fires; risk very low; ratio favors
-  backport]`
+**Step 7.2: SUBSYSTEM ACTIVITY**
 
-===============================================================
-PHASE 9: FINAL SYNTHESIS
-===============================================================
+Record: File is mature (2017), low churn aside from tree-wide media
+cleanups and the recent RX OOB fix. This is an old bug, not a regression
+in brand-new code.
 
-**Step 9.1: COMPILE THE EVIDENCE**
+---
 
-FOR:
-- Real missing error handling on `kasprintf` in a boot clock path that
-  already `BUG()`s on `IS_ERR(clks[i])`
-- Also a spinlock leak and a `WARN()` on NULL parent names
-- 8-line, obviously correct, mirrors in-tree sibling
-- Code and bug exist in this 6.18 tree since v3.11
-- Applies without `kmalloc_obj` or other prereqs
-- Reviewed by Zynq maintainer and clk maintainer
-- Same file already received a 2024 allocation-failure NPD fix
+## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-AGAINST:
-- Trigger is a tiny boot-time allocation failure (rare)
-- No user/syzbot report
-- Debugfs NPD claim is not how 6.18 CCF handles a NULL `init.name`
-  (fails `-ENOMEM` first)
-- Platform-specific, not core
+**Step 8.1: WHO IS AFFECTED**
 
-UNRESOLVED:
-- Stable mailing list search (lore 403)
+Record: Driver-specific / config-specific: STM32 boards with HDMI CEC
+(`st,stm32-cec`). Not universal.
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — matches existing fclk
-   pattern; two maintainer Reviewed-by
-2. Fixes a real bug that affects users? **PASS** — unchecked alloc,
-   leak, WARN, inconsistent `clks[]` on Zynq boot
-3. Important issue? **PASS** — boot `WARN`/`BUG()`/broken UART-SDIO-SPI
-   clocks; same class as the in-tree kmalloc NPD fix
-4. Small and contained? **PASS** — +8 lines, one function
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — function and bug present;
-   context is `kmalloc(sizeof)`, not `kmalloc_obj`
+**Step 8.2: TRIGGER CONDITIONS**
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-- Not a device ID / quirk / DT / build / docs exception
-- Record: `[none; qualifies as a normal small bugfix]`
+Record:
+- **Timeout bug:** TXSOM stuck for >2.1 s while claiming or clearing a
+  LA. Uncommon, but that is exactly the failure the 2019 wait was meant
+  to cover. Unprivileged users with CEC device access can hit the claim
+  path.
+- **Shift UB:** every unconfigure (`CEC_LOG_ADDR_INVALID` = 0xff), a
+  normal path when disabling/reconfiguring CEC.
 
-**Step 9.4: MAKE YOUR DECISION**
-The patch is a small, maintainer-reviewed error-path fix for code this
-6.18 tree has had since v3.11. It does not add features. Risk is
-confined to the allocation-failure path. That is appropriate for this
-stable tree.
+**Step 8.3: FAILURE MODE SEVERITY**
 
-===============================================================
-What problem it solves for this tree
-===============================================================
-`zynq_clk_register_periph_clk()` builds mux/divider names with
-`kasprintf()` and, on failure, still calls into the clock framework.
-That can `WARN` on a NULL parent, leak the per-clock spinlock, and
-either `BUG()` in `zynq_clk_setup()` or leave UART/SDIO/SPI/LQSPI clocks
-half-registered. The fix stops before `clk_register_*`, frees the
-lock/name, and reports `-ENOMEM` the way lock allocation already does.
+Record:
+- False-success LA update + CFGR write while TXSOM still set: CEC
+  misconfiguration / possible controller or bus glitch. **MEDIUM**
+  (functional/hardware-constraint), not a kernel oops.
+- Shift UB on unconfigure: UBSAN-class undefined behavior; result unused
+  on that branch, so not a typical oops. **MEDIUM**.
 
-===============================================================
-Verification
-===============================================================
-- [Phase 1] Parsed tags: Reviewed-by Masney + Simek; no Fixes/Reported-
-  by/Cc stable; ignored pipeline Upstream/Sasha SOB
-- [Phase 1] Subject/body: handle kasprintf failure; claimed NPD; sibling
-  fclk pattern
-- [Phase 2] Diff: +8 in `zynq_clk_register_periph_clk`; parent still
-  unchecked (git show e3b8b15^)
-- [Phase 2] CCF: `kstrdup(NULL)` returns NULL (`mm/util.c:84`);
-  `__clk_register` `-ENOMEM` on NULL name (`clk.c:4435-4438`); NULL
-  parent `WARN` + `-EINVAL` (`clk.c:4347-4351`)
-- [Phase 2] `zynq_clk_setup` `BUG()`s on `IS_ERR(clks[i])`
-  (`clkc.c:570-575`)
-- [Phase 3] blame: function from `0ee52b157b8ed8` (v3.11-rc1); fclk
-  checks from `f8fe36f6083a70` (v3.13)
-- [Phase 3] related `7938e9ce39d67` kmalloc NPD fix is ancestor of HEAD
-- [Phase 3] no Fixes tag; original driver commit is in this tree
-- [Phase 4] `b4 dig -c d4d0d335…`: lore msgid
-  20260601203500.658135-1-william@theesfeld.net
-- [Phase 4] `b4 dig -a`: v1 only
-- [Phase 4] `b4 dig -w`: clk + Zynq maintainers on Cc
-- [Phase 4] mbox: Simek and Masney Reviewed-by; no NAK
-- [Phase 4] lore WebFetch 403; stable-list search UNVERIFIED
-- [Phase 5] callers: lqspi/smc/pcap/sdio/uart/spi from `zynq_clk_setup`;
-  `CLK_OF_DECLARE(zynq_clkc, "xlnx,ps7-clkc")`
-- [Phase 5] `CONFIG_ARCH_ZYNQ=y` in multi_v7_defconfig;
-  `obj-$(CONFIG_ARCH_ZYNQ) += zynq/`
-- [Phase 6] `git describe HEAD` = v6.18.53-5049-g0f0bdc2b0dffb;
-  kernelversion 6.18.53
-- [Phase 6] buggy kasprintf present without this patch; no kmalloc_obj
-  in this file
-- [Phase 8] failure mode verified against CCF (debugfs NPD overstated);
-  WARN/leak/BUG/broken periph clocks verified
-- UNVERIFIED: whether this hash was discussed on stable@ (lore 403)
+Not panic/UAF/corruption in the usual sense. Still a real correctness
+bug on a user-reachable path.
 
-The fix is small, surgical, present in the affected 6.18 code, and meets
-the stable criteria.
+**Step 8.4: RISK-BENEFIT RATIO**
+
+Record:
+- **Benefit:** medium for STM32 CEC users — honest errors, no forbidden
+  CFGR write after timeout, no `1 << 0xff`.
+- **Risk:** very low — ~16 lines, one function, no API/locking/data-
+  structure change.
+- Ratio: favorable. The new `WARN_ON` on unconfigure-timeout is the main
+  behavioral change and only fires if the wait already failed.
+
+---
+
+## PHASE 9: FINAL SYNTHESIS
+
+**Step 9.1: EVIDENCE**
+
+**FOR:**
+- Real bugs: ignored poll error → false success and a CFGR write the
+  driver itself documented as illegal during TX; UB shift of `0xff` on
+  unconfigure.
+- Small, obviously correct, maintainer-acked (Hans Verkuil).
+- Buggy code exists in this 6.18.y tree; applies cleanly; no
+  prerequisites.
+- Matches stable error-handling / UBSAN-shift patterns.
+
+**AGAINST:**
+- Peripheral STM32 HDMI CEC, not a core path.
+- No user/syzbot report; timeout is rare.
+- Failure is not a documented oops/CVE/deadlock.
+- Unconfigure timeout can now `WARN_ON` (honest, but user-visible in
+  dmesg).
+
+**UNRESOLVED:**
+- Full lore thread (403); no public review comments beyond maintainer
+  application.
+- Stable-list history not searchable here.
+
+**Step 9.2: STABLE RULES CHECKLIST**
+
+1. Obviously correct and tested? **PASS** — check existing return;
+   maintainer merged it.
+2. Fixes a real bug that affects users? **PASS** — false success and
+   hardware-forbidden write; UB on unconfigure.
+3. Important issue? **PASS** (medium) — not a panic, but incomplete
+   timeout handling plus UBSAN-class shift on a normal unconfigure path.
+   Driver fixes of this size are in-scope.
+4. Small and contained? **PASS** — one function, +11/−5.
+5. No new features or APIs? **PASS**.
+6. Can apply to the local tree? **PASS** — pre-image matches `v6.18.53`.
+
+**Step 9.3: EXCEPTION CATEGORIES**
+
+Record: None (not a device ID, quirk, DT, build, or docs-only change).
+Qualifies as a normal small bugfix.
+
+**Step 9.4: DECISION**
+
+Backport. The bugs exist in this 6.18 tree, the patch is surgical, and
+the risk is far smaller than leaving a wait whose result is discarded
+and a `1 << 0xff` on every unconfigure.
+
+---
+
+### What the commit solves for this tree
+
+On 6.18.53, `stm32_cec_adap_log_addr()` waits for TXSOM then always
+programs OAR and returns success. After a 2.1 s timeout that still
+writes CFGR, which the 2019 change said must not happen during transmit,
+and reports a successful LA update. Separately, unconfigure always
+evaluates `(1 << 0xff) << 16` before the invalid-address check. The
+patch returns the poll error first and only builds the mask for valid
+LAs.
+
+### Risk vs benefit
+
+Benefit is correct CEC address programming and avoidance of a hardware-
+illegal register update and a shift UB. Risk is a few lines in one STM32
+CEC callback; the only extra symptom is `WARN_ON` if unconfigure hits a
+stuck TXSOM.
+
+---
+
+### Verification
+
+- **[Phase 1]** Parsed subject/tags from `git log -1` / `git show` of
+  `a1157fd7d1e0f` and upstream `3bc2e4a26465`. No Fixes/Reported-by.
+  Hans Verkuil SOB + committer.
+- **[Phase 2]** Diff: +11/−5 in `stm32_cec_adap_log_addr`. Pre-image
+  confirmed via `git show
+  v6.18.53:drivers/media/cec/platform/stm32/stm32-cec.c`.
+  `CEC_LOG_ADDR_INVALID` is `0xff`.
+- **[Phase 3]** `git blame` on the function: `d69ae57453c80a` (v4.13),
+  poll `1a726df6078c2f` (v5.2). `git merge-base --is-ancestor` of both
+  vs `v6.18.53` and HEAD: present. No `Fixes:` tag. No follow-ups after
+  the candidate on this file.
+- **[Phase 3]** `git merge-base --is-ancestor 3bc2e4a26465 HEAD` → not
+  in this branch (mainline-only). Local cherry-pick is on autosel;
+  ignored as selection evidence.
+- **[Phase 4]** `b4 dig -c/-a/-w`: v1-only, msgid
+  `20260624144015.63929-1-pengpeng@iscas.ac.cn`, correct maintainers
+  CCed. lore.kernel.org 403; LKML/Openwall/Patchew matched the committed
+  diff; no NAK found.
+- **[Phase 4]** Stable-list search unusable (anti-bot). UNVERIFIED:
+  prior stable discussion.
+- **[Phase 5]** Callers: `cec_config_log_addr`, `cec_adap_unconfigure`
+  in `cec-adap.c`. `call_op` in `cec-priv.h`. Kconfig `CEC_STM32`.
+- **[Phase 6]** `git describe HEAD` → `v6.18.53-5049-g0f0bdc2b0dffb`;
+  `make kernelversion` → 6.18.53. Buggy code at v6.18.53. Clean pre-
+  image.
+- **[Phase 7]** Peripheral STM32 CEC; maintainer Hans Verkuil.
+- **[Phase 8]** Failure: false success + illegal CFGR write (MEDIUM);
+  shift UB on unconfigure (MEDIUM). Risk very low.
+- **UNVERIFIED:** live review comments on lore (403); whether UBSAN has
+  actually fired on this shift in the field.
 
 **YES**
 
- drivers/clk/zynq/clkc.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/media/cec/platform/stm32/stm32-cec.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/clk/zynq/clkc.c b/drivers/clk/zynq/clkc.c
-index c28d3dacf0fb2..db40a9e7dd3d9 100644
---- a/drivers/clk/zynq/clkc.c
-+++ b/drivers/clk/zynq/clkc.c
-@@ -186,7 +186,11 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
- 	spin_lock_init(lock);
+diff --git a/drivers/media/cec/platform/stm32/stm32-cec.c b/drivers/media/cec/platform/stm32/stm32-cec.c
+index 8c2fc232202de..29418966a98ef 100644
+--- a/drivers/media/cec/platform/stm32/stm32-cec.c
++++ b/drivers/media/cec/platform/stm32/stm32-cec.c
+@@ -194,18 +194,24 @@ static int stm32_cec_adap_enable(struct cec_adapter *adap, bool enable)
+ static int stm32_cec_adap_log_addr(struct cec_adapter *adap, u8 logical_addr)
+ {
+ 	struct stm32_cec *cec = adap->priv;
+-	u32 oar = (1 << logical_addr) << 16;
+ 	u32 val;
++	int ret;
  
- 	mux_name = kasprintf(GFP_KERNEL, "%s_mux", clk_name0);
-+	if (!mux_name)
-+		goto err_mux_name;
- 	div_name = kasprintf(GFP_KERNEL, "%s_div", clk_name0);
-+	if (!div_name)
-+		goto err_div_name;
+ 	/* Poll every 100µs the register CEC_CR to wait end of transmission */
+-	regmap_read_poll_timeout(cec->regmap, CEC_CR, val, !(val & TXSOM),
+-				 100, CEC_XFER_TIMEOUT_MS * 1000);
++	ret = regmap_read_poll_timeout(cec->regmap, CEC_CR, val, !(val & TXSOM),
++				       100, CEC_XFER_TIMEOUT_MS * 1000);
++	if (ret)
++		return ret;
++
+ 	regmap_update_bits(cec->regmap, CEC_CR, CECEN, 0);
  
- 	clk_register_mux(NULL, mux_name, parents, 4,
- 			CLK_SET_RATE_NO_REPARENT, clk_ctrl, 4, 2, 0, lock);
-@@ -205,6 +209,10 @@ static void __init zynq_clk_register_periph_clk(enum zynq_clk clk0,
+-	if (logical_addr == CEC_LOG_ADDR_INVALID)
++	if (logical_addr == CEC_LOG_ADDR_INVALID) {
+ 		regmap_update_bits(cec->regmap, CEC_CFGR, OAR, 0);
+-	else
++	} else {
++		u32 oar = BIT(logical_addr) << 16;
++
+ 		regmap_update_bits(cec->regmap, CEC_CFGR, oar, oar);
++	}
  
- 	return;
+ 	regmap_update_bits(cec->regmap, CEC_CR, CECEN, CECEN);
  
-+err_div_name:
-+	kfree(mux_name);
-+err_mux_name:
-+	kfree(lock);
- err:
- 	clks[clk0] = ERR_PTR(-ENOMEM);
- 	if (two_gates)
 -- 
 2.53.0
 
