@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705A1CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B69CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+J/OdOLcTvpcvF9JyRvCNxahAKijd69Ha28plFCpRUM=; b=GDEF0TctMxFTeNZgWVIbCIYk/z
-	R6I3GXeEN2Hk/H00r2PcAIgWea8bzH9JoMhzJgzmVFMCPO+MGaIS8UnmPHIb4jfSYAMM0mau8z89q
-	0qvJJ6y5z7+T5SMK8LS2B7N7Cltme5RJTxioEqLh3et9pPH4lwd3KiHbMkPtHWpuwoF8cDvy1YgCa
-	SdmJceECmqnIOiz7PNDMXJ/bBobrCfrdKxRLc7bv+b70JRDh9YccGt9eEcr5SXpb24F1zfTsTsF5+
-	AWVZpPF4mvymJVUBpnUECOhB4t6jJAjR1ixcWwuz/TpaDtcunlbnt8/4Fzfn4CuNb4+a1aCcupELr
-	K2Ww5Ksg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xoEjR6t5ELBV0Ehld1uRhN2++C9qxzbzrI+HEJf6tz0=; b=ivhGtGq803KwuOB2LfBuVwEclw
+	jwDEZkok7i/+zw/4z92gxrz0akGSoIP/rKpZ8JJO98X+74YfNIrpW8cBOn/8Kvl+vzFbgmTgpfjLi
+	RdPEGr30qumovcmx0kqpu62mM2K8aKVxks2xbZXd0V3qYuCAY0t6N6VM1IcVsKRJwzPZHsAqx0lYV
+	Zq/OtfoJnmWCY2z9sIhLV0bdMHgQfBarWcFo0uN+KeW02TcMPjw1mIKmjfIxnU6/Cf0UWvNNEmcuC
+	wCesrr10LPnsLB1V9M1R0cSYdPjEj8QdzLFRXPGFIOfsNVTXZnwceJSbPVxdAhy6aojtmzgUq6hCF
+	yFRWrASw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInMo-00000007Vlp-3XTu;
-	Mon, 19 Oct 2026 13:25:30 +0000
-Received: from nimiomail.com ([217.160.32.16])
+	id 1xInax-00000007XBx-2Scc;
+	Mon, 19 Oct 2026 13:40:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInMl-00000007Vjz-3PAw;
-	Mon, 19 Oct 2026 13:25:29 +0000
-Received: from nimiomail.com (localhost.localdomain [127.0.0.1])
-	by nimiomail.com (Postfix) with ESMTP id 22144816B8;
-	Mon, 19 Oct 2026 15:25:10 +0200 (CEST)
-Authentication-Results: nimiomail.com (amavis) (amavisd-new);
-	dkim=pass (2048-bit key) header.d=gluon.es
-Received: from nimiomail.com ([127.0.0.1])
-	by nimiomail.com (nimiomail.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id aZTmsOvGeLf6; Mon, 19 Oct 2026 15:25:08 +0200 (CEST)
-Received: from DESKTOP-2QFDG0H.tail76f4b.ts.net (21.red-2-139-241.staticip.rima-tde.net [2.139.241.21])
-	by nimiomail.com (Postfix) with ESMTPSA id 656E380C3B;
-	Mon, 19 Oct 2026 15:25:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gluon.es; s=default;
-	t=1792416308; bh=+J/OdOLcTvpcvF9JyRvCNxahAKijd69Ha28plFCpRUM=;
-	h=From:To:Subject;
-	b=ZTXM7jmkEL84MayKq787lW9ELO/zSDFa6Ifj6RDVsj/lUVdNqzoIkkbNI/isPe+UZ
-	 mZzssWa61D78lavQqKZMjOXZFDkp4OpaTB8UeaNcyaE1EY+a6V7eHcpA1oEXCbNVTd
-	 ycHoAh+eReq40qSuCmsSyP1F3iC34bZ7AVVCt/CoxdNwoPwuKgYfzTsVYQv+A54vV7
-	 spgCChgcMUqTI52sE+jPl1+wo8aF/vexGtdZyRDol841S3j1mN2dFAI9pXTiNDJWKk
-	 Noc0A+m7oBluWFgJjW8+Bvw1RFRdsgWVVtcVu8Kx8pxlUqr7bl4IhzZJ1brwXBdt+f
-	 TqoUtq9vCmFzQ==
-Authentication-Results: nimiomail.com;
-	spf=pass (sender IP is 2.139.241.21) smtp.mailfrom=info@gluon.es smtp.helo=DESKTOP-2QFDG0H.tail76f4b.ts.net
-Received-SPF: pass (nimiomail.com: connection is authenticated)
-From: Miguel Jesus Seron Gonzalez <info@gluon.es>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dongjin Kim <tobetter@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: odroid-m1: keep vcc3v3_pcie enabled
- from boot
-Date: Mon, 19 Oct 2026 15:24:58 +0200
-Message-ID: <20261019132458.855-1-info@gluon.es>
-X-Mailer: git-send-email 2.53.0
+	id 1xInaw-00000007XBp-417t
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:40:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 174426020A;
+	Mon, 19 Oct 2026 13:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF7421F000C4;
+	Mon, 19 Oct 2026 13:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792417205;
+	bh=xoEjR6t5ELBV0Ehld1uRhN2++C9qxzbzrI+HEJf6tz0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=d6Rv15TourIfcTkDQL3m+iTso1zkZP8LN7F0q6Na/vSwDJ4/n4WqGvm8HprhfxcAU
+	 u82mEx3jYGH5KatejGP3v8TplirpU/HvJmzLsgD60A8MNZUxajOqLqwByNPFslBK7f
+	 ojrxIztwjGfW6BYXJCijRNIyxy8Qf9yWYGCVOI7GrDN5mm4426Rsw9+W6uoLc5Nim7
+	 PgvInHCbSowZJ19KCkThCrDQGefNrk+nPD9HxH7Nmo3VGM2hCt9TXpJZbY9OU9oDiZ
+	 QV+0NWzo1cU6dLI3TOXjam9YcFTnNYDUuIeSdWL02JT/3J9zHEEc6Z/BRj56AtkasO
+	 azCOI1M5UpJVA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44963811A5C;
+	Mon, 19 Oct 2026 13:40:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: <179241630793.1079550.12263942423312977317@nimiomail.com>
-X-PPP-Vhost: gluon.es
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_062528_307957_88FE3E62 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH net-next v3] net: stmmac: unwind the WoL IRQ after a
+ safety
+ IRQ request failure
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179241720453.2644569.6506845719154683565.git-patchwork-notify@kernel.org>
+Date: Mon, 19 Oct 2026 13:40:04 +0000
+References: <20261013-stmmac-irq-unwind-v3-1-fff4e2db805a@gmail.com>
+In-Reply-To: <20261013-stmmac-irq-unwind-v3-1-fff4e2db805a@gmail.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, pabeni@redhat.com, kuba@kernel.org,
+ maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ fancer.lancer@gmail.com, davem@davemloft.net, nb@tipi-net.de,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,57 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 3.3V supply of the M.2 slot is a GPIO-controlled fixed regulator
-without regulator-boot-on. When the regulator driver probes, it
-requests the enable GPIO as low, cutting power to an NVMe drive that
-the bootloader has already powered up and used. When the PCIe
-controller is built in, it probes a few milliseconds later and
-re-enables the supply. The drive therefore sees a brief power glitch
-without enough time to fully discharge.
+Hello:
 
-Some drives do not survive this. With a DRAM-less Transcend MTE110S
-(TS128GMTE110S), the board froze during NVMe probe in roughly half of
-the cold boots, before the display came up. Kernels that probe PCIe
-later (e.g. as modules, ~3.7 s after boot) are not affected, because
-the drive stays off long enough to reset cleanly.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Mark the regulator as boot-on, so that the regulator driver keeps the
-enable GPIO high when it probes and the supply is never toggled after
-the bootloader has enabled it. The PCIe controller then takes it as
-its vpcie3v3-supply, which keeps it enabled afterwards.
+On Tue, 13 Oct 2026 11:37:11 -0600 you wrote:
+> The safety IRQ is requested after the MAC and optional WoL IRQs. If its
+> request fails, stmmac_free_irq() frees the unregistered safety IRQ and
+> leaks the WoL handler. This can warn about an already-free IRQ and make
+> the next open fail.
+> 
+> Move the safety and WoL cleanup labels into reverse acquisition order.
+> 
+> [...]
 
-With this change, 5 out of 5 cold boots after power cuts of 2, 6, 30
-and 60 seconds succeeded. Afterwards the supply remained enabled with
-one user, with no NVMe or regulator errors and NVMe reads at 1.2 GB/s.
+Here is the summary with links:
+  - [net-next,v3] net: stmmac: unwind the WoL IRQ after a safety IRQ request failure
+    https://git.kernel.org/netdev/net-next/c/ecb8b18051a1
 
-Fixes: 35b28582aa3d ("arm64: dts: rockchip: Add PCIEe v3 nodes to ODROID-M1")
-Signed-off-by: Miguel Jesus Seron Gonzalez <info@gluon.es>
----
-
-Notes:
-    Found while debugging Home Assistant OS on an ODROID-M1, where the same
-    change is being carried as a downstream patch:
-    https://github.com/home-assistant/operating-system/issues/5103
-    https://github.com/home-assistant/operating-system/pull/5104
-
- arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-index 442a2bc43..6d29fa926 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-@@ -106,6 +106,7 @@ simple-audio-card,codec {
- 	vcc3v3_pcie: regulator-vcc3v3-pcie {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc3v3_pcie";
-+		regulator-boot-on;
- 		enable-active-high;
- 		gpio = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
- 		pinctrl-names = "default";
-
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+You are awesome, thank you!
 -- 
-2.53.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
