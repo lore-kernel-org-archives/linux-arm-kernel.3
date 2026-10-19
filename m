@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E392CCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC9CCCF2E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvnjUFG/xYwm+NO+qD6stlC04XHUVrYTPecZAg78TVo=; b=i5hWFjIt02gqcyhbxXg2Tw8UVy
-	cLlbA2X3XCyEyHrC9gqV/5lnLyDaLnQeJLalbKZ2DZdhse3cIGHmSO5e/h36qfih6UJ7a0jmA5Fk3
-	7ZN/C+5YnlZ+slLmcRHJiu0DPbI830/mgU5hRte4r8VzkufqCH+lnSwM/l7dubOrYO1bXDj8aBNTG
-	1+LZ1QdduX+3N/KGiNYdUrL0vk6fqTLamIzeqQGwph3nzOES0iX24qX/I599reW9AfFpQYGqap0Vu
-	mPf5KBXw33qBfSUMUND9hI7ui7DjobmEWc91WwVlkDEEhF3P9m9A+9unaHdGXVYhp6Gh0nYgmUfHJ
-	xZ4UcbEQ==;
+	bh=6cgidK+zeGuACZ/n/MWCuGvUglgmjVNS9L7Qx+HPLZE=; b=vwdoNYZyLt/sSjujoVWiXUiTkc
+	ugk4XqbUduWDariqaDjbNMhdkWMMeTlSVDdzUCgh1bjivNJkqBIkRUtP9hnkpPaeWCh/l2/zAACoS
+	8dXfY+k6wyd7Bsy/9oFemR7X+GLYqJa17aEczVUEmCwQH+CF3S9vEBcfz2RUVbo4sNUbF5F8tc3Yt
+	3XACQezCJjWg6DFixVxou94yhg5GakyH1wrNwUOJb5xynY0sh6J3bYcVxYtPfRhVkreJ/KKMCDday
+	eLDccG18G76NekUGeX79EXN6xWyIACM3b+5mOykm6ZyAjZhwfRGHiKwA5WHihnqN0nklJkFBvdaHF
+	tovM4A3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInwy-00000007ePg-3sCR;
-	Mon, 19 Oct 2026 14:02:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xInx8-00000007eVs-0AlE;
+	Mon, 19 Oct 2026 14:03:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInwx-00000007eP1-3Vpy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:02:51 +0000
+	id 1xInx7-00000007eVT-1dm2;
+	Mon, 19 Oct 2026 14:03:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 950444055C;
-	Mon, 19 Oct 2026 14:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F86A1F000C4;
-	Mon, 19 Oct 2026 14:02:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 274F24096F;
+	Mon, 19 Oct 2026 14:03:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574001F000C4;
+	Mon, 19 Oct 2026 14:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418571;
-	bh=kvnjUFG/xYwm+NO+qD6stlC04XHUVrYTPecZAg78TVo=;
+	s=k20260515; t=1792418581;
+	bh=6cgidK+zeGuACZ/n/MWCuGvUglgmjVNS9L7Qx+HPLZE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DqXoXndNKnS8fnPbfriMzHZ+67xbnT+aM4apZ4mCSmVhejV08Btca1t0aLb/BzPK8
-	 MKkfNKtn+BJh2P5re4b/Q2WSKc/jsYWbzZwXlmYtTwyjHE1QXMKJU2e1EaeMcUYfHd
-	 XDp39gUf+Alh8xwIVxGgrZ8f8iCRSNvRFzsxXZGxV65F7+NavVTPsTDelD2XxOrFIU
-	 4J2W42vFcqaTDRUK9sc6syMq0vd+PGhws6I78Ipc8KfUPvtd1F9Fsan3BMeSQ4qDRm
-	 4GBQWhxWqxr4rY0gwtI+9q97fRyG8qqe2QmOgmmh5CBQF61ExTPQMlw8HUYtPRjEY1
-	 wCvnSpb3Zy30g==
+	b=MIFVaIj3glebXWQ4T5nUShQiZcEkLUA9LwB/KsPHIEICRTfmbk2xo4h3h5Yv9ruCx
+	 1+b3jhrx9KdA6M9v8idMarMj9hnFS6daJ2oSUFINa+a5RWy5EMSDja5s/CGoRI9GS+
+	 SZGN2FGvqsZCIoDuI3glMdNs86bXngIr7w3fmVfSZO4ftiVojrM8TTYhJ8avgZ+0GU
+	 XFw5n23qUC/GlqiKBQemD3ze4/rTTjFOip5W9YWge2mvA3xGy+dhUTVO/+ji8VMYlk
+	 Z4dhRosRf1DSn5MiTA17LKPzTe2ZCNyx0noNFR9XcyoZzTSv4PpLgqoFrXFYwQchYd
+	 +m7FDHWKHAeHA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Sasha Levin <sashal@kernel.org>,
-	robin.clark@oss.qualcomm.com,
-	joro@8bytes.org,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	hjc@rock-chips.com,
+	andyshrk@163.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] iommu/qcom: Check pm_runtime_resume_and_get() return in probe
-Date: Mon, 19 Oct 2026 09:50:33 -0400
-Message-ID: <20261019135441.1420968-342-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] drm/rockchip: dw_hdmi: Use resume_early pm ops for system suspend
+Date: Mon, 19 Oct 2026 09:50:40 -0400
+Message-ID: <20261019135441.1420968-349-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,436 +84,469 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+From: Jonas Karlman <jonas@kwiboo.se>
 
-[ Upstream commit e910315ae08a23bc953daed10b1c518abac1df49 ]
+[ Upstream commit af3a9eadc11896f6677bcb7102bfb7c84be48d2d ]
 
-The SMMU_INTR_SEL_NS register write in qcom_iommu_device_probe() uses
-pm_runtime_get_sync() without checking the return value. If runtime
-resume fails the subsequent writel_relaxed() would access hardware with
-clocks potentially disabled.
+rockchip_drm_sys_resume()/drm_mode_config_helper_resume() is called
+before the resume pm ops of dw-hdmi. This result in an atomic_enable()
+before dw_hdmi_rockchip_resume()/dw_hdmi_resume() is called.
 
-Switch to pm_runtime_resume_and_get() which handles the usage-count
-cleanup on failure, check the return value, and unwind the already
-registered iommu device on error.
+Resume (without changes):
+- rockchip_drm_sys_resume()
+  - drm_mode_config_helper_resume()
+    - atomic_enable()
+- dw_hdmi_rockchip_resume()
+  - dw_hdmi_resume()
+    - dw_hdmi_init_hw()
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Change to use resume_early pm ops for system suspend to ensure pm ops
+for dw-hdmi is run before rockchip-drm pm ops. Also fix a possible NULL
+pointer dereference timing issue while at it.
+
+Resume (with changes):
+- dw_hdmi_rockchip_resume_early()
+  - dw_hdmi_resume()
+    - dw_hdmi_init_hw()
+- rockchip_drm_sys_resume()
+  - drm_mode_config_helper_resume()
+    - atomic_enable()
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Tested-by: Heiko Stuebner <heiko@sntech.de> #rk3328
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patch.msgid.link/20260518193748.2482823-12-jonas@kwiboo.se
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-I have the tree version, the probe path, series context, and review
-thread. Compiling the nine-phase analysis and verdict next.
+I have the 6.18.y picture: the buggy resume path is in v6.18.53, the
+patch is self-contained, and the DSI sibling already uses the same
+late/early PM ordering. Compiling the full nine-phase verdict next.
 
----
+===============================================================
+PHASE 1: COMMIT MESSAGE FORENSICS
+===============================================================
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+Step 1.1: PARSE THE SUBJECT LINE
+Record: [drm/rockchip: dw_hdmi] [Use] [switch HDMI system-resume
+callback to resume_early so dw-hdmi re-inits before rockchip-drm
+atomic_enable]
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-
-Record: **[iommu/qcom]** **[Check]** Check `pm_runtime_resume_and_get()`
-return in probe. “Check” here is a missing-error-handling fix, not a
-feature.
-
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-
+Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 Record:
-- **Reviewed-by:** Konrad Dybcio \<konrad.dybcio@oss.qualcomm.com\>
-  (Qualcomm reviewer)
-- **Signed-off-by:** Mukesh Ojha \<mukesh.ojha@oss.qualcomm.com\>
-  (author)
-- **Signed-off-by:** Will Deacon \<will@kernel.org\> (IOMMU/SMMU
-  maintainer who applied it)
-- **No Fixes:** tag (expected for this review pipeline)
-- **No Cc: stable** (expected)
-- **No Reported-by / Tested-by / Link / Acked-by**
-- Ignore any pipeline “Signed-off-by: Sasha Levin” / “[Upstream commit
-  …]” markers (none in the real commit)
+- Tested-by: Heiko Stuebner <heiko@sntech.de> #rk3328 (Rockchip DRM
+  maintainer; hardware-tested)
+- Signed-off-by: Jonas Karlman <jonas@kwiboo.se> (author)
+- Signed-off-by: Heiko Stuebner <heiko@sntech.de> (subsystem maintainer
+  applied it)
+- Link:
+  https://patch.msgid.link/20260518193748.2482823-12-jonas@kwiboo.se
+- No Fixes:, Reported-by, Reviewed-by, Acked-by, or Cc: stable (absence
+  expected)
+- Ignore pipeline tags: [Upstream commit
+  af3a9eadc11896f6677bcb7102bfb7c84be48d2d], Signed-off-by: Sasha Levin
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Notable: maintainer Tested-by on real RK3328 hardware.
 
+Step 1.3: ANALYZE THE COMMIT BODY TEXT
 Record:
-- **Bug:** `qcom_iommu_device_probe()` does `pm_runtime_get_sync()` then
-  `writel_relaxed()` to `SMMU_INTR_SEL_NS` without checking the PM call.
-- **Symptom:** If runtime resume fails, MMIO is written with clocks
-  possibly off. On Qualcomm that can hang the interconnect / SError, and
-  probe still returns success so interrupt routing may be wrong.
-- **Root cause:** ignored `pm_runtime_get_sync()` return; that API also
-  leaves the usage count up on failure (the new API drops it).
-- **Fix:** `pm_runtime_resume_and_get()`, check `ret`, unwind
-  `iommu_device_unregister` + existing sysfs remove.
-- **Version info:** none in the message. Code dates to the original
-  driver (v4.14).
+- Bug: on system resume, `rockchip_drm_sys_resume()` →
+  `drm_mode_config_helper_resume()` → atomic enable runs before
+  `dw_hdmi_resume()` → `dw_hdmi_init_hw()`.
+- Symptom: HDMI hardware (DDC I2C, HPD, interrupt mutes) is restored
+  after DRM has already tried to re-enable the display pipeline.
+- Secondary: “possible NULL pointer dereference timing issue” — resume
+  can run with NULL drvdata.
+- No stack trace, syzbot report, or CVE. Author gave simulated-suspend
+  (`pm_test`) and `rtcwake` test steps in the mailing-list version.
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
+Step 1.4: DETECT HIDDEN BUG FIXES
+Record: Not disguised. It is an explicit PM-ordering fix plus a NULL
+check. It was patch 11/11 of a series titled “Misc cleanup and propagate
+bus format”, and was added in v2; the other patches are unrelated
+cleanups/prep. This hunk is a standalone bug fix.
 
-Record: Not disguised. Explicit error-path / unclocked-access fix. The
-“usage-count cleanup” wording is slightly overstated at this site
-because the old code always called `pm_runtime_put_sync()` after the
-write; the real bugs are the unclocked `writel` and probe succeeding
-after a failed resume.
+===============================================================
+PHASE 2: DIFF ANALYSIS - LINE BY LINE
+===============================================================
 
----
-
-## PHASE 2: DIFF ANALYSIS
-
-**Step 2.1: INVENTORY THE CHANGES**
-
+Step 2.1: INVENTORY THE CHANGES
 Record:
-- File: `drivers/iommu/arm/arm-smmu/qcom_iommu.c` (+5 / −1)
-- Function: `qcom_iommu_device_probe()`
-- Scope: single-file surgical probe error path
+- File: `drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c` (+4/-3, 7 lines)
+- Functions: `dw_hdmi_rockchip_resume` renamed to
+  `dw_hdmi_rockchip_resume_early`; `dw_hdmi_rockchip_pm` table
+- Scope: single-file surgical PM-ops change
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-
-Record: Before (only when `qcom_iommu->local_base` is set):
-`pm_runtime_get_sync` → always `writel_relaxed(0xffffffff, local_base +
-SMMU_INTR_SEL_NS)` → `pm_runtime_put_sync` → return 0. After:
-`pm_runtime_resume_and_get`; on failure `goto err_iommu_unregister`
-(unregister IOMMU, remove sysfs, return error); on success same write +
-put as before.
-
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-
+Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
 Record:
-- **Category:** (a) error-path unwind + (g) missing return check, which
-  prevents unclocked MMIO.
-- **Mechanism:** `qcom_iommu_resume()` enables iface/bus/tbu clocks via
-  `clk_bulk_prepare_enable()`. If that (or SCM restore) fails, the old
-  path still wrote `SMMU_INTR_SEL_NS`. Switch to
-  `pm_runtime_resume_and_get()` is required: `pm_runtime_get_sync()` can
-  return `1` (already active), so `if (ret)` on get_sync would mis-
-  handle success.
+- Before: `.resume` (normal phase) unconditionally calls
+  `dw_hdmi_resume(hdmi->hdmi)`.
+- After: `.resume_early` (early phase) calls it only if
+  `dev_get_drvdata()` is non-NULL.
+- `SET_SYSTEM_SLEEP_PM_OPS(NULL, resume)` →
+  `SET_LATE_SYSTEM_SLEEP_PM_OPS(NULL, resume_early)`.
+- Suspend remains NULL. Hibernation thaw/restore move from thaw/restore
+  to thaw_early/restore_early, matching the same ordering intent.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
+Resume phase order is resume_noirq → resume_early → resume. HDMI
+therefore always re-inits before rockchip-drm’s `.resume`.
 
-Record: Minimal and correct. `pm_runtime_resume_and_get()` returns 0 or
-negative (`include/linux/pm_runtime.h`). Unwind matches
-`qcom_iommu_device_remove()`. Regression risk is low: only the RPM-
-failure path starts failing probe instead of succeeding after a possibly
-unclocked write. If clocks cannot be enabled, failing probe is the right
-outcome.
-
----
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-**Step 3.1: BLAME THE CHANGED LINES**
-
-Record: The `if (qcom_iommu->local_base)` write was added in
-**0ae349a0f33fb0** (“iommu/qcom: Add qcom_iommu”, Rob Clark,
-2017-08-09), first in **v4.14-rc1**. Present in this tree (`git merge-
-base --is-ancestor 0ae349a0f33fb0 HEAD`). Long-lived bug, not new code.
-
-**Step 3.2: FOLLOW THE FIXES: TAG**
-
-Record: No Fixes: tag. Buggy code is the original 2017 driver, not a
-recent regression.
-
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-
-Record: Same-day IOMMU pull (Will Deacon, 2026-07-22):
-- `c579f18e79599` — adds `err_sysfs_remove` (**soft prerequisite** for
-  the new goto)
-- `bf69e515b1802` — `devm_pm_runtime_enable()` (series 2/6; changes
-  nearby error labels)
-- **`e910315ae08a2`** — this commit (series 3/6)
-- Later 4/6–6/6 are other bugs in the same file, not needed for this
-  hunk
-
-Standalone for the probe RPM check, but the hunk assumes
-`err_sysfs_remove` exists. That label is in this tree.
-
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-
-Record: Mukesh Ojha (Qualcomm) sent the “iommu/qcom: Misc Fixes” series.
-Not the file’s listed maintainer (Rob Clark); Konrad reviewed, Will
-applied. Related author commits on this file are the rest of that
-series.
-
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-
-Record: Needs `err_sysfs_remove` from `c579f18e79599` (cover letter:
-series sits on Haoxiang Li’s sysfs cleanup).
-`pm_runtime_resume_and_get()` exists in this tree. Can apply standalone
-**on this checkout**. Does not need 4/6–6/6.
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-
+Step 2.3: IDENTIFY THE BUG MECHANISM
 Record:
-- **b4 dig:** v2 3/6, https://patch.msgid.link/20260717144608.3216274-4-
-  mukesh.ojha@oss.qualcomm.com
-- **Revisions:** v1 3/8 (2026-06-23) → v2 3/6 (2026-07-17). Same hunk;
-  v1 still had `err_pm_disable` (removed by 2/6).
-- Konrad R-b on v1 with no requested changes: Message-ID
-  `f636b144-807f-4a10-bf44-d06b169fce21@oss.qualcomm.com`
-- Will applied the whole v2 series 2026-07-22; no NAKs
-- No reviewer asked for Cc: stable
+- Primary: logic/correctness + hardware resume ordering. Sibling `dw-
+  mipi-dsi-rockchip.c` already uses `SET_LATE_SYSTEM_SLEEP_PM_OPS` with
+  the comment that it must run before `rockchip_drm_drv` re-enables
+  panels.
+- Secondary: memory safety — NULL check before `hdmi->hdmi` dereference
+  when the platform device has probed (`component_add`) but not bound
+  (`platform_set_drvdata` is in bind, not probe).
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-
-Record: To/Cc included Rob Clark, Will Deacon, Joerg Roedel, Robin
-Murphy, `iommu@lists.linux.dev`, `linux-arm-msm`. Konrad R-b; Will
-merged.
-
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-
-Record: No Reported-by, syzbot, or bugzilla. Author analysis of the
-error path, not a user crash report.
-
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-
-Record: Cover: “[PATCH v2 0/6] iommu/qcom: Misc Fixes”. Independent
-fixes in one file. This patch does not need 4/6 (pgtbl leak), 5/6 (mutex
-publish), or 6/6 (ctx_probe clocks). 2/6 only shifts nearby labels.
-
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-
-Record: gnuweeb `/stable/?q=qcom_iommu+pm_runtime_resume_and_get` had no
-discussion of this fix. Not previously rejected for stable.
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
-
-Record: `qcom_iommu_device_probe()`; new label `err_iommu_unregister`
-calling `iommu_device_unregister()`.
-
-**Step 5.2: TRACE CALLERS**
-
-Record: `.probe = qcom_iommu_device_probe` on `qcom-iommu`. Triggered by
-DT `qcom,msm-iommu-v1` / `v2` during boot (or bind). Not a syscall.
-`local_base` is optional (first MEM resource); the RPM get/write runs
-only if that resource exists.
-
-**Step 5.3: TRACE CALLEES**
-
-Record: `pm_runtime_resume_and_get` → `qcom_iommu_resume` →
-`clk_bulk_prepare_enable` and possibly `qcom_scm_restore_sec_cfg`. Then
-`writel_relaxed` to `SMMU_INTR_SEL_NS` (0x2000), `pm_runtime_put_sync`.
-
-**Step 5.4: FOLLOW THE CALL CHAIN**
-
-Record: Boot/device probe on MSM8916-class SoCs. Unprivileged users can
-rebind if they can unbind the driver; typical trigger is boot. Path is
-real on those boards.
-
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-
-Record: Same file still uses unchecked `pm_runtime_get_sync` in
-`domain_free`, `attach_dev`, `identity_attach`, `unmap`,
-`flush_iotlb_all`. Comments there already warn about unclocked TLB
-access. This commit only fixes probe. Sibling 6/6 adds a checked resume
-around ctx-bank FSR access.
-
----
-
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-
-Record: Local tree is **v7.3-rc4** (`git describe HEAD` =
-`v7.3-rc4-27-gf0100363d8c37`, `VERSION=7 PATCHLEVEL=3 SUBLEVEL=0
-EXTRAVERSION=-rc4`). Driver is present. The unclocked-write pattern
-existed here from v4.14 until `e910315ae08a2`. HEAD already has the
-fixed form in `qcom_iommu_device_probe()` (lines 866–880). Evaluation is
-technical merit for this tree’s code, not “already landed.”
-
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-
-Record: **Clean apply** on this tree: `err_sysfs_remove` and
-`devm_pm_runtime_enable` are present. Hunk matches current/pre-fix
-context.
-
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-
-Record: No alternate fix for this probe RPM check. Sysfs unwind
-(`c579f18e79599`) is here and is what this goto chains into.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-
-Record: **IOMMU / Qualcomm legacy SMMU** (`drivers/iommu/arm/arm-
-smmu/qcom_iommu.c`). **IMPORTANT** for MSM8916/8917/8937/8939/8953/8976
-(DT still uses `qcom,msm-iommu-v1`). Not core MM/VFS; IOMMU failures
-break DMA/display/modem on those SoCs.
-
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-
-Record: Mature “legacy qcom_iommu” (author’s words). Occasional
-correctness fixes in 2026, not heavy churn. Long-lived bug, more
-relevant for stable.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-
-Record: **Driver/platform-specific**, `CONFIG_QCOM_IOMMU`, older
-Qualcomm ARM64 boards listed above. Not universal.
-
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-
-Record: Probe, and only if `local_base` is mapped **and** runtime resume
-fails (`clk_bulk_prepare_enable` or SCM restore). Uncommon on healthy
-hardware; realistic on clock/GDSC/SCM failure. Not a normal userspace
-trigger.
-
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-
-Record: Unclocked MMIO → possible **bus hang / SError** (**HIGH** if it
-fires). Otherwise probe succeeds with `SMMU_INTR_SEL_NS` not programmed
-(**MEDIUM** functional). Trigger rarity → overall **MEDIUM–HIGH**, still
-a real hang class, not cosmetic.
-
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-
+Step 2.4: ASSESS THE FIX QUALITY
 Record:
-- **Benefit:** Avoid hang/abort and false-successful probe when clocks
-  cannot come up; fail cleanly and unwind registration.
-- **Risk:** Very low (6-line error path, reviewed, standard API).
-- **Ratio:** Favorable.
+- Obviously correct: Linux PM runs all `resume_early` callbacks before
+  any `.resume`. That is the standard way to order a component ahead of
+  the DRM master.
+- Minimal; no API or data-structure change.
+- Regression risk low: same pattern as the in-tree DSI sibling; only
+  resume is registered; `dw_hdmi_init_hw()` only re-inits mutes, DDC
+  I2C, and HPD.
+- NULL check does not cover `hdmi->hdmi` being `ERR_PTR` after a failed
+  bind; that is a leftover hole, not a regression from this patch.
 
----
+===============================================================
+PHASE 3: GIT HISTORY INVESTIGATION
+===============================================================
 
-## PHASE 9: FINAL SYNTHESIS
+Step 3.1: BLAME THE CHANGED LINES
+Record:
+- Buggy resume path introduced by `27c9130baef543` (“drm/rockchip:
+  dw_hdmi: Handle suspend/resume”, Douglas Anderson, 2019-06-04), first
+  in v5.3-rc1.
+- That commit is an ancestor of this tree.
+- That commit already documented the failure on rk3288 Chromebooks (HDMI
+  HPD and DDC I2C stop working after suspend) and that Chrome OS 3.14
+  used late/early PM ops because VOP sometimes resumed before dw-hdmi.
+  Mainline used normal `.resume` because the author could not reproduce
+  it then. This patch is the proper late/early fix for that known issue.
 
-**Step 9.1: COMPILE THE EVIDENCE**
+Step 3.2: FOLLOW THE FIXES: TAG
+Record: No Fixes: tag. The introducing commit is `27c9130baef543`,
+present here.
 
-**FOR:**
-- Real unclocked MMIO on a documented-sensitive Qualcomm path
-- Small (+5/−1), obviously correct
-- `pm_runtime_resume_and_get` is the right API (get_sync’s `1` is
-  success)
-- Konrad R-b, Will merged; no NAKs
-- Driver in this tree since v4.14; DT still ships for several SoCs
-- Same-file comments treat unclocked access as a real hang risk
-- Prerequisites (`err_sysfs_remove`, `pm_runtime_resume_and_get`) are in
-  this tree
-- Matches stable’s “oops, hang, … or some ‘oh, that’s not good’ issue”
+Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+Record:
+- Only two resume-related commits on this file: 27c9130baef543 (add
+  resume) and this one.
+- Recent 6.18.y file history is unrelated (SCLIN mask, FIELD_PREP,
+  whitespace).
+- Series-local neighbors (output_port, whitespace, empty helpers) are
+  not functional prerequisites of this hunk.
 
-**AGAINST:**
-- No user/syzbot report; error path is uncommon
-- Series patch 3/6 (but functionally independent)
-- Other `get_sync` sites in the file remain unchecked
-- Usage-count leak at this site was already balanced by `put_sync`
+Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+Record: Jonas Karlman is a regular Rockchip HDMI/dw-hdmi contributor.
+Heiko Stuebner (maintainer) applied the series and tested it on rk3328.
 
-**UNRESOLVED:** lore.kernel.org HTTP 403; discussion recovered via `b4
-dig` mbox, gnuweeb, and openwall. No evidence of a field crash, only
-code-path analysis.
+Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+Record:
+- Series v2 11/11; cover letter says patches 1–10 are cleanup / YCbCr-
+  Deep Color prep. Patch 11 only changes PM ops.
+- `SET_LATE_SYSTEM_SLEEP_PM_OPS` exists in this tree’s
+  `include/linux/pm.h`.
+- `dw_hdmi_resume()` exists in `drivers/gpu/drm/bridge/synopsys/dw-
+  hdmi.c`.
+- Applies standalone. No missing helpers.
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+===============================================================
+PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+===============================================================
 
-1. Obviously correct and tested? **PASS** — API contract matches;
-   maintainer applied after R-b
-2. Fixes a real bug that affects users? **PASS** — unclocked write and
-   successful probe after failed resume on shipped MSM8916-class IOMMU
-3. Important issue? **PASS** — hang/SError class; trigger is rare but
-   severity is not “trivial”
-4. Small and contained? **PASS** — 6 lines, one function
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — code and labels exist here
+Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+Record:
+- b4 dig:
+  https://patch.msgid.link/20260518193748.2482823-12-jonas@kwiboo.se
+- v1 (2026-05-10): 10 patches, no resume_early change
+- v2 (2026-05-18): this patch added (“v2: New patch”)
+- Applied by Heiko 2026-06-02 as
+  `af3a9eadc11896f6677bcb7102bfb7c84be48d2d`
+- No NAK. No reviewer asked for further revisions of this hunk.
+- Author included CONFIG_PM_DEBUG / rtcwake test instructions and noted
+  a separate RK356x EHCI/OHCI clock issue, not this bug.
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+Step 4.2: CHECK WHO REVIEWED THE PATCH
+Record: Recipients included Heiko Stuebner, Sandy Huang, Andy Yan, DRM
+maintainers, dri-devel, linux-rockchip. Heiko tested and applied. No
+other Acked-by/Reviewed-by on this patch.
 
-Record: None (not a device ID, quirk table, DT, build, or doc fix).
-Qualifies as a normal small bugfix.
+Step 4.3: SEARCH FOR THE BUG REPORT
+Record: No syzbot/bugzilla link. Real-world grounding is the 2019
+Chromebook report in 27c9130baef543 plus Heiko’s rk3328 Tested-by.
 
-**Step 9.4: MAKE YOUR DECISION**
+Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+Record: Standalone vs the rest of the v2 series. DSI sibling
+`e584cdc154993` (“drm/rockchip: dsi: Reconfigure hardware on resume()”)
+used the same late PM ops and had Cc: stable.
 
-This is a small, reviewed probe-path fix that stops a `writel` to SMMU
-MMIO when runtime resume (clocks) has failed, and fails probe instead of
-continuing. That is a real stability bug on a still-used Qualcomm IOMMU,
-the change is contained, and this checkout has the driver plus the sysfs
-unwind label the hunk uses. Benefit outweighs risk.
+Step 4.5: CHECK STABLE MAILING LIST HISTORY
+Record: UNVERIFIED. lore.kernel.org/stable returned an Anubis bot-check
+page; WebFetch to lore returned 403.
 
----
+===============================================================
+PHASE 5: CODE SEMANTIC ANALYSIS
+===============================================================
 
-### What the commit solves for this tree
+Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+Record: `dw_hdmi_rockchip_resume_early` (was `dw_hdmi_rockchip_resume`);
+`dw_hdmi_rockchip_pm`.
 
-`qcom_iommu_device_probe()` programmed `SMMU_INTR_SEL_NS` after
-`pm_runtime_get_sync()` with no check. Resume enables the IOMMU clocks;
-on failure the write can hit unclocked hardware (hang/SError) and probe
-still returned 0. The fix uses `pm_runtime_resume_and_get()`, returns
-the error, and unregisters the IOMMU device.
+Step 5.2: TRACE CALLERS
+Record: Invoked by the PM core as `dev_pm_ops.resume_early` on the
+`dwhdmi-rockchip` platform driver. Triggered by system suspend/resume
+(and freeze/thaw/restore via LATE_SYSTEM_SLEEP_PM_OPS). Not a syscall
+hot path; it is the Chromebook/SBC sleep path.
 
-It meets stable rules: obviously correct, real hang-class bug, ~6 lines,
-no new API. Risk is confined to the already-broken clock-failure path.
+Step 5.3: TRACE CALLEES
+Record: `dev_get_drvdata` → `dw_hdmi_resume` → `dw_hdmi_init_hw` →
+`initialize_hdmi_ih_mutes`, `dw_hdmi_i2c_init`, optional
+`phy.ops->setup_hpd`.
 
----
+Step 5.4: FOLLOW THE CALL CHAIN
+Record:
+- Userspace: `echo mem > /sys/power/state` / rtcwake / systemd suspend.
+- DRM side: `rockchip_drm_sys_resume` → `drm_mode_config_helper_resume`
+  → `drm_atomic_helper_resume` (atomic commit / enable).
+- HDMI platform device is a component, not a child of the DRM device;
+  sibling `.resume` order is not guaranteed. `platform_set_drvdata` is
+  in `dw_hdmi_rockchip_bind`, while probe only does `component_add`, so
+  resume-before-bind can see NULL drvdata.
+- Reachable on any Rockchip board with this HDMI IP and CONFIG_PM_SLEEP
+  (RK3288/RK3328/RK3399/RK3568, including Chromebooks).
 
-### Verification
+Step 5.5: SEARCH FOR SIMILAR PATTERNS
+Record:
+- `dw-mipi-dsi-rockchip.c` already uses
+  `SET_LATE_SYSTEM_SLEEP_PM_OPS(NULL, dw_mipi_dsi_rockchip_resume)` in
+  this tree for the same reason.
+- `dw_hdmi_qp-rockchip.c` still uses `SET_SYSTEM_SLEEP_PM_OPS`
+  (different HDMI QP IP, not this patch).
+- imx8mp and meson dw-hdmi glue still use normal SYSTEM_SLEEP PM ops.
 
-- **[Phase 1]** Parsed `e910315ae08a2`: R-b Konrad Dybcio; SOB Mukesh
-  Ojha, Will Deacon; no Fixes/Reported-by/stable Cc
-- **[Phase 2]** Diff: +5/−1 in `qcom_iommu_device_probe()`;
-  `pm_runtime_get_sync` → checked `pm_runtime_resume_and_get` +
-  `err_iommu_unregister`
-- **[Phase 2]** Confirmed `pm_runtime_resume_and_get()` returns 0 or
-  negative (`include/linux/pm_runtime.h`); `get_sync` may return 1
-- **[Phase 2]** Confirmed resume path: `qcom_iommu_resume()` →
-  `clk_bulk_prepare_enable()`
-- **[Phase 3]** Blame: write from `0ae349a0f33fb0` (v4.14-rc1); `merge-
-  base --is-ancestor` true
-- **[Phase 3]** `c579f18e79599` and `bf69e515b1802` are ancestors of
-  HEAD
-- **[Phase 4]** `b4 dig -c e910315ae08a2`: v2 3/6 of “Misc Fixes”; v1
-  3/8 same hunk
-- **[Phase 4]** `b4 dig -a/-w/-m`: Konrad R-b, Will applied 1/6–6/6;
-  recipients were IOMMU/QCOM lists; no NAK
-- **[Phase 4]** Stable-list search: no prior discussion of this fix
-- **[Phase 5]** Probe is platform driver for `qcom,msm-iommu-v1/v2`; DT
-  hits in msm8916/8917/8937/8939/8953/8976
-- **[Phase 6]** `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`;
-  Makefile 7.3.0-rc4; driver present; hunk matches
-- **[Phase 8]** Failure mode: unclocked MMIO hang/SError if RPM resume
-  fails at probe; severity HIGH if hit, trigger uncommon
-- **UNVERIFIED:** lore.kernel.org 403 (mbox/mirrors used instead); no
-  field reproducer found
+===============================================================
+PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+===============================================================
 
-The fix is small, surgical, and meets the stable criteria for this tree.
+Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+Record:
+- Local tree: `git describe HEAD` = v6.18.53-5049-g0f0bdc2b0dffb; `make
+  kernelversion` = 6.18.53 (6.18.y).
+- v6.18.53 still has:
+  `SET_SYSTEM_SLEEP_PM_OPS(NULL, dw_hdmi_rockchip_resume)`
+  and `dw_hdmi_resume(hdmi->hdmi)` with no NULL check
+  at `drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c`.
+- Bug present since v5.3 (2019), long before 6.18 branched.
+- Upstream commit `af3a9eadc11896` is not an ancestor of HEAD (`git
+  merge-base --is-ancestor` failed); this is a backport candidate, not
+  already in 6.18.y proper.
+
+Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+Record: Clean apply. The resume function in v6.18.53 is identical to the
+parent of this change. `SET_LATE_SYSTEM_SLEEP_PM_OPS` and
+`dw_hdmi_resume()` already exist here. Surrounding unbind/bridge-ref
+changes from later series patches are not required.
+
+Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+Record: No other resume-ordering fix on this file. DSI already has the
+analogous LATE PM ops. No earlier version of this HDMI fix in 6.18.53.
+
+===============================================================
+PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+===============================================================
+
+Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+Record: DRM Rockchip HDMI glue (`drivers/gpu/drm/rockchip/`). IMPORTANT
+(common SoC display, not core mm/fs). Affects
+RK3288/RK3328/RK3399/RK356x HDMI (Chromebooks, SBCs, TV boxes).
+
+Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+Record: Mature driver (HDMI glue since ~2015). Resume path untouched
+from 2019 until this patch. Low churn on the PM ops themselves.
+
+===============================================================
+PHASE 8: IMPACT AND RISK ASSESSMENT
+===============================================================
+
+Step 8.1: DETERMINE WHO IS AFFECTED
+Record: Driver-specific / platform-specific. Users of Rockchip dw-hdmi
+who suspend the system. CONFIG_PM_SLEEP. Not universal, but a well-used
+platform class in Android, Chromebook, and ARM SBCs.
+
+Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+Record:
+- Trigger: system suspend/resume with this HDMI driver bound (and the
+  NULL path if probed but unbound).
+- Common on laptops/Chromebooks; less so on always-on appliances.
+- Unprivileged users typically cannot suspend; the HPD/I2C break is
+  still a real admin/user-visible failure after lid-close/sleep.
+
+Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+Record:
+- Primary: HDMI HPD and DDC I2C not restored before DRM atomic enable →
+  hotplug/EDID/output broken after resume. HIGH for affected hardware
+  (display not coming back is a serious functional bug), not a kernel
+  panic.
+- Secondary: NULL deref if resume runs before bind → oops. Less common.
+  HIGH if hit, MEDIUM likelihood.
+- Overall: HIGH (suspend/resume display breakage on real hardware).
+
+Step 8.4: CALCULATE RISK-BENEFIT RATIO
+Record:
+- Benefit: high for Rockchip HDMI suspend users; restores the ordering
+  Chrome OS already needed.
+- Risk: very low (7 lines, established LATE PM pattern already in the
+  same DRM driver).
+- Ratio: favor backport.
+
+===============================================================
+PHASE 9: FINAL SYNTHESIS
+===============================================================
+
+Step 9.1: COMPILE THE EVIDENCE
+FOR:
+- Real resume-ordering bug: DRM atomic enable before
+  `dw_hdmi_init_hw()`.
+- User-visible: HDMI HPD/DDC broken after sleep (documented on rk3288
+  Chromebooks in 2019; re-tested on rk3328 in 2026).
+- Same fix already used by dw-mipi-dsi-rockchip in this tree, and that
+  DSI change went to stable with Cc: stable.
+- Possible NULL deref on resume before bind.
+- 7-line surgical change; applies cleanly to v6.18.53.
+- Maintainer Tested-by and Signed-off-by.
+- Buggy code has been in this tree since v5.3; no missing prerequisites.
+
+AGAINST:
+- No Fixes:/Cc: stable (expected for this pipeline; not a negative).
+- Buried as 11/11 in a cleanup series (but the hunk is independent and
+  was added specifically in v2).
+- Not a panic/corruption/CVE; display-after-suspend rather than a crash.
+- No extra Reviewed-by besides maintainer apply/test.
+- UNVERIFIED whether stable@ already discussed rejecting it.
+
+UNRESOLVED:
+- lore.kernel.org/stable search blocked (Anubis/403).
+- Incomplete NULL check if bind failed and left `hdmi->hdmi` as ERR_PTR
+  (pre-existing).
+
+Step 9.2: APPLY THE STABLE RULES CHECKLIST
+1. Obviously correct and tested? PASS — PM phase ordering is well-
+   defined; Heiko tested on rk3328.
+2. Fixes a real bug that affects users? PASS — HDMI not correctly re-
+   inited before DRM resume; Chromebook-class hardware.
+3. Important issue (crash, security, corruption, deadlock)? PASS —
+   suspend/resume display breakage plus a possible oops; hardware resume
+   workaround, same class as the DSI stable fix.
+4. Small and contained? PASS — 7 lines, one file.
+5. No new features or APIs? PASS.
+6. Can apply to the local tree? PASS — v6.18.53 has the old resume
+   function and the LATE PM macro.
+
+Step 9.3: CHECK FOR EXCEPTION CATEGORIES
+Record: Hardware suspend/resume workaround on an existing driver (quirk-
+class). Not a new driver, ID, or API.
+
+Step 9.4: MAKE YOUR DECISION
+This belongs on 6.18.y. The buggy `.resume` path is in this checkout,
+the switch to `resume_early` is the same proven pattern as the in-tree
+DSI sibling, and the patch is tiny with maintainer hardware testing.
+
+What it solves for stable users: after system sleep on Rockchip dw-hdmi
+boards, DRM can re-enable the pipeline before HDMI DDC/HPD/init, so
+hotplug and HDMI output fail. Moving the callback to `resume_early`
+forces `dw_hdmi_init_hw()` first, and skips a NULL drvdata deref if the
+component never bound.
+
+Risk is low; benefit is a real resume fix on shipping SoCs. No series
+dependencies are required for this hunk.
+
+Verification:
+- [Phase 1] Parsed tags: Tested-by Heiko (rk3328), SOB Jonas + Heiko,
+  Link msgid ...-12; no Fixes/Reported-by/Cc:stable
+- [Phase 1] Cover letter via b4 mbox: patch 11/11 of v2 “Misc cleanup”;
+  “v2: New patch”; Heiko “Series: Tested-by” and Applied
+- [Phase 2] Diff: rename resume→resume_early, add `if (hdmi)`,
+  SET_SYSTEM_SLEEP→SET_LATE_SYSTEM_SLEEP; +4/-3
+- [Phase 2] Confirmed LATE_SYSTEM_SLEEP_PM_OPS maps resume_fn to
+  `.resume_early` in include/linux/pm.h:321-327,350-351
+- [Phase 2] Confirmed rockchip_drm_drv.c:260-262 still uses
+  SET_SYSTEM_SLEEP_PM_OPS for sys_resume
+- [Phase 2] drm_mode_config_helper_resume() calls
+  drm_atomic_helper_resume() (drm_modeset_helper.c:250)
+- [Phase 3] git blame parent: resume added in 27c9130baef543 (Douglas
+  Anderson, 2019)
+- [Phase 3] git show 27c9130baef543: documented Chromebook HPD/I2C break
+  and Chrome OS late/early PM ops
+- [Phase 3] git describe --contains 27c9130baef543 → v5.3-rc1; git
+  merge-base --is-ancestor 27c9130baef543 HEAD → yes
+- [Phase 3] git log --oneline --grep resume_early --
+  drivers/gpu/drm/rockchip/ → only this commit
+- [Phase 4] b4 dig -c af3a9eadc11896: lore thread found; v1 had no this
+  patch; v2 added it; applied as af3a9eadc11896
+- [Phase 4] b4 dig -a: v1 2026-05-10, v2 2026-05-18
+- [Phase 4] b4 dig -w: Heiko, dri-devel, linux-rockchip CC’d
+- [Phase 4] b4 dig -m /tmp/thread.mbox: no NAKs; Heiko tested+applied
+- [Phase 4] lore.kernel.org WebFetch 403; stable search Anubis-blocked →
+  UNVERIFIED stable@ discussion
+- [Phase 5] Callers: PM core resume_early on dwhdmi-rockchip; callees
+  dw_hdmi_resume→dw_hdmi_init_hw
+- [Phase 5] platform_set_drvdata in bind (line 580), probe only
+  component_add — NULL drvdata on unbound resume is real
+- [Phase 5] Sibling dw-mipi-dsi-rockchip.c:1346 already
+  SET_LATE_SYSTEM_SLEEP_PM_OPS in this tree; introduced by e584cdc154993
+  with Cc: stable
+- [Phase 6] git describe HEAD: v6.18.53-5049-g0f0bdc2b0dffb; make
+  kernelversion 6.18.53
+- [Phase 6] git show v6.18.53:dw_hdmi-rockchip.c has
+  SET_SYSTEM_SLEEP_PM_OPS + unchecked dw_hdmi_resume
+- [Phase 6] git merge-base --is-ancestor af3a9eadc11896 HEAD → no (not
+  in 6.18.y proper)
+- [Phase 6] Resume hunk in v6.18.53 identical to parent of this change;
+  SET_LATE and dw_hdmi_resume exist in v6.18.53
+- [Phase 8] Failure mode: HDMI broken after suspend (HIGH); possible
+  NULL oops (HIGH if hit)
+- UNVERIFIED: whether stable@ previously rejected this patch (lore
+  blocked)
 
 **YES**
 
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index 9bee85259c69e..fbe4bd3ec0c42 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -863,13 +863,17 @@ static int qcom_iommu_device_probe(struct platform_device *pdev)
- 	}
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index 727cdf768161a..ff34aeef3a6ff 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -635,17 +635,18 @@ static void dw_hdmi_rockchip_remove(struct platform_device *pdev)
+ 	component_del(&pdev->dev, &dw_hdmi_rockchip_ops);
+ }
  
- 	if (qcom_iommu->local_base) {
--		pm_runtime_get_sync(dev);
-+		ret = pm_runtime_resume_and_get(dev);
-+		if (ret)
-+			goto err_iommu_unregister;
- 		writel_relaxed(0xffffffff, qcom_iommu->local_base + SMMU_INTR_SEL_NS);
- 		pm_runtime_put_sync(dev);
- 	}
+-static int __maybe_unused dw_hdmi_rockchip_resume(struct device *dev)
++static int __maybe_unused dw_hdmi_rockchip_resume_early(struct device *dev)
+ {
+ 	struct rockchip_hdmi *hdmi = dev_get_drvdata(dev);
+ 
+-	dw_hdmi_resume(hdmi->hdmi);
++	if (hdmi)
++		dw_hdmi_resume(hdmi->hdmi);
  
  	return 0;
+ }
  
-+err_iommu_unregister:
-+	iommu_device_unregister(&qcom_iommu->iommu);
- err_sysfs_remove:
- 	iommu_device_sysfs_remove(&qcom_iommu->iommu);
- err_pm_disable:
+ static const struct dev_pm_ops dw_hdmi_rockchip_pm = {
+-	SET_SYSTEM_SLEEP_PM_OPS(NULL, dw_hdmi_rockchip_resume)
++	SET_LATE_SYSTEM_SLEEP_PM_OPS(NULL, dw_hdmi_rockchip_resume_early)
+ };
+ 
+ struct platform_driver dw_hdmi_rockchip_pltfm_driver = {
 -- 
 2.53.0
 
