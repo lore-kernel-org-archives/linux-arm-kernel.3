@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B45CCF2E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80673CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KUxLdn0xz/vUT+PLJ3jixWo7tdSyz1KnmaUmfDQihSg=; b=0SdhFaMhvtQ7oO89IDKBrZ14Uy
-	uJEZGn7nEYyXobwieo+nCn5kG0/udvqCOhbH7MqaKhhndmkxZTpl/ekGT9Sl3RAQL9A7T+MO0gLTR
-	CibhO6jK14SKocZ0eAwXvGAmcISB54zpBiIFO3l2jqP24nRlJdplWnucD3AL9bxIx5J6oAjonW1aa
-	MFaflxk39VEZ2a5wMzqLMI6weNkZS8y2waUAcodMDurSjGHBmNxI14DeWjFHtv23gSWu8Fu/KLvKc
-	FVh0TnPRzxqxEO69z6NZcnlhmqgoOFTAPoFhBs5YXe6xvo7SmiP3WON9iUShXYJ+1mNb7s6PV14TM
-	7AwvfBQQ==;
+	bh=AFyxxzpR/USn3B7USGX27xITd1JY7TPKw3RoZo3vEug=; b=Y5IZphhm7IQbHGOoU/KnLqe9Fy
+	USDilpwyW5T8RufzxcX3UiaDDFks9mcl6h64jLdtDgPwPK0x4N9UiMBmRkzs5zT1AOZ4jfxKfqUmm
+	8cmcszGmtZU5OJIck3nEX7FcWsHSt/2cWP4TVRKGgHYOzlVb0zBuFQ4ZkReJ9nZa0OvXWj1k+HWi7
+	+sXSG74qTlFSLUEaFm9jxHgtmxisS108tUb4ZJby82FJ4XsZ4p30aRtoM+yKggAJupbExEanJuiv7
+	VZaIou6Tc3+NafTFgR3lHg2wqziuSmOJfFn3yXdPduhf4hjTx9aRArJMJHhSXHAeH8hCCGakIIVIU
+	uPTV4yAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqb-00000007aOe-0sQ1;
-	Mon, 19 Oct 2026 13:56:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xInqk-00000007aTE-0FG0;
+	Mon, 19 Oct 2026 13:56:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqY-00000007aNe-3czK
+	id 1xInqi-00000007aSL-0iqT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:56:15 +0000
+	Mon, 19 Oct 2026 13:56:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B5C9407FC;
-	Mon, 19 Oct 2026 13:56:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FBB1F000C9;
-	Mon, 19 Oct 2026 13:56:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B9156021C;
+	Mon, 19 Oct 2026 13:56:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 141EF1F000C9;
+	Mon, 19 Oct 2026 13:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418174;
-	bh=KUxLdn0xz/vUT+PLJ3jixWo7tdSyz1KnmaUmfDQihSg=;
+	s=k20260515; t=1792418183;
+	bh=AFyxxzpR/USn3B7USGX27xITd1JY7TPKw3RoZo3vEug=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M3k/LumXRdOBwi2/UczLwZ7Vxbi0X627C/vxgXISXrKomKWHP7zgR2X24d70Gnar0
-	 vbch88jcJxy9qRD23lymwyudZo5WoB4naITn5JmihgLercsVhLLRLNQ2j/cMPvLJ5P
-	 Imdr+f1iGh7VXxV74KOLqpbkRlafLaKQ2Ur+0Rsm4rFcV9Juq3FX/cROVG6aqsuOan
-	 jDM00wA+2BjZmaeIdiQamxoVeiv4YFXjkXpRuGGQjzxSDKSkwHllDESv+n7wfKh1Kg
-	 nx5dIppZ3+1+oIiFRFza+XuR0ZyOAOkCLeMRS4kwzFmhbgTDAHVLA3cJ1huGwKvlCg
-	 GcXoUvLC7WOTg==
+	b=GJCvPCYV9mP8qRS1uAwB0NB5Z5VLEjbyOhid1CGqDf8RWOgyOW4Dd/IGaw3hoJgqT
+	 zYjMmWuhgIA6kXIRncph2WV7iVIIyQczQA4mlTtfkHL8rHTT0X9Mv0bXZm7QGuSgwN
+	 yvpKRBXA4iL41/wXXSVxEWPIABAPKTb2n0VAuBuuJGgJ28oiqWzRNBd4N2RqAOZB6w
+	 lfwTBzvSKArUguTpCjzWtXAccq4izJ2DtjnITzwcSfQvJYehDi+59p0IaLDEJFV2e2
+	 nki9ZHZHU6IQS+L1lPoumQBOI/jvanT3iL5Rt0sRm9M9EmiQZYxk4XVoOpqUpJb6gD
+	 0DL7D+LvFM8yw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	will@kernel.org,
+	robin.clark@oss.qualcomm.com,
+	joro@8bytes.org,
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] arm64/runtime-const: Use aarch64_insn_patch_text_nosync() for patching
-Date: Mon, 19 Oct 2026 09:45:56 -0400
-Message-ID: <20261019135441.1420968-65-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] iommu/qcom: Publish pgtbl_ops before releasing init_mutex
+Date: Mon, 19 Oct 2026 09:46:02 -0400
+Message-ID: <20261019135441.1420968-71-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -79,411 +81,435 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: K Prateek Nayak <kprateek.nayak@amd.com>
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 
-[ Upstream commit a6690350a4ae7558b39d15fcc776c4d1ab5bbf39 ]
+[ Upstream commit a05b67cd45ad09a19f41b2d37255da714512e0ca ]
 
-The current scheme to directly patch the kernel text for runtime
-constants runs into the following issue with futex adapted to using
-runtime constants on arm64:
+qcom_domain->pgtbl_ops was assigned after mutex_unlock(). Another thread
+calling qcom_iommu_init_domain() would see qcom_domain->iommu already set
+(domain fully initialized) and skip re-initialization under the mutex.
+If it then called qcom_iommu_map() before the first thread set pgtbl_ops,
+it would observe a NULL ops pointer and return -ENODEV for valid mappings.
 
-  Unable to handle kernel write to read-only memory at virtual address ...
+Move the assignment to before mutex_unlock() so that once the mutex is
+released the domain is fully visible to concurrent operations.
 
-The pc points to the *p assignment in the following call chain:
-
-  futex_init()
-    runtime_const_init(shift, __futex_shift)
-      __runtime_fixup_shift()
-        *p = cpu_to_le32(insn);
-
-which suggests that core_initcall() is too late to patch the kernel text
-directly unlike the "d_hash_shift" which is initialized during
-vfs_caches_init_early() before the protections are in place.
-
-Use aarch64_insn_patch_text_nosync() to patch the runtime constants
-instead of doing it directly to allow runtime_const_init() slightly
-later into the boot.
-
-Since aarch64_insn_patch_text_nosync() calls caches_clean_inval_pou()
-internally, __runtime_fixup_caches() ends up being redundant.
-runtime_const_init() are rare and the overheads of multiple calls to
-caches_clean_inval_pou() instead of batching them together should be
-negligible in practice.
-
-The cpu_to_le32() conversion of instruction isn't necessary since it is
-handled later in the aarch64_insn_patch_text_nosync() call-chain:
-
-  aarch64_insn_patch_text_nosync(addr, insn)
-    aarch64_insn_write(addr, insn)
-      __aarch64_insn_write(addr, cpu_to_le32(insn))
-
-Sashiko noted that aarch64_insn_patch_text_nosync() does not expect a
-lm_alias() address and Catalin suggested it is safe to drop the
-lm_alias() for runtime patching since the kernel text is readable. The
-address passed to fixup function is interpreted as a __le32 and
-dereferenced as is to read the opcode at the patch site.
-
-No functional changes are intended.
-
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Link: https://patch.msgid.link/20260728052540.4728-3-kprateek.nayak@amd.com
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
-(attempt 1)...
-Retry attempt 1...
-## Phase 1: Commit message forensics
+The local tree is **7.3-rc4** (mainline). The driver is present, the
+race is real, and the fix is a five-line lock-ordering correction. Below
+is the full nine-phase review.
 
-**Step 1.1 — Subject line**
-- Record: **[arm64/runtime-const] [Use] switch text patching from a
-  direct store to `aarch64_insn_patch_text_nosync()`**
+---
 
-**Step 1.2 — Tags**
-- Record:
-  - Signed-off-by: K Prateek Nayak (author)
-  - Signed-off-by: Peter Zijlstra (locking/futex maintainer)
-  - Reviewed-by: Catalin Marinas (arm64 maintainer)
-  - Reviewed-by: Charlie Jenkins
-  - Tested-by: Charlie Jenkins
-  - Link: https://patch.msgid.link/20260728052540.4728-3-
-    kprateek.nayak@amd.com
-  - No Fixes:, no Reported-by, no Cc: stable (absence expected)
-  - Ignore pipeline SOBs if present; none in the real commit
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.3 — Body**
-- Record:
-  - **Bug:** arm64 runtime-const writes the patched opcode with `*p =
-    cpu_to_le32(insn)` through `lm_alias()`. That faults once kernel
-    text (including the linear alias) is read-only.
-  - **Symptom:** `Unable to handle kernel write to read-only memory`
-    during `futex_init()` → `runtime_const_init()` →
-    `__runtime_fixup_shift()`.
-  - **Root cause:** `d_hash_shift` is patched in
-    `vfs_caches_init_early()` while the linear alias is still writable.
-    `futex_init()` is a `core_initcall`, after
-    `mark_linear_text_alias_ro()`.
-  - **Fix:** use the existing text-poking helper (fixmap writable alias
-    + cache maintenance). Drop redundant `__runtime_fixup_caches()` and
-    `cpu_to_le32()` (done inside the helper). Drop `lm_alias()` because
-    the helper wants a kernel-text address.
-  - **Version info:** none beyond the futex/runtime-const interaction.
+**Step 1.1: PARSE THE SUBJECT LINE**
+Record: `[iommu/qcom] [Publish] Publish pgtbl_ops before releasing
+init_mutex`
+Subsystem: Qualcomm IOMMU (`drivers/iommu/arm/arm-smmu/qcom_iommu.c`).
+Verb “Publish … before” is a visibility/ordering fix (equivalent to
+“ensure” / “prevent”).
 
-**Step 1.4 — Hidden bug fix?**
-- Record: Not hidden. The message describes a concrete oops. “No
-  functional changes are intended” means the patched immediates are the
-  same; the write path is what changes so late `runtime_const_init()`
-  can succeed.
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+Record:
+- `Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>`
+- `Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>` (author)
+- `Signed-off-by: Will Deacon <will@kernel.org>` (IOMMU/SMMU maintainer)
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Link:`, or `Cc: stable`
+  (absence expected; not a negative)
 
-## Phase 2: Diff analysis
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Record:
+- **Bug:** `qcom_domain->pgtbl_ops` was stored after
+  `mutex_unlock(&init_mutex)`.
+- **Symptom:** A concurrent `qcom_iommu_init_domain()` sees
+  `qcom_domain->iommu` already set, skips init, then `qcom_iommu_map()`
+  reads a NULL ops pointer and returns `-ENODEV` for valid mappings.
+- **Root cause:** The “domain initialized” flag (`iommu`) is published
+  under the mutex; page-table ops are published after the mutex is
+  dropped, so the domain is only half-visible.
+- **Version info:** None in the message. Blame shows the unlock-then-
+  assign pattern dates to the original driver (2017).
 
-**Step 2.1 — Inventory**
-- Record: one file, `arch/arm64/include/asm/runtime-const.h` (~5
-  insertions, 12 deletions). Functions: `__runtime_fixup_16()`,
-  `__runtime_fixup_caches()` (removed), `__runtime_fixup_ptr()`,
-  `__runtime_fixup_shift()`. Surgical, single-header.
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+Record: Not disguised. Explicit race with a concrete failure (`-ENODEV`
+on map). Not cleanup/refactor.
 
-**Step 2.2 — Flow change**
-- Record:
-  - **Before:** read opcode at `lm_alias(where)`, store new insn with
-    `*p = cpu_to_le32(insn)`, then `caches_clean_inval_pou()` on the
-    original VA.
-  - **After:** pass the kernel-text pointer and host-endian insn to
-    `aarch64_insn_patch_text_nosync()`, which maps a writable fixmap
-    page, writes, and flushes I/D caches.
-  - Affected path: boot-time `runtime_const_init()` only (not a hot
-    path).
+---
 
-**Step 2.3 — Bug mechanism**
-- Record: **logic/correctness of text patching after RO protection**.
-  Direct store to RO kernel text. The helper uses `patch_map()` →
-  `FIX_TEXT_POKE0`, the same path as kprobes/jump labels/ftrace.
+## PHASE 2: DIFF ANALYSIS
 
-**Step 2.4 — Fix quality**
-- Record: Obviously correct. Matches how arm64 already patches text.
-  Regression risk is low: leftover `#include <asm/cacheflush.h>` is
-  unused after the helper absorbs the flush; return value of the helper
-  is ignored (old path had no error check either; kernel text is 4-byte
-  aligned). Catalin confirmed dropping `lm_alias()` is safe because
-  kernel text remains readable for the opcode load.
+**Step 2.1: INVENTORY THE CHANGES**
+Record:
+- File: `drivers/iommu/arm/arm-smmu/qcom_iommu.c` — 2 insertions, 3
+  deletions
+- Function: `qcom_iommu_init_domain()`
+- Scope: single-file surgical reorder of three statements
 
-## Phase 3: Git history
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+Record:
+**Before:** program context banks → `mutex_unlock(init_mutex)` →
+`pgtbl_ops = …` → `return 0`.
+**After:** program context banks → `pgtbl_ops = …` →
+`mutex_unlock(init_mutex)` → `return 0`.
+Error paths (`out_clear_iommu` / `out_unlock`) are unchanged. This is
+the success-path publication of domain state.
 
-**Step 3.1 — Blame**
-- Record: Buggy direct-write scheme introduced in `94a2bc0f611cd`
-  (“arm64: add 'runtime constant' support”, Linus, 2024-07-09). Present
-  since ~v6.11. The crash only appears when `runtime_const_init()` runs
-  after `mark_linear_text_alias_ro()`.
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+Record: **[Synchronization / race]**.
+`qcom_domain->iommu` is set near the start of init (under the mutex) and
+is the “already initialized” flag:
 
-**Step 3.2 — Fixes: tag**
-- Record: none. Introducing commit is `94a2bc0f611cd` (in this tree).
-  The late caller that actually faults is `b78b0b6582527` (“futex: Use
-  runtime constants for `__futex_hash()` hot path”), also in this tree
-  (v7.3-rc1).
+```227:229:drivers/iommu/arm/arm-smmu/qcom_iommu.c
+        mutex_lock(&qcom_domain->init_mutex);
+        if (qcom_domain->iommu)
+                goto out_unlock;
+```
 
-**Step 3.3 — File history**
-- Record: `94a2bc0f611cd` add support → `0100e495cdf04` modules ban →
-  **`a6690350a4ae7` this fix** → `7eccf137dc044`
-  `runtime_const_mask_32()`. Same series as the futex conversion; this
-  patch is 2/8 and does not depend on later patches. Later mask support
-  *uses* this helper.
+`qcom_iommu_map()` does not take `init_mutex`; it only checks
+`pgtbl_ops`:
 
-**Step 3.4 — Author**
-- Record: K Prateek Nayak (AMD), not the arm64 maintainer. Arm64 review
-  is from Catalin. Peter Zijlstra signed off (locking tree). Related:
-  `7eccf137dc044` immediately after.
+```436:439:drivers/iommu/arm/arm-smmu/qcom_iommu.c
+        struct io_pgtable_ops *ops = qcom_domain->pgtbl_ops;
 
-**Step 3.5 — Dependencies**
-- Record: Needs `aarch64_insn_patch_text_nosync()` / `<asm/text-
-  patching.h>` — present at the parent and on HEAD. Standalone vs the
-  rest of the series. On *this* tree the futex caller is already
-  present, so the fix is load-bearing.
+        if (!ops)
+                return -ENODEV;
+```
 
-## Phase 4: Mailing list
+Unlocking before the store lets another attach skip init and then map
+with a NULL ops pointer. The fix publishes ops while still holding the
+mutex so that once waiters proceed, the domain is fully usable.
 
-**Step 4.1 — Original discussion**
-- Record: `b4 dig -c a6690350a4ae` → `[PATCH v6 2/8] arm64/runtime-
-  const: Use aarch64_insn_patch_text_nosync() for patching` at
-  https://patch.msgid.link/20260728052540.4728-3-kprateek.nayak@amd.com.
-  Cover: `[PATCH v6 0/8] futex: Use runtime constants for futex_hash
-  computation`. v5→v6: no diff change on this patch; tags collected. No
-  NAKs. Sashiko noted the helper must not get an `lm_alias()` address;
-  Catalin said dropping it is fine. No reviewer asked for Cc: stable.
+**Step 2.4: ASSESS THE FIX QUALITY**
+Record: Obviously correct publish-under-lock. Minimal. No new locks,
+APIs, or control flow besides statement order. Regression risk is very
+low: the assignment is a plain pointer store of a fully constructed
+object; holding the mutex a few extra instructions does not create
+deadlock (map/unmap use `pgtbl_lock`, not `init_mutex`).
 
-**Step 4.2 — Recipients**
-- Record: Catalin Marinas, Will Deacon, Peter Zijlstra, Thomas Gleixner,
-  linux-arm-kernel, linux-arch. Right maintainers were on the To/Cc
-  list. Catalin Reviewed-by is on the committed patch.
+---
 
-**Step 4.3 — Bug report**
-- Record: No syzbot/bugzilla. The oops is from the author’s own
-  futex+runtime-const bring-up on arm64. Charlie Jenkins Tested-by.
-  Cover letter: build+boot on x86 bare metal and QEMU for other arches.
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-**Step 4.4 — Series**
-- Record: v6 8-patch feature series. This commit is the arm64 text-
-  poking prerequisite. Patch 8 adds `runtime_const_init()` in
-  `futex_init()`. Both are in this 7.3-rc4 tree.
+**Step 3.1: BLAME THE CHANGED LINES**
+Record: Unlock-then-assign was introduced in `0ae349a0f33fb`
+(“iommu/qcom: Add qcom_iommu”, Rob Clark, 2017-08-09), first in
+**v4.14-rc1**. The bug is ~9 years old in this driver, not a recent
+regression.
 
-**Step 4.5 — Stable list**
-- Record: UNVERIFIED for a dedicated stable@ thread (lore HTTP 403). No
-  stable mention in the saved v6 mbox.
+**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: No `Fixes:` tag. Buggy code is the original 2017 driver, which
+is an ancestor of this tree.
 
-## Phase 5: Code semantics
+**Step 3.3: CHECK FILE HISTORY**
+Record: Same-day series from Mukesh Ojha (applied 2026-07-22 by Will
+Deacon):
+- `3c748a5554f96` — leak of `pgtbl_ops` on error (patch 4/6)
+- `a05b67cd45ad0` — this commit (patch 5/6)
+- `cb776a03a5342` — clocks before ctx probe (patch 6/6)
 
-**Step 5.1 — Functions**
-- Record: `__runtime_fixup_16`, `__runtime_fixup_ptr`,
-  `__runtime_fixup_shift`; `__runtime_fixup_caches` removed. Current
-  tree also has `__runtime_fixup_mask` (later commit) using the same
-  helper.
+This patch only reorders unlock vs assignment. It does **not** depend on
+the leak fix.
 
-**Step 5.2 — Callers**
-- Record: `runtime_const_init()` → `runtime_const_fixup()` → those
-  fixups. Call sites in this tree:
-  - `kernel/futex/core.c` `futex_init()` — `core_initcall` — **after**
-    `smp_cpus_done()` → `mark_linear_text_alias_ro()`
-  - `fs/dcache.c`, `fs/file_table.c`, `fs/namei.c` —
-    `vfs_caches_init[_early]()` in `start_kernel()` — **before** that RO
-    switch
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+Record: Mukesh Ojha (Qualcomm) submitted a “Misc Fixes” series for the
+legacy qcom_iommu driver. Not the IOMMU subsystem maintainer; Will
+Deacon applied it. Konrad Dybcio (Qualcomm) reviewed.
 
-**Step 5.3 — Callees**
-- Record: `aarch64_insn_patch_text_nosync()` → `aarch64_insn_write()` →
-  `__aarch64_insn_write()` (`patch_map` + `copy_to_kernel_nofault`) +
-  `caches_clean_inval_pou()`.
+**Step 3.5: DEPENDENT/PREREQUISITE COMMITS**
+Record: Standalone. v2 series is 6 patches; this one has no code
+dependency on the others. Can apply alone.
 
-**Step 5.4 — Reachability**
-- Record: Unconditional on arm64. `futex_init` is a `core_initcall`.
-  Every arm64 boot on this tree hits the late patch. Without this fix:
-  boot oops.
+---
 
-**Step 5.5 — Similar patterns**
-- Record: x86 runtime-const still does a direct store and documents
-  “only at init before text is RO”. arm64’s linear-map alias is marked
-  RO earlier (`smp_cpus_done`), so arm64 cannot follow that model for
-  `core_initcall`.
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-## Phase 6: This tree
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+Record:
+- Lore (from `b4 dig -c a05b67cd45ad0`): https://patch.msgid.link/202607
+  17144608.3216274-6-mukesh.ojha@oss.qualcomm.com
+- **v1:** `[PATCH 5/8]` 2026-06-23 — https://patch.msgid.link/2026062312
+  2034.1166295-6-mukesh.ojha@oss.qualcomm.com
+- **v2:** `[PATCH v2 5/6]` 2026-07-17 (applied version; same diff as v1
+  for this patch)
+- Konrad on v1: `Reviewed-by` plus a non-blocking note that a
+  `guard(mutex)` wrapper would also work. No NAK.
+- Will Deacon applied the whole v2 series to `iommu (arm/smmu/updates)`
+  on 2026-07-22. No stable nomination, no risk flags.
 
-**Step 6.1 — Buggy code here?**
-- Record: Yes. Tree is **v7.3-rc4** (`7.3.0-rc4`, HEAD `f0100363d8c37`).
-  File exists. Pre-fix body is at `a6690350a4ae^`. `futex_init()` still
-  calls `runtime_const_init()` (`kernel/futex/core.c`). The fix commit
-  **is already an ancestor of HEAD** (in v7.3-rc1). Current `runtime-
-  const.h` already calls `aarch64_insn_patch_text_nosync()`.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+Record (`b4 dig -w`): Mukesh Ojha, Rob Clark, Will Deacon, Joerg Roedel,
+Alex Williamson, Robin Murphy, Konrad Dybcio; lists
+`iommu@lists.linux.dev`, `linux-arm-msm`, `linux-arm-kernel`.
+Appropriate maintainers were on Cc. Konrad reviewed; Will applied.
 
-**Step 6.2 — Backport difficulty**
-- Record: Clean on the parent snapshot. Current HEAD already has this
-  plus `runtime_const_mask_32()`; re-applying the exact hunk would be a
-  no-op / already-applied.
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+Record: No `Reported-by`, syzbot, or bugzilla. Author analysis only.
+UNVERIFIED whether anyone hit this in the field.
 
-**Step 6.3 — Related fixes already here**
-- Record: This *is* the fix. No later Fixes: for `a6690350`. Follow-up
-  `7eccf137dc044` only adds mask patching on the new helper.
+**Step 4.4: RELATED PATCHES AND SERIES**
+Record: Part of “iommu/qcom: Misc Fixes”. Other patches (fault-log
+polarity, pm_runtime, leak, clocks) are independent. v1 patches 6/8 and
+8/8 were dropped after review; this patch was unchanged.
 
-## Phase 7: Subsystem
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+Record: lore.kernel.org/stable search for `pgtbl_ops qcom` did not show
+this patch. Hits were unrelated (`arm-smmu-qcom` power-up). No evidence
+it was rejected for stable.
 
-**Step 7.1**
-- Record: **arch/arm64** text-patching used by **futex** (core locking).
-  Criticality: **IMPORTANT** — every arm64 boot.
+---
 
-**Step 7.2**
-- Record: Active in the 7.3 window (futex runtime-const series). The
-  underlying helper is old, stable infrastructure.
+## PHASE 5: CODE SEMANTIC ANALYSIS
 
-## Phase 8: Impact and risk
+**Step 5.1: KEY FUNCTIONS**
+Record: `qcom_iommu_init_domain()` (modified). Related:
+`qcom_iommu_attach_dev()`, `qcom_iommu_map()`, `qcom_iommu_unmap()`,
+`qcom_iommu_iova_to_phys()`.
 
-**Step 8.1**
-- Record: All arm64 users of this kernel (futex init is not optional).
+**Step 5.2: TRACE CALLERS**
+Record:
+- `qcom_iommu_init_domain()` is only called from
+  `qcom_iommu_attach_dev()`.
+- `attach_dev` is the IOMMU `.attach_dev` op
+  (`qcom_iommu_ops.default_domain_ops`).
+- Core path: `__iommu_attach_device()` → `domain->ops->attach_dev()`.
+- This driver `select ARM_DMA_USE_IOMMU`. `arm_iommu_attach_device()`
+  documents that more than one client may share a mapping, and calls
+  `iommu_attach_device()`. Parallel probe of two devices sharing a
+  mapping is a realistic concurrent `init_domain` on the same
+  `qcom_domain`. Group mutex serializes attach **within** a group;
+  `generic_device_group` means one device per group, so two devices are
+  two groups and are **not** serialized against each other.
 
-**Step 8.2**
-- Record: Every boot, `core_initcall(futex_init)`. Not userspace-
-  triggered; it is a boot breaker.
+**Step 5.3: TRACE CALLEES**
+Record: `alloc_io_pgtable_ops()`, `qcom_scm_restore_sec_cfg()`, context-
+bank MMIO, `mutex_lock/unlock`. SCM and register programming make the
+critical section long; waiters pile up on `init_mutex` and then race the
+post-unlock store.
 
-**Step 8.3**
-- Record: Kernel fault writing RO text → boot failure. **CRITICAL**.
+**Step 5.4: FOLLOW THE CALL CHAIN**
+Record: Reachable from device probe / DMA attach on Qualcomm “B family”
+SMMU platforms (MSM8916/8937/8939/8953/8976, etc.). Not a syscall fuzzer
+path; it is a normal boot/probe path. Userspace-triggered concurrent
+attach is also possible via the ARM DMA mapping API / VFIO-style attach
+of separate groups to one domain.
 
-**Step 8.4**
-- Record: Benefit high (arm64 actually boots with the futex runtime-
-  const code this tree already has). Risk low (~one-header, established
-  poking API, arm64 maintainer Reviewed-by).
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+Record: `init_mutex` comment is “Protects iommu pointer” — the original
+code treated `iommu` as the publication point and left `pgtbl_ops`
+outside the lock. No sibling qcom function has the same bug.
+`map`/`unmap`/`iova_to_phys` all NULL-check `pgtbl_ops` and return
+`-ENODEV`/0 rather than crashing — so the race fails mappings instead of
+oopsing.
 
-## Phase 9: Synthesis
+semcode MCP: not available; used git grep and reads.
 
-**Evidence for YES**
-- Documented oops: write to RO memory in `__runtime_fixup_shift()`.
-- This tree has the late caller (`futex_init` / `core_initcall`) and
-  `mark_linear_text_alias_ro()` in `smp_cpus_done()` before
-  `do_basic_setup()` / initcalls.
-- Small, local, uses the standard arm64 patching API.
-- Reviewed by Catalin Marinas; tested by Charlie Jenkins; signed off by
-  Peter Zijlstra.
-- No new userspace API.
+---
 
-**Evidence against**
-- Lives in a feature series (futex hash optimization). On trees
-  *without* a late `runtime_const_init()`, the old path never faulted.
-- No Fixes:/Cc: stable (not a negative under these rules).
-- Already in this 7.3-rc4 history, so a second apply is unnecessary —
-  that is not used as a NO (pipeline “already selected” is ignored).
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
-**Unresolved**
-- No stable@ thread readable (lore 403). Does not change the local
-  technical picture.
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+Record:
+- Tree: `v7.3-rc4-27-gf0100363d8c37`, `make kernelversion` =
+  **7.3.0-rc4**.
+- File exists at `drivers/iommu/arm/arm-smmu/qcom_iommu.c`.
+- `git merge-base --is-ancestor a05b67cd45ad0 HEAD` succeeds: this
+  commit is already in this checkout (landed as
+  `v7.2-rc2-7-ga05b67cd45ad0`).
+- Pre-fix code existed here from v4.14 until that commit. The race is in
+  this driver’s design, not in code added after this tree branched.
 
-**Stable-rules checklist**
-1. Obviously correct and tested — **PASS** (Catalin + Tested-by + QEMU
-   boot)
-2. Real user-visible bug — **PASS** (arm64 boot oops with this tree’s
-   futex init)
-3. Important (crash) — **PASS** (CRITICAL)
-4. Small/contained — **PASS** (one header, ~17 lines)
-5. No new features/APIs — **PASS**
-6. Applies to this tree — **PASS** (code and helper are here; commit
-   already merged in 7.3-rc1)
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+Record: Five-line reorder around a pattern present since 2017. File
+moved in `e86d1aa8b60f7` (v5.8) from `drivers/iommu/qcom_iommu.c`; this
+tree already uses the new path. Expected apply: **clean**. No
+conflicting churn around the unlock.
 
-**Exception category:** none (not an ID/quirk/DT/docs/build-only
-change).
+**Step 6.3: RELATED FIXES ALREADY HERE**
+Record: The leak fix `3c748a5554f96` is also here and is independent. No
+alternate fix for this race.
 
-This tree ships both the late `runtime_const_init()` and arm64
-`STRICT_KERNEL_RWX` linear-alias RO. The old `lm_alias()` store is a
-boot crash. Replacing it with `aarch64_insn_patch_text_nosync()` is the
-correct, minimal fix and belongs in this series.
+---
 
-### Verification
-- [Phase 1] Parsed tags: Reviewed-by Catalin Marinas, Tested-by Charlie
-  Jenkins, Link to v6 2/8; no Fixes:/syzbot
-- [Phase 2] Diff: one file; direct `*p` store + `lm_alias` +
-  `__runtime_fixup_caches` replaced by `aarch64_insn_patch_text_nosync`
-- [Phase 2] Confirmed helper: `arch/arm64/kernel/patching.c`
-  `aarch64_insn_patch_text_nosync()` → write via `patch_map` +
-  `caches_clean_inval_pou`
-- [Phase 3] `git describe HEAD` / Makefile: **v7.3-rc4**, `7.3.0-rc4`
-- [Phase 3] `git merge-base --is-ancestor a6690350 HEAD`: yes; also in
-  v7.3-rc1; not in v7.2
-- [Phase 3] Blame: buggy writes from `94a2bc0f611cd` (2024); late caller
-  `b78b0b6582527` in this tree
-- [Phase 3] Parent file shown: `*p = cpu_to_le32(insn)` + `lm_alias`
-- [Phase 4] `b4 dig -c a6690350`: lore match v6 2/8; mbox saved; no NAK;
-  Catalin R-b on the patch
-- [Phase 4] Cover letter: feature series for futex runtime const; this
-  patch is the arm64 poking prerequisite
-- [Phase 4] UNVERIFIED: stable@ mailing-list search (lore 403)
-- [Phase 5] Callers: futex `core_initcall` (late); VFS caches in
-  `start_kernel` (early)
-- [Phase 5] `mark_linear_text_alias_ro()` called from `smp_cpus_done()`;
-  `do_basic_setup()`/`do_initcalls()` after `smp_init()`
-- [Phase 6] Current `runtime-const.h` already uses the helper; `text-
-  patching.h` exists at parent
-- [Phase 8] Failure mode: RO-text write → boot oops on all arm64,
-  CRITICAL
-- UNVERIFIED: Catalin’s original review mail text (only R-b + commit-
-  message paraphrase in v6 mbox)
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-The patch is small, uses the existing arm64 text-poking path, and
-prevents a boot crash on this tree’s futex `runtime_const_init()`.
+**Step 7.1: SUBSYSTEM AND CRITICALITY**
+Record: `[iommu / Qualcomm legacy SMMU] [IMPORTANT]`
+Not mm/core, but IOMMU DMA for a family of Qualcomm SoCs still in DT
+(phones, Dragonboard-class boards, embedded). Mapping failures break DMA
+for those devices.
+
+**Step 7.2: SUBSYSTEM ACTIVITY**
+Record: Legacy driver (“Misc Fixes” cover letter). Recent Qualcomm
+fixes; not a new subsystem. Mature code, long-present bug.
+
+---
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+**Step 8.1: WHO IS AFFECTED**
+Record: **driver-specific / config-specific** — `CONFIG_QCOM_IOMMU` on
+`ARCH_QCOM` (MSM8916, MSM8937, MSM8939, MSM8953, MSM8976, …). Not
+universal.
+
+**Step 8.2: TRIGGER CONDITIONS**
+Record: Two threads attaching the same `qcom_iommu_domain` (shared ARM
+DMA mapping, or two groups attached to one domain). After the first
+drops `init_mutex` and before it stores `pgtbl_ops`, the second skips
+init and maps. Window is a few instructions, but **preemption after
+unlock** makes it realistic; SCM-held init also means waiters are ready
+to run immediately. Not triggerable by an unprivileged syscall alone in
+the usual case; it is a probe/attach race. No field `Reported-by`
+(UNVERIFIED in production).
+
+**Step 8.3: FAILURE MODE SEVERITY**
+Record: **Failed IOMMU map (`-ENODEV`) for valid mappings** → DMA setup
+failure / device non-functional. Not a KASAN UAF or panic (`map` NULL-
+checks). **Severity: HIGH** (device DMA broken), not CRITICAL (no
+oops/corruption).
+
+**Step 8.4: RISK-BENEFIT RATIO**
+Record:
+- **Benefit:** Prevents a real attach/map race on Qualcomm IOMMU;
+  devices keep working under concurrent attach.
+- **Risk:** Very low (3-statement reorder, no API/locking change).
+- **Ratio:** Favorable.
+
+---
+
+## PHASE 9: FINAL SYNTHESIS
+
+**Step 9.1: COMPILE THE EVIDENCE**
+
+**FOR:**
+- Real race: initialized flag published under lock, ops pointer
+  published after unlock.
+- User-visible failure: valid maps return `-ENODEV` (DMA/device
+  failure).
+- Bug in the driver since v4.14; this tree’s driver still has that
+  design.
+- 5-line, obviously correct publish-under-lock.
+- Reviewed by Konrad Dybcio; applied by Will Deacon.
+- Self-contained; not a new feature.
+- Used on real Qualcomm SoCs that still ship on LTS-class kernels.
+
+**AGAINST:**
+- No `Reported-by` / syzbot / crash log.
+- Window is small; needs concurrent attach to the **same** domain.
+- Failure is `-ENODEV`, not oops/UAF/corruption.
+- Cover letter calls the series “Misc Fixes”; nobody Cc’d stable.
+- Peripheral vs core (legacy qcom_iommu, not arm-smmu-v3).
+
+**UNRESOLVED:**
+- No confirmed production hit.
+- lore.kernel.org HTML fetch returned 403; discussion recovered via `b4
+  dig`/`b4 mbox`.
+- How often qcom platforms share one `dma_iommu_mapping` across devices
+  is not fully quantified; the ARM DMA API and `init_mutex` exist
+  specifically for that case.
+
+**Step 9.2: STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — reorder is locally
+   checkable; Konrad R-b; Will applied; in mainline since v7.2-rc2.
+2. Fixes a real bug that affects users? **PASS** — concurrent attach can
+   fail valid DMA maps.
+3. Important issue? **PASS** — DMA map failure can take devices out; not
+   a panic, but not cosmetic.
+4. Small and contained? **PASS** — 5 lines, one function.
+5. No new features or APIs? **PASS**.
+6. Can apply to the local tree? **PASS** — same file/function; already
+   the current code here.
+
+**Step 9.3: EXCEPTION CATEGORIES**
+Record: None (not a device-ID/quirk/DT/build/doc exception). It is a
+normal small race fix.
+
+**Step 9.4: DECISION**
+
+This tree is **7.3-rc4**. The Qualcomm IOMMU driver is here, and the
+race is in the original 2017 init/map split, not in later architecture.
+The patch is a correct, tiny publication-order fix: once `init_mutex` is
+dropped, `pgtbl_ops` must already be visible so a concurrent attach
+cannot skip init and then fail `qcom_iommu_map()`.
+
+It meets stable rules: real bug, user-visible DMA failure, surgical
+change, no new API, no prerequisites. Benefit outweighs the tiny race
+window and lack of a field report.
+
+---
+
+## Verification
+- [Phase 1] Parsed tags: Reviewed-by Konrad Dybcio; SOB Mukesh Ojha +
+  Will Deacon; no Fixes/Reported-by/Cc-stable
+- [Phase 2] Diff: 2+/3- in `qcom_iommu_init_domain()`; move `pgtbl_ops`
+  store before `mutex_unlock`
+- [Phase 2] Confirmed `map()` NULL-checks ops and returns `-ENODEV`;
+  `init_domain` early-outs on `qcom_domain->iommu`
+- [Phase 3] `git blame`: unlock-then-assign from `0ae349a0f33fb`
+  (v4.14-rc1, Rob Clark)
+- [Phase 3] No Fixes tag; leak fix `3c748a5554f96` is independent
+- [Phase 3] `git merge-base --is-ancestor a05b67cd45ad0 HEAD` → yes
+  (already in this 7.3-rc4 checkout)
+- [Phase 3] `git describe a05b67cd45ad0` → `v7.2-rc2-7-ga05b67cd45ad0`
+- [Phase 4] `b4 dig -c a05b67cd45ad0`: v2 5/6 at
+  patch.msgid.link/20260717144608.3216274-6-…
+- [Phase 4] `b4 dig -a`: v1 5/8 (2026-06-23) → v2 5/6 (2026-07-17); this
+  hunk unchanged
+- [Phase 4] `b4 dig -w`: iommu maintainers + linux-arm-msm Cc’d
+- [Phase 4] Konrad v1 review: R-b; optional `guard(mutex)` suggestion
+  only; Will applied v2
+- [Phase 4] lore.kernel.org WebFetch 403; used b4 mbox instead
+- [Phase 4] stable@ search: this commit not discussed; unrelated arm-
+  smmu-qcom hits
+- [Phase 5] Callers: only `qcom_iommu_attach_dev` ← IOMMU `.attach_dev`
+  ← `__iommu_attach_device`
+- [Phase 5] `ARM_DMA_USE_IOMMU` / `arm_iommu_attach_device()` allows
+  shared mappings across devices
+- [Phase 5] semcode unavailable; used git grep + file reads
+- [Phase 6] `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`; `make
+  kernelversion` = 7.3.0-rc4
+- [Phase 6] Current file already has assignment before unlock (this
+  commit)
+- [Phase 7] DT: msm8916/8937/8939/8953/8976 use `qcom,msm-iommu-v1/v2`
+- [Phase 8] Failure: `-ENODEV` on valid map, severity HIGH; not oops
+- UNVERIFIED: production reproduction; exact share-mapping frequency on
+  qcom boards
+
+The fix is small, surgical, and meets the stable criteria for this
+tree’s Qualcomm IOMMU driver.
 
 **YES**
 
- arch/arm64/include/asm/runtime-const.h | 17 +++++------------
- 1 file changed, 5 insertions(+), 12 deletions(-)
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
-index be5915669d239..31a6f94e57955 100644
---- a/arch/arm64/include/asm/runtime-const.h
-+++ b/arch/arm64/include/asm/runtime-const.h
-@@ -3,6 +3,7 @@
- #define _ASM_RUNTIME_CONST_H
+diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+index 792585321bd11..1a046122fca0d 100644
+--- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
++++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+@@ -306,13 +306,12 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
+ 		ctx->domain = domain;
+ 	}
  
- #include <asm/cacheflush.h>
-+#include <asm/text-patching.h>
- 
- /* Sigh. You can still run arm64 in BE mode */
- #include <asm/byteorder.h>
-@@ -46,34 +47,26 @@ static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffe0001f;
- 	insn |= (val & 0xffff) << 5;
--	*p = cpu_to_le32(insn);
--}
+-	mutex_unlock(&qcom_domain->init_mutex);
 -
--static inline void __runtime_fixup_caches(void *where, unsigned int insns)
--{
--	unsigned long va = (unsigned long)where;
--	caches_clean_inval_pou(va, va + 4*insns);
-+	aarch64_insn_patch_text_nosync(p, insn);
- }
+ 	/* Publish page table ops for map/unmap */
+ 	qcom_domain->pgtbl_ops = pgtbl_ops;
  
- static inline void __runtime_fixup_ptr(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
-+	__le32 *p = where;
- 	__runtime_fixup_16(p, val);
- 	__runtime_fixup_16(p+1, val >> 16);
- 	__runtime_fixup_16(p+2, val >> 32);
- 	__runtime_fixup_16(p+3, val >> 48);
--	__runtime_fixup_caches(where, 4);
- }
+-	return 0;
++	mutex_unlock(&qcom_domain->init_mutex);
  
- /* Immediate value is 6 bits starting at bit #16 */
- static inline void __runtime_fixup_shift(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
-+	__le32 *p = where;
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffc0ffff;
- 	insn |= (val & 63) << 16;
--	*p = cpu_to_le32(insn);
--	__runtime_fixup_caches(where, 1);
-+	aarch64_insn_patch_text_nosync(p, insn);
- }
- 
- static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
++	return 0;
+ out_clear_iommu:
+ 	qcom_domain->iommu = NULL;
+ out_unlock:
 -- 
 2.53.0
 
