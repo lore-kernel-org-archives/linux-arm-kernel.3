@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD56CCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 07:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB1DCCF2D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 07:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmF5iz6Glgg36+UeRbaGY5yHQ6NvqJW35XDnkD5cMXA=; b=G/yun5lc1gXx+EQ4MfxiDEWxEc
-	P6B3TKCgE/1YD3nEbdkuG2NvHaCQXqJG9Hkkjb3dgfeaS+jJoC01tfizdl8wACtQEuVbaB2nOSjMW
-	uJfwaRj5bw1thmV1IaZAPdT+H0Jc1ENqwoKNWH27wt2Js2+edPuF8J8/AH6KZH71SGFslbrt8GJOr
-	IWgbd0Hp6bhMUjcl6aGsVoG27lxEbcOmeKkJqyQ/CqQB4J4UFBmmFSPmCsc84jQoIuBn8tUlzVLoP
-	hZqMlwjcRyGXBZHGS6QXufQXUX4qq9msibBAirxiUZg4+7LMD513Y1nvSbGwD+M5/qMdwx44vFoO/
-	zlMcqr2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdtJHOQga8yZintzw2L/x8WOKIlE3a7c6yHsYsvBWSo=; b=KjLVDQ6C7JZLHOWMKoc9Ht5Anx
+	3VcHhRU2l7kXnSDaEGMAG0qkymAxeBnYeLjFrJT54mpLtNoNAoTVurYoT2u/VTdnLDfjcVCsWgSTJ
+	XiOFUJp9AD6Ie0nn3LPmbt3mI185sMA/OeneRFjGZHvWqWLqk5+3Vijn9awbE+hM30Tztyosa896a
+	FTXGRCjFcw/3hKoivSfJ8Vz4ZD+j8o1ivNOCOweOVmmjQpcnSZqDAaPgL0iuB0up3npLg6BXp2vPH
+	EVqcB/JHh4GwiaKRn80nEnP3Bm7ROqAdX0H8Z6kIWqYDQSAHdK/pqk7yL4LJGcd2T7NTJ6L6/chXZ
+	B+7CI8/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIi9v-00000006n7s-3JNT;
-	Mon, 19 Oct 2026 07:51:51 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xIiBO-00000006nEe-477a;
+	Mon, 19 Oct 2026 07:53:23 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIi9q-00000006n71-0qJX
+	id 1xIiBK-00000006nE2-2lFY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 07:51:50 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a0286c981dso19156345e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 00:51:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1792396304; x=1793001104; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gmF5iz6Glgg36+UeRbaGY5yHQ6NvqJW35XDnkD5cMXA=;
-        b=hzAI8ZmuzqNyPcK8nrA/G843CQJB1MXVs82OeIsDV4Or3C2zavz3Xd5DpPylx06DTM
-         vcaJ5UcUBGJioVuAQ2LDVX1R/jMxWAx0rOuMhY7RpSMEUuO1J8AXB+0sVLjdVDKKVaA4
-         94918F1Cho0vt7OtFM4aYEBLjxUvkHGdUdBi8qqNs0N4BHAWDUZBPIWLoWRM6WnPcMe7
-         Xb8o4lSnoM1PNIs6OsT86zZKRQJh0wfU7X9wb4LtoyGP8i7WWUJmIph5opadyFM2y7cz
-         WvI1ezM8ANUh7Nv7EvvdTPS5BPkAndgDKwy634T4lOKXJ9YGXhtzss5h/fDoOj3LxwWq
-         n3sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792396304; x=1793001104;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gmF5iz6Glgg36+UeRbaGY5yHQ6NvqJW35XDnkD5cMXA=;
-        b=2vRFtWhf5c8LMDfzUaGLBkxWIrL0PUw0qlEK/fjuVo8UkKhV/0eCSWBeYG7xMDBcBR
-         YUs9pXWwvIlpkC17of7eqMKw8VgArOknctHHeHeq7eemBUOmvdZYhzuREA22rWsmi6up
-         Vxfq1lXPYo0jWdWVkrNRKk0tD4v1PngHmffJE80kizEb8un7M7dMmPQ6AT5QhHHvPqZB
-         e/cC4cPsiteIZXBYvSz/9DTXx5BPjC+q+80AKv65QDBs1Nlp+J1/+kTVmWaefD8cgkMa
-         T5C02VUiIU2eGTggInNEbcp5438/MoU31nc81Aa28nTE2lfZwQnQ7xN4l7vlCbBaoCh4
-         d9aQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwgJG9CN6eaICyxHJUtuTLNeW9ourFDTB+2UoD/wOxiIJIDzHxqiNJCKzL0PkV1scCCa6KnudjRTSrmRluRsgzp@lists.infradead.org
-X-Gm-Message-State: AFq9FYISHGsSir3n40jGktWx7/8/sJaE4C+MMU0cvS6Fp+7IaRumHxtJ
-	HYdMGF1gFWAEooKdX+qrRaE5PPlFnY3gv6khOAc5sh42Xof1oLvIeLx3Lesx5t4TCFE=
-X-Gm-Gg: AYBFou2S+RgpweuzrEvz49fDiQSjtsWdEP3eDvU/WJMgvYL51Xuu9KxbfMoL6qpYJ6D
-	KAerGPSf5bDN+RodGnRyX9qKTTAnHDbHdKzN6vu0f/CpxbLmfh7GnYzI3dE4AD6GzndQap70iYs
-	P2ldiKqJvYNx+o2a/M7WqUb60AppkMnfy8nhCtQCloyIiuCd3w5enJiYy/nXTXkpsxnWpfVkDSz
-	qg5GGThdSAXuudj3L6kEmNFGvoLs41+lgpkjw+g/92jdxIlzbtMXAvn2EXS5wRny03UmCgQPmnm
-	WgTK19iW3a/V6w1+x8nBVYOOI/fbbajpVx4fCzEDKJMv712YiC1yUNLUI2e2i3spTLwrKAIfna1
-	CuhpUixR8jojq6pSvu6cg0A+WJFEOWqiCjRxbNDqD9k4/yE7hdyDlpM8nJt8NIjOmidTTbhk2id
-	irLfANx5i29gPHBEmj5zOGLIeWhfh8FFyKlFRPUwPihdyWJ4yCDpN4+d1j9a5epVQ47/Gk1/Fow
-	JDCY+bJOQ04hSqbPR4sMFgYI2dOLDeklKLMLbOSPjbmftyLBq/JEtMe+USsdg==
-X-Received: by 2002:a05:600c:3b13:b0:4a0:2150:55fb with SMTP id 5b1f17b1804b1-4a1d75ad08amr173850595e9.4.1792396304053;
-        Mon, 19 Oct 2026 00:51:44 -0700 (PDT)
-Received: from localhost (p200300f65f19a9041674bacf58593a35.dip0.t-ipconnect.de. [2003:f6:5f19:a904:1674:bacf:5859:3a35])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4a1cc642573sm209959665e9.2.2026.10.19.00.51.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 00:51:42 -0700 (PDT)
-Date: Mon, 19 Oct 2026 09:51:40 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-ID: <atXLd6SdHNr0UcjI@monoceros>
-References: <20261016130328.1037616-1-arnd@kernel.org>
+	Mon, 19 Oct 2026 07:53:20 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 0A35D4E4127A;
+	Mon, 19 Oct 2026 07:53:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C22E960582;
+	Mon, 19 Oct 2026 07:53:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 273A410328429;
+	Mon, 19 Oct 2026 09:52:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792396390; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=XdtJHOQga8yZintzw2L/x8WOKIlE3a7c6yHsYsvBWSo=;
+	b=ZhOYCqLfY0uqKfnFsc7IaeJv/xjMPmvrjEhsq6qUY/OnQxd90wxSGRTZlE5YbnJivQjrLs
+	H0+eN6D72FZKrmGiYewBm9LgeouitI9fTmxrvwxXlgFjDeIge0JdTmsT8bsZ2QNLZOwfqN
+	O+p34paK3Akp4O9RTpAD2jaRMut6JzAGO9AL7uaO2o9O1IR4Zsk0MbMdvvbNLBscn/5omL
+	ZSz4ixluYb3uCw6mrSMv2NNXYp1pmH8AtQbZAJYS2fFGGSmKNcgRfHJo2UTfCRh5nI+ema
+	PJMzOQDR08v5AAwPHr8770QYwnNktt7ajaw+WB6MHrhGHkn+eEI45868UdufxQ==
+Message-ID: <3d0b17c6-3b94-4e36-b7bc-700211c83273@bootlin.com>
+Date: Mon, 19 Oct 2026 09:52:58 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="u5tdsywsd4xqnlzl"
-Content-Disposition: inline
-In-Reply-To: <20261016130328.1037616-1-arnd@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 5/5] net: stmmac: support the TC9564 SoC
+To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: Daniel Thompson <daniel@riscstar.com>, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ richardcochran@gmail.com, p.zabel@pengutronix.de, peppe.cavallaro@st.com,
+ joabreu@synopsys.com, mohd.anwar@oss.qualcomm.com,
+ lorenzo.bianconi@oss.qualcomm.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261019030129.1470307-1-elder@riscstar.com>
+ <20261019030129.1470307-6-elder@riscstar.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261019030129.1470307-6-elder@riscstar.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_005146_254062_E3CBFD97 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20261019_005318_996604_221EE755 
+X-CRM114-Status: GOOD (  43.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +84,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alex,
 
---u5tdsywsd4xqnlzl
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-MIME-Version: 1.0
+On 10/19/26 05:01, Alex Elder wrote:
+> From: Daniel Thompson <daniel@riscstar.com>
+> 
+> Add support for the Ethernet XGMAC functionality present in the
+> Toshiba TC9564 SoC.
+> 
+> The TC9564 is a fairly complex chip that attaches to a host via
+> the upstream port of a PCIe switch it implements.  That switch
+> has three downstream ports, and one of those has an embedded PCI
+> endpoint.  The PCI endpoint implements two PCI functions, and a
+> 10 Gbps-capable XGMAC interface is attached to each.
+> 
+> The TC9564 implements additional peripherals, and access to them
+> is provided by a PCI endpoint bus associated with BAR 4 of the
+> first PCI function.  A PCI driver sets up the PCI function for
+> use, and peripherals using the bus use platform drivers, matched
+> by compatible string.
+> 
+> We use the pci-ep-bus approach for the stmmac driver as well, with
+> each PCI function exposing access to its BAR 4 via an endpoint bus.
+> The XGMAC device is defined within a pci-ep-bus node, and is bound
+> to the platform driver based on its compatible string.
+> 
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> Co-developed-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  MAINTAINERS                                   |   1 +
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>  .../ethernet/stmicro/stmmac/dwmac-tc9564.c    | 590 ++++++++++++++++++
+>  4 files changed, 603 insertions(+)
+>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-tc9564.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 972c9faead5b3..69f301aa26eb9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -28313,6 +28313,7 @@ M:	Alex Elder <elder@kernel.org>
+>  M:	Daniel Thompson <danielt@kernel.org>
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/net/toshiba,tc9564-dwmac.yaml
+> +F:	drivers/net/ethernet/stmicro/stmmac/dwmac-tc9564.c
+>  
+>  TOSHIBA WMI HOTKEYS DRIVER
+>  M:	Azael Avalos <coproscefalo@gmail.com>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> index ab3c4cf964239..5613921188df4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> @@ -363,6 +363,17 @@ config DWMAC_LOONGSON1
+>  	  device driver. This driver is used for Loongson1-based boards
+>  	  like Loongson LS1B/LS1C.
+>  
+> +config DWMAC_TC9564
+> +	tristate "Toshiba TC9564 DWMAC support"
+> +	depends on OF && COMMON_CLK && TC9564_PCI
+> +	default TC9564_PCI
+> +	help
+> +	  Support for the Ethernet controllers on the Toshiba TC9564.
+> +
+> +	  This enables glue layer support in the stmmac driver support
+> +	  for the Toshiba TC9564.  This chip implements two embedded
+> +	  PCIe functions, each of which has an XGMAC interface.
+> +
+>  config DWMAC_TEGRA
+>  	tristate "NVIDIA Tegra MGBE support"
+>  	depends on ARCH_TEGRA || COMPILE_TEST
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> index b16a456b730ec..c4de25db93715 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+> @@ -52,4 +52,5 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
+>  obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
+>  obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
+>  obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
+> +obj-$(CONFIG_DWMAC_TC9564)	+= dwmac-tc9564.o
+>  stmmac-pci-objs:= stmmac_pci.o
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-tc9564.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc9564.c
+> new file mode 100644
+> index 0000000000000..21098f91e3bbf
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-tc9564.c
+> @@ -0,0 +1,590 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +/*
+> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
+> + *
+> + * Derived from code having the following copyrights:
+> + * Copyright (C) 2011-2012  Vayavya Labs Pvt Ltd
+> + * Copyright (C) 2025 Toshiba Electronic Devices & Storage Corporation
+> + */
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/pcs/pcs-xpcs-regmap.h>
+> +#include <linux/pcs/pcs-xpcs.h>
+> +#include <linux/phy.h>
+> +#include <linux/regmap.h>
+> +#include <linux/stmmac.h>
+> +#include <linux/types.h>
+> +#include <linux/units.h>
+> +
+> +#include "common.h"
+> +#include "dwxgmac2.h"
+> +#include "stmmac.h"
+> +#include "stmmac_platform.h"
+> +
+> +#define DRIVER_NAME			"dwmac-tc9564"
+> +
+> +/* Start of range representing PCI space on the TC9564 internal bus */
+> +#define TC9564_SLV00_SRC_ADDR		0x0000001000000000ULL
+> +
+> +#define TC9564_PTP_CLOCK_RATE		(250 * HZ_PER_MHZ)
+> +
+> +#define TC9564_RX_FIFO_SIZE		(46 * SZ_1K)
+> +#define TC9564_TX_FIFO_SIZE		(46 * SZ_1K)
+> +
+> +/* Fields and values for the EMACTL registers */
+> +#define EMAC_SP_SEL_MASK		GENMASK(3, 0)
+> +#define SP_SEL_2500BASEX		4
+> +#define SP_SEL_SGMII_1000M		5
+> +#define SP_SEL_SGMII_100M		6
+> +#define SP_SEL_SGMII_10M		7
+> +#define EMAC_PHY_INF_SEL_MASK		GENMASK(5, 4)
+> +#define PCS_CLK_PHY			1	/* Clock from PHY */
+> +#define EMAC_INV_SGM_SIG_DET		BIT(6)	/* 1 = polarity inverted */
+> +#define EMAC_LPIHWCLKEN			BIT(8)	/* 1 = low power mode */
+> +#define EMAC_INIT_DONE			BIT(21)
+> +
+> +/* Offset to the XPCS memory block, relative to the EMAC address range */
+> +#define DWMAC_XPCS_OFFSET		0x3a00
+> +
+> +/* Offset to the PMATOP memory block, relative to the EMAC address range */
+> +#define DWMAC_PMATOP_OFFSET			0x4000
+> +
+> +#define PMA_CML_GL_PM_CFG0			0x01b8
+> +
+> +/*
+> + * Five sets three registers must be configured for PMA.  The HWT_REFCLK
+> + * registers are each separated by 0x14 bytes.  The Common0 configuration
+> + * registers are separated by 0x8 bytes.
+> + */
+> +#define PMA_REG_COUNT				5
+> +
+> +#define PMA_HWT_REFCK_R_EN			0x1080
+> +#define PMA_HWT_REFCK_TERM_EN			0x1090
+> +#define PMA_HWT_REFCK_STRIDE			0x0014
+> +
+> +#define PMA_COMM_CFG_0_1			0x1888
+> +#define PMA_COMM_CFG_0_1_STRIDE			0x0008
+> +
+> +/* PMA_COMM_CFG_0_1 fields (WRITE_MASK is a field name) */
+> +#define COMM_CFG_WRITE_MASK_MASK		GENMASK(16, 9)
+> +#define WRITE_MASK_VALUE			0xf7	/* Power-on value */
+> +#define COMM_CFG_ENABLE				BIT(8)
+> +#define COMM_CFG_WRITE_DATA_MASK		GENMASK(7, 0)
+> +#define WRITE_DATA_VALUE			0x04	/* Power-on value */
+> +
+> +enum {
+> +	RESET_ID_MAC,
+> +	RESET_ID_XPCS,
+> +	RESET_ID_PMA,
+> +};
+> +
+> +static const char * const tc9564_reset_names[] = {
+> +	[RESET_ID_MAC] = "mac",
+> +	[RESET_ID_XPCS] = "xpcs",
+> +	[RESET_ID_PMA] = "pma",
+> +};
+> +
+> +/**
+> + * struct tc9564_data - Toshiba-specific platform data
+> + * @dev:		Device pointer
+> + * @ioaddr:		Pointer to mapped eMAC memory
+> + * @plat:		Pointer to our stmmac platform data
+> + * @resets:		Reset controller bulk array
+> + * @clocks:		Clock controller bulk array
+> + * @clock_count:	Number of valid elements in the clock array
+> + * @config_regmap:	Regmap used to access eMAC configuration registers
+> + * @emac_ctl_offset:	Offset of the eMAC control register within the regmap
+> + * @res:		Structure passed to stmmac_dvr_probe()
+> + * @desc:		DMA descriptor data used by mac_device_info
+> + * @dma:		DMA operations data used by mac_device_info
+> + */
+> +struct tc9564_data {
+> +	struct device *dev;
+> +	void __iomem *ioaddr;
+> +	struct plat_stmmacenet_data *plat;
+> +	struct reset_control_bulk_data resets[ARRAY_SIZE(tc9564_reset_names)];
+> +	struct clk_bulk_data *clocks;
+> +	u32 clock_count;
+> +
+> +	struct regmap *config_regmap;
+> +	u32 emac_ctl_offset;
+> +
+> +	/* This field is data passed to stmmac_dvr_probe() */
+> +	struct stmmac_resources res;
+> +
+> +	/* These two fields are used by the mac_device_info structure */
+> +	struct stmmac_desc_ops desc;
+> +	struct stmmac_dma_ops dma;
+> +};
+> +
+> +struct tc9564_mac_speed {
+> +	phy_interface_t phy_interface;
+> +	int speed;
+> +	u32 sp_sel;
+> +};
+> +
+> +static struct tc9564_mac_speed mac_speed[] = {
+> +	{ PHY_INTERFACE_MODE_2500BASEX,	SPEED_2500,  SP_SEL_2500BASEX },
+> +	{ PHY_INTERFACE_MODE_SGMII,	SPEED_1000,  SP_SEL_SGMII_1000M },
+> +	{ PHY_INTERFACE_MODE_SGMII,	SPEED_100,   SP_SEL_SGMII_100M },
+> +	{ PHY_INTERFACE_MODE_SGMII,	SPEED_10,    SP_SEL_SGMII_10M },
+> +};
+> +
+> +/* TC9564 uses indirect addressing so this need only describe a 1KiB range */
+> +static const struct regmap_config xpcs_regmap_config = {
+> +	.reg_bits	= 32,
+> +	.val_bits	= 32,
+> +	.reg_base	= 0x00,		/* Minimum XPCS reg offset */
+> +	.max_register	= 0xff,		/* Register DW_VR_CSR_VIEWPORT */
+> +	.reg_shift	= REGMAP_UPSHIFT(2),
+> +};
+> +
+> +/**
+> + * tc9564_pma_init() - Initialize PMA
+> + * @td:	bsp_priv pointer
+> + *
+> + * Initialize (or re-initialize) the PMA, configure the clocks and wait for the
+> + * eMAC to be ready.
+> + */
+> +static void tc9564_pma_init(struct tc9564_data *td)
+> +{
+> +	struct reset_control *rstc = td->resets[RESET_ID_PMA].rstc;
+> +	struct regmap *regmap = td->config_regmap;
+> +	void __iomem *pmatop;
+> +	u32 val;
+> +	int ret;
+> +	u32 i;
+> +
+> +	/*
+> +	 * When we re-initialize the PMA then the reset will already have
+> +	 * been deasserted. We must make sure the PMA reset is asserted
+> +	 * before we change the clock settings.
+> +	 */
+> +	WARN_ON(reset_control_assert(rstc));
+> +
+> +	pmatop = td->res.addr + DWMAC_PMATOP_OFFSET;
+> +
+> +	/* Power on CML buffer (0 = normal mode, 1 = power down) */
+> +	writel(0, pmatop + PMA_CML_GL_PM_CFG0);
+> +
+> +	/* This value switches clock from C0_REFCK to CLK_REF_I */
+> +	val = u32_encode_bits(WRITE_MASK_VALUE, COMM_CFG_WRITE_MASK_MASK);
+> +	val |= COMM_CFG_ENABLE;
+> +	val |= u32_encode_bits(WRITE_DATA_VALUE, COMM_CFG_WRITE_DATA_MASK);
+> +
+> +	for (i = 0; i < PMA_REG_COUNT; i++) {
+> +		u32 offset =  i * PMA_HWT_REFCK_STRIDE;
+> +
+> +		/* Disable C0_REFCK and 100 ohm termination */
+> +		writel(0, pmatop + PMA_HWT_REFCK_R_EN + offset);
+> +		writel(0, pmatop + PMA_HWT_REFCK_TERM_EN + offset);
+> +
+> +		/* Switch clock from C0_REFCK to CLK_REF_I */
+> +		offset =  i * PMA_COMM_CFG_0_1_STRIDE;
+> +		writel(val, pmatop + PMA_COMM_CFG_0_1 + offset);
+> +	}
+> +
+> +	WARN_ON(reset_control_deassert(rstc));
+> +
+> +	ret = regmap_read_poll_timeout(regmap, td->emac_ctl_offset,
+> +				       val, val & EMAC_INIT_DONE, 50, 1000000);
+> +	WARN(ret, "timeout waiting for MAC init done\n");
 
-On Fri, Oct 16, 2026 at 02:59:47PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> hub6 support was added in linux-0.99 and the hardware was already old at
-> the time, being discontinued in 1990. The code for it has always been a
-> mess since it adds another dimension to the I/O addressing in the driver
-> that has leaked into many individual files.
->=20
-> Hugo and Uwe have attempted several times this year alone to isolate
-> the hub6 handling into the 8250_hub6.c file, but I feel that none of
-> this has been a real improvement over the original standalone loadable
-> module support.
->=20
-> Any machine that would have used this ISA card in practice is likely
-> 30 to 40 years old, and with i486 support now removed, it is clearly
-> safe to just kill this all off. The only bit that has to remain
-> is the ioctl interface, to ensure the serial_struct field is always
-> zero.
->=20
-> Link: https://mirrors.nycbug.org/pub/The_Unix_Archive/Unix_Usenet/comp.un=
-ix.sysv386/1990-December/007174.html
-> Fixes: a300273c458c ("serial: 8250: hub6: Add cleanup code")
-> Fixes: c526404a4a92 ("serial: 8250: Fix corner case for port matching")
-> Fixes: 7ab80d1e7243 ("serial: 8250: fix compile error with hub6_match_por=
-t() when compiled as a module")
-> Fixes: da7b5fd4e17f ("serial: 8250_hub6: add missing include for hub6_mat=
-ch_port()")
-> Fixes: 3d406299d882 ("serial: 8250_hub6: add hub6_match_port()")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+This is too many WARN_ON / WARN, there's 3 just in this function. At least use
+WARN_ON_ONCE, or maybe better 	print a log with pr_warn / dev_warn ?
 
-Fine for me. I wonder about the amount of Fixes: lines, but don't care
-enough to check.
+> +}
+> +
+> +static int tc9564_mac_speed_select(struct tc9564_data *td,
+> +				   phy_interface_t interface, int speed)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(mac_speed); i++) {
+> +		if (mac_speed[i].phy_interface != interface)
+> +			continue;
+> +
+> +		if (speed == mac_speed[i].speed || speed == SPEED_UNKNOWN)
+> +			return mac_speed[i].sp_sel;
+> +	}
+> +	dev_err(td->dev, "%s/%d unsupported\n", phy_modes(interface), speed);
 
-Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+Is that "mac_speed" lookup table actually needed ? maybe a simpler switch/case
+based on the speed alone would be enough, or do we really need to validate
+the phy_interface_t each time ?
 
-Best regards
-Uwe
+> +
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static void tc9564_mac_configure(struct tc9564_data *td,
+> +				 phy_interface_t interface, int speed)
+> +{
+> +	struct regmap *regmap = td->config_regmap;
+> +	u32 offset = td->emac_ctl_offset;
+> +	int sp_sel;
+> +	u32 val;
+> +
+> +	sp_sel = tc9564_mac_speed_select(td, interface, speed);
+> +	if (sp_sel < 0)
+> +		return;
+> +
+> +	/* No error checking needed for MMIO regmap */
+> +	regmap_read(regmap, offset, &val);
+> +	val |= EMAC_LPIHWCLKEN;
+> +	val &= ~EMAC_INV_SGM_SIG_DET;
+> +	val = u32_replace_bits(val, PCS_CLK_PHY, EMAC_PHY_INF_SEL_MASK);
+> +	val = u32_replace_bits(val, sp_sel, EMAC_SP_SEL_MASK);
+> +	regmap_write(regmap, offset, val);
+> +}
+> +
+> +static void tc9564_mac_enable(struct tc9564_data *td)
+> +{
+> +	WARN_ON(clk_bulk_prepare_enable(td->clock_count, td->clocks));
+> +
+> +	WARN_ON(reset_control_deassert(td->resets[RESET_ID_MAC].rstc));
+> +
+> +	tc9564_mac_configure(td, td->plat->phy_interface, SPEED_UNKNOWN);
+> +	tc9564_pma_init(td);
+> +
+> +	WARN_ON(reset_control_deassert(td->resets[RESET_ID_XPCS].rstc));
 
---u5tdsywsd4xqnlzl
-Content-Type: application/pgp-signature; name="signature.asc"
+Too many warns :)
 
------BEGIN PGP SIGNATURE-----
+> +}
+> +
+> +static void tc9564_mac_disable(struct tc9564_data *td)
+> +{
+> +	WARN_ON(reset_control_bulk_assert(ARRAY_SIZE(td->resets), td->resets));
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrVzAoACgkQj4D7WH0S
-/k4iJQf/V9G3FkSyYROePlk1XfrPSUEEaa8TTie3oEy+xPCSy0gTbErCq+RHUo4D
-GxHAkavC95XGxxdZLoXmp7zZUrmdWASZLB+8Zx/zQ4uY474FnrmRb9wWmxzzt7s/
-nYDE6veRDWeoi4Lcszow8rDX0uFISAaAjrBfAd/JE1t+QpkcNrYBC/PoT2BBUz6M
-q1WbGxPxjSTmmYnqV3IT1Xp83J6CnJVVBme8YP4cqXBmMC0t7JZ2TEYeu42aTSFb
-40v0k3I8d5pHzBl0W5c/DRH23ygvmgBFxaqFv+7uJovkvfnGmqATfNGCKzXM0lLy
-P5TeqJWAB+sq7IQV0tkv0LpgWGVN6A==
-=VH96
------END PGP SIGNATURE-----
+same
 
---u5tdsywsd4xqnlzl--
+Maxime
 
