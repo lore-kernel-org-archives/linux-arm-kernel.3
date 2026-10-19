@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA38CCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E8CCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wE1RMnUDMMnvpx7rc/PtXVu9rOvIEpslybb3iEFRjXM=; b=BDJSkML3cqH0I55d7D2ZfSAiys
-	ObufLXdXu4Ro/PwVazcZCe+zSeH4mHkZ6X8kiAkbl6Ehr3YjYm8nSRd63u/1/XbvF5V/jwIegaoqJ
-	+87h/x8po7Ztbl8JGPkBfeAFfrdZudDY5KSifNsqn7+X1MwxqwqQTraETC4rY3ManscXNbJDp8Ivv
-	Oo9cLMGNWb9rdyOsVFIShntOdWYdT1oKW2lZOcm05yvw5Hm1lxVugOz2d6kAdh7nSkNFbyRGj/e3d
-	hbHJKjl5d1ca8tjV5fAM46fCCfW4J36jw0Dm93xdZOJvvNuIKgu7Bz4tO1UI1SOgVEe1kB2DabZDo
-	yoVMwdTA==;
+	bh=n7+Oe27eSt/CYawxJQEUCht00laB/j73DqAE8wC3WOc=; b=E3uaMY8va1c++zuxqkfReRuo7Z
+	sXnTdlHNOuJ3dnsuw8yh0qmlMLCzQH/IcR/e8n/e8/BRxYqUNa08rtxfCCAvzE9H1wf+NtVqEa7Vy
+	LpqPol+a0nQZ0mcv6Fetf9XoxNKElkgb9E7fB5LTN0MzMOKEnq6qjqPN7Di3YBQ5jV6EcG0cOvZsS
+	SEKBeIZAgwEHz4ca7Y9aOB0lKLSwDGQ/p/BZUllbRm3caVKvN6bWSZerFXFcsiyibTPukJxeXwKa+
+	4L+yX/86rECVCOrO8BnkffNwsgo8zUP3agd2B5M5DicOHyCRFJrvpg79mtVFJrw0qJ3lPS0tSaY4o
+	pXTm99/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInro-00000007bAv-0iYa;
-	Mon, 19 Oct 2026 13:57:32 +0000
+	id 1xInrs-00000007bFC-11Y1;
+	Mon, 19 Oct 2026 13:57:36 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInrm-00000007b9t-1pgp;
-	Mon, 19 Oct 2026 13:57:30 +0000
+	id 1xInrq-00000007bD7-070L
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:57:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBE496020A;
-	Mon, 19 Oct 2026 13:57:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36D231F000C6;
-	Mon, 19 Oct 2026 13:57:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 670A4602A8;
+	Mon, 19 Oct 2026 13:57:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C211F000C7;
+	Mon, 19 Oct 2026 13:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418249;
-	bh=wE1RMnUDMMnvpx7rc/PtXVu9rOvIEpslybb3iEFRjXM=;
+	s=k20260515; t=1792418253;
+	bh=n7+Oe27eSt/CYawxJQEUCht00laB/j73DqAE8wC3WOc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M725uWwsj1cRTG9dlepKZGKCbKlT+pQxQ1bmvu6kd6At8mUHoS0CKsYa7lCGndK6A
-	 LrCOeQMqmQWi7mP0nuQFIVsY7+AvrUGsrW3LYKPgGN0gStxehGWs43Oimh84msw6Pc
-	 Rjzp7XQl9sfvSZLBzwbq3x27tNbBDLLpklfcWEex/OW8KugWC+kwaCKeqjcDU2zuio
-	 ctNgle8cbWordTQ0VtpUPQUvw7m+gcYCufEnYZ3ft4c8exiGx/QUuetdXSAHThB9c2
-	 d5bAoPDI460llKrGeicKi2CX3e1b6QzSjLabypBqHBUsamh7iFSwUekkDZgWMYuoHO
-	 fA9n5qKdqM14A==
+	b=D8NtNGoAFZ0TCZ6QZKcy3kPtd6jlKC+Q2GKoojRYOFRD6Bv+6wrvg4mV1jN+1QkbR
+	 JKkYO5n4+nwiZSbiVLLefK+dT913itaShCeezg/xSBdIQu/S1M1RjBuVGLsHgA7E06
+	 KdeVbLb4O7i9WJobThb6Rwdw8i12LsnO1aQuNZVqKZ6s41BsTE3Az3aNtqZXCc78bm
+	 caNjghOAvYVxbkOYe2ygfHpaqcNzURLFu4srffyRxEvkZaHmQPrRGNgwrwUmPSXVxj
+	 eosrroJR21F9fSG3WcHoFY6I84mVoeBMOBl5r0hQhqDKdteQBFiMutX8m0Wl+Z8wgg
+	 QaKiQ9Toj4Ozg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Zhi-Jun You <hujy652@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: liulhong617 <liulhong617@gmail.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] wifi: mt76: wed: fix kernel panic on non-DBDC MT7986
-Date: Mon, 19 Oct 2026 09:46:49 -0400
-Message-ID: <20261019135441.1420968-118-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] arm64: mm: fix accidental linear mapping of no-map reserved memory
+Date: Mon, 19 Oct 2026 09:46:52 -0400
+Message-ID: <20261019135441.1420968-121-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.57
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,489 +77,488 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi-Jun You <hujy652@gmail.com>
+From: liulhong617 <liulhong617@gmail.com>
 
-[ Upstream commit 8a177dabeeead47dda4d4f91331282790eed0097 ]
+[ Upstream commit 7ace06a01efaba1ec585630aa4c98ac39b38452a ]
 
-In mt76_wed_init_rx_buf, it's hardcoded to use MT_RXQ_MAIN.
-But for non-DBDC MT7986 MT_RXQ_BAND1 is used for RX data queue which
-leads to kernel panic when attaching WED.
+When reserved-memory regions with the "no-map" property are not
+page-aligned, the kernel may accidentally map them into the linear
+mapping, contradicting the no-map semantics.
 
-Use the correct RX queue by checking WED version and band_idx.
+The root cause is a mismatch between /proc/iomem's address boundaries
+and the actual page table mapping boundaries:
 
-v2 and band 1 -> MT_RXQ_BAND1
-Others -> MT_RXQ_MAIN
+1. /proc/iomem derives its ranges from memblock via
+   memblock_region_reserved_base_pfn/memblock_region_reserved_end_pfn,
+   which perform PFN rounding so the displayed boundaries are
+   page-aligned. This gives the impression that the no-map region
+   occupies whole pages.
 
-Kernel panic:
+2. However, memblock_mark_nomap() splits memblock.memory regions at
+   exact byte boundaries (memblock_isolate_range preserves raw DT
+   base/size with no alignment). When for_each_mem_range iterates the
+   non-NOMAP regions adjacent to a no-map region, it returns start/end
+   values that are NOT page-aligned — they are the precise byte
+   boundaries from the memblock split.
 
-Unable to handle kernel access to user memory outside uaccess routines at virtual address 0000000000000000
-Mem abort info:
-  ESR = 0x0000000096000005
-  EC = 0x25: DABT (current EL), IL = 32 bits
-  SET = 0, FnV = 0
-  EA = 0, S1PTW = 0
-  FSC = 0x05: level 1 translation fault
-Data abort info:
-  ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-Internal error: Oops: 0000000096000005 [#1]  SMP
-CPU: 1 UID: 0 PID: 925 Comm: kmodloader Tainted: G           O        6.18.26 #0 NONE
-Tainted: [O]=OOT_MODULE
-Hardware name: Acer Connect Vero W6m (DT)
-pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : page_pool_alloc_frag_netmem+0x1c/0x1bc
-lr : page_pool_alloc_frag+0xc/0x34
-sp : ffffffc081dab660
-x29: ffffffc081dab660 x28: ffffffc081dabc60 x27: ffffff80091af040
-x26: 0000008000000000 x25: ffffff80091a8898 x24: ffffff80091a5440
-x23: 0000000000001000 x22: 0000000140000000 x21: ffffff80091a2040
-x20: ffffff8003f1d780 x19: 0000000000000000 x18: 0000000000000020
-x17: ffffffbfbf0ac000 x16: ffffffc080ee0000 x15: ffffff80049d47ca
-x14: 000000000000037b x13: 000000000000037b x12: 0000000000000001
-x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
-x8 : ffffff8003f1d7c0 x7 : 0000000000000000 x6 : ffffff8003f1d780
-x5 : 0000000000000680 x4 : 0000000000000000 x3 : 0000000000002824
-x2 : 0000000000000000 x1 : ffffffc081dab71c x0 : 0000000000000000
-Call trace:
- page_pool_alloc_frag_netmem+0x1c/0x1bc (P)
- page_pool_alloc_frag+0xc/0x34
- mt76_wed_init_rx_buf+0xf8/0x2ac [mt76]
- mtk_wed_start+0x79c/0x12ac
- mt7915_dma_start+0x274/0x63c [mt7915e]
- mt7915_dma_start+0x5b4/0x63c [mt7915e]
- mt7915_dma_init+0x49c/0x81c [mt7915e]
- mt7915_register_device+0x24c/0x530 [mt7915e]
- mt7915_mmio_probe+0x91c/0x1980 [mt7915e]
- platform_probe+0x58/0xa0
- really_probe+0xb8/0x2a8
- __driver_probe_device+0x74/0x118
- driver_probe_device+0x3c/0xe0
- __driver_attach+0x88/0x154
- bus_for_each_dev+0x60/0xb0
- driver_attach+0x20/0x28
- bus_add_driver+0xdc/0x200
- driver_register+0x64/0x118
- __platform_driver_register+0x20/0x30
- init_module+0x74/0x1000 [mt7915e]
- do_one_initcall+0x4c/0x1f8
- do_init_module+0x50/0x210
- load_module+0x15f8/0x1b10
- __do_sys_init_module+0x1a8/0x260
- __arm64_sys_init_module+0x18/0x20
- invoke_syscall.constprop.0+0x4c/0xd0
- do_el0_svc+0x3c/0xd0
- el0_svc+0x18/0x60
- el0t_64_sync_handler+0x98/0xdc
- el0t_64_sync+0x158/0x15c
-Code: aa0003f3 a9025bf5 a90363f7 d2820017 (b9400000)
+3. These sub-page-aligned values are passed to
+   __create_pgd_mapping_locked(), which does:
+     phys &= PAGE_MASK;
+     addr = virt & PAGE_MASK;
+     end = PAGE_ALIGN(virt + size);
+   The downward rounding of phys via PAGE_MASK extends the mapped
+   range backward into the adjacent no-map region, effectively
+   including no-map memory in the linear mapping.
 
-Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
-Link: https://patch.msgid.link/20260715152113.553-1-hujy652@gmail.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+For example, with 64K pages, reserved_region@A2000000 (base=0xA2000000,
+size=0x8000, no-map) causes for_each_mem_range to return
+start=0xA2008000 for the next mappable region. After phys &= PAGE_MASK,
+the actual mapping starts at 0xA2000000 — the entire no-map region is
+incorrectly mapped.
+
+Fix this by rounding the mappable range inward to PAGE_SIZE boundaries
+before passing it to __map_memblock: start is rounded UP and end is
+rounded DOWN. This ensures the mapped area never overlaps with adjacent
+no-map regions. The cost is at most one page of unmapped gap at each
+boundary, which is preferable to violating no-map semantics.
+
+Signed-off-by: liulhong617 <liulhong617@gmail.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-This tree is **6.6.157** (`pending-6.6`). The panic is real here, but
-the mainline patch has to be rewritten onto `mt7915/mmio.c` because
-`wed.c` does not exist yet.
+This tree is **6.12.111** (`pending-6.12`). The candidate is
+`7ace06a01efab` (“arm64: mm: fix accidental linear mapping of no-map
+reserved memory”). It is not in this checkout. The buggy path is, and
+the original patch was written against this `map_mem()` shape.
 
 ===============================================================
 PHASE 1: COMMIT MESSAGE FORENSICS
 ===============================================================
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: `[wifi: mt76: wed:] [fix] [kernel panic on non-DBDC MT7986 when
-attaching WED because RX buf init used the wrong queue]`
+Step 1.1: PARSE THE SUBJECT LINE
+Record: `[arm64: mm:] [fix] [do not linearly map sub-page-aligned DT no-
+map reserved memory]`
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 Record:
-- `Signed-off-by: Zhi-Jun You <hujy652@gmail.com>` (author)
-- `Link:
-  https://patch.msgid.link/20260715152113.553-1-hujy652@gmail.com` (v2
-  1/2 of a 2-patch series)
-- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` (mt76 maintainer)
-- No `Fixes:` tag (expected for this review)
-- No `Cc: stable@vger.kernel.org` (expected)
-- No `Reported-by:` / `Tested-by:` / `Reviewed-by:` / `Acked-by:`
-- Sibling patch 2/2 has the same msgid stem `20260715152113.553-2` and
-  **is already in this 6.6 tree** as `8eae5e5aa09da` (`wifi: mt76:
-  mt7915: fix net_fill_forward_path for non-DBDC mt7986`)
+- `Signed-off-by: liulhong617 <liulhong617@gmail.com>` (author)
+- `Signed-off-by: Will Deacon <will@kernel.org>` (arm64 maintainer;
+  applied to for-next/mm)
+- No `Fixes:`
+- No `Reported-by:` / `Tested-by:` / `Reviewed-by:` / `Acked-by:` /
+  `Link:` / `Cc: stable`
+- Absence of `Fixes:`/`Cc: stable` is expected for this review and is
+  not a negative signal
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Step 1.3: ANALYZE THE COMMIT BODY TEXT
 Record:
-- **Bug:** `mt76_wed_init_rx_buf` always uses `MT_RXQ_MAIN`. Non-DBDC
-  MT7986 uses `MT_RXQ_BAND1` for the RX data queue.
-- **Symptom:** NULL deref oops while attaching WED, in
-  `page_pool_alloc_frag_netmem`. Full oops from **Acer Connect Vero
-  W6m**, kernel 6.18.26, PID `kmodloader` during `mt7915e` probe.
-- **Root cause:** wrong RX queue → uninitialized `page_pool` (NULL) →
-  fault at `page_pool_alloc_frag*`.
-- **Fix:** `wed->version == 2 && dev->phy.band_idx` → `MT_RXQ_BAND1`,
-  else `MT_RXQ_MAIN`.
-- Crash taint includes `O` (OOT module), but the call trace is in-tree
-  `mt76` / `mt7915e` / `mtk_wed_start`.
+- **Bug:** `no-map` reserved-memory that is not page-aligned can still
+  land in the arm64 linear map.
+- **Symptom:** `/proc/iomem` looks page-aligned (PFN rounding), but page
+  tables map the no-map bytes because `memblock_mark_nomap()` splits at
+  byte precision and `__create_pgd_mapping_locked()` does `phys &=
+  PAGE_MASK` (start rounded down into the hole).
+- **Example:** 64K pages, `reserved_region@A2000000` size `0x8000`; next
+  mappable start `0xA2008000` becomes mapping start `0xA2000000`.
+- **Root cause:** byte-precise NOMAP split + PAGE_MASK downward
+  rounding.
+- **Fix:** round the mappable range inward (`PAGE_ALIGN(start)`, `end &
+  PAGE_MASK`) before `__map_memblock`. Cost: at most one unmapped page
+  per boundary.
+- **Version info in message:** none. Mailing-list follow-up (verified)
+  was on v6.1.177-rt, 64K pages.
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: Not hidden. Explicit panic fix with a stack trace. Not
-cleanup/refactor.
+Step 1.4: DETECT HIDDEN BUG FIXES
+Record: Not hidden. Explicit isolation/correctness fix, not cleanup.
 
 ===============================================================
 PHASE 2: DIFF ANALYSIS - LINE BY LINE
 ===============================================================
 
-**Step 2.1: INVENTORY THE CHANGES**
+Step 2.1: INVENTORY THE CHANGES
 Record:
-- File: `drivers/net/wireless/mediatek/mt76/wed.c` (+6 / −1)
-- Function: `mt76_wed_init_rx_buf`
-- Scope: single-file, surgical (~5 lines of logic)
+- File: `arch/arm64/mm/mmu.c` (+14 / −0)
+- Function: `map_mem()` / `map_mem(pgd_t *pgdp)` in this tree
+- Scope: single-file surgical change in the boot-time linear-map loop
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record:
-- **Before:** `q = &dev->q_rx[MT_RXQ_MAIN]` always, then
-  `mt76_get_page_pool_buf(q, ...)`.
-- **After:** pick `MT_RXQ_BAND1` for WED v2 + band 1; otherwise
-  `MT_RXQ_MAIN`.
-- Path: WED RX buffer init during `mtk_wed_start` from
-  `mt7915_dma_start` (probe / DMA start), not a rare error path.
+Committed hunk (origin/master `map_mem(void)`):
+```
+for_each_mem_range(i, &start, &end) {
++       start = PAGE_ALIGN(start);
++       end = end & PAGE_MASK;
++       if (start >= end)
++               continue;
+        __map_memblock(...);
+}
+```
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record:
-- Category: **NULL pointer dereference** (memory safety) from **wrong-
-  queue logic**.
-- Mechanism: for non-DBDC MT7986, `mt7915_band_config` sets `band_idx =
-  1` and DMA only allocates `q_rx[MT_RXQ_BAND1]`. `MT_RXQ_MAIN` is left
-  with `page_pool == NULL`. `mt76_get_page_pool_buf` →
-  `page_pool_dev_alloc_frag(NULL)` → oops.
+The mailing-list v1 was against `map_mem(pgd_t *pgdp)` and kept this
+tree’s existing `if (start >= end) break;` before the new inward
+rounding — that is the 6.12 shape.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
+Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
 Record:
-- Obviously correct given DMA queue allocation in `mt7915/dma.c`.
-- Minimal; no API/locking/refcount changes.
-- Regression risk low: DBDC and band-0 devices still use `MT_RXQ_MAIN`.
-- Backport caveat: in 6.6 the same logic lives in
-  `mt7915_mmio_wed_init_rx_buf` (`dev` is `struct mt7915_dev *`), so the
-  condition must use `dev->mt76.phy.band_idx` (or
-  `dev->phy.mt76->band_idx`), not `dev->phy.band_idx`.
+- **Before:** `for_each_mem_range` skips `MEMBLOCK_NOMAP` via
+  `should_skip_region()`, but adjacent ranges keep raw byte boundaries.
+  Those go to `__map_memblock` → `__create_pgd_mapping_locked()`, which
+  rounds `phys` down and `end` up, pulling no-map bytes into
+  `PAGE_KERNEL`.
+- **After:** start rounded up, end rounded down; empty leftover skipped.
+  Linear map never overlaps the no-map hole.
+- Path: boot-time linear map only (`paging_init` → `map_mem`).
+
+Step 2.3: IDENTIFY THE BUG MECHANISM
+Record:
+- **Category:** logic/correctness + hardware isolation (linear-map over-
+  coverage).
+- **Mechanism:** unaligned NOMAP split + `phys &= PAGE_MASK` over-maps.
+  Verified in this tree at `arch/arm64/mm/mmu.c:443-445`:
+  `phys &= PAGE_MASK; addr = virt & PAGE_MASK; end = PAGE_ALIGN(virt +
+  size);`
+- DT `no-map` (this tree, `reserved-memory.yaml`): OS must not create a
+  standard mapping **and** must not allow speculative access except
+  under the owning driver.
+
+Step 2.4: ASSESS THE FIX QUALITY
+Record:
+- Obviously correct for the stated failure: inward rounding matches
+  buddy `__free_memory_core()` (`PFN_UP(start)` / `PFN_DOWN(end)` in
+  `mm/memblock.c` of this tree). Those slivers were never allocator RAM.
+- Minimal; comment-only plus three functional lines.
+- Regression risk: low. Worst case is one unmapped page at a no-map
+  boundary (memory the buddy already does not own). Ard noted a
+  theoretical firmware hazard if something like initramfs sat in that
+  wasted page; Will still applied it after Ard confirmed
+  `for_each_mem_range()` coalesces sub-page *mappable* pieces.
 
 ===============================================================
 PHASE 3: GIT HISTORY INVESTIGATION
 ===============================================================
 
-**Step 3.1: BLAME THE CHANGED LINES**
+Step 3.1: BLAME THE CHANGED LINES
 Record:
-- Hardcoded `MT_RXQ_MAIN` in 6.6: `mt7915/mmio.c:635`, from
-  `2f5c3c77fc9b6` (`wifi: mt76: switch to page_pool allocator`,
-  2023-02-03). Present in this tree.
-- WED RX itself: `4f831d18d12da` (`wifi: mt76: mt7915: enable WED RX
-  support`, 2022-12-01). Present.
-- MT7986 one-A-die `band_idx = 1`: `mt7915_band_config` in `init.c`.
-  Present.
+- `phys &= PAGE_MASK`: `9c4e08a3022b6` (Mark Rutland, 2015, “allow
+  sections for unaligned bases”)
+- Linear-map bank loop: `98d2e1539b84a` (2017) / `b10d6bca87204`
+  (`for_each_mem_range`, 2020)
+- This is old code, present long before 6.12.
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: No `Fixes:` tag. Bug is the hardcoded MAIN queue vs MT7986
-band-1 mapping, present since WED RX + page_pool.
+Step 3.2: FOLLOW THE FIXES: TAG
+Record: No `Fixes:` tag. Bug is the long-standing interaction of NOMAP
+byte splits + page-table rounding, not a single recent commit.
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
 Record:
-- `wed.c` added later by `8a7386e787ef4` (`wifi: mt76: move wed common
-  utilities in wed.c`, 2024-02-22). **Not in pending-6.6** (`git merge-
-  base --is-ancestor` → not ancestor).
-- Related 6.6 history: WED enable for MT7986, WED RX, page_pool switch,
-  several WED robustness fixes.
+- This tree: no commit on `arch/arm64/mm/mmu.c` already doing inward
+  `PAGE_ALIGN` in `map_mem`.
+- `7ace06a01efab` is **not** an ancestor of HEAD (`git merge-base --is-
+  ancestor` exit 1).
+- Upstream later dropped the `pgd_t *` argument (`2e527667a3b9b`,
+  2026-06-02) — **not** in this tree, **not** required for the fix.
+- Follow-up `fb0f3ef5601a6` (unmap data/bss from linear map) is
+  independent.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record:
-- Author is not the mt76 maintainer; maintainer Felix Fietkau signed
-  off.
-- Same author, same series date: `8eae5e5aa09da` already on pending-6.6
-  (patch 2/2).
-- Felix has many mt7915/WED fixes on this branch.
+Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+Record: Only this arm64 commit on `origin/master`. Applied by Will
+Deacon (arm64 maintainer). Ard Biesheuvel reviewed on-list and called it
+conceptually sound.
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-Record:
-- Standalone logic; does **not** need the `wed.c` move.
-- Needed in 6.6: `wed->version` (exists, `u8 version` in
-  `mtk_wed_device`), `phy.band_idx`, `MT_RXQ_BAND1`, page_pool RX — all
-  present.
-- Series 1/2; 2/2 is independent (forward-path queue) and already
-  applied.
+Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+Record: Standalone. Needs `for_each_mem_range`, `__map_memblock`,
+`__create_pgd_mapping_locked` — all present. The committed diff does not
+apply byte-for-byte (later `map_mem(void)` / no `if (start >= end)
+break;`); the **original** patch context matches this tree. Backport is
+a small context adaptation, not a missing-API rewrite.
 
 ===============================================================
 PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 ===============================================================
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
 Record:
-- `b4 dig` on sibling `8eae5e5aa09da` matched msgid
-  `20260715152113.553-*`.
-- RFC (2026-06-13): “single band MT7986”
-- v1 (2026-06-30):
-  https://patch.msgid.link/20260630150649.1629-1-hujy652@gmail.com (and
-  1629-2)
-- v2 (2026-07-15, applied):
-  https://patch.msgid.link/20260715152113.553-1-hujy652@gmail.com
-- v2 1/2 is the committed version. Change vs RFC: “single band” → “non-
-  DBDC”.
-- lore.kernel.org fetches returned 403; thread text confirmed via
-  ratatoskr mirrors.
-- No NAK found. Merged by Felix Fietkau (2026-07-31) as `8a177dabeeead`.
+- `b4 dig -c 7ace06a01efab` →
+  https://patch.msgid.link/20260513010255.3764038-1-liulhong617@163.com
+- Single revision (v1 only). `b4 dig -a`: only that v1.
+- Thread saved to mbox and read in full.
+- Will (16 Jul 2026): worried firmware with many tiny adjacent regions
+  could leave pages unmapped; preferred warn-and-do-nothing; asked for
+  practical symptoms.
+- Author (27 Jul): 64K pages, debugger showed `phys` rounded from
+  `0xa2008000` to `0xa2000000`.
+- Will (4 Aug): not convinced by that reply.
+- Ard (4 Aug): change is conceptually sound; `for_each_mem_range()`
+  coalesces; only sane handling is to round no-map **outward** (i.e.
+  linear map **inward**). Suggested maybe moving rounding into
+  `__create_pgd_mapping_locked()` later.
+- Will (6 Aug): “Aha, that's the part I was missing.” Applied v1: “I can
+  take this patch for now.”
+- Apply mail: https://git.kernel.org/arm64/c/7ace06a01efa (`for-
+  next/mm`).
+- Author (9 Aug, after apply): real platform is Cortex-A78AE,
+  **v6.1.177-rt**, 64K pages; two sub-page no-map TEE regions; DStream
+  showed them folded into one `PAGE_KERNEL` span; cache prefetcher hit
+  TEE and firmware raised “REE accessed secure memory” faults.
+- No NAK of the applied patch. No `Cc: stable` in review.
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record (`b4 dig -w` on sibling): Zhi-Jun You; Felix Fietkau
-(`nbd@nbd.name`); Lorenzo Bianconi; Ryder Lee / Shayne Chen / Sean Wang
-(MediaTek); `linux-wireless`; `linux-mediatek`; Benjamin Larsson
-(Suggested-by on 2/2). Maintainer merged it.
+Step 4.2: CHECK WHO REVIEWED THE PATCH
+Record (`b4 dig -w`): To Catalin Marinas, Will Deacon; Cc linux-arm-
+kernel, linux-kernel. Ard added later. Maintainer applied it.
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: No syzbot/bugzilla. Concrete oops from Acer Connect Vero W6m
-(MT7986). Real hardware, probe-time crash with WED.
+Step 4.3: SEARCH FOR THE BUG REPORT
+Record: No syzbot/bugzilla. Evidence is the author’s debugger dump and
+firmware faults (mbox, 9 Aug 2026). Severity from reporter: isolation
+break + spurious secure-memory faults.
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-Record: 2-patch v2 series. 1/2 = this panic. 2/2 =
-`net_fill_forward_path` wrong WDMA queue; already in 6.6. Independent;
-1/2 is the crash fix.
+Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+Record: Standalone 1/1. Ard/Will mentioned a possible later rounding
+cleanup in `__create_pgd_mapping_locked()`; `origin/master` still has
+this loop-local fix only (no follow-up required).
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: lore.kernel.org/stable returned 403. **UNVERIFIED** whether
-anyone mailed stable@. 2/2 of the same series is already in this 6.6
-tree, so the series is treated as 6.6-relevant.
+Step 4.5: CHECK STABLE MAILING LIST HISTORY
+Record: lore.kernel.org/stable WebFetch returned 403. UNVERIFIED whether
+stable@ already discussed it. Not used as a NO reason.
 
 ===============================================================
 PHASE 5: CODE SEMANTIC ANALYSIS
 ===============================================================
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
-Record: Mainline `mt76_wed_init_rx_buf`. In this tree:
-`mt7915_mmio_wed_init_rx_buf`.
+Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+Record: `map_mem()` (this tree: `static void __init map_mem(pgd_t
+*pgdp)` at `arch/arm64/mm/mmu.c:623`).
 
-**Step 5.2: TRACE CALLERS**
-Record:
-- Assigned as `wed->wlan.init_rx_buf` in `mt7915_mmio_wed_init`.
-- Called from `mtk_wed_rx_buffer_alloc` → `dev->wlan.init_rx_buf(dev,
-  dev->wlan.rx_npkt)` (`mtk_wed.c`).
-- That runs from `mtk_wed_start` ← `mt7915_dma_start` ←
-  `mt7915_dma_init` ← `mt7915_register_device` ← probe.
-- Reachable on device probe when WED is attached (`wed_enable` module
-  param).
+Step 5.2: TRACE CALLERS
+Record: `paging_init()` → `map_mem(swapper_pg_dir)` (`mmu.c:812-814` in
+this tree). Boot-time, all arm64 configs. Not a syscall path; result is
+the linear map used by the whole kernel.
 
-**Step 5.3: TRACE CALLEES**
-Record: `mt76_get_rxwi`, `mt76_get_page_pool_buf` →
-`page_pool_dev_alloc_frag(q->page_pool)`, `mt76_rx_token_consume`. First
-page_pool alloc is the crash site.
+Step 5.3: TRACE CALLEES
+Record: `for_each_mem_range` → `__next_mem_range` / `should_skip_region`
+(skips NOMAP unless `MEMBLOCK_NOMAP` requested). Then `__map_memblock` →
+`__create_pgd_mapping` → `__create_pgd_mapping_locked`.
+`memblock_mark_nomap` → `memblock_isolate_range` (byte splits, no page
+align) — verified in `mm/memblock.c`.
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record:
-```
-module load mt7915e
-  → mt7915_mmio_probe / register_device
-  → mt7915_dma_init → mt7915_dma_start
-  → mtk_wed_device_start → mtk_wed_rx_buffer_alloc
-  → mt7915_mmio_wed_init_rx_buf
-  → mt76_get_page_pool_buf(uninitialized MT_RXQ_MAIN)
-  → oops
-```
-Userspace-reachable via loading the driver (typically root). Not a
-syscall fuzz path; it is a boot/probe crash on affected hardware.
+Step 5.4: FOLLOW THE CALL CHAIN
+Record: Reachable on every arm64 boot. User/firmware trigger is a sub-
+page `no-map` reserved-memory node (common with 16K/64K pages).
+Unprivileged userspace does not need to do anything after boot; the bad
+mapping already exists. Speculative CPU access of TEE pages is enough.
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: `mt7915/testmode.c` already uses `q = phy->mt76->band_idx ?
-MT_RXQ_BAND1 : MT_RXQ_MAIN`. DMA init uses the same band_idx split. Same
-author’s 2/2 fixes the matching forward-path mistake.
+Step 5.5: SEARCH FOR SIMILAR PATTERNS
+Record: Second `for_each_mem_range` in this file is
+`validate_bootmem_online()` under `CONFIG_DEBUG_VM` — not page-table
+creation. No sibling fix already in this tree.
 
 ===============================================================
 PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 ===============================================================
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-Record: **Yes.** Tree is 6.6.157 (`pending-6.6`). `wed.c` is absent.
-Equivalent bug:
+Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+Record: **Yes.**
+- `map_mem()` loop: `mmu.c:660-670` passes raw `start`/`end` to
+  `__map_memblock`.
+- Rounding-down: `mmu.c:443-445`.
+- NOMAP skip: `should_skip_region()` in `mm/memblock.c:1081-1083`.
+- Byte isolate: `memblock_isolate_range()`.
+- Introduced: rounding 2015, loop 2017/2020 — well before 6.12.
+- `7ace06a01efab` not in HEAD.
 
-```
-mt7915_mmio_wed_init_rx_buf:
-    q = &dev->mt76.q_rx[MT_RXQ_MAIN];   /* mmio.c:635 */
-```
+Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+Record: **Minor adaptation, not a rewrite.** Committed patch fails `git
+apply --check` because this tree still has `if (start >= end) break;`
+and `map_mem(pgd_t *pgdp)`. That is exactly v1’s context. Insert the
+three rounding lines after the existing `break`. No need for
+`2e527667a3b9b`.
 
-`mt7915_dma.c`: allocate `MT_RXQ_MAIN` only if
-`!dev->phy.mt76->band_idx`; allocate `MT_RXQ_BAND1` if `dbdc_support ||
-band_idx`. `mt7915_band_config` sets `band_idx = 1` for MT7986 one-A-die
-(non-DBDC). Introduced with WED RX + page_pool (2022–2023), well before
-6.6.
-
-`git merge-base --is-ancestor 8a177dabeeead pending-6.6` → **not
-present**.
-
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: **Needs a small backport**, not a clean apply. Same if/else in
-`mt7915/mmio.c`, with `dev->mt76.phy.band_idx` /
-`dev->phy.mt76->band_idx`. `wed->version` exists and is set to 2 for
-non-netsys-v1 (MT7986) in `mtk_wed.c`. Minor conflict, not a rewrite.
-
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-Record: No equivalent RX-buf queue selection. 2/2 (`8eae5e5aa09da`) is
-here and addresses the same hardware mapping, not this NULL deref.
+Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+Record: None. `git log --grep="accidental linear mapping"` /
+`--grep="no-map"` on this file in HEAD does not contain this fix.
 
 ===============================================================
 PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 ===============================================================
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-Record: `drivers/net/wireless/mediatek/mt76` + MediaTek WED.
-**IMPORTANT** (common Filogic/MT7986 WiFi, OpenWrt/embedded), not core
-mm/VFS.
+Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+Record: `arch/arm64/mm` linear map. **CORE for arm64** (every arm64
+boot). `no-map` is how firmware hides TEE/DSP/GPU carveouts.
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-Record: Mature and actively fixed on 6.6 (WED null-ptr, register
-mapping, MT7981, chainmask for non-DBDC band 1).
+Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+Record: Mature; this file still changes, but the bank-mapping loop has
+been stable for years in 6.12. Bug is old, not a new-subsystem leftover.
 
 ===============================================================
 PHASE 8: IMPACT AND RISK ASSESSMENT
 ===============================================================
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-Record: Driver-specific: MT7986 (and similar mt798x) **non-DBDC**
-(single A-die) with `CONFIG_NET_MEDIATEK_SOC_WED` and `wed_enable`. Real
-product: Acer Connect Vero W6m. Default `wed_enable` is false, but WED
-is used on these SoCs.
+Step 8.1: DETERMINE WHO IS AFFECTED
+Record: arm64 systems whose DT/firmware has **sub-page-aligned `no-map`
+reserved-memory**. More likely with 16K/64K pages. Author hit it on
+6.1.rt; 6.12 has the same mapping logic.
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-Record: Every probe with WED attached on that SKU. Not a race. Needs
-privilege to load the module; typical as a platform driver at boot.
+Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+Record: Boot + unaligned `no-map` region. No extra userspace trigger.
+Cache prefetch can then touch TEE. Commonness: not every board, but real
+on 64K TEE/embedded SoCs.
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Record: Kernel oops/panic on WiFi/WED attach. **CRITICAL** for those
-devices (WiFi unusable; can panic the box).
-
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
+Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
 Record:
-- **Benefit:** high for MT7986 non-DBDC + WED (prevents probe oops).
-- **Risk:** low (5-line queue index; other SKUs unchanged).
-- **Ratio:** benefit ≫ risk. Backport must retarget `mmio.c`.
+- Isolation break: `no-map` (including TEE) mapped `PAGE_KERNEL`.
+- Speculative access / firmware “REE accessed secure memory” faults
+  (verified report).
+- DT forbids speculative access to `no-map`.
+- Severity: **HIGH** (security isolation + platform faults). Not a
+  universal oops, but it is an important real bug, not a nit.
+
+Step 8.4: CALCULATE RISK-BENEFIT RATIO
+Record:
+- **Benefit:** high for affected boards (TEE/firmware faults, linear-map
+  leak of carveouts).
+- **Risk:** low (≤1 unused page per boundary; matches buddy PFN
+  rounding; maintainer-acked).
+- Ratio favors backport.
 
 ===============================================================
 PHASE 9: FINAL SYNTHESIS
 ===============================================================
 
-**Step 9.1: COMPILE THE EVIDENCE**
+Step 9.1: COMPILE THE EVIDENCE
 
 FOR:
-- Documented oops: NULL `page_pool` in WED RX init.
-- Same bug in this tree (`mt7915_mmio_wed_init_rx_buf` + DMA not
-  allocating MAIN when `band_idx == 1`).
-- Small, obviously correct queue selection.
-- mt76 maintainer signed off; RFC → v1 → v2.
-- Sibling 2/2 already on 6.6.
-- MT7986 + WED RX + page_pool all exist here.
-- `wed->version` and `band_idx` exist.
+- Real bug in this tree’s `map_mem()` / `__create_pgd_mapping_locked()`.
+- Hardware report: Cortex-A78AE, 64K, TEE `no-map`, firmware faults;
+  also seen conceptually on 6.1, so 6.12 is in range.
+- DT `no-map` contract violated (must not map, must not speculate).
+- 14-line, single-function, no new API.
+- Will applied; Ard endorsed the approach.
+- Original patch context matches 6.12 `map_mem(pgd_t *pgdp)`.
+- Inward rounding matches `__free_memory_core()` so it does not unmap
+  buddy-owned pages.
 
 AGAINST:
-- Patch file `wed.c` is not in 6.6 (moved in 6.8-era `8a7386e787ef4`).
-- Needs a few-line context backport.
-- WED off by default; subset of MT7986 boards.
-- Crash log tainted OOT; still in-tree frames.
+- Trigger is firmware/DT-dependent (unaligned `no-map`), not every arm64
+  box.
+- Committed mainline hunk needs a trivial context tweak (`break` still
+  present here).
+- Will first preferred warn-only; that was withdrawn after Ard’s
+  coalescing point, not a standing NAK.
+- Theoretical firmware footgun if a needed image lived in the discarded
+  page remainder (Ard); sliver is already not buddy memory.
 
 UNRESOLVED:
-- Stable ML discussion (lore/stable 403).
-- Whether every reviewer asked for Cc: stable (not seen on v2 1/2).
+- lore.kernel.org/stable search 403; whether stable@ already took it is
+  UNVERIFIED.
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — matches DMA allocation;
-   maintainer merged; oops on real HW.
-2. Fixes a real bug that affects users? **PASS** — probe oops on non-
-   DBDC MT7986 + WED.
-3. Important issue? **PASS** — kernel oops, severity CRITICAL for that
-   hardware.
-4. Small and contained? **PASS** — ~5 lines, one function.
+Step 9.2: APPLY THE STABLE RULES CHECKLIST
+1. Obviously correct and tested? **PASS** — mechanism verified in-tree;
+   debugger + maintainer apply.
+2. Fixes a real bug that affects users? **PASS** — TEE/linear-map
+   isolation break and firmware faults.
+3. Important issue? **PASS** — security isolation / platform abort, not
+   a log nit.
+4. Small and contained? **PASS** — +14 lines, one loop.
 5. No new features or APIs? **PASS**.
-6. Can apply to the local tree? **PASS** with a backport to
-   `mt7915/mmio.c` (stable rule: apply cleanly **or come with a
-   backport**). Not a missing-feature case.
+6. Can apply to the local tree? **PASS** — bug present; v1 context
+   matches; committed diff needs only local `map_mem` context.
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-Record: None (not a device ID/quirk/DT/build/doc). Ordinary crash fix.
+Step 9.3: CHECK FOR EXCEPTION CATEGORIES
+Record: Not ID/quirk/DT-board/build/docs. Ordinary important bugfix.
 
-**Step 9.4: MAKE YOUR DECISION**
-The 6.6 tree has the same panic path under a pre-`wed.c` name. Selecting
-this for 6.6 is justified; apply the same `version == 2 && band_idx`
-check in `mt7915_mmio_wed_init_rx_buf`.
+Step 9.4: MAKE YOUR DECISION
+Backport to this 6.12 tree. The bug is here, the fix is small, and
+leaving `no-map` (especially TEE) in the linear map is a real isolation
+and stability failure on 64K systems.
 
----
+------------------------------------------------
+What the commit solves for stable users
+------------------------------------------------
+On this 6.12 tree, boot builds the linear map in `map_mem()` from
+`for_each_mem_range()`. NOMAP regions are skipped, but neighbors keep
+byte-accurate edges. `__create_pgd_mapping_locked()` then rounds
+physical start **down** to `PAGE_MASK`, so a 32KiB `no-map` hole on a
+64K page is mapped as normal RAM. That contradicts DT `no-map` and can
+let the CPU speculate into firmware/TEE memory.
 
-**What the commit solves for this tree:** On non-DBDC MT7986, the main
-phy is band 1, so only `MT_RXQ_BAND1` is allocated. WED RX init still
-pulls from `MT_RXQ_MAIN`, whose `page_pool` is NULL, and the kernel
-oopses in `page_pool_alloc_frag` during `mt7915e` probe. That mapping is
-already in 6.6 `init.c`/`dma.c`; only the RX-buf picker is wrong.
+Rounding the mapped range inward before `__map_memblock` stops that
+overlap. At most one page per boundary stays unmapped; those bytes were
+already excluded from the buddy allocator.
 
-**Stable rules:** Real, important crash; tiny logic fix; no new API.
-File path changed after 6.6, so it needs a short backport, not a NAK.
+------------------------------------------------
+Stable rules / risk
+------------------------------------------------
+Surgical, no API, code is in 6.12, original submission matches this
+`map_mem(pgd_t *)` loop. Benefit is isolation and avoiding firmware
+aborts; risk is a conservative hole the allocator already does not use.
 
-**Risk vs benefit:** Low risk, high benefit on Filogic devices that
-enable WED (including the reported Acer Vero W6m class).
-
-**Concerns:** Must edit
-`drivers/net/wireless/mediatek/mt76/mt7915/mmio.c` and use
-`dev->mt76.phy.band_idx` (or `dev->phy.mt76->band_idx`) because `dev` is
-`struct mt7915_dev *` here. Do not require `8a7386e787ef4`.
-
-Verification:
-- [Phase 1] Subject/tags: fix panic; SOB Zhi-Jun You + Felix Fietkau;
-  Link `20260715152113.553-1`; no Fixes/Cc-stable
-- [Phase 1] Series: v2 1/2; 2/2 already `8eae5e5aa09da` on pending-6.6
-- [Phase 2] Diff: 6 insertions in `mt76_wed_init_rx_buf`; queue MAIN vs
-  BAND1
-- [Phase 3] Blame on 6.6: `q = &dev->mt76.q_rx[MT_RXQ_MAIN]` from
-  `2f5c3c77fc9b6` (page_pool); present
-- [Phase 3] `8a7386e787ef4` (wed.c split) **not** ancestor of
-  pending-6.6
-- [Phase 3] Fix `8a177dabeeead` **not** ancestor of pending-6.6
-- [Phase 4] b4 dig: RFC → v1 → v2; applied v2; Felix merged 2026-07-31
-- [Phase 4] Recipients: mt76 maintainers + linux-wireless/mediatek
-- [Phase 4] UNVERIFIED: lore.kernel.org and lore.kernel.org/stable HTTP
-  403; used ratatoskr mirrors
-- [Phase 5] Caller: `mtk_wed_rx_buffer_alloc` → `wlan.init_rx_buf` from
-  `mtk_wed_start` / probe
-- [Phase 6] `git show pending-6.6:Makefile`: VERSION 6 / PATCHLEVEL 6 /
-  SUBLEVEL 157
-- [Phase 6] `git cat-file` pending-6.6 `wed.c`: path does not exist
-- [Phase 6] pending-6.6 `mmio.c:635`: hardcoded `MT_RXQ_MAIN`; `init.c`
-  sets `band_idx = 1` for one-A-die MT7986
-- [Phase 6] DMA: MAIN allocated only if `!band_idx`; BAND1 if
-  `dbdc_support || band_idx`
-- [Phase 6] `wed->version` exists; set to 2 for MT7986-class WED
-- [Phase 8] Failure: NULL page_pool deref → oops; CRITICAL for that
-  SKU+WED
-- UNVERIFIED: whether an out-of-tree module contributed besides in-tree
-  frames (taint `O`)
+------------------------------------------------
+Verification
+------------------------------------------------
+- [Phase 1] `git describe HEAD` / `make kernelversion`:
+  `p-6.12-3-g88406e77611c6`, **6.12.111**. Tags: author SOB + Will
+  Deacon SOB only.
+- [Phase 2] `git show 7ace06a01efab`: +14 in `map_mem`; this tree
+  `Read`/`Grep`: `phys &= PAGE_MASK` at `mmu.c:443`; loop at
+  `mmu.c:660-670`.
+- [Phase 2] `reserved-memory.yaml`: `no-map` forbids standard mapping
+  and speculative access.
+- [Phase 2] `__free_memory_core()`: `PFN_UP`/`PFN_DOWN` in
+  `mm/memblock.c:2153-2158`.
+- [Phase 3] blame: `9c4e08a3022b6` (2015) PAGE_MASK; `98d2e1539b84a`
+  (2017) / `b10d6bca87204` (2020) loop.
+- [Phase 3] `git merge-base --is-ancestor 7ace06a01efab HEAD` → not in
+  tree (exit 1).
+- [Phase 3] `2e527667a3b9b` (drop `pgd_t*`) not in HEAD; not a
+  prerequisite.
+- [Phase 3] `git log origin/master --grep="accidental linear mapping" --
+  arch/arm64/mm/mmu.c`: `7ace06a01efab`; `git describe --contains
+  --match 'v*'`: `v7.3-rc1~...`
+- [Phase 4] `b4 dig -c/-a/-w/-m`: v1 only; lore msgid
+  `20260513010255.3764038-1-liulhong617@163.com`; Will + Ard discussion;
+  applied 6 Aug 2026; author follow-up on v6.1.177-rt TEE faults.
+- [Phase 4] lore WebFetch 403 on lore.kernel.org/all and /stable —
+  thread recovered via `b4 dig -m`.
+- [Phase 5] `paging_init()` calls `map_mem(swapper_pg_dir)`;
+  `should_skip_region()` skips NOMAP.
+- [Phase 6] `git apply --check` of committed diff **fails** (context);
+  6.12 loop still has `if (start >= end) break;` matching v1.
+- [Phase 6] `origin/master` `map_mem` still has `PAGE_ALIGN(start)` /
+  `end & PAGE_MASK`.
+- [Phase 8] Failure mode from mbox + DT: TEE mapped, prefetcher,
+  firmware abort — HIGH.
+- UNVERIFIED: whether stable@ already queued it (HTTP 403).
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/wed.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/mm/mmu.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/wed.c b/drivers/net/wireless/mediatek/mt76/wed.c
-index fbd7e59c73aaf..2ebf4edc689e9 100644
---- a/drivers/net/wireless/mediatek/mt76/wed.c
-+++ b/drivers/net/wireless/mediatek/mt76/wed.c
-@@ -33,10 +33,15 @@ u32 mt76_wed_init_rx_buf(struct mtk_wed_device *wed, int size)
- {
- 	struct mtk_wed_bm_desc *desc = wed->rx_buf_ring.desc;
- 	struct mt76_dev *dev = mt76_wed_to_dev(wed);
--	struct mt76_queue *q = &dev->q_rx[MT_RXQ_MAIN];
- 	struct mt76_txwi_cache *t = NULL;
-+	struct mt76_queue *q;
- 	int i;
- 
-+	if (wed->version == 2 && dev->phy.band_idx)
-+		q = &dev->q_rx[MT_RXQ_BAND1];
-+	else
-+		q = &dev->q_rx[MT_RXQ_MAIN];
-+
- 	for (i = 0; i < size; i++) {
- 		dma_addr_t addr;
- 		u32 offset;
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 71841b5c31928..7c3f560df6529 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1179,6 +1179,20 @@ static void __init map_mem(pgd_t *pgdp)
+ 	for_each_mem_range(i, &start, &end) {
+ 		if (start >= end)
+ 			break;
++		/*
++		 * for_each_mem_range may return sub-page-aligned boundaries
++		 * after memblock_mark_nomap() splits regions at byte precision.
++		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
++		 * which could accidentally map no-map memory on the boundary.
++		 * Round the mappable range inward: start UP, end DOWN, so
++		 * that the mapped area never overlaps with adjacent no-map
++		 * regions. The cost is at most one page of unmapped gap at
++		 * each boundary.
++		 */
++		start = PAGE_ALIGN(start);
++		end = end & PAGE_MASK;
++		if (start >= end)
++			continue;
+ 		/*
+ 		 * The linear map must allow allocation tags reading/writing
+ 		 * if MTE is present. Otherwise, it has the same attributes as
 -- 
 2.53.0
 
