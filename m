@@ -2,107 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6101606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 21:52:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 803A260A262D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 22:08:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WqWngNaS;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mia+Cm6+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eT3sw7lV;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=R8ux8uYN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=; b=WqWngNaST33vPe
-	YKfxDNAWMw8PLMYR9yBf8zTf+g1wRQZa/pMDPVswlA5YKIY2J8HiVH9IJ+MsAyaGr6ai76HqhqOJm
-	pkgBKoCtXd6mGOJlG1iSQsprPowbKi77L8GPa7G5iJrW/gLKTX0fwnOveTnnGlv5SGc9NTz4oOvwy
-	AhEOKPD6R5mBXtzfh/vq3q9ZZERmg4833h1orwemJSbYbz5CPbZ5BPvAwmNiLCQy9i9CciZZyR/iN
-	1z0mAj9CrLydFwPpTgRM1ZfXOl5RcSciMsLp1Zb0+FNEqiFoad5n819baADIKMLp/oWoa/9yz7Cex
-	cg0lDpZdnskUF5y48Wvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHo4I+MUXofQLQo3/uT363PT9y5PVIvUGs1uTiA5dqg=; b=eT3sw7lV8wEUtGQSFTYBxg+k/Q
+	ADWy2Ow7ownpaifR9qk4GSjBA5UBaIIHH9hOCdakB+B1L71XnGgBQy+/N5rWw6sFKlNCETEN+hzlz
+	wXS33OJRk/O6PB6RHv/ZJ3GcqMCtxRCxsrpoaYOyPbaSJ+6BHtNvmROavIYfp1Rnq/kK/N0uNzjCY
+	ugKPpXVlJmZajG3E/I1zR7VaV9Vlh7Uhk3amefAxW7Xs5xVy4cGMitPt2tHKDlSD3mL3LSPmVDiOj
+	Ai4xCkC2aYtITq/Ba2JL0bGQjIlQjFkZyHBTmrOc+UoOQaBPTVAxkYlUokKdfSbKWXevHg9GF24gd
+	NxlVyfAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvH3-00000008QqK-1Sb1;
-	Mon, 19 Oct 2026 21:52:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIvWU-00000008Rx2-14mO;
+	Mon, 19 Oct 2026 22:08:02 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvH2-00000008Qpu-0PCe;
-	Mon, 19 Oct 2026 21:52:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7436C4106A;
-	Mon, 19 Oct 2026 21:52:03 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1792446723;
-	b=EcJIzq2B6Xs9kEz1rzogTOli1aPa0trk0uiZOOkz3McEK7Fr2JhCKufv0wUokndECubr
-	 Rofn1/fVtRUttl4qPv8I/HXSAdWW35do74nRshKXFyLzsW332O6laizE5V25tcSqDVX95
-	 RvchjY0UXN2KQ1Qw/w5LnYeW5f26100BEcjLkk/eKyo81X7FYYnHqQVu0wryc9pyiYYvg
-	 JhF7uaxkkvY/w773moRhaq2xa6yLG5pQ6Ew56YFlFl6w7IlKhOQpM4F1nIDtAjTUnGX3w
-	 2AhrTowmjp1fn9lD89o51ZS/tgvNDEmRywSbVtblYUXM9IhYYFZOQNjLiE/Dylzb2Sg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1792446723;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=;
-	b=UaFV0fc6S6o9p0lFJQTReDB0jvO9n4mE23tio3GaQ3CJ5csvjMGjtBYFxk3G0jllr1A2
-	 2e/gAM0OtjPRDbg2jUjcM2pva7o2e5voojI5QlhZgdmw0vLlHV4mBaFIcUnjSk7tVt7to
-	 VDvKT8BH0iqQhsx5d/tS0rvAE7q78QMUUj6GJGHQLYZD+z650mwcdrfdxKF5IoZTI1F+w
-	 koYf9ng0skQNkeW/E04+OMdauT1j9eKsWqX2Icn2X8kWfcStpwyk5XcMMbX/al6GNt36Z
-	 IAGCsXeWvzYVq2vOUMp7jZrevuzUOVoeSk9PTXgSVkMnqAL2CpGII2EjJgU0FPyN1qQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D69DB1F000CA;
-	Mon, 19 Oct 2026 21:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792446723;
-	bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mia+Cm6+HDmn9HFtdKtmEUut9YpyexTaQXadGCigrd47X/iYVEfiy4QejCTFekWWj
-	 v3JMR13M7ZTMuCUaiXVXr+F0G5UnW8X8y5R+9tXnkFksm3yUbHq20yqYLY0Ro/yahY
-	 PK2RRLX7BqwyxLyRR7OoSLrPbU3e9LWwF27pXFA9g8nuk8TXQ5b/HJ0fwOWLGTpSqE
-	 cN08f7jYioj9jtSIwnO/HCCSviFwhESFsCeBcP+AsvAZH+P2XD88pn7eHQW4/83uvY
-	 Gb3NQ8fMdm1eqgM/oa6gFPG9tp7vgzxrcQmGIF1uXXx+k4JEGmzdqOIcMtuXoffyUE
-	 7bkDqTL/fu1rw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6A1C6400AB;
-	Mon, 19 Oct 2026 21:52:02 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Mon, 19 Oct 2026 21:52:01 +0000
-Subject: [PATCH] arm64: dts: amlogic: meson-sm1-odroid-hc4: wire the RTC
- alarm interrupt
+	id 1xIvWR-00000008RuD-3z1i
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 22:08:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1792447680; x=1823983680;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=16nP6v8K6/vVLmLOs/khHzw7RIYPqiEzSUyZ6NNHkcM=;
+  b=R8ux8uYNNTmDpfcCeY6kli0hqNoxHicCGUtp8zw3pWx7osFdjFh1F4+E
+   2Yeg4NgvXBl92/dEb+d1kqbQFxCdGCTiYmEnT5Ymn13ITimlmoJ0ZJ2fx
+   Y8KAf9j/Rj+Qt6i0MguypL+do8mNW0GV2MmGoXxw0/qqsZfnpXnonn4fa
+   6d7DdLLqlHhEwzeAMpcwDn7nHpgKSAMQCCvBn3FhEknXgd8JPDRIC5nXo
+   jH+G1b0+G7VDz3wUI+dhBMfj7lg2HehZz1Z6aNm58omQleHBKT7HXohzA
+   Shqtdzi9Xl1TyloARAuY5WBNkOBPw8SsdZFQjMRP6HdGD8VSwcJElxnkW
+   w==;
+X-CSE-ConnectionGUID: AJgCEhnKQa27pv+NvJDrcg==
+X-CSE-MsgGUID: MTQUOtDfSPKdFxj2K0nI6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="1144192"
+X-IronPort-AV: E=Sophos;i="6.27,168,1787036400"; 
+   d="scan'208";a="1144192"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 15:07:59 -0700
+X-CSE-ConnectionGUID: lEAxAciYR1yZ7dGGn0RUog==
+X-CSE-MsgGUID: /JFtXlvpSBSk6kmLW6KfqQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,168,1787036400"; 
+   d="scan'208";a="2708333"
+Received: from rchatre-desk1.jf.intel.com ([10.165.154.99])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 15:07:58 -0700
+From: Reinette Chatre <reinette.chatre@intel.com>
+To: ben.horgan@arm.com,
+	james.morse@arm.com,
+	Dave.Martin@arm.com,
+	fenghuay@nvidia.com
+Cc: tony.luck@intel.com,
+	yu.c.chen@intel.com,
+	babu.moger@amd.com,
+	fustini@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	patches@lists.linux.dev,
+	reinette.chatre@intel.com
+Subject: [RFC PATCH v2 03/10] arm_mpam: resctrl: Do not fail CPU online when domain setup fails
+Date: Mon, 19 Oct 2026 15:07:37 -0700
+Message-ID: <660ffee2c7d069aed25c2757c51e12b28318bbc7.1792443633.git.reinette.chatre@intel.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1792443633.git.reinette.chatre@intel.com>
+References: <cover.1792443633.git.reinette.chatre@intel.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261019-hc4-rtc-alarm-irq-v1-1-078fc79e596f@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAACR1moC/x3MTQqAIBBA4avErBtQsYiuEi3Uphrod4wIwrsnL
- b/Fey9EEqYIbfGC0M2R9y1DlwWE2W0TIQ/ZYJSptTIK52BRroBucbIiy4ne+CbUzVDZsYLcHUI
- jP/+z61P6ALS5vPZjAAAA
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1527; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=gqWYjjz0xRwzUadDg123AIW6B3N3BYaR8H5aIi6Ymss=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFnXJjIKXTE26pG/dCvY67j7dRmrhfs/i4TzbTrct3yua
- I/1ioTnHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiAacYGRq+7Jc36d0uJfho
- TvPjvC/5dvMu+lTmaF/KDVVmvfH3z0SG//Vbzm33EYqv7Dlr5Tq91WXqRR6WnFnvZqzkf9swc51
- 4CDMA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_150800_002429_ECBBCE67 
+X-CRM114-Status: GOOD (  24.55  )
+X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,7 +90,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -122,52 +99,183 @@ X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+When a CPU comes online, mpam_resctrl_online_cpu() adds it to the resctrl
+domains of each resource in use, and sets up a new domain when the CPU
+is the first of its domain to come online. A failure to set up a domain
+is returned as the failure of MPAM's CPU hotplug startup callback.
 
-The PCF8563 on the OLED/RTC add-on board drives its interrupt output
-to GPIOX_5, pin 4 of the P1 header, but the rtc node does not describe
-it. The alarm interrupt is therefore never delivered and cannot wake
-the board.
+The CPU hotplug core does not run the teardown callback for a CPU whose
+startup callback failed, so everything done for the CPU before the
+failure stays in place: the CPU remains in the domains of the resources
+that were handled before the failing one, and MPAM's per-MSC state for
+the CPU is not undone. If the failure happens when MPAM installs its
+CPU hotplug callbacks during enabling, the hotplug core discards the
+callbacks, leaving MPAM enabled and resctrl initialized but MPAM no
+longer notified of CPU hotplug. If it happens when a CPU comes online
+later, the CPU fails to come online.
 
-Describe the line as a level-low interrupt of the GPIO interrupt
-controller.
+Setting up a domain only fails if a memory allocation fails or if a
+class unexpectedly has no component for the CPU. For such rare failures
+losing a resctrl domain is a smaller cost than failing CPU online or
+leaving MPAM in an inconsistent state.
 
-Tested on ODROID-HC4: the alarm interrupt fires and wakes the board
-from s2idle.
+Do not report domain setup failures from mpam_resctrl_online_cpu() and
+leave the CPU without a domain for that resource. Make
+mpam_resctrl_alloc_domain() return nothing since its failures are no
+longer reported. Keep adding the CPU to resctrl's default group even
+when a domain could not be set up, since the CPU is online and runs
+tasks regardless, and resctrl expects every online CPU to belong to a
+resource group. Drop the warning when a CPU going offline has no domain,
+since a missing domain is now expected.
 
-Assisted-by: LLM
-Signed-off-by: Igor Velkov <iav@iav.lv>
+Only domains that were set up are exposed through resctrl and torn down
+when their CPUs go offline. When another CPU of the same domain comes
+online, it sets up the domain again, and if that succeeds the domain
+does not include the CPU for which setup failed.
+
+Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
 ---
-This needs commit 5831f5fef100 ("rtc: pcf8563: pass the driver data to
-the alarm interrupt handler") in the rtc tree: without it the first
-alarm oopses. Waking from s2idle also needs commit 5b6e2a46b80d
-("irqchip/meson-gpio: Allow the GPIO interrupts to wake the system")
-in tip irq/drivers.
----
- arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/resctrl/mpam_devices.c  |  2 +-
+ drivers/resctrl/mpam_internal.h |  4 ++--
+ drivers/resctrl/mpam_resctrl.c  | 31 +++++++++++++++----------------
+ 3 files changed, 18 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-index 5f15c2299509..25a8a60e152c 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-@@ -105,6 +105,8 @@ rtc: rtc@51 {
- 		status = "okay";
- 		compatible = "nxp,pcf8563";
- 		reg = <0x51>;
-+		interrupt-parent = <&gpio_intc>;
-+		interrupts = <IRQID_GPIOX_5 IRQ_TYPE_LEVEL_LOW>;
- 		wakeup-source;
- 	};
- };
-
----
-base-commit: b44e2be772f866985cafdf90355285069ea68495
-change-id: 20261020-hc4-rtc-alarm-irq-b2b8c68d54f5
-
-Best regards,
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 48adc49b833c..d17d7a72dba1 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2249,7 +2249,7 @@ static int mpam_cpu_online(unsigned int cpu)
+ 	}
+ 
+ 	if (mpam_resctrl_enabled)
+-		return mpam_resctrl_online_cpu(cpu);
++		mpam_resctrl_online_cpu(cpu);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 1f86cc158100..84c7adbb1a40 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -525,13 +525,13 @@ int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+ #ifdef CONFIG_RESCTRL_FS
+ int mpam_resctrl_setup(void);
+ void mpam_resctrl_exit(void);
+-int mpam_resctrl_online_cpu(unsigned int cpu);
++void mpam_resctrl_online_cpu(unsigned int cpu);
+ void mpam_resctrl_offline_cpu(unsigned int cpu);
+ void mpam_resctrl_teardown_class(struct mpam_class *class);
+ #else
+ static inline int mpam_resctrl_setup(void) { return 0; }
+ static inline void mpam_resctrl_exit(void) { }
+-static inline int mpam_resctrl_online_cpu(unsigned int cpu) { return 0; }
++static inline void mpam_resctrl_online_cpu(unsigned int cpu) { }
+ static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
+ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+ #endif /* CONFIG_RESCTRL_FS */
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index b07e5dd895dd..dc442851fd7e 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -1615,8 +1615,8 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+ 	return NULL;
+ }
+ 
+-static struct mpam_resctrl_dom *
+-mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
++static void mpam_resctrl_alloc_domain(unsigned int cpu,
++				      struct mpam_resctrl_res *res)
+ {
+ 	int err;
+ 	struct mpam_resctrl_dom *dom;
+@@ -1631,11 +1631,11 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	comp = find_component(class, cpu);
+ 	/* class has no component for this CPU */
+ 	if (WARN_ON_ONCE(!comp))
+-		return ERR_PTR(-EINVAL);
++		return;
+ 
+ 	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+ 	if (!dom)
+-		return ERR_PTR(-ENOMEM);
++		return;
+ 
+ 	if (r->alloc_capable) {
+ 		dom->ctrl_comp = comp;
+@@ -1678,7 +1678,6 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 		}
+ 		if (!any_mon_comp) {
+ 			WARN_ON_ONCE(0);
+-			err = -EFAULT;
+ 			goto offline_ctrl_domain;
+ 		}
+ 
+@@ -1694,7 +1693,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 		pr_debug("Skipped monitor domain online - no monitors\n");
+ 	}
+ 
+-	return dom;
++	return;
+ 
+ offline_ctrl_domain:
+ 	if (r->alloc_capable) {
+@@ -1703,9 +1702,6 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 	}
+ free_domain:
+ 	kfree(dom);
+-	dom = ERR_PTR(err);
+-
+-	return dom;
+ }
+ 
+ /*
+@@ -1757,7 +1753,7 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+ 	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
+ }
+ 
+-int mpam_resctrl_online_cpu(unsigned int cpu)
++void mpam_resctrl_online_cpu(unsigned int cpu)
+ {
+ 	struct mpam_resctrl_res *res;
+ 	enum resctrl_res_level rid;
+@@ -1772,9 +1768,13 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+ 
+ 		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+ 		if (!dom) {
+-			dom = mpam_resctrl_alloc_domain(cpu, res);
+-			if (IS_ERR(dom))
+-				return PTR_ERR(dom);
++			/*
++			 * On failure the CPU is left without a domain for this
++			 * resource, which mpam_resctrl_offline_cpu() tolerates.
++			 * resctrl_online_cpu() still adds the CPU to the default
++			 * group because the CPU is online and runs tasks.
++			 */
++			mpam_resctrl_alloc_domain(cpu, res);
+ 		} else {
+ 			if (r->alloc_capable) {
+ 				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+@@ -1790,8 +1790,6 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+ 	}
+ 
+ 	resctrl_online_cpu(cpu);
+-
+-	return 0;
+ }
+ 
+ void mpam_resctrl_offline_cpu(unsigned int cpu)
+@@ -1812,8 +1810,9 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 		if (!res->class)
+ 			continue;	// dummy resource
+ 
++		/* The domain may be missing if its setup failed. */
+ 		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+-		if (WARN_ON_ONCE(!dom))
++		if (!dom)
+ 			continue;
+ 
+ 		if (r->alloc_capable) {
 -- 
-Igor Velkov <iav@iav.lv>
-
+2.55.0
 
 
