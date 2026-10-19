@@ -2,197 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7331C606A33B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 21:39:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6101606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 21:52:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sLSiAB8S;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=m4WYlsmd;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=qSkv454d;
-	dkim=neutral header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=Vn9khZoD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WqWngNaS;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mia+Cm6+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4e6b4KT7qmfphTblCoHqELaQBOugwlAyqcg0MkCEAck=; b=sLSiAB8S9/gWNQZ7y+fkulokix
-	CVazzk57VkV3rhVNAUSMVPEidYZzmi37iYcksPDLAIRCmKAKOhkcAzkKlIe8hNFrmSAVW3w3NEwdm
-	2ZjZsVuOKCovexD+EZZJkXghys1yRyemU2cxpQbTP6giJSs5C6R7zJ36S36BnovCRH+xNlMGQFExf
-	p9iUReLRGwNFqDCCP2nkeyjwviB7lV/ZMsjq016XpUzFACzQOMPs+1OLbJN6PLTGc8hwufHQU99OU
-	Lxv4P4jyHjFTTB1NJuDtDPl3lgkbpyo2nNK02rZYTSAThHAM5tO4IRbjKv0rapO9pYGhPSNqtgK8d
-	lZ1z/rdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=; b=WqWngNaST33vPe
+	YKfxDNAWMw8PLMYR9yBf8zTf+g1wRQZa/pMDPVswlA5YKIY2J8HiVH9IJ+MsAyaGr6ai76HqhqOJm
+	pkgBKoCtXd6mGOJlG1iSQsprPowbKi77L8GPa7G5iJrW/gLKTX0fwnOveTnnGlv5SGc9NTz4oOvwy
+	AhEOKPD6R5mBXtzfh/vq3q9ZZERmg4833h1orwemJSbYbz5CPbZ5BPvAwmNiLCQy9i9CciZZyR/iN
+	1z0mAj9CrLydFwPpTgRM1ZfXOl5RcSciMsLp1Zb0+FNEqiFoad5n819baADIKMLp/oWoa/9yz7Cex
+	cg0lDpZdnskUF5y48Wvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIv4U-00000008Prf-1Bx7;
-	Mon, 19 Oct 2026 21:39:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xIvH3-00000008QqK-1Sb1;
+	Mon, 19 Oct 2026 21:52:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIv4Q-00000008PoM-3Qf6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Oct 2026 21:39:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4e6b4KT7qmfphTblCoHqELaQBOugwlAyqcg0MkCEAck=; b=m4WYlsmd+j+5PsS4gl0jOMEuu/
-	KntOYju0Bf3qo9ZjJFkm9TYGuvAXlPR0nQP78M6OKN4Sr64+3wIwm+CA2CEEF6r3Qo52UXiOA2/pt
-	8MTTh9SpS/4+1Ep/NTaabHpzfzsxmiP+D5DCeIqAPXBUZ9p19waRQsJ6JzjeX7DdSft6BTZ7MM4hK
-	twbo6B5xSWGF+S7HwYoCMh0Msmw4HpSdtusqO/7evcDYTQZpeCLuRSDuG/IkIXsnlCPZfWLXJ5Lum
-	TVqNndPpgmKD1MpHCXU+nwSx++z9l43DQxe0DzQ+fcxkvM+kl+k43ceUGITV8H0px7Z767KmDS684
-	6IZ/9QoA==;
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xIv4L-000000047H9-2aKm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 21:39:01 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69JLboVD1358350;
-	Mon, 19 Oct 2026 16:38:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=4e6b4KT7qmfphTblCoHqELaQBOugwlAyqcg0MkCEA
-	ck=; b=qSkv454dmE5GHM9RPxKpkb332XQ70IMWr/Z7dSYNl1kcNzmwWzt6cjiOR
-	pTAyePBZIjOSfV/klHjq9ZZDWqLQ2SFIwOrU21obYa+LRQYO0n5lJ9/Qisc2BNtL
-	rqubzaEBwrFWnBYK5ir7cUrmtbwwGkibDzIaIGrOBuBC5N5lQxrWa82dGmXLr3IF
-	KFSLUIuEC6PqaH7rTRYmMvxrDuQkrVMZQPtne1EFH60ifzBkivuN7jXzqfqcsllS
-	J3+yTF+7bYgkjlJV2HPjTLLiIoYoWpaClhN5w+mRfqDs4Yz3wDgsvL9PqwdNTy1n
-	+EguWCDfNgXS4YCSbmOyVsYM9xObw==
-Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010035.outbound.protection.outlook.com [52.101.201.35])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hcrd6159g-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 19 Oct 2026 16:38:38 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=quOSuUkoExe95fFikl/RImIcxdvi+fX66S+oC04hYZjY9aQqU3kp7r9gZfwDQy1l2okfKPRRBwOtAttiKwabKQDkBw8BlvPexoeplUtUDe/4v3lXO2kG1T4O1b4d53MHBd6m78arqaq8AMYkvnkZZkd66I9AhrTXlI+5+4QOiNlrYl6LBmu1kRdhY8sC4oWAU8QDFB2dsgcAaQDN814UcglEX8MvsSyOi3Jx6hKMxumxeyhhSQhZCsCZ58oPqsc9gXGJjftXFM6QRRreinUF/2hgiw9Fzk8+yCb2pegKvZ07HCR9ldd+q6ANXTakVfV7rLZNAnDXJZTh4AzewGIZqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4e6b4KT7qmfphTblCoHqELaQBOugwlAyqcg0MkCEAck=;
- b=Q85PNsgEzbuSEvUsHExPsp3tJ0zT2X8HrVrDmoGHSzSIOjyzVJKo0HQ4I+srozyrfERmvT/ZkYpCPwIW9fvqV+9hoXG59ko33FBdo7Vsog6QtCbyhbhxV6KfT0gBd9ezvB9SG6FdZZeyFa7S8r88WVLZed9tRUZsZ7fKNjGc0e/Bsg3wc/RzwHfmAsMhVXCGrYJSqk3op3xNlVmqMveA2WF8PJ88v5JKP2eQkzL9ijvE1koY1XvTwFbiyiFk5tp3mI+vEsmL/XsNUwe/srfp0lC+vtjRsuk32RJPEMaNUHDGPFo0DDNFfk+KGHFBxj9MaumHEhqNB0Qg8Nk0ZHW5kg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4e6b4KT7qmfphTblCoHqELaQBOugwlAyqcg0MkCEAck=;
- b=Vn9khZoDtxfvzed2Xz94NIiDcy/zlfpFk1Ypg4vVhqrzdzZqnBB5WO5YABmmI9u+2krhXnJt4bDEGu9+D2UaiOwO4NUvbPHWa4BIZVzO+ZG5y5Eh6qKszBf3Z2Ey5bsAoCy7Bt4+2pgm857lB4dpKwgCWedbYmqtgBMWS+ypSso=
-Received: from DS7PR03CA0286.namprd03.prod.outlook.com (2603:10b6:5:3ad::21)
- by SA1PR10MB997628.namprd10.prod.outlook.com (2603:10b6:806:4b6::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Mon, 19 Oct
- 2026 21:38:34 +0000
-Received: from CY5PEPF00000E76.namprd02.prod.outlook.com
- (2603:10b6:5:3ad:cafe::1) by DS7PR03CA0286.outlook.office365.com
- (2603:10b6:5:3ad::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Mon,
- 19 Oct 2026 21:38:34 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CY5PEPF00000E76.mail.protection.outlook.com (10.167.247.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 21:38:32 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 16:37:48 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 16:37:48 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 19 Oct 2026 16:37:48 -0500
-Received: from localhost (ti.dhcp.ti.com [10.24.51.125] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69JLblQw3577094;
-	Mon, 19 Oct 2026 16:37:48 -0500
-From: Devarsh Thakkar <devarsht@ti.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devarsht@ti.com>, LiangCheng Wang <zaq14760@gmail.com>
-Subject: [PATCH v3 11/14] drm/solomon: ssd16xx: support panels whose RAM X order is reversed
-Date: Tue, 20 Oct 2026 03:07:23 +0530
-Message-ID: <20261019213726.4145532-12-devarsht@ti.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20261019213726.4145532-1-devarsht@ti.com>
-References: <20261019213726.4145532-1-devarsht@ti.com>
+	id 1xIvH2-00000008Qpu-0PCe;
+	Mon, 19 Oct 2026 21:52:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7436C4106A;
+	Mon, 19 Oct 2026 21:52:03 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792446723;
+	b=EcJIzq2B6Xs9kEz1rzogTOli1aPa0trk0uiZOOkz3McEK7Fr2JhCKufv0wUokndECubr
+	 Rofn1/fVtRUttl4qPv8I/HXSAdWW35do74nRshKXFyLzsW332O6laizE5V25tcSqDVX95
+	 RvchjY0UXN2KQ1Qw/w5LnYeW5f26100BEcjLkk/eKyo81X7FYYnHqQVu0wryc9pyiYYvg
+	 JhF7uaxkkvY/w773moRhaq2xa6yLG5pQ6Ew56YFlFl6w7IlKhOQpM4F1nIDtAjTUnGX3w
+	 2AhrTowmjp1fn9lD89o51ZS/tgvNDEmRywSbVtblYUXM9IhYYFZOQNjLiE/Dylzb2Sg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792446723;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=;
+	b=UaFV0fc6S6o9p0lFJQTReDB0jvO9n4mE23tio3GaQ3CJ5csvjMGjtBYFxk3G0jllr1A2
+	 2e/gAM0OtjPRDbg2jUjcM2pva7o2e5voojI5QlhZgdmw0vLlHV4mBaFIcUnjSk7tVt7to
+	 VDvKT8BH0iqQhsx5d/tS0rvAE7q78QMUUj6GJGHQLYZD+z650mwcdrfdxKF5IoZTI1F+w
+	 koYf9ng0skQNkeW/E04+OMdauT1j9eKsWqX2Icn2X8kWfcStpwyk5XcMMbX/al6GNt36Z
+	 IAGCsXeWvzYVq2vOUMp7jZrevuzUOVoeSk9PTXgSVkMnqAL2CpGII2EjJgU0FPyN1qQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D69DB1F000CA;
+	Mon, 19 Oct 2026 21:52:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792446723;
+	bh=229bktF/t4K4pyCM5Cj95EqGyJ2vYACAnwGMT9QBk0Q=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=mia+Cm6+HDmn9HFtdKtmEUut9YpyexTaQXadGCigrd47X/iYVEfiy4QejCTFekWWj
+	 v3JMR13M7ZTMuCUaiXVXr+F0G5UnW8X8y5R+9tXnkFksm3yUbHq20yqYLY0Ro/yahY
+	 PK2RRLX7BqwyxLyRR7OoSLrPbU3e9LWwF27pXFA9g8nuk8TXQ5b/HJ0fwOWLGTpSqE
+	 cN08f7jYioj9jtSIwnO/HCCSviFwhESFsCeBcP+AsvAZH+P2XD88pn7eHQW4/83uvY
+	 Gb3NQ8fMdm1eqgM/oa6gFPG9tp7vgzxrcQmGIF1uXXx+k4JEGmzdqOIcMtuXoffyUE
+	 7bkDqTL/fu1rw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6A1C6400AB;
+	Mon, 19 Oct 2026 21:52:02 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Mon, 19 Oct 2026 21:52:01 +0000
+Subject: [PATCH] arm64: dts: amlogic: meson-sm1-odroid-hc4: wire the RTC
+ alarm interrupt
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY5PEPF00000E76:EE_|SA1PR10MB997628:EE_
-X-MS-Office365-Filtering-Correlation-Id: c90bd10e-7a66-4e0a-1442-08df2e2952cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|23010399003|82310400026|921020|56012099006|261009223027099003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 1gVRIJmjq8KA2KCwW8tQr0PK6tbrOuzEDCZw0R9y1L87+oh5Zvm9Y9Nt4M3yD1hHRGSqlnekdkDeoA9C2GxYaIi6rLqVXyjfcRyQ3xjknpvWnn28gMGb/JSPAtBuzl0zR935BxSmNtJF0hA6kcLdv4kkXRyZgf5i4xvtW+sM6k+ivm7rpPzSQLiQq4sJ3JRqw3QMbu4IzC4VPxEoDesjhKDVcAaR81ucwio0oBBO+pW+KbGlBkrt8kUbM56Gl8l9ZzQhfsnN5fFBrltixkJe5DFPPpmNC4xRSx0AHVVEe/szp5wWWQ+hKV6TUjmuPKnvDvwE8NZ/etEDiidWqaBetlbGN4RFv/qJmueHn8rlzyaGEQsZmwwZNmy91YQ8nUYmouDVC3F9PauSvsfptyP2AmnLD4WUddKr9jKs96pB0dlT/ei9ngwtDR8sLM8npUYL4ChUgNk+tzeUzksp59IZAloRLIHdLa9vsee+UAVF1fOf+XzaK6ufpNVkdrIOYjTo8ZcsDImAs/sPf+ghksePw870Ehq7ZwJRUjzXuCmE/spfundcFjTR1n+SfLat/KNaD3/RKV3SW6pNQQwV2FsGHM30ToirYsJa0KYO+dlWJIm8ZVmPqO6N/oJOCXEW4FeKr3XwJDZPwPa7J/10nH2oNPsD1PQwnAadoUCxNGCGGwFpgJBJfi29tjK/7Us037rbei9v/GvVtslFIZl3xChHbz2gUAdHOCsbt6uaLEQ6owOp39hBgOnXYEtxDsit+f3/
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(23010399003)(82310400026)(921020)(56012099006)(261009223027099003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lApBme4YRoNxuh2NQNpYe6LBH9jNnb/aob/FsZ0pbQDw90ZIBtNHNQiTJ+5lBMQ+KlPtuUHo8dUBtMZe/pOHLHLf7IhdpRFGf/yqxhr2PBJHrMB8+dogQ2xXk+uHaDolqiqw1puixK7A+LiM4SjWsTiRlJXeq2gfb9yVYJrRXIaFHrUPJgyAA71qhHGt0BpvPGrOkBCn/mbuktFgJuSs8S2vYMuB/BMla/8FFF3Zd1F4QAYZDIGEjFXg6FB00ge3/o4+8j3K4spQKqNVeus5J0CmgUE5F5hFb5bOCOnrpFu3Qs6C0rShPiR1+VuIBbkobdSTG6TFegGA1J2zXJcJUiOIYqfAT7/LrkCsMQela+V299AvxyUlfeRG5jQjjPHHNhgszk/cWOllsbFFwQdLwcPCOAnOegUTvlhVHyA4rUqcN+57lXf4mufuxRXf8ytD
-X-Exchange-RoutingPolicyChecked: 1CIJ7mTYs+qXoWOeNKhqwbvO5//FEMhNm1TXmOMxtgavvXYLeIE5Z6SXXZnX7r40KLtSeBObEzIqhVK1H8Th4UjxHWqxg845noM3AsDvJBw+tD/GrS6LcNq+8XC/lAS8uBSsUye0sPoO30g967CiZc1c/GBMDI1eBCOPCFsPl4Jw48YOlEFCxqmjWnFN47tHz1foLRaqmMQOfDu5QsSbTNAmOTxAf9tHDzVFZuel4gTNb6rkYoF78iUQ/2AUbcl/sXqOGk1EpwYTArwTC4lmdEg4pWM75i8mVQDRSiWcUudSKwulst16nHLjMAenf7pVOMFXRjErWW2CWtmdj6klYQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 21:38:32.6746
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c90bd10e-7a66-4e0a-1442-08df2e2952cc
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY5PEPF00000E76.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB997628
-X-Proofpoint-ORIG-GUID: x5B9ZkdpTUGZygDS-at8cZsw7lYppD2H
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA4NiBTYWx0ZWRfX71cmqpS68fb8
- spdu/P/Epq/dc3N28G8bWnQHUtx0oV9zUAxXlrtiPJc9zgrdkpSr1+pRr9JaCulRSFltRisie63
- KI159RGsZ22zgfrHCE3Fa2Mh+/4SI8RBrdAp2NvS7+YzUWmL+1KwgeZ0KJVurjII64DfpK35P8V
- fLx14aYivZ+cbDMUubdTG4mzdoKaHOrfb1XCq9DPpHfDgIcCsPMCHEIcDv8+JslbO1TFI5FJu0P
- BbpsgvS/wC2TrkiW8mvyqAhgc762C79MJ+2cwohyHRHaCA2cl3N67BRXQ8Wn7ozHZweSlXWiQvM
- pcXYWLqg8ZpmpTpCAhUTptXaKzxHCMlbgkpxVejOtQT4FvB/bx331UEJW9dWB3mjFkazPwrZfQe
- cgm5QPawP79Swg2UdV3GuDSjiwgEvVbeQDsB+1AUyn49OTKd2jZttl1QZkYZgVSA8uDlIx5sUaz
- u+br//T1XiNkgQM6plA==
-X-Authority-Analysis: v=2.4 cv=ReYFmFtv c=1 sm=1 tr=0 ts=6ad68dde cx=c_pps
- a=gTn3qzDU66SAkKtIq75K5w==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=660iZSQnnn4A:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
- a=pGLkceISAAAA:8 a=sozttTNsAAAA:8 a=UpfALD_kB0Hx50bdgzMA:9
-X-Proofpoint-GUID: x5B9ZkdpTUGZygDS-at8cZsw7lYppD2H
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA4NiBTYWx0ZWRfX/tWHIXYdfoEY
- ohn1Xw88B9r+P9Ugxf/dVhTa1L9xNwYHyt/VzbmjKUOLKlgqH29hTTntT1kBCnj2SSwH04TYZnl
- 5xSQYWa1KgwVaWDL/e12Ax6HVBi1clo=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-19_06,2026-10-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 phishscore=0 malwarescore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190086
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_223858_041103_5525DBB4 
-X-CRM114-Status: GOOD (  24.74  )
-X-Spam-Score: -0.5 (/)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261019-hc4-rtc-alarm-irq-v1-1-078fc79e596f@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAACR1moC/x3MTQqAIBBA4avErBtQsYiuEi3Uphrod4wIwrsnL
+ b/Fey9EEqYIbfGC0M2R9y1DlwWE2W0TIQ/ZYJSptTIK52BRroBucbIiy4ne+CbUzVDZsYLcHUI
+ jP/+z61P6ALS5vPZjAAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1527; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=gqWYjjz0xRwzUadDg123AIW6B3N3BYaR8H5aIi6Ymss=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFnXJjIKXTE26pG/dCvY67j7dRmrhfs/i4TzbTrct3yua
+ I/1ioTnHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiAacYGRq+7Jc36d0uJfho
+ TvPjvC/5dvMu+lTmaF/KDVVmvfH3z0SG//Vbzm33EYqv7Dlr5Tq91WXqRR6WnFnvZqzkf9swc51
+ 4CDMA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,121 +112,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: LiangCheng Wang <zaq14760@gmail.com>
+From: Igor Velkov <iav@iav.lv>
 
-Some panels have their first column wired to the controller's last source
-output, so the controller scans RAM X in the opposite direction and the
-image comes out horizontally mirrored.  SSD1677 offers no source-direction
-control that I could find - command 0x01 only affects the gate side - so it
-has to be handled while packing the framebuffer.
+The PCF8563 on the OLED/RTC add-on board drives its interrupt output
+to GPIOX_5, pin 4 of the P1 header, but the rtc node does not describe
+it. The alarm interrupt is therefore never delivered and cannot wake
+the board.
 
-Add an x_mirror flag to struct ssd16xx_device_config and honour it in both
-branches of ssd16xx_convert_fb_to_1bpp(): the scanline order in the
-landscape path, and the inner loop in the portrait one, which is what maps
-to RAM X there.  The DRM_FORMAT_R1 memcpy fast path cannot mirror while
-copying, so it is skipped when the flag is set.  Enable it for the
-pixpaper-426m entry.
+Describe the line as a level-low interrupt of the GPIO interrupt
+controller.
 
-Tested on a Mayqueen PIXPAPER 4.26m (SSD1677, 800x480): a pattern with four
-differently sized corner blocks renders correctly at rotation 0, and a DT
-rotation of 90 gives a clean clockwise portrait.  Doing only the landscape
-path leaves the portrait output transposed.
+Tested on ODROID-HC4: the alarm interrupt fires and wakes the board
+from s2idle.
 
-Signed-off-by: LiangCheng Wang <zaq14760@gmail.com>
-Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
-Changes in v3:
-- No changes since v2.
+This needs commit 5831f5fef100 ("rtc: pcf8563: pass the driver data to
+the alarm interrupt handler") in the rtc tree: without it the first
+alarm oopses. Waking from s2idle also needs commit 5b6e2a46b80d
+("irqchip/meson-gpio: Allow the GPIO interrupts to wake the system")
+in tip irq/drivers.
 ---
- drivers/gpu/drm/solomon/ssd16xx.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/solomon/ssd16xx.c b/drivers/gpu/drm/solomon/ssd16xx.c
-index 13bd825bf3f1..29dca237378f 100644
---- a/drivers/gpu/drm/solomon/ssd16xx.c
-+++ b/drivers/gpu/drm/solomon/ssd16xx.c
-@@ -355,6 +355,9 @@ struct ssd16xx_device_config {
- 	const u8 *booster_soft_start_data;
- 	u8        booster_soft_start_len;
- 
-+	/* Controller scans this panel's RAM X in the reverse direction. */
-+	bool x_mirror;
-+
- 	/* Panel-specific display mode (resolution and physical dimensions) */
- 	const struct drm_display_mode *mode;
+diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+index 5f15c2299509..25a8a60e152c 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+@@ -105,6 +105,8 @@ rtc: rtc@51 {
+ 		status = "okay";
+ 		compatible = "nxp,pcf8563";
+ 		reg = <0x51>;
++		interrupt-parent = <&gpio_intc>;
++		interrupts = <IRQID_GPIOX_5 IRQ_TYPE_LEVEL_LOW>;
+ 		wakeup-source;
+ 	};
  };
-@@ -517,6 +520,7 @@ static const struct ssd16xx_device_config ssd16xx_device_configs[] = {
- 		.default_clear_on_disable = -1,
- 		.default_refresh_mode_init = SSD16XX_REFRESH_FULL,
- 		.red_supported = false,  /* 2-colour black/white panel */
-+		.x_mirror = false,
- 		.default_color_mode = SSD16XX_COLOR_MODE_BW,
- 		.mode = &gdey042t81_mode,
- 	},
-@@ -1161,10 +1165,11 @@ static void ssd16xx_convert_fb_to_3color(u8 *bw_dst, u8 *red_dst,
- static void ssd16xx_convert_fb_to_1bpp(u8 *dst, struct iosys_map *src,
- 				       struct drm_framebuffer *fb,
- 				       struct drm_rect *rect,
--				       unsigned int orientation)
-+				       unsigned int orientation,
-+				       bool x_mirror)
- {
- 	u32 format = fb->format->format;
--	int x, y;
-+	int x, y, i;
- 	u8 byte = 0;
- 	unsigned int bit_pos = 0;
- 	unsigned int dst_idx = 0;
-@@ -1186,7 +1191,8 @@ static void ssd16xx_convert_fb_to_1bpp(u8 *dst, struct iosys_map *src,
- 	 * if not, the generic pixel-by-pixel loop below handles non-aligned
- 	 * rects safely.
- 	 */
--	if (format == DRM_FORMAT_R1 && orientation == 0 && rect->x1 % 8 == 0) {
-+	if (format == DRM_FORMAT_R1 && orientation == 0 && rect->x1 % 8 == 0 &&
-+	    !x_mirror) {
- 		unsigned int src_pitch = fb->pitches[0];
- 		unsigned int width_bytes = drm_rect_width(rect) / 8;
- 
-@@ -1208,7 +1214,8 @@ static void ssd16xx_convert_fb_to_1bpp(u8 *dst, struct iosys_map *src,
- 		 * The data entry mode and cursor position control scan direction.
- 		 */
- 		for (x = rect->x2 - 1; x >= (int)rect->x1; x--) {
--			for (y = rect->y1; y < rect->y2; y++) {
-+			for (i = 0; i < drm_rect_height(rect); i++) {
-+				y = x_mirror ? rect->y2 - 1 - i : rect->y1 + i;
- 				if (ssd16xx_pixel_is_white(src, fb, x, y))
- 					byte |= (1 << (7 - bit_pos));
- 				if (++bit_pos == 8) {
-@@ -1234,7 +1241,8 @@ static void ssd16xx_convert_fb_to_1bpp(u8 *dst, struct iosys_map *src,
- 		 * The data entry mode and cursor position control scan direction.
- 		 */
- 		for (y = rect->y1; y < rect->y2; y++) {
--			for (x = rect->x1; x < rect->x2; x++) {
-+			for (i = 0; i < drm_rect_width(rect); i++) {
-+				x = x_mirror ? rect->x2 - 1 - i : rect->x1 + i;
- 				if (ssd16xx_pixel_is_white(src, fb, x, y))
- 					byte |= (1 << (7 - bit_pos));
- 				if (++bit_pos == 8) {
-@@ -1307,7 +1315,9 @@ static int ssd16xx_fb_dirty(struct drm_framebuffer *fb, struct drm_rect *rect,
- 	if (red_buffer)
- 		ssd16xx_convert_fb_to_3color(mono_buffer, red_buffer, &map, fb, rect);
- 	else
--		ssd16xx_convert_fb_to_1bpp(mono_buffer, &map, fb, rect, device->orientation);
-+		ssd16xx_convert_fb_to_1bpp(mono_buffer, &map, fb, rect,
-+					   device->orientation,
-+					   device->device_cfg->x_mirror);
- 
- 	drm_dbg(&device->drm,
- 		"fb_dirty: mono[0..3]=0x%02x 0x%02x 0x%02x 0x%02x (data_size=%u)\n",
+
+---
+base-commit: b44e2be772f866985cafdf90355285069ea68495
+change-id: 20261020-hc4-rtc-alarm-irq-b2b8c68d54f5
+
+Best regards,
 -- 
-2.39.1
+Igor Velkov <iav@iav.lv>
+
 
 
