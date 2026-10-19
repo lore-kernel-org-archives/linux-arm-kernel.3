@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E05ACCF2D4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56734CCA490
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 00:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVlYHqb7y9q0zT/BuMfeM7ah4viIJaQgIHxAEZZw7fQ=; b=UGZEwkMxzGjJuEr8r8NcNtZ9eY
-	sZ2KwvMZkVi1yX8lo2rW9tyR+EzGW05da4rdple+teeTs8Pps3zfwUlQpAroN0Njt2cS231209mMh
-	o8p+pXahE8qMBtFothubEvnjYsPkqk2p9g0T6iYnFF1XoP/+2GSXP7W0EUPz0L1UtYPoRlFpcpiZL
-	nmuF8O63GBCCVsYP5k3/mpWnFFWwYoRmbVmSBe+pLfdAIgRngt/pwAOect4NPUnsJqj8zAsU1ZO5u
-	YUWz0Pjd50dUJWjWWi0Pbw5TSDnq1pDPUr+1SIvf2lv9EOYPWAwY0aJNs01RnZzFtSoN5hjxBhyqh
-	3ctiwADQ==;
+	bh=/H5+v+eU9kgfKz/Mj9VwzvLXt9DOhZLPVVmlABdoLxA=; b=1uhMXpLaREbSFk0YI9r4kk4nzh
+	Z7Z1va9UHynwdVES+hQjhJuw2+NhYFP6rReb5x6IFaiEtbnRkfv7yJOmbtjn6OIQoYxK0dWd2um4Y
+	WCh5Ft7OsM3YThuUTEwMGn2pU2qNYxx/5jg+y0922vqlMWDoIzCc2Vo7g2RUZ6F9NU+8iCLg1IPqi
+	FzKBzBmIetbfjOf7yQ08KG8W/AvZNIE7dT59aiEISMz/WOB94I0CYBlMYXtB0QoHV76DfZtDrnmxz
+	WEJEnHWYlk6XLbmtJNgB2il3nPWua29A4UuKcKVbpNRGg+qGD6Kbc+N1QhNnCwG8EidRMNMciUZ+R
+	/0qWr5hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIbQj-00000006LEk-0pxZ;
-	Mon, 19 Oct 2026 00:40:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIbQk-00000006LFu-078S;
+	Mon, 19 Oct 2026 00:40:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIbQi-00000006LDR-0RME;
+	id 1xIbQi-00000006LDU-2UmH;
 	Mon, 19 Oct 2026 00:40:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A6884477F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 85D5860DA3;
 	Mon, 19 Oct 2026 00:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3CD80C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2D916C2BCC7;
 	Mon, 19 Oct 2026 00:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792370443;
-	bh=Ul8j6b/OMgDbNJmDs3HrzxJ8CN+a8ZabmqPVjjzsVr8=;
+	bh=Vzcnb7fHZtnglUZyGE1LG4oLfK8EgPIOWvY+smgPiZ4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=alMLu22LKFZ7YkTXPG7zwtua6wuvDBTNgra11qMpwXe+QW0+/x32hU0FoqWptPRCH
-	 Lbxm+uFnOn2oZokv9CXVa31OlD57sFRC3eT4ONDPSs734sb80eywyNk3rwHmlJul2v
-	 XI+Mla3zJChs5Gfji5YP7BaYTrq3eczlBauwiNcaS/61DDuoqnXQJOYcp33LIYP1YJ
-	 GOSZPm3LIcEPFPkzXfNwz4ggox/eJ6dnaXlm9BPaLkoM8OLY2AZ5tjCWommMsBIOxT
-	 3g7n5pDbPbrwcBCH2SpnNPWo7DHqHjU8vW+6DML0eEakL+HN5VUlwTCVVxzJZ+u9x2
-	 u9tDtjTssy3Rg==
+	b=o/k4pss6LwOwLKq4RM4ZjOX5nLYOApDAhReGsl4EzyKlB/LDtWFnQvlxAXNV0MFgm
+	 8KVKlmBYd6pQEENzTSgpqL0ZHtpCt+RR/m5Kcf0HCdAvG9cb+o0jxtLX40cpvAEwcc
+	 /hkcCUThEaDdB39B/DuaFs6RznnzlBLpgrCx4NLyi/+iOKbKgQFXtBSzfefhdyF2tJ
+	 QsH3kLRThBJeUP8IyG6KsDaO/zWGhoNhMc+1lqjC3aOFJNCYBZkE1W2xjrPixOEZZs
+	 UlMkNBqgbecfr9xR7AVusAWlLe5LuCgdJl8a4XSLbF2lcn8ADOnW18W8WyDvwWJuGE
+	 BMFUNHVQVD7Uw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D8ABCCF2D5;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B8D8CCF2D4;
 	Mon, 19 Oct 2026 00:40:43 +0000 (UTC)
 From: Ben Grisdale via B4 Relay <devnull+bengris32.protonmail.ch@kernel.org>
-Date: Mon, 19 Oct 2026 01:39:58 +0100
-Subject: [PATCH 2/8] dt-bindings: interrupt-controller:
- mediatek,mt6577-sysirq: Add MT8163
+Date: Mon, 19 Oct 2026 01:39:57 +0100
+Subject: [PATCH 1/8] dt-bindings: arm: mediatek: Add MT8163 Amazon Echo Dot
+ (2016)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-2-f2462b2d2437@protonmail.ch>
+Message-Id: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-1-f2462b2d2437@protonmail.ch>
 References: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-0-f2462b2d2437@protonmail.ch>
 In-Reply-To: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-0-f2462b2d2437@protonmail.ch>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,11 +69,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-serial@vger.kernel.org, linux-watchdog@vger.kernel.org, 
  Ben Grisdale <bengris32@protonmail.ch>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792370441; l=1057;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792370441; l=894;
  i=bengris32@protonmail.ch; s=20261018; h=from:subject:message-id;
- bh=HZvnmqsfzINWEfrRhIepftjE6COAYK/b8YuTyS5bQgM=;
- b=698Q+CEQDCJ3A6XknWlGTDX7ayPZNsO1KMPbAIxSubRinrTQ0EQaaqli2OXhKRvU6rXAPmmso
- 1Nc/WpE3cMmDvpAyWejudA1XtX9HcPbCDNk8M3oW9KI3KTfX3pjkzNl
+ bh=Sj9uUU4hqeBMvxPCCdbhjJhVHzkddt07Do2ZWZ88abg=;
+ b=i8t+LWCw5nZGoTonFvFX5VP1Sm9vmycUfNTUKkT7CgI1E1JImpienLWsMNsdvjkiFmuush4kG
+ Wz0jic5UwFfArO7uIHcpAwPQ19q8KsjeQ4Zwxei/b5GOmlQCq3m1T1m
 X-Developer-Key: i=bengris32@protonmail.ch; a=ed25519;
  pk=4ewFRC2yNph/tXokHVzIDlgOA9Hxecf1AlBuD4eOnaU=
 X-Endpoint-Received: by B4 Relay for bengris32@protonmail.ch/20261018 with
@@ -96,26 +96,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ben Grisdale <bengris32@protonmail.ch>
 
-Add a compatible string for the SYSIRQ interrupt polarity controller on
-the MediaTek MT8163 SoC, which is compatible with the MT6577 SYSIRQ.
+Add compatible strings for the MediaTek MT8163 SoC and the Amazon Echo
+Dot (2nd generation, 2016), codenamed "biscuit".
 
 Signed-off-by: Ben Grisdale <bengris32@protonmail.ch>
 ---
- .../devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml b/Documentation/devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml
-index b94fc3cec175..9d2fc15fc81d 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml
-@@ -36,6 +36,7 @@ properties:
-               - mediatek,mt7629-sysirq
-               - mediatek,mt8127-sysirq
-               - mediatek,mt8135-sysirq
-+              - mediatek,mt8163-sysirq
-               - mediatek,mt8173-sysirq
-               - mediatek,mt8183-sysirq
-               - mediatek,mt8365-sysirq
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 180e6e4948e7..15db402552c1 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -129,6 +129,10 @@ properties:
+           - enum:
+               - mediatek,mt8135-evbp1
+           - const: mediatek,mt8135
++      - items:
++          - enum:
++              - amazon,biscuit
++          - const: mediatek,mt8163
+       - items:
+           - enum:
+               - mediatek,mt8167-pumpkin
 
 -- 
 2.56.0
