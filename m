@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6764DCCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150FCCCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85qfeiOa1NVqqULnFXLwgWZiYeXT6dY9AfFlRUE5iw8=; b=MHf4CSN0ekg3K0tVimyRVLHiuY
-	4ldY+QvPTEMx+wFzGWXC7ZsbPp1wuNy4TCXI/ce5fOksdFRL7P/msHMJF31aWhCtjvHDS6DY9R5kh
-	19iZ9E9hgAJ/xu67pJZK7gJHQsGtbYleFara5WL2NMeDSYWL/AkcpuRGdOTBg3cpljMMGkHj1majb
-	HL8tcwKj9pks5TJxUwVt+Xrhu4p8IhFsWEu7G6VLEBBgbspsia3f6Eeoqehzf9TfJUh3oY4UOTOvt
-	O0omOFxSbqDTzXlUCHDK+HFkWbwDXQ8C+TW8gAzcHvFtnnkni5VRH4Vt+8awhXibAg6ZFaioihmua
-	iaHtIJyg==;
+	bh=BTBIKoGo04d3IzgHbjrfw1sqtljCpDWG7rowks+b+mA=; b=hMUn0wicSXdw44cEAHkyfQB13i
+	QWt6+UK1W2jOhamxa17SeSrEDL+SPJxMOyTfmjI1euH038k6Ycz5s4AIi0X2/nYUM1VmYssJ2fDsN
+	7hSOJQlNohbb874KPbOUs6nxQfOzeaNyGNsmpHTjo0+9ictcLCxLEpLmEg4Dyazqa+ZC32ApG8rjj
+	vfuszinUnLGfpa1E8ftQ9RXOpKRDHwEf5Umq0D53A55Rkl288KyX8D3Av0swInIZuWK/X/F9x5kZM
+	a1myUnIo81SlLO/Z0zC8LHJ/s5CX6ntXWRua4g+f+XRW8LSHTAgkT0YddM7dqTSXcJa1ZLBAV7e/U
+	ERThmE9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInsb-00000007bdM-0N6b;
-	Mon, 19 Oct 2026 13:58:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xInsh-00000007bhf-01rK;
+	Mon, 19 Oct 2026 13:58:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInsV-00000007bZq-1msE;
-	Mon, 19 Oct 2026 13:58:15 +0000
+	id 1xInsa-00000007bd1-3jcH;
+	Mon, 19 Oct 2026 13:58:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E8DF43B86;
-	Mon, 19 Oct 2026 13:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2978E1F000C8;
-	Mon, 19 Oct 2026 13:58:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 229696020A;
+	Mon, 19 Oct 2026 13:58:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CAB71F000C4;
+	Mon, 19 Oct 2026 13:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418295;
-	bh=85qfeiOa1NVqqULnFXLwgWZiYeXT6dY9AfFlRUE5iw8=;
+	s=k20260515; t=1792418299;
+	bh=BTBIKoGo04d3IzgHbjrfw1sqtljCpDWG7rowks+b+mA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=kULE8PDikPIzShVcGLPn5Nh0DfRKBhqDeqjIL3t5PS3CQjM+tDEMJwW7juq1o25qp
-	 yzBdPpFOTIeYSrnMogcj0aWBbUfPtJv72TJTWwDloMznErHMmmevGQHDOQPqx2hqU8
-	 uDboGUE2CCyDRYaJS5v2H9DvcRJZly11JP73kwfj894Ql75cl8DLaSm2wYcCwjzoUR
-	 ZL+k3fzsU39WNuXMRL7y73YSg/JiNyQOV156Kn8O32eI0oR6923MGbL+c+26dbeTKo
-	 NMGsnRfiSd3wbbZ8/hKmiuGzqvgvqy2dD5sV+sTGjGjQJbHyttMlTw+RSrSeIqNJla
-	 3Ah/u1FVyk6Uw==
+	b=MHUS8quWC8KzYNoTfZ7r/q9r1hKVruusAVPlME6Qhh+25Xckfz/mui9Y51tiBpVHo
+	 R/D1iYHIuOLJg9rjoB7X0W52Ey1VVpg5LWrhM2B3WmcT+JNO4CEZS8W4cDkenckMe1
+	 4l8jBx5cv7WcTA0Izx4MyoxD05qzmE6Misoh4lhXPpw7GapHfUySHJZb5go+j5Ha0H
+	 J/U+qj0tP6twmd3x8CunQmjPoonhuu5Wp3ekbTqUqDhxNa4lvQB2JcLOZLKKZO8uLV
+	 X+NZ3sNPXVtWbu8FDeBeumWhVWRJW7BZLSzetZCOtfHP/NtAsGk1pT6a8d/WFHc5ll
+	 eBBBfSm4QsG9Q==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+Cc: Daniel Golle <daniel@makrotopia.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
+	chester.a.unal@arinc9.com,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
 	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] soc: mediatek: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:47:17 -0400
-Message-ID: <20261019135441.1420968-146-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] net: dsa: mt7530: error out on failed PHY_IAC command writes
+Date: Mon, 19 Oct 2026 09:47:20 -0400
+Message-ID: <20261019135441.1420968-149-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -77,400 +85,377 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Daniel Golle <daniel@makrotopia.org>
 
-[ Upstream commit ec762057868d70d474a9816e9c293c2ef801c3c9 ]
+[ Upstream commit 1c95dcb7e923beebccdc79adc3dc1ec8c52295d0 ]
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+MT7531_PHY_ACS_ST is only ever set by the command write that precedes
+each poll in the MT7531 indirect PHY access functions, and that
+write's return value is discarded. A failed write leaves ACS_ST at 0
+from the previous access, so the poll succeeds on its first iteration
+and the functions return stale IAC contents as if they were fresh PHY
+data. Check the writes and bail out before polling.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
-
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Link: https://patch.msgid.link/c34602e63a20ebbfb97babd145c82832d7a0b523.1785811140.git.daniel@makrotopia.org
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local checkout is **7.3-rc4**. The DVFSRC driver is modular, had an
-OF match table, and did not publish aliases, so autoload is broken for
-`CONFIG_MTK_DVFSRC=m`. That is a real, one-line hardware-enablement bug.
+## Phase 1: Commit message forensics
 
-===============================================================
-PHASE 1: COMMIT MESSAGE FORENSICS
-===============================================================
+**Step 1.1: Subject line**
+Record: **[net/dsa/mt7530] [error out] Check PHY_IAC command writes and
+abort on failure instead of polling stale IAC contents.**
 
-Step 1.1: PARSE THE SUBJECT LINE
-Record: **[soc: mediatek] [add] [missing MODULE_DEVICE_TABLE() for OF
-module autoload]**
-- Subsystem: `soc: mediatek`
-- Verb: **add** (missing export; the body is a fix, not a feature)
-- Intent: publish the existing OF match table as module aliases
+**Step 1.2: Tags**
+Record (candidate message, ignoring pipeline SOBs):
+- **Reviewed-by:** Andrew Lunn `<andrew@lunn.ch>` (DSA reviewer)
+- **Link:** `https://patch.msgid.link/c34602e63a20ebbfb97babd145c82832d7
+  a0b523.1785811140.git.daniel@makrotopia.org`
+- **Signed-off-by:** Daniel Golle (author; MediaTek switch co-
+  maintainer)
+- **Signed-off-by:** Jakub Kicinski (netdev)
+- No Reported-by / Tested-by / syzbot / Cc: stable in the candidate text
 
-Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
-Verified from `git show ec762057868d70`:
-- Signed-off-by: Pengpeng Hou \<pengpeng@iscas.ac.cn\> (author)
-- Signed-off-by: AngeloGioacchino Del Regno
-  \<angelogioacchino.delregno@collabora.com\> (MediaTek SoC maintainer;
-  applied the patch)
-- No Fixes:, Reported-by, Tested-by, Reviewed-by, Acked-by, Link:, or
-  Cc: stable
-- Absence of Fixes:/Cc: stable is expected for this review and is not a
-  negative
+Independent of the candidate text, the original LKML submission also had
+**`Fixes: c288575f7810 ("net: dsa: mt7530: Add the support of MT7531
+switch")`**. That tag is not used as a “already selected” signal; it
+only identifies the introducing commit.
 
-Step 1.3: ANALYZE THE COMMIT BODY TEXT
+**Step 1.3: Body**
 Record:
-- **Bug:** OF match table is wired to `.of_match_table` but not exported
-  via `MODULE_DEVICE_TABLE(of, ...)`
-- **Symptom:** `depmod`/`file2alias` never emit
-  `of:N*T*Cmediatek,mtXXXX-dvfsrc` aliases, so udev/kmod will not
-  autoload `mtk-dvfsrc.ko`
-- **Version info:** none in the message. Driver landed in v6.13; this
-  fix is in v7.3-rc4
-- **Root cause:** forgotten alias publication on a tristate
-  `module_platform_driver`
+- **Bug:** `MT7531_PHY_ACS_ST` is set only by the command write before
+  each poll. The write return is discarded.
+- **Failure mode:** A failed write leaves ACS_ST at 0 from the previous
+  access. The poll condition `!(val & MT7531_PHY_ACS_ST)` is already
+  true, so the poll returns immediately and the helpers treat leftover
+  IAC contents as a completed PHY access.
+- **Symptom:** Reads return stale IAC data as PHY register values;
+  writes return poll-success (`0`) even though the PHY was not written.
+- **Root cause:** Missing error check on `mt7530_mii_write()` of
+  `MT7531_PHY_IAC`.
+- **Version info in body:** none. Introducing commit is from 2020.
 
-The extra “source-level fix / no dynamic hardware reproduction”
-paragraph is in the original lore submission as well (not a stable-
-pipeline marker).
+**Step 1.4: Hidden bug fix?**
+Record: **Not hidden.** This is an explicit error-propagation fix, not a
+cleanup.
 
-Step 1.4: DETECT HIDDEN BUG FIXES
-Record: **Not hidden.** It is an explicit autoload/modalias bug fix
-disguised only by the verb “add”. Same class as a missing device-ID
-table export.
+## Phase 2: Diff analysis
 
-===============================================================
-PHASE 2: DIFF ANALYSIS - LINE BY LINE
-===============================================================
-
-Step 2.1: INVENTORY THE CHANGES
+**Step 2.1: Inventory**
 Record:
-- File: `drivers/soc/mediatek/mtk-dvfsrc.c` (**+1 / −0**)
-- One line after `mtk_dvfsrc_of_match[]`
-- Scope: **single-file surgical fix**
+- **File:** `drivers/net/dsa/mt7530.c` only
+- **Scope:** ~+12 / −6 (six identical two-line checks)
+- **Functions:** `mt7531_ind_c45_phy_read`, `mt7531_ind_c45_phy_write`,
+  `mt7531_ind_c22_phy_read`, `mt7531_ind_c22_phy_write`
+- **Classification:** single-file surgical error-path fix
 
-Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
-Record:
-- **Before:** match table exists and is used for platform binding, but
-  no `__mod_of__mtk_dvfsrc_of_match` alias is generated
-- **After:** `MODULE_DEVICE_TABLE(of, mtk_dvfsrc_of_match)` creates that
-  alias for `scripts/mod/file2alias.c`
-- Affected path: **module build / autoload**, not probe logic. Built-in
-  (`=y`) is unchanged at runtime
+**Step 2.2: Code flow**
+Record: each helper already polls until ACS_ST is clear, writes a
+command with ACS_ST set, then polls again. **Before:**
+`mt7530_mii_write()` result is ignored; polling always runs. **After:**
+a negative write return jumps to `out`, which already unlocks the MDIO
+mutex and returns `ret`.
 
-Step 2.3: IDENTIFY THE BUG MECHANISM
-Record:
-- **Category:** hardware enablement / missing module alias (OF
-  equivalent of a missing device ID table)
-- **Mechanism:** without `MODULE_DEVICE_TABLE`, kmod cannot map DT
-  `compatible` to `mtk-dvfsrc.ko`. Probe never runs unless the module is
-  loaded by hand
-- Not UAF, leak, race, or locking
+**Step 2.3: Bug mechanism**
+Record: **logic / error-path correctness.** ACS_ST is `BIT(31)` of
+`MT7531_PHY_IAC` (`0x701C`). Poll success is “bit clear.” A failed
+command write never sets that bit, so the poll succeeds on the first
+iteration.
 
-Step 2.4: ASSESS THE FIX QUALITY
-Record:
-- **Obviously correct:** one standard macro next to the table, same
-  pattern as `mtk-mmsys.c`, `mtk-svs.c`, `mtk-mutex.c` in this tree
-- **Regression risk: negligible.** No runtime code, locking, or API
-  change; only `.modinfo` aliases when built as a module
+Verified on the write helpers: after a successful poll, `ret` is `0`
+from `regmap_read_poll_timeout()`, so a failed PHY write is currently
+reported as **success**. On reads, `ret = val &
+MT7531_MDIO_RW_DATA_MASK` returns leftover IAC data as a 16-bit PHY
+value.
 
-===============================================================
-PHASE 3: GIT HISTORY INVESTIGATION
-===============================================================
+**Step 2.4: Fix quality**
+Record: **obviously correct.** Same `goto out` path already used for
+poll failures. No new locks, APIs, or data structures. Regression risk
+is low: only failed bus writes change behavior, and they now return the
+real errno instead of fake success / stale data.
 
-Step 3.1: BLAME THE CHANGED LINES
-Record:
-- Match table introduced in **192514ae05687** (“Add MediaTek DVFS
-  Resource Collector (DVFSRC) driver”, AngeloGioacchino Del Regno, 2024)
-- Present in **v6.13-rc1**; **not** in v6.12 or v6.6
-- Original file already had `.of_match_table` and
-  `module_platform_driver` and **never** had `MODULE_DEVICE_TABLE` (`git
-  show 192514ae05687a:drivers/soc/mediatek/mtk-dvfsrc.c`)
-- The one-line fix is **ec762057868d70** (Pengpeng Hou, 2026-07-04;
-  applied 2026-07-30)
+## Phase 3: Git history
 
-Step 3.2: FOLLOW THE FIXES: TAG
-Record: **No Fixes: tag.** Bug is the original omission in
-192514ae05687, which **is** an ancestor of this tree.
+**Step 3.1: Blame**
+Record: the unchecked `mt7530_mii_write(..., MT7531_PHY_IAC, ...)` lines
+were introduced in **`c288575f7810` (Landen Chao, 2020-09-11), “Add the
+support of MT7531 switch”**. `mt7530_mii_write()` has returned `int`
+since **`a08c045580e060` (2023-04-03, regmap conversion)**. Both are in
+this tree.
 
-Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
-Record: later DVFSRC work (MT6893, MT8196, bandwidth rework) only grew
-the match table. No prerequisite refactor is required for this one line.
-**Standalone.**
+**Step 3.2: Fixes: target**
+Record: `git merge-base --is-ancestor c288575f7810 HEAD` succeeded. The
+bug is in this 6.12 tree. No later local commit already checks these
+writes (`ret = mt7530_mii_write(priv, MT7531_PHY_IAC` count is 0).
 
-Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
-Record: Pengpeng Hou has a series of the same “add missing
-MODULE_DEVICE_TABLE()” fixes (rtc, vdpa, watchdog, hwmon, aspeed,
-ixp4xx). This is a systematic audit, not a one-off. The applying
-maintainer is the MediaTek SoC co-maintainer.
+**Step 3.3: File history / related commits**
+Record: this tree already contains the sibling **`96e0f5184af69`**
+(`v6.12.103~217`), “error out on failed reads in MT7531 PHY polling”
+(upstream `77a9ebe8818cf6`). That converted the polls to
+`regmap_read_poll_timeout()` but left command writes unchecked. Also
+present: **`93d46870c5440`**, “check bus->read() errors in the MDIO
+regmap backend” — same author, same class of swallowed MDIO errors.
 
-Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
-Record: **None.** Needs only `mtk_dvfsrc_of_match` and `module.h`, both
-present since the driver was added. Applies standalone.
+**Step 3.4: Author**
+Record: Daniel Golle is listed as a **MEDIATEK SWITCH DRIVER**
+maintainer. Other mt7530 error-propagation fixes by him are already in
+this tree.
 
-===============================================================
-PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-===============================================================
+**Step 3.5: Dependencies**
+Record: **standalone.** Needs `mt7530_mii_write()` returning `int` and
+the existing `goto out` + mutex unlock — all present. It does **not**
+need the rest of the later 6-patch series (`core_rmw`, CORE_PLL_GROUP4,
+FDB/VLAN writes, IRQ serialization).
 
-Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
-Record:
-- `b4 dig -c ec762057868d70` →
-  https://patch.msgid.link/20260704124308.6241-1-pengpeng@iscas.ac.cn
-- `b4 dig -a`: **v1 only** (no v2/v3)
-- Thread (saved via `b4 dig -m`): maintainer reply “Applied to
-  v7.2-next/soc, thanks!” (commit 0ef07f74aff2 while in the MTK tree)
-- No NAKs, no requested changes, no Cc: stable in review
+## Phase 4: Mailing list
 
-Step 4.2: CHECK WHO REVIEWED THE PATCH
-Record (`b4 dig -w`): To/Cc included both MediaTek SoC maintainers
-(Matthias Brugger, AngeloGioacchino Del Regno) and linux-mediatek /
-linux-arm-kernel / linux-kernel. Applied by the subsystem maintainer.
+**Step 4.1:** Candidate is not a local commit, so `b4 dig -c` on this
+SHA was not possible. `b4 dig -c 96e0f5184af69` found the earlier poll-
+timeout series. This patch was submitted as **`[PATCH net 3/4]`** then
+**`[PATCH net v2 3/6]`** in “fix remaining swallowed MDIO access
+errors.”
+Record: lore/msgid `c34602e63a20ebbfb97babd145c82832d7a0b523.1785811140.
+git.daniel@makrotopia.org`; LKML copy at
+https://lkml.iu.edu/hypermail/linux/kernel/2608.0/04802.html. **v2: no
+changes** to this patch. Cover letter: this write check was a companion
+that had been folded into the already-applied PHY-polling patch and was
+split out. No NAKs found.
 
-Step 4.3: SEARCH FOR THE BUG REPORT
-Record: **No Reported-by / bugzilla / syzbot.** Evidence is the source
-mismatch (match table vs missing export), which is deterministic for
-`=m` builds.
+**Step 4.2:** Recipients included DSA/netdev maintainers (Lunn, Oltean,
+Kicinski, netdev). Andrew Lunn replied **Reviewed-by** with no requested
+changes (https://www.spinics.net/lists/kernel/msg6350713.html).
 
-Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
-Record: not a numbered series. Sibling same-cycle fixes exist (`soc:
-aspeed`, `soc: ixp4xx: npe/qmgr`). Each is self-contained. Historical
-MediaTek analogs: `6f42f5e73bb43` (mtk-svs), `10687632307c0` (mtk-
-mmsys).
+**Step 4.3:** No syzbot or bugzilla. Mechanism is from code review
+(cover letter: Sashiko AI review of the earlier series).
 
-Step 4.5: CHECK STABLE MAILING LIST HISTORY
-Record: **UNVERIFIED.** lore.kernel.org returned HTTP 403 for WebFetch
-and curl. No local evidence of a stable NAK.
+**Step 4.4:** Series mates are independent swallowed-error checks. This
+hunk set does not depend on them.
 
-===============================================================
-PHASE 5: CODE SEMANTIC ANALYSIS
-===============================================================
+**Step 4.5:** Search of lore.kernel.org/stable for this subject found
+**no** prior stable discussion or rejection.
 
-Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
-Record: **No function body changed.** The new line is
-`MODULE_DEVICE_TABLE(of, mtk_dvfsrc_of_match)` beside the existing
-table. Related runtime entry is `mtk_dvfsrc_probe`.
+## Phase 5: Semantic / call graph
 
-Step 5.2: TRACE CALLERS
-Record:
-- `module_platform_driver(mtk_dvfsrc_driver)` → OF platform probe
-- Exported `mtk_dvfsrc_send_request` / `mtk_dvfsrc_query_info` used by:
-  - `drivers/interconnect/mediatek/icc-emi.c`
-    (`INTERCONNECT_MTK_DVFSRC_EMI` depends on `MTK_DVFSRC`)
-  - `drivers/regulator/mtk-dvfsrc-regulator.c` (`REGULATOR_MTK_DVFSRC`
-    depends on `MTK_DVFSRC`)
-- Probe also `devm_of_platform_populate()`, so child
-  interconnect/regulator nodes never appear if this module never loads
+semcode MCP is not available; callers were found with grep.
 
-Step 5.3: TRACE CALLEES
-Record: probe does SMC init/start of the DVFSRC IP, clock enable, child
-populate. Autoload failure means that entire stack never starts.
+**Step 5.1:** Functions listed in 2.1.
 
-Step 5.4: FOLLOW THE CALL CHAIN
-Record: **Userspace-reachable via normal boot on MediaTek DT platforms**
-(kmod/udev matching `compatible`). Unprivileged users do not need a
-special syscall; they just boot. Trigger requires `CONFIG_MTK_DVFSRC=m`
-and a matching DT node.
+**Step 5.2: Callers**
+- Wired as `phy_read/write_c22/c45` for **ID_MT7531, ID_MT7988,
+  ID_EN7581** in `mt753x_table`.
+- MDIO bus ops: `mt7530_setup_mdio()` sets
+  `bus->read/write/read_c45/write_c45` to wrappers that call these
+  helpers. That is the phylib/phylink path (link polling, PHY config).
+- Direct: `mt7531_setup()` uses `mt7531_ind_c45_phy_read/write` for
+  CORE_PLL_GROUP4 / EEE (those call sites still ignore the return; a
+  later series patch addresses that and is **not** required for this
+  MDIO-bus fix).
 
-Step 5.5: SEARCH FOR SIMILAR PATTERNS
-Record: other `drivers/soc/mediatek/` drivers already have
-`MODULE_DEVICE_TABLE(of, ...)`. This was the omission.
+**Step 5.3: Callees**
+`mt7530_mutex_lock/unlock`, `mt7530_mii_write` → `regmap_write`,
+`regmap_read_poll_timeout`.
 
-===============================================================
-PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-===============================================================
+**Step 5.4: Reachability**
+Yes, from userspace-visible networking: phylib MDIO reads/writes on
+MT7531/MT7988/EN7581 switch PHYs. Trigger is a failed switch register
+write (MDIO/MMIO/regmap error), not a rare debug ioctl.
 
-Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
-Record:
-- `git describe HEAD` → **v7.3-rc4-27-gf0100363d8c37**; `make
-  kernelversion` → **7.3.0-rc4**
-- File and match table exist. Before ec762057868d70 there was **no**
-  `MODULE_DEVICE_TABLE` (`git show ec762057868d70^:...`)
-- Bug introduced with the driver in **v6.13** (192514ae05687)
-- `git merge-base --is-ancestor ec762057868d70 HEAD` → yes (this
-  checkout already contains the fix as mainline, which does not change
-  whether the bug class is real)
+**Step 5.5:** Same swallowed-error pattern already fixed for MDIO
+backend reads and PHY_IAC **polls** in this tree. This is the remaining
+write side of that PHY_IAC path.
 
-Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
-Record: **clean apply.** One line after the sentinel entry. Compatible
-strings may differ on older stables, but the macro is independent of
-table contents.
+## Phase 6: This tree (6.12.y)
 
-Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
-Record: this is the fix. No earlier equivalent. Sibling SoC drivers
-already had the macro.
+**Step 6.1:** Local tree is **`pending-6.12` / 6.12.111**. All six
+PHY_IAC command writes are still unchecked. Bug exists here.
 
-===============================================================
-PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-===============================================================
+**Step 6.2:** Current source matches the patch “before” context
+(including `regmap_read_poll_timeout` from `96e0f5184af69`). **Expected
+apply: clean.**
 
-Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
-Record:
-- **Subsystem:** `drivers/soc/mediatek` (MediaTek SoC DVFS resource
-  collector)
-- **Criticality: IMPORTANT** on ARCH_MEDIATEK (Chromebooks/boards with
-  MT8183/MT8195/MT8196/MT6893), **PERIPHERAL** globally
-- Kconfig: `config MTK_DVFSRC` **tristate**, `depends on ARCH_MEDIATEK`
+**Step 6.3:** No other local commit already checks these writes. The
+poll-timeout backport left this hole open; this is the companion.
 
-Step 7.2: ASSESS SUBSYSTEM ACTIVITY
-Record: actively maintained (MT8196/DVFSRCv4, bandwidth rework,
-mmsys/cmdq work). DVFSRC itself is a few years old (6.13), not brand-new
-staging code.
+## Phase 7: Subsystem
 
-===============================================================
-PHASE 8: IMPACT AND RISK ASSESSMENT
-===============================================================
+**Step 7.1:** `drivers/net/dsa/mt7530.c` — MediaTek DSA switch.
+**IMPORTANT** (not core mm/VFS, but common on MT7988/MT7531 routers,
+OpenWrt, embedded). Config: `NET_DSA_MT7530`.
 
-Step 8.1: DETERMINE WHO IS AFFECTED
-Record: **platform-specific / config-specific** — `ARCH_MEDIATEK` +
-`CONFIG_MTK_DVFSRC=m` + DT `compatible` in the match table. Built-in
-configs are unaffected.
+**Step 7.2:** File is actively maintained; several mt7530 fixes already
+landed in this 6.12 branch.
 
-Step 8.2: DETERMINE THE TRIGGER CONDITIONS
-Record:
-- Trigger: boot (or DT overlay) with the module not already loaded
-- Common on distro-style `=m` kernels; Chromebook/embedded images often
-  use `=y` (then a no-op)
-- Not a race; **100%** for modular builds
-- Unprivileged user is not required beyond using the machine
+## Phase 8: Impact and risk
 
-Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
-Record:
-- **Failure:** DVFSRC module does not autoload → probe skipped → child
-  devices not populated → interconnect EMI bandwidth votes and DVFSRC
-  regulators return failure/`-ENODEV`
-- Not an oops/UAF/corruption
-- **Severity: MEDIUM** (device/stack does not come up; power/bandwidth
-  management broken on those SoCs). For users who ship this as a module,
-  it is a real “hardware doesn’t work” bug, in the same bucket as
-  missing device IDs
+**Step 8.1:** Users of MT7531, MT7988, and EN7581 switches (not
+MT7530/MT7621, which use nested `mdiobus_*` instead of these indirect
+helpers).
 
-Step 8.4: CALCULATE RISK-BENEFIT RATIO
-Record:
-- **Benefit:** high for modular MediaTek kernels; zero elsewhere
-- **Risk:** very low (1 line, `.modinfo` only)
-- **Ratio:** strongly favors including it
+**Step 8.2:** Triggers on failed `regmap_write` of PHY_IAC. Unprivileged
+users do not need a special exploit; phylib link/config traffic hits
+this path. Frequency is error-path, but MDIO/MMIO glitches on these
+boards are real.
 
-===============================================================
-PHASE 9: FINAL SYNTHESIS
-===============================================================
+**Step 8.3:** Failure mode: **silent wrong PHY data / false write
+success**, not an oops. Phylib can see a live link or apply settings
+that never reached the PHY. Severity: **HIGH** for networking
+correctness on error; not a panic.
 
-Step 9.1: COMPILE THE EVIDENCE
+**Step 8.4:**
+- **Benefit:** Completes the already-backported PHY_IAC poll hardening;
+  stops fake-success writes and stale reads.
+- **Risk:** Very low (12 lines, error path only).
+- **Ratio:** Favorable.
 
-FOR:
-- Real, deterministic autoload bug on a **tristate** driver that already
-  has an OF table
-- DVFSRC is the parent of interconnect and regulator children; missing
-  autoload takes down that DVFS/bandwidth stack
-- 1-line, standard `MODULE_DEVICE_TABLE(of, ...)` pattern already used
-  by sibling MediaTek SoC drivers
-- Applied by the MediaTek SoC maintainer; v1 accepted unchanged
-- Same class as device-ID additions (explicit stable exception):
-  existing driver, existing hardware, missing match publication
-- Driver has been in this lineage since v6.13; the omission is old, not
-  a just-landed feature
+## Phase 9: Synthesis
 
-AGAINST:
-- No user/syzbot report; author describes it as source-level
-- Not a crash, deadlock, or data-corruption fix
-- `=y` builds are unaffected; no in-tree defconfig sets
-  `CONFIG_MTK_DVFSRC`
-- No Cc: stable (expected here; not used as a negative)
+**For backporting**
+- Real bug with a verified mechanism (ACS_ST only set by the discarded
+  write).
+- Write helpers currently return **0 on a failed PHY write**.
+- Small, obviously correct, maintainer-authored, Reviewed-by Andrew
+  Lunn.
+- Buggy code and `Fixes:` target are in this 6.12 tree.
+- Sibling poll-timeout fix is already here; this closes the remaining
+  hole that series called out.
+- Applies cleanly; no new API.
 
-UNRESOLVED:
-- lore.kernel.org stable-list search (HTTP 403)
-- Whether a given distro actually builds this as `=m` (unverified)
+**Against**
+- Error-path only (healthy bus never hits it).
+- Driver-specific, not a universal crash/UAF.
+- No user crash report; found by review.
 
-Step 9.2: APPLY THE STABLE RULES CHECKLIST
-1. Obviously correct and tested? **PASS** — one established macro;
-   maintainer applied v1
-2. Fixes a real bug that affects users? **PASS** — module will not
-   autoload for OF devices (`stable-kernel-rules.rst`: “real bug that
-   bothers people **or** just add a device ID”)
-3. Important issue? **PASS** as hardware-does-not-bind / missing ID-
-   table export, not as a panic. Severity MEDIUM but in the device-ID
-   exception class
-4. Small and contained? **PASS** — +1 line, one file
-5. No new features or APIs? **PASS** — only publishes an existing table
-6. Can apply to the local tree? **PASS** — file and table exist; the
-   line is already the correct form here
+**Unresolved**
+- Could not `b4 dig` this exact SHA (not in the checkout); lore/LKML
+  used instead.
+- lore.kernel.org WebFetch returned 403; discussion taken from
+  LKML/spinics.
 
-Step 9.3: CHECK FOR EXCEPTION CATEGORIES
-Record: **Device ID / match-table publication for an existing driver.**
-Closest documented exception: “just add a device ID.”
+**Stable rules**
+1. Obviously correct and tested? **PASS** (Reviewed-by Lunn; merged via
+   netdev)
+2. Real user-visible bug? **PASS** (false MDIO success / stale PHY data)
+3. Important? **PASS** (silent PHY misconfiguration; same class as
+   already-backported mt7530 MDIO error fixes)
+4. Small/contained? **PASS** (~12 lines, one file)
+5. No new features/APIs? **PASS**
+6. Applies to this tree? **PASS**
 
-Step 9.4: MAKE YOUR DECISION
-This is a one-line, obviously correct fix for a real modular-boot
-failure on MediaTek SoCs that already have this driver. Risk is
-negligible. It belongs in this tree’s stable lineage.
+Not an ID/quirk/DT/docs exception; it qualifies as a normal contained
+bugfix.
 
-### What it solves for stable users
-If `mtk-dvfsrc` is built as a module, kmod never gets `of:` aliases for
-`mediatek,mt8183-dvfsrc` and the other compatibles. The driver never
-probes, so DVFSRC children (EMI interconnect, DVFSRC regulators) never
-appear. Adding `MODULE_DEVICE_TABLE` is the supported way to generate
-those aliases (`include/linux/module.h` + `scripts/mod/file2alias.c`).
-
-### Risk vs benefit
-Benefit is restoring autoload for a SoC DVFS block; risk is a `.modinfo`
-addition with no runtime logic change.
-
-### Concerns
-Needs no extra commits. Older stables without `mtk-dvfsrc.c` (pre-6.13)
-would not apply; **this** checkout has the driver. Lore stable
-discussion could not be fetched (403).
+This should be backported to this 6.12 tree: the bug is present, the fix
+is surgical, and it finishes error handling that 6.12 already took for
+the same helpers.
 
 Verification:
-- [Phase 1] `git show ec762057868d70`: subject/tags/body as above; no
-  Fixes/Cc stable/Reported-by
-- [Phase 2] Diff is exactly `+MODULE_DEVICE_TABLE(of,
-  mtk_dvfsrc_of_match);` in `mtk-dvfsrc.c`
-- [Phase 3] Blame: table from 192514ae05687; MODULE_DEVICE_TABLE line
-  from ec762057868d70
-- [Phase 3] `git show 192514ae05687a:drivers/soc/mediatek/mtk-dvfsrc.c`:
-  of_match_table + module_platform_driver, no MODULE_DEVICE_TABLE
-- [Phase 3] `git merge-base --is-ancestor 192514ae05687 v6.13-rc1` yes;
-  not in v6.12
-- [Phase 3] `git merge-base --is-ancestor ec762057868d70 HEAD` yes
-- [Phase 4] `b4 dig -c/-a/-w/-m`: lore msgid
-  20260704124308.6241-1-pengpeng@iscas.ac.cn; v1 only; maintainers CC’d;
-  Angelo applied to v7.2-next/soc
-- [Phase 4] lore.kernel.org HTTP 403 — stable-list discussion UNVERIFIED
-- [Phase 5] Callers: `icc-emi.c`, `mtk-dvfsrc-regulator.c`; Kconfig
-  `depends on MTK_DVFSRC`; probe uses `devm_of_platform_populate`
-- [Phase 5] `CONFIG_MTK_DVFSRC` is tristate in
-  `drivers/soc/mediatek/Kconfig`
-- [Phase 6] `git describe HEAD` = v7.3-rc4-27-gf0100363d8c37;
-  kernelversion 7.3.0-rc4
-- [Phase 6] Pre-commit file has match table and no MODULE_DEVICE_TABLE
-- [Phase 7] MAINTAINERS: ARM/Mediatek SoC support → AngeloGioacchino Del
-  Regno (applier)
-- [Phase 8] Failure mode: module not autoloaded → DVFSRC/DVFS stack
-  down; not an oops
-- UNVERIFIED: distro `=m` vs `=y` defaults; stable@ lore thread
+- [Phase 1] Parsed candidate tags: Reviewed-by Andrew Lunn, msgid link,
+  Golle/Kicinski SOBs; original LKML also had Fixes: c288575f7810
+- [Phase 2] Diff: six `ret = mt7530_mii_write(); if (ret < 0) goto out;`
+  in four PHY_IAC helpers
+- [Phase 2] Header: ACS_ST is BIT(31); poll waits for it clear —
+  confirmed in mt7530.h
+- [Phase 2] Write helpers return poll `ret` (0 on success) — failed
+  write currently looks successful
+- [Phase 3] Blame: writes from c288575f7810 (2020); ancestor of HEAD
+- [Phase 3] Sibling 96e0f5184af69 already in tree (v6.12.103~217);
+  93d46870c5440 MDIO read-error fix also in tree
+- [Phase 3] `git log --grep='PHY_IAC command writes'` on this file:
+  empty
+- [Phase 4] LKML v2 3/6: “v2: no changes”; Lunn Reviewed-by, no NAK
+- [Phase 4] Cover letter: companion to already-applied PHY polling patch
+- [Phase 4] stable@ search: no hits
+- [Phase 5] Callers: mt753x_table ID_MT7531/MT7988/EN7581;
+  bus->read/write in mt7530_setup_mdio
+- [Phase 6] `git describe HEAD` / Makefile: 6.12.111 pending-6.12; six
+  unchecked PHY_IAC writes remain
+- [Phase 6] Current lines match the patch context (including
+  regmap_read_poll_timeout)
+- [Phase 7] MAINTAINERS: Daniel Golle is MediaTek switch co-maintainer
+- [Phase 8] Failure: stale PHY data / false write success, not oops
+- UNVERIFIED: b4 dig of this exact mainline SHA (commit not in
+  checkout); lore.kernel.org 403
 
 **YES**
 
- drivers/soc/mediatek/mtk-dvfsrc.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/dsa/mt7530.c | 24 ++++++++++++++++++------
+ 1 file changed, 18 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
-index 41add5636b03c..af35d71615baf 100644
---- a/drivers/soc/mediatek/mtk-dvfsrc.c
-+++ b/drivers/soc/mediatek/mtk-dvfsrc.c
-@@ -562,6 +562,7 @@ static const struct of_device_id mtk_dvfsrc_of_match[] = {
- 	{ .compatible = "mediatek,mt8195-dvfsrc", .data = &mt8195_data },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, mtk_dvfsrc_of_match);
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index bd0a37ead0dec..24c7cb225da1a 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -557,7 +557,9 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
  
- static struct platform_driver mtk_dvfsrc_driver = {
- 	.probe	= mtk_dvfsrc_probe,
+ 	reg = MT7531_MDIO_CL45_ADDR | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | regnum;
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
+ 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
+@@ -568,7 +570,9 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
+ 
+ 	reg = MT7531_MDIO_CL45_READ | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad);
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
+ 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
+@@ -602,7 +606,9 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
+ 
+ 	reg = MT7531_MDIO_CL45_ADDR | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | regnum;
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
+ 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
+@@ -613,7 +619,9 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
+ 
+ 	reg = MT7531_MDIO_CL45_WRITE | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | data;
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
+ 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
+@@ -646,7 +654,9 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
+ 	val = MT7531_MDIO_CL22_READ | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_REG_ADDR(regnum);
+ 
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, val | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, val | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
+ 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
+@@ -681,7 +691,9 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
+ 	reg = MT7531_MDIO_CL22_WRITE | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_REG_ADDR(regnum) | data;
+ 
+-	mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	if (ret < 0)
++		goto out;
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, reg,
+ 				       !(reg & MT7531_PHY_ACS_ST), 20, 100000);
 -- 
 2.53.0
 
