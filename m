@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAA3CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111FCCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDjf5Zet0LKmhh6LAOeo9wOIpr3u3VhhkFWY0LFMIyU=; b=D4BreF1ho37Zydu4PKG86UmDlP
-	v8H2+zW5Keol+LKFqKxPhWH1tJj7+iAqvSdeew3yiUG0kr113/Dj2lK+s/32iXeZIOHabMUSIb9wR
-	rmXGmJFuuP+ANrqzDllyuYKHThQRILo2l2Jo/KCv+tDr/JxQtDtAnpOZoJWEfsmIICdHoi0U/4gnK
-	FHZWc6TJpQ1dXLwSC2WQlKj+SN44L+CV4giZ4+TpfORj52IC3rNnKVFXnbN+gUsiJqfKLkHWhSwkQ
-	1rHDrIW/u4wgaPLFqBskQnX+HFqCwriUNqxouZ+uKmUGFiVPz32lZd9ij8vT6YmPP5l7Z9Jsi8uJm
-	Sdojssog==;
+	bh=V6YTkuc+JQ/Q5NgJoM+Ztyfr/5wVw30o5S+KA6zRLSw=; b=ICMSeNpOI1Q1WJliIO9CltiuT/
+	Fpd5cSOeVghEj2oy/j42XBq3AVB8IzJdkzFeUXU2NLFhtTRISIXY61ML+PgTs4aBPop97GGjcACVT
+	CdsKNLuT2TCQeESOkVC0ceteRPrjcWZ0g7+XM552F000cvEABgx/ThjAieRbpwwBIPGb1cJt4e0vD
+	WoVG3d8B/O761BvIoBKFfhHjgwbCud7441h0ejnt3MNSa7W5yxIsw+fgUWVcy4hVunIShQ9/BmQ9w
+	V3kKnBPEI/ALWhIb8U/FVUCAVYvhl/U3oAYPCeHIZQUqCG7zaW9BnBQY3SirXTVamDCOWnb1jL+Q7
+	rmbmLqEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkYL-00000007BHG-27cA;
-	Mon, 19 Oct 2026 10:25:13 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1xIkbs-00000007Bev-0YuM;
+	Mon, 19 Oct 2026 10:28:52 +0000
+Received: from mail-m10239.netease.com ([154.81.10.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkYI-00000007AzY-0E7L
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:25:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=DDjf5Zet0LKmhh6LAOeo9wOIpr3u3VhhkFWY0LFMIyU=; b=sLuOTZk1259plTznuAjZZl8qHx
-	O2XpSyfTSS9N+bngz1bNYYv2VEfq7tqHja8V7CTBuXUZbfodn8VHRBd6Ks2mZNRDSTVr0V6zpuBIQ
-	xH7nev8zSTJnPMZ0tMP1ZGqA3vZQfexnkep3Z8ZIMThC/dsFyz40EPe43Z3sef/I9PaV8OvqYgySW
-	g8ImJX65XH5Wv8PRMY2/pnp1R6fAVQ7CNQnQJJsjIjhEbpkKs/YrSDLgMBi1u98OmQNwSrTK/kWqR
-	23ZA+erM83OeOPCgvt9+CGGpZdnW/x7ENxLW904NeY7+b2mWViEWetwi1zl3dULKJuiX0gPJAQB/T
-	TzZP7DcQ==;
-Received: from [115.246.246.98] (port=45272 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <saivarun@couthit.com>)
-	id 1xIkXb-00000000VO5-2pJL;
-	Mon, 19 Oct 2026 06:24:27 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 013371BA02D0;
-	Mon, 19 Oct 2026 15:54:23 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id erd3YtZvu9BY; Mon, 19 Oct 2026 15:54:21 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id CAD1F1BA0896;
-	Mon, 19 Oct 2026 15:54:21 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id ShKfL8_7tJT2; Mon, 19 Oct 2026 15:54:21 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id A09201BA02D0;
-	Mon, 19 Oct 2026 15:54:21 +0530 (IST)
-Date: Mon, 19 Oct 2026 15:54:21 +0530 (IST)
-From: Saivarun Mudepally <saivarun@couthit.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Sai Varun Mudepally <saivarun@couthit.com>, danishanwar@ti.com, 
-	parvathi@couthit.com, rogerq@kernel.org, pmohan@couthit.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, afd@ti.com, 
-	basharath@couthit.com, horms@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, pratheesh@ti.com, vigneshr@ti.com, 
-	praneeth@ti.com, srk@ti.com, j-rameshbabu@ti.com, m-malladi@ti.com, 
-	rogerq@ti.com, krishna@couthit.com, mohan@couthit.com
-Message-ID: <493615167.624945.1792405461616.JavaMail.zimbra@couthit.local>
-In-Reply-To: <179214979438.408196.11375100740673315884@kernel.org>
-References: <20261016105206.167094-1-saivarun@couthit.com> <179214979438.408196.11375100740673315884@kernel.org>
-Subject: Re: [PATCH net-next] net: ti: icssm-prueth: use
- dev_close()/dev_open() in icssm_prueth_change_mode()
+	id 1xIkbo-00000007Bcu-2Ucl;
+	Mon, 19 Oct 2026 10:28:50 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 518d3dd93;
+	Mon, 19 Oct 2026 18:28:44 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dave Jones <s.dave.jones@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v2 2/6] dt-bindings: phy: Add rockchip,rk3568-edp-phy
+Date: Mon, 19 Oct 2026 18:28:20 +0800
+Message-Id: <20261019102824.3157044-3-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261019102824.3157044-1-damon.ding@rock-chips.com>
+References: <20261019102824.3157044-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.247]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC155 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: use dev_close()/dev_open() in icssm_prueth_change_mode()
-Thread-Index: Sxdr3LPvc6wuwZudfEjLAZ3i6JSt9Q==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa153b4dcab03a8kunme348c01b2f6c23
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHxgYVkNIThlMThpPHUxJSVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=OsrTuEvGRar69oVJvDEGrHyGHJx0cRXhFo3RZDydmmLlOhxprf5M5JS8BIV8sxhtA+Ov7BB80zmj0ic9xAoXpXEKyJpJOaNH81zVu7Azg0KnZ4E7a881tK/1ZJkIGllwUWYzwpuayoG/5BmHLRxLVDSiI58B6NcqJppU17oXVyM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=V6YTkuc+JQ/Q5NgJoM+Ztyfr/5wVw30o5S+KA6zRLSw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032510_160196_740EC1E4 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261019_032849_160110_B51F5D94 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +94,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Document the eDP transmitter PHY with NaNeng IP block found on the
+RK3568 SoC.  The PHY is controlled through the eDP PHY GRF registers,
+so its node is modeled as a child of the eDP PHY GRF syscon.  Also
+add the "rockchip,rk3568-edp-phy-grf" compatible and the "edp-phy"
+child node reference to the Rockchip GRF schema.
 
-Hi,
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+---
+ .../bindings/phy/rockchip,rk3568-edp-phy.yaml | 59 +++++++++++++++++++
+ .../devicetree/bindings/soc/rockchip/grf.yaml | 15 +++++
+ 2 files changed, 74 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
+
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
+new file mode 100644
+index 000000000000..afe7bc3d839e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/rockchip,rk3568-edp-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip eDP Transmitter PHY with NaNeng IP block
++
++maintainers:
++  - Damon Ding <damon.ding@rock-chips.com>
++  - Heiko Stuebner <heiko@sntech.de>
++
++description:
++  On the RK3568 SoC the eDP PHY is controlled through the eDP PHY GRF
++  registers, therefore the PHY node is expected to be a child of the
++  eDP PHY GRF syscon node.
++
++properties:
++  compatible:
++    const: rockchip,rk3568-edp-phy
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: refclk
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rk3568-cru.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      edp_phy_grf: syscon@fdcb0000 {
++        compatible = "rockchip,rk3568-edp-phy-grf", "syscon", "simple-mfd";
++        reg = <0x0 0xfdcb0000 0x0 0x100>;
++        clocks = <&cru PCLK_EDPPHY_GRF>;
++
++        edp_phy: edp-phy {
++          compatible = "rockchip,rk3568-edp-phy";
++          clocks = <&pmucru XIN_OSC0_EDPPHY_G>;
++          clock-names = "refclk";
++          #phy-cells = <0>;
++        };
++      };
++    };
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 7bcb4e2f47ec..8d4ced0145b8 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -93,6 +93,7 @@ properties:
+               - rockchip,rk3399-grf
+               - rockchip,rk3399-pmugrf
+               - rockchip,rk3562-pmu-grf
++              - rockchip,rk3568-edp-phy-grf
+               - rockchip,rk3568-grf
+               - rockchip,rk3568-pmugrf
+               - rockchip,rk3576-ioc-grf
+@@ -156,6 +157,19 @@ allOf:
+           $ref: /schemas/phy/rockchip,rk3288-dp-phy.yaml#
+           unevaluatedProperties: false
  
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
-> 
-> - How the issue was discovered, e.g. hit in production, hit during
->   development, syzbot report, manual code inspection, LLM or static
->   analysis tool scan.
-> 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3568-edp-phy-grf
++
++    then:
++      properties:
++        edp-phy:
++          type: object
++          $ref: /schemas/phy/rockchip,rk3568-edp-phy.yaml#
++          unevaluatedProperties: false
++
+   - if:
+       properties:
+         compatible:
+@@ -309,6 +323,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - rockchip,rk3568-edp-phy-grf
+               - rockchip,rk3576-dcphy-grf
+               - rockchip,rk3576-vo1-grf
+               - rockchip,rk3588-vo-grf
+-- 
+2.34.1
 
-Sashiko, the netdev AI review bot, reported it as a preexisting issue,
-while reviewing our ICSSM HSR/PRP offload series
-(https://lore.kernel.org/all/179151741150.434549.7819199497598747618@kernel.org).
-
-> - Whether the issue was actually triggered, or is only theoretical
->   (e.g. found by code inspection). If it was triggered please include
->   the symptoms, like the stack trace or error messages.
-> 
-
-We first confirmed the issue by manual code review. We were also able to
-replicate it on TI AM57xx IDK hardware board.
-
-> - What hardware the change was tested on. For driver fixes please
->   mention the device (and if relevant firmware version) used for
->   testing, or say that the change was not tested on real hardware.
-> 
-
-We tested the fix on TI AM335x ICE / AM437x IDK / AM57xx IDK with the ICSS-M
-PRUETH while changing the protocol from dual-EMAC to RSTP switch mode.
-
-
-Thanks and Regards,
-Sai Varun M.
 
