@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80673CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C208CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFyxxzpR/USn3B7USGX27xITd1JY7TPKw3RoZo3vEug=; b=Y5IZphhm7IQbHGOoU/KnLqe9Fy
-	USDilpwyW5T8RufzxcX3UiaDDFks9mcl6h64jLdtDgPwPK0x4N9UiMBmRkzs5zT1AOZ4jfxKfqUmm
-	8cmcszGmtZU5OJIck3nEX7FcWsHSt/2cWP4TVRKGgHYOzlVb0zBuFQ4ZkReJ9nZa0OvXWj1k+HWi7
-	+sXSG74qTlFSLUEaFm9jxHgtmxisS108tUb4ZJby82FJ4XsZ4p30aRtoM+yKggAJupbExEanJuiv7
-	VZaIou6Tc3+NafTFgR3lHg2wqziuSmOJfFn3yXdPduhf4hjTx9aRArJMJHhSXHAeH8hCCGakIIVIU
-	uPTV4yAw==;
+	bh=FASpZ5k/JyiXygAwiIimxKfKoMxwFYX/5kYDuwsYLlo=; b=BelO/zXdQXQwvQlFkVQddU6RYO
+	EHAesOcfmK/jXWx4y+q1J0JnICCZt/HzXV3d+K0gIS9VPj8GFh+MMtrjUpvdF8pHCZltld2iBZ049
+	MCR4+TWQIHE7Wq6DUHiXZYTGLhkxYRdI9nnhNSLpUdFvvorENOW3za2DQZigmHueLQNiwtzSWjSnX
+	naG1dUcQ68RschSKNQUWVyOJz7zTagg0e1H8dEZsVR79dOLmiq2DRiptWsVL8yNtU04k7MlOUDDLN
+	TaqwIY3cLk5FUUuyPu1q+QYtsUpg/EgzHmhij0nUxPWrj2226Z8jAQVBmsuGwB2tKH8vCESgS+DlJ
+	4nstB4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqk-00000007aTE-0FG0;
-	Mon, 19 Oct 2026 13:56:26 +0000
+	id 1xInqs-00000007aYt-1fK8;
+	Mon, 19 Oct 2026 13:56:34 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqi-00000007aSL-0iqT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:56:24 +0000
+	id 1xInqr-00000007aXo-0j1Y;
+	Mon, 19 Oct 2026 13:56:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B9156021C;
-	Mon, 19 Oct 2026 13:56:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 141EF1F000C9;
-	Mon, 19 Oct 2026 13:56:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C5876021C;
+	Mon, 19 Oct 2026 13:56:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085991F000C8;
+	Mon, 19 Oct 2026 13:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418183;
-	bh=AFyxxzpR/USn3B7USGX27xITd1JY7TPKw3RoZo3vEug=;
+	s=k20260515; t=1792418192;
+	bh=FASpZ5k/JyiXygAwiIimxKfKoMxwFYX/5kYDuwsYLlo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GJCvPCYV9mP8qRS1uAwB0NB5Z5VLEjbyOhid1CGqDf8RWOgyOW4Dd/IGaw3hoJgqT
-	 zYjMmWuhgIA6kXIRncph2WV7iVIIyQczQA4mlTtfkHL8rHTT0X9Mv0bXZm7QGuSgwN
-	 yvpKRBXA4iL41/wXXSVxEWPIABAPKTb2n0VAuBuuJGgJ28oiqWzRNBd4N2RqAOZB6w
-	 lfwTBzvSKArUguTpCjzWtXAccq4izJ2DtjnITzwcSfQvJYehDi+59p0IaLDEJFV2e2
-	 nki9ZHZHU6IQS+L1lPoumQBOI/jvanT3iL5Rt0sRm9M9EmiQZYxk4XVoOpqUpJb6gD
-	 0DL7D+LvFM8yw==
+	b=lazK86t40XxcY2NDAWhd4CJpRHyqnNboR/sDOMjLe8rcn8zw7OOPAEmZ5Bkgb0ooi
+	 s71ErRauZZbFvuhm8xAU+Y8IEwRhamyHRD5W8hksKUYPrfFxpEEaWMlaOlBGRm0B2J
+	 Xu0Ez/0ZCzTUU48f6TJbHRmuRq4YYhfC6xHUFMGzs/Q+sWTaq9kLZibDwBpQ6IoyUD
+	 r5/Yhi8ZZJ+TmvT/czLkFCscdnEDhjIcZQYJo0cs39zueunImfwqqHJVaXriF6s/wS
+	 xDwacxPKkBzZa1c8o7t4E+sQt0/tW6f3ri6qFioet1oVpASDHYRa4zVaBA7M+UunPh
+	 yEr1GRnUfepsA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Prashant Rahul <prashantrahul23@gmail.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	robin.clark@oss.qualcomm.com,
-	joro@8bytes.org,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] iommu/qcom: Publish pgtbl_ops before releasing init_mutex
-Date: Mon, 19 Oct 2026 09:46:02 -0400
-Message-ID: <20261019135441.1420968-71-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-6.1] wifi: mt76: mt7921: fix memory leak when skb_linearize fails in mcu rx event
+Date: Mon, 19 Oct 2026 09:46:08 -0400
+Message-ID: <20261019135441.1420968-77-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,435 +81,414 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+From: Prashant Rahul <prashantrahul23@gmail.com>
 
-[ Upstream commit a05b67cd45ad09a19f41b2d37255da714512e0ca ]
+[ Upstream commit 4361f1660101270611eb5dc39799f620b35f2e4d ]
 
-qcom_domain->pgtbl_ops was assigned after mutex_unlock(). Another thread
-calling qcom_iommu_init_domain() would see qcom_domain->iommu already set
-(domain fully initialized) and skip re-initialization under the mutex.
-If it then called qcom_iommu_map() before the first thread set pgtbl_ops,
-it would observe a NULL ops pointer and return -ENODEV for valid mappings.
+The ownership of sk_buff skb is passed to mt7921_queue_rx_skb, each
+path inside it under the switch case handles cleaning of skb and it
+is true for mt7921_mcu_rx_event as well.
 
-Move the assignment to before mutex_unlock() so that once the mutex is
-released the domain is fully visible to concurrent operations.
+mt7921_mcu_rx_event, on a success path, either queues skb via
+mt76_mcu_rx_event or cleans it immediately inside
+mt7921_mcu_uni_rx_unsolicited_event.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+However inside mt7921_mcu_rx_event, if skb_linearize fails, the function
+returns immediately and never bothers cleaning skb which leaks skb.
+
+Since skb is fully owned at this point, it is safe to call
+dev_kfree_skb which fixes the leak.
+
+Granted, the skb_linearize failure is rare as it can only fail under
+heavy memory usage, but at the same time, leaking memory under heavy
+memory usage can worsen the OOM condition.
+
+Signed-off-by: Prashant Rahul <prashantrahul23@gmail.com>
+Link: https://patch.msgid.link/20260716-mt7921-mem-leak-v1-1-6e9c0ea19f63@gmail.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **7.3-rc4** (mainline). The driver is present, the
-race is real, and the fix is a five-line lock-ordering correction. Below
-is the full nine-phase review.
+# Stable backport analysis: mt7921 MCU RX skb leak
+
+**Tree decided:** `pending-6.6` (6.6.157), SHA `04810563abb71`.
+At the start of this evaluation `git describe`/`make kernelversion`
+reported **6.6.157**. The working copy later moved to v7.3-rc4; every
+presence/absence claim below was rechecked against **`pending-6.6`**,
+not that later checkout.
+
+The candidate is mainline `4361f16601012` (`wifi: mt76: mt7921: fix
+memory leak when skb_linearize fails in mcu rx event`).
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: `[iommu/qcom] [Publish] Publish pgtbl_ops before releasing
-init_mutex`
-Subsystem: Qualcomm IOMMU (`drivers/iommu/arm/arm-smmu/qcom_iommu.c`).
-Verb “Publish … before” is a visibility/ordering fix (equivalent to
-“ensure” / “prevent”).
+**Step 1.1 — Subject**
+Record: **[wifi: mt76: mt7921]** **[fix]** memory leak when
+`skb_linearize` fails in MCU RX event.
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+**Step 1.2 — Tags**
+- `Signed-off-by: Prashant Rahul <prashantrahul23@gmail.com>` (author)
+- `Link: https://patch.msgid.link/20260716-mt7921-mem-
+  leak-v1-1-6e9c0ea19f63@gmail.com`
+- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` (mt76 maintainer;
+  applied the patch)
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
+  by:`, or `Cc: stable` (absence of Fixes/Cc-stable is expected for this
+  review).
+Record: Maintainer SOB; msgid shows **v1 patch 1/1** (standalone).
+
+**Step 1.3 — Body**
 Record:
-- `Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>`
-- `Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>` (author)
-- `Signed-off-by: Will Deacon <will@kernel.org>` (IOMMU/SMMU maintainer)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Link:`, or `Cc: stable`
-  (absence expected; not a negative)
+- **Bug:** `mt7921_queue_rx_skb` transfers skb ownership into
+  `mt7921_mcu_rx_event`. Success paths free or queue the skb. If
+  `skb_linearize()` fails, the function returns without freeing.
+- **Symptom:** skb leak. Author notes failure is rare (ENOMEM) but
+  leaking under memory pressure can worsen OOM.
+- **Root cause:** missing `dev_kfree_skb` on the linearize error path.
+- **Version info in message:** none.
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-Record:
-- **Bug:** `qcom_domain->pgtbl_ops` was stored after
-  `mutex_unlock(&init_mutex)`.
-- **Symptom:** A concurrent `qcom_iommu_init_domain()` sees
-  `qcom_domain->iommu` already set, skips init, then `qcom_iommu_map()`
-  reads a NULL ops pointer and returns `-ENODEV` for valid mappings.
-- **Root cause:** The “domain initialized” flag (`iommu`) is published
-  under the mutex; page-table ops are published after the mutex is
-  dropped, so the domain is only half-visible.
-- **Version info:** None in the message. Blame shows the unlock-then-
-  assign pattern dates to the original driver (2017).
-
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: Not disguised. Explicit race with a concrete failure (`-ENODEV`
-on map). Not cleanup/refactor.
+**Step 1.4 — Hidden bug fix?**
+Record: **No disguise.** This is an explicit leak fix, not cleanup-as-
+fix.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-**Step 2.1: INVENTORY THE CHANGES**
+**Step 2.1 — Inventory**
 Record:
-- File: `drivers/iommu/arm/arm-smmu/qcom_iommu.c` — 2 insertions, 3
-  deletions
-- Function: `qcom_iommu_init_domain()`
-- Scope: single-file surgical reorder of three statements
+- File: `drivers/net/wireless/mediatek/mt76/mt7921/mcu.c` (**+3 / −1**)
+- Function: `mt7921_mcu_rx_event`
+- Scope: **single-file surgical fix**
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record:
-**Before:** program context banks → `mutex_unlock(init_mutex)` →
-`pgtbl_ops = …` → `return 0`.
-**After:** program context banks → `pgtbl_ops = …` →
-`mutex_unlock(init_mutex)` → `return 0`.
-Error paths (`out_clear_iommu` / `out_unlock`) are unchanged. This is
-the success-path publication of domain state.
+**Step 2.2 — Flow**
+Before (pending-6.6 `mcu.c:312-313`):
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record: **[Synchronization / race]**.
-`qcom_domain->iommu` is set near the start of init (under the mutex) and
-is the “already initialized” flag:
-
-```227:229:drivers/iommu/arm/arm-smmu/qcom_iommu.c
-        mutex_lock(&qcom_domain->init_mutex);
-        if (qcom_domain->iommu)
-                goto out_unlock;
+```
+if (skb_linearize(skb))
+    return;
 ```
 
-`qcom_iommu_map()` does not take `init_mutex`; it only checks
-`pgtbl_ops`:
+After:
 
-```436:439:drivers/iommu/arm/arm-smmu/qcom_iommu.c
-        struct io_pgtable_ops *ops = qcom_domain->pgtbl_ops;
-
-        if (!ops)
-                return -ENODEV;
+```
+if (skb_linearize(skb)) {
+    dev_kfree_skb(skb);
+    return;
+}
 ```
 
-Unlocking before the store lets another attach skip init and then map
-with a NULL ops pointer. The fix publishes ops while still holding the
-mutex so that once waiters proceed, the domain is fully usable.
+Record: **error path only.** Success paths unchanged.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-Record: Obviously correct publish-under-lock. Minimal. No new locks,
-APIs, or control flow besides statement order. Regression risk is very
-low: the assignment is a plain pointer store of a fully constructed
-object; holding the mutex a few extra instructions does not create
-deadlock (map/unmap use `pgtbl_lock`, not `init_mutex`).
+**Step 2.3 — Bug mechanism**
+Record: **[resource leak]** On `skb_linearize` failure (`-ENOMEM` for
+nonlinear skbs), the still-owned skb is dropped. Caller
+`mt7921_queue_rx_skb` does not free after `PKT_TYPE_RX_EVENT`. Other
+switch arms in the same caller (`dev_kfree_skb` / `napi_consume_skb`)
+and other arms of `mt7921_mcu_rx_event` (`dev_kfree_skb`,
+`mt76_mcu_rx_event` queue) already consume the skb.
+
+**Step 2.4 — Fix quality**
+Record: **Obviously correct.** Matches established kernel pattern (`if
+(skb_linearize(skb)) { dev_kfree_skb(_any)(skb); return; }`). Same free
+helper already used in this MCU event path. No API/lock/data-structure
+change. Regression risk: **very low** (could only be a double-free if
+linearize already freed; it does not — see Phase 5).
 
 ---
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+## PHASE 3: GIT HISTORY
 
-**Step 3.1: BLAME THE CHANGED LINES**
-Record: Unlock-then-assign was introduced in `0ae349a0f33fb`
-(“iommu/qcom: Add qcom_iommu”, Rob Clark, 2017-08-09), first in
-**v4.14-rc1**. The bug is ~9 years old in this driver, not a recent
-regression.
+**Step 3.1 — Blame**
+Record: Leak introduced by **`f0ff5d3aa64812`** (`mt76: mt7921: make all
+event parser reusable between mt7921s and mt7921e`, Sean Wang,
+2021-10-19). That commit added `skb_linearize` + early return and never
+freed on failure. Present since ~5.16-era; **`git merge-base --is-
+ancestor f0ff5d3aa64812 pending-6.6` succeeds.**
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: No `Fixes:` tag. Buggy code is the original 2017 driver, which
-is an ancestor of this tree.
+**Step 3.2 — Fixes: tag**
+Record: **None.** Introducer identified by blame: `f0ff5d3aa64812`,
+which **is** in this 6.6 tree.
 
-**Step 3.3: CHECK FILE HISTORY**
-Record: Same-day series from Mukesh Ojha (applied 2026-07-22 by Will
-Deacon):
-- `3c748a5554f96` — leak of `pgtbl_ops` on error (patch 4/6)
-- `a05b67cd45ad0` — this commit (patch 5/6)
-- `cb776a03a5342` — clocks before ctx probe (patch 6/6)
+**Step 3.3 — File history (pending-6.6)**
+Recent 6.6 work on this file is CLC firmware validation, not MCU RX. No
+competing leak fix. Record: **standalone**; not part of a multi-patch
+series.
 
-This patch only reorders unlock vs assignment. It does **not** depend on
-the leak fix.
+**Step 3.4 — Author**
+Prashant Rahul has **no other commits** in this tree’s mt76 history.
+Applied by **Felix Fietkau**, listed maintainer of MEDIATEK MT76 in
+`MAINTAINERS`. Record: one-off contributor; **maintainer-applied**.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record: Mukesh Ojha (Qualcomm) submitted a “Misc Fixes” series for the
-legacy qcom_iommu driver. Not the IOMMU subsystem maintainer; Will
-Deacon applied it. Konrad Dybcio (Qualcomm) reviewed.
-
-**Step 3.5: DEPENDENT/PREREQUISITE COMMITS**
-Record: Standalone. v2 series is 6 patches; this one has no code
-dependency on the others. Can apply alone.
+**Step 3.5 — Dependencies**
+The hunk only needs `mt7921_mcu_rx_event` + `skb_linearize` +
+`dev_kfree_skb`, all present. Mailing-list patch context matches 6.6
+(the extra `MCU_EVENT_RSSI_NOTIFY` in later mainline is **below** the
+change). Record: **applies standalone**.
 
 ---
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+## PHASE 4: MAILING LIST / EXTERNAL
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-Record:
-- Lore (from `b4 dig -c a05b67cd45ad0`): https://patch.msgid.link/202607
-  17144608.3216274-6-mukesh.ojha@oss.qualcomm.com
-- **v1:** `[PATCH 5/8]` 2026-06-23 — https://patch.msgid.link/2026062312
-  2034.1166295-6-mukesh.ojha@oss.qualcomm.com
-- **v2:** `[PATCH v2 5/6]` 2026-07-17 (applied version; same diff as v1
-  for this patch)
-- Konrad on v1: `Reviewed-by` plus a non-blocking note that a
-  `guard(mutex)` wrapper would also work. No NAK.
-- Will Deacon applied the whole v2 series to `iommu (arm/smmu/updates)`
-  on 2026-07-22. No stable nomination, no risk flags.
+**Step 4.1 — Original discussion**
+- `b4 dig -c <msgid>` / `b4 mbox`: no match (404).
+- lore.kernel.org: **403**.
+- Recovered from Openwall and Ratatoskr:
+  https://lists.openwall.net/linux-kernel/2026/07/16/1707
+  msgid `20260716-mt7921-mem-leak-v1-1-6e9c0ea19f63@gmail.com`
+Record: **v1, single patch**, applied as submitted (`4361f16601012`
+matches that diff). No v2/v3.
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record (`b4 dig -w`): Mukesh Ojha, Rob Clark, Will Deacon, Joerg Roedel,
-Alex Williamson, Robin Murphy, Konrad Dybcio; lists
-`iommu@lists.linux.dev`, `linux-arm-msm`, `linux-arm-kernel`.
-Appropriate maintainers were on Cc. Konrad reviewed; Will applied.
+**Step 4.2 — Recipients (`b4 dig -w` unavailable; headers from
+Openwall)**
+To: Felix Fietkau, Lorenzo Bianconi, Ryder Lee, Shayne Chen, Sean Wang
+(mt76 maintainers/reviewers), plus MediaTek ARM contacts. Cc: linux-
+wireless, linux-kernel, linux-mediatek, linux-arm-kernel. Record:
+**correct maintainer set**.
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: No `Reported-by`, syzbot, or bugzilla. Author analysis only.
-UNVERIFIED whether anyone hit this in the field.
+**Step 4.3 — Bug report**
+Record: **No syzbot/bugzilla.** Static ownership analysis; author states
+the leak is rare.
 
-**Step 4.4: RELATED PATCHES AND SERIES**
-Record: Part of “iommu/qcom: Misc Fixes”. Other patches (fault-log
-polarity, pm_runtime, leak, clocks) are independent. v1 patches 6/8 and
-8/8 were dropped after review; this patch was unchanged.
+**Step 4.4 — Series**
+Record: **1/1 standalone.** No sibling mt7925/mt7915 patches required
+for this tree (only mt7921 has this `skb_linearize` in pending-6.6).
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: lore.kernel.org/stable search for `pgtbl_ops qcom` did not show
-this patch. Hits were unrelated (`arm-smmu-qcom` power-up). No evidence
-it was rejected for stable.
+**Step 4.5 — Stable list**
+Search for this subject on lore stable returned unrelated hits. Record:
+**no prior stable NAK found** (lore 403 limited this).
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1: KEY FUNCTIONS**
-Record: `qcom_iommu_init_domain()` (modified). Related:
-`qcom_iommu_attach_dev()`, `qcom_iommu_map()`, `qcom_iommu_unmap()`,
-`qcom_iommu_iova_to_phys()`.
+**Step 5.1 — Functions**
+Record: `mt7921_mcu_rx_event` only.
 
-**Step 5.2: TRACE CALLERS**
-Record:
-- `qcom_iommu_init_domain()` is only called from
-  `qcom_iommu_attach_dev()`.
-- `attach_dev` is the IOMMU `.attach_dev` op
-  (`qcom_iommu_ops.default_domain_ops`).
-- Core path: `__iommu_attach_device()` → `domain->ops->attach_dev()`.
-- This driver `select ARM_DMA_USE_IOMMU`. `arm_iommu_attach_device()`
-  documents that more than one client may share a mapping, and calls
-  `iommu_attach_device()`. Parallel probe of two devices sharing a
-  mapping is a realistic concurrent `init_domain` on the same
-  `qcom_domain`. Group mutex serializes attach **within** a group;
-  `generic_device_group` means one device per group, so two devices are
-  two groups and are **not** serialized against each other.
+**Step 5.2 — Callers**
+`mt7921_queue_rx_skb()` (`mac.c`) `case PKT_TYPE_RX_EVENT:` calls it and
+does **not** free afterwards.
 
-**Step 5.3: TRACE CALLEES**
-Record: `alloc_io_pgtable_ops()`, `qcom_scm_restore_sec_cfg()`, context-
-bank MMIO, `mutex_lock/unlock`. SCM and register programming make the
-critical section long; waiters pile up on `init_mutex` and then race the
-post-unlock store.
+That `rx_skb` hook is registered for **PCIe, USB, and SDIO**:
+- `mt7921/pci.c`, `usb.c`, `sdio.c` → `.rx_skb = mt7921_queue_rx_skb`
+- Invoked from `mt76_dma_rx_process` (NAPI), `mt76u` USB RX,
+  `mt76s_process_rx_queue` (SDIO)
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record: Reachable from device probe / DMA attach on Qualcomm “B family”
-SMMU platforms (MSM8916/8937/8939/8953/8976, etc.). Not a syscall fuzzer
-path; it is a normal boot/probe path. Userspace-triggered concurrent
-attach is also possible via the ARM DMA mapping API / VFIO-style attach
-of separate groups to one domain.
+Record: **hot RX path** for MT7921E/S/U.
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: `init_mutex` comment is “Protects iommu pointer” — the original
-code treated `iommu` as the publication point and left `pgtbl_ops`
-outside the lock. No sibling qcom function has the same bug.
-`map`/`unmap`/`iova_to_phys` all NULL-check `pgtbl_ops` and return
-`-ENODEV`/0 rather than crashing — so the race fails mappings instead of
-oopsing.
+**Step 5.3 — Callees**
+`skb_linearize` → `__skb_linearize` → `__pskb_pull_tail`; returns
+`-ENOMEM` on failure and **does not free** the skb
+(`include/linux/skbuff.h`: “If there is no free memory -ENOMEM is
+returned”). Success continues to `mt7921_mcu_uni_rx_unsolicited_event` /
+`mt76_mcu_rx_event` / `mt7921_mcu_rx_unsolicited_event`.
 
-semcode MCP: not available; used git grep and reads.
+**Step 5.4 — Reachability**
+Nonlinear MCU events are real:
+- SDIO `mt76s_build_rx_skb` uses `skb_add_rx_frag` when payload >
+  `MT_SKB_HEAD_LEN` — this is **why** `f0ff5d3aa64812` added linearize
+  (“paged fragment skb for the SDIO device”).
+- USB `mt76u_build_rx_skb` same pattern.
+- DMA `mt76_add_fragment` builds fraglists for multi-buffer RX.
+
+Record: reachable from normal firmware MCU events; unprivileged users
+can generate MCU traffic by using WiFi. Failure needs **ENOMEM during
+linearize**.
+
+**Step 5.5 — Similar patterns**
+In pending-6.6, `skb_linearize` appears **only here** under mt76. No
+duplicate site left unfixed in this tree.
 
 ---
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+## PHASE 6: LOCAL TREE (pending-6.6 / 6.6.157)
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-Record:
-- Tree: `v7.3-rc4-27-gf0100363d8c37`, `make kernelversion` =
-  **7.3.0-rc4**.
-- File exists at `drivers/iommu/arm/arm-smmu/qcom_iommu.c`.
-- `git merge-base --is-ancestor a05b67cd45ad0 HEAD` succeeds: this
-  commit is already in this checkout (landed as
-  `v7.2-rc2-7-ga05b67cd45ad0`).
-- Pre-fix code existed here from v4.14 until that commit. The race is in
-  this driver’s design, not in code added after this tree branched.
+**Step 6.1 — Buggy code present?**
+Record: **Yes.**
+`pending-6.6:drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:312-313`:
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: Five-line reorder around a pattern present since 2017. File
-moved in `e86d1aa8b60f7` (v5.8) from `drivers/iommu/qcom_iommu.c`; this
-tree already uses the new path. Expected apply: **clean**. No
-conflicting churn around the unlock.
+```
+if (skb_linearize(skb))
+    return;
+```
 
-**Step 6.3: RELATED FIXES ALREADY HERE**
-Record: The leak fix `3c748a5554f96` is also here and is independent. No
-alternate fix for this race.
+`git merge-base --is-ancestor 4361f16601012 pending-6.6` → **false**
+(fix not here).
+`git merge-base --is-ancestor f0ff5d3aa64812 pending-6.6` → **true**
+(bug intro is here).
+Bug age: **2021**, well before 6.6.
 
----
+**Step 6.2 — Backport difficulty**
+Submitted hunk is 4 lines around `skb_linearize` with context that
+matches 6.6 (`struct mt76_connac2_mcu_rxd *rxd` then the if).
+`MCU_EVENT_RSSI_NOTIFY` is later mainline-only context **below** the
+edit. Record: **clean apply / trivial**.
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-**Step 7.1: SUBSYSTEM AND CRITICALITY**
-Record: `[iommu / Qualcomm legacy SMMU] [IMPORTANT]`
-Not mm/core, but IOMMU DMA for a family of Qualcomm SoCs still in DT
-(phones, Dragonboard-class boards, embedded). Mapping failures break DMA
-for those devices.
-
-**Step 7.2: SUBSYSTEM ACTIVITY**
-Record: Legacy driver (“Misc Fixes” cover letter). Recent Qualcomm
-fixes; not a new subsystem. Mature code, long-present bug.
+**Step 6.3 — Related fixes already here?**
+`git log --grep=skb_linearize` on mt76 in this tree: **empty**. No
+alternate fix. Record: **none**.
 
 ---
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+## PHASE 7: SUBSYSTEM CONTEXT
 
-**Step 8.1: WHO IS AFFECTED**
-Record: **driver-specific / config-specific** — `CONFIG_QCOM_IOMMU` on
-`ARCH_QCOM` (MSM8916, MSM8937, MSM8939, MSM8953, MSM8976, …). Not
-universal.
+**Step 7.1**
+Record: **wifi / mt76 / mt7921**. Criticality: **IMPORTANT** — MT7921E
+is a common laptop WiFi 6 adapter (PCIe); USB/SDIO variants exist
+(`MT7921E/S/U` in Kconfig). Not core mm/net, not staging.
 
-**Step 8.2: TRIGGER CONDITIONS**
-Record: Two threads attaching the same `qcom_iommu_domain` (shared ARM
-DMA mapping, or two groups attached to one domain). After the first
-drops `init_mutex` and before it stores `pgtbl_ops`, the second skips
-init and maps. Window is a few instructions, but **preemption after
-unlock** makes it realistic; SCM-held init also means waiters are ready
-to run immediately. Not triggerable by an unprivileged syscall alone in
-the usual case; it is a probe/attach race. No field `Reported-by`
-(UNVERIFIED in production).
-
-**Step 8.3: FAILURE MODE SEVERITY**
-Record: **Failed IOMMU map (`-ENODEV`) for valid mappings** → DMA setup
-failure / device non-functional. Not a KASAN UAF or panic (`map` NULL-
-checks). **Severity: HIGH** (device DMA broken), not CRITICAL (no
-oops/corruption).
-
-**Step 8.4: RISK-BENEFIT RATIO**
-Record:
-- **Benefit:** Prevents a real attach/map race on Qualcomm IOMMU;
-  devices keep working under concurrent attach.
-- **Risk:** Very low (3-statement reorder, no API/locking change).
-- **Ratio:** Favorable.
+**Step 7.2**
+Record: Mature driver (MCU support from `1c099ab44727c8`, 2021). 6.6
+still receives mt76 bugfixes (CLC, etc.).
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## PHASE 8: IMPACT AND RISK
 
-**Step 9.1: COMPILE THE EVIDENCE**
+**Step 8.1 — Who is affected**
+Record: **driver-specific**, users with MediaTek MT7921 (very common on
+laptops). Config: `CONFIG_MT7921E/S/U`.
 
-**FOR:**
-- Real race: initialized flag published under lock, ops pointer
-  published after unlock.
-- User-visible failure: valid maps return `-ENODEV` (DMA/device
-  failure).
-- Bug in the driver since v4.14; this tree’s driver still has that
-  design.
-- 5-line, obviously correct publish-under-lock.
-- Reviewed by Konrad Dybcio; applied by Will Deacon.
-- Self-contained; not a new feature.
-- Used on real Qualcomm SoCs that still ship on LTS-class kernels.
+**Step 8.2 — Trigger**
+Record: Firmware MCU RX event whose skb is nonlinear, **and**
+`skb_linearize` fails (GFP/ENOMEM). Unprivileged WiFi use can generate
+events; the failure itself is **uncommon**. SDIO long events are the
+originally cited nonlinear case; USB/DMA can also fragment.
 
-**AGAINST:**
-- No `Reported-by` / syzbot / crash log.
-- Window is small; needs concurrent attach to the **same** domain.
-- Failure is `-ENODEV`, not oops/UAF/corruption.
-- Cover letter calls the series “Misc Fixes”; nobody Cc’d stable.
-- Peripheral vs core (legacy qcom_iommu, not arm-smmu-v3).
+**Step 8.3 — Failure mode**
+Record: **skb leak under memory pressure**, which can deepen OOM. Not a
+panic/UAF. Severity: **MEDIUM–HIGH** (hot-path leak, not a one-time
+probe leak).
 
-**UNRESOLVED:**
-- No confirmed production hit.
-- lore.kernel.org HTML fetch returned 403; discussion recovered via `b4
-  dig`/`b4 mbox`.
-- How often qcom platforms share one `dma_iommu_mapping` across devices
-  is not fully quantified; the ARM DMA API and `init_mutex` exist
-  specifically for that case.
+**Step 8.4 — Risk/benefit**
+- Benefit: **medium** — stops a real leak on a widely shipped chip; most
+  valuable when the system is already under memory pressure.
+- Risk: **very low** — 3 lines, error path, same free as sibling paths.
+- Ratio: **favor backport**.
 
-**Step 9.2: STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — reorder is locally
-   checkable; Konrad R-b; Will applied; in mainline since v7.2-rc2.
-2. Fixes a real bug that affects users? **PASS** — concurrent attach can
-   fail valid DMA maps.
-3. Important issue? **PASS** — DMA map failure can take devices out; not
-   a panic, but not cosmetic.
-4. Small and contained? **PASS** — 5 lines, one function.
-5. No new features or APIs? **PASS**.
-6. Can apply to the local tree? **PASS** — same file/function; already
-   the current code here.
+---
 
-**Step 9.3: EXCEPTION CATEGORIES**
-Record: None (not a device-ID/quirk/DT/build/doc exception). It is a
-normal small race fix.
+## PHASE 9: SYNTHESIS
 
-**Step 9.4: DECISION**
+**Step 9.1 — Evidence**
 
-This tree is **7.3-rc4**. The Qualcomm IOMMU driver is here, and the
-race is in the original 2017 init/map split, not in later architecture.
-The patch is a correct, tiny publication-order fix: once `init_mutex` is
-dropped, `pgtbl_ops` must already be visible so a concurrent attach
-cannot skip init and then fail `qcom_iommu_map()`.
+**For:**
+- Real leak with verified ownership (caller does not free).
+- Code and introducer are in 6.6.157; fix is not.
+- Tiny, obviously correct, maintainer-applied.
+- MT7921 is production hardware, not staging.
+- Leak on an RX path under OOM is a stability issue, not a style
+  cleanup.
 
-It meets stable rules: real bug, user-visible DMA failure, surgical
-change, no new API, no prerequisites. Benefit outweighs the tiny race
-window and lack of a field report.
+**Against:**
+- Trigger is rare (`skb_linearize` ENOMEM).
+- No crash/syzbot/CVE.
+- No explicit `Cc: stable` (not a negative per the review rules).
+
+**Unresolved:** Full lore thread (403/404); no reviewer comments beyond
+maintainer merge. Does not change the technical verdict.
+
+**Step 9.2 — Stable rules**
+1. Obviously correct and tested — **PASS** (3-line ownership fix; in
+   mainline via Felix).
+2. Real bug affecting users — **PASS** (skb leak on MT7921 MCU RX).
+3. Important (crash/security/corruption/deadlock) — **PASS** as an RX-
+   path leak that can worsen OOM; not a panic, but in the leak class
+   stable regularly takes.
+4. Small and contained — **PASS** (4 lines, one function).
+5. No new features/APIs — **PASS**.
+6. Can apply to this tree — **PASS** (hunk matches 6.6).
+
+**Step 9.3 — Exceptions**
+Record: none needed (not an ID/quirk/DT/build/doc exception). Ordinary
+small leak fix.
+
+**Step 9.4 — Decision**
+Backport to **this** 6.6.157 tree. The bug exists here, the fix is
+surgical, and regression risk is negligible.
+
+---
+
+## What the commit solves for stable users
+
+On MT7921, firmware MCU events are handed to `mt7921_mcu_rx_event` with
+full skb ownership. Nonlinear events (especially SDIO, also USB/DMA
+fragments) are linearized first. If that allocation fails, 6.6 returns
+and leaks the skb. Under memory pressure that leak makes OOM worse.
+Adding `dev_kfree_skb(skb)` on that path closes the leak without
+changing success behavior.
+
+## Risk vs benefit
+
+Benefit is a real leak fix on a common WiFi chip; risk is a three-line
+error-path free that matches existing code in the same function.
+
+## Concerns
+
+None material: no prerequisites, no API change, no locking, expected
+clean apply. Trigger rarity is the only weak point and is not enough to
+reject a contained leak fix.
 
 ---
 
 ## Verification
-- [Phase 1] Parsed tags: Reviewed-by Konrad Dybcio; SOB Mukesh Ojha +
-  Will Deacon; no Fixes/Reported-by/Cc-stable
-- [Phase 2] Diff: 2+/3- in `qcom_iommu_init_domain()`; move `pgtbl_ops`
-  store before `mutex_unlock`
-- [Phase 2] Confirmed `map()` NULL-checks ops and returns `-ENODEV`;
-  `init_domain` early-outs on `qcom_domain->iommu`
-- [Phase 3] `git blame`: unlock-then-assign from `0ae349a0f33fb`
-  (v4.14-rc1, Rob Clark)
-- [Phase 3] No Fixes tag; leak fix `3c748a5554f96` is independent
-- [Phase 3] `git merge-base --is-ancestor a05b67cd45ad0 HEAD` → yes
-  (already in this 7.3-rc4 checkout)
-- [Phase 3] `git describe a05b67cd45ad0` → `v7.2-rc2-7-ga05b67cd45ad0`
-- [Phase 4] `b4 dig -c a05b67cd45ad0`: v2 5/6 at
-  patch.msgid.link/20260717144608.3216274-6-…
-- [Phase 4] `b4 dig -a`: v1 5/8 (2026-06-23) → v2 5/6 (2026-07-17); this
-  hunk unchanged
-- [Phase 4] `b4 dig -w`: iommu maintainers + linux-arm-msm Cc’d
-- [Phase 4] Konrad v1 review: R-b; optional `guard(mutex)` suggestion
-  only; Will applied v2
-- [Phase 4] lore.kernel.org WebFetch 403; used b4 mbox instead
-- [Phase 4] stable@ search: this commit not discussed; unrelated arm-
-  smmu-qcom hits
-- [Phase 5] Callers: only `qcom_iommu_attach_dev` ← IOMMU `.attach_dev`
-  ← `__iommu_attach_device`
-- [Phase 5] `ARM_DMA_USE_IOMMU` / `arm_iommu_attach_device()` allows
-  shared mappings across devices
-- [Phase 5] semcode unavailable; used git grep + file reads
-- [Phase 6] `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`; `make
-  kernelversion` = 7.3.0-rc4
-- [Phase 6] Current file already has assignment before unlock (this
-  commit)
-- [Phase 7] DT: msm8916/8937/8939/8953/8976 use `qcom,msm-iommu-v1/v2`
-- [Phase 8] Failure: `-ENODEV` on valid map, severity HIGH; not oops
-- UNVERIFIED: production reproduction; exact share-mapping frequency on
-  qcom boards
 
-The fix is small, surgical, and meets the stable criteria for this
-tree’s Qualcomm IOMMU driver.
+- **[Phase 1]** Parsed tags: author SOB, Link msgid, Felix Fietkau SOB;
+  no Fixes/Reported-by/Cc-stable.
+- **[Phase 2]** Diff: +3/−1 in `mt7921_mcu_rx_event`; adds
+  `dev_kfree_skb` on `skb_linearize` failure.
+- **[Phase 3]** `git blame` on pending-6.6: leak from `f0ff5d3aa64812`
+  (2021-10-19); `git merge-base --is-ancestor f0ff5d3aa64812
+  pending-6.6` true.
+- **[Phase 3]** `git show f0ff5d3aa64812`: added `if
+  (skb_linearize(skb)) return;` with no free.
+- **[Phase 3]** `git log --author=Prashant Rahul`: no other mt76 commits
+  in this history.
+- **[Phase 4]** Openwall/Ratatoskr: v1 1/1, same diff as
+  `4361f16601012`; mt76 maintainers on To:.
+- **[Phase 4]** `b4 mbox` msgid: 404; lore.kernel.org: 403.
+  **UNVERIFIED:** full review replies / explicit stable nomination.
+- **[Phase 5]** Callers: `mt7921_queue_rx_skb` (no free on
+  `PKT_TYPE_RX_EVENT`); hooked from pci/usb/sdio `.rx_skb`.
+- **[Phase 5]** `skb_linearize` documented to return `-ENOMEM` and not
+  free; USB/SDIO `skb_add_rx_frag` makes nonlinear skbs.
+- **[Phase 6]** `git describe` at start: `p-6.6-3-g04810563abb71`, `make
+  kernelversion` 6.6.157.
+- **[Phase 6]** `git grep` on `pending-6.6`: leak at `mcu.c:312-313`.
+- **[Phase 6]** `git merge-base --is-ancestor 4361f16601012 pending-6.6`
+  false.
+- **[Phase 8]** Failure mode: skb leak under ENOMEM on MCU RX; severity
+  MEDIUM–HIGH.
+- **UNVERIFIED:** complete lore thread text after 403.
+
+The fix is small, matches stable leak-fix practice, and the buggy code
+is in this 6.6 tree.
 
 **YES**
 
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7921/mcu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index 792585321bd11..1a046122fca0d 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -306,13 +306,12 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
- 		ctx->domain = domain;
- 	}
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+index 8c8b35cba856c..f63ef02542387 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+@@ -354,8 +354,10 @@ void mt7921_mcu_rx_event(struct mt792x_dev *dev, struct sk_buff *skb)
+ {
+ 	struct mt76_connac2_mcu_rxd *rxd;
  
--	mutex_unlock(&qcom_domain->init_mutex);
--
- 	/* Publish page table ops for map/unmap */
- 	qcom_domain->pgtbl_ops = pgtbl_ops;
+-	if (skb_linearize(skb))
++	if (skb_linearize(skb)) {
++		dev_kfree_skb(skb);
+ 		return;
++	}
  
--	return 0;
-+	mutex_unlock(&qcom_domain->init_mutex);
+ 	rxd = (struct mt76_connac2_mcu_rxd *)skb->data;
  
-+	return 0;
- out_clear_iommu:
- 	qcom_domain->iommu = NULL;
- out_unlock:
 -- 
 2.53.0
 
