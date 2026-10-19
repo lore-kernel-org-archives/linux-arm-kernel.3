@@ -4,59 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513CBCCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F82BCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxYpOKeNE1GtVJhZEKyHa5DQN9VTfVaw7R5GeyyShr8=; b=mjCV6la2Xdsi8UwH9UKyAOtWzz
-	DFV24CFYkHcjrInSIVtTYEKLEucejwWSBzId01GrVVTyzx4xX1dcHsn3pJ5m4RkOeAptoxW6rPeMM
-	E/T8GP+hL7wC16d0f5TqVVWWB1+2AnL/kmd5pCR+tP84GjzR+rzl3/lysvwj9cb1m2BLDkMt6khvA
-	hnLP8Ry+Dqv/2G9L7P9IVZL7z7uwAtK15cTU2fGILLsxO2PrjEPgqhRtVZ8XlBws8q5cNPfKYNil7
-	E8aKZgxYwtrYMu/vYmPHQAfrPORooORjjZWMpq1HgDXwVWm31ry9WppPn4Et6TkpUdNAKkCtgwr7o
-	JmQJHbPg==;
+	bh=NQq/slcQaFKKGga24/UH4BgdRBeX//rBZrmtpja4jGQ=; b=Igo1D8vdq7rYFmFpEyYAyHwrNv
+	G3pST7Q49LVlajHKuY1O0Fe9Adiwt5t+Grz5TbNCZwgH3xbf+Z/Yc0DH5aH7QNMLe8qsA4hVrwObM
+	GbHw+z6UeDi+O1LYm6R9IFWOmWCzl1BPu6gmGaPy8ZWDg4zmPA9upmuywWK9GkfxZN2g/w932arcL
+	RpGZXyFcPg5VMyx8FDA/rnq2S5Acw+2oGSXJO5GI+Px3CorDwixZR7/CWOKbCWFjsIGdfh94YMeM4
+	I6yRHUmZeorVOW0SHBxugA6BtP0q/knBw/H4Wqrpa32ACy/H59PVJT5FFz1+myExaFqAo7KcO+hQB
+	HWJ1sRaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjz3-000000073gq-0P1d;
-	Mon, 19 Oct 2026 09:48:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIjzf-000000073nh-0xZP;
+	Mon, 19 Oct 2026 09:49:23 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjz1-000000073gj-39xK
+	id 1xIjza-000000073m6-18wI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 09:48:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A41A407D5;
-	Mon, 19 Oct 2026 09:48:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD83F1F000C4;
-	Mon, 19 Oct 2026 09:48:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792403323;
-	bh=kxYpOKeNE1GtVJhZEKyHa5DQN9VTfVaw7R5GeyyShr8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kUVqNXuhw67wpa517IY0Ef+gOzCTXJ9z1qfR4Gv4/xhOdzusCmOvJA82ZVuskQbq6
-	 a8z2NHGfBT2msPVz1fYsqVrThrWLS2M+za1Au2Rn0bVNv4bXdoshiw2oB+2LTq1dYd
-	 bsU55W/HjQdKjERA/34g/zOUFrvZsN8NRKs0w0dtkuGtOLEKcB7ozGIHz8abA2YIMg
-	 /g/bsloLYWA9WdusRAOlKTL3GKa1JknAnfkp7THoN16OAGbgOpJg4NlM27baLp3Czc
-	 fydllsmnjtJqd6p3Sq4geid0d7rpA0T/IUhbpQiA5uYJ+Aoe/5K466zpyDt4qGZYTt
-	 mxT7ECqLVpkpQ==
-Date: Mon, 19 Oct 2026 11:48:39 +0200
-From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
-To: Myeonghun Pak <mhun512@gmail.com>
-Cc: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, 
-	linux-kernel@vger.kernel.org, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Ijae Kim <ae878000@gmail.com>
-Subject: Re: [PATCH] platform: cznic: turris-omnia-mcu: stop button emulation
- producers
-Message-ID: <atXYWrNAI5pmyMHD@solitude>
-References: <20261016013918.3492835-1-mhun512@gmail.com>
+	Mon, 19 Oct 2026 09:49:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MgqGC7TKcil1MUB7ArJm1YDxYshcjHC1zJ6/wrXXat/CKVFPm9F5Xojn08g0DlxSTkrX0hQhKMqOgNGJpBs05WjMw7JbSgaHjOs3oc0dGV3VVh8GB9QY2KMQKiTgkJniXi8/oUCGsq+pDkV2Xn0S5DCu/xjkPmkj1DqqGWu63Hk26S2DAr6whQKMnS8fSP2BWhFnv9h/0HDsx58ejvRZGXfL5jTGiRQKZ4RoKWUdk4zFd95oFzlzy/B05DKvGe5hwMRSWX/gjqNUbJQI4ENFR/xkMRdVRaq5wdBHo1KjiraOCXwxR/5oKl0SJUJ9JuLxauYsam9/9vvzLVJRdRH3yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NQq/slcQaFKKGga24/UH4BgdRBeX//rBZrmtpja4jGQ=;
+ b=NmoWw2sAXlgnB1eq0PvmEJDIjuDaYtohOwMziXkFT4pgKh+MjoISHKM6oT/2m7zals7KzF3ILK1S3KmDNJ0u3nnafmR59Es1pXItC4j6fojwCunzYsmUpSyU2nwhjsaUDB7zN2Wau5S4GS9DdS7WEqLOxe7kcR7wyf8wZPYTjS6soPe/idgTtoGrbvo+MnFj8FHCXK7Wy1evLz5VmL23RcRgNAkhpwoE1SZ1mP8hdca1kS3Q9VOBeSSQLsmN7prY+mx1oZX4j31eCp55dcslRh5TDQhu9G4ZCTJMpo+wz4FfTqvRu3eZx0pRFgg0s3avUP9NErazsQmCex6gQK2zGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NQq/slcQaFKKGga24/UH4BgdRBeX//rBZrmtpja4jGQ=;
+ b=oTbuLeoBQ+smFmhZRdPC1J9xvg4Ey9J420mXNfajqs5AAJVKbC0fDZ1OgzswW4L6/giaELrKvaYiXzPIDAmynUwiJ90PviRevsQHl7vUe9DwRm6d7EHqCtgy5TC8Lat3p7c4I56yD+iZtbVSUN2q80U6g/Wi3kegUpiX5DoUTpUMz3CGOSrrtvoQTXVogqGMZO6tghSzjbD3BB94FRjkVA3w+2/1JxmK3f6+rZEVWFFM7n481CJVrnqeAWCzOPojM6voJzkyE1wEHTwobTZT9LuEqy0Oi3WHrE1EHA5Xtm5yi+f3/Rii8w0ZtKsnsiYKYILpMn35cOiU11pUutIyPQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by MMZPR04MB696060.eurprd04.prod.outlook.com (2603:10a6:190:4c::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 09:49:09 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0522.017; Mon, 19 Oct 2026
+ 09:49:09 +0000
+Message-ID: <26f655c8-211b-41a3-bfa4-584bd53a4ca5@nxp.com>
+Date: Mon, 19 Oct 2026 17:50:48 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] arm64: dts: imx8qxp: Add display controller
+ subsystem
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux@ew.tq-group.com
+References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
+ <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
+ <atBLglf0gSLS7XkW@raspi> <atD9yeOeHZiKzhZD@SMW015318>
+ <atH5htXNBjFYq6wn@raspi> <atIyHjPaKLlfdv5W@SMW015318>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <atIyHjPaKLlfdv5W@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR04CA0018.apcprd04.prod.outlook.com
+ (2603:1096:4:197::9) To MI9PR04MB350878.eurprd04.prod.outlook.com
+ (2603:10a6:290:c0::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261016013918.3492835-1-mhun512@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|MMZPR04MB696060:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11b962e9-6a06-4ce7-a33b-08df2dc63901
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|19092799006|23010399003|56012099006|10067099003|4143699003|11063799006|5023799004|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: AvVdmkCVYslz3yZZRbGJosnr+ZQKYcxK4RtsUlVDXOprsrFR3+pPc+qAdhri0IHc99wAkylwNqsWPBwb63k8GDzjVWZNRSh1J+E54TlZKzryPXkhUpMDq5V4qwb+9t6TqqvOk01bxjB7o3jlB4kPEk6EHiigGGJfxwvv9frfd7GcCvEsiej8j/6HUjXzfoC3SQSmRWbKoJh3zmxE59rnp5AyBYThZ/iSquP6/NzvwaPqdirk2i1Q6PxBGHtjwSrO7uyYNH56ALNKAsC4mAmx4lIyvYYr+VbUiRZCJQ5QR7VkS8omBuDNwHaoY2BnxC5HqorkHvpi0mr61NfaIQjml5xiKnJLzO6fcMAz/f1jobS+5VaBorff5aMXoIL1R33Sep24ztM6tpjANhCdJohokat44bOj8r216ONLF4shzmIAzb29rTGkOUWKJv8nUIjN0CgnFAtN+9mPbfJWi++l0zSaTKOAGQUScnttDlbDAt/8VwF0pfuN4nj0tbsAScTi9kkkyn0gu/cA0UJzHYlbpDqnoyVl3/CNNHhbSbiPGMwi+T8m+9tv641X9pHsq8OpMz2Z2XR9Jq3XzgFwsFYgO1d3bgB5FpJH5vzKFAVQhRBIOngdLpx6t+gM9BSBH6l+fPsRYhfmPVWDZf/3ErmWdvonPWu9peKPK+P/FadpnHA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(19092799006)(23010399003)(56012099006)(10067099003)(4143699003)(11063799006)(5023799004)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bTBxQVZMcStIY2ZJQnhVdXZoZVo1aWlMRUNveVVPSTJ5QjdvODhvZi8wSXZ0?=
+ =?utf-8?B?eUVueGF4RURaOVBFQktuOC9QZm90Q09WVUxDVS9JVGZIY3JoeVBBQ0g2VTNX?=
+ =?utf-8?B?OW1ITkRva1orUWxra1ZlYVJjUStuSVdoODZ2andKOTdjTXlTSWg4dlZrYzND?=
+ =?utf-8?B?VktnS1FuN1ZNWWRIZHJzNUcvSUM3V2Q1YnVtR0ltb0JRTDlTT1dQSWNPandE?=
+ =?utf-8?B?cDNsaWozbnk5d2pkK3VDN3M5RUVZK0c2WkFxY0VPM1lsZXU4anJqbzdTZGpn?=
+ =?utf-8?B?OTR6Q0hBTnlha3g1VWV5TVZRMWM3bGNoWmZCTjg4dGtCUmVacE1zd2NrVVFD?=
+ =?utf-8?B?RHdkb1o3em16Q2FpWkVhMFFxUWc5bjM4bWNrN3YydmtVUURlNVV0VUFOMUh6?=
+ =?utf-8?B?V05kMEhxR3pIOEVqOGE3NUt3WHBBTisxYmZleUpOb09rVFVlVUVZUkNQRUM5?=
+ =?utf-8?B?cnhkNHRsa1k1bkRBaU5sT1BjTStxYmIwUm9zeDBsQ3IyUVQxNGM5VlEzcy8w?=
+ =?utf-8?B?eGVVa20ydjdORTVteXRrTHkwc3h4b01sU1RKOWhLZkRaWCtBQ0pGb2VMbUl0?=
+ =?utf-8?B?YXVGYm5CQm5icGVNRjFkU0dHbSt1OUpTbmREYUhrRGVzdzExbHVSbnA5MUkr?=
+ =?utf-8?B?Q01jdGZqM3NaZzU1ZS9TRG5vR0dWOE5NNmtXK0dvNlFicDB4QlpFU1g2a3E0?=
+ =?utf-8?B?SzE1ZE4xNFRyQXc0N0Z1L09OLzJhekdkVHRRN2xUWFp5bTZLaFdwblR2K0hV?=
+ =?utf-8?B?TTVJSWdLQ0lZYW9zVW5nR0dZaDh5dEFicEJhUlowaE9yOHJvQXJ2Ui9xSlJT?=
+ =?utf-8?B?ZHlGd29SNFVSZWZGa0xhNE1XS0ttN0JQcmZrWkwvVnJQWTB1SitNRmhFd09U?=
+ =?utf-8?B?Y1VEa29EUHBOeFlUeDN0SUZtclVNZ0xOTGRVSy9WSUV0R3VUdlQva0hSbXpM?=
+ =?utf-8?B?QmkrclVtYWRwZGMyQlVJck9IWFpjT3p4SUZKNHowUFRUQzdtK1ZlbnlZQlky?=
+ =?utf-8?B?SnU1WnYyRW55UWxISGxVdWZWWFo0Y0FCb2Zwa3hjaWFRTTducXIvK3FvK3dV?=
+ =?utf-8?B?K3M3NUVwajU2eWRubDE4LzV2eGlEYTZ1N1RWNkJhMExnM29NUDFndE1Pc2xE?=
+ =?utf-8?B?cktlQW5XbHVYZG1tNzd1Z2I1TVQ1eVRNaDlQTjhvUUlhLzZmTS9jODB2TFpZ?=
+ =?utf-8?B?T1FiR1FFYkYvZEtwMmhoRUhIZ1pwNHl6bTRFVFFoV2dCQ2RXQ0pFUHdXbGZI?=
+ =?utf-8?B?WmhBaGF6cGprdmxYVktTUUlMeTEwZ05vNGZLSU1OZE5IWlVDVEI3N2R0cDV6?=
+ =?utf-8?B?ZndDTzVOQUZ1cVVZV0xQaWU4WC9pMUlwR1dlYVdzZ1lkSFpiTWxLa2VRcWdQ?=
+ =?utf-8?B?bVlMZW1sSVFuZFkvaTc0cmhyNWl3WTVXYW8zNytMbWo4WndVYTJydkduR2J2?=
+ =?utf-8?B?WkFSajRwNWlzd21OV1o5Rnp2T0ZDbmR4STBCS05GcU5sK0UyKzI0VExhb3ds?=
+ =?utf-8?B?L3BQb1RtUEhrVXlmdkF3OGlEWGJpbHhnMUptVVJsMzltekV1VGtnNVQwUGN6?=
+ =?utf-8?B?d1k5NWpQOGM3Z3Y3Sk5vZnM2TjNYRmxRd2t3SERIeEViMENjRk1oeStZS2Jv?=
+ =?utf-8?B?R3VkWi9yWXVuQXUxdlhwd3lhL3BZdkkvbjNiOWIxQkpidmxBRUFENHFJNk1h?=
+ =?utf-8?B?MmdBT2M4NnlhdFBpVnRFNk5XNHdoTTk3RFpjSGdobVlwYVJ6NDc2c0J5VnYw?=
+ =?utf-8?B?WlJBVmN2RjlzRTRGU1Uxd1RIdmRZL05DYmp5WmFHeEthV0lSVTJSUkVXLzIw?=
+ =?utf-8?B?M3Z6N2tIVTBCR1dRQUVSdVFxdFc0QmlRL2hnSGFJSlc2NXdIMTh0K2h4Tmxq?=
+ =?utf-8?B?c2R2THhhd2hEb2QvWDBscDhXR1lqbW1xQVBHNEpOT3EwMHdvQnhyMG1zUWdW?=
+ =?utf-8?B?c0tQR0svUWlVZncxaUVOKzdYRko5MjJZdnBoWSs0eEUwRFpRNEg5ci9GSzhq?=
+ =?utf-8?B?VmRPUU0yWUx5ZUp1dGNwSEh2ZGRVU0VQYWgzTWZCU285UEZZNkNqamUzMDYw?=
+ =?utf-8?B?VElnR0lSampTMnEvb05DaHVkUVN3WFBrS2FRbXBBOTM1bW9yL0VudSt0UmdK?=
+ =?utf-8?B?aTRtM1NOcHlWVDA4Ty9vWWNHa3o2cER6Uk05d3VkZ1ZGcVg3SUkycVJxanhX?=
+ =?utf-8?B?K1pibTUxNTgwRmI2WStTbStESFdZcUE5dWdwMmVtMUEybVMyYVFWWFdDUWNF?=
+ =?utf-8?B?dDFGL1E2MXRrYXZ1UkxqS3A2eGRxclN4VzVNNjBXS2htaVdjZVpOWEwxWjl6?=
+ =?utf-8?B?S2NGNElMcDNDVVd1RkpIWTEzQmFPdkNIWEFlaUZ2aVNiakZJZU9TUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11b962e9-6a06-4ce7-a33b-08df2dc63901
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 09:49:09.5586
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Eetc9tT7ZxsZzUPQhGqP7FVfdtmCgqTIzyqZrov/i3bp9D7ti92FEkv/GutdfL4nBu3AzM5SPNQlPBMuhTfNoQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB696060
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_024918_344339_A4DC54AC 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,95 +156,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acked-by: Marek Behún <kabel@kernel.org>
 
-This makes sense.
 
-But I wonder whether the devm_delayed_work_drop() from devm-helpers.h
-should not be changed to use disable_delayed_work_sync() instead of
-cancel_delayed_work_sync().
+On Fri, Oct 16, 2026 at 09:18:06AM -0500, Frank Li wrote:
+> On Fri, Oct 16, 2026 at 06:16:38PM +0800, Liu Ying wrote:
+>> On Thu, Oct 15, 2026 at 11:22:33AM -0500, Frank Li wrote:
+>>> On Thu, Oct 15, 2026 at 11:41:54AM +0800, Liu Ying wrote:
+>>>> Hi Alexander,
+>>>>
+>>>> On Wed, Oct 14, 2026 at 09:16:46AM +0200, Alexander Stein wrote:
+>>>>
+>>>> [...]
+>>>>
+>>> ...
+>>>>> +
+>>>>> +			dc0_framegen1: framegen@5618d400 {
+>>>>> +				reg = <0x5618d400 0x98>;
+>>>>> +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
+>>>>> +				interrupt-parent = <&dc0_intc>;
+>>>>> +				interrupts = <28>, <29>, <30>, <31>,
+>>>>> +					     <45>, <46>, <47>, <48>;
+>>>>> +				interrupt-names = "int0", "int1", "int2", "int3",
+>>>>> +						  "primsync_on", "primsync_off",
+>>>>> +						  "secsync_on", "secsync_off";
+>>>>> +			};
+>>>>> +
+>>>>> +			dc0_tcon1: tcon@5618e400 {
+>>>>> +				reg = <0x5618e400 0x588>;
+>>>>> +
+>>>>> +				port {
+>>>>> +					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
+>>>>> +						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
+>>>>> +					};
+>>>>> +				};
+>>>>> +			};
+>>>>> +		};
+>>>>> +	};
+>>>>
+>>>> I'm thinking that it would be good to have a complete display controller
+>>>> DT node in the first place, including those prefetch engines attached to
+>>>> fetchunits through the fsl,prg property.
+>>>
+>>> what's current prefetch engines status?
+>>
+>> I need to address quite a few comments on v6.
+>> Some are difficult.
+> 
+> If needn't big change when add prefetch engines, should it be fine add this
+> part firstly? It'd better than nothings.
 
-In this case the initialization function in devm-helpers should be called
-devm_delayed_work_autodisable() instead of devm_delayed_work_autocancel(),
-though.
+Prefetch engine support impacts imx8-dc driver a lot.  I hope we don't need
+to support the case where prefetch engines are bypassed.   Adding this part
+first means that prefetch engines are bypassed in some device trees.
 
-On Thu, Oct 15, 2026 at 09:39:18PM -0400, Myeonghun Pak wrote:
-> The legacy MCU IRQ thread can requeue button-release emulation work
-> after its managed cleanup has canceled it. Since the IRQ is still active
-> at that point, the newly queued work can outlive device teardown and
-> access freed MCU state.
 > 
-> Use disable_delayed_work_sync() to prevent further queueing and drain
-> the worker before the IRQ action is released. Keep the parent IRQ active
-> while the worker completes. devm_add_action_or_reset() also drains the
-> work if action registration fails.
+> Frank
 > 
-> This issue was identified as part of our ongoing research while
-> reviewing kernel code.
-> 
-> Fixes: dfa556e45ae9 ("platform: cznic: turris-omnia-mcu: Add support for MCU connected GPIOs")
-> Assisted-by: LLM
-> Co-developed-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
-> ---
->  .../platform/cznic/turris-omnia-mcu-gpio.c    | 31 +++++++++----------
->  1 file changed, 15 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/platform/cznic/turris-omnia-mcu-gpio.c b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-> index 4e430d6c3fc4..8f43bfa92373 100644
-> --- a/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-> +++ b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-> @@ -11,7 +11,6 @@
->  #include <linux/bug.h>
->  #include <linux/cleanup.h>
->  #include <linux/device.h>
-> -#include <linux/devm-helpers.h>
->  #include <linux/errno.h>
->  #include <linux/gpio/consumer.h>
->  #include <linux/gpio/driver.h>
-> @@ -841,6 +840,18 @@ static void button_release_emul_fn(struct work_struct *work)
->  	generic_handle_irq_safe(mcu->client->irq);
->  }
->  
-> +static void omnia_disable_button_release_work(void *data)
-> +{
-> +	struct delayed_work *work = data;
-> +
-> +	/*
-> +	 * The IRQ thread may requeue this work while the IRQ remains active.
-> +	 * Disable and drain it before releasing the IRQ action and the MCU
-> +	 * state used by the worker.
-> +	 */
-> +	disable_delayed_work_sync(work);
-> +}
-> +
->  static void
->  fill_int_from_sts(unsigned long *rising, unsigned long *falling,
->  		  unsigned long rising_sts, unsigned long falling_sts,
-> @@ -1082,21 +1093,9 @@ int omnia_mcu_register_gpiochip(struct omnia_mcu *mcu)
->  		return dev_err_probe(dev, err, "Cannot request IRQ\n");
->  
->  	if (!new_api) {
-> -		/*
-> -		 * The button_release_emul_work has to be initialized before the
-> -		 * thread is requested, and on driver remove it needs to be
-> -		 * canceled before the thread is freed. Therefore we can't use
-> -		 * devm_delayed_work_autocancel() directly, because the order
-> -		 *   devm_delayed_work_autocancel();
-> -		 *   devm_request_threaded_irq();
-> -		 * would cause improper release order:
-> -		 *   free_irq();
-> -		 *   cancel_delayed_work_sync();
-> -		 * Instead we first initialize the work above, and only now
-> -		 * after IRQ is requested we add the work devm action.
-> -		 */
-> -		err = devm_add_action(dev, devm_delayed_work_drop,
-> -				      &mcu->button_release_emul_work);
-> +		err = devm_add_action_or_reset(dev,
-> +					       omnia_disable_button_release_work,
-> +					       &mcu->button_release_emul_work);
->  		if (err)
->  			return err;
->  	}
+>>
+>>> Is it possible merge at v7.5 ?
+>>
+>> Not sure.
+>>
+>>>
+>>> Frank
+>>>
+>>>>  In this way, display controller
+>>>> driver's life would be easier - all child/grandchild devices are always
+>>>> available.  I'm considering to adding a check to the Linux display controller
+>>>> driver to ensure the availability(at least for critical child/grandchild
+>>>> devices).
+>>>>
+>>>> --
+>>>> Regards,
+>>>> Liu Ying
+>>>>
+>>
+>> --
+>> Regards,
+>> Liu Ying
+
+-- 
+Regards,
+Liu Ying
 
