@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E64CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A666ECCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N45kJ+5sX/X+h0o4k5A4rBO8ZMU+fiVLgW1Kl2dteRs=; b=Mh+HfP+S0Iue7+7ZnpinvoAEtd
-	TbC7iewtvDfZMBnBdDSNh2VzOBmFL/hUzoqso6xbFa4xJxTaBNxFTdPDCtwr9tVdNa8+9DTXlcDYd
-	9fiHw5hzSHMMljmoP28agil2jQLY4vDsURRutqU10KTYzPT8Y9VvZFiN/ONJI7Jvgb6XGPmqiPkSw
-	AS60Jt7QhU9XRhxSXEDVqNB7Dh9ecGCdkb4JohLXfhqtQfvXnV4MZKMn1TowcazXK8gTrk+tmt7Mh
-	CGtBPWZu5RSOd30YyIVJOiXyVFdOdkPNxOhdUiyGIlw4R6vSDqHxjDIZGjAQmFTzvp4eQO+VQpRvw
-	Q5R95Ceg==;
+	bh=Tsa+O50cD+IE1OIK+QCJ95up2t7XPcqoYagvI7nqtjQ=; b=dzOY6YagT114C12tRpS8xWqMab
+	8NjDhXyz2KrbSz/WVv4qKpzD9riln9i/TbQjKcPRm0pqFNgTCsQFGp+dDDVmBQm/ci3ezwFs/aM7f
+	GyHPp3psg9zGxGzFZUX0iN9YPogYhDndOnc1A1rJkrc28IcPOms4HX3tNKVFP/8QYYAahflgxCtRE
+	9yQARQR0dTTa33vt63STa7sFj30cT12oz1sZghelN0HWCaV4iBW1L1ojECgSjDSFlrhxbIsCaiiFF
+	W++fJ6OtKLAWMVMdZNstUu6oSKBNgn17W6KwsT2igjqLCl5NiVdd0BAt3PizYGTuEKYO/Ge1oYwC3
+	UAtyRBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInrC-00000007alb-0zGK;
-	Mon, 19 Oct 2026 13:56:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xInrR-00000007axL-3dXZ;
+	Mon, 19 Oct 2026 13:57:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInrB-00000007al2-1NIx;
-	Mon, 19 Oct 2026 13:56:53 +0000
+	id 1xInrQ-00000007avM-1MhN;
+	Mon, 19 Oct 2026 13:57:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 174934096F;
-	Mon, 19 Oct 2026 13:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C80E01F000C8;
-	Mon, 19 Oct 2026 13:56:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B370D6021C;
+	Mon, 19 Oct 2026 13:57:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 198EB1F000C5;
+	Mon, 19 Oct 2026 13:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418213;
-	bh=N45kJ+5sX/X+h0o4k5A4rBO8ZMU+fiVLgW1Kl2dteRs=;
+	s=k20260515; t=1792418227;
+	bh=Tsa+O50cD+IE1OIK+QCJ95up2t7XPcqoYagvI7nqtjQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VsqA7Qo3wClGpB2Pth3ldHvddvZ/eU4RHYg5lyWT8ug6iuPPz/7KLUr9GmaKOfwkV
-	 VNPQliu4SNt0B4Sq62KQ4xoBpQP7bS1A0pHHGDRAY522em0Sg02D15t/bLlyNKhZia
-	 L09Ta/HJdd3WnTszAW+/Wo7YGmjBzGALGarEVJNvILQskIdWQxO7qPgC9ECLi0/V8F
-	 xctMQ/1xiff3U9EBhoyALW/mCs57ZTdSjosd4AK/xhqC45WTGww4Ak+T7f2oQYfpT6
-	 WtLk2uc93EY6z3JS5Yx47Z6sXt9r8ZbspRPGgo08D5FEIyhFhhWtt/GlqYukhS+p0K
-	 /UjxI4CjbUEuQ==
+	b=HjXidz9Mae+0I7CSQ/bRyzQOeNNqQYthFS1Myr/9q/GH3y3LN9tVelpZHNK8CGOSt
+	 1IlmviB+7/GJ5PhNz8wjENcZi555qp4iBEgy3BeA3PAI3IJBfhvht+ZPJMKzFFkBj4
+	 c6mSXtktj4WA64vNUHoYHrZSa6Z4V2iI3c65nXb5OnWd6GIWkezTl62LTfMR7n4Ak1
+	 KdfK5b6LSqGIBB3ftkqhf/Duk9UsINQtVvQVu7FfDCSrO+W8Yag/yQBNaGjraWmrpN
+	 mNyKxfaUhbyeOh725/AEf/kipf5MkFPGN+eXOR7B+t/9dHIC0hYDL8p4fmKdxInWZ4
+	 36T7losJO4+cQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	chunfeng.yun@mediatek.com,
+	gregkh@linuxfoundation.org,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.15] wifi: mt76: set the EOSP bit in the QoS header of the last released frame
-Date: Mon, 19 Oct 2026 09:46:23 -0400
-Message-ID: <20261019135441.1420968-92-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] usb: mtu3: Fix double dereference in TP_printk
+Date: Mon, 19 Oct 2026 09:46:33 -0400
+Message-ID: <20261019135441.1420968-102-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -80,407 +81,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+From: Vladimir Murzin <vladimir.murzin@arm.com>
 
-[ Upstream commit 0b8d2524716099ea4743fa65bc364f94b3106a31 ]
+[ Upstream commit cfb3293c4573289f11f913611f530ea6b1926d67 ]
 
-When the driver implements .release_buffered_frames, mac80211 leaves the
-U-APSD signalling entirely to the driver: "In this case it is also
-responsible for setting the EOSP flag in the QoS header of the frames"
-(include/net/mac80211.h). Only IEEE80211_TX_STATUS_EOSP was being set,
-which merely ends the service period inside mac80211, so on air the
-service period was never terminated. Clients that wait for EOSP before
-going back to doze keep the SP open and stop triggering, which stalls all
-downlink traffic for that station.
+Paul reported kernel splat:
 
-Set the wire EOSP bit on the last frame of a U-APSD service period.
-EOSP has no meaning for a PS-Poll response, so pass the release reason
-down and leave those frames alone.
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x144/0x14c, CPU#0: swapper/0/0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc1 #15247 PREEMPT
+[    0.000000] Hardware name: linux,dummy-virt (DT)
+[    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : test_double_dereference+0x144/0x14c
+[    0.000000] lr : test_double_dereference+0x144/0x14c
+[    0.000000] sp : ffffc80aa7633bf0
+[    0.000000] x29: ffffc80aa7633bf0 x28: ffffc80aa7c0f047 x27: 000508b58019388f
+[    0.000000] x26: 0000000000000003 x25: 0000000000000007 x24: ffffc80aa5fceff8
+[    0.000000] x23: ffffc80aa7c0f05a x22: ffffc80aa64edfe8 x21: ffffc80aa7c0fce8
+[    0.000000] x20: ffffc80aa7c0f047 x19: 0000000000000013 x18: 0000000000000001
+[    0.000000] x17: 6572656420656c62 x16: 756f642073616820 x15: 746c61685f746573
+[    0.000000] x14: 0000000000000000 x13: ffff000139d90000 x12: 0000000000000045
+[    0.000000] x11: 00000000000000cf x10: ffff00013f546428 x9 : ffff000139d90000
+[    0.000000] x8 : 3fffffffffffc000 x7 : 0000000000000001 x6 : 0000000000000001
+[    0.000000] x5 : ffff00013f4e6440 x4 : 0000000000000000 x3 : 0000000000000000
+[    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc80aa764a700
+[    0.000000] Call trace:
+[    0.000000]  test_double_dereference+0x144/0x14c (P)
+[    0.000000]  trace_event_raw_init+0x37c/0x5d8
+[    0.000000]  event_init+0x34/0xc0
+[    0.000000]  trace_event_init+0xec/0x588
+[    0.000000]  trace_init+0x24/0x6e0
+[    0.000000]  start_kernel+0x4a0/0x8ec
+[    0.000000]  __primary_switched+0x88/0x90
+[    0.000000] irq event stamp: 0
+[    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
+[    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
 
-Link: https://patch.msgid.link/20260801145334.1166751-4-nbd@nbd.name
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Which also observed by Mark and myself.
+
+The splat it result of new check introduced by b5cc230af5e5 ("tracing:
+Warn when an event dereferences a pointer in TP_printk()") which
+correctly catches issue with %pad dereferencing the address saved in
+the ring buffer. TP_fast_assign() logic gets executed when the
+tracepoint is triggered, however the TP_printk() is executed when the
+user reads the trace buffer which could be seconds, minutes, hours,
+days, even months later and nothing guarantee that __entry->gpd_ring
+pointer will still be pointing to what it was when it was recorded.
+
+Fix the issue by capturing immediate value of gpd_ring.dma when trace
+point is triggered.
+
+Reported-by: Paul E. McKenney <paulmck@kernel.org>
+Tested-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-This is a real U-APSD protocol bug in mt76 that already exists in this
-5.15.221 tree. The fix is small, applies here, and is independent of the
-rest of the series.
-
 ## Phase 1: Commit message forensics
 
-**Step 1.1 — subject**
-Record: `[wifi: mt76:]` `[set]` set the EOSP bit in the QoS header of
-the last released frame. “Set” here is a protocol-correctness fix, not a
-feature add.
+**Step 1.1: Subject line**
+Record: **[usb/mtu3]** **[Fix]** Double dereference in `TP_printk` for
+the `mtu3_log_ep` trace class
+(`mtu3_gadget_ep_enable/disable/set_halt`).
 
-**Step 1.2 — tags**
+**Step 1.2: Tags**
 Record:
-- `Link: https://patch.msgid.link/20260801145334.1166751-4-nbd@nbd.name`
-  (linux-wireless, series 04/10)
-- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` (mt76 maintainer; Sasha
-  Levin SOB ignored per instructions)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Cc:
-  stable` (absence is expected)
+- **Reported-by:** Paul E. McKenney
+- **Tested-by:** Mark Rutland
+- **Reviewed-by:** Steven Rostedt (tracing maintainer)
+- **Signed-off-by:** Vladimir Murzin (author); Paul E. McKenney (merged
+  via his tree)
+- **No Fixes:** tag (expected for this review)
+- **No Cc: stable** (expected)
+- No syzbot, no CVE, no bugzilla Link
+- Ignore pipeline “Upstream commit” / Sasha Levin SOB
 
-Mainline SHA (from `origin/master`, path-limited log):
-`0b8d2524716099ea4743fa65bc364f94b3106a31`. First containing tag:
-`v7.3-rc1`. Not an ancestor of this HEAD.
+Notable: three independent observers (Paul, Mark, the author). Rostedt
+reviewed it.
 
-**Step 1.3 — body**
+**Step 1.3: Body**
 Record:
-- **Bug:** `.release_buffered_frames` means mac80211 does not set the
-  on-air EOSP bit; the driver must. mt76 only set
-  `IEEE80211_TX_STATUS_EOSP` (ends the SP inside mac80211).
-- **Symptom:** U-APSD clients that wait for EOSP never see it, keep the
-  service period open, stop triggering, **all downlink for that STA
-  stalls**.
-- **Root cause:** missing `IEEE80211_QOS_CTL_EOSP` on the last QoS frame
-  of a U-APSD SP. PS-Poll must not get EOSP.
-- **Version info:** none in the message. Buggy code dates to 2017.
+- **Bug:** `TP_printk` uses `%pad` with `&REC->gpd_ring->dma`, i.e. it
+  follows a pointer stored in the ring buffer when the trace is printed,
+  not when it is recorded.
+- **Symptom that motivated the patch:** boot `WARNING` in
+  `test_double_dereference()` on 7.3.0-rc1 (`linux,dummy-virt`), events
+  `mtu3_gadget_ep_set_halt/disable/enable`.
+- **Root cause (author):** check added by `b5cc230af5e5` (“tracing: Warn
+  when an event dereferences a pointer in TP_printk()”).
+  `TP_fast_assign()` runs at the tracepoint; `TP_printk()` can run much
+  later, when `__entry->gpd_ring` may be stale.
+- **Fix:** snapshot `mep->gpd_ring.dma` into a `dma_addr_t` field at
+  assign time and print `&__entry->gpd_ring_dma`.
+- **Versions in the message:** 7.3.0-rc1 only. Mailing list later says
+  the splat was still present in 7.3-rc5/rc6.
 
-**Step 1.4 — hidden fix?**
-Record: Not hidden. Explicit protocol/connectivity fix.
+Linus’s merge of `8fc6e594884a` describes the same bug as pre-existing:
+it can dump garbage traces because `TP_printk()` may run after the
+pointed-to memory is gone. Extra tracing checks only **exposed** it.
 
-## Phase 2: Diff analysis
-
-**Step 2.1 — inventory**
-Record:
-- File: `drivers/net/wireless/mediatek/mt76/tx.c` (`+12 / -4`)
-- Functions: `mt76_queue_ps_skb`, `mt76_release_buffered_frames`
-- Scope: single-file surgical change. `mt76_queue_ps_skb` is static;
-  exported `mt76_release_buffered_frames` signature already has
-  `reason`.
-
-**Step 2.2 — flow**
-Record:
-- Before: last PS-release frame gets `IEEE80211_TX_STATUS_EOSP |
-  IEEE80211_TX_CTL_REQ_TX_STATUS` and More Data cleared. QoS Control on
-  the wire is untouched.
-- After: same flags, plus if `reason == IEEE80211_FRAME_RELEASE_UAPSD`
-  and the frame is QoS data, OR `IEEE80211_QOS_CTL_EOSP` into the QoS
-  control field. `reason` is passed through both call sites.
-- Path: U-APSD/PS-Poll release via `.release_buffered_frames`, not the
-  normal TX burst path.
-
-**Step 2.3 — bug mechanism**
-Record: **Logic / protocol correctness.** mac80211’s own release path
-(`net/mac80211/sta_info.c`) does `*qoshdr |= IEEE80211_QOS_CTL_EOSP` for
-U-APSD. Drivers that implement `.release_buffered_frames` must do the
-same (`include/net/mac80211.h`). mt76 did not.
-
-**Step 2.4 — quality**
-Record: Obviously correct and aligned with mac80211. Guards match the
-docs (U-APSD only; QoS data only). skb is exclusively owned after
-`ieee80211_tx_dequeue`. Header at `skb->data` matches existing
-`mt76_skb_set_moredata()`. Regression risk is low: PS-Poll unchanged;
-non-QoS last frames still lack wire EOSP (mac80211 already assumes
-drivers mostly buffer QoS-data, or add a QoS-Null themselves). Pre-
-existing unused `more_data` parameter is not changed.
-
-## Phase 3: Git history
-
-**Step 3.1 — blame**
-Record: `mt76_queue_ps_skb` / `mt76_release_buffered_frames` introduced
-in `17f1de56df0512` (“mt76: add common code…”, 2017-12-07,
-**v4.16-rc1**). `IEEE80211_TX_STATUS_EOSP` added in `7267a7965dd7b`
-(2018). Present for the entire 5.15 lifetime.
-
-**Step 3.2 — Fixes: tag**
-Record: None. Introducer is `17f1de56df0512`, which **is** in this tree.
-
-**Step 3.3 — related file history**
-Record: Recent 5.15 `tx.c` work is unrelated (locking, UAF, queue id).
-This tree already has U-APSD AP support: `b807b368c4f9b` (mt76 AP
-U-APSD), `4bf04d33f5b7e` (mt7915). No earlier EOSP-on-wire fix.
-
-**Step 3.4 — author**
-Record: Felix Fietkau is listed in `MAINTAINERS` as mt76 maintainer.
-Sibling series patch 05 (`697badc27a9b3`, mt7603 U-APSD termination) is
-a separate chip-specific fix, not a prerequisite.
-
-**Step 3.5 — prerequisites**
-Record: Series is **01–10**, but 04 does **not** depend on 01–03. Patch
-01 (`a547b414bf7ea`) changes `mt76_txq_send_burst` / HW TIM buffering
-and does not touch `mt76_queue_ps_skb`. 02/03/09/10 are
-mt7915/mt7996/MLO (mt7996 is not in 5.15). 05–08 are mt7603-only. 04 is
-standalone. All helpers used (`ieee80211_is_data_qos`,
-`ieee80211_get_qos_ctl`, `IEEE80211_QOS_CTL_EOSP`,
-`IEEE80211_FRAME_RELEASE_UAPSD`) exist in this tree via `mt76.h` →
-`<net/mac80211.h>` / `ieee80211.h`.
-
-## Phase 4: Mailing list / external
-
-**Step 4.1 — original discussion**
-Record: `b4 dig -c 0b8d252471609` →
-https://patch.msgid.link/20260801145334.1166751-4-nbd@nbd.name
-`b4 dig -a`: single **v1** series, 2026-08-01. Applied version is that
-v1. Thread has the 10 patches plus a kernel-test-robot build error on
-**10/10** (`ieee80211_txq_aql_pending` / patch 01), **not** on 04. No
-NAK, no reviewer concern about EOSP. Merged via `wireless-
-next-2026-08-06` into `v7.3-rc1`.
-
-**Step 4.2 — recipients (`b4 dig -w`)**
-Record: Felix Fietkau, `linux-wireless@vger.kernel.org`. Maintainer-
-authored self-merge; no extra Reviewed-by. Normal for mt76.
-
-**Step 4.3 — bug report**
-Record: No syzbot/bugzilla. The series commit messages describe a
-concrete on-air failure (clients waiting for EOSP). Unverified: no
-public user stack trace beyond the author’s analysis.
-
-**Step 4.4 — series context**
-Record: 04 is the common-path EOSP fix. 05 is the mt7603 driver-PS-queue
-analogue. Taking 04 without 05 still fixes mac80211-buffered frames on
-**all** chips that use `mt76_release_buffered_frames` (mt76x0/x2,
-mt7615, mt7915, mt7921, and mt7603’s fallback).
-
-**Step 4.5 — stable list**
-Record: `lore.kernel.org/stable/?q=mt76+EOSP+QoS` → **No results
-found**. No recorded reason to skip it.
-
-## Phase 5: Semantic / call graph
-
-**Step 5.1 — functions**
-Record: `mt76_queue_ps_skb`, `mt76_release_buffered_frames`.
-
-**Step 5.2 — callers**
-Record: `mt76_queue_ps_skb` only from `mt76_release_buffered_frames`.
-That is `.release_buffered_frames` for mt76x0, mt76x2, mt7615, mt7915,
-mt7921; mt7603 wraps it after draining `msta->psq`. mac80211 calls it
-from `ieee80211_sta_ps_deliver_response()` →
-`drv_release_buffered_frames()`.
-
-**Step 5.3 — callees**
-Record: `IEEE80211_SKB_CB`, `ieee80211_is_data_qos`,
-`ieee80211_get_qos_ctl`, `mt76_skb_set_moredata`, `__mt76_tx_queue_skb`.
-No new locks/allocs.
-
-**Step 5.4 — reachability**
-Record: Yes, from the air. AP RX of a U-APSD trigger
-(`ieee80211_sta_uapsd_trigger` in `mac80211.c` / `rx.c`) →
-`ieee80211_sta_ps_deliver_uapsd` → driver release. This tree sets
-`WIPHY_FLAG_AP_UAPSD`. Typical trigger: a phone associated to an mt76
-AP.
-
-**Step 5.5 — similar patterns**
-Record: mac80211 `sta_info.c` uses the same `*qoshdr |=
-IEEE80211_QOS_CTL_EOSP`. Sibling mt7603 patch 05 does the same for TXD-
-prefixed PS-queue frames (`skb->data[MT_TXD_SIZE]`). Common-path frames
-from `ieee80211_tx_dequeue` have the 802.11 header at `skb->data` (same
-as `mt76_skb_set_moredata`).
-
-## Phase 6: This tree (5.15.221)
-
-**Step 6.1 — buggy code present?**
-Record: **Yes.** `drivers/net/wireless/mediatek/mt76/tx.c`
-`mt76_queue_ps_skb()` (lines 344–358) sets only
-`IEEE80211_TX_STATUS_EOSP`, not the QoS EOSP bit. Introduced v4.16;
-U-APSD AP enabled here since 2020.
-
-`git describe HEAD`: `p-5.15-2-g6703e5d2f3a29`. `make kernelversion`:
-**5.15.221**. `git merge-base --is-ancestor 0b8d252471609 HEAD` → **not
-present**.
-
-**Step 6.2 — backport difficulty**
-Record: **Clean apply.** `git apply --check` succeeded; hunks applied at
-offset −69 only because `mt76_txq_dequeue` still uses
-`MT_TX_HW_QUEUE_EXT_PHY` here vs `FIELD_PREP(MT_TX_HW_QUEUE_PHY, …)`
-upstream. That function is context, not part of the change.
-
-**Step 6.3 — related fixes already here?**
-Record: No. Only `7267a7965dd7b` (TX status for the software EOSP flag),
-which is exactly the incomplete behavior this commit finishes.
-
-## Phase 7: Subsystem
-
-**Step 7.1**
-Record: `drivers/net/wireless/mediatek/mt76` — Wi-Fi driver.
-**IMPORTANT** (not core kernel, but widely used: OpenWrt/home routers,
-mt76x0/x2/7603/7615/7915/7921).
-
-**Step 7.2**
-Record: Mature driver; this PS-release path has been stable since 2017.
-Not a bug in brand-new code.
-
-## Phase 8: Impact and risk
-
-**Step 8.1 — who**
-Record: Driver/config-specific: `CONFIG_MT76*` AP mode with U-APSD
-clients. Large real-world set (MediaTek AP SoCs).
-
-**Step 8.2 — trigger**
-Record: Associated STA in power-save using U-APSD (typical phones) sends
-a trigger; AP releases buffered QoS data. Not a rare error path.
-Unprivileged on the air (associated client). PS-Poll-only clients are
-unaffected by the new bit.
-
-**Step 8.3 — failure mode**
-Record: **Station downlink stall** until the client gives up the SP. Not
-a kernel oops. Severity: **HIGH** (loss of connectivity for that STA),
-not CRITICAL (no panic/corruption).
-
-**Step 8.4 — risk/benefit**
-Record: Benefit high for mt76 AP + U-APSD clients. Risk very low: ~12
-lines, QoS bit only on last U-APSD QoS-data frame, same pattern as
-mac80211, clean apply, no API/struct change. Patch 01’s
-`ieee80211_txq_aql_pending` is **not** required.
-
-## Phase 9: Synthesis
-
-**Step 9.1 — evidence**
-
-For:
-- Real, documented 802.11 bug: missing on-air EOSP → downlink stall
-- Code and AP U-APSD flag exist in 5.15.221
-- Bug since v4.16
-- Maintainer-authored, merged to mainline (`v7.3-rc1`), no revert, no
-  later rewrite of this function
-- 12 insertions / 4 deletions, clean apply
-- Matches mac80211
-- Standalone despite 04/10 numbering
-
-Against:
-- Not crash/security/corruption
-- No `Reported-by` / syzbot
-- No extra reviewer
-- mt7603 hardware PS-queue still wrong without patch 05 (does not make
-  04 incorrect or unusable)
-
-Unresolved: no independent end-user report found beyond the maintainer’s
-analysis.
-
-**Step 9.2 — stable rules**
-1. Obviously correct and tested? **PASS** — same as mac80211; in
-   mainline since v7.3-rc1
-2. Real bug affecting users? **PASS** — U-APSD clients on mt76 APs
-3. Important? **PASS** — full downlink stall for the STA (HIGH)
-4. Small/contained? **PASS** — one file, ~12 lines
-5. No new features/APIs? **PASS** — sets a standard 802.11 bit the
-   driver was already required to set
-6. Applies to this tree? **PASS** — `git apply --check` clean
-
-**Step 9.3 — exceptions**
-Record: None (not an ID/quirk/DT/build/doc exception). Qualifies as a
-normal bugfix.
-
-**Step 9.4 — decision**
-This 5.15.221 tree has the buggy path, U-APSD AP support, and every API
-the patch needs. The change is a small, self-contained protocol fix for
-a serious AP-mode connectivity failure. It should be backported here.
+**Step 1.4: Hidden bug fix?**
+Record: Not hidden. It is an explicit tracing UAF/stale-pointer fix. The
+boot WARN is how it was found; the real defect is delayed dereference of
+a saved kernel pointer.
 
 ---
 
-### What it solves for 5.15 users
-On MediaTek mt76 APs, U-APSD service periods never get the EOSP bit on
-the last released QoS frame. mac80211 thinks the SP ended
-(`IEEE80211_TX_STATUS_EOSP`), but the client never sees EOSP on the air,
-stops triggering, and **downlink to that station stalls**. Setting
-`IEEE80211_QOS_CTL_EOSP` on the last U-APSD QoS-data frame is what
-mac80211 already documents and implements when the driver does not take
-`.release_buffered_frames`.
+## Phase 2: Diff analysis
 
-### Stable rules / risk
-Meets all six criteria. Benefit is restoring buffered downlink for
-U-APSD clients; risk is a one-bit header update on a path that already
-rewrites More Data. No series dependencies for this hunk. mt7603’s
-separate PS-queue EOSP bug is a sibling, not a blocker.
+**Step 2.1: Inventory**
+Record:
+- File: `drivers/usb/mtu3/mtu3_trace.h` only (+3 / −1; 4-line class)
+- Function/class: `DECLARE_EVENT_CLASS(mtu3_log_ep)` (shared by
+  `mtu3_gadget_ep_enable`, `mtu3_gadget_ep_disable`,
+  `mtu3_gadget_ep_set_halt`)
+- Scope: single-file surgical tracing fix
 
-### Verification
-- [Phase 1] Parsed tags: Link to 04/10, author SOB only; no
-  Fixes/Reported-by/Cc:stable
-- [Phase 1] `git log origin/master --grep='set the EOSP bit' --
-  drivers/net/wireless/mediatek/mt76/`: `0b8d252471609`
-- [Phase 1] `git describe --contains --match 'v*' 0b8d252471609`:
-  `v7.3-rc1~133^2~99^2~15^2~8`
-- [Phase 2] Diff: `mt76_queue_ps_skb` + `reason`; EOSP OR on last U-APSD
-  QoS-data frame; two call sites
-- [Phase 2] Compared to `net/mac80211/sta_info.c:1708` (`*qoshdr |=
-  IEEE80211_QOS_CTL_EOSP`) — same mechanism
-- [Phase 2] Confirmed `include/net/mac80211.h` requires the driver to
-  set EOSP when `.release_buffered_frames` is implemented
-- [Phase 3] `git blame` on `tx.c` 345–403: introduced `17f1de56df0512`
-  (v4.16-rc1)
-- [Phase 3] `git log --grep='EOSP' --
-  drivers/net/wireless/mediatek/mt76/`: only TX-status EOSP
-  (`7267a7965dd7b`) in this tree
-- [Phase 3] Patch 01 `a547b414bf7ea` does not touch `mt76_queue_ps_skb`
-  (not a prerequisite)
-- [Phase 4] `b4 dig -c 0b8d252471609`: lore URL above; `b4 dig -a`: v1
-  only; `b4 dig -w`: linux-wireless + author
-- [Phase 4] 11-message mbox: no NAK on 04; kbuild error is on 10/10 /
-  patch 01
-- [Phase 4] `curl` stable lore for `mt76 EOSP QoS`: no results
-- [Phase 5] Callers: mt76x0/x2, mt7615, mt7915, mt7921 ops; mt7603
-  wrapper; mac80211 `drv_release_buffered_frames`
-- [Phase 5] This tree: `WIPHY_FLAG_AP_UAPSD` and
-  `ieee80211_sta_uapsd_trigger` in `mt76/mac80211.c`
-- [Phase 6] `git describe HEAD`: `p-5.15-2-g6703e5d2f3a29`; `make
-  kernelversion`: 5.15.221
-- [Phase 6] `git merge-base --is-ancestor 0b8d252471609 HEAD`: not in
-  tree
-- [Phase 6] `git apply --check` of 04/10: success, offset −69
-- [Phase 6] APIs present: `IEEE80211_QOS_CTL_EOSP` `0x0010`,
-  `ieee80211_get_qos_ctl`, `ieee80211_is_data_qos`,
-  `IEEE80211_FRAME_RELEASE_UAPSD`
-- [Phase 8] Failure mode: STA downlink stall (HIGH), not oops
-- UNVERIFIED: no independent user bugzilla/syzbot report; impact
-  inferred from protocol + maintainer description
+**Step 2.2: Code flow**
+Record: **Before:** `TP_fast_assign` stores `__entry->gpd_ring =
+&mep->gpd_ring`. `TP_printk` prints `%p/%pad` with `__entry->gpd_ring,
+&__entry->gpd_ring->dma`. **After:** also stores `__entry->gpd_ring_dma
+= mep->gpd_ring.dma` and prints `&__entry->gpd_ring_dma`. Affected path
+is trace **print**, not gadget I/O.
+
+Verified in this tree’s `lib/vsprintf.c` `address_val()`: `%pad` does
+`*(const dma_addr_t *)addr`. The old argument therefore both follows
+`gpd_ring` and then dereferences `.dma`.
+
+**Step 2.3: Bug mechanism**
+Record: **Memory safety / delayed pointer dereference in tracing (UAF or
+garbage).** `%p` of the saved pointer is safe; `%pad` is not. `gpd_ring`
+is embedded in `struct mtu3_ep` (`mtu3.h`). `mtu3_gpd_ring_free()`
+`memset`s the ring on disable; the `mtu3_ep` itself is freed on unbind.
+Reading traces after unbind is a use-after-free. Reading after disable
+but before unbind can print a later (zeroed) DMA address instead of the
+recorded one.
+
+**Step 2.4: Fix quality**
+Record: Obviously correct and minimal. `%pad` still gets a `dma_addr_t
+*`, now into the ring-buffer entry. The missing semicolon on the new
+assign is harmless: `TP_fast_assign` is expanded with a trailing `;`. No
+API/locking/hot-path change. Regression risk is very low. The leftover
+`__field(struct mtu3_gpd_ring *, gpd_ring)` is still only printed with
+`%p`.
+
+---
+
+## Phase 3: Git history
+
+**Step 3.1: Blame**
+Record: Buggy `mtu3_log_ep` pattern comes from `83374e035b628` (“usb:
+mtu3: add tracepoints to help debug”, Chunfeng Yun, 2019-03-21). Present
+in this tree (`git merge-base --is-ancestor 83374e035b628 HEAD`
+succeeded). Long-lived, not recent code.
+
+**Step 3.2: Fixes: tag**
+Record: None on the merged commit. An earlier unused submission
+(Shixiong Ou, 2026-08-28) tagged `Fixes: 83374e035b62`. That introducing
+commit **is** in this tree.
+
+**Step 3.3: File history**
+Record (path-limited log):
+- `83374e035b628` add tracepoints
+- later style/`__vstring`/`__assign_str` churn
+- this fix
+
+Standalone; not patch X/Y. No prerequisite refactor in this file beyond
+what 6.18 already has (`__assign_str(name)` without a second argument is
+already here).
+
+**Step 3.4: Author**
+Record: Vladimir Murzin is not the mtu3 maintainer (that is Chunfeng
+Yun, CC’d). He is an ARM engineer fixing a splat he, Paul, and Mark hit.
+Rostedt reviewed. Paul merged it when USB maintainers were slow (splat
+still in 7.3-rc6).
+
+**Step 3.5: Dependencies**
+Record: None. Uses existing `dma_addr_t`, `TP_*`, and
+`mep->gpd_ring.dma`. No new tracing helpers. `b5cc230af5e5` is the
+detector, **not** a prerequisite for the fix.
+
+---
+
+## Phase 4: Mailing list / external
+
+**Step 4.1: Original discussion**
+Record:
+- `b4 dig -c cfb3293c4573289f11f913611f530ea6b1926d67` → https://patch.m
+  sgid.link/20260922103756.104846-1-vladimir.murzin@arm.com
+- `b4 dig -a`: single revision (v1 only)
+- Thread: ping for 7.3-rc5/rc6 splat; Paul offered to merge because the
+  WARN broke his tests; later merged and Linus pulled it
+- No NAK. No reviewer asked for `Cc: stable`
+- lore.kernel.org fetch returned 403; thread recovered via `b4 dig -m`
+
+**Step 4.2: Recipients (`b4 dig -w`)**
+Record: linux-usb, linux-arm-kernel, linux-mediatek, linux-kernel,
+Chunfeng Yun, Greg KH, Steven Rostedt, Paul McKenney, Mark Rutland.
+Right lists and maintainers.
+
+**Step 4.3: Bug report**
+Record: Reproduced by Paul, Mark, and Vladimir on 7.3-rc1+ (dummy-virt).
+Independent earlier patch from Shixiong Ou describes the same WARN and
+the same stale-pointer/UAF. Severity for **those** kernels is a boot
+WARN whenever `CONFIG_USB_MTU3` is built. That WARN is **not** in
+6.18.y.
+
+**Step 4.4: Series**
+Record: Standalone. Duplicate independently submitted by Shixiong Ou
+(same approach, field named `gpd_dma`). Murzin’s version is what merged.
+
+**Step 4.5: Stable list**
+Record: No useful hit on lore stable for this subject. Not a documented
+“do not backport.”
+
+---
+
+## Phase 5: Semantic / call graph
+
+**Step 5.1: Functions**
+Record: `mtu3_log_ep` class; events `mtu3_gadget_ep_enable`,
+`mtu3_gadget_ep_disable`, `mtu3_gadget_ep_set_halt`.
+
+**Step 5.2: Callers**
+Record (this tree):
+- `mtu3_gadget_ep_enable()` — `drivers/usb/mtu3/mtu3_gadget.c:202`
+- `mtu3_gadget_ep_disable()` — line 214 (before `mtu3_ep_disable()` /
+  `mtu3_gpd_ring_free()`)
+- `mtu3_gadget_ep_set_halt()` — line 404
+
+These are USB gadget ep ops: enable/disable/halt from gadget drivers /
+configfs. Common on MediaTek gadget/OTG, not a syscall of its own.
+
+**Step 5.3: Callees**
+Record: TRACE_EVENT assign/print only. No alloc/lock/I/O in the changed
+code. `%pad` → `address_val()` → dereference `dma_addr_t *`.
+
+**Step 5.4: Reachability**
+Record: Recording: gadget ep enable/disable/halt with these events on.
+Printing: reading the trace buffer. UAF: print after `mtu3_ep` is freed
+(driver unbind). Boot WARN: only if `test_double_dereference()` exists
+(it does not here). Unprivileged users normally cannot enable tracefs.
+
+**Step 5.5: Similar patterns**
+Record: Other mtu3 events print saved pointers with `%p` only (safe).
+Same class already in this 6.18.y tree: `0b0d2f9db2406` (“eth: ice:
+don't dereference pointers from TP_printk()”), also written against
+`b5cc230af5e5`, and it **is** an ancestor of `v6.18.57`.
+
+---
+
+## Phase 6: This checkout only
+
+**Step 6.1: Does the buggy code exist?**
+Record: **Yes, in v6.18.57.** `git describe HEAD` →
+`v6.18.57-155-gcdf239ca885b2`; `make kernelversion` → **6.18.57**.
+v6.18.57 `mtu3_trace.h` still has `__entry->gpd_ring,
+&__entry->gpd_ring->dma`. Introduced 2019. `git merge-base --is-ancestor
+dff6c93cf7131 v6.18.57` failed (fix not in 6.18.57).
+`test_double_dereference` is **absent** from `kernel/trace/`
+(`b5cc230af5e5` is not an ancestor of HEAD).
+
+**Step 6.2: Backport difficulty**
+Record: **Clean apply.** `git diff v6.18.57 dff6c93cf7131 --
+drivers/usb/mtu3/mtu3_trace.h` is exactly this 4-line change. Context
+matches 6.18 (`__assign_str(name)` already present).
+
+**Step 6.3: Related fix already here?**
+Record: No other mtu3 `TP_printk` fix in `v6.18..v6.18.57`. The ice
+analogue **is** already in 6.18.57. That does not replace this mtu3 bug.
+
+---
+
+## Phase 7: Subsystem context
+
+**Step 7.1**
+Record: **drivers/usb/mtu3** — MediaTek USB3 dual-role. Criticality:
+**PERIPHERAL/IMPORTANT for MTK** (`CONFIG_USB_MTU3`, `depends on
+ARCH_MEDIATEK || COMPILE_TEST`). Tracepoints compiled with the driver
+when `CONFIG_TRACEPOINTS` is on.
+
+**Step 7.2**
+Record: Mature driver (tracepoints since 2019). Recent 6.18.y mtu3 fixes
+include DMA unmap on queue failure and suspend-with-gadget. Not staging.
+
+---
+
+## Phase 8: Impact and risk
+
+**Step 8.1: Who is affected**
+Record: MediaTek USB3 gadget users who enable these ftrace events and
+later print the buffer. Distro kernels that build mtu3 for
+`COMPILE_TEST` do **not** get the 7.3 boot WARN here, because that check
+is missing.
+
+**Step 8.2: Trigger**
+Record: Not every boot on 6.18.y. Needs `CONFIG_USB_MTU3` + tracepoints
++ enable these events + later print. UAF additionally needs the
+endpoint/device object to have been freed. Not unprivileged. The 7.3
+boot WARN fires even on dummy-virt; **that path does not exist in this
+tree**.
+
+**Step 8.3: Failure mode**
+Record:
+- On 7.3+: boot `WARNING` — **does not apply to 6.18.57**
+- On this tree: delayed deref → **garbage DMA address in traces**, or
+  **UAF/oops** if `mtu3_ep` was freed — severity **HIGH** when hit,
+  **MEDIUM** overall because the trigger is a debug path
+
+**Step 8.4: Risk vs benefit**
+Record: **Benefit:** closes a real stale-pointer/UAF in mtu3 gadget
+traces; same class already taken for ice on this series. **Risk:** very
+low (3 insertions, print-time only). Ratio favors backport.
+
+---
+
+## Phase 9: Synthesis
+
+**Step 9.1: Evidence**
+
+For:
+- Real delayed dereference of a kernel pointer from the trace buffer
+  (`%pad` confirmed to dereference)
+- Buggy code present in this 6.18.y tree since 2019
+- Small, obviously correct, applies cleanly
+- Reviewed by Rostedt; reported/tested by McKenney and Rutland
+- Same class (`TP_printk` must not follow saved pointers) already in
+  v6.18.57 for ice
+- No new API/feature; no series dependency
+
+Against:
+- The boot splat that drove the patch **cannot happen here**
+  (`test_double_dereference` / `b5cc230af5e5` not in 6.18.y)
+- Debug/tracing path, MediaTek-specific, needs events enabled
+- Failure is often wrong trace text rather than a production USB failure
+- No `Cc: stable` in review (not a negative per the rules)
+
+Unresolved: lore.kernel.org HTTP 403 (thread read from `b4` mbox
+instead).
+
+**Step 9.2: Stable rules**
+1. Obviously correct and tested? **PASS** (Rostedt Reviewed-by, Mark
+   Tested-by, logic is local)
+2. Real bug that affects users? **PASS** (stale pointer / UAF when
+   traces are printed)
+3. Important (crash/security/corruption/deadlock)? **PASS** (UAF/oops
+   possible on print after free; garbage traces otherwise). The 7.3 boot
+   WARN is not the important part **for this tree**.
+4. Small and contained? **PASS** (one header, 4 lines)
+5. No new features/APIs? **PASS**
+6. Can apply to this tree? **PASS** (clean vs v6.18.57)
+
+**Step 9.3: Exception category**
+Record: None (not a device ID/quirk/DT/build/docs exception). It is a
+normal small bugfix.
+
+**Step 9.4: Decision**
+The 7.3 boot WARN is not a reason to take this on 6.18.y. The reason to
+take it is the pre-existing `TP_printk` dereference, which **is** in
+this tree, is a real UAF/garbage-print bug, is a 4-line no-brainer, and
+matches a fix this series already accepted for ice.
+
+---
+
+## What this means for 6.18.y users
+
+`mtu3_log_ep` stores `&mep->gpd_ring` and later does `%pad` on
+`&gpd_ring->dma`. Print can happen long after disable/unbind. That is a
+real bug in this tree. The patch only snapshots `gpd_ring.dma` at event
+time. It does not change gadget behavior.
+
+## Verification
+
+- **[Phase 1]** Parsed tags: Reported-by Paul McKenney, Tested-by Mark
+  Rutland, Reviewed-by Steven Rostedt; no Fixes/Cc-stable
+- **[Phase 2]** Diff: +`gpd_ring_dma` field, assign `mep->gpd_ring.dma`,
+  print `&__entry->gpd_ring_dma`
+- **[Phase 2]** `%pad` in `lib/vsprintf.c` `address_val()`: `num =
+  *(const dma_addr_t *)addr`
+- **[Phase 2]** `struct mtu3_ep` has embedded `struct mtu3_gpd_ring
+  gpd_ring`; `mtu3_gpd_ring_free()` memsets it
+- **[Phase 3]** Blame: `83374e035b628` (2019) introduced the pattern;
+  ancestor of HEAD
+- **[Phase 3]** `git merge-base --is-ancestor b5cc230af5e5 HEAD` failed;
+  no `test_double_dereference` in this tree
+- **[Phase 3]** Author log on `drivers/usb/`: this commit plus unrelated
+  xhci work
+- **[Phase 4]** `b4 dig -c cfb3293c4573`: msgid
+  `20260922103756.104846-1-vladimir.murzin@arm.com`; v1 only
+- **[Phase 4]** `b4 dig -w`: USB/Mediatek lists, Greg KH, Chunfeng Yun,
+  Rostedt
+- **[Phase 4]** mbox: Paul merged after 7.3-rc5/rc6 pings; no NAK; no
+  stable nomination
+- **[Phase 4]** UNVERIFIED: live lore.kernel.org page (403)
+- **[Phase 5]** Callers: `mtu3_gadget_ep_enable/disable/set_halt` in
+  `mtu3_gadget.c`
+- **[Phase 6]** `git describe HEAD` = v6.18.57-155-gcdf239ca885b2;
+  kernelversion 6.18.57
+- **[Phase 6]** v6.18.57 still has `&__entry->gpd_ring->dma`; fix not an
+  ancestor of v6.18.57
+- **[Phase 6]** File diff vs v6.18.57 is exactly this patch (clean)
+- **[Phase 6]** ice TP_printk analogue `0b0d2f9db2406` **is** in
+  v6.18.57
+- **[Phase 8]** Boot WARN not reachable here; UAF/garbage on delayed
+  print is
+
+The fix is small, correct, already matches this tree’s context, and
+closes a real tracing UAF, not a 7.3-only WARN.
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/tx.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+ drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wireless/mediatek/mt76/tx.c
-index 731caeda72b52..93275bb692fa5 100644
---- a/drivers/net/wireless/mediatek/mt76/tx.c
-+++ b/drivers/net/wireless/mediatek/mt76/tx.c
-@@ -415,16 +415,23 @@ mt76_txq_dequeue(struct mt76_phy *phy, struct mt76_txq *mtxq)
- 
- static void
- mt76_queue_ps_skb(struct mt76_phy *phy, struct ieee80211_sta *sta,
--		  struct sk_buff *skb, bool last)
-+		  struct sk_buff *skb, bool last,
-+		  enum ieee80211_frame_release_type reason)
- {
- 	struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
- 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
-+	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
- 
- 	info->control.flags |= IEEE80211_TX_CTRL_PS_RESPONSE;
--	if (last)
-+	if (last) {
- 		info->flags |= IEEE80211_TX_STATUS_EOSP |
- 			       IEEE80211_TX_CTL_REQ_TX_STATUS;
- 
-+		if (reason == IEEE80211_FRAME_RELEASE_UAPSD &&
-+		    ieee80211_is_data_qos(hdr->frame_control))
-+			*ieee80211_get_qos_ctl(hdr) |= IEEE80211_QOS_CTL_EOSP;
-+	}
-+
- 	mt76_skb_set_moredata(skb, !last);
- 	__mt76_tx_queue_skb(phy, MT_TXQ_PSD, skb, wcid, sta, NULL);
- }
-@@ -457,14 +464,15 @@ mt76_release_buffered_frames(struct ieee80211_hw *hw, struct ieee80211_sta *sta,
- 
- 			nframes--;
- 			if (last_skb)
--				mt76_queue_ps_skb(phy, sta, last_skb, false);
-+				mt76_queue_ps_skb(phy, sta, last_skb, false,
-+						  reason);
- 
- 			last_skb = skb;
- 		} while (nframes);
- 	}
- 
- 	if (last_skb) {
--		mt76_queue_ps_skb(phy, sta, last_skb, true);
-+		mt76_queue_ps_skb(phy, sta, last_skb, true, reason);
- 		dev->queue_ops->kick(dev, hwq);
- 	} else {
- 		ieee80211_sta_eosp(sta);
+diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+index 89870175d6356..9aaa167d69c13 100644
+--- a/drivers/usb/mtu3/mtu3_trace.h
++++ b/drivers/usb/mtu3/mtu3_trace.h
+@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__field(unsigned int, flags)
+ 		__field(unsigned int, direction)
+ 		__field(struct mtu3_gpd_ring *, gpd_ring)
++		__field(dma_addr_t, gpd_ring_dma)
+ 	),
+ 	TP_fast_assign(
+ 		__assign_str(name);
+@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__entry->flags = mep->flags;
+ 		__entry->direction = mep->is_in;
+ 		__entry->gpd_ring = &mep->gpd_ring;
++		__entry->gpd_ring_dma = mep->gpd_ring.dma
+ 	),
+ 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+ 		__get_str(name), usb_ep_type_string(__entry->type),
+ 		__entry->maxp, __entry->slot,
+ 		__entry->mult, __entry->maxburst,
+-		__entry->gpd_ring, &__entry->gpd_ring->dma,
++		__entry->gpd_ring, &__entry->gpd_ring_dma,
+ 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+ 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+ 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
 -- 
 2.53.0
 
