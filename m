@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5161CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB911CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=; b=QVGiwzPK3QdZ+nSGqqhIzOevm4
-	LXUzCFbLg4ljbqmGln8UCYDarOd6eh4haPeyF1VQJcFTQs46sRP0moBq13ibG/Bat1mQH/XWmp0xl
-	Ve58mPtuMm7KD9FMuIvcDSYN4norcIdBCerZT1SSZAuGO9oGwaIll/iDaNdQoqDT72sfDsYTymhvg
-	gVWGCEky/wYj3aNQ2sI5duMHLeGSn3ZU2IgEsuEKXLEb/JC/I5wRJQZij3s/RwBkN6lSoi8Ld5HX5
-	w3v6OF0Fe1DTVrzUqakxSJPac7sDM32NP0JXpNEIvprKSwbf7u9X2VVaPlw2Z3jc96Eq1M4bBB2wJ
-	FCleyyzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=217PjOf4FEFkv0Sop8OiYO8Cf7p7mV1hzNZL4FLAjcY=; b=ugN3qhVGzL4w5YCwGZRFK8h3HG
+	2SPsgb8QpnRZqIsRE9p0mUnsPe3ihI4V/ApfWWjCTIStUhhhgMMogU/zUt24ePfhOnIEWSkHqta6d
+	mfuLEjsegubyaR59u6j4karRnIVYAYwJxhkMPF969Y3LTPmMBOYC3QUK7H2V4lQfio8HbT+M0ra5g
+	3LVxTQrSZrBfrrHH6rkYb0QbG0j7R6Fy+lID0tgcteHsVqxf8uRrd0y8RBHZ1hUg2j95PRfOzDZc0
+	vo6ImJI37cOx0w5wEngT5dCm/3rz5z8mKR9WEdwi5tS1Q+vwro7CNSF2oZZSfQS8hojFQipTngHa0
+	2ZOZkHag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkC1-000000075iu-1pLY;
-	Mon, 19 Oct 2026 10:02:09 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xIkFL-0000000763R-0rP9;
+	Mon, 19 Oct 2026 10:05:35 +0000
+Received: from mail-m6045.netease.com ([210.79.60.45])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkBi-000000075f4-3GDp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:02:08 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a1e3b87ac5so8684925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:01:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792404107; x=1793008907; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=;
-        b=czGtJgvH7L9JQnhz5RbmoNqqSbYDTqmf74bakPpr6OtCcK5+H5/bZ9bDoZ5/p2yJE2
-         k5lUdLY+a3V/uXy7HeDK1k2yFXPpL2b26tRV98DWHaNI1N5lIgNzrK9r5SOekEPeaRli
-         egkS8TDTONVKuxvHAXndv5K4M+nTNZl4MZEzMdh5brqrB+0vbs+isSo51wU4/09tUJoG
-         TOFVit826a0q53S0nE3O1kgotb6iXevV7BMIGXEvOxFDPwdg8vM/cXj1sCBsgdeJWsEG
-         1o0ycXZ2MPZB62nCS2wCjhP2mWSanSJ6Wuegj85pqsPmn8I84ferTQCZLWcnxyUUNBOH
-         EONA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792404107; x=1793008907;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JvNBlD/JZ8hRBqmq1fD5HU1ZQqr0SeMst3WentULn88=;
-        b=CqlykdlW1SdbVHH5BVN5H30VleOZjlfaCShGS2dctGGtye58Z/iErBG+4BUAe1RNbg
-         +jzHJa7d/ipjpgPQFUmMfWqk3aWlhlEqR8e5KHzQzZxHu6I2V3oPcpG9dhhGJf2g6T7Z
-         gUoxuaW3DpBNEp1WZSy04LuVAuZNaaueTaXxQD/bPazmynauv+bjn70AFxpWlTjREORn
-         hTa+ViaXxowTVlkk9K745N/SOp04J8Ys4fXplFov0sPu/PX4KMn2z0AcAOSGbG9gL7gL
-         911gC7DD4AtZHuV9s2NTzlZCJg/DddUMvzq+Xlpv7hQMrsMFeCVlQ0DK24af8hqXK6oi
-         yXJA==
-X-Forwarded-Encrypted: i=1; AKwUvBwC9Wx9ep0bmSeX6STUp6A109sSTiRzR3i+hrLH0nlQ7xgMg/iCAJisUqn7UemJgGZh5V328kvlky08B/JtDC7U@lists.infradead.org
-X-Gm-Message-State: AFq9FYKyow9saYv9LFGkXmUcbo5a1dR82Kn5o2sEwyOaacCmkiAiT7j9
-	+n9RjgmlQ0IEGeREUqQINx9t8gXWz3EHbTVEFhL3nzt0EZ+I+5art96bT70vV+CcxA==
-X-Gm-Gg: AYBFou3Xhal65GYAmad3VWUB8sOOld3/JggoK4gercwY7kIPmBYpEzTq3AkjhdvpDa3
-	jqYeGjAvZN/q/+kTkPmGrZeXUosBWSBCXk00DdqbpH5Zt0wHq8T7Hgt0eqFV/jfoKu0Us0avfqr
-	5PWo6yZ0LtRT3zWFo0xuuGDWb4p0cktlnhUO4Gu69H90RAEFAgk4tgQ4dgs1bEwgHlmLFoO8Wmg
-	nk1LXONFv3lUrELuDfkoAh7438Y4/YuGIGhHPJcIsgklvKfIobW5X8GJ1kSm/ArnwG1Y5h0sNo3
-	m+o+wy7hVyG4YNkqUDZW+1C7kj+UHz8XXHoLCAdeToOVz9+Zb9NwuIm3kbjWWoJlU3EVdi5kMaK
-	sHZ7tOc7KbuWFBU5b5qjutQp2M5MyUfXuTjemQ9ra/i1u2WyVVeHjcNdu38AzoajftnFWT4mfU1
-	l4SnNoHa1fWDTOSGwXUC+fpLjM2aNGFHakPkJgk6KbXLKYBACV1hYKemxneDtZvezSqaoLRHHMC
-	E2WtKFeqUBE9kos/ESe3y0qGtmcjK4e45wqRWvClAk=
-X-Received: by 2002:a05:600c:674f:b0:4a1:7e76:d02f with SMTP id 5b1f17b1804b1-4a1d75fce45mr143600135e9.14.1792404021999;
-        Mon, 19 Oct 2026 03:00:21 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1d85f92d9sm190610495e9.4.2026.10.19.03.00.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 03:00:19 -0700 (PDT)
-Date: Mon, 19 Oct 2026 11:00:15 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: arm64: Ensure TLBs and I-cache are private to
- each vCPU in pKVM
-Message-ID: <atXqLxU5bBtJ8U9W@google.com>
-References: <20261014125510.2928306-1-fuad.tabba@linux.dev>
- <20261014125510.2928306-3-fuad.tabba@linux.dev>
+	id 1xIkFE-000000075z2-1maO;
+	Mon, 19 Oct 2026 10:05:33 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 518c72105;
+	Mon, 19 Oct 2026 18:05:22 +0800 (GMT+08:00)
+Message-ID: <dd24624f-25cf-4f1f-aafe-064c22b0226c@rock-chips.com>
+Date: Mon, 19 Oct 2026 18:05:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261014125510.2928306-3-fuad.tabba@linux.dev>
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, detlev.casanova@collabora.com,
+ finley.xiao@rock-chips.com, zhangqing@rock-chips.com, inindev@gmail.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, gahing@gahingwoo.com
+Subject: Re: [PATCH 1/2] pmdomain: rockchip: Manage the RK3576 GPU domain
+ supply
+To: Leonard Lausen <leonard@lausen.nl>, heiko@sntech.de, ulfh@kernel.org
+References: <20261019092417.391522-1-leonard@lausen.nl>
+ <20261019092417.391522-2-leonard@lausen.nl>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20261019092417.391522-2-leonard@lausen.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1539f76c503a4kunm93d66b22706dd2
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSh1MVh8fThgfQx4fSEpPGVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=OzAuOrMSSc4NEyK3dbA+prFmbfSJSxw5HEAON51DvF6GTPJVffqPDlex3dFUBRy2S9HvYOPftQFIgl4fA7JvkPCNi5LZ7D9ENmebMHjkcDak22FxF26WQsuQpxniuyaMosRo5/Uhu85VIqI5d2Uw1iAQcEZXPr6Z44eOMxaejwk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=217PjOf4FEFkv0Sop8OiYO8Cf7p7mV1hzNZL4FLAjcY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_030150_858386_1DBB3230 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20261019_030529_048628_AE0F79FD 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,144 +75,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 01:55:10PM +0100, Fuad Tabba wrote:
-> All vCPUs of a VM share its VMID, so KVM flushes a physical CPU's TLBs
-> and I-cache for the VM whenever a different vCPU of that VM is loaded
-> there (vcpu_prepare_mmu()). Commit fce886a602073 ("KVM: arm64: Plumb the
-> pKVM MMU in KVM") moved pKVM guests, protected or not, onto the
-> hypervisor's stage-2 and VMID, and the host stopped flushing for them.
-> Nothing at EL2 flushes instead, so a vCPU can hit TLB and I-cache
-> entries that another vCPU of the same VM left on that CPU.
+
+在 2026/10/19 星期一 17:24, Leonard Lausen 写道:
+> On the NanoPi M5, boot hangs during Panfrost initialization. Before this
+> fix, booting required blacklisting Panfrost on the kernel command line.
+> Loading Panfrost after boot reports a GPU power-domain acknowledgment
+> timeout:
 > 
-> Track the last vCPU loaded on each physical CPU in the hyp VM, and flush
-> at EL2 in __pkvm_vcpu_load() when it changes.
+>    failed to get ack on domain 'gpu', val=0x113ff
 > 
-> Fixes: fce886a602073 ("KVM: arm64: Plumb the pKVM MMU in KVM")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Add regulator support to the RK3576 domain descriptors and mark the GPU
+> domain as regulator-dependent. This lets the existing Rockchip
+> power-domain regulator handling manage the GPU domain supply.
+> 
+> A corresponding domain-supply property is needed in the board DT.
+> 
+> The regulator-capable descriptors are based on the regulator support in
+> Jiaxing Hu's pending RK3576 NPU enablement series, without its NPU settle
+> delay changes.
+> 
+
+It looks correct to me after checking TRM that PD_GPU need a VD_GPU on
+this Soc.
+
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+
+> Link: https://lore.kernel.org/all/20260924102135.92217-10-gahing@gahingwoo.com/
+> Fixes: cfee1b507758 ("pmdomain: rockchip: Add support for RK3576 SoC")
+> Signed-off-by: Leonard Lausen <leonard@lausen.nl>
+> 
 > ---
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  3 +++
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c     |  8 ++++++++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 21 ++++++++++++++++++---
->  3 files changed, 29 insertions(+), 3 deletions(-)
+>   drivers/pmdomain/rockchip/pm-domains.c | 10 +++++++---
+>   1 file changed, 7 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> index 9abfe6b7e942b..02c8fc7a10904 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> @@ -54,6 +54,9 @@ struct pkvm_hyp_vm {
->  	unsigned short refcount;
->  	hyp_spinlock_t lock;
->  
-> +	/* Per physical CPU, the vcpu_idx of the last vCPU of this VM loaded there. */
-> +	int *last_vcpu_ran;
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+> index e193f978d5f35..b41f9fcb62bfe 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -176,41 +176,42 @@ struct rockchip_pmu {
+>   	.mem_offset = m_offset,				\
+>   	.mem_status_mask = (m_status),			\
+>   	.repair_status_mask = (r_status),		\
+>   	.req_offset = r_offset,				\
+>   	.req_w_mask = (req) << 16,			\
+>   	.req_mask = (req),				\
+>   	.idle_mask = (idle),				\
+>   	.ack_mask = (ack),				\
+>   	.active_wakeup = wakeup,			\
+>   	.need_regulator = regulator,			\
+>   }
+>   
+> -#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status, r_status, r_offset, req, idle, ack, g_mask, wakeup)	\
+> +#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status, r_status, r_offset, req, idle, ack, g_mask, wakeup, regulator)	\
+>   {							\
+>   	.name = _name,					\
+>   	.pwr_offset = p_offset,				\
+>   	.pwr_w_mask = (pwr) << 16,			\
+>   	.pwr_mask = (pwr),				\
+>   	.status_mask = (status),			\
+>   	.mem_offset = m_offset,				\
+>   	.mem_status_mask = (m_status),			\
+>   	.repair_status_mask = (r_status),		\
+>   	.req_offset = r_offset,				\
+>   	.req_w_mask = (req) << 16,			\
+>   	.req_mask = (req),				\
+>   	.idle_mask = (idle),				\
+>   	.clk_ungate_mask = (g_mask),			\
+>   	.ack_mask = (ack),				\
+>   	.active_wakeup = wakeup,			\
+> +	.need_regulator = regulator,			\
+>   }
+>   
+>   #define DOMAIN_M_R(_name, pwr, status, req, idle, ack, wakeup, regulator)	\
+>   {							\
+>   	.name = _name,				\
+>   	.pwr_w_mask = (pwr) << 16,			\
+>   	.pwr_mask = (pwr),				\
+>   	.status_mask = (status),			\
+>   	.req_w_mask = (req) << 16,			\
+>   	.req_mask = (req),				\
+>   	.idle_mask = (idle),				\
+>   	.ack_mask = (ack),				\
+> @@ -250,25 +251,28 @@ struct rockchip_pmu {
+>   	DOMAIN(name, pwr, status, req, req, req, wakeup)
+>   
+>   #define DOMAIN_RK3528(name, pwr, req)		\
+>   	DOMAIN_M(name, pwr, pwr, req, req, req, false)
+>   
+>   #define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)		\
+>   	DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup, false)
+>   
+>   #define DOMAIN_RK3568(name, pwr, req, wakeup, regulator)		\
+>   	DOMAIN_M_R(name, pwr, pwr, req, req, req, wakeup, regulator)
+>   
+>   #define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, req, idle, g_mask, wakeup)	\
+> -	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_offset, req, idle, idle, g_mask, wakeup)
+> +	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_offset, req, idle, idle, g_mask, wakeup, false)
+> +
+> +#define DOMAIN_RK3576_R(name, p_offset, pwr, status, r_status, r_offset, req, idle, g_mask, wakeup)	\
+> +	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_offset, req, idle, idle, g_mask, wakeup, true)
+>   
+>   /*
+>    * Dynamic Memory Controller may need to coordinate with us -- see
+>    * rockchip_pmu_block().
+>    *
+>    * dmc_pmu_mutex protects registration-time races, so DMC driver doesn't try to
+>    * block() while we're initializing the PMU.
+>    */
+>   static DEFINE_MUTEX(dmc_pmu_mutex);
+>   static struct rockchip_pmu *dmc_pmu;
+>   
+>   /*
+> @@ -1323,25 +1327,25 @@ static const struct rockchip_domain_info rk3576_pm_domains[] = {
+>   	[RK3576_PD_VOP]		= DOMAIN_RK3576("vop",    0x0, BIT(11), 0,      BIT(11), 0x0, 0x6000,  0x6000,  0x6000,  false),
+>   	[RK3576_PD_VO1]		= DOMAIN_RK3576("vo1",    0x0, BIT(14), 0,      BIT(14), 0x0, BIT(12), BIT(12), 0x7000,  false),
+>   	[RK3576_PD_VO0]		= DOMAIN_RK3576("vo0",    0x0, BIT(15), 0,      BIT(15), 0x0, BIT(11), BIT(11), 0x6800,  false),
+>   	[RK3576_PD_USB]		= DOMAIN_RK3576("usb",    0x4, BIT(0),  0,      BIT(16), 0x0, BIT(10), BIT(10), 0x6400,  true),
+>   	[RK3576_PD_VI]		= DOMAIN_RK3576("vi",     0x4, BIT(1),  0,      BIT(17), 0x0, BIT(9),  BIT(9),  BIT(9),  false),
+>   	[RK3576_PD_VEPU0]	= DOMAIN_RK3576("vepu0",  0x4, BIT(2),  0,      BIT(18), 0x0, BIT(7),  BIT(7),  0x280,   false),
+>   	[RK3576_PD_VEPU1]	= DOMAIN_RK3576("vepu1",  0x4, BIT(3),  0,      BIT(19), 0x0, BIT(8),  BIT(8),  BIT(8),  false),
+>   	[RK3576_PD_VDEC]	= DOMAIN_RK3576("vdec",   0x4, BIT(4),  0,      BIT(20), 0x0, BIT(6),  BIT(6),  BIT(6),  false),
+>   	[RK3576_PD_VPU]		= DOMAIN_RK3576("vpu",    0x4, BIT(5),  0,      BIT(21), 0x0, BIT(5),  BIT(5),  BIT(5),  false),
+>   	[RK3576_PD_NPUTOP]	= DOMAIN_RK3576("nputop", 0x4, BIT(6),  0,      BIT(22), 0x0, 0x18,    0x18,    0x18,    false),
+>   	[RK3576_PD_NPU0]	= DOMAIN_RK3576("npu0",   0x4, BIT(7),  0,      BIT(23), 0x0, BIT(1),  BIT(1),  0x1a,    false),
+>   	[RK3576_PD_NPU1]	= DOMAIN_RK3576("npu1",   0x4, BIT(8),  0,      BIT(24), 0x0, BIT(2),  BIT(2),  0x1c,    false),
+> -	[RK3576_PD_GPU]		= DOMAIN_RK3576("gpu",    0x4, BIT(9),  0,      BIT(25), 0x0, BIT(0),  BIT(0),  BIT(0),  false),
+> +	[RK3576_PD_GPU]		= DOMAIN_RK3576_R("gpu",  0x4, BIT(9),  0,      BIT(25), 0x0, BIT(0),  BIT(0),  BIT(0),  false),
+>   };
+>   
+>   static const struct rockchip_domain_info rk3588_pm_domains[] = {
+>   	[RK3588_PD_GPU]		= DOMAIN_RK3588("gpu",     0x0, BIT(0),  0,       0x0, 0,       BIT(1),  0x0, BIT(0),  BIT(0),  false, true),
+>   	[RK3588_PD_NPU]		= DOMAIN_RK3588("npu",     0x0, BIT(1),  BIT(1),  0x0, 0,       0,       0x0, 0,       0,       false, true),
+>   	[RK3588_PD_VCODEC]	= DOMAIN_RK3588("vcodec",  0x0, BIT(2),  BIT(2),  0x0, 0,       0,       0x0, 0,       0,       false, true),
+>   	[RK3588_PD_NPUTOP]	= DOMAIN_RK3588("nputop",  0x0, BIT(3),  0,       0x0, BIT(11), BIT(2),  0x0, BIT(1),  BIT(1),  false, false),
+>   	[RK3588_PD_NPU1]	= DOMAIN_RK3588("npu1",    0x0, BIT(4),  0,       0x0, BIT(12), BIT(3),  0x0, BIT(2),  BIT(2),  false, false),
+>   	[RK3588_PD_NPU2]	= DOMAIN_RK3588("npu2",    0x0, BIT(5),  0,       0x0, BIT(13), BIT(4),  0x0, BIT(3),  BIT(3),  false, false),
+>   	[RK3588_PD_VENC0]	= DOMAIN_RK3588("venc0",   0x0, BIT(6),  0,       0x0, BIT(14), BIT(5),  0x0, BIT(4),  BIT(4),  false, false),
+>   	[RK3588_PD_VENC1]	= DOMAIN_RK3588("venc1",   0x0, BIT(7),  0,       0x0, BIT(15), BIT(6),  0x0, BIT(5),  BIT(5),  false, false),
+>   	[RK3588_PD_RKVDEC0]	= DOMAIN_RK3588("rkvdec0", 0x0, BIT(8),  0,       0x0, BIT(16), BIT(7),  0x0, BIT(6),  BIT(6),  false, false),
 
-Unlikely to be a problem in pratice, but vcpu_idx is "unsigned int". I wonder if
-this shouldn't be unsigned int here too and initialised to UINT_MAX?
-
-> +
->  	/*
->  	 * The vCPU initialised RUNNABLE: claimed under vm_table_lock,
->  	 * released only if its own init fails.
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index d715aa942577e..f0b77236c871e 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -827,11 +827,19 @@ DEFINE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
->  	pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
->  {
->  	struct pkvm_hyp_vcpu *hyp_vcpu;
-> +	int *last_ran;
->  
->  	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
->  	if (!hyp_vcpu)
->  		return;
->  
-> +	/* TLBs and I-cache are private to each vCPU, see vcpu_prepare_mmu(). */
-> +	last_ran = &pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu)->last_vcpu_ran[hyp_smp_processor_id()];
-> +	if (*last_ran != vcpu_idx) {
-> +		__kvm_flush_cpu_context(hyp_vcpu->vcpu.arch.hw_mmu);
-> +		*last_ran = vcpu_idx;
-> +	}
-> +
->  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
->  		u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
->  
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index ac020d0501d2e..f18fa762746c9 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -489,10 +489,11 @@ static void unpin_host_vcpus(struct pkvm_hyp_vcpu *hyp_vcpus[],
->  }
->  
->  static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
-> -			     unsigned int nr_vcpus, pkvm_handle_t handle)
-> +			     int *last_vcpu_ran, unsigned int nr_vcpus, pkvm_handle_t handle)
->  {
->  	struct kvm_s2_mmu *mmu = &hyp_vm->kvm.arch.mmu;
->  	int idx = vm_handle_to_idx(handle);
-> +	unsigned long cpu;
->  
->  	hyp_vm->kvm.arch.pkvm.handle = handle;
->  
-> @@ -512,6 +513,10 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->  	mmu->vtcr = host_mmu.arch.mmu.vtcr;
->  	mmu->arch = &hyp_vm->kvm.arch;
->  	mmu->pgt = &hyp_vm->pgt;
-> +
-> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
-> +		last_vcpu_ran[cpu] = -1;
-> +	hyp_vm->last_vcpu_ran = last_vcpu_ran;
->  }
->  
->  static int pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *host_vcpu)
-> @@ -887,6 +892,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
->  	size_t vm_size, pgd_size;
->  	unsigned int nr_vcpus;
->  	pkvm_handle_t handle;
-> +	int *last_vcpu_ran;
->  	void *pgd = NULL;
->  	int ret;
->  
-> @@ -915,13 +921,19 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
->  		goto err_unpin_kvm;
->  	}
->  
-> +	last_vcpu_ran = hyp_alloc(array_size(hyp_nr_cpus, sizeof(*last_vcpu_ran)));
-> +	if (!last_vcpu_ran) {
-> +		ret = hyp_alloc_errno();
-> +		goto err_free_hyp_vm;
-> +	}
-> +
->  	ret = -ENOMEM;
->  
->  	pgd = map_donated_memory_noclear(pgd_hva, pgd_size);
->  	if (!pgd)
-> -		goto err_free_hyp_vm;
-> +		goto err_free_last_ran;
->  
-> -	init_pkvm_hyp_vm(host_kvm, hyp_vm, nr_vcpus, handle);
-> +	init_pkvm_hyp_vm(host_kvm, hyp_vm, last_vcpu_ran, nr_vcpus, handle);
->  
->  	ret = kvm_guest_prepare_stage2(hyp_vm, pgd);
->  	if (ret)
-> @@ -938,6 +950,8 @@ int __pkvm_init_vm(struct kvm *host_kvm, void __kern *pgd_hva)
->  	kvm_guest_destroy_stage2(hyp_vm);
->  err_remove_mappings:
->  	unmap_donated_memory(pgd, pgd_size);
-> +err_free_last_ran:
-> +	hyp_free(last_vcpu_ran);
->  err_free_hyp_vm:
->  	hyp_free(hyp_vm);
->  err_unpin_kvm:
-> @@ -1112,6 +1126,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->  		hyp_free(hyp_vcpu);
->  	}
->  
-> +	hyp_free(hyp_vm->last_vcpu_ran);
->  	hyp_free(hyp_vm);
->  	hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
->  	return 0;
-> -- 
-> 2.39.5
-> 
 
