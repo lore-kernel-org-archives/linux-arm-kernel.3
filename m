@@ -2,83 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B10D9606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 18:53:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E74FD606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 18:55:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UtB+aFUI;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QCapVaZr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rwfb+72s;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XHfKuVM9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Heia7Js7NAOvaRAG4jjrS4ZbMF0t0P+D6MzkLv9q1o=; b=UtB+aFUIon0P7pX5TR+KPQkk5E
-	UEYEqXTEW055tI10AkGV7ANvWzg9kPVOLq0mOb3vonrNKe+RRTLZlo7Y+U9e4D6PUsKGi5RGErzCY
-	rWPOZC1akxDZEqz9e5omhhXM824lk96WrxOACkVRBrTYADSGUubOPcuGlagKFCM4qxr0yFGM3mf2G
-	3HWMWuoBhHHlwTHJJBhAwFqxLFudTPfjflVeBNCr5nrK2jLcUlbMpVnlpvL+gYe85/cq7ZpAYL2pN
-	VpyWPIeJeRxpit60Pi53ofDbPh2pxregbBhLu8TaCg8OJi3dURl4eQ94yQXE5gHCGaVGsIP7krTxf
-	iy330aBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2RmZPFBfj7v4b5aamDYgEDfYQqHkIotKYcIH5uShXek=; b=Rwfb+72sGWePpWLA+wLyDWzJNd
+	ouaxgPKqkK+qoFWZLFmudfADmvF16ehZ7/pAhOrNWEknXfyAWJKacFqNGS7LHll7B/t1Hj+MV3/Tq
+	ZB59ePsT0Z7gKkJRbtuUFRWBeExsM9oYA8Q46eMU8FDQljWWr9g6uX/BqNVKv9y9ZF1xApKG0urTk
+	fVjPmEZrYyNyYPuRLIJsqFV80l29WOhU9eMzf7UTun9f3BFGpRppT7ZRfZdB6wgH3loc9NtbxclSR
+	uBWxGvPleknqcteutEGg1GbO0aBbuC0LGj0E0vqP4Mbe0D9oURbG91/0H7m1hqhTRvHjwh05aDYJ9
+	ReRNEheQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIsU9-00000008Byp-1nMK;
-	Mon, 19 Oct 2026 18:53:25 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1xIsVu-00000008C8c-2fy5;
+	Mon, 19 Oct 2026 18:55:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIsU6-00000008ByB-0pFV
+	id 1xIsVs-00000008C8S-49Pv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 18:53:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792436002; x=1823972002;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=VuEy7icT9fbTSCm+kMAIt0yogHe61LbU42LSDLjcECM=;
-  b=QCapVaZr2TxAZtAjRwLYnwT8E8M7kFc8d6O6gyKDWO+tZuynbNNTDCyv
-   od+0NcixEDl8CSCkscdMU1cFXoPiZzqoMUMIHf1bUSg+QMbSloERzlu9A
-   1eP0aqAnjlb6qE3D8t3ellf4BKQKhiCTVyFU5kcqo+OJoZ+iGjfEjLT3w
-   2JxqM1U7DqOZjrd/y5Ez7KD20nUffrp5g4NOYTU81YgiYifAzvpBtL1EU
-   XmLyd3p2x31SHiyHUMbgaM0/A4tVyr562wJ5AqPwG4r1cWMxk7JdopWzB
-   /H5mBX5qd+F8cZhtma3jpI4RoCaVAzVni7MCBwQR3iCMRUoj7Eac7Vl3v
-   Q==;
-X-CSE-ConnectionGUID: Or1QG6+2SreDKTnloxsMDw==
-X-CSE-MsgGUID: mtHqN0SvQt2AtG+FzNDfmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="1157449"
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="1157449"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 11:53:14 -0700
-X-CSE-ConnectionGUID: 2Y02/8JTSaCL9CIcCmXTsQ==
-X-CSE-MsgGUID: wz7d++w5RuyoxnG8GVyj5A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="4371319"
-Received: from gabaabhi-mobl2.amr.corp.intel.com (HELO [10.125.111.28]) ([10.125.111.28])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 11:53:13 -0700
-Message-ID: <d7a9311c-f559-485e-b9bc-30d34188d24e@intel.com>
-Date: Mon, 19 Oct 2026 11:53:11 -0700
+	Mon, 19 Oct 2026 18:55:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE098601EF;
+	Mon, 19 Oct 2026 18:55:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A87211F000C4;
+	Mon, 19 Oct 2026 18:55:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792436111;
+	bh=2RmZPFBfj7v4b5aamDYgEDfYQqHkIotKYcIH5uShXek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XHfKuVM95PPcz3dVwQJiCtFfo4RGV7OrTiZGSwVsbdpwdWZ+Dk0FbIR17Z0WIhpxl
+	 HHljZZZoG2Xkh9t6s8KrFS3GRWxWuw7hKwHE3LYCWxTDmJcZsVBDQCbAFO6iMD80GZ
+	 9wwUXN7PXUYC3B1HlTUpgR/jjoj4UgmqYKPxPZ27Qh3f9GRO10vniu1END3opd9mD9
+	 NbTNx90GoImBvwTiZ+0gGV33dGGlOzXXkKK6HmNDxO3YCJIIuCGfJyFPHro9N15b1Y
+	 BSAkPmN/yPXQLiQe6bKpZQbAy8DsdvkYRgAHj6tlrU62bWCMbQKc31a9WEoFa8hXTZ
+	 CcZpn8jpFDZiQ==
+Date: Mon, 19 Oct 2026 19:55:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Olivier MOYSAN <olivier.moysan@foss.st.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf
+ filter
+Message-ID: <20261019-puzzling-lyrically-8e28577ba301@spud>
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+ <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ <20261001-tribesman-gauze-862e1ef0cdd8@spud>
+ <bb8af256-5a77-4215-9eeb-fbcd0cae1829@foss.st.com>
+ <20261008-9e2a48675c1a4c28f2dfa73b@squawk>
+ <950f2801-a613-4f5a-a5a7-cb30101cf293@foss.st.com>
+ <20261009-8db882a9fa159f8759aa7327@squawk>
+ <2ba9235f-182e-4906-92e2-e35cf831d289@foss.st.com>
+ <20261019023037.24674f30@jic23-hlaptop>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dmaengine: idxd: generation-number transaction status
-To: Daniel Byrne <daniel1.byrne@intel.com>, Vinod Koul <vkoul@kernel.org>
-Cc: Fenghua Yu <fenghua.yu@intel.com>, Frank Li <Frank.Li@kernel.org>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- Jonathan Corbet <corbet@lwn.net>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261019150632.4026424-1-daniel1.byrne@intel.com>
- <20261019150632.4026424-3-daniel1.byrne@intel.com>
-From: Dave Jiang <dave.jiang@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261019150632.4026424-3-daniel1.byrne@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_115322_282211_2769E586 
-X-CRM114-Status: GOOD (  51.22  )
-X-Spam-Score: -4.7 (----)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dnsGHyuHUFnfWdYk"
+Content-Disposition: inline
+In-Reply-To: <20261019023037.24674f30@jic23-hlaptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,382 +85,105 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+--dnsGHyuHUFnfWdYk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Mon, Oct 19, 2026 at 02:30:37AM +0100, Jonathan Cameron wrote:
+>=20
+> > >> Yes, we can have two clocks gated independently but sharing the same=
+ rate.
+> > >>
+> > >> Using the clock framework apis seemed to me the right way to manage =
+cck1 and
+> > >> cck0 gating and divider computing. I think I would have to introduce
+> > >> proprietary properties and have to implement code in the driver, tha=
+t would
+> > >> be handled natively by the framework otherwise. =20
+> > >=20
+> > > The CCF is still the right way to do it, especially since CCK0/1 can =
+be
+> > > exported to other devices. I don't believe you need to actually have a
+> > > reference in DT to do this though, plenty of "real" clock controllers
+> > > have only one input clock and hang a whole tree with multiple layers =
+off
+> > > that.
+> > > Down below I mentioned this under "ouroboros devices", I think this k=
+ind
+> > > of ability to chose which clock a channel uses is a fairly normal thi=
+ng
+> > > to do in IIO land, I just dunno what the preferred mechanism is - I j=
+ust
+> > > know that it is not referencing yourself (probably it's some sort of
+> > > property that you put in a channel node that says 'blah-clock =3D "cc=
+k0"',
+> > > but better that the IIO folks answer.
+> > >  =20
+> >=20
+> > The adc.yaml binding do not expose clock properties. But maybe IIO=20
+> > experts can answer about this.
+>=20
+> Hmm.. For an 'conventional' ADC channel a clock is a novel thing to have
+> on a per channel basis. What does it mean for an analog signal?
 
-On 10/19/26 8:06 AM, Daniel Byrne wrote:
-> Implement device_tx_status() by reading the addressed descriptor's
-> completion record. The cookie encodes the descriptor id in its lower
-> 16 bits and a generation number in the 14 bits above, so a query
-> against a recycled descriptor sees a stale cookie and reads
-> DMA_COMPLETE. The generation wraps after 16383 submissions of the same
-> slot; the contract is that a client polls a cookie to its terminal
-> answer, or abandons it, before its slot has been reused 16383 times,
-> which every in-tree polling client satisfies by construction.
-> 
-> Descriptors with a completion interrupt armed stay with the IRQ
-> handler: a generic client such as dmatest may request an interrupt,
-> and reading such a descriptor's completion record here would race with
-> the handler recycling it. tx_status therefore reports DMA_IN_PROGRESS
-> while such a cookie is live and the stale-cookie check answers once the
-> handler has completed it. Whether a descriptor is interrupt-armed
-> travels in the cookie, in the bit below the sign bit, since the
-> descriptor's own flags are rewritten when the handler recycles it.
-> 
-> A polled descriptor has two terminal answers. Its completion record
-> gives the first; the query retires the descriptor and reports
-> DMA_COMPLETE or DMA_ERROR from the status. The second is DMA_ERROR for
-> a descriptor outstanding on a work queue or a device that is no longer
-> enabled, since nothing will complete it; the slot is retired only when
-> the device halted, which kills it for good. Descriptors carry the
-> device's reset epoch from submit time for that, and the halt stores its
-> state before it bumps the epoch, so a poll that read the old epoch and
-> the halted state reads the epoch again and retires on a mismatch. The
-> same epoch lets device_synchronize() treat a drain that a halt ended
-> as complete, since the halt killed everything the drain covered.
-> 
-> Switch the prep callbacks' descriptor allocation to IDXD_OP_NONBLOCK:
-> prep callbacks may not sleep, and on an exhausted pool they return NULL
-> so the caller falls back. Direct kernel clients such as iaa_crypto keep
-> the blocking allocator path. This gives dmaengine_async_is_tx_complete()
-> exact per-descriptor results for polling clients on a device whose work
-> queues complete out of order across a group's engines.
-> 
-> Assisted-by: Claude:claude-opus-5-5
-> Assisted-by: Claude:claude-fable-5-1
-> Signed-off-by: Daniel Byrne <daniel1.byrne@intel.com>
-> ---
->  drivers/dma/idxd/device.c |   1 +
->  drivers/dma/idxd/dma.c    | 158 ++++++++++++++++++++++++++++++++++++--
->  drivers/dma/idxd/idxd.h   |   3 +
->  drivers/dma/idxd/irq.c    |   8 ++
->  4 files changed, 165 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/dma/idxd/device.c b/drivers/dma/idxd/device.c
-> index 5ccdc5ff8d53..68a7de74f9e6 100644
-> --- a/drivers/dma/idxd/device.c
-> +++ b/drivers/dma/idxd/device.c
-> @@ -155,6 +155,7 @@ int idxd_wq_alloc_resources(struct idxd_wq *wq)
->  			desc->iax_completion = &wq->iax_compls[i];
->  		desc->compl_dma = wq->compls_addr + idxd->data->compl_size * i;
->  		desc->id = i;
-> +		desc->gen = 1;
->  		desc->wq = wq;
->  		desc->cpu = -1;
->  	}
-> diff --git a/drivers/dma/idxd/dma.c b/drivers/dma/idxd/dma.c
-> index 0a7517cb51f2..dd5a9d9274ce 100644
-> --- a/drivers/dma/idxd/dma.c
-> +++ b/drivers/dma/idxd/dma.c
-> @@ -12,6 +12,20 @@
->  #include "registers.h"
->  #include "idxd.h"
->  
-> +#define DMA_COOKIE_BITS (sizeof(dma_cookie_t) * 8)
-> +/*
-> + * The descriptor id takes the lower 16 bits of the cookie.
-> + */
-> +#define DESC_ID_BITS 16
-> +#define DESC_ID_MASK ((1 << DESC_ID_BITS) - 1)
-> +/*
-> + * The generation takes the 14 bits above the id. Since dma_cookie_t is
-> + * signed, the upper-most bit is left for the sign, and the bit below it
-> + * records that the descriptor completes by interrupt.
-> + */
-> +#define IDXD_COOKIE_RCI BIT(DMA_COOKIE_BITS - 2)
-> +#define DESC_GEN_MAX ((1 << (DMA_COOKIE_BITS - DESC_ID_BITS - 2)) - 1)
-> +
->  static inline struct idxd_wq *to_idxd_wq(struct dma_chan *c)
->  {
->  	struct idxd_dma_chan *idxd_chan;
-> @@ -93,7 +107,7 @@ idxd_dma_prep_interrupt(struct dma_chan *c, unsigned long flags)
->  		return NULL;
->  
->  	op_flag_setup(flags, &desc_flags);
-> -	desc = idxd_alloc_desc(wq, IDXD_OP_BLOCK);
-> +	desc = idxd_alloc_desc(wq, IDXD_OP_NONBLOCK);
->  	if (IS_ERR(desc))
->  		return NULL;
->  
-> @@ -120,7 +134,7 @@ idxd_dma_submit_memcpy(struct dma_chan *c, dma_addr_t dma_dest,
->  		return NULL;
->  
->  	op_flag_setup(flags, &desc_flags);
-> -	desc = idxd_alloc_desc(wq, IDXD_OP_BLOCK);
-> +	desc = idxd_alloc_desc(wq, IDXD_OP_NONBLOCK);
->  	if (IS_ERR(desc))
->  		return NULL;
->  
-> @@ -154,11 +168,128 @@ static void idxd_dma_free_chan_resources(struct dma_chan *chan)
->  		idxd_wq_refcount(wq));
->  }
->  
-> +/*
-> + * A cookie has exactly one polling owner, the client that submitted the
-> + * transaction. Observing a terminal completion record here retires and
-> + * recycles the descriptor, since a polled descriptor has no interrupt
-> + * and nobody else will. Two contexts polling the same live cookie
-> + * would race that recycle, which every in-tree dmaengine polling
-> + * client already avoids by construction.
-> + */
->  static enum dma_status idxd_dma_tx_status(struct dma_chan *dma_chan,
->  					  dma_cookie_t cookie,
->  					  struct dma_tx_state *txstate)
->  {
-> -	return DMA_OUT_OF_ORDER;
-> +	struct idxd_wq *wq;
-> +	struct idxd_desc *desc;
-> +	u32 idx;
-> +	u8 status;
-> +
-> +	if (txstate)
-> +		memset(txstate, 0, sizeof(*txstate));
-> +
-> +	if (dma_submit_error(cookie))
-> +		return DMA_ERROR;
-> +
-> +	wq = to_idxd_wq(dma_chan);
-> +
-> +	idx = cookie & DESC_ID_MASK;
-> +	if (idx >= wq->num_descs)
-> +		return DMA_ERROR;
-> +
-> +	desc = wq->descs[idx];
-> +
-> +	/*
-> +	 * Descriptors with a completion interrupt armed (RCI) are
-> +	 * completed and recycled by the IRQ handler. Reading their
-> +	 * completion record here would race with the handler, and so
-> +	 * would reading the recycled descriptor's flags, which is why
-> +	 * the property travels in the cookie the caller owns. The handler
-> +	 * invalidates the cookie on completion, so a matching cookie means
-> +	 * the command is still in progress.
-> +	 */
-> +	if (cookie & IDXD_COOKIE_RCI)
-> +		return READ_ONCE(desc->txd.cookie) == cookie ?
-> +			DMA_IN_PROGRESS : DMA_COMPLETE;
-> +
-> +	if (desc->txd.cookie != cookie) {
-> +		/*
-> +		 * The cookie belongs to an old transaction that has
-> +		 * already completed and been recycled.
-> +		 */
-> +		return DMA_COMPLETE;
-> +	}
-> +
-> +	status = desc->completion->status & DSA_COMP_STATUS_MASK;
-> +
-> +	if (status) {
-> +		/* Capture completion record fields before desc is freed below. */
-> +		u8 fault_info = desc->completion->fault_info;
-> +		u64 fault_addr = desc->completion->fault_addr;
-> +
-> +		/*
-> +		 * Check against the original status because ABORT is
-> +		 * software defined as 0xff, which DSA_COMP_STATUS_MASK
-> +		 * can mask out.
-> +		 */
-> +		if (unlikely(desc->completion->status == IDXD_COMP_DESC_ABORT))
-> +			idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true, NULL, NULL);
-> +		else
-> +			idxd_dma_complete_txd(desc, IDXD_COMPLETE_NORMAL, true, NULL, NULL);
-> +
-> +		dev_dbg(&wq->idxd->pdev->dev,
-> +			"dsa completion: status=0x%02x fault_info=0x%02x fault_addr=0x%llx\n",
-> +			status, fault_info, fault_addr);
-> +
-> +		if (status == DSA_COMP_SUCCESS)
-> +			return DMA_COMPLETE;
-> +
-> +		return DMA_ERROR;
-> +	}
-> +
-> +	/*
-> +	 * The descriptor is genuinely outstanding. A polled descriptor
-> +	 * carries no interrupt, so nothing but this function will ever
-> +	 * retire it, and a work queue or device that is no longer enabled
-> +	 * will not complete it either. Report the failure instead of
-> +	 * leaving the caller polling forever.
-> +	 *
-> +	 * A descriptor submitted before a device halt is dead for good:
-> +	 * the halt ended the engines and the reset that follows starts
-> +	 * them empty, so its record will never be written even once the
-> +	 * device is enabled again. Only in that case can the descriptor
-> +	 * be retired here safely; otherwise the pool would shrink by one
-> +	 * for every descriptor caught by a halt.
-> +	 */
-> +	if (desc->epoch != READ_ONCE(wq->idxd->reset_epoch)) {
-> +		idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true, NULL, NULL);
-> +		return DMA_ERROR;
-> +	}
-> +	/*
-> +	 * A device that is no longer enabled runs nothing it holds, so an
-> +	 * outstanding descriptor on it has failed. A halt stores its state
-> +	 * before it bumps the epoch, and this poll may have read the epoch
-> +	 * before the halt and the state after it, so the epoch is read
-> +	 * again: only the retire frees the slot of a descriptor the halt
-> +	 * caught. A halted device whose epoch still matches is between the
-> +	 * two stores, and the next poll retires the descriptor. The submit
-> +	 * reads the state after the stamp, so it refuses a descriptor
-> +	 * stamped with the bumped epoch.
-> +	 */
-> +	if (wq->idxd->state != IDXD_DEV_ENABLED) {
-> +		if (desc->epoch != READ_ONCE(wq->idxd->reset_epoch)) {
-> +			idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true,
-> +					      NULL, NULL);
-> +			return DMA_ERROR;
-> +		}
-> +		if (wq->idxd->state == IDXD_DEV_HALTED)
-> +			return DMA_IN_PROGRESS;
-> +		return DMA_ERROR;
-> +	}
-> +	if (wq->state != IDXD_WQ_ENABLED)
-> +		return DMA_ERROR;
-> +
-> +	return DMA_IN_PROGRESS;
->  }
->  
->  /*
-> @@ -177,7 +308,17 @@ static dma_cookie_t idxd_dma_tx_submit(struct dma_async_tx_descriptor *tx)
->  	int rc;
->  	struct idxd_desc *desc = container_of(tx, struct idxd_desc, txd);
->  
-> -	cookie = dma_cookie_assign(tx);
-> +	cookie = (desc->gen << DESC_ID_BITS) | (desc->id & DESC_ID_MASK);
-> +	if (desc->hw->flags & IDXD_OP_FLAG_RCI)
-> +		cookie |= IDXD_COOKIE_RCI;
-> +
-> +	if (desc->gen == DESC_GEN_MAX)
-> +		desc->gen = 1;
-> +	else
-> +		desc->gen++;
-> +
-> +	tx->cookie = cookie;
-> +	desc->epoch = READ_ONCE(wq->idxd->reset_epoch);
->  
->  	rc = idxd_submit_desc(wq, desc);
->  	if (rc < 0) {
-> @@ -219,6 +360,7 @@ static void idxd_dma_synchronize(struct dma_chan *c)
->  {
->  	struct idxd_wq *wq = to_idxd_wq(c);
->  	LIST_HEAD(quarantined);
-> +	u32 epoch;
->  
->  	/*
->  	 * dmaengine_synchronize() promises the client that its memory may
-> @@ -240,7 +382,13 @@ static void idxd_dma_synchronize(struct dma_chan *c)
->  	 * Only a device reset ends the exposure of the client's memory.
->  	 */
->  	idxd_wq_quarantine_take(wq, &quarantined);
-> -	if (!idxd_wq_drain(wq)) {
-> +	/*
-> +	 * A halt during the drain kills every descriptor submitted before
-> +	 * it, which is all of them, and a reset that followed may have
-> +	 * ended the drain itself. Such a drain is as good as complete.
-> +	 */
-> +	epoch = READ_ONCE(wq->idxd->reset_epoch);
-> +	if (!idxd_wq_drain(wq) || READ_ONCE(wq->idxd->reset_epoch) != epoch) {
->  		idxd_wq_quarantine_free(wq, &quarantined);
->  		WRITE_ONCE(wq->stuck, false);
->  		return;
-> diff --git a/drivers/dma/idxd/idxd.h b/drivers/dma/idxd/idxd.h
-> index b0cfd7101174..7fe5ec6c3bf3 100644
-> --- a/drivers/dma/idxd/idxd.h
-> +++ b/drivers/dma/idxd/idxd.h
-> @@ -349,6 +349,7 @@ struct idxd_device {
->  	spinlock_t cmd_lock;	/* spinlock for device commands */
->  	struct completion *cmd_done;
->  	u32 cmd_seq;		/* bumps when a command starts running */
-> +	u32 reset_epoch;	/* bumps on every device halt */
->  	struct idxd_group **groups;
->  	struct idxd_wq **wqs;
->  	struct idxd_engine **engines;
-> @@ -447,9 +448,11 @@ struct idxd_desc {
->  	struct list_head list;
->  	int id;
->  	int cpu;
-> +	u16 gen;
->  	u16 terminate_gen;	/* the queue's terminate_gen at an
->  				 * interrupt-armed submit
->  				 */
-> +	u32 epoch;		/* the device reset_epoch at submit */
->  	struct idxd_wq *wq;
->  };
->  
-> diff --git a/drivers/dma/idxd/irq.c b/drivers/dma/idxd/irq.c
-> index 8217698056bb..5e34790359ee 100644
-> --- a/drivers/dma/idxd/irq.c
-> +++ b/drivers/dma/idxd/irq.c
-> @@ -508,6 +508,14 @@ static irqreturn_t idxd_halt(struct idxd_device *idxd)
->  	gensts.bits = ioread32(idxd->reg_base + IDXD_GENSTATS_OFFSET);
->  	if (gensts.state == IDXD_DEVICE_STATE_HALT) {
->  		idxd->state = IDXD_DEV_HALTED;
-> +		/*
-> +		 * Every descriptor submitted before this point is dead: the
-> +		 * device will never write its completion record. Pollers
-> +		 * compare their descriptor's epoch against this to retire
-> +		 * such descriptors instead of waiting for a record that never
-> +		 * comes.
-> +		 */
-> +		WRITE_ONCE(idxd->reset_epoch, idxd->reset_epoch + 1);
->  		if (gensts.reset_type == IDXD_DEVICE_RESET_SOFTWARE) {
->  			/* The reinit below re-enables the queues, so revive them. */
->  			idxd_wqs_halt_flush(idxd, true);
+tbh, I don't think this has anything to do with adc.yaml or ADC
+channels, the channel that I was talking about here was the channel on
+the backend since in Figure 349 the serial interfaces can select between
+the two clocks but also select to be clocked by the MDF_CKIx input. We
+definitely have some properties about that are used by devices to change
+between clock sources - I just dunno if any of them have that capability
+on a per-channel basis.
 
+> I think these are signals between the front end (which here typically
+> has one channel only) and the backend. They are useful because they
+> end up indicating (I think) whether we want to interleave or not?
 
-LLM suggests possible race:
-1. Recording the count too early. idxd_dma_tx_submit() saves the reset count into desc->epoch (dma.c:321) before calling idxd_submit_desc(). Until __idxd_submit_desc() checks idxd->state (submit.c:230) and takes wq_active, the submitter holds no lock and no reference.
+If it was just about interleaving, I don't think you'd need two of them,
+since only one set of interleaved channels is possible? There's also the
+option I mentioned of having the MDF_CKIx be the clock. Maybe being a
+clock controller is actually the right thing to do, just with the
+frontend sdmodulator or w/e connected to the SITFx being the consumer?
+In that case, you'd need to do something to actually represent the clock
+mux in dt, one mux per SITFx, leaving us with N output clocks from
+CLK_SITF0 to CLK_SITFx rather than two because we're thinking in terms
+of programming model not physical outputs. Additionally, the number of
+input clocks grows by N since MDF_CKIx are all parents of the muxes.
+You'd then use assigned-clock-parents from the frontend node to set the
+parent of the mux (I think anyway). I'd be a little afraid of creating a
+loop there though, that needs to be broken, if the MDF_CKIx provider is
+the sd-modulator - but idk if that's possible and cyclic dependencies
+like that can always be dealt with anyway.
 
-2. The halt doesn't wait for this submitter. idxd_halt() (irq.c:509-529) sets HALTED and increments reset_epoch, then calls idxd_wqs_halt_flush(idxd, true). That flush's idxd_wq_kill() waits only for submitters holding wq_active, so it never waits on ours. It then revives wq_active and queues idxd_device_reinit().
+That's probably the most natural way to go about things from a DT point
+of view, and makes some sense to me if the clock is being used to drive
+communication with the sd-modulator - although it seems a little forced.
+It's still better IMO than the MDF referencing itself as things are done
+now.
 
-3. Recovery finishes. idxd_device_reinit() (irq.c:32-70) resets, configures and enables the device, which sets ENABLED (device.c:810). It then re-enables the queue (device.c:217). Nothing in this path touches the descriptors or desc->epoch.
+>=20
+> Anyhow, right now I don't have this clear enough in my head to
+> give a firm answer.
+>=20
+> Jonathan
 
-4. The descriptor runs on the new device. The submitter resumes and passes both state checks and the tryget. It then posts the descriptor, which still carries the old count, and the reset device runs it.
+--dnsGHyuHUFnfWdYk
+Content-Type: application/pgp-signature; name=signature.asc
 
-5. The poll frees it early. The first poll after the post sees status 0, and the descriptor matches the cookie. The desc->epoch != reset_epoch branch (dma.c:264-267) then calls idxd_dma_complete_txd(..., true, ...), which frees the slot. It returns DMA_ERROR while the copy is still running.
+-----BEGIN PGP SIGNATURE-----
 
-6. The late write corrupts the next user. __get_desc() clears the completion record when the slot is reused (submit.c:19). The device then writes its record to the same dener can see a result for a transfer that hasn't run.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatZnigAKCRB4tDGHoIJi
+0mKNAP9F3SWOYMYRc/4Of82HP549AOQX3WB3DwH966A+KxAz2QEAg1E5l/OKtJFY
+3Du86t2+XxQnrU6xgkcsMFsTwqp8PA0=
+=9ZWD
+-----END PGP SIGNATURE-----
 
-LLM suggested fix:
-Move the reset-count read (desc->epoch) out of idxd_dma_tx_submit() and into __idxd_submit_desc(), after the submitter holds wq_active and before the second state check. On the halt side, order the state store before the count store.
-
---- a/drivers/dma/idxd/dma.c
-+++ b/drivers/dma/idxd/dma.c
-@@ static dma_cookie_t idxd_dma_tx_submit(struct dma_async_tx_descriptor *tx)
-        tx->cookie = cookie;
--       desc->epoch = READ_ONCE(wq->idxd->reset_epoch);
-
-        rc = idxd_submit_desc(wq, desc);
---- a/drivers/dma/idxd/submit.c
-+++ b/drivers/dma/idxd/submit.c
-@@ static int __idxd_submit_desc(struct idxd_wq *wq, struct idxd_desc *desc,
-        smp_rmb();
-+       /*
-+        * Stamp under wq_active: a halt that bumps the epoch after this
-+        * read waits in idxd_wq_kill() for the reference, so an old stamp
-+        * proves the post came before that halt's flush. A halt stores its
-+        * state before its bump, so a bumped stamp fails the check below.
-+        */
-+       desc->epoch = READ_ONCE(idxd->reset_epoch);
-+       smp_rmb();
-        if (idxd->state != IDXD_DEV_ENABLED) {
-                percpu_ref_put(&wq->wq_active);
-                return -EIO;
-        }
---- a/drivers/dma/idxd/irq.c
-+++ b/drivers/dma/idxd/irq.c
-@@ static irqreturn_t idxd_halt(struct idxd_device *idxd)
-        if (gensts.state == IDXD_DEVICE_STATE_HALT) {
-                idxd->state = IDXD_DEV_HALTED;
-+               /* Pairs with the smp_rmb() after the submit's epoch stamp. */
-+               smp_wmb();
-                /*
-                 * Every descriptor submitted before this point is dead: the
+--dnsGHyuHUFnfWdYk--
 
