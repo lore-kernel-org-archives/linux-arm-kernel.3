@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3263CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C1DCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YPK5QrD2Biz8WIt271WspbuAzVZVpswCa9MB98GM1c=; b=kKmWCG7iCELJCB6RtlFFj1jv+4
-	LTCFjVjzZJohF+H68v3vlFgJMTMrICquUHnQ934Z7Hmzw+rwpGgAkou80yLWpxsQHUTwdvGCpRvNw
-	utGNoDZisM94XkaKSCV7/m8gtr2ltN4Vbwk8uJaUAu1mKA1mDHYRwao58TI/G/LmH5Q6RRwysUwL6
-	eLbrLBrNRXlr5gCUrULm+JPumw70NsUq9skfJA0FJ7BDyNQ6Szz9Xmg7vud0GLYrwIQTGHj1Ffyhk
-	zyTY84E/S0Cq0bi6s9h/nNit5/NXax/3VKAW87vN4Vp7TzZX2gwiONYumwgjRQ3gSp6z3deJROXsG
-	mZC4sz/w==;
+	bh=XMgbNhwoeuCGyN6Tie1PzlNRtNa+QjScRMtBLI/9URY=; b=cvpJXTiAk0WGWWaVQDpDKUr5qw
+	NvM3ue6iD2Y5VW5D+JtIXcRrRJ9Ci/4LdI/K8dAzgM71qErlsxoypQbyzLHtrCGia/6qgTBpKStXC
+	TNZEJJc0uxl0QVeUqQHuusCWNMdvOYCuYgoMkOJXhHHyfGH2VTdIFVH34O2fYdEt4FeaksOvzCgWc
+	5Pfqexlj3UzTfeJCzT3w82UdfM6ofc4PorV0AxCy50ixN2lZ6io9MLs/ZWe+JGPjWBbJsXHJkOhGP
+	ZeMH81LGaHOUIzwpqJVS/EbjJfblFKqCGtYH1RNfETPqWAbikqOlsDqlc7FuIgjMKqWPYQK5Oru30
+	rn2eV26A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImW0-00000007OQq-08dJ;
-	Mon, 19 Oct 2026 12:30:56 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1xImYh-00000007OoV-3VeI;
+	Mon, 19 Oct 2026 12:33:43 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImVv-00000007OPF-0JWS
+	id 1xImYe-00000007OmA-2Hbr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 12:30:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2831A15A5;
-	Mon, 19 Oct 2026 14:30:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1792413046; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=5YPK5QrD2Biz8WIt271WspbuAzVZVpswCa9MB98GM1c=;
-	b=JT7G+fFQL8UZU1tGRwhUPlEeeGyOPklh3lTZgt6QBqhkNKQ39YJWB2imB+euV3PKNylpXg
-	8hmMFIebrSnkz0uxql1S/azwpbuV/4afb+FnCR4lSQBQEQc/WZij0O6tayPU0iz9Esa9G9
-	gUaVR2o/Va51J13fFMSpzfnZsmBm+/geEvAXAngzKopeKTh+Uo1I0VRX9w6dmHM5O3Wjte
-	nMdWFTFoEId761r9qoxQhjLP/g2dv1t7EfmwBz3MkqgBD8Zanl888bkv9qBjXhxRxhd4MF
-	6RH30UV+a8QK98WkGlAVaOTxOZCGfvUWlnW+ulM3DM0NCwe4s0YyEGWfzcxSjQ==
+	Mon, 19 Oct 2026 12:33:42 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48b001cd92bso1088469f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:33:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1792413219; x=1793018019; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XMgbNhwoeuCGyN6Tie1PzlNRtNa+QjScRMtBLI/9URY=;
+        b=mDBEmicqX9i9R0UO7Jm2jwKHfRxxZNeJIgxib5+4huLuoz9NK2IJneAPZQdNGie7tn
+         /stdJquT0KAAqZYE+CvkDaHDMV0BrAw4z/yYWtiMkcl3NePnZMgtsp07CHoB5BSr6M8E
+         DX3Xrl23f0OgxW/m4L0QSn4AGoZ+ipSdMcxt1Y3Sg75QZd98kc6Z1useHmJVcE/F+FkC
+         l+Cpv3oqzPQD+YWGdph/FD01DZ+BB8qug4zZ7OHwi/Aw3P145r2Z4LkChSHpWl3PxXPL
+         0d3V5qUHI1Xzl+RpwlCfqrquOSfV1o6kVPFwwODxFXVLE/tvBwBcS1kVdtcrlOOw5/k+
+         rW3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792413219; x=1793018019;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XMgbNhwoeuCGyN6Tie1PzlNRtNa+QjScRMtBLI/9URY=;
+        b=PLrMBg8Qmf932KdoA0gPAv3rYvUBFqEeWTeZtma5JsCCaPyZS47kDiLYyO2hPV88j9
+         F8atKZsjLE5dsobfQa3NUdzkDziIbCwAcIgu9aR4zJCm0UrO1Y7D85IHWew2lZke5u7U
+         5hRpGdC/W+fZGtsBE8fNxlmvW1QLsRFPrpiDyjj9w16iiGpK08XVJxrUNVqTYqFwqP2o
+         ame0Ohts3c1V76RuSO9yEjUGJ3EsL5UAsa136we7yPCHEji8+o6aj1EL2QxOXaBLSWVW
+         cdXGaG17qwJ7WoDxj7EWOYjxYyvliMDXmW4pLdu3Kbkf7uVEVs3Y8B/JvrASgU4RJMo0
+         Y2Wg==
+X-Forwarded-Encrypted: i=1; AKwUvByQpqn6wCqPak3E7XB+VPGFGhr4ghondK1qgWq2UCbzaPI4N0LMiedj5DHFCGUChe5yyI4zAvvpMeOEb/VWIFf8@lists.infradead.org
+X-Gm-Message-State: AFq9FYLU25WwBlyYDmUD6oDmhnE5eHabhJhJ6847sfkns8n3h73tVMXd
+	l9sYfrcyqgT56Z5BGe8KGNzgTIaHfWibTheFnA7E3Z7CCqa3UB8RdgGZiUBNLWHIS5I=
+X-Gm-Gg: AYBFou3/GDU4puUeavxOPx20kZD8FraSa0XgqCsYt1DeWmDb1LJesUW7QlvYA6vy1zI
+	8XJrDBWK/9AbvNbZXmkxJS/3ps3NmNoWJ3xH56DrhA2gPZMwxdU+DQI2CZaAtTv+pCZIkwoIwHq
+	b/qdM6Sv6ddY4cNVhNWhRy0BucVbaMTpSBkSB9Lkzv81mb50K2IzGHGsJb08TKZB+onYrsF3lSH
+	ZPQLvzQPuCbdbX5R8KiQodtXoFxCmFq7lyoktDb5Ukz9mv3y7Th5oKyAAhJOjE+eoDa5/77ZBfa
+	PKK5EgUrpGa8bW1+0Z6FLMvoH0hKg/fUqWMx2QZsNa+7pdGlyFYt8+UqXgPqsu7QGMSrPdrli7V
+	BZJjrp/RrOv9wYqS7HNZrWmMsGm15Wk3xvHpY5/1A9ds/P7q9N7+OSiD1fgZwwzXHjQdZU3KRls
+	riBsh0krFj7wymSpH1hG08JMoBP7bkY5+BlObCfhY90OJzomad26wx6+f9Qykf4BHwtxFedoLCC
+	krE4C2lQoHbfPGUstEVm40TNug6JwRm+PC6zZgy5mNCZudmOHPAn1NDUJApK7L9H6Pnu4b5XSbq
+	NbuOLXcw9gn4hyRiI5JjoyYKxhzIVx6a9w8D1yxC28qjcEgEQ1HXjdc=
+X-Received: by 2002:a5d:5e03:0:b0:48a:fbcf:6f43 with SMTP id ffacd0b85a97d-48e07fbc4camr16385796f8f.54.1792413218623;
+        Mon, 19 Oct 2026 05:33:38 -0700 (PDT)
+Received: from [192.168.1.100] (2a02-8434-7c41-c701-8278-849f-666b-c282.rev.sfr.net. [2a02:8434:7c41:c701:8278:849f:666b:c282])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f576asm24677930f8f.32.2026.10.19.05.33.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 05:33:38 -0700 (PDT)
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Mon, 19 Oct 2026 14:33:56 +0200
+Subject: [PATCH 2/2] pmdomain: mediatek: mt8365: add missing define
 MIME-Version: 1.0
-Date: Mon, 19 Oct 2026 14:30:41 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
- <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
- Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v8 2/5] net: stmmac: drop split frames on AF_XDP
- zero-copy RX
-In-Reply-To: <atYKPgSrad4jAsJM@lore-desk>
-References: <20261018-stmmac-rx-mb-v8-0-5f58c0b25849@oss.qualcomm.com>
- <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
- <8c9e47e535ecc8190fa1c93ad5b5e32a@tipi-net.de> <atYKPgSrad4jAsJM@lore-desk>
-Message-ID: <f4009020a12df8e97fe87f03050839e2@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-2-dfd445dc3763@baylibre.com>
+References: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-0-dfd445dc3763@baylibre.com>
+In-Reply-To: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-0-dfd445dc3763@baylibre.com>
+To: Ulf Hansson <ulfh@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Julien Stephan <jstephan@baylibre.com>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_053052_052396_5A9EBE80 
-X-CRM114-Status: GOOD (  30.05  )
+X-CRM114-CacheID: sfid-20261019_053340_602894_12D9C7C3 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,126 +105,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.10.2026 14:17, Lorenzo Bianconi wrote:
->> Hi Lorenzo
->> 
->> On 18.10.2026 19:07, Lorenzo Bianconi wrote:
->> > stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
->> > XSK pool buffer and drops any frame that spans more than one RX
->> > descriptor:
->> >
->> >         /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
->> >         if (likely(status & rx_not_ls)) {
->> >                 xsk_buff_free(buf->xdp);
->> >                 buf->xdp = NULL;
->> >                 dirty++;
->> >                 count++;
->> >                 goto read_again;
->> >         }
->> >
->> > The non-last descriptors are freed and dropped, but the frame is not
->> > marked as errored. When the poll reaches the last descriptor of the
->> > same frame, error is still 0, so the fragment is handled as a complete
->> > frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
->> > or converted for XDP_TX. The tail starts in the middle of the original
->> > payload at a predictable offset and, parsed as a fresh frame (len == 0),
->> > stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
->> > though the DMA engine only wrote the tail remainder into that buffer, so
->> > the reads extend past the received bytes and can reach beyond the end of
->> > the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
->> > in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
->> > when the interface MTU is left at 1500.
->> >
->> > Set error when the 1:1 mapping check drops a descriptor, so the
->> > remaining descriptors of the frame - including the last one - are
->> > drained and released with xsk_buff_free() instead of being processed as
->> > a new frame. Account every freed buffer with dirty and count the
->> > dropped frame once in the poll budget / rx_pkt_n. The direct 1:1
->> > mapping drop also increments rx_dropped.
->> >
->> > Normalize the legacy normal and enhanced descriptor callbacks to report
->> > rx_not_ls together with discard_frame for non-last descriptors. This
->> > allows both stmmac_rx_zc() and stmmac_rx() to drain split frames on
->> > dwmac100 and dwmac1000 instead of reparsing the final fragment as a new
->> > packet.
->> >
->> > Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
->> > Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
->> 
->> This grew quite a bit since v6 (legacy desc changes, stmmac_rx() etc),
->> so my R-b should have been dropped. I had another look and two small
->> notes below.
-> 
-> Hi Nicolai,
-> 
-> ack, right.
-> 
->> 
->> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->> > ---
->> 
->> > [...]
->> 
->> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> > @@ -5695,18 +5695,21 @@ static int stmmac_rx_zc(struct stmmac_priv
->> > *priv, int limit, u32 queue)
->> >  		if (priv->extend_desc)
->> >  			stmmac_rx_extended_status(priv, &priv->xstats,
->> >  						  rx_q->dma_erx + entry);
->> > -		if (unlikely(status == discard_frame)) {
->> > -			xsk_buff_free(buf->xdp);
->> > -			buf->xdp = NULL;
->> > -			dirty++;
->> > +
->> > +		if (unlikely(status & discard_frame)) {
->> >  			error = 1;
->> >  			if (!priv->hwts_rx_en)
->> >  				rx_errors++;
->> >  		}
->> 
->> There's no !error check here, so on the legacy descriptors a split
->> frame now counts once per descriptor in rx_errors. stmmac_rx() in 3/5
->> counts it once. Could you add the !error check here too?
-> 
-> ack, I agree we should align stmmac_rx() and stmmac_rx_zc(). In order 
-> to avoid
-> reposting the full series for this change, do you agree to address it 
-> as a
-> follow-up patch?
+Add missing define for BIT(25) inside MT8365_POWER_DOMAIN_MFG
+declaration.
 
-Would be ok for me if nothing else is flagged in this version. In the 
-end it will
-be Maxime's / the net dev maintainers decision :)
+No functional changes expected.
 
-> 
-> Regards,
-> Lorenzo
-> 
->> 
->> > [...]
->> 
->> > @@ -5883,7 +5887,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int
->> > limit, u32 queue)
->> >
->> >  		if (priv->extend_desc)
->> >  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx +
->> > entry);
->> > -		if (unlikely(status == discard_frame)) {
->> > +
->> > +		if (unlikely(status & discard_frame)) {
->> 
->> AFAIU this also changes GMAC4: a frame with an error plus an IP header
->> error returns discard_frame | csum_none, which the old "==" let
->> through. Dropping it is right, but maybe worth a line in the commit
->> message?
->> 
->> > [...]
->> 
->> With the !error check added:
->> 
->> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
->> 
->> Thanks,
->> Nicolai
+Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+---
+ drivers/pmdomain/mediatek/mt8365-pm-domains.h | 3 ++-
+ include/linux/soc/mediatek/infracfg.h         | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pmdomain/mediatek/mt8365-pm-domains.h b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
+index 3775e4dc2c91..e360fe142027 100644
+--- a/drivers/pmdomain/mediatek/mt8365-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
+@@ -126,7 +126,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
+ 		.sram_pdn_bits = GENMASK(9, 8),
+ 		.sram_pdn_ack_bits = GENMASK(13, 12),
+ 		.bp_cfg = {
+-			MT8365_BUS_PROT_INFRA_WR_TOPAXI(BIT(25)),
++			MT8365_BUS_PROT_INFRA_WR_TOPAXI(
++				MT8365_INFRA_TOPAXI_PROTECTEN_INFRA2MFG),
+ 			MT8365_BUS_PROT_INFRA_WR_TOPAXI(
+ 				MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M0 |
+ 				MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M1),
+diff --git a/include/linux/soc/mediatek/infracfg.h b/include/linux/soc/mediatek/infracfg.h
+index d2cfa09f81ba..ddc53675529e 100644
+--- a/include/linux/soc/mediatek/infracfg.h
++++ b/include/linux/soc/mediatek/infracfg.h
+@@ -14,6 +14,7 @@
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_CONN2INFRA_AHB			BIT(14)
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M0				BIT(21)
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M1				BIT(22)
++#define MT8365_INFRA_TOPAXI_PROTECTEN_INFRA2MFG				BIT(25)
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_1_STA1				0x258
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_1_SET				0x2a8
+ #define MT8365_INFRA_TOPAXI_PROTECTEN_1_CLR				0x2ac
+
+-- 
+2.56.0
+
 
