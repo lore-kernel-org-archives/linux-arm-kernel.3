@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C13CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981C0CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/T4dpTCgBomTD6eEwaA8Ybu6I7bQ2brZD+Mi2z7v1XE=; b=JsOCv4E/LJW9oruJBMvfMhilUN
-	5kB31hJkgvnYI4mkHlgOeAnQqtTyvayuJ1ffX9khqbhMXMaLNU3ZrwNfR9wYL7Y4Y+Abr1QiseTn2
-	0Q3Sr8M94ShLbqXFpSYosHVoVs5o+ZFK1rEomg510EVZbUTSePuLVs1SxJkplwrO3t68JgcJ3ZAsi
-	H7VhcUJJkLL1j3x3Ygcec7q/YadHTmY2QVguv8Kp7AwEJSXMmdmvwS16BgXBa8E5i71ThK2y6tVA7
-	GxfyiZa2XZ5iEAXBM3Vqc7FgxEMex23O8P+cG1BKD5tte8NlEBhYPesF0UvpboZeW01QRaLDGyPRx
-	UrMpYYTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FjT2ZNsV8AfEzmKZqwFXl+1QnND6/6cZCln0zdfGadQ=; b=XH8DxWHIWspBq3e9G9U2lBTtsA
+	gzQsc2SeD61S07ivUQQN9tC3U4cy+P2aOev2dLMPYvioRWAqUcB9uunCV4+YePon5xaI8GySSLDYh
+	3DT8cUNgt+RBQly0Fl6Bu/0JtBYgn4HXS1tZNfnGgipj84UL1VQBaVqKK4YI9eMn+7LrJgrHekMGd
+	uCXtHm/g6LMhr/sOrTvH041NMlva27eUg/eLpNEfi3/PAJXfeRe21oHNSADrQQXGB8VAHXPEozCHX
+	ZeJZN4irQBOhq8gyDUAGf4k4Fjdh4OVRJ2fIYrlcz6+IhCy/YzVdfVLPsa2u7XQ1hh7s63l8M5jiQ
+	8VW2BVmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImlY-00000007QhH-2uBz;
-	Mon, 19 Oct 2026 12:47:00 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xImrx-00000007RBn-1ll2;
+	Mon, 19 Oct 2026 12:53:37 +0000
+Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImlV-00000007QgS-2ZDu
+	id 1xImrt-00000007RAv-2bX5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 12:46:59 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3acdcfa2bd3so1775214a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:46:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792414016; x=1793018816; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/T4dpTCgBomTD6eEwaA8Ybu6I7bQ2brZD+Mi2z7v1XE=;
-        b=c0S39j2oYIYoWjK5A5NMfMKnoHC+6lqvwPPHbHce8cNEJ/fk5uG79I7s1NP+HUNSQr
-         O67/f9alnHgXKIBt7YQgiYjYmWO/Pp5UNz7SEIp+Ust2adtyEMePPubKDjy0Vyo5p/Q6
-         O8SEWDRLedKc4LZOvbPYCl/B8so64ot6OLB23IoXTJiEhBeL02o11/uys6POatk+mX8W
-         BWi/yZ73sVJVgKQ2Y/5sOozxADYO0uwDitH/d5XfCMDkcNwnEPLW/K7Z953L01qBygQk
-         bzMYZvwteNqQFTa79cFobBO6+EDWIadLns2TAXWMduuynQZZlet73e358aN9EzcJY2Tq
-         ytfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792414016; x=1793018816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/T4dpTCgBomTD6eEwaA8Ybu6I7bQ2brZD+Mi2z7v1XE=;
-        b=PSIoQVg/ttL9xD+8WvBJ7jf7qX+e52QNFhcJ3oUt+oX+5P2iL9M3Zx2MGkABFFKQkJ
-         muT74VvSF3zgzXoiQI+bCcZvW0yTU2Veppr8QM9WlUmSwJufRUEfFPq+zwewlrYuc9FU
-         fK03Q57Ez9hQa8uz7D59zMfKKQLRwp2s/FGpVFujatnwcATRjGuMP87fteQ13evXkMjB
-         DevqtEIsCjanfeSvCDG0GCOWhhuafSN6LEra0kVaEpCsIXoDdswvPS3VgfdzdrlpgNLd
-         lsJSn9fedKlalLpRJ2TUtLS/7ympXt6v4yx3UDNjbU5KySu2X4AprsRAzCv8SlNScIrT
-         hlfw==
-X-Forwarded-Encrypted: i=1; AKwUvBx6jWdknhIKxSIJLaV8xGT5kkBCMJMvzaJJRZw54VA7zF2YpqS5umS5ZzZrTpOSjlCB0I57QxVk9TgBffQg/qEU@lists.infradead.org
-X-Gm-Message-State: AFq9FYIFKMUcG5jLUcz3zze0ONBlyph/SyvZQna6lD0kQRUq6AdP6iMl
-	fARjHiwZnjIpyoPKYXXCwBJQRCJndiPGDgpWo3csl835E63qsohgCkY+
-X-Gm-Gg: AYBFou30obdpvUMinCeDxYoioZ94KPNWixdAZiM3mIQVd9ZNf8N/NyiE0zW3yA6Y/KR
-	A3cxyJrZVSpk+ajZ0ufmZLFfmnfTmWAFK3MVzkQIG3+FOVC13k079FMWr2wJbbm5Z0uGcdepbaa
-	2r3+vYTa1k+hYaMwR0/+HMSLAuikI2C0JSloGbtycVmQLuDk43ypOrM10uKtCgzODfTFBp0CR9J
-	+zhu/YfjSvUo/f2Wflx1bSfoyl0lUa+jwgKtNXis+NlWW4PO6TjO6Gd3LRZEogO/98/kfnGrKPW
-	W+gAFscHNRPr8XkNXg04EsAK3IdR9OGZEELv/Ogc6I39K5n+fXL9Ksvt8dcgGEW7diS/uNB9/6R
-	F/u68VScTp1tYlYD+lFc5fOhZ6esYqCZPcdafFp8H6JVDytGpDTX5rmxsB8VQ4Sh0Dx7NQBaune
-	+rH3VX+8r94D0QndVDipjWOa8RFlomGb/u2iK5rN3/LVlirpFzcz9CkqPi9+Wh5P1AA4KhMe4B/
-	BM=
-X-Received: by 2002:a17:90b:5487:b0:3ac:9c37:9426 with SMTP id 98e67ed59e1d1-3acef0c8743mr7123863a91.31.1792414015871;
-        Mon, 19 Oct 2026 05:46:55 -0700 (PDT)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ad48dc2f1bsm1729020a91.4.2026.10.19.05.46.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 05:46:55 -0700 (PDT)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: james.morse@arm.com,
-	ben.horgan@arm.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH] arm_mpam: Do not access MPAMF_ESR on MSCs that do not have it
-Date: Mon, 19 Oct 2026 20:46:12 +0800
-Message-Id: <20261019124612.134035-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 19 Oct 2026 12:53:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1792414413; x=1823950413;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lG8ba8f3XvMZ016RxZR1uTEgZGmbv/N4GGCyJVqPUXg=;
+  b=PY2dUxRCS21DaN37QzuZ5ubTwPYF2AhLTEaY+WGmF2tTh0D1g+VHlfzK
+   pOZ/Krn/FwIZIzTyjNBSUHOxk54YX/3gVNBuAxRbeAimVyxXtCoNyIfTG
+   Fe3TfbYNmoMhNWRuKOFBDZRqs105VAP+Kr69D3IlpyikH5HtazTCnNV8d
+   aPH9ChxI1ZTagP8KdBwKjkk6BxqRIA7Z4j5vFR6vOzbDJMJoK/vGR850V
+   uQNAOclXNRgyFo99/UIDg2MIyyLLWQ6VYjNYgdfi1yfdQY6sfPh9gLuJA
+   3eEan6FIpP39gZyZ7DbYvxQry0Fqu4I/WUpBHNO0uAeV4UqgZTlISAn6Z
+   Q==;
+X-CSE-ConnectionGUID: /6D2nmHKQ1K6cELBWa5qlQ==
+X-CSE-MsgGUID: TXCbHZayTomY7H6hS2lbCQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11939"; a="237587890"
+X-IronPort-AV: E=Sophos;i="6.27,167,1786978800"; 
+   d="scan'208";a="237587890"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 21:53:30 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 17D061C000D3
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 12:53:30 +0000 (UTC)
+Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id BE0C21000854
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 12:53:29 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.51.148])
+	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 9EDCE2000233;
+	Mon, 19 Oct 2026 12:53:21 +0000 (UTC)
+Date: Mon, 19 Oct 2026 21:53:20 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: kernel test robot <lkp@intel.com>
+Cc: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, llvm@lists.linux.dev, 
+	oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA
+ erratum E#030003
+Message-ID: <atYOKfirjR1VqBZ3@FCCLS0092175.localdomain>
+References: <20261016-monaka-fix-for-upstream-v2-4-fc7ede7f9f48@fujitsu.com>
+ <202610171939.VWCcPPra-lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <202610171939.VWCcPPra-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_054657_652522_928B495C 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20261019_055333_956228_A610764F 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,68 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mpam_msc_clear_esr() and mpam_msc_read_esr() read MPAMF_ESR
-unconditionally, but the MPAM architecture only provides this
-register when MPAMF_IDR.HAS_ESR is set. On an implementation without
-ESR these accesses reach unimplemented register space.
+On 10/17 19:48, kernel test robot wrote:
+> Hi Tomohiro,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Tomohiro-Misono/arm64-cputype-Add-FUJITSU-MONAKA-definition/20261016-190045
+> base:   24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
+> patch link:    https://lore.kernel.org/r/20261016-monaka-fix-for-upstream-v2-4-fc7ede7f9f48%40fujitsu.com
+> patch subject: [PATCH v2 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA erratum E#030003
+> config: arm-defconfig (https://download.01.org/0day-ci/archive/20261017/202610171939.VWCcPPra-lkp@intel.com/config)
+> compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 6719b9e31d6a93099612c474eec76d9f41d0275a)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261017/202610171939.VWCcPPra-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202610171939.VWCcPPra-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> drivers/irqchip/irq-gic-v3.c:1892:34: error: use of undeclared identifier 'ARM_CPU_IMP_FUJITSU'
+>     1892 |         if (read_cpuid_implementor() != ARM_CPU_IMP_FUJITSU ||
+>          |                                         ^~~~~~~~~~~~~~~~~~~
+> >> drivers/irqchip/irq-gic-v3.c:1893:34: error: use of undeclared identifier 'FUJITSU_CPU_PART_MONAKA'
+>     1893 |             read_cpuid_part_number() != FUJITSU_CPU_PART_MONAKA)
+>          |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+>    2 errors generated.
 
-Read HAS_ESR from the IDR during probe, make clear_esr() a no-op on
-such MSCs, and have read_esr() return -ENODEV as the register
-cannot be read.
-
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
----
- drivers/resctrl/mpam_devices.c  | 7 +++++++
- drivers/resctrl/mpam_internal.h | 1 +
- 2 files changed, 8 insertions(+)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 48adc49b833c..a473b2872183 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -388,6 +388,9 @@ static int mpam_msc_clear_esr(struct mpam_msc *msc)
- 	u32 esr_low;
- 	int ret;
- 
-+	if (!msc->has_esr)
-+		return 0;
-+
- 	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
- 	if (ret)
- 		return ret;
-@@ -415,6 +418,9 @@ static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
- 	u32 esr_high, esr_low;
- 	int ret;
- 
-+	if (!msc->has_esr)
-+		return -ENODEV;
-+
- 	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
- 	if (ret)
- 		return ret;
-@@ -1205,6 +1211,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
- 		msc->partid_max = min(msc->partid_max, partid_max);
- 		msc->pmg_max = min(msc->pmg_max, pmg_max);
-+		msc->has_esr = FIELD_GET(MPAMF_IDR_HAS_ESR, idr);
- 		msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXTD_ESR, idr);
- 
- 		scoped_guard(mutex, &mpam_list_lock) {
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1f86cc158100..b648c006e102 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -80,6 +80,7 @@ struct mpam_msc {
- 	int			fb_id;
- 	u32			nrdy_usec;
- 	cpumask_t		accessibility;
-+	bool			has_esr;
- 	bool			has_extd_esr;
- 
- 	int				reenable_error_ppi;
-
-base-commit: 8ea457f746d915d55f78b43d33b1cd618f3d93ad
--- 
-2.34.1
-
+Oops, I missed testing this with CONFIG_ARM=y. I will fix this in v3.
 
