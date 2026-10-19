@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8EF3CCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 01:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F64CCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 01:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cNR3vb579dXsDYsujzLCTLqAAOGxXjoVkILSQWP2oe8=; b=YWX9dWf34ZfQBYpsS2kFTCstrY
-	ANCn/Rxhqk/bnGCKhLyXqE3e8jtwmvmp6IuS4daWt97/8ap4paJqdwwtFfrKI9c2ji2Sog9BFHROF
-	FLu+sLWC0zYKGlkZD3TPEn1Q0TwkL5nkSLkffn0lruAENiUlHCU6zUzr9xEpDblJrcnLFHwn/tEcJ
-	eorepYTAW/1eF8z8phUI/sUJvruiBR+Hl2RGuj+hrXKdmRb3ERMiov9wQbkjIXkN+R4HqidATcuc7
-	nmPtQuVBohTuCibkFqT4VQZlr0PdQXwoj31jbETf6vSPn8N6Eg1/yDOhRJnwmXvS7OAOCHjxr4Egq
-	alxJIa1g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/BR6tYHepUWfOOub7vhEH5faC9Xm9yzzqG9QdBsvV0w=; b=veEYRnHbksC8a8wtvdVnE20yT2
+	1b3x/82n0DGe/OjohYMdqvtb8xYrbukdZjCzteZTzekn69b64l6cxjSV1ahJuAdQCgk2kTmp+sQEk
+	Xektg547d8RHI5UTHk8QThLrrq9uDENzx/sQZVhj1z5xxcgGwxGDFBoRYIiGW44PpYULYeKnE5+uL
+	CFCTa3iRJSe9jyu4M7tdyA8oEyldQsnHAG+2tv02Hnc8GSMht0uGSNicIWd1C7w6tm+bpxGJKLq2r
+	TjWoFJi02ep8Ka4mR0VZw+HXP560Kb86m3bdiwiASs1LZRNoVKhJC5KzDnBsuSmubsHzDVl9aItR2
+	HXeaJSeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcER-00000006OPO-4Bly;
-	Mon, 19 Oct 2026 01:32:08 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1xIcIh-00000006Ooa-29aR;
+	Mon, 19 Oct 2026 01:36:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcEN-00000006OOs-3bKp;
-	Mon, 19 Oct 2026 01:32:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=cN
-	R3vb579dXsDYsujzLCTLqAAOGxXjoVkILSQWP2oe8=; b=fQWPm5mfBDj4rk4TrJ
-	5C5lGQqMiOE4ZJLQ468NXt9Rxv0Z8YlJoJtp+nzgKDkFJC45sCjDnIxUgkr7WzNL
-	q9JxzgCXNRWO9CqMNAtLCX2G/ba11RIASARGABhOb547LTvJIol7dMS53pfL+9nu
-	AGfaBkN6nhywuuO5OgauW8rio=
-Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wCnj78Dc9VqcUAyAw--.1470S2;
-	Mon, 19 Oct 2026 09:31:48 +0800 (CST)
-From: Jiale Yao <yaojiale02@163.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Jiale Yao <yaojiale02@163.com>
-Subject: [PATCH] wifi: mt76: mt7996: stop radios after add failure
-Date: Mon, 19 Oct 2026 09:31:45 +0800
-Message-Id: <20261019013146.1488644-1-yaojiale02@163.com>
-X-Mailer: git-send-email 2.34.1
+	id 1xIcIg-00000006OoR-0wH9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 01:36:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A1555417A5;
+	Mon, 19 Oct 2026 01:36:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4507C1F000C4;
+	Mon, 19 Oct 2026 01:36:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792373789;
+	bh=/BR6tYHepUWfOOub7vhEH5faC9Xm9yzzqG9QdBsvV0w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dKhl0d/zvx8hXUZ80O8Os9Fzq/g0IxUuxaDD9IiwG32VgcBhbPLFbFzB3Fz603fJE
+	 PAZ9HhmfFN1D4vkyrab6d9I/NYprcxHSoyDwH2CzRqYjkxKsBFuXwiNNlybdaTHkjK
+	 dchZJLLOKiv90mTloyvxpaSamyHlqe6mLpggBIe3JCTgEdltKqyv7VQTSp244s4M6D
+	 0klo2M847tLX9LIVcO8tMxaqZg59xOcDD2p5AqjHrdH2T26F4tltFQblQ+oyquhF6r
+	 Wp9MgtiNaMBr6L/HR4K1wx+hpgXBnM7IHyQRTuDEPBH0Ai/Jg+R1v8/c0kFSpMU3tp
+	 0ZhYqqjP/r25g==
+Date: Mon, 19 Oct 2026 02:36:21 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Sumit Semwal <sumit.semwal@linaro.org>, Christian =?UTF-8?B?S8O2bmln?=
+ <christian.koenig@amd.com>, <linux-kernel@vger.kernel.org>,
+ <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <linaro-mm-sig@lists.linaro.org>
+Subject: Re: [PATCH 2/3] iio: adc: add stm32 mdf support
+Message-ID: <20261019023621.30c413c6@jic23-hlaptop>
+In-Reply-To: <20261001145702.2628429-3-olivier.moysan@foss.st.com>
+References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
+	<20261001145702.2628429-3-olivier.moysan@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCnj78Dc9VqcUAyAw--.1470S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXF43ZF4DCw48AFy3Zw15twb_yoW5Xr4fp3
-	yjka90yr4UArn5XF18Cr4jvF1rC3yxGry7CrWku3Z8Crn7CrZ3Jr40vF9FvF1rCrWxC3Wa
-	vr40y3ZrWanxWFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJPE3UUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8ATtKGrVcwQqoQAA3y
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_183204_243418_B07F5667 
-X-CRM114-Status: GOOD (  11.11  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +77,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A multi-radio interface can start one radio before starting a later
-radio fails. add_interface returns without stopping the radios started
-by that failed request. mt7996_run can also leave firmware radio state
-enabled when setup fails after radio enablement.
+On Thu, 1 Oct 2026 16:56:46 +0200
+Olivier Moysan <olivier.moysan@foss.st.com> wrote:
 
-Disable a radio when mt7996_run fails and track radios newly started by
-add_interface so they and their monitor state are rolled back on a later
-failure.
+> Add the STM32 Multi-function Digital Filter (MDF) core, serial interface
+> and digital filter drivers. The MDF converts bitstreams from sigma-delta
+> modulators or digital microphones into samples exposed through IIO.
+> 
+> Audio: capture PDM microphones via cyclic DMA for an ASoC consumer.
+> Support CIC scaling and filtering, synchronized and interleaving modes.
+> Audio use case requires a DMIC filter, and a separate ASoC DAI.
+> 
+> Analog: expose sigma-delta modulators as IIO voltage channels with
+> direct reads or DMA buffering mode. STM32 timer triggers can be used as
+> clock source.
+> Analog use case requires an IIO backend for the SD modulator.
+> 
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
 
-Fixes: 69d54ce7491d ("wifi: mt76: mt7996: switch to single multi-radio wiphy")
-Signed-off-by: Jiale Yao <yaojiale02@163.com>
----
- .../net/wireless/mediatek/mt76/mt7996/main.c  | 26 ++++++++++++++++---
- 1 file changed, 23 insertions(+), 3 deletions(-)
+I'm not going to spend long on this today, but a few trivial things noted
+from a quick glance.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index dd7a01c02a7c..1cea0515a413 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -24,15 +24,15 @@ int mt7996_run(struct mt7996_phy *phy)
- 
- 	ret = mt7996_mcu_set_chan_info(phy, UNI_CHANNEL_RX_PATH);
- 	if (ret)
--		return ret;
-+		goto disable_radio;
- 
- 	ret = mt7996_mcu_set_thermal_throttling(phy, MT7996_THERMAL_THROTTLE_MAX);
- 	if (ret)
--		return ret;
-+		goto disable_radio;
- 
- 	ret = mt7996_mcu_set_thermal_protect(phy, true);
- 	if (ret)
--		return ret;
-+		goto disable_radio;
- 
- 	set_bit(MT76_STATE_RUNNING, &phy->mt76->state);
- 
-@@ -45,6 +45,11 @@ int mt7996_run(struct mt7996_phy *phy)
- 	}
- 
- 	return 0;
-+
-+disable_radio:
-+	mt7996_mcu_set_radio_en(phy, false);
-+
-+	return ret;
- }
- 
- static int mt7996_start(struct ieee80211_hw *hw)
-@@ -558,6 +563,7 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
- 	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
- 	struct wireless_dev *wdev = ieee80211_vif_to_wdev(vif);
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
-+	unsigned long started = 0;
- 	int i, err = 0;
- 
- 	mutex_lock(&dev->mt76.mutex);
-@@ -572,6 +578,7 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
- 		err = mt7996_run(phy);
- 		if (err)
- 			goto out;
-+		set_bit(i, &started);
- 
- 		if (vif->type == NL80211_IFTYPE_MONITOR)
- 			mt7996_set_monitor(phy, true);
-@@ -584,6 +591,19 @@ static int mt7996_add_interface(struct ieee80211_hw *hw,
- 
- out:
- 	mutex_unlock(&dev->mt76.mutex);
-+	if (err) {
-+		for_each_set_bit(i, &started, MT7996_MAX_RADIOS) {
-+			struct mt7996_phy *phy = dev->radio_phy[i];
-+
-+			if (vif->type == NL80211_IFTYPE_MONITOR) {
-+				mutex_lock(&dev->mt76.mutex);
-+				mt7996_set_monitor(phy, false);
-+				mutex_unlock(&dev->mt76.mutex);
-+			}
-+
-+			mt7996_stop_phy(phy);
-+		}
-+	}
- 
- 	return err;
- }
--- 
-2.34.1
+> diff --git a/drivers/iio/adc/stm32-mdf-serial.c b/drivers/iio/adc/stm32-mdf-serial.c
+> new file mode 100644
+> index 000000000000..15a58cf833be
+> --- /dev/null
+> +++ b/drivers/iio/adc/stm32-mdf-serial.c
 
+...
+
+> +
+> +int stm32_mdf_sitf_stop(struct stm32_mdf_sitf *sitf)
+> +{
+> +	int ret = 0;
+> +
+> +	spin_lock(&sitf->lock);
+
+Use guard() for cases like this. Simplifies the flow and helps
+readabilty as a result.  Everyone loves an early return.
+
+> +
+> +	if (!sitf->refcnt) {
+> +		dev_err(sitf->dev, "Unbalanced serial interface stop ?\n");
+> +		ret = -EPERM;
+> +		goto out;
+> +	} else {
+> +		sitf->refcnt--;
+> +	}
+> +
+> +	if (!sitf->refcnt)
+> +		ret = regmap_clear_bits(sitf->regmap, MDF_SITFCR_REG, MDF_SITFCR_SITFEN);
+> +
+> +out:
+> +	spin_unlock(&sitf->lock);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(stm32_mdf_sitf_stop);
+>
+> +static int stm32_mdf_sitf_runtime_suspend(struct device *dev)
+> +{
+Add a comment on why you need these.
+> +	return 0;
+> +}
+> +
+> +static int stm32_mdf_sitf_runtime_resume(struct device *dev)
+> +{
+> +	return 0;
+> +}
+
+> diff --git a/drivers/iio/adc/stm32-mdf.h b/drivers/iio/adc/stm32-mdf.h
+> new file mode 100644
+> index 000000000000..7e403c26d4dc
+> --- /dev/null
+> +++ b/drivers/iio/adc/stm32-mdf.h
+> @@ -0,0 +1,312 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * This file is part of STM32 MDF driver
+> + *
+> + * Copyright (C) 2023, STMicroelectronics - All Rights Reserved
+I'd guess you'll modify it enough that this might need
+an update!
+
+
+> +/* MDF_SIDR: Size Identification Register */
+> +#define MDF_SIDR_SID_MASK GENMASK(31, 0)
+> +#define MDF_SIDR_SID(v) FIELD_PREP(MDF_SIDR_SID_MASK, v)
+I'd not bother with the second macro.  It is only a little
+shorter than FIELD_PREP() in most case.
+
+> 
 
