@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAA9CCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F58CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCtH0nSoUz9rfFDR40EGktb2UZ4joiDlZGZt7iSx0Yo=; b=sU1JZWl83ekvx1imIKMl5FJTPF
-	aICBIdnghnZ30SCDItRtWT9fzzxr7RWjDl6WTfOtNBDLMJn03XMz8R7ICviVAL/eHpkE//rFfcAt3
-	k6Wk6rAC0XrrLQP4odu4R2GWtalDvjyg90SffITPaKZ8H09dcTIMAm4VrmvWlpCHNeURt1pKLfdFv
-	9It7P8WQ84rTge+x5v9BN06YYHShkrp5zGXYQZQ9HHhX6rS7IjsqyK8R4l6MK/IKH/n8gz17WctuR
-	KhVX7ZYFNmvtRrtBRGBwmhzp3Ew9ZtCROOlTyp2gKKyF0JVZ4/A4idGKrtwRwMZYULS13egSMA6Wv
-	7nLCkcsw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=617Ri5C4UzxIoL/xXhlNBV+ngcvt66tB3mFH89EiNfY=; b=PS/SHfWT/rpYlG0asBaW3Q+BZQ
+	x+uyrH2/B3zf2ieT5e30MxA0ThpRs1Cy5Pzjj8oFi9FkpqrZsrp8y2HYbu7Y2boW7/UVQkrZ+bH8E
+	2ofvaNoyJ3tf+dJKFD4+Echk/PKC27Nwu19cBoqgXQE3HKfrw/VjHah/Oa5tRDNxfBaespEn821g0
+	E40PctFpLXr9puuj/IXcoqtbpoWbtOTa0b1Tng4lc/6FLQ1Pf4WTq5ljp9Q3JVZBjZCl4z2bAYJKb
+	6bhIOq/FcpymmLPIycmxPqTLcub/5BjNc0H6BB6A6DzgXDKs9SlLekkfYnAbOrtI5pOna5s5N9R7A
+	XQ4IxHKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkc3-00000007BpO-1GWo;
-	Mon, 19 Oct 2026 10:29:03 +0000
-Received: from mail-m10313119186.xmail.ntesmail.com ([103.131.191.86])
+	id 1xIkc9-00000007Bua-1d5H;
+	Mon, 19 Oct 2026 10:29:09 +0000
+Received: from mail-m822136245.xmail.ntesmail.com ([8.221.36.245])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkbr-00000007Bcz-08Zo;
-	Mon, 19 Oct 2026 10:28:52 +0000
+	id 1xIkbq-00000007Bci-12eJ;
+	Mon, 19 Oct 2026 10:28:53 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 518d3dd9d;
-	Mon, 19 Oct 2026 18:28:45 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 518d3dd84;
+	Mon, 19 Oct 2026 18:28:41 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Sandy Huang <hjc@rock-chips.com>,
 	Heiko Stuebner <heiko@sntech.de>,
@@ -59,28 +59,25 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v2 3/6] drm/bridge: analogix_dp: Add support for RK3568
-Date: Mon, 19 Oct 2026 18:28:21 +0800
-Message-Id: <20261019102824.3157044-4-damon.ding@rock-chips.com>
+Subject: [PATCH v2 0/6] Add eDP support for RK3568
+Date: Mon, 19 Oct 2026 18:28:18 +0800
+Message-Id: <20261019102824.3157044-1-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261019102824.3157044-1-damon.ding@rock-chips.com>
-References: <20261019102824.3157044-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa153b4e18c03a8kunme348c01b2f6c34
+X-HM-Tid: 0aa153b4d21803a8kunme348c01b2f6c0b
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSEJOVhgZGE0eSBlNSktMH1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCT0JIVktOGBhMGkweSh9JS1YVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=d+VPOf6W6mvTgDPcVFq/fttqL/HWCuxlB1VBSPWI4LiJAjkK2STu5KXpqrHPA6IE7G+RWvBz+VogodsnKp33IwEnh6TEf+510kDqzlUnBPsn3bBsqJ6ljPCPM2vjB5BeqZgGNHlf/0WZ0qFAhINXdeP166ocTHfcGTJbs2FDdCo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=tCtH0nSoUz9rfFDR40EGktb2UZ4joiDlZGZt7iSx0Yo=;
+	b=NeVTMvm6b/1u8YkojplkAi/G3NWF11vZKYvAIj6kJDzvLm06em+sn2BDCG2b2RHd0ubXpphbNOAScPy+tuvi8AGPpPemSwm2Unn4it0YiB5Uc4KBh0x2JAuSvSXCNhnmjXhyHSSGo5n6cAXn0H2HDPo1REq+kEwK1w9jmpy5Vs0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=617Ri5C4UzxIoL/xXhlNBV+ngcvt66tB3mFH89EiNfY=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032851_411767_C086E420 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261019_032851_279861_A835BF42 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +92,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3568 SoC integrates an eDP transmitter based on the Analogix
-DisplayPort core.  Like RK3288 and RK3399, its main link consists of
-4 physical lanes running at 1.62/2.7 Gbps per lane.
+PATCH 1 is to document the "rockchip,rk3568-edp" compatible in the
+        Rockchip Analogix DP binding.
+PATCH 2 is to add the binding for the RK3568 eDP PHY with NaNeng IP block.
+PATCH 3 is to add the RK3568 support for the Analogix DP bridge driver.
+PATCH 4 is to add the driver for the Rockchip eDP Transmitter PHY with
+        NaNeng IP block.
+PATCH 5 is to add the RK3568 support for the Rockchip Analogix DP driver.
+PATCH 6 is to add the eDP controller and eDP PHY nodes for the RK3568
+        SoCs.
 
-Add a new RK3568_EDP device type and let it share the link rate and
-lane count limits of the RK3288/RK3399 variants.
+Tested on RK3568 EVB1 baord with LG eDP panel LP079QX1-SP0V.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+&edp {
+  avdd-0v9-supply = <&vdda0v9_image>;
+  avdd-1v8-supply = <&vcca1v8_image>;
+  force-hpd;
+  status = "okay";
+
+  aux-bus {
+    panel {
+      compatible = "edp-panel";
+      backlight = <&backlight>;
+      power-supply = <&vcc3v3_lcd0_n>;
+      no-hpd;
+
+      port {
+        panel_in_edp: endpoint {
+          remote-endpoint = <&edp_out_panel>;
+        };
+      };
+    };
+  };
+};
+
+&edp_in {
+  edp_in_vp0: endpoint {
+    remote-endpoint = <&vp0_out_edp>;
+  };
+};
+
+&edp_out {
+  edp_out_panel: endpoint {
+    remote-endpoint = <&panel_in_edp>;
+  };
+};
+
+&edp_phy {
+  status = "okay";
+};
+
+&vp0 {
+  vp0_out_edp: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
+    reg = <ROCKCHIP_VOP2_EP_EDP0>;
+    remote-endpoint = <&edp_in_vp0>;
+  };
+};
+
+Damon Ding (6):
+  dt-bindings: display: rockchip: analogix-dp: Add support for RK3568
+  dt-bindings: phy: Add rockchip,rk3568-edp-phy
+  drm/bridge: analogix_dp: Add support for RK3568
+  phy: rockchip: Add support for Naneng eDP phy
+  drm/rockchip: analogix_dp: Add support for RK3568
+  arm64: dts: rockchip: rk356x: Add eDP controller and phy nodes
+
+ .../rockchip/rockchip,analogix-dp.yaml        |  25 +-
+ .../bindings/phy/rockchip,rk3568-edp-phy.yaml |  59 +++
+ .../devicetree/bindings/soc/rockchip/grf.yaml |  15 +
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  41 ++
+ .../drm/bridge/analogix/analogix_dp_core.c    |   1 +
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  24 +-
+ drivers/phy/rockchip/Kconfig                  |  10 +
+ drivers/phy/rockchip/Makefile                 |   1 +
+ .../phy/rockchip/phy-rockchip-naneng-edp.c    | 435 ++++++++++++++++++
+ include/drm/bridge/analogix_dp.h              |   2 +
+ 10 files changed, 611 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
+ create mode 100644 drivers/phy/rockchip/phy-rockchip-naneng-edp.c
+
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 1 +
- include/drm/bridge/analogix_dp.h                   | 2 ++
- 2 files changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 6df6963740d2..8bb4c48aa3b4 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1319,6 +1319,7 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- 	switch (dp->plat_data->dev_type) {
- 	case RK3288_DP:
- 	case RK3399_EDP:
-+	case RK3568_EDP:
- 		/*
- 		 * Like Rk3288 DisplayPort TRM indicate that "Main link
- 		 * containing 4 physical lanes of 2.7/1.62 Gbps/lane".
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index 6033137b651e..e05ff4bd689c 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -16,6 +16,7 @@ enum analogix_dp_devtype {
- 	EXYNOS_DP,
- 	RK3288_DP,
- 	RK3399_EDP,
-+	RK3568_EDP,
- 	RK3576_EDP,
- 	RK3588_EDP,
- };
-@@ -25,6 +26,7 @@ static inline bool analogix_dp_is_rockchip(enum analogix_dp_devtype type)
- 	switch (type) {
- 	case RK3288_DP:
- 	case RK3399_EDP:
-+	case RK3568_EDP:
- 	case RK3576_EDP:
- 	case RK3588_EDP:
- 		return true;
+Changes in v2:
+- Apply the lane-dependent TX configurations in set_lanes() instead of
+  set_rate(), and store the lane count for set_voltages(), since the
+  Analogix DP core issues separate phy_configure() calls and the lane
+  count is only valid in the set_lanes/set_voltages calls.(Sashiko)
+- Initialize val to zero in rockchip_edp_phy_enabled() to avoid using
+  an uninitialized variable when regmap_read() fails.(Sashiko)
+- Fail the probe when the chip data requires GRF configurations while
+  the "rockchip,grf" property is missing.(Sashiko)
+- Rebase onto latest drm-misc-next tree.
+
 -- 
 2.34.1
 
