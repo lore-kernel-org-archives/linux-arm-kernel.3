@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E27CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B183CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2HVMRDXjkeD++qT8O5sU//IhqXywOmYn/Fh/Fdivpg=; b=RY95LHA468ydbCb48BHNkVPDcS
-	DHmtYpuLnUKIqBQcmwBVrjXbZhVAUPOjLyX675UygDbgBNFxaQR7iSRiFx8zh3b0T4ScN9NkNMer3
-	FYqOiXgdobte96ns8K4LhTctDjmPadNHRsmZSATu0dDfBi8L+E0prdgydVuJwAkjEaFlfVW3xotKN
-	KSK/JLoGAvSt9hwmkqkSNtsCHyIylPyHMhIZVUBSCV422eWYuAhy8nfrNLd3bV4Dl1OIXHm8xUybp
-	MTmA3ewoYkZSYNah+vSxoQwlGk5HW6hbiQcs3F2Vi3VReEwoHsZywBXLhCcv5KnIMzgLcaB0MpW1f
-	w16eBGGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H3Wz+YB5dfxnzJ3YmxnQmlqV+U/oXF2Di0EHxgux31U=; b=E9K9EIqzDeZz1IL2Gaa39LuTF5
+	+HAKpgYXdi418QKhg3b1m9JTrkpxoiKb6hbGRDzF9o6UVJbK+5UsaxdwAeE7yxprjktG0N9o/YNDi
+	plFyQPUneHqFkVuTH7y4ZYmz6JZAnRwcMQKD3XsMDwijbDbo//KvpeLTp6hRW20sl8Ot3bDjle91q
+	3QTIS5rg78taHjffvkg//BC1bK8gxYa0B481P1kwZ3tnqldfpiPjavbNvLvuBXzI5hdSnPNDoe5em
+	CvCvXtQrmwN7pNc+D5dOeDYJfQlZ/1l62Ax7WdR8PKHpMmxwDijrqO/klzFN4f/7M6tOFlct7VONM
+	oaWix65A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjZg-00000006yut-1crh;
-	Mon, 19 Oct 2026 09:22:32 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjZb-00000006yuP-1RP3
+	id 1xIjaU-00000006z1H-2CEO;
+	Mon, 19 Oct 2026 09:23:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xIjaR-00000006z0X-2nm2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 09:22:31 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261019092220euoutp019a30ea6f4ef1ddc128d5f78abb8d2530~f4_Le7yrZ2251922519euoutp01x
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 09:22:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261019092220euoutp019a30ea6f4ef1ddc128d5f78abb8d2530~f4_Le7yrZ2251922519euoutp01x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792401740;
-	bh=v2HVMRDXjkeD++qT8O5sU//IhqXywOmYn/Fh/Fdivpg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pWpArA8adCY0weZo06h5l7f+VKdwx4bquomWpvYh9iJveXLQISPiB1M5/C0fPFs6P
-	 zdzEWpmLaORbBtXLFjLaDxDEA04nZJi4Yk7HAE6TuCAlSRgCBkpQZdQyYANL4aH+M0
-	 UutmKxFlA9EDm9mTYWRYD4ByP24c0ZYOlr5oTAYo=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261019092219eucas1p22ca50383cc0e4c3f1eb14d4d334983b4~f4_K8T5X92231722317eucas1p2L;
-	Mon, 19 Oct 2026 09:22:19 +0000 (GMT)
-Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.34]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261019092218eusmtip2172e5354d5c27789ffe4a60232b45023~f4_KBOKXV2833928339eusmtip27;
-	Mon, 19 Oct 2026 09:22:18 +0000 (GMT)
-Date: Mon, 19 Oct 2026 11:22:15 +0200
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, k.domagalski@samsung.com,
-	k.tegowski@samsung.com, cs0617.lee@samsung.com,
-	abhishek.chauhan@oss.qualcomm.com, lorenzo.bianconi@oss.qualcomm.com,
-	sarosh.hasan@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com
-Subject: Re: [PATCH net-next] net/stmmac/dwxgmac: Extend MTL/DMA support to
- 16 queues
-Message-ID: <atXhR0sgdW84YxcQ@AMDC4622.eu.corp.samsungelectronics.net>
+	Mon, 19 Oct 2026 09:23:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB0351477;
+	Mon, 19 Oct 2026 02:23:12 -0700 (PDT)
+Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BF463F7D8;
+	Mon, 19 Oct 2026 02:23:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792401796; bh=9PebdIH/SVuVj9MRbPB/1J1o0shLFs/Jpdx34TKGXEg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=C+Y1yTcoKKTeRGxeqTyg1bb//zBo/34B94yQoPCY8Z3TFTWlPLYAqR+kfzFP/WUTg
+	 wcMt2ARDZEf2af+mvA9gjVQuj5IIGdx+Cvs/7LSXLhe70k4TcVAJprfzM2ozRDBJKM
+	 AD6JEGRA9yLKmyScnBGv/fMHzUKKr7+ir8KeI1Cc=
+Message-ID: <494fd8b9-b7cc-43ef-af0a-218c6afe0fed@arm.com>
+Date: Mon, 19 Oct 2026 10:23:09 +0100
 MIME-Version: 1.0
-In-Reply-To: <20261016193823.2711773-1-sagar.cheluvegowda@oss.qualcomm.com>
-X-CMS-MailID: 20261019092219eucas1p22ca50383cc0e4c3f1eb14d4d334983b4
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----6Yzir0.DT2R1UiBbNh0_rPWXcRyD2CU8yss_stBlwropLZCy=_18d29d_"
-X-RootMTR: 20261016193835eucas1p128cb1712afce0314b1ecb65b0c0fc841
-X-EPHeader: CA
-X-CMS-RootMailID: 20261016193835eucas1p128cb1712afce0314b1ecb65b0c0fc841
-References: <CGME20261016193835eucas1p128cb1712afce0314b1ecb65b0c0fc841@eucas1p1.samsung.com>
-	<20261016193823.2711773-1-sagar.cheluvegowda@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
+ Erratum E#030001
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Cc: Kohei Enju <enju.kohei@fujitsu.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
+ <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_022228_735708_0CE751B2 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20261019_022319_929957_CF1D1D3B 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +83,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------6Yzir0.DT2R1UiBbNh0_rPWXcRyD2CU8yss_stBlwropLZCy=_18d29d_
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
+Hi,
 
-On Fri, Oct 16, 2026 at 12:38:23PM -0700, Sagar Cheluvegowda wrote:
-> From: Jakub Raczynski <j.raczynski@samsung.com>
-> 
-> Patch 2/3 of Jakub's v2 series:
-> https://lore.kernel.org/netdev/20260601162537.553512-3-j.raczynski@samsung.com/
-> 
-> Jakub has confirmed he will not be continuing this series, so we are
-> posting this patch on its own. We need it for Qualcomm Nord, a
-> 25GMAC-based SoC that implements 12 MTL/DMA queues. Jakub's authorship
-> and sign-offs are kept.
-> 
-> Changes vs v2 2/3:
-> - Replace the netdev_err() + return in the default case with
->   WARN_ON() + return, following the review feedback on 1/3 against
->   message-only failures in void callbacks.
-> 
-> Tested on Qualcomm Nord with 12 queues: the MAP0..MAP2 registers were
-> checked to hold the expected RX queue to DMA channel mapping. The MAP3
-> register (queues 12-15) is carried over unchanged from v2 and is not
-> exercised on that hardware.
-> 
-> This is needed for XGMAC-based hardware with more than 8 MTL/DMA
-> queues (Qualcomm Nord has 12).
-> 
->  .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  2 ++
+On 10/16/26 11:00, Tomohiro Misono wrote:
+> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
+> +	{
+> +		.desc = "FUJITSU-MONAKA Erratum E#030001",
+> +		.capability = ARM64_WORKAROUND_FUJITSU_030001,
+> +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
+> +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
+> +					{}
+> +				})),
+I reckon that can be simplified to
 
-Thanks for including me as signed-off.
++	ERRATA_MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
 
-But I am not sure I like this patch being sent on its own. I checked Sashiko
-review on patchwork and there are no comments and that is actually (not)
-impressive by Sashiko.
-Issues I have are:
-- Does it work if macro MTL_MAX_{TX/RX}_QUEUES is not increased?
-- My patch 1/3 was doing some prep since new XGMAC have unique setup where
-  number of DMA channels differ from number of TC's.
-
-  How does it look like in your hardware? 12 DMA and (8 or 12) TC's?
-
-  I agree with comment by Jakub Kicinski on my patchset 1/3 that I should have
-  implemented it better, but never finally did. Issue is, stmmac driver
-  assumes number of DMA = TC and uses {tx/rx}_queues_to_use everywhere.
-  So proper implementation would be spliting DMA count and TC count,
-  where both can be verified by stmmac_get_hw_features().
-
-  Of course, above applies if DMA!=TC in your hardware.
-
-BR
-Jakub Raczynski
-
-------6Yzir0.DT2R1UiBbNh0_rPWXcRyD2CU8yss_stBlwropLZCy=_18d29d_
-Content-Type: text/plain; charset="utf-8"
+Cheers
+Vladimir
 
 
-------6Yzir0.DT2R1UiBbNh0_rPWXcRyD2CU8yss_stBlwropLZCy=_18d29d_--
 
