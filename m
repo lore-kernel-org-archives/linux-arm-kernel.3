@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96AB8CCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF39CCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MLSX91YXWGMiDuQOVHG7eM6KF/4ZfqZKFra9uborK0=; b=alOXWj1uB0xbQ2TrzpWqtGH8Qo
-	stcKnmWtgj59TigRGV8VZLjoZlRqGfS/vmxzpTu9dcv5gp6NhiCfOk7kDuwY1XH/KWcX6oiY9Wfcs
-	Rk4mTchxx69i2e6P6qhOQkF/DWX2SKgeCZu21Qonc4r6w+j4ZeyjdVYmPHFXiIWVAiH4NEQcSEgP+
-	PE6StA3nkd0507s7t8505iE6E4pNtoLpTDlyQgWCfHkUHHzcyfOTZGT1ebXunocPUO2/fkc0nCkwq
-	Drekvig6/Q//Fv+K91S0gJNVWF0jd/D2n9Engq+pTDbPXUW/JTWTm2K+AqiE8o235oiLyUi1SOqJx
-	3Worcgzw==;
+	bh=eHnefyVOo/AiBg1cwJ3voQDManzSQqGf5DOxZLbPmmg=; b=QhcJU9+pPKvFLZrrL3ZQC4vhwM
+	FE2VkdHwIJ0eYuBmXBqNqvIrXarR+U1cJW5pBrQDcMOUsV/2hHu7ZGFXx9uSt9yry3UO7krEvUVlZ
+	+amxiCS0YQDtQ+CkKyWO6iAPVu0Z1xciPCvTsPVHbMYSZ/2q3Fj4Hy7dhAvILfGENtbeD0SIMEKvP
+	rUe6y0cr2ffklU1jb0zYz+gqGY1UADritVNv3Hs6g19yoTv/6resIAmN/GBYVMOlTy0C2pAfaSe2M
+	hL+9Y5L1fSxaz/k8eWfeAgG9geqTLR+ebaCuHCalzhAw7XkfFwSGDCItjvav6deuSOKkyLI5Tzifk
+	VHPgjO0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInpU-00000007Zpe-2yR3;
-	Mon, 19 Oct 2026 13:55:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xInqB-00000007aDq-44hd;
+	Mon, 19 Oct 2026 13:55:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInpP-00000007ZmQ-41e1;
-	Mon, 19 Oct 2026 13:55:04 +0000
+	id 1xInqA-00000007aCe-2rlF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:55:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B15FC40BF3;
-	Mon, 19 Oct 2026 13:55:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD571F000C4;
-	Mon, 19 Oct 2026 13:55:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 11AD460214;
+	Mon, 19 Oct 2026 13:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A92D1F000C4;
+	Mon, 19 Oct 2026 13:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418103;
-	bh=7MLSX91YXWGMiDuQOVHG7eM6KF/4ZfqZKFra9uborK0=;
+	s=k20260515; t=1792418149;
+	bh=eHnefyVOo/AiBg1cwJ3voQDManzSQqGf5DOxZLbPmmg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FmYu8/tdyWkdcrQpj/khJ7b5PDJxrClr1nJ8vxdwP5lv6vqqflev+AgE3GHsHSVUX
-	 3UudM1472T2OlmQ64pgVUhgY5f2T8WfFiaQSsKJramM/06aOvlUZ2iPgaeCEq1v3a8
-	 axdqzqf9tF2T+ILUCfHUEmS3l0UPQS3TAULUIFf/yPXVJaW/h2X5f+I6Z+Pc47lDZK
-	 Jq7I0aBFkeUTlSVI6wPE+fU81laS2iqNpUfzsSQWZkULd+drIqC0fHC50iw58b1LXj
-	 42U0JxBQxWGAgrGIbBpC0Z5fdx5ZsdBngWd77SaHPvIL/VTKZDH4a5O8jnb89JnLP6
-	 ity1oV8sMmTrg==
+	b=L5+4TQ+6q/GgW4uacWRZ9vsxn0MluTWKcwgPGCzydLu73h01tM2WLXKEQCguXSBYl
+	 UFabz1BsYwbcvONJxmSUNd9mnPfJVMYSevPtl5W0GYvLq9JqDzDlp90W94m0XFWUDy
+	 z4FNrQS9FfRrPGxkAihplrlWwVBd9rEym76RRcGowe/TJezDU1lYIJ3pZ28SU840eU
+	 NqI8UFFfQTslVUlXWZZa2/S6PAo8F/bQVV/jNq1sZQqVK081XF9F0miq8eh8vs56/J
+	 0MMxl38nHd3ZKRBvCnfbvvw4Kv670sC+EyN53ygQQ7M4/fYwUI9oS/Mrdw0GWbW0Eh
+	 vuLVZWchwbZ9g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Brian Masney <bmasney@redhat.com>,
+Cc: Md Rabbani <rabbanyhmm@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	y.oudjana@protonmail.com,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-clk@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] clk: mediatek: mt6735-vencsys: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:45:05 -0400
-Message-ID: <20261019135441.1420968-14-sashal@kernel.org>
+	maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-6.1] net: stmmac: fix device node reference leaks in stmmac_mtl_setup()
+Date: Mon, 19 Oct 2026 09:45:38 -0400
+Message-ID: <20261019135441.1420968-47-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -83,351 +85,393 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Md Rabbani <rabbanyhmm@gmail.com>
 
-[ Upstream commit 36cf8d279ff90835f4b002dec28eedb059554842 ]
+[ Upstream commit 317fe168f4c0fc30e5c375c22d9c8911940aea9b ]
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+In stmmac_mtl_setup(), q_node is shared across the RX and TX queue
+parsing loops. When the RX queue loop breaks early because the number
+of parsed queues reaches plat->rx_queues_to_use, q_node retains an
+acquired reference count. If the error check passes
+(queue == plat->rx_queues_to_use), execution proceeds directly to the
+TX queue loop, where of_get_next_child() immediately overwrites q_node
+with the first TX child, permanently leaking the retained RX child
+device node reference.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
+Switch both loops to for_each_child_of_node_scoped() so child node
+references are automatically dropped upon loop exit or early break,
+and remove the now-unnecessary function-scoped q_node variable and
+its manual of_node_put() at the exit label.
 
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
+Link: https://patch.msgid.link/20260821055718.57-1-rabbanyhmm@gmail.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
-(attempt 1)...
-Retry attempt 1...
-This tree is **Linux 7.3.0-rc4** (`v7.3-rc4-27-gf0100363d8c37`). The
-driver exists here; the change is a one-line `MODULE_DEVICE_TABLE(of,
-...)` so the vencsys clock module can autoload from DT.
+The leak is real in this 6.12 tree: `stmmac_mtl_setup()` can drop an OF
+child reference when RX queue parsing breaks early, and in-tree DTs
+actually hit that path.
 
-## Phase 1: Commit message forensics
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.1: Subject line**
-- Record: `[clk/mediatek] [add] add missing MODULE_DEVICE_TABLE() for
-  mt6735-vencsys`
+**Step 1.1: PARSE THE SUBJECT LINE**
+- Record: `[net: stmmac:] [fix] [OF device-node reference leaks in
+  stmmac_mtl_setup()]`
 
-**Step 1.2: Tags**
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
 - Record:
-  - **Fixes:** none (expected for this review)
-  - **Reported-by:** none
-  - **Tested-by:** none
-  - **Reviewed-by:** Brian Masney `<bmasney@redhat.com>` (COMMON CLK
-    FRAMEWORK maintainer)
-  - **Acked-by:** none
-  - **Link:** none in the commit; mailing list found via `b4 dig`
-  - **Cc: stable:** none (not a negative signal)
-  - **Signed-off-by:** Pengpeng Hou `<pengpeng@iscas.ac.cn>` (author);
-    Brian Masney `<bmasney@redhat.com>` (clk maintainer who applied it)
-  - Notable: maintainer review + maintainer SOB; no user/syzbot report
+  - `Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>` (author)
+  - `Link:
+    https://patch.msgid.link/20260821055718.57-1-rabbanyhmm@gmail.com`
+  - `Signed-off-by: Jakub Kicinski <kuba@kernel.org>` (netdev
+    maintainer; applied to `netdev/net`)
+  - No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
+    by:`, or `Cc: stable` (absence of Fixes/Cc-stable is expected for
+    this review)
+  - Upstream SHA (from patchwork bot):
+    `317fe168f4c0fc30e5c375c22d9c8911940aea9b`
 
-**Step 1.3: Body**
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+- Record: [Bug] Shared `q_node` is used by both RX and TX
+  `for_each_child_of_node()` loops. An early `break` in the RX loop
+  leaves `q_node` holding a live OF reference. If `queue ==
+  plat->rx_queues_to_use`, the function continues into the TX loop,
+  which calls `of_get_next_child(tx_node, NULL)` and overwrites `q_node`
+  without putting the RX child.
+- [Symptom] Permanent `device_node` refcount leak (kobject/`device_node`
+  never released).
+- [Version info] None in the message. The loops date to 2017
+  (`d976a525c37127`, v4.12-rc1).
+- [Root cause] Early-break + reused iterator; `of_get_next_child(parent,
+  NULL)` does not drop the previous pointer.
+
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+- Record: Not hidden. Subject/body explicitly describe a refcount leak.
+  The `_scoped` conversion is the fix mechanism, not a style-only
+  cleanup.
+
+## PHASE 2: DIFF ANALYSIS
+
+**Step 2.1: INVENTORY THE CHANGES**
+- Record: Single file
+  `drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c`. Actual commit
+  is **+2 / -4**. Functions: `stmmac_mtl_setup()` only. Surgical,
+  single-file.
+
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
 - Record:
-  - **Bug:** OF match table is wired to `.of_match_table` but not
-    exported with `MODULE_DEVICE_TABLE()`, so `file2alias` does not emit
-    `of:` aliases.
-  - **Symptom:** when `CONFIG_COMMON_CLK_MT6735_VENCSYS=m`,
-    udev/modprobe cannot autoload `clk-mt6735-vencsys` from
-    `mediatek,mt6735-vencsys`.
-  - **Version info:** none in the message. Git: driver added in
-    **v6.13-rc1** (`0bd9b1211f741`); this fix first appears in
-    **v7.3-rc1**.
-  - **Root cause:** omitted alias publication, not a runtime logic
-    error.
+  - RX loop: `for_each_child_of_node(rx_node, q_node)` →
+    `for_each_child_of_node_scoped(...)`. Early `break` now auto-drops
+    the current child via `__free(device_node)`.
+  - TX loop: same conversion.
+  - Function-scope `struct device_node *q_node` removed;
+    `of_node_put(q_node)` at `out:` removed (would not compile with the
+    loop-scoped iterator).
+  - Probe/DT parse path only; no datapath change.
 
-**Step 1.4: Hidden bug fix?**
-- Record: Not hidden. It is a real functional gap (module autoload), not
-  a crash/UAF. The “source-level fix / no hardware reproduction” wording
-  matches the original lore submission, not pipeline decoration.
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+- Record: [Category] Reference counting / resource leak.
+- [Mechanism] `for_each_child_of_node` is `of_get_next_child()`, which
+  gets `next` and puts `prev`. `break` skips the put of the current
+  node. Reusing the same pointer in the TX loop with `prev=NULL` leaks
+  that RX child. TX extra children were previously dropped by the
+  trailing `of_node_put(q_node)`; RX extra children were not.
 
-## Phase 2: Diff analysis
+**Step 2.4: ASSESS THE FIX QUALITY**
+- Record: Obviously correct. `for_each_child_of_node_scoped` exists in
+  this tree and is already used widely. `__free(device_node)` is `if
+  (_T) of_node_put(_T)`, so NULL at loop end is safe. Regression risk is
+  very low: no locking, no ABI, no behavior change besides dropping the
+  leaked ref. The `_scoped` form is stronger than a one-off
+  `of_node_put()` before the TX loop because it also covers TX early-
+  break without a manual put.
 
-**Step 2.1: Inventory**
-- Record:
-  - `drivers/clk/mediatek/clk-mt6735-vencsys.c`: **+1 / -0**
-  - Function/data: `of_match_mt6735_vencsys[]` (file scope)
-  - Scope: single-file, one-line surgical change
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-**Step 2.2: Code flow**
-- Record: Before, the table is only consumed by
-  `platform_driver.driver.of_match_table` (bind if the module is already
-  loaded or built-in). After, `MODULE_DEVICE_TABLE(of,
-  of_match_mt6735_vencsys)` also creates a `__mod_device_table` alias so
-  `scripts/mod/file2alias.c` `do_of_entry()` emits
-  `of:N*T*Cmediatek,mt6735-vencsys`. Build-time metadata only; no probe-
-  path change.
+**Step 3.1: BLAME THE CHANGED LINES**
+- Record: Buggy loops introduced by `d976a525c37127` ("net: stmmac:
+  multiple queues dt configuration", Joao Pinto, 2017-03-10), first in
+  **v4.12-rc1**. Present for many years. `goto out` / extra
+  `of_node_put(q_node)` added by `2ee2132ffb83e` (2018), which still
+  leaves the RX-then-TX overwrite leak.
 
-**Step 2.3: Bug mechanism**
-- Record: **Hardware matching / module autoload** (same class as missing
-  device IDs). Match table exists but is not published for modules.
+**Step 3.2: FOLLOW THE FIXES: TAG**
+- Record: No `Fixes:` tag. Introducer is `d976a525c37127`, and `git
+  merge-base --is-ancestor d976a525c37127 HEAD` succeeds. That code is
+  in this tree.
 
-**Step 2.4: Fix quality**
-- Record: Obviously correct; matches sibling MT6735 files that shipped
-  with `MODULE_DEVICE_TABLE` (`apmixedsys`, `infracfg`, `pericfg`,
-  `topckgen`). No runtime lock/API/data-structure change. Regression
-  risk is essentially none. `imgsys` and `mfgcfg` still lack the macro;
-  this patch does not depend on those.
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+- Record: Recent `stmmac_platform.c` work is unrelated (bus_id, probe
+  error path, IRQ). Historical OF leak fixes in this driver:
+  `a249708bc2aa1`, `d2ed0a7755fe1`, `4613b279bee79`. Standalone
+  `[PATCH]`, not `X/Y`.
 
-## Phase 3: Git history
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+- Record: `git log --author="Md Rabbani"` on this path is empty in this
+  tree (new contributor). Applied by Jakub Kicinski to `netdev/net.git`
+  (fixes tree), which is a strong maintainer signal.
 
-**Step 3.1: Blame**
-- Record: Match table and driver introduced by `0bd9b1211f741` (“clk:
-  mediatek: Add drivers for MT6735 syscon clock and reset controllers”,
-  Yassine Oudjana, 2024-11-06, applied 2024-11-14). First in
-  **v6.13-rc1**. `MODULE_DEVICE_TABLE` line is this commit
-  `36cf8d279ff90`.
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+- Record: Depends on `for_each_child_of_node_scoped` /
+  `DEFINE_FREE(device_node)` (`34af4554fb0ce1` / `9448e55d032d99`,
+  2024-02-25). Both are already in this 6.12 tree (`git merge-base --is-
+  ancestor` succeeded). Can apply standalone. `stmmac_platform.c`
+  already includes `<linux/of.h>`, which includes `<linux/cleanup.h>`.
 
-**Step 3.2: Fixes: tag**
-- Record: No `Fixes:` tag. The omission dates from the introducing
-  commit `0bd9b1211f741`, which **is** an ancestor of this tree.
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-**Step 3.3: File history**
-- Record: Only two commits on this file: introducer + this fix. No later
-  conflicting refactor. Sibling same-day commit `096ab64a0e694` does the
-  same for `clk-mt6735-vdecsys.c`. Standalone; not patch 2/N.
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+- Record: `b4 dig -c <sha>` cannot match because `317fe168f4c0` is not
+  an ancestor of HEAD. Used msgid instead. Lore thread: `https://lore.ke
+  rnel.org/netdev/20260821055718.57-1-rabbanyhmm@gmail.com/`
+- Series: single v1 `[PATCH]` (2 messages: submission + patchwork-bot).
+  Applied to `netdev/net.git (main)` as
+  `https://git.kernel.org/netdev/net/c/317fe168f4c0`. No v2, no NAK.
 
-**Step 3.4: Author**
-- Record: Pengpeng Hou is not the MT6735 clk maintainer (that is Yassine
-  Oudjana). Same author also added `MODULE_DEVICE_TABLE` in `clk-
-  mt6735-vdecsys.c` and two i.MX clk drivers. Applied by clk co-
-  maintainer Brian Masney.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+- Record: To/Cc included STMMAC maintainers (Torgue, Coquelin,
+  Chevallier), netdev maintainers (Miller, Dumazet, Kicinski, Abeni),
+  `netdev@`, `linux-stm32@`, `linux-arm-kernel@`. No written review
+  comments; Kicinski applied it to the **net fixes** tree.
 
-**Step 3.5: Dependencies**
-- Record: None. Uses existing `MODULE_DEVICE_TABLE` / `of_device_id`.
-  Applies on top of the original driver with no prerequisites.
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+- Record: No syzbot/bugzilla. Bug is from code inspection. Real in-tree
+  DTs trigger it (see Phase 6/8).
 
-## Phase 4: Mailing list and external research
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+- Record: Standalone. No other patches required.
 
-**Step 4.1: Original discussion**
-- Record: `b4 dig -c 36cf8d279ff90` →
-  https://patch.msgid.link/20260704124808.19916-1-pengpeng@iscas.ac.cn
-- `b4 dig -a`: **v1 only** (2026-07-04). Applied version is that v1.
-- Thread (mbox): author patch + Brian Masney `Reviewed-by`. No NAK, no
-  stable nomination, no risk discussion.
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+- Record: lore.kernel.org/stable search for `stmmac_mtl_setup` shows
+  older stmmac stable backports (probe error-path, MDIO, Tx COE), not
+  this leak. No prior rejection of this fix.
 
-**Step 4.2: Recipients (`b4 dig -w`)**
-- Record: Yassine Oudjana (MT6735 clk maintainer), Stephen Boyd, Brian
-  Masney, Michael Turquette, Matthias Brugger, AngeloGioacchino Del
-  Regno; `linux-clk`, `linux-mediatek`, `linux-arm-kernel`, `linux-
-  kernel`. Right maintainers and lists.
+## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 4.3: Bug report**
-- Record: No Reported-by, no syzbot, no bugzilla. Author states there
-  was no hardware reproduction.
+**Step 5.1: KEY FUNCTIONS**
+- Record: `stmmac_mtl_setup()` (modified). Helpers:
+  `for_each_child_of_node_scoped`, `of_get_next_child` /
+  `__of_get_next_child`, `of_node_put`.
 
-**Step 4.4: Series**
-- Record: Independent single patches (vencsys + vdecsys), not a numbered
-  series. This commit does not need the vdecsys patch.
+**Step 5.2: TRACE CALLERS**
+- Record: Only caller is `stmmac_probe_config_dt()` in the same file
+  (line 603). That is used via `devm_stmmac_probe_config_dt()` from many
+  glue drivers: `dwmac-rk`, `dwmac-qcom-ethqos`, `dwmac-imx`, `dwmac-
+  stm32`, `dwmac-sun8i`, `dwmac-mediatek`, `dwmac-generic`, and others.
+  Probe/init context, not IRQ/hot path.
 
-**Step 4.5: Stable list**
-- Record: **UNVERIFIED.** `curl` to lore.kernel.org/stable returned HTTP
-  403. No in-tree evidence this was rejected for stable.
+**Step 5.3: TRACE CALLEES**
+- Record: `of_parse_phandle`, `of_property_read_*`, `of_get_next_child`,
+  `of_node_put`. DT parse only.
 
-## Phase 5: Code semantic analysis
+**Step 5.4: FOLLOW THE CALL CHAIN**
+- Record: Userspace cannot trigger it directly. It runs on every DT-
+  based stmmac probe. Reachable on common ARM/ARM64 SoCs (Rockchip,
+  i.MX, STM32, Qualcomm, MediaTek). Leak fires when the RX config node
+  has more children than `snps,rx-queues-to-use`.
 
-**Step 5.1: Functions**
-- Record: No function body changed. Adds `MODULE_DEVICE_TABLE` next to
-  `of_match_mt6735_vencsys[]`. Driver still uses
-  `module_platform_driver` → `mtk_clk_simple_probe` /
-  `mtk_clk_simple_remove`.
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+- Record: Same file still has `for_each_child_of_node(np, mdio_node)` in
+  `stmmac_of_get_mdio()` (line 324); not the same shared-iterator bug.
+  In-tree DTs with extra RX children:
+  `arch/arm64/boot/dts/qcom/sa8540p-ride.dts` uses `snps,rx-queues-to-
+  use = <1>` with `queue0`–`queue3` on both ethernet0 and ethernet1.
 
-**Step 5.2: Callers**
-- Record: Platform core binds via OF compatible. Probe is boot/device-
-  instantiation, not a syscall hot path. Impact is whether the **module
-  is loaded at all**.
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
-**Step 5.3: Callees**
-- Record: Unchanged. `mtk_clk_simple_probe()` in `clk-mtk.c` registers
-  the vencsys gates from `vencsys_clks`.
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+- Record: Yes. This tree is **6.12.111** (`pending-6.12`,
+  `p-6.12-3-gc504cf0baa3d8`). Current code at `stmmac_platform.c:177` /
+  `:240` still uses unscoped loops and `of_node_put(q_node)` at `:293`.
+  `317fe168f4c0` is **not** an ancestor of HEAD. Bug present since
+  v4.12.
 
-**Step 5.4: Reachability**
-- Record: Reachable when DT has `mediatek,mt6735-vencsys` and the driver
-  is a module. **No in-tree `.dts`/`.dtsi` uses that compatible** (only
-  `Documentation/devicetree/bindings/clock/mediatek,syscon.yaml`). Users
-  need out-of-tree DT (typical for older MT6735 phones). Built-in (`=y`)
-  is unaffected.
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+- Record: Expected difficulty: **minor context conflicts**. Upstream
+  context has later `stmmac_axi_blen_to_mask` / `MTL_MAX_*` clamping
+  that 6.12 does not have. The three functional edits (two loop macros,
+  drop `q_node` + trailing put) match 6.12 1:1. Needs a small context-
+  adjusted backport, not a rewrite.
 
-**Step 5.5: Similar patterns**
-- Record: Same omission still present in `clk-mt6735-imgsys.c` and `clk-
-  mt6735-mfgcfg.c`. Four other MT6735 clk files had
-  `MODULE_DEVICE_TABLE` from day one (`43c04ed791892` for apmixedsys).
-  Pattern is systematic but this patch is complete for vencsys.
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+- Record: No commit with this subject in this tree. Older stmmac
+  `of_node_put` fixes do not cover this iterator reuse.
 
-## Phase 6: Local tree cross-reference
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-**Step 6.1: Buggy code in this tree?**
-- Record: Yes. File exists; current tree already has the fix at line 40.
-  Bug was the missing alias from v6.13 until v7.3-rc1.
-  `CONFIG_COMMON_CLK_MT6735_VENCSYS` is **tristate**.
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+- Record: [Subsystem] `drivers/net/ethernet/stmicro/stmmac` (Synopsys
+  DWMAC). [Criticality] **IMPORTANT** — common platform Ethernet on many
+  SoCs, not core mm/VFS, not staging.
 
-**Step 6.2: Backport difficulty**
-- Record: **Clean apply.** File is essentially unchanged since
-  introduction. One inserted line after the match table.
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+- Record: Actively maintained (many recent stmmac fixes on this branch).
+  The leak itself is old (2017), not a new-feature bug.
 
-**Step 6.3: Related fixes already here**
-- Record: This exact commit is already an ancestor of HEAD (`git merge-
-  base --is-ancestor 36cf8d279ff90 HEAD` → yes). That is mainline
-  history, not a reason to reject on merit. No alternate fix. Sibling
-  vdecsys fix is also present; imgsys/mfgcfg still missing.
+## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-## Phase 7: Subsystem context
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+- Record: Driver/config-specific: `CONFIG_STMMAC_ETH` +
+  `CONFIG_STMMAC_PLATFORM` + DT `snps,mtl-rx-config` with extra child
+  nodes. Confirmed affected in-tree board: Qualcomm SA8540P Ride
+  (`sa8540p-ride.dts`). Many other boards have matching child counts and
+  do not leak.
 
-**Step 7.1: Subsystem / criticality**
-- Record: `drivers/clk/mediatek/` — SoC clock driver. **PERIPHERAL**
-  (MT6735 video-encoder clocks only). Not mm/fs/net core.
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+- Record: Device probe (and every unbind/rebind). Common on boards whose
+  DT lists more queue children than `snps,rx-queues-to-use`. Not a
+  userspace syscall; not a race. Extra TX children were already put at
+  `out:`; extra RX children leak.
 
-**Step 7.2: Activity**
-- Record: Mediatek clk is actively maintained; this file is not. Two
-  commits total. Mature omission, not churn.
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
+- Record: [Failure] One `device_node` ref leak per probe when extra RX
+  children exist. [Severity] **MEDIUM** — not oops/deadlock/corruption,
+  but a real lifetime leak of an OF kobject. Repeatable on module
+  reload. Can pin overlay/node teardown.
 
-## Phase 8: Impact and risk
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
+- Record: Benefit: medium (fixes a real, DT-triggered leak on a widely
+  used NIC driver, including an in-tree Qualcomm board). Risk: **very
+  low** (2 insertions / 4 deletions, existing helper, probe-only). Ratio
+  favors backport.
 
-**Step 8.1: Who is affected**
-- Record: Only MT6735 systems with `CONFIG_COMMON_CLK_MT6735_VENCSYS=m`
-  and a DT node `mediatek,mt6735-vencsys`. Driver- and config-specific;
-  small population (no in-tree board DTS).
+## PHASE 9: FINAL SYNTHESIS
 
-**Step 8.2: Trigger**
-- Record: Modular boot + OF device present. Not a race. Unprivileged
-  users do not trigger it; udev autoload fails. Built-in and manual
-  `modprobe` work.
-
-**Step 8.3: Failure mode**
-- Record: Module does not autoload → vencsys clocks (smi_larb3, venc,
-  jpgenc, jpgdec) never register → video encode/JPEG on that SoC can
-  fail. **Severity: MEDIUM** (functional miss, not
-  oops/corruption/deadlock). Fits stable-rules “oh, that’s not good” and
-  the device-ID-style enablement exception.
-
-**Step 8.4: Risk-benefit**
-- Record: **Benefit:** correct autoload for a supported tristate driver;
-  one line. **Risk:** negligible (modinfo/depmod metadata only). Ratio
-  favors applying it on trees that have this driver.
-
-## Phase 9: Final synthesis
-
-**Step 9.1: Evidence**
+**Step 9.1: COMPILE THE EVIDENCE**
 
 FOR:
-- Real autoload bug: match table used, aliases not published
-- One line, obviously correct, reviewed and applied by clk maintainer
-  Brian Masney
-- Driver is tristate; modular build is an intended config
-- Same class as device-ID additions (publish existing OF IDs)
-- Sibling MT6735 files already had the macro; this was an omission from
-  `0bd9b1211f741`
-- Zero runtime regression risk; applies cleanly
-- Driver and bug exist in this 7.3 tree (introduced v6.13)
+- Real OF refcount leak, mechanism verified against
+  `of_get_next_child()` / `__of_get_next_child()`.
+- Buggy code is in this 6.12 tree and has been since v4.12.
+- In-tree DT `sa8540p-ride.dts` has 4 RX queue children with `rx-queues-
+  to-use = <1>` — the leak path is not theoretical.
+- Tiny, obviously correct fix; helper already in 6.12.
+- Applied to `netdev/net` (fixes) by Kicinski.
+- Same class of bug as prior stmmac `of_node_put` fixes already in
+  history.
+- No new API/feature; no series dependency.
 
 AGAINST:
-- Not a crash, UAF, deadlock, or security issue
-- No user report and no hardware reproduction
-- No in-tree DT consumer for this compatible
-- Niche SoC; often clocks are built-in
+- Probe-time leak of a single node, not a crash/UAF/security issue.
+- Surrounding file context differs slightly from mainline, so `git am`
+  of the raw mainline diff may need a trivial refresh.
+- No user crash report / syzbot.
 
 UNRESOLVED:
-- Whether this was discussed on the stable list (lore HTTP 403)
+- No written mailing-list review beyond maintainer application (v1
+  accepted as-is).
 
-**Step 9.2: Stable rules checklist**
-1. Obviously correct and tested? **PASS** — one-line, standard macro,
-   maintainer Reviewed-by/SOB. No runtime test; correctness is
-   mechanical.
-2. Real bug that affects users? **PASS** — modular OF autoload is
-   broken. User set is small but real if they use `=m`.
-3. Important issue? **PASS** (low end of “oh, that’s not good” /
-   hardware-enablement), not CRITICAL.
-4. Small and contained? **PASS** — +1 line, one file.
-5. No new features or APIs? **PASS** — publishes existing match table.
-6. Can apply to this tree? **PASS** — file and table exist; patch is a
-   clean one-liner.
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — scoped put on break/exit is
+   the intended helper; applied to netdev/net.
+2. Fixes a real bug that affects users? **PASS** — leak on probe;
+   triggered by in-tree Qualcomm DT.
+3. Important issue? **PASS** at medium importance — resource leak, not
+   panic, but a genuine lifetime bug in a common Ethernet driver.
+4. Small and contained? **PASS** — +2/-4, one function.
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — same loops exist; scoped
+   macro exists; minor context tweak only.
 
-**Step 9.3: Exception category**
-- Record: Closest match is **device ID / hardware matching** (OF module
-  aliases), not a new driver.
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+- Record: Not a device-ID/quirk/DT/build/docs exception. Ordinary small
+  bugfix.
 
-**Step 9.4: Decision**
+**Step 9.4: DECISION**
+Backport to this 6.12 tree. The bug exists here, the helper exists here,
+the fix is surgical, and at least one in-tree board hits it.
 
-Backport this. It is a one-line, obviously correct fix for failed OF
-module autoload on an existing tristate driver. That is the same kind of
-enablement stable already takes for new device IDs, with no runtime
-behavior change if the module is built-in or loaded by other means. This
-7.3 tree has the driver (since v6.13); there are no missing
-prerequisites. Limited hardware and no crash report lower urgency, not
-correctness.
+---
 
-### What it solves for stable users
-If `clk-mt6735-vencsys` is a module, userspace cannot match
-`mediatek,mt6735-vencsys` and load it. Video-encoder clocks then never
-appear. `MODULE_DEVICE_TABLE(of, ...)` generates the aliases
-`file2alias` already knows how to emit.
+### What the commit solves and why it matters here
+`stmmac_mtl_setup()` parses `snps,mtl-rx-config` / `snps,mtl-tx-config`
+at probe. The RX iterator `break`s once `queue >=
+plat->rx_queues_to_use`, leaving `q_node` referenced. The TX loop then
+starts with `of_get_next_child(tx_node, NULL)`, which never puts that RX
+child. That is a permanent OF node leak.
+`arch/arm64/boot/dts/qcom/sa8540p-ride.dts` is written exactly that way
+(1 queue in use, 4 queue child nodes).
 
-### Risk vs benefit
-Benefit is correct autoload on MT6735 modular configs. Risk is
-negligible: no probe, locking, or ABI change.
+### Stable rules / risk
+Meets the rules: small, obviously correct, no new API, real leak, helper
+already in 6.12. Risk is a possible trivial context conflict around
+later mainline-only `stmmac_platform.c` edits; the functional change
+does not depend on those.
 
-## Verification
-- [Phase 1] Parsed tags: Reviewed-by + SOB Brian Masney; no
-  Fixes/Reported-by/Cc:stable
-- [Phase 1] `git show -s 36cf8d279ff90`: body matches the candidate;
-  “source-level fix” is in the real commit and lore v1
-- [Phase 2] Diff: +1 `MODULE_DEVICE_TABLE(of, of_match_mt6735_vencsys)`
-  in `clk-mt6735-vencsys.c`
-- [Phase 2] `include/linux/module.h` and `scripts/mod/file2alias.c`
-  `do_of_entry()`: confirmed alias generation from that macro
-- [Phase 3] `git blame`: table from `0bd9b1211f741` (v6.13-rc1); macro
-  from `36cf8d279ff90`
-- [Phase 3] `git describe --contains 0bd9b1211f741`: v6.13-rc1; fix
-  contained in v7.3-rc1; `git merge-base --is-ancestor` vs v7.2: not in
-  v7.2
-- [Phase 3] File log: only introducer + this commit; sibling
-  `096ab64a0e694` for vdecsys
-- [Phase 4] `b4 dig -c/-a/-w/-m`: v1 lore thread; Masney Reviewed-by;
-  correct clk/mediatek CCs; no NAK
-- [Phase 4] WebFetch lore/msgid.link: HTTP 403; used mbox instead
-- [Phase 5] Kconfig: `COMMON_CLK_MT6735_VENCSYS` tristate; Makefile
-  `obj-$(CONFIG_COMMON_CLK_MT6735_VENCSYS)`
-- [Phase 5] `mtk_clk_simple_probe` in `clk-mtk.c` used unchanged
-- [Phase 5] Grep: no in-tree dts/dtsi `mediatek,mt6735-vencsys`; binding
-  in `mediatek,syscon.yaml`
-- [Phase 5] imgsys/mfgcfg still lack `MODULE_DEVICE_TABLE`
-- [Phase 6] `make kernelversion` / `git describe HEAD`: 7.3.0-rc4 /
-  v7.3-rc4-27-gf0100363d8c37
-- [Phase 6] File currently contains the macro; `git merge-base --is-
-  ancestor 36cf8d279ff90 HEAD` = yes
-- [Phase 7] MAINTAINERS: MT6735 clk → Yassine Oudjana; COMMON CLK →
-  Stephen Boyd, Brian Masney, Jerome Brunet
-- [Phase 8] Failure mode: missing module autoload, not oops; severity
+### Verification
+- [Phase 1] Parsed tags: author SOB, msgid Link, Kicinski SOB; no
+  Fixes/Reported-by; upstream `317fe168f4c0`
+- [Phase 2] Diff: +2/-4 in `stmmac_mtl_setup()`; two loops to `_scoped`;
+  drop `q_node` + `of_node_put(q_node)`
+- [Phase 2] `__of_get_next_child()` does `of_node_get(next);
+  of_node_put(prev)` (`drivers/of/base.c:600-603`); `prev=NULL` does not
+  put the overwritten pointer
+- [Phase 3] Blame: loops from `d976a525c37127` (v4.12-rc1); ancestor of
+  HEAD
+- [Phase 3] `34af4554fb0ce1` / `DEFINE_FREE(device_node)` are ancestors
+  of HEAD
+- [Phase 3] `git merge-base --is-ancestor 317fe168f4c0 HEAD` failed (fix
+  not in this tree)
+- [Phase 4] `b4 mbox` msgid: 2-message thread; applied to netdev/net; no
+  NAK
+- [Phase 4] stable lore search: no discussion of this leak
+- [Phase 5] Caller: `stmmac_probe_config_dt()` → many `dwmac-*` platform
+  probes
+- [Phase 6] `git describe HEAD` / `make kernelversion`: 6.12.111
+  `pending-6.12`; buggy loops still present at lines 177 and 240
+- [Phase 6] `sa8540p-ride.dts` `ethernet0_mtl_rx_setup` /
+  `ethernet1_mtl_rx_setup`: `rx-queues-to-use = <1>` with queue0–queue3
+- [Phase 8] Failure mode: OF `device_node` leak at probe, severity
   MEDIUM
-- UNVERIFIED: stable@ lore discussion (HTTP 403)
+- UNVERIFIED: Could not use `b4 dig -c` against HEAD (commit not in this
+  checkout); lore HTML fetch returned 403, raw/mbox succeeded
 
 **YES**
 
- drivers/clk/mediatek/clk-mt6735-vencsys.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt6735-vencsys.c b/drivers/clk/mediatek/clk-mt6735-vencsys.c
-index 8dec7f98492ac..64ba9da9fd427 100644
---- a/drivers/clk/mediatek/clk-mt6735-vencsys.c
-+++ b/drivers/clk/mediatek/clk-mt6735-vencsys.c
-@@ -37,6 +37,7 @@ static const struct of_device_id of_match_mt6735_vencsys[] = {
- 	{ .compatible = "mediatek,mt6735-vencsys", .data = &vencsys_clks },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, of_match_mt6735_vencsys);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 0cb51935c4056..ceb913a3a6c69 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -131,7 +131,6 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
+ static int stmmac_mtl_setup(struct platform_device *pdev,
+ 			    struct plat_stmmacenet_data *plat)
+ {
+-	struct device_node *q_node;
+ 	struct device_node *rx_node;
+ 	struct device_node *tx_node;
+ 	u8 queue = 0;
+@@ -174,7 +173,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
+ 		plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
  
- static struct platform_driver clk_mt6735_vencsys = {
- 	.probe = mtk_clk_simple_probe,
+ 	/* Processing individual RX queue config */
+-	for_each_child_of_node(rx_node, q_node) {
++	for_each_child_of_node_scoped(rx_node, q_node) {
+ 		if (queue >= plat->rx_queues_to_use)
+ 			break;
+ 
+@@ -237,7 +236,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
+ 	queue = 0;
+ 
+ 	/* Processing individual TX queue config */
+-	for_each_child_of_node(tx_node, q_node) {
++	for_each_child_of_node_scoped(tx_node, q_node) {
+ 		if (queue >= plat->tx_queues_to_use)
+ 			break;
+ 
+@@ -290,7 +289,6 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
+ out:
+ 	of_node_put(rx_node);
+ 	of_node_put(tx_node);
+-	of_node_put(q_node);
+ 
+ 	return ret;
+ }
 -- 
 2.53.0
 
