@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAAECCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513CBCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JplmjhIjd3VhaXGa0kbTCPiPnPU64Mu+Urlcbp2lmg=; b=QTcGBIraWGNzrmKX5yH5yPAf4M
-	zvDGZkJz1vK+EgNS+DtpuD5veUp7d2D/k96txKHuaZWLjmwHLItjC6hxqLZtXaMpqSYEdT7bo9iVr
-	+KFIbwZUT2nQo/QsfQTtnc4azvWYlSijKo8mBPRh7ez8AJS1RFQ3gVlEmrw/b+eBnNZBf840v6W1V
-	kMCW1+5enWJPhCOPl/S/pTLoSzhnoVsi2tBios+43clupxT8u3E2H86XC2WPnZ0nkjiYa/H+eZsja
-	xIah84OQGb+yeMUSatMUJHljHRR5u6y9ln+UHVawdwiYu9RJtEmPBMTI2YboQ7qHBfJ18BVQU55Uj
-	JuOyNAWg==;
+	bh=kxYpOKeNE1GtVJhZEKyHa5DQN9VTfVaw7R5GeyyShr8=; b=mjCV6la2Xdsi8UwH9UKyAOtWzz
+	DFV24CFYkHcjrInSIVtTYEKLEucejwWSBzId01GrVVTyzx4xX1dcHsn3pJ5m4RkOeAptoxW6rPeMM
+	E/T8GP+hL7wC16d0f5TqVVWWB1+2AnL/kmd5pCR+tP84GjzR+rzl3/lysvwj9cb1m2BLDkMt6khvA
+	hnLP8Ry+Dqv/2G9L7P9IVZL7z7uwAtK15cTU2fGILLsxO2PrjEPgqhRtVZ8XlBws8q5cNPfKYNil7
+	E8aKZgxYwtrYMu/vYmPHQAfrPORooORjjZWMpq1HgDXwVWm31ry9WppPn4Et6TkpUdNAKkCtgwr7o
+	JmQJHbPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjw9-000000073Fs-1M4s;
-	Mon, 19 Oct 2026 09:45:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIjz3-000000073gq-0P1d;
+	Mon, 19 Oct 2026 09:48:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjw7-000000073Et-2Efh;
-	Mon, 19 Oct 2026 09:45:43 +0000
+	id 1xIjz1-000000073gj-39xK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 09:48:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1473600CB;
-	Mon, 19 Oct 2026 09:45:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0461F000C4;
-	Mon, 19 Oct 2026 09:45:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A41A407D5;
+	Mon, 19 Oct 2026 09:48:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD83F1F000C4;
+	Mon, 19 Oct 2026 09:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792403142;
-	bh=/JplmjhIjd3VhaXGa0kbTCPiPnPU64Mu+Urlcbp2lmg=;
+	s=k20260515; t=1792403323;
+	bh=kxYpOKeNE1GtVJhZEKyHa5DQN9VTfVaw7R5GeyyShr8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fXzDXaC8MLvjws1UhdHOLd9MpZPZfvPuFMwvo3Du8hyssAdRFH4fXcdPY6LLws6v6
-	 bC0lhOLO0t00cB9o7w6DsUfNg2MHERYEMOyPeCX8ZSREO6peI2ICcUW7Iac277Ol1Z
-	 r8LrzZaxWrrDUquZQwcDBbQ1+JbrwDllV8yQSCVGgQUjLjJaCzc3fAPFHXduQdN6RI
-	 8mLtC50KT3tsPxYmJHl0AdLCf14kpjfHHlh93uzj8hB52Cu45wQdh/ZS0mZc+8VlUH
-	 0RFJEZXhiE1zWafj6nmFPOc8T/e4fbTfo7AlruD/BUCoR6oHUgZoVqd2wAniO/Bbe7
-	 IbsvU3urNalbg==
-Date: Mon, 19 Oct 2026 11:45:39 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ben Grisdale <bengris32@protonmail.ch>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 5/8] dt-bindings: watchdog: mediatek,mtk-wdt: Add MT8163
-Message-ID: <20261019-amazing-cerulean-avocet-e5bcae@quoll>
-References: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-0-f2462b2d2437@protonmail.ch>
- <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-5-f2462b2d2437@protonmail.ch>
+	b=kUVqNXuhw67wpa517IY0Ef+gOzCTXJ9z1qfR4Gv4/xhOdzusCmOvJA82ZVuskQbq6
+	 a8z2NHGfBT2msPVz1fYsqVrThrWLS2M+za1Au2Rn0bVNv4bXdoshiw2oB+2LTq1dYd
+	 bsU55W/HjQdKjERA/34g/zOUFrvZsN8NRKs0w0dtkuGtOLEKcB7ozGIHz8abA2YIMg
+	 /g/bsloLYWA9WdusRAOlKTL3GKa1JknAnfkp7THoN16OAGbgOpJg4NlM27baLp3Czc
+	 fydllsmnjtJqd6p3Sq4geid0d7rpA0T/IUhbpQiA5uYJ+Aoe/5K466zpyDt4qGZYTt
+	 mxT7ECqLVpkpQ==
+Date: Mon, 19 Oct 2026 11:48:39 +0200
+From: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, 
+	linux-kernel@vger.kernel.org, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH] platform: cznic: turris-omnia-mcu: stop button emulation
+ producers
+Message-ID: <atXYWrNAI5pmyMHD@solitude>
+References: <20261016013918.3492835-1-mhun512@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-5-f2462b2d2437@protonmail.ch>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261016013918.3492835-1-mhun512@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +71,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 19, 2026 at 01:40:01AM +0100, Ben Grisdale wrote:
-> Add a compatible string for the Top Reset Generation Unit (TOPRGU) and
-> watchdog timer on the MediaTek MT8163 SoC, along with a header defining
-> the reset IDs it provides.
+Acked-by: Marek Behún <kabel@kernel.org>
+
+This makes sense.
+
+But I wonder whether the devm_delayed_work_drop() from devm-helpers.h
+should not be changed to use disable_delayed_work_sync() instead of
+cancel_delayed_work_sync().
+
+In this case the initialization function in devm-helpers should be called
+devm_delayed_work_autodisable() instead of devm_delayed_work_autocancel(),
+though.
+
+On Thu, Oct 15, 2026 at 09:39:18PM -0400, Myeonghun Pak wrote:
+> The legacy MCU IRQ thread can requeue button-release emulation work
+> after its managed cleanup has canceled it. Since the IRQ is still active
+> at that point, the newly queued work can outlive device teardown and
+> access freed MCU state.
 > 
-> Signed-off-by: Ben Grisdale <bengris32@protonmail.ch>
+> Use disable_delayed_work_sync() to prevent further queueing and drain
+> the worker before the IRQ action is released. Keep the parent IRQ active
+> while the worker completes. devm_add_action_or_reset() also drains the
+> work if action registration fails.
+> 
+> This issue was identified as part of our ongoing research while
+> reviewing kernel code.
+> 
+> Fixes: dfa556e45ae9 ("platform: cznic: turris-omnia-mcu: Add support for MCU connected GPIOs")
+> Assisted-by: LLM
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 > ---
->  .../bindings/watchdog/mediatek,mtk-wdt.yaml        |  1 +
->  include/dt-bindings/reset/mediatek,mt8163-wdt.h    | 23 ++++++++++++++++++++++
->  2 files changed, 24 insertions(+)
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+>  .../platform/cznic/turris-omnia-mcu-gpio.c    | 31 +++++++++----------
+>  1 file changed, 15 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/platform/cznic/turris-omnia-mcu-gpio.c b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
+> index 4e430d6c3fc4..8f43bfa92373 100644
+> --- a/drivers/platform/cznic/turris-omnia-mcu-gpio.c
+> +++ b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
+> @@ -11,7 +11,6 @@
+>  #include <linux/bug.h>
+>  #include <linux/cleanup.h>
+>  #include <linux/device.h>
+> -#include <linux/devm-helpers.h>
+>  #include <linux/errno.h>
+>  #include <linux/gpio/consumer.h>
+>  #include <linux/gpio/driver.h>
+> @@ -841,6 +840,18 @@ static void button_release_emul_fn(struct work_struct *work)
+>  	generic_handle_irq_safe(mcu->client->irq);
+>  }
+>  
+> +static void omnia_disable_button_release_work(void *data)
+> +{
+> +	struct delayed_work *work = data;
+> +
+> +	/*
+> +	 * The IRQ thread may requeue this work while the IRQ remains active.
+> +	 * Disable and drain it before releasing the IRQ action and the MCU
+> +	 * state used by the worker.
+> +	 */
+> +	disable_delayed_work_sync(work);
+> +}
+> +
+>  static void
+>  fill_int_from_sts(unsigned long *rising, unsigned long *falling,
+>  		  unsigned long rising_sts, unsigned long falling_sts,
+> @@ -1082,21 +1093,9 @@ int omnia_mcu_register_gpiochip(struct omnia_mcu *mcu)
+>  		return dev_err_probe(dev, err, "Cannot request IRQ\n");
+>  
+>  	if (!new_api) {
+> -		/*
+> -		 * The button_release_emul_work has to be initialized before the
+> -		 * thread is requested, and on driver remove it needs to be
+> -		 * canceled before the thread is freed. Therefore we can't use
+> -		 * devm_delayed_work_autocancel() directly, because the order
+> -		 *   devm_delayed_work_autocancel();
+> -		 *   devm_request_threaded_irq();
+> -		 * would cause improper release order:
+> -		 *   free_irq();
+> -		 *   cancel_delayed_work_sync();
+> -		 * Instead we first initialize the work above, and only now
+> -		 * after IRQ is requested we add the work devm action.
+> -		 */
+> -		err = devm_add_action(dev, devm_delayed_work_drop,
+> -				      &mcu->button_release_emul_work);
+> +		err = devm_add_action_or_reset(dev,
+> +					       omnia_disable_button_release_work,
+> +					       &mcu->button_release_emul_work);
+>  		if (err)
+>  			return err;
+>  	}
 
