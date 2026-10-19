@@ -4,109 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF341CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AF7CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGUmExTPYJ7zMQ9g0UaYVJffIywD1fd+HT5u//71rU8=; b=zmIWv8w/eiYwNPzBiKDxJZDRkt
-	EsFTfLvC/0DQaL0SgXNiH47thqzurwS3D+bImpbU2l4Ln2YpSCMAnAXYhSaQgND5pDY3mw8m/OvNQ
-	2kX9RHrFD1lqoPntGDvbXW5K6apB3W0YSTQ8D0GSF+Jtsn2aUJrvXRc4pQyE/yWAFs9vbKFp6BPWA
-	CLiIGLBl4c23DDmrqrIIjldKSTmZ5u5ARR780kj6QiAA9nd3gEk4RIfm0z1XeVi18QiVzaieew9TC
-	lr1IdaY2nzp6vJ4vTNvnZBoKG+cpXxtrhq2G3vcNZf5qHiBjCycGHBWH01A23Cn6izEklW9K42YHi
-	3n/6/KIQ==;
+	bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=; b=HnF8u28D5Hg86Kx0Oc7+CG3KZk
+	bCEK6SxWZv9orqmeuzhz4oiApTlTPzR+xwQedYJ42PkOtkT7aYbFeU4fnQvjA3NcA0MEBTgYsne6D
+	ageFbYJyhdu7CQdRGM1yzC4p/R9wzB6oyl4rMN7xQVMgHs+ZSzqI0x/fjTiBWWVlyUUH04YK2rSi6
+	0mOUG2ftJ5EAekh7NrO7eg1CZpmdx1sTn/TqwrQBwNZiEiD8Y3lIFWHeaFoG+kefAnpvKC9p0LxeB
+	XehgoQdCOCMV9x/QMKrFpE3V3E5mVsFCbiNImi5tEs2kFwOW/6q7XvPymb5aRegz4w1MhNy0gEuhc
+	M9OYKn7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkUy-00000007AKi-0dAB;
-	Mon, 19 Oct 2026 10:21:44 +0000
-Received: from mail-westcentralusazon11013050.outbound.protection.outlook.com ([40.93.201.50] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1xIkWA-00000007AVJ-1Mbf;
+	Mon, 19 Oct 2026 10:22:58 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkUv-00000007AJa-0xxi
+	id 1xIkW7-00000007AUe-3lb6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:21:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LWWLeI5VpaIx9/n3so/b9ywRwAGZmJ87lmW32/zoSNkzf/IL+V5VJOYZBXlX/HLK3FmeVEqVlnPmEY8txzEvEcgbH4wRELg18mCmh3kzVTopoJqdnfSPTUTox9aC5qibyvG9BnR86SNDVrD3TWxvtFQu5Gjcv3edkwCvFUGWivMVlhBHbH9V1r1g6Clru8ObfMCEZXFhDZiTjVzhyGAQ25NG/ikk5O6MkWsD6CHEdSL0NYBnE8aYefRmJzU73yUVDrqZ3JWNiHhdfGAJncKEH3tsli+mVuuworfiyzKnbwAK1RKpHoj0zRe8scnFL32k8CZZvKKsJci4kdabkp1B0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iGUmExTPYJ7zMQ9g0UaYVJffIywD1fd+HT5u//71rU8=;
- b=cu9fh2BYAtHfsfSmAi7c8b+uY1SjWorCdoJ0fDPtq/OH/S5R5x0GXoeF9andMTwY5vS6Sj0mzjXxEFS/4cNac0OnIuj0oJaHlgE3WfkkbjIsEw5wgtwaP5pyKFxQ2jhq9S+rv3jQgbS0xkm0RuBLKEyhcNYkcNNxlfyZmprLdcYOJWgwLCGiXsVZaU+9QF6QOXVGCgk19AfBvyRO3E2mwcIXtLCQs0JHwBA4SRaHY1Mv7rHP5SVQ6DUa1GwSg15jZL4E1dQFNB18d+ef7uPfoAOsmprD5Jr7CMbur3MdNqSfXdY3UeCsXDUH6Cwq4QdH+qfbVXDJ16cOnd+HoXBHUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iGUmExTPYJ7zMQ9g0UaYVJffIywD1fd+HT5u//71rU8=;
- b=AqxCj6rPr/KfbI0z3S26ejQuVEvlV3GjkBi03yeW2dvv7ZE6nXfVExOVT9QYRLbpehbo6m6tMIHvBm2bZhT5+WDdVpwJQ6DYMf7EZ5HNlFU0OIVITNyw+WPL06/9LgfHyN7HAWOEYB5936I3ELGFEPsOMrv/SgmjiveRlbCBbV0=
-Received: from BL1PR13CA0388.namprd13.prod.outlook.com (2603:10b6:208:2c0::33)
- by IA0PPF4D923B935.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bcd) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Mon, 19 Oct
- 2026 10:21:33 +0000
-Received: from BL2PEPF000352CD.namprd02.prod.outlook.com
- (2603:10b6:208:2c0:cafe::7c) by BL1PR13CA0388.outlook.office365.com
- (2603:10b6:208:2c0::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.9 via Frontend Transport; Mon, 19
- Oct 2026 10:21:33 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL2PEPF000352CD.mail.protection.outlook.com (10.167.249.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 10:21:33 +0000
-Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Mon, 19 Oct
- 2026 05:21:17 -0500
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-To: <michal.simek@amd.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <git@amd.com>,
-	<linux-kernel@vger.kernel.org>, <jay.buddhabhatti@amd.com>, "Radhey Shyam
- Pandey" <radhey.shyam.pandey@amd.com>
-Subject: [PATCH v2] firmware: xilinx: Request pre-allocated peripheral nodes after bulk release
-Date: Mon, 19 Oct 2026 03:21:10 -0700
-Message-ID: <20261019102110.3448932-1-jay.buddhabhatti@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260923100343.3147243-1-jay.buddhabhatti@amd.com>
-References: <20260923100343.3147243-1-jay.buddhabhatti@amd.com>
+	Mon, 19 Oct 2026 10:22:57 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48c4649b35bso1565557f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:22:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792405374; x=1793010174; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=;
+        b=IKUUmCcPUzRvv9ZwhB9UgmRAuYWjLEqqMylUefL0ZCbyM5UC1W+oPALQeOui0+Ut58
+         Ne3gsYW4WgvVGxbp/7RxOyqss58XiHEqPM3GPMVfclAk4H8ldaY00ekbQMry81AfmB47
+         XW4kAF0A+Y3i7ns+F78yGnGM4rbC79q3YMGZW9oyPoJXKO2eUi7dJHUoXk1oO6s6oTUu
+         D2u+dFyM3eIhvnUYzlR5Wnk3UOzl2Yfmr4AipLMY2/HGxMeo6Yn0i70HDYOdE4H514tQ
+         ZgfwpKwq0n5iC9MvFvG+9WqDuiBQnPYBBYuLs/vpOloh4TTuBrL8Ky0Od8txEzURTI6O
+         AXXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792405374; x=1793010174;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=;
+        b=tAacb6qiPoPOQdyvaKKfsra7PFQW/+k3MsZkamrqoyspk5qtgfKlFhTKZ7LJx4c43W
+         mJcOT5nEyCuBsb6enZ66LLhyEB5guxDuXswjbq0VAuVwxmUVAwqqBUTJDZBMM4AjVXwb
+         unfZEabPTgBbzVR9uqpK+RWBsdMpbezRxNi3KyZOAZwph9EG2tOyiXX9D4I9/30UOeoX
+         7aBZk5sE65nbpju6c1FVqpRBY3npLlAQOGRCkjt4WgyUoDrlyfUBXvU+v4Q5OjVMiEPL
+         v7WqENK8wQtS9uG3vMUsEW9rzJ+1NQi5Qz4tO0SJ1AtxH7Nrne1YSnlRwpLbJlye/X1L
+         dZhg==
+X-Forwarded-Encrypted: i=1; AKwUvBz+ViVqXvZUGvADtgRQDAOyEBLUzp3+KeJq34jsde4ek9kIpfAb7B9U/ObLJgifz+cyLAJlf5FlgpFsVtHMt3eW@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ23GtaUlyRvHHd+T9gWc+XHbwcCLAkDHHWPW5UumCuAiWTi8s6
+	Nt5a84A5Je+aDdpx1GYsqvaLVaACtc36CQ4SMj4J4r2vofqbHpNVfNvQ/M2k8w==
+X-Gm-Gg: AYBFou2OeECVmV3JJS7Y9Fp3iCuNbO9SRGd9+J49bm5+O06EhJUxoHCwhEVJlz/1yVm
+	6FivCJD7to+ni+ihK1prG9eY8j2+CjA/7l89WwRZ2qaQGckd5+/IorGeoNVXPuiWYyJBNrfDJvK
+	e+NJz/tRjJcxK95T9OliDkb8ge/pC1YURkFBIDfASxW1iUEgM2N5a1s5ElXydkrUIThgUd7aAVn
+	3NMU3bs+pO0VwNXZA8vs4acpPLWFY6GWfGMuTtvDoDcEUExpaSUKCEKoSwMkLD/ScOMfCKOgoRI
+	DvM9FZHJJXQazX0toadO7D6wE8om9N0JGiCeQ5I2M5nqqnS6trJNKTnEEcAwr/hQDdEVUx9zY05
+	t5jfBQehyFjovApL+tN9TEMexIAkKSvUoBUFVC38FlEqhwTmP6zDqTL1683dUvDB/WgKNXMpnmR
+	01jd6+Zd5RkQKyFjayCJZErIVnCu04baACTdirCbl0G+NIzQD6qRT21RF2zvrnUcO7qQLrF9i1K
+	ezwRgF6gn2kEM1SbJl8qG0FdYlZwEX0nPqSf/f/vd0Q/fM2xaUk7PxOAj64bRdEoBjeyjSFSXoa
+	WR2Atq66HLXCMTfYu0pGp4arzpGVhH2NYFIBCZQ=
+X-Received: by 2002:a05:6000:2889:b0:48d:f14a:9179 with SMTP id ffacd0b85a97d-48e07fadef3mr14864487f8f.48.1792405373733;
+        Mon, 19 Oct 2026 03:22:53 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.66.71.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd471a64sm23771242f8f.6.2026.10.19.03.22.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 03:22:52 -0700 (PDT)
+Date: Mon, 19 Oct 2026 12:22:50 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx8mm-var-dart-sonata: Add OV5640
+ camera support
+Message-ID: <atXver4B2Acc3z0w@Lord-Beerus.station>
+References: <20261015162301.63838-1-stefano.r@variscite.com>
+ <atEci_KwxUdvAekv@SMW015318>
+ <atJY6DzjmAeq7U8q@Lord-Beerus.station>
+ <atKHI1B0hL6q-CmY@SMW015318>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352CD:EE_|IA0PPF4D923B935:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc614225-6b27-42cb-5ccb-08df2dcabfb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|36860700016|82310400026|56012099006|261009223027099003|11063799006|22082099003|18002099003|10067099003|13003099007;
-X-Microsoft-Antispam-Message-Info: QJm2RjMrR+5SGks9imbQXX53wP0jf2N7l/G6ex01o/DRrx+2yJbH6fC+TTkzxrQU5X7FWOCusu+kdZ+PbBxtflahIltIOwAN2NPMfaULxrY8CRpSxvQBKZ7lHjmOhQ5OnVKsbIGPCp1OQKIN7qeE9qLDnU5mIBK8JqXIPAUHqh9i6anmgfrK692yemfec8UuXlsr0qwS/V6vtpuiAOin6n/y1dFPeXNHt7FRQ0fr1tBXQkKkauMYBgFquE0xpI1lLrQnogCFUnCfotSuy25SQac9QHQ8bbZvylTA2YB2iYMTr7mvY4xrI0bHZ+5UhnPXcORxF1Md9NpJI/iMZFXoA+uwvaiRLj5RcD6mYJmSSTIh237sL7bRLHar2YYWRp/sQvu8gyxDkuHESViDNJZg3inLW5bxgphDQAurshO+zhzVmvTsTN71+gXKALZflnhaEreSWRRCWgivVMSTEFek2KQL9VahsRfzjdlOX97N8mrvhawOZUnEXhxCECQ7899e6426qLH4B+q1IkH2FuzBgIMQ9CuzreBGVWDQd73jn/jBRdlXlbthxADKdw2YNhZsD7SXwMaxDr5GqZytoRSUGNj+ZrcCT6Pbi+F0A2AKYLrP1jftlwUKAgrySSEjW4k1x9VZdDZedyx7qMeOkKf248KBdxiL8o4mxAIdl440gtU=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(56012099006)(261009223027099003)(11063799006)(22082099003)(18002099003)(10067099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dejVNmG7gAgLbAHF54v8CV1JujHQ67Gs6pN1Jm6dY4nMFiUCNAKiy5uuv5WLHiT1vcJ4jAxR/SBIM20yyw+MUX3dqBh/oGLeeSZ5KjK5r8uf8/VzW3gs0OAZbU9VLGUVILifuL+rO1vYS14w7uvk7Av4vjuaANBnxn9mUTwdvJBW8tV+Ei+1murZF0D+4rT+FmsgIG1bvImjUAYa5XdKvImMnvMmcaZScivHuJtWMuukhtkJkMqqNxMkrUbvzqy4HxbSRjcGguF8PrtN0NYfSINTKdtdm6UC3P7raJAptkaufrKPk5GK8o6tD1IYSu4WFCLvif+hOcyvTydS/pRx344ipvI8FoiqwnvkvMlW9CwW73OWx1oXxO7ZAyzP/MoK3ve4FJ3rjlMcF+LfHdLNtFOrHbY0ZcVroMk97ROeT9fMo3tEljjJ7YKLbwljCyfy
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 10:21:33.2319
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc614225-6b27-42cb-5ccb-08df2dcabfb3
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL2PEPF000352CD.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF4D923B935
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <atKHI1B0hL6q-CmY@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032141_272745_BCE62FF1 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20261019_032255_955599_D47D61DF 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,70 +113,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During a kexec restart, zynqmp_clear_pm_state() releases all peripheral
-devices via PM_DEV_ALL_PERIPH. Pre-allocated nodes are then left released,
-so Linux no longer owns them and later peripheral access can fail.
+On Fri, Oct 16, 2026 at 03:20:51PM -0500, Frank Li wrote:
+> On Fri, Oct 16, 2026 at 07:03:36PM +0200, Stefano Radaelli wrote:
+> > On Thu, Oct 15, 2026 at 01:33:47PM -0500, Frank Li wrote:
+> > > On Thu, Oct 15, 2026 at 06:23:01PM +0200, Stefano Radaelli wrote:
+> > > > From: Stefano Radaelli <stefano.r@variscite.com>
+> > > >
+> > > > Add support for the OV5640 camera connected to the Sonata carrier
+> > > > board's first MIPI CSI port.
+> > >
+> > > Does this board only support ov5640 camera? Suppose ov5640 module also use
+> > > for other boards.
+> > >
+> > > Can you refer https://lore.kernel.org/imx/20261011-expulsion-frivolous-690de090cf9d@spud/
+> > > to define connectors?
+> > >
+> > > Frank
+> > >
+> >
+> > Hi Frank,
+> >
+> > Thanks for your feedback! I looked at the Toradex approach you linked.
+> >
+> > In our case, the same connector can also accommodate Basler cameras and
+> > potentially other camera modules in the future, while some of our other
+> > carrier boards use different connectors.
+> >
+> > Given these differences, I would prefer to keep the classic approach proposed
+> > in this patch, describing the camera directly in the carrier board DTS.
+> > Do you think we should still use connector bindings in our case?
+> > If so, how would you suggest handling these differences?
+> 
+> Need understand whole board familar, basic Two problem:
+> 
+>  	Does carrier board support difference kinds camera?
+> 
+> 	Does carrier board or camera module reused for other boards?
+> 
+> Frank
+> 
 
-Immediately re-request those nodes with zynqmp_pm_request_node(
-PM_DEV_ALL_PERIPH, ...) so Linux retains ownership. On a graceful kexec
-this runs from zynqmp_firmware_shutdown(). On a crash kernel restart it
-runs from zynqmp_firmware_probe() in the reloaded kernel.
+Hi Frank,
 
-The bulk request depends on firmware support for PM_DEV_ALL_PERIPH
-(PM_REQUEST_NODE feature check version >= PM_API_VERSION_3). On firmware
-that does not implement it, the request is skipped and a warning is
-logged. Errors are already logged inside zynqmp_clear_pm_state() and
-zynqmp_firmware_probe() does not abort if the request fails.
+Yes to both:
 
-Also, drop the redundant ret = 0 assignments whose value is overwritten
-by the next do_feature_check_call()
+- The carrier board supports different cameras: we currently support
+  OV5640 and Basler modules, and support for another camera is planned.
+- The OV5640 module can be used on multiple carrier boards that share
+  the same camera connector.
+  Other carrier boards in our family use a different connector.
 
-Fixes: 84dbfa5519cf ("firmware: xilinx: Release all peripheral devices from firmware")
-Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes in v2:
-  - Add Fixes tag for the bulk peripheral release commit.
-  - Add Reviewed-by from Radhey Shyam Pandey (v1 review).
+Given these combinations, would you consider reasonable keeping the
+camera described directly in the carrier board DTS as proposed in this patch?
+This would avoid adding complexity across the different configurations.
 
-Link: https://lore.kernel.org/r/20260923100343.3147243-1-jay.buddhabhatti@amd.com/
----
- drivers/firmware/xilinx/zynqmp.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+If you still recommend connector bindings, how would you suggest
+structuring them to handle these differences?
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index fe650747ac91..96dbb23eb673 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -2193,7 +2193,6 @@ static int zynqmp_clear_pm_state(struct device *dev)
- 					"Failed to clear EL3 PM subsystem state: %d\n", ret);
- 		} else {
- 			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported by EL3 firmware: %d\n", ret);
--			ret = 0;
- 		}
- 
- 		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
-@@ -2206,7 +2205,19 @@ static int zynqmp_clear_pm_state(struct device *dev)
- 		} else {
- 			dev_warn(dev,
- 				 "Bulk device release is not supported by firmware: %d\n", ret);
--			ret = 0;
-+		}
-+
-+		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
-+		ret = do_feature_check_call(PM_REQUEST_NODE);
-+		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
-+			/* Attempt to request all nodes via firmware */
-+			ret = zynqmp_pm_request_node(PM_DEV_ALL_PERIPH, 0, 0, 0);
-+			if (ret)
-+				dev_err(dev, "Failed to request all peripheral devices: %d\n", ret);
-+		} else {
-+			dev_warn(dev,
-+				 "Firmware doesn't support request all peripheral devices at once: %d\n",
-+				 ret);
- 		}
- 
- 		/* Check if the firmware supports the PM_ALL_NOTIFIERS node ID */
--- 
-2.54.0
+Thank you so much for your help,
+Best Regards,
+Stefano
 
