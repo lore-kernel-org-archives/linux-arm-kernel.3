@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C9DCCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08194CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bO4U+trkWr254I1Yj+4SsCvrERs9vmKIAeF7UeSbL8=; b=xPdIj3UVKYkLlucrMaDkjAqDL5
-	zyz92w6AkDWxVWtVIJh2Pz5c7nMxwG8K71tJ4RsnDwsDyS0zwN3ENflkJIQvlEcgnGEINarj2ZpTo
-	+EwvfmYXZLFhUyTkxUWoe/JYQy6d4I+9kUWYxup5hdy5ecfQ4gRy52q6CagjifPve0tnlpp2UTpXs
-	4uN+HqXyeCfaB6KsEK/m1PzFrZWoOT2E6TNicc1uEsr7lpuQ3f0q989box7cITBZt06s6O8TT7xLA
-	Nsri3R2d2ymetUZ9lePfQZGMQlDigk2rdQmuY7EFVBMXemJtBj6svtbCxOU+ZhRaS6FzyFiscjQTX
-	QYzQvW4Q==;
+	bh=/XjINHqIBzneqFkY4u1ge+eJSkp77hxmWQgeY7LjLvk=; b=2wJtHwH7dohsvmKbFnGjY0Rt/J
+	O850bQN1J3gKAHmZzSzAcSazBqpD36MLkGA8ZmZk58MI8JCGZzOGNT/Y2hbh7uSkSrI9pCPZNJnKI
+	d69F45umxKNQX0VQ82rrcdwBSlrvqn1aQLb1fb4xwRM+5HiwvnyXYoQ+xGk6vNbtY5Yn86Xs/QYrk
+	JGu151HbkCST1z5703ZKRBX7jq3qcn1RnOTNDkRFoxmPT9ZCVpWNQfl3gMp6cqbRg6BBwbXS/8ari
+	jgYe/sWfPf3FwJXwq50YlT3QYPN8MH7m/O2DfAXgWnL4k2NTeZ+u5jQrNML8Od5DCgtHsbKrDsOWH
+	dDgJZjUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlEO-00000007G5L-1zZV;
-	Mon, 19 Oct 2026 11:08:40 +0000
+	id 1xIlM7-00000007GmT-0y0Z;
+	Mon, 19 Oct 2026 11:16:39 +0000
 Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlEH-00000007G3q-1di2
+	id 1xIlM3-00000007Glu-3dqk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 11:08:38 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7DBADA012B;
-	Mon, 19 Oct 2026 13:08:15 +0200 (CEST)
+	Mon, 19 Oct 2026 11:16:37 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8B4E2A156C;
+	Mon, 19 Oct 2026 13:16:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1792408102; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1792408593; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=5bO4U+trkWr254I1Yj+4SsCvrERs9vmKIAeF7UeSbL8=;
-	b=xBjblPJEXvZWghFd34CrF/W7QjSUcxZ4nOjuxKyN907/1xutdrSPOeIlyX9AA+6Cqfs5DJ
-	vs/yOGugxIpjsQdEpotJjp8ACT2OqiyrVYNz20pzhl0e22V13ivz+s2s6if1BYg3rAg1B5
-	8uhSYAIYgvLN63wa3DnkCDgyOWrK4aFr5Y1xJ4ovzDa51ruKv2rfFTzRAZfIhK3Sv38E7z
-	oIyQGhN1FWCN9d1FQb8gw9SSheXEHVKWBA8+zdtmaidoyHOwRa2jCP25a/+ElVLYUixkpq
-	j56hWYodLEySRQlDZzKY7wImTfpfCxi2X0avE1dA9S9jaPAr8RJ2qUAbt7jgdg==
+	bh=/XjINHqIBzneqFkY4u1ge+eJSkp77hxmWQgeY7LjLvk=;
+	b=W61oJF60IVzoEfj4TjI2sf7h4bhSvysGjad19NTTcOghjn0ruiY7Y7IeCNuPUciH0KwlhM
+	jWVQ/W5+ZNCq1zP6LDZF0vR7jG0uA9D5vYrpLgLbBED+iFJRChlQhOoHe4EhtvbhrrQVCK
+	kou/iprWa4Sq0jXtgrZ7l7H8fEb33DfR178ghbU4NUwTsYnKj3sVojGCPDju7ZY0uemy6P
+	ZrwjJuwLMa+qD4MF48A/9W+sZpeZwqNHnqxfI3Nfhlnm7ELqJMwReEJvfXTY7vnHRPNue2
+	mw/6IJjO8IGuHxEELvqdVNQ/Or04voQG3jCCktUxYrFbz0g43xDdH2i1yPyUrA==
 MIME-Version: 1.0
-Date: Mon, 19 Oct 2026 13:08:15 +0200
+Date: Mon, 19 Oct 2026 13:16:30 +0200
 From: Nicolai Buchwitz <nb@tipi-net.de>
 To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
@@ -52,20 +52,20 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
  Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
  Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v8 3/5] net: stmmac: drop multi-buffer frames in
- XDP mode
-In-Reply-To: <20261018-stmmac-rx-mb-v8-3-5f58c0b25849@oss.qualcomm.com>
+Subject: Re: [PATCH net-next v8 2/5] net: stmmac: drop split frames on AF_XDP
+ zero-copy RX
+In-Reply-To: <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
 References: <20261018-stmmac-rx-mb-v8-0-5f58c0b25849@oss.qualcomm.com>
- <20261018-stmmac-rx-mb-v8-3-5f58c0b25849@oss.qualcomm.com>
-Message-ID: <8af4012ae73827a721533e2734b80ea9@tipi-net.de>
+ <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
+Message-ID: <8c9e47e535ecc8190fa1c93ad5b5e32a@tipi-net.de>
 X-Sender: nb@tipi-net.de
 Content-Type: text/plain; charset=US-ASCII;
  format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_040833_588367_2033F94F 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20261019_041636_463387_DACA5C1C 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lorenzo
+
 On 18.10.2026 19:07, Lorenzo Bianconi wrote:
-> stmmac_rx() runs the XDP program once per descriptor buffer and uses
-> skb == NULL as the only marker for the start of a frame. A frame larger
-> than one buffer is split by the hardware across several descriptors;
-> GMAC4 enables jumbo frames unconditionally (GMAC_CONFIG_JE in
-> GMAC_CORE_INIT), so an on-link peer can deliver such a frame even when
-> the interface MTU is left at 1500.
+> stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
+> XSK pool buffer and drops any frame that spans more than one RX
+> descriptor:
 > 
-> When an XDP verdict ends a non-last descriptor, skb is cleared and the
-> next descriptor of the same hardware frame is parsed as a new frame.
-> For XDP_CONSUMED this happens via read_again with len preserved, so
-> stmmac_rx_buf1_len() then returns min(dma_buf_sz, plen - len) for the
-> last descriptor, which can be as small as 0-3 bytes. buf1_len -=
-> ETH_FCS_LEN underflows and xdp_prepare_buff() puts data_end far past
-> data; on XDP_PASS this produces an skb whose length is close to 4G that
-> reaches the network stack (skb->tail and skb->len are 32-bit and wrap
-> below skb->end, so skb_over_panic() does not fire). A 4+ byte tail is
-> instead offered to the XDP program and delivered as a standalone
-> mid-payload Ethernet frame on XDP_PASS. XDP_TX/XDP_REDIRECT instead
-> falls through to the next iteration, resetting the running length, so
-> the tail is re-parsed as a full-size new frame.
+>         /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+>         if (likely(status & rx_not_ls)) {
+>                 xsk_buff_free(buf->xdp);
+>                 buf->xdp = NULL;
+>                 dirty++;
+>                 count++;
+>                 goto read_again;
+>         }
 > 
-> The same fault exists when a single descriptor uses its second buffer:
-> GMAC4/XGMAC always provide a second data buffer per descriptor, so a
-> frame up to 2 * dma_buf_sz can land on a single descriptor while the 
-> XDP
-> program still only sees the first buffer. XDP_TX then transmits a
-> truncated frame, and XDP_PASS appends the second buffer only after the
-> program has already run over the first one.
+> The non-last descriptors are freed and dropped, but the frame is not
+> marked as errored. When the poll reaches the last descriptor of the
+> same frame, error is still 0, so the fragment is handled as a complete
+> frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
+> or converted for XDP_TX. The tail starts in the middle of the original
+> payload at a predictable offset and, parsed as a fresh frame (len == 
+> 0),
+> stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
+> though the DMA engine only wrote the tail remainder into that buffer, 
+> so
+> the reads extend past the received bytes and can reach beyond the end 
+> of
+> the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
+> in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
+> when the interface MTU is left at 1500.
 > 
-> XDP does not support scatter-gather frames until the multi-buffer
-> rework, so drop the whole frame instead: mark it as errored as soon as
-> a non-last descriptor, or a descriptor using its second buffer, is seen
-> while an XDP program is attached, drain and release every descriptor -
-> including the last. Removing the re-parse lets both XDP verdict 
-> branches
-> simply complete the packet via next.
+> Set error when the 1:1 mapping check drops a descriptor, so the
+> remaining descriptors of the frame - including the last one - are
+> drained and released with xsk_buff_free() instead of being processed as
+> a new frame. Account every freed buffer with dirty and count the
+> dropped frame once in the poll budget / rx_pkt_n. The direct 1:1
+> mapping drop also increments rx_dropped.
 > 
-> Note: the subsequent "net: stmmac: rework stmmac_rx to support XDP rx
-> multi-buff" accumulates the whole frame into a single xdp_buff and
-> supersedes this patch; the fix is kept so the net portion of the series
-> stands on its own.
+> Normalize the legacy normal and enhanced descriptor callbacks to report
+> rx_not_ls together with discard_frame for non-last descriptors. This
+> allows both stmmac_rx_zc() and stmmac_rx() to drain split frames on
+> dwmac100 and dwmac1000 instead of reparsing the final fragment as a new
+> packet.
 > 
-> Fixes: 5fabb01207a2 ("net: stmmac: Add initial XDP support")
+> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+
+This grew quite a bit since v6 (legacy desc changes, stmmac_rx() etc),
+so my R-b should have been dropped. I had another look and two small
+notes below.
+
 > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 > ---
+
 > [...]
+
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5695,18 +5695,21 @@ static int stmmac_rx_zc(struct stmmac_priv 
+> *priv, int limit, u32 queue)
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats,
+>  						  rx_q->dma_erx + entry);
+> -		if (unlikely(status == discard_frame)) {
+> -			xsk_buff_free(buf->xdp);
+> -			buf->xdp = NULL;
+> -			dirty++;
+> +
+> +		if (unlikely(status & discard_frame)) {
+>  			error = 1;
+>  			if (!priv->hwts_rx_en)
+>  				rx_errors++;
+>  		}
+
+There's no !error check here, so on the legacy descriptors a split
+frame now counts once per descriptor in rx_errors. stmmac_rx() in 3/5
+counts it once. Could you add the !error check here too?
+
+> [...]
+
+> @@ -5883,7 +5887,8 @@ static int stmmac_rx(struct stmmac_priv *priv, 
+> int limit, u32 queue)
+> 
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + 
+> entry);
+> -		if (unlikely(status == discard_frame)) {
+> +
+> +		if (unlikely(status & discard_frame)) {
+
+AFAIU this also changes GMAC4: a frame with an error plus an IP header
+error returns discard_frame | csum_none, which the old "==" let
+through. Dropping it is right, but maybe worth a line in the commit
+message?
+
+> [...]
+
+With the !error check added:
 
 Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
