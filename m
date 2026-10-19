@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5C5CCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 03:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BACCCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 03:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5TeWWNtJggGTTz6M8A9FjvcqNzl7loaYSyNhUw4yhc=; b=owUyFnXLLBo0UnXSgjko9k4eOk
-	N5h3/PB0jzAWNQHRo1yuYqmCdEBVlnsTdvv/L4bhk0BevpSGzsjL/28w44TptaUqWC4bPHJaerj/7
-	qT2tzSAfV/GA6lRWoETBdZ9a3GJPNRYdgLL/ONwlwtmjajHmw34sPzP4I6BK59NTg6NcbjCj9w6dy
-	mUETD04m1lKUAZHgAXFxjlvWsIS9x2CdzYbHwpoqcgIwY5TMzDJyg94WsPkF799uSfQ7ij/2Jj9jH
-	9Vp0aEAGWXdO4JdM3kBUyO6l6obqab41cRvA1BBEQZSs+XBpdGXc02u4Va+kKozb+VlN3uvIN+ew4
-	nO6FRn1Q==;
+	bh=kvw4syNS+titZXjd+BAVQh8BZuoN5qywIcBOPbcEmbk=; b=aO9vMVcLSpSbDtsR/8jHJv2jhY
+	zflQzQP8LR5X69o1y4A+ul3OKfXmNvQcNXx9t/2AsA6bn4BD2zZuEVQS7FnVBNw7bOyF62oGm+pg1
+	WmII7wuuYB6pj2/z11im2GMO5CDhrgn9pA8AFPvpNSnx8JLuiHUP9dJDXkBi08dmniJWh3Wt3hHBK
+	4h45Jf5rMBffvkZAzuS0F8VIzClAeklvu31kDf7Mh0eOO/cIbsL0qzPxUQrxTeSm0gAC0UljCg5ol
+	U+mgP7m1wzpjwWUQp4Ls8dsFBt7/mTz2zTWD3Gn/y2lMmnC+a2i4/aX0UxsuWcPhemjgwAcVsQz2J
+	4CnkNoqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIdd8-00000006UjU-2038;
-	Mon, 19 Oct 2026 03:01:42 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1xIddK-00000006Uqe-0GRZ;
+	Mon, 19 Oct 2026 03:01:54 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIdd4-00000006UhC-1X63
+	id 1xIdd7-00000006Uif-3eXN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 03:01:39 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-5365d725440so7546901cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:01:38 -0700 (PDT)
+	Mon, 19 Oct 2026 03:01:43 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-9196d8543cbso15937466d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 20:01:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1792378897; x=1792983697; darn=lists.infradead.org;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1792378900; x=1792983700; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=R5TeWWNtJggGTTz6M8A9FjvcqNzl7loaYSyNhUw4yhc=;
-        b=QMzdnR9YL6VtejUBTPNCnMU0xpYNZ4mAmH5jl9OX52B/IXPrE9M4F5WbCCFyF+GJO9
-         JdgD6XtcKkn2AOFYCoHDyIT/p1pAy97hnYH56l40tIToC5LXRaGEVuczgiJsQuUUi4jt
-         tzKn31L2kxDRlGC5SXmldFXAl68qPFme3Vr/qn8VmyR8DRaEKlwdSF+frost6lP2QG/P
-         Ls5S3dyqzYlchJ2BQC/n6zMUlePZ2eP4WsOg99sD1VzsL7RWm78FOMQYL/hs/R0YnXbl
-         qOkc6JNpjm8PkKRsyrtgcB9IDsG8RrrnouMlJcbJPd94ZZsYiSPzCn9LBvzoDaMmAj7z
-         oGHQ==
+        bh=kvw4syNS+titZXjd+BAVQh8BZuoN5qywIcBOPbcEmbk=;
+        b=Q6eWRyidlzsTWG5V/mE649GYZFC4RX/SHJAn62xjegVPrJPY85BK3GHh5LSQgeXFO8
+         zCbak9kYjV+R57M6bwPvsysm+vsTAfq+Xkuvbio8iKYKa2cJoCX/zmlNRUqlRwgbdoHo
+         kFkiMqICUQYcaXZxauuLq2TiDTuI/7kSlpcuDkwmjHHxUOImNhp/TPiSCdM8Yx1vcy21
+         b73lxLz3iurh/9w89t48EJE//h7rDGgCLmnUfEOB6rf5kCjZKoW9/gftN78MGeyiw99m
+         pezR3OfqUj/0L9VzdcBqajOqmWTHFQ+n1G8DGP3RyN37G2K8ADVzYsJ/E61SX0YzkAJp
+         bYEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792378897; x=1792983697;
+        d=1e100.net; s=20260707; t=1792378901; x=1792983701;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=R5TeWWNtJggGTTz6M8A9FjvcqNzl7loaYSyNhUw4yhc=;
-        b=f4wUhzeFW6iMw/JTB7wGNEnhDSs4gj7pGBLOugR6cVmrjUaE7h1MY8QQgjLrsegkIe
-         fHabn50lg9vaDncLQa1DVQwg8Oe1ufFAa/Pnkl8U7OQFSKYwwtHywfO7Tsstam3/fQst
-         ovXhODiIsHU4xBNirlj8kBUtxS1ixYAE4pi/CdpBbQe0f47SAhdcIXnY0NbYW58ffSSy
-         Cv29EqnLUc0Qu88BWuqY1Sz+kHr0HH64FL0QvudNr99Rp/GjTaBFjBCRXk0ydl36TDbt
-         dV3nnrIkhl6OcP6EgP9NpW//He1GSd2Sm9pXifyR0+LXdMV7cicSPZt30YXj+6ojndDE
-         qT9Q==
-X-Forwarded-Encrypted: i=1; AKwUvByrR6vquRfm9En0UfLkLo+qXLf1gYyvPF0aUgS9O5nM5+R3YItQYA1JE07Yf1K0SyW3aDDrecpOleoziM+WCAP2@lists.infradead.org
-X-Gm-Message-State: AFq9FYK/T3tkIDcDqz+E3HAMFKi5wm+TxN9jAaIwue7PxTV5taW/uWRe
-	F1g9W+CpINgYM7sQomGvddAnH4q7htNbmmbyDLq8VpvCtJxpXmZbbFTNS2OFn73gEMk=
-X-Gm-Gg: AYBFou2xGXWXmsc4vw0hds58O4gQJDl4yPMKgkxgr6axV/f39QTLQg/K5E+eADuFh95
-	1IPv8WRUr2dr/Pw2bQjMSU2jf6Mmjzv/paKIQqQ6BueOq0zqUJkDBP6QThC1Zik9lP6jAlwhq1B
-	Y5MhwtdaHZBZjq8ciR7gjgtRGnsk2JP9FCDNk21LwX/gtos034Bq8+KIT5Sz5ZhtjFHjGhKm+iS
-	3shl7aYrP7P3Fxyc8g00xGLX1ieZR6wIvNRXM2/n6wzFGgFoeXLF2qMQHqsW9wfHijHZ2FaeGz8
-	nnYC8N1lc/VIFAN7YfXAea4pAr9pq3jH5JBjVPoAlCFru4qXowiA/AFAWR+TSSle2lpPChe7IoR
-	xbBm1/hzfM1poQwagLchpPrGsH1J9wXGYlYv/XfghWPdKHswHZUApA4PToO+swrqe2Oqx/RyDte
-	T+82TsjSV5iKM75t45RoXGBdKVKudMnEmI56MXYuIKHL/nKxyvOFa/nwgRO146lCgE7NoXSUGCS
-	ouKZdgSuMzvkA==
-X-Received: by 2002:a05:620a:8812:b0:93e:fa30:f1dd with SMTP id af79cd13be357-93f29dac9e9mr998353385a.70.1792378897136;
-        Sun, 18 Oct 2026 20:01:37 -0700 (PDT)
+        bh=kvw4syNS+titZXjd+BAVQh8BZuoN5qywIcBOPbcEmbk=;
+        b=lwosl8j5c5RjzET1hL4n3LO3/OB4YUNjHsqJrYrIDOX0cT2A+nYRPBI9lNNvr2Vz6X
+         JvZaXfDARKpVGWIU36bZek68CUURkOzeuHEHk5ky5ysP5dSAuC1TCq+EAzR1AKwr19aY
+         ylnvmedpd6CFrBQHkz476jQuAt3diSJIjwoen1EBxAT6cLslzvJ4oQDxdDnnsVj1CmCR
+         B5HhFZhdPgvWWFUM0vdE5Abw0CDw0Y3bHmJDgAfZsSTZXdTzFrla9jxiezs/6v0Le3Ux
+         aSmauZFcewGXQloeKkewUchZijVc+jueMY/M99SNM7/TcCLBvnrYHpjzMKtzpEaF1ZJW
+         r4Bw==
+X-Forwarded-Encrypted: i=1; AKwUvBxUye6NXUeYaIaas5fURKR5RtUwjYWcOpTivn8d4TP3D117ohXHt5RV+cSF0tld+2o29cARvg4/CJWAFKrRPHxR@lists.infradead.org
+X-Gm-Message-State: AFq9FYLpk2TEm+Pv4jYmZakgTUxnZ5lH5w3NHF0LjLUVJ98ft68a3kre
+	bfWNHB2BvW6sF16ywFa2Csdfqrt9z3jb4T5D2rU+7BId8iWeWIsMNLEk7DchVbxk8sI=
+X-Gm-Gg: AYBFou3Le9GnZsuQWvnbFzoisSITC9GQJ/6X4vcwsyReXuCOB0ZCPaS68WngRa2iTRG
+	9FJSUpVXEkRsVQePJbzre9AD3SiEjZ28LL6zL0jpwRj5I2u9pfLBJy/c8WYPc16GGMyMPJU6nrJ
+	l7+x5mDkxAG5G5WI9ugWyNN+fS+pi+SSVP+FAEdLaU1KPiZwErstx+yQur++60HyzaO1QPTzs0w
+	wUHFQhJiRrDKePI8IFzMW2Xv4DRLziq7AdJbes7yxPvyCarZr89M7lWk1XUlQuUcmtR4VlHfENb
+	OdagoHlP5BTczFaD8xqfYWj1EZbuwQXFGpa2iYATk44zdAcop2Pdh/pSGOUj3a/NcgMp4AZs8Wj
+	otWwmP4T0QycLo4RJ5n7e4BMeNxqLcv//66fhUuROqxsSVJkBg6yL/Hn7k+Px/Vcy1V8WmSyty5
+	XFaQlJXeXPS2gc1ftnHHPSM1lue+Mqv7xPUaWtS9KLVB7v2xn8IsXZ1HzWHYKzbLgFPTxSm/sAJ
+	Tki
+X-Received: by 2002:a05:620a:394c:b0:93e:c12c:4416 with SMTP id af79cd13be357-93f29df8910mr1058004285a.82.1792378900653;
+        Sun, 18 Oct 2026 20:01:40 -0700 (PDT)
 Received: from zippy.localdomain ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f3c61c440sm216840185a.10.2026.10.18.20.01.35
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f3c61c440sm216840185a.10.2026.10.18.20.01.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 20:01:36 -0700 (PDT)
+        Sun, 18 Oct 2026 20:01:40 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: maxime.chevallier@bootlin.com,
 	andrew+netdev@lunn.ch,
@@ -96,17 +96,17 @@ Cc: Daniel Thompson <daniel@riscstar.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 2/5] net: pcs: pcs-xpcs-regmap: support XPCS memory-mapped MDIO bus via regmap
-Date: Sun, 18 Oct 2026 22:01:25 -0500
-Message-ID: <20261019030129.1470307-3-elder@riscstar.com>
+Subject: [PATCH net-next 4/5] net: stmmac: dwxgmac2: export symbols for XGMAC 3.01a DMA
+Date: Sun, 18 Oct 2026 22:01:27 -0500
+Message-ID: <20261019030129.1470307-5-elder@riscstar.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019030129.1470307-1-elder@riscstar.com>
 References: <20261019030129.1470307-1-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_200138_424581_8C3D0053 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20261018_200141_947910_377A6BEF 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,252 +123,120 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Daniel Thompson <daniel@riscstar.com>
 
-In some DesignWare XPCS implementations the memory-mapped MDIO bus is
-allocated to a register window that does not align to a page boundary.
-This makes iomapping the registers problematic.
+Toshiba TC9564 is an Ethernet-AVB/TSN bridge and is essentially a
+small and highly-specialised SoC. Ethernet on this chip is provided
+by a DesignWare XGMAC.
 
-For example the Toshiba TC9564 (a PCIe Ethernet-AVB/TSN bridge) provides
-an "eMAC" subsystem with the XPCS base address cuddled up to XGMAC
-registers.
+One consequence of the SoC-like design is that the internal AXI bus
+(used by the XGMAC for DMA) maps the PCI DMA space with a non-zero base
+address. This requires a translation step (happily just simple addition)
+to convert the PCI DMA address to the hardware DMA address.
 
-Let's introduce helpers to allow the driver that owns the eMAC to register
-an XPCS using is regmap for the memory-mapped MDIO bus.
+This is pretty funky so rather than push that translation logic into
+the core driver we intend to keep that logic inside the TC9564
+platform code. In order to do that we need to export a few symbols
+to allow us to override some of the DMA and descriptor op tables.
+
+FWIW this approach to overriding the ops tables is similar to the
+mechanism currently found in dwmac-loongson.c (with the exception
+that we have also exported a couple of functions so we don't
+have to replicate their content in the TC9564 platform code).
 
 Signed-off-by: Daniel Thompson <daniel@riscstar.com>
 Co-developed-by: Alex Elder <elder@riscstar.com>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- MAINTAINERS                         |   2 +
- drivers/net/pcs/Makefile            |   3 +-
- drivers/net/pcs/pcs-xpcs-regmap.c   | 169 ++++++++++++++++++++++++++++
- include/linux/pcs/pcs-xpcs-regmap.h |  13 +++
- 4 files changed, 186 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/pcs/pcs-xpcs-regmap.c
- create mode 100644 include/linux/pcs/pcs-xpcs-regmap.h
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h |  7 +++++++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c    |  1 +
+ .../ethernet/stmicro/stmmac/dwxgmac2_descs.c   |  1 +
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 18 ++++++++++--------
+ 4 files changed, 19 insertions(+), 8 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 55ead3d1007a8..972c9faead5b3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -27148,8 +27148,10 @@ F:	drivers/net/ethernet/synopsys/
- SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
- L:	netdev@vger.kernel.org
- S:	Orphan
-+F:	drivers/net/pcs/pcs-xpcs-regmap.c
- F:	drivers/net/pcs/pcs-xpcs.c
- F:	drivers/net/pcs/pcs-xpcs.h
-+F:	include/linux/pcs/pcs-xpcs-regmap.h
- F:	include/linux/pcs/pcs-xpcs.h
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 0fe86e9942334..1b32d14c37440 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -470,4 +470,11 @@ extern const struct stmmac_dma_ops dwxgmac210_dma_ops;
+ extern const struct stmmac_dma_ops dwxgmac301_dma_ops;
+ extern const struct stmmac_desc_ops dwxgmac210_desc_ops;
  
- SYNOPSYS DESIGNWARE HDMI RX CONTROLLER DRIVER
-diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
-index 4f7920618b900..088d35f21a4c3 100644
---- a/drivers/net/pcs/Makefile
-+++ b/drivers/net/pcs/Makefile
-@@ -2,7 +2,8 @@
- # Makefile for Linux PCS drivers
++void dwxgmac2_dma_init_rx_chan(struct stmmac_priv *priv, void __iomem *ioaddr,
++			       struct stmmac_dma_cfg *dma_cfg, dma_addr_t phy,
++			       u32 chan);
++void dwxgmac2_dma_init_tx_chan(struct stmmac_priv *priv, void __iomem *ioaddr,
++			       struct stmmac_dma_cfg *dma_cfg, dma_addr_t phy,
++			       u32 chan);
++
+ #endif /* __STMMAC_DWXGMAC2_H__ */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 1a88cbaed70ca..0effdd6969d65 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -1542,6 +1542,7 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
  
- pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
--				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
-+				   pcs-xpcs-nxp.o pcs-xpcs-regmap.o \
-+				   pcs-xpcs-wx.o
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(dwxgmac2_setup);
  
- obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
- obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
-diff --git a/drivers/net/pcs/pcs-xpcs-regmap.c b/drivers/net/pcs/pcs-xpcs-regmap.c
-new file mode 100644
-index 0000000000000..f3f3aaaf0b75a
---- /dev/null
-+++ b/drivers/net/pcs/pcs-xpcs-regmap.c
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Synopsys DesignWare XPCS regmap helpers
-+ *
-+ * Copyright (C) 2026 RISCstar Solutions.
-+ * Copyright (C) 2024 Serge Semin
-+ */
-+
-+#include <linux/device.h>
-+#include <linux/kernel.h>
-+#include <linux/mdio.h>
-+#include <linux/pcs/pcs-xpcs.h>
-+#include <linux/pcs/pcs-xpcs-regmap.h>
-+#include <linux/regmap.h>
-+
-+#include "pcs-xpcs.h"
-+
-+/* Page select register for the indirect MMIO CSRs access */
-+#define DW_VR_CSR_VIEWPORT		0xff
-+
-+static ptrdiff_t xpcs_regmap_addr_format(int dev, int reg)
-+{
-+	return FIELD_PREP(0x1f0000, dev) | FIELD_PREP(0xffff, reg);
-+}
-+
-+static u16 xpcs_regmap_addr_page(ptrdiff_t csr)
-+{
-+	return FIELD_GET(0x1fff00, csr);
-+}
-+
-+static ptrdiff_t xpcs_regmap_addr_offset(ptrdiff_t csr)
-+{
-+	return FIELD_GET(0xff, csr);
-+}
-+
-+static int
-+xpcs_regmap_read_reg_indirect(struct regmap *regmap, int dev, int reg)
-+{
-+	ptrdiff_t csr, ofs;
-+	unsigned int val;
-+	u16 page;
-+	int res;
-+
-+	csr = xpcs_regmap_addr_format(dev, reg);
-+	page = xpcs_regmap_addr_page(csr);
-+	ofs = xpcs_regmap_addr_offset(csr);
-+
-+	res = regmap_write(regmap, DW_VR_CSR_VIEWPORT, page);
-+	if (res < 0)
-+		return res;
-+
-+	res = regmap_read(regmap, ofs, &val);
-+	if (res < 0)
-+		return res;
-+
-+	return val & 0xffff;
-+}
-+
-+static int
-+xpcs_regmap_write_reg_indirect(struct regmap *regmap, int dev, int reg, u16 val)
-+{
-+	ptrdiff_t csr, ofs;
-+	u16 page;
-+	int res;
-+
-+	csr = xpcs_regmap_addr_format(dev, reg);
-+	page = xpcs_regmap_addr_page(csr);
-+	ofs = xpcs_regmap_addr_offset(csr);
-+
-+	res = regmap_write(regmap, DW_VR_CSR_VIEWPORT, page);
-+	if (res < 0)
-+		return res;
-+
-+	return regmap_write(regmap, ofs, val);
-+}
-+
-+static int xpcs_regmap_read_c22(struct mii_bus *bus, int addr, int reg)
-+{
-+	struct regmap *regmap = bus->priv;
-+
-+	if (addr != 0)
-+		return -ENODEV;
-+
-+	return xpcs_regmap_read_reg_indirect(regmap, MDIO_MMD_VEND2, reg);
-+}
-+
-+static int
-+xpcs_regmap_write_c22(struct mii_bus *bus, int addr, int reg, u16 val)
-+{
-+	struct regmap *regmap = bus->priv;
-+
-+	if (addr != 0)
-+		return -ENODEV;
-+
-+	return xpcs_regmap_write_reg_indirect(regmap, MDIO_MMD_VEND2, reg, val);
-+}
-+
-+static int xpcs_regmap_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
-+{
-+	struct regmap *regmap = bus->priv;
-+
-+	if (addr != 0)
-+		return -ENODEV;
-+
-+	return xpcs_regmap_read_reg_indirect(regmap, dev, reg);
-+}
-+
-+static int xpcs_regmap_write_c45(struct mii_bus *bus, int addr, int dev,
-+				 int reg, u16 val)
-+{
-+	struct regmap *regmap = bus->priv;
-+
-+	if (addr != 0)
-+		return -ENODEV;
-+
-+	return xpcs_regmap_write_reg_indirect(regmap, dev, reg, val);
-+}
-+
-+static void devm_xpcs_regmap_destroy(void *data)
-+{
-+	struct dw_xpcs *xpcs = data;
-+
-+	xpcs_destroy(xpcs);
-+}
-+
-+struct dw_xpcs *devm_xpcs_regmap_register(struct device *dev,
-+					  struct regmap *regmap)
-+{
-+	static atomic_t id = ATOMIC_INIT(-1);
-+	struct dw_xpcs *xpcs;
-+	struct mii_bus *bus;
-+	int ret;
-+
-+	bus = devm_mdiobus_alloc_size(dev, 0);
-+	if (!bus)
-+		return ERR_PTR(-ENOMEM);
-+
-+	bus->name = "DW XPCS MCI/APB3";
-+	bus->read = xpcs_regmap_read_c22;
-+	bus->write = xpcs_regmap_write_c22;
-+	bus->read_c45 = xpcs_regmap_read_c45;
-+	bus->write_c45 = xpcs_regmap_write_c45;
-+	bus->phy_mask = ~0;
-+	bus->parent = dev;
-+	bus->priv = regmap;
-+
-+	snprintf(bus->id, sizeof(bus->id), "dwxpcs-%x", atomic_inc_return(&id));
-+
-+	/* MDIO-bus here serves as just a back-end engine abstracting out
-+	 * the MDIO and MCI/APB3 IO interfaces utilized for the DW XPCS CSRs
-+	 * access.
-+	 */
-+	ret = devm_mdiobus_register(dev, bus);
-+	if (ret) {
-+		dev_err(dev, "failed to create MDIO bus\n");
-+		return ERR_PTR(ret);
-+	}
-+
-+	xpcs = xpcs_create_mdiodev(bus, 0);
-+	if (IS_ERR(xpcs))
-+		return xpcs;
-+
-+	ret = devm_add_action_or_reset(dev, devm_xpcs_regmap_destroy, xpcs);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return xpcs;
-+}
-+EXPORT_SYMBOL_GPL(devm_xpcs_regmap_register);
-diff --git a/include/linux/pcs/pcs-xpcs-regmap.h b/include/linux/pcs/pcs-xpcs-regmap.h
-new file mode 100644
-index 0000000000000..c6d934b1054ed
---- /dev/null
-+++ b/include/linux/pcs/pcs-xpcs-regmap.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __LINUX_PCS_XPCS_REGMAP_H
-+#define __LINUX_PCS_XPCS_REGMAP_H
-+
-+struct device;
-+struct regmap;
-+struct dw_xpcs;
-+
-+struct dw_xpcs *devm_xpcs_regmap_register(struct device *dev,
-+					  struct regmap *regmap);
-+
-+#endif /* __LINUX_PCS_XPCS_REGMAP_H */
+ int dwxlgmac2_setup(struct stmmac_priv *priv)
+ {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395bc..f0e7b8ee48ac7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -374,3 +374,4 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
+ 	.set_vlan = dwxgmac2_set_vlan,
+ 	.set_tbs = dwxgmac2_set_tbs,
+ };
++EXPORT_SYMBOL_GPL(dwxgmac210_desc_ops);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index f9a77d641eb65..2f9334d7cb922 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -63,10 +63,10 @@ static void dwxgmac2_dma_init_chan(struct stmmac_priv *priv,
+ 	writel(XGMAC_DMA_INT_DEFAULT_EN, ioaddr + XGMAC_DMA_CH_INT_EN(chan));
+ }
+ 
+-static void dwxgmac2_dma_init_rx_chan(struct stmmac_priv *priv,
+-				      void __iomem *ioaddr,
+-				      struct stmmac_dma_cfg *dma_cfg,
+-				      dma_addr_t phy, u32 chan)
++void dwxgmac2_dma_init_rx_chan(struct stmmac_priv *priv,
++			       void __iomem *ioaddr,
++			       struct stmmac_dma_cfg *dma_cfg,
++			       dma_addr_t phy, u32 chan)
+ {
+ 	u32 rxpbl = dma_cfg->rxpbl ?: dma_cfg->pbl;
+ 	u32 value;
+@@ -78,11 +78,11 @@ static void dwxgmac2_dma_init_rx_chan(struct stmmac_priv *priv,
+ 	writel(upper_32_bits(phy), ioaddr + XGMAC_DMA_CH_RxDESC_HADDR(chan));
+ 	writel(lower_32_bits(phy), ioaddr + XGMAC_DMA_CH_RxDESC_LADDR(chan));
+ }
++EXPORT_SYMBOL_GPL(dwxgmac2_dma_init_rx_chan);
+ 
+-static void dwxgmac2_dma_init_tx_chan(struct stmmac_priv *priv,
+-				      void __iomem *ioaddr,
+-				      struct stmmac_dma_cfg *dma_cfg,
+-				      dma_addr_t phy, u32 chan)
++void dwxgmac2_dma_init_tx_chan(struct stmmac_priv *priv, void __iomem *ioaddr,
++			       struct stmmac_dma_cfg *dma_cfg, dma_addr_t phy,
++			       u32 chan)
+ {
+ 	u32 txpbl = dma_cfg->txpbl ?: dma_cfg->pbl;
+ 	u32 value;
+@@ -94,6 +94,7 @@ static void dwxgmac2_dma_init_tx_chan(struct stmmac_priv *priv,
+ 	writel(upper_32_bits(phy), ioaddr + XGMAC_DMA_CH_TxDESC_HADDR(chan));
+ 	writel(lower_32_bits(phy), ioaddr + XGMAC_DMA_CH_TxDESC_LADDR(chan));
+ }
++EXPORT_SYMBOL_GPL(dwxgmac2_dma_init_tx_chan);
+ 
+ static void dwxgmac2_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
+ {
+@@ -673,3 +674,4 @@ const struct stmmac_dma_ops dwxgmac301_dma_ops = {
+ 	.enable_sph = dwxgmac2_enable_sph,
+ 	.enable_tbs = dwxgmac2_enable_tbs,
+ };
++EXPORT_SYMBOL_GPL(dwxgmac301_dma_ops);
 -- 
 2.53.0
 
