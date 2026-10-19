@@ -4,95 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30069CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12964CCF2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QKOewR54D7ILoKtjH4uSLns9sYaO4tKFrjsZjZmx27s=; b=DZ798UyJMN6QgA6P8UlRTDycAe
-	BHibBMQF3IfnzcoSnlfyUIcob/XOkGHm4krWS46/JfnjTOrtf4OzIvd7JKItvYAK7a7FW7rJV72fu
-	/WQ1eqN7l63kKocju44sX4DTqs6wxYQk+IKHM+vJoNsMDE0YK2u68hVOasYKAHQ9T7hBFjp24IVAR
-	wyebWZdKbP0tDSiE7W3TQDcCTeViirE+qryD2skYULJc09hfEecGb7XnhJlAdTbpLdXrwy48gCwWz
-	Iw1akvwcAJgwFnn4YBv8bvU3Fpg/rhjLoSb6jZHrQlTuS1Aew0MvajwE/Ok6dWCS7e6tohIPkvZ8u
-	ZAb8v4Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=; b=YLPfgejJSfABEAhFSUsWkVVieY
+	Tcj2FICJlquntZgsd1EhguCeDWrusp9NiltBGwOIfuoLMvlbP3J9UrLgVWCoIdVWsh6VmYvTSMPoc
+	4Vkd45GLNdQ1qA13ZPjl3Y3B2W5mO361cpIsP/lGAWNhjdJ/tM7WcorfGDf23ZLFJrvoKH9Lz8vVJ
+	87+L41za+R5/3O+lDSwbd0NEDx6rPonJazLsD8cYYGIuLGqbVpTmhyw2v9jhiX2Ltoj06P1ScyGiX
+	NBzKIHVInruIaEt4sHnK+GK8g8eRca+W9T5jjYfh0EQ3vpQTIHmykTX8EwDxglknL4HlBcCl1oxDV
+	qy1uzYqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImQg-00000007Npq-0jZ6;
-	Mon, 19 Oct 2026 12:25:28 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1xImRm-00000007Nx5-1buR;
+	Mon, 19 Oct 2026 12:26:34 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImQb-00000007Nox-0pnw;
-	Mon, 19 Oct 2026 12:25:22 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 8CDF41A000D;
-	Mon, 19 Oct 2026 14:25:18 +0200 (CEST)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 73FE11A0167;
-	Mon, 19 Oct 2026 14:25:18 +0200 (CEST)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 271C8202B7;
-	Mon, 19 Oct 2026 14:25:18 +0200 (CEST)
-Date: Mon, 19 Oct 2026 14:25:18 +0200
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
-	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	imx@lists.linux.dev, linux-pci@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: Re: [PATCH RFC v3 01/12] dt-bindings: phy: Add NXP S32G SerDes
- subsystem
-Message-ID: <atYMLsu64znUJkpl@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
- <20260919-s32g_serdes-v3-1-9d68868c1e89@oss.nxp.com>
- <as0tiQwquNkdlF2i@SMW015318>
- <as5C7o1joORcdesQ@lsv051416.swis.nl-cdc01.nxp.com>
- <as-ON6s8sNjQC9NP@SMW015318>
+	id 1xImRh-00000007Nw8-2XWV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 12:26:33 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5be4fea434bso648578e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:26:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792412786; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WHV8+Hr3vc+3gOiefmWVFEXNEZ58pjwUUW/nISzR+ySTd8lFuqTcENMV3UNzc6Xveo
+         T75e0q9OCz+0qplRGQAZJ5JO11qmtkBN1smgjij5Iefk1NxkD/cdyRUzTmd7kf81t3qv
+         Dho1tBR6In8Vglnta+inNrySVBNeht6Ds0dvZddovg64v8lz6ZVgzKZaZ3K/pEYt+vpp
+         Sc6522ocLQjkt6p+oMhXRPCE7hIaktkYo2FlX6k2JDn6ipZu6lIRm5OJp23aqAhpJTan
+         YidzMZM4bd7TB1aSvrTOmsrw/nyeAKgd496frr9W1cDOSkPunJ1d7a2QgJyY/PG77ROS
+         xl0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
+        fh=MAziHfznHBC40V4cv0SsNtGjoSgpsAiRZfZfy/aRuC8=;
+        b=nOBrLP09FevWiJ1bcd32BygoEG4Oy0M7sW0gIex1VHsX2gKrAT09sMOa3bHwqPNML8
+         iyN4TI4uAcmDHeJVDb7GtMBVIfuICz78sGOtWeGa08sSCsRSWlkC2CqSCw6qj0A4XD1B
+         I7n4W8pd74tbOuccqxzve9PRepAl+6g++/FL3wnb7VGQbI2HlwMeXAoB5oEIXpgdiLSC
+         vUOzjU+Ovup1IJx3jRAmfpXkCO+62Hs6NjwoIFpdXmMf40Hfof+tra6xBORnrZ82DoxF
+         EumFLoW0a2XTLQyMuMPgB7JQ0iTQ3zhNhVJ91KpRn+056LqXYE3BSB5ekYBo4JvLCYQF
+         eBkQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wetterwald.eu; s=wetter; t=1792412786; x=1793017586; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
+        b=rAXzt1BFCMVt4kqSOlywtP0sW7M9t84Zx0bxO92g0CeBKH7KABMxAvBRIC5Qvagaaa
+         Ef9B6lVqclIl2H87A5lT5G0MKTbon1Rwf7EhPxVDXkPoM3RnrVPqKGs40y2hXiWbg3+s
+         eEsF4BmZFCAjBn6BfoIqkjt5peGZ8rWL2PdKQcZtTLvcJUGLotyLd8MAr3+4roWhoX6+
+         hBAV/Drv1XzuJHh8qg2MjmF6fKWEwVSycNhKGO8iKnKQ25RaGuT7x5wig6nyKW84L7D6
+         mHS7y21e/LG+gs5bLjLk5Fo4UZud9p2GyA2pifyKtKoiTJTuKiN6p3nJJUcn6q9p6RLV
+         gZiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792412786; x=1793017586;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
+        b=ZjS88MFiXhf9oRv/I9nopHGpvzS6BgKk5Z0pLA+GrIOe1+cP7fNJQwBJDK1MW6NnEK
+         /hAlcQAmVP8uGuV39alfDg+3t0zidUWg4LvICew2cwldM3Ba/vtXIBf60ikvInEXGfll
+         p8FCaXneBTKmaqRkSjv9qDqSCJzYUYu9bGrpvIYAujRdCr+kgKRQU9x2ucI4QCX5P7KE
+         znxETnXqpLMmaHm1S3YWpIrMTe+zcbckPwjZBQY/KRCzNtQXuPtM4nepio7wvAhSF0Qv
+         OLlMfWBJlIAn9MDvfNOLs6Y+W69iFMfq1dGKYp5GpXBXszyWyYvEKiZ0LhotKPVBztyj
+         R7wQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwjxradZRi8uiryfSJMSc7cgfpFNSDldV33on6lCEkXaltsU3wdHXckIPOqLtV11NlnwvsmVmFdXJyUbaLw7tw2@lists.infradead.org
+X-Gm-Message-State: AFq9FYKZRox9jJODi+PC+4H/kVlu0LJwZ6+5SmbOV1EcPeTtjjpEYr4G
+	+OUJ+qIkzXbwqUNXGkUhQrTEUGqtC+0R2uF7Ye3TkI8ybnJDqXkw72hH3uiUXGtdz0zKHyNFZi+
+	TBI8bj/sXuwjblF4s6FVdZjUXH4n1PRkrc0IGTX59iw==
+X-Gm-Gg: AYBFou00XoZ3vbLxp1vJ9RSuFkUY9EupQ+WP8+xzzm3IcdKYWX2mnVpShXFPnRU7y8U
+	HCK/QYuPwSM4OJMwTJYRG/RkzqXrLXY7Lr8dYL/1pO9ACLSC7A4efJLPpYDmBjxgL9W1wcSI4Nw
+	tAL3wkKqQxP1SCmi273mDlXD7ID2VSjO4TeA3r3oAcDsUXfLGjy6eS36zNtolr+8o/rrsJBUhHI
+	Xg3i+QBIGT1IU7SFYkESSDV7xmzg2SY/cmFMXhF8ZcALW5dG/pSoOb7iiRy58MOvb10353WEdKc
+	FFdvj2Wjx4k0pqcileGlSw2P86j2Pw/VEvlOqHqdBIz2g7LGeR6U++hkx3LgQgbP4H0Xo2KadS2
+	3r0FEFe9OLA==
+X-Received: by 2002:a05:6512:3d17:b0:5be:41a5:d9ed with SMTP id
+ 2adb3069b0e04-5be47936d9dmr3010694e87.37.1792412786489; Mon, 19 Oct 2026
+ 05:26:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <as-ON6s8sNjQC9NP@SMW015318>
-X-Virus-Scanned: ClamAV using ClamSMTP
+References: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com>
+ <20261013131435.1454019-1-martin@wetterwald.eu> <DM5Q9NKRO89O.22R04QM8YBKWM@gmail.com>
+ <CAFERDQ12QwtC6cCVWQGU1b5KCv988kAvahNKwosxG2z8Mzm4sw@mail.gmail.com> <DM8869QP3IID.1I1KT6A7M2UNB@gmail.com>
+In-Reply-To: <DM8869QP3IID.1I1KT6A7M2UNB@gmail.com>
+From: Martin Wetterwald <martin@wetterwald.eu>
+Date: Mon, 19 Oct 2026 14:26:15 +0200
+X-Gm-Features: AclHuK93P2jPD4PyUwT4dOLVOgxbBF4VVZAqE1H94JjIS4xMMkZCEQTzudX9ZIs
+Message-ID: <CAFERDQ3DWBnkSok_SiVZGx+GTmYKP=Q46yFYkNt9YQkKxxQxyw@mail.gmail.com>
+Subject: Re: [PATCH] platform/raspberrypi: vchiq: register bus at subsys_initcall
+To: Gaston Gonzalez <gascoar@gmail.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Jai Luthra <jai.luthra@ideasonboard.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Stefan Wahren <wahrenst@gmx.net>, 
+	Phil Elwell <phil@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Umang Jain <uajain@igalia.com>, Kees Cook <kees@kernel.org>, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	regressions@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_052521_540173_AA12CDC5 
-X-CRM114-Status: GOOD (  56.63  )
+X-CRM114-CacheID: sfid-20261019_052629_962478_A82D0548 
+X-CRM114-Status: GOOD (  26.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,231 +127,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 14, 2026 at 09:14:15AM -0500, Frank Li wrote:
-> On Tue, Oct 13, 2026 at 04:40:46PM +0200, Jan Petrous wrote:
-> > On Mon, Oct 12, 2026 at 01:57:13PM -0500, Frank Li wrote:
-> > > On Sat, Sep 19, 2026 at 08:54:29AM +0200, Jan Petrous via B4 Relay wrote:
-> > > > [You don't often get email from devnull+jan.petrous.oss.nxp.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > > >
-> > > > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> > > >
-> > > > The S32G SerDes subsystem multiplexes two lanes between a PCIe PHY and
-> > > > two DesignWare XPCS instances. Describe it with one node per SerDes and
-> > > > one child node per lane.
-> > > >
-> > > > Compared to the previous revision, the vendor nxp,sys-mode property is
-> > > > removed: the SS_RW_REG_0[SUBSYS_MODE] value is fully derivable from the
-> > > > child-node lane mux and the XPCS instance routing (nxp,xpcs-instance).
-> > > > Each working mode described here has a unique lane mux, so the mode is
-> > > > a pure function of the child nodes. The reference-clock rate is
-> > > > validated against the derived mode; it is not used to select it.
-> > > >
-> > > > The 3.125 Gbit/s working modes are deliberately not described yet.
-> > > > Distinguishing them from the 1.25 Gbit/s dual-XPCS mode requires a
-> > > > per-lane 2500BASE-X capability that this binding does not express, and
-> > > > the reference clock does not distinguish them either - both accept 100
-> > > > or 125 MHz. They are added by the 2500BASE-X follow-up.
-> > > >
-> > > > Only the PCIe lane child gets '#phy-cells'. An XPCS lane is not a
-> > > > generic PHY provider; the Ethernet controller references it through the
-> > > > standard pcs-handle property instead.
-> > >
-> > > Is it possible Ether controller use standard phy interface? of use standard
-> > > pcs-handle to phy convertion
-> > >
-> > > pcs-handle = <&pcs>
-> > >
-> > > pcs: pcs = {
-> > > 	compatible = "pcs-to-phy";
-> > > 	phys = <&phy ...>;
-> > > }
-> > >
-> >
-> > The MAC needs a phylink_pcs, not a PHY: the XPCS does the C37 autoneg
-> > and link state. pcs-handle is the standard property for that, and in
-> > v4 the XPCS is driven by pcs-xpcs. The lane mux is fixed before the
-> > SerDes reset is released, so the MAC has nothing to set on a generic
-> > PHY, and a "pcs-to-phy" node would describe a block the SoC does not
-> > have.
-> >
-> > > >
-> > > > S32G2 and S32G3 use distinct compatibles without fallback because the
-> > > > full reference-manual mode tables differ per SoC and per SerDes
-> > > > instance.
-> > > >
-> > > > Co-developed-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> > > > ---
-> > > >  .../devicetree/bindings/phy/nxp,s32g-serdes.yaml   | 258 +++++++++++++++++++++
-> > > >  1 file changed, 258 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..6343d01bfde4
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > > > @@ -0,0 +1,258 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
-> > > > +
-> > > > +maintainers:
-> > > > +  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > > > +  - Jan Petrous <jan.petrous@oss.nxp.com>
-> > > > +
-> > > > +description: |
-> > > > +  The SerDes subsystem multiplexes two SerDes lanes between one PCIe
-> > > > +  controller PHY and two Synopsys DesignWare XPCS (Ethernet PCS) instances,
-> > > > +  behind a shared 2-lane combo PHY. The active routing is selected by the
-> > > > +  SS_RW_REG_0[SUBSYS_MODE] field.
-> > > > +
-> > > > +  Reference-manual working modes described by this binding:
-> > > > +
-> > > > +  Mode  Lane0   Lane1   PHY refclk (MHz)  Description
-> > > > +  ------------------------------------------------------------
-> > > > +  0     PCIe    PCIe    100               PCIe x2
-> > > > +  1     PCIe    XPCS0   100               PCIe x1 + SGMII
-> > > > +  2     PCIe    XPCS1   100               PCIe x1 + SGMII
-> > > > +  3     XPCS0   XPCS1   100 or 125        dual SGMII, 1.25 Gbit/s
-> > > > +
-> > > > +  Which Ethernet MAC an XPCS instance feeds is fixed by the SoC integration
-> > > > +  and differs per SoC and per SerDes instance - on S32G3 SerDes_0, XPCS0
-> > > > +  feeds GMAC0 and XPCS1 feeds PFE_MAC2, while on SerDes_1 the same two
-> > > > +  instances feed PFE_MAC0 and PFE_MAC1. That mapping is a property of the
-> > > > +  SoC, not of this binding, and is resolved by the driver.
-> > >
-> > > Roughly look like use argument is little bit better
-> > >
-> > > <&phys PHY_MODE instance(0/1)>;
-> > >
-> >
-> > Rob suggested that in v2 [1]. Child nodes stayed because:
-> >
-> > - SUBSYS_MODE is written before the reset is released, so the SerDes
-> >   driver needs the whole lane mux at its own probe. With cells it would
-> >   have to walk the tree for its consumers, including disabled ones, and
-> >   an unconnected lane has no consumer to carry a cell.
-> >
-> > - The MAC uses pcs-handle, which has no argument cells, so the XPCS
-> >   instance has nowhere else to go.
-> >
-> > - A type cell duplicates phy_set_mode_ext(PHY_MODE_PCIE) from the PCIe
-> >   driver.
-> >
-> > - In mode 0 there is one x2 PHY, not two lane PHYs.
+On Sun, Oct 18, 2026 at 9:53=E2=80=AFPM Gaston Gonzalez <gascoar@gmail.com>=
+ wrote:
 
-Hi Frank, Rob,
+> Running 'speaker-test -t wav -D plughw:1,0 -c 2' crash the system, so
+> thinks seem not to be working with that interface.
+>
+> Im trying to debug what happens in that condition; I will need a couple
+> of days I guess. So far, this is what I could check.
+>
+> Any feedback on the test or debugging would be appreciated.
 
-> >
-> > I will put this in the v4 commit message. If you or Rob still prefer
-> > cells, let me know.
-> 
-> I think Rob suggestion is better.  ethernet controller should support
-> standard phy interface, more devices will share phy between PCI and
-> ethernet.
-> 
-> Frank
-> 
-> >
-> > [1] https://lore.kernel.org/all/CAL_Jsq+SswpTjQShfkdhVwL_k8gJ_5+NrecPCUiFR52UB5zNMA@mail.gmail.com/
-> >
+Hi Gaston,
+Thanks for digging into this.
 
-OK. I went back to Rob's v2 sketch [1] and to the RK3568 XPCS binding
-that got his Reviewed-by last week [2], and the child nodes can go.
-Walking the tree for the consumers of the SerDes at probe is what Rob
-proposed in v2, and the SUBSYS_MODE write before reset release does not
-care how the lane map was obtained. The x2 PCIe case is two phys entries
-on the root port, one per lane.
+The patch only changes when the VCHIQ bus and driver are registered during
+boot. So it's enough to check these two cases to validate the patch:
+- without my patch: dmesg shows the "unable to register with bus_type
+  'vchiq-bus'" error, and bcm2835_hdmi is absent from /proc/asound/cards.
+- with my patch: the error is gone and bcm2835_hdmi is present in
+  /proc/asound/cards.
 
-The one thing the SoC does not let me derive is the XPCS instance. The
-RK3568 binding derives the MII port from the GMAC when the PCS is
-created, but the S32G mux is programmed at SerDes probe, before any MAC
-exists, and "XPCS0 alone on lane 1" (mode 1 with the PCIe lane idle)
-and "XPCS1 alone on lane 1" (mode 2) are different routings of the same
-pins. So the instance has to be in the reference.
+(Since the Pi Zero has no Headphones jack, you need to test both cases with
+snd_bcm2835.enable_hdmi=3D1 in the command line. Otherwise the card never s=
+hows
+up, even when everything works.)
 
-The same goes for the line rate. The 3.125 Gbit/s configurations of the
-reference manual select a different SUBSYS_MODE value on SerDes_1, cap
-PCIe at Gen2 on SerDes_0, need the 125 MHz reference when both lanes
-run 3.125, and on S32G2 switch the second XPCS off. All of that is
-decided at SerDes probe, and the MAC's phy-mode does not tell: an
-in-band SGMII link to a 2.5G PHY is "sgmii" and moves to 2500BASE-X at
-runtime. The next version therefore makes the SerDes a four-cell
-provider, <lane type instance max-speed>, with the last two cells used
-by PHY_TYPE_SGMII only and the speed being the highest the lane is
-wired for, 1000 or 2500 Mbit/s. This series accepts 1000 only; 2500
-will comes with the 3.125 Gbit/s modes follow-up. Putting the cell
-in now avoids a #phy-cells change later.
+Could you check these two cases?
 
-	// mode 0: PCIe x2
-	pcie0 { phys = <&serdes0 0 PHY_TYPE_PCIE 0 0>, <&serdes0 1 PHY_TYPE_PCIE 0 0>; };
 
-	// mode 1: PCIe x1 on lane 0, GMAC0 via XPCS0 on lane 1
-	pcie0 { phys = <&serdes0 0 PHY_TYPE_PCIE 0 0>; };
-	gmac0 { phys = <&serdes0 1 PHY_TYPE_SGMII 0 1000>; pcs-handle = <&serdes0>; };
+Testing that you can hear the sound going through bcm2835-audio is a full
+functional test that goes even further than the patch: it does not only tes=
+t
+bus registration but also that the audio driver is working.
 
-	// mode 3: GMAC0 via XPCS0 on lane 0, PFE_MAC2 via XPCS1 on lane 1
-	gmac0    { phys = <&serdes0 0 PHY_TYPE_SGMII 0 1000>; pcs-handle = <&serdes0>; };
-	pfe_mac2 { phys = <&serdes0 1 PHY_TYPE_SGMII 1 1000>; pcs-handle = <&serdes0>; };
+On my side, without vc4-drm, I can successfully hear sound through both bcm=
+2835
+Headphones and bcm2835 HDMI:
 
-The driver derives SUBSYS_MODE from the enabled consumers' references
-to it; a lane nobody references takes the function it has in the first
-matching mode. The reference clock is validated against the result as
-today. No lane child nodes, no nxp,xpcs-instance.
+  # aplay -l
+  **** List of PLAYBACK Hardware Devices ****
+  card 0: HDMI [bcm2835 HDMI], device 0: bcm2835 HDMI [bcm2835 HDMI]
+  [...]
+  card 0: HDMI [bcm2835 HDMI], device 1: IEC958 [IEC958]
+  [...]
+  card 1: Headphones [bcm2835 Headphones], device 0: bcm2835
+Headphones [bcm2835 Headphones]
+  [...]
 
-This is implemented and runs on the RDB3, in both configurations the
-board offers, with the numbers of the child-node form:
+  # speaker-test -D plughw:0,0 # (HDMI)
 
- - SerDes_1 mode 2 (PCIe_1 x1 on lane 0, PFE_MAC1 via XPCS1 on lane 1)
-   plus SerDes_0 mode 3 (GMAC0 via XPCS0): the 82574L in the PCIe slot at
-   880/928 Mbit/s, the shared-lane XPCS1 at 935/941, GMAC0 at 935/941,
-   NIC and XPCS1 together 878 + 935, 10/10 XPCS1 link down/up under
-   PCIe traffic, no AER events.
+  # speaker-test -D plughw:1,0 # (Headphones, not on the Pi Zero)
 
- - Both SerDes in mode 3: 941/941 and 935/941 Mbit/s on the two
-   SerDes_1 lanes, 10/10 down/up on each, 0 failures in 36 partner
-   speed changes on the in-band lane (100M/1G, then 100M/1G/2.5G with
-   the 2.5G follow-up on top), GMAC0 up on SerDes_0.
 
-The mode is derived from the references alone; the probe log says
-"mode 2" and "mode 3" with no lane node in the tree.
+If you still want to output sound through bcm2835_hdmi (optional):
 
-Two questions before I post it:
+There can only be one owner of the HDMI port: either the firmware or the
+kernel.
+When the Raspberry Pi boots, the firmware first owns the HDMI and displays =
+a
+rainbow splash. Then it launches Linux.
 
-1. The Ethernet side carries two references to the same node:
-     * phys for the lane
-     * pcs-handle for the PCS
-   and I would rather have one. The one I want is pcs-handle
-   with argument cells, <&serdes0 lane instance max-speed>, with the
-   SerDes as a PCS provider for the MACs and a PHY provider for PCIe
-   only. That needs dt-schema PR 198 [3], which is still open, so
-   a binding written that way cannot be validated by anyone until
-   the schema is released. phys only is the other way out, but a generic
-   PHY reference meaning "PCS provider" is not something any binding does
-   today.
-   Rob, do you want the pair as above for now, with the phys
-   reference going away once the cells exist, or should I post with
-   pcs-handle cells and have the series wait for PR 198?
+There are 2 ways for the kernel to deal with the video output:
 
-2. Rob, any objection to PHY_TYPE_SGMII covering both the 1.25 Gbit/s
-   and, later, the 3.125 Gbit/s XPCS modes? The lane rate follows the
-   MAC's phy-mode, so I do not plan a separate type for 2500BASE-X.
+1) With vc4-drm (CONFIG_DRM_VC4), the kernel takes over the HDMI controller
+   from the firmware and handles everything itself (this is your case).
+2) With simple-framebuffer (CONFIG_DRM_SIMPLEDRM or CONFIG_FB_SIMPLE), the
+   kernel leaves the HDMI to the firmware and just writes pixels to a
+memory area
+   (the framebuffer) set up by the firmware.
 
-The DTS, the dwmac-s32 and the PCIe binding patches change accordingly.
-On the pcs-xpcs side one value changes: the SGMII link timer written by
-the S32G PMA hook becomes 0x2faf, the value the vendor driver programs
-for 1G; the 0x7a1 of v3 is its 2500BASE-X value, copied by mistake. The
-speed-change figures above are with the new value.
+I get a similar problem on my side when sending sound through bcm2835_hdmi =
+with
+vc4-drm loaded: my screen shuts down (but the kernel is still alive).
+It most likely comes from the firmware and the kernel both trying to drive =
+the
+same HDMI port: with vc4-drm, the kernel owns the HDMI controller, and the
+firmware (which bcm2835-audio talks to through VCHIQ) is not supposed to to=
+uch
+it.
 
-BR.
-/Jan
+A simple way to output sound through bcm2835_hdmi is to not use the vc4-drm
+driver at all, and use simple-framebuffer if you still want a display.
 
-[1] https://lore.kernel.org/all/CAL_Jsq+SswpTjQShfkdhVwL_k8gJ_5+NrecPCUiFR52UB5zNMA@mail.gmail.com/
-[2] https://lore.kernel.org/all/20261008175225.3375274-3-coiaprant@gmail.com/
-[3] https://github.com/devicetree-org/dt-schema/pull/198
+To remove vc4-drm:
+- Do not compile the driver into the kernel (CONFIG_DRM_VC4=3Dn) or blackli=
+st the
+  module.
+- Remove any vc4 overlay in config.txt file (e.g. remove dtoverlay=3Dvc4-km=
+s-v3d).
+
+To enable simple-framebuffer, use one of the two configs:
+
+  CONFIG_DRM=3Dy
+  CONFIG_DRM_SIMPLEDRM=3Dy
+  CONFIG_DRM_FBDEV_EMULATION=3Dy
+  CONFIG_FRAMEBUFFER_CONSOLE=3Dy
+
+or, the older way:
+
+  CONFIG_FB=3Dy
+  CONFIG_FB_SIMPLE=3Dy
+  CONFIG_FRAMEBUFFER_CONSOLE=3Dy
+
+(FRAMEBUFFER_CONSOLE=3Dy, and DRM_FBDEV_EMULATION in the DRM case, are only
+needed to see the boot messages on the screen, with console=3Dtty1 on the c=
+ommand
+line.)
+
+If you have remote access to your Pi Zero (either through network+SSH or
+through serial console), you actually don't even need the simple-framebuffe=
+r:
+you can just remove vc4-drm, and let the firmware display its rainbow splas=
+h on
+the HDMI port.
+Then you can login to your Pi Zero through SSH for example and launch
+speaker-test.
+As long as the HDMI video output is active, it's enough for the sound to be
+able to go through, even if the image was not drawn by Linux.
+
+But again, this full functional test is optional.
+
+Regards,
+Martin
 
