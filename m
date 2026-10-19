@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F75CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D5DCCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peY+aObVcRc3+z92SmndUBTWbLH2yBpJPFW/B8sgqIg=; b=tS2VtMFRRm9xVkUH1y83OFzCe5
-	gSOgEUw5I0GzFyakJsj6UxfZDa1shc24dDa3JXC379d9hCkcUg6nFDOqOdusDOCjgJJeefE0GPUwO
-	nkYV8k9YsypX5xKsPB5oQJ9dX4cX5pvTAoSXcmDrDG5D35wAYSFG6/OHJf0yGsbgSOlf16j+jIoo0
-	RXOcfK5QJzAZVoynGEgOjrrHmOAuHlLckjs3oi3Vw7RWLdlqPLZRn/VLwOc77v2LNo5xiF1pIifYw
-	gA7cjmkjM69EBDjxbqe12gICtd+X1AOR3L8gj65Kq9NV1h7Giq04H50/F9IpUXUvfkJG+Vcc/jVlf
-	/oWRtd8w==;
+	bh=hq4TxYElKFWdoI1/k3xWmiLfjsbCVTluQCz28pFbtlc=; b=2iPu3k4V/+rmNJcljp2333P0Le
+	Zz4vBTZInAdQSo8LjAqz/NjB9jBHfJry7c1K1QYJwp10ZgsYgATaUy/ZbO6KbaPjBkhLeMFaHZ6Ma
+	Xk/+XcNcDrwTN+Zz0KzWbeAZXVaxSsrp4ucOD8Hy2yEGYrrlHxTvHmHWsgnaKcprhUluv11KfjI28
+	FFdgL4wQDzgrSHGUbVbrj+K6QqzBZfG86N6oOvtNP6Gh3ZGMyxwltLSt/JmFDQOr4qeSRGb+H4XnG
+	tiokEvUeLTD43WaToBQrzd2nrZ+megTzwzacUPXMR3eYxWAGTrXIApC4EkY2P/7WGvWx/mwT+4hDF
+	ZRvSqT/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIng1-00000007YPd-3XpW;
-	Mon, 19 Oct 2026 13:45:21 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1xInke-00000007Z5e-3ddH;
+	Mon, 19 Oct 2026 13:50:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInfz-00000007YP0-24qo
+	id 1xInkd-00000007Z5X-47bm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:45:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=peY+aObVcRc3+z92SmndUBTWbLH2yBpJPFW/B8sgqIg=; t=1792417519; x=1793627119; 
-	b=R/s7O/5aVrmsJYpECQjBL6sykiSKrvqMzx0ZqmBn9DwXlUwfC3CZHrXiB68bdVUaGmQTIV8fzZ6
-	sk7RDxl9Zt49Oids6r0pTjudH920vwrwPPN+je4BdcWsQ4ptxKcgChhFoUKB0zOWLkrqv0tj0Rjo1
-	ZmvZxy2/wGi3KfKafsip7R2V8QrbJmpuQtZarrfZ9QH5jhPCbsy02OA2VnuuI0f8dOfZh1uXF9dL2
-	wgjum3YNOuKxEBWy0Wa5aLyPSFqhEgV5C2+GEjVZN0VURsGmejH5ixU1vOI7K0usZsYbJEHIjODq/
-	K2Ncz2ZGD4TxyFSRVXdKgvHMIeAXbxY1ePLA==;
-Date: Mon, 19 Oct 2026 15:45:03 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Andrew Goodbody <andrew.goodbody@linaro.org>
-Cc: Ettore Chimenti <ettore.chimenti@linaro.org>, Paul Walmsley
- <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Christopher Obbard <chris.obbard@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>, Rouven Czerwinski
- <rouven.czerwinski@linaro.org>, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 06/10] ARM: dts: omap: dm816x: Update USB node
-Message-ID: <20261019154503.2111a89c@kemnade.info>
-In-Reply-To: <8a8313f1-d525-45d3-9044-b5f7a00b256d@linaro.org>
-References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
-	<20261016-patch-ektor5-dm8168-dts-v1-6-b4ce30217028@linaro.org>
-	<20261017083957.7c2696f5@kemnade.info>
-	<8a8313f1-d525-45d3-9044-b5f7a00b256d@linaro.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Mon, 19 Oct 2026 13:50:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 67C7D43BD5;
+	Mon, 19 Oct 2026 13:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46C7D1F000C5;
+	Mon, 19 Oct 2026 13:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792417807;
+	bh=hq4TxYElKFWdoI1/k3xWmiLfjsbCVTluQCz28pFbtlc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=FU+matu8/47ThpqbUiljddUJ3ighPHTBEl9uxkhTLT9VP6UNv93rLzULADUTMrHdP
+	 Y4VxZYkLE1Xi8LZZCllwVANoD626cfTlgJcLrpF/Xli7/FGwEoBDzCYia6Ek9NY6Vk
+	 NZ8uPq1qFxHBoYmdk9rmFwHpi1K6rrsC1QWc9l/q1fUH2OFel2TChSh6CpMZypfkUp
+	 l/CAzuLk3OjLMtS5T5S2ud32d36Gx23gB6xHJ6/YagkTn3jozr1Ho8kk38kfq7rMy3
+	 FXXMIMPchR43VoOvTyW+x6UbOFSUMihKjXcOASdltPkVXhHsPofvNobElRCIjQQGKN
+	 +j4srvXrGBPvg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A50F3811A5D;
+	Mon, 19 Oct 2026 13:50:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_064519_537976_A952DC29 
-X-CRM114-Status: GOOD (  21.07  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/2] stmmac: some XDP fixes in XDP_TX path
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179241780603.2650933.10407717867130544320.git-patchwork-notify@kernel.org>
+Date: Mon, 19 Oct 2026 13:50:06 +0000
+References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+In-Reply-To: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, boon.leong.ong@intel.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Oct 2026 10:36:37 +0100
-Andrew Goodbody <andrew.goodbody@linaro.org> wrote:
+Hello:
 
-> On 17/10/2026 07:39, Andreas Kemnade wrote:
-> > On Fri, 16 Oct 2026 16:41:21 +0200
-> > Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
-> >   
-> >> From: Andrew Goodbody <andrew.goodbody@linaro.org>
-> >>
-> >> USB node was not working correctly with DMA enabled as the supporting
-> >> code had been updated without updating this SoC's device tree. Bring the
-> >> device tree more up to date so that it works with DMA enabled.
-> >>
-> >> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
-> >> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
-> >> ---
-> >>   arch/arm/boot/dts/ti/omap/dm816x.dtsi | 41 +++++++++++++++++++++--------------
-> >>   1 file changed, 25 insertions(+), 16 deletions(-)
-> >>
-> >> diff --git a/arch/arm/boot/dts/ti/omap/dm816x.dtsi b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> >> index 7f3ef3a00ab8..5be9efc60785 100644
-> >> --- a/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> >> +++ b/arch/arm/boot/dts/ti/omap/dm816x.dtsi
-> >> @@ -574,18 +574,27 @@ uart3: serial@48024000 {
-> >>   		};
-> >>   
-> >>   		/* NOTE: USB needs a transceiver driver for phys to work */
-> >> -		usb: usb_otg_hs@47401000 {
-> >> -			compatible = "ti,am33xx-usb";
-> >> -			reg = <0x47401000 0x400000>;
-> >> -			ranges;
-> >> +		usb: target-module@47400000 {
-> >> +			compatible = "ti,sysc-omap4", "ti,sysc";
-> >> +			ti,hwmods = "usb_otg_hs";  
-> > 
-> > Why do we still need this? It is depcrecated.
-> > 
-> > Regards,
-> > Andreas  
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Mon, 12 Oct 2026 17:24:38 +0200 you wrote:
+> - Fix page address lookup for compound pages in XDP_TX path.
+> - Disable TX checksum offload for jumbo frames in XDP_TX path.
 > 
-> Without that line we get the following on boot and USB does not work
+> ---
+> Lorenzo Bianconi (2):
+>       net: stmmac: fix XDP TX DMA address for compound RX pages
+>       net: stmmac: disable TX checksum offload for jumbo frames on bugged cores
 > 
-> [    0.110148] omap_hwmod: usb_otg_hs: no dt node
+> [...]
 
-It is somewhat odd to use both ti-sysc and hwmod. It looks like a
-half conversion.
+Here is the summary with links:
+  - [net-next,1/2] net: stmmac: fix XDP TX DMA address for compound RX pages
+    https://git.kernel.org/netdev/net-next/c/2d5c08ec1532
+  - [net-next,2/2] net: stmmac: disable TX checksum offload for jumbo frames on bugged cores
+    https://git.kernel.org/netdev/net-next/c/667a375a5294
 
-For an example how usb_otg_hs was converted to ti-sysc for omap3, look at
-42a79edd4a3dc1bb8e89fd2849f9e8e1e1c13977...v6.1-rc1
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-It has no hwmod stuff left.
-
-Regards,
-Andreas
 
 
