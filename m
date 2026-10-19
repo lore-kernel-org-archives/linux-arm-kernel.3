@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618CBCCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 04:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C55ACCF2D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 04:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hR95CueTdICr8LMWTrL7QBLyfhR3yBISO+1IoY+X8s=; b=VE503zhXT2q420WXvs303t2ZUZ
-	DZMhydgNfzNtyjo0FAvaAAow5xLifb+NlE6JGgpWpbZAdfMTtLB1DWRdSRzExDbTycizzkY7DkuxA
-	gYDC08NFPmSx0G/W81pBLVjFApDR0JAsMNlfeWE8HapcUkl1Y8RYcEES9d0d3C9KXGWduh8lYLG9r
-	8hQV8ijEQPFP8ZQPlCeWKvylxECkrdbZXOPSq1GtMtRU8u96f0epuhKxHliutgITgtKkblPw82C3e
-	Mjq8zehtBbwgADrW0mWzl9Qu4kDxkke+TOGkGgJU4pJEAhnLL0tDzQZcG1CMHo8WOfewl1wRL+tW0
-	Rr0j4G0A==;
+	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=; b=0iuHGm5xQ8pTtVy5mVsyvQgYyk
+	/hkwBzCrKsDq/CbmZRZfVNllw2aa/XmpYplXbDRMu7uodwIgCbnNQ956mYpCvQpQAKSscTo8IZCsG
+	tOQQonB/EE4/F8JXq9dy6Vkdk+0H5oR1AVzvZuELj6s7vkA2nk0U3SCcmQ20xW/2EhsRRvhXbM9hW
+	8K/OdS57sGETOGVjeH+8HqzoJ3GrBUlQzNuEYjgFPSGJV46eOvn4LVcbRiwEdPV/5Is2Vxhlf0Bg3
+	oZls9irf9HxSUjlqmHCyPo1c4QV/2y7oZ6z91Ok74eMZIbwdZQtrK42UoxstO+nyplEq37HwDBmjv
+	hSX3G9uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPZ-00000006baP-13rx;
-	Mon, 19 Oct 2026 04:55:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xIfPY-00000006baB-3anP;
+	Mon, 19 Oct 2026 04:55:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPX-00000006bZE-3Tv1
+	id 1xIfPX-00000006bZQ-2v55
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 19 Oct 2026 04:55:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D65EB60DC9;
+	by sea.source.kernel.org (Postfix) with ESMTP id DAE174481F;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 743E8C4AF48;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9F11EC2BD00;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792385746;
-	bh=InB9ypZpgVVVOgth66uHd42LKo5ryCpb218UCvxc5wo=;
+	bh=zgU3iQM72YbxnsGmykO32NltLNkwhLgTNSOphGXHrLE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CiKOwzpHQSSnaonxTKdvQvhyBVy3slTrWbaELXxi1m+h3G04Y5EfScxKsK3VP3ImF
-	 yRn6NpEBtmSxTqFnBwgfZq/WUzSqFdb4MzJJdGkDA6ku6XKA92MgCUnmCdPwM/Ny0X
-	 IVglVAQ9gdzt6c84oG+Ufyu6RhmVlUwSLs/9HrbUTG2cPeiUvDWuB65k7Vi9jmwTBG
-	 N/hdZa50V/fEY/O+pq4zgEg0UfVksyRuBmbPeLsL1nULTNcgmNZZ5GsxoeqDSauVZ8
-	 c6j+x2DMf3KGKNMg6yf2hlG9Re2hQ0S5Vf3zSpN20tQeqHncokvctYOEKaEl1Cbk0m
-	 jT8XKY7emB2Rw==
+	b=dDUOh1najE5HwJKKBPGOlvwphz8vKNHYlwMo/Zn6uK+loUruSTaUzEUvMxDfgaraN
+	 2nIZZjvStcCpi43Q3C2ToauRNydNK82MSgUATWoauDVw9J2I+X+fZs5H/b298Es4/0
+	 SL9CqfWfWWV1HdM05mC3L4mJuXSfhxTbu3R+2xWc4QrA76RwKsQe+UNpaNUP9Fpdo/
+	 DwK8aQVsp1Ln6iBJlA92v7ergIUmnepXm5JUL4w8M+fVOPdNV/1WtlX+8sTekM+OEs
+	 v2bRE72xQeblrCDyUiCNB5hhnki940UNjgJVCILU+vyOygfUq90uxzpYwflKie4jNc
+	 KP6iD96NrS9ow==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 537A7CCF2DA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AB86CCF2D3;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Mon, 19 Oct 2026 12:55:41 +0800
-Subject: [PATCH v10 3/5] clk: ambarella: add CV75 RCT clock controller
+Date: Mon, 19 Oct 2026 12:55:43 +0800
+Subject: [PATCH v10 5/5] MAINTAINERS: add ARM/AMBARELLA SoC support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-cv75-soc-v10-3-d386065e2dd5@ambarella.com>
+Message-Id: <20261019-cv75-soc-v10-5-d386065e2dd5@ambarella.com>
 References: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
 In-Reply-To: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -68,13 +68,13 @@ Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
  Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
  Long Zhao <longzhao@ambarella.com>, Long Zhao <zl020895@163.com>, 
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792385743; l=12264;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792385744; l=1241;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=NFJtsivETHZwRd6Y2JF2ZCfZX7rfzhwumgqUlQiPnjM=;
- b=U0Einr1AQAR/6Glwv9rXWHE5YIM+hKl5ddJIC60JHfNl4GYp4eWcB97z/1sZZJSpljZpiTiSX
- HE+STVUOAjqB2KMc22LPQsfnDbQSiAhaAtgIi/BY6SQpEHYiN/pL7x3
+ bh=66/FpPmSuU75AtQewU8cj7mu+Qa/5qamx4Km8ySoeYo=;
+ b=+2HZXt/Q1o7OE8loSEe3SRjzhikyIx1oW7WWR5j768z5zP8/8XhOMTTprPKVPUvp/qWlqsLLA
+ h/uxZj1JR3oBcnfZXwmupuPJLt8PwULXa6I9OlYVXjJmUnMczA1BChx
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -97,434 +97,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Add a table-driven CCF driver for the CV75 root clock tree. Register
-the core PLL, AHB/APB fixed factors and UART0 composite clock, with
-osc supplied via clk_parent_data.
+Add a maintainer entry covering Ambarella CV75 bindings, DTS and
+related drivers.
 
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- drivers/clk/Kconfig              |   1 +
- drivers/clk/Makefile             |   1 +
- drivers/clk/ambarella/Kconfig    |   9 +
- drivers/clk/ambarella/Makefile   |   3 +
- drivers/clk/ambarella/clk-cv75.c | 361 +++++++++++++++++++++++++++++++++++++++
- 5 files changed, 375 insertions(+)
+ MAINTAINERS | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 1717ce75a907..fbbf4963716c 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -506,6 +506,7 @@ config COMMON_CLK_RPMI
- 	  the RISC-V platform management interface (RPMI) specification.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 803b60ad628f..59e5b32d7a02 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2502,6 +2502,20 @@ F:	drivers/clocksource/asm9260_timer.c
+ F:	drivers/rtc/rtc-asm9260.c
+ F:	drivers/watchdog/asm9260_wdt.c
  
- source "drivers/clk/actions/Kconfig"
-+source "drivers/clk/ambarella/Kconfig"
- source "drivers/clk/analogbits/Kconfig"
- source "drivers/clk/aspeed/Kconfig"
- source "drivers/clk/bcm/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index cc108a75a900..30d823ee606f 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -112,6 +112,7 @@ obj-$(CONFIG_COMMON_CLK_XGENE)		+= clk-xgene.o
- 
- # please keep this section sorted lexicographically by directory path name
- obj-y					+= actions/
-+obj-y					+= ambarella/
- obj-y					+= analogbits/
- obj-y					+= aspeed/
- obj-$(CONFIG_COMMON_CLK_AT91)		+= at91/
-diff --git a/drivers/clk/ambarella/Kconfig b/drivers/clk/ambarella/Kconfig
-new file mode 100644
-index 000000000000..720eebdc5c9c
---- /dev/null
-+++ b/drivers/clk/ambarella/Kconfig
-@@ -0,0 +1,9 @@
-+# SPDX-License-Identifier: GPL-2.0-only
++ARM/AMBARELLA SOC SUPPORT
++M:	Long Zhao <longzhao@ambarella.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++L:	devicetree@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/arm/ambarella.yaml
++F:	Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
++F:	Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
++F:	arch/arm64/boot/dts/ambarella/
++F:	drivers/clk/ambarella/
++F:	drivers/pinctrl/pinctrl-ambarella*
++F:	include/dt-bindings/clock/ambarella,cv75-rct.h
++N:	ambarella
 +
-+config CLK_AMBARELLA_CV75
-+	bool "Ambarella CV75 RCT clock controller"
-+	depends on ARCH_AMBARELLA || COMPILE_TEST
-+	default ARCH_AMBARELLA
-+	help
-+	  Say Y to enable the Ambarella CV75 RCT clock controller for
-+	  early bring-up clocks (core PLL, AHB, APB, UART0).
-diff --git a/drivers/clk/ambarella/Makefile b/drivers/clk/ambarella/Makefile
-new file mode 100644
-index 000000000000..29555e452441
---- /dev/null
-+++ b/drivers/clk/ambarella/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CLK_AMBARELLA_CV75) += clk-cv75.o
-diff --git a/drivers/clk/ambarella/clk-cv75.c b/drivers/clk/ambarella/clk-cv75.c
-new file mode 100644
-index 000000000000..6a8f80571958
---- /dev/null
-+++ b/drivers/clk/ambarella/clk-cv75.c
-@@ -0,0 +1,361 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Ambarella CV75 RCT clock controller
-+ *
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/container_of.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/math64.h>
-+#include <linux/module.h>
-+#include <linux/overflow.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/types.h>
-+
-+#include <dt-bindings/clock/ambarella,cv75-rct.h>
-+
-+#define CV75_NUM_CLKS		(CV75_GCLK_APB + 1)
-+
-+#define PLL_CTRL_BYPASS		BIT(2)
-+#define PLL_CTRL_FRAC_MODE	BIT(3)
-+#define PLL_CTRL_FORCE_RESET	BIT(4)
-+#define PLL_CTRL_POWER_DOWN	BIT(5)
-+#define PLL_CTRL_HALT_VCO	BIT(6)
-+#define PLL_CTRL_SDIV		GENMASK(15, 12)
-+#define PLL_CTRL_SOUT		GENMASK(19, 16)
-+#define PLL_CTRL_INTP		GENMASK(30, 24)
-+
-+#define PLL_CTRL2_VCODIV_DIV2	BIT(8)
-+#define PLL_CTRL2_FSDIV_DIV2	BIT(9)
-+#define PLL_CTRL2_FSOUT_DIV2	BIT(11)
-+#define PLL_CTRL2_BYPASS_HSDIV	BIT(12)
-+
-+struct cv75_pll_regs {
-+	u32 ctrl;
-+	u32 frac;
-+	u32 ctrl2;
-+};
-+
-+struct cv75_pll_hw {
-+	struct clk_hw hw;
-+	struct cv75_pll_regs regs;
-+};
-+
-+struct cv75_clk {
-+	void __iomem *base;
-+	spinlock_t lock;
-+	struct cv75_pll_hw core;
-+	struct cv75_pll_hw enet;
-+	struct cv75_pll_hw sd;
-+};
-+
-+struct cv75_pll {
-+	const char *name;
-+	struct cv75_pll_hw *hw;
-+	unsigned long flags;
-+	struct cv75_pll_regs regs;
-+	int id;
-+};
-+
-+struct cv75_fixed_factor {
-+	const char *name;
-+	u32 id;
-+	struct u16_fract ratio;
-+};
-+
-+struct cv75_composite {
-+	const char *name;
-+	const struct clk_parent_data *parents;
-+	unsigned long flags;
-+	u32 id;
-+	u16 mux_reg;
-+	u16 div_reg;
-+	u8 num_parents;
-+	u8 mux_shift;
-+	u8 mux_width;
-+	u8 div_shift;
-+	u8 div_width;
-+};
-+
-+struct cv75_composite_hw {
-+	struct clk_mux mux;
-+	struct clk_divider div;
-+	struct clk_gate gate;
-+};
-+
-+static struct cv75_clk cv75_ccu;
-+
-+#define CV75_PLL(_id, _name, _ctrl, _frac, _ctrl2, _flags, _hw) {	\
-+	.name	= _name,						\
-+	.hw	= _hw,							\
-+	.flags	= _flags,						\
-+	.regs	= {							\
-+		.ctrl = _ctrl,						\
-+		.frac = _frac,						\
-+		.ctrl2 = _ctrl2,					\
-+	},								\
-+	.id	= _id,							\
-+}
-+
-+static const struct cv75_pll cv75_plls[] = {
-+	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100,
-+		 CLK_IS_CRITICAL, &cv75_ccu.core),
-+	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528,
-+		 0, &cv75_ccu.enet),
-+	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4,
-+		 0, &cv75_ccu.sd),
-+};
-+
-+static const struct cv75_fixed_factor cv75_fixed_factors[] = {
-+	{ .id = CV75_GCLK_AHB, .name = "ahb", .ratio = { 1, 2 } },
-+	{ .id = CV75_GCLK_APB, .name = "apb", .ratio = { 1, 4 } },
-+};
-+
-+static const struct clk_parent_data cv75_uart_parents[] = {
-+	{ .fw_name = "osc" },
-+	{ .hw = &cv75_ccu.core.hw },
-+	{ .hw = &cv75_ccu.enet.hw },
-+	{ .hw = &cv75_ccu.sd.hw },
-+};
-+
-+#define CV75_COMPOSITE(_id, _name, _parents, _mreg, _mshift, _mwidth,	\
-+		       _dreg, _dshift, _dwidth, _flags)			\
-+{									\
-+	.id		= _id,						\
-+	.name		= _name,					\
-+	.parents	= _parents,					\
-+	.num_parents	= ARRAY_SIZE(_parents),				\
-+	.mux_reg	= _mreg,					\
-+	.mux_shift	= _mshift,					\
-+	.mux_width	= _mwidth,					\
-+	.div_reg	= _dreg,					\
-+	.div_shift	= _dshift,					\
-+	.div_width	= _dwidth,					\
-+	.flags		= _flags,					\
-+}
-+
-+static const struct cv75_composite cv75_composites[] = {
-+	CV75_COMPOSITE(CV75_GCLK_UART0, "uart0", cv75_uart_parents,
-+		       0x1c8, 0, 2, 0x038, 0, 24,
-+		       CLK_SET_RATE_NO_REPARENT),
-+};
-+
-+#define to_cv75_pll(_hw) container_of(_hw, struct cv75_pll_hw, hw)
-+
-+static unsigned long cv75_pll_recalc_rate(struct clk_hw *hw,
-+					  unsigned long parent_rate)
-+{
-+	struct cv75_pll_hw *pll = to_cv75_pll(hw);
-+	u32 ctrl, ctrl2, frac_val;
-+	u32 vcodiv, fsdiv, fsout;
-+	u32 intp, sdiv, sout;
-+	u64 vco, frac = 0;
-+
-+	ctrl = readl_relaxed(cv75_ccu.base + pll->regs.ctrl);
-+	if (ctrl & (PLL_CTRL_POWER_DOWN | PLL_CTRL_HALT_VCO | PLL_CTRL_FORCE_RESET))
-+		return 0;
-+
-+	if (ctrl & PLL_CTRL_BYPASS)
-+		return parent_rate;
-+
-+	ctrl2 = readl_relaxed(cv75_ccu.base + pll->regs.ctrl2);
-+	intp = FIELD_GET(PLL_CTRL_INTP, ctrl) + 1;
-+	sdiv = FIELD_GET(PLL_CTRL_SDIV, ctrl) + 1;
-+	sout = FIELD_GET(PLL_CTRL_SOUT, ctrl) + 1;
-+	vcodiv = (ctrl2 & PLL_CTRL2_VCODIV_DIV2) ? 2 : 1;
-+	fsdiv = (ctrl2 & PLL_CTRL2_FSDIV_DIV2) ? 2 : 1;
-+	fsout = (ctrl2 & PLL_CTRL2_FSOUT_DIV2) ? 2 : 1;
-+
-+	vco = (u64)parent_rate * vcodiv * fsdiv * intp * sdiv;
-+	if (ctrl & PLL_CTRL_FRAC_MODE) {
-+		frac_val = readl_relaxed(cv75_ccu.base + pll->regs.frac);
-+		frac = mul_u64_u32_shr((u64)parent_rate * vcodiv * fsdiv * sdiv,
-+				       frac_val, 32);
-+		vco += frac;
-+	}
-+
-+	if (!(ctrl2 & PLL_CTRL2_BYPASS_HSDIV))
-+		vco = div_u64(vco, (u64)vcodiv * fsout * sout);
-+
-+	return vco;
-+}
-+
-+static const struct clk_ops cv75_pll_ops = {
-+	.recalc_rate = cv75_pll_recalc_rate,
-+};
-+
-+static int cv75_register_plls(struct device *dev,
-+			      struct clk_hw_onecell_data *data)
-+{
-+	struct clk_parent_data parent_data = { .fw_name = "osc" };
-+
-+	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_plls); i++) {
-+		const struct cv75_pll *desc = &cv75_plls[i];
-+		struct cv75_pll_hw *pll = desc->hw;
-+		struct clk_init_data init = {};
-+		int ret;
-+
-+		pll->regs = desc->regs;
-+
-+		init.name = desc->name;
-+		init.ops = &cv75_pll_ops;
-+		init.parent_data = &parent_data;
-+		init.num_parents = 1;
-+		init.flags = desc->flags;
-+		pll->hw.init = &init;
-+
-+		ret = devm_clk_hw_register(dev, &pll->hw);
-+		if (ret)
-+			return ret;
-+
-+		if (desc->id >= 0)
-+			data->hws[desc->id] = &pll->hw;
-+	}
-+
-+	return 0;
-+}
-+
-+static int cv75_register_fixed_factors(struct device *dev,
-+				       struct clk_hw_onecell_data *data)
-+{
-+	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_fixed_factors); i++) {
-+		const struct cv75_fixed_factor *f = &cv75_fixed_factors[i];
-+		struct clk_hw *hw;
-+
-+		hw = devm_clk_hw_register_fixed_factor_parent_hw(dev, f->name,
-+								 &cv75_ccu.core.hw, 0,
-+								 f->ratio.numerator,
-+								 f->ratio.denominator);
-+		if (IS_ERR(hw))
-+			return PTR_ERR(hw);
-+
-+		data->hws[f->id] = hw;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct clk_hw *cv75_register_composite(struct device *dev,
-+					      const struct cv75_composite *c)
-+{
-+	const struct clk_ops *mux_ops = NULL, *div_ops = NULL, *gate_ops = NULL;
-+	struct clk_hw *mux_hw = NULL, *div_hw = NULL, *gate_hw = NULL;
-+	struct cv75_composite_hw *comp;
-+
-+	comp = devm_kzalloc(dev, sizeof(*comp), GFP_KERNEL);
-+	if (!comp)
-+		return ERR_PTR(-ENOMEM);
-+
-+	if (c->mux_width) {
-+		comp->mux.reg = cv75_ccu.base + c->mux_reg;
-+		comp->mux.shift = c->mux_shift;
-+		comp->mux.mask = GENMASK(c->mux_width - 1, 0);
-+		comp->mux.lock = &cv75_ccu.lock;
-+		mux_hw = &comp->mux.hw;
-+		mux_ops = &clk_mux_ops;
-+	}
-+
-+	if (c->div_width) {
-+		comp->div.reg = cv75_ccu.base + c->div_reg;
-+		comp->div.shift = c->div_shift;
-+		comp->div.width = c->div_width;
-+		comp->div.flags = CLK_DIVIDER_ONE_BASED;
-+		comp->div.lock = &cv75_ccu.lock;
-+		div_hw = &comp->div.hw;
-+		div_ops = &clk_divider_ops;
-+
-+		comp->gate.reg = cv75_ccu.base + c->div_reg;
-+		comp->gate.bit_idx = c->div_shift + c->div_width;
-+		comp->gate.flags = CLK_GATE_SET_TO_DISABLE;
-+		comp->gate.lock = &cv75_ccu.lock;
-+		gate_hw = &comp->gate.hw;
-+		gate_ops = &clk_gate_ops;
-+	}
-+
-+	return devm_clk_hw_register_composite_pdata(dev, c->name, c->parents,
-+						    c->num_parents,
-+						    mux_hw, mux_ops,
-+						    div_hw, div_ops,
-+						    gate_hw, gate_ops, c->flags);
-+}
-+
-+static int cv75_register_composites(struct device *dev,
-+				    struct clk_hw_onecell_data *data)
-+{
-+	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_composites); i++) {
-+		const struct cv75_composite *c = &cv75_composites[i];
-+		struct clk_hw *hw;
-+
-+		hw = cv75_register_composite(dev, c);
-+		if (IS_ERR(hw))
-+			return PTR_ERR(hw);
-+
-+		data->hws[c->id] = hw;
-+	}
-+
-+	return 0;
-+}
-+
-+static int cv75_rct_probe(struct platform_device *pdev)
-+{
-+	struct clk_hw_onecell_data *data;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	cv75_ccu.base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(cv75_ccu.base))
-+		return PTR_ERR(cv75_ccu.base);
-+
-+	data = devm_kzalloc(dev, struct_size(data, hws, CV75_NUM_CLKS), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+	data->num = CV75_NUM_CLKS;
-+
-+	spin_lock_init(&cv75_ccu.lock);
-+
-+	ret = cv75_register_plls(dev, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register plls\n");
-+
-+	ret = cv75_register_fixed_factors(dev, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register fixed factors\n");
-+
-+	ret = cv75_register_composites(dev, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register composites\n");
-+
-+	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add clock provider\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id cv75_rct_match[] = {
-+	{ .compatible = "ambarella,cv75-rct" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cv75_rct_match);
-+
-+static struct platform_driver cv75_rct_driver = {
-+	.probe = cv75_rct_probe,
-+	.driver = {
-+		.name = "ambarella-cv75-rct",
-+		.of_match_table = cv75_rct_match,
-+	},
-+};
-+module_platform_driver(cv75_rct_driver);
-+
-+MODULE_AUTHOR("Cao Rongrong <rrcao@ambarella.com>");
-+MODULE_DESCRIPTION("Ambarella CV75 RCT clock controller");
-+MODULE_LICENSE("GPL");
+ ARM/AMD PENSANDO ARM64 ARCHITECTURE
+ M:	Brad Larson <blarson@amd.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
 
 -- 
 2.34.1
