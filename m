@@ -4,115 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12964CCF2E4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3263CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=; b=YLPfgejJSfABEAhFSUsWkVVieY
-	Tcj2FICJlquntZgsd1EhguCeDWrusp9NiltBGwOIfuoLMvlbP3J9UrLgVWCoIdVWsh6VmYvTSMPoc
-	4Vkd45GLNdQ1qA13ZPjl3Y3B2W5mO361cpIsP/lGAWNhjdJ/tM7WcorfGDf23ZLFJrvoKH9Lz8vVJ
-	87+L41za+R5/3O+lDSwbd0NEDx6rPonJazLsD8cYYGIuLGqbVpTmhyw2v9jhiX2Ltoj06P1ScyGiX
-	NBzKIHVInruIaEt4sHnK+GK8g8eRca+W9T5jjYfh0EQ3vpQTIHmykTX8EwDxglknL4HlBcCl1oxDV
-	qy1uzYqg==;
+	bh=5YPK5QrD2Biz8WIt271WspbuAzVZVpswCa9MB98GM1c=; b=kKmWCG7iCELJCB6RtlFFj1jv+4
+	LTCFjVjzZJohF+H68v3vlFgJMTMrICquUHnQ934Z7Hmzw+rwpGgAkou80yLWpxsQHUTwdvGCpRvNw
+	utGNoDZisM94XkaKSCV7/m8gtr2ltN4Vbwk8uJaUAu1mKA1mDHYRwao58TI/G/LmH5Q6RRwysUwL6
+	eLbrLBrNRXlr5gCUrULm+JPumw70NsUq9skfJA0FJ7BDyNQ6Szz9Xmg7vud0GLYrwIQTGHj1Ffyhk
+	zyTY84E/S0Cq0bi6s9h/nNit5/NXax/3VKAW87vN4Vp7TzZX2gwiONYumwgjRQ3gSp6z3deJROXsG
+	mZC4sz/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImRm-00000007Nx5-1buR;
-	Mon, 19 Oct 2026 12:26:34 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1xImW0-00000007OQq-08dJ;
+	Mon, 19 Oct 2026 12:30:56 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImRh-00000007Nw8-2XWV
+	id 1xImVv-00000007OPF-0JWS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 12:26:33 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5be4fea434bso648578e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:26:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792412786; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WHV8+Hr3vc+3gOiefmWVFEXNEZ58pjwUUW/nISzR+ySTd8lFuqTcENMV3UNzc6Xveo
-         T75e0q9OCz+0qplRGQAZJ5JO11qmtkBN1smgjij5Iefk1NxkD/cdyRUzTmd7kf81t3qv
-         Dho1tBR6In8Vglnta+inNrySVBNeht6Ds0dvZddovg64v8lz6ZVgzKZaZ3K/pEYt+vpp
-         Sc6522ocLQjkt6p+oMhXRPCE7hIaktkYo2FlX6k2JDn6ipZu6lIRm5OJp23aqAhpJTan
-         YidzMZM4bd7TB1aSvrTOmsrw/nyeAKgd496frr9W1cDOSkPunJ1d7a2QgJyY/PG77ROS
-         xl0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
-        fh=MAziHfznHBC40V4cv0SsNtGjoSgpsAiRZfZfy/aRuC8=;
-        b=nOBrLP09FevWiJ1bcd32BygoEG4Oy0M7sW0gIex1VHsX2gKrAT09sMOa3bHwqPNML8
-         iyN4TI4uAcmDHeJVDb7GtMBVIfuICz78sGOtWeGa08sSCsRSWlkC2CqSCw6qj0A4XD1B
-         I7n4W8pd74tbOuccqxzve9PRepAl+6g++/FL3wnb7VGQbI2HlwMeXAoB5oEIXpgdiLSC
-         vUOzjU+Ovup1IJx3jRAmfpXkCO+62Hs6NjwoIFpdXmMf40Hfof+tra6xBORnrZ82DoxF
-         EumFLoW0a2XTLQyMuMPgB7JQ0iTQ3zhNhVJ91KpRn+056LqXYE3BSB5ekYBo4JvLCYQF
-         eBkQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wetterwald.eu; s=wetter; t=1792412786; x=1793017586; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
-        b=rAXzt1BFCMVt4kqSOlywtP0sW7M9t84Zx0bxO92g0CeBKH7KABMxAvBRIC5Qvagaaa
-         Ef9B6lVqclIl2H87A5lT5G0MKTbon1Rwf7EhPxVDXkPoM3RnrVPqKGs40y2hXiWbg3+s
-         eEsF4BmZFCAjBn6BfoIqkjt5peGZ8rWL2PdKQcZtTLvcJUGLotyLd8MAr3+4roWhoX6+
-         hBAV/Drv1XzuJHh8qg2MjmF6fKWEwVSycNhKGO8iKnKQ25RaGuT7x5wig6nyKW84L7D6
-         mHS7y21e/LG+gs5bLjLk5Fo4UZud9p2GyA2pifyKtKoiTJTuKiN6p3nJJUcn6q9p6RLV
-         gZiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792412786; x=1793017586;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PNE/h2ESkoSNRC++cgLzYuUYgKGhlzmmCNhasBPr9xM=;
-        b=ZjS88MFiXhf9oRv/I9nopHGpvzS6BgKk5Z0pLA+GrIOe1+cP7fNJQwBJDK1MW6NnEK
-         /hAlcQAmVP8uGuV39alfDg+3t0zidUWg4LvICew2cwldM3Ba/vtXIBf60ikvInEXGfll
-         p8FCaXneBTKmaqRkSjv9qDqSCJzYUYu9bGrpvIYAujRdCr+kgKRQU9x2ucI4QCX5P7KE
-         znxETnXqpLMmaHm1S3YWpIrMTe+zcbckPwjZBQY/KRCzNtQXuPtM4nepio7wvAhSF0Qv
-         OLlMfWBJlIAn9MDvfNOLs6Y+W69iFMfq1dGKYp5GpXBXszyWyYvEKiZ0LhotKPVBztyj
-         R7wQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwjxradZRi8uiryfSJMSc7cgfpFNSDldV33on6lCEkXaltsU3wdHXckIPOqLtV11NlnwvsmVmFdXJyUbaLw7tw2@lists.infradead.org
-X-Gm-Message-State: AFq9FYKZRox9jJODi+PC+4H/kVlu0LJwZ6+5SmbOV1EcPeTtjjpEYr4G
-	+OUJ+qIkzXbwqUNXGkUhQrTEUGqtC+0R2uF7Ye3TkI8ybnJDqXkw72hH3uiUXGtdz0zKHyNFZi+
-	TBI8bj/sXuwjblF4s6FVdZjUXH4n1PRkrc0IGTX59iw==
-X-Gm-Gg: AYBFou00XoZ3vbLxp1vJ9RSuFkUY9EupQ+WP8+xzzm3IcdKYWX2mnVpShXFPnRU7y8U
-	HCK/QYuPwSM4OJMwTJYRG/RkzqXrLXY7Lr8dYL/1pO9ACLSC7A4efJLPpYDmBjxgL9W1wcSI4Nw
-	tAL3wkKqQxP1SCmi273mDlXD7ID2VSjO4TeA3r3oAcDsUXfLGjy6eS36zNtolr+8o/rrsJBUhHI
-	Xg3i+QBIGT1IU7SFYkESSDV7xmzg2SY/cmFMXhF8ZcALW5dG/pSoOb7iiRy58MOvb10353WEdKc
-	FFdvj2Wjx4k0pqcileGlSw2P86j2Pw/VEvlOqHqdBIz2g7LGeR6U++hkx3LgQgbP4H0Xo2KadS2
-	3r0FEFe9OLA==
-X-Received: by 2002:a05:6512:3d17:b0:5be:41a5:d9ed with SMTP id
- 2adb3069b0e04-5be47936d9dmr3010694e87.37.1792412786489; Mon, 19 Oct 2026
- 05:26:26 -0700 (PDT)
+	Mon, 19 Oct 2026 12:30:54 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2831A15A5;
+	Mon, 19 Oct 2026 14:30:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1792413046; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=5YPK5QrD2Biz8WIt271WspbuAzVZVpswCa9MB98GM1c=;
+	b=JT7G+fFQL8UZU1tGRwhUPlEeeGyOPklh3lTZgt6QBqhkNKQ39YJWB2imB+euV3PKNylpXg
+	8hmMFIebrSnkz0uxql1S/azwpbuV/4afb+FnCR4lSQBQEQc/WZij0O6tayPU0iz9Esa9G9
+	gUaVR2o/Va51J13fFMSpzfnZsmBm+/geEvAXAngzKopeKTh+Uo1I0VRX9w6dmHM5O3Wjte
+	nMdWFTFoEId761r9qoxQhjLP/g2dv1t7EfmwBz3MkqgBD8Zanl888bkv9qBjXhxRxhd4MF
+	6RH30UV+a8QK98WkGlAVaOTxOZCGfvUWlnW+ulM3DM0NCwe4s0YyEGWfzcxSjQ==
 MIME-Version: 1.0
-References: <CAFERDQ0FpdVvA5VJxOyRAE_pgxnPVmFx1tkZio5R272j6Bs4tg@mail.gmail.com>
- <20261013131435.1454019-1-martin@wetterwald.eu> <DM5Q9NKRO89O.22R04QM8YBKWM@gmail.com>
- <CAFERDQ12QwtC6cCVWQGU1b5KCv988kAvahNKwosxG2z8Mzm4sw@mail.gmail.com> <DM8869QP3IID.1I1KT6A7M2UNB@gmail.com>
-In-Reply-To: <DM8869QP3IID.1I1KT6A7M2UNB@gmail.com>
-From: Martin Wetterwald <martin@wetterwald.eu>
-Date: Mon, 19 Oct 2026 14:26:15 +0200
-X-Gm-Features: AclHuK93P2jPD4PyUwT4dOLVOgxbBF4VVZAqE1H94JjIS4xMMkZCEQTzudX9ZIs
-Message-ID: <CAFERDQ3DWBnkSok_SiVZGx+GTmYKP=Q46yFYkNt9YQkKxxQxyw@mail.gmail.com>
-Subject: Re: [PATCH] platform/raspberrypi: vchiq: register bus at subsys_initcall
-To: Gaston Gonzalez <gascoar@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Jai Luthra <jai.luthra@ideasonboard.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Stefan Wahren <wahrenst@gmx.net>, 
-	Phil Elwell <phil@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Umang Jain <uajain@igalia.com>, Kees Cook <kees@kernel.org>, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	regressions@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Mon, 19 Oct 2026 14:30:41 +0200
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
+ <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, Ong Boon
+ Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next v8 2/5] net: stmmac: drop split frames on AF_XDP
+ zero-copy RX
+In-Reply-To: <atYKPgSrad4jAsJM@lore-desk>
+References: <20261018-stmmac-rx-mb-v8-0-5f58c0b25849@oss.qualcomm.com>
+ <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
+ <8c9e47e535ecc8190fa1c93ad5b5e32a@tipi-net.de> <atYKPgSrad4jAsJM@lore-desk>
+Message-ID: <f4009020a12df8e97fe87f03050839e2@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_052629_962478_A82D0548 
-X-CRM114-Status: GOOD (  26.18  )
+X-CRM114-CacheID: sfid-20261019_053052_052396_5A9EBE80 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,127 +81,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 18, 2026 at 9:53=E2=80=AFPM Gaston Gonzalez <gascoar@gmail.com>=
- wrote:
+On 19.10.2026 14:17, Lorenzo Bianconi wrote:
+>> Hi Lorenzo
+>> 
+>> On 18.10.2026 19:07, Lorenzo Bianconi wrote:
+>> > stmmac_rx_zc() assumes a 1:1 mapping between a received frame and an
+>> > XSK pool buffer and drops any frame that spans more than one RX
+>> > descriptor:
+>> >
+>> >         /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+>> >         if (likely(status & rx_not_ls)) {
+>> >                 xsk_buff_free(buf->xdp);
+>> >                 buf->xdp = NULL;
+>> >                 dirty++;
+>> >                 count++;
+>> >                 goto read_again;
+>> >         }
+>> >
+>> > The non-last descriptors are freed and dropped, but the frame is not
+>> > marked as errored. When the poll reaches the last descriptor of the
+>> > same frame, error is still 0, so the fragment is handled as a complete
+>> > frame: it is passed to the XDP program, copied into an skb on XDP_PASS,
+>> > or converted for XDP_TX. The tail starts in the middle of the original
+>> > payload at a predictable offset and, parsed as a fresh frame (len == 0),
+>> > stmmac_rx_buf1_len() reports the full dma_buf_sz length for it even
+>> > though the DMA engine only wrote the tail remainder into that buffer, so
+>> > the reads extend past the received bytes and can reach beyond the end of
+>> > the XSK pool buffer. GMAC4 always enables jumbo frames (GMAC_CONFIG_JE
+>> > in GMAC_CORE_INIT), so an on-link peer can trigger such a split even
+>> > when the interface MTU is left at 1500.
+>> >
+>> > Set error when the 1:1 mapping check drops a descriptor, so the
+>> > remaining descriptors of the frame - including the last one - are
+>> > drained and released with xsk_buff_free() instead of being processed as
+>> > a new frame. Account every freed buffer with dirty and count the
+>> > dropped frame once in the poll budget / rx_pkt_n. The direct 1:1
+>> > mapping drop also increments rx_dropped.
+>> >
+>> > Normalize the legacy normal and enhanced descriptor callbacks to report
+>> > rx_not_ls together with discard_frame for non-last descriptors. This
+>> > allows both stmmac_rx_zc() and stmmac_rx() to drain split frames on
+>> > dwmac100 and dwmac1000 instead of reparsing the final fragment as a new
+>> > packet.
+>> >
+>> > Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+>> > Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+>> 
+>> This grew quite a bit since v6 (legacy desc changes, stmmac_rx() etc),
+>> so my R-b should have been dropped. I had another look and two small
+>> notes below.
+> 
+> Hi Nicolai,
+> 
+> ack, right.
+> 
+>> 
+>> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+>> > ---
+>> 
+>> > [...]
+>> 
+>> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> > @@ -5695,18 +5695,21 @@ static int stmmac_rx_zc(struct stmmac_priv
+>> > *priv, int limit, u32 queue)
+>> >  		if (priv->extend_desc)
+>> >  			stmmac_rx_extended_status(priv, &priv->xstats,
+>> >  						  rx_q->dma_erx + entry);
+>> > -		if (unlikely(status == discard_frame)) {
+>> > -			xsk_buff_free(buf->xdp);
+>> > -			buf->xdp = NULL;
+>> > -			dirty++;
+>> > +
+>> > +		if (unlikely(status & discard_frame)) {
+>> >  			error = 1;
+>> >  			if (!priv->hwts_rx_en)
+>> >  				rx_errors++;
+>> >  		}
+>> 
+>> There's no !error check here, so on the legacy descriptors a split
+>> frame now counts once per descriptor in rx_errors. stmmac_rx() in 3/5
+>> counts it once. Could you add the !error check here too?
+> 
+> ack, I agree we should align stmmac_rx() and stmmac_rx_zc(). In order 
+> to avoid
+> reposting the full series for this change, do you agree to address it 
+> as a
+> follow-up patch?
 
-> Running 'speaker-test -t wav -D plughw:1,0 -c 2' crash the system, so
-> thinks seem not to be working with that interface.
->
-> Im trying to debug what happens in that condition; I will need a couple
-> of days I guess. So far, this is what I could check.
->
-> Any feedback on the test or debugging would be appreciated.
+Would be ok for me if nothing else is flagged in this version. In the 
+end it will
+be Maxime's / the net dev maintainers decision :)
 
-Hi Gaston,
-Thanks for digging into this.
-
-The patch only changes when the VCHIQ bus and driver are registered during
-boot. So it's enough to check these two cases to validate the patch:
-- without my patch: dmesg shows the "unable to register with bus_type
-  'vchiq-bus'" error, and bcm2835_hdmi is absent from /proc/asound/cards.
-- with my patch: the error is gone and bcm2835_hdmi is present in
-  /proc/asound/cards.
-
-(Since the Pi Zero has no Headphones jack, you need to test both cases with
-snd_bcm2835.enable_hdmi=3D1 in the command line. Otherwise the card never s=
-hows
-up, even when everything works.)
-
-Could you check these two cases?
-
-
-Testing that you can hear the sound going through bcm2835-audio is a full
-functional test that goes even further than the patch: it does not only tes=
-t
-bus registration but also that the audio driver is working.
-
-On my side, without vc4-drm, I can successfully hear sound through both bcm=
-2835
-Headphones and bcm2835 HDMI:
-
-  # aplay -l
-  **** List of PLAYBACK Hardware Devices ****
-  card 0: HDMI [bcm2835 HDMI], device 0: bcm2835 HDMI [bcm2835 HDMI]
-  [...]
-  card 0: HDMI [bcm2835 HDMI], device 1: IEC958 [IEC958]
-  [...]
-  card 1: Headphones [bcm2835 Headphones], device 0: bcm2835
-Headphones [bcm2835 Headphones]
-  [...]
-
-  # speaker-test -D plughw:0,0 # (HDMI)
-
-  # speaker-test -D plughw:1,0 # (Headphones, not on the Pi Zero)
-
-
-If you still want to output sound through bcm2835_hdmi (optional):
-
-There can only be one owner of the HDMI port: either the firmware or the
-kernel.
-When the Raspberry Pi boots, the firmware first owns the HDMI and displays =
-a
-rainbow splash. Then it launches Linux.
-
-There are 2 ways for the kernel to deal with the video output:
-
-1) With vc4-drm (CONFIG_DRM_VC4), the kernel takes over the HDMI controller
-   from the firmware and handles everything itself (this is your case).
-2) With simple-framebuffer (CONFIG_DRM_SIMPLEDRM or CONFIG_FB_SIMPLE), the
-   kernel leaves the HDMI to the firmware and just writes pixels to a
-memory area
-   (the framebuffer) set up by the firmware.
-
-I get a similar problem on my side when sending sound through bcm2835_hdmi =
-with
-vc4-drm loaded: my screen shuts down (but the kernel is still alive).
-It most likely comes from the firmware and the kernel both trying to drive =
-the
-same HDMI port: with vc4-drm, the kernel owns the HDMI controller, and the
-firmware (which bcm2835-audio talks to through VCHIQ) is not supposed to to=
-uch
-it.
-
-A simple way to output sound through bcm2835_hdmi is to not use the vc4-drm
-driver at all, and use simple-framebuffer if you still want a display.
-
-To remove vc4-drm:
-- Do not compile the driver into the kernel (CONFIG_DRM_VC4=3Dn) or blackli=
-st the
-  module.
-- Remove any vc4 overlay in config.txt file (e.g. remove dtoverlay=3Dvc4-km=
-s-v3d).
-
-To enable simple-framebuffer, use one of the two configs:
-
-  CONFIG_DRM=3Dy
-  CONFIG_DRM_SIMPLEDRM=3Dy
-  CONFIG_DRM_FBDEV_EMULATION=3Dy
-  CONFIG_FRAMEBUFFER_CONSOLE=3Dy
-
-or, the older way:
-
-  CONFIG_FB=3Dy
-  CONFIG_FB_SIMPLE=3Dy
-  CONFIG_FRAMEBUFFER_CONSOLE=3Dy
-
-(FRAMEBUFFER_CONSOLE=3Dy, and DRM_FBDEV_EMULATION in the DRM case, are only
-needed to see the boot messages on the screen, with console=3Dtty1 on the c=
-ommand
-line.)
-
-If you have remote access to your Pi Zero (either through network+SSH or
-through serial console), you actually don't even need the simple-framebuffe=
-r:
-you can just remove vc4-drm, and let the firmware display its rainbow splas=
-h on
-the HDMI port.
-Then you can login to your Pi Zero through SSH for example and launch
-speaker-test.
-As long as the HDMI video output is active, it's enough for the sound to be
-able to go through, even if the image was not drawn by Linux.
-
-But again, this full functional test is optional.
-
-Regards,
-Martin
+> 
+> Regards,
+> Lorenzo
+> 
+>> 
+>> > [...]
+>> 
+>> > @@ -5883,7 +5887,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int
+>> > limit, u32 queue)
+>> >
+>> >  		if (priv->extend_desc)
+>> >  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx +
+>> > entry);
+>> > -		if (unlikely(status == discard_frame)) {
+>> > +
+>> > +		if (unlikely(status & discard_frame)) {
+>> 
+>> AFAIU this also changes GMAC4: a frame with an error plus an IP header
+>> error returns discard_frame | csum_none, which the old "==" let
+>> through. Dropping it is right, but maybe worth a line in the commit
+>> message?
+>> 
+>> > [...]
+>> 
+>> With the !error check added:
+>> 
+>> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+>> 
+>> Thanks,
+>> Nicolai
 
