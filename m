@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5E8CCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D363CCF2D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9OTDn3FWCzGLjmwPJc3E1qKtb/Hvkb223pzi7vRYRaU=; b=drr8ESowqX7XJrL9a/r8ceRaQA
-	prfp3yCZ2SVw3IR4vaNFNuKgR01mo15BSpEsxBnWW0hEEtg0w7nBffseSTkYUAIEi9mK/P+5jbjrs
-	9WTx+ZjIQoJ2x8FtCNUUWWFj8I+5kZ4/2O52+jjv317cG1WF1kISBZbCxSFuI6Q8rEBJeCqDu+lzy
-	lqD02iusEYxi2PBJHgsZZtuXZYgQxSDMcDk/I+wQXefI2uRn3t4rorLK8Don+rHRGJVFLSyVZnwpE
-	Jw6+/hbSDvmP5NRHokFnzhU54Q2CfVJgdFuusAIFkrNIwU6COc/9JGO0wyhHYvLESo90HZZHoxomp
-	IHXyTTvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=trNQO0U9XQLBOWcQGLIc+ci4GywnkatJEUe8E9u6r4I=; b=Kqx95rgqIvdfECTXOiPoiF4OV6
+	aQdKqa0GodmJa0LjUmcpF/oJSVex+If0OmGVmqRUUnAR6BmHep4cXT5ODW3MhXrg0afg+4YwLplG/
+	hVfHK9EhYljZuBMxWhs1Q1YBDIBdjqePH/4F/I59OnxGniSAOoYrHArQgfyCsE1Ce+ndmKurvDojR
+	t9qyF7IjUPP27znU3peCoA22iP8/rPuh0bXVxj7tKfaMyY5OloYF7FIJscy4y8mKk7bvcW8sf6B/X
+	zWJy508HZzAnlPvRMYYTXpL3I9qI7vbO8UBCdTCJqqx7bkF+hLk795586SulLe6+ic0rTRRkGUlKi
+	i2Rmk5vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiUW-00000006qVL-1EZ2;
-	Mon, 19 Oct 2026 08:13:08 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1xIiUr-00000006qZN-1xh3;
+	Mon, 19 Oct 2026 08:13:29 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiUT-00000006qUr-0CEn
+	id 1xIiUo-00000006qY8-14oH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:13:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792397585; x=1823933585;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OpxKsY4pQMxWXG5ginCdqOe1JmpLsqB7ew68KaUuqRc=;
-  b=EymBeA/rf1WQZ80KV/bdeF2t9x7XgbHPsmgjvEv4OhugMC3J6AFhJCGr
-   7/ik2CIYa+DgYzP4F9OD6wGIJSKo9YxNL9oF+Bb88IiYWHBdi6yzXI18k
-   bhPcaJ0AqoORdJyNUzqGXEZhFOkSC66xharhdLU+R/PvsKgTy5LVxViGb
-   L92QkpqDYMBAkk/D3TXa4sO9aD+kYjU5PcsGHGlVe/reZeTSfVpL8YRFj
-   ZfyXaoHDw9m+khtan5jDtGPAb9bT0N4fL4ZaU+/HSbp4vsq+cet+2RvMS
-   y9HJWo7rHEHsUZHKVIEv+dBX3NwCpf8lDe1AwQCQU86YpPhTNPdMfmKHY
-   A==;
-X-CSE-ConnectionGUID: PWzi+SvnRmKI9DX4ZfxBvQ==
-X-CSE-MsgGUID: jQa2LyoXRBOUJbNvmEFtpg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11939"; a="944082"
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="944082"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 01:13:02 -0700
-X-CSE-ConnectionGUID: P7yLX90wTAyjhQhKT6K14g==
-X-CSE-MsgGUID: J7SAvJEoR5mx5tic2JqxOQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="4321776"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.209])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 01:12:59 -0700
-Date: Mon, 19 Oct 2026 11:12:56 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: Arnd Bergmann <arnd@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] tty: serial: remove hub6 multiport support
-Message-ID: <atXRCJjQGcSKZ_X3@ashevche-desk.local>
-References: <20261016130328.1037616-1-arnd@kernel.org>
- <20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
+	Mon, 19 Oct 2026 08:13:28 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9E572C5CD45;
+	Mon, 19 Oct 2026 08:14:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9304F60582;
+	Mon, 19 Oct 2026 08:13:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C06F010328429;
+	Mon, 19 Oct 2026 10:13:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792397601; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=trNQO0U9XQLBOWcQGLIc+ci4GywnkatJEUe8E9u6r4I=;
+	b=FvItgfkBI0uIwemxLOQyXNqDxWTC/p0cGmtkocphPeGleMMne9ZPgFH0wpCiMNJtFVpPKV
+	+g1u7KYl2AJaktUp0fVPQLS+bEuvTbJB9e7RfonI4dpFbM29cq7QBf6xt9KPPehchHuHXd
+	yL9QIyg4JYh8gCnBNPJ6z9OjGOcL6rHMvJ4pldB6QC7y0LtoBGTPEfyj1ez4iVYMO+ng/q
+	JMi6xmyW+h7DjjhbvAai1Swrfgsi80X7i9etz4cbWXjgsNa1VDPhuykMnp5o6ABI+955Z9
+	ZvqH8FrEy2lodwuX4g7n4uCq6sSiR9PjTSTaoKfSY+jmZdAOcgF6y18MWSRAig==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
+ <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Richard Cochran
+ <richardcochran@gmail.com>,  Arnd Bergmann <arnd@arndb.de>,  Brian Masney
+ <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,  Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Andrew Jeffery
+ <andrew@codeconstruct.com.au>,  Avi Fishman <avifishman70@gmail.com>,
+  Tomer Maimon <tmaimon77@gmail.com>,  Tali Perry <tali.perry1@gmail.com>,
+  Patrick Venture <venture@google.com>,  Nancy Yuen <yuenn@google.com>,
+  Benjamin Fair <benjaminfair@google.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  Krzysztof Kozlowski <krzk@kernel.org>,
+  devicetree@vger.kernel.org,  openbmc@lists.ozlabs.org,
+  stable@vger.kernel.org
+Subject: Re: [PATCH v10 03/10] clk: nuvoton: ma35d1: Retrieve HXT/LXT from
+ DT when possible
+In-Reply-To: <179224882241.859276.15035084302735586039.b4-review@b4> (Jerome
+	Brunet's message of "Sat, 17 Oct 2026 16:53:42 +0200")
+References: <20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com>
+	<20261015-perso-ma35d1-upstream-clk-v10-3-47c97b54a809@bootlin.com>
+	<179224882241.859276.15035084302735586039.b4-review@b4>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 19 Oct 2026 10:13:08 +0200
+Message-ID: <87zewayup7.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016124839.0d5564f7d7e036ee782a0486@hugovil.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_011305_123546_E4EFF596 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20261019_011326_465162_F799CD06 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 12:48:39PM -0400, Hugo Villeneuve wrote:
-> On Fri, 16 Oct 2026 14:59:47 +0200
-> Arnd Bergmann <arnd@kernel.org> wrote:
 
-...
+>> +	/*
+>> +	 * Old DTs do not describe the low-speed crystal. They may also expect
+>> +	 * an HXT output from this driver. In practice, nobody should use these
+>> +	 * clocks directly, but they must be kept for backward compatility
+>> +	 * purposes.
+>> +	 */
+>> +	if (num_clks =3D=3D 1) {
+>> +		hws[HXT] =3D ma35d1_clk_fixed("hxt", 24000000);
+>> +		hws[LXT] =3D ma35d1_clk_fixed("lxt", 32768);
+>> +	}
+>
+> The above is fine but the problem is those IDs still exist and something =
+like
+> <&clk HXT> is still valid in DT but now does not provide a clock
+> anymore.
 
-> >  	switch (up->port.iotype) {
-> > -	case UPIO_HUB6:
-> > -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
-> > -		return inb(up->port.iobase + 1);
-> > -
-> >  	case UPIO_MEM:
-> >  		return readb(up->port.membase + offset);
-> 
-> Maybe change to a simple if/else?
-> 
-> 	if (up->port.iotype == UPIO_MEM)
-> 		return readb(up->port.membase + offset);
-> 	else
-> 		return inb(up->port.iobase + offset);
+Yeah, it's hard to prevent, but people would immediately face errors
+when developing anyway.
 
-While it may work, I would still leave a possibility of the default case, but
-Ideally this should be a simple callback level change, so it will be checked
-only once at the probe time or so.
+> This is why I asked if you about removing the ID. At the very least a com=
+ment is
+> needed next to the IDs saying those are obsolete and should not be used.
 
-...
+Ok, 'next to the IDs' may be relevant indeed, I'll add that.
 
-> >  	offset <<= up->port.regshift;
-> >  
-> >  	switch (up->port.iotype) {
-> > -	case UPIO_HUB6:
-> > -		outb(up->port.hub6 - 1 + offset, up->port.iobase);
-> > -		outb(value, up->port.iobase + 1);
-> > -		break;
-> > -
-> >  	case UPIO_MEM:
-> >  		writeb(value, up->port.membase + offset);
-> >  		break;
-> 
-> Similar here:
-> 
-> 	if (up->port.iotype == UPIO_MEM)
-> 		writeb(value, up->port.membase + offset);
-> 	else
-> 		outb(value, up->port.iobase + offset);
-
-Same here, see how we assign the respective callbacks in the 8250, for instance.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+Miqu=C3=A8l
 
