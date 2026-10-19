@@ -2,88 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E1E3606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 22:21:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0A3E606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 22:30:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZTuFMFli;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=michael.riesch@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=f04JsVaO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2/7PpW8n;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oYpjPcO4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s51N6XNe2djMI4gMavRjcuP3fUqvxRFw7XI3t+UeSdg=; b=ZTuFMFli1gH0RSdM455G5Xbujp
-	oE1TV3O4jwmIM1OxZTyPDVREyhaavuCXq1Rj8p8UhXtbgjxa3hiolxyj1l2u6mgqw6yoskT9vfWtF
-	kbofkoT47fjcO/uc48Znv89tH79SdyN6OR3gYXVl0Hr6fnNx01aVf1HimnqEOb4swj+o2DiYJh1cQ
-	SyjOn7GfgZq1Bb8RmI4RrFMYTXkQpDVtYFAPAGo456uO7T0JtD233CrWHiV/HCpJENCMGvpFY7piJ
-	MCH2sAOoZVzJ+RT6LO7HxQNzcyTyeW8v03snD+vXL39SreY3kfG+gU6iyqv4heEs9EXS7b8vc+joV
-	OYFHA/oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bn0LUV8nV0X9AL2Oe4mZF4R4gBNcAcDh87LSeEPK0aQ=; b=2/7PpW8nzg+B1UKhH3TA+xyLw/
+	HprMZTWIwTYoMzv270JqjMx9KceDaWNqRTxlRJmXAJ6sYf2ucsRSD+9fKOlK37UEd+PiRRCtwMgNh
+	+R64OqzPuVLuldqlcVAeLb09mrGjSncYb9nVytu65F+Y+hhzekcJnjPwkt5dFgWKC15qbbDGzGIRJ
+	xS3JAmDF9wM1RoArX6ZVb4PDHatJ+Y4drW7l7AWFhpkY3HmgzfKt/zMOQ2P9AxY6ON1Vp2uCsiwMF
+	75vljaRxnEuOg6jIBR3PicM9g0huM9pXDt+EDPB3cRM5d1pzBiT8tE/fDX70EMsGTyZ2f1XXKRVTo
+	PG5UwgBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvjB-00000008Td4-0YaX;
-	Mon, 19 Oct 2026 22:21:09 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1xIvre-00000008U5y-0qUr;
+	Mon, 19 Oct 2026 22:29:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvj8-00000008TcZ-2yP7;
-	Mon, 19 Oct 2026 22:21:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1792448456; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=WrrXJ1YWBO5A0kDwu9XrscKsAznjiY++dqm22cz5TXcJnQBDaTlCmJm5rqnjRXoFsbkPZzL8Kp6vpowXk5RkwsJNvZIlS5PI47Gu+0ilGlvm5jJ9Ff6P3Ssr2mmEYcntRjhpEPwGspb4JjK5Xi2Blfx8Y4aYGiys/aL4XpGd/IY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1792448456; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=s51N6XNe2djMI4gMavRjcuP3fUqvxRFw7XI3t+UeSdg=; 
-	b=nDtccBpIf+SsKGYYGImeYiugxqa/fA7XlI7Pdn9SNfqGz0e9UJ4Y+BBfaPDwRIP832btLtYcUpDFO2FCvm9nkX0uHgxFBed2ZrqemvY8fgGuhTkY83qcVl3usntWPRJNF6kIlRR3JxBot7McAG32BOiIj7u8kUVVREQsa30PlIc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1792448456;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=s51N6XNe2djMI4gMavRjcuP3fUqvxRFw7XI3t+UeSdg=;
-	b=f04JsVaO23ITcR3e/y7REbigorpmjJrcP71oHq1fSWOlg8BuYCdLXWIbydPOzQ4e
-	kxEXdx7SMniTwzyHtibN6IVwMhrHgpn/sc1Cuh0CgcLaVHTTv6QNypaAv7z1PRbJlfP
-	F4Cdgpt/FqSEiiTrTwUQ386cQ+Soyd5XNs8/LPuo=
-Received: by smtp.zohomail.com with SMTPS id 1792448452872579.0876982000046;
-	Mon, 19 Oct 2026 15:20:52 -0700 (PDT)
-Message-ID: <73ef0d06-75c5-4c10-b4c3-c7b3c07a1e18@collabora.com>
-Date: Tue, 20 Oct 2026 00:20:47 +0200
+	id 1xIvrc-00000008U5f-30Ru
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 22:29:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E113602C2;
+	Mon, 19 Oct 2026 22:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D3FE1F000C4;
+	Mon, 19 Oct 2026 22:29:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792448991;
+	bh=bn0LUV8nV0X9AL2Oe4mZF4R4gBNcAcDh87LSeEPK0aQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oYpjPcO4+qyVgDvU0SXTwuY03Cd2EM9GgCLwi1KJycLvfsoISiFgeC+/vCtrHS6XR
+	 WwUhW/XFyuaRVUFj3NDGImX7TebArRQIIRgpbiMqQi1CKZbOs5FOYy8ovxKjJC+mQA
+	 Q0H59J9WpJ6lbBRizcyO2B1xnIGHmo5eGZOKjPL/JRuxXDhbQ/M+9u/m0YbZpdkOgz
+	 aglhJjgWCro1GTi7eqZpbYGPMQJMxMCOsGvR9q+PZ9WAQcd97d/zMaKSIvmFS/+ZjJ
+	 hSvgRSVWV5eLah25O2qz/oO0LyVuwyT814urBfaEYZyU2Y8gDWyELU4tdOqKNXj8Qy
+	 q7tJkkGi/z8/Q==
+Subject: Re: [PATCH net-next v4] net: stmmac: dwxgmac2: enable L2 split header support
+From: netdev-bot+sashiko@kernel.org
+To: sagar.cheluvegowda@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lorenzo.bianconi@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com,
+ abhishek.chauhan@oss.qualcomm.com, sarosh.hasan@oss.qualcomm.com
+Date: Mon, 19 Oct 2026 22:29:49 +0000
+Message-ID: <179244898962.3135.12890405028818098249@kernel.org>
+In-Reply-To: <20261015221215.1714047-1-sagar.cheluvegowda@oss.qualcomm.com>
+References: <20261015221215.1714047-1-sagar.cheluvegowda@oss.qualcomm.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
- a cell to select TX or RX
-To: Rob Herring <robh@kernel.org>, =?UTF-8?B?5qWK5pm65oiQ?=
- <jason98166@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
- <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com>
- <20261016140115.GA1798470-robh@kernel.org>
- <20261017-gainful-goldfish-of-climate-bef863@quoll>
- <CAPwA33+bR1BF9KeA9my07Yz7gXW7TXq8EPhwQ4GvHMSFDk+uWw@mail.gmail.com>
- <20261019150631.GA265407-robh@kernel.org>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20261019150631.GA265407-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_152106_844605_AE631624 
-X-CRM114-Status: GOOD (  28.46  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +73,219 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi all,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-On 10/19/26 17:06, Rob Herring wrote:
-> On Mon, Oct 19, 2026 at 04:15:03PM +0800, 楊智成 wrote:
->> Hi Krzysztof, Rob,
->>
->>> Existing OS should ignore surplus cell if the driver is coded properly.
->>> Same as adding new properties or new front-compatible.  The question is
->>> how the existing driver behaves?
->>
->> As you pointed out on 5/8, the xlate checks args_count != 1. The DC-PHY
->> driver was merged in v6.15, so every kernel since 6.15 fails on a second cell.
->>
->> 1. Keep the second cell. Add the patch as follows:
->>
->> - if (args->args_count != 1) {
->> + if (args->args_count < 1) {
->>     dev_err(dev, "invalid number of arguments\n");
->>     return ERR_PTR(-EINVAL);
->>   }
->>
->> + if (args->args_count > 1 && args->args[1]) {
->> +   dev_err(dev, "only the transmitter is supported\n");
->> +   return ERR_PTR(-EINVAL);
->> + }
->>
->>   With Fixes: and Cc: stable, the stable kernels maintained at that
->>   time (currently 6.18.y and 7.2.y) keep DSI working with the new
->>   dts, and the receiver fails cleanly instead of getting the transmitter.
->>   But EOL kernels (6.15, 6.16, 6.17, 6.19, 7.0, 7.1) stay affected.
->>   It goes in with the series, since two-cell dts only exist after it.
->>
->> 2. Use a flag in the upper bits of the existing cell, as Rob
->>     suggested. Existing kernels are not affected, unless a board enables
->>     the DC-PHY CSI-2 receiver on 7.0 or later without this series.
->>
->> I will write the impact clearly whichever  approach is selected in
->> the related commit messages and the cover letter.
->>
->> I think the cell approach is easier to read and more symmetric in the
->> long term,
->> but it breaks more. Which one do you think is better? Thanks.
-> 
-> I'm not a user of this platform, so I don't care. Up to the platform 
-> maintainers to decide if breakage is acceptible. You just need to 
-> document the issue in the commit message.
-> 
-> Rob
+Critical: 0 · High: 1 · Medium: 1 (1) · Low: 2
 
-It's a bit of a pickle, all this.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I gave it some more thought. In the end this is an IP block with two
-PHYs. No more, no less. One cell is sufficient to address those, and it
-could be 0 for the transmitting PHY (DSI, display) and 1 for the
-receiving PHY (CSI, camera).
+- [High] On XLGMAC cores, dwxgmac2_enable_sph() now corrupts the RX queue
+  enable register.
+- [Medium] dwxgmac2_enable_sph() programs MAC-global split and preamble
+  settings regardless of `en`.
+- [Low] The patch includes a fix for an existing XGMAC split-header bug
+  inside a feature patch, with no Fixes: tag.
+- [Low] dwxgmac2_enable_sph() sets the 2-bit SPLM field
+  (XGMAC_CONFIG1_SPLM_MASK = GENMASK(9,8)) with `value |=…
 
-Of course the two PHYs can operate in either DPHY or CPHY mode. The
-phy-cells have been (mis?)used to select the proper mode of combo PHYs,
-and this principle has been applied here too.
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but the stmmac
+  RX path has no dma_rmb() between seeing RDES3.OWN cleared and reading…
 
-However, we have the special situation here that the mode can only be
-changed for the complete IP block (and thus for both PHYs at the same
-time). As Bryan points out, we need to check and complain if the PHY
-mode is not set to the same value for both PHYs.
+--
 
-I suggest using a property
-    samsung,cphy-mode;
-(name to be bikeshedded) that sets the complete IP block into CPHY mode
-(DPHY being the default) to distinguish between the modes. Since both
-modes use a different electrical interface, this is clearly a hardware
-thing and thus suitable for device tree.
+net: stmmac: dwxgmac2: enable L2 split header support
 
-Then, we can address the two PHYs with the help of the already existing
-phy cell (without any bitflag tweaks to the value).
+This patch makes dwxgmac2_enable_sph() program SPLM and SAVE_EN in
+XGMAC_EXT_CFG1 and clear the variable preamble bit in XGMAC_EXT_CFG0. It
+also changes dwxgmac2_get_rx_header_len() so the header length is read
+only on the first descriptor. For non-IP (L2T) packets on the last
+descriptor, the length comes from RDES2[9:2].
 
-The sole drawback is that we need to accept the PHY_TYPE_DPHY and
-PHY_TYPE_CPHY values that some OS in the field might pass. (For Linux,
-it should only be the former.) And we need to handle those values
-correctly. But I think this is not more painful than the other
-approaches. At the same time, this design seems to be the most correct
-one IMHO.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> index 6719ac6e395bc..b28aa39f99472 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+> @@ -292,8 +292,22 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+>  
+>  static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+>  {
+> -	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
+> +	u32 rdes3 = le32_to_cpu(p->des3);
+> +
+> +	/* HL is only defined on the first descriptor */
+> +	if (!(rdes3 & XGMAC_RDES3_FD))
+> +		return;
+> +
+> +	/* when FD=1 and LD=0, HL is RDES2[9:0] */
+> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
+> +		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +		return;
+> +	}
 
-What do you think?
+[Severity: Low]
+Should this FD/LD handling go in its own patch with a Fixes: tag?
 
-Best regards,
-Michael
+The commit message says L34T can hold stale data on a non-last
+descriptor. If so, the old code:
 
+	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
+		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+
+could return hlen == 0 for the first descriptor of a multi-descriptor IP
+frame with SPH active. stmmac_rx_buf1_len() would then take this path:
+
+	/* Not last descriptor and not split header: buffer1 is fully filled */
+	if (status & rx_not_ls)
+		return priv->dma_conf.dma_buf_sz;
+
+even though buffer 1 only holds the header.
+
+That looks like an existing XGMAC split-header bug in the code from
+commit 96147375d49f ("net: stmmac: xgmac: Only get SPH header len if
+available"). With the fix bundled into this feature patch, stable trees
+would also need the new EXT_CFG0/EXT_CFG1 programming to pick it up.
+
+> +
+> +	if (rdes3 & XGMAC_RDES3_L34T)
+>  		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+> +	else if (rdes3 & XGMAC_RDES3_L2T)
+> +		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
+>  }
+
+[Severity: Medium]
+This is a pre-existing issue and was not introduced by this patch, but
+is a dma_rmb() missing between the OWN check and the read of des2 here?
+
+dwxgmac2_get_rx_status() loads des3 and des2, then checks OWN:
+
+	u32 rdes3 = le32_to_cpu(p->des3);
+	u32 rdes2 = le32_to_cpu(p->des2);
+
+	if (unlikely(rdes3 & XGMAC_RDES3_OWN))
+		return dma_own;
+
+stmmac_rx() then calls stmmac_rx_buf1_len()->dwxgmac2_get_rx_header_len()
+with no barrier in between. The TX completion path in stmmac_main.c calls
+dma_rmb() after its own check, and dwxgmac2_rx_check_timestamp() also
+uses one.
+
+On weakly ordered CPUs, could the RDES2 load complete before OWN is seen
+as cleared? That would give a stale HL and a wrong buf1_len.
+
+The new FD/LD logic doesn't depend on this ordering.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> index ff83858ebc1f3..0a9c787305a4e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> @@ -561,6 +561,16 @@ static void dwxgmac2_enable_sph(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  	value |= XGMAC_CONFIG_HDSMS_256; /* Segment max 256 bytes */
+>  	writel(value, ioaddr + XGMAC_RX_CONFIG);
+>  
+> +	value = readl(ioaddr + XGMAC_EXT_CFG1);
+> +	value |= XGMAC_CONFIG1_SPLM(1);
+
+[Severity: Low]
+SPLM is a two-bit field (GENMASK(9, 8)). Should it be cleared with
+XGMAC_CONFIG1_SPLM_MASK before the OR, the way HDSMS is handled just
+above?
+
+	value &= ~XGMAC_CONFIG_HDSMS;
+	value |= XGMAC_CONFIG_HDSMS_256;
+
+If bit 9 were already set, the field would end up as 3 instead of mode 1.
+
+In stmmac_hw_setup(), the SWR from stmmac_init_dma_engine()->
+stmmac_reset() runs before this. So in practice the result depends on
+the register's reset value.
+
+> +	value |= XGMAC_CONFIG1_SAVE_EN;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG1);
+> +
+> +	/* Disable variable preambles to keep the L2 split offset deterministic. */
+> +	value = readl(ioaddr + XGMAC_EXT_CFG0);
+> +	value &= ~XGMAC_EXT_CFG0_VPRE;
+> +	writel(value, ioaddr + XGMAC_EXT_CFG0);
+
+[Severity: High]
+Can this corrupt the RX queue enable register on XLGMAC cores?
+
+The DWXLGMAC_CORE_2_00 entry in hwif.c uses the same DMA ops as XGMAC:
+
+	.desc = &dwxgmac210_desc_ops,
+	.dma = &dwxgmac210_dma_ops,
+	.mac = &dwxlgmac2_ops,
+
+so dwxgmac2_enable_sph() runs there too. On XLGMAC, dwxlgmac2.h defines
+offset 0x140 as:
+
+	#define XLGMAC_RXQ_ENABLE_CTRL0		0x00000140
+
+and dwxlgmac2_rx_queue_enable() programs it like this:
+
+	value = readl(ioaddr + XLGMAC_RXQ_ENABLE_CTRL0) & ~XGMAC_RXQEN(queue);
+	if (mode == MTL_QUEUE_AVB)
+		value |= 0x1 << XGMAC_RXQEN_SHIFT(queue);
+
+BIT(8) is therefore the AVB enable for RX queue 4. Clearing
+XGMAC_EXT_CFG0_VPRE would disable that queue.
+
+The write to 0x144 also sets BIT(8) and BIT(24) in an XLGMAC register
+that the driver doesn't describe.
+
+stmmac_hw_setup() enables the MTL queues through
+stmmac_mtl_configuration() first. Later it runs:
+
+	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
+	for (chan = 0; chan < rx_cnt; chan++)
+		stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
+
+There is no sph_capable or core check, so this would happen on every
+XLGMAC open, whether or not split header is supported. Should this be
+gated on the core type, or moved into a per-core MAC op?
+
+> +
+>  	value = readl(ioaddr + XGMAC_DMA_CH_CONTROL(chan));
+>  	if (en)
+>  		value |= XGMAC_SPH;
+
+[Severity: Medium]
+Only the per-channel XGMAC_SPH bit depends on en here. SPLM/SAVE_EN are
+set and VPRE is cleared on every call, and nothing restores them.
+
+stmmac_hw_setup() calls stmmac_enable_sph() for every RX channel, even
+when sph_en is false or the core has no SPH support.
+stmmac_set_features() calls it with sph_en == false when NETIF_F_RXCSUM
+is cleared, and stmmac_xdp_open() also calls it.
+
+Doesn't that leave the variable preamble disabled on every XGMAC device
+after hw_setup? It would also stay disabled after split header is turned
+off with ethtool.
+
+The commit message says:
+
+    Finally, disable the variable-length preamble when L2 splitting
+    is enabled.
+
+which doesn't seem to match this behavior.
+
+Also, dwmac4_enable_sph(), which this extends, doesn't change the
+preamble configuration. And these MAC-global read-modify-writes are
+repeated once per RX channel.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261015221215.1714047-1-sagar.cheluvegowda%40oss.qualcomm.com
 
