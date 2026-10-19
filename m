@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894FFCCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190DCCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XWOh0TlZD3lVy6AJyQ1GhSc9Trgig1dArAlc2AK3/I=; b=v9DM8KHDnu9DFHnv3bXF6T95t3
-	1947vNjCAldp4hZ4tuhIf2+8YMdfUQkgsO0k9Qle3Qv+cMuORi+GUXHTdTuyHdB9+3pmEvn3voIX8
-	f6fiTX4bHH4x/BO0Vc+rEFNXtJZZANkCedE6qSoplYtTgrJ62j7mEXQuYYsYS09XWn/Tl9VzimvtS
-	CGVW4Kw61G80JGMl8cZLwqVGdEjr3Bi6pHxwGbP3FJU/F1t8iMGz7fU2MCjoRZbj8zlv2lVCbvYaJ
-	tZ/BLg1MXE9wiwcq0d6l00pdJfA3WyOwT5EF5zW5DsD05lUfX6d7kIizqZ/gQFiGYLMccpCAYRU8Y
-	xfshMWxg==;
+	bh=lMhrqwPw+FGLBnkvsxlHHRpMLzpmVg0Nh8ecw1O7ps0=; b=De8v2jndszkRwNRi+mqmcBV0c5
+	Jv1XSoNwZHJICwYwojhgcdAYQkE2Wk4wOBnXLs0S4uPL6hhevZMPLIlZpkoNrv3H7Gdib28wa8GoT
+	ZgNZw/tZWr1Tr/l+E2yuy/sjvshGYatC9Nm+FNFX4MR/1vNVhTMrc12i/FNkkrpEIirTw0EnWluIM
+	lEttS4ahqigqfm/V0uDZJGSSn3cjoSBm1Z3wEoZo9PfjEK7x5aCJznqbh9C2lZTdYST4jf86Kot0H
+	zZ5jl5yPVmAbBCeSAJzMwzEmNS28AmObueJAzcC09LnuJtZUejdh3fYlHEzgmbZjQ4kKPM89Ef1KT
+	hGFq1fxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInxa-00000007esy-48mA;
-	Mon, 19 Oct 2026 14:03:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xInxm-00000007f1M-2NkT;
+	Mon, 19 Oct 2026 14:03:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInxZ-00000007es6-1pz8
+	id 1xInxl-00000007f0i-2cUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:03:29 +0000
+	Mon, 19 Oct 2026 14:03:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32F894158F;
-	Mon, 19 Oct 2026 14:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C7B81F000C4;
-	Mon, 19 Oct 2026 14:03:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC50C6025A;
+	Mon, 19 Oct 2026 14:03:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB9A11F000C4;
+	Mon, 19 Oct 2026 14:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418609;
-	bh=3XWOh0TlZD3lVy6AJyQ1GhSc9Trgig1dArAlc2AK3/I=;
+	s=k20260515; t=1792418620;
+	bh=lMhrqwPw+FGLBnkvsxlHHRpMLzpmVg0Nh8ecw1O7ps0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nqpfLuB3FIE/Z/N+YcpGlDmc2DAVEroXp720IkqOU6/Y2l4079xYoG0Z9j8f9A55v
-	 PkAmO51uL56pg1PyRuK83gfDGL3o7ODxMWdkkH2rcl8waYvvrxCEC5p1+ksRnKE/xG
-	 aKF3Bct7KhGpqSAfFIW9nwtKtnSchbR6kFI1QiLpt0w2RiQawBlvLi00qxxUdSjqo3
-	 tkGlPmaHf64+9dM1Ly7nFpvVIIXnFc/kYLZfx8am7+SjySomJd9K2e5njEvZcqnzva
-	 WpO0uLRf0v1Dl2nabFnFmj7dPI9YDk9kmRtDt4mu9Ihbiq4iz5MVLguBLQPGGaHZEs
-	 hI2dUc9BiJAKg==
+	b=XsgMMs8FB2vgr/NRKG6OEJ8dHqCcFsr+TPQLKYgcuNSWpMy+LOS6WbsQ7ei8A+p+n
+	 98PKobukXDaNxo0PGIdAdZOhJPcX/J+AeImpf94FrVST/UPm/bhEtC4SWJAuBlGR75
+	 4xBtlUxraJ6Cg1AsXybKVo8aH+njZeLgo83Lrqk7atrCXWALkQK2uYijP7UbOyjMng
+	 1R9SiGqL38G4DYtzE9qfq0xNRNS07ZFh5CZUY2KNsebaTGDexhyirfFmbdbRvlzXEt
+	 dR9exrYm7tYtKeq/Krf0ZsQDWapGf40zUrPohkyLHUiVu5VIoBSRDCU8LNQuZfv1JI
+	 aCUn6wJ0x6tAw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+Cc: Alex Elder <elder@riscstar.com>,
+	Sashiko <sashiko-bot@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	florian.fainelli@broadcom.com,
-	linux-rtc@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] rtc: brcmstb-waketimer: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:51:01 -0400
-Message-ID: <20261019135441.1420968-370-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] net: stmmac: use dma_addr_t for DMA addresses
+Date: Mon, 19 Oct 2026 09:51:09 -0400
+Message-ID: <20261019135441.1420968-378-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -78,430 +86,453 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Alex Elder <elder@riscstar.com>
 
-[ Upstream commit 402c89d28fecd28652a4bfe997f08f6544836381 ]
+[ Upstream commit 0c1f9020d2ada55aed8a2e055903ad9cd5d49dab ]
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
+an unsigned integer local variable is used to hold the value returned
+by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
+subsequent dma_mapping_error() check of the returned value operates
+only on the low 32 bits (whose high bit won't be sign-extended).  In
+this case, dma_mapping_error() would return 0 (no error) even if there
+were one.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
+Fix this in both spots by using a dma_addr_t for the local variable.
 
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Link: https://patch.msgid.link/20260704121734.54941-1-pengpeng@iscas.ac.cn
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Alex Elder <elder@riscstar.com>
+Link: https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **6.12.111** (`pending-6.12`). The one-line OF alias
-publication is missing here, the match table is present, and the
-original mailed hunk applies cleanly.
+The local tree is **6.12.111** (`pending-6.12`). The buggy `unsigned int
+des2` path is present here, and this type-correctness fix should be
+backported.
 
-===============================================================
-PHASE 1: COMMIT MESSAGE FORENSICS
-===============================================================
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-Step 1.1: PARSE THE SUBJECT LINE
-Record: **[rtc / brcmstb-waketimer] [add] [publish missing OF
-MODULE_DEVICE_TABLE so the module can autoload]**
+**Step 1.1: PARSE THE SUBJECT LINE**
+Record: `[net: stmmac] [use] [store dma_map_single() results as
+dma_addr_t in jumbo_frm()]`
 
-Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
 Record:
-- **Link:**
-  https://patch.msgid.link/20260704121734.54941-1-pengpeng@iscas.ac.cn
-- **Signed-off-by:** Pengpeng Hou (author)
-- **Signed-off-by:** Alexandre Belloni (RTC maintainer; applied)
-- **No Fixes:** (expected for this review)
-- **No Cc: stable** (expected)
-- **No Reported-by / Tested-by / Reviewed-by / Acked-by / syzbot**
-- Pipeline markers (`[Upstream commit ...]`, Sasha Levin SOB) ignored
-  per instructions
+- `Reported-by: Sashiko <sashiko-bot@kernel.org>` — static-analysis bot,
+  not a user crash
+- `Link: https://lore.kernel.org/linux-
+  devicetree/20260606010122.21A211F00899@smtp.kernel.org/` — Sashiko
+  report
+- `Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>` —
+  stmmac/netdev reviewer
+- `Signed-off-by: Alex Elder <elder@riscstar.com>` — author
+- `Link:
+  https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com` —
+  v2 1/2 of a net-next series
+- `Signed-off-by: Jakub Kicinski <kuba@kernel.org>` — net maintainer
+- No `Fixes:` tag (expected)
+- No `Cc: stable` (expected)
+- Ignore pipeline `Signed-off-by: Sasha Levin` / `[Upstream commit ...]`
+  if present on a candidate wrapper
 
-Step 1.3: ANALYZE THE COMMIT BODY TEXT
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
 Record:
-- **Bug:** OF match table is wired to `.of_match_table` but not exported
-  with `MODULE_DEVICE_TABLE()`, so modpost never emits
-  `of:N*T*Cbrcm,brcmstb-waketimer` aliases.
-- **Symptom:** When `CONFIG_RTC_DRV_BRCMSTB=m`, udev/kmod cannot
-  autoload `rtc-brcmstb-waketimer.ko` from the DT compatible string. The
-  wake-timer/RTC does not bind unless the module is loaded by hand.
-- **Version info:** none in the message. Driver has been in tree since
-  v4.13.
-- **Root cause (author):** missing module-alias publication, evidenced
-  by the driver-owned table and its use by the platform driver.
-  Explicitly a source-level finding, not a live hardware repro.
+- **Bug:** `jumbo_frm()` in `chain_mode.c` and `ring_mode.c` stores
+  `dma_map_single()` in `unsigned int des2`. On 64-bit `dma_addr_t`,
+  `dma_mapping_error()` only sees the low 32 bits.
+- **Symptom:** a failed mapping is treated as success
+  (`dma_mapping_error()` returns 0).
+- **Root cause:** `DMA_MAPPING_ERROR` is `~(dma_addr_t)0`
+  (`0xFFFFFFFFFFFFFFFF` on 64-bit). Truncating to `unsigned int` yields
+  `0xFFFFFFFF`, which promotes to `0x00000000FFFFFFFF` and does not
+  match all-ones.
+- **Version info:** none in the message. The pattern dates to at least
+  2016 (`f8be0d78be6e7`).
 
-Step 1.4: DETECT HIDDEN BUG FIXES
-Record: **Not disguised.** It is a real autoload bug, same class as
-adding/publishing a device ID. Not style-only.
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+Record: Not disguised. It is an explicit correctness fix for a truncated
+DMA error check. Changing `des2` to `dma_addr_t` also stops truncating
+the address stored in `tx_skbuff_dma[].buf` (`dma_addr_t`) used for
+later unmap.
 
-===============================================================
-PHASE 2: DIFF ANALYSIS - LINE BY LINE
-===============================================================
+## PHASE 2: DIFF ANALYSIS
 
-Step 2.1: INVENTORY THE CHANGES
+**Step 2.1: INVENTORY THE CHANGES**
 Record:
-- **File:** `drivers/rtc/rtc-brcmstb-waketimer.c` (+1 / −0)
-- **Function/site:** after `brcmstb_waketmr_of_match[]` (not inside a
-  function)
-- **Scope:** single-file, one-line surgical change
-- **Upstream SHA (verified):**
-  `402c89d28fecd28652a4bfe997f08f6544836381`
+- `drivers/net/ethernet/stmicro/stmmac/chain_mode.c`: +2/−1
+- `drivers/net/ethernet/stmicro/stmmac/ring_mode.c`: +2/−1
+- Functions: `jumbo_frm()` in both files
+- Scope: single-function surgical type change in two parallel
+  implementations (4 insertions, 2 deletions)
 
-Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
 Record:
-- **Before:** table exists and is assigned to `.of_match_table` via
-  `of_match_ptr()`. Built-in matching still works. Modular autoload does
-  not, because file2alias never sees the table.
-- **After:** `MODULE_DEVICE_TABLE(of, brcmstb_waketmr_of_match)` creates
-  `__mod_of__brcmstb_waketmr_of_match_device_table` as an alias when
-  `MODULE` is set (`include/linux/module.h`). `scripts/mod/file2alias.c`
-  `do_of_entry_multi()` then emits `MODULE_ALIAS("of:N*T*Cbrcm,brcmstb-
-  waketimer")`.
-- **Path affected:** module install / depmod / udev autoload only.
-  Probe, PM, and built-in bind paths are unchanged. When `!MODULE`, the
-  macro is empty.
+- **Before:** `unsigned int des2 = dma_map_single(...)`; then
+  `cpu_to_le32(des2)`, `dma_mapping_error(..., des2)`,
+  `tx_skbuff_dma[entry].buf = des2`.
+- **After:** `dma_addr_t des2` so the error check and `buf` store use
+  the full DMA address.
+- Path: jumbo TX mapping in `stmmac_xmit()` when `enh_desc` is set and
+  the frame is large enough (`>= 4KiB` ring / `> 8KiB` chain).
+- Same local is reused for later `dma_map_single()` calls in those
+  functions, so all mapping sites in `jumbo_frm()` are fixed.
 
-Step 2.3: IDENTIFY THE BUG MECHANISM
-Record: **[Hardware enablement / missing device ID publication]**
-- Category (h): OF alias not published, so modular bind fails.
-- Not UAF, leak, race, NULL deref, or crash.
-
-Step 2.4: ASSESS THE FIX QUALITY
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
 Record:
-- **Quality:** obviously correct; this is the standard pattern (dozens
-  of RTC drivers already have `MODULE_DEVICE_TABLE(of, ...)` in this
-  tree).
-- **Regression risk:** very low. Compile-time alias only.
-  `__maybe_unused` on the table remains valid: built-in + `!CONFIG_OF`
-  still has no C reference; as a module the alias references the table,
-  which is intended.
-- **No API, locking, or data-structure changes.**
+- **Category:** type / width bug that breaks error detection (and
+  truncates unmap addresses).
+- **Mechanism:** 32-bit truncation of a 64-bit `dma_addr_t` so
+  `dma_mapping_error()` never sees `DMA_MAPPING_ERROR`.
+- Verified in this tree:
 
-===============================================================
-PHASE 3: GIT HISTORY INVESTIGATION
-===============================================================
+```92:98:include/linux/dma-mapping.h
+static inline int dma_mapping_error(struct device *dev, dma_addr_t
+dma_addr)
+{
+        debug_dma_mapping_error(dev, dma_addr);
 
-Step 3.1: BLAME THE CHANGED LINES
-Record:
-- Match table and `.of_match_table` introduced in **`c4f07ecee22ec7`**
-  (“rtc: brcmstb-waketimer: Add Broadcom STB wake-timer”, Brian Norris,
-  2017) — first appears **v4.13-rc1**. Present in this tree (`git merge-
-  base --is-ancestor` succeeded).
-- `__maybe_unused` added in **`ae1247f79ddf8`** (v5.12 era) for
-  `!CONFIG_OF` compile-test. That did not add `MODULE_DEVICE_TABLE`.
-- Bug has been present for the entire life of the driver.
-
-Step 3.2: FOLLOW THE FIXES: TAG
-Record: **No Fixes: tag.** The introducing commit is `c4f07ecee22ec7`,
-which is in this tree. No later intermediate autoload fix on this file.
-
-Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
-Record (this tree, path-limited):
-- `e005a9b35b464` level alarm_irq
-- `d64906b320ce6` `.remove` → `.remove_new`
-- `24304a87158aa` non-wake alarm
-- None of these publish OF aliases.
-- **Standalone** one-line patch; not “X/Y” of a series that this file
-  depends on. Parent of upstream `402c89d28fec` is a sibling RTC
-  autoload fix (`rtc: s32g`), not a prerequisite for this driver.
-
-Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
-Record: Pengpeng Hou is not the RTC maintainer. In this tree the only
-other `drivers/rtc/` commit from that author is unrelated (`rtc: zynqmp:
-Return optional clock lookup errors`). Alexandre Belloni (RTC
-maintainer) applied the patch. Florian Fainelli / Broadcom were on
-To/Cc.
-
-Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
-Record: **None.** Needs only `MODULE_DEVICE_TABLE` and the existing
-`of_device_id` table, both present since the driver was added. **Can
-apply standalone.**
-
-===============================================================
-PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-===============================================================
-
-Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
-Record:
-- **b4 dig -c 402c89d28fec:**
-  https://patch.msgid.link/20260704121734.54941-1-pengpeng@iscas.ac.cn
-- **b4 dig -a:** single **v1**, 2026-07-04; no v2/v3.
-- Thread (3 messages): original patch; Sashiko bot “no issues”;
-  Alexandre Belloni **“Applied, thanks!”** pointing at
-  `https://git.kernel.org/abelloni/c/402c89d28fec`.
-- **No NAK, no stable nomination, no reviewer risk flags.** WebFetch to
-  lore returned 403; thread recovered via `b4 mbox`.
-
-Step 4.2: CHECK WHO REVIEWED THE PATCH
-Record (b4 dig -w): To/Cc included Alexandre Belloni (RTC maintainer),
-Florian Fainelli, bcm-kernel-feedback-list, linux-rtc, linux-arm-kernel,
-linux-kernel. Maintainer applied it. No human Reviewed-by.
-
-Step 4.3: SEARCH FOR THE BUG REPORT
-Record: **No user/syzbot/bugzilla report.** Author states it is source-
-level. Severity from reporters: N/A. Users affected: anyone building
-this driver as a module on DT platforms with `brcm,brcmstb-waketimer`.
-
-Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
-Record: Wave of the same one-line OF-alias pattern. This 6.12 tree
-already contains:
-- `330fdd1fb7d09` drm/tve200: add OF module alias for autoloading
-- `2260191fbf7c6` crypto: keembay - publish OF module alias for OCS
-  AES/SM4
-Those are the same bug class, already accepted here. This brcmstb patch
-does not depend on them.
-
-Step 4.5: CHECK STABLE MAILING LIST HISTORY
-Record: lore.kernel.org/stable search via WebFetch returned 403.
-**UNVERIFIED** whether this exact patch was discussed on stable@. No
-local evidence it was rejected.
-
-===============================================================
-PHASE 5: CODE SEMANTIC ANALYSIS
-===============================================================
-
-Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
-Record: **No function body changed.** Site is `brcmstb_waketmr_of_match`
-/ `brcmstb_waketmr_driver`. Related runtime function:
-`brcmstb_waketmr_probe`.
-
-Step 5.2: TRACE CALLERS
-Record: `brcmstb_waketmr_probe` is only referenced as `.probe` on
-`brcmstb_waketmr_driver`, registered via `module_platform_driver()`.
-Called from platform/OF device bind (kernel boot or module load), not
-from a syscall directly. Userspace trigger is: DT node present + module
-autoload (or manual `modprobe`).
-
-Step 5.3: TRACE CALLEES
-Record: Probe ioremaps, allocates an RTC device, requests IRQs,
-`device_init_wakeup()`. The new line calls nothing at runtime.
-
-Step 5.4: FOLLOW THE CALL CHAIN
-Record: DT `compatible = "brcm,brcmstb-waketimer"` (in-tree on several
-BMIPS boards, e.g. `arch/mips/boot/dts/brcm/bcm7435.dtsi`) → OF match →
-probe. **Reachable on real STB hardware.** Autoload is the broken hop
-when `=m`.
-
-Step 5.5: SEARCH FOR SIMILAR PATTERNS
-Record: Many RTC drivers already export OF tables (`rtc-zynqmp.c`, `rtc-
-mt7622.c`, …). Historical RTC fixes of the same kind: `206e04ec7539e`
-(mxc_v2), `3fc990a5dbfff` (mt7622). Systematic missing-alias class, not
-a one-off.
-
-===============================================================
-PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-===============================================================
-
-Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
-Record: **Yes.** `drivers/rtc/rtc-brcmstb-waketimer.c:413-424` has the
-table and `.of_match_table` and **no** `MODULE_DEVICE_TABLE`. `git
-merge-base --is-ancestor 402c89d28fec HEAD` failed (fix not here).
-Introduced v4.13, long before 6.12.
-
-Kconfig in this tree (`drivers/rtc/Kconfig`):
+        if (unlikely(dma_addr == DMA_MAPPING_ERROR))
+                return -ENOMEM;
+        return 0;
+}
 ```
-config RTC_DRV_BRCMSTB
-        tristate "Broadcom STB wake-timer"
-        depends on ARCH_BRCMSTB || BMIPS_GENERIC || COMPILE_TEST
-        default ARCH_BRCMSTB || BMIPS_GENERIC
+
+`DMA_MAPPING_ERROR` is `~(dma_addr_t)0`. The current buggy locals:
+
+```23:41:drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+        unsigned int bmax, buf_len, des2;
+        ...
+        des2 = dma_map_single(priv->device, skb->data,
+                              buf_len, DMA_TO_DEVICE);
+        desc->des2 = cpu_to_le32(des2);
+        if (dma_mapping_error(priv->device, des2))
+                return -1;
+        tx_q->tx_skbuff_dma[entry].buf = des2;
 ```
-Explicitly modular. Default `y` on the SoCs that have the IP, so the
-common defconfig path is built-in; `=m` is still a supported and
-documented config.
 
-Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
-Record: **Clean apply.** Original mailed hunk (3 lines of context
-through `.probe`) — `git apply --check` **rc 0** on this tree. `.remove`
-vs `.remove_new` is later in the struct and is not in the original hunk.
-No rework needed.
-
-Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
-Record: **No** commit on this file adds `MODULE_DEVICE_TABLE`. Sibling
-OF-alias backports exist for other drivers (tve200, keembay), not a
-substitute for this one.
-
-===============================================================
-PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-===============================================================
-
-Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
-Record: **[drivers/rtc — Broadcom STB wake-timer] [PERIPHERAL]** for
-most 6.12 users; **IMPORTANT** on BCM7xxx set-top boxes (alarm/S2/S3/S5
-wake). Not mm/net/block core.
-
-Step 7.2: ASSESS SUBSYSTEM ACTIVITY
-Record: Driver is mature (2017). Recent local commits are PM/IRQ and
-platform-remove conversion, not a rewrite. Low churn around the match
-table.
-
-===============================================================
-PHASE 8: IMPACT AND RISK ASSESSMENT
-===============================================================
-
-Step 8.1: DETERMINE WHO IS AFFECTED
-Record: **Driver-specific / config-specific.** Users of Broadcom STB
-wake-timer with `CONFIG_RTC_DRV_BRCMSTB=m`. In-tree DT nodes are on
-BMIPS boards (`bcm7346/7358/7360/7362/7425/7435`). `ARCH_BRCMSTB` also
-exists on ARM and arm64; this tree’s ARM/arm64 dtsi files do not contain
-the compatible string (vendor DTs may). Built-in (`=y`, the Kconfig
-default on those arches) is unaffected.
-
-Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+**Step 2.4: ASSESS THE FIX QUALITY**
 Record:
-- Trigger: modular driver + OF device present + reliance on autoload
-  (normal distro/udev path).
-- Commonness: uncommon vs default `=y`; real whenever someone chooses
-  `=m` (help text documents that).
-- Unprivileged userspace cannot exploit this; it is bind/enablement, not
-  a crash primitive.
+- Obviously correct: use the type `dma_map_single()` actually returns.
+- Minimal; no API or behavior change on the success path with a 32-bit
+  DMA mask.
+- Regression risk is low. `desc->des2` is still `__le32`, so hardware
+  still gets the low 32 bits (same as before). Maxime asked to make that
+  truncation explicit; that is the follow-up `c11c497af866c`
+  (`lower_32_bits()`), not required for this fix to be correct.
+- `cpu_to_le32()` already casts to `__u32` on little-endian; standalone
+  apply should not break the build.
 
-Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
-Record: **[RTC/wake-timer never binds when built as a module] [MEDIUM]**
-- Not oops/deadlock/corruption/CVE.
-- On affected boxes, RTC alarm and suspend wake from this block can fail
-  to be available until a manual `modprobe`.
-- Fits stable-rules “device ID” / “oh, that’s not good” more than
-  “oops”.
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-Step 8.4: CALCULATE RISK-BENEFIT RATIO
+**Step 3.1: BLAME THE CHANGED LINES**
 Record:
-- **Benefit:** medium for modular STB configs (hardware actually gets
-  its driver); low for default `=y` defconfigs.
-- **Risk:** very low (1 line, modpost alias, no runtime behavior change
-  for built-in).
-- **Ratio:** favorable. Same class already merged in this 6.12.y tree.
+- `unsigned int ... des2` in ring_mode: `f8be0d78be6e7` (2016-11-15,
+  “change dma descriptors to `__le32`”).
+- chain_mode declaration last touched by `2c91b39912278` (already in
+  this tree: “fix integer underflow in chain mode”); that commit kept
+  `unsigned int des2`.
+- `jumbo_frm()` itself: `286a837217204` (2011).
+- Bug is long-standing, not new in 6.12.
 
-===============================================================
-PHASE 9: FINAL SYNTHESIS
-===============================================================
+**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: No `Fixes:` tag. Introducer is the 2011/2016 DMA-descriptor
+code, present in this tree.
 
-Step 9.1: COMPILE THE EVIDENCE
-**FOR:**
-- Real autoload bug: OF table used, aliases never generated.
-- One line, obviously correct, maintainer-applied.
-- Driver and buggy code exist in 6.12.111 since v4.13.
-- Original patch applies cleanly here.
-- Device-ID / hardware-enablement exception; wake-timer matters for STB
-  suspend/resume.
-- Identical OF-alias one-liners already in this tree (tve200, keembay).
-- Zero runtime regression path for the default built-in config.
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Record (this tree):
+- `2c91b39912278` net: stmmac: fix integer underflow in chain mode
+  (already here)
+- `133160135a6d7` STMMAC_GET_ENTRY rename
+- Mainline follow-up: `c11c497af866c` net: stmmac: convert DMA address
+  to lower 32 before assignment (clarity; not in this tree; not a
+  functional prerequisite)
+- This is standalone 1/2 of “DMA address handling fixes”; 2/2 is
+  style/clarity.
 
-**AGAINST:**
-- Not a crash, UAF, deadlock, or security hole.
-- No user report; source-level scan.
-- Kconfig default is built-in on the SoCs that have the hardware, so
-  many production images never hit autoload.
-- Peripheral driver, not core.
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+Record: Alex Elder is not the stmmac maintainer; two origin stmmac
+commits are this pair. Reviewed by Maxime Chevallier; applied by Jakub
+Kicinski.
 
-**UNRESOLVED:**
-- Whether this SHA was already discussed on stable@ (lore 403).
-- Whether vendor ARM/arm64 brcmstb DTs (not in this tree) also use this
-  compatible.
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+Record: No new helpers. `dma_addr_t` and `dma_mapping_error()` exist
+here. `git apply --check` of `0c1f9020d2ada` succeeded on this tree.
+Parent-tree vs this tree only differs in `is_jumbo_frm()` (untouched).
+Standalone apply: yes.
 
-Step 9.2: APPLY THE STABLE RULES CHECKLIST
-1. Obviously correct and tested? **PASS** — standard macro; RTC
-   maintainer applied v1 with no objections.
-2. Fixes a real bug that affects users? **PASS** — modular OF autoload
-   does not work; Kconfig allows `=m`.
-3. Important issue? **PASS** (device-ID / hardware-enablement class;
-   functional miss for modular STB RTC/wake). Severity MEDIUM, not
-   CRITICAL.
-4. Small and contained? **PASS** — +1 line, one file.
-5. No new features or APIs? **PASS** — publishes an alias for an
-   existing match table.
-6. Can apply to the local tree? **PASS** — `git apply --check`
-   succeeded; code present; no missing prereqs.
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-Step 9.3: CHECK FOR EXCEPTION CATEGORIES
-Record: **Device ID / OF module alias publication for an existing
-driver** (stable-rules: “or just add a device ID”). Closest match to the
-documented ID-addition exception.
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+Record:
+- `b4 dig -c 0c1f9020d2ada` →
+  https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com
+- Series: v1 2026-08-11; v2 2026-08-12 `[PATCH net-next v2 0/2] net:
+  stmmac: DMA address handling fixes`
+- Applied to **net-next** (not `net`) by Jakub on 2026-08-17
+- Cover: “ensure DMA errors don't get lost due to casting the result to
+  an integer of the wrong size”
+- No NAKs. Maxime: “I think this is good as-is” + `Reviewed-by`
+- Maxime noted `cpu_to_le32(des2)` still truncates into `__le32` and
+  doubted jumbo on true 64-bit descriptor addresses; that is pre-
+  existing hardware-descriptor width, not a regression from this patch
+- No reviewer `Cc: stable`
 
-Step 9.4: MAKE YOUR DECISION
-Backport. The bug is in this tree, the fix is the usual one-line alias
-export, it applies cleanly, and it matches both the written device-ID
-exception and OF-alias fixes already on 6.12.y. Default-y only reduces
-how often it bites; it does not make the modular path fictional.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+Record (`b4 dig -w`): netdev maintainers (Kicinski, Dal, Pabeni, Lunn),
+STM32/stmmac (Torgue, Coquelin), Maxime Chevallier. Appropriate
+audience.
 
-------------------------------------------------
-What the commit solves for this tree
-The 6.12 `rtc-brcmstb-waketimer` driver matches `brcm,brcmstb-waketimer`
-but never asks modpost to emit that alias. Built as a module, the wake-
-timer will not autoload. Adding `MODULE_DEVICE_TABLE(of, ...)` is the
-complete fix.
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+Record: Sashiko static analysis, not syzbot and not a user oops. The
+lore `linux-devicetree` link is a bot dump; no independent user
+reproduction was found. The bug is still visible in the code.
 
-Risk vs benefit
-Benefit is restoring bind on modular STB configs; risk is essentially
-nil. Context around `.remove_new` does not affect the original hunk.
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+Record: Companion 2/2 (`c11c497af866c`) only wraps
+`cpu_to_le32(lower_32_bits(des2))`. This commit is the actual fix.
 
-------------------------------------------------
-Verification:
-- [Phase 1] Parsed tags: Link to msgid, SOB Pengpeng Hou + Alexandre
-  Belloni; no Fixes/Cc stable/Reported-by
-- [Phase 1] Body: missing OF alias; source-level, no hardware repro
-  claimed
-- [Phase 2] Diff: +1 line `MODULE_DEVICE_TABLE(of,
-  brcmstb_waketmr_of_match)` after the match table
-- [Phase 2] `include/linux/module.h`: macro is alias-for-modpost if
-  `MODULE`, empty otherwise
-- [Phase 2] `scripts/mod/file2alias.c` `do_of_entry_multi()`: emits
-  `of:N*T*C<compatible>`
-- [Phase 3] `git blame`: table from `c4f07ecee22ec7` (v4.13-rc1);
-  `__maybe_unused` from `ae1247f79ddf8`
-- [Phase 3] `git merge-base --is-ancestor c4f07ecee22ec HEAD`: intro
-  commit is in this tree
-- [Phase 3] `git merge-base --is-ancestor 402c89d28fec HEAD`: fix is
-  **not** in this tree
-- [Phase 3] `git show 402c89d28fec`: confirmed same +1 line,
-  author/date/message
-- [Phase 3] `git log --oneline -20 -- drivers/rtc/rtc-brcmstb-
-  waketimer.c`: no prior MODULE_DEVICE_TABLE on this file
-- [Phase 4] `b4 dig -c 402c89d28fec`: lore URL + v1-only series
-- [Phase 4] `b4 dig -a`: only v1, 2026-07-04
-- [Phase 4] `b4 dig -w`: Belloni, Fainelli, bcm-kernel-feedback-list,
-  linux-rtc CC’d
-- [Phase 4] `b4 mbox`: Belloni “Applied, thanks!”; Sashiko no issues; no
-  NAK
-- [Phase 4] WebFetch lore: 403; used b4 instead
-- [Phase 4] UNVERIFIED: stable@ thread for this exact subject
-- [Phase 5] Probe only used as platform `.probe`; DT compatible present
-  in `arch/mips/boot/dts/brcm/*.dtsi`
-- [Phase 6] `make kernelversion` / Makefile: **6.12.111**; `git describe
-  HEAD`: p-6.12-3-gc504cf0baa3d8
-- [Phase 6] Local file lines 413–424: table present, MODULE_DEVICE_TABLE
-  absent
-- [Phase 6] `git apply --check` of original hunk: **success (rc 0)**
-- [Phase 6] Same-class already in tree: `330fdd1fb7d09`, `2260191fbf7c6`
-- [Phase 7] MAINTAINERS: RTC subsystem maintained by Alexandre Belloni
-- [Phase 8] Kconfig tristate + `default y` on ARCH_BRCMSTB/BMIPS_GENERIC
-  verified via blame
-- [Phase 8] Failure mode: missing modular bind, not a crash
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+Record: lore.kernel.org returned HTTP 403 via WebFetch. `b4` thread has
+no stable discussion. UNVERIFIED: whether this hash was already
+requested on stable@; that does not change the technical verdict.
+
+## PHASE 5: CODE SEMANTIC ANALYSIS
+
+**Step 5.1: IDENTIFY KEY FUNCTIONS**
+Record: `jumbo_frm()` in `chain_mode.c` and `ring_mode.c`.
+
+**Step 5.2: TRACE CALLERS**
+Record:
+- `stmmac_jumbo_frm()` macro → `hw->mode->jumbo_frm`
+- Only call site: `stmmac_xmit()` when `priv->plat->enh_desc` and
+  `is_jumbo_frm(skb->len)`
+- Context: process / NAPI TX, not IRQ
+- `dwmac4_ring_mode_ops` (DWMAC ≥ 4.00) has no `jumbo_frm`; those chips
+  do not use this path
+- Affected: DWMAC100 / DWMAC1000 (and early DWMAC4 that still install
+  `ring_mode_ops`/`chain_mode_ops`) with enhanced descriptors
+
+**Step 5.3: TRACE CALLEES**
+Record: `dma_map_single()`, `dma_mapping_error()`, `cpu_to_le32()`,
+`stmmac_prepare_tx_desc()`. On error, `return -1` → `stmmac_xmit` `goto
+dma_map_err`.
+
+**Step 5.4: FOLLOW THE CALL CHAIN**
+Record: userspace send / jumbo MTU → `ndo_start_xmit` = `stmmac_xmit` →
+`jumbo_frm`. TSO/GSO with `priv->tso` uses `stmmac_tso_xmit` instead.
+Reachable from userspace on jumbo MTU. Mapping failure is an error path
+(IOMMU / swiotlb pressure).
+
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+Record: non-jumbo TX in `stmmac_xmit` already uses `dma_addr_t des`.
+This is leftover jumbo-path width mismatch. Historical related fix in-
+tree: `06a80a7d09cc3` (descriptor addresses >32-bit).
+
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+Record: Yes. Local tree is **6.12.111** (`p-6.12-3-gc504cf0baa3d8`).
+Both files still have `unsigned int ... des2`. Introduced no later than
+2016; present since this series branched. `git merge-base --is-ancestor
+0c1f9020d2ada HEAD` is false (fix not here).
+
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+Record: Expected **clean apply**. `git show 0c1f9020d2ada | git apply
+--check` succeeded. Only unrelated `is_jumbo_frm()` signature drift vs
+mainline parent.
+
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+Record: No `dma_addr_t` jumbo_frm fix in this tree. `2c91b39912278` is a
+different jumbo underflow fix and left `des2` as `unsigned int`.
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+Record: `drivers/net/ethernet/stmicro/stmmac` — Synopsys DWMAC, used on
+STM32, Rockchip, Allwinner, i.MX, Qualcomm, Intel, etc. Criticality:
+**IMPORTANT** (common Ethernet), this path **PERIPHERAL-to-IMPORTANT**
+(older GMAC + jumbo).
+
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+Record: Actively maintained, but `chain_mode.c`/`ring_mode.c` jumbo
+logic is mature (2011). This is an old bug, not churn from new code.
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+Record: Driver-specific, config `CONFIG_STMMAC_ETH`, older DWMAC with
+`enh_desc`, jumbo frames, **and** 64-bit `dma_addr_t` (typical
+arm64/x86_64). 32-bit `dma_addr_t` already compared equal to
+`DMA_MAPPING_ERROR`.
+
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+Record: Jumbo TX (`skb->len >= 4KiB` ring / `> 8KiB` chain) plus
+`dma_map_single()` failure. Not every packet. Unprivileged users can
+send jumbo frames if MTU allows; they cannot force IOMMU exhaustion
+easily. Mapping failure is uncommon but real.
+
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
+Record:
+- Failed mapping treated as success
+- Descriptor programmed with `0xFFFFFFFF`
+- NIC DMAs from that address (wrong memory / bus error / possible leak
+  of physical memory onto the wire)
+- `tx_skbuff_dma[].buf` also truncated, so unmap can be wrong
+- Severity: **HIGH** (wrong DMA address / potential corruption). Not a
+  guaranteed panic on every jumbo packet.
+
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
+Record:
+- **Benefit:** medium-high for affected 64-bit DWMAC jumbo users; closes
+  a real DMA error-handling hole
+- **Risk:** very low (2-line type change per file, no locking/API
+  change)
+- **Ratio:** favorable
+
+## PHASE 9: FINAL SYNTHESIS
+
+**Step 9.1: COMPILE THE EVIDENCE**
+
+FOR:
+- Real, verifiable type bug: truncated `dma_mapping_error()` on 64-bit
+  `dma_addr_t`
+- Failure can program the NIC with a bogus DMA address
+- Also stores a full address in `tx_skbuff_dma[].buf`
+- ~6 lines, obviously correct, reviewed, applied by net maintainer
+- Buggy code is in this 6.12 tree and has been for years
+- Patch applies cleanly
+- Same driver already uses `dma_addr_t` on the normal TX path
+
+AGAINST:
+- Submitted to **net-next**, not `net` (not treated as an urgent
+  regression)
+- Sashiko/static analysis, no user oops
+- Jumbo + older GMAC + mapping failure is a narrow trigger
+- Reviewer noted 32-bit descriptors cannot represent full 64-bit
+  addresses (pre-existing)
+- Companion `lower_32_bits()` patch is not included (optional clarity)
+
+UNRESOLVED:
+- Stable@ archives not readable via WebFetch (403)
+- Exact Sashiko warning text in the large 47-message dump was not
+  isolated beyond the type issue this patch names
+
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — type matches DMA API;
+   reviewed; in mainline since 2026-08-17
+2. Fixes a real bug that affects users? **PASS** — missed DMA mapping
+   errors on 64-bit `dma_addr_t`
+3. Important issue? **PASS** — wrong DMA address on mapping failure
+   (corruption / crash / possible leak), even if the window is uncommon
+4. Small and contained? **PASS** — 6 lines, two files, one function
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — `git apply --check` clean on
+   6.12.111
+
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+Record: None (not a device ID/quirk/DT/build/docs exception). Qualifies
+as a normal small bugfix.
+
+**Step 9.4: MAKE YOUR DECISION**
+The local 6.12 tree still truncates `dma_map_single()` to `unsigned int`
+in `jumbo_frm()`, so `dma_mapping_error()` cannot see
+`DMA_MAPPING_ERROR` on 64-bit `dma_addr_t`. That is a real DMA
+correctness bug, the fix is surgical, and it applies here without
+prerequisites. Narrow trigger does not outweigh the severity of
+programming a failed mapping into the NIC.
+
+### What the commit solves and why it matters to stable users
+On 64-bit `dma_addr_t` platforms, a failed jumbo TX mapping is
+misclassified as success, and the MAC may DMA using `0xFFFFFFFF`. 6.12
+users of DWMAC1000-class stmmac with jumbo MTU on arm64/x86_64 are
+exposed.
+
+### Stable rules / risk
+Meets the stable bar: real bug, small, no new API, clean apply. Risk is
+a type change of a local. Benefit is correct mapping-error handling and
+a full-width unmap address.
+
+### Concerns
+Optional follow-up `c11c497af866c` only makes 32-bit descriptor
+truncation explicit; not required. No need to wait for other series
+patches.
+
+## Verification
+- [Phase 1] Parsed tags: Sashiko Reported-by, Maxime Reviewed-by, Jakub
+  SOB; no Fixes/Cc stable
+- [Phase 1] Body: truncated `dma_mapping_error()` on 64-bit `dma_addr_t`
+- [Phase 2] Diff: `unsigned int des2` → `dma_addr_t des2` in both
+  `jumbo_frm()` implementations (+4/−2)
+- [Phase 2] `include/linux/dma-mapping.h`: `dma_mapping_error()`
+  compares to `DMA_MAPPING_ERROR` (`~(dma_addr_t)0`)
+- [Phase 2] Local `chain_mode.c`/`ring_mode.c` still use `unsigned int
+  des2`; `tx_skbuff_dma[].buf` is `dma_addr_t`
+- [Phase 3] Blame: `f8be0d78be6e7` (2016) / `286a837217204` (2011); in
+  this tree
+- [Phase 3] Mainline SHA `0c1f9020d2ada`; follow-up `c11c497af866c` is
+  clarity-only
+- [Phase 3] `git merge-base --is-ancestor 0c1f9020d2ada HEAD` → not in
+  this tree
+- [Phase 4] `b4 dig -c 0c1f9020d2ada`: lore/msgid v2 1/2 net-next
+  series; applied to netdev/net-next
+- [Phase 4] `b4 dig -a`: v1 then v2; Maxime suggested `lower_32_bits()`,
+  still Reviewed-by on the type fix
+- [Phase 4] `b4 dig -w`: netdev + STM32/stmmac CCs
+- [Phase 4] mbox cover: “DMA errors don't get lost due to casting”
+- [Phase 4] UNVERIFIED: stable@ mailing list (lore 403)
+- [Phase 5] Callers: `stmmac_xmit()` → `stmmac_jumbo_frm()`; DWMAC4 ≥
+  4.00 ops have no `jumbo_frm`
+- [Phase 5] Non-jumbo TX already uses `dma_addr_t des`
+- [Phase 6] `git describe HEAD` / `make kernelversion`: 6.12.111
+- [Phase 6] `git apply --check` of `0c1f9020d2ada`: success
+- [Phase 6] `git diff 0c1f9020d2ada^ -- chain_mode.c ring_mode.c`: only
+  `is_jumbo_frm()` drift
+- [Phase 8] Failure mode: missed mapping error → NIC DMA at
+  `0xFFFFFFFF`; severity HIGH
+- UNVERIFIED: isolated full text of the original Sashiko diagnostic line
 
 **YES**
 
- drivers/rtc/rtc-brcmstb-waketimer.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
+ drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/rtc/rtc-brcmstb-waketimer.c b/drivers/rtc/rtc-brcmstb-waketimer.c
-index fb47c32ab5ff4..55c15aad42cff 100644
---- a/drivers/rtc/rtc-brcmstb-waketimer.c
-+++ b/drivers/rtc/rtc-brcmstb-waketimer.c
-@@ -413,6 +413,7 @@ static const __maybe_unused struct of_device_id brcmstb_waketmr_of_match[] = {
- 	{ .compatible = "brcm,brcmstb-waketimer" },
- 	{ /* sentinel */ },
- };
-+MODULE_DEVICE_TABLE(of, brcmstb_waketmr_of_match);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+index 2515608878235..5b0bab33ce4b6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, buf_len, des2;
++	unsigned int bmax, buf_len;
+ 	unsigned int i = 1, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
  
- static struct platform_driver brcmstb_waketmr_driver = {
- 	.probe			= brcmstb_waketmr_probe,
+ 	desc = tx_q->dma_tx + entry;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+index 88a8d22812f5d..1e6541937cb27 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, len, des2;
++	unsigned int bmax, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
+ 
+ 	if (priv->extend_desc)
+ 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
 -- 
 2.53.0
 
