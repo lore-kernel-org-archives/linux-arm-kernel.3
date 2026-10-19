@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C55ACCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 04:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0076CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 04:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=; b=0iuHGm5xQ8pTtVy5mVsyvQgYyk
-	/hkwBzCrKsDq/CbmZRZfVNllw2aa/XmpYplXbDRMu7uodwIgCbnNQ956mYpCvQpQAKSscTo8IZCsG
-	tOQQonB/EE4/F8JXq9dy6Vkdk+0H5oR1AVzvZuELj6s7vkA2nk0U3SCcmQ20xW/2EhsRRvhXbM9hW
-	8K/OdS57sGETOGVjeH+8HqzoJ3GrBUlQzNuEYjgFPSGJV46eOvn4LVcbRiwEdPV/5Is2Vxhlf0Bg3
-	oZls9irf9HxSUjlqmHCyPo1c4QV/2y7oZ6z91Ok74eMZIbwdZQtrK42UoxstO+nyplEq37HwDBmjv
-	hSX3G9uw==;
+	bh=tBXbAkaPauO/t+CrWaIYHzrmfu0tKOxa9L0c762SX8c=; b=Da1gBLR+WqMxEr0Qce+Tb9K8Ix
+	TZPlfftSMcY0S0TOnM+WtqZ3bsmTjKIFfFdGCtn1dRlMvyjHRXifi9DZO4EnkXvfkMJ6sE1QlYWu0
+	liPHwo+9BHeizg4xMQzUr0RV4w74fYqpN9X0pypZFourHxInSO9tbtmJDsYntFF+1i0rcjmliWsAG
+	D45RUHXw5WA0NV+He5WQczF0Qtd16pINFHucCprhcx6nzYedfgitS9tl0I5snlUOg5rC4oKBAjNv7
+	1uHNlq6WDxgIRooPFHGIp08h2M4AVlmDy72vL1zpMhMX3Em7z3v5LsRWwiDWh4eS4YUAOAvc3Saaa
+	s9ciLgYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPY-00000006baB-3anP;
+	id 1xIfPY-00000006bZt-2B5n;
 	Mon, 19 Oct 2026 04:55:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPX-00000006bZQ-2v55
+	id 1xIfPX-00000006bZ3-1YfO
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 19 Oct 2026 04:55:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAE174481F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AF9B44796;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9F11EC2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 39FE5C4AF09;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1792385746;
-	bh=zgU3iQM72YbxnsGmykO32NltLNkwhLgTNSOphGXHrLE=;
+	bh=pKXmsCQJW+PpDlYYrKN/8PfNUOO/bnI2lQYYcxu5qrk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dDUOh1najE5HwJKKBPGOlvwphz8vKNHYlwMo/Zn6uK+loUruSTaUzEUvMxDfgaraN
-	 2nIZZjvStcCpi43Q3C2ToauRNydNK82MSgUATWoauDVw9J2I+X+fZs5H/b298Es4/0
-	 SL9CqfWfWWV1HdM05mC3L4mJuXSfhxTbu3R+2xWc4QrA76RwKsQe+UNpaNUP9Fpdo/
-	 DwK8aQVsp1Ln6iBJlA92v7ergIUmnepXm5JUL4w8M+fVOPdNV/1WtlX+8sTekM+OEs
-	 v2bRE72xQeblrCDyUiCNB5hhnki940UNjgJVCILU+vyOygfUq90uxzpYwflKie4jNc
-	 KP6iD96NrS9ow==
+	b=KJvlNo7Pmyz+r3JXHuhTXf3CW1YV9TFTL2fp8aR+QYdiBY3/KKVoyrnaKkG62GxKI
+	 GiseyMtsZFmCuuDNX2vxkALKhk8w5/d42g6BJVLEgKg9D0mL7CoCC/+xmKZARptAQb
+	 ptec6X0kFQwtiZYfASeVe8/KDtOigtYAkbhXjJ4qtydRDcAYojg+CywY5NPh7sIezu
+	 iknHFtRo4/iuMC1xC1T/Qo1gNPsgS3Emr90QzfEzXIYjpGL6whC7cTMzopaycTRTre
+	 bnarFa+Me5VXsidGaiwcwV9YEAKbgGvCWV8yEXL9lOVCf9+puBobDA9pItDHsMtWhn
+	 mdxxPJ8dN++Cw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AB86CCF2D3;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E4EFCCF2D3;
 	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Mon, 19 Oct 2026 12:55:43 +0800
-Subject: [PATCH v10 5/5] MAINTAINERS: add ARM/AMBARELLA SoC support
+Date: Mon, 19 Oct 2026 12:55:39 +0800
+Subject: [PATCH v10 1/5] dt-bindings: arm: add Ambarella CV75 platforms
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-cv75-soc-v10-5-d386065e2dd5@ambarella.com>
+Message-Id: <20261019-cv75-soc-v10-1-d386065e2dd5@ambarella.com>
 References: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
 In-Reply-To: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -70,11 +70,11 @@ Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
  Long Zhao <longzhao@ambarella.com>, Long Zhao <zl020895@163.com>, 
  linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792385744; l=1241;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792385743; l=1278;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=66/FpPmSuU75AtQewU8cj7mu+Qa/5qamx4Km8ySoeYo=;
- b=+2HZXt/Q1o7OE8loSEe3SRjzhikyIx1oW7WWR5j768z5zP8/8XhOMTTprPKVPUvp/qWlqsLLA
- h/uxZj1JR3oBcnfZXwmupuPJLt8PwULXa6I9OlYVXjJmUnMczA1BChx
+ bh=3/nmC3518iJUv3pa+4TrYyrJ8fmY9AVoXsn+4KhycZM=;
+ b=kCPCquAEIZ4+mZuo73vZAYpkDemx6PEB1H0KTBjDoNQIJl2u0Kfhf/ZJpMJ/kPW941DLmlc/k
+ mcL+RuIbsZRAlZPf7s3mm7pT8aelu9XTunmk03CFgYaQ8X5eQ79jh3a
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -97,40 +97,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Add a maintainer entry covering Ambarella CV75 bindings, DTS and
-related drivers.
+Document the CV75 EVK board compatible for the initial SoC bring-up.
+The ambarella vendor prefix is already applied in the devicetree tree.
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- MAINTAINERS | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ .../devicetree/bindings/arm/ambarella.yaml         | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 803b60ad628f..59e5b32d7a02 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2502,6 +2502,20 @@ F:	drivers/clocksource/asm9260_timer.c
- F:	drivers/rtc/rtc-asm9260.c
- F:	drivers/watchdog/asm9260_wdt.c
- 
-+ARM/AMBARELLA SOC SUPPORT
-+M:	Long Zhao <longzhao@ambarella.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	devicetree@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/arm/ambarella.yaml
-+F:	Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-+F:	Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
-+F:	arch/arm64/boot/dts/ambarella/
-+F:	drivers/clk/ambarella/
-+F:	drivers/pinctrl/pinctrl-ambarella*
-+F:	include/dt-bindings/clock/ambarella,cv75-rct.h
-+N:	ambarella
+diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
+new file mode 100644
+index 000000000000..72946e94fa76
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
+@@ -0,0 +1,24 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/ambarella.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- ARM/AMD PENSANDO ARM64 ARCHITECTURE
- M:	Brad Larson <blarson@amd.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++title: Ambarella SoC platforms
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++properties:
++  $nodename:
++    const: "/"
++
++  compatible:
++    oneOf:
++      - description: Ambarella CV75 boards
++        items:
++          - enum:
++              - ambarella,cv75-evk
++          - const: ambarella,cv75
++
++additionalProperties: true
 
 -- 
 2.34.1
