@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDADDCCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 02:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4055CCCA490
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 02:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5XrVa/WZsdWl0kXEO4Tad1CAMv5WguTwZ9fsvVxcDg=; b=2GnKN7KWl3u+fzHNFl5GdJ3RYL
-	3qpHi5Iwt3wKuzwydpVF8QmLLAPSr6LOZjB7NB94ZLjdDXYnZKMeP4IldRjtWrEDlFq9qcXKc68LZ
-	FOWcHf3itThSpi2NwSLTEO6l2QfiLSdIIXzikWPloHYiWhVQ1ZkV+uUXckU8ulKmNN7QbbP+TcBK8
-	+7FuTZ0soHfOnTXS6QdQ6hV6N9FcWxWRnG0W0tVYdI4CbStiBAx70FduYaHI51tU8j9qMifMZp4Lc
-	fudsqmX/ehspJJ6fXvqBYJzYLyJQcDt7UyirzUgIVAaaReLx2nUZ2PYK0vMK3hifvkphybLrrmEI4
-	uDUbvPeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OTeAHhDu6rLdIC+c7Ig9cS6MPdi5FFeMFdNOO55dM1c=; b=T9VIYBHSJ5yWqfORzb/S2HHBPi
+	Bej6RmrQTU62Z6YX6Ey84TlQ8eQtjpmhHfv5aZf58pqlB1MLEZDqiRHuUILfKYXQsY3Fj8dXlLUE6
+	7yCvyBGghRSOpnfMBhRM805XQVHli5MHh171CGDyTF3IsopwLcL1+vFxZZ+jFGiZr8dguo6xMYGrq
+	yA/9yAjHVTyxNbpqaIfY16I24Wylfl90KBi+2+EsHK8HgyDeaaGUf6pDjBz0lhqsRba3jCDNaOmsm
+	tFZ0vZqfEn5H4rp+e+w+NwJhmUQuFkr+BXF7lVVxuFg0EAFfY6hzwMR+w7HtyFaFNdBzxD2zSQ08w
+	OYcBWpUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcpI-00000006RHI-1jOt;
-	Mon, 19 Oct 2026 02:10:12 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xIcse-00000006Ryi-3bES;
+	Mon, 19 Oct 2026 02:13:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIcpF-00000006RGZ-3rd0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 02:10:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=STwad6xmc2+rE7kFv1vTU3iZuoP9Rc7nJ4Q25fUMUx6EButYSsg57LOSEnwY6v0f+hS8BWDOTDcUhw6kRTIKqG6ieEendDJSEcmvGHRFBLYohc45z5FJmon1xP/kStTbsajeSKM+OrD0nDCn6/KONE4zVhOtelBSwBnKqpC1xvTJ/80tDtBENH7FRrKXRh0iYYHroVF7TvmZsrHPUgKmrxFBe0TrirLMQ3Ay42+EFsxZKODx5TBUI7U9IEy7c4nIwv7zvbd5UdJWRwvmpuI5evUcr974bQzjM5oVbS2NVjG1yOb6zih//Rg3aOTlvI3VCQ7b/FvDU5kO/QI+s23ZbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w5XrVa/WZsdWl0kXEO4Tad1CAMv5WguTwZ9fsvVxcDg=;
- b=S27BAJm8BjYvRnbjVlmZmL5gUSnScQFcT1v/LJ7MuHXVWbooT673GNdAa54K5VtaAtmEqgzo+lskmf89tHHu9jLg28SvV3jBJw/ktjTt7BqRsLoSt3LLB+thp51xIegbxaEfhdX0hcQytN7bfCyzLB6MQP2hosfh16xHIFx6++JdwQHc2PqK4dLNgcFFJWCGUZ9X5u1ZISkECRKzhFkSGx0a1lClTnMDJQsZjpbQwVD95p8hgQxyaRhYGVD581wlT1Coq6wY03uy48Oi7ySbNZWhMyk+d/8qVxNXL2gWnJfC2L5UhYAXK9vbfid4JLA8VfB5zA+sclfdftMtyefzzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI3PR01CA0002.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::9) by TY0PR06MB5152.apcprd06.prod.outlook.com
- (2603:1096:400:1b3::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
- 2026 02:09:53 +0000
-Received: from OSA0EPF000000C8.apcprd02.prod.outlook.com
- (2603:1096:4:296:cafe::1b) by SI3PR01CA0002.outlook.office365.com
- (2603:1096:4:296::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Mon,
- 19 Oct 2026 02:09:52 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C8.mail.protection.outlook.com (10.167.240.54) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 02:09:51 +0000
-Received: from JohnnyFan (unknown [172.21.64.24])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id A468942C6447;
-	Mon, 19 Oct 2026 10:09:50 +0800 (CST)
-Date: Mon, 19 Oct 2026 10:09:44 +0800
-From: Johnny Fan <johnny.fan@cixtech.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	james.clark@linaro.org, jeremy.linton@arm.com,
-	cix-kernel-upstream@cixtech.com, bob.zhang@cixtech.com,
-	jie.fu@cixtech.com, Fugang Duan <fugang.duan@cixtech.com>
-Subject: Re: [PATCH] perf: arm_spe: Support heterogeneous ACPI systems
-Message-ID: <atV7wDlfmd7sermb@JohnnyFan>
-References: <20261015062908.3565761-1-johnny.fan@cixtech.com>
- <86mrsf1bnv.wl-maz@kernel.org>
- <20261015141926.GC26205@e132581.arm.com>
- <atGY5+kzQggCZboX@JohnnyFan>
- <20261016100538.GE26205@e132581.arm.com>
+	id 1xIcsd-00000006RyZ-2qxZ;
+	Mon, 19 Oct 2026 02:13:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C0B3419F1;
+	Mon, 19 Oct 2026 02:13:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F52E1F000C4;
+	Mon, 19 Oct 2026 02:13:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792376019;
+	bh=OTeAHhDu6rLdIC+c7Ig9cS6MPdi5FFeMFdNOO55dM1c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GKU6XjhhijXdkLvmKWqe2lHLbB69e8YJyKEBgRBXBX0UKQ9bA6S9G+Om7USxlUmSe
+	 0pQX1fEdIOiBPTfh2TQf6BFvoNNh9Ga0CwTWmPoeeEQcp3d9kVQVatwi84yNU75fD3
+	 rwxyaZcB1ozG7EuT5EpDA/o1xO+w/wN4s4C7IaxDzKSuZuC+TQJXSy2+EL9wOSJzM5
+	 AV+CEses5L1/LgQBDoJVCtXOCizpoHWfDmsJC/Nc1g9v11BEr+Z7/Xm2wfBPrTWM4x
+	 DkE92auy1x01Gcu2YXObxGdnKnjqOizVA83Mw/k7G3lFUiEJs+taTrAmvtC1vDggBi
+	 07MykhZB0Xhnw==
+Date: Mon, 19 Oct 2026 03:13:33 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Ryan Brue <ryanbrue.dev@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee
+ Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>, Luca Leonardo
+ Scorcia <l.scorcia@gmail.com>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v4 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
+ driver
+Message-ID: <20261019031333.1010682f@jic23-hlaptop>
+In-Reply-To: <20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-2-23533a0d30e3@gmail.com>
+References: <20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-0-23533a0d30e3@gmail.com>
+	<20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-2-23533a0d30e3@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016100538.GE26205@e132581.arm.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C8:EE_|TY0PR06MB5152:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9977b793-9b7d-4c74-32e2-08df2d860f84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|82310400026|36860700016|4143699003|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: kQG3gfFEU426pHuLafVGhyY5UXAgKKpecZdXLoQvhCDUTLKtaXIqakwTWfleAoKGp25uOiU9QjkGDpJ0BCAhHblMUWppT2Sq4vhD81flUt6bgykWP4+GaJ3ti9As8ypj9c3RkTUV77DihYuDVzGmHmgIDCijGCOgPQeXiFFAY7zlR6dmMSeJiEhyj5PYtmonsMRW7rfI+dhSxSLLCcCQ29ChwXa7UjkzMwxhP2oiYMDMU76M9LDf6pWTEg2/4PzH97aowKBUt0Sc4OkLDKfRJnowHprAeHo3MRNqdByW4IidKLVfNbwhegoLi5CrreMUr0Q50qm23drA017Fh8tWXwUTZR9KvuH2JlzmVhmGR8yitgzCfTrzwDyZDj1Cew90aVWlFschImYvXwDUokSrwNm6MjBKjowaUHEHHf2zsIw8MI2xITM+1VgOq7gVXBSThRUkSYRdM5eP5bkqyZHgqjabjNA9oyxq5iwzS9dZJfXY4+bx/QppsDnETMRqt0xlPaKAhSTuHdCD/cn94K1nq+0/RI969jYWdvxnuBBiXhxkZ7FXQ4NiYbk1TINYNWceHDKXQirD4q6qoYG2tum5CNS3kfkFqwYtHvWUI8oyopKmJlduYM9ptA50SCjHIS4TagjFtSvSx61B6P7G2WMJuUYgy3MWldOLo91AoB9AyME8F/wHTKz56dj8DYXNFJhQiYx4DNm6jgrYhjhEqTXZAw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(82310400026)(36860700016)(4143699003)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: hH6nUkKBULCYGS0X4T+TKo8i1f5HbQB4y+mSspeBAh3h1nOKziKiz5r2evkI43WCisnP9sIjI7wJrpiQvhzsLfYuFVU5MWoXqjFbLbwGOg/adWvw6JzjE6T8NOuYvCxepwO+i8y/65rOWf2yap6Qg6OO/gtX130hUS4pKcto5Gpk6zOj4zwC2Imm9ape4p65mCqEB3hWIQjgrN6X+2n1+gFI7abnodOdBr29oeQO/FdIUnksvOVa9m7lZ45QRuiAc2RL3/SnmRTeNvXPRRPG3MQm2LPdzGe1u/HNczvTocXucCe498KWve57sgI7BXwKSzz3X0fcd+zizNR6OwT38WNS+nCctSX32Q3idN5mqIt4EW7RxP2l9+9rDKX9mSJ3Ni0tVXmR80PCVDzzVLorKVHhmGNL4+rJTqidH6/Qt3AyZnIEyfn5zcloyUOKzXsc
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 02:09:51.6647
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9977b793-9b7d-4c74-32e2-08df2d860f84
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C8.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5152
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_191009_962845_AB2CCB10 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,25 +79,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 11:05:38AM +0100, Leo Yan wrote:
-> SPE driver supports heterogeneous systems. If firmware creates proper
-> devices based on CPU topology, the driver can probe multiple instances.
+On Mon, 28 Sep 2026 15:57:20 -0500
+Ryan Brue <ryanbrue.dev@gmail.com> wrote:
+
+> The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
+> built around this PMIC it is the only way to read the battery: the SoC's
+> AUXADC is wired to board thermistors and the charger ICs these boards use
+> have no ADC of their own.
 > 
-> So "registration is limited to homogeneous systems" is not quite right.
+> Add a driver exposing the battery voltage and battery temperature
+> channels. Only those two are described, so a channel ID in the device tree
+> indexes the driver's channel array rather than the PMIC's channel number,
+> as mt6323-auxadc does. The ready bit lives in a channel's raw result
+> register, but the value comes from the chip's factory-calibrated copy.
+> 
+> The battery voltage is measured through ISENSE, because a board with a
+> switching charger in the power path leaves BATSNS on the charger's system
+> rail instead of on the pack. The thermistor only reads correctly with the
+> PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
+> settle. Both are switched back off afterwards.
+> 
+> Reads average sixteen conversions in software; the chip's sample
+> accumulator makes no measurable difference at any setting, so it is left
+> at one sample per conversion.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+Hi Ryan
 
-You are right, I meant the ACPI registration path in arm_pmu_acpi.c. It
-registers a single static SPE device, and only if every possible CPU
-agrees on both the implementation tag (hetid) and the SPE interrupt
-number -- a CPU that does not implement SPE reports 0, which breaks that
-agreement, so a heterogeneous machine gets no SPE device at all (the
-boot still succeeds; SPE is just absent). As Jeremy pointed out, the fix
-is to group the CPUs by (hetid, GSIV) and create one device per group,
-like DT does with PPI partitions. The driver already handles multiple
-instances; how each one gets its supported_cpus is the plumbing question
-I asked Marc about.
+Sorry for the delay.
 
+Just one thing inline. If I wasn't tired from a long day
+of review I might just have made the change and asked you
+to check it. So bad luck on that!
 
 Thanks,
 
-Johnny
+Jonathan
+
+> diff --git a/drivers/iio/adc/mt6397-auxadc.c b/drivers/iio/adc/mt6397-auxadc.c
+> new file mode 100644
+> index 000000000000..8d1702658876
+> --- /dev/null
+> +++ b/drivers/iio/adc/mt6397-auxadc.c
+
+> +static void mt6397_auxadc_release(struct mt6397_auxadc *adc,
+> +				  const struct iio_chan_spec *chan)
+> +{
+> +	/* Lowering START leaves the converter unarmed between reads. */
+> +	regmap_clear_bits(adc->regmap, MT6397_AUXADC_CON1, MT6397_AUXADC_CON1_START);
+> +
+> +	if (chan->channel == MT6397_AUXADC_ISENSE)
+> +		mt6397_auxadc_isense_disable(adc);
+> +	else
+> +		mt6397_auxadc_battemp_bias_off(adc);
+> +}
+> +
+> +static int mt6397_auxadc_read_channel(struct iio_dev *indio_dev,
+> +				      const struct iio_chan_spec *chan,
+> +				      int *val)
+> +{
+> +	struct mt6397_auxadc *adc = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	mutex_lock(&adc->lock);
+> +
+> +	if (chan->channel == MT6397_AUXADC_ISENSE) {
+> +		ret = mt6397_auxadc_isense_enable(adc);
+> +		if (ret)
+> +			goto out_release;
+> +
+> +		fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
+> +	} else {
+> +		ret = mt6397_auxadc_battemp_bias_on(adc);
+> +		if (ret)
+> +			goto out_release;
+> +
+> +		fsleep(MT6397_AUXADC_BATTEMP_SETTLE_US);
+> +	}
+> +
+> +	ret = mt6397_auxadc_read_burst(adc, chan, val);
+> +
+> +out_release:
+> +	mt6397_auxadc_release(adc, chan);
+This ends up rather confusing.  Would you mind instead doing it as a pair of helpers
+and a top level bit of code that does.
+
+	guard(mutex)(&adc->lock);
+	if (chan->channel == MT6397_AUXADC_ISENSE) {
+		return mt6397_auxadc_isense_read();
+	else
+		return mt6397_auxadc_battemp_read();
+
+
+The only thing that get duplicated is the call to read_burst()
+which seems simpler than having a pair of if / else on the channel
+(one hidden in this release).
+
+> +	mutex_unlock(&adc->lock);
+> +
+> +	return ret;
+> +}
+
+
 
