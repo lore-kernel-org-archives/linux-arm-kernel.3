@@ -4,104 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09F4CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F62CCCF2D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QA1eOrPJrYNKlxWlaIRYtRL2w5ep69GInvvuM85VaoU=; b=oRE5z82Il6bX1Zgop2uX98FmUj
-	c+AZg3LR0qWxhS3bWsdZeZIUvJErPNqsP2dzCbdf237Ggmu7jQ76SFNGTseKuGtdRuN9uOloHNZn/
-	NEP9k4GZ9EGn6pa4MitUXikhoJOM0tlKqXgbfVaSZCLC+vWGq6xUlJUaDN8C3N68WhwIXJkUo0u7e
-	GVgcvazLJrRf/sssY2U5C6GhHtZuf2kC6bjwZhABMVFcJNygMD+qINPq5Wzk9PnlgaAptRCpTdZje
-	xvbDxaThgm/CZw0XiqYaNNPJSaL9bN0eNtE6PPcsQ8RBdnaZyXMpfT+jQ9bDAyEW5VsJD26ch8AEe
-	HtRzV+VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=; b=T78ckeK8ReSXZozuuNWTmGKNvX
+	O/dhWejf1RXTMfwjWxPzLJe0Rm9n1vBKaECjdODsPzVAGKMlRNFre5+psGJY3xkbSf8qvqyfSAmPX
+	FnKdmMSkeRiulNXb6b+KmmCDj/BfjN9xemwDMvlyyXcffgHkirbTDXwMwKc2Ks5MRXxmgVVoe0pfr
+	cT6MUoZOPwhdNV6tF3qy7DikPA3BPJ5rZFLiS+eYv7e5sg+jltmL7NzIlgHxTNKtEdv7sT7HXfZr1
+	VLIZTfO1MlcEnoYGW0tob/dOh1UI2evS5AGRr0Sy7qPJFK7TzH7k21L6MZ/hwsjuuTqtuxlB7Xtjh
+	0E3z/9Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlPZ-00000007HcY-30Sd;
-	Mon, 19 Oct 2026 11:20:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xIlTh-00000007I2M-1K6W;
+	Mon, 19 Oct 2026 11:24:29 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlPX-00000007Hc7-3ywd;
-	Mon, 19 Oct 2026 11:20:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QA1eOrPJrYNKlxWlaIRYtRL2w5ep69GInvvuM85VaoU=; b=Z7tKsVKqJlno/9UQgAiEpO+FHm
-	1P6yYSRrON63b++4R6X0MC2DkGaOg6K8o7kVNLhtWkimJ48fe5D0JHxXii4jzHa2CCOYMEA6OGwdl
-	F9mL6oNKevGxWf0KHEwylFko1ebfZH6ch1+pY1ecnxbGny+2zaeC+xvdy0myCXBVTFX4CFayjCfai
-	2iJN8NMChFXfZFcju3Iefg+LW62PlGrp8o7UiTtqwcmoUgeKwIKRw8RQ4dMutqGpKZ8p0waJGCd7M
-	k1cDXnWC63AdLHmdwYTz7fHDVfZXeA6G6FtXtMh4m22jOmc9f6OI21eucDT1UhiO2T+bck68PJLMK
-	WQ2OWQpQ==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.5 #2 (Red Hat Linux))
-	id 1xIlPT-00000003ZFt-3ZKl;
-	Mon, 19 Oct 2026 11:20:10 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 69JBJIrdC1843777, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1792408758; bh=QA1eOrPJrYNKlxWlaIRYtRL2w5ep69GInvvuM85VaoU=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=G7/dfBEEogSn5trDkoOtJmwNN5o9QZHOYwrYPKKpKyGua4LreGDym9O3fL3b974LB
-	 i3T5UnL2PyeMupjYK2hohgb+KktC1IKbUCn0zEb49IAIRwz+E3zRfXfdnuG2cBKWE+
-	 o4LZxhjsPbPdYWVbYX/dgAfC09W0udypNeFESx8cQSMnkMUy3Cor2A06pXrvbN6gfL
-	 oRUPRIqpHgv8gUeb1WEzgowX0BWnMShpBPUOu5j334bnD1CwdyLq+fRoGoAFL7gG5S
-	 Pntc6cSoDfu0uk5eWfM9CR2hQtWM0ISnJVd8m9OdY11sIzIbKFQvwsFBUf3TOcqTQR
-	 1XqdwlsWCCkaQ==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 69JBJIrdC1843777
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 19 Oct 2026 19:19:18 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 19 Oct 2026 19:19:18 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Mon, 19 Oct 2026 19:19:17 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::b3cc:c263:b82d:e87c%10]) with mapi id
- 15.02.2562.049; Mon, 19 Oct 2026 19:19:17 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "tglx@kernel.org" <tglx@kernel.org>, "radu@rendec.net" <radu@rendec.net>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"lee@kernel.org" <lee@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mfd@lists.linux.dev" <mfd@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-Subject: RE: [PATCH v5 3/8] dt-bindings: mfd: realtek,rtd1xxx: Add interrupt
- controller child node
-Thread-Topic: [PATCH v5 3/8] dt-bindings: mfd: realtek,rtd1xxx: Add interrupt
- controller child node
-Thread-Index: AQHdXxqxrooHtuvy+0+IPKYEf41fuLcED+AAgACnvNA=
-Date: Mon, 19 Oct 2026 11:19:17 +0000
-Message-ID: <b12ff328ebca405f96a9b25decdb7c81@realtek.com>
-References: <20261018160653.3940371-1-eleanor.lin@realtek.com>
- <20261018160653.3940371-4-eleanor.lin@realtek.com>
- <20261019-prophetic-moth-of-youth-40dbd6@quoll>
-In-Reply-To: <20261019-prophetic-moth-of-youth-40dbd6@quoll>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1xIlTf-00000007I1w-0iCl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 11:24:28 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69J8OrE91665571
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:24:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=; b=ARLEYZjT8erF5qXs
+	saU47ZpIVBTPaXlIliggk5y6VKbsiP3CRIKRK6OcBcmpF4Xo/4xEvJmBgp62Sa2j
+	JnxqcsQt6I+kg5DhY2Cg3ztSSq68P2bBd//7ladzsxtmnZ8b//woAzdvqCLcu8ep
+	c+2kJk1/P0LZl2lPv+cgGsJ2OD9YjfeTvrUU3yvfKMzb0sVysT+fYHkB7VuBEgGk
+	IZwt/mNz75T8IJuSHdiu3etBQlRHXEMvBZrvToXcTS57Bj51G83nT1C00YRe5wUJ
+	xYoeh8VftuyVGp1Yz3wOWRPvY9reLHQFsTqv48jmcHbz4jghOPEQd9fXgD81gjF5
+	A595Og==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdf3n0tba-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:24:26 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-53568f05f8bso6781851cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:24:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1792409066; x=1793013866; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=;
+        b=MElsMXKXpKtpOZmV90kaB3U9zSauVICIYbJ3EMNwFGpui0w+X118q+xnbD2UHTRr2I
+         63rQgF68U0/pC1GM/7jRy0GspsCyth1jzr4o9FHC0apuGBf6Z9VRQHzKb/rW9RrUOT4H
+         e/CO296EklAJ4Pdmx4y9UG9kpelSp/sdsxpwco4tRixWiwSfYK9GiVSJqmuXYoEcVsW1
+         v2TSiCqhgiayjmLPa7oNbZycwmXZevvRViMbMDjNZ+AmfWm0W/lyxE6wbm+r9FIpjKq4
+         xNLei+VxR3KFjZYX4OJAvHn7wDb8s7McF4phaDIxJ1xkTnsP70mJi5XUfGyq0VQueAa8
+         rnsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792409066; x=1793013866;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=;
+        b=nfkETETAaySr5llrweA/ZjmvYttNf0frI8SRF47FgLLlOxC3BxBIpus4aHII5zhUvf
+         NcsS4hrKSD2FMMB6736hk+Kq3Gs8fcEzkuuDLzKk71NlPQ8jla7mbm8W7JRgh3/YKX5L
+         Gj2LaccC315r5COc2e6yFj/0Ck1j4/xKL0NoRsKV7mpVWqdwn4v5we+Fgdf+hlvH27PD
+         vtLohMaHHqiOaO3VhqFZAQQcW0pmaKMxDgpczaTcyiyqbdLCbpXcTSLIUTcNVVU9FE+r
+         48wV2gtreRtwJsCrU4ZkWyz8ME/k5RBknkwwMPxPUZk4pmNtGr6lz0C2MXzqUdH6Krhs
+         /qEw==
+X-Forwarded-Encrypted: i=1; AKwUvBwFgaSDKNkjkXc+5MGV041buVmGYHbAUsrCLcxx4rrEagG1NFGoaYyZznBZDSc938Z8cD8CUccte+9K0G6nY56O@lists.infradead.org
+X-Gm-Message-State: AFq9FYJufrcEaI1geYWM7qGGu/xWrGDaaPsp/U+iT5wUXa6jZiHc0GjM
+	WP63pqvb+RTUfD5hD1VpvylIja964iPTb/4a2OTTAhe/k+p8YDS/Cuz/GN1TsG8TK8rD8ngxV82
+	YSHrdxMegUB54x6NpgzotBrUjNwW6bFflkArdMbSXOnjIztmPJ50naYTKY3fotWOScQuOsOvCFr
+	KIhndpfLYQXw==
+X-Gm-Gg: AYBFou3N5Hx4jPX/zDWv+PJ/bcwRUPKyBhpuNDfdWGZ7gyH7Jxy3E25qF24Kl5voHkN
+	J+S5nccUTsWgq9gsGFQLbchYIGr7J7D4EVqWCu53Xh+Upab9x9aPtG59JDS+/q1t2wxiSvbLlcd
+	HdwnWXA+oCqWYkRPzaLNC3rrfunQHcN2NLf/Auj8O9UuTU7IhEc8wLclg1AcUDp/3FOPXtVPDpp
+	W3HA+eXIamHRz6oRaqEro6TJ6SI+UoW6JLsD+CqV34sNdJ8NoW455HCRhuj/OHbEmv0lfi1sDku
+	EN1SdcB6Ndc2x55URnlwYTUPCFlg3QNPj226ME+5R/NF5FX0/YuE75RQgOvm8BID2JIeMf5Lrvb
+	uh+wtWi3EatgyIUUoBKOhWQ==
+X-Received: by 2002:ac8:5701:0:b0:535:fd16:4393 with SMTP id d75a77b69052e-536461cc281mr129062951cf.5.1792409065487;
+        Mon, 19 Oct 2026 04:24:25 -0700 (PDT)
+X-Received: by 2002:ac8:5701:0:b0:535:fd16:4393 with SMTP id d75a77b69052e-536461cc281mr129062381cf.5.1792409065011;
+        Mon, 19 Oct 2026 04:24:25 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4090dcf100sm338414066b.15.2026.10.19.04.24.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Oct 2026 04:24:24 -0700 (PDT)
+Message-ID: <c75046e2-5d33-41c1-b032-3c16e630030d@oss.qualcomm.com>
+Date: Mon, 19 Oct 2026 13:24:20 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/9] irqchip: irq-qcom-mpm: Register MPM with cpu_pm
+ for RPM notification
+To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Anna-Maria Behnsen <anna-maria@linutronix.de>,
+        Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
+ <20261015-b4-shikra_lpm_addition-v2-2-ac7f1a0d5638@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-2-ac7f1a0d5638@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA0NSBTYWx0ZWRfXyCY0FaAmJrpH
+ zuwK5lMMk5BsC1VtF7xVMnZChZ3r6fkzcNpwqNnc3RiUkd+Sf8RxPh6WxYNvtdd+4Cr/w1bgcDE
+ MZQI8LZxqxYGGyPdERZBErsZ5PBUfzg=
+X-Proofpoint-ORIG-GUID: kkp6gP_7ZIzolFh3wpuvsCrRQAVA8Mqp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA0NSBTYWx0ZWRfX6AKfzfbjyk91
+ xoREL1q3vjQyUEiL4hAbEEc4EiCGjRuAZRcvBJxkgP9cZswXuJhbUAzo69ItPIvoDCkCamQg8Fj
+ ZZBl+FYAQvq9b8n4jf+ScatznwBVgQdtx/jBFPNP1DMe+ol21Ybm9zFRdErGEW9HjUshe2VDYIj
+ vZ91mHZ7IIiTl8bEcRHY13ayO5OmpC7wF5gmTl2ckzhLx3Sd3+aUIisTnS1KxF81ASMwB5oQafn
+ Kdf1atf4JOOjSxtRsaWzXWS8vM+mSn306cc6iwX+SkTYfXxNUy2upV8ezLkibU5T90R1VHKTcIb
+ c320xXQKemppRPUnXos14xEUAgnf7ROgH/LPXKS/hYyRlbH1Hj6f60YPOVyzPJNBxA3D6+lBgZU
+ qVdWgHTN/qzwD2k6QqXBfCd19p9P3qpcnEmpzQMkG/MaXieqTKKXDDuKEnj/5dfGDKlfl+5dmED
+ 9hiBGChDrWwOsRlYoeQ==
+X-Proofpoint-GUID: kkp6gP_7ZIzolFh3wpuvsCrRQAVA8Mqp
+X-Authority-Analysis: v=2.4 cv=Zf2IpcVA c=1 sm=1 tr=0 ts=6ad5fdea cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=OE6UjuR3gYnAVEq_z8YA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-19_03,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
+ phishscore=0 priorityscore=1501 bulkscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190045
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_122008_888282_A9898D81 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20261019_042427_227483_86A83744 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,55 +160,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLA0KDQo+IE9uIE1vbiwgT2N0IDE5LCAyMDI2IGF0IDEyOjA2OjQ4QU0gKzA4
-MDAsIFl1LUNodW4gTGluIHdyb3RlOg0KPiA+IEFsbG93IGFuIGludGVycnVwdCBjb250cm9sbGVy
-IGFzIGEgY2hpbGQgbm9kZSBieSByZWZlcmVuY2luZyB0aGUNCj4gPiBydGQxMzE5LWludGMtaXNv
-IHNjaGVtYSwgdXBkYXRlIGFkZGl0aW9uYWxQcm9wZXJ0aWVzIHRvDQo+ID4gdW5ldmFsdWF0ZWRQ
-cm9wZXJ0aWVzLCBhbmQgYXBwZW5kIGEgdXNhZ2UgZXhhbXBsZS4NCj4gDQo+IEkgZG8gbm90IHNl
-ZSB0aGF0ICJ1cGRhdGUiLg0KPiANCg0KU29ycnkgYWJvdXQgdGhpcy4gSSB1cGRhdGVkIHRoZSBk
-aWZmIGJ1dCBtaXNzZWQgdXBkYXRpbmcgdGhlIGNvbW1pdA0KbWVzc2FnZS4gV2lsbCBmaXguDQoN
-Cj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IFl1LUNodW4gTGluIDxlbGVhbm9yLmxpbkByZWFsdGVr
-LmNvbT4NCj4gPiAtLS0NCj4gPiAgLi4uL2JpbmRpbmdzL21mZC9yZWFsdGVrLHJ0ZDF4eHgueWFt
-bCAgICAgICAgIHwgMjgNCj4gKysrKysrKysrKysrKysrKysrKw0KPiA+ICAxIGZpbGUgY2hhbmdl
-ZCwgMjggaW5zZXJ0aW9ucygrKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdA0KPiA+IGEvRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21mZC9yZWFsdGVrLHJ0ZDF4eHgueWFtbA0KPiA+IGIv
-RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21mZC9yZWFsdGVrLHJ0ZDF4eHgueWFt
-bA0KPiA+IGluZGV4IDcxN2UyOWMzN2IzNi4uYjIxZTE0ZGYyODc5IDEwMDY0NA0KPiA+IC0tLSBh
-L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tZmQvcmVhbHRlayxydGQxeHh4Lnlh
-bWwNCj4gPiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWZkL3JlYWx0
-ZWsscnRkMXh4eC55YW1sDQo+ID4gQEAgLTY1LDYgKzY1LDEwIEBAIHByb3BlcnRpZXM6DQo+ID4g
-ICAgICBjb25zdDogMQ0KPiA+DQo+ID4gIHBhdHRlcm5Qcm9wZXJ0aWVzOg0KPiA+ICsgICJeaW50
-ZXJydXB0LWNvbnRyb2xsZXIiOg0KPiA+ICsgICAgJHJlZjogL3NjaGVtYXMvaW50ZXJydXB0LWNv
-bnRyb2xsZXIvcmVhbHRlayxydGQxMzE5LWludGMtaXNvLnlhbWwNCj4gPiArICAgIHVuZXZhbHVh
-dGVkUHJvcGVydGllczogZmFsc2UNCj4gPiArDQo+ID4gICAgJ0BbMC05YS1mXSskJzoNCj4gPiAg
-ICAgIHR5cGU6IG9iamVjdA0KPiANCj4gV2hhdCBpcyB0aGlzIGZvciB0aGVuPyBTaG91bGQgaXQg
-YmUgcmVtb3ZlZD8NCj4gDQoNClRoZSBvcmlnaW5hbCBzeXNjb24gY29tcGF0aWJsZSBoYXMgb3Ro
-ZXIgY2hpbGQgbm9kZXMgdGhhdCBkbyBoYXZlICdyZWcnDQpwcm9wZXJ0aWVzIGFuZCB1bml0IGFk
-ZHJlc3Nlcywgc28gdGhpcyBwYXR0ZXJuIGlzIHN0aWxsIG5lZWRlZCBmb3IgdGhlbS4NCg0KPiA+
-DQo+ID4gQEAgLTc2LDMgKzgwLDI3IEBAIHJlcXVpcmVkOg0KPiA+ICAgIC0gcmVnDQo+ID4NCj4g
-PiAgYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlDQo+ID4gKw0KPiA+ICtleGFtcGxlczoNCj4g
-PiArICAtIHwNCj4gPiArICAgICNpbmNsdWRlIDxkdC1iaW5kaW5ncy9pbnRlcnJ1cHQtY29udHJv
-bGxlci9hcm0tZ2ljLmg+DQo+ID4gKyAgICAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvaW50ZXJydXB0
-LWNvbnRyb2xsZXIvaXJxLmg+DQo+ID4gKw0KPiA+ICsgICAgc3lzY29uQDcwMDAgew0KPiA+ICsg
-ICAgICAgIGNvbXBhdGlibGUgPSAicmVhbHRlayxydGQxNjI1LWlzbyIsICJzeXNjb24iLCAic2lt
-cGxlLW1mZCI7DQo+ID4gKyAgICAgICAgcmVnID0gPDB4NzAwMCAweDEwMDA+Ow0KPiA+ICsgICAg
-ICAgIHJhbmdlcyA9IDwweDAgMHg3MDAwIDB4MTAwMD47DQo+ID4gKyAgICAgICAgI2FkZHJlc3Mt
-Y2VsbHMgPSA8MT47DQo+ID4gKyAgICAgICAgI3NpemUtY2VsbHMgPSA8MT47DQo+IA0KPiBXaHkg
-ZG8geW91IGhhdmUgY2VsbHMgaXQgeW91ciBjaGlsZCBoYXMgbm8gYWRkcmVzc2luZz8NCj4NCj4g
-PiArDQo+ID4gKyAgICAgICAgaW50ZXJydXB0LWNvbnRyb2xsZXIgew0KPiANCj4gU28gdGhlIGJp
-bmRpbmcgcmVxdWlyZXMgY2hpbGRyZW4gd2l0aCB1bml0IGFkZHJlc3MsIHllcz8NCj4gDQoNClRo
-ZSBpbnRlcnJ1cHQtY29udHJvbGxlciBkb2VzIG5vdCBuZWVkIGEgdW5pdCBhZGRyZXNzIGJlY2F1
-c2UgaXQgYWNjZXNzZXMNCnRoZSByZWdpc3RlcnMgdmlhIHRoZSBwYXJlbnQncyByZWdtYXAuDQoN
-CldpbGwgdXBkYXRlIHRoZSBleGFtcGxlIHRvIHJlbW92ZSB0aGUgdW5uZWNlc3NhcnkgcHJvcGVy
-dGllcyBmcm9tIHRoZQ0KcGFyZW50IGFzIGZvbGxvd3M6DQoNCnN5c2NvbkA3MDAwIHsNCiAgICBj
-b21wYXRpYmxlID0gInJlYWx0ZWsscnRkMTYyNS1pc28iLCAic3lzY29uIiwgInNpbXBsZS1tZmQi
-Ow0KICAgIHJlZyA9IDwweDcwMDAgMHgxMDAwPjsNCg0KICAgIGludGVycnVwdC1jb250cm9sbGVy
-IHsNCiAgICAgICAgY29tcGF0aWJsZSA9ICJyZWFsdGVrLHJ0ZDE2MjUtaW50Yy1pc28iOw0KICAg
-ICAgICBpbnRlcnJ1cHQtY29udHJvbGxlcjsNCiAgICAgICAgaW50ZXJydXB0LXBhcmVudCA9IDwm
-Z2ljPjsNCiAgICAgICAgaW50ZXJydXB0cyA9IDxHSUNfU1BJIDQxIElSUV9UWVBFX0xFVkVMX0hJ
-R0g+LA0KICAgICAgICAgICAgPEdJQ19TUEkgNTcgSVJRX1RZUEVfTEVWRUxfSElHSD4sDQogICAg
-ICAgICAgICA8R0lDX1NQSSAzOSBJUlFfVFlQRV9MRVZFTF9ISUdIPjsNCiAgICAgICAgI2FkZHJl
-c3MtY2VsbHMgPSA8MD47DQogICAgICAgICNpbnRlcnJ1cHQtY2VsbHMgPSA8MT47DQogICAgfTsN
-Cn07DQoNCkJlc3QgcmVnYXJkcywNCll1LUNodW4NCg0KPiBCZXN0IHJlZ2FyZHMsDQo+IEtyenlz
-enRvZg0K
+On 10/15/26 11:55 AM, Sneh Mankad wrote:
+> MPM irqchip needs to notify RPM (Resource Power Manager) processor to read
+> the latest wake up capable interrupts when the CPU cluster is entering the
+> deepest idle state. This is done by sending IPC interrupt to RPM and is
+> implemented as .power_off() callback by registering MPM as parent power
+> domain to CPU cluster.
+> 
+> Such implementation earlier introduced a hard probe dependency between MPM
+> irqchip and CPU cluster power domains. That is MPM irqchip needs to finish
+> probe before PSCI power domains are probed.
+> 
+> The above problem has since been resolved after bd7f488a8e5d ("cpuidle:
+> psci: Fix support for probe deferral by dropping the faux device") / [1].
+> However, it makes sense to remodel the RPM notification in MPM irqchip due
+> to general consistency.
+> 
+> MPM is not really a power domain provider, all it needs is a notification
+> when CPU cluster is going to power collapse to carry out the RPM
+> notification. We can register for CPU_PM notifications for that purpose.
+> This way we can avoid such unrelated dependencies.
+> 
+> We cannot register MPM under CPU cluster power domain and rely on
+> GENPD notifications here, since that way cluster low power modes will be
+> blocked whenever some consumer of MPM, and in turn MPM itself, are
+> runtime active. This will add another unnecessary dependency for CPU
+> cluster low power modes.
+> 
+> For now as first step, register with cpu_pm as a fallback to manage RPM
+> notification. Trigger the RPM notification when the last CPU in CPU cluster
+> goes to power collapse.
+
+IIUC since we no longer need a dt-bindings addition, after this series
+lands, we'll be able to strip out the powerdomain provider path, right?
+
+Konrad
 
