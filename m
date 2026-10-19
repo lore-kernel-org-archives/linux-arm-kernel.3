@@ -2,71 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADDE3606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 20:13:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C4FB606A31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 20:13:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Apyv9OPj;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=Vdc78mEU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=37BJ0PFh;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=I4EtfQBu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=; b=Apyv9OPjhZJmC1UqRzIbcfDzXa
-	n97hwcyqjsxw+Vgl0bSfxgIkHS+/0vxHpgxStnNNx7JGFn8fUSoDq3yfx6W1nPtIDiEiClMjz7hni
-	93pJRnORXylzpDYO0e8vF4/8gU8aVJkWno41b3EEoV94/b/+BshftwsCkGs56E+BgJ8vSYF/t482+
-	ZHFHfJ27/8+YpaExQunKtVqihIqvUCb+Md63xD2NTgAOBew+U1F6gdXa75kYsTDfK3wKgLUZoWuSR
-	LWV+zF+s1HOSetFGr2tNmlWQnHzolhGyHfNuUzMf8FQnMN/qJrACM8fZ4b69A8ExBYDcwbljJyaVR
-	94sZhgHg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6Cutn76HGVOvz/pUDurQ4xzloi5+zrfO4jU85m5dbQ=; b=37BJ0PFhmrkzCZgMN+Fe0+LX4w
+	oy1v+DglD7mHEGZuHTQhL9mgvzCqJfm0TZ6H9muhwLsD1J3CpvX4Y0gSktDr/Zs/BIGVIsWaci4Js
+	ytxuuLl7hXMqs3yZQ0i4kTPC2qVg2zBCPs9zD4zJuP2XNJsY8l6Y6/kOWCmPNqZeK2CbZqgFzBwtv
+	dalTSiUnq7jGVyGLmlxhCvlq/LTP40HAX3eCD4mpuleIK+tnTne6SFYIBTr0p7bHvV7bJv3PLXea7
+	0dgNRYRpZfcq8x3qvlSvwcma7trUfNbmh8lWEmWZaCQWuH24Kww7MOo5dfuG89b3YJ7DiQ+FXp4rO
+	/FtY7oUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xItjQ-00000008IGS-03ki;
-	Mon, 19 Oct 2026 20:13:16 +0000
-Received: from mail-dy1-x1345.google.com ([2607:f8b0:4864:20::1345])
+	id 1xItjV-00000008IIK-0Y11;
+	Mon, 19 Oct 2026 20:13:21 +0000
+Received: from mail-dl1-x1245.google.com ([2607:f8b0:4864:20::1245])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xItjM-00000008IFH-1qtl
+	id 1xItjP-00000008IFp-0x6G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 20:13:14 +0000
-Received: by mail-dy1-x1345.google.com with SMTP id 5a478bee46e88-35fb6be0f9fso6427123eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 13:13:11 -0700 (PDT)
+	Mon, 19 Oct 2026 20:13:16 +0000
+Received: by mail-dl1-x1245.google.com with SMTP id a92af1059eb24-155a75f91e1so32725c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 13:13:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792440791; x=1793045591; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=;
-        b=Vdc78mEU5vSdTDw+2ExvbFlA1A1FQLRTE9fhM8u0RXXz+q6d+Wx6RkiJoIDRdHqmwf
-         N8qksJaQCQgAYd2MX3HiHWQIn9WkEPttmes3SHEU2QlbH6CSfbTxFmazaadqcYO9wtP0
-         /jeqBgdReTHdnRHm72l0m8W6cusfjt3YTDlKcRpeu8iosQg/t7kGLRITC9qWk6BCogbd
-         UaDhFagmpSAd7NuPOkpfa4qplamVKPnCguGqiFbfmFiTJwTA2ZrYS4AAwCHdWpcJ18Z4
-         ZTDb60u8yOFIi2QP1TS8Hotdi598hHCubmv/qX/ou74mO0qWeANURfgBJpNRz34YzYrG
-         roJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792440791; x=1793045591;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1792440793; x=1793045593; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XlJfSKdFCH7ItGXZeKGbQccPhCIHUR7nxzGpcJ+bVqQ=;
-        b=ZPbdjKuVT4XPXTGESiXuSjjvWKS2JvA0S2ZbU/SpkGSZhKDyoZEIl1vbpnRsDVHkOu
-         s8cJTJrIxuG1y4WSEdScztr6plzdrFCKsNh0hMmhZu5YD5mPV04y0sWjLRrd6z6qj6Wx
-         Pq034h0nHx5erjqZt75JEcUUROdby9nOO+5hlew7yl1337qhjqg4MxsMKmlRvalahRyw
-         MYD10E9CWkvDt8LlcRfP7LUzbwpfBrIr8CDaPb2s7c461K0aj5OgKfuSBqS9wNcuFiLq
-         6QwfmSNLhIWPQRkOlNI9bTq19Hjz35sgeSlQ9sOdc5GlMawpmoOcuIEFmHTjtB7UwVit
-         PWCw==
-X-Forwarded-Encrypted: i=1; AKwUvBx7uv26BjBmJ+iXiHEJwltB8xePDb9QcQGJes2/1fGoTxcdRmTHqHr0uBWrmPNhbvDAtdGuuyAHZ7CcSJ1onKT1@lists.infradead.org
-X-Gm-Message-State: AFq9FYLL5xrCNZyEtIa2m2t/RQTWO6sj0fOVHlV6Tg6T7xZglhb5KdAG
-	oB+6aujh7R0AALvDRaEWOF0BjfC/6qDtcdQQQ8ibpEVHQr+vXP4wE4fWMrlx+7a4bw0oCWMzJPz
-	tOn5hWxJh3g==
-X-Received: from dyrp21.prod.google.com ([2002:a05:693c:69d5:b0:35f:390d:248a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:87c2:10b0:34b:4b99:24ab
- with SMTP id 5a478bee46e88-361a1e501fbmr13784320eec.22.1792440790306; Mon, 19
- Oct 2026 13:13:10 -0700 (PDT)
-Date: Mon, 19 Oct 2026 13:12:56 -0700
+        bh=n6Cutn76HGVOvz/pUDurQ4xzloi5+zrfO4jU85m5dbQ=;
+        b=I4EtfQBuFpx2LsgqwR9jz2kgTTNNXKM/z8wJEew9AoK6y+PNXn+zJeZQI8EfOyXnja
+         sFd2PVKUcqGA80/zS9JxYMO5yE2Psq2AS52y1EFYOyK9FcdC0vFUndDmlv1Atwpia6pm
+         fIrhc9o0Vpw4liU0Gyzu6teL98Bl/qnkUYuQZKVRvLizrSppmplgN+4t574ssR1m+7Ee
+         UXnLknp5wTn7b55cB8Db6PNqN82a0kzxTs/RXkfFWaVxzA+0WFVRoaZbi3uxTjKPe7PG
+         5/A77YldOodtIr+goBP4FF9eYCOAbQwui6IdPFSuHU9Ldt5gIkoANkyzCmeoR9V0W0V5
+         lMUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792440793; x=1793045593;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=n6Cutn76HGVOvz/pUDurQ4xzloi5+zrfO4jU85m5dbQ=;
+        b=lFV3MmzLd75ofuU3cQuc+ompAHmKkHeApouOQ9VEmjY7LN1xwvg013q4lXz32KTZ8a
+         sxGSYTCitiDd2TjSAKFnqg0IHzI8GgqzyZ49BEftEiUBQ65w4Wy5NJN5coScqtOxLJyI
+         Tb2iZedNS7fTQcdCRy8rv+Cg1WauqS1QDga4rLHvIDnCdqgwzzYfIBWHCUUHWKZcag/y
+         MXQEO3vHAJ1SiO0tC4VmVf9odWC7UBCP1UaYlzbjUzNkOrFibzyHb9E76+u0Ewc66Bat
+         JMrfLKEaOeSmxK+yzKVmlX0ijek1o6zAKuS5IbaB8urQ4m4EGojctbY+t+ziKkaRR8DK
+         FQdA==
+X-Forwarded-Encrypted: i=1; AKwUvBxq3RacbvWURTlPK7Lud4kEd/conMRRmHC5dEjYZK4fyRYRTbOj61MxQ8R7Dg/QQU3jGYsOOr5KFAV/sSOmkrtx@lists.infradead.org
+X-Gm-Message-State: AFq9FYIMgigSY6UIGV7u5nMD/YM8LTyMCEF1gOgxrv3GEJaiZKYLjN1L
+	8QmqsrIOFOZs1P2yXuf2LkkEHozWe8kq2vHLb9HVeTato3E0FKBCk+p6imVV7tQmM8Ed61Bx5MI
+	mc2CZC0RsjA==
+X-Received: from dlep19.prod.google.com ([2002:a05:701b:4593:b0:168:9e52:72b9])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:130d:b0:182:c472:b123
+ with SMTP id a92af1059eb24-18db853ba02mr237142c88.1.1792440792662; Mon, 19
+ Oct 2026 13:13:12 -0700 (PDT)
+Date: Mon, 19 Oct 2026 13:12:57 -0700
+In-Reply-To: <20261019201257.3805356-1-irogers@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
+References: <20261019201257.3805356-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-Message-ID: <20261019201257.3805356-1-irogers@google.com>
-Subject: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
+Message-ID: <20261019201257.3805356-2-irogers@google.com>
+Subject: [PATCH v1 2/2] tools headers: Update the vdso/unaligned.h copy with
+ the kernel sources
 From: Ian Rogers <irogers@google.com>
 To: Thomas Gleixner <tglx@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
 	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
@@ -80,8 +84,8 @@ Cc: David Laight <david.laight.linux@gmail.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_131312_484074_4AA58B11 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20261019_131315_264295_A0043534 
+X-CRM114-Status: GOOD (  13.77  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,29 +105,19 @@ X-Spam-Status: No, score=-26.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Commit a339671db64b ("vdso: Switch get/put_unaligned() from packed struct
-to memcpy()") switched __get_unaligned_t() and __put_unaligned_t() from
-using a __packed struct to __builtin_memcpy() to avoid strict aliasing
-undefined behavior.
+To pick up the changes in:
 
-On ARMv5 with GCC, __builtin_memcpy() may not be inlined and instead emit
-a much slower out-of-line memcpy() call. Add CONFIG_VDSO_UNALIGNED_PACKED,
-enabled on ARMv5 (CPU_32v5), to use the __packed struct implementation on
-ARMv5 while keeping __builtin_memcpy() elsewhere.
+  vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
 
-Fixes: a339671db64b ("vdso: Switch get/put_unaligned() from packed struct to memcpy()")
-Reported-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
-Closes: https://lore.kernel.org/lkml/47f8c30b-e326-4ff0-a2bc-5683209a9e2d@pengutronix.de/
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- include/vdso/unaligned.h | 16 ++++++++++++++++
- lib/vdso/Kconfig         |  8 ++++++++
- 2 files changed, 24 insertions(+)
+ tools/include/vdso/unaligned.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/include/vdso/unaligned.h b/include/vdso/unaligned.h
+diff --git a/tools/include/vdso/unaligned.h b/tools/include/vdso/unaligned.h
 index 9076483c9fbb..726fd15efc82 100644
---- a/include/vdso/unaligned.h
-+++ b/include/vdso/unaligned.h
+--- a/tools/include/vdso/unaligned.h
++++ b/tools/include/vdso/unaligned.h
 @@ -4,6 +4,20 @@
  
  #include <linux/compiler_types.h>
@@ -152,22 +146,6 @@ index 9076483c9fbb..726fd15efc82 100644
 +#endif /* CONFIG_VDSO_UNALIGNED_PACKED */
 +
  #endif /* __VDSO_UNALIGNED_H */
-diff --git a/lib/vdso/Kconfig b/lib/vdso/Kconfig
-index 597f5f0f9681..709eb193999f 100644
---- a/lib/vdso/Kconfig
-+++ b/lib/vdso/Kconfig
-@@ -23,3 +23,11 @@ config VDSO_GETRANDOM
- 	select VDSO_DATASTORE
- 	help
- 	  Selected by architectures that support vDSO getrandom().
-+
-+config VDSO_UNALIGNED_PACKED
-+	bool
-+	default CPU_32v5
-+	help
-+	  Use packed structs rather than memcpy() in include/vdso/unaligned.h
-+	  for unaligned memory accesses. Enabled on ARMv5 where GCC may emit
-+	  out-of-line memcpy() calls instead of inlining byte accesses.
 -- 
 2.56.0.212.g129ede20d9-goog
 
