@@ -4,102 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F8ECCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF707CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Oq/GPmuBLsTY8Av2UJYLNH0P0AYmxlI1V5awo5gufM=; b=QmxI/hKRw81RJeIL5FqlKtRTU9
-	vjtUG8jW2q4bcJXECutwe3nc3Nwto8W5RFz58x7D3nnrY6+ZoIWEYkoadCEYUDEGBwJ4mV6kl26Uc
-	U6iD8qQADz5iYF2cZvve1nqd0kXqQffx3j3o+ziaYHKlx1stPwsFO/p7qpDkQek6V/42fSClmHqcb
-	iE0/e52wzkA6Xy6OmxFwAoauiwjovDY30RwMqRwI8Xv85GmV0zL/ZHe635WRPS7xYxP+E+nRreKQ8
-	JGCLyUpwkCxXVg013Xcn1nBNuLSkY3ZJ9KXz/oxudWJPFqPGm3hpnM2lteFVI2INIgLjXS91KR0gC
-	AlTGFW9Q==;
+	bh=gHWSTOXAK11dHbhFaZJD674H5cswRRHK4YqORV+tgJk=; b=TdOcz+QRW/FiEcSwFa454P+XMA
+	kJe2//a3Qoc2hIEs3Sw9qiA8bD7R6zeEGN5c+adutNqrCFpcv7q5Kpobs6GSd3SLrz7LJfZNUocEY
+	FbXdtOCzLgyzU3EMNMaMdUzo+UPQOgqSSkagdjircaTItC58PTwWB2DNA9qcDMqcVfg0wO9pm0Etz
+	/FlHFbsmB2E4XR12vwTd9apfDRUGKh5ulmDZmra7naV06naTtl06Piox4kJUOBm1BsKk3I3IRxLER
+	aqLYvCmzr1N+INKP2UlRydwHuQ0qAn79/p6Hm50HLH9JfGwESYLx7rNGgvTkgpZ+gkcd9JbISUbcU
+	MOL9Njbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlwX-00000007KOA-2m9c;
-	Mon, 19 Oct 2026 11:54:17 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1xIlyo-00000007Kdu-48Vg;
+	Mon, 19 Oct 2026 11:56:38 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlwV-00000007KNU-2V4B
+	id 1xIlym-00000007KdY-20UB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 11:54:16 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48b042c0728so504495f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:54:14 -0700 (PDT)
+	Mon, 19 Oct 2026 11:56:37 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69J8OmhF1348084
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:56:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gHWSTOXAK11dHbhFaZJD674H5cswRRHK4YqORV+tgJk=; b=I64/bdITvizEuBN7
+	CN6iaKcaYuqx6Oc1kMybp5O8icKXh1vS84CEeRJb5p9lmR0WkKNDxPbhepyYdyR8
+	BKsakfc0d0HawUpzZ7SaxejVnakOxBVMLKfD73oW0Yb+j17ITn7pMDXiKL+MB0EN
+	osmkEbgC9lsuHyt/LCZrGfewtsSbh1wIbgvKOW8XvlePaGJEtRsOuIme52By48Sf
+	4yTcaS3TBUy5Tpz1PXKeKZVHTLtHfU3XHPvN4lKiqphniohqJ0ZxTvplDl1Z6qJp
+	qhs4Sbg9FK6Y3h3PfIAPmIxn/n+nwVFzVC3Pj+ly+HxvAAdEFbBvTDgI2debwBAr
+	NmeUqw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdf4rgwm4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:56:35 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-533758f24f4so3561281cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:56:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792410853; x=1793015653; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1792410995; x=1793015795; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3Oq/GPmuBLsTY8Av2UJYLNH0P0AYmxlI1V5awo5gufM=;
-        b=fwiAum2v8B/cDiW1KxPwXWmCu5dT4CwgdrPzUuccpzvzxBOK/CgHNVAicmI4I0ondz
-         7Ze9lyLUMKyNmQFnL9XdJnw4MNRsU4owB3H5vcvDLibAjh1cTuioCBfw/M04RnfxYGNl
-         DWS0aR6fbgKPNwXip8333/YlTiQcFKoQ96C7zEHxvzHdzcTZXFwSEUQ2f9KVGwA6Tdgp
-         kji8Ycxecb1Y38DDDWVcARJOR4wiylzGftb0K41FZnfcvYYO6rUu8BPIiUs4FmdO+BsA
-         6GxLD0gt0WB99pziOct7BvPli1H3rJ5a692xESBt7bM9dzgcrOICmw+OQsIc3GMECYQ6
-         7W9w==
+        bh=gHWSTOXAK11dHbhFaZJD674H5cswRRHK4YqORV+tgJk=;
+        b=NQNTKOaVjKlZlc8dl1MeOhYCx4WryOKm8cqqfThkRbDh+XZ4mdjAegtZvHvbtMDkhj
+         zKxb0TzMm0Hzb0PPjnpC/ns0e6VezRuei9Pdai8l8pccpqE1ln/firIwKHPF2jLDPESt
+         CXb/eB0MrHyTw4zV9+ntm3MWcCBGU6EtumdLwbRhzLUvoUj/hp9TwRArKoSbTAcCk2+C
+         LlKB9X8vMnZKKYnSaMo8PaTnt/LGdprAkHoP8Z6UTFOjZJ5EraqyGaLLgVbmFMdKAeP7
+         sS4ybeMywAGboP91j1nfgvSH7aNCWjhwKH81aoftGROW2iwWz1Ds3Yq4N1ARC26ZyNhl
+         2qEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792410853; x=1793015653;
+        d=1e100.net; s=20260707; t=1792410995; x=1793015795;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3Oq/GPmuBLsTY8Av2UJYLNH0P0AYmxlI1V5awo5gufM=;
-        b=r6kkaqyn7iarzzbn4U/CdAEtaezIlbR9Y4GGGcM9FBoKz54zVnq21Ni871nK1G7nL0
-         k9ahsvKo7YFCXEPAWwcpZ63tDlKfM12pZOfOab/6eQAoJ0hR/PKEFoGd2pBjQQY9IJtD
-         4bpO6Bp7h+Q8d6A5Hf7T1iGuBIThqSztbtqgsfXonDZyjeshUXN5HfVf+/A/cWv22foz
-         E52MBevedyD4XoNQpClZqW1lpfoZr37+MKl3dAPiA+6bTN4bklVsFvQpizbHHB1zn8/8
-         lkjUzKO0fYnlRs5pWIJbTf0VX19OFGoC0+m79n30GImoPaFSIR8SvujWkz0W6EX0hNxo
-         YYUQ==
-X-Forwarded-Encrypted: i=1; AKwUvByTeJ4iFLwGjTJqjzEHfAGuRMlhkmQk9Lqc2arthydcKQD0ClSyugcd5dntYIvyfF6EczaVVd+QwCEd4ShXvgSu@lists.infradead.org
-X-Gm-Message-State: AFq9FYKVlUumLw2NfTjO+513ewNloY8QTuYJgGcCVQhaWJGSZoAPyGm8
-	uFs2DStUhPY8hXPmKaMZ629yU+kS1nUlWLIpena2Qv7qV+x6dyEtqbv2ie3I3HiG/sU=
-X-Gm-Gg: AYBFou16P7g+EbjQ0/GDB0+kGXdITGDH4DSOKw2jSAzuuu1Eg+GRQNWKn1pPw1DSJHC
-	E9VHaPrvJGoVNnNSTGxzn8JytFhdYZA4bHKGMkzbw+VWya7OlsRo5OI0huNE1VYSQqrLCkHpvfn
-	VTTwrl+vzkUvMZgYRuxSoAap7vTI6skQmOKkxV273UJesp39lOzIMBXZr1k4B79Vp4pXeOpZPIr
-	+jEZ1lpN7FK6idWE9ABmZMhW/HXqrfqjW4uwz7RKmdlpQ50lXGT5PfOSkN81RM2Ace8l47SD9RE
-	htfBhCMBSX3Q8Y/Vs1LHnOzXiG6bmVjI6yv+t3z3cGdKaCpkkg0DwG1dwV+TwBcDUAlr91kMFGJ
-	ERb5NhE0ltwB2G7Rl4Q2l3OaBo4YwVLakyKkrMxqti+nOyw9s1mVYd07oM02BKpwnFoWicx9RBj
-	12hw94MtCx/BFcMWmjljUoUvJsJ0X0Ki8dTQbZnT8mpyKZHmqBaoVNOq3Xaln7vh65MAvMd9YIl
-	xc=
-X-Received: by 2002:a05:6000:2dc8:b0:48c:4d32:ccf8 with SMTP id ffacd0b85a97d-48e07bbe524mr14711381f8f.16.1792410853522;
-        Mon, 19 Oct 2026 04:54:13 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4d4978sm21216127f8f.21.2026.10.19.04.54.11
+        bh=gHWSTOXAK11dHbhFaZJD674H5cswRRHK4YqORV+tgJk=;
+        b=LVBJD+TZ2gn0Re/mLEV82wn5sHfm564S276ipbqScPm7tcpvkJGetxVmTVYegIe3Tx
+         jLTibpgzj6MMo7LW3oCWCK8vWTqWEUFUD82brjERXBoekd2ciEZlRNkYQbjfyRFZLUk8
+         fk/i6HbWkRB0XoSfW3XA9g9zN3z3nu7+PSeFto3FTZBY6ITVphknvkXuypdSAsTWyt19
+         Je38ajjaeANd7mXd6GBsm6nNReh+E+B9R05EGJjeH7T/vmQyVw5j3QFq4LYhLNr+FbDD
+         uXHblA4Zk8PndeXJNqABya1JuS95Wbq08T8xj8USjrKjnvS5iYq1ZRDa8U5bg8Au4WNu
+         3qEw==
+X-Forwarded-Encrypted: i=1; AKwUvBz7heJrpWCuOe+4lebvc0txctQs4NbJJgl4J6ZXRg0Z4nK80xFgC1HzFgmzj6gKdKqj6QO71980xvhoao7sa6yU@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ+j/BwaxzQ7YTR31UIZT03pWKqU/SIenKByeiRzz1u4pU3w8rd
+	O0hy6ByWcEjnnubZNRU+LEiHD97gk+JNKwE4uNJTTIY7JFzOkUBLlLWb7VmWrhR/UKbmLQhXXcK
+	0g/CEFDv243vZ2Ai6yes7BQtQsyl4AnoITiwTSC33ofVXQIDLmw9JIt66j+X63t32RD7TjTCCmd
+	DssA==
+X-Gm-Gg: AYBFou3Ofn0HTeRA4smzbpWTim5aLuLO4CHIEXzQD9VQ2Sjrv7C9UNX/aLBQnFW3uiS
+	WAuDjJXzSuePSw/j4wFS1bg415qvSu9fCyLzLK+PVpjiTOiYgqx0sdlaOsRxYphzFXr7BNBsjAu
+	k0CA4MlImRX/Ofl+uQRFP8ZgATlJ75ERL0pFqIRc5Wv8mROxqgiuWG2m5X/qT0a9c4SZCcp16ii
+	yuTFe3WXg8yaSBpo9hmshawtwIclxsJA35jBFcfy+ALUxP+QjqHj5OinUAs4WOMoYNr6cslCFxt
+	S6ioru8eo4qYBzyw1VYR9ag1JdH481eu8wEiFcXfc0aS1fWV+vjYl1+Xp/0MnBpF2KEnKdmOkJK
+	ZoPF5c+STCZbN2ABaMsfFTw==
+X-Received: by 2002:ac8:5a8b:0:b0:536:61d4:cc80 with SMTP id d75a77b69052e-53661d51a96mr77425571cf.5.1792410994827;
+        Mon, 19 Oct 2026 04:56:34 -0700 (PDT)
+X-Received: by 2002:ac8:5a8b:0:b0:536:61d4:cc80 with SMTP id d75a77b69052e-53661d51a96mr77425281cf.5.1792410994368;
+        Mon, 19 Oct 2026 04:56:34 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c40912ca52esm366595366b.38.2026.10.19.04.56.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Oct 2026 04:54:12 -0700 (PDT)
-Message-ID: <aadce723-2a51-4d57-8d16-03a101d1a93f@linaro.org>
-Date: Mon, 19 Oct 2026 12:54:11 +0100
+        Mon, 19 Oct 2026 04:56:33 -0700 (PDT)
+Message-ID: <b833f6f9-5729-4936-8c5b-cd42d32c5198@oss.qualcomm.com>
+Date: Mon, 19 Oct 2026 13:56:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/25] coresight: trbe: Track per-CPU sink interrupt
- handling
-To: Leo Yan <leo.yan@arm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
- <20260915-arm_cs_support_aux_sample-v1-12-35cf6f297d20@arm.com>
+Subject: Re: [PATCH v2 5/9] irqchip/irq-qcom-mpm: Program wakeup timer when
+ CPU cluster goes to LPM
+To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Anna-Maria Behnsen <anna-maria@linutronix.de>,
+        Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
+ <20261015-b4-shikra_lpm_addition-v2-5-ac7f1a0d5638@oss.qualcomm.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-12-35cf6f297d20@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-5-ac7f1a0d5638@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: ZDose7uDvIS80YfnklnY9fQKCmpHA21p
+X-Proofpoint-GUID: ZDose7uDvIS80YfnklnY9fQKCmpHA21p
+X-Authority-Analysis: v=2.4 cv=H7NOUOYi c=1 sm=1 tr=0 ts=6ad60573 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=rqCDwAl6iYQHjBXnP38A:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA0NyBTYWx0ZWRfX0byXM2Jo81dP
+ echVuRy+JDEitFQeo6XG+a126KSn0s+k2L3BB830iSwZ3KIN+CO7W3nyHx2vK0N1xy40aQuxq03
+ d1qIwQeu1yecRE8SQomQC6QQZu39pPJbN1RVqE/tIItQE9W9mmVVnk7ySh0w0sBe+WvW2LDdMlx
+ 3CGAPbAyg8SsfAEYD/hIjaFJxsw45p3lgpUJa83RDVsg9tPFMNOwcnI3ltVr8oWc8k94HlGhztX
+ kvSGOsBXHqdOvkLWDrrtoPKtgaMOUKb9iDyDQdkCF+83A4RMFK/v395vem6MDt9WuvBjfIGOw3f
+ ukSh57oiADXaLrn5wTWoobeNpcc1iPFdDdQHo/2beAu2s4GBosM39C5s6ItUjLDfyOMTQUEDyM1
+ Rlb3agdX+QsY9v7zmuFjG6Wa5Yo/epiRRPCbjvxJ1aocStUxS3HWm9eI90ycHh/uSFAt6ptprGr
+ sNj76CQOT5eIqTPOVpw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA0NyBTYWx0ZWRfX8pgwA58+yh88
+ 6CvNfIwrJYbzchaZWyoe/Wnn+nv9GSJgtUvdPFntoHa1YArtugfvyM1tmb9ktOELwiGgUzQG6fM
+ YhmDQ89WDfUrTnQ3zLs14TsXHTdZG/E=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-19_03,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
+ suspectscore=0 spamscore=0 bulkscore=0 adultscore=0 malwarescore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610190047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_045415_674240_0CE4FC72 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20261019_045636_524605_B5F387D2 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,81 +162,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/09/2026 16:48, Leo Yan wrote:
-> A sampling NMI can interrupt TRBE while it is using the active AUX
-> handle or buffer. Circular buffer mode avoids wrap interrupts but can
-> still generate fault interrupts.
+On 10/15/26 11:55 AM, Sneh Mankad wrote:
+> The next wakeup timer value needs to be set in MPM timer as the arch timer
+> interrupt can not wakeup the SoC if after the deepest CPUidle states the
+> SoC also enters deepest low power state.
 > 
-> Add an in_interrupt flag to per-CPU sinks and set it around the TRBE IRQ
-> handler. Compiler barriers keep AUX buffer accesses between the flag
-> updates. This lets NMI callbacks detect when they have interrupted sink
-> handling before modifying its state.
+> To wakeup the SoC in such scenarios the earliest wakeup time is set in MPM
+> timer and the Resource Power Manager (RPM processor) takes care of setting
+> the timer in HW.
 > 
-> Assisted-by: Codex:gpt-6
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Add MPM timer programming when CPU cluster enters power collapse.
+> 
+> Signed-off-by: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
 > ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 17 ++++++++++++++++-
->   include/linux/coresight.h                    |  2 ++
->   2 files changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index ab3c5c7d27f3d272b07eade1e6452559808b196c..8eb625d3fc99db57a18e35ef59ef814dacf20a09 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -1185,7 +1185,7 @@ static u64 cpu_prohibit_trace(void)
->   	return trfcr;
->   }
->   
-> -static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
-> +static irqreturn_t __arm_trbe_irq_handler(int irq, void *dev)
->   {
->   	struct perf_output_handle **handle_ptr = dev;
->   	struct perf_output_handle *handle = *handle_ptr;
-> @@ -1249,6 +1249,21 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->   	return IRQ_HANDLED;
->   }
->   
-> +static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
-> +{
-> +	struct coresight_device *csdev = coresight_get_percpu_sink(smp_processor_id());
-> +	irqreturn_t ret;
-> +
-> +	/* Circular Buffer mode can still interrupt on a fault. */
-> +	WRITE_ONCE(csdev->in_interrupt, true);
-> +	barrier();
-> +	ret = __arm_trbe_irq_handler(irq, dev);
-> +	barrier();
-> +	WRITE_ONCE(csdev->in_interrupt, false);
-> +
-> +	return ret;
-> +}
-> +
->   static int arm_trbe_save(struct coresight_device *csdev)
->   {
->   	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index ddf18c970e343041787424c2019f2b5dd49154c2..8830c30be0df53a22525ef4fc3c7e41a0ec6fd90 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -275,6 +275,7 @@ struct coresight_trace_id_map {
->    *		when a source has been selected and a path is enabled from
->    *		source to that sink. A sink can also become enabled but not
->    *		activated if it's used via Perf.
-> + * @in_interrupt: Per-CPU sink interrupt handler is running.
->    * @ea:		Device attribute for sink representation under PMU directory.
->    * @def_sink:	cached reference to default sink found for this device.
->    * @nr_links:   number of sysfs links created to other components from this
-> @@ -299,6 +300,7 @@ struct coresight_device {
->   	bool orphan;
->   	/* sink specific fields */
->   	bool sysfs_sink_activated;
-> +	bool in_interrupt;
->   	struct dev_ext_attribute *ea;
->   	struct coresight_device *def_sink;
->   	struct coresight_trace_id_map perf_sink_id_map;
-> 
-Reviewed-by: James Clark <james.clark@linaro.org>
 
+[...]
+
+> +static void mpm_write_next_wakeup(struct qcom_mpm_priv *priv)
+> +{
+> +	ktime_t now, wakeup = KTIME_MAX;
+> +	u64 wakeup_us, wakeup_cycles = ~0;
+> +	u32 lo, hi;
+> +
+> +	/* Set highest time when system (timekeeping) is suspended */
+> +	if (system_state == SYSTEM_SUSPEND)
+> +		goto exit;
+> +
+> +	/* Find the relative wakeup in kernel time scale */
+> +	wakeup = dev_pm_genpd_get_next_hrtimer(priv->dev);
+
+This returns KTIME_MAX after the DT patches in this series are merged
+(because there's no power_domain that the MPM hangs off of anymore)
+
+Konrad
 
