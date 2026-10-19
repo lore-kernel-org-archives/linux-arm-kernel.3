@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734CDCCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61E7CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r6PkF4bnp6I0pVDOC8OuHY00fV+VdeZIgzJShsLaxsQ=; b=xzGu0PpJFeJCW85IBr5iiQ7X5b
-	jnzTqxcowhhWRSnqeU7JUp8n7xMj9rIqgSbDBaroFCowVDeyVL22676hKsM4DOc2dgZedUGECPkWF
-	GkSuEkYwX8b8Ld0+HgMqcCT8L0HPTMbGIEJ6WL2ow0LzzAw3cE2jsCmNQS2L6+bhhXs5sXyekL39h
-	SBW8f5QNraE5jNY0zxRSvNyhjtaLAfH1ZzmhLk1ppy+3hmaZTxP3QRijLKCtK2H/kyZ79Sm4kg8Nm
-	RMTcUSct+tn7XcRIZ1WFx/p3M6GoV1RfwyEjKpy3uAH/H8CYwkK3Uxv3COIWAz1l0AWq71C6WmGCc
-	fGMxRnEQ==;
+	bh=Yb/LHn6YrmdgZdljrcbF7YxTFHXAXRpDPhG81H7HP7M=; b=34YsZrsHDafbCxddrUIkwVxOto
+	LzSMzfK+gfo9WGOoKOakxgDVgsN2zauw8UFI9GNk/2KEhzKQtgaU9dLgdwduf9IjUNpYZ9uosfiQr
+	EUoRYtVvDBq8MfJTD0XOJk5e9R9B1DVb0wNNH6Q8qsG7Y+vSahjFMXtpJQyKh7w2oGGQjspOG+GPB
+	7/DlbFgSnRs44SqC6CQ12PSrmzflCCYwze49ZbLcXkDY4CPN1Ia3qla70lZIFoODMcLquRqAMHXZB
+	25od8UirbNxlVUij+jG7mglQvkygMr6A9PKabuZv/pXHrZzr/Z4yQSLsyyCbp3hB7kQciTDnyrtye
+	j9fAYyfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn82-00000007TF6-1YQ8;
-	Mon, 19 Oct 2026 13:10:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIn89-00000007TLZ-2G2t;
+	Mon, 19 Oct 2026 13:10:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn7z-00000007TC5-0bkJ
+	id 1xIn82-00000007TEa-1POt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:10:11 +0000
+	Mon, 19 Oct 2026 13:10:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEBBE40140;
-	Mon, 19 Oct 2026 13:10:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38E211F000C6;
-	Mon, 19 Oct 2026 13:10:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD49F6020A;
+	Mon, 19 Oct 2026 13:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356A61F000C4;
+	Mon, 19 Oct 2026 13:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792415410;
-	bh=r6PkF4bnp6I0pVDOC8OuHY00fV+VdeZIgzJShsLaxsQ=;
+	s=k20260515; t=1792415413;
+	bh=Yb/LHn6YrmdgZdljrcbF7YxTFHXAXRpDPhG81H7HP7M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RQfP/Wu/5UbTHx27ISIBvQBqbCm+3a/H+6MqmbDpIiq140xxhhCuWJGpTASB78+4w
-	 kwNn9qtpFHJDEYXI1WuuznYeWHwi6qUJDuK+xuyjLiqf/T6AIkMP3bB7o+MRSm1+wK
-	 zswGvgjCtBlSLOaXL18WF3VB7zyutByrJF8bwxccXrT+hAE5/eJScRWeqH2V1nxScQ
-	 WDbpEd086FTp+MTPhRKSz/lFlanDpF+JrGn34z2W8CJY+2zc/ObfZ8Zu7kC5Aczm0k
-	 ei+/ENwXcP432E6HX02g2Vs5kOdTKyv225a5aFx/ffU5sWskf7qfJDROnF3wWnMsJ2
-	 t4wr/36dYgeFA==
+	b=arD8Tfou+Nn5srm0vu5BqKqra8FirHoi8VO58OWbN6bWw3bzWyqXcw4+7R2c2Ps7S
+	 uzqeSmRYJ+ONJAqKAbj8SZGcbMcvPF9gUHUH2m2BnA1EMQ9AcK8sF2slwGvSgNVl7q
+	 kcCLjlNxKRSJ5YuvcywolQv4rFImtC2YczNq5w+aKgdqW9aQLDrQvUh0o0LB2dtQVn
+	 O32n6G2tIiRqb5r/KogvuX5SIQSWpjlZzDgLK7uLyH5aWsTxzHUGg4o0IIACVsgxng
+	 PCZL2sHhtH7DKh9rC8HKH8eO3jrXp3FcVLYlg7hNjKHQ6P+rIkTLqS9sep/cy2xGbr
+	 KBvHjmEwvpXLw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
 	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
 	Marco Crivellari <marco.crivellari@suse.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Phil Auld <pauld@redhat.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Waiman Long <longman@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [RFC PATCH 22/49] clocksource/drivers/exynos_mct: Move CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING post stop_machine()
-Date: Mon, 19 Oct 2026 15:08:29 +0200
-Message-ID: <20261019130856.49711-23-frederic@kernel.org>
+	linux-arm-kernel@lists.infradead.org
+Subject: [RFC PATCH 23/49] clocksource/drivers/arm_arch_timer: Move CPUHP_AP_ARM_ARCH_TIMER_STARTING post stop_machine()
+Date: Mon, 19 Oct 2026 15:08:30 +0200
+Message-ID: <20261019130856.49711-24-frederic@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019130856.49711-1-frederic@kernel.org>
 References: <20261019130856.49711-1-frederic@kernel.org>
@@ -88,8 +86,7 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-The teardown callback here simply disables the IRQ and clears/ack the
-interrupt bit on the local device. All these operations can run
+The teardown callback here simply performs IRQs disablement, which can run
 concurrently with other CPUs.
 
 Move it to post stop_machine() accordingly.
@@ -100,15 +97,15 @@ Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index c08ef67e3499..27e6542fb6c4 100644
+index 27e6542fb6c4..90d37ee0f282 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_L2X0_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_ARCH_TIMER_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -116,8 +113,8 @@ index c08ef67e3499..27e6542fb6c4 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_ARM_L2X0_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
+-	WARN_ON(st->state != CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
++	WARN_ON(st->state != CPUHP_AP_ARM_ARCH_TIMER_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
