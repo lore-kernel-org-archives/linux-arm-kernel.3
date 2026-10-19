@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0076CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 04:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817E6CCF2D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 05:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBXbAkaPauO/t+CrWaIYHzrmfu0tKOxa9L0c762SX8c=; b=Da1gBLR+WqMxEr0Qce+Tb9K8Ix
-	TZPlfftSMcY0S0TOnM+WtqZ3bsmTjKIFfFdGCtn1dRlMvyjHRXifi9DZO4EnkXvfkMJ6sE1QlYWu0
-	liPHwo+9BHeizg4xMQzUr0RV4w74fYqpN9X0pypZFourHxInSO9tbtmJDsYntFF+1i0rcjmliWsAG
-	D45RUHXw5WA0NV+He5WQczF0Qtd16pINFHucCprhcx6nzYedfgitS9tl0I5snlUOg5rC4oKBAjNv7
-	1uHNlq6WDxgIRooPFHGIp08h2M4AVlmDy72vL1zpMhMX3Em7z3v5LsRWwiDWh4eS4YUAOAvc3Saaa
-	s9ciLgYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rGFlZ3wFjyLWmqmWq3EpaAOzjfTIXZ4s1lG3xf9hi5Y=; b=AigW7Z/AO0Q8CKYh4n/CwfgAy8
+	SfBT9Do+Nklc6yrb2QCKHA6glCJHkg6UCVNORYROlpYuOY597vmT9LWBj1tYHVWcLhhv+S/7feU/B
+	6YiIoe5Dfhh75kLqCPw9cIMWWyLe4USjR+q+Yxy/jHGb0vB7GgtZP03Js9roKsymm2Vbz2643W3/i
+	vxEPSQFp0a9+FPOzhIt9D0W7Z75FCBPV1HYVWpy0YBHIIb+7QZzTtSWwKkf7ypSBw2ZYD65/OcFdm
+	O0lhJ0AHXCU4NXlERVg9+UbH8nVWUZC5hvCllnr4MerZatHWu0BMbTlZbmIrTGXFPXuxE2MfY3yeg
+	rok3gCLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPY-00000006bZt-2B5n;
-	Mon, 19 Oct 2026 04:55:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIfhc-00000006cdq-3HkO;
+	Mon, 19 Oct 2026 05:14:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIfPX-00000006bZ3-1YfO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 04:55:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9AF9B44796;
-	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 39FE5C4AF09;
-	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792385746;
-	bh=pKXmsCQJW+PpDlYYrKN/8PfNUOO/bnI2lQYYcxu5qrk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KJvlNo7Pmyz+r3JXHuhTXf3CW1YV9TFTL2fp8aR+QYdiBY3/KKVoyrnaKkG62GxKI
-	 GiseyMtsZFmCuuDNX2vxkALKhk8w5/d42g6BJVLEgKg9D0mL7CoCC/+xmKZARptAQb
-	 ptec6X0kFQwtiZYfASeVe8/KDtOigtYAkbhXjJ4qtydRDcAYojg+CywY5NPh7sIezu
-	 iknHFtRo4/iuMC1xC1T/Qo1gNPsgS3Emr90QzfEzXIYjpGL6whC7cTMzopaycTRTre
-	 bnarFa+Me5VXsidGaiwcwV9YEAKbgGvCWV8yEXL9lOVCf9+puBobDA9pItDHsMtWhn
-	 mdxxPJ8dN++Cw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E4EFCCF2D3;
-	Mon, 19 Oct 2026 04:55:46 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Mon, 19 Oct 2026 12:55:39 +0800
-Subject: [PATCH v10 1/5] dt-bindings: arm: add Ambarella CV75 platforms
-MIME-Version: 1.0
+	id 1xIfhb-00000006cdf-21QH;
+	Mon, 19 Oct 2026 05:14:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D109600CB;
+	Mon, 19 Oct 2026 05:14:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D320C1F000C4;
+	Mon, 19 Oct 2026 05:14:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792386866;
+	bh=rGFlZ3wFjyLWmqmWq3EpaAOzjfTIXZ4s1lG3xf9hi5Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h9hm8PWQkjq6xE/2C+PxHugc39sGc380qs8T/fYEpAWbLEEUgk+IhMSfwTA/vT5Ar
+	 p6XHOqYH6Cx/uqn5R2flIo+s8/BKlWglvfq8DX8StZLS6BhLyZv8xOR+GtvByUaThh
+	 Lna+6AlxRY8JdYG7xdPekdcxeiulHdR4DEJiE7FNHtMARwht3wfZ5hg3ItSFQi0lqo
+	 YLph8yWVEpqfSLIopxrW2nC2T0VvfZ6IKo3HNIyb/0CZvVcGZhGvGI+lcxLrQ6ySxH
+	 DA42RJJRdlub2XiHkWaN5IByZ7YY7IKVVPEG+ic/9eQndiEUmXraq48Baed3EuQgvS
+	 HYN273PmQIn2g==
+Subject: Re: [PATCH net v3] net: airoha: keep PPE offload when NPU refuses flow stats
+From: netdev-bot+sashiko@kernel.org
+To: sayantann11@gmail.com
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ bread.hsu@airoha.com, sayantan.nandy@airoha.com, kuba@kernel.org
+Date: Mon, 19 Oct 2026 05:14:25 +0000
+Message-ID: <179238686535.3135.14881213345445359478@kernel.org>
+In-Reply-To: <20261015045607.12999-1-sayantann11@gmail.com>
+References: <20261015045607.12999-1-sayantann11@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-cv75-soc-v10-1-d386065e2dd5@ambarella.com>
-References: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
-In-Reply-To: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org, 
- Brian Masney <masneyb@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- Long Zhao <longzhao@ambarella.com>, Long Zhao <zl020895@163.com>, 
- linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792385743; l=1278;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=3/nmC3518iJUv3pa+4TrYyrJ8fmY9AVoXsn+4KhycZM=;
- b=kCPCquAEIZ4+mZuo73vZAYpkDemx6PEB1H0KTBjDoNQIJl2u0Kfhf/ZJpMJ/kPW941DLmlc/k
- mcL+RuIbsZRAlZPf7s3mm7pT8aelu9XTunmk03CFgYaQ8X5eQ79jh3a
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +66,226 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Document the CV75 EVK board compatible for the initial SoC bring-up.
-The ambarella vendor prefix is already applied in the devicetree tree.
+Critical: 0 · High: 1 · Medium: 2 · Low: 1
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- .../devicetree/bindings/arm/ambarella.yaml         | 24 ++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
-new file mode 100644
-index 000000000000..72946e94fa76
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
-@@ -0,0 +1,24 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/ambarella.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Ambarella SoC platforms
-+
-+maintainers:
-+  - Long Zhao <longzhao@ambarella.com>
-+
-+properties:
-+  $nodename:
-+    const: "/"
-+
-+  compatible:
-+    oneOf:
-+      - description: Ambarella CV75 boards
-+        items:
-+          - enum:
-+              - ambarella,cv75-evk
-+          - const: ambarella,cv75
-+
-+additionalProperties: true
+- [High] Kernel oops (NULL iomem dereference) on the exact refusal path
+  this patch claims to handle.
+- [Medium] Even apart from the NULL dereference, the 'continue without
+  stats' fallback still programs the PPE as if NPU-assisted flow…
+- [Medium] The failure paths in airoha_npu_ppe_stats_setup(), including
+  the new zero-address -ENOSPC exit, return without resetting…
+- [Low] The new PSE_FC_CFG (0x0098) and PSE_PORT6_SHARE_DIS defines sit
+  between PSE_FQ_CFG (0x008c) and PSE_FQ_LIMIT_MASK…
+
+--
+
+net: airoha: keep PPE offload when NPU refuses flow stats
+
+With this patch, airoha_ppe_offload_setup() logs a warning and keeps going
+when the NPU refuses the flow statistics request, where it used to abort.
+It also treats a zero npu_stats_addr from the firmware as a refusal. When
+flow stats entries are available, it clears PSE_PORT6_SHARE_DIS in
+PSE_FC_CFG.
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+> index 4d3195eb00f7..b32a01dbe06b 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -450,6 +450,14 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
+>  	if (err)
+>  		goto out;
+>  
+> +	/* The firmware reports success with a zero address when its SRAM
+> +	 * pool has no room left for the counters.
+> +	 */
+> +	if (!ppe_data->stats_info.npu_stats_addr) {
+> +		err = -ENOSPC;
+> +		goto out;
+> +	}
+
+[Severity: Medium]
+Can this leave an old npu->stats mapping in use?
+
+This exit returns without touching npu->stats, and so do the other failure
+exits in airoha_npu_ppe_stats_setup(). struct airoha_npu is the NPU
+platform device's drvdata, and npu->stats is a devm mapping owned by
+npu->dev. Both outlive any airoha_eth instance.
+
+airoha_ppe_deinit() does not clear npu->stats either:
+
+airoha_ppe_deinit() {
+	...
+	if (npu) {
+		synchronize_rcu();
+		npu->ops.ppe_deinit(npu);
+		airoha_npu_put(npu);
+	}
+	...
+}
+
+Suppose an earlier airoha_eth instance mapped the stats region. Then a
+later airoha_ppe_offload_setup(), for example after an eth unbind/rebind
+or a module reload, gets a refusal or a zero npu_stats_addr. In that case
+npu->stats still points at the old region.
+
+The caller now continues past the failure. So
+airoha_ppe_foe_flow_stats_reset(), airoha_ppe_foe_flow_stats_update() and
+airoha_ppe_foe_entry_get_stats() would read and write that region as live
+counters, even though the firmware may have reassigned it after
+ppe_deinit().
+
+Separately, each successful setup adds a new devm_ioremap() that is only
+released when the NPU device unbinds. That part predates this patch.
+
+> +
+>  	npu->stats = devm_ioremap(npu->dev,
+>  				  ppe_data->stats_info.npu_stats_addr,
+>  				  size);
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 92611802801e..74ac3791cb63 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -144,6 +144,9 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+>  	sram_ppe_num_data_entries =
+>  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
+>  
+> +	if (sram_num_stats_entries > 0)
+> +		airoha_fe_clear(eth, PSE_FC_CFG, PSE_PORT6_SHARE_DIS);
+> +
+
+[Severity: Medium]
+When the NPU refuses flow stats, sram_num_stats_entries still comes from
+the static airoha_ppe_get_num_stats_entries() check. Is the PPE then still
+programmed as if NPU flow counting were active?
+
+In that case airoha_ppe_hw_init() still takes PPE_STATS_NUM_ENTRIES out
+of the SRAM data table and still clears PSE_PORT6_SHARE_DIS.
+
+After that, airoha_ppe_foe_commit_entry() calls
+airoha_ppe_foe_flow_stats_update() for every non-WLAN bound flow. That
+function checks only the static count, then redirects the entry to the
+NPU:
+
+airoha_ppe_foe_flow_stats_update() {
+	...
+	nbq = pse_port == 1 ? 6 : 5;
+	*ib2 &= ~(AIROHA_FOE_IB2_NBQ | AIROHA_FOE_IB2_PSE_PORT |
+		  AIROHA_FOE_IB2_PSE_QOS);
+	*ib2 |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, 6) |
+		FIELD_PREP(AIROHA_FOE_IB2_NBQ, nbq);
+}
+
+The original CHANNEL/QID and NBQ/PSE_PORT/PSE_QOS/FAST_PATH values are
+saved in ACTDP and TUNNEL_MTU, so the firmware can count the packet and
+forward it on. The firmware has just refused the flow stats service. If
+it does not do this for port 6 traffic, could offloaded flows be dropped
+or misrouted?
+
+That would contradict the commit message, which says PPE "continues to
+operate without NPU flow counters while retaining normal offload
+functionality". Even if the firmware does forward correctly, a refusal
+still costs PPE_STATS_NUM_ENTRIES SRAM data entries per PPE.
+
+Right now the NULL dereference in airoha_ppe_offload_setup() (below)
+hides this. A fix for that crash would need to handle this as well.
+
+>  	for (i = 0; i < eth->soc->num_ppe; i++) {
+>  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
+>  			     ppe->foe_dma + sram_tb_size);
+> @@ -1454,10 +1457,9 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+>  
+>  	ppe_num_stats_entries = airoha_ppe_get_total_num_stats_entries(ppe);
+>  	if (ppe_num_stats_entries > 0) {
+> -		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
+> -					      ppe_num_stats_entries);
+> -		if (err)
+> -			goto error_npu_put;
+> +		if (npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
+> +					    ppe_num_stats_entries))
+> +			dev_warn(eth->dev, "NPU refused flow stats\n");
+>  	}
+>  
+>  	airoha_ppe_hw_init(ppe);
+
+[Severity: High]
+Does this path oops in the very refusal case the patch is meant to handle?
+
+npu is allocated with devm_kzalloc() in airoha_npu_probe().
+airoha_npu_ppe_stats_setup() sets npu->stats only after devm_ioremap()
+succeeds. On every failure exit npu->stats stays NULL: an
+airoha_npu_send_msg() error, the new zero address -ENOSPC exit, or an
+ioremap failure.
+
+Right after airoha_ppe_hw_init(), airoha_ppe_offload_setup() calls
+airoha_ppe_foe_flow_stats_reset(). Its only gate is the static
+CONFIG_NET_AIROHA_FLOW_STATS/SoC entry count:
+
+airoha_ppe_offload_setup()
+  airoha_ppe_foe_flow_stats_reset()
+    airoha_ppe_foe_flow_stat_entry_reset()
+      memset_io(&npu->stats[index], 0, sizeof(*npu->stats));
+
+That writes through a NULL npu->stats, starting at index 0.
+
+Even if that call were skipped, rcu_assign_pointer() still publishes
+eth->npu, and two more paths use npu->stats without checking it.
+
+The first runs whenever a forwarded flow binds:
+
+airoha_ppe_foe_commit_entry()
+  airoha_ppe_foe_flow_stats_update()
+    airoha_ppe_foe_flow_stat_entry_reset()
+
+The second is airoha_ppe_foe_entry_get_stats(), reached from
+FLOW_CLS_STATS and the debugfs FOE dump. It checks only npu:
+
+	npu = rcu_dereference(eth->npu);
+	if (npu) {
+		...
+		memcpy_fromio(&npu_stats, &npu->stats[index],
+			      sizeof(*npu->stats));
+
+Before this patch, a failure took goto error_npu_put and offload setup
+failed cleanly. Rather than just ignoring the error, could the driver
+record whether the NPU accepted the stats setup and check that before
+every use of npu->stats?
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+> index 442b48c9b991..aee06c058586 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -72,6 +72,8 @@
+>  #define PSE_CFG_OQ_RSV_MASK		GENMASK(13, 0)
+>  
+>  #define PSE_FQ_CFG			0x008c
+> +#define PSE_FC_CFG			0x0098
+> +#define PSE_PORT6_SHARE_DIS		BIT(22)
+>  #define PSE_FQ_LIMIT_MASK		GENMASK(14, 0)
+
+[Severity: Low]
+This isn't a bug, but the new defines sit between PSE_FQ_CFG and its
+field mask, so PSE_FQ_LIMIT_MASK now reads as a field of PSE_FC_CFG. The
+only user of the mask, in airoha_eth.c, pairs it with PSE_FQ_CFG:
+
+	fq_limit = airoha_fe_get(eth, PSE_FQ_CFG, PSE_FQ_LIMIT_MASK);
+
+The new block also breaks address order: 0x0098 now comes before
+REG_FE_PSE_BUF_SET (0x0090) and REG_PSE_SHARE_USED_THD (0x0094). Could
+PSE_FC_CFG and PSE_PORT6_SHARE_DIS go after the REG_PSE_SHARE_USED_THD
+block?
 
 -- 
-2.34.1
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261015045607.12999-1-sayantann11%40gmail.com
 
