@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BFECCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDA2CCF2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=av2i/a27mFO35q2gQgrs5PYUW708u+igcVfoCp20+Is=; b=36jyGt84BJrRDFghlGYFf0jFht
-	xme7SLPT7OTBFf+VOo14daVW4Di68kbfSmh8iIuQmp2jig32LrQKFsWKRAP9AXBKqPXjOQjRG90aA
-	WLicFhZtRILWyL8UmmfXxi0qqZC1mti02MYRQqiOy02mDJ0a/fFmzcPiu3rdIuJseHiy1ICEoe6QP
-	JgM+2ZvBJJIVPaV+N6rbKZ5vEcvkxtKdAhCD4aAgzD2fbRSdjaeW5Cv1sttByl4viQ9EiEJX5U5tY
-	EMNMDavXnUQkYNKW9FvgX2ZOgzu8Xj//8OkauGmY0+Xn79JeI3sqSqHKJU51fBIZlRakmo0TBo9vF
-	pMg5Xwmg==;
+	bh=stDIY3cut1La0RIQyUHVoHa5of1PPIvTxAd31vWKrJA=; b=Nf4ClJKq+4HglKQ8r3H0i8LM9u
+	qEHK2ETi9pZnk+NM0pMatXyXcQuif5nj/lIpiGXrQRBXxOitoB4CLMC0PhBAIlYP+e8U/YKcNfqxO
+	x2WD+x1zH4vo2XVDPD/tYYVHh9GgCOCl4qJ7Hiq/dut6pZwDiLV5aFKjShR7tSdmk7mXqCoJyWfji
+	iRYfB6JUCsUghU+p79e2xkYQCKfeEMIi2g21eN5dk/u0ZmBQo5dDy3s4aSpm5mtpvT70bnefpDLBH
+	0pjHZpDMd4rP2PgMxuBAtR5ZoL+Tr8/uo0dAayofk7qbuVuUSWC6GL8fyhpfVSmU8Xa/bJiCat1Ng
+	6EoRQwmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvx-00000007dem-42nZ;
-	Mon, 19 Oct 2026 14:01:49 +0000
+	id 1xInvy-00000007df8-0TDN;
+	Mon, 19 Oct 2026 14:01:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvt-00000007dbs-44TG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:01:46 +0000
+	id 1xInvx-00000007deE-0Pcw;
+	Mon, 19 Oct 2026 14:01:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D41660213;
-	Mon, 19 Oct 2026 14:01:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9DDE1F000CA;
-	Mon, 19 Oct 2026 14:01:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7AEF56025A;
+	Mon, 19 Oct 2026 14:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B551F000C9;
+	Mon, 19 Oct 2026 14:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418505;
-	bh=av2i/a27mFO35q2gQgrs5PYUW708u+igcVfoCp20+Is=;
+	s=k20260515; t=1792418508;
+	bh=stDIY3cut1La0RIQyUHVoHa5of1PPIvTxAd31vWKrJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NWd5iT2JmLsYfhiq+yCC8rgx8ZJrJWcIpnqGhXWv+ZT4VvsWPzcPGQXoxkATlRgtL
-	 qxoosAtayMUDLHosAJpj5ZVUI1EcwnRlsSpR18hdV49HEyIhLWk9tGxo6DeTYWj0+m
-	 B7JNkIZdzJ05Q8/8tcRvBre+RZGRVmqYh/LHD8Nl2vXWfbSZYEf2bBcSaGTuizx24b
-	 Z7evQ+M99HefDDHe81oVS37zYN55M1w2/qIAme+SwvZ+OOebWwmoxMDFu6TVhjy6Vt
-	 7nXPKwgq0KiuxHWCACqjZpeiwLc9QFfbaycqaSgouSQzbYPe6zz8owwEXgupef+FQ/
-	 vlLgUwwU0FY6g==
+	b=OHUPQiOImUOmKZXmKhJrqwHGcIC6mw8ayygxuj25hw9R0sNeiHncPOCc082PnD31H
+	 kXhsYZKEIB7BfdJhtW2gnSYyVXm0/Wqi90nX4ylhkhuZSRVW+X6v/7TyOTgYCGxyD+
+	 zBZ1H3x9e5RFeHFPu6RPp37dn5T2I+MIW0XqfUS04h6uTWauPLjh1jrA3ZU1aAQ0YR
+	 vws7O/CHrSSx9evCGSKYaX80nZm7rTnIut+RRZqVmQGvLTYtEVHANPb0I+EgFAoEKq
+	 bGM9TXDm9i3vzwkyHX1s7CV9MtaVDJQ4uiToMpYMkZ0YN2LzBfxsioOpunkeZQ3c2W
+	 ncWL/WGDAjFvA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Esteban Urrutia <esteuwu@proton.me>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Felix Fietkau <nbd@nbd.name>,
+	Chad Monroe <chad@monroe.io>,
 	Sasha Levin <sashal@kernel.org>,
-	robin.clark@oss.qualcomm.com,
-	joro@8bytes.org,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.12] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
-Date: Mon, 19 Oct 2026 09:49:47 -0400
-Message-ID: <20261019135441.1420968-296-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-6.1] wifi: mt76: mt7615: fix NULL deref in mt7615_mac_set_rates
+Date: Mon, 19 Oct 2026 09:49:49 -0400
+Message-ID: <20261019135441.1420968-298-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,19 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Esteban Urrutia <esteuwu@proton.me>
+From: Felix Fietkau <nbd@nbd.name>
 
-[ Upstream commit d149c8b2c0146a01f1be326ddb1e182b55aee638 ]
+[ Upstream commit 98aff74779da9f417386c589c36848e9c568f0f9 ]
 
-Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it can
-be properly configured by the IOMMU driver.
+mt7615_tx() falls back to the vif BSS wcid when mac80211 hands a frame
+over without a station, e.g. while a station is being torn down, and to
+the global wcid when there is no vif either. Both tx_prepare_skb
+implementations derive a mt7615_sta from that wcid unconditionally and,
+if the rate control probe flag is set, pass it to mt7615_mac_set_rates(),
+which dereferences the NULL vif backpointer of the per-vif embedded sta:
 
-Otherwise, there is an unhandled context fault, because the framebuffer is
-already configured in UEFI.
+  Unable to handle kernel read from unreadable memory at virtual
+  address 0000000000000002
+  ...
+  pc : mt7615_mac_set_rates
+  lr : mt7615_tx_prepare_skb
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
-Signed-off-by: Will Deacon <will@kernel.org>
+Neither entry is rate controlled by mac80211: the embedded sta has an
+empty rate set, and for the global wcid the container_of does not yield a
+valid mt7615_sta at all. Only resolve the sta for wcids that belong to a
+station.
+
+Reported-by: Chad Monroe <chad@monroe.io>
+Link: https://patch.msgid.link/20260724124813.3961474-23-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -101,312 +113,350 @@ LLM Generated explanations, may be completely bogus:
 
 ## Phase 1: Commit message forensics
 
-**Step 1.1: Subject line**
-Record: `[iommu/arm-smmu-qcom] [Add] SM8450 MDSS compatible so the
-Qualcomm SMMU driver can configure that display client`
+**Step 1.1 — Subject**
+Record: `[wifi: mt76: mt7615]` `[fix]` `[NULL deref in
+mt7615_mac_set_rates when TX uses a non-station wcid]`
 
-**Step 1.2: Tags**
+**Step 1.2 — Tags**
 Record:
-- `Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>`
-  (Qualcomm SoC/display maintainer)
-- `Signed-off-by: Esteban Urrutia <esteuwu@proton.me>` (author)
-- `Signed-off-by: Will Deacon <will@kernel.org>` (IOMMU/arm-smmu
-  maintainer)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Link:`, or `Cc:
-  stable@vger.kernel.org` (absence is expected for this review)
+- `Reported-by: Chad Monroe <chad@monroe.io>` — real user hit this
+- `Link:
+  https://patch.msgid.link/20260724124813.3961474-23-nbd@nbd.name` —
+  patch 23/29 of an mt76-next series
+- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` — mt76 maintainer
+- No `Fixes:`, no `Cc: stable` (expected for this review)
+- No `Reviewed-by` / `Tested-by` / `Acked-by` on the commit itself
+- Ignore `Signed-off-by: Sasha Levin` / `[Upstream commit ...]` if
+  present (pipeline)
 
-**Step 1.3: Body**
+**Step 1.3 — Body**
 Record:
-- Bug: SM8450 MDSS is missing from `qcom_smmu_client_of_match`, so it
-  does not get the identity-domain workaround.
-- Symptom: unhandled ARM SMMU context fault because UEFI already
-  programmed the framebuffer with physical addresses.
-- Root cause: without a match, `qcom_smmu_def_domain_type()` returns 0
-  and the IOMMU uses a translated DMA domain instead of identity
-  mapping.
-- Version info: none in the message. SM8450 display support has been in
-  this tree since v6.3 (`drm/msm: mdss add support for SM8450`).
+- Bug: `mt7615_tx()` falls back to the vif BSS wcid when mac80211 TX has
+  no station (e.g. station teardown), and to `global_wcid` if there is
+  no vif. Both `tx_prepare_skb` paths `container_of` that wcid into
+  `mt7615_sta` and, if `IEEE80211_TX_CTL_RATE_CTRL_PROBE` is set, call
+  `mt7615_mac_set_rates()`.
+- Symptom: kernel NULL deref / oops:
+  `Unable to handle kernel read from unreadable memory at virtual
+  address 0000000000000002`, `pc: mt7615_mac_set_rates`, `lr:
+  mt7615_tx_prepare_skb`
+- Root cause: BSS-embedded sta has a NULL `vif` backpointer;
+  `global_wcid` is not a `mt7615_sta` at all. Neither is rate-
+  controlled.
+- Fix: only resolve `msta` when `wcid->sta` is set.
 
-**Step 1.4: Hidden bug fix?**
-Record: Not hidden. The subject says “Add”, but the body describes a
-real hardware workaround (IOMMU identity domain for a bootloader-
-configured display), not a new feature.
+**Step 1.4 — Hidden bug fix?**
+Record: Not hidden. Explicit crash fix with a stack trace and a
+reporter.
 
 ## Phase 2: Diff analysis
 
-**Step 2.1: Inventory**
+**Step 2.1 — Inventory**
 Record:
-- File: `drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c` (+1 / −0)
-- Function: static table `qcom_smmu_client_of_match[]`
-- Scope: single-file, one-line compatible addition
+- `drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c`:
+  `mt7615_tx_prepare_skb` — ~3 lines
+- `drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c`:
+  `mt7663_usb_sdio_tx_prepare_skb` — ~3 lines
+- Scope: single-driver surgical fix, two TX prepare paths (PCIe/MMIO and
+  USB/SDIO)
 
-**Step 2.2: Code flow**
-Record: Before, `of_match_device(qcom_smmu_client_of_match, dev)` misses
-`qcom,sm8450-mdss`, so `qcom_smmu_def_domain_type()` returns 0. After,
-that compatible matches and the function returns
-`IOMMU_DOMAIN_IDENTITY`. Path: IOMMU default-domain selection at MDSS
-probe, not an error path.
+**Step 2.2 — Code flow**
+Record: Before, any non-NULL `wcid` was treated as `mt7615_sta`. After,
+`msta` is set only if `wcid && wcid->sta`. The existing `if (...
+RATE_CTRL_PROBE && msta)` already skips `mt7615_mac_set_rates()` when
+`msta` is NULL.
 
-**Step 2.3: Bug mechanism**
-Record: Hardware workaround / device-ID (compatible) addition. MDSS
-streams keep using the UEFI framebuffer mapping. Without identity domain
-those accesses translation-fault (`arm-smmu: Unhandled context fault`).
-Same pattern as SM6115, SDM670, X1E80100, QCM2290, SC8280XP.
+**Step 2.3 — Bug mechanism**
+Record: `[NULL pointer dereference]` — `mt7615_mac_set_rates()` does
+`sta->vif->mt76.omac_idx`. For the per-vif embedded sta, `vif` is never
+set. For `global_wcid`, `container_of` is invalid. The fix uses the
+existing `wcid->sta` flag.
 
-**Step 2.4: Fix quality**
-Record: Obviously correct and minimal. Only devices with
-`qcom,sm8450-mdss` change behavior. Regression risk is very low;
-neighboring SoCs already use this table the same way. ACTLR table
-already listed `qcom,sm8450-mdss`; the client table was the omission.
+**Step 2.4 — Fix quality**
+Record: Obviously correct. Same pattern already used in this tree
+(`wcid_to_sta()`, `mt76_connac_pm_dequeue_skbs()`,
+`mt7615_rx_get_wcid()`). Skipping rate-probe setup for non-station wcids
+is intended: those entries are not rate-controlled. Regression risk is
+very low. No API change.
 
 ## Phase 3: Git history
 
-**Step 3.1: Blame**
+**Step 3.1 — Blame**
+Record: The incomplete NULL check is `8d3cdc1bbb1d3` (“mt76: mt7615: fix
+NULL pointer dereference in tx_prepare_skb()”, Lorenzo Bianconi, 2021).
+That only handled `wcid == NULL` (then `global_wcid`). The BSS-wcid
+fallback in `mt7615_tx()` is from 2019 (`04b8e65922f631` /
+`2b8cdfb28d3402`). The bug has been in this lineage since mt7615 TX was
+added.
+
+**Step 3.2 — Fixes: tag**
+Record: None. The incomplete 2021 fix is already in this tree (`git
+merge-base --is-ancestor 8d3cdc1bbb1d3 HEAD` succeeded). This commit
+closes the remaining hole.
+
+**Step 3.3 — File history**
+Record: Recent mt7615 changes in this tree are unrelated (runtime-pm
+timeout, TSF, DMA reset). No prerequisite refactor for this two-line
+guard. Standalone.
+
+**Step 3.4 — Author**
+Record: Felix Fietkau is the mt76 maintainer. Related earlier NULL-deref
+fix was also signed off by him.
+
+**Step 3.5 — Dependencies**
+Record: Patch 23/29 of an mt76-next batch, but the other patches are
+independent (mt7996/mt7915/scan/WED). This hunk only needs `wcid->sta`
+and the existing `msta` NULL check, both present here. Standalone.
+
+## Phase 4: Mailing list / external
+
+**Step 4.1 — Original discussion**
+Record: `b4 mbox` saved the thread. Subject: `[PATCH mt76-next 23/29]
+wifi: mt76: mt7615: fix NULL deref in mt7615_mac_set_rates`. Sent 24 Jul
+2026 by Felix to linux-wireless. 29-message thread is the series itself,
+not a v2/v3 of this patch. No NAK. No reviewer `Cc: stable`. Lore HTTP
+fetch returned 403; discussion was recovered via `b4`.
+
+**Step 4.2 — Recipients**
+Record: To: linux-wireless@vger.kernel.org. Maintainer is the author.
+
+**Step 4.3 — Bug report**
+Record: Reported-by Chad Monroe with a concrete oops (`pc:
+mt7615_mac_set_rates`, `lr: mt7615_tx_prepare_skb`). Chad also authored
+other patches in the same series, so this is a real device user, not a
+theoretical report.
+
+**Step 4.4 — Series**
+Record: Independent mt76 bug-fix dump. mt7996 patches are irrelevant to
+5.15. This patch does not need 1–22 or 24–29.
+
+**Step 4.5 — Stable list**
+Record: UNVERIFIED — lore.kernel.org/stable HTTP 403. No evidence it was
+rejected for stable.
+
+## Phase 5: Semantic / call-chain
+
+**Step 5.1 — Functions**
+Record: `mt7615_tx_prepare_skb`, `mt7663_usb_sdio_tx_prepare_skb`
+(callers of `mt7615_mac_set_rates`).
+
+**Step 5.2 — Callers**
 Record:
-- Table introduced in `0e764a01015df` (2020, “Allow client devices to
-  select direct mapping”).
-- This line added by `d149c8b2c0146` (2026-07-22).
-- SM8450 MDSS driver: `80056d9ac47ab` (2023-01-12, v6.3-rc1).
-- SM8450 DT: `a6dd1206e45a4` (2022-12-28).
-- Bug window: from v6.3 until this commit (about three years).
+- PCIe/MMIO: `mt7615_tx_prepare_skb` via `mt7615/mmio.c`
+  `.tx_prepare_skb`, from `mt76_dma_tx_queue_skb` (`dma.c:409`)
+- USB: `usb.c:917`; SDIO: `sdio.c:263`
+- Upstream of that: `mt7615_tx()` → `mt76_tx()` /
+  `mt76_connac_pm_queue_skb()`
 
-**Step 3.2: Fixes: tag**
-Record: No `Fixes:` tag. Implicit introducer is `80056d9ac47ab` adding
-SM8450 MDSS without the IOMMU match. That driver and DT are in this
-tree.
+**Step 5.3 — Callees**
+Record: `mt7615_mac_set_rates()` immediately uses
+`sta->vif->mt76.omac_idx` (mac.c:1063 in this tree).
 
-**Step 3.3: File history**
-Record: Several sibling “Add … MDSS compatible” commits (`f7fa8520f3037`
-SM6115, `12721e6600579` X1E80100, `28af105cb6504` QCM2290,
-`270a1470408e4` SDM670, `617937d4d5533` Glymur). Standalone one-line
-table entries; SM6115 even had `Cc: stable` and crash logs. No extra
-prerequisite beyond the existing match table.
+**Step 5.4 — Reachability**
+Record: Yes, from normal wireless TX. `mt7615_tx()`:
 
-**Step 3.4: Author**
-Record: Esteban Urrutia has only this IOMMU commit here. Reviewed by
-Konrad Dybcio; applied by Will Deacon. Not a drive-by unreviewed change.
+```737:743:drivers/net/wireless/mediatek/mt76/mt7615/main.c
+        if (vif && !control->sta) {
+                struct mt7615_vif *mvif;
+                mvif = (struct mt7615_vif *)vif->drv_priv;
+                msta = &mvif->sta;
+                wcid = &msta->wcid;
+        }
+```
 
-**Step 3.5: Dependencies**
-Record: Needs `qcom_smmu_client_of_match` /
-`qcom_smmu_def_domain_type()` and a `qcom,sm8450-mdss` client. All
-present. No new APIs. Applies as a one-line insert next to
-`qcom,sm8250-mdss`.
+mac80211 can pass `control->sta == NULL` while
+`IEEE80211_TX_CTL_RATE_CTRL_PROBE` is still set on a previously rate-
+controlled skb (station teardown). That is a userspace-reachable
+AP/client path.
 
-## Phase 4: Mailing list / external research
+**Step 5.5 — Similar patterns**
+Record: Same `wcid && wcid->sta` guard already exists in
+`mt76x02_mac.c`, `mt76_connac_mac.c`, `wcid_to_sta()`.
+`mt7615_rx_get_wcid()` already refuses non-station wcids. `wcid.sta = 1`
+is set only in `mt7615_mac_sta_add()`, not in `mt7615_add_interface()`.
 
-**Step 4.1: Original discussion**
-Record:
-- `b4 dig -c d149c8b2c0146` →
-  https://patch.msgid.link/20260711-sm8450-qol-
-  smmu-v2-1-41a6fba41c3e@proton.me
-- v1: 8-patch “sm8450-qol” series (2026-06-22)
-- v2: this patch split out alone (2026-07-11)
-- Will Deacon: “Applied to iommu (arm/smmu/updates), thanks!” — no NAK
-- Cover note: “This patch allows the MDSS driver to properly function on
-  SM8450 based devices.”
-- lore.kernel.org fetches returned 403; content confirmed via patchew
-  and LKML mirror.
+## Phase 6: Local tree (5.15.221 / pending-5.15)
 
-**Step 4.2: Recipients (`b4 dig -w`)**
-Record: Will Deacon, Robin Murphy, Joerg Roedel, Rob Clark, Konrad
-Dybcio; lists `iommu@`, `linux-arm-msm@`, `linux-arm-kernel@`, `phone-
-devel@`. Right maintainers and lists.
+**Step 6.1 — Buggy code present?**
+Record: Yes.
+- `pci_mac.c:142`: `msta = wcid ? container_of(wcid, struct mt7615_sta,
+  wcid) : NULL;`
+- `usb_sdio.c:200`: same
+- `mac.c:1063`: `u16 idx = sta->vif->mt76.omac_idx;`
+- `add_interface` sets `mvif->sta.wcid` but never `mvif->sta.vif` or
+  `wcid.sta`
+- `wcid->sta` exists in `struct mt76_wcid` (`mt76.h:251`)
 
-**Step 4.3: Bug report**
-Record: No syzbot/bugzilla. Author describes the UEFI framebuffer
-context-fault. Same failure as SM6115 (`f7fa8520f3037`): flood of
-`Unhandled context fault` and failed DPU/GPU bind.
+**Step 6.2 — Backport difficulty**
+Record: Minor context mismatch, easy rework. Mainline USB path has extra
+locals (`key`, `pktid`) and an in-function `global_wcid` fallback that
+5.15 keeps in `mt7663_usb_sdio_write_txwi()`. PCIe path uses
+`MT_TX_HW_QUEUE_EXT_PHY` / `mdev->phy2` here vs later `phys[MT_BAND1]`.
+The semantic change is the same two-line `wcid->sta` check.
+`mt76_vif_link` in the provided hunk context is *not* required.
 
-**Step 4.4: Series**
-Record: v2 is standalone. Other v1 QoL patches (dispcc, dts, qmp) are
-not required for this one-line match.
-
-**Step 4.5: Stable list**
-Record: No stable-thread hit for this subject. Precedent: SM6115
-equivalent was `Cc: stable`.
-
-## Phase 5: Semantic analysis
-
-**Step 5.1: Functions**
-Record: Table `qcom_smmu_client_of_match[]` only. Consumer:
-`qcom_smmu_def_domain_type()`.
-
-**Step 5.2: Callers**
-Record: `qcom_smmu_def_domain_type` is `.def_domain_type` on the
-Qualcomm SMMU impls. `arm_smmu_def_domain_type()` in `arm-smmu.c` calls
-it; IOMMU core `iommu_get_def_domain_type()` uses that at device attach.
-Probe-time, not IRQ/hot path.
-
-**Step 5.3: Callees**
-Record: `of_match_device()` only.
-
-**Step 5.4: Reachability**
-Record: Yes, on Qualcomm SM8450 with MDSS enabled (`iommus` in
-`sm8450.dtsi`; `&mdss { status = "okay"; }` in `sm8450-hdk.dts`).
-Userspace does not need to do anything; boot + display probe is enough.
-
-**Step 5.5: Similar patterns**
-Record: Same omission pattern for many MDSS SoCs; several already
-patched. SM8450 was the gap between sm8250 and x1e80100.
-
-## Phase 6: Local tree (this checkout)
-
-**Step 6.1: Does the buggy code exist here?**
-Record:
-- `git describe HEAD`: `v7.3-rc4-27-gf0100363d8c37`
-- `make kernelversion`: `7.3.0-rc4`
-- This is the 7.3-rc4 mainline checkout, not an older LTS branch.
-- Match table, `qcom_smmu_def_domain_type()`, DRM `qcom,sm8450-mdss`,
-  and DT node all exist.
-- `git merge-base --is-ancestor d149c8b2c0146 HEAD` succeeded (commit is
-  already in HEAD). That is ignored as “already selected”; it does not
-  change technical merit.
-- Without this line, SM8450 MDSS would still take a translated domain on
-  this tree’s code.
-
-**Step 6.2: Backport difficulty**
-Record: Clean one-line apply against this file. Context around
-`sm8250-mdss` / `x1e80100-mdss` is stable.
-
-**Step 6.3: Related fixes already here?**
-Record: ACTLR prefetch entry for `qcom,sm8450-mdss` is already present
-(`f91879fdf70bd`). That does not set identity domain. No other fix
-covers this bug.
+**Step 6.3 — Related fixes already here?**
+Record: `8d3cdc1bbb1d3` is present and is incomplete. No later
+`mt7615_mac_set_rates` NULL-deref fix in this tree.
 
 ## Phase 7: Subsystem context
 
 **Step 7.1**
-Record: `drivers/iommu/arm/arm-smmu/` Qualcomm implementation. IMPORTANT
-for ARM64 Qualcomm devices; not core mm/VFS, but IOMMU misconfig breaks
-display on those boards.
+Record: `[drivers/net/wireless/mediatek/mt76/mt7615]` `[IMPORTANT]` —
+not core kernel, but a widely used 802.11ac chipset (MT7615E/MT7663E
+PCIe, MT7663U USB, MT7663S SDIO, MT7622 SoC WMAC). Common on routers and
+embedded boards, including 5.15 LTS/Android/OpenWrt-class systems.
 
 **Step 7.2**
-Record: Actively maintained (recent Glymur, ACTLR, fastrpc fixes). The
-match-table mechanism itself dates to 2020 and is mature.
+Record: Mature driver; this bug is old, not a new-subsystem issue.
 
 ## Phase 8: Impact and risk
 
-**Step 8.1: Who is affected**
-Record: SM8450 (Snapdragon 8 Gen 1) boards with MDSS, e.g.
-`sm8450-hdk.dts` (`status = "okay"`). Config: `CONFIG_ARM_SMMU` +
-`CONFIG_ARM_SMMU_QCOM` (default y on `ARCH_QCOM`).
+**Step 8.1 — Who is affected**
+Record: Users of MT7615/MT7663/MT7622 (`CONFIG_MT7615E` /
+`CONFIG_MT7663U` / `CONFIG_MT7663S` / `CONFIG_MT7622_WMAC`). Driver-
+specific, not universal.
 
-**Step 8.2: Trigger**
-Record: Boot when UEFI left the framebuffer mapped and MDSS probes.
-Common on these phones/HDKs, not a rare race. Unprivileged userspace is
-not required.
+**Step 8.2 — Trigger**
+Record: TX without a station while `IEEE80211_TX_CTL_RATE_CTRL_PROBE` is
+set — typically station teardown / disconnect with a probe rate sample
+in flight. Not every packet, but a normal Wi-Fi event. Unprivileged
+clients disconnecting from an AP can induce it.
 
-**Step 8.3: Failure mode**
-Record: Unhandled SMMU context faults; display init can fail (same class
-as SM6115: DPU/GPU bind errors). Severity: HIGH for those devices
-(broken display, fault spam). Not a universal panic.
+**Step 8.3 — Failure mode**
+Record: `[Kernel oops / NULL deref in hard TX path]` `[CRITICAL]`
 
-**Step 8.4: Risk–benefit**
-Record: Benefit high for SM8450 display. Risk very low (one compatible,
-existing quirk table). Ratio strongly favors backport.
+**Step 8.4 — Risk vs benefit**
+Record: Benefit high for that hardware (prevents oops). Risk very low
+(~6 lines, existing flag, same pattern as sibling code). Skipping
+`mac_set_rates` on BSS/global wcid is the correct behavior.
 
 ## Phase 9: Synthesis
 
-**Step 9.1: Evidence**
+**Step 9.1 — Evidence**
 
-For:
-- Real bug: missing identity-domain quirk → SMMU context faults / non-
-  working MDSS
-- Hardware quirk / compatible addition (stable exception)
-- 1 line, obviously correct
-- Reviewed by Konrad Dybcio, applied by Will Deacon
-- Same class as SM6115, which was `Cc: stable`
-- SM8450 MDSS has been in this lineage since v6.3
-- No new API, no refactor, no extra dependencies
+FOR:
+- Real oops with reporter and stack trace
+- Bug and incomplete 2021 fix both exist in this 5.15 tree
+- Small, obviously correct guard
+- Maintainer-authored
+- Matches stable rules (crash, contained, no new API)
+- Hardware is common on 5.15-era devices
 
-Against:
-- No `Fixes:` / `Cc: stable` (expected here, not a negative)
-- Affects one SoC family, not all machines
-- Originally in a “QoL” series (v2 is a standalone bugfix)
+AGAINST:
+- Driver-specific, not core
+- Won’t `git am` cleanly (context only)
+- Part of a 29-patch series (other patches are unrelated)
+- No `Fixes:` / `Cc: stable` (not a negative under these rules)
+- No mailing-list review tags on this specific patch
 
-Unresolved: lore.kernel.org 403 prevented reading every v1 reply; v2
-application and Konrad’s Reviewed-by are verified via patchew/LKML/`b4
-dig`.
+UNRESOLVED:
+- Could not fetch lore/stable over HTTP (403); recovered the thread with
+  `b4`
+- Exact crash address `...0002` matches a newer `vif` layout; in 5.15
+  `omac_idx` is at offset 1. Same NULL `vif` deref either way.
 
-**Step 9.2: Stable rules**
-1. Obviously correct and tested? **PASS** — one-line OF match;
-   maintainer review/apply
-2. Real user bug? **PASS** — context faults / MDSS broken on SM8450 with
-   UEFI FB
-3. Important (crash/security/corruption/deadlock)? **PASS** — unhandled
-   SMMU faults and failed display; HIGH for that hardware
-4. Small and contained? **PASS** — +1 line, one file
-5. No new features/APIs? **PASS** — existing quirk table only
-6. Can apply to this tree? **PASS** — table, MDSS driver, and DT are
-   here
+**Step 9.2 — Stable rules**
+1. Obviously correct and tested? **PASS** — maintainer fix; user-
+   reported oops; logic matches existing `wcid->sta` usage
+2. Real bug affecting users? **PASS** — Chad Monroe crash
+3. Important (crash/security/corruption/deadlock)? **PASS** — kernel
+   oops in TX
+4. Small and contained? **PASS** — two functions, ~6 lines
+5. No new features/APIs? **PASS**
+6. Can apply to this tree? **PASS** — code is here; needs a trivial
+   context tweak, not a rewrite
 
-**Step 9.3: Exception**
-Record: Device ID / hardware quirk on an existing driver. Automatic YES
-class.
+**Step 9.3 — Exceptions**
+Record: None (not a device-ID/quirk/DT/build/docs exception). It
+qualifies as a normal crash fix.
 
-**Step 9.4: Decision**
-This tree (`v7.3-rc4`) has SM8450 MDSS and the Qualcomm SMMU client
-table. The patch is the standard identity-domain compatible for a
-bootloader-configured display. It should be treated as stable material.
+**Step 9.4 — Decision**
+This is a real NULL deref in the mt7615 TX path that 5.15 still has. The
+2021 patch only covered a NULL wcid; the BSS-wcid fallback still
+crashes. Backport it.
 
-Explanation: Without `qcom,sm8450-mdss` in `qcom_smmu_client_of_match`,
-MDSS is attached to a translated IOMMU domain while UEFI still owns a
-physically addressed framebuffer, which produces unhandled context
-faults and can prevent the display stack from coming up. Adding the
-compatible selects `IOMMU_DOMAIN_IDENTITY`, matching every other
-Qualcomm MDSS entry in that table. Benefit is working display on SM8450;
-risk is a single OF match that cannot affect other hardware.
+## What the commit solves for this tree
 
-Verification:
-- [Phase 1] Parsed tags: Reviewed-by Konrad Dybcio; SOB Esteban Urrutia,
-  Will Deacon; no Fixes/Cc stable
-- [Phase 2] Diff: +1 line in `qcom_smmu_client_of_match[]`;
-  `qcom_smmu_def_domain_type()` returns `IOMMU_DOMAIN_IDENTITY` on match
-- [Phase 3] `git log`/`git blame`: table from `0e764a01015df` (2020);
-  SM8450 DRM `80056d9ac47ab` (v6.3-rc1); this commit `d149c8b2c0146`
-- [Phase 3] Sibling SM6115 commit `f7fa8520f3037` had `Cc: stable` and
-  context-fault logs
-- [Phase 3] `git merge-base --is-ancestor d149c8b2c0146 HEAD` → yes
-  (already in this checkout)
-- [Phase 4] `b4 dig -c d149c8b2c0146`: v2 at
-  patch.msgid.link/20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me
-- [Phase 4] `b4 dig -a`: v1 8-patch QoL series → v2 standalone SMMU
-  patch
-- [Phase 4] `b4 dig -w`: Will Deacon, Robin Murphy, Rob Clark, Konrad
-  Dybcio, iommu@ and linux-arm-msm@
-- [Phase 4] patchew: Will Deacon applied; no NAK
-- [Phase 4] lore.kernel.org WebFetch: 403 — UNVERIFIED full v1 reply
-  text; v2 content verified via patchew/LKML
-- [Phase 5] Callers: `arm_smmu_def_domain_type` → IOMMU default domain
-  at probe
-- [Phase 6] `git describe HEAD`: v7.3-rc4-27-gf0100363d8c37; `make
-  kernelversion`: 7.3.0-rc4
-- [Phase 6] Confirmed `qcom,sm8450-mdss` in `msm_mdss.c`, `sm8450.dtsi`,
-  HDK `&mdss { status = "okay"; }`
-- [Phase 6] Pre-commit file still had ACTLR `sm8450-mdss` only; client
-  table lacked it
-- [Phase 7] `CONFIG_ARM_SMMU_QCOM` default y on `ARCH_QCOM`
-- [Phase 8] Failure mode: unhandled SMMU context fault / broken MDSS on
-  SM8450, severity HIGH for that platform
-- [Phase 4.5] No stable-list discussion found for this specific commit
+On 5.15.221, `mt7615_tx()` still substitutes the per-vif embedded sta
+when mac80211 has no station. `tx_prepare_skb` still `container_of`s
+that wcid and can call `mt7615_mac_set_rates()`, which immediately loads
+`sta->vif->mt76.omac_idx` while `vif` is NULL. That oopses. Restricting
+`msta` to `wcid->sta` stops it. Same change belongs in both PCIe and
+USB/SDIO prepare paths.
+
+Risk is a skipped rate-probe update on wcids that were never valid for
+rate control. Benefit is avoiding a driver oops during client teardown.
+
+## Verification
+- [Phase 1] Parsed tags: Reported-by Chad Monroe; Link to 23/29
+  mt76-next; SOB Felix Fietkau; no Fixes/Cc stable
+- [Phase 2] Diff: two `msta` assignments; require `wcid->sta` before
+  `container_of`
+- [Phase 3] Blame: 8d3cdc1bbb1d3 (2021) only NULL-wcid; BSS fallback
+  since 2019
+- [Phase 3] `git merge-base --is-ancestor 8d3cdc1bbb1d3 HEAD`: yes,
+  incomplete fix is here
+- [Phase 3] `git log --grep="fix NULL deref in mt7615_mac_set_rates" --
+  mt7615/`: not in this tree
+- [Phase 4] `b4 mbox 20260724124813.3961474-23-nbd@nbd.name`: 29-message
+  independent mt76 series; this patch standalone; no NAK
+- [Phase 4] lore HTTP 403; UNVERIFIED stable@ discussion
+- [Phase 5] Call chain: mac80211 `drv_tx` → `mt7615_tx` → `mt76_tx` /
+  DMA `tx_prepare_skb` → `mt7615_mac_set_rates`
+- [Phase 5] `mt7615_add_interface` does not set `mvif->sta.vif` or
+  `wcid.sta`; only `mt7615_mac_sta_add` sets `wcid.sta = 1`
+- [Phase 6] `make kernelversion` / Makefile: **5.15.221**, branch
+  `pending-5.15`
+- [Phase 6] Buggy lines present in `pci_mac.c:142` and `usb_sdio.c:200`;
+  deref at `mac.c:1063`
+- [Phase 6] Surrounding context differs (phy2 vs phys[MT_BAND1], USB
+  locals); semantic apply is still two lines
+- [Phase 8] Failure: NULL deref oops in TX; severity CRITICAL for
+  MT7615/MT7663/MT7622 users
 
 **YES**
 
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c  | 5 +++--
+ drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c | 5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index f7cb7de80cfb9..b6493e92343be 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -394,6 +394,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- 	{ .compatible = "qcom,sm6375-mdss" },
- 	{ .compatible = "qcom,sm8150-mdss" },
- 	{ .compatible = "qcom,sm8250-mdss" },
-+	{ .compatible = "qcom,sm8450-mdss" },
- 	{ .compatible = "qcom,x1e80100-mdss" },
- 	{ }
- };
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c b/drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c
+index b795d11d943d0..61efdf59133f5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/pci_mac.c
+@@ -68,10 +68,11 @@ int mt7615_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
+ 	int pid, id;
+ 	u8 *txwi = (u8 *)txwi_ptr;
+ 	struct mt76_txwi_cache *t;
+-	struct mt7615_sta *msta;
++	struct mt7615_sta *msta = NULL;
+ 	void *txp;
+ 
+-	msta = wcid ? container_of(wcid, struct mt7615_sta, wcid) : NULL;
++	if (wcid && wcid->sta)
++		msta = container_of(wcid, struct mt7615_sta, wcid);
+ 	if (!wcid)
+ 		wcid = &dev->mt76.global_wcid;
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c b/drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c
+index 820b395900275..01e79f37649c1 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/usb_sdio.c
+@@ -187,10 +187,11 @@ int mt7663_usb_sdio_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
+ 	struct sk_buff *skb = tx_info->skb;
+ 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
+ 	struct ieee80211_key_conf *key = info->control.hw_key;
+-	struct mt7615_sta *msta;
++	struct mt7615_sta *msta = NULL;
+ 	int pad, err, pktid;
+ 
+-	msta = wcid ? container_of(wcid, struct mt7615_sta, wcid) : NULL;
++	if (wcid && wcid->sta)
++		msta = container_of(wcid, struct mt7615_sta, wcid);
+ 	if (!wcid)
+ 		wcid = &dev->mt76.global_wcid;
+ 
 -- 
 2.53.0
 
