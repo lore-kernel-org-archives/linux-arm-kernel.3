@@ -4,105 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A25CCF2E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA18CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAuGbpbYIgMLYkQDiOfgLoi1DhXaRQoxjNR6h+bBZU0=; b=dSi1CnrbY+AxqEDZllhf5mrBuX
-	GAi8p3L/K0zRuwrcampAZhKw/bQxpukZ9eQii/lxhjv9hnIpNzq5TXyDP/n86dBCzQx/TGJpSIW1R
-	vd6BuFYoBhy2rdJjRx9yScGfs4EBVrMKBz2QjGUv/6PodzmReTuBfKgE+ESvfxC8eYUKO9P9HJLW9
-	NImauNZomDGz1Hc6KwqXlqCHw/UsEhU5wGKywkzj3k20RwigHdBICpvd6iNLviu1lYDjpmD59ukgw
-	fGVotPzyYjy0TvBinq9Xm2zL97w8CuPXngdLAsi2Ro/G7Tb4uyO+EReWt2lVYu8yn3OaEcwp7sLLR
-	LHa02IWg==;
+	bh=VJwQ3LmwPXa1BUiwGt4fvNRB7J3oUm4v+8tRT0WON2s=; b=ETSMQRe0TH79RkdASe11eHHGvA
+	i/xnYVTn/Uusxf01mZXF2fxrh8fIstJBJmBFEYxJXPw/aNRwhdx607lUU4GUX0JvQy/0g4Um1VyqD
+	y9IElXLMBjCS8R1a7kB0+TuzgawgnZwLidjJcJPaLwgCzlqbeHG1eEdGh+x61oL9zPGWdyKwlkbWl
+	ApYUuNE7sLHB9f46+8Id21zc6Ark5bk13RimAiNVLRxXScNpXJDW2cnGPdGcvGEQBON+YMsg1kevG
+	qnCAIPQza26UsaHvtRpRt8gKJMo1MEPsyIoLDhHWfyzz/9+7Z6mCs+okvry/3tNe2+CW2RkClfYso
+	RHr1CD9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlOT-00000007HC2-0ayY;
-	Mon, 19 Oct 2026 11:19:05 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1xIlOg-00000007HKh-26CK;
+	Mon, 19 Oct 2026 11:19:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlOC-00000007H2M-45g3
+	id 1xIlOe-00000007HJ6-0XFn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 11:18:50 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-48c45111bebso1198064f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:18:48 -0700 (PDT)
+	Mon, 19 Oct 2026 11:19:17 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69J8OoYN3256577
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:19:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VJwQ3LmwPXa1BUiwGt4fvNRB7J3oUm4v+8tRT0WON2s=; b=aqaz8iOU66AOsySE
+	3bxvHMMq1Y3zs/8NhvncfI8jRm9FB+fixr1QBQo/JwC0L13/5QYH96xi0ABqUb1K
+	gFzNpXV6yuL4gb4ThW0ufT5xXu4bCGkc9dXypvzolNN+15RAK0zJcyoaH01jGSIq
+	PLwa5s3zWSmDFEZ4Ktn0L4imOQHMsDqqcKglaT+vuAp6iA/LuJeMRSUH7Hj7NkZ0
+	FHmySMftoSkEDSaOowMpBb+OWesW50ipy98tsT3E8k/c3hzSwgUfxvv3h6lTGjf3
+	8oFpZhFItHAVpKWAD98bzYTTQKaLMU+8uLGdc+c1AJr3G91lUTZ7uKo/oGalGBKG
+	AzHPew==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdf3f8sxr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:19:15 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93e58614290so28199885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:19:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792408727; x=1793013527; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pAuGbpbYIgMLYkQDiOfgLoi1DhXaRQoxjNR6h+bBZU0=;
-        b=h/o9fvo8f4M7sfO8YqR6IrbKh5C38utFq84AQVTBag3lvz4E+T0G8y6ho+WU66nWhX
-         ueSf/suHgh4CteztMFi7BnoOrNv60NlkypwyjGN6ntanXJilj7riwtTGGETDeXWt1Vpo
-         e7KXkdNb2EdDvpAPZbU37+Jv2ayK5lDWeONQ5rArtohsUEu5HQ7WbgfLoHDUr75JxkKm
-         6b+TNrznAwtJGXEFLY5tszcSBIXBDM0qMe7ZPedjrwuvtcCiFb2Uyqm1JFGcTMJfDZLY
-         jKiaJOwkwJrumSsySBKH+FoTV+5PO8eN1ViBy1dQmfSc66NHwqalSjTvikyoV2+f8Wkh
-         GQvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792408727; x=1793013527;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1792408754; x=1793013554; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pAuGbpbYIgMLYkQDiOfgLoi1DhXaRQoxjNR6h+bBZU0=;
-        b=taWGWJPPsbwOVnwq+aG9CS4WMJekyH+d2K2UlkaDzG+FWYO8ZKf32z2dlo9GIbpFJ0
-         K7F8rXQ0lFaILK1tyDn/tAIQogv/rox+siA4IWZmQ0pCOOfZGY2T1Mgt84jPu1Rwghhg
-         yP1/1jkaHIWsIu4XUmOgXFrr7a8DZvWiPkg+Zno/D+VgZV96jIW8L53zXWNPeaf5URO5
-         PxwUYg7uvAkfXJBw6gTR9Z8i8GI2ABW9ZafT1R8oGgU0560loOD1Y9QECsrMnQZ0wBP7
-         9GEGuQydWmRKbJIGFE5cWGj82hTXuj0OHkzHEfM517R/LqXCSdpnGD407mIkg1kwUpWN
-         Hczw==
-X-Forwarded-Encrypted: i=1; AKwUvByh7y068qRfWQc4+yP4bRGsG5sFVpxblGIFdikR9lz3kH+6TsXQwg7iixZksnVeoyMiUVUkzPvzI7krp48/T2LD@lists.infradead.org
-X-Gm-Message-State: AFq9FYJhV73dUFLlZWxmaG9cV4lyyUjNV12erPO45WpTbmJ2VPhICw/F
-	hcZlGlLc/84lyLbQge4VnlcUTpkhBpUwVNlbBbG3cWrpFDKSn6hTd0xl
-X-Gm-Gg: AYBFou3hlhmVs19jMfoFXVsvtHNSyDgclEr00VFokhi1ePBRPNc/Y4NqvWcLmhuKmFL
-	ESoAYfghhJ2vRIz0cLBpb3yO8a/zZJZTpECrg43UWYCiSZxW5iiHvGEBwtQ1jsKx7uVRfCO1p0i
-	ORyBx5MVFEb+TbHJWB1KAc2dcPTcuWA99FL5EFtuoZPiQTxbqGqYYrXTmt1B+LnZnGch+NmRc5z
-	rXzAtCRIypNZUS24ZZVL/bdkaEIOmzmiPKqhVh8c+cv+0cItIN41IFFC0nYpkrfdHLfbrvKeLmb
-	ca1DBGFbMmhjJw5QAXrin40kXGrm7fQNzST8n/TZlyXR0IRvMQ1xsMzC+xeO+D8Kg1xsuBqzAYi
-	0f8y/xDcFAOcm6rxWCTc+TK0Lv0/NjuxqZcxkrmJjebdxHhuUAnlMMnq33oCGH5L9kR3GyxyVzr
-	PY4gsl6uEKOGgqPioDpSs5ZSuLpbFZ6rvXI/8h7cK7jojiNn3SaN/l6dwypidGDVj2w53ae3uiE
-	6jAu+Mr0FJnCamVIYvUQmeoai8o343S9OlVNBaDKhvvxXFHbawUBZj3PgGK1UQYTogAgagxMrEg
-	NnSqBt6E4Bv9GWaenjcQL1t1UMLqW4bl
-X-Received: by 2002:a05:600c:8883:b0:4a1:80d8:aed0 with SMTP id 5b1f17b1804b1-4a1d75fe793mr119911565e9.15.1792408726899;
-        Mon, 19 Oct 2026 04:18:46 -0700 (PDT)
-Received: from [10.0.0.136] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1e3ebb3aasm193183505e9.0.2026.10.19.04.18.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 04:18:45 -0700 (PDT)
-From: Antoine Gouby <antoine.gouby@gmail.com>
-Date: Mon, 19 Oct 2026 13:18:34 +0200
-Subject: [PATCH 5/5] ARM: dts: imx6dl-colibri: Add VGA overlay
+        bh=VJwQ3LmwPXa1BUiwGt4fvNRB7J3oUm4v+8tRT0WON2s=;
+        b=c+qsEueBWdjUr4O1Zzcmk5m+PcHf3LmtCrJO6LgYARJ0y4sMC/AG1xh25vksWK5PG6
+         Mt2xpdJ474hNIQx052L7YeaGHiUu41vDqdhLkK2XQCQdctx+g3A4hp2ZJf/BBAkAjBL8
+         C0gnkGAsRd2XahF88WV4TM/XgybaA0fNBTztkV+fDpDFp2tr9MybCwD8NTpklVc4lgcV
+         Q9IX5ZtECVtS7OwIEKlBeYJuyKBeHdrp51A5NW5fIvylSm1+uwycv+LRts2G2N8q/Fq3
+         4yuYRDwCwjP8UbTBesmqa+bqYGnm0DIETYlxclDjSohGN1HnclJryxLoCMrAG0rZoTVr
+         YTBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792408754; x=1793013554;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VJwQ3LmwPXa1BUiwGt4fvNRB7J3oUm4v+8tRT0WON2s=;
+        b=zaoRCJ7tty9b+TFfRsriAv8x96xJhTMuFvd9LLqaHpJUbCVed/+mtXAVJBcCtF3FKH
+         ceK5sscv63LqrbVMS0M68GFgAEk540fpInT9VckssBVAeXDDT2NF0rzFroGn1o/lspc9
+         4PTNVuvksK0kyVFMmWryyivu0U/JatTv/ogA3HSMYNCjwnEMuESZU7L2Q8bCJwH6MwtA
+         m2EQSSYSTL+Yao3x52vlSi8EGZyEpG8LlUkTj/iU6TRR1tkZTTn98fptqh2+TLjJR/Ix
+         N5emplb+hnjdHTYCCTAQ8PIjyvHdS6DrW0IQAZmZ9X3nVrK8rL0llCGJJQbZSD53MrpT
+         v4Sg==
+X-Forwarded-Encrypted: i=1; AKwUvBwd3wOCcokgs+jh4PNihha5TY6wg2vIDxNHaJWCErmIywjRdWeWsiw/zaBsyVPm/yvy97GcjT1wdjdA0801kr/b@lists.infradead.org
+X-Gm-Message-State: AFq9FYIjW+A7Cj+amlU1/GOniknssuB54OdcRc2NeOvTXFVSKUqWaCgt
+	H4+d3yDLWhZZme05b+JKd2C76wiOwYs7vJbw680H+0XC1B8IYkN2ayl2R+6KTv7GIZ/nLgesxMN
+	UFVDpJljdARWjFFwd6eCwuqN+UO4+u/6UyYAIJdDssFT+0xvaLWz1xqETJ2U1623xsT+rojOzXI
+	cKx33SkAlXGg==
+X-Gm-Gg: AYBFou3ANatyIejZQyr8ppDZSXD6Lrh4Wu3JTpwsls69gJwkH/vgaGgm7YsTuE398jx
+	WZ7LuZ6X9UrK9ArSdrBglALt/jX4xQ2Arj/Bwaec5qCpgsSe4qzDrbqtI6uJkLhIUc5byPe9nPp
+	g4+8o4VNUHHZyQRBCACeO57yKBfRnsOSyAj6zwkyduGztVxrN4Y/c4Uf/NBRNGL75JGH4q+T/+n
+	MK9+XcxgS0QBizqqNGG+HIMWjbRieiFBQuiX5UhhdwJYFHlkvQVGEPIrAA/s7Yc1CKZfS3dSQVv
+	AGqn6iAMBEa9F7qIcw/JyBhyG42BLGWp5SsyxhRzndBb6kh5NKB/GXvAODoVJG4AMMfNA9IQ+Ex
+	BVgWqulYghiJWU+dwJojGhw==
+X-Received: by 2002:a05:620a:2948:b0:93a:1312:ff19 with SMTP id af79cd13be357-93f29dcd9cdmr1236981085a.5.1792408754567;
+        Mon, 19 Oct 2026 04:19:14 -0700 (PDT)
+X-Received: by 2002:a05:620a:2948:b0:93a:1312:ff19 with SMTP id af79cd13be357-93f29dcd9cdmr1236977885a.5.1792408754046;
+        Mon, 19 Oct 2026 04:19:14 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b38a1eb8dbsm3646220a12.37.2026.10.19.04.19.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Oct 2026 04:19:12 -0700 (PDT)
+Message-ID: <d4e2fcfb-856c-4fe9-b0e7-fb8df4dbbc15@oss.qualcomm.com>
+Date: Mon, 19 Oct 2026 13:19:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/9] irqchip/irq-qcom-mpm: Prepare common access path
+ for timer and pin regs
+To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Anna-Maria Behnsen <anna-maria@linutronix.de>,
+        Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
+ <20261015-b4-shikra_lpm_addition-v2-4-ac7f1a0d5638@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-4-ac7f1a0d5638@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com>
-References: <20261019-colibri-imx6-overlays-v1-0-e4d028727382@toradex.com>
-In-Reply-To: <20261019-colibri-imx6-overlays-v1-0-e4d028727382@toradex.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Antoine Gouby <antoine.gouby@toradex.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4928;
- i=antoine.gouby@toradex.com; h=from:subject:message-id;
- bh=rV4clumIvWpWiwOoIzG+2Vz7clpxc4eRzzo4Zecgm0w=;
- b=owGbwMvMwCWm0rPo7MxLN2YynlZLYsi6+qf/+ASOA7KLGI0Sl+RfY77752CpqZbW1ZVrq9wvJ
- 3kF9zW2d5SyMIhxMciKKbJkPFEV5FMIkfXgaE6GmcPKBDKEgYtTACYyR56R4bZtUbmP2NJL336z
- Gx29MdP83MySSVlKgtWTxI/Y6wZOms7I0GW5/a3el2tSyTHfSqpczIW/cHofVb0QxnUiMi/g1QZ
- xJgA=
-X-Developer-Key: i=antoine.gouby@toradex.com; a=openpgp;
- fpr=68E425110E20541D48088363248CA2CD99D2D899
+X-Proofpoint-ORIG-GUID: 3bDjKmZaJZEIbAzqLNLvJoRkChXmMi3l
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA0NCBTYWx0ZWRfXxibr2iF/SsFF
+ rtmhEloJ9sVNW5crUVOsfir9iPJXu+vETiVsWCnUoRhr3S0UBw1j6GASHMAum2VM8eHxxDA6W4B
+ mgdXDzZgUhXj2OYciahcPIZXo3Sc5/GHhcTwn87rADTBVXk+BqlRo8hrLDShyrASGppBdWHVOTo
+ +5Hyf1ixVpNI3uwzm+31Qb1hL3sfR2FbweSDT9AoYNYR0V7c29pExkgogqSbjiB95yVt5OSj0Fb
+ WyHjtvvRcVa/qe7x8vMR4Y8MIlqkArjfk0GOGHHkFnFPmk3mcmGvzlRlaYKOjji3US6yc6tr7Gu
+ 1eOw+tKGpwIWyrArgHE4WdvpZkTV9OeuinjCPxJ6mQ4W+eHp0vYUgI08hLQ2vo6Qr6av1ZtOWIG
+ t5M3OHlHkyyZ7iKZsGZrRBxU4jJtsaVPHfzAhOiGBArBAlBBrsEDqvuGTxU6IBElL4v/BVijeSp
+ u0QC0z21mBLmG7XYwiA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA0NCBTYWx0ZWRfX57wSk9popB3c
+ iHssClsOY69xmx4ToIwef4ooGG9DtzH0z/oeYWOf0SW0NH0c2hrWd5Gow+xDEYtA0o4QnFnLy8P
+ rQOWrSqMaoh04IentTYjMs6ib+T1KPA=
+X-Proofpoint-GUID: 3bDjKmZaJZEIbAzqLNLvJoRkChXmMi3l
+X-Authority-Analysis: v=2.4 cv=OaANnRTY c=1 sm=1 tr=0 ts=6ad5fcb3 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=_QkEx9C7_NLcMqeofcYA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-19_03,2026-10-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ malwarescore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610080000
+ definitions=main-2610190044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_041849_149243_9AAC4CEB 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20261019_041916_180847_84554AC7 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,165 +162,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Antoine Gouby <antoine.gouby@toradex.com>
+On 10/15/26 11:55 AM, Sneh Mankad wrote:
+> The vMPM layout starts with two timer registers followed by pin register
+> banks (ENABLE/FALLING/RISING/POLARITY/STATUS), each with reg_stride
+> number of entries.
+> 
+> Use qcom_mpm_offset() as the common addressing helper for both timer and
+> pin register accesses based on that layout.
+> 
+> vMPM has MPM_REG_* values represented as contiguous register IDs,
+> hence replace the macros with enum qcom_mpm_reg and modify the accessor
+> helpers accordingly.
+> 
+> Signed-off-by: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
+> ---
 
-Add a device tree overlay for the VGA output on the Colibri iMX6
-parallel RGB LCD interface. The VGA output is driven through a
-non-programmable video DAC without VESA DDC I2C signals to a DVI
-connector. The DAC power-save input is driven by the BL_ON signal on
-SODIMM 71, like on the Colibri iMX6ULL and Colibri iMX7.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-The overlay is also combined with the Colibri iMX6 V1.2 Aster,
-Evaluation Board v3, Iris and Iris v2 carrier board device trees to
-provide ready-to-use DTBs.
-
-Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
----
- arch/arm/boot/dts/nxp/imx/Makefile                | 21 +++++++
- arch/arm/boot/dts/nxp/imx/imx6dl-colibri-vga.dtso | 67 +++++++++++++++++++++++
- 2 files changed, 88 insertions(+)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 1ea51b13ab7c..11fcef5195c8 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -84,6 +84,10 @@ imx6dl-colibri-v1.2-aster-panel-cap-touch-7inch-parallel-dtbs := \
- 	imx6dl-colibri-v1.2-aster.dtb \
- 	imx6dl-colibri-panel-cap-touch-7inch-parallel.dtbo
- 
-+imx6dl-colibri-v1.2-aster-vga-dtbs := \
-+	imx6dl-colibri-v1.2-aster.dtb \
-+	imx6dl-colibri-vga.dtbo
-+
- imx6dl-colibri-v1.2-eval-v3-hdmi-dtbs := \
- 	imx6dl-colibri-v1.2-eval-v3.dtb \
- 	imx6dl-colibri-hdmi.dtbo
-@@ -96,10 +100,18 @@ imx6dl-colibri-v1.2-eval-v3-panel-res-touch-7inch-parallel-dtbs := \
- 	imx6dl-colibri-v1.2-eval-v3.dtb \
- 	imx6dl-colibri-panel-res-touch-7inch-parallel.dtbo
- 
-+imx6dl-colibri-v1.2-eval-v3-vga-dtbs := \
-+	imx6dl-colibri-v1.2-eval-v3.dtb \
-+	imx6dl-colibri-vga.dtbo
-+
- imx6dl-colibri-v1.2-iris-hdmi-dtbs := \
- 	imx6dl-colibri-v1.2-iris.dtb \
- 	imx6dl-colibri-hdmi.dtbo
- 
-+imx6dl-colibri-v1.2-iris-vga-dtbs := \
-+	imx6dl-colibri-v1.2-iris.dtb \
-+	imx6dl-colibri-vga.dtbo
-+
- imx6dl-colibri-v1.2-iris-v2-hdmi-dtbs := \
- 	imx6dl-colibri-v1.2-iris-v2.dtb \
- 	imx6dl-colibri-hdmi.dtbo
-@@ -108,6 +120,10 @@ imx6dl-colibri-v1.2-iris-v2-panel-cap-touch-7inch-parallel-dtbs := \
- 	imx6dl-colibri-v1.2-iris-v2.dtb \
- 	imx6dl-colibri-panel-cap-touch-7inch-parallel.dtbo
- 
-+imx6dl-colibri-v1.2-iris-v2-vga-dtbs := \
-+	imx6dl-colibri-v1.2-iris-v2.dtb \
-+	imx6dl-colibri-vga.dtbo
-+
- imx6qdl-dhcom-pdk2-overlay-497-200-x12-dtbs := \
- 	imx6q-dhcom-pdk2.dtb \
- 	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo
-@@ -154,15 +170,20 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
- 	imx6dl-colibri-v1.2-aster.dtb \
- 	imx6dl-colibri-v1.2-aster-hdmi.dtb \
- 	imx6dl-colibri-v1.2-aster-panel-cap-touch-7inch-parallel.dtb \
-+	imx6dl-colibri-v1.2-aster-vga.dtb \
- 	imx6dl-colibri-v1.2-eval-v3.dtb \
- 	imx6dl-colibri-v1.2-eval-v3-hdmi.dtb \
- 	imx6dl-colibri-v1.2-eval-v3-panel-cap-touch-7inch-parallel-touch-adapter.dtb \
- 	imx6dl-colibri-v1.2-eval-v3-panel-res-touch-7inch-parallel.dtb \
-+	imx6dl-colibri-v1.2-eval-v3-vga.dtb \
- 	imx6dl-colibri-v1.2-iris.dtb \
- 	imx6dl-colibri-v1.2-iris-hdmi.dtb \
-+	imx6dl-colibri-v1.2-iris-vga.dtb \
- 	imx6dl-colibri-v1.2-iris-v2.dtb \
- 	imx6dl-colibri-v1.2-iris-v2-hdmi.dtb \
- 	imx6dl-colibri-v1.2-iris-v2-panel-cap-touch-7inch-parallel.dtb \
-+	imx6dl-colibri-v1.2-iris-v2-vga.dtb \
-+	imx6dl-colibri-vga.dtbo \
- 	imx6dl-cubox-i.dtb \
- 	imx6dl-cubox-i-emmc-som-v15.dtb \
- 	imx6dl-cubox-i-som-v15.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-colibri-vga.dtso b/arch/arm/boot/dts/nxp/imx/imx6dl-colibri-vga.dtso
-new file mode 100644
-index 000000000000..f22f1969a6a8
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-colibri-vga.dtso
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * VGA output connected to the Colibri parallel RGB LCD interface through a
-+ * non-programmable video DAC with a DVI connector.
-+ *
-+ * The VGA output is available on multiple carrier boards (including Iris,
-+ * Eval, Aster) without VESA DDC I2C signals.
-+ *
-+ * The DAC power-save input is driven by the BL_ON signal on SODIMM 71.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	vga-encoder {
-+		compatible = "dumb-vga-dac";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_bl_on>;
-+		/* Colibri SODIMM 71 - BL_ON */
-+		enable-gpios = <&gpio3 26 GPIO_ACTIVE_HIGH>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				vga_enc_in: endpoint {
-+					remote-endpoint = <&lcd_display_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				vga_enc_out: endpoint {
-+					remote-endpoint = <&dvi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	dvi-connector {
-+		compatible = "dvi-connector";
-+		analog;
-+
-+		port {
-+			dvi_connector_in: endpoint {
-+				remote-endpoint = <&vga_enc_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&lcd_display {
-+	status = "okay";
-+};
-+
-+&lcd_display_out {
-+	remote-endpoint = <&vga_enc_in>;
-+};
-
--- 
-2.55.0
-
+Konrad
 
