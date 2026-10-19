@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB3FCCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2066BCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3O7F2X6+k4YoUAU2Oxwl9vtYL6fJyRW+Z7I2RKsPELI=; b=VeKIK7tevR94PZF2yQl+sBJywt
-	Eh09ugQWYTsmRu+Wd1TQx9LyxS1P656tNZHN6UaEB8i55RF05COQ0Fg7rHL8xcSQvFHdVaKlchA7x
-	pg7jAxasdl4UcXxUSf+Mb8ZnhpZyOJXZRT8dxrcUFIrAyn+VbIb0DJjrnpXcATpvOQxJWxpQeEapt
-	6Qcd3jiBMSWTUpOS70ngrxnaFk+gb4LnI3TJqbecUEEXxDibjvNqSNqy3izkZuruKk9olvuRu7zY0
-	gG004S7zQuMb626wzyyG3xmKp3H1OyZw7TeqXyxy/sycSzATqQyeg4IaC3kqOgQQ8bTusUISBBEJ8
-	Cq85fLGA==;
+	bh=dVT/lc0X87cPzZC0IZOAStJKDaNEt1e40Q93nkmWZJA=; b=TYVhDHU3MpaGUKmLXdJ2/J79CO
+	ka3/VtfJIjh+2AKldH0WCJGscAjKAYyjoXj0yd4fORWA3kJ/N+p+h/jP/Dd2C0p5vLRZkIB8L6rtM
+	67jnXrQGFmwnJhJomGNh7td/baFj1hCZzaLJRH6pvcQ3ymzBYnGLvRqGmhIGodx9OKRKIGOJZGb8u
+	AVi78yGFY+WCPQDc70vdDYcUys62Kdau4otM6iDpBa7oyq88g7SwY3I3TJP2mACPaCJhMx70czzPk
+	NlSROko4YyVrCIRapfRvYrZdn6/R5t3UREUE3ZDTSIIp3t9bsEhkehFxZ8PZON82Wbr7+UYrFnWZW
+	crDKDytA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIo0b-00000007gzw-0ewn;
-	Mon, 19 Oct 2026 14:06:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIo0h-00000007h3K-1E6Q;
+	Mon, 19 Oct 2026 14:06:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIo0Z-00000007gz7-1UZA
+	id 1xIo0g-00000007h2j-22Lt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:06:35 +0000
+	Mon, 19 Oct 2026 14:06:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A47B960238;
-	Mon, 19 Oct 2026 14:06:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E87381F000C7;
-	Mon, 19 Oct 2026 14:06:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E9823438AF;
+	Mon, 19 Oct 2026 14:06:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 734CB1F000C5;
+	Mon, 19 Oct 2026 14:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418794;
-	bh=3O7F2X6+k4YoUAU2Oxwl9vtYL6fJyRW+Z7I2RKsPELI=;
+	s=k20260515; t=1792418801;
+	bh=dVT/lc0X87cPzZC0IZOAStJKDaNEt1e40Q93nkmWZJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SVsT+lpSO4UhuZZin3de5iOCnl7r8MI5SpJg6+BlEprYTj1X30qaM6bgJDmUlUZi7
-	 ACiKIipiJOdIDOFHgHldozO7FMqgo/Bs6AZtmO/A44In4IO5PqL1rS9lUc/Wvisrmr
-	 vpR3W9TUSZfh4tCf09kpnQenL/DJTbaehW6HYXLuihNkJwCh9ixX/IM0odhfV223wK
-	 sbIn1h556jGx7TxK4w1yRyoUEFof21MeH2CiNFP/jIUpkgdbZioAz4xvwCbaLH9X8+
-	 WTy9tC0pHKUaWv0dA7oc2wd1+iE2YlAlBX60km1u/jouJg4tE6cO3W/xSG6AvfSb3E
-	 OeTBlFAJZiQBg==
+	b=BItVbjqZYHoLIf2RabOZ+tRjogM81Tsfoms7iCtbg9zuAvDlNG6QVzFodCXYqNMfO
+	 uoi1GSgFmDTkEoXadjH7YlWZ1gFV8N/YyLFTpxzUt9KcBsv/mnTWX+ivQFfhv77lGf
+	 fhhFvCM223bHUadRJr5NezEqPcZpTv6xVbRmEmHB1GTy/leBkwaSAfJBxgx7b+jmUk
+	 po8NexWQQKb1XQXTHf1G1QJM0ZEC9+x95Mq41+F61tsu9KiIEbiVNo/4saIMrpca4X
+	 ETxo1BJmMkZMqjEHC1L6PrzeB3twlBddlHxyWV8MTQMA90uaOfkj7fSUAJ4/OKX/qk
+	 zNw736JastvbQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Sashiko <sashiko-bot@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
+Cc: Mithil Bavishi <bavishimithil@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	"Kevin Hilman (TI)" <khilman@baylibre.com>,
 	Sasha Levin <sashal@kernel.org>,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-clk@vger.kernel.org,
+	aaro.koskinen@iki.fi,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	linux@armlinux.org.uk,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] clk: sunxi-ng: fix ccu probe clock unregister on error
-Date: Mon, 19 Oct 2026 09:53:12 -0400
-Message-ID: <20261019135441.1420968-501-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Date: Mon, 19 Oct 2026 09:53:17 -0400
+Message-ID: <20261019135441.1420968-506-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -84,390 +83,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jerome Brunet <jbrunet@baylibre.com>
+From: Mithil Bavishi <bavishimithil@gmail.com>
 
-[ Upstream commit 81f4ddc9f7e0c11d3e9d24d0f30023845a02f7ee ]
+[ Upstream commit 4a7b197ad28d71f9fac873f283b4408df3fdb287 ]
 
-When registering clocks with sunxi_ccu_probe(), the number of ccu_clocks
-and the number of hw clocks might be different, eventhough they usually are
-the same.
+With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
+because omap_pm_ops.finish_suspend points directly to the assembly
+routine omap4_finish_suspend, which lacks the expected KCFI type
+metadata.
 
-If they are different, it could lead to out-of-bound access or registered
-clock left behind on error.
+Annotate omap4_finish_suspend with SYM_TYPED_FUNC_START so the assembly
+routine carries the KCFI type metadata.
 
-Use a different variable when iterating on hw clocks so every registered
-clock, and only those, gets unregistered on error.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/r/20260629131254.7E34C1F00A3A@smtp.kernel.org
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-Link: https://patch.msgid.link/20260706-a733-rtc-v4-3-f330728db3d3@baylibre.com
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+Link: https://patch.msgid.link/20260604054048.18980-1-bavishimithil@gmail.com
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit message forensics
+The local tree is **6.18.53**. The patch is a three-line CFI annotation
+for an OMAP4 assembly suspend finisher that is called through a C
+function pointer, so a `CONFIG_CFI` kernel can oops on idle/suspend.
+That is a real crash with a tiny, standard fix.
 
-**Step 1.1: Subject line**
-Record: **[clk: sunxi-ng]** **[fix]** unregister the right set of CCU
-`clk_hw` objects when `sunxi_ccu_probe()` fails.
+===============================================================
+PHASE 1: COMMIT MESSAGE FORENSICS
+===============================================================
 
-**Step 1.2: Tags**
+Step 1.1: PARSE THE SUBJECT LINE
+Record: **[ARM: OMAP2+]** **[Add]** Add KCFI type metadata for assembly
+`omap4_finish_suspend`. The verb is “Add”, but the body is a CFI-trap
+fix, not a feature.
+
+Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 Record:
-- `Reported-by: Sashiko <sashiko-bot@kernel.org>` — static-analysis bot,
-  not syzbot
-- `Closes:
-  https://lore.kernel.org/r/20260629131254.7E34C1F00A3A@smtp.kernel.org`
-- `Reviewed-by: Chen-Yu Tsai <wens@kernel.org>` — sunxi/clk maintainer
-- `Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>` (author)
-- `Link: https://patch.msgid.link/20260706-a733-rtc-v4-3-
-  f330728db3d3@baylibre.com` — **v4 3/9** of the A733 RTC series
-- `Signed-off-by: Chen-Yu Tsai <wens@kernel.org>` (applied to sunxi clk
-  tree)
-- No `Fixes:` tag (expected)
-- No `Cc: stable` (expected; not treated as a negative)
+- Reviewed-by: Nathan Chancellor (Clang/CFI)
+- Reviewed-by: Andreas Kemnade (OMAP)
+- Link: https://patch.msgid.link/20260604054048.18980-1-
+  bavishimithil@gmail.com
+- Signed-off-by: Mithil Bavishi (author)
+- Signed-off-by: Kevin Hilman (TI) (OMAP maintainer; applied)
+- No Fixes:, Reported-by, Tested-by, or Cc: stable (absence expected)
+- Ignore pipeline “Upstream commit” / Sasha Levin SOB
 
-**Step 1.3: Body**
+Step 1.3: ANALYZE THE COMMIT BODY TEXT
 Record:
-[Bug] `sunxi_ccu_probe()` uses one index for both `desc->ccu_clks`
-(`num_ccu_clks`) and `desc->hw_clks` (`hw_clks->num`). Those lengths are
-not always equal.
-[Symptom] On probe error: **out-of-bounds** `hws[i]` access, or
-**registered clocks left behind**.
-[Version] None stated.
-[Root cause] Error-path unregister walks the leftover loop index instead
-of the hw-clock index.
+- Bug: with `CONFIG_CFI`, OMAP4 can trap in `omap4_enter_lowpower()`
+  because `omap_pm_ops.finish_suspend` points at assembly
+  `omap4_finish_suspend` with no KCFI type hash.
+- Symptom: CFI failure / oops on low-power entry.
+- Root cause: indirectly called asm lacks `__kcfi_typeid_*`.
+- Fix: `SYM_TYPED_FUNC_START` / `SYM_FUNC_END`.
+- No version range given; ARM CFI itself is from 6.11.
 
-**Step 1.4: Hidden bug fix?**
-Record: **No disguise.** This is an explicit error-path OOB/leak fix.
-Sashiko rated the pre-existing issue **High**.
+Step 1.4: DETECT HIDDEN BUG FIXES
+Record: Not disguised. It is an explicit CFI-trap fix, same class as
+other `SYM_TYPED_FUNC_START` annotations.
 
----
+===============================================================
+PHASE 2: DIFF ANALYSIS - LINE BY LINE
+===============================================================
 
-## Phase 2: Diff analysis
+Step 2.1: INVENTORY THE CHANGES
+Record:
+- File: `arch/arm/mach-omap2/sleep44xx.S` (+3 / −2)
+- Functions: `omap4_finish_suspend` only
+- Scope: single-file surgical annotation
 
-**Step 2.1: Inventory**
-Record: `drivers/clk/sunxi-ng/ccu_common.c` only; **+6 / −6**. Function:
-`sunxi_ccu_probe()`. Surgical, single-file.
+Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
+Record:
+- Hunk 1: `#include <linux/cfi_types.h>` so `SYM_TYPED_FUNC_START` is
+  defined.
+- Hunk 2: `ENTRY(omap4_finish_suspend)` →
+  `SYM_TYPED_FUNC_START(omap4_finish_suspend)`. Without `CONFIG_CFI`
+  this is the same as `SYM_FUNC_START`/`ENTRY`. With CFI it emits
+  `.4byte __kcfi_typeid_omap4_finish_suspend` before the symbol.
+- Hunk 3: `ENDPROC` → `SYM_FUNC_END` (paired end; ARM `ENDPROC` vs
+  generic `SYM_FUNC_END` is ELF metadata only).
+- Path: function prologue of the suspend finisher; no control-flow
+  change.
 
-**Step 2.2: Code-flow change**
-Before: one `i` for (1) `ccu_clks` setup, (2) `hw_clks` register, (3)
-rate-range on `ccu_clks`, then `err_clk_unreg` does `while (--i)` over
-`hw_clks->hws[i]`. After loop (3), `i == num_ccu_clks`, so
-provider/reset failures use the wrong bound.
-After: hw-clock register/unregister uses `j`; `i` stays for `ccu_clks`.
+Step 2.3: IDENTIFY THE BUG MECHANISM
+Record: **(h) hardware/CFI metadata + (g) correctness.** Indirect call
+to asm without a type hash. Compiler CFI checks at
+`omap_pm_ops.finish_suspend(...)` fail → trap. Fix attaches the
+compiler-emitted type id to the asm entry.
 
-**Step 2.3: Bug mechanism**
-Record: **[memory safety / error-path leak]**
-- `num_ccu_clks > hw_clks->num` → OOB read of `hws[]`
-- `num_ccu_clks < hw_clks->num` → incomplete `clk_hw_unregister()`
-  (leak)
-`clk_hw_register()` failure already used the hw index; the clobber is
-the **rate-range loop** added later, then `of_clk_add_hw_provider()` /
-`reset_controller_register()` failures.
+Step 2.4: ASSESS THE FIX QUALITY
+Record: Obviously correct and the established pattern
+(`include/linux/cfi_types.h`). No locking, no API, no data-structure
+change. Regression risk is very low: without CFI it is equivalent to
+`ENTRY`/`SYM_FUNC_START`; with CFI it only adds the expected hash.
 
-**Step 2.4: Fix quality**
-Record: Obviously correct (separate index). Minimal. Regression risk
-**very low** (`j` is always set by `for (j = 0; …)` before any `goto
-err_clk_unreg`). No API/locking changes.
+===============================================================
+PHASE 3: GIT HISTORY INVESTIGATION
+===============================================================
 
----
+Step 3.1: BLAME THE CHANGED LINES
+Record: `ENTRY(omap4_finish_suspend)` body from Santosh Shilimkar,
+`b2b9762f76981` (2010). Function-pointer assignment
+`omap_pm_ops.finish_suspend = omap4_finish_suspend` from `9f192cf7dad8f`
+(2013). The crash only appears after ARM CFI (`1a4fec49efe52`, “ARM:
+9392/2: Support CLANG CFI”, 2024-04-29, in v6.11+).
 
-## Phase 3: Git history
+Step 3.2: FOLLOW THE FIXES: TAG
+Record: No Fixes: tag. Buggy combination is long-lived asm + CFI on ARM
+since 6.11.
 
-**Step 3.1: Blame**
-Record: Probe helper from `1d80c14248d608` (2016). Error unregister from
-`5d806f9fc8e63d` / `9bec2b9c61340` (v5.16 era). The **clobber** is
-`ea977d742507e` (“Don't call hw_to_ccu_common on hw without common”,
-**v6.10-rc7**), which inserted a `num_ccu_clks` loop after hw
-registration and reused `i`.
+Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+Record: File is quiet. Last functional change before this was
+`2402ff05c6e6b` (use `v7_invalidate_l1`). Standalone, not “patch X/Y”.
+Maintainer applied it as `[1/1]`.
 
-**Step 3.2: Fixes: tag**
-Record: **None.** Introducer is `ea977d742507e` (ancestor of HEAD). That
-commit was itself `Cc: stable` / `Fixes: b914ec33b391e`.
+Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+Record: Mithil Bavishi’s nearby work here is OMAP DT (Galaxy Tab 2), not
+a CFI series. Reviewers are the domain experts.
 
-**Step 3.3: File history**
-Record: Candidate `81f4ddc9f7e0c`. Nearby Jerome commits are A733 RTC
-**features** after this fix. This patch is **standalone**; later series
-patches are not prerequisites.
+Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+Record: Needs `SYM_TYPED_FUNC_START` (`e84e008e7b02`, 2022) and ARM
+`ARCH_SUPPORTS_CFI` (`1a4fec49efe52`). Both are ancestors of this
+6.18.53 tree. Applies standalone.
 
-**Step 3.4: Author**
-Record: Jerome Brunet (BayLibre, regular clk/sunxi contributor).
-Maintainer Chen-Yu Tsai reviewed and applied it.
+===============================================================
+PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+===============================================================
 
-**Step 3.5: Dependencies**
-Record: Needs the three-loop `sunxi_ccu_probe()` from `ea977d742507e`.
-That is in this tree. No new helpers. **Can apply standalone.**
+Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+Record:
+- `b4 dig -c 4a7b197ad28d71f9fac873f283b4408df3fdb287` → v3 https://patc
+  h.msgid.link/20260604054048.18980-1-bavishimithil@gmail.com
+- `b4 dig -a`: v2 2026-05-22, v3 2026-06-03 (applied)
+- v1 (May 12): “Make OMAP4 finish_suspend callback CFI-safe”. Nathan
+  asked for `SYM_TYPED_FUNC_START` and whether other `omap_pm_ops`
+  members need it. Andreas: `omap4_cpu_resume` / secondary startup are
+  stored as `u32` phys addrs (no CFI); `scu_prepare` is C. Only
+  `finish_suspend` needs the annotation.
+- Kevin Hilman applied v3 (`d58849ac3044` in his tree). No NAK found.
+- lore.kernel.org fetches returned 403; discussion recovered from b4,
+  spinics, LKML mirrors, openwall.
 
----
+Step 4.2: CHECK WHO REVIEWED THE PATCH
+Record: `b4 dig -w` CCs: OMAP maintainers (Kemnade, Hilman, Lindgren,
+Quadros, Koskinen), RMK, Sami Tolvanen, Kees Cook, Nathan Chancellor,
+linux-omap, linux-arm-kernel, llvm@. Right people.
 
-## Phase 4: Mailing list / external
+Step 4.3: SEARCH FOR THE BUG REPORT
+Record: No syzbot/bugzilla. Mechanism is described in the patch;
+reviewers treated it as a real CFI trap, not speculative.
 
-**Step 4.1: Original discussion**
-Record: `b4 dig -c 81f4ddc9f7e0c` → https://patch.msgid.link/20260706-
-a733-rtc-v4-3-f330728db3d3@baylibre.com
-Series: v1 (Junhui Liu, Jan 2026) → v2/v3/v4 (Jerome). This fix first
-appears in **v3** (“Fix ccu probe helper to properly unregister clocks
-on error”), applied as **v4 3/9**.
-No NAK. Chen-Yu applied it to `sunxi/clk-for-7.3`. No reviewer `Cc:
-stable`.
+Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+Record: Standalone. v1→v3 is the same fix rewritten to
+`SYM_TYPED_FUNC_START`.
 
-**Step 4.2: Recipients (`b4 dig -w`)**
-Record: Chen-Yu Tsai, Jernej Skrabec, Samuel Holland, Stephen Boyd,
-Maxime Ripard, linux-clk, linux-sunxi. Right maintainers.
+Step 4.5: CHECK STABLE MAILING LIST HISTORY
+Record: lore.kernel.org/stable returned 403. UNVERIFIED whether stable@
+already discussed it. No local `git log` hit for a prior OMAP4 CFI
+annotation.
 
-**Step 4.3: Bug report**
-Record: Sashiko on **v2 5/6** (msgid
-`20260629131254.7E34C1F00A3A@smtp.kernel.org`), severity **High**: error
-path uses `i == num_ccu_clks` as the `hws[]` bound → leak or OOB
-depending on driver sizes. Pre-existing, not introduced by the A733
-patch.
+===============================================================
+PHASE 5: CODE SEMANTIC ANALYSIS
+===============================================================
 
-**Step 4.4: Series**
-Record: 9-patch A733 RTC enablement. This hunk only touches
-`ccu_common.c` and does not need A733. Later patches make RTC
-`num_ccu_clks` vs `hw_clks->num` diverge more; the common-probe bug
-already exists.
+Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+Record: `omap4_finish_suspend` (asm). Callers use
+`omap_pm_ops.finish_suspend`.
 
-**Step 4.5: Stable list**
-Record: lore.kernel.org/stable search for this subject returned **no**
-dedicated stable-thread discussion. WebFetch to lore.html returned 403;
-raw mbox via curl/`b4 dig -m` succeeded.
+Step 5.2: TRACE CALLERS
+Record (verified in this tree):
+- `omap-mpuss-lowpower.c:440` assigns the pointer on OMAP44xx.
+- `omap4_enter_lowpower()`: `cpu_suspend(...,
+  omap_pm_ops.finish_suspend)` or
+  `omap_pm_ops.finish_suspend(save_state)` (C indirect call — CFI-
+  checked).
+- `omap4_hotplug_cpu()`: always `omap_pm_ops.finish_suspend(cpu_state)`.
+- `pm44xx.c:79` → suspend.
+- `cpuidle44xx.c:108,187` → idle.
 
----
+Step 5.3: TRACE CALLEES
+Record: cache flush, SCU power mode, WFI. Unchanged.
 
-## Phase 5: Semantic / impact
+Step 5.4: FOLLOW THE CALL CHAIN
+Record: cpuidle / suspend / hotplug → `omap4_enter_lowpower` /
+`omap4_hotplug_cpu` → indirect call. Userspace-reachable via idle and
+suspend. On CFI failure ARM `hw_breakpoint_cfi_handler` does `die("Oops
+- CFI", ...)` unless `CFI_PERMISSIVE`.
 
-**Step 5.1: Functions**
-Record: `sunxi_ccu_probe()` only (plus log index).
+Step 5.5: SEARCH FOR SIMILAR PATTERNS
+Record: `omap4_cpu_resume` still uses `ENTRY` — intentional (ROM jump
+via phys addr). Rest of mach-omap2 asm is not stored in that C function-
+pointer slot. Widespread `SYM_TYPED_FUNC_START` in
+`arch/arm/mm/proc-*.S`.
 
-**Step 5.2: Callers**
-Record: `devm_sunxi_ccu_probe()` and `of_sunxi_ccu_probe()` in the same
-file. Called from **all** sunxi-ng CCU drivers (H6, A64, H3, D1, A10,
-RTC, …) at SoC clock probe/boot.
+===============================================================
+PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+===============================================================
 
-**Step 5.3: Callees**
-Record: `clk_hw_register` / `of_clk_hw_register`,
-`of_clk_add_hw_provider`, `reset_controller_register`,
-`clk_hw_unregister`. Provider add can fail (`-ENOMEM`,
-`of_clk_set_defaults()`).
+Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+Record: Yes. `git describe HEAD` = **v6.18.53-5049-g0f0bdc2b0dffb**,
+`make kernelversion` = **6.18.53**. `v6.18.53` has
+`ENTRY(omap4_finish_suspend)` and `ARCH_SUPPORTS_CFI`. `git diff
+v6.18.53 -- arch/arm/mach-omap2/sleep44xx.S` is exactly this patch.
 
-**Step 5.4: Reachability**
-Record: Boot-time CCU probe on Allwinner. Failure is error-path (OOM,
-assigned-clock defaults). On failure, `of_sunxi_ccu_probe()` /
-`devm_sunxi_ccu_probe()` **kfree** the `struct sunxi_ccu` whose `lock`
-remaining clocks still point at (`cclk->lock = &ccu->lock`) if
-unregister is incomplete.
+Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+Record: Clean apply. File otherwise unchanged vs v6.18.53.
 
-**Step 5.5: Similar patterns**
-Record: `devm_sunxi_ccu_release()` already walks `hw_clks->num`
-correctly. Only the probe error path was wrong. Counts really differ,
-e.g. H6: **127** `ccu_clks` vs **CLK_NUMBER 138**; A64: **104** vs
-**115**. RTC in this tree: 12 `ccu_clks` vs `CLK_NUMBER_NO_GATES` **8**
-on H616/R329 → **OOB** if probe fails after the rate-range loop.
+Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+Record: No other omap4_finish_suspend CFI fix. This tree already has
+other ARM CFI work (`ARM: 9481/2: breakpoint: CFI breakpoints only on
+demand`), so CFI-on-ARM is in-scope for 6.18.y.
 
----
+===============================================================
+PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+===============================================================
 
-## Phase 6: This checkout (v7.3-rc4)
+Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+Record: `arch/arm/mach-omap2` platform PM. **PERIPHERAL** hardware, but
+the path is idle/suspend (high frequency if that SoC + CFI is used).
 
-**Step 6.1: Buggy code here?**
-Record: **Yes.** `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`;
-`VERSION=7 PATCHLEVEL=3`. `ea977d742507e` and `81f4ddc9f7e0c` are both
-ancestors of HEAD. Pre-fix `sunxi_ccu_probe()` at `81f4ddc9f7e0c^` still
-clobbers `i`. Bug since **v6.10**, long before 7.3.
+Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+Record: Mature; sleep44xx.S rarely changes. Bug is CFI enablement
+meeting old code, not new churn.
 
-**Step 6.2: Backport difficulty**
-Record: **Clean apply** on this code (6-line index split). No refactor
-between the buggy helper and this patch.
+===============================================================
+PHASE 8: IMPACT AND RISK ASSESSMENT
+===============================================================
 
-**Step 6.3: Other fixes already here?**
-Record: This **is** the fix (`81f4ddc9f7e0c`). No earlier equivalent.
-That does not mean “already selected for stable”; it is the mainline
-commit being evaluated.
+Step 8.1: DETERMINE WHO IS AFFECTED
+Record: Driver/platform + config: `CONFIG_ARCH_OMAP4` and `CONFIG_CFI`.
+Not universal.
 
----
+Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+Record: CPU idle, suspend, hotplug on OMAP4 with CFI. Not an
+unprivileged exploit; it is a false CFI hit on a legitimate call. With
+default CFI (non-permissive) it oopses.
 
-## Phase 7: Subsystem
+Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+Record: CFI mismatch → `report_cfi_failure()` → `BUG_TRAP_TYPE_BUG` →
+`die("Oops - CFI")`. **HIGH** (oops/panic on idle/suspend). Permissive
+CFI is warn-only.
 
-**Step 7.1:** Record: **clk / Allwinner sunxi-ng CCU**. **IMPORTANT**
-(every Allwinner platform’s clock controller), not core mm/net, not
-staging.
+Step 8.4: CALCULATE RISK-BENEFIT RATIO
+Record:
+- Benefit: medium-high for OMAP4+CFI (otherwise idle/suspend is broken);
+  none otherwise, and the macros are inert without CFI.
+- Risk: very low (3 lines, no behavior change off CFI).
+- Ratio: favorable.
 
-**Step 7.2:** Record: Mature CCU core (2016) with ongoing SoC additions.
-Helper is shared and stable; this is not churny experimental code.
+===============================================================
+PHASE 9: FINAL SYNTHESIS
+===============================================================
 
----
-
-## Phase 8: Impact and risk
-
-**Step 8.1:** Record: **platform-specific** — `CONFIG_SUNXI_CCU` /
-Allwinner boards (phones, SBCs, TVs). Many LTS users.
-
-**Step 8.2:** Record: Trigger = CCU **probe failure** after clocks are
-registered (`of_clk_add_hw_provider` / reset register). Not every boot.
-Not a userspace syscall. `of_clk_set_defaults()` is a realistic DT
-failure. Unprivileged users do not trigger it directly.
-
-**Step 8.3:** Record: Incomplete unregister → leak; wrong bound →
-**OOB**; leftover `clk_hw` plus `kfree(ccu)` → **UAF** on `cclk->lock`.
-Severity **HIGH** on the error path (crash / memory safety), not a
-normal-boot oops.
-
-**Step 8.4:** Record: **Benefit high** for Allwinner error-path safety;
-**risk very low** (6-line index fix). Ratio strongly favors backport.
-
----
-
-## Phase 9: Synthesis
-
-**Step 9.1: Evidence**
-
+Step 9.1: COMPILE THE EVIDENCE
 FOR:
-- Real OOB/leak in shared CCU probe cleanup; counts differ on H6/A64/RTC
-  in this tree
-- Sashiko High; maintainer Reviewed-by + applied
-- Tiny, obviously correct, no new API
-- Bug from v6.10 (`ea977d742507e`) is in this tree
-- No extra series patches required
+- Real CFI trap → oops on a live idle/suspend/hotplug path
+- ARM CFI exists in this 6.18.y tree
+- Tiny, standard, reviewed by CFI and OMAP maintainers
+- Applies cleanly; helpers already present
+- Harmless when CFI is off
 
 AGAINST:
-- Error-path only (not every boot)
-- Nested in an A733 **feature** series (this patch is still self-
-  contained)
-- No live user oops; found by static review
-- No `Fixes:` / `Cc: stable` (not a negative here)
+- Only `ARCH_OMAP4` + `CONFIG_CFI` (small population)
+- No public crash log / syzbot
+- OMAP4 is old
 
 UNRESOLVED:
-- lore HTML 403 (mbox/raw used instead)
-- Exact production hit rate of `of_clk_set_defaults()` failure on CCU
-  nodes
+- lore.kernel.org 403; no stable@ thread recovered
+- No independent Tested-by on hardware in the tags
 
-**Step 9.2: Stable rules**
-1. Obviously correct and tested — **PASS** (maintainer review; logic is
-   local)
-2. Real bug affecting users — **PASS** (Allwinner CCU probe fail →
-   leak/OOB)
-3. Important (crash/corruption/deadlock/security) — **PASS** (OOB;
-   incomplete unwind + free of lock)
-4. Small and contained — **PASS** (12 lines, one function)
-5. No new features/APIs — **PASS**
-6. Can apply to this tree — **PASS**
+Step 9.2: APPLY THE STABLE RULES CHECKLIST
+1. Obviously correct and tested? **PASS** — standard annotation;
+   Reviewed-by Nathan Chancellor and Andreas Kemnade
+2. Fixes a real bug that affects users? **PASS** — CFI false positive on
+   indirect call
+3. Important issue? **PASS** — oops/panic on idle/suspend when CFI is on
+   (HIGH, config-specific)
+4. Small and contained? **PASS** — 5 lines, one file
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — identical context on v6.18.53
 
-**Step 9.3: Exception category**
-Record: None (not an ID/quirk/DT/build/doc exception). It is a normal
-small bugfix.
+Step 9.3: CHECK FOR EXCEPTION CATEGORIES
+Record: Not a device-ID/quirk/DT/docs patch. Closest analogue:
+supported-config correctness (CFI annotation), like a build/runtime fix
+for `CONFIG_CFI`.
 
-**Step 9.4: Decision**
-This tree is **7.3-rc4**. The helper and the v6.10 index-clobber exist
-here. The patch is a surgical error-path memory-safety fix for every
-sunxi-ng CCU, including OOB on RTC when `num_ccu_clks` (12) exceeds
-`hw_clks->num` (8). It meets stable rules with very low regression risk.
+Step 9.4: MAKE YOUR DECISION
+The population is small, but the failure is a kernel oops on a common PM
+path, the patch is three lines and matches existing ARM CFI helpers in
+this tree, and it does nothing when CFI is off. That meets 6.18.y stable
+rules.
 
----
-
-### Problem and why it matters
-
-`sunxi_ccu_probe()` registered `hw_clks` with index `i`, then reused `i`
-to walk `ccu_clks` for rate limits. On later failure it unregistered
-with that leftover `i`. Those array lengths differ on real SoCs, so
-cleanup either walks off `hws[]` or leaves clocks registered (and can
-free the `ccu` lock those clocks still use). Stable Allwinner devices
-share this helper.
-
-### Stable rules / risk
-
-Small, reviewed, no features, applies cleanly. Benefit is avoiding
-OOB/UAF on CCU probe failure; risk is a loop-index change only.
-
-### Concerns
-
-Needs `ea977d742507e` (present here). Do not pull the rest of the A733
-series. Trigger is probe-error, not hot-path, but the failure mode is
-memory safety.
+What it solves for this tree: 6.18 already selects `ARCH_SUPPORTS_CFI`.
+OMAP4 still assigns the asm finisher to a C function pointer and calls
+it from cpuidle/suspend. Without the type hash, a CFI kernel can
+`die("Oops - CFI")` in `omap4_enter_lowpower()`. Benefit vs risk is
+strongly in favor of backporting.
 
 Verification:
-- [Phase 1] Tags: Sashiko Reported-by/Closes, Chen-Yu Reviewed-by, msgid
-  v4 3/9; no Fixes/Cc stable
-- [Phase 2] Diff: `i` vs `j` in `sunxi_ccu_probe()`; +6/−6 in
-  `ccu_common.c`
-- [Phase 3] `git describe HEAD` → `v7.3-rc4-27-gf0100363d8c37`; blame:
-  bug from `ea977d742507e` (v6.10-rc7); `git merge-base --is-ancestor
-  ea977d742507e HEAD` → yes
-- [Phase 3] `git log --oneline -- drivers/clk/sunxi-ng/ccu_common.c`:
-  candidate `81f4ddc9f7e0c`; later commits are A733 features, not
-  prerequisites
-- [Phase 4] `b4 dig -c 81f4ddc9f7e0c` → lore msgid; `-a` v1–v4; `-w`
-  sunxi/clk maintainers; `-m` 25-message mbox; Chen-Yu applied 3/9; no
-  NAK
-- [Phase 4] Original Sashiko report (curl raw): High, wrong loop limit,
-  leak or OOB
-- [Phase 4] Stable lore search: no prior stable-thread hit
-- [Phase 5] Callers: `devm_sunxi_ccu_probe` / `of_sunxi_ccu_probe` → all
-  sunxi-ng CCU drivers
-- [Phase 5] H6 127 vs 138; A64 104 vs 115; RTC 12 vs 8
-  (`CLK_NUMBER_NO_GATES`) verified in tree
-- [Phase 5] `of_clk_add_hw_provider` can return `-ENOMEM` or
-  `of_clk_set_defaults` error
-- [Phase 6] Pre-fix source at `81f4ddc9f7e0c^` still uses one `i`;
-  current file already has `j`
-- [Phase 7] MAINTAINERS: Chen-Yu Tsai maintains `drivers/clk/sunxi-ng/`
-- [Phase 8] Failure mode: OOB / leak / possible lock UAF on probe error
-  — HIGH, error-path
-- UNVERIFIED: live user crash report beyond Sashiko; lore HTML pages
-  (403)
+- [Phase 1] Subject/tags: CFI-trap fix; Reviewed-by Nathan Chancellor,
+  Andreas Kemnade; SOB Kevin Hilman; no Fixes/syzbot
+- [Phase 2] Diff: sleep44xx.S +3/−2; include cfi_types.h;
+  ENTRY→SYM_TYPED_FUNC_START; ENDPROC→SYM_FUNC_END
+- [Phase 2] Without CONFIG_CFI, SYM_TYPED_FUNC_START == SYM_FUNC_START
+  == ENTRY (include/linux/cfi_types.h, linkage.h)
+- [Phase 3] blame: asm from b2b9762f76981 (2010); pointer assign
+  9f192cf7dad8f (2013)
+- [Phase 3] ARM CFI: 1a4fec49efe52 in v6.11 and in this tree (`git
+  merge-base --is-ancestor`)
+- [Phase 3] cfi_types.h: e84e008e7b02 in this tree; SYM_TYPED_FUNC_START
+  present at v6.18.53
+- [Phase 3] Standalone; parent of upstream 4a7b197ad28d7 is 7.2-rc1 (not
+  in 6.18 mainline, hence backport)
+- [Phase 4] b4 dig: v2+v3 lore URLs; v3 applied by Hilman; v1 review:
+  only finish_suspend needs typing
+- [Phase 4] Recipients: OMAP + LLVM/CFI maintainers
+- [Phase 4] UNVERIFIED: stable@ discussion (lore 403)
+- [Phase 5] Callers: omap4_enter_lowpower, omap4_hotplug_cpu;
+  cpuidle44xx.c, pm44xx.c
+- [Phase 5] ARM CFI handler: hw_breakpoint.c die("Oops - CFI") on
+  BUG_TRAP_TYPE_BUG
+- [Phase 5] kernel/cfi.c: default non-permissive → BUG
+- [Phase 6] git describe HEAD: v6.18.53-5049-g0f0bdc2b0dffb;
+  kernelversion 6.18.53
+- [Phase 6] git diff v6.18.53 -- sleep44xx.S is this patch (clean apply)
+- [Phase 8] Trigger: idle/suspend/hotplug; severity HIGH oops; risk very
+  low
+- UNVERIFIED: hardware Tested-by; lore.kernel.org full thread text (403)
 
 **YES**
 
- drivers/clk/sunxi-ng/ccu_common.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm/mach-omap2/sleep44xx.S | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_common.c b/drivers/clk/sunxi-ng/ccu_common.c
-index c7e00f0c29a55..bbda75c2bc461 100644
---- a/drivers/clk/sunxi-ng/ccu_common.c
-+++ b/drivers/clk/sunxi-ng/ccu_common.c
-@@ -114,7 +114,7 @@ static int sunxi_ccu_probe(struct sunxi_ccu *ccu, struct device *dev,
- 			   const struct sunxi_ccu_desc *desc)
- {
- 	struct ccu_reset *reset;
--	int i, ret;
-+	int i, j, ret;
+diff --git a/arch/arm/mach-omap2/sleep44xx.S b/arch/arm/mach-omap2/sleep44xx.S
+index f09c9197808b1..8b515f30072b0 100644
+--- a/arch/arm/mach-omap2/sleep44xx.S
++++ b/arch/arm/mach-omap2/sleep44xx.S
+@@ -6,6 +6,7 @@
+  * 	Santosh Shilimkar <santosh.shilimkar@ti.com>
+  */
  
- 	ccu->desc = desc;
++#include <linux/cfi_types.h>
+ #include <linux/linkage.h>
+ #include <asm/assembler.h>
+ #include <asm/smp_scu.h>
+@@ -58,7 +59,7 @@
+  * stack frame and it expects the caller to take care of it. Hence the entire
+  * stack frame is saved to avoid possible stack corruption.
+  */
+-ENTRY(omap4_finish_suspend)
++SYM_TYPED_FUNC_START(omap4_finish_suspend)
+ 	stmfd	sp!, {r4-r12, lr}
+ 	cmp	r0, #0x0
+ 	beq	do_WFI				@ No lowpower state, jump to WFI
+@@ -223,7 +224,7 @@ skip_scu_gp_clear:
+ 	isb
+ 	dsb
+ 	ldmfd	sp!, {r4-r12, pc}
+-ENDPROC(omap4_finish_suspend)
++SYM_FUNC_END(omap4_finish_suspend)
  
-@@ -130,8 +130,8 @@ static int sunxi_ccu_probe(struct sunxi_ccu *ccu, struct device *dev,
- 		cclk->lock = &ccu->lock;
- 	}
- 
--	for (i = 0; i < desc->hw_clks->num ; i++) {
--		struct clk_hw *hw = desc->hw_clks->hws[i];
-+	for (j = 0; j < desc->hw_clks->num ; j++) {
-+		struct clk_hw *hw = desc->hw_clks->hws[j];
- 		const char *name;
- 
- 		if (!hw)
-@@ -143,7 +143,7 @@ static int sunxi_ccu_probe(struct sunxi_ccu *ccu, struct device *dev,
- 		else
- 			ret = of_clk_hw_register(node, hw);
- 		if (ret) {
--			pr_err("Couldn't register clock %d - %s\n", i, name);
-+			pr_err("Couldn't register clock %d - %s\n", j, name);
- 			goto err_clk_unreg;
- 		}
- 	}
-@@ -186,8 +186,8 @@ static int sunxi_ccu_probe(struct sunxi_ccu *ccu, struct device *dev,
- err_del_provider:
- 	of_clk_del_provider(node);
- err_clk_unreg:
--	while (--i >= 0) {
--		struct clk_hw *hw = desc->hw_clks->hws[i];
-+	while (--j >= 0) {
-+		struct clk_hw *hw = desc->hw_clks->hws[j];
- 
- 		if (!hw)
- 			continue;
+ /*
+  * ============================
 -- 
 2.53.0
 
