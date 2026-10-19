@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E10CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5016FCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15hUMvN0PPzdUn/IJzzq8MDlV86NiVKJxdczp5axw50=; b=VmYiuNeGxxsV5H7ohrtmcEs318
-	ODK+t9aVhGSR5lFCzvogYvFeliSCnRZBdj8LV3Cwt4Q7eJ2Ewh4cLtpIqHl1bO5TpSFamCpJ/NiPc
-	m0jxXPUa9qKpopcDuS8Lrsw4w6XZgDdcKS+4q3vrwkfwFcbrJ6qU4bQ41UgFEhti1Nn1uVs5fIHhi
-	L3cvRUjHFp2Ro7sjaFZV3KVoKxcbdMdD5kNsBk5TTDBE4rDzBWNaCNw4jYCA35NigicNP5e45LsJT
-	5KVWPPTkCXQAtIv1CyM5BFzJ21BpMUlw2FjwvYn31vdhO7/YamWVkF7F7i46Ton0//5Wnfh3Z1TvP
-	PyWzocKQ==;
+	bh=QGx+a1NtZjnrwcw+BONGdD/EOWeC/4NjaF0ritVuERU=; b=E0vMMsJGEyXoJIPVhVPsBm7fBO
+	TOnq1WLNL0sq9+RFsfMV7o34JTgqk1qAICW1+QLWBA7n6TajXQFKYtpBHFAg0FtSEzDDSjA1a16Pq
+	6fMz7TheaRfF/G41S/F17M0PutpgITftmJuM4i0Z+c4cMVPT6lDqYIsLHi0ymmomnZI9dFJ2uHTRQ
+	JvjP+1RKQTr/X39kA5DeP3zSOca+GmqYuUJ9GIoeU1s8cpgJ25ITnqX7Niv+I+87SyTKuLPGQ/c7/
+	ncm1DLfrUPkbT/7qD7zY0eolGhSz6mU2AbgW1TTBniYW1O8Z9EsPXFZXX//Upm0dWj3E6q/SsdRT/
+	uJMaPViw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkHA-000000077Dy-3PsX;
-	Mon, 19 Oct 2026 10:07:28 +0000
-Received: from mail-bjschn02on2136.outbound.protection.partner.outlook.cn ([139.219.17.136] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkH6-0000000772F-1vUu
+	id 1xIkHR-000000077Vq-2xM6;
+	Mon, 19 Oct 2026 10:07:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xIkHO-000000077TI-3b7k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:07:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=UMzKqhc+Qqnu/4oK8V8AS+EKOVcXnpVnZ8/MlMn+/TfCHLcsiOXpadHPCd5tC/tRiXr16Gzf5UES8enUVMPWrsypNzk2JNXR4tibAXcU3n3d+4kNutbKTGfV3GJY0ngkzDSZCA5jxxHkzosm3dHkMdjSA2z4oPGGZ8t3FaF+FJq0bJBcfj9cjdTg0828lIqAB1LARmVJZc0wUf31DtwfFGDHORALhL1EUXg8vQfU6rYP4utHlcd2Dpa1XKXwqseFc9M/J0Iajfw8qDtYs/vcFdhCQrwwsvTLS0QsymwlVrt0/dDkrCXHNAI1hUXgdF7y3DZuZOCrfQuCVwKek+21CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=15hUMvN0PPzdUn/IJzzq8MDlV86NiVKJxdczp5axw50=;
- b=D/tjaPyz/BfaYrJqYYaGbH/qlUkQUGej72woBppudnab6ZlycMtJgssAOBJFcbg9A9VRi5TYl15LGs35AsVx0G1VRCUTv1AFV6A8mzoWCbBYIiD+J+5vCGljrTsfi83DmivB6ROfLJ5KpFNX42+hVF6uHdDZZSSQMt0og4EX2xwlQkAFGFhvfEFZWrmB6PGnrmMV22pTkb7UvO3lhceDjPNjef2mVjvqSlSNFNCf5HEXrtVN01K6ouzdDOL0D2vgdd8gzJTbPWwMxOUOX2AuUh4YwlT0Zh0NIr/ek5iTzc4HAvEZzvUSW6XmO/5hvx8OvYIvzNEkPvj5WgT/8kuqEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1204.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:14::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
- 2026 10:07:03 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0522.017; Mon, 19 Oct 2026 10:07:03 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Chia-Wei Wang <chiawei_wang@aspeedtech.com>,
-	Oskar Senft <osk@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Jani Nikula <jani.nikula@intel.com>,
-	Vitaly Lubart <lubvital@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexander Usyskin <alexander.usyskin@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Breno Leitao <leitao@debian.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	James Morse <james.morse@arm.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Dave Penkler <dpenkler@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Dan Williams <djbw@kernel.org>,
-	Mukesh Rathor <mrathor@linux.microsoft.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Alexandra Winter <wintera@linux.ibm.com>,
-	Julian Braha <julianbraha@gmail.com>,
-	Karthikeyan KS <karthiproffesional@gmail.com>,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	openbmc@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH v4 3/4] dt-bindings: soc: starfive: Add StarFive JHB100 UART routing
-Date: Mon, 19 Oct 2026 03:06:42 -0700
-Message-Id: <20261019100643.49099-4-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261019100643.49099-1-changhuang.liang@starfivetech.com>
-References: <20261019100643.49099-1-changhuang.liang@starfivetech.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: NT0PR01CA0011.CHNPR01.prod.partner.outlook.cn (10.2.10.20)
- To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn (10.2.3.102)
+	Mon, 19 Oct 2026 10:07:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4B941EA6;
+	Mon, 19 Oct 2026 03:07:37 -0700 (PDT)
+Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66EA73F9A2;
+	Mon, 19 Oct 2026 03:07:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792404460; bh=k6+k9+SxLvm79mWJFJgtdJVBZiNU+MObDWGx9GFnGLY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JNyTjHNnGTUDKYCXW/stxA9LPFq2koRAWOg4251zM8h492M/vo3tL6bZ7FjWQccJI
+	 byxaGzPD1gtXiutyZGKtDHYOFZfbphx47+3q9kfCmyc66jLykYbJesnmCUWJAH8Sjq
+	 lPiuvzu54FQmzE7yozakQy8m8ST/ISuHw3hmeQGA=
+Message-ID: <d8c784c0-ee8b-451f-879d-c3890f8dc63c@arm.com>
+Date: Mon, 19 Oct 2026 11:07:35 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1204:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5fad4be-8837-49da-931c-08df2dc8b953
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|52116014|18002099003|22082099003|3023799007|10067099003|261009223027099003|56012099006|38350700014;
-X-Microsoft-Antispam-Message-Info: KJs/p4/WYcehR6w9dENBaKh4NPikvRIpEI7XKUmdd0E52jQVNFXekW+NHvLk9F0VzwRNORVba65RXAtTLDPnl2vU4U8cJZh3Vmr6d6raI6e6V9bU5VAJPgnse7qwPuFernhG2UdOCVbMiAFJfariqkPnjN80wyhXtMgQBM20MEOaOVjZXuFUoMA3Hbqu1RKiOuTVvQo2LT86BwbpfzgjVmOoMGF30HdjNn9/+/HO051Q+aHcR+JEIyZyyVTuCuyLA6oE/l5xiebjtGyUvfYPdO89VpD3HXxWqzo74YyGhJV1V3IN3dpXZXeFVQaF7QIz0OK1eNWggmFD+wESWG2aR+ZGRzuyCArMwAy8r1nyjaxIUXoBxoRJCJfeBdyrjLKcdusE/3dY8g9afvzJ8H7nRghCpG2AOSkmRZgelArp6dIaG6wVCaSaFK6rI5ePE72y6+9p8diQ+6IbmN/smzbjxFOGF7UHfrnhUDmo2xfnuB5yQacsT1zVMI+c/Cx2Ba0Fgmza5mkFea0i+t71uXng4HiYP8XhVKbS+eHQT1UW6DUib/o3GBsWXlg1KPjVkibS
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(52116014)(18002099003)(22082099003)(3023799007)(10067099003)(261009223027099003)(56012099006)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q9ktnBLEEjSWHmS03DQJazSoPHtkstvI//g3gYU8F29Y05bnC10g01BDB4Xx?=
- =?us-ascii?Q?UoLMym602rZ63W82wRNRuixGTEGGRqvAy2ZXlHiFnqqV0ZGlLezxRRCdaCFE?=
- =?us-ascii?Q?6Uv7fFZ9iGB5+a40SMLdca43BIe7Hs/ou4J8Bx4us9w/U93hMk0971kv0EP4?=
- =?us-ascii?Q?yohMWNUq0uB/8RIPeJ3fjKZLkLmpYY5ZJaoOquB1BSQCfJmikBbWaCUc4eLa?=
- =?us-ascii?Q?5Y6O2Km8Xwf663iO1q2OIVLRW95Bipdd9Racd7KleOP0Out8vUMDjlu7nHiP?=
- =?us-ascii?Q?9Fpx7T5D9SHF7VFj1slcJmqT7w66p1k8CylY1uAS7WYY5PI0yE5vY/UOoJMV?=
- =?us-ascii?Q?4NLlPvGihP26UHNFNXIR7w4kg51WqSGwG964p39QwhK+VcUj3/1W/v11zLrH?=
- =?us-ascii?Q?uIg3Aw1J1A4/b4ykdQUV5i8+u2ZLExgtio9na6PvsHlSQlGGHQ4iUJyZVKOC?=
- =?us-ascii?Q?Nc1qa8FgP+O4mUBWm/cBw+ZDoed/fuBjhOlxLFMw7SZNdUrds7tUwaA5H7wS?=
- =?us-ascii?Q?BqrlICyqA2LefxWKYPl609o0izCt5yfYUJxBRsoFvofbkU6Xl5tnZCLHbuDm?=
- =?us-ascii?Q?aLKwqrtgfTIuQufN22PxcoQ6TQg9DADQ5Qh9SMuKRowlkcXQMNqHS/ZIu4NR?=
- =?us-ascii?Q?2RAYu+GAHzT+xfjx2Likl3YGBvylinXIhzc2cA6r6g2aUhKWm37kSHnwMMB4?=
- =?us-ascii?Q?t5sQsbMyGisOo1BT5TQlLH1Lf2Sx0v8vX5iUNgQvSnLLxRO1/pDsuSW9EuvG?=
- =?us-ascii?Q?D/Tp/eeOw1+vAUwcWCYaXOt2rx8IBuPbcvZmaRSCqeyoIXcI0yXDB/X7FRse?=
- =?us-ascii?Q?KJiXM5ADeT2WTlVkS3LBw6OPxrCUP5GCyED9HtsAOM7YRSSKSOEOouh75pIA?=
- =?us-ascii?Q?DN1CxNgly9I3lwS6JQaVZGFzp0gTg/0w+7oD8dwNQVJm099olZFACUBE9b10?=
- =?us-ascii?Q?ONQ3gvQwfpwSYmQex6NBn8nYu8vqK8xEKIGl1UI9vBrf2S5JjZ1Z4FkI/vTj?=
- =?us-ascii?Q?MAFO+dedEAtgFgocV6jHA047ida8woV9m/6Em4XB9ydwErELdR0av3w57gl7?=
- =?us-ascii?Q?5VJz68M0Cx/95wh/1xnnGHVmGUzUENOtv8iBFXlHg6SMCHCSdwLWMEGoyJZs?=
- =?us-ascii?Q?Qh763G2MnYYzmOStrbt/Dky+Lft7qPdXSM9uQteI8x2Mw8Fhgaq4cz5PVFZJ?=
- =?us-ascii?Q?0NEC77eZy5vP7XVf+GM76khTJxRJy8mveytMSmhkH7XlSSABqpEc35sToAmV?=
- =?us-ascii?Q?FPHYWJb8ax5ESl3kAnJ6fMmXgnsEbqC0IpVwBBP8LWBo04HCuPnKRnWrtSw/?=
- =?us-ascii?Q?tI0O3eV6i8W67KWUdKoK0QM6r/IJj2UvHobKge3zelS4DCvgF430xo81havo?=
- =?us-ascii?Q?JfQzHA0znPdi3vW7H4Dot2cFL6HZvY5n/U2DQBgxVBuOW2Ip0/UgniLewu/M?=
- =?us-ascii?Q?p9Qs/vNHJdcAeNJW/3VGQtbJx9JCLwSX2aYijhrIf3wHmFdkrAGaTzrItlQ4?=
- =?us-ascii?Q?Mcdx+t8J87NIhL1agQVuN4rbJE17EhI7S+ITWPCnSph/IqXsavVCVUxHD2/x?=
- =?us-ascii?Q?HkKiZ7lYcMM69vO09uxosWCk2572kt/jMz7wMEnY3pAn8eiqNRp7DHdiF+Sr?=
- =?us-ascii?Q?k6ruRUoNAGWxfA3mV+DymD3c2AEH+u//B6SA2VX141po9692P+69Wfk8PqQA?=
- =?us-ascii?Q?H1POF6hJkLwZdp6Pm7QsJTv8E4G7JOZQhGu55PLhnVlQbF5jjvyCQwOH6frn?=
- =?us-ascii?Q?PifiN0yhFwT/vOafp6gDId8hbfw1fAnVn2JP3OSdUCaMti6PJHh2?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5fad4be-8837-49da-931c-08df2dc8b953
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 10:07:03.7437
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n/+XcDsnacamgFVMk8cprd97whYURy5I1VIpQaCRYkCX1TepMctlwvWxt6EgnhavPPpn8M3vMJeArsAhNlJW+7Ws59OoD+3EeuMZy9SZT8Lx9/629aDn25ZwEdPBwzgL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1204
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: insn: clean-up memory barrier types
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Tejun Heo <tj@kernel.org>,
+ Andre Przywara <andre.przywara@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Lucas Wei <lucaswei@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ Barry Song <baohua@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Xu Kuohai <xukuohai@huaweicloud.com>, Puranjay Mohan <puranjay@kernel.org>
+References: <20261016165140.254791-1-ada.coupriediaz@arm.com>
+ <20261016165140.254791-2-ada.coupriediaz@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261016165140.254791-2-ada.coupriediaz@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_030724_503473_9E3C88A0 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20261019_030742_993159_A54CF8A8 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,74 +77,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree binding for the StarFive JHB100 UART routing controller.
-This controller allows dynamic routing of inputs between built-in UARTs
-and physical serial I/O ports, enabling use cases such as Host <-> BMC
-communication via UARTs.
+Hi Ada,
 
-The clocks property exists in the hardware, but the driver does not use
-it.
+On 10/16/26 17:51, Ada Couprie Diaz wrote:
+> Replace magic-numbers for offset and mask with shared defines.
+> 
+> Re-order the types enum by value, matching the Arm ARM, and
+> define them with their proper values, simplifying their use.
+> 
+> Arm ARM DDI 0487 version M.c[0] deprecated a number of types
+> used as options for the DMB and DSB instructions, with no change
+> in behaviour.
+> The deprecated types are not used in the kernel, so remove them
+> from our instruction generation framework and add the missing
+> `AARCH64_INSN_MB_OSH` case in `__get_barrier_crm_val()`.
+> 
 
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../soc/starfive/starfive,uart-routing.yaml   | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
+Nitpick: this is slightly confusing since __get_barrier_crm_val()
+gets converted into  __is_valid_barrier_type()
 
-diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
-new file mode 100644
-index 000000000000..5de809ab3a99
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/starfive/starfive,uart-routing.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JHB100 UART Routing Controller
-+
-+maintainers:
-+  - Changhuang Liang <changhuang.liang@starfivetech.com>
-+
-+description: |
-+  The StarFive JHB100 UART routing controller allows dynamic routing of the
-+  inputs for the built-in UARTs and the physical serial I/O ports.
-+
-+  This allows, for example, connecting the output of one UART to another
-+  UART, which can be used to enable Host <-> BMC communication over UARTs,
-+  e.g. to give the BMC access to the Host's serial console.
-+
-+properties:
-+  compatible:
-+    const: starfive,jhb100-uart-routing
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - resets
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    uart-routing@11a42a00 {
-+        compatible = "starfive,jhb100-uart-routing";
-+        reg = <0x11a42a00 0x100>;
-+        resets = <&per0crg 74>;
-+    };
--- 
-2.25.1
+> This simplifies the switch-case and now covers all the enum types,
+> which allows for making the DSB and DMB generation non instrumentable
+> in a follow-up commit.
+> 
+> [0]: https://support.arm.com/documentation/ddi0487/mc/
+>      (See C6.2.150, C6.2.152)
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/insn.h | 22 ++++++++----------
+>  arch/arm64/lib/insn.c         | 44 ++++++++++++-----------------------
+>  2 files changed, 25 insertions(+), 41 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 1ce75a442638..2d19f48aab81 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -7,6 +7,7 @@
+>   */
+>  #ifndef	__ASM_INSN_H
+>  #define	__ASM_INSN_H
+> +#include <linux/bits.h>
+>  #include <linux/build_bug.h>
+>  #include <linux/types.h>
+>  
+> @@ -297,19 +298,16 @@ enum aarch64_insn_mem_order_type {
+>  	AARCH64_INSN_MEM_ORDER_ACQREL,
+>  };
+>  
+> +#define AARCH64_INSN_MB_TYPE_OFFSET 8
+> +#define AARCH64_INSN_MB_TYPE_MASK GENMASK(11, AARCH64_INSN_MB_TYPE_OFFSET)
+> +
+>  enum aarch64_insn_mb_type {
+> -	AARCH64_INSN_MB_SY,
+> -	AARCH64_INSN_MB_ST,
+> -	AARCH64_INSN_MB_LD,
+> -	AARCH64_INSN_MB_ISH,
+> -	AARCH64_INSN_MB_ISHST,
+> -	AARCH64_INSN_MB_ISHLD,
+> -	AARCH64_INSN_MB_NSH,
+> -	AARCH64_INSN_MB_NSHST,
+> -	AARCH64_INSN_MB_NSHLD,
+> -	AARCH64_INSN_MB_OSH,
+> -	AARCH64_INSN_MB_OSHST,
+> -	AARCH64_INSN_MB_OSHLD,
+> +	AARCH64_INSN_MB_OSH	= 0b0011 << AARCH64_INSN_MB_TYPE_OFFSET,
+> +	AARCH64_INSN_MB_NSH	= 0b0111 << AARCH64_INSN_MB_TYPE_OFFSET,
+> +	AARCH64_INSN_MB_ISH	= 0b1011 << AARCH64_INSN_MB_TYPE_OFFSET,
+> +	AARCH64_INSN_MB_LD	= 0b1101 << AARCH64_INSN_MB_TYPE_OFFSET,
+> +	AARCH64_INSN_MB_ST	= 0b1110 << AARCH64_INSN_MB_TYPE_OFFSET,
+> +	AARCH64_INSN_MB_SY	= 0b1111 << AARCH64_INSN_MB_TYPE_OFFSET,
+>  };
+>  
+>  #define	__AARCH64_INSN_FUNCS(abbr, mask, val)				\
+> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+> index e70ac0238515..fa61a631d687 100644
+> --- a/arch/arm64/lib/insn.c
+> +++ b/arch/arm64/lib/insn.c
+> @@ -1561,60 +1561,46 @@ u32 aarch64_insn_gen_extr(enum aarch64_insn_variant variant,
+>  	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RM, insn, Rm);
+>  }
+>  
+> -static u32 __get_barrier_crm_val(enum aarch64_insn_mb_type type)
+> +static bool __is_valid_barrier_type(enum aarch64_insn_mb_type type)
+>  {
+>  	switch (type) {
+> -	case AARCH64_INSN_MB_SY:
+> -		return 0xf;
+> -	case AARCH64_INSN_MB_ST:
+> -		return 0xe;
+> -	case AARCH64_INSN_MB_LD:
+> -		return 0xd;
+> -	case AARCH64_INSN_MB_ISH:
+> -		return 0xb;
+> -	case AARCH64_INSN_MB_ISHST:
+> -		return 0xa;
+> -	case AARCH64_INSN_MB_ISHLD:
+> -		return 0x9;
+> +	case AARCH64_INSN_MB_OSH:
+>  	case AARCH64_INSN_MB_NSH:
+> -		return 0x7;
+> -	case AARCH64_INSN_MB_NSHST:
+> -		return 0x6;
+> -	case AARCH64_INSN_MB_NSHLD:
+> -		return 0x5;
+> +	case AARCH64_INSN_MB_ISH:
+> +	case AARCH64_INSN_MB_LD:
+> +	case AARCH64_INSN_MB_ST:
+> +	case AARCH64_INSN_MB_SY:
+> +		return true;
+>  	default:
+>  		pr_err("%s: unknown barrier type %d\n", __func__, type);
+> -		return AARCH64_BREAK_FAULT;
+> +		return false;
+>  	}
+>  }
+>  
+>  u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type)
+>  {
+> -	u32 opt;
+>  	u32 insn;
+>  
+> -	opt = __get_barrier_crm_val(type);
+> -	if (opt == AARCH64_BREAK_FAULT)
+> +	if (!__is_valid_barrier_type(type))
+>  		return AARCH64_BREAK_FAULT;
+>  
+>  	insn = aarch64_insn_get_dmb_value();
+> -	insn &= ~GENMASK(11, 8);
+> -	insn |= (opt << 8);
+> +	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
+> +	insn |= type;
+>  
+>  	return insn;
+>  }
+>  
+>  u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type)
+>  {
+> -	u32 opt, insn;
+> +	u32 insn;
+>  
+> -	opt = __get_barrier_crm_val(type);
+> -	if (opt == AARCH64_BREAK_FAULT)
+> +	if (!__is_valid_barrier_type(type))
+>  		return AARCH64_BREAK_FAULT;
+>  
+>  	insn = aarch64_insn_get_dsb_base_value();
+> -	insn &= ~GENMASK(11, 8);
+> -	insn |= (opt << 8);
+> +	insn &= ~AARCH64_INSN_MB_TYPE_MASK;
+> +	insn |= type;
+>  
+>  	return insn;
+>  }
+> -- 2.43.0
+> 
 
+FWIW,
+
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
