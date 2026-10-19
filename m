@@ -2,118 +2,151 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97CF8606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 23:18:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE62B606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 23:28:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=czdVzBQK;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=hoiI6/5s
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PSOsMaq7;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=EeglTVp1;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WMoVYVsN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkEO/OSiRmfTcfnZn00ylSAwEOQz293NLx30J9yMRbI=; b=czdVzBQKBihr+iB4Ai+p+aXPkC
-	rdtSzryhyh7kEAfYNk1vIlG+0hbmjMHp8QCQYNTgtv6mjpSbgHeWQ0HC/4kSEP3ko/hPQF58Wa5rM
-	wR6Thh60QXL5J1vgCgPTerEQlGl+gVVRn6tf+Svhp6+/cwEuDuJJSkJah6Xwnkb6UVQ5o94hikayN
-	qKutbH0ZwnlsEU/BkSgj/rF4VqAhvDP2+OpzWsCdhWaBLyAcmq9OG5tURhICNh+Bh8Egaex4tcyji
-	vOdrcTkjjVbtBft2gMoncbm1MxirDI63+cfG2kzq6e1tdBdba69pdVAfkldEPi53Wj+x0Rwv/JNzq
-	b9NwEohQ==;
+	bh=U5pRca9e23eaEVokSuHNFqxKx9CROeMF4ga+E+EvS6Q=; b=PSOsMaq7xaJP1F2hbW0YToQ3MX
+	61e7Dcz9/+O4pxkEP/xE32zCVsEXSFnTatY/KZsgAeXrt2nIr4zwj/+/SWh7DQ+xn/LhE1/i9Vj4H
+	B6v6CtTgFPqEbnvb7KUVmiZF4GrFa6vLx5RAa63y+Ut0PozulQTqe+TeS/cNEU/5UJ1Fkbs/g9i1F
+	nRSNgBGBc6I1mhEugUN4zyB8SJM/ZkwJLyq4PdMbUMP/HyLtbet6SXO85dXBGbbd6sxg/0DSMmogE
+	U0iGJnfVEgrBBXPwbWZ+A+T/WSqAdK4F0QvX7YSTZ/FOEc/l4/XZuY5wM2HIVcTCDTxvSXyVDPbZ3
+	Dlg7p78A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIwcY-00000008Wuo-23vg;
-	Mon, 19 Oct 2026 23:18:22 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1xIwmP-00000008XEy-1eQI;
+	Mon, 19 Oct 2026 23:28:33 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIwcV-00000008WuB-2Dmu
+	id 1xIwmM-00000008XEV-1XHm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 23:18:20 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-5337fa12431so72391cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 16:18:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792451896; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ced4mU7/Ny5EyZ7ZFjh7vCreUnxRgIxG3a2lbfBtP7oy5zZUIMeIDfHTfGZGfK1jKc
-         le9oV6F7azh9T+r8GzolE+ObwxChsZXwfAvP3LFI4Ii8FsoU9yKxakpNTBqt9PE5XN1V
-         cs+AnjmOJHIzJgdXYjzs4STpG0DI3oosF1pooidSRV9m7ZE9dZ8o2Iaeij22QHTER0MV
-         Zd1rwzStUL3EbYqQuVPH7FR/yUR+ADNnBzeBm8hVoS2KJmYTTYe/OXjMH83rWWgZBwS/
-         Fq8L4B1IUnrH/MK0CFQULALgJsiYCAPkrSu91YHr1JSKTRWsWMfrL68RMSft0hPn0255
-         iDCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xkEO/OSiRmfTcfnZn00ylSAwEOQz293NLx30J9yMRbI=;
-        fh=I18V9TE3CMuM+3dtZGNF9ImCmo7L41m7dHepMBfq3l0=;
-        b=r/2wnH5K93W9DKRtEUEPunWWxdBreLwcdgKX2aP8FU9ybE2y7b6JaRhasn79u5DXAO
-         7L0LlG+I63s5tVTpQ8/RcweYzEvkeS6ktcgIFPEusBH141dl8+PjjHIqPK9Xs3Q+yzdc
-         tgdcH88CPU+Auxm+OL2++lN99qPFdR1WPCcEuNhBra17j/1c5AGPoMeEi0Udu6vg7l0C
-         x9p9EjqAAW9Nr4A0WV4yTBYQ5i+JZOQyS2WAD51tGhJjXUosV+6uvqLYLshRb6YStwQG
-         84IMmZKfekXCO6/XwHtwK/Un4hHRBbMp607siLmZ0x2dOEjmcirdt6VHLOxtxNTcubnl
-         IBWQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 19 Oct 2026 23:28:31 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69JLZUv23389785
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 23:28:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	U5pRca9e23eaEVokSuHNFqxKx9CROeMF4ga+E+EvS6Q=; b=EeglTVp1JI9p+wYC
+	dEofWuJLBeVH9U/HheI8gR8aKWYYNOMHm2RotZjhs1oR8aw19ynFawS8hTF/fZB7
+	CvozLfenzXxoJoKpOLUrLecVjpOjfpy4hbueIjG9YaxMVxq/SqZe6zB1XTKhST1m
+	WdoZVtBPXni95Z49XKjZ0MU4NIckz/oPwMgcax+GqUGcXgcECMQuc//DM74ry02e
+	YTHipbdtx+OfViD9c+flsvB1p8IFSjQLda6g56uUvYzIk2IP+xplWOv5EFJ4KpRh
+	EggdlHX5lBRSmCWT+2977JoUlp73tWURxx15UbqhRKw8hHjpNkE0NWFTk6MAOunA
+	Ly3bvg==
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdr4q10c0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 23:28:29 +0000 (GMT)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1665200f4c2so3741261c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 16:28:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792451896; x=1793056696; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xkEO/OSiRmfTcfnZn00ylSAwEOQz293NLx30J9yMRbI=;
-        b=hoiI6/5svdb1as7CFK5r8M2esg38jU1u0Z7RNliG7YB9DvmYj44PiBV9rFMBqT3ucl
-         sxHfoqEYTQQ7l5PoOZjx1HEz/Zwn5+bAiJTCT10PFKeBVPs8WiY6+ENjF7maRNztzLCq
-         vxWpGK86gMZFvgVWVNz7nB63qO+Dm0AQUjnDfvf5iDvArWsPrnu9P/qRqE+qEohH8OcV
-         zJTVgCjOwmQIMyatqbsI+IdSXl9KafKfR8A6ZXXMwabDOoa+2a+2llMOd+syHCfzDHmc
-         PudSS74aX2fAaeo+GO6W9QTPmFB/XLbZIXENfXxYEeK5+GQp9ZHt3HzLqeTozmIUoHF6
-         oaMw==
+        d=oss.qualcomm.com; s=google; t=1792452509; x=1793057309; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=U5pRca9e23eaEVokSuHNFqxKx9CROeMF4ga+E+EvS6Q=;
+        b=WMoVYVsNQu5XZOrED1qvyPav8gi6QDGpOdohcfId7hTdQIyd/L8EWo7f6bvj7Dci7P
+         Hr+u7ml2wRyX3VSSLkPNFuqtWNqajYaPI4WJWaFcE+7qD5RLDqJXyZ3J8k2zF19oLyMu
+         v5UARFcHkGpjUaqV6B/fjoawmKUJJPX2tqO8hhPzUz5lS8oQFiCLWdychnUAEYTfzTNz
+         VuKGw4UjOSD/SAdgqC46FL1Rdc33iKLwZtUL+OTaYxdgGpYWiA/d2ydLp9/JsB2LjAOm
+         IOw8FYGWmjBMbXRIdlrfzkZdS63v3IqNvq2Tdjy4qs6pTHsVrjgU4Tg77bvzH478gire
+         gveg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792451896; x=1793056696;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1792452509; x=1793057309;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xkEO/OSiRmfTcfnZn00ylSAwEOQz293NLx30J9yMRbI=;
-        b=y2sgPlUa1S0IF30UsCIkwdXkUzVtirnVdwjziwvmLS0WztVHpT1qrtQtoGWPNBo1gx
-         ZxqogX7rQ1h/pJBMO2J00gKE/vqf1Vj9d5Sp0jalp+hWJel8QjgyzjEHmv7HyPbsj9B8
-         TO6fJoMSbJdCoO6+yDOEAQ2c+MvwDZqwe3T38wx4/3EKYxwQRXYqVyTC4cVDFZlnO9wO
-         vvGKQPtAtaZJCPM6ZTlzuPTKOzSelA+zh/ls4KOf0F8Clv5NpYeroE07eiTHdnwyZxwC
-         gWiHE/TGqzDQZIc7BZcuySobcpKP5Y1H+2XfBnp2e4eacjzQz7qllu8I+Om29PjsODdz
-         IpGA==
-X-Forwarded-Encrypted: i=1; AKwUvBxctuTalHEY82wUhjlxvW9rjjApbZHXe/BGrMCqjLSC/wBNI8L/mRVLweRp62cg3Dv48dm3hfvJXkyd+NeSdJRq@lists.infradead.org
-X-Gm-Message-State: AFq9FYLuLuRuce04zDI3StpN6l+1iFEqzhhe+cAhOohWq+9znkohyy6B
-	YHDfcZQNDadQMEgdZZY+aFCdujp0z/p6Oofoz+cGXD7YFnIgvIL2TrzVeDKNxy8d/iq+S5aGC50
-	CUT3sn65C80Kl3OJ52I1m9sXB7W7AkGNexEcSFDMU
-X-Gm-Gg: AYBFou3z7XLofVoKfWqB5cdpwf817k+WKdwwLi+/YJ37Tz/x0Bv85NmH/Fuacnhbqdk
-	A4FEBsZPTdW7+gWI1oINgfX7Z/OIeb7aiG2sTBWYuyDNh7/XM7Nrn1dBB4+mIe+3fDdrKxU6qgO
-	XQxEM2brYALnmYG7ecD2h/yO1if0cXsMNVXwYnpQb0cpj4+dZj0ZfWIII6nhpSMvj5Mrgmryuhz
-	ZVSJTk0NwlFd/RYzEtFle6P1SRwmA9TjniMkQ+RIyu6ZEscScpvDVeLwL9pjNumHtNVbLMTeR+M
-	JIRl0ej/6+W+dw3hqol1r1YnJc5TWgHSxiWYP1OnA9tutQl+z0WFK1D/+7NAuGaVpzhCjYx8xaT
-	6/7x0/R0/9fuEMPn6mhQq7Ph5g5ySgjiUDC3lLt8+1yy3juxSYXvng3vFBg==
-X-Received: by 2002:a05:622a:418c:b0:52f:9ed4:8d76 with SMTP id
- d75a77b69052e-53688361cc0mr3730081cf.14.1792451895603; Mon, 19 Oct 2026
- 16:18:15 -0700 (PDT)
+        bh=U5pRca9e23eaEVokSuHNFqxKx9CROeMF4ga+E+EvS6Q=;
+        b=R0ZEQXz9bVNPksJZauUg9cs8F+x+vhdDZRoDgSB7DZ3xBl0mlEztIs1TMd3y38BsOY
+         LUV71HZduby0HDVmQ2M1zLrbp2tMddwcyc1gxoYTjbYJZJXfo/CzpM/yqhMSbhqVT7zH
+         kydOIVfMlqa4A0qW4fbWxRgebygxMAh8Re4WPbAtDYc3vbmQ4JDU00dq6qMVrBIIU20h
+         jySdNAmNSS/OvuYiYNxyx4ryXbkceK7rMcPNBG+rPwd7GFbRQ8vo/qeb1PqshHtWEaAR
+         KgPiJ85x+eLvOLMx/sXtpferFPzd6thYtk3fXP/0lPkqAXTWewHKNThxn8Sl+sF7YGts
+         ojiA==
+X-Forwarded-Encrypted: i=1; AKwUvBzCQIXSSUAr/w7drcKXAaq1JkcYiNOU9EGVb61tkVhon4MVLnJOrqaGfKVzmaK2gI/95iixyGd53ASDak0Y7GOY@lists.infradead.org
+X-Gm-Message-State: AFq9FYKECw4JvjeRl70emf/nqNyv+tR8YyUVTuU3Nm1o+IF3qPiONjzY
+	aQEHIWSPheWntqnMmAt/EhqQaCb8KanmTT0PmpUSQWjSM+zevm0OpyVef4PRz5J4Rp6r1y4urpJ
+	ui2jr8u9Gs4B2GJ+6ltNPzWGvVHAC8w5lOb1B2TqceHW/tnFElMKf/o8GSBJMBXWG7COVqHruaS
+	l9NnfUur+Ygw==
+X-Gm-Gg: AYBFou1sbZlUd+CxhZeoiowlMK/5wvnpopKtFWF0gWAyFUk+4tpiFIxvCrkfl7+35So
+	fObQaH8CM6HfMhThc+8VQn3S6kYZPrq8neUpvnU8ofCAkSRpHjzf9MEUFBcNh/ePUOSSwO08UCk
+	slfOBEHGH6g4/HsmXI2ZlA6SwUjkDRc8vDd8xowsTO5YG+hi7BPRcid76UGXs4KaLJIhxANtMNm
+	CqFFhp4Ijof04RDGfu8+F1gHxyTp9ndjKtR+zPBz556LUBUtItPqK0rVwk9G+1ozu8JBxuezPtc
+	THCq7uuUu37f13j1rtMPXt8vvIfKIjsHEz6UBQTv3pb0wMn/t7w7qvjGMXQVqBUnyHHjT1KQvuA
+	1qT2v8OrrK7YmvWIXi6ULQFE0MfvLNLsVvMnCtgsl3Vc=
+X-Received: by 2002:a05:701b:2910:b0:14c:efa5:ee7 with SMTP id a92af1059eb24-1851160d0f9mr13032430c88.14.1792452508159;
+        Mon, 19 Oct 2026 16:28:28 -0700 (PDT)
+X-Received: by 2002:a05:701b:2910:b0:14c:efa5:ee7 with SMTP id a92af1059eb24-1851160d0f9mr13032382c88.14.1792452507287;
+        Mon, 19 Oct 2026 16:28:27 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-18314b1722asm33320678c88.1.2026.10.19.16.28.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 16:28:26 -0700 (PDT)
+Date: Mon, 19 Oct 2026 16:28:23 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+        sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+        f.fainelli@gmail.com, vincent.guittot@linaro.org,
+        etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+        d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
+        philip.radford@arm.com, david@kernel.org, souvik.chakravarty@arm.com,
+        leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+        usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v14 08/32] firmware: arm_scmi: Add Telemetry resources
+ enumeration
+Message-ID: <20261019162823.000069e4@oss.qualcomm.com>
+In-Reply-To: <20261016185553.2794459-9-cristian.marussi@arm.com>
+References: <20261016185553.2794459-1-cristian.marussi@arm.com>
+	<20261016185553.2794459-9-cristian.marussi@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261019164241.403644-1-bwicaksono@nvidia.com> <20261019164241.403644-5-bwicaksono@nvidia.com>
-In-Reply-To: <20261019164241.403644-5-bwicaksono@nvidia.com>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 19 Oct 2026 16:18:02 -0700
-X-Gm-Features: AclHuK-P4jTEpdJSRDgE-1GK0BbwVAkaLE7mt8LMQ_UZz4JJYrKoVTt4WXDObg8
-Message-ID: <CAP-5=fWucvdYefDOL3Vn=O=YUPEXE+tngDDfPLv-T5i3WkCJVA@mail.gmail.com>
-Subject: Re: [PATCH 4/6] perf jevents: Add support for NVIDIA Tegra410
- PCIE-TGT PMU aliasing
-To: Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: acme@kernel.org, namhyung@kernel.org, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, vsethi@nvidia.com, rwiley@nvidia.com, 
-	skelley@nvidia.com, mochs@nvidia.com, rajjoshi@nvidia.com, treding@nvidia.com, 
-	jonathanh@nvidia.com, john.garry@linux.dev, will@kernel.org, 
-	james.clark@linaro.org, mike.leach@arm.com, leo.yan@linux.dev, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	adrian.hunter@intel.com, ctshao@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: f7g0dgNPNyPubS0Y3ASl1DhQ8zaERjrJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA5MyBTYWx0ZWRfX4Z4jderK2MZZ
+ 3fxC4JcQPRNZRknms3VjV2izc5dfmgSYP05yGSP2CBCenlJSinvpNYOCdBt0VmpOEACMRXpQ5B9
+ wB6LUdVAFmGwOZOciFj7CYvHT4AEams=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA5MyBTYWx0ZWRfX4xJ3zpEG0GPZ
+ S+Z9sv/ZWWj0Mv6wub8MZctUzdOgGtGY7SUQUC3qUYlm8vZlv5teExInfgdNlY81o7+7ZVfucCi
+ VVz5T7sbQmdDXJVcIsCa7N6/8lo6YDooRNzUBHOizyHdFo8xjHCCmVjN/RsByKewYQcLmUZc/cG
+ HRyYHmNjLSs0Hs/EwSuniTUfabOer37SL0Boqp2EmR1qZUMYFzdyYZXKosc7xugXNY1EBieymhL
+ KQWCtM8zZ1CMTlcaT6GXZUbFrQ75Sw73nAo/5xK583yuqhIpYr5e1fmoyVllM9LCL5NkEIi9iyW
+ mqmhCxtvOi41un3y/ITIv9mf9B+cvCu1ixnJzMqjj3pKvFceX0/UIeWv/bP4O+rMRjmU9YMmZou
+ CUXO+WcihVZDDWrNNvIIpF4tJBg1/WGdza3CzLGqOVMmXTtOvVOFebosW6peEClfF5iHe5JeGLB
+ DbbWC4liWpjHvxJ764Q==
+X-Authority-Analysis: v=2.4 cv=aqsnmiZV c=1 sm=1 tr=0 ts=6ad6a79d cx=c_pps
+ a=kVLUcbK0zfr7ocalXnG1qA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=7CQSdrXTAAAA:8 a=xkoatq2HAAAA:8 a=mqPLNF9SDdbUu0IS1PwA:9 a=CjuIK1q_8ugA:10
+ a=vr4QvYf-bLy2KjpDp97w:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=CuNAHyPTimGbZf_9KV2F:22
+X-Proofpoint-GUID: f7g0dgNPNyPubS0Y3ASl1DhQ8zaERjrJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-19_06,2026-10-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
+ suspectscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_161819_617014_721AA3D5 
-X-CRM114-Status: GOOD (  19.62  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261019_162830_450992_1D624500 
+X-CRM114-Status: GOOD (  36.49  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,192 +157,654 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-28.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 9:45=E2=80=AFAM Besar Wicaksono <bwicaksono@nvidia.=
-com> wrote:
->
-> Add alias support for NVIDIA Tegra410 PCIE-TGT PMU events and metrics.
->
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+On Fri, 16 Oct 2026 19:55:29 +0100
+Cristian Marussi <cristian.marussi@arm.com> wrote:
+
+> Add core Telemetry initialization routines in charge of basic allocations
+> and DataEvents enumerations.
+
+Needs more about why you have made key design decisions in here.
+
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 > ---
->  .../nvidia/t410/sys/uncore-pcie_tgt.json      | 93 +++++++++++++++++++
->  1 file changed, 93 insertions(+)
->  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/sys/unco=
-re-pcie_tgt.json
+> v13 --> v14
+>  - splitted out of the old Basic Telemetry patch, contains the basic
+>    instance allocations and the DEs enumeration process
+>  - renamed some fields to more strictly adhere to spec nomenclature
+Even split out this remains challenging to review.
+
+I've asked for a few comments inline for why certainly structures are used
+and stored in arrays when they look like they could just be directly embedded
+in each other.
+
+They tend to surface much later when you add the userspace ABI.
+
+> ---
+>  drivers/firmware/arm_scmi/telemetry.c | 633 ++++++++++++++++++++++++++
+>  include/linux/scmi_protocol.h         |  38 ++
+>  2 files changed, 671 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+> index 32f6f8d1106d..87ff75805935 100644
+> --- a/drivers/firmware/arm_scmi/telemetry.c
+> +++ b/drivers/firmware/arm_scmi/telemetry.c
+> @@ -8,15 +8,19 @@
+>  #include <linux/atomic.h>
+>  #include <linux/bitfield.h>
+>  #include <linux/compiler_types.h>
+> +#include <linux/completion.h>
+> +#include <linux/delay.h>
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+>  #include <linux/limits.h>
+>  #include <linux/module.h>
+> +#include <linux/mutex.h>
+>  #include <linux/slab.h>
+>  #include <linux/sprintf.h>
+>  #include <linux/string.h>
+>  #include <linux/uuid.h>
+> +#include <linux/xarray.h>
+>  
+>  #include "protocols.h"
+>  #include "notify.h"
+> @@ -51,13 +55,189 @@ struct scmi_msg_resp_telemetry_protocol_attributes {
+>  	__le32 default_blk_ts_rate;
+>  };
+>  
+> +struct de_desc_fastchannel {
+> +	__le32 addr_low;
+> +	__le32 addr_high;
+> +	__le32 size;
+> +};
+> +
+> +struct scmi_de_desc {
+> +	__le32 de_id;
+> +	__le32 group_id;
+> +	__le32 de_data_sz;
+> +	__le32 de_attributes_1;
+
+Maybe de_attrs_1 is enough?  Would shorted a few lines!
+
+
+> +#define	IS_NAME_SUPPORTED(d)	(le32_get_bits((d)->de_attributes_1, BIT(31)))
+> +#define	IS_FC_SUPPORTED(d)	(le32_get_bits((d)->de_attributes_1, BIT(30)))
+> +#define	GET_DE_TYPE(d)		(le32_get_bits((d)->de_attributes_1, GENMASK(29, 22)))
+> +#define	IS_PERSISTENT(d)	(le32_get_bits((d)->de_attributes_1, BIT(21)))
+> +#define GET_DE_UNIT_EXP(d)							\
+> +	({									\
+> +		__u32 __signed_exp =						\
+> +			le32_get_bits((d)->de_attributes_1, GENMASK(20, 13));	\
+> +										\
+> +		sign_extend32(__signed_exp, 7);					\
+> +	})
+> +#define	GET_DE_UNIT(d)		(le32_get_bits((d)->de_attributes_1, GENMASK(12, 5)))
+> +#define	TSTAMP_SUPPORT(d)	(le32_get_bits((d)->de_attributes_1, GENMASK(1, 0)))
+> +	__le32 de_attributes_2;
+> +#define	GET_DE_INSTA_ID(d)	(le32_get_bits((d)->de_attributes_2, GENMASK(31, 24)))
+> +#define	GET_COMPO_INSTA_ID(d)	(le32_get_bits((d)->de_attributes_2, GENMASK(23, 8)))
+> +#define	GET_COMPO_TYPE(d)	(le32_get_bits((d)->de_attributes_2, GENMASK(7, 0)))
+> +	__le32 de_attributes_3;
+> +};
+> +
+> +struct scmi_msg_resp_telemetry_de_description {
+> +	__le32 num_desc;
+
+I'd add a comment about this being a few values packed
+together to just avoid someone saying __counted_by_le()
+is appropriate - the name rather suggests it is!
+
+> +	struct scmi_de_desc desc[]; 
+> +};
+
+> +
+> +struct telemetry_de {
+> +	enum timestamps ts_type;
+> +	u32 ts_rate;
+
+I think some of this is not yet used and it would be better to bring
+elements in only when we can see how they are used.
+The ts_rate nested some layers below is the one initialized in this
+patch I think.
+
+> +	bool enumerated;
+> +	void __iomem *base;
+> +	u32 sid;
+> +	u32 offset;
+> +	/* NOTE THAT DE data_sz is registered in scmi_telemetry_de */
+> +	u32 fc_size;
+> +	struct list_head item;
+> +	struct scmi_telemetry_de de;
+> +	/* Protect last_val/ts/magic accesses - MUST BE KEPT LAST */
+> +	struct mutex mtx;
+> +};
+> +
+> +#define to_tde(d)	container_of(d, struct telemetry_de, de)
+> +
+>  struct telemetry_info {
+>  	bool streaming_mode;
+>  	unsigned int num_shmti;
+>  	unsigned int num_des_tstamp;
+>  	unsigned int default_blk_ts_rate;
+>  	const struct scmi_protocol_handle *ph;
+> +	struct telemetry_de *tdes;
+> +	struct xarray xa_des;
+> +	/* Mutex to protect access to @free_des */
+> +	struct mutex free_mtx;
+> +	struct list_head free_des;
+> +	struct list_head fcs_des;
+>  	struct scmi_telemetry_info info;
+> +	atomic_t rinfo_initializing;
+> +	struct completion rinfo_initdone;
+> +	struct scmi_telemetry_res_info *rinfo;
+> +	struct scmi_telemetry_res_info *(*res_get)(struct telemetry_info *ti);
+> +};
+
+> +static struct telemetry_de *scmi_telemetry_tde_get(struct telemetry_info *ti,
+> +						   unsigned int de_id)
+> +{
+> +	struct telemetry_de *tde;
+> +
+> +	/* Pick a new tde */
+
+Not sure the comment adds anything as function is well enough named.
+
+> +	tde = scmi_telemetry_free_tde_get(ti);
+> +	if (!tde) {
+> +		dev_err(ti->ph->dev, "Cannot get TDE for ID:0x%08X\n", de_id);
+> +		return ERR_PTR(-ENOSPC);
+> +	}
+> +
+> +	tde->sid = SHMTI_ID_INVALID;
+> +
+> +	return tde;
+> +}
 >
-> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/sys/uncore-pcie=
-_tgt.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/sys/uncore-pcie_tg=
-t.json
-> new file mode 100644
-> index 000000000000..74786fc3d578
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/sys/uncore-pcie_tgt.js=
-on
-> @@ -0,0 +1,93 @@
-> +[
-> +    {
-> +        "EventCode": "0x4",
-> +        "EventName": "PCIE_TGT_CYCLES",
-> +        "BriefDescription": "Counts cycles at the PCIe interface to the =
-Tegra SoC data fabric.",
-> +        "PublicDescription": "Counts cycles at the PCIe interface to the=
- Tegra SoC data fabric.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
+> +
+> +struct scmi_tlm_de_priv {
+> +	struct telemetry_info *ti;
+> +	void *next;
+> +	size_t rx_len;
+>  };
+>  
+>  static int
+> @@ -99,6 +279,221 @@ scmi_telemetry_protocol_attributes_get(struct telemetry_info *ti)
+>  	return ret;
+>  }
+>  
+> +static void iter_tlm_prepare_message(void *message,
+> +				     unsigned int desc_index, const void *priv)
+> +{
+> +	put_unaligned_le32(desc_index, message);
+> +}
+> +
+> +static int iter_de_descr_update_state(struct scmi_iterator_state *st,
+> +				      const void *response, void *priv)
+> +{
+> +	const struct scmi_msg_resp_telemetry_de_description *r = response;
+> +	struct scmi_tlm_de_priv *p = priv;
+> +
+> +	st->num_returned = le32_get_bits(r->num_desc, GENMASK(15, 0));
+> +	st->num_remaining = le32_get_bits(r->num_desc, GENMASK(31, 16));
+> +
+> +	if (st->rx_len < (sizeof(*r) + sizeof(r->desc[0]) * st->num_returned))
+> +		return -EINVAL;
+> +
+> +	/* Initialized to first descriptor and initial payload size */
+> +	p->next = (void *)r->desc;
 
-It looks like the PMU names are broken because of the _rc_ in their names:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/perf/arm_cspmu/nvidia_cspmu.c#n901
-```
-   .name_pattern =3D "nvidia_pcie_pmu_%u_rc_%u",
-```
-The convention is for either a numeric (preferable) or hexadecimal suffix:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/Documentation/ABI/testing/sysfs-bus-event_source-devices
-Extra information about the PMU belongs in a caps file.
+Can p->next just be const?  Would avoid need for casting here.
 
-By definition nothing can work with wildcard matching using the
-existing PMU name, so please rename it. If a new suffix convention is
-necessary then  you should update the ABI and perf tool suffix
-matching logic like pmu_name_len_no_suffix:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/tools/perf/util/pmus.c#n65
+> +	p->rx_len = st->rx_len - sizeof(*r);
+> +
+> +	return 0;
+> +}
 
-Thanks,
-Ian Rogers
+> +
+> +static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
+> +					      struct telemetry_de *tde,
+> +					      void **next, size_t *rx_len)
+> +{
+> +	const struct scmi_de_desc *desc = *next;
+> +	size_t payld_sz = sizeof(*desc);
+> +
+> +	lockdep_assert_held(&tde->mtx);
+> +
+> +	if (*rx_len < payld_sz)
+> +		return -ENOSPC;
+> +
+> +	tde->de.info->id = le32_to_cpu(desc->de_id);
+> +	tde->de.info->grp_id = le32_to_cpu(desc->group_id);
+> +	tde->de.info->data_sz = le32_to_cpu(desc->de_data_sz);
+> +	tde->de.info->type = GET_DE_TYPE(desc);
+> +	tde->de.info->unit = GET_DE_UNIT(desc);
+> +	tde->de.info->unit_exp = GET_DE_UNIT_EXP(desc);
+> +	tde->de.info->instance_id = GET_DE_INSTA_ID(desc);
+> +	tde->de.info->compo_instance_id = GET_COMPO_INSTA_ID(desc);
+> +	tde->de.info->compo_type = GET_COMPO_TYPE(desc);
+> +	tde->de.info->persistent = IS_PERSISTENT(desc);
+> +	tde->ts_type = TSTAMP_SUPPORT(desc);
+> +	tde->de.tstamp_support = !!tde->ts_type;
+> +	tde->de.fc_support = IS_FC_SUPPORTED(desc);
+> +	tde->de.name_support = IS_NAME_SUPPORTED(desc);
+> +	/* Update DE_DESCRIPTOR size for the next iteration */
+> +	*next += sizeof(*desc);
+> +
+> +	payld_sz += scmi_telemetry_tde_var_size_calc(tde);
+> +	if (*rx_len < payld_sz)
+> +		return -ENOSPC;
+> +
+> +	if (tde->ts_type == TSTAMP_LINE) {
+> +		__le32 *line_ts_rate = *next;
+> +
+> +		tde->de.info->ts_rate = le32_to_cpu((*line_ts_rate));
+> +
+> +		/* Variably sized depending on TS support */
+> +		*next += sizeof(*line_ts_rate);
+> +	} else if (tde->ts_type == TSTAMP_BLK) {
+> +		/* Setup default BLK TS value at first */
+> +		tde->de.info->ts_rate = ti->default_blk_ts_rate;
+> +	}
+> +
+> +	if (tde->de.fc_support) {
+> +		u32 size;
+> +		u64 phys_addr;
+> +		void __iomem *addr;
+> +		struct de_desc_fastchannel *dfc;
+> +
+> +		dfc = *next;
+> +		phys_addr = le32_to_cpu(dfc->addr_low);
+> +		phys_addr |= (u64)le32_to_cpu(dfc->addr_high) << 32;
 
->
-> +    },
-> +    {
-> +        "EventCode": "0x2",
-> +        "EventName": "PCIE_TGT_RD_REQ",
-> +        "BriefDescription": "Counts read requests from any source to PCI=
-e BAR or CXL HDM ranges under this PCIe root complex.",
-> +        "PublicDescription": "Counts read requests from any source to PC=
-Ie BAR or CXL HDM ranges under this PCIe root complex, where the target res=
-ponds with data. Request size can be from 1 to 256 bytes. Filters: dst_rp_m=
-ask selects PCIe BAR traffic to root ports (bit n =3D root port n). dst_add=
-r_en with dst_addr_base and dst_addr_mask selects PCIe BAR or CXL HDM addre=
-sses that equal the base in the mask's set bits. If both dst_rp_mask and th=
-e address filter are set, a request matching either is counted. With no fil=
-ter, PCIe BAR traffic to all root ports is counted.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "EventCode": "0x3",
-> +        "EventName": "PCIE_TGT_WR_REQ",
-> +        "BriefDescription": "Counts write requests from any source to PC=
-Ie BAR or CXL HDM ranges under this PCIe root complex.",
-> +        "PublicDescription": "Counts write requests from any source to P=
-CIe BAR or CXL HDM ranges under this PCIe root complex, where the source se=
-nds data. Request size can be from 1 to 256 bytes. Filters: dst_rp_mask sel=
-ects PCIe BAR traffic to root ports (bit n =3D root port n). dst_addr_en wi=
-th dst_addr_base and dst_addr_mask selects PCIe BAR or CXL HDM addresses th=
-at equal the base in the mask's set bits. If both dst_rp_mask and the addre=
-ss filter are set, a request matching either is counted. With no filter, PC=
-Ie BAR traffic to all root ports is counted.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "EventCode": "0x0",
-> +        "EventName": "PCIE_TGT_RD_BYTES",
-> +        "BriefDescription": "Counts bytes transferred by the read reques=
-ts counted by PCIE_TGT_RD_REQ.",
-> +        "PublicDescription": "Counts bytes transferred by the read reque=
-sts counted by PCIE_TGT_RD_REQ. Destination filters work as described for P=
-CIE_TGT_RD_REQ.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "EventCode": "0x1",
-> +        "EventName": "PCIE_TGT_WR_BYTES",
-> +        "BriefDescription": "Counts bytes transferred by the write reque=
-sts counted by PCIE_TGT_WR_REQ.",
-> +        "PublicDescription": "Counts bytes transferred by the write requ=
-ests counted by PCIE_TGT_WR_REQ. Destination filters work as described for =
-PCIE_TGT_WR_REQ.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "MetricName": "pcie_tgt_freq",
-> +        "MetricGroup": "PCIE_TGT_Frequency",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(PCIE_TGT_CYCLES / aggr_nr(PCIE_TGT_CYCLES)) / 1e=
-9 / duration_time",
-> +        "ScaleUnit": "1GHz",
-> +        "BriefDescription": "Frequency of the cycles at the PCIe interfa=
-ce to the Tegra SoC data fabric.",
-> +        "PublicDescription": "Average frequency of the cycles at the PCI=
-e interface to the Tegra SoC data fabric over the measurement interval.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "MetricName": "pcie_tgt_avg_rd_bandwidth_to_all_dst",
-> +        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR_CXL_HDM"=
-,
-> +        "MetricExpr": "PCIE_TGT_RD_BYTES@dst_addr_en=3D1,dst_addr_base=
-=3D0,dst_addr_mask=3D0@ / 1e6 / duration_time",
-> +        "ScaleUnit": "1MB/s",
-> +        "BriefDescription": "Average read bandwidth to all PCIe BAR and =
-CXL HDM ranges under this PCIe root complex.",
-> +        "PublicDescription": "Average read bandwidth of requests from an=
-y source to all PCIe BAR and CXL HDM ranges under this PCIe root complex.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "MetricName": "pcie_tgt_avg_wr_bandwidth_to_all_dst",
-> +        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR_CXL_HDM"=
-,
-> +        "MetricExpr": "PCIE_TGT_WR_BYTES@dst_addr_en=3D1,dst_addr_base=
-=3D0,dst_addr_mask=3D0@ / 1e6 / duration_time",
-> +        "ScaleUnit": "1MB/s",
-> +        "BriefDescription": "Average write bandwidth to all PCIe BAR and=
- CXL HDM ranges under this PCIe root complex.",
-> +        "PublicDescription": "Average write bandwidth of requests from a=
-ny source to all PCIe BAR and CXL HDM ranges under this PCIe root complex."=
-,
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "MetricName": "pcie_tgt_avg_rd_bandwidth_to_pcie_bar",
-> +        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR",
-> +        "MetricExpr": "PCIE_TGT_RD_BYTES / 1e6 / duration_time",
-> +        "ScaleUnit": "1MB/s",
-> +        "BriefDescription": "Average read bandwidth of PCIe BAR traffic =
-to all root ports under this PCIe root complex.",
-> +        "PublicDescription": "Average read bandwidth of PCIe BAR traffic=
- from any source to all root ports under this PCIe root complex.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    },
-> +    {
-> +        "MetricName": "pcie_tgt_avg_wr_bandwidth_to_pcie_bar",
-> +        "MetricGroup": "PCIE_TGT_Bandwidth;PCIE_TGT_BW_PCIE_BAR",
-> +        "MetricExpr": "PCIE_TGT_WR_BYTES / 1e6 / duration_time",
-> +        "ScaleUnit": "1MB/s",
-> +        "BriefDescription": "Average write bandwidth of PCIe BAR traffic=
- to all root ports under this PCIe root complex.",
-> +        "PublicDescription": "Average write bandwidth of PCIe BAR traffi=
-c from any source to all root ports under this PCIe root complex.",
-> +        "Compat": "1070036b",
-> +        "Unit": "nvidia_pcie_tgt_pmu_,rc_"
-> +    }
-> +]
-> --
-> 2.43.0
->
+Does
+		phys_addr = get_unaligned_le64(&dfc->addr_low);
+work for this?  For me that would provide simple documentation of
+the maths.
+
+> +
+> +		size = le32_to_cpu(dfc->size);
+> +		addr = devm_ioremap(ti->ph->dev, phys_addr, size);
+> +		if (!addr)
+> +			return -EADDRNOTAVAIL;
+> +
+> +		tde->base = addr;
+> +		tde->offset = 0;
+> +		tde->fc_size = size;
+> +
+> +		/* Variably sized depending on FC support */
+> +		*next += sizeof(*dfc);
+> +	}
+> +
+> +	if (tde->de.name_support) {
+> +		const char *de_name = *next;
+> +
+> +		strscpy(tde->de.info->name, de_name, SCMI_SHORT_NAME_MAX_SIZE);
+> +		/* Variably sized depending on name support */
+> +		*next += SCMI_SHORT_NAME_MAX_SIZE;
+> +	}
+> +
+> +	/* Count timestamped DEs */
+> +	ti->num_des_tstamp += !!tde->de.tstamp_support;
+> +
+> +	*rx_len -= payld_sz;
+> +
+> +	return 0;
+> +}
+> +
+> +static int iter_de_descr_process_response(const struct scmi_protocol_handle *ph,
+> +					  const void *response,
+> +					  struct scmi_iterator_state *st,
+> +					  void *priv)
+> +{
+> +	struct scmi_tlm_de_priv *p = priv;
+> +	struct telemetry_info *ti = p->ti;
+> +	const struct scmi_de_desc *desc = p->next;
+> +	struct telemetry_de *tde;
+> +	bool discovered = false;
+> +	unsigned int de_id;
+> +	int ret;
+> +
+> +	de_id = le32_to_cpu(desc->de_id);
+> +	/* Check if this DE has already been discovered by other means... */
+
+Maybe mention what 'other means?' as not locally obvious.
+
+> +	tde = scmi_telemetry_tde_lookup(ti, de_id);
+> +	if (!tde) {
+> +		/* Create a new one */
+> +		tde = scmi_telemetry_tde_get(ti, de_id);
+> +		if (IS_ERR(tde))
+> +			return PTR_ERR(tde);
+> +
+> +		discovered = true;
+> +	}
+> +
+> +	guard(mutex)(&tde->mtx);
+> +	if (tde->enumerated) {
+> +		/* Cannot be a duplicate of a DE already created by enumeration */
+> +		dev_err(ph->dev,
+> +			"Discovered INVALID DE with DUPLICATED ID:0x%08X\n",
+> +			de_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = scmi_telemetry_de_descriptor_parse(ti, tde, &p->next, &p->rx_len);
+> +	if (ret) {
+> +		dev_err(ph->dev, "Malformed DE Descriptor - ret:%d\n", ret);
+> +		/* DE not enumerated at this point were created in this call */
+> +		if (discovered)
+> +			scmi_telemetry_free_tde_put(ti, tde);
+> +		return ret;
+> +	}
+> +
+> +	/* Now fully enumerated */
+> +	tde->enumerated = true;
+> +
+> +	if (discovered) {
+> +		/* Register if it was not already ... */
+I guess this comment is really about the whole block including
+if (discovered) (for the if not already part.
+
+If so move the comment outside the if.
+
+> +		ret = scmi_telemetry_tde_register(ti, tde);
+> +		if (ret) {
+> +			/* DE not enumerated at this point were created in this call */
+> +			scmi_telemetry_free_tde_put(ti, tde);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	/* Add to FastChannels list */
+> +	if (tde->de.fc_support)
+> +		list_add(&tde->item, &ti->fcs_des);
+> +
+> +	return 0;
+> +}
+
+>  
+> +/**
+> + * scmi_telemetry_resources_alloc  - Resources allocation
+> + * @ti: A reference to the telemetry info descriptor for this instance
+> + *
+> + * This allocates and initializes dedicated resources for the maximum possible
+> + * number of needed telemetry resources, based on information gathered from
+> + * the initial enumeration: these allocations represent an upper bound on
+> + * the number of discoverable telemetry resources and they will be later
+> + * populated during late deferred further discovery phases.
+
+This could do with some comments to give us a hint why it needs
+to be allocated in so many different allocations.
+
+> + *
+> + * Return: 0 on Success, errno otherwise
+> + */
+> +static int scmi_telemetry_resources_alloc(struct telemetry_info *ti)
+> +{
+> +	/* Array to hold pointers to discovered DEs */
+> +	struct scmi_telemetry_de **des __free(kfree) =
+> +		kzalloc_objs(*des, ti->info.base.num_des);
+> +	if (!des)
+> +		return -ENOMEM;
+> +
+> +	/* The allocated DE descriptors */
+> +	struct telemetry_de *tdes __free(kfree) =
+> +		kzalloc_objs(*tdes, ti->info.base.num_des);
+> +	if (!tdes)
+> +		return -ENOMEM;
+> +
+> +	/* Allocate a set of contiguous DE info descriptors. */
+
+Why do we care that they are contiguous?  That might be the case
+but if it isn't important then don't bother mentioning it.
+If it does matter, then say why. I think it's not needed
+until patch 28 and that's a long way for a reviewer to look!
+
+> +	struct scmi_telemetry_de_info *dei_store __free(kfree) =
+> +		kzalloc_objs(*dei_store, ti->info.base.num_des);
+> +	if (!dei_store)
+> +		return -ENOMEM;
+> +
+> +	struct scmi_telemetry_res_info *rinfo __free(kfree) =
+> +		kzalloc_obj(*rinfo);
+> +	if (!rinfo)
+> +		return -ENOMEM;
+> +
+> +	mutex_init(&ti->free_mtx);
+> +	INIT_LIST_HEAD(&ti->free_des);
+> +	for (int i = 0; i < ti->info.base.num_des; i++) {
+> +		mutex_init(&tdes[i].mtx);
+> +		guard(mutex)(&tdes[i].mtx);
+> +
+> +		/* Bind contiguous DE info structures */
+> +		tdes[i].de.info = &dei_store[i];
+> +		scmi_telemetry_free_tde_put(ti, &tdes[i]);
+
+Does this call actually do anything other than take
+some locks to zero stuff that is already zero?
+
+> +	}
+> +
+> +	INIT_LIST_HEAD(&ti->fcs_des);
+> +
+> +	ti->tdes = no_free_ptr(tdes);
+> +
+> +	rinfo->des = no_free_ptr(des);
+> +	rinfo->dei_store = no_free_ptr(dei_store);
+> +
+> +	/* Ensure all of the above assignments are visible */
+> +	smp_store_release(&ti->rinfo, no_free_ptr(rinfo));
+> +
+> +	return 0;
+> +}
+
+> +static void scmi_telemetry_instance_cleanup(void *arg)
+> +{
+> +	struct telemetry_info *ti = arg;
+> +
+> +	scmi_telemetry_tdes_cleanup(ti);
+> +	scmi_telemetry_resources_free(ti);
+> +}
+> +
+> +/**
+> + * scmi_telemetry_resources_enumerate  - Enumeration helper
+> + * @ti: A reference to the telemetry info descriptor for this instance
+> + *
+> + * This helper is configured to be called once on the first enumeration
+> + * attempt, when triggered by invoking ti->res_get() from somewhere else.
+> + *
+> + * Once run it substitues itself in ti->res_get() with the simple accessor
+> + * __scmi_telemetry_resources_get, which returns a descriptor to the resources
+> + * that were possibly discovered.
+> + *
+> + * Note that, while it attempts to fully enumerate Data Events and Groups, it
+> + * does NOT fail when such enumerations fail, instead it simply gives up with
+> + * the end result that only a partially populated, but consistent, resources
+> + * descriptor will be returned; in such a case the incomplete descriptor will
+> + * be marked as NOT fully_enumerated: this design enables the kernel to deal
+> + * with badly implemented out-of-spec firmware support while keep on providing
+> + * a minimal sane, albeit possibly incomplete, set of telemetry respources.
+> + *
+> + * Return: A reference to a fully or partially populated resources descriptor
+> + */
+> +static struct scmi_telemetry_res_info *
+> +scmi_telemetry_resources_enumerate(struct telemetry_info *ti)
+> +{
+> +	struct device *dev = ti->ph->dev;
+> +	int ret;
+> +
+> +	/*
+> +	 * Ensure the following initialization can be called only once
+> +	 * from one thread of execution.
+> +	 */
+> +	if (atomic_cmpxchg(&ti->rinfo_initializing, 0, 1)) {
+> +		/*
+> +		 * When initialization is already ongoing in another thread,
+> +		 * just wait for its completion and return the fully or partially
+> +		 * populated rinfo.
+> +		 */
+> +		if (!completion_done(&ti->rinfo_initdone))
+> +			wait_for_completion(&ti->rinfo_initdone);
+> +
+> +		/* Ensure rinfo descriptor is visible */
+> +		return smp_load_acquire(&ti->rinfo);
+> +	}
+> +
+> +	/* Note that this code below can be run only once by one thread */
+> +	ret = scmi_telemetry_de_descriptors_get(ti);
+> +	if (ret) {
+> +		dev_err(dev, FW_BUG "Cannot fully enumerate DEs resources. Degraded system.\n");
+> +		goto done;
+> +	}
+> +
+> +	ti->rinfo->fully_enumerated = true;
+> +done:
+> +	/* Disable initialization permanently */
+> +	smp_store_release(&ti->res_get, __scmi_telemetry_resources_get);
+> +
+> +	/* Unblock concurrent threads that have been stalled */
+> +	complete_all(&ti->rinfo_initdone);
+> +
+> +	/* Ensure local rinfo is visible before returning it */
+> +	smp_mb();
+> +	return ti->rinfo;
+> +}
+> +
+> +/**
+> + * scmi_telemetry_instance_init  - Instance initializer
+> + * @ti: A reference to the telemetry info descriptor for this instance
+> + *
+> + * Note that this allocates and initialize all the resources possibly needed
+> + * and then setups the @scmi_telemetry_resources_enumerate helper as the
+> + * default method for the first call to ti->res_get(): this mechanism enables
+> + * the possibility of optionally implementing deferred enumeration policies
+> + * which optionally delay the discovery phase and related SCMI message exchanges
+> + * to a later point in time.
+> + *
+> + * Return: 0 on Success, errno otherwise
+> + */
+> +static int scmi_telemetry_instance_init(struct telemetry_info *ti)
+> +{
+> +	int ret;
+> +
+> +	/* Allocate and Initialize on first call... */
+
+That comment made me think that this was a singleton in that
+if you called it a second time it would fail. Seems that it just
+allocates whenever it is called (which happens to be once) so
+I'd drop the comment as adding confusion rather than clarity.
+
+> +	ret = scmi_telemetry_resources_alloc(ti);
+> +	if (ret)
+> +		return ret;
+> +
+> +	xa_init(&ti->xa_des);
+> +
+> +	/* Setup resources lazy initialization */
+> +	atomic_set(&ti->rinfo_initializing, 0);
+> +	init_completion(&ti->rinfo_initdone);
+> +	/* Ensure the new res_get() operation is visible after this point */
+> +	smp_store_mb(ti->res_get, scmi_telemetry_resources_enumerate);
+> +
+> +	return devm_add_action_or_reset(ti->ph->dev,
+> +					scmi_telemetry_instance_cleanup, ti);
+
+If you can make it more obvious what this is matching against in the above function
+that would be good. Normally that is done by putting the setup and tear down
+next to each other.
+
+Might be better to split it into two callbacks so that you can couple
+resources_free with resource_alloc above then the other bit with whatever
+that is unwinding.
+
+
+> +}
+
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index 121c83e1c6d8..018427daf55f 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+> @@ -13,6 +13,7 @@
+>  #include <linux/device.h>
+>  #include <linux/notifier.h>
+>  #include <linux/types.h>
+> +#include <linux/uuid.h>
+>  
+>  #define SCMI_MAX_STR_SIZE		64
+>  #define SCMI_SHORT_NAME_MAX_SIZE	16
+> @@ -825,6 +826,37 @@ struct scmi_pinctrl_proto_ops {
+>  	int (*pin_free)(const struct scmi_protocol_handle *ph, u32 pin);
+>  };
+>  
+> +struct scmi_telemetry_de_info {
+> +	unsigned int id;
+> +	unsigned int grp_id;
+> +	unsigned int data_sz;
+> +	unsigned int type;
+> +	unsigned int unit;
+> +	int unit_exp;
+> +	unsigned int ts_rate;
+> +	unsigned int instance_id;
+> +	unsigned int compo_instance_id;
+> +	unsigned int compo_type;
+> +	bool persistent;
+> +	char name[16];
+> +};
+> +
+> +struct scmi_telemetry_de {
+> +	bool tstamp_support;
+> +	bool fc_support;
+> +	bool name_support;
+> +	struct scmi_telemetry_de_info *info;
+
+I'd be tempted to put the pointer first though perhaps
+it is acting as a separator for the bools?  If so I'd
+use a comment instead.
+
+> +	bool enabled;
+> +	bool tstamp_enabled;
+> +};
+> +
+> +struct scmi_telemetry_res_info {
+> +	bool fully_enumerated;
+> +	unsigned int num_des;
+> +	struct scmi_telemetry_de **des;
+> +	struct scmi_telemetry_de_info *dei_store;
+> +};
+> +
+>  struct scmi_telemetry_base_info {
+>  	unsigned int version;
+>  	uuid_t primary_revision;
+> @@ -848,10 +880,16 @@ struct scmi_telemetry_info {
+>   *	by SCMI Telemetry Protocol
+>   *
+>   * @info_get: get the general Telemetry information.
+> + * @de_lookup: get a specific DE descriptor from the DE id.
+> + * @res_get: get a reference to the Telemetry resources descriptor.
+>   */
+>  struct scmi_telemetry_proto_ops {
+>  	const struct scmi_telemetry_info __must_check *(*info_get)
+>  		(const struct scmi_protocol_handle *ph);
+> +	const struct scmi_telemetry_de __must_check *(*de_lookup)
+> +		(const struct scmi_protocol_handle *ph, u32 id);
+> +	const struct scmi_telemetry_res_info __must_check *(*res_get)
+> +		(const struct scmi_protocol_handle *ph);
+
+Similar to previous. I'm not seeing the value in the __must_check
+markings.  They make sense when the return value isn't the data
+just asked for which one would assume would always be used.
+
+>  };
+>  
+>  /**
+
 
