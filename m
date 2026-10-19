@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61366CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555ACCCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=; b=o4yqfF1yucZUqhfRQFoqsPV82U
-	IJEp7ZM8nom43AfGpaHEHw3kSzSYSCMPV5gHaMj5A66IjZLr6uka2/PPNGGiM0k9Wt7lWUNTraQ1Y
-	PQMSNeUNl5pzGiJnkG10hrnzjADFCC5LbHdpd8jo/vUgd0gGxa9UzfvYOol+UpBpdtz/OOCsA0Aaq
-	WXbKx6jmyTe7s1V0eFknWnenhiY1XWqej3O06hims8ZVya7uvGu1EZvOUDUy8VA0mgsPo4lv+S5mf
-	gfTvXQq/rRYh7nxQBK3D/KtoO565FWmIPQ8aGrB2ohgSYtm7S6LVezp3VNSWtDngCadiRV+n7M6Vo
-	hyYNsfrA==;
+	bh=VgK4Knz1UTecYHn0SL3JT3fee9wk3Cp4TEKus9TadaQ=; b=EmHvEOoGTLwd0xhPgkL5CNo3ZR
+	k9CYAIX5Si9RrTmnvgmuRMDGOP7d3/s1pDgEQ6be9tTxxFJd05QOXUSn039RFvPx1f9KToBstGIEi
+	pSrj8O1Uqht5cdWA40RntZmPIefsU5uzbabZtwWXmuKGwMvFzLqBq2QWmMxLU2AddUJhz4d7BBYJM
+	c7hHYBXhUmh38Ltl90mvzw7FdPeSPdfvSBYPbBl1x7VWPJsu2ZbD90UyyKSSLPVQtAbR9EOVjwLw0
+	8urgwlNbzoxz6Pr4iSVY4ooEd7VV9kdq52ThcZmu7OUPUg/1JRWO3haS5E54AF6lQHah32gLs6F15
+	IOxf7bVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkU1-00000007A3H-2yHR;
-	Mon, 19 Oct 2026 10:20:45 +0000
-Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
+	id 1xIkU9-00000007A8G-3v21;
+	Mon, 19 Oct 2026 10:20:53 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkTz-00000007A2H-0Dy8
+	id 1xIkU7-00000007A6R-0civ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:20:44 +0000
-Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-15354aa70e8so646130c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:20:42 -0700 (PDT)
+	Mon, 19 Oct 2026 10:20:52 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-17bc533fda3so2112422c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:20:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792405242; x=1793010042; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792405250; x=1793010050; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=;
-        b=mKCmIgj+kErQXmYyKqjPuK92Efum2GTger718QN5KPKpjEXX/UT3UPv/x54E28iWb0
-         Z1eYlm+VjcEOoClLuS0Uvhfi+aQo5oNa6ytPnwl9SEUlYEgXjsgs57u3oXKfBE+yvB7e
-         fb86MYfoAGfJZ7SwliCOouoN0C35iWtoe9/aAE+nxoY3jKbb/kVTdUTdTwn0btHngn5Z
-         mCm6Y5F3h7BrWArqLMHlYQtO7Cv3qJzkKnzq9jpZ45ZZO4XF/FEQeN+gsmLRgF+N3CWD
-         Q+/35cG0M5I8GVbo4zw2dhkXcL/i5FFjvHCHQA1ysixj1pkw8+4T5byM4V22xk49Du7T
-         vW1w==
+        bh=VgK4Knz1UTecYHn0SL3JT3fee9wk3Cp4TEKus9TadaQ=;
+        b=bvJyYk+Xh/6GWi7fTcjPPy1h5ZvQ2HAbWayS7uAZ5Os68qd8Zn4p1uWVAd8VeMusRu
+         wwwscj9UDgwSLfZ2dEtBOXYGvmC+3kX0DUPjYO3rOTMvftm/Jhjg/FS5Wqsxo3xnt8xH
+         p0BEQieTwJGVLXzJiYEAVBHow4tP0gP/4F8EdfWL05WF2tuyNXaPgM7dUNIHUEo1ASBn
+         2BULeWw3DKvRZV2xX+s1IOxmOpq8zWtwjc+XZs4hONZUXQyDjDia7xa+vm+4g3Mzk1fM
+         /pF+9v2m3v0rTTo8SmL8FB7Zpazyu4QscyQXXPEHh51StrBZHEhJiApj9JXw1EXfthgc
+         m9DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792405242; x=1793010042;
+        d=1e100.net; s=20260707; t=1792405250; x=1793010050;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=;
-        b=vg4ob7WSYPIuKBe6NdtAAbWg4nSW4gu93qU1NMIz19zhQy34+4wT7XyURFeFTDkQgx
-         7rmigOOFrcRsGl3i4QjNv0EVXcXwrgapZzkc0iiawc+NLhCC0A/W0S4p7AZUgA6Mseef
-         YGZtzHWsU0NiBRgeNpJnGsFmVguPD/ie2wEHJZCWpEfcQu2rrYT+qF1a3jb0aipt6i+m
-         f3iuNEojxUDO7IAvuhcPlt0Ajrcwuz4Ett5mDhLigadXHyREFBX1ZF5eP8vwWAwUFqDd
-         kMfq3ar6IE0KmDoukWoDDsLO6We0RUcDO9ihZFnEiOI/pAaJsqUulisY08awz/rBVJz7
-         fbsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzshRyWpreackj5kVrLFMjRPk8YL621VarSIkUzqbYsr/VZroEwk7HjatrL+Ba9dAjizSjY+iKfyVpjgPEDaSD0@lists.infradead.org
-X-Gm-Message-State: AFq9FYKGWbO01uyezYXv05O4GI6aNi9LBzRO+2Bv66dlt2/lV5yGySjR
-	wXG2B78TDTRR+0VNPw96UEt0uiAiMCVZBbMObi2mKUA+W1CGTFfDdJOa
-X-Gm-Gg: AYBFou0BuXOuQwWnyo2qVjCuHpOCYsyq6Dn5u90DA9aK1Pbzc67S+IRdxqBrSZ1+jeB
-	l2xYOsQZ68xpHhi6+hrI2qgpjQ5pJk9qq/9Ui8d0WEtwzBuxZJ+rPq/RJnPn1to6jWDyS8OIME8
-	cI0ich6Px1sM+fmCi0jCGPHAUShY5TAwu//OhFFmSnizU/+70mrSt4BxdbM/e/7gpJfVMLQ8Tq1
-	HkiLUI7u9cP9NBV+mv9fnIxp1wDFiQEVSMugVqy3dS+Q7VuNr5tTNZ+j29lv4YMa10BuCeKywke
-	XfFdBdI3VodxRXIaWhxlZAZcf6otdSsiNXu+6pM4GcfQkBvtl6v75fGcKTptERQIIKuRFCNSsho
-	KNRKxXh5qBM5FbJXsiBu6cwhT9k2BgViDG2h6vJ9kLMcuaJHclZVznZBEH/w9szTmI2X7G3eY3b
-	Fn8hVVW6rVt9/IiTo612Zax1Ud+InbS1wltF54xpSipR6o5UDcegLbZjpIXyCxcAjrQKItq6xQl
-	97H4I3o/oD/pA==
-X-Received: by 2002:a05:701b:424d:10b0:13b:4ab5:41d7 with SMTP id a92af1059eb24-1850c9cf427mr12119481c88.3.1792405241814;
-        Mon, 19 Oct 2026 03:20:41 -0700 (PDT)
+        bh=VgK4Knz1UTecYHn0SL3JT3fee9wk3Cp4TEKus9TadaQ=;
+        b=27PTHDudhvqwhs19YMfqcyN9rotwixspLT7YmJPRbj2UlJS1bEZuScHhjO8heaXPmw
+         N3If/tcG4bTbesqKE/67Ha3LVWLArtsbs/zaRHuBv/uZfcsGFCybN00sfa+LuzafVYpW
+         2G2KDe9sAcD8S6pnB2v2/F1vXOauQ70QT29YNXnwtCzj1iSh687TekA5skRtbB3nMzzX
+         WSEFcQSQFbcIQzHPmBywW1DFO61cas5zLZJvYPHMKRMqnsodUPLldGebdiZ0OPgMFtqA
+         kq59diMMf6Uh/c0v8DOmxHFOHpQIVmuzLmFfDKEJqajKGhIdsx8bNTFGNEEVQ70G0oEl
+         2o4A==
+X-Forwarded-Encrypted: i=1; AKwUvBys+A4EaBGq6TCUkC4+268rp0vH8Sx7taavGAMFlaDupjRRHk3HVe1+DHKVt5kk2aWq+HavDf9mqUai7UJa0cZ2@lists.infradead.org
+X-Gm-Message-State: AFq9FYL7tEDVzcuYDHMWoBs16jK5yWDUW1b4vSFQ06yWiakz79JFJ/1e
+	Hz1IzUen7R2HnN4FS1zsoxCZcKhpUXM4rDCyBwrDAC4OTNOQYxighB1O
+X-Gm-Gg: AYBFou2YvEV9fFTuw2hsemOZdKOglfjpmIlwFhl9TBF+e1aKn9GZ8KwR25bsG8tnYRu
+	n2o+GKvM5Wt3dofdWbLs4lyjPNi1Dvfw0cPrjJkNWTUBNS/irD/pTdNyNI9CHGULSgMKNCunKsv
+	thW7ycdIta+/8ddM+B2VEd31q6HW4w6Z5tEJ/z57k6TjcewceoI3uiDlN01A4BDRa2cm4/+L2tp
+	tSqnahBd9Y+IqFKDLBlTnZyex4uyo7lsg7BNGC+Pz9XZSjQXUEfuwP7dlPoIIZmGE0xnCjPpbRF
+	MvaY+DdB+QSHzzgGWCbq+3Jo2hpads+5Uop77je7y0KouTRBqC6LGYUKjqs2ryn3evLEvO1a4C5
+	RlhiycdAFXI9F+xbBS4y7my6JMGKeeYXHpBOWBD3mWPYEMVEEPWCun/TbGrvdIBbg3W96uXGqHC
+	PINbWTCQzhbORfY2ouJKzn1g19FWHfkZnZzVIW+WkD0ewB18EZkM0JYjm4jN8FnecW1wTB2UwLV
+	VA=
+X-Received: by 2002:a05:7022:ea9c:b0:149:49c:233 with SMTP id a92af1059eb24-185138b5a78mr9592984c88.27.1792405249689;
+        Mon, 19 Oct 2026 03:20:49 -0700 (PDT)
 Received: from [127.0.1.1] ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-18319d3b880sm26324251c88.10.2026.10.19.03.20.35
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-18319d3b880sm26324251c88.10.2026.10.19.03.20.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 03:20:41 -0700 (PDT)
+        Mon, 19 Oct 2026 03:20:47 -0700 (PDT)
 From: Leonardo Costa <leoreis.costa@gmail.com>
-Date: Mon, 19 Oct 2026 07:17:15 -0300
-Subject: [PATCH v2 2/3] drm/bridge: simple-bridge: Support
- data-enable-active endpoint property
+Date: Mon, 19 Oct 2026 07:17:16 -0300
+Subject: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-v2-apalis-imx6-enable-vga-v2-2-ef6a3a780472@toradex.com>
+Message-Id: <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
 References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
 In-Reply-To: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -99,16 +98,16 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Leonardo Costa <leonardo.costa@toradex.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792405217; l=2075;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792405217; l=4062;
  i=leonardo.costa@toradex.com; s=20261001; h=from:subject:message-id;
- bh=/IjtTShiJA+F9KmNWlJJNMy2lTKWTky2io3jmPVXXVA=;
- b=wT8coFssfadnbio6KHmF1yBAZdfjcW8j5Ftd+0jWUjv7dcyReSTM5NiEs8ga+Dm7iSM19YUzq
- JsnS98IOb0zBMI8LksAaaJsn7t3ABSIdTS+heHkDqYkDHVufmMApZIH
+ bh=r+aca+myZbkHcW0Bz/oaFLZH6+eopUpkEgtw7VP1FW4=;
+ b=Zvh0iDVRcy5Gtps1SXd63pWalIOszDSoQM1rurde5ryRdO6K2rMFmCqUHSbRjy9tbneq4/t3j
+ sSjRGYh4TiPDpQo5LJT494T+Ww6uL06s9RSdMfWvljaiQEMcGs5xrW/
 X-Developer-Key: i=leonardo.costa@toradex.com; a=ed25519;
  pk=4xvoVLDt+NxIz9D8BJHhT0fD43Ig6XgSDw4jRN/gHzk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032043_102762_04BE837C 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20261019_032051_204864_1AA4F097 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +124,154 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leonardo Costa <leonardo.costa@toradex.com>
 
-Some simple bridges, such as a resistor ladder DAC, may include a
-data-enable input that must be driven at a specific polarity.
+Add a device tree overlay for the VGA output available on the Apalis
+Evaluation Board, which is driven from a parallel RGB interface passing
+through a non-programmable video DAC to a VGA connector, without VESA
+DDC I2C signals.
 
-Read the data-enable-active property from the input endpoint and fill
-the bridge's input bus flags accordingly, so the upstream encoder drives
-DE with the required polarity. The property is applied only if the
-bridge doesn't provide its own timings struct.
+The non-programmable video DAC consists of a simple resistor ladder that
+converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
+an active-low data-enable signal.
+
+The overlay is also combined with the various Apalis Evaluation Board
+device trees to provide ready-to-use DTBs.
 
 Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
 ---
- drivers/gpu/drm/bridge/simple-bridge.c | 21 ++++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+ .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
+ 2 files changed, 101 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/simple-bridge.c b/drivers/gpu/drm/bridge/simple-bridge.c
-index 848c2df2a276..c5301295658a 100644
---- a/drivers/gpu/drm/bridge/simple-bridge.c
-+++ b/drivers/gpu/drm/bridge/simple-bridge.c
-@@ -183,6 +183,9 @@ static int simple_bridge_probe(struct platform_device *pdev)
- {
- 	struct simple_bridge *sbridge;
- 	struct device_node *remote;
-+	struct device_node *ep;
-+	bool de_present;
-+	u32 de;
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index b5fad2ba764c..9c218260fdcb 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -60,6 +60,22 @@ dtb-$(CONFIG_SOC_IMX53) += \
+ imx53-qsb-hdmi-dtbs := imx53-qsb.dtb imx53-qsb-hdmi.dtbo
+ imx53-qsrb-hdmi-dtbs := imx53-qsrb.dtb imx53-qsb-hdmi.dtbo
  
- 	sbridge = devm_drm_bridge_alloc(&pdev->dev, struct simple_bridge,
- 					bridge, &simple_bridge_bridge_funcs);
-@@ -220,10 +223,26 @@ static int simple_bridge_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(sbridge->enable),
- 				     "Unable to retrieve enable GPIO\n");
- 
--	/* Register the bridge. */
- 	sbridge->bridge.of_node = pdev->dev.of_node;
- 	sbridge->bridge.timings = sbridge->info->timings;
- 
-+	ep = of_graph_get_endpoint_by_regs(pdev->dev.of_node, 0, -1);
-+	de_present = !of_property_read_u32(ep, "data-enable-active", &de);
-+	of_node_put(ep);
++imx6q-apalis-eval-v1.2-vga-dtbs := \
++	imx6q-apalis-eval-v1.2.dtb \
++	imx6q-apalis-eval-vga.dtbo
 +
-+	if (de_present && !sbridge->bridge.timings) {
-+		struct drm_bridge_timings *timings;
++imx6q-apalis-eval-vga-dtbs := \
++	imx6q-apalis-eval.dtb \
++	imx6q-apalis-eval-vga.dtbo
 +
-+		timings = devm_kzalloc(&pdev->dev, sizeof(*timings), GFP_KERNEL);
-+		if (!timings)
-+			return -ENOMEM;
++imx6q-apalis-v1.2-eval-v1.2-vga-dtbs := \
++	imx6q-apalis-v1.2-eval-v1.2.dtb \
++	imx6q-apalis-eval-vga.dtbo
 +
-+		timings->input_bus_flags = de ? DRM_BUS_FLAG_DE_HIGH :
-+						DRM_BUS_FLAG_DE_LOW;
-+		sbridge->bridge.timings = timings;
-+	}
++imx6q-apalis-v1.2-eval-vga-dtbs := \
++	imx6q-apalis-v1.2-eval.dtb \
++	imx6q-apalis-eval-vga.dtbo
 +
-+	/* Register the bridge. */
- 	return devm_drm_bridge_add(&pdev->dev, &sbridge->bridge);
- }
- 
+ imx6qdl-dhcom-pdk2-overlay-497-200-x12-dtbs := \
+ 	imx6q-dhcom-pdk2.dtb \
+ 	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo
+@@ -186,11 +202,16 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6dl-yapp4-ursa.dtb \
+ 	imx6q-apalis-eval.dtb \
+ 	imx6q-apalis-eval-v1.2.dtb \
++	imx6q-apalis-eval-v1.2-vga.dtb \
++	imx6q-apalis-eval-vga.dtb \
++	imx6q-apalis-eval-vga.dtbo \
+ 	imx6q-apalis-ixora.dtb \
+ 	imx6q-apalis-ixora-v1.1.dtb \
+ 	imx6q-apalis-ixora-v1.2.dtb \
+ 	imx6q-apalis-v1.2-eval.dtb \
+ 	imx6q-apalis-v1.2-eval-v1.2.dtb \
++	imx6q-apalis-v1.2-eval-v1.2-vga.dtb \
++	imx6q-apalis-v1.2-eval-vga.dtb \
+ 	imx6q-apalis-v1.2-ixora.dtb \
+ 	imx6q-apalis-v1.2-ixora-v1.1.dtb \
+ 	imx6q-apalis-v1.2-ixora-v1.2.dtb \
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso
+new file mode 100644
+index 000000000000..991c2b7c2777
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso
+@@ -0,0 +1,80 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * VGA output connected to a parallel RGB LCD interface through a
++ * non-programmable video DAC with a VGA connector.
++ *
++ * The VGA output is available on the Apalis Evaluation Board without VESA DDC
++ * I2C signals.
++ */
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	disp1 {
++		compatible = "fsl,imx-parallel-display";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_ipu2_vdac>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interface-pix-fmt = "rgb565";
++
++		port@0 {
++			reg = <0>;
++
++			vga_display_in: endpoint {
++				remote-endpoint = <&ipu2_di0_disp0>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			vga_display_out: endpoint {
++				remote-endpoint = <&vga_enc_in>;
++			};
++		};
++	};
++
++	vga-encoder {
++		compatible = "dumb-vga-dac";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				vga_enc_in: endpoint {
++					data-enable-active = <0>;
++					remote-endpoint = <&vga_display_out>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				vga_enc_out: endpoint {
++					remote-endpoint = <&vga_connector_in>;
++				};
++			};
++		};
++	};
++
++	vga-connector {
++		compatible = "vga-connector";
++
++		port {
++			vga_connector_in: endpoint {
++				remote-endpoint = <&vga_enc_out>;
++			};
++		};
++	};
++};
++
++&ipu2_di0_disp0 {
++	remote-endpoint = <&vga_display_in>;
++};
 
 -- 
 2.43.0
