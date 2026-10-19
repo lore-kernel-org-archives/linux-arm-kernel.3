@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C35FCCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715A6CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=smuPfukUTEhnLlad9GsBi0MdMFhYsr8EsSBrkOpeT54=; b=otp2ClM/7R73nqBRyCcZ+c7cCn
-	BtDHR4EZE2ULyLR8XwcPRiPBQ8kMgv9HdKJHMALgmYlSzGoExjsWKv1G+hw0TkQBZbIFlQKpoWf5N
-	FJHvo7u0JFSNsAK915AA/gynB/XN9NqRnADO376nQsYPqpKfpD4l+A0dz2boygcuEMm+sNyxka+Xf
-	YjWaSCwyqUVA+vVLZOx4j4zOWh9t2ApbnqPN+tBnNXhuiZv+rP4yiLyvr/lrqjUgnIEiONF/omUcd
-	YfYMqIJE0K0zJlKdgpe20CI8in4eRaLp+pT0mW0+W1YG+nthkh5R9v648Ie+TKHQETtp49koFKD2C
-	JJ4e0z/A==;
+	bh=YZGPcgD9AFqKQnqdPo2/PO6pxJ4WnzRDZW0BsKuEGoY=; b=J0Q52nm89JuUkRRLe0BGq9cit3
+	pdZWJs+8W/f2Vp4zo8ZQ6wd2tnYOkkCTBFNrkT4kO1eVzLKd1+baP0FvNjPfpdf3Bgm3PO1ho/16y
+	axcmBTtldgMcQsrLezsR/TJa1o16XnxK+STd10VrmkdO9oj4nXFQWI2jnDcyuhzhcRrI8c/JM+aCx
+	BC9WWctjG8CLXRsLMMuoM3xILPd1TU5tAvy6mxTvML0EDgkZgn6sFcnIpcisa8RmT28L6GO+4/WcD
+	1mv0GG1U9ELIMt/jkxgd6grcMbNqO/U3tPwjHidw7evvv0srrcvTYXcLBdWzoWGWuDBDQpb/AoXLh
+	1KlOi/cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIj4t-00000006u6A-1P0e;
-	Mon, 19 Oct 2026 08:50:43 +0000
-Received: from out-226.mta0.migadu.com ([2001:41d0:1004:224b::e2] helo=mta0.migadu.com)
+	id 1xIj5r-00000006uIL-09Yg;
+	Mon, 19 Oct 2026 08:51:43 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIj4p-00000006u5V-1FYM
+	id 1xIj5m-00000006uGA-21We
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 08:50:41 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=smuPfukUTEhnLlad9GsBi0MdMFhYsr8EsSBrkOpeT54=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792399835; v=1; x=1793004635;
- b=nQtSM5hJDilCN2C3nr+nHu2ITvicnygacSv5OmoqyusSx74ZA/CKV8J+wAR5w1tNH72QQw1Z
- j5SXLNa1RxjH6s5Bfu4xj3LceJcwT/qPuDg06rTfuaa7KCR7b8v4jpIAGVmdV4ich0YEU5lUWXT
- Vs0AUVDxfgrWq4qgNY18rqkw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f380d157883809a6;
-	Mon, 19 Oct 2026 08:50:30 +0000
-X-Mizu-Trace-ID: f380d157883809a6
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5be3b2f17c1so6736e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:50:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByf0sGPjoPMNdr+x3JRmRxSGZTgHh86ahRdsXEWKz3FR0yTbi6wyKzlN1m7Lw16LFYDzwFhJ77dJvEpYHZz7r+3@lists.infradead.org
-X-Gm-Message-State: AFq9FYKs5Yf3ZDSX4rGjoTWIBqTST50aU1dnKOjHoM6nceP4zQD1fN+y
-	yD2NV3TjKWFXtKj0QYh+GRA9PLMrnpHfAYH9neCuurs/UgyIK1XXf/qVW0nu3XMpQDo2U09Gok9
-	SZoyCigBQbOAKhdzIbHUQo4rifk1VZi8KiuGF64Gq
-X-Received: by 2002:a05:6512:ace:b0:5ba:3602:4343 with SMTP id
- 2adb3069b0e04-5be51d51c40mr121150e87.16.1792399829578; Mon, 19 Oct 2026
- 01:50:29 -0700 (PDT)
+	Mon, 19 Oct 2026 08:51:42 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6acbaec0d70so259930a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:51:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792399897; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Z51Rja09P7Veq1ArLMtQNMstLTXvPhZVWJTfSfwdOWew+t2IMK7WDhenEnAd4Tqd96
+         XCmoxwo1KvrTfAdiyjgyMCBN4sH9ZTo1NLmyScYB71AMvQx9GrymcgS9v2hujORT3M5L
+         W9xGRcTKxlFydS9UWFpSNv7rnY+ndxhdwZC4ymOmgAiGTOd7yoCCvBG5Z/GJIn2FQVxK
+         8ZbkvadGFmf35e19hK9OKlZzFOkH5/0aaU+NVeTIYS0QixumPPg3UNqH++kwBGwKAaJv
+         E0kmNcGA7pnoqThY31ffFK+v38L5KIBIfkUyfIyCz8WRCXyVEP2sVhjeFqnINivGqySw
+         qNow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YZGPcgD9AFqKQnqdPo2/PO6pxJ4WnzRDZW0BsKuEGoY=;
+        fh=0ZelLD0Lh6u8MQXcQhu6OTTqGWGE3vnWQDyJCWuIF4Q=;
+        b=lKvUl0Y5JBZdehWFsF93maw2nlgmG8WTnzy/L/RYbnkUEoD2O5Cp7LNbq0Oxuu153j
+         4nAbx6wyhaBHNrrq3majDScBSMFGZpLnZgCvZjYQdzCH7HiJy1+BlBQ2UVsT7c9PREaM
+         GQBPEisjVMCiRSXy0M4vOAR00Pq4fyOMUnUAgAjX7bg7Kg4SVSwQan1MefMErZHVK2Ww
+         C+C/ZvJ/WC/+0iwcgk6itd6MAN9mPeHDOuPB17rKuPsZzD93FaTL8scnliJXJnZvBhA7
+         YeWu1PndSjLbv421fkePHoouuz3Cp5T5ccccOj9ixe0HEi/x0Kxd8pzSldwphpEyK5YT
+         yeJg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792399897; x=1793004697; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YZGPcgD9AFqKQnqdPo2/PO6pxJ4WnzRDZW0BsKuEGoY=;
+        b=MIs+xPYl67x0OCK2qjAYAJ7ZI1SAMpVWt220Ux0OLkKeac1s01Q+MsUi20ga090WjE
+         4YYjWNAf5esA8q4k9enb3+t2qbhBzOW/vlrFnKQXUYW/YbdVpl391MKdaHBRMy7m1yVp
+         6C5Jj944Z+xTFPlGcRKg3fMuNg0dFw2N+szGHZTKqzmN/0EGnQ3h5ABUAQcff32QSZre
+         HjJk8+gLBOGFlXO/CaXNaLii10kkdyT3XePPrnMaW75icy9h42GCRAmYKTboyJVmuvA7
+         +xAcgblDEPTbGWiVRJyxXRXXG0JYTvkzWgE2DRXz7GU6bFAIgS5skctak98Vjj1jEArE
+         PYYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792399897; x=1793004697;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YZGPcgD9AFqKQnqdPo2/PO6pxJ4WnzRDZW0BsKuEGoY=;
+        b=I/zvRQ81BGzRB1aiU8ukDXH9dQnG5hgKMHOYH5SEyuhWRy0EZkSU9wY1+B7DrLWHAL
+         aROJzFeqsAx45l+STLFzbwdwDQSp1CrjvhldTT4CpB7e9IZxggiWGLsHLzmxUaYPPRph
+         0k+yVjukFuLLo90/ekd5UFxe3Y8Yk1vDRPNC5GGAVyid9lM6AICQQPV3Ac8yi1awVU62
+         7FADRYw2JdgYzeG+66eLr3pAlzvuUNWjI69cmI9U1B8LdCrRyIDWGj3YaH/t5WVKHuzu
+         1iZ8u7W7kyGBNecQ+9pKiyq60FAXOq/aGOfrY7+4lXIViVQweARvJJLoek9QH5a2n+qS
+         uCqQ==
+X-Forwarded-Encrypted: i=1; AKwUvByRPxTQk4uFH1Kwr+EQspfaBSHtr1BLMELMuKQDXCPJNQxkr+ygg7uJrdQdBSsWpCsH3j/m6oBvhhnlY6F09Zsn@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGPx+E7HtkwFplT5duAlROLr/qwVAaXiar2voGRSVsoitW1cMM
+	TKNhAv4FcRKe+xdRGL+UF97kPr3PrkyFt3IJL7tUCDB+rMfWaiDE3wtQh43zQmDhSOoinDg7D+r
+	jiG0TSOuE5HdIyJwqO10gF7A97r4yG2g=
+X-Gm-Gg: AYBFou3r8gniYAXNBhZOokhmBXqC/4k0xs5rPNAiprzGZzEw+vUR4Nl/TZYkugcamaD
+	0SnZlYKuskjVu7Y2Vcg9Y0THONqpYC8psXrf9kKKe+i2B51/wY/PrO/8b13tRk9Oc46c/A0ukob
+	D3RASpk3QfzJoeyrEEEKFgd1+ADC5w8FLxKU3c0G21goD0c6UKQYSNq12wjPDdBEzQC7fVk6WPC
+	iCC4fjXhrggnmObj5Vc70VDiaHVWggdH2yObRgeXW/tnH6vxOGRfDcSM1zmKp3GYmQ3JBszywkU
+	6XZON3W1X9fWoanD+MBvJBiLNLDkFx/dXapXQEOHkkNBTN4WH1qB0w==
+X-Received: by 2002:aa7:cd16:0:b0:6b1:a509:8a2 with SMTP id
+ 4fb4d7f45d1cf-6b3a8153c70mr3342735a12.2.1792399896018; Mon, 19 Oct 2026
+ 01:51:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20261018080921.3942517-1-fuad.tabba@linux.dev>
- <8633u229lq.wl-maz@kernel.org> <CA+EHjTwHP7h_=e1s-iCDekMNvHGAQA3K1zv5v_4=PXQw9ueiFg@mail.gmail.com>
- <861p9m1709.wl-maz@kernel.org>
-In-Reply-To: <861p9m1709.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 19 Oct 2026 09:49:53 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyDJ87A3e7tr6Q2UEvi9BRuuu5HQ90A_3VWaOFKnRmZkw@mail.gmail.com>
-X-Gm-Features: AclHuK_GC1ojwYomVv0QIMlxdcqQYksqozcLWRejxdRqCJ0NJlVWgmqtZaSv6zY
-Message-ID: <CA+EHjTyDJ87A3e7tr6Q2UEvi9BRuuu5HQ90A_3VWaOFKnRmZkw@mail.gmail.com>
-Subject: Re: [PATCH v2] KVM: arm64: Only enable S1PIE and S1POE with the
- features they imply
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, linux-kernel@vger.kernel.org
+References: <20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com>
+ <20261016-dcphy-rx-v1-v5-2-e63b49eabe2d@gmail.com> <f337f41f-2ada-4958-b0f9-379e78e96a3d@linaro.org>
+In-Reply-To: <f337f41f-2ada-4958-b0f9-379e78e96a3d@linaro.org>
+From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
+Date: Mon, 19 Oct 2026 16:51:23 +0800
+X-Gm-Features: AclHuK_WAI6-16edIPrAFWjpLBUVloumDqFsNS60JoizZzHWBKP6V-AdFc5lP64
+Message-ID: <CAPwA33KFY0avDH-F_5w01vqWu=RK=nXZ=za-Do5Zm3S8CPtGgA@mail.gmail.com>
+Subject: Re: [PATCH v5 2/8] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Add
+ a cell to select TX or RX
+To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_015040_121429_24812AB0 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20261019_015140_115076_300E4995 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +123,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi Bryan,
 
-On Mon, 19 Oct 2026 08:31:18 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> > I'll send your patch as v3, rebased on -rc3 with you as the author,
+> Two consumers use them - which them ? Two consumers use the receivers at
+> the same time ?
+
+> Its minor but instead of "them" define what the them is.
+> The second cell, if present
 >
-> Please at least add yourself as a co-author.
+> -> you want to make clear it is optional.
 
-Will do, thanks.
+I will check my description and make sure there is nothing misleading.
 
-> > once I've tested it. I'm dropping v2's trap table changes, since
-> > they're redundant once the ID registers are sanitised. I made two
-> > changes to your patch. The sanitisation now runs before
-> > kvm_init_nv_sysregs(), so the nested RESx masks are computed from the
-> > sanitised values.
->
-> Isn't that already the case? At least with kvmarm-7.4,
-> kvm_vm_finalize_sys_regs() is called before kvm_init_nv_sysregs().
+> Not really related to this patch but how do you envision that
+> requirement being enforced, per driver ?
 
-It is. -rc3 doesn't have Mark's split of kvm_finalize_sys_regs(), so
-kvm_init_nv_sysregs() still runs there first. I'll rebase v3 on
-kvmarm-7.4 and keep the call where you had it.
+The transmitter and the receiver of this PHY share the bias block, and
+the TRM explicitly does not allow them to run in different modes. Since
+this is part of this PHY's spec, the check is done in this driver's
+xlate for now.
 
-> > I dropped the res1 half, which isn't set by anything.
->
-> I'd like to keep this, as it will eventually get used, just like the
-> recompute loop is a bit useless for now, but will become useful in the
-> future as dependencies get recomputed.
-
-Ack.
-
-Cheers,
-/fuad
+Best regards
+Jason
 
