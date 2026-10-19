@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F8BECCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28284CCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JacI1PS0XwMOWP778EnHVdGmIAyo9cuU52auPMAJsoE=; b=zsRD7i1PDq3eZ2/03OvAUfPLow
-	TC17g7SZZu3miNF0LeiPKb+UekCk4Znl+VbXGay3tEUjJM2Okvw0sp0XTNkxZT6HGgB1ylbforYud
-	AW9j96ZlR6rYg2ZMBgz2fG9Ud0jya+z3XdJMAGQzpcj/Dhlk7z6GZO10GSK0AFe1OoR4pupmaaCjD
-	9Pw33uxeBrF86aIkpVaVmhGW0LeqEeuwQvkCv4xqtTE7Y+K60eL3yDppceLfau+jAmZ+mc0dcm8vy
-	3EpyDnPqN2EUwEQVXJL74rPs2ndS8EBdjpdtGegnx+If2lmAcj99cQZdGrqWlTwxuh8QFUCvGbPiz
-	FvoXoLcw==;
+	bh=jEwxnsQF6sHZjugZq/00AG00Xt7EceYd4qsDmz22KOc=; b=j8hZWk2Sz/MFZFRZZmbM0F+rgN
+	VMD72cboqIDTsdQYVB3D0FCDuR2Sya0sxODpDjEz6c5H69JD8cjPdoqwBj8lUbwalL66W4KDh3Wen
+	eCGtIlBMaxEp3jjqD9SGaDTCCD9D1LjNh1iixn4GXXhKNRtrZ4b/lP0LEOtWbAhoLD9ZdQ3SXU1NM
+	4rsGnOPU4V447Eri0NHXZr/Oq3KdAtAtGqQLbJV6tKZfZCSmtGPh5ySqeyCGWVOrs295a4VjuKtQJ
+	onPmFWkqVY5Wz54ThIBhmdozXUXw7zrbS95hshmcioOMDO4QQvC4e74onBiZUOCzGe8lJaUJPnTh8
+	BlRNH6HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInuf-00000007cjm-1o1i;
-	Mon, 19 Oct 2026 14:00:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xInuy-00000007cxx-0Bg6;
+	Mon, 19 Oct 2026 14:00:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInud-00000007cia-1ZeA;
-	Mon, 19 Oct 2026 14:00:27 +0000
+	id 1xInuw-00000007cx0-3C9O
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 14:00:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23FBA4156E;
-	Mon, 19 Oct 2026 14:00:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 196D61F000C4;
-	Mon, 19 Oct 2026 14:00:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B5536022F;
+	Mon, 19 Oct 2026 14:00:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFB61F000C4;
+	Mon, 19 Oct 2026 14:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418427;
-	bh=JacI1PS0XwMOWP778EnHVdGmIAyo9cuU52auPMAJsoE=;
+	s=k20260515; t=1792418445;
+	bh=jEwxnsQF6sHZjugZq/00AG00Xt7EceYd4qsDmz22KOc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LfkFchotC3QxoscvW1UDJoVgkWT4XWJUrj+aW9Q5Un4OJX3bwWnLMS+INDAgac/SP
-	 Q060nztt6GHOKvvsW+4QERmfnPXkNVaQ2FSUuRhRcP4nikLvGSNcpQ0L9Mp/nUAmxd
-	 A3VPaX33sThOT0IgqMcZYZVHgw8jN9wOZo8izP0vVlHJ5aTx/qBhkynEDGjk3lxnPJ
-	 6ezA3LByQk0cnjLfhdeFh9AumjVmVRdli/AmU+oAKyK52tTnzzEvS/EOvf/bcOD4Rs
-	 mSnVaUKIJ8i/SoobJhJERlSbIBYuQkO5bem1H6K/wNi9tNF/494dhYO5tSjyRwEcxE
-	 1VP6j+ceuiE6Q==
+	b=SkRPM+wVvki+CaYEessUE0RLQnRVLnA1kvQC0H3vr196yfIJk17Vv217irKKt1uGM
+	 11OhZbKvuDQoMIITOL19iJdi3GXwyuuKZl4AHMO4duBxLsae65iKOWJRTuceIlEQwM
+	 9NjCltvtSfttfxULd/qDxMJG+RJ0FDZ5wi8DN1BUNkbb8R+l1N2pIaoxof05ReGpIm
+	 nzXKEjYKyOs0EjrVjjguwZFaT05PxL4rghAeZINFYHHYVDkdzK8bL4SfUyI+pp6ogd
+	 JTN154p5T7OtPJG1ehiHRuWDS0iDLlj3ursSyMSy+whGuKyEC4Tu0eDG5gYv8LvXcd
+	 P5yuK32kshVug==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
+Cc: Nicolin Chen <nicolinc@nvidia.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	khilman@baylibre.com,
+	thierry.reding@kernel.org,
+	joro@8bytes.org,
+	jonathanh@nvidia.com,
+	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
+	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] soc: amlogic: meson-clk-measure: remove debugfs tree
-Date: Mon, 19 Oct 2026 09:48:52 -0400
-Message-ID: <20261019135441.1420968-241-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.12] iommu/tegra241-cmdqv: Rate-limit the error ISR's log message
+Date: Mon, 19 Oct 2026 09:49:05 -0400
+Message-ID: <20261019135441.1420968-254-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -77,386 +81,409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Nicolin Chen <nicolinc@nvidia.com>
 
-[ Upstream commit 67481152be2ec5de3529664c82054b43d6d4b9f5 ]
+[ Upstream commit a86c36163c9722545d27e92bdad8418fdcaa8b1d ]
 
-meson_msr_probe() creates a debugfs tree with entries that reference
-devm-managed measurement table entries and the driver's private regmap
-state. The driver has no remove callback, so unbinding the device can
-leave those debugfs entries behind after the private data is released.
+tegra241_cmdqv_isr() logs the error-map registers on every error interrupt.
+A malfunctioning device, or a guest deliberately faulting its own VCMDQs,
+can raise these interrupts rapidly, and the unconditional dev_warn() then
+floods the kernel log.
 
-Store the debugfs root and remove the subtree from a new remove callback.
+Rate-limit the message with dev_warn_ratelimited(), and pass the error-map
+registers straight to it so their four MMIO reads run only when the limiter
+prints, instead of building the string on every interrupt.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Link: https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn
-Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+Assisted-by: Claude:claude-opus-4-8
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit message forensics
+The local checkout is **v7.3-rc4**. The driver and the unconditional ISR
+`dev_warn()` are present here; the change is a small, self-contained
+log-flood / guest-DoS mitigation, so it belongs in this tree.
 
-**Step 1.1 — Subject**
-- Record: `[soc: amlogic: meson-clk-measure]` `[remove]` `[tear down
-  leftover debugfs on driver unbind]`
+===============================================================
+PHASE 1: COMMIT MESSAGE FORENSICS
+===============================================================
 
-**Step 1.2 — Tags**
-- `Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>` (Amlogic SoC
-  maintainer; also committed the patch)
-- `Link:
-  https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn`
-- `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
-- `Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>`
-  (maintainer)
-- No `Fixes:`, no `Reported-by:`, no `Tested-by:`, no `Cc: stable`
-  (absence is expected)
-- No syzbot / bugzilla / CVE tags
+**Step 1.1: PARSE THE SUBJECT LINE**
+Record: **[iommu/tegra241-cmdqv] [Rate-limit] [stop the error ISR from
+printing on every interrupt]**
 
-**Step 1.3 — Body**
-- Record: `[Bug: probe creates debugfs entries that point at devm-
-  managed `msr_table` and private regmap state, but the driver had no
-  remove callback.]`
-- `[Symptom: after unbind, leftover debugfs files can be used after that
-  memory is released.]`
-- `[Version info: none in the message. Driver has existed since v5.0.]`
-- `[Root cause: missing lifetime teardown for debugfs vs. devm-managed
-  private data.]`
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+Record:
+- **Fixes:** none (expected)
+- **Reported-by:** none
+- **Tested-by:** none
+- **Reviewed-by / Acked-by:** none on the commit itself
+- **Link:** none
+- **Cc: stable:** none on this patch
+- **Assisted-by:** Claude:claude-opus-4-8
+- **Signed-off-by:** Nicolin Chen (NVIDIA; author), Will Deacon (arm-
+  smmu maintainer; applied it)
+- Pipeline markers such as Sasha Levin SOB / “[Upstream commit]” were
+  not on the real commit (`a86c36163c972`)
 
-**Step 1.4 — Hidden bug fix?**
-- Record: `[Not hidden. This is an explicit lifetime/UAF fix, even
-  though the verb is "remove".]`
+Notable: no user/syzbot report. The cover letter says the series came
+from **Sashiko** (LLM) review, not a production crash.
 
-## Phase 2: Diff analysis
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Record:
+- **Bug:** `tegra241_cmdqv_isr()` logs error-map registers with
+  unconditional `dev_warn()` on every error interrupt.
+- **Symptom:** kernel log flood.
+- **Trigger (stated):** malfunctioning device, or a **guest deliberately
+  faulting its own VCMDQs**, raising interrupts rapidly.
+- **Root cause:** every interrupt builds a 256-byte string (including
+  four extra MMIO reads) and prints it.
+- **Fix:** `dev_warn_ratelimited()`, and pass the MMIO reads as printk
+  args so they run only when the limiter actually prints.
+- **Version info:** none in the message.
 
-**Step 2.1 — Inventory**
-- Record: `[drivers/soc/amlogic/meson-clk-measure.c: +14 / −0]`
-- Functions: `struct meson_msr` (new `debugfs_root`),
-  `meson_msr_probe()`, new `meson_msr_remove()`, `meson_msr_driver`
-  table
-- Scope: single-file surgical fix
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+Record: Not a disguised cleanup. It is an explicit flood/DoS mitigation.
+It does not fix a UAF, leak, or crash by itself.
 
-**Step 2.2 — Code flow**
-- Before: `meson_msr_probe()` builds `/sys/kernel/debug/meson-clk-msr/`
-  (`measure_summary` plus per-clock files). File private data is
-  `priv->data.msr_table` and `&priv->data.msr_table[i]`, with `.priv =
-  priv`. `priv`, `msr_table`, `reg`, and `regmap` are all `devm_*`
-  allocations. There was no `platform_set_drvdata()` and no `.remove`.
-- After: root dentry is stored, `platform_set_drvdata()` is set, and
-  `meson_msr_remove()` calls `debugfs_remove_recursive()` so the tree is
-  gone before devres frees private data.
-- Path: driver remove / module unload / sysfs unbind, not the normal
-  measure path.
+===============================================================
+PHASE 2: DIFF ANALYSIS - LINE BY LINE
+===============================================================
 
-**Step 2.3 — Bug mechanism**
-- Record: `[Use-after-free / leftover debugfs after unbind]`
-- Mechanism: unbind runs `devres` teardown and frees `priv` /
-  `msr_table` / `regmap`. Debugfs files remain. `clk_msr_summary_show()`
-  does `msr_table->priv->data.msr_count`; `meson_measure_id()` then uses
-  `priv->regmap` and `priv->data.reg`. That is a UAF if those files are
-  read after unbind.
-- Category (c)/(d): lifetime/refcount-style teardown; memory safety.
+**Step 2.1: INVENTORY THE CHANGES**
+Record:
+- File: `drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c` (+7 / −9)
+- Function: `tegra241_cmdqv_isr()`
+- Scope: **single-file surgical** (one logging site)
 
-**Step 2.4 — Fix quality**
-- Record: `[Obviously correct, minimal, standard pattern.]`
-- `debugfs_remove()` itself already ignores `IS_ERR_OR_NULL`, so the
-  extra check is redundant but harmless.
-- `platform_set_drvdata()` is required for `platform_get_drvdata()` in
-  remove.
-- `.remove` is `void (*)(struct platform_device *)` in this tree,
-  matching the new callback.
-- Regression risk: low. `debugfs_remove()` uses
-  `simple_recursive_removal()`, so in-flight file users are drained
-  before return. No public API change.
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+Record:
+- **Before:** ISR always `snprintf()`s into `char err_str[256]`, always
+  does four `CMDQ_ERR_MAP` MMIO reads, always `dev_warn()`.
+- **After:** no stack buffer; `dev_warn_ratelimited(...)` with the four
+  `readl_relaxed()` calls as arguments.
+- Path: **error interrupt path** (threaded IRQ). Error *handling* after
+  the log is unchanged.
 
-## Phase 3: Git history
+Verified `dev_level_ratelimited()` in `include/linux/dev_printk.h`: the
+`__VA_ARGS__` are only substituted inside `if (__ratelimit(&_rs))`, so
+those MMIO reads run only when a line is printed.
 
-**Step 3.1 — Blame**
-- Record: `[Buggy debugfs creation is from 2b45ebef39a2c ("soc: amlogic:
-  Add Meson Clock Measure driver"), 2018-11-28, first in v5.0-rc1.]`
-- The missing-remove bug is as old as the driver. Confirmed on the
-  parent of the fix: no `platform_set_drvdata`, no `debugfs_root`, no
-  remove callback.
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+Record:
+- **Category:** ISR log flood / availability (guest-triggered printk
+  storm), plus extra MMIO on every interrupt.
+- **Not:** UAF, leak, deadlock, OOB, or NULL deref.
+- **Hardware workaround?** No.
 
-**Step 3.2 — Fixes: tag**
-- Record: `[No Fixes: tag. Introducer is 2b45ebef39a2c, present in this
-  tree.]`
+**Step 2.4: ASSESS THE FIX QUALITY**
+Record:
+- Obviously correct: standard `*_ratelimited` pattern already used in
+  other IOMMU fault paths (`arm-smmu-v3.c`, `virtio-iommu.c`, AMD/Intel,
+  etc.).
+- Minimal; no unrelated edits.
+- Regression risk: **very low**. Worst case is fewer error-map dumps in
+  dmesg (intended). Error recovery is untouched.
+- Red flags: LLM-assisted; no `Fixes:`/`Reported-by`. Not a new API.
 
-**Step 3.3 — File history**
-- Record: `[Recent commits add SoC tables (A1/T7, S4, C3) and register-
-  offset refactoring. None change debugfs lifetime.]`
-- Standalone, not patch X/Y.
+===============================================================
+PHASE 3: GIT HISTORY INVESTIGATION
+===============================================================
 
-**Step 3.4 — Author**
-- Record: `[Pengpeng Hou: only this commit on this driver.
-  Reviewer/committer Neil Armstrong is the original driver author and
-  Amlogic maintainer.]`
+**Step 3.1: BLAME THE CHANGED LINES**
+Record:
+- Unconditional `dev_warn()` + `snprintf` were in the original driver:
+  `918eb5c856f6` (“Add in-kernel support for NVIDIA Tegra241 (Grace)
+  CMDQV”), **2024-08-30**, first in **v6.12-rc1**.
+- This tree is **v7.3-rc4**, so that code is in this lineage.
 
-**Step 3.5 — Dependencies**
-- Record: `[None. Uses existing `debugfs_create_dir` /
-  `debugfs_remove_recursive` / `platform_set_drvdata`. Can apply
-  standalone to this tree.]`
+**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: No `Fixes:` tag. N/A. The logging has been there since the
+driver was added.
 
-## Phase 4: Mailing list and external research
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Record: This is **v2 11/11** of “Fix error-interrupt races and VINTF
+lifecycle bugs” (Nicolin Chen, 2026-07-14). Cover letter: ordered
+**most-critical-first**; this is the last, smallest issue (“ISR flooding
+the kernel log under repeated guest errors”).
+Standalone: it only changes the log line and does **not** need the
+earlier UAF/lifecycle patches to be correct.
 
-**Step 4.1 — Original discussion**
-- Record: `[https://patch.msgid.link/20260615091531.21964-1-
-  pengpeng@iscas.ac.cn]`
-- `b4 dig -a`: only v1; that version was applied.
-- Maintainer review: `Reviewed-by: Neil Armstrong`.
-- Sashiko bot flagged a pre-existing probe-time race (`measure_summary`
-  created before `.priv` is filled). Armstrong replied: “Impossible the
-  driver is initialized way before userspace starts.” That race is not
-  introduced by this patch and was not treated as a blocker.
-- No NAK. No reviewer request for `Cc: stable`.
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+Record: Nicolin Chen is the NVIDIA CMDQV contributor for this file; Will
+Deacon applied the series. Same-day siblings are real
+lifecycle/UAF/bounds fixes. This one is the leftover logging hardening.
 
-**Step 4.2 — Recipients (`b4 dig -w`)**
-- Record: `[Neil Armstrong, Kevin Hilman, Jerome Brunet, Martin
-  Blumenstingl, linux-amlogic, linux-arm-kernel, linux-kernel. Right
-  maintainers were on the patch.]`
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+Record: None required. `dev_warn_ratelimited` is old. The hunk applies
+to the original ISR as well as the post-series ISR.
 
-**Step 4.3 — Bug report**
-- Record: `[No Reported-by / syzbot / bugzilla. Bug is from code
-  inspection of lifetime mismatch.]`
+===============================================================
+PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+===============================================================
 
-**Step 4.4 — Series**
-- Record: `[Standalone single patch. No follow-up on this file after
-  67481152be2ec.]`
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+Record:
+- `b4 dig -c a86c36163c972` → https://patch.msgid.link/2e9d088c059037d5f
+  c23532820444720b870d2c7.1784059577.git.nicolinc@nvidia.com
+- **v1** (2026-07-02) and **v2** (2026-07-14); committed version is **v2
+  11/11**.
+- No NAK on this patch. Review noise in the thread was about **patch
+  10/11** (dropped); Will applied 01–09 and 11.
+- No reviewer asked for `Cc: stable` on *this* patch. Patch 07/11 in the
+  same series did have `Cc: stable` (unrelated vSID check).
+- WebFetch to lore returned **403**; thread was read from the b4 mbox
+  instead.
 
-**Step 4.5 — Stable list**
-- Record: `[UNVERIFIED: lore.kernel.org/stable returned HTTP 403.]`
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+Record (`b4 dig -w`): Nicolin Chen, Will Deacon, Robin Murphy, Joerg
+Roedel, Jason Gunthorpe; lists `iommu@`, `linux-arm-kernel`, `linux-
+tegra`. Maintainer **Will Deacon applied it** (“Applied (apart from
+patch 10)”).
 
-## Phase 5: Code semantic analysis
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+Record: No syzbot/bugzilla link. Origin is **Sashiko** static review,
+described in the cover letter. Nicolin also noted Sashiko false
+positives (including a wrong “level-triggered / kdump storm” claim);
+CMDQV is **edge-triggered**, so an *unacked* pending error does not re-
+assert. **Each new error still fires the ISR**, which is the remaining
+flood path this patch addresses.
 
-**Step 5.1 — Functions**
-- Record: `[meson_msr_probe, meson_msr_remove (new), meson_msr_driver;
-  readers clk_msr_show / clk_msr_summary_show / meson_measure_id]`
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+Record: 11-patch series; this patch is independent logging. Not blocked
+on the dropped 10/11.
 
-**Step 5.2 — Callers**
-- Record: `[probe/remove from the platform core on bind/unbind. Debugfs
-  show via `DEFINE_SHOW_ATTRIBUTE`. `meson_msr_remove` is only the new
-  driver `.remove`.]`
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+Record: **UNVERIFIED** via lore.kernel.org/stable (HTTP 403). The
+submitted 11/11 message itself has no `Cc: stable`.
 
-**Step 5.3 — Callees**
-- Record: `[debugfs_create_dir/file, debugfs_remove_recursive,
-  platform_set/get_drvdata, and on read: mutex + regmap MMIO.]`
+===============================================================
+PHASE 5: CODE SEMANTIC ANALYSIS
+===============================================================
 
-**Step 5.4 — Reachability**
-- Record: `[Yes. CONFIG_MESON_CLK_MEASURE is tristate, default y on
-  ARCH_MESON. DT nodes exist for GX, Meson8/8b, AXG, G12A, SM1, C3, S4,
-  A1, T7. Unbind is `rmmod meson-clk-measure` or sysfs unbind, then
-  reading leftover debugfs. Typically root-only, but still a real kernel
-  UAF.]`
+semcode MCP: **not available**. Used `git grep` / file reads.
 
-**Step 5.5 — Similar patterns**
-- Record: `[Same teardown exists in other SoC drivers (qcom
-  smem/socinfo/aoss, ti smartreflex). This driver was the one missing
-  it.]`
+**Step 5.1: IDENTIFY KEY FUNCTIONS**
+Record: `tegra241_cmdqv_isr()` only.
 
-## Phase 6: This tree (v7.3-rc4)
+**Step 5.2: TRACE CALLERS**
+Record: Registered in `__tegra241_cmdqv_probe()` via
+`request_threaded_irq(..., tegra241_cmdqv_isr, IRQF_ONESHOT, ...)`. Not
+a hardirq; still a hot error path. Hardware: NVIDIA Tegra241 (Grace)
+CMDQ-V (`CONFIG_TEGRA241_CMDQV`).
 
-**Step 6.1 — Does the buggy code exist here?**
-- Record: `[Yes in this lineage. Driver is `drivers/soc/amlogic/meson-
-  clk-measure.c`. Bug introduced in v5.0 (2b45ebef39a2c). This checkout
-  is `v7.3-rc4-27-gf0100363d8c37` / 7.3.0-rc4. The fix landed in
-  v7.3-rc1 (`git merge-base --is-ancestor 67481152be2ec v7.3-rc1`
-  succeeded; it is not in v7.2).]`
-- Current file already has `debugfs_root` and `meson_msr_remove()`. That
-  is because the commit merged during 7.3; it is not a reason to treat
-  the bug as never existing here.
+**Step 5.3: TRACE CALLEES**
+Record: `readl_relaxed` of VINTF/CMDQ error maps;
+`dev_warn_ratelimited`; then `tegra241_vintf0_handle_error` /
+`tegra241_vintf_user_handle_error`. Those handlers are unchanged.
 
-**Step 6.2 — Backport difficulty**
-- Record: `[Clean apply on this tree. Context matches. `.remove` is
-  already void.]`
+**Step 5.4: FOLLOW THE CALL CHAIN**
+Record: Reachable when CMDQV is enabled (Grace SMMU). A guest with a
+user VINTF/VCMDQ can generate command-queue errors; each new error
+latches and interrupts. That is a userspace/VM-reachable path, not a
+theoretical internal-only site.
 
-**Step 6.3 — Related fixes already here?**
-- Record: `[This is the fix. No alternate teardown was present before
-  it.]`
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+Record: Rate-limited IOMMU fault logs are the normal pattern elsewhere.
+This driver was the outlier with a raw `dev_warn()` in the ISR.
 
-## Phase 7: Subsystem context
+===============================================================
+PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+===============================================================
 
-**Step 7.1**
-- Record: `[Subsystem: drivers/soc/amlogic clock-measure debugfs helper.
-  Criticality: PERIPHERAL (Amlogic-only, debugfs), but UAF is still a
-  crash/memory-safety bug.]`
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+Record:
+- `git describe HEAD` → **v7.3-rc4-27-gf0100363d8c37**
+- `make kernelversion` → **7.3.0-rc4**
+- Driver file exists; original ISR logging from `918eb5c856f6` (v6.12).
+- `git merge-base --is-ancestor a86c36163c972 HEAD` → **yes** (already
+  merged here). That is not used as “already selected for stable”; it
+  only confirms this lineage has the driver and the fix.
 
-**Step 7.2**
-- Record: `[Mature driver (2018). Recent work is new SoC tables, not
-  lifetime redesign.]`
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+Record: **Clean apply** on this tree (already applied). The hunk does
+not depend on later ISR locking. On a tree that still has the original
+`snprintf`/`dev_warn` ISR, it would apply with at most trivial context.
 
-## Phase 8: Impact and risk
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+Record: No earlier equivalent rate-limit. `a2ee315db4261` only uses
+`WARN_ON_ONCE` for out-of-bounds map bits; it does not throttle the
+“unexpected error reported” line.
 
-**Step 8.1 — Who is affected**
-- Record: `[Amlogic Meson users with CONFIG_MESON_CLK_MEASURE and
-  CONFIG_DEBUG_FS, after driver unbind/unload.]`
+===============================================================
+PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+===============================================================
 
-**Step 8.2 — Trigger**
-- Record: `[Unbind or rmmod, then open leftover debugfs. Not a boot-hot
-  path. Privileged in typical debugfs setups. Deterministic UAF, not a
-  heisenrace.]`
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+Record: **drivers/iommu/arm/arm-smmu-v3** (NVIDIA Grace CMDQ-V).
+**PERIPHERAL/IMPORTANT for that platform**: only `CONFIG_TEGRA241_CMDQV`
+/ Tegra241 (Grace) systems, including virtualization hosts using user
+VINTFs.
 
-**Step 8.3 — Failure mode**
-- Record: `[UAF → oops / KASAN / possible memory corruption. Severity:
-  HIGH.]`
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+Record: Actively developed in 2026 (large Sashiko fix series + iommufd
+work). Logging bug itself is old (v6.12).
 
-**Step 8.4 — Risk-benefit**
-- Record: `[Benefit: high for the affected unbind path (prevents UAF).
-  Risk: very low (14 lines, standard debugfs teardown). Ratio favors
-  taking the fix.]`
+===============================================================
+PHASE 8: IMPACT AND RISK ASSESSMENT
+===============================================================
 
-## Phase 9: Synthesis
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+Record: **platform-specific / config-specific** — NVIDIA Grace +
+`CONFIG_TEGRA241_CMDQV`. Hosts that expose guest VCMDQs are the
+interesting population.
 
-**Step 9.1 — Evidence**
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+Record: CMDQV error IRQ. Commonness: rare on healthy HW; can be
+**frequent** if a device malfunctions or a **guest injects VCMDQ
+errors**. Unprivileged guest with VCMDQ access can trigger it. Not every
+boot.
 
-For:
-- Real UAF: leftover debugfs vs. `devm` private data after unbind
-- Small (+14), obviously correct
-- Reviewed and applied by the subsystem maintainer
-- Driver and bug exist in this 7.3 tree’s history since v5.0
-- `MESON_CLK_MEASURE` is tristate, so module unload is a supported path
-- Same teardown pattern used elsewhere in `drivers/soc/`
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
+Record:
+- Direct effect: dmesg/console flood; extra MMIO + `snprintf` on every
+  interrupt.
+- Indirect: printk/console contention, lost messages, possible stalls on
+  a slow console.
+- Not an oops, UAF, or data corruption.
+- **Severity: MEDIUM** (availability / “oh, that’s not good”), with a
+  stated guest DoS path.
 
-Against:
-- No user/syzbot report
-- Debugfs, typically root-only
-- Amlogic-only helper, not core kernel
-- Maintainer did not nominate stable
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
+Record:
+- **Benefit:** medium for Grace virtualization hosts; low for everyone
+  else.
+- **Risk:** very low (7 lines, logging only).
+- **Ratio:** favorable. Official stable rules allow “oh, that’s not
+  good” and require an exploit explanation for “could be a problem”
+  issues; the message gives that explanation.
 
-Unresolved:
-- Could not search lore.kernel.org/stable (HTTP 403)
+===============================================================
+PHASE 9: FINAL SYNTHESIS
+===============================================================
 
-**Step 9.2 — Stable rules**
-1. Obviously correct and tested? **PASS** — standard remove +
-   `debugfs_remove_recursive`; maintainer Reviewed-by
-2. Real bug affecting users? **PASS** — leftover debugfs after unbind is
-   a UAF
-3. Important (crash/security/corruption/deadlock)? **PASS** — UAF oops /
-   memory-safety; HIGH, not a theoretical warning
-4. Small and contained? **PASS** — 14 lines, one file
-5. No new features/APIs? **PASS**
-6. Applies to this tree? **PASS** — driver present, void `.remove`, no
-   missing prereqs
+**Step 9.1: COMPILE THE EVIDENCE**
 
-**Step 9.3 — Exception category**
-- Record: `[None. This is a normal bugfix, not a device-
-  ID/quirk/DT/build/docs exception.]`
+FOR:
+- Real, described flood: guest or bad device can fire the error IRQ
+  repeatedly; each new error still interrupts (edge-triggered, latched
+  per event).
+- Tiny, obviously correct, matches other IOMMU drivers.
+- Error handling unchanged; MMIO for the log runs only when printing.
+- Driver and buggy logging exist in **this** 7.3-rc4 tree (since v6.12).
+- Applied by the arm-smmu maintainer; no NAK on this patch.
+- Official rules: not a trivia cleanup; exploit path is written down.
 
-**Step 9.4 — Decision**
-This tree is 7.3-rc4. The clock-measure driver is here, the missing-
-remove UAF has been here since v5.0, and the patch is a small, correct
-teardown. It meets stable criteria for this checkout.
+AGAINST:
+- No production `Reported-by`; LLM-found.
+- Least-critical patch in its series (11/11).
+- Threaded IRQ (`IRQF_ONESHOT`), so not a hardirq printk.
+- Unacked-guest *storm* was already ruled out as a false positive; this
+  only limits *new*-error spam.
+- Not a crash/corruption/UAF.
 
-### What it fixes and why it matters
-`meson_msr_probe()` publishes debugfs files whose private pointers refer
-to `devm`-allocated `priv` / `msr_table` / `regmap`. Without a remove
-callback those dentries survive unbind, so a later read of
-`measure_summary` or a per-clock file uses freed memory. On 7.3 that is
-a real module-unload/unbind UAF on Amlogic boards that ship this IP.
+UNRESOLVED:
+- Could not query lore.kernel.org/stable (403).
+- No Tested-by.
 
-### Stable rules / risk
-The change is 14 lines, does not add APIs, and matches
-`debugfs_remove()` semantics already used by sibling SoC drivers.
-Benefit is preventing a UAF; regression risk is very low.
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — standard ratelimit;
+   maintainer applied. No extra tester tag.
+2. Fixes a real bug that affects users? **PASS** — log flood / guest-
+   driven interrupt spam on Grace CMDQV; users of that hardware exist.
+3. Important issue? **PASS** (low end) — not oops/corruption; it is an
+   explained availability issue (“oh, that’s not good” / guest printk
+   DoS), which the documented rules allow.
+4. Small and contained? **PASS** — ~16 lines, one function.
+5. No new features or APIs? **PASS**.
+6. Can apply to the local tree? **PASS** — pre-image exists here; apply
+   is clean.
 
-### Concerns
-No public reproducer. Trigger is privileged debugfs/unbind. That lowers
-breadth, not severity. No extra commits are required on this tree.
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+Record: None (not a device ID, quirk table, DT, build, or docs fix).
+Qualifies as a normal small bugfix, not via an exception.
+
+**Step 9.4: MAKE YOUR DECISION**
+This tree contains the Tegra241 CMDQV driver and the original
+unconditional ISR `dev_warn()`. The patch is a 7-line, obviously correct
+rate-limit that closes a guest-reachable log flood without touching
+recovery logic. Benefit is limited to Grace CMDQV, but risk is
+negligible, so it meets the bar for this tree.
+
+What it solves for users here: a VM or failing CMDQ can spam the host
+log and extra MMIO on every error IRQ. That is not a panic, but it is a
+real host-side availability nuisance on this platform.
 
 Verification:
-- [Phase 1] Parsed tags: Reviewed-by Neil Armstrong; Link to msgid
-  20260615091531.21964-1; no Fixes/Reported-by/Cc:stable
-- [Phase 2] Diff: +14 in meson-clk-measure.c; store debugfs root, set
-  drvdata, add void remove
-- [Phase 2] Pre-fix parent 67481152be2ec^: no platform_set_drvdata, no
-  debugfs_root, no remove
-- [Phase 2] clk_msr_summary_show uses msr_table->priv; meson_measure_id
-  uses priv->regmap — UAF after unbind confirmed
-- [Phase 3] git blame: debugfs create from 2b45ebef39a2c (v5.0-rc1)
-- [Phase 3] git describe HEAD: v7.3-rc4-27-gf0100363d8c37; Makefile
-  7.3.0-rc4
-- [Phase 3] git merge-base --is-ancestor 67481152be2ec v7.3-rc1: yes;
-  not in v7.2
-- [Phase 4] b4 dig -c 67481152be2ec:
-  https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn
-- [Phase 4] b4 dig -a: v1 only, applied as-is
-- [Phase 4] b4 dig -w: Armstrong, Hilman, Brunet, Blumenstingl, linux-
-  amlogic
-- [Phase 4] mbox: Armstrong Reviewed-by; dismissed sashiko probe-race as
-  pre-existing/impossible
-- [Phase 5] Kconfig MESON_CLK_MEASURE tristate default ARCH_MESON; DT
-  compatibles in meson-gx/g12/axg/sm1/s4/a1/t7/c3 dtsi
-- [Phase 5] platform_driver.remove is void (*)(struct platform_device *)
-  in include/linux/platform_device.h:280
-- [Phase 5] debugfs_remove() already IS_ERR_OR_NULL-safe
-  (fs/debugfs/inode.c:778)
-- [Phase 6] File present; no later changes on this file after the fix
-- [Phase 8] Failure mode: UAF on leftover debugfs after unbind, severity
-  HIGH
-- UNVERIFIED: lore.kernel.org/stable search (HTTP 403)
+- [Phase 1] Tags: Assisted-by Claude; SOB Nicolin Chen + Will Deacon; no
+  Fixes/Reported-by/Cc: stable on this commit
+- [Phase 2] Diff: `tegra241_cmdqv_isr()` snprintf+dev_warn →
+  dev_warn_ratelimited; +7/−9
+- [Phase 2] Confirmed `dev_level_ratelimited` only evaluates args when
+  `__ratelimit()` allows print
+- [Phase 3] `git blame` / original file: logging from `918eb5c856f6`
+  (v6.12-rc1)
+- [Phase 3] `git describe --contains 918eb5c856f6` →
+  v6.12-rc1~149^2^2~19
+- [Phase 3] Series: v2 11/11; parent is VINTF0 leak fix, not a
+  functional prereq
+- [Phase 4] `b4 dig -c a86c36163c972`: lore/patch.msgid.link match; v1
+  then v2
+- [Phase 4] `b4 dig -a`: v1 2026-07-02, v2 2026-07-14 (applied)
+- [Phase 4] `b4 dig -w`: iommu maintainers on To/Cc; Will applied 11/11,
+  dropped 10/11
+- [Phase 4] mbox: cover letter lists log flood; no comments/NAK on
+  11/11; Cc: stable only on 07/11
+- [Phase 4] WebFetch lore/stable: 403; stable-list search UNVERIFIED
+- [Phase 5] Caller: `request_threaded_irq` in `__tegra241_cmdqv_probe`;
+  CONFIG_TEGRA241_CMDQV
+- [Phase 6] `git describe HEAD` → v7.3-rc4-27-gf0100363d8c37; `make
+  kernelversion` → 7.3.0-rc4
+- [Phase 6] `git merge-base --is-ancestor a86c36163c972 HEAD` → ancestor
+  (code exists here)
+- [Phase 8] Failure mode: printk flood / guest DoS, severity MEDIUM
+- UNVERIFIED: lore.kernel.org/stable discussion (HTTP 403)
 
 **YES**
 
- drivers/soc/amlogic/meson-clk-measure.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index d862e30a244ed..7ca43bcb622a2 100644
---- a/drivers/soc/amlogic/meson-clk-measure.c
-+++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -7,6 +7,7 @@
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
- #include <linux/bitfield.h>
-+#include <linux/err.h>
- #include <linux/seq_file.h>
- #include <linux/debugfs.h>
- #include <linux/regmap.h>
-@@ -50,6 +51,7 @@ struct meson_msr_data {
- struct meson_msr {
- 	struct regmap *regmap;
- 	struct meson_msr_data data;
-+	struct dentry *debugfs_root;
- };
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index fdbd487848e64..8c9530873ed98 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -350,21 +350,19 @@ static irqreturn_t tegra241_cmdqv_isr(int irq, void *devid)
+ {
+ 	struct tegra241_cmdqv *cmdqv = (struct tegra241_cmdqv *)devid;
+ 	void __iomem *reg_vintf_map = REG_CMDQV(cmdqv, VINTF_ERR_MAP);
+-	char err_str[256];
+ 	u64 vintf_map;
  
- #define CLK_MSR_ID(__id, __name) \
-@@ -952,6 +954,7 @@ static int meson_msr_probe(struct platform_device *pdev)
- 	       sizeof(struct msr_reg_offset));
+ 	/* Use readl_relaxed() as register addresses are not 64-bit aligned */
+ 	vintf_map = (u64)readl_relaxed(reg_vintf_map + 0x4) << 32 |
+ 		    (u64)readl_relaxed(reg_vintf_map);
  
- 	root = debugfs_create_dir("meson-clk-msr", NULL);
-+	priv->debugfs_root = root;
- 	clks = debugfs_create_dir("clks", root);
+-	snprintf(err_str, sizeof(err_str),
+-		 "vintf_map: %016llx, vcmdq_map %08x:%08x:%08x:%08x", vintf_map,
+-		 readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(3))),
+-		 readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(2))),
+-		 readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(1))),
+-		 readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(0))));
+-
+-	dev_warn(cmdqv->dev, "unexpected error reported. %s\n", err_str);
++	dev_warn_ratelimited(
++		cmdqv->dev,
++		"unexpected error reported. vintf_map: %016llx, vcmdq_map %08x:%08x:%08x:%08x\n",
++		vintf_map, readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(3))),
++		readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(2))),
++		readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(1))),
++		readl_relaxed(REG_CMDQV(cmdqv, CMDQ_ERR_MAP(0))));
  
- 	debugfs_create_file("measure_summary", 0444, root,
-@@ -967,9 +970,19 @@ static int meson_msr_probe(struct platform_device *pdev)
- 				    &priv->data.msr_table[i], &clk_msr_fops);
- 	}
- 
-+	platform_set_drvdata(pdev, priv);
-+
- 	return 0;
- }
- 
-+static void meson_msr_remove(struct platform_device *pdev)
-+{
-+	struct meson_msr *priv = platform_get_drvdata(pdev);
-+
-+	if (!IS_ERR_OR_NULL(priv->debugfs_root))
-+		debugfs_remove_recursive(priv->debugfs_root);
-+}
-+
- static const struct msr_reg_offset msr_reg_offset = {
- 	.duty_val = 0x0,
- 	.freq_ctrl = 0x4,
-@@ -1065,6 +1078,7 @@ MODULE_DEVICE_TABLE(of, meson_msr_match_table);
- 
- static struct platform_driver meson_msr_driver = {
- 	.probe	= meson_msr_probe,
-+	.remove = meson_msr_remove,
- 	.driver = {
- 		.name		= "meson_msr",
- 		.of_match_table	= meson_msr_match_table,
+ 	/* Handle VINTF0 and its LVCMDQs */
+ 	if (vintf_map & BIT_ULL(0)) {
 -- 
 2.53.0
 
