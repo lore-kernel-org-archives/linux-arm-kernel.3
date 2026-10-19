@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C52BCCF2E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53729CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PLBPDXxkh3JA0G8W5MUw7ro8kFkYJAvC/ayKENpzFo=; b=VjYcABRFKOQZ48zMbCZbLahED/
-	zYY7WHLTCnaflEcHKPWzI5IyH1myOe8MYJX9pnys2IdmjQD3Bm8LJCkvhQgvdNdhFC+S5P9Jxg3VV
-	OYRZZD0RA2W9L9GyBrk8pQ+ImBNLEBLzXRjhkNbg6IMGn5YPwA7Er2AP+F7bWsRWdtbeZslL8xTIl
-	L6Q3hkU9n+5dd6oNjTkMrQ9Dl4hL0NAyr18AlhS0KdYJFnc3fHRAf1uU8VyakNTh14mEb8FpEr9Tl
-	9dqzJwTXHfDoTl1fpc0pcDS0wbb2jYcQ0cMXzfmKwH/scJx8kJwS4eoo4VFj4i5rHrjFnwMzOwgZy
-	WB1lYBkg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gZMXThPsw5Hj3K9EBxanaGodYWwNvyn38pa2n05siwg=; b=xFPTsoqZlmhlifz4iDfbTsK9Yv
+	/AWbkRIT+rxiT8KZjf9tLp8GshierxjnRVww3PGngGOVt9ShxJ7lE3Yz8qCknfwlZ+lwK9UHSW+ZR
+	EB3gP1yXPkmA1KsrJztHK/NqfpJdGRS2++0XLJ4sdLKJrxvTigoY+jnGlu34kPx66SKOV6Kw9pyA8
+	CnMw16EOt2FYrJMp1FgvVhkhX5/nwan4jec75aA3GxqR+xbzwCWyfLp64+dqxGsLmknC6yhVVIbL9
+	+I+6Z33QeqyP+w7sxnTlLg3JM+H1GrZ6yS8CzzqEyoGGzpnyRrgtTW8lJtAm+QCytBh7Fah3TVTxT
+	w7tcQxPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIoBT-00000007iso-1Dtn;
-	Mon, 19 Oct 2026 14:17:51 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1xIoCj-00000007jDY-2sfw;
+	Mon, 19 Oct 2026 14:19:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIoBQ-00000007irl-1SXf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:17:49 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4j7d150VHmz8tVt;
-	Mon, 19 Oct 2026 16:17:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timmermann.space;
-	s=MBO0001; t=1792419465;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6PLBPDXxkh3JA0G8W5MUw7ro8kFkYJAvC/ayKENpzFo=;
-	b=d9qmCoZwS9DveT8hVG6HQp79Uzj2L3tD254UNI9UmriRArjVLik7wgmIg6MHc6dX74SNz+
-	0BvIm3XNz4IVArbXEFWNyhzfbWeeDMwOqXwKx1pCr6YiP8/R2O+vc8VAJSjf4FT1QusDwi
-	XhyWBuFbiYfzawiua/wdgeLNQxlfiWbeTdeuSxS+G0TtB8bV9Eu4dzrPhbHVDAp5JAzDRz
-	S7dFgTFOJeAioa5fzCauvIp4VuYNSXVf43dk9JUrn96vOXathyLqcJjhgc92cjXD/87RCO
-	wdkDQS6Nl7/7EBTzPmpDYHCUkbOhkdXUME9mRtOvUJmD97CD/gjqmbJ+P3f5+w==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of linux@timmermann.space designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=linux@timmermann.space
-Date: Mon, 19 Oct 2026 16:17:41 +0200
-From: Lukas Timmermann <linux@timmermann.space>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Lukas Timmermann <foss@timmermann.space>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/7] dt-bindings: input: touchscreen: samsung,s6sy761:
- Add S6SY791 and reset GPIO
-Message-ID: <atYlyqHToGjAr22T@archstation>
-References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
- <20261011-lat3st-google-raven-touch-upstream-v1-1-2a9f55159b9e@timmermann.space>
- <0a486a08-8d6c-4ca5-8a54-e7499630095c@kernel.org>
+	id 1xIoCh-00000007jCu-3eqy;
+	Mon, 19 Oct 2026 14:19:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EB5E560136;
+	Mon, 19 Oct 2026 14:19:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9AF70C2BCFC;
+	Mon, 19 Oct 2026 14:19:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792419546;
+	bh=bYO4N5qhTzU/pGIBZQIQ9ttnK/MV86W/KSJjUFVZp2A=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=tuvsVyzz9arOsSFCN3WbXoK5l6Fm8TlJw1KIpZUbaHUL3xNQ5YSdEZV2LEBgnPSt0
+	 9Ol5abm2n+8Ng5SjyYDIOQodfcIGE/ENAaFqjNs6NhND6zsMdTAWmIJmXvKXhnd16b
+	 J1+EjWJYZqIrJzduz0lkpMRawvq2Kw04Nwy5Z/2FhSl1HVbnHLQaf1z9xQU5BTQfdV
+	 ylvoKMCcwwLs84XvDT2fLm+Q+6AJqgFCNFASslGImTvXqNZkwWgMx1LMmhcdbBS//H
+	 8J+sDwYjLPQgJvL6n+BOdAJkZVxuyVPc1rMJHzQEepKbu7EwsAfhuXTgqS6AQ3Q6gF
+	 Au62+MMsZEWvA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 75077CCF2E3;
+	Mon, 19 Oct 2026 14:19:06 +0000 (UTC)
+From: Ben Grisdale via B4 Relay <devnull+bengris32.protonmail.ch@kernel.org>
+Date: Mon, 19 Oct 2026 15:18:35 +0100
+Subject: [PATCH] drm/mediatek: dsi: Fix handling of long packet reads
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0a486a08-8d6c-4ca5-8a54-e7499630095c@kernel.org>
-X-Rspamd-Queue-Id: 4j7d150VHmz8tVt
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_071748_530853_7D58F932 
-X-CRM114-Status: GOOD (  19.79  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261019-mtk-dsi-long-read-v1-1-9bddcac1def5@protonmail.ch>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqDMBBA4avIrDuQiIp6ldKFSUYdf6JkbBHEu
+ 5vq8lu8d4BQYBKokwMC/Vh48RH6lYDtG98RsouGVKWFVrrCeRvRCeO0+A4DNQ6z3NiSssqp0kD
+ s1kAt7/fz/XksXzOQ3f4jOM8LrCgPOXUAAAA=
+X-Change-ID: 20261019-mtk-dsi-long-read-45bc8e49d08b
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>, shaoming chen <shaoming.chen@mediatek.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ stable@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792419545; l=1720;
+ i=bengris32@protonmail.ch; s=20261018; h=from:subject:message-id;
+ bh=utZT4oI0+pnVMGUZYDb6g2+lkw+nMH2Vwu5HGoj/nEc=;
+ b=UZfIFZ6FmaVoqnOm2wvWHsyQ6MhVLAPWmfmeo+EP9rxXaQKQ7Ua0xrmAJYM6XA0NDsMoO4A7e
+ UD47LZefiDVCzyt+xu5j2Xr/kOEfbS0kRlSJ7eMSRPbqlWl4NybXCd1
+X-Developer-Key: i=bengris32@protonmail.ch; a=ed25519;
+ pk=4ewFRC2yNph/tXokHVzIDlgOA9Hxecf1AlBuD4eOnaU=
+X-Endpoint-Received: by B4 Relay for bengris32@protonmail.ch/20261018 with
+ auth_id=1233
+X-Original-From: Ben Grisdale <bengris32@protonmail.ch>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +85,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: bengris32@protonmail.ch
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 12, 2026 at 01:30:48PM +0200, Krzysztof Kozlowski wrote:
-> On 11/10/2026 14:44, Lukas Timmermann wrote:
-> > S6SY791 is the SPI-based counterpart of S6SY761. The register map and
-> > commands are identical for the subset the kernel currently implements.
-> > Therefore add S6SY791 as a related touch controller.
-> > 
-> > Optionally, the reset line can be controlled on some boards,
-> > such as the Google Pixel 6 Pro (raven).
-> > 
-> > Also reference spi-peripheral-props for the SPI bus properties.
-> > 
-> > Signed-off-by: Lukas Timmermann <foss@timmermann.space>
-> > ---
-> >  .../input/touchscreen/samsung,s6sy761.yaml         | 37 +++++++++++++++++++++-
-> >  1 file changed, 36 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
-> > index 1ffd17af3c53..d24f35038934 100644
-> > --- a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
-> > +++ b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
-> > @@ -8,13 +8,17 @@ title: Samsung S6SY761 touchscreen controller
-> >  
-> >  maintainers:
-> >    - Andi Shyti <andi.shyti@kernel.org>
-> > +  - Lukas Timmermann <foss@timmermann.space>
-> >  
-> >  allOf:
-> >    - $ref: touchscreen.yaml#
-> > +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
+From: Ben Grisdale <bengris32@protonmail.ch>
 
-Should I also hide this behind an if-else? 
+mtk_dsi_host_transfer() decides where the payload starts in the
+received data based on the byte count returned by mtk_dsi_recv_cnt(),
+treating anything longer than 2 bytes as a long packet.
 
-> >  
-> >  properties:
-> >    compatible:
-> > -    const: samsung,s6sy761
-> > +    enum:
-> > +      - samsung,s6sy761
-> > +      - samsung,s6sy791
-> >  
-> >    reg:
-> >      maxItems: 1
-> > @@ -22,9 +26,19 @@ properties:
-> >    interrupts:
-> >      maxItems: 1
-> >  
-> > +  reset-gpios:
-> > +    maxItems: 1
-> > +    description: GPIO connected to the reset pin of the controller
-> > +
-> >    avdd-supply: true
-> >    vdd-supply: true
-> >  
-> > +  spi-max-frequency: true
-> 
-> Drop
-> 
+This breaks long read responses with a 1 or 2 byte payload: they are
+treated as short packets, so the word count from the packet header is
+copied into rx_buf instead of the payload.
 
-Noted.
+Fix this by checking the packet's data type instead of inferring it
+from the length.
 
-> > +
-> > +  spi-cpha: true
-> > +
-> > +  spi-cpol: true
-> 
-> These two should be probably required for the new device.
-> 
+Fixes: 21898816831f ("drm/mediatek: add dsi transfer function")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ben Grisdale <bengris32@protonmail.ch>
+---
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Thanks.
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index f82506e10fd5..de4414b51abb 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -165,6 +165,10 @@
+ 	(type == MIPI_DSI_GENERIC_READ_REQUEST_2_PARAM) || \
+ 	(type == MIPI_DSI_DCS_READ))
+ 
++#define MTK_DSI_IS_LONG_RESP(type) \
++	(((type) == MIPI_DSI_RX_GENERIC_LONG_READ_RESPONSE) || \
++	((type) == MIPI_DSI_RX_DCS_LONG_READ_RESPONSE))
++
+ struct mtk_phy_timing {
+ 	u32 lpx;
+ 	u32 da_hs_prepare;
+@@ -1171,7 +1175,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_dsi_host *host,
+ 
+ 	recv_cnt = mtk_dsi_recv_cnt(read_data[0], read_data);
+ 
+-	if (recv_cnt > 2)
++	if (MTK_DSI_IS_LONG_RESP(read_data[0]))
+ 		src_addr = &read_data[4];
+ 	else
+ 		src_addr = &read_data[1];
+
+---
+base-commit: 2efb7a11f1aa4d2dc285fe2680cca22cb9f72f64
+change-id: 20261019-mtk-dsi-long-read-45bc8e49d08b
 
 Best regards,
-Lukas
+--  
+Ben Grisdale <bengris32@protonmail.ch>
+
+
 
