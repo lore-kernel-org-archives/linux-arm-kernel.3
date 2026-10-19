@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2F6CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D252CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqM9t0QqCSFH/hDkrc9NQbwTDyDkgEma6dueNWHdCeg=; b=cGHB+w4v0CCxzNLuxO76k23AVY
-	b5V4nk6tiUlkadXW04OZ21E2ItQf5RmwEIieIyFddG5KvHsbAifxlUIGO8ZNQL+HBM0mRw+9FeBtO
-	Qkeyv98c6fgvL6PzHkgz1kxC6GLzQX31E1o4QMgY0BZ3XBqRfbFyIjJ0mHWYLk5RGGK6SVFUuXIPt
-	1Uk4Bkh0CIiYFUNhjBrXSTxIRWEKzxJntZJeqKMfDONaSo6rAamHAEGp1mMbhxgkRuyfeWEss5oEP
-	DhBdDEq3b8Jggr2iNSo2Gp8za0iRENL0dByETTocmcqpDSb4BSt7EGVzoITmQpsF6mZeSa2O3Umj1
-	hwrDOdBw==;
+	bh=tVzuQgyRSMcF1cPObbB3KELngDUQbdY4OVt3CdDmVuw=; b=dHaseI0og7z77Z1m1wzPQzN2qG
+	5C4m2WpMcBGMPhuguvuBG4ggNjF4TLq7jqL0RgF4TP9S+gYqkY5gGNbn+yKVqoe+USvVgLzK2yA/1
+	zEs4rsnfINrWNcSnaup4KOaWcumw/YyxPtlRDw2nFjv2MIQJa2OHbBAYQb+7KWIs44aX5IoYthmWX
+	gpTDb9RqWXcCp8xIrqwnJl9fQ6EUP/Z+Te21QlCjcln38bWSVsGdprNeB/RbR0FdhglPZpB2j1Hfs
+	LGhEWa52cOubAdZEVMeoGqdnz2rkJDCNBUJoPIB0hocjlcXxz0Lf3qCSGAVFV7d77NN7peAp/D5P4
+	6yOBNP8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn7H-00000007SqD-3Ats;
-	Mon, 19 Oct 2026 13:09:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIn7o-00000007T49-15Hk;
+	Mon, 19 Oct 2026 13:10:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn7G-00000007Spe-1NWn;
-	Mon, 19 Oct 2026 13:09:26 +0000
+	id 1xIn7l-00000007T3L-2Th9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:09:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C009D6021C;
-	Mon, 19 Oct 2026 13:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398F11F000C5;
-	Mon, 19 Oct 2026 13:09:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD82160238;
+	Mon, 19 Oct 2026 13:09:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7790E1F000C5;
+	Mon, 19 Oct 2026 13:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792415365;
-	bh=pqM9t0QqCSFH/hDkrc9NQbwTDyDkgEma6dueNWHdCeg=;
+	s=k20260515; t=1792415396;
+	bh=tVzuQgyRSMcF1cPObbB3KELngDUQbdY4OVt3CdDmVuw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IrrEwIPsVZnzJp3zS9x+Uh9zwGzLiG+zBk0L8icLzpIwY8/YaS9H42g4kTn9+/WIf
-	 w9JJzZq2re9f3PtRGkcZOtUmCFgKJOmdEKehHNNyvODJp+zWkwF07fniywnhHzNF1Y
-	 DGUtdKB9JqaNssu2HkT9vc9C3fA9owLUdRjme+pswVsWs42nAAwc7/mYdZ16i+tLv4
-	 3qs8+CpvOGDUuA1UvA3KTGAfQi6Z1Os+1hhrjfyhEwp39L9tWPgD0sLY0W8WnqAOXn
-	 4ky72Z30InNOVlunBIRE7edNkGhRyluTqMPnmFlz92kKklNJVD0ucpB39c9mtRltBa
-	 XadtmrJS1jFlg==
+	b=n3LxuVl8s9roRBlbS2hHlqvUnSN8pHgIXJAetNqTKL08/I3LtNCjYSAAXpMzDdaCH
+	 v0AubukCKCs8tN6qp/d3N4xHqiCrKG2wRTE+cl7JXP4x/g+0/Y/9IiFP4WP/b+XMQC
+	 PTJt+U5ZyjjzevN1Xoy61bZEacx6C8hX+wJKqw79/8mpwDbwAaZw1P+XOSqYtiPwLx
+	 5b0IHf0u96+sZTH6mZLoZ5tZibz+oEOzJUmKuyiRaH6o6ujmNjCkhpFPzwSeuVRZml
+	 U+KBpUE12sCqulu2uwtahhQYdRCpGMdFelYx/XghQ1s8B8YX+rkjnhZKL1ucT5bauL
+	 3ZMiFwqHO4fTg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Marco Crivellari <marco.crivellari@suse.com>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Phil Auld <pauld@redhat.com>,
-	Radu Rendec <radu@rendec.net>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Waiman Long <longman@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: [RFC PATCH 07/49] irqchip/bcm2836: Move CPUHP_AP_IRQ_BCM2836_STARTING post stop_machine()
-Date: Mon, 19 Oct 2026 15:08:14 +0200
-Message-ID: <20261019130856.49711-8-frederic@kernel.org>
+	linux-arm-kernel@lists.infradead.org
+Subject: [RFC PATCH 17/49] ARM: vfp: Move CPUHP_AP_ARM_VFP_STARTING post stop_machine()
+Date: Mon, 19 Oct 2026 15:08:24 +0200
+Message-ID: <20261019130856.49711-18-frederic@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019130856.49711-1-frederic@kernel.org>
 References: <20261019130856.49711-1-frederic@kernel.org>
@@ -88,8 +84,9 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-The teardown callback here just masks the per-cpu IRQ in the chip and
-shouldn't race with other CPUs.
+The teardown callback here only removes the local VFP state which is
+never accessed remotely. As such it can run concurrently with other
+CPUs.
 
 Move it to post stop_machine() accordingly.
 
@@ -99,15 +96,15 @@ Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 293dbb73d940..db73cdfbf1d0 100644
+index c20a822df803..b7f5d0683ff7 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_ARMADA_XP_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_IRQ_BCM2836_STARTING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_PERF_XTENSA_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_VFP_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -115,8 +112,8 @@ index 293dbb73d940..db73cdfbf1d0 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_IRQ_ARMADA_XP_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_IRQ_BCM2836_STARTING);
+-	WARN_ON(st->state != CPUHP_AP_PERF_XTENSA_STARTING);
++	WARN_ON(st->state != CPUHP_AP_ARM_VFP_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
