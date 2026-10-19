@@ -4,77 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7672BCCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8551CCCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c3obcKuS8MPPfakEMVl1TjadNNf74SXcQB6y0vzEWrY=; b=wgz6U8fbNaFbm2ezvwrKRBYWi0
-	6jyo1J81lTI35+uIF0/yOYMC9KrlsRotdxzoThMufdtujpJ+yaNC/6G3mrZlYE9TqnCvc7xKbngQI
-	8RisFOyhLc2pqG/DaExFzW40swf+c3IDpQIXyVzt24egJ1ec685Hp3eWifULQKvs2xlCUemPY8WW9
-	UZJiR7IHN2HrAekxiBOgm281AT09e5NYpdWeuFWbG1uvjRzSreC4GlSOHOoXJcLvEEQX3+Hj3JnEb
-	fUcvzSU3+hHrLYdfdxh40yEJD9sL9W0i/MleHQEGAFqRVRnEcq+oqK0dfd1KUYHUr5s9kiTuCGNcH
-	leWq7P6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=; b=Y9euby5ajwQdPM91/K44AWERaQ
+	+aoRnSgIiGklqCE3/Pl+mKA8l2TT6Cwdp8tVpvS5GxFYtLoq9zgwhcygyaIU48WV5LMVeHKgJ2huk
+	gkyNErcBAz7GFnEOI01FDJr6mH7F1OB1f+K7PxDXvYkkXcQdUcob7idByZptCc7E9E/62S7AQC182
+	iInp35e/A1+a0BdQgY7+owUvTeCRqbULZSpqV12lzuB2R+rra985gBmuCadGel9VZ3NEywet+V0zk
+	RnGiz0NHs8FeP9FSRsdhABKSGRiy0ncXprDpywFPRJ8a5n4fOgeyDXZMrb0/QKEhihLkg9u6+33VE
+	hDvCvPbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhE2-00000006jDA-27Jj;
-	Mon, 19 Oct 2026 06:52:02 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1xIhFA-00000006jLK-2tXR;
+	Mon, 19 Oct 2026 06:53:12 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhDz-00000006jC8-1UcG
+	id 1xIhF8-00000006jKh-1uCU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 06:52:01 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=c3obcKuS8MPPfakEMVl1TjadNNf74SXcQB6y0vzEWrY=;
-	b=Mm26FSJJWjYAGOf8SqrEiSkxdcSvJ7BZ5OzJB+IqedBYOW1xKku+9Zobxa/ID7XuWU1cNw4yn
-	p1ANI7CN1F5AcviRZt27pZEOf6L67g91LJEFyyyJ+vDkm5VEurlTD3HT3Uu2y/+DR9iyaiyhd8q
-	hzkRhdjXDCPcTn4SaYMEGl0=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4j7R6V24mWz12Ldh;
-	Mon, 19 Oct 2026 14:51:46 +0800 (CST)
-Received: from kwepemk300013.china.huawei.com (unknown [7.202.194.231])
-	by mail.maildlp.com (Postfix) with ESMTPS id 552E140579;
-	Mon, 19 Oct 2026 14:51:46 +0800 (CST)
-Received: from [10.67.121.183] (10.67.121.183) by
- kwepemk300013.china.huawei.com (7.202.194.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 19 Oct 2026 14:51:41 +0800
-Message-ID: <e4cee1ac-ce71-4217-bcbe-c85d07d37d9e@huawei.com>
-Date: Mon, 19 Oct 2026 14:51:22 +0800
+	Mon, 19 Oct 2026 06:53:11 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48c4649b35bso1375716f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 23:53:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792392788; x=1792997588; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=;
+        b=TF3xLt5wJ97CpwXeOzRqUi3Mi3JBxfKWbhgbsNdKCODIzsCUkP+J4o7lS6AX4TNmal
+         A562iNu6rqSX5hxCwuCMs/4QDD2ASijVzmMB+DJYpdQix+ByyZgAwq67clhybTaAFSvB
+         3JSRyxt4wh/IkbYIK+K4n7n3X8EvVkUwRIYsLut1//DSO9K+fhH0QtsEps4ISBlrrJqC
+         Luau/4WrI+RFIyPnL/Z3+Dnm2CZyNPA3aipnoRNm+Ry1OcBYWsd0Diih87aT+z5m5yR7
+         p9QWVxBHQ6wDWjhWv8kVRoQj+JlFvUYA2opE2WDLT5AmOe65HT8brNu2cIU/aNAUm3WZ
+         tKCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792392788; x=1792997588;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=;
+        b=H83zf9ckfbkj9/zEDC4QlbKXV+It4dwhfGZ5UPZOt/27DaOSBC0XC+I30q4RNvq8Xd
+         2pFhwbAycgT2etnKUqF9MeMLVAOlRrh2Y/Ki6JdGeGU8oL/D1IyZh49OYuXSR8o3Xf6p
+         2vo+595FPnvB4O12offPIGuW98drGzz9/R5IGSDbCEBhMl9FE4M7Uz7D/Lb7OOKq0MBa
+         eJoImCfVaWnwaipZai6EfXRpO30DZWAuGRnLEQUlbjfGGmWWZxf/TV1dSpootYsR4db/
+         RNLzxGITtUAGRQT7eZh4LTm05jQ1A0yqcbSekfpJH2pq9/RZiO319jGHxzKGDiJnOw67
+         qSMg==
+X-Forwarded-Encrypted: i=1; AKwUvBwXIaaBvqz1VEnm/Je4XX31nv/X7wT+7WC9FwZqacmXL2zOoIA248ik5o8Kvt5ZC2VUQTmjwdoWGKcDAxlMAPqO@lists.infradead.org
+X-Gm-Message-State: AFq9FYL6AiuetPGNpzhhMJCL3tkfzV3Oai/zX59p2mWHMokm63EOt1ot
+	uqkHHxRsBrOApxUswnMxFRLJeUZal3VQVWa+TW/A/1hmWQ9fR8EhwIsN
+X-Gm-Gg: AYBFou2FoM/moQhxR2qE2B+mQC6xE4A2QndQ6QBKEr+vvVavrL0BlmHnwrRA8mifDdQ
+	tpWRhulADl9UitYsrATcER1HS/EWXAb+ejgzMP7c9p5iEsk411axtWM4xuYvTTYd04PACxaaGf7
+	yiuzjGqwI2UPUJi2fnhomX+zUE5QoQMoFzgmOe5NEc37FlivHEEhhpYbr+r0zqfFmn7H0YwlrqW
+	223NcecYMwoc4Iyg8n3DCDxVCWDQNObpYb9fzGmOkTgd7yUp7YalLohKnoHt6yzqGgAbWFb8CcA
+	TV6VjXewN0NfTYwbhFZNAR8jI0QKH26NSTsINuUVXi2oK3p95o5Pwmy3CbRSRb44xfY7Kl3bwYy
+	1qL7pmxdiVHbAW/t+0MFVD9bsQiV6qKdWLx0aMag6W5bT2YPISJdKlz4N9FpHmcQ3Ne2JUbXlAd
+	BisYcAeUHruuPrsJNpds+tHS0IomSBG3cBDU8W9GzXGGGBEYr5Uf+1nNCRf7VOveP7qe5HtX+Hq
+	eB5xX2/oFlQLAN+PO6t9VXr/38l1OTZr6UkqYR5JYtAQkFoCJYRo8wfEf1T
+X-Received: by 2002:a05:6000:29d2:b0:48d:ff71:dd97 with SMTP id ffacd0b85a97d-48e07975c0emr7979526f8f.7.1792392788079;
+        Sun, 18 Oct 2026 23:53:08 -0700 (PDT)
+Received: from SVR.localdomain ([158.173.154.181])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f8cfesm18545783f8f.37.2026.10.18.23.53.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 23:53:07 -0700 (PDT)
+From: Semih Baskan <strst.gs@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Semih Baskan <strst.gs@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Subject: [PATCH] PCI: iproc: Skip BCMA-attached controllers in the platform bus driver
+Date: Mon, 19 Oct 2026 06:52:49 +0000
+Message-ID: <20261019065249.552-1-strst.gs@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC 10/12] arm64: Support TLBIP instructions
-To: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-acpi@vger.kernel.org>,
-	<kvmarm@lists.linux.dev>, <linux-efi@vger.kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Linu
- Cherian <linu.cherian@arm.com>, Anshuman Khandual
-	<anshuman.khandual@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Fuad Tabba
-	<fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden
-	<seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
-	<yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas
-	<ilias.apalodimas@linaro.org>
-References: <20261001110655.461473-1-kristina.martsenko@arm.com>
- <20261001110655.461473-11-kristina.martsenko@arm.com>
-From: Jinqian Yang <yangjinqian1@huawei.com>
-In-Reply-To: <20261001110655.461473-11-kristina.martsenko@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.183]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk300013.china.huawei.com (7.202.194.231)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_235200_009633_D0A74D80 
-X-CRM114-Status: GOOD (  25.52  )
+X-CRM114-CacheID: sfid-20261018_235310_541803_AFC67603 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,272 +112,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Since commit 767012397976 ("ARM: dts: BCM5301X: Describe PCIe
+controllers fully"), the Northstar PCIe nodes under the "brcm,bus-axi"
+node have compatible = "brcm,iproc-pcie". bcma_bus_register() creates
+platform devices for the children of that node before it registers its
+own cores, so pcie-iproc-platform probes these controllers before
+pcie-iproc-bcma does, as IPROC_PCIE_PAXB.
 
-On 2026/10/1 19:06, Kristina Martšenko wrote:
-> Modify the TLBI helper functions in tlbflush.h to issue TLBIP
-> instructions instead of TLBI when requested. These will be used to pass
-> a TLBI domain ID to TLBI operations.
-> 
-> FEAT_TLBID introduces TLBIP instructions that behave like TLBI but take
-> a 128-bit value as an argument (passed in two consecutive GPRs). TLBID
-> uses these to pass a TLBI domain ID to *VA* and *IPA* type instructions.
-> TLBID does not introduce non-shareable TLBIP instructions, so assert
-> that those are not requested.
-> 
-> Use local register variables to ensure that the two GPRs are
-> consecutive. Alternatively we could use the %H operand modifier but LLVM
-> doesn't support it.
-> 
-> Check for assembler support of TLBIP instructions. TLBIP won't be used
-> (nor assembled) when CONFIG_ARM64_TLBID=n.
-> 
-> For now there should be no functional change, as no callers request
-> TLBIP. A later patch will change this.
-> 
-> Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
-> ---
->   arch/arm64/Kconfig                |   9 +-
->   arch/arm64/include/asm/tlbflush.h | 131 ++++++++++++++++++++++--------
->   2 files changed, 103 insertions(+), 37 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 46701449fef2..a6525754492b 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2329,9 +2329,16 @@ config ARM64_LSUI
->   
->   endmenu # "ARMv9.6 architectural feature"
->   
-> +config AS_HAS_TLBID
-> +	def_bool $(as-instr,.arch_extension tlbid)
-> +	# https://github.com/llvm/llvm-project/pull/178913
-> +	depends on AS_IS_GNU || (AS_IS_LLVM && AS_VERSION >= 230000)
-> +	help
-> +	  Supported by LLVM 23+ and binutils 2.46+.
-> +
->   config ARM64_TLBID
->   	def_bool y
-> -	depends on ACPI
-> +	depends on ACPI && AS_HAS_TLBID
->   	select ACPI_TLBI
->   
->   config ARM64_SVE
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index b51df8e0ce63..dac35568570f 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -41,11 +41,26 @@
->   
->   #define __tlbi(op, ...)		__TLBI_N(op, ##__VA_ARGS__, 1, 0)
->   
-> +#define __tlbip(op, arg) do {		\
-> +	register u64 low asm ("x0") = (u64)arg;					\
-> +	register u64 high asm ("x1") = (u64)(arg >> 64);			\
-> +										\
-> +	asm (ARM64_ASM_PREAMBLE ".arch_extension tlbid\n"			\
-> +	     "tlbip " #op ", %0, %1\n"						\
-> +	  : : "r" (low), "r" (high));						\
-> +} while (0)
-> +
->   #define __tlbi_user(op, arg) do {						\
->   	if (arm64_kernel_unmapped_at_el0())					\
->   		__tlbi(op, (arg) | USER_ASID_FLAG);				\
->   } while (0)
->   
-> +#define __tlbip_user(op, arg) do {						\
-> +	if (arm64_kernel_unmapped_at_el0()) {					\
-> +		__tlbip(op, (arg) | (u128)USER_ASID_FLAG);			\
-> +	}									\
-> +} while (0)
-> +
->   #define TLBI_TLBID_MASK		GENMASK_ULL(15, 0)
->   
->   /* This macro creates a properly formatted VA operand for the TLBI */
-> @@ -132,49 +147,75 @@ static inline void sme_dvmsync_batch(void)
->   
->   #define TLBI_TTL_UNKNOWN	INT_MAX
->   
-> -typedef void (*tlbi_op)(u64 arg);
-> +typedef void (*tlbi_op)(bool tlbip, u128 arg);
->   
-> -static __always_inline void vae1is(u64 arg)
-> +static __always_inline void vae1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vae1is, arg);
-> -	__tlbi_user(vae1is, arg);
-> +	if (tlbip) {
-> +		__tlbip(vae1is, arg);
-> +		__tlbip_user(vae1is, arg);
-> +	} else {
-> +		__tlbi(vae1is, (u64)arg);
-> +		__tlbi_user(vae1is, (u64)arg);
-> +	}
->   }
->   
-> -static __always_inline void vae2is(u64 arg)
-> +static __always_inline void vae2is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vae2is, arg);
-> +	if (tlbip)
-> +		__tlbip(vae2is, arg);
-> +	else
-> +		__tlbi(vae2is, (u64)arg);
->   }
->   
-> -static __always_inline void vale1(u64 arg)
-> +static __always_inline void vale1(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vale1, arg);
-> -	__tlbi_user(vale1, arg);
-> +	compiletime_assert(!tlbip, "Unsupported TLBIP operand");
-> +
-> +	__tlbi(vale1, (u64)arg);
-> +	__tlbi_user(vale1, (u64)arg);
->   }
->   
-> -static __always_inline void vale1is(u64 arg)
-> +static __always_inline void vale1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vale1is, arg);
-> -	__tlbi_user(vale1is, arg);
-> +	if (tlbip) {
-> +		__tlbip(vale1is, arg);
-> +		__tlbip_user(vale1is, arg);
-> +	} else {
-> +		__tlbi(vale1is, (u64)arg);
-> +		__tlbi_user(vale1is, (u64)arg);
-> +	}
->   }
->   
-> -static __always_inline void vale2is(u64 arg)
-> +static __always_inline void vale2is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vale2is, arg);
-> +	if (tlbip)
-> +		__tlbip(vale2is, arg);
-> +	else
-> +		__tlbi(vale2is, (u64)arg);
->   }
->   
-> -static __always_inline void vaale1is(u64 arg)
-> +static __always_inline void vaale1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(vaale1is, arg);
-> +	if (tlbip)
-> +		__tlbip(vaale1is, arg);
-> +	else
-> +		__tlbi(vaale1is, (u64)arg);
->   }
->   
-> -static __always_inline void ipas2e1(u64 arg)
-> +static __always_inline void ipas2e1(bool tlbip, u128 arg)
->   {
-> -	__tlbi(ipas2e1, arg);
-> +	compiletime_assert(!tlbip, "Unsupported TLBIP operand");
-> +
-> +	__tlbi(ipas2e1, (u64)arg);
->   }
->   
-> -static __always_inline void ipas2e1is(u64 arg)
-> +static __always_inline void ipas2e1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(ipas2e1is, arg);
-> +	if (tlbip)
-> +		__tlbi(ipas2e1is, arg);
-> +	else
-> +		__tlbi(ipas2e1is, (u64)arg);
->   }
->   
+IPROC_PCIE_PAXB sets has_apb_err_disable, so the first config read on
+bus 1 reads APB_ERR_EN at offset 0xf40. The report in the Closes: link
+shows that read taking an external abort. On a BCM47081 (PCIe core
+revision 0x01) with a device behind the root port, the board does not
+boot, and it boots when has_apb_err_disable is cleared.
 
-Should the tlbip path be __tlbip() rather than __tlbi()?
+Return -ENODEV for a controller whose parent is "brcm,bus-axi", before
+the driver allocates or maps anything, so that the controller is left
+to pcie-iproc-bcma. The devicetree stays as it is. The check does not
+depend on CONFIG_PCIE_IPROC_BCMA, because a kernel with only
+pcie-iproc-platform does not boot on the BCM47081 either. On a BCM47094
+(core revision 0x07) pcie-iproc-platform enumerates the devices on its
+own, so there a kernel without CONFIG_PCIE_IPROC_BCMA loses PCIe, as
+before v7.1. CONFIG_PCIE_IPROC_BCMA defaults to y on ARCH_BCM_5301X.
 
-Thanks,
-Jinqian
+Tested on an ASUS RT-N18U (BCM47081) on a 6.18 kernel with the
+controller/iproc-bcma changes backported. With both drivers enabled,
+pcie-iproc-bcma binds controller 0, the BCM4360 behind it enumerates
+and the platform driver logs nothing. With only pcie-iproc-platform
+enabled, the board boots without PCIe. Without this change, neither
+configuration boots on this board.
 
->   static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
-> @@ -188,7 +229,7 @@ static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
->   		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);
->   	}
->   
-> -	op(arg);
-> +	op(false, arg);
->   }
->   
->   static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
-> @@ -445,32 +486,50 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->    *    operations can only span an even number of pages. We save this for last to
->    *    ensure 64KB start alignment is maintained for the LPA2 case.
->    */
-> -static __always_inline void rvae1is(u64 arg)
-> -{
-> -	__tlbi(rvae1is, arg);
-> -	__tlbi_user(rvae1is, arg);
-> +static __always_inline void rvae1is(bool tlbip, u128 arg)
-> +{
-> +	if (tlbip) {
-> +		__tlbip(rvae1is, arg);
-> +		__tlbip_user(rvae1is, arg);
-> +	} else {
-> +		__tlbi(rvae1is, (u64)arg);
-> +		__tlbi_user(rvae1is, (u64)arg);
-> +	}
->   }
->   
-> -static __always_inline void rvale1(u64 arg)
-> +static __always_inline void rvale1(bool tlbip, u128 arg)
->   {
-> -	__tlbi(rvale1, arg);
-> -	__tlbi_user(rvale1, arg);
-> +	compiletime_assert(!tlbip, "Unsupported TLBIP operand");
-> +
-> +	__tlbi(rvale1, (u64)arg);
-> +	__tlbi_user(rvale1, (u64)arg);
->   }
->   
-> -static __always_inline void rvale1is(u64 arg)
-> +static __always_inline void rvale1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(rvale1is, arg);
-> -	__tlbi_user(rvale1is, arg);
-> +	if (tlbip) {
-> +		__tlbip(rvale1is, arg);
-> +		__tlbip_user(rvale1is, arg);
-> +	} else {
-> +		__tlbi(rvale1is, (u64)arg);
-> +		__tlbi_user(rvale1is, (u64)arg);
-> +	}
->   }
->   
-> -static __always_inline void rvaale1is(u64 arg)
-> +static __always_inline void rvaale1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(rvaale1is, arg);
-> +	if (tlbip)
-> +		__tlbip(rvaale1is, arg);
-> +	else
-> +		__tlbi(rvaale1is, (u64)arg);
->   }
->   
-> -static __always_inline void ripas2e1is(u64 arg)
-> +static __always_inline void ripas2e1is(bool tlbip, u128 arg)
->   {
-> -	__tlbi(ripas2e1is, arg);
-> +	if (tlbip)
-> +		__tlbip(ripas2e1is, arg);
-> +	else
-> +		__tlbi(ripas2e1is, (u64)arg);
->   }
->   
->   static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
-> @@ -486,7 +545,7 @@ static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
->   	arg |= FIELD_PREP(TLBIR_TG_MASK, get_trans_granule());
->   	arg |= FIELD_PREP(TLBIR_ASID_MASK, asid);
->   
-> -	op(arg);
-> +	op(false, arg);
->   }
->   
->   static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
+Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
+Reported-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Closes: https://lore.kernel.org/r/0dcfb2db-5536-465a-bee1-afe160535748@broadcom.com
+Suggested-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Signed-off-by: Semih Baskan <strst.gs@gmail.com>
+---
+This is on controller/iproc-bcma in pci.git and needs 9850907ee1dd
+("PCI: iproc: Use the EROM outbound window on BCMA"). Without that
+commit, pcie-iproc-bcma fails with -EBUSY on v7.1 and later, so this
+change alone would leave Northstar without PCIe. If this goes to
+stable, 39d1c645bb99 and 9850907ee1dd have to go with it.
+
+Mani's sketch [1] returned -EINVAL; this returns -ENODEV, which the
+driver core does not log as a probe failure.
+
+[1] https://lore.kernel.org/r/179197555828.38040.6359970121400952902.b4-reply@b4
+
+ drivers/pci/controller/pcie-iproc-platform.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci/controller/pcie-iproc-platform.c
+index 4c9a0c4bb923..63560c733a8f 100644
+--- a/drivers/pci/controller/pcie-iproc-platform.c
++++ b/drivers/pci/controller/pcie-iproc-platform.c
+@@ -45,6 +45,9 @@ static int iproc_pltfm_pcie_probe(struct platform_device *pdev)
+ 	struct pci_host_bridge *bridge;
+ 	int ret;
+ 
++	if (of_device_is_compatible(np->parent, "brcm,bus-axi"))
++		return -ENODEV;
++
+ 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+ 	if (!bridge)
+ 		return -ENOMEM;
+
+base-commit: 9850907ee1dd4376c09c4129e0adbe3b39d191b7
+-- 
+2.43.0
 
 
