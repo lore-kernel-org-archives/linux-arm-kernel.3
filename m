@@ -2,73 +2,132 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FAF7606EFD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:33:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7095460740BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:46:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XBvLtBeO;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pLUGfr7o
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lPKdYpil;
+	dkim=pass (1024-bit key, unprotected) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=eLHhPEX/;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5khW4cqd;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=zNQS71yM;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ewW0O3Sh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chgIyerIQUJ4MpBdj3CzM7sYFHniQ/ji6TFUETNF7sE=; b=XBvLtBeOqGE0CBXmPoeT34CVIM
-	nOoAJwJU5MHpFbhgR3EqBgcdGUCt6unnuqkiFHpGhwrPWODAbcCuFtnemrQLHCrlWU5PJ1XFD9o76
-	hiwFv1O9/fPGZWKBBISvd2823Nu2HwrRt31PU1PMoBOKdk80NUJ2EQIw+KH5E2UsNBKGnQUxoV0l0
-	Qu4LKkeRelnTgtRS/zedFpihyPEnJ6TIMCY4aVGL7+Vu3tbR/NOLZdYPixUetpdh5rZNE5trJYVQt
-	eA1kdDwIzZw66g31aIIw7tvdWSGjs1OD/q5tY6AMIVTqw3VSmTemp01I0HPFindlEuB/g2EpPj8OO
-	HUdPE7ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q5jfLHdOgauf4TJGcojCjJicBompzHEBNJH4FQng/Qg=; b=lPKdYpilq+jPwk6CdkMQIDItyv
+	bewG3jB/z8wTE237/RvlHl0s9TZUTUDVg18WGx8ZjchgyedjB4cKgW/h5VbpCS3qldMvPzsbnQIQK
+	Oa38qmdh66KcPj7CErCNpcbu2MRfok84R6kQyQ8PHrjCdRSOQLQNzKmnL1BDD1otK37TVV1zccam8
+	xiqfUVY88ZCauh+b0t++wxHAwfZob9Pj7RYV7N6x5PMuuGbTsfumErtUh/UNH5K6wgwm+pTPlE3r0
+	ly5NY5i64ZlN2hSc+3foNaY0xWcLO1rAxSUhfWOhSEQSumwdq89MUy4lrFnINmDi4LpLctYJSoTz1
+	5zTKx3nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIpMX-00000007rDC-3OHT;
-	Mon, 19 Oct 2026 15:33:21 +0000
-Received: from out-147.mta1.migadu.com ([2001:41d0:203:375::93] helo=mta1.migadu.com)
+	id 1xIpZD-00000007sEq-0jke;
+	Mon, 19 Oct 2026 15:46:27 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIpMU-00000007rCS-3yfJ
+	id 1xIpZ8-00000007sD7-1w0V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 15:33:20 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=1U6BfBwCfq4V3+m41gJdoq8QfWpdRN+npCvu9W+LDfU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792423996; v=1; x=1793028796;
- b=pLUGfr7oRZbX4oqLyLg7KpxyMYl3j00MH9rAR/TSgHv1DhjMP5zV/T9G+i9QDU820IK18QQ2
- UGVq2MbDvI9qIfFz0hEX00GyVEFeiGpcwo8Kep1jJ625CHR7A1Re9StRqhUUmA+4lA9brS2gTj1
- c3MOarw3I4N/7tnUX7HmOygQ=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7442c16b685d71e2;
-	Mon, 19 Oct 2026 15:33:16 +0000
-X-Mizu-Trace-ID: 7442c16b685d71e2
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be58ad9600so7334e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 08:33:12 -0700 (PDT)
-X-Gm-Message-State: AFq9FYLZkT+XxEXE084/TdZq2jVTwrPQTz0HeXRPunWWMeS0f92QlR7h
-	vpDkbOLjpklO6bKdB92gIOPCwBr4HdHU4QsLoqxbVYztVQyz3yIYQQSXlcENo1WsBKFVVGeEi72
-	uf4VgOkLR4djCV0HdsV97wXeJsYH02D48kTSa4puu
-X-Received: by 2002:a05:6512:3096:b0:5b7:6707:e44c with SMTP id
- 2adb3069b0e04-5be51d36f63mr209729e87.12.1792423991379; Mon, 19 Oct 2026
- 08:33:11 -0700 (PDT)
+	Mon, 19 Oct 2026 15:46:25 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id C40E41F444;
+	Mon, 19 Oct 2026 15:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1792424779; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Q5jfLHdOgauf4TJGcojCjJicBompzHEBNJH4FQng/Qg=;
+	b=eLHhPEX/3TCqJ/XmoqatvuqCQSdY3Pr+P5FtOt4Sv3QxwUJXgA10ALsxbhVld0eAe93ZZ4
+	d6Cek9M0r++AsQeKzSIm52qOdgSQlIZCuDesVxFP3/Ea5d45QzrOgqzaA4QW8MGCsovmQ+
+	jA4wv975YO/0ShG6BVHsrbXD7T6+42c=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1792424779;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Q5jfLHdOgauf4TJGcojCjJicBompzHEBNJH4FQng/Qg=;
+	b=5khW4cqdC699nJ5v1ujyRTIiRqIwFIwiF6OPf+6TvSoUAYYU9p+lDn2ZB/iMfgzOctVZKY
+	cA1AHNoEvehaFOCA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1792424777; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Q5jfLHdOgauf4TJGcojCjJicBompzHEBNJH4FQng/Qg=;
+	b=zNQS71yM/kc2I8PjYNn19JU+kwk8G5rNHxyb/Q+1ufzMrLSOXAXbNkTdsQ1Vu6xRVVrGgs
+	sMbOalMqkrOYeuWe1LON6FlwdaEAZTwI7txzBCIhoUA2gnX0jxqU2Ui87s0ABFD89IXPwR
+	noquh1e0zE3+bnmhWYYumfZhud8nw2U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1792424777;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=Q5jfLHdOgauf4TJGcojCjJicBompzHEBNJH4FQng/Qg=;
+	b=ewW0O3ShwsL4XRU7kOgc1bRZz9WfEvSleKV+S+vmfs7Y8PT00P899HadfuKSo+f/7uoR7s
+	GvmYEw2bikL52cCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 43642134B3;
+	Mon, 19 Oct 2026 15:46:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id gYPgBkk71mrrPAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 19 Oct 2026 15:46:17 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	linux-hyperv@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	nouveau@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	sashiko-reviews@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH 0/4] drm: Move drawing to pixel-helper module
+Date: Mon, 19 Oct 2026 17:32:41 +0200
+Message-ID: <20261019154612.777074-1-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261019134242.1289002-1-sascha.bischoff@arm.com> <20261019134242.1289002-2-sascha.bischoff@arm.com>
-In-Reply-To: <20261019134242.1289002-2-sascha.bischoff@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 19 Oct 2026 16:32:34 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
-X-Gm-Features: AclHuK9YsVMfbpulg4gsG40qG2ygFeEoSjoGnDJEH8FVka3Piy823C8uPTVEmEs
-Message-ID: <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] KVM: arm64: vgic: Require matching VGIC model for
- GICv3 ITS
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Spam-Score: -2.80
+X-Spam-Level: 
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_083319_271134_A95A8E22 
-X-CRM114-Status: GOOD (  14.90  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261019_084622_652352_A38781C3 
+X-CRM114-Status: GOOD (  12.19  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +138,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Sascha,
+Add the new module drm_pixel_helper.ko and link existing shared code
+for drawing to it. This includes format helpers, panic helpers and
+drawing helpers. Update drivers. No functional changes.
 
-On Mon, 19 Oct 2026 14:42:41 +0100, Sascha Bischoff
-<sascha.bischoff@arm.com> wrote:
-> On a GICv5 host with legacy support, KVM registers both VGICv3 and
-> VGICv5 devices. Without a model check, a VM can create a GICv3 ITS
-> alongside an incompatible VGIC, regardless of creation order.
+The existing helpers are currently part of KMS helpers or the DRM core.
+Neither is suitable for this. Adding drm_pixel_helper.ko resolves this.
+The new module only depends on the DRM core and common kernel functions.
 
-Could you add to the commit message that the new checks apply on every
-host? A GICv2 VGIC and an ITS, in either order, now fail with -ENODEV,
-where before both were created and the ITS was ignored.
+Future directions: putting pixel-related helpers into the same module
+opens up the possibility of sharing more code among them. There is even
+more drawing code in vkms and a few other drivers. Hopefully this could
+be integrated into pixel helpers at some point.
 
-[...]
-> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-[...]
-> @@ -42,10 +42,7 @@ bool vgic_has_its(struct kvm *kvm)
->  {
->          struct vgic_dist *dist = &kvm->arch.vgic;
->
-> -        if (dist->vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
-> -                return false;
-> -
-> -        return dist->has_its;
-> +        return !!dist->its_model;
->  }
+Smoke-tested on qemu with vesadrm and bochs.
 
-I think this should check vgic_model as well, as Sashiko raised [1].
-vgic_its_create() accepts an ITS when there's no in-kernel VGIC, and
-the VM can then run with a userspace irqchip. On a GICv4.0 host,
-kvm_vgic_flush_hwstate() then calls vgic_v4_commit() on every entry,
-for a vPE that vgic_v4_init() never set up. irq_set_vcpu_affinity()
-fails on irq 0 and the error is ignored, so nothing crashes, but this
-patch makes that path reachable. The MSI paths Sashiko lists are fine,
-since KVM_SIGNAL_MSI requires an in-kernel irqchip and irqfd an
-initialised VGIC.
+Thomas Zimmermann (4):
+  drm: Add helper module for working with pixel data
+  drm/pixel: Link format helpers into drm_pixel_helper.ko
+  drm/pixel: Link panic helpers into drm_pixel_helper.ko
+  drm/pixel: Link draw helpers into drm_pixel_helper.ko
 
-Something like this would keep the 0 == 0 case you pointed out for
-Marc's version false:
+ drivers/gpu/drm/Kconfig                       | 15 ++++++--------
+ drivers/gpu/drm/Kconfig.debug                 |  2 +-
+ drivers/gpu/drm/Makefile                      | 12 +++++++----
+ drivers/gpu/drm/amd/amdgpu/Kconfig            |  1 +
+ drivers/gpu/drm/ast/Kconfig                   |  1 +
+ drivers/gpu/drm/clients/Kconfig               |  2 +-
+ .../gpu/drm/{drm_draw.c => drm_draw_helper.c} |  0
+ drivers/gpu/drm/drm_kms_helper_common.c       | 13 ------------
+ drivers/gpu/drm/drm_panic_helper.c            |  1 +
+ drivers/gpu/drm/drm_panic_internal.h          | 14 -------------
+ drivers/gpu/drm/drm_pixel_helper_common.c     | 20 +++++++++++++++++++
+ drivers/gpu/drm/drm_pixel_helper_internal.h   | 20 +++++++++++++++++++
+ drivers/gpu/drm/gud/Kconfig                   |  1 +
+ drivers/gpu/drm/hisilicon/hibmc/Kconfig       |  1 +
+ .../gpu/drm/hisilicon/hibmc/hibmc_drm_de.c    |  1 +
+ drivers/gpu/drm/hyperv/Kconfig                |  1 +
+ drivers/gpu/drm/i915/Kconfig                  |  1 +
+ drivers/gpu/drm/imx/ipuv3/Kconfig             |  1 +
+ drivers/gpu/drm/mgag200/Kconfig               |  1 +
+ drivers/gpu/drm/nouveau/Kconfig               |  1 +
+ drivers/gpu/drm/renesas/rcar-du/Kconfig       |  1 +
+ drivers/gpu/drm/renesas/shmobile/Kconfig      |  1 +
+ drivers/gpu/drm/sitronix/Kconfig              |  2 ++
+ drivers/gpu/drm/solomon/Kconfig               |  1 +
+ drivers/gpu/drm/sysfb/Kconfig                 |  1 +
+ drivers/gpu/drm/sysfb/drm_sysfb_modeset.c     |  1 +
+ drivers/gpu/drm/tidss/Kconfig                 |  1 +
+ drivers/gpu/drm/tiny/Kconfig                  |  6 ++++++
+ drivers/gpu/drm/tiny/bochs.c                  |  1 +
+ drivers/gpu/drm/virtio/Kconfig                |  1 +
+ 30 files changed, 83 insertions(+), 42 deletions(-)
+ rename drivers/gpu/drm/{drm_draw.c => drm_draw_helper.c} (100%)
+ create mode 100644 drivers/gpu/drm/drm_pixel_helper_common.c
+ create mode 100644 drivers/gpu/drm/drm_pixel_helper_internal.h
 
-        return dist->its_model && dist->its_model == dist->vgic_model;
 
-Cheers,
-/fuad
+base-commit: 5b9ee97c47574138633a1cb70a32d118b6860a43
+-- 
+2.56.0
 
-[1] https://lore.kernel.org/all/sashiko-outbox-177254@kernel.org/
 
