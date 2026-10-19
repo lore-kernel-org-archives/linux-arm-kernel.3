@@ -2,85 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5695B606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 22:08:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34834606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 22:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AKAyUfrO;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FvYgU400
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLSQc1zT;
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm1 header.b=YfSPKpsy;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=Q0s3ifmE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFtwyfxLr5GFgAON1RsdtP16Tz5z4/baZH98ZPkOWQI=; b=AKAyUfrOf8iFkj53LOKmAyenN+
-	4PWVJVN8rPHeBXJq5DNYFIf+gw/ZUCfGWDlcJmuHXCMO69oYsAd3UDwJ2aFzFVcaOrIHGbbsGOHgP
-	FFRsPIxOQficQRtV0psz9HL+IU6tlF1P4eoL5IO7+kqhIK+rXJpdsNNxhk9yGB1A27UYlJJ8yg+tq
-	PoguXeyvLSlCXqA39e1DgBhiWWBq6kSXMHohb6PlydWm7oAgzm+g5prU/rpG6Z67x0AG52oiIG7xo
-	xvQiVxmy6TNQDiFO8KhhtkiZuHTB/YV2l28TT2YY0VdOUTTPxLcV87urbwmi8pWYQ0hsFj6Qjs7QF
-	sc7KhRIw==;
+	bh=b19ke5R8dsS/XvA79kQkYa638+7V0D45xqSFirGki10=; b=CLSQc1zTJp43mHukl1fpfzzcLr
+	rCQtFwYx0oEJbvx4AJNyGKBV5rgyRvhAZSRAPzrL6PYm9ccMpA7NGhaDR3uEgTkZ+J7VCTiWL5ul9
+	WIrsvgEYea/SAREuBoLM1Avc8002nbz6MNuJtdAVg9I5CqwapPGBHNfw/A7bXEaUQOu8SiMVcAx7H
+	h+dV88W9g0q71iNRJ7Bq8yfXey1zI9AfoCVc0uGvSGVnqPtCcfNcSs9/AZUS7lXHWN/b+uvM+nEJ7
+	zg6zBqCOA07gc+Hlup1PW+FiO03boap0mrxf+8N8CPuhTZs3AO/womhh16v37DfVWkWRJHxUrX4fq
+	Q1rtC5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvWk-00000008S4t-3K6L;
-	Mon, 19 Oct 2026 22:08:18 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1xIvc8-00000008T7K-1U4V;
+	Mon, 19 Oct 2026 22:13:52 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIvWT-00000008Rta-01Ab
+	id 1xIvc5-00000008T6t-3Ds5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 22:08:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792447681; x=1823983681;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=C/BtAMfkRrWL4wEqht4DC9WNmUti1x/o/QqUF2yKxeY=;
-  b=FvYgU400cBpcSIQcML35fdYvBTmGu6u77J3EI4VeSJdM6D1BL1SY/hWS
-   iLR7/TNAo7u16HPDp6PP/lAbDEmWfIFGz1VLm/HfM7qiFMp/GkgFILdy5
-   f4lR25C9nhYYk6bha31u/ORLHXpABjAUlncl4A5MuBJyZx8R2Jdjp5exl
-   y5I2m+rgvRJyL5llMFm6dLiXBARzdEuTYEBEzmjnaElhVtq0wEkY9jegK
-   dTYP55a//oB8eQFSbKp23cCZB2tuzRdbOuMcCMqdFSwaA/fO8kB0eBZ5r
-   AWwWpG60XB70IW+SsJJNqcwDRhJSeEv7XT6MSIQvk/0ZzhFQz9+haVHik
-   Q==;
-X-CSE-ConnectionGUID: IUIppubrT4GtmX511dE8Zg==
-X-CSE-MsgGUID: ZKpn4dVGSn2C7Hp22sOI4Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="1144206"
-X-IronPort-AV: E=Sophos;i="6.27,168,1787036400"; 
-   d="scan'208";a="1144206"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 15:07:59 -0700
-X-CSE-ConnectionGUID: xy2ikk9ySGG5kvNUp7qfUQ==
-X-CSE-MsgGUID: CfjKMWl1RgiYfO2QyNwzLQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,168,1787036400"; 
-   d="scan'208";a="2708339"
-Received: from rchatre-desk1.jf.intel.com ([10.165.154.99])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 15:07:58 -0700
-From: Reinette Chatre <reinette.chatre@intel.com>
-To: ben.horgan@arm.com,
-	james.morse@arm.com,
-	Dave.Martin@arm.com,
-	fenghuay@nvidia.com
-Cc: tony.luck@intel.com,
-	yu.c.chen@intel.com,
-	babu.moger@amd.com,
-	fustini@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	patches@lists.linux.dev,
-	reinette.chatre@intel.com
-Subject: [RFC PATCH v2 05/10] arm_mpam: resctrl: Give the monitoring domain its own structure
-Date: Mon, 19 Oct 2026 15:07:39 -0700
-Message-ID: <2238eab97cc66852d0d0d1a5c6ff191c03ce9e0d.1792443633.git.reinette.chatre@intel.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1792443633.git.reinette.chatre@intel.com>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
+	Mon, 19 Oct 2026 22:13:51 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id D45F3EC016E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 18:13:47 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Mon, 19 Oct 2026 18:13:47 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1792448023;
+	 x=1792534423; bh=b19ke5R8dsS/XvA79kQkYa638+7V0D45xqSFirGki10=; b=
+	YfSPKpsy28wG3TFLg+0euDTx35bpoCFlYmDe1f+qkBnAzEfRgCd3XIXkxcJbUxBC
+	2cUGSEH2YVr+X5z8XhWS8EvfWJPX88VJYz+44BnkpsZLYfGMyPWvoEPa5D4XVmIl
+	hFgkWNFdW4HzpkYLj3YrmE0JhpsOPUJw8DAgQN6StDwbPWt3Rgwkko83onEVchcB
+	6VnXxoxrLxmebaDFwWbiKbX9OHEV4OV8Lw7dzf3OMs89kUB31JCIuW+RFc+l2xLQ
+	FlPRd/WPF0SW1R7Qnn7LKZG/I2+W1nhIbG4lblGRU7T5o/7GZKB7e5m/HXhU0M1P
+	5nCOkCR4XhGWfy5DI3zyNQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792448023; x=
+	1792534423; bh=b19ke5R8dsS/XvA79kQkYa638+7V0D45xqSFirGki10=; b=Q
+	0s3ifmE/oHQaPCqKxOocoD1RsfWMsP7ugR1iP+6jABBpIIRFUL2Plvx/CVLue+iz
+	sL3TAkJrlcP9uAuoHcE/DYKdzqQCIbEmq9+mrP7CETZXrgriY6VNY2tFEbbtVEW7
+	dVh9thar0fQtD2rIz72CLitf6QxH3znNPM5Z+hH6epRrTcPUPGaAmgUeQsTwgAfA
+	VOpOBOJzh5qFXb82IT1BEEvSNS0LuMjzCu1Ge+QNabLdR7cWZggYeQ8C/w+Qw/Mw
+	9lBaigTeDeyRTSjf0lB5iuRaKLTa/1KTuFgdgXfG+nEQsCff1Q9lWI9FdouX/0Fn
+	avrA0W8rcDshRUD/PXM0A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1792448023; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:Mp/f3ZJJFRdm8sIzrNFi/UVYtsEtJupuoHHHGONjR3HZgJZ
+	FFwGruCjxZRY4L7KyQtDoeOUZjmBX6mzSozpEeWtKiajLwizPsIqA9aOXINorWcB
+	vv1OH5wogXx3FJ/9w9uB02n4/By/pwfbmU0njusX+kS/Xq7wd7WUj1eIORBKWp7B
+	QjfUil4Jf6XWijp9rnSa4ncJl/YX0EENxYmTCiS41Fyjtf1XCkVupcqI5Vf38w8i
+	jmYB0pkhp5aUCs0mYmPVtxRtxeCMHmAHPb9tYzQeH25+1hRUX8uE90cWYfEHu/eZ
+	otmKO4NOqN+nmeeMdJ0kshimdihCxZT8obyrFKA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:PMbO2eFK/HngZyDJy5oViV6VfKYFsxy7XE6yeZaEFog=:xrd6C177KUzqVuW8T74lgPOXnZyd81HS2CteGq44Y2w=;
+X-ME-Sender: <xms:EpbWavz21F8CPXkV9s1zVBW5cctnPSTHwVquOeXHgQYx2HPc9xU-Ow>
+    <xme:EpbWaiFlcjdTdTUORFb6JweVGllk4uKi1JmxD7qiQ7gzgBDP9mkXQJMTOPaorXpbb
+    TrokS-B5G1dlIe3HY2SXT3eaiFMJP02rssP6JSMy7h83rcQMzNHclo>
+X-ME-Proxy-Cause: dmFkZTFqEN6muZMP935NXiz6bee41DbPaDd3QKT7ALIBuCjhUqNg6fjgGeljhBZXjYGp8J
+    J3MqyqGWNLoJaIvhncl8GHxQDbt7zaEwqLtI1LllcSEZ/6WS9gLFbrveIe+jvsEeH4oOxG
+    eSzuZDyopzds7gyUF3K7ozIa/9o4Yb6M7SouyW/tR5X39yUj+kSFZEvBhT/hZWAmTvhA8J
+    bp7pUhzNma+oDlvkSAUSxoC14+8TtrpvwpcaYTDNZ0CbxZGtjKQFwmhtp7vRELtKGLYdlh
+    +fq0Wh2JzLhiVuR6BtAh/SrSPS//ZopfKmXaV+Pa5sfOf8KILTU4E2sH+MQTi+6zRf9UX6
+    fmxZfNCMdDhe7xPGhjH/TdHnWg1xdqXFYOMbxAQPhc213Wpfb934S/po9g7FL0qCUUM9Zj
+    VVJ31SxqMY9cVAFqBJ12CEL6RFvOjAqsrOuuVAvVm4fwVWcJeopiJQ/z4XxTiJSG9Er9Dz
+    Tc9Mcxartx9TD2qs4Hbro/EK9AaSqKKOoKObOLPsbizjQjt10M4aRhQ59gaO13LSUNiJQG
+    MfrUwvSlb7n8DYHb7BuvOiIXl15ugTDiEjfbfc+RX83RyuZbjI0OHodm73zMAQH6bnscJ5
+    D5fEfFtAZMkwywpvwDeo7mYGryOY/Jg4jvQqJLympfdZd4ObYkhzZ9kYGNkg
+X-ME-Proxy: <xmx:FJbWap5k8bN2SMBFs8IdvVOmrBhxJwVOkCHk8r38rkqGehsJY6SSbg>
+    <xmx:FJbWan1JDoBolQinX_DgW37FZjMPS6eTarhhjuM34GOs9pccLEL2xw>
+    <xmx:FJbWagyeBGA1OoGG-Oec87-zJpvl3W04nbVrvQ0pBqF2H2mU4p489w>
+    <xmx:FJbWagndh9BgCbQ0J_iDF8Z_11WZj1UJw0sns5uRTX6BX6-0FyRRhw>
+    <xmx:F5bWaptmWhiXVi-ZrWLqf8jmrWtrODkpFDkK9Y1HlXrb1hii7Pw1E5dx>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 0ECF532A008F; Mon, 19 Oct 2026 18:13:38 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: ATLhSvAouVZo
+Date: Tue, 20 Oct 2026 00:12:57 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ian Rogers" <irogers@google.com>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Andy Lutomirski" <luto@kernel.org>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Stefan Kerkmann" <s.kerkmann@pengutronix.de>,
+ "Marc Kleine-Budde" <mkl@pengutronix.de>,
+ "Christophe Leroy" <chleroy@kernel.org>
+Cc: "David Laight" <david.laight.linux@gmail.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>, "Eric Biggers" <ebiggers@google.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
+In-Reply-To: <20261019201257.3805356-1-irogers@google.com>
+References: <20261019201257.3805356-1-irogers@google.com>
+Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_150801_071839_2EF59C2E 
-X-CRM114-Status: GOOD (  27.78  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_151349_904507_8DA1CEF8 
+X-CRM114-Status: GOOD (  10.82  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,417 +136,30 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-One structure holds both the control domain and the monitoring domain of
-a resource. The two domains are allocated together when the first CPU of
-the domain comes online and freed together once both have lost their
-last CPU. A failure to set up the monitoring domain undoes the control
-domain.
+On Mon, Oct 19, 2026, at 22:12, Ian Rogers wrote:
+> +
+> +config VDSO_UNALIGNED_PACKED
+> +	bool
+> +	default CPU_32v5
+> +	help
+> +	  Use packed structs rather than memcpy() in include/vdso/unaligned.h
+> +	  for unaligned memory accesses. Enabled on ARMv5 where GCC may emit
+> +	  out-of-line memcpy() calls instead of inlining byte accesses.
 
-Apart from the code that manages domains, nothing uses both domains of
-the structure. Keeping them in one structure nevertheless ties each
-control domain to a monitoring domain, which does not fit supporting
-multiple controls per resource.
+As explained, I think this misrepresents the problem as Arm specific and
+isn't the correct method for -munaligned-access targets on Arm, which
+include CPU_32v3, CPU_32v4 and CPU_32v4T along with CPU_32v5.
 
-Move the monitoring domain and its components into a new structure,
-struct mpam_resctrl_mon_dom. Manage control and monitoring domains
-separately when CPUs come online and go offline: look up, set up, and
-tear down each domain on its own and free it once it has lost its last
-CPU.
+I still hope we can use a version that just produces the intended code
+on both -munaligned-access and -mno-unaligned-access targets like the
+old version did.
 
-Do not let a failure to set up one type of domain affect the other. Keep
-a control domain that was set up when setting up the monitoring domain
-for the same CPU fails, and set up the monitoring domain even when
-setting up the control domain fails. This is consistent with domain
-setup failures not failing CPU online: only domains that were set up are
-exposed through resctrl.
-
-Look for a component of the resource's class that contains the CPU only
-when setting up a control domain, since that component backs the
-control domain. Setting up a monitoring domain already fails if no
-monitoring class has a component for the CPU.
-
-Look up monitoring domains by L3 cache ID on all systems, as was already
-done on systems without controls. Monitoring domain IDs are always those
-of the L3, so this finds the same domain as looking it up through its
-control domain did.
-
-Drop the debug messages about resources without controls or monitors.
-They reported which of the two domains in the shared structure was left
-unused, which no longer applies now that each domain type has its own
-structure.
-
-Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
----
- drivers/resctrl/mpam_internal.h |   5 +-
- drivers/resctrl/mpam_resctrl.c  | 226 ++++++++++++++++----------------
- 2 files changed, 117 insertions(+), 114 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 84c7adbb1a40..1df439ecb055 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -434,15 +434,16 @@ struct mpam_msc_ris {
- 
- struct mpam_resctrl_dom {
- 	struct mpam_component		*ctrl_comp;
-+	struct rdt_ctrl_domain		resctrl_ctrl_dom;
-+};
- 
-+struct mpam_resctrl_mon_dom {
- 	/*
- 	 * There is no single mon_comp because different events may be backed
- 	 * by different class/components. mon_comp is indexed by the event
- 	 * number.
- 	 */
- 	struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
--
--	struct rdt_ctrl_domain		resctrl_ctrl_dom;
- 	struct rdt_l3_mon_domain	resctrl_mon_dom;
- };
- 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 246560247a28..ce5519635c51 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -510,7 +510,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
- 			   void *arch_priv, u64 *val, void *arch_mon_ctx)
- {
--	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_resctrl_mon_dom *l3_dom;
- 	struct mpam_component *mon_comp;
- 	u32 mon_idx = *(u32 *)arch_mon_ctx;
- 	enum mpam_device_features mon_type;
-@@ -524,7 +524,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 	if (eventid >= QOS_NUM_EVENTS || !mon->class)
- 		return -EINVAL;
- 
--	l3_dom = container_of(hdr, struct mpam_resctrl_dom, resctrl_mon_dom.hdr);
-+	l3_dom = container_of(hdr, struct mpam_resctrl_mon_dom, resctrl_mon_dom.hdr);
- 	mon_comp = l3_dom->mon_comp[eventid];
- 
- 	if (eventid != QOS_L3_OCCUP_EVENT_ID)
-@@ -542,7 +542,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
- 			   enum resctrl_event_id eventid, u64 *val)
- {
- 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
--	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_resctrl_mon_dom *l3_dom;
- 	struct mpam_component *mon_comp;
- 
- 	if (!mpam_is_enabled())
-@@ -551,7 +551,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
- 	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
- 		return -EINVAL;
- 
--	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	l3_dom = container_of(d, struct mpam_resctrl_mon_dom, resctrl_mon_dom);
- 	mon_comp = l3_dom->mon_comp[eventid];
- 
- 	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
-@@ -599,7 +599,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 			     enum resctrl_event_id eventid)
- {
- 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
--	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_resctrl_mon_dom *l3_dom;
- 	struct mpam_component *mon_comp;
- 
- 	if (!mpam_is_enabled())
-@@ -608,7 +608,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
- 		return;
- 
--	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	l3_dom = container_of(d, struct mpam_resctrl_mon_dom, resctrl_mon_dom);
- 	mon_comp = l3_dom->mon_comp[eventid];
- 
- 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-@@ -1638,7 +1638,7 @@ static int mpam_resctrl_setup_ctrl_domain(unsigned int cpu,
- 
- static int mpam_resctrl_setup_mon_domain(unsigned int cpu,
- 					 struct rdt_resource *r,
--					 struct mpam_resctrl_dom *dom)
-+					 struct mpam_resctrl_mon_dom *dom)
- {
- 	struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
- 	struct mpam_component *any_mon_comp = NULL;
-@@ -1681,53 +1681,6 @@ static int mpam_resctrl_setup_mon_domain(unsigned int cpu,
- 	return 0;
- }
- 
--static void mpam_resctrl_alloc_domain(unsigned int cpu,
--				      struct mpam_resctrl_res *res)
--{
--	int err;
--	struct mpam_resctrl_dom *dom;
--	struct mpam_class *class = res->class;
--	struct mpam_component *comp;
--	struct rdt_resource *r = &res->resctrl_res;
--
--	lockdep_assert_held(&domain_list_lock);
--
--	comp = find_component(class, cpu);
--	/* class has no component for this CPU */
--	if (WARN_ON_ONCE(!comp))
--		return;
--
--	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
--	if (!dom)
--		return;
--
--	if (r->alloc_capable) {
--		err = mpam_resctrl_setup_ctrl_domain(cpu, r, comp, dom);
--		if (err)
--			goto free_domain;
--	} else {
--		pr_debug("Skipped control domain online - no controls\n");
--	}
--
--	if (r->mon_capable) {
--		err = mpam_resctrl_setup_mon_domain(cpu, r, dom);
--		if (err)
--			goto offline_ctrl_domain;
--	} else {
--		pr_debug("Skipped monitor domain online - no monitors\n");
--	}
--
--	return;
--
--offline_ctrl_domain:
--	if (r->alloc_capable) {
--		mpam_resctrl_offline_domain_hdr(cpu, &dom->resctrl_ctrl_dom.hdr);
--		resctrl_offline_ctrl_domain(r, &dom->resctrl_ctrl_dom);
--	}
--free_domain:
--	kfree(dom);
--}
--
- /*
-  * We know all the monitors are associated with the L3, even if there are no
-  * controls and therefore no control component. Find the cache-id for the CPU
-@@ -1735,10 +1688,10 @@ static void mpam_resctrl_alloc_domain(unsigned int cpu,
-  * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
-  * for anything that is not a cache.
-  */
--static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
-+static struct mpam_resctrl_mon_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
- {
- 	int cache_id;
--	struct mpam_resctrl_dom *dom;
-+	struct mpam_resctrl_mon_dom *dom;
- 	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
- 
- 	lockdep_assert_cpus_held();
-@@ -1758,7 +1711,7 @@ static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
- }
- 
- static struct mpam_resctrl_dom *
--mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
-+mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- {
- 	struct mpam_resctrl_dom *dom;
- 	struct rdt_resource *r = &res->resctrl_res;
-@@ -1770,11 +1723,97 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- 			return dom;
- 	}
- 
--	if (r->rid != RDT_RESOURCE_L3)
--		return NULL;
-+	return NULL;
-+}
-+
-+static void mpam_resctrl_add_cpu_ctrl_domain(unsigned int cpu,
-+					     struct mpam_resctrl_res *res)
-+{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct mpam_resctrl_dom *dom;
-+	struct mpam_component *comp;
-+
-+	lockdep_assert_held(&domain_list_lock);
-+
-+	dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res);
-+	if (dom) {
-+		mpam_resctrl_online_domain_hdr(cpu, &dom->resctrl_ctrl_dom.hdr);
-+		return;
-+	}
-+
-+	comp = find_component(res->class, cpu);
-+	/* class has no component for this CPU */
-+	if (WARN_ON_ONCE(!comp))
-+		return;
-+
-+	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
-+	if (!dom)
-+		return;
- 
--	/* Search the mon domain list too - needed on monitor only platforms. */
--	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
-+	if (mpam_resctrl_setup_ctrl_domain(cpu, r, comp, dom))
-+		kfree(dom);
-+}
-+
-+static void mpam_resctrl_add_cpu_mon_domain(unsigned int cpu,
-+					    struct mpam_resctrl_res *res)
-+{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct mpam_resctrl_mon_dom *dom;
-+
-+	lockdep_assert_held(&domain_list_lock);
-+
-+	dom = mpam_resctrl_get_mon_domain_from_cpu(cpu);
-+	if (dom) {
-+		mpam_resctrl_online_domain_hdr(cpu, &dom->resctrl_mon_dom.hdr);
-+		return;
-+	}
-+
-+	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
-+	if (!dom)
-+		return;
-+
-+	if (mpam_resctrl_setup_mon_domain(cpu, r, dom))
-+		kfree(dom);
-+}
-+
-+static void mpam_resctrl_remove_cpu_ctrl_domain(unsigned int cpu,
-+						struct mpam_resctrl_res *res)
-+{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct mpam_resctrl_dom *dom;
-+
-+	lockdep_assert_held(&domain_list_lock);
-+
-+	/* The domain may be missing if its setup failed. */
-+	dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res);
-+	if (!dom)
-+		return;
-+
-+	if (!mpam_resctrl_offline_domain_hdr(cpu, &dom->resctrl_ctrl_dom.hdr))
-+		return;
-+
-+	resctrl_offline_ctrl_domain(r, &dom->resctrl_ctrl_dom);
-+	kfree(dom);
-+}
-+
-+static void mpam_resctrl_remove_cpu_mon_domain(unsigned int cpu,
-+					       struct mpam_resctrl_res *res)
-+{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct mpam_resctrl_mon_dom *dom;
-+
-+	lockdep_assert_held(&domain_list_lock);
-+
-+	/* The domain may be missing if its setup failed. */
-+	dom = mpam_resctrl_get_mon_domain_from_cpu(cpu);
-+	if (!dom)
-+		return;
-+
-+	if (!mpam_resctrl_offline_domain_hdr(cpu, &dom->resctrl_mon_dom.hdr))
-+		return;
-+
-+	resctrl_offline_mon_domain(r, &dom->resctrl_mon_dom.hdr);
-+	kfree(dom);
- }
- 
- void mpam_resctrl_online_cpu(unsigned int cpu)
-@@ -1784,33 +1823,21 @@ void mpam_resctrl_online_cpu(unsigned int cpu)
- 
- 	guard(mutex)(&domain_list_lock);
- 	for_each_mpam_resctrl_control(res, rid) {
--		struct mpam_resctrl_dom *dom;
- 		struct rdt_resource *r = &res->resctrl_res;
- 
- 		if (!res->class)
- 			continue;	// dummy_resource;
- 
--		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
--		if (!dom) {
--			/*
--			 * On failure the CPU is left without a domain for this
--			 * resource, which mpam_resctrl_offline_cpu() tolerates.
--			 * resctrl_online_cpu() still adds the CPU to the default
--			 * group because the CPU is online and runs tasks.
--			 */
--			mpam_resctrl_alloc_domain(cpu, res);
--		} else {
--			if (r->alloc_capable) {
--				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
--
--				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
--			}
--			if (r->mon_capable) {
--				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
--
--				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
--			}
--		}
-+		/*
-+		 * A domain that fails to be set up leaves the CPU without that
-+		 * domain, which mpam_resctrl_offline_cpu() tolerates.
-+		 * resctrl_online_cpu() still adds the CPU to the default group
-+		 * because the CPU is online and runs tasks.
-+		 */
-+		if (r->alloc_capable)
-+			mpam_resctrl_add_cpu_ctrl_domain(cpu, res);
-+		if (r->mon_capable)
-+			mpam_resctrl_add_cpu_mon_domain(cpu, res);
- 	}
- 
- 	resctrl_online_cpu(cpu);
-@@ -1825,40 +1852,15 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
- 
- 	guard(mutex)(&domain_list_lock);
- 	for_each_mpam_resctrl_control(res, rid) {
--		struct mpam_resctrl_dom *dom;
--		struct rdt_l3_mon_domain *mon_d;
--		struct rdt_ctrl_domain *ctrl_d;
--		bool ctrl_dom_empty, mon_dom_empty;
- 		struct rdt_resource *r = &res->resctrl_res;
- 
- 		if (!res->class)
- 			continue;	// dummy resource
- 
--		/* The domain may be missing if its setup failed. */
--		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
--		if (!dom)
--			continue;
--
--		if (r->alloc_capable) {
--			ctrl_d = &dom->resctrl_ctrl_dom;
--			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
--			if (ctrl_dom_empty)
--				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
--		} else {
--			ctrl_dom_empty = true;
--		}
--
--		if (r->mon_capable) {
--			mon_d = &dom->resctrl_mon_dom;
--			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
--			if (mon_dom_empty)
--				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
--		} else {
--			mon_dom_empty = true;
--		}
--
--		if (ctrl_dom_empty && mon_dom_empty)
--			kfree(dom);
-+		if (r->alloc_capable)
-+			mpam_resctrl_remove_cpu_ctrl_domain(cpu, res);
-+		if (r->mon_capable)
-+			mpam_resctrl_remove_cpu_mon_domain(cpu, res);
- 	}
- }
- 
--- 
-2.55.0
-
+     Arnd
 
