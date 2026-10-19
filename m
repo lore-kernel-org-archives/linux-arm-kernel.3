@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF39CCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B45CCF2E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHnefyVOo/AiBg1cwJ3voQDManzSQqGf5DOxZLbPmmg=; b=QhcJU9+pPKvFLZrrL3ZQC4vhwM
-	FE2VkdHwIJ0eYuBmXBqNqvIrXarR+U1cJW5pBrQDcMOUsV/2hHu7ZGFXx9uSt9yry3UO7krEvUVlZ
-	+amxiCS0YQDtQ+CkKyWO6iAPVu0Z1xciPCvTsPVHbMYSZ/2q3Fj4Hy7dhAvILfGENtbeD0SIMEKvP
-	rUe6y0cr2ffklU1jb0zYz+gqGY1UADritVNv3Hs6g19yoTv/6resIAmN/GBYVMOlTy0C2pAfaSe2M
-	hL+9Y5L1fSxaz/k8eWfeAgG9geqTLR+ebaCuHCalzhAw7XkfFwSGDCItjvav6deuSOKkyLI5Tzifk
-	VHPgjO0g==;
+	bh=KUxLdn0xz/vUT+PLJ3jixWo7tdSyz1KnmaUmfDQihSg=; b=0SdhFaMhvtQ7oO89IDKBrZ14Uy
+	uJEZGn7nEYyXobwieo+nCn5kG0/udvqCOhbH7MqaKhhndmkxZTpl/ekGT9Sl3RAQL9A7T+MO0gLTR
+	CibhO6jK14SKocZ0eAwXvGAmcISB54zpBiIFO3l2jqP24nRlJdplWnucD3AL9bxIx5J6oAjonW1aa
+	MFaflxk39VEZ2a5wMzqLMI6weNkZS8y2waUAcodMDurSjGHBmNxI14DeWjFHtv23gSWu8Fu/KLvKc
+	FVh0TnPRzxqxEO69z6NZcnlhmqgoOFTAPoFhBs5YXe6xvo7SmiP3WON9iUShXYJ+1mNb7s6PV14TM
+	7AwvfBQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqB-00000007aDq-44hd;
-	Mon, 19 Oct 2026 13:55:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xInqb-00000007aOe-0sQ1;
+	Mon, 19 Oct 2026 13:56:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInqA-00000007aCe-2rlF
+	id 1xInqY-00000007aNe-3czK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:55:50 +0000
+	Mon, 19 Oct 2026 13:56:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11AD460214;
-	Mon, 19 Oct 2026 13:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A92D1F000C4;
-	Mon, 19 Oct 2026 13:55:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B5C9407FC;
+	Mon, 19 Oct 2026 13:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FBB1F000C9;
+	Mon, 19 Oct 2026 13:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418149;
-	bh=eHnefyVOo/AiBg1cwJ3voQDManzSQqGf5DOxZLbPmmg=;
+	s=k20260515; t=1792418174;
+	bh=KUxLdn0xz/vUT+PLJ3jixWo7tdSyz1KnmaUmfDQihSg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=L5+4TQ+6q/GgW4uacWRZ9vsxn0MluTWKcwgPGCzydLu73h01tM2WLXKEQCguXSBYl
-	 UFabz1BsYwbcvONJxmSUNd9mnPfJVMYSevPtl5W0GYvLq9JqDzDlp90W94m0XFWUDy
-	 z4FNrQS9FfRrPGxkAihplrlWwVBd9rEym76RRcGowe/TJezDU1lYIJ3pZ28SU840eU
-	 NqI8UFFfQTslVUlXWZZa2/S6PAo8F/bQVV/jNq1sZQqVK081XF9F0miq8eh8vs56/J
-	 0MMxl38nHd3ZKRBvCnfbvvw4Kv670sC+EyN53ygQQ7M4/fYwUI9oS/Mrdw0GWbW0Eh
-	 vuLVZWchwbZ9g==
+	b=M3k/LumXRdOBwi2/UczLwZ7Vxbi0X627C/vxgXISXrKomKWHP7zgR2X24d70Gnar0
+	 vbch88jcJxy9qRD23lymwyudZo5WoB4naITn5JmihgLercsVhLLRLNQ2j/cMPvLJ5P
+	 Imdr+f1iGh7VXxV74KOLqpbkRlafLaKQ2Ur+0Rsm4rFcV9Juq3FX/cROVG6aqsuOan
+	 jDM00wA+2BjZmaeIdiQamxoVeiv4YFXjkXpRuGGQjzxSDKSkwHllDESv+n7wfKh1Kg
+	 nx5dIppZ3+1+oIiFRFza+XuR0ZyOAOkCLeMRS4kwzFmhbgTDAHVLA3cJ1huGwKvlCg
+	 GcXoUvLC7WOTg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Md Rabbani <rabbanyhmm@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	Sasha Levin <sashal@kernel.org>,
-	maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.1] net: stmmac: fix device node reference leaks in stmmac_mtl_setup()
-Date: Mon, 19 Oct 2026 09:45:38 -0400
-Message-ID: <20261019135441.1420968-47-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18] arm64/runtime-const: Use aarch64_insn_patch_text_nosync() for patching
+Date: Mon, 19 Oct 2026 09:45:56 -0400
+Message-ID: <20261019135441.1420968-65-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -85,393 +79,411 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Md Rabbani <rabbanyhmm@gmail.com>
+From: K Prateek Nayak <kprateek.nayak@amd.com>
 
-[ Upstream commit 317fe168f4c0fc30e5c375c22d9c8911940aea9b ]
+[ Upstream commit a6690350a4ae7558b39d15fcc776c4d1ab5bbf39 ]
 
-In stmmac_mtl_setup(), q_node is shared across the RX and TX queue
-parsing loops. When the RX queue loop breaks early because the number
-of parsed queues reaches plat->rx_queues_to_use, q_node retains an
-acquired reference count. If the error check passes
-(queue == plat->rx_queues_to_use), execution proceeds directly to the
-TX queue loop, where of_get_next_child() immediately overwrites q_node
-with the first TX child, permanently leaking the retained RX child
-device node reference.
+The current scheme to directly patch the kernel text for runtime
+constants runs into the following issue with futex adapted to using
+runtime constants on arm64:
 
-Switch both loops to for_each_child_of_node_scoped() so child node
-references are automatically dropped upon loop exit or early break,
-and remove the now-unnecessary function-scoped q_node variable and
-its manual of_node_put() at the exit label.
+  Unable to handle kernel write to read-only memory at virtual address ...
 
-Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
-Link: https://patch.msgid.link/20260821055718.57-1-rabbanyhmm@gmail.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+The pc points to the *p assignment in the following call chain:
+
+  futex_init()
+    runtime_const_init(shift, __futex_shift)
+      __runtime_fixup_shift()
+        *p = cpu_to_le32(insn);
+
+which suggests that core_initcall() is too late to patch the kernel text
+directly unlike the "d_hash_shift" which is initialized during
+vfs_caches_init_early() before the protections are in place.
+
+Use aarch64_insn_patch_text_nosync() to patch the runtime constants
+instead of doing it directly to allow runtime_const_init() slightly
+later into the boot.
+
+Since aarch64_insn_patch_text_nosync() calls caches_clean_inval_pou()
+internally, __runtime_fixup_caches() ends up being redundant.
+runtime_const_init() are rare and the overheads of multiple calls to
+caches_clean_inval_pou() instead of batching them together should be
+negligible in practice.
+
+The cpu_to_le32() conversion of instruction isn't necessary since it is
+handled later in the aarch64_insn_patch_text_nosync() call-chain:
+
+  aarch64_insn_patch_text_nosync(addr, insn)
+    aarch64_insn_write(addr, insn)
+      __aarch64_insn_write(addr, cpu_to_le32(insn))
+
+Sashiko noted that aarch64_insn_patch_text_nosync() does not expect a
+lm_alias() address and Catalin suggested it is safe to drop the
+lm_alias() for runtime patching since the kernel text is readable. The
+address passed to fixup function is interpreted as a __le32 and
+dereferenced as is to read the opcode at the patch site.
+
+No functional changes are intended.
+
+Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Link: https://patch.msgid.link/20260728052540.4728-3-kprateek.nayak@amd.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The leak is real in this 6.12 tree: `stmmac_mtl_setup()` can drop an OF
-child reference when RX queue parsing breaks early, and in-tree DTs
-actually hit that path.
+Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
+(attempt 1)...
+Retry attempt 1...
+## Phase 1: Commit message forensics
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+**Step 1.1 — Subject line**
+- Record: **[arm64/runtime-const] [Use] switch text patching from a
+  direct store to `aarch64_insn_patch_text_nosync()`**
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-- Record: `[net: stmmac:] [fix] [OF device-node reference leaks in
-  stmmac_mtl_setup()]`
-
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+**Step 1.2 — Tags**
 - Record:
-  - `Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>` (author)
-  - `Link:
-    https://patch.msgid.link/20260821055718.57-1-rabbanyhmm@gmail.com`
-  - `Signed-off-by: Jakub Kicinski <kuba@kernel.org>` (netdev
-    maintainer; applied to `netdev/net`)
-  - No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
-    by:`, or `Cc: stable` (absence of Fixes/Cc-stable is expected for
-    this review)
-  - Upstream SHA (from patchwork bot):
-    `317fe168f4c0fc30e5c375c22d9c8911940aea9b`
+  - Signed-off-by: K Prateek Nayak (author)
+  - Signed-off-by: Peter Zijlstra (locking/futex maintainer)
+  - Reviewed-by: Catalin Marinas (arm64 maintainer)
+  - Reviewed-by: Charlie Jenkins
+  - Tested-by: Charlie Jenkins
+  - Link: https://patch.msgid.link/20260728052540.4728-3-
+    kprateek.nayak@amd.com
+  - No Fixes:, no Reported-by, no Cc: stable (absence expected)
+  - Ignore pipeline SOBs if present; none in the real commit
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-- Record: [Bug] Shared `q_node` is used by both RX and TX
-  `for_each_child_of_node()` loops. An early `break` in the RX loop
-  leaves `q_node` holding a live OF reference. If `queue ==
-  plat->rx_queues_to_use`, the function continues into the TX loop,
-  which calls `of_get_next_child(tx_node, NULL)` and overwrites `q_node`
-  without putting the RX child.
-- [Symptom] Permanent `device_node` refcount leak (kobject/`device_node`
-  never released).
-- [Version info] None in the message. The loops date to 2017
-  (`d976a525c37127`, v4.12-rc1).
-- [Root cause] Early-break + reused iterator; `of_get_next_child(parent,
-  NULL)` does not drop the previous pointer.
-
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-- Record: Not hidden. Subject/body explicitly describe a refcount leak.
-  The `_scoped` conversion is the fix mechanism, not a style-only
-  cleanup.
-
-## PHASE 2: DIFF ANALYSIS
-
-**Step 2.1: INVENTORY THE CHANGES**
-- Record: Single file
-  `drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c`. Actual commit
-  is **+2 / -4**. Functions: `stmmac_mtl_setup()` only. Surgical,
-  single-file.
-
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+**Step 1.3 — Body**
 - Record:
-  - RX loop: `for_each_child_of_node(rx_node, q_node)` →
-    `for_each_child_of_node_scoped(...)`. Early `break` now auto-drops
-    the current child via `__free(device_node)`.
-  - TX loop: same conversion.
-  - Function-scope `struct device_node *q_node` removed;
-    `of_node_put(q_node)` at `out:` removed (would not compile with the
-    loop-scoped iterator).
-  - Probe/DT parse path only; no datapath change.
+  - **Bug:** arm64 runtime-const writes the patched opcode with `*p =
+    cpu_to_le32(insn)` through `lm_alias()`. That faults once kernel
+    text (including the linear alias) is read-only.
+  - **Symptom:** `Unable to handle kernel write to read-only memory`
+    during `futex_init()` → `runtime_const_init()` →
+    `__runtime_fixup_shift()`.
+  - **Root cause:** `d_hash_shift` is patched in
+    `vfs_caches_init_early()` while the linear alias is still writable.
+    `futex_init()` is a `core_initcall`, after
+    `mark_linear_text_alias_ro()`.
+  - **Fix:** use the existing text-poking helper (fixmap writable alias
+    + cache maintenance). Drop redundant `__runtime_fixup_caches()` and
+    `cpu_to_le32()` (done inside the helper). Drop `lm_alias()` because
+    the helper wants a kernel-text address.
+  - **Version info:** none beyond the futex/runtime-const interaction.
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-- Record: [Category] Reference counting / resource leak.
-- [Mechanism] `for_each_child_of_node` is `of_get_next_child()`, which
-  gets `next` and puts `prev`. `break` skips the put of the current
-  node. Reusing the same pointer in the TX loop with `prev=NULL` leaks
-  that RX child. TX extra children were previously dropped by the
-  trailing `of_node_put(q_node)`; RX extra children were not.
+**Step 1.4 — Hidden bug fix?**
+- Record: Not hidden. The message describes a concrete oops. “No
+  functional changes are intended” means the patched immediates are the
+  same; the write path is what changes so late `runtime_const_init()`
+  can succeed.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-- Record: Obviously correct. `for_each_child_of_node_scoped` exists in
-  this tree and is already used widely. `__free(device_node)` is `if
-  (_T) of_node_put(_T)`, so NULL at loop end is safe. Regression risk is
-  very low: no locking, no ABI, no behavior change besides dropping the
-  leaked ref. The `_scoped` form is stronger than a one-off
-  `of_node_put()` before the TX loop because it also covers TX early-
-  break without a manual put.
+## Phase 2: Diff analysis
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+**Step 2.1 — Inventory**
+- Record: one file, `arch/arm64/include/asm/runtime-const.h` (~5
+  insertions, 12 deletions). Functions: `__runtime_fixup_16()`,
+  `__runtime_fixup_caches()` (removed), `__runtime_fixup_ptr()`,
+  `__runtime_fixup_shift()`. Surgical, single-header.
 
-**Step 3.1: BLAME THE CHANGED LINES**
-- Record: Buggy loops introduced by `d976a525c37127` ("net: stmmac:
-  multiple queues dt configuration", Joao Pinto, 2017-03-10), first in
-  **v4.12-rc1**. Present for many years. `goto out` / extra
-  `of_node_put(q_node)` added by `2ee2132ffb83e` (2018), which still
-  leaves the RX-then-TX overwrite leak.
+**Step 2.2 — Flow change**
+- Record:
+  - **Before:** read opcode at `lm_alias(where)`, store new insn with
+    `*p = cpu_to_le32(insn)`, then `caches_clean_inval_pou()` on the
+    original VA.
+  - **After:** pass the kernel-text pointer and host-endian insn to
+    `aarch64_insn_patch_text_nosync()`, which maps a writable fixmap
+    page, writes, and flushes I/D caches.
+  - Affected path: boot-time `runtime_const_init()` only (not a hot
+    path).
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-- Record: No `Fixes:` tag. Introducer is `d976a525c37127`, and `git
-  merge-base --is-ancestor d976a525c37127 HEAD` succeeds. That code is
-  in this tree.
+**Step 2.3 — Bug mechanism**
+- Record: **logic/correctness of text patching after RO protection**.
+  Direct store to RO kernel text. The helper uses `patch_map()` →
+  `FIX_TEXT_POKE0`, the same path as kprobes/jump labels/ftrace.
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-- Record: Recent `stmmac_platform.c` work is unrelated (bus_id, probe
-  error path, IRQ). Historical OF leak fixes in this driver:
-  `a249708bc2aa1`, `d2ed0a7755fe1`, `4613b279bee79`. Standalone
-  `[PATCH]`, not `X/Y`.
+**Step 2.4 — Fix quality**
+- Record: Obviously correct. Matches how arm64 already patches text.
+  Regression risk is low: leftover `#include <asm/cacheflush.h>` is
+  unused after the helper absorbs the flush; return value of the helper
+  is ignored (old path had no error check either; kernel text is 4-byte
+  aligned). Catalin confirmed dropping `lm_alias()` is safe because
+  kernel text remains readable for the opcode load.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-- Record: `git log --author="Md Rabbani"` on this path is empty in this
-  tree (new contributor). Applied by Jakub Kicinski to `netdev/net.git`
-  (fixes tree), which is a strong maintainer signal.
+## Phase 3: Git history
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-- Record: Depends on `for_each_child_of_node_scoped` /
-  `DEFINE_FREE(device_node)` (`34af4554fb0ce1` / `9448e55d032d99`,
-  2024-02-25). Both are already in this 6.12 tree (`git merge-base --is-
-  ancestor` succeeded). Can apply standalone. `stmmac_platform.c`
-  already includes `<linux/of.h>`, which includes `<linux/cleanup.h>`.
+**Step 3.1 — Blame**
+- Record: Buggy direct-write scheme introduced in `94a2bc0f611cd`
+  (“arm64: add 'runtime constant' support”, Linus, 2024-07-09). Present
+  since ~v6.11. The crash only appears when `runtime_const_init()` runs
+  after `mark_linear_text_alias_ro()`.
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+**Step 3.2 — Fixes: tag**
+- Record: none. Introducing commit is `94a2bc0f611cd` (in this tree).
+  The late caller that actually faults is `b78b0b6582527` (“futex: Use
+  runtime constants for `__futex_hash()` hot path”), also in this tree
+  (v7.3-rc1).
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-- Record: `b4 dig -c <sha>` cannot match because `317fe168f4c0` is not
-  an ancestor of HEAD. Used msgid instead. Lore thread: `https://lore.ke
-  rnel.org/netdev/20260821055718.57-1-rabbanyhmm@gmail.com/`
-- Series: single v1 `[PATCH]` (2 messages: submission + patchwork-bot).
-  Applied to `netdev/net.git (main)` as
-  `https://git.kernel.org/netdev/net/c/317fe168f4c0`. No v2, no NAK.
+**Step 3.3 — File history**
+- Record: `94a2bc0f611cd` add support → `0100e495cdf04` modules ban →
+  **`a6690350a4ae7` this fix** → `7eccf137dc044`
+  `runtime_const_mask_32()`. Same series as the futex conversion; this
+  patch is 2/8 and does not depend on later patches. Later mask support
+  *uses* this helper.
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-- Record: To/Cc included STMMAC maintainers (Torgue, Coquelin,
-  Chevallier), netdev maintainers (Miller, Dumazet, Kicinski, Abeni),
-  `netdev@`, `linux-stm32@`, `linux-arm-kernel@`. No written review
-  comments; Kicinski applied it to the **net fixes** tree.
+**Step 3.4 — Author**
+- Record: K Prateek Nayak (AMD), not the arm64 maintainer. Arm64 review
+  is from Catalin. Peter Zijlstra signed off (locking tree). Related:
+  `7eccf137dc044` immediately after.
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-- Record: No syzbot/bugzilla. Bug is from code inspection. Real in-tree
-  DTs trigger it (see Phase 6/8).
+**Step 3.5 — Dependencies**
+- Record: Needs `aarch64_insn_patch_text_nosync()` / `<asm/text-
+  patching.h>` — present at the parent and on HEAD. Standalone vs the
+  rest of the series. On *this* tree the futex caller is already
+  present, so the fix is load-bearing.
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-- Record: Standalone. No other patches required.
+## Phase 4: Mailing list
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-- Record: lore.kernel.org/stable search for `stmmac_mtl_setup` shows
-  older stmmac stable backports (probe error-path, MDIO, Tx COE), not
-  this leak. No prior rejection of this fix.
+**Step 4.1 — Original discussion**
+- Record: `b4 dig -c a6690350a4ae` → `[PATCH v6 2/8] arm64/runtime-
+  const: Use aarch64_insn_patch_text_nosync() for patching` at
+  https://patch.msgid.link/20260728052540.4728-3-kprateek.nayak@amd.com.
+  Cover: `[PATCH v6 0/8] futex: Use runtime constants for futex_hash
+  computation`. v5→v6: no diff change on this patch; tags collected. No
+  NAKs. Sashiko noted the helper must not get an `lm_alias()` address;
+  Catalin said dropping it is fine. No reviewer asked for Cc: stable.
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+**Step 4.2 — Recipients**
+- Record: Catalin Marinas, Will Deacon, Peter Zijlstra, Thomas Gleixner,
+  linux-arm-kernel, linux-arch. Right maintainers were on the To/Cc
+  list. Catalin Reviewed-by is on the committed patch.
 
-**Step 5.1: KEY FUNCTIONS**
-- Record: `stmmac_mtl_setup()` (modified). Helpers:
-  `for_each_child_of_node_scoped`, `of_get_next_child` /
-  `__of_get_next_child`, `of_node_put`.
+**Step 4.3 — Bug report**
+- Record: No syzbot/bugzilla. The oops is from the author’s own
+  futex+runtime-const bring-up on arm64. Charlie Jenkins Tested-by.
+  Cover letter: build+boot on x86 bare metal and QEMU for other arches.
 
-**Step 5.2: TRACE CALLERS**
-- Record: Only caller is `stmmac_probe_config_dt()` in the same file
-  (line 603). That is used via `devm_stmmac_probe_config_dt()` from many
-  glue drivers: `dwmac-rk`, `dwmac-qcom-ethqos`, `dwmac-imx`, `dwmac-
-  stm32`, `dwmac-sun8i`, `dwmac-mediatek`, `dwmac-generic`, and others.
-  Probe/init context, not IRQ/hot path.
+**Step 4.4 — Series**
+- Record: v6 8-patch feature series. This commit is the arm64 text-
+  poking prerequisite. Patch 8 adds `runtime_const_init()` in
+  `futex_init()`. Both are in this 7.3-rc4 tree.
 
-**Step 5.3: TRACE CALLEES**
-- Record: `of_parse_phandle`, `of_property_read_*`, `of_get_next_child`,
-  `of_node_put`. DT parse only.
+**Step 4.5 — Stable list**
+- Record: UNVERIFIED for a dedicated stable@ thread (lore HTTP 403). No
+  stable mention in the saved v6 mbox.
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-- Record: Userspace cannot trigger it directly. It runs on every DT-
-  based stmmac probe. Reachable on common ARM/ARM64 SoCs (Rockchip,
-  i.MX, STM32, Qualcomm, MediaTek). Leak fires when the RX config node
-  has more children than `snps,rx-queues-to-use`.
+## Phase 5: Code semantics
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-- Record: Same file still has `for_each_child_of_node(np, mdio_node)` in
-  `stmmac_of_get_mdio()` (line 324); not the same shared-iterator bug.
-  In-tree DTs with extra RX children:
-  `arch/arm64/boot/dts/qcom/sa8540p-ride.dts` uses `snps,rx-queues-to-
-  use = <1>` with `queue0`–`queue3` on both ethernet0 and ethernet1.
+**Step 5.1 — Functions**
+- Record: `__runtime_fixup_16`, `__runtime_fixup_ptr`,
+  `__runtime_fixup_shift`; `__runtime_fixup_caches` removed. Current
+  tree also has `__runtime_fixup_mask` (later commit) using the same
+  helper.
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+**Step 5.2 — Callers**
+- Record: `runtime_const_init()` → `runtime_const_fixup()` → those
+  fixups. Call sites in this tree:
+  - `kernel/futex/core.c` `futex_init()` — `core_initcall` — **after**
+    `smp_cpus_done()` → `mark_linear_text_alias_ro()`
+  - `fs/dcache.c`, `fs/file_table.c`, `fs/namei.c` —
+    `vfs_caches_init[_early]()` in `start_kernel()` — **before** that RO
+    switch
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-- Record: Yes. This tree is **6.12.111** (`pending-6.12`,
-  `p-6.12-3-gc504cf0baa3d8`). Current code at `stmmac_platform.c:177` /
-  `:240` still uses unscoped loops and `of_node_put(q_node)` at `:293`.
-  `317fe168f4c0` is **not** an ancestor of HEAD. Bug present since
-  v4.12.
+**Step 5.3 — Callees**
+- Record: `aarch64_insn_patch_text_nosync()` → `aarch64_insn_write()` →
+  `__aarch64_insn_write()` (`patch_map` + `copy_to_kernel_nofault`) +
+  `caches_clean_inval_pou()`.
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-- Record: Expected difficulty: **minor context conflicts**. Upstream
-  context has later `stmmac_axi_blen_to_mask` / `MTL_MAX_*` clamping
-  that 6.12 does not have. The three functional edits (two loop macros,
-  drop `q_node` + trailing put) match 6.12 1:1. Needs a small context-
-  adjusted backport, not a rewrite.
+**Step 5.4 — Reachability**
+- Record: Unconditional on arm64. `futex_init` is a `core_initcall`.
+  Every arm64 boot on this tree hits the late patch. Without this fix:
+  boot oops.
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-- Record: No commit with this subject in this tree. Older stmmac
-  `of_node_put` fixes do not cover this iterator reuse.
+**Step 5.5 — Similar patterns**
+- Record: x86 runtime-const still does a direct store and documents
+  “only at init before text is RO”. arm64’s linear-map alias is marked
+  RO earlier (`smp_cpus_done`), so arm64 cannot follow that model for
+  `core_initcall`.
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+## Phase 6: This tree
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-- Record: [Subsystem] `drivers/net/ethernet/stmicro/stmmac` (Synopsys
-  DWMAC). [Criticality] **IMPORTANT** — common platform Ethernet on many
-  SoCs, not core mm/VFS, not staging.
+**Step 6.1 — Buggy code here?**
+- Record: Yes. Tree is **v7.3-rc4** (`7.3.0-rc4`, HEAD `f0100363d8c37`).
+  File exists. Pre-fix body is at `a6690350a4ae^`. `futex_init()` still
+  calls `runtime_const_init()` (`kernel/futex/core.c`). The fix commit
+  **is already an ancestor of HEAD** (in v7.3-rc1). Current `runtime-
+  const.h` already calls `aarch64_insn_patch_text_nosync()`.
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-- Record: Actively maintained (many recent stmmac fixes on this branch).
-  The leak itself is old (2017), not a new-feature bug.
+**Step 6.2 — Backport difficulty**
+- Record: Clean on the parent snapshot. Current HEAD already has this
+  plus `runtime_const_mask_32()`; re-applying the exact hunk would be a
+  no-op / already-applied.
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 6.3 — Related fixes already here**
+- Record: This *is* the fix. No later Fixes: for `a6690350`. Follow-up
+  `7eccf137dc044` only adds mask patching on the new helper.
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-- Record: Driver/config-specific: `CONFIG_STMMAC_ETH` +
-  `CONFIG_STMMAC_PLATFORM` + DT `snps,mtl-rx-config` with extra child
-  nodes. Confirmed affected in-tree board: Qualcomm SA8540P Ride
-  (`sa8540p-ride.dts`). Many other boards have matching child counts and
-  do not leak.
+## Phase 7: Subsystem
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-- Record: Device probe (and every unbind/rebind). Common on boards whose
-  DT lists more queue children than `snps,rx-queues-to-use`. Not a
-  userspace syscall; not a race. Extra TX children were already put at
-  `out:`; extra RX children leak.
+**Step 7.1**
+- Record: **arch/arm64** text-patching used by **futex** (core locking).
+  Criticality: **IMPORTANT** — every arm64 boot.
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-- Record: [Failure] One `device_node` ref leak per probe when extra RX
-  children exist. [Severity] **MEDIUM** — not oops/deadlock/corruption,
-  but a real lifetime leak of an OF kobject. Repeatable on module
-  reload. Can pin overlay/node teardown.
+**Step 7.2**
+- Record: Active in the 7.3 window (futex runtime-const series). The
+  underlying helper is old, stable infrastructure.
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-- Record: Benefit: medium (fixes a real, DT-triggered leak on a widely
-  used NIC driver, including an in-tree Qualcomm board). Risk: **very
-  low** (2 insertions / 4 deletions, existing helper, probe-only). Ratio
-  favors backport.
+## Phase 8: Impact and risk
 
-## PHASE 9: FINAL SYNTHESIS
+**Step 8.1**
+- Record: All arm64 users of this kernel (futex init is not optional).
 
-**Step 9.1: COMPILE THE EVIDENCE**
+**Step 8.2**
+- Record: Every boot, `core_initcall(futex_init)`. Not userspace-
+  triggered; it is a boot breaker.
 
-FOR:
-- Real OF refcount leak, mechanism verified against
-  `of_get_next_child()` / `__of_get_next_child()`.
-- Buggy code is in this 6.12 tree and has been since v4.12.
-- In-tree DT `sa8540p-ride.dts` has 4 RX queue children with `rx-queues-
-  to-use = <1>` — the leak path is not theoretical.
-- Tiny, obviously correct fix; helper already in 6.12.
-- Applied to `netdev/net` (fixes) by Kicinski.
-- Same class of bug as prior stmmac `of_node_put` fixes already in
-  history.
-- No new API/feature; no series dependency.
+**Step 8.3**
+- Record: Kernel fault writing RO text → boot failure. **CRITICAL**.
 
-AGAINST:
-- Probe-time leak of a single node, not a crash/UAF/security issue.
-- Surrounding file context differs slightly from mainline, so `git am`
-  of the raw mainline diff may need a trivial refresh.
-- No user crash report / syzbot.
+**Step 8.4**
+- Record: Benefit high (arm64 actually boots with the futex runtime-
+  const code this tree already has). Risk low (~one-header, established
+  poking API, arm64 maintainer Reviewed-by).
 
-UNRESOLVED:
-- No written mailing-list review beyond maintainer application (v1
-  accepted as-is).
+## Phase 9: Synthesis
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — scoped put on break/exit is
-   the intended helper; applied to netdev/net.
-2. Fixes a real bug that affects users? **PASS** — leak on probe;
-   triggered by in-tree Qualcomm DT.
-3. Important issue? **PASS** at medium importance — resource leak, not
-   panic, but a genuine lifetime bug in a common Ethernet driver.
-4. Small and contained? **PASS** — +2/-4, one function.
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — same loops exist; scoped
-   macro exists; minor context tweak only.
+**Evidence for YES**
+- Documented oops: write to RO memory in `__runtime_fixup_shift()`.
+- This tree has the late caller (`futex_init` / `core_initcall`) and
+  `mark_linear_text_alias_ro()` in `smp_cpus_done()` before
+  `do_basic_setup()` / initcalls.
+- Small, local, uses the standard arm64 patching API.
+- Reviewed by Catalin Marinas; tested by Charlie Jenkins; signed off by
+  Peter Zijlstra.
+- No new userspace API.
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-- Record: Not a device-ID/quirk/DT/build/docs exception. Ordinary small
-  bugfix.
+**Evidence against**
+- Lives in a feature series (futex hash optimization). On trees
+  *without* a late `runtime_const_init()`, the old path never faulted.
+- No Fixes:/Cc: stable (not a negative under these rules).
+- Already in this 7.3-rc4 history, so a second apply is unnecessary —
+  that is not used as a NO (pipeline “already selected” is ignored).
 
-**Step 9.4: DECISION**
-Backport to this 6.12 tree. The bug exists here, the helper exists here,
-the fix is surgical, and at least one in-tree board hits it.
+**Unresolved**
+- No stable@ thread readable (lore 403). Does not change the local
+  technical picture.
 
----
+**Stable-rules checklist**
+1. Obviously correct and tested — **PASS** (Catalin + Tested-by + QEMU
+   boot)
+2. Real user-visible bug — **PASS** (arm64 boot oops with this tree’s
+   futex init)
+3. Important (crash) — **PASS** (CRITICAL)
+4. Small/contained — **PASS** (one header, ~17 lines)
+5. No new features/APIs — **PASS**
+6. Applies to this tree — **PASS** (code and helper are here; commit
+   already merged in 7.3-rc1)
 
-### What the commit solves and why it matters here
-`stmmac_mtl_setup()` parses `snps,mtl-rx-config` / `snps,mtl-tx-config`
-at probe. The RX iterator `break`s once `queue >=
-plat->rx_queues_to_use`, leaving `q_node` referenced. The TX loop then
-starts with `of_get_next_child(tx_node, NULL)`, which never puts that RX
-child. That is a permanent OF node leak.
-`arch/arm64/boot/dts/qcom/sa8540p-ride.dts` is written exactly that way
-(1 queue in use, 4 queue child nodes).
+**Exception category:** none (not an ID/quirk/DT/docs/build-only
+change).
 
-### Stable rules / risk
-Meets the rules: small, obviously correct, no new API, real leak, helper
-already in 6.12. Risk is a possible trivial context conflict around
-later mainline-only `stmmac_platform.c` edits; the functional change
-does not depend on those.
+This tree ships both the late `runtime_const_init()` and arm64
+`STRICT_KERNEL_RWX` linear-alias RO. The old `lm_alias()` store is a
+boot crash. Replacing it with `aarch64_insn_patch_text_nosync()` is the
+correct, minimal fix and belongs in this series.
 
 ### Verification
-- [Phase 1] Parsed tags: author SOB, msgid Link, Kicinski SOB; no
-  Fixes/Reported-by; upstream `317fe168f4c0`
-- [Phase 2] Diff: +2/-4 in `stmmac_mtl_setup()`; two loops to `_scoped`;
-  drop `q_node` + `of_node_put(q_node)`
-- [Phase 2] `__of_get_next_child()` does `of_node_get(next);
-  of_node_put(prev)` (`drivers/of/base.c:600-603`); `prev=NULL` does not
-  put the overwritten pointer
-- [Phase 3] Blame: loops from `d976a525c37127` (v4.12-rc1); ancestor of
-  HEAD
-- [Phase 3] `34af4554fb0ce1` / `DEFINE_FREE(device_node)` are ancestors
-  of HEAD
-- [Phase 3] `git merge-base --is-ancestor 317fe168f4c0 HEAD` failed (fix
-  not in this tree)
-- [Phase 4] `b4 mbox` msgid: 2-message thread; applied to netdev/net; no
-  NAK
-- [Phase 4] stable lore search: no discussion of this leak
-- [Phase 5] Caller: `stmmac_probe_config_dt()` → many `dwmac-*` platform
-  probes
-- [Phase 6] `git describe HEAD` / `make kernelversion`: 6.12.111
-  `pending-6.12`; buggy loops still present at lines 177 and 240
-- [Phase 6] `sa8540p-ride.dts` `ethernet0_mtl_rx_setup` /
-  `ethernet1_mtl_rx_setup`: `rx-queues-to-use = <1>` with queue0–queue3
-- [Phase 8] Failure mode: OF `device_node` leak at probe, severity
-  MEDIUM
-- UNVERIFIED: Could not use `b4 dig -c` against HEAD (commit not in this
-  checkout); lore HTML fetch returned 403, raw/mbox succeeded
+- [Phase 1] Parsed tags: Reviewed-by Catalin Marinas, Tested-by Charlie
+  Jenkins, Link to v6 2/8; no Fixes:/syzbot
+- [Phase 2] Diff: one file; direct `*p` store + `lm_alias` +
+  `__runtime_fixup_caches` replaced by `aarch64_insn_patch_text_nosync`
+- [Phase 2] Confirmed helper: `arch/arm64/kernel/patching.c`
+  `aarch64_insn_patch_text_nosync()` → write via `patch_map` +
+  `caches_clean_inval_pou`
+- [Phase 3] `git describe HEAD` / Makefile: **v7.3-rc4**, `7.3.0-rc4`
+- [Phase 3] `git merge-base --is-ancestor a6690350 HEAD`: yes; also in
+  v7.3-rc1; not in v7.2
+- [Phase 3] Blame: buggy writes from `94a2bc0f611cd` (2024); late caller
+  `b78b0b6582527` in this tree
+- [Phase 3] Parent file shown: `*p = cpu_to_le32(insn)` + `lm_alias`
+- [Phase 4] `b4 dig -c a6690350`: lore match v6 2/8; mbox saved; no NAK;
+  Catalin R-b on the patch
+- [Phase 4] Cover letter: feature series for futex runtime const; this
+  patch is the arm64 poking prerequisite
+- [Phase 4] UNVERIFIED: stable@ mailing-list search (lore 403)
+- [Phase 5] Callers: futex `core_initcall` (late); VFS caches in
+  `start_kernel` (early)
+- [Phase 5] `mark_linear_text_alias_ro()` called from `smp_cpus_done()`;
+  `do_basic_setup()`/`do_initcalls()` after `smp_init()`
+- [Phase 6] Current `runtime-const.h` already uses the helper; `text-
+  patching.h` exists at parent
+- [Phase 8] Failure mode: RO-text write → boot oops on all arm64,
+  CRITICAL
+- UNVERIFIED: Catalin’s original review mail text (only R-b + commit-
+  message paraphrase in v6 mbox)
+
+The patch is small, uses the existing arm64 text-poking path, and
+prevents a boot crash on this tree’s futex `runtime_const_init()`.
 
 **YES**
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/runtime-const.h | 17 +++++------------
+ 1 file changed, 5 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 0cb51935c4056..ceb913a3a6c69 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -131,7 +131,6 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
- static int stmmac_mtl_setup(struct platform_device *pdev,
- 			    struct plat_stmmacenet_data *plat)
- {
--	struct device_node *q_node;
- 	struct device_node *rx_node;
- 	struct device_node *tx_node;
- 	u8 queue = 0;
-@@ -174,7 +173,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- 		plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
+diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
+index be5915669d239..31a6f94e57955 100644
+--- a/arch/arm64/include/asm/runtime-const.h
++++ b/arch/arm64/include/asm/runtime-const.h
+@@ -3,6 +3,7 @@
+ #define _ASM_RUNTIME_CONST_H
  
- 	/* Processing individual RX queue config */
--	for_each_child_of_node(rx_node, q_node) {
-+	for_each_child_of_node_scoped(rx_node, q_node) {
- 		if (queue >= plat->rx_queues_to_use)
- 			break;
+ #include <asm/cacheflush.h>
++#include <asm/text-patching.h>
  
-@@ -237,7 +236,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- 	queue = 0;
- 
- 	/* Processing individual TX queue config */
--	for_each_child_of_node(tx_node, q_node) {
-+	for_each_child_of_node_scoped(tx_node, q_node) {
- 		if (queue >= plat->tx_queues_to_use)
- 			break;
- 
-@@ -290,7 +289,6 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- out:
- 	of_node_put(rx_node);
- 	of_node_put(tx_node);
--	of_node_put(q_node);
- 
- 	return ret;
+ /* Sigh. You can still run arm64 in BE mode */
+ #include <asm/byteorder.h>
+@@ -46,34 +47,26 @@ static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
+ 	u32 insn = le32_to_cpu(*p);
+ 	insn &= 0xffe0001f;
+ 	insn |= (val & 0xffff) << 5;
+-	*p = cpu_to_le32(insn);
+-}
+-
+-static inline void __runtime_fixup_caches(void *where, unsigned int insns)
+-{
+-	unsigned long va = (unsigned long)where;
+-	caches_clean_inval_pou(va, va + 4*insns);
++	aarch64_insn_patch_text_nosync(p, insn);
  }
+ 
+ static inline void __runtime_fixup_ptr(void *where, unsigned long val)
+ {
+-	__le32 *p = lm_alias(where);
++	__le32 *p = where;
+ 	__runtime_fixup_16(p, val);
+ 	__runtime_fixup_16(p+1, val >> 16);
+ 	__runtime_fixup_16(p+2, val >> 32);
+ 	__runtime_fixup_16(p+3, val >> 48);
+-	__runtime_fixup_caches(where, 4);
+ }
+ 
+ /* Immediate value is 6 bits starting at bit #16 */
+ static inline void __runtime_fixup_shift(void *where, unsigned long val)
+ {
+-	__le32 *p = lm_alias(where);
++	__le32 *p = where;
+ 	u32 insn = le32_to_cpu(*p);
+ 	insn &= 0xffc0ffff;
+ 	insn |= (val & 63) << 16;
+-	*p = cpu_to_le32(insn);
+-	__runtime_fixup_caches(where, 1);
++	aarch64_insn_patch_text_nosync(p, insn);
+ }
+ 
+ static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
 -- 
 2.53.0
 
