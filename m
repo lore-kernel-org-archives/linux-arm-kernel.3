@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B183CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31540CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3Wz+YB5dfxnzJ3YmxnQmlqV+U/oXF2Di0EHxgux31U=; b=E9K9EIqzDeZz1IL2Gaa39LuTF5
-	+HAKpgYXdi418QKhg3b1m9JTrkpxoiKb6hbGRDzF9o6UVJbK+5UsaxdwAeE7yxprjktG0N9o/YNDi
-	plFyQPUneHqFkVuTH7y4ZYmz6JZAnRwcMQKD3XsMDwijbDbo//KvpeLTp6hRW20sl8Ot3bDjle91q
-	3QTIS5rg78taHjffvkg//BC1bK8gxYa0B481P1kwZ3tnqldfpiPjavbNvLvuBXzI5hdSnPNDoe5em
-	CvCvXtQrmwN7pNc+D5dOeDYJfQlZ/1l62Ax7WdR8PKHpMmxwDijrqO/klzFN4f/7M6tOFlct7VONM
-	oaWix65A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PAmuYDb6EFFu7x5oOIlXjlu6IzJRbzi7uesDI6uh9a4=; b=eNeeKUdM2lULtNV5yERl/g/OHD
+	3kJ4z3VjeUjKeV68INPejBFPI9BhJlCvGSSrSDVwGYDMmY6ELThuksqRn5UzFpstRIrXxm/KFo8FT
+	q7cKP7L0poKXDy58zIpmo+AJ993o5ib52MFXga/hSWJAMVUlO4xWFH6+xqz85VgA5tkWiYL/6AwoM
+	2nFGPKU6ka61Z0WTdGU1I692v0jiufBFlpzqge3mbW3XNpQiu2rZyh/5j/LlgJGaI5IliglzL+KEp
+	Jb1BevHIRvkW0LRzNH2OK65oYUvm4PrxldRuz+xfDlIDl2Wgm1p1S1PCUK7mNcHFu2YlBLUXNXaHX
+	RfZ/az3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjaU-00000006z1H-2CEO;
-	Mon, 19 Oct 2026 09:23:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjaR-00000006z0X-2nm2
+	id 1xIjbj-00000006zDW-24pn;
+	Mon, 19 Oct 2026 09:24:39 +0000
+Received: from mailgate01.uberspace.is ([2001:1a50:11:0:c83f:a8ff:fea6:c8da])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xIjbV-00000006zAe-46Ul
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 09:23:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB0351477;
-	Mon, 19 Oct 2026 02:23:12 -0700 (PDT)
-Received: from [10.0.152.204] (e121487-lin.cambridge.arm.com [10.0.152.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BF463F7D8;
-	Mon, 19 Oct 2026 02:23:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792401796; bh=9PebdIH/SVuVj9MRbPB/1J1o0shLFs/Jpdx34TKGXEg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C+Y1yTcoKKTeRGxeqTyg1bb//zBo/34B94yQoPCY8Z3TFTWlPLYAqR+kfzFP/WUTg
-	 wcMt2ARDZEf2af+mvA9gjVQuj5IIGdx+Cvs/7LSXLhe70k4TcVAJprfzM2ozRDBJKM
-	 AD6JEGRA9yLKmyScnBGv/fMHzUKKr7+ir8KeI1Cc=
-Message-ID: <494fd8b9-b7cc-43ef-af0a-218c6afe0fed@arm.com>
-Date: Mon, 19 Oct 2026 10:23:09 +0100
+	Mon, 19 Oct 2026 09:24:38 +0000
+Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 504C5610F0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:24:24 +0200 (CEST)
+Received: (qmail 17388 invoked by uid 990); 19 Oct 2026 09:24:24 -0000
+Authentication-Results: devico.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Mon, 19 Oct 2026 11:24:23 +0200
+From: Leonard Lausen <leonard@lausen.nl>
+To: ulfh@kernel.org,
+	heiko@sntech.de
+Cc: leonard@lausen.nl,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	detlev.casanova@collabora.com,
+	finley.xiao@rock-chips.com,
+	zhangqing@rock-chips.com,
+	inindev@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	gahing@gahingwoo.com
+Subject: [PATCH 0/2] Fix Panfrost boot hang on NanoPi M5
+Date: Mon, 19 Oct 2026 09:24:14 +0000
+Message-ID: <20261019092417.391522-1-leonard@lausen.nl>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
- Erratum E#030001
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
- <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261016-monaka-fix-for-upstream-v2-2-fc7ede7f9f48@fujitsu.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) MIME_GOOD(-0.1) MID_CONTAINS_FROM(1) BAYES_HAM(-2.99944) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.09944
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lausen.nl; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=opmJhQyRutddC51J+UVfKfOELmccvq4ueY+QZcg7O50=;
+	b=xEVa71HfxgzTXjABTg3LFhDeiY+KPhHuBBLKFjWpvaMgE158Dm1ZrlJzK95jpAGL7N0fd7IpkM
+	AqjSk9GAzbbvO5yPzF755FOljuK3bPGTtgofYiwuU8DtUV0MtFeae6tlaJg4XdbsMzwa9+bFJD+c
+	R/kRHNdL46B9QjDvse8ZpRsOc9k48uDmwpOYZCOc4ZOSwQpeekfA9iYrxAQMqfmPkOf2rSGxRhKY
+	hspsVJPtZW/jznh7ZeSKecyjW/BeW3xTAc5aVi758lFQgMbrOdUA3VPK/kuArPxDkHlqwAF37GBO
+	wXgzwbs8r1ZBv/73yO5tMzFBSx2ndkgyS+xbP1J2po8Rbogrux5mo0HfWQeSjckAWA3yZ3yqMXn2
+	1UhpHAyK4AYL1szvzY3RCtlZem9oNPMtah119Hi/pR6g2jmnmI/k9HwQDP2zsrNw0Sghv/20Yr+7
+	yPXkb3muAca5Emc+XtN+tn1xmLSD4su6bOgkj9VmQ/LNCQ3QQfcQFCFxHYq3KGk3FnDZhfWcPWv5
+	F/6JKMd5rzj0XvZfAEVOK88vPsVyDxeo5GTVCgoQhN4MX4IOu1qVMqkxPX6E0IPpjoMC5g/EUXQ0
+	PcoIuKn73shWMzhh/mAaaGqC8PjKrF9l+bxUSfWr+nkFUC2m6Ht/DLg7o3Po7cMQ7ndBLTMEt1L2
+	0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_022319_929957_CF1D1D3B 
-X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-CacheID: sfid-20261019_022426_309667_0B8778F4 
+X-CRM114-Status: UNSURE (   6.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,23 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On the NanoPi M5, boot hangs during Panfrost initialization. Before this
+fix, booting required blacklisting Panfrost on the kernel command line.
+Loading Panfrost after boot reports a GPU power-domain acknowledgment
+timeout.
 
-On 10/16/26 11:00, Tomohiro Misono wrote:
-> +#ifdef CONFIG_FUJITSU_ERRATUM_030001
-> +	{
-> +		.desc = "FUJITSU-MONAKA Erratum E#030001",
-> +		.capability = ARM64_WORKAROUND_FUJITSU_030001,
-> +		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
-> +					MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-> +					{}
-> +				})),
-I reckon that can be simplified to
+Enable regulator management for the RK3576 GPU power domain and connect
+its supply to the NanoPi M5 GPU rail.
 
-+	ERRATA_MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
+The regulator-capable descriptor is based on Jiaxing Hu's RK3576 NPU work:
+https://lore.kernel.org/all/20260924102135.92217-10-gahing@gahingwoo.com/
 
-Cheers
-Vladimir
+On the NanoPi M5 with CONFIG_DRM_PANFROST=m, boot and Panfrost
+initialization succeed, and GPU workloads run successfully. W=1 driver
+and DTB builds and schema validation pass.
 
+Leonard Lausen (2):
+  pmdomain: rockchip: Manage the RK3576 GPU domain supply
+  arm64: dts: rockchip: Fix GPU domain supply on NanoPi M5
+
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts |  4 ++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi          |  2 +-
+ drivers/pmdomain/rockchip/pm-domains.c            | 10 +++++++---
+ 3 files changed, 12 insertions(+), 4 deletions(-)
+
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+-- 
+2.47.3
 
 
