@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC63606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 17:38:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B446606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 17:39:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QfEKgRcT;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XFVPcxTB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fhAKnU0J;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G0XFbXNn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxLzr0WgWnW5NX5VbKd/AKKIcWzJwAW/qePwa3/vqSE=; b=QfEKgRcTevWpXGNFX0ldxOVL2D
-	c1z08XanML0QHKW10apt4q87xUP3PZX8ev4ev+1iAHdW48JYJ3XjiyJfviO4HKuD1KUsiR4rIvzCh
-	sxf+m9MQ5ko0tIKf3X+E5z7M5wSN8MWMEnS83G1hEtLWJ1VGr7EnG6/FhbeIcHxj7HvnZv/e17pkh
-	IPFSrL7EkTKE4eqC2psWTi5ZG+Q7Ky0vxOIovgkerIFIY3u2sgcqfC+5aqCm5ScT0iq382RE0nlcq
-	6cg6y07kqJsJp73EwirxKB0lUWXsjJOCEXlwFuZaWmVcUieCEoZ0jRPyGDJMWM4A0+aD4KH86AnTg
-	iXPTOuFw==;
+	bh=7ykaxJta1Hj+twICobH251gv/WlRqnsBOHcpwmRY0M0=; b=fhAKnU0JkF8+VlAeST7KUKztmo
+	Ap/4eBvH8DvzpPBZGIm3/EBWAmPFO7QI0QbVVQI9+yKyoWGesatFb1D91aa5bK2JIOICPPUP6JfNp
+	2rb0dl90a3vuXLYiZjqgIuX6lsuYKosboABdyUcGod2Q0m4qEUII8Rag8xeNi2uHp8CJXPAWlQoMp
+	/oZlicvhZrgAKhrGO4MZ+yjHvL+/XfpWMYIFH4UubKIX4tKoZxV/kEsdzIEcQ8PKTF3SOxUlDnytI
+	MdtcqB01KIyfXNzfqeWcwYOFUKNxeDghcy28ybZBd79/OFCuS+iG2iwwIURzDXUCV0wbU0uPR6jfh
+	mBu+x87g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJq-000000085wo-2ePs;
-	Mon, 19 Oct 2026 17:38:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xIrK8-0000000866i-16d5;
+	Mon, 19 Oct 2026 17:39:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJl-000000085v4-0vPZ
+	id 1xIrJq-000000085wh-1ZER
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 17:38:37 +0000
+	Mon, 19 Oct 2026 17:38:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BDEA60534;
-	Mon, 19 Oct 2026 17:38:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560881F000CC;
-	Mon, 19 Oct 2026 17:38:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DFE7F40AB2;
+	Mon, 19 Oct 2026 17:38:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA1CC1F000C6;
+	Mon, 19 Oct 2026 17:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792431516;
-	bh=jxLzr0WgWnW5NX5VbKd/AKKIcWzJwAW/qePwa3/vqSE=;
+	s=k20260515; t=1792431521;
+	bh=7ykaxJta1Hj+twICobH251gv/WlRqnsBOHcpwmRY0M0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XFVPcxTBBVAMSXbo6YHTCdp9Ti4e3FTz0KD/Zq9VxbAYfRAvGx0FEHPRxb6Gqqw6e
-	 d6RQHTNs0PKRUCvTXAIKXt8AlEqiAVKlbEDdqmloe6wDKQbX9nvLXSCotd4BIFwkTg
-	 dyOLR1Cyuz68lRa36wAHS8b/cp0V0kfUrhFARqZZSTKI7l6J0uDgVzjnsRH8N8hzva
-	 p9Wcz5vM3tx/ZS+TdHVUsJe2DfQ2NbEqH/WRpqrMR6R8bS+RvwevpDF1cijJheX9uj
-	 KNF7EpOSTwQkOnNmUqRW1kipY57HIYLpXQoSVWjQNePW0ppWYvsBI3B3L9flJ80QzX
-	 xWb77+R15QCCA==
-Subject: Re: [PATCH net-next v8 2/5] net: stmmac: drop split frames on AF_XDP
- zero-copy RX
+	b=G0XFbXNn6X4sA6mDTzmJUaHkacexmEeDXQUyLNgEhNyiIvcrOO2BGfswJm5pzhpDJ
+	 Bbspgt55bDVGZUfXb5CtWa8bPcPexpSZdtroj5JH5ZzzykHEC3KbsSnhPt+tguvbh2
+	 7qlFz2nKxcvyOBD8Xz1lT2JI8vYS/QnEy3Pt3P90o/Rdu4J+HAutLlFJZyBRgyWGgB
+	 Toj1pMdpj5HW+SEfph0Hf5VChzH6ad8RCE6yy3yMUesxX431naK/NElYcrH6p8zZQQ
+	 ZbDHcdSN2zfPhoQNag6Gzr0dDEaagtFbLYftFL/rGdQNSlMzA7sOvffixAs0XVYPDW
+	 E+2KBE26briNA==
+Subject: Re: [PATCH net-next v8 5/5] net: stmmac: rework stmmac_rx to support
+ XDP rx multi-buff
 From: netdev-bot+sashiko@kernel.org
 To: lorenzo.bianconi@oss.qualcomm.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -54,11 +54,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
  netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  bpf@vger.kernel.org
-Date: Mon, 19 Oct 2026 17:38:34 +0000
-Message-ID: <179243151485.3135.12311252292585825@kernel.org>
-In-Reply-To: <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
-References: <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
-X-sashiko-severity: Low
+Date: Mon, 19 Oct 2026 17:38:40 +0000
+Message-ID: <179243152020.3135.588086716583719127@kernel.org>
+In-Reply-To: <20261018-stmmac-rx-mb-v8-5-5f58c0b25849@oss.qualcomm.com>
+References: <20261018-stmmac-rx-mb-v8-5-5f58c0b25849@oss.qualcomm.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
@@ -80,238 +80,270 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 (1) · Medium: 2 (1) · Low: 1
 
-- [Low] The patch changes the discard test from `status == discard_frame`
-  to `status & discard_frame` in both stmmac_rx() and stmmac_rx_zc().
-- [Low] After this patch, stmmac_rx_zc() counts the same event (a frame
-  split across RX descriptors on an AF_XDP zero-copy queue) differently…
-- [Low] In stmmac_rx_zc() on dwmac4/XGMAC, a split frame can now be
-  counted in both rx_dropped and rx_errors.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The patch fixes a DMA under-sync on the XDP drop path but does
+  not say so.
+- [Medium] Fragment truesize is undercounted when num_pages is not a
+  power of two.
+- [Low] The patch advertises NETDEV_XDP_ACT_RX_SG (line 8189) and now
+  runs frags-aware programs on multi-buffer xdp_buffs…
 
 Pre-existing issues:
-- [High] At this commit, stmmac_rx() (non-ZC, XDP attached, GMAC4/XGMAC
-  whose non-last descriptors report bare rx_not_ls) still drops a non-…
-- [Medium] stmmac_rx_zc() and stmmac_rx() add their local
-  rx_dropped/rx_errors into the device-wide `priv->xstats.rx_dropped`…
+- [High] XDP_TX completions are recycled into the RX page_pool's lockless
+  alloc cache from a different NAPI context.
+- [Medium] The AF_XDP zero-copy XDP_PASS path reports XDP metadata whose
+  bytes it never copies.
 
 --
 
-net: stmmac: drop split frames on AF_XDP zero-copy RX
+net: stmmac: rework stmmac_rx to support XDP rx multi-buff
 
-In stmmac_rx_zc(), when the 1:1 XSK mapping check drops a non-last
-descriptor, this patch now marks the frame as errored. The rest of the
-split frame is then drained, and its tail is no longer handled as a new
-frame. The patch also makes the legacy enhanced and normal descriptor
-callbacks report rx_not_ls together with discard_frame, and changes the
-discard test in stmmac_rx_zc() and stmmac_rx() from == to &.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-> index 0512536012251..297e2428a8f9b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-> @@ -184,7 +184,7 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
->  
->  	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
->  		x->rx_length++;
-> -		return discard_frame;
-> +		return discard_frame | rx_not_ls;
->  	}
-
-[Severity: Low]
-
-With this change and the matching one in ndesc_get_rx_status(), does
-stmmac_rx_zc() now count the same split frame differently depending on
-the descriptor format?
-
-On dwmac4 and xgmac, dwmac4_wrback_get_rx_status() and
-dwxgmac2_get_rx_status() return a bare rx_not_ls for a non-last
-descriptor:
-
-	if (likely(!(rdes3 & RDES3_LAST_DESCRIPTOR)))
-		return rx_not_ls;
-
-So the frame reaches the new 1:1 mapping drop and rx_dropped is
-incremented once.
-
-On dwmac100/dwmac1000, non-last descriptors now carry discard_frame. The
-status & discard_frame block in stmmac_rx_zc() runs first and increments
-rx_errors for each non-last descriptor (when hwts_rx_en is off). The new
-rx_dropped++ in the 1:1 path is never reached on these cores.
-
-An N-descriptor jumbo frame would then show up as 1 rx_dropped on
-GMAC4/XGMAC, but as N-1 rx_errors on dwmac1000. Both counters are
-exported through stmmac_get_stats64(). Is this asymmetry intended?
-
-The legacy cores already counted rx_errors per descriptor before this
-patch; what is new is the different rx_dropped accounting. Later in the
-series, "net: stmmac: rework stmmac_rx to support XDP rx multi-buff"
-changes stmmac_rx() to test !error && (status & discard_frame), so it
-counts once per frame. stmmac_rx_zc() still counts per descriptor at the
-end of the series.
-
-[ ... ]
+This reworks stmmac_rx() to collect every descriptor of a frame in an
+xdp_buff, so the XDP program runs on the whole frame, including any
+fragments. The skb is then built from the xdp_buff with napi_build_skb()
+and xdp_update_skb_frags_info(). The in-progress xdp_buff is saved in
+rx_q->state across NAPI polls, and NETDEV_XDP_ACT_RX_SG is advertised.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 8fd2acb25fb60..efa88cd359dac 100644
+> index 04dc6dcaa435d..e9c61524fc740 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
 [ ... ]
 
-> @@ -5715,8 +5718,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
->  		if (likely(status & rx_not_ls)) {
->  			xsk_buff_free(buf->xdp);
->  			buf->xdp = NULL;
-> +			rx_dropped++;
-> +			error = 1;
->  			dirty++;
-> -			count++;
->  			goto read_again;
->  		}
->  
+> @@ -5806,6 +5812,119 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
 
-[Severity: Low]
+[ ... ]
 
-Can one split frame on dwmac4/XGMAC now be counted in both rx_dropped and
-rx_errors?
+> +static struct sk_buff *stmmac_build_skb(struct xdp_buff *xdp)
+> +{
+> +	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
+> +	u32 metasize = xdp->data - xdp->data_meta;
 
-The first non-last descriptor takes this path, which increments
-rx_dropped and sets error = 1. Suppose the last descriptor of the same
-frame then reports discard_frame (RDES3_ERROR_SUMMARY, for example a CRC
-or giant error on an oversized frame). The earlier block in
-stmmac_rx_zc() still runs:
+[ ... ]
 
-		if (unlikely(status & discard_frame)) {
-			error = 1;
-			if (!priv->hwts_rx_en)
-				rx_errors++;
-		}
-
-This happens even though error is already set for this frame.
-stmmac_get_stats64() exports both totals as rx_dropped and rx_errors.
-
-Later in the series, "net: stmmac: rework stmmac_rx to support XDP rx
-multi-buff" avoids this in stmmac_rx() by testing !error && (status &
-discard_frame). stmmac_rx_zc() is not changed, so the double count is
-still there at the end of the series.
+> +	skb_mark_for_recycle(skb);
+> +	skb_reserve(skb, xdp->data - xdp->data_hard_start);
+> +	skb_put(skb, xdp->data_end - xdp->data);
+> +	if (metasize)
+> +		skb_metadata_set(skb, metasize);
 
 [Severity: Medium]
+This isn't a bug introduced by this patch. Now that the page_pool path
+keeps the metadata, though, the AF_XDP zero-copy XDP_PASS path no longer
+matches it. Does stmmac_construct_skb_zc() pass stale headroom bytes to
+TC/BPF as metadata?
 
-This is a pre-existing issue and was not introduced by this patch. The
-new rx_dropped++ feeds this accumulation at the end of stmmac_rx_zc():
+stmmac_construct_skb_zc() {
+    ...
+	skb_reserve(skb, xdp->data - xdp->data_hard_start);
+	memcpy(__skb_put(skb, datasize), xdp->data, datasize);
+	if (metasize)
+		skb_metadata_set(skb, metasize);
+    ...
+}
 
-	priv->xstats.rx_dropped += rx_dropped;
-	priv->xstats.rx_errors += rx_errors;
+Only [data, data_end) is copied into the new skb, but the metasize bytes
+in front of skb->data are still marked as metadata. A TC/BPF program that
+reads data_meta on frames from stmmac_rx_zc()->stmmac_dispatch_skb_zc()
+would see leftover bytes from the napi_alloc_skb() headroom instead of
+what the XDP program wrote.
 
-These are plain unsigned long fields in struct stmmac_extra_stats,
-shared by the whole device. Each RX channel has its own NAPI instance,
-so stmmac_rx_zc() and stmmac_rx() can run at the same time for different
-queues on different CPUs.
+Other zero-copy drivers copy metasize + datasize bytes starting at
+xdp->data_meta and then call __skb_pull(skb, metasize). Would the same
+approach work here?
 
-Can these non-atomic read-modify-writes lose updates?
-stmmac_get_stats64() also reads the fields without any synchronization.
-
-stmmac_rx() does the same accumulation, and it is unchanged at the end
-of the series.
-
-> @@ -5883,7 +5887,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  
->  		if (priv->extend_desc)
->  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
-> -		if (unlikely(status == discard_frame)) {
 > +
-> +		if (unlikely(status & discard_frame)) {
+> +	if (unlikely(xdp_buff_has_frags(xdp)))
+> +		xdp_update_skb_frags_info(skb, num_frags, sinfo->xdp_frags_size,
+> +					  sinfo->xdp_frags_truesize,
+> +					  xdp_buff_get_skb_flags(xdp));
+> +	return skb;
+> +}
+> +
+> +static bool stmmac_build_xdp_frags(struct stmmac_priv *priv,
+> +				   struct stmmac_rx_queue *rx_q,
+> +				   unsigned int len, struct page *page,
+> +				   unsigned int offset,
+> +				   enum dma_data_direction dma_dir,
+> +				   struct xdp_buff *xdp)
+> +{
+> +	dma_addr_t dma_addr = page_pool_get_dma_addr(page) + offset;
+> +
+> +	dma_sync_single_for_cpu(priv->device, dma_addr, len, dma_dir);
+> +	if (!xdp_buff_add_frag(xdp, page_to_netmem(page), offset, len,
+> +			       xdp->frame_sz)) {
 
-[Severity: Low]
+[Severity: Medium]
+The commit message says:
 
-Changing == to & here and in stmmac_rx_zc() also changes the normal RX
-path on dwmac4/GMAC4/GMAC5. Should the commit message mention this?
+  charge fragments the whole page_pool page size (xdp->frame_sz) as
+  truesize instead of the old dma_buf_sz
 
-dwmac4_wrback_get_rx_status() sets ret = discard_frame when
-RDES3_ERROR_SUMMARY is set. It then ORs in csum_none for IP header or
-payload errors:
+Is xdp->frame_sz the page_pool page size in every configuration?
 
-	if (rdes1 & RDES1_IP_HDR_ERROR) {
-		x->ip_hdr_err++;
-		ret |= csum_none;
-	}
+frame_sz comes from bufsz = rx_q->napi_skb_frag_size in stmmac_rx(). That
+value is set in __alloc_dma_rx_desc_resources():
 
-So a frame with both an L2 error and an IP checksum error reports
-discard_frame | csum_none.
+	rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
+	...
+	pp_params.order = order_base_2(num_pages);
 
-Before this patch, such a frame failed the == test. It was run through
-XDP and passed to napi_gro_receive() with CHECKSUM_NONE. Now it is
-dropped and counted in rx_errors.
+When num_pages is not a power of two, each page_pool buffer is
+PAGE_SIZE << order, which is larger than napi_skb_frag_size. Two examples
+with 4K pages and no XDP:
 
-The new behaviour looks correct. It stops errored frames from reaching
-the stack, which has been possible since commit 644b8437ccef9e ("net:
-stmmac: dwmac4: report Rx checksum errors in status").
+- dma_buf_sz of 8KiB: num_pages = 3, order 2, so each 16K page is charged
+  as 12K.
+- dma_buf_sz of 16KiB: num_pages = 5, order 3, so each 32K page is charged
+  as 20K.
 
-However, the commit message presents the operator change only as a
-result of the enh_desc/norm_desc normalization, and limits the scope to
-AF_XDP zero-copy. Could it describe this GMAC4 change and reference
-644b8437ccef9e?
+stmmac_xdp_shrink_tail() subtracts the same xdp->frame_sz. Then
+stmmac_build_skb() adds sinfo->xdp_frags_truesize to skb->truesize
+through xdp_update_skb_frags_info(). As a result, skb->truesize is lower
+than the memory the fragments actually pin.
 
->  			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
->  			buf->page = NULL;
->  			error = 1;
+Could the fragment truesize use PAGE_SIZE << pp_params.order instead? Or
+could num_pages be rounded up to a power of two?
+
+[ ... ]
+
+> @@ -5927,129 +6039,89 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+
+[ ... ]
+
+> +		pre_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
+> +
+> +		ctx.desc = p;
+> +		ctx.ndesc = np;
+> +
+> +		skb = stmmac_xdp_run_prog(priv, &ctx.xdp);
+> +		/* Due xdp_adjust_tail: DMA sync for_device
+> +		 * cover max len CPU touch
+> +		 */
+> +		sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start;
+> +		sync_len = max(sync_len, pre_len);
+
+[Severity: Medium]
+The old pre_len and sync_len subtracted buf->page_offset:
+
+	sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
+		   buf->page_offset;
+
+The new ones don't. This looks like a separate DMA sync fix, and the
+commit message doesn't mention it.
+
+Commit 88095728511e ("net: stmmac: fix rx Scatter-Gather support") set
+pp_params.offset = 0, and __page_pool_dma_sync_for_device() syncs from
+dma_addr + pool->p.offset. So with the old formula, the XDP_CONSUMED path
+synced [0, L) for an L-byte frame at XDP_PACKET_HEADROOM. The bytes the
+CPU had touched were at [256, 256 + L).
+
+Take a non-coherent platform and an XDP program that writes the packet,
+grows the tail or writes metadata, and then returns XDP_DROP or
+XDP_ABORTED, or fails a redirect. Could that leave dirty cache lines in
+the recycled page? Those lines could later be written back over a frame
+the device has DMA'd into the page.
+
+The new formula looks like the correct one. Stable kernels that picked up
+88095728511e would keep the under-sync. Could this go out as a separate
+net fix with:
+
+Fixes: 88095728511e ("net: stmmac: fix rx Scatter-Gather support")
+
+or at least be described in the commit message?
+
+> +
+> +		/* For Not XDP_PASS verdict */
+> +		if (IS_ERR(skb)) {
+> +			unsigned int xdp_res = -PTR_ERR(skb);
+> +
+> +			if (xdp_res & STMMAC_XDP_CONSUMED) {
+> +				stmmac_xdp_put_buff(rx_q, &ctx.xdp, sync_len,
+> +						    true);
+> +				rx_dropped++;
+> +			} else if (xdp_res & (STMMAC_XDP_TX |
+> +					      STMMAC_XDP_REDIRECT)) {
+> +				xdp_status |= xdp_res;
+> +			}
 
 [Severity: High]
+This is a pre-existing issue, but this patch sends fragment pages down the
+same path. Is it safe for tx_napi to recycle XDP_TX completions directly
+into this RX queue's page_pool?
 
-This isn't a bug introduced by this patch. The commit message says the
-change lets stmmac_rx() drain split frames, which holds for
-dwmac100/dwmac1000.
+stmmac_tx_clean() runs from ch->tx_napi and does:
 
-GMAC4/XGMAC report non-last descriptors as a bare rx_not_ls. On those
-cores, with an XDP program attached, are there still paths in
-stmmac_rx() that drop a non-last descriptor without setting error?
+	if (xdpf &&
+	    tx_q->tx_skbuff_dma[entry].buf_type == STMMAC_TXBUF_T_XDP_TX) {
+		xdp_return_frame_rx_napi(xdpf);
+		tx_q->xdpf[entry] = NULL;
+	}
 
-When the XDP verdict is STMMAC_XDP_CONSUMED:
+That call ends up here:
 
-				if (xdp_res & STMMAC_XDP_CONSUMED) {
-					...
-					skb = NULL;
+xdp_return_frame_rx_napi()
+  __xdp_return(..., napi_direct=true)
+    page_pool_put_full_netmem(pp, netmem, true)
+      page_pool_recycle_in_cache()
+        pool->alloc.cache[pool->alloc.count++] = netmem;
 
-					if (unlikely((status & rx_not_ls)))
-						goto read_again;
+The page_pool belongs to ch->rx_napi, which is a separate napi_struct.
+stmmac_xdp_get_tx_queue() picks the XDP_TX queue by CPU. tx_napi can also
+be scheduled on another CPU by stmmac_tx_timer() or by a per-channel TX
+MSI vector. stmmac does not set pp_params.napi, so page_pool cannot catch
+this.
 
-error is still 0 here, so the next fragment goes through XDP as a new
-frame. With a 1-3 byte tail, wouldn't buf1_len -= ETH_FCS_LEN underflow?
+At the same time, stmmac_rx() on rx_napi uses the same alloc cache. It
+does so through stmmac_rx_refill() and through the new allow_direct=true
+puts in stmmac_xdp_put_buff(), stmmac_build_xdp_frags() and
+stmmac_xdp_shrink_tail().
 
-For XDP_TX/XDP_REDIRECT:
+Can these two contexts race on alloc.count and the cache slots? That
+could lose a page, or cache the same page twice so that it gets handed to
+two RX descriptors.
 
-				} else if (xdp_res & (STMMAC_XDP_TX |
-						      STMMAC_XDP_REDIRECT)) {
-					xdp_status |= xdp_res;
-					buf->page = NULL;
-					goto next;
-				}
+With multi-buffer frames, xdp_return_frame_rx_napi() now also returns
+every fragment page with napi_direct=true, so more pages go through this
+race.
 
-goto next clears in_progress even when rx_not_ls is set. The loop head
-then resets error and len, and the tail is reparsed with len == 0.
+[ ... ]
 
-When napi_build_skb() fails:
+> @@ -8106,6 +8186,7 @@ static int __stmmac_dvr_probe(struct device *device,
+>  	ndev->hw_features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
+>  			    NETIF_F_RXCSUM;
+>  	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
+> +			     NETDEV_XDP_ACT_RX_SG |
+>  			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
 
-				rx_dropped++;
-				count++;
-				goto drain_data;
+[Severity: Low]
+With NETDEV_XDP_ACT_RX_SG advertised, frags-aware programs now see
+multi-buffer frames. However, __alloc_dma_rx_desc_resources() still
+registers the rxq with:
 
-error is not set here either, so a later descriptor can build an skb from
-only the end of the frame.
+	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
 
-This is the same class of bug the patch fixes in stmmac_rx_zc(). An
-on-link peer can trigger it, since GMAC_CONFIG_JE is always set on
-GMAC4.
+That leaves frag_size at 0, so bpf_xdp_frags_increase_tail() always
+returns early:
 
-It looks like later patches in the same series fix it: "net: stmmac:
-drop multi-buffer frames in XDP mode" and "net: stmmac: rework stmmac_rx
-to support XDP rx multi-buff". After those, XDP and stmmac_build_skb()
-only run on the last descriptor, and failures go to error_free_frag.
+	if (!rxq->frag_size || rxq->frag_size > xdp->frame_sz)
+		return -EOPNOTSUPP;
+
+Is it intended that a positive bpf_xdp_adjust_tail() on a multi-buffer
+stmmac frame always fails, even when the last fragment page has room?
+Other RX_SG drivers such as bnxt behave the same way, so this may just be
+a limitation. Would registering with __xdp_rxq_info_reg() and a real
+frag_size be worth considering?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261018-stmmac-rx-mb-v8-0-5f58c0b25849%40oss.qualcomm.com
