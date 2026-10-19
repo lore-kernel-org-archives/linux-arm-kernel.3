@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB21CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B3DCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjU+lCsa+wJqtJMmjDTe0djVhuOigs70r9AaD8jwKDQ=; b=JV2XJbs1HSkrmWES9N7IlAueJ8
-	F8BZIO8ezRU+ENGKyWx19yb75auIIxsSWDFHeU8d2sBuTEGAZMVnL0AM+p32lVxe37k3fmp0GsMFv
-	CLHFsTMQZjV4zg6eJZohSQmZeVAfmX4Ajyvx8SWplx8QCVWt153GHzT8dg9hi+yZNdigTk5VYSNmw
-	empfqv0CCWmmqp5C1YlFVteovEwscf5OzD/igTdalK3xm3jKyDKM6s46RJHtCTPoId2ahpG4kV0QU
-	5eguuR9D8OJPpgSyuq28OWFlTLp4mKiUeCxASe0fmRsgwosoVcmcr2uB4gbIfFZBOcoZYOPIZLgXe
-	13RKoy4Q==;
+	bh=f9hUmKar5O02NFihv/eWeRprhOZiGvnEGK3mmjGeDPQ=; b=F3+jubRBx+gZVk0iNzwkcRXZTS
+	f8Y3A2jgy1l1bobgc2oP0zZHUGqqjSSypBbiDfdvb5fMWB7kdUwjl6uD4BWTMgnlaFyn2xXjFCUIG
+	Wb/LbBeak1lS40ZKWGT4fQNgoo/z/4e2vbknW3tFAeNW0eiZYnZiRqp3LoKR7HI30I5KMhmtNsYtz
+	hO3OLgbn4e8xcCMAaU1Rp9Mj3FIY/SATwtEBl06yV24Q82ES6DgTLxT3Y062/mKsuCBiSzn76ZKtQ
+	NRDQ7CUprFVynHTNiVsQEc1nnsc1DPB/KP7Kbgb+AScpu3h+1yb97bEEmg/nBhol+kFmV/hYuiC4d
+	XxYbXOjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjvD-000000072hn-1MaQ;
-	Mon, 19 Oct 2026 09:44:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xIjvR-000000072qG-3G2D;
+	Mon, 19 Oct 2026 09:45:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIjvB-000000072hD-0lbH;
-	Mon, 19 Oct 2026 09:44:45 +0000
+	id 1xIjvQ-000000072oX-3GO8;
+	Mon, 19 Oct 2026 09:45:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65D3C600CB;
-	Mon, 19 Oct 2026 09:44:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D2391F000C5;
-	Mon, 19 Oct 2026 09:44:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4ADA641FD1;
+	Mon, 19 Oct 2026 09:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 975011F000C4;
+	Mon, 19 Oct 2026 09:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792403084;
-	bh=BjU+lCsa+wJqtJMmjDTe0djVhuOigs70r9AaD8jwKDQ=;
+	s=k20260515; t=1792403100;
+	bh=f9hUmKar5O02NFihv/eWeRprhOZiGvnEGK3mmjGeDPQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cRpM1kfSi8spSuvrgbOTT314LgvTPK2oYceZymHEUnVJWF46DFi4emKSErNeqd3Ya
-	 ed3vGNV635eDH2wf2KIdcyZwn+33XG4lelXs6dFIV2RjbxHm3FT9L9uL1bnWJrcsii
-	 9lErdwvpHGbIP7GjWdKs8YQ/0sLBr42p5VAwxSRTX7/rL2IRgTWbjdIJFPVAmUaL3P
-	 9bN4YRxKdtvGdxApJ5RvnGmcHOIpx0SSCF42wEBI29QSDg5IFNOJJi7c2M9zh8sEaF
-	 NORYr2VtLkvYDsRCPzH5kErdaQW2HxFt9HBei7fZlG8Y7id5tpxvAPBi7mP1HQSpEx
-	 wcrBG7WA5zWtA==
-Date: Mon, 19 Oct 2026 11:44:41 +0200
+	b=I0IJ/Q3JQydV4fpFljS1CKzANgZRjBmUN5jkSaBePuo2vvHYZtL949kaI4oXtKVpF
+	 Ibrxra4wlgFftp6lfT9oDbtnaPPjsR+M9L9qpwrr0YwPLaXTq6OdISIOcvPG1Y+q6f
+	 WtMRwNXTZ3YKlyhQo9TLKeaBBEE15nWUiONThR6H068PwUOww8DtEGxcTcSNyIj+Ge
+	 9yLMf9bqMv2dMajCH7IrxjpKnWxQJpf0V9CrCbZaUWz0X6zEI8DLt/FpyVmvAgnEA+
+	 kWBgajriVYaVZa+taTaIfFvLpa/yGICU/MMSqlv3EeQB2bfjMTG0f/XPpt+H0Fv2FH
+	 MqjKcctfD6cpA==
+Date: Mon, 19 Oct 2026 11:44:57 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ben Grisdale <bengris32@protonmail.ch>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -55,15 +55,14 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, 
 	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH 2/8] dt-bindings: interrupt-controller:
- mediatek,mt6577-sysirq: Add MT8163
-Message-ID: <20261019-wakeful-wrasse-of-purring-72a0c9@quoll>
+Subject: Re: [PATCH 3/8] dt-bindings: timer: mediatek,timer: Add MT8163
+Message-ID: <20261019-cyan-cockatrice-of-economy-adccac@quoll>
 References: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-0-f2462b2d2437@protonmail.ch>
- <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-2-f2462b2d2437@protonmail.ch>
+ <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-3-f2462b2d2437@protonmail.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-2-f2462b2d2437@protonmail.ch>
+In-Reply-To: <20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-3-f2462b2d2437@protonmail.ch>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +77,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 19, 2026 at 01:39:58AM +0100, Ben Grisdale wrote:
-> Add a compatible string for the SYSIRQ interrupt polarity controller on
-> the MediaTek MT8163 SoC, which is compatible with the MT6577 SYSIRQ.
+On Mon, Oct 19, 2026 at 01:39:59AM +0100, Ben Grisdale wrote:
+> Add a compatible string for the general purpose timer (GPT) on the
+> MediaTek MT8163 SoC, which is compatible with the MT6577 timer.
 > 
 > Signed-off-by: Ben Grisdale <bengris32@protonmail.ch>
 > ---
->  .../devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml | 1 +
+>  Documentation/devicetree/bindings/timer/mediatek,timer.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
