@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEF1CCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6557FCCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ttW6Xwu84Ja9gEy06XJgOr5fUPFdW2KSIAQeSluxBk=; b=rdvnnlnfSIFEsEu1lG6CeTYCva
-	h0feHDls0F/LH+ZOIX1cqZcPQwHF52Li8no+Iky/F1L1/407M5ZdXFDC1zU/Otgg9rJHtOGZbTh+j
-	hNSFAgr1kvLolobhXEfgFk6nopR1dAIGA+cly/gg2dSHidtNfJy4D3STO6RrAzGrYjBVsaICkQjfI
-	wLE/cjaT+17Qyd3y+46C7HKXl8a4KyJdv+u2Ee63qENz+R/0HSD3c8EyWXo00wwoqVxCwB2Pl5Edm
-	6CfGkM37YAemSuyTpcEoo6/P59zM/l1uDCIRVo8BMLCP2Y9QQ6saF1VIUXuEfbK7l8M1hzI0W2x3p
-	uL6D7mHw==;
+	bh=p7dQuIYTx5ffWc1FZrQEt22Lmki8g5R6kxN/Ih3uynY=; b=xvzZtDh/kuM8q/S9sdEC6wl0dV
+	esWzlE3uA2nk4Scz/+3kfumms+wuY+vvozwjkRwuXdxMqxzcs4E5Nr3jS4deszPDIBkleaANgR3ro
+	HdAMug6asDLveV7wysE1pld25Yunb5uVtCFPAy2z+yniTSyf9zO0SxOH4eM2enbYy42l6Q+MnKIEi
+	Bhik1qagFGjHVez+533HjaPEVwd1DOm15Bc6xlRxdPKJfPYQbBIsFw321kwTC5W6ZWwNDRLhchGgP
+	jmrnjv9ipsxmtEVQn69sCVrm4rrAa5eHxThFz7G2L0s/EN+R2bR1O5CXY+k7gOsOX8BzN/fwCOq9O
+	QF0jYMwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInpI-00000007ZgP-3JMn;
-	Mon, 19 Oct 2026 13:54:56 +0000
+	id 1xInpN-00000007Zl2-4C7V;
+	Mon, 19 Oct 2026 13:55:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInpF-00000007ZeF-2Hpo
+	id 1xInpL-00000007ZiC-1d40
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:54:53 +0000
+	Mon, 19 Oct 2026 13:54:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B90D46021C;
-	Mon, 19 Oct 2026 13:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498271F000C7;
-	Mon, 19 Oct 2026 13:54:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C270560AB6;
+	Mon, 19 Oct 2026 13:54:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2259E1F000C8;
+	Mon, 19 Oct 2026 13:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418092;
-	bh=+ttW6Xwu84Ja9gEy06XJgOr5fUPFdW2KSIAQeSluxBk=;
+	s=k20260515; t=1792418098;
+	bh=p7dQuIYTx5ffWc1FZrQEt22Lmki8g5R6kxN/Ih3uynY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=I/j8LvVprINv46Kx5a6228wHfi/w2wdUqH2bdbMc5zzuri8OGvcvT4U0wz213ZDlR
-	 9cywME0UJ0uPQ5o2h0ZT9OtQSbSm+b7kiJ5APQ2J3StgKAwAvCRNoZ7Y6rhrJybuAd
-	 H0Jh14Visy5+3hGn9UFdoGEsxErvWFFRrn0vx3Rdwv1MQWI5zHxR1gI1thLoB+eOmr
-	 DD1vlRwBe5GCTVxnHZomYt6Ev1UCXfoOxCqmKVzXj2fSoDc3nLgyG/2tVnkHYvpzNW
-	 6V7QuklJumEOP1uRzhahwknV5/2aox10+kZE4RD3y1WtkcBulcw0VrK7oH5fibFqph
-	 qB/RJDo63hXWw==
+	b=k5iR44kX5YCJh5crQypslIIQBhbiqeSUv+dPjXfmf+8UuT6apjLdKkXPPPvVFyo6u
+	 VJzq1cy3bcv4gZ0ODcMV7s8fHA6EnGAQkslFPkQdHtL6G4PQFcGWXTXCIFb7Jk/1/H
+	 2/ovptFYjnGwM2+87qiPdFgklk8MWxifBY8ga12jVooRYYD2zke7DSpsz0L3mIyG/p
+	 DJUv2VY79GcWVnwZubXsHSQsGtdT3KO8e1r+sCMTXHQt33L+Nqy1SYNUxhTXB1wGt7
+	 0OkRb5l7Gm6GjKmk5veYClrD2Rzw2j3hYrLKotnyFHEBbObLHHNos+7XDVIsY25qPk
+	 fqOl87RZZSH5A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Colin Foster <colin.foster@in-advantage.com>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Brian Masney <bmasney@redhat.com>,
 	Sasha Levin <sashal@kernel.org>,
-	robin.clark@oss.qualcomm.com,
-	joro@8bytes.org,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	michal.simek@amd.com,
+	anatoliy.klymenko@amd.com,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.6] iommu/qcom: Enable clocks before hardware access in qcom_iommu_ctx_probe()
-Date: Mon, 19 Oct 2026 09:44:58 -0400
-Message-ID: <20261019135441.1420968-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18] clk: clocking-wizard: fix clock difference detection
+Date: Mon, 19 Oct 2026 09:45:02 -0400
+Message-ID: <20261019135441.1420968-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,361 +83,445 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+From: Colin Foster <colin.foster@in-advantage.com>
 
-[ Upstream commit cb776a03a53429aa59e25a8cbc3d1a48bd11afdb ]
+[ Upstream commit 006ba909c240b832c876b7aed29c6beec9d1f5e5 ]
 
-qcom_iommu_ctx_probe() reads and writes the CB_FSR register to clear any
-stale IRQ left by the bootloader. This happens during
-devm_of_platform_populate() which is called from the parent device's
-probe before any pm_runtime_get(). The parent's clocks (iface, bus, tbu)
-are therefore not guaranteed to be on, making the register access
-unreliable on rebind or after a suspend cycle.
-
-Use pm_runtime_resume_and_get() on the parent device to ensure clocks
-are enabled before the register access, and release the reference
-immediately after.
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Reviewed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Colin Foster <colin.foster@in-advantage.com>
+Signed-off-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit message forensics
+The local tree is **7.3.0-rc4** (`v7.3-rc4-27-gf0100363d8c37`). The
+change is a one-line restoration of `abs()` in Xilinx Clocking Wizard
+divisor search: unsigned wrap made frequencies below the request look
+like ~2^64 error, so they were ignored.
 
-**Step 1.1: Subject line**
-Record: **[iommu/qcom] [Enable] clocks before hardware access in
-`qcom_iommu_ctx_probe()`**
-“Enable” here is a missing power/clock step before MMIO, not a new
-feature.
+===============================================================
+PHASE 1: COMMIT MESSAGE FORENSICS
+===============================================================
 
-**Step 1.2: Tags**
+**Step 1.1: PARSE THE SUBJECT LINE**
+Record: **[clk / xilinx clocking-wizard] [fix] [clock difference
+detection]** — restore correct closest-match comparison when computed
+frequency is below the requested rate.
+
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+Record (from `git show 006ba909c240b`):
+- Reviewed-by: Shubhrajyoti Datta \<shubhrajyoti.datta@amd.com\>
+  (Xilinx/AMD clocking-wizard author)
+- Reviewed-by: Brian Masney \<bmasney@redhat.com\> (clk co-maintainer;
+  also committer)
+- Signed-off-by: Colin Foster \<colin.foster@in-advantage.com\> (author)
+- Signed-off-by: Brian Masney \<bmasney@redhat.com\>
+- No Fixes:, Cc: stable, Reported-by, Tested-by, Link, or Acked-by in
+  the **merged** commit
+- Absence of Fixes/Cc:stable is expected for this review pipeline and is
+  not a negative
+
+The merged git message has **no body**. The mailing-list submission did
+(see Phase 4).
+
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+Merged commit: subject + tags only.
+
+Mailing-list body (from b4 mbox, not in git): unsigned “rollover” in
+`diff = freq - rate`. Frequencies below the request produced diffs like
+`18446744073708237796` (2^64 wrap) and were not considered. Author
+included before/after traces at 133312500 Hz / parent 99999000 Hz.
+
+Cover letter: this is patch **1/3** of “clock-wizard fixups”. The series
+also optimizes exact-match search (2/3) and removes the 20 kHz
+`WZRD_MIN_ERR` cutoff (3/3). Cover letter: the 20 kHz check made **out-
+of-tree consumers fail `clk_set_rate`**; patch 1 is the separate
+difference-calculation bug.
+
+Record: **[Bug: unsigned underflow when freq \< rate] [Symptom: wrong
+closest match and/or -EBUSY from set_rate/determine_rate] [Root cause:
+abs() dropped in a later refactor] [No version tags in the commit
+itself]**
+
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+Record: **Not hidden.** Subject says “fix”. It is a real comparison bug,
+not cleanup.
+
+===============================================================
+PHASE 2: DIFF ANALYSIS - LINE BY LINE
+===============================================================
+
+**Step 2.1: INVENTORY THE CHANGES**
 Record:
-- `Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>`
-- `Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>` (author)
-- `Signed-off-by: Will Deacon <will@kernel.org>` (IOMMU/SMMU maintainer)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Acked-by:`, `Link:`, or
-  `Cc: stable` (absence is expected)
+- File: `drivers/clk/xilinx/clk-xlnx-clock-wizard.c` — **1 insertion, 1
+  deletion**
+- Function: `clk_wzrd_get_divisors()`
+- Scope: **single-file surgical one-liner**
+- Versal sibling `clk_wzrd_get_divisors_ver()` is **not** changed
+  (already uses `abs()`)
 
-**Step 1.3: Body**
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+Before: `diff = freq - rate` with `freq`/`diff` as `u64`. If `freq <
+rate`, subtraction wraps. `best_diff` starts at `-1ULL`. Wrapped diffs
+lose to any over-rate candidate; if every candidate is under-rate,
+`best_diff` stays huge and `return best_diff < WZRD_MIN_ERR ? 0 :
+-EBUSY` returns **-EBUSY** (20 kHz threshold still present in the parent
+of this commit).
+
+After: `diff = abs(freq - rate)` so both sides of the target compete;
+closest match wins.
+
+Path: clock **determine_rate / set_rate** for non-Versal Clocking Wizard
+(dynamic reconfig / fractional M and O).
+
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+Record: **[Logic / correctness + unsigned wrap]** — `abs()` was dropped
+when 7681f64e6404ed switched the search to `u64` and `best_diff`.
+Original v6.4 code in 595c88cda65d30 used `diff = abs(freq - rate)`.
+This restores that.
+
+Kernel `abs()` on the `u64` difference works here: wrap of a small Hz
+delta becomes a negative `signed long long`, then `abs()` yields the
+true delta. Clock Hz values are far below 2^63. Same pattern as the
+Versal function.
+
+**Step 2.4: ASSESS THE FIX QUALITY**
+Record: **Obviously correct, minimal, matches the pre-regression and
+Versal code.** Regression risk is low: set_rate may now succeed with a
+slightly-below rate instead of failing or picking a worse over-rate.
+That is the intended fix. `abs_diff()` would be cleaner with matching
+types, but reviewers accepted `abs()`, and it matches the sibling.
+
+===============================================================
+PHASE 3: GIT HISTORY INVESTIGATION
+===============================================================
+
+**Step 3.1: BLAME THE CHANGED LINES**
 Record:
-- **Bug:** `qcom_iommu_ctx_probe()` reads/writes `CB_FSR` to clear a
-  stale bootloader IRQ during `devm_of_platform_populate()`, which runs
-  from the parent probe **before** any `pm_runtime_get()`. Parent clocks
-  (`iface`, `bus`, `tbu`) may be off.
-- **Symptom:** Register access is **unreliable on rebind or after a
-  suspend cycle**.
-- **Root cause:** Child MMIO without a runtime-PM resume of the parent
-  that actually enables the clocks.
-- **Fix:** `pm_runtime_resume_and_get(dev->parent)` around the FSR
-  access, then `pm_runtime_put_sync()`.
-- No stack trace, syzbot, or version range in the message.
+- Current `abs()` line: **006ba909c240b** (this commit), 2026-06-29
+- Surrounding fractional search: **7681f64e6404ed** (“calculate dividers
+  fractional parts”), 2025-01-06, **v6.13-rc1**
+- Function introduced: **595c88cda65d30** (v6.4-rc1) **with abs()
+  already**
+- 7681f64e **removed** `abs()` and used `diff = freq - rate`
 
-**Step 1.4: Hidden bug fix?**
-Record: Yes. The subject sounds like enablement, but this is a
-correctness fix for MMIO with clocks gated.
+**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: **No Fixes: tag.** Buggy commit is **7681f64e6404ed**, ancestor
+of HEAD (`git merge-base --is-ancestor`).
 
----
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Record: 3-patch series, same author/date:
+1. **006ba909c240b** — this fix (1/3)
+2. **9329714414d1f** — early-out on exact match (optimization, 2/3)
+3. **54ed94b709e03** — drop 20 kHz `WZRD_MIN_ERR` (3/3)
 
-## Phase 2: Diff analysis
+This patch is **standalone**. It does not need 2/3 or 3/3. With the 20
+kHz check still present, `abs()` is what lets a close **under**-rate
+pass `best_diff < 20000` instead of wrapping to -EBUSY.
 
-**Step 2.1: Inventory**
+Related: **4adf593c6fc5a** overflow fix in the same file (`Cc: stable`,
+Fixes: 7681f64e). **e0a94c6bb5b48** (v6.18-rc1) already used `abs()` on
+the Versal path.
+
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+Record: Colin Foster is not the historical driver author (that is
+Shubhrajyoti Datta / AMD). Datta reviewed this. Foster’s three clocking-
+wizard commits are this series.
+
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+Record: Needs `clk_wzrd_get_divisors()` with `u64` `freq`/`diff` as in
+7681f64e. That is in this tree. **Applies standalone.** `abs()` is in
+`include/linux/math.h`.
+
+===============================================================
+PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+===============================================================
+
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
 Record:
-- File: `drivers/iommu/arm/arm-smmu/qcom_iommu.c` (+6 / −1)
-- Function: `qcom_iommu_ctx_probe()`
-- Scope: single-file, surgical
+- `b4 dig -c 006ba909c240b` →
+  https://patch.msgid.link/20260629205346.3228886-2-colin.foster@in-
+  advantage.com
+- `b4 dig -a`: only **PATCH v2 1/3** (v2: rebase + signoffs). v1 not in
+  the matched thread.
+- Saved mbox: cover + 3 patches, **no reply NAKs** in that thread
+- WebFetch/curl to lore.kernel.org: **403** — discussion beyond the mbox
+  is UNVERIFIED
 
-**Step 2.2: Flow change**
-Record: **Before:** if the context is not secure, immediately
-`readl`/`writel` `ARM_SMMU_CB_FSR`. **After:** same access, but only
-after a successful parent `pm_runtime_resume_and_get()`, then
-`pm_runtime_put_sync()`. Resume failure fails probe. This is the child
-probe path invoked from parent `devm_of_platform_populate()`.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+`b4 dig -w` To/Cc: linux-clk, linux-arm-kernel, linux-kernel,
+Shubhrajyoti Datta, Michal Simek, Brian Masney, Stephen Boyd, Michael
+Turquette.
 
-**Step 2.3: Bug mechanism**
-Record: **Hardware access / PM correctness.** Clocks are enabled only in
-`qcom_iommu_resume()` via `clk_bulk_prepare_enable()`. Parent probe
-order is `devm_pm_runtime_enable()` then `devm_of_platform_populate()` —
-RPM enable does not turn clocks on. The parent already wraps its own
-`SMMU_INTR_SEL_NS` write with resume/get; the child FSR access did not.
+Record: **Clk lists + clk maintainers CC’d; Reviewed-by from AMD driver
+author and Brian Masney.**
 
-**Step 2.4: Fix quality**
-Record: Obviously correct and matches the parent’s existing pattern.
-`pm_runtime_resume_and_get()` drops the usage count on failure, so there
-is no extra `put` needed. Regression risk is low: resume runs after
-clocks/drvdata are set; multiple context banks each get/put
-independently. No API or data-structure change.
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+No syzbot/bugzilla. Evidence is the author’s traces (unsigned wrap
+~2^64) and cover-letter `clk_set_rate` failures.
 
----
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+Record: **v2 0/3 “clock-wizard fixups”.** 1/3 is this logic fix; 2/3
+optimization; 3/3 policy (allow error ≥ 20 kHz). 1/3 does not depend on
+the others.
 
-## Phase 3: Git history
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+Record: lore.kernel.org/stable search returned **403**. UNVERIFIED
+whether stable@ discussed it.
 
-**Step 3.1: Blame**
-Record: FSR-clear comment and access come from **`0ae349a0f33fb0`
-(“iommu/qcom: Add qcom_iommu”, Rob Clark, 2017-08-09)**, first in
-**v4.14-rc1**. Secure-ctx skip is from `e30c960d3f44b7` (2023). The bug
-is old, not recent.
+===============================================================
+PHASE 5: CODE SEMANTIC ANALYSIS
+===============================================================
 
-**Step 3.2: Fixes: tag**
-Record: None. The introducing commit is `0ae349a0f33fb0`, present in
-this tree (`git merge-base --is-ancestor` succeeded).
+semcode MCP: **not available**. Used grep + callers in this file.
 
-**Step 3.3: Related file history**
-Record: Same-day series by Mukesh Ojha (v2 6/6 “Misc Fixes”):
-1. `1f33b8208a197` inverted fault report
-2. `bf69e515b1802` `devm_pm_runtime_enable()` (cleanup)
-3. `e910315ae08a2` check RPM return on parent `SMMU_INTR_SEL_NS` write
-4. `3c748a5554f96` pgtbl_ops leak
-5. `a05b67cd45ad0` pgtbl_ops publish vs mutex
-6. **this commit** `cb776a03a5342`
+**Step 5.1: KEY FUNCTIONS**
+Record: **`clk_wzrd_get_divisors()`** only.
 
-This patch does not need 2–5. It only uses
-`pm_runtime_resume_and_get()`, present since `dd8088d5a8969`.
+**Step 5.2: TRACE CALLERS**
+- `clk_wzrd_dynamic_all_nolock()` → `clk_wzrd_dynamic_all()` →
+  `clk_wzrd_clk_div_all_ops.set_rate`
+- `clk_wzrd_determine_rate_all()` →
+  `clk_wzrd_clk_div_all_ops.determine_rate`
 
-**Step 3.4: Author**
-Record: Qualcomm engineer; series reviewed by Konrad Dybcio (Qualcomm)
-and applied by Will Deacon. Not a drive-by.
+Versal ops use `clk_wzrd_get_divisors_ver()`, already using `abs()`.
 
-**Step 3.5: Dependencies**
-Record: Standalone. Applies to the pre-commit `ctx_probe` body in this
-tree. No new helpers.
+**Step 5.3: TRACE CALLEES**
+`div64_u64`, `DIV_ROUND_CLOSEST_ULL`, writes into
+`divider->{m,m_frac,d,o,o_frac}`. No allocation/locking inside the
+search.
 
----
+**Step 5.4: FOLLOW THE CALL CHAIN**
+Probe registers outputs with `clk_wzrd_clk_div_all_ops` for non-Versal
+dynamic-reconfig Clocking Wizard (`xlnx,clocking-wizard`, v5.2, v6.0).
+`clk_set_rate` / `clk_round_rate` from consumers (display pixel clocks
+were the reason fractional M/O were added).
 
-## Phase 4: Mailing list
+Record: **Reachable from userspace/driver clock APIs on that IP. Not a
+syscall bug by itself; standard clk consumer path.**
 
-**Step 4.1: Original discussion**
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+Versal `clk_wzrd_get_divisors_ver()` already has `diff = abs(freq -
+rate)` (e0a94c6bb5b48). Original non-Versal code had abs() until
+7681f64e dropped it.
+
+===============================================================
+PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+===============================================================
+
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
 Record:
-- Lore/msgid: https://patch.msgid.link/20260717144608.3216274-7-
-  mukesh.ojha@oss.qualcomm.com
-- v1: `[PATCH 7/8]` 2026-06-23, same diff
-- v2: `[PATCH v2 6/6]` 2026-07-17 (dropped unrelated 6/8 and 8/8)
-- Cover: “Series to address fixes in legacy qcom_iommu driver”
-- Konrad Reviewed-by on v1 7/8 with no requested changes; v2 unchanged
-- Will: “Applied to iommu (arm/smmu/updates)”
-- No NAK, no `Cc: stable` request
+- Tree: **v7.3-rc4** / Makefile **7.3.0-rc4**
+- File and `clk_wzrd_get_divisors()` **exist**
+- HEAD already has `diff = abs(freq - rate)` because **006ba909c240b is
+  an ancestor** (`git merge-base --is-ancestor` → yes). `git describe
+  --contains` → **v7.3-rc1**
+- Bug introduced **v6.13** (7681f64e), long before 7.3
+- Pre-fix code (parent of 006ba909) still had `diff = freq - rate` and
+  `WZRD_MIN_ERR` 20000
 
-**Step 4.2: Recipients (`b4 dig -w`)**
-Record: Will Deacon, Joerg Roedel, Robin Murphy, Rob Clark, Konrad
-Dybcio, iommu@lists.linux.dev, linux-arm-msm, linux-arm-kernel.
+This is **not** “bug added after this branch.” The driver and the
+regression are part of this 7.3 line.
 
-**Step 4.3: Bug report**
-Record: No external bugzilla/syzbot. Qualcomm-authored; trigger
-described as rebind / post-suspend.
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+On **this** checkout the one-liner is already applied; a second apply
+would not change anything. Against the pre-fix function the hunk is
+context-identical (one line). Expected difficulty: **clean apply** on a
+tree that still has `diff = freq - rate`.
 
-**Step 4.4: Series**
-Record: Independent of the other five patches. Same pattern as patch 3/6
-on the parent.
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+Record: This exact fix **is** in HEAD, plus 2/3 and 3/3. That is the
+mainline landing, not a separate in-tree workaround. No competing
+alternate fix.
 
-**Step 4.5: Stable list**
-Record: **UNVERIFIED** — lore.kernel.org returned 403; no stable thread
-in the saved mbox.
+===============================================================
+PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+===============================================================
 
----
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+Record: **`drivers/clk/xilinx/`** — Xilinx Clocking Wizard
+(`CONFIG_COMMON_CLK_XLNX_CLKWZRD`, `depends on OF`). **PERIPHERAL /
+platform-specific** (FPGA/SoC), but it is the clock provider for that
+IP, including pixel-clock accuracy.
 
-## Phase 5: Code semantics
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+Record: Active through 2025–2026 (fractional dividers, Versal, overflow
+fix, this series). Mature in-tree driver, not staging.
 
-**Step 5.1: Functions**
-Record: `qcom_iommu_ctx_probe()` only.
+===============================================================
+PHASE 8: IMPACT AND RISK ASSESSMENT
+===============================================================
 
-**Step 5.2: Callers**
-Record: Sole caller is `.probe = qcom_iommu_ctx_probe` on
-`qcom_iommu_ctx_driver`. Invoked from `qcom_iommu_device_probe()` →
-`devm_of_platform_populate()`. Device-init / bind path, not a syscall
-hot path.
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+Record: **Driver-specific / config-specific** —
+`COMMON_CLK_XLNX_CLKWZRD`, non-Versal Clocking Wizard with dynamic
+reconfig / fractional search. Not universal.
 
-**Step 5.3: Callees**
-Record: `pm_runtime_resume_and_get(parent)` → `qcom_iommu_resume()` →
-`clk_bulk_prepare_enable()` (and optional `qcom_scm_restore_sec_cfg`);
-then `iommu_readl`/`iommu_writel` `ARM_SMMU_CB_FSR`; then
-`pm_runtime_put_sync()`.
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
+Record: **`clk_set_rate` / determine_rate** when the closest achievable
+frequency is below the request, or when under-rate candidates must
+compete with worse over-rate ones. Common for arbitrary pixel/device
+rates. Unprivileged userspace can hit it if a consumer exposes clock
+control; typically a device driver at probe/modeset.
 
-**Step 5.4: Reachability**
-Record: Yes, on every non-secure context probe for `qcom,msm-iommu-v1` /
-`v2`. DT users include MSM8916/8917/8937/8939/8953/8976. First boot
-often still has bootloader clocks; **rebind, deferred probe after
-`clk_disable_unused`, and probe after suspend/remove** can have clocks
-off. Unprivileged users do not trigger this directly; driver
-bind/suspend does.
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
+Record: **Wrong clock chosen or `clk_wzrd_get_divisors()` returns
+-EBUSY** so rate set fails. Not oops/UAF/deadlock. Author showed
+wraparound and `clk_set_rate` failure in the series. **Severity:
+MEDIUM** (functional breakage on that hardware, including display
+clocks).
 
-**Step 5.5: Similar patterns**
-Record: Parent already does resume/get around `SMMU_INTR_SEL_NS`
-(`e910315ae08a2`). This is the matching child-side hole.
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
+Record: **Benefit: medium** for Clocking Wizard users (correct closest
+rate; fewer false -EBUSY). **Risk: very low** (1 line, same as
+old/Versal code). **Ratio: favorable.**
 
----
+===============================================================
+PHASE 9: FINAL SYNTHESIS
+===============================================================
 
-## Phase 6: This checkout
+**Step 9.1: COMPILE THE EVIDENCE**
 
-**Step 6.1: Buggy code in this tree?**
-Record: **Yes.** Tree is **v7.3-rc4** (`VERSION=7 PATCHLEVEL=3
-SUBLEVEL=0 EXTRAVERSION=-rc4`, `git describe`:
-`v7.3-rc4-27-gf0100363d8c37`). Driver and FSR-clear exist since v4.14.
-Candidate `cb776a03a5342` is already an ancestor of HEAD (merged via
-`iommu-updates-v7.3`, in v7.3-rc1). Pre-commit code still has the
-unguarded FSR access.
+FOR:
+- Real unsigned wrap; traces show ~2^64 diffs for freq \< rate
+- Regression: 595c88cd used `abs()`; 7681f64e dropped it in v6.13
+- Restores closest-match; can avoid -EBUSY under the 20 kHz check
+- 1 line, obviously correct
+- Reviewed by AMD driver author and clk co-maintainer
+- Driver and function exist in this 7.3 tree; bug predates 7.3
+- Standalone; not a new API
 
-**Step 6.2: Backport difficulty**
-Record: Clean apply on this file’s `ctx_probe`. Needs
-`linux/pm_runtime.h` (already included) and
-`pm_runtime_resume_and_get()` (in this tree).
+AGAINST:
+- Merged commit message has no body (explanation only on list)
+- Not crash/security/corruption
+- Peripheral Xilinx FPGA/SoC driver
+- Cover letter also talks about OOT consumers and patch 3’s 20 kHz
+  policy
+- Author’s 133312500 Hz sample still picked the over-rate 19500 Hz
+  candidate; abs() matters when the **best** match is below the request
+- lore.kernel.org HTTP 403; no stable@ thread verified
 
-**Step 6.3: Related fixes already here**
-Record: The candidate itself is already in this 7.3-rc4 tree. No
-alternate FSR-clock fix besides this commit.
+UNRESOLVED:
+- Full v1 review thread
+- Whether stable@ already took this (403)
 
----
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — wrap math is clear; author
+   posted before/after; two Reviewed-by
+2. Fixes a real bug that affects users? **PASS** — wrong diffs; set_rate
+   can fail or pick a worse rate
+3. Important issue? **PASS** (medium) — not a panic, but the driver’s
+   job is correct rates; pixel-clock path was the reason fractional
+   search exists
+4. Small and contained? **PASS** — 1 line, one function
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — same function is here; HEAD
+   already contains this commit as of v7.3-rc1, which means 7.3’s own
+   code already includes the fix. That does not make the fix unsuitable;
+   it confirms the code matches.
 
-## Phase 7: Subsystem
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+Record: **None** (not a device ID, quirk, DT, build, or docs exception).
+It is a normal small correctness fix.
 
-**Step 7.1**
-Record: **iommu / Qualcomm legacy SMMU** (`drivers/iommu/arm/arm-
-smmu/qcom_iommu.c`). **IMPORTANT** for those SoCs (DMA/IOMMU), not core-
-mm/VFS. `CONFIG_QCOM_IOMMU`, `depends on ARCH_QCOM`.
+**Step 9.4: MAKE YOUR DECISION**
 
-**Step 7.2**
-Record: Mature “legacy qcom_iommu” driver; low churn except this 2026
-fix series.
+This tree is 7.3-rc4 and already contains the line, because the commit
+landed in v7.3-rc1. The decision is still whether this is appropriate
+**for this tree’s code**, not whether the pipeline already “selected”
+it.
 
----
+It is a **v6.13 regression** (accidental drop of `abs()`), one line,
+reviewed, and it fixes real closest-rate / -EBUSY behavior on Xilinx
+Clocking Wizard. That meets stable rules for this checkout. Later series
+patches (search micro-opt, dropping 20 kHz) are separate and not
+required.
 
-## Phase 8: Impact and risk
+===============================================================
+DETAILED EXPLANATION
+===============================================================
 
-**Step 8.1: Who**
-Record: Qualcomm MSM IOMMU v1/v2 platforms (older/mid-range SoCs still
-in LTS images), not all machines.
+**Problem:** `clk_wzrd_get_divisors()` ranked candidates with unsigned
+`freq - rate`. Any frequency below the request wrapped to ~2^64, so
+those configs were ignored. Combined with `best_diff < 20000`, that
+yields **-EBUSY** when the only close match is slightly low, or a
+**worse higher** clock when a closer lower one exists. That is exactly
+the fractional-divider accuracy the v6.13 work was supposed to provide
+(pixel clocks).
 
-**Step 8.2: Trigger**
-Record: Child probe with parent clocks off: driver rebind, probe after
-`pm_runtime_force_suspend` on remove, deferred probe after unused clocks
-are gated. Not every boot. Not a userspace exploit path.
+**Why it matters here:** This 7.3 tree has that search (7681f64e).
+Consumers of `xlnx,clocking-wizard` that call `clk_set_rate` can fail or
+lock the IP to the wrong rate.
 
-**Step 8.3: Failure mode**
-Record: MMIO to a clock-gated SMMU context bank. On these platforms that
-is typically a **bus timeout / NOC hang / SError**, or a failed FSR
-clear so a bootloader IRQ fires as soon as `devm_request_irq()` runs.
-Severity: **HIGH** (probe hang/abort), not a confirmed UAF/CVE.
+**Stable rules:** Small, obvious, real bug, no new API. Risk is a
+correct rate instead of failure/wrong rate.
 
-**Step 8.4: Risk-benefit**
-Record: **Benefit: medium-high** for affected hardware (prevents bad
-MMIO during probe). **Risk: low** (6 lines, existing RPM API, same
-pattern as parent). Ratio favors backport.
+**Concerns:** Empty merged commit message; not a crash. Series 3/3 is a
+policy change and should not be required. No backport rework is needed
+on a tree that still has `diff = freq - rate`.
 
----
-
-## Phase 9: Synthesis
-
-**For:**
-- Real bug: FSR MMIO before parent clocks are enabled; present since
-  v4.14.
-- Can hang or fail IRQ clear on rebind / post-suspend / deferred probe.
-- 6-line, obviously correct; reviewed by Konrad, applied by Will.
-- Standalone; no new API.
-- Same RPM wrap the parent already uses for `SMMU_INTR_SEL_NS`.
-- Driver still used (MSM8916-class DT).
-
-**Against:**
-- No `Reported-by` / syzbot / crash log.
-- Message says “unreliable”, not “panic”.
-- Not a universal hot path.
-- Lore stable search could not be fetched (403).
-
-**Unresolved:** Exact production crash vs silent bad read on every SoC
-variant — not verified beyond Qualcomm’s description.
-
-**Stable rules:**
-1. Obviously correct and tested? **PASS** (review + maintainer apply;
-   pattern already in-tree)
-2. Real user-facing bug? **PASS** (clock-gated MMIO on probe/rebind)
-3. Important (crash/hang/corruption)? **PASS** (HIGH: interconnect hang
-   / SError / stale IOMMU IRQ)
-4. Small and contained? **PASS** (6 lines, one function)
-5. No new features/APIs? **PASS**
-6. Applies to this tree? **PASS** (driver and RPM API present)
-
-**Exception category:** none (not an ID/quirk/DT/build/doc add). It is a
-normal small driver bugfix.
-
-This tree is v7.3-rc4 and already contains `cb776a03a5342`; that is the
-upstream commit, not a reason to reject on merit. The buggy FSR-without-
-clocks path is in this driver and has been since v4.14. The fix is
-small, local, and prevents a real probe-time hardware access failure on
-Qualcomm IOMMU platforms.
-
-### What it solves for stable users
-Without the RPM get, context-bank probe can touch `CB_FSR` while
-iface/bus/tbu clocks are off. That is the same class of bug the parent
-already fixed for `SMMU_INTR_SEL_NS`. On rebind or after suspend/remove
-(and on deferred probe after unused clocks are disabled), that access is
-a hang or a missed IRQ clear, then a surprise fault IRQ.
-
-### Risk vs benefit
-Benefit is avoiding probe-time MMIO with clocks gated on still-shipping
-MSM IOMMU v1/v2 boards. Risk is a few lines of standard
-`resume_and_get`/`put_sync` around an existing register poke. No locking
-or API change.
-
-### Concerns
-No public reproducer. Independent of the rest of the “Misc Fixes”
-series. `pm_runtime_resume_and_get()` is already in this tree.
-
+===============================================================
 Verification:
-- [Phase 1] Tags: Reviewed-by Konrad Dybcio; SOBs Mukesh Ojha, Will
-  Deacon; no Fixes/Reported-by/Cc-stable
-- [Phase 2] Diff: +6/−1 in `qcom_iommu_ctx_probe()` wrapping FSR MMIO
-  with parent RPM get/put
-- [Phase 3] Blame: FSR clear from `0ae349a0f33fb0` (v4.14-rc1); ancestor
-  of HEAD
-- [Phase 3] Series mates `bf69e515b1802` / `e910315ae08a2` are not
-  prerequisites
-- [Phase 3] `pm_runtime_resume_and_get` from `dd8088d5a8969`; ancestor
-  of HEAD
-- [Phase 4] `b4 dig -c cb776a03a5342`: https://patch.msgid.link/20260717
-  144608.3216274-7-mukesh.ojha@oss.qualcomm.com
-- [Phase 4] `b4 dig -a`: v1 7/8 identical diff; Konrad R-b; v2 applied
-  by Will; no NAK
-- [Phase 4] Cover letter: “fixes in legacy qcom_iommu driver”
-- [Phase 4] UNVERIFIED: lore.kernel.org/stable HTTP 403
-- [Phase 5] Only caller: platform `.probe` via
-  `devm_of_platform_populate()` from parent probe
-- [Phase 5] Resume path enables clocks in `qcom_iommu_resume()` →
-  `clk_bulk_prepare_enable()`
-- [Phase 6] `git describe HEAD` = v7.3-rc4-27-gf0100363d8c37; `make
-  kernelversion` = 7.3.0-rc4
-- [Phase 6] `git merge-base --is-ancestor cb776a03a5342 HEAD` succeeded
-  (fix already in this 7.3 tree)
-- [Phase 6] Pre-image of the commit still has unguarded
-  `iommu_writel`/`iommu_readl` on `ARM_SMMU_CB_FSR`
-- [Phase 8] Failure mode: clock-gated SMMU MMIO → hang/SError or stale
-  fault IRQ; severity HIGH
-- UNVERIFIED: no captured oops from a reporter
+- [Phase 1] `git show 006ba909c240b`: subject+tags only; Reviewed-by
+  Datta and Masney; no Fixes/stable
+- [Phase 1] b4 mbox body: wraparound explanation and traces (133312500
+  Hz)
+- [Phase 2] Diff: one line `diff = freq - rate` → `diff = abs(freq -
+  rate)` in `clk_wzrd_get_divisors`
+- [Phase 2] Parent still has `return best_diff < WZRD_MIN_ERR ? 0 :
+  -EBUSY` with `WZRD_MIN_ERR` 20000
+- [Phase 2] `include/linux/math.h`: `abs()` signed conversion; Hz deltas
+  fit
+- [Phase 3] blame: abs line is 006ba909; search from 7681f64e6404ed
+  (v6.13-rc1)
+- [Phase 3] 595c88cda65d30 originally used `diff = abs(freq - rate)`;
+  7681f64e removed it
+- [Phase 3] `git merge-base --is-ancestor 006ba909c240b HEAD` → yes;
+  `--contains` → v7.3-rc1
+- [Phase 3] Series 006ba909, 9329714414d1f, 54ed94b709e03; this patch is
+  1/3 standalone
+- [Phase 4] `b4 dig -c`:
+  patch.msgid.link/20260629205346.3228886-2-colin.foster@in-
+  advantage.com
+- [Phase 4] `b4 dig -a`: v2 1/3 only in match; cover v2 rebase +
+  signoffs
+- [Phase 4] `b4 dig -w`: linux-clk, Boyd, Turquette, Datta, Simek,
+  Masney
+- [Phase 4] WebFetch/curl lore: 403; stable@ discussion UNVERIFIED
+- [Phase 5] Callers: `clk_wzrd_dynamic_all_nolock`,
+  `clk_wzrd_determine_rate_all` (non-Versal ops)
+- [Phase 5] Versal sibling already `abs()` via e0a94c6bb5b48 (v6.18-rc1)
+- [Phase 6] `git describe HEAD` v7.3-rc4-27-gf0100363d8c37; `make
+  kernelversion` 7.3.0-rc4
+- [Phase 6] HEAD already has `diff = abs(freq - rate)` at lines 375 and
+  416
+- [Phase 7] Kconfig `COMMON_CLK_XLNX_CLKWZRD`; compatibles
+  xlnx,clocking-wizard{,-v5.2,-v6.0}
+- [Phase 8] Failure mode: wrong rate or -EBUSY on set_rate; severity
+  MEDIUM
+- UNVERIFIED: v1 thread contents; stable@ history (lore 403)
+===============================================================
 
 **YES**
 
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index fbe4bd3ec0c42..792585321bd11 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -704,8 +704,13 @@ static int qcom_iommu_ctx_probe(struct platform_device *pdev)
- 	/* clear IRQs before registering fault handler, just in case the
- 	 * boot-loader left us a surprise:
- 	 */
--	if (!ctx->secured_ctx)
-+	if (!ctx->secured_ctx) {
-+		ret = pm_runtime_resume_and_get(dev->parent);
-+		if (ret)
-+			return ret;
- 		iommu_writel(ctx, ARM_SMMU_CB_FSR, iommu_readl(ctx, ARM_SMMU_CB_FSR));
-+		pm_runtime_put_sync(dev->parent);
-+	}
- 
- 	ret = devm_request_irq(dev, irq,
- 			       qcom_iommu_fault,
+diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+index dbef983eb4252..4ef0595f7d993 100644
+--- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
++++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+@@ -406,7 +406,7 @@ static int clk_wzrd_get_divisors(struct clk_hw *hw, unsigned long rate,
+ 			if (o < omin || o > omax)
+ 				continue;
+ 			freq = DIV_ROUND_CLOSEST_ULL(vco_freq, o);
+-			diff = freq - rate;
++			diff = abs(freq - rate);
+ 			if (diff < best_diff) {
+ 				best_diff = diff;
+ 				divider->m = m >> 3;
 -- 
 2.53.0
 
