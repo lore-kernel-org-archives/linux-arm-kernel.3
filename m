@@ -4,85 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B799CCCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAA3CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cTKYTRgLXzpeaVq2p5GXiEvjqRmemuEep8lnJ9/iy4=; b=hbHF2JZHJ3IPGgcPXFbzAbkJuD
-	tL8QdMyhhZbtrEdVl9kFFKsKewWETeE5m48GGq0CN4XCY8xGUqtNbtnY3zDYpao9FrVDjQUa6WQbP
-	7cEGORp6CdpnjvEXozkuYkOGLeIFkSr8IGh9ZFAH4FlDn8ucq1zT6F+bpWhJFF75fvPcbXQ6zbiHB
-	ZWTXBrCVdVCNybiNWi1RZraQ8fbZ+xxU3fzPP2KA/CK7oxCR5yy3SOVmcTeNeEWDHARADjmdCws1S
-	ixoIgcMvfF3EVIvivb73TrgE7a7Yq95mCV89NIilH0IDTigan7ftirMNr1A5dCEiE0qiURai3sxGP
-	RtAy2lFg==;
+	bh=DDjf5Zet0LKmhh6LAOeo9wOIpr3u3VhhkFWY0LFMIyU=; b=D4BreF1ho37Zydu4PKG86UmDlP
+	v8H2+zW5Keol+LKFqKxPhWH1tJj7+iAqvSdeew3yiUG0kr113/Dj2lK+s/32iXeZIOHabMUSIb9wR
+	rmXGmJFuuP+ANrqzDllyuYKHThQRILo2l2Jo/KCv+tDr/JxQtDtAnpOZoJWEfsmIICdHoi0U/4gnK
+	FHZWc6TJpQ1dXLwSC2WQlKj+SN44L+CV4giZ4+TpfORj52IC3rNnKVFXnbN+gUsiJqfKLkHWhSwkQ
+	1rHDrIW/u4wgaPLFqBskQnX+HFqCwriUNqxouZ+uKmUGFiVPz32lZd9ij8vT6YmPP5l7Z9Jsi8uJm
+	Sdojssog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkXV-00000007AuP-1Oep;
-	Mon, 19 Oct 2026 10:24:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIkYL-00000007BHG-27cA;
+	Mon, 19 Oct 2026 10:25:13 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkXA-00000007AhV-0DbE
+	id 1xIkYI-00000007AzY-0E7L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:24:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBCD043E59;
-	Mon, 19 Oct 2026 10:23:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AF2EEC2BCFC;
-	Mon, 19 Oct 2026 10:23:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1792405439;
-	bh=8qymSggEgnpMRDFSvVRvp0rr2EkbrYT7HH8SBIpkDXo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=p/S0hHF1aR+hCrWAsqjI+FjaCMqkEjX5tHLC8Fd+6i9Nqm/2YF9h4Sdh4tdJLhIl5
-	 lsKTXMjKu9+z0BKi/J6IEYviEW8Mqq65LLRImuy+Dv92gwsPOstmWSIP6W4G+tpak1
-	 05nO/XC+db3nXcnC0fQN6vL7akku/eEltXIfQ9AC+c2YpbUcVEbXWyy3+MqzwmvZTS
-	 dMPElAVZCUoX/LIiL9ESO62pfhgVwLOzAIdqiKC2xkG057RvcctbHE/9wcXsLd6fcq
-	 Q6SzZ6F/mQpUnLH6bGEG9OnUfMLas1P78KRILJCfHNOcrtSxLiUVivi98L5K1uL22O
-	 DPOoYOtZidMwA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8728FCCF2D6;
-	Mon, 19 Oct 2026 10:23:59 +0000 (UTC)
-From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Mon, 19 Oct 2026 11:23:51 +0100
-Subject: [PATCH v2 5/5] arm64: dts: exynos: Add initial support for Samsung
- Galaxy Watch FE
+	Mon, 19 Oct 2026 10:25:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=DDjf5Zet0LKmhh6LAOeo9wOIpr3u3VhhkFWY0LFMIyU=; b=sLuOTZk1259plTznuAjZZl8qHx
+	O2XpSyfTSS9N+bngz1bNYYv2VEfq7tqHja8V7CTBuXUZbfodn8VHRBd6Ks2mZNRDSTVr0V6zpuBIQ
+	xH7nev8zSTJnPMZ0tMP1ZGqA3vZQfexnkep3Z8ZIMThC/dsFyz40EPe43Z3sef/I9PaV8OvqYgySW
+	g8ImJX65XH5Wv8PRMY2/pnp1R6fAVQ7CNQnQJJsjIjhEbpkKs/YrSDLgMBi1u98OmQNwSrTK/kWqR
+	23ZA+erM83OeOPCgvt9+CGGpZdnW/x7ENxLW904NeY7+b2mWViEWetwi1zl3dULKJuiX0gPJAQB/T
+	TzZP7DcQ==;
+Received: from [115.246.246.98] (port=45272 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <saivarun@couthit.com>)
+	id 1xIkXb-00000000VO5-2pJL;
+	Mon, 19 Oct 2026 06:24:27 -0400
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 013371BA02D0;
+	Mon, 19 Oct 2026 15:54:23 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id erd3YtZvu9BY; Mon, 19 Oct 2026 15:54:21 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id CAD1F1BA0896;
+	Mon, 19 Oct 2026 15:54:21 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id ShKfL8_7tJT2; Mon, 19 Oct 2026 15:54:21 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id A09201BA02D0;
+	Mon, 19 Oct 2026 15:54:21 +0530 (IST)
+Date: Mon, 19 Oct 2026 15:54:21 +0530 (IST)
+From: Saivarun Mudepally <saivarun@couthit.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Sai Varun Mudepally <saivarun@couthit.com>, danishanwar@ti.com, 
+	parvathi@couthit.com, rogerq@kernel.org, pmohan@couthit.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, afd@ti.com, 
+	basharath@couthit.com, horms@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, pratheesh@ti.com, vigneshr@ti.com, 
+	praneeth@ti.com, srk@ti.com, j-rameshbabu@ti.com, m-malladi@ti.com, 
+	rogerq@ti.com, krishna@couthit.com, mohan@couthit.com
+Message-ID: <493615167.624945.1792405461616.JavaMail.zimbra@couthit.local>
+In-Reply-To: <179214979438.408196.11375100740673315884@kernel.org>
+References: <20261016105206.167094-1-saivarun@couthit.com> <179214979438.408196.11375100740673315884@kernel.org>
+Subject: Re: [PATCH net-next] net: ti: icssm-prueth: use
+ dev_close()/dev_open() in icssm_prueth_change_mode()
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-for-next-lucky7-v2-5-c4ecab4b1c4c@member.fsf.org>
-References: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
-In-Reply-To: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4867;
- i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=FOKCeXOXBxhw0Q8L/8D3S7rg87yAZxUJT9zak2Y0VUI=;
- b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq1e+7venDewHub2uoRbxOQPvrSOP1qhsGLMtvn
- k8jPetjdDOJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCatXvuxsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+s4MBAAuEPsnJz8ZPZPjqlOdT+gXkSzxCk54Dr
- luMfazMmirxc6C3I85mGCEXBwDuUVzfbXjIi0jXzuhD3BuiqjL4GFlu8vcTv0vD1fNgejR0OHKd
- q7aCxSFRQ3I/zf0ydTsW6zrWZ+MfcF2fTtLsO8/2HU5MoVjNZrD0Cl6nSTnjwcny4yoy8KVWjht
- u4bVKeNDiBqjIvI1sFZ+KMgfzsXkelyL1ZrX7jxFXOcOQE8ZUkIvHIQbyd3GW6JpNWYaAZmcvbO
- 3/JxioetiCJF9MGVafO2XPcykHFUGeSLXQ5NmBvvthTxU5bk0iTr2g/Kc4rqbKtNqAo3/cufNry
- gwS244MGVecK0g+rvKlB9A4pBeTwchYMX91sEJD2eRDy/WKzKf6v1z29SDiMwO74vpYNprsp1zX
- 1EsgqV3D89t8ud9len6t7JlHALPV+6LZyyTATIPjMlN91hRkV5g1pAp3GAJx/Mzef8gjvsq9b42
- 4qXWhs6JtKFK/he9Kw57tXGSijx2izo20mQpwCLNq6y/Hdhk8M7vI/MVd+5DTYIkCT/1LUXI0xC
- FTWgdWtAVrs+R99gWY6tCWeC0WJyqyBUyXkpgIn9WlPQcoA5GhUxpGWacztblrP3xquus7iz0N8
- sLV/3pk0zGs203GtjCyOscBmQn/uZf8V8sfq3SaHzj7cN370VMi0=
-X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
- fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
-X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
- auth_id=956
-X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+X-Originating-IP: [10.10.10.247]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC155 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: icssm-prueth: use dev_close()/dev_open() in icssm_prueth_change_mode()
+Thread-Index: Sxdr3LPvc6wuwZudfEjLAZ3i6JSt9Q==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_032510_160196_740EC1E4 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,253 +110,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aiden Isik <aidenisik@member.fsf.org>
 
-The Samsung Galaxy Watch FE (SM-R861/SM-R866), codenamed lucky7, is a
-smartwatch developed by Samsung and released in 2024. It has 1.5GiB RAM,
-16GiB of eMMC storage, an Exynos5515 (W920) SoC, and a 396x396 display.
+Hi,
+ 
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+> 
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
+> 
 
-Support for the following is added by this device tree:
-- Bootloader framebuffer
-- Memory
+Sashiko, the netdev AI review bot, reported it as a preexisting issue,
+while reviewing our ICSSM HSR/PRP offload series
+(https://lore.kernel.org/all/179151741150.434549.7819199497598747618@kernel.org).
 
-Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
----
- arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts | 219 +++++++++++++++++++++++
- 1 file changed, 219 insertions(+)
+> - Whether the issue was actually triggered, or is only theoretical
+>   (e.g. found by code inspection). If it was triggered please include
+>   the symptoms, like the stack trace or error messages.
+> 
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
-new file mode 100644
-index 000000000000..e80a0f0948cb
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
-@@ -0,0 +1,219 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Samsung Galaxy Watch FE (lucky7/SM-R861/SM-R866) device tree source
-+ *
-+ * Copyright (c) 2026 Aiden Isik <aidenisik+git@member.fsf.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos5515.dtsi"
-+
-+/ {
-+	compatible = "samsung,lucky7", "samsung,exynos5515";
-+	chassis-type = "watch";
-+	model = "Samsung Galaxy Watch FE (SM-R861/SM-R866)";
-+
-+	chosen {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		framebuffer@9e0cf000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0x9e0cf000 (396 * 396 * 4)>;
-+			format = "a8r8g8b8";
-+			height = <396>;
-+			stride = <(396 * 4)>;
-+			width = <396>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3ea00000>,
-+		      <0x0 0xc0000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		/*
-+		 * Some of these misc-rmem regions belong to memory-mapped
-+		 * devices, and will be assigned to drivers as support
-+		 * is added.
-+		 *
-+		 * Other regions belong to the TrustZone firmware and should
-+		 * never be touched.
-+		 */
-+		misc-rmem@87000000 {
-+			reg = <0x0 0x87000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@87fff000 {
-+			reg = <0x0 0x87fff000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8a000000 {
-+			reg = <0x0 0x8a000000 0x31000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8d800000 {
-+			reg = <0x0 0x8d800000 0x180000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@8ffff000 {
-+			reg = <0x0 0x8ffff000 0x33000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@90100000 {
-+			reg = <0x0 0x90100000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@98a00000 {
-+			reg = <0x0 0x98a00000 0x600000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9a000000 {
-+			reg = <0x0 0x9a000000 0xc00000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9b000000 {
-+			reg = <0x0 0x9b000000 0x400000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9bd00000 {
-+			reg = <0x0 0x9bd00000 0x208000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@9c000000 {
-+			reg = <0x0 0x9c000000 0x20000>;
-+			no-map;
-+		};
-+
-+		framebuffer@9e0cf000 {
-+			/*
-+			 * Reserve up to the end of the final page of the
-+			 * framebuffer region, to prevent memory aliasing.
-+			 *
-+			 * size: align((396 * 396 * 4), 0x1000)
-+			 */
-+			reg = <0x0 0x9e0cf000 0x9a000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0000000 {
-+			reg = <0x0 0xa0000000 0x10000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0010000 {
-+			reg = <0x0 0xa0010000 0x400000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0510000 {
-+			reg = <0x0 0xa0510000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0900000 {
-+			reg = <0x0 0xa0900000 0x2000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0902000 {
-+			reg = <0x0 0xa0902000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@a0910000 {
-+			reg = <0x0 0xa0910000 0x3c000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@b0000000 {
-+			reg = <0x0 0xb0000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@b1000000 {
-+			reg = <0x0 0xb1000000 0x200000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bbfff000 {
-+			reg = <0x0 0xbbfff000 0x1000000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bcfff000 {
-+			reg = <0x0 0xbcfff000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@bd430000 {
-+			reg = <0x0 0xbd430000 0x1250000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@d0000000 {
-+			reg = <0x0 0xd0000000 0x5d00000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@dc444000 {
-+			reg = <0x0 0xdc444000 0x2bbc000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df005000 {
-+			reg = <0x0 0xdf005000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df008000 {
-+			reg = <0x0 0xdf008000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df009000 {
-+			reg = <0x0 0xdf009000 0x12000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df01b000 {
-+			reg = <0x0 0xdf01b000 0x21000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df03c000 {
-+			reg = <0x0 0xdf03c000 0x1000>;
-+			no-map;
-+		};
-+
-+		misc-rmem@df03d000 {
-+			reg = <0x0 0xdf03d000 0xfc3000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&watchdog {
-+	status = "okay";
-+};
+We first confirmed the issue by manual code review. We were also able to
+replicate it on TI AM57xx IDK hardware board.
 
--- 
-2.54.0
+> - What hardware the change was tested on. For driver fixes please
+>   mention the device (and if relevant firmware version) used for
+>   testing, or say that the change was not tested on real hardware.
+> 
+
+We tested the fix on TI AM335x ICE / AM437x IDK / AM57xx IDK with the ICSS-M
+PRUETH while changing the protocol from dual-EMAC to RSTP switch mode.
 
 
+Thanks and Regards,
+Sai Varun M.
 
