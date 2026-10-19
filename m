@@ -2,172 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DA3E606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC63606A33D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 17:38:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vyY5fBwN;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=JwEkFYRE;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=Y+BkH5Hl
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QfEKgRcT;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XFVPcxTB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=; b=vyY5fBwNPWQlPZ5AzLi6cRLOyQ
-	PJ8zkPkded1oae0U9IL8H7s/ElRAzSPjWodIVqtroMApk1zOp828ieDp5sr+D6/DpTfWZ8dr7X0+A
-	vGbiY8lrPaksq0rWwvkgi3oFBLt2VTn8zfBYHNK4A2AajTfAk/Rkx03fuUw6RKOhwDRnl5taLsJHn
-	WXEdhArds9KK2BTWORbWZjVwE+sL9kk/rvzrlcDt/9e+pZ9QFYRWlO6pgGUjBGQKQrWXVzhEQ22DQ
-	X/Qxxfzn+pLJJm1KYyXC0j6E/QHmygKuL7m41Hs9TMCu64Nq9UejgoaRHRtDfzer8UYxPSwJwiQfG
-	xWG7Ex5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jxLzr0WgWnW5NX5VbKd/AKKIcWzJwAW/qePwa3/vqSE=; b=QfEKgRcTevWpXGNFX0ldxOVL2D
+	c1z08XanML0QHKW10apt4q87xUP3PZX8ev4ev+1iAHdW48JYJ3XjiyJfviO4HKuD1KUsiR4rIvzCh
+	sxf+m9MQ5ko0tIKf3X+E5z7M5wSN8MWMEnS83G1hEtLWJ1VGr7EnG6/FhbeIcHxj7HvnZv/e17pkh
+	IPFSrL7EkTKE4eqC2psWTi5ZG+Q7Ky0vxOIovgkerIFIY3u2sgcqfC+5aqCm5ScT0iq382RE0nlcq
+	6cg6y07kqJsJp73EwirxKB0lUWXsjJOCEXlwFuZaWmVcUieCEoZ0jRPyGDJMWM4A0+aD4KH86AnTg
+	iXPTOuFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJq-000000085x6-34G3;
+	id 1xIrJq-000000085wo-2ePs;
 	Mon, 19 Oct 2026 17:38:42 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIrJj-000000085uJ-1eTh
+	id 1xIrJl-000000085v4-0vPZ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 19 Oct 2026 17:38:37 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69JHCtDS3739058;
-	Mon, 19 Oct 2026 12:38:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2
-	uo=; b=JwEkFYREtVAQ143XAsdBwFjNrsx35T9dPS5jAgqk3hAKlJoGmg7F9AktT
-	Xk86/QpLDY7daqR+T+C0aCxTOtkoBcqg1Kg1nEvWw55cfTFqs/xRJMD+XHSH4K0X
-	bW/XWS8miIJeksz3Oanyimw2Ou/MPkXa7mBV1nlPIqBRDBV89sktPUXrHwKnLoCb
-	YTGAUrCiOA7SvPHovcOjUaj6wC01ipuGoK+1GzCyw6Fa2rDcNcDHe2ZiYfiRbdnu
-	Da3YZfiiktWw/elG5aI/8dh/UuyIs04iZQvcEzeVbjsByRRH9OCEox7yj5w0EjWE
-	/6IjM9otAatX15iR3EgoeyiXAUuwQ==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012044.outbound.protection.outlook.com [40.107.209.44])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4hdjdaabeg-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 19 Oct 2026 12:38:21 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cPGxW3hAmeTg/A84g3p32YGGct7qqf8VE43o4enZ54ufPtM/bFDbchSXogZM289jHy9LG/sCHZMNEuJ6T99XfvB76xa5Vrz2hlrG76y6Utxsk81a6WpmJIXcLCnrmmC9fCQxOx/cxWhs4wa0VHQyHfb3bmnrPTZtDoCZxyVAD+2+Wm7xPu4J9igQhNcfdPb/WK4Lif4ihyTMxrkryIX5vAqvJJlEtiShq6no3u0Ay62HiaqA8E72yqnvbvdPpXDM8syFnm+DKwivDg7xH8U76kKgnrefyIAggnQHMbDFTEHAXHN1O/50WcfrrtXH4tt9UQFOXJK3gF7IWPeOCbwb6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=;
- b=iuiJDHn276PUOvFgxPkZWs83DFnSM1d3jihPqio/+t1yzhMJ+dXWM0x4arZTyWzO05saNqRJysf1R/GwCetATeH/xn8JowxuFymcWCBToDS2dXv4zfstW19IsTlCa+zuFnT1+QciD74QkUuOF7Yt+gnvPS1vq+NucfBW4LbnZqTaPwhsqFxEz48+MVtf+O7nZdXPxKk13GTCH7aiacN0sb0yd9WRIeDhokyvZ+xxtF1csGXFAPAPl3hndu+CIvZHnoB+IfA2BOzojB2EiBA1LQGHdAnRrmjqaKeNdRZu2ukFzVZlX4bmQmSCxQzuxbGoEkDBn7E6Ei1xaf9OqnqDZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5izV6+4tjoXa8Vi+iC0CZwQsDwCmHugup19Q5eZr2uo=;
- b=Y+BkH5Hlg62vcVRwNkAFEiBzEofNnD7ADDuv0rHtsFlPgUfUKauBmpY3iovY61dgPxSa7xqrJjhH1iIENGNpZj2zoqtfeon7NrauR7jkIJAU3d6c2ggldy2giGss93USmCbB7AzPzsM3s44UrY53isV2AF62g6P0i4lajoKJIyw=
-Received: from DS7PR03CA0060.namprd03.prod.outlook.com (2603:10b6:5:3b5::35)
- by IA4PR10MB243331.namprd10.prod.outlook.com (2603:10b6:207:103::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Mon, 19 Oct
- 2026 17:38:18 +0000
-Received: from BN2PEPF000044A2.namprd02.prod.outlook.com
- (2603:10b6:5:3b5:cafe::42) by DS7PR03CA0060.outlook.office365.com
- (2603:10b6:5:3b5::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Mon,
- 19 Oct 2026 17:38:18 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN2PEPF000044A2.mail.protection.outlook.com (10.167.243.153) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 17:38:17 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 12:38:02 -0500
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 12:38:01 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 19 Oct 2026 12:38:01 -0500
-Received: from [10.249.32.38] ([10.249.32.38])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69JHc1Ia002041;
-	Mon, 19 Oct 2026 12:38:01 -0500
-Message-ID: <4f8ff34b-d16d-4215-b7ed-b23a0d8663f6@ti.com>
-Date: Mon, 19 Oct 2026 12:38:01 -0500
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BDEA60534;
+	Mon, 19 Oct 2026 17:38:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560881F000CC;
+	Mon, 19 Oct 2026 17:38:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792431516;
+	bh=jxLzr0WgWnW5NX5VbKd/AKKIcWzJwAW/qePwa3/vqSE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=XFVPcxTBBVAMSXbo6YHTCdp9Ti4e3FTz0KD/Zq9VxbAYfRAvGx0FEHPRxb6Gqqw6e
+	 d6RQHTNs0PKRUCvTXAIKXt8AlEqiAVKlbEDdqmloe6wDKQbX9nvLXSCotd4BIFwkTg
+	 dyOLR1Cyuz68lRa36wAHS8b/cp0V0kfUrhFARqZZSTKI7l6J0uDgVzjnsRH8N8hzva
+	 p9Wcz5vM3tx/ZS+TdHVUsJe2DfQ2NbEqH/WRpqrMR6R8bS+RvwevpDF1cijJheX9uj
+	 KNF7EpOSTwQkOnNmUqRW1kipY57HIYLpXQoSVWjQNePW0ppWYvsBI3B3L9flJ80QzX
+	 xWb77+R15QCCA==
+Subject: Re: [PATCH net-next v8 2/5] net: stmmac: drop split frames on AF_XDP
+ zero-copy RX
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ bpf@vger.kernel.org
+Date: Mon, 19 Oct 2026 17:38:34 +0000
+Message-ID: <179243151485.3135.12311252292585825@kernel.org>
+In-Reply-To: <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
+References: <20261018-stmmac-rx-mb-v8-2-5f58c0b25849@oss.qualcomm.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] soc: ti: k3-socinfo: Export SoC registration helper
-To: Moteen Shah <m-shah@ti.com>, <conor+dt@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <linux-kernel@vger.kernel.org>, <nm@ti.com>,
-        <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <u-kumar1@ti.com>, <gehariprasath@ti.com>, <vigneshr@ti.com>,
-        <a-limaye@ti.com>, <y-abhilashchandra@ti.com>
-References: <20261019080736.944127-1-m-shah@ti.com>
- <20261019080736.944127-3-m-shah@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20261019080736.944127-3-m-shah@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A2:EE_|IA4PR10MB243331:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c2f2399-601d-4549-5227-08df2e07c26c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|261009221227099003|261009223027099003|10067099003|56012099006|3023799007|18002099003|22082099003|13003099007|4143699003|5023799004;
-X-Microsoft-Antispam-Message-Info: Qs+toQeMT6X7ULh1v4lDURqbYwd7sC94SXvU4D2ZVPytsN1Cix4KzJ3lJ3eLZqtImjeip3Fdk0+07OyL20S1cdg7vFgDbSxzcAywoT2tyDwjKyYZ4ckBYc3hnPSHXa4MwJl4567IfMYwgXWWzvyp/ZrrFHYLkQUn6DHy1cMxM2gLARK04FpVlgQenvvKzr9k9az0Gba2FjECGfIEaP9vuzVXRadXMicSa0KBz4GE7dDV360QyplMsaASbqXhMQOIvgu2eRVMe+bfOHNWqfRMJQGrQ79uhhM9MrZ2Ghyhi9zLun1NlOVBtm22bO3J+0ngeNPFFUt9QzBft7KespUVSMwr8I2yiOEaH7dAVQjrkFYEoOELXzfyINoM+z/bQuND+NlbSY+/I5tQp9fjXTnGHQUX3LrpL7n9XpEBTuPodXpFTC8hOp576y/v6nxvjziGGEowAkG0nJOwSRSblGWP/Pxt5CF3kT5k2uQJo8pDGWN4WmAg7/lKJxazHbWYg/cxCPWmL/SArutu81clc168zDiJkZiydfjWPP+XB8mROqqIl3FFJPaeY4+0bM+lGbAMVK4XorExPKx3eFepbkbGp3KIUNZmxSCczBhEPkkd6eCAg/JGj/lWC+z1NfKrqwPImj+++GFAd+Oo7j4JsA0aMg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(261009221227099003)(261009223027099003)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(13003099007)(4143699003)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ANmD3N45Nb0Cfh98BIPOuwU0r8xhylS35X5zOoTmv593xwzZ7n42Y7FFnMN7K+dfgcWhL4q27Ej0l2FUurSApVuow637KOXGlyYljXFDpg/e2UQ+GzWewPLOlPfncitOECIEh1cBw0/P0VR5vgPZIhsbXRFBuzuahhEPgoqzNHHZoUSzP/w6JDnwFPWeWPy3HA27qWLpGfBU7eAayc3GN+otSBrb7660fahC7jkbe0ZMM9QP+Pa5CpVMbh2RynDjRyrfKB1ZcZhrknrlzit28qpNU4NQGqiffEDfnOINg/qeHeXHtAPMS4Ygd7os3po8rKTxHeFQIZ0qQPoYjHIFIpa99FrBvJ8jrIFV/39YEEOz5iVx+FaDgUMIGQed4rIJpIFrw5sVQVzbN+kBbpPsZgA5MG7bty4WkakmG6A0frw25kb0l4SV3MWFkqVl14xs
-X-Exchange-RoutingPolicyChecked: RrtKlaXQIIyEQ5tfpr6GjuaeDd+AHPfmTIeZz8IDrnMZo69FgKMDueh4KPsEyNhqcVTwBJsph/xHLtngx4j2xinq1XIwSP7057WmFtt8JHPpJ98JRfH25XB5a6SPoGVVyyWoq5+b1WxdDt2/Q2jOg5Z6QafAscrzlvLeU5s6YJHZ0nFd/FkqvGReYqpyMPKhaDtMs5ZOdQNdmGHtiQF+ko8ZDEs9RlO5xPRDpLQjuJsF9zMg9PiebEeA/EP1tJ8goUjJ5vOV99EvILVvWA4EeT1kO60axjB70dcc8v+oTIhdm3P3syXn2OYfIeEMsZ8cjynlp2fHZ9P/DFLBetihRQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 17:38:17.0302
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c2f2399-601d-4549-5227-08df2e07c26c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A2.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB243331
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA3MCBTYWx0ZWRfX+1RMvm0yWLwO
- DcjsqERWaE7OVs7hl9h/BaYmZrN8OYa1AR8y7aNOxanl/1SYIJTzXXBKXokHT8NR1uRwP5C6fnn
- VDufrkhCwT6Dte7uIH/JThSMNccXWiXTq4cQcT5H1HBYPMuz3t1mFFgpbQzbWwynskL8leiDAjJ
- 6puJz4849VVcpOeVNmNv0OJl6olDz6jsER+JiUTswHhQWffAjKdChd2ttkdgIvvpSn6cRKe1QIL
- AIe4CrviSjSEIOcsArB6DK7FJk3v91gzy00/FvOhGJ+/CC7TARdzohjmkg7I+MOIjHxMU9OnbN8
- gdaGjjDiEUs4G3YavsPdb0DWWCPA7BhlRuNJ3r37NtcneycVEHLgilwU9hq38REzUW0HIJAWQhK
- v6diI3ZPYsVgk3WVxSKbe4LsCldo3w+agyevRdu2/GdKxtWvDJRsBmysjIcSGgOWZ7aNm/Y3olg
- BgPtQu4bk/OGaDORZpQ==
-X-Proofpoint-GUID: rV0DS-PZhZIHt6mZg01MfSXNTjNAGZ3N
-X-Authority-Analysis: v=2.4 cv=HPNWhYtv c=1 sm=1 tr=0 ts=6ad6558d cx=c_pps
- a=rlKp08D5gBKtwCtLUzcdEg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
- a=hW3AF2kSHox5Qd4oTxUA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA3MCBTYWx0ZWRfX8EZZzG6QOoJ/
- mWEPu6Wpyc0fsnjUEJhrqAV3u8p4+QVOWQOKO0KnQ5BP725k5KfUTpwU7mtgYBJRjtOH4XAXkQz
- /FwxOIyz5NDcCeKwcRcqkA8KJOQ4KqA=
-X-Proofpoint-ORIG-GUID: rV0DS-PZhZIHt6mZg01MfSXNTjNAGZ3N
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-19_05,2026-10-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0 phishscore=0
- suspectscore=0 clxscore=1015 malwarescore=0 bulkscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190070
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_103835_540659_1E4F143C 
-X-CRM114-Status: GOOD (  32.04  )
-X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,228 +73,246 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/19/26 3:07 AM, Moteen Shah wrote:
-> The k3-socinfo driver reads the JTAG ID through a dedicated MMIO region and
-> then decodes it and registers the SoC device.
-> 
-> Newer TI SoCs like TDA54 use a different path for accessing the JTAG ID
-> register, but the decoding of the JTAG ID into the SoC information remains
-> the same.
-> 
-> Split the decode and registration part out of k3_chipinfo_probe() into
-> k3_socinfo_register() and export it, so that other drivers can register the
-> SoC device once they have read the JTAG ID through their own access path.
-> 
-> Since the helper can now be called from modular drivers, it must not leak
-> the SoC device when the caller goes away. Tie the registration to the
-> calling device with a devm action, which unregisters the SoC device and
-> frees its attributes on unbind. Callers need no unregister counterpart and
-> the helper keeps returning an int. If the soc bus is not up yet, the
-> attributes are only parked for later registration and there is nothing to
-> undo, so no action is added in that case.
-> 
-> Signed-off-by: Moteen Shah <m-shah@ti.com>
-> ---
->   drivers/soc/ti/k3-socinfo.c       | 101 +++++++++++++++++++++++-------
->   include/linux/soc/ti/k3-socinfo.h |  11 ++++
->   2 files changed, 90 insertions(+), 22 deletions(-)
->   create mode 100644 include/linux/soc/ti/k3-socinfo.h
-> 
-> diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
-> index 48dbef3acceb4..5fae03004e350 100644
-> --- a/drivers/soc/ti/k3-socinfo.c
-> +++ b/drivers/soc/ti/k3-socinfo.c
-> @@ -5,6 +5,8 @@
->    * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
->    */
->   
-> +#include <linux/device.h>
-> +#include <linux/export.h>
->   #include <linux/mfd/syscon.h>
->   #include <linux/nvmem-consumer.h>
->   #include <linux/of.h>
-> @@ -12,6 +14,7 @@
->   #include <linux/regmap.h>
->   #include <linux/platform_device.h>
->   #include <linux/slab.h>
-> +#include <linux/soc/ti/k3-socinfo.h>
->   #include <linux/string.h>
->   #include <linux/sys_soc.h>
->   
-> @@ -152,38 +155,44 @@ k3_chipinfo_variant_to_sr(struct device *dev, unsigned int partno,
->   	return -ENODEV;
->   }
->   
-> -static const struct regmap_config k3_chipinfo_regmap_cfg = {
-> -	.reg_bits = 32,
-> -	.val_bits = 32,
-> -	.reg_stride = 4,
-> +struct k3_socinfo {
-> +	struct soc_device *soc_dev;
-> +	struct soc_device_attribute *soc_dev_attr;
->   };
->   
-> -static int k3_chipinfo_probe(struct platform_device *pdev)
-> +static void k3_socinfo_unregister(void *data)
-> +{
-> +	struct k3_socinfo *info = data;
-> +
-> +	soc_device_unregister(info->soc_dev);
-> +	/* The attributes must only be freed after the unregister. */
-> +	kfree(info->soc_dev_attr->revision);
-> +	kfree(info->soc_dev_attr);
-> +}
-> +
-> +/**
-> + * k3_socinfo_register() - Decode a JTAG ID and register the SoC device
-> + * @dev: device on whose behalf the SoC device is registered
-> + * @jtag_id: raw JTAG ID register value read by the caller
-> + *
-> + * The registration is managed by @dev: the SoC device and its attributes are
-> + * released automatically when @dev is unbound, so callers need no matching
-> + * unregister call. If the soc bus is not yet available, the registration is
-> + * deferred until it is and cannot be released by @dev.
-> + *
-> + * Return: 0 on success, negative errno on failure.
-> + */
-> +int k3_socinfo_register(struct device *dev, u32 jtag_id)
->   {
-> -	struct device_node *node = pdev->dev.of_node;
-> +	struct device_node *node;
-> +	struct k3_socinfo *info;
->   	struct soc_device_attribute *soc_dev_attr;
-> -	struct device *dev = &pdev->dev;
->   	struct soc_device *soc_dev;
-> -	struct regmap *regmap;
-> -	void __iomem *base;
->   	u32 partno_id;
->   	u32 variant;
-> -	u32 jtag_id;
->   	u32 mfg;
->   	int ret;
->   
-> -	base = devm_platform_ioremap_resource(pdev, 0);
-> -	if (IS_ERR(base))
-> -		return PTR_ERR(base);
-> -
-> -	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
-> -	if (IS_ERR(regmap))
-> -		return PTR_ERR(regmap);
-> -
-> -	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
-> -	if (ret < 0)
-> -		return ret;
-> -
->   	mfg = (jtag_id & CTRLMMR_WKUP_JTAGID_MFG_MASK) >>
->   	       CTRLMMR_WKUP_JTAGID_MFG_SHIFT;
->   
-> @@ -198,6 +207,10 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
->   	partno_id = (jtag_id & CTRLMMR_WKUP_JTAGID_PARTNO_MASK) >>
->   		 CTRLMMR_WKUP_JTAGID_PARTNO_SHIFT;
->   
-> +	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
-> +	if (!info)
-> +		return -ENOMEM;
-> +
->   	soc_dev_attr = kzalloc_obj(*soc_dev_attr);
->   	if (!soc_dev_attr)
->   		return -ENOMEM;
-> @@ -224,6 +237,20 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
->   		goto err_free_rev;
->   	}
->   
-> +	/*
-> +	 * A NULL handle means the soc bus is not up yet and the attributes
-> +	 * were parked for registration at soc bus init. They must stay
-> +	 * allocated and cannot be unregistered, so there is nothing to undo.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-This seems really messy, the only time drivers need to deal with this
-early_soc_dev_attr hackyness is if they can register before the soc bus,
-which only happens for drivers using early_initcall(), but that is
-not the case for either driver using k3_socinfo_register().
+Low priority / nit picks for your consideration:
 
-Can you explain why you added all this?
+- [Low] The patch changes the discard test from `status == discard_frame`
+  to `status & discard_frame` in both stmmac_rx() and stmmac_rx_zc().
+- [Low] After this patch, stmmac_rx_zc() counts the same event (a frame
+  split across RX descriptors on an AF_XDP zero-copy queue) differently…
+- [Low] In stmmac_rx_zc() on dwmac4/XGMAC, a split frame can now be
+  counted in both rx_dropped and rx_errors.
 
-Otherwise just allocate soc_dev_attr using devm, k3_socinfo_unregister()
-action can be added unconditionally, and only needs to call
-soc_device_unregister().
+Pre-existing issues:
+- [High] At this commit, stmmac_rx() (non-ZC, XDP attached, GMAC4/XGMAC
+  whose non-last descriptors report bare rx_not_ls) still drops a non-…
+- [Medium] stmmac_rx_zc() and stmmac_rx() add their local
+  rx_dropped/rx_errors into the device-wide `priv->xstats.rx_dropped`…
 
-Andrew
+--
 
-> +	 */
-> +	if (soc_dev) {
-> +		info->soc_dev = soc_dev;
-> +		info->soc_dev_attr = soc_dev_attr;
-> +		ret = devm_add_action_or_reset(dev, k3_socinfo_unregister,
-> +					       info);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->   	dev_info(dev, "Family:%s rev:%s JTAGID[0x%08x] Detected\n",
->   		 soc_dev_attr->family,
->   		 soc_dev_attr->revision, jtag_id);
-> @@ -236,6 +263,36 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
->   	kfree(soc_dev_attr);
->   	return ret;
->   }
-> +EXPORT_SYMBOL_GPL(k3_socinfo_register);
-> +
-> +static const struct regmap_config k3_chipinfo_regmap_cfg = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +};
-> +
-> +static int k3_chipinfo_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct regmap *regmap;
-> +	void __iomem *base;
-> +	u32 jtag_id;
-> +	int ret;
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
-> +	if (IS_ERR(regmap))
-> +		return PTR_ERR(regmap);
-> +
-> +	ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG, &jtag_id);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return k3_socinfo_register(dev, jtag_id);
-> +}
->   
->   static const struct of_device_id k3_chipinfo_of_match[] = {
->   	{ .compatible = "ti,am654-chipid", },
-> diff --git a/include/linux/soc/ti/k3-socinfo.h b/include/linux/soc/ti/k3-socinfo.h
-> new file mode 100644
-> index 0000000000000..487e69d0069d1
-> --- /dev/null
-> +++ b/include/linux/soc/ti/k3-socinfo.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __LINUX_SOC_TI_K3_SOCINFO_H__
-> +#define __LINUX_SOC_TI_K3_SOCINFO_H__
-> +
-> +#include <linux/types.h>
-> +
-> +struct device;
-> +
-> +int k3_socinfo_register(struct device *dev, u32 jtag_id);
-> +
-> +#endif /* __LINUX_SOC_TI_K3_SOCINFO_H__ */
+net: stmmac: drop split frames on AF_XDP zero-copy RX
 
+In stmmac_rx_zc(), when the 1:1 XSK mapping check drops a non-last
+descriptor, this patch now marks the frame as errored. The rest of the
+split frame is then drained, and its tail is no longer handled as a new
+frame. The patch also makes the legacy enhanced and normal descriptor
+callbacks report rx_not_ls together with discard_frame, and changes the
+discard test in stmmac_rx_zc() and stmmac_rx() from == to &.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> index 0512536012251..297e2428a8f9b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+> @@ -184,7 +184,7 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
+>  
+>  	if (unlikely(!(rdes0 & RDES0_LAST_DESCRIPTOR))) {
+>  		x->rx_length++;
+> -		return discard_frame;
+> +		return discard_frame | rx_not_ls;
+>  	}
+
+[Severity: Low]
+
+With this change and the matching one in ndesc_get_rx_status(), does
+stmmac_rx_zc() now count the same split frame differently depending on
+the descriptor format?
+
+On dwmac4 and xgmac, dwmac4_wrback_get_rx_status() and
+dwxgmac2_get_rx_status() return a bare rx_not_ls for a non-last
+descriptor:
+
+	if (likely(!(rdes3 & RDES3_LAST_DESCRIPTOR)))
+		return rx_not_ls;
+
+So the frame reaches the new 1:1 mapping drop and rx_dropped is
+incremented once.
+
+On dwmac100/dwmac1000, non-last descriptors now carry discard_frame. The
+status & discard_frame block in stmmac_rx_zc() runs first and increments
+rx_errors for each non-last descriptor (when hwts_rx_en is off). The new
+rx_dropped++ in the 1:1 path is never reached on these cores.
+
+An N-descriptor jumbo frame would then show up as 1 rx_dropped on
+GMAC4/XGMAC, but as N-1 rx_errors on dwmac1000. Both counters are
+exported through stmmac_get_stats64(). Is this asymmetry intended?
+
+The legacy cores already counted rx_errors per descriptor before this
+patch; what is new is the different rx_dropped accounting. Later in the
+series, "net: stmmac: rework stmmac_rx to support XDP rx multi-buff"
+changes stmmac_rx() to test !error && (status & discard_frame), so it
+counts once per frame. stmmac_rx_zc() still counts per descriptor at the
+end of the series.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 8fd2acb25fb60..efa88cd359dac 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -5715,8 +5718,9 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (likely(status & rx_not_ls)) {
+>  			xsk_buff_free(buf->xdp);
+>  			buf->xdp = NULL;
+> +			rx_dropped++;
+> +			error = 1;
+>  			dirty++;
+> -			count++;
+>  			goto read_again;
+>  		}
+>  
+
+[Severity: Low]
+
+Can one split frame on dwmac4/XGMAC now be counted in both rx_dropped and
+rx_errors?
+
+The first non-last descriptor takes this path, which increments
+rx_dropped and sets error = 1. Suppose the last descriptor of the same
+frame then reports discard_frame (RDES3_ERROR_SUMMARY, for example a CRC
+or giant error on an oversized frame). The earlier block in
+stmmac_rx_zc() still runs:
+
+		if (unlikely(status & discard_frame)) {
+			error = 1;
+			if (!priv->hwts_rx_en)
+				rx_errors++;
+		}
+
+This happens even though error is already set for this frame.
+stmmac_get_stats64() exports both totals as rx_dropped and rx_errors.
+
+Later in the series, "net: stmmac: rework stmmac_rx to support XDP rx
+multi-buff" avoids this in stmmac_rx() by testing !error && (status &
+discard_frame). stmmac_rx_zc() is not changed, so the double count is
+still there at the end of the series.
+
+[Severity: Medium]
+
+This is a pre-existing issue and was not introduced by this patch. The
+new rx_dropped++ feeds this accumulation at the end of stmmac_rx_zc():
+
+	priv->xstats.rx_dropped += rx_dropped;
+	priv->xstats.rx_errors += rx_errors;
+
+These are plain unsigned long fields in struct stmmac_extra_stats,
+shared by the whole device. Each RX channel has its own NAPI instance,
+so stmmac_rx_zc() and stmmac_rx() can run at the same time for different
+queues on different CPUs.
+
+Can these non-atomic read-modify-writes lose updates?
+stmmac_get_stats64() also reads the fields without any synchronization.
+
+stmmac_rx() does the same accumulation, and it is unchanged at the end
+of the series.
+
+> @@ -5883,7 +5887,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  
+>  		if (priv->extend_desc)
+>  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
+> -		if (unlikely(status == discard_frame)) {
+> +
+> +		if (unlikely(status & discard_frame)) {
+
+[Severity: Low]
+
+Changing == to & here and in stmmac_rx_zc() also changes the normal RX
+path on dwmac4/GMAC4/GMAC5. Should the commit message mention this?
+
+dwmac4_wrback_get_rx_status() sets ret = discard_frame when
+RDES3_ERROR_SUMMARY is set. It then ORs in csum_none for IP header or
+payload errors:
+
+	if (rdes1 & RDES1_IP_HDR_ERROR) {
+		x->ip_hdr_err++;
+		ret |= csum_none;
+	}
+
+So a frame with both an L2 error and an IP checksum error reports
+discard_frame | csum_none.
+
+Before this patch, such a frame failed the == test. It was run through
+XDP and passed to napi_gro_receive() with CHECKSUM_NONE. Now it is
+dropped and counted in rx_errors.
+
+The new behaviour looks correct. It stops errored frames from reaching
+the stack, which has been possible since commit 644b8437ccef9e ("net:
+stmmac: dwmac4: report Rx checksum errors in status").
+
+However, the commit message presents the operator change only as a
+result of the enh_desc/norm_desc normalization, and limits the scope to
+AF_XDP zero-copy. Could it describe this GMAC4 change and reference
+644b8437ccef9e?
+
+>  			page_pool_put_page(rx_q->page_pool, buf->page, 0, true);
+>  			buf->page = NULL;
+>  			error = 1;
+
+[Severity: High]
+
+This isn't a bug introduced by this patch. The commit message says the
+change lets stmmac_rx() drain split frames, which holds for
+dwmac100/dwmac1000.
+
+GMAC4/XGMAC report non-last descriptors as a bare rx_not_ls. On those
+cores, with an XDP program attached, are there still paths in
+stmmac_rx() that drop a non-last descriptor without setting error?
+
+When the XDP verdict is STMMAC_XDP_CONSUMED:
+
+				if (xdp_res & STMMAC_XDP_CONSUMED) {
+					...
+					skb = NULL;
+
+					if (unlikely((status & rx_not_ls)))
+						goto read_again;
+
+error is still 0 here, so the next fragment goes through XDP as a new
+frame. With a 1-3 byte tail, wouldn't buf1_len -= ETH_FCS_LEN underflow?
+
+For XDP_TX/XDP_REDIRECT:
+
+				} else if (xdp_res & (STMMAC_XDP_TX |
+						      STMMAC_XDP_REDIRECT)) {
+					xdp_status |= xdp_res;
+					buf->page = NULL;
+					goto next;
+				}
+
+goto next clears in_progress even when rx_not_ls is set. The loop head
+then resets error and len, and the tail is reparsed with len == 0.
+
+When napi_build_skb() fails:
+
+				rx_dropped++;
+				count++;
+				goto drain_data;
+
+error is not set here either, so a later descriptor can build an skb from
+only the end of the frame.
+
+This is the same class of bug the patch fixes in stmmac_rx_zc(). An
+on-link peer can trigger it, since GMAC_CONFIG_JE is always set on
+GMAC4.
+
+It looks like later patches in the same series fix it: "net: stmmac:
+drop multi-buffer frames in XDP mode" and "net: stmmac: rework stmmac_rx
+to support XDP rx multi-buff". After those, XDP and stmmac_build_skb()
+only run on the last descriptor, and failures go to error_free_frag.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261018-stmmac-rx-mb-v8-0-5f58c0b25849%40oss.qualcomm.com
 
