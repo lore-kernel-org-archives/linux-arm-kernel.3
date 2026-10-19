@@ -2,82 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57840609CEF6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:14:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FAF7606EFD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:33:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zEe/OtAx;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bNkDF4Kc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XBvLtBeO;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pLUGfr7o
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GwztzXGiW7OnAu9QbRSyq73Z8Eatn3pZ575kk94zIeU=; b=zEe/OtAxfoLjwbJut7dAkvZNBB
-	hCKRJv0cr+WHkVzTKm/K8AjW+qDeddRQ7E6rff6Faj64bog1f/n0MA2HhmMLmfhyAbgwxctTX66qc
-	GvDcyeI8Tl92sYDWatjhs+WewjTxNQhRYu0CRgYFwrGoX6/pC5BS+vhCZ0HPB+UdOYlNl77myoqUU
-	A6bkLgBtFOQE+z3ivCeJXuifyEpIrhd+nTzDJo/lp9gpt5T36zSb7GiQlTCB1reJfLvM8x7ruaRPZ
-	VB+AAIW4MVXG44Z2RPh5Y3GMijzF2HqYW7UaP6Q1ur4HiIiKwh8DyBy0G96hnzod+BKXbLnKbkFr0
-	JWD94XsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=chgIyerIQUJ4MpBdj3CzM7sYFHniQ/ji6TFUETNF7sE=; b=XBvLtBeOqGE0CBXmPoeT34CVIM
+	nOoAJwJU5MHpFbhgR3EqBgcdGUCt6unnuqkiFHpGhwrPWODAbcCuFtnemrQLHCrlWU5PJ1XFD9o76
+	hiwFv1O9/fPGZWKBBISvd2823Nu2HwrRt31PU1PMoBOKdk80NUJ2EQIw+KH5E2UsNBKGnQUxoV0l0
+	Qu4LKkeRelnTgtRS/zedFpihyPEnJ6TIMCY4aVGL7+Vu3tbR/NOLZdYPixUetpdh5rZNE5trJYVQt
+	eA1kdDwIzZw66g31aIIw7tvdWSGjs1OD/q5tY6AMIVTqw3VSmTemp01I0HPFindlEuB/g2EpPj8OO
+	HUdPE7ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIp4T-00000007p4d-0Ddb;
-	Mon, 19 Oct 2026 15:14:41 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1xIpMX-00000007rDC-3OHT;
+	Mon, 19 Oct 2026 15:33:21 +0000
+Received: from out-147.mta1.migadu.com ([2001:41d0:203:375::93] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIp4P-00000007p3B-1521
+	id 1xIpMU-00000007rCS-3yfJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 15:14:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792422878; x=1823958878;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=OxZSt/jYZA56remEOs1LpCwtEvXYIh/MngBNA+cobgk=;
-  b=bNkDF4KcJcE73Y4O1F81S4ku7pCOTu6n8sBhnPbHB3NkVQrMQu0q6AHg
-   ZKbBt01PgM6VtVnT1UN+0ldmmFd0MAWCClr8RNe4kioJUSDraTy6hXuEl
-   N8uP1U5RajzzjxwIuWeiyExxLPoSfj/Ww/SM5uL2zLS/eNYD7fx5a7jNk
-   GknMmJ0iJXhUpHD4e9f9Yt91dg+1ZpuQhCV9g2l50bVXaxesAkYlgkkm1
-   v4zkZlTQugy9PiKPiGiVRp59XacTcDJDGpywNAS6oMF5fX/XFkYh6nM2x
-   c/2e/mdwr7rgxLPr+ozH0soEUnSRlLEGvPljll5uSZguobLnZKkq4uufG
-   w==;
-X-CSE-ConnectionGUID: GJj56m5tSSC3RPNPDQDxxg==
-X-CSE-MsgGUID: j6o7cFcXRM29ErzE+n6TUw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="992122"
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="992122"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 08:14:36 -0700
-X-CSE-ConnectionGUID: fMGnTY3hS0iQdJ3EoYwDkw==
-X-CSE-MsgGUID: pdPHpR76Q/+JLFYQNK5E1Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="2636134"
-Received: from jf5300-15a101203tc.jf.intel.com (HELO meta-crater2c.jf.intel.com) ([10.54.113.49])
-  by fmviesa005.fm.intel.com with ESMTP; 19 Oct 2026 08:14:35 -0700
-From: Daniel Byrne <daniel1.byrne@intel.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>
-Cc: Fenghua Yu <fenghua.yu@intel.com>,
-	Frank Li <Frank.Li@kernel.org>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	dmaengine@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] [PATCH 0/3] dmaengine: polled completion status for out-of-order providers
-Date: Mon, 19 Oct 2026 08:06:29 -0700
-Message-ID: <20261019150632.4026424-1-daniel1.byrne@intel.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 19 Oct 2026 15:33:20 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=1U6BfBwCfq4V3+m41gJdoq8QfWpdRN+npCvu9W+LDfU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1792423996; v=1; x=1793028796;
+ b=pLUGfr7oRZbX4oqLyLg7KpxyMYl3j00MH9rAR/TSgHv1DhjMP5zV/T9G+i9QDU820IK18QQ2
+ UGVq2MbDvI9qIfFz0hEX00GyVEFeiGpcwo8Kep1jJ625CHR7A1Re9StRqhUUmA+4lA9brS2gTj1
+ c3MOarw3I4N/7tnUX7HmOygQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7442c16b685d71e2;
+	Mon, 19 Oct 2026 15:33:16 +0000
+X-Mizu-Trace-ID: 7442c16b685d71e2
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be58ad9600so7334e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 08:33:12 -0700 (PDT)
+X-Gm-Message-State: AFq9FYLZkT+XxEXE084/TdZq2jVTwrPQTz0HeXRPunWWMeS0f92QlR7h
+	vpDkbOLjpklO6bKdB92gIOPCwBr4HdHU4QsLoqxbVYztVQyz3yIYQQSXlcENo1WsBKFVVGeEi72
+	uf4VgOkLR4djCV0HdsV97wXeJsYH02D48kTSa4puu
+X-Received: by 2002:a05:6512:3096:b0:5b7:6707:e44c with SMTP id
+ 2adb3069b0e04-5be51d36f63mr209729e87.12.1792423991379; Mon, 19 Oct 2026
+ 08:33:11 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261019134242.1289002-1-sascha.bischoff@arm.com> <20261019134242.1289002-2-sascha.bischoff@arm.com>
+In-Reply-To: <20261019134242.1289002-2-sascha.bischoff@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 19 Oct 2026 16:32:34 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
+X-Gm-Features: AclHuK9YsVMfbpulg4gsG40qG2ygFeEoSjoGnDJEH8FVka3Piy823C8uPTVEmEs
+Message-ID: <CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] KVM: arm64: vgic: Require matching VGIC model for
+ GICv3 ITS
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_081437_395484_C38C1756 
-X-CRM114-Status: GOOD (  10.34  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_083319_271134_A95A8E22 
+X-CRM114-Status: GOOD (  14.90  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,70 +79,57 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A client that polls transaction status on a device whose work queues
-complete out of order, as DSA's do when several engines serve one
-queue, cannot use the cookie-ordered dma_async_is_tx_complete(): the
-completed-cookie watermark moves past descriptors still in flight.
-These three patches add dmaengine_async_is_tx_complete() as the polling
-API, routing the query to device_tx_status() without the cookie-window
-outputs, implement it in idxd from a generation-numbered cookie that
-reads the descriptor's own completion record, and drop
-DMA_COMPLETION_NO_ORDER and DMA_OUT_OF_ORDER, whose only setter was
-idxd. dmatest's polled mode is the in-tree user; the io_uring DMA copy
-offload, to be posted separately, is the one that needs the exact answers.
+Hi Sascha,
 
-This applies on top of "dmaengine: idxd: fixes found by an in-kernel
-polling client", posted alongside, which the status implementation's
-reset-epoch handling depends on.
+On Mon, 19 Oct 2026 14:42:41 +0100, Sascha Bischoff
+<sascha.bischoff@arm.com> wrote:
+> On a GICv5 host with legacy support, KVM registers both VGICv3 and
+> VGICv5 devices. Without a model check, a VM can create a GICv3 ITS
+> alongside an incompatible VGIC, regardless of creation order.
 
-Daniel Byrne (3):
-  dmaengine: add dmaengine_async_is_tx_complete() for channel status
-    queries
-  dmaengine: idxd: generation-number transaction status
-  dmaengine: drop DMA_COMPLETION_NO_ORDER and DMA_OUT_OF_ORDER
+Could you add to the commit message that the new checks apply on every
+host? A GICv2 VGIC and an ITS, in either order, now fail with -ENODEV,
+where before both were created and the ITS was ignored.
 
- Documentation/driver-api/dmaengine/client.rst |  24 +--
- .../driver-api/dmaengine/provider.rst         |  64 ++++---
- drivers/dma/amba-pl08x.c                      |   2 +-
- drivers/dma/at_hdmac.c                        |   5 +-
- drivers/dma/dmaengine.c                       |   2 +-
- drivers/dma/dmaengine.h                       |  21 ++-
- drivers/dma/dmatest.c                         |  14 +-
- drivers/dma/idxd/device.c                     |   1 +
- drivers/dma/idxd/dma.c                        | 159 +++++++++++++++++-
- drivers/dma/idxd/idxd.h                       |   3 +
- drivers/dma/idxd/irq.c                        |   8 +
- include/linux/dmaengine.h                     |  55 +++---
- 12 files changed, 268 insertions(+), 90 deletions(-)
+[...]
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+[...]
+> @@ -42,10 +42,7 @@ bool vgic_has_its(struct kvm *kvm)
+>  {
+>          struct vgic_dist *dist = &kvm->arch.vgic;
+>
+> -        if (dist->vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
+> -                return false;
+> -
+> -        return dist->has_its;
+> +        return !!dist->its_model;
+>  }
 
+I think this should check vgic_model as well, as Sashiko raised [1].
+vgic_its_create() accepts an ITS when there's no in-kernel VGIC, and
+the VM can then run with a userspace irqchip. On a GICv4.0 host,
+kvm_vgic_flush_hwstate() then calls vgic_v4_commit() on every entry,
+for a vPE that vgic_v4_init() never set up. irq_set_vcpu_affinity()
+fails on irq 0 and the error is ignored, so nothing crashes, but this
+patch makes that path reachable. The MSI paths Sashiko lists are fine,
+since KVM_SIGNAL_MSI requires an in-kernel irqchip and irqfd an
+initialised VGIC.
 
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-prerequisite-patch-id: b50615a6696ce4ffa7e20911f77b9f7f0481f14f
-prerequisite-patch-id: 36d833fd556bce04054a7e373ee46575186bb58c
-prerequisite-patch-id: 3aeecac097eafb6812e10b9896a242c61c4ca5da
-prerequisite-patch-id: 99e0468cdabf56a287c6a7f2d7ef06aa6d5a573e
-prerequisite-patch-id: b1dd90551e6b671e751aae8d2a688d9db8f300f5
-prerequisite-patch-id: c99a06be81e6a56d84a14bf9e00d2b48455c3a89
-prerequisite-patch-id: 3e39b306130b75fedae70a328072dc9577818b9f
-prerequisite-patch-id: b1d8fb5b5f7f478adca95f4c8b632480164d18b4
-prerequisite-patch-id: b6d48ab83002f113833ba874be299c241788dd30
-prerequisite-patch-id: 53bb73bdfd98cd78ca5d86b00ad7e96fcebf7ee6
-prerequisite-patch-id: de44e2d44df13e8e07ae00df842d67c9d5c874d2
-prerequisite-patch-id: 8191bc0ef2c849d2d9d55f73fc2169f695ea8594
-prerequisite-patch-id: bfc55b104522278ca1fba36d3f4adb3a306267bc
-prerequisite-patch-id: 12c1f4cba95509b8e7e87ce5c2f9c4265ec0c2df
-prerequisite-patch-id: 6e859bfd95e53386bce02ac6585f09a067d0bb8e
-prerequisite-patch-id: 2874936c0a5b3863db0309e06ee93008890a714e
-prerequisite-patch-id: 85ef17aa68aecd398d3b47ad8df435ce715572e8
--- 
-2.43.0
+Something like this would keep the 0 == 0 case you pointed out for
+Marc's version false:
 
+        return dist->its_model && dist->its_model == dist->vgic_model;
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/sashiko-outbox-177254@kernel.org/
 
