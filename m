@@ -4,120 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBEACCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 07:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9638CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 07:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBG5N+FfEFIehrCqR4e6P+vf/JRBTRr9M3vIsyWq9gA=; b=GS1CAGOrlX+hZOMGx/rkUFP0ZE
-	gOATCh5KwW6EU7/+bR+8tSy3nUJe8VsqgEsuJysk5Hps1JAdzit90CMzHdzEn259m31icJ2QTGfKU
-	raO31K8tnxFEuoKkFKL6ee/4UkvIrg6tqty+fXHGGfx2XhU4hX2EPoW0iF16OVjLw6RHHK8arTdwV
-	G3uoHm1iUaoI6Oc6qSqioALMlta0NCNJAPpU0QtPGU52tP3HTDajellnZwb+mPmiWqIUV55wliplf
-	SgFssoRJra7wGnuE+VdFbeLdt7yrLyezyJcPhzNAL4rEsWnhCH6SirooZ0gDqw/FV33rk+PexG//M
-	utqwdS6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:References:
+	In-Reply-To:Message-Id:From:Mime-Version:Subject:To:Cc:
+	Content-Transfer-Encoding:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=96Wm4D57LuIgrDtXs3jtILL79TgZtcHA3nY+j4YAW3Q=; b=1OQrVgyZ5hL8fi
+	YMfsH0ZMh7rdTNbzbcvEEITIrKMXiTQOmsj4RCmgIf3hrbuJ7/yXWyzHv/3WBc1v0QKWqW+JnTuoL
+	3ASKJnGO5iYZ2C9chj0FzyxseElvRoJuTfnjzrhyzGgfbQGWZiEH5pzO1B4U4Q9YRurjn1Smms5CM
+	9EbtszWCqDdo5vl0iOzENjEgunJgSZqOtgkLUqPslNNcDICDDj+4DAlysniDE6n+Nwso4sSXdEfYr
+	8K+GUBvX/hNufv9fd0NiDH/H13JQ+rTCM+rAOFUtGvPMHhJbxU5+eEf70lzm0G+UwnaYwbJ8ycpST
+	mJpUYM5tnA1cStWfnxaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhSF-00000006kJt-0Jxz;
-	Mon, 19 Oct 2026 07:06:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xIhSX-00000006kOX-1ETG;
+	Mon, 19 Oct 2026 07:07:01 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhSB-00000006kJb-0pHq;
-	Mon, 19 Oct 2026 07:06:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BACB43B62;
-	Mon, 19 Oct 2026 07:06:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 072531F000C4;
-	Mon, 19 Oct 2026 07:06:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792393598;
-	bh=RBG5N+FfEFIehrCqR4e6P+vf/JRBTRr9M3vIsyWq9gA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=PbEOhqpo3axFdDlnmaH2aTonn5RGDJRgHrjGwsbQLTYa+aASv0CA/MES1FVCtag5T
-	 DyPdpRa3TNuGmmUuWTvxijZkpkOCdwhozJUSAg8Fqu4XwJkvl8k6zckeIeuJ2QnWJ1
-	 JQiQko1Ykyi1fpHbPvREIvGSNF/JRmgeMVvjvXd30qjk3l5CkX0kEfAylhrqd5Op2d
-	 W/FQ9Gn9ljkyQ085N5hQqVhWWmK4kHDraXSvcMaPsB/yKw/LxT0hx41U+qb8EXZYgA
-	 vSUYDArtuPoZMpr2rjcfV43lz6ATWI6AbElUEa5nLNzrbt4v9gKlPfGkDxBY1FtfTe
-	 TtIYQhAiDhSWQ==
-Message-ID: <cd5bd24e-2dce-45da-a3cd-19d04f10167c@kernel.org>
-Date: Mon, 19 Oct 2026 09:06:27 +0200
-MIME-Version: 1.0
+	id 1xIhST-00000006kNa-3p7s
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 07:07:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1792393610; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=96Wm4D57LuIgrDtXs3jtILL79TgZtcHA3nY+j4YAW3Q=;
+ b=hXWIrbHh/zoTrGqhiFS5hJfKXv7MRtu9h/fgsAkvpSItQI1ZG3FHO+G9k83wsyWDD4qgki
+ PVEpHMONKYA3jenAosXFCEvzbFEqVwqDPSWlw27Ku4IedpYrk/BWxL3jjfTXQkArNftX0r
+ wslhnH5fkcuTMGu9tfm5OcnI9J01SIfF9tKV8DfHzJd6+yuvo7/TjFbe1OnHc/3DSyahu8
+ yrDImSeKhxMyZhCaJi9Z7uN3VI9xHFiyl6Fd7lXsSiXkTiIwFs/xP8IfpXt5LAwp1YEa9h
+ fp6l9kbTv6lZ795Io88mkKpGU949+GbPPfh/1OuG54DekUD3Dg4Mnd6Di6fYwA==
+Date: Mon, 19 Oct 2026 15:06:26 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: mediatek: hdmi-phy: Add compatible for
- mt8167
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Chen-Yu Tsai <wenst@chromium.org>, Fabien Parent <fparent@baylibre.com>,
- CK Hu <ck.hu@mediatek.com>, chunhui dai <chunhui.dai@mediatek.com>,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org
-References: <20261010115539.9237-1-l.scorcia@gmail.com>
- <20261010115539.9237-2-l.scorcia@gmail.com>
- <20261012-quirky-emu-of-renovation-c217dc@quoll>
- <CAORyz2KgX-7=gfax06+Pb5SFq4dVTtcTY2pbH+FDCRNZ+AVXOA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAORyz2KgX-7=gfax06+Pb5SFq4dVTtcTY2pbH+FDCRNZ+AVXOA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+Cc: <dev.jain@arm.com>, <baolin.wang@linux.alibaba.com>, 
+	<lance.yang@linux.dev>, <mark.rutland@arm.com>, 
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <liam@infradead.org>, 
+	<vbabka@kernel.org>, <rppt@kernel.org>, <surenb@google.com>, 
+	<mhocko@suse.com>, <linux-arm-kernel@lists.infradead.org>, 
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, <catalin.marinas@arm.com>, 
+	<will@kernel.org>, "Ryan Roberts" <Ryan.Roberts@arm.com>
+Subject: Re: [PATCH] arm64/mm: restrict transparent contpte mappings to valid PTEs
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26ad5c188+623891+lists.infradead.org+zhaogongyi@bytedance.com>
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+Message-Id: <e0f60526-bb95-4d39-9a7a-72cdf32ca5b6@bytedance.com>
+In-Reply-To: <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org>
+References: <20261013093600.54995-1-zhaogongyi@bytedance.com> <daab2f45-56c2-48ad-a24f-aa4f889e4da2@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_000658_027030_2BE139EB 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,17 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/10/2026 19:43, Luca Leonardo Scorcia wrote:
->> Why do you have flexible clocks?
+On 10/14/26 5:41 PM, David Hildenbrand (Arm) wrote:
+> CCing Ryan:
 > 
-> Hi, I'm sorry but I need a little help in understanding your comment.
-> If you meant "Why isn't there a constraint on the clocks' names", it
-> is already provided by the existing conditional block [1].
+> https://lore.kernel.org/r/20261013093600.54995-1-zhaogongyi@bytedance.com
+> 
+> On 10/13/26 11:36, Zhao Gongyi wrote:
+>> The transparent contpte layer treats PTE_CONT as software state: when a
+>> PTE has PTE_CONT set, the contpte helpers may align the operation to a
+>> CONT_PTE_SIZE block and operate on the whole block. That invariant only
+>> makes sense for valid mappings. Explicit users such as hugetlb manage
+>> their contiguous encodings separately.
+>>
+>> contpte_set_ptes() currently sets PTE_CONT from alignment alone. Batched
+>> set_ptes() users can therefore install present-invalid PTEs with
+>> PTE_CONT set, for example mprotect(PROT_NONE), NUMA hinting through
+>> modify_prot_commit_ptes(), fork() copying a PROT_NONE large folio, or a
+>> PMD split installing PAGE_NONE PTEs.
+>>
+>> This is not a hardware programming problem: invalid descriptors are not
+>> translated, so the hardware ignores descriptor bits such as PTE_CONT. It
+>> is a software-state problem. Some arm64 fast paths intentionally test
+>> pte_cont() directly instead of pte_valid_cont(), for example commit
+>> 9970a9a27ffc ("arm64: mm: implement the architecture-specific
+>> test_and_clear_young_ptes()"). Fixing the producer side preserves these
+>> fast paths and covers all consumers.
+>>
+>> In the observed failure, mprotect(PROT_NONE) installed a full
+>> CONT_PTE_SIZE range of present-invalid PTEs with PTE_CONT set.
+>> MADV_GUARD_INSTALL then zapped one PTE. The nr == 1 clear_full_ptes()
+>> path only unfolds pte_valid_cont() entries, so the neighbouring
+>> present-invalid entries kept PTE_CONT while the target entry became a
+>> guard marker.
+> 
+> Hm, is there a good reason why we cannot just use the cont-pte bit for all
+> *present* PTEs, even if HW would not be prepared to benefit (!pte_valid())?
+> 
+> I guess we really only have to make sure to shatter properly, right?
+> 
 
-Ack
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Hi David,
 
-Best regards,
-Krzysztof
+Right, there is no architectural restriction preventing PTE_CONT from
+being used as software grouping state for present-invalid PTEs. For this
+particular failure, making contpte_try_unfold() recognize something like
+
+         pte_present(pte) && pte_cont(pte)
+
+would make clear_full_ptes(nr == 1) unfold the block before replacing one
+entry with the guard marker.
+
+My reason for preferring the producer-side fix is that the existing
+transparent contpte helpers mostly use pte_valid_cont() as the membership
+test, including contpte_try_unfold(), ptep_get[_lockless](),
+pte_batch_hint() and contpte_is_consistent(), while some range fast paths
+test pte_cont() directly.
+
+If present-invalid PTEs are also considered members of a transparent
+contpte block, I think we should audit the single-PTE modification paths,
+rather than changing only this clear path. We would likely also need a
+pte_present_cont() helper: the pte_present() guard matters because the
+PTE_CONT bit position is part of the swap offset for non-present entries.
+
+There is no hardware benefit while the descriptors are invalid, and
+set_ptes() can recreate the contiguous encoding when an eligible range is
+made valid again. For a stable fix, I therefore preferred to stop
+contpte_set_ptes() from creating present-invalid transparent contpte
+mappings, which also matches the pte_valid_cont() contract used by most
+of the existing helpers.
+
+I agree that saying this invariant "only makes sense" for valid mappings
+is too strong. I will reword that to describe the current helper
+contract instead.
+
+If preserving the software grouping across PROT_NONE is the intended
+semantics, I can rework this as a broader unfold-path audit instead.
+
+Thanks,
+Gongyi
 
