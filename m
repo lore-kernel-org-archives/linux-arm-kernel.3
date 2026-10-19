@@ -4,101 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F10FCCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2098FCCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=; b=NN902mDQnSQ49/NXw3ww0XEcE6
-	MluzifgMHbw/sHnfH8yfqv1m3Zv1iHiyk7NaBDI4JA35sCZLOV4ObU1HT9yxrPAuPMaE7H9JaEpui
-	93yGGpmwKcKPgOyganAoZB1nG2e7tnCJvwHeH71MWo3QEiaHnrZpeVlGpe2cWAyk9UUHJlyzRkUKj
-	iYI/Iy87LGs3dodGQdaID5kJUeHEwiIHmeJPDFRlqkUYZDuWZA5xgPh8IrN8n6bG56quzRRcQu0sg
-	p0NHNnNRc3D5TICy3E9iDWAt35/0Spi4ep586G+wwHfNCm5utKxAolmhjeO0ZiBjt2Y33dJIhgCP3
-	7+HkyuZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kFqTDlj4awkfSbachY987XqpXNk4Iu67BWeqjiuV6NM=; b=dZT7j3gQALONrFEs+xuxwIBA2P
+	IvdLK8XSsCngd87ZU6roJOGH0DTpv6Lqu0WUvVNe15b63dxB3oV1TnTLPyEoINY5A8uRK3aZARQej
+	YGCUsToECitfp922VELXtykiTBrWV+hG26/HYSloaOud5FqnDy5rues7XTZvL5jS9G9IPtqqrGbRn
+	IARF4X9/rIxjiEcET9SUS/wwBmUM3y7vwg9osZCt2uSw8VhG92o/izHllLAUxmkNPXUeJUT4VAiAl
+	cO2kSoKSUvREFQ6ZLaruRM+Ywa0uJfSAm7FeLT7sSdPVFX8MIhb8YfxZTxPUcAG0onUiGlrwTZZqb
+	7bAcfQ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImhB-00000007Pq1-490r;
-	Mon, 19 Oct 2026 12:42:29 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1xImjE-00000007QDc-08YF;
+	Mon, 19 Oct 2026 12:44:36 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImh6-00000007PnE-03tX
+	id 1xImjC-00000007QCw-0LGx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 12:42:25 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48df4f540ebso1099190f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:42:23 -0700 (PDT)
+	Mon, 19 Oct 2026 12:44:35 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-c418e215671so251070366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:44:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792413742; x=1793018542; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=;
-        b=FWH5BIgDbfhHxF8ethBNstLloKKpMeWMEbnyEMKAx/yvLEdxcb4i6/+ZZ8d6ostNVG
-         m9MmsP8Wix3VQV5MlAXiWf0LXrhFx210KDOVE84G/ix9S5HZbBPkFqtcdUqmh7Jguq25
-         mn4mUzEqdzYH6qb/U5dlnqSZqEJJlACdpqh9XbrY0UvNEk7gas/5gNIQMJEh8fzn6y0w
-         UfIvmREHR4J0JHVoGrbSCelyGzJlgLlT0uyVxZl8nIriadHwjd1hA8XgJKWxU8nijYYv
-         HXEzdcpUvlI8xxBX0mymKpvqxrNXlDQ7amhAIPqKRM/b1K9CoQ4rdcKVza18Y7oaaelC
-         kv6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792413742; x=1793018542;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1792413872; x=1793018672; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Y7EoCo9+cczE65jwKsEPVDD2E1w/i2GesRReq0VwToI=;
-        b=XMawN/mVbk+bb3UqFNvh1w4Qwf/sbcEMn5NHxHtKf8qNU1rLsBf0UzrVCsaI8Fr9Ie
-         7XShwMRxbOj1ECV/ST4LwaFGHjSHtQwk/QnJe173fsJNKOJCDr2n6+61uLzZA2YeEt5r
-         FW6am2N9i88jUc7XpK5f/1S3I6O/wYWi/IY/Ml/arLvbA0U/EPe0iV9x2Yg3n8zA9uyz
-         0RZKEek6ErQe/dh7Dax/VsHUTqsxe5cTaFIsxohNRJm6ck3q1O8jQzLqrO6iJpeAwONr
-         DCvlZwsAExVJRudE+3ACYec3RK1pHMqEM7IjQsbp8pk36oKV0G1p3+BvjSMBWovKl1Fl
-         CFrw==
-X-Forwarded-Encrypted: i=1; AKwUvBzO+hfO3iBYa15Pq+5IaZnkm3Pdq3Ymh2whINunyDfG9FWturJBpkOFx6mCWJlpW+rtQKmJXwkkTA3x3G2bKGSU@lists.infradead.org
-X-Gm-Message-State: AFq9FYKm42xZ4Lyuzhx/2+kYIwb1nW2I6pgTa/A3JRv4HluEUb5lBDQs
-	CHi3BDZEge2cqd5k2tRG1NP1KovnxFjetB3ZQXglkkyzl0YJFIKq46ezBZpEtjlzDg==
-X-Gm-Gg: AYBFou0za5Zf8sp4/VU2eAGV8Tt108MGgzsbe02P7OiBqeXdi+6p2GsoP0GqBfxPsW9
-	cnFaNPkXk4gY4k1zgH0ER2lEGZVOGXQzL309NzzyfVZHuISGBi20UQfOPZnzap0cohra/r6BN4D
-	CrMQduhEd5edXjVljnqgMJo+dP4FoOuLNkmtH5fJ66Hg6KtUm3GbwLjIi3nXpoXTCB0eQAPZuoW
-	XjOH9LjDdOeOepKHoJcYSQYT1ZUzKuXk098bVUtlYTZQHBW6HqLgGmkuVyBPpWina4PY8MFB69L
-	J3q/TZnpc/dplx/rLdzJMMiLmmwwd0nHo5wmrD70iBXDf1WJk8yt79A+DqznrDtMzHFkCMeFD7b
-	954C4Vo0RT3K6EqvwviGt4fju0S7RlyOEn0Ro3fN8n7sDRwQYXZ49JPZhN+QX74BmHzVT+kNpSk
-	RXm5OVRFWqOzZG3WFFPdWREp5duQe+noj+YA7HyC1/qO8SGqaMYZQuXGih1NuPzm4dBd2yCXFcL
-	F7SxoE84Nsqr3Ma16EWyCMXT+9n0Eb7+7EiQQjhvss=
-X-Received: by 2002:a5d:4904:0:b0:488:7787:469d with SMTP id ffacd0b85a97d-48e07fbbf4emr11756626f8f.25.1792413741500;
-        Mon, 19 Oct 2026 05:42:21 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd503a0dsm23717496f8f.47.2026.10.19.05.42.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 05:42:20 -0700 (PDT)
-Date: Mon, 19 Oct 2026 13:42:17 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: arm64: Ensure TLBs and I-cache are private to
- each vCPU in pKVM
-Message-ID: <atYQKaLo4VJDoNJn@google.com>
-References: <20261014125510.2928306-1-fuad.tabba@linux.dev>
- <20261014125510.2928306-3-fuad.tabba@linux.dev>
- <atXqLxU5bBtJ8U9W@google.com>
- <20261019114357.3528498-1-fuad.tabba@linux.dev>
- <atYPZeJuw2grFDlz@google.com>
+        bh=kFqTDlj4awkfSbachY987XqpXNk4Iu67BWeqjiuV6NM=;
+        b=skAejxeq5gLNm/B3k8ZHKi7EORb54Y21f+G8hWG1j6Bd1TyDIuCy11NJwdrCMxPA44
+         yX8rkOUjMELoBsIsIMhWefpld8BWLdcok9MMIC7ty2HVnIH4FHqdl8hwFHwbuq7vJLXw
+         tBDehfqkfD9W9ypZGmCvhleAgOkQG848FloNscNtW3rJwK3ccmWlvShKtNp2OxabuLrh
+         D0hZ5FspCuZtd6qJ8UnaPtAfvPXXI0Uf+xnIg4XP5gWBa/MI1C1Y6Xenw50gpVCv7Opr
+         uQsISIVlhO1RcBI8rBAXAnfRwEVfd/IBeVxKdcskh4n090MNK3jbY2jdZddnAG/aBezb
+         2wPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792413872; x=1793018672;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kFqTDlj4awkfSbachY987XqpXNk4Iu67BWeqjiuV6NM=;
+        b=PPDkJjbPuaI5jGXyYIsmx/IINK5Z/jtrbGhE9dOMvWSZj9CfRsfBaEQX6y7RnLbwfz
+         BM87GfEVU3vXtd6iq8t0N3xfNeGN5HP+dTO9w9w1+CySK9/owfycsug7Oe6UlEXzW2rD
+         raFT1oYkT/9Z1uACkm3yx93xgeYCHhV0abW8FVU8x5YmthARu66rXAmRnhZVufYhz8NT
+         X4f+EmZKGnTSHEk769cm15K8wkJUVmaafIsd5pJxbirHqHwO+vJgzkvnR5nrmbs8w3cH
+         jKdMAniGn+VPv5G9G1iuzNiJEhs/jJtdhWIyqnuRdukkbQoREZGpCtLGp5QFoAmWiVWB
+         GjAw==
+X-Forwarded-Encrypted: i=1; AKwUvBx6Kkbxu6qsubzSWZI9pgp1fvlBzbhfhxy2Jy9A96eX/9AoE5tbC0zazinoxNU65QTjOF9fg3iOzi/4zJeR9x0+@lists.infradead.org
+X-Gm-Message-State: AFq9FYIi8hokszBJC9NJxggq4kAzfoCZQ1AkcpsoMjEfh9eSkYJPD+ns
+	xSovIQjSVvuFu9rkU/9BWOQn8OEXc4wyGTrYkGgBZsp7Jw8eeHzWxH7wRzp2t80rdcI=
+X-Gm-Gg: AYBFou0VnYgRSGvqeG5mZhF3ec56Dg8QFdlO6i8AB3g0O05M0Lwyx9wdNcgLJ5KaKEB
+	7NEg/TNfXkc7N/d3/da4JmdIdHW3ctaJm4y4uQb60Y2eImQhZ712DIiWp57KbCHFjEOCqZsbzK6
+	hgVWzqdvP5ttK6rIK2OPpZtEAcBzDF+Juuab2vOjsA9ME8rlLWp98AGZzw9VEEcwz7y699rRDn1
+	TbYE2E0uO0BsWTt6yXI0thqNSCZG+KX/yLUOJkkg0nFBIpThu3C5dAJXZ/OqywqXQQSLdMyG6Fn
+	jGhmUBw21vTB7nhz0rz4eYjSOG+rcZA6WMJpXPNnRxG1/bnRILJjKKFpixi464cDCvFEfA++Z1C
+	BlUcEk5oj/oCG4sIrN13N59ai0qG8CaOX7vEUPRKndcS94P6ykf/BzwC4dWw9ug2zaMhEKP6Ax8
+	0R0xHAqvyAIi0miSO72dHJcQq5y0HeK1Eo13AWCPND0fBx7it7RTja3vklSTvHns33q7iDUiWDE
+	Eg=
+X-Received: by 2002:a17:906:9f86:b0:c40:560a:45e with SMTP id a640c23a62f3a-c419f416b79mr534320166b.35.1792413869576;
+        Mon, 19 Oct 2026 05:44:29 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c40912ceffesm362496166b.47.2026.10.19.05.44.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Oct 2026 05:44:28 -0700 (PDT)
+Message-ID: <0aadf786-8c79-46c6-b6e1-d5a6caf30771@linaro.org>
+Date: Mon, 19 Oct 2026 13:44:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atYPZeJuw2grFDlz@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/25] coresight: trbe: Handle an already disabled sink
+To: Leo Yan <leo.yan@arm.com>
+Cc: Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
+ <20260915-arm_cs_support_aux_sample-v1-13-35cf6f297d20@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260915-arm_cs_support_aux_sample-v1-13-35cf6f297d20@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_054224_069993_DC624B9A 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20261019_054434_151101_AD87ADF3 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +113,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 19, 2026 at 01:39:01PM +0100, Vincent Donnefort wrote:
-> On Mon, Oct 19, 2026 at 12:43:57PM +0100, Fuad Tabba wrote:
-> > Hi Vincent,
-> > 
-> > On Mon, 19 Oct 2026 11:00:15 +0100, Vincent Donnefort <vdonnefort@google.com> wrote:
-> > [...]
-> > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> > [...]
-> > > > @@ -54,6 +54,9 @@ struct pkvm_hyp_vm {
-> > > >          unsigned short refcount;
-> > > >          hyp_spinlock_t lock;
-> > > >  
-> > > > +        /* Per physical CPU, the vcpu_idx of the last vCPU of this VM loaded there. */
-> > > > +        int *last_vcpu_ran;
-> > > 
-> > > Unlikely to be a problem in pratice, but vcpu_idx is "unsigned int". I wonder if
-> > > this shouldn't be unsigned int here too and initialised to UINT_MAX?
-> > 
-> > I'd copied int and -1 from the host's mmu->last_vcpu_ran, but the
-> > vcpu_idx it's comparing against here is unsigned int, so I'll switch to
-> > unsigned int and UINT_MAX in v2.
-> > 
-> > Thanks,
-> > /fuad
-> 
-> Also,
-> 
-> as it is always allocated when pkvm_hyp_vm is, Would it make sense to add this
-> to pkvm_get_hyp_vm_size() instead of allocating separately?
-> 
-> -- 
-> Vincent
 
-Ha, I just saw your answer to Marc and you will switch to a per-cpu approach
-anyway it seems?
 
--- 
-Vincent
+On 15/09/2026 16:48, Leo Yan wrote:
+> arm_trbe_disable() detaches the trace buffer and clears cpudata->buf. A
+> subsequent disable dereferences this NULL pointer in the buffer consistency
+> check before testing whether the sink is still in perf mode.
+> 
+> Check the mode before accessing the buffer and return success when the
+> sink is already disabled. This allows deferred event cleanup to revisit a
+> path that an AUX snapshot has already disabled after a failure.
+> 
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 8 ++++++--
+>   1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 8eb625d3fc99db57a18e35ef59ef814dacf20a09..6da89a890712d32e87a15f7c564ff4dc4d197bb1 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -1098,11 +1098,15 @@ static int arm_trbe_disable(struct coresight_device *csdev)
+>   	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
+>   	struct trbe_buf *buf = cpudata->buf;
+>   
+> +	/* A failed AUX snapshot may have already disabled the sink. */
+> +	if (cpudata->mode == CS_MODE_DISABLED)
+> +		return 0;
+> +	if (cpudata->mode != CS_MODE_PERF)
+> +		return -EINVAL;
+> +
+>   	WARN_ON(buf->cpudata != cpudata);
+>   	WARN_ON(cpudata->cpu != smp_processor_id());
+>   	WARN_ON(cpudata->drvdata != drvdata);
+> -	if (cpudata->mode != CS_MODE_PERF)
+> -		return -EINVAL;
+>   
+>   	trbe_drain_and_disable_local(cpudata);
+>   	buf->cpudata = NULL;
+> 
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+
 
