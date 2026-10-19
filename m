@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439B9CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61366CCF2DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cb5xsu/Ek8DjIcHOFj6xTziW0Tc8RenZR8/LpBW7iE=; b=Cub4a+L67BMlJ7yccpAVOpOd2u
-	abqIXPqk683tWazUncTtFDoaGNs78JFTKopjFa6EK/uYjLAcFtDFAHHrLK+zN+cIpz17xuan5qjVM
-	Kw0y5lMsbPNgM+QC+QTJOKizdgMqBFkXH9frBRnseewa4WV0yvAU/CyzyGb6YJtc6x3VDaO1OiRae
-	dKfx9ncSrOkiLu8OrCt+gL6PKPS0gMB7NOntqMqS2Cq7GILClCgIxS37JWdYZ9GtDuVijmEwZjQr+
-	iOUnolFsomscjyFu7NoU5xyM6ZOpwhv9Wmf2GgS3TVTs/ZQ8/O0G6rEuDMyIFC0Q8ypHGHVCzeDRf
-	OAQjrv0g==;
+	bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=; b=o4yqfF1yucZUqhfRQFoqsPV82U
+	IJEp7ZM8nom43AfGpaHEHw3kSzSYSCMPV5gHaMj5A66IjZLr6uka2/PPNGGiM0k9Wt7lWUNTraQ1Y
+	PQMSNeUNl5pzGiJnkG10hrnzjADFCC5LbHdpd8jo/vUgd0gGxa9UzfvYOol+UpBpdtz/OOCsA0Aaq
+	WXbKx6jmyTe7s1V0eFknWnenhiY1XWqej3O06hims8ZVya7uvGu1EZvOUDUy8VA0mgsPo4lv+S5mf
+	gfTvXQq/rRYh7nxQBK3D/KtoO565FWmIPQ8aGrB2ohgSYtm7S6LVezp3VNSWtDngCadiRV+n7M6Vo
+	hyYNsfrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkTw-00000007A1S-2bDF;
-	Mon, 19 Oct 2026 10:20:40 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1xIkU1-00000007A3H-2yHR;
+	Mon, 19 Oct 2026 10:20:45 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkTs-00000007A0d-3lHX
+	id 1xIkTz-00000007A2H-0Dy8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:20:38 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-157fe9d771bso500268c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:20:36 -0700 (PDT)
+	Mon, 19 Oct 2026 10:20:44 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-15354aa70e8so646130c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:20:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792405236; x=1793010036; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1792405242; x=1793010042; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5cb5xsu/Ek8DjIcHOFj6xTziW0Tc8RenZR8/LpBW7iE=;
-        b=eX0wu2Wb95OSG6tas6jabNPo7XFNb7vNvhrbqLNgpsybznP7IpLUGGHxuhCRjMTmzy
-         78+GjdZ8rM2si6mqoDKg2KNRVX8jeWVXtBgMbXDuWHOcMaldkyhyKGb+XvPiS/lbwRen
-         +ZvTm7ZBp/ptp47jsrXpqBbBkKHuMFqHyaEMvs5xk0pBxVoPULSTmZphMxWaofFVgzdX
-         YbzBEYD/cWt+oFpc8/DL9lmDfjCIHeyDGm04kfOOKusm5MYDJDx4oAEvOdZcDAhUuhz7
-         V3cXXETuZxNXvmAAiG1kFyqtPXo/OExHszr6H5PBzebSaaSRwsUDVjACvux01Xf4BRnY
-         Y/hg==
+        bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=;
+        b=mKCmIgj+kErQXmYyKqjPuK92Efum2GTger718QN5KPKpjEXX/UT3UPv/x54E28iWb0
+         Z1eYlm+VjcEOoClLuS0Uvhfi+aQo5oNa6ytPnwl9SEUlYEgXjsgs57u3oXKfBE+yvB7e
+         fb86MYfoAGfJZ7SwliCOouoN0C35iWtoe9/aAE+nxoY3jKbb/kVTdUTdTwn0btHngn5Z
+         mCm6Y5F3h7BrWArqLMHlYQtO7Cv3qJzkKnzq9jpZ45ZZO4XF/FEQeN+gsmLRgF+N3CWD
+         Q+/35cG0M5I8GVbo4zw2dhkXcL/i5FFjvHCHQA1ysixj1pkw8+4T5byM4V22xk49Du7T
+         vW1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792405236; x=1793010036;
+        d=1e100.net; s=20260707; t=1792405242; x=1793010042;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=5cb5xsu/Ek8DjIcHOFj6xTziW0Tc8RenZR8/LpBW7iE=;
-        b=BqXbUJHt7qc8DCqJXdr7l8ETxP9iBY9qqqB3QXnSKxnB6Vk1vPRkeiWMs4JWj9VLqg
-         6AVShZSB/vubpvuufXyZ+QYi4RZgIMtrQjWUQaVoyFcD7ZJogd00zDXW44F2Jv4ASa44
-         bYYaFFcRzPs6F1dKvtpIBFOntG6s8Ah8+RjsmV9W9FsiNrL0BAou8nXK/upyFz9W9hR3
-         msfvAIj2+vyRnMBbF1sy5TfjptzgUU/+3VnPFEjfZ12K48N5kyeAQNli1HI1E+nWFx4m
-         nCAQT+1erGWalN855f8GJDtsswHfaJxXdZe45ehzkGmygqXi55K7ip3thg2sRqWAYeNu
-         syVA==
-X-Forwarded-Encrypted: i=1; AKwUvBxoIGgIoFz9f7DHkwp91c/1myM8OO+1VTfMOcfsyANlTkct1LMmxtkTkbLOqwqfeIUrPQexhwW69W8MoBE+hEO5@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ3TO2V5KHRSyXesvfb7fLWbn+UvnNqGFoDwFENX6L8nS5oxCJI
-	wwYN8RXr7jMLjO5TWHE73xNRHJ6aTofmBDXsNMI5pX553CiJYQykW7HK
-X-Gm-Gg: AYBFou3WnlyeJ7cg/AYSX14DKA8tahX1mPo7WTvPpkZ+RWoC/yexBBLSSkrwpijzOe3
-	aybYpIqXPrB2kgPRhlI/e9hDZKrMHw4fLUHpYGOab3Q1nhreMWw7uKrFucloSIWjc6BL+LBBgq6
-	0QcBfXyQ1YX8zpL/6RHJZ3Zs4rrFnOiLDTPaiDr5z+5TncpQy2iWXQJ3bwkV/ZcOvC48XubmU0i
-	aFNIAhckiY32e7Ke7uabwp3AR1c6v7Xneb58N5c4oReuQpPj516GZVvej1Nxq7obTLu028Mul6j
-	qfMtqhUblHvVDkrVkaajq/ntWVbOsCtEx0iC+3EQCGamRtGGpScuNVIb7wNOVS1Asw92WdgzUmm
-	BsxUiGjLpahKrZB59tKizPhjv0TR9c2kOF42Ovk9Prf3bLgpbIV0zlTW5SUplspABrQ+3wNhH5z
-	fLRkJIC15AsYjKg0XB4om14unJAOhbrzHTxF3w2bd8kOsx6tdNXOdg7o8Z9g+D9SKkhLcqzZNq6
-	7k=
-X-Received: by 2002:a05:701b:4348:b0:14c:96a4:b631 with SMTP id a92af1059eb24-1851453fc8dmr10504406c88.30.1792405235442;
-        Mon, 19 Oct 2026 03:20:35 -0700 (PDT)
+        bh=wG/mmn2fERUKjshAXPMhmIVjTkfUkF1Vhr38NpDvKtE=;
+        b=vg4ob7WSYPIuKBe6NdtAAbWg4nSW4gu93qU1NMIz19zhQy34+4wT7XyURFeFTDkQgx
+         7rmigOOFrcRsGl3i4QjNv0EVXcXwrgapZzkc0iiawc+NLhCC0A/W0S4p7AZUgA6Mseef
+         YGZtzHWsU0NiBRgeNpJnGsFmVguPD/ie2wEHJZCWpEfcQu2rrYT+qF1a3jb0aipt6i+m
+         f3iuNEojxUDO7IAvuhcPlt0Ajrcwuz4Ett5mDhLigadXHyREFBX1ZF5eP8vwWAwUFqDd
+         kMfq3ar6IE0KmDoukWoDDsLO6We0RUcDO9ihZFnEiOI/pAaJsqUulisY08awz/rBVJz7
+         fbsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzshRyWpreackj5kVrLFMjRPk8YL621VarSIkUzqbYsr/VZroEwk7HjatrL+Ba9dAjizSjY+iKfyVpjgPEDaSD0@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGWbO01uyezYXv05O4GI6aNi9LBzRO+2Bv66dlt2/lV5yGySjR
+	wXG2B78TDTRR+0VNPw96UEt0uiAiMCVZBbMObi2mKUA+W1CGTFfDdJOa
+X-Gm-Gg: AYBFou0BuXOuQwWnyo2qVjCuHpOCYsyq6Dn5u90DA9aK1Pbzc67S+IRdxqBrSZ1+jeB
+	l2xYOsQZ68xpHhi6+hrI2qgpjQ5pJk9qq/9Ui8d0WEtwzBuxZJ+rPq/RJnPn1to6jWDyS8OIME8
+	cI0ich6Px1sM+fmCi0jCGPHAUShY5TAwu//OhFFmSnizU/+70mrSt4BxdbM/e/7gpJfVMLQ8Tq1
+	HkiLUI7u9cP9NBV+mv9fnIxp1wDFiQEVSMugVqy3dS+Q7VuNr5tTNZ+j29lv4YMa10BuCeKywke
+	XfFdBdI3VodxRXIaWhxlZAZcf6otdSsiNXu+6pM4GcfQkBvtl6v75fGcKTptERQIIKuRFCNSsho
+	KNRKxXh5qBM5FbJXsiBu6cwhT9k2BgViDG2h6vJ9kLMcuaJHclZVznZBEH/w9szTmI2X7G3eY3b
+	Fn8hVVW6rVt9/IiTo612Zax1Ud+InbS1wltF54xpSipR6o5UDcegLbZjpIXyCxcAjrQKItq6xQl
+	97H4I3o/oD/pA==
+X-Received: by 2002:a05:701b:424d:10b0:13b:4ab5:41d7 with SMTP id a92af1059eb24-1850c9cf427mr12119481c88.3.1792405241814;
+        Mon, 19 Oct 2026 03:20:41 -0700 (PDT)
 Received: from [127.0.1.1] ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-18319d3b880sm26324251c88.10.2026.10.19.03.20.29
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-18319d3b880sm26324251c88.10.2026.10.19.03.20.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 03:20:35 -0700 (PDT)
+        Mon, 19 Oct 2026 03:20:41 -0700 (PDT)
 From: Leonardo Costa <leoreis.costa@gmail.com>
-Date: Mon, 19 Oct 2026 07:17:14 -0300
-Subject: [PATCH v2 1/3] dt-bindings: display: bridge: simple: Add
- data-enable-active to dumb-vga-dac
+Date: Mon, 19 Oct 2026 07:17:15 -0300
+Subject: [PATCH v2 2/3] drm/bridge: simple-bridge: Support
+ data-enable-active endpoint property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-v2-apalis-imx6-enable-vga-v2-1-ef6a3a780472@toradex.com>
+Message-Id: <20261019-v2-apalis-imx6-enable-vga-v2-2-ef6a3a780472@toradex.com>
 References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
 In-Reply-To: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -99,16 +99,16 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Leonardo Costa <leonardo.costa@toradex.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1792405217; l=1828;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792405217; l=2075;
  i=leonardo.costa@toradex.com; s=20261001; h=from:subject:message-id;
- bh=PF05NXBIDireg6ZUuKSrsvk0d/GOH3dnTBdN38H+03I=;
- b=HD53baHT8u8/D5pbXuDGQl16Aht+8414McxB843sMyEC12qLowhQ0jc1HnfAvNB3zgF23VEb/
- NDRwdc+iyH3BM2jB6dL4/ITgsqWwfg90tizY7oL/Djh99ux42ruW1MI
+ bh=/IjtTShiJA+F9KmNWlJJNMy2lTKWTky2io3jmPVXXVA=;
+ b=wT8coFssfadnbio6KHmF1yBAZdfjcW8j5Ftd+0jWUjv7dcyReSTM5NiEs8ga+Dm7iSM19YUzq
+ JsnS98IOb0zBMI8LksAaaJsn7t3ABSIdTS+heHkDqYkDHVufmMApZIH
 X-Developer-Key: i=leonardo.costa@toradex.com; a=ed25519;
  pk=4xvoVLDt+NxIz9D8BJHhT0fD43Ig6XgSDw4jRN/gHzk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032036_940653_1ECC4BE3 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20261019_032043_102762_04BE837C 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,63 +125,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leonardo Costa <leonardo.costa@toradex.com>
 
-Some simple VGA DACs may include a data-enable input that must be driven
-at a specific polarity. Add the data-enable-active property from
-video-interfaces to the input endpoint to describe that polarity.
+Some simple bridges, such as a resistor ladder DAC, may include a
+data-enable input that must be driven at a specific polarity.
+
+Read the data-enable-active property from the input endpoint and fill
+the bridge's input bus flags accordingly, so the upstream encoder drives
+DE with the required polarity. The property is applied only if the
+bridge doesn't provide its own timings struct.
 
 Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
 ---
- .../bindings/display/bridge/simple-bridge.yaml     | 28 +++++++++++++++++++++-
- 1 file changed, 27 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/simple-bridge.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-index 7636c24906ba..b1b23d41245d 100644
---- a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-+++ b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-@@ -43,9 +43,18 @@ properties:
+diff --git a/drivers/gpu/drm/bridge/simple-bridge.c b/drivers/gpu/drm/bridge/simple-bridge.c
+index 848c2df2a276..c5301295658a 100644
+--- a/drivers/gpu/drm/bridge/simple-bridge.c
++++ b/drivers/gpu/drm/bridge/simple-bridge.c
+@@ -183,6 +183,9 @@ static int simple_bridge_probe(struct platform_device *pdev)
+ {
+ 	struct simple_bridge *sbridge;
+ 	struct device_node *remote;
++	struct device_node *ep;
++	bool de_present;
++	u32 de;
  
-     properties:
-       port@0:
--        $ref: /schemas/graph.yaml#/properties/port
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-         description: The bridge input
+ 	sbridge = devm_drm_bridge_alloc(&pdev->dev, struct simple_bridge,
+ 					bridge, &simple_bridge_bridge_funcs);
+@@ -220,10 +223,26 @@ static int simple_bridge_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(sbridge->enable),
+ 				     "Unable to retrieve enable GPIO\n");
  
-+        properties:
-+          endpoint:
-+            $ref: /schemas/media/video-interfaces.yaml
-+            unevaluatedProperties: false
+-	/* Register the bridge. */
+ 	sbridge->bridge.of_node = pdev->dev.of_node;
+ 	sbridge->bridge.timings = sbridge->info->timings;
+ 
++	ep = of_graph_get_endpoint_by_regs(pdev->dev.of_node, 0, -1);
++	de_present = !of_property_read_u32(ep, "data-enable-active", &de);
++	of_node_put(ep);
 +
-+            properties:
-+              data-enable-active: true
++	if (de_present && !sbridge->bridge.timings) {
++		struct drm_bridge_timings *timings;
 +
-       port@1:
-         $ref: /schemas/graph.yaml#/properties/port
-         description: The bridge output
-@@ -65,6 +74,23 @@ required:
-   - compatible
-   - ports
- 
-+allOf:
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              const: dumb-vga-dac
-+    then:
-+      properties:
-+        ports:
-+          properties:
-+            port@0:
-+              properties:
-+                endpoint:
-+                  properties:
-+                    data-enable-active: false
++		timings = devm_kzalloc(&pdev->dev, sizeof(*timings), GFP_KERNEL);
++		if (!timings)
++			return -ENOMEM;
 +
- additionalProperties: false
++		timings->input_bus_flags = de ? DRM_BUS_FLAG_DE_HIGH :
++						DRM_BUS_FLAG_DE_LOW;
++		sbridge->bridge.timings = timings;
++	}
++
++	/* Register the bridge. */
+ 	return devm_drm_bridge_add(&pdev->dev, &sbridge->bridge);
+ }
  
- examples:
 
 -- 
 2.43.0
