@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD228CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD9ECCF2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGltY4czcESIxrXuSo7cdUD861jpHKvBgA1Yd+aKDIY=; b=tqSn5gQBuHXuUU9jvzUzYdQrq9
-	Kmr84/SeqLwpuZkkfTIkoi0rOfFOeMFC3Kde88e0R24O3cao+zj1Zja1zRq7PI8dTMQ0Rle80X7CB
-	bAe5tNDR/D9ConbemmCim0eJCqg3qvnRfbyOHikE05xfOWT7Aj0W00fwIRpv99GBxOR0rTecjhK5k
-	7HmBAl2pPdHKrVR4sq6CMbFUu5+EsaEytF5GHXRmUWHsuieJmFSn8lnDvGRHZuSUU7JU+2EAir/75
-	smfEDTSLaWI8NJ0mI1YAI6NcjxTqqQRfHaDsovCYwC3reXyZjxEABwcy5E2vCoUPfVmfBFGdOGzNk
-	e8Nw85Lw==;
+	bh=QEfjg6P1FYqNYGIigcbrCtHbIVajWC/AZaOZAgOrtf4=; b=MWqNy1+/DSbvo/+3moWWz9/Fza
+	iZu+uDARjlc3uMmFh2wgJcTN+6lcsyAqBKBmBzLK6zUYqr7g56QOh5tKnv7vHF4e1E/rzFina5m2Q
+	X4jpuYw6Z9/y8zIZclu+TsGRKF4f6jK3ESX+Ym48h4KK8/tg1uSnZIZZanzXQK3ebNMloiE/r9FoF
+	vyh2AkvjuD7Y5w85dJBgfnH4Fjl9UbE6kUEdHFvSU46YyT+Gv25PQoR4XOB6rV0ITiTUC3eai1jN6
+	Tm649yKD6u1jhRmXe09ok88YCpx1Bl62WcXNFd/peNAm3VforPbLHPPT3OWMZMp0SrF1zXTpEqVgP
+	tmBQNL/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInt6-00000007bzR-16lQ;
-	Mon, 19 Oct 2026 13:58:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xIntQ-00000007cD0-3W4d;
+	Mon, 19 Oct 2026 13:59:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInt4-00000007byO-2pL9;
-	Mon, 19 Oct 2026 13:58:50 +0000
+	id 1xIntO-00000007cBu-3GWA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:59:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A97541A0E;
-	Mon, 19 Oct 2026 13:58:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA861F000C8;
-	Mon, 19 Oct 2026 13:58:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8701F439AD;
+	Mon, 19 Oct 2026 13:59:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80E081F000C4;
+	Mon, 19 Oct 2026 13:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418330;
-	bh=YGltY4czcESIxrXuSo7cdUD861jpHKvBgA1Yd+aKDIY=;
+	s=k20260515; t=1792418350;
+	bh=QEfjg6P1FYqNYGIigcbrCtHbIVajWC/AZaOZAgOrtf4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iSGd+4PzEEeitJE6AnQ0YlBx6Mufa8bhQbUAT8UGVMt+jIVrNI59uIPtsZf3M/G+L
-	 XyJ+xB4Ba91eQHU6r9hWrVM7fu4bpECd/acg1ecJutzgGUUO4Bl5a53cuYdTYgOGLY
-	 ud7QZX7eBmvu0uOXhvyxV/dn9lHViIlozvzEmjlOW5hBDPI8TWMsy7Aq1dh4X+7gNL
-	 S4Ozzr4PR2/oWdqu4WHhUhxRM6/wSyvPnedXL7QaMHzDoMNNQLB6Y8YjVWjDtpja5K
-	 PcFgAsUzdRrnMuXm8Jd/iCm2aBXB3viBbYqV4RrrOQnvc7i9MNWnr5Kqfm6DwSkO7T
-	 Zt1Qzop8jbcmA==
+	b=hK+QrYeAlramjQFHe+Yn5NElxq+jbuQRMG3imO0F38+mEbOOJ67wMG4+90aFk9dC8
+	 Biv4VXIWbJidFUe0axu6xGimDSUjHWhlQS2J1n25ay28XIF46g02SkGucjRzT5GpZY
+	 KkTrwddFW1jRexvOyefnvqPpvBryzMCQ1TkVzHehgFfcerSoLhUZ7T2egWORqBdo5m
+	 JvQRpbPwPBwdhL+sFq6EMqpPJZ01q+ueoL7Zi9nL0eHH/FOeBHb9JTNRzBPyUw2JCW
+	 /A1TxPwzxAoD0icgIANIizFvrMMxWVGpT8mu4ciq2i38B8XGFSLA97flJ1PXFcdPQz
+	 W2uewv4EvJdGw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: David Bauer <mail@david-bauer.net>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Geetha sowjanya <gakula@marvell.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.15] wifi: mt76: mt7603: free beacon SKB on error
-Date: Mon, 19 Oct 2026 09:47:42 -0400
-Message-ID: <20261019135441.1420968-171-sashal@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-6.1] perf: marvell: Cancel CN10K DDR PMU hrtimer on device remove
+Date: Mon, 19 Oct 2026 09:47:56 -0400
+Message-ID: <20261019135441.1420968-185-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,26 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Bauer <mail@david-bauer.net>
+From: Geetha sowjanya <gakula@marvell.com>
 
-[ Upstream commit 965cbdbdfbd37a659a05ff88e49c216975bd9d2e ]
+[ Upstream commit 7dbcb0268d1e2a1d3badb0c6e77ee70e550b1787 ]
 
-The SKB containing the generated beacon is not freed when the beacon
-queue is deected stuck and scheduled for recovery.
+cn10k_ddr_perf_remove() did not cancel the poll hrtimer before returning.
+If the device was unbound while perf events were still active the timer
+callback could run post-free.
 
-Fixes potential memory leaks in case the beacon queue is detected stuck.
+To fix the issue by adding hrtimer_cancel() in remove().
 
-Signed-off-by: David Bauer <mail@david-bauer.net>
-Link: https://patch.msgid.link/20260611215658.259324-1-mail@david-bauer.net
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **6.6.157** (`pending-6.6`). The two-line SKB leak is
-present here, was introduced by a commit already in this tree, and
-applies cleanly.
+I have enough to decide: the UAF is in this 6.1 tree, the cancel is a
+standalone 6-line fix, and it does not need the CN20K series.
 
 ===============================================================
 PHASE 1: COMMIT MESSAGE FORENSICS
@@ -108,45 +104,53 @@ PHASE 1: COMMIT MESSAGE FORENSICS
 
 **Step 1.1: PARSE THE SUBJECT LINE**
 
-Record: **[wifi: mt76: mt7603]** **[free]** **[free the generated beacon
-SKB when queue-stuck recovery bails out]**
+Record: `[perf/marvell] [Cancel] Cancel CN10K DDR PMU hrtimer on device
+remove`
+
+Subsystem `perf: marvell:` is the Marvell CN10K DDR uncore PMU driver.
+Verb `Cancel` is a stop-the-timer safety action. Claimed intent: stop
+the poll hrtimer in the platform `remove()` path so it cannot fire after
+the device is torn down.
 
 **Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
 
-Record:
-- **Fixes:** none (expected for this pipeline)
-- **Reported-by:** none
-- **Tested-by:** none
-- **Reviewed-by:** none
-- **Acked-by:** none
-- **Link:**
-  `https://patch.msgid.link/20260611215658.259324-1-mail@david-
-  bauer.net`
-- **Cc: stable:** none (expected)
-- **Signed-off-by:** David Bauer (author); Felix Fietkau (mt76
-  maintainer). Ignore any Sasha Levin SOB if present in candidate
-  wrapping.
+Record: tags present in the candidate message:
+- `Signed-off-by: Geetha sowjanya <gakula@marvell.com>` (author)
+- `Signed-off-by: Will Deacon <will@kernel.org>` (ARM perf maintainer
+  merge; pipeline `Signed-off-by: Sasha Levin` ignored per instructions)
 
-Mainline SHA (from `origin/master`):
-`965cbdbdfbd37a659a05ff88e49c216975bd9d2e`
-AuthorDate: 2026-06-11; applied by Felix Fietkau 2026-07-31.
+Tags **not** present (expected for this review queue, not treated as a
+negative):
+- No `Fixes:`
+- No `Reported-by:` / `Tested-by:` / `Reviewed-by:` / `Acked-by:`
+- No `Link:`
+- No `Cc: stable@vger.kernel.org`
+
+From mailing-list forensics (Phase 4): original submission was `[PATCH
+v8 3/3]` of a CN20K feature series, Message-ID
+`20260601073318.7098-4-gakula@marvell.com`. Will Deacon applied it to
+`arm64 (for-next/perf)` as `7dbcb0268d1e`. Krzysztof’s `Reviewed-by` is
+on patch 1/3 (dt-bindings) only, not on this UAF patch.
 
 **Step 1.3: ANALYZE THE COMMIT BODY TEXT**
 
 Record:
-- **Bug:** After `ieee80211_beacon_get()`, if `mt76_poll()` times out on
-  `MT_DMA_FQCR0` (beacon/BMC queue flush stuck), the function `goto out`
-  without freeing the SKB.
-- **Symptom:** SKB leak whenever the beacon queue is detected stuck and
-  recovery is scheduled. Commit message typo: “deected”.
-- **Version info:** none in the message.
-- **Root cause (author):** beacon SKB not freed on the stuck-queue error
-  path.
+- **Bug:** `cn10k_ddr_perf_remove()` returned without cancelling the
+  overflow-poll hrtimer.
+- **Symptom / failure mode:** if the device is unbound while events (and
+  therefore the timer) are still active, `cn10k_ddr_pmu_timer_handler()`
+  can run after `devm` frees `struct cn10k_ddr_pmu` and unmaps MMIO —
+  use-after-free / MMIO-after-unmap.
+- **Version info:** cover letter for v8 says this is **pre-existing for
+  CN10K/Odyssey**, not a CN20K-only issue.
+- **Root cause (author):** missing `hrtimer_cancel()` in `remove()`.
 
 **Step 1.4: DETECT HIDDEN BUG FIXES**
 
-Record: Not a disguised cleanup. Explicit leak fix: two
-`dev_kfree_skb(skb)` calls on error paths.
+Record: Not a disguised cleanup. The message names a post-free timer
+callback. This is an explicit UAF fix. The series is mostly a CN20K
+feature add; **this patch was split out in v8 specifically as a pre-
+existing bug fix**.
 
 ===============================================================
 PHASE 2: DIFF ANALYSIS - LINE BY LINE
@@ -155,41 +159,53 @@ PHASE 2: DIFF ANALYSIS - LINE BY LINE
 **Step 2.1: INVENTORY THE CHANGES**
 
 Record:
-- File: `drivers/net/wireless/mediatek/mt76/mt7603/beacon.c` (**+2 /
-  -0**)
-- Function: `mt7603_update_beacon_iter()`
-- Scope: **single-file surgical fix**
+- File: `drivers/perf/marvell_cn10k_ddr_pmu.c`
+- Scope: **+6 / -0**, single function `cn10k_ddr_perf_remove()`
+- Classification: **single-file surgical fix** (comment +
+  `hrtimer_cancel()`)
 
 **Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
 
-Record (both hunks, same pattern):
-
-Before: `ieee80211_beacon_get()` allocates `skb`. Flush BCN or BMC via
-`MT_DMA_FQCR0`. If poll times out: set `dev->beacon_check =
-MT7603_WATCHDOG_TIMEOUT` and `goto out`. Unlock. **SKB never queued and
-never freed.**
-
-After: same, but `dev_kfree_skb(skb)` before `goto out`.
-
-Success path unchanged: `mt76_tx_queue_skb()` still takes ownership.
+Record:
+- **Before:** `remove()` got drvdata, dropped the cpuhp instance,
+  unregistered the PMU, returned. Timer left live if it had been
+  started.
+- **After:** `hrtimer_cancel(&ddr_pmu->hrtimer)` **first**, then the
+  same teardown. `hrtimer_cancel()` also waits for a running callback,
+  so the handler cannot continue after `remove()` returns.
+- Path: **driver teardown / unbind / module unload**, not the normal
+  event add/del path (that already cancels on last `event_del`).
 
 **Step 2.3: IDENTIFY THE BUG MECHANISM**
 
-Record:
-- **Category:** error-path resource leak (SKB)
-- **Mechanism:** mac80211 docs: *“The driver is responsible for freeing
-  the returned skb.”* Error `goto` skipped both queueing and free. Fix
-  adds the missing free.
+Record: **Use-after-free / lifetime bug (memory safety)**
+
+Mechanism verified in this tree:
+- `ddr_pmu` is `devm_kzalloc()`’d; MMIO is
+  `devm_platform_get_and_ioremap_resource()`. Both are released after
+  `remove()` returns.
+- Timer is started on first `event_add` (`hrtimer_start`,
+  `HRTIMER_MODE_REL_PINNED`) and cancelled only when `active_events ==
+  0` in `event_del`.
+- Handler always `return HRTIMER_RESTART` after
+  `cn10k_ddr_pmu_overflow_handler(pmu)`, which dereferences
+  `pmu->events[]` and `pmu->base`.
+- `perf_pmu_unregister()` in this tree (`kernel/events/core.c`) does
+  **not** stop events or cancel driver timers; it only unlists the PMU,
+  syncs RCU, and frees PMU context.
 
 **Step 2.4: ASSESS THE FIX QUALITY**
 
 Record:
-- Obviously correct; only the two error returns; no API/lock/structure
-  change.
-- **Regression risk:** very low. Success path still hands the SKB to
-  DMA. `dev_kfree_skb` is `consume_skb` (stats slightly less precise
-  than `kfree_skb` on a drop); maintainer accepted it. No double-free:
-  frees only happen before queueing.
+- **Quality:** obviously correct. `hrtimer_cancel()` on an already-idle
+  timer is a no-op; cancelling before cpuhp/PMU teardown is the right
+  order.
+- **Regression risk:** very low. Callback only does `local_irq_save` +
+  MMIO reads; it does not take locks `remove()` holds. No API/data-
+  structure change.
+- **Red flags:** none in the hunk itself. Series context (3/3 of CN20K)
+  is a packaging concern, not a correctness concern — this hunk does not
+  use CN20K code.
 
 ===============================================================
 PHASE 3: GIT HISTORY INVESTIGATION
@@ -198,38 +214,47 @@ PHASE 3: GIT HISTORY INVESTIGATION
 **Step 3.1: BLAME THE CHANGED LINES**
 
 Record:
-- Leak `goto out` introduced by **`8caa9dd3d1a7c9`** “wifi: mt76:
-  mt7603: improve stuck beacon handling” (Greg KH, 2023-11-20), stable
-  rewrite of upstream **`3176205933494`** (Felix Fietkau, 2023-07-28).
-- `ieee80211_beacon_get(..., 0)` from `6e8912a503759` (MLO 3-arg API);
-  already in this tree.
-- Driver added in `c8846e1015022` (2018). Pre-2023 code queued the SKB
-  even if poll failed; the 2023 change moved queueing after the polls
-  and added the leaky `goto`.
+- Buggy `cn10k_ddr_perf_remove()` (no timer cancel) introduced in
+  `7cf83e222bce0` (`perf/marvell: CN10k DDR performance monitor
+  support`, Bharat Bhushan, 2022-03-08).
+- `git merge-base --is-ancestor 7cf83e222bce0 HEAD` succeeded; `git
+  merge-base --is-ancestor 7cf83e222bce0 v6.1` succeeded.
+- Present in this tree from the 6.1 baseline (driver landed in v5.18).
 
 **Step 3.2: FOLLOW THE FIXES: TAG**
 
-Record: No Fixes: tag. Buggy commit in **this** tree is `8caa9dd3d1a7c9`
-(`git merge-base --is-ancestor` = yes). Upstream `3176205933494` is not
-an ancestor (stable SHA rewrite). No later origin/master commits touch
-this file after `965cbdbdfbd37`.
+Record: No `Fixes:` tag. The introducing commit is `7cf83e222bce0`,
+which **is** in this tree.
 
 **Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
 
-Record (this tree, path-limited): last functional change on this file is
-the stuck-beacon commit itself. Standalone; not patch X/Y.
+Record: only four commits on this file in this tree:
+- `7cf83e222bce0` CN10k DDR perfmon support
+- `35a43326a9e3c` overflow handling
+- `68fa55f0e05ce` core ownership
+- `6676a42f1e4f1` `!CONFIG_OF` build fix
+
+No later refactor of `remove()`. **Standalone** relative to this tree.
+Does **not** need patches 1–2 of the CN20K series.
+
+Related but **separate** bug (v7 of the same series, in patch 2/3):
+`event_add` can `hrtimer_start()` then return `-EINVAL` from
+`ddr_perf_get_event_bitmap()` without rolling back. That leak is **not**
+this commit. This commit still stands alone.
 
 **Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
 
-Record: David Bauer already has mt76 commits in this tree (including
-mt7603 EEPROM ID). Felix Fietkau is listed maintainer and applied the
-patch.
+Record: `git log --author=Geetha -- drivers/perf/` is empty in this 6.1
+tree. Author is a Marvell engineer extending a Marvell driver originally
+by Bharat Bhushan. Will Deacon (ARM perf maintainer) merged it. That is
+sufficient maintainer vetting.
 
 **Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
 
-Record: None. Same function, same `ieee80211_beacon_get(hw, vif, 0)`,
-same poll/`goto out`. `git apply --check` of `965cbdbdfbd37` succeeded.
-Standalone.
+Record: **No functional prerequisites.** The only apply wrinkle is 6.1
+still has `static int cn10k_ddr_perf_remove(...)` returning `0`; later
+kernels converted platform `.remove` to `void`. The added
+`hrtimer_cancel()` line and comment apply unchanged.
 
 ===============================================================
 PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
@@ -238,74 +263,93 @@ PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 **Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
 
 Record:
-- `b4 dig -c 965cbdbdfbd37` →
-  https://patch.msgid.link/20260611215658.259324-1-mail@david-bauer.net
-- `b4 dig -a`: **v1 only**
-- Thread mbox: patch only, **no replies**, no NAK, no reviewer Cc:
-  stable
-- lore.kernel.org WebFetch: **403** (used b4 + openwall/patchew mirrors)
+- `b4 dig -c HEAD` was the wrong SHA (this commit is not in the 6.1
+  checkout). Direct lore fetch returned 403.
+- `b4 am` on Message-ID `20260601073318.7098-4-gakula@marvell.com`
+  succeeded: v8 series, 3 patches, DKIM-signed, no newer revision
+  flagged.
+- Lore/mirrors:
+  https://patch.msgid.link/20260601073318.7098-1-gakula@marvell.com ,
+  openwall, lkml.iu.edu, patchew, ratatoskr.
+- Cover letter v8: “Cancel the poll hrtimer in `cn10k_ddr_perf_remove()`
+  before `devm` frees `struct cn10k_ddr_pmu` (pre-existing for
+  CN10K/Odyssey).”
+- **No NAK.** Will Deacon: “Applied to arm64 (for-next/perf)” with git
+  id `7dbcb0268d1e` for this patch.
+- **No reviewer `Cc: stable` found** (not treated as a negative).
 
 **Step 4.2: CHECK WHO REVIEWED THE PATCH**
 
-Record (`b4 dig -w`): To/Cc included Felix Fietkau, Lorenzo Bianconi,
-MediaTek mt76 reviewers, linux-wireless. Applied by Felix with his SOB.
-No Reviewed-by.
+Record: To/Cc on the original mail: `linux-perf-users`, `linux-kernel`,
+`linux-arm-kernel`, `devicetree`, Mark Rutland, Will Deacon, Krzysztof
+Kozlowski. Will Deacon merged. No NAK on 3/3.
 
 **Step 4.3: SEARCH FOR THE BUG REPORT**
 
-Record: No Reported-by, syzbot, or bugzilla. Author-found leak on code
-inspection. Openwall/Ratatoskr confirm the same v1 text, no discussion.
+Record: No syzbot, bugzilla, or external user report. Bug was found
+during CN20K series review/development (added in v8). Still a concrete
+UAF, just not fuzzer-reported.
 
 **Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
 
-Record: Standalone `[PATCH mt76]`. No series. No follow-up on
-`origin/master` for this file.
+Record: Series is:
+1. dt-bindings CN20K — feature, not this decision
+2. CN20K driver support (+ event_add rollback) — feature / separate leak
+   fix
+3. **this UAF cancel** — independent 6-line fix
+
+Do **not** pull 1/3 or 2/3 into 6.1. This commit does not call CN20K
+pdata/helpers.
 
 **Step 4.5: CHECK STABLE MAILING LIST HISTORY**
 
-Record: lore.kernel.org/stable WebFetch **403**. No stable discussion in
-the saved thread. UNVERIFIED whether anyone already asked stable@;
-absence is not a negative signal.
+Record: lore.kernel.org/stable search returned 403. No evidence on the
+public v8 thread that stable rejected this. UNVERIFIED: whether
+`-stable` ever discussed this hash by name.
 
 ===============================================================
 PHASE 5: CODE SEMANTIC ANALYSIS
 ===============================================================
 
-semcode MCP: **not available**. Used grep/read.
+**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS**
-
-Record: `mt7603_update_beacon_iter()` only.
+Record: `cn10k_ddr_perf_remove()` only. Related existing functions:
+`cn10k_ddr_perf_event_add`, `cn10k_ddr_perf_event_del`,
+`cn10k_ddr_pmu_timer_handler`, `cn10k_ddr_pmu_overflow_handler`.
 
 **Step 5.2: TRACE CALLERS**
 
 Record:
-- Called from `mt7603_pre_tbtt_tasklet()` via
-  `ieee80211_iterate_active_interfaces_atomic()`.
-- Tasklet scheduled from `mt7603_irq_handler()` on
-  `MT_HW_INT3_PRE_TBTT0`.
-- Reachable whenever the device is an AP with beacons enabled
-  (`beacon_mask`).
+- `cn10k_ddr_perf_remove` is the platform driver’s `.remove`
+  (`cn10k_ddr_pmu_driver`). Callers: device unbind, parent device
+  teardown, `platform_driver_unregister()` from `cn10k_ddr_pmu_exit()`.
+- Timer handler is the hrtimer softirq/callback path, not a syscall.
 
 **Step 5.3: TRACE CALLEES**
 
-Record: `ieee80211_beacon_get` (driver owns SKB), `mt76_poll`/`mt76_wr`,
-`mt76_tx_queue_skb` → `mt76_dma_tx_queue_skb` (takes SKB; error path
-uses `ieee80211_tx_status_ext`).
+Record: `remove()` calls `platform_get_drvdata`, `hrtimer_cancel` (new),
+`cpuhp_state_remove_instance_nocalls`, `perf_pmu_unregister`. Handler
+calls overflow path which does MMIO `readq_relaxed` on `pmu->base`.
 
 **Step 5.4: FOLLOW THE CALL CHAIN**
 
-Record: userspace/AP stack enables beaconing → hardware pre-TBTT IRQ →
-tasklet → iterator. Unprivileged clients do not trigger it directly;
-**any AP/router using this chip in AP mode can**. Stuck DMA/FQCR0 is the
-error trigger. `mac_work` runs every `MT7603_WATCHDOG_TIME` (100 ms) and
-treats `beacon_check >= 10` as `RESET_CAUSE_BEACON_STUCK`.
+Record: Userspace can start the timer via `perf_event_open` on this
+uncore PMU (`event_add` when `active_events == 1`). Unbind/unload is
+admin-triggered (module unload, device teardown), not an unprivileged
+syscall by itself. `event_init` does **not** validate `attr.config`;
+`event_add` can start the timer then fail `ddr_perf_get_event_bitmap()`.
+`event_sched_in()` on add failure does **not** call `pmu->del()`
+(verified at `kernel/events/core.c:2591-2595`). That can leave a running
+timer even after a failed `perf_event_open`, after which `rmmod` can run
+`remove()` with the timer still live. Reachable from userspace + admin
+unload.
 
 **Step 5.5: SEARCH FOR SIMILAR PATTERNS**
 
-Record: Other mt76 chips use `ieee80211_beacon_get_template` /
-`mt76x02_mac_set_beacon` and do not share this FQCR0 poll/`goto out`
-pattern. mt76x02 has no equivalent leak.
+Record: In this tree, this driver only cancels the timer in `event_del`.
+`drivers/perf/thunderx2_pmu.c` also cancels on CPU offline. Sibling DDR
+PMU `fsl_imx8_ddr_perf.c` also does not cancel in `remove()` here —
+pattern exists, but that does not make this UAF fictional.
 
 ===============================================================
 PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
@@ -313,21 +357,41 @@ PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
 **Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
 
-Record: **Yes.** `drivers/net/wireless/mediatek/mt76/mt7603/beacon.c`
-lines 57–66: poll timeout → set watchdog → `goto out` with no free.
-Local: `git describe` → `p-6.6-3-g04810563abb71`, `make kernelversion` →
-**6.6.157**. Bug since 8caa9dd3d1a7c9 (stuck-beacon handling). Candidate
-`965cbdbdfbd37` is **not** an ancestor of HEAD.
+Record: **Yes.** Local tree is **6.1.188** (`pending-6.1`, `git
+describe` `p-6.1-10-g80966a5b14be4`).
+
+```700:710:drivers/perf/marvell_cn10k_ddr_pmu.c
+static int cn10k_ddr_perf_remove(struct platform_device *pdev)
+{
+        struct cn10k_ddr_pmu *ddr_pmu = platform_get_drvdata(pdev);
+
+        cpuhp_state_remove_instance_nocalls(
+CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE,
+                                &ddr_pmu->node);
+
+        perf_pmu_unregister(&ddr_pmu->pmu);
+        return 0;
+}
+```
+
+No `hrtimer_cancel()`. Introduced with the driver in `7cf83e222bce0`
+(v5.18), present for the whole 6.1 lifetime.
 
 **Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
 
-Record: **Clean apply** (`git show 965cbdbdfbd37 | git apply --check`).
-Surrounding function matches mainline hunks.
+Record: **Minor context only.** 6.1 `remove` is `int` and returns `0`;
+later kernels use `void`. OF match table in 6.1 has no `.data` / CN20K
+entries. The added call does not depend on those. Expected apply:
+**minor conflict, trivial rework**.
+
+This tree still has `suppress_bind_attrs = true`, so **sysfs**
+bind/unbind is hidden. That does **not** skip `.remove` on parent
+teardown or `platform_driver_unregister()`.
 
 **Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
 
-Record: No other “free beacon SKB” commit. Other mt76 leak fixes
-(`ec4a608bca405` probe leak, etc.) are unrelated.
+Record: No `hrtimer_cancel` in `remove()`. No event_add rollback (`goto
+err_free_counter`). Nothing already fixes this UAF.
 
 ===============================================================
 PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
@@ -335,14 +399,15 @@ PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
 **Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
 
-Record: **wifi / mt76 / mt7603** (`CONFIG_MT7603E`: MT7603E PCIe and
-MT7628/MT7688 SoC WLAN). **IMPORTANT** for those devices (common OpenWrt
-APs), not CORE for every 6.6 user.
+Record: `drivers/perf/` Marvell CN10K DDR PMU. **PERIPHERAL** (SoC-
+specific uncore PMU). Config `MARVELL_CN10K_DDR_PMU` depends on
+`ARCH_THUNDER || (COMPILE_TEST && 64BIT)` — Octeon 10 / Thunder-class
+ARM64.
 
 **Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
 
-Record: Mature driver (2018); this file is quiet. Bug is old (2023
-stuck-beacon change), not a new-feature side effect.
+Record: File is mature and quiet in 6.1 (four commits total). Bug is
+old, not a last-month regression.
 
 ===============================================================
 PHASE 8: IMPACT AND RISK ASSESSMENT
@@ -350,34 +415,40 @@ PHASE 8: IMPACT AND RISK ASSESSMENT
 
 **Step 8.1: DETERMINE WHO IS AFFECTED**
 
-Record: **Driver-specific / config-specific:** `CONFIG_MT7603E`,
-AP/beaconing. MT7628/MT7688 SoCs are widely deployed in consumer
-routers.
+Record: **Driver-specific / config-specific:**
+`CONFIG_MARVELL_CN10K_DDR_PMU` on Marvell CN10K (`ARCH_THUNDER`). Not
+universal.
 
 **Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
 
 Record:
-- Trigger: FQCR0 poll timeout (5 ms) while updating beacons — the same
-  stuck-beacon condition this driver already recovers from.
-- Frequency: pre-TBTT (~beacon interval, typically ~100 ms) per AP vif
-  (up to 4). Watchdog work every 100 ms usually resets after one such
-  event, so **~1 SKB per vif per stuck incident** if recovery works;
-  **recurring** if the MAC stays stuck.
-- Unprivileged trigger: no (AP beacon path).
+- Timer starts when the first perf event is added; period default
+  **100s** (`poll_period_sec`).
+- Classic trigger: device `remove()` while the timer is queued (unbind /
+  parent removal / module exit).
+- Mitigations in **this** tree: `suppress_bind_attrs = true` (no sysfs
+  unbind); successful events `try_module_get` the module so `rmmod`
+  waits for last close, and last `event_del` already cancels the timer.
+- Remaining realistic triggers: platform device teardown with events
+  still open; **failed `event_add` after `hrtimer_start`** leaving a
+  live timer so `rmmod` can hit `remove()` without `event_del`.
+- Unprivileged user can start/leak the timer via `perf_event_open`;
+  teardown is typically admin. Failure mode is still kernel UAF.
 
 **Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
 
-Record: **SKB leak**, not oops/UAF/corruption. **MEDIUM** (HIGH only if
-stuck-beacon storms on a low-RAM AP). Still a real leak on a path
-already considered serious enough to backport.
+Record: Timer callback uses freed `cn10k_ddr_pmu` and unmapped MMIO →
+**use-after-free / oops / memory corruption**. Severity: **HIGH** (UAF).
+Not a guaranteed panic on every boot; when it hits, it is a hard kernel
+memory-safety failure.
 
 **Step 8.4: CALCULATE RISK-BENEFIT RATIO**
 
 Record:
-- **Benefit:** stops leaking beacon frames on a known hardware-stuck
-  path.
-- **Risk:** very low (2 lines, error path only, clean apply).
-- **Ratio:** favor backport.
+- **Benefit:** HIGH for CN10K users who unload/unbind with a live poll
+  timer; prevents UAF. Population is small but the bug class is serious.
+- **Risk:** VERY LOW (6 lines, no-op if timer idle, no locking change).
+- **Ratio:** strongly in favor of backporting.
 
 ===============================================================
 PHASE 9: FINAL SYNTHESIS
@@ -385,126 +456,134 @@ PHASE 9: FINAL SYNTHESIS
 
 **Step 9.1: COMPILE THE EVIDENCE**
 
-FOR:
-- Confirmed leak vs mac80211 SKB ownership.
-- Buggy code is in this 6.6.157 tree (`8caa9dd3d1a7c9`).
-- +2 lines, obviously correct, clean apply, no deps.
-- Maintainer-applied.
-- Same recovery path that already justified a stable backport.
-- MT7603/MT76x8 used on production APs.
+**FOR:**
+- Real UAF: poll hrtimer can run after `devm` free of the PMU struct.
+- Bug exists in this 6.1 tree since the driver was added
+  (`7cf83e222bce0`).
+- Surgical, obviously correct (`hrtimer_cancel` before teardown).
+- Maintainer-merged (Will Deacon).
+- Author/cover letter call it a **pre-existing CN10K** bug, not
+  CN20K-only.
+- Independent of CN20K patches 1–2.
+- Failed `event_add` in this tree can leave the timer running;
+  `pmu->add` failure does not call `del()`.
+- `hrtimer_cancel` on idle timer is safe.
 
-AGAINST:
-- Error-path leak; volume per incident is small if watchdog resets.
-- No crash/CVE/syzbot/user report.
-- No Reviewed-by; mailing list silent.
-- Not a core-kernel path.
+**AGAINST:**
+- Peripheral SoC PMU, not a core path.
+- No syzbot/user report.
+- `suppress_bind_attrs` hides sysfs unbind; happy-path `rmmod` after
+  clean event_del already cancels the timer.
+- Packaged as 3/3 of a feature series (but this hunk is independent).
+- Trivial `int` vs `void` `remove` context mismatch.
 
-UNRESOLVED:
-- lore.kernel.org HTTP 403; stable@ search not fetched (b4/mbox used
-  instead).
-- Exact leak rate if reset fails repeatedly: not measured on hardware.
+**UNRESOLVED:**
+- Could not fetch lore.kernel.org (403) or git.kernel.org (Anubis);
+  discussion reconstructed via `b4 am`, patchew, and mirrors.
+- No `-stable` thread found (403).
+- Exact mainline SHA in Linus’s tree not in this checkout; arm64
+  application id `7dbcb0268d1e` from Will’s mail.
 
 **Step 9.2: APPLY THE STABLE RULES CHECKLIST**
 
-1. Obviously correct and tested? **PASS** — ownership is documented;
-   maintainer applied. No extra Tested-by.
-2. Fixes a real bug that affects users? **PASS** — SKB leak on stuck-
-   beacon recovery.
-3. Important issue? **PASS** — resource leak on a periodic AP path (not
-   a one-shot init leak). Severity medium, not a panic.
-4. Small and contained? **PASS** — 2 lines, one function.
+1. Obviously correct and tested? **PASS** — one `hrtimer_cancel()`,
+   merged by Will Deacon, idle-timer cancel is a no-op.
+2. Fixes a real bug that affects users? **PASS** — UAF on remove with a
+   live poll timer; code present here.
+3. Important issue? **PASS** — use-after-free / crash / memory
+   corruption (HIGH). Trigger is not every boot, but severity matches
+   stable’s crash/UAF bar.
+4. Small and contained? **PASS** — 6 lines, one function, one file.
 5. No new features or APIs? **PASS**.
-6. Can apply to the local tree? **PASS** — verified with `git apply
-   --check`.
+6. Can apply to the local tree? **PASS** — buggy `remove()` is here;
+   only `int` vs `void` `remove` needs a one-line context tweak.
 
 **Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
 
-Record: Not a device-ID/quirk/DT/build/docs exception. Ordinary small
-leak fix.
+Record: Not a device-ID / quirk / DT / build / docs exception. It is a
+normal small UAF fix.
 
 **Step 9.4: MAKE YOUR DECISION**
 
-This is a two-line error-path `kfree` for a leak that exists in 6.6.157,
-introduced by a stuck-beacon change already on this branch. Risk is
-negligible; benefit is stopping SKB leaks on MT7603/MT76x8 APs when the
-beacon DMA path wedges. That meets stable rules for this tree.
+This should be backported to **this** 6.1 tree. The CN20K feature
+patches must stay out; this cancel is self-contained and matches the
+code that has been in 6.1 from day one.
 
-------------------------------------------------
-What the commit solves for this tree
-------------------------------------------------
+===============================================================
+What the commit solves, and why it matters here
+===============================================================
 
-In `mt7603_update_beacon_iter()`, `ieee80211_beacon_get()` returns an
-SKB the driver must free. On FQCR0 poll timeout the function sets the
-beacon watchdog and returns without queueing or freeing. That path is
-the stuck-beacon recovery added in `8caa9dd3d1a7c9`, which is already
-here. Each timeout leaks one beacon SKB per AP interface. The patch only
-adds `dev_kfree_skb(skb)` on those two returns.
+`cn10k_ddr_perf_remove()` tears down cpuhp and unregisters the PMU but
+never stops the overflow-poll hrtimer. The PMU object and MMIO are
+`devm`-managed, so they are freed as soon as `remove()` returns. If the
+timer is still queued, `cn10k_ddr_pmu_timer_handler()` can run on freed
+memory. That is a real UAF on Marvell CN10K systems that use this driver
+— exactly the hardware this 6.1 tree already supports.
 
-Risk vs benefit: almost no regression surface; the leak is real whenever
-that recovery runs.
+It meets stable rules: obviously correct, small, no new API, and the
+buggy function is in this checkout. Risk is negligible. Benefit is
+preventing a kernel UAF. The only backport edit is matching 6.1’s `int`
+`remove` callback.
 
-------------------------------------------------
+===============================================================
 Verification
-------------------------------------------------
+===============================================================
 
-- [Phase 1] Tags: Link msgid `20260611215658.259324-1-mail@david-
-  bauer.net`; SOBs David Bauer + Felix Fietkau; no Fixes/Reported-
-  by/Cc:stable.
-- [Phase 1] Mainline commit `965cbdbdfbd37` on `origin/master`.
-- [Phase 2] Diff: +2 `dev_kfree_skb(skb)` in `mt7603_update_beacon_iter`
-  poll-fail paths; success path still `mt76_tx_queue_skb`.
-- [Phase 2] `include/net/mac80211.h`: “The driver is responsible for
-  freeing the returned skb.”
-- [Phase 2] `dev_kfree_skb` → `consume_skb` in `include/linux/skbuff.h`.
-- [Phase 3] `git blame`: leaky `goto out` from `8caa9dd3d1a7c9` (stable
-  form of `3176205933494`).
-- [Phase 3] `git merge-base --is-ancestor 8caa9dd3d1a7c9 HEAD` → yes;
-  `965cbdbdfbd37` → no; `3176205933494` → no (rewritten).
-- [Phase 3] `git show 8caa9dd3d1a7c9`: moved `mt76_tx_queue_skb` after
-  polls and added `goto out` without free.
-- [Phase 4] `b4 dig -c 965cbdbdfbd37`: v1 only; no replies in mbox.
-- [Phase 4] `b4 dig -w`: mt76 maintainers + linux-wireless on To/Cc.
-- [Phase 4] lore WebFetch 403; openwall/patchew/ratatoskr match v1, no
-  review replies.
-- [Phase 5] Caller: `mt7603_pre_tbtt_tasklet` ← `mt7603_irq_handler`
-  PRE_TBTT0.
-- [Phase 5] Watchdog: `MT7603_WATCHDOG_TIME` 100 ms, timeout 10;
-  `mt7603_mac_work` uses `beacon_check` with `check == NULL`.
-- [Phase 6] `git describe HEAD` → `p-6.6-3-g04810563abb71`; `make
-  kernelversion` → 6.6.157.
-- [Phase 6] Local `beacon.c` still missing the kfrees (lines 57–66).
-- [Phase 6] `git apply --check` of `965cbdbdfbd37` succeeded.
-- [Phase 7] `CONFIG_MT7603E`; MAINTAINERS: Felix Fietkau.
-- [Phase 8] Failure mode: SKB leak on stuck-beacon recovery; severity
-  MEDIUM.
-- UNVERIFIED: stable@ mailing-list archive (HTTP 403); hardware leak
-  rate if reset keeps failing.
+- [Phase 1] Parsed subject/body/tags: UAF-on-remove; SOBs Geetha
+  sowjanya + Will Deacon; no Fixes/Reported-by/Cc-stable.
+- [Phase 2] Diff: +6 in `cn10k_ddr_perf_remove()` only; adds
+  `hrtimer_cancel()` before cpuhp/PMU teardown.
+- [Phase 2] `perf_pmu_unregister()` at `kernel/events/core.c:11587` does
+  not cancel driver timers or wait for `event_del`.
+- [Phase 2] Handler at lines 600–612 always `HRTIMER_RESTART` and uses
+  `pmu->base` / `pmu->events[]`.
+- [Phase 3] `git describe HEAD` → `p-6.1-10-g80966a5b14be4`; `make
+  kernelversion` → 6.1.188.
+- [Phase 3] `git merge-base --is-ancestor 7cf83e222bce0 HEAD` →
+  introducing driver commit is in this tree.
+- [Phase 3] `git blame` on `remove()` → `7cf83e222bce0` (no cancel) and
+  `68fa55f0e05ce` (cpuhp).
+- [Phase 3] File history: 4 commits; no existing remove-path timer fix.
+- [Phase 4] `b4 am` msgid `20260601073318.7098-4-gakula@marvell.com` →
+  v8 3/3; cover letter “pre-existing for CN10K/Odyssey”.
+- [Phase 4] Patchew: Will Deacon applied 3/3 as `7dbcb0268d1e`; no NAK.
+- [Phase 4] lore.kernel.org and git.kernel.org fetches: 403 / Anubis —
+  used b4/patchew/mirrors instead.
+- [Phase 5] `event_sched_in` add-failure path (`core.c:2591`) does not
+  call `pmu->del()`.
+- [Phase 5] Local `event_init` does not validate `attr.config`;
+  `event_add` can start the timer then return `-EINVAL`.
+- [Phase 6] Read local `cn10k_ddr_perf_remove()`: no `hrtimer_cancel`;
+  `devm_kzalloc` + `suppress_bind_attrs = true` confirmed.
+- [Phase 7] Kconfig `MARVELL_CN10K_DDR_PMU` depends on `ARCH_THUNDER`.
+- [Phase 8] Failure mode: UAF in hrtimer callback after `devm` free —
+  HIGH.
+- UNVERIFIED: `-stable` list discussion of this exact commit
+  (lore/stable 403).
+- UNVERIFIED: Linus-tree SHA beyond Will’s arm64 id `7dbcb0268d1e`.
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/mt7603/beacon.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/perf/marvell_cn10k_ddr_pmu.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
-index 6457ee06bb5a1..62e8de6949d1a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
-@@ -56,6 +56,7 @@ mt7603_update_beacon_iter(void *priv, u8 *mac, struct ieee80211_vif *vif)
- 		FIELD_PREP(MT_DMA_FQCR0_TARGET_QID, MT_TX_HW_QUEUE_BCN));
- 	if (!mt76_poll(dev, MT_DMA_FQCR0, MT_DMA_FQCR0_BUSY, 0, 5000)) {
- 		dev->beacon_check = MT7603_WATCHDOG_TIMEOUT;
-+		dev_kfree_skb(skb);
- 		goto out;
- 	}
+diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
+index 72ac17efd846a..9974b62541f0d 100644
+--- a/drivers/perf/marvell_cn10k_ddr_pmu.c
++++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
+@@ -1088,6 +1088,12 @@ static void cn10k_ddr_perf_remove(struct platform_device *pdev)
+ {
+ 	struct cn10k_ddr_pmu *ddr_pmu = platform_get_drvdata(pdev);
  
-@@ -63,6 +64,7 @@ mt7603_update_beacon_iter(void *priv, u8 *mac, struct ieee80211_vif *vif)
- 		FIELD_PREP(MT_DMA_FQCR0_TARGET_QID, MT_TX_HW_QUEUE_BMC));
- 	if (!mt76_poll(dev, MT_DMA_FQCR0, MT_DMA_FQCR0_BUSY, 0, 5000)) {
- 		dev->beacon_check = MT7603_WATCHDOG_TIMEOUT;
-+		dev_kfree_skb(skb);
- 		goto out;
- 	}
- 
++	/*
++	 * Cancel the poll timer before further teardown so the handler
++	 * cannot run after this function returns.
++	 */
++	hrtimer_cancel(&ddr_pmu->hrtimer);
++
+ 	cpuhp_state_remove_instance_nocalls(
+ 				CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE,
+ 				&ddr_pmu->node);
 -- 
 2.53.0
 
