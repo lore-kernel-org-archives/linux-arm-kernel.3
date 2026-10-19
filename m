@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9C1CCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 07:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70E1CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 08:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYrf3UgXP5DXfY3kt/urngIbizBWIl4Prx1hFfMMht4=; b=ZXJJIi9UMzCgdM5TOI4bYc1Qfa
-	/FF+zNMQIP/GQaH1DJofJmofTtaaGKmZ6UENJLKZrFPhIbNVXxv07FG8chrkDie6prZNO8HEvaBiV
-	B/dRgK2H9VnB4DhpULWBRMW69K4WrzNSUw/tjswarv02qExiFwzSCu5ZmEJ/GT4ubN9c8MwWgy6eB
-	Fykw8ZMFqVvCKUwZVio7WnKL6L9tlcbhF9m6KCYAS2ic95JOnzPLSxWD789QcwBrGSpq/y+1LkWdY
-	ZC5Rchz8Xd6m+SNM00wSFUUUMHCpS3u314neqJIvALJpDTXZ4TuGYUhs91soRH+L44n20MpOOvQNe
-	TdkRNLYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=; b=3IINll526eAEIFLTlS8qsD8Tdy
+	pGvrPxfM8Ef0fFbd0/6NGWIgVZs7/cTEBr6OR+tqWvg6MqUpKZOMXMq5VIuCE4flUEVwi/uq8+yax
+	KvBitcky4X60YgJfuxld0JXMVCLcSo6CYdYsjGFHiRbzw+wJxL8SsAqilHYHl0a7moyx+M/Ja4xuZ
+	vK4YsiS6Wum+bG/IYejoVuvPeWi91VdDBS66xh2Ngc7xLdnhc49sviqJWSk5N9i/lGemqwx9fqtxq
+	CDh0bSnCeUpVpPd45AwZNgNWuRqEVC8LujRcIHW1xhY+mPHFKXceBkuRX/WiuQzFv5d2cKFbXoY3Q
+	NDl2qwJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiGa-00000006oLD-476k;
-	Mon, 19 Oct 2026 07:58:44 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xIiKT-00000006osL-1hRK;
+	Mon, 19 Oct 2026 08:02:45 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIiGY-00000006oJw-05at
+	id 1xIiKQ-00000006orl-35Wa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 07:58:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 16AFC4E4127C;
-	Mon, 19 Oct 2026 07:58:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DA2C5606D2;
-	Mon, 19 Oct 2026 07:58:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0FF0A10328429;
-	Mon, 19 Oct 2026 09:58:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1792396717; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=NYrf3UgXP5DXfY3kt/urngIbizBWIl4Prx1hFfMMht4=;
-	b=lW3gZU1F/b/XgskjtbHeWUXleyoE6/Ao9cUMr7VJcryyvtqxE3jcorbEiG4quyYfbzLnTK
-	3yja1CP5VGO5cQbfeG+FZmXTeAaVtnydtZKPK9JNXWBOq64G4kSPREwaoxebjqlgJbrNkR
-	mE7KwToXnsGH67mMtR6hfIUeivHwqTjpD2AWJEOs/VS9TnpV08uf1+Hxp7qdgLn81x0Zh9
-	vQeKOwSvzaXlJ/1+MUbba7+CBBNGu0Py8gHRjCiGwwjIgYyMngo91qasz8VYvi46SUwnOB
-	tyaIKF1enK62ejkB/zTK1UEQq0zcN3gnF7U5gtpZju998slcU9NbSIBkE9SFKA==
-Message-ID: <7980859d-bc9e-4886-8096-ea5254bae8d4@bootlin.com>
-Date: Mon, 19 Oct 2026 09:58:30 +0200
+	Mon, 19 Oct 2026 08:02:43 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2e9f6a16afcso16735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 01:02:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1792396961; x=1793001761; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=;
+        b=iqvgaa1BGQy16hzsLvk+E5hmrGRueuhvQBgExULEjPNaZMBKtNVFE+UBDToD0xfjuA
+         VHZoW+txVwjLJwlaIQSmnOXJ/XSVmbpFJbhsvyKJL6k0Ht9zpkFZ+w/xR5ziWZsmax0j
+         /hlnv62SLJ/h7+oddJmtXu/R/ZjkZ9WSzNP0OtwVBvN3xUox6VKCx30Pqd80UOi8jiu+
+         sHHdrDC5qjPkCwvWc/y4Zt3cMPePgn4E8Y8cxaZIe7W5/s8/9fPG7ufGvsgXmhmwX+ok
+         7isK3a4Gq/ktBA3BmsM+oVcRlCHmZ7kgWPTcUZmK3sxMC+PvXk1Z4q5v0DSIDcEZC1nT
+         YEaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792396961; x=1793001761;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=U96zIc88mN0rNQvIVq2ht+DBQv4Z66PcnccoKG6Xats=;
+        b=S4e+9nnIxdrXYI6C+6zNJOOm0aIP1AoN28pvq6/zD73TuYEumzWU4Z4Sji6/nVT4Q5
+         1MKDVE3DP4akr12fiBIl1lydsYWRxkdOV6qmzyQGQijWCvSeRK3+NrJJrJznNdxp6gLJ
+         /LXHKbJ7c2hYCd38IrnjE7E82ZBUe8vho/sMSFEVSfQZ7Yd9v2yzxh4+9wVjIzjS4stw
+         OLXFPPxOwRcOEC9tLAePQzL5R0IZy9Ph0hGyBO0goPjl8xzytp9J1WVhVPzvgq5znvsI
+         GhqSaWUxrtNCxyoU4qUidi25QzmInRxklxWQsrbkliyeuA8wEXyiPl0I/dWzH4j69cT0
+         PqEw==
+X-Forwarded-Encrypted: i=1; AKwUvByijr5bNGrBH2si565LDdHKittfm3zyDTBZyXcGKpMM/BOt0KUA6gksxK+TZsUrtcnycQ7MEWr0mw/Wen3wGXBa@lists.infradead.org
+X-Gm-Message-State: AFq9FYIpJGieCnkDUMJBh2t1QWwoK4LDZcnucqnfTwv83PpenzuFvXa+
+	ceHQaaYCUXWbeEO4yEypR93p+qutKj0CPPzNBxy+SVuwFnozKphnPWvxYn+unGI6+Q==
+X-Gm-Gg: AYBFou3Qkw3vb/2kjxfUZDpDSSCsUG6GK5OehYeYZT1+xV67vvn7uYqLj/CXf+zmL+S
+	/OmsJ3iy4I7idL/44V8S9OPMjZyMki2OvO2bTRd2yyza7x18TMu2NFC1CUejYtG8o7di6LYQoNi
+	lqz0y43Op18opT2MeW1r919mODXvxtaXVQgC/cbo/1/qzBAoux1ZRTqJmw9f2MKtpla9/Gbx4yL
+	QYRMU3vz3LUVLMr52W9+PrPjU6ZwVaAb4CZmMgjot87zBejbtx/ZkLBLCnmrwC/9f3zC0NgfX3A
+	O2OvJbI7Ug+nPqx8N85k1oh2kaomd48ni/W1hrsp1w0A91/rbGBqryAEIWIxvhl/S2qe71XcOlb
+	SvQNGEcafBIyIHSfJRBhD7IOtonGfZON7n4MKI9TQ7icFRyI3hFTBlW076gsW0KYi8tVPI7g/KZ
+	LzobJ2oXKaQ1JXuOpS+oNe5u6datXoJKmaRKIH/O55k+1TEnYgTwMsdH14pokJ7ypcs2okLyYD2
+	DQablswe6zQ38F4IFohOxnrY1L5Kaa6SNPKBg==
+X-Received: by 2002:a17:903:388d:b0:2df:96ca:d7c7 with SMTP id d9443c01a7336-2e9b324cc9dmr6595855ad.10.1792396960066;
+        Mon, 19 Oct 2026 01:02:40 -0700 (PDT)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2e97e8353b1sm35762345ad.39.2026.10.19.01.02.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 01:02:39 -0700 (PDT)
+Date: Mon, 19 Oct 2026 08:02:31 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev
+Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+Message-ID: <atXOl-9C_HNvDT1E@google.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-12-praan@google.com>
+ <ar1yNtr7Kp2OTcDd@nvidia.com>
+ <ar3yWUmi8E0k37Ml@google.com>
+ <ar6gY9grmdMZcN/M@nvidia.com>
+ <20261002164748.GD3481470@ziepe.ca>
+ <asAeCz_rmpe5hbsh@google.com>
+ <asUvUf4PZJ7JCLXp@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/5] net: stmmac: dwxgmac2: Add XGMAC 3.01a
- support
-To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: Daniel Thompson <daniel@riscstar.com>, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
- richardcochran@gmail.com, p.zabel@pengutronix.de, peppe.cavallaro@st.com,
- joabreu@synopsys.com, mohd.anwar@oss.qualcomm.com,
- lorenzo.bianconi@oss.qualcomm.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261019030129.1470307-1-elder@riscstar.com>
- <20261019030129.1470307-4-elder@riscstar.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261019030129.1470307-4-elder@riscstar.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <asUvUf4PZJ7JCLXp@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_005842_198267_88EB0144 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20261019_010242_807438_8423FB58 
+X-CRM114-Status: GOOD (  38.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,130 +118,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 10/19/26 05:01, Alex Elder wrote:
-> From: Daniel Thompson <daniel@riscstar.com>
+On Tue, Oct 06, 2026 at 10:26:41AM -0700, Nicolin Chen wrote:
+> On Fri, Oct 02, 2026 at 09:11:39PM +0000, Pranjal Shrivastava wrote:
+> > On Fri, Oct 02, 2026 at 01:47:48PM -0300, Jason Gunthorpe wrote:
+> > > On Thu, Oct 01, 2026 at 11:03:15AM -0700, Nicolin Chen wrote:
+> > > 
+> > > > > So we can't issue ATC_INVs during suspend (the EP is already down), nor
+> > > > > during resume (the SMMU resumes *before* the EP is made active). The EP
+> > > > > can't use its ATC while suspended, and if it loses power/resets on the
+> > > > > way back to D0 (from D3cold, or D3hot with No_Soft_Reset=0), it comes 
+> > > > > back with an empty ATC.. same assumption the PCI reset path makes today
+> > > > > (pci_dev_reset_iommu_prepare()).
+> > > > 
+> > > > In that case, would the STOP flag be too late? It's only set in
+> > > > the middle of the SMMU suspend. So, an ATC command (via doamin
+> > > > invalidation) might be issued prior to the Point of Commitment,
+> > > > which will be timed out due to the unresponding EP?
+> > > 
+> > > How can you ever fix that?
+> > 
+> > The unfortunate reality is that this gap exists in the kernel even
+> > today.. upstream SMMUv3 has no RPM, so it's always on, while the EPs can
+> > runtime suspend independently. So an ATC_INV can already be issued to
+> > an EP that has suspended. I'd argue RPM improves this slightly, since
+> > once the STOP flag is set everything is elided, so the window closes at
+> > SMMU suspend instead of never.
 > 
-> XGMAC 2.x and 3.x are architecturally very similar.  That means that
-> for everything except one erratum we can simply use the XGMAC 2.x
-> callback functions in the stmmac_dma_ops structure.
-> 
-> Only the set_rx_ring_len callback is specific to XGMAC 3.01.  It
-> limits the number of outstanding write requests that can be serviced
-> per DMA.
-> 
-> The other erratum addressed in this patch is simply a comment to
-> ensure that a feature that stmmac doesn't currently use is not enabled
-> without contemplating the errata.
-> 
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> Co-developed-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
+> That doesn't sound very convincing though...
+>
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+All I'm saying is that today, EPs can get suspended without the SMMU
+ever knowing, making the SMMU aware of it helps with that.. although I
+agree we need a policy here.
 
-Maxime
-
-> ---
->  .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  3 ++
->  .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    | 52 +++++++++++++++++++
->  2 files changed, 55 insertions(+)
+> > > How does power management really work, is it expected that the end
+> > > device is already quieted by its driver?
+> > > 
+> > 
+> > Yes, power management would topo-sort all dependencies and invoke
+> > suspend callbacks accordingly, i.e. in our case the suspend callbacks of
+> > all SMMU clients would be called before the SMMU's suspend callback.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> index f8ab347f7b5b9..0fe86e9942334 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-> @@ -374,6 +374,8 @@
->  #define XGMAC_DMA_CH_RxDESC_TAIL_LPTR(x)	(0x0000312c + (0x80 * (x)))
->  #define XGMAC_DMA_CH_TxDESC_RING_LEN(x)		(0x00003130 + (0x80 * (x)))
->  #define XGMAC_DMA_CH_RxDESC_RING_LEN(x)		(0x00003134 + (0x80 * (x)))
-> +#define XGMAC_OWRQ			GENMASK(25, 24)
-> +#define XGMAC_RDRL			GENMASK(15, 0)
->  #define XGMAC_DMA_CH_INT_EN(x)		(0x00003138 + (0x80 * (x)))
->  #define XGMAC_NIE			BIT(15)
->  #define XGMAC_AIE			BIT(14)
-> @@ -465,6 +467,7 @@
->  extern const struct stmmac_ops dwxgmac210_ops;
->  extern const struct stmmac_ops dwxlgmac2_ops;
->  extern const struct stmmac_dma_ops dwxgmac210_dma_ops;
-> +extern const struct stmmac_dma_ops dwxgmac301_dma_ops;
->  extern const struct stmmac_desc_ops dwxgmac210_desc_ops;
->  
->  #endif /* __STMMAC_DWXGMAC2_H__ */
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> index ff83858ebc1f3..f9a77d641eb65 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> @@ -36,6 +36,13 @@ static void dwxgmac2_dma_init(void __iomem *ioaddr,
->  	 * Route DMA interrupts to per-channel lines when multi-MSI enabled.
->  	 */
->  	if (dma_cfg->multi_msi_en) {
-> +		/*
-> +		 * A friendly warning to future adventurers. If Descriptor Posted
-> +		 * Write support, which is off by default, is ever enabled then be sure
-> +		 * to make it optional. This is required by errata for at least XGMAC
-> +		 * 3.01A... and the XGMAC 2.x and 3.x are architecturally similar so we
-> +		 * use dwxgmac2 support for the 3.x family as well.
-> +		 */
->  		value = readl(ioaddr + XGMAC_DMA_MODE);
->  		value = u32_replace_bits(value, XGMAC_INTM_MODE1,
->  					 XGMAC_INTM_MASK);
-> @@ -492,6 +499,20 @@ static void dwxgmac2_set_rx_ring_len(struct stmmac_priv *priv,
->  	writel(len, ioaddr + XGMAC_DMA_CH_RxDESC_RING_LEN(chan));
->  }
->  
-> +static void dwxgmac301_set_rx_ring_len(struct stmmac_priv *priv,
-> +				       void __iomem *ioaddr, u32 len, u32 chan)
-> +{
-> +	u32 val = FIELD_PREP(XGMAC_RDRL, len);
-> +
-> +	/*
-> +	 * Reduce the number of outstanding write requests to 3 (from default
-> +	 * of 4). This is an errata workaround for XGMAC 3.01a.
-> +	 */
-> +	val |= FIELD_PREP(XGMAC_OWRQ, 3);
-> +
-> +	writel(val, ioaddr + XGMAC_DMA_CH_RxDESC_RING_LEN(chan));
-> +}
-> +
->  static void dwxgmac2_set_tx_ring_len(struct stmmac_priv *priv,
->  				     void __iomem *ioaddr, u32 len, u32 chan)
->  {
-> @@ -621,3 +642,34 @@ const struct stmmac_dma_ops dwxgmac210_dma_ops = {
->  	.enable_sph = dwxgmac2_enable_sph,
->  	.enable_tbs = dwxgmac2_enable_tbs,
->  };
-> +
-> +/* All but one field are the same as dwxgmac210_dma_ops */
-> +const struct stmmac_dma_ops dwxgmac301_dma_ops = {
-> +	.reset = dwxgmac2_dma_reset,
-> +	.init = dwxgmac2_dma_init,
-> +	.init_chan = dwxgmac2_dma_init_chan,
-> +	.init_rx_chan = dwxgmac2_dma_init_rx_chan,
-> +	.init_tx_chan = dwxgmac2_dma_init_tx_chan,
-> +	.axi = dwxgmac2_dma_axi,
-> +	.dump_regs = dwxgmac2_dma_dump_regs,
-> +	.dma_rx_mode = dwxgmac2_dma_rx_mode,
-> +	.dma_tx_mode = dwxgmac2_dma_tx_mode,
-> +	.enable_dma_irq = dwxgmac2_enable_dma_irq,
-> +	.disable_dma_irq = dwxgmac2_disable_dma_irq,
-> +	.start_tx = dwxgmac2_dma_start_tx,
-> +	.stop_tx = dwxgmac2_dma_stop_tx,
-> +	.start_rx = dwxgmac2_dma_start_rx,
-> +	.stop_rx = dwxgmac2_dma_stop_rx,
-> +	.dma_interrupt = dwxgmac2_dma_interrupt,
-> +	.get_hw_feature = dwxgmac2_get_hw_feature,
-> +	.rx_watchdog = dwxgmac2_rx_watchdog,
-> +	.set_rx_ring_len = dwxgmac301_set_rx_ring_len,	/* Only 3.01 */
-> +	.set_tx_ring_len = dwxgmac2_set_tx_ring_len,
-> +	.set_rx_tail_ptr = dwxgmac2_set_rx_tail_ptr,
-> +	.set_tx_tail_ptr = dwxgmac2_set_tx_tail_ptr,
-> +	.enable_tso = dwxgmac2_enable_tso,
-> +	.qmode = dwxgmac2_qmode,
-> +	.set_bfsize = dwxgmac2_set_bfsize,
-> +	.enable_sph = dwxgmac2_enable_sph,
-> +	.enable_tbs = dwxgmac2_enable_tbs,
-> +};
+> If that's guaranteed, we should probably -EBUSY the suspend if one
+> STE isn't aborted.
+> 
 
+That'd only work for (ATS-enabled) PCI devices.. for platform devices,
+the STE stays as is across RPM by design (no ATC, and the TLB/CFG state
+is covered by the invalidate-all on resume).
+
+> > > Could the first step in power management install a blocked STE? Then
+> > > we don't have to worry about ATC desync and that automatically stops
+> > > generating new ATC invalidations if we go and detact the domains too
+> > > 
+> > 
+> > Partially.. at SMMU suspend we set GBPA to abort and clear SMMUEN, so
+> > nothing gets through while the SMMU is off. But that's global and only
+> > happens after all EPs are down, it doesn't stop ATC_INVs in the window
+> > Nicolin pointed out.
+> > 
+> > One way to ensure the ATC state is relying on the PCIe spec to lose ATC
+> > content during D0 entry from D3cold, or D3hot with No_Soft_Reset=0). 
+> > 
+> > Another way to enforce this, is to *somehow* ask the endpoint drivers
+> > disable ATS during *their* suspend, i.e. in the EP's driver's suspend
+> > they could call pci_disable_ats or a better suited helper from pci core
+> > and the in the pm_resume / rpm_resume they could call it's equivalent 
+> > pci_enable_ats, counterpart ensuring a clean ATS state. Or maybe the
+> 
+> pci_enable/disable_ats is used by IOMMU drivers only.
+> 
+
+Can't the PCI core call it too? I agree the endpoint drivers may not be
+aware of ATS, but there should be some way for us to flush + disable the
+ATC after the EP driver's suspend & before the EP sleeps (and so before
+the SMMU's suspend is called)?
+
+> > pci_dev_reset_iommu_prepare/done() pair (with slight refactoring) in EP's
+> > suspend/resume?
+> 
+> That sounds right to me, though a different API for suspend/resume
+> will be required. And call them in pci_pm_runtime_suspend/resume()
+> maybe.
+> 
+
+Ack.
+
+Praan
 
