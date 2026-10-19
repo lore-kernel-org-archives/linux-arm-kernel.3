@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694AACCF2D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03051CCF2E4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 12:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D510WMtJn6qt45zniahXCzgTs78JgIjBCMNt/1RZUFI=; b=28QvRN3r+FiZVMXJl/cIgsT9FP
-	QWcGzUaFaGTKMRp/9xTGS4suSSBdnSw3hQ41d/7H+xqUr0FcDVhAi+zx1IgDTupcRngkusFT8LbwY
-	YaYVd76vq+ZUDYldhUJVfv5ItVRwC+4La2p7nNKhCMBVcBArh/CZpBoX5t9OOULg0TuZ/rIAPnp1S
-	5mY4oczfr8u+bJ2V3to653sz1MjK/ImlYbOhhnjE9sQGexci3MkPWIOO9Pq0HXS0d03/rKeejSdJ6
-	ZMU8v/6gTzsRGb7rVhjVSHYhBs9k43xapHsetT2LyuvR0llfeHKClXznEWwhIL/Mgk0RK2uYBLTtU
-	ylXRL/XQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q1kDGFOBuUTvyA06Flp2KWhLjMc4oScSjHsi2pPF/t0=; b=uZWh5PNuoeRXbt
+	3jsxWJC6jSxou7vn+d3YAuaxjmc7pme7Gvq7r/iQVvSbiURsHeXxU7rRVB/lU+EPmJqEuYs5cVkNE
+	CZM2593krYn0bCs0GsLM72/ykgVBZd1LLNo/mB6oV3qkFPUizmi67+Xm3dkGuj1CLUEMQr61turRZ
+	T5836Ku2xgpAYDOU0WN8y3E8m7romntBfWu9b1h2cK8tF2AROmHaFuxt7KWNXV8rnNZ5j4aNBU+GE
+	J3jfsADM/3/Hvj5tiUYB1QBTlyizgVohGngaLtYyed/2HAJTdMv+dNWVtboDdXM7HbQGrwHOzocG0
+	wFnV2edqNuSQiNarU5Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImYh-00000007OoG-2QXH;
+	id 1xImYh-00000007OoK-2mOr;
 	Mon, 19 Oct 2026 12:33:43 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xImYd-00000007OlH-00EM
+	id 1xImYc-00000007OlD-3OFH
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 19 Oct 2026 12:33:41 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48441a2ba1bso1191663f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:33:38 -0700 (PDT)
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a171b677d2so12123745e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 05:33:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1792413217; x=1793018017; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=D510WMtJn6qt45zniahXCzgTs78JgIjBCMNt/1RZUFI=;
-        b=IihDtvGDtih2sFwvIunN3srBnIXXI3H2hR6QAy+zOyiBG7JrMoky+4m3W/c0nd5oqr
-         yxLMM4VftjFrk/ZyXDWdBc5kBc0AbTkQqojw26iwadI/jZdMwfIeCYR0kt3I1Wz3wLT+
-         Pa6AvdoDXwY+aaZ0lAPEKEsIEfIfcX3IZPiGM3c+hcxJ1PV3LT1Po40n03d1W78Eu8Qz
-         fIRWstC+9HskEKNi+ydV3IwyA7hOTtfcoDH9ow0xt91+/6gS1lJ8f82Th87/01Su3O5h
-         T47gX7n+WlBadm83eR81mzrhUeB1xTds5NxF7A+konCwl258vhqmOUyowjCmf2BUwxXG
-         sREQ==
+        d=baylibre.com; s=google; t=1792413216; x=1793018016; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=q1kDGFOBuUTvyA06Flp2KWhLjMc4oScSjHsi2pPF/t0=;
+        b=GC6TQILMwHA2H6cFc6XdM0anYHd/KnIzyTjV68NKQCuhW8VB7Ge4LXaHuTcLgqlYd3
+         jhgwmiGnGWehYz90MaIMzsK+NqIUT73PSO+gSkZQAf7jm1PRaeIyOwVkq0WPaS+KVtYG
+         +u3uQv+ZYRtMRrIWwJdz56frV01zzaXgnVMjrdhNrHHKqah7cswG/+njtHgB44YGmC8h
+         RErVWa87wOQ7TS0haMtl5+GXTk0bguqItCPbR2QH+95Zf5u4AjNahepYHemGyqw7Tg4Q
+         ZqikoV+i4NIX2lC9+j+w6XP3VFRyBRD7NwaX+lz2obbYFEASHOJmdGPIkt2KITIY3MDj
+         e/+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792413217; x=1793018017;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D510WMtJn6qt45zniahXCzgTs78JgIjBCMNt/1RZUFI=;
-        b=zCM3SyVPA94x7x4uxeveWfupwPiTq5ErRYMvLBczznB5VJbjBM45xQ4DRduvaU7sE+
-         kpUHbh98xgEvd2pYHOPhocaivT5jroyEFH7+OumDzIyrQTRsG00ddZcrb/VxDGjsXsIl
-         PGnEk1MG0EGLElS7M9LQDhEPo03Q+Cn/nWAj48D9y4+7aKWuBFjFZn66iV2YUVBjI2nV
-         phA6MaZk+mlyYHIBwF08uxIGeV8E6eVxUSkQSoiDpp31/lnz8OC5Oq2OBAlUaYbMeLCh
-         tJe7xG/+GcFA+D96r8jOBtiLdnKXnMH92Y0y45oUNVJ+DOlrAPETO41g2MY5kay3LVxD
-         mAMw==
-X-Forwarded-Encrypted: i=1; AKwUvByl84GXMuD5/WGDuGQtw83GqZM/Clj0h54oN/MOEDe119GvbtGfVMncOl+wDPy7VcRuPEydThMRzoBQy1nvkP4D@lists.infradead.org
-X-Gm-Message-State: AFq9FYJQPwtD5HQSSFDFDxLH2v+mdJJI0UKDXLB3qOXLIf6Vl9vMiL7H
-	QJxi3n63BBR21GrbIve/08A2+hoSw/i8anYPtjmeShtrO5H3nxjOVwQC6wVFZQTaAsc=
-X-Gm-Gg: AYBFou0idXNMCQnPb835pG0LSMV9d6L8yyAsoSnt8czDkPhZfNAOpM6MfSgFF/m4rmS
-	PwPHvxz+wkHR3Lfzon3k/NxNnSIAZ5o2JRJL9TZZnpeFUXNWcXpaL72yHjIpZJTO9uPROvLXQ5X
-	4eum8jZbDxz5xH7JTjtlxjWDJ/O/mzr05HQXfep4WSFuH/6HDpd4iX7eWq6msp0nwLyXW3+9IA9
-	T5vCY3kValVZgtda4mBBiva/bywUKgwrQd4bOt9u7pgI8nGzlrXsIVuJK8EjsIxDAAKnY6SJe+h
-	qWHYjJ3rFeF5eLH9+KC14t35g7Fq5iR3BAi6Xbp0Ev9WVWY+kB8uk5sI/VOpWuQDfV/cc+Ue1Yf
-	dvjCVIr6Gm/X8sGKg1GlN1++FD+1tQwI6Z9/U3jAzJuBdZ7pbshCiJ661Hl7BccvpXO0BmW26l5
-	1WhyZWMTvCr/Ob0Zb2+2lapJXUBK6WqqZsdR0EguC/mIEKfs6PnNaY1ca+gmIMcSN80r3Px3Pdw
-	FkwvCvTMhETJuswJFn3sBxNk9NBYukLM2GemsjlFfsVLCLtZ0ptCgLygwuXgYKCrkryLLiAlLwZ
-	L4g6vDu+B6WbbE92sS+A5ByF/tiU+ndk0xlvz8KJUWgWIc9z217k8uk=
-X-Received: by 2002:a05:6000:4b1a:b0:48d:f034:7fcd with SMTP id ffacd0b85a97d-48e07fa2f48mr13222112f8f.51.1792413216789;
-        Mon, 19 Oct 2026 05:33:36 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792413216; x=1793018016;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=q1kDGFOBuUTvyA06Flp2KWhLjMc4oScSjHsi2pPF/t0=;
+        b=J/cimQoMbR30bDG+T06v+4aFXWjG53xR39Nzfp1LDs0yPBzEHVhxMe7ZWUbF5X24VH
+         aNLb7VbspbmrnLqTGdbN3McRJMQi/JNWnQiz97Tpu+NR5wItxw/wyspY9FP/WqzX6jlg
+         iadt5BcAkTSP/y0KkEP5/sLq81VryL6oKBwJltAl5mxRbWK1sjciXsCFSkxcXZ6LNDdk
+         hniwQIsdmyahsGjM3yLeIV/7QGxxxQdn4WGR/QEsAizb39UtBp/0ikzPjXs5qX3zF1ae
+         8kn+nUc+wbMuK+3+mleDNdgJ3ObPDOZu8aCte/d4Lp9rTDAQXu+sfWY97YwvDFteT6vI
+         hkHg==
+X-Forwarded-Encrypted: i=1; AKwUvBwdxDFa1PlUvpJ5dN3JN/ctPpQMZ0/3V7fIKRliJZRQ2LkeZY7V6cLYkaCPXEYyM8pRwjRgL7vIXKO4zrNuAn7l@lists.infradead.org
+X-Gm-Message-State: AFq9FYJp1RCIbclHCYY6ebnu54JgAgsnjJSkMN0RzkMF8if9GO90ynqr
+	ecjJqxAUK5dKoAIIgU8P2oHJr+H/18vziBIbjAvWHiq7uOp7M3GbNjzidB93t+ZK4Jw=
+X-Gm-Gg: AYBFou107lgvdriyGaEs0CgMQyzpODmKCYlDuITganuCwFomXyMBzoBSv5SqiaD9ykw
+	fw2ErtW0igCeKw9fXCV5fwwJnNVoQCav+WefmMcPAGb3CXiApyLVse1sqkt5kar5VW5lDYZfQ4a
+	0YH5tjmlT0FyeE9z/++2H2aBTLeMBmvnK64imtH80B0sIML2093zFMchVRqy3Y+N7lwbRc9QNOG
+	hIm8SPHFEIsUk56Z1BzSdzErQ9+h9mgHB9mkWCVaCjESHAgmeVk13tegcvUlzSR+hO+z8lew09H
+	qbtSow4RlRLimFQyfvb79sgL7p7BV7LBlxfDHKxURH3cbPrgf7tIOVaYo/ioE2lchIAteTFjN94
+	/zDKZgZUZe1oP1l/2xlPVrqsOnU9yFHD57p2GyV5aQO/MYo7GNHzjMMDb2aKx1OeR3nSxeBz2Wx
+	nv/Qm9J6ibR3jqI8YIhyBYjgI+rJDQBiDJW9kCf164LCHtPrD5mWeJDRRFfvixwyOgPHCgYHMxm
+	/dtdu4TDTCnKDcA+qujQXqhMk3QcBAMjKwQjyYBuG4oob2cwuaU+CTwr2TucAip+nt+/20RjveF
+	3+pO45N18MCxs+qz82RYWfU9Gqik0QUmqgMO2syBYqyomHBNRyWmV3w=
+X-Received: by 2002:a05:600c:154e:b0:4a1:e11f:b2e8 with SMTP id 5b1f17b1804b1-4a1e11fc15dmr105829485e9.34.1792413215929;
+        Mon, 19 Oct 2026 05:33:35 -0700 (PDT)
 Received: from [192.168.1.100] (2a02-8434-7c41-c701-8278-849f-666b-c282.rev.sfr.net. [2a02:8434:7c41:c701:8278:849f:666b:c282])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f576asm24677930f8f.32.2026.10.19.05.33.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f576asm24677930f8f.32.2026.10.19.05.33.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 05:33:36 -0700 (PDT)
+        Mon, 19 Oct 2026 05:33:35 -0700 (PDT)
 From: Julien Stephan <jstephan@baylibre.com>
-Date: Mon, 19 Oct 2026 14:33:55 +0200
-Subject: [PATCH 1/2] pmdomain: mediatek: mt8365: fix defines
+Subject: [PATCH 0/2] pmdomain: mediatek: mt8365: fix defines and add
+ missing one
+Date: Mon, 19 Oct 2026 14:33:54 +0200
+Message-Id: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-0-dfd445dc3763@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-1-dfd445dc3763@baylibre.com>
-References: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-0-dfd445dc3763@baylibre.com>
-In-Reply-To: <20261019-pmdomain-mtk-mt8365-fix-defines-v1-0-dfd445dc3763@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQrCMBBFr1Jm7UBTSbBeRVykyURHSVoyVQqld
+ 3daF3/x+PDeCkKVSeDarFDpy8JjUTCnBsLTlwchR2Xo2s6Z1vQ45ThmzwXz/NZdzs5i4gUjJS4
+ kGNxAzqYUfG9BLVPVYzkKt/uf5TO8KMy7FrbtB6RUIEmDAAAA
+X-Change-ID: 20261019-pmdomain-mtk-mt8365-fix-defines-c6be65ffca95
 To: Ulf Hansson <ulfh@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -89,8 +91,9 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  Julien Stephan <jstephan@baylibre.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_053339_069009_2EF73697 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20261019_053338_876217_0808E1B5 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,104 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the names of some defines for MT8365. Looking at the datasheet, some
-names were not aligned with the datasheet. While at it, also fix some
-indentation issues.
+While trying to add a missing define for BIT(25) in
+MT8365_POWER_DOMAIN_MFG, I realized that the name was already wrongly
+assigned to BIT(22). Trying to fix it, I also checked all other defines
+for MT8365 and noticed a few other mismatches between the defines and the
+datasheet.
+This series fixes the MT8365 defines and adds the missing one. While at
+it, also fix some indentation issues.
 
-No functional changes expected.yy
+Cheers
+Julien
 
 Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 ---
- drivers/pmdomain/mediatek/mt8365-pm-domains.h |  8 ++++----
- include/linux/soc/mediatek/infracfg.h         | 20 ++++++++++----------
- 2 files changed, 14 insertions(+), 14 deletions(-)
+Julien Stephan (2):
+      pmdomain: mediatek: mt8365: fix defines
+      pmdomain: mediatek: mt8365: add missing define
 
-diff --git a/drivers/pmdomain/mediatek/mt8365-pm-domains.h b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-index 33265ab8ce76..3775e4dc2c91 100644
---- a/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-@@ -52,7 +52,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- 				MT8365_INFRA_TOPAXI_PROTECTEN_1_MM2INFRA_AXI_GALS_MST_1),
- 			MT8365_BUS_PROT_INFRA_WR_TOPAXI(
- 				MT8365_INFRA_TOPAXI_PROTECTEN_MM_M0 |
--				MT8365_INFRA_TOPAXI_PROTECTEN_MDMCU_M1 |
-+				MT8365_INFRA_TOPAXI_PROTECTEN_MM_M1 |
- 				MT8365_INFRA_TOPAXI_PROTECTEN_MM2INFRA_AXI_GALS_SLV_0 |
- 				MT8365_INFRA_TOPAXI_PROTECTEN_MM2INFRA_AXI_GALS_SLV_1),
- 			MT8365_BUS_PROT_WAY_EN(
-@@ -92,7 +92,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- 		.sram_pdn_ack_bits = GENMASK(17, 13),
- 		.bp_cfg = {
- 			MT8365_BUS_PROT_INFRA_WR_TOPAXI_1(
--				MT8365_INFRA_TOPAXI_PROTECTEN_1_PWRDNREQ_MP1_L2C_AFIFO |
-+				MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_AUDIO_S |
- 				MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_AUDIO_M),
- 		},
- 		.caps = MTK_SCPD_ACTIVE_WAKEUP,
-@@ -129,7 +129,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- 			MT8365_BUS_PROT_INFRA_WR_TOPAXI(BIT(25)),
- 			MT8365_BUS_PROT_INFRA_WR_TOPAXI(
- 				MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M0 |
--				MT8365_INFRA_TOPAXI_PROTECTEN_INFRA2MFG),
-+				MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M1),
- 		},
- 	},
- 	[MT8365_POWER_DOMAIN_CAM] = {
-@@ -183,7 +183,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- 		.sram_pdn_ack_bits = GENMASK(15, 12),
- 		.bp_cfg = {
- 			MT8365_BUS_PROT_INFRA_WR_TOPAXI_1(
--				MT8365_INFRA_TOPAXI_PROTECTEN_1_PWRDNREQ_INFRA_GALS_ADB |
-+				MT8365_INFRA_TOPAXI_PROTECTEN_1_DSP_EMI |
- 				MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_M |
- 				MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_S),
- 		},
-diff --git a/include/linux/soc/mediatek/infracfg.h b/include/linux/soc/mediatek/infracfg.h
-index 9956e18c5ffa..d2cfa09f81ba 100644
---- a/include/linux/soc/mediatek/infracfg.h
-+++ b/include/linux/soc/mediatek/infracfg.h
-@@ -6,29 +6,29 @@
- #define MT8365_INFRA_TOPAXI_PROTECTEN_SET				0x2a0
- #define MT8365_INFRA_TOPAXI_PROTECTEN_CLR				0x2a4
- #define MT8365_INFRA_TOPAXI_PROTECTEN_MM_M0				BIT(1)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_MDMCU_M1				BIT(2)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_MM_M1				BIT(2)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_MMAPB_S				BIT(6)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_MM2INFRA_AXI_GALS_SLV_0		BIT(10)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_MM2INFRA_AXI_GALS_SLV_1		BIT(11)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_AP2CONN_AHB			BIT(13)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_CONN2INFRA_AHB			BIT(14)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M0				BIT(21)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_INFRA2MFG			BIT(22)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_MFG_M1				BIT(22)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_STA1				0x258
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_SET				0x2a8
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_CLR				0x2ac
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_APU2AP				BIT(2)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_MM2INFRA_AXI_GALS_MST_0	BIT(16)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_MM2INFRA_AXI_GALS_MST_1	BIT(17)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_CONN2INFRA_AXI_GALS_MST	BIT(18)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_MM2INFRA_AXI_GALS_MST_0		BIT(16)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_MM2INFRA_AXI_GALS_MST_1		BIT(17)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_CONN2INFRA_AXI_GALS_MST		BIT(18)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_CAM2MM_AXI_GALS_MST		BIT(19)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_APU_CBIP_GALS_MST		BIT(20)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_INFRA2CONN_AHB_GALS_SLV	BIT(21)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_PWRDNREQ_INFRA_GALS_ADB	BIT(24)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_PWRDNREQ_MP1_L2C_AFIFO		BIT(27)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_INFRA2CONN_AHB_GALS_SLV		BIT(21)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_DSP_EMI				BIT(24)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_AUDIO_S		BIT(27)
- #define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_AUDIO_M		BIT(28)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_M		BIT(30)
--#define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_S		BIT(31)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_M			BIT(30)
-+#define MT8365_INFRA_TOPAXI_PROTECTEN_1_AUDIO_BUS_DSP_S			BIT(31)
- 
- #define MT8365_INFRA_NAO_TOPAXI_SI0_STA					0x0
- #define MT8365_INFRA_NAO_TOPAXI_SI0_CTRL_UPDATED			BIT(24)
+ drivers/pmdomain/mediatek/mt8365-pm-domains.h | 11 ++++++-----
+ include/linux/soc/mediatek/infracfg.h         | 21 +++++++++++----------
+ 2 files changed, 17 insertions(+), 15 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261019-pmdomain-mtk-mt8365-fix-defines-c6be65ffca95
 
--- 
-2.56.0
+Best regards,
+--  
+Julien Stephan <jstephan@baylibre.com>
 
 
