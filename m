@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E94CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECD6CCF2E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMwIvC7rwhF+OovLMEVh4v7K04b1tr+Qd/dpvwS1gQc=; b=TzWd+UAF3EjzylMCCzWLb049Hf
-	319KKkd22Qy1qWI+0uzAhrxtm//bli3wU2/e4jCo/5eWdMks3yrQdvhb3HDCGYSa7WkS4GvHDbYvr
-	//FMz9BaM5cwPYaWpnDQUOyFycvB388ja4QUf574yNG6cwz3oDpIwUeJog9fZzVnRBwc9vXLBfy1y
-	3bQHhlgL0pOqC11kgBErlpYQHUlsxnW4vj7h5z4xMqSVRhsPmtGfoqQgOAeNVWEt6BNtzj+YF+8ty
-	TAwXdraOPNvzIHANlOZKxwsTrhyA16P2R4QSnvylVWQMPLznJkhLvz+s164o8moOx4+l/bQsAkca5
-	flRyMqzw==;
+	bh=vkA12XMrXiqIndxUbHSga3MwcvfxER+D9UiN0/uDgoQ=; b=wxmLiSvQqNEz+2rYcSs1O+PSFJ
+	7VvDnUZtOspJAXAJfoUUvFs2e3cudv4pSaXAeNrmbB+K0Ud2tCh1BPTsnu6Kbcs4B5dufHVwATUcg
+	dRF2SHDQo9H4Hgb5FeTuKEtZxoloaObO5fLr0UQtseT7BK4Y91N+E2iiaWaHGnUAuc0JLO66mp1Ar
+	qrU7I2JPNns5VTx7pZ7Z4Gnv+PYW1A46rgVehUO6+kmWL0HytKtnI/WO+9TBCySAsJTB7Rl64ZEgy
+	wHStov2Nw+XfFICLjmqUHOhBiPVRk2giVgvjugO4KOF+efHxU2kuuGub/yutDOReD4R1FZyymZ2ND
+	4XXbECIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkHA-000000077Dh-2kub;
+	id 1xIkHA-000000077EU-3u6s;
 	Mon, 19 Oct 2026 10:07:28 +0000
 Received: from mail-bjschn02on2136.outbound.protection.partner.outlook.cn ([139.219.17.136] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkH3-0000000772F-2G63
+	id 1xIkH8-0000000772F-1Wdv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:07:23 +0000
+	Mon, 19 Oct 2026 10:07:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jYNGVpPM0uWHGA25BCZ6rPF7yTPKeVuQ9Wc+UIAwvh8iNOMD9KL05+1KxW6luJwBz+FHS/bra3YpreeXe9VfjN7makUNHXtm13PThy+h+idBJnlrajyC/H8+6HPNNh/ev5BxkVjK35cJcQjs02+d/iBOIFkJDpqwrzCllZ4DjKht+YWyLVhxuJr79sD++yWkCaXB9HaASaW19XfWPRwrB7tmOVxyWV1Cjrl+YtLjPFfy5w1QYej2P9+dYQS1RFKQWzXH8SMcMTdMI4rep5HrlKNypjcDO/ED+1z6/5Zpq1s/jJe8eWeaBM11U4Npk+g2ajsQ3Tb8ogjuBswifHOvmw==
+ b=JpZFY5n479qDGEF5HDmSpoKWsgGeJyxSNuWiPq/VvJuJRRE+LpMTey0RDYDmJmcG4nFrKEnJU8ozdrnY68VWCxoycta9Tp7uZR3znHD4ukcJnB4Jg7xzG6D9dsrpn6/RfpVl7NBOC7SOPUCB1Hxa0O2kwAO7SEd46qvISZtNHNUqYq1V/xdVzYe8p56xD7WgJetME1AmvpqI46jEnXsISIi/f8laTOBF35Ff1Bhkb96geAQBabSpXZtf2QWwYtk3dDPjs6q+5H/kGomsqGI2zE/RmbyHNHtxdcILs5tFv4d4s2fRReupjUdEt4xWD8D3WDr3nJDudgvKsgnBgTaKdA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CMwIvC7rwhF+OovLMEVh4v7K04b1tr+Qd/dpvwS1gQc=;
- b=AyvTILIR78X9SV3AePikoZ7ZiyDgZor9babqQZ7xbwGX9ma2kAe+svcnFiVfF7ch2FZgKB9LaafUoUtW7bzBkoZtMq89FMpJcTEIIEwyQTIkh7a5U7VpzTLRyKKIPY/h3Vol+71LUGAEhxxAQp7aZ/Vqzqwn1gIMs7Wm3ciZqra4Xb/FHCWYGJvMbgAkxtSYsTkcmQ2rcn75ByeAWCFo76rrjw6s+xx106d2lDm3i/4+mvE57SE4Vd9noO05aqv8EkQYVmYemSBTzUzEfmplFv61DbDQdnggTIadf1Qz+Rjz8rBC5V3BXDdGt6D+wkn1EDI9rx7fej8m9CorucxVgQ==
+ bh=vkA12XMrXiqIndxUbHSga3MwcvfxER+D9UiN0/uDgoQ=;
+ b=Ox8YDso3D0lh/S2OyFo5lWenx21GE4b0j+sxZ9b0u/ZxYRXy0OrnDlbmL2mhw0wH+i7zrCV18OTiBMDxeFp8PlQZEgXyVRUKKXVakZ3q5rZKtTKR1fhcU1c75wBAgZ8XeYxV9VDtGU7ohgKxPpaNI6QyU/NRx2Aeb7xSt2t9vjJH4+vgTwaUR+vj4UIGkquAmv9fMQJLeskjH03n4wM0NA1gtJEbPgaS15JMQGN1KhMO7vCvgziTkCQtEgTEQMv0ihRGdvh8q1utNJf9dZhnmV/ZfpcOLccHTflpTIkZkmW/ZQ+sdXN6qFIBTo0mc56PqXhhgnvVakpZpj2WI2AQuw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1204.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:14::5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
- 2026 10:07:01 +0000
+ 2026 10:07:06 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0522.017; Mon, 19 Oct 2026 10:07:01 +0000
+ with mapi id 15.21.0522.017; Mon, 19 Oct 2026 10:07:06 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,9 +87,9 @@ Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH v4 2/4] soc: aspeed: Move UART routing driver to drivers/uart-routing
-Date: Mon, 19 Oct 2026 03:06:41 -0700
-Message-Id: <20261019100643.49099-3-changhuang.liang@starfivetech.com>
+Subject: [PATCH v4 4/4] uart-routing: Add UART Routing driver for StarFive JHB100 SoC
+Date: Mon, 19 Oct 2026 03:06:43 -0700
+Message-Id: <20261019100643.49099-5-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261019100643.49099-1-changhuang.liang@starfivetech.com>
 References: <20261019100643.49099-1-changhuang.liang@starfivetech.com>
@@ -100,56 +100,56 @@ X-ClientProxiedBy: NT0PR01CA0011.CHNPR01.prod.partner.outlook.cn (10.2.10.20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1204:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1e6e6b2-e444-44a1-8c53-08df2dc8b7cf
+X-MS-Office365-Filtering-Correlation-Id: cac4eaa8-4b63-4505-caf8-08df2dc8baca
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|52116014|6133799003|18002099003|22082099003|10067099003|261009223327099003|261009223027099003|261009221727099003|261009221227099003|261009220027099003|56012099006|38350700014;
-X-Microsoft-Antispam-Message-Info: Vp7MdVtcRUKytZeDXWyK9AyyHxyFnBrwoA/08WrL1RXeWGT8viaI1tEirtyqGGU7nLEaK2ehse2PQU+D74agVG+z4YtqSq3XoM4xcv2C+UtwjyO82Ib7EopEe0+uVMzUZ1wWKr4BrzM3LIcV2OdwrU5EdRj5gfEYLIUNn0WVA9hsA1FypqFuUFIDiSeFSoXwczSydEJmJ12GmekcgmLUIUk/Osj1QaxSqy7hTt7ZmcLAMUBSGwSZSPSOYksCgy0dbIODTKqXSXZKcUY/B2aJn+fSZqzGFdSaghVFLlTBwCRo5vDms898ljoII/F1HZVy74/OJTUKk9vXE3W/stcO9bVuhwI0bQDHZgjv8JAo/LiytpZjBSsTT0pzH+h+RXrI3OY9FAf22lANfFuiH688jH46tRb2oE8RvayvA3qarIeSsttAm2vlmuD8vdSuF1pGI/srppjUR6u1c2VUiU3XFEKxb3bVR1mAeXgdIy0aWofxRa2YMDfKjdf91+FxUUrYkQw04MXZtMkaSLwdhGC3WUJVI7Y+0AtLWmHKDPxBWMSYdkZ/UhlVTKbuq+xqXeIR
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(52116014)(6133799003)(18002099003)(22082099003)(10067099003)(261009223327099003)(261009223027099003)(261009221727099003)(261009221227099003)(261009220027099003)(56012099006)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|52116014|6133799003|18002099003|22082099003|10067099003|261009223027099003|56012099006|38350700014;
+X-Microsoft-Antispam-Message-Info: 2Efe0nJy+SikFhCaW6smA7ao5OTcBiX8DvRHxoxaZos9Wo5oh2pYIvEH+y9+awZay/v7V73azR9FIyCrlno51PkbWE930sO/dqZS8Hnyme4hiZpgA8eDWfN9WQjVKNg9ENrVUNbP/VSrptzOWTmLowvtFcskA6EJEnIdaTiVJu1ZCaTDSZXUbTro6/UZO3Vu47QX+JCEsYwx7lBnpBjjXhvXC8bEZy4YBjAO3pZSG6pEg7j1l0bLRwnIapEb2MeHC3yT0JLO4KohDq4OidNxNla/ycyLJLaBfTbdc9yGzOFRE2oUpLD2F+Gi8BeMLPU+t8EJNzfAgWv43kRT9TOcOeQxnpC46xTmVRX0WBJxadOfHx+h25UigjASdzgUgUwM9vVIxCAZ++wTGIhIEHSi45DWiGAoZAFGBN4KNm1R3CD0C0AheLEtBJgJ8E/U9LKx09y7YdYIzIP0msagpvoT3EDahNIoJn4CwgEuHHTjI3mDERaK8Gvc09FFhTqdYpsQsMU1dvq4tWo23GgJvQ3+PFAxD0XScRQlb1M32NJ/+wqc6gwdNV8pLnUHHV0l2/UB
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(52116014)(6133799003)(18002099003)(22082099003)(10067099003)(261009223027099003)(56012099006)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xQ72cbOj0ZQQnb7ixCoEtxG4rI1UsYJNHzQLi1XZKD16cIZeSJG4kB7e7VVl?=
- =?us-ascii?Q?GUuGnNviSvOvA9v8PIDQ2jiLpbmQIIlgUqjGnGtj4sRjH6lAuhl2MhU3BdVw?=
- =?us-ascii?Q?NRN3xu/R9csNxhOakMy7l3rQ2CK4Y1r4UGJcU73VO/0xF3yv5xCZ2Buw/9jx?=
- =?us-ascii?Q?oHoniZt1IwHTaWqU3lUtaK0ISO+sKzo9OXX5uB94mSgQypO011zjvfvNPU/Y?=
- =?us-ascii?Q?FS143bbkP3OuHiEzFKqqv+/GAVCj7D/SOPh0L220cbB+WvyFGv2VSLjwpWDF?=
- =?us-ascii?Q?GD/FBtOOL7wpgvyS31vMw9YTQ0uM6szIHtXtxKQRJh6lwWnsVAGYBqsGY9tp?=
- =?us-ascii?Q?Gvv1spD7FeYpBeZqMb2nuo44adfnKWAlOme+2Qsfya3hS2i/oj9vD7fQW81H?=
- =?us-ascii?Q?z0R07aIFJOHsjk6tGRfsOCrhL6oaW5KNsLkrtxgGUnpt3wgRvpGunfUVvYoI?=
- =?us-ascii?Q?7ulOvonZzRSnzfxwX9ovaK7gVM9EMJsZEecm5dkwIMz66WlUjuytckzZYadQ?=
- =?us-ascii?Q?gf2sKpILRTgQRZl43NG6Ly1ZD4uhtY1YWlS+tyfBgqQhrxAaA9qH7w0CTOla?=
- =?us-ascii?Q?heVcPXgW6kFlrsMCV5vLb1rF/PsNXgsGO3Aa33Y704UWMIH+Ia1SAU6m4D2y?=
- =?us-ascii?Q?JOPeXV4Xdt5OL9JNU1/2MT0WKMnqse0Ql4zUuKerHd3Jle709nbZH4NFk7hS?=
- =?us-ascii?Q?h0vWmDGdE/lnsTEy91En80N0RbhYDrv1W2X00BZqTcdBdBMzlvZSwSX7rE9X?=
- =?us-ascii?Q?adpFChjheHtNLQWDwgXHmt5eoSAkZI3p+0u9vu3fDSQLH7o79wemrr4XZNPO?=
- =?us-ascii?Q?CsmgfxbB/ID5BCDfulDuvurXj9GKBvU1h6JqdfzrjybnJ8W9Pf1IV8QeTL4b?=
- =?us-ascii?Q?0J0VvOyGfPY/kL57ePsoRYtW6u69b/OO+cHFecbsufggTSQMwxjhZhG6XF7V?=
- =?us-ascii?Q?p0SpKQZqypF/se4nutwxihyncW1BdhybAkMscncJe7CWXR9HReXyzrxWKiz5?=
- =?us-ascii?Q?EfPnGPgiHqpedwfYeDjvug9xZ262Lxx6WhOnVqbMXXZ5RKPdi3CGnzidmDbM?=
- =?us-ascii?Q?MjGt4x7nxXZvvKy80S5wFBe+UiqtjafCopVloCABDY5yqfTjBqFlDEInI55L?=
- =?us-ascii?Q?n0VvuMQCV4J2GwY2olB7js0vcRzlhqytAV2JO78SwYB8+JKZWcGzSXC8jpOA?=
- =?us-ascii?Q?5ANsN6aJ4i12uusrmbr3zqnO3Dt9Wjis8lnCMav5FwhdAXAwRhKX7bjFg5xn?=
- =?us-ascii?Q?nrvqiwffeD7kHn7ABxSMAIPhvBfDDZ3eH+ll4r4KEcQ14M6nbMcqF4gi5GLk?=
- =?us-ascii?Q?UShRl+/dGxGgkQkWa9MQXiBRunaSz7oXmzBTYgkkTTgIX9UOzq/dxlBLyOgg?=
- =?us-ascii?Q?0mDRjENS11sUypJQ67SNPZCQ1R8UsYO+Gm4WSaMqHFOvm+7e6HoqtgFPK/IF?=
- =?us-ascii?Q?nEhyPmBxjhQZKmS8y3Nfzdo3r9SjVh6GvnJDNjquGRGKumTFi2jbXI4xsxzd?=
- =?us-ascii?Q?2fcGdu6WQ7WUAm5V4KKndovKM9pbrswwIdJbRAuNC4+1/lSmUBXSBPP49hGQ?=
- =?us-ascii?Q?hQgZiC1ePiYp1mWJJGevRHn//tOJ6YxKdiH5nyEWBzlD0CMvhlv40N2SS7Ir?=
- =?us-ascii?Q?RvTuBO2ijxmGe9wBKMY0qK5UhchMge/4rOUknN+Q1tKYFhzqVWShqp7pfT6u?=
- =?us-ascii?Q?UTV3ILO24Wo1SlyHYJq/3ORhW1HyUdi+NGq6ZUcndkHreodmDMMU4VsSH479?=
- =?us-ascii?Q?pMqma8ePn1lkKW+1yUr5i3VkFoavaIl9t0aOVuM2N9giHTr6owwH?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?axzyQCgOn+0fS9HMJSybqidgLCilL+I1hMBIUIhkY/lsxYJ0VCkbOJLVfbSA?=
+ =?us-ascii?Q?nwrKxN3UDsrabGosJss29gSskfN4wbiJ4S6qXuG5yuwueH162blCkoWG0BFt?=
+ =?us-ascii?Q?KkRKis3+oWmBhxDLc2wmtKJPUKJTNmt1HQo5TUMhl2aItAZENp2bd7JIpv89?=
+ =?us-ascii?Q?8qAN3HL+4zU5nDGmEpSF4x1LiVVQ5/wpnTDThxVSqYDRlsVK15Fo7ob4++D1?=
+ =?us-ascii?Q?NIbIdN2aZUFvaSmYeWneqEaUpeCPAYJJHUQ6pgsGVmSkfV7Xq49wwdBJvNJY?=
+ =?us-ascii?Q?t5c3zvXBzcNpc/IXmEfib/CbCvMB6VmaTG+PUacG2evX0P8nBLHoi9T8Bx07?=
+ =?us-ascii?Q?4fz+3FwW58wbrQfidFcKO1AHkH6PI9miZHAg4cwV6ZWCW/B0+pvSiahq5q3V?=
+ =?us-ascii?Q?NoyL2rtPg84myIxwILrDAYCWJT6jzkK1dxRP9ssu6+MG3cua4c0FAGeo8/rZ?=
+ =?us-ascii?Q?ZgJo6ljHNk9rtgBEh29EK5o3omRltzf20LtqvZshdkjvuKzQhXOV229z7p+C?=
+ =?us-ascii?Q?l2hOlalZC0E1GndntaeqiSGYbF25UTGu7VNIVO+h/RSf7VseU/YIppuIF8N5?=
+ =?us-ascii?Q?XPnBJNPrLvuc1g7vBoUBMl+4sNDqPFRYJi8mO2ruO0tvJtwfXMOdO5a0tpnB?=
+ =?us-ascii?Q?DFT/OvSuikJ5sj05UCnkYuMb3qIEGnis9opnfTr7PI6hYYhES+7+2WY4wfQU?=
+ =?us-ascii?Q?9whS1Zj3WUxirYx4UtmowNJXuy4lzSJKH4nD3T+X4H72pTqvMqO8dYK3HzQL?=
+ =?us-ascii?Q?P3Vph5PgasCd2piPJ1/nKeJs8GFA3Q6o55k2hdzATsxAUs4HxBT5jGoDjCE5?=
+ =?us-ascii?Q?dVlJpV3ASpbwvTDHy2g+TkIRSMf5al+it1TtslAILXkCbfxxfazFea87d+/E?=
+ =?us-ascii?Q?iuZDfGIUeEix9k8lnPZ03sMWQCQRcdncEMsJVLJRgPv4IKldTQuhqQ3+eNW4?=
+ =?us-ascii?Q?f4tIdURHV11M6f6h0+YAHJs/XBg8KqJ/HYunmF+dItOB2Xbd5MUtzs7+NgNG?=
+ =?us-ascii?Q?AJPbY4OK4Mr7OYNj62oSMkOVL4LgXx16nJIAhwEhm0K1LaSH/k5ClTAQ1x4l?=
+ =?us-ascii?Q?Bblj9ZBfLnq7iHq+hCcSqHVihAWM0p/8cj9/+jui0iMe0DX24S3bTGi/uDO2?=
+ =?us-ascii?Q?w/aaBrat9wn4SaPpCcJrQvphm/nI7nNJlOn8VxUaMQSys5Pz3A00dmG3W8/L?=
+ =?us-ascii?Q?MJ+Uq93ciXVv5/7WnIxMybj3dVSbHo4Euw3DeTqZMdobYXtmXsrLg8H+7TSU?=
+ =?us-ascii?Q?GvAcjM8U4tWJ15Y2VJtEOOFg2kEYLKbePAqxZeuNAtisABYZU2CKtIstzlbs?=
+ =?us-ascii?Q?9JhNJxJPjpw8cpYip14fCYdjCCD8HF8hv+oi6YCZiTY+pRolOE/CJamyeNqY?=
+ =?us-ascii?Q?DdvslAl4k/5I/aBqzYchtzSGVB/NLeeocXA0UGAHAJk24DuNxdiIdMdiYgJu?=
+ =?us-ascii?Q?NTkLO8iRCP48EF3m5g8prH9LqFFciODgf4nw5Xia19DvjBiSQKlWwXVUtW/d?=
+ =?us-ascii?Q?V4B4SLjfL6WLm4uTjcxgDYKrUN5wqAJr42ymVzlVYQJ2jNTbtE2h7UFJ9y6D?=
+ =?us-ascii?Q?iipVi0kFFaXYcdhknUjccQ1TdYHfSYeSrryvOGTHvg21eaRj6RRif6/tA/nn?=
+ =?us-ascii?Q?awrEROUsayONbBpVeiCHm1+AhCP+xZTWIpgo7FstyfnrFL9m9Mqz9jlsCr9s?=
+ =?us-ascii?Q?rCNFLPfExQyi2JN6eJXYPCjTv9bfLfbUBzcbhkc4485UYtBylUHK7eljKI0i?=
+ =?us-ascii?Q?uWicrnEtHGVKkt2z1Bcg/e2Z+2avj4dW802evPyeKeXFyvXGkwxe?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1e6e6b2-e444-44a1-8c53-08df2dc8b7cf
+X-MS-Exchange-CrossTenant-Network-Message-Id: cac4eaa8-4b63-4505-caf8-08df2dc8baca
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 10:07:01.2290
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 10:07:06.1928
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2meSrZbvTRDdqWhsgwnl0QPvKfoQN3GMAACXOWDh7lTWvneexHiE0L/pxx3cXrL9oZlFoFYB4UISLXZN3/UD0vHse21mkXdl/lVpLzEmashMJ5rtzR/c+tBpFIyvijmE
+X-MS-Exchange-CrossTenant-UserPrincipalName: HG9fu4GeTWWTBwfDlxJ9yaPqXTl/tOcGfFiuBJSdQkRBCUMp92GlmkastZ3gVplK9vLGOcoHrL3Dg1Ek7oxNo6Zr5f7Tj8p7gUxEdXp9KoQRSZuszg2TndHH33/abFDv
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_030721_639152_6DAEAD89 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20261019_030726_419171_CFAD28C5 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,1162 +164,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Aspeed UART routing driver is not really a SoC driver: it only
-exposes a serial crossbar through sysfs, and the same hardware block
-exists on SoCs from other vendors. Move it to drivers/uart-routing/ and
-convert it to the common framework living there.
+Add driver support for JHB100 UART Routing control, allowing runtime
+configuration of RX muxes between UART controllers and I/O pins.
 
-The register layout description, that is the list of selectors with
-their register offset, bit position, field mask and routing targets, is
-kept as it is; only the surrounding sysfs plumbing is dropped in favour
-of the framework. The per selector option lists become separate arrays
-because the framework refers to them by pointer instead of embedding
-them in the selector.
-
-The Kconfig symbol and the platform driver name are unchanged, so the
-sysfs paths documented in
-Documentation/ABI/testing/sysfs-driver-aspeed-uart-routing stay valid
-and existing configurations keep working.
-
-Also update MAINTAINERS to add entries for aspeed-uart-routing.c
-based on the file authors, as the file currently lacks maintainers.
+A sysfs interface is provided for easy checking and updating of routing
+paths.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
- MAINTAINERS                                |  10 +
- drivers/soc/aspeed/Kconfig                 |  10 -
- drivers/soc/aspeed/Makefile                |   1 -
- drivers/soc/aspeed/aspeed-uart-routing.c   | 601 ---------------------
- drivers/uart-routing/Kconfig               |  16 +
- drivers/uart-routing/Makefile              |   2 +
- drivers/uart-routing/aspeed-uart-routing.c | 415 ++++++++++++++
- 7 files changed, 443 insertions(+), 612 deletions(-)
- delete mode 100644 drivers/soc/aspeed/aspeed-uart-routing.c
- create mode 100644 drivers/uart-routing/aspeed-uart-routing.c
+ .../sysfs-driver-starfive-uart-routing        |  49 +++++
+ MAINTAINERS                                   |   8 +
+ drivers/uart-routing/Kconfig                  |  15 +-
+ drivers/uart-routing/Makefile                 |   1 +
+ drivers/uart-routing/starfive-uart-routing.c  | 192 ++++++++++++++++++
+ 5 files changed, 264 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
+ create mode 100644 drivers/uart-routing/starfive-uart-routing.c
 
+diff --git a/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing b/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
+new file mode 100644
+index 000000000000..76aeed729d4b
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
+@@ -0,0 +1,49 @@
++What:		/sys/bus/platform/drivers/starfive-uart-routing/*/uart*
++Date:		August 2026
++Contact:	Changhuang Liang <changhuang.liang@starfivetech.com>
++Description:	Selects the RX source of the UARTx device.
++
++		When read, each file shows the list of available options with currently
++		selected option marked by brackets "[]". The list of available options
++		depends on the selected file.
++
++		E.g.::
++
++		  cat /sys/bus/platform/drivers/starfive-uart-routing/\*.uart-routing/uart1
++		  io0 [io1] io2 io3 io4 io5 io6 io7 io8 io9 io10 io11 io12 io13 io14 uart0 uart1
++		  uart2 uart3 uart4 uart5 uart6 uart7 uart8 uart9 uart10 uart11 uart12 uart13 uart14
++
++		In this case, UART1 gets its input from IO1 (physical serial port 1).
++
++		To switch the RX source of UART1 to UART2, write the desired source to the file::
++
++		  echo uart2 > /sys/bus/platform/drivers/starfive-uart-routing/*.uart-routing/uart1
++
++		This indicates that UART1 now receives its input from UART2.
++
++Users:		OpenBMC.  Proposed changes should be mailed to
++		openbmc@lists.ozlabs.org
++
++What:		/sys/bus/platform/drivers/starfive-uart-routing/*/io*
++Date:		August 2026
++Contact:	Changhuang Liang <changhuang.liang@starfivetech.com>
++Description:	Selects the RX source of IOx serial port. The current selection
++		will be marked by brackets "[]". The list of available options
++		depends on the selected file.
++
++		E.g.::
++
++		  cat /sys/bus/platform/drivers/starfive-uart-routing/\*.uart-routing/io9
++		  uart0 uart1 uart2 uart3 uart4 uart5 uart6 uart7 uart8 [uart9] uart10 uart11 uart12
++		  uart13 uart14 io0 io1 io2 io3 io4 io5 io6 io7 io8 io9 io10 io11 io12 io13 io14
++
++		In this case, IO9 (physical serial port 9) gets its input from UART9.
++
++		To switch the RX source of IO9 to UART10, write the desired source to the file::
++
++		  echo uart10 > /sys/bus/platform/drivers/starfive-uart-routing/*.uart-routing/io9
++
++		This indicates that IO9 now receives its input from UART10.
++
++Users:		OpenBMC.  Proposed changes should be mailed to
++		openbmc@lists.ozlabs.org
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 3f33f8184be1..13dfdc1f7aa7 100644
+index 13dfdc1f7aa7..83c853c45261 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -4132,6 +4132,16 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
- F:	drivers/pci/controller/pcie-aspeed.c
+@@ -26676,6 +26676,14 @@ S:	Supported
+ F:	drivers/reset/starfive/reset-starfive-jhb1*
+ F:	include/dt-bindings/reset/starfive,jhb1*.h
  
-+ASPEED UART ROUTING DRIVER
-+M:	Chia-Wei Wang <chiawei_wang@aspeedtech.com>
-+M:	Oskar Senft <osk@google.com>
-+L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
++STARFIVE UART ROUTING DRIVER
++M:	Changhuang Liang <changhuang.liang@starfivetech.com>
 +L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
 +S:	Maintained
-+F:	Documentation/ABI/testing/sysfs-driver-aspeed-uart-routing
-+F:	Documentation/devicetree/bindings/soc/aspeed/uart-routing.yaml
-+F:	drivers/uart-routing/aspeed-uart-routing.c
++F:	Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
++F:	Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
++F:	drivers/uart-routing/starfive-uart-routing.c
 +
- ASUS EC HARDWARE MONITOR DRIVER
- M:	Eugene Shalygin <eugene.shalygin@gmail.com>
- L:	linux-hwmon@vger.kernel.org
-diff --git a/drivers/soc/aspeed/Kconfig b/drivers/soc/aspeed/Kconfig
-index 63a656449a1a..e27623a94fd2 100644
---- a/drivers/soc/aspeed/Kconfig
-+++ b/drivers/soc/aspeed/Kconfig
-@@ -24,16 +24,6 @@ config ASPEED_LPC_SNOOP
- 	  allows the BMC to listen on and save the data written by
- 	  the host to an arbitrary LPC I/O port.
- 
--config ASPEED_UART_ROUTING
--	tristate "ASPEED uart routing control"
--	select REGMAP
--	select MFD_SYSCON
--	default ARCH_ASPEED
--	help
--	  Provides a driver to control the UART routing paths, allowing
--	  users to perform runtime configuration of the RX muxes among
--	  the UART controllers and I/O pins.
--
- config ASPEED_P2A_CTRL
- 	tristate "ASPEED P2A (VGA MMIO to BMC) bridge control"
- 	select REGMAP
-diff --git a/drivers/soc/aspeed/Makefile b/drivers/soc/aspeed/Makefile
-index b5188dcde37a..ace038b6ff22 100644
---- a/drivers/soc/aspeed/Makefile
-+++ b/drivers/soc/aspeed/Makefile
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-$(CONFIG_ASPEED_LPC_CTRL)		+= aspeed-lpc-ctrl.o
- obj-$(CONFIG_ASPEED_LPC_SNOOP)		+= aspeed-lpc-snoop.o
--obj-$(CONFIG_ASPEED_UART_ROUTING)	+= aspeed-uart-routing.o
- obj-$(CONFIG_ASPEED_P2A_CTRL)		+= aspeed-p2a-ctrl.o
- obj-$(CONFIG_ASPEED_SOCINFO)		+= aspeed-socinfo.o
- CONTEXT_ANALYSIS_aspeed-lpc-snoop.o	:= y
-diff --git a/drivers/soc/aspeed/aspeed-uart-routing.c b/drivers/soc/aspeed/aspeed-uart-routing.c
-deleted file mode 100644
-index b4b521b5ddf1..000000000000
---- a/drivers/soc/aspeed/aspeed-uart-routing.c
-+++ /dev/null
-@@ -1,601 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Copyright (c) 2018 Google LLC
-- * Copyright (c) 2021 Aspeed Technology Inc.
-- */
--#include <linux/device.h>
--#include <linux/module.h>
--#include <linux/of.h>
--#include <linux/mfd/syscon.h>
--#include <linux/regmap.h>
--#include <linux/platform_device.h>
--
--/* register offsets */
--#define HICR9	0x98
--#define HICRA	0x9c
--
--/* attributes options */
--#define UART_ROUTING_IO1	"io1"
--#define UART_ROUTING_IO2	"io2"
--#define UART_ROUTING_IO3	"io3"
--#define UART_ROUTING_IO4	"io4"
--#define UART_ROUTING_IO5	"io5"
--#define UART_ROUTING_IO6	"io6"
--#define UART_ROUTING_IO10	"io10"
--#define UART_ROUTING_UART1	"uart1"
--#define UART_ROUTING_UART2	"uart2"
--#define UART_ROUTING_UART3	"uart3"
--#define UART_ROUTING_UART4	"uart4"
--#define UART_ROUTING_UART5	"uart5"
--#define UART_ROUTING_UART6	"uart6"
--#define UART_ROUTING_UART10	"uart10"
--#define UART_ROUTING_RES	"reserved"
--
--struct aspeed_uart_routing {
--	struct regmap *map;
--	struct attribute_group const *attr_grp;
--};
--
--struct aspeed_uart_routing_selector {
--	struct device_attribute	dev_attr;
--	uint8_t reg;
--	uint8_t mask;
--	uint8_t shift;
--	const char *const options[];
--};
--
--#define to_routing_selector(_dev_attr)					\
--	container_of(_dev_attr, struct aspeed_uart_routing_selector, dev_attr)
--
--static ssize_t aspeed_uart_routing_show(struct device *dev,
--					struct device_attribute *attr,
--					char *buf);
--
--static ssize_t aspeed_uart_routing_store(struct device *dev,
--					 struct device_attribute *attr,
--					 const char *buf, size_t count);
--
--#define ROUTING_ATTR(_name) {					\
--	.attr = {.name = _name,					\
--		 .mode = VERIFY_OCTAL_PERMISSIONS(0644) },	\
--	.show = aspeed_uart_routing_show,			\
--	.store = aspeed_uart_routing_store,			\
--}
--
--/* routing selector for AST25xx */
--static struct aspeed_uart_routing_selector ast2500_io6_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO6),
--	.reg = HICR9,
--	.shift = 8,
--	.mask = 0xf,
--	.options = {
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO5,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_uart5_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART5),
--	.reg = HICRA,
--	.shift = 28,
--	.mask = 0xf,
--	.options = {
--		    UART_ROUTING_IO5,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_uart4_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART4),
--	.reg = HICRA,
--	.shift = 25,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_IO6,
--		    NULL,
--	},
--};
--
--static struct aspeed_uart_routing_selector ast2500_uart3_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART3),
--	.reg = HICRA,
--	.shift = 22,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_uart2_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART2),
--	.reg = HICRA,
--	.shift = 19,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_uart1_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART1),
--	.reg = HICRA,
--	.shift = 16,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_io5_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO5),
--	.reg = HICRA,
--	.shift = 12,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_io4_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO4),
--	.reg = HICRA,
--	.shift = 9,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_io3_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO3),
--	.reg = HICRA,
--	.shift = 6,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_io2_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO2),
--	.reg = HICRA,
--	.shift = 3,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2500_io1_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO1),
--	.reg = HICRA,
--	.shift = 0,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART5,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO6,
--		    NULL,
--		    },
--};
--
--static struct attribute *ast2500_uart_routing_attrs[] = {
--	&ast2500_io6_sel.dev_attr.attr,
--	&ast2500_uart5_sel.dev_attr.attr,
--	&ast2500_uart4_sel.dev_attr.attr,
--	&ast2500_uart3_sel.dev_attr.attr,
--	&ast2500_uart2_sel.dev_attr.attr,
--	&ast2500_uart1_sel.dev_attr.attr,
--	&ast2500_io5_sel.dev_attr.attr,
--	&ast2500_io4_sel.dev_attr.attr,
--	&ast2500_io3_sel.dev_attr.attr,
--	&ast2500_io2_sel.dev_attr.attr,
--	&ast2500_io1_sel.dev_attr.attr,
--	NULL,
--};
--
--static const struct attribute_group ast2500_uart_routing_attr_group = {
--	.attrs = ast2500_uart_routing_attrs,
--};
--
--/* routing selector for AST26xx */
--static struct aspeed_uart_routing_selector ast2600_uart10_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART10),
--	.reg = HICR9,
--	.shift = 12,
--	.mask = 0xf,
--	.options = {
--		    UART_ROUTING_IO10,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--			UART_ROUTING_RES,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_io10_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO10),
--	.reg = HICR9,
--	.shift = 8,
--	.mask = 0xf,
--	.options = {
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--			UART_ROUTING_RES,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--			UART_ROUTING_RES,
--		    UART_ROUTING_UART10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_uart4_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART4),
--	.reg = HICRA,
--	.shift = 25,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_IO10,
--		    NULL,
--	},
--};
--
--static struct aspeed_uart_routing_selector ast2600_uart3_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART3),
--	.reg = HICRA,
--	.shift = 22,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_uart2_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART2),
--	.reg = HICRA,
--	.shift = 19,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_uart1_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_UART1),
--	.reg = HICRA,
--	.shift = 16,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_io4_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO4),
--	.reg = HICRA,
--	.shift = 9,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART10,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_io3_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO3),
--	.reg = HICRA,
--	.shift = 6,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART10,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_IO1,
--		    UART_ROUTING_IO2,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_io2_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO2),
--	.reg = HICRA,
--	.shift = 3,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART10,
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct aspeed_uart_routing_selector ast2600_io1_sel = {
--	.dev_attr = ROUTING_ATTR(UART_ROUTING_IO1),
--	.reg = HICRA,
--	.shift = 0,
--	.mask = 0x7,
--	.options = {
--		    UART_ROUTING_UART1,
--		    UART_ROUTING_UART2,
--		    UART_ROUTING_UART3,
--		    UART_ROUTING_UART4,
--		    UART_ROUTING_UART10,
--		    UART_ROUTING_IO3,
--		    UART_ROUTING_IO4,
--		    UART_ROUTING_IO10,
--		    NULL,
--		    },
--};
--
--static struct attribute *ast2600_uart_routing_attrs[] = {
--	&ast2600_uart10_sel.dev_attr.attr,
--	&ast2600_io10_sel.dev_attr.attr,
--	&ast2600_uart4_sel.dev_attr.attr,
--	&ast2600_uart3_sel.dev_attr.attr,
--	&ast2600_uart2_sel.dev_attr.attr,
--	&ast2600_uart1_sel.dev_attr.attr,
--	&ast2600_io4_sel.dev_attr.attr,
--	&ast2600_io3_sel.dev_attr.attr,
--	&ast2600_io2_sel.dev_attr.attr,
--	&ast2600_io1_sel.dev_attr.attr,
--	NULL,
--};
--
--static const struct attribute_group ast2600_uart_routing_attr_group = {
--	.attrs = ast2600_uart_routing_attrs,
--};
--
--static ssize_t aspeed_uart_routing_show(struct device *dev,
--					struct device_attribute *attr,
--					char *buf)
--{
--	struct aspeed_uart_routing *uart_routing = dev_get_drvdata(dev);
--	struct aspeed_uart_routing_selector *sel = to_routing_selector(attr);
--	int val, pos, len;
--
--	regmap_read(uart_routing->map, sel->reg, &val);
--	val = (val >> sel->shift) & sel->mask;
--
--	len = 0;
--	for (pos = 0; sel->options[pos] != NULL; ++pos) {
--		if (pos == val)
--			len += sysfs_emit_at(buf, len, "[%s] ", sel->options[pos]);
--		else
--			len += sysfs_emit_at(buf, len, "%s ", sel->options[pos]);
--	}
--
--	if (val >= pos)
--		len += sysfs_emit_at(buf, len, "[unknown(%d)]", val);
--
--	len += sysfs_emit_at(buf, len, "\n");
--
--	return len;
--}
--
--static ssize_t aspeed_uart_routing_store(struct device *dev,
--					 struct device_attribute *attr,
--					 const char *buf, size_t count)
--{
--	struct aspeed_uart_routing *uart_routing = dev_get_drvdata(dev);
--	struct aspeed_uart_routing_selector *sel = to_routing_selector(attr);
--	int val;
--
--	val = __sysfs_match_string(sel->options, -1, buf);
--	if (val < 0) {
--		dev_err(dev, "invalid value \"%s\"\n", buf);
--		return -EINVAL;
--	}
--
--	regmap_update_bits(uart_routing->map, sel->reg,
--			(sel->mask << sel->shift),
--			(val & sel->mask) << sel->shift);
--
--	return count;
--}
--
--static int aspeed_uart_routing_probe(struct platform_device *pdev)
--{
--	int rc;
--	struct device *dev = &pdev->dev;
--	struct aspeed_uart_routing *uart_routing;
--
--	uart_routing = devm_kzalloc(&pdev->dev, sizeof(*uart_routing), GFP_KERNEL);
--	if (!uart_routing)
--		return -ENOMEM;
--
--	uart_routing->map = syscon_node_to_regmap(dev->parent->of_node);
--	if (IS_ERR(uart_routing->map)) {
--		dev_err(dev, "cannot get regmap\n");
--		return PTR_ERR(uart_routing->map);
--	}
--
--	uart_routing->attr_grp = of_device_get_match_data(dev);
--
--	rc = sysfs_create_group(&dev->kobj, uart_routing->attr_grp);
--	if (rc < 0)
--		return rc;
--
--	dev_set_drvdata(dev, uart_routing);
--
--	dev_info(dev, "module loaded\n");
--
--	return 0;
--}
--
--static void aspeed_uart_routing_remove(struct platform_device *pdev)
--{
--	struct device *dev = &pdev->dev;
--	struct aspeed_uart_routing *uart_routing = platform_get_drvdata(pdev);
--
--	sysfs_remove_group(&dev->kobj, uart_routing->attr_grp);
--}
--
--static const struct of_device_id aspeed_uart_routing_table[] = {
--	{ .compatible = "aspeed,ast2400-uart-routing",
--	  .data = &ast2500_uart_routing_attr_group },
--	{ .compatible = "aspeed,ast2500-uart-routing",
--	  .data = &ast2500_uart_routing_attr_group },
--	{ .compatible = "aspeed,ast2600-uart-routing",
--	  .data = &ast2600_uart_routing_attr_group },
--	{ },
--};
--MODULE_DEVICE_TABLE(of, aspeed_uart_routing_table);
--
--static struct platform_driver aspeed_uart_routing_driver = {
--	.driver = {
--		.name = "aspeed-uart-routing",
--		.of_match_table = aspeed_uart_routing_table,
--	},
--	.probe = aspeed_uart_routing_probe,
--	.remove = aspeed_uart_routing_remove,
--};
--
--module_platform_driver(aspeed_uart_routing_driver);
--
--MODULE_AUTHOR("Oskar Senft <osk@google.com>");
--MODULE_AUTHOR("Chia-Wei Wang <chiawei_wang@aspeedtech.com>");
--MODULE_LICENSE("GPL v2");
--MODULE_DESCRIPTION("Driver to configure Aspeed UART routing");
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
 diff --git a/drivers/uart-routing/Kconfig b/drivers/uart-routing/Kconfig
-index a0c45a7bba47..983e7fbd1bc4 100644
+index 983e7fbd1bc4..be6f5d54721e 100644
 --- a/drivers/uart-routing/Kconfig
 +++ b/drivers/uart-routing/Kconfig
-@@ -1,6 +1,7 @@
+@@ -1,7 +1,7 @@
  # SPDX-License-Identifier: GPL-2.0-only
  
  menu "UART routing drivers"
-+	depends on ARCH_ASPEED || COMPILE_TEST
+-	depends on ARCH_ASPEED || COMPILE_TEST
++	depends on ARCH_ASPEED || ARCH_STARFIVE || COMPILE_TEST
  
  config UART_ROUTING
  	tristate
-@@ -13,4 +14,19 @@ config UART_ROUTING
- 	  This symbol is selected by the SoC specific drivers below and is
- 	  not meant to be enabled on its own.
+@@ -29,4 +29,17 @@ config ASPEED_UART_ROUTING
+ 	  If M is selected, the module will be called
+ 	  aspeed-uart-routing.
  
-+config ASPEED_UART_ROUTING
-+	tristate "ASPEED uart routing control"
-+	depends on ARCH_ASPEED || COMPILE_TEST
++config STARFIVE_UART_ROUTING
++	tristate "StarFive uart routing control"
++	depends on ARCH_STARFIVE || COMPILE_TEST
 +	select UART_ROUTING
-+	select REGMAP
-+	select MFD_SYSCON
-+	default ARCH_ASPEED
++	select REGMAP_MMIO
 +	help
 +	  Provides a driver to control the UART routing paths, allowing
 +	  users to perform runtime configuration of the RX muxes among
 +	  the UART controllers and I/O pins.
 +
 +	  If M is selected, the module will be called
-+	  aspeed-uart-routing.
++	  starfive-uart-routing.
 +
  endmenu
 diff --git a/drivers/uart-routing/Makefile b/drivers/uart-routing/Makefile
-index 975165f070a5..226980c639a4 100644
+index 226980c639a4..59d9b65c2273 100644
 --- a/drivers/uart-routing/Makefile
 +++ b/drivers/uart-routing/Makefile
-@@ -1,2 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
+@@ -2,3 +2,4 @@
  obj-$(CONFIG_UART_ROUTING)			+= uart-routing.o
-+
-+obj-$(CONFIG_ASPEED_UART_ROUTING)		+= aspeed-uart-routing.o
-diff --git a/drivers/uart-routing/aspeed-uart-routing.c b/drivers/uart-routing/aspeed-uart-routing.c
+ 
+ obj-$(CONFIG_ASPEED_UART_ROUTING)		+= aspeed-uart-routing.o
++obj-$(CONFIG_STARFIVE_UART_ROUTING)		+= starfive-uart-routing.o
+diff --git a/drivers/uart-routing/starfive-uart-routing.c b/drivers/uart-routing/starfive-uart-routing.c
 new file mode 100644
-index 000000000000..7286ecd87bea
+index 000000000000..3bd83ca5a258
 --- /dev/null
-+++ b/drivers/uart-routing/aspeed-uart-routing.c
-@@ -0,0 +1,415 @@
++++ b/drivers/uart-routing/starfive-uart-routing.c
+@@ -0,0 +1,192 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
-+ * Copyright (c) 2018 Google LLC
-+ * Copyright (c) 2021 Aspeed Technology Inc.
++ * StarFive JHB100 UART Routing driver
++ *
++ * Copyright (C) 2026 StarFive Technology Co., Ltd
 + */
++
++#include <linux/bits.h>
 +#include <linux/device.h>
-+#include <linux/mfd/syscon.h>
++#include <linux/err.h>
 +#include <linux/module.h>
-+#include <linux/of.h>
 +#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
 +#include <linux/sysfs.h>
 +
 +#include "uart-routing.h"
 +
-+/* register offsets */
-+#define HICR9	0x98
-+#define HICRA	0x9c
++/* One selector register per channel, holding the IO and UART RX mux. */
++#define JHB100_ROUTING_SEL(ch)		((ch) * 0x04)
++#define JHB100_ROUTING_IO_SHIFT		0
++#define JHB100_ROUTING_UART_SHIFT	8
++#define JHB100_ROUTING_MASK		GENMASK(4, 0)
 +
-+/* attributes options */
-+#define UART_ROUTING_IO1	"io1"
-+#define UART_ROUTING_IO2	"io2"
-+#define UART_ROUTING_IO3	"io3"
-+#define UART_ROUTING_IO4	"io4"
-+#define UART_ROUTING_IO5	"io5"
-+#define UART_ROUTING_IO6	"io6"
-+#define UART_ROUTING_IO10	"io10"
-+#define UART_ROUTING_UART1	"uart1"
-+#define UART_ROUTING_UART2	"uart2"
-+#define UART_ROUTING_UART3	"uart3"
-+#define UART_ROUTING_UART4	"uart4"
-+#define UART_ROUTING_UART5	"uart5"
-+#define UART_ROUTING_UART6	"uart6"
-+#define UART_ROUTING_UART10	"uart10"
-+#define UART_ROUTING_RES	"reserved"
++#define JHB100_UART_PORTS		15	/* UART0-UART14 */
 +
-+/* routing selector for AST25xx */
-+static const char *const ast2500_io6_options[] = {
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO5,
++#define JHB100_IO_TARGETS						\
++	"io0",  "io1",  "io2",  "io3",  "io4",				\
++	"io5",  "io6",  "io7",  "io8",  "io9",				\
++	"io10", "io11", "io12", "io13", "io14"
++
++#define JHB100_UART_TARGETS						\
++	"uart0",  "uart1",  "uart2",  "uart3",  "uart4",		\
++	"uart5",  "uart6",  "uart7",  "uart8",  "uart9",		\
++	"uart10", "uart11", "uart12", "uart13", "uart14"
++
++/*
++ * The two mux fields of a channel index the same target list, but starting
++ * from a different end of it: field value 0 selects IO0 for the RX mux of a
++ * UART, and UART0 for the RX mux of an IO pin.
++ */
++static const char *const jhb100_uart_rx_options[] = {
++	JHB100_IO_TARGETS,
++	JHB100_UART_TARGETS,
 +	NULL,
 +};
 +
-+UART_ROUTING_SELECTOR(ast2500_io6_sel, io6, HICR9, 8, 0xf, ast2500_io6_options);
-+
-+static const char *const ast2500_uart5_options[] = {
-+	UART_ROUTING_IO5,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_IO6,
++static const char *const jhb100_io_rx_options[] = {
++	JHB100_UART_TARGETS,
++	JHB100_IO_TARGETS,
 +	NULL,
 +};
 +
-+UART_ROUTING_SELECTOR(ast2500_uart5_sel, uart5, HICRA, 28, 0xf, ast2500_uart5_options);
++#define JHB100_UART_SELECTOR(_ch)					\
++	UART_ROUTING_SELECTOR(jhb100_uart##_ch##_sel, uart##_ch,	\
++			      JHB100_ROUTING_SEL(_ch),			\
++			      JHB100_ROUTING_UART_SHIFT,		\
++			      JHB100_ROUTING_MASK,			\
++			      jhb100_uart_rx_options)
 +
-+static const char *const ast2500_uart4_options[] = {
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_IO6,
++#define JHB100_IO_SELECTOR(_ch)						\
++	UART_ROUTING_SELECTOR(jhb100_io##_ch##_sel, io##_ch,		\
++			      JHB100_ROUTING_SEL(_ch),			\
++			      JHB100_ROUTING_IO_SHIFT,			\
++			      JHB100_ROUTING_MASK,			\
++			      jhb100_io_rx_options)
++
++/* RX source of UART0-UART14 */
++JHB100_UART_SELECTOR(0);
++JHB100_UART_SELECTOR(1);
++JHB100_UART_SELECTOR(2);
++JHB100_UART_SELECTOR(3);
++JHB100_UART_SELECTOR(4);
++JHB100_UART_SELECTOR(5);
++JHB100_UART_SELECTOR(6);
++JHB100_UART_SELECTOR(7);
++JHB100_UART_SELECTOR(8);
++JHB100_UART_SELECTOR(9);
++JHB100_UART_SELECTOR(10);
++JHB100_UART_SELECTOR(11);
++JHB100_UART_SELECTOR(12);
++JHB100_UART_SELECTOR(13);
++JHB100_UART_SELECTOR(14);
++
++/* RX source of IO0-IO14 */
++JHB100_IO_SELECTOR(0);
++JHB100_IO_SELECTOR(1);
++JHB100_IO_SELECTOR(2);
++JHB100_IO_SELECTOR(3);
++JHB100_IO_SELECTOR(4);
++JHB100_IO_SELECTOR(5);
++JHB100_IO_SELECTOR(6);
++JHB100_IO_SELECTOR(7);
++JHB100_IO_SELECTOR(8);
++JHB100_IO_SELECTOR(9);
++JHB100_IO_SELECTOR(10);
++JHB100_IO_SELECTOR(11);
++JHB100_IO_SELECTOR(12);
++JHB100_IO_SELECTOR(13);
++JHB100_IO_SELECTOR(14);
++
++static struct attribute *jhb100_uart_routing_attrs[] = {
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart0_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart1_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart2_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart3_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart4_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart5_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart6_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart7_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart8_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart9_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart10_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart11_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart12_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart13_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_uart14_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io0_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io1_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io2_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io3_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io4_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io5_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io6_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io7_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io8_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io9_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io10_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io11_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io12_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io13_sel),
++	UART_ROUTING_SELECTOR_ATTR(jhb100_io14_sel),
 +	NULL,
 +};
 +
-+UART_ROUTING_SELECTOR(ast2500_uart4_sel, uart4, HICRA, 25, 0x7, ast2500_uart4_options);
-+
-+static const char *const ast2500_uart3_options[] = {
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_IO6,
-+	NULL,
++static const struct attribute_group jhb100_uart_routing_attr_group = {
++	.attrs = jhb100_uart_routing_attrs,
 +};
 +
-+UART_ROUTING_SELECTOR(ast2500_uart3_sel, uart3, HICRA, 22, 0x7, ast2500_uart3_options);
-+
-+static const char *const ast2500_uart2_options[] = {
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_IO6,
-+	NULL,
++static const struct regmap_config jhb100_uart_routing_regmap_cfg = {
++	.reg_bits	= 32,
++	.reg_stride	= 4,
++	.val_bits	= 32,
++	.max_register	= JHB100_ROUTING_SEL(JHB100_UART_PORTS - 1),
 +};
 +
-+UART_ROUTING_SELECTOR(ast2500_uart2_sel, uart2, HICRA, 19, 0x7, ast2500_uart2_options);
-+
-+static const char *const ast2500_uart1_options[] = {
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_uart1_sel, uart1, HICRA, 16, 0x7, ast2500_uart1_options);
-+
-+static const char *const ast2500_io5_options[] = {
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_io5_sel, io5, HICRA, 12, 0x7, ast2500_io5_options);
-+
-+static const char *const ast2500_io4_options[] = {
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_io4_sel, io4, HICRA, 9, 0x7, ast2500_io4_options);
-+
-+static const char *const ast2500_io3_options[] = {
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_io3_sel, io3, HICRA, 6, 0x7, ast2500_io3_options);
-+
-+static const char *const ast2500_io2_options[] = {
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_io2_sel, io2, HICRA, 3, 0x7, ast2500_io2_options);
-+
-+static const char *const ast2500_io1_options[] = {
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART5,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO6,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2500_io1_sel, io1, HICRA, 0, 0x7, ast2500_io1_options);
-+
-+static struct attribute *ast2500_uart_routing_attrs[] = {
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io6_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_uart5_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_uart4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_uart3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_uart2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_uart1_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io5_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2500_io1_sel),
-+	NULL,
-+};
-+
-+static const struct attribute_group ast2500_uart_routing_attr_group = {
-+	.attrs = ast2500_uart_routing_attrs,
-+};
-+
-+/* routing selector for AST26xx */
-+static const char *const ast2600_uart10_options[] = {
-+	UART_ROUTING_IO10,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_RES,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_uart10_sel, uart10, HICR9, 12, 0xf, ast2600_uart10_options);
-+
-+static const char *const ast2600_io10_options[] = {
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_RES,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_RES,
-+	UART_ROUTING_UART10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_io10_sel, io10, HICR9, 8, 0xf, ast2600_io10_options);
-+
-+static const char *const ast2600_uart4_options[] = {
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_uart4_sel, uart4, HICRA, 25, 0x7, ast2600_uart4_options);
-+
-+static const char *const ast2600_uart3_options[] = {
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_uart3_sel, uart3, HICRA, 22, 0x7, ast2600_uart3_options);
-+
-+static const char *const ast2600_uart2_options[] = {
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_uart2_sel, uart2, HICRA, 19, 0x7, ast2600_uart2_options);
-+
-+static const char *const ast2600_uart1_options[] = {
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_uart1_sel, uart1, HICRA, 16, 0x7, ast2600_uart1_options);
-+
-+static const char *const ast2600_io4_options[] = {
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART10,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_io4_sel, io4, HICRA, 9, 0x7, ast2600_io4_options);
-+
-+static const char *const ast2600_io3_options[] = {
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART10,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_IO1,
-+	UART_ROUTING_IO2,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_io3_sel, io3, HICRA, 6, 0x7, ast2600_io3_options);
-+
-+static const char *const ast2600_io2_options[] = {
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART10,
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_io2_sel, io2, HICRA, 3, 0x7, ast2600_io2_options);
-+
-+static const char *const ast2600_io1_options[] = {
-+	UART_ROUTING_UART1,
-+	UART_ROUTING_UART2,
-+	UART_ROUTING_UART3,
-+	UART_ROUTING_UART4,
-+	UART_ROUTING_UART10,
-+	UART_ROUTING_IO3,
-+	UART_ROUTING_IO4,
-+	UART_ROUTING_IO10,
-+	NULL,
-+};
-+
-+UART_ROUTING_SELECTOR(ast2600_io1_sel, io1, HICRA, 0, 0x7, ast2600_io1_options);
-+
-+static struct attribute *ast2600_uart_routing_attrs[] = {
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_uart10_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_io10_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_uart4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_uart3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_uart2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_uart1_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_io4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_io3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_io2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(ast2600_io1_sel),
-+	NULL,
-+};
-+
-+static const struct attribute_group ast2600_uart_routing_attr_group = {
-+	.attrs = ast2600_uart_routing_attrs,
-+};
-+
-+static int aspeed_uart_routing_probe(struct platform_device *pdev)
++static int starfive_uart_routing_probe(struct platform_device *pdev)
 +{
 +	struct device *dev = &pdev->dev;
-+	struct regmap *map;
++	struct reset_control *rst;
++	void __iomem *reg_base;
++	struct regmap *regmap;
 +
-+	map = syscon_node_to_regmap(dev->parent->of_node);
-+	if (IS_ERR(map))
-+		return dev_err_probe(dev, PTR_ERR(map), "cannot get regmap\n");
++	reg_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(reg_base))
++		return dev_err_probe(dev, PTR_ERR(reg_base),
++				     "Unable to map IO resources\n");
 +
-+	return devm_uart_routing_register(dev, map,
-+					  of_device_get_match_data(dev));
++	rst = devm_reset_control_get_exclusive_deasserted(dev, NULL);
++	if (IS_ERR(rst))
++		return dev_err_probe(dev, PTR_ERR(rst),
++				     "Unable to get and deassert reset control\n");
++
++	regmap = devm_regmap_init_mmio(dev, reg_base,
++				       &jhb100_uart_routing_regmap_cfg);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap),
++				     "Unable to init regmap\n");
++
++	return devm_uart_routing_register(dev, regmap,
++					  &jhb100_uart_routing_attr_group);
 +}
 +
-+static const struct of_device_id aspeed_uart_routing_table[] = {
-+	{ .compatible = "aspeed,ast2400-uart-routing",
-+	  .data = &ast2500_uart_routing_attr_group },
-+	{ .compatible = "aspeed,ast2500-uart-routing",
-+	  .data = &ast2500_uart_routing_attr_group },
-+	{ .compatible = "aspeed,ast2600-uart-routing",
-+	  .data = &ast2600_uart_routing_attr_group },
-+	{ },
++static const struct of_device_id starfive_uart_routing_match[] = {
++	{ .compatible = "starfive,jhb100-uart-routing" },
++	{ /* sentinel */ },
 +};
-+MODULE_DEVICE_TABLE(of, aspeed_uart_routing_table);
++MODULE_DEVICE_TABLE(of, starfive_uart_routing_match);
 +
-+static struct platform_driver aspeed_uart_routing_driver = {
-+	.driver = {
-+		.name = "aspeed-uart-routing",
-+		.of_match_table = aspeed_uart_routing_table,
++static struct platform_driver starfive_uart_routing_driver = {
++	.probe = starfive_uart_routing_probe,
++	.driver	= {
++		.name = "starfive-uart-routing",
++		.of_match_table = starfive_uart_routing_match,
 +	},
-+	.probe = aspeed_uart_routing_probe,
 +};
 +
-+module_platform_driver(aspeed_uart_routing_driver);
++module_platform_driver(starfive_uart_routing_driver);
 +
-+MODULE_AUTHOR("Oskar Senft <osk@google.com>");
-+MODULE_AUTHOR("Chia-Wei Wang <chiawei_wang@aspeedtech.com>");
-+MODULE_LICENSE("GPL v2");
-+MODULE_DESCRIPTION("Driver to configure Aspeed UART routing");
++MODULE_AUTHOR("Changhuang Liang <changhuang.liang@starfivetech.com>");
++MODULE_DESCRIPTION("StarFive JHB100 UART Routing driver");
++MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
