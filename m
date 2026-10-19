@@ -4,101 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AF7CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C4ACCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=; b=HnF8u28D5Hg86Kx0Oc7+CG3KZk
-	bCEK6SxWZv9orqmeuzhz4oiApTlTPzR+xwQedYJ42PkOtkT7aYbFeU4fnQvjA3NcA0MEBTgYsne6D
-	ageFbYJyhdu7CQdRGM1yzC4p/R9wzB6oyl4rMN7xQVMgHs+ZSzqI0x/fjTiBWWVlyUUH04YK2rSi6
-	0mOUG2ftJ5EAekh7NrO7eg1CZpmdx1sTn/TqwrQBwNZiEiD8Y3lIFWHeaFoG+kefAnpvKC9p0LxeB
-	XehgoQdCOCMV9x/QMKrFpE3V3E5mVsFCbiNImi5tEs2kFwOW/6q7XvPymb5aRegz4w1MhNy0gEuhc
-	M9OYKn7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+w0x88x62WR2aKPcJYxhOe6cmJp1j5dZTYnycYtTzE=; b=JpEieuSG1caqD3KODTIDhQ8gJp
+	ZUOYOA6x8bX2ybHuRAOPZRm4MkMDaq9r8ZAz94MDZmIEc8ZVtNqnj1blzXMMEfO0R55vvuUnm8Ndn
+	1TANOJ669WYi+0HBira6/uBb2tuk1B4mHs1XGR3ZGUuEIGDG9D61vk8jVj29fIKSuvKi60IKJIBLT
+	PP6+ScSHwfvS3K78m1VKH7g53wAW4btqPdtOYIRxLQdt1lBo1Rhz1XXj+DyhcdThdD2yR4irJ8/aN
+	ACs9VzhRyzL9/YIfM0jTfh8Vw6ODoYfIi6bA16v1jjgYiAQ5Ep283/oab0CVUzU2JMH+IaYEKl5u7
+	BxfBwGxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkWA-00000007AVJ-1Mbf;
-	Mon, 19 Oct 2026 10:22:58 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xIkXB-00000007Ahs-1tTa;
+	Mon, 19 Oct 2026 10:24:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkW7-00000007AUe-3lb6
+	id 1xIkX9-00000007Ah1-24EW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 10:22:57 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48c4649b35bso1565557f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 03:22:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792405374; x=1793010174; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=;
-        b=IKUUmCcPUzRvv9ZwhB9UgmRAuYWjLEqqMylUefL0ZCbyM5UC1W+oPALQeOui0+Ut58
-         Ne3gsYW4WgvVGxbp/7RxOyqss58XiHEqPM3GPMVfclAk4H8ldaY00ekbQMry81AfmB47
-         XW4kAF0A+Y3i7ns+F78yGnGM4rbC79q3YMGZW9oyPoJXKO2eUi7dJHUoXk1oO6s6oTUu
-         D2u+dFyM3eIhvnUYzlR5Wnk3UOzl2Yfmr4AipLMY2/HGxMeo6Yn0i70HDYOdE4H514tQ
-         ZgfwpKwq0n5iC9MvFvG+9WqDuiBQnPYBBYuLs/vpOloh4TTuBrL8Ky0Od8txEzURTI6O
-         AXXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792405374; x=1793010174;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DcQm1UppAernfyJDNeazwp3tPSiXo5FxZGSLgNLJYCQ=;
-        b=tAacb6qiPoPOQdyvaKKfsra7PFQW/+k3MsZkamrqoyspk5qtgfKlFhTKZ7LJx4c43W
-         mJcOT5nEyCuBsb6enZ66LLhyEB5guxDuXswjbq0VAuVwxmUVAwqqBUTJDZBMM4AjVXwb
-         unfZEabPTgBbzVR9uqpK+RWBsdMpbezRxNi3KyZOAZwph9EG2tOyiXX9D4I9/30UOeoX
-         7aBZk5sE65nbpju6c1FVqpRBY3npLlAQOGRCkjt4WgyUoDrlyfUBXvU+v4Q5OjVMiEPL
-         v7WqENK8wQtS9uG3vMUsEW9rzJ+1NQi5Qz4tO0SJ1AtxH7Nrne1YSnlRwpLbJlye/X1L
-         dZhg==
-X-Forwarded-Encrypted: i=1; AKwUvBz+ViVqXvZUGvADtgRQDAOyEBLUzp3+KeJq34jsde4ek9kIpfAb7B9U/ObLJgifz+cyLAJlf5FlgpFsVtHMt3eW@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ23GtaUlyRvHHd+T9gWc+XHbwcCLAkDHHWPW5UumCuAiWTi8s6
-	Nt5a84A5Je+aDdpx1GYsqvaLVaACtc36CQ4SMj4J4r2vofqbHpNVfNvQ/M2k8w==
-X-Gm-Gg: AYBFou2OeECVmV3JJS7Y9Fp3iCuNbO9SRGd9+J49bm5+O06EhJUxoHCwhEVJlz/1yVm
-	6FivCJD7to+ni+ihK1prG9eY8j2+CjA/7l89WwRZ2qaQGckd5+/IorGeoNVXPuiWYyJBNrfDJvK
-	e+NJz/tRjJcxK95T9OliDkb8ge/pC1YURkFBIDfASxW1iUEgM2N5a1s5ElXydkrUIThgUd7aAVn
-	3NMU3bs+pO0VwNXZA8vs4acpPLWFY6GWfGMuTtvDoDcEUExpaSUKCEKoSwMkLD/ScOMfCKOgoRI
-	DvM9FZHJJXQazX0toadO7D6wE8om9N0JGiCeQ5I2M5nqqnS6trJNKTnEEcAwr/hQDdEVUx9zY05
-	t5jfBQehyFjovApL+tN9TEMexIAkKSvUoBUFVC38FlEqhwTmP6zDqTL1683dUvDB/WgKNXMpnmR
-	01jd6+Zd5RkQKyFjayCJZErIVnCu04baACTdirCbl0G+NIzQD6qRT21RF2zvrnUcO7qQLrF9i1K
-	ezwRgF6gn2kEM1SbJl8qG0FdYlZwEX0nPqSf/f/vd0Q/fM2xaUk7PxOAj64bRdEoBjeyjSFSXoa
-	WR2Atq66HLXCMTfYu0pGp4arzpGVhH2NYFIBCZQ=
-X-Received: by 2002:a05:6000:2889:b0:48d:f14a:9179 with SMTP id ffacd0b85a97d-48e07fadef3mr14864487f8f.48.1792405373733;
-        Mon, 19 Oct 2026 03:22:53 -0700 (PDT)
-Received: from Lord-Beerus.station ([93.66.71.207])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd471a64sm23771242f8f.6.2026.10.19.03.22.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 03:22:52 -0700 (PDT)
-Date: Mon, 19 Oct 2026 12:22:50 +0200
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v1 1/1] arm64: dts: imx8mm-var-dart-sonata: Add OV5640
- camera support
-Message-ID: <atXver4B2Acc3z0w@Lord-Beerus.station>
-References: <20261015162301.63838-1-stefano.r@variscite.com>
- <atEci_KwxUdvAekv@SMW015318>
- <atJY6DzjmAeq7U8q@Lord-Beerus.station>
- <atKHI1B0hL6q-CmY@SMW015318>
+	Mon, 19 Oct 2026 10:23:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9F6F43F8D;
+	Mon, 19 Oct 2026 10:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8A338C2BCF4;
+	Mon, 19 Oct 2026 10:23:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1792405438;
+	bh=79MZhhCXQ1ke9yCe71oKWUh+N4p0hkd2zF0XEJQJ+pg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=roVozEdsdR/mfYhWFfN4005bu+3Gk/eUw385761g6pDwyc/dEvpkY1m3t0P0Zo6MH
+	 VB1E+YqqJhRmOxSt0MQHViOfXDmvXTvVpEo44Dlgku+7IfYi2vK66KFkk7TOnC95os
+	 KDZrqHSJzTH1z3MtrxwT+PCr5klmWFGS2mVtv7ha3Uz7YcTK+pV0zTMEfZ2/dXuU9J
+	 tU+cetHsFTeKe1cqxl14Aap0EF/SSHdNPhugc283kSoKcrNdZwaL1zoFnDrTNxILMN
+	 c7PvIcacRBMRjbmdMOxv3XK8pjZXVieM5438FPMubYif5V9yB8Y4zURUqGHzjhUsUw
+	 /uFgOxavriGPQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59808CCF2DB;
+	Mon, 19 Oct 2026 10:23:58 +0000 (UTC)
+From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
+Date: Mon, 19 Oct 2026 11:23:47 +0100
+Subject: [PATCH v2 1/5] dt-bindings: soc: samsung: exynos-sysreg: Add
+ compatibles for Exynos5515
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atKHI1B0hL6q-CmY@SMW015318>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_032255_955599_D47D61DF 
-X-CRM114-Status: GOOD (  26.88  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261019-for-next-lucky7-v2-1-c4ecab4b1c4c@member.fsf.org>
+References: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
+In-Reply-To: <20261019-for-next-lucky7-v2-0-c4ecab4b1c4c@member.fsf.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1093;
+ i=aidenisik@member.fsf.org; h=from:subject:message-id;
+ bh=4oL1kbyIOn5Laa19Ql6u9Ld59HRQr9TKBpSn19UfVIc=;
+ b=owEBiQJ2/ZANAwAIAUknAbLEetfrAcsmYgBq1e+6I3w1FSVR3pHV96vJjrdf6vqS75do8ONdZ
+ /ogMgf4EQmJAk8EAAEIADkWIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCatXvuhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQSScBssR61+vmmw//UlaEcMchJ3JeAfAC1L2YemzwaOYxTB8
+ tKyececJIGWdPq95WRDuXT0EPIZITyoqsZNK8dWIojjImtJd2j/5p3ShmX8KKrcB5fHNnTBg/rE
+ TtDYp02luZqSbrYbnY0J7+EYTz2PhRQGFWNXJqMY2Fhyip+47Lr8v5p2+ooPkP4pqQIAQweNkGA
+ YhQJFkg+jPc0hyHK3dm3/fKGxb8NBHgQLFWYrPY71OOmONN+HQ7ZmFMHn7hTR5j2xbB9dnMOr8G
+ cI1q34kHefLl37k5WFHuOVpiHY4ARlVk14GSwDSx7aOjFE2WL7Sb9fPsIw7ptr1CM0q2TOxBWcE
+ pVK6zzD6f8L9YiaNx2qoVfKepaxq9xCipYj2LYcBmfW8NFA5X3l5KCExKlX7r8gnls9Wi+h+9DM
+ Midndsh20xRqhecTzmrMH3fbaLBDpzMyXnd9ojF1DRWxqYMbtSBcavh/XjK80N/tSRok4ZnAy4o
+ LXcJexI1F3l+73TZj/2bLFmrEgHZD/IMVymlvaq/tIAQ9nAI3MwaJjprrGKHrFHWP5YFW9UMSJW
+ AIbckNBSc1QS790HoPKpmszsIGhknaQPWMAMRno+NhWcqZlGWTPavkQT3USXP4zm0/GWsUu0e5M
+ 6VjDgWY28Gf74Wr6Kkm4ECIWR+h5/VrJDL8rV9u7auGinXL6N3vI=
+X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
+ fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
+X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
+ auth_id=956
+X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +94,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 16, 2026 at 03:20:51PM -0500, Frank Li wrote:
-> On Fri, Oct 16, 2026 at 07:03:36PM +0200, Stefano Radaelli wrote:
-> > On Thu, Oct 15, 2026 at 01:33:47PM -0500, Frank Li wrote:
-> > > On Thu, Oct 15, 2026 at 06:23:01PM +0200, Stefano Radaelli wrote:
-> > > > From: Stefano Radaelli <stefano.r@variscite.com>
-> > > >
-> > > > Add support for the OV5640 camera connected to the Sonata carrier
-> > > > board's first MIPI CSI port.
-> > >
-> > > Does this board only support ov5640 camera? Suppose ov5640 module also use
-> > > for other boards.
-> > >
-> > > Can you refer https://lore.kernel.org/imx/20261011-expulsion-frivolous-690de090cf9d@spud/
-> > > to define connectors?
-> > >
-> > > Frank
-> > >
-> >
-> > Hi Frank,
-> >
-> > Thanks for your feedback! I looked at the Toradex approach you linked.
-> >
-> > In our case, the same connector can also accommodate Basler cameras and
-> > potentially other camera modules in the future, while some of our other
-> > carrier boards use different connectors.
-> >
-> > Given these differences, I would prefer to keep the classic approach proposed
-> > in this patch, describing the camera directly in the carrier board DTS.
-> > Do you think we should still use connector bindings in our case?
-> > If so, how would you suggest handling these differences?
-> 
-> Need understand whole board familar, basic Two problem:
-> 
->  	Does carrier board support difference kinds camera?
-> 
-> 	Does carrier board or camera module reused for other boards?
-> 
-> Frank
-> 
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-Hi Frank,
+Add Exynos5515 compatibles for the following sysreg controllers:
+- top
+- peri
+- fsys
 
-Yes to both:
+Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
+---
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml         | 3 +++
+ 1 file changed, 3 insertions(+)
 
-- The carrier board supports different cameras: we currently support
-  OV5640 and Basler modules, and support for another camera is planned.
-- The OV5640 module can be used on multiple carrier boards that share
-  the same camera connector.
-  Other carrier boards in our family use a different connector.
+diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+index fcdb9ffd2644..c6731a3ea1c4 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+@@ -29,6 +29,9 @@ properties:
+               - samsung,exynos3-sysreg
+               - samsung,exynos4-sysreg
+               - samsung,exynos5-sysreg
++              - samsung,exynos5515-fsys-sysreg
++              - samsung,exynos5515-peri-sysreg
++              - samsung,exynos5515-top-sysreg
+               - samsung,exynos7870-cam0-sysreg
+               - samsung,exynos7870-disp-sysreg
+               - samsung,exynos8895-fsys0-sysreg
 
-Given these combinations, would you consider reasonable keeping the
-camera described directly in the carrier board DTS as proposed in this patch?
-This would avoid adding complexity across the different configurations.
+-- 
+2.54.0
 
-If you still recommend connector bindings, how would you suggest
-structuring them to handle these differences?
 
-Thank you so much for your help,
-Best Regards,
-Stefano
 
