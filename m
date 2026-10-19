@@ -4,148 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F62CCCF2D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98612CCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 11:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=; b=T78ckeK8ReSXZozuuNWTmGKNvX
-	O/dhWejf1RXTMfwjWxPzLJe0Rm9n1vBKaECjdODsPzVAGKMlRNFre5+psGJY3xkbSf8qvqyfSAmPX
-	FnKdmMSkeRiulNXb6b+KmmCDj/BfjN9xemwDMvlyyXcffgHkirbTDXwMwKc2Ks5MRXxmgVVoe0pfr
-	cT6MUoZOPwhdNV6tF3qy7DikPA3BPJ5rZFLiS+eYv7e5sg+jltmL7NzIlgHxTNKtEdv7sT7HXfZr1
-	VLIZTfO1MlcEnoYGW0tob/dOh1UI2evS5AGRr0Sy7qPJFK7TzH7k21L6MZ/hwsjuuTqtuxlB7Xtjh
-	0E3z/9Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hASnv+sShbpSN84lIK0vwzCccQ7DGFNvDbQRK1Twa1E=; b=TUOywfr37WOk3C0E2uCgGyFFSG
+	h5tEe0oF2MABKGFlW1iYOPflJC2kpIVfjSgXdL9wUg2W0btKCdgL9twEuFPzUmkWVR1Llz+OhqUeB
+	H+PHqNVQVD9qwsVSaCCCTM4DwnLQOtnZnAJEa5cr58VrvvgbfOeXIlriafBgpproFa0ali9evGaKy
+	iOTv8eHlPqaiylibXfUtC+2nAj6Mg787fv07YnS8NeFcmH9ZqDmg/mbXIwpvxghL+ZskXTXptNApk
+	sL1W+4W/mZi0HjhKrJkOlOrQ4hxV+fSnrB+HQgNbN6jXm4dRjOSvN81GvnVGLYn8jnEGyIu7rmRFZ
+	UJv8UJvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlTh-00000007I2M-1K6W;
-	Mon, 19 Oct 2026 11:24:29 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xIllt-00000007JJ0-1VWm;
+	Mon, 19 Oct 2026 11:43:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIlTf-00000007I1w-0iCl
+	id 1xIllr-00000007JIl-0meg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 11:24:28 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69J8OrE91665571
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:24:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=; b=ARLEYZjT8erF5qXs
-	saU47ZpIVBTPaXlIliggk5y6VKbsiP3CRIKRK6OcBcmpF4Xo/4xEvJmBgp62Sa2j
-	JnxqcsQt6I+kg5DhY2Cg3ztSSq68P2bBd//7ladzsxtmnZ8b//woAzdvqCLcu8ep
-	c+2kJk1/P0LZl2lPv+cgGsJ2OD9YjfeTvrUU3yvfKMzb0sVysT+fYHkB7VuBEgGk
-	IZwt/mNz75T8IJuSHdiu3etBQlRHXEMvBZrvToXcTS57Bj51G83nT1C00YRe5wUJ
-	xYoeh8VftuyVGp1Yz3wOWRPvY9reLHQFsTqv48jmcHbz4jghOPEQd9fXgD81gjF5
-	A595Og==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdf3n0tba-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 11:24:26 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-53568f05f8bso6781851cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 04:24:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1792409066; x=1793013866; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=;
-        b=MElsMXKXpKtpOZmV90kaB3U9zSauVICIYbJ3EMNwFGpui0w+X118q+xnbD2UHTRr2I
-         63rQgF68U0/pC1GM/7jRy0GspsCyth1jzr4o9FHC0apuGBf6Z9VRQHzKb/rW9RrUOT4H
-         e/CO296EklAJ4Pdmx4y9UG9kpelSp/sdsxpwco4tRixWiwSfYK9GiVSJqmuXYoEcVsW1
-         v2TSiCqhgiayjmLPa7oNbZycwmXZevvRViMbMDjNZ+AmfWm0W/lyxE6wbm+r9FIpjKq4
-         xNLei+VxR3KFjZYX4OJAvHn7wDb8s7McF4phaDIxJ1xkTnsP70mJi5XUfGyq0VQueAa8
-         rnsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792409066; x=1793013866;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cPbYmOFTxQ3oigY+n6Y8ylBgN3Z5CJMDE67sAzsv19g=;
-        b=nfkETETAaySr5llrweA/ZjmvYttNf0frI8SRF47FgLLlOxC3BxBIpus4aHII5zhUvf
-         NcsS4hrKSD2FMMB6736hk+Kq3Gs8fcEzkuuDLzKk71NlPQ8jla7mbm8W7JRgh3/YKX5L
-         Gj2LaccC315r5COc2e6yFj/0Ck1j4/xKL0NoRsKV7mpVWqdwn4v5we+Fgdf+hlvH27PD
-         vtLohMaHHqiOaO3VhqFZAQQcW0pmaKMxDgpczaTcyiyqbdLCbpXcTSLIUTcNVVU9FE+r
-         48wV2gtreRtwJsCrU4ZkWyz8ME/k5RBknkwwMPxPUZk4pmNtGr6lz0C2MXzqUdH6Krhs
-         /qEw==
-X-Forwarded-Encrypted: i=1; AKwUvBwFgaSDKNkjkXc+5MGV041buVmGYHbAUsrCLcxx4rrEagG1NFGoaYyZznBZDSc938Z8cD8CUccte+9K0G6nY56O@lists.infradead.org
-X-Gm-Message-State: AFq9FYJufrcEaI1geYWM7qGGu/xWrGDaaPsp/U+iT5wUXa6jZiHc0GjM
-	WP63pqvb+RTUfD5hD1VpvylIja964iPTb/4a2OTTAhe/k+p8YDS/Cuz/GN1TsG8TK8rD8ngxV82
-	YSHrdxMegUB54x6NpgzotBrUjNwW6bFflkArdMbSXOnjIztmPJ50naYTKY3fotWOScQuOsOvCFr
-	KIhndpfLYQXw==
-X-Gm-Gg: AYBFou3N5Hx4jPX/zDWv+PJ/bcwRUPKyBhpuNDfdWGZ7gyH7Jxy3E25qF24Kl5voHkN
-	J+S5nccUTsWgq9gsGFQLbchYIGr7J7D4EVqWCu53Xh+Upab9x9aPtG59JDS+/q1t2wxiSvbLlcd
-	HdwnWXA+oCqWYkRPzaLNC3rrfunQHcN2NLf/Auj8O9UuTU7IhEc8wLclg1AcUDp/3FOPXtVPDpp
-	W3HA+eXIamHRz6oRaqEro6TJ6SI+UoW6JLsD+CqV34sNdJ8NoW455HCRhuj/OHbEmv0lfi1sDku
-	EN1SdcB6Ndc2x55URnlwYTUPCFlg3QNPj226ME+5R/NF5FX0/YuE75RQgOvm8BID2JIeMf5Lrvb
-	uh+wtWi3EatgyIUUoBKOhWQ==
-X-Received: by 2002:ac8:5701:0:b0:535:fd16:4393 with SMTP id d75a77b69052e-536461cc281mr129062951cf.5.1792409065487;
-        Mon, 19 Oct 2026 04:24:25 -0700 (PDT)
-X-Received: by 2002:ac8:5701:0:b0:535:fd16:4393 with SMTP id d75a77b69052e-536461cc281mr129062381cf.5.1792409065011;
-        Mon, 19 Oct 2026 04:24:25 -0700 (PDT)
-Received: from [192.168.226.26] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4090dcf100sm338414066b.15.2026.10.19.04.24.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Oct 2026 04:24:24 -0700 (PDT)
-Message-ID: <c75046e2-5d33-41c1-b032-3c16e630030d@oss.qualcomm.com>
-Date: Mon, 19 Oct 2026 13:24:20 +0200
+	Mon, 19 Oct 2026 11:43:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E058601FB;
+	Mon, 19 Oct 2026 11:43:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 439891F000C4;
+	Mon, 19 Oct 2026 11:43:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792410193;
+	bh=hASnv+sShbpSN84lIK0vwzCccQ7DGFNvDbQRK1Twa1E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=gHr3iv6CinGvRkRBuYrfe0QaAgH6mesatPs+ujwnE3VoJm/pdD+RxcNReTK1GJfPb
+	 uHSe4BGdl/C+3cWW37GvSB9/iYq1qBBtjMPTiXL4HM0/epWdc86S5ag7UvAceYxqzz
+	 y+kziKBI1yrL7eLJy8Poey0rW4rY50gCqd2CmTIZYa4h7hch1OMpOjMD7QH9vuRpCH
+	 nqBrUp7afUy7HtFSSTUWM3/E9UrvNN/i0cyTV5DpdBVjmwLM4OTQFGiSKFJ/9Vd2/F
+	 tBQul50vkCrz8pAnF/5tzvSiKHmyIjRtKl6nucDSf1Dt4VNbYYj4U9wlDnU44GdwIZ
+	 B7IdNxgwtQsyg==
+Subject: Re: [PATCH] net: stmmac: remove STMMAC_DOWN check to avoid irq storm
+From: netdev-bot+sashiko@kernel.org
+To: chuanx2070@163.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Mon, 19 Oct 2026 11:43:12 +0000
+Message-ID: <179241019282.3135.17755153635935720256@kernel.org>
+In-Reply-To: <20261015112415.437900-1-chuanx2070@163.com>
+References: <20261015112415.437900-1-chuanx2070@163.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/9] irqchip: irq-qcom-mpm: Register MPM with cpu_pm
- for RPM notification
-To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Anna-Maria Behnsen <anna-maria@linutronix.de>,
-        Frederic Weisbecker <frederic@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
- <20261015-b4-shikra_lpm_addition-v2-2-ac7f1a0d5638@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-2-ac7f1a0d5638@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA0NSBTYWx0ZWRfXyCY0FaAmJrpH
- zuwK5lMMk5BsC1VtF7xVMnZChZ3r6fkzcNpwqNnc3RiUkd+Sf8RxPh6WxYNvtdd+4Cr/w1bgcDE
- MZQI8LZxqxYGGyPdERZBErsZ5PBUfzg=
-X-Proofpoint-ORIG-GUID: kkp6gP_7ZIzolFh3wpuvsCrRQAVA8Mqp
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA0NSBTYWx0ZWRfX6AKfzfbjyk91
- xoREL1q3vjQyUEiL4hAbEEc4EiCGjRuAZRcvBJxkgP9cZswXuJhbUAzo69ItPIvoDCkCamQg8Fj
- ZZBl+FYAQvq9b8n4jf+ScatznwBVgQdtx/jBFPNP1DMe+ol21Ybm9zFRdErGEW9HjUshe2VDYIj
- vZ91mHZ7IIiTl8bEcRHY13ayO5OmpC7wF5gmTl2ckzhLx3Sd3+aUIisTnS1KxF81ASMwB5oQafn
- Kdf1atf4JOOjSxtRsaWzXWS8vM+mSn306cc6iwX+SkTYfXxNUy2upV8ezLkibU5T90R1VHKTcIb
- c320xXQKemppRPUnXos14xEUAgnf7ROgH/LPXKS/hYyRlbH1Hj6f60YPOVyzPJNBxA3D6+lBgZU
- qVdWgHTN/qzwD2k6QqXBfCd19p9P3qpcnEmpzQMkG/MaXieqTKKXDDuKEnj/5dfGDKlfl+5dmED
- 9hiBGChDrWwOsRlYoeQ==
-X-Proofpoint-GUID: kkp6gP_7ZIzolFh3wpuvsCrRQAVA8Mqp
-X-Authority-Analysis: v=2.4 cv=Zf2IpcVA c=1 sm=1 tr=0 ts=6ad5fdea cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=OE6UjuR3gYnAVEq_z8YA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-19_03,2026-10-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
- phishscore=0 priorityscore=1501 bulkscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190045
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_042427_227483_86A83744 
-X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,39 +72,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/26 11:55 AM, Sneh Mankad wrote:
-> MPM irqchip needs to notify RPM (Resource Power Manager) processor to read
-> the latest wake up capable interrupts when the CPU cluster is entering the
-> deepest idle state. This is done by sending IPC interrupt to RPM and is
-> implemented as .power_off() callback by registering MPM as parent power
-> domain to CPU cluster.
-> 
-> Such implementation earlier introduced a hard probe dependency between MPM
-> irqchip and CPU cluster power domains. That is MPM irqchip needs to finish
-> probe before PSCI power domains are probed.
-> 
-> The above problem has since been resolved after bd7f488a8e5d ("cpuidle:
-> psci: Fix support for probe deferral by dropping the faux device") / [1].
-> However, it makes sense to remodel the RPM notification in MPM irqchip due
-> to general consistency.
-> 
-> MPM is not really a power domain provider, all it needs is a notification
-> when CPU cluster is going to power collapse to carry out the RPM
-> notification. We can register for CPU_PM notifications for that purpose.
-> This way we can avoid such unrelated dependencies.
-> 
-> We cannot register MPM under CPU cluster power domain and rely on
-> GENPD notifications here, since that way cluster low power modes will be
-> blocked whenever some consumer of MPM, and in turn MPM itself, are
-> runtime active. This will add another unnecessary dependency for CPU
-> cluster low power modes.
-> 
-> For now as first step, register with cpu_pm as a fallback to manage RPM
-> notification. Trigger the RPM notification when the last CPU in CPU cluster
-> goes to power collapse.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-IIUC since we no longer need a dt-bindings addition, after this series
-lands, we'll be able to strip out the powerdomain provider path, right?
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Konrad
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The patch moves the STMMAC_DOWN check so it runs after the
+  hardware interrupt status has been read and cleared.
+- [Low] The commit fixes a user-visible bug: an interrupt storm (a hard-
+  IRQ livelock on UP, or on the CPU running the stmmac_wq reset worker)…
+
+--
+
+net: stmmac: remove STMMAC_DOWN check to avoid irq storm
+
+This patch removes the early STMMAC_DOWN return from the stmmac interrupt
+handlers, so the device status registers are always read and cleared. The
+STMMAC_DOWN check now sits inside stmmac_safety_feat_interrupt() and
+stmmac_napi_check(), after the status has been read, and events are dropped
+while the bit is set. The goal is to avoid an interrupt storm on
+level-triggered IRQ lines during an adapter reset.
+
+[ ... ]
+
+> is re-entered forever. Since the handler returns IRQ_HANDLED,
+> note_interrupt() never flags the IRQ as spurious and never disables it,
+> resulting in an interrupt storm.
+>
+> Signed-off-by: Xiaochuan Li <chuanx2070@163.com>
+
+[Severity: Low]
+Should this have a Fixes: tag? The STMMAC_DOWN early return in
+stmmac_interrupt() was added by:
+
+34877a15f787 ("net: stmmac: Rework and fix TX Timeout code")
+
+The same check was later copied into stmmac_mac_interrupt(),
+stmmac_safety_interrupt(), stmmac_msi_intr_tx() and stmmac_msi_intr_rx() by:
+
+8532f613bc78 ("net: stmmac: introduce MSI Interrupt routines for mac, safety, RX & TX")
+
+Without a Fixes: tag, or a Cc: stable, stable maintainers can't easily tell
+that this is a fix or which trees need it.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b837e8e27a352..ec7ca45a9ba61 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3063,6 +3063,13 @@ static bool stmmac_safety_feat_interrupt(struct stmmac_priv *priv)
+>  
+>  	ret = stmmac_safety_feat_irq_status(priv, priv->dev,
+>  			priv->ioaddr, priv->dma_cap.asp, &priv->sstats);
+> +
+> +	/* Status is read/cleared; do not escalate to a global error reset
+> +	 * while the interface is going down.
+> +	 */
+> +	if (test_bit(STMMAC_DOWN, &priv->state))
+> +		return false;
+> +
+>  	if (ret && (ret != -EINVAL)) {
+>  		stmmac_global_err(priv);
+>  		return true;
+> @@ -3085,6 +3092,12 @@ static int stmmac_napi_check(struct stmmac_priv *priv, u32 chan, u32 dir)
+>  	rx_napi = rx_q->xsk_pool ? &ch->rxtx_napi : &ch->rx_napi;
+>  	tx_napi = tx_q->xsk_pool ? &ch->rxtx_napi : &ch->tx_napi;
+>  
+> +	/* Status was already read (and clear) above, so the irq line is
+> +	 * deasserted, Drop the event while the interface is going down.
+> +	 */
+> +	if (test_bit(STMMAC_DOWN, &priv->state))
+> +		return 0;
+> +
+
+[Severity: High]
+Is "while the interface is going down" accurate here? STMMAC_DOWN is set and
+cleared only in stmmac_reset_subtask(), and it stays set across dev_open()
+as well as dev_close():
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_reset_subtask() {
+    ...
+	set_bit(STMMAC_DOWN, &priv->state);
+	dev_close(priv->dev);
+	dev_open(priv->dev, NULL);
+	clear_bit(STMMAC_DOWN, &priv->state);
+    ...
+}
+
+By the time dev_open() returns, __stmmac_open() has already set up DMA,
+called phylink_start(), requested the IRQs, enabled NAPI and the TX queues,
+and called stmmac_enable_all_dma_irq(). The NETDEV_UP notifiers also run
+before clear_bit().
+
+Can interrupts from the reopened, running hardware in that window be
+acknowledged and then lost? stmmac_dma_interrupt_status() has already
+written the W1C status, for example in dwmac4_dma_interrupt():
+
+	writel(intr_status & intr_en,
+	       ioaddr + DMA_CHAN_STATUS(dwmac4_addrs, chan));
+
+Then stmmac_napi_check() returns 0 without scheduling NAPI. Before this
+patch, the status stayed latched and was serviced once STMMAC_DOWN was
+cleared.
+
+Here are some of the cases.
+
+If RI is dropped and the RX ring fills inside the window, RX DMA suspends
+with RBU. dwmac4_dma_interrupt() only counts RBU in rx_buf_unav_irq and
+never returns handle_rx. Does RX then stay stalled, because
+stmmac_rx_refill() never runs, until the next ifdown/up or reset?
+
+If TI is dropped and tx_coal_timer is 0, stmmac_tx_timer_arm() returns
+early. What reclaims those TX descriptors in that case?
+
+Because the status is 0, stmmac_dma_interrupt() and stmmac_msi_intr_tx()
+also skip this for a stopped TX DMA channel:
+
+	if (unlikely(status[chan] & tx_hard_error_bump_tc)) {
+		stmmac_bump_dma_threshold(priv, chan);
+	} else if (unlikely(status[chan] == tx_hard_error)) {
+		stmmac_tx_err(priv, chan);
+
+That leaves recovery to the netdev watchdog.
+
+In stmmac_safety_feat_interrupt(), an uncorrectable ASP error reported by
+the reinitialised hardware never reaches stmmac_global_err(). In
+stmmac_interrupt(), the false return also falls through into
+stmmac_common_interrupt() and stmmac_dma_interrupt() on hardware that has
+just reported a fatal error.
+
+On the close side, __stmmac_release() calls stmmac_disable_all_queues()
+(napi_disable) before stmmac_free_irq(), so napi_schedule_prep() already
+fails there. That suggests the new check only changes behaviour during the
+reopen half of the reset.
+
+Would it work to clear STMMAC_DOWN, or use a separate close-only state,
+before the DMA IRQs are re-enabled? Or to keep handling events normally and
+rely on napi_disable() during close?
+
+>  	if ((status & handle_rx) && (chan < priv->plat->rx_queues_to_use)) {
+>  		if (napi_schedule_prep(rx_napi)) {
+>  			spin_lock_irqsave(&ch->lock, flags);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261015112415.437900-1-chuanx2070%40163.com
 
