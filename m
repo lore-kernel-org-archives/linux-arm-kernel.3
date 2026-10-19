@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA43CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31AACCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIx0oMbMGkNxA0B5LE0snzLqyXZgwPDKrBhNTml/zNs=; b=4MLuC+UFPm47OlKQ5Sy67j7mSt
-	HeKHdIHClmElqpRbjCGLzOSNviSawMpNgw3FgDV3+cJhRbBLpgbaLxazUIyzlO6/AOFgrdEdvH+9x
-	EeAhKJhbAdupAe49YZLxyH5I5jTgyu0DQtg5MBGLfKC3MAQxVqNipnhuVMzoVk3Fjg2UQyoJo0sd4
-	4zQ//nWihhmWMSILGQLtwzyah+6ywa05O+tCGd2GsVJUk7kM8331BeRKgDSSLxVVNFKjF+3dmfBOy
-	sWgoq8O7FO2wQXTTOQP3bF+nhCgfECNvTmCtZcdgTUqNYkzvV+PYr/SBw/XF80wFHGm42kXoOhT5J
-	MvgJPXpA==;
+	bh=nHFBcSULm0DfhTGaqeLamMS07HlHbJMEAnLLd80NT9k=; b=i1AUJDbzq0TI8iIFEYGN0zq+kz
+	CfJE1Bxh86bhD6BErSxAkkiP0RD8h87oRaojYr7GKbd5sP8D+uQk+oxGX0NuaHKwiocrUm3GvwjWw
+	Z6oZx8BYZfgw86wMyCM3umB80Y+quAaxDHZIIOrzy5zAqZLtRBAf0eELL/zepY1ovCGIDeNzheWOq
+	2I2d41ttWo7FHXa2yzUfPTlv8z0Y76ah/7XjCqA3ZwChbWKpG80mRd0ZH3gd3wT+XeQESABGXdmI/
+	EDZciDe6YUb/lU0k0nj/+CvhRy7GtvafxYnsTihSP4Brmu54EBN0V28mmIuBwHolSYLj8b3a5Qf/s
+	iFSYc0hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvj-00000007dTv-16QE;
-	Mon, 19 Oct 2026 14:01:35 +0000
+	id 1xInvt-00000007dby-3ZDZ;
+	Mon, 19 Oct 2026 14:01:45 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInvh-00000007dT5-2xRD;
-	Mon, 19 Oct 2026 14:01:33 +0000
+	id 1xInvr-00000007dal-15sO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 14:01:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1685B60136;
-	Mon, 19 Oct 2026 14:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866961F000C4;
-	Mon, 19 Oct 2026 14:01:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A18586022F;
+	Mon, 19 Oct 2026 14:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33A401F000C4;
+	Mon, 19 Oct 2026 14:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418492;
-	bh=qIx0oMbMGkNxA0B5LE0snzLqyXZgwPDKrBhNTml/zNs=;
+	s=k20260515; t=1792418502;
+	bh=nHFBcSULm0DfhTGaqeLamMS07HlHbJMEAnLLd80NT9k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mzBPbMoPD1ux0ii5v8qFtUoLQ79s6HMzxWiSGoJaTbQbNRCVs+DfLG3qK+WnCP4p8
-	 i3mtcQrnqQqQFOw82lWUHKPh8f+D8JOXPvMtwik8vUoRwGsBIx7XJyLfCAJp2aNeAl
-	 7yJtBc/LkrUXef5zvK8X8ETlkwa3QBdDa6eeDJShIn2Fd7BnDxwjPcCdm1Q3EWamot
-	 jaZryFxTVr+PQZMjcXfF75eXqReinNr60f+bgaaidbwi6jJoZ71Fta4EYw2j4K51DW
-	 fslb2kxTtCWC/TNI6dbtapJ+p0a9SPDXhYyKwfeAgCAksGCFMBq6VDZayXgMlzkpap
-	 i9OG+PbEkKp1A==
+	b=C8ngBZQIr6tkVxb8tPjskOBAsDAjHlaWW2s7mre/eLFNUe1zr8eI4AKPwDF/ipK5j
+	 GghYOqmB3LwchxtBQIuNXum0KCo3D9mRiFCk3Z6oU0RgDhZQMhcxnUtC1fYq9DPXq7
+	 Uj1FeJdC/KlfeeeoEYW8LEEFWmt4sPw6kxxzdmsz9fSm8aGmxY71/iVjz9EWkytmgb
+	 pWJBQsTKp4F5BfaFRlJUxIOHvCue/aFSWbqsgWHqGWRryVKlXh5QKnXOtMxN6odDp4
+	 Xc4+vnPDUAeFGTjKl3wjIVo9zs4+x/ORWN05bYtkZLZ5/NneH+9REvGnyZOyfw5bVl
+	 fZK6o5zOcfHUw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ahmed Naseef <naseefkm@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Ruoyu Wang <ruoyuw560@gmail.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.15] wifi: mt76: mt7603: add 0x7592 EEPROM chip ID
-Date: Mon, 19 Oct 2026 09:49:38 -0400
-Message-ID: <20261019135441.1420968-287-sashal@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18] memory: stm32_omm: initialize ret in stm32_omm_set_amcr
+Date: Mon, 19 Oct 2026 09:49:45 -0400
+Message-ID: <20261019135441.1420968-294-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -81,379 +80,421 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ahmed Naseef <naseefkm@gmail.com>
+From: Ruoyu Wang <ruoyuw560@gmail.com>
 
-[ Upstream commit d16447d7470502e998d82e806ca7ed49d1baa853 ]
+[ Upstream commit 1527acf2295cf2d6e11e3e9b121d63709667e6e7 ]
 
-Some EcoNet based routers ship an on-flash EEPROM whose chip-id is
-0x7592 instead of the expected 0x7603. The device probes as PCI
-14c3:7603 and the hardware MT_HW_CHIPID register reports 0x7603,
-independent of the EEPROM value.
+stm32_omm_set_amcr() returns ret after checking whether the AMCR value
+matches the device tree description. On the normal matching path ret is
+not otherwise assigned, so initialize it to 0 before the checks.
 
-This is seen across multiple EcoNet EN751221 and EN7528 based devices
-(for example the Genexis Platinum 4410).
-
-Signed-off-by: Ahmed Naseef <naseefkm@gmail.com>
-Link: https://patch.msgid.link/20260719082530.3879831-1-naseefkm@gmail.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Link: https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The evaluation target is **pending-6.6 (6.6.157)**. The mt7603 driver is
-present; the 0x7592 EEPROM ID is not. This is a one-line ID addition to
-an existing driver, which is a standard stable exception.
+The local tree is **6.18.53**. `stm32_omm_set_amcr()` in that tree still
+returns uninitialized `ret` on the AMCR-match path, and the one-line
+init is a real probe/resume correctness fix.
 
 ===============================================================
 PHASE 1: COMMIT MESSAGE FORENSICS
 ===============================================================
 
-Step 1.1: PARSE THE SUBJECT LINE
-Record: [wifi: mt76: mt7603] [add] [accept EEPROM chip ID 0x7592 in
-mt7603_check_eeprom]
+**Step 1.1: PARSE THE SUBJECT LINE**
+Record: `[memory / stm32_omm] [initialize] [set ret=0 in
+stm32_omm_set_amcr so the AMCR-match success path does not return an
+uninitialized stack value]`
 
-Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
 Record:
-- Signed-off-by: Ahmed Naseef \<naseefkm@gmail.com\> (author)
-- Link:
-  https://patch.msgid.link/20260719082530.3879831-1-naseefkm@gmail.com
-- Signed-off-by: Felix Fietkau \<nbd@nbd.name\> (mt76 maintainer,
-  applied the patch)
-- No Fixes: tag (expected for this review queue)
-- No Cc: stable (expected)
-- No Reported-by / Tested-by / Reviewed-by / Acked-by
-- No syzbot / KASAN tags
-- Sasha Levin SOB not present on this commit
+- `Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>` (driver
+  maintainer; MAINTAINERS lists him for ST STM32 OCTO MEMORY MANAGER)
+- `Link:
+  https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com`
+- `Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>` (author)
+- `Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>` (memory-
+  controller maintainer; applied the patch)
+- No `Fixes:` tag (expected)
+- No `Cc: stable` (expected)
+- No `Reported-by:` / `Tested-by:` / syzbot / kernel test robot tags
+- Pipeline-only tags (`[Upstream commit ...]`, `Signed-off-by: Sasha
+  Levin`) ignored
 
-Step 1.3: ANALYZE THE COMMIT BODY TEXT
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
 Record:
-- Bug: EcoNet routers store chip-id 0x7592 in on-flash EEPROM instead of
-  0x7603/0x7628/0x7600.
-- Hardware identity is still MT7603: PCI 14c3:7603, and MT_HW_CHIPID
-  reads 0x7603.
-- Symptom: driver treats a valid factory EEPROM as invalid.
-- Devices: EcoNet EN751221 and EN7528, e.g. Genexis Platinum 4410.
-- No stack trace; this is hardware recognition, not a crash fix.
-- Root cause: mt7603_check_eeprom() whitelist is incomplete.
+- Bug: `stm32_omm_set_amcr()` returns `ret` after the AMCR vs DT check.
+  On the matching (success) path, `ret` is not assigned `-EINVAL` and
+  may never have been assigned at all.
+- Symptom: the function can return a leftover stack value as an errno to
+  probe/configure/resume. Callers treat any non-zero as failure, so
+  garbage can fail device bring-up or resume; a lucky 0 would hide the
+  mismatch path’s intent.
+- Version info: none in the message.
+- Root cause (author): success path does not initialize `ret` before
+  `return ret`.
 
-Step 1.4: DETECT HIDDEN BUG FIXES
-Record: Not a disguised cleanup. It is an explicit EEPROM ID addition.
-When the ID is rejected and OTP exists, mt7603_eeprom_init() memcpy()s
-OTP over the flash EEPROM, so MAC/calibration from flash are discarded.
-That is a real functional bug for those boards, not a new API.
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+Record: Not disguised. This is an explicit uninitialized-variable fix
+(`int ret` → `int ret = 0`). Same class as KMSAN/compiler “used
+uninitialized” fixes even without a sanitizer tag.
 
 ===============================================================
 PHASE 2: DIFF ANALYSIS - LINE BY LINE
 ===============================================================
 
-Step 2.1: INVENTORY THE CHANGES
+**Step 2.1: INVENTORY THE CHANGES**
 Record:
-- File: drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-- +1 line, 0 removed
-- Function: mt7603_check_eeprom()
-- Scope: single-file, one-line surgical change
+- File: `drivers/memory/stm32_omm.c` (`1` insertion, `1` deletion)
+- Function: `stm32_omm_set_amcr`
+- Scope: single-file, one-line surgical fix
 
-Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
-Record:
-- Before: switch accepts 0x7628, 0x7603, 0x7600; anything else returns
-  -EINVAL.
-- After: also accepts 0x7592.
-- Path: probe → mt7603_register_device() → mt7603_init_hardware() →
-  mt7603_eeprom_init().
-- If check succeeds and OTP exists: apply cal-free OTP overlay onto
-  flash EEPROM.
-- If check fails and OTP exists: overwrite entire flash EEPROM with OTP
-  (MAC, TX power, xtal data from flash lost).
-- Probe does not fail on unknown EEPROM ID.
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+Record: Before, `int ret, idx;` then the loop may assign `ret` from
+`of_address_to_resource()`, mismatch sets `ret = -EINVAL`, and the
+function always `return ret`. After, `ret` starts at `0`, so AMCR match
+returns success unless an earlier path already returned an error.
 
-Step 2.3: IDENTIFY THE BUG MECHANISM
-Record: [Hardware ID / quirk] [Whitelist used to decide whether on-flash
-EEPROM is trusted. Missing 0x7592 caused valid EcoNet EEPROMs to be
-discarded in favor of OTP.]
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+Record: Category **uninitialized data / logic correctness**. Mechanism:
+`ret` is assigned only by a successful `of_address_to_resource()`
+(inside a loop that can `continue`) or by `ret = -EINVAL` on AMCR
+mismatch. The success `return ret` is therefore undefined if the loop
+never assigned `ret`. Fix: default `ret = 0`.
 
-Step 2.4: ASSESS THE FIX QUALITY
-Record:
-- Obviously correct: same pattern as the existing 0x7600 case.
-- Minimal: one case label.
-- Regression risk: very low. A random EEPROM whose first LE16 is 0x7592
-  would be trusted; that is the same risk as the existing IDs.
-- No API or data-structure change.
+Verified from the pre-fix function (v6.18.53 and the original driver):
+
+```50:50:drivers/memory/stm32_omm.c
+        int ret = 0, idx;
+```
+
+(v6.18.53 still has `int ret, idx;` — confirmed via `git show
+v6.18.53:drivers/memory/stm32_omm.c`.)
+
+Mismatch path:
+
+```116:121:drivers/memory/stm32_omm.c
+        if (amcr != read_amcr) {
+                dev_err(dev, "AMCR value not coherent with DT memory-map
+areas\n");
+                ret = -EINVAL;
+        }
+
+        return ret;
+```
+
+**Step 2.4: ASSESS THE FIX QUALITY**
+Record: Obviously correct. Error returns in the loop are unchanged
+(`return ret` / `return -EFAULT`). AMCR mismatch still returns
+`-EINVAL`. Risk is negligible: initializing an errno to 0 cannot
+deadlock, cannot change a public API, and matches the intended success
+code.
 
 ===============================================================
 PHASE 3: GIT HISTORY INVESTIGATION
 ===============================================================
 
-Step 3.1: BLAME THE CHANGED LINES
-Record:
-- mt7603_check_eeprom() introduced in c8846e1015022 ("mt76: add driver
-  for MT7603E and MT7628/7688"), 2018, first released in v5.1-rc1.
-- 0x7600 added by bf4a938ab2cf8 ("mt76: mt7603: add additional EEPROM
-  chip ID"), 2020, same one-line pattern for TP-Link Archer C50 v4.
-- Both commits are ancestors of pending-6.6.
+**Step 3.1: BLAME THE CHANGED LINES**
+Record: `int ret, idx;` and the `return ret` were introduced in
+`8181d061dcff1` (“memory: Add STM32 Octo Memory Manager driver”,
+2025-04-28 / committed 2025-05-07). Present from the first version of
+the driver. Driver first appears in **v6.16**; still present in v6.17
+and v6.18.
 
-Step 3.2: FOLLOW THE FIXES: TAG
-Record: No Fixes: tag. Buggy whitelist dates to the original driver
-(v5.1), which is in this tree.
+**Step 3.2: FOLLOW THE FIXES: TAG**
+Record: No `Fixes:` tag. The introducing commit is `8181d061dcff1`,
+which **is** an ancestor of v6.18 (`git merge-base --is-ancestor
+8181d061dcff1 v6.18` succeeded).
 
-Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
-Record:
-- Related: bf4a938ab2cf8 already in 6.6 (precedent).
-- Candidate d16447d747050 is not an ancestor of pending-6.6.
-- Standalone; not patch X/Y.
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+Record (path-limited `git log --oneline -- drivers/memory/stm32_omm.c`):
+driver add, spelling, several probe/error-handling fixes,
+`syscon_regmap_lookup_by_phandle_args`, req2ack test fix. Intermediate
+commit `6d8b18ae647bb` changed syscon lookup but left `int ret, idx;`
+and `return ret` in place. This init patch is standalone, not “patch
+X/Y”.
 
-Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
-Record:
-- Author Ahmed Naseef has no other mt76 commits on pending-6.6.
-- Applied by Felix Fietkau, listed maintainer of MEDIATEK MT76.
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+Record: Ruoyu Wang has only this commit under `drivers/memory/`. The
+driver maintainer (Patrice Chotard) reviewed it. Memory-controller
+maintainer (Krzysztof Kozlowski) applied it.
 
-Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
-Record:
-- No new helpers or struct fields.
-- pending-6.6 vs patch parent only differs in SPDX and later
-  chainmask/return of mt76_eeprom_override(); the switch hunk is
-  identical.
-- Can apply standalone with a clean hunk.
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+Record: None. The hunk only changes a local `int ret` declaration. No
+new helpers, types, or APIs. Can apply standalone.
 
 ===============================================================
 PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 ===============================================================
 
-Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
 Record:
-- b4 dig -c d16447d747050 →
-  https://patch.msgid.link/20260719082530.3879831-1-naseefkm@gmail.com
-- b4 dig -a: single v1 series, no v2/v3.
-- Thread mbox is the patch only; no replies, no NAK, no Cc: stable in
-  review.
-- Included in wireless-next-2026-08-06 pull (Johannes Berg).
-- Syzbot CI: build/boot passed; fuzz skipped.
+- `b4 dig -c 1527acf2295cf2d6e11e3e9b121d63709667e6e7` →
+  https://patch.msgid.link/20260617182202.961843-1-ruoyuw560@gmail.com
+- `b4 dig -a`: single revision **v1 only**; committed version is that v1
+- Thread: author submission; Patrice Chotard `Reviewed-by`; Krzysztof
+  “Applied, thanks!” (mem-ctrl commit
+  `1527acf2295cf2d6e11e3e9b121d63709667e6e7`)
+- No NAK, no risk flags, no reviewer request for `Cc: stable`
+- lore.kernel.org WebFetch returned 403; discussion recovered via `b4
+  dig -m` and openwall/lkml mirrors
 
-Step 4.2: CHECK WHO REVIEWED THE PATCH
-Record:
-- b4 dig -w: Felix Fietkau, Lorenzo Bianconi, Ryder Lee, Shayne Chen,
-  Sean Wang, linux-wireless, linux-mediatek, linux-kernel.
-- Applied by Felix Fietkau (maintainer SOB). No separate Reviewed-by.
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+Record (`b4 dig -w`): To/Cc included Patrice Chotard (driver
+maintainer), Krzysztof Kozlowski (memory controllers), Maxime Coquelin,
+Alexandre Torgue, linux-kernel, linux-stm32, linux-arm-kernel.
+Appropriate maintainers were on the patch and it was reviewed/applied.
 
-Step 4.3: SEARCH FOR THE BUG REPORT
-Record:
-- No bugzilla/syzbot link.
-- Commit cites multiple EcoNet EN751221/EN7528 devices, example Genexis
-  Platinum 4410.
-- OpenWrt mt76 tree already contains case 0x7592.
-- No independent public crash report found (UNVERIFIED beyond the commit
-  text and OpenWrt tree).
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+Record: No `Reported-by`, no bugzilla/syzbot link. No verified kernel-
+test-robot mail in the thread. The author describes the uninit return
+from code inspection.
 
-Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
-Record: Standalone one-patch series. Same pattern as bf4a938ab2cf8.
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+Record: Standalone `[PATCH]`, not a series. No sibling patches required.
 
-Step 4.5: CHECK STABLE MAILING LIST HISTORY
-Record: lore.kernel.org/stable returned 403. No stable discussion found
-via b4/mbox. UNVERIFIED whether anyone requested/rejected this for
-stable.
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+Record: **UNVERIFIED** for lore.kernel.org/stable (HTTP 403). Web search
+and the saved mbox show no stable-list discussion of this subject.
 
 ===============================================================
 PHASE 5: CODE SEMANTIC ANALYSIS
 ===============================================================
 
-Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
-Record: mt7603_check_eeprom() only.
+**Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF**
+Record: `stm32_omm_set_amcr` only. (semcode MCP not available; used hunk
+headers + `rg`.)
 
-Step 5.2: TRACE CALLERS
-Record:
-- Only caller: mt7603_eeprom_init() (same file).
-- mt7603_eeprom_init() ← mt7603_init_hardware() ←
-  mt7603_register_device()
-- mt7603_register_device() ← mt76pci_probe() (PCI 14c3:7603) and
-  mt76_wmac_probe() (mediatek,mt7628-wmac).
-- Probe/init path, not hot path or IRQ.
+**Step 5.2: TRACE CALLERS**
+Record (verified with `rg` on `drivers/memory/stm32_omm.c`):
+1. `stm32_omm_configure()` → `stm32_omm_set_amcr(dev, true)` then
+   returns that `ret` (probe, full firewall access)
+2. `stm32_omm_probe()` → `stm32_omm_set_amcr(dev, false)` when OMM
+   access is not granted; `if (ret) return ret`
+3. `stm32_omm_resume()` → `stm32_omm_set_amcr(dev, true)`; `if (ret)
+   return ret`
 
-Step 5.3: TRACE CALLEES
-Record: get_unaligned_le16() on eeprom.data[0]. No alloc, lock, or I/O
-in the changed function.
+All three are driver probe / system-resume paths, not an obscure debug
+hook.
 
-Step 5.4: FOLLOW THE CALL CHAIN
-Record:
-- Reachable when an MT7603 PCI device or MT7628 WMAC probes with
-  CONFIG_MT7603E.
-- Not a syscall-triggered memory bug; firmware/EEPROM contents decide
-  the branch.
-- Unprivileged users cannot trigger it except by plugging/using the
-  device.
+**Step 5.3: TRACE CALLEES**
+Record: `of_property_match_string`, `of_parse_phandle`,
+`of_address_to_resource`, `syscon_regmap_lookup_by_phandle_args`,
+`regmap_update_bits` / `regmap_read`. Side effects are DT parse + AMCR
+syscon R/W.
 
-Step 5.5: SEARCH FOR SIMILAR PATTERNS
-Record:
-- Sibling drivers use the same EEPROM-ID switch (mt7615, mt76x0,
-  mt76x2).
-- This tree already backported other mt76 ID adds, e.g. efd75512e38ac
-  (mt76x2u TP-Link USB ID).
+**Step 5.4: FOLLOW THE CALL CHAIN**
+Record: Platform probe of `compatible = "st,stm32mp25-omm"` (SoC node in
+`arch/arm64/boot/dts/st/stm32mp251.dtsi`, enabled on
+`stm32mp257f-ev1.dts`). Reachable on STM32MP25 boot and suspend/resume.
+Not a syscall fuzzer path; hardware/DT driven.
+
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+Record: No second copy of this AMCR helper. Binding example uses both
+`ospi1` and `ospi2` regions; in-tree board `stm32mp257f-ev1.dts` only
+sets `memory-region-names = "ospi1"`. Binding **does not require**
+`memory-region` (required list is
+compatible/reg/clocks/resets/`st,syscfg-amcr`/ranges). Omitting `memory-
+region-names` is a valid DT; the loop then never assigns `ret`.
 
 ===============================================================
 PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 ===============================================================
 
-Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
 Record:
-- Tree under evaluation: pending-6.6, 6.6.157 (git describe
-  p-6.6-3-g04810563abb71).
-- Yes. pending-6.6 eeprom.c switch has 0x7628/0x7603/0x7600 only.
-- git merge-base --is-ancestor d16447d747050 pending-6.6 → not present.
-- Bug present since v5.1 driver introduction.
+- `git describe HEAD` / `make kernelversion`: **v6.18.53** (branch
+  `autosel`)
+- `git show v6.18.53:drivers/memory/stm32_omm.c` has `int ret, idx;` and
+  `return ret` after the AMCR compare
+- Driver exists in v6.18 (`git cat-file -e
+  v6.18:drivers/memory/stm32_omm.c`)
+- Bug introduced with the driver in v6.16 (`8181d061dcff1`)
 
-Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
-Record: Clean apply. Switch context matches. Later chainmask/license
-diffs are outside the hunk.
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+Record: Clean apply. The one-line `int ret, idx;` → `int ret = 0, idx;`
+is present exactly once in v6.18.53. Surrounding function matches the
+upstream hunk. No rework needed.
 
-Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
-Record: 0x7600 ID is present. 0x7592 is not. No alternate fix.
-
-Note: EcoNet SoC support landed in 6.16 (arch/mips/econet), not in 6.6.
-That lowers vanilla-6.6 user count; it does not remove the driver or the
-ID check. PCI 14c3:7603 still exists in this tree.
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+Record: `git log --oneline --grep='stm32_omm' -- drivers/memory/` on
+this history shows other stm32_omm error-handling fixes, but none
+initialize `ret` in `stm32_omm_set_amcr` in v6.18.53. No alternate fix
+for this uninit.
 
 ===============================================================
 PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 ===============================================================
 
-Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
-Record: [drivers/net/wireless/mediatek/mt76/mt7603] [IMPORTANT for
-MT7603/MT7628 users; PERIPHERAL relative to core kernel]
+**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
+Record: `drivers/memory/` STM32 Octo Memory Manager (OSPI mux / 256MB
+map split on STM32MP25). Criticality: **PERIPHERAL** (SoC-specific), but
+it sits under flash/OSPI bring-up for that platform, so probe/resume
+failure is user-visible there.
 
-Step 7.2: ASSESS SUBSYSTEM ACTIVITY
-Record: Mature driver since v5.1. 6.6 still receives mt76 fixes.
-Maintainer is Felix Fietkau.
+**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
+Record: Modest, mature-enough driver (added v6.16, a handful of follow-
+up fixes). Not a staging driver. Maintainer-reviewed.
 
 ===============================================================
 PHASE 8: IMPACT AND RISK ASSESSMENT
 ===============================================================
 
-Step 8.1: DETERMINE WHO IS AFFECTED
-Record: Driver-specific / config-specific (CONFIG_MT7603E). Documented
-users are EcoNet EN751221/EN7528 routers with MT7603 PCI WiFi. Vanilla
-6.6 cannot boot EcoNet SoCs; downstream 6.6 kernels and any other board
-with this EEPROM still benefit.
+**Step 8.1: DETERMINE WHO IS AFFECTED**
+Record: Config-specific / platform-specific: `CONFIG_STM32_OMM` on
+STM32MP25 (`st,stm32mp25-omm`). Not universal.
 
-Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
 Record:
-- Trigger: probe of MT7603 when flash EEPROM starts with 0x7592 and OTP
-  is present.
-- Every boot on those devices, not a race.
-- Not exploitable by unprivileged software alone.
+- Always runs during OMM probe (and again on system resume if
+  `restore_omm`).
+- Uninitialized `return ret` is **guaranteed** if the memory-region loop
+  never assigns `ret` (optional DT property missing or names do not
+  match `ospi1`/`ospi2`) **and** AMCR equals computed `amcr` (0 when no
+  ospi2 region).
+- On the in-tree ev1 board, `ospi1` is present, so
+  `of_address_to_resource` typically sets `ret = 0` before the AMCR
+  check; the uninit is then a maybe-uninitialized / custom-DT / failed-
+  phandle path. Compilers still cannot prove assignment because of the
+  `continue`s.
+- Not an unprivileged syscall trigger.
 
-Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
-Record: [Wrong EEPROM source: factory MAC/calibration replaced by OTP]
-[Severity: MEDIUM for those devices — broken/degraded WiFi or wrong MAC,
-not oops/corruption]
+**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
+Record: Returning uninitialized `int` as errno. Callers abort probe or
+resume on non-zero. Failure mode: OSPI/OMM device fails to probe or
+fails to resume (flash/memory-map unavailable). Severity **MEDIUM**
+(wrong control-plane result / possible resume failure; not a documented
+oops, but C undefined behavior). Garbage zero would incorrectly look
+like success on a path that never validated regions.
 
-Step 8.4: CALCULATE RISK-BENEFIT RATIO
+**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
 Record:
-- Benefit: medium for affected hardware (WiFi uses intended EEPROM);
-  lower on vanilla 6.6 because EcoNet platform is later, but this is the
-  usual device-ID case.
-- Risk: very low (one case label, no locking/API).
-- Ratio: favorable. Device-ID additions are accepted in stable for this
-  reason.
+- Benefit: prevents UB and spurious probe/resume failures on STM32MP25
+  OMM; makes the success path well-defined. Medium benefit for that
+  platform, low global blast radius.
+- Risk: **very low** (one initializer, no locking/API/data-structure
+  change).
+- Ratio: strongly favors backport.
 
 ===============================================================
 PHASE 9: FINAL SYNTHESIS
 ===============================================================
 
-Step 9.1: COMPILE THE EVIDENCE
+**Step 9.1: COMPILE THE EVIDENCE**
+
 FOR:
-- One-line EEPROM/chip ID addition to an existing driver (stable
-  exception).
-- Same pattern as 0x7600, already in 6.6.
-- Real boards named; hardware already binds as PCI 14c3:7603.
-- Without it, valid flash EEPROM is discarded for OTP (MAC/cal).
-- Maintainer applied it; applies cleanly here; no new API.
-- This tree already contains similar mt76 ID backports.
+- Real uninitialized return in a function whose callers treat `ret` as
+  errno
+- Reachable on probe and system resume
+- DT binding leaves `memory-region` optional, so the loop is allowed to
+  assign nothing
+- 1-line, obviously correct, reviewed by the driver maintainer, applied
+  by the subsystem maintainer
+- Driver and buggy code exist in this 6.18.53 tree since the driver
+  landed in v6.16
+- Clean apply; no prerequisites
+- Matches the uninitialized-data class that stable routinely takes
 
 AGAINST:
-- Not a crash/security/deadlock.
-- No Tested-by/Reviewed-by; mailing list had no discussion.
-- EcoNet platform is not in 6.6, so vanilla 6.6 user count is small.
-- No Fixes:/Cc: stable (expected, not a negative).
+- STM32MP25-only (narrow user set)
+- No crash log, syzbot, or user `Reported-by`
+- On the one in-tree board with `memory-region-names = "ospi1"`, `ret`
+  is often already 0 from `of_address_to_resource`
+- Not CORE mm/net/fs
 
 UNRESOLVED:
-- Could not search lore.kernel.org/stable (403).
-- No independent public repro beyond the commit and OpenWrt mt76 tree.
+- Could not query lore.kernel.org/stable (403)
+- No confirmed compiler-warning/KMSAN report in the thread (web-search
+  snippets that mentioned kernel test robot were not backed by the
+  actual mails)
 
-Step 9.2: APPLY THE STABLE RULES CHECKLIST
-1. Obviously correct and tested? PASS — one-line whitelist, maintainer-
-   applied, syzbot CI build/boot passed.
-2. Fixes a real bug that affects users? PASS — those boards trust OTP
-   instead of factory EEPROM.
-3. Important issue? PASS under the device-ID/quirk exception (functional
-   WiFi/MAC on real hardware), even though not a panic.
-4. Small and contained? PASS — +1 line, one file.
-5. No new features or APIs? PASS — existing driver, additional ID only.
-6. Can apply to the local tree? PASS — hunk matches pending-6.6.
+**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
+1. Obviously correct and tested? **PASS** — one initializer; maintainer
+   Reviewed-by; applied upstream
+2. Fixes a real bug that affects users? **PASS** — uninitialized errno
+   on OMM probe/resume
+3. Important issue? **PASS** at MEDIUM — probe/resume malfunction and
+   UB, not a documented panic; still a user-visible device failure mode
+4. Small and contained? **PASS** — 1 line, 1 function
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — v6.18.53 has the uninit
+   declaration unchanged
 
-Step 9.3: CHECK FOR EXCEPTION CATEGORIES
-Record: Device ID addition to an existing driver (EEPROM chip ID,
-analogous to PCI/USB ID). Also a hardware quirk for boards whose EEPROM
-ID does not match MT_HW_CHIPID.
+**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
+Record: Not a device-ID/quirk/DT/docs patch. Closest extra: it also
+silences a typical `-Wmaybe-uninitialized` shape, but the decision is on
+the runtime uninit return, not on the build-fix exception.
 
-Step 9.4: MAKE YOUR DECISION
-This belongs in 6.6.y. The driver and the incomplete whitelist are in
-this tree; the fix is the standard one-line ID addition stable already
-takes for mt76. EcoNet SoC support arriving later reduces vanilla-6.6
-exposure but does not make the patch a new feature or a dependency-heavy
-backport.
+**Step 9.4: MAKE YOUR DECISION**
+Backport. The local 6.18.53 tree contains the driver and the bug; the
+fix is a one-line initialization of a returned errno with essentially no
+regression risk.
 
-What it solves for stable users: MT7603 devices whose flash EEPROM ID is
-0x7592 keep factory MAC and calibration instead of having them replaced
-by OTP on probe.
+What this does for 6.18.y users: STM32MP25 Octo Memory Manager probe and
+resume no longer return a stack-garbage error code when AMCR matches DT
+and `ret` was never written. That is a real, contained correctness fix.
 
-Risk vs benefit: essentially no regression risk; benefit is enabling
-correct EEPROM use on existing hardware.
+Risk vs benefit: benefit is defined success (`0`) vs undefined errno;
+risk is a single `= 0`.
 
-Verification:
-- [Phase 1] Tags: author SOB, Felix Fietkau SOB, msgid link; no Fixes/Cc
-  stable/Reported-by
-- [Phase 2] Diff: +1 `case 0x7592:` in mt7603_check_eeprom()
-- [Phase 2] Confirmed eeprom_init: fail → memcpy OTP over flash; success
-  → cal-free overlay only
-- [Phase 3] blame: function from c8846e1015022 (v5.1); 0x7600 from
-  bf4a938ab2cf8; both in pending-6.6
-- [Phase 3] git merge-base --is-ancestor d16447d747050 pending-6.6 → not
-  in 6.6
-- [Phase 3] git diff pending-6.6 vs parent: switch identical; only
-  SPDX/chainmask elsewhere
-- [Phase 4] b4 dig -c d16447d747050: lore msgid
-  20260719082530.3879831-1-naseefkm@gmail.com
-- [Phase 4] b4 dig -a: v1 only; mbox has no replies
-- [Phase 4] b4 dig -w: mt76 maintainers + linux-wireless CC'd; Felix
-  applied
-- [Phase 4] wireless-next-2026-08-06 pull lists this commit
-- [Phase 5] callers: mt7603_eeprom_init → init_hardware →
-  register_device → pci/soc probe
-- [Phase 6] pending-6.6 Makefile 6.6.157; switch lacks 0x7592; would
-  apply cleanly
-- [Phase 6] EcoNet arch not in 6.6 (added ~6.16) — lowers vanilla user
-  count, code still present
-- [Phase 7] MAINTAINERS: Felix Fietkau maintains mt76
-- [Phase 8] Failure: OTP replaces flash EEPROM (MAC/cal); not oops
-- UNVERIFIED: stable@ lore search (HTTP 403); no independent field crash
-  report
+### Verification
+- [Phase 1] Parsed tags: Reviewed-by Patrice Chotard, Link msgid, SOBs
+  Wang + Kozlowski; no Fixes/Cc-stable/Reported-by
+- [Phase 2] Diff: `int ret, idx` → `int ret = 0, idx` in
+  `stm32_omm_set_amcr` only
+- [Phase 2] Pre-fix function: loop may skip all `ret =
+  of_address_to_resource` stores; mismatch sets `-EINVAL`; success falls
+  through to `return ret`
+- [Phase 3] `git blame` on parent: uninit from `8181d061dcff1` (driver
+  add, 2025)
+- [Phase 3] Driver in v6.16+; `git merge-base --is-ancestor
+  8181d061dcff1 v6.18` true
+- [Phase 3] No series/prereqs; later `6d8b18ae647bb` did not fix `ret`
+- [Phase 4] `b4 dig -c 1527acf2295cf2d6e11e3e9b121d63709667e6e7`: lore
+  msgid 20260617182202.961843-1
+- [Phase 4] `b4 dig -a`: v1 only
+- [Phase 4] `b4 dig -w`: Chotard, Kozlowski, STM32/ARM lists CC’d
+- [Phase 4] mbox: Reviewed-by Chotard; Applied by Kozlowski; no NAK
+- [Phase 4] lore.kernel.org WebFetch 403; used openwall + mbox instead
+- [Phase 5] Callers verified: `stm32_omm_configure`, `stm32_omm_probe`,
+  `stm32_omm_resume`
+- [Phase 5] Binding `st,stm32mp25-omm.yaml`: `memory-region` not in
+  `required:`
+- [Phase 5] Board DT `stm32mp257f-ev1.dts` has only `ospi1` memory-
+  region
+- [Phase 6] `git describe HEAD` / Makefile: v6.18.53; `git show
+  v6.18.53:drivers/memory/stm32_omm.c` still has `int ret, idx;`
+- [Phase 6] Python check: old pattern present once in v6.18.53;
+  initialized form absent
+- [Phase 7] MAINTAINERS: Patrice Chotard owns
+  `drivers/memory/stm32_omm.c`
+- [Phase 8] Failure mode: garbage errno → probe/resume fail on STM32MP25
+  OMM
+- UNVERIFIED: stable@ mailing-list thread (lore 403); no verified
+  kernel-test-robot report
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/memory/stm32_omm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-index 88382b537a33b..06f61988655e5 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
-@@ -142,6 +142,7 @@ static int mt7603_check_eeprom(struct mt76_dev *dev)
- 	case 0x7628:
- 	case 0x7603:
- 	case 0x7600:
-+	case 0x7592:
- 		return 0;
- 	default:
- 		return -EINVAL;
+diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+index 5d06623f3f689..2a1af229d2444 100644
+--- a/drivers/memory/stm32_omm.c
++++ b/drivers/memory/stm32_omm.c
+@@ -47,7 +47,7 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
+ 	struct device_node *node;
+ 	struct resource res, res1;
+ 	unsigned int syscon_args[2];
+-	int ret, idx;
++	int ret = 0, idx;
+ 	unsigned int i, amcr, read_amcr;
+ 
+ 	for (i = 0; i < omm->nb_child; i++) {
 -- 
 2.53.0
 
