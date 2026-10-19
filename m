@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CFBCCF2E3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEEFCCF2DE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6yGq7V9WNP5jnj4ea6gkxnjalqm1DN5Qr1ozvD3+DA=; b=zL00UapbA5ck79HKEJ/BXH3LhA
-	1vRHKD//oOTmTq0CckloIT/4H+CkxE81B2tYGpEyJcC8RueLBKCEq15EoChxFHMR5NdAekUjZ0aaY
-	6MpVjVfmML9CEDRCZRZfi+LurEMlBwt+G9aXAHThM0sfwgHiE0Rgp8L6gB+sf0sD16DNaShJhFWw6
-	V4oDUEU94gvLiq3jyoIh2vhSZq80Bd9qg9c9w/vUcjfxUW3PMraBK1zgO67F7p35mOC0CS+dhAeWi
-	rFJ9bkokprDjfUBcafzsTDNwNi6jvZ3N/uEchTf5pznxNhHW2zEpRpFXw93kKiQXf/oCZtcQWVTh8
-	4bwoHenA==;
+	bh=EqlZmIFYpFJ7sMwft3bXitWK6GFw2x/CJJAS4J6nfGc=; b=yweEOGrPQNWxbiXGm3kcrG9O97
+	EFpXlLo1VKX4f0g+JqgKsQhg/NjaFSTyiKD/IueJsrMkxGnsFKuCjBos1maRGeXOZXKeSCY38mT4u
+	UQb4uMuLNqAqB6vd2Z9yg5sf4/cfQrzFMCKoydBiVCBM9suFicKtPyIEqID9+TWzifvWFiXOjza2T
+	sSP933CpelxuDeO4ev0+y3PX9oZ6KqrHTi6DDKnQXujR6H7JkrwotRZhE51xckS4h+Og2asq+/yGv
+	Iqq/GeKvBh73nP1psbO9ac7cxJDZpy3O3V/ExYRKO8pPFDcbQLT6LrPa9T3pN9If9e3wOq+RUNmEi
+	n//vDI0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInIs-00000007Uvr-0KNr;
+	id 1xInIs-00000007UwE-0pbU;
 	Mon, 19 Oct 2026 13:21:26 +0000
-Received: from out-166.mta0.migadu.com ([2001:41d0:1004:224b::a6] helo=mta0.migadu.com)
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInIk-00000007Ut0-0uML
+	id 1xInIo-00000007UuP-3tcP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 13:21:19 +0000
+	Mon, 19 Oct 2026 13:21:24 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Ww+r+o4/7dyPQTMz8pAy9hMNzw+4oyPYtc7UMkTUyD8=;
+DKIM-Signature: a=rsa-sha256; bh=uakg/74zoXwi1Kx44nvRA0V20527TnJNQegACr4zriI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1792416076; v=1; x=1793020876;
- b=TK3YWf0jkioYFAtNlIsw71RiN7/dj33Vpy5fc28k21OiXX8ihe1nBZ2WqIS59xzWdw0uoGyX
- Nu/vSD1iF+t6Mh3JnYsgDpleATOasp0uYcgmeU/cjgnAt6DkHNEdQIIm/KzvuBqnb7RYYFvLdw7
- Bt87F3oOn1BjQOMtxvBmTv4w=
+ t=1792416080; v=1; x=1793020880;
+ b=Ud4Y+iT8DMSfP3LR7ccR+3xIBw1LKp85jWg9o3FHQ8cxKYWCviH6zqigN1nwjNdxxz4ohmf1
+ AKIt0WHKUtpiUC3G6lMbbgm0HC7vQ7o+vvEhn+ECvuiAbBJ/VEqd/hL8uqjcm1veXXn4MOr+vSx
+ a47kI+czACXm3mYUgJC5znzI=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 409a3763f14ff9d2;
-	Mon, 19 Oct 2026 13:21:16 +0000
-X-Mizu-Trace-ID: 409a3763f14ff9d2
+Received: by smtp.migadu.com with ESMTPS id b0f93a7c611f8a5d;
+	Mon, 19 Oct 2026 13:21:20 +0000
+X-Mizu-Trace-ID: b0f93a7c611f8a5d
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -57,17 +57,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	David Hildenbrand <david@kernel.org>,
 	Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] KVM: arm64: Clear the whole hugetlb folio when storing MTE tags
-Date: Mon, 19 Oct 2026 14:21:02 +0100
-Message-ID: <20261019132103.3836646-3-fuad.tabba@linux.dev>
+Subject: [PATCH 3/3] KVM: arm64: Sanitise MTE tags when a permission fault installs a mapping
+Date: Mon, 19 Oct 2026 14:21:03 +0100
+Message-ID: <20261019132103.3836646-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261019132103.3836646-1-fuad.tabba@linux.dev>
 References: <20261019132103.3836646-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_062118_410578_5415E23E 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20261019_062123_118278_15BF1BD7 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When KVM_ARM_MTE_COPY_TAGS copies tags into a page, it marks the page as
-tagged. For a hugetlb folio the flag covers every page in the folio. If
-the folio wasn't tagged yet, its other pages are marked as tagged with
-their previous owner's tags still in place. The stage-2 fault path then
-maps them into the guest without clearing them. The ioctl's read side
-also copies them out to the VMM.
+The stage-2 fault path sanitises MTE tags only on translation faults, as
+a permission fault normally just relaxes an existing leaf. However, when
+the page is backed by a THP, a permission fault at page granule installs
+a block whose other pages may never have been mapped or sanitised. Once
+dirty logging is off, a guest write to a page mapped read-only during
+logging installs the block, and the guest can read the tags those pages'
+previous owners left.
 
-Clear the whole folio on its first tagging, before copying in this
-page's tags.
+Sanitise whenever the fault path calls kvm_pgtable_stage2_map() rather
+than relaxing permissions. If the VMM replaces the VMA after the guest
+takes a permission fault but before vma_lookup(), that path would map
+and sanitise memory from the new VMA without checking it. Run the
+VM_MTE_ALLOWED check in kvm_s2_fault_compute_prot() on permission
+faults too.
 
-Fixes: 25c17c4b55def ("hugetlb: arm64: add mte support")
+Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
 Cc: stable@vger.kernel.org
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/guest.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/mmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index b01d6622b8720..cda655fbff657 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -1012,6 +1012,7 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
- 		void *maddr;
- 		unsigned long num_tags;
- 		struct folio *folio;
-+		unsigned long i;
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 48a08b608ea72..208fcae80f67f 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2005,7 +2005,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+ 	if (s2fd->nested)
+ 		*prot = adjust_nested_exec_perms(kvm, s2fd->nested, *prot);
  
- 		if (!page) {
- 			ret = -EFAULT;
-@@ -1042,12 +1043,14 @@ int kvm_vm_ioctl_mte_copy_tags(struct kvm *kvm,
- 			/*
- 			 * Only locking to serialise with a concurrent
- 			 * __set_ptes() in the VMM but still overriding the
--			 * tags, hence ignoring the return value.
-+			 * tags. A hugetlb folio is marked tagged as a whole,
-+			 * so its first tagging clears every page.
- 			 */
--			if (folio_test_hugetlb(folio))
--				folio_try_hugetlb_mte_tagging(folio);
--			else
-+			if (!folio_test_hugetlb(folio))
- 				try_page_mte_tagging(page);
-+			else if (folio_try_hugetlb_mte_tagging(folio))
-+				for (i = 0; i < folio_nr_pages(folio); i++)
-+					mte_clear_page_tags(page_address(folio_page(folio, i)));
- 			num_tags = mte_copy_tags_from_user(maddr, tags,
- 							MTE_GRANULES_PER_PAGE);
+-	if (!kvm_s2_fault_is_perm(s2fd) && !s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
++	if (!s2vi->map_non_cacheable && kvm_has_mte(kvm)) {
+ 		/* Check the VMM hasn't introduced a new disallowed VMA */
+ 		if (!s2vi->mte_allowed)
+ 			return -EFAULT;
+@@ -2060,7 +2060,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 		}
+ 	}
  
+-	if (!perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
++	if (mapping_size != perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
+ 		sanitise_mte_tags(kvm, pfn, mapping_size);
+ 
+ 	/*
 -- 
 2.47.3
 
