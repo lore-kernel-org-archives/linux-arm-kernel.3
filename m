@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F893CCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F8BECCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgiHzBkzyS7FDTEmPwxdWyzH5N6tMzeSOTJia8FLgVw=; b=qFdLXlalFkQOWaR/3pFk0s6Qgi
-	kZnZDqfOKJph5WBL1tCJXTwrSaa986ALjicMCT7bV7Kb2iEl8PvK4exa8IBPHqnEizO+UT/N0a0Gd
-	pZshEAHsPx9AdukTrmq8SfeRNl5Ord1K+V504na75WKkDzirZsYSja+HKDwg72C4AyyOV2gugymwo
-	pVXlWjNkEZh/27eUTR6V4Zk1J7q/s/FopnNLwVJebEepBGxUkj6oLWAzlfUxYrx50YAvimUMJkk6Y
-	2CKqD2ac5aGj4HfJxu3Q9rOHNhfSpc3iQZacnyuR3Sx5C1ztfLGC5CglZWEIOQChA+Jfy1e6VC0on
-	ysaXEO5g==;
+	bh=JacI1PS0XwMOWP778EnHVdGmIAyo9cuU52auPMAJsoE=; b=zsRD7i1PDq3eZ2/03OvAUfPLow
+	TC17g7SZZu3miNF0LeiPKb+UekCk4Znl+VbXGay3tEUjJM2Okvw0sp0XTNkxZT6HGgB1ylbforYud
+	AW9j96ZlR6rYg2ZMBgz2fG9Ud0jya+z3XdJMAGQzpcj/Dhlk7z6GZO10GSK0AFe1OoR4pupmaaCjD
+	9Pw33uxeBrF86aIkpVaVmhGW0LeqEeuwQvkCv4xqtTE7Y+K60eL3yDppceLfau+jAmZ+mc0dcm8vy
+	3EpyDnPqN2EUwEQVXJL74rPs2ndS8EBdjpdtGegnx+If2lmAcj99cQZdGrqWlTwxuh8QFUCvGbPiz
+	FvoXoLcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInuO-00000007cYf-2DLR;
-	Mon, 19 Oct 2026 14:00:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xInuf-00000007cjm-1o1i;
+	Mon, 19 Oct 2026 14:00:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInuM-00000007cXB-3rd5;
-	Mon, 19 Oct 2026 14:00:11 +0000
+	id 1xInud-00000007cia-1ZeA;
+	Mon, 19 Oct 2026 14:00:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27B5D6021C;
-	Mon, 19 Oct 2026 14:00:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C711F000C6;
-	Mon, 19 Oct 2026 14:00:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 23FBA4156E;
+	Mon, 19 Oct 2026 14:00:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 196D61F000C4;
+	Mon, 19 Oct 2026 14:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418409;
-	bh=JgiHzBkzyS7FDTEmPwxdWyzH5N6tMzeSOTJia8FLgVw=;
+	s=k20260515; t=1792418427;
+	bh=JacI1PS0XwMOWP778EnHVdGmIAyo9cuU52auPMAJsoE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CzoOb6xpW5RNnHTk4aMypOfuaer/+x//lw+hVHoDGCgLbvuSzRE+6dp2n1Qq7fVW8
-	 TrP3dNmZzRhZ3b5GuVjtJcupTTFUPEvxSbUnECB55S5mvCQx2bkLqtxwBa53/+pjjn
-	 JE6ISc9hMr8AEWu2UQ7c90C0uCyKotmSmcNSYP1YJ1mNSuCxCjf5zNPsi6EAWP0QiI
-	 TdQLZxMw1hX3GOrV51tKi6YMd4GnaqFdlL5TlWq9k0UOifqsYgAl2yT0PCvmIyDIWR
-	 gl1B+qZ77BQlJw90oP71r7Fi5hprBh9gGi6Z8NFU66gRf2t0ivbsde9zPUKCqBQEls
-	 cCMcQwIs0qR+Q==
+	b=LfkFchotC3QxoscvW1UDJoVgkWT4XWJUrj+aW9Q5Un4OJX3bwWnLMS+INDAgac/SP
+	 Q060nztt6GHOKvvsW+4QERmfnPXkNVaQ2FSUuRhRcP4nikLvGSNcpQ0L9Mp/nUAmxd
+	 A3VPaX33sThOT0IgqMcZYZVHgw8jN9wOZo8izP0vVlHJ5aTx/qBhkynEDGjk3lxnPJ
+	 6ezA3LByQk0cnjLfhdeFh9AumjVmVRdli/AmU+oAKyK52tTnzzEvS/EOvf/bcOD4Rs
+	 mSnVaUKIJ8i/SoobJhJERlSbIBYuQkO5bem1H6K/wNi9tNF/494dhYO5tSjyRwEcxE
+	 1VP6j+ceuiE6Q==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	khilman@baylibre.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.10] wifi: mt76: mt7603: fix U-APSD service period termination
-Date: Mon, 19 Oct 2026 09:48:40 -0400
-Message-ID: <20261019135441.1420968-229-sashal@kernel.org>
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18] soc: amlogic: meson-clk-measure: remove debugfs tree
+Date: Mon, 19 Oct 2026 09:48:52 -0400
+Message-ID: <20261019135441.1420968-241-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -80,528 +77,386 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-[ Upstream commit 697badc27a9b3b2a8d86092abeed767714f735a2 ]
+[ Upstream commit 67481152be2ec5de3529664c82054b43d6d4b9f5 ]
 
-Frames released from the driver PS queue were all tagged with MORE_DATA
-and none of them ever carried the EOSP bit, so from the client's point of
-view a U-APSD service period was started but never finished. Clients that
-keep their receiver on until EOSP arrives stop sending trigger frames,
-and all downlink traffic for that station stalls until they give up.
-ieee80211_sta_eosp() only cleared the service period state inside
-mac80211, which is why the mismatch went unnoticed.
+meson_msr_probe() creates a debugfs tree with entries that reference
+devm-managed measurement table entries and the driver's private regmap
+state. The driver has no remove callback, so unbinding the device can
+leave those debugfs entries behind after the private data is released.
 
-Assign MORE_DATA per frame and set the wire EOSP bit on the last one. If
-the last released frame is a bufferable MMPDU it has no QoS control field
-to carry EOSP, so let mac80211 append a QoS-Null frame instead.
+Store the debugfs root and remove the subtree from a new remove callback.
 
-Also stop handing the remaining frame budget to
-mt76_release_buffered_frames() once frames have been released from the PS
-queue: both would signal the end of the same service period. Releasing
-fewer frames than requested is allowed, and MORE_DATA tells the client to
-trigger again.
-
-Link: https://patch.msgid.link/20260801145334.1166751-5-nbd@nbd.name
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Link: https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn
+Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **5.15.221** (`pending-5.15`). The buggy mt7603 U-APSD
-path is present here and matches mainline before `697badc27a9b3`. This
-is a real protocol fix for a stall, and it should be backported.
+## Phase 1: Commit message forensics
 
----
+**Step 1.1 — Subject**
+- Record: `[soc: amlogic: meson-clk-measure]` `[remove]` `[tear down
+  leftover debugfs on driver unbind]`
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+**Step 1.2 — Tags**
+- `Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>` (Amlogic SoC
+  maintainer; also committed the patch)
+- `Link:
+  https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn`
+- `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
+- `Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>`
+  (maintainer)
+- No `Fixes:`, no `Reported-by:`, no `Tested-by:`, no `Cc: stable`
+  (absence is expected)
+- No syzbot / bugzilla / CVE tags
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: **[wifi/mt76/mt7603] [fix] [U-APSD service period never ends on
-the wire]**
+**Step 1.3 — Body**
+- Record: `[Bug: probe creates debugfs entries that point at devm-
+  managed `msr_table` and private regmap state, but the driver had no
+  remove callback.]`
+- `[Symptom: after unbind, leftover debugfs files can be used after that
+  memory is released.]`
+- `[Version info: none in the message. Driver has existed since v5.0.]`
+- `[Root cause: missing lifetime teardown for debugfs vs. devm-managed
+  private data.]`
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-Record:
-- `Link: https://patch.msgid.link/20260801145334.1166751-5-nbd@nbd.name`
-  — patch **05/10** of Felix Fietkau’s series
-- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` (mt76 maintainer)
-- No `Fixes:`, no `Reported-by:`, no `Tested-by:`, no `Reviewed-by:`, no
-  `Cc: stable` (absence of the last two is expected in this pipeline)
-- Ignore any `Signed-off-by: Sasha Levin` / `[Upstream commit ...]` if
-  present; they are candidate-prep markers
+**Step 1.4 — Hidden bug fix?**
+- Record: `[Not hidden. This is an explicit lifetime/UAF fix, even
+  though the verb is "remove".]`
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-Record:
-- **Bug:** Frames pulled from the driver PS queue all get `MORE_DATA`
-  and never `EOSP`. A U-APSD SP starts and never ends on the air.
-- **Symptom:** Clients that stay awake until EOSP stop sending trigger
-  frames; **all downlink traffic for that STA stalls** until they give
-  up.
-- **Root cause:** `ieee80211_sta_eosp()` only clears mac80211’s
-  `WLAN_STA_SP`. mac80211 documents that a driver implementing
-  `.release_buffered_frames` must set the **wire** EOSP bit itself.
-- **Second bug in the same function:** leftover `nframes` is handed to
-  `mt76_release_buffered_frames()`, which ends the **same** SP a second
-  time.
-- **Fix:** assign `MORE_DATA`/`EOSP` per frame; QoS-Null via
-  `ieee80211_send_eosp_nullfunc()` if the last frame is a bufferable
-  MMPDU; do not forward leftover budget once PS-queue frames were
-  released.
+## Phase 2: Diff analysis
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: **Not hidden.** Subject and body describe a concrete protocol
-failure with a user-visible stall.
+**Step 2.1 — Inventory**
+- Record: `[drivers/soc/amlogic/meson-clk-measure.c: +14 / −0]`
+- Functions: `struct meson_msr` (new `debugfs_root`),
+  `meson_msr_probe()`, new `meson_msr_remove()`, `meson_msr_driver`
+  table
+- Scope: single-file surgical fix
 
----
+**Step 2.2 — Code flow**
+- Before: `meson_msr_probe()` builds `/sys/kernel/debug/meson-clk-msr/`
+  (`measure_summary` plus per-clock files). File private data is
+  `priv->data.msr_table` and `&priv->data.msr_table[i]`, with `.priv =
+  priv`. `priv`, `msr_table`, `reg`, and `regmap` are all `devm_*`
+  allocations. There was no `platform_set_drvdata()` and no `.remove`.
+- After: root dentry is stored, `platform_set_drvdata()` is set, and
+  `meson_msr_remove()` calls `debugfs_remove_recursive()` so the tree is
+  gone before devres frees private data.
+- Path: driver remove / module unload / sysfs unbind, not the normal
+  measure path.
 
-## PHASE 2: DIFF ANALYSIS
+**Step 2.3 — Bug mechanism**
+- Record: `[Use-after-free / leftover debugfs after unbind]`
+- Mechanism: unbind runs `devres` teardown and frees `priv` /
+  `msr_table` / `regmap`. Debugfs files remain. `clk_msr_summary_show()`
+  does `msr_table->priv->data.msr_count`; `meson_measure_id()` then uses
+  `priv->regmap` and `priv->data.reg`. That is a UAF if those files are
+  read after unbind.
+- Category (c)/(d): lifetime/refcount-style teardown; memory safety.
 
-**Step 2.1: INVENTORY THE CHANGES**
-Record:
-- File: `drivers/net/wireless/mediatek/mt76/mt7603/main.c` (**+63 /
-  −11**)
-- Functions: `mt7603_ps_skb_hdr()` (new), `mt7603_ps_set_more_data` →
-  `mt7603_ps_set_flags`, `mt7603_release_buffered_frames`
-- Scope: **single-file surgical fix**
+**Step 2.4 — Fix quality**
+- Record: `[Obviously correct, minimal, standard pattern.]`
+- `debugfs_remove()` itself already ignores `IS_ERR_OR_NULL`, so the
+  extra check is redundant but harmless.
+- `platform_set_drvdata()` is required for `platform_get_drvdata()` in
+  remove.
+- `.remove` is `void (*)(struct platform_device *)` in this tree,
+  matching the new callback.
+- Regression risk: low. `debugfs_remove()` uses
+  `simple_recursive_removal()`, so in-flight file users are drained
+  before return. No public API change.
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record:
-- **Before:** every released PS-queue frame unconditionally ORs
-  `IEEE80211_FCTL_MOREDATA`; never sets/clears EOSP;
-  `ieee80211_sta_eosp()` is called if the list is non-empty, then
-  leftover `nframes` still go to `mt76_release_buffered_frames()`.
-- **After:**
-  1. Walk remaining PS queue under `ps_lock` and build a pending-TID
-     bitmap.
-  2. If nothing was dequeued, fall through to
-     `mt76_release_buffered_frames()` (unchanged).
-  3. If anything was dequeued, **do not** also release from mac80211
-     TXQs.
-  4. `MORE_DATA` = not-last **or** more frames remain (mac80211
-     `more_data` or pending matching TIDs).
-  5. Wire `EOSP` only on the last frame and only for
-     `IEEE80211_FRAME_RELEASE_UAPSD`.
-  6. Last frame not QoS data → `ieee80211_send_eosp_nullfunc()`; else
-     `ieee80211_sta_eosp()`.
+## Phase 3: Git history
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record:
-- **Category:** protocol / correctness (U-APSD SP termination), not
-  UAF/leak/race.
-- **Mechanism:** driver never put EOSP on the air; clients that wait for
-  EOSP stop triggering; downlink stalls.
-- Also: `MORE_DATA` was only set, never cleared. Recycled frames from
-  `mt7603_filter_tx()` can keep a stale bit; the new helper assigns both
-  bits.
+**Step 3.1 — Blame**
+- Record: `[Buggy debugfs creation is from 2b45ebef39a2c ("soc: amlogic:
+  Add Meson Clock Measure driver"), 2018-11-28, first in v5.0-rc1.]`
+- The missing-remove bug is as old as the driver. Confirmed on the
+  parent of the fix: no `platform_set_drvdata`, no `debugfs_root`, no
+  remove callback.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-Record:
-- Matches mac80211’s `.release_buffered_frames` contract
-  (`include/net/mac80211.h`: driver must set EOSP in the QoS header;
-  sending fewer frames than requested is allowed).
-- `IEEE80211_QOS_CTL_EOSP` (0x0010) on the first QoS-control byte is the
-  correct on-wire bit.
-- `ieee80211_send_eosp_nullfunc()` uses `IEEE80211_TX_STATUS_EOSP` on
-  the NDP; TX status then clears `WLAN_STA_SP`. iwlwifi already calls
-  this from BH/TX context; `.release_buffered_frames` must be atomic,
-  and `ieee80211_send_null_response()` uses `dev_alloc_skb` (GFP_ATOMIC)
-  + `ieee80211_xmit`.
-- Regression risk: **low–medium**. Logic is contained; PS-Poll does not
-  set wire EOSP (`uapsd` is false). Companion series patches 06–08 make
-  TIM / HW buffering / TID filing more complete but are not required for
-  this EOSP fix to compile or to be correct on its own.
+**Step 3.2 — Fixes: tag**
+- Record: `[No Fixes: tag. Introducer is 2b45ebef39a2c, present in this
+  tree.]`
 
----
+**Step 3.3 — File history**
+- Record: `[Recent commits add SoC tables (A1/T7, S4, C3) and register-
+  offset refactoring. None change debugfs lifetime.]`
+- Standalone, not patch X/Y.
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+**Step 3.4 — Author**
+- Record: `[Pengpeng Hou: only this commit on this driver.
+  Reviewer/committer Neil Armstrong is the original driver author and
+  Amlogic maintainer.]`
 
-**Step 3.1: BLAME THE CHANGED LINES**
-Record:
-- `mt7603_release_buffered_frames`: `c8846e101502` (2018-11, **mt76: add
-  driver for MT7603E and MT7628/7688**)
-- Unconditional MORE_DATA: `b126c8897435` (2019-03)
-- `ieee80211_sta_eosp()` without wire EOSP: `b7001f46085e` (2019-03)
-- All three are ancestors of this 5.15 tree.
+**Step 3.5 — Dependencies**
+- Record: `[None. Uses existing `debugfs_create_dir` /
+  `debugfs_remove_recursive` / `platform_set_drvdata`. Can apply
+  standalone to this tree.]`
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: **No `Fixes:` tag.** Buggy behavior dates to driver introduction
-/ 2019 PS-queue helpers, all in this tree.
+## Phase 4: Mailing list and external research
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-Record: Mainline follow-ups on the same function (not in this tree):
-- `d5001f493fef` — tell mac80211 when the PS queue is empty
-  (`ieee80211_sta_set_buffered(..., false)`)
-- `636a883e2feef` — restore hardware PS buffering after an SP
-These are related U-APSD bugs, not prerequisites for this diff.
+**Step 4.1 — Original discussion**
+- Record: `[https://patch.msgid.link/20260615091531.21964-1-
+  pengpeng@iscas.ac.cn]`
+- `b4 dig -a`: only v1; that version was applied.
+- Maintainer review: `Reviewed-by: Neil Armstrong`.
+- Sashiko bot flagged a pre-existing probe-time race (`measure_summary`
+  created before `.priv` is filled). Armstrong replied: “Impossible the
+  driver is initialized way before userspace starts.” That race is not
+  introduced by this patch and was not treated as a blocker.
+- No NAK. No reviewer request for `Cc: stable`.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record: Felix Fietkau is the mt76 maintainer and original author of this
-driver. This is a maintainer fix.
+**Step 4.2 — Recipients (`b4 dig -w`)**
+- Record: `[Neil Armstrong, Kevin Hilman, Jerome Brunet, Martin
+  Blumenstingl, linux-amlogic, linux-arm-kernel, linux-kernel. Right
+  maintainers were on the patch.]`
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-Record: Patch **05/10**. Patches 01–03/09–10 target mt7915/mt7996 / MLO
-/ new HW TIM — **not needed**. Patch 04 sets wire EOSP in generic
-`mt76_release_buffered_frames()` (`tx.c`); mt7603 has its **own**
-`.release_buffered_frames` and only calls the generic helper when the
-driver PS queue is empty. This patch does not use new APIs or struct
-fields. **Can apply standalone.**
+**Step 4.3 — Bug report**
+- Record: `[No Reported-by / syzbot / bugzilla. Bug is from code
+  inspection of lifetime mismatch.]`
 
----
+**Step 4.4 — Series**
+- Record: `[Standalone single patch. No follow-up on this file after
+  67481152be2ec.]`
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+**Step 4.5 — Stable list**
+- Record: `[UNVERIFIED: lore.kernel.org/stable returned HTTP 403.]`
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-Record:
-- `b4 dig -c 697badc27a9b3` →
-  https://patch.msgid.link/20260801145334.1166751-5-nbd@nbd.name
-- **v1 only** (no v2/v3)
-- Thread is the 10-patch series plus a kernel-test-robot mail
-- Robot error is on **patch 10 / patch 1** (`ieee80211_txq_aql_pending`
-  missing) — **unrelated** to this patch
-- No NAKs, no reviewer risk flags, no `Cc: stable` suggestion in the
-  thread
+## Phase 5: Code semantic analysis
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record: `b4 dig -w`: To/Cc were **Felix Fietkau** and **linux-
-wireless@**. No extra reviewer SOB. Maintainer self-applied into
-wireless-next (listed in the 2026-08-06 wireless-next pull).
+**Step 5.1 — Functions**
+- Record: `[meson_msr_probe, meson_msr_remove (new), meson_msr_driver;
+  readers clk_msr_show / clk_msr_summary_show / meson_measure_id]`
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: OpenWrt mt76 users reported U-APSD stalls / **iPhone freezes**
-on MT7603 APs (openwrt/mt76#1080 / PR #1084). Testers said an EOSP-
-related change made iPhone freezes go away; remaining TX-retry/loss is
-the separate HW-buffering bug (series patch 07).
+**Step 5.2 — Callers**
+- Record: `[probe/remove from the platform core on bind/unbind. Debugfs
+  show via `DEFINE_SHOW_ATTRIBUTE`. `meson_msr_remove` is only the new
+  driver `.remove`.]`
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-Record: Series 01–10 as above. This commit is self-contained. Patch 06
-should be considered as a follow-up candidate (TIM never cleared); it is
-not required for this hunk.
+**Step 5.3 — Callees**
+- Record: `[debugfs_create_dir/file, debugfs_remove_recursive,
+  platform_set/get_drvdata, and on read: mutex + regmap MMIO.]`
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: No evidence this fix was discussed on stable@ or previously
-rejected. UNVERIFIED that every stable archive was searchable
-(lore.kernel.org returned 403 for some URLs); `b4`/openwall/syzbot CI
-were used instead.
+**Step 5.4 — Reachability**
+- Record: `[Yes. CONFIG_MESON_CLK_MEASURE is tristate, default y on
+  ARCH_MESON. DT nodes exist for GX, Meson8/8b, AXG, G12A, SM1, C3, S4,
+  A1, T7. Unbind is `rmmod meson-clk-measure` or sysfs unbind, then
+  reading leftover debugfs. Typically root-only, but still a real kernel
+  UAF.]`
 
----
+**Step 5.5 — Similar patterns**
+- Record: `[Same teardown exists in other SoC drivers (qcom
+  smem/socinfo/aoss, ti smartreflex). This driver was the one missing
+  it.]`
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+## Phase 6: This tree (v7.3-rc4)
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS**
-Record: `mt7603_release_buffered_frames`, `mt7603_ps_set_flags`,
-`mt7603_ps_skb_hdr`
+**Step 6.1 — Does the buggy code exist here?**
+- Record: `[Yes in this lineage. Driver is `drivers/soc/amlogic/meson-
+  clk-measure.c`. Bug introduced in v5.0 (2b45ebef39a2c). This checkout
+  is `v7.3-rc4-27-gf0100363d8c37` / 7.3.0-rc4. The fix landed in
+  v7.3-rc1 (`git merge-base --is-ancestor 67481152be2ec v7.3-rc1`
+  succeeded; it is not in v7.2).]`
+- Current file already has `debugfs_root` and `meson_msr_remove()`. That
+  is because the commit merged during 7.3; it is not a reason to treat
+  the bug as never existing here.
 
-**Step 5.2: TRACE CALLERS**
-Record: Assigned as `ieee80211_ops.release_buffered_frames` in this
-file. mac80211 calls it for **PS-Poll and U-APSD** from the RX/PS path
-(atomic). Reachable whenever an AP-mode STA uses power save.
+**Step 6.2 — Backport difficulty**
+- Record: `[Clean apply on this tree. Context matches. `.remove` is
+  already void.]`
 
-**Step 5.3: TRACE CALLEES**
-Record: `mt7603_wtbl_set_ps`, `mt7603_ps_tx_list` /
-`mt76_tx_queue_skb_raw`, `mt76_release_buffered_frames` (empty-PS-queue
-only), `ieee80211_sta_eosp`, `ieee80211_send_eosp_nullfunc` — all exist
-in this tree.
+**Step 6.3 — Related fixes already here?**
+- Record: `[This is the fix. No alternate teardown was present before
+  it.]`
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record: Client trigger (QoS-Null/PS-Poll) → mac80211 →
-`mt7603_release_buffered_frames`. **Yes, userspace/STA traffic triggers
-it.** Typical clients: phones with U-APSD.
+## Phase 7: Subsystem context
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: Generic `mt76_queue_ps_skb()` in this tree still only sets
-`IEEE80211_TX_STATUS_EOSP` + MORE_DATA, not wire EOSP (mainline patch
-04). `mt7603_rx_loopback_skb()` sets `ieee80211_sta_set_buffered(...,
-true)` and never clears it (mainline patch 06). Same U-APSD family,
-different bugs.
+**Step 7.1**
+- Record: `[Subsystem: drivers/soc/amlogic clock-measure debugfs helper.
+  Criticality: PERIPHERAL (Amlogic-only, debugfs), but UAF is still a
+  crash/memory-safety bug.]`
 
----
+**Step 7.2**
+- Record: `[Mature driver (2018). Recent work is new SoC tables, not
+  lifetime redesign.]`
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+## Phase 8: Impact and risk
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-Record: **Yes.** `mt7603_ps_set_more_data` and
-`mt7603_release_buffered_frames` in
-`drivers/net/wireless/mediatek/mt76/mt7603/main.c` are **byte-for-byte
-identical** to the parent of `697badc27a9b3`. Bug since ~2018/2019.
+**Step 8.1 — Who is affected**
+- Record: `[Amlogic Meson users with CONFIG_MESON_CLK_MEASURE and
+  CONFIG_DEBUG_FS, after driver unbind/unload.]`
 
-Local tree: `p-5.15-2-g6703e5d2f3a29`, **5.15.221**. `git merge-base
---is-ancestor 697badc27a9b3 HEAD` → **not in this tree**.
+**Step 8.2 — Trigger**
+- Record: `[Unbind or rmmod, then open leftover debugfs. Not a boot-hot
+  path. Privileged in typical debugfs setups. Deterministic UAF, not a
+  heisenrace.]`
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: **Clean apply.** Same function bodies; needed APIs
-(`ieee80211_send_eosp_nullfunc`, `ieee80211_get_qos_ctl`,
-`IEEE80211_QOS_CTL_EOSP`, `IEEE80211_FRAME_RELEASE_UAPSD`) are in 5.15.
+**Step 8.3 — Failure mode**
+- Record: `[UAF → oops / KASAN / possible memory corruption. Severity:
+  HIGH.]`
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-Record: No related U-APSD EOSP/TIM/HW-rearm fixes on this file in this
-tree.
+**Step 8.4 — Risk-benefit**
+- Record: `[Benefit: high for the affected unbind path (prevents UAF).
+  Risk: very low (14 lines, standard debugfs teardown). Ratio favors
+  taking the fix.]`
 
----
+## Phase 9: Synthesis
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+**Step 9.1 — Evidence**
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-Record: **wifi / mt76 / mt7603** (`CONFIG_MT7603E`). Criticality:
-**IMPORTANT** for users of that hardware (MT7603E / MT7628/MT7688 APs —
-very common home routers), not core mm/net.
+For:
+- Real UAF: leftover debugfs vs. `devm` private data after unbind
+- Small (+14), obviously correct
+- Reviewed and applied by the subsystem maintainer
+- Driver and bug exist in this 7.3 tree’s history since v5.0
+- `MESON_CLK_MEASURE` is tristate, so module unload is a supported path
+- Same teardown pattern used elsewhere in `drivers/soc/`
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-Record: Mature driver (since 5.0-era). This is a long-standing bug, not
-a regression in new code.
+Against:
+- No user/syzbot report
+- Debugfs, typically root-only
+- Amlogic-only helper, not core kernel
+- Maintainer did not nominate stable
 
----
+Unresolved:
+- Could not search lore.kernel.org/stable (HTTP 403)
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 9.2 — Stable rules**
+1. Obviously correct and tested? **PASS** — standard remove +
+   `debugfs_remove_recursive`; maintainer Reviewed-by
+2. Real bug affecting users? **PASS** — leftover debugfs after unbind is
+   a UAF
+3. Important (crash/security/corruption/deadlock)? **PASS** — UAF oops /
+   memory-safety; HIGH, not a theoretical warning
+4. Small and contained? **PASS** — 14 lines, one file
+5. No new features/APIs? **PASS**
+6. Applies to this tree? **PASS** — driver present, void `.remove`, no
+   missing prereqs
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-Record: **Driver-specific:** AP (or GO) mode on MT7603/MT7628 with
-U-APSD (or PS-Poll) clients.
+**Step 9.3 — Exception category**
+- Record: `[None. This is a normal bugfix, not a device-
+  ID/quirk/DT/build/docs exception.]`
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-Record: STA enters power save; hardware redirects frames into
-`msta->psq`; STA sends a U-APSD trigger. Common for phones. Unprivileged
-wireless clients can trigger it.
+**Step 9.4 — Decision**
+This tree is 7.3-rc4. The clock-measure driver is here, the missing-
+remove UAF has been here since v5.0, and the patch is a small, correct
+teardown. It meets stable criteria for this checkout.
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Record: **Downlink stall / client freeze** until the STA gives up
-(disconnect/retry). Not a kernel oops. Severity: **HIGH** for affected
-APs (connectivity loss), not CRITICAL kernel crash.
+### What it fixes and why it matters
+`meson_msr_probe()` publishes debugfs files whose private pointers refer
+to `devm`-allocated `priv` / `msr_table` / `regmap`. Without a remove
+callback those dentries survive unbind, so a later read of
+`measure_summary` or a per-clock file uses freed memory. On 7.3 that is
+a real module-unload/unbind UAF on Amlogic boards that ship this IP.
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-Record:
-- **Benefit:** high for MT7603 AP users — restores U-APSD SP completion
-  so phones keep triggering.
-- **Risk:** low–medium (contained ~50-line logic in one ops callback; no
-  API/lock/core changes).
-- **Ratio:** benefit outweighs risk.
-
----
-
-## PHASE 9: FINAL SYNTHESIS
-
-**Step 9.1: COMPILE THE EVIDENCE**
-
-**FOR:**
-- Real, user-visible stall (U-APSD SP never ends on the air)
-- Matches mac80211 driver contract
-- Present in this 5.15 tree since driver introduction
-- Functions identical to mainline parent → clean apply
-- Small, one file, no new APIs
-- Maintainer-authored, merged to mainline as `697badc27a9b3`
-- Corroborated by OpenWrt MT7603/iPhone freeze reports
-
-**AGAINST:**
-- Not crash/UAF/security
-- Series 05/10 (other patches are separate bugs/chips)
-- Follow-ups 06–08 still missing here (incomplete *overall* U-APSD, but
-  this patch is a complete EOSP fix)
-- No extra reviewer tags
-
-**UNRESOLVED:**
-- Direct lore.kernel.org HTTP often 403; thread recovered via `b4`
-- No explicit stable@ discussion found
-
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — protocol-correct; maintainer
-   merged; consistent with mac80211 docs and iwlwifi’s
-   `ieee80211_send_eosp_nullfunc` usage
-2. Fixes a real bug that affects users? **PASS** — stall / client freeze
-   on common AP chipsets
-3. Important issue? **PASS** — serious connectivity failure for U-APSD
-   STAs (not a panic, but production-breaking for those devices)
-4. Small and contained? **PASS** — one file, +63/−11
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — clean; APIs present
-
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-Record: Not a device-ID/quirk/DT/build/docs exception. It is a **driver
-protocol bugfix**.
-
-**Step 9.4: DECISION**
-Backport to this 5.15 tree. The bug exists here; the fix is self-
-contained and applies cleanly. Companion commits `d5001f493fef` and
-`636a883e2feef` are worth later evaluation but are not required for this
-one.
-
----
-
-### What the commit solves, and why it matters here
-
-mt7603 implements its own `.release_buffered_frames` because hardware
-redirects frames into a driver PS queue. That path tagged every frame
-with `MORE_DATA` and never set EOSP on the air. mac80211 only saw
-`ieee80211_sta_eosp()`, so the stack thought the SP ended while phones
-waiting for EOSP stopped triggering. On 5.15 APs using `CONFIG_MT7603E`,
-that is a real stall, not a cleanup.
-
-### Stable rules / risk vs benefit
-
-Surgical, obviously correct vs the documented U-APSD contract, no new
-APIs, clean apply. Risk is limited to this driver’s PS release path.
-Benefit is restoring downlink for power-save clients on a widely
-deployed chipset.
+### Stable rules / risk
+The change is 14 lines, does not add APIs, and matches
+`debugfs_remove()` semantics already used by sibling SoC drivers.
+Benefit is preventing a UAF; regression risk is very low.
 
 ### Concerns
-
-Patches 06–08 (TIM clear, HW PS re-arm, TID filing) address **other**
-remaining PS bugs. They are not compile or semantic prerequisites for
-this hunk. Patch 04 is the analogous EOSP fix for chips that use generic
-`mt76_release_buffered_frames`; mt7603 only hits that when its PS queue
-is empty.
-
----
+No public reproducer. Trigger is privileged debugfs/unbind. That lowers
+breadth, not severity. No extra commits are required on this tree.
 
 Verification:
-- [Phase 1] Parsed subject/body/tags: Link is 05/10; author Felix
-  Fietkau; no Fixes/Reported-by/Cc stable
-- [Phase 2] Diff: +63/−11 in `mt7603_release_buffered_frames`;
-  MORE_DATA+EOSP assignment; stop double SP end; QoS-Null for MMPDU
-- [Phase 2] Confirmed `IEEE80211_QOS_CTL_EOSP` is 0x0010 and
-  `ieee80211_get_qos_ctl()` returns `u8 *` to the first QoS byte
-- [Phase 2] Confirmed `ieee80211_send_eosp_nullfunc()` in 5.15 sets
-  `IEEE80211_TX_STATUS_EOSP` on the NDP; TX status clears `WLAN_STA_SP`
-- [Phase 3] blame: `c8846e101502` / `b126c8897435` / `b7001f46085e`; all
-  ancestors of HEAD
-- [Phase 3] `git merge-base --is-ancestor 697badc27a9b3 HEAD` → not
-  present
-- [Phase 3] Follow-ups on origin/master: `d5001f493fef`, `636a883e2feef`
-  only; no revert
-- [Phase 4] `b4 dig -c 697badc27a9b3`: v1 series, msgid
-  `20260801145334.1166751-5-nbd@nbd.name`
-- [Phase 4] `b4 dig -w`: linux-wireless@ + author only
-- [Phase 4] `b4 mbox`: 11 messages; robot fail is patch
-  10/`ieee80211_txq_aql_pending`, unrelated
-- [Phase 4] OpenWrt mt76#1084: EOSP-related change reported to stop
-  iPhone freezes
-- [Phase 5] ops hook `.release_buffered_frames =
-  mt7603_release_buffered_frames`; callers are mac80211 PS-Poll/U-APSD
-- [Phase 5] `ieee80211_send_eosp_nullfunc` exists and is exported in
-  this tree; iwlwifi calls it from TX/BH
-- [Phase 6] `make kernelversion` → 5.15.221; `git describe HEAD` →
-  p-5.15-2-g6703e5d2f3a29
-- [Phase 6] Byte-for-byte match of both functions vs `697badc27a9b3^`
-- [Phase 7] `CONFIG_MT7603E` present for MT7603E/MT7628
-- [Phase 8] Failure mode: downlink stall / client freeze, severity HIGH
-  for that hardware
-- UNVERIFIED: exhaustive stable@ archive search (lore HTTP 403); no
-  evidence of a prior stable rejection
+- [Phase 1] Parsed tags: Reviewed-by Neil Armstrong; Link to msgid
+  20260615091531.21964-1; no Fixes/Reported-by/Cc:stable
+- [Phase 2] Diff: +14 in meson-clk-measure.c; store debugfs root, set
+  drvdata, add void remove
+- [Phase 2] Pre-fix parent 67481152be2ec^: no platform_set_drvdata, no
+  debugfs_root, no remove
+- [Phase 2] clk_msr_summary_show uses msr_table->priv; meson_measure_id
+  uses priv->regmap — UAF after unbind confirmed
+- [Phase 3] git blame: debugfs create from 2b45ebef39a2c (v5.0-rc1)
+- [Phase 3] git describe HEAD: v7.3-rc4-27-gf0100363d8c37; Makefile
+  7.3.0-rc4
+- [Phase 3] git merge-base --is-ancestor 67481152be2ec v7.3-rc1: yes;
+  not in v7.2
+- [Phase 4] b4 dig -c 67481152be2ec:
+  https://patch.msgid.link/20260615091531.21964-1-pengpeng@iscas.ac.cn
+- [Phase 4] b4 dig -a: v1 only, applied as-is
+- [Phase 4] b4 dig -w: Armstrong, Hilman, Brunet, Blumenstingl, linux-
+  amlogic
+- [Phase 4] mbox: Armstrong Reviewed-by; dismissed sashiko probe-race as
+  pre-existing/impossible
+- [Phase 5] Kconfig MESON_CLK_MEASURE tristate default ARCH_MESON; DT
+  compatibles in meson-gx/g12/axg/sm1/s4/a1/t7/c3 dtsi
+- [Phase 5] platform_driver.remove is void (*)(struct platform_device *)
+  in include/linux/platform_device.h:280
+- [Phase 5] debugfs_remove() already IS_ERR_OR_NULL-safe
+  (fs/debugfs/inode.c:778)
+- [Phase 6] File present; no later changes on this file after the fix
+- [Phase 8] Failure mode: UAF on leftover debugfs after unbind, severity
+  HIGH
+- UNVERIFIED: lore.kernel.org/stable search (HTTP 403)
 
 **YES**
 
- .../net/wireless/mediatek/mt76/mt7603/main.c  | 74 ++++++++++++++++---
- 1 file changed, 63 insertions(+), 11 deletions(-)
+ drivers/soc/amlogic/meson-clk-measure.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/main.c b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-index 0d7c84941cd0a..f8a43d9f72f95 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
-@@ -423,13 +423,33 @@ mt7603_sta_ps(struct mt76_dev *mdev, struct ieee80211_sta *sta, bool ps)
- 	mt7603_ps_tx_list(dev, &list);
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index d862e30a244ed..7ca43bcb622a2 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -7,6 +7,7 @@
+ #include <linux/of_address.h>
+ #include <linux/platform_device.h>
+ #include <linux/bitfield.h>
++#include <linux/err.h>
+ #include <linux/seq_file.h>
+ #include <linux/debugfs.h>
+ #include <linux/regmap.h>
+@@ -50,6 +51,7 @@ struct meson_msr_data {
+ struct meson_msr {
+ 	struct regmap *regmap;
+ 	struct meson_msr_data data;
++	struct dentry *debugfs_root;
+ };
+ 
+ #define CLK_MSR_ID(__id, __name) \
+@@ -952,6 +954,7 @@ static int meson_msr_probe(struct platform_device *pdev)
+ 	       sizeof(struct msr_reg_offset));
+ 
+ 	root = debugfs_create_dir("meson-clk-msr", NULL);
++	priv->debugfs_root = root;
+ 	clks = debugfs_create_dir("clks", root);
+ 
+ 	debugfs_create_file("measure_summary", 0444, root,
+@@ -967,9 +970,19 @@ static int meson_msr_probe(struct platform_device *pdev)
+ 				    &priv->data.msr_table[i], &clk_msr_fops);
+ 	}
+ 
++	platform_set_drvdata(pdev, priv);
++
+ 	return 0;
  }
  
-+static struct ieee80211_hdr *
-+mt7603_ps_skb_hdr(struct sk_buff *skb)
++static void meson_msr_remove(struct platform_device *pdev)
 +{
-+	return (struct ieee80211_hdr *)&skb->data[MT_TXD_SIZE];
++	struct meson_msr *priv = platform_get_drvdata(pdev);
++
++	if (!IS_ERR_OR_NULL(priv->debugfs_root))
++		debugfs_remove_recursive(priv->debugfs_root);
 +}
 +
-+/*
-+ * Buffered frames can be recycled into the PS queue by mt7603_filter_tx(), so
-+ * both bits have to be assigned, not just set.
-+ */
- static void
--mt7603_ps_set_more_data(struct sk_buff *skb)
-+mt7603_ps_set_flags(struct sk_buff *skb, bool more_data, bool eosp)
- {
--	struct ieee80211_hdr *hdr;
-+	struct ieee80211_hdr *hdr = mt7603_ps_skb_hdr(skb);
-+
-+	if (more_data)
-+		hdr->frame_control |= cpu_to_le16(IEEE80211_FCTL_MOREDATA);
-+	else
-+		hdr->frame_control &= ~cpu_to_le16(IEEE80211_FCTL_MOREDATA);
-+
-+	if (!ieee80211_is_data_qos(hdr->frame_control))
-+		return;
+ static const struct msr_reg_offset msr_reg_offset = {
+ 	.duty_val = 0x0,
+ 	.freq_ctrl = 0x4,
+@@ -1065,6 +1078,7 @@ MODULE_DEVICE_TABLE(of, meson_msr_match_table);
  
--	hdr = (struct ieee80211_hdr *)&skb->data[MT_TXD_SIZE];
--	hdr->frame_control |= cpu_to_le16(IEEE80211_FCTL_MOREDATA);
-+	if (eosp)
-+		*ieee80211_get_qos_ctl(hdr) |= IEEE80211_QOS_CTL_EOSP;
-+	else
-+		*ieee80211_get_qos_ctl(hdr) &= ~IEEE80211_QOS_CTL_EOSP;
- }
- 
- static void
-@@ -442,7 +462,10 @@ mt7603_release_buffered_frames(struct ieee80211_hw *hw,
- 	struct mt7603_dev *dev = hw->priv;
- 	struct mt7603_sta *msta = (struct mt7603_sta *)sta->drv_priv;
- 	struct sk_buff_head list;
--	struct sk_buff *skb, *tmp;
-+	struct sk_buff *skb, *tmp, *last;
-+	bool eosp_null, uapsd;
-+	u16 pending = 0;
-+	u8 last_tid;
- 
- 	__skb_queue_head_init(&list);
- 
-@@ -458,20 +481,49 @@ mt7603_release_buffered_frames(struct ieee80211_hw *hw,
- 
- 		skb_set_queue_mapping(skb, MT_TXQ_PSD);
- 		__skb_unlink(skb, &msta->psq);
--		mt7603_ps_set_more_data(skb);
- 		__skb_queue_tail(&list, skb);
- 		nframes--;
- 	}
-+
-+	skb_queue_walk(&msta->psq, skb)
-+		pending |= BIT(skb->priority);
- 	spin_unlock_bh(&dev->ps_lock);
- 
--	if (!skb_queue_empty(&list))
--		ieee80211_sta_eosp(sta);
-+	last = skb_peek_tail(&list);
-+	if (!last) {
-+		mt76_release_buffered_frames(hw, sta, tids, nframes, reason,
-+					     more_data);
-+		return;
-+	}
-+
-+	/*
-+	 * End the service period here instead of passing the remaining frame
-+	 * budget on to mt76_release_buffered_frames(), which would signal the
-+	 * end of the same service period a second time.
-+	 */
-+	uapsd = reason == IEEE80211_FRAME_RELEASE_UAPSD;
-+	more_data |= !!(pending & tids);
-+
-+	skb_queue_walk(&list, skb)
-+		mt7603_ps_set_flags(skb, skb != last || more_data,
-+				    skb == last && uapsd);
-+
-+	/*
-+	 * EOSP lives in the QoS control field, so a bufferable MMPDU cannot
-+	 * terminate a U-APSD service period on its own. In that case mac80211
-+	 * has to append a QoS-Null frame, which ends the SP through its tx
-+	 * status.
-+	 */
-+	eosp_null = uapsd &&
-+		    !ieee80211_is_data_qos(mt7603_ps_skb_hdr(last)->frame_control);
-+	last_tid = __fls(tids);
- 
- 	mt7603_ps_tx_list(dev, &list);
- 
--	if (nframes)
--		mt76_release_buffered_frames(hw, sta, tids, nframes, reason,
--					     more_data);
-+	if (eosp_null)
-+		ieee80211_send_eosp_nullfunc(sta, last_tid);
-+	else
-+		ieee80211_sta_eosp(sta);
- }
- 
- static int
+ static struct platform_driver meson_msr_driver = {
+ 	.probe	= meson_msr_probe,
++	.remove = meson_msr_remove,
+ 	.driver = {
+ 		.name		= "meson_msr",
+ 		.of_match_table	= meson_msr_match_table,
 -- 
 2.53.0
 
