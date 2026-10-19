@@ -4,100 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8551CCCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4591CCF2D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 06:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=; b=Y9euby5ajwQdPM91/K44AWERaQ
-	+aoRnSgIiGklqCE3/Pl+mKA8l2TT6Cwdp8tVpvS5GxFYtLoq9zgwhcygyaIU48WV5LMVeHKgJ2huk
-	gkyNErcBAz7GFnEOI01FDJr6mH7F1OB1f+K7PxDXvYkkXcQdUcob7idByZptCc7E9E/62S7AQC182
-	iInp35e/A1+a0BdQgY7+owUvTeCRqbULZSpqV12lzuB2R+rra985gBmuCadGel9VZ3NEywet+V0zk
-	RnGiz0NHs8FeP9FSRsdhABKSGRiy0ncXprDpywFPRJ8a5n4fOgeyDXZMrb0/QKEhihLkg9u6+33VE
-	hDvCvPbQ==;
+	bh=DE0hYNK8TUpx1xx7JUh6EoUiaMFljKXVHnuT0t6nVjU=; b=dJPRD8tLZDHPu00O73AwQJ2n0n
+	IcNdHh0N08tixzp3Q9ZSVmSzIA1b2F0MjGnW7rKWmeNpv3OarkWKmfgv3S0zL1OyNKGti9EoHsEqF
+	GtSNT2jF++Gx4TX6hzBtEk9tFPIlhQAUoxqA6DKFAn2aX2Zrg1sgl0U8u1O2J6VQRiKuCW6/eWfbP
+	0CTwty9H/q0ch9oHsrw5p08THh0uloyV1gJ6SYSW8KGk4cxdIy1+/tJoPtLFXt8QqYqq6VQ35iVtj
+	5OnOyA0enXCGJe1ZOGhEzGNuxl4K5OcQc43TmNXTEBr8lKVXcCB+6pqR7xyTfmCG942P9hKkdfZnF
+	qHX4Qvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhFA-00000006jLK-2tXR;
-	Mon, 19 Oct 2026 06:53:12 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1xIhKW-00000006jgv-1CQS;
+	Mon, 19 Oct 2026 06:58:44 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIhF8-00000006jKh-1uCU
+	id 1xIhKU-00000006jgB-0DcR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 06:53:11 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-48c4649b35bso1375716f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Oct 2026 23:53:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792392788; x=1792997588; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=;
-        b=TF3xLt5wJ97CpwXeOzRqUi3Mi3JBxfKWbhgbsNdKCODIzsCUkP+J4o7lS6AX4TNmal
-         A562iNu6rqSX5hxCwuCMs/4QDD2ASijVzmMB+DJYpdQix+ByyZgAwq67clhybTaAFSvB
-         3JSRyxt4wh/IkbYIK+K4n7n3X8EvVkUwRIYsLut1//DSO9K+fhH0QtsEps4ISBlrrJqC
-         Luau/4WrI+RFIyPnL/Z3+Dnm2CZyNPA3aipnoRNm+Ry1OcBYWsd0Diih87aT+z5m5yR7
-         p9QWVxBHQ6wDWjhWv8kVRoQj+JlFvUYA2opE2WDLT5AmOe65HT8brNu2cIU/aNAUm3WZ
-         tKCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792392788; x=1792997588;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V9XPtOkvY2xGoEM32FGfKxcwuTkJk/35iPrfDKXNDEk=;
-        b=H83zf9ckfbkj9/zEDC4QlbKXV+It4dwhfGZ5UPZOt/27DaOSBC0XC+I30q4RNvq8Xd
-         2pFhwbAycgT2etnKUqF9MeMLVAOlRrh2Y/Ki6JdGeGU8oL/D1IyZh49OYuXSR8o3Xf6p
-         2vo+595FPnvB4O12offPIGuW98drGzz9/R5IGSDbCEBhMl9FE4M7Uz7D/Lb7OOKq0MBa
-         eJoImCfVaWnwaipZai6EfXRpO30DZWAuGRnLEQUlbjfGGmWWZxf/TV1dSpootYsR4db/
-         RNLzxGITtUAGRQT7eZh4LTm05jQ1A0yqcbSekfpJH2pq9/RZiO319jGHxzKGDiJnOw67
-         qSMg==
-X-Forwarded-Encrypted: i=1; AKwUvBwXIaaBvqz1VEnm/Je4XX31nv/X7wT+7WC9FwZqacmXL2zOoIA248ik5o8Kvt5ZC2VUQTmjwdoWGKcDAxlMAPqO@lists.infradead.org
-X-Gm-Message-State: AFq9FYL6AiuetPGNpzhhMJCL3tkfzV3Oai/zX59p2mWHMokm63EOt1ot
-	uqkHHxRsBrOApxUswnMxFRLJeUZal3VQVWa+TW/A/1hmWQ9fR8EhwIsN
-X-Gm-Gg: AYBFou2FoM/moQhxR2qE2B+mQC6xE4A2QndQ6QBKEr+vvVavrL0BlmHnwrRA8mifDdQ
-	tpWRhulADl9UitYsrATcER1HS/EWXAb+ejgzMP7c9p5iEsk411axtWM4xuYvTTYd04PACxaaGf7
-	yiuzjGqwI2UPUJi2fnhomX+zUE5QoQMoFzgmOe5NEc37FlivHEEhhpYbr+r0zqfFmn7H0YwlrqW
-	223NcecYMwoc4Iyg8n3DCDxVCWDQNObpYb9fzGmOkTgd7yUp7YalLohKnoHt6yzqGgAbWFb8CcA
-	TV6VjXewN0NfTYwbhFZNAR8jI0QKH26NSTsINuUVXi2oK3p95o5Pwmy3CbRSRb44xfY7Kl3bwYy
-	1qL7pmxdiVHbAW/t+0MFVD9bsQiV6qKdWLx0aMag6W5bT2YPISJdKlz4N9FpHmcQ3Ne2JUbXlAd
-	BisYcAeUHruuPrsJNpds+tHS0IomSBG3cBDU8W9GzXGGGBEYr5Uf+1nNCRf7VOveP7qe5HtX+Hq
-	eB5xX2/oFlQLAN+PO6t9VXr/38l1OTZr6UkqYR5JYtAQkFoCJYRo8wfEf1T
-X-Received: by 2002:a05:6000:29d2:b0:48d:ff71:dd97 with SMTP id ffacd0b85a97d-48e07975c0emr7979526f8f.7.1792392788079;
-        Sun, 18 Oct 2026 23:53:08 -0700 (PDT)
-Received: from SVR.localdomain ([158.173.154.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48dfd4f8cfesm18545783f8f.37.2026.10.18.23.53.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Oct 2026 23:53:07 -0700 (PDT)
-From: Semih Baskan <strst.gs@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Semih Baskan <strst.gs@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Subject: [PATCH] PCI: iproc: Skip BCMA-attached controllers in the platform bus driver
-Date: Mon, 19 Oct 2026 06:52:49 +0000
-Message-ID: <20261019065249.552-1-strst.gs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 19 Oct 2026 06:58:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WVGzolzXJVcmm+iPwYbGxa9UjqUq333NRV5840EO1uyXlJwz0WVHTxMOcXtfEiZaKFEMXG2stvKv3lf0rwYTi0h8H8ivTzbpqqxwhkPYbfOnGneNbofUhBamPJahTVkNvgrKf82Pe+roLLrSeZTc146iKvfqcmJoGrV+d4skDcJ+6DvDMiUNGx8VFiejirzzub0yh7cQ9dGMmqwC1lw10y8TsqUuLR9dhDySyHN63JndJqxfqPNQSYy85oFyb9VPg2HyCHvyyhaIEG0rDHKPVAjmAgU1wdZ9Muj+eNKTDTWqI8DM/3Btuug8Xw1GlonbPBP7FwiWl7cF/PLyPtIo9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DE0hYNK8TUpx1xx7JUh6EoUiaMFljKXVHnuT0t6nVjU=;
+ b=S4CCrcErVb20uyCNvR6MmDtqgWlOoaAY2QdxsXHQeIzFhWMii9rzhmqthrGUAWEYxDR5nWhFx+JwLuJcihw/psAy7KAEn3lbUdgDUUFeUeCh177wFAZ+DCUcSsBDgWcfcLBNMlSjSe2/33ibhxqYXHfGPac3HbZbb4tAlAuH7rXoKlnoNx5GRVafZLMaSgRmX/4nV1vxLCsJdDJcVL+/2JoXfzdaDBVWNTMSS7StEt9plXm5+3hX5OvSY94j4g8bPUaVrtItr8uI8HjVvW/KSnVUerKZtz3KiLN5eFg+gUkoUwkdd0wRNUPBdufi6NelQQCzqG1w0ozJqUcCQFEZ9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DE0hYNK8TUpx1xx7JUh6EoUiaMFljKXVHnuT0t6nVjU=;
+ b=MYz30EeMptcmp71paySAvlsH898IKpBEqb0sfQfTROmgN61m1ld2wcZO1blpWEo1kWWwhO7/iOuqH+BrufpcB2GAtJApYcRmWVVCT4n7kcBDZ8VUB/gve+DZQdDnH2fPWpPWE91TNpJr7BWHMz3UPGsPplOMFdvyaR0Ajr4YgZDOphFn7W9DFkXfMQnFQju05PT5zdvniYpZnlZ+HIF23kzUwTppfMebyCvhiZc6Q4CPnkrMRP5ynsxHSg4TqN16/wero1eoi0XB9qKihglZvHhNy/y6I+U4Y1sarQWcX5pNzyCsxlMZu/FtevP3enPstNd2v7XwEy+dNGMQc0By6Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by GV1PR04MB10196.eurprd04.prod.outlook.com
+ (2603:10a6:150:1ad::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 06:58:30 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0522.017; Mon, 19 Oct 2026
+ 06:58:29 +0000
+From: Chancel Liu <chancel.liu@oss.nxp.com>
+Date: Mon, 19 Oct 2026 15:58:20 +0900
+Subject: [PATCH] ASoC: imx-pcm-rpmsg: Flush pending work in hw_free
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261019-b4-imx-pcm-rpmsg-concurrent-v1-1-c1fb8c33f4db@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAIu/1WoC/x3MSw5AMBAA0KvIrE2ijV9dRSyowSxazRSRiLtrL
+ N/mPRBJmCJ02QNCF0fefYLKM7Db6FdCnpNBF7pWhTI4lcjuxmAdSnBxRbt7e4qQP1BVWpvKTGN
+ Tt5CGILTw/e/98L4fdMCQrm0AAAA=
+X-Change-ID: 20261019-b4-imx-pcm-rpmsg-concurrent-1522959ba768
+To: Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
+ Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Chancel Liu <chancel.liu@nxp.com>
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: SEWP216CA0040.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2b5::12) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|GV1PR04MB10196:EE_
+X-MS-Office365-Filtering-Correlation-Id: bcb73c3c-b584-44d2-773f-08df2dae612c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|23010399003|366016|921020|56012099006|11063799006|261009223027099003|10067099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: UaO2uvA4oEFHnwFMzfJcvQhTotxByymBP3uPOaUK/eUKA5eLFk5Oev+cI8FfbK7Z7PUycKAiQfBVN2NTN0DNy8dTZcBXaYnWFHw/hW4j82Poh+2k/nCuQTpRxme9zt/egDCzLpt9rxkpcVAIyVyQuAKNrRJusz4uoaQRrPKxM0pj1PI2WBbhSFrINsVwMB11OkkjXHmbqqHnsgr7NvWO5cDKkTp7pJUu/vL5BwrUBcXsfJ3tE2z77mZrWVnTf30gYKLRXkTuJF7VCvS5Fv0I7EVbT133x0x5JO2WPqFbaJi/KIa97q2Z0qlA4FqBekPUm30PL4F0HIPYbRE6jkXKYkUUOlv7CqbvssRqnuG5IsgL2np9ugaPGPKu4TuNnkagaFUmizRMd2cIkdRt2dJ6lKoutI81N3rE1MVw4+8CDP/RVDcrpxSnnGqzFcsc3kSfsn8DslgyiZD/kVmmukW44/UtZwmTbP38bvIPzTSkb2vbND4RBFqo9heydS7cycbiPUJS0ZwZDf6N44BFOofhxUj36tlJD7jjai7Koasz0Fty+Xl3jXEA1Ytw3noSrCKYW0o/u+/cqGJdpX44pa+pmGeYEmqp38ez5jHuXujs6Lo/Z0JPGWXLI0ImXyyTs5PbrKEqsfY5AsaeojHDtbfYGz0GbkEPSoNDUtyx3SJKZwU33cyD88gQjPu3NEOr99RHukRQAlVBuB3OZfUBnphYTQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(23010399003)(366016)(921020)(56012099006)(11063799006)(261009223027099003)(10067099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3JnUTA5SnNRc2dxQVRQeWVJNUhoYVdOVG00WTRWbzNYdWFLcXk0bEdMbkZz?=
+ =?utf-8?B?RC9ZNHJOY002QWMwdllLMjEwQkVoczdXR3BYOWN2NjEzT1NDQ3MzZVM1Umsx?=
+ =?utf-8?B?aHJnK256QXgzWFozL2VGeUR6QWxJNTA3WG1WWFpNWG5mRXp1aTFTUURqTVA3?=
+ =?utf-8?B?L2pDN3BCRDMxK3Z4amZjSHQwaThmSURlVnZjNlBkSi9sSXdOWnVLdzhpODA3?=
+ =?utf-8?B?UWhLaVR5ek5oY2JXNCtPRkNDa21QT0NzMjI4RGJlWVRHSDdBUjVYQkRKRGt2?=
+ =?utf-8?B?N3VBK3lyeTh2Wko3bHFGaWYvNkRURVZrZFB5TncyTDZsYUJrdHdZb2NYVkdP?=
+ =?utf-8?B?dG5nTmJuUE01UXoxc0VxOUppZWN0c09qZnl5cHVZamtnV1JPZXdRWjl3ZVBm?=
+ =?utf-8?B?M0lybkJUOWFVV2IzSkdXYTdHRHoyOTZJdTl3ajZEemV1aDQ5S1pUWHQyMml5?=
+ =?utf-8?B?WVlnSks2UkxsNkkvbS9wd1dBUHZVYnVkTFU4V1dGU2FVZ0VkY0xITUt3WWJB?=
+ =?utf-8?B?dlppdDJIVVdpdkVuNzYzMTB2VGNxRFpUR1doamFXM1ZMdkt2eGJ6L0pFclFW?=
+ =?utf-8?B?QUM0L1JtcEtUbXI2REZiTCt2SlhGVkZDUGRvVkFiL0ZiMjRvZmpYWm1pTlVE?=
+ =?utf-8?B?dllyVkczUnUzK2tlWjl1dnRqM3pzNGI2MHNvbjV4RnNITWNxRHA0M2hOeXFG?=
+ =?utf-8?B?NnRvMklISkk0RnpzQ0ZaR2xIQWFHZ2pVSFBDbExyVDdSV1g0SVJVczVsZFhk?=
+ =?utf-8?B?UVBGNkFQNit5bFFmaHliWWtjTS9xa0dCdHAwU1UwbDduZjNia2VyUlFBU1VF?=
+ =?utf-8?B?WnpkdlcyVFNGU3FuUXJxTzVsVFRoQlByOGlXMnN6SWtNQWthU3pIYmtKa2NQ?=
+ =?utf-8?B?TjZ1bG9UZXl2OGxoSVBuUkJrakZvbG9MeXBKNzFCa002QVBKZGUvcExVb2hS?=
+ =?utf-8?B?L2s4ZU11NWJOaU5OYUN3Y0cxQTI4L0kxOENTVmQ3U1hNeXBpdWJnVnpENy9x?=
+ =?utf-8?B?bk1YbjllRjB6WHFFN01sbklPaTdoaStmcndOVlpjakE2MCsrRVk2aXJBR0hV?=
+ =?utf-8?B?Z1Z6SHk2TldURjJaUHpmcDk4NTNxRW4yVzlhd3hoN2FkRTkzQVRUUmk5QkJi?=
+ =?utf-8?B?Uml2OE9WM0RacVlMd0pvbytxMm0xVG94cXNqODI2czdzSjNZdVZJUUVTbWg4?=
+ =?utf-8?B?Rjg2MTFjTmpzSmpuNytITHRkcnRCeVJMZFVVZWxNQlQrb2d2UGcycmVZa0Yr?=
+ =?utf-8?B?Si9vak9Fa0hiMis0RmRrTkRKNVpJUEpHZDRTTVBobXhOazRxdHFBeERzV3Bx?=
+ =?utf-8?B?ZWZrZ3NRVXdLalBZc0JUYVVCU1RPZHhkNmpkWXBTcysyL1pOeGZEUDh2b2Nu?=
+ =?utf-8?B?dXVBNUZzQk1nOXhBQytscHBjTTNNUzc0Vm9tRHpHQkFpRGt5azlodDZYK1h3?=
+ =?utf-8?B?bE5VdGNXNm5rTk53ZlRHMVhVdndOUUR2TXdLVjQ5MzBoWmdsQ2ZjVW44SXZW?=
+ =?utf-8?B?d1ZobE5IQVduL0lWUlJIQnhLQXQ1RjJSK2o4SFU0SVNuSEJReFhZRkNtVHBB?=
+ =?utf-8?B?T1lmQU5yMXoxaUdqcm9GRUdFa0FnL21ydllwSXZwVmRhWHMvRTZuYnk5amFR?=
+ =?utf-8?B?SzRBZEdVUzlVOTBwb2JxSjdwSk13dDZBd0ppaGdJYWNJT3k0cldMZm0xSHF6?=
+ =?utf-8?B?Ull0N2FjK3NhRnF5a01xUkI3UnRLS2M1aUw3VzNqZ2Rhc1dpR2xBLzltSUwy?=
+ =?utf-8?B?MGFkMFBweHhkd2xvT1NDVHZUU25KYkhwVy8vK3ZSZllHVDdCRTdIdjNodVVk?=
+ =?utf-8?B?TWxTN3dPYURNSWJ2cDRHNTc4dmsrbWN4S1pIWjhsc25jZkFkZmdsWU4ySEpW?=
+ =?utf-8?B?ZjBRWm03blk2SG1xdDE3UlpaTGJEUVJ5QjlMYjVoSzI2b1ZMeHMydmw2QTRl?=
+ =?utf-8?B?Qnp6ekE2V3FEaUZBL2xtc00zck8yMzBnRCtYSmJuYnVyWm1USnhTRnBZVmNR?=
+ =?utf-8?B?VDFvSHdZWG9kN0Nmc3o5R1dIL1FpT3p5RzZ0S1IvbTkwY3RJRy9EMi9BSVB4?=
+ =?utf-8?B?MVJVQ1k0dWR5c3RuSkpzVXRVTFhwcVBaWmdUSVlmWVdrVkxyOE9lY1FpRVpu?=
+ =?utf-8?B?aDhzVVQ4dFpZZ05VUlE1QytnbVNBaEtoODUxL29QWWlGdGdHZzk5Y2p3SU1x?=
+ =?utf-8?B?QnNDYmpCMTdTNzZHcTBBeWtQb0gya2ZoWnByWmFGZ1RpYWc4cWU4cCtpVjNF?=
+ =?utf-8?B?TUd0WEZscm14VUZMeVRHTjMzTHFoV29hQWNOU29JS0gwZFp3enFUS3pNaXRr?=
+ =?utf-8?B?NWxWVE9yWmJEamJXdFB0QXhMVFRicGtFRmNVMGlVRklHejJERkU4SmFIakNj?=
+ =?utf-8?Q?sX/9a8rXilF5atBsgI0M2ztwAheVP65+nnZTI?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcb73c3c-b584-44d2-773f-08df2dae612c
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 06:58:29.4176
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1vFuIZXDH3EqNUdF240NztYfcSCceVnZ17qddrMm1ZmTvVcW/zbsEptOR+YICXnFnaj2kbwBrmRvu3jgsSfFwsMr2zbrs6nuDxWcTpS+g+n876wfe44yeru5bAfVq9ID
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261018_235310_541803_AFC67603 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20261018_235842_114521_DA8B6931 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,72 +154,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 767012397976 ("ARM: dts: BCM5301X: Describe PCIe
-controllers fully"), the Northstar PCIe nodes under the "brcm,bus-axi"
-node have compatible = "brcm,iproc-pcie". bcma_bus_register() creates
-platform devices for the children of that node before it registers its
-own cores, so pcie-iproc-platform probes these controllers before
-pcie-iproc-bcma does, as IPROC_PCIE_PAXB.
+From: Chancel Liu <chancel.liu@nxp.com>
 
-IPROC_PCIE_PAXB sets has_apb_err_disable, so the first config read on
-bus 1 reads APB_ERR_EN at offset 0xf40. The report in the Closes: link
-shows that read taking an external abort. On a BCM47081 (PCIe core
-revision 0x01) with a device behind the root port, the board does not
-boot, and it boots when has_apb_err_disable is cleared.
+imx_rpmsg_terminate_all() queues the TERMINATE message to the workqueue
+and returns, while the DAI hw_free() synchronously gates the audio
+clock. The two can then run concurrently, and this concurrent access to
+the shared audio clock path can cause a stop failure or even hang the
+system.
 
-Return -ENODEV for a controller whose parent is "brcm,bus-axi", before
-the driver allocates or maps anything, so that the controller is left
-to pcie-iproc-bcma. The devicetree stays as it is. The check does not
-depend on CONFIG_PCIE_IPROC_BCMA, because a kernel with only
-pcie-iproc-platform does not boot on the BCM47081 either. On a BCM47094
-(core revision 0x07) pcie-iproc-platform enumerates the devices on its
-own, so there a kernel without CONFIG_PCIE_IPROC_BCMA loses PCIe, as
-before v7.1. CONFIG_PCIE_IPROC_BCMA defaults to y on ARCH_BCM_5301X.
+Flush the workqueue in a new component hw_free(), which runs before the
+DAI hw_free(), so TERMINATE is fully handled before the clock is gated.
+CLOSE stays the last message.
 
-Tested on an ASUS RT-N18U (BCM47081) on a 6.18 kernel with the
-controller/iproc-bcma changes backported. With both drivers enabled,
-pcie-iproc-bcma binds controller 0, the BCM4360 behind it enumerates
-and the platform driver logs nothing. With only pcie-iproc-platform
-enabled, the board boots without PCIe. Without this change, neither
-configuration boots on this board.
-
-Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
-Reported-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Closes: https://lore.kernel.org/r/0dcfb2db-5536-465a-bee1-afe160535748@broadcom.com
-Suggested-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Signed-off-by: Semih Baskan <strst.gs@gmail.com>
+Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
 ---
-This is on controller/iproc-bcma in pci.git and needs 9850907ee1dd
-("PCI: iproc: Use the EROM outbound window on BCMA"). Without that
-commit, pcie-iproc-bcma fails with -EBUSY on v7.1 and later, so this
-change alone would leave Northstar without PCIe. If this goes to
-stable, 39d1c645bb99 and 9850907ee1dd have to go with it.
+ sound/soc/fsl/imx-pcm-rpmsg.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-Mani's sketch [1] returned -EINVAL; this returns -ENODEV, which the
-driver core does not log as a probe failure.
-
-[1] https://lore.kernel.org/r/179197555828.38040.6359970121400952902.b4-reply@b4
-
- drivers/pci/controller/pcie-iproc-platform.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci/controller/pcie-iproc-platform.c
-index 4c9a0c4bb923..63560c733a8f 100644
---- a/drivers/pci/controller/pcie-iproc-platform.c
-+++ b/drivers/pci/controller/pcie-iproc-platform.c
-@@ -45,6 +45,9 @@ static int iproc_pltfm_pcie_probe(struct platform_device *pdev)
- 	struct pci_host_bridge *bridge;
- 	int ret;
+diff --git a/sound/soc/fsl/imx-pcm-rpmsg.c b/sound/soc/fsl/imx-pcm-rpmsg.c
+index 85b7c929a28a..6a0174d6c78d 100644
+--- a/sound/soc/fsl/imx-pcm-rpmsg.c
++++ b/sound/soc/fsl/imx-pcm-rpmsg.c
+@@ -178,6 +178,16 @@ static int imx_rpmsg_pcm_hw_params(struct snd_soc_component *component,
+ 	return 0;
+ }
  
-+	if (of_device_is_compatible(np->parent, "brcm,bus-axi"))
-+		return -ENODEV;
++static int imx_rpmsg_pcm_hw_free(struct snd_soc_component *component,
++				 struct snd_pcm_substream *substream)
++{
++	struct rpmsg_info *info = dev_get_drvdata(component->dev);
 +
- 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
- 	if (!bridge)
- 		return -ENOMEM;
++	flush_workqueue(info->rpmsg_wq);
++
++	return 0;
++}
++
+ static snd_pcm_uframes_t imx_rpmsg_pcm_pointer(struct snd_soc_component *component,
+ 					       struct snd_pcm_substream *substream)
+ {
+@@ -285,9 +295,6 @@ static int imx_rpmsg_pcm_close(struct snd_soc_component *component,
+ 	struct rpmsg_info *info = dev_get_drvdata(component->dev);
+ 	struct rpmsg_msg *msg;
+ 
+-	/* Flush work in workqueue to make TX_CLOSE is the last message */
+-	flush_workqueue(info->rpmsg_wq);
+-
+ 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
+ 		msg = &info->msg[TX_CLOSE];
+ 		msg->s_msg.header.cmd = TX_CLOSE;
+@@ -624,6 +631,7 @@ static const struct snd_soc_component_driver imx_rpmsg_soc_component = {
+ 	.open		= imx_rpmsg_pcm_open,
+ 	.close		= imx_rpmsg_pcm_close,
+ 	.hw_params	= imx_rpmsg_pcm_hw_params,
++	.hw_free	= imx_rpmsg_pcm_hw_free,
+ 	.trigger	= imx_rpmsg_pcm_trigger,
+ 	.pointer	= imx_rpmsg_pcm_pointer,
+ 	.ack		= imx_rpmsg_pcm_ack,
 
-base-commit: 9850907ee1dd4376c09c4129e0adbe3b39d191b7
+---
+base-commit: 8d00cfd77ffa64477129969eec8249c8cdadc9c2
+change-id: 20261019-b4-imx-pcm-rpmsg-concurrent-1522959ba768
+
+Best regards,
 -- 
-2.43.0
+Chancel Liu <chancel.liu@nxp.com>
 
 
