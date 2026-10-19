@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8331BCCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4CECCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Us7JsWYJ7Arw0VBDkGQy6sNQDtX+hznFYmkOxZjm1/w=; b=hRD4921HOehR2Layg9Cqyg61/g
-	DjG5Dndfo2ucttiixZBYPvjEPcQvbkg5fseWvAwhYjT938VjtuCbky0kigExL5WXafcuKvNoUQNN8
-	2ok0TACP3A2cT1ptQYVvUF6nLROfXMTeQp2rzryzul2xejmmi5ObM9YHGfH7KwXkkZ2ZGqDx5/uq7
-	4yNAv34+GdzZI3NTGYS8bYc+cI55aqP67MHlT+nKlhpJw1CnG5Jp/0D7IUEe43cZyvxbI1hVlKSoh
-	63n/nt6hz6shMWrgCuQLo3SBlDoU1LdANtit171V0KjzASnASelRkddv4QQB/uYumhBt6M0QZUPqN
-	W70mfHLQ==;
+	bh=OJnDRXaD8MXKY+HfVAGx8ycJVEcnB4lWDfYJHPvkKb0=; b=c0TIZyeLEpZFkU8gRYhLLJ/A55
+	IxLO6TsukEbcEeBA6Uc7GB4M/8/kvUnG0HqVmF6IZwFF3OMQf++wzwzfkcZc+Q0J/D5S7psotkvI7
+	juBYocr/NNb5LFjGHlN+opxQrsYHu4CgiDJ+wUaOI7TycDRx+0+QOFqcXE6A7ovJ3uEtSqQ3XMBCw
+	xv/ysfcIUCPd9Esv4JjltYAeO+g5JlSrrbNF3O67wRaQemSgvaCFQyUDclAbXLe8moCq1wgwM4aXp
+	6eALMdyX4hC2NyBjUO+quA9unEmP2uvxOmXDJ9fauNyUA0CS4IE+4HNwLSmnpd8QPuWZ4cnDRwyZM
+	hn+YzBxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInzB-00000007g2W-1EOI;
-	Mon, 19 Oct 2026 14:05:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xInzH-00000007g68-0xC8;
+	Mon, 19 Oct 2026 14:05:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInz9-00000007g0r-2gYj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:05:07 +0000
+	id 1xInzG-00000007g5N-0hFJ;
+	Mon, 19 Oct 2026 14:05:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6426643E2B;
-	Mon, 19 Oct 2026 14:05:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72ADB1F000C4;
-	Mon, 19 Oct 2026 14:05:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E533E4142A;
+	Mon, 19 Oct 2026 14:05:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43C221F000C9;
+	Mon, 19 Oct 2026 14:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418707;
-	bh=Us7JsWYJ7Arw0VBDkGQy6sNQDtX+hznFYmkOxZjm1/w=;
+	s=k20260515; t=1792418713;
+	bh=OJnDRXaD8MXKY+HfVAGx8ycJVEcnB4lWDfYJHPvkKb0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DtxGgvC86n2S722n7FB1ivnxoAnJqGUionse9sRVgxqwXAFJYCYZETRop3cd/29Kb
-	 OM6FUrqmjvzf0Vefi/Cq3gB2v021xzObXZIUShqg1sZny6f07X0LpZpo88jSTB1vSY
-	 tSUupsRS6E4drmJHkNO3bYMyOmtE4/aQMb9twfw3sJAX008E6PCFGi55xPv24Adg0R
-	 9vXiOjLhG43F4Y2xdhaCdvDyK2THEOoGKYWbBTaAOSsj4a9QKNRdoa0ucFHqvyNjHF
-	 lndYlY8JcPpB+gxwklII+d5wlUT99UQ6FLoCajOQnh1Lc87G2GJ3O6oaa3WPpLLbbN
-	 xj+5trplxTz7A==
+	b=bf/E01hjpu608+YAIXvBZ8sLKTH6wN4X6fCJ266yZXD9IUA84iZ5tHSbvtTkUThwg
+	 j7b75Zfd9bwTyHXiMvYncHq4rvcE65DsDqz/aIEmmci2ek9dbiCVmsmivlxi4rmXyd
+	 0hCF6sI/KvQuEynwTYJ3xs7j8KKiF54nWaVmGdVaTduzmV2qBJSfrnLNuFyQhPu7B0
+	 0DReVvYr6GaJMZb1Ucxw9mccPd0om2AQlljhVhl6eKiHMuvKaCcGbZ2BYq7EugqtFN
+	 7gGQJvbk6uaR63I2smHhQLXfeH4HjMUkcU7kYw8EBcxoGPlfWo7yzzg1aumaig8pA0
+	 2sqzRO8psMLCg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Linus Walleij <linusw@kernel.org>,
+Cc: Atish Patra <atishp@meta.com>,
+	Sashiko AI <sashiko-bot@kernel.org>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	kaloz@kernel.org,
+	atish.patra@linux.dev,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] soc: ixp4xx: qmgr: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:52:10 -0400
-Message-ID: <20261019135441.1420968-439-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.12] RISC-V: perf: fix resource cleanup on driver probe failure
+Date: Mon, 19 Oct 2026 09:52:14 -0400
+Message-ID: <20261019135441.1420968-443-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -77,377 +84,589 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+From: Atish Patra <atishp@meta.com>
 
-[ Upstream commit 01479280fa5d4691013bcd64fdfd935117b69769 ]
+[ Upstream commit e24a1418e90beac2ef4384bc9b0b5a10f19b806e ]
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+Sashiko pointed out various UAF and memory leak issues around
+pmu_sbi_device_probe() error paths.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
+If the probe fails, here are list of cleanups needed.
+a. Already registered pmu must be freed
+b. per cpu IRQ must be released
+c. pmu_ctr_list data structure must be freed
+d. cpu hotplug state must be cleaned up only if added.
 
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
+Fix the resource cleanup by reorganizing the code around probe failure.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Message-ID: <20260704121851.63805-1-pengpeng@iscas.ac.cn>
-Signed-off-by: Linus Walleij <linusw@kernel.org>
+Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Signed-off-by: Atish Patra <atishp@meta.com>
+Link: https://patch.msgid.link/20260807-counter_delegation-v9-1-58658104e487@meta.com
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit message forensics
-
-**Step 1.1 — Subject**
-Record: `[soc: ixp4xx: qmgr]` `[add]` add missing
-`MODULE_DEVICE_TABLE()` so OF module aliases are generated.
-
-**Step 1.2 — Tags**
-Record:
-- `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
-- `Message-ID: <20260704121851.63805-1-pengpeng@iscas.ac.cn>`
-- `Signed-off-by: Linus Walleij <linusw@kernel.org>` (IXP4xx/SoC
-  maintainer; applied the patch)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
-  by:`, `Cc: stable`, or `Link:` tags (absence of Fixes/Cc-stable is
-  expected for this review)
-
-**Step 1.3 — Body**
-Record:
-- **Bug:** `ixp4xx_qmgr_of_match[]` is wired to `.of_match_table` but
-  not exported via `MODULE_DEVICE_TABLE(of, ...)`.
-- **Symptom:** `depmod`/modinfo aliases are not generated, so userspace
-  cannot autoload the module from the DT compatible `intel,ixp4xx-ahb-
-  queue-manager`.
-- **Failure mode:** modular `CONFIG_IXP4XX_QMGR=m` does not bind on DT
-  boot unless someone `modprobe`s by hand. Built-in (`=y`) is
-  unaffected.
-- **Version info:** none in the message. Introduced with DT probe in
-  v5.2-rc1.
-- **Root cause (author):** source-level omission; no hardware
-  reproduction claimed.
-
-**Step 1.4 — Hidden bug fix?**
-Record: Not disguised. It is an explicit autoload fix. The “source-level
-/ no reproduction” wording is honesty, not cleanup-as-fix.
-
-## Phase 2: Diff analysis
-
-**Step 2.1 — Inventory**
-Record:
-- File: `drivers/soc/ixp4xx/ixp4xx-qmgr.c` (`+1 / -0`)
-- Function/data: `ixp4xx_qmgr_of_match[]` (table, not a function)
-- Scope: single-file, one-line surgical change
-
-**Step 2.2 — Code flow**
-Record:
-- **Before:** OF table exists and is used for in-kernel matching when
-  the driver is already loaded/built-in. No `alias=of:N*T*Cintel,ixp4xx-
-  ahb-queue-manager` in module metadata.
-- **After:** `MODULE_DEVICE_TABLE(of, ixp4xx_qmgr_of_match)` creates the
-  `file2alias` alias so kmod/udev can load `ixp4xx-qmgr` from DT.
-- Path affected: module-build metadata only; probe/remove/IRQ paths
-  unchanged.
-
-**Step 2.3 — Bug mechanism**
-Record: **Hardware enablement / missing device-table publication**
-(module autoload). Not UAF, leak, race, or crash. Mechanism: missing
-`MODULE_DEVICE_TABLE` so OF IDs never reach userspace.
-
-**Step 2.4 — Fix quality**
-Record: Obviously correct; this is the standard kernel idiom next to
-every OF match table. Minimal, no API change, no locking, no runtime
-behavior change for built-in. Regression risk is effectively zero
-(`MODULE_DEVICE_TABLE` is a build-time alias attribute).
-
-## Phase 3: Git history
-
-**Step 3.1 — Blame**
-Record:
-- OF table added in `9e01a00958405` (“soc: ixp4xx: qmgr: Add DT probe
-  code”, Linus Walleij, 2019) — first in **v5.2-rc1**.
-- `.of_match_table = of_match_ptr(...)` until `526f3f3b102f0`
-  (v5.19-rc1) dropped `of_match_ptr()`.
-- `MODULE_DEVICE_TABLE` never added until this commit `01479280fa5d4`
-  (Pengpeng Hou, 2026-07-04; applied 2026-07-24).
-- Buggy omission has been in tree for ~7 years.
-
-**Step 3.2 — Fixes: tag**
-Record: No `Fixes:` tag. Implicit parent is `9e01a00958405` (DT probe).
-That commit **is** an ancestor of this checkout (`git merge-base --is-
-ancestor` succeeded).
-
-**Step 3.3 — File history**
-Record: Recent related work is the sibling `f0b93c158aa92` (“soc:
-ixp4xx: npe: add missing MODULE_DEVICE_TABLE()”) from the same
-author/date. Other nearby commits are `dev_err` cleanup and `remove()`
-signature changes — not prerequisites for this one-liner.
-
-**Step 3.4 — Author**
-Record: Pengpeng Hou is not the subsystem maintainer; this is one of a
-batch of `MODULE_DEVICE_TABLE` additions (ixp4xx npe, aspeed, mediatek,
-rtc, vdpa, watchdog, hwmon, fbdev). Maintainer Linus Walleij applied it
-(“Patch applied.”).
-
-**Step 3.5 — Dependencies**
-Record: Standalone. Requires only the existing `ixp4xx_qmgr_of_match`
-table and `<linux/module.h>` (already included). No series dependency
-beyond the optional sibling npe patch.
-
-## Phase 4: Mailing list / external
-
-**Step 4.1 — Original discussion**
-Record:
-- `b4 dig -c 01479280fa5d4` →
-  https://patch.msgid.link/20260704121851.63805-1-pengpeng@iscas.ac.cn
-- Thread: patch + maintainer reply only. Linus Walleij: “Patch applied.”
-  No NAK, no stable nomination, no requested revisions.
-- `b4 dig -a` also matched an earlier same-diff series: Liao Chen,
-  2024-08-14, `[PATCH -next] soc: ixp4xx/qmgr: fix module autoloading`
-  (`20240814031004.3876441-1-liaochen4@huawei.com`). Same patch-id; that
-  2024 posting did not land; Hou’s 2026 resend did.
-- Lore HTTP fetch returned 403; thread recovered via `b4 dig -m`.
-
-**Step 4.2 — Recipients (`b4 dig -w`)**
-Record: To Linus Walleij, Imre Kaloz (historical OpenWrt IXP4xx); Cc
-`linux-arm-kernel`, `linux-kernel`. Right maintainer was on To: and
-merged it.
-
-**Step 4.3 — Bug report**
-Record: No syzbot/bugzilla/`Reported-by`. Author states there is no
-dynamic hardware reproduction.
-
-**Step 4.4 — Series**
-Record: Not numbered `X/Y`. Parallel sibling `f0b93c158aa92` for
-`ixp4xx-npe.c` is independent (same one-line pattern). This qmgr patch
-is self-contained.
-
-**Step 4.5 — Stable list**
-Record: Unverified. `lore.kernel.org/stable/` fetch returned 403. No
-stable discussion found via `b4` or local git.
-
-## Phase 5: Code semantic analysis
-
-**Step 5.1 — Functions**
-Record: No function body changed. Data: `ixp4xx_qmgr_of_match[]`. Driver
-still registered with `module_platform_driver(ixp4xx_qmgr_driver)`.
-
-**Step 5.2 — Callers / impact surface**
-Record:
-- Probe via platform/OF: DT node `qmgr: queue-manager@60000000` in
-  `arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi` (`compatible =
-  "intel,ixp4xx-ahb-queue-manager"`), used by all IXP4xx SoC DTs that
-  include that dtsi.
-- Consumers of exported qmgr APIs:
-  `drivers/net/ethernet/xscale/ixp4xx_eth.c`,
-  `drivers/net/wan/ixp4xx_hss.c`,
-  `drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c`. Those Kconfigs `depends
-  on IXP4XX_QMGR`.
-- Reachable on IXP4xx boot when the DT node is present. Not a syscall-
-  hot path; device probe / module load.
-
-**Step 5.3 — Callees**
-Record: Unchanged. `MODULE_DEVICE_TABLE` expands to a used alias
-attribute for `file2alias.c` (see `include/linux/module.h`).
-
-**Step 5.4 — Reachability**
-Record: Userspace-reachable only as module autoload (kmod). If
-`CONFIG_IXP4XX_QMGR=m`, missing aliases mean the queue manager (and thus
-Ethernet/HSS/crypto that need it) will not come up automatically. If
-`=y`, this commit is a no-op at runtime.
-`arch/arm/configs/ixp4xx_defconfig` has `CONFIG_IXP4XX_QMGR=y` and
-`CONFIG_IXP4XX_ETH=y`. Kconfig is still **tristate**, so modular builds
-are a supported config.
-
-**Step 5.5 — Similar patterns**
-Record: Same omission/fix in `drivers/soc/ixp4xx/ixp4xx-npe.c`
-(`f0b93c158aa92`). Same author also added `MODULE_DEVICE_TABLE` in other
-SoC drivers the same week.
-
-## Phase 6: Local tree
-
-**Step 6.1 — Does the buggy code exist here?**
-Record: Local tree is **v7.3-rc4** (`7.3.0-rc4`, `git describe HEAD` =
-`v7.3-rc4-27-gf0100363d8c37`). This is mainline, not an LTS branch. The
-OF match table and platform driver exist. `git merge-base --is-ancestor
-01479280fa5d4 HEAD` is true — the candidate is already in this checkout.
-The pre-fix omission existed from v5.2 until this commit.
-
-**Step 6.2 — Backport difficulty**
-Record: Clean apply. One line next to a table that has been stable since
-2019. No structural conflict with later `remove()` or `dev_err` changes.
-
-**Step 6.3 — Related fixes already here**
-Record: This exact line is already present (`MODULE_DEVICE_TABLE(of,
-ixp4xx_qmgr_of_match)` at line 451). Sibling npe fix is also present. No
-alternate autoload fix.
-
-## Phase 7: Subsystem context
-
-**Step 7.1**
-Record: `drivers/soc/ixp4xx` — Intel IXP4xx (XScale ARMv5) SoC queue
-manager. **PERIPHERAL** for the kernel as a whole; **IMPORTANT** on the
-boards that still use this SoC (Ethernet/WAN/crypto sit on it).
-
-**Step 7.2**
-Record: Low-churn, mature platform. Occasional one-line hygiene/fixes.
-Bug is old, not a new-subsystem issue.
-
-## Phase 8: Impact and risk
-
-**Step 8.1 — Who is affected**
-Record: Platform-specific / config-specific: `ARCH_IXP4XX` (or
-`COMPILE_TEST`) with `CONFIG_IXP4XX_QMGR=m`. Official defconfig builds
-it in, so default distro-style `ixp4xx_defconfig` users never hit this.
-Modular custom/OpenWrt-style builds can.
-
-**Step 8.2 — Trigger**
-Record: Boot with DT + driver as a module. Not a race. Unprivileged
-users cannot trigger a crash; they just don’t get the device until a
-manual load. Commonness: low (legacy SoC; defconfig is built-in).
-
-**Step 8.3 — Failure mode**
-Record: Module does not autoload → queue manager never probes →
-Ethernet/HSS/crypto that depend on it fail to operate. **Severity:
-MEDIUM** (device non-function when modular; not
-oops/corruption/deadlock). Built-in: none.
-
-**Step 8.4 — Risk/benefit**
-Record:
-- **Benefit:** Medium for modular IXP4xx users (hardware actually
-  binds); low for defconfig/`=y` users.
-- **Risk:** Very low (one line, build-time metadata only).
-- **Ratio:** Favorable. This is the device-ID class of change: tiny,
-  enables existing hardware, no runtime regression surface.
-
-## Phase 9: Synthesis
-
-**Step 9.1 — Evidence**
-
-For:
-- Real, well-understood autoload bug: OF table used by the driver but
-  not published to userspace.
-- One line, idiomatically correct, zero runtime risk.
-- DT node is in the SoC dtsi; Ethernet/WAN/crypto depend on this driver.
-- Kconfig is tristate; modular builds are supported.
-- Bug present since v5.2; applies cleanly; no prerequisites.
-- Maintainer applied it; same fix on the sibling NPE driver.
-- Official stable rules explicitly allow “just add a device ID”; this is
-  the OF equivalent (publish existing IDs for autoload).
-- Matches the documented exception for trivial ID/enablement additions.
-
-Against:
-- Not a crash, security issue, deadlock, or data-corruption bug.
-- Author documents no hardware reproduction.
-- No user `Reported-by`.
-- `ixp4xx_defconfig` uses `CONFIG_IXP4XX_QMGR=y`, so the official config
-  never needs aliases.
-- IXP4xx is a legacy, small user population.
-- No reviewer `Cc: stable`.
-
-Unresolved:
-- Could not read lore.kernel.org over HTTP (403); discussion recovered
-  via `b4 dig -m`.
-- Could not search the stable mailing list (same 403).
-
-**Step 9.2 — Stable rules checklist**
-1. Obviously correct and tested? **PASS** — one-line standard idiom;
-   maintainer applied it. “Tested” is source-level, which is sufficient
-   for this class of change.
-2. Fixes a real bug that affects users? **PASS** — modular OF autoload
-   is broken; users can still `modprobe` manually, but autoload is the
-   supported path.
-3. Important issue? **PASS** under the device-ID exception (hardware
-   does not bind when built as a module). Not CRITICAL severity.
-4. Small and contained? **PASS** — +1 line, one file.
-5. No new features or APIs? **PASS** — metadata only.
-6. Can apply to this tree? **PASS** — driver and table exist here; patch
-   is already an ancestor of HEAD and would apply to any tree that still
-   has the OF table.
-
-**Step 9.3 — Exception category**
-Record: **Device ID / module alias publication** for an existing driver
-(OF equivalent of adding/exporting a PCI/USB ID). Not a new driver, not
-a new API.
-
-**Step 9.4 — Decision**
-The local checkout is mainline **v7.3-rc4**. The driver, OF table, and
-DT node are all here; the fix is a one-line alias publication with no
-runtime risk. That is exactly the class of change stable trees take so
-existing hardware keeps working when the driver is modular. Niche
-platform and built-in defconfig lower the blast radius; they do not make
-the fix incorrect or risky.
+This tree is **6.12.111** (`pending-6.12`). The buggy probe cleanup is
+present here, the patch applies, and it is a real UAF/leak/crash fix — a
+YES for this tree.
 
 ---
 
-### What the commit solves for stable users
-Without `MODULE_DEVICE_TABLE(of, ...)`, a `CONFIG_IXP4XX_QMGR=m` kernel
-never generates `of:N*T*Cintel,ixp4xx-ahb-queue-manager` aliases. On DT
-boot the queue manager stays unloaded, so IXP4xx Ethernet/HSS/crypto
-that depend on it do not come up. The patch only emits those aliases.
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Rules / risk
-Obviously correct, +1 line, no new API, applies cleanly. Benefit is
-hardware enablement for modular builds; risk is negligible because
-nothing in probe, IRQ, or locking changes.
+**Step 1.1: PARSE THE SUBJECT LINE**
 
-### Concerns
-No hardware reproduction and a tiny user base. Those are not blockers
-for this exception class. Sibling NPE change is independent and not
-required.
+Record: `[RISC-V perf / SBI PMU] [fix] [resource cleanup on driver probe
+failure]`
 
-### Verification
-- **[Phase 1]** Parsed tags: author Pengpeng Hou; SOB Linus Walleij;
-  Message-ID present; no Fixes/Reported-by/Cc-stable.
-- **[Phase 2]** Diff: +1 line `MODULE_DEVICE_TABLE(of,
-  ixp4xx_qmgr_of_match)` in `drivers/soc/ixp4xx/ixp4xx-qmgr.c`.
-- **[Phase 3]** `git blame`: table from `9e01a00958405` (v5.2-rc1); this
-  line from `01479280fa5d4`.
-- **[Phase 3]** `git merge-base --is-ancestor 9e01a00958405 HEAD` and
-  `01479280fa5d4 HEAD`: both true.
-- **[Phase 3]** Sibling `f0b93c158aa92` on `ixp4xx-npe.c` same day; not
-  a prerequisite.
-- **[Phase 4]** `b4 dig -c 01479280fa5d4`: lore URL `https://patch.msgid
-  .link/20260704121851.63805-1-pengpeng@iscas.ac.cn`.
-- **[Phase 4]** `b4 dig -a`: also matched 2024 Liao Chen posting with
-  the same patch-id; Hou 2026 version is what landed.
-- **[Phase 4]** `b4 dig -w`: To Linus Walleij and Imre Kaloz; Cc linux-
-  arm-kernel, linux-kernel.
-- **[Phase 4]** `b4 dig -m`: Walleij reply is “Patch applied.”; no NAK,
-  no stable tag.
-- **[Phase 4]** WebFetch lore/stable: 403. UNVERIFIED: stable-list
-  discussion.
-- **[Phase 5]** Callers of qmgr APIs: `ixp4xx_eth.c`, `ixp4xx_hss.c`,
-  `ixp4xx_crypto.c`. DT node in `intel-ixp4xx.dtsi`.
-- **[Phase 5]** `MODULE_DEVICE_TABLE` in `include/linux/module.h` is an
-  alias attribute for `file2alias.c`.
-- **[Phase 6]** `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`;
-  `make kernelversion` = `7.3.0-rc4`. File already contains the line.
-- **[Phase 6]** Kconfig `IXP4XX_QMGR` is tristate; `ixp4xx_defconfig`
-  sets `CONFIG_IXP4XX_QMGR=y`.
-- **[Phase 8]** Failure mode: module autoload miss → device never
-  probes; severity MEDIUM, not oops.
+**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
+
+Record:
+- `Reported-by: Sashiko AI <sashiko-bot@kernel.org>` — static-analysis
+  bot, not a user oops, but it named concrete UAF/leak paths
+- `Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>` — RISC-V
+  reviewer
+- `Signed-off-by: Atish Patra <atishp@meta.com>` — original SBI PMU
+  driver author
+- `Link: https://patch.msgid.link/20260807-counter_delegation-v9-1-
+  58658104e487@meta.com` — **v9 01/20** of the counter-delegation series
+- `Signed-off-by: Paul Walmsley <pjw@kernel.org>` — RISC-V maintainer
+- No `Fixes:` tag (expected)
+- Ignore pipeline `Signed-off-by: Sasha Levin` / `[Upstream commit ...]`
+  — none on the real commit `e24a1418e90be`
+
+**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
+
+Record:
+- **Bug:** `pmu_sbi_device_probe()` error paths leak and leave live
+  references to freed objects
+- **Needed cleanups:** (a) unregister an already-registered PMU, (b)
+  release the per-CPU IRQ, (c) free `pmu_ctr_list`, (d) remove the CPU-
+  hotplug instance only if it was added
+- **Symptom:** UAF and memory leaks if probe fails after partial setup
+- **Root cause:** probe does `goto out_unregister` / `out_free` without
+  matching teardown
+- **Version info:** none in the message; code dates to 2022–2024
+
+**Step 1.4: DETECT HIDDEN BUG FIXES**
+
+Record: Not disguised. It is an explicit error-path UAF/leak fix.
+“Reorganizing probe failure” is the usual `goto` cleanup pattern, not a
+refactor-for-its-own-sake.
+
+---
+
+## PHASE 2: DIFF ANALYSIS
+
+**Step 2.1: INVENTORY THE CHANGES**
+
+Record:
+- File: `drivers/perf/riscv_pmu_sbi.c` — **+27 / −6** (33 insertions, 6
+  deletions)
+- Functions: `pmu_sbi_setup_irqs()`, `riscv_pmu_destroy()`,
+  `pmu_sbi_device_probe()`
+- Scope: single-file surgical error-path fix
+
+**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
+
+Record:
+
+1. **`pmu_sbi_setup_irqs()`**
+   - Before: domain/mapping/request failures return immediately.
+     `riscv_pmu_use_irq` can stay **true** even though no IRQ was
+     installed. Mapping leaked if `request_percpu_irq()` failed.
+   - After: those paths `goto err`, dispose a created mapping, set
+     `riscv_pmu_use_irq = false`.
+
+2. **`riscv_pmu_destroy()`**
+   - Before: always `cpuhp_state_remove_instance()` even when the
+     instance was never added.
+   - After: only if `!hlist_unhashed(&pmu->node)`.
+
+3. **`pmu_sbi_device_probe()`**
+   - Before: `riscv_pm_pmu_register` / `perf_pmu_register` failures jump
+     to `out_unregister` (destroy + `kfree(pmu)` only). Snapshot-alloc
+     and cpuhp-add failures also skip `perf_pmu_unregister`. IRQ,
+     `hw_events`, and `pmu_ctr_list` never freed.
+   - After: `irq_requested` tracks a successful IRQ request. Failures
+     before PMU register go to `out_destroy`. Failures after register go
+     to `out_unregister` which now calls `perf_pmu_unregister`. Then
+     IRQ/percpu/`pmu_ctr_list`/`pmu` are freed.
+
+**Step 2.3: IDENTIFY THE BUG MECHANISM**
+
+Record: **Error-path resource leak + UAF + NULL deref**, with a logic
+fix on the IRQ fallback path.
+
+Verified mechanisms in **this** tree:
+
+| Bug | Mechanism |
+|---|---|
+| **UAF of registered PMU** | `perf_pmu_register()` then
+`pmu_sbi_snapshot_alloc()` or `cpuhp_state_add_instance()` fails →
+`kfree(pmu)` while the PMU stays in perf core |
+| **NULL deref / list corruption** | `riscv_pmu_destroy()` →
+`cpuhp_state_remove_instance()` → `hlist_del()` → `WRITE_ONCE(*pprev,
+next)` with `pprev == NULL` on a `kzalloc`’d node |
+| **IRQ + cookie UAF** | successful `request_percpu_irq(..., hw_events)`
+then later probe fail frees `pmu`/`hw_events` without `free_percpu_irq`
+|
+| **Leaks** | `alloc_percpu` `hw_events` and `kcalloc` `pmu_ctr_list`
+only freed on the new `out_free` |
+| **Wrong IRQ flag on success path** | IRQ setup failure is **non-
+fatal**; probe continues with `PERF_PMU_CAP_NO_INTERRUPT` but
+`riscv_pmu_use_irq` stayed true, so `pmu_sbi_starting_cpu()` can
+`enable_percpu_irq(0)` |
+
+**Step 2.4: ASSESS THE FIX QUALITY**
+
+Record: Obviously correct and minimal. `out_unregister` is only reached
+after a successful `perf_pmu_register`. `out_destroy` does not
+unregister. `hlist_unhashed` matches `cpuhp` (node is hashed only after
+successful add). IRQ free happens before `free_percpu(hw_events)`.
+
+Regression risk: **low**. Remaining gaps (sysctl not unregistered;
+`sbi_pmu_snapshot_available` static key not disabled) are pre-existing
+and not introduced here. They do not make this patch unsafe.
+
+---
+
+## PHASE 3: GIT HISTORY INVESTIGATION
+
+**Step 3.1: BLAME THE CHANGED LINES**
+
+Record:
+- IRQ error returns: `4905ec2fb7e642` (Atish Patra, 2022-02-18) —
+  sscofpmf
+- Destroy / `out_unregister`: `e9a023f2b73ac3` (Eric Lin, 2022-07-05) —
+  PM notifier
+- Snapshot + moving `cpuhp_state_add_instance` **after** register:
+  `a8625217a054ca` (Atish Patra, 2024-04-20) — **this is when the
+  registered-PMU UAF became real**
+- Original `kfree(pmu)`-only `out_free`: `e9991434596f53` (2022-02-18) —
+  driver introduction
+
+All of these are ancestors of this 6.12 tree.
+
+**Step 3.2: FOLLOW THE FIXES: TAG**
+
+Record: No `Fixes:` tag. Buggy code is still in this checkout (see Phase
+6).
+
+**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
+
+Record (this tree, `git log --oneline -20 --
+drivers/perf/riscv_pmu_sbi.c`): overflow-IRQ NULL check, bitmap cmask,
+errno/firmware-event fixes. None of those replace this cleanup. `git log
+--oneline e24a1418e90be..origin/master -- drivers/perf/riscv_pmu_sbi.c`
+only shows later overflow-mask/bitmap work; they do not revert or redo
+this cleanup.
+
+**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
+
+Record: Atish Patra wrote the SBI PMU driver (`e9991434596f53`) and the
+snapshot code. This is a maintainer-area fix, not drive-by.
+
+**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
+
+Record: Msgid is `counter_delegation-v9-1`. Patches 2–20 add
+Smcsrind/Ssccfg/Smcdeleg and a new PMU path. They are **features**, not
+prerequisites. This hunk only uses `hlist_unhashed`,
+`perf_pmu_unregister`, `free_percpu_irq`, `irq_dispose_mapping`,
+`free_percpu`, `pmu_ctr_list` — all already in 6.12. **Standalone.**
+`git show e24a1418e90be | git apply --check` succeeded (offsets only).
+
+---
+
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+
+**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
+
+Record:
+- `b4 dig -c e24a1418e90be`: matched patch-id; lore URL `https://patch.m
+  sgid.link/20260807-counter_delegation-v9-1-58658104e487@meta.com`
+- `b4 dig -a`: cleanup first appeared as **v7 01/22** (2026-06-22), then
+  **v9 01/20** (committed)
+- WebFetch of lore returned **403** (Anubis). Thread was recovered via
+  `b4 dig -m /tmp/riscv-pmu-cleanup.mbox`
+- No NAK on this patch. Paul Walmsley queued the first ten patches
+  (including this one) for `riscv/for-next`
+
+**Step 4.2: CHECK WHO REVIEWED THE PATCH**
+
+Record: Charlie Jenkins `Reviewed-by`. Paul Walmsley applied it.
+Recipients are the RISC-V list / maintainers (from msgid and SOBs). No
+`Cc: stable` in review.
+
+**Step 4.3: SEARCH FOR THE BUG REPORT**
+
+Record: Reporter is Sashiko, not syzbot. v9 review of **this** patch
+restates remaining **pre-existing** issues (snapshot disable without CPU
+pin, static key, sysctl leak, init-time cpuhp leak). It does **not** NAK
+the cleanup. The UAF it describes of a registered-then-freed PMU is
+exactly what `perf_pmu_unregister` addresses.
+
+**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
+
+Record: Rest of v9 is new ISA / delegation code. Not needed for this
+cleanup. Later origin/master commits on this file do not change these
+error labels.
+
+**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
+
+Record: lore.kernel.org/stable WebFetch also 403. **UNVERIFIED** whether
+stable@ already discussed this. Absence of `Cc: stable` is expected for
+this review queue.
+
+---
+
+## PHASE 5: CODE SEMANTIC ANALYSIS
+
+**Step 5.1: KEY FUNCTIONS**
+
+Record: `pmu_sbi_setup_irqs`, `riscv_pmu_destroy`,
+`pmu_sbi_device_probe`. Related: `pmu_sbi_starting_cpu`,
+`riscv_pmu_alloc`, `pmu_sbi_get_ctrinfo`.
+
+**Step 5.2: TRACE CALLERS**
+
+Record:
+- `pmu_sbi_device_probe` — `.probe` of `pmu_sbi_driver`
+- Called from `pmu_sbi_devinit()` (`device_initcall`) via
+  `platform_device_register_simple(RISCV_PMU_SBI_PDEV_NAME, ...)`
+- `pmu_sbi_starting_cpu` / `pmu_sbi_dying_cpu` read `riscv_pmu_use_irq`
+  (the flag this patch clears on IRQ setup failure)
+
+**Step 5.3: TRACE CALLEES**
+
+Record: `riscv_pmu_alloc()` does `kzalloc` + `alloc_percpu_gfp` (this
+tree, `drivers/perf/riscv_pmu.c`). `pmu_sbi_get_ctrinfo()` `kcalloc`s
+`pmu_ctr_list`. `cpuhp_state_remove_instance()` always `hlist_del()`s.
+
+**Step 5.4: FOLLOW THE CALL CHAIN**
+
+Record: Boot/init on RISC-V with SBI PMU (`CONFIG_RISCV_PMU_SBI`
+**default y**). Trigger is probe failure after partial success:
+`snapshot_alloc` ENOMEM, `perf_pmu_register` failure,
+`cpuhp_state_add_instance` failure, or `cpu_pm_register_notifier`
+failure. After a successful `perf_pmu_register` and a later fail,
+userspace `perf` can touch a PMU whose `struct riscv_pmu` is already
+`kfree`d — **userspace-reachable UAF**.
+
+**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
+
+Record: Same file’s `pmu_sbi_devinit()` still leaks
+`cpuhp_setup_state_multi` if `platform_driver_register` fails. Pre-
+existing, out of this patch’s scope.
+
+---
+
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+
+**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
+
+Record: **Yes.** This checkout is 6.12.111; `e24a1418e90be` is **not**
+an ancestor (`git merge-base --is-ancestor` exit 1).
+
+Current probe error path (`drivers/perf/riscv_pmu_sbi.c`):
+
+```1462:1468:drivers/perf/riscv_pmu_sbi.c
+out_unregister:
+        riscv_pmu_destroy(pmu);
+
+out_free:
+        kfree(pmu);
+        return ret;
+```
+
+`riscv_pmu_destroy()` still unconditionally removes the cpuhp instance.
+`pmu_sbi_setup_irqs()` still returns without clearing
+`riscv_pmu_use_irq` or disposing a mapping.
+
+Bug introduced: leaks since v5.17-era driver; UAF of registered PMU
+since snapshot/cpuhp reorder in `a8625217a054ca` (in this tree).
+
+**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
+
+Record: **Clean apply** (`git apply --check` — all 6 hunks succeeded
+with −54 line offset). Context differs (`bitmap_copy` vs mainline
+`pmu->cmask = cmask`) because 6.12 already has `143668c424772` (counter
+mask as bitmap). No rework required.
+
+**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
+
+Record: No equivalent cleanup. Bitmap and overflow-IRQ fixes in this
+tree are independent.
+
+---
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+**Step 7.1: SUBSYSTEM AND CRITICALITY**
+
+Record: `drivers/perf` / RISC-V SBI PMU. **IMPORTANT** for RISC-V
+(default-on perf), not core-mm/VFS. Not staging.
+
+**Step 7.2: SUBSYSTEM ACTIVITY**
+
+Record: Mature driver (2022) with ongoing RISC-V perf fixes. This is a
+long-standing error-path hole, not churn in brand-new code.
+
+---
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+**Step 8.1: WHO IS AFFECTED**
+
+Record: RISC-V systems with `CONFIG_RISCV_PMU_SBI` (default y) and SBI
+PMU (QEMU virt, most recent boards). Driver-specific, not universal.
+
+**Step 8.2: TRIGGER CONDITIONS**
+
+Record:
+- Common path: probe succeeds — no crash
+- Realistic fail: `pmu_sbi_snapshot_alloc()` ENOMEM (page alloc
+  GFP_ATOMIC per CPU) **after** `perf_pmu_register`
+- IRQ mapping fail with SSCOF/T-Head/Andes: probe **continues**,
+  `riscv_pmu_use_irq` wrongly stays true
+- Unprivileged user cannot force probe, but **can** open the registered
+  `"cpu"` PMU in the failure window
+
+**Step 8.3: FAILURE MODE SEVERITY**
+
+Record:
+- Registered PMU then `kfree(pmu)` → **UAF** → HIGH
+- `hlist_del` on unhashed node → **oops** → HIGH
+- IRQ cookie UAF → HIGH
+- One-time leaks if probe dies before register → MEDIUM
+- `enable_percpu_irq(0)` on fallback success path → MEDIUM–HIGH
+
+**Step 8.4: RISK-BENEFIT RATIO**
+
+Record:
+- **Benefit:** high for RISC-V 6.12 — prevents oops/UAF on probe fail
+  and a wrong IRQ flag on a continued probe
+- **Risk:** low — ~27 net lines, error path + one flag clear, applies
+  cleanly
+- **Ratio:** favor backport
+
+---
+
+## PHASE 9: FINAL SYNTHESIS
+
+**Step 9.1: EVIDENCE**
+
+**FOR:**
+- Real UAF: perf-registered PMU freed without unregister (snapshot/cpuhp
+  fail after `perf_pmu_register`)
+- Real oops: `cpuhp_state_remove_instance` → `hlist_del` with NULL
+  `pprev`
+- Real IRQ leak/UAF and `pmu_ctr_list`/`hw_events` leaks
+- `riscv_pmu_use_irq` left true on non-fatal IRQ setup failure (success-
+  path bug)
+- Small, obviously correct, reviewed by Charlie Jenkins, authored by the
+  driver owner
+- Buggy code and helpers exist in 6.12; patch applies cleanly
+- Standalone despite being 01/20 of a feature series
+
+**AGAINST:**
+- Probe-fail is uncommon (except IRQ-setup fallback, which is not fatal
+  and is common on some platforms)
+- Incomplete: sysctl, snapshot static key, init-time cpuhp still leak
+  (pre-existing)
+- RISC-V only
+- Reported by an AI bot, not a production oops
+
+**UNRESOLVED:** stable@ thread (lore 403); whether Sashiko had a
+concrete reproducer beyond code review.
+
+**Step 9.2: STABLE RULES CHECKLIST**
+
+1. Obviously correct and tested? **PASS** — reviewed, applied by RISC-V
+   maintainer, logic matches the four listed holes
+2. Fixes a real bug that affects users? **PASS** — UAF/oops/leaks in the
+   default RISC-V PMU driver
+3. Important issue? **PASS** — UAF and NULL deref are HIGH; not a style
+   cleanup
+4. Small and contained? **PASS** — one file, +27/−6
+5. No new features or APIs? **PASS**
+6. Can apply to the local tree? **PASS** — `git apply --check` clean
+
+**Step 9.3: EXCEPTION CATEGORIES**
+
+Record: None. Ordinary bugfix.
+
+**Step 9.4: DECISION**
+
+This 6.12 tree has the buggy probe path. The fix is small, applies, and
+closes UAF/oops/leak holes in a default-on RISC-V driver. Remaining
+cleanup gaps are not a reason to withhold the part that is correct.
+
+---
+
+## What this means for 6.12 users
+
+On RISC-V with SBI PMU, a failed probe after `perf_pmu_register()`
+currently frees `struct riscv_pmu` while perf still holds it, and
+`riscv_pmu_destroy()` oopses by deleting an unhashed cpuhp node. The
+same path leaks the per-CPU IRQ cookie, `hw_events`, and `pmu_ctr_list`.
+IRQ setup failure is treated as non-fatal but leaves `riscv_pmu_use_irq`
+set, so hotplug can enable IRQ 0. The patch only rewires those gotos and
+frees; it does not pull in counter-delegation.
+
+Risk is low relative to leaving a registered-PMU UAF in a long-term
+tree.
+
+---
+
+## Verification
+
+- **[Phase 1]** Parsed tags: Sashiko Reported-by, Charlie Jenkins
+  Reviewed-by, Atish Patra + Paul Walmsley SOBs, msgid v9 01/20; no
+  Fixes
+- **[Phase 2]** Diff: +27/−6 in `riscv_pmu_sbi.c`; IRQ err goto,
+  `hlist_unhashed` guard, `perf_pmu_unregister`,
+  `free_percpu_irq`/`free_percpu`/`kfree(pmu_ctr_list)`
+- **[Phase 2]** Read 6.12 `pmu_sbi_device_probe` lines 1367–1468:
+  destroy + `kfree(pmu)` only
+- **[Phase 2]** Read `kernel/cpu.c` `__cpuhp_state_remove_instance`:
+  always `hlist_del(node)`
+- **[Phase 2]** Read `include/linux/list.h` `__hlist_del`:
+  `WRITE_ONCE(*pprev, next)` NULL-derefs if never hashed
+- **[Phase 2]** Read `__cpuhp_state_add_instance_cpuslocked`:
+  `hlist_add_head` only on success
+- **[Phase 3]** `git blame` IRQ path `4905ec2fb7e642` (2022); destroy
+  `e9a023f2b73ac3` (2022); snapshot/cpuhp order `a8625217a054ca` (2024,
+  in this tree)
+- **[Phase 3]** `git merge-base --is-ancestor e24a1418e90be HEAD` → not
+  in this tree; `e9a023f2b73ac3` / `a8625217a054ca` / `e9991434596f53` →
+  in this tree
+- **[Phase 3]** Follow-ups on origin/master do not redo this cleanup
+- **[Phase 4]** `b4 dig -c e24a1418e90be` → patch.msgid.link v9-1; `-a`
+  shows v7 first, v9 applied
+- **[Phase 4]** `b4 dig -m`: 31-message mbox; Sashiko comments are pre-
+  existing leftovers; Paul queued first ten patches; no NAK
+- **[Phase 4]** WebFetch lore/stable: 403 — UNVERIFIED stable-list
+  discussion
+- **[Phase 5]** Probe from `device_initcall(pmu_sbi_devinit)`;
+  `riscv_pmu_alloc` allocates `hw_events`; `pmu_sbi_get_ctrinfo`
+  allocates `pmu_ctr_list`
+- **[Phase 5]** `pmu_sbi_starting_cpu` uses `riscv_pmu_use_irq` /
+  `riscv_pmu_irq`
+- **[Phase 6]** `git describe HEAD` → `p-6.12-4-gbf6fcdf761abd`; `make
+  kernelversion` → **6.12.111**
+- **[Phase 6]** `git apply --check` of `e24a1418e90be`: all hunks OK
+- **[Phase 7]** `CONFIG_RISCV_PMU_SBI` default y in
+  `drivers/perf/Kconfig`
+- **[Phase 8]** Failure mode: UAF of registered PMU + cpuhp oops → HIGH
+- **UNVERIFIED:** live user oops; stable@ nomination history
 
 **YES**
 
- drivers/soc/ixp4xx/ixp4xx-qmgr.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/perf/riscv_pmu_sbi.c | 33 +++++++++++++++++++++++++++------
+ 1 file changed, 27 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/soc/ixp4xx/ixp4xx-qmgr.c b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-index 475e229039e30..e3ad0e0237a77 100644
---- a/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-+++ b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-@@ -454,6 +454,7 @@ static const struct of_device_id ixp4xx_qmgr_of_match[] = {
-         },
- 	{},
- };
-+MODULE_DEVICE_TABLE(of, ixp4xx_qmgr_of_match);
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 25f3a45dd7869..10f64b7b60c53 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1258,22 +1258,29 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 					  DOMAIN_BUS_ANY);
+ 	if (!domain) {
+ 		pr_err("Failed to find INTC IRQ root domain\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err;
+ 	}
  
- static struct platform_driver ixp4xx_qmgr_driver = {
- 	.driver = {
+ 	riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
+ 	if (!riscv_pmu_irq) {
+ 		pr_err("Failed to map PMU interrupt for node\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err;
+ 	}
+ 
+ 	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
+ 	if (ret) {
+ 		pr_err("registering percpu irq failed [%d]\n", ret);
+-		return ret;
++		irq_dispose_mapping(riscv_pmu_irq);
++		riscv_pmu_irq = 0;
++		goto err;
+ 	}
+ 
+ 	return 0;
++err:
++	riscv_pmu_use_irq = false;
++	return ret;
+ }
+ 
+ #ifdef CONFIG_CPU_PM
+@@ -1340,7 +1347,8 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ 		}
+ 	}
+ 	riscv_pm_pmu_unregister(pmu);
+-	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++	if (!hlist_unhashed(&pmu->node))
++		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+ }
+ 
+ static void pmu_sbi_event_init(struct perf_event *event)
+@@ -1462,6 +1470,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	struct riscv_pmu *pmu = NULL;
+ 	int ret = -ENODEV;
+ 	int num_counters;
++	bool irq_requested = false;
+ 
+ 	pr_info("SBI PMU extension is available\n");
+ 	pmu = riscv_pmu_alloc();
+@@ -1490,6 +1499,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+ 	}
++	irq_requested = (ret == 0);
+ 
+ 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
+ 	pmu->pmu.parent = &pdev->dev;
+@@ -1508,11 +1518,11 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 
+ 	ret = riscv_pm_pmu_register(pmu);
+ 	if (ret)
+-		goto out_unregister;
++		goto out_destroy;
+ 
+ 	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+ 	if (ret)
+-		goto out_unregister;
++		goto out_destroy;
+ 
+ 	/* SBI PMU Snapsphot is only available in SBI v2.0 */
+ 	if (sbi_v2_available) {
+@@ -1553,9 +1563,20 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ out_unregister:
++	perf_pmu_unregister(&pmu->pmu);
++
++out_destroy:
+ 	riscv_pmu_destroy(pmu);
++	if (irq_requested) {
++		free_percpu_irq(riscv_pmu_irq, pmu->hw_events);
++		irq_dispose_mapping(riscv_pmu_irq);
++		riscv_pmu_irq = 0;
++	}
+ 
+ out_free:
++	free_percpu(pmu->hw_events);
++	kfree(pmu_ctr_list);
++	pmu_ctr_list = NULL;
+ 	kfree(pmu);
+ 	return ret;
+ }
 -- 
 2.53.0
 
