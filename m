@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190DCCCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C8ACCF2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMhrqwPw+FGLBnkvsxlHHRpMLzpmVg0Nh8ecw1O7ps0=; b=De8v2jndszkRwNRi+mqmcBV0c5
-	Jv1XSoNwZHJICwYwojhgcdAYQkE2Wk4wOBnXLs0S4uPL6hhevZMPLIlZpkoNrv3H7Gdib28wa8GoT
-	ZgNZw/tZWr1Tr/l+E2yuy/sjvshGYatC9Nm+FNFX4MR/1vNVhTMrc12i/FNkkrpEIirTw0EnWluIM
-	lEttS4ahqigqfm/V0uDZJGSSn3cjoSBm1Z3wEoZo9PfjEK7x5aCJznqbh9C2lZTdYST4jf86Kot0H
-	zZ5jl5yPVmAbBCeSAJzMwzEmNS28AmObueJAzcC09LnuJtZUejdh3fYlHEzgmbZjQ4kKPM89Ef1KT
-	hGFq1fxA==;
+	bh=sv6rVlir+RBR5HytJBd1kxyg8GjuUSzazSxRgHWQXJ0=; b=yUG6vHQwVcXtc8S3AS4TB6DBRu
+	VmwxNZLFJysHuydA8aUlrRDBL8g5bG0Eb/Syg4KOEmBQqJGB68mhCorPCplB9tLn2RT8DsJUlT8Hr
+	ydX8c58M3SJKWOL/F5SMzKbbAFHc+qx26OwgEfilqHYQ+ZxWZEYIL5Hv8vwILC+PIA8WNKOdhrQHh
+	7s1wnVeC6OaQg0klrbGb+0Q159oqDeJ/el8xI+SVKfCrEmUuYjYxiHKWFPz6MAbI9DJQmMTBJSbSU
+	2HEyc0VTRXpgYkNfXL0GXNxX3xDmHrY1xD4VFyQSk+FyzanYTtkkeDKaLPEKrixP7sIxyfsG30vp/
+	AwgKlNDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInxm-00000007f1M-2NkT;
-	Mon, 19 Oct 2026 14:03:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xInxx-00000007fA6-3lsf;
+	Mon, 19 Oct 2026 14:03:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInxl-00000007f0i-2cUZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:03:41 +0000
+	id 1xInxw-00000007f98-3SVx;
+	Mon, 19 Oct 2026 14:03:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC50C6025A;
-	Mon, 19 Oct 2026 14:03:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB9A11F000C4;
-	Mon, 19 Oct 2026 14:03:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CC41417B1;
+	Mon, 19 Oct 2026 14:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A3661F000C9;
+	Mon, 19 Oct 2026 14:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418620;
-	bh=lMhrqwPw+FGLBnkvsxlHHRpMLzpmVg0Nh8ecw1O7ps0=;
+	s=k20260515; t=1792418632;
+	bh=sv6rVlir+RBR5HytJBd1kxyg8GjuUSzazSxRgHWQXJ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XsgMMs8FB2vgr/NRKG6OEJ8dHqCcFsr+TPQLKYgcuNSWpMy+LOS6WbsQ7ei8A+p+n
-	 98PKobukXDaNxo0PGIdAdZOhJPcX/J+AeImpf94FrVST/UPm/bhEtC4SWJAuBlGR75
-	 4xBtlUxraJ6Cg1AsXybKVo8aH+njZeLgo83Lrqk7atrCXWALkQK2uYijP7UbOyjMng
-	 1R9SiGqL38G4DYtzE9qfq0xNRNS07ZFh5CZUY2KNsebaTGDexhyirfFmbdbRvlzXEt
-	 dR9exrYm7tYtKeq/Krf0ZsQDWapGf40zUrPohkyLHUiVu5VIoBSRDCU8LNQuZfv1JI
-	 aCUn6wJ0x6tAw==
+	b=Sy9eVxO9FHnAsiqFgAgXpgE0EwvnrsF0PJpA7VSNtfd2K7T62sa28615clRyVNi3o
+	 PIWSaau5ob1MLGp6BPhUCD13+q5CXtSSZzq2z4+p0jOqLIv63N8rWnlXBN5buFWmPU
+	 /HFPX4EobkxsXTr09K14UrmHtHnLCSG7u1yly+zqEbUmZNOloSAJ7L5An59BQyAHpg
+	 rGfL8KwESeQH89wBj+LkBYfMU2n9ALSDyY2UwkEHtDhuW86ARpQu5Vx1M12efksrbN
+	 rMlWynmFS2Fp6/SCImuirwMkJFJkwX7XBk8kTYpHoGooGmv/tk3KHxdqV4p/QIvT8+
+	 u7aUJxTelWYxQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Alex Elder <elder@riscstar.com>,
-	Sashiko <sashiko-bot@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: Devin Wittmayer <lucid_duck@justthetip.ca>,
+	0072a70 <90307219+0072a70@users.noreply.github.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] net: stmmac: use dma_addr_t for DMA addresses
-Date: Mon, 19 Oct 2026 09:51:09 -0400
-Message-ID: <20261019135441.1420968-378-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-5.10] wifi: mt76: mt76x02: report rx FCS errors to mac80211
+Date: Mon, 19 Oct 2026 09:51:18 -0400
+Message-ID: <20261019135441.1420968-387-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -86,453 +82,408 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alex Elder <elder@riscstar.com>
+From: Devin Wittmayer <lucid_duck@justthetip.ca>
 
-[ Upstream commit 0c1f9020d2ada55aed8a2e055903ad9cd5d49dab ]
+[ Upstream commit ddae0bcb01e71c1184bb3f526f9622e31dc38f3b ]
 
-In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
-an unsigned integer local variable is used to hold the value returned
-by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
-subsequent dma_mapping_error() check of the returned value operates
-only on the low 32 bits (whose high bit won't be sign-extended).  In
-this case, dma_mapping_error() would return 0 (no error) even if there
-were one.
+When the fcsfail filter is enabled the hardware passes frames with a bad
+FCS up to the driver, but mt76x02_mac_process_rx() never checks
+MT_RXINFO_CRCERR and hands them to mac80211 without
+RX_FLAG_FAILED_FCS_CRC. In monitor mode the radiotap flags byte then
+never gets IEEE80211_RADIOTAP_F_BADFCS set and corrupted frames cannot be
+told apart from clean ones.
 
-Fix this in both spots by using a dma_addr_t for the local variable.
+Set RX_FLAG_FAILED_FCS_CRC from the descriptor CRC error bit, matching
+mt7603, mt7615, mt7915, mt7921, mt7925 and mt7996.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Alex Elder <elder@riscstar.com>
-Link: https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Reported-by: 0072a70 <90307219+0072a70@users.noreply.github.com>
+Closes: https://github.com/morrownr/mt76/issues/38
+Tested-by: 0072a70 <90307219+0072a70@users.noreply.github.com>
+Signed-off-by: Devin Wittmayer <lucid_duck@justthetip.ca>
+Link: https://patch.msgid.link/20260613002544.27750-3-lucid_duck@justthetip.ca
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The local tree is **6.12.111** (`pending-6.12`). The buggy `unsigned int
-des2` path is present here, and this type-correctness fix should be
-backported.
+## Phase 1: Commit message forensics
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+**Step 1.1 — Subject**
+- Record: `[wifi: mt76: mt76x02]` `[report]` `[report rx FCS errors to
+  mac80211]`
+- Subsystem is MediaTek mt76, mt76x02 family (mt76x0 / mt76x2 PCI and
+  USB). “Report” here is a correctness fix: the driver already receives
+  CRC-failed frames and must mark them.
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: `[net: stmmac] [use] [store dma_map_single() results as
-dma_addr_t in jumbo_frm()]`
+**Step 1.2 — Tags**
+- Record:
+  - `Reported-by: 0072a70 <90307219+0072a70@users.noreply.github.com>` —
+    real user hit
+  - `Closes: https://github.com/morrownr/mt76/issues/38`
+  - `Tested-by:` same reporter, on real hardware
+  - `Signed-off-by: Devin Wittmayer` (author)
+  - `Link: https://patch.msgid.link/20260613002544.27750-3-
+    lucid_duck@justthetip.ca`
+  - `Signed-off-by: Felix Fietkau` (mt76 maintainer)
+  - No `Fixes:` tag (expected for this review)
+  - No `Cc: stable` (expected; not a negative)
+  - Ignore any pipeline `Signed-off-by: Sasha Levin` / `[Upstream commit
+    ...]`
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-Record:
-- `Reported-by: Sashiko <sashiko-bot@kernel.org>` — static-analysis bot,
-  not a user crash
-- `Link: https://lore.kernel.org/linux-
-  devicetree/20260606010122.21A211F00899@smtp.kernel.org/` — Sashiko
-  report
-- `Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>` —
-  stmmac/netdev reviewer
-- `Signed-off-by: Alex Elder <elder@riscstar.com>` — author
-- `Link:
-  https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com` —
-  v2 1/2 of a net-next series
-- `Signed-off-by: Jakub Kicinski <kuba@kernel.org>` — net maintainer
-- No `Fixes:` tag (expected)
-- No `Cc: stable` (expected)
-- Ignore pipeline `Signed-off-by: Sasha Levin` / `[Upstream commit ...]`
-  if present on a candidate wrapper
+**Step 1.3 — Body**
+- Record:
+  - **Bug:** With the `fcsfail` filter enabled, hardware delivers frames
+    with `MT_RXINFO_CRCERR` set. `mt76x02_mac_process_rx()` never reads
+    that bit, so mac80211 never gets `RX_FLAG_FAILED_FCS_CRC`.
+  - **Symptom:** In monitor mode, radiotap never sets
+    `IEEE80211_RADIOTAP_F_BADFCS`; corrupted frames look identical to
+    clean ones.
+  - **Root cause:** Missing descriptor-bit → `rx_status` translation.
+    Other mt76 chips already do this.
+  - **Version info in the message:** none. Reporter used kernel 7.0.x;
+    the code path is much older (see Phase 3).
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-Record:
-- **Bug:** `jumbo_frm()` in `chain_mode.c` and `ring_mode.c` stores
-  `dma_map_single()` in `unsigned int des2`. On 64-bit `dma_addr_t`,
-  `dma_mapping_error()` only sees the low 32 bits.
-- **Symptom:** a failed mapping is treated as success
-  (`dma_mapping_error()` returns 0).
-- **Root cause:** `DMA_MAPPING_ERROR` is `~(dma_addr_t)0`
-  (`0xFFFFFFFFFFFFFFFF` on 64-bit). Truncating to `unsigned int` yields
-  `0xFFFFFFFF`, which promotes to `0x00000000FFFFFFFF` and does not
-  match all-ones.
-- **Version info:** none in the message. The pattern dates to at least
-  2016 (`f8be0d78be6e7`).
+**Step 1.4 — Hidden bug fix?**
+- Record: Not disguised. It is an explicit missing-flag fix that
+  implements the documented mac80211 contract for `FIF_FCSFAIL`.
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Record: Not disguised. It is an explicit correctness fix for a truncated
-DMA error check. Changing `des2` to `dma_addr_t` also stops truncating
-the address stored in `tx_skbuff_dma[].buf` (`dma_addr_t`) used for
-later unmap.
+## Phase 2: Diff analysis
 
-## PHASE 2: DIFF ANALYSIS
+**Step 2.1 — Inventory**
+- Record: one file, `drivers/net/wireless/mediatek/mt76/mt76x02_mac.c`.
+  Three lines added, none removed. Function: `mt76x02_mac_process_rx()`.
+  Surgical single-file change.
 
-**Step 2.1: INVENTORY THE CHANGES**
-Record:
-- `drivers/net/ethernet/stmicro/stmmac/chain_mode.c`: +2/−1
-- `drivers/net/ethernet/stmicro/stmmac/ring_mode.c`: +2/−1
-- Functions: `jumbo_frm()` in both files
-- Scope: single-function surgical type change in two parallel
-  implementations (4 insertions, 2 deletions)
+**Step 2.2 — Flow**
+- Record: After the existing `MT_RXINFO_L2PAD` check, if `rxinfo &
+  MT_RXINFO_CRCERR`, set `status->flag |= RX_FLAG_FAILED_FCS_CRC`.
+  Normal RX is unchanged for clean frames. Error/monitor path for CRC-
+  failed frames is now marked.
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-Record:
-- **Before:** `unsigned int des2 = dma_map_single(...)`; then
-  `cpu_to_le32(des2)`, `dma_mapping_error(..., des2)`,
-  `tx_skbuff_dma[entry].buf = des2`.
-- **After:** `dma_addr_t des2` so the error check and `buf` store use
-  the full DMA address.
-- Path: jumbo TX mapping in `stmmac_xmit()` when `enh_desc` is set and
-  the frame is large enough (`>= 4KiB` ring / `> 8KiB` chain).
-- Same local is reused for later `dma_map_single()` calls in those
-  functions, so all mapping sites in `jumbo_frm()` are fixed.
+**Step 2.3 — Bug mechanism**
+- Record: **Logic / correctness** (driver contract). Hardware already
+  passes CRC-failed frames when `FIF_FCSFAIL` is on
+  (`MT76_FILTER(FCSFAIL, MT_RX_FILTR_CFG_CRC_ERR)` in
+  `mt76x02_configure_filter()`). The driver failed to set the flag
+  mac80211 requires (`include/net/mac80211.h`: *“pass frames with failed
+  FCS (but you need to set RX_FLAG_FAILED_FCS_CRC for them)”*).
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Record:
-- **Category:** type / width bug that breaks error detection (and
-  truncates unmap addresses).
-- **Mechanism:** 32-bit truncation of a 64-bit `dma_addr_t` so
-  `dma_mapping_error()` never sees `DMA_MAPPING_ERROR`.
-- Verified in this tree:
+Verified mac80211 consequences in this tree:
+- `ieee80211_add_rx_radiotap_header()` sets
+  `IEEE80211_RADIOTAP_F_BADFCS` only if that flag is present
+  (`net/mac80211/rx.c`).
+- `should_drop_frame()` treats `RX_FLAG_FAILED_FCS_CRC` as drop-from-
+  cooked-path. Without it, `ieee80211_rx_monitor()` copies the frame to
+  monitor and **returns the original skb** to
+  `__ieee80211_rx_handle_packet()`. FCS-failed frames can therefore
+  enter the cooked RX path whenever `fcsfail` is enabled (including
+  concurrent monitor + STA/AP).
 
-```92:98:include/linux/dma-mapping.h
-static inline int dma_mapping_error(struct device *dev, dma_addr_t
-dma_addr)
-{
-        debug_dma_mapping_error(dev, dma_addr);
+**Step 2.4 — Fix quality**
+- Record: Obviously correct; same pattern as
+  `mt7603`/`mt7615`/`mt7915`/`mt7921`/`mt7996` in this tree. Minimal.
+  Regression risk is low: only CRCERR frames get a flag they should
+  already have. Clean frames are untouched. Does not add APIs or change
+  locking.
 
-        if (unlikely(dma_addr == DMA_MAPPING_ERROR))
-                return -ENOMEM;
-        return 0;
-}
-```
+## Phase 3: Git history
 
-`DMA_MAPPING_ERROR` is `~(dma_addr_t)0`. The current buggy locals:
+**Step 3.1 — Blame**
+- Record: Insertion point is the 2018 `mt76x02_mac_process_rx()` body
+  from `d9f8934ed147b3` (“mt76: move mt76x02_mac_process_rx in
+  mt76x02-lib module”), 2018-10-04, first contained in **v4.20-rc1**.
+  `MT_RXINFO_CRCERR` is defined in `mt76x02_mac.h:54` since
+  `5327b5ea13910d` (2018-09-04). The bit has been defined for years and
+  never consumed in RX processing.
 
-```23:41:drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-        unsigned int bmax, buf_len, des2;
-        ...
-        des2 = dma_map_single(priv->device, skb->data,
-                              buf_len, DMA_TO_DEVICE);
-        desc->des2 = cpu_to_le32(des2);
-        if (dma_mapping_error(priv->device, des2))
-                return -1;
-        tx_q->tx_skbuff_dma[entry].buf = des2;
-```
+**Step 3.2 — Fixes: tag**
+- Record: None. The omission dates to the original mt76x02 RX path, not
+  a later regression.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-Record:
-- Obviously correct: use the type `dma_map_single()` actually returns.
-- Minimal; no API or behavior change on the success path with a 32-bit
-  DMA mask.
-- Regression risk is low. `desc->des2` is still `__le32`, so hardware
-  still gets the low 32 bits (same as before). Maxime asked to make that
-  truncation explicit; that is the follow-up `c11c497af866c`
-  (`lower_32_bits()`), not required for this fix to be correct.
-- `cpu_to_le32()` already casts to `__u32` on little-endian; standalone
-  apply should not break the build.
+**Step 3.3 — File history**
+- Record: Same-function sibling from the same series is already in this
+  tree: `b6e7958602bd1` (“do not WARN on invalid rx descriptor length”).
+  That is patch 1/2 of `[PATCH 0/2] wifi: mt76: mt76x02: rx fixes for
+  fcsfail monitor mode`. This candidate is patch 2/2. They touch
+  different lines; this one does not depend on patch 1. `git apply
+  --check` of this hunk on HEAD is **clean**. No other FCS reporting
+  commit exists on this file.
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+**Step 3.4 — Author**
+- Record: Devin Wittmayer; not the subsystem maintainer. Maintainer
+  Felix Fietkau signed off. Author also submitted the sibling WARN fix.
+  Related author commits in this tree: `b6e7958602bd1`, plus unrelated
+  mt7615/mt7921 TXRX_NOTIFY drops.
 
-**Step 3.1: BLAME THE CHANGED LINES**
-Record:
-- `unsigned int ... des2` in ring_mode: `f8be0d78be6e7` (2016-11-15,
-  “change dma descriptors to `__le32`”).
-- chain_mode declaration last touched by `2c91b39912278` (already in
-  this tree: “fix integer underflow in chain mode”); that commit kept
-  `unsigned int des2`.
-- `jumbo_frm()` itself: `286a837217204` (2011).
-- Bug is long-standing, not new in 6.12.
+**Step 3.5 — Prerequisites**
+- Record: None beyond symbols already in 6.6: `MT_RXINFO_CRCERR`,
+  `RX_FLAG_FAILED_FCS_CRC`, `status->flag`. Commit text mentions mt7925;
+  that chip need not exist here — it is comparison only. Standalone
+  apply: yes.
 
-**Step 3.2: FOLLOW THE FIXES: TAG**
-Record: No `Fixes:` tag. Introducer is the 2011/2016 DMA-descriptor
-code, present in this tree.
+## Phase 4: Mailing list / external research
 
-**Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES**
-Record (this tree):
-- `2c91b39912278` net: stmmac: fix integer underflow in chain mode
-  (already here)
-- `133160135a6d7` STMMAC_GET_ENTRY rename
-- Mainline follow-up: `c11c497af866c` net: stmmac: convert DMA address
-  to lower 32 before assignment (clarity; not in this tree; not a
-  functional prerequisite)
-- This is standalone 1/2 of “DMA address handling fixes”; 2/2 is
-  style/clarity.
+**Step 4.1 — Original discussion**
+- Record: `b4 dig -c <sha>` cannot match because this commit is not in
+  the local history. Fallback: `b4 mbox
+  20260613002544.27750-3-lucid_duck@justthetip.ca`.
+  - Cover: https://patch.msgid.link/20260613002544.27750-1-
+    lucid_duck@justthetip.ca
+  - Series: v1 only (`b4 am --check-newer-revisions`: no later
+    revision).
+  - Two patches; this is 2/2.
+  - Cover: tested on MT7612U and MT7610U; fcsfail monitor captures get
+    BADFCS on corrupted frames, clean frames unchanged.
+  - No NAKs in the retrieved thread (cover + 2 patches, no review
+    replies). Applied by Felix Fietkau.
+  - Lore HTTP fetch returned 403; b4 was used instead.
 
-**Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS**
-Record: Alex Elder is not the stmmac maintainer; two origin stmmac
-commits are this pair. Reviewed by Maxime Chevallier; applied by Jakub
-Kicinski.
+**Step 4.2 — Recipients**
+- Record: To Felix Fietkau, Lorenzo Bianconi; Cc Ryder Lee, Shayne Chen,
+  Sean Wang, linux-wireless, linux-kernel. Right maintainers/lists.
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-Record: No new helpers. `dma_addr_t` and `dma_mapping_error()` exist
-here. `git apply --check` of `0c1f9020d2ada` succeeded on this tree.
-Parent-tree vs this tree only differs in `is_jumbo_frm()` (untouched).
-Standalone apply: yes.
+**Step 4.3 — Bug report**
+- Record: GitHub issue #38 (closed). Hardware: Alfa AWUS036ACM, mt7612u,
+  driver mt76x2u. With `iw set monitor fcsfail`, radiotap flags were
+  always `0x00`; `radiotap.flags.badfcs == 1` matched 0 of 2978 frames.
+  After this exact three-line change: 956/7353 frames had BADFCS `0x40`,
+  clean frames stayed `0x00`. Confirmed on-list/issue by the reporter
+  (`Tested-by`).
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+**Step 4.4 — Series context**
+- Record: Patch 1 (WARN on bogus MPDU length under fcsfail) is already
+  in this 6.6 tree. Patch 2 is the functional reporting fix.
+  Independent; both target the same user-visible fcsfail path.
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-Record:
-- `b4 dig -c 0c1f9020d2ada` →
-  https://patch.msgid.link/20260812163832.271742-2-elder@riscstar.com
-- Series: v1 2026-08-11; v2 2026-08-12 `[PATCH net-next v2 0/2] net:
-  stmmac: DMA address handling fixes`
-- Applied to **net-next** (not `net`) by Jakub on 2026-08-17
-- Cover: “ensure DMA errors don't get lost due to casting the result to
-  an integer of the wrong size”
-- No NAKs. Maxime: “I think this is good as-is” + `Reviewed-by`
-- Maxime noted `cpu_to_le32(des2)` still truncates into `__le32` and
-  doubted jumbo on true 64-bit descriptor addresses; that is pre-
-  existing hardware-descriptor width, not a regression from this patch
-- No reviewer `Cc: stable`
+**Step 4.5 — stable@ discussion**
+- Record: lore.kernel.org/stable HTTP 403. No separate stable-thread
+  evidence retrieved. Absence is not a negative for this review.
 
-**Step 4.2: CHECK WHO REVIEWED THE PATCH**
-Record (`b4 dig -w`): netdev maintainers (Kicinski, Dal, Pabeni, Lunn),
-STM32/stmmac (Torgue, Coquelin), Maxime Chevallier. Appropriate
-audience.
+## Phase 5: Semantic / call-chain analysis
 
-**Step 4.3: SEARCH FOR THE BUG REPORT**
-Record: Sashiko static analysis, not syzbot and not a user oops. The
-lore `linux-devicetree` link is a bot dump; no independent user
-reproduction was found. The bug is still visible in the code.
+**Step 5.1 — Functions**
+- Record: `mt76x02_mac_process_rx()`.
 
-**Step 4.4: CHECK FOR RELATED PATCHES AND SERIES**
-Record: Companion 2/2 (`c11c497af866c`) only wraps
-`cpu_to_le32(lower_32_bits(des2))`. This commit is the actual fix.
+**Step 5.2 — Callers**
+- Record: Only `mt76x02_queue_rx_skb()` in `mt76x02_txrx.c` (data RX,
+  not MCU queue). That is the USB/PCI RX completion path for mt76x0 and
+  mt76x2.
 
-**Step 4.5: CHECK STABLE MAILING LIST HISTORY**
-Record: lore.kernel.org returned HTTP 403 via WebFetch. `b4` thread has
-no stable discussion. UNVERIFIED: whether this hash was already
-requested on stable@; that does not change the technical verdict.
+**Step 5.3 — Callees (relevant)**
+- Record: Sets `struct mt76_rx_status` in `skb->cb`, then `mt76_rx()` →
+  mac80211. `mt76_rx()` already counts `RX_FLAG_FAILED_FCS_CRC` for
+  testmode FCS stats (`mac80211.c`).
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+**Step 5.4 — Reachability**
+- Record: Userspace-reachable: `iw set type monitor` + `iw set monitor
+  fcsfail` (nl80211 `NL80211_MNTR_FLAG_FCSFAIL` →
+  `ieee80211_adjust_monitor_flags()` → `fif_fcsfail` → `FIF_FCSFAIL` →
+  hardware CRC filter cleared). Common on USB adapters used for capture
+  (Alfa AWUS036ACM and similar).
 
-**Step 5.1: IDENTIFY KEY FUNCTIONS**
-Record: `jumbo_frm()` in `chain_mode.c` and `ring_mode.c`.
+**Step 5.5 — Similar patterns**
+- Record: Same `status->flag |= RX_FLAG_FAILED_FCS_CRC` already present
+  in this tree for mt7603, mt7615, mt7915, mt7921, mt7996. mt76x02 is
+  the gap. `MT_RXINFO_ICVERR` / `MT_RXINFO_MICERR` are also unused here;
+  out of scope for this patch.
 
-**Step 5.2: TRACE CALLERS**
-Record:
-- `stmmac_jumbo_frm()` macro → `hw->mode->jumbo_frm`
-- Only call site: `stmmac_xmit()` when `priv->plat->enh_desc` and
-  `is_jumbo_frm(skb->len)`
-- Context: process / NAPI TX, not IRQ
-- `dwmac4_ring_mode_ops` (DWMAC ≥ 4.00) has no `jumbo_frm`; those chips
-  do not use this path
-- Affected: DWMAC100 / DWMAC1000 (and early DWMAC4 that still install
-  `ring_mode_ops`/`chain_mode_ops`) with enhanced descriptors
+## Phase 6: This tree (6.6.157 / pending-6.6)
 
-**Step 5.3: TRACE CALLEES**
-Record: `dma_map_single()`, `dma_mapping_error()`, `cpu_to_le32()`,
-`stmmac_prepare_tx_desc()`. On error, `return -1` → `stmmac_xmit` `goto
-dma_map_err`.
+**Step 6.1 — Does the buggy code exist?**
+- Record: Yes. `mt76x02_mac_process_rx()` at `mt76x02_mac.c:794–797` has
+  L2PAD then DECRYPT; no CRCERR check. `MT_RXINFO_CRCERR` is defined.
+  `git merge-base --is-ancestor d9f8934ed147b3 HEAD` succeeded. Bug
+  present since ~v4.20, so it is in 6.6.y.
 
-**Step 5.4: FOLLOW THE CALL CHAIN**
-Record: userspace send / jumbo MTU → `ndo_start_xmit` = `stmmac_xmit` →
-`jumbo_frm`. TSO/GSO with `priv->tso` uses `stmmac_tso_xmit` instead.
-Reachable from userspace on jumbo MTU. Mapping failure is an error path
-(IOMMU / swiotlb pressure).
+Local tree identity:
+- `git describe HEAD` → `p-6.6-3-g04810563abb71`
+- `make kernelversion` → **6.6.157**
+- Branch: `pending-6.6`
 
-**Step 5.5: SEARCH FOR SIMILAR PATTERNS**
-Record: non-jumbo TX in `stmmac_xmit` already uses `dma_addr_t des`.
-This is leftover jumbo-path width mismatch. Historical related fix in-
-tree: `06a80a7d09cc3` (descriptor addresses >32-bit).
+**Step 6.2 — Backport difficulty**
+- Record: **Clean apply.** Context matches; `git apply --check`
+  succeeded. Surrounding code is the same as the patch’s index.
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+**Step 6.3 — Related fixes already here**
+- Record: No existing CRCERR → `RX_FLAG_FAILED_FCS_CRC` translation.
+  Sibling WARN fix `b6e7958602bd1` is present (different hunk).
+  `63fe66f102837` (mt7996 FCS bit in wrong RXD word) is a different
+  chip.
 
-**Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?**
-Record: Yes. Local tree is **6.12.111** (`p-6.12-3-gc504cf0baa3d8`).
-Both files still have `unsigned int ... des2`. Introduced no later than
-2016; present since this series branched. `git merge-base --is-ancestor
-0c1f9020d2ada HEAD` is false (fix not here).
+## Phase 7: Subsystem context
 
-**Step 6.2: CHECK FOR BACKPORT COMPLICATIONS**
-Record: Expected **clean apply**. `git show 0c1f9020d2ada | git apply
---check` succeeded. Only unrelated `is_jumbo_frm()` signature drift vs
-mainline parent.
+**Step 7.1**
+- Record: `drivers/net/wireless/mediatek/mt76` — **IMPORTANT** (widely
+  used WiFi, not core mm/vfs). Covers MT76x0U/E and MT76x2U/E (`Kconfig`
+  MT7610/MT7612 USB and PCIe). Peripheral relative to core kernel, but
+  these USB NICs are common in the field.
 
-**Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE**
-Record: No `dma_addr_t` jumbo_frm fix in this tree. `2c91b39912278` is a
-different jumbo underflow fix and left `des2` as `unsigned int`.
+**Step 7.2**
+- Record: mt76 is active; mt76x02 RX processing itself has been stable
+  for years. This is a long-standing omission, not churn from a new
+  subsystem.
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+## Phase 8: Impact and risk
 
-**Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY**
-Record: `drivers/net/ethernet/stmicro/stmmac` — Synopsys DWMAC, used on
-STM32, Rockchip, Allwinner, i.MX, Qualcomm, Intel, etc. Criticality:
-**IMPORTANT** (common Ethernet), this path **PERIPHERAL-to-IMPORTANT**
-(older GMAC + jumbo).
+**Step 8.1 — Who is affected**
+- Record: Users of mt76x0/mt76x2 (USB and PCIe) who enable monitor
+  `fcsfail`. Normal STA/AP-only operation keeps the hardware CRC filter
+  on, so those users are not on this path. Mixed monitor+managed on the
+  same phy is affected for cooked RX.
 
-**Step 7.2: ASSESS SUBSYSTEM ACTIVITY**
-Record: Actively maintained, but `chain_mode.c`/`ring_mode.c` jumbo
-logic is mature (2011). This is an old bug, not churn from new code.
+**Step 8.2 — Trigger**
+- Record: Explicit monitor `fcsfail` (and typically a busy channel). Not
+  every boot. Unprivileged users cannot enable monitor without
+  privileges, so this is not a generic local-priv-esc path; it is a
+  privileged capture/correctness bug.
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 8.3 — Failure mode**
+- Record:
+  - Monitor: corrupted frames indistinguishable from good ones (broken
+    advertised filter). **MEDIUM** for dedicated capture.
+  - Cooked path: FCS-failed frames can be processed as valid 802.11 when
+    `fcsfail` is on. That is frame-integrity / stack-correctness, not a
+    panic. **MEDIUM–HIGH** in mixed-iface setups; not a guaranteed oops.
+  - Overall severity: **MEDIUM**, with a real user-visible functional
+    break and a documented driver-API violation.
 
-**Step 8.1: DETERMINE WHO IS AFFECTED**
-Record: Driver-specific, config `CONFIG_STMMAC_ETH`, older DWMAC with
-`enh_desc`, jumbo frames, **and** 64-bit `dma_addr_t` (typical
-arm64/x86_64). 32-bit `dma_addr_t` already compared equal to
-`DMA_MAPPING_ERROR`.
+**Step 8.4 — Risk vs benefit**
+- Record: **Benefit: medium** (correct FCS reporting; stop garbage
+  frames leaking into cooked RX). **Risk: very low** (3 lines, same
+  pattern as sibling chips, no lock/API change). Ratio favors backport.
 
-**Step 8.2: DETERMINE THE TRIGGER CONDITIONS**
-Record: Jumbo TX (`skb->len >= 4KiB` ring / `> 8KiB` chain) plus
-`dma_map_single()` failure. Not every packet. Unprivileged users can
-send jumbo frames if MTU allows; they cannot force IOMMU exhaustion
-easily. Mapping failure is uncommon but real.
+## Phase 9: Synthesis
 
-**Step 8.3: DETERMINE THE FAILURE MODE SEVERITY**
-Record:
-- Failed mapping treated as success
-- Descriptor programmed with `0xFFFFFFFF`
-- NIC DMAs from that address (wrong memory / bus error / possible leak
-  of physical memory onto the wire)
-- `tx_skbuff_dma[].buf` also truncated, so unmap can be wrong
-- Severity: **HIGH** (wrong DMA address / potential corruption). Not a
-  guaranteed panic on every jumbo packet.
+**Step 9.1 — Evidence**
 
-**Step 8.4: CALCULATE RISK-BENEFIT RATIO**
-Record:
-- **Benefit:** medium-high for affected 64-bit DWMAC jumbo users; closes
-  a real DMA error-handling hole
-- **Risk:** very low (2-line type change per file, no locking/API
-  change)
-- **Ratio:** favorable
+For:
+- Real, reproduced bug (GitHub #38; Tested-by on MT7612U; author also
+  tested MT7610U).
+- Violates mac80211 `FIF_FCSFAIL` contract; radiotap BADFCS never set.
+- FCS-failed frames can continue into `__ieee80211_rx_handle_packet()`
+  without the flag.
+- Three-line, obviously correct, matches every other mt76 MAC in this
+  tree.
+- Applies cleanly to 6.6.157; symbols and call path exist.
+- Maintainer SOB (Felix Fietkau).
+- Popular USB hardware (e.g. Alfa AWUS036ACM).
 
-## PHASE 9: FINAL SYNTHESIS
+Against:
+- Not a crash/UAF/deadlock; mainly monitor-mode correctness plus cooked-
+  path leakage only when `fcsfail` is enabled.
+- No `Fixes:` (omission from original driver, not a later regression).
+- Affects a subset of mt76x02 users, not all machines.
 
-**Step 9.1: COMPILE THE EVIDENCE**
+Unresolved:
+- Direct lore.kernel.org HTTP was 403; discussion recovered via b4.
+- No independent stable@ thread found.
 
-FOR:
-- Real, verifiable type bug: truncated `dma_mapping_error()` on 64-bit
-  `dma_addr_t`
-- Failure can program the NIC with a bogus DMA address
-- Also stores a full address in `tx_skbuff_dma[].buf`
-- ~6 lines, obviously correct, reviewed, applied by net maintainer
-- Buggy code is in this 6.12 tree and has been for years
-- Patch applies cleanly
-- Same driver already uses `dma_addr_t` on the normal TX path
+**Step 9.2 — Stable rules**
+1. Obviously correct and tested? **PASS** — 3 lines, hardware-tested,
+   maintainer-acked.
+2. Real bug affecting users? **PASS** — reporter could not tell bad-FCS
+   frames apart; contract violation is in-tree.
+3. Important issue? **PASS** (medium) — broken advertised monitor filter
+   plus cooked-path delivery of CRC-failed frames. Not a panic, but it
+   is a real correctness/integrity bug, not a feature.
+4. Small and contained? **PASS** — +3 lines, one function.
+5. No new features/APIs? **PASS** — sets an existing `rx_status` flag
+   other mt76 chips already set.
+6. Can apply to this tree? **PASS** — clean apply on 6.6.157.
 
-AGAINST:
-- Submitted to **net-next**, not `net` (not treated as an urgent
-  regression)
-- Sashiko/static analysis, no user oops
-- Jumbo + older GMAC + mapping failure is a narrow trigger
-- Reviewer noted 32-bit descriptors cannot represent full 64-bit
-  addresses (pre-existing)
-- Companion `lower_32_bits()` patch is not included (optional clarity)
+**Step 9.3 — Exception category**
+- Record: Not a device-ID/quirk/DT/build/docs exception. Ordinary small
+  driver correctness fix.
 
-UNRESOLVED:
-- Stable@ archives not readable via WebFetch (403)
-- Exact Sashiko warning text in the large 47-message dump was not
-  isolated beyond the type issue this patch names
+**Step 9.4 — Decision**
+This tree is **6.6.157**. The buggy RX path, `MT_RXINFO_CRCERR`, and
+mac80211 flag handling are all present. The patch is a tiny, tested,
+maintainer-accepted fix for a user-visible bug on hardware this driver
+supports. Benefit clearly outweighs risk.
 
-**Step 9.2: APPLY THE STABLE RULES CHECKLIST**
-1. Obviously correct and tested? **PASS** — type matches DMA API;
-   reviewed; in mainline since 2026-08-17
-2. Fixes a real bug that affects users? **PASS** — missed DMA mapping
-   errors on 64-bit `dma_addr_t`
-3. Important issue? **PASS** — wrong DMA address on mapping failure
-   (corruption / crash / possible leak), even if the window is uncommon
-4. Small and contained? **PASS** — 6 lines, two files, one function
-5. No new features or APIs? **PASS**
-6. Can apply to the local tree? **PASS** — `git apply --check` clean on
-   6.12.111
+---
 
-**Step 9.3: CHECK FOR EXCEPTION CATEGORIES**
-Record: None (not a device ID/quirk/DT/build/docs exception). Qualifies
-as a normal small bugfix.
+### What the commit solves for 6.6 users
 
-**Step 9.4: MAKE YOUR DECISION**
-The local 6.12 tree still truncates `dma_map_single()` to `unsigned int`
-in `jumbo_frm()`, so `dma_mapping_error()` cannot see
-`DMA_MAPPING_ERROR` on 64-bit `dma_addr_t`. That is a real DMA
-correctness bug, the fix is surgical, and it applies here without
-prerequisites. Narrow trigger does not outweigh the severity of
-programming a failed mapping into the NIC.
+mt76x02 already programs the hardware to deliver CRC-failed frames when
+monitor `fcsfail` is set, but never tells mac80211. Users of
+MT7610/MT7612 USB and PCIe adapters then see every frame as clean in
+radiotap, and those frames can also continue into the normal RX
+handlers. The fix sets `RX_FLAG_FAILED_FCS_CRC` from `MT_RXINFO_CRCERR`,
+which is what this tree already does for later mt76 chips.
 
-### What the commit solves and why it matters to stable users
-On 64-bit `dma_addr_t` platforms, a failed jumbo TX mapping is
-misclassified as success, and the MAC may DMA using `0xFFFFFFFF`. 6.12
-users of DWMAC1000-class stmmac with jumbo MTU on arm64/x86_64 are
-exposed.
+### Stable-rule fit
 
-### Stable rules / risk
-Meets the stable bar: real bug, small, no new API, clean apply. Risk is
-a type change of a local. Benefit is correct mapping-error handling and
-a full-width unmap address.
+Small, obviously correct, no new API, applies cleanly, real user-visible
+bug. Importance is monitor/FCS integrity rather than a panic; that is
+still within what stable takes for driver contract bugs of this size.
+
+### Risk vs benefit
+
+Very low risk (three lines, clean frames unchanged). Medium benefit for
+mt76x02 monitor users and mixed-iface setups.
 
 ### Concerns
-Optional follow-up `c11c497af866c` only makes 32-bit descriptor
-truncation explicit; not required. No need to wait for other series
-patches.
 
-## Verification
-- [Phase 1] Parsed tags: Sashiko Reported-by, Maxime Reviewed-by, Jakub
-  SOB; no Fixes/Cc stable
-- [Phase 1] Body: truncated `dma_mapping_error()` on 64-bit `dma_addr_t`
-- [Phase 2] Diff: `unsigned int des2` → `dma_addr_t des2` in both
-  `jumbo_frm()` implementations (+4/−2)
-- [Phase 2] `include/linux/dma-mapping.h`: `dma_mapping_error()`
-  compares to `DMA_MAPPING_ERROR` (`~(dma_addr_t)0`)
-- [Phase 2] Local `chain_mode.c`/`ring_mode.c` still use `unsigned int
-  des2`; `tx_skbuff_dma[].buf` is `dma_addr_t`
-- [Phase 3] Blame: `f8be0d78be6e7` (2016) / `286a837217204` (2011); in
-  this tree
-- [Phase 3] Mainline SHA `0c1f9020d2ada`; follow-up `c11c497af866c` is
-  clarity-only
-- [Phase 3] `git merge-base --is-ancestor 0c1f9020d2ada HEAD` → not in
-  this tree
-- [Phase 4] `b4 dig -c 0c1f9020d2ada`: lore/msgid v2 1/2 net-next
-  series; applied to netdev/net-next
-- [Phase 4] `b4 dig -a`: v1 then v2; Maxime suggested `lower_32_bits()`,
-  still Reviewed-by on the type fix
-- [Phase 4] `b4 dig -w`: netdev + STM32/stmmac CCs
-- [Phase 4] mbox cover: “DMA errors don't get lost due to casting”
-- [Phase 4] UNVERIFIED: stable@ mailing list (lore 403)
-- [Phase 5] Callers: `stmmac_xmit()` → `stmmac_jumbo_frm()`; DWMAC4 ≥
-  4.00 ops have no `jumbo_frm`
-- [Phase 5] Non-jumbo TX already uses `dma_addr_t des`
-- [Phase 6] `git describe HEAD` / `make kernelversion`: 6.12.111
-- [Phase 6] `git apply --check` of `0c1f9020d2ada`: success
-- [Phase 6] `git diff 0c1f9020d2ada^ -- chain_mode.c ring_mode.c`: only
-  `is_jumbo_frm()` drift
-- [Phase 8] Failure mode: missed mapping error → NIC DMA at
-  `0xFFFFFFFF`; severity HIGH
-- UNVERIFIED: isolated full text of the original Sashiko diagnostic line
+No functional dependencies. Series mate (WARN drop) is already in this
+tree but is not required for this hunk. mt7925 in the commit message is
+comparison only.
+
+---
+
+Verification:
+- [Phase 1] Parsed tags: Reported-by/Tested-by 0072a70, Closes
+  github.com/morrownr/mt76/issues/38, Link msgid `...27750-3...`, SOB
+  Felix Fietkau; no Fixes/Cc:stable
+- [Phase 2] Diff: +3 lines in `mt76x02_mac_process_rx()` after L2PAD;
+  sets `RX_FLAG_FAILED_FCS_CRC` from `MT_RXINFO_CRCERR`
+- [Phase 2] Confirmed `mt76x02_configure_filter()` maps `FIF_FCSFAIL` →
+  clear `MT_RX_FILTR_CFG_CRC_ERR`
+- [Phase 2] Confirmed mac80211 `should_drop_frame()` / radiotap BADFCS /
+  `ieee80211_rx_monitor()` cooked-path return behavior in this tree
+- [Phase 3] `git blame`: insertion region from `d9f8934ed147b3` (2018);
+  `git merge-base --is-ancestor` true; `git describe --contains` →
+  v4.20-rc1
+- [Phase 3] `MT_RXINFO_CRCERR` defined at `mt76x02_mac.h:54`; `git grep`
+  shows it is unused in `.c` files in this tree
+- [Phase 3] Sibling `b6e7958602bd1` already in HEAD; this hunk
+  independent; `git apply --check` CLEAN
+- [Phase 4] `b4 mbox` saved 3-message series; cover tested
+  MT7612U/MT7610U; `b4 am --check-newer-revisions` = v1 only, no NAKs
+- [Phase 4] WebFetch of GitHub issue #38: reproduced 0 BADFCS; after
+  patch 956/7353 frames flagged
+- [Phase 4] lore.kernel.org WebFetch: 403 — UNVERIFIED via HTTP;
+  recovered via b4
+- [Phase 5] Only caller: `mt76x02_queue_rx_skb()`; chips: MT76x0U/E,
+  MT76x2U/E
+- [Phase 5] Same flag already set in mt7603/mt7615/mt7915/mt7921/mt7996
+  in this checkout
+- [Phase 6] `git describe HEAD` p-6.6-3-g04810563abb71; `make
+  kernelversion` 6.6.157; buggy code present; fix not applied
+- [Phase 8] Failure mode: wrong radiotap + possible cooked-path delivery
+  of CRC-failed frames; not a panic
+- UNVERIFIED: stable@ mailing-list thread content (HTTP 403)
 
 **YES**
 
- drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
- drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt76x02_mac.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-index 2515608878235..5b0bab33ce4b6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, buf_len, des2;
-+	unsigned int bmax, buf_len;
- 	unsigned int i = 1, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c b/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
+index 06f17da2c0106..17c9782915315 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
+@@ -792,6 +792,9 @@ int mt76x02_mac_process_rx(struct mt76x02_dev *dev, struct sk_buff *skb,
+ 	if (rxinfo & MT_RXINFO_L2PAD)
+ 		pad_len += 2;
  
- 	desc = tx_q->dma_tx + entry;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-index 88a8d22812f5d..1e6541937cb27 100644
---- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, len, des2;
-+	unsigned int bmax, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
- 
- 	if (priv->extend_desc)
- 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
++	if (rxinfo & MT_RXINFO_CRCERR)
++		status->flag |= RX_FLAG_FAILED_FCS_CRC;
++
+ 	if (rxinfo & MT_RXINFO_DECRYPT) {
+ 		status->flag |= RX_FLAG_DECRYPTED;
+ 		status->flag |= RX_FLAG_MMIC_STRIPPED;
 -- 
 2.53.0
 
