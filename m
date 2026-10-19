@@ -2,171 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51D2B606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 19:10:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32E8F606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 19:23:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UVCUjnma;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=XWUkUFp7;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=ZOWvEb/9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=urx2rDTQ;
+	dkim=pass (2048-bit key, unprotected) header.d=gluon.es header.i=@gluon.es header.a=rsa-sha256 header.s=default header.b=imJ+2XdX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6470PVaJU3ktw7c2vsZ7EbxiF6c1BPCKPP6Y5+8T0m8=; b=UVCUjnmaiPuYCTOOzV2s6z2MWb
-	Cl62x39iK9ZUVVauseWz4F1XBpaVr4KWpnvj5MLJVLlW8p6iVs0n0cexwR9ErKT6GN9RKUaUGuiXC
-	DtJ1FxbbW1/eZrm04tyc1N0CKdbDsa3ABA4XP6/B4p2fBgqEXecc680OqRdh8QWxB5RNEOEN6SLjD
-	+riH0lJgvB67dg0FwpKgRffQ4LsZT3eCzZC0bIm/QIWCIcBwKuO2vSZf5w5UJ6tHIXKexlUsa47JB
-	XLKQexcSIf7zpcMo+3EmX/3TEyoBZ0L3x0TGPDyygMjEXrnaZ147ONn6QRyl3K9OakhGSrhXSxLTK
-	7Uo1AA+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6y4bY/nWKsQ0dtsbCN7wJWBo0nm0F/zcZorgUH+8wwE=; b=urx2rDTQTfMJIJZkQfiw/9JgFj
+	npX5u/7+UiztWr/uHmOePCSd+o5gsULQ6cN/xCnJlGV+rp2boFSah1rpClCmeGNiqRY7AnHWbtWI0
+	BlNAhpSjseK3JsNPzq3di0eiTZBHfono836Qe1DgLT4jh8b5ualybOI3gjkBY1wsFwprAhR75dYOi
+	WONB22zvMJvfD2A5tgT0qMoPF+tJkIgxOz/SSMSPDhIfOLg8ELuEv1zH1l0VFGf0oJxncHba4di3q
+	WpODqbB6AWx4BCFKkQXwXyR9lRkpBYKO7gKT23JKi5KPKzLomKP+Ba3Spm+SiZ29IVxbaNTxLONGU
+	dsqWjUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIskA-00000008E3M-157t;
-	Mon, 19 Oct 2026 19:09:58 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xIsx5-00000008EiB-1y4s;
+	Mon, 19 Oct 2026 19:23:19 +0000
+Received: from nimiomail.com ([217.160.32.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIsk7-00000008E2l-1OrG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 19:09:56 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 69JJ3awI859493;
-	Mon, 19 Oct 2026 14:09:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=proofpoint-05-2026; bh=6470PVaJU3ktw7c
-	2vsZ7EbxiF6c1BPCKPP6Y5+8T0m8=; b=XWUkUFp73BwJ64DIou+YfLQYIGb8XrS
-	jcZFYy75h2IgDeYXiW1mfA/FVzxyqOik1p2YgM37Wcq4IQZfDp1Anvxb6C7z73Eh
-	gntAnO/g7rvsrUhbEGkWWEpmeo/8z7QrUr02yEsNcw4+co1EmcF1W/UcJFQjq75h
-	uJnba0w4miAAXq2QIFq2uVBkNdklP0O1N0lzewTVpEJuDn4a05uJraQae/K/LxXU
-	jxo9isN/sRdmcRKBLAFzsnlBLKL3mu4SsZYtMl8HRw+IKFAsAdmOMJPuvMZ/5Ofd
-	9/IZqeHx5NeBKVESmHsiX625PAUznIIIx5b3PJpLK5AThe2YCD6gvDg==
-Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010014.outbound.protection.outlook.com [52.101.201.14])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4hct1jr7mn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 19 Oct 2026 14:09:50 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jqIi9RAxk+8vWSP5b0yKvzuYHgnYQOWhdz5u+5XsUB2oMm00J4Vh4d5kY0MriNLY7t1s2F0fVx/NxYGYm0UwRRhuq0+4HhMg/Kp1xv26i0JOpMirvjt+clHOwjLSwbgBH7yJHLUbaergZbIcTapQFClfFjNmUMPoi9C57CicDx71v2ZtxhbVhphxAKIjpex3ghS5OrmHsDrDLCyOeR9mmjc3zHBri5KugLefGZPJWvzENbQPf2xAS+ZhxkrNy/2/nZLMjHLc59FoQnNpkT7qNKRAjCZoSFRgaZH0WiXjcB7LF8/wZfQ2HmtY1QB1ixvsjKJgxdhxxSvHHVS/wDRXnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6470PVaJU3ktw7c2vsZ7EbxiF6c1BPCKPP6Y5+8T0m8=;
- b=DrfbQCyxswKnjfDNWr1vK3nTZ00NaHOAFfg6nNIDxNK2M+fVNXo6QRj3mNMwFotRZ21ywjem1pxAy4CqVBIBtv4OV1v5CHDEzI7ReWEJNw+KPsd3ZGBC0Z3Mbpywp6rO4FDtzR0CjNLhGzudv+WBQHyqpfnbmWQpvWTSy9F9nPpVPB7JITSuZx3aZ/nEyjUpEd92zjfP5n7VzGf6yqlJZrQt2qL8Ds2wWUJBVdl2tbRjQC27fcf2qmNARXU76x/moQ6U+hw3Q/JMN47+JcYSU1dRokWDGYuaQAWReFeHfS6I9xGV3ZarHKKtGspQXiLHrKYsPyG2tBAUZDAzlcqokA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=toradex.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6470PVaJU3ktw7c2vsZ7EbxiF6c1BPCKPP6Y5+8T0m8=;
- b=ZOWvEb/99cu8h2CNjIXqMpNEw1stNLf2/stPQMus1HIur0JD9qFwxUvQU6g2Drgz/MGq8nNG7mayYXe+VDRrbv5MI9zlZTfGV0NWVOhyv8xDuq4OX0HFmTdA+VLzzDrfmJU7SOkwmm/UnW5LtJwGRCuCA3tPILTxuHSPPITT8pw=
-Received: from PH8P221CA0031.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:346::7)
- by DS4PPFB6B52B4A1.namprd10.prod.outlook.com (2603:10b6:f:fc00::d43) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Mon, 19 Oct
- 2026 19:09:44 +0000
-Received: from SN1PEPF000397AE.namprd05.prod.outlook.com
- (2603:10b6:510:346:cafe::5) by PH8P221CA0031.outlook.office365.com
- (2603:10b6:510:346::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.4 via Frontend Transport; Mon, 19
- Oct 2026 19:09:44 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SN1PEPF000397AE.mail.protection.outlook.com (10.167.248.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.6 via Frontend Transport; Mon, 19 Oct 2026 19:09:43 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 14:09:30 -0500
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 19 Oct
- 2026 14:09:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 19 Oct 2026 14:09:30 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 69JJ9UOj3390494;
-	Mon, 19 Oct 2026 14:09:30 -0500
-Date: Mon, 19 Oct 2026 14:09:30 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: Frank Li <Frank.Li@nxp.com>, <imx@lists.linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Francesco Dolcini <francesco.dolcini@toradex.com>,
-        <linux-kernel@vger.kernel.org>, <linux-bsp@toradex.com>
-Subject: Re: [PATCH] MAINTAINERS: Add entry for Toradex boards
-Message-ID: <20261019190930.eqev72zc7pkzrc26@mummy>
-References: <20261009064705.10116-1-francesco@dolcini.it>
+	id 1xIsx2-00000008Ehi-0fXF;
+	Mon, 19 Oct 2026 19:23:18 +0000
+Received: from nimiomail.com (localhost.localdomain [127.0.0.1])
+	by nimiomail.com (Postfix) with ESMTP id 7BD5D81E92;
+	Mon, 19 Oct 2026 21:23:07 +0200 (CEST)
+X-Spam-Score: -3.101
+X-Spam-Level: 
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
+Authentication-Results: nimiomail.com (amavis) (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gluon.es
+Received: from nimiomail.com ([127.0.0.1])
+	by nimiomail.com (nimiomail.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id QNRt1Oecl74P; Mon, 19 Oct 2026 21:23:01 +0200 (CEST)
+Received: from DESKTOP-2QFDG0H.tail76f4b.ts.net (21.red-2-139-241.staticip.rima-tde.net [2.139.241.21])
+	by nimiomail.com (Postfix) with ESMTPSA id C5E4480709;
+	Mon, 19 Oct 2026 21:23:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gluon.es; s=default;
+	t=1792437781; bh=6y4bY/nWKsQ0dtsbCN7wJWBo0nm0F/zcZorgUH+8wwE=;
+	h=From:To:Subject;
+	b=imJ+2XdXhn0VS2WDx9HTbQrvF9s9vLdmSHICMY9UBHFRsfxRUFl3is6TQZOrLeSp4
+	 boSvYr2/YnsU9kXbZD5m6sYIt9iEqY/fc/Iu14+7MPPg+BgGND6W6fP0efV36xZDCi
+	 N1UqX79wvhq04drJ9cFJv6uaQJtEZyHZWQeKOkXiYGqe7zgc1xN0H83UaWhErrfZBa
+	 hyquBUhwYGn99RQGQpYKdh4d2aNQ3HvICvv5pBlXsD/oFUiPy+lfpamfmxuzDNIyLq
+	 votil1L+QVBQPxk26c6sliKTVZqcn979IOip1LggJD4fDKEJvEzHE2OaVeOD0TQVBB
+	 L6Z71IEsougrA==
+Authentication-Results: nimiomail.com;
+	spf=pass (sender IP is 2.139.241.21) smtp.mailfrom=info@gluon.es smtp.helo=DESKTOP-2QFDG0H.tail76f4b.ts.net
+Received-SPF: pass (nimiomail.com: connection is authenticated)
+From: Miguel Jesus Seron Gonzalez <info@gluon.es>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dongjin Kim <tobetter@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: odroid-m1: use rgmii-id for gmac0
+Date: Mon, 19 Oct 2026 21:22:54 +0200
+Message-ID: <20261019192254.6933-1-info@gluon.es>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261009064705.10116-1-francesco@dolcini.it>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397AE:EE_|DS4PPFB6B52B4A1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6df1180e-87fd-4c0b-fc98-08df2e1488da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|23010399003|1800799024|261009223027099003|10067099003|56012099006|3023799007|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: h5/UQNgmt6Rqt2enImUQOWH6jf7+k+RXhqITu4zWqTmneTe897zYdj9mEJ/L1swtPdv0Fo74cIL2hR9FJCa8twAu3unlGE5z7iKJA7C9qt/jezCpqYm6dmyhHbP0HMdX3TLWtMfZ6dqccbonA12bMKBje/iwIUd5wtHcvBJyP12wqtpSzHd2j3TDndTM4h60ELhcuvRiMZEguyGkHjLlLt+WNAlNfGwriZVwlTEzrA1To2aYtPZc6bYSi4/rQsmgR1TPMfqNJCBc2/iE4YUnDbKefuPYL6XsDmCXtbdmPfo1lcsfv1zWpuVLliMZ1Op75CLk6HtyQ4FL5uxHQXA7I0pYBhn0AVGqh19gfR1Pa7Z42ALr9lhfj2APz34GakkCfeml8HSFSpb4vgGAwkRhZQ2i/vM9+hpXZb4jzxdk8cUV3Si3iwD3IsMxqxPmCSf2OkIvMp7SeEYLjzCNR+d/5iL5kWyjET616+1xYUCu1qrAbRtEdZOhY6f2caeMkK41ms5/dHSl8nPX2LLAJDoTshFM4xd96BZ1O5SXUH2ecWfGT+JiDK/9xgOJBCs+P/V+WCUlDEQ3R/P6rlsgFTSBVC25065yf794Hw3rOKlqvqlALNPmMOowOfogQuZxb0VUzVNUk9Q4Oq/kiIuyrKvy9GRvhLnciCCZeFOH2AvzNR2DEguesiP7FAL2HZ2HkWg8gV2BtQZRsLDylPAfVsqY3w==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(23010399003)(1800799024)(261009223027099003)(10067099003)(56012099006)(3023799007)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: eFO/0PQjUFbXfS/92URTSCmwU94+itVoHcCxUnycaRXrUVCiC4nvqG9Y6wWqXYYAPA/+aPxNJFQIrEIQ+oQNONGXC0WbqMJB4AoqdUGkzklKcMTvHozMGap+KYudAChgosZ64FqKfQ6P7k+6KiqUxq95eoPSPwIJ7K66rdac2qqOKoYiLmJdYikZcnIWsQSJP2DCI3Y3FP4nrLimp5KA+npHaMWD4JT7a0qHMNPQ6O2LFcSCRM7TPnRVphUvMkGFj0msHA1Bmd2NYDH6uAHq88Ya2UyPGmr1xq030P2m3x7FgfNkMNFgX/nOJWs2p4+j+LY9acN7swmjpM0eKNd3tW3PjNjOfCqH449byr5SFqhBxDHmyFfUt01jV/6fRti0yydgVDes+wYI2hRn4ICK5PTHvzDbGKj2JduTv/Ge9qn0Ww7MAGkr9MpLCpvfRAaE
-X-Exchange-RoutingPolicyChecked: q/TyjvimlVBRfWPef60nt4uHgmtRD1EG5svJQSkSH2R/DGiGPViruASP0GeNGGYbGxOJVTTaYk6wArKVxHyWjdDivb3/n9JGpn+PV5oOQj8YLZUFDkYahkd6UMNrY6insNtJGYd0g0ae8yNSD2ZgySzaJMSFXrDTTXxBHM31f+L8ZGq6q/sd+NZWG9Xe1x4rt4muQic11FA8cVHDnk6WppvJkw9Z2/o6pZoyYbCzO6q30cETfpIerSNiJZmJrlibUmwxdt2EGbzVc89bpCtM06XrL8TXPloyK1D7s9u6GN4g9g60yPpSKK0oHpzq7SwegbOUe7G+GPM8xbcp+rEc9g==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2026 19:09:43.9378
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6df1180e-87fd-4c0b-fc98-08df2e1488da
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AE.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPFB6B52B4A1
-X-Proofpoint-ORIG-GUID: Ryo3RT4kRRA4CdnlrJz9WRb5DsNLZ41g
-X-Authority-Analysis: v=2.4 cv=ZN9CCn7b c=1 sm=1 tr=0 ts=6ad66afe cx=c_pps
- a=n3jZDpZxtfjojidyQ1a5Gg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
- a=m8ToADvmAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=12pGLBjBETO59SXaPX8A:9
- a=CjuIK1q_8ugA:10 a=kCrBFHLFDAq2jDEeoMj9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDE5MDA3NSBTYWx0ZWRfX3evvCa8rfqak
- +3XBQGBdbj0M+uaJr1LrXHz44+pmwajgdCDd/m+Br+FwK406zlNjFNxIpsCzeHgCXoZPPfsHqd+
- 4JJ7zwhVkYDT/5VwFVqIKCm3SeeH4BfOwu0RMg0dgryGTSsXPm90Fv07THJFiJ11urUcs4JBKqI
- CoYqX17P7qsft7CyCXxhS3UI+F4QpmwrUowyFeAN7JHQ7IAa29F6DnlQ4Etp0VXQoJeMsE3hpgR
- vJqFj3X2myNltVK7E8xCnnP+GPu1LfPr57/6ggNpK92dWI8iQRTnUsqSEG4Z0mQNBXKzov8guGm
- ubaSSYeC4shlwGQ2rjDne9QFGvFOZvwL4DNbUO1uNA5cYwiVrLO8j70zhB059yAFvDs34V/TueV
- SpKV2/v2ASGx8y9nv/aZN9wIi/Fomv00eMvAH4ezDY37xKfJiHAN4IzsUawcxQhiZGOFQyJZ01u
- 2cGYCiAQQrOsRyCeOOw==
-X-Proofpoint-GUID: Ryo3RT4kRRA4CdnlrJz9WRb5DsNLZ41g
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDE5MDA3NSBTYWx0ZWRfXzZTYn1VRbkXu
- YkIggioC+3IOLCMvsbsidEVzQuZK0PjW0H8u/0JI6tupIhiMkYoff6yN5oQE/iDavi003wG6aFM
- jtE0mZwoM7IaXmEEIS9MTiUjTchw7Zc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-19_05,2026-10-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- suspectscore=0 bulkscore=0 priorityscore=1501 malwarescore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610080000 definitions=main-2610190075
+Content-Transfer-Encoding: 8bit
+X-PPP-Message-ID: <179243778132.1150629.14231437258711705057@nimiomail.com>
+X-PPP-Vhost: gluon.es
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_120955_385150_751D8740 
-X-CRM114-Status: GOOD (  18.36  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261019_122316_359432_D0AA3F75 
+X-CRM114-Status: GOOD (  10.86  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,73 +91,73 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 08:47-20261009, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> 
-> Add a MAINTAINERS entry for Toradex board device trees to ensure
-> that we are included in patch discussions and can provide reviews
-> and feedback on proposed changes.
-> 
-> Toradex has been developing and supporting its System on Modules and
-> carrier boards for many years, including their Linux mainline support.
-> 
-> As the hardware vendor, Toradex has access to schematics, bills of
-> materials and other internal hardware documentation, allowing to
-> review and validate changes against the actual hardware.
-> 
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
-> Frank, Nishanth, Vignesh: up to you to decide who is picking up this
+The gmac0 node uses phy-mode "rgmii" with the MAC delays
+tx_delay = <0x4f> and rx_delay = <0x2d>. On some boards this TX delay
+does not work at 1000 Mbit/s. Dongjin Kim reported iperf3 throughput
+below 200 Mbit/s on REV 1.0 20220613 boards. On a REV 1.0 20211112
+board, TX from the board stalls completely in iperf3 and ping loss
+grows with frame size (5% at 56 bytes, 20% at 1472 bytes), while RX is
+unaffected. Other boards work with the current value, so it seems to
+be marginal rather than wrong everywhere.
 
-Reviewed-by: Nishanth Menon <nm@ti.com>
+Instead of tuning the MAC TX delay again, switch to phy-mode
+"rgmii-id", so that the RTL8211F PHY adds both RGMII delays, and drop
+the MAC delay properties, as suggested by Chukun Pan. Dongjin
+confirmed in the same thread that rgmii-id works.
 
+With this change, on the REV 1.0 20211112 board at 1000 Mbit/s full
+duplex, there were 3 retransmitted TCP segments out of 24929 (0.012%)
+over almost four hours, no RX/TX errors and no ping loss.
 
-Frank, if you like to take it via your tree, I have no objections.
+Fixes: fd3583267703 ("arm64: dts: rockchip: Add Hardkernel ODROID-M1 board")
+Link: https://lore.kernel.org/r/20250819075522.2238643-1-tobetter@gmail.com
+Suggested-by: Chukun Pan <amadeus@jmu.edu.cn>
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Miguel Jesus Seron Gonzalez <info@gluon.es>
+---
 
-> ---
->  MAINTAINERS | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 483415e46217..fcc2e429bcd7 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -28088,6 +28088,21 @@ L:	platform-driver-x86@vger.kernel.org
->  S:	Maintained
->  F:	drivers/platform/x86/topstar-laptop.c
->  
-> +TORADEX BOARD SUPPORT
-> +M:	Francesco Dolcini <francesco.dolcini@toradex.com>
-> +L:	linux-bsp@toradex.com
-> +S:	Supported
-> +F:	arch/arm/boot/dts/nxp/imx/imx*-apalis*
-> +F:	arch/arm/boot/dts/nxp/imx/imx*-colibri*
-> +F:	arch/arm64/boot/dts/freescale/imx*-apalis*
-> +F:	arch/arm64/boot/dts/freescale/imx*-aquila*
-> +F:	arch/arm64/boot/dts/freescale/imx*-colibri*
-> +F:	arch/arm64/boot/dts/freescale/imx*-lino*
-> +F:	arch/arm64/boot/dts/freescale/imx*-toradex-*
-> +F:	arch/arm64/boot/dts/freescale/imx*-verdin*
-> +F:	arch/arm64/boot/dts/ti/k3-*-aquila*
-> +F:	arch/arm64/boot/dts/ti/k3-*-verdin*
-> +
->  TORADEX EMBEDDED CONTROLLER DRIVER
->  M:	Emanuele Ghidoli <ghidoliemanuele@gmail.com>
->  M:	Francesco Dolcini <francesco@dolcini.it>
-> -- 
-> 2.47.3
-> 
+Notes:
+    Sent as a standalone patch because Home Assistant OS needs an upstream
+    reference for the same change. Dongjin confirmed in the v2 thread that
+    rgmii-id works. Dongjin, if you would rather send your own version,
+    I'll withdraw this one.
+    
+    The debugging, the changelog and the patch were prepared with the help
+    of Claude (Anthropic). I reviewed all of it, and the test results above
+    are from my own board.
 
+ arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+index 442a2bc43..a3cd21aa0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+@@ -200,7 +200,7 @@ &gmac0 {
+ 	assigned-clock-rates = <0>, <125000000>;
+ 	clock_in_out = "output";
+ 	phy-handle = <&rgmii_phy0>;
+-	phy-mode = "rgmii";
++	phy-mode = "rgmii-id";
+ 	phy-supply = <&vcc3v3_sys>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&gmac0_miim
+@@ -209,9 +209,6 @@ &gmac0_rx_bus2
+ 		     &gmac0_rgmii_clk
+ 		     &gmac0_rgmii_bus>;
+ 	status = "okay";
+-
+-	tx_delay = <0x4f>;
+-	rx_delay = <0x2d>;
+ };
+ 
+ &gpu {
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.53.0
+
 
