@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C608CCF2DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6252FCCF2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 10:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PghorHOmeojsuMzVoaD7X2T5RS+ugW/hws9X0wYBOs=; b=Ezgew7R7ndO2JTQdu55SWc5s2Z
-	e8LeBnT9Ua1YeY6bheGlUxo0KLf9gwArambT+bjbFGIxxiTiU9yws1gyplHnVcYQ5evvM9Mj8G4Ye
-	1Ru9h7DGpWtBMkngBdx2XTcnZfwNre9oQNbsl2RrD+FXPut5Mt0GeNkTPkCQW4ind8Fr96b7pZa/p
-	4caRcBM41nUJ+6NA8s5TGuDBi0vcxEAdtwSdutPPBUTZUFbzL2zaHLa7yq//Wr1DQ+728pEh11jL7
-	jpWNGKNGxdhInq1ayi+ZyDvte/lW26Gy2HakaHvIzs4vw7tVxvESd6YfZfmQGIVx2y093KGf6Xlfv
-	2rcJrdlw==;
+	bh=qOehNbT+F+RAH22AKHx6kqc1rYrnpUKwENVvTT9d5L0=; b=DNyqMVkP9QKSvsu4X5ZwHH3+fi
+	9kt3OqTww7JwZp1GBu0z016QVjkVMqY+ScTwEc/rMqN9yB8XLMxsLhZ7VpJOZQ/EC2US2cXGTkOU+
+	PHR/WgVp4ZkhTJwpL991MyRWaaInkFi6IgdiC6qgLwbusBtU0ucZnpa7q9DNpWiIXmBL0Z/bYjqHm
+	RVd1zKMO7bzVtrp1NtSQGFE+VNVDdPGtQ98+Z5nrhdZ1qwqg+PAypVq+f0zFyxtfq1dx7xqOOwKbq
+	b3vLA1nb3nsXA5lxKAeBEQu8zN7/on4CU2aG47g4cX7q+SrMDjuUTHa/Nkp8RQxpIHTyw8TiN9Duu
+	Lu2Cmqaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkP7-000000078t7-3CG2;
+	id 1xIkP7-000000078rS-0bD1;
 	Mon, 19 Oct 2026 10:15:41 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIkP1-000000078mB-0ONm;
-	Mon, 19 Oct 2026 10:15:36 +0000
+	id 1xIkP0-000000078lb-0f1I;
+	Mon, 19 Oct 2026 10:15:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=6P
-	ghorHOmeojsuMzVoaD7X2T5RS+ugW/hws9X0wYBOs=; b=DtsOfq1pK5F2hh82nl
-	qZuFoJhfO4Jn+Drwiie3LsEgZEVVQ1UEBGerhdOs0NNp/5B2xqI/Hr3l4jtuPcj8
-	vVBnW52TysLionW1B70fogy4Gg10iZMbqv5jyDJZinoSiCezDtY7rE5ZG7n2lz6A
-	ICh3eVqhn5DVn4q93MswhuolM=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=qO
+	ehNbT+F+RAH22AKHx6kqc1rYrnpUKwENVvTT9d5L0=; b=AxMSFrFDYp6ctSyjNQ
+	Wee2EmVhamVOtUFLi0mvSrfWUKKCxq11pDTdrUWI90l0zIFII7hNcHqX8NLyOLmJ
+	Oo8qsVYtuw8Qb0CNvOq0hkNT0dp1YkPaJEBRUBxZA0DN5X8ElwC6AV3pE0ppdidO
+	AMFttAqcOpnKXqoNZIG1JK3Nk=
 Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3Hxax7dVq4twABQ--.41578S7;
-	Mon, 19 Oct 2026 18:15:24 +0800 (CST)
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3Hxax7dVq4twABQ--.41578S6;
+	Mon, 19 Oct 2026 18:15:23 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
 To: Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -43,30 +43,30 @@ To: Felix Fietkau <nbd@nbd.name>,
 	Sean Wang <sean.wang@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chih-Min Chen <chih-min.chen@mediatek.com>,
-	YF Luo <yf.luo@mediatek.com>,
+	Money Wang <Money.Wang@mediatek.com>,
+	MeiChia Chiu <meichia.chiu@mediatek.com>,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
 Cc: Jiale Yao <yaojiale02@163.com>
-Subject: [PATCH 05/10] wifi: mt76: mt7915: validate EEPROM response length
-Date: Mon, 19 Oct 2026 18:15:00 +0800
-Message-Id: <20261019101506.1926943-6-yaojiale02@163.com>
+Subject: [PATCH 04/10] wifi: mt76: mt7915: validate MURU statistics response
+Date: Mon, 19 Oct 2026 18:14:59 +0800
+Message-Id: <20261019101506.1926943-5-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261019101506.1926943-1-yaojiale02@163.com>
 References: <20261019101506.1926943-1-yaojiale02@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3Hxax7dVq4twABQ--.41578S7
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtr48CrWxKrWxKFyrAF1xuFg_yoWkXrb_u3
-	4v9rnrGr1UG3Wqkw42kr429FZ0y395Aa4kCrWrtrWFq3y7ArW7urZ3Aw4fGrZruws2vFW5
-	Grn8Ja4UX34a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRiuWl7UUUUU==
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8B269GrV7b2z5gAA3Z
+X-CM-TRANSID: _____wD3Hxax7dVq4twABQ--.41578S6
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKF48WrWrAw15Gw43ZF43ZFb_yoWkGFgE9r
+	ZYvry3Gr10kw1qvw42kw4a9FWqka95J3WkZrWrtrWfZw47AFZrCr9avwn3JrW7uw4xZF15
+	Gr9xXa4UW34agjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRiCzuDUUUUU==
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8Bu582rV7buzyAAA3z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_031535_473725_B52773FE 
-X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-CacheID: sfid-20261019_031534_609945_BD13571C 
+X-CRM114-Status: UNSURE (   8.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,33 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EEPROM query copies a complete firmware response block without
-checking that the response contains the address and data fields. A
-truncated response can cause an out-of-bounds read.
+mt7915_mcu_muru_debug_get() treats the firmware response as a complete
+statistics structure without checking its length. A truncated response
+can cause out-of-bounds reads while accumulating the counters.
 
-Require the complete EEPROM response structure before processing it.
+Reject responses shorter than the expected statistics structure.
 
-Fixes: e57b7901469f ("mt76: add mac80211 driver for MT7915 PCIe-based chipsets")
+Fixes: 1966a5078f2d ("mt76: mt7915: add mu-mimo and ofdma debugfs knobs")
 Signed-off-by: Jiale Yao <yaojiale02@163.com>
 ---
  drivers/net/wireless/mediatek/mt76/mt7915/mcu.c | 4 ++++
  1 file changed, 4 insertions(+)
 
 diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-index 6d777dcfa2c1..7009a3a3edd2 100644
+index 3643906cbdf2..6d777dcfa2c1 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-@@ -2945,6 +2945,10 @@ int mt7915_mcu_get_eeprom(struct mt7915_dev *dev, u32 offset, u8 *read_buf)
+@@ -2256,6 +2256,10 @@ int mt7915_mcu_muru_debug_get(struct mt7915_phy *phy)
  					&req, sizeof(req), true, &skb);
  	if (ret)
  		return ret;
-+	if (skb->len < sizeof(*res)) {
++	if (skb->len < sizeof(*mu_stats)) {
 +		dev_kfree_skb(skb);
 +		return -EINVAL;
 +	}
  
- 	res = (struct mt7915_mcu_eeprom_info *)skb->data;
- 	if (!buf) {
+ 	mu_stats = (struct mt7915_mcu_muru_stats *)(skb->data);
+ 
 -- 
 2.34.1
 
