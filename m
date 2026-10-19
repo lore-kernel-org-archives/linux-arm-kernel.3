@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D338CCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8331BCCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAAs1xRU044mRxttfqo0JbA6ZXpm2L7A9MFCtgdteys=; b=ORg4R09yCyAxjvjs0ttNwo6y2C
-	YNSNiIb/o76XjR2T0Xkfvu7zL7ObCTu6e6j16BLwhWwI14dfHli0RU0Q9/yf8lnUZltGVgsKFgYlF
-	2/cCLQOgwlJ2B1XLRbR0GMglCsmJi+j2KkTFVC4eD3OGCzMyMmlxGQVh8dKhWdpJg802VxDFmRmkJ
-	XQ64z3rIXn+6qFCbMYn6Xi5K48erIjWqo8FJ7sgUoyalqtmwNl1vl0hL4duz/ggwEHV8AtHEBJD+l
-	EnoANNQDj678QVfVq9Yq/AK6kSIg1OJ9g8oxOPd5rU6jEoZpaNxwOdiWB5d1g51ce0v0W3ISpup5r
-	TYRKQvdA==;
+	bh=Us7JsWYJ7Arw0VBDkGQy6sNQDtX+hznFYmkOxZjm1/w=; b=hRD4921HOehR2Layg9Cqyg61/g
+	DjG5Dndfo2ucttiixZBYPvjEPcQvbkg5fseWvAwhYjT938VjtuCbky0kigExL5WXafcuKvNoUQNN8
+	2ok0TACP3A2cT1ptQYVvUF6nLROfXMTeQp2rzryzul2xejmmi5ObM9YHGfH7KwXkkZ2ZGqDx5/uq7
+	4yNAv34+GdzZI3NTGYS8bYc+cI55aqP67MHlT+nKlhpJw1CnG5Jp/0D7IUEe43cZyvxbI1hVlKSoh
+	63n/nt6hz6shMWrgCuQLo3SBlDoU1LdANtit171V0KjzASnASelRkddv4QQB/uYumhBt6M0QZUPqN
+	W70mfHLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInz5-00000007fxp-00Ww;
-	Mon, 19 Oct 2026 14:05:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xInzB-00000007g2W-1EOI;
+	Mon, 19 Oct 2026 14:05:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xInz3-00000007fwf-28Uz
+	id 1xInz9-00000007g0r-2gYj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 14:05:01 +0000
+	Mon, 19 Oct 2026 14:05:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD62E602A8;
-	Mon, 19 Oct 2026 14:05:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F80B1F000C7;
-	Mon, 19 Oct 2026 14:04:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6426643E2B;
+	Mon, 19 Oct 2026 14:05:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72ADB1F000C4;
+	Mon, 19 Oct 2026 14:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792418700;
-	bh=uAAs1xRU044mRxttfqo0JbA6ZXpm2L7A9MFCtgdteys=;
+	s=k20260515; t=1792418707;
+	bh=Us7JsWYJ7Arw0VBDkGQy6sNQDtX+hznFYmkOxZjm1/w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LOdz1It6o+LOIsKL/OAu0yUA+iKE7u/051aWZrFRUGoxAYLmAqlaeR3p8+9hvVdgh
-	 OzPnH0V2Okq1hZKV/SskmBG2af6H6f7jZUb0LPBJyEh0Takr03G2Ic0XL8BshXjbbr
-	 4kkEogjv774YIYhAPWEUGC5SAcRnBXnVOdQ8SZ30Po/uLTLSlX9XO5/GUTZPbROrwh
-	 qEj2bIM5WbaWsEpqU0iwo/3gbZy/u2oprWpLC/KokONuYDhpi5HmysuyYZuvx7U8Xx
-	 e6Zzge87snJmV7J8kWU5+hEB3mfwJhV0WGeRN3JHyH0w6rFwt/CLXjHTQMs7sOY5i5
-	 IUlc0vBRuktiQ==
+	b=DtxGgvC86n2S722n7FB1ivnxoAnJqGUionse9sRVgxqwXAFJYCYZETRop3cd/29Kb
+	 OM6FUrqmjvzf0Vefi/Cq3gB2v021xzObXZIUShqg1sZny6f07X0LpZpo88jSTB1vSY
+	 tSUupsRS6E4drmJHkNO3bYMyOmtE4/aQMb9twfw3sJAX008E6PCFGi55xPv24Adg0R
+	 9vXiOjLhG43F4Y2xdhaCdvDyK2THEOoGKYWbBTaAOSsj4a9QKNRdoa0ucFHqvyNjHF
+	 lndYlY8JcPpB+gxwklII+d5wlUT99UQ6FLoCajOQnh1Lc87G2GJ3O6oaa3WPpLLbbN
+	 xj+5trplxTz7A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Frank Li <Frank.Li@nxp.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Linus Walleij <linusw@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	abelvesa@kernel.org,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
+	kaloz@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] clk: imx: imx8qxp-lpcg: add missing MODULE_DEVICE_TABLE()
-Date: Mon, 19 Oct 2026 09:52:05 -0400
-Message-ID: <20261019135441.1420968-434-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] soc: ixp4xx: qmgr: add missing MODULE_DEVICE_TABLE()
+Date: Mon, 19 Oct 2026 09:52:10 -0400
+Message-ID: <20261019135441.1420968-439-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261019135441.1420968-1-sashal@kernel.org>
 References: <20261019135441.1420968-1-sashal@kernel.org>
@@ -87,362 +79,374 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-[ Upstream commit e89485455ac49925565061733c0d73d568333fc0 ]
+[ Upstream commit 01479280fa5d4691013bcd64fdfd935117b69769 ]
 
-The driver has a match table for the of bus wired into its driver
-structure, but the table is not exported with MODULE_DEVICE_TABLE().
+The driver has an OF match table wired to .of_match_table, but does
+not export the table with MODULE_DEVICE_TABLE().
 
-Add the missing MODULE_DEVICE_TABLE() entry so module alias information
-is generated for automatic module loading.
+Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
+information is generated for OF based module autoloading.
 
 This is a source-level fix.  It does not claim dynamic hardware
 reproduction; the evidence is the driver-owned match table, its use by
-the driver registration structure, and the missing module alias
-publication.
+the platform driver, and the missing module alias publication.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Link: https://patch.msgid.link/20260704150344.59563-1-pengpeng@iscas.ac.cn
-Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Message-ID: <20260704121851.63805-1-pengpeng@iscas.ac.cn>
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Local tree
-
-This checkout is **v7.3-rc4-27-gf0100363d8c37** (`VERSION=7 PATCHLEVEL=3
-SUBLEVEL=0 EXTRAVERSION=-rc4`). The candidate is `e89485455ac49` (`clk:
-imx: imx8qxp-lpcg: add missing MODULE_DEVICE_TABLE()`). The file and
-match table exist here; the one-line fix applies as written.
-
----
-
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Phase 1: Commit message forensics
 
 **Step 1.1 — Subject**
-- Record: `[clk: imx: imx8qxp-lpcg] [add] [export OF match table via
-  MODULE_DEVICE_TABLE so module aliases are generated]`
+Record: `[soc: ixp4xx: qmgr]` `[add]` add missing
+`MODULE_DEVICE_TABLE()` so OF module aliases are generated.
 
 **Step 1.2 — Tags**
-- Record:
-  - `Reviewed-by: Frank Li <Frank.Li@nxp.com>` (i.MX)
-  - `Reviewed-by: Brian Masney <bmasney@redhat.com>` (Red Hat / clk)
-  - `Reviewed-by: Peng Fan <peng.fan@nxp.com>` (i.MX clk)
-  - `Link: https://patch.msgid.link/20260704150344.59563-1-
-    pengpeng@iscas.ac.cn`
-  - `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
-  - `Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>` (clk-imx
-    maintainer, applied it)
-  - No `Fixes:`, no `Reported-by:`, no `Cc: stable` (absence expected)
-  - Ignore any Sasha Levin SOB if present (none on the real commit)
+Record:
+- `Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>` (author)
+- `Message-ID: <20260704121851.63805-1-pengpeng@iscas.ac.cn>`
+- `Signed-off-by: Linus Walleij <linusw@kernel.org>` (IXP4xx/SoC
+  maintainer; applied the patch)
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
+  by:`, `Cc: stable`, or `Link:` tags (absence of Fixes/Cc-stable is
+  expected for this review)
 
 **Step 1.3 — Body**
-- Record: The OF match table is wired into `platform_driver` but not
-  published with `MODULE_DEVICE_TABLE()`. Without that, modpost does not
-  emit `of:` aliases, so kmod/udev cannot autoload the module from DT
-  compatible strings.
-- Symptom: `CONFIG_CLK_IMX8QXP=m` → LPCG clock module does not load from
-  DT; consumers never get those clocks unless the module is loaded by
-  hand.
-- Version info: none in the message.
-- Root cause: missing alias publication, not a runtime logic bug. Author
-  states it is a source-level finding, not a live hardware repro.
+Record:
+- **Bug:** `ixp4xx_qmgr_of_match[]` is wired to `.of_match_table` but
+  not exported via `MODULE_DEVICE_TABLE(of, ...)`.
+- **Symptom:** `depmod`/modinfo aliases are not generated, so userspace
+  cannot autoload the module from the DT compatible `intel,ixp4xx-ahb-
+  queue-manager`.
+- **Failure mode:** modular `CONFIG_IXP4XX_QMGR=m` does not bind on DT
+  boot unless someone `modprobe`s by hand. Built-in (`=y`) is
+  unaffected.
+- **Version info:** none in the message. Introduced with DT probe in
+  v5.2-rc1.
+- **Root cause (author):** source-level omission; no hardware
+  reproduction claimed.
 
 **Step 1.4 — Hidden bug fix?**
-- Record: Not disguised. It is a real autoload/modalias bug stated
-  plainly. The “source-level” wording means it was found by inspection,
-  not that it is theoretical: the table is used and not exported.
+Record: Not disguised. It is an explicit autoload fix. The “source-level
+/ no reproduction” wording is honesty, not cleanup-as-fix.
 
----
-
-## PHASE 2: DIFF ANALYSIS
+## Phase 2: Diff analysis
 
 **Step 2.1 — Inventory**
-- Record: `drivers/clk/imx/clk-imx8qxp-lpcg.c` — **+1 / −0**. One line
-  after `imx8qxp_lpcg_match[]`. Surgical, single-file.
+Record:
+- File: `drivers/soc/ixp4xx/ixp4xx-qmgr.c` (`+1 / -0`)
+- Function/data: `ixp4xx_qmgr_of_match[]` (table, not a function)
+- Scope: single-file, one-line surgical change
 
-**Step 2.2 — Flow**
-- Record: Before: `imx8qxp_lpcg_match` is only `of_match_table` (used
-  after the module is already loaded). After: same table is also a
-  `MODULE_DEVICE_TABLE(of, …)` so file2alias/modpost emits aliases at
-  build time. No probe/runtime path change.
+**Step 2.2 — Code flow**
+Record:
+- **Before:** OF table exists and is used for in-kernel matching when
+  the driver is already loaded/built-in. No `alias=of:N*T*Cintel,ixp4xx-
+  ahb-queue-manager` in module metadata.
+- **After:** `MODULE_DEVICE_TABLE(of, ixp4xx_qmgr_of_match)` creates the
+  `file2alias` alias so kmod/udev can load `ixp4xx-qmgr` from DT.
+- Path affected: module-build metadata only; probe/remove/IRQ paths
+  unchanged.
 
 **Step 2.3 — Bug mechanism**
-- Record: **Hardware/module autoload (OF alias publication)**. Match
-  table exists (`fsl,imx8qxp-lpcg-adma/conn/lsio` and `fsl,imx8qxp-
-  lpcg`) but is not exported. Same class as adding device IDs: userspace
-  cannot match hardware to the module.
+Record: **Hardware enablement / missing device-table publication**
+(module autoload). Not UAF, leak, race, or crash. Mechanism: missing
+`MODULE_DEVICE_TABLE` so OF IDs never reach userspace.
 
 **Step 2.4 — Fix quality**
-- Record: Obviously correct; matches every other i.MX clk driver that
-  already has `MODULE_DEVICE_TABLE(of, …)` (`clk-imx8qxp.c`, `clk-
-  imx8mm.c`, etc.). No API, locking, or structural change. Regression
-  risk is negligible: `=y` ignores aliases; `=m` only adds autoload.
+Record: Obviously correct; this is the standard kernel idiom next to
+every OF match table. Minimal, no API change, no locking, no runtime
+behavior change for built-in. Regression risk is effectively zero
+(`MODULE_DEVICE_TABLE` is a build-time alias attribute).
 
----
-
-## PHASE 3: GIT HISTORY
+## Phase 3: Git history
 
 **Step 3.1 — Blame**
-- Record: Match table from `1e3121bfe51a3` (“clk: imx: add imx8qxp lpcg
-  driver”, 2018, in **v5.0-rc1**). Module metadata from `e0d0d4d86c766`
-  (“Support building i.MX8QXP clock driver as module”, **v5.10-rc1**).
-  `builtin_platform_driver` → `module_platform_driver` in
-  `eee377b8f44e7` (2021, Fixes: that module-support commit). The hole
-  has been there for the whole modular lifetime of the driver.
+Record:
+- OF table added in `9e01a00958405` (“soc: ixp4xx: qmgr: Add DT probe
+  code”, Linus Walleij, 2019) — first in **v5.2-rc1**.
+- `.of_match_table = of_match_ptr(...)` until `526f3f3b102f0`
+  (v5.19-rc1) dropped `of_match_ptr()`.
+- `MODULE_DEVICE_TABLE` never added until this commit `01479280fa5d4`
+  (Pengpeng Hou, 2026-07-04; applied 2026-07-24).
+- Buggy omission has been in tree for ~7 years.
 
 **Step 3.2 — Fixes: tag**
-- Record: None. Buggy omission is the module-support work
-  (`e0d0d4d86c766` / `eee377b8f44e7`). Both are in this tree.
+Record: No `Fixes:` tag. Implicit parent is `9e01a00958405` (DT probe).
+That commit **is** an ancestor of this checkout (`git merge-base --is-
+ancestor` succeeded).
 
 **Step 3.3 — File history**
-- Record: Recent file commits are unrelated (pm_runtime, ioremap).
-  Sibling `cd21fdcbef3fb` does the same for `clk-imx8qxp.c`. Standalone;
-  not “patch X/Y”.
+Record: Recent related work is the sibling `f0b93c158aa92` (“soc:
+ixp4xx: npe: add missing MODULE_DEVICE_TABLE()”) from the same
+author/date. Other nearby commits are `dev_err` cleanup and `remove()`
+signature changes — not prerequisites for this one-liner.
 
 **Step 3.4 — Author**
-- Record: Pengpeng Hou also added the same fix for `clk-imx8qxp.c` and
-  MediaTek mt6735 clocks. Not the clk-imx maintainer; Abel Vesa applied
-  it with three subsystem/vendor reviews.
+Record: Pengpeng Hou is not the subsystem maintainer; this is one of a
+batch of `MODULE_DEVICE_TABLE` additions (ixp4xx npe, aspeed, mediatek,
+rtc, vdpa, watchdog, hwmon, fbdev). Maintainer Linus Walleij applied it
+(“Patch applied.”).
 
 **Step 3.5 — Dependencies**
-- Record: Needs `imx8qxp_lpcg_match`, `module_platform_driver`, and
-  `<linux/module.h>`. All present here. Applies as a single line.
+Record: Standalone. Requires only the existing `ixp4xx_qmgr_of_match`
+table and `<linux/module.h>` (already included). No series dependency
+beyond the optional sibling npe patch.
 
----
+## Phase 4: Mailing list / external
 
-## PHASE 4: MAILING LIST / EXTERNAL
-
-**Step 4.1 — Original thread**
-- Record: `b4 dig -c e89485455ac49` →
-  https://patch.msgid.link/20260704150344.59563-1-pengpeng@iscas.ac.cn
-- `b4 dig -a`: **v1 only**, 2026-07-04.
-- Review: Peng Fan, Brian Masney, Frank Li: Reviewed-by only. Abel Vesa:
-  “Applied, thanks!” No NAK, no stable tag, no risk discussion.
+**Step 4.1 — Original discussion**
+Record:
+- `b4 dig -c 01479280fa5d4` →
+  https://patch.msgid.link/20260704121851.63805-1-pengpeng@iscas.ac.cn
+- Thread: patch + maintainer reply only. Linus Walleij: “Patch applied.”
+  No NAK, no stable nomination, no requested revisions.
+- `b4 dig -a` also matched an earlier same-diff series: Liao Chen,
+  2024-08-14, `[PATCH -next] soc: ixp4xx/qmgr: fix module autoloading`
+  (`20240814031004.3876441-1-liaochen4@huawei.com`). Same patch-id; that
+  2024 posting did not land; Hou’s 2026 resend did.
+- Lore HTTP fetch returned 403; thread recovered via `b4 dig -m`.
 
 **Step 4.2 — Recipients (`b4 dig -w`)**
-- Record: Abel Vesa, Peng Fan, Michael Turquette, Stephen Boyd, Frank
-  Li, Sascha Hauer, Fabio Estevam; `linux-clk`, `imx@lists.linux.dev`,
-  `linux-arm-kernel`, `linux-kernel`. Right maintainers and lists.
+Record: To Linus Walleij, Imre Kaloz (historical OpenWrt IXP4xx); Cc
+`linux-arm-kernel`, `linux-kernel`. Right maintainer was on To: and
+merged it.
 
 **Step 4.3 — Bug report**
-- Record: No Reported-by / bugzilla / syzbot. Inspection-only, as the
-  commit says.
+Record: No syzbot/bugzilla/`Reported-by`. Author states there is no
+dynamic hardware reproduction.
 
 **Step 4.4 — Series**
-- Record: Standalone 1/1. Related but independent sibling on `clk-
-  imx8qxp.c`.
+Record: Not numbered `X/Y`. Parallel sibling `f0b93c158aa92` for
+`ixp4xx-npe.c` is independent (same one-line pattern). This qmgr patch
+is self-contained.
 
 **Step 4.5 — Stable list**
-- Record: Thread has no stable nomination. Direct lore.kernel.org
-  fetches returned **403**; no separate stable-list discussion verified.
+Record: Unverified. `lore.kernel.org/stable/` fetch returned 403. No
+stable discussion found via `b4` or local git.
 
----
-
-## PHASE 5: CODE SEMANTICS
+## Phase 5: Code semantic analysis
 
 **Step 5.1 — Functions**
-- Record: No C function changed. Macro `MODULE_DEVICE_TABLE(of,
-  imx8qxp_lpcg_match)` next to the existing `of_device_id` table. Driver
-  still uses `module_platform_driver(imx8qxp_lpcg_clk_driver)`.
+Record: No function body changed. Data: `ixp4xx_qmgr_of_match[]`. Driver
+still registered with `module_platform_driver(ixp4xx_qmgr_driver)`.
 
-**Step 5.2 — “Callers”**
-- Record: Build-time: `scripts/mod/file2alias.c` looks up
-  `__mod_device_table__` and emits `of:` aliases. Runtime: kmod/udev on
-  DT `compatible`. Probe path unchanged. Makefile: `clk-imx-lpcg-
-  scu-$(CONFIG_CLK_IMX8QXP)` → aliases belong to `clk-imx-lpcg-scu.ko`.
+**Step 5.2 — Callers / impact surface**
+Record:
+- Probe via platform/OF: DT node `qmgr: queue-manager@60000000` in
+  `arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi` (`compatible =
+  "intel,ixp4xx-ahb-queue-manager"`), used by all IXP4xx SoC DTs that
+  include that dtsi.
+- Consumers of exported qmgr APIs:
+  `drivers/net/ethernet/xscale/ixp4xx_eth.c`,
+  `drivers/net/wan/ixp4xx_hss.c`,
+  `drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c`. Those Kconfigs `depends
+  on IXP4XX_QMGR`.
+- Reachable on IXP4xx boot when the DT node is present. Not a syscall-
+  hot path; device probe / module load.
 
 **Step 5.3 — Callees**
-- Record: None at runtime. Macro only creates an aliased copy of the
-  table for modpost.
+Record: Unchanged. `MODULE_DEVICE_TABLE` expands to a used alias
+attribute for `file2alias.c` (see `include/linux/module.h`).
 
 **Step 5.4 — Reachability**
-- Record: Yes, from userspace/DT: i.MX8QXP/8QM DTS uses `fsl,imx8qxp-
-  lpcg` (e.g. `arch/arm64/boot/dts/freescale/imx8qm-ss-*.dtsi`). With
-  `=m`, udev should load the module from that compatible. `arm64
-  defconfig` has `CONFIG_CLK_IMX8QXP=y`, so the default distro/defconfig
-  path is unaffected; custom/distro `=m` is the affected path.
+Record: Userspace-reachable only as module autoload (kmod). If
+`CONFIG_IXP4XX_QMGR=m`, missing aliases mean the queue manager (and thus
+Ethernet/HSS/crypto that need it) will not come up automatically. If
+`=y`, this commit is a no-op at runtime.
+`arch/arm/configs/ixp4xx_defconfig` has `CONFIG_IXP4XX_QMGR=y` and
+`CONFIG_IXP4XX_ETH=y`. Kconfig is still **tristate**, so modular builds
+are a supported config.
 
 **Step 5.5 — Similar patterns**
-- Record: Same missing-table pattern fixed in `clk-imx8qxp.c` and
-  several other `drivers/clk/imx/*` files already have
-  `MODULE_DEVICE_TABLE`. This was the LPCG outlier.
+Record: Same omission/fix in `drivers/soc/ixp4xx/ixp4xx-npe.c`
+(`f0b93c158aa92`). Same author also added `MODULE_DEVICE_TABLE` in other
+SoC drivers the same week.
 
----
+## Phase 6: Local tree
 
-## PHASE 6: THIS TREE
-
-**Step 6.1 — Buggy code here?**
-- Record: Yes. Pre-commit parent still has the table without
-  `MODULE_DEVICE_TABLE`. Module support is in this tree. Bug dates to
-  v5.10 module support (autoload hole after v5.16
-  `module_platform_driver`).
+**Step 6.1 — Does the buggy code exist here?**
+Record: Local tree is **v7.3-rc4** (`7.3.0-rc4`, `git describe HEAD` =
+`v7.3-rc4-27-gf0100363d8c37`). This is mainline, not an LTS branch. The
+OF match table and platform driver exist. `git merge-base --is-ancestor
+01479280fa5d4 HEAD` is true — the candidate is already in this checkout.
+The pre-fix omission existed from v5.2 until this commit.
 
 **Step 6.2 — Backport difficulty**
-- Record: **Clean apply**. Context around the match table matches the
-  hunk.
+Record: Clean apply. One line next to a table that has been stable since
+2019. No structural conflict with later `remove()` or `dev_err` changes.
 
-**Step 6.3 — Already fixed another way?**
-- Record: No other autoload fix on this file. This commit *is* the fix
-  (already upstream in 7.3-rc). No substitute.
+**Step 6.3 — Related fixes already here**
+Record: This exact line is already present (`MODULE_DEVICE_TABLE(of,
+ixp4xx_qmgr_of_match)` at line 451). Sibling npe fix is also present. No
+alternate autoload fix.
 
----
-
-## PHASE 7: SUBSYSTEM CONTEXT
+## Phase 7: Subsystem context
 
 **Step 7.1**
-- Record: `[drivers/clk/imx — i.MX8QXP LPCG] [IMPORTANT for
-  i.MX8QXP/8QM; PERIPHERAL vs core kernel]`. Clock provider: if the
-  module never loads, LPCG-gated peripherals fail probe.
+Record: `drivers/soc/ixp4xx` — Intel IXP4xx (XScale ARMv5) SoC queue
+manager. **PERIPHERAL** for the kernel as a whole; **IMPORTANT** on the
+boards that still use this SoC (Ethernet/WAN/crypto sit on it).
 
 **Step 7.2**
-- Record: clk-imx is active (7.3 pulls). This driver itself is mature
-  (2018).
+Record: Low-churn, mature platform. Occasional one-line hygiene/fixes.
+Bug is old, not a new-subsystem issue.
 
----
+## Phase 8: Impact and risk
 
-## PHASE 8: IMPACT AND RISK
-
-**Step 8.1 — Who**
-- Record: Config- and platform-specific: `CONFIG_CLK_IMX8QXP=m` on
-  i.MX8QXP/8QM/8DXL SCU clocks. Not universal. Defconfig `=y` does not
-  need aliases.
+**Step 8.1 — Who is affected**
+Record: Platform-specific / config-specific: `ARCH_IXP4XX` (or
+`COMPILE_TEST`) with `CONFIG_IXP4XX_QMGR=m`. Official defconfig builds
+it in, so default distro-style `ixp4xx_defconfig` users never hit this.
+Modular custom/OpenWrt-style builds can.
 
 **Step 8.2 — Trigger**
-- Record: Boot/enumeration with LPCG DT nodes and the driver as a
-  module. Unprivileged users cannot trigger it; it is bring-up/udev.
-  Common on modular distro kernels, uncommon on typical vendor `=y`
-  images.
+Record: Boot with DT + driver as a module. Not a race. Unprivileged
+users cannot trigger a crash; they just don’t get the device until a
+manual load. Commonness: low (legacy SoC; defconfig is built-in).
 
 **Step 8.3 — Failure mode**
-- Record: Module not autoloaded → LPCG clocks missing → dependent
-  devices fail probe (UART/DMA/etc. depending on board). Not an
-  oops/UAF. Severity **MEDIUM** (functional miss for `=m`), **HIGH** on
-  those boards if clocks are modular.
+Record: Module does not autoload → queue manager never probes →
+Ethernet/HSS/crypto that depend on it fail to operate. **Severity:
+MEDIUM** (device non-function when modular; not
+oops/corruption/deadlock). Built-in: none.
 
-**Step 8.4 — Risk vs benefit**
-- Record: Benefit: modular i.MX8QXP clocks actually bind. Risk: **very
-  low** (one line of metadata). Ratio favors taking it; same rationale
-  as the “add a device ID” stable exception.
+**Step 8.4 — Risk/benefit**
+Record:
+- **Benefit:** Medium for modular IXP4xx users (hardware actually
+  binds); low for defconfig/`=y` users.
+- **Risk:** Very low (one line, build-time metadata only).
+- **Ratio:** Favorable. This is the device-ID class of change: tiny,
+  enables existing hardware, no runtime regression surface.
 
----
-
-## PHASE 9: SYNTHESIS
+## Phase 9: Synthesis
 
 **Step 9.1 — Evidence**
 
 For:
-- Real autoload bug: match table used, aliases not published.
-- One line, obviously correct, reviewed by NXP i.MX and Red Hat.
-- DT hardware uses these compatibles.
-- Driver is tristate (`CLK_IMX8QXP`); `module_platform_driver` is
-  intentional.
-- Same pattern as device-ID publication, which stable explicitly allows.
-- Applies cleanly; no new API; no runtime behavior change for `=y`.
+- Real, well-understood autoload bug: OF table used by the driver but
+  not published to userspace.
+- One line, idiomatically correct, zero runtime risk.
+- DT node is in the SoC dtsi; Ethernet/WAN/crypto depend on this driver.
+- Kconfig is tristate; modular builds are supported.
+- Bug present since v5.2; applies cleanly; no prerequisites.
+- Maintainer applied it; same fix on the sibling NPE driver.
+- Official stable rules explicitly allow “just add a device ID”; this is
+  the OF equivalent (publish existing IDs for autoload).
+- Matches the documented exception for trivial ID/enablement additions.
 
 Against:
-- No user/syzbot report; source-level only.
-- Not crash/corruption/security.
-- `arm64 defconfig` is `=y`.
-- No `Cc: stable` (not a negative by itself).
+- Not a crash, security issue, deadlock, or data-corruption bug.
+- Author documents no hardware reproduction.
+- No user `Reported-by`.
+- `ixp4xx_defconfig` uses `CONFIG_IXP4XX_QMGR=y`, so the official config
+  never needs aliases.
+- IXP4xx is a legacy, small user population.
+- No reviewer `Cc: stable`.
 
 Unresolved:
-- Could not search lore.kernel.org/stable (HTTP 403). Original thread
-  had no stable discussion.
+- Could not read lore.kernel.org over HTTP (403); discussion recovered
+  via `b4 dig -m`.
+- Could not search the stable mailing list (same 403).
 
-**Step 9.2 — Stable rules**
-1. Obviously correct and tested? **PASS** — one-line, three reviews,
-   maintainer applied.
-2. Real bug that affects users? **PASS** — `=m` does not autoload; DTS
-   uses the IDs.
-3. Important? **PASS** (as device-ID/autoload class; not a panic).
-   Missing clocks on modular i.MX8 is user-visible, not trivia.
+**Step 9.2 — Stable rules checklist**
+1. Obviously correct and tested? **PASS** — one-line standard idiom;
+   maintainer applied it. “Tested” is source-level, which is sufficient
+   for this class of change.
+2. Fixes a real bug that affects users? **PASS** — modular OF autoload
+   is broken; users can still `modprobe` manually, but autoload is the
+   supported path.
+3. Important issue? **PASS** under the device-ID exception (hardware
+   does not bind when built as a module). Not CRITICAL severity.
 4. Small and contained? **PASS** — +1 line, one file.
-5. No new features/APIs? **PASS** — metadata only.
-6. Can apply to this tree? **PASS** —
-   file/table/`module_platform_driver` all present.
+5. No new features or APIs? **PASS** — metadata only.
+6. Can apply to this tree? **PASS** — driver and table exist here; patch
+   is already an ancestor of HEAD and would apply to any tree that still
+   has the OF table.
 
-**Step 9.3 — Exceptions**
-- Record: Device-ID / module-alias publication for an existing driver
-  (stable exception #1 in spirit).
+**Step 9.3 — Exception category**
+Record: **Device ID / module alias publication** for an existing driver
+(OF equivalent of adding/exporting a PCI/USB ID). Not a new driver, not
+a new API.
 
 **Step 9.4 — Decision**
-This is a one-line, reviewed autoload fix for a long-standing modular
-i.MX8QXP LPCG driver. It matches what stable already takes for device
-IDs: hardware described in DT can bind without a manual `modprobe`. Risk
-is negligible on this tree.
+The local checkout is mainline **v7.3-rc4**. The driver, OF table, and
+DT node are all here; the fix is a one-line alias publication with no
+runtime risk. That is exactly the class of change stable trees take so
+existing hardware keeps working when the driver is modular. Niche
+platform and built-in defconfig lower the blast radius; they do not make
+the fix incorrect or risky.
 
 ---
 
-## What the commit solves for this tree
+### What the commit solves for stable users
+Without `MODULE_DEVICE_TABLE(of, ...)`, a `CONFIG_IXP4XX_QMGR=m` kernel
+never generates `of:N*T*Cintel,ixp4xx-ahb-queue-manager` aliases. On DT
+boot the queue manager stays unloaded, so IXP4xx Ethernet/HSS/crypto
+that depend on it do not come up. The patch only emits those aliases.
 
-Without `MODULE_DEVICE_TABLE()`, `clk-imx-lpcg-scu.ko` has no
-`of:N*T*Cfsl,imx8qxp-lpcg*` aliases. kmod will not load it from DT. LPCG
-is a clock provider, so that shows up as missing clocks and failed
-consumer probe, not as a crash. The fix only publishes the table the
-driver already uses.
+### Rules / risk
+Obviously correct, +1 line, no new API, applies cleanly. Benefit is
+hardware enablement for modular builds; risk is negligible because
+nothing in probe, IRQ, or locking changes.
 
-It meets the stable bar: obviously correct, tiny, no new API, real
-modular-load bug, applies here.
+### Concerns
+No hardware reproduction and a tiny user base. Those are not blockers
+for this exception class. Sibling NPE change is independent and not
+required.
 
-Risk vs benefit: benefit is correct autoload for `CONFIG_CLK_IMX8QXP=m`;
-risk is essentially zero.
-
-Concerns: no live repro, default `=y`. That does not outweigh a one-line
-alias export that other i.MX clk drivers already have.
-
----
-
-## Verification
-- [Phase 1] `git log -1 e89485455ac49`: tags as above; no
-  Fixes/Reported-by/Cc:stable.
-- [Phase 2] `git show e89485455ac49`: +1 `MODULE_DEVICE_TABLE(of,
-  imx8qxp_lpcg_match)`.
-- [Phase 2] Read `clk-imx8qxp-lpcg.c`: table used as `.of_match_table`;
-  `module_platform_driver`.
-- [Phase 2] `include/linux/module.h`: macro creates `__mod_device_table`
-  alias for modpost.
-- [Phase 3] `git blame` 350–370: table `1e3121bfe51a3` (v5.0); line
-  `e89485455ac49`.
-- [Phase 3] `e0d0d4d86c766` in v5.10-rc1 (tristate); `eee377b8f44e7`
-  switches to `module_platform_driver`.
-- [Phase 3] `git merge-base --is-ancestor e89485455ac49 HEAD` succeeded.
-- [Phase 3] Parent file confirmed missing `MODULE_DEVICE_TABLE`.
-- [Phase 4] `b4 dig -c/-a/-w` and `b4 dig -m`: v1 thread, three R-b,
-  Abel applied; To/Cc = clk + i.MX lists.
-- [Phase 4] lore HTTP 403; stable-list search **UNVERIFIED**.
-- [Phase 5] `Kconfig`: `CLK_IMX8QXP` tristate; Makefile builds `clk-imx-
-  lpcg-scu`.
-- [Phase 5] DTS: `fsl,imx8qxp-lpcg` in imx8qm-ss-*.dtsi.
-- [Phase 5] defconfig: `CONFIG_CLK_IMX8QXP=y`.
-- [Phase 6] `git describe HEAD` / `make kernelversion`: 7.3.0-rc4; buggy
-  table present; clean apply.
-- [Phase 6] Sibling `cd21fdcbef3fb` is a different file; not required
-  for this hunk.
-- [Phase 8] Failure mode: no autoload when `=m` — verified from code and
-  MODULE_DEVICE_TABLE semantics, not from a hardware log.
-- UNVERIFIED: live `=m` boot on i.MX8QXP; lore.kernel.org/stable
-  contents.
+### Verification
+- **[Phase 1]** Parsed tags: author Pengpeng Hou; SOB Linus Walleij;
+  Message-ID present; no Fixes/Reported-by/Cc-stable.
+- **[Phase 2]** Diff: +1 line `MODULE_DEVICE_TABLE(of,
+  ixp4xx_qmgr_of_match)` in `drivers/soc/ixp4xx/ixp4xx-qmgr.c`.
+- **[Phase 3]** `git blame`: table from `9e01a00958405` (v5.2-rc1); this
+  line from `01479280fa5d4`.
+- **[Phase 3]** `git merge-base --is-ancestor 9e01a00958405 HEAD` and
+  `01479280fa5d4 HEAD`: both true.
+- **[Phase 3]** Sibling `f0b93c158aa92` on `ixp4xx-npe.c` same day; not
+  a prerequisite.
+- **[Phase 4]** `b4 dig -c 01479280fa5d4`: lore URL `https://patch.msgid
+  .link/20260704121851.63805-1-pengpeng@iscas.ac.cn`.
+- **[Phase 4]** `b4 dig -a`: also matched 2024 Liao Chen posting with
+  the same patch-id; Hou 2026 version is what landed.
+- **[Phase 4]** `b4 dig -w`: To Linus Walleij and Imre Kaloz; Cc linux-
+  arm-kernel, linux-kernel.
+- **[Phase 4]** `b4 dig -m`: Walleij reply is “Patch applied.”; no NAK,
+  no stable tag.
+- **[Phase 4]** WebFetch lore/stable: 403. UNVERIFIED: stable-list
+  discussion.
+- **[Phase 5]** Callers of qmgr APIs: `ixp4xx_eth.c`, `ixp4xx_hss.c`,
+  `ixp4xx_crypto.c`. DT node in `intel-ixp4xx.dtsi`.
+- **[Phase 5]** `MODULE_DEVICE_TABLE` in `include/linux/module.h` is an
+  alias attribute for `file2alias.c`.
+- **[Phase 6]** `git describe HEAD` = `v7.3-rc4-27-gf0100363d8c37`;
+  `make kernelversion` = `7.3.0-rc4`. File already contains the line.
+- **[Phase 6]** Kconfig `IXP4XX_QMGR` is tristate; `ixp4xx_defconfig`
+  sets `CONFIG_IXP4XX_QMGR=y`.
+- **[Phase 8]** Failure mode: module autoload miss → device never
+  probes; severity MEDIUM, not oops.
 
 **YES**
 
- drivers/clk/imx/clk-imx8qxp-lpcg.c | 1 +
+ drivers/soc/ixp4xx/ixp4xx-qmgr.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-index 1dae3410ee99a..f0cf6cf918992 100644
---- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
-+++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-@@ -354,6 +354,7 @@ static const struct of_device_id imx8qxp_lpcg_match[] = {
- 	{ .compatible = "fsl,imx8qxp-lpcg", NULL },
- 	{ /* sentinel */ }
+diff --git a/drivers/soc/ixp4xx/ixp4xx-qmgr.c b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
+index 475e229039e30..e3ad0e0237a77 100644
+--- a/drivers/soc/ixp4xx/ixp4xx-qmgr.c
++++ b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
+@@ -454,6 +454,7 @@ static const struct of_device_id ixp4xx_qmgr_of_match[] = {
+         },
+ 	{},
  };
-+MODULE_DEVICE_TABLE(of, imx8qxp_lpcg_match);
++MODULE_DEVICE_TABLE(of, ixp4xx_qmgr_of_match);
  
- static struct platform_driver imx8qxp_lpcg_clk_driver = {
+ static struct platform_driver ixp4xx_qmgr_driver = {
  	.driver = {
 -- 
 2.53.0
