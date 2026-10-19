@@ -2,84 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0632C609CEFB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 15:14:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FB4960740AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 14:57:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P1Sn7Dw/;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E9RytrjJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3mWY0LW+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Rg8ro+nVC+0k89M1QmhZ1e0RzR/D2AdQ8L9fKW1vx4=; b=P1Sn7Dw/c/khLSbvcmuDrkAavp
-	BRIC0ti0mMlnoAa91w9DhMkPpxQshXry2qjF0vgNNbefhFBJhNsCGIsPf0d0y9iHdJmYD1+D3K2JS
-	1h8wLO2USHFVmIpbtDXwsNJkltQpL55lfXja+E7ktBleSby1OaswQg8UL38gn7a4Ngv/Tm3CtZVuG
-	a1huuEOx0vjxKc9npzqhg2tK+dMyJ+aB/g2CGc89zPX5Ytlskb8TckFlWYrTP8yDKf46aoEQXyMLt
-	/iMsyjcBG7xMYKBKwZwgXQi3q3CvuO9ynkSZYt+C8FQaCnIkXLfYffyiZMTTYxqoxTvjynbldoTw/
-	EnNoqTfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yo6/2OGJfxhXILo4QGIB9gHfvFskGfKjbh+hNyiFvf8=; b=3mWY0LW+9EIVTepPSl0ABiMskm
+	RtKf08pH4XQSEGci2ERAuZqNNoTFs/EbRLOSMIT+wKye1+leOiLBPCRb+R6KI1udxUd3/W8VcTBgF
+	PnQKjXitA8QcSQrM4HJuDA8r20yvLUsDZJI/8A4nmu1wApX2a/2Ll7IK0q6JNsD31HcUO3DZye4Jx
+	1SbYsGvSfn0jTdACpFz1swUtqbPEvqiPWTNV0JEujwhtKrsi0NcD+OHjEEltUxG1vhJ7/aKjXr1O8
+	c9OLuP9vMXBDXjPAMJny/ADe0d+QiMau+ddY56PkvZOGXGID7kIgJjr6jWPJ3AXmjYAcKe/1BwkMM
+	/IDITtpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIp4Y-00000007p6f-34A8;
-	Mon, 19 Oct 2026 15:14:46 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1xIon6-00000007nDT-2E4C;
+	Mon, 19 Oct 2026 14:56:44 +0000
+Received: from mail-vk1-f174.google.com ([209.85.221.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIp4S-00000007p49-15JH
+	id 1xIon3-00000007nCn-2kwV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Oct 2026 15:14:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1792422881; x=1823958881;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=1XahINlI+qtzt3WIrBdAjFdXjrmyMcpiOfQXjm/4WOY=;
-  b=E9RytrjJIdJOSNNXr1cA6v++IImCFJ6nOD7KGkPe4esqbDfvngqau0ha
-   ZdSOeAdRtHlQCAbuZI9mCyUuMPdN7m0ilQzKgaPrujq9YCsWny/A+QmHF
-   T2t32GAsnlalmxCIPTNnAUefEAKjBJ9jehimoZMSJzwlRCfGCqXiLeSoz
-   A5qu/9w3GyoJ/kuYYg6uugQxM8wPVqZLJ7jYX/9ewLbLh+kEYWAfc9VPI
-   WeGU3WBvK5dH0L80gN6KH2PoexOU3Y0Q09Zb412vn3KkLFw4cBtijOv6Y
-   0Fxz3BCeREUQHKIjcn1YU5mCNHLpODSxXcSbIH0cjbx9/Jlesfeo9bud5
-   A==;
-X-CSE-ConnectionGUID: kydj9vQQTnGluqeVKRj/8A==
-X-CSE-MsgGUID: je4ukBSTQw24diqroaRjIg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="992133"
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="992133"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Oct 2026 08:14:36 -0700
-X-CSE-ConnectionGUID: wG5r3/fiQl2BWTJBHQT9Jw==
-X-CSE-MsgGUID: X2Ddg/jvSledtfS/BnPcuA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,167,1787036400"; 
-   d="scan'208";a="2636142"
-Received: from jf5300-15a101203tc.jf.intel.com (HELO meta-crater2c.jf.intel.com) ([10.54.113.49])
-  by fmviesa005.fm.intel.com with ESMTP; 19 Oct 2026 08:14:35 -0700
-From: Daniel Byrne <daniel1.byrne@intel.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>
-Cc: Fenghua Yu <fenghua.yu@intel.com>,
-	Frank Li <Frank.Li@kernel.org>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	dmaengine@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] dmaengine: idxd: generation-number transaction status
-Date: Mon, 19 Oct 2026 08:06:31 -0700
-Message-ID: <20261019150632.4026424-3-daniel1.byrne@intel.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261019150632.4026424-1-daniel1.byrne@intel.com>
-References: <20261019150632.4026424-1-daniel1.byrne@intel.com>
+	Mon, 19 Oct 2026 14:56:43 +0000
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5eac925bac3so176569e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 07:56:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792421800; x=1793026600;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Yo6/2OGJfxhXILo4QGIB9gHfvFskGfKjbh+hNyiFvf8=;
+        b=Tcy4YoI2Lv2dqTxMxmd8/DU7SIjII+jXHAXMteTL+QknYzdo4BErpTpk6Zp2BVmuz3
+         kM11T3sFcubdY9OwAJW1/HODFmWoza95CKfgQfxQP1ZPvV20u5x9AreyhiQHX96zw2sR
+         A0NtkjPAi/cI+cuUMFp4CLfiqsIEgVKUOCVKGsdM3707cZSsBtV5w+A087twUWgacZC4
+         TA/PyxYKx4AfFmyeFTCfkGBu1FOpBxE5E0HC+N6hgdKTiyXCNNXvrbYWjUnx26eN4QEY
+         PK4g7TjuB19EI6C2Gvq5wSqcLRuij608LXBv0JVbEq7dELES+ZHjdKPAMR2BsMiy5BXC
+         r71w==
+X-Forwarded-Encrypted: i=1; AKwUvBzVxO0V5d7+iJPRga/tAgwd+PMUL6i4rzIFkNux0Hxe2bc67ZwFrdYsg82iGECwUbexZ5msUhxOUxPTDLjC8MiA@lists.infradead.org
+X-Gm-Message-State: AFq9FYIuFz4/FFySYUc04HP5Pzq1KEKH27VC+2QiD6HwP9QG4qcgGNtl
+	WxRbN8ypkMMAQhrjPyqW7wU9jfk0c4DyR2uNv2B2Snk35tROKysf0cLZmmUcl9ThCxs=
+X-Gm-Gg: AYBFou2HyKL/wcZELExHTb5mrzO7MwA5JpF8fNx/sVljn0zvPX7xNSyx44fgpjfvlD8
+	l9XrdFaAxKUhJZKwzUypPHpKSLS/3eOxskq8wpTMZZl31Ebt01qRVmF2OhbqtS5CQaBhL7ijDv6
+	synxqGs/XmOfK1slYI9cqCfjMkeceBT8Mr2i/EypAxvgCe10NIeEhgWVJiyBWktkzg87iuvoGHD
+	fqpP1k4Npp5hXuXODQJ+6JQajOQ1Eq6IZozIOpfxAncA9fvpPnmFlR+QN05wW0rb8Y+YzhoRvTp
+	E9/n1EhJ5BVq9rWBfePXAEhDCdqXjMF6/WUOWsCi53i9J+3XVIn81S9DVBiDy0d2HO2AF8TDoMS
+	NN/NP7+xOg205fgj1R5WSgxQ3cfzaztFbAWWN1tanBq7F1PIVeMcAxQz4qjrCSxDSwBO0e//QBU
+	cCexxKnao0RqljS3hklKXi8BqEY+XlWEJEM4rGZIOtNMrWPOZDdkszh6F43M+JfDmG+xi9D+LNz
+	JlqvuIWJI28uD8PEFh5m38L5vdOPFrKqGOi
+X-Received: by 2002:a05:6123:2c7:b0:5bd:aba5:3830 with SMTP id 71dfb90a1353d-5eaa9ecd330mr2555110e0c.0.1792421799773;
+        Mon, 19 Oct 2026 07:56:39 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ea9b518bc8sm9847684e0c.11.2026.10.19.07.56.39
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Oct 2026 07:56:39 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-988c7371716so598239241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 07:56:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBx0m5ZOmmDkGMtnQ3mngcZCgrew9MeIoUEPmDudMkyMt0mjvMzk2RY4CYgsQ8NO6Zt6+OKopKFW79eZLXdug8Nc@lists.infradead.org
+X-Received: by 2002:a05:6102:f86:b0:7cb:288a:b66d with SMTP id
+ ada2fe7eead31-7cc369ac7b5mr1684195137.20.1792421799154; Mon, 19 Oct 2026
+ 07:56:39 -0700 (PDT)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1792163045.git.geert+renesas@glider.be> <1d7da50cfb58232c6dd4c4afefb938fd7e62fdcd.1792163045.git.geert+renesas@glider.be>
+ <20261019144256.GC763679@killaraus.ideasonboard.com>
+In-Reply-To: <20261019144256.GC763679@killaraus.ideasonboard.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 19 Oct 2026 16:56:28 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWkAvkxHkzRVviF_NkZHP7UeCBjebxciE6jFN_8ViM=aQ@mail.gmail.com>
+X-Gm-Features: AclHuK9UZUEUyPMO3TO_vFhUiV57c9SStFUdXlV8TRdwkOQjKO9ySUhEkuMfo5c
+Message-ID: <CAMuHMdWkAvkxHkzRVviF_NkZHP7UeCBjebxciE6jFN_8ViM=aQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/8] clk: renesas: r8a78000: Add clk_hw to clk_map
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Vinod Koul <vkoul@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_081440_369295_E630DDBE 
-X-CRM114-Status: GOOD (  34.94  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_075641_712194_C6E62068 
+X-CRM114-Status: GOOD (  37.08  )
+X-Spam-Score: -1.6 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,333 +106,147 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_ZEN_BLOCKED_OPENDNS,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Implement device_tx_status() by reading the addressed descriptor's
-completion record. The cookie encodes the descriptor id in its lower
-16 bits and a generation number in the 14 bits above, so a query
-against a recycled descriptor sees a stale cookie and reads
-DMA_COMPLETE. The generation wraps after 16383 submissions of the same
-slot; the contract is that a client polls a cookie to its terminal
-answer, or abandons it, before its slot has been reused 16383 times,
-which every in-tree polling client satisfies by construction.
+Hi Laurent,
 
-Descriptors with a completion interrupt armed stay with the IRQ
-handler: a generic client such as dmatest may request an interrupt,
-and reading such a descriptor's completion record here would race with
-the handler recycling it. tx_status therefore reports DMA_IN_PROGRESS
-while such a cookie is live and the stale-cookie check answers once the
-handler has completed it. Whether a descriptor is interrupt-armed
-travels in the cookie, in the bit below the sign bit, since the
-descriptor's own flags are rewritten when the handler recycles it.
+On Mon, 19 Oct 2026 at 16:42, Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+> On Fri, Oct 16, 2026 at 05:55:40PM +0200, Geert Uytterhoeven wrote:
+> > Prepare for mapping to other than fixed-rate clocks by adding a clk_hw
+> > pointer to the clk_map structure, and populating it up-front.
+> >
+> > Move r8a78000_cpg_priv.fixed_hws into fill_clk_map(), as it is no longer
+> > needed afterwards, and drop NUM_FIXED_CLKS.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-A polled descriptor has two terminal answers. Its completion record
-gives the first; the query retires the descriptor and reports
-DMA_COMPLETE or DMA_ERROR from the status. The second is DMA_ERROR for
-a descriptor outstanding on a work queue or a device that is no longer
-enabled, since nothing will complete it; the slot is retired only when
-the device halted, which kills it for good. Descriptors carry the
-device's reset epoch from submit time for that, and the halt stores its
-state before it bumps the epoch, so a poll that read the old epoch and
-the halted state reads the epoch again and retires on a mismatch. The
-same epoch lets device_synchronize() treat a drain that a halt ended
-as complete, since the halt killed everything the drain covered.
+> > --- a/drivers/clk/renesas/r8a78000-cpg.c
+> > +++ b/drivers/clk/renesas/r8a78000-cpg.c
+> > @@ -16,19 +16,24 @@
+> >
+> >  #include <dt-bindings/clock/renesas,r8a78000-cpg.h>
+> >
+> > +struct clk_map_in {
+>
+> The "_in" suffix isn't very explicit.
 
-Switch the prep callbacks' descriptor allocation to IDXD_OP_NONBLOCK:
-prep callbacks may not sleep, and on an exhausted pool they return NULL
-so the caller falls back. Direct kernel clients such as iaa_crypto keep
-the blocking allocator path. This gives dmaengine_async_is_tx_complete()
-exact per-descriptor results for polling clients on a device whose work
-queues complete out of order across a group's engines.
+I can add a comment...
 
-Assisted-by: Claude:claude-opus-5-5
-Assisted-by: Claude:claude-fable-5-1
-Signed-off-by: Daniel Byrne <daniel1.byrne@intel.com>
----
- drivers/dma/idxd/device.c |   1 +
- drivers/dma/idxd/dma.c    | 158 ++++++++++++++++++++++++++++++++++++--
- drivers/dma/idxd/idxd.h   |   3 +
- drivers/dma/idxd/irq.c    |   8 ++
- 4 files changed, 165 insertions(+), 5 deletions(-)
+> > +     int dt_id;              /* DT binding clock ID or -1 sentinel */
+> > +     u32 fw_id;              /* FIXED_CLK() ID */
+> > +};
+> > +
+> >  struct clk_map {
+> >       int dt_id;              /* DT binding clock ID or -1 sentinel */
+> >       u32 fw_id;              /* FIXED_CLK() ID */
 
-diff --git a/drivers/dma/idxd/device.c b/drivers/dma/idxd/device.c
-index 5ccdc5ff8d53..68a7de74f9e6 100644
---- a/drivers/dma/idxd/device.c
-+++ b/drivers/dma/idxd/device.c
-@@ -155,6 +155,7 @@ int idxd_wq_alloc_resources(struct idxd_wq *wq)
- 			desc->iax_completion = &wq->iax_compls[i];
- 		desc->compl_dma = wq->compls_addr + idxd->data->compl_size * i;
- 		desc->id = i;
-+		desc->gen = 1;
- 		desc->wq = wq;
- 		desc->cpu = -1;
- 	}
-diff --git a/drivers/dma/idxd/dma.c b/drivers/dma/idxd/dma.c
-index 0a7517cb51f2..dd5a9d9274ce 100644
---- a/drivers/dma/idxd/dma.c
-+++ b/drivers/dma/idxd/dma.c
-@@ -12,6 +12,20 @@
- #include "registers.h"
- #include "idxd.h"
- 
-+#define DMA_COOKIE_BITS (sizeof(dma_cookie_t) * 8)
-+/*
-+ * The descriptor id takes the lower 16 bits of the cookie.
-+ */
-+#define DESC_ID_BITS 16
-+#define DESC_ID_MASK ((1 << DESC_ID_BITS) - 1)
-+/*
-+ * The generation takes the 14 bits above the id. Since dma_cookie_t is
-+ * signed, the upper-most bit is left for the sign, and the bit below it
-+ * records that the descriptor completes by interrupt.
-+ */
-+#define IDXD_COOKIE_RCI BIT(DMA_COOKIE_BITS - 2)
-+#define DESC_GEN_MAX ((1 << (DMA_COOKIE_BITS - DESC_ID_BITS - 2)) - 1)
-+
- static inline struct idxd_wq *to_idxd_wq(struct dma_chan *c)
- {
- 	struct idxd_dma_chan *idxd_chan;
-@@ -93,7 +107,7 @@ idxd_dma_prep_interrupt(struct dma_chan *c, unsigned long flags)
- 		return NULL;
- 
- 	op_flag_setup(flags, &desc_flags);
--	desc = idxd_alloc_desc(wq, IDXD_OP_BLOCK);
-+	desc = idxd_alloc_desc(wq, IDXD_OP_NONBLOCK);
- 	if (IS_ERR(desc))
- 		return NULL;
- 
-@@ -120,7 +134,7 @@ idxd_dma_submit_memcpy(struct dma_chan *c, dma_addr_t dma_dest,
- 		return NULL;
- 
- 	op_flag_setup(flags, &desc_flags);
--	desc = idxd_alloc_desc(wq, IDXD_OP_BLOCK);
-+	desc = idxd_alloc_desc(wq, IDXD_OP_NONBLOCK);
- 	if (IS_ERR(desc))
- 		return NULL;
- 
-@@ -154,11 +168,128 @@ static void idxd_dma_free_chan_resources(struct dma_chan *chan)
- 		idxd_wq_refcount(wq));
- }
- 
-+/*
-+ * A cookie has exactly one polling owner, the client that submitted the
-+ * transaction. Observing a terminal completion record here retires and
-+ * recycles the descriptor, since a polled descriptor has no interrupt
-+ * and nobody else will. Two contexts polling the same live cookie
-+ * would race that recycle, which every in-tree dmaengine polling
-+ * client already avoids by construction.
-+ */
- static enum dma_status idxd_dma_tx_status(struct dma_chan *dma_chan,
- 					  dma_cookie_t cookie,
- 					  struct dma_tx_state *txstate)
- {
--	return DMA_OUT_OF_ORDER;
-+	struct idxd_wq *wq;
-+	struct idxd_desc *desc;
-+	u32 idx;
-+	u8 status;
-+
-+	if (txstate)
-+		memset(txstate, 0, sizeof(*txstate));
-+
-+	if (dma_submit_error(cookie))
-+		return DMA_ERROR;
-+
-+	wq = to_idxd_wq(dma_chan);
-+
-+	idx = cookie & DESC_ID_MASK;
-+	if (idx >= wq->num_descs)
-+		return DMA_ERROR;
-+
-+	desc = wq->descs[idx];
-+
-+	/*
-+	 * Descriptors with a completion interrupt armed (RCI) are
-+	 * completed and recycled by the IRQ handler. Reading their
-+	 * completion record here would race with the handler, and so
-+	 * would reading the recycled descriptor's flags, which is why
-+	 * the property travels in the cookie the caller owns. The handler
-+	 * invalidates the cookie on completion, so a matching cookie means
-+	 * the command is still in progress.
-+	 */
-+	if (cookie & IDXD_COOKIE_RCI)
-+		return READ_ONCE(desc->txd.cookie) == cookie ?
-+			DMA_IN_PROGRESS : DMA_COMPLETE;
-+
-+	if (desc->txd.cookie != cookie) {
-+		/*
-+		 * The cookie belongs to an old transaction that has
-+		 * already completed and been recycled.
-+		 */
-+		return DMA_COMPLETE;
-+	}
-+
-+	status = desc->completion->status & DSA_COMP_STATUS_MASK;
-+
-+	if (status) {
-+		/* Capture completion record fields before desc is freed below. */
-+		u8 fault_info = desc->completion->fault_info;
-+		u64 fault_addr = desc->completion->fault_addr;
-+
-+		/*
-+		 * Check against the original status because ABORT is
-+		 * software defined as 0xff, which DSA_COMP_STATUS_MASK
-+		 * can mask out.
-+		 */
-+		if (unlikely(desc->completion->status == IDXD_COMP_DESC_ABORT))
-+			idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true, NULL, NULL);
-+		else
-+			idxd_dma_complete_txd(desc, IDXD_COMPLETE_NORMAL, true, NULL, NULL);
-+
-+		dev_dbg(&wq->idxd->pdev->dev,
-+			"dsa completion: status=0x%02x fault_info=0x%02x fault_addr=0x%llx\n",
-+			status, fault_info, fault_addr);
-+
-+		if (status == DSA_COMP_SUCCESS)
-+			return DMA_COMPLETE;
-+
-+		return DMA_ERROR;
-+	}
-+
-+	/*
-+	 * The descriptor is genuinely outstanding. A polled descriptor
-+	 * carries no interrupt, so nothing but this function will ever
-+	 * retire it, and a work queue or device that is no longer enabled
-+	 * will not complete it either. Report the failure instead of
-+	 * leaving the caller polling forever.
-+	 *
-+	 * A descriptor submitted before a device halt is dead for good:
-+	 * the halt ended the engines and the reset that follows starts
-+	 * them empty, so its record will never be written even once the
-+	 * device is enabled again. Only in that case can the descriptor
-+	 * be retired here safely; otherwise the pool would shrink by one
-+	 * for every descriptor caught by a halt.
-+	 */
-+	if (desc->epoch != READ_ONCE(wq->idxd->reset_epoch)) {
-+		idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true, NULL, NULL);
-+		return DMA_ERROR;
-+	}
-+	/*
-+	 * A device that is no longer enabled runs nothing it holds, so an
-+	 * outstanding descriptor on it has failed. A halt stores its state
-+	 * before it bumps the epoch, and this poll may have read the epoch
-+	 * before the halt and the state after it, so the epoch is read
-+	 * again: only the retire frees the slot of a descriptor the halt
-+	 * caught. A halted device whose epoch still matches is between the
-+	 * two stores, and the next poll retires the descriptor. The submit
-+	 * reads the state after the stamp, so it refuses a descriptor
-+	 * stamped with the bumped epoch.
-+	 */
-+	if (wq->idxd->state != IDXD_DEV_ENABLED) {
-+		if (desc->epoch != READ_ONCE(wq->idxd->reset_epoch)) {
-+			idxd_dma_complete_txd(desc, IDXD_COMPLETE_ABORT, true,
-+					      NULL, NULL);
-+			return DMA_ERROR;
-+		}
-+		if (wq->idxd->state == IDXD_DEV_HALTED)
-+			return DMA_IN_PROGRESS;
-+		return DMA_ERROR;
-+	}
-+	if (wq->state != IDXD_WQ_ENABLED)
-+		return DMA_ERROR;
-+
-+	return DMA_IN_PROGRESS;
- }
- 
- /*
-@@ -177,7 +308,17 @@ static dma_cookie_t idxd_dma_tx_submit(struct dma_async_tx_descriptor *tx)
- 	int rc;
- 	struct idxd_desc *desc = container_of(tx, struct idxd_desc, txd);
- 
--	cookie = dma_cookie_assign(tx);
-+	cookie = (desc->gen << DESC_ID_BITS) | (desc->id & DESC_ID_MASK);
-+	if (desc->hw->flags & IDXD_OP_FLAG_RCI)
-+		cookie |= IDXD_COOKIE_RCI;
-+
-+	if (desc->gen == DESC_GEN_MAX)
-+		desc->gen = 1;
-+	else
-+		desc->gen++;
-+
-+	tx->cookie = cookie;
-+	desc->epoch = READ_ONCE(wq->idxd->reset_epoch);
- 
- 	rc = idxd_submit_desc(wq, desc);
- 	if (rc < 0) {
-@@ -219,6 +360,7 @@ static void idxd_dma_synchronize(struct dma_chan *c)
- {
- 	struct idxd_wq *wq = to_idxd_wq(c);
- 	LIST_HEAD(quarantined);
-+	u32 epoch;
- 
- 	/*
- 	 * dmaengine_synchronize() promises the client that its memory may
-@@ -240,7 +382,13 @@ static void idxd_dma_synchronize(struct dma_chan *c)
- 	 * Only a device reset ends the exposure of the client's memory.
- 	 */
- 	idxd_wq_quarantine_take(wq, &quarantined);
--	if (!idxd_wq_drain(wq)) {
-+	/*
-+	 * A halt during the drain kills every descriptor submitted before
-+	 * it, which is all of them, and a reset that followed may have
-+	 * ended the drain itself. Such a drain is as good as complete.
-+	 */
-+	epoch = READ_ONCE(wq->idxd->reset_epoch);
-+	if (!idxd_wq_drain(wq) || READ_ONCE(wq->idxd->reset_epoch) != epoch) {
- 		idxd_wq_quarantine_free(wq, &quarantined);
- 		WRITE_ONCE(wq->stuck, false);
- 		return;
-diff --git a/drivers/dma/idxd/idxd.h b/drivers/dma/idxd/idxd.h
-index b0cfd7101174..7fe5ec6c3bf3 100644
---- a/drivers/dma/idxd/idxd.h
-+++ b/drivers/dma/idxd/idxd.h
-@@ -349,6 +349,7 @@ struct idxd_device {
- 	spinlock_t cmd_lock;	/* spinlock for device commands */
- 	struct completion *cmd_done;
- 	u32 cmd_seq;		/* bumps when a command starts running */
-+	u32 reset_epoch;	/* bumps on every device halt */
- 	struct idxd_group **groups;
- 	struct idxd_wq **wqs;
- 	struct idxd_engine **engines;
-@@ -447,9 +448,11 @@ struct idxd_desc {
- 	struct list_head list;
- 	int id;
- 	int cpu;
-+	u16 gen;
- 	u16 terminate_gen;	/* the queue's terminate_gen at an
- 				 * interrupt-armed submit
- 				 */
-+	u32 epoch;		/* the device reset_epoch at submit */
- 	struct idxd_wq *wq;
- };
- 
-diff --git a/drivers/dma/idxd/irq.c b/drivers/dma/idxd/irq.c
-index 8217698056bb..5e34790359ee 100644
---- a/drivers/dma/idxd/irq.c
-+++ b/drivers/dma/idxd/irq.c
-@@ -508,6 +508,14 @@ static irqreturn_t idxd_halt(struct idxd_device *idxd)
- 	gensts.bits = ioread32(idxd->reg_base + IDXD_GENSTATS_OFFSET);
- 	if (gensts.state == IDXD_DEVICE_STATE_HALT) {
- 		idxd->state = IDXD_DEV_HALTED;
-+		/*
-+		 * Every descriptor submitted before this point is dead: the
-+		 * device will never write its completion record. Pollers
-+		 * compare their descriptor's epoch against this to retire
-+		 * such descriptors instead of waiting for a record that never
-+		 * comes.
-+		 */
-+		WRITE_ONCE(idxd->reset_epoch, idxd->reset_epoch + 1);
- 		if (gensts.reset_type == IDXD_DEVICE_RESET_SOFTWARE) {
- 			/* The reinit below re-enables the queues, so revive them. */
- 			idxd_wqs_halt_flush(idxd, true);
+BTW, do you think it would be worthwhile to reuse clk_map_in here?
+
+> > +     struct clk_hw *hw;
+> >  };
+
+> > @@ -92,35 +94,69 @@ static struct clk_hw *r8a78000_clk_get(struct of_phandle_args *spec,
+> >       return hw;
+> >  }
+> >
+> > -static int register_fixed_clks(struct r8a78000_cpg_priv *priv)
+> > +static struct clk_hw **register_fixed_clks(struct device *dev)
+> >  {
+> > -     struct device *dev = priv->dev;
+> > +     unsigned int n = ARRAY_SIZE(fixed_clk_rates);
+> > +     struct clk_hw **hws, *hw;
+> >       unsigned long rate;
+> > -     struct clk_hw *hw;
+> >       const char *name;
+> >
+> > -     for (unsigned int i = 0; i < ARRAY_SIZE(fixed_clk_rates); i++) {
+> > +     hws = devm_kcalloc(dev, n, sizeof(*hws), GFP_KERNEL);
+> > +     if (!hws)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     for (unsigned int i = 0; i < n; i++) {
+> >               rate = fixed_clk_rates[i];
+> >               name = devm_kasprintf(dev, GFP_KERNEL, "cpg-%lu", rate);
+> >               if (!name)
+> > -                     return -ENOMEM;
+> > +                     return ERR_PTR(-ENOMEM);
+> >
+> >               hw = devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+> >               if (IS_ERR(hw))
+> > -                     return PTR_ERR(hw);
+> > +                     return ERR_CAST(hw);
+> >
+> > -             priv->fixed_hws[i] = hw;
+> > +             hws[i] = hw;
+> >       }
+> >
+> > -     return 0;
+> > +     return hws;
+> > +}
+> > +
+> > +static const struct clk_map *fill_clk_map(struct r8a78000_cpg_priv *priv,
+> > +                                       const struct clk_map_in *map_in)
+> > +{
+> > +     struct device *dev = priv->dev;
+> > +     struct clk_hw **fixed_hws;
+> > +     struct clk_map *map;
+> > +     unsigned int i;
+> > +
+> > +     fixed_hws = register_fixed_clks(dev);
+> > +     if (IS_ERR(fixed_hws))
+> > +             return ERR_CAST(fixed_hws);
+> > +
+> > +     for (i = 0; map_in[i].dt_id >= 0; i++) { }
+>
+> This is avoidable by passing { map, ARRAY_SIZE(map) } as match data
+> instead of just the map.
+
+True, and I did consider this.
+The same mechanism is used in the MDLC driver, where using ARRAY_SIZE()
+would quickly became a bigger burden due to the presence of many
+more maps.  So for consistency, I kept it the same in both drivers.
+An initialization macro might make it more manageable, though.
+
+> > +
+> > +     map = devm_kcalloc(dev, i + 1, sizeof(*map), GFP_KERNEL);
+> > +     if (!map)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     for (i = 0; ; i++) {
+> > +             map[i].dt_id = map_in[i].dt_id;
+> > +             if (map[i].dt_id < 0)
+> > +                     break;
+> > +
+> > +             map[i].fw_id = map_in[i].fw_id;
+> > +             map[i].hw = fixed_hws[map[i].fw_id];
+> > +     }
+> > +
+> > +     devm_kfree(dev, fixed_hws);
+>
+> Why not plain kcalloc/kfree ?
+
+To avoid having to free it manually at multiple (three) locations,
+both in the error paths and the success path?
+
+>
+> > +     return map;
+> >  }
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
