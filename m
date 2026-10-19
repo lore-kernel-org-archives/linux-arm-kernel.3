@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA27ECCF2E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF33CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Oct 2026 13:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:References:
-	In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dL9cNk/ZEKPLZBuPsaXaPEmvwCbR0bAkWH6SBOotYD8=; b=4auEPGJJmSsLeu9DGTUHRqgUDy
-	GbuPvzhHe6hoGt8pw+sT/cx0zodQXdFU1bW3Yrum8wTzfkkKD4vujjEr5DxKpJZ5+vHucj+0D6IgV
-	3lDOi+FrFZqCA7iRbmh9ZmBxWHIWxpr0Kdvit4wUhq8F2FBauhn+IeIe+cgLh0Axi+dqz0YhE/5Q2
-	Hubb7HuDUFMkDbKTjjuBuH+sDqFqovDZa6H83ppJ50n0o8cdeYY1Y1B5/lfkGR6fgdOiZR1rUqnBP
-	7uwC4wYm3oirC80kuTOYEyKFivpig0mZZYFc8D93M7ci9HI+D++eHNQKflNDJStvh/ifRX+yNEWs4
-	K2Y6R+jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=; b=QjbHLnr6TDC1rh9ImBFsjLdZ45
+	IAPG9tYmCpEXdHvCAGFbQ1a26uD4Ik9Vqy0tdUVeAf9Pw2VP3B6ldPfE8hJWVCNoFKyzuNvTjaq7V
+	B2x4C3I1cLF8dwV4MBZHORcU+xLFupdAc9XOJRiXCLVVE4LyI/y3Tf8dRTO8iWD11XW9BKMHv9b6j
+	2icPuNN0j9xl7AG47ykSkPNkp4vN0MzwMywv+u8kv/oidGK1HgJkPfcrSsmKq1X+LGch5wRsoFmvW
+	NOPPdQnOjdSidBvJ/sjqMLLRwP/EJn1tWPjyxTb6TGmiFKFuSqBTgm5mkFaBKVOXITdbj/6YUnoJI
+	1H63qkUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn2w-00000007SM1-4A8E;
-	Mon, 19 Oct 2026 13:04:58 +0000
-Received: from ocn-ckd-mts-119c39.ocn.ad.jp ([122.28.130.104])
+	id 1xIn4B-00000007SXC-195R;
+	Mon, 19 Oct 2026 13:06:15 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIn2t-00000007SLP-3jI5;
-	Mon, 19 Oct 2026 13:04:57 +0000
-Received: from ocn-spm-mts-101c1.ocn.ad.jp (ocn-spm-mts-101c1.ocn.ad.jp [153.128.190.226])
-	by ocn-ckd-mts-119c39.ocn.ad.jp (Postfix) with ESMTP id 80D65340032D4;
-	Mon, 19 Oct 2026 22:04:53 +0900 (JST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=docomonet.jp;
-	s=20240125; t=1792415093;
-	bh=YT55gpGm8NrjkJARCGxiUjSTkL4aw7n4zEtZ9T9agNM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tIBMJsGbiGZiKZ75I7veh1BI6/gydbuy61XWC2+0onOVYvykJsR2MBz3cOnAgaaHt
-	 KQTZAJicCuEf2DXcVfZmQUA6FAlPcYKsrWZBLN/M+xFlr7rGDhO/vjVTFn74qjx8kh
-	 +UIm+BDzb1/kaspyTo5b5E+xtMWmqaLDqiV23/x8=
-Received: from ocn-vc-mts-108c1.ocn.ad.jp ([153.149.236.202])
- by ocn-spm-mts-101c1 with ngmta
- id 0feac299-18dff007e611286f; Mon, 19 Oct 2026 22:04:53 +0900
-Received: from ocn-sdpx-mts-113c1.ocn.ad.jp ([153.128.117.211])
- by ocn-vc-mts-108c1 with ngmta
- id d83a9b4e-18dff0079f7349be; Mon, 19 Oct 2026 22:04:52 +0900
-Received: from docomonet.jp (p3688129-ipoe.ipoe.ocn.ne.jp [153.238.101.128])
-	by ocn-sdpx-mts-113c1.ocn.ad.jp (Postfix) with ESMTPA;
-	Mon, 19 Oct 2026 22:04:52 +0900 (JST)
-From: "Asai, Shigeaki" <y-asai.0816@docomonet.jp>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: amlogic: odroid-go-ultra: use the RK818 RTC as rtc0
-Date: Mon, 19 Oct 2026 22:04:51 +0900
+	id 1xIn48-00000007SWC-0O8m
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Oct 2026 13:06:13 +0000
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 636532018D2;
+	Mon, 19 Oct 2026 15:06:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792415168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=;
+	b=ez3IQRq12gsTNGODFXZzRllu3D9nArUc50OhODwJaryVGgHgr3lKN7z5gkUq6YGAjiBkUx
+	I+JWC6O3m7yg7a0Fsk8UHpl7Kwi+tRfbmM2dQ/TjHhg9GkDfT0OPQFAjJk3vsks4Yc23Tc
+	6Hjq5bdr5OtWFxAXHZrvOLHFWLR6uAqMYoPJJJKGcBKZ3pjxj+AWEeDdQ1jAsA7djkQlUc
+	K7azMvWs+RYWvE+WT7da20JU6yngSf6tUbdZqyouLP2JSg0uYbATSuxHCTzBUASiEFYk59
+	jFWfZHTuX/OlnY61kxayWjrPBLpHMUF9xnvKekXnkdMuFFcziWxnaFvrWw37RQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1792415168; a=rsa-sha256;
+	cv=none;
+	b=F7JKLT4pj0z1IeY8KRGE7/e/m+c9gCF0VBc2EaTEwJSlsYbpsJnScsEyzsdavR66yvdd86
+	ixgx6UZ6X+rhM0u0JXN3gL5VMCfZNJDywNGuHY5wt/pkxaGKOwY2pIvyYmCEunjD+0e4E1
+	fAsn/exgsqqgCXzrsabpzDqQQI0KSS51bavBaOSurR8reOWek9BiDtfxjM11J/nws15SJF
+	1REqCkSOvKewpJ3mWND24ryHn0jAuL3iUaAZ2h/3+ld9snd0G7iFuVepDvYoyT2ZSq/ikb
+	T9S2vO0BLIYQaQUQ77NA2qy58kbrFpGE1mpiwpawa2mFukjRwwl4mqZnf4jzOg==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=mfe@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792415168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z6HJywsKHh53IEWEiQpClvaHw8ghTVJq39aZi8BPCAo=;
+	b=MUrUnoHjrAdHgjnvm20c8PmZCK0FBPh1LvuZaMvM2bIqEKqibe8Aszc6D45bCGucyjN8HF
+	iH23iMTePkaohvp2UGF32FVgnMhF5ePIey+cVS781J/VDPcV3qoJDE5OSoB8kPvLNKxDy5
+	KnzRsTug3JRoIeJyjwZnPjYVWAnvGI5WyP/3U2lfZZ88XHnQsUPUdoCJKyqcmuBKjbMRwn
+	YSJkz/9HgI22oNOroCEaSbAtc0T5S/TkYRab5wO4cBGgIpjjHsXyDY9pW+5bVw8QqVB+vY
+	Mjm+snA6iInjdYHZvd645cJwW6XLsrLSyOAHc81SYfUv/RkgAMlVaiJDniXdZw==
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1064)
+	id 4CE841C0145; Mon, 19 Oct 2026 15:06:08 +0200 (CEST)
+Date: Mon, 19 Oct 2026 15:06:08 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Joy Zou <joy.zou@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
+	Jacky Bai <ping.bai@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add i.MX937 FRDM board
+Message-ID: <2l6vjbw6nkyq6jouilhhg7kebnuka25z36tu6yecyc5hpogluo@kljl5qqoz7s4>
+References: <20261019-b4-imx937-frdm-v1-0-76d949a61954@oss.nxp.com>
+ <20261019-b4-imx937-frdm-v1-1-76d949a61954@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-X-Mailer: HidemaruMail 7.42 (WinNT,A00)
-In-Reply-To: <0b5c28f0-0a43-42b3-a07e-4ecf39b2380d@linaro.org>
-References: <20261017110743.3555391-1-y-asai.0816@docomonet.jp> <0b5c28f0-0a43-42b3-a07e-4ecf39b2380d@linaro.org>
-Message-Id: <10DD5FCA6DA7B692F3006A@docomonet.jp>
+Content-Disposition: inline
+In-Reply-To: <20261019-b4-imx937-frdm-v1-1-76d949a61954@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_060456_289701_21FA2E5A 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20261019_060612_299179_34A87E75 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
+Hi Joy,
 
-On 10/19/26, Neil Armstrong wrote:
-> The vrtc was used as rtc0 because it's the defaut wakeup rtc,
-> can the rk818 and rk817 wakeup the system when in system suspend ?
+On 26-10-19 19:10, Joy Zou wrote:
+> Add DT compatible string for NXP i.MX937 FRDM board.
+> 
+> Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index c8290a83205b..af10cac62f90 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1570,6 +1570,13 @@ properties:
+>            - const: toradex,osm-imx93
+>            - const: fsl,imx93
+>  
+> +      - description: i.MX937 based Boards
+> +        items:
+> +          - enum:
+> +              - fsl,imx937-frdm           # i.MX937 FRDM Board
+> +          - const: fsl,imx937
+> +          - const: fsl,imx952
 
-Thank you for the review. I did not think about wakeup, sorry. I tried
-it on my board:
+At least to me it seems odd that you specify two SoC compatibles here.
 
-- s2idle: with Igor's "irqchip/meson-gpio: Allow the GPIO interrupts to
-  wake the system" applied, an alarm on the RK818 RTC woke the board
-  4/4, and the power key on the RK817 3/3. Without it, neither of them
-  woke the board.
+Side note (obviously not something you could influence):
 
-- deep: an alarm on the vrtc (rtc1 with this patch) woke up BL30, but
-  the system did not come back to Linux, and I had to disconnect the
-  battery. An alarm on the RK818 RTC and the power key did not wake it
-  up at all. So deep suspend does not seem to work on this board for
-  now, which looks like a separate problem.
+NXP should really work on their product family names. If some
+i.mx95<foo> is compatible with i.mx95<bla> I would call it i.mx95<foo>
+and not i.mx93<foo>.
 
-On the other hand, the vrtc does not keep the time, and the RK817 RTC
-drifts, so only the RK818 RTC gives the correct time at boot. Also,
-before this patch, the vrtc was not rtc0 on my board even with the
-rtc0 alias: the RK817 and RK818 RTCs registered first and took rtc0
-and rtc1, and the vrtc became rtc2.
+Regards,
+  Marco
 
-Would it be OK to keep this patch as it is? If you prefer to keep the
-vrtc as rtc0 for deep suspend, I can send a v2 with rtc0 = vrtc,
-rtc1 = RK818 and rtc2 = RK817 instead.
-
-(This reply was written with the help of Claude.)
-
-Thanks
-Asai, Shigeaki
+> +
+>        - description: i.MX94 based Boards
+>          items:
+>            - enum:
+> 
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
