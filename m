@@ -2,146 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0232606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:18:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E47A606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:37:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uqmbHWMo;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Gk4fp6Rr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TtVrH78x;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=DXurnG+O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=; b=uqmbHWMo/gFJ15SocMHM3Y8oyD
-	CcGPNEt1YmvKiuyV81cgcde3fDu3+LlZewHIgWUjmbl+eTUgyVYICzBOQAlWil8KSVdQgyGtgobJq
-	de9ED5rF/bu3qjlHfs33egZSsynlZqJvTmTBAeI2mi/no0se3ni1zQlg8Wv0KPtnl5zQcWbVhr8nr
-	uFzW4x1CN4F+y+3t2iHy8tW+wwCIbefGR6E/oF6R+3hYrV35A4YOPvldNQebK1Ha6ka0HaPGMxaT1
-	8xIWRD2n/YYChxRVTKbEInG/2Uojcp6xNG7Jgq0jRhTyPhAhqXy7X20nCyc4DUaJk5CF4g56FIFoo
-	ZgnMiKeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=cMOyDvJ+4IZMD7M7ive4vsZM0ebqLEDD0cr3Jg1jYiA=; b=TtVrH78x8C9N0f/6bM3CYOFwnN
+	x6uhIufjWRC+xJ2TPijeRcg17wZkReG1+huSSN7RGPPKZIWXDFaK9vUkwvrBypF59SDcG8ha9dLrg
+	y9hLp/NZzrLpT1J9rAGmlpFS8keYLIbjZJ945txv9ipTHePIQoNaFe/uVCimPocJe8R6QnX+yYIDM
+	Vq4EuKaKk7PsobFj2oFZNKRilgP6V5jZWItVR5bLWSTRhOiOFfBk1lfRuEksD8kdqzikNUdtiqc4u
+	h8vCk6YW+HHmHQnbGdE1t27rbpuhCswKuvg1bT2h3kmp4f3if53kyfRTgqTSw5oYM/uV9GFTIHhyq
+	NsebYpgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3BB-00000008uzt-2ljd;
-	Tue, 20 Oct 2026 06:18:34 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xJ3Se-00000008vr5-3naD;
+	Tue, 20 Oct 2026 06:36:36 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3B9-00000008uz1-342l
+	id 1xJ3SZ-00000008vpx-3XaU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 06:18:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ebFYsEeZMyuovt/tE/Tuo2PKoNJgSSxg6FZkzTOyGJ/+uVP6Ko8upQyVzAzJn0tYHzFKgLGE2kWs7hILX0PG7QbXaTARUT/A2v2/pUM+1LTjc+T/Bvs1hEhO2y0ViHC9ZQMndGVU2s31OM+f6Kv8CN85mxou5MNGxquF3S1eMI11LskW7AyF5YXmylIDxSHqLS55/TcaGAllbDIyGZU8LUORM8pwMLHxgHw5WUjJEbSPJW14WIaDWviJjNNUrLH6X/2GRZ7i8hAyZnFvCOcQtZOt53oIHfnbX1cLEdQaoFj3nwaWxZLI6DT7Z41voXQibm7DG43KVrIJBzgodxH5Mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=;
- b=xd2hvHxmPpqZB+Ab9jF1nBkCFU4XzuuwqpX+ABvY+U7rNaVqbHMzzxCgLaopUny+Rb9WxXY+7UHtZvCWWBwzqzchut6ICfO5DffOUj+P7OxG8zhxYMoEisg+x1kacmAfTYN8GnsOfEWKToXf6fLvsp/3MjKn1EbWTpTaNRUxb4fOuDLxjOjLqGnWvmZFR6msW0qRsDseTUfNbW6rCK+vmqdS9xEZp9l1kNgrTpLnofX8TjlJIkn53QRfxALaSUCL72BD9QmxfwOKIcPGAZwCrjlup6ixsXlcCbzCIM/49CFzgq0886ZxuPmeIppv6E/fOsJmhAI89YdehvqwRDXiag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TBD0lZviLPCDXI12kZ1L6DcovEnr70xYStj31jYkCZs=;
- b=Gk4fp6RrMPfWYAGx2ccHSJmHiXIlJHA4K/98ozyAO6bi5lByLgp2cqDaQ40LUJ63BQNkBwIATInjsdFvXb6yu1weHGqy6TaKqeocKrL4bYoB0VLnvrvHpyIatHwV9QcMBpjzpRq8/kvjFxMc45aGEYGmXp3oxn3LO6TM94OO5IdfZihB4FgVnuPp2UPYtujY5ck00xAemHO0gYeEDuURMxmyjYCHG+Kg5xKmxBfJxw1KoE3oRH2oCmR4scGqpUX+AxplRoIyXe5/imnx9ETZZ2JBBP84cNUEbDMzMeorOshHCs4Ov3xKJ81dNulOgIvVWmS9NSA536KQ5I29Od87IQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AM0PR04MB917899.eurprd04.prod.outlook.com (2603:10a6:20b:7fc::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.14; Tue, 20 Oct
- 2026 06:18:28 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0546.012; Tue, 20 Oct 2026
- 06:18:28 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Frank.Li@oss.nxp.com
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v6 3/3] arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
-Date: Tue, 20 Oct 2026 14:15:41 +0800
-Message-ID: <20261020061542.188571-1-peng.fan@oss.nxp.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20261019-memory-region-name-v6-3-2e46b2e7d667@nxp.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR06CA0010.apcprd06.prod.outlook.com
- (2603:1096:4:186::6) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Tue, 20 Oct 2026 06:36:35 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261020063620epoutp0124f7a110151d9cb4366089d7ef063363~gKWh-HjSm1215612156epoutp01e
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:36:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261020063620epoutp0124f7a110151d9cb4366089d7ef063363~gKWh-HjSm1215612156epoutp01e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1792478180;
+	bh=cMOyDvJ+4IZMD7M7ive4vsZM0ebqLEDD0cr3Jg1jYiA=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=DXurnG+OrImuFVOWre/IHvrEtrR52MixdRlAxE2Mybikle6I4OhJ9ttoIkS0h+vP9
+	 USuIKfMQIJoAvLz4KHwp6ditcFMCwWfD0XgwNgP2/3QoDjwebIggA3uQqtFobZn+pf
+	 WeBDmINrF3DqXaqMNUSkKI5nSxYDh/F2j3GdQGek=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20261020063619epcas5p3cbe87da155138f7d23f130a048e7700a~gKWhUrZDm0682806828epcas5p3G;
+	Tue, 20 Oct 2026 06:36:19 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4j82kB4tdfz6B9mB; Tue, 20 Oct
+	2026 06:36:18 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20261020063617epcas5p4ba00854fcd38bf211c573629ee062621~gKWfYcTjq3015130151epcas5p4j;
+	Tue, 20 Oct 2026 06:36:17 +0000 (GMT)
+Received: from vega.samsungds.net (unknown [107.108.73.84]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261020063614epsmtip2fdb85f2c138d315a3425597013416486~gKWcIzNpH1615316153epsmtip2_;
+	Tue, 20 Oct 2026 06:36:14 +0000 (GMT)
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+To: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org,
+	krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
+	pritam.sutar@samsung.com, andre.draszik@linaro.org, kernel@lvkasz.us,
+	pengpeng@iscas.ac.cn, kishon@kernel.org, linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
+	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
+	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com,
+	Selvarasu Ganesan <selvarasu.g@samsung.com>, stable@vger.kernel.org
+Subject: [PATCH v3] phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent
+ OOB access
+Date: Tue, 20 Oct 2026 12:05:59 +0530
+Message-Id: <20261020063559.3530901-1-selvarasu.g@samsung.com>
+X-Mailer: git-send-email 2.17.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AM0PR04MB917899:EE_
-X-MS-Office365-Filtering-Correlation-Id: 435c3652-c584-4ddb-13c6-08df2e71f47c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|23010399003|56012099006|11063799006|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: AQ4XpwASA4au0BexEUEiz/I7zfyAhGX/M6NsTIYdYzg6KxMfhdCFhDkmWliPX46D6xH6i7arBvzk9SClTQa5bTMwVsCUWdzuHV1vvNxqESCFX6lrcSOGC0al/uMrWbuCwH74YM3Se5SkyYVsnqPmQRBbvKsIeVAhvGCXeze2dacNX6rnSmCIb/UitD1qqkRcXBAxuDH+ZqO6oie0VGGXkcUlEaWWxo/72JWCI9VwljYoaJiurVeRx7FwDtfBGpyGHPq29j53MZ1XGX9IKcpX3Zx2ALnCL+fmzcZ49kxmWW6IAkqRwOl057mOIav9v2rTG5lqYP6+hH/p1hLfsNSYyofhrHEGXx/iqMQgCutXkjm3x7eh8oNJsC15oP2qYrvLWolKEPi86x+0KVRDP7UkUBt5Z88GOk9t7qsYNhAq7rivrQ7wQcAsOxHIKsCV6VvRP+6w6LL2dtexk+FkAhCNzAvmtoIv4+mz6SnOONmgJxfekM5Z/fuylhuge2mYeZFljCm5YGd6jGaZpyH+ebdvBdY7lRC7v8eZPsEGtHm1oIGGj+DQ2aIviJCsoEP1xF7zII7npILXT0p4oc+2qJN68jCWdjunIYsNv867TQAVwV6F4uINCgbYW87fZU3t8ERUg1YKZcozlaULDLd1QDwAsiY7w1CAwNk4YLNQ8QtbREs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(23010399003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4fAHymm9rATJJ4yXsQX1yXJSr4h5jyCZ5bHviXJUnLFUZ90tpcwEoDrQMtms?=
- =?us-ascii?Q?k2yPFnMXoVNp5fgmgb+Ve+imCMon3q9v9Ur7Y1m84MI4wSHvArDYvN2c3vhh?=
- =?us-ascii?Q?3yMZ/EnWAk64e9k0GJfu+0gfNWU+wBAbc3C+mKa6cvONdlMOF9SCH5nf+izs?=
- =?us-ascii?Q?dOi8rla+oKR/opStIEMMBofru2/6vY5rqJXUNuhL4Q2rQCJirg4K3HsdxnCo?=
- =?us-ascii?Q?blBH7bwopm6WmY/E1R7+spFPxeTxgLjIIFT6FI89XHr4zFqnJwo4MXeXdsUL?=
- =?us-ascii?Q?13Qs4qcJe1MxlqmlfgyAiBjP0DgJOSPEN3bFxzfCUUHa64tl3ByvDpgqdirz?=
- =?us-ascii?Q?IV/3oTCXCCzScY6IULML1gqkXuTt/pgxv5N5r8+jPtBAnUTUiZwGVmdTEzCH?=
- =?us-ascii?Q?o3zjD5hNvzyggq8bgjWFZFs8StHf5I5Fcneb/XtGsNIzCcReCdBWoETxhOjK?=
- =?us-ascii?Q?Bmkdnyva/zgjub6NtG3XI1LxUP+qHESOrFPgh0r0KBNbQkDqGsfsDmkgIj4b?=
- =?us-ascii?Q?MItUhyGnkUuCJStQk/5jF3J+f5u3Tkhs3ebycmENskiKJ1CXmGDp50J4WAYK?=
- =?us-ascii?Q?HH18rV2I7UI0zgkLVAl9BjEgSCAZxjVRatcM6EcFE9jMGtuw62MqclibgH4d?=
- =?us-ascii?Q?d2AfsSPK5ILs3yOIa2v9j897xWNOUpaE2bPHCSRl4b0s+kQK7lptdxaBEory?=
- =?us-ascii?Q?ukXUHnshPUPiCVY6xFEhUZzDRJ3zPAo1cfsAZQEuy9t5L58B+wtkz83PZXIY?=
- =?us-ascii?Q?UUeSf9EkOGqNV+wRX8TJEFJqgaOgf3fdcOEOQ0gfgQLL8OmAsmL6Q7jSaz//?=
- =?us-ascii?Q?aZtxcMG1acZt+fJX11PQruCWkzLSoyFF1rRUknfoj/T6djFKjMl3llwwdFcH?=
- =?us-ascii?Q?UqYjQ/51bAIf60zDQo9ZhsaesQ1Dh58ao53dY+CuP2d5NoOQ/cbT7NoiTXTc?=
- =?us-ascii?Q?qz4pnKpIVnt1fq407E+6ECNsZGCNIz4nU12D9eF1wsORmzme5evpLFfBKRC+?=
- =?us-ascii?Q?d3jrcK9Viyh4L9HLJ98S1sof7z1BCu+maN4AStXmuptbyONlCWohEV4Ps4TW?=
- =?us-ascii?Q?iDwuZszhzo2/WAVulMB83/5FNHwD1joqZ2Q0I8TZ2FtpEBWaoGad0P6fw1QN?=
- =?us-ascii?Q?n6vk+cLTzL6S6kb4J1358c+pMVfWtOZGoCDKEVIy7ETzOMWpn6JShKMdPIsF?=
- =?us-ascii?Q?JlSfBnlTt0HNlMStr8yUyc3WUybqfub/H+91Ur9a23cOVoaWd2LLEWEltIa+?=
- =?us-ascii?Q?4vMysdq1r2iGSwt10zu6P4dCgJhl0/iq45aIw066+r6giBrFU1BR0F4NtIyt?=
- =?us-ascii?Q?Mp9HXZX4H5YuKuafPpHp+ml+3tDKQgnDb3Sr8ca0UtVEyKo/VaLAAr/kE5sX?=
- =?us-ascii?Q?0CbB6UY8kq0yXjf8HayPOrty9FBmcwvGDCekh5m+7VILVKYB/4XAmLj/cZSM?=
- =?us-ascii?Q?4x4amryvFDw5We4MezTVS7Cd7mfHnU28VnEb1WtFydL4HnywznTPTBejVdla?=
- =?us-ascii?Q?Gj/Whk3nj+O7ZApvzhg6tpdjMAtS+euNrfKkJQu3WkBlpxR/slJ/MiY/EFTG?=
- =?us-ascii?Q?GOjA3naU0dFr60z0wb0lA277lK2M6i5dB60ZDgd4Nfnp/AKH2pcPZXyFG1J0?=
- =?us-ascii?Q?SzEoRlarHPvJmWXNpg475gNMVbKqvpN8Vc70GAjtJf2jv1AGqOfHvQzsBEUK?=
- =?us-ascii?Q?gfcjXLrEXKibC8Rxf2+uRkQRLcWRZJOAQrLuksSH+UyHlLTkNvEZZVTGGMY1?=
- =?us-ascii?Q?HThQS/z+IYAjdm11EcjPIaxpdH6QJLbcTk5ac1oiRgwfO/TfUUOF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 435c3652-c584-4ddb-13c6-08df2e71f47c
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 06:18:27.9635
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xuZoFz4wXGAEPZQKDprVzhYRXpkFZy597rVm8uh9ZMUVJWX5efmrML0LJSAcazSZ8p46SDwXXspZTXAZlObM2C2dMQfOURKXUwO4uqbBtdb0Pamr4mIgaCqLFLxaGulz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB917899
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261020063617epcas5p4ba00854fcd38bf211c573629ee062621
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261020063617epcas5p4ba00854fcd38bf211c573629ee062621
+References: <CGME20261020063617epcas5p4ba00854fcd38bf211c573629ee062621@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_231831_771598_9118C4EF 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261019_233633_351193_98D580BA 
+X-CRM114-Status: GOOD (  22.83  )
+X-Spam-Score: -4.7 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,26 +95,182 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 19 Oct 2026 14:55:50 -0400 Frank.Li@oss.nxp.com wrote:
+The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
+creating both UTMI and PIPE3 PHY instances regardless of the SoC
+capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
+and ExynosAutoV920) provide phy_cfg arrays containing only a single
+element.
 
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> Move related memory region to overlay files.
-> 
-> Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
-> to be used with the mx95evkrpmsg system manager configuration for
-> remoteproc and audio over rpmsg-usecases.
-> 
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+On these SoCs, when the loop reaches index 1, the driver reads past the
+end of the rodata array, populating the second PHY instance with garbage
+data. Since the configuration structure contains critical function
+pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
+PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
+store the actual size of the phy_cfg array for each SoC. Update the
+probe loop and the xlate function to bound their access against this
+value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
+
+Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+Reviewed-by: André Draszik <andre.draszik@linaro.org>
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+---
+
+Changes in v3:
+- Added Fixes and Stable tag
+- Link to v2:
+  https://lore.kernel.org/all/20260918103147.2628614-1-selvarasu.g@samsung.com/
+
+Changes in v2:
+- Updated 'Assisted-by' tag to follow the proper kernel documentation
+  format.
+- Link to v1:
+  https://lore.kernel.org/all/20260831070309.158069-1-selvarasu.g@samsung.com/
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index 087d552eb511..f10cf7b6e0aa 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -477,6 +477,7 @@ struct exynos5_usbdrd_phy_config {
+ 
+ struct exynos5_usbdrd_phy_drvdata {
+ 	const struct exynos5_usbdrd_phy_config *phy_cfg;
++	int n_phy_cfg;
+ 	const struct exynos5_usbdrd_phy_tuning **phy_tunes;
+ 	const struct phy_ops *phy_ops;
+ 	const char * const *clk_names;
+@@ -1173,7 +1174,7 @@ static struct phy *exynos5_usbdrd_phy_xlate(struct device *dev,
+ {
+ 	struct exynos5_usbdrd_phy *phy_drd = dev_get_drvdata(dev);
+ 
+-	if (WARN_ON(args->args[0] >= EXYNOS5_DRDPHYS_NUM))
++	if (WARN_ON(args->args[0] >= phy_drd->drv_data->n_phy_cfg))
+ 		return ERR_PTR(-ENODEV);
+ 
+ 	return phy_drd->phys[args->args[0]].phy;
+@@ -2021,6 +2022,7 @@ static const char * const exynos5_regulator_names[] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos2200,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos2200),
+ 	.phy_ops		= &exynos2200_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS2200_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2034,6 +2036,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.pmu_offset_usbdrd1_phy	= EXYNOS5420_USBDRD1_PHY_CONTROL,
+@@ -2047,6 +2050,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2059,6 +2063,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.pmu_offset_usbdrd1_phy	= EXYNOS5433_USBHOST30_PHY_CONTROL,
+@@ -2072,6 +2077,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2084,6 +2090,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos7870,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos7870),
+ 	.phy_tunes		= exynos7870_tunes,
+ 	.phy_ops		= &exynos7870_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+@@ -2097,6 +2104,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos850,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
+ 	.phy_ops		= &exynos850_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2125,6 +2133,7 @@ static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos850,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
+ 	.phy_ops		= &exynos850_usbdrd_phy_ops,
+ 	.phy_tunes		= exynos990_tunes,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
+@@ -2661,6 +2670,7 @@ static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
+ static const
+ struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
+ 	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(usb31drd_phy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2691,6 +2701,7 @@ exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
+ static const
+ struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
+ 	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(usbdrd_hsphy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2719,6 +2730,7 @@ static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2895,6 +2907,7 @@ static const char * const gs101_regulator_names[] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata gs101_usbd31rd_phy = {
+ 	.phy_cfg			= phy_cfg_gs101,
++	.n_phy_cfg			= ARRAY_SIZE(phy_cfg_gs101),
+ 	.phy_tunes			= gs101_tunes,
+ 	.phy_ops			= &gs101_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy		= GS101_PHY_CTRL_USB20,
+@@ -3052,7 +3065,7 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
+ 
+ 	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
+ 
+-	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
++	for (i = 0; i < drv_data->n_phy_cfg; i++) {
+ 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
+ 
+ 		if (IS_ERR(phy))
+-- 
+2.17.1
+
 
