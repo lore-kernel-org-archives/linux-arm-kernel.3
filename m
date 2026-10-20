@@ -2,125 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76EEC606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:07:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E22606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:21:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2HaQ9TCg;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=C+/Hw3I7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G1OnnA9n;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KAny9+RY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TEqumpFgdz+Eh/7mNnSZRkNd/JC86au+svrPRCsCsA=; b=2HaQ9TCgm+/sxbGpq2S04J5Fkj
-	wnkajd4fwJ9Tcs4+gYZ2Kizau9NpI2VkSjp3S7wmVaNSDQZqwcV48D6yCpfylRrLnngj2L1lcIgKH
-	KV2rFfy3GTowN7sgaS8k4PQLk1bWgDVwFiWYRt22xuOxtvilYQ4AIwsJTt4Il9NkNWBHg5OGfw/zZ
-	xLqsdt+uDmb/30U6mAXuluAIEewFvQ0OKg2FX+GSM0jdQKNH5GwyXX29x4AHiFICvkuk/w5248iM1
-	ZQ+15wuuDHdIyR05fXX0Xox3a7InuJ+it4Q0Pg9SiSGWeLIbclEsZNuro3gUvj3V4R92Cfz1Sv4Na
-	LvLVoRXw==;
+	bh=6WWk7zExmFICqSLgFYRdnOfnAX1UA+1LzUHxktArr0A=; b=G1OnnA9n3ZUISznQt5Q4unWojJ
+	JRZdOkZTnvplc76sWEqRykCs3wh/3irWaIcUEa4NyzB4q3JdakpVZLzfYdUcp2tW4kALv4O+hE3xo
+	UcqaQAEYIHcvNcoEa2FO7rjJUf6bJFrZcGhSs9xd82bPYJGCaxY8TwcVjWxR+EMZfEosztM9y3fAo
+	YpgEK8S1gBUHyM2G0nk1DHXpCekh4EfcU/t1BulDjDn9lwGgKMuUoK4tonihZxf7mIcOwr12Ov02x
+	S4TP8WktRTc40/SN8TJMe/iJ2wVfbseVReajNryddjd0cDvYkRDeDQaVPfELh75wLjf7v4x1ozbFX
+	CtSKEIrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD2B-0000000AFAK-3LEi;
-	Tue, 20 Oct 2026 16:49:55 +0000
-Received: from mail-westusazon11010037.outbound.protection.outlook.com ([52.101.85.37] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xJDW2-0000000AKen-394V;
+	Tue, 20 Oct 2026 17:20:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJD29-0000000AF9N-3uZv
+	id 1xJDW1-0000000AKeQ-2aZf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 16:49:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q4gSxtHRL945aBnYja4BYNBfIBHXr1z9ymkhjhn0kCUrU6w2HtnCdPldUqQHt1dDQNUWQ6JLAu0fk3mqfAeuhqnR1i35Inmg/MjQgSR703jD8Oi3XQIE9rLEYKX49btNX9gikueqYjFbtljHexGKFD6KJT5xXT/1tfJXqSI0cLbItCbEEQf6+9/n66D/eLNdS06VNLQEn6iTL4sidpeFAWmlZ2agwcaE1PjjFvMe7td+yXFUXIKwKo2GFr7RCtS8TKannAM6oJhoNTkr9cyN+S+CsOnRdcyqjt8HjhX0Xd+pKvntO0/Yev03+A9CkQauwD6W9iXaq2GjZi687shNnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3TEqumpFgdz+Eh/7mNnSZRkNd/JC86au+svrPRCsCsA=;
- b=EPffdbwFFPeaQqORe5jFlx3hC4voCWeOPUFynb+5nYe7DGjOlY32ch+2QKxiSAqVUr6v9jVJnCEECKudVWipvK2AwJ+6Vq2CgsxllxZtzzQ5eo8jGn/NOvpIreN2ThCYLY1aDFwOg0J0q3E360vcHd2dxKuzOGA0Q/tPBKR+EHKsep3ghgbsYKMXxG18/h/AhbrCtZ7TA85y+YMijJRek1mARehgrZ0EAblXxKc7It07QSWPuTY3Bv9ZHTA+0UyrTT5AZXOeGrUmhuqvBmrPrsOewHhEq/jW/MVi1UpUhbuJziceCwCUjUMgVYGMCBFWL4vaIp9u9ltneTEBX/Ul9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3TEqumpFgdz+Eh/7mNnSZRkNd/JC86au+svrPRCsCsA=;
- b=C+/Hw3I7d5G6vjBhW5GMQhC4Z41ZBR3RJ9XyZHA84pa9k9XeLKZSMQU75rT+Xs38a73K5OvHGIP6ib4tssHMcqKdO5JehYktx5ea+QA9OPHTMLeEtIvDyPChrhJ25XTabP359ERq09vQBHD3HldCg08bCt3AYTuD2gc6rYPLhJocztXDl/5ThjYY1620Ii5v6Jt7dQ9sgAtFVYNR8wWUY9AcO85UJnM/GGQ2eGwjEm2qXwcqkt6WvNedQ8xxqUFN5npzX+WRvxkW6gFu8KOtwjkds4Woic+SUg08AuQAXqeTXigfnNYSCpnMkJll0BL6y05ewkiac4ZNMwNgJBQZqQ==
-Received: from DS7P221CA0017.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:25c::7) by
- DS0PR12MB6560.namprd12.prod.outlook.com (2603:10b6:8:d0::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.522.18; Tue, 20 Oct 2026 16:49:42 +0000
-Received: from DM3PEPF000265BD.namprd04.prod.outlook.com
- (2603:10b6:8:25c:cafe::89) by DS7P221CA0017.outlook.office365.com
- (2603:10b6:8:25c::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.20 via Frontend Transport; Tue,
- 20 Oct 2026 16:49:42 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DM3PEPF000265BD.mail.protection.outlook.com (10.167.23.250) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.546.15 via Frontend Transport; Tue, 20 Oct 2026 16:49:42 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 20 Oct
- 2026 09:49:29 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 20 Oct 2026 09:49:28 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Tue, 20 Oct 2026 09:49:27 -0700
-Date: Tue, 20 Oct 2026 09:49:25 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <praan@google.com>, <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
-Subject: Re: [PATCH v11 04/11] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for
- the event queue
-Message-ID: <ateblZuS2lI5t1R1@nvidia.com>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
- <250a57bbdd232bbb1e3511b7768a1c9ae3d204e6.1791226953.git.nicolinc@nvidia.com>
- <atdNpl732M7D4dXz@google.com>
+	Tue, 20 Oct 2026 17:20:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B00006022C;
+	Tue, 20 Oct 2026 17:20:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2D51F000C9;
+	Tue, 20 Oct 2026 17:20:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792516844;
+	bh=6WWk7zExmFICqSLgFYRdnOfnAX1UA+1LzUHxktArr0A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KAny9+RYL3Bjeb2mO44a1DmHjw5+oGJtZavst+KtM/yvA1XeMdgFf3bk6UL5KVh+P
+	 1I8S6GaqWuXL8Un8uzuTijsxfTPN2YhPmtDXJNFntGZsRaXLO6wtVyd41QOtYOGfE3
+	 DPTZSKa9l5SlKTfbLLVmDokn5amCYcHczoUjzfGt2L3Uyy37nkRW3J/FhkwA3HpxpG
+	 aGmdXDp18uRFtMDOMDDhO12qmoLrthj/KgtRm3RlSyU6VmZBQP9KXQYj2NKwGS1cL5
+	 p11g45R+3sO/Aeb4+glyJU+LCXXl9ZLUNj23hri92cY95iFyeu7QdrrZJpBX2srtW+
+	 +6cYTtWtGJAOA==
+Date: Tue, 20 Oct 2026 18:20:29 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+	catalin.marinas@arm.com, james.clark@linaro.org, Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [RFC PATCH v7 12/28] KVM: arm64: Add SPE VCPU device attribute
+ to set the interrupt number
+Message-ID: <ateEKZC3pjL6Sjrq@gremlin>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <20260903160623.315525-13-alexandru.elisei@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <atdNpl732M7D4dXz@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM3PEPF000265BD:EE_|DS0PR12MB6560:EE_
-X-MS-Office365-Filtering-Correlation-Id: 603f99af-1a52-4c4f-2e4d-08df2eca235f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|23010399003|82310400026|56012099006|4143699003|11063799006|261009223027099003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: mXVEzkYZM+LU974MB/d34dUIerFaMkPY5m8iVIDcPm/pCu/xV/WBVlPkZvhHEdS1BJ2+crnfJzWPAoxX4iVSAYKYUgfOWEkpjjGnLEEewPljBa/kkE9I2fcslf9I2DJx/2WYa+GvzhOMaa9XYiwfSHP8SlQernliqmlWK1xr3HYzvOpiTYwGHFVb7351W4xfXtMiuV090cpqtNiIg7XElTmS0O9IsnIwItdQGRiwi/+lNBhELgqkOCsJ1KJOhDIJK09x0bdXBdrtBllgzJLBQVXXqcbCuw6TkqrphrkPA1N+o2GHL/pduAM8KktI2IS/fA9ED52xy0dK+KYpt0+ie1aM/qOlbshNO+PnoBhisKQHkO9QuIP7A8bxQUA5Ww1WCf3cGku/LOynGOblvsVXz+wRpynJQ/35PqbrCEMLXjwdx8SC2Uumcuqbvj2mvWKn3rBtWQfShWMb30u8i/y9zBeotIPZ3qk9gLsnhufSF5Psmdr3BCEa6LwkyPRKJrNRcQ3dRGBCyh5q4lFLtZDJj/BzXNj3m+MxBS+OAKerLF6vgeB1YKiZ4nzY1GZKqRHQEHsFLPgyBmDOLxz4g/uMK6k0t//qAXzZPTeP2xiCAxcYOL6mmDyYh0NNJIAhANWMSYlXAJtXo26+jL7k9NLHPsgcDaonb8A+O/KtX1/zdJ9eUH0nZsFh4u+ApqlV5LF5hb43BaFpkZ0j79Q26j5GQw==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(23010399003)(82310400026)(56012099006)(4143699003)(11063799006)(261009223027099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: aJ2WhnSAdtVr/hqhpCymd03KN21NWpkB+0cYj2aTnSI4zO7X13DAeka/EEhfqvtXSleovpcn7eWYMUIItDL/f4fUPgyLXorpkwjuOtBAxZl4e5xiRDGgNnjqHHPr7JAxVrcX319QqK0WqRKrjcHb8oL7g5peXQ9MlN9vLGu+11Og6SXSTCMB5PVKdQ9j9MTY4y745sq1Ob2r38/wunNC+VbFBOh05sxib9l7RU5GMjnAIt910T6c/SWyE9xg0MzbyaAYrOzBb3GCUPG95szKSxelwvVRPhwqQgt9UAd5ST+jf8COUQUakCSuZei5GuuO2zE2QFy5KnzPia+xDNncmEUtO+11VJ+AeGYqocHPlQEtdZQiGp2+4ndBLXlyc/jYk7/RC/ICg9a2Mx6TLGy1smRluxNZP1X2m+92tx4WgsKEGToGZL+P8/foBDCcKctL
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 16:49:42.0224
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 603f99af-1a52-4c4f-2e4d-08df2eca235f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM3PEPF000265BD.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6560
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_094953_981907_12743A99 
-X-CRM114-Status: GOOD (  12.91  )
-X-Spam-Score: -2.4 (--)
+In-Reply-To: <20260903160623.315525-13-alexandru.elisei@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +71,301 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 11:16:54AM +0000, Mostafa Saleh wrote:
-> On Mon, Oct 05, 2026 at 12:30:47PM -0700, Nicolin Chen wrote:
-> > @@ -4950,7 +4959,15 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
-> >  
-> >  	/* Clear the MSI address regs */
-> >  	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
-> > -	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
-> > +
-> > +	/* PRIQ's vector needs EVTQ's to be kept */
-> > +	WARN_ON_ONCE(!(smmu->features & ARM_SMMU_FEAT_EVTQ) &&
-> > +		     (smmu->features & ARM_SMMU_FEAT_PRI));
-> > +
-> 
-> I can't see how we can end up in this case, I’d suggest dropping it
-> if I am not missing something.
+On Thu, Sep 03, 2026 at 05:06:07PM +0100, Alexandru Elisei wrote:
+> From: Sudeep Holla <sudeep.holla@arm.com>
+>
+> Add KVM_ARM_VCPU_SPE_CTRL(KVM_ARM_VCPU_SPE_IRQ) to allow the user to set
+> the interrupt number for the buffer management interrupt.
 
-This will be gone, as the prior patch is reworked following Jason's
-suggestion.
+I know this is a bit of a theme of the review :P but feels a little short.
 
-Thanks
-Nicolin
+Be good to see why you want to do this, broadly what you are changing
+(shouldn't duplicate stuff you can see from the diff but something like '
+
+>
+> [ Alexandru E: Split from "KVM: arm64: Add a new VCPU device control group
+>                for SPE" ]
+>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+
+I guess similar comment to before - is this a significant change? If so
+then probably best to go Co-developed-by route, otherwise not a big deal.
+
+> ---
+>  Documentation/virt/kvm/devices/vcpu.rst | 22 +++++++
+>  arch/arm64/include/asm/kvm_host.h       |  2 +
+>  arch/arm64/include/asm/kvm_spe.h        | 11 ++++
+>  arch/arm64/include/uapi/asm/kvm.h       |  1 +
+>  arch/arm64/kvm/guest.c                  |  2 +
+>  arch/arm64/kvm/spe.c                    | 82 +++++++++++++++++++++++++
+>  6 files changed, 120 insertions(+)
+>
+> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> index e0a7fa35dfd2..d30b2f7fec9a 100644
+> --- a/Documentation/virt/kvm/devices/vcpu.rst
+> +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> @@ -307,3 +307,25 @@ From the destination VMM process:
+>  ===============================
+>
+>  :Architectures: ARM64
+> +
+> +5.1 ATTRIBUTE: KVM_ARM_VCPU_SPE_IRQ
+> +-----------------------------------
+> +
+> +:Parameters: in kvm_device_attr.addr the address for the Profiling Buffer
+> +             management interrupt number as a pointer to an int
+> +
+> +Returns:
+
+Was going to say maybe it should be ':Returns:' but actually the doc seems
+super inconsistent on this... :P so it doesn't really matter.
+
+> +
+> +	 =======  ==========================================================
+> +	 -EFAULT  Error accessing the buffer management interrupt number
+> +	 -EINVAL  Invalid interrupt number or not using an in-kernel irqchip
+> +	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature not set
+
+Seems like a typo, should be KVM_ARM_VCPU_SPE_IRQ right?
+
+> +	 -ENXIO   SPE not supported or not properly configured
+> +	 =======  ==========================================================
+> +
+> +Required.
+> +
+> +Specifies the Profiling Buffer management interrupt number. The interrupt number
+> +must be a PPI and the interrupt number must be the same for each VCPU. Arm
+> +recommends 21 as the interrupt number. SPE virtualization requires an in-kernel
+> +vGIC implementation.
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7..e7332bd82bf3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -27,6 +27,7 @@
+>  #include <asm/fpsimd.h>
+>  #include <asm/kvm.h>
+>  #include <asm/kvm_asm.h>
+> +#include <asm/kvm_spe.h>
+>  #include <asm/vncr_mapping.h>
+>
+>  #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+> @@ -918,6 +919,7 @@ struct kvm_vcpu_arch {
+>  	struct vgic_cpu vgic_cpu;
+>  	struct arch_timer_cpu timer_cpu;
+>  	struct kvm_pmu pmu;
+> +	struct kvm_vcpu_spe vcpu_spe;
+>
+>  	/* vcpu power state */
+>  	struct kvm_mp_state mp_state;
+> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+> index 1327064d0984..8ded2d821bff 100644
+> --- a/arch/arm64/include/asm/kvm_spe.h
+> +++ b/arch/arm64/include/asm/kvm_spe.h
+> @@ -6,7 +6,15 @@
+>  #ifndef __ARM64_KVM_SPE_H__
+>  #define __ARM64_KVM_SPE_H__
+>
+> +struct kvm;
+> +struct kvm_vcpu;
+> +struct kvm_device_attr;
+> +
+>  #ifdef CONFIG_KVM_ARM_SPE
+> +struct kvm_vcpu_spe {
+> +	int irq_num;		/* Buffer management interrupt number */
+> +};
+
+I guess this struct will be expanded over time?
+
+> +
+>  bool kvm_supports_spe(void);
+>
+>  #define vcpu_has_spe(vcpu)					\
+> @@ -16,6 +24,9 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>  #else
+
+NIT, and probably applicable to a previous patch, but useful to put /*
+CONFIG_KVM_ARM_SPE */ there, certainly useful as things grow.
+
+> +struct kvm_vcpu_spe {
+> +};
+> +
+
+OK good this covers off the !CONFIG_KVM_ARM_SPE case.
+
+>  static __always_inline bool kvm_supports_spe(void)
+>  {
+>  	return false;
+> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+> index e8a68e34be63..b9e5019181eb 100644
+> --- a/arch/arm64/include/uapi/asm/kvm.h
+> +++ b/arch/arm64/include/uapi/asm/kvm.h
+> @@ -447,6 +447,7 @@ enum {
+>  #define KVM_ARM_VCPU_PVTIME_CTRL	2
+>  #define   KVM_ARM_VCPU_PVTIME_IPA	0
+>  #define KVM_ARM_VCPU_SPE_CTRL		3
+> +#define   KVM_ARM_VCPU_SPE_IRQ		0
+>
+>  /* KVM_IRQ_LINE irq field index values */
+>  #define KVM_ARM_IRQ_VCPU2_SHIFT		28
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 56c5f937fcdb..f953b235b458 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -920,7 +920,9 @@ int kvm_arm_vcpu_arch_set_attr(struct kvm_vcpu *vcpu,
+>  		ret = kvm_arm_pvtime_set_attr(vcpu, attr);
+>  		break;
+>  	case KVM_ARM_VCPU_SPE_CTRL:
+> +		mutex_lock(&vcpu->kvm->arch.config_lock);
+>  		ret = kvm_spe_set_attr(vcpu, attr);
+> +		mutex_unlock(&vcpu->kvm->arch.config_lock);
+>  		break;
+>  	default:
+>  		ret = -ENXIO;
+> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> index fe45ad4c703a..dd5f80318ba4 100644
+> --- a/arch/arm64/kvm/spe.c
+> +++ b/arch/arm64/kvm/spe.c
+> @@ -59,17 +59,99 @@ bool kvm_supports_spe(void)
+>  	return !list_empty(&spe_pmus);
+>  }
+>
+> +static bool kvm_spe_irq_is_valid(struct kvm *kvm, int irq)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +	struct kvm_vcpu_spe *vcpu_spe;
+> +	unsigned long i;
+> +
+
+Maybe worth a small comment:
+
+	/* Every vCPU must have either the same or no IRQ set. */
+
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +		vcpu_spe = &vcpu->arch.vcpu_spe;
+> +
+> +		if (!vcpu_spe->irq_num)
+> +			continue;
+> +
+> +		if (vcpu_spe->irq_num != irq)
+> +			return false;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+
+>  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  {
+> +	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
+> +	struct kvm *kvm = vcpu->kvm;
+> +
+> +	lockdep_assert_held(&kvm->arch.config_lock);
+> +
+> +	if (!vcpu_has_spe(vcpu))
+> +		return -ENODEV;
+> +
+> +	switch (attr->attr) {
+> +	case KVM_ARM_VCPU_SPE_IRQ: {
+> +		int __user *uaddr = (int __user *)(long)attr->addr;
+> +		int irq;
+> +
+> +		if (!irqchip_in_kernel(kvm))
+> +			return -EINVAL;
+> +
+> +		if (get_user(irq, uaddr))
+> +			return -EFAULT;
+> +
+> +		if (!irq_is_ppi(kvm, irq))
+> +			return -EINVAL;
+> +
+> +		if (!kvm_spe_irq_is_valid(kvm, irq))
+> +			return -EINVAL;
+
+What about changing the IRQ for vcpu? kvm_spe_irq_is_valid() will abort
+even if only the current vCPU has an IRQ set.
+
+Also what about the case of setting the current vCPU's IRQ to the same
+value? Should that be -EBUSY?
+
+PMU seems to do something like that, so maybe worth doing that for
+consistency? Not exactly a huge thing, that though!
+
+Also looking at PMU there's:
+
+	/* On GICv5, the PMUIRQ is architecturally mandated to be PPI 23 */
+	if (vgic_is_v5(kvm) && irq != KVM_ARMV8_PMU_GICV5_IRQ)
+		return false;
+
+Is that something you have to worry about for SPE?
+
+
+> +
+> +		vcpu_spe->irq_num = irq;
+> +		return 0;
+> +	}
+> +	}
+> +
+>  	return -ENXIO;
+>  }
+>
+>  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  {
+> +	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
+> +	struct kvm *kvm = vcpu->kvm;
+> +
+> +	if (!vcpu_has_spe(vcpu))
+> +		return -ENODEV;
+> +
+> +	switch (attr->attr) {
+> +	case KVM_ARM_VCPU_SPE_IRQ: {
+> +		int __user *uaddr = (int __user *)(long)attr->addr;
+> +		int irq;
+> +
+> +		if (!irqchip_in_kernel(kvm))
+> +			return -EINVAL;
+> +
+> +		if (!vcpu_spe->irq_num)
+> +			return -ENXIO;
+> +
+> +		irq = vcpu_spe->irq_num;
+> +		if (put_user(irq, uaddr))
+> +			return -EFAULT;
+> +
+> +		return 0;
+> +	}
+> +	}
+> +
+>  	return -ENXIO;
+>  }
+>
+>  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  {
+> +	if (!vcpu_has_spe(vcpu))
+> +		return -ENODEV;
+> +
+> +	switch(attr->attr) {
+> +	case KVM_ARM_VCPU_SPE_IRQ:
+> +		return 0;
+> +	}
+> +
+>  	return -ENXIO;
+>  }
+> --
+> 2.43.0
+>
+>
+
+--
+Cheers, Lorenzo
 
