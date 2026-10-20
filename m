@@ -2,83 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF2CD606A319
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA6E7606A31A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:33:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cDpoX4nU;
-	dkim=pass (2048-bit key, unprotected) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=BzEN+6L4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1fMvL4m0;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=naU9y/xI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxhdn2OVUJtF2HEE/DiJItd1DbzLWHnmnzj0M802xSc=; b=cDpoX4nUMnpBNEfJ9gOq0oiRsP
-	EWcDRNPQCTlaczUcAdoVfCJYzAmDsjZ+pBaDZqiWIiAqDEX4h5iPnxoMELtPc+pgy3ZQxaNoOtnsf
-	7WYC2P8e7yHxPAVF2Ug5MUSNeER33Nd7EH38aFBGjFxkpfCCqliI3KvY2MVb5wRbk+xMx1VYWq9qg
-	uemXk4lL5m9xH4Pt3ak+zl6zy2kOjMl9D/ONixqF8o1FBjyY9+w/VpiQMgjp9IIbL5x2oLeehDjly
-	McrvId1MgH3nMzT+0obfuwy+j6X90NrPTzjDa0iBde68HuWbCDbi0dXhqf5uMCpYp+nx2G0grnKHm
-	gnG1Tlsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=; b=1fMvL4m07i20q9KTxeXIsEdIes
+	9D6s6DiScJx8GKueEkuv4UuU30C4ZFITRVl5MJLOlRl04GmaEuWVuSSwO9P207Auvt3XFb77VnTFI
+	Rpno9dFiMbSvW3DbpEdsADNzmHg6i4/913c9Qb8PBap/XahCL7VyMfMmv1aakBYZstNMP7EsD7X+r
+	ORmp+FF1nt3XW2GxlsYTwzPZ1yzufVPz8f9Eb167VqnAlFICNnLHcVfbUjAaFWnBHrv+L80E9wuIH
+	u9xjNNhbmiDZNTIh23On6r5YdqU8rLU9sXda5lWtIFtZ5wy2kWBw29yRTBUIpWczWhyuIktmETASt
+	wEzVWSIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ79n-00000009RRl-0pA1;
+	id 1xJ79n-00000009RRT-0Nd8;
 	Tue, 20 Oct 2026 10:33:23 +0000
-Received: from mout.web.de ([217.72.192.78])
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ79k-00000009RQb-1jmA
+	id 1xJ79k-00000009RQf-06JI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 10:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1792492374; x=1793097174; i=markus.elfring@web.de;
-	bh=xxhdn2OVUJtF2HEE/DiJItd1DbzLWHnmnzj0M802xSc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=BzEN+6L4Xb5b735YRuDWr23IsYY2jdjjZ/xWH29Zil4mTVNrkgJbKCfUs7DAHECV
-	 yk4dZikoi3ZuEl0rAC5vunjnNvbbRHAU+S+FNHCmOBUeljJ9KB+5p6OOVeE97JGaV
-	 yBAhT8A1r43G0rMi5P6ZaXAVYs8x8esRhWc4RDcpJTYMVZkVdofA5s5Dt/n5f4J/a
-	 NnitKG+j9Z9UsoktDgIP3Y/fDSxHDJ8WQDYoTMOb2SdR+itWLCtZBfDYo1AEvXmHd
-	 9+eaQYs1jFh8KIeRzuMN434LkAyLEMedz8h85CEbfMAyg552k1MpkKV85qaYhg9wQ
-	 nCyhiaJz9Cv8Y+l8hA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N5CQh-1wZqhE44Ob-011DnT; Tue, 20
- Oct 2026 12:32:54 +0200
-Message-ID: <312bd510-03ca-402c-aba7-d1c60188f926@web.de>
-Date: Tue, 20 Oct 2026 12:32:38 +0200
+	Tue, 20 Oct 2026 10:33:21 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-15354aa70e8so198906c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 03:33:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792492399; x=1793097199; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=;
+        b=naU9y/xI8r7nXLVKMst2sqlPSxWJMts63nez43KTJ4T3gkDs0W8CC71/Km1lrX8hZX
+         9SlUJAHOgss4HKw8NN0Nc5AYYHmII+9bUEnioBv9ZSWobGRXN1KDvvwMXeTntnOiF4Az
+         aB/qwVR6eEbVe8E94Go+0OGGhKuxljqkQ6Hl39VsWJRk4AiQC2Jan9d76knL5sDpP/Ey
+         7Z8kkGctHOOscbHSlG8m0Ql9l9TjzrvSrPmt5mriy4IGtbr8cy9kWLXr1v5lvKhHfIrp
+         8gj5CcyT3f4ZHKiGwG9xfU53a3QYni/8OTVV4iR4MCTQZPueWgK72Tny66y+EX1w1kPk
+         yzlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792492399; x=1793097199;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iQyv3UXDKrcHPg5SiBMTwmI7JSOMjEBmbwi+E5uk+A8=;
+        b=GIaBnmnNGCj1Ffqb8qSwXkC/BH3rOrBnocfkpRobHdB44Eyy0Sperj6t0/JPtsg9z6
+         vIJWHc2du3PB6JaJ5RcqC/t/sS420QguY1xQndfYc9qb0wZTkfedTFEtzg3gUksJ89U7
+         Fv/PGYRgHYxruLR7WodytBbf0NENZtSiTvegzGMkNqObVR3WDKzbbaOIPNK6v/d6bcz8
+         N0gHstxiVHyA+qzwMfaoLhR/O5rHGKoUKnL2Oy/rUSjADt+Jah4MCnSwsgDVOGLQePGO
+         4o77Lo7UC1UU5gUIyz1G1nreWZOHosBQrBXB9zlIlURJR5f4EYpeopA37jUDO0e2jypS
+         zpoA==
+X-Forwarded-Encrypted: i=1; AKwUvBweiyrF6uZ2iY/nqZYV0hEguYE8cvRji3VjKi5O/aolo4+FopvsfLX9Lxmh6HIIyq6V8pHzBkAmi9ueKDR/f8/6@lists.infradead.org
+X-Gm-Message-State: AFq9FYJS0r30UL0LVoJr8Elz41zWkLXBZ9wZv2ThO0CMa6Mj4Ryk+v6n
+	myYC5kzP1DViYW1x9fFeOWOFrc/lBalWzbBbY6D+wyUNjNSTwSUr/zc6
+X-Gm-Gg: AYBFou0kGZHWpm+mCj/GRgg8Rb1XJZahdxXQoTEO1PCa1u2IUqE8AcHGpfi6dn/eHym
+	Uz5PKuWh/Jjbt4k8n6trELVK2+Ue2i+GXt8o7GUw20G8vNYlOYLI1JYTF3eywemA8xKIF04MeKP
+	U2mtyEkBBUtf0Vz+mK3XuGXR1tXscg+Wvqe3hUAnqERqjrc5BAaD6T3EWTeuLupN1H6hTC9fPOT
+	CzcPuTF0613XXQzG8Qf+eANdHS/4sSSMIzbRtkmVZoHMXhMPv1lWgyoG2H9iCvJ3bZQ22ziz6yV
+	+ACloplPA0C5DR+8xCQFLz5fgxRwdwbxUJpH/5rQzFKfVNeU23I4wfpbnfCeWVG4jRGKTqD2dlR
+	cd6YXL2jhObyDGaGmsorLPUudyvJ7E0sbZ40b6u2mVoP9gq5cLAAfLzg9FFDLEGepCtn/lYZUEs
+	1IMWRwEfMcW4NHDtbnuPG4C3RU1meK8T4hyUbTCi6Giao4YXuy+kRD7BixeLUW+5oqM00vOzBKP
+	LyA
+X-Received: by 2002:a05:7022:1001:b0:14c:be8e:69fe with SMTP id a92af1059eb24-1850c8da80emr20220476c88.5.1792492398134;
+        Tue, 20 Oct 2026 03:33:18 -0700 (PDT)
+Received: from leonardoc-nb ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831c4d4675sm35068908c88.21.2026.10.20.03.33.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 03:33:17 -0700 (PDT)
+Date: Tue, 20 Oct 2026 07:33:10 -0300
+From: Leonardo Costa <leoreis.costa@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH v2 3/3] ARM: dts: imx6q-apalis: Add VGA overlay
+Message-ID: <lozimedmt3h7v6odvp4svvmatvk7726a4ztn3j7ft44oto7p5p@dmrudrmzyz3s>
+References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
+ <20261019-v2-apalis-imx6-enable-vga-v2-3-ef6a3a780472@toradex.com>
+ <atZxhWaUWthEHkti@SMW015318>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Devarsh Thakkar <devarsht@ti.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Nishanth Menon <nm@ti.com>,
- Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Tero Kristo <kristo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, LiangCheng Wang <zaq14760@gmail.com>
-References: <20261019213726.4145532-11-devarsht@ti.com>
-Subject: Re: [PATCH v3 10/14] drm/solomon: ssd16xx: Expose session management
- as plane properties
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261019213726.4145532-11-devarsht@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:AAJarhhkiBAz2y4aW+ppvNMAXpTP4N19qIpvKPnuVgBlNGYQOEH
- 4vxBCVgmwIR4tF5K665MQ4Lqf/GG0wTGeraUFqyRh5NveRun+RODho46Hc9TlPB4uH9dU6L
- 2hgWjFO8mUPhg7FhFoD3rEWitidBEQn6rpLZZH+MJj2xqh3G1XyyfZd3pzWQqeSUpfY5bTL
- X9YYt5W9w45IOSv5E9O6A==
-UI-OutboundReport: notjunk:1;M01:P0:r8m82L8B4u8=;uX5H6hrlye9LF/CYLwqMGj0RM9p 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 NWeTafeQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <atZxhWaUWthEHkti@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_033320_825639_CBF56B31 
-X-CRM114-Status: UNSURE (   6.02  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261020_033320_065556_6C9E42AC 
+X-CRM114-Status: GOOD (  19.20  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +111,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-=E2=80=A6
-> +++ b/drivers/gpu/drm/solomon/ssd16xx.c
-=E2=80=A6
-> @@ -1619,6 +1725,8 @@ static void ssd16xx_plane_atomic_update(struct drm=
-_plane *plane,
->  	drm_dbg(&device->drm, "plane_atomic_update: calling fb_dirty rect=3D(%=
-d,%d)-(%d,%d)\n",
->  		rect.x1, rect.y1, rect.x2, rect.y2);
-> =20
-> +	mutex_lock(&device->lock);
-> +
-=E2=80=A6
-@@ -1693,6 +1800,8 @@ static void ssd16xx_plane_atomic_update(struct drm_p=
-lane *plane,
->  		device->border_waveform_pending =3D true;
->  	}
-> =20
-> +	mutex_unlock(&device->lock);
-> +
->  	pm_runtime_mark_last_busy(device->drm.dev);
-=E2=80=A6
+On Mon, Oct 19, 2026 at 02:37:41PM -0500, Frank Li wrote:
+> On Mon, Oct 19, 2026 at 07:17:16AM -0300, Leonardo Costa wrote:
+> > From: Leonardo Costa <leonardo.costa@toradex.com>
+> >
+> > Add a device tree overlay for the VGA output available on the Apalis
+> > Evaluation Board, which is driven from a parallel RGB interface passing
+> > through a non-programmable video DAC to a VGA connector, without VESA
+> > DDC I2C signals.
+> >
+> > The non-programmable video DAC consists of a simple resistor ladder that
+> > converts the digital 16-bit RGB signal to VGA. The VGA output is gated by
+> > an active-low data-enable signal.
+> >
+> > The overlay is also combined with the various Apalis Evaluation Board
+> > device trees to provide ready-to-use DTBs.
+> >
+> > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > ---
+> >  arch/arm/boot/dts/nxp/imx/Makefile                 | 21 ++++++
+> >  .../boot/dts/nxp/imx/imx6q-apalis-eval-vga.dtso    | 80 ++++++++++++++++++++++
+> 
+> what's difference with
+> 
+> https://lore.kernel.org/imx/20261019-colibri-imx6-overlays-v1-5-e4d028727382@toradex.com/T/#u
+> 
+> Is it possible share one dtso also?
+> 
+> Frank
 
-How do you think about to apply scoped lock guards?
-https://elixir.bootlin.com/linux/v7.3/source/include/linux/cleanup.h#L332-=
-L335
+Hi Frank,
 
-Regards,
-Markus
+The Apalis iMX6 one needs to set up the connection between the IPU the
+LCD interface (endpoints ipu2_di0_disp0 and vga_display_in), and the
+Colibri iMX6 one uses a DVI connector instead of a VGA one. Most of all,
+the bridge on the Colibri iMX6 doesn't have any control signals, while
+this one on the Apalis iMX6 has an active-low data-enable signal
+specified on the input endpoint. Because of all of these, the overlay
+needs to be different between these modules.
+
+Best regards,
+Leonardo
 
