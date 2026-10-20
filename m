@@ -2,97 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 200A4606C1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:50:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDA7606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:59:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v1k7/HA/;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=Sqdeb69p
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yL+bMNaS;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gpIwOsiV;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JWgyLgTm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SCloQQxe4+JTc+VFVHtDAnitVmo1Mr2MvV/BTuAwc8U=; b=v1k7/HA/z88+C62XDraTwJlf0p
-	15FBLPUplJlhP4qW+crMfXh69pXQWlyVp+Ti9rMQ6yGyqEybpNExrtQJtXZaE+Xci+jgjDG+qSrtg
-	CWiObgHpNHl4tcXb9/IEMJGGsPcrwUB7ysGXtVFmzIo+Po9yJskmAn4y/fY8bQRgkfATUcy4bq6BJ
-	by07UVT0BW/HaLPOkW2s+TwtwnHzNiwqeCxBxzqmwjf2fv4gplpyz67KjiDknjEUEqOhlp9z9S11R
-	wdAvEDouYOD2O/6XI72xckocNpjAZLg2+52StIQLIc3qlMGfUPx7xIkX8iLwEW/jHrx3Gz32WOLNz
-	PR/mFinA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DY7esWGsJJoottHT4nIMIL8Ex/o7i900iuaYVCDlzhI=; b=yL+bMNaS6p3d66IGEU8nIKHdk0
+	vaD/JDI2HjzDCU1gsF2pR1ZgugPbP+ck+GA5CoQk+pet+1ho0o7+tbUmasUaWgXBvyXUQ//OWv3wC
+	vDcVN9266nOKbypFB0CcTzEDcONKMO4zlhoNn+37Tz+yCZQ/79+MzwgaWV+sc7/LQ3aFSZgq8ypen
+	PH7l+yYDj1VTDJeBWP8tbDbmbZpjY/PkbWRl3lbj+yNWgt3G0JUaIbGiddBT6jZukE9OgKWwgL2pP
+	ZP8l0Gw5bkVeaWHXzotlcG7xCoB9tPImjXOzFpIIvN4RdfApsj4irIvFElW6wMZupQbO1VnWUECsw
+	Bywva42w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAEl-00000009pj5-2Lbm;
-	Tue, 20 Oct 2026 13:50:43 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1xJAMv-00000009r2o-07U4;
+	Tue, 20 Oct 2026 13:59:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAEj-00000009pht-1R9h
+	id 1xJAMt-00000009r2F-0hJR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 13:50:42 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2e5d0ee1951so21285565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:50:40 -0700 (PDT)
+	Tue, 20 Oct 2026 13:59:08 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69KD9vqT882037
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 13:59:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DY7esWGsJJoottHT4nIMIL8Ex/o7i900iuaYVCDlzhI=; b=gpIwOsiVuQkaB0Mu
+	bfmPS4Pk6svYoT7gmHD5CDnVqhURDasrAq2OZtnaWrFu19VosjQJT6syIKCdtOID
+	UXSsMMUyQKtNo8JbQX1os39o1RQXoGru5sIKVw8ia4yRFb0a7ib2QOHaCV5awtT2
+	xHgfBeq4QV0usI43rBKk5KhLTb7MO6Eax3zufuLgUqqaCSmKQ6zkHxfdx/qF4KGB
+	fPfrWLqQxAi0fTtUlnK1MvezYxRdQxxZFSrfw+j2mlVJ6mkXm8FaifTKlsSpbSTC
+	hlFjOhDySC38MRfMg5dkLZ2TDsRmZH5BofYAtDl751E6V7pOqCk40AC1/gKedSwT
+	YSx2zQ==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hdw5n2rf1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 13:59:06 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92eebb130dcso73604585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:59:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792504240; x=1793109040; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SCloQQxe4+JTc+VFVHtDAnitVmo1Mr2MvV/BTuAwc8U=;
-        b=Sqdeb69pTbm0nTt0kkNfNvCKInZw4mM7T707ESoin6aN4UKhpZix9Kd83gP2eHW4d7
-         Ja+zvqcF0OYd0k4Ngp3tGbzirBPknoEBHlPwdh61Tv/D3Q6+CD1OIc2/PZ1DrP2wo4Kv
-         FtqlUN2gLl4xmUALAYOhLWvPfJTo+H72q7HK2jQFkGcj87wMl2dZhPJysMqeXVblpdsn
-         mf3G+0PjlF1pjE145QQo7OTa5vvJrTLylt5PTmqy9eWa3WJByE46ytfMcsOXoM7iVBjX
-         YSFhwpn5cpkg3n22ynU+rDmt43nMGx8cqLZqauZIFeVQ6L6sMjg2mjURZV+c63jWXqKT
-         26wg==
+        d=oss.qualcomm.com; s=google; t=1792504745; x=1793109545; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DY7esWGsJJoottHT4nIMIL8Ex/o7i900iuaYVCDlzhI=;
+        b=JWgyLgTmM0OmGc9pVchgUsQsCPv9pKosVIMO/udxmn94pme8Yzux2DwE0le1WdOcnp
+         D0aZYWs4eCsVQm5yk3wqQNbPyJxr1C7Rd0rTxJYG2ZtYD8sEAiD/4+JXPdIiYB7tkLiM
+         uEqGLLpdQJVqsR4G+t1Mo5P1ovjU7pWEKd1fAx0OXyNZZVyT8KI7JA3+dScbG1JFP7LB
+         qWPLXycIzMa41QxzrGnyQIkpdIAwcNd8qkPYCDco6fBMGFskwkAEWSWVZG2zIa9lZSAN
+         xwj3IexGCblSKvxK9nOzDP2j0kU+MGD5vw202Ic5f0e5CcpnLXEV/F7Wjwp+sLOFgR5k
+         Zlkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792504240; x=1793109040;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1792504745; x=1793109545;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SCloQQxe4+JTc+VFVHtDAnitVmo1Mr2MvV/BTuAwc8U=;
-        b=gKdXLmfBGaDWHgxwcal597gVrSTmIPwemIxUyCtjc+gUzwJ/V+IhEARf/r5R6dZ40t
-         tccgzTxVlXvgSA2w/kBnhm0Qx6CcJVRPfUTG32q81lHTs1VLKzI/ownPFcwAUpbFRh2H
-         Hk1xhlEIxBEQFmz5/6zi7ne9Rzkh4FXZS5zWbqGkIdoaH2DxWY05qqY/3hOQJkYhn/NG
-         8V4eJJqf+9FnvFVAz/PT4cuKduCkp1KJIyOmw7VtfjgByck7n9PnYV2Uq+2tlmG0b8MW
-         OPd5B8MFUqEvvH+nrqdI/0my8s2Xi9Efr0axvDWiDkbgHIRCVgSNRGOeDWYUMulDQ7h2
-         8EEQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy5AwzrfTEKKcNnWnzSzydIyjshzXTi1hAY+JwakvGRMKNyt9IMIb9A/A6Z+FEfnmLzU1tIPKphfo/7RV9n/6xy@lists.infradead.org
-X-Gm-Message-State: AFq9FYLk3Tvqt99HxJ32z6oX/JVIfmPpN5oZI5+G1bzrXb1jOLjgapyo
-	y7CXNJfI+spsLBmPwFc2SQYaJgyiG1msm+T4hmBZrljK8bn+dhKBRhah
-X-Gm-Gg: AYBFou1aq7moMuMRe+tXNh7dWjTEa/79J/Sa701aigOMkX8kNg9Qzt4Tvhowf4veLMx
-	7p+kY/sHKz0KbZyqwF56KN/hjx7otRzuqHvDwFESqCD8W2VFb1H6NpbPwWxhnrJWCOP/dj5Fqzb
-	nILZ6/TpOzhSZK+GJkiRkq+3ba03lt2nafJKWvaNWbYIjXv6htST/Wsr0gyrn/WufrOKuYBBb7M
-	YrYm5jRsLG5qi9zCs6J6G3/TV894KsMqwWNbppGpE47Kh12ZPVdCn3GWwhXraFBpI5FvaBChZll
-	0yz+9rxcZcm/tvCVGrJBxmMJeboMbsxeaQrPOX3PfbDmWRS4+w0QqJw6w/O9l+wU4Wk9TB/9Syt
-	5PJ9hgXcdBY48i0UdA81USy5iUttmC5pecSc7U7pLe2O+VxqXOh2kIOiZLlY3Sh8tOoiS5nWXUS
-	eTWxICsnzEe7Rxl+sV+OUNnKexxagduhzKnFhBKxdrdzpbMHkQLDAStiNDC2vgZea48xKpr1Jxz
-	HGn9EV6vQiTrFqBsmUNGh6DfrWYvklG+t4LdIIR4Ka09P1/C0TkFHA8FhbZ
-X-Received: by 2002:a17:90b:48c2:b0:3a7:9413:cfae with SMTP id 98e67ed59e1d1-3acef518dadmr8985793a91.42.1792504239363;
-        Tue, 20 Oct 2026 06:50:39 -0700 (PDT)
-Received: from envzhu-ertl2024.taild6e5db.ts.net (wnetuser204.wnet.icts.nagoya-u.ac.jp. [133.6.54.204])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ad5df5be7asm3661825a91.16.2026.10.20.06.50.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 06:50:38 -0700 (PDT)
-From: Yoshifumi SHU <envzhu@gmail.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	"Paul E . McKenney" <paulmck@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Hajime Tazaki <thehajime@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yoshifumi SHU <envzhu@gmail.com>
-Subject: [RFC PATCH] ARM: v7m: entry: Convert IRQ handling to generic IRQ entry
-Date: Tue, 20 Oct 2026 22:50:25 +0900
-Message-ID: <20261020135025.2209550-1-envzhu@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=DY7esWGsJJoottHT4nIMIL8Ex/o7i900iuaYVCDlzhI=;
+        b=1eorZtUFPZrYlXdsCEDGp2TpBREYnc7Sc+L0QJxOLU+Dpf2YHz0LMcsjP3liiI5jJR
+         yT6T2gxkYtY1J1zgzymMP/6omD8wxK2B29idxqflyteA8dReYXccb8clbsqWDTFISbF9
+         4/s5IJjs3u/TVv04alCDm18GdWf63c1eHDdG9VQvkYC3xyspT7z1+LsCya8uSAF5jxDd
+         CG2PPdTAVbj/1zvQ1zn6a9y13pnLiCseREIoBRVdJgt6U9xo2+326VzTSkhId8vq9k4J
+         hDqe3aNInjrO4LUnnHRT6kJT9Zn+9cvqYJ7mO0rXzrhGUCYNdYzvt/wZuN6OQdWPMED2
+         xXjA==
+X-Forwarded-Encrypted: i=1; AKwUvBzfWw5dwTtlUEHNQmtnNClLP6LGBJpazjJTp6BvjiYuHI1xptTMc075p2o96ao4NNVIk5zsaTYGBzKDYhHr03Gh@lists.infradead.org
+X-Gm-Message-State: AFq9FYI+whSIfuQfoVrsnjSWW1DQ3uVXloYZ5TSrCO2VBFBavK3uCmR5
+	Df6npDNCcq9Jr2umQbLucD9H7Hznrqo/EIRor4chUhmjWxHcID81KmBRXRhcv2E/yjwjVzTY6ZE
+	oGxRUXPO/8xLy73oHh5NULW5/KaF8aTaPlXmJhozsMuHUwYpf8zRnKeXYWS04SfnvdbAFz7b4aJ
+	Ht4Q==
+X-Gm-Gg: AYBFou3RjFmvCWLuprkEpTMy7YTMM7FbWRDxTwc/1a7fReK9FAK+6E+0kVquZuIqZ38
+	Jc/nwKp6qle7ka1Y9oCoPNMzrXOhiPj0/mB7SgsnjI+l9t3oy/lMTG4/fP9vwfgxu3APS5TyEAm
+	Jf016Vk1eH8ZMMlTGl0cF6De9vildyZsr+O3kVIBZH97uAJAEqYTblOjraAGUy2vAalKT8QddbE
+	cZUAg50uk2VZhVVmsSW0l6FT4d62Duqip/OvduhqHHiTUr6hhTgMo1hoj2ekZa7B9ZWf0+P6SmD
+	e6hsTfq9DVu9RFzaPdcpqcIsVQlvUpAyRYjc7qofDVku12GPWecGwXr9hf51cYFGY0AmrMar/HF
+	oXtuqb+bnfwK6NGoLYAxmXA==
+X-Received: by 2002:a05:620a:3711:b0:93e:6d87:4f69 with SMTP id af79cd13be357-93f29c95919mr2095411585a.3.1792504745170;
+        Tue, 20 Oct 2026 06:59:05 -0700 (PDT)
+X-Received: by 2002:a05:620a:3711:b0:93e:6d87:4f69 with SMTP id af79cd13be357-93f29c95919mr2095406585a.3.1792504744685;
+        Tue, 20 Oct 2026 06:59:04 -0700 (PDT)
+Received: from [192.168.226.26] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b38a1ea92asm5010407a12.36.2026.10.20.06.59.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Oct 2026 06:59:03 -0700 (PDT)
+Message-ID: <1f9c34ee-7d30-4ce2-9e88-93612eb897fb@oss.qualcomm.com>
+Date: Tue, 20 Oct 2026 15:59:01 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/9] arm64: dts: qcom: shikra: Add CPU idle states
+To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Shawn Guo <shawn.guo@linaro.org>, Marc Zyngier <maz@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Anna-Maria Behnsen <anna-maria@linutronix.de>,
+        Frederic Weisbecker <frederic@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261015-b4-shikra_lpm_addition-v2-0-ac7f1a0d5638@oss.qualcomm.com>
+ <20261015-b4-shikra_lpm_addition-v2-1-ac7f1a0d5638@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261015-b4-shikra_lpm_addition-v2-1-ac7f1a0d5638@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=aIplOr9m c=1 sm=1 tr=0 ts=6ad773aa cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=QZ93mQGBb8gi70IaLVcA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDIwMDA1NSBTYWx0ZWRfX4SYemqZK5Gm2
+ BSNDxL2nQgyjA6HjSQfrVjXvna+L8VqwlYfyDuhEMAKhaAJ9tN0PpolCXbWUtJXE74MWlAp6o+O
+ rMIYMfnYsgbmZMA4IS0+K0o1kfoAdcw=
+X-Proofpoint-GUID: oNNP8UDiv6dFUOs98pVTbY_K_mhh4Gw1
+X-Proofpoint-ORIG-GUID: oNNP8UDiv6dFUOs98pVTbY_K_mhh4Gw1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIwMDA1NSBTYWx0ZWRfX9Aw++qYmDY0o
+ XKFavk3EdQGsoq/3pTGYI+d6T3oSsD98wz5H9yUyrC3c8WOrVHM8yXFATN9eEu6IBQ0ewjr1XM4
+ +qeZvLnshepoDeh+nAUSN6A/+ZnmdHCCP2YN3Ee97gKWoE6MVbYuRGswcnzF9+uPPltDgYymZDl
+ vRbEMtoDqsBMJn3M0WTJlx65mDuU63oqp03uNTggLLr4M9znqwky1f8q4gmQaoCG9fL2eVWIXeK
+ aifiXZfyU/8opm95NdWFHdOWlXe0HJp7AJBSUbdO85zpV66fnu5PEQTGunw/kMDDJvWjOZlsUN9
+ D2U++j8aNANNHpglfpm9TQLH0ok5Ck8RnKtd92hQH8r5QHHD9uqwwU5RhMQDH7RFr4OJzNS0IAP
+ t2/H+Jud10FBXgfAO6tooLJUYfIenghheIDHg1CNkblX2Sq0WUSc9/4JAjQSpWbb5rC6f1dAgQ9
+ TtGfFjUOcNFJhids4qA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-20_02,2026-10-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 adultscore=0 bulkscore=0 suspectscore=0
+ spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610190000 definitions=main-2610200055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_065041_396101_D4F80FF6 
-X-CRM114-Status: GOOD (  34.12  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_065907_216823_E24A2F9D 
+X-CRM114-Status: GOOD (  11.37  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,330 +160,31 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The recent patch converting ARM to generic IRQ entry [1] leaves the V7M
-path using architecture-specific entry due to its distinct exception
-model. This RFC attempts to complete that conversion for V7M.
+On 10/15/26 11:55 AM, Sneh Mankad wrote:
+> Add idle states for the  CPUs as well as the whole cluster. This enables
+> deeper-than-WFI cpuidle.
+> 
+> Signed-off-by: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
+> ---
 
-On the V7M architecture, the execution priority cannot be lowered
-without an exception return. Therefore, an IRQ handler cannot directly
-perform a context switch. irqentry_exit() may schedule, so it cannot run
-entirely in the IRQ handler. This is uncommon in other architectures.
+[...]
 
-The existing V7M code defers exit work to a PendSV (Pendable Service
-Call) handler, which runs at the lowest priority (matching the kernel's
-priority). Furthermore, kernel preemption on exit to kernel mode is
-unsupported; PendSV runs at the kernel's priority and does not preempt
-the kernel.
+> +		cpu_pd0: power-domain-cpu0 {
+> +			#power-domain-cells = <0>;
+> +			power-domains = <&cluster_pd>;
+> +			domain-idle-states = <&little_cpu_sleep_0 &little_cpu_sleep_1>;
 
-Convert the V7M IRQ path to use generic IRQ entry while deferring exit
-work to PendSV:
+nit: ideally <&foo>, <&bar> instead of <&foo &bar>
 
-- IRQ from user mode: if exit work is pending, defer the exit to user
-  mode to the PendSV handler. Otherwise, exit directly in the IRQ
-  handler to avoid an unnecessary PendSV exception.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-- IRQ from kernel mode: perform generic exit handling directly in the
-  IRQ handler, with rescheduling suppressed by
-  arch_irqentry_exit_need_resched().
-
-- IRQ taken while exit to user mode is deferred: handle it as a nested
-  IRQ, i.e., as an IRQ from kernel mode.
-
-Use the separate irqentry_{enter_from,exit_to}_user_mode() and
-irqentry_{enter_from,exit_to}_kernel_mode() for these paths.
-
-This keeps the existing V7M scheduling behavior while using generic IRQ
-entry.
-
-Tested on MPS3-AN547 (Cortex-M55) and EK-RA8P1 (Cortex-M85) hardware.
-RSEQ selftests pass.
-
-Link: https://lore.kernel.org/linux-arm-kernel/20260910-arm-generic-irq-entry-v7-1-v3-1-5fd90f6859e1@kernel.org/ # [1]
-Signed-off-by: Yoshifumi SHU <envzhu@gmail.com>
----
-This applies on top of v7.3-rc1 with [1] applied.
-
-To avoid unnecessary PendSV exceptions, the bits 0..15 in the thread
-information flag are checked to judge whether work won't be triggered.
-But irqentry_exit_to_user_mode() actually checks
-EXIT_TO_USER_MODE_WORK_IRQ, which is slightly different.
-We have to be careful with this check because a judgment mismatch of
-whether work is needed can lead to performing a schedule in the IRQ
-handler, which is unacceptable here.
-I believe checking bits 0..15 is preferable to directly seeing
-EXIT_TO_USER_MODE_WORK_IRQ because:
-- EXIT_TO_USER_MODE_WORK_IRQ seems not to be intended to be inspected
-  outside irqentry_exit(). No other architecture (needs to) sees this
-  flag. The macro was introduced recently (February 2026).
-- Bits 0..15 cover EXIT_TO_USER_MODE_WORK_IRQ.
-- The existing IRQ entry and ret_fast_syscall also check bits 0..15.
-
-Modification candidates as separate series, found while testing. I can
-submit these after this RFC discussion:
-- A fix for the NVIC driver: The interrupt controller driver (irq-nvic.c)
-  sets incorrect registers for priority configurations (the actual
-  accessed address of NVIC_IPR is wrong). This can lead to nested IRQs in
-  some environments, which is not assumed in the current V7M
-  implementation.
-- On V7M, ARM_cpsr holds xPSR, a different meaning from that of
-  Cortex-A. Specifically, user_mode() and regs_irqs_disabled() may be
-  changed according to V7M semantics. Currently, both give the right
-  answer as long as IRQs do not nest.
-
-I have tested this RFC patch on MPS3-AN547 (Cortex-M55@32MHz) and
-EK-RA8P1 (Cortex-M85@1GHz) hardware.
-Also, I applied some additional patches:
-- kselftests support on nommu recently submitted [2]
-- BSP support for MPS3-AN547 and EK-RA8P1
-- AT_RSEQ_FEATURE_SIZE and AT_RSEQ_ALIGN in the FDPIC ELF loader
-- The fix for the NVIC driver mentioned above
-
-RSEQ basic_test and param_test kselftests pass on both boards. Without
-this RFC patch, under the same test setup, param_test with delay
-injection fails on both boards (e.g., "param_test -T l -t 6 -r 1000 -4
-10000").
-
-For brief evaluation, the overhead is evaluated by manually
-instrumenting the code.
-To evaluate the entry part of the IRQ handler, v7m_irq_handler is
-measured with irq_{enter,exit_rcu}() and handle_arch_irq() excluded.
-For comparison, its counterparts are measured for [1] (before applying
-this patch). Mean cycles over 5,000 samples are:
-
-                                        before    after
-  MPS3-AN547  kernel idle loop           225.2    259.1   +15%
-  (32 MHz)    user loop                  146.5    106.9   -27%
-              user loop + 1 ms SIGALRM   125.0     94.2   -25%
-  EK-RA8P1    kernel idle loop          1230.0   1822.6   +48%
-  (1 GHz)     user loop                  657.2    473.2   -28%
-              user loop + 1 ms SIGALRM   703.9    555.1   -21%
-
-"kernel idle loop" runs "sleep 10" repeatedly and is expected to take
-IRQs mostly from kernel mode. "user loop" runs a busy loop in user space
-and takes IRQs mostly from user mode. "user loop + 1ms SIGALRM" takes
-IRQs mostly from user mode with exit work triggered.
-
-"kernel idle loop" (IRQs from kernel mode) shows overhead increase while
-the others (IRQs from user mode) show decreases.
-I have not yet investigated the reasons for these performance
-differences. But I believe they are negligible since the entry part,
-measured above, is less than 3% of the entire IRQ handler, including
-irq_{enter,exit_rcu}() and handle_arch_irq() (measured on EK-RA8P1).
-
-LLM tools were used for discussion, testing, evaluation, and reviewing.
-The code was written by me.
-
-Link: https://lore.kernel.org/all/20261006085642.3852152-1-thehajime@gmail.com/ # [2]
-Link: https://lore.kernel.org/all/CAD++jL=VJsnk-GzAvR4oR8oKJayQzq9Oes+ZW7K=iHGrQ1jh0w@mail.gmail.com/
-Link: https://lore.kernel.org/linux-arm-kernel/ac3e3fce-b27a-4d17-9616-48a70ddaf28b@gmail.com/
----
- arch/arm/include/asm/entry-common.h |  9 ++++
- arch/arm/include/asm/entry.h        |  4 ++
- arch/arm/kernel/entry-v7m.S         | 49 ++++----------------
- arch/arm/kernel/entry.c             | 72 +++++++++++++++++++++++++++++
- 4 files changed, 94 insertions(+), 40 deletions(-)
-
-diff --git a/arch/arm/include/asm/entry-common.h b/arch/arm/include/asm/entry-common.h
-index c017df5f39d5..35a4905e7aca 100644
---- a/arch/arm/include/asm/entry-common.h
-+++ b/arch/arm/include/asm/entry-common.h
-@@ -4,4 +4,13 @@
- 
- #include <asm/stacktrace.h>
- 
-+#ifdef CONFIG_CPU_V7M
-+/* V7M never reschedules on exit to kernel mode */
-+static inline bool arch_irqentry_exit_need_resched(void)
-+{
-+	return false;
-+}
-+#define arch_irqentry_exit_need_resched arch_irqentry_exit_need_resched
-+#endif
-+
- #endif
-diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
-index 4a28e54b5bf3..a4a44bda7e99 100644
---- a/arch/arm/include/asm/entry.h
-+++ b/arch/arm/include/asm/entry.h
-@@ -8,5 +8,9 @@ void arm_rseq_user_enter(void);
- void arm_rseq_user_exit(void);
- void arm_irq_handler(struct pt_regs *regs, int mode);
- void arm_fiq_handler(struct pt_regs *regs);
-+#ifdef CONFIG_CPU_V7M
-+void v7m_irq_handler(struct pt_regs *regs);
-+void v7m_pendsv_handler(struct pt_regs *regs);
-+#endif
- 
- #endif /* __ASM_ENTRY_H__ */
-diff --git a/arch/arm/kernel/entry-v7m.S b/arch/arm/kernel/entry-v7m.S
-index 49a3a34e2913..0d6f2eb99ca7 100644
---- a/arch/arm/kernel/entry-v7m.S
-+++ b/arch/arm/kernel/entry-v7m.S
-@@ -39,41 +39,11 @@ __irq_entry:
- 	@
- 	@ Invoke the IRQ handler
- 	@
--	mov	r0, sp
--	ldr_this_cpu sp, irq_stack_ptr, r1, r2
--
--	@
--	@ If we took the interrupt while running in the kernel, we may already
--	@ be using the IRQ stack, so revert to the original value in that case.
--	@
--	subs	r2, sp, r0		@ SP above bottom of IRQ stack?
--	rsbscs	r2, r2, #THREAD_SIZE	@ ... and below the top?
--	movcs	sp, r0
--
--	push	{r0, lr}		@ preserve LR and original SP
--
--	@ routine called with r0 = struct pt_regs *
--	bl	generic_handle_arch_irq
--
-+	mov	r0, sp			@ regs
-+	push	{r0, lr}		@ preserve LR with 8-byte stack alignment
-+	bl	v7m_irq_handler
- 	pop	{r0, lr}
--	mov	sp, r0
--
--	@
--	@ Check for any pending work if returning to user
--	@
--	ldr	r1, =BASEADDR_V7M_SCB
--	ldr	r0, [r1, V7M_SCB_ICSR]
--	tst	r0, V7M_SCB_ICSR_RETTOBASE
--	beq	2f
--
--	get_thread_info tsk
--	ldr	r2, [tsk, #TI_FLAGS]
--	movs	r2, r2, lsl #16
--	beq	2f			@ no work pending
--	mov	r0, #V7M_SCB_ICSR_PENDSVSET
--	str	r0, [r1, V7M_SCB_ICSR]	@ raise PendSV
- 
--2:
- 	@ registers r0-r3 and r12 are automatically restored on exception
- 	@ return. r4-r7 were not clobbered in v7m_exception_entry so for
- 	@ correctness they don't need to be restored. So only r8-r11 must be
-@@ -87,14 +57,13 @@ ENDPROC(__irq_entry)
- __pendsv_entry:
- 	v7m_exception_entry
- 
--	ldr	r1, =BASEADDR_V7M_SCB
--	mov	r0, #V7M_SCB_ICSR_PENDSVCLR
--	str	r0, [r1, V7M_SCB_ICSR]	@ clear PendSV
-+	mov	r0, sp			@ regs
-+	bl	v7m_pendsv_handler
- 
--	@ execute the pending work, including reschedule
--	get_thread_info tsk
--	mov	why, #0
--	b	v7m_ret_to_user_from_irq
-+#ifdef CONFIG_KSTACK_ERASE
-+	bl	stackleak_erase_on_task_stack
-+#endif
-+	restore_user_regs fast = 0, offset = 0
- ENDPROC(__pendsv_entry)
- 
- /*
-diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 42d9301bdf37..988555eaaf07 100644
---- a/arch/arm/kernel/entry.c
-+++ b/arch/arm/kernel/entry.c
-@@ -6,6 +6,9 @@
- #include <asm/entry.h>
- #include <asm/stacktrace.h>
- #include <asm/traps.h>
-+#ifdef CONFIG_CPU_V7M
-+#include <asm/v7m.h>
-+#endif
- 
- #include "irq.h"
- 
-@@ -59,3 +62,72 @@ noinstr void arm_fiq_handler(struct pt_regs *regs)
- 
- 	irqentry_nmi_exit(regs, state);
- }
-+
-+#ifdef CONFIG_CPU_V7M
-+/*
-+ * On V7M architecture, the execution priority cannot be lowered without an
-+ * exception return. Therefore, an IRQ handler cannot directly perform a
-+ * context switch. To fit generic IRQ entry into this hardware constraint:
-+ *
-+ * - IRQ from user mode: if exit work is pending, defer the exit to the PendSV
-+ *   handler. PendSV has the kernel's priority (that of SVCall), below all
-+ *   IRQs, so the PendSV handler runs after all pending IRQs. Otherwise exit to
-+ *   user mode directly.
-+ * - IRQ from kernel mode: exit directly with rescheduling suppressed using
-+ *   arch_irqentry_exit_need_resched(). PendSV cannot preempt the kernel, so a
-+ *   reschedule cannot be deferred to the PendSV handler.
-+ * - IRQ taken while an exit to user mode is deferred (i.e., while PendSV is
-+ *   pending): handle it as an IRQ from kernel mode. This IRQ is logically
-+ *   nested from an irqentry_{enter,exit}() perspective (see
-+ *   Documentation/core-api/entry.rst), even if its stacked frame is the user
-+ *   frame (tail-chaining, or late arrival).
-+ */
-+noinstr void v7m_irq_handler(struct pt_regs *regs)
-+{
-+	if (!user_mode(regs) || (readl_relaxed(BASEADDR_V7M_SCB + V7M_SCB_ICSR) &
-+				V7M_SCB_ICSR_PENDSVSET)) {
-+		/* IRQ from kernel mode, or IRQ taken while PendSV is pending */
-+		irqentry_state_t state = irqentry_enter_from_kernel_mode(regs);
-+
-+		if (on_thread_stack())
-+			call_on_irq_stack(handle_arm_irq, regs);
-+		else
-+			handle_arm_irq(regs);
-+
-+		/* arch_irqentry_exit_need_resched() prevents rescheduling here */
-+		irqentry_exit_to_kernel_mode(regs, state);
-+	} else {
-+		irqentry_enter_from_user_mode(regs);
-+
-+		call_on_irq_stack(handle_arm_irq, regs);
-+
-+		/*
-+		 * Check TIF bits in 0..15 to judge whether exit work will be
-+		 * triggered, as tested in ret_fast_syscall.
-+		 */
-+		if (read_thread_flags() & GENMASK(15, 0)) {
-+			/*
-+			 * Raise PendSV exception to defer the exit to user
-+			 * mode to the PendSV handler.
-+			 */
-+			writel_relaxed(V7M_SCB_ICSR_PENDSVSET, BASEADDR_V7M_SCB +
-+					V7M_SCB_ICSR);
-+		} else {
-+			/*
-+			 * Fast path: Directly perform exit in the IRQ handler.
-+			 * Safe because work won't be triggered.
-+			 */
-+			irqentry_exit_to_user_mode(regs);
-+		}
-+	}
-+}
-+
-+noinstr void v7m_pendsv_handler(struct pt_regs *regs)
-+{
-+	/* Clear PendSV pending state */
-+	writel_relaxed(V7M_SCB_ICSR_PENDSVCLR, BASEADDR_V7M_SCB + V7M_SCB_ICSR);
-+
-+	/* Call exit and perform the deferred exit work */
-+	irqentry_exit_to_user_mode(regs);
-+}
-+#endif
-
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-prerequisite-patch-id: 664e34728c0570f7f3602a381394fef3da5dc6d5
--- 
-2.53.0
-
+Konrad
 
