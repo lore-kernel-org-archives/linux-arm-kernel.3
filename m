@@ -2,157 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B05606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 03:56:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F46606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 03:57:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NzBbTNd/;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jy/7Gz8m
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XPgOzwZ1;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WamV38WX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=; b=NzBbTNd/7mK8j9wd5OBi0CsbqO
-	aCTonPVkn4nqh7HzbNqF5lvzgVUTy3DkZTKefO2lrd2OUYMyHmgczCQ8BmPjZGpJszT1ib9cbswjv
-	V0x4nTBQb3AEm0hDSgRZ6+vauk+F7sZi8UXCt9WlKv2gjseWBPGpZ/4apbRtaOaPWVCCUpbC3i7ZB
-	Xt7Y8fPm3ol1ko09hj4Sj5Mml6hiJMi1A5TMNqhn2ICi91hpwrJ8W+ozMsWq96rfqSGzHblxHNX/C
-	/ajCtJnbbaSADm9KC9WZ309rXDdvz4KhKIQYz9ZDXvRuEeY4ep00rF9HZrhHk1j4Os1RrYPaDLSfk
-	2tEhXyKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/W8Ed4jSRre2wfHFR+X/2tT/ft4pZKYlenk33nsLqiM=; b=XPgOzwZ1SCnG8zG5Ttb7/R7cbS
+	i0eej56o4vVLtFwqqsh7w1CeuusYvbAtEQD9o0gdairmg3a0uC3QhJv1H6Uk045QoXEp146vRgg7u
+	IbXC/8SJ/Ex5jjcCbJLPth1DI79KVvP8t9LD+lpRn4sJNPy0goicOCsQYyiLhWOacpedtsHMjOHcR
+	ct5VjUnXzLBm95GxpPYKdQDxA40ZqaPuZSg8V+6wz1t9NpW3ht9I8nCl2yJr2mU7bUGJGuzIXWN62
+	moJRuyJehEo35foSMHQBGnZoDNBOqGZrlJQn0ejInBedNq1HYabZfIuYSBJJAfTPkNtRYhq4jZc9H
+	BPAmOOHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0x3-00000008ofP-1XYG;
-	Tue, 20 Oct 2026 03:55:49 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1xJ0yX-00000008oo0-2NvA;
+	Tue, 20 Oct 2026 03:57:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0x0-00000008oei-03jl
+	id 1xJ0yW-00000008onn-227d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 03:55:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qMmt7TLH215xsbRnvZNqG6xjfdLTMzkQfOlFK26K8Ws+0auu4PKuFdgq2PQv+HIcIpJCCbU8/2wmXG9hsF9gsDXA/Zn04F7E7z9hDIDcyfuhgOs5mxwxmZMM8wLXOSmY0ntFczR31VrWv0y2zBAshHVdu6UZhNt5VzD96pcKyvIjvX8huBrQP7bcTpla8G256yGVAoHZElzwK4Etx97zHkvA3BXrvb+FZnUw40paSDAj1teivHRtV5yOqcHeb28D/CN75ONswJB+yX/fHunOfP41BG6X+alYVxfnjMlLnVGGMgNPCIUYZZ4YnrSO0LuhcVuQdF9KaJ95wgnPk6yicQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=;
- b=ZKXEwW2IBspS7t53k7p2UvQJ2FDp0R23di3HfsfWZMFKgiPTPQ/m8BjRXzhYtB7v9jybC/8W5GGDjVTxwCb4JALrBGpWPPzzrOT0+Df8lqCii3NeLLO13H/XG0vwfuKAS3hc4wb9kS34h3OvmA4yUKhpWcPQxitl8vaP4XL0VV454CZpyCzkApJ11/H/Fzgy6a5aQm5RjYUF0/T34tShk5gSPHRQllBdeTXUNeEDeOsqwUQaajyoJ2PD7CFaRxP0gR1gvbPsWOdRw3UDPfaZhIzoSFQHWBlTA7lmxw8FQD8FJp2CslHdHNadi5BgLy0ZOs6t0NRAn//qc5ncPgCULg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=;
- b=jy/7Gz8my3qMgIso+OD1Ntns728wnFuZ5yICXvZMivl8TmSJaGtuAraxDwvEOemm3ETX4s60bLPl5YoR1bcrLl35cc12HjeKZAJQZ2MlidIV75UxHhdQxyDxFRk5LIl/ZBuu+gb7i1DOA7VAFurJNuhNWLhrzazer87BfA3Za8Lrof4DaiPl1dV8CEVcmOzbUn51sgenSSD2ZvyA89v9gn2SFxo0+p+V0KO0jn3nRi4jrkuoxRIuGDG02K1bJryOfhYz3WYo2X2rQ65KOhbVUSfOOq9qm2GOpTYnMGDQPBtmJlg20eBdA/KXRRJaTCI7ncYrczk9s/SeT6zFx36Rzg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by DM4PR12MB9071.namprd12.prod.outlook.com (2603:10b6:8:bd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Tue, 20 Oct
- 2026 03:55:33 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
- 03:55:33 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
- Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
- Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, linux-tegra@vger.kernel.org
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
- Robin Murphy <robin.murphy@arm.com>
-Subject: Re: [PATCH v2 06/11] ARM: dma-mapping: Handle foreign buffers in
- arm_iommu_get_sgtable
-Date: Tue, 20 Oct 2026 12:55:19 +0900
-Message-ID: <lJdkrMxST1imtqkbsWFTHw@nvidia.com>
-In-Reply-To: <52c9bad4-39f4-46cf-87c2-9e57e8beeb5c@arm.com>
-References: <20261016-b4-arm32-iommu-dma-cookie-v2-0-b06842a01938@nvidia.com>
- <20261016-b4-arm32-iommu-dma-cookie-v2-6-b06842a01938@nvidia.com>
- <52c9bad4-39f4-46cf-87c2-9e57e8beeb5c@arm.com>
-Content-Transfer-Encoding: quoted-printable
+	Tue, 20 Oct 2026 03:57:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 876B9601F6;
+	Tue, 20 Oct 2026 03:57:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 446E11F000C4;
+	Tue, 20 Oct 2026 03:57:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792468639;
+	bh=/W8Ed4jSRre2wfHFR+X/2tT/ft4pZKYlenk33nsLqiM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WamV38WXMlJZhfZjfN9lZxgi+2MEM8+GM6sy+7SWg78m7EJPaYgG8zmH52wEDfDgy
+	 HndhMq2G3A3iNuQha/7Ia7V6NoiH8R66/v5pa8cixxy2iEUt8KZm5qEfU/v9USZ/KI
+	 n4SVj7wNxO0ALrsl1BBrsp/4T7e85CFTkTW3LjRgDlqyQbXboX8ADiMIS8kQIwAIWw
+	 CgQTPfK2W8YKqQXCBl1+lg0zJxqI5o/nsbm5S3FwAefEmniCY1k0t7a0iAhyCp6zzp
+	 s6jGt24Kpe/ixPLTSQOFBG4SlBdHLUQIKsZbJ4F2oOV6TTVqXC+vN24WJI/qZCHntV
+	 m/dXQYMcJjP8A==
+Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Fix dma_unmap_single() direction
+From: netdev-bot+sashiko@kernel.org
+To: fourier.thomas@gmail.com
+Cc: danishanwar@ti.com, rogerq@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ elfring@users.sourceforge.net, jacob.e.keller@intel.com,
+ vadim.fedorenko@linux.dev, haokexin@gmail.com, diogo.ivo@siemens.com,
+ jan.kiszka@siemens.com, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 20 Oct 2026 03:57:17 +0000
+Message-ID: <179246863774.3135.8755286961796234504@kernel.org>
+In-Reply-To: <20261016125534.36024-2-fourier.thomas@gmail.com>
+References: <20261016125534.36024-2-fourier.thomas@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TY4P286CA0110.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:380::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|DM4PR12MB9071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6be499c2-cea7-4e80-4dc2-08df2e5dfdb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|10070799003|23010399003|7416014|18002099003|10067099003|22082099003|4143699003|261009223027099003|11063799006|921020|56012099006;
-X-Microsoft-Antispam-Message-Info: nePAV7UVQp1RZna1LlatTSCgX51kICon8SatyM88NA0fh5gHEHWV5+Pp1b+Ga7r9Y4219TEKWMK2y7E8viJCn3yWCRc34VZFm4UEr4WxmE22CRdqMRqFIWhPUKO2SJ0uaHaxmFG1vyyqUxnMUBiQ+VqDRYrZsIV8iQidz9uqvPGf2Hb0E4BNvMLw0n0NKzEouIeglaBpVbTij5qdVjIx7cLMfPTC62kpseLoATQ0TEVtNm6pkW75nvSWDRkW9/cXrgFEAnGaw1btxqnb91gzkbIWgbsF/wgNCJ7JCLBbYwnfCpGXvjrvWX83TIxNMonWkRn1+HAuBaFJIHKN0N6b6Fuaj4s8muN3A2q8C1c35UFZiZRNGNsqeFtr74pa4GsUegIDOCS2hnGSOJR1ETJ3FdlQDzvenmLf4Gm/PTnBssQ2RZAcktaEtqCb90sTibGD/Af3EiIgLtChxXyyix2vykZTOPQtoVvDBAZj0Lf1KCWx+02RKgG+4oR7HUY9Qy0kTpbwIARDQINoJEn98qgOS23XChAyhzhaJ5+44X7eZxt1Q76XadQIR1Rh03YJL5tXK+3ytjdxMywXm0Xmf9kcYwydR/3Fu/OKzT3eq+t2jdDvagixIn41hM8FGPGzfnoiA4otWA+fazNY49cG2QZoZsbgyVut672jMg/skUv5xrJWSQB4TwFl9a6TjnVDY/U1udWCe9QY0eEiP+FHxmcgVw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(10070799003)(23010399003)(7416014)(18002099003)(10067099003)(22082099003)(4143699003)(261009223027099003)(11063799006)(921020)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGR4RlF3QUZNc1JqUTVmeWc5VHBOU044aWZ1Q1BsMUNOV01BVk5QK0dlLzBU?=
- =?utf-8?B?bU1qMWpvWng0MitUcGNSSkUzaVM4eTlKTElUQWVmS1lLdVptQ2hLYnZIZHBH?=
- =?utf-8?B?RkpCLzRuQ0FtdDE2K3V6RGNMNXZUWFV3VC94QVk5emR5a0t0RlZCYU5LVmdH?=
- =?utf-8?B?VG1kYW0xZ0M3ekVJUDhHNTdRSUp5T2l6V2kxdVJBdTNjODBnRjh2TnBQQ01W?=
- =?utf-8?B?MmFvSWhETUo1RmhUeGZzYWR0ZUZhaGJwN1pMNHNEZXNjc29LU2hLblRLbGtI?=
- =?utf-8?B?RWNYWGJLUm9XRTRqYWVxbjEvVVphbjFZcHdVOFc3dEJ6Qm9YRFlWYVJPWktC?=
- =?utf-8?B?aGxWa2RNNVVZNlJTd05ZemFKWFhabE85MUMzR0l5aVRZeit5diszUWVyVzY0?=
- =?utf-8?B?MCtvRGh1K2syOWNzWkVaUm1MQXZaY2pFK0RUQ3UvWURqOHhORWVSUXhlNDM2?=
- =?utf-8?B?YVVkVWk2K2ZvaXdjL1BQdHVHMDB6OWw3QTQyTG9wTEVjUlZIeTBzT3JybnJX?=
- =?utf-8?B?dlRETnpZMnVtUTNEUlBZdnJaS3RkcTQ4TmZLVndTSlBHNUpLbmt5TSswL2d2?=
- =?utf-8?B?dlhpaG5vbXRBVzFXaEpmbXB5OGFZazJ5L0VxcjF4MUYxKzJKNERtR3ZDNVp4?=
- =?utf-8?B?K1JqQ2JRVDk4L0cyNkVVZDJsdHNmVmgzYnZzaXdZMmN6NXBPWGRPM3B5bmNy?=
- =?utf-8?B?MnlwSlBrd2UrR04ra2JNNWFOQjlwcWhsNGJ0ZWpOczJNSml4RDBObVJ1Qmxt?=
- =?utf-8?B?UzY4NThQVUtkTjBaT1F1RHMrdVNBQUFQY29heUdBbWNNUnVITzZXM0hXaGw3?=
- =?utf-8?B?ZDQxVWpBb2tiNGtDSVhIUnM1b3BwVlJLRS9mNldDcGxWR0pxcW9nNTYvTXVN?=
- =?utf-8?B?RHRpVEtYdUhNQ0k1ODdQTVh0Z0FuSHZyaHRrczJmSjJKTDVKd2J3SlZ3cnNK?=
- =?utf-8?B?S1FTclhEQXNSK1FxVlRjdHk3SGtGVmZPeTJNTWlhNmZzZWxSR1U0Q2Vzbzdv?=
- =?utf-8?B?aU9ZZ0FWbXNTMHFxV0lTNHV3a01hcE9qZk56SGZ5blFucXlkTzhlanQzT3hR?=
- =?utf-8?B?SGNtV1BPK1dDbTdReFJVN3IzTkcrVjdFMFFSUE9Eakl4SURoWm13T1lUWGJy?=
- =?utf-8?B?OFZKYVRVV3JRS3AvdUNGYjE2Nm90M2l4YWtyU3dpUmdlVkVCdjhiWXRqZnRw?=
- =?utf-8?B?SVZoYlIwNkJyQUNMNzlKeWJaMFpHTnU3RC9ySG1hODcvMDZsdVZBRWlqRnhh?=
- =?utf-8?B?citJSTJHZGFCVWNQSzYrR3QwenlTSk56Zlg5c2g3bzlzWHBwNFl0bjFvSEtk?=
- =?utf-8?B?RG5KdVRiMUpraVp3YUQ0TDBDdFVXbEQwRkZBOEJpZCtNT21rKzEweDNoYXZy?=
- =?utf-8?B?VnFsaTYvQ1RlbjJKQWs0dU1DZ0Fod3ozZUIreGFqN2NYd3N2SUtKSnE4RGZK?=
- =?utf-8?B?RzZwZWpUcy9VM3dZR3p1K201QWl2dDRSbVo4WlR5SnNXMlZmUE9aN2x0dlFE?=
- =?utf-8?B?RGlTZGg4YmhjVXQ5ell5aWFzRkhSYnA3Y2pNS283S2t4cnRoaXM5VG9ZTnpZ?=
- =?utf-8?B?Um9aUVhuV0NkVjc0djA4YlMycUZIVXIrMFVDRENpMzdGSVpudFVtVHZIbDZV?=
- =?utf-8?B?V3ZDWjA0dldPdW5ONUUyMFhDZnNyeGRtUUFYTEZUclFPNDE2OERISk9GRExz?=
- =?utf-8?B?a29nQzM2dFVwdm5MVWZoNzVwbWQrQmpQRWRzMWpRNldZMmVhVitaeGJzcUJP?=
- =?utf-8?B?T1pjTWMzblF5YTk4dmhDbmZGM0E3bzlRN1ZUSmYyYkw0c2JrZy9GUGJxSStj?=
- =?utf-8?B?QmdlRUk1V1RtMHp0UjRwMjhtVXRWY1lXTno5c1hXYUVraHhBblRlVXBqV2RC?=
- =?utf-8?B?dEhrOWRsRGwxRHhPeHQ3K0RHYVV4eUt1THZtMHVIRCtoUjJHMW1DWVpXOTF4?=
- =?utf-8?B?cHdQcmJackJ5K0xRRDhuanB3UjEzZjE4YU5UNFR2VFRaOEFVanZybEg4RjhD?=
- =?utf-8?B?MnZrMXFKU3BEc0UzUUlMU080WXpqWTFPRTdjVFZwMHJWMWUyN0FCS3p3ZTRj?=
- =?utf-8?B?MWI3RlQ5eWhoeG83ODNQQ2NwVjhqZVRCUmk2WDdsS1gzNm5pWUs4OHQxMktI?=
- =?utf-8?B?U252M010bG4vQU1ubXJCblMycmhKNE05YVFxSWsxZjJPdElXbWtsNUNTcEdX?=
- =?utf-8?B?MXNiUVRVN1dlcEFwY1JxemhtS2VMSTBRTFl4RjlyV2lySi9lZzk5aTdLRXpm?=
- =?utf-8?B?U0JUTXRIQU5RUXh4U1hhTkRZR1dCdnZvSjluRTJYNVE3WVBHczZSS3pnNVNN?=
- =?utf-8?B?VE9pN3dMaWM3YnBSdXhwVTlQYTR6SGppbURUMXc3d2I4SDFsS215S1dJSlh3?=
- =?utf-8?Q?CvgHndWuLL3fr4q+WOrJKXfoZa/ejz8eEeHW1uMfOPQ55?=
-X-MS-Exchange-AntiSpam-MessageData-1: X0aWJxPhDNV3dA==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6be499c2-cea7-4e80-4dc2-08df2e5dfdb3
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 03:55:33.5313
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eEvpIkQAYFOgs3V3ayXyhOpaWUb3q+e5uQQazGMuTTeiknlj5Fh0TRixI3HW0Ty/JoBhC+Rxq2uww1NhABrkxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB9071
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_205546_068593_1B5B53FB 
-X-CRM114-Status: GOOD (  31.40  )
-X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,103 +71,261 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tuesday, October 20, 2026 12:47=E2=80=AFAM Robin Murphy wrote:
-> On 16/10/2026 7:46 am, Mikko Perttunen wrote:
-> > arm_iommu_get_sgtable can only describe buffers which came from
-> > arm_iommu_alloc_attrs, and returns -ENXIO for anything else. This is
-> > stricter than iommu_dma_get_sgtable(), which falls back to describing
-> > the buffer as a single chunk.
-> >=20
-> > The difference shows up when a buffer is allocated for one device and
-> > mapped for another, as TegraDRM does. Buffers are allocated on the
-> > host1x logical device, which has no dma_configure and therefore uses
-> > direct DMA ops, and are then mapped for a display controller behind the
-> > SMMU.
-> >=20
-> > Add the same fallback as iommu_dma_get_sgtable().
->=20
-> Hmm, that's not actually what it's for... :(
->=20
-> The "fallback" is only for the case when iommu_dma_alloc() has hit the=20
-> dma_alloc_from_pool() path, see a98d9ae937d2 ("arm64/iommu: handle=20
-> non-remapped addresses in ->mmap and ->get_sgtable"). It was never meant=
-=20
-> for dipping into *other* DMA ops because the caller has erroneously=20
-> passed the wrong device. Just like dma_mmap_attrs() and=20
-> dma_free_attrs(), dma_get_sgtable_attrs() must match the original=20
-> dma_alloc_attrs() call - that's a bug in TegraDRM.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Ah, indeed. That's easy to fix in TegraDRM. I think this happened=20
-because TegraDRM has this (a bit unsavoury) use of DMA API on both the=20
-drm device and the actual platform devices side by side.
+Critical: 0 · High: 3 (1) · Medium: 2 · Low: 0
 
-Thanks,
-Mikko
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
->=20
-> Thanks,
-> Robin.
->=20
-> > Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
-> > ---
-> >   arch/arm/mm/dma-mapping.c | 25 +++++++++++++++++++++----
-> >   1 file changed, 21 insertions(+), 4 deletions(-)
-> >=20
-> > diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-> > index d6315baeddb9..c2ec4f107808 100644
-> > --- a/arch/arm/mm/dma-mapping.c
-> > +++ b/arch/arm/mm/dma-mapping.c
-> > @@ -1169,12 +1169,29 @@ static int arm_iommu_get_sgtable(struct device =
-*dev, struct sg_table *sgt,
-> >   {
-> >   	unsigned int count =3D PAGE_ALIGN(size) >> PAGE_SHIFT;
-> >   	struct page **pages =3D __iommu_get_pages(cpu_addr, attrs);
-> > +	struct page *page;
-> > +	int ret;
-> >  =20
-> > -	if (!pages)
-> > -		return -ENXIO;
-> > +	if (pages)
-> > +		return sg_alloc_table_from_pages(sgt, pages, count, 0, size,
-> > +						 GFP_KERNEL);
-> >  =20
-> > -	return sg_alloc_table_from_pages(sgt, pages, count, 0, size,
-> > -					 GFP_KERNEL);
-> > +	/*
-> > +	 * The buffer was not allocated through these DMA ops. It may belong =
-to
-> > +	 * a device which is not behind an IOMMU at all, which can happen whe=
-n a
-> > +	 * buffer is allocated on one device and mapped for another. Describe=
- it
-> > +	 * as a single chunk, as iommu_dma_get_sgtable() does.
-> > +	 */
-> > +	if (is_vmalloc_addr(cpu_addr))
-> > +		page =3D vmalloc_to_page(cpu_addr);
-> > +	else
-> > +		page =3D virt_to_page(cpu_addr);
-> > +
-> > +	ret =3D sg_alloc_table(sgt, 1, GFP_KERNEL);
-> > +	if (!ret)
-> > +		sg_set_page(sgt->sgl, page, PAGE_ALIGN(size), 0);
-> > +
-> > +	return ret;
-> >   }
-> >  =20
-> >   /*
-> >=20
->=20
->=20
+- [High] The patch adds the very map/unmap direction mismatch it claims
+  to fix.
+- [High] The direction is not the real bug in prueth_process_rx_mgm().
+- [High] net: cacheline corruption due to DMA_BIDIRECTIONAL on unaligned
+  inline array
+- [Medium] The commit message's premise is wrong.
+- [Medium] The Fixes tag points at the wrong commit.
 
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  prueth_process_rx_mgm() refills the wrong ring.
 
+--
 
+net: ti: icssg-prueth: Fix dma_unmap_single() direction
 
+This patch changes the DMA direction to DMA_BIDIRECTIONAL in two places:
+the mapping of the firmware command buffer in emac_send_command_sr1(),
+and the RX management buffer unmap in prueth_process_rx_mgm(). The commit
+message says the TX map and the RX unmap use mismatched directions.
+
+> In emac_send_command_sr1(), the command data is mapped with direction
+> DMA_TO_DEVICE. However, in prueth_process_rx_mgm(), dma_unmap_single()
+> is called with direction DMA_FROM_DEVICE. It seems like the buffer is
+> written to by the CPU before mapping the buffer; and, after mapping the
+> buffer, the device writes to the buffer.
+
+[Severity: Medium]
+Are these the same buffer? emac_send_command_sr1() maps emac->cmd_data
+on tx_chn->dma_dev. That mapping is released by prueth_xmit_free() when
+the TX completes:
+
+drivers/net/ethernet/ti/icssg/icssg_common.c:prueth_xmit_free() {
+    ...
+	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
+	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
+
+	dma_unmap_single(tx_chn->dma_dev, buf_dma, buf_dma_len,
+			 DMA_TO_DEVICE);
+    ...
+}
+
+So before this patch the command buffer was both mapped and unmapped
+with DMA_TO_DEVICE.
+
+prueth_process_rx_mgm() handles a different buffer. It is a page_pool
+page that arrived on emac->rx_mgm_chn, attached by
+prueth_dma_rx_push_mapped() as page_pool_get_dma_addr(page) +
+PRUETH_HEADROOM.
+
+The firmware reply is also read from that RX page, not from cmd_data:
+
+prueth_rx_mgm_rsp_thread() {
+    ...
+	rsp = le32_to_cpu(*(__le32 *)page_address(page)) & 0xffff0000;
+    ...
+}
+
+Does anything make the device write to emac->cmd_data, or read cmd_data
+back after the DMA? If not, could the commit message be reworded to
+describe the problem that actually exists?
+
+> Fixes: e654b85a693e ("net: ti: icssg-prueth: Add ICSSG Ethernet driver for AM65x SR1.0 platforms")
+
+[Severity: Medium]
+Is this the right commit for the Fixes tag? At e654b85a693e both pairs
+seem to match. cmd_data was mapped and unmapped with DMA_TO_DEVICE. The
+RX management buffer was an skb, mapped DMA_FROM_DEVICE in
+prueth_dma_rx_push() and unmapped DMA_FROM_DEVICE in
+prueth_process_rx_mgm().
+
+The RX side only went wrong with 46eeb90f03e0 ("net: ti: icssg-prueth:
+Use page_pool API for RX buffer allocation"). That commit moved RX to
+page_pool pages but kept the old dma_unmap_single().
+
+Stable trees that have e654b85a693e but not 46eeb90f03e0 would end up
+with a FROM_DEVICE map paired with a BIDIRECTIONAL unmap on the skb path.
+They would also get a new mismatch on the TX command path.
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> index b8115ca47082f..6f4a3f64ad39f 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+> @@ -98,7 +98,7 @@ static int emac_send_command_sr1(struct prueth_emac *emac, u32 cmd)
+>  	tx_chn = &emac->tx_chns[emac->tx_ch_num - 1];
+>  
+>  	/* Map the linear buffer */
+> -	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_TO_DEVICE);
+> +	buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_BIDIRECTIONAL);
+
+[Severity: High]
+There's a second problem with mapping cmd_data DMA_BIDIRECTIONAL.
+emac->cmd_data is a 16 byte array embedded in struct prueth_emac with
+no alignment or padding of its own:
+
+	u8 cmd_seq;
+	/* shutdown related */
+	__le32 cmd_data[4];
+	struct completion cmd_complete;
+	/* Mutex to serialize access to firmware command interface */
+	struct mutex cmd_lock;
+
+So it shares a cacheline with cmd_seq, cmd_complete and likely part of
+cmd_lock.
+
+Documentation/core-api/dma-api.rst asks for regions mapped with
+dma_map_single() to start and end on cacheline boundaries, so that
+nothing else shares those lines. With DMA_TO_DEVICE this was harmless
+in practice, because the CPU side never has to invalidate anything.
+dma-debug skips its overlapping cacheline tracking for DMA_TO_DEVICE
+mappings for exactly that reason.
+
+DMA_BIDIRECTIONAL tells the architecture the device may write the
+buffer. On a non-coherent system the CPU sync on unmap then invalidates
+the lines covering cmd_data, and those lines also hold cmd_complete.
+
+reinit_completion() writes cmd_complete after the map.
+prueth_rx_mgm_rsp_thread() calls complete() on it from the mgm IRQ
+thread while the buffer may still be mapped. Can the invalidate throw
+away those updates and lose the wakeup?
+
+Today only the descriptor allocation failure path above unmaps with
+DMA_BIDIRECTIONAL. Every command would, though, if prueth_xmit_free()
+were converted to match.
+
+If the firmware really does write into this buffer, cmd_data would need
+its own cacheline aligned allocation. If it doesn't, wouldn't keeping
+DMA_TO_DEVICE avoid the problem altogether?
+
+[Severity: High]
+Doesn't this add a map/unmap direction mismatch? Only the unmap on the
+descriptor allocation failure path below was converted. Every other
+release of this mapping still goes through prueth_xmit_free(), which
+hardcodes DMA_TO_DEVICE:
+
+emac_send_command_sr1()
+  k3_udma_glue_push_tx_chn()
+  ... TX completion ...
+emac_tx_complete_packets()
+  default:    /* PRUETH_SWDATA_CMD */
+    prueth_xmit_free()
+      dma_unmap_single(..., DMA_TO_DEVICE)
+
+The same is true of the free_desc path in this function when
+k3_udma_glue_push_tx_chn() fails, and of TX channel teardown.
+
+With CONFIG_DMA_API_DEBUG, would check_unmap() now report "device driver
+frees DMA memory with different direction" on every successful firmware
+command?
+
+The device only reads cmd_data. With an IOMMU, though, BIDIRECTIONAL also
+lets the device write to the page that holds it. That page is inside
+netdev_priv(), next to cmd_complete, cmd_lock and the napi/hrtimer state.
+
+Should the TX hunks be dropped?
+
+>  	if (dma_mapping_error(tx_chn->dma_dev, buf_dma)) {
+>  		netdev_err(emac->ndev, "cmd %x: failed to map cmd buffer\n", cmd);
+>  		ret = -EINVAL;
+
+[ ... ]
+
+> @@ -303,7 +303,7 @@ static struct page *prueth_process_rx_mgm(struct prueth_emac *emac,
+>  	page = swdata->data.page;
+>  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>  
+> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
+> +	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_BIDIRECTIONAL);
+
+[Severity: High]
+Should this be a dma_unmap_single() at all? The page comes from a page
+pool that prueth_create_page_pool() sets up with:
+
+	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
+	...
+	pp_params.dma_dir = DMA_BIDIRECTIONAL;
+
+That means the pool owns a mapping of the whole page.
+prueth_dma_rx_push_mapped() gives the device an offset into that mapping:
+
+	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
+
+Here the address is read back with cppi5_hdesc_get_obuf(). It is never
+converted with k3_udma_glue_rx_cppi5_to_dma_addr(), and it is unmapped
+with a partial length. So it does not match any mapping the driver
+created.
+
+After the unmap, the page is either recycled with
+page_pool_recycle_direct(), or, if allocation fails, pushed straight back
+to hardware as new_page = page. In both cases the pool still treats the
+page as mapped.
+
+With an IOMMU, which the commit message mentions, can this free the IOVA
+of a page the pool is still using? The next DMA into that page would then
+fault or land on a reused IOVA, and page_pool_destroy() would unmap it a
+second time.
+
+DMA-API debug would also flag this as "device driver tries to free DMA
+memory it has not allocated", whatever the direction.
+
+emac_rx_packet() handles the same kind of buffer by calling
+page_pool_dma_sync_for_cpu() instead of unmapping. Would a similar CPU
+sync be the right replacement for the unmap here?
+
+>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>  
+>  	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but a little further down in
+prueth_process_rx_mgm() the replacement buffer goes to the data channel
+instead of the management channel:
+
+	/* queue another DMA */
+	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
+					PRUETH_MAX_PKT_SIZE);
+	if (WARN_ON(ret < 0))
+		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
+
+The descriptor was just returned to rx_mgm_chn's desc_pool. The refill,
+however, allocates from rx_chns.desc_pool and posts on the data RX
+channel, using a page from the mgm page pool.
+
+emac_ndo_open() fills the mgm ring only once, with
+PRUETH_MAX_RX_MGM_DESC_SR1 (8) descriptors. After 8 management packets
+(command responses or TX timestamps), does the firmware run out of mgm
+buffers? If so, emac_send_command_sr1() would time out on every command,
+and the skbs held in emac->tx_ts_skb[] would never complete.
+
+All data descriptors are posted at open, so this push will usually fail
+in k3_cppi_desc_pool_alloc() and hit the WARN_ON() on most management
+packets. When it does succeed, emac_rx_packet() or prueth_rx_cleanup()
+later recycles the mgm-pool page into the data pool.
+
+Before 46eeb90f03e0 this call pushed to &emac->rx_mgm_chn. Should it do
+so here as well?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016125534.36024-2-fourier.thomas%40gmail.com
 
