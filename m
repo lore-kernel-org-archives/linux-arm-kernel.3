@@ -2,144 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE0160A2620
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:36:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACBD606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:37:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s5Z9ARhK;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dFq3AiwW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YWYiAbcn;
+	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=SPv0wxjd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Grl+442tVBj2zWWfCC/7XqCpgD8fo8OS8qWEbvBQgo=; b=s5Z9ARhK2Yv6ygdV2uC4fEu2mD
-	cxTWhn7rWWC3f8w07wzqSYJssnlz1gHQV6BfIZFCubV8jiAiDYa1nSgDyHWcaMNhKbskKaC7aQpoR
-	2uWQZZ6bCd31/JpDPp2cpWxfop+evNVe0apqO/7V9FkJaIZFl1iwnRt9gVVRLZg3O1v0DXUR63zsB
-	xJ0p03EhFwUGYEzEU6UH3VjUICloMCF8D30fa18Bz0xfUAhw5Gc0YTZrfm7S/WKn5pi5UbfuIf6gT
-	vVoVhmpsFB0iSRKLCTSQecfzP5jS2aCbIbC2modytYoO7Hd0d+e7ARa8TgAgSajQTMAAZvDWNb4fe
-	s0DFSL1Q==;
+	bh=GikeMcL0RrnlrjkigfHn4bmphngNDtuGpxDpa3/PnB4=; b=YWYiAbcnAH2WtngKZHilBHTV0P
+	Yv3XBoecKMwBSINcNsjN+roeMB8hg9dFY7mmggAUZydRzSBE9+U8owniQyfsMCigPDTlyUZguMDLz
+	RSwuTaBiMlgpGr3Mey+e08Js1D99zWCLnX62kQ1bweDSxQkhkoN9tHQD5iUCTMQxrtsik7i8uKfsU
+	AfWG8PirVxw1LGbvzQ+tDx3DQnJpkvRb0HC3GYyBWqXV/UkF3MH7OcBa3izUFzQrr+Bk1VV2GJHOe
+	MilIGz7kSfe0EmvPOvXzl3oof9rEv5h+2+MiaNYy1TZ5QX+Q6svbjIA7RPKD1NL1VrAoS6GNUktFI
+	gXLR45Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAd8-00000009u1a-3vDW;
-	Tue, 20 Oct 2026 14:15:54 +0000
-Received: from mail-southcentralusazon11013065.outbound.protection.outlook.com ([40.93.196.65] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xJAx1-00000009xvG-0x9W;
+	Tue, 20 Oct 2026 14:36:27 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAd6-00000009u1E-3agr
+	id 1xJAwy-00000009xul-14km
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 14:15:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QSr09M7SO0pyp2onnvFQJV7hw7LegJ13MFiJcWqB4cHfJTBpOYBCcYLFUvj2OrpSVvEWzov7glTxVeIsAtXEX4C3PKQvxCPpwD/UmROyBmfLX0HmlmBCbSgEhBpxQRQ+FLcpU9t5UuDnWTlru7IF1Gs5uUaLgFdRNnpVrrDHGVQx97U2f9AQz4XuWfUV+nQTpqXlVxlaF4jf0QoEbIdOBbCVh31DaHPHwTnEisHYcT5GDsolpJimUmUrHQ5wH3P6vWlpcI9stTiDKbQsTJe0KBRrP2eiGECV13ihUQ9RNfQN7keAKDUO/GH8e+MhuprKqKrE00EN9tH+BlWzWRiHgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1Grl+442tVBj2zWWfCC/7XqCpgD8fo8OS8qWEbvBQgo=;
- b=gzqoHm3XIRP7YIzl94IJ9UFBlkbBAyRhhHKBmgdtm6U12xGWOEK4fpN456mc5qVrn8xFWBpSpOGkrsT/o8J+ReZsex92yHYWvgwKONcje4c9z0z+Yi1RLxjNOI7Ts83Lj0CBHsLr4kOkuPdLfQD+gNeuom3MMCdo6RcpLiGpIgMEVcBamyJ+3lwUn+oK8ZG/+J7GeC8f29wJ7Mdqk6DZ7nAvEWJGwhlFm8aOZ422VPnm9+mK4sC3kbEf3vvBthMiM6T8GplcFGr97POPoaoAu60G9ng+RtdFg5BLSxD6dyuwrENZG8q9oI/DMo/AWL5F2Y0Cx44RHM89fhqPK/4k+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1Grl+442tVBj2zWWfCC/7XqCpgD8fo8OS8qWEbvBQgo=;
- b=dFq3AiwWD2G1EFflfWRVgemvol67s7m8jjWWK85phcemDFFEoppxB/0umTaDSZgjU/Gc8DX2IfHjmmfiSyb/va35d/fggsKYVDW5nMA0bTUuyrB7TX+49FNxkRlamSr6Epb2n70xedC32LtJVRuRWVyJPe+Emoj6MvVvVemBPlQYd/GKVW64JQk6OSlB20r55fw+OKoqIeA57ck2mLrkTb+uGfNTYf5F7QK9UyJBPRwH8LflVzy3VZRO5wtAA6iTiw1qOpI1jk1TUVSTfUEY9x1cV4WbhLhaSkrnC6kQJZxYkXt1F4YkDmFSVOUmrR91DqnV4zZ7XCxSkTAN2QMvCQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by CY1PR12MB9583.namprd12.prod.outlook.com
- (2603:10b6:930:fe::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Tue, 20 Oct
- 2026 14:15:41 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.012; Tue, 20 Oct 2026
- 14:15:41 +0000
-Date: Tue, 20 Oct 2026 11:15:40 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Jean-Philippe Brucker <jpb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
+	Tue, 20 Oct 2026 14:36:25 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-5363c8de563so28774061cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:36:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1792506983; x=1793111783; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GikeMcL0RrnlrjkigfHn4bmphngNDtuGpxDpa3/PnB4=;
+        b=SPv0wxjdzwDeHiL+0yllJTw1zNU6GvY5PGVFQv/2KxJyqXXqe2pWBgtECFS3r1XKLI
+         hVSCtyHrIRGIsPK8uHvwzBq3vYsnjfbGc72LaJu00dalZuSgmcS1QINjrfR+H1fgmmmA
+         nBBBafvvOSLZHziVTp94e+bcglFiNwYIOYDF9pSareCX1wTAZD2dsq03Cq9XII1s2jX6
+         r7MQrK9jWDClcaMroYRTn4PTOOnfYb6Q3fcVbOtd7PVo4rJQCNI18TjmE6rG1n9844/c
+         V1YSe+Vwyp8ObXpZ+ALzfbfZ2NJ9XPmJRo8UkZn+X/3K2xGnz9BUe9k1MV1wOaydrFOM
+         V2tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792506983; x=1793111783;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GikeMcL0RrnlrjkigfHn4bmphngNDtuGpxDpa3/PnB4=;
+        b=VMdxDMMbZzvqrlWSNvTUtyzeZCubLReD1e3VMAiCSIxMdZTObZsrbpzDqlyfzAAKe0
+         aIXz+VQM1UKBQH53aX4+bpPB7v5IbC6gIPohu/ROAUC+8PlvAxqVokRJVUbu+f/+u9a/
+         1TyITAgjJQsPRhdY3tHRHCP+gyf139Z3m7l+vjh4hUwzcuqyDpcjcy7odtRJMKPprg8W
+         xaedHQUpGNzfB7L5CRmtBV11O7IBF29vRP7lR4JaPWlXYNGECxVy9al5dUI6jexc7CBg
+         r+mQaMx2osctSnAaaxWzUqZpFaNlrt2xUx2m1L04SD9xOap5QB9N19+gAVxruf7vVhZ9
+         14tw==
+X-Forwarded-Encrypted: i=1; AKwUvBzWxIhr6McedlAQTclW3uockht8TtX+c+pGGT8cUlZ8OxdVa5A/z1OcEU0kOAwzItkt+O48iHs9P/AQBT89LCSR@lists.infradead.org
+X-Gm-Message-State: AFq9FYIGhClygnT557ncd9Y0JM5LJXw2B100eNaf0Ab7sF8RtDePE+Jg
+	2OGCASvnKHMvzkvIx2UkTw6KP1p0xmEWURFprhsrdiQuAXCKe2u9oP7bRxPgUDCrDX9h3ABqJ99
+	We+WP
+X-Gm-Gg: AYBFou1bTkiN3p/KKz6ZE8rhLNidHlUge1RPrONsPpSNO2xsOSS+6v2+U3aRGRFDWVs
+	K/swi6UdndHCJDaT1q6MNHfIKRXZBtMEgs5by9A1GCxCJqjkr1ttVaCtKV19E+tQADafcimcZj6
+	T/oTn1k3oQrtk3iCGsfbkrY3nN/Go9eLAJKke5bDhY9DsbWvRH57s63yFdLf02Zn/o1elxJpUec
+	es+HULFcGcgXLd56Vrtw3Cx5Q7uy2oYshI2jyGQEDnWI4Y48U49Q3dn/ps7u0mcOHgXaJFYrv3m
+	7aos6TcNqU/ND/wj2AqfgJTL6HZuhvFtoPAh00OeSh/paGdneTORQXOf24oV4YE35oaN05rfhvB
+	Xh1jbNOL1vYU8/Gy+vYcup3DZgFlAEuoKZ5b1OvY3AgDDu4klXHQKePGSnzeyuA9FLtpcfXOkOI
+	lf4QHvn07pBU2Pt1EUlKB4K4YHk0QrPpgjAH/8D6kP84MTPW7Lj/g49EeFVp5CRdz2o+1lP98AQ
+	IcdmzYFPaasPg74cNJyBVdFBDQUHVqhLA0wJD9lKCxg8PnRzZseYhjW
+X-Received: by 2002:a05:622a:2615:b0:532:e4bc:b80f with SMTP id d75a77b69052e-53646074ce3mr154755381cf.60.1792506982644;
+        Tue, 20 Oct 2026 07:36:22 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53636731fcfsm111546931cf.19.2026.10.20.07.36.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 07:36:21 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xJAwu-0000000CgOq-215N;
+	Tue, 20 Oct 2026 11:36:20 -0300
+Date: Tue, 20 Oct 2026 11:36:20 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Alex Williamson <alex@shazbot.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [RFC PATCH v2 15/15] misc/arm-cla: Add vfio-mdev user interface
-Message-ID: <20261020141540.GB3008132@nvidia.com>
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
- <20261015142552.4128028-16-ryan.roberts@arm.com>
- <20261015164102.GC13920@nvidia.com>
- <CABCqBse_aZL-EH0us2uA5X10q6E4WP02MoHTYf+M9ezRZr26WQ@mail.gmail.com>
- <20261016144202.GG13920@nvidia.com>
- <375868af-d0bd-4278-83e6-f8429df130e9@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <375868af-d0bd-4278-83e6-f8429df130e9@arm.com>
-X-ClientProxiedBy: BL1PR13CA0023.namprd13.prod.outlook.com
- (2603:10b6:208:256::28) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Jiri Pirko <jiri@resnulli.us>, GONG Ruiqi <gongruiqi1@huawei.com>
+Subject: Re: [PATCH RFC 0/3] firmware: arm_firme: introduce FIRME support for
+ host attestation
+Message-ID: <20261020143620.GP14213@ziepe.ca>
+References: <20261019-firme_interface-v1-0-27895c9cebaa@arm.com>
+ <20261019233532.GL14213@ziepe.ca>
+ <atcUoSdggT9eU8YE@e129823.arm.com>
+ <20261020124536.GM14213@ziepe.ca>
+ <atdvnMJuHUJlqX8t@e129823.arm.com>
+ <20261020135006.GO14213@ziepe.ca>
+ <atd2_9Q2wTv_3MXz@e129823.arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CY1PR12MB9583:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69e80da7-28cd-4f62-b2b5-08df2eb49f8b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|6133799003|22082099003|18002099003|4143699003|5023799004|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 4Nt8u2cbK+o6nWThaHKXJuGX9KrXU2VLuuGZXpMoleT4i3VjKxil+dHrTUQKD/hwTKgGmozBTib50a82CR5fN3XNE23HryxVsIifk+J7KgjzgOqqglIKgwMs0KmcMGpIlMkAoV/h6RhNWC1TTQr9S8kTh9cD9oRaaTfZezZR4xUQf3/g5K+LUt7/OsS4Z6b+z3e3KTRgCGMNJ/E4hovU5jYMlZSJxtPn5xO5eCjTiwQwcEspjeYHFD/XmkajzlvEH4qI8P7Ckdc4s7Eg1va1aeewkv74sSHffH3mfPGieLCKo4KCDT2wek3oRRkHW9hsTtaGtJb5PZ/7kUUhHRbVDXSVKpEDB3svtWsQ+U5NJuS/3vOFVkRRI4OAOWwFnJyRGWYIpfgS0huOPtFtsKTf/PMnnU3QN4ivVtMvmEhnzV4+JT6qcp+exh2vNEC8zcRdkQryVFpwHhk0diwjqAMDQEGzx2luj6VIwWXU2pFYWTgHYVm2e7VYtb3ROFwXRqzHeZAVicBuF+fwiXCr0LiJ0c95YNB0wTDp28ErHSCmwfbOgNzsXzKhH6rpYQPJTWpjD3f7hxtq+p84lOO/Jbys0Imp+J1PQb4yy8QnK9yUbDq5qz+i8ckyOHW6UlbtWGIskd9IaV3CSDP5haGqtpttYfnxqbbjJAF3/aCql8wAmjk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(6133799003)(22082099003)(18002099003)(4143699003)(5023799004)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aq5cgkkCcscL0cw72xNQ5KIz3KgvbqwEGmvCbcKlqDKFuAfyKsVNkYApO6zq?=
- =?us-ascii?Q?VJchVlc3qM7WaxUXzer0IU9sSRUZ0Jhc0nRc0HbSyY2Mk1Jz4NnpruEWkRq0?=
- =?us-ascii?Q?vSyu8dSmSAa9Ctfcfuw/GjAHe2wH67riE0pRl0qx8P/v2OqUB5Q3LLLaDi9t?=
- =?us-ascii?Q?bJ2x6NEVRPz5kIXRrOxXudyyfsI3nv/hC3k4nJxtLBU1LMFOOzo/InX7FdSE?=
- =?us-ascii?Q?+HcZ9Dwn8zYZrR6TEOdi9l8DPa5JLzpC1KgqUtUZeKbGlPTsLzSajZKmOfP6?=
- =?us-ascii?Q?Mqa77OpBuLMa6xHxSENL9MLC6oFaHa/0qOqOyes5ihBmot6HVDDEKQ+gcORl?=
- =?us-ascii?Q?26fCKwuS2HJ0qPXpPO7PgC7/9QFbtqKkMYSxY1drVRvLM0QnSbPhkz05R+hk?=
- =?us-ascii?Q?dLSFlZY0tSav4aNPhVfYhbZgLjAjQFO/Lbr17kvBXDu5P1+IWo1hJlP+xf5G?=
- =?us-ascii?Q?+63qDdpOBcTETZIUh7gwDs5kq1y5yQxsTLgl+aGeXYYWyjvjcZ/h3YPUmQjS?=
- =?us-ascii?Q?mRJTDlI6+CKn8rbqTI/sTk8djUKpNXujDjqDC0gknAYFbbMO+Sh+zk5wvqZ0?=
- =?us-ascii?Q?s0tXk73E6ompsQYFMd+e/zr2Kzb4DiJAeqdZUVDpLXRJaH3au5G+WZ6t5bXC?=
- =?us-ascii?Q?rITz8cXvhFPPRPeEHux6aOVFJCVvfelN1vOq7eHkRLMXe6oSFoipEisIs3le?=
- =?us-ascii?Q?jE1XUker14IygqF5gDdMasQAAYxnhL9ihBWXzRH9nkXADNCWpSpO6smZ8ZP4?=
- =?us-ascii?Q?JdsIqYRsEcjfNIFqf2xCAjFdJgj70BxfZQFzUVOGM/z3bzz2uJjYKpjt4obC?=
- =?us-ascii?Q?WFPkG1ZTC1CtJo7LwGX8LIyMZGjVOKseaD+rueclEMazNVto6HVQ1zee/14v?=
- =?us-ascii?Q?ilu0+7vVeQsGbdS+yz4Nh2l7LFiDYt60lCAa72lC3xy2l6M3cnjJ1B3uiwBZ?=
- =?us-ascii?Q?11LxoQxKtiX247fOEZd7OpHMWqAgysWSLkkXFDYkTdnsFogs6nhD0NCLLwTg?=
- =?us-ascii?Q?0LJSjj9GgMDGDl+cb5bsBIZXDk66bpS+WbF3dBcTjX25zHtPwJgYkZ1dH8zN?=
- =?us-ascii?Q?SCr9jh50Di3BtTLJA3vy9elGDq/q9ZyETud+8qPoa9ryZdc2zFPVMncR0Rv3?=
- =?us-ascii?Q?xEoMCd7PEZbQ8epo8zcNJOeDXfimPdWiLWtm5GqeKpPna4wVYtpsWbpqNXeT?=
- =?us-ascii?Q?7UySdXNo8kjmUVRCOkniatWewDXWibnpIObkzSNSxerz+Eq3wRMjVeHTORjH?=
- =?us-ascii?Q?QmxUfyNdyePpgM2KtvE+igKxJcb1NOi7JcCw/SgMoBh+HWYcTo688Z0NnIyi?=
- =?us-ascii?Q?yw4xPMBdieRM9KQIVz+46fj2oJkaDHT3dkDRlpzfOTh1I0zENQA9aRQEMYHV?=
- =?us-ascii?Q?P7xHRDtkMoEhHa2b0v2HxGNTWfi15K1JYdSX3/4K1mp8RP9mt+BYfgFJR6ae?=
- =?us-ascii?Q?KPsIyEqOjjbOBeJiMS0InFFnjOubNrPeMjAptzAjnUGvMJGDu45rKeirliHw?=
- =?us-ascii?Q?iwj50y4gGPOO7WGR+dEbgMoUW6aKNuP76bCJNJQyVGOH3tEpn/o1F61s7eN2?=
- =?us-ascii?Q?byZ7JmEooUF6znvssMHpJj+biZHrdpCq8A7q6djRJ9ZVGGhCcT2cU/Ojjisd?=
- =?us-ascii?Q?Iw+LlU/HFQ2ft4iIWhyxqm7kut1TcQroq0MOapKAsFxqcZ8p+ib7pj8hQh7N?=
- =?us-ascii?Q?JxI675dCPUAjfQoNQ42EokMr7x4S0QM/rNzv4W7Hd3IJySxa?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69e80da7-28cd-4f62-b2b5-08df2eb49f8b
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 14:15:41.6548
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Bs8WEqf6cya3k34FoXK1TQLK0hDME/Bt3xtKwYK243gytr3DtdlbB1yjiBEPEPlF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9583
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <atd2_9Q2wTv_3MXz@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_071552_895647_082BFED5 
-X-CRM114-Status: GOOD (  31.76  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261020_073624_304994_C8161DC8 
+X-CRM114-Status: GOOD (  16.11  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,58 +124,29 @@ X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 11:41:57AM +0100, Ryan Roberts wrote:
-> On 16/10/2026 15:42, Jason Gunthorpe wrote:
-> > On Fri, Oct 16, 2026 at 03:22:00PM +0100, Jean-Philippe Brucker wrote:
-> >> On Thu, 15 Oct 2026 at 17:41, Jason Gunthorpe <jgg@nvidia.com> wrote:
-> >>> I think I said this last time, please don't use vfio mdev for
-> >>> anything. There is nothing mediated about this.
-> >>
-> >> We don't multiplex a device between guests, but the host driver must
-> >> control part of the device registers while the remainder is assigned to
-> >> a guest. The host configures accelerator access, stage-2 translation,
-> >> handles CPUHP and context save/restore. So we can't bind the device to
-> >> vfio-platform.
-> > 
-> > That's fine, you can make a proper vfio-cla driver.
+On Tue, Oct 20, 2026 at 03:13:19PM +0100, Yeoreum Yun wrote:
+> > I wouldn't over complicated it. We already have smccc bus to do this,
+> > we don't need layered stacks of busses here. Just change smccc bus to
+> > be able to break up the multi-function SMC into several devices.
 > 
-> Hi Jason,
->
-> Thanks for taking a look at this! I've been chewing on this comment and trying
-> to educate myself deeper on the subject. I have a proposal...
-> 
-> Currently we create a struct device per CLA device instance. But multiple CLA
-> device instances cooperate within a domain and the domain is the "unit of
-> isolation"; 
+> I think my explaination was poor. Apologise...
+> I'm not saying another bus making but just wrapper of smccc-bus APIs
+> for firme specific and definietly, this would separate the
+> multi-function SMC to defien each firme device (attestation and IDE).
 
-Well that's weird and a bit confusing.
+I don't see that kind of complexity is necessary.. I think it is
+better to just have the root smcc bus spawn them 
 
-> we can't have some CLAs from a domain assigned to a VM, while others
-> from the same domain are used by the host. Therefore it didn't feel like the
-> correct model to unbind one of these devices from the native driver and rebind
-> it to a cla-vfio driver. mdev seemed to solve this problem nicely for us.
-> 
-> But looking into it in more detail, I guess something like this might be a bit
-> more standard:
-> 
->  - Split the existing CLA driver into three components:
->     - cla-core: Hardware discovery, domain configuration, struct device
->       registration and CPU hotplug
->     - cla-native driver: Provides the user space accelerator interfaces
->     - cla-vfio driver: Enables domains to be assigned to virtual machines
->  - Each domain has a struct device (created by the core)
->     - An individual CLA is not represented by a struct device
->  - Either cla-native or cla-vfio can then bind to a domain device
->     - cla-native exposes a char device per domain, per accelerator class
->     - cla-vfio
-> 
-> For VFIO, I guess we could use one VFIO region per CLA, which would allow the
-> VMM to construct a device tree. But it would need to additionally determine
-> which CPU each CLA is bound to; perhaps that's a sysfs interface that cla-core
-> could expose?
+> But, the *base* is common. and I couldn't find any proper location to
+> deploy *common* code unless making arm_firme.
 
-I don't know alot about your CLA, but this sounds reasonable. There
-may be uses with containers to have the split exposed like this too.
+What common code excatly?
+
+There shouldn't be? Getting an attestation is entirely orthogonal to
+set link ide, for example?
+
+If you can identify what you think would ever be common that might
+help clarifgy what to do..
 
 Jason
 
