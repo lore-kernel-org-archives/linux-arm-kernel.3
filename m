@@ -2,89 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEA7606A335
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:46:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 286E8606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:46:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cuJ/oj+r;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=T5v6jubQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DYVazAiC;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=A4dqaE0B
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NP2Sc9QfAH27QKUaoXkjp0qHnyNnKKBhYsb0OsmWbM=; b=cuJ/oj+rBZqhFlpsQSmcGK5iPz
-	C+SiFJvyT7bIDpZuSDHnQrgaShnADSh5fFCDd3Iy5qvCW/wZmwot68wlpCPtp3Vq4wFis5B6Yh6m9
-	MCaOjETDqTFPYfb3D+kdu6k1+mOo63LzxJEK5aC3brRkk/My+LSW0htVIYxotZYfvT7mJ2GHjvbQG
-	pD0j9ykXSKcL0Ch3lHFOMHt/eVITbHAPClYJUb2RxfpKKo4a0F2/2YyUNsriLVa8FqaAcVZg2e9HW
-	NyCCbDb7dQjNvHVjibH/RKQeSJjOb49DFAFMM7Y2UIq7bpyPLbgaWC54NLj5KtYx0tycprKAPGqgU
-	AS6gmWbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DjJ6aF4EEfNV1D/BCrVjMeW97sw80s+KxqGk+wmMMMQ=; b=DYVazAiCnZNiFLXbzGsTLaveIk
+	JF8Cu3KYA/K2icY1EreYpdWiHZ0xAjjICUcxfWh/5kQ7ovgegZgPaZxGD4kYwrdmKNp8lqCaEDpaa
+	wx3m+IcVC8uHRwfOCq37Qtoj1CKAOQm4Q3lxMSs9lcILcX2pBQvOnE9F7YyR+SdcYnRrM4YlRw5fp
+	8OoOxcysuVBJgZ0e0PFmP39WBuGIs3lCrlRhAC+j5H+tZsGLKUDjSVJWxC9KPutqhhba1QSx4GN9k
+	TH2kTPaLRGODpMsMQkELcvX4OZ79I3kbw6Qj8MGaV5vGTPW8DWAbYACc5poyXWgZDV79v+c7DiBdb
+	3+bxjDGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3c0-00000008x5t-11IB;
-	Tue, 20 Oct 2026 06:46:16 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1xJ3bv-00000008x44-0d7N;
+	Tue, 20 Oct 2026 06:46:11 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ3bv-00000008x3j-3lYV
+	id 1xJ3br-00000008x2R-2Kso
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 06:46:14 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261020064605epoutp03ddee72d112aef9ebadfbbf394803f0cf~gKfC3eQHR3249432494epoutp03X
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 06:46:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261020064605epoutp03ddee72d112aef9ebadfbbf394803f0cf~gKfC3eQHR3249432494epoutp03X
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792478765;
-	bh=+NP2Sc9QfAH27QKUaoXkjp0qHnyNnKKBhYsb0OsmWbM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=T5v6jubQGzQRG7yKQZxGlVS2Jt2bKRFkKRmj/cuR0fiW206MlZ0+lU8xkFOAdMvt9
-	 v1gOp2rxL2H72YKeO5BMXh0SEPUgUkfBP5MIumi30rKWb9mMDvat8juCY7GARlt9Wk
-	 gWpuMya/UdySkVdNF1RR6CuZd5qzDq1sod+4DPzA=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20261020064605epcas5p19592347b004bc7738bdaaefeb2acc084~gKfCdk5_b3226632266epcas5p1C;
-	Tue, 20 Oct 2026 06:46:05 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4j82xS36vyz2SSKq; Tue, 20 Oct
-	2026 06:46:04 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882~gKYOCYwVC0054500545epcas5p4G;
-	Tue, 20 Oct 2026 06:38:16 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261020063813epsmtip10952631de719c793aedee8998c965985~gKYLNry0-0259902599epsmtip1W;
-	Tue, 20 Oct 2026 06:38:13 +0000 (GMT)
-From: Raghav Sharma <raghav.s@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, sboyd@kernel.org,
-	bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, robh@kernel.org,
-	conor+dt@kernel.org, raghav.s@samsung.com
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, is.gandhi@samsung.com, ts.amit@samsung.com,
-	pokala.reddy@samsung.com
-Subject: [PATCH v3 06/14] clk: samsung: clk-pll: Add support for pll_4313
-Date: Tue, 20 Oct 2026 12:25:50 +0530
-Message-Id: <20261020065558.1829402-7-raghav.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261020065558.1829402-1-raghav.s@samsung.com>
+	Tue, 20 Oct 2026 06:46:09 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 807A62017C1;
+	Tue, 20 Oct 2026 08:46:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792478763;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DjJ6aF4EEfNV1D/BCrVjMeW97sw80s+KxqGk+wmMMMQ=;
+	b=A4dqaE0BC406CMyqi1KhvCehlKud1+GI/NyJ4gSCPHaEMReYeqh/9h7GbancwxlmWIECcq
+	8PHT5RtYEcpjavaNK9DDNpRQ4fWno2To0kXbAVvPzDYT+0W6poXflHoLlDvUyUC6xMDERq
+	UiLfaCc6In6Lqnms6sOfvVrlSl0SAmEjtp+mAk8D7CMfblc5MjGU8fHG9nebqDsAnQ6mA7
+	MS0u2rM+DMczgvm8bUUwy1Dn1XJsYGieqT1Q7Kai4f3OWusWXjnGVkIoGW7zwzfi8Gw/MT
+	Vwh2EW9tsVl5pfPFA30QmYa2QCke6lh1SXqHJfE61KHAW2TUDfRkyW6x+77AbA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1792478763; a=rsa-sha256;
+	cv=none;
+	b=PFNwBlpd7AofRpN/rO4FPQhyJfd3X4ew5j6h63qfWYJWXylD2TV8zgLH9vgW+5Pf7Y4D5h
+	fmNZshb3XO+BySsnnzbbL7rXxBTnJ9sm6KJRySQkpHJPVt0LcPp1bWCAAcYBmYYGGNRU6t
+	36F9V5kz7JGw2ItS6yhfGUgUFr/Sn2AaTWZLoBLXONlpikzPOttfBjtDIcXLTqljkpT5Ve
+	FYXBZbfgwHQnOY82b9nhAObD4wut40m/p+c9AfIKFmdMVVedWWPIT7gegU/YQh0Rv03622
+	LpBMwYZikROg6EMWpE0oeq0ILeP7Z2WJ2z/DMgLoyW318+PZ3/KC+8yYxJCx8w==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1792478763;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DjJ6aF4EEfNV1D/BCrVjMeW97sw80s+KxqGk+wmMMMQ=;
+	b=QXin73Z1/KIUpy0eqj0IXU6PiO0NoTvNldx+fnhl93+gW6Jz0yThXy/6OD5HGZMPhG7PDP
+	5lXwMonYyK5xdDzuKoZJBsbjq5uUZmXH9zo6vE/OHikUEmoKCZrv5LGI/gi5IaHVnU7dla
+	CdRR2O2fyEId3ivxS8WDE47GQbwvt/bbA2tDdelnrHR00yvFxFZLO2NNNHOwhHlSRIc/4+
+	cwgbFl6QZ44uwk1SSYiuHdSyJrqlknkgKHUEltC4MZFfmLgmPk254yuoIjvHwOQYlBpFBw
+	bS2cpQPAmocby3PLh6QNKitTZcw7/OnkE5tr7rv7dW0IPvLwg6/wQJrynEi5eg==
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xJ3bn-000KgQ-1G;
+	Tue, 20 Oct 2026 08:46:03 +0200
+Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id E894A5C9BBF;
+	Tue, 20 Oct 2026 06:44:18 +0000 (UTC)
+Date: Tue, 20 Oct 2026 08:44:18 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ian Rogers <irogers@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Andy Lutomirski <luto@kernel.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Stefan Kerkmann <s.kerkmann@pengutronix.de>, Christophe Leroy <chleroy@kernel.org>, 
+	David Laight <david.laight.linux@gmail.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Eric Biggers <ebiggers@google.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for
+ ARMv5
+Message-ID: <20261020-succinct-zebu-of-vigor-6cb2cd-mkl@pengutronix.de>
+References: <20261019201257.3805356-1-irogers@google.com>
+ <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882
-References: <20261020065558.1829402-1-raghav.s@samsung.com>
-	<CGME20261020063816epcas5p4e531ac51a34ccd0cc9a5e919fc830882@epcas5p4.samsung.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6qea3f7c45xlx244"
+Content-Disposition: inline
+In-Reply-To: <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_234612_260524_60DD815D 
-X-CRM114-Status: GOOD (  18.21  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261019_234608_059612_8D951D76 
+X-CRM114-Status: GOOD (  19.02  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +112,63 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Alim Akhtar <alim.akhtar@samsung.com>
 
-PLLs 4313 are found in the Exynos8855 SoC and it is similar
-to pll_531x except for CON8 offset, so re-using code for
-pll_4313
+--6qea3f7c45xlx244
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for
+ ARMv5
+MIME-Version: 1.0
 
-Signed-off-by: Alim Akhtar <alim.akhtar@samsung.com>
-Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
----
- drivers/clk/samsung/clk-pll.c | 11 ++++++++++-
- drivers/clk/samsung/clk-pll.h |  1 +
- 2 files changed, 11 insertions(+), 1 deletion(-)
+On 20.10.2026 00:12:57, Arnd Bergmann wrote:
+> On Mon, Oct 19, 2026, at 22:12, Ian Rogers wrote:
+> > +
+> > +config VDSO_UNALIGNED_PACKED
+> > +	bool
+> > +	default CPU_32v5
+> > +	help
+> > +	  Use packed structs rather than memcpy() in include/vdso/unaligned.h
+> > +	  for unaligned memory accesses. Enabled on ARMv5 where GCC may emit
+> > +	  out-of-line memcpy() calls instead of inlining byte accesses.
+>
+> As explained, I think this misrepresents the problem as Arm specific and
+> isn't the correct method for -munaligned-access targets on Arm, which
+> include CPU_32v3, CPU_32v4 and CPU_32v4T along with CPU_32v5.
+>
+> I still hope we can use a version that just produces the intended code
+> on both -munaligned-access and -mno-unaligned-access targets like the
+> old version did.
 
-diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
-index 3d837bd74355..7b0756127306 100644
---- a/drivers/clk/samsung/clk-pll.c
-+++ b/drivers/clk/samsung/clk-pll.c
-@@ -1306,7 +1306,15 @@ static unsigned long samsung_pll531x_recalc_rate(struct clk_hw *hw,
- 	u64 mdiv, fout = parent_rate;
- 
- 	pll_con0 = readl_relaxed(pll->con_reg);
--	pll_con8 = readl_relaxed(pll->con_reg + 20);
-+	if (pll->type == pll_4313) {
-+		/* Offset for PLL_CON8 which hold FDIV different for PLL_4313
-+		 * which is PLL_LOCKTIME_OFFSET - 0x4
-+		 */
-+		pll_con8 = readl_relaxed(pll->lock_reg - 4);
-+	} else {
-+		pll_con8 = readl_relaxed(pll->con_reg + 20);
-+	}
-+
- 	mdiv = (pll_con0 >> PLL531X_MDIV_SHIFT) & PLL531X_MDIV_MASK;
- 	pdiv = (pll_con0 >> PLL531X_PDIV_SHIFT) & PLL531X_PDIV_MASK;
- 	sdiv = (pll_con0 >> PLL531X_SDIV_SHIFT) & PLL531X_SDIV_MASK;
-@@ -1729,6 +1737,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 	case pll_309:
- 	case pll_531x:
- 	case pll_4311:
-+	case pll_4313:
- 		init.ops = &samsung_pll531x_clk_ops;
- 		break;
- 	case pll_1031x:
-diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
-index 2457cf47c109..4825e1f5b9db 100644
---- a/drivers/clk/samsung/clk-pll.h
-+++ b/drivers/clk/samsung/clk-pll.h
-@@ -49,6 +49,7 @@ enum samsung_pll_type {
- 	pll_0718x,
- 	pll_0732x,
- 	pll_4311,
-+	pll_4313,
- 	pll_1017x,
- 	pll_1031x,
- 	pll_a9fracm,
--- 
-2.34.1
+FYI: there is the kconfig Symbol HAVE_EFFICIENT_UNALIGNED_ACCESS. Can we
+make use of it?
 
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--6qea3f7c45xlx244
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCatcNvwAKCRDMOmT6rpmt
+0jcxAP4+OJR4f1ri/sD2ri5ZdsCmwGcY28sq9qfO2yECm9kV/AD+LrphmAxqvEbJ
+Ma0FGykZK475iITqX2YOZ1BLSUr4dAM=
+=v2z9
+-----END PGP SIGNATURE-----
+
+--6qea3f7c45xlx244--
 
