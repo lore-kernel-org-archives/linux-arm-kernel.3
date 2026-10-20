@@ -2,102 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 199C8606A31F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:31:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 414EA606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:34:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bL2Cf5P1;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=KUVgrnZc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zmj82V02;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F0uSOzXq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aXThUahDPZjGbRfHjcT4v6EeFVqqPmsU8xiktNdbhT4=; b=bL2Cf5P14CnhFZj8+T1NqP5D4k
-	/cGJ596wfNeg/CxKV0ci4lp11aOZjwbpC0SXDwf4jDfTd4DhtmDCiicmyckFd7JGRjXamgZh/6Izi
-	a6QW9gUVkUWhXWzPMzy4wznlAKAGEM0REfsDV45qwa4PdwS3SG8squg5jS2DdHCo1Ak34JoiXrevu
-	g8qzZ0Yesxl9ypTSj9pplPxFCGBqDdQRvn8/tU1q7weePf9je9mDVtrqIzCud/TKkR41vOj/MHcZC
-	gISjlyTd8oOUDixJyU1KaK26osU5VrNAa9R9/PB561baB3j3SEQw82Xb/GvBCDxmxJbRn5lCPiLdp
-	jdnxVfWA==;
+	bh=VMFqxM453yLwBXSbcRLMTntPAgtjcAyPnxyGhanIJOQ=; b=zmj82V02GlS2vVROgHRXifqM4M
+	9p3I8C8HKUK25aNLW8c/3i0aWid5/m/ZvPmqcPwsLwGWOKOjn/eqGiXRVqJEU4r/bHg6/8wXOrguj
+	BjmgMB/h2qcLzaAyDM9bmtbb2cSXXQkX+dkeP8fTSumkR9/cCPPR4oPrJnJKVEmdwWNuUtaZOIhgF
+	ygR3FtjBKby7InyOiFlJYPj7T3A8O9wBaCd2/5UkeOFk9CI08Q3lhXYU3HFRs00bT638C5mDgxjf9
+	rKuJMy89VidM6/OG1vff3m3my7hRMy1WgzWBDcr3dy0g44vJtUXg76/ONxXzX3vedeNrS3LaxQQx0
+	SO1vY2vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5Fw-00000009BeM-1lBj;
-	Tue, 20 Oct 2026 08:31:36 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xJ5Ii-00000009CB8-1Vkh;
+	Tue, 20 Oct 2026 08:34:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5Fl-00000009BYp-0j22
+	id 1xJ5Ig-00000009CAb-33Vx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 08:31:26 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a018792ab3so22515095e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 01:31:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792485083; x=1793089883; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aXThUahDPZjGbRfHjcT4v6EeFVqqPmsU8xiktNdbhT4=;
-        b=KUVgrnZcyETlTohOhSVW39cGKGha49Ecn0P4jtBwvBaF1FBnfB+xyWuAE9gDXHoQHC
-         bU3O4aNXpZIVqKP8uO7Tp3ZBlam2Sj/OySIukMTDESMeJ2SBtVWe2dndQbZ/egoSumPu
-         mCeXY7IyoN9d2yn04RkyD4ERDkRtVHWxJ4oc0T2LRr4B+BwRp9TpmlZCv4577WCCOOe8
-         rVpBeknGt1quFgPUBbCETFfk6O/6/v5qgZgEWC99MyhsjmWZim7Z78qhHYXTqF8kSXW+
-         KseLvx3utH5AGZq3dKsXfN3D/s5V0FSW/RrHzmoKtqYUUQkvaTpMFmP98KDgcvlufq4b
-         /oAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792485083; x=1793089883;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aXThUahDPZjGbRfHjcT4v6EeFVqqPmsU8xiktNdbhT4=;
-        b=PrUA3Y2mBYOiup0x0f8DgLL3ZX+JanyB91uhqp+hcMCoV2tzbSIdWtXPltwsrSeEql
-         uyWuZBLjjqk+G+oOiPGmI9oviEjorFlOY/fGE7AmqxAWxR8Cf0qto3oRR1QwlHUb7kj3
-         aex5ny/kJ3/IYikZUSQdmdu0Ovmk4/iI9LP0O+/cNTVgTnh1mnMZv3gNx6h7uHYRxXtT
-         /tsg7ShcZjoOp2G1ub91V7SYygTmdhlgTWNOx7U5T1544pMHN2qEWVS9Go+7PtWZLqGW
-         i73jr43qUcYb3k8fuCxFqMA1TAiAQdNIsMJhryFLF5nP/mv6eJas6hIA29Yy98UkUA4u
-         eu1w==
-X-Forwarded-Encrypted: i=1; AKwUvByXOLs3v9067I1PxwHhH4eYWZEtfBTNmiRisWU3G0Xa6D1aPOQV9GVXMX3/60UiLaPn5cchimlASOP5Rwmkviai@lists.infradead.org
-X-Gm-Message-State: AFq9FYL07D5meAgDA2pDOqo20/Uz3kXwQiHJBs2+gSFipIazTwQS4gOl
-	ED2grDm4QhmDM7aaxIS2ZMzjzfFPSAdylJ59Aqrjg+mSSux/OVoZ7wsgYp8JrrSVQg==
-X-Gm-Gg: AYBFou1Q/xbiurOHX3oTeTqyTA+zum9YErvCGyxOC7qzF1W0o0qrw97kH3tC2NqinXM
-	YyTUsX+4rbFCYNbDf9N/2UKXZpDk1G+d3vNbLQ6fHpeAZhP9g7AC4IanH2u7Z1THKZJvRVeYkcv
-	vcwZhnNvO64au9nZjIhvEAB3ybQDTNHoEBLpsMJQa9QHkuFhQA02mAawNawMgl0VECXeQfJU8yp
-	3Dji+4gJvpXreOQtBqwSUEHzlzEBT64uShBKEvyO4IPtllZfvaQTm6n6ccAhhOWwKcr385I3izf
-	WIViCMQXBLzFnhHS15esIo/0wqRVpYGXFqSvYasMLTpHcjFPXoHvCZy4IhuozldrG0zeWM4qCmT
-	Rh0h/FdwksVVs5Ysd+u1/mFTeZhZ6lSi4A3YiZSVVq2xU7jI7T25jG8cW+0oe38/hwpT4SfMviy
-	yhw7QuMfjQNXolXe/xw5/25VMsGhhmImlPeDsorj/Boid+IaqB6oYMCDqRqFoXnJ+//2JLKtnME
-	6RoMM9nNYoKwi5Wq40GoeiMmj/nP0f1T0oVAwIBAik=
-X-Received: by 2002:a05:600c:8709:b0:49f:ff73:9971 with SMTP id 5b1f17b1804b1-4a1d75f8f28mr203436305e9.18.1792485082200;
-        Tue, 20 Oct 2026 01:31:22 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1f2d324f8sm48973225e9.6.2026.10.20.01.31.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 01:31:20 -0700 (PDT)
-Date: Tue, 20 Oct 2026 09:31:15 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Ensure TLBs and I-cache are private to
- each vCPU in pKVM
-Message-ID: <atcmp8kdDdoM4RnR@google.com>
-References: <20261020074311.1873316-1-fuad.tabba@linux.dev>
+	Tue, 20 Oct 2026 08:34:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E3F0360D7E;
+	Tue, 20 Oct 2026 08:34:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC79B1F000C4;
+	Tue, 20 Oct 2026 08:34:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792485265;
+	bh=VMFqxM453yLwBXSbcRLMTntPAgtjcAyPnxyGhanIJOQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F0uSOzXqFAoOHDVJSsaHQ5ir1S8o99DRmrazLP6YHC7SDbkmUtJ5y/168C2X06p/i
+	 nzMbd29t2E07Lsyc2maZDbwOG0d+L3tr74ddYjqTV3GeXof9FITQ9ycQBbGoAmtY/Y
+	 A891IhY0p7egb56CJ5SJSHUWJX9RJkwnOPRxsS7XUxaSN4OhQP8AA83kqtzXBApRik
+	 mI+L9CgLCFcD8h31nrF/m1rgO3QCchzQt6c7DO722cTDpQAp99iFgf6k3DmOjx4mPJ
+	 34+oL1kSeaOAFUz/kMCFZExcR8wvgtWMEa6R6NkGKG6L2Y/RDskzOzg6sA3uwfnA2C
+	 48Qdrfs1AlECQ==
+Date: Tue, 20 Oct 2026 10:34:22 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Devarsh Thakkar <devarsht@ti.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, LiangCheng Wang <zaq14760@gmail.com>
+Subject: Re: [PATCH v3 02/14] dt-bindings: display: Add Solomon SSD16xx
+ e-paper controller
+Message-ID: <20261020-futuristic-awesome-dinosaur-b61d9b@quoll>
+References: <20261019213726.4145532-1-devarsht@ti.com>
+ <20261019213726.4145532-3-devarsht@ti.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261020074311.1873316-1-fuad.tabba@linux.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_013125_654170_EA502A25 
-X-CRM114-Status: GOOD (  31.79  )
-X-Spam-Score: -17.6 (-----------------)
+In-Reply-To: <20261019213726.4145532-3-devarsht@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,115 +73,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 08:43:11AM +0100, Fuad Tabba wrote:
-> All vCPUs of a VM share its VMID, so KVM flushes a physical CPU's TLBs
-> and I-cache for the VM whenever a different vCPU of that VM is loaded
-> there. pKVM guests, protected or not, run on the hypervisor's stage-2
-> and VMID, and the host doesn't flush for them. Nothing at EL2 flushes
-> instead, so a vCPU can hit TLB and I-cache entries that another vCPU of
-> the same VM left on that CPU.
+On Tue, Oct 20, 2026 at 03:07:14AM +0530, Devarsh Thakkar wrote:
+> Add device tree binding for the Solomon Systech SSD16xx family of e-Paper
+> display controllers (SSD1683 [1], SSD1673 [3], SSD1680 [4], SSD1681 [5]).
 > 
-> Track at EL2 the last vCPU of each VM loaded on each CPU, and flush
-> when it changes. EL2 can't allocate per-CPU memory for each VM, as the
-> host does, so use one per-CPU array indexed by the VM's table entry.
-> Reset the entry's slot on every CPU when a VM reserves it, so that a new
-> VM starts with no last vCPU, whether the entry is unused or was left by
-> a VM that was torn down.
+> The binding covers the 4-wire SPI interface with required GPIO pins for
+> reset (active-low), busy status (active-high), and data/command selection.
+> The spi-max-frequency is capped at 20 MHz per the SSD1683 datasheet [1]
+> which is also the maximum supported frequency amongst the family.
 > 
-> Fixes: fce886a602073 ("KVM: arm64: Plumb the pKVM MMU in KVM")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> An optional rotation property (as defined by panel-common, in degrees
+> counter clockwise) allows static display orientation to be configured from
+> device tree.
+> 
+> The data/command selection GPIO pin is also kept as optional since various
+> SSD16XX controllers such as SSD1683 [1] support 3-wire mode too with
+> data/command selection bit transmitted as first bit before sending the data
+> sequence.
+> 
+> The first supported compatible is for Gooddisplay GDEY042T81 [2] which is
+> 4.2", 400x300 resolution black/white e-paper display using SSD1683
+> controller.
+> 
+> Links:
+> [1] : https://www.crystalfontz.com/controllers/SolomonSystech/SSD1683
+> [2] : https://files.seeedstudio.com/wiki/Other_Display/42-epaper/GDEY042T81.pdf
+> [3] : https://www.crystalfontz.com/controllers/SolomonSystech/SSD1673
+> [4] : https://www.crystalfontz.com/controllers/SolomonSystech/SSD1680
+> [5] : https://www.crystalfontz.com/controllers/SolomonSystech/SSD1681
+> 
+> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
 > ---
-> Changes since v1 [1]:
->   - Dropped patch 1, which added a CPU number at EL2. The last vCPU is
->     now tracked in a per-CPU array indexed by VM table entry. (Marc)
->   - Moved the check from __pkvm_vcpu_load() to pkvm_load_hyp_vcpu().
->   - The array is unsigned int, initialised to UINT_MAX. (Vincent)
->   - Dropped Joey's Reviewed-by, since the patch changed.
-> 
-> Based on kvmarm/next (dd0bc00e3e920).
-> 
-> [1] https://lore.kernel.org/all/20261014125510.2928306-1-fuad.tabba@linux.dev/
-> 
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 22 ++++++++++++++++++++--
->  1 file changed, 20 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index ac020d0501d2e..1fc59229c8e86 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -38,6 +38,9 @@ unsigned int kvm_host_sve_max_vl;
->   */
->  static DEFINE_PER_CPU(struct pkvm_hyp_vcpu *, loaded_hyp_vcpu);
->  
-> +/* Per VM table entry, the vcpu_idx of the last vCPU of that VM loaded on this CPU. */
-> +static DEFINE_PER_CPU(unsigned int, last_vcpu_ran[KVM_MAX_PVMS]);
-> +
->  static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
->  {
->  	vcpu->arch.hcr_el2 = HCR_GUEST_FLAGS;
-> @@ -261,6 +264,7 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
->  {
->  	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
->  	struct pkvm_hyp_vm *hyp_vm;
-> +	unsigned int *last_ran;
->  
->  	/* Cannot load a new vcpu without putting the old one first. */
->  	if (__this_cpu_read(loaded_hyp_vcpu))
-> @@ -290,8 +294,18 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
->  unlock:
->  	hyp_spin_unlock(&vm_table_lock);
->  
-> -	if (hyp_vcpu)
-> -		__this_cpu_write(loaded_hyp_vcpu, hyp_vcpu);
-> +	if (!hyp_vcpu)
-> +		return NULL;
-> +
-> +	__this_cpu_write(loaded_hyp_vcpu, hyp_vcpu);
-> +
-> +	/* TLBs and I-cache are private to each vCPU, see vcpu_prepare_mmu(). */
-> +	last_ran = this_cpu_ptr(&last_vcpu_ran[vm_handle_to_idx(handle)]);
-> +	if (*last_ran != vcpu_idx) {
-> +		__kvm_flush_cpu_context(hyp_vcpu->vcpu.arch.hw_mmu);
-> +		*last_ran = vcpu_idx;
-> +	}
-> +
->  	return hyp_vcpu;
->  }
->  
-> @@ -652,6 +666,7 @@ static int find_free_vm_table_entry(void)
->   */
->  static int allocate_vm_table_entry(void)
->  {
-> +	unsigned int cpu;
->  	int idx;
->  
->  	hyp_assert_lock_held(&vm_table_lock);
-> @@ -670,6 +685,9 @@ static int allocate_vm_table_entry(void)
->  
->  	vm_table[idx] = RESERVED_ENTRY;
->  
-> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
-> +		per_cpu(last_vcpu_ran[idx], cpu) = UINT_MAX;
-> +
->  	return idx;
->  }
->  
-> 
-> base-commit: dd0bc00e3e9201fd49b62ff9cc07890c89003afe
-> -- 
-> 2.47.3
-> 
+> Changes in v3:
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
--- 
-Vincent
+Best regards,
+Krzysztof
+
 
