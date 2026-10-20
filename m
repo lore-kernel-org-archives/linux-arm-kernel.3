@@ -2,77 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC09606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 01:28:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FAC5606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 01:34:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FsGoMIvf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nr5uW3Qt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HY6mF/jr;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=N2jPUt8U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qUgLs+CjpBbZipOhT6HHA1szcA4CGwnixmqJCQRTuQ=; b=FsGoMIvf464YwOi49pTeV+PLXL
-	uFlFCyeL4g4I2CFQBezNMgOfVPXfHqN9lR7ga6Iypjsy4NyL/hjSPgO4SmSdkCKHqBLmV24/Y6/RH
-	PxaL+0ko27TD7H312+E0NwYJwg9RjaIJY/E+JNLqiVJ5B0E01YT4IH3Y3Tu6uZzgrUkERan/wrvpu
-	9kbm+Q9dO5VaE1A1cbX4iTRKOC2+ZsWYwE4RyUtoygKxrFmW4HNwxonjRL/rq6a2vW04swAoCdORR
-	DHmvuQXa2T5icdevpQ3kac0Oh2LkgbylpD5/xgdjYwS3zZooiZyBK8DNN5ynbrfZFIj1rWcg8olD8
-	xoO4aE/Q==;
+	bh=/qjMCagPo43beTdZpO9fjGOooFBNKI+5JsBjceANaBQ=; b=HY6mF/jrvjRPDZXnBrStJiv780
+	b8C3vpjVW8htASdzlNoYv9F7xcmVH7JYHS0gRjSLeGJOlIbHq7s/L8+Vq+2rT1jUxfAFEXeXoqJSr
+	v5/3g5RC2tQSjM2TKFaD/XDLsIu9TSDR/e0ulW+JroIvBK++coby9zc64lkcFXwKCqiELc+xNUw/8
+	eDvjQIGozt5wHp7PHbfUR6sCZv1d7E2qIyYU6ZTLFSVe5QNQvSwtiGAAN+5ZypJLlwLm9vHShVlgu
+	k2Olkjh6yGTyqERPbbs+2+jUbIL+4VJeqwInwuEGm1Xh0Ng2ZhZ6p9HpHafszGFasm7u2SWD62iT/
+	IHhVvbrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIyeM-00000008cCb-3oYe;
-	Tue, 20 Oct 2026 01:28:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xIyjh-00000008caF-2K2i;
+	Tue, 20 Oct 2026 01:33:53 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIyeL-00000008cCR-0qqz;
-	Tue, 20 Oct 2026 01:28:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1658602A8;
-	Tue, 20 Oct 2026 01:28:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E3A01F000C5;
-	Tue, 20 Oct 2026 01:28:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792459698;
-	bh=5qUgLs+CjpBbZipOhT6HHA1szcA4CGwnixmqJCQRTuQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Nr5uW3QtlmxoP4tox6wXnKraKe2Y/uT2upIvGqeVqRQNQurkI65qu2/74qwIj2tmm
-	 FC6ADKO5hnjDmn9Exb23lD9oAJpVTaq2ahFErEs+UD+/yp7375unDeYqydoPlts/Cx
-	 E+1wIPk/+SBcNYuCycNiLcKxDIMH9o1FjFjvOZ9hXb8APeuLO+JgmUir8FA8UsA7TX
-	 Mhe+E96RWfYOoxFNLiBPHr3S3lcSz4pDRwoptJPdKG6v+oJNurZWikAWd6ju98SX7d
-	 QIddXUrKr85C0TUkEnu/Z73Qbwcd2lRfqI74dpW5PZN6Yfzavn0d/p4y9vPfhZHd+/
-	 yUMRCBoYlhWwg==
-Date: Tue, 20 Oct 2026 09:08:08 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 04/20] dt-bindings: i3c: dw: support up to two reset lines
-Message-ID: <ata--JFFUzSoMock@xhacker>
-References: <20260929061417.20733-1-jszhang@kernel.org>
- <20260929061417.20733-5-jszhang@kernel.org>
- <80b084d130b7dc7406ae23e54a77706a4f42b606.camel@pengutronix.de>
+	id 1xIyje-00000008cZp-1FOL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 01:33:51 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-15dd124bbe7so5061938c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 18:33:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792460029; x=1793064829; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/qjMCagPo43beTdZpO9fjGOooFBNKI+5JsBjceANaBQ=;
+        b=N2jPUt8UBpgXJkdwgRAeuwHHsV29bafSH84qWeiweAlKfJIxEcjn8EGYOSTPQL8zqH
+         pZbytjmTwIJSW0pEzppLrySIJLyNdL0fPE0wBiVLWk7XaQuYOGkx3xb05hh4lvmistOK
+         a/XM4AEEt3RWTZocejO6HLv4YGlwdTKJ8GZaU9TMWC+J971imPqUWOCfjPuZUu4IQF97
+         +QIH4lLxuQnZuSx+Rri896JclBwMUi54uijzmp/F5aHt1NjbKP9JWrO5E7/yBmOfbdQZ
+         +9T9tAD9XHWpyzv62oKqK6xlECllgWQm7JVjBL754MmQyWjX9rrZRsbksy1dRO65DM/Q
+         HPvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792460029; x=1793064829;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/qjMCagPo43beTdZpO9fjGOooFBNKI+5JsBjceANaBQ=;
+        b=iTI4AkkT0h37xKGAIBMchpGiHWZhiVhe07OmncSPXXucRzXtwRlwVXY76hAtq7TMVI
+         VqA2nJeXE8ctwOBY+IW6yLJLrG3dQieXMQ02YqcTTBgdRwCChUz2Nt+ATDhFf2fkKrMG
+         36DYBhtaZQ/Ld5wiPxWWNUNIyqaxbqCp5x8W+6iZUggiYXMnzDWOKUwcXCiyK7HsVhGA
+         l5/fhgp2w4KMq3/w/+aPbhtkA0GNOYtDMcnjNLfGnkea87jWYxPw0pZ2cWinh54my+8n
+         gsIYRbBe4XyE3/Lhyig7q3hcMmF/YZv0/cAFKfqXtsJVmyPJsZ7yDnUyY48vTcl91fFz
+         8XMw==
+X-Forwarded-Encrypted: i=1; AKwUvBwBTR3nLdyzJr4Nv9ln0m/kbo0oighSc27Ke8bxqOSSsNFwbEJgRdUpYfwG1L3rKD7bRoIsDcO7bqkY+ARz7eH0@lists.infradead.org
+X-Gm-Message-State: AFq9FYIoDVNlHWihhT7LuiSwNyETx4/QkHAKv+uDBGXQA4IQnKgeyp3Z
+	its9ZNSLPLDQh8asKGWE+5ITe2qrWlh+Ai05q2Ih60ToHjwkEcZg5tzG
+X-Gm-Gg: AYBFou3vt0AfSiSbyjdvedBUA+ng5c+DdZgNWxPqbFPXx5H4RAV6LrwJ3T2lwxCF/0i
+	XCpnGbDzAgqehPj6s/OCMFa3uZdewN3IOoZEttEgGrmL05fK51FXxf5zlWyXuDGlaQRFxaCkkTI
+	6TbROhUnCnJCFxHF38bOtz0IkB12EzJiyJvL4TbgJpOPKRopOg7M8zBZaBbP/kd18cm6Ikn066e
+	xJC429EsJcJjV/cMWXKpZzYJZdCiYn1SOUNbxu0WGgqrwsJfNJBm4i+aexFuLiAZupmJXOwxlcV
+	1j+ytJFSz+5BmznzKoUn3vMcArV+Y9zDI55gUm0ZzGX4YFdy0/S24T0CKd3YTZLiHMgP52Azr9/
+	ddidPNsJpZGdlnJADT08HhLYkLg7U/Ag16SREWWTF8HGiXTci1XaarX8Q8LzSXEyIGi7NLR8Iev
+	vPdmsf5v67Z7IS7wPmpIXvNeCQIVETEGcDACaFV9Lga3ajQYN3QY3CmqmxMN0OmGY3VWWMW+6l7
+	1sukoE61jEM
+X-Received: by 2002:a05:7023:d0b:b0:186:4a57:94e5 with SMTP id a92af1059eb24-1864a5796e5mr13543435c88.34.1792460028740;
+        Mon, 19 Oct 2026 18:33:48 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831c5cb39esm33881194c88.22.2026.10.19.18.33.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 18:33:48 -0700 (PDT)
+Date: Mon, 19 Oct 2026 18:33:47 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Igor Velkov <iav@iav.lv>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] watchdog: orion_wdt: load the pretimeout counter
+ on Armada 370/XP start
+Message-ID: <8f2bfa5c-0e53-4a84-b6bb-795c2c4e1475@roeck-us.net>
+References: <20261012-orion-wdt-suspend-v2-0-f13cf71443ba@iav.lv>
+ <20261012-orion-wdt-suspend-v2-1-f13cf71443ba@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <80b084d130b7dc7406ae23e54a77706a4f42b606.camel@pengutronix.de>
+In-Reply-To: <20261012-orion-wdt-suspend-v2-1-f13cf71443ba@iav.lv>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_183350_341285_7D004863 
+X-CRM114-Status: GOOD (  11.81  )
+X-Spam-Score: -1.5 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +104,31 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 02:55:14PM +0200, Philipp Zabel wrote:
-> On Di, 2026-09-29 at 14:14 +0800, Jisheng Zhang wrote:
-> > The Synopsys DesignWare I3C master controller can have multiple reset
-> > lines, such as core reset, apb reset, and dma reset.
-> > 
-> > Update the DT binding documentation to increase maxItems for the resets
-> > property to 2.
+On Mon, Oct 12, 2026 at 03:46:56AM +0300, Igor Velkov wrote:
+> From: Igor Velkov <iav@iav.lv>
 > 
-> The last sentence just listed three reset lines. Why increase to 2?
+> armada370_start() enables TIMER1 for the pretimeout but, unlike
+> armada375_start(), does not load its counter, so TIMER1 runs down from
+> whatever value it holds and the pretimeout can fire early. Of the boards
+> that use armada370_start(), only Armada XP and 98DX3236 describe the
+> pretimeout interrupt in their device tree.
+> 
+> Load TIMER1 on start the same way armada375_start() does.
+> 
+> Fixes: 7a6b3d8a432d ("watchdog: orion_wdt: support pretimeout on Armada-XP")
+> Link: https://sashiko.dev/#/patchset/20261012-orion-wdt-suspend-v1-1-1676cb79e29e@iav.lv?part=1
+> Assisted-by: LLM
+> Signed-off-by: Igor Velkov <iav@iav.lv>
 
-Per the doc, the last one is dma reset, currently dw I3C driver doesn't support dma.
-And increasing it to 3 is still dt compatible. Maybe I misunderstood
-something. what's more, I don't have platforms with all 3 resets to test and verify.
+Applied.
 
-If dt maintainers prefer 3 in one step, I will sent out a follow-up patch.
+Thanks,
+Guenter
 
