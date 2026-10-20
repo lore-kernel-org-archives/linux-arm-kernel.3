@@ -2,134 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8479606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:07:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6CD6606A321
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:24:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ql36q/lE;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Jfl6uNgO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=49iGwJwa;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=ANalTGz+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5BCnk88S0aGlsS8RoQkcoP/wYU7AczF+WG5JZl73g0w=; b=Ql36q/lESzCFTAX2xDcFTg8NhQ
-	v/+QFDkQq1RpNkMh9JwVanupkUtpOHatFy6/jPFc4PvFJkGHuU1VbQr1NgAJw/B/AWlBOx9oHuEuB
-	ZGKGnq3KJef5AEoz+MLMVyEMpOcKirHJR3NnZxwvyECUvCdDdMzB3Kj55LDyDZPN+rvbT/ESbQfED
-	SXH+peO4dF57pItzWEBZ58nH0QJFzJX0T3PH+UM/csidzNqKVdeVajnPX/SrK5jWEU5Sj8l3diSy2
-	nOcJRC0+R8dMgpf/F7U1p3gQPZP6iQ2zK5v/tZGf39w6fMm/rvts5+JRGUI3UAMxeahpWCsmZjnW2
-	85Ell/WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WwZtUrdYtW8MtDYG2yC3ydbDQlF/r6XHSO1vV5BkgeA=; b=49iGwJwaiYH5vU7jQMfk83DNj4
+	B4Z5c8yXYasSTwG4lS+MWlh3oAW5ein51b+kWdI93nGdpoi2qTb/1RqSD3n7xT6K60qHEt/UDAgRG
+	UiUoZopKgeNmGe9R4dtICqyVrxGg1OwxgXLHrkTQp7hcKJtui11Oxr2oyuMy92tKTEvH3KUA7Tk9y
+	trYuFAEJNFUV0lzqLGLIaaYqjDJ5/4tQJyzTnEDA+obTmj1+AquAXZj5L9hQr/Nn8OY3MdAcAIvtq
+	uQdHBSOEjeR1tBhgHnVJhFwgepjSHaBLu4j2VrMs3Wdbic9Hwqr/urJg1pB+iaIRfVO1zz+DEwoUp
+	f5gLQ9hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCMl-0000000A7lh-0LUF;
-	Tue, 20 Oct 2026 16:07:07 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xJAsa-00000009x53-21ij;
+	Tue, 20 Oct 2026 14:31:52 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCMd-0000000A7ki-1c5B
+	id 1xJAsY-00000009x3n-0CqY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 16:07:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tx2G4LO25ITP49Takbz28jJ6op+kKY6vlH8cJGiJ3OD9WTcg38Ng4QhsdzTZmg8pwnvXf24pX4wZ+IBwi7g+Wli6MBu1XdU9mgkk7TWI33SemYX9C819Szd6Y+Jiv5WVCJ4EEpUgvblNv3syo5IZbrYjZ0ohyt13Bx5APozpaw3KiXejHtq2EoRvQdeLpX/n3936/NtI2H5sObFpe0YbjC8MUlcnDaFB2ShL1a5a4e9lfVfSXZfMteQDJG+5t8DkVN91Ga4osH4x1MXaarL58qAhw+NAvPbd8BqfIBtpSTLLhc4BJHc+QrPG4pcmEhZM4+5rKzvqWdmGXOhU2uaxIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5BCnk88S0aGlsS8RoQkcoP/wYU7AczF+WG5JZl73g0w=;
- b=ONYONIxGc9azqkxC4Fp2KbJHeXxwy/P5A9sHcyKwjirlungzzZLxiPi+zKe0PKOk7SiRMVpvMqQo49+bSL0v8KrYhXa1dPheb98xN/8VKIkJyZcp0vHpbgZo+9Dif0tiFF7adfoHj/xu8eGsuShwcEh/WF8Vj0sYGfkMjja5fTRHVew+jRZ94rLpQ8/AN5emsShDUIR3r2as4Kp6+JNc3GamtG6rrbTIT0XF3ylCjOH7slk0ppKPhHHsYrDfQSLrbqiu7QXARxjG0YZpnNi7Xrc30E5xlty0ysRoXhmLZrKvqhewsXZB0p5X8CpswWK+IWoFITN4QugR5rZMDIYCdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5BCnk88S0aGlsS8RoQkcoP/wYU7AczF+WG5JZl73g0w=;
- b=Jfl6uNgOpbxkXg+lXhfMdaa4zWIyf7+VxiBo8RZTMg/U6D+nGFgc46XQJyTgtQq18cLhOeOeYLBkY1bqOqeIqx2snM2ULb/HgUSDuchAPy2dxsNwmiphT8M6e5lutTwTaIzUMWXW8Fc/VZqltezay++AUe2zznt03PMkgFjmaK6gOkq5A5P5qZLixjfMtelekkDUBppAJgqIpO5HBIZGoNNUT1g4n2xgDcOuECLUT1Skbi326Vlqjl2/QmIoxUdtvbYeBL+DOVEzDYGkkPQi4aWCMNUsu+SlYfFjgbVTkCnWbjQjResFK9GhyyDc6ab4Vwd5Qcqm7eSHfIlRRM3kPg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by MI9PR04MB342248.eurprd04.prod.outlook.com (2603:10a6:290:d3::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Tue, 20 Oct
- 2026 16:06:54 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
- 16:06:54 +0000
-Date: Tue, 20 Oct 2026 11:06:46 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Jiale Yao <yaojiale02@163.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawn.guo@linaro.org>,
-	Huang Shijie <b32955@freescale.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 2/3] bus: imx-weim: reject devices without match data
-Message-ID: <ateRlt9Na6qDfjmT@SMW015318>
-References: <20261020093637.1654161-1-yaojiale02@163.com>
- <20261020093637.1654161-3-yaojiale02@163.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261020093637.1654161-3-yaojiale02@163.com>
-X-ClientProxiedBy: DS1PR03CA0003.namprd03.prod.outlook.com
- (2603:10b6:8:450::16) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Tue, 20 Oct 2026 14:31:51 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8a06e79e152so908368b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:31:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792506709; x=1793111509; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WwZtUrdYtW8MtDYG2yC3ydbDQlF/r6XHSO1vV5BkgeA=;
+        b=ANalTGz+rjlj9TFn9Ecd3d/KUEmkNYO0wQUvxtjxXMLeetxDuDlj3+m2jp2a8SNXEZ
+         IrSKInLwQKMuuv+iDpWNSpwkxVgqUepiOqImq6vQ8xBvUCgdUIgG/hGnXxTtd7GdvuQm
+         OL5fWZShuS1FdjQExIEUUFv7KvOhzyvLWoDOEbklAlzdc3NiDedMO0jem9RVHm5eS5UH
+         UlYmAzDzJCB0l2hsItdWfWDdjV/vAKxeDBOx1IO2VTTK6kYcoiTm11SWmmgEFnEmBXFd
+         eYsJ9ly45vOpz6rY/Rh34xlRNpmObW9GZ7TMrmMYO20FE5S+GtH+sFN39qV35fnAxl+w
+         Lh6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792506709; x=1793111509;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WwZtUrdYtW8MtDYG2yC3ydbDQlF/r6XHSO1vV5BkgeA=;
+        b=0Lbdyj1yJAwJwx64iNK5HjCmf4WA2obqzIZTU/l50gPp7Rbk02Sg8jBjeZrbx7dpu8
+         y923A4IgNjrWNZrTXYlKx1gxCmFGHPzANy39afOpZPsKskIJ/OOmG8efFpelA016hby8
+         BHLyfmx3/lbdPo6WB9fxKG6gScFPNW0vwJL+dSLYqn7Kl2RWk2riv4hDH4+vh/FkNsJV
+         CbaijQieBpWt/w73f0szv9nL73zAsJBKPBqFAuraFIdKQI98MZ82xSic6g43rAcTukrj
+         K9PQb25aAqSx4ZSd4IgBKrVxXvKjroCgIE7OHcVBN2YUXdqNE22hCx2f7Nii5uPbHgAW
+         tYtg==
+X-Forwarded-Encrypted: i=1; AKwUvBygUxx6EtiAZcDbMf3CgkSS9oVsO+Rth0In5+uk/eP1LWqY3hbIRA/kJCV8ffeanbtkzjZn3q8ZWnNJlt3dPYN1@lists.infradead.org
+X-Gm-Message-State: AFq9FYIfzz/99OqnODxzRA558Jn8iZQehuKDE2DekM4b56IaNzaaeFps
+	rToYAj+v0BpctT3OJ+VPAPKYl5lXVeKyAAXj6nwz75cVfbOPKRpvbLwT0trCrlGPveA=
+X-Gm-Gg: AYBFou286S5zhcPtM1UqE3cPX7mkKmWFYjqCYBRCNu1Dya/Ghm78TlEluwSzFfDGIWj
+	m8RX7RDmW9rL5OnvZnKxIGxDI32MHKITzPYFYN6AEdOBJOTbUeRCRnBe/9Gflsq+ym+gCAzKlJC
+	fv0alBLGABO6qJ3UhxwvU5wzUt0rERISZfz50uNvtOTYiUZ73TWxeb0aaGwzx+tvH3afM6ZRXxe
+	I1QEqpbOal5dhE6Yxyia7pgCIS+3qu2j1FdM7PLZKcSvs/lNdNOL05De5fEBK/4aJQwf6SoIyhv
+	eeYbtbzQAxctucHk5OweKBXbPHscYF3RgUBlqvn5kc7/2zJSzPuSBXTxYKRCo5/k0BHzAJESupr
+	E18qRHMJsMmyJE3ThrqPln81i+rWo4wYygw931u60HGZoDkejezoPmQfXvXbklxrjZGcmKup2Fo
+	1lfHtQVJ+NThebhsiZkCM/0bfr75PACZkIP4i05J+Hu1+GoFzH1dr30fhTJirC/XkgllrxSdjru
+	XlOPYqkW1mPWUmj/Rved0/h/Gqm1pytXA==
+X-Received: by 2002:a05:6a00:4f91:b0:874:705d:f63e with SMTP id d2e1a72fcca58-8a04be20ccfmr8218788b3a.32.1792506709197;
+        Tue, 20 Oct 2026 07:31:49 -0700 (PDT)
+Received: from arch.localdomain (123202092053.ctinets.com. [123.202.92.53])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f580173efsm4789001b3a.50.2026.10.20.07.31.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 07:31:48 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	heiko@sntech.de,
+	Jun Yan <jerrysteve1101@gmail.com>
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 1/2] dt-bindings: sound: add Everest ES7202
+Date: Tue, 20 Oct 2026 22:31:31 +0800
+Message-ID: <20261020143135.623897-2-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261020143135.623897-1-jerrysteve1101@gmail.com>
+References: <20261020143135.623897-1-jerrysteve1101@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MI9PR04MB342248:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10886205-3f38-46a1-ffaf-08df2ec428ff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|19092799006|1800799024|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: D8iDL0YUdgw2O+fMLkXYRxZyWLd8I5nNSwhLE1sOSoYZNkfxrI02WQB2szOjfy0aVx9QxGnL4TZq7Qn0ibVU5AC5fQkiAps/Rrd8T+GoIS1jBx8hJ2RzXmnpYbbpf6bzFFnBT6hbkIc7+DtPvkL44Zk82MwyZW0OWG3RHGHJbV5CEX6K1rKdEbZQLWGjBOeuKGIqpnU3fh0NVI6r+EGdsgBsmaOcEqsrHiAU2lXVcIQZyep0V0Y3Ub07pJOUYI94eHzaji4fCar7wwzO6jyrgP7XTlurlziyNJdfJKEr8PidzGg32B+lZxJ7QcQazYPVz/lhASudZeiQI5ZTixcUq5vhIU1qcgtBpN2A/fsxr4Wb7NnYYTDyyoleLdkJB1vEOZ7qh1/4PAIPXw/KfwJXfCNPOJY9gATp0HEsSBt6+0iF47tf6mAstzdRlQeMmIl/9DJ8vYrBNErn2j3rdiAIfyNughuN9v7O+jYwwuRRw4ENB5Klu6taVM4le+jTlyqyqsRsHdkc36kEYnScCCNqNGOO9kAJuW2+lQJgGqO4rsLrj9KHMHdiHKkapriObCoQ0hqBurU9skXKWAZVZz9ZDyAIUQtA6PXIQOVLiJc6j/7yxIws4X6CitopzznhcnbZtUlqbTNnsooCvwZku63yM1xfEuZ8MStEkj8GDxXWim0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(19092799006)(1800799024)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wkz9tndMCFh4ibjcPCQ8bowXgUy8owclRCXBdTip0aUhlzYo45D6CQIHJQBX?=
- =?us-ascii?Q?oAKn65NBUMOS8DUFdVjlgMu6ttbpV3ltrCGzdq1xVYdLZOCafaszlIVmuzbi?=
- =?us-ascii?Q?VqORCVHgWj/aC24P8DAE6Dw3LWPoPhSNJZ+ZTyVa4XmXNa4cHFlW6r3mToa7?=
- =?us-ascii?Q?RG4QPMBzsfPCM9ZMto/2RLfcIG7rW9vxhw8I948Z7Dh7azwThjemsmusFUrR?=
- =?us-ascii?Q?9zT2mxvX6jdzjgpQohxWv/jUZa+4UArbFiROXQ3nGlIHzMptKTavpHxesE4m?=
- =?us-ascii?Q?jWyvhbmV8/h+044T5r47+jMRitS0Wa7x8qJhAIbDWB8ciNQglG8z5thkU1WS?=
- =?us-ascii?Q?XkSF/vRE6XfLPoLPUZaJh5YCjaIPDQkTdvOkaecOWZjlpi7o8F3vkY/Qj816?=
- =?us-ascii?Q?K499q3JUCvsJrkrFJ4EO35vxZ3KCKpqHu7f4nN7ORBlqeedhFPJXi5hWfqWf?=
- =?us-ascii?Q?Ua/puwnz/mXAvlHbclE9vFyoi84ApxMfR5NYaP/JmBZs3bNWfJP2qJmt1TcL?=
- =?us-ascii?Q?bE+hviTCUvHv206uoKj3++eoy7QeoVlC4xn8B6ZFsSutJQj2nrWrypa/tiiu?=
- =?us-ascii?Q?leNsfpwwD3ksll9lQqjfdRV6Hrcddj1Q3j4uVmhHtZ7S+oIEJCjhx/esw4iW?=
- =?us-ascii?Q?JOOF2bRzzXv/hImihObv8xbxW4n/iwY7HHukDNlL1qbqCS8bsa9G8fyUUK2Z?=
- =?us-ascii?Q?qVy2wk1WDX7kMCgp1K8GNPcdtJ9w2/DCOsqWlLXhKIM26lR/dS17sWgSIJwP?=
- =?us-ascii?Q?2653M7RlaAUI2by1sc/6tnFhad/NyAGdd78XWtBzofwOzmD/Gim0rOEZYD//?=
- =?us-ascii?Q?YJu5dC6yatTiuouBgJZghG3gjpbGYt/JrimIn4AAUoSqisUhf/JgwKX7It7m?=
- =?us-ascii?Q?cLfsdxmryU1/7ZkERP76ZwcwBydwGCxBLABS6UvdqufRT22OmRGZFTtiXbTN?=
- =?us-ascii?Q?7z5SqpcZku6yL2LVKz/xBd0KzJIb0R86Yxv3wTJaYb4XDsf6IRYEuINhcX++?=
- =?us-ascii?Q?ocEGJ+KL2lKoy+nygol9o+Lpq0vVx/QUk2ChqQ0JsJL3FQL6la01K8D+n/jA?=
- =?us-ascii?Q?2DdiR7lNevQ+A1GhokuNMvCBt4aMK6aUv4jbb++IeiGUj4uwflLnykxtYpwp?=
- =?us-ascii?Q?CxZg/M7vpyMtp0XMUMIofBJcchuEfTV1x/1EeKx0vjrYqJVaRV7CXDwFBu+v?=
- =?us-ascii?Q?YT+e5ZItF3oUHYMzS6L4e4h11Lol3PHbWrBtIW7La5fQ5PUBenLnhm436TDs?=
- =?us-ascii?Q?7XH5+UwfJW/X5SPEUgQylFZuH5uVE6kYvaZxvpIqP4enNEKXRaqbKq17IWY1?=
- =?us-ascii?Q?a2WNeyLog6JI7LBgAgvo6jYX9bITeAfFSy1vbmYPG11IG2flUe0jFyRX8+Kx?=
- =?us-ascii?Q?wXJjcLRiZJniBNlSdD8bPPDfrknufUaJWzSQx2eEjL2RVD4AR3RE2f4aLnt0?=
- =?us-ascii?Q?IG1F3nqHE5PVc5qX0fqXCsS0pVjYpzMOCtOo4ovM0uVIEdtn8uGpTLIllgfj?=
- =?us-ascii?Q?8h900Xge7fJ41HzEmZvedRWHarE1OqymMtYt+9DW0jTE85mu8JI0NMrobrdb?=
- =?us-ascii?Q?6jVZ1VdtnNUVarP5IW3mk/7dYUdARZfq4idq4eakNiewY9sCtY4PR98QU6zU?=
- =?us-ascii?Q?0po/0K5cC/oyDTIztutshI+mxWyV4s5hiVu08e6gcToZwDBjxTdoyfsTTJpu?=
- =?us-ascii?Q?q/bqYVfUI8m6pOkWeLHQU1rE1Eo7mj4vxmsPSpiXXBKEQ90HGd6UmGJIJlDJ?=
- =?us-ascii?Q?4nwjKTz0KgtumK64DU4QCRN+/Hcsx632oWZA3YkdAr92zEYQV31U?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10886205-3f38-46a1-ffaf-08df2ec428ff
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 16:06:54.8044
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Uqza651ixKx56Iw7rqhWFeRLPSkDcYUe948Ipqr3k2eXFnThlnl1tnSUyLXChGydqAd2CLom4GGKYo/AQ/ckXcDILr6YSxtXsizChZyoYFqXE+hHP694N8S0FVGNa3Jw
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB342248
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_090659_426699_612CAEDB 
-X-CRM114-Status: GOOD (  20.21  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261020_073150_113749_63DD3092 
+X-CRM114-Status: GOOD (  13.98  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,56 +109,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 05:36:34PM +0800, Jiale Yao wrote:
-> Platform driver_override can bind a device to this driver without a
-> matching OF entry. In that case, device_get_match_data() returns NULL
-> and weim_parse_dt() dereferences it while configuring the controller.
->
-> Reject devices without match data before parsing the device tree.
+Add the device-tree bindings for the Everest ES7202, a 2-channel PDM
+analog-to-digital converter controlled over I2C.
 
-This should never happen, if run to here, driver data is always existed.
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ .../bindings/sound/everest,es7202.yaml        | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/everest,es7202.yaml
 
-Frank
->
-> Fixes: 85bf6d4e4b10 ("drivers: bus: add a new driver for WEIM")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jiale Yao <yaojiale02@163.com>
-> ---
->  drivers/bus/imx-weim.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-> index 87070155b057..3ecad0e453cc 100644
-> --- a/drivers/bus/imx-weim.c
-> +++ b/drivers/bus/imx-weim.c
-> @@ -205,13 +205,17 @@ static int weim_timing_setup(struct device *dev, struct device_node *np,
->
->  static int weim_parse_dt(struct platform_device *pdev)
->  {
-> -	const struct imx_weim_devtype *devtype = device_get_match_data(&pdev->dev);
-> +	const struct imx_weim_devtype *devtype;
->  	int ret = 0, have_child = 0;
->  	struct device_node *child;
->  	struct weim_priv *priv;
->  	void __iomem *base;
->  	u32 reg;
->
-> +	devtype = device_get_match_data(&pdev->dev);
-> +	if (!devtype)
-> +		return -ENODATA;
-> +
->  	if (devtype == &imx50_weim_devtype) {
->  		ret = imx_weim_gpr_setup(pdev);
->  		if (ret)
-> --
-> 2.34.1
->
->
+diff --git a/Documentation/devicetree/bindings/sound/everest,es7202.yaml b/Documentation/devicetree/bindings/sound/everest,es7202.yaml
+new file mode 100644
+index 000000000000..ce98d2d600d4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/everest,es7202.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/everest,es7202.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Everest ES7202 2 channel PDM analog to digital converter
++
++maintainers:
++  - Jun Yan <jerrysteve1101@gmail.com>
++
++properties:
++  compatible:
++    enum:
++      - everest,es7202
++
++  reg:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++    description: GPIO connected to the reset pin (active low)
++
++  vdd-supply:
++    description: Main power supply, 1.8 V or 3.3 V. Optional; defaults to 3.3 V
++
++  "#sound-dai-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - "#sound-dai-cells"
++
++allOf:
++  - $ref: dai-common.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        es7202: codec@30 {
++            compatible = "everest,es7202";
++            reg = <0x30>;
++            #sound-dai-cells = <0>;
++            reset-gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
++            vdd-supply = <&vcc3v3_sys>;
++        };
++    };
++...
+-- 
+2.56.0
+
 
