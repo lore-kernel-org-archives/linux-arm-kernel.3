@@ -2,70 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D030D606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:17:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3893606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:22:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sYmUuFNN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z7ADqHiU;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=CMpRKCHp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwYbDAFnC+zU5jtpYjRFHdXQCyjjQIHBJfyMdgShgcQ=; b=sYmUuFNNRi2XGYr1NZ3+A20W/6
-	eSGrgE4FTyEGsHPCWiX/a5sAR0CS1loLaPYpNTlNYL+XhdHXJpq1qoYE3xyCA1H70m3xv0Vg5qoQn
-	rLSusIBXa/ig3qb9/aV1ior8dNV5Jwb2PS0p3kA6tT/+NG6hnj87MS9FrTxZabo5Kn3LVm44LIcDS
-	QqzaZuzKTVk8rOSOx32A9Ct2yv/jWfxq/Z+ouR26xZWZvaigME0hQzaRX19xBSG2VzaiPZG9y8w8v
-	06IFeFTfp/5NpRbvVa+RlUYxOM/Oah4xVP9dPpJaywUNEhlIhNqIrOTcTUM2F4hHsqZMJS59OniOR
-	JFWEIf+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1seIWp3ctG+7IR0lg6vkqmMZtzQMv2ZC559JhpGCBKo=; b=z7ADqHiUwkLeirJ6UZv5dyp2s/
+	uU7b4OB7P0PFYuQrS7y2E/3YFC2GrgUWgkFQbI3rNErZO03dxjzzzbr6UZdZ8w0p70UhnMFrOMgzG
+	EUge1qivvmP4800xzezW41NQJmqq2UN8qWszLK6sMufXAkjKvkX1YfCC26zU7a4xNxISoix0L9J10
+	FThW+h91Y1YCAsZZUwmy9jyggYF/MZgaWdK6I+nnS7E5HaXoqhSJuLoz8D+uGJ3BTyo/y7nWf0OeF
+	OOIoONc/r6Dzkf/lLdvStW4uxkSYyysHu7VZF8NmUp4Y2nkNyi1g67jwJRKNaLvoXsxIueix/bDC3
+	9TYynpMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBaA-0000000A2fm-1Lud;
-	Tue, 20 Oct 2026 15:16:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJBf5-0000000A3Ai-0Go2;
+	Tue, 20 Oct 2026 15:21:59 +0000
+Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBa9-0000000A2fa-1JEW;
-	Tue, 20 Oct 2026 15:16:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B319740AA8;
-	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 727BF1F000C4;
-	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
-Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
-	id D00DE1CB0C67; Tue, 20 Oct 2026 16:16:26 +0100 (BST)
-Date: Tue, 20 Oct 2026 16:16:26 +0100
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1xJBex-0000000A3A3-3OXe
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 15:21:58 +0000
+Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-1430eec0070so133624c88.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:21:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792509710; x=1793114510; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1seIWp3ctG+7IR0lg6vkqmMZtzQMv2ZC559JhpGCBKo=;
+        b=CMpRKCHpRM++BAPLb16m9JMqabeNsK3dk3AmSIY8yB9zkM/e0EheCaeasyPpYz1p3M
+         zWEXP9fj3aevCjHfTtNBv/W1ePuFUx6J21rSk7WVZZPQzY2ElirPm5spNy6ke3cJKtC6
+         9P59tdGFL6kIVLKqyr/CeAdQbdJEOJkEMU8R2yxksFZgS5CZfNi+66iebvu5T8OuUnmS
+         Ttsw88vfzzWzyt1Yaq/scosQl1PfeVaSVMPsf/kL5dwtSfGR19D6UFhL7w47vObZ0Eii
+         6bHYpDIZ6viNCqwEMBdkKph06tl9/WX0+HO8GTCUPgoqHJ0JTP7sARgQqTu0MwrEXbJs
+         kCPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792509710; x=1793114510;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1seIWp3ctG+7IR0lg6vkqmMZtzQMv2ZC559JhpGCBKo=;
+        b=mjxVHNyBcunmYaEskCkGqNSWM6W0jirOd1iagh5VrVU14+Qfb6IPCzU1lGy5XsERK+
+         EsY2aMkj6/yuo1XeFGVAYuo65K2hRMx6+OwR8jf8BDGJENW9n+KxNaWcMMJS9uflu3J1
+         Q3zFZRjnCcvbYr6Gs9AvX7tCIpWxgqxNKEoV7xi9juucbDYVoUPtUckBrlRVvdxTEl2U
+         HDNzpezov2fY4voU+XbM6FW2i07mVFKEZ76MpPtPz7UngN0j4Wo+ex6Fu5JcJbVCvwR1
+         lv1kryIqv/LZKz7jxdlPpJogS1SUKcQF4hJj7HvZd93juWOyzjp/L6nZxE65rsMbtgMe
+         9xJA==
+X-Forwarded-Encrypted: i=1; AKwUvBzSH6qb61KCWynjIq9iggiGWRk+w1VyYDwUpByJ+vJoBc43VBujCW/TKFAHZKo6NNO0gjYC99CH90qLcsxdXdIK@lists.infradead.org
+X-Gm-Message-State: AFq9FYLvichgwwDXqaMabuE6UxvrVSgZfoszi9la6fFFVto0CZg92Enh
+	oPEbCyVNYI66wWGz2jgv77aWE30HonvD/IP7Xmbjm7orJasKrCuwBt2F
+X-Gm-Gg: AYBFou0t+4xvcsXbB4tVG7wYSYUkJABbi9VfSB2LTBmEfUw2wI0MeiZLQizyEYFeuIE
+	huX1EhY0P5/2YibB1UJhCwSKbLioAo6ZRs8zz6hT9TszY6E+nSwDkwEMvNWeliQX8nBMcTXPY8d
+	N2KzecpCjbjMGcCg9+ujDYnwNI3VWODEJ/bzyxGUNC+A5GnALjdgvplGhKXE+vRAlOd4g6/gAf8
+	rTHXTaSL3roISsnMksmk1vwu87Id7VG9W+SzQkcvGSXhgrLJBsKLsyIuhZvBHsCZzuJv1OFrCJh
+	n3RzYpg3X96AxCyvaV0fI/Ha9TP5UJwtJ9NDeCyT9lETCROvPfQST8+ls2gncI4Z4GFkM+MXTaO
+	nudAR6OeR7jyFKL3dwRh/Tor56QKReVLiQxkAi16ryHKEg5IqFWb5+v+GoEjJ3yIDm7xmmfgj/F
+	o8DLw9yoxbIDfdDOK+/UTvLdsaxoDLlrj4s5IGMEf5JBFx83JpNxNX/l5PyAj6FfmdwQh198sBD
+	3S+SMEMejGG25fzL3dqYfx2KLkCYjkh0OHkyJ84aZuk8yDjqGI2sFF7/linpuHjpi4M
+X-Received: by 2002:a05:701b:4212:20b0:12d:c389:ae54 with SMTP id a92af1059eb24-18510d6790cmr25881356c88.2.1792509709877;
+        Tue, 20 Oct 2026 08:21:49 -0700 (PDT)
+Received: from subhobhai943.. ([2409:40e1:7:197e:d6f5:c443:63e9:fc37])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1831b75be5esm50682637c88.16.2026.10.20.08.21.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 08:21:47 -0700 (PDT)
+From: Subhadip Sarkar <sarkarsubhadip604@gmail.com>
+To: catalin.marinas@arm.com
+Cc: will@kernel.org,
+	mark.rutland@arm.com,
+	patrice.chotard@foss.st.com,
+	linux@armlinux.org.uk,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Yury Khrustalev <yury.khrustalev@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zishun Yi <vulab@iscas.ac.cn>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: Re: [PATCH 3/4] selftests/arm64: GCS must not leak on a failed clone3
-Message-ID: <ateFyuJkEgL94Rvc@sirena.org.uk>
-References: <cover.1792179433.git.ivanrwcm25@gmail.com>
- <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Subhadip Sarkar <sarkarsubhadip604@gmail.com>
+Subject: [PATCH v1] arm: Kconfig: Fix spelling mistakes in help text
+Date: Tue, 20 Oct 2026 20:51:22 +0530
+Message-ID: <20261020152123.16589-1-sarkarsubhadip604@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fQdpgUNys5IVa7P7"
-Content-Disposition: inline
-In-Reply-To: <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
-X-Cookie: Whoever dies with the most toys wins.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_082151_844704_84416426 
+X-CRM114-Status: GOOD (  11.97  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,165 +100,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Fix two spelling mistakes in Kconfig help text:
+ - arch/arm64/Kconfig: 'unexepected' -> 'unexpected'
+ - arch/arm/mach-sti/Kconfig: 'targetted' -> 'targeted'
 
---fQdpgUNys5IVa7P7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Subhadip Sarkar <sarkarsubhadip604@gmail.com>
+---
+ arch/arm/mach-sti/Kconfig | 2 +-
+ arch/arm64/Kconfig        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-On Fri, Oct 16, 2026 at 04:46:02PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
+diff --git a/arch/arm/mach-sti/Kconfig b/arch/arm/mach-sti/Kconfig
+index e58699e13..4dd5d0592 100644
+--- a/arch/arm/mach-sti/Kconfig
++++ b/arch/arm/mach-sti/Kconfig
+@@ -32,7 +32,7 @@ config SOC_STIH407
+ 	select STIH407_RESET
+ 	help
+ 	  This enables support for STMicroelectronics Digital Consumer
+-	  Electronics family StiH407 parts, targetted at set-top-box
++	  Electronics family StiH407 parts, targeted at set-top-box
+ 	  and other digital audio/video applications using Flattened Device
+ 	  Trees.
+ 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index cab741a69..68f0a94f4 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1164,7 +1164,7 @@ config ARM64_ERRATUM_3194386
+ 	  * ARM Neoverse-V3AE erratum 3312417
+ 
+ 	  On affected cores "MSR SSBS, #0" instructions may not affect
+-	  subsequent speculative instructions, which may permit unexepected
++	  subsequent speculative instructions, which may permit unexpected
+ 	  speculative store bypassing.
+ 
+ 	  Work around this problem by placing a Speculation Barrier (SB) or
+-- 
+2.43.0
 
-> clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
-> in put_user() after copy_thread() has mapped a GCS. copy_process()
-> then calls exit_thread(). Without HAVE_EXIT_THREAD that free is a
-> no-op and the VMA stays in the parent's mm.
-
-> Assisted-by: LLM
-
-This is pretty hard to follow, there's a lot of open coding, duplication
-and strange structures or tests.  It makes it hard to follow what's
-actually being tested and why which is going to be a maintainability
-issue.
-
-> +/* Same value as KSFT_SKIP in kselftest.h. */
-> +#define KSFT_SKIP		4
-
-Why are we not just including kselftest.h?  It doesn't have the fun
-interactions with libc headers that some of the other things have.
-If we are going to cut'n'paste values why only KSFT_SKIP and not any of
-the other exit codes we use?
-
-> +/* Same wrapper as gcs-locking.c: extra prctl args must be zero. */
-> +#define my_syscall2(num, arg1, arg2)					\
-> +({									\
-> +	register long _num  __asm__ ("x8") =3D (num);			\
-> +	register long _arg1 __asm__ ("x0") =3D (long)(arg1);		\
-> +	register long _arg2 __asm__ ("x1") =3D (long)(arg2);		\
-> +	register long _arg3 __asm__ ("x2") =3D 0;				\
-> +	register long _arg4 __asm__ ("x3") =3D 0;				\
-> +	register long _arg5 __asm__ ("x4") =3D 0;				\
-> +									\
-> +	__asm__ volatile (						\
-> +		"svc #0\n"						\
-> +		: "=3Dr"(_arg1)						\
-> +		: "r"(_arg1), "r"(_arg2),				\
-> +		  "r"(_arg3), "r"(_arg4),				\
-> +		  "r"(_arg5), "r"(_num)					\
-> +		: "memory", "cc"					\
-> +	);								\
-> +	_arg1;								\
-> +})
-
-Factor this out.
-
-> +static void on_fault(int sig)
-> +{
-> +	static const char msg[] =3D "[FAIL]\tparent guarded control stack fault=
-ed\n";
-
-This isn't KTAP format.
-
-> +		/*
-> +		 * An empty GCS leaves GCSPR at the exclusive end. If
-> +		 * the next VMA is contiguous that address is also the
-> +		 * start of the next range; prefer the mapping that
-> +		 * ends here.
-> +		 */
-
-I'm not clear what you mean by exclusive end here?
-
-> +static int skip_enable(long rc)
-> +{
-> +	if (rc =3D=3D -EOPNOTSUPP) {
-> +		printf("[SKIP]\tkernel has no GCS\n");
-> +	} else if (rc =3D=3D -EINVAL) {
-> +		printf("[SKIP]\tkernel built without GCS\n");
-> +	} else if (rc =3D=3D -EBUSY) {
-> +		printf("[SKIP]\tGCS is locked\n");
-> +	} else {
-> +		printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
-> +		return 1;
-> +	}
-> +	return KSFT_SKIP;
-> +}
-
-This feels rather contorted, and ends up returning a raw 1 from main()
-rather than a KSFT_ exit code.
-
-> +int main(void)
-> +{
-> +	struct sigaction sa;
-> +	struct ss_span parent;
-> +	void *stack;
-> +	void *bad_pidfd;
-> +	unsigned long gcspr, gcspr_mid;
-> +	unsigned long gcs_mode;
-> +	long rc;
-> +	int pidfd;
-> +	int vmas0, kb0, vmas1, kb1;
-> +	int i, kept, d, cret;
-> +
-> +	setbuf(stdout, NULL);
-
-There's also setvbuf().  Using kselftest.h and it's helpers would
-probably be better, it takes care of disabling buffering.  I can't see
-any reason to avoid that.
-
-> +	gcspr =3D (unsigned long)get_gcspr();
-> +	if (!gcspr) {
-> +		printf("[FAIL]\tenable left GCSPR_EL0 at 0\n");
-> +		_exit(1);
-> +	}
-
-Why are we using _exit(), and more of these raw 1s?
-
-> +	gcspr =3D (unsigned long)get_gcspr();
-> +	ss_scan(&vmas0, &kb0, gcspr, &parent, NULL, NULL);
-> +	if (!parent.start) {
-> +		printf("[FAIL]\tGCSPR %lx matches no shadow-stack VMA\n", gcspr);
-> +		_exit(1);
-> +	}
-
-Why is this something we're validating, and how do we expect to be able
-to do function calls if it is the case?
-
-> +	if (vmas1 !=3D vmas0 || kb1 !=3D kb0) {
-> +		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
-> +		       vmas1 - vmas0, kb1 - kb0);
-> +		_exit(1);
-> +	}
-> +	if (!kept) {
-> +		printf("[FAIL]\tparent GCS %lx-%lx was unmapped\n",
-> +		       parent.start, parent.end);
-> +		_exit(2);
-> +	}
-
-Why are some failures exiting with a different exit code?
-
-> +	if (d !=3D 17) {
-> +		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
-> +		_exit(2);
-> +	}
-
-=2E..because?
-
---fQdpgUNys5IVa7P7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCateFxwAKCRAv73Ows9A4
-iV7CAQCkMVFZ4IBfyU74fiWba6+YvlaiDdY46+hou1OQsUgQ0wD+OKvp47h6ILRv
-YrtzWYolE5nx/q9ILHnbj4r5mQW6eQk=
-=Buc7
------END PGP SIGNATURE-----
-
---fQdpgUNys5IVa7P7--
 
