@@ -2,48 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E85760A4AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:11:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36281606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 13:11:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DdNRDBIf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aPZ5KfkL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y8aK4BRd;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fNxqOimF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3Sb419tcnHgsczc/SWcwDkky5azghj0g+2RQPB3KEA=; b=DdNRDBIfQH6Ad+dESZGjaRLG9h
-	50jXJd6pAMWmv+uYrqqoQQTYvwcUf1XTxmbQhEu1EICXoVCuKFMZgw5XqpNLRuo22e/EBs8PJKVOA
-	8dLaESYrfEliMn4Iy21YrRYBNgqA9JHhD3lnqBiO/iQuVTkvI6RKHOoY/5rrvGyMwaQDijIXdUv8F
-	aDxMqN1Zw4vqKvt28MIK/NDsY/XZW766hV006JBud09RwrQ6u+Z2vYsxKVaB15ICht7NFtf1KECvB
-	MRuwmEAI8pHTXYpvnWWLv8N6b4VZ74WvrLeQDltXob9kid0GE39mdNvQTSNLVSF5Npjt+rL7gSvWu
-	18inabMA==;
+	bh=WcNEi9CgsmU0LNhm6ygVBGSAUr7Sk7BxZ5A17QlLUg0=; b=y8aK4BRdetOYhSoLmJeNVLp9h0
+	WwmX0/RwttLW4J58SwdW/+TxCoKWrfzCvYfxsjsakvMaPfLPtF6bdwvgDw/B8EEliBzcMlUO3He59
+	TOB2WuI6aHQnLZgxR8WHG7NWtSbWBDEDGP+kJAQiROffC5xUqiLU0ouplqLmkJpsfNTAoY0nTZa20
+	T+e7z0A3Q3OGyluYNgdNMsdJdWv8ptJkrqlG5xmWohfD+RtbwjlRgYNQwycjKrTO9ieIwkLMDT2Xl
+	73ApXI7ZU/h/9uvv3NfZeE9y6Pzrh0SMN+uBkQYh20qiLhfN5qMZczUYMKuNml8zm/4lTsFpOq31e
+	OHJfBMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9cQ-00000009kTf-3eNc;
-	Tue, 20 Oct 2026 13:11:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xJ9cX-00000009kX4-0Gxt;
+	Tue, 20 Oct 2026 13:11:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ9cH-00000009kOM-0GVd;
-	Tue, 20 Oct 2026 13:10:57 +0000
+	id 1xJ9cI-00000009kPJ-2ieK;
+	Tue, 20 Oct 2026 13:10:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F17860DB9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 30DD7447F2;
+	Tue, 20 Oct 2026 13:10:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2A6E1F000C6;
 	Tue, 20 Oct 2026 13:10:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9FCE1F000C7;
-	Tue, 20 Oct 2026 13:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792501856;
-	bh=S3Sb419tcnHgsczc/SWcwDkky5azghj0g+2RQPB3KEA=;
+	s=k20260515; t=1792501858;
+	bh=WcNEi9CgsmU0LNhm6ygVBGSAUr7Sk7BxZ5A17QlLUg0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aPZ5KfkLYnGUCoEyYowA72827WT2AYMDPraxg7tQjRbHfbK7xQfbqq6EMnF5mcgTY
-	 dMhRaAr9lsTMy6lEdLKhzit1GSb3U4ZS3uNDAlumlimYtHhc2UCwxL5ly5PAHw20y9
-	 y3vEI7ywsh9sNzRth3PPWQLBFzF5oejKvg5le4QuGY7FvJkmsWGBoBunT4/BzmUCFt
-	 fzGjeOSpq6O8HSt/3JSjnqVqJWlZ56yZSFI7QJqMasnuXFehj0IN+MwqRvM1gHTx91
-	 BEa+y00+xKYrL8Qiri66Jc3Z4c7Gbr5VSVLst5A3VanHjXtlKsSl5zjQ1TTCBd8uKr
-	 GFFGB8mzJ9EqQ==
-Subject: Re: [PATCH net-next v3 7/9] net: stmmac: mediatek: use TX clock phase
- shift in RGMII mode with 1Gbps speed
+	b=fNxqOimF6pNiEdwKUDbYKaNJUsg5JVDCfETgunUpmQNq2aG6FrZRNjfI04W1yg0Ox
+	 kJ7w8tOOFbOQHjuLKpDrJDo0CvOZ3ZjznN1nkI/TuYUdIDPybr3e2RE5Ev6D3HHHJq
+	 obmqonoXhZxlQUMrKZpe3n3GYUqjaVYUQ51CSkvZxlQftS1rE5IG73vLx/1iPf2p32
+	 znUrQZmQ9nsz6np8XwEnL8HBSf+FFPQ4ScPI+DSUU0pG1fvmA3QGxOdzzXduQHACEx
+	 Gn68hLNYeadrLx+TQER34PnmxpvUL1M8z52CusRzXXeB5pLjy0rvyWvwGGOFk2aMxk
+	 76fizPopi6ylw==
+Subject: Re: [PATCH net-next v3 9/9] net: stmmac: mediatek: add support for MT8189 SoC
 From: netdev-bot+sashiko@kernel.org
 To: louisalexis.eyraud@collabora.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
@@ -55,10 +54,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
  netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-Date: Tue, 20 Oct 2026 13:10:54 +0000
-Message-ID: <179250185440.3135.3867297612747113346@kernel.org>
-In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-7-25daf2bbcf35@collabora.com>
-References: <20261016-dwmac-mediatek-mt8189-v3-7-25daf2bbcf35@collabora.com>
+Date: Tue, 20 Oct 2026 13:10:56 +0000
+Message-ID: <179250185640.3135.8563969041455803395@kernel.org>
+In-Reply-To: <20261016-dwmac-mediatek-mt8189-v3-9-25daf2bbcf35@collabora.com>
+References: <20261016-dwmac-mediatek-mt8189-v3-9-25daf2bbcf35@collabora.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -82,10 +81,10 @@ X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -93,145 +92,122 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] At 1Gbps on RGMII, mt8195_fix_mac_speed()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c) treats the DT…
-- [Medium] At 1Gbps, mt8195_fix_mac_speed()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c) silently clears…
+- [Medium] The series reverses the MT2712 delay-stage dividers compared
+  with the baseline driver and the binding.
+
+Pre-existing issues:
+- [Low] This problem wasn't introduced by this patch, but in
+  mediatek_dwmac_clks_config(), if clk_bulk_prepare_enable() succeeds…
 
 --
 
-net: stmmac: mediatek: use TX clock phase shift in RGMII mode with 1Gbps speed
+net: stmmac: mediatek: add support for MT8189 SoC
 
-This commit adds a fix_mac_speed callback to the MediaTek dwmac glue and
-implements it for MT8195. When an RGMII link comes up at 1Gbps and the DT
-requests a TX delay, the callback turns on the fixed 2ns TX clock phase
-shift (RGMII_TXC_PHASE_CTRL). At other speeds it falls back to the coarse
-delay macro circuit.
+This patch adds the mediatek,mt8189-gmac compatible to dwmac-mediatek,
+along with a clock list and variant platform data. The new variant reuses
+the MT8195 callbacks with a 0x270 pericfg offset and 180ps RX/TX delay
+stage dividers, and it enables the TX clock output.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 7dd46cd5a49e1..4b2d5280f7030 100644
+> index 147e217b86620..d480c339a16d0 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-
-[ ... ]
-
-> @@ -430,9 +433,65 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	return 0;
->  }
->  
-> +static void mt8195_fix_mac_speed(void *priv, phy_interface_t interface,
-> +				 int speed, unsigned int mode)
-> +{
-
-[ ... ]
-
-> +	if (!mac_delay->tx_delay ||
-> +	    (interface != PHY_INTERFACE_MODE_RGMII &&
-> +	     interface != PHY_INTERFACE_MODE_RGMII_RXID))
-> +		return;
-> +
-> +	/*
-> +	 * When link speed is 1Gbps with RGMII interface, and a TX internal
-> +	 * delay needs to be applied on MAC, prefer to override the delay
-> +	 * settings with a 2ns fixed delay which is controlled by
-> +	 * RGMII_TXC_PHASE_CTRL. Otherwise, fallback to HW delay macro circuit
-> +	 * for 10/100Mbps link speeds.
-> +	 */
-> +	if (speed == SPEED_1000) {
-> +		reg_val = MT8195_RGMII_TXC_PHASE_CTRL;
+> @@ -45,8 +45,15 @@
+>  #define MT2712_RGMII_DLY_TXC_MAX	17600 /* 32 x 550ps */
 
 [Severity: Medium]
-At 1Gbps, does this treat mediatek,tx-delay-ps as an on/off switch rather
-than as a delay amount?
+The context here shows the MT2712 defines added earlier in this series. Are
+the MT2712 RGMII and RMII stage dividers swapped?
 
-The gate checks the raw picosecond value in mac_delay->tx_delay.
-mediatek_dwmac_config_dt() stores that value without rounding:
+The defines currently read:
 
-    if (tx_delay_ps < plat->variant->tx_delay_max) {
-        mac_delay->tx_delay = tx_delay_ps;
+#define MT2712_RMII_DLY_RXC_STAGE_DIV	170 /* 170ps per stage */
+#define MT2712_RMII_DLY_TXC_STAGE_DIV	170 /* 170ps per stage */
 
-Both mt8195_set_delay() and the new 10/100 branch round the value down to
-290ps stages (180ps on MT8189). So a value of 1..289ps means no delay at
-probe time and at 10/100. At 1G, the same DT value now gets the full ~2ns
-phase shift.
+#define MT2712_RGMII_DLY_RXC_STAGE_DIV	550 /* 550ps per stage */
+#define MT2712_RGMII_DLY_RXC_MAX	17600 /* 32 x 550ps */
+#define MT2712_RGMII_DLY_TXC_STAGE_DIV	550 /* 550ps per stage */
 
-For every other value (290ps, 870ps, 8990ps, ...), the configured amount is
-replaced by a fixed ~2ns at 1G. GTXC_ENABLE and GTXC_STAGES are in the
-update mask, so the coarse delay is also cleared, with no warning.
+Before the series, mt2712_delay_ps2stage() divided RGMII delays by 170 and
+MII/RMII delays by 550. The mediatek-dwmac.yaml binding says the same:
 
-The same DT setting therefore gives a different MAC TX delay depending on
-link speed. Could boards that tuned tx-delay-ps to their PCB skew end up
-with the wrong total skew at gigabit?
+  For MT2712 RGMII interface, Allowed value need to be a multiple of 170,
+  ...
+  For MT2712 RMII/MII interface, Allowed value need to be a multiple of 550,
 
-The binding in Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
-still describes the property as:
+mt2712_gmac_variant then uses:
 
-      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a
-      multiple of 290, or will round down. Range 0~31*290.
+	.rx_rmii_delay_stage_div = MT2712_RMII_DLY_RXC_STAGE_DIV,
+	.tx_rmii_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV,
+	.rx_rgmii_delay_stage_div = MT2712_RGMII_DLY_RXC_STAGE_DIV,
+	.tx_rgmii_delay_stage_div = MT2712_RMII_DLY_TXC_STAGE_DIV,
 
-The commit message also doesn't say that the configured value is ignored at
-1G.
+mt2712_set_delay() picks these dividers based on the phy mode. RGMII TX
+still divides by 170, but only because it uses the RMII define. RGMII RX
+now divides by 550 instead of 170. MII/RMII TX and RX now divide by 170
+instead of 550.
 
-None of the in-tree boards seem to hit this. mt8395-genio-common and
-mt8395-radxa-nio-12l use rgmii-rxid with 2030ps. mt8390-grinn-genio-sbc uses
-30ps, but its phy-mode is rgmii-id, which skips this path.
+For example, an RGMII mediatek,rx-delay-ps = <1530> used to program 9
+stages and now programs 2. An MII/RMII delay of 1650 used to program 3
+stages and now programs 9.
 
-The later commit "net: stmmac: mediatek: add support for MT8189 SoC" also
-wires mt8195_fix_mac_speed() into the MT8189 variant, so MT8189 gets the
-same behaviour.
+This came from two earlier patches in this series, not from this one:
+"net: stmmac: mediatek: simplify TX/RX delay handling in mt2712_set_delay"
+and "net: stmmac: mediatek: add RX/TX delay stage divider in platform
+data". The first one's commit message also describes the old code as
+"550 for RGMII, 170 for MII/RMII".
 
-> +	} else {
-> +		if (variant->tx_rgmii_delay_stage_div) {
-> +			tx_delay_stage_val = mac_delay->tx_delay /
-> +					     variant->tx_rgmii_delay_stage_div;
-> +		} else {
-> +			tx_delay_stage_val = 0;
-> +		}
-> +
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
-> +				      !!tx_delay_stage_val);
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES,
-> +				      tx_delay_stage_val);
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_INV,
-> +				      mac_delay->tx_inv);
-> +	}
-> +
-> +	reg_offset = variant->peri_eth_ctrl_offset + MT8195_PERI_ETH_CTRL0;
-> +	regmap_update_bits(priv_plat->peri_regmap,
-> +			   reg_offset,
-> +			   MT8195_RGMII_TXC_PHASE_CTRL |
-> +			   MT8195_DLY_GTXC_ENABLE |
-> +			   MT8195_DLY_GTXC_INV |
-> +			   MT8195_DLY_GTXC_STAGES,
-> +			   reg_val);
-> +}
+Changing only tx_rgmii_delay_stage_div to MT2712_RGMII_DLY_TXC_STAGE_DIV
+would make things worse. mt2712-evb.dts (phy-mode "rgmii-rxid",
+mediatek,tx-delay-ps = <1530>) would drop from 9 stages to 2.
 
-[Severity: Medium]
-Does the 1G path clear the TX clock inversion requested by
-mediatek,txc-inverse?
-
-MT8195_DLY_GTXC_INV is in the regmap_update_bits() mask. The SPEED_1000
-branch, however, sets only MT8195_RGMII_TXC_PHASE_CTRL in reg_val. GTXC_INV
-is therefore written as 0 whatever mac_delay->tx_inv says.
-
-The 10/100 branch above keeps the inversion. mt8195_set_delay() also
-applies it for all RGMII modes at probe and resume:
-
-    gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_INV, mac_delay->tx_inv);
-
-The 1G case is also inconsistent with itself. With tx-delay-ps = 0, the
-early return leaves the inversion in place. With any non-zero tx-delay-ps,
-it is cleared.
-
-The binding describes mediatek,txc-inverse as "tx clock will be inversed in
-MII/RGMII case", with no exception for any speed. Should the SPEED_1000
-branch also include FIELD_PREP(MT8195_DLY_GTXC_INV, mac_delay->tx_inv)?
-
-No in-tree MediaTek board uses txc-inverse today. MT8189 is affected too,
-once "net: stmmac: mediatek: add support for MT8189 SoC" wires in the same
-callback.
+Could the define values be swapped instead (RGMII = 170, RMII = 550), with
+tx_rgmii_delay_stage_div then using the RGMII define?
 
 [ ... ]
+
+> @@ -751,6 +777,8 @@ static void mediatek_dwmac_remove(struct platform_device *pdev)
+>  static const struct of_device_id mediatek_dwmac_match[] = {
+>  	{ .compatible = "mediatek,mt2712-gmac",
+>  	  .data = &mt2712_gmac_variant },
+> +	{ .compatible = "mediatek,mt8189-gmac",
+> +	  .data = &mt8189_gmac_variant },
+
+[Severity: Low]
+This is a pre-existing issue and was not introduced by this patch, but
+MT8189 now uses the same probe path. In mediatek_dwmac_clks_config(), if
+clk_bulk_prepare_enable() succeeds and clk_prepare_enable() then fails on
+plat->rmii_internal_clk, do the bulk clocks stay enabled?
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c:mediatek_dwmac_clks_config() {
+    ...
+	ret = clk_bulk_prepare_enable(variant->num_clks, plat->clks);
+	...
+	ret = clk_prepare_enable(plat->rmii_internal_clk);
+	if (ret) {
+		dev_err(plat->dev, "failed to enable rmii internal clk, err = %d\n", ret);
+		return ret;
+	}
+    ...
+}
+
+This path never calls clk_bulk_disable_unprepare(), and
+mediatek_dwmac_probe() returns the error directly:
+
+	ret = mediatek_dwmac_clks_config(priv_plat, true);
+	if (ret)
+		return ret;
+
+The resume path behaves the same way.
+
+For MT8189, rmii_internal_clk is only obtained when
+mediatek,rmii-clk-from-mac is present, and the MT8189 binding forbids that
+property. A binding-compliant MT8189 DT therefore gets a NULL clock and
+cannot hit this path, but the driver does not enforce the binding.
+
+>  	{ .compatible = "mediatek,mt8195-gmac",
+>  	  .data = &mt8195_gmac_variant },
+>  	{ }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016-dwmac-mediatek-mt8189-v3-0-25daf2bbcf35%40collabora.com
