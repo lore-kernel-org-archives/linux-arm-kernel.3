@@ -2,97 +2,155 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF2D3606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:04:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61543606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:04:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pzam3nto;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=IeociuXp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gxF1BC1q;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=JyHMo6Yj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PdL12cit1+z6d3jeLw0+naLR3nXNXmktozH9BnIvo4w=; b=pzam3nto0JkaPmfE3VleJ3RXfy
-	k9Ugv8yycoCyKMp8xmWEm/V7T1idH2KuBXjH+pGvg23BMjxWBaASVkj3kBvGmw/tjvhiUBc6fTZq8
-	MacYA/29jDEp+iRDTRweuSM2Y24745dV9yv//iVktd0P0yjtWKWt9a6ZXPaciBZ65nXLYBRTVAzHN
-	xrBhB7XdrMbo66O/D1VIPy7KaM1luKUHecycs+g1PsE1rI8m9t1uBoGr6mFdmR2MC+WtuCrtEBZmv
-	PgPRlMd470AiHAzqPE4xp8Cn6PDwpxj4ZiX9D9y5o1qfbFSW6bie/M6q+6cDTX8JDENATpOiuewW4
-	YaJpqNUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pZiPdQu9vRyRLyCokWBgNE52aOngd3+oCKazPJ0SwcA=; b=gxF1BC1qDBTR+3MJComyVLM+Be
+	pmSUUMO8sl7KxATj0IjIWWzwObeu6fjOINsOkrE7X5gMZUTajYd7ZJdJ2kOnHPy2nKRc/XUGbglmr
+	gRhYqJOYkYKy6eIL9f3nE6F59xhBNTNoWSHoB2LL1dZh24DMQPDrOQslOGgzngjwLp/GU5uoXBTkT
+	4lxHN8Gu/k0vGulmgL/7uWUq8BTTBJoo/GpFLafUJ1kwakztPjMqPYbLRfu+ZAkQRYWXukyGVDP2r
+	OlPNTF0cvlSC8xhvo6d/+aDRut2ixFsNHYe0XxIla6WJnsVf7ZgEeR3SvMkwc+k83aRyBW5tmGx1Y
+	SrgOkpTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDFQ-0000000AIo4-06G1;
-	Tue, 20 Oct 2026 17:03:36 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1xJD37-0000000AFV3-1uvG;
+	Tue, 20 Oct 2026 16:50:53 +0000
+Received: from mail-westeuropeazon11010070.outbound.protection.outlook.com ([52.101.69.70] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDFN-0000000AInb-1Dhj
+	id 1xJD32-0000000AFPO-1t4C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 17:03:34 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-917b78dfe30so51218416d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 10:03:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792515812; x=1793120612; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PdL12cit1+z6d3jeLw0+naLR3nXNXmktozH9BnIvo4w=;
-        b=IeociuXp8r2tXz7GCbnxTRLmacNf51OM/ndUiJ5odWf+4q7TcIyDLBKW47s5/9TfzR
-         es6m/nh6NY2F7sFpvZA2/fLKuKwzaZB5fsPxl5HAz/rXE2IIZbLEPseKTq2IuPPJrEX4
-         ez37fYGr6MyGz3qU7gOFYS8w7D7JlNXv4XqaTYFC+J1osxe8BvPDcAqMDfCMiuh4022/
-         Hl3VqvNomCbuRqhEmlDp8xTMBFCG5OBKvlLdVmLXu+48Suk0xOpF0LiKZHWRScLnzhhv
-         g+UbQ3JCGWSBw7NXdoLNqQv3NOaQsqEIAH4OylqqF8tHr2AXjZYEkFILX00PHa4LzBOn
-         f/jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792515812; x=1793120612;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PdL12cit1+z6d3jeLw0+naLR3nXNXmktozH9BnIvo4w=;
-        b=xqXY0EsSDGMjKLwfwPGogAuMjMkVRnGxgQ5XDPVukzgB4tMcwF9j9h/+fn/afoyJIp
-         LRYTTsgMpA3Mm7jKr66ftCvRG2nkYpngHjjGj5xEi3xC0qsBIhvgxZYLbKE2AOOkzYNy
-         sZxKAxff0X1PAYvWhXeb3mu2utJVcQ3Vg719K3yYscuodNPDXt7jhT6YG/upJ6eotb2s
-         rtVKp07v05/IBCEBcSQ5Speg0OejCPIg3Y50p8XEKGRLNu7S8fffk4pziMzesDq5jJcr
-         EhPck0+HF7Ds7nYoNOTW4ARGxpCpZV9tfIUBecqM6tFec+HJ/S/1+f3z1W/G6OLx5L0q
-         0mxQ==
-X-Forwarded-Encrypted: i=1; AKwUvByWTqPSuep0I+Vj4yK0XraqCRaLu8i3xtA0kdESRtCLRHaPMVee4O63KXsym08OrMWGoDmgjIqLhaVbnEahAF7s@lists.infradead.org
-X-Gm-Message-State: AFq9FYJjvBeAc5Z91Lq07R/GmZL4vPD/ard1aMAvdRBoOwPu1obdGWdQ
-	7ZJgf/ngzbNbIJ6F1a2VPoArhrwtm67pDjhkEDrTr6i46y/9Dy1qVDps
-X-Gm-Gg: AYBFou3IEDymEZHzDNUT2MVgIHe5buYzzn7yaI47EBaM+/5p92tImMdbUeEpoX9KZKt
-	BvwccP+BFvyzXdJz65piQ0BXF9yIzWj2THRqPyhoXyvtukc/B2QNUGeFsICXOr0Cv6sgoEwjGGV
-	4lKuN7fwp6IUvIR3XgsEgAY9FAXjwF9USWirljmtW+xC/ruN/S4yhRlfIUEu/dHxvwjhQjKjRhb
-	pIjrGcfZHlDWtwtuE7ZC1saHUe0LODuJcEQHEUVrTK3Oe159KF4hjK6pXnooD0JRBiyViSQQUB3
-	fdf4UPRXJUBR1fOJPza0yYkgRjPwXZfhO30FunivVmz+DkHujW4CquVcstuUfoPaxLXWs+aMEBS
-	H9rV/i7etN7FjGcgs3tN1kCU/RW9xb6hkRPEzK5GGBteOBMV8L+/Uutb/CVslzS2F0KujIPzyV2
-	4qI4KNxs3WGByUpSzdMe1PIU8NlKGC0rjNtGQuwP8A7S5RLc6AHISG+kpiHPhHCvcod6cM22YcN
-	FQoNdlu4xujclEJIsVBQQ==
-X-Received: by 2002:a05:620a:294c:b0:93f:26f6:6bab with SMTP id af79cd13be357-93f29ccce99mr1849718785a.18.1792515811784;
-        Tue, 20 Oct 2026 10:03:31 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f56c6e030sm31479985a.1.2026.10.20.10.03.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 10:03:30 -0700 (PDT)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH v1] iommu/sun50i: Report TLB invalidation timeouts from iotlb_sync_map
-Date: Tue, 20 Oct 2026 13:03:11 -0400
-Message-ID: <20261020170324.1223144-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 20 Oct 2026 16:50:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vztJg6+brZE5Zht1ntIESPXxhr6aUaZABSajHDL5m5eTv9MNswc4CXZweAyl7NCna5RdSIyrwaeaYXFP4Wz631/RRVh/YF+EwKIBrSzq3C97R0aM2kz93JTd+21h+MGJa5vpp2woP6JBteygBBFHHEVR8qJcVrfug6Xli6mqETnP4GTZEtVDNaxJA2aWUDhg58CwJN/0NU84A5O5KP3Lq0GA+/5kpuYjtxoQfcHr8UHz3mqqULEkViJZAwAiE+Zm8BKgTYWyfYZgzZ2IMXBDDDe1gUFZq1KoG+2Z4NrVulsg4hNBwpGEH4tTv4k6U30el2Uz6abXHDh1frDgb+gk4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pZiPdQu9vRyRLyCokWBgNE52aOngd3+oCKazPJ0SwcA=;
+ b=LLzGzJQJlLOVDTAK+FKRseEk3G/K35+IV6lmhJr3afcUnp9PtH5PvgPWOZhyL81FQ6q6xuK167nNAv7/JcFbUgx0WicDDti5ABmy+xTP9PScolITBn9/slHUDZhkJMBfznOzyRlzmxMkbmder+pX3+pEQ8lcvBwPD11wcQDSlVw1JtKKWcUTcL/XjzKxpVUaj6vMH/7805tERTMQ7oJc5RU4Rd6VwDPqQcVRzMspIndfB1GRa5GNCHVaPf7N0Agew8X/OPplUXLhuUwsyrWjiq/8OWPwkeBdYnVJZl9JqT/4IpgqlI3Ar6fiHVGuR00Txj3yDNEZ034N7OZq4OjwXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pZiPdQu9vRyRLyCokWBgNE52aOngd3+oCKazPJ0SwcA=;
+ b=JyHMo6YjfHq7VWIDPXJH4wrkNRcc3wIWmqgZWQvvCAQf53mXCgJqU33pWqKdUE8Pt137sf6YSOJPjR9CSB45GztL94U3QqNU/qPCbz0z+4Heq5Y5wIVzJD9PQbYmzVrCcvMHYTR8Ziz/82NpR6ji7c+oDYNX6LM/ngP/n+73iYqQ90OEZnqxvhsVUd0TaytGtJUlx90Sr1go3sEfxOlfkjQLWdC7Ttkc4T9k068fW3aIYyvVfNWb2wn5+zaZUYftmKVWJ+6gChW97tuRqlM18Zaw1lXj9WDshX4De7SCadIJi8u8q/LiM6a0Run0w/VRk/XSWTHNX7oWTbbK029fPA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by VI0PR04MB10341.eurprd04.prod.outlook.com (2603:10a6:800:217::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Tue, 20 Oct
+ 2026 16:50:38 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 16:50:38 +0000
+From: Frank.Li@oss.nxp.com
+Date: Tue, 20 Oct 2026 12:50:22 -0400
+Subject: [PATCH v7 2/3] remoteproc: imx_rpoc: use memory-region-names to
+ avoid hidden ABI
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261020-memory-region-name-v7-2-1413d5928340@nxp.com>
+References: <20261020-memory-region-name-v7-0-1413d5928340@nxp.com>
+In-Reply-To: <20261020-memory-region-name-v7-0-1413d5928340@nxp.com>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Francesco Valla <francesco@valla.it>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1792515024; l=2768;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=W0d7anE7nCAyJxKpO3peRlzVfdFhwdqNw6YnAHfL4Ws=;
+ b=w2COjKNnMlzGXc32h+tIiarlbwGiTbdjXLnicPDEtAulJcFyAnpZDBIinkyaC61OndXXDJYdE
+ Vy5eaPLIyJ5DKhmkjUfIg6Ttha6riBXoGKN9uKlIOpcRzp7jI8sPXon
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: DM6PR02CA0124.namprd02.prod.outlook.com
+ (2603:10b6:5:1b4::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB10341:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3161b0d3-f72e-4c68-0f93-08df2eca44ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|19092799006|56012099006|260925021311599003|260925022911599003|5023799004|260925021911599003|11063799006|261009223027099003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: nb40RfJN2zUDKvnf6OeeMcuvN+nz/KLadl/ctxYbRmqFG06Vx0SWAwfnR7Cg1KHjlrnnjbDObJJJRi5kOeYF6tFYOzzsgrXBZuJpNYRs/aeBW+uxYIPq3PV6/Lft1jdL7ZKuB04UG7T/Zq3BYADx2ur/3XoNSnQDiPPhNudBtG7quHRpRc8bfCwIksOfb2XduK4auIux09pnbk0rpvEnhZ3g1qGF1DUlTC1KcwPdbmPaDoaRbb6hkpTqCzkwu6iwV1ykT7XFZqnW1dIO/d9r4EkHNby5GAXVXGDng7D6QpD3GikXc5PFfE2njujKrfb9cGVkUj9KR9tRHO1gfbePFdArVmF2rN9ayYjoeKky1Y8RCKuVcsRN1s5YX9mS2q2UxKRuSR4dZ9M2jsEf/ezbKFu5stmgtCzLzXHA//rjxVnhnXzFMaCXGuCo4Cy6IcqQTBkB2V6p4kaauj8L9BtZm0usIghTIHnCjnRXtsOaba0sIxRsrQZ3bfNZ1bnMTxkX6P6fLfC5p0PlVy88HyhyTETnKU9iFs0NW1RxAaEpq8ZrOEwuw2Mq4HP8/xz2yysH33rD0Du7zxAv+Wq8GxT9GMjblDXjDJD728e5vjVVz9dhQP5jhQhiA+yIrYTUhYVa
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(19092799006)(56012099006)(260925021311599003)(260925022911599003)(5023799004)(260925021911599003)(11063799006)(261009223027099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejRGSVBmTW1qV0dUbFREeGNrdHZzNGRpS0pGeW0wTEE4T1JTRjA4ZXYxakNt?=
+ =?utf-8?B?aVdzRzMwdE90anRMOVVOUUF6OHU4aFl5ei9EV2NRNkxVRjdjQXg1bTNnVVl0?=
+ =?utf-8?B?ME04ME00ZHJXSU5zaGlnU2U0L3JidzhiTGpVTjJSMTNXZ1g5Q0hIUlhlZkM5?=
+ =?utf-8?B?ZTg3WElGMnVtTkdRVGVnVkhlYmlLVjBWYnllc2t2VGVEbzMxL05vWERqT2tP?=
+ =?utf-8?B?QWQ3ZFNneTRFQ0FyTlN4N0lpcnRia3VjTDk2ZlVqQjY3TG5DYXljK2x3TE1H?=
+ =?utf-8?B?TktGOHZwRmlRQy9IM2MyU2pnTVE3RDlxTFpNWSsxVUwwa1h3cHlvT1UzdXBP?=
+ =?utf-8?B?Tk9Bb0QzL0w1c3NnSWVGVjFPaXJvNmEvY0FFMUt0aGdDU0JEc0Qwc2V0cGZI?=
+ =?utf-8?B?N09pZlBBekUzcC95R3hTcTNLLzZLMHVmelNUZGo5TTZ4VzhzWU1YYXVJLzZr?=
+ =?utf-8?B?eUFSSFlwTlZVb3EzWmROKzhucFdIclNnK0p3VWhJeGZ0WlJOeDNnRlc3WDU5?=
+ =?utf-8?B?b3J3VnMxVVI3SnFpZ0dNWEkwVFQ3VXBDNEkzMmtpZHh0YytIYjFnc1YzRzQ0?=
+ =?utf-8?B?MXZHbmNpeFM1R1NmSUhlR3QxdXl6emJnZDJoQ2NuRnJ0ckdPRjFsbFZXajB6?=
+ =?utf-8?B?STNpT0dmdGZnMm51NkRCN0pva2FHRjUxSlU3bStpY3IyVENJM3VpeDg0RlYy?=
+ =?utf-8?B?dGhKckNiNGttVUc5ODZhTEFEeDBhUitEVUhybHFJelBJZ09NOEk1TUNYYjg3?=
+ =?utf-8?B?eERuTWdQTm5TWEQydGN1N0o5QVRIU1ZoVWNMN0lpaWtEN3R4dlhMOThhcXBE?=
+ =?utf-8?B?bjBEZ21iNDZPRXp2S2NRWnN4M0ZuR1lCelRnZ0JRbEJOVGZwTUhuVFNBN3pT?=
+ =?utf-8?B?eUdVdU5iVmM5ak5KRnJGeTgvZHpPVGxXUTNybWd5Y3RVdmpWQTRMUTZ5NXI1?=
+ =?utf-8?B?RDJYSTNkbktWRkFlekloa2htR1MrMklTak55SHJSN3VCSVRVVXVvRVRoeGsv?=
+ =?utf-8?B?UjBacGMyNk9ySVBJbnlTS0NOWkJ4eGVweWdMNjA1RExBcHpReVgvTzd3Z3JW?=
+ =?utf-8?B?NUZtQTJ0cS9iVVEvMjNJMXZnNU1MdkZ6c1JnayttckcyQkJsS1F4V3NQejMz?=
+ =?utf-8?B?OGdsR1pIa0RZRE9DQzNsSGQ2aVZUZ0JwUFBhcEtiTENPbzhmdUhZQXJPdllN?=
+ =?utf-8?B?TE53QnBKOVZNUXpNZSswUU4rZ2VsNEtyVGpVK0xnd1FKSUtzcGJFeXJ1dU0z?=
+ =?utf-8?B?TDhjZXU0aFljUENidXRsbU91dlhveGwyUEVEalE5ZTNwTjFNY3FJRnViUU5W?=
+ =?utf-8?B?SmZYQ1RDTkcyZE8vT1U3bTV1QmhUaHMwdGVQaUNMRnJIRVlVeEpHZVJReWYw?=
+ =?utf-8?B?bjRHNnk1eTNnbW1EY0Jrc1lacElYb3R0eG9WdTdZVzdzS0hmaWpJZG9LK0xO?=
+ =?utf-8?B?RnYrTG9Ld0dyTWt6VnhTWlp2WG5tWjR6eHNucXE3MlM2dUY1SHc5TlR4cWJJ?=
+ =?utf-8?B?ZkFPTDI4amZab1FYTEZOM2RobkxoUXBucWNYNWR2Qkd4cHJwMFlrL1ljUFJl?=
+ =?utf-8?B?TU1OS2dqM01yLzBvN2FVS2dFWnpYT284TDZMZi95NjBKM1kvK1p4WW9NOXFE?=
+ =?utf-8?B?dmxDWmVOU2FNMjFPRmp3czlSTXVaWCtOdno2WEc3KzRYeDBmS1JkaFh0LzlU?=
+ =?utf-8?B?U0ljSkpnTlViTi9LbmhvWDJ0YzMyL1JjbUp2RE5MaDNtVkIvUEFiVnRrRVE0?=
+ =?utf-8?B?RDFGQXRsTm01ZEQ0OFM4NVlTL3NxSU44MnA3OWlEY0x4U3lsaDRGNjJaZnFG?=
+ =?utf-8?B?NXVUVWUvajVTSU9TeTBhQ2pNdHppL2tCSU4rMk04L1pkUkQ0aU9VcWJUSUt3?=
+ =?utf-8?B?NWhrYUs5c0xNUDYrWkwwSWtnSTlxUVpCZ2dIMkpTWmpYQWhMZXBGVExYdHdu?=
+ =?utf-8?B?NURoSU1nUGdGSUFDeGRJUXhOZFZjeW43UllBc2NCRjl1b29iVU5PcExjeFlv?=
+ =?utf-8?B?eWF5ZmVITkVvVDdBK0d0RThFeGJPKzgwV3V6MzdFSVFiQk9qNy93RTZidURo?=
+ =?utf-8?B?ajlrYzlOSnBpaTl3bmFVc1kxaFpITmZWVjBUQUxOKzFPalo0TzdScjQybDVR?=
+ =?utf-8?B?bTdFTWNPOE1pNEU3SmRnY0ZnRzJ2SjQwRFV4NGJBbVFtZEF6V0k4TFpGdWF1?=
+ =?utf-8?B?Mmh5Ukdtc1VmRy80T1IvVnFxeUE1engxdXVCSXZaR1pHWU1RZmh5OCtvZnk2?=
+ =?utf-8?B?Wks0dmpYanhpT2pJVVZ0OENhMVZSUWZUeEN1NlB0MmY2bmdXRTFhb3QwQURz?=
+ =?utf-8?B?WStJcXUwUS9hUDEySnl1WEZVRkd3YytuSUdicEJ6dkx5UkVyblBiUjNXc3Fj?=
+ =?utf-8?Q?zK5GUy6DrsEJI45/xYtczAL3UCzQfF0wYEC8k?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3161b0d3-f72e-4c68-0f93-08df2eca44ab
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 16:50:38.0907
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NxM7EWAHNzeKt7GZOPUm8frS+I7XlbET6YT1Ka7y0UCj2r7UxqoZv0VlEsrz3T9B49MbURDNLmo3/bO4JbuaHXER61uJKy13imhWyIy7u8qDs0cmC+cVx8wiKgQ7+Ka7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10341
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_100333_342354_E3D71A20 
-X-CRM114-Status: GOOD (  14.83  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_095048_495790_E5AB7DC5 
+X-CRM114-Status: GOOD (  14.18  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,134 +161,97 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-sun50i_iommu_iotlb_sync_map() invalidates the TLB and PTW cache entries
-around a newly mapped range, as the IOMMU can otherwise keep using stale
-entries for it (see commit e563cc0c787c ("iommu/sun50i: Implement
-.iotlb_sync_map")). When an invalidation times out, it only prints a
-warning and the callback still returns 0, so iommu_map() reports success
-for a mapping that the IOMMU may not be using yet.
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Since commit fa4c4507099f ("iommu: Allow .iotlb_sync_map to fail and
-handle s390's -ENOMEM return"), iommu_map() unmaps the range and fails
-when .iotlb_sync_map() returns an error. Return the result of the
-invalidations, after still issuing all of them and restoring auto
-gating. The page fault handler keeps ignoring it. The unmap path is not
-changed, as .iotlb_sync() and .flush_iotlb_all() cannot report a
-failure.
+The driver currently derives the memory region type from the referenced
+memory node name, creating a hidden DT ABI. Since memory node names are
+not constrained by the binding, incorrect names can silently pass DT
+validation, as seen in examples using "vdevbuffer" instead of
+"vdev0buffer" ([1] and [2]).
 
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+Parse memory-region-names to identify the expected memory regions and avoid
+relying on memory node names as ABI.
+
+Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Francesco Valla <francesco@valla.it>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-This was found with a static analysis tool from ongoing, not yet
-published research, and confirmed by code inspection. It has not been
-reproduced on hardware; a timeout is not expected on working hardware.
-Compile-tested only (ARCH=arm64 defconfig with SUN50I_IOMMU=y, W=1).
+ drivers/remoteproc/imx_rproc.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
- drivers/iommu/sun50i-iommu.c | 42 ++++++++++++++++++++++--------------
- 1 file changed, 26 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index be3f1ce696ba2..74ca3625ae25c 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -298,8 +298,8 @@ static void sun50i_table_flush(struct sun50i_iommu_domain *sun50i_domain,
- 	dma_sync_single_for_device(iommu->dev, dma, size, DMA_TO_DEVICE);
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 581bb07f5893f..1647726893d1a 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -635,6 +635,25 @@ static int imx_rproc_sm_lmm_prepare(struct rproc *rproc)
+ 	return 0;
  }
  
--static void sun50i_iommu_zap_iova(struct sun50i_iommu *iommu,
--				  unsigned long iova)
-+static int sun50i_iommu_zap_iova(struct sun50i_iommu *iommu,
-+				 unsigned long iova)
- {
- 	u32 reg;
- 	int ret;
-@@ -313,10 +313,12 @@ static void sun50i_iommu_zap_iova(struct sun50i_iommu *iommu,
- 					reg, !reg, 1, 2000);
- 	if (ret)
- 		dev_warn(iommu->dev, "TLB invalidation timed out!\n");
-+
-+	return ret;
- }
- 
--static void sun50i_iommu_zap_ptw_cache(struct sun50i_iommu *iommu,
--				       unsigned long iova)
-+static int sun50i_iommu_zap_ptw_cache(struct sun50i_iommu *iommu,
-+				      unsigned long iova)
- {
- 	u32 reg;
- 	int ret;
-@@ -329,29 +331,36 @@ static void sun50i_iommu_zap_ptw_cache(struct sun50i_iommu *iommu,
- 					reg, !reg, 1, 2000);
- 	if (ret)
- 		dev_warn(iommu->dev, "PTW cache invalidation timed out!\n");
-+
-+	return ret;
- }
- 
--static void sun50i_iommu_zap_range(struct sun50i_iommu *iommu,
--				   unsigned long iova, size_t size)
-+static int sun50i_iommu_zap_range(struct sun50i_iommu *iommu,
-+				  unsigned long iova, size_t size)
- {
++static int imx_rproc_rmem_to_resource(struct device_node *np,
++				      int index,
++				      struct resource *res)
++{
 +	int ret;
 +
- 	assert_spin_locked(&iommu->iommu_lock);
- 
- 	iommu_write(iommu, IOMMU_AUTO_GATING_REG, 0);
- 
--	sun50i_iommu_zap_iova(iommu, iova);
--	sun50i_iommu_zap_iova(iommu, iova + SPAGE_SIZE);
-+	/* Issue all invalidations even if one of them times out. */
-+	ret = sun50i_iommu_zap_iova(iommu, iova);
-+	ret = sun50i_iommu_zap_iova(iommu, iova + SPAGE_SIZE) ?: ret;
- 	if (size > SPAGE_SIZE) {
--		sun50i_iommu_zap_iova(iommu, iova + size);
--		sun50i_iommu_zap_iova(iommu, iova + size + SPAGE_SIZE);
-+		ret = sun50i_iommu_zap_iova(iommu, iova + size) ?: ret;
-+		ret = sun50i_iommu_zap_iova(iommu, iova + size + SPAGE_SIZE) ?: ret;
- 	}
--	sun50i_iommu_zap_ptw_cache(iommu, iova);
--	sun50i_iommu_zap_ptw_cache(iommu, iova + SZ_1M);
-+	ret = sun50i_iommu_zap_ptw_cache(iommu, iova) ?: ret;
-+	ret = sun50i_iommu_zap_ptw_cache(iommu, iova + SZ_1M) ?: ret;
- 	if (size > SZ_1M) {
--		sun50i_iommu_zap_ptw_cache(iommu, iova + size);
--		sun50i_iommu_zap_ptw_cache(iommu, iova + size + SZ_1M);
-+		ret = sun50i_iommu_zap_ptw_cache(iommu, iova + size) ?: ret;
-+		ret = sun50i_iommu_zap_ptw_cache(iommu, iova + size + SZ_1M) ?: ret;
- 	}
- 
- 	iommu_write(iommu, IOMMU_AUTO_GATING_REG, IOMMU_AUTO_GATING_ENABLE);
++	ret = of_reserved_mem_region_to_resource(np, index, res);
++	if (ret)
++		return ret;
++
++	/* "memory-region-names" is optional */
++	ret = of_property_read_string_index(np, "memory-region-names",
++					    index, &res->name);
++	if (ret == -EINVAL)
++		return 0;
 +
 +	return ret;
- }
++}
++
+ static int imx_rproc_prepare(struct rproc *rproc)
+ {
+ 	struct imx_rproc *priv = rproc->priv;
+@@ -648,7 +667,7 @@ static int imx_rproc_prepare(struct rproc *rproc)
+ 		int err;
+ 		struct resource res;
  
- static int sun50i_iommu_flush_all_tlb(struct sun50i_iommu *iommu)
-@@ -409,12 +418,13 @@ static int sun50i_iommu_iotlb_sync_map(struct iommu_domain *domain,
- 	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
- 	struct sun50i_iommu *iommu = sun50i_domain->iommu;
- 	unsigned long flags;
-+	int ret;
+-		err = of_reserved_mem_region_to_resource(np, i++, &res);
++		err = imx_rproc_rmem_to_resource(np, i++, &res);
+ 		if (err)
+ 			break;
  
- 	spin_lock_irqsave(&iommu->iommu_lock, flags);
--	sun50i_iommu_zap_range(iommu, iova, size);
-+	ret = sun50i_iommu_zap_range(iommu, iova, size);
- 	spin_unlock_irqrestore(&iommu->iommu_lock, flags);
+@@ -823,11 +842,20 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+ 	if (nph <= 0)
+ 		return 0;
  
--	return 0;
-+	return ret;
- }
++	if (!of_property_present(np, "memory-region-names")) {
++		dev_warn(dev, "using node names for carveouts should be avoided\n");
++	} else {
++		if (nph != of_property_count_strings(np, "memory-region-names")) {
++			dev_err(dev, "invalid reserved memory name count\n");
++			return -EINVAL;
++		}
++	}
++
+ 	/* remap optional addresses */
+ 	for (a = 0; a < nph; a++) {
+ 		struct resource res;
  
- static void sun50i_iommu_iotlb_sync(struct iommu_domain *domain,
+-		err = of_reserved_mem_region_to_resource(np, a, &res);
++		err = imx_rproc_rmem_to_resource(np, a, &res);
+ 		if (err) {
+ 			dev_err(dev, "unable to resolve memory region\n");
+ 			return err;
 
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
 -- 
 2.43.0
 
