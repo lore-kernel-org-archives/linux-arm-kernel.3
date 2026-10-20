@@ -2,134 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8214D606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:58:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81A66606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:00:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZYpygytF;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm1 header.b=iMGuu2KX;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=ObBFphxa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VsnWgAKU;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=pHrDiamZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YJsbVGHweRHxz+pzHfjXXj1fkrhbsYB8BP0nKBtOGeM=; b=ZYpygytFv7xrQlP2O6imEn0U9a
-	0aL3kqPJVROTtTl73jltqgRWrYTyWqG5DnlUkbfp+yi9v5YCbBX2jDR2zFHkUkYFQdtPa7g7un+Yk
-	9X+t9Y6L5ZLe20z+slDs26n6vpoyh5zjCvyszTLH6s4VFW7N11KJVcqwkflEyqwisP0eM/ik5UAZ9
-	iVZSFeStGMtBankYTHXqNcsIoH5L5cbJCFdjdHNVgrYIDYuM6PZ/IfJUHZWcjEJ+wBQ5PAT9gtz2Z
-	W/yvhyUK+PAuD+1Xlt95sbgnkGcTVKbxAmEVzkmOo/RCC9VKiMiD/NXAcpqw57uTQklDX9fWKEEvu
-	UTx/ri2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aH4jLi8atPK96usn2LfTIYVk+m0TXGG78+/k4+u5ZQ8=; b=VsnWgAKUJMg+t2CVHQhd3tfHCG
+	uRD3OTH+S2cl3GGKN2lAgwrqeumaXukyMZPTrk5M+46PqyzHhnDETHwlKegQkDDNqzO/ZBUqdgTwC
+	clRw5jIkXJ8GjJMTef0OI4gkOhjr+Qugl9lNIMWEc6nXdbMD+FXiYF+59iCosFGFp8GzLKax41034
+	+8Dcq9sny14GgTEi1KtVgUXtUGE9tObouE9VBb5PB//0wkZ+7+k2G1HCuaw6AX6EfEquUP5S4d7t9
+	RV8LXRykBRNJRiNRvP3BdiPQYCoeSfYMBUKX9rt3slj5nJvBshuZVD/AovLiZfB5944ity1r7E25N
+	LrpeAumA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCDg-0000000A6sL-1iZD;
-	Tue, 20 Oct 2026 15:57:44 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1xJC92-0000000A6Rt-3OjY;
+	Tue, 20 Oct 2026 15:52:56 +0000
+Received: from mail-westeuropeazon11011027.outbound.protection.outlook.com ([52.101.70.27] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCDW-0000000A6hb-34rM
+	id 1xJC8w-0000000A6RI-1tdk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:57:43 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 02CBE1400112
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 11:55:26 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 20 Oct 2026 11:55:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1792511721;
-	 x=1792598121; bh=YJsbVGHweRHxz+pzHfjXXj1fkrhbsYB8BP0nKBtOGeM=; b=
-	iMGuu2KXkp8vJ8BU3fGHIOUccTamuAJ/CvHYcAFXGvSikxnmCECeP1U4M2qqP8AA
-	BhzZnORWe6FkjXnrMn00HawA/FA/ekYr5SK0NJ+Ec2MvWzyHG4JBJcI7mcmvl0Fv
-	IatcKEHVft+g2swkIQndgo0Tuvi3qQVWNIBTJCP2NjmKUdZ4Dk6TGv+VGH+YxrUq
-	3wbsdlRZqrjYpcuykxwkDMViYf+3q6yOLPeXuXO3XjREeDvMdUnyZBhACIOmAwgv
-	jq8k/PMJ+pClprtcGGk7xaphAR503Etc4DRTbXEkNkCIRNk/oPoXXRAmTbKuTmaL
-	ksuy3wuvTwcs50V+kTsjcA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792511721; x=
-	1792598121; bh=YJsbVGHweRHxz+pzHfjXXj1fkrhbsYB8BP0nKBtOGeM=; b=O
-	bBFphxawUjFZ33873twU36J9yKD+Y2jlwzH+mhqsNv+KurNlZLoBihlqnEa9P8ME
-	5eA0QAxl4qAolYQAqrfz8GSPw6XLLmTz+TNGooLUkf3Gkva4hXwm8Se2dDI1L2iL
-	ZEJ/k06f5fLxd+kY6CAMjpwtFcBZWid91tYlk2y0p/k3hucWZ0LWoCHJwrGGx0nZ
-	C1j2mPS85bvJdTJNIPfhl+6KroMyZ9UvLbz9r3RhzhL9SQSBn+PxY0fcWNP0DGpw
-	8pLhxTLEyXFHu298kFCvarvOrdOSnOjeNJcKuDOQ7Yk6RslVuXYVX8pegs0bp2Bl
-	WjUgqOtAESqz2PptFRcnA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1792511721; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:jVf3gCa+4ka8eY2ylORGlLerbqAGIFemIF7/rpSv85EeZAi
-	zvIH4oXbpMuu7L3nwFjQozaVMA/bPGNfPzNB8NEYm3BdmGuj5nUBRf/uQs4Vre5P
-	8yL64egh2T8iMGS6qaJPlrJJ6rqOJWzxA0Jb65Z69UjQIDEo9QtWIT0zHz40TC4Y
-	x5DoWPG0knXwId+IXrvbDgoJtUK19o70TVJfPcpWH9e5s3g6afyU0YK4i74tmnTe
-	rwnLZTyYN04d07r7UEXB8O7KKmHFOv2KrRFrlAxf264AII/gbgCf/ycsjhWZ8bol
-	rFYRSP3laG4Lk6/dc7ZzIgRuFgF3/YTlzxZMiZw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:wZQON0IzJv28dgK0aA9d312wJRPvMMGsTHqBMRM3g9I=:3aXA+zKnVL2UPOJf+qiGu+atcUd1/V7VGJg1tbSeCGI=;
-X-ME-Sender: <xms:5I7XaiAOXHTf4VRn0ownrfmAjsnRG86mnS7pjNvlnozNfn8zWnkt2A>
-    <xme:5I7XanWX8eB3gd2DpKAnJhIzsjHX4-NAz098IyzBbxDx2P69GXnrvjeIXZ0Vtacz9
-    Z7UecXInG7pn3kHF9dNDKvG-b7H5J-Rlsz8-juUVxZckoEsaO64OcU>
-X-ME-Proxy-Cause: dmFkZTFUYE/iftp4JIqAJC5i8VTKXj1D8SOEE/gupcR4/K/WAhj2icEcZ28P5V4T+Y5EuS
-    ojOThRjYp6NSUdJ/FEUrSZOq/m1lT0XsO3mQqHnomgGus5tI58SYjhuzH78AyRliwctknB
-    F479WwRpPhE9PvvYi7C7Tnr2a1981eHnVzMV9EiAidlE/mbUd2rK5/7RxePrCsCFsBqH8v
-    n4s15YMbSd40ZFJs1f77JXs4HEFxamt8i4cY5X+YwhFav6a4eBKMjfW+WT/XXkUgLL67KZ
-    df8eW1WJeF82VW/XeRv+LHALEru7D51/F717jMkXQjWlRkFtFMaKHIzwoKFHcNkflLkODy
-    8eLAAntPk8fDYEfxJzZlLAZe2pZIIoVnvZ6OfQHn1BHt/O3KW65lRtTAJxeVbFnNwnMHXc
-    WcQk1HxYGn5J89KWypDssfZzK8hC1Qhs3Pv7Zv6SKnIxS7RNVCRpMb88gLZrhIZnEg9VeR
-    kLmxxYxpQGzEJBnHVL2nLYb3SiGOW6Kt1b3jntG79/DoGyaQ8sTn/DlTkOy7z0Df6maSNN
-    4Pl46CScjR8C/BOFtj+lu86ZiB7ibwdxAuem/ZoQbT/GZeen/gT8y8ssuTs17bxwuuUimU
-    a0lPvedltfDI0tGOPzySvDO2VBz9yBBbYIRZU0bkOhiNu8xQZ1KTu1FwH9Zw
-X-ME-Proxy: <xmx:5o7XaoJYl0vulsN000OXT5OiyMxn_B9xJ6XS6LZKqAgty_r_dJa8Gg>
-    <xmx:5o7XapH5BbkXCiSvVaH-uLFtaqGS-aOt3uGWk-EttsqhewS11pGe0A>
-    <xmx:5o7XapCOHNTP7NdwtK6wRTzP9Od-iKIR6_g98NYIZWPuCKRv3TVuDQ>
-    <xmx:5o7Xaj3df_LTF0ENrYxL48KBRz487LhBk_lEoTtZzj7048IaFlD3RQ>
-    <xmx:6Y7Xak92dvOsvO6GS37sAA0WQMzUQAbbfE1enNe4RL3GsdhCho0tbZfv>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 0802532A008F; Tue, 20 Oct 2026 11:55:16 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 20 Oct 2026 15:52:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HE374yIK3rAH5MsJLzSbb/W4hAw/raVom2mF7ZPhviCCsGe4sezVAoJhmhzcCZEkA5mNthIlONbQA7HsaAXql23mIJ9/dB8MKqoS9izCXQMBHxoOjUTPPhmfuEheZ6ngzGKXkB54XtAaAnCzfmvMbucmeHffCa2kOAbbsQ3Bf994MadAglj5B62xIZprV7pcvMUqyx8d4XhMhRLD3OowyHEOPFY1u1WkWKUaaJ+e3ttbMon9XoOLDAgwveDHMzeRG4QUM2pJOz/jDkcRxJVuPGrvp7EHXd3RVbp3OGPbvp5gbF58sluoNntzNTBj64GrYB0qmvdWL8rfW+bIJBHl/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aH4jLi8atPK96usn2LfTIYVk+m0TXGG78+/k4+u5ZQ8=;
+ b=NyYXsf3UCSkVDCwtC7F688GDDkwtnP7wRQaiIZkMmLNpnT+May4CcOaB1Cbl2QummXh6MXeXJrWGlrI4T/ZUEHd2+uFStq7mvZ0cjkGO/fGZOTEiwWsBU8A1afJ2834zX7luPlOu30SYU41h2Ybu25lQKdAd3+k2VeFQYwv2Y4MdkX+gxlZiK1wwFF27m+JDbhhZpaJ1e0Ra8t1tGUCmq4IPQNNvxFCjV+3MiA3p/R6ekA4Ig5whAMSFKeT///vWhH/EnzCR5yKIeUkSu2BZIazzuiwiKqawgTGDpdJEWuoJ2p9kCGiTu5oeRQt6PPBgAWNFPizAlArOhKMraTMd5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aH4jLi8atPK96usn2LfTIYVk+m0TXGG78+/k4+u5ZQ8=;
+ b=pHrDiamZ2fRKplu+HlPZkgsoa8UcuX3s2wY9SysU2lRUPJxz21GQPtuIgJ3GO+r92etgz12tXEXyDGzmIGt0xp4S4icvUrtyEDN83mtfz7TsA2UcMRGusKo5iJzZ4p0HOwOaEa1FDCJQjgXopjvLL3eDnMkL2Zo4rw9euWSeTbDhuARIXcb0p1umUP2VDAAvPsuYbvCXZp+3Zmqg0sQF7b7Ft9R9I2Cu5XoX5jjwpK+eKW0sR0+ykVvNr3ZwvFPCRC9Yi2eAfdCXgSq+xEcjlB7XyevNeDzQ+aO1c+l2guYKHVBGrRChwl9H5HYYL7/hNsToNKjIuxcEEDGb3CKiZQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV2PR04MB11590.eurprd04.prod.outlook.com (2603:10a6:150:2c8::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Tue, 20 Oct
+ 2026 15:52:45 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 15:52:45 +0000
+Date: Tue, 20 Oct 2026 10:52:32 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH v2 2/3] drm/bridge: simple-bridge: Support
+ data-enable-active endpoint property
+Message-ID: <ateOQElYylBqmpdo@SMW015318>
+References: <20261019-v2-apalis-imx6-enable-vga-v2-0-ef6a3a780472@toradex.com>
+ <20261019-v2-apalis-imx6-enable-vga-v2-2-ef6a3a780472@toradex.com>
+ <atZ0jECm5BDeROSI@SMW015318>
+ <u3zistwpxmtjstw6lqh2qfvr3mrj5ozflxfnrln2qqitjnj6lw@5ea5j3zmonw7>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <u3zistwpxmtjstw6lqh2qfvr3mrj5ozflxfnrln2qqitjnj6lw@5ea5j3zmonw7>
+X-ClientProxiedBy: PH8PR15CA0014.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ThreadId: ATLhSvAouVZo
-Date: Tue, 20 Oct 2026 17:54:55 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Marc Kleine-Budde" <mkl@pengutronix.de>
-Cc: "Ian Rogers" <irogers@google.com>, "Thomas Gleixner" <tglx@kernel.org>,
- "Andy Lutomirski" <luto@kernel.org>,
- "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Stefan Kerkmann" <s.kerkmann@pengutronix.de>,
- "Christophe Leroy" <chleroy@kernel.org>,
- "David Laight" <david.laight.linux@gmail.com>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Namhyung Kim" <namhyung@kernel.org>, "Eric Biggers" <ebiggers@google.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Jason A . Donenfeld" <Jason@zx2c4.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <a34133df-224e-4cea-b574-097ad37a791a@app.fastmail.com>
-In-Reply-To: <20261020-nice-turquoise-dinosaur-3079bc-mkl@pengutronix.de>
-References: <20261019201257.3805356-1-irogers@google.com>
- <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
- <20261020-succinct-zebu-of-vigor-6cb2cd-mkl@pengutronix.de>
- <d2afb4cb-145e-488b-8f6e-c83e38735526@app.fastmail.com>
- <20261020-nice-turquoise-dinosaur-3079bc-mkl@pengutronix.de>
-Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV2PR04MB11590:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6bd3c6c-2acb-4f96-8e0e-08df2ec22edd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|23010399003|10067099003|56012099006|22082099003|18002099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: Cx9vlTIoAO4/W+jhLyIOdkHBgipqu0ZBa7LPc7IXGG/uOe+qej5Qr/gHcZg6m7phWrZAyTi4jLt+ZDdL+CPDCoNmZN8JBI+JTcnNDFfuE0wnebGZ4VhnDeDrVc0Z4t50V1dENt9yETkQ7rxNnIjSPiCzepZrj3lHIMlwaXfIiLUKtpBlb8Xx6ETKhAoAVReVQuG/QrnSNEP0MxourrdBmnxsFyBXBzONbuxsCl7bfmq+uGlqbRwaOe7rqpytcFU3NcFM2Pe2AGSSbOuhksSYZukfJPkH2K1i9iNRLjzH39EdC3wkPOw3mp9wX6LA6MqQRCqAU7SLCZ1imNnqmeHsyee9RwS8OkEKkv7Sdg/KlQiyJwpFPk4/hPOj9I1/naDHcYCPE4+RY8uS5TTsesE8u4XKHFPhin8fTEzL0ptcL6C5Yee5dTJX2F0DKVyrMOCq5M2v7R8pcEXewHxIP5cDfQPZcUO/nDBByJzhZV3HT3kZ1aSsJYbiQans4ZF6GiKGrsZ34QrrTldh2ZyOfQyzJYUuDQMdWB4zIVzooPfjURihpthjHA6DSDe1Av75NZ3Pa1Bqq4DTCEuH5kCS8Yhdq8jNeMw27WSgV02Wk4Q8nFPBB6i23m2gkHT8SiAJqtwsjgHvs9hkzDXdDFk83vPuGqr+c0t+3UW+ZxnsLIKJyeM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cXBsQiA+q8X47v7CcP/YzK9fffChXwDYAT8Pv0d7o1Vnjel6UEDYnOV37J6y?=
+ =?us-ascii?Q?szUYS+BWBmhifsXSCYj06nxhXk0axLFmk5lVNJ9+Xf2oYx7XDHYYfwXQWbyR?=
+ =?us-ascii?Q?DPjKpRTSi6rFjxpwde+D357QW3obHCmMXsPNOzl/k1OLaKcfz4vK65SgC93D?=
+ =?us-ascii?Q?20BoXZXTQ8B6MwIHYw861ccqqehx8XUTaI/5OG9LiZ8oJNB5FMrJSTi0I+A1?=
+ =?us-ascii?Q?ArFsv3RHtbQ8vrDc+fCa23k+WQjpOkXRrZe4vFmR2MI2yDvmxNvAoZxnbf/6?=
+ =?us-ascii?Q?mrGVAWxcj1lBkOPuFfTWzPudiBKKzgCX4IkoeSYO7Om2zPcBlKCgqOyAYKV5?=
+ =?us-ascii?Q?88HxXdfComn0JOv984e4kJDniz7T7wfSj0YPdUQVbvm2IY+hfKKZhnhkcqSE?=
+ =?us-ascii?Q?yv9WHT+2NH5DaD/72kOQ1g8VoSJdQDrCL9BiBXpts9fhl0mBCNBVBx57Ost8?=
+ =?us-ascii?Q?uvyRUDS/Ur4uzXOqoxyBaaFMvoimHzvfHSoyb/gDoiJvGzywYeYYdAdJVpV0?=
+ =?us-ascii?Q?LhV5A8p0soJL/ioCkejkqN0vQRHSAzHOH5kfOKaramGQgrXMF4HH/oXvo3sU?=
+ =?us-ascii?Q?jA/Cg3zUytjQBlkST3LB6FMYxh/X+EJVylCqiSe0ITMTEYZCdl+s7/y6AK0F?=
+ =?us-ascii?Q?vueFKX0EKZATYxhDXuX4vla+heJGqWSfOd8oXniyCXfpGsrKIFNj+h73qCHO?=
+ =?us-ascii?Q?UM2tcRkDs3i+JD4I3q6GYek5YFYHGjrLROo90by9eLSha+ifCklqshoSBRkg?=
+ =?us-ascii?Q?0nruHw6jnc3wgRkLV4malsp2tEq2mAty1Ucyq9effHzqfQW3DGpMfNCzqGN+?=
+ =?us-ascii?Q?98aE/PcmcPPdtbOQGI5kYdNuX6heK0voADsRAFE6MKH8y98KbinLLtYD3iXY?=
+ =?us-ascii?Q?0eB5kbqLy8Q9omAiIn/tMqQyAw/kufwUAHNe52jv38E5WZKol/Z+d/CzmGtN?=
+ =?us-ascii?Q?ll3Zfs3El3O2HqvHfGP717EZaNqowhsk1O8jlirVxdO82YazY1cO6+Ghal2b?=
+ =?us-ascii?Q?gq6eQNHXmtnrdgHJVrJ2OjIyqhlvdkxtkxh7QP5QuaR1gsldb8W5OTDrh7cd?=
+ =?us-ascii?Q?xVF6eXWma7byOwssoRLyCUEH4h0TB+GvusaQU7DAqJECMeUe+chz13QOp1sO?=
+ =?us-ascii?Q?cbvFVDAajBi3oYDDp82hkTVECD5cWS7D77RxWP3Ey/jh+yDtghFUaFjGcqk+?=
+ =?us-ascii?Q?aszJCHx3xRjL2245+Gg299e3MBTfB3Vsbv+4ClEPIJIGKinPtt0BeGgqef4O?=
+ =?us-ascii?Q?YDlheZLEM0X5mUrrptZpBCqxfnTuz8ViMP6T7zNrMPFIHKZG8ezVoipQ/HTe?=
+ =?us-ascii?Q?UYNQEsDzj12Hre1Ho7MkF4HZ+n2i6Ze14kp0FlLOBWBWJ0JCn6SogRWFVWvS?=
+ =?us-ascii?Q?wh2REoC6wLY3DcePibbe2u/VUo0ind7P6XihBVyyCco7vL/YmAJgK+5UOm6S?=
+ =?us-ascii?Q?jDMxm8nlhNy324s9xzur/PBuFnNHr1bgHyeyMslajTWHCn2ghI1qHMSyFG1Q?=
+ =?us-ascii?Q?CDmCAoj4iCPy22G6C83cSDbdjGdSiv9vG4T12LBX/VFQOSaaBynfIhgUOmEC?=
+ =?us-ascii?Q?vvCeT4nwW1cgsC6q0QBU/GT8yoK1aeOiRHng9XIzRZy6xhU1YldO1JvmSZzT?=
+ =?us-ascii?Q?6ilVmm0BciIfy5kfSPedoFNLhOnHwk73WmK9KIxKemR9Q+qt/eiEkF1YCNmx?=
+ =?us-ascii?Q?g9InUF/amXQ45YROx0i1ac/w6qK7R5wRPtvXS/j3d7Yd2/Fxgiuzmn8drMW5?=
+ =?us-ascii?Q?EmIPx1VCmUCTrnOqqwFQpLMuAkVJaEjBFyQDVg9RDmqmIVQetVMp?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6bd3c6c-2acb-4f96-8e0e-08df2ec22edd
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 15:52:45.6756
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tcm+stFk5/VD/owdDxIuUie4MDMhlFCw37kvfpxyLqCzKWAW/yZv7rJ+KBxaT/xHzVtIuGB648qGaXppm6JGr+g49erGdOARPVpxmcLPhVGeZJTJopugW5MJMLnr/Mto
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11590
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_085736_175030_6EAFD8AB 
-X-CRM114-Status: GOOD (  23.13  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_085250_492736_EB5E0E94 
+X-CRM114-Status: GOOD (  17.54  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,98 +155,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026, at 16:56, Marc Kleine-Budde wrote:
-> On 20.10.2026 10:24:51, Arnd Bergmann wrote:
->> > FYI: there is the kconfig Symbol HAVE_EFFICIENT_UNALIGNED_ACCESS. Can we
->> > make use of it?
+On Tue, Oct 20, 2026 at 08:15:57AM -0300, Leonardo Costa wrote:
+> On Mon, Oct 19, 2026 at 02:50:36PM -0500, Frank Li wrote:
+> > On Mon, Oct 19, 2026 at 07:17:15AM -0300, Leonardo Costa wrote:
+> > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > >
+> > > Some simple bridges, such as a resistor ladder DAC, may include a
+> > > data-enable input that must be driven at a specific polarity.
+> > >
+> > > Read the data-enable-active property from the input endpoint and fill
+> > > the bridge's input bus flags accordingly, so the upstream encoder drives
+> > > DE with the required polarity. The property is applied only if the
+> > > bridge doesn't provide its own timings struct.
+> > >
+> > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > ---
+> >
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
 >
-> Just noticed that sashiko's review contained the same remark, but the
-> bot only posts to the linux-perf-users@vger.kernel.org list, where I'm
-> not subscribed:
+> Hi Frank,
 >
-> https://lore.kernel.org/all/sashiko-outbox-178182@kernel.org/
->
->> That would be better, but I still hope we can just get back to the
->> portable code across all architectures for the in-kernel version.
->>
->> I have one more request for you: can you check /proc/cpu/alignment
->> on the system that shows the performance regression with and without
->> the patch?
->
-> When booted via NFS-root to the login prompt, we have about 570k System
-> alignment fixups, all in the IP stack: :/
->
-> __udp4_lib_rcv+0x78/0xc6c
-> icmpv6_echo_reply+0x160/0x504
-> ip_send_unicast_reply+0xf0/0x3f8
-> ndisc_send_skb+0x15c/0x40c
-> rawv6_recvmsg+0x114/0x3b4
-> tcp_rcv_established+0x3ec/0xba0
-> tcp_v4_fill_cb+0x70/0xec
-> tcp_validate_incoming+0x540/0x868
+> Sashiko's comment regarding atomic_check was a false positive, but I
+> wasn't too sure about the one regarding devm_kzalloc. It seemed to make
+> sense to me, but I'm not too familiar with this subsystem yet. Do you
+> think this was also a false positive?
 
-That is usually a bug in the ethernet driver, which should take care of
-aligning the IP header in the rx skb. Many drivers do this using
-netdev_alloc_skb_ip_align(), but I see that fec has its own buffer
-management, so it may not be that easy to address here but would
-boost performance quite a bit if you do.
+I am also not familiar it, it looks make sense to me also.
 
-> Comparing v7.0.12 with mainline "unaligned.h" and reverting commit
-> a339671db64b ("vdso: Switch get/put_unaligned() from packed struct to
-> memcpy()") brings no difference with respect to alignment problems. But
-> I see the increase in I/O performance (measured with "fio" [1]) on a
-> UBIFS/NAND file system:
->
-> - v7.0.12 NFS root
->   User:           0
->   System:         573956 (tcp_measure_rcv_mss+0xe4/0x1e0)
->   Skipped:        0
->   Half:           4
->   Word:           573940
->   DWord:          0
->   Multi:          34
->   User faults:    0 (ignored)
->
->   WRITE: bw=272KiB/s (278kB/s), 272KiB/s-272KiB/s (278kB/s-278kB/s), 
-> io=32.0MiB (33.6MB), run=120532-120532msec
->
-> - v7.0.12 NFS root, reverted
->   User:           0
->   System:         574214 (tcp_measure_rcv_mss+0xe4/0x1e0)
->   Skipped:        0
->   Half:           4
->   Word:           574183
->   DWord:          0
->   Multi:          27
->   User faults:    0 (ignored)
->
->   WRITE: bw=343KiB/s (352kB/s), 343KiB/s-343KiB/s (352kB/s-352kB/s), 
-> io=32.0MiB (33.6MB), run=95439-95439msec
+Frank
 
-Ok, so about the same improvement that you saw on ubifs.
-
-> Booting from UBIFS, so only the lab background IP noise...
 >
-> - v7.0.12 UBIFS/NAND root, reverted
->   User:           0
->   System:         164 (rawv6_recvmsg+0x114/0x3b4)
->   Skipped:        0
->   Half:           0
->   Word:           127
->   DWord:          0
->   Multi:          37
->   User faults:    0 (ignored)
-
-At least it seems fairly safe to assume that your original
-finding is correct and my worry about adding more faults is
-unfounded.
-
-       Arnd
+> Best regards,
+> Leonardo
 
