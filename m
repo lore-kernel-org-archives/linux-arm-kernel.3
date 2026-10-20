@@ -2,102 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35AB606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:30:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31F1B606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:30:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EInmYjgn;
-	dkim=pass (1024-bit key, unprotected) header.d=airkyi.com header.i=@airkyi.com header.a=rsa-sha256 header.s=altu2504 header.b=tVr5tDMY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wP6zz8+r;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=gzLhMIRm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00DSnvQSLlU7c2a5io39bkdl0ItMeQnbkaYseBDyixg=; b=EInmYjgn8VqU4PK9E2l3dfrzAs
-	HGBI/dWEzm23AmCrhIkYI3nnnQLv9yoiwbQfThA782zjcO963Sfeqr84ls5XJzelYpeolFxfqaZoh
-	ZzFa6czHYgf3mWe1bN5B3pD38z4Bz43B6QEPQt9DjIgCJnUxipUu7wMVJEvFa355/PZFf1IEoRZ+W
-	65XFenaTxFLMYgI3lzzwJocQ5bp5Ku0prkMsPjkbHkHa00arZ6I44Rjdz136jbstnzpywzPCyAXm/
-	3A9PAFE866lL8AOq/8rW3M+ZQwsORDqAZoaypbl/lJBmAiIAvzJGufiQLJZiTWqrJaEOvtJEgXYLP
-	mSHKxdCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5tXRrlu6pVIT1vr+YhxUcVgo6aTbfODu2mQd8Xde0q8=; b=wP6zz8+rqJZgyxXSKX6nNF4BNs
+	FQCiUxJRQAktdE/rfYOGahHrxgvWbG40qdvXkoPzXaeEUei4c57eESHcOf6LGkdOqcawTK8gcnYR8
+	VZ5bWEfwlWdvarmxg2TYGGU8HsGpWB2A/Zkxa3yYW4ihfn8IsdOFT86sC657JrfMMmM/hd14b5Los
+	YFQW04kJBLPb9aPAGCedTBVmdm4qcdmWQehj1wPcKUCgQuvNRZ1VuIOEHVMekZLzyUIwNNnrtDmDh
+	7KCO5+GX/QOjQNGvfzguW/ZuozGjVJarMehh1quHJhcE6LYZlR/M8dqlj0BcteBwjhjP3f9C6OyPF
+	RhJjcp/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4IN-000000092Em-28QG;
-	Tue, 20 Oct 2026 07:30:03 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1xJ4In-000000092dF-2oIP;
+	Tue, 20 Oct 2026 07:30:29 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4IB-00000009237-2Q6O;
-	Tue, 20 Oct 2026 07:29:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1792481324;
-	bh=00DSnvQSLlU7c2a5io39bkdl0ItMeQnbkaYseBDyixg=;
-	h=From:To:Subject:Date:Message-Id;
-	b=tVr5tDMY480SJldj4Uui1fSaH3thmQcb9Me1tFBp2ARPQ5hQF+Oh4AKa6GKn2eOr/
-	 VTVUJ5OW6Kyzhrs/HJGx3iY9oyEwO9x2pcaHVxqY8DvDFIvAphsgKCikGaA8CEb6HT
-	 rQnBnt91R+ztPMznPpDIY0jYq61+XAAgbICYm7r4=
-X-QQ-mid: zesmtpsz4t1792481322t514923e1
-X-QQ-Originating-IP: /TJ000w8y8vwIxYHjlAvlKq+mX/nB5pqqfq7aEdXmZY=
-Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 20 Oct 2026 15:28:37 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6990828045487407985
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
+	id 1xJ4Ik-000000092YV-0XRX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 07:30:27 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48df0fa43c5so330425f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 00:30:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792481422; x=1793086222; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5tXRrlu6pVIT1vr+YhxUcVgo6aTbfODu2mQd8Xde0q8=;
+        b=gzLhMIRmtJ0KCUf8rLjy0vatnwn8bdoMkeFJ4anJEwNS/4pD98GpF+aaUdy0sMn10z
+         nSdPo71elfHHoh3c91m+mHf/CQxMSd2TYim9jtQPxCcSOMPfznCvQ5L1TYbcFTbhddbz
+         U9jQ2bsxY2vWK8YM4G/Fm91tKvba81BDxOiljdT3qFWKOSkrb1MoEtCzC9bpVd97C0ob
+         +xaFmkKUURf1McD3+KoBgjw0PglDb/nvXdCZAXbvrJ1LQboAARZmHjYgNp9RAVdrJ51p
+         iOgbrlsozejZyF0kaX09ruy0xgNBl6A2eHirlsyZ1aPesANBDQZCjD4aode5naSxS0q4
+         W9uQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792481422; x=1793086222;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5tXRrlu6pVIT1vr+YhxUcVgo6aTbfODu2mQd8Xde0q8=;
+        b=ATb8jJ5ebeV2xvCqZ0HLNkfgmpTMtUtlA8Vji9T8yQC/fGt+W0ZqKaS7iRSqW77Fwx
+         9ChRfGBmoC4Njf9a8ZOEFxoMFFOsOtb29lYneUce7/N/Qb91dYHvkC1z/RxemRlFyHHf
+         ZEuWf/T3yYWbQaBDOtVg2HMgZfmWNwyjP0QfDZm+9vw7TzaneK6Nlu7Mn2CzhExfU5+0
+         bak9RDxQqqvC/rCX0FWM261esXG1YnWzUrr5Hyigh8/QYDkdlN285ZjAdnVtaXux4f3b
+         PoNPW7AILVduqN/NtHUd4ewK6uv4/D0Tnz0dLxHVS5CioDgz0jWjjAEypLzEJlAi0WLs
+         Jd6w==
+X-Forwarded-Encrypted: i=1; AKwUvBzhGKqCUz+0VWdSZN58uN898AR8Vr+0OsLwDPv/HgpPn+9Zn9gYwfL7hjFzoJ/Fz9RdeWiUsECgMvDx4KRKfyw2@lists.infradead.org
+X-Gm-Message-State: AFq9FYKS8zuuPSGPOWOfTS1GMhjynp+o+/cQ5TDom5LclCzNLEZbVluR
+	l3v6WrdbUnsVbeIx57eH39rmpYoutoQMS/qdJAlw15A0xgYRWd8luX7u
+X-Gm-Gg: AYBFou38yYK9KqhwMKocowbHZa8PU0V3HK6q5bXGHCDfGX6Q7HZKXVlbjMips8CBcEF
+	cccfLDQ4VKWP8XWn1WNiFFgfVYR55NEazFV4xxm/JvETC64DK0o/Md670jvXDF/+HiordACfscI
+	xacSmTQFUMB9q4Mk0Rf3W8oJJanst2nun+vq5t1P8vEtvPPxa/6K+f2zixcKnMei30KmayO0Now
+	arMMrFvUY3v/atTfh0A3x085Q/m3I6Hf/lfHqDAng5L7FXMuRZhct+2m/ikpTe7m9kYq5MdepgT
+	FUUv1k6c12YPiceYY1vx9PNzs9TlKcgwzzUGKhZN3VI32/ybKfkyX1o0fB4FNFI6OMODixIGm51
+	88SbJayGF1XKcWP7b0B1Z60J7j56T6EZUlJ1Mtftcm8wM4mz4SwxExCV4KqkRrHLHAzAsTqSJvX
+	oae/HjouBE3Glw7RYmN5UAcGW/RkV2aEHjtfGUFRx5kX1nmGzBjvRC5CFMwQ0JIrWYUe1V/EPBa
+	UeLGnEhLfjwe+bjvA0U0I4=
+X-Received: by 2002:a05:6000:617:b0:48d:f160:efad with SMTP id ffacd0b85a97d-48e1e9f12c3mr3046877f8f.30.1792481421580;
+        Tue, 20 Oct 2026 00:30:21 -0700 (PDT)
+Received: from kali ([102.209.31.129])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e1d817d75sm4747712f8f.25.2026.10.20.00.30.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 00:30:21 -0700 (PDT)
+From: Bashirah Lawal <bashirahlawal017@gmail.com>
+To: outreachy@lists.linux.dev
+Cc: Bashirah Lawal <bashirahlawal017@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH v8 1/7] drm/bridge: aux-hpd-bridge: Add drm_dev_has_dp_hpd_bridge()
-Date: Tue, 20 Oct 2026 15:28:10 +0800
-Message-Id: <20261020072816.180-2-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20261020072816.180-1-kernel@airkyi.com>
-References: <20261020072816.180-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MJ6jNhKcfW6R3v6PMslEjS4Ucgmtk3fxIZa4H9JtnTKBsVcTMUrZl1R/
-	/WAFY+Vl4eG+tnTM9gayApsSf/8e/vDoBTQJ2+pi8vyB1k3kG32NW5c35dU9euwVQN5PRgq
-	nwobbkTFicPiHYixgj6/88BmqqWT4e/BuvPctbrsS6ErCCYKlBqpeO5hNHKZ2HWOjhUn/4g
-	Q69tFGZknXFFhJTQuBZVfHi/IeZx4NSI39SrL1D5yZJacsN1rdovCwC5Rp9olrTF9dy9fju
-	zj3npXYdQtInFZEHmOyJgcne4GpKyvqkAqAA0Ekyhr6nD3FgT5mP0M1vnutqrLCOlVb32Kx
-	32zMb5Vl60CfOORqw0Kf2qUx6NEMrwjTJOhKNnCdzQDC6B5f861AX5ZnkXylIZ0g7CZ9jFI
-	PIuh+HRb0ITK1faQ0B4YoMmrhWuBDMy0oHX/KBMEa+k0kCyiyRTvN9B7maUOTBDHfyXh/Mp
-	7qU0YD4w2liAlrVFZ6bCJriLZWwGKCCJSmCsbBEZLMyYoEQpgjxiw+P7SlqAeWEQPjlEIp0
-	C/IVhK4EDU45k6PoWXCN/fxpYfzm+nhJvDq9gx7I86n8jdOPS25SNplv2QTy6P1jsY8g2oC
-	RTewu/GpSC4mM/GJ8YuXpYbynPpNfWXZUdTgwUd6XBZF3jU9HeG46TspXSknqlMjqFp1Oqy
-	ENGohaIUEep6VZxwMI8kKXvd42moN9jNhHLSzaIwdtfvIST7SIS7YTK6HjOL4zruFBRTEEd
-	Y78vh8T/AIPF0KTIZRbyyGRS0qa4edvkGMGVIcIoEHDACU+h9vEWNGaikk9HnPJzOOwpHG+
-	WPpnDJwpkkSpnstjV9yLIyHmYDTBBuiCCdGjwNvoomFN4aiReF0u0PltzTAzmUlfGxrP418
-	cLanHGzSv0lF/OtVV75YHOk5pp3OljAOXMutlG7GoYUToeHigtobuc5JrXyDSu62LdVvOm2
-	WoEtvVaaX99qsMT4foUClnNEHgnckhSmsychjDYflSOO9Mw+BFmAV22vm63CPxGCurE/eBK
-	ssAtWNww==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt7601u: remove unused ee_read tracepoint
+Date: Tue, 20 Oct 2026 03:29:46 -0400
+Message-ID: <20261020072947.124586-1-bashirahlawal017@gmail.com>
+X-Mailer: git-send-email 2.53.0
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_002952_415231_38439E43 
-X-CRM114-Status: GOOD (  13.56  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261020_003026_184455_E3F5E155 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.5 (+)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,123 +102,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
-X-Archived-By: <archiver.kernel.org>
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+The ee_read trace event was added with the driver in commit
+c869f77d6abb ("add mt7601u driver"), but no call to
+trace_ee_read() has ever existed in the tree. Building with
+UT=1 reports the tracepoint as unused.
 
-Add a new API to check whether a DisplayPort HPD bridge has already
-been registered. This helps avoid duplicate registration of the same
-HPD bridge, although the current framework allows doing so.
+Each unused trace event wastes several KB of kernel memory.
+Remove it to avoid that waste.
 
-Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Signed-off-by: Bashirah Lawal <bashirahlawal017@gmail.com>
 ---
-(no changes since v7)
----
- drivers/gpu/drm/bridge/aux-hpd-bridge.c | 42 ++++++++++++++++++++++++-
- include/drm/bridge/aux-bridge.h         |  6 ++++
- 2 files changed, 47 insertions(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt7601u/trace.h | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-index a2e525aa5788..7aa630fcf735 100644
---- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-+++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-@@ -13,6 +13,8 @@
- #include <drm/drm_bridge.h>
- #include <drm/bridge/aux-bridge.h>
+diff --git a/drivers/net/wireless/mediatek/mt7601u/trace.h b/drivers/net/wireless/mediatek/mt7601u/trace.h
+index 07696b672161..208ab8b0117a 100644
+--- a/drivers/net/wireless/mediatek/mt7601u/trace.h
++++ b/drivers/net/wireless/mediatek/mt7601u/trace.h
+@@ -123,21 +123,6 @@ TRACE_EVENT(mt_vend_req,
+ 		  !!__entry->buf, __entry->buflen)
+ );
  
-+#define DRM_AUX_HPD_BRIDGE_NAME	"dp_hpd_bridge"
-+
- static DEFINE_IDA(drm_aux_hpd_bridge_ida);
- 
- struct drm_aux_hpd_bridge_data {
-@@ -37,6 +39,44 @@ static void drm_aux_hpd_bridge_free_adev(void *_adev)
- 	auxiliary_device_uninit(_adev);
- }
- 
-+static int hpd_bridge_match(struct device *dev, const void *data)
-+{
-+	const struct device_node *np = data;
-+	struct auxiliary_device *adev;
-+
-+	if (!dev_is_auxiliary(dev))
-+		return 0;
-+
-+	adev = to_auxiliary_dev(dev);
-+	if (strcmp(adev->name, DRM_AUX_HPD_BRIDGE_NAME))
-+		return 0;
-+
-+	return adev->dev.platform_data == np;
-+}
-+
-+/**
-+ * drm_dev_has_dp_hpd_bridge - check whether a HPD DisplayPort bridge is registered
-+ * @parent: device instance providing this bridge
-+ * @np: device node pointer corresponding to this bridge instance
-+ *
-+ * Walk the children of @parent and check whether a HPD DisplayPort bridge for
-+ * the given @np has already been registered via devm_drm_dp_hpd_bridge_add().
-+ *
-+ * Return: true if a HPD bridge for @parent / @np already exists, false otherwise
-+ */
-+bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np)
-+{
-+	struct device *child;
-+
-+	child = device_find_child(parent, np, hpd_bridge_match);
-+	if (child) {
-+		put_device(child);
-+		return true;
-+	}
-+	return false;
-+}
-+EXPORT_SYMBOL_GPL(drm_dev_has_dp_hpd_bridge);
-+
- /**
-  * devm_drm_dp_hpd_bridge_alloc - allocate a HPD DisplayPort bridge
-  * @parent: device instance providing this bridge
-@@ -64,7 +104,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str
- 	}
- 
- 	adev->id = ret;
--	adev->name = "dp_hpd_bridge";
-+	adev->name = DRM_AUX_HPD_BRIDGE_NAME;
- 	adev->dev.parent = parent;
- 	adev->dev.release = drm_aux_hpd_bridge_release;
- 	adev->dev.platform_data = of_node_get(np);
-diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
-index c2f5a855512f..cca07a8e2d45 100644
---- a/include/drm/bridge/aux-bridge.h
-+++ b/include/drm/bridge/aux-bridge.h
-@@ -25,6 +25,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str
- int devm_drm_dp_hpd_bridge_add(struct device *dev, struct auxiliary_device *adev);
- struct device *drm_dp_hpd_bridge_register(struct device *parent,
- 					  struct device_node *np);
-+bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np);
- void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status);
- #else
- static inline struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent,
-@@ -44,6 +45,11 @@ static inline struct device *drm_dp_hpd_bridge_register(struct device *parent,
- 	return NULL;
- }
- 
-+static inline bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np)
-+{
-+	return false;
-+}
-+
- static inline void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status)
- {
- }
+-TRACE_EVENT(ee_read,
+-	TP_PROTO(struct mt7601u_dev *dev, int offset, u16 val),
+-	TP_ARGS(dev, offset, val),
+-	TP_STRUCT__entry(
+-		DEV_ENTRY
+-		__field(int, o) __field(u16, v)
+-	),
+-	TP_fast_assign(
+-		DEV_ASSIGN;
+-		__entry->o = offset;
+-		__entry->v = val;
+-	),
+-	TP_printk(DEV_PR_FMT "%04x=%04x", DEV_PR_ARG, __entry->o, __entry->v)
+-);
+-
+ DECLARE_EVENT_CLASS(dev_rf_reg_evt,
+ 	TP_PROTO(struct mt7601u_dev *dev, u8 bank, u8 reg, u8 val),
+ 	TP_ARGS(dev, bank, reg, val),
 -- 
 2.53.0
 
