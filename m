@@ -2,74 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3763606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:57:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 347BF606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:58:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NLVMf6mm;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oM8S1IK7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c44XmY9d;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HcaoLPDy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kq6rZbpshN3DZ0bSrVhBHHv91P8HlcxbwLHISO06Hiw=; b=NLVMf6mmjGKImzkOCSvFEx2ZGq
-	Y7paeMZXbhMnCqc4LSj86JXZ9SsF1y8vgk5ymEbow+/7G3+yk9PRUN9GLG3I7Ex75I2+5EWZK6NFG
-	sjiNp52/QlOclIlNFAeVzde/iyH0sQT6La5t/YsA9O/hTzCxZLmxzwR5Fj2JQBeE+aWpdlWomvBLR
-	QDTfEH8r/A6L8MjA5ZtHmFRMdvZ2FRRgLKUz2goUIuvjGkXj5FCuVTsiI7Nr1Gu/gZZ5P/e7WXpNS
-	9YH3U8nljUZ2V/EN5/E9j9paUB89hrG1Fpga+BMlHgAMks2NnvU/V7mAbufvUy+ym69FwWrU4FFVx
-	zaSmgyoQ==;
+	bh=psxTBiyBkH+KxLML7YqAe/upIHPCDfQs4bqvvBxC+lE=; b=c44XmY9dEi54nAYFxuzP+HM6HH
+	OB7HnmkauW1L3RPBexvqYV6GqoMyiGvxT1R/LgCpgQGRxpSQGmbh1geA/chx0eQgG7EqVJCkVKc2C
+	U52RhRGZxhyHCFEfdSKTvF1uQenzf11RAyYHhHSS8lfxPgSBNvnHNfLYDY8HBFRTrA4kVBe8va0RN
+	eUK/1jHPq7hDu3I7vM0dA0/UBAwd67iIZyE7A6OTvZe6xC/GGdLNeJsACQxqSVI7Xi2puoG7bdc4m
+	hXG+meHCdw7fF4vPxpRLuyD5lPg4U7q+cFOMPqsAuyO7YM3EWwLz9rD81faSDz3wch5NahQmlv8u8
+	tdg+WODA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8Sv-00000009bQL-3ol4;
-	Tue, 20 Oct 2026 11:57:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJ8Tv-00000009bbF-0YBD;
+	Tue, 20 Oct 2026 11:58:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8Su-00000009bPr-45T2;
-	Tue, 20 Oct 2026 11:57:13 +0000
+	id 1xJ8Tt-00000009bar-27ps
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 11:58:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C07640814;
-	Tue, 20 Oct 2026 11:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1EB11F000C9;
-	Tue, 20 Oct 2026 11:57:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F171940783;
+	Tue, 20 Oct 2026 11:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 955561F000C4;
+	Tue, 20 Oct 2026 11:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792497432;
-	bh=kq6rZbpshN3DZ0bSrVhBHHv91P8HlcxbwLHISO06Hiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oM8S1IK7PeAK3jjWXnkQKyllj5j6iBjXPOP87oGc11AzqZ/ey1Njphkbw7bHfCmH4
-	 evooRu8GjmMe8lB6OHwtXtxt29xcVDF9FcEr8jVK6OgPIAFoa6jbGDDKshT0ZRMcP6
-	 TveNXtzaTjjIME2pwjmSh/jgOQfQJclpaXc0NhwHtFE2CFzZJLq9ieztzmhupChCq9
-	 OGIZanHXDTIPdxMx0QloJfYDzC1vmxU32UKMoLlQXtuOWUya8zG9QipU7hzvvVEyqd
-	 VQpxNZPNjcl9tUYU+LlS2fM4Qu/9gHpYWzgArIEgoZfGflj7L+g65CCzZGbIbVMG39
-	 KaNLzZ71FNgVA==
-Date: Tue, 20 Oct 2026 12:57:05 +0100
-From: Lee Jones <lee@kernel.org>
-To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	mfd@lists.linux.dev
-Subject: Re: [PATCH v13 04/13] mfd: zx297520v3: Add a clock and reset MFD
- driver
-Message-ID: <20261020115705.GC1795367@google.com>
-References: <20260927-zx29clk-v13-0-70d8f673386c@gmail.com>
- <20260927-zx29clk-v13-4-70d8f673386c@gmail.com>
+	s=k20260515; t=1792497492;
+	bh=psxTBiyBkH+KxLML7YqAe/upIHPCDfQs4bqvvBxC+lE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HcaoLPDytPyCiCnlZsuFUxkvjLxqnRbTFvBIXp+RP2q/yNkwLA082kKTYIq2GU6FW
+	 Gn8usd6nf4LgC8MXPFuQGkBpW0aLp7FDFTa3nc+5s1tjzRWUVkJUWMxElA9Kev7I1K
+	 kyc9hohT4v+jK7T+22P9qJisyFJ+sfhmb3uDD9Bzz1O4GuKcNRS8TFpxABUp3LAODc
+	 T46mpT5uqV2BESDygC458ZfAZ0r0ZeJEz+DnW3rHMe83siOWtYOplxQuGfvqydXl+1
+	 c66ebZrU97I/82j+OGjFdeGNWXux59i7J4rcyyrIvJ2qy5MV8VWNjn/em2NGziwF4O
+	 7jwgzy229h6Zw==
+Subject: Re: [PATCH net-next v3 1/8] dt-bindings: net: add Xilinx TSN Endpoint
+ Ethernet MAC
+From: netdev-bot+sashiko@kernel.org
+To: srinivas.neeli@amd.com
+Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ edumazet@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
+Date: Tue, 20 Oct 2026 11:58:11 +0000
+Message-ID: <179249749105.3135.3116293825083161439@kernel.org>
+In-Reply-To: <20261016-patches_v2_external-v3-1-e33d3960ca1e@amd.com>
+References: <20261016-patches_v2_external-v3-1-e33d3960ca1e@amd.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260927-zx29clk-v13-4-70d8f673386c@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,273 +73,165 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, 27 Sep 2026, Stefan Dösinger wrote:
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-> This driver registers child devices for the zx297520v3 clock and reset
-> controllers. The clk-zx297520v3 and reset-zte-zx297520v3 submitted in
-> the next patches will drive the respective functionalities.
-> 
-> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-> 
-> ---
-> 
-> v13: Break out the MAINTAINERS change so Lee can selectively apply this
-> patch. I made sure it compiles without the DT binding headers.
-> 
-> Lee, if you prefer, I can send this patch with the MAINTAINERS change
-> folded in stand-alone (or as a pull request). It'll have to tricke into
-> the clk tree before I can PR the bindings and clk driver though.
-> 
-> Changes v12:
-> Added comments elaborating on the role of the driver and the hardware.
-> 
-> Regarding the names: zx297520v3 is the SoC's name (chip marking, boot
-> messages). TOPCRM, MATRIXCRM, LSPCRM are ZTE's names for the MMIO blocks
-> in their downstream sources. Sadly no datasheet is available. "clk",
-> "reset" names for the child nodes are mine.
-> 
-> Regarding personal copyright: I am not affiliated with ZTE nor paid by
-> them. This is my personal hobby project. I am using knowledge extracted
-> from ZTE's kernel dumps, but not code.
-> 
-> Changes v10 (All Lee Jones):
-> *) drop "select REGMAP_MMIO"
-> *) Drop comment about unimplemented hwlocks
-> *) Use MFD_CELL_[NAME|OF]
-> *) Renamed the device type enum and its values
-> *) Use device_get_match_data instead of the of_ variant
-> *) Improved debug messages
-> 
-> Changes v9:
-> Deassert the LSP reset and enable the LSP pclk here. In practice the
-> boot rom needs to do that because it prints to an LSP-connected UART and
-> reads the boot policy from the LSP connected flash chip.
-> 
-> In doing so, I migrated the match data to an enum as mfd.md suggests.
-> 
-> Changes v8:
-> *) Remove .of_compatible from PHY mfd child
-> 
-> *) Move to drivers/mfd (Sashiko)
-> 
-> For me either soc/zte or mfd/ is fine. Note though that this MFD parent
-> is very specific to the zx297520v3 SoC. I don't expect this to be reused
-> anywhere else. There are two more MFD-ish devices in there: soc_sys at
-> 0x140000, which I plan to handle in the same driver, and an i2c PMIC,
-> which would get its own host driver.
-> 
-> *) Use PLATFORM_DEVID_AUTO (Sashiko). NONE was intentional as I only
-> ever expect one instance, but I don't see any harm in doing the standard
-> thing and use AUTO
-> 
-> *) On the suggestion not to put the link to mfd_cells[] into match data:
-> I see that it is spelled out in Sashiko's mfd.md, written by Lee Jones,
-> the MFD maintainer. I would appreciate some education on the rationale
-> behind it: Putting a pointer into the void *data is a common pattern in
-> the kernel. I don't understand in which situation this can possibly
-> break?
-> 
-> Both structs are static const in the same compilation unit. data is a
-> const void *, not a uintptr_t or kernel_ulong_t, so it seems passing a
-> pointer is the intended use. What am I missing?
-> 
-> Changes v7:
-> Add phy MFD child
-> 
-> Changes v6: Make the ZTE SoC driver section depend on HAS_IOMEM
-> (Sashiko). The entire MFD section, which contains MFD_CORE, depends on
-> HAS_IOMEM even with COMPILE_TEST.
-> 
-> Add a NULL ptr check for of_device_get_match_data (Sashiko). While not
-> uniform, rave-sp, rohm-bd9576, atc260x, da9052-i2c protect against
-> incorrect manual attachment that way.
-> 
-> Add lspclk here as well in an attempt to satisfy both Conor Dooley, who
-> asks for MFD for top and matrix, and Philipp Zabel, who prefers aux but
-> at least wants the reset driver limited to one driver type.
-> 
-> Changes v5: Use MFD instead of Aux bus for top and matrix crm because of
-> extra functionality: Reboot in top, hwlock in Matrix.
-> 
-> LSP clocks stay with the aux bus and are thus not handled in this
-> driver. The clk driver will bind directly to the lspcrm node.
-> ---
->  drivers/mfd/Kconfig              |  12 +++++
->  drivers/mfd/Makefile             |   2 +
->  drivers/mfd/zte-zx297520v3-crm.c | 111 +++++++++++++++++++++++++++++++++++++++
->  3 files changed, 125 insertions(+)
-> 
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 857ca3bb0d5b..b30600f6ff0c 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -2580,5 +2580,17 @@ config MFD_MAX7360
->  	  additional drivers must be enabled in order to use the functionality
->  	  of the device.
->  
-> +config MFD_ZTE_ZX297520V3_CRM
-> +	tristate "ZTE zx297520v3 Clock and Reset Manager"
-> +	depends on ARCH_ZTE || COMPILE_TEST
-> +	select MFD_CORE
-> +	default SOC_ZX297520V3
-> +	help
-> +	  Say yes here to enable the driver for the ZTE zx297520v3 clock and
-> +	  reset manager MFD driver. This driver provides the host device for
-> +	  the clock and reset drivers and is required to boot the SoC. You
-> +	  will also need to enable CLK_ZTE_ZX297520V3 and RESET_ZTE_ZX297520V3
-> +	  to build the actual clock and reset child drivers.
-> +
->  endmenu
->  endif
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index 72d3944b0ad8..ab0cba2042a2 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
->  obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
->  
->  obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
-> +
-> +obj-$(CONFIG_MFD_ZTE_ZX297520V3_CRM)	+= zte-zx297520v3-crm.o
-> diff --git a/drivers/mfd/zte-zx297520v3-crm.c b/drivers/mfd/zte-zx297520v3-crm.c
+Low priority / nit picks for your consideration:
+
+- [Low] In Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-
+  ethernet-mac.yaml, the ethernet@ node's dma-names (lines 81-96) doesâ€¦
+- [Low] Concern: tx-queues-config only enforces a lower bound tied to
+  xlnx,num-priorities, and the rest of the checking is left to a driverâ€¦
+- [Low] The child compatibles in
+  Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-â€¦
+
+--
+
+dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
+
+This adds a YAML binding for the Xilinx TSN Endpoint Ethernet MAC IP in
+its Bridged Endpoint configuration. The wrapper node owns the shared
+clocks and xlnx,num-priorities. It has two children: an xlnx,tsn-ep-mac
+endpoint that holds the DMA channels, and an xlnx,tsn-switch three-port
+switch with its MDIO buses and ports.
+
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
 > new file mode 100644
-> index 000000000000..d896261a4d40
+> index 0000000000000..bca834120b3b1
 > --- /dev/null
-> +++ b/drivers/mfd/zte-zx297520v3-crm.c
-> @@ -0,0 +1,111 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Stefan Dösinger
-> + *
-> + * This driver splits the ZTE zx297520v3 SoC's clock and reset management devices into MFD child
-> + * nodes that are managed by independent drivers in their respective subsystems.
-> + *
-> + * ZTE's downstream kernel names the mmio regions "topcrm", "matrixcrm" and "lspcrm". For an
-> + * explanation of how the controllers relate please see the DT binding documentation found in
-> + * Documentation/devicetree/bindings/clock/zte,zx297520v3-*yaml.
-> + *
-> + * The controllers are primarily clock controllers, but they all have reset controls as well. Top
-> + * and Matrix controllers have further auxiliary functions.
+> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> @@ -0,0 +1,491 @@
 
-This final paragraph is semi-useful.  The other two can be removed.
+[ ... ]
 
-By all means add this kind of thing to the Git log, but the driver
-history and rework doesn't belong here.  Talk about what it is and what
-it does.
+> +properties:
+> +  compatible:
+> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
 
-The reset of the code seems fine.
+[ ... ]
 
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/errno.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/reset.h>
-> +
-> +enum zx_device_type {
-> +	TYPE_INVALID = 0,
-> +	TYPE_TOPCRM,
-> +	TYPE_MATRIXCRM,
-> +	TYPE_LSPCRM,
-> +};
-> +
-> +static const struct mfd_cell zx297520v3_topcrm_cells[] = {
-> +	MFD_CELL_NAME("zx297520v3-topclk"),
-> +	MFD_CELL_NAME("zx297520v3-topreset"),
-> +	MFD_CELL_OF("reboot", NULL, NULL, 0, 0, "syscon-reboot"),
-> +	MFD_CELL_NAME("zx297520v3-usb-phy"),
-> +};
-> +
-> +static const struct mfd_cell zx297520v3_matrixcrm_cells[] = {
-> +	MFD_CELL_NAME("zx297520v3-matrixclk"),
-> +	MFD_CELL_NAME("zx297520v3-matrixreset"),
-> +};
-> +
-> +static const struct mfd_cell zx297520v3_lspcrm_cells[] = {
-> +	MFD_CELL_NAME("zx297520v3-lspclk"),
-> +	MFD_CELL_NAME("zx297520v3-lspreset"),
-> +};
-> +
-> +static int zx297520v3_crm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	const struct mfd_cell *cells;
-> +	struct reset_control *reset;
-> +	enum zx_device_type type;
-> +	unsigned int num_cells;
-> +	struct clk *pclk;
-> +
-> +	type = (enum zx_device_type)(kernel_ulong_t)device_get_match_data(dev);
-> +	switch (type) {
-> +	case TYPE_TOPCRM:
-> +		cells = zx297520v3_topcrm_cells;
-> +		num_cells = ARRAY_SIZE(zx297520v3_topcrm_cells);
-> +		break;
-> +
-> +	case TYPE_MATRIXCRM:
-> +		cells = zx297520v3_matrixcrm_cells;
-> +		num_cells = ARRAY_SIZE(zx297520v3_matrixcrm_cells);
-> +		break;
-> +
-> +	case TYPE_LSPCRM:
-> +		cells = zx297520v3_lspcrm_cells;
-> +		num_cells = ARRAY_SIZE(zx297520v3_lspcrm_cells);
-> +
-> +		pclk = devm_clk_get_enabled(dev, "pclk");
-> +		if (IS_ERR(pclk))
-> +			return dev_err_probe(dev, PTR_ERR(pclk), "Could not get 'pclk'\n");
-> +
-> +		reset = devm_reset_control_get_exclusive_deasserted(dev, NULL);
-> +		if (IS_ERR(reset))
-> +			return dev_err_probe(dev, PTR_ERR(reset),
-> +					     "Failed to deassert reset control\n");
-> +		break;
-> +
-> +	default:
-> +		return -ENODEV;
-> +	}
-> +
-> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, cells, num_cells, NULL, 0, NULL);
-> +}
-> +
-> +static const struct of_device_id of_match_zx297520v3_crm[] = {
-> +	{ .compatible = "zte,zx297520v3-topcrm", .data = (void *)TYPE_TOPCRM },
-> +	{ .compatible = "zte,zx297520v3-matrixcrm", .data = (void *)TYPE_MATRIXCRM },
-> +	{ .compatible = "zte,zx297520v3-lspcrm", .data = (void *)TYPE_LSPCRM },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, of_match_zx297520v3_crm);
-> +
-> +static struct platform_driver zx297520v3_crm = {
-> +	.probe = zx297520v3_crm_probe,
-> +	.driver = {
-> +		.name = "zx297520v3-crm",
-> +		.of_match_table = of_match_zx297520v3_crm,
-> +	},
-> +};
-> +module_platform_driver(zx297520v3_crm);
-> +
-> +MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
-> +MODULE_DESCRIPTION("ZTE zx297520v3 CRM driver");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.55.0
-> 
+> +patternProperties:
+> +  "^ethernet@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/net/ethernet-controller.yaml#
+> +    unevaluatedProperties: false
+> +    description:
+> +      Endpoint MAC sub-node. Provides the host-side data path through the
+> +      DMA channels described by its dmas / dma-names.
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-ep-mac
+
+[Severity: Low]
+The wrapper compatible is versioned (xlnx,tsn-endpoint-ethernet-mac-3.0).
+The child compatibles here and on the switch node (xlnx,tsn-switch) are
+generic and carry no version.
+
+writing-bindings.rst asks for specific compatibles, with no device-family
+names. For sub-blocks of a bigger device, it asks for device-based
+compatibles.
+
+If a later IP revision, or the planned Endpoint-only variant, changes the
+endpoint or switch register layout, how would these child nodes be told
+apart? The endpoint driver later in the series matches only on
+"xlnx,tsn-ep-mac" in xlnx_tsn_ep_of_match.
+
+Should the child compatibles be tied to the device or version, the same
+way the wrapper compatible is?
+
+[ ... ]
+
+> +      dma-names:
+> +        minItems: 2
+> +        maxItems: 16
+> +        items:
+> +          pattern: "^(tx|rx)_chan[0-7]$"
+> +        allOf:
+> +          - contains:
+> +              pattern: "^tx_chan[0-7]$"
+> +          - contains:
+> +              pattern: "^rx_chan[0-7]$"
+> +        description: |
+> +          Names matching the entries in 'dmas', one per DMA channel and in
+> +          the same order. TX channel names use "tx_chan<N>" and RX channel
+> +          names use "rx_chan<N>", where N is 0..7. At least one TX and one RX
+> +          channel are required. Example: "tx_chan0", "tx_chan1", ...,
+> +          "rx_chan0", "rx_chan1", ....
+
+[Severity: Low]
+The description says the names are "one per DMA channel". The v3
+changelog says "Cap TX at 8 and RX at 8 channels". Does the schema
+enforce either of these?
+
+Without uniqueItems: true, dt_binding_check appears to accept a 16-entry
+list of fifteen "tx_chan0" plus one "rx_chan0". It also appears to accept
+"tx_chan0".."tx_chan7", then "tx_chan0".."tx_chan6", then "rx_chan0".
+
+dtschema doesn't add uniqueness to -names properties by itself. For
+example, renesas,drif.yaml lists "rx", "rx", while renesas,sdhi.yaml sets
+uniqueItems: true on its clock-names.
+
+Could uniqueItems: true be added here? The pattern only allows eight
+names per direction, so that would also enforce the 8 TX / 8 RX limit.
+
+Later in the series, ep_count_dma_channels() rejects duplicate TX and RX
+names at probe time. So the runtime result is a DT that passes schema
+validation and then fails probe.
+
+[ ... ]
+
+> +        patternProperties:
+> +          "^queue[0-7]$":
+> +            type: object
+> +            additionalProperties: false
+
+[ ... ]
+
+> +        required:
+> +          - queue0
+> +          - queue1
+
+[ ... ]
+
+> +allOf:
+> +  - if:
+> +      properties:
+> +        xlnx,num-priorities:
+> +          const: 3
+> +    then:
+> +      patternProperties:
+> +        "^ethernet@[0-9a-f]+$":
+> +          properties:
+> +            tx-queues-config:
+> +              required:
+> +                - queue0
+> +                - queue1
+> +                - queue2
+
+[Severity: Low]
+With xlnx,num-priorities = <2>, can a tx-queues-config that contains
+queue0 through queue7 still pass dt_binding_check?
+
+The ^queue[0-7]$ pattern accepts every index from 0 to 7. The if/then
+blocks for num-priorities 3..8 only add entries to required. So the
+schema has a lower bound tied to xlnx,num-priorities, but no upper bound.
+
+Later in the series, ep_parse_tx_queue_config() rejects queueN with
+N >= num_tx_queues at probe time, so only schema validation is affected.
+
+Could each if/then block also set queueK: false for K >= N, so the
+schema rejects these nodes too?
+
+[ ... ]
 
 -- 
-Lee Jones
+Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016-patches_v2_external-v3-0-e33d3960ca1e%40amd.com
 
