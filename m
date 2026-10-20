@@ -2,40 +2,40 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A962B606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 02:46:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03728606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 02:46:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rrz9VNPX;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UXYUz7po
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lYnR4wnh;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MIfIiYqP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qG7JtnRczNxt1kKLbkWdEV0AOLzF5wKtMwKHYhdEecc=; b=Rrz9VNPXiMFtRYHA//aPEqEPva
-	6t/lqc+BrkfyunDpgK6mvK+Rqy06K2l6mSfLvDkD9hn0ivnQAVcbePte4LHftVhH5NKSWqOLjsrLd
-	mCiLoawAQXFrlMf+w4FizEM2IaoMJ39nzhFNSrCvwBAaWO7TSeTYQPvRQoz3jqalGRlZXLsqflWYk
-	tbnyY1BPiLHgNsAXvPbaLjMvOazVukSoE502dC9jc/YM8sQWNHb2ioKv65ccfcaREMYjlvjUIlQtr
-	qdTT315eoG7jx9QXwPrV1OcgcR1dpVCq4RTD6fwrfvFWuDrdADMlrI5vC52y/aVOsOTz6xPlayoBJ
-	lVPPafOw==;
+	bh=qs8cAxhySWBLyThS4ZeIA5H/vVY6IeEZqZKTZ+G87Dk=; b=lYnR4wnhccPdRiGGJuLihhBpsZ
+	VpDZ6YeBLQCt5av7U4OGKHWjg8rSt7atpOzmHk5C3XbTit36zIu/koFMbhvBYBfICI1OoOu+85tX5
+	oqIcuAcqz+V4WO2wQJkt4eaEr33iJ5GsIs6GRC2HN7pWlad2RIwPyei5A4B1HMGWdllcf3jxF72a4
+	Fp0j5aXF81cgP3y1BQrIFb9qnxLIysB2x1zECecQiNDm6e9HOD4WN2Jqm/wgwycpJJ3HX5QI2XtWn
+	WeCol8aQ/WDpRSFo1vZYqN/yVq++srjp4CPSGyzr71NYhNiJHc8+nAJyne25ucOQ6bTFzglHcVEZY
+	sK5MbGvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIzro-00000008hrI-3f6Y;
-	Tue, 20 Oct 2026 02:46:20 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIzrZ-00000008hfP-3EDo;
+	id 1xIzrb-00000008hh6-1PAI;
 	Tue, 20 Oct 2026 02:46:07 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xIzrX-00000008hfB-1HQA;
+	Tue, 20 Oct 2026 02:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=qG
-	7JtnRczNxt1kKLbkWdEV0AOLzF5wKtMwKHYhdEecc=; b=UXYUz7poemjlMN23To
-	m6wrUyhgSoSVHHRAoRUS/d7WnKTPTmkz3slpM6wEOjY6eBGD9UtXB5P7RqM0Yh0I
-	jHSBuhgRofCvFinlCWmhjtQb20oqvHU25l1Q5MQs5NmkjiKHkUZtLJjyEUqIzdPd
-	eYNbwoW9XwnkaSL7qORyho6zE=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=qs
+	8cAxhySWBLyThS4ZeIA5H/vVY6IeEZqZKTZ+G87Dk=; b=MIfIiYqPZ+OUUruick
+	eS45VmzaiTWCBPK7QMmD7e+7KqAAc7jLH3ZZ0G7QtVAeSQIPghwaOyZMJ3etO+4V
+	9fG6Vs5PuFkeBlImlkYS4KycTD2Ea0RI4LPjFmAySSEEOg6hUPEPpl1zcyarIcf9
+	P5IeNUi7ooKTFNU9SmWtv6A9g=
 Received: from pc.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3H9HZ1dZq2OtmBQ--.60682S8;
-	Tue, 20 Oct 2026 10:45:55 +0800 (CST)
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3H9HZ1dZq2OtmBQ--.60682S3;
+	Tue, 20 Oct 2026 10:45:48 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
 To: Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -44,33 +44,30 @@ To: Felix Fietkau <nbd@nbd.name>,
 	Sean Wang <sean.wang@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hao Zhang <hao.zhang@mediatek.com>,
-	Quan Zhou <quan.zhou@mediatek.com>,
-	Rong Yan <rong.yan@mediatek.com>,
-	Leon Yen <leon.yen@mediatek.com>,
-	Nelson Yu <nelson.yu@mediatek.com>,
+	Soul Huang <Soul.Huang@mediatek.com>,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH 06/11] wifi: mt76: mt7925: validate register query response
-Date: Tue, 20 Oct 2026 10:45:38 +0800
-Message-Id: <20261020024544.3101738-7-yaojiale02@163.com>
+Subject: [PATCH 01/11] wifi: mt76: mt7921: validate MCU response lengths
+Date: Tue, 20 Oct 2026 10:45:33 +0800
+Message-Id: <20261020024544.3101738-2-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261020024544.3101738-1-yaojiale02@163.com>
 References: <20261020024544.3101738-1-yaojiale02@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3H9HZ1dZq2OtmBQ--.60682S8
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tw4rGryUXF4xCr18uw4DArb_yoW8WFyUpa
-	yUK3y5Ar1UJrsrXw4xCan3ZF43K3Z3KF17CFWxWwn5W3s5Aw1rA3WYvFyYqr43CFZYkrW8
-	Xr4qqFZxurnrWaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j1zuXUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7wP9OGrW1eN6KgAA3z
+X-CM-TRANSID: _____wD3H9HZ1dZq2OtmBQ--.60682S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXryDWFy7CF17tF18GF13twb_yoW5XF15pF
+	WYgas8KryUJrsFgw109F4kAa15twn5JFnrtFy8uwnYqrW3A3Z8GF4F9FyYvr15tFZ5CF1r
+	Jw4vq3ZxWrWDXwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UHUDXUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzhz8N2rW1dyLCQAA3u
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_194606_172743_1913F483 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20261019_194603_683415_DFC157D5 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,55 +83,81 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The register query reads either a basic or RF register response without
-checking its length. A truncated firmware response can cause an
-out-of-bounds read.
+The MCU parser reads receive descriptor and command payload fields
+without checking whether they are present. Truncated firmware responses
+can therefore cause out-of-bounds reads.
 
-Calculate the response size for the selected register type and reject
-short responses before reading the value.
+Validate the descriptor and each command-specific payload before
+accessing or removing it from the skb.
 
-Fixes: c948b5da6bbe ("wifi: mt76: mt7925: add Mediatek Wi-Fi7 driver for mt7925 chips")
+Fixes: 1c099ab44727 ("mt76: mt7921: add MCU support")
 Signed-off-by: Jiale Yao <yaojiale02@163.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ .../net/wireless/mediatek/mt76/mt7921/mcu.c   | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index bca753d8ce71..ce860e63a108 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -113,7 +113,7 @@ int mt7925_mcu_regval(struct mt792x_dev *dev, u32 regidx, u32 *val, bool set)
- 		};
- 	} __packed * res, req;
- 	struct sk_buff *skb;
--	int ret;
-+	int len, ret;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+index 40546005c743..782c8baaf776 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+@@ -26,6 +26,13 @@ int mt7921_mcu_parse_response(struct mt76_dev *mdev, int cmd,
  
- 	if (u32_get_bits(regidx, MT_RF_REG_HDR) == RF_REG_PREFIX) {
- 		req.rf_reg.tag = cpu_to_le16(UNI_CMD_ACCESS_RF_REG_BASIC);
-@@ -138,6 +138,17 @@ int mt7925_mcu_regval(struct mt792x_dev *dev, u32 regidx, u32 *val, bool set)
- 	if (ret)
- 		return ret;
- 
-+	len = sizeof(res->__rsv);
-+	if (u32_get_bits(regidx, MT_RF_REG_HDR) == RF_REG_PREFIX)
-+		len += sizeof(res->rf_reg);
-+	else
-+		len += sizeof(res->reg);
-+
-+	if (skb->len < len) {
-+		dev_kfree_skb(skb);
+ 		return -ETIMEDOUT;
+ 	}
++	if ((cmd == MCU_CMD(PATCH_SEM_CONTROL) ||
++	     cmd == MCU_CMD(PATCH_FINISH_REQ)) &&
++	    skb->len < sizeof(*rxd) - 4 + sizeof(u8))
 +		return -EINVAL;
-+	}
++	if (cmd != MCU_CMD(PATCH_SEM_CONTROL) &&
++	    cmd != MCU_CMD(PATCH_FINISH_REQ) && skb->len < sizeof(*rxd))
++		return -EINVAL;
+ 
+ 	rxd = (struct mt76_connac2_mcu_rxd *)skb->data;
+ 	if (seq != rxd->seq)
+@@ -36,6 +43,9 @@ int mt7921_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ 		skb_pull(skb, sizeof(*rxd) - 4);
+ 		ret = *skb->data;
+ 	} else if (cmd == MCU_EXT_CMD(THERMAL_CTRL)) {
++		if (skb->len < sizeof(*rxd) + 4 + sizeof(__le32))
++			return -EINVAL;
 +
- 	res = (void *)skb->data;
- 	if (u32_get_bits(regidx, MT_RF_REG_HDR) == RF_REG_PREFIX)
- 		*val = le32_to_cpu(res->rf_reg.data);
+ 		skb_pull(skb, sizeof(*rxd) + 4);
+ 		ret = le32_to_cpu(*(__le32 *)skb->data);
+ 	} else if (cmd == MCU_UNI_CMD(DEV_INFO_UPDATE) ||
+@@ -46,6 +56,9 @@ int mt7921_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ 		   cmd == MCU_UNI_CMD(SUSPEND)) {
+ 		struct mt76_connac_mcu_uni_event *event;
+ 
++		if (skb->len < sizeof(*rxd) + sizeof(*event))
++			return -EINVAL;
++
+ 		skb_pull(skb, sizeof(*rxd));
+ 		event = (struct mt76_connac_mcu_uni_event *)skb->data;
+ 		ret = le32_to_cpu(event->status);
+@@ -55,12 +68,18 @@ int mt7921_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ 	} else if (cmd == MCU_CE_QUERY(REG_READ)) {
+ 		struct mt76_connac_mcu_reg_event *event;
+ 
++		if (skb->len < sizeof(*rxd) + sizeof(*event))
++			return -EINVAL;
++
+ 		skb_pull(skb, sizeof(*rxd));
+ 		event = (struct mt76_connac_mcu_reg_event *)skb->data;
+ 		ret = (int)le32_to_cpu(event->val);
+ 	} else if (cmd == MCU_EXT_CMD(WF_RF_PIN_CTRL)) {
+ 		struct mt7921_wf_rf_pin_ctrl_event *event;
+ 
++		if (skb->len < sizeof(*rxd) + sizeof(*event))
++			return -EINVAL;
++
+ 		skb_pull(skb, sizeof(*rxd));
+ 		event = (struct mt7921_wf_rf_pin_ctrl_event *)skb->data;
+ 		ret = (int)event->result;
 -- 
 2.34.1
 
