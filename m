@@ -2,104 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3C90606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:27:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BB5C606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:27:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yaplX1su;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=idlCCDht
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FqM8LL+I;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=LusYo5e/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ab/Xs7UPUYjpSmnpYKvXDQOlhcAF6s7Z01ajFvB7yE=; b=yaplX1suhxFzTdgs0HIcsQwLtq
-	1skhcLNZi2jsLvTX4uvGT4CKxt+PfA1zIsm+Z0b9cygd2MMUkbDtBKbvlv80NDCDYKDYTyElw6Qqr
-	KHOOihbCgiTjuSfgdTGBgzL8bIiCqlFM+Jq4cKkMNy+eoR71OB5hosp0/3tQXDEj9CZCF2nH4Kc9j
-	DsGJ/qjF/REirqLklQY7X8mEWhZqdkYS448TS8kzsa6GXBd+BzyUWe4eeXsqC1yUiZvoRsyESew//
-	4/mU922UUcORGddKGnxgCR126XcCrfAkNTJwlu4mtjGw3NoqFa7smgLrI0zcJRpnFGqiyiBUlskjm
-	0ii0V9ug==;
+	bh=FXgaLSYZ83aSOhpB3j6nH7HqeJaxN9MwPk9cCwVPoEg=; b=FqM8LL+IDrqTkNAsIpvcYq0zhu
+	zWLqVNRILMO4x6OKFFc5h+BH8Ouq8d+WH9e1sO83f8CaxYC+hywX80VapQ+VBpyXg1bHxLR2JyEad
+	ev4/PfwflooJ5dBrpZO1/9ufBE5j3hyAhajYBgZ1YuoRbv1x21GSW7JiGZAA4ae94K3wiNIYiwWfH
+	wotsWwQq6vxub2lkMTyBtxQX29ZsU+FPesCUAMKR9LCa9Zda0jE4vxwnccylMvHQKZOmKLBy96aAT
+	VacL/iIiP7vfyfonYKeVKalnsf1YP9E8TMbxYCrN8M+tZwj3Mu47BzkgXPQUVCGK2b9nd9sA62Bwl
+	OhwFQmVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAsj-00000009xBk-3t2V;
-	Tue, 20 Oct 2026 14:32:01 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJAsf-00000009x8V-1png
+	id 1xJBq6-0000000A3r8-1QDT;
+	Tue, 20 Oct 2026 15:33:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJBox-0000000A3fR-2lKd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 14:31:59 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-885cd98d226so341802b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:31:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792506717; x=1793111517; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+Ab/Xs7UPUYjpSmnpYKvXDQOlhcAF6s7Z01ajFvB7yE=;
-        b=idlCCDhtuJ5hLLpV4wa1t6ls/gfapsaolDkpoJ8HtSTtfg9Tnn5Ed1eLRy6kFkLjwG
-         nPqxSLhf5RPUJzllyNzqawzEXcpbc5ZIa9f4tOn2JNkQ6YnKaDHhhCDrHnvuvxE9BkFf
-         U6S7wtFzpvKsNI7i0xRthiaj1Hz9LMTLigbHs4i7KBlIOqhdDAsVbt89z8NC3ty8NnHm
-         OG8XvpwxuZavTCdRMJBh3rL+XvVgYrZ8RkL7Z6QC7hFDoib8RfHAb/kbCFdBDATaVR04
-         UE6+MT+qemzmlMXFmf4zHpquMu3nXAFGT+nnuubSTJyskCornz8KrSjazB1i+Sy/Odhn
-         Otqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792506717; x=1793111517;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+Ab/Xs7UPUYjpSmnpYKvXDQOlhcAF6s7Z01ajFvB7yE=;
-        b=Z5AJ4zSUozasWG9EZEYEcGHQcumlb5XUfHd111dLFSqeJ+9OgBRX9Jt2Mr69BCv8o4
-         MdNlZpOHekDG838hs8FA/r2WTx7VYZVBON2fJYSI6/+fpv2QSuBonsdjBtvyCcKxqkw0
-         zX0sjQ7RGfP4ZcWLy3NOQ7OWkC9E7LBSsNPjcQfsUTuoK4AXTIAN0Tzyb/RmLSHeBJ6I
-         CLxRvHsXtR13Uf9tglKWdPev6dyUxs1Xkn95VW2bC9xaPSv24+m7n7N+4GLWJQelMuiS
-         tzJ/OeBcKYDFndQBZGtMrRhbLM/S0zRbJucLvFdAdNq/iKQDFhPxKvPjWCkh9Zo+BX7i
-         xE3A==
-X-Forwarded-Encrypted: i=1; AKwUvBxwl1KH721c8FuDswYU+jZcsMUrB+0WkjwjuiUi0jsd1Rg8Gn4MHjudFiUgMjhrwOaxe/ufIdvY2LIJQL1kqdbj@lists.infradead.org
-X-Gm-Message-State: AFq9FYKExw5jsy9tv4s2wqvHAaRGW+elJ+ktmEjgRf8qVKjtqll+kLSE
-	hUounITxDsHKR+cJO3YKvG79DIDdz0E2ShKfsu7O4gPW/XTDSG2JZLDv
-X-Gm-Gg: AYBFou04HRELXPzDJZ9Ko8Diobvi1I0H9kgao66vIIDSdQBLfqGtfBbNCaLajeJkzpR
-	/1cTfgLfSpw7x7DlggKu2AZqL9xu43YZ3Kd/P/z66Kim0/DLsitdXZubtQmj02yH+hnSIa/a1RU
-	YqLZkN7JXzJVxHWfxghZldymKjTQ40OAh6SR/UAm0lMF7P3UJ2xG4XTkgGbOkLOFSpoQa4UIw3r
-	7H8uLh5eak70mMa6Gjn+ALubhwAR3XuA4k0zDNV6y5B9TrTA3YtIGqLYokJrwtzK9tIp34oBC/2
-	/LKfvSSYzutgqOSDF/CAMEGwFAnxosYhdM8ZL0RIgEG+xLzoFPOy12RsWR3xtKHP1MlSREXKGvZ
-	l803BbHbLOwP/CWLB86/1yptazhsmfvnymg04BHHmqaOBtsOtX1yQXdS3F9phtqMT31p9q49jg7
-	R8xY0vbe0IqsyK/+zP4WRlkkhacjpP7va/OZvfzB+9iTufYDAgQ6aeXLKAD2PDgEro1NRN2ZWZ6
-	hmy2UfrcGSVV+p3gidCKWXMM7lr7UjeSfOqXap7NCmsH03eR6kyqbwN3w0NTlA8WlKbJCMCRPm1
-	U3pniI52bER+d+E=
-X-Received: by 2002:a05:6a00:13a4:b0:8a0:5b29:269c with SMTP id d2e1a72fcca58-8a07bfe865fmr1392400b3a.13.1792506716474;
-        Tue, 20 Oct 2026 07:31:56 -0700 (PDT)
-Received: from arch.localdomain (123202092053.ctinets.com. [123.202.92.53])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f580173efsm4789001b3a.50.2026.10.20.07.31.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 07:31:56 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	heiko@sntech.de
-Cc: linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH 2/2] ASoC: codecs: add support for Everest ES7202 PDM ADC
-Date: Tue, 20 Oct 2026 22:31:32 +0800
-Message-ID: <20261020143135.623897-3-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261020143135.623897-1-jerrysteve1101@gmail.com>
-References: <20261020143135.623897-1-jerrysteve1101@gmail.com>
+	Tue, 20 Oct 2026 15:33:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B008516F8;
+	Tue, 20 Oct 2026 08:30:31 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 823C23F7B4;
+	Tue, 20 Oct 2026 08:30:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1792510234; bh=uX61sNx/pMOXT8smCyah17rnMVB+Ex6Ja4uPMIwFAAg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LusYo5e/E9i+iF1dMk4IpxTeUvZsvx2T1cz4iq5jALW9HTUcRxR4K6412qCsht28i
+	 M1Pj/Fz4RmC/EkQHLKa/8gqjVUH82jWPY+ITsoiZewYZKLNr+Q3hpsYBD7tPJ3HL2/
+	 APV4RlGoaBr+cY6wATyO0XqANhu+8yQlXbwkpsKs=
+Message-ID: <605a143f-d452-408f-9fcf-259af8ad004b@arm.com>
+Date: Tue, 20 Oct 2026 16:30:30 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/11] iommu/tegra-smmu: Use a DMA API default domain
+ per swgroup
+To: Mikko Perttunen <mperttunen@nvidia.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
+References: <20261016-b4-arm32-iommu-dma-cookie-v2-0-b06842a01938@nvidia.com>
+ <20261016-b4-arm32-iommu-dma-cookie-v2-11-b06842a01938@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261016-b4-arm32-iommu-dma-cookie-v2-11-b06842a01938@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_073157_507566_60669E5A 
-X-CRM114-Status: GOOD (  25.58  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261020_083312_641934_E069E44C 
+X-CRM114-Status: GOOD (  40.27  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,595 +86,274 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add support for the Everest ES7202, a 2-channel PDM analog-to-digital
-converter controlled over I2C. The device outputs PDM data to the SoC
-PDM controller and is configured through registers for supply voltage,
-analog front-end and per-channel PGA gain.
+On 16/10/2026 7:46 am, Mikko Perttunen wrote:
+> Everything is now in place for the Tegra SMMU to give devices a real
+> IOMMU_DOMAIN_DMA default domain.
+> 
+> Some device drivers still rely on explicit domains (and being able to
+> detach a legacy ARM DMA domain if any), so DMA default domains are
+> enabled on a per-swgroup basis via a use_dma_api flag. As drivers are
+> converted to DMA API usage we can eventually get rid of this. Initially
+> the flag is enabled for TegraDRM and Host1x devices.
+> 
+> On multi_v7_defconfig (where CONFIG_ARM_DMA_USE_IOMMU was always
+> enabled), this will fix TegraDRM probing with certain probe orderings
+> where the legacy implementation's lack of support for multiple devices
+> in one IOMMU group would cause breakage.
+> 
+> On tegra_defconfig, as this now enables CONFIG_ARM_DMA_USE_IOMMU, all
+> devices move to either the legacy ARM DMA path or the new one. This
+> should in principle not cause issues as the drivers would already have
+> been verified on multi_v7_defconfig.
+> 
+> Also set .release_domain to the identity domain to ensure the AS is
+> released appropriately now that the domain can be non-static.
+> 
+> Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
+> ---
+>   drivers/iommu/Kconfig           |  1 +
+>   drivers/iommu/tegra-smmu.c      | 59 ++++++++++++++++++++++++++++++++++++++---
+>   drivers/memory/tegra/tegra114.c | 13 +++++----
+>   drivers/memory/tegra/tegra124.c | 10 ++++---
+>   drivers/memory/tegra/tegra30.c  | 16 ++++++-----
+>   include/soc/tegra/mc.h          |  7 +++++
+>   6 files changed, 87 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index 6e07bd69467a..817e84e0e6ab 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -252,6 +252,7 @@ config TEGRA_IOMMU_SMMU
+>   	depends on TEGRA_AHB
+>   	depends on TEGRA_MC
+>   	select IOMMU_API
+> +	select ARM_DMA_USE_IOMMU if ARM
+>   	help
+>   	  This driver supports the IOMMU hardware (SMMU) found on NVIDIA Tegra
+>   	  SoCs (Tegra30 up to Tegra210).
+> diff --git a/drivers/iommu/tegra-smmu.c b/drivers/iommu/tegra-smmu.c
+> index 6779528a9e7c..1c1910f25553 100644
+> --- a/drivers/iommu/tegra-smmu.c
+> +++ b/drivers/iommu/tegra-smmu.c
+> @@ -994,16 +994,31 @@ static int tegra_smmu_of_xlate(struct device *dev,
+>   
+>   static int tegra_smmu_def_domain_type(struct device *dev)
+>   {
+> +	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+> +	struct tegra_smmu *smmu = dev_iommu_priv_get(dev);
+> +	unsigned int i;
+> +
+> +	if (!fwspec || !smmu)
+> +		return IOMMU_DOMAIN_IDENTITY;
 
-Based on the Rockchip BSP driver[1] by Binyuan Lan <lby@rock-chips.com>
-(committed by Tao Huang <huangtao@rock-chips.com>), originally written
-by David Yang <yangxiaohua@everest-semi.com>.
+Dead code - by this point tegra_smmu_probe_device() has already run (and 
+we've literally reached this call via dev_iommu_ops(dev)) so the device 
+is definitely valid.
 
-[1] https://github.com/rockchip-linux/kernel/blob/develop-6.1/sound/soc/codecs/es7202.c
+> +
+>   	/*
+> -	 * FIXME: For now we want to run all translation in IDENTITY mode, due
+> -	 * to some device quirks. Better would be to just quirk the troubled
+> -	 * devices.
+> +	 * Only clients known to work with the DMA API get a DMA default domain.
+> +	 * The rest keep running in identity mode.
+>   	 */
+> -	return IOMMU_DOMAIN_IDENTITY;
+> +	for (i = 0; i < fwspec->num_ids; i++) {
+> +		const struct tegra_smmu_swgroup *group;
+> +
+> +		group = tegra_smmu_find_swgroup(smmu, fwspec->ids[i]);
+> +		if (!group || !group->use_dma_api)
 
-Link: https://archive.org/details/es-7202-ds
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- sound/soc/codecs/Kconfig  |  10 +
- sound/soc/codecs/Makefile |   2 +
- sound/soc/codecs/es7202.c | 372 ++++++++++++++++++++++++++++++++++++++
- sound/soc/codecs/es7202.h | 133 ++++++++++++++
- 4 files changed, 517 insertions(+)
- create mode 100644 sound/soc/codecs/es7202.c
- create mode 100644 sound/soc/codecs/es7202.h
+Similarly, dev->iommu_group is already assigned with whatever valid 
+group tegra_smmu_device_group() returned, so you could perhaps just do a 
+single iteration over smmu->groups for the lookup.
 
-diff --git a/sound/soc/codecs/Kconfig b/sound/soc/codecs/Kconfig
-index ba59dabeeccd..c1eeebd12cf0 100644
---- a/sound/soc/codecs/Kconfig
-+++ b/sound/soc/codecs/Kconfig
-@@ -1274,6 +1274,16 @@ config SND_SOC_HDMI_CODEC
- config SND_SOC_ES7134
- 	tristate "Everest Semi ES7134 CODEC"
- 
-+config SND_SOC_ES7202
-+	tristate "Everest Semi ES7202 CODEC"
-+	depends on I2C
-+	select REGMAP_I2C
-+	help
-+	  Enable support for the Everest Semiconductor ES7202, a 2-channel
-+	  PDM analog-to-digital converter controlled over I2C. The device
-+	  outputs PDM data to a SoC PDM controller and is configured through
-+	  registers for supply voltage, analog front-end and PGA gain.
-+
- config SND_SOC_ES7241
- 	tristate "Everest Semi ES7241 CODEC"
- 
-diff --git a/sound/soc/codecs/Makefile b/sound/soc/codecs/Makefile
-index 3826f9e4fce8..2a56fad9073a 100644
---- a/sound/soc/codecs/Makefile
-+++ b/sound/soc/codecs/Makefile
-@@ -129,6 +129,7 @@ snd-soc-da732x-y := da732x.o
- snd-soc-da9055-y := da9055.o
- snd-soc-dmic-y := dmic.o
- snd-soc-es7134-y := es7134.o
-+snd-soc-es7202-y := es7202.o
- snd-soc-es7241-y := es7241.o
- snd-soc-es83xx-dsm-common-y := es83xx-dsm-common.o
- snd-soc-es8311-y := es8311.o
-@@ -577,6 +578,7 @@ obj-$(CONFIG_SND_SOC_DA732X)	+= snd-soc-da732x.o
- obj-$(CONFIG_SND_SOC_DA9055)	+= snd-soc-da9055.o
- obj-$(CONFIG_SND_SOC_DMIC)	+= snd-soc-dmic.o
- obj-$(CONFIG_SND_SOC_ES7134)	+= snd-soc-es7134.o
-+obj-$(CONFIG_SND_SOC_ES7202)	+= snd-soc-es7202.o
- obj-$(CONFIG_SND_SOC_ES7241)	+= snd-soc-es7241.o
- obj-$(CONFIG_SND_SOC_ES83XX_DSM_COMMON)    += snd-soc-es83xx-dsm-common.o
- obj-$(CONFIG_SND_SOC_ES8311)    += snd-soc-es8311.o
-diff --git a/sound/soc/codecs/es7202.c b/sound/soc/codecs/es7202.c
-new file mode 100644
-index 000000000000..c30b0123c91f
---- /dev/null
-+++ b/sound/soc/codecs/es7202.c
-@@ -0,0 +1,372 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright Everest Semiconductor Co., Ltd.
-+ *
-+ * Author: David Yang <yangxiaohua@everest-semi.com>
-+ * Author: Jun Yan <jerrysteve1101@gmail.com>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/i2c.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <sound/pcm.h>
-+#include <sound/pcm_params.h>
-+#include <sound/soc.h>
-+#include <sound/soc-dapm.h>
-+#include <sound/tlv.h>
-+#include "es7202.h"
-+
-+/*
-+ * The main supply voltage selects the analog front-end configuration:
-+ * below this threshold the device is configured for 1.8 V, otherwise 3.3 V.
-+ */
-+#define ES7202_SUPPLY_1V8_MAX_UV	1980000
-+#define ES7202_SUPPLY_3V3_DEFAULT_UV	3300000
-+
-+struct es7202_priv {
-+	struct regmap *regmap;
-+	struct regulator *supply;
-+	struct gpio_desc *reset_gpio;
-+	unsigned int supply_uv;
-+};
-+
-+static bool es7202_volatile_reg(struct device *dev, unsigned int reg)
-+{
-+	/* status and device-id registers are read-only, never cached */
-+	return reg == ES7202_CHIP_STA ||
-+	       reg == ES7202_DEV_ID1 ||
-+	       reg == ES7202_DEV_ID0;
-+}
-+
-+static const struct reg_default es7202_reg_defaults[] = {
-+	{ ES7202_RESET,		0x10 },
-+	{ ES7202_SOFT_MODE,	0x00 },
-+	{ ES7202_CLK_DIV,	0x04 },
-+	{ ES7202_CLK_EN,	0x00 },
-+	{ ES7202_T1_VMID,	0x01 },
-+	{ ES7202_T2_VMID,	0x18 },
-+	{ ES7202_PDM_INF_CTL,	0x30 },
-+	{ ES7202_MISC_CTL,	0x02 },
-+	{ ES7202_ANALOG_EN,	0xff },
-+	{ ES7202_BIAS_VMID,	0x0c },
-+	{ ES7202_PGA1_BIAS,	0x55 },
-+	{ ES7202_PGA2_BIAS,	0x55 },
-+	{ ES7202_MOD1_BIAS,	0x8c },
-+	{ ES7202_MOD2_BIAS,	0x33 },
-+	{ ES7202_VREFP_BIAS,	0x33 },
-+	{ ES7202_VMMOD_BIAS,	0x33 },
-+	{ ES7202_MODS_BIAS,	0x44 },
-+	{ ES7202_ANALOG_LP1,	0x00 },
-+	{ ES7202_ANALOG_LP2,	0x00 },
-+	{ ES7202_ANALOG_MISC1,	0x00 },
-+	{ ES7202_ANALOG_MISC2,	0xf8 },
-+	{ ES7202_PGA1,		0x18 },
-+	{ ES7202_PGA2,		0x18 },
-+};
-+
-+static const struct regmap_config es7202_regmap = {
-+	.reg_bits	= 8,
-+	.val_bits	= 8,
-+	.max_register	= ES7202_DEV_ID0,
-+	.reg_defaults	= es7202_reg_defaults,
-+	.num_reg_defaults = ARRAY_SIZE(es7202_reg_defaults),
-+	.volatile_reg	= es7202_volatile_reg,
-+	.cache_type	= REGCACHE_MAPLE,
-+};
-+
-+/*
-+ * PGA gain per the datasheet: code 0 is 0 dB, codes 1..10 step +3 dB from
-+ * 2.25 dB, and codes 11 and 12 are 30.75 dB and 32.25 dB respectively.  As
-+ * the steps are not uniform, a linear TLV (the vendor driver's
-+ * DECLARE_TLV_DB_SCALE(mic_boost_tlv, 0, 300, 0)) would misreport the gain,
-+ * so use a piecewise range matching the datasheet instead.
-+ */
-+static const DECLARE_TLV_DB_RANGE(mic_boost_tlv,
-+	0, 0, TLV_DB_SCALE_ITEM(0, 0, 0),
-+	1, 10, TLV_DB_SCALE_ITEM(225, 300, 0),
-+	11, 11, TLV_DB_SCALE_ITEM(3075, 0, 0),
-+	12, 12, TLV_DB_SCALE_ITEM(3225, 0, 0),
-+);
-+
-+static const struct snd_kcontrol_new es7202_controls[] = {
-+	SOC_SINGLE_TLV("PGA1 Capture Volume", ES7202_PGA1, 0, 0x0c, 0,
-+		       mic_boost_tlv),
-+	SOC_SINGLE_TLV("PGA2 Capture Volume", ES7202_PGA2, 0, 0x0c, 0,
-+		       mic_boost_tlv),
-+};
-+
-+static const struct snd_soc_dapm_widget es7202_dapm_widgets[] = {
-+	SND_SOC_DAPM_INPUT("MIC1"),
-+	SND_SOC_DAPM_INPUT("MIC2"),
-+	SND_SOC_DAPM_ADC("ADC", "Capture", SND_SOC_NOPM, 0, 0),
-+};
-+
-+static const struct snd_soc_dapm_route es7202_dapm_routes[] = {
-+	{ "ADC", NULL, "MIC1" },
-+	{ "ADC", NULL, "MIC2" },
-+};
-+
-+static int es7202_mute_pdm(struct es7202_priv *es7202, bool mute)
-+{
-+	return regmap_update_bits(es7202->regmap, ES7202_PDM_INF_CTL,
-+				  ES7202_PDM_INF_CTL_MUTE,
-+				  mute ? ES7202_PDM_INF_CTL_MUTE : 0);
-+}
-+
-+static int es7202_hw_init(struct es7202_priv *es7202)
-+{
-+	struct regmap *regmap = es7202->regmap;
-+	bool is_1v8 = es7202->supply_uv > 0 &&
-+		      es7202->supply_uv <= ES7202_SUPPLY_1V8_MAX_UV;
-+	/*
-+	 * Power-up sequence from the vendor driver.
-+	 * The analog front-end is configured for the actual supply voltage
-+	 * (1.8 V vs 3.3 V) and the analog blocks are ramped out of
-+	 * power-down in stages.
-+	 */
-+	const struct reg_sequence init_seq[] = {
-+		{ ES7202_SOFT_MODE,	ES7202_MODE_SOFT_MODE_SEL },
-+		{ ES7202_ANALOG_MISC1,	ES7202_ANALOG_MISC1_OFFSETSEL1 |
-+					(is_1v8 ? 0 : ES7202_ANALOG_MISC1_SUPPLYSEL) },
-+
-+		/* 30.75 dB gain */
-+		{ ES7202_PGA1,		ES7202_PGA_SELMIC1 |
-+					FIELD_PREP(ES7202_PGA_MIC1_GAIN, 11) },
-+		{ ES7202_PGA2,		ES7202_PGA_SELMIC2 |
-+					FIELD_PREP(ES7202_PGA_MIC2_GAIN, 11) },
-+
-+		/* analog on, rest powered down */
-+		{ ES7202_ANALOG_EN,	ES7202_ANALOG_EN_PDN_ADCVREFGEN |
-+					ES7202_ANALOG_EN_MODTOP1_RST |
-+					ES7202_ANALOG_EN_MODTOP2_RST |
-+					ES7202_ANALOG_EN_PDN_MOD1 |
-+					ES7202_ANALOG_EN_PDN_MOD2 |
-+					ES7202_ANALOG_EN_PDN_PGA1 |
-+					ES7202_ANALOG_EN_PDN_PGA2 },
-+
-+		{ ES7202_BIAS_VMID,	FIELD_PREP(ES7202_BIAS_ADCBIAS_SWH1, 3) |
-+					ES7202_BIAS_ENDITHER |
-+					FIELD_PREP(ES7202_BIAS_VMIDSEL, 3) },
-+
-+		/* VREFGEN on; 3.3 V also drops MODTOP reset */
-+		{ ES7202_ANALOG_EN,	is_1v8 ?
-+					(ES7202_ANALOG_EN_MODTOP1_RST |
-+					 ES7202_ANALOG_EN_MODTOP2_RST |
-+					 ES7202_ANALOG_EN_PDN_MOD1 |
-+					 ES7202_ANALOG_EN_PDN_MOD2 |
-+					 ES7202_ANALOG_EN_PDN_PGA1 |
-+					 ES7202_ANALOG_EN_PDN_PGA2) :
-+					(ES7202_ANALOG_EN_PDN_MOD1 |
-+					 ES7202_ANALOG_EN_PDN_MOD2 |
-+					 ES7202_ANALOG_EN_PDN_PGA1 |
-+					 ES7202_ANALOG_EN_PDN_PGA2) },
-+
-+		{ ES7202_ANALOG_EN,	0 },
-+		{ ES7202_MOD1_BIAS,	FIELD_PREP(ES7202_MOD1_BIAS_SW0, 5) |
-+					FIELD_PREP(ES7202_MOD1_BIAS_SW1, 8) },
-+		{ ES7202_CLK_DIV,	FIELD_PREP(ES7202_CLK_DIV_MCLK_DIV, 1) },
-+		{ ES7202_T2_VMID,	0x01 },
-+		{ ES7202_MISC_CTL,	ES7202_MISC_DSM_DITHER_ON },
-+		{ ES7202_RESET,		ES7202_RESET_CSM_ON },
-+		{ ES7202_CLK_EN,	ES7202_CLK_ANA_CLK_ON | ES7202_CLK_MCLK_ON },
-+		{ ES7202_BIAS_VMID,	FIELD_PREP(ES7202_BIAS_ADCBIAS_SWH1, 3) |
-+					ES7202_BIAS_ENDITHER |
-+					FIELD_PREP(ES7202_BIAS_VMIDSEL, 2) },
-+	};
-+	int ret;
-+
-+	ret = regmap_multi_reg_write(regmap, init_seq, ARRAY_SIZE(init_seq));
-+	if (ret)
-+		return ret;
-+
-+	return es7202_mute_pdm(es7202, false);
-+}
-+
-+static int es7202_mute_stream(struct snd_soc_dai *dai, int mute, int stream)
-+{
-+	struct snd_soc_component *component = dai->component;
-+	struct es7202_priv *es7202 = snd_soc_component_get_drvdata(component);
-+
-+	if (stream == SNDRV_PCM_STREAM_PLAYBACK)
-+		return 0;
-+
-+	return es7202_mute_pdm(es7202, mute);
-+}
-+
-+static const struct snd_soc_dai_ops es7202_dai_ops = {
-+	.mute_stream = es7202_mute_stream,
-+};
-+
-+static struct snd_soc_dai_driver es7202_dai = {
-+	.name = "es7202-hifi",
-+	.capture = {
-+		.stream_name	= "Capture",
-+		.channels_min	= 1,
-+		.channels_max	= 2,
-+		.rates		= SNDRV_PCM_RATE_8000_96000,
-+		.formats	= SNDRV_PCM_FMTBIT_S16_LE,
-+	},
-+	.ops = &es7202_dai_ops,
-+};
-+
-+static int es7202_suspend(struct snd_soc_component *component)
-+{
-+	struct es7202_priv *es7202 = snd_soc_component_get_drvdata(component);
-+
-+	return es7202_mute_pdm(es7202, true);
-+}
-+
-+static int es7202_resume(struct snd_soc_component *component)
-+{
-+	struct es7202_priv *es7202 = snd_soc_component_get_drvdata(component);
-+	int ret;
-+
-+	regcache_mark_dirty(es7202->regmap);
-+	ret = regcache_sync(es7202->regmap);
-+	if (ret)
-+		return ret;
-+
-+	return es7202_mute_pdm(es7202, false);
-+}
-+
-+static const struct snd_soc_component_driver es7202_component_driver = {
-+	.controls		= es7202_controls,
-+	.num_controls		= ARRAY_SIZE(es7202_controls),
-+	.dapm_widgets		= es7202_dapm_widgets,
-+	.num_dapm_widgets	= ARRAY_SIZE(es7202_dapm_widgets),
-+	.dapm_routes		= es7202_dapm_routes,
-+	.num_dapm_routes	= ARRAY_SIZE(es7202_dapm_routes),
-+	.suspend		= es7202_suspend,
-+	.resume			= es7202_resume,
-+	.idle_bias_on		= 1,
-+	.endianness		= 1,
-+};
-+
-+static void es7202_disable_supply(void *data)
-+{
-+	regulator_disable(data);
-+}
-+
-+static int es7202_i2c_probe(struct i2c_client *i2c)
-+{
-+	struct device *dev = &i2c->dev;
-+	struct es7202_priv *es7202;
-+	unsigned int id1, id0, device_id;
-+	int ret;
-+
-+	es7202 = devm_kzalloc(dev, sizeof(*es7202), GFP_KERNEL);
-+	if (!es7202)
-+		return -ENOMEM;
-+
-+	i2c_set_clientdata(i2c, es7202);
-+
-+	es7202->regmap = devm_regmap_init_i2c(i2c, &es7202_regmap);
-+	if (IS_ERR(es7202->regmap))
-+		return dev_err_probe(dev, PTR_ERR(es7202->regmap),
-+				     "failed to init regmap\n");
-+
-+	es7202->reset_gpio = devm_gpiod_get_optional(dev, "reset",
-+						     GPIOD_OUT_HIGH);
-+	if (IS_ERR(es7202->reset_gpio))
-+		return dev_err_probe(dev, PTR_ERR(es7202->reset_gpio),
-+				     "failed to get reset gpio\n");
-+
-+	es7202->supply = devm_regulator_get_optional(dev, "vdd");
-+	if (IS_ERR(es7202->supply)) {
-+		if (PTR_ERR(es7202->supply) != -ENODEV)
-+			return dev_err_probe(dev, PTR_ERR(es7202->supply),
-+					     "failed to get supply\n");
-+
-+		es7202->supply = NULL;
-+		es7202->supply_uv = ES7202_SUPPLY_3V3_DEFAULT_UV;
-+	} else {
-+		ret = regulator_enable(es7202->supply);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to enable supply\n");
-+
-+		ret = devm_add_action_or_reset(dev, es7202_disable_supply,
-+					       es7202->supply);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to add supply disable action\n");
-+
-+		es7202->supply_uv = regulator_get_voltage(es7202->supply);
-+		if (es7202->supply_uv < 0)
-+			es7202->supply_uv = ES7202_SUPPLY_3V3_DEFAULT_UV;
-+	}
-+
-+	/* take the device out of reset */
-+	gpiod_set_value_cansleep(es7202->reset_gpio, 0);
-+	usleep_range(1000, 2000);
-+
-+	/* verify the chip is present by reading its device id */
-+	ret = regmap_read(es7202->regmap, ES7202_DEV_ID1, &id1);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to read device id\n");
-+	ret = regmap_read(es7202->regmap, ES7202_DEV_ID0, &id0);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to read device id\n");
-+
-+	device_id = (id1 << 8) | id0;
-+	if (device_id != ES7202_DEVICE_ID)
-+		return dev_err_probe(dev, -ENODEV,
-+				     "unexpected device id 0x%04x, expected 0x%04x\n",
-+				     device_id, ES7202_DEVICE_ID);
-+
-+	ret = es7202_hw_init(es7202);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to init device\n");
-+
-+	return devm_snd_soc_register_component(dev, &es7202_component_driver,
-+					       &es7202_dai, 1);
-+}
-+
-+static void es7202_i2c_remove(struct i2c_client *i2c)
-+{
-+	struct es7202_priv *es7202 = i2c_get_clientdata(i2c);
-+
-+	es7202_mute_pdm(es7202, true);
-+}
-+
-+static void es7202_i2c_shutdown(struct i2c_client *i2c)
-+{
-+	struct es7202_priv *es7202 = i2c_get_clientdata(i2c);
-+
-+	es7202_mute_pdm(es7202, true);
-+}
-+
-+static const struct of_device_id es7202_of_match[] = {
-+	{ .compatible = "everest,es7202" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, es7202_of_match);
-+
-+static const struct i2c_device_id es7202_i2c_id[] = {
-+	{ "es7202" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, es7202_i2c_id);
-+
-+static struct i2c_driver es7202_i2c_driver = {
-+	.driver = {
-+		.name		= "es7202",
-+		.of_match_table	= of_match_ptr(es7202_of_match),
-+	},
-+	.probe		= es7202_i2c_probe,
-+	.remove		= es7202_i2c_remove,
-+	.shutdown	= es7202_i2c_shutdown,
-+	.id_table	= es7202_i2c_id,
-+};
-+module_i2c_driver(es7202_i2c_driver);
-+
-+MODULE_DESCRIPTION("Everest Semi ES7202 PDM ADC ALSA SoC Codec Driver");
-+MODULE_AUTHOR("David Yang <yangxiaohua@everest-semi.com>");
-+MODULE_AUTHOR("Jun Yan <jerrysteve1101@gmail.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/sound/soc/codecs/es7202.h b/sound/soc/codecs/es7202.h
-new file mode 100644
-index 000000000000..15811b73c20a
---- /dev/null
-+++ b/sound/soc/codecs/es7202.h
-@@ -0,0 +1,133 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright Everest Semiconductor Co., Ltd.
-+ *
-+ * Author: David Yang <yangxiaohua@everest-semi.com>
-+ * Author: Jun Yan <jerrysteve1101@gmail.com>
-+ */
-+
-+#ifndef _ES7202_H
-+#define _ES7202_H
-+
-+#include <linux/bits.h>
-+
-+/* Register addresses */
-+#define ES7202_RESET		0x00
-+#define ES7202_SOFT_MODE	0x01
-+#define ES7202_CLK_DIV		0x02
-+#define ES7202_CLK_EN		0x03
-+#define ES7202_T1_VMID		0x04
-+#define ES7202_T2_VMID		0x05
-+#define ES7202_CHIP_STA		0x06
-+#define ES7202_PDM_INF_CTL	0x07
-+#define ES7202_MISC_CTL		0x08
-+#define ES7202_ANALOG_EN	0x10
-+#define ES7202_BIAS_VMID	0x11
-+#define ES7202_PGA1_BIAS	0x12
-+#define ES7202_PGA2_BIAS	0x13
-+#define ES7202_MOD1_BIAS	0x14
-+#define ES7202_MOD2_BIAS	0x15
-+#define ES7202_VREFP_BIAS	0x16
-+#define ES7202_VMMOD_BIAS	0x17
-+#define ES7202_MODS_BIAS	0x18
-+#define ES7202_ANALOG_LP1	0x19
-+#define ES7202_ANALOG_LP2	0x1a
-+#define ES7202_ANALOG_MISC1	0x1b
-+#define ES7202_ANALOG_MISC2	0x1c
-+#define ES7202_PGA1		0x1d
-+#define ES7202_PGA2		0x1e
-+#define ES7202_DEV_ID1		0xfd
-+#define ES7202_DEV_ID0		0xfe
-+
-+#define ES7202_DEVICE_ID		0x7201
-+
-+#define ES7202_RESET_RST_REGS		BIT(5)
-+#define ES7202_RESET_RST_DIG		BIT(4)
-+#define ES7202_RESET_SEQ_DIS		BIT(1)
-+#define ES7202_RESET_CSM_ON		BIT(0)
-+
-+#define ES7202_MODE_SOFT_MODE_SEL	BIT(0)
-+
-+#define ES7202_CLK_DIV_MCLK_DIV		GENMASK(3, 0)	/* 0/1 = /16 ... 15 = /240 */
-+
-+#define ES7202_CLK_MCLK_INVERT		BIT(2)
-+#define ES7202_CLK_ANA_CLK_ON		BIT(1)
-+#define ES7202_CLK_MCLK_ON		BIT(0)
-+
-+#define ES7202_CHIP_STA_CSM_STATE	GENMASK(5, 4)
-+#define ES7202_CHIP_STA_FORCE_CSM	GENMASK(2, 0)
-+
-+#define ES7202_PDM_NEG_DATA_VALID	BIT(5)
-+#define ES7202_PDM_POS_DATA_VALID	BIT(4)
-+#define ES7202_PDM_CHN_CROSS		BIT(3)
-+#define ES7202_PDM_IF_DLY		BIT(2)
-+#define ES7202_PDM_DATA2_MUTE		BIT(1)
-+#define ES7202_PDM_DATA1_MUTE		BIT(0)
-+#define ES7202_PDM_INF_CTL_MUTE		(ES7202_PDM_DATA2_MUTE | \
-+					 ES7202_PDM_DATA1_MUTE)
-+
-+#define ES7202_MISC_CLKDET_RST_DIS	BIT(2)
-+#define ES7202_MISC_DSM_DITHER_ON	BIT(1)
-+#define ES7202_MISC_PDN_CLKDET		BIT(0)
-+
-+#define ES7202_ANALOG_EN_PDN_ANA	BIT(7)
-+#define ES7202_ANALOG_EN_PDN_ADCVREFGEN	BIT(6)
-+#define ES7202_ANALOG_EN_MODTOP1_RST	BIT(5)
-+#define ES7202_ANALOG_EN_MODTOP2_RST	BIT(4)
-+#define ES7202_ANALOG_EN_PDN_MOD1	BIT(3)
-+#define ES7202_ANALOG_EN_PDN_MOD2	BIT(2)
-+#define ES7202_ANALOG_EN_PDN_PGA1	BIT(1)
-+#define ES7202_ANALOG_EN_PDN_PGA2	BIT(0)
-+
-+#define ES7202_BIAS_ADCBIAS_SWH0	GENMASK(7, 6)
-+#define ES7202_BIAS_ENDITHER		BIT(5)
-+#define ES7202_BIAS_ADCBIAS_SWH1	GENMASK(3, 2)
-+#define ES7202_BIAS_VMIDSEL		GENMASK(1, 0)	/* 0 = off, 1 = 50k, 2 = 500k, 3 = 5k */
-+
-+/* bias levels 0x12-0x18 (SW0 for 1.8 V, SW1 for 3.3 V) */
-+#define ES7202_PGA1_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_PGA1_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_PGA2_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_PGA2_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_MOD1_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_MOD1_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_MOD2_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_MOD2_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_VREFP_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_VREFP_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_VMMOD_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_VMMOD_BIAS_SW1		GENMASK(3, 0)
-+#define ES7202_MODS_BIAS_SW0		GENMASK(7, 4)
-+#define ES7202_MODS_BIAS_SW1		GENMASK(3, 0)
-+
-+#define ES7202_LP1_LP_VRP		BIT(7)
-+#define ES7202_LP1_LP_VRPOUT		BIT(6)
-+#define ES7202_LP1_LP_VMMOD1		BIT(5)
-+#define ES7202_LP1_LP_VMMOD2		BIT(4)
-+#define ES7202_LP1_LP_MODS1		BIT(3)
-+#define ES7202_LP1_LP_MODS2		BIT(2)
-+#define ES7202_LP1_LP_MODI1		BIT(1)
-+#define ES7202_LP1_LP_MODI2		BIT(0)
-+
-+#define ES7202_LP2_LP_PGA1		BIT(5)
-+#define ES7202_LP2_LP_PGA2		BIT(4)
-+#define ES7202_LP2_PDN_DETCT		BIT(3)
-+
-+#define ES7202_ANALOG_MISC1_OFFSETSEL1	BIT(6)
-+#define ES7202_ANALOG_MISC1_OFFSETSEL0	BIT(5)
-+#define ES7202_ANALOG_MISC1_SUPPLYSEL	BIT(4)	/* 0 = 1.8 V, 1 = 3.3 V */
-+#define ES7202_ANALOG_MISC1_DITHERSEL	GENMASK(2, 0)
-+
-+#define ES7202_ANALOG_MISC2_VX2OFF_SW0	BIT(7)
-+#define ES7202_ANALOG_MISC2_VX1SEL_SW0	BIT(6)
-+#define ES7202_ANALOG_MISC2_VMIDLOW_SW0	GENMASK(5, 4)
-+#define ES7202_ANALOG_MISC2_VX2OFF_SW1	BIT(3)
-+#define ES7202_ANALOG_MISC2_VX1SEL_SW1	BIT(2)
-+#define ES7202_ANALOG_MISC2_VMIDLOW_SW1	GENMASK(1, 0)
-+
-+#define ES7202_PGA_SELMIC1		BIT(4)
-+#define ES7202_PGA_MIC1_GAIN		GENMASK(3, 0)
-+#define ES7202_PGA_SELMIC2		BIT(4)
-+#define ES7202_PGA_MIC2_GAIN		GENMASK(3, 0)
-+
-+#endif
--- 
-2.56.0
+Thanks,
+Robin.
+
+> +			return IOMMU_DOMAIN_IDENTITY;
+> +	}
+> +
+> +	return IOMMU_DOMAIN_DMA;
+>   }
+>   
+>   static const struct iommu_ops tegra_smmu_ops = {
+>   	.identity_domain = &tegra_smmu_identity_domain,
+> +	.release_domain = &tegra_smmu_identity_domain,
+>   	.def_domain_type = &tegra_smmu_def_domain_type,
+>   	.domain_alloc_paging = tegra_smmu_domain_alloc_paging,
+>   	.probe_device = tegra_smmu_probe_device,
+> @@ -1108,6 +1123,40 @@ static void tegra_smmu_debugfs_exit(struct tegra_smmu *smmu)
+>   	debugfs_remove_recursive(smmu->debugfs);
+>   }
+>   
+> +/*
+> + * The default domain type is a property of the IOMMU group, so all swgroups in
+> + * one group must agree on use_dma_api. Otherwise the core sees conflicting
+> + * def_domain_type and falls back to identity for the whole group.
+> + */
+> +static void tegra_smmu_check_groups(struct tegra_smmu *smmu)
+> +{
+> +	const struct tegra_smmu_soc *soc = smmu->soc;
+> +	unsigned int i, j;
+> +
+> +	for (i = 0; i < soc->num_groups; i++) {
+> +		const struct tegra_smmu_group_soc *group = &soc->groups[i];
+> +		int dma_api = -1;
+> +
+> +		for (j = 0; j < group->num_swgroups; j++) {
+> +			const struct tegra_smmu_swgroup *swgrp;
+> +
+> +			swgrp = tegra_smmu_find_swgroup(smmu,
+> +							group->swgroups[j]);
+> +			if (!swgrp)
+> +				continue;
+> +
+> +			if (dma_api < 0)
+> +				dma_api = swgrp->use_dma_api;
+> +			else if (swgrp->use_dma_api != !!dma_api)
+> +				break;
+> +		}
+> +
+> +		WARN(j < group->num_swgroups,
+> +		     "SMMU group %s mixes DMA API and identity swgroups\n",
+> +		     group->name);
+> +	}
+> +}
+> +
+>   struct tegra_smmu *tegra_smmu_probe(struct device *dev,
+>   				    const struct tegra_smmu_soc *soc,
+>   				    struct tegra_mc *mc)
+> @@ -1142,6 +1191,8 @@ struct tegra_smmu *tegra_smmu_probe(struct device *dev,
+>   	smmu->dev = dev;
+>   	smmu->mc = mc;
+>   
+> +	tegra_smmu_check_groups(smmu);
+> +
+>   	smmu->pfn_mask =
+>   		BIT_MASK(mc->soc->num_address_bits - SMMU_PTE_SHIFT) - 1;
+>   	dev_dbg(dev, "address bits: %u, PFN mask: %#lx\n",
+> diff --git a/drivers/memory/tegra/tegra114.c b/drivers/memory/tegra/tegra114.c
+> index 2883c4f91144..024c63bdd480 100644
+> --- a/drivers/memory/tegra/tegra114.c
+> +++ b/drivers/memory/tegra/tegra114.c
+> @@ -1029,15 +1029,18 @@ static const struct tegra_mc_client tegra114_mc_clients[] = {
+>   
+>   static const struct tegra_smmu_swgroup tegra114_swgroups[] = {
+>   	{ .name = "dc",        .swgroup = TEGRA_SWGROUP_DC,        .reg = 0x240,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "dcb",       .swgroup = TEGRA_SWGROUP_DCB,       .reg = 0x244,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "epp",       .swgroup = TEGRA_SWGROUP_EPP,       .reg = 0x248 },
+> -	{ .name = "g2",        .swgroup = TEGRA_SWGROUP_G2,        .reg = 0x24c },
+> +	{ .name = "g2",        .swgroup = TEGRA_SWGROUP_G2,        .reg = 0x24c,
+> +	  .use_dma_api = true },
+>   	{ .name = "avpc",      .swgroup = TEGRA_SWGROUP_AVPC,      .reg = 0x23c },
+> -	{ .name = "nv",        .swgroup = TEGRA_SWGROUP_NV,        .reg = 0x268 },
+> +	{ .name = "nv",        .swgroup = TEGRA_SWGROUP_NV,        .reg = 0x268,
+> +	  .use_dma_api = true },
+>   	{ .name = "hda",       .swgroup = TEGRA_SWGROUP_HDA,       .reg = 0x254 },
+> -	{ .name = "hc",        .swgroup = TEGRA_SWGROUP_HC,        .reg = 0x250 },
+> +	{ .name = "hc",        .swgroup = TEGRA_SWGROUP_HC,        .reg = 0x250,
+> +	  .use_dma_api = true },
+>   	{ .name = "msenc",     .swgroup = TEGRA_SWGROUP_MSENC,     .reg = 0x264 },
+>   	{ .name = "ppcs",      .swgroup = TEGRA_SWGROUP_PPCS,      .reg = 0x270 },
+>   	{ .name = "vde",       .swgroup = TEGRA_SWGROUP_VDE,       .reg = 0x27c },
+> diff --git a/drivers/memory/tegra/tegra124.c b/drivers/memory/tegra/tegra124.c
+> index a38fbf2baf6c..17068aaf163f 100644
+> --- a/drivers/memory/tegra/tegra124.c
+> +++ b/drivers/memory/tegra/tegra124.c
+> @@ -1071,13 +1071,14 @@ static const struct tegra_mc_client tegra124_mc_clients[] = {
+>   
+>   static const struct tegra_smmu_swgroup tegra124_swgroups[] = {
+>   	{ .name = "dc",        .swgroup = TEGRA_SWGROUP_DC,        .reg = 0x240,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "dcb",       .swgroup = TEGRA_SWGROUP_DCB,       .reg = 0x244,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "afi",       .swgroup = TEGRA_SWGROUP_AFI,       .reg = 0x238 },
+>   	{ .name = "avpc",      .swgroup = TEGRA_SWGROUP_AVPC,      .reg = 0x23c },
+>   	{ .name = "hda",       .swgroup = TEGRA_SWGROUP_HDA,       .reg = 0x254 },
+> -	{ .name = "hc",        .swgroup = TEGRA_SWGROUP_HC,        .reg = 0x250 },
+> +	{ .name = "hc",        .swgroup = TEGRA_SWGROUP_HC,        .reg = 0x250,
+> +	  .use_dma_api = true },
+>   	{ .name = "msenc",     .swgroup = TEGRA_SWGROUP_MSENC,     .reg = 0x264 },
+>   	{ .name = "ppcs",      .swgroup = TEGRA_SWGROUP_PPCS,      .reg = 0x270 },
+>   	{ .name = "sata",      .swgroup = TEGRA_SWGROUP_SATA,      .reg = 0x274 },
+> @@ -1093,7 +1094,8 @@ static const struct tegra_smmu_swgroup tegra124_swgroups[] = {
+>   	{ .name = "sdmmc2a",   .swgroup = TEGRA_SWGROUP_SDMMC2A,   .reg = 0xa98 },
+>   	{ .name = "sdmmc3a",   .swgroup = TEGRA_SWGROUP_SDMMC3A,   .reg = 0xa9c },
+>   	{ .name = "sdmmc4a",   .swgroup = TEGRA_SWGROUP_SDMMC4A,   .reg = 0xaa0 },
+> -	{ .name = "vic",       .swgroup = TEGRA_SWGROUP_VIC,       .reg = 0x284 },
+> +	{ .name = "vic",       .swgroup = TEGRA_SWGROUP_VIC,       .reg = 0x284,
+> +	  .use_dma_api = true },
+>   	{ .name = "vi",        .swgroup = TEGRA_SWGROUP_VI,        .reg = 0x280 },
+>   };
+>   
+> diff --git a/drivers/memory/tegra/tegra30.c b/drivers/memory/tegra/tegra30.c
+> index 0ee4715413ba..df6b5a499ccc 100644
+> --- a/drivers/memory/tegra/tegra30.c
+> +++ b/drivers/memory/tegra/tegra30.c
+> @@ -1140,19 +1140,23 @@ static const struct tegra_mc_client tegra30_mc_clients[] = {
+>   
+>   static const struct tegra_smmu_swgroup tegra30_swgroups[] = {
+>   	{ .name = "dc",   .swgroup = TEGRA_SWGROUP_DC,   .reg = 0x240,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "dcb",  .swgroup = TEGRA_SWGROUP_DCB,  .reg = 0x244,
+> -	  .defer_enable = true },
+> +	  .defer_enable = true, .use_dma_api = true },
+>   	{ .name = "epp",  .swgroup = TEGRA_SWGROUP_EPP,  .reg = 0x248 },
+> -	{ .name = "g2",   .swgroup = TEGRA_SWGROUP_G2,   .reg = 0x24c },
+> +	{ .name = "g2",   .swgroup = TEGRA_SWGROUP_G2,   .reg = 0x24c,
+> +	  .use_dma_api = true },
+>   	{ .name = "mpe",  .swgroup = TEGRA_SWGROUP_MPE,  .reg = 0x264 },
+>   	{ .name = "vi",   .swgroup = TEGRA_SWGROUP_VI,   .reg = 0x280 },
+>   	{ .name = "afi",  .swgroup = TEGRA_SWGROUP_AFI,  .reg = 0x238 },
+>   	{ .name = "avpc", .swgroup = TEGRA_SWGROUP_AVPC, .reg = 0x23c },
+> -	{ .name = "nv",   .swgroup = TEGRA_SWGROUP_NV,   .reg = 0x268 },
+> -	{ .name = "nv2",  .swgroup = TEGRA_SWGROUP_NV2,  .reg = 0x26c },
+> +	{ .name = "nv",   .swgroup = TEGRA_SWGROUP_NV,   .reg = 0x268,
+> +	  .use_dma_api = true },
+> +	{ .name = "nv2",  .swgroup = TEGRA_SWGROUP_NV2,  .reg = 0x26c,
+> +	  .use_dma_api = true },
+>   	{ .name = "hda",  .swgroup = TEGRA_SWGROUP_HDA,  .reg = 0x254 },
+> -	{ .name = "hc",   .swgroup = TEGRA_SWGROUP_HC,   .reg = 0x250 },
+> +	{ .name = "hc",   .swgroup = TEGRA_SWGROUP_HC,   .reg = 0x250,
+> +	  .use_dma_api = true },
+>   	{ .name = "ppcs", .swgroup = TEGRA_SWGROUP_PPCS, .reg = 0x270 },
+>   	{ .name = "sata", .swgroup = TEGRA_SWGROUP_SATA, .reg = 0x278 },
+>   	{ .name = "vde",  .swgroup = TEGRA_SWGROUP_VDE,  .reg = 0x27c },
+> diff --git a/include/soc/tegra/mc.h b/include/soc/tegra/mc.h
+> index ea67972fd585..1cbd990fc0f4 100644
+> --- a/include/soc/tegra/mc.h
+> +++ b/include/soc/tegra/mc.h
+> @@ -78,6 +78,13 @@ struct tegra_smmu_swgroup {
+>   	 * tegra_smmu_enable_translation().
+>   	 */
+>   	bool defer_enable;
+> +
+> +	/*
+> +	 * Set once the clients behind this swgroup are known to work with an
+> +	 * IOMMU_DOMAIN_DMA default domain. All swgroups of a
+> +	 * tegra_smmu_group_soc must agree.
+> +	 */
+> +	bool use_dma_api;
+>   };
+>   
+>   struct tegra_smmu_group_soc {
+> 
 
 
