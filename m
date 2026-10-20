@@ -2,66 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3D8F60A4AD8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:46:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B977606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:46:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BHovj2nK;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b7Day1CE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eYh4kbDk;
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=oyVTA7cy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=830H2YTMFkD9IORfLXHCHq/I9Z/gK3pKXYSwz8rUqk4=; b=BHovj2nK6xWus5lhidT/EKDdxN
-	p9JKnhdanqLkRF1dJSU71e4ajbXCKKUZlGWUVgzH27zhjMdM+OQEllgA7BzJVFYTFbzNgjV6TLBmS
-	107I094VU7yLirhQEdx2kQKF0/rYrO34ovAGdwIR2gIIkr/fpTshqH69wi2dfrjWEhMQ4hW7xBW0p
-	1oSsg5jGZ0lFjSzWyXXTh+8RDEpNT2OdvU2eGiUCbFW0+bWQluwXSnxhpKGvPBfei0q2ZuKfmGhaq
-	AaC5KMXK9qun/k6gu68hmvrbBt6dj+SvNIRXuL2tnYfEp8s3vn6o/AESqiPL1P54ovWYlTiBXEEkE
-	cPdhKLPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7MjKdc7i9F9fJcY1kYTnN/FTIKL2c56vf1h9vXuC9lY=; b=eYh4kbDk3kXa+Tw5hJTP2ilSjq
+	LsOiL92TbiRD6hGdCSYVFwg/VRVc4IqBIms6v4ysKFQJ2mCqj7eZ1TTwmEF5rV8motMsefxsQCEM1
+	f9Inq+4D5UCIBdPeh9wTjgXSfG4NiSHHknezwhkEeOzWhSGCVnCGWVtOiK9saAtJ29cAUfBMu48Hu
+	DxUr3Kpu0nEm/ai9l1yo27Hdtlr6LxoLzmaz5slLyy4kUB/CJHW9DbJj+D9tfhCkV4qAgs4vDP7/j
+	EQL/eSym14jnjt0VV02QxPO6SnCRu7sat3CZ+eoJXiust+fkDT20gpcdUH6uSjQH7HqQA8Y3zSPiA
+	yf9KBJCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCsD-0000000ACxT-0mpk;
-	Tue, 20 Oct 2026 16:39:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCsA-0000000ACvW-2smm
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 16:39:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A83B11596;
-	Tue, 20 Oct 2026 09:39:28 -0700 (PDT)
-Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DF2F3F7D8;
-	Tue, 20 Oct 2026 09:39:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1792514371; bh=5rR7Cm0/WLTiRNhzJ0pe4uv+L2juToro2br9wZ5Wk7o=;
-	h=From:To:Cc:Subject:Date:From;
-	b=b7Day1CEKJw+adAz90dZ+i2OF/o9tpbIQwSTwJ4ylGS+KplNNCbhZCKNN++pf9BBr
-	 qFE6tFRuSCdkcl8+sYER64nWZigWMmAu2baN6JcHltYCx56t4ksOu99o1v7bLXndR4
-	 bsYa/3TIyQWq7L81Ox3D77JOKo6n5XCDV1rjQhEM=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com
-Subject: [PATCH v3 0/2] KVM: arm64: Reject mismatched VGIC/ITS models
-Date: Tue, 20 Oct 2026 17:39:21 +0100
-Message-Id: <20261020163923.1407856-1-sascha.bischoff@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1xJBIP-0000000A0eq-0Gja;
+	Tue, 20 Oct 2026 14:58:33 +0000
+Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xJBIL-0000000A0bE-28jZ;
+	Tue, 20 Oct 2026 14:58:31 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 95E08A1625;
+	Tue, 20 Oct 2026 16:58:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1792508302; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7MjKdc7i9F9fJcY1kYTnN/FTIKL2c56vf1h9vXuC9lY=;
+	b=oyVTA7cy9CHMLVVA9gkpW/4/enFIkJAtc7cohzo0PBdZDxatBae79TL22w1Mb//Gf3hbKo
+	AwFgFTURY2JbxipA8eu+v+iLlz92bnKcbm4f+EPf6YqZpgRjGCIVBxd7BsFncudDF/DMzS
+	hoyHBLo4OoiCtvUloMx7uqqzb9e7F2JLRR4EetWYCTCYIik9hNQtq0srpi33vo8Be4t7Z0
+	j38k3jWowk3JeqIaaQGMCyCEEqIblE+b0T540S16XrbGejVMcFXp177+Nu7PwMrsCa1Pmx
+	YAJxXXC7jg5ruamm0yy6BQEmvQXfeTT7gf5PF+Sw1GzHqQvdcWdErQ+zq9SmwA==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Tue, 20 Oct 2026 16:58:10 +0200
+Subject: [PATCH 2/3] clk: bcm2835: register the BCM2711 GISB clock
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261020-devel-bcm2711-gisb-clk-v1-2-a1728724d0f8@tipi-net.de>
+References: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
+In-Reply-To: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>, 
+ netdev@vger.kernel.org, James Clark <jjc@jclark.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_093934_785860_FB8F33CE 
-X-CRM114-Status: GOOD (  10.18  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261020_075830_130007_881B2B61 
+X-CRM114-Status: GOOD (  11.51  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,69 +77,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On a GICv5 host with legacy GICv3 support, KVM exposes both VGIC
-models to userspace. A VM can create a GICv3 ITS alongside a GICv5
-VGIC, because neither creation path checks the model of the other
-device. The ITS sets has_its, but a GICv5 VM cannot use a GICv3 ITS
-for MSI translation. Creating the ITS before the VGIC also lets
-userspace select an incompatible VGIC model later.
+The generator at CM offset 0x1d8 is not in any documentation I could
+find, but the firmware calls it gisb and runs it at 200 MHz off
+PLLD_PER with a 3.75 divider. GISB is the register bus of the STB
+peripherals, and on BCM2711 the GENET MDIO controller clocks its MDC
+from it. mdio-bcm-unimac wants that rate to work out the MDC period.
 
-The same issue affects GICv2 on hosts with GICv3 ITS support. KVM
-previously accepted a GICv2 VGIC and a GICv3 ITS in either order, then
-ignored the ITS. The new checks reject this pairing with -ENODEV.
+Mark it critical. The firmware enables it at boot and nothing in Linux
+owns it, so it must never be gated.
 
-Record the VGIC model required by a GICv3 ITS and reject incompatible
-device creation in either order. Drop has_its in favour of checking
-that its_model matches vgic_model, so an ITS created without an
-in-kernel VGIC is not reported as available. The second patch tests
-both orderings of the GICv5 mismatch, skipping the test if the host
-does not offer a GICv3 ITS.
+Checked on a Raspberry Pi CM4 by moving the divider at runtime, the
+MDIO busy time follows it.
 
-This series is based on kvmarm/next-7.4+fixes-7.3-2.
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+---
+ drivers/clk/bcm/clk-bcm2835.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Changes since V2:
-
-* Check vgic_model in vgic_has_its(), as pointed out by Sashiko [1]
-  and Fuad [2], so an ITS without an in-kernel VGIC is not reported as
-  present.
-* Document the GICv2 behaviour and make the first patch subject
-  independent of the GIC version.
-
-Changes since V1:
-
-* Worked in Marc's suggestion to drop has_its.
-* Check for its_model being non-zero in vgic_has_its(), allowing us to
-  drop has_its.
-* Added a comment to explain what we are actually doing. Again, Marc's
-  suggestion.
-* Changed the type of vgic_model from u32 to enum kvm_device_type.
-
-Thanks,
-Sascha
-
-[1] https://lore.kernel.org/all/sashiko-outbox-177254@kernel.org
-[2] https://lore.kernel.org/all/CA+EHjTzqKiWr2tnV0rUiA4VVCs5a0E2XQQTdwvH0bTKZ5dxe5A@mail.gmail.com/
-
-Sascha Bischoff (2):
-  KVM: arm64: vgic: Require matching VGIC and ITS models
-  KVM: selftests: Reject GICv3 ITS with a GICv5 VGIC
-
- arch/arm64/kvm/vgic/vgic-init.c             | 17 +++++++++++
- arch/arm64/kvm/vgic/vgic-its.c              | 15 +++++++++-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +---
- include/kvm/arm_vgic.h                      |  5 ++--
- tools/testing/selftests/kvm/arm64/vgic_v5.c | 32 +++++++++++++++++++++
- 5 files changed, 67 insertions(+), 7 deletions(-)
+diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
+index 118df86d717c6..bc1de20c7e00e 100644
+--- a/drivers/clk/bcm/clk-bcm2835.c
++++ b/drivers/clk/bcm/clk-bcm2835.c
+@@ -117,6 +117,8 @@
+ #define CM_EMMCDIV		0x1c4
+ #define CM_EMMC2CTL		0x1d0
+ #define CM_EMMC2DIV		0x1d4
++#define CM_GISBCTL		0x1d8
++#define CM_GISBDIV		0x1dc
+ 
+ /* General bits for the CM_*CTL regs */
+ # define CM_ENABLE			BIT(4)
+@@ -2097,6 +2099,20 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
+ 		.frac_bits = 8,
+ 		.tcnt_mux = 42),
+ 
++	/*
++	 * GISB clock (only available for BCM2711): the STB peripheral
++	 * register bus, set up by the firmware. The GENET MDIO controller
++	 * derives its MDC from it.
++	 */
++	[BCM2711_CLOCK_GISB]	= REGISTER_PER_CLK(
++		SOC_BCM2711,
++		.name = "gisb",
++		.ctl_reg = CM_GISBCTL,
++		.div_reg = CM_GISBDIV,
++		.int_bits = 4,
++		.frac_bits = 8,
++		.flags = CLK_IS_CRITICAL),
++
+ 	/* General purpose (GPIO) clocks */
+ 	[BCM2835_CLOCK_GP0]	= REGISTER_PER_CLK(
+ 		SOC_ALL,
 
 -- 
-2.34.1
+2.53.0
 
 
