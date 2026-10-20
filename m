@@ -2,96 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45D8D606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:03:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2749606A31E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:12:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qq9c0k3m;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=noi5RM5q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aTa/y7Rx;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=RCnjv+vU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUHcD7c2GU89ccoQK7kmOp+eT94pdtP2AmRHpCgaVV0=; b=Qq9c0k3mEWrSsCH/wqNFeAB9LC
-	tMUC3897MG/e5yzMQJUFmxyb4jXzgIJbLV1kQ120zvM/RU32phkhQpL8R978za/DVzmyvf9rcG47I
-	cJJ9Au2lU5mt5o8+WXRKUEfclnhuW0WKR8mNGCtw2lorJS88jdS8tvn7n7WVhFp/Zc6h3xoB3xcAj
-	568QrD9OGnNCNNneJRaOT5ZKwRa4rFHvCzc5j7V5KiZOJ2+Vw9M2QvLFASglDvKv/EbuuEzxbwfWw
-	P+kYDUe70zEjYQBG9EY6C9tkBbds0idTkkcYViH49mSVoYLHCwAERR8l6PouD0CB4jlQe17kLrkt/
-	TJnMXXiA==;
+	bh=aEsK9vnGIWgdQWg/4/gp+ERqdPLdZK75eQSfT/gO9Pk=; b=aTa/y7RxdiUkFEEwIaK9X57fsL
+	yTnZdqTj4QFf6e8uIcizHMc2a9YXFfTG1xIQdmM628mejRpeoUZGkR7U/IFGgQUke2mwXhT519lb0
+	3tPE2B+JQ1jNjipYJ9VITASeCV4H8b2/C49NVkgfSQ3nUAHVy+ybFy8uPLJgdFJj9IthXnBnFScWd
+	Zu0TI6GZKccExI2jdih0kvhBdN6xUnGQGo1xQP65swUwoTt19UMAkoobKZeGUFSZv+iYiSjqiQg5q
+	VC4Xf0UEmFzqxJattdj7AasYRhsCEX6OpmC8cXcu+QgxQni6P+F4KhCDtwoBa7nttaLx4f9NxDzQr
+	ppBsydZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4oY-0000000972K-3Sj5;
-	Tue, 20 Oct 2026 08:03:18 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1xJ4xS-000000097qI-3WUo;
+	Tue, 20 Oct 2026 08:12:30 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4oV-0000000970f-3MnI
+	id 1xJ4xP-000000097pm-0tq5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 08:03:17 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261020080308epoutp01c0c09ff37b5d06207d0d64b4b74e7af3~gLiUJTf790543705437epoutp01m
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:03:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261020080308epoutp01c0c09ff37b5d06207d0d64b4b74e7af3~gLiUJTf790543705437epoutp01m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1792483388;
-	bh=uUHcD7c2GU89ccoQK7kmOp+eT94pdtP2AmRHpCgaVV0=;
-	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
-	b=noi5RM5qfrCv4N0v0ZApnpWkaWpTg5qSjCFOoMuFxmS9/LCVCkSvJzTU4czgT+nL6
-	 jcV1pGYSOSNEu+7du6x/P4VdFlhX61wxlxWuqmqywqR71eFJ9eAHnySYjOM5Bd9Npv
-	 bcyOGHlQwySvz7zBqKgg48qVsbchiQsgBI1ACObI=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261020080303epcas5p39b35b25b23b24e0cc4adc4c3a6205270~gLiPp6CDo1184711847epcas5p3H;
-	Tue, 20 Oct 2026 08:03:03 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4j84fG3qvSz6B9mF; Tue, 20 Oct
-	2026 08:03:02 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261020080302epcas5p2140954a64a9a8db0f7b802611431eed3~gLiOS_PnJ2967129671epcas5p2u;
-	Tue, 20 Oct 2026 08:03:02 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261020080259epsmtip225517e3ffa9b53b64dade8aaa8df77cb~gLiLgSsR62884528845epsmtip2g;
-	Tue, 20 Oct 2026 08:02:58 +0000 (GMT)
-Message-ID: <6643fece-aa39-42e6-8cd6-5264f15e12ff@samsung.com>
-Date: Tue, 20 Oct 2026 13:32:58 +0530
+	Tue, 20 Oct 2026 08:12:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=aEsK9vnGIWgdQWg/4/gp+ERqdPLdZK75eQSfT/gO9Pk=; b=R
+	Cnjv+vUw17RM25HbbvPqMuGddLQAMNXJ0irypFTfWPLOd6+HOf3gwWx8a2uP2SmB
+	iDAziIByqccqzbaF9irRVvpqnnVhRrfSP0844asw+laXL975n8MmReJ8/wccS40t
+	dwd/tu0cxmXnt80jgfrZdR4QRYqABLnulyXy8r/pSc=
+Date: Tue, 20 Oct 2026 16:10:32 +0800 (CST)
+From: "jiale yao" <19888972804@163.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Frank Li" <Frank.Li@kernel.org>, "Zhang Wei" <zw@zh-kernel.org>,
+	"Sascha Hauer" <s.hauer@pengutronix.de>,
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
+	"Fabio Estevam" <festevam@gmail.com>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"H Hartley Sweeten" <hsweeten@visionengravers.com>,
+	"Ryan Mallon" <rmallon@gmail.com>,
+	"Mika Westerberg" <mika.westerberg@iki.fi>,
+	"Ebony Zhu" <ebony.zhu@freescale.com>,
+	"Kumar Gala" <galak@gate.crashing.org>,
+	"Dan Williams" <djbw@kernel.org>,
+	"Andrew Morton" <akpm@linux-foundation.org>,
+	"Zhangfei Gao" <zhangfei.gao@marvell.com>,
+	"Arnd Bergmann" <arnd@arndb.de>, "Qiao Zhou" <zhouqiao@marvell.com>,
+	"Leo Yan" <leoy@marvell.com>,
+	"Lennert Buytenhek" <buytenh@marvell.com>,
+	"Nicolas Pitre" <nico@marvell.com>,
+	"Saeed Bishara" <saeed@marvell.com>,
+	"Maciej Sosnowski" <maciej.sosnowski@intel.com>,
+	"Shawn Guo" <shawn.guo@freescale.com>,
+	"Srinidh Kasagar" <srinidhi.kasagar@stericsson.com>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re:Re: [PATCH 0/7] dmaengine: drain completion tasklets during
+ teardown
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20261020073620.224795-1-peng.fan@oss.nxp.com>
+References: <20261020073620.224795-1-peng.fan@oss.nxp.com>
+X-NTES-SC: AL_Qu2SAPiTvEAo5CabY+kcn08ShO49XMOyvfoi2YFTc+MEpyPT/CwnXV1dJHjX9MKlLySpjjK2QjZX0MN8TZd4HI2VUqoFvXudLFbzFGVQoQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
-	Thinh.Nguyen@synopsys.com, mani@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, h10.kim@samsung.com,
-	dh10.jung@samsung.com, akash.m5@samsung.com, hongpooh.kim@samsung.com,
-	eomji.oh@samsung.com, shijie.cai@samsung.com, muhammed.ali@samsung.com,
-	thiagu.r@samsung.com
-Content-Language: en-US
-In-Reply-To: <ad11251d-6632-498d-95f6-04a7c6dade72@samsung.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261020080302epcas5p2140954a64a9a8db0f7b802611431eed3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260916122354epcas5p401fd6470d6cef75951af732b03aa5970
-References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
-	<CGME20260916122354epcas5p401fd6470d6cef75951af732b03aa5970@epcas5p4.samsung.com>
-	<20260916122229.2604003-3-selvarasu.g@samsung.com>
-	<20260918-burgundy-marmoset-of-focus-c9b9a7@quoll>
-	<fef2b2f5-3838-4eec-8118-d41f9ca0ed2f@samsung.com>
-	<7fbcf497-a166-45d6-844d-faaece6f581c@kernel.org>
-	<ad11251d-6632-498d-95f6-04a7c6dade72@samsung.com>
+Message-ID: <3d4b1cde.711e.1a1585cb34c.Coremail.19888972804@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: bCgvCgCnV_34IddqIc9cAA--.879W
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzhgXUWrXIfhxlAAA3R
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_010316_528224_8C9DC4F4 
-X-CRM114-Status: GOOD (  43.55  )
-X-Spam-Score: -4.7 (----)
+X-CRM114-CacheID: sfid-20261020_011227_678520_858BFA21 
+X-CRM114-Status: GOOD (  13.72  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,191 +92,70 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-On 9/21/2026 12:26 PM, Selvarasu Ganesan wrote:
->
-> On 9/18/2026 7:16 PM, Krzysztof Kozlowski wrote:
->> On 18/09/2026 15:36, Selvarasu Ganesan wrote:
->>> On 9/18/2026 3:24 PM, Krzysztof Kozlowski wrote:
->>>> On Wed, Sep 16, 2026 at 05:52:28PM +0530, Selvarasu Ganesan wrote:
->>>>> +maintainers:
->>>>> +  - Krzysztof Kozlowski <krzk@kernel.org>
->>>>> +  - Selvarasu Ganesan <selvarasu.g@samsung.com>
->>>>> +
->>>>> +description:
->>>>> +  Describes the DWC3 USB controller block implemented on Samsung 
->>>>> Exynos SoCs.
->>>>> +
->>>>> +select:
->>>>> +  properties:
->>>>> +    compatible:
->>>>> +      contains:
->>>>> +        const: samsung,snps-dwc3
->>>>> +  required:
->>>>> +    - compatible
->>>> This select is not needed.
->>>>
->>>>> +
->>>>> +properties:
->>>>> +  compatible:
->>>>> +    items:
->>>>> +      - enum:
->>>>> +          - samsung,exynos8855-dwc3
->>>>> +      - const: samsung,snps-dwc3
->>>> And this fallback is not really accurate. Samsung does not have snps
->>>> device, because snps is a vendor. Anyway, generic fallbacks should go
->>>> away, drop, so you are left with samsung,exynos8855-dwc3 only.
->>> Hi Krzysztof,
->>>
->>> Thanks for your review comments.
->>> And We apologize for our repeated below explanation, but we wanted to
->>> ensure our intentions were clear for each point to avoid any
->>> misunderstanding.
->>>
->>> The original intent of the generic fallback was to support existing
->>> Exynos dwc3 bindings from a parent/child representation from
->> How does it support existing bindings? I don't understand. There is no
->> such fallback in existing bindings.
->
->
-> Sorry for the misunderstanding, Yes there is no such a fallback in 
-> existing bindings.
->
-> Our intention was to use new proposed generic fallback compatible 
-> string that will support USB dwc3 flatted node for all Samsung soc 
-> when those are migrated in the future without adding SoC specific 
-> compatible string in driver.
->
-> Agreed, Here using generic fallback name (samsung,snps-dwc3 as a 
-> reference of qcom,snps-dwc3) is incorrect as snps is vendor not a device.
->
-> As per DTS101 slide , Now we clear that the future Exynos SoCs could 
-> use  samsung,exynos8855-dwc3 as a fallback when they are compatible 
-> with the Exynos8855 hardware definition, rather than introducing a 
-> generic samsung,snps-dwc3 fallback. The dedicated compatible would 
-> still describe any SoC specific differences, such as clocks.
->
-> And Understood that we were mixing the current Exynos8855 binding with 
-> the longer term migration plan for the existing Exynos SoCs and future 
-> SoCs.
->
-> We will drop the generic fallback and use SoC specific compatible 
-> samsung,exynos8855-dwc3 (vendor,device), following 
-> samsung,exynos-dwc3.yaml as the reference.
->
-> Regarding the binding filename, if the flattened representation is 
-> expected to support multiple Exynos SoCs where there is only 
-> differences in clock in the future, similar to how 
-> samsung,exynos-dwc3.yaml covers multiple SoCs with the legacy (parent 
-> and child) node representation, should we use a common binding 
-> filename for the flattened representation instead of a SoC specific 
-> name like samsung,exynos8855-dwc3.yaml.
-> For example,
->     samsung,exynos-dwc3-flattened.yaml.
-
-
-HI Krzysztof,
-
-I am writing to kindly follow up on my previous inquiry regarding the 
-binding filename for the flattened representation.
-
-To recap, I would like to know if we should use a common binding 
-filename, such as samsung,exynos-dwc3-flattened.yaml, instead of SoC 
-specific names (e.g., samsung,exynos8855-dwc3.yaml). This would be 
-consistent with how samsung,exynos-dwc3.yaml covers multiple SoCs in the 
-legacy representation, especially if we expect to support multiple 
-Exynos SoCs with only clock differences in the future.
-
-I would appreciate your guidance or suggestions on the preferred naming 
-convention for this implementation.
-
-Thanks,
-Selva
->
->
->>
->>> (samsung,exynos-dwc3.yaml), and upcoming SoCs (Exynos 8865, 9955, and
->>> 9965) can use this flattened representation without requiring a unique
->>> compatible string for every project in the dwc3-generic-plat driver
->> I did not forbid you to use fallbacks, so I do not understand why you
->> would need unique compatible for every device in the driver.
->
->
-> The intention was to avoid adding separate compatible entries to 
-> dwc3_generic_of_match[] for each Exynos SoC.
->
-> We understand that adding SoC specific compatibles is the correct 
-> approach, as follow in samsung,exynos-dwc3.yaml.
->
->
->>
->> This is already heavily documented and explained in beginners docs.
->> Please read writing bindings docs and maybe also DTS101 slides. I even
->> gave the talk DTS101 two months ago in your timezone...
->
-> Thanks for pointing out the DTS101 slids, and we referred again the 
-> binding documentation including DTS101 slids for further clarification 
-> on the using of fallback.
->
->>
->>
->>> of_match_table. We referred to qcom,snps-dwc3 as a helpful reference 
->>> for
->>> this approach.
->> When people argue with me, they use more often poor examples as
->> reference, not the good ones. Interesting pattern.
->>
->> And why you did not take the proper example you even mentioned here -
->> Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml - as
->> reference?
->>
->> Anyway, existing bug is not a reason to add new bug, don't you think?
->
-> Agreed and As we mentioned in above comment, we will use the existing 
-> samsung,exynos-dwc3.yaml as the reference for the Samsung binding and 
-> drop the qcom,snps-dwc3 reference.
->
->>
->>
->>> As seen in samsung,exynos-dwc3.yaml, our existing bindings already
->>> support multiple SoCs with diverse clock requirements within a single
->>> file. Similarly, we plan to use a single flattened Samsung binding to
->>> manage these diverse clock requirements. for different SoCs.
->>>
->>> Regarding the migration for current and future SoCs, would you prefer,
->> I do not understand how any of this is relevant to my review comment.
->>
->>> Option A: A single flattened binding file using a common fallback
->>> compatible string (instead of samsung,snps-dwc3) to minimize
->>> of_match_table entries, and if/then constraints to handle diverse clock
->>> requirements.
->>> Option B: Separate binding files for each individual SoCs.
->>>
->>> Could you please let us know your preferred approach? Once 
->>> confirmed, we
->>> will address your other review comments based on the selected approach.
->> You do not have other bindings. You have one device. If you have more,
->> then post more. We are not making reviews based on imaginary future 
->> things.
->
-> Understood. As mentioned above, we are mixing the current Exynos8855 
-> binding with the longer term migration plan and will keep this binding 
-> focused on Exynos8855 only and handle other SoCs when they are 
-> actually migrated.
->
-> Thanks,
-> Selva
->
->
->>
->> Best regards,
->> Krzysztof
+SGkgUGVuZywKCkF0IDIwMjYtMTAtMjAgMTU6MzY6MTksICJQZW5nIEZhbiAoT1NTKSIgPHBlbmcu
+ZmFuQG9zcy5ueHAuY29tPiB3cm90ZToKPk9uIFN1biwgMTggT2N0IDIwMjYgMTI6MDc6MTYgKzA4
+MDAgSmlhbGUgWWFvIDx5YW9qaWFsZTAyQDE2My5jb20+IHdyb3RlOgo+Cj4+IFNldmVyYWwgRE1B
+ZW5naW5lIGRyaXZlcnMgZGVmZXIgaW50ZXJydXB0IGNvbXBsZXRpb24gcHJvY2Vzc2luZyB0bwo+
+PiB0YXNrbGV0cywgYnV0IHJlbGVhc2UgY2hhbm5lbCByZXNvdXJjZXMgd2l0aG91dCBkcmFpbmlu
+ZyB0YXNrbGV0cyB0aGF0Cj4+IHdlcmUgYWxyZWFkeSBxdWV1ZWQuIFN0b3BwaW5nIG9yIHJlbGVh
+c2luZyBhbiBJUlEgcHJldmVudHMgbmV3IGhhcmQgSVJRCj4+IGhhbmRsZXJzLCBidXQgZG9lcyBu
+b3Qgc3luY2hyb25pemUgdGhlIGRlZmVycmVkIHRhc2tsZXQuCj4+IAo+PiBEZXBlbmRpbmcgb24g
+dGhlIGRyaXZlciwgYSBsYXRlIHRhc2tsZXQgY2FuIGFjY2VzcyBmcmVlZCBkZXNjcmlwdG9yCj4+
+IHN0b3JhZ2Ugb3IgaW52b2tlIGEgY29tcGxldGlvbiBjYWxsYmFjayBhZnRlciBpdHMgY2xpZW50
+IGRhdGEgaGFzIGJlZW4KPj4gcmVsZWFzZWQuIEVuc3VyZSBlYWNoIHByb2R1Y2VyIGlzIHN0b3Bw
+ZWQgYmVmb3JlIGtpbGxpbmcgdGhlIHRhc2tsZXQgYW5kCj4+IGZyZWVpbmcgdGhlIHJlc291cmNl
+cyBpdCBjYW4gYWNjZXNzLgo+PiAKPj4gRWFjaCBwYXRjaCBpcyBpbmRlcGVuZGVudCBhbmQga2Vl
+cHMgdGhlIHN5bmNocm9uaXphdGlvbiBsb2NhbCB0byBvbmUKPj4gZHJpdmVyJ3MgY2hhbm5lbCBv
+ciBkZXZpY2UgdGVhcmRvd24gcGF0aC4KPj4gCj4+IEppYWxlIFlhbyAoNyk6Cj4+ICAgZG1hZW5n
+aW5lOiBlcDkzeHg6IGRyYWluIHRhc2tsZXQgYmVmb3JlIGZyZWVpbmcgY2hhbm5lbCByZXNvdXJj
+ZXMKPj4gICBkbWFlbmdpbmU6IGZzbGRtYTogZHJhaW4gY2hhbm5lbCB0YXNrbGV0IGR1cmluZyBy
+ZW1vdmFsCj4+ICAgZG1hZW5naW5lOiBtbXBfcGRtYTogZHJhaW4gY2hhbm5lbCB0YXNrbGV0cyBk
+dXJpbmcgcmVtb3ZhbAo+PiAgIGRtYWVuZ2luZTogbW1wX3RkbWE6IHN5bmNocm9uaXplIHRhc2ts
+ZXQgd2hlbiBmcmVlaW5nIGEgY2hhbm5lbAo+PiAgIGRtYWVuZ2luZTogbXZfeG9yOiBkcmFpbiBJ
+UlEgdGFza2xldCBiZWZvcmUgZnJlZWluZyBjaGFubmVsIG1lbW9yeQo+PiAgIGRtYWVuZ2luZTog
+bXhzLWRtYTogc3luY2hyb25pemUgdGFza2xldCB3aGVuIGZyZWVpbmcgYSBjaGFubmVsCj4+ICAg
+ZG1hZW5naW5lOiBzdGVfZG1hNDA6IHN5bmNocm9uaXplIHRhc2tsZXQgd2hlbiByZWxlYXNpbmcg
+YSBjaGFubmVsCj4+IAo+PiAgZHJpdmVycy9kbWEvZXA5M3h4X2RtYS5jIHwgNCArKystCj4+ICBk
+cml2ZXJzL2RtYS9mc2xkbWEuYyAgICAgfCAxICsKPj4gIGRyaXZlcnMvZG1hL21tcF9wZG1hLmMg
+ICB8IDQgKysrKwo+PiAgZHJpdmVycy9kbWEvbW1wX3RkbWEuYyAgIHwgMiArKwo+PiAgZHJpdmVy
+cy9kbWEvbXZfeG9yLmMgICAgIHwgNiArKysrLS0KPj4gIGRyaXZlcnMvZG1hL214cy1kbWEuYyAg
+ICB8IDEgKwo+PiAgZHJpdmVycy9kbWEvc3RlX2RtYTQwLmMgIHwgMiArKwo+Cj5Zb3UgbWlnaHQg
+bmVlZCB0byBhZGQgYSBiaXQgbW9yZSBjb250ZXh0IG9uIHRoZSBpc3N1ZXMuCj4KPlRha2luZyBt
+eHMtZG1hIGZvciBleGFtcGxlLCBpdCBpcyBub24tU01QIHByb2Nlc3Nvci4KPgo+VGhlIG5vcm1h
+bCBjb21wbGV0aW9uIHBhdGggaXM6Cj4xLiBETUEgaGFyZGlycSBmaXJlcyAtPiBteHNfZG1hX2lu
+dF9oYW5kbGVyKCkgLT4gdGFza2xldF9zY2hlZHVsZSgpIC0+IHJhaXNlcyBUQVNLTEVUX1NPRlRJ
+UlEKPjIuIGlycV9leGl0KCkgLT4gc29mdGlycSBwcm9jZXNzaW5nIC0+IHRhc2tsZXRfYWN0aW9u
+KCkgLT4gbXhzX2RtYV90YXNrbGV0KCkgcnVucwo+My4gUmV0dXJuIHRvIHByb2Nlc3MgY29udGV4
+dAo+Cj5UaGUgdGFza2xldCBhbG1vc3QgYWx3YXlzIGNvbXBsZXRlcyBiZWZvcmUgcHJvY2VzcyBj
+b250ZXh0IHJlc3VtZXMuCj5UaGUgb25seSB3YXkgdG8gaGl0IHRoZSByYWNlIG9uIFVQIGlzIGlm
+IHNvZnRpcnEgcHJvY2Vzc2luZyBnZXRzIGRlZmVycmVkCj50byBrc29mdGlycWQsIGFuZCB0aGVu
+Ogo+SW4gUFJFRU1QVF9SVCBjYXNlOiBUYXNrbGV0cyBiZWNvbWUgdGhyZWFkZWQgYW5kIGNhbiBp
+bnRlcmxlYXZlLgo+SXMgdGhlcmUgYSBjaGFuY2UgdGhhdCBpbiBub24tUlQgY2FzZSwgY291bGQg
+d2UgaGl0IGlzc3VlcyBvbiBVUCBwcm9jZXNzb3I/Cj4KPk9yIEkgbWF5IHVuZGVyc3RhbmQgd3Jv
+bmc/CgpUaGFua3MgZm9yIHRoZSBkZXRhaWxlZCBhbmFseXNpcy4KClRoZSBub3JtYWwgVVAvbm9u
+LVJUIHBhdGggdXN1YWxseSBydW5zIHRoZSB0YXNrbGV0IGZyb20gaXJxX2V4aXQoKSwgYXMKeW91
+IGRlc2NyaWJlZC4gSG93ZXZlciwgaWYgdGhlIERNQSBJUlEgcmFpc2VzIFRBU0tMRVRfU09GVElS
+USBhZnRlciB0aGF0CnZlY3RvciBoYXMgYWxyZWFkeSBiZWVuIHByb2Nlc3NlZCBpbiB0aGUgY3Vy
+cmVudCBzb2Z0aXJxIHBhc3MsCm5lZWRfcmVzY2hlZCgpIG9yIHRoZSBzb2Z0aXJxIHRpbWUvcmVz
+dGFydCBsaW1pdHMgY2FuIGRlZmVyIGl0IHRvCmtzb2Z0aXJxZC4gUHJvY2VzcyBjb250ZXh0IG1h
+eSB0aGVuIHJlbGVhc2UgdGhlIGNoYW5uZWwgYmVmb3JlIHRoZQp0YXNrbGV0IHJ1bnMuCgpBIHNp
+bWlsYXIgdGVhcmRvd24gaXNzdWUgd2FzIGZpeGVkIGJ5IGNvbW1pdCAwY2E3OTk3OTM4NGYKKCJS
+RE1BL2VyZG1hOiBGaXggQ0VRIHRhc2tsZXQgdXNlLWFmdGVyLWZyZWUgb24gcmVtb3ZhbCIpLiBm
+cmVlX2lycSgpCnN5bmNocm9uaXplcyB0aGUgaGFyZCBJUlEgaGFuZGxlciwgYnV0IGRvZXMgbm90
+IGRyYWluIGFuIGFscmVhZHkgcXVldWVkCnRhc2tsZXQuCgpGb3IgbXhzLWRtYSwgdGhlIGRlZmVy
+cmVkIHRhc2tsZXQgbWF5IGludm9rZSB0aGUgY29tcGxldGlvbiBjYWxsYmFjawphZnRlciBpdHMg
+Y2xpZW50IGRhdGEgaGFzIGJlZW4gcmVsZWFzZWQuIFRoZXJlZm9yZSB0aGlzIGNhbiBhbHNvIGhh
+cHBlbgpvbiBVUC9ub24tUlQsIGFsdGhvdWdoIHRoZSB3aW5kb3cgaXMgbmFycm93LgoKPgo+UmVn
+YXJkcwo+UGVuZwo+Cj4+ICA3IGZpbGVzIGNoYW5nZWQsIDE3IGluc2VydGlvbnMoKyksIDMgZGVs
+ZXRpb25zKC0pCj4+IAo+PiAtLSAKPj4gMi4zNC4xCj4KPlNlbnQgdXNpbmcgaGttbCAoaHR0cHM6
+Ly9naXRodWIuY29tL3NqcDM4L2hhY2tlcm1haWwpCgoKVGhhbmtzLApKaWFsZQo=
 
