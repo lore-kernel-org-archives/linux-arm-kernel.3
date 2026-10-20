@@ -2,106 +2,134 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72F4F606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 09:02:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 579A8606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 09:07:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0ZY0FkcH;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20251104 header.b=XWsI5sJb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3e+3MD7x;
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm1 header.b=YAgmFXmj;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=Vdjp2tjY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9m8EJZJphILGcBqQZQvehuU/fPhn1XULUzvAHjdvFco=; b=0ZY0FkcHscnuUoqfPOPdNUKwv0
-	nl8POjprwu37JZfELi7gBVcPonv+rc1gDzoSYvjZjuac64mKiO456VPgmgPl52qJ1dQ399uv2MWhK
-	5I0XFgDEJZqDOMUMXWECxGcP27FJQldOGxYTZe5frsPHQPA9XNj2gD34lpvmGabxZqIIXT0vgey49
-	w+ExAcrAW3k7HmtCzUsV8ehKCqU9nQ9XOC6T84194d+FV5schH7G4/u4j1SJCjC1MyzFloOqk8k4g
-	XD+sewRXNYGVQAdWHiohMLWo7i74gDlVq5+uhbxSAd9H/jvKbifWUwj2gqh26qm+wPcwGUfCVoDut
-	fY0A2z2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbtBT1zpSxLsbcMbyYVhf3JDYC/W4xf5mt5D10gHvo0=; b=3e+3MD7xj9/K6/XBqBegtQR6KY
+	VO7zdQxEplUsQJY5KzvavvQsUQ3vW8pUPLd7hGn+SW7wWZdPijFIknJC57XpN0fFdv7IcmLqWbCVr
+	pu/2eS726smaUDny4urNhipA74h8bZkumcZpOKmrU/uydTNUKBDtgrkfY610zIwzrJo5t284AaOQN
+	bZHW1eMO78m7QWxSlF/0+OqsneuV3nN6KISOnXTp/XpOXKCGyj9aRv+XR7R5pmsZ37xdfhTY475UV
+	gLCA+6rSGSHJE9QXlcYmz+I3y55LCSZUFENnojbQjTO/acMT8y1JW/mEqusY5GMcvJJTi4MKPJicE
+	kRoBK5BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5jd-00000009FsI-0rLP;
-	Tue, 20 Oct 2026 09:02:17 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xJ5oH-00000009GDJ-39OU;
+	Tue, 20 Oct 2026 09:07:05 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ5ja-00000009Frx-0yrn
+	id 1xJ5oF-00000009GCV-2iYx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 09:02:15 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4980fe6b3beso3261035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 02:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1792486932; x=1793091732; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9m8EJZJphILGcBqQZQvehuU/fPhn1XULUzvAHjdvFco=;
-        b=XWsI5sJbmYHSZ/yLGG9Pc7f4hG1/TERzHXtTfcYZdiPrZnlKDNam9zBNtUjqnij+33
-         3cXLSXD2fWuaLypFhZ1yK5bIBr4FHq1SZzhr+hjJHD4qb7EhIai1X3qPAN278tyA/Rl+
-         xrq4QqGhSF+Z/Q4TFYhh45NHBJz+EC0Y46unpye6EKR2lQxyYz8itYem99xNQtDgFdKm
-         xHmE/wQY9wzBjuq9ODhonh37lelmG8BdhWfv3+SVTv0cim23YN52C+ff5/YMAfJ/5JfB
-         2FT/RrEroVh5VXgeMRC6o1xWRzAsOXqjlBoPj1FrMT2V7L7qQTO5w19/82T80r9BlFJ8
-         975g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792486932; x=1793091732;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9m8EJZJphILGcBqQZQvehuU/fPhn1XULUzvAHjdvFco=;
-        b=X/mGh7XUtg4Hoi8QHeUA7j29ozZp2/3eHOMEVeYJp+kaPjhI49OTXGbCTnOaUkKVWb
-         bzjHZRXYQRw6xVD/u/9oNYf7aL+hE62UTobjfpd6mBLDgxgD5rNR+Ne+GNW0X7cazKKn
-         JzCjI+lHoMov1wujZHPZjhNECfaT9VJByhe93ULVFUcHQu1toq0jGRfmkNAcDMmUU9Ys
-         KG969DHTfIZG/PYwwLXB/c2meUOXljdIf9h2kVLDXFOGBnBYFkE7RGiULnW6E2XDTY17
-         cWjsQilPdVp8cvI4EPnx1fktmSdT+Qjr+q90xNeEMonCudtLxO1XF3k8bhbrKmCQdyUj
-         FfRw==
-X-Forwarded-Encrypted: i=1; AKwUvBxhAR4eYUM1sg9Iuo1A/DXsT005qP+WI8c/a1nDvSdHNK9YOKUUp+1lz773GL6wNo+wYZQhV9dqr9XVqtCXDxPR@lists.infradead.org
-X-Gm-Message-State: AFq9FYIjdvjvQfLZDua2mRcAV9MR6oVhjHe8KgQOILW0IpFLG9fPVGB5
-	nbpf2j09Q8CjqZmX29mtYueoVBbMp6BSzypsGE0+gU1kXcqOciocdPnwWGMbdz+ZqA==
-X-Gm-Gg: AYBFou0II0HfG99EG1aYjgNGrNh1MudmZZ0FeHzSyNL0X+frZxhV4+OVSSaBtyVAjR1
-	cRV9rDN9hB59hakNoMD4xClWCdAmVvzNWFwh1txsHiwVMMx3x4Re0ZVZ+P8ZuL6jMddui7Z8D+/
-	8pjhlEUpgsvxwn4DRRIZe+/+XGTUIUkVTCZM5VTtXDtZNtCW1VYfTFnqgdf+rqDPX2q00ocebaW
-	9opMwKlfsb5GPaAR+upUlHxy/4T98Z32HoT6ha89i1avL1/KdbX7jmetDHUWDD+Bd04a/Sg1ggO
-	8fVQKy/ptmOrJOzrZPEzaXSnOygJzZSbYC+Jug9xqr0jrh+9wb2tCR+XTzRHP6A+TfZZ9V0xQgE
-	aj7ABD9M982ChItKSybhmxa/og6b7xCbdzfJklxpoxJzja5mu6d2zupja2dm4LMXFIQzNTAb1l6
-	IpzlR36KdlUzCICwVoQ+wRqCrNIQlAuMYlIWkzj6BjDJHMRDEd6nAM55uUIGLeswV1QDBuJ7ltd
-	Gg4IkkoDbOWt12gZuMT2qjRNLwGgq+vnlBMsdfmReo=
-X-Received: by 2002:a05:600c:4743:b0:4a1:d899:b62f with SMTP id 5b1f17b1804b1-4a1f45f8877mr30834125e9.0.1792486931667;
-        Tue, 20 Oct 2026 02:02:11 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a1cca30aa5sm33064205e9.2.2026.10.20.02.02.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 02:02:08 -0700 (PDT)
-Date: Tue, 20 Oct 2026 10:02:00 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Snehal Koukuntla <snehalreddy@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 2/2] KVM: arm64: Support FFA_MEM_RECLAIM2 in host
- handler
-Message-ID: <atcuCDHAAKZJEbHC@google.com>
-References: <20261016082341.4030770-1-snehalreddy@google.com>
- <20261016082341.4030770-3-snehalreddy@google.com>
+	Tue, 20 Oct 2026 09:07:04 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id 996D41D0014E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 05:06:59 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 20 Oct 2026 05:06:59 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1792487213;
+	 x=1792573613; bh=qbtBT1zpSxLsbcMbyYVhf3JDYC/W4xf5mt5D10gHvo0=; b=
+	YAgmFXmjB9LJCqu5UhfWhrgkMQ+78wWrQqA2QRxxmQ9mmdJLYKjVExsXPcIQ1nCY
+	HYO0VQW8oNhgA78fDNH9KiQwpz85a4KLmWQcxjENLDhNNFKaWVTlrH6JqKhVZxjN
+	3ayzQ+9YE2HyrkD2JbMfaAOOsgfxFQheg8Yr56I4HrD3FQb8nydfmBJjHSc9WLH+
+	rH5SOKG+M2XhFzmE0+Ah59kMDRtPzHItkPXQ63e0SN2z3TANvWi+jN/1E2dmDXLj
+	YdoQzjMWcbmNMNLIAk4Erj05hkXqVezobDhOHEOnPxn+EkjpbZY9awVsB3a2zmX+
+	hX1W5EDi23GiFOXKV9UGmw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792487213; x=
+	1792573613; bh=qbtBT1zpSxLsbcMbyYVhf3JDYC/W4xf5mt5D10gHvo0=; b=V
+	djp2tjYjltPD9WauoYY13RPgdVY2L88pxKoNitXC4D+yzKb20SlGcgQlumZ+iSSs
+	w9PoA4x4okUEJqt7BkhuhkHhMGhAoamuvH4xLGNYNFOAB0baTFjUmqzyO0ZoaTDZ
+	o7MZb8yO3DpsVrQcw0g202eYqvjCqPn5rXdvnNPHS3dYjgnthyF3ddnLNAN/mC08
+	X5W1Fe4fKVkWyw9WoNuR54h6fULRnD+ZaN7zLV99fohkG5vu5ckL74K/UzRJVEj8
+	AyRUZl13q7NmSTU8enZ9nQ6yQiJsv+9FQvcuXq/iztp66w2og2JWwO7ERo7bwx0H
+	OMS1QMQBLoMZFeBHGHwnQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1792487213; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:lZBuYsct4WUlyAc3qfGKfQhBtM89reYmq3X2ES4HYjOt06M
+	ZJp8pppXbEmzknRamYuBhtSRO1W+cKoN90Se4CizMmnz2pQoSUPtBczFoJBO0fEm
+	AcHuAa8QYr34eGkBAwlLcTwOb1omjpVeETttC/RuYlwGDIo1yrRAH39ftkGu8MpL
+	7VTaso+GoHgjyyXiXt0YNVRNAcWhqkHrUlSC/6yBUyEol7MKjaxIJqQjtzqtE3t1
+	NyfBHJbel0OZSUvjiNpvgTogiruk29lzi6Z/mHLGTfs0xt2xoUUseLegMKF3DGyF
+	7BDYD/OP08CtikzLQh/GaWs4yZcWlAdzOf7KRHw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:Zf6XtnsRdLogxNdsFsiNl9U5lteyoRFbzV8KFT94ceY=:P1+4NKlddnjAdfdPKXMMf1nmswzQ3j+bprK9cbCihoY=;
+X-ME-Sender: <xms:KC_XaqGFWnH2TWivi-2RBBGAC3gfA1D44CKdS271GMmheqTagxxmpg>
+    <xme:KC_XamJflEGblbMedxlEtVC_s5MGvmo2Yf9kr6TZtso4llSvLhiruS06StW3YjncF
+    YOs8Zbcc8OjYTp2Pu1vhNOCySecE17SXKovaGln_CMCURUaMvHYS98>
+X-ME-Proxy-Cause: dmFkZTE6pYZjwqD9MuJZc6oGG5G4d8tXnhSRk+nCvHZBTrmX1lvtdBB2z4mSt0mtErSvno
+    uKHAQgvOcedGlRXGN7ggqvLURejOEB3vEgubbBGVASzH5JJGm6qRIN7+Gu8ohdrqvGK08J
+    9BbwSughj3UMjk4bVE1QdUhNjKK7NLUIqJUN5sOIHEt5TldzHgx1WzzQ4L7xS7cooChcY7
+    rv9AuZIKyXllIY9hKA8K1G8fT7AhYuwJ6qGIBKV8AnLHrcr1onLXuEYAENhM6M9GpdYJdV
+    vkCe5+12oZhdEE/U4lNHMtLhbLVabIlgzVVGYs6J/gKl8M51RVdHoeS/WfEqq9dzde8cNA
+    eNHfYge7WVbCoY1+KLuQFPAMWOF66HrRo+3NmsOZYMQ8MlJPXBpLhIW/NYglbhGmndf001
+    A/6CMGeBVygqyslGZMOveGymtrbbq+TtoAE/SJdXKT1O/6B+CIsxWx5kQzJAhUh3o3S+ya
+    ED2Cy9rqkUtvjKWQYuULfth6786qsr9yRxVAWVY1kxTZGxiLaoGHBG0CuazaMdF8V4RGTy
+    Kvq2LFyyqME+xXjn42vkYOKvHkXbnS/HPrkOtI5grRs9rvhzIwVtVyB/u/3b+cDvGF++rC
+    V984mXo98wkevu6m2MU40qe1fO2ZJ+FRXK6bm1CfEyG+jjKniYAIhuMEKouw
+X-ME-Proxy: <xmx:Ki_XarPN-YD47sw20HPwqP0y1YQFzBJbYIa-_vpY3eKV9fNEPmLSvQ>
+    <xmx:Ki_Xam7lZ3BlCeOb4CS1J2ll5g6bloQEIF--CeaWUTZR19J7JwqUJg>
+    <xmx:Ki_XaqmJcvhx29A0jrkaPFH1VNRUcUzJ6p_bZr43kzs83eEn5NWfoA>
+    <xmx:Ki_XauI8wNPpH7dGH-8y2tvBNNfnnLoEDZKtvDALjuQxh7dvfLD9HA>
+    <xmx:LS_XatS6u-867GxncqjomOrKbuKdTDKjIWZKuU5iq2LF_lGuz1Vopv4I>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 506CA32A008F; Tue, 20 Oct 2026 05:06:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016082341.4030770-3-snehalreddy@google.com>
+X-ThreadId: ATLhSvAouVZo
+Date: Tue, 20 Oct 2026 11:06:06 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Marc Kleine-Budde" <mkl@pengutronix.de>
+Cc: "Ian Rogers" <irogers@google.com>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Andy Lutomirski" <luto@kernel.org>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Stefan Kerkmann" <s.kerkmann@pengutronix.de>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "David Laight" <david.laight.linux@gmail.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>, "Eric Biggers" <ebiggers@google.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <fd21b7ed-003e-4c7f-a60b-0f9918b2bab1@app.fastmail.com>
+In-Reply-To: <20261020-zealous-warping-quetzal-84479a-mkl@pengutronix.de>
+References: <20261019201257.3805356-1-irogers@google.com>
+ <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
+ <20261020-succinct-zebu-of-vigor-6cb2cd-mkl@pengutronix.de>
+ <d2afb4cb-145e-488b-8f6e-c83e38735526@app.fastmail.com>
+ <20261020-zealous-warping-quetzal-84479a-mkl@pengutronix.de>
+Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_020214_345478_54D79EA4 
-X-CRM114-Status: GOOD (  15.87  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261020_020703_731842_C2224043 
+X-CRM114-Status: GOOD (  21.51  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +140,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 16, 2026 at 08:23:41AM +0000, Snehal Koukuntla wrote:
-> FF-A v1.3 ALP5 (DEN0140 rev J) adds the FFA_MEM_RECLAIM2 interface,
-> allowing an Owner to reclaim a subset of pages from a shared or lent
-> memory region by populating constituent memory region descriptors in
-> its TX buffer along with a starting descriptor byte offset and initial
-> page index. Upon completion, the Relayer returns the number of 4K pages
-> reclaimed in x3.
-> 
-> Support FFA_MEM_RECLAIM2 in the host FF-A proxy handler. Validate the
-> register arguments, copy the constituent descriptors from the host TX
-> buffer into the hypervisor's TX buffer, and check the descriptor bounds,
-> the total page count and the initial page index on that copy before
-> forwarding the call to the SPMD. On success, unshare the reclaimed page
-> ranges from the host stage-2 page tables.
-> 
-> Link: https://support.arm.com/documentation/den0140/j
-> Signed-off-by: Snehal Koukuntla <snehalreddy@google.com>
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-
-> ---
-> Changes in v2:
-> - Rename FFA_FN64_MEM_RECLAIM2 to FFA_MEM_RECLAIM2
-> - Check that the sum of pg_cnt across all constituent descriptors
->   matches total_pages, guarding against overflow (Vincent)
-> - Simplify the flags and offset alignment checks (Vincent)
-> 
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 126 ++++++++++++++++++++++++++++++++++
->  1 file changed, 126 insertions(+)
+On Tue, Oct 20, 2026, at 10:41, Marc Kleine-Budde wrote:
+> On 20.10.2026 10:24:51, Arnd Bergmann wrote:
+>> On Tue, Oct 20, 2026, at 08:44, Marc Kleine-Budde wrote:
+>>
+>> That would be better, but I still hope we can just get back to the
+>> portable code across all architectures for the in-kernel version.
+>>
+>> I have one more request for you: can you check /proc/cpu/alignment
+>> on the system that shows the performance regression with and without
+>> the patch?
 >
+> I asked Stefan Kerkmann (who wrote the original regression report) the
+> same question, but we haven't had time for it yet. We'll get around to
+> it.
 
-[...]
+Ok, thanks!
+
+>> In your original report, you have shown that Ian's patch
+>> caused the drop in performance and that it caused the added function
+>> calls, but I don't see any sufficiently hot code path that would
+>> actually explain the scale of the regression,
+>
+> Don't underestimate the overhead of function calls on those old CPUs
+> with tiny I-caches.
+
+What I meant is that I tried to look for calls to get_unaligned()
+in the code path you'd hit with UBIFS on nand flash, and I only
+found a possible call once per page written
+(ebu_nand_write_page_hwecc), which should have a much lower
+overhead than what you observe.
+
+While ubifs does use crc32, it uses the lib/crc/ version rather
+than the crypto/crc32c.c that you listed, and there is no
+get_unaligned() in the lib/ one. If you have NOR flash, the
+caller is likely do_write_buffer() calling map_word_load().
+That one could explain the problem and could also be
+optimized further if it turns out to be the bottleneck.
+
+     Arnd
 
