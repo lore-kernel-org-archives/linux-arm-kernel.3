@@ -2,86 +2,132 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2749606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:12:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03D39606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 08:25:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aTa/y7Rx;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=RCnjv+vU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OCQBJGnR;
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm1 header.b=gVsMzc4p;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=IBiQG7Ut
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aEsK9vnGIWgdQWg/4/gp+ERqdPLdZK75eQSfT/gO9Pk=; b=aTa/y7RxdiUkFEEwIaK9X57fsL
-	yTnZdqTj4QFf6e8uIcizHMc2a9YXFfTG1xIQdmM628mejRpeoUZGkR7U/IFGgQUke2mwXhT519lb0
-	3tPE2B+JQ1jNjipYJ9VITASeCV4H8b2/C49NVkgfSQ3nUAHVy+ybFy8uPLJgdFJj9IthXnBnFScWd
-	Zu0TI6GZKccExI2jdih0kvhBdN6xUnGQGo1xQP65swUwoTt19UMAkoobKZeGUFSZv+iYiSjqiQg5q
-	VC4Xf0UEmFzqxJattdj7AasYRhsCEX6OpmC8cXcu+QgxQni6P+F4KhCDtwoBa7nttaLx4f9NxDzQr
-	ppBsydZA==;
+	bh=OOWziecHO99tmLi2InK5sCFNWlNwHdhEH/JAdyr5Svw=; b=OCQBJGnRjMYDTT+kJHWGSAdCLT
+	Ba72/yVZcW6JNpt4ysomysJnwu0wCjPWybjwqfN+xmaGPUBd+Nnlytb25SZlwgBrscKeVyW430oif
+	Utfn7rwACAMkvc7GOtYCsjVguUWfYpKkicYas5UEUZdlLqwQ7b3yjarNXgb1iVukA0zP8v3gq6Mc9
+	9FcbKIGdtKscp6gMo/FH6rF7orUovGL4KLrIlb9fhWwDBCVO4G2NW+U4qu3yf/NxKKS5gLlxvXLtx
+	haJfMTj4pJvk+9iKXMPEzn/EPlw15Hs5X2XCHcdh3eVP/t9W76LI0GRqEVFrll0SOxPqa3yhW+biF
+	DkN5mkww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4xS-000000097qI-3WUo;
-	Tue, 20 Oct 2026 08:12:30 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1xJ5A8-00000009Auz-30TP;
+	Tue, 20 Oct 2026 08:25:36 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ4xP-000000097pm-0tq5
+	id 1xJ5A6-00000009AuZ-0BlR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 08:12:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=aEsK9vnGIWgdQWg/4/gp+ERqdPLdZK75eQSfT/gO9Pk=; b=R
-	Cnjv+vUw17RM25HbbvPqMuGddLQAMNXJ0irypFTfWPLOd6+HOf3gwWx8a2uP2SmB
-	iDAziIByqccqzbaF9irRVvpqnnVhRrfSP0844asw+laXL975n8MmReJ8/wccS40t
-	dwd/tu0cxmXnt80jgfrZdR4QRYqABLnulyXy8r/pSc=
-Date: Tue, 20 Oct 2026 16:10:32 +0800 (CST)
-From: "jiale yao" <19888972804@163.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: "Frank Li" <Frank.Li@kernel.org>, "Zhang Wei" <zw@zh-kernel.org>,
-	"Sascha Hauer" <s.hauer@pengutronix.de>,
-	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
-	"Fabio Estevam" <festevam@gmail.com>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"H Hartley Sweeten" <hsweeten@visionengravers.com>,
-	"Ryan Mallon" <rmallon@gmail.com>,
-	"Mika Westerberg" <mika.westerberg@iki.fi>,
-	"Ebony Zhu" <ebony.zhu@freescale.com>,
-	"Kumar Gala" <galak@gate.crashing.org>,
-	"Dan Williams" <djbw@kernel.org>,
-	"Andrew Morton" <akpm@linux-foundation.org>,
-	"Zhangfei Gao" <zhangfei.gao@marvell.com>,
-	"Arnd Bergmann" <arnd@arndb.de>, "Qiao Zhou" <zhouqiao@marvell.com>,
-	"Leo Yan" <leoy@marvell.com>,
-	"Lennert Buytenhek" <buytenh@marvell.com>,
-	"Nicolas Pitre" <nico@marvell.com>,
-	"Saeed Bishara" <saeed@marvell.com>,
-	"Maciej Sosnowski" <maciej.sosnowski@intel.com>,
-	"Shawn Guo" <shawn.guo@freescale.com>,
-	"Srinidh Kasagar" <srinidhi.kasagar@stericsson.com>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re:Re: [PATCH 0/7] dmaengine: drain completion tasklets during
- teardown
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20261020073620.224795-1-peng.fan@oss.nxp.com>
-References: <20261020073620.224795-1-peng.fan@oss.nxp.com>
-X-NTES-SC: AL_Qu2SAPiTvEAo5CabY+kcn08ShO49XMOyvfoi2YFTc+MEpyPT/CwnXV1dJHjX9MKlLySpjjK2QjZX0MN8TZd4HI2VUqoFvXudLFbzFGVQoQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Tue, 20 Oct 2026 08:25:35 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id CAE451D00151
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 04:25:32 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 20 Oct 2026 04:25:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1792484726;
+	 x=1792571126; bh=OOWziecHO99tmLi2InK5sCFNWlNwHdhEH/JAdyr5Svw=; b=
+	gVsMzc4pE7RXb0PD1PFSe7U9KAKo+LOfnrpCZ9bGvHxQed7bfXRPVZaXFO6RI0rE
+	gYqVssJtY3XpYADIXLgRBcAivyYUTqSu8/U6eyNyRwp83RN01jMkBsdi3XSrhfGn
+	kcF6F5coIfSOKgdgbd85wqMKYqRaJnkQlyeHKPGzHIqseXyjDgBaqtDhCRjj46g7
+	68UwP3Q+PH2S8H6mzo0CE9icu1ZVRb4prOaDAupmoyxVSNeCP69TfOUMleKnhNMm
+	8ENYBcOnJ+sGDMOlWdebTCqj9MCTkHYw6M9FqX6TSr5+advz0T/TTmuGuAPIkXsn
+	kVpNl96YZB5Kp92uAuC5HA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792484726; x=
+	1792571126; bh=OOWziecHO99tmLi2InK5sCFNWlNwHdhEH/JAdyr5Svw=; b=I
+	BiQG7UtPpvPCySro50zQU5JqtAIrUz0JrU5gJXsRkNxCic3ZY8SiKef5exwqvb5B
+	vp49UBM4fWL/diBc3NpoeR29xdBei4dSPQj9oYTlEQEgveGPxzhNmuRKE7uwiL1n
+	pyXdAjkvfkJkSUpax6c/pNurM+2SXECpBDAJYjS5Sa/2kL/U/12swZ0ZUb2v0JDY
+	vTembThXwFHx2QUSa0abSxxuX4NFFPzN0hKVXFvsRCv82DbGTr5AF3LpmeZN43VC
+	0XvFd3hjxHZMmRm0gs3K2Y/TKq4TRz/cEIdcuXJJ+56HNYZjjvoxWpsqbCORpA4V
+	P69rs+rDWFvNO/FEHUeGQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1792484726; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:hqbqsPHGoJMxtWYt2xyUU11RL/Y8gTp7jb1yfDih7mhjKUi
+	IzAuUltS4Psy0msSem9lMQfjE0ho3GdKLOgrL/xBJ1iBoYwBTosTUvP5epnL94d0
+	u+/zPQOUsgnjo3jie6vFuUn93kxidyGTcbLNMMCrcMJbaM45VdEOqu0vneSGdDqn
+	+H1SWqKX8LmsPg4ZX2AZnr7FGW2LkLoufr3pnFL1nFA/OIetXC92ePdrROzWJZjg
+	DzwmFvXf0E9ogKkHt0tFVTqJmPA5B13yqgZOM5IsVp2nXrqXlIaDSVoaKs5QAY2e
+	yZnnpt3nMp+gpcV/T0nngfHCjVfPnCTasN52Nig==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:cNtNee0u9nf0BQwKITDllCmw839Es7Nzqxp6USKMn7I=:zjOrROw10opHbIrx9y1YCbZGw8cKUW0tmJxEUPyp5KE=;
+X-ME-Sender: <xms:cSXXavuXr_oR9TttEhY3jnM7ek0xt-zPp5V24wUYJ-hsvYHZ8QYjJQ>
+    <xme:cSXXarQLQiAu_-g06K-OFmt7RHvAPdIS3mou4Q2pW8Q5GH_FkCLZtw1ekTO4-RSIo
+    48fwg0FvnC4EySl8wGi3Aw-D_qbWXrj8BG2Pmb71WI0CLm_Sm5u-Ck>
+X-ME-Proxy-Cause: dmFkZTGzVLg4yuouvFwz5PrOMh7i8iS+/9vnsYEjZvv91aX0C/a0or3CnXqR+7HkqrsIiK
+    +hbffc7OOTeXxTe1v9gFoS8U9vff/jgK4QFpfy8cbkxv4eAUv56tiyScm/QBvbm4RDlUyy
+    iWngEYpMK7gGQjp61AP6vkDvTpqlvIdEIHhJOIc0z/80tKwxgojEYw36ffUsZT7g5//AwT
+    mWBIWSvEfnJN3aqM8IxjtEndMLYwKs1m7VhEVf6nLsTvrWFLY6G1zP4njgQwR1UJVpZuXf
+    FqFDYDwlN5ARRFzRFZcVaO0tsI1F6BzU94OxKNK+hUUOqwGbZLmaqQa8pcE/xQtRMO5apF
+    7dE8Sgl5caMJsXZpb6zjnBgWORBsiJsebqBq2oMbYzsbUZh0DMQYBoe795+nrObGTFmxG7
+    uj6oNWndAeqc8k22aR8UNBzzmGn62bA0KLJ6ImNBLOFZfM7I7Fq7xLkqJ3OoIFIjaoVs9P
+    cZFunWvqyrM8QPQm+6EVIKsKAGO/U2n6r8fpt5HwpV6E7hQ8aUUsimkyZXc8ullR/9cAbS
+    yldvWHI9p7AMheF9F3ruGAsVVMA/pGhcbPS8JFgiel5WbD6XbntgbTEPdwN/vDezQ7Ss63
+    M06F6G0F1gCQsadzsoRaGkAY+M3aoYyrR3oBcz3NGBYxjyN3wnnGLAl0pNTw
+X-ME-Proxy: <xmx:cyXXaiBEe6m2VyR1-2qmJUdiZyq2c0jIqKNI95ZZU7EsXIf-HAECqg>
+    <xmx:cyXXanPH3VQ4SyHaeVYkVBEa3wV4P8G1aU4o9eL5me7WzKXmABtmSA>
+    <xmx:cyXXauQHJakWwnfhTPMAJ5IHUPAIq5R8hCl7RMp6Rrb-3o-T9-ZEqw>
+    <xmx:cyXXan7WAAK-b5pSlQRTzRNSjuNrbupUP5PyhKJFXGYAHB2gGSbB_w>
+    <xmx:diXXatkkvVghptf4jn_4AAkjBNPb2wpqxtasfqzSdthrDUdky69a8qTu>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 44A6232A0093; Tue, 20 Oct 2026 04:25:21 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-ID: <3d4b1cde.711e.1a1585cb34c.Coremail.19888972804@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: bCgvCgCnV_34IddqIc9cAA--.879W
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzhgXUWrXIfhxlAAA3R
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-ThreadId: ATLhSvAouVZo
+Date: Tue, 20 Oct 2026 10:24:51 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Marc Kleine-Budde" <mkl@pengutronix.de>
+Cc: "Ian Rogers" <irogers@google.com>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Andy Lutomirski" <luto@kernel.org>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Stefan Kerkmann" <s.kerkmann@pengutronix.de>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "David Laight" <david.laight.linux@gmail.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>, "Eric Biggers" <ebiggers@google.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <d2afb4cb-145e-488b-8f6e-c83e38735526@app.fastmail.com>
+In-Reply-To: <20261020-succinct-zebu-of-vigor-6cb2cd-mkl@pengutronix.de>
+References: <20261019201257.3805356-1-irogers@google.com>
+ <31fe09f6-0a14-40fc-8ad8-c03998fb1f5c@app.fastmail.com>
+ <20261020-succinct-zebu-of-vigor-6cb2cd-mkl@pengutronix.de>
+Subject: Re: [PATCH v1 1/2] vdso: Add VDSO_UNALIGNED_PACKED config option for ARMv5
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_011227_678520_858BFA21 
-X-CRM114-Status: GOOD (  13.72  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261020_012534_471125_49E21A64 
+X-CRM114-Status: GOOD (  24.99  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +138,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,FROM_LOCAL_DIGITS,FROM_LOCAL_HEX,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgUGVuZywKCkF0IDIwMjYtMTAtMjAgMTU6MzY6MTksICJQZW5nIEZhbiAoT1NTKSIgPHBlbmcu
-ZmFuQG9zcy5ueHAuY29tPiB3cm90ZToKPk9uIFN1biwgMTggT2N0IDIwMjYgMTI6MDc6MTYgKzA4
-MDAgSmlhbGUgWWFvIDx5YW9qaWFsZTAyQDE2My5jb20+IHdyb3RlOgo+Cj4+IFNldmVyYWwgRE1B
-ZW5naW5lIGRyaXZlcnMgZGVmZXIgaW50ZXJydXB0IGNvbXBsZXRpb24gcHJvY2Vzc2luZyB0bwo+
-PiB0YXNrbGV0cywgYnV0IHJlbGVhc2UgY2hhbm5lbCByZXNvdXJjZXMgd2l0aG91dCBkcmFpbmlu
-ZyB0YXNrbGV0cyB0aGF0Cj4+IHdlcmUgYWxyZWFkeSBxdWV1ZWQuIFN0b3BwaW5nIG9yIHJlbGVh
-c2luZyBhbiBJUlEgcHJldmVudHMgbmV3IGhhcmQgSVJRCj4+IGhhbmRsZXJzLCBidXQgZG9lcyBu
-b3Qgc3luY2hyb25pemUgdGhlIGRlZmVycmVkIHRhc2tsZXQuCj4+IAo+PiBEZXBlbmRpbmcgb24g
-dGhlIGRyaXZlciwgYSBsYXRlIHRhc2tsZXQgY2FuIGFjY2VzcyBmcmVlZCBkZXNjcmlwdG9yCj4+
-IHN0b3JhZ2Ugb3IgaW52b2tlIGEgY29tcGxldGlvbiBjYWxsYmFjayBhZnRlciBpdHMgY2xpZW50
-IGRhdGEgaGFzIGJlZW4KPj4gcmVsZWFzZWQuIEVuc3VyZSBlYWNoIHByb2R1Y2VyIGlzIHN0b3Bw
-ZWQgYmVmb3JlIGtpbGxpbmcgdGhlIHRhc2tsZXQgYW5kCj4+IGZyZWVpbmcgdGhlIHJlc291cmNl
-cyBpdCBjYW4gYWNjZXNzLgo+PiAKPj4gRWFjaCBwYXRjaCBpcyBpbmRlcGVuZGVudCBhbmQga2Vl
-cHMgdGhlIHN5bmNocm9uaXphdGlvbiBsb2NhbCB0byBvbmUKPj4gZHJpdmVyJ3MgY2hhbm5lbCBv
-ciBkZXZpY2UgdGVhcmRvd24gcGF0aC4KPj4gCj4+IEppYWxlIFlhbyAoNyk6Cj4+ICAgZG1hZW5n
-aW5lOiBlcDkzeHg6IGRyYWluIHRhc2tsZXQgYmVmb3JlIGZyZWVpbmcgY2hhbm5lbCByZXNvdXJj
-ZXMKPj4gICBkbWFlbmdpbmU6IGZzbGRtYTogZHJhaW4gY2hhbm5lbCB0YXNrbGV0IGR1cmluZyBy
-ZW1vdmFsCj4+ICAgZG1hZW5naW5lOiBtbXBfcGRtYTogZHJhaW4gY2hhbm5lbCB0YXNrbGV0cyBk
-dXJpbmcgcmVtb3ZhbAo+PiAgIGRtYWVuZ2luZTogbW1wX3RkbWE6IHN5bmNocm9uaXplIHRhc2ts
-ZXQgd2hlbiBmcmVlaW5nIGEgY2hhbm5lbAo+PiAgIGRtYWVuZ2luZTogbXZfeG9yOiBkcmFpbiBJ
-UlEgdGFza2xldCBiZWZvcmUgZnJlZWluZyBjaGFubmVsIG1lbW9yeQo+PiAgIGRtYWVuZ2luZTog
-bXhzLWRtYTogc3luY2hyb25pemUgdGFza2xldCB3aGVuIGZyZWVpbmcgYSBjaGFubmVsCj4+ICAg
-ZG1hZW5naW5lOiBzdGVfZG1hNDA6IHN5bmNocm9uaXplIHRhc2tsZXQgd2hlbiByZWxlYXNpbmcg
-YSBjaGFubmVsCj4+IAo+PiAgZHJpdmVycy9kbWEvZXA5M3h4X2RtYS5jIHwgNCArKystCj4+ICBk
-cml2ZXJzL2RtYS9mc2xkbWEuYyAgICAgfCAxICsKPj4gIGRyaXZlcnMvZG1hL21tcF9wZG1hLmMg
-ICB8IDQgKysrKwo+PiAgZHJpdmVycy9kbWEvbW1wX3RkbWEuYyAgIHwgMiArKwo+PiAgZHJpdmVy
-cy9kbWEvbXZfeG9yLmMgICAgIHwgNiArKysrLS0KPj4gIGRyaXZlcnMvZG1hL214cy1kbWEuYyAg
-ICB8IDEgKwo+PiAgZHJpdmVycy9kbWEvc3RlX2RtYTQwLmMgIHwgMiArKwo+Cj5Zb3UgbWlnaHQg
-bmVlZCB0byBhZGQgYSBiaXQgbW9yZSBjb250ZXh0IG9uIHRoZSBpc3N1ZXMuCj4KPlRha2luZyBt
-eHMtZG1hIGZvciBleGFtcGxlLCBpdCBpcyBub24tU01QIHByb2Nlc3Nvci4KPgo+VGhlIG5vcm1h
-bCBjb21wbGV0aW9uIHBhdGggaXM6Cj4xLiBETUEgaGFyZGlycSBmaXJlcyAtPiBteHNfZG1hX2lu
-dF9oYW5kbGVyKCkgLT4gdGFza2xldF9zY2hlZHVsZSgpIC0+IHJhaXNlcyBUQVNLTEVUX1NPRlRJ
-UlEKPjIuIGlycV9leGl0KCkgLT4gc29mdGlycSBwcm9jZXNzaW5nIC0+IHRhc2tsZXRfYWN0aW9u
-KCkgLT4gbXhzX2RtYV90YXNrbGV0KCkgcnVucwo+My4gUmV0dXJuIHRvIHByb2Nlc3MgY29udGV4
-dAo+Cj5UaGUgdGFza2xldCBhbG1vc3QgYWx3YXlzIGNvbXBsZXRlcyBiZWZvcmUgcHJvY2VzcyBj
-b250ZXh0IHJlc3VtZXMuCj5UaGUgb25seSB3YXkgdG8gaGl0IHRoZSByYWNlIG9uIFVQIGlzIGlm
-IHNvZnRpcnEgcHJvY2Vzc2luZyBnZXRzIGRlZmVycmVkCj50byBrc29mdGlycWQsIGFuZCB0aGVu
-Ogo+SW4gUFJFRU1QVF9SVCBjYXNlOiBUYXNrbGV0cyBiZWNvbWUgdGhyZWFkZWQgYW5kIGNhbiBp
-bnRlcmxlYXZlLgo+SXMgdGhlcmUgYSBjaGFuY2UgdGhhdCBpbiBub24tUlQgY2FzZSwgY291bGQg
-d2UgaGl0IGlzc3VlcyBvbiBVUCBwcm9jZXNzb3I/Cj4KPk9yIEkgbWF5IHVuZGVyc3RhbmQgd3Jv
-bmc/CgpUaGFua3MgZm9yIHRoZSBkZXRhaWxlZCBhbmFseXNpcy4KClRoZSBub3JtYWwgVVAvbm9u
-LVJUIHBhdGggdXN1YWxseSBydW5zIHRoZSB0YXNrbGV0IGZyb20gaXJxX2V4aXQoKSwgYXMKeW91
-IGRlc2NyaWJlZC4gSG93ZXZlciwgaWYgdGhlIERNQSBJUlEgcmFpc2VzIFRBU0tMRVRfU09GVElS
-USBhZnRlciB0aGF0CnZlY3RvciBoYXMgYWxyZWFkeSBiZWVuIHByb2Nlc3NlZCBpbiB0aGUgY3Vy
-cmVudCBzb2Z0aXJxIHBhc3MsCm5lZWRfcmVzY2hlZCgpIG9yIHRoZSBzb2Z0aXJxIHRpbWUvcmVz
-dGFydCBsaW1pdHMgY2FuIGRlZmVyIGl0IHRvCmtzb2Z0aXJxZC4gUHJvY2VzcyBjb250ZXh0IG1h
-eSB0aGVuIHJlbGVhc2UgdGhlIGNoYW5uZWwgYmVmb3JlIHRoZQp0YXNrbGV0IHJ1bnMuCgpBIHNp
-bWlsYXIgdGVhcmRvd24gaXNzdWUgd2FzIGZpeGVkIGJ5IGNvbW1pdCAwY2E3OTk3OTM4NGYKKCJS
-RE1BL2VyZG1hOiBGaXggQ0VRIHRhc2tsZXQgdXNlLWFmdGVyLWZyZWUgb24gcmVtb3ZhbCIpLiBm
-cmVlX2lycSgpCnN5bmNocm9uaXplcyB0aGUgaGFyZCBJUlEgaGFuZGxlciwgYnV0IGRvZXMgbm90
-IGRyYWluIGFuIGFscmVhZHkgcXVldWVkCnRhc2tsZXQuCgpGb3IgbXhzLWRtYSwgdGhlIGRlZmVy
-cmVkIHRhc2tsZXQgbWF5IGludm9rZSB0aGUgY29tcGxldGlvbiBjYWxsYmFjawphZnRlciBpdHMg
-Y2xpZW50IGRhdGEgaGFzIGJlZW4gcmVsZWFzZWQuIFRoZXJlZm9yZSB0aGlzIGNhbiBhbHNvIGhh
-cHBlbgpvbiBVUC9ub24tUlQsIGFsdGhvdWdoIHRoZSB3aW5kb3cgaXMgbmFycm93LgoKPgo+UmVn
-YXJkcwo+UGVuZwo+Cj4+ICA3IGZpbGVzIGNoYW5nZWQsIDE3IGluc2VydGlvbnMoKyksIDMgZGVs
-ZXRpb25zKC0pCj4+IAo+PiAtLSAKPj4gMi4zNC4xCj4KPlNlbnQgdXNpbmcgaGttbCAoaHR0cHM6
-Ly9naXRodWIuY29tL3NqcDM4L2hhY2tlcm1haWwpCgoKVGhhbmtzLApKaWFsZQo=
+On Tue, Oct 20, 2026, at 08:44, Marc Kleine-Budde wrote:
+> On 20.10.2026 00:12:57, Arnd Bergmann wrote:
+>> On Mon, Oct 19, 2026, at 22:12, Ian Rogers wrote:
+>> > +
+>> > +config VDSO_UNALIGNED_PACKED
+>> > +	bool
+>> > +	default CPU_32v5
+>> > +	help
+>> > +	  Use packed structs rather than memcpy() in include/vdso/unaligned.h
+>> > +	  for unaligned memory accesses. Enabled on ARMv5 where GCC may emit
+>> > +	  out-of-line memcpy() calls instead of inlining byte accesses.
+>>
+>> As explained, I think this misrepresents the problem as Arm specific and
+>> isn't the correct method for -munaligned-access targets on Arm, which
+>> include CPU_32v3, CPU_32v4 and CPU_32v4T along with CPU_32v5.
+>>
+>> I still hope we can use a version that just produces the intended code
+>> on both -munaligned-access and -mno-unaligned-access targets like the
+>> old version did.
+>
+> FYI: there is the kconfig Symbol HAVE_EFFICIENT_UNALIGNED_ACCESS. Can we
+> make use of it?
+
+That would be better, but I still hope we can just get back to the
+portable code across all architectures for the in-kernel version.
+
+I have one more request for you: can you check /proc/cpu/alignment
+on the system that shows the performance regression with and without
+the patch? In your original report, you have shown that Ian's patch
+caused the drop in performance and that it caused the added function
+calls, but I don't see any sufficiently hot code path that would
+actually explain the scale of the regression, unless there is now
+also a case where get_unaligned() ends up doing the wrong case and
+running into a fixup handler. If this happens, you should see a
+nontrivial number of fixups listed in /proc/cpu/alignment. On
+a working system, the numbers should all be low but likely nonzero
+because there tend to be callers that still lack get_unaligned()
+wrappers and just access misaligned pointers directly.
+
+      Arnd
 
