@@ -2,125 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8214606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:00:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F06DD606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:00:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dQmY83Tz;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Kv+QQ8DM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1O8eVxBs;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMz/KM02
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZYsJK9DZp6FZSpfbfNmBNvtUH4DYpATPXfy0vHCOP0=; b=dQmY83TzErXS/9Xozne+oQKfiX
-	X1i/jXxdK81Hmh1mwUCM3DqNYlIiH/5oGQWA0qDa7n1mH+IBxmafT4q6d7peuDw7Y2v4ICW2Ec5Mk
-	U/va9ylhmS+Pu+VOQ1xAkz4a5w19cBhr/6i/u07+BDP9TE9Yp7lNpT3R1NnZ3Pw8UxvnTNfhxsk5F
-	v7AFAQi5nnUIkD51+HjxMOFrFobqCNQ7QYtsMHcrTB7gNArHtou2fOVEhh4KBlhQ0jxU/Sk5kw0s3
-	QicmXTOlKD3mvkLavBLsp3dkRKjADv3WVkzDyG55pKBL91SGj+mVPKq1/EyY1V3pqDaJWHDvpB6d9
-	t/u5vY0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JdOLrX7Vbro6mz+D+OPkX1mbllMUobn9e9VhBO0BxN4=; b=1O8eVxBslJjEpjmF3agk3H8kLj
+	3s15OvKpmhusBmIKKKra9Ee+RfeZhcQX40rQU1U4isUvKTpNrCwPKVCYwaklEV7j04N3SHTFotqoh
+	mgtfCp3iKGFwYXZgZDqdRQYgzMnZyxsaERbexeMdBkHQckuy5ava1+M1/1xHDTyR7ozZ7G/D4to5j
+	JN4I5rncwlPTW0q1vvBMmv1WKkLv+M8PEIyQVVYYRrLwyJ2wInUoYEhyaHtk2LugqyFI4KCgkxU7L
+	VnhdWVtgTYdrWMQOEcvIz1Ik1DDIszq1wtP+Rwrtu6NWcWHLNl3nnRKnJZ9wrJiBBIAkJA9aiCyCJ
+	bohyvVZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDBv-0000000AHzS-12G5;
-	Tue, 20 Oct 2026 16:59:59 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1xJD50-0000000AGO3-2axj;
+	Tue, 20 Oct 2026 16:52:50 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDBt-0000000AHyK-0MMV
+	id 1xJD4y-0000000AGL1-0Mzi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 16:59:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bvZuD1dImgrMUMDlBJDi2cRi5NkDxsmViDT2hm0S3EDlg3OMulT2eyA3VLn+t0y/zC1l03xUVvPp4Tp9RnfMKfMMB1x5Uf0oEtbQuUwwnt1tAvuQyWiPWYx0MszTInHmPAGPamV6xaXkFOPuv+fQBIJnLlwaLvl/g15dfzAeBEC/5G2L4Vni/ff+oYKSyC7vxEZQPOVeXNI4pwxZzAHdlhKxbQzbXJW0mvfqTbGjhyWsGQblisP0n1/vCO11XDXKlBkI7dKErgEdus0cqZ7D2SpFVuc7NcXl7jgjZUSjK5k98IMM6PGy9OHyzVl8hrSVNs1uFoz1w2zDWVQt/kgvng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iZYsJK9DZp6FZSpfbfNmBNvtUH4DYpATPXfy0vHCOP0=;
- b=iXuC3jdLkw9YJGNNynhAi2oHXAU4nqg4ljRX/l4A5OMvUIw+DpvaI3WruFTIT/TG/WWjjfOztLGyJfAqkRYZ0WuwvdvKAXfPdt88Xr/G8+RKXqVJCGtMW79REJkfYgxWikqdPrADD8PKn+ratu/+XHRazbh4CI+t+XaHITmJs6pAYdkURZAaVf9mD3zbFOgH63YbsOMJv8KexjJf0iGUxB+B0U0hSc29UlxxjQJ4VPDxPE2yHl14PFn/P2HkGC6Bie6kf1/OUyPOfQjtf2Bvkxi3e6n7c7MehqTkXyTZzxgv+ZqdGRMx8TbPxFCGJgng4bO8RHojtmMqtcVKn/b0Vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iZYsJK9DZp6FZSpfbfNmBNvtUH4DYpATPXfy0vHCOP0=;
- b=Kv+QQ8DMmw+1AA4s6/45thICu5kMKlYlZoC1XEQ67c/nuH/Y9Kb+Fqiyf9qZK9ubyT09sfHrtdThwaxHBvRp1+/Irx3V4w15bFc/8b3t5EJe/uEVIG+E2bod3P8Xasf0iaTp8WaTyxzZr50Sg89FFjZ1PFW/IRL/9gaVJn7gU2Ltjb6UQY7OYNgEB2j6dbJ2Jq8aQ5jlCc4Ofss8BrXHHbFIgDEJXnx8KztBuE3BieJ7VIMal0+ybh8pjqLG8I6a/2gApAmP0r4/UNJvSxooHGW5PJvi/4cWJn+1rz9Qct0gtJNFa7SeqrKbvLSIrv2mOPx7+rV1lps4CAdS4nK+gg==
-Received: from CH0PR03CA0412.namprd03.prod.outlook.com (2603:10b6:610:11b::24)
- by DM4PR12MB7767.namprd12.prod.outlook.com (2603:10b6:8:100::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.15; Tue, 20 Oct
- 2026 16:59:39 +0000
-Received: from IA0PEPF00000039.namprd03.prod.outlook.com
- (2603:10b6:610:11b:cafe::88) by CH0PR03CA0412.outlook.office365.com
- (2603:10b6:610:11b::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.20 via Frontend Transport; Tue,
- 20 Oct 2026 16:59:38 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- IA0PEPF00000039.mail.protection.outlook.com (10.167.249.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.546.15 via Frontend Transport; Tue, 20 Oct 2026 16:59:38 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 20 Oct
- 2026 09:59:14 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 20 Oct 2026 09:59:13 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Tue, 20 Oct 2026 09:59:12 -0700
-Date: Tue, 20 Oct 2026 09:59:10 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <praan@google.com>, <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>
-Subject: Re: [PATCH v11 05/11] iommu/arm-smmu-v3: Disable the EVTQ and the
- PRIQ in a kdump kernel
-Message-ID: <ated3gfYqw3QC0+G@nvidia.com>
-References: <cover.1791226953.git.nicolinc@nvidia.com>
- <fdebf9f372ebabd7a44581a2068d6fcbff058783.1791226953.git.nicolinc@nvidia.com>
- <atdPBqd1-xLNZ1hs@google.com>
+	Tue, 20 Oct 2026 16:52:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8703D1A1298;
+	Tue, 20 Oct 2026 16:52:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5874560393;
+	Tue, 20 Oct 2026 16:52:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC61B10328E3D;
+	Tue, 20 Oct 2026 18:52:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792515160; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=JdOLrX7Vbro6mz+D+OPkX1mbllMUobn9e9VhBO0BxN4=;
+	b=kMz/KM02Vd6xGxFEu3+ivkFmGDhDhyr4J8jcMsEUOV4wnhKcAxqqVk/Lho8oTU1EDAdJWg
+	eszwLV7OlmzXKBZzrnMZJtGzSeCn8gmzh/+/0detapC6r8I65jU4ueEdTRKOf+x2rICJfn
+	Oe0kLjtROzseab7yR8o1Kc5PcmHIm7SjY8v8lKRMwTl0atRAaED35WEjR4xz8FeGj0/RVK
+	5muG3mNeT7qgMqCuaBPbmWuRUm3EmHtxOmTSWK6ovNMbYTQYAUZMJE/PB20Rwyzh3eDyf9
+	OsfB6sGh8fK2dy0YKFMc2uSy58liq/TlMyiiYKmU90YPnaNPzxN4GYg8EM13Hg==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <atdPBqd1-xLNZ1hs@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000039:EE_|DM4PR12MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34f7e9aa-af69-4744-7067-08df2ecb8710
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|82310400026|23010399003|56012099006|4143699003|11063799006|261009223027099003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: OeRR4KSRtlpvu9DstKF5L//G3nTduch9YMbh+Db6Ks4FJMu2Nf2ddPz2FZEnA308PrXQY4jHGRSihp9M2F/HeA+jfBCvdNcGj2Nh6qCjnEFe1qJYrrlrHU+yMdiwJnc1o6bAWcE+j9YB43PofGNwHvpCQctIrnmcFa2Eo+1Jg8rTSxmWUw8CZAwQ25MRP9SWd6D8hR+VZbd6FYZ+xoRPni8ghSGIGk/P2vq45mQYlfJm7VcKZwa+76dCq2A+ALXxDvRBCCfraTMbHtUwXkXJDDiGZ63WlNqJn1vR+S0kk1F5dxnYyDwRTRjzaA2/FwtWUVFCjltOlwK3myySbEHYMXeYIkQpUUDb9si8M+pNvzkTzMFrQ4nzCpNz7gfmsIzKFi0yWMKCfRTho1nNU37uwMFxzW5H3iWuc9ddPTh/JxtsZfjsOcs2yqtD/9wWYwY8PjgwDv4Ib2Y27VbOVNM/GFf+4BkOZzG6dTubIUXyy/Nram6/Mhnfrz7eyUcdtK8gSyt8UpeLgHC58VlxW2f1X73nh4Zn0p+JcXMwwK8TMBqkzU6rs3CWZNS63Ml0EAcd2UaNNYTIMw4qQwgUW103O7eO+d0AVfFrghIX32Z2Esdpr9KgHrnplWTeNWs/bKqfyJ/7RFWfZCMhjlXw9LyfZMCBkUTxZByDgnPcYS7nxHq7xgZTAJ0v4sHN6ILHawjV2fyvQpmJLxjBKR61dChU7A==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(56012099006)(4143699003)(11063799006)(261009223027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Oek2teeSg3SXmRLKDoy/zeUufTnhzeFWU+nPzu/8s1XSiuk1PruEsflknj/1Vxn2uh0W1B8/L7mSqp5Jf9TF4t0xgFtgYkLXWxPRiYGN/sCIWHACWo3kkFHHstfJGIqDg/nf2gC82NIfQVpRZFzJt1rpiONl9Ron1m/Lk9MLz9IEWo6HPFo2aXgAN3sQ2tCo68dXwjxLaP5FP85pFl5X9X+glisCdm9iBCBqJ4vB9fytgmds6uTb0244oLQdqtGqWjDGUCwJDRkZq0iC3eUK3alfjbUfmttGkZ3hYtT8MslqGpXyli0/nl9GEoI2ocyHo2TQZmRZQ60uxcgkvA4Ix59W0yIqOiJX8IkD3zUQvSSXKs6zBImj1MhBuRrJTuCtM1cjnNT6u+4faHkhU7+qJnD434eTypCnu57j+whHaZD2jOROPvnu9V7utpoYzpBK
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 16:59:38.7346
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34f7e9aa-af69-4744-7067-08df2ecb8710
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF00000039.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7767
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v8 06/14] drm/bridge: it6505: bail out of the IRQ
+ handler when status reads fail
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hermes Wu <hermes.wu@ite.com.tw>, Allen Chen <allen.chen@ite.com.tw>, 
+ Pin-yen Lin <treapking@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <2e003c2e6fdb56d03c3a6effdf090079afb2ffaf.1790552614.git.daniel@makrotopia.org>
+References: <cover.1790552614.git.daniel@makrotopia.org>
+ <2e003c2e6fdb56d03c3a6effdf090079afb2ffaf.1790552614.git.daniel@makrotopia.org>
+Date: Tue, 20 Oct 2026 18:51:39 +0200
+Message-Id: <179251509977.78870.3399297204284524303.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_095957_126485_0742C47F 
-X-CRM114-Status: GOOD (  14.67  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20261020_095248_287153_5EF5D1E1 
+X-CRM114-Status: GOOD (  18.28  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,34 +88,65 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 11:22:46AM +0000, Mostafa Saleh wrote:
-> On Mon, Oct 05, 2026 at 12:30:48PM -0700, Nicolin Chen wrote:
-> > @@ -5576,6 +5573,15 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
-> >  	if (arm_smmu_sva_supported(smmu))
-> >  		smmu->features |= ARM_SMMU_FEAT_SVA;
-> >  
-> > +	/*
-> > +	 * A kdump kernel wants neither queue: the crashed kernel's CDs and page
-> > +	 * tables might be corrupted, spamming events, and page requests cannot
-> > +	 * be served. A disabled queue discards new records without raising any
-> > +	 * global error.
-> > +	 */
-> 
-> I find this a bit confusing. If the CD or page table of the crashed kernel are
-> corrupted how is it safe to adopt them later in this series?
+Hello Daniel,
 
-The adoption code runs some sanity test against STE and CD. But we
-have no guarantee that every bit in CD and PTEs is sane.
+> When reading the interrupt status registers fails, the negative error
+> codes end up in int_status[], where it6505_test_bit() sees almost all
+> bits set: every interrupt sub-handler runs on garbage and the error
+> values are even written back to the status registers. Return IRQ_NONE
+> instead.
+>
+> Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+>
+> diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
+> index 6fd8f5ba9acc..f249520ebd41 100644
+> --- a/drivers/gpu/drm/bridge/ite-it6505.c
+> +++ b/drivers/gpu/drm/bridge/ite-it6505.c
+> @@ -2714,6 +2714,11 @@ static irqreturn_t it6505_int_threaded_handler(int unused, void *data)
+>  	int_status[1] = it6505_read(it6505, INT_STATUS_02);
+>  	int_status[2] = it6505_read(it6505, INT_STATUS_03);
+>
+> +	if (int_status[0] < 0 || int_status[1] < 0 || int_status[2] < 0) {
+> +		pm_runtime_put_sync(dev);
+> +		return IRQ_NONE;
+> +	}
 
-The point here is that, if one bit in CD or PTEs is ever corrupted,
-at least we don't spam the system with events.
+One first question it whether a read failure is realistic or not, and
+whether you have experienced it on real hardware.
 
-Nicolin
+Theoretical or real, the issue is in the code, but I think a cleaner
+solution exists.
+
+Considering that:
+
+ * it6505_read() does 2 things:
+   1. check whether it6505->powered is true, else return error
+   2. regmap_read()
+ * it6505_int_threaded_handler() already checks for it6505->powered
+   earlier, so it6505_read() is basically a regmap_read() wrapper
+   cramming an error or a register value in the same return value
+
+I would consider replacing all the 3 it6505_read() calls with a single
+regmap_bulk_read(), making error management cleaner.
+
+What do you think about this option?
+
+Perhaps the three it6505_write() below could also become a bulk write.
+
+Luca
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
