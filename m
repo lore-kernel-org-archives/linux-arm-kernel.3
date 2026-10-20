@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 713AB60A2635
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BB3D60A2619
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 09:39:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xxab7PU7;
-	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=fCFnzE/q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LFu15H+2;
+	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=gyaqnAnP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UiMRkhpx9tlueenKCNU5oX+f0lzVMx9F/X9orrtCMYY=; b=xxab7PU7L3Z2YQlLAnAfR9/Ha4
-	RRvGCLKih/i3hD5xJCWJxLOYsQFKhcNy8WibVh3Av46+lCDooVTtyTJ3zcI51x0qS5FmEEhxQTQ30
-	skoxV5wh8syEL1XtHtfrXOLpsiJHT2Ip/5DTl9HEoikVEM/IZiARuCWl6YC1pLtNzaFXJyIxpryn+
-	21jIEeBM+3s++Dwzej7JsFMVpq2nu+zZam8MqTCTeDTlQlp3NJmCcQ7C6n1yCvRpyAC4NSV1ZwWnT
-	FiABQaWNQS/Fxs63dkxz7N13dPYv6w5ODJH25y0f1W4eVryjrf6bKkdzuHekV+hMoTO4M28MTVjck
-	am+PYZOg==;
+	bh=ZZ1gM9yQSC1YZxCEwrTMNxYyiaO9FV3OF9hlcurnV9w=; b=LFu15H+2xCCZNgdI/nDG1HlbG6
+	fcXHZ3RsbVIgvLJfoF9h7CFjR7LsigGCs47R5mFt9N5weGHOvZzbc/sQ7t53r8+DDXdeWgPK77K/X
+	aBSIC/D75nbXfT0QtxDylx0EKcnYY31bAB8q64kIqPhNUxtWCFP+vjTTwS5878GaAMlDdQ48shTxr
+	DADSVi5DST8NnQ15SHJ0N4R24Ihho5g9jrpQfdTKRBLmSjajVe4T6NmpNJZ76Vgt5P2T1gzNpntq5
+	0wXRnFxhzoh193T+9EKGr9CnUVzV9FN5AZI5miVmNhKE5BLKCzHtLJP5UF1W+BMbWgLt9luPESUAa
+	3g5pFQwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6JS-00000009J1x-3xAD;
-	Tue, 20 Oct 2026 09:39:18 +0000
-Received: from st-2005c-snip6-3.eps.apple.com ([2a01:b747:3001:202::21] helo=outbound.st.icloud.com)
+	id 1xJ6JT-00000009J3R-1cgi;
+	Tue, 20 Oct 2026 09:39:19 +0000
+Received: from st-2005g-snip6-11.eps.apple.com ([2a01:b747:3001:202::47] helo=outbound.st.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6JO-00000009Iws-0tpi
+	id 1xJ6JQ-00000009Iyg-25C6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 09:39:15 +0000
+	Tue, 20 Oct 2026 09:39:18 +0000
 Received: from outbound.st.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPS id B564C1800698;
-	Tue, 20 Oct 2026 09:39:08 +0000 (UTC)
-X-ICL-RepId: 01a158ad-d0b8-7d56-870b-19f80073342e
-X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGRhGXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOAl0FWx8RTxweGwRGAF0BTVAPVgoAQQtNV1V3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1792489153; x=1824025153; bh=UiMRkhpx9tlueenKCNU5oX+f0lzVMx9F/X9orrtCMYY=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=fCFnzE/qhfQ0D5CJLGvzWwcf1K/eG7pCeBSYPpCrN3YFJ2xZdYYljEhwuX54W8Ap9GWc8ZtGCBoNWc14gi8BQ843XES/pVDrPhxAEgPEA9pjRMqg+Wmkj15KNAyw4+ZThNf+XmJdM3EQUDFpKRctcxtT5YwtnnC960ijy+ywHOZXqGDkWD+Iu7BYwd3eNDyooewbZGdTnOlmXtJx7J7LlHMeVOjsVX5tJ1pB7n1D/skYaVEyqPoXTqRLGWk4n7kByaSGstMbtW2Jhe2uyWb3RNQi/+H9FUeFtuW69M3Ad7y/gXqmCCnBhZKE6vZ7X24yYkbd9WWUxXg3InXKcRLMXg==
+	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPS id F41B918000A2;
+	Tue, 20 Oct 2026 09:39:10 +0000 (UTC)
+X-ICL-RepId: 01a158ad-d982-7938-a70c-d8f875207c59
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGRhGXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOAl0FWx8RTxweGwRGAV0BTVAPVgoAQQtNV1V3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1792489155; x=1824025155; bh=ZZ1gM9yQSC1YZxCEwrTMNxYyiaO9FV3OF9hlcurnV9w=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=gyaqnAnPnfk80LBjizf6fCoblcR9Bs98+VXxMepQIwk6Qz1VavwCc2b89x796OcIJNpXKtK/sgQp+GtChjoZKMiD+C2Ccx/rgyHdFbza5U+1I7NiezC0t4W/iFgIOC2sa/oOZIexeiwyfwqmcKxkZlcr94Jrpuqinb/HFfSDJPAlwZyXatR53VbwZFzwvYAUX1k/RBV3xL2lZtU6oBm1RqKSvLTdScQWYrvndfCa6H4xom6szxFxb4qiTwqyPSC6wICsJOy2eVF2445rfpjvPMguhq91StXCDFX7DWn51fKKrbsPWg18v7KZVowP5pqrQGxGii8DJG7jSqmwBM0PWQ==
 Received: from [127.0.0.1] (unknown [17.156.216.30])
-	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPSA id A3DC81800206;
-	Tue, 20 Oct 2026 09:39:05 +0000 (UTC)
+	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPSA id E3D42180068C;
+	Tue, 20 Oct 2026 09:39:07 +0000 (UTC)
 From: Sofus Forstreuter <sofus.c@icloud.com>
-Date: Tue, 20 Oct 2026 11:37:43 +0200
-Subject: [PATCH v3 02/17] media: v4l2: Add P210 pixel format
+Date: Tue, 20 Oct 2026 11:37:44 +0200
+Subject: [PATCH v3 03/17] media: v4l2: Add Apple interchange pixel formats
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261020-avd-v3-2-85cbaa2125d8@icloud.com>
+Message-Id: <20261020-avd-v3-3-85cbaa2125d8@icloud.com>
 References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
 In-Reply-To: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -56,23 +56,23 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Proofpoint-GUID: vkrDs2Lrw2bl6Nj1nShFY3z2WnMjhpUP
-X-Proofpoint-ORIG-GUID: vkrDs2Lrw2bl6Nj1nShFY3z2WnMjhpUP
-X-Authority-Info-Out: v=2.4 cv=SOVPlevH c=1 sm=1 tr=0 ts=6ad736bf
+X-Proofpoint-ORIG-GUID: ShUZm9nVtYPLhwaxrpcjSNr-Vm9fY-kM
+X-Authority-Info-Out: v=2.4 cv=XZWEDY55 c=1 sm=1 tr=0 ts=6ad736c1
  cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
  a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
  a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=v3ZZPjhaAAAA:8 a=SpoKuckLgBGHDaJ8CcoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIwMDAzOCBTYWx0ZWRfXxdY2cbwiiEoy
- ChKHy/MiJC7InzyOlnss+Cv1dy8q8+KgJFd7oyplfLs0IPd3PJBdUe23fHdCkNSv6eaE9mzMrPY
- JjzbcakcPRoVDl1OtoUiktcndJqioJrXg6U3hy5NzaFnstX1YIBn7AO96pnXOiK57IV525M4yLV
- htpD/s5lnwPzLed3LlrEUN4lrVatEQrvjC4X/0QgV5OFFciAJrFt2By1auIQx+QTWqKUA4+OzhH
- J4ODBubrAIxHj5pG0jDMVpbWNJLJG5UyaVWxg81DHtKKVJARkn54/jfxDoJBZF1xua37JCb0G8c
- sPsjgkEnZKeyx42A29N102QtFvmKu3dCfKwkyZgDc11G3GZGYB/hVsdQVQKTts=
-X-JNJ: AAAAAAABN4W5jMAkPOYpVVD6E3k+NbzUhMNAYQ2efhWvshh0WguQWF1EOHAo2AW7BaOo9PJJEUmZ22O/hV5+wY38fg7FxpvPthx8/HrsboEoyUilxvtP7OL+h3gWGSVShGxwXsolSn5XraMGEibzVEZ3sfTsdwgJl3VbNm+FMBDnldLZWPgW85wZ/f34/LUD5MXoXLBewiFYUN81VAg7sPYFata1L1cx31wBJniOW72qQLK8AHJtpiZCVColKZuSiCrIVkiCUaG2upJq+Sm6niiunw8/ZqPJC+zS2Itn0tgsgGos8pTAKT93tVuADYjDPJgvf2T5mzDSt2MbtbrzA/gu8AHYOrNdqKJyfZdUObEt0eTerl2EgyEGRGPe8ve65F0dYT7Hk3tVpiGMuYoTA/3PaTFGcyibpRuE5CAYNkKekeuXghVVzc21qAF5jtQ5ExcL90KrT0LrLANZE4KgUThKlPhZuhRpQuTKJ9KbY4k8IMYOT5/PAZt1iA320bOsKLAHusLB6bj35Mz7ro1v8qWkbVtA61Tshy0Q7ghTrkRhhG0w5cyKGFVK2jqFHCrBPhZuMXDOhAmhGTx59dErVfQ9Vja93HMRnZ2GVInfijl1W/StMI62h2QU3TSp/edBTCfctitwo+CdT2SK8HxlT+GBwLVLuMywbHcfWHav4CW00LqlQOkLPkpKvMuUS3EK46s9hwWCSssPzY6CmHQ6RPmtU8J1uSsSvQMrl5qR+MEYnzPfhZmOLr2/t5pqJ8wq7fUduy/rk0Q/ZJJs+Ztc63EugwG/bZyzqrKVW/I6IO+ll1uZGjnHAh38LoEPG8yColvTuLYbvJesF1bgKSXVf+lp1IGWGtFalg10ING4n65zw5DvzaDeKHLPK7Vm1NXLGKn1
+ a=v3ZZPjhaAAAA:8 a=JxlP3y9cMaH3t_qTuRMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: ShUZm9nVtYPLhwaxrpcjSNr-Vm9fY-kM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIwMDAzOCBTYWx0ZWRfX/QoyUth7FEDo
+ lK4VlQHubmvHjvPa6fxpCLEqY3PkyJUeVteFuIBGtO5jKMEazZZTf0Ri3Q25dIRChZQxeJleGFR
+ IcqNMRyYL2tpNMWpwPFlxL/tr6G7Q8SytQSho961ueO7SJ9cAgjIXT70TNzeGp4Jug+3cCov8zS
+ X1zvo8K+jsr9tMcVS1d1p9Sg7qjxeaSGRK68lZfD4+gvam6UwEy6Snu3UnUZfTF85SXns6zU12q
+ D9tX0fgfIkMgTlKHFkqCR+4QYMzHdMaEOHoN7M59BwWS0j/na2PCVZRCMrEpGmJv7q4fPwKIkOF
+ cZ+WFwA+Ww4p6rSjaWBoZ3kh3CwsMCQM4W3zSFgZ6BAQksIXzJo+lvQKuJ2svs=
+X-JNJ: AAAAAAABptJXr7kv4h3fXQ/GMTqKZSReIcd0jBM9MfKA2Tno+8PUG6mkyKmCGhLIQEyXMRzMEfNdqPFyIvyNWjZ9qnuA8IeO/DKEgjdKifynokGHqVChffs/lLjvC5i2RW3bA7dz0zN2iAB8N1gVXF0/8qTQaudgl6neECk5oQR7DkaENRJK1F+1WVVSHwrZr7WPFi5uo+yX3a9CVvvTk7QpHSsFw5n99E5SUt3BOmwN9/efzjaVcd12XUD098meT9SEal2epdTEWNPEFJ9ne9gPmpE7qnjjNUluwO54WP7/u5sJq3XFFQeCycen2lPE6JAcQaQfG7WNjGFKZql39GE3/NS2Lo7CjdBlB6515xa1NHOF249bXtdDpsNu7G8UzhmNi1L24zZNQqvtyqXF1YOWqyDbDjAGy01f1g28QDtrwTU9cdZalDPMEtytw91MZKsv/auYJkVZKIeceCl3AIHinVhGyC0ESzheSon8SxycW7aBlOMgqdAjXJv2PPAFEv1WdxYvW4urQ95yLgbifMye5pv+QttuCm2BU+TBzZDRXribRgKLhf1TZRBXWiRRnc5GBtih3i0zHx27IHHxktef9wJnAbwTTCi9u8WsHzi3fMCw9dduzFpYHhcE27jPvc9n18Q5YCpUBt0a/2Y+v4+MKNKiCeILl8vlptIqpZse0imOntXDvAAX5d6RdB+MLXM/Wfc9KwwIwo1ZwfksnclUtjG74XLQo0HZ+F0nEmhVEdYYejB+gFkqBvGQinMb7MUgRamzYufWOFvMGLfIYOngDCOcPUifTsCorLhai6UkG2f12jnekmoY+pjuqFChiccBmAvHOy0/x/j/zrNjySDicUeIrvSof5CSpKBU2zV6NiM3uhKJDgDoZymiYj9yXLu72JOZaPvWdJqK+YWLLS4K/vk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_023914_356902_906AB10F 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20261020_023916_608308_947533FC 
+X-CRM114-Status: GOOD (  10.19  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,89 +92,75 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-P210 is a YUV format with 10-bits per component with interleaved UV.
+Apple Interchange is a compressed and tiled format modifier.
+
+Its intended use is for sharing buffers between hardware blocks (GPU,
+display controller, video codecs) on Apple platforms.
+
+Add it to the v4l2_format_info table to help with calculating sizes.
 
 Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
 ---
- .../userspace-api/media/v4l/pixfmt-yuv-planar.rst          | 14 ++++++++++++--
- drivers/media/v4l2-core/v4l2-common.c                      |  1 +
- drivers/media/v4l2-core/v4l2-ioctl.c                       |  1 +
- include/uapi/linux/videodev2.h                             |  1 +
- 4 files changed, 15 insertions(+), 2 deletions(-)
+ drivers/media/v4l2-core/v4l2-common.c | 7 +++++++
+ drivers/media/v4l2-core/v4l2-ioctl.c  | 6 ++++++
+ include/uapi/linux/videodev2.h        | 8 ++++++++
+ 3 files changed, 21 insertions(+)
 
-diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-index 0631919bd667..f2d2e79698fa 100644
---- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-+++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-@@ -138,6 +138,13 @@ All components are stored with the same number of bits per component.
-       - Cb, Cr
-       - No
-       - Linear
-+    * - V4L2_PIX_FMT_P210
-+      - 'P210'
-+      - 10
-+      - 4:2:2
-+      - Cb, Cr
-+      - Yes
-+      - Linear
-     * - V4L2_PIX_FMT_NV15
-       - 'NV15'
-       - 10
-@@ -834,12 +841,15 @@ number of lines as the luma plane.
- 
- .. _V4L2_PIX_FMT_P010:
- .. _V4L2-PIX-FMT-P010-4L4:
-+.. _V4L2-PIX-FMT-P210:
- 
--P010 and tiled P010
---------------------
-+P010, tiled P010 and P210
-+-------------------------
- 
- P010 is like NV12 with 10 bits per component, expanded to 16 bits.
- Data in the 10 high bits, zeros in the 6 low bits, arranged in little endian order.
-+P210 is the same as P010 but the chroma plane is only subsampled by 2 in the
-+horizontal direction.
- 
- .. flat-table:: Sample 4x4 P010 Image
-     :header-rows:  0
 diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 11ab684024c5..43ef12d073a3 100644
+index 43ef12d073a3..896c07d93032 100644
 --- a/drivers/media/v4l2-core/v4l2-common.c
 +++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -325,6 +325,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		{ .format = V4L2_PIX_FMT_NV42,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_P010,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
- 		{ .format = V4L2_PIX_FMT_P012,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
-+		{ .format = V4L2_PIX_FMT_P210,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+@@ -336,6 +336,13 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_GREY,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_Y12,     .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
  
- 		{ .format = V4L2_PIX_FMT_YUV410,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 4, .vdiv = 4 },
- 		{ .format = V4L2_PIX_FMT_YVU410,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 4, .vdiv = 4 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX12, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX16, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX24, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX03, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX23, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_APPLE_AX43, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++
+ 		/* Tiled YUV formats */
+ 		{ .format = V4L2_PIX_FMT_NV12_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 		{ .format = V4L2_PIX_FMT_NV15_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
 diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 17ba1ae70735..1f2519ffeb2b 100644
+index 1f2519ffeb2b..e40e2ebac241 100644
 --- a/drivers/media/v4l2-core/v4l2-ioctl.c
 +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1369,6 +1369,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_PIX_FMT_NV42:		descr = "Y/VU 4:4:4"; break;
- 	case V4L2_PIX_FMT_P010:		descr = "10-bit Y/UV 4:2:0"; break;
- 	case V4L2_PIX_FMT_P012:		descr = "12-bit Y/UV 4:2:0"; break;
-+	case V4L2_PIX_FMT_P210:		descr = "10-bit Y/UV 4:2:2"; break;
- 	case V4L2_PIX_FMT_NV12_4L4:	descr = "Y/UV 4:2:0 (4x4 Linear)"; break;
- 	case V4L2_PIX_FMT_NV12_16L16:	descr = "Y/UV 4:2:0 (16x16 Linear)"; break;
- 	case V4L2_PIX_FMT_NV12_32L32:   descr = "Y/UV 4:2:0 (32x32 Linear)"; break;
+@@ -1561,6 +1561,12 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 		case V4L2_PIX_FMT_PISP_COMP2_GBRG: descr = "PiSP 8b GBGB/RGRG mode2 compr"; break;
+ 		case V4L2_PIX_FMT_PISP_COMP2_BGGR: descr = "PiSP 8b BGBG/GRGR mode2 compr"; break;
+ 		case V4L2_PIX_FMT_PISP_COMP2_MONO: descr = "PiSP 8b monochrome mode2 compr"; break;
++		case V4L2_PIX_FMT_APPLE_AX12:	descr = "Apple Interchange NV12"; break;
++		case V4L2_PIX_FMT_APPLE_AX16:	descr = "Apple Interchange NV16"; break;
++		case V4L2_PIX_FMT_APPLE_AX24:	descr = "Apple Interchange NV24"; break;
++		case V4L2_PIX_FMT_APPLE_AX03:	descr = "Apple Interchange P030"; break;
++		case V4L2_PIX_FMT_APPLE_AX23:	descr = "Apple Interchange P230"; break;
++		case V4L2_PIX_FMT_APPLE_AX43:	descr = "Apple Interchange P430"; break;
+ 		default:
+ 			if (fmt->description[0])
+ 				return;
 diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index 5373dba640fa..5472e433ed06 100644
+index 5472e433ed06..f218f4fb26a4 100644
 --- a/include/uapi/linux/videodev2.h
 +++ b/include/uapi/linux/videodev2.h
-@@ -659,6 +659,7 @@ struct v4l2_pix_format {
- #define V4L2_PIX_FMT_NV42    v4l2_fourcc('N', 'V', '4', '2') /* 24  Y/CrCb 4:4:4  */
- #define V4L2_PIX_FMT_P010    v4l2_fourcc('P', '0', '1', '0') /* 24  Y/CbCr 4:2:0 10-bit per component */
- #define V4L2_PIX_FMT_P012    v4l2_fourcc('P', '0', '1', '2') /* 24  Y/CbCr 4:2:0 12-bit per component */
-+#define V4L2_PIX_FMT_P210    v4l2_fourcc('P', '2', '1', '0') /* 32  Y/CbCr 4:2:2 10-bit per component */
+@@ -842,6 +842,14 @@ struct v4l2_pix_format {
+ #define V4L2_PIX_FMT_PISP_COMP2_BGGR	v4l2_fourcc('P', 'C', '2', 'B') /* PiSP 8-bit mode 2 compressed BGGR bayer */
+ #define V4L2_PIX_FMT_PISP_COMP2_MONO	v4l2_fourcc('P', 'C', '2', 'M') /* PiSP 8-bit mode 2 compressed monochrome */
  
- /* two non contiguous planes - one Y, one Cr + Cb interleaved  */
- #define V4L2_PIX_FMT_NV12M   v4l2_fourcc('N', 'M', '1', '2') /* 12  Y/CbCr 4:2:0  */
++/* Apple Interchange, compressed and tiled formats */
++#define V4L2_PIX_FMT_APPLE_AX12	v4l2_fourcc('A', 'X', '1', '2') /* Apple Interchange NV12 */
++#define V4L2_PIX_FMT_APPLE_AX16	v4l2_fourcc('A', 'X', '1', '6') /* Apple Interchange NV16 */
++#define V4L2_PIX_FMT_APPLE_AX24	v4l2_fourcc('A', 'X', '2', '4') /* Apple Interchange NV24 */
++#define V4L2_PIX_FMT_APPLE_AX03	v4l2_fourcc('A', 'X', '0', '3') /* Apple Interchange P030 */
++#define V4L2_PIX_FMT_APPLE_AX23	v4l2_fourcc('A', 'X', '2', '3') /* Apple Interchange P230 */
++#define V4L2_PIX_FMT_APPLE_AX43	v4l2_fourcc('A', 'X', '4', '3') /* Apple Interchange P430 */
++
+ /* Renesas RZ/V2H CRU packed formats. 64-bit units with contiguous pixels */
+ #define V4L2_PIX_FMT_RAW_CRU10	v4l2_fourcc('C', 'R', '1', '0')
+ #define V4L2_PIX_FMT_RAW_CRU12	v4l2_fourcc('C', 'R', '1', '2')
 
 -- 
 2.55.0
