@@ -2,112 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6E9960A383A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:58:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E5460A260B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 14:59:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BlKJX4If;
-	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=k2PTt2A+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=av8nbhEY;
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=XUfQyvgt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjbG/FoRPniPEwnQTEjCNTAwJMSN6gDCjOc1NSBW89Q=; b=BlKJX4Ifkprddzig1h2FFjVwNA
-	sWpwMJRVUgDlY/wQOBVMNGHF8VH3T1Gi4R9VxjpTF77pXfqvyeRvWbPL1HmUhqYqcHwUbcp6l/+5K
-	YTNyh5FaK4pdCALAu/7H6aUGnnQ9E/wt9bmYmaroDzqUBU6caXTwsF/qHpJMhq1Ce5hmUmmpVNU2F
-	rF+NN9Nz1O8H9aXrHOD79DFY+jgfncQeJgg3McYgx0CJvvXpzOpesdFjaXS6B7mmyUfhZrPmCnBxq
-	7Xhz8t4PyxoLWfcpcs9QXy0nZkyx7bvwdRIfI+0eNLjvDsz3EdB9MER3cqzL4C7plGDw2TKYBx0zL
-	9H3os0eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ztv0HJ8l22RRsNhgDD2bkXEQ2puahy2KotEJnS3/Ydg=; b=av8nbhEYhaMcFX
+	FuJgmJemud9A2TqxoD9MQBgvseL8qWECdq7GZGvyVscn72xAIoBU96Dm/xBFwJg90D0rH/H5niQGX
+	YW2pci2bdTBy7r0n1Fnt4EwCzE4i+FNl/xYwhCh5N3ROCrXRp7v29iccKkET1GyrhvgpbVboVJnZg
+	egKuG2HGXU1Q09JtY2WneB0oIdxGtn5gJmpe2CYPcnOZvIkgWXUo725AaLINv1OugQoQdY9DpwXjJ
+	KulltGBP6BmqF0BX+5vsCCUZ368Mke2nypynb8Usq6Dj5eMRszsjyRjpHj6BEsw3Ga8HKAZ/pjdYg
+	axNu1EEq5fwQ+rldZ4OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBIA-0000000A0ZG-3xb8;
-	Tue, 20 Oct 2026 14:58:18 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1xJBIP-0000000A0fA-0niG;
+	Tue, 20 Oct 2026 14:58:33 +0000
+Received: from mail.tipi-net.de ([194.13.80.246])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBI0-0000000A0Wk-2gKl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 14:58:11 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-93e63ee7b4cso373012585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:58:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1792508287; x=1793113087; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SjbG/FoRPniPEwnQTEjCNTAwJMSN6gDCjOc1NSBW89Q=;
-        b=k2PTt2A+PhqnEF1ob33yqFa8TTufPFURIq5S+abfmB030jrQJvoUVXfGicMb1sZNAo
-         KdU3mztK3si6hlb3t7DpxP3A1p4lptl1Kv6inWACuWe9flnxiJLS3YrHbv9kRW59sLlc
-         vDqCrqR5PUfLPGlsGegGzAbrmBmc3yAuoF46wNYJwuPXEsTMiAjm0QtXGJWXjTrAMfRq
-         R7dnSPpsiCeTVt8eG4zrQvSvcN0ivb3xYbOBwp/4iQgZjWPaPKbUbIhIHTIYu9wEam+7
-         oPXJM4Tln351tQmzBr+NGNZO1Rgxqlp3oAl+3Irv2aNasyOLc7uoQATK+8CImDvpvW4x
-         v2mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792508287; x=1793113087;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SjbG/FoRPniPEwnQTEjCNTAwJMSN6gDCjOc1NSBW89Q=;
-        b=dwQGihBURX7/lBjBZr2cr54RXeKJ62FVYGj1aU/SNw0P5Ah57V1TyJ2ztZI+RS6LIk
-         M8sp0lxVsNjkLHM56rMZNOWRan1gXq+QYLGvFbHMIZmwfrs1oFLEG6YOaDj4EeS/okgy
-         yHjAQ/33BXw3YhlwgDaqnmsaqo421M5JPQEjnCia4OSLhLkwaIUxSUUBjfXIf6hAcdzF
-         ugMNfq4NPvQ16o3yxCWFJQhv7clatTixIg1WHAMU4sNOGAH7hKzSF9UXL0z4FcE4FfYD
-         jdzyJKsSt95Oee1/3k654O4XtvPOGii8YPCUx799xGOE/qEX+CA6oEHb4ok3Dd8RetBn
-         T1fg==
-X-Forwarded-Encrypted: i=1; AKwUvBzAqNAopV4TIizufibZgUPxm3dA5GQ3OLBTncQymf+yCxx9kXN7V/88pFuuKPHDpGbrSqncrjzwnxduEztELjnF@lists.infradead.org
-X-Gm-Message-State: AFq9FYLkhyClm+3FjE/+7KfJrh5n6ghVbcPBDA8DrrWWfbOEsPJesWbK
-	pyuBhgtd/AEpHaDxhSdAP4jPZzz349kxy97zhE4W2baqSh5l5c/yRaAvhvSrWHf8oQb/vuJ+hw/
-	rOg3/
-X-Gm-Gg: AYBFou2Oe/kkKXC2F08WH/UzJmhfyjB8uUaalQkO94ox9b/de72nkqBLnIj5uR5zzfi
-	xi5YSSl/p7sLpYiLjCgByV4fXmv0qsallBOiNglqzwOxKwni0lLg9Ocn5fMe6/y+c4NGlBr3LNn
-	gHkYsjjWZw7c+DMnNTPOarGIpGCun1V3zMx5Xz+e31RnMLGic79/Ro1pcAHc+iN9OCllKKJyYYA
-	AxEn+vGxKIz6W3V6Qi9ff53jig+7gLjXexw5fTYXAJsI4/De0jkhNDj0QQ8DbowSwQpg7LL6RLe
-	Cm4fzpVFjEvp5uTFqEsEBtx6cI/8xwSUhMQeeHDIh85le2axscYmPCmnWFneCNt74S6neKcRuFs
-	ExwL3jJvsxQD+mfdXztKMb3Rlrr/NNDpBsvw35jJhvdLpZGDi8BnJ8I+GbNg1c/9E3qGjbNAWx/
-	11OYnc29lVQLJUWGtjnqzMRYxoboD6Q2dbyQ0I1s5824KOgzRQJGQ5tS72pd6CR1yhiz9akf+8Q
-	JwQXkJoYFfknzPoyQQaDhgcy5FHlN+ue3UB4+7sw2cli/u13RgA9myt
-X-Received: by 2002:a05:620a:4442:b0:939:a0f3:6aef with SMTP id af79cd13be357-93f29ced7cemr1836575085a.23.1792508287130;
-        Tue, 20 Oct 2026 07:58:07 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93f56dfdb2esm1820385a.28.2026.10.20.07.58.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 07:58:06 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xJBHy-0000000CiZ3-0ODE;
-	Tue, 20 Oct 2026 11:58:06 -0300
-Date: Tue, 20 Oct 2026 11:58:06 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Jiri Pirko <jiri@resnulli.us>, GONG Ruiqi <gongruiqi1@huawei.com>
-Subject: Re: [PATCH RFC 0/3] firmware: arm_firme: introduce FIRME support for
- host attestation
-Message-ID: <20261020145806.GQ14213@ziepe.ca>
-References: <20261019-firme_interface-v1-0-27895c9cebaa@arm.com>
- <20261019233532.GL14213@ziepe.ca>
- <atcUoSdggT9eU8YE@e129823.arm.com>
- <20261020124536.GM14213@ziepe.ca>
- <atdvnMJuHUJlqX8t@e129823.arm.com>
- <20261020135006.GO14213@ziepe.ca>
- <atd2_9Q2wTv_3MXz@e129823.arm.com>
- <20261020143620.GP14213@ziepe.ca>
- <atd-I059nHAwcZFE@e129823.arm.com>
+	id 1xJBIL-0000000A0aj-2I1L;
+	Tue, 20 Oct 2026 14:58:31 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 20F43A02DC;
+	Tue, 20 Oct 2026 16:58:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1792508300; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=ztv0HJ8l22RRsNhgDD2bkXEQ2puahy2KotEJnS3/Ydg=;
+	b=XUfQyvgtMIFS9NUybNkk3G15CGBu9TocD6/t68NAvHfY8yTD5ZDTrcJiQLAuLdnoVTkwh7
+	9J5snnKJFFnYJSqDvuBX4QvV70VO0spX6/DmcmUvXkVLZWyZlHDcH6/RezGHwz9IhB6CTq
+	k5kxCDLLIt03//O5Pc0hqQiQywk/IxWUbo5d3RJ0+zV7FvGDFL44ypsGTQLZ8EZRKY8DYK
+	0yw91bL1OB1H+VChen/EriIIeMXiAaAv31wteLNr2VU5v4tmAwhv/ytsk7f8KYSc3RTNfI
+	WM0672a3sMi1Srp2n8KiKKyIcnCcXUdfNCA0fxqJrjKreYo9IFbre7jreAopww==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Subject: [PATCH 0/3] clk: bcm2835: describe the BCM2711 GISB clock for the
+ GENET MDIO controller
+Date: Tue, 20 Oct 2026 16:58:08 +0200
+Message-Id: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <atd-I059nHAwcZFE@e129823.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMyw6CQAxG4VchXduETgxeXsW4mCk/WEU0UyQmh
+ Hd31OW3OGchRzY4HauFMmZze4wFsqlIL3HswdYWU6hDI7UEbjFj4KT3sBPh3jyxDjfWbg9EOei
+ 2iVTiZ0Zn79/4dP7bX+kKnb43WtcPNgwxmnoAAAA=
+X-Change-ID: 20261012-devel-bcm2711-gisb-clk-cf8eea19c46a
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>, 
+ netdev@vger.kernel.org, James Clark <jjc@jclark.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_075809_023356_D4D13F06 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20261020_075830_123822_4EA205CF 
+X-CRM114-Status: GOOD (  10.71  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,47 +79,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 03:43:47PM +0100, Yeoreum Yun wrote:
-> On Tue, Oct 20, 2026 at 11:36:20AM -0300, Jason Gunthorpe wrote:
-> > On Tue, Oct 20, 2026 at 03:13:19PM +0100, Yeoreum Yun wrote:
-> > > > I wouldn't over complicated it. We already have smccc bus to do this,
-> > > > we don't need layered stacks of busses here. Just change smccc bus to
-> > > > be able to break up the multi-function SMC into several devices.
-> > > 
-> > > I think my explaination was poor. Apologise...
-> > > I'm not saying another bus making but just wrapper of smccc-bus APIs
-> > > for firme specific and definietly, this would separate the
-> > > multi-function SMC to defien each firme device (attestation and IDE).
-> > 
-> > I don't see that kind of complexity is necessary.. I think it is
-> > better to just have the root smcc bus spawn them 
-> > 
-> > > But, the *base* is common. and I couldn't find any proper location to
-> > > deploy *common* code unless making arm_firme.
-> > 
-> > What common code excatly?
-> > 
-> > There shouldn't be? Getting an attestation is entirely orthogonal to
-> > set link ide, for example?
-> > 
-> > If you can identify what you think would ever be common that might
-> > help clarifgy what to do..
-> 
-> I mean the BASE service of firme and typical example is shared buffer
-> allocation. I agree IDE and attestaion service are orthogonal. but
-> in case of base-service is not. it could be used for both service.
+The timestamped MDIO write series [1] needs the reference clock the
+GENET MDIO controller divides its MDC from. On BCM2711 that clock is
+not described anywhere, so 5/5 of that series hardcodes 200 MHz behind
+a compatible match, and mdio-bcm-unimac's clock-frequency handling
+assumes the 250 MHz of the STB chips.
 
-It doesn't look like it needs a "shared buffer", just allocate it
-right before invoking the SMC that needs the memory. Use a simple
-library function to help allocate it. No need for a struct device
-layer.
+On BCM2711 the MDC is derived from the CPRMAN generator at 0x1d8, which
+the firmware calls gisb and has always run at 200 MHz (PLLD_PER 750 MHz
+/ 3.75). Changing that divider at runtime moves the MDIO busy time by
+the same ratio, see [2], and Phil confirmed it from the
+Raspberry Pi side. GISB is the register bus of the STB peripherals,
+which is where the driver's 250 MHz default comes from.
 
-Jason
+This adds a clock id, the generator in clk-bcm2835 (critical, the
+firmware enables it and nothing in Linux owns it) and a clocks property
+on the mdio node, like Stefan did for EMMC2.
+
+No functional change by itself. The driver only looks the clock up
+with [1], and only for the timestamp bounds. Making
+unimac_mdio_clk_set() use the real rate is a follow-up, as that moves
+the Pi 400, whose clock-frequency = <1950000> currently lands at
+1.56 MHz instead of 1.95. The limit is a level shifter on that board,
+so the follow-up keeps it at 1.56 MHz.
+
+Patches 1 and 2 are for the clk tree, patch 3 for Florian once the
+header is in. dtbs_check clean, booted on a CM4: clk_summary shows
+gisb at 200 MHz under plld_per, eth0 comes up as before.
+
+[1] https://lore.kernel.org/netdev/20261009143506.2507607-1-jjc@jclark.com/
+[2] https://lore.kernel.org/netdev/60accbd89cfaf0d4be1da5ec2fafd975@tipi-net.de/
+
+---
+Nicolai Buchwitz (3):
+      dt-bindings: clock: bcm2835: add the BCM2711 GISB clock
+      clk: bcm2835: register the BCM2711 GISB clock
+      ARM: dts: bcm2711: give the GENET MDIO controller its clock
+
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi |  1 +
+ drivers/clk/bcm/clk-bcm2835.c           | 16 ++++++++++++++++
+ include/dt-bindings/clock/bcm2835.h     |  1 +
+ 3 files changed, 18 insertions(+)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20261012-devel-bcm2711-gisb-clk-cf8eea19c46a
+
+Best regards,
+--  
+Nicolai Buchwitz <nb@tipi-net.de>
+
 
