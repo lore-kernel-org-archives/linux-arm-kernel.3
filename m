@@ -2,122 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 722BD606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:18:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C88E8606A31D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:27:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gutI/oE2;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y9Zyp8h3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aEO6s6vE;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=JgrnOtOV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yU6o+keIiSw29Qh3qTy6Rhe4KIjjNbDeXyqpDu2XIrY=; b=gutI/oE2j4JrrHlHxN/fdDpB26
-	2RTtHdS7hb5P5KbjcPdccT1JEDXK8amooxsU/3+VQ4p9ZDOYrlwIbfIbcwWOVNX74dyaaE7UProMj
-	MSnZmPrt9mphKX9og4FpFhUZQA3RYTy8IEsV6/EjfIirxgtNx7u+WhIXE9QDW/QhMuC4ZeETCn0Jz
-	Ch9BBpSr5TSWghyu1g6KzOWVrOQvRwn8TDMoRDs5A09qAjOg4nXkAslkVg3ru1u2LcS4k0k4Sh17u
-	lStAeEpZ/xtoBNG2aAE+8Xe5pkD4Tqn/rGzP95/Qrf1Uxk3VpUkOUdhkm3VnPkAJgLm/8VAnoaYz4
-	i2sgHHtw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=datZWh14WO+4vzm/A7OIElTb2FmU2wSjN+th3EqRvGM=; b=aEO6s6vEaO6fz3fAagfSG9H+uP
+	PnPIEbmjVH3zR3fkF7aLU45teWvvRVKVS44bWYd9o0JLiNND/WvVUplHDIleNHTjrVnxA8cSyVkP5
+	OdCqy8VchRB+Pnju5sU0wCUiQeF1NzySf1/AT7hMoi6aw1RV8zwOZuaLAqXBA44Z7RjxZ4L1wAJw2
+	egxV16df6qfE0tem1kL6x30cDjWp0oNPy3EP0vew17Sjfc8pZfeOmhA45i1dn1GHxhE8eNZ3QLcFy
+	EhKiNzDAefhG2D2N+mlY3kbHc6+92/QTJcRkIRI9tANOaM6MCeKZEdU4NSh+JqNdpa9mgD/XEXT8j
+	0CCrqgSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8nU-00000009eQ6-1tEZ;
-	Tue, 20 Oct 2026 12:18:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJ8wK-00000009f2y-2wnw;
+	Tue, 20 Oct 2026 12:27:36 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8nT-00000009eQ0-3FBG
+	id 1xJ8wH-00000009f2D-3Ylv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 12:18:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D86E042AB8;
-	Tue, 20 Oct 2026 12:18:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289B31F000C4;
-	Tue, 20 Oct 2026 12:18:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792498706;
-	bh=yU6o+keIiSw29Qh3qTy6Rhe4KIjjNbDeXyqpDu2XIrY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Y9Zyp8h3kzMOtJAUw6zQMoqzKWJZaxancFv93lkG3Tdv35/8/+g5n/FCeYZ8pczdJ
-	 FHiQxy7U69KaSDoFYFOulTz3zVvBdF7xA+U/6BvNbgZSln5iATJcbMelazyB07unGr
-	 UfSegyHFTspPt/gVEaOJgSED7O6ieY29vJk5KfxEC/frmyInD6LkQQThT3DZBrWK1d
-	 SXVmhgq67s2YGJfdZBrw+pupFAsVFGgDzbjwTGbyxEYPZZHHCQsXUkzuivZNTtkxph
-	 FeFnB+8M+UOQzmSyU4q3N+DWZySe27fXD7tGrnBbC77P6QpX1VcoCmxooZwr7TzKZb
-	 ywtUGBhUcfckw==
-Message-ID: <835fb494-ad66-474e-9fbc-71a9dd7d7608@kernel.org>
-Date: Tue, 20 Oct 2026 14:18:20 +0200
+	Tue, 20 Oct 2026 12:27:35 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a018dc1f98so22739135e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 05:27:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792499251; x=1793104051; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=datZWh14WO+4vzm/A7OIElTb2FmU2wSjN+th3EqRvGM=;
+        b=JgrnOtOVDbmutNxB9gRP+0B44O4ewiC/UWCG+xOwzLWOA3EVjl3wTMGZlfQIB/YzIh
+         /pVBNQlX4uvbJQBLTmhjb7b0N7/dI7VwQ/+g+oGHuRbu4eahhkKbRWcgCq2dh5mR6/Yk
+         JwN53dE8IDLohKx8JmRxht/Qzg8tFm2b7dFX/Jl2kOoM79oCK0zerIdfyAGYOQYanRXE
+         hkoXHGbbglNbp2QKsK1BnbUEic/ppTrKIy2gkqGxq85WyFDsE7lwfbRkMrP6KLslIiOA
+         prY4GJfqEz40Yuxc0cjOrtacg7HuWORn5QxH3mVAfkqz9UFp5+kZlP8UQSdlb2x6Gvi2
+         zTqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792499251; x=1793104051;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=datZWh14WO+4vzm/A7OIElTb2FmU2wSjN+th3EqRvGM=;
+        b=R1eo/6303IdeZ2HbQcJk7KOcGguFzYRvIEgi3myFYMnFQFFd6hGqWXRaScIqRY9S7J
+         di36Vb+x65uictsqUYtPsUcVJL161lk6u8xkooH1Zwq9WFUSpMWaeR1uW1v6F9FETBya
+         jN6KYhYRTmPCQgK9VNHVNpJpO2Me70g4bM/Ip6sA0KXdcNsRN2CtSOOW5Fqkiw+EPZkN
+         FWT9OyamhVn4Ihn3m0X0lg333BL3vAQIJL0zDfdtSixg9SH1ICU9O63QEHTRgWTDOvsx
+         knaynCA2nrTD/XWFwhyQ0Tl6zl16qU57BAkckjsNIrK3bIx53qF1IV2lbMo/fQHWYG+R
+         VFQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzah/R6pT5oXdvoeZdWd+Sfx+e2DcRQ2FwuGlYuGoLsSek8uE7aNEabQWdGDUfbk/xZVV0b56BfFr2r4K61/FYS@lists.infradead.org
+X-Gm-Message-State: AFq9FYIVEtRrpdDQ36ICrpicu3Uammyd6PEtZMTW9a+VGdI9HRwVhg/g
+	VksNV9pV3yvaaGaBJln3Y+kMRal/hhZMNKTrGV3nb9QOoM53EndswpBM
+X-Gm-Gg: AYBFou25aKUGplxcvUjO9sCp4WC6WAwsm4L2gIa6bboqE4wA9thiwA5M+x8hU+XhqDb
+	HQsmDXVq73OE7Y08aqBCVN9ZdNhraVRf7S7ZZ4wwghhRbA5/AIonqiBSAigKJpgef+TlbqF1EeP
+	VWEkUYG1oOtBQ1Mm7e//r9jo+/uiKEACTqAoAXwRxZU38SM4ORTUMQei+kL3i8an+dnHfq1/iK5
+	DpNck8JM2GE+ATH5Ho+YPrcH0vg4t404yvwbjTrWzjueGAY55rYek5hYnk90U3q+ygpKcsyk21x
+	JiEm0ejesK0jHU8+sp0I+O1C1B9J9UNGCb6aM5++h05IcFvMJtshBxKsdG4EWjmZSr4iWVvWIxk
+	f+3PF0EuAPfTrci0E2hVsx1lZkVl711FWp02wfcIXNUb8EGOhgmCvnmkPuquY/ViGGoo/b4G6U0
+	6zjy718pdrwf6gHsnes1IMzPx+a1rBgCUx7QtTfGYEye9rZwqMQN0CSSQ76SwiIIKVHQ==
+X-Received: by 2002:a05:600c:1d0a:b0:4a1:f377:5c6e with SMTP id 5b1f17b1804b1-4a1f4172b01mr47842795e9.7.1792499251128;
+        Tue, 20 Oct 2026 05:27:31 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e1d817f8dsm5617092f8f.23.2026.10.20.05.27.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 05:27:30 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-input@vger.kernel.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] Input: goodix - sync the irq controller while starting firmware
+Date: Tue, 20 Oct 2026 14:26:48 +0200
+Message-ID: <20261020122712.526797-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
-To: tanmay.shah@amd.com, Ben Levinsky <blevinsk@amd.com>
-Cc: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "andersson@kernel.org" <andersson@kernel.org>,
- "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Levinsky, Ben" <ben.levinsky@amd.com>
-References: <20261014213426.2957480-1-ben.levinsky@amd.com>
- <20261014213426.2957480-4-ben.levinsky@amd.com>
- <20261015-humble-eager-mushroom-9db4aa@quoll>
- <DM4PR12MB644859F1CA3A936684A3338B839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
- <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
- <0df4bfd4-2bcc-42fd-a22d-e704e4b41d5f@amd.com>
- <cbd2e370-c8f1-46c1-87a8-fa25fdf6ea97@kernel.org>
- <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_052733_932827_4D2C806D 
+X-CRM114-Status: GOOD (  14.41  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +100,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-20.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 16/10/2026 16:11, Shah, Tanmay wrote:
-> 
-> 
-> On 10/16/2026 8:59 AM, Krzysztof Kozlowski wrote:
->> On 15/10/2026 17:31, Shah, Tanmay wrote:
->>> We use 'amd' vendor prefix for all new drivers & bindings. Also, there
->>> is dedicated IPI hardware which can be used as mailbox too, and we
->>> should distinguish it with this PL mailbox. So I that is included in the
->>> compatible string. (pl-mbox).
->>>
->>> If we are also to include SOC name as well (per compatible property
->>> guideline), then we should include one of the SOC name as well:
->>>
->>> So, I think 'amd,zynqmp-pl-mbox-2.1' is good.
->>>
->>> Krzysztof, are you okay with above name? The 2.1 is FPGA IP design
->>> version number and not the SOC version number. So in future let's say
->>> that FPGA IP design is improved then the name (pl-mbox) will remain
->>> same, but only version number will be updated i.e. (from 2.1 to 3.0). Is
->>> it okay if we explicitly mention this in the binding description?
->>
->> So you will release the same SoC with different versions of the block?
->>
-> 
-> Yes correct.
+On the Lenovo Tab E7 TB-7104F which has a Goodix GT-912F touch screen,
+the touch screen fails to come online after loading firmware, producing
+the error "Error reading 1 bytes from 0x8041: -6".
 
-Well, then this does not look like SoC block at all.
+Comparing the upstream code with the Android stock sources a call to
+goodix_int_sync is required between the upload of the firmware and the
+watchdog restart. With this change the touchscreen is correctly detected
+and working.
 
-Best regards,
-Krzysztof
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+Relevant bit of the stock source driver at [1].
+
+Credits for noticing the issue and finding its cause go to matemiller992
+on the postmarketOS forums, I cannot provide tags as he wants to stay
+anonymous.
+
+[1] https://github.com/lscorcia/linux-lenovo-tb7104f/blob/2dad69c9f28611ac6d3db2f1ee11b480a60d83ee/kernel-4.4/drivers/input/touchscreen/mediatek/gt912_p98996/gt9xx_driver.c#L1529
+
+ drivers/input/touchscreen/goodix_fwupload.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/input/touchscreen/goodix_fwupload.c b/drivers/input/touchscreen/goodix_fwupload.c
+index 5ae9a109ba0d..01e7705ef515 100644
+--- a/drivers/input/touchscreen/goodix_fwupload.c
++++ b/drivers/input/touchscreen/goodix_fwupload.c
+@@ -155,6 +155,7 @@ static int goodix_enter_upload_mode(struct i2c_client *client)
+ 
+ static int goodix_start_firmware(struct i2c_client *client)
+ {
++	struct goodix_ts_data *ts = i2c_get_clientdata(client);
+ 	int error;
+ 	u8 val;
+ 
+@@ -168,6 +169,10 @@ static int goodix_start_firmware(struct i2c_client *client)
+ 	if (error)
+ 		return error;
+ 
++	error = goodix_int_sync(ts);
++	if (error)
++		return error;
++
+ 	error = goodix_i2c_read(client, GOODIX_REG_SW_WDT, &val, 1);
+ 	if (error)
+ 		return error;
+-- 
+2.43.0
+
 
