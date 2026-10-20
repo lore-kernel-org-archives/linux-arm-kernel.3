@@ -2,82 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B32A606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:01:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE4DC606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 10:10:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DGVgwl3f;
-	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=bTf6u2bO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ddp0tWSZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S9V7JYW3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BaRJoFp820wGDuLIad4CqTTahL72+upV0QSxufpoJyI=; b=DGVgwl3f13tGy/W9Sfme/wa42H
-	MfFkHC06cBCQE+OR1REXS55Ct8wUEXVHB3tF1B/ddNKh8Fx6Tg1oxx3Fg4E0xMPd1p9ZKS6ZWYaHt
-	xPNnkcqbBc0O3LOgMksOrMTQPTIsdZtYwv/kgJFuqe7QVmC7YK6UERtm0Xow18n/UMl999wO7CfJn
-	VM15/VGFv6GxuLvHITwwrKJQUgXd85nEzMqkUp8GMHJGeWBQ8kM4ivk9R/rrkCy40G3Z0DDN8o6Yj
-	ITx33R3d7rnCkP5tqyGRkuvvSRgmU4dTLxQ42R3iFA/dhhG43LI7cR/wnlv7ZPHrEtNn8mcBrW9eP
-	OQ9jlkZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5EL4xcpEAaTLBP9HyYnzoNI2lvu1UvL/iwtcQQL4HvU=; b=ddp0tWSZvKEyRK4VkgfADFSgUP
+	SPIYXvsYIwP7b8p+wt3Ekt02tTJeXbARFFRqHEXSH/nndzmv1MjeQfNKQu/8Wq36Czo5Npyto4JmF
+	+O25Fa29lUlY8KwP9MWi/mgSqmvFCVNZAImGyBAA9w2+YpYr/FDdQQPMKhntCG+Haa1BD5te6YIWL
+	Hq89KIZUeVhnqN+bKYgYvZ2CwZRT7Cx4lpxR5SXxGcqEnmt0Ng6JkLvHrMjKzrktJ3mucTBG/YxLN
+	N1cUmazywCa0feV7g9ciJncgm62wDpXBOqdKLHfdch/4UE5vZsR8PnN9PJBVN6tzSQk55A6rZSw55
+	y50yEJZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6Jc-00000009JFh-2dNH;
-	Tue, 20 Oct 2026 09:39:28 +0000
-Received: from npq-east2-cluster1-host3-snip4-3.eps.apple.com ([57.103.77.6] helo=outbound.ci.icloud.com)
+	id 1xJ6nq-00000009ObM-3hhk;
+	Tue, 20 Oct 2026 10:10:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6JW-00000009J5t-1Xlh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 09:39:23 +0000
-Received: from outbound.st.icloud.com (unknown [10.168.160.109])
-	by p00-icloudmta-junk-forwarder-us-central-1k-2 (Postfix) with ESMTPS id 3EB5718000B8;
-	Tue, 20 Oct 2026 09:39:20 +0000 (UTC)
-Received: from outbound.st.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPS id 5B00018006A6;
-	Tue, 20 Oct 2026 09:39:15 +0000 (UTC)
-X-ICL-RepId: 01a158ad-ea9e-77be-a574-0d91f7a53b9e
-X-Suspected-Spam: true
-X-ICL-Out-Info: HUtFB0MEWwJACUgHTUQeDxhcEV4JVgdeUEoRQ1APXxxCCkAdXwJFAUAZHVdQRARUBUpWUC1eCF4fTBwdDlgGEhZdRVoOWwRHFBcbXAAXGVFNCE4TBVIHXU1WDUcPWB5cFBcLR0NeCF4fTBwdDlgGEgBNCg42BlkFXglWA0MFNhIUXUVaDlsERxQXG1wAFwZbFAREAV0FXQNAC0geDEEPHwYKVQZAD15RElgZAVwFXlZIeRFQAVgeVl5aF15TFx9LAFxFWg5bBEcU
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1792489160; x=1824025160; bh=BaRJoFp820wGDuLIad4CqTTahL72+upV0QSxufpoJyI=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=bTf6u2bO/DseEvQFT6gPNsMQWPGW/ecZInU2RKc7O7SZ7gtEN+qU8e5llFeUgbRn1N9fCUxqyDHuN47rQMO7L5Ce5XH+dibZ3bPknNCvQh6HajhYiiHwBMWir7kKP5hX9fCC4EvDYbO53+tDbiTGhrGwofgfpbvFT7+LNQjTATAi1iVOuINiWs0La505JIgus2xuseplnISxLEncnCRKbbeoosQFIJI1udVLvhTAL+Ml/MFiYxbJ0DbOSqZxqOb3RUll9e9qSGmxzB548NsIMNm54SAMyyc/IWfLJjD0gtOlyoUIOE+BZLIesUFHZJeFsFsvhaOsvbcXy/osSgDldw==
-Received: from [127.0.0.1] (unknown [17.156.216.30])
-	by p00-icloudmta-asmtp-us-east-1a-60-percent-11 (Postfix) with ESMTPSA id 606B51800691;
-	Tue, 20 Oct 2026 09:39:12 +0000 (UTC)
-From: Sofus Forstreuter <sofus.c@icloud.com>
-Date: Tue, 20 Oct 2026 11:37:46 +0200
-Subject: [PATCH v3 05/17] media: v4l2-ctrls: validate vp9 tile_rows_log2
+	id 1xJ6np-00000009ObC-3WdP;
+	Tue, 20 Oct 2026 10:10:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B698406C9;
+	Tue, 20 Oct 2026 10:10:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 564461F000C4;
+	Tue, 20 Oct 2026 10:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792491041;
+	bh=5EL4xcpEAaTLBP9HyYnzoNI2lvu1UvL/iwtcQQL4HvU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=S9V7JYW3J5QXsgoaZUgvWdJVADjrvM9bjyxqXiHF+e/lbyGC4czDQuIr82jsBH3D7
+	 4sdNyrht6TnJCO9hIxYM1u90t6bMX+gBGrouuvW8p+JqLeaSqr9TMImfss9w+2BOq4
+	 btXMWQsGxlamT1Y8XCc5Eff5RjGgiKvOvgiELLsdr142LU+0EI6hRivdBzzhaS8jzw
+	 pjSwQOroBeuiYbm3bNI/UwHXJyxXTc8fJDHiEl0w32dElxckkfrbANK0hpZZCNn3LZ
+	 EnJFRGUQjmLjcRepZUTrid3mWgsVcGNnovKLEwtqFjlLQ2J7HnwfRGrtHQYQuo5iDe
+	 fu6ArfV1nLdsg==
+Subject: Re: [PATCH net v5 1/5] net: ethernet: mtk_wed: skip ring reset in
+ wdma_tx_ring_setup for WED v3
+From: netdev-bot+sashiko@kernel.org
+To: hujy652@gmail.com
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ sujuan.chen@mediatek.com, rex.lu@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Tue, 20 Oct 2026 10:10:39 +0000
+Message-ID: <179249103985.3135.17834274932669029718@kernel.org>
+In-Reply-To: <20261016-wedfix-v5-1-8b02e78fd34f@gmail.com>
+References: <20261016-wedfix-v5-1-8b02e78fd34f@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261020-avd-v3-5-85cbaa2125d8@icloud.com>
-References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
-In-Reply-To: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sofus Forstreuter <sofus.c@icloud.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Proofpoint-GUID: P1RivSia7mvEILQX6piLNZtW-SnVAnzC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDIwMDAzOCBTYWx0ZWRfXz+qusdGMe59Q
- ozmhUAeZVGFtjJ7LZxj4dFtSo8qgNqmO0OL0baefzgRvjZTq/5cucMSoq/z/8J8lBtDkgrDX9j4
- 1EsxoSXuLQzxiyMpbJ1j7wT/6IEchJ5iODWEOyljDRBuhFXH2//43XO5IKIU3vptv8FglOlc06j
- yZFlF2Xk96YShgrVG+owN1OprCKlwjagJQb7xbW8ayNwz3e2uogb6bJwpokYrGwYoTa5f1TxL+R
- c4gB/qJ55u8UVyLlYmq5vAvc8dkRNMCkkoLjH2W9L70cd+FqKqAbjlq7dRUIBk+ibqqQ0xqPLo3
- 5LjXXb8b65ji6PclhZikg0MVgVDSAh8jJO+fQ6dd2MgcuRa+Vb7l2OMMv7Dskc=
-X-Proofpoint-ORIG-GUID: P1RivSia7mvEILQX6piLNZtW-SnVAnzC
-X-Authority-Info-Out: v=2.4 cv=UMfQ3Sfy c=1 sm=1 tr=0 ts=6ad736c5
- cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
- a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=IkcTkHD0fZMA:10 a=660iZSQnnn4A:10
- a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=v3ZZPjhaAAAA:8 a=AhhewsDm9b8M-hAPyywA:9 a=QEXdDO2ut3YA:10
-X-JNJ: AAAAAAABtqijtwkJwGZwKjPwmzt2BpWebcDONZPRT27B7PKKItBFlOb8iyd7Ca2wsaquft/g8+HOoUpfV61jBB8Hvartcyp0aCJRNhsAd1fb754NpfnptkT0RXyXM56vxoDeUTnZlgcyWdoo7CuhRWd74RW3JTmyhHGPxZPV8h0QPaSYnMBVlDWPWIMXjCJ2p53ROJTInalQYSBk9AhmeTwTuYN/OmnpWax3a5pOwy2U+FF8gknU8ODLIg/zy9HdLI3VLtosTWFok49BnUHMzHXcE+uGvgIFKHGDYYLTxUCweRqbud//Fzq1CjLczHeWgNjWCIHekgP/lSEehG37rFQxRE4yNDzluQi+mh4oM0lLSg8M42O1dBB54flGlruOdi854DudcVWb4Br9VTv43Qf/muc9XXu7NepFSWkKGqBig83Cef2vXMbYM0TFcflr5JLQRyJ6fUhueDDBWqrYe5ynlkxiZj3xJM2ghiMOBiVIVbLoquYXXPeAknE9oAGjnUSRbJ6rekDRpCyzmHIGU9PEfiYG1CXfH/xZOtjFB99nNrIQqQBpOR2I/kyCL5RIo7IFhteE3T4bubTUNiS7nXeqAOtAcE0U4YEvxsisrjOztmdXWMNoqvoh79RWagBEFQE86RUTe+pCTdklsObNslx2tw5mxw6p65BIl6JggFDphSl8M6tKVpUJgUOU2OFl2sY8Xm4OsBg4kPwkLaP5nVFDNs0xKgtMovzPeNWVrS2aoH+soRkYdBHRo+26xLmN55bhtSc8hqi7VwRR+5HYiEkYsC8nyGMgzo+42RUSxBpLhbmWzRvdFGWsEzDxsTi0Fgk4vdOEW6kXOFbFMZsSSOdtHxk8HQpF3zvlSbZmjzv+bIfNh8sEuZ1dTEQHTZiWneJJ/tLGducKwYoY/eg2b4lgVOTZRaLKn4Um9Oa7A2f3qTkUkD8w8A==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_023922_517393_738AEA11 
-X-CRM114-Status: GOOD (  11.71  )
-X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +71,78 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
----
- drivers/media/v4l2-core/v4l2-ctrls-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
-index 922cf74c4eb8..384ff77771ea 100644
---- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
-+++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
-@@ -638,7 +638,7 @@ validate_vp9_frame(struct v4l2_ctrl_vp9_frame *frame)
- 	 * According to the spec, tile_cols_log2 shall be less than or equal
- 	 * to 6.
- 	 */
--	if (frame->tile_cols_log2 > 6)
-+	if (frame->tile_cols_log2 > 6 || frame->tile_rows_log2 > 2)
- 		return -EINVAL;
- 
- 	if (frame->reference_mode > V4L2_VP9_REFERENCE_MODE_SELECT)
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] net: mtk_wed: memory leak of rx_ring and tx_ring on setup
+  failure
+
+--
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+> @@ -1938,7 +1938,7 @@ mtk_wed_wdma_tx_ring_setup(struct mtk_wed_device *dev, int idx, int size,
+>  	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_CPU_IDX, 0);
+>  	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_DMA_IDX, 0);
+>  
+> -	if (reset)
+> +	if (!mtk_wed_is_v3_or_greater(dev->hw) && reset)
+>  		mtk_wed_ring_reset(wdma, MTK_WED_WDMA_RING_SIZE, true);
+>  
+>  	if (!idx)  {
+>
+
+[Severity: High]
+The change here looks fine to me. Since mtk_wed_wdma_tx_ring_setup()
+is one of the failure points involved, I'm raising the ring teardown
+changes later in this series here. That is the patch that gates
+mtk_wed_free_ring() on MTK_WED_RING_CONFIGURED.
+
+First, mtk_wed_free_rx_rings() walks dev->rx_ring[] but tests
+dev->tx_ring[i].flags before calling mtk_wed_free_ring() on
+dev->rx_ring[i]. That looks like a copy/paste slip. If tx_ring[i] was
+never configured, an allocated rx_ring[i] is never freed. Should that
+be dev->rx_ring[i].flags?
+
+Second, mtk_wed_tx_ring_setup() and mtk_wed_rx_ring_setup() call
+mtk_wed_ring_alloc() first. They then call
+mtk_wed_wdma_rx_ring_setup() or mtk_wed_wdma_tx_ring_setup(). If the
+wdma step fails, they return -ENOMEM before MTK_WED_RING_CONFIGURED
+is set on the ring that was already allocated.
+
+Once the free paths only call mtk_wed_free_ring() for rings with
+MTK_WED_RING_CONFIGURED set, __mtk_wed_detach() skips those partially
+set up rings. Their coherent DMA descriptor memory is then leaked.
+Before this series, mtk_wed_free_ring() keyed off ring->desc, which
+handled this case.
+
+I see two options:
+
+ - Keep relying on the ring->desc check in mtk_wed_free_ring() for
+   freeing, so the flag gating is not needed in the free paths.
+ - Free the just-allocated ring on the error path in the setup
+   functions.
+
+The right choice depends on what the flag gating is meant to protect
+against, so could you explain the intent there?
 
 -- 
-2.55.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261016-wedfix-v5-0-8b02e78fd34f%40gmail.com
 
