@@ -2,124 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53CE060A263D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:39:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 414C7606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:39:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q3iMXxqD;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=htJnS9hx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vydTR2Yr;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EMAVoeNR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Ny2Hy9Mzlnu/irTWRQwR1/WlJvUQjJeELVkcpKY7pE=; b=Q3iMXxqD1LKu2oeeWXKk8Ez06H
-	fNViCRoX4KJS+EirItPpBWWfTnpVeYrCTfpfep4hsZfIy69a9tm8tWK1f10CYmO8boCzEWF5hLGgG
-	riSyeLwKM6bUfLcSKkH/JE+b4IFA8K4P7JLQd3EEz9WmlCrE8X64/Y5bJCmLcIvZXv36gXQX+Ly+I
-	h/TvppnlFkyWJ8YwdX4r5euJYCpNxiVezUrRM79Bs/Rfzs60IEt8b5q0O54xXYrxAk1bWR1YpkcJR
-	9w6/n7L1dAOhJ51q1Ho8c3vkipvJ6HJR/yNbFIfflqYZqXyU7DLktwx4W2fC2AfjuZogORZilSZs3
-	6fgE8dTw==;
+	bh=djXZskGgNuwcvXxJ7QSBd5G1fQCIwJ3UJCCUrLYgW60=; b=vydTR2YrKImEYBE5NbrtDDuJ35
+	tXPHXvZmZFdKOtmp2pTVRWxE0Y8MGLypnpjhA55dNZx1YqdkI78fMjTwKkmrjNjnlQJyEbA4Y1JXP
+	LyoABJZ39lIJ7SvvF0KH1bpDZPmFussqYxujuIRxJV38EHuNWaZVuhD0Z2lz7xBvVd/55rOsLevOk
+	1JxCoOTFQ9lf9U58eD/88mjirqowDTM2hVfd79cghiQxur5dtVdSlSfTcMTmx9kMdO10N+jWlaGD5
+	OnXdIW12KbnJG+nhPTrW6Cdvm+im6KVwHK+n+fYA7EA1vm7JIOZYCgwGP1C5EO65qwWPKOjU8XZKu
+	efbSBSOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuS-0000000A4Lk-3A7Y;
-	Tue, 20 Oct 2026 15:37:52 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1xJBvX-0000000A4au-2hSg;
+	Tue, 20 Oct 2026 15:38:59 +0000
+Received: from mail-yx1-xb162.google.com ([2607:f8b0:4864:20::b162])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuH-0000000A4Gz-0GIr
+	id 1xJBvO-0000000A4Zv-47uK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:37:46 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-36681e85e87so986494eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1792510660; x=1793115460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8Ny2Hy9Mzlnu/irTWRQwR1/WlJvUQjJeELVkcpKY7pE=;
-        b=htJnS9hxtDuIU/i157oiy99s2zYajvtYqG5uTodHw0gUDjaoeMtEZTM4rodi/5zZIc
-         6mjRU6NkPBCbxrHEv0ln7Pu0bVlmdWgJZ28IeGiIECrzooJbJkpehyAjCqDd+1TvNepC
-         NmQrBLMr9kc6wEd6wi0qeKItefiAX39fMWehM=
+	Tue, 20 Oct 2026 15:38:57 +0000
+Received: by mail-yx1-xb162.google.com with SMTP id 956f58d0204a3-677dbe051d4so3037940d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:38:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792510660; x=1793115460;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8Ny2Hy9Mzlnu/irTWRQwR1/WlJvUQjJeELVkcpKY7pE=;
-        b=i3OW6wwQG+mXDZfoETxzgDczkSkMea7+5ClF1Mz0CbgDA7h2VSS2v4dVP9/9/NYfvW
-         HRH23rZngGYGkk/BUHKkAL4YcU/Tz7FKoklRela3TBfW1YiNVGrSXHSWfkvqVrU+oR50
-         8g3qc3tVA8lLNoZkVxhOl2uU+s+wFqXn5Sh6dEju5BEihJGd/rRmQQ5ZUfVaNmpWV4vw
-         LWdSwUw56AMagncQs43u2r6D5nDVaes4c2aHxZuccWmYb2U2gMflK3oagxmt6LRHxB7g
-         jGcv4xktreENj+JwYm1zP8TAIx7lTuXmXDq3eGDfwhiL5DLTs5lYLd9cNk9BDSIB0b0r
-         ar8w==
-X-Forwarded-Encrypted: i=1; AKwUvByQMhrMo+mKCsFrKQ3kcwAUxFsPM0vzaCg1feZnXaLKH/LVVqC/yS+e0laI5ipaVDLnEJO9lDBngK92VArjiugz@lists.infradead.org
-X-Gm-Message-State: AFq9FYLmkkBROx5PJB7OfOLxIADJKMY8PyHwzNQ7MlYEAgwsivFbq5Hw
-	CFU6YiNgtk8kWSsgF+s9PhakuPGgh5MzsrgDMNn2IBp2MkMF7ayxl2s7+gniCHXrMg==
-X-Gm-Gg: AYBFou143xq+57M/2NmfBCq/NZgEM65/2e2bBgE30EfVQDQs27BF38Y393WQjuUVnbl
-	IAGZuXIGx08NdMNjD3vNdVtJW+K7bCqA34goNDKJ+WLUeWxZ+YW9Z7Q4JiUJslVkBlvTlp0w0fh
-	Sj3Khxp2tGxi/2cdagii9ehhXIyTNLZQ31J/RGRoKTod9vOPHOKncEuHKyss80BgydEDc+9Z8jU
-	fefjEBwWVBbGBftBuR8OtMuj6CdxeIg+E9TWCIVmJFsFXk1kjjWF2YpW/CgaAWEKWvSyCeEkB3H
-	irAlgXeEVQ0IhJ5gfQCNSzZuYo/QrveQMwmFrQa3/Va51dW100JPFgw47SnHanRH9wDz36NUrvf
-	Fc6d3hTUAVKOWMcMiiLAPSrLidkDsL2i+AUmdTgpphCVlmiwVem393urtN8JY19F65HcCATSfIn
-	leqvszWSL+lvnaIGtTNTMRlrxOjHqjb6/wiqK9mVHS9L1piwp/fKs/AEnV6eiXYIc+K2wZVjvKM
-	Qyo99jUDOrprFVv4KLNeDE6FjPYba5UhmXzFq4JzWHuPv4P89ejPbD1SeEP8qw8MHqC2g==
-X-Received: by 2002:a05:7301:b0e:b0:367:16cf:4a8d with SMTP id 5a478bee46e88-36716cf4f7amr259864eec.35.1792510659838;
-        Tue, 20 Oct 2026 08:37:39 -0700 (PDT)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:1eb1:e432:2cc7:349c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 08:37:38 -0700 (PDT)
-From: Douglas Anderson <dianders@chromium.org>
-To: Devicetree-compiler@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-kbuild@vger.kernel.org,
-	Brian Norris <briannorris@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Simon Glass <sjg@chromium.org>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-arm-msm@vger.kernel.org,
-	Nicolas Schier <nsc@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Devicetree@vger.kernel.org,
-	Julius Werner <jwerner@chromium.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	Breno Leitao <leitao@debian.org>,
-	David Sterba <dsterba@suse.com>,
-	Gary Guo <gary@garyguo.net>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Luis Augenstein <luis.augenstein@tngtech.com>,
-	Marco Elver <elver@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nick Terrell <terrelln@fb.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rong Xu <xur@google.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	devicetree@vger.kernel.org
-Subject: [RFC PATCH 4/7] arm64: boot: Support building image.fit from a specified FIT_ITS script
-Date: Tue, 20 Oct 2026 08:35:22 -0700
-Message-ID: <20261020083501.RFC.4.I5cd8aab4380bc4cfd302c4e4708af58c43370715@changeid>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
-References: <20261020153652.2907186-1-dianders@chromium.org>
+        d=1e100.net; s=20260707; t=1792510728; x=1793115528;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=djXZskGgNuwcvXxJ7QSBd5G1fQCIwJ3UJCCUrLYgW60=;
+        b=Gvh5hErVWLvx965lr+YCouDucFLVVpRx2NomVs0pc6HB6qUunlvdAdcaxpXuB+Hs3v
+         JpwHGdlRYyy+T5TmlJif+KVwnVCCe8UI2zwIsBWnnFlbpSPWm53fuq+dsT2eI0t+4Tsb
+         xZalFeZiM0C76VyAQz9PvEDAacMdeNlJRMWPUTgNsiKLqDLONxDwXsmqqq+2U9q02UiJ
+         gGF4v+0bwTQ8SiOojsYW6hw247BX2ksjFCQGXX9jgcHmiRZ2yuTBcCcpQve1sKGieczl
+         2nx692hU20dMfPYhIHwnWGlfXPcPnGMyC35KU/AIV/KgmqEVA8mX5D+9vS0B1liYbylr
+         PEsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwUoatbF0i2GHrYFdLNc3CQ7xX5+hHiySf3Bvy0N4BpuqyARvn83umkgjHhqqesTnfRsqyR/0InpKFuuC0tgqXs@lists.infradead.org
+X-Gm-Message-State: AFq9FYJBDjXzZlF2lD+ybcLGE7Jqps/686qSBFWHb7AwuwGp8vodVXg5
+	Zfi3vK3Z4gB4SW5Z3RaQuvcv/cm0uRYjaD0uMaQZHN348FRjd6Nri/ub1b/f6oB8+1HOO6pa6oy
+	j6yyuw2zJ/QVknze//1ERBCB8WsZuUS3w0N/qWK4eoLniruq4X9D1r2ShGhT9Mn8wGQ4I9AaGPM
+	z9FzXGjjzg+XBhVC6DoDOLLAYMQHz5nRoy+M7RQDjxL04D4ps4A3m3brcKPiGqvJxNMudgh3pvM
+	teNZ3kU39OStt9i4NTiCmPIl+c74VZ/da4=
+X-Gm-Gg: AYBFou2D8rQr7rQvDu2x7Z8acvcXAPxmv/lMoDMbPfdyYV6z3h1MTAl07qnq8bom2p7
+	t2oh3MwVDkdGOlSnoQGjfEFimR4ylFS0g2dE5x9PnfGeP8cWoJVw6xvMjWR/hlWnAm+u5zEbts9
+	eyfekrKOdP+vLtr6eKQGz60USOuG0s4k5ljNoX5OD3eE7uaogUfgpjyz7ze17VmKu22Q2Wj3YTa
+	AXG0cDFK9J/TGmaRBqOOOx8TlN5ytpvth1EBNuPo3747eJAEIZsKyOhkPmOc7aoosJ2nWySkJJB
+	5LousllWQnaZ0Nt+epF17+108wfhJwT5BuaaUB09Sy3x5HlIf0K9hEgrrF3YrykdcOW40xNhkV1
+	yRba3BszJfbVvYQCFH2c12uYmjjirhkr35BILQbAOqB9LDNjsLXyUcyMcSN8IeRwYfPxe3kuQgo
+	GeUWElZ3RV+T3NgaF+11AhzVxkWbx8b84XfurSndbxClY=
+X-Received: by 2002:a05:690c:c615:b0:8a8:4cd6:b366 with SMTP id 00721157ae682-8b0f2165743mr27745877b3.34.1792510728196;
+        Tue, 20 Oct 2026 08:38:48 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-125.dlp.protect.broadcom.com. [144.49.247.125])
+        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-8b11b82956bsm242977b3.38.2026.10.20.08.38.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 20 Oct 2026 08:38:48 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5338ff2cf14so65317291cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:38:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1792510727; x=1793115527; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=djXZskGgNuwcvXxJ7QSBd5G1fQCIwJ3UJCCUrLYgW60=;
+        b=EMAVoeNRB7c4ImjmqOFqzaq5J/UoM8d+l6sNS6DjQavvFc6k0GH/l9s6cREFHF10Rj
+         XeKPDJKG1QonAWNU6Ngwxh0ySA/5OqOLEjf4jUi3XJL+tQJUqglCjWEGWI/+30Q2VFGI
+         /360U0QhxCaomT4akG/TtT7OO1ptMRLi2zrgI=
+X-Forwarded-Encrypted: i=1; AKwUvBxiPGrdjbgJUK9qDNWG4PS2f/vwVoR8tjDV1jNjZio8oAGnetG6mtckg3ALUt+1u7bf6UcP1eEyDiMhOc8FVPMn@lists.infradead.org
+X-Received: by 2002:ac8:5e06:0:b0:536:4cce:67df with SMTP id d75a77b69052e-5364cce6af7mr160757461cf.54.1792510727432;
+        Tue, 20 Oct 2026 08:38:47 -0700 (PDT)
+X-Received: by 2002:ac8:5e06:0:b0:536:4cce:67df with SMTP id d75a77b69052e-5364cce6af7mr160756821cf.54.1792510726868;
+        Tue, 20 Oct 2026 08:38:46 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5367b3d1ccbsm36400461cf.0.2026.10.20.08.38.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Oct 2026 08:38:46 -0700 (PDT)
+Message-ID: <f918c40f-f073-4ba1-ac4b-7765c42a5cb2@broadcom.com>
+Date: Tue, 20 Oct 2026 08:38:41 -0700
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: clock: bcm2835: add the BCM2711 GISB
+ clock
+To: Nicolai Buchwitz <nb@tipi-net.de>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>,
+ netdev@vger.kernel.org, James Clark <jjc@jclark.com>
+References: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
+ <20261020-devel-bcm2711-gisb-clk-v1-1-a1728724d0f8@tipi-net.de>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20261020-devel-bcm2711-gisb-clk-v1-1-a1728724d0f8@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_083741_113689_1279D59F 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20261020_083851_101751_C8EAA768 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,266 +161,22 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Allow passing `FIT_ITS=<path>` on the make command line (relative to
-either `$(srctree)` or `arch/arm64/boot/dts/`) when building `image.fit`
-to assemble the FIT image from a checked-in `.its` script via `mkimage`
-instead of auto-generating a FIT image with `scripts/make_fit.py`. When
-`FIT_ITS` is not specified, `image.fit` continues to be built using
-`scripts/make_fit.py` as before.
+On 10/20/26 07:58, Nicolai Buchwitz wrote:
+> BCM2711 has a clock generator for the GISB bus that the firmware sets
+> up at 200 MHz. The GENET MDIO controller runs its MDC off it, so add an
+> id for it.
+> 
+> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-Supporting a checked-in `.its` script includes:
-- Adding `cmd_lz4_frame` (`Image-framed.lz4` and `%.dtb.lz4`) for
-  standard LZ4 frame compression (magic `0x184d2204`) expected by FIT
-  bootloaders such as U-Boot and depthcharge, plus generic compressed
-  DTB rules (`bz2`, `gz`, `lz4`, `lzma`, `lzo`, `zst`, `xz`) in
-  `scripts/Makefile.dtbs`.
-- Restricting `$(dtb-y)` to the DTBs referenced via `/incbin/(...)` in
-  `$(FIT_ITS)` and automatically building the referenced kernel image
-  target (e.g. `Image-framed.lz4`) and any compressed `.dtb.<ext>`
-  blobs.
-- Populating any omitted `compatible` property on
-  `/configurations/conf-*` nodes in `cmd_fit_its` from the
-  corresponding uncompressed `.dtb`'s root `/compatible` property
-  using `fdtget` and `fdtput`. This is useful so we don't have to
-  manually keep the .its script in sync with the source. This is extra
-  important if compression is used since the bootloader may not be
-  able to easily peek into the device trees itself.
-
-The main motivation for checking in an .its script instead of using an
-auto-generated one is to be able to manually set the "description"
-field of the configurations. This allows us to provide information that
-the bootloader can use to figure out which configuration(s) to load.
-This idea came from Michal Simek.
-
-Assisted-by: Gemini:gemini-pro-prerelease
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-
- Makefile                 |  2 +-
- arch/arm64/Makefile      |  3 ++
- arch/arm64/boot/Makefile |  9 ++++--
- scripts/Makefile.dtbs    | 43 ++++++++++++++++++++++++++++-
- scripts/Makefile.lib     | 59 ++++++++++++++++++++++++++++++++++++++++
- 5 files changed, 111 insertions(+), 5 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 0dc1a9f4e63e..8c5500179e2e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -2239,7 +2239,7 @@ clean: $(clean-dirs)
- 		\( -name '*.[aios]' -o -name '*.rsi' -o -name '*.ko' -o -name '.*.cmd' \
- 		-o -name '*.ko.*' -o -name '*.o.thinlto.bc' \
- 		-o -name '*.dtb' -o -name '*.dtbo' \
--		-o -name '*.dtb.S' -o -name '*.dtbo.S' \
-+		-o -name '*.dtb.*' -o -name '*.dtbo.S' \
- 		-o -name '*.dt.yaml' -o -name 'dtbs-list' \
- 		-o -name '*.dwo' -o -name '*.lst' \
- 		-o -name '*.su' -o -name '*.mod' \
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 6b005c8fef70..f9a25db9ae03 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -185,6 +185,9 @@ $(BOOT_TARGETS): vmlinux
- Image.%: Image
- 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
- 
-+Image-framed.%: Image
-+	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
-+
- ifeq ($(CONFIG_COMPRESSED_INSTALL),y)
-  DEFAULT_KBUILD_IMAGE = $(KBUILD_IMAGE)
- else
-diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
-index b5a08333bc57..fe21bace3692 100644
---- a/arch/arm64/boot/Makefile
-+++ b/arch/arm64/boot/Makefile
-@@ -16,8 +16,8 @@
- 
- OBJCOPYFLAGS_Image :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
- 
--targets := Image Image.bz2 Image.gz Image.lz4 Image.lzma Image.lzo \
--	Image.zst Image.xz image.fit
-+targets := Image Image.bz2 Image.gz Image.lz4 Image-framed.lz4 Image.lzma \
-+	Image.lzo Image.zst Image.xz image.fit
- 
- $(obj)/Image: vmlinux FORCE
- 	$(call if_changed,objcopy)
-@@ -31,6 +31,9 @@ $(obj)/Image.gz: $(obj)/Image FORCE
- $(obj)/Image.lz4: $(obj)/Image FORCE
- 	$(call if_changed,lz4)
- 
-+$(obj)/Image-framed.lz4: $(obj)/Image FORCE
-+	$(call if_changed,lz4_frame)
-+
- $(obj)/Image.lzma: $(obj)/Image FORCE
- 	$(call if_changed,lzma)
- 
-@@ -44,7 +47,7 @@ $(obj)/Image.xz: $(obj)/Image FORCE
- 	$(call if_changed,xzkern)
- 
- $(obj)/image.fit: $(obj)/Image $(obj)/dts/dtbs-list FORCE
--	$(call if_changed,fit)
-+	$(if $(FIT_ITS_FILE),$(call if_changed,fit_its),$(call if_changed,fit))
- 
- EFI_ZBOOT_PAYLOAD	:= Image
- EFI_ZBOOT_BFD_TARGET	:= elf64-littleaarch64
-diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
-index c4e466390284..1bc42b30cc52 100644
---- a/scripts/Makefile.dtbs
-+++ b/scripts/Makefile.dtbs
-@@ -5,6 +5,26 @@ all-dtb := $(dtb-y) $(dtb-)
- # If CONFIG_OF_ALL_DTBS is enabled, all DT blobs are built
- dtb-$(CONFIG_OF_ALL_DTBS) += $(dtb-)
- 
-+# If FIT_ITS is specified, restrict $(dtb-y) to only the DTBs referenced via
-+# /incbin/(...) in $(FIT_ITS_FILE) and also build any compressed .dtb.<ext>
-+# blobs referenced there alongside their base .dtb.
-+ifdef FIT_ITS_FILE
-+ifneq ($(filter arch/$(SRCARCH)/boot/dts%, $(obj)),)
-+its-dtb-files := $(notdir $(shell $(call fit_its_incbin,\.dtb)))
-+
-+# Strip compression and .dtb suffixes to get stem names (e.g. "foo", "bar"),
-+# then intersect with the stems in this directory's $(all-dtb).
-+its-dtb-stems := $(patsubst %.dtb, %, \
-+	$(filter %.dtb, $(its-dtb-files) $(basename $(its-dtb-files))))
-+its-local-stems := $(filter $(patsubst %.dtb, %, $(all-dtb)), $(its-dtb-stems))
-+
-+# Build only the matching base .dtb files and any compressed .dtb.<ext> variants
-+dtb-y := $(addsuffix .dtb, $(its-local-stems))
-+its-dtb-comp := $(addprefix $(obj)/, \
-+	$(foreach d, $(its-local-stems), $(filter $(d).dtb.%, $(its-dtb-files))))
-+endif
-+endif
-+
- # Composite DTB (i.e. DTB constructed by overlay)
- multi-dtb-y := $(call multi-search, $(dtb-y), .dtb, -dtbs)
- # Primitive DTB compiled from *.dts
-@@ -23,7 +43,7 @@ dtb-y           := $(addprefix $(obj)/, $(dtb-y))
- multi-dtb-y     := $(addprefix $(obj)/, $(multi-dtb-y))
- real-dtb-y      := $(addprefix $(obj)/, $(real-dtb-y))
- 
--always-y        += $(dtb-y)
-+always-y        += $(dtb-y) $(its-dtb-comp)
- targets         += $(real-dtb-y)
- 
- # dtbs-list
-@@ -142,6 +162,27 @@ $(obj)/%.dtb: $(obj)/%.dts $(DTC) $(DT_TMP_SCHEMA) FORCE
- $(obj)/%.dtbo: $(src)/%.dtso $(DTC) FORCE
- 	$(call if_changed_dep,dtc)
- 
-+$(obj)/%.dtb.bz2: $(obj)/%.dtb FORCE
-+	$(call if_changed,bzip2)
-+
-+$(obj)/%.dtb.gz: $(obj)/%.dtb FORCE
-+	$(call if_changed,gzip)
-+
-+$(obj)/%.dtb.lz4: $(obj)/%.dtb FORCE
-+	$(call if_changed,lz4_frame)
-+
-+$(obj)/%.dtb.lzma: $(obj)/%.dtb FORCE
-+	$(call if_changed,lzma)
-+
-+$(obj)/%.dtb.lzo: $(obj)/%.dtb FORCE
-+	$(call if_changed,lzo)
-+
-+$(obj)/%.dtb.zst: $(obj)/%.dtb FORCE
-+	$(call if_changed,zstd)
-+
-+$(obj)/%.dtb.xz: $(obj)/%.dtb FORCE
-+	$(call if_changed,xzmisc)
-+
- # targets
- # ---------------------------------------------------------------------------
- 
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 0a4fdd8bd975..91880648fe21 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -383,9 +383,16 @@ quiet_cmd_lzo = LZO     $@
- quiet_cmd_lzo_with_size = LZO     $@
-       cmd_lzo_with_size = { cat $(real-prereqs) | $(KLZOP) -9; $(size_append); } > $@
- 
-+# cmd_lz4 uses -l (legacy format, magic 0x184c2102) required by the kernel's
-+# in-tree decompressor (lib/decompress_unlz4.c). Bootloaders that decompress
-+# FIT images (such as U-Boot and depthcharge) require the standard LZ4 frame
-+# format (magic 0x184d2204, without -l), provided by cmd_lz4_frame.
- quiet_cmd_lz4 = LZ4     $@
-       cmd_lz4 = cat $(real-prereqs) | $(LZ4) -l -9 - - > $@
- 
-+quiet_cmd_lz4_frame = LZ4     $@
-+      cmd_lz4_frame = $(LZ4) -12 -z -f -q $< $@
-+
- quiet_cmd_lz4_with_size = LZ4     $@
-       cmd_lz4_with_size = { cat $(real-prereqs) | $(LZ4) -l -9 - -; \
-                   $(size_append); } > $@
-@@ -429,6 +436,58 @@ quiet_cmd_fit = FIT     $@
- 		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
- 		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
- 
-+# If FIT_ITS is specified on the command line (either relative to $(srctree)
-+# or relative to arch/$(SRCARCH)/boot/dts/), locate that .its script and
-+# define a helper to extract /incbin/("...") paths from it.
-+ifdef FIT_ITS
-+FIT_ITS_FILE := $(firstword $(wildcard \
-+	$(FIT_ITS) \
-+	$(srctree)/$(FIT_ITS) \
-+	$(srctree)/arch/$(SRCARCH)/boot/dts/$(FIT_ITS)))
-+ifeq ($(FIT_ITS_FILE),)
-+$(error FIT_ITS '$(FIT_ITS)' not found)
-+endif
-+
-+# Extract /incbin/("...") path(s) from $(FIT_ITS_FILE).
-+# $(1): optional pattern to match inside the /incbin/("...") path
-+# $(2): optional image node name to restrict the search to
-+fit_its_incbin = sed -n \
-+	"$(if $(2),/^[[:space:]]*$(2)[[:space:]]*{/$(comma)/\/incbin\//) \
-+	s|.*/incbin/(\"\([^\"]*$(1)[^\"]*\)\").*|\1|p" \
-+	$(FIT_ITS_FILE)
-+
-+ifneq ($(filter image.fit,$(targets)),)
-+FIT_ITS_IMAGES := $(addprefix $(obj)/, \
-+	$(notdir $(shell $(call fit_its_incbin,Image))))
-+FIT_ITS_DTBS := $(addprefix $(objtree)/, \
-+	$(shell $(call fit_its_incbin,\.dtb)))
-+$(obj)/image.fit: $(FIT_ITS_IMAGES) $(FIT_ITS_DTBS) $(FIT_ITS_FILE)
-+endif
-+endif
-+
-+# Build the FIT image from the .its script with mkimage and populate any
-+# missing 'compatible' property on /configurations/conf-* nodes from the
-+# corresponding uncompressed .dtb's root '/compatible' property using
-+# fdtget/fdtput.
-+quiet_cmd_fit_its = FIT     $@
-+      cmd_fit_its = \
-+		PATH="$(abspath $(objtree))/scripts/dtc:$(PATH)"; \
-+		$(BASH) $(MKIMAGE) \
-+			-D "-I dts -O dtb -i $(objtree) -i $(srctree)" \
-+			-f $(FIT_ITS_FILE) $@; \
-+		configs=$$(fdtget -l $@ /configurations); \
-+		for c in $$configs; do \
-+			conf=/configurations/$$c; \
-+			if [ -n "$$(fdtget -d '' $@ $$conf compatible)" ]; then \
-+				continue; \
-+			fi; \
-+			fdt=$$(fdtget $@ $$conf fdt); \
-+			inc=$$($(call fit_its_incbin,\.dtb,$$fdt)); \
-+			dtb="$(objtree)/$${inc%.dtb*}.dtb"; \
-+			compat=$$(fdtget -ts "$$dtb" / compatible); \
-+			fdtput -ts $@ $$conf compatible $$compat; \
-+		done
-+
- # XZ
- # ---------------------------------------------------------------------------
- # Use xzkern or xzkern_with_size to compress the kernel image and xzmisc to
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.56.0.212.g129ede20d9-goog
-
+Florian
 
