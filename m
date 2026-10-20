@@ -2,80 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6369606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:43:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A075F606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 11:48:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Hz+/tNLr;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=PcvDx0Dq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CJP1HbQu;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=RwgbU4BJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fP5WnkQ/jEXyj1gQYTYNTXqYm8pVqxjqPzKb7O0M40=; b=Hz+/tNLrL/S0vw7AjhzjkztGfk
-	KrByMXOAbWI9Buedvz94wwaz2imcb/XjuiGR2p9pjLC/aM0OBA4IC0pVsLkhVmYrYaEu2icRc/jCo
-	gNDz/m0yd9ZG8H9Vvnu56/STaK+1XbHUpqP0oAbzHiAz7az1fkkYWroDRZxSYd4vVLZ2uQq4dq8vK
-	j5ftsciGs82Kv9SQPk/QiDmjnePeaeVL3yP1b453bEVRcfV96sUqKC3KRLMmdgWk67BiFg/VF1+Wy
-	2j0i4qrN9UIlDgYNn29f08SGi5YMGAiEBd16/ZiqShwLO92lp3cDLc5ZN8Crl7YOUF4a2OKvtSKVW
-	zIBaLSLw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mhO5tZaSEOK7ztK6m5HAnmqct10WDg0rx6VsTraTme4=; b=CJP1HbQuwZ/2rB298RGaYq5lVb
+	8Z9S1o2LHlsNsWbkLiUowmA8xaN1BFh65drZXoYl8Fx0YSyjdifUWRfz6F8we7zy18YoydXDnrJ4+
+	lOqy1Bqyfy0hKqh8CY6Kty2tpCcoL9wbAIN4eU6ewBXx+6tVS/tWsSgS8ByRFmLHQ7C8BJCTOyuT+
+	zbzwpeTMkrAbKj7jvjXSBROYKokZTS0Ho+vBKhx3ctg4s4tnGq/KKz65aVLA1yupwCG1bIiEf/DpF
+	W/hH530nzWM+mHc7FKf8AomjK1UheAOV3Qd5JpcLQAqbvWMN619S8pZGkCuTs/ysXv7DdBc0ymCIu
+	1TGqVP7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8FH-00000009ZnK-2I0D;
-	Tue, 20 Oct 2026 11:43:07 +0000
-Received: from mail-m127209.xmail.ntesmail.com ([115.236.127.209])
+	id 1xJ8KI-00000009aFT-0t2I;
+	Tue, 20 Oct 2026 11:48:18 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8FD-00000009ZlB-2gMD;
-	Tue, 20 Oct 2026 11:43:06 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 51b70239a;
-	Tue, 20 Oct 2026 19:42:46 +0800 (GMT+08:00)
-Message-ID: <0a3dc505-43d2-471b-bd7c-222860544081@rock-chips.com>
-Date: Tue, 20 Oct 2026 19:42:45 +0800
+	id 1xJ8KF-00000009aEv-0pG3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 11:48:16 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-885cd98d226so259193b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 04:48:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792496894; x=1793101694; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mhO5tZaSEOK7ztK6m5HAnmqct10WDg0rx6VsTraTme4=;
+        b=RwgbU4BJYz9a/RcEAI47OzpdcFz28emxR1SuiDMR1G5mr6a+5r8TP3Sjd1t4K/MSgC
+         CCDW7CY60PfzvUrs75NOh790GOgMtWfHhv29R11+uuB0m8S8G3erCQqXZxiz//NVjZRZ
+         nbERVHv7hUp3xiV6hE56NkAfENpbg1JVaMP770k5iGN7c+JKjDAqe3pL9zc91+IkaZy4
+         FxhZm1uSuID6QEbA+Wi4/ohjFRXdcwQyI4ZT34voznhh9hr38iA4FeKxMbzV8AW4aaSu
+         VFKc1i8SFt0fFxOi2a+tO9skaEqtiyrrly6CDJ+K5H94V6E0W9dKsHcMmjAxCX4+bBrN
+         qPFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792496894; x=1793101694;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mhO5tZaSEOK7ztK6m5HAnmqct10WDg0rx6VsTraTme4=;
+        b=lQfP1zkyroaDZPiK6/MqkFZJKALrGUwP4cAExUskqDCrzg+HLHGmgR7b7IKlxHzwo2
+         lPcoOFGgF8wiiU73Z0yYUBTs+x4e+aC9e6k0FrOJyW2SnpsCwy3QvafgPatFBr9tjh04
+         blN1SkSESMGcjPLKzda9l7yWDtZ6L7XjlgRjxxhl+RhfGPcGbNh9crEZXbhKxNxGliXo
+         171Li1y0DQ/gcopHbDk0YVCmfb4cxOaC5d+XJmEG3X8cqh9LNvnBayXnnBmNlQEG5bWT
+         FJLrTBzDo1+QgnrxmpbKO4xQI0VnNEJvx/lPmfOcBBHoiGgqVv8/CZpFbABtg2UElgN4
+         qXuQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwF6hpw61CkfyLtfjRK7cDIK/qeIwuzedv1k/96mHBosFf6grpiCtz7x7VqYIImXJtFvuxp1f0GRHWRRcKLjm24@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ5MlWIsr+eUamsiwjp85yEQ3CPqzvzJS49+VcG8BEqt70Zd/S8
+	4u4+VlpIOlQkW3EH++RWiuQ8cLbjOndGuZAy/uvmdLxAcrjbE7xqvHcH
+X-Gm-Gg: AYBFou0+i/5TueWdyYBGQkJHEJPEnRQJAZg9E3KriXmaw6VLyeE9VxpG8g51PqFISWi
+	3Zbox8kfyU2q6EVx71vQYKG+xUX8peqau+1znE1NZEtdaf+iZFyAUvVK7ad9aoz7YFoFiTXNVty
+	aM9SFz19WiecLe0IM/3gMfic+h1jC2H0gLbPR54SBJp76NJMLPNDEjuZ6D7ivMDM6pMZtAe7M9W
+	rlSgKTKjoQY88YFRjwQprnuxbRvgOPij7vD5sNsSiTNtPxuLZzXpEfmH9ELUDnkYqr3b5S+3g4t
+	AxlY7TPMVoekay4EOik+2ealMCLgYR1LYkCzkGtdUcPWdF3WTvzxF+ZHweE4Q85ufVH/fLZry1v
+	rm0v0B1UbPRX6RuQsv/Mm3IxUup3VBl+pAvUczPDIgi5i80pTxZGMuPxpFUNINLKXxB/Wik1LXr
+	2VvDwrncUBr3xIS++1qwUJOD8DuOfB6DH/X9/gjMkXRbHYnXycvW/ZxqPMWBoJ4h88Z/sVi6hl8
+	gg=
+X-Received: by 2002:a05:6a00:2d8b:b0:8a0:582c:5c09 with SMTP id d2e1a72fcca58-8a07bffd972mr1187619b3a.25.1792496894150;
+        Tue, 20 Oct 2026 04:48:14 -0700 (PDT)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-89f58017c70sm4761701b3a.48.2026.10.20.04.48.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 04:48:13 -0700 (PDT)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: james.morse@arm.com,
+	ben.horgan@arm.com
+Cc: andre.przywara@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH] arm_mpam: Release the mon_sel lock on mpam_save_mbwu_state() errors
+Date: Tue, 20 Oct 2026 19:48:07 +0800
+Message-Id: <20261020114807.3915705-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/14] drm/bridge: analogix_dp: Use bridge->next_bridge
- instead of plat_data field
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>,
- Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, kernel test robot <lkp@intel.com>
-Cc: oe-kbuild-all@lists.linux.dev,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20261019085836.3065008-12-damon.ding@rock-chips.com>
- <202610201309.w3JSXlP5-lkp@intel.com> <3789853.R56niFO833@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <3789853.R56niFO833@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1591f009e03a8kunmb99823d738c545
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUhXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZShkaVktIQh9IGUsaSRgZTVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0JMVUhJTE
-	1CVU9VSEtLSlkG
-DKIM-Signature: a=rsa-sha256;
-	b=PcvDx0DqHkOKPqjTQ+WfmUYCXD9mwvhFrc7mSaBffIry2c4fUYbdXMX59bNKWZBcDiTaCQ/YNMiQcmhD7Zsd1KQbLmtLq7Ltd9XK3HumvYifhWq4A4Ftt4y/jY42N+ztDwlpKKLycWUI8mg322eGJ0P3DLzIVv1imnkclT3bR5E=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=0fP5WnkQ/jEXyj1gQYTYNTXqYm8pVqxjqPzKb7O0M40=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_044304_227901_2BE7D652 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20261020_044815_237388_C2BC9501 
+X-CRM114-Status: GOOD (  13.18  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,58 +100,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Heiko,
+mpam_save_mbwu_state() takes the mon_sel lock at the top of each loop
+iteration, but the four error paths that return after failed
+MPAMF_MON_SEL register accesses do so without releasing it.
 
-On 10/20/2026 6:38 PM, Heiko Stübner wrote:
-> Am Dienstag, 20. Oktober 2026, 07:36:21 Mitteleuropäische Sommerzeit schrieb kernel test robot:
->> Hi Damon,
->>
->> kernel test robot noticed the following build errors:
->>
->> [auto build test ERROR on drm-misc/drm-misc-next]
->> [also build test ERROR on drm/drm-next next-20261019]
->> [cannot apply to daeinki-drm-exynos/exynos-drm-next linus/master v7.3]
->> [If your patch is applied to the wrong git tree, kindly drop us a note.
->> And when submitting patch, we suggest to use '--base' as documented in
->> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->>
->> url:    https://github.com/intel-lab-lkp/linux/commits/Damon-Ding/drm-bridge-analogix_dp-Return-bitmask-from-analogix_dp_get_irq_type/20261019-165823
->> base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
->> patch link:    https://lore.kernel.org/r/20261019085836.3065008-12-damon.ding%40rock-chips.com
->> patch subject: [PATCH v4 11/14] drm/bridge: analogix_dp: Use bridge->next_bridge instead of plat_data field
->> config: nios2-randconfig-1000-20261020 (https://download.01.org/0day-ci/archive/20261020/202610201309.w3JSXlP5-lkp@intel.com/config)
->> compiler: nios2-linux-gcc (GCC) 11.5.0
->> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261020/202610201309.w3JSXlP5-lkp@intel.com/reproduce)
->>
->> If you fix the issue in a separate patch/commit (i.e. not just a new version of
->> the same patch/commit), kindly add following tags
->> | Reported-by: kernel test robot <lkp@intel.com>
->> | Closes: https://lore.kernel.org/oe-kbuild-all/202610201309.w3JSXlP5-lkp@intel.com/
->>
->> All errors (new ones prefixed by >>):
->>
->>     nios2-linux-ld: drivers/gpu/drm/bridge/analogix/analogix_dp_core.o: in function `analogix_dp_aux_done_probing':
->>>> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c:1669:(.text+0xb80): undefined reference to `devm_drm_of_display_mode_bridge'
->>>> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c:1669:(.text+0xb80): relocation truncated to fit: R_NIOS2_CALL26 against `devm_drm_of_display_mode_bridge'
-> 
-> I guess the Rockchip kconfig for the Analogix-DP also needs a
-> 
-> 	select DRM_OF_DISPLAY_MODE_BRIDGE
-> 
-> similar to exynos and imx.
-> 
+Take the lock with the conditional mon_sel_lock guard class instead,
+so all exit paths release it.
 
-Will fix in v5. Also refine patches 9-13 as suggested by sashiko.
+Fixes: a3a94c13c442 ("arm_mpam: propagate MSC access errors for state saving function")
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ drivers/resctrl/mpam_devices.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
-Best regards,
-Damon
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 48adc49b833c..c067b6d57d71 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2037,8 +2037,10 @@ static int mpam_save_mbwu_state(void *arg)
+ 	struct mpam_class *class = ris->vmsc->comp->class;
+ 
+ 	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+-		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+-			return -EIO;
++		ACQUIRE(mon_sel_lock, guard)(msc);
++		ret = ACQUIRE_ERR(mon_sel_lock, &guard);
++		if (ret)
++			return ret;
+ 
+ 		mbwu_state = &ris->mbwu_state[i];
+ 		cfg = &mbwu_state->cfg;
+@@ -2061,10 +2063,8 @@ static int mpam_save_mbwu_state(void *arg)
+ 		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+ 		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+ 
+-		if (!mbwu_state->enabled) {
+-			mpam_mon_sel_unlock(msc);
++		if (!mbwu_state->enabled)
+ 			continue;
+-		}
+ 
+ 		val = 0;
+ 		mbwu_arg = (struct mon_read) {
+@@ -2088,8 +2088,6 @@ static int mpam_save_mbwu_state(void *arg)
+ 		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+ 		if (ret)
+ 			return ret;
+-
+-		mpam_mon_sel_unlock(msc);
+ 	}
+ 
+ 	return 0;
+
+base-commit: 8ea457f746d915d55f78b43d33b1cd618f3d93ad
+-- 
+2.34.1
 
 
