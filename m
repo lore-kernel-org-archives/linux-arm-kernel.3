@@ -2,95 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEE7F606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:20:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 224B3606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 07:25:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0lghexw6;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=rYNvpH8O
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hxX0tH1Q;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=lcmzmVQw;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=Lu1GRVPG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTfcY3KbdiQmLNtrA7EgWSIO5XWoep6EANOAU6klbBo=; b=0lghexw6X9TrnogInVU6rNfoJu
-	qd/3Icd5nIEnV9pdkdqHT6u7PduEB2HctrprvRAzaqWq48Ns0cQZzVERhConH6mMvmom+KVOghcRo
-	8nTLNwMDNRTuDuK4tnZaAExLSA9pdLZYSX/v+WZ2V8CGcpIMYMfCL7bUKtgkIc3ANqAwJT/JlXBSG
-	SWXnzrJUBInIZl7mCywaOvTognAR6BAG/bCeap4zHRNzfLfzT4dIpn/tUAT+KiMbXHI330UNDhmPE
-	gqO5iB5dKz8RXqFxEMaRSSTATD1OgpHhFX4gcVy1MJaJlPw8m/jawCnHk72PjOGd0uvlAfTu0JPsD
-	9MC7n1TA==;
+	bh=VBod7zScKYToVtl6NM7uKvGih1bUiQG6dq4Lml4LGug=; b=hxX0tH1QLAcDVvqk1NJgJrHbmR
+	WnQ00MdwEMxYm41fiwvIc//ZctHpJyFt5sOuMKmsP0jo00icXaX9hn7rIvScm/e4A4ruX+0yh4TWm
+	qP6Lm8JzUaidEb1M9mhvtq288CYipScCantWuQ6O6Wuxbss+uoNA4PPZlfuzFtv4NqwzijKcYzgVF
+	SA/ZFM9L6RoNPjxmct4wtWz7fpaRQCLKXoQ+EQHLtfu9iwbK53q+6LX+c4ZrPqPzqmKW0MDoCnVKb
+	TAlAwLtpo+pmVnK3R9T1j4rt9zKBwAeTuPyB+MDoBgkwQrc4hKfnyne8RYKwgHL9J71QXvDDMklyK
+	RL/nyiUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ496-000000091F2-0jte;
-	Tue, 20 Oct 2026 07:20:28 +0000
-Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
+	id 1xJ36f-00000008ugz-2nbE;
+	Tue, 20 Oct 2026 06:13:53 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ491-000000091DO-3yCg
+	id 1xJ36c-00000008ug4-1hip
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 07:20:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1792480830; x=1824016830;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=refqq25nv2RRzQpG9iY5BlA9ExyL3HdRLNTWhTg6kFM=;
-  b=rYNvpH8O9EiIy1XnR4AoRkUfW036JrB8HExZjS76Dx9+RIOG2oIwXPxQ
-   PV8BAp/RO4Cm+V3WL3JZ13y7Sm7f1Yr3y01vizQVvoyJxMmnM0C0xZU+m
-   q0CPQaeEUVx7u6UaYSWhXaYGVhoPjo0v2pcc+cmMC6eJHCMzt6GUNO4yX
-   iG3LuYpnfncjAmW7vIg7HD+fT/upSl3tGDKlPOzk+BiZnx6necUkXKIrg
-   +MvioFumbTEUT1Kpb5HqVC9y8eeJ4/LZi1pSjSrnRvQXb7MATdNwG6085
-   gXgvv4Fjg6gyfI5ow+hwRJoSHknhtauc9PDzZAkLBlMR/b5Zc22fa5493
-   A==;
-X-CSE-ConnectionGUID: 52Omokx7SHG8EmXFaUsjnQ==
-X-CSE-MsgGUID: AQClQqOgSY2/rKhUQn15lQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11940"; a="236538195"
-X-IronPort-AV: E=Sophos;i="6.27,168,1786978800"; 
-   d="scan'208";a="236538195"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2026 16:20:27 +0900
-Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 1A7E310000CB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:20:21 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id C0C88C01836
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 07:20:20 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.226.149])
-	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id A09772000281;
-	Tue, 20 Oct 2026 07:20:13 +0000 (UTC)
-Date: Tue, 20 Oct 2026 16:20:12 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 4/4] irqchip/gicv3: Add workaround for FUJITSU-MONAKA
- erratum E#030003
-Message-ID: <atcTtojPd1BSS8fr@FCCLS0092175.localdomain>
-References: <20261016-monaka-fix-for-upstream-v2-0-fc7ede7f9f48@fujitsu.com>
- <20261016-monaka-fix-for-upstream-v2-4-fc7ede7f9f48@fujitsu.com>
- <87wlrg8qc7.wl-maz@kernel.org>
+	Tue, 20 Oct 2026 06:13:52 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-4z7z.prod.antispam.mailspamprotection.com; s=arckey; t=1792476830;
+	 b=rNMTOFq/c4IplGWOwAV4HAcmYP8EnHSon0xR76cQl6FLKPo76GdQLgBI7uhJXziKnZCqWRGp6k
+	  B3Q453XD2W2MAu6l5A5TBTvnSkSj3UlsIChFobjyGidGP9ZWJ9gjfp97xfmST0GSjkQKJuXucK
+	  2jpe3L1ZRvbvKhS4RgpJZdW/F2Js/my5IcIdAwlCzPUx0LsyR3skbGTMIRMc6CvlwuElhGXLLn
+	  3/M+l5xaBxna0CV+7ogh181PGNLK7YNVfDXeRZOOD7GVI9a22QlGIUaIfFRcL77LRnMCvuyYPO
+	  rVTnHmR3yN+mKt2s6gv4ovmvVbFjODNMqjS1eHukez38AA==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-4z7z.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-4z7z.prod.antispam.mailspamprotection.com; s=arckey; t=1792476830;
+	bh=BLyVi9noksr977RBj4Cms4tPuxnqjRaYZqn2pFov1I8=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=c4xqAEYWo3LPIU1LOi2fn09wD0lc6yNQmryV9Doi6eS8temAV47JJUWRzUVpIFDlRVviOw4yIW
+	  /Yb+rJI8w2Or1MeFq4WLLFyy/cxMRkYba671hpgbnoguUlPLcBd0yq31yOGFl1Cdr/05ZHeQHq
+	  hMshU5r0GrO8Yj/Q5Day40OJXaq+tDv0tlCNvfCweaBNLfNQWe0ouLWzwBJIUpvkv0G8NbutDG
+	  SIifESV5FdkE8fD3UNbwjmhbH6Or6Pst0E3TgrTLi7MRkOKMEJFH2w9jjzFc10E7DI+ZjLCyTk
+	  ED087/uaBUrx7LwtcMGbR/9L8ouT2KA2nICHLWvJ0NeVZA==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=VBod7zScKYToVtl6NM7uKvGih1bUiQG6dq4Lml4LGug=; b=lcmzmVQwVLscHU+F5FlV+nJXPO
+	QR1vHMgG4dKX21oeHfhGY6/yQs3Mz0y2rRHCY+AqgGOKeXyV6cF+VpuwkwgLQFc6QEHdHCq6v5QBZ
+	aus5idaweab76h+LSLh63xXigdoIF+kyRhqZM28A0cl7OodT0YSOfGa500OifUOyAd5g=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-4z7z.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xJ36L-00000001afV-08Iz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 06:13:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=VBod7zScKYToVtl6NM7uKvGih1bUiQG6dq4Lml4LGug=; b=Lu1GRVPGNdmlqmsYH5zsLHzoUD
+	w9j7LpHN9aAToa+3AdoDIDlTFJZuelB/VAauhlvvjFMElg6G+qCBXQO/Zf3+sPVC9QqpJ7g85SQWQ
+	4xkAWIvKObsXe0uveYUhD1ZKj7JBvyjSPOIkiRw1J3crjBYNmE99zI+w5opamT2rKI3g=;
+Received: from [82.89.62.246] (port=60683 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xJ360-00000000CBU-2RNP;
+	Tue, 20 Oct 2026 06:13:12 +0000
+Date: Tue, 20 Oct 2026 08:13:10 +0200
+From: Francesco Valla <francesco@valla.it>
+To: Frank.Li@oss.nxp.com
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v6 2/3] remoteproc: imx_rpoc: use memory-region-names to
+ avoid hidden ABI
+Message-ID: <atcF6uQh0LE1UzNG@bywater>
+References: <20261019-memory-region-name-v6-0-2e46b2e7d667@nxp.com>
+ <20261019-memory-region-name-v6-2-2e46b2e7d667@nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87wlrg8qc7.wl-maz@kernel.org>
+In-Reply-To: <20261019-memory-region-name-v6-2-2e46b2e7d667@nxp.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 0c3d9daaa77ebffc59af951605f15325
+X-AntiAbuse: ID - 0c3d9daaa77ebffc59af951605f15325
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xJ36L-00000001afV-08Iz-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-4z7z.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_002025_175693_45FC971F 
-X-CRM114-Status: GOOD (  37.26  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261019_231350_881030_611325D0 
+X-CRM114-Status: GOOD (  22.18  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,110 +131,115 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/17 13:27, Marc Zyngier wrote:
-> On Fri, 16 Oct 2026 11:00:48 +0100,
-> Tomohiro Misono <misono.tomohiro@fujitsu.com> wrote:
-> > 
-> > From: Kohei Enju <enju.kohei@fujitsu.com>
-> > 
-> > On affected FUJITSU-MONAKA CPUs, the erratum may occur when an SGI is
-> > generated by writing to ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1,
-> > if the operation races with CPU interface processing triggered by the
-> > arrival of a higher-priority interrupt, an update to a pending
-> > interrupt, or a transition of the PE to the Sleep state. When the
-> > erratum occurs, the SGI is lost and the system register write does not
-> > complete, causing the issuing core to hang.
-> > 
-> > Guest accesses to these registers are not affected by this erratum, as
-> > they are trapped to EL2 and handled without issuing the affected system
-> > register write.
-> > 
-> > Work around the erratum by writing 1 to the bit corresponding to the
-> > target SGI INTID in GICR_ISPENDR0 of each target PE's GIC Redistributor,
-> > instead of writing to the affected system registers.
-> > 
-> > Accessing a target PE's GICR_ISPENDR0 requires its Redistributor base to
-> > have been discovered. Affected platforms conform to SBBR, which requires
-> > PSCI for secondary CPU boot. They therefore do not use the ACPI Parking
-> > protocol, which sends an IPI before the secondary CPU has initialized
-> > its Redistributor. With PSCI, a secondary CPU discovers its
-> > Redistributor before becoming an IPI target.
-> > 
-> > Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
-> 
-> You are posting a patch on behalf of someone else, you need to add
-> your own SoB:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v7.3-rc7#n448
+Hi Laurentiu,
 
-Thanks for pointing this out. I'll let Tomohiro know.
+On Mon, Oct 19, 2026 at 02:55:49PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> The driver currently derives the memory region type from the referenced
+> memory node name, creating a hidden DT ABI. Since memory node names are
+> not constrained by the binding, incorrect names can silently pass DT
+> validation, as seen in examples using "vdevbuffer" instead of
+> "vdev0buffer" ([1] and [2]).
+> 
+> Parse memory-region-names to identify the expected memory regions and avoid
+> relying on memory node names as ABI.
+> 
+> Link: https://lore.kernel.org/imx/a3602ef8-2b77-4cc3-adef-2c4cba08a5d9@nabladev.com/ [1]
+> Link: https://lore.kernel.org/imx/alexXTYQHUs76J7v@SMW015318/T/#mb9dc709ff3adc24d9db6d30c973f37b580f6f1f9 [2]
+> 
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/remoteproc/imx_rproc.c | 32 ++++++++++++++++++++++++++++++--
+>  1 file changed, 30 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 581bb07f5893f..714c3615d1884 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -28,6 +28,25 @@
+>  #include "imx_rproc.h"
+>  #include "remoteproc_internal.h"
+>  
+> +static int imx_rproc_rmem_to_resource(struct device_node *np,
+> +				      int index,
+> +				      struct resource *res)
+> +{
+> +	int ret;
+> +
+> +	ret = of_reserved_mem_region_to_resource(np, index, res);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* "memory-region-names" is optional */
+> +	ret = of_property_read_string_index(np, "memory-region-names",
+> +					    index, &res->name);
+> +	if (ret == -EINVAL)
+> +		return 0;
+> +
+> +	return ret;
+> +}
+> +
 
-> 
-> > ---
-> > Changes in v2:
-> > - Clarify the erratum description and document that virtual accesses are
-> >   unaffected.
-> > - Remove the gic_send_sgi_via_rdist() helper.
-> > - Remove the write-count rationale.
-> > - Use the CPU MIDR instead of the SoC ID for filtering.
-> > 
-> > Note that I have left the dsb(st) after the GICR_ISPENDR0 writes
-> > unchanged, pending clarification of the required completion point. If
-> > the writes must be observed by a specific component before
-> > gic_ipi_send_mask() returns, I will use the appropriate mechanism to
-> > provide that guarantee.
-> 
-> See below.
-> 
-> [...]
-> 
-> > @@ -1386,6 +1391,17 @@ static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
-> >  	 */
-> >  	dsb(ishst);
-> >  
-> > +	if (static_branch_unlikely(&gic_fujitsu_030003_erratum)) {
-> > +		for_each_cpu(cpu, mask) {
-> > +			void __iomem *base = gic_data_rdist_sgi_base_cpu(cpu);
-> > +
-> > +			writel_relaxed(BIT(d->hwirq), base + GICR_ISPENDR0);
-> > +		}
-> > +
-> > +		dsb(st);
-> 
-> What is this DSB achieving? As far as I can tell, not much. The memory
-> type is nGnRE, so DSB doesn't force writes to reach the end-point, and
-> only guarantee ordering that system register SGI generation doesn't
-> provide.
+The position of this code here seems wrong - please move it down in this
+same file, near the other functions.
 
-Yes, you're right.
+With that fixed:
 
-> 
-> So either
-> 
-> (a) there is a functional requirement on this HW to have a DSB, and
->     needs to be documented,
-> 
-> (b) or there is a need for end-point synchronisation, which needs to
->     be enforced by a read back (knowing that the sysreg doesn't
->     provide this guarantee), and this needs to be documented,
-> 
-> (c) or this is completely superfluous and can be dropped
-> 
-> Which case are we in?
+  Reviewed-by: Francesco Valla <francesco@valla.it>
 
-I think this falls under (c). As far as I can tell, there is no
-requirement for ipi_send_mask() to wait for the writes to be observed by
-the hardware. I'm not aware of any hardware-specific requirements for
-this DSB either. I'll drop the DSB and test the change on our hardware.
+>  #define IMX7D_SRC_SCR			0x0C
+>  #define IMX7D_ENABLE_M4			BIT(3)
+>  #define IMX7D_SW_M4P_RST		BIT(2)
+> @@ -648,7 +667,7 @@ static int imx_rproc_prepare(struct rproc *rproc)
+>  		int err;
+>  		struct resource res;
+>  
+> -		err = of_reserved_mem_region_to_resource(np, i++, &res);
+> +		err = imx_rproc_rmem_to_resource(np, i++, &res);
+>  		if (err)
+>  			break;
+>  
+> @@ -823,11 +842,20 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+>  	if (nph <= 0)
+>  		return 0;
+>  
+> +	if (!of_property_present(np, "memory-region-names")) {
+> +		dev_warn(dev, "using node names for carveouts should be avoided\n");
+> +	} else {
+> +		if (nph != of_property_count_strings(np, "memory-region-names")) {
+> +			dev_err(dev, "invalid reserved memory name count\n");
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+>  	/* remap optional addresses */
+>  	for (a = 0; a < nph; a++) {
+>  		struct resource res;
+>  
+> -		err = of_reserved_mem_region_to_resource(np, a, &res);
+> +		err = imx_rproc_rmem_to_resource(np, a, &res);
+>  		if (err) {
+>  			dev_err(dev, "unable to resolve memory region\n");
+>  			return err;
+> 
+> -- 
+> 2.43.0
+> 
+>
 
-Thanks,
-Kohei
+Thank you!
+
+Regards,
+Francesco
+
 
