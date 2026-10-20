@@ -2,80 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BF81606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:47:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8BC7606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:48:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=49uCf9tT;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T5klA8w8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=40TPqY7Q;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Bequcv+J
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAHTPseBysoQyjFWdWhxEUoIlAFSx4P0uFPxuTZC58E=; b=49uCf9tTzzi7UzvLUeyaBgYaaS
-	gBOgI5YgIw1g9SZIpMAu7CZ2aiswEm0kOcKzqactG/v495KK1Hf32a179ZZ5Cf6E8Ehm/LT1+KmLW
-	3/QwPma9P6CXcBJmngInBtvmAW4mPF3r2LZfnTuBw+eDsGviExLwezZ3ehQKM+OBwv9xyzoyxUV1T
-	eJVE3bxfr4mPnWhy80CUd/kg5KKluMQMLHazIdCvQPvvlmXtEhn2C2E91V2b8sJglwJrt1WFZPhsQ
-	VJ0gOiNnUN0fwNO0t49jo6nIj9Nnt2OfOIBZaFUJyR28a3IfWZV0WPrO3Z/bdr8VKUCrWdFIBNbyO
-	S7JqABAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oSwcbatNs/0w1ybzYQUcJ96P49RIqvbDSPb+DvWsh68=; b=40TPqY7Qm+Bp2ohlggQdecjq2s
+	zNlhvoqSbJxosh/uv1bDNqDRQE09ScCdAh32yCBBgdmGiqp5YFWAQJPfHR4mXoufxV4hELhue9Kh/
+	QJMT8VwvrEnXZbYpmOuPEqs55dsBy8Un5eCQEOyg5wQeyvAHWJRrheDid8ZeKm8YIs0zZop76Nc3I
+	G4ClYR0AKsvT9FLVEtPjEpGeZfE3rjaOSpLgIzs2vIZM0HHo0dwWcu2GZln/5JWXNZGmCcdul0Z2u
+	5Xst95+ItPPMqPgEgWG0mtZbSX9O2V3ARQQIiASuk0Gu3rEAJLsDOKEmEYvDxmYulktzVwwgELEzu
+	8Uv80Lng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDw2-0000000ANhJ-4AAP;
-	Tue, 20 Oct 2026 17:47:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJD4O-0000000AFvB-3oMb;
+	Tue, 20 Oct 2026 16:52:12 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDw1-0000000ANh6-2530;
-	Tue, 20 Oct 2026 17:47:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0270143834;
-	Tue, 20 Oct 2026 17:47:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1C7C1F000C9;
-	Tue, 20 Oct 2026 17:47:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792518456;
-	bh=HAHTPseBysoQyjFWdWhxEUoIlAFSx4P0uFPxuTZC58E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T5klA8w8ldhaGXex5p2C1vk2XmCWEI5ePLrDsiyhXLVFchdZEn+v5/j//jHND7keT
-	 Meqe1HYRaPtXccMkRp824RMlBY/ggOISFpPO91xfQXQlxRa2BEF/hHxRG/jK8L1CgQ
-	 9muVPdNXFcV74oJ2Dgz4HaRViQo1tQbIdaPr+01vyY4wLmybDhkP+Vl1I+bioV+Ygq
-	 uCkDYDCq983KX1BvcP2HAwIVds8N7k+Rqtsxjca0Ovu269GytYQIsu/QGvdh3m3Bcg
-	 UwXzztQF8VoJ3nyz6bU2aIRxqOIpInSrUm2TtfG3URLEtNoUiddkCE0GL6sKdGKVFJ
-	 c6nOo9rgiy+pg==
-Date: Tue, 20 Oct 2026 18:47:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 04/20] dt-bindings: i3c: dw: support up to two reset lines
-Message-ID: <20261020-endocrine-crown-c6d3c83cf436@spud>
-References: <20260929061417.20733-1-jszhang@kernel.org>
- <20260929061417.20733-5-jszhang@kernel.org>
- <80b084d130b7dc7406ae23e54a77706a4f42b606.camel@pengutronix.de>
- <ata--JFFUzSoMock@xhacker>
+	id 1xJD4K-0000000AFt9-1ZCX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 16:52:11 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6A9D24E4128B;
+	Tue, 20 Oct 2026 16:52:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 317CA60393;
+	Tue, 20 Oct 2026 16:52:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8C5110328D20;
+	Tue, 20 Oct 2026 18:51:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1792515117; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=oSwcbatNs/0w1ybzYQUcJ96P49RIqvbDSPb+DvWsh68=;
+	b=Bequcv+Jg52fBKJhrJ+2pPNgXW9jgM3F5Dw/WyO4tABcbekj85upeLJnZiyaBvB/ZHjBLF
+	KZZRwL+zYFedV4RXGhj24geCAZHpUyXOpigdOvjHH7QmBThF6dQUS6gGgTxLEVLd42VLYw
+	IF5yqtwsXSPyQ1vawmEa8b3SLSXZLZQJ3WJCqMCWqhPZhNCw6Ms0fhV6n2BaD8uJY4e+9b
+	A1HVp7ER6JVY9qzJo0bxRskh5dpH5yw3hSPzViWu2ix0QBXiYHAZj2MrMi7lUn5Dg1P2OE
+	wMu2NvCb0hTuT2VvDJKvEHo4KwocXunLgMPBqmuM5VSM2zd9hqfygVuN3bP6JA==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PF0S8SXN4APeQtUF"
-Content-Disposition: inline
-In-Reply-To: <ata--JFFUzSoMock@xhacker>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v8 01/14] drm/bridge: it6505: quiesce event sources and
+ work on remove()
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hermes Wu <hermes.wu@ite.com.tw>, Allen Chen <allen.chen@ite.com.tw>, 
+ Pin-yen Lin <treapking@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <3f7ab3881c9dc575da02ddcd9b110a834a11f2ad.1790552614.git.daniel@makrotopia.org>
+References: <cover.1790552614.git.daniel@makrotopia.org>
+ <3f7ab3881c9dc575da02ddcd9b110a834a11f2ad.1790552614.git.daniel@makrotopia.org>
+Date: Tue, 20 Oct 2026 18:51:39 +0200
+Message-Id: <179251509973.78870.17205773072726643371.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_095208_565272_252D0A13 
+X-CRM114-Status: GOOD (  11.26  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +88,40 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---PF0S8SXN4APeQtUF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> struct it6505 is freed by devres right after remove() returns, but
+> remove() cancels none of the driver's work items, so link_works,
+> hdcp_wait_ksv_list, hdcp_work and extcon_wq can still run afterwards
+> and dereference freed memory. Cancelling alone would not be enough:
+> the threaded IRQ and the extcon notifier stay live until devres
+> teardown and can requeue the works.
+>
+> Unregister the extcon notifier and disable the IRQ first, then cancel
+> all work. Make it6505_remove_notifier_module() idempotent, tracking
+> the registration in a flag under extcon_lock, as both .detach() and
+> remove() call it now. The notifier_call pointer is left intact:
+> extcon traverses its raw notifier chain without holding a lock, so a
+> traversal racing with the unregistration may still invoke the
+> callback. Also initialise extcon_wq in probe: cancel_work_sync() on a
+> never-initialised work item trips WARN_ON(!work->func).
+>
+> Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 
-On Tue, Oct 20, 2026 at 09:08:08AM +0800, Jisheng Zhang wrote:
-> On Mon, Oct 19, 2026 at 02:55:14PM +0200, Philipp Zabel wrote:
-> > On Di, 2026-09-29 at 14:14 +0800, Jisheng Zhang wrote:
-> > > The Synopsys DesignWare I3C master controller can have multiple reset
-> > > lines, such as core reset, apb reset, and dma reset.
-> > >=20
-> > > Update the DT binding documentation to increase maxItems for the rese=
-ts
-> > > property to 2.
-> >=20
-> > The last sentence just listed three reset lines. Why increase to 2?
->=20
-> Per the doc, the last one is dma reset, currently dw I3C driver doesn't s=
-upport dma.
-> And increasing it to 3 is still dt compatible. Maybe I misunderstood
-> something. what's more, I don't have platforms with all 3 resets to test =
-and verify.
->=20
-> If dt maintainers prefer 3 in one step, I will sent out a follow-up patch.
+Looks good:
 
-I think you can increase it to 3 globally, then restrict to 1 for the
-altera device and 2 for your new one.
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
---PF0S8SXN4APeQtUF
-Content-Type: application/pgp-signature; name=signature.asc
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCatepLgAKCRB4tDGHoIJi
-0nTbAP41tIofP+UpvSN0IwKJvT76VMbRwSrA7SIYBjKeyCaPgwEA7iCZGXK59MXH
-F8eKb5c+ngwawXhmX7aqW4NflYqjyAY=
-=Yxu4
------END PGP SIGNATURE-----
-
---PF0S8SXN4APeQtUF--
 
