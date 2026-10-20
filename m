@@ -2,61 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EA93606A320
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 05:58:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04847606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 06:01:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oAPTWySY;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qv8AWNvh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ANBNj5cL;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wjhl2gV9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iaM9OT1kpXTLHWYBcxjMMF73r2IZAgtIiZyPOt4dyY=; b=oAPTWySYRN8btkHgBVesD8qt0C
-	SnAe8igAITeG0/II6F46DYdVmnBxtad2sdDf8RuSf2+SHPgCv1RYR/2xSMz6IRXFetce4D+ZBap7+
-	qwPkzX328CfXLmcVfnoAs5fBDOdk3L1Pl4jFNHSr23ASqJmi3BHam02UkguWPGOpt2f2lZT74ohWV
-	1+Q6+wdoADr+oMJ0uq98CFG3TjKICXJnKI91dpqTE5huUcDfyLvBLA1tnpbqEhULU4HeGzmqBlwVD
-	7hqthbNUoRTwjBg6KhGzV1ZaVZK1NU6Yg6RACFVkl+KprrnXKwoD+YGom+RJSG1FJxC1/cdlBWIJW
-	FnDIQPrw==;
+	bh=tjahWStJaWAkZdXXLpQF/IAPVZCHaZCufugG+xHQea0=; b=ANBNj5cLJy2gyCnFgntl9fb6O9
+	sIFOIWSwbHkY6s0llZSyH+nuPXzZnPq1909ohHxAYLhi2XqB7y7rvJKwla6LsAQ7a0XG7MTBMzqWZ
+	7tC8IYknMd1olOUO9gsEdp9vGHhtBcTAG9J+dnBtD1uAy3Ov3+3qpkNiNAkh0liyu7vchPx4tQIHx
+	fuF4gm9ooxq3k+fwXDBG54mEo1Wb8SMwjLN1BbMf9EG9Ov3heCl2jLxjuD1be0os/9zpvds2+TBea
+	wZMhmfwndKKZtlMn8JLiV9l9PtJJ2S5xBLlyFXz/lcf93knPbat0oTZqD76EdPUr+H7KctG975pH8
+	b0r0yecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2r6-00000008u98-2fZ7;
-	Tue, 20 Oct 2026 05:57:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xJ2u7-00000008uHx-1nfq;
+	Tue, 20 Oct 2026 06:00:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ2r4-00000008u90-34de
+	id 1xJ2u6-00000008uHm-1ReM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 05:57:46 +0000
+	Tue, 20 Oct 2026 06:00:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7B4041780;
-	Tue, 20 Oct 2026 05:57:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC7261F000C4;
-	Tue, 20 Oct 2026 05:57:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E36D60098;
+	Tue, 20 Oct 2026 06:00:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62EE11F000C4;
+	Tue, 20 Oct 2026 06:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792475865;
-	bh=2iaM9OT1kpXTLHWYBcxjMMF73r2IZAgtIiZyPOt4dyY=;
+	s=k20260515; t=1792476053;
+	bh=tjahWStJaWAkZdXXLpQF/IAPVZCHaZCufugG+xHQea0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Qv8AWNvhIwbt99gYbJLMAyU5gmnaNCIwApm2UVKN6Gy5yCFJNWCMCWcgrpkw7K762
-	 AwgLDjQ80vt8l7EIwe2M2XltNqQl6IRv+/mKAQBXYRAKX2bazFJPjKR8Gi40J5qAdA
-	 Z2v4vJGtveP/gz8D+hgie6avBgZMpCTEHv6eTbq6wQaWe/XwUmheQwvlRRpsBGDjSJ
-	 /KeEixNb8bAd+M9nb2GC7RUiuAKN5t1smdLU/pYrJqD1oO/VRDObFSmMFK4JOP0RXm
-	 oGJh8wbSkONE4DWrhLsuscEW6zKi1UL0Aat/8u4f0x7uRySLlx5z9bkm3SELbkKhq8
-	 P9N9VWRE1Polg==
-Message-ID: <69332560-6f04-4ddc-a031-46e8559ca8a9@kernel.org>
-Date: Tue, 20 Oct 2026 07:57:39 +0200
+	b=Wjhl2gV9AJj254FHkZF+7CKdQCdvE20SmL91dGF/QylrOjGMzIG+pH0qGFHABSB9J
+	 pb78GQxC1NtOYNqDXATp+PfYyJ4N8CCZgMk6YPEDCoRgsazvhYQC0D+LtNa4OKNPYg
+	 wu6wGoWnWs/9fymyslDAFWwciUauiHXbyFxpICotOfa1aWeUaYmQ9ldFDyE/kZQ4jf
+	 HysdKsOtcRmJbDPGmoh37DtIJnMdCRV/Iv688KubOM/8N/FpV74m80N5ro0hXZp6m7
+	 4t3jbT+cf9L8lwuzizRyUWUKJsYGv/da/M0qNm9yQR/rzwxclTAoP3H/w7u/dSp8wq
+	 seB5wZccb2NzQ==
+Message-ID: <e43c4831-1a12-45b3-9614-97dbd2bc48d5@kernel.org>
+Date: Tue, 20 Oct 2026 08:00:47 +0200
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: soc: ti: Document the
- ti,tda54-mcu-scm-conf binding
-To: Moteen Shah <m-shah@ti.com>, conor+dt@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, linux-kernel@vger.kernel.org, nm@ti.com,
- ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: u-kumar1@ti.com, gehariprasath@ti.com, vigneshr@ti.com, afd@ti.com,
- a-limaye@ti.com, y-abhilashchandra@ti.com
-References: <20261019080736.944127-1-m-shah@ti.com>
- <20261019080736.944127-2-m-shah@ti.com>
+Subject: Re: [PATCH 1/7] dt-bindings: input: touchscreen: samsung,s6sy761: Add
+ S6SY791 and reset GPIO
+To: Lukas Timmermann <linux@timmermann.space>,
+ Lukas Timmermann <foss@timmermann.space>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20261011-lat3st-google-raven-touch-upstream-v1-0-2a9f55159b9e@timmermann.space>
+ <20261011-lat3st-google-raven-touch-upstream-v1-1-2a9f55159b9e@timmermann.space>
+ <0a486a08-8d6c-4ca5-8a54-e7499630095c@kernel.org>
+ <atYlyqHToGjAr22T@archstation>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +111,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261019080736.944127-2-m-shah@ti.com>
+In-Reply-To: <atYlyqHToGjAr22T@archstation>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,49 +124,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 19/10/2026 10:07, Moteen Shah wrote:
-> TDA54's MCU domain exposes a shared scm_conf syscon region that other
-> peripherals, including chipid, access into rather than owning a
-> dedicated register window. Rather than a bare fallback entry in the
-> generic syscon compatible list, give it a dedicated binding
-> describing the region and the proxy/claim/lock arbitration scheme
-> that gates write access to a subset of its registers.
+On 19/10/2026 16:17, Lukas Timmermann wrote:
+> On Mon, Oct 12, 2026 at 01:30:48PM +0200, Krzysztof Kozlowski wrote:
+>> On 11/10/2026 14:44, Lukas Timmermann wrote:
+>>> S6SY791 is the SPI-based counterpart of S6SY761. The register map and
+>>> commands are identical for the subset the kernel currently implements.
+>>> Therefore add S6SY791 as a related touch controller.
+>>>
+>>> Optionally, the reset line can be controlled on some boards,
+>>> such as the Google Pixel 6 Pro (raven).
+>>>
+>>> Also reference spi-peripheral-props for the SPI bus properties.
+>>>
+>>> Signed-off-by: Lukas Timmermann <foss@timmermann.space>
+>>> ---
+>>>  .../input/touchscreen/samsung,s6sy761.yaml         | 37 +++++++++++++++++++++-
+>>>  1 file changed, 36 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+>>> index 1ffd17af3c53..d24f35038934 100644
+>>> --- a/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+>>> +++ b/Documentation/devicetree/bindings/input/touchscreen/samsung,s6sy761.yaml
+>>> @@ -8,13 +8,17 @@ title: Samsung S6SY761 touchscreen controller
+>>>  
+>>>  maintainers:
+>>>    - Andi Shyti <andi.shyti@kernel.org>
+>>> +  - Lukas Timmermann <foss@timmermann.space>
+>>>  
+>>>  allOf:
+>>>    - $ref: touchscreen.yaml#
+>>> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
 > 
-> Some of the claimable registers are gate clock controls, so also
-> document the required "#clock-cells" property that lets the node be
-> referenced directly as a clock provider for those gates. The clock
-> specifier selects the ePWM time-base gate by instance number.
-> 
-> Signed-off-by: Moteen Shah <m-shah@ti.com>
-> Signed-off-by: Aniket Limaye <a-limaye@ti.com>
+> Should I also hide this behind an if-else?
 
-Incomplete DCO.
+Only if the other device is not SPI.
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
 
 Best regards,
 Krzysztof
