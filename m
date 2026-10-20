@@ -2,98 +2,148 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0B86606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 01:44:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6747606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 01:46:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v/cZgJ9d;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20251104 header.b=spIguJxe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CmgQgapM;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=fUuUWP6n
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWPo6Ih0/scjWj9tcKOojGIcqQqtvEcjo0ZHZ/nTgDU=; b=v/cZgJ9dTW38NvoX174tggkdo4
-	yBlx63JX+YSiMcvYUC6Sjfz27GJC/6LZAaRC/3AhTCmPNpOuYpeNSjZD6uf4o5oYQFcMelN5k8nC3
-	1/GWh3QwIwuzagMowNA9rJ0GW99d8q2Aqsp/Fs4fzCKV6W3jhkvKZTQiKhiK1ha49h3sIFXozW6iH
-	GCQ340jFT7NavJqZRfNy7+2jvPgu76tHGN9Uv0VDDbtNwyx1dAtLJOwAWHz/7IHV4K09g/Wfwgu5m
-	s7wKQbq9Q9Xli3sNYt13eGu/i5UNpY27QAfmhoEih17mlAdnnxOjlGFngpcBHQ81GNduL+T3d5Lmc
-	zf/B2b4g==;
+	bh=wWJgLl899/e4WLkbeKxoGIPcz8yvTnQ4udN5+v69aeo=; b=CmgQgapMF7pX9yAp3d7gA4adt/
+	kEGaVZ76hCpQtUZJKIznvf6XFgrAbXzqStD3TUyDEKOcodO/jZBc6blXlBMh7I7DCtmafeYXw3lZ2
+	Utfj3DaaJhgYprP8iS0d2lY847VA2Jwkw2Xq6jzi56ZlX7Pj42EbQoICNNicvO/MQ8BOzrfR/7owD
+	L+TOl4G5We7hkxTgvS+a/+GogR02ErH4ZSHiBki/6fflCJkgR09upft9lRh8rLqRchbP2ymYvXHlT
+	saLKISdUxYlcMAp7Pc/4BIj0381QEbKQ5I4YzeBe7r7VxxtCl97XFDHhG/8gQ62Zt738pen2j9yqY
+	M600ElJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIyu2-00000008e0F-41Qe;
-	Tue, 20 Oct 2026 01:44:34 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1xIyvJ-00000008eA5-0jhZ;
+	Tue, 20 Oct 2026 01:45:53 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xIyu0-00000008dzN-3nJm
+	id 1xIyvG-00000008e9W-3nhq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 01:44:33 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-3645f0f3fcdso3423681eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Oct 2026 18:44:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1792460672; x=1793065472; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qWPo6Ih0/scjWj9tcKOojGIcqQqtvEcjo0ZHZ/nTgDU=;
-        b=spIguJxe0C86H/jqBh6byu0jm649V/a4A+L7g3MtYAF11iLAL9VPFZIF49wkI4vmqJ
-         JoXEzpj/EyzUiWlYYS7db+gYyic/Jj2rMU45h17t5IwsjdP/9AOHoshSRJ3fWcEEMBZx
-         83zbUc81lZHlmeix0EPWm8PbXP1aDlPlkvBvdEGrfmSyLbmJtd5PjKyjjZkPSmApfNgy
-         Cgp0fC1WsMxgnlKbQMACAftSLrOKnHD7XSqFQNy9qMstmNGisXYAhdT5++R4nUgpz40j
-         fFK27i72v6PhxNnmgvCtYxgm4kto4geMj54vCW0sy7E/yIGM9EWGYjD9/J/tA+1ITDOM
-         AufA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792460672; x=1793065472;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qWPo6Ih0/scjWj9tcKOojGIcqQqtvEcjo0ZHZ/nTgDU=;
-        b=WgpUSbRkEke3FvtmnlnZ6w9DkaMa5q4btE68VDQkP1YNavD3ALxvgyPXPIWiw7m+FE
-         SCojMacHPLF9IhDn7g2z6h8Bf8qklHtOn6MYw/IJlLwZ2J3a4ccoTCNOIC0LgUEF3pnk
-         /6BOTwwEtiGiifgqNRJL/uZTBWdqEKzHVScq3indRyUzVJfcidixG9+7EFUsJXpsWzqn
-         HPbd6zVWinrvCDcg/sdXwfD9Jqh8VaVrwHfAR5q5EGdPH2OrubZkc6INS5TDvNezuQzz
-         rNx/5/bZWP0vYNhLDDO6Y2uR3ZoEFGNNtwbDzt4qUug9lmcIawR3GTwZU11vMrNu14yp
-         yUTg==
-X-Forwarded-Encrypted: i=1; AKwUvBxJGWsdlbmPelTREOquFl1yuTlWThIwuuo6QEQ5cptLoAM4ES9OiCvK+hB/4T0DFT+WjlQZWGc48Im4WZwKzk3P@lists.infradead.org
-X-Gm-Message-State: AFq9FYKo1wWwesPsDQ/Ms443t2MkPDvC1IGRAbSp1Syvt125yoancARN
-	d6fwjR+OgFtC26EWQTvXN9JHeLdWPxovM77c6RxmJX9oRxvSCFJAdhhQ
-X-Gm-Gg: AYBFou0JxmHQ0rjD3DpjzgcWmkIB/dh5/EaiG+5Nv3VViPjiugGHvRpX4j4W3eexvVP
-	w3/59A9IQIjvgxF1Z6rIlDAx3zozvAcomSFKAIJ7l6PNF4jBjBHi9vxeWmeZdmIbcCAQCo5mAcT
-	ndKK/sZIHPpiWddSkq92LPFuPYAh90QT4xYAUxsGLplp2UBjPpf7LZ17icIAZWvlVqKXlkbmFsq
-	Vrwk5nqJIRz2QUlM/onBVa7w6c3tpwbqq0UiaGcEaN6K5s42uSxv5j4ts85vYh8OmjbXKRmyYi5
-	LhzSrwB5ZRlB+Mtlh/Dvl0hRf9OX6KyLMk8oOMFtUS5uc2Z4D5n8Y7XOwFmBnKau8KMDd091CJ9
-	vwvRyyuiwzAtaLpmNFAcoRDLwPCWIppi562IrDet0V867CAnuL31/INdFYqAZ3QKnZmO17WLoM7
-	LYrLYoYRmIDVozzn9q5iXLXNZYLnYQ1qUuO9p8xGCpAoM+xOxuJKEjo68cHJLqUsBFt1O5ZtKd9
-	BW6snk5y+/3
-X-Received: by 2002:a05:7022:ea47:20b0:143:2719:566e with SMTP id a92af1059eb24-18515a66a98mr13183669c88.42.1792460671660;
-        Mon, 19 Oct 2026 18:44:31 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1830f213ba7sm37657407c88.0.2026.10.19.18.44.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Oct 2026 18:44:31 -0700 (PDT)
-Date: Mon, 19 Oct 2026 18:44:30 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: zoan37 <agentzoan@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Freddy Hsin <freddy.hsin@mediatek.com>,
-	linux-watchdog@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] watchdog: mtk_wdt: Stop a running watchdog over
- system sleep even if not opened
-Message-ID: <c34d9fd1-6fc6-4229-8aad-0377166e5768@roeck-us.net>
-References: <20261011013631.1149228-1-agentzoan@gmail.com>
+	Tue, 20 Oct 2026 01:45:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S9YYXD09Xfy/yPyYnoY8tKAhNXLL7/fV5XvLoz9+YRUuqhODqSv07Xr3V49DEI5fozqM+NOe620Lzrfo5GAJEhsOr3nqcJpbm8dw0hsqb675CPWRWuLHzWGCeU+NT4MoPnISDYo+3TcCjvSlcdb9/WYcWaF65t9kvLnLe5ZoF/6K/kIOcKOwnRcluV+Cb9qL1IEzT1PXe6fQNwN+CzAfwSelJTLqzuOK485VWho3fAmRBO9MYZaIq1XUgjG4mHXKYm6wYpenEXpGSLcBTi3HGSdbLnt7TOupUvYOOq48hsiTQF7d6pXauOXd3CWRj+4zlmkd9E7WVJ3GHZQ8Q7S+Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wWJgLl899/e4WLkbeKxoGIPcz8yvTnQ4udN5+v69aeo=;
+ b=nENQU26EeqLaXkHfC7QlK5lDQD29doJ7C1sbLoCOUbkakAFkpUqFCeQzbHscGjc7Q0YSFRFY2yB/MVU+6VsHgb9pxqP9HJIG3/dJ80ZbyWkv1GBxenfyIx0mw7iSGWD9rpJPRZIbY5TECM7NoPVHh4OnafstGBF6UbnaiSKk3Uj5sgBKqqfLVweL5+vDtepiJWwLoMFliYfpCUyzBV8UJcnA8R465Jkxz0cJof1slUCLbezvln3aC9KqDNdEguMnMqTIFn3jC846JtDo0tb7hH4M3YAHduyKHe/N7x3VzOg9+HrT5eMcdFPK1nNfd55VA35RWpTk2GjybyQvqTQLMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wWJgLl899/e4WLkbeKxoGIPcz8yvTnQ4udN5+v69aeo=;
+ b=fUuUWP6nkxeo5SZuGtOD3j81XjqeHpYqymwZvDb5xvJpwnQWCQHKsdFePEd/kFNRZQemHlW7Cuun3b/e0mfzWb4sKBPR8OeDYDABwRedh/fZ4pX3TQ8DZz0QXvChixWiuIghKCp1Rie/e/afSaBYdHajZGEUudSiTzzeludF6zLEE5/NkbXlps1Uh/O+tkPRHtMpMkK/M81g26bLEjuUcHF9hPRwOqS8TVeyMtOCJ69j78zL/3qfXf+TikhPSS+fWd4rQXrut63NQm/zQToZjU/zDnK1fajw7h7zYMmlEb4JMS/25Hp4wNB2HQf/F5Z9pWDei4mH/M6uBu/v9LjWcg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by GV1PR04MB10396.eurprd04.prod.outlook.com (2603:10a6:150:1c5::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Tue, 20 Oct
+ 2026 01:45:43 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 01:45:43 +0000
+Message-ID: <7e41bccb-4ab4-48a0-8cc8-26995c5ce2ba@nxp.com>
+Date: Tue, 20 Oct 2026 09:47:21 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] arm64: dts: imx8qxp: Add display controller
+ subsystem
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux@ew.tq-group.com
+References: <20261014071657.118378-1-alexander.stein@ew.tq-group.com>
+ <20261014071657.118378-3-alexander.stein@ew.tq-group.com>
+ <atBLglf0gSLS7XkW@raspi> <7640235.DvuYhMxLoT@steina-w>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <7640235.DvuYhMxLoT@steina-w>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0074.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b3::8) To MI9PR04MB350878.eurprd04.prod.outlook.com
+ (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261011013631.1149228-1-agentzoan@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|GV1PR04MB10396:EE_
+X-MS-Office365-Filtering-Correlation-Id: bba9818d-6c62-46ee-b0ad-08df2e4bda52
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|23010399003|1800799024|261009223027099003|10067099003|56012099006|22082099003|18002099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: 1kOwkLePh7lAJwEV61dk89xyti4jbnlHm0rwRPet4G5dTNv+VvgFbQ1ZCMCtGSKAld+j1yBQ0EdQhToLgrdxWkefDQHmTZVhKo3BSkIJ76imEaVVNbKg6dwjwgoil0nTWhsQKDrop8aBh0SOYoUsisv24bg3ELhX8kM6IltsaD+r9xxyYEPdbldTWSmheR1lKgnfVIinpMfJ+KhV5yuZhsbzVfYNuwIr4MaI8VfLkhHaWjesM/MEopQsnm/O9hn31rPh5jTh04HifyBnxrqa3m+N0nKHcnb8cdq1KReTYWerlBrocPTzTW2dDTC81ODDM3KVI5pygD1xETPDsqOR+lproQ24VRNfZoirpBdjR0Z8JFhNmIVaiVCgGEYiI0OrEdralSCj74n26+NcyRkFatEBXi782xj9R5OSOxRii7mCb5fO0qfu/APJTad3iHvcU2hMXiF072mJuShj9ywybPGr1veCqbbaDbtg2ED20BGAhGy/mhbsqDweh8qt8pP1eZcN0GIWLimwmgY5tVp4HeHU54t1m9/9yRGMW/LTCzVNLDe6o7LNRRZ6oGzOqlMHixEx7ip8toWMK9DCRvwGjLr9UMFrPFd33iwMUSPVzQZZX9Gbwca3KqU3AVomKxILGYruM17wZ2LwNRRqOcQhmS6KhMu0yeni7mGzqPALrfY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(23010399003)(1800799024)(261009223027099003)(10067099003)(56012099006)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aDF0dTJYcFNjQWw5RGlHUDFDWklzS0ZDdWlFMFJsNVEwUFJDZHJoM2xVT2k2?=
+ =?utf-8?B?NjNObnhwNHJFamZUckxuQ2VobXRBQzFlNmNZdjFCY3hNbU10N2Z5QXRSMHRL?=
+ =?utf-8?B?Yk9jNVFNaEdsbGFsL3R3ZVEzU2w3dTFaa1lldnllcjA4MkhHT0xnakkzSkNy?=
+ =?utf-8?B?eDhiMnkrZFpXVlBMZVNmVTV0SUo0VTU1QlVtem9wWS9ZV1pTY3ZnWlIrdlhp?=
+ =?utf-8?B?S3F1QWtQSlBHZDBRZGoyQ2tPdnhyekdEK1hQejNYS2xPUzRmVnJ1WERzVDdH?=
+ =?utf-8?B?bHlDdjZwbzQ1TUJML3hlZUFvSHJFVGo2dGIxTFZ1VkllbWkwaUF1b1RuNkJh?=
+ =?utf-8?B?Z0hJVHNnSjIyemlPeWJOSnB3WDE1cXd2azF1QWhOYlZGRG5reFlqS3lCV0w4?=
+ =?utf-8?B?eVp1akFBamRMWVFnMFE3S2UramkzZERMOXZIRnljM1ZFV25RUEZERXBHbU5Q?=
+ =?utf-8?B?M1hLZEhKd2FGQXNaa0l2REZqRlFWRXBsTTJ3UW51Wk01VTNNWnhqMzJIYXQy?=
+ =?utf-8?B?TWJHQnRlVGZrUU10eFk5WUJpK1ppVWFkTk9GL0hUZUhWQ3U2U1hzb3NldWRK?=
+ =?utf-8?B?ZTIrUUFsWkprcVJjS3FpSzRWRGI5SEc1dkd5N0gyMFdUc00vMFNneTZZSTdF?=
+ =?utf-8?B?dVR6YXNSenhscjRYVGl3d0ZrR0lYVHRQdXNNUGJCVVlDTE5hOGcwcHhDbEp0?=
+ =?utf-8?B?T2QzMVRwY3BSSHRRUTVpWDlVZHluSGxDWER2My95NDArb1VqNzVmaFBuKzlI?=
+ =?utf-8?B?SmRPM1R5NXdVSjhQVlpSOExaR3gyRGtSL1lVR0ZIKy84OWdIOHNXNkZoZGdi?=
+ =?utf-8?B?b3B2b1MxQVR6b2IvaHhJYTZGQzFFSTVjMWhxVnlBeWhFNVVBRlh0c1NkdXVw?=
+ =?utf-8?B?d2RBeVZKZ09vMThicmdRUlJLR2ZxNnhKeVdkNWJCNnZKV1BMdmVqazFsRGEw?=
+ =?utf-8?B?QUsxY1RZRGh1SG5tS0I3OWxjNmVUSWVxK09ZY1NqZkpPZHdXZFVZNFZ2bjhZ?=
+ =?utf-8?B?eENhRkZvTGVOV1hLVVE3QURaMzhwbTBsamh6T1VWUmNiYndKZi9TRGpQMnNo?=
+ =?utf-8?B?bUFvMlNjaEJNRjBiTE9JaUExRHFIeEM3VGtXdjJHQ0pLbjBDTTlXbjl6NitY?=
+ =?utf-8?B?NUJoMWppTVNqTjU0a1FZRlh2R0dRcTVvL2x3ZG1HUGdYZnRabnhPRXplWGJy?=
+ =?utf-8?B?ZCsyMWY0SnN0WTc0bG5tSFFSYy90bTNCMGZaa3NXRjdySGo1Q3dVNVpkQTFW?=
+ =?utf-8?B?T2JHT0RoSUZEaXp5TzBETUtxZ29QdEoyUDRIT0dBclNmM0VyQ2k0Vm1ZdGNB?=
+ =?utf-8?B?Mk5xeTQxRWFnMHlocFpBM3JCS1FQWENNc0xjdlltd0FUQ2lpejRhQkpsa2JR?=
+ =?utf-8?B?ZDRyc0ZyeFd1aW5ldSt2TGRBaldGYkNUN01abDdmR3hKNFpyU0VlNUFHNGVj?=
+ =?utf-8?B?cGpQaEdTOWYvS3lJYWNRRkpaRkljZWJ3VkZSaWNUVkdBV1ZMdTV3ZXFhSS9W?=
+ =?utf-8?B?MjJMRisybmoxcDErRnFhNzg3cGNMUFJCVVNralE5VHdpTWRwMlRYZURqcFVv?=
+ =?utf-8?B?WkV5NDExRVFmUnhvbHF3QTh6bW5JRFJicVJpUnZhMklFeWxjMFVPa3ExY1Nr?=
+ =?utf-8?B?TWd1d2F3L3lPd1NpOEJTT09BaWIybGM2OVpTR2Y1WjZCeHVPZnpmYkRQV09U?=
+ =?utf-8?B?ZDlzRzVlczY1WmlLZ0FJbUFEbGhuZlViQ2gySkxzS3JaUGNhYUFxNFRuMEhY?=
+ =?utf-8?B?Nlh4M1M4d1d4NkM2dUZQSTNWc0xDeExYS2twRC9hWjhXTWJnYnJhbVMyK0dx?=
+ =?utf-8?B?cTdjbmd3aENaSUlvMm4xK0NFaGhpZ3pEVzBsbzh5VkllYy9qNUMzVmZYMXhI?=
+ =?utf-8?B?bW5aWlVtdGNCamt4S0V2STB6VFh5bkdnYkRrK3JGM1gwU2ppSk8ydnJzQkgx?=
+ =?utf-8?B?Lzd3RzhMb0NaTkFVazRlRURURkdOSFZueDk3SVp1QUE3Rit1SnUzbUVEMnVI?=
+ =?utf-8?B?bUhidTA4N0o2dFlOdVlxZmhKRkpIRlBzZjZ4cTRjWFRKWkVER1ZoWWlIODZW?=
+ =?utf-8?B?SEdOTXFHUnVSVGxOSjVQRjJUYWFnTWp3dklxN1ZYQ1puUVQ3alY0TzZIQytO?=
+ =?utf-8?B?VTlrek5pRm51UDBlUFFzNUxEbmVwaWhDdlpJalZuWUlmbXo4RSs3QTBuVmFJ?=
+ =?utf-8?B?VzY2VXpMUWF4Y2JvVndCeWd2Y3VKeEtYTm5nTUpIYk5UdnEva3l2NUpiMVV1?=
+ =?utf-8?B?TjJXRkQycklkZHV2d2pKU3FKTVJhcTdsMEJNU0FjWnhXM3d2aGEzcFAwcll0?=
+ =?utf-8?B?dTY2RVNRb2MrZHBiSG9FMVhySkZHVDJEYXMxalg1OHRLNko1Q2hhQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bba9818d-6c62-46ee-b0ad-08df2e4bda52
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 01:45:43.0935
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qf3jM+U15g9p4lUBC01+kK4vjwefBBa7LvFA6CVx8QzPfnlPcxroRv7Q83jDMlLYA+Cs1h9KQw8nJCiKSYVZHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10396
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261019_184432_965622_025A0F06 
-X-CRM114-Status: GOOD (  19.79  )
-X-Spam-Score: -1.5 (-)
+X-CRM114-CacheID: sfid-20261019_184551_102554_7457847C 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +154,290 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Oct 10, 2026 at 09:36:31PM -0400, zoan37 wrote:
-> mtk_wdt_suspend() and mtk_wdt_resume() only stop and restart the
-> watchdog when it is active, that is, when userspace has opened it.
-> 
-> But a watchdog that the bootloader left enabled stays enabled at probe,
-> marked WDOG_HW_RUNNING, and the watchdog core pings it until userspace
-> takes over; that has been the case since
-> commit bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe()
-> to prevent the system freeze and it doesn't reboot by watchdog problem").
-> If the system suspends before userspace opens the device, or userspace
-> never does, nothing stops the watchdog and nothing pings it while the
-> system sleeps, so it resets the system one timeout (31 s by default)
-> into the sleep.
-> 
-> Also stop it on suspend and restart it on resume when it is running in
-> hardware, like sp805_wdt does.
-> 
-> The watchdog core keeps pinging such a watchdog until
-> mtk_wdt_suspend() stops it, so it stays fed while tasks are frozen
-> before the devices suspend. It may also ping once after resume, before
-> mtk_wdt_resume() has started the watchdog again; that only reloads the
-> counter of a stopped watchdog, and the watchdog stays powered over
-> system sleep (it is what resets the system from s2idle without this
-> patch). watchdog_stop_ping_on_suspend() is deliberately not used: it
-> stops the pings from PM_SUSPEND_PREPARE on, which would leave a running
-> watchdog unfed while tasks are frozen and could reset the system there
-> with a short timeout.
-> 
-> Fixes: bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe() to prevent the system freeze and it doesn't reboot by watchdog problem")
-> Assisted-by: LLM
-> Signed-off-by: zoan37 <agentzoan@gmail.com>
+On Fri, Oct 16, 2026 at 02:46:47PM +0200, Alexander Stein wrote:
+> Hi,
 
-Applied.
+Hi Alexander,
 
-Thanks,
-Guenter
+> 
+> Am Donnerstag, 15. Oktober 2026, 05:41:54 Mitteleuropäische Sommerzeit schrieb Liu Ying:
+>> Hi Alexander,
+>>
+>> On Wed, Oct 14, 2026 at 09:16:46AM +0200, Alexander Stein wrote:
+>>
+>> [...]
+>>
+>>> +	dc0: display-controller@56180000 {
+>>> +		reg = <0x56180000 0x40000>;
+>>> +		clocks = <&dc0_lpcg IMX_LPCG_CLK_4>;
+>>> +		power-domains = <&pd IMX_SC_R_DC_0>;
+>>> +		#address-cells = <1>;
+>>> +		#size-cells = <1>;
+>>> +		ranges;
+>>> +		status = "disabled";
+>>> +
+>>> +		dc0_intc: interrupt-controller@56180040 {
+>>> +			reg = <0x56180040 0x60>;
+>>> +			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
+>>> +			interrupt-controller;
+>>> +			interrupt-parent = <&dc0_irqsteer>;
+>>> +			#interrupt-cells = <1>;
+>>> +			interrupts = <448>, <449>, <450>,  <64>,
+>>> +				      <65>,  <66>,  <67>,  <68>,
+>>> +				      <69>,  <70>, <193>, <194>,
+>>> +				     <195>, <196>, <197>,  <72>,
+>>> +				      <73>,  <74>,  <75>,  <76>,
+>>> +				      <77>,  <78>,  <79>,  <80>,
+>>> +				      <81>, <199>, <200>, <201>,
+>>> +				     <202>, <203>, <204>, <205>,
+>>> +				     <206>, <207>, <208>,   <5>,
+>>> +				       <0>,   <1>,   <2>,   <3>,
+>>> +				       <4>,  <82>,  <83>,  <84>,
+>>> +				      <85>, <209>, <210>, <211>,
+>>> +				     <212>;
+>>> +			interrupt-names = "store9_shdload",
+>>> +					  "store9_framecomplete",
+>>> +					  "store9_seqcomplete",
+>>> +					  "extdst0_shdload",
+>>> +					  "extdst0_framecomplete",
+>>> +					  "extdst0_seqcomplete",
+>>> +					  "extdst4_shdload",
+>>> +					  "extdst4_framecomplete",
+>>> +					  "extdst4_seqcomplete",
+>>> +					  "extdst1_shdload",
+>>> +					  "extdst1_framecomplete",
+>>> +					  "extdst1_seqcomplete",
+>>> +					  "extdst5_shdload",
+>>> +					  "extdst5_framecomplete",
+>>> +					  "extdst5_seqcomplete",
+>>> +					  "disengcfg_shdload0",
+>>> +					  "disengcfg_framecomplete0",
+>>> +					  "disengcfg_seqcomplete0",
+>>> +					  "framegen0_int0",
+>>> +					  "framegen0_int1",
+>>> +					  "framegen0_int2",
+>>> +					  "framegen0_int3",
+>>> +					  "sig0_shdload",
+>>> +					  "sig0_valid",
+>>> +					  "sig0_error",
+>>> +					  "disengcfg_shdload1",
+>>> +					  "disengcfg_framecomplete1",
+>>> +					  "disengcfg_seqcomplete1",
+>>> +					  "framegen1_int0",
+>>> +					  "framegen1_int1",
+>>> +					  "framegen1_int2",
+>>> +					  "framegen1_int3",
+>>> +					  "sig1_shdload",
+>>> +					  "sig1_valid",
+>>> +					  "sig1_error",
+>>> +					  "reserved",
+>>> +					  "cmdseq_error",
+>>> +					  "comctrl_sw0",
+>>> +					  "comctrl_sw1",
+>>> +					  "comctrl_sw2",
+>>> +					  "comctrl_sw3",
+>>> +					  "framegen0_primsync_on",
+>>> +					  "framegen0_primsync_off",
+>>> +					  "framegen0_secsync_on",
+>>> +					  "framegen0_secsync_off",
+>>> +					  "framegen1_primsync_on",
+>>> +					  "framegen1_primsync_off",
+>>> +					  "framegen1_secsync_on",
+>>> +					  "framegen1_secsync_off";
+>>> +		};
+>>> +
+>>> +		dc0_pixel_engine: pixel-engine@56180800 {
+>>> +			reg = <0x56180800 0xac00>;
+>>> +			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
+>>> +			#address-cells = <1>;
+>>> +			#size-cells = <1>;
+>>> +			ranges;
+>>> +
+>>> +			dc0_constframe0: constframe@56180960 {
+>>> +				reg = <0x56180960 0xc>, <0x56184400 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_extdst0: extdst@56180980 {
+>>> +				reg = <0x56180980 0x1c>, <0x56184800 0x28>;
+>>> +				reg-names = "pec", "cfg";
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <3>, <4>, <5>;
+>>> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			};
+>>> +
+>>> +			dc0_constframe4: constframe@561809a0 {
+>>> +				reg = <0x561809a0 0xc>, <0x56184c00 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_extdst4: extdst@561809c0 {
+>>> +				reg = <0x561809c0 0x1c>, <0x56185000 0x28>;
+>>> +				reg-names = "pec", "cfg";
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <6>, <7>, <8>;
+>>> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			};
+>>> +
+>>> +			dc0_constframe1: constframe@561809e0 {
+>>> +				reg = <0x561809e0 0xc>, <0x56185400 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_extdst1: extdst@56180a00 {
+>>> +				reg = <0x56180a00 0x1c>, <0x56185800 0x28>;
+>>> +				reg-names = "pec", "cfg";
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <9>, <10>, <11>;
+>>> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			};
+>>> +
+>>> +			dc0_constframe5: constframe@56180a20 {
+>>> +				reg = <0x56180a20 0xc>, <0x56185c00 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_extdst5: extdst@56180a40 {
+>>> +				reg = <0x56180a40 0x1c>, <0x56186000 0x28>;
+>>> +				reg-names = "pec", "cfg";
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <12>, <13>, <14>;
+>>> +				interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			};
+>>> +
+>>> +			dc0_fetchwarp2: fetchwarp@56180a60 {
+>>> +				reg = <0x56180a60 0x10>, <0x56186400 0x190>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_fetchlayer0: fetchlayer@56180ac0 {
+>>> +				reg = <0x56180ac0 0xc>, <0x56188400 0x404>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_layerblend0: layerblend@56180ba0 {
+>>> +				reg = <0x56180ba0 0x10>, <0x5618a400 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_layerblend1: layerblend@56180bc0 {
+>>> +				reg = <0x56180bc0 0x10>, <0x5618a800 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_layerblend2: layerblend@56180be0 {
+>>> +				reg = <0x56180be0 0x10>, <0x5618ac00 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +
+>>> +			dc0_layerblend3: layerblend@56180c00 {
+>>> +				reg = <0x56180c00 0x10>, <0x5618b000 0x20>;
+>>> +				reg-names = "pec", "cfg";
+>>> +			};
+>>> +		};
+>>> +
+>>> +		dc0_display_engine0: display-engine@5618b400 {
+>>> +			reg = <0x5618b400 0x14>, <0x5618b800 0x1c00>;
+>>> +			reg-names = "top", "cfg";
+>>> +			interrupt-parent = <&dc0_intc>;
+>>> +			interrupts = <15>, <16>, <17>;
+>>> +			interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			power-domains = <&pd IMX_SC_R_DC_0_PLL_0>;
+>>> +			#address-cells = <1>;
+>>> +			#size-cells = <1>;
+>>> +			ranges;
+>>> +
+>>> +			dc0_framegen0: framegen@5618b800 {
+>>> +				reg = <0x5618b800 0x98>;
+>>> +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <18>, <19>, <20>, <21>,
+>>> +					     <41>, <42>, <43>, <44>;
+>>> +				interrupt-names = "int0", "int1", "int2", "int3",
+>>> +						  "primsync_on", "primsync_off",
+>>> +						  "secsync_on", "secsync_off";
+>>> +			};
+>>> +
+>>> +			dc0_tcon0: tcon@5618c800 {
+>>> +				reg = <0x5618c800 0x588>;
+>>> +
+>>> +				port {
+>>> +					dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
+>>> +						remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_disp0>;
+>>> +					};
+>>> +				};
+>>> +			};
+>>> +		};
+>>> +
+>>> +		dc0_display_engine1: display-engine@5618b420 {
+>>> +			reg = <0x5618b420 0x14>, <0x5618d400 0x1c00>;
+>>> +			reg-names = "top", "cfg";
+>>> +			interrupt-parent = <&dc0_intc>;
+>>> +			interrupts = <25>, <26>, <27>;
+>>> +			interrupt-names = "shdload", "framecomplete", "seqcomplete";
+>>> +			power-domains = <&pd IMX_SC_R_DC_0_PLL_1>;
+>>> +			#address-cells = <1>;
+>>> +			#size-cells = <1>;
+>>> +			ranges;
+>>> +
+>>> +			dc0_framegen1: framegen@5618d400 {
+>>> +				reg = <0x5618d400 0x98>;
+>>> +				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
+>>> +				interrupt-parent = <&dc0_intc>;
+>>> +				interrupts = <28>, <29>, <30>, <31>,
+>>> +					     <45>, <46>, <47>, <48>;
+>>> +				interrupt-names = "int0", "int1", "int2", "int3",
+>>> +						  "primsync_on", "primsync_off",
+>>> +						  "secsync_on", "secsync_off";
+>>> +			};
+>>> +
+>>> +			dc0_tcon1: tcon@5618e400 {
+>>> +				reg = <0x5618e400 0x588>;
+>>> +
+>>> +				port {
+>>> +					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
+>>> +						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
+>>> +					};
+>>> +				};
+>>> +			};
+>>> +		};
+>>> +	};
+>>
+>> I'm thinking that it would be good to have a complete display controller
+>> DT node in the first place, including those prefetch engines attached to
+>> fetchunits through the fsl,prg property.  In this way, display controller
+>> driver's life would be easier - all child/grandchild devices are always
+>> available.  I'm considering to adding a check to the Linux display controller
+>> driver to ensure the availability(at least for critical child/grandchild
+>> devices).
+> 
+> Well, this sounds reasonable, but this is beyond my knowledge about the
+> internals of the display controller.
+> FWIW it works (at least in my case), any additional DT node could be added
+> later on.
+
+If someone says that new kernel must support old device tree, then the display
+driver's life would be not be easy.
+
+> If there is something to test/review feel free to send it onto the
+> list. Please keep me on CC.
+
+I can try to CC you, but in case I forget to do so, the proper way for you
+is to get any patch in question by yourself - lei + mutt is a typical solution.
+
+> 
+> Thanks and best regards
+> Alexander
+
+-- 
+Regards,
+Liu Ying
 
