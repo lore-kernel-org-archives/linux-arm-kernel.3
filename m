@@ -2,111 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3CD1606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:17:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 722BD606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 12:18:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gwmafD0f;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=qGYbY9De
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gutI/oE2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y9Zyp8h3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eQ/XppcwzISrseZ5RcFWPSpwGbmbzSYupMPgcj1BFE=; b=gwmafD0fuRcyTk2mAowYf13Q+H
-	VzUMrdJjGEPWzMBIsHm2kUavYT+t/8EsAWTQyI9kDb1xL9EnK2DpIa/uv27ZdW/9TrNfhn8gflo9h
-	y4c9j3jT8HfMZTnlKWiVIo0bymB9fNz5ATom+lyxpJHiWK/KdBy4LfO43+cOnmy9pNznRjjTNMfan
-	BUmWeNJ2N60Xyc7baI6O1XWCuWgCmZ7M0V9VT/YauXLc4Lb2EaRwTIAifipXbtlTm6KAXsoV7X6cl
-	h5+mwNjnPa5iUt1TP6fIyDBPfEL6g26DUXRSpaOiEWgvFWeYHo3JbaJUGqv34pAZUUnWZBVhxhIDu
-	UA+eeIvw==;
+	bh=yU6o+keIiSw29Qh3qTy6Rhe4KIjjNbDeXyqpDu2XIrY=; b=gutI/oE2j4JrrHlHxN/fdDpB26
+	2RTtHdS7hb5P5KbjcPdccT1JEDXK8amooxsU/3+VQ4p9ZDOYrlwIbfIbcwWOVNX74dyaaE7UProMj
+	MSnZmPrt9mphKX9og4FpFhUZQA3RYTy8IEsV6/EjfIirxgtNx7u+WhIXE9QDW/QhMuC4ZeETCn0Jz
+	Ch9BBpSr5TSWghyu1g6KzOWVrOQvRwn8TDMoRDs5A09qAjOg4nXkAslkVg3ru1u2LcS4k0k4Sh17u
+	lStAeEpZ/xtoBNG2aAE+8Xe5pkD4Tqn/rGzP95/Qrf1Uxk3VpUkOUdhkm3VnPkAJgLm/8VAnoaYz4
+	i2sgHHtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8m4-00000009eDz-0mwl;
-	Tue, 20 Oct 2026 12:17:00 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1xJ8nU-00000009eQ6-1tEZ;
+	Tue, 20 Oct 2026 12:18:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ8m1-00000009eDW-2zfQ
+	id 1xJ8nT-00000009eQ0-3FBG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 12:16:58 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48df4e9d2d4so2025093f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 05:16:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1792498616; x=1793103416; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=/eQ/XppcwzISrseZ5RcFWPSpwGbmbzSYupMPgcj1BFE=;
-        b=qGYbY9DezrWOebmDD8PHGyANAcDihV4F5MMh+gPmBZYZ3G4N2J6HgdUdUEU2NJGCYu
-         pNe/lkXZzi0LLWnin3kDQ43sEPU2c8OqT9uMCqKDxYegzRVcSjUD6dPhofo486Tgd63T
-         /vZEChZcFCU7kKImzywQSjzGR6R9LuCpJZnIokG+z3+2JoaEQS1oZzBSTvJ5B9a5ydys
-         yRvCW0CPS9XSw+UWHjWHdwomkW7qUhT58rB3ZO4Bf6X0KZ9NsTzE0ooavoE0tH5KcdFW
-         IwLg9y6+iR2jDs1AtIbzy6leoAGWMHsWnbvRV0b2saEb1kLhDiTygwtT/A1C9Cwz6F2Z
-         wnLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792498616; x=1793103416;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/eQ/XppcwzISrseZ5RcFWPSpwGbmbzSYupMPgcj1BFE=;
-        b=vjUZdfBIbcKOb4SUGtY3tT2sGQBrpuU3Fgb75UCP0dIVAWRjiwXPXvtvjM7urX/QjL
-         mwAvDAhhiV4Lg45ExN7KVwIPwKmbauiJ2HJlLRcbDrZ2sBP2XMtbb2m7gHYvWUiyjPiX
-         3iAyW8/8YhOoA4IcdhaA4lquaUDDDCVv3CUlwXU3vV9Qdq1GUYyQBzUL8IvHTygfVOKc
-         FyxiRHVyBRl1J+3YITvpYVZVHQv6QbiDgScfltU8urczoEK+eLOqQmljPdWcXNNLce3F
-         Xjh0NNKeLk0tT/5QkUYNRd+o/0BcISd00i4sZVFwpIGLkdV3u/eIVEegDQo+C5U/0kL2
-         F5zg==
-X-Forwarded-Encrypted: i=1; AKwUvBylQBZD7PB5iMGb4l42WgLe5WIlSayW1fJA/FmiUPWS20Dk79QZ/ctn9KxoVnEzz9yLa/zPMGpxIyrWe3U35Uni@lists.infradead.org
-X-Gm-Message-State: AFq9FYJVUw4MwtuKhySOaxGOYOzFkG0WoItObNmkVqSRPUzeEtSRvJXE
-	92HuqBwdXRNiWUiAhGvdJipijvj/s+aevpP0vtg16DSHs5CTTdmT4rBvA8EZTPXIWbA=
-X-Gm-Gg: AYBFou3iqqWYGgzp7dV8IWX06SU67JN6QbPgP4mp2DtjyvpKRwdIl/2KxEm2O4+hO9E
-	7jMQJwoXTl+txyIWoxeEoZ8XQ4yfW4ctkjleMzOCGBU57cMLqtDL1LkWwUcuxTzUeejNAI44Chd
-	BkTpx1vgQtZBDeJ/vD4kvXL87Tmby73vookxlDKBNrHFvs73SwtLV84cI1fZ+yl1Ts8UGIS0130
-	Yh5dsxRXF6+2KFSu4nD64/PGHY0dOeNvXc8nz0slmIChOjXENm0hDG8PDLf/ugxRBJD3mCDvY1L
-	Fp2Cnqi10E0wggiSGJlNJZAMfYvAmWEBVaI2M58wkh0ArFe5gmvuPl+Fe3D1cx5lkLxhzsneC27
-	CrFqgESBOR6i+N8UwaKDfg3Gv149y1q6F3CvOOPNFCyKKT6YiMwGRBHfGzFk0inG489GJ0qFNZX
-	XD9X9WhzpUJBFBcx+8sldqUJSA+vssvmua+tR0bfqVGUBmOChu4pW1fS4WdHlEdQu+KnbQ/+cZp
-	Ansv9UynWVQTmLOYDSGEBsX8Rzdf1fLhO/wbwBStY8PzBvha8TnL1Qi9mDkP04bW145nOgAfHk=
-X-Received: by 2002:adf:e001:0:10b0:48d:f876:f370 with SMTP id ffacd0b85a97d-48e1bdf80a0mr5011790f8f.48.1792498615536;
-        Tue, 20 Oct 2026 05:16:55 -0700 (PDT)
-Received: from localhost ([151.41.28.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e1d817d8bsm5130862f8f.24.2026.10.20.05.16.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Oct 2026 05:16:54 -0700 (PDT)
+	Tue, 20 Oct 2026 12:18:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D86E042AB8;
+	Tue, 20 Oct 2026 12:18:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289B31F000C4;
+	Tue, 20 Oct 2026 12:18:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1792498706;
+	bh=yU6o+keIiSw29Qh3qTy6Rhe4KIjjNbDeXyqpDu2XIrY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Y9Zyp8h3kzMOtJAUw6zQMoqzKWJZaxancFv93lkG3Tdv35/8/+g5n/FCeYZ8pczdJ
+	 FHiQxy7U69KaSDoFYFOulTz3zVvBdF7xA+U/6BvNbgZSln5iATJcbMelazyB07unGr
+	 UfSegyHFTspPt/gVEaOJgSED7O6ieY29vJk5KfxEC/frmyInD6LkQQThT3DZBrWK1d
+	 SXVmhgq67s2YGJfdZBrw+pupFAsVFGgDzbjwTGbyxEYPZZHHCQsXUkzuivZNTtkxph
+	 FeFnB+8M+UOQzmSyU4q3N+DWZySe27fXD7tGrnBbC77P6QpX1VcoCmxooZwr7TzKZb
+	 ywtUGBhUcfckw==
+Message-ID: <835fb494-ad66-474e-9fbc-71a9dd7d7608@kernel.org>
+Date: Tue, 20 Oct 2026 14:18:20 +0200
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
+To: tanmay.shah@amd.com, Ben Levinsky <blevinsk@amd.com>
+Cc: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ "andersson@kernel.org" <andersson@kernel.org>,
+ "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "Simek, Michal" <michal.simek@amd.com>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "Levinsky, Ben" <ben.levinsky@amd.com>
+References: <20261014213426.2957480-1-ben.levinsky@amd.com>
+ <20261014213426.2957480-4-ben.levinsky@amd.com>
+ <20261015-humble-eager-mushroom-9db4aa@quoll>
+ <DM4PR12MB644859F1CA3A936684A3338B839C2@DM4PR12MB6448.namprd12.prod.outlook.com>
+ <7067e343-24b9-4e3e-8e5e-42c98239ccae@amd.com>
+ <0df4bfd4-2bcc-42fd-a22d-e704e4b41d5f@amd.com>
+ <cbd2e370-c8f1-46c1-87a8-fa25fdf6ea97@kernel.org>
+ <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <d89b656d-44cf-440a-8e06-6e13cef2dbe9@amd.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 20 Oct 2026 14:16:52 +0200
-Message-Id: <DM9NQ6MMED9N.3QP4ZDCCAZ85Z@linaro.org>
-Cc: <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>
-Subject: Re: [PATCH 02/10] dt-bindings: pinctrl: Add devicetree bindings for
- DM816x SoC Pinctrl
-From: "Ettore Chimenti" <ettore.chimenti@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Ettore Chimenti"
- <ettore.chimenti@linaro.org>, "Paul Walmsley" <paul@pwsan.com>, "Aaro
- Koskinen" <aaro.koskinen@iki.fi>, "Andreas Kemnade" <andreas@kemnade.info>,
- "Kevin Hilman" <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>,
- "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Christopher
- Obbard" <chris.obbard@oss.qualcomm.com>, "Andrew Goodbody"
- <andrew.goodbody@linaro.org>, "Linus Walleij" <linusw@kernel.org>, "Rouven
- Czerwinski" <rouven.czerwinski@linaro.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261016-patch-ektor5-dm8168-dts-v1-0-b4ce30217028@linaro.org>
- <20261016-patch-ektor5-dm8168-dts-v1-2-b4ce30217028@linaro.org>
- <ec27fd26-1862-43cf-803a-428846d66663@kernel.org>
- <DM6CUP7TSOMH.31T789KQ3Q6OB@linaro.org>
- <46414ff2-1273-4690-9001-4d1f825d8cf6@kernel.org>
- <DM9L7QLLNMOR.1NHOUWGMQK181@linaro.org>
- <c91b063f-69b9-4e9b-8e1b-af503de672b7@kernel.org>
-In-Reply-To: <c91b063f-69b9-4e9b-8e1b-af503de672b7@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_051657_792520_2803C5AA 
-X-CRM114-Status: GOOD (  26.07  )
-X-Spam-Score: -2.1 (--)
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,142 +128,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Krzyszrof,
-
-On Tue Oct 20, 2026 at 1:22 PM CEST, Krzysztof Kozlowski wrote:
-> On 20/10/2026 12:18, Ettore Chimenti wrote:
->> Hi Krzyszrof,
->>=20
->> On Mon Oct 19, 2026 at 8:46 AM CEST, Krzysztof Kozlowski wrote:
->>> On 16/10/2026 17:07, Ettore Chimenti wrote:
->>>> Hi Krzyszrof,
->>>>
->>>> On Fri Oct 16, 2026 at 4:51 PM CEST, Krzysztof Kozlowski wrote:
->>>>> On 16/10/2026 16:41, Ettore Chimenti wrote:
->>>>>> Add devicetree bindings for TI DM816x SoC pinctrl configuration.
->>>>>> Using same definition as OMAP2/3 except pullup/down enable macros, w=
-hich
->>>>>> are inverted in this SoC.
->>>>>>
->>>>>> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
->>>>>> ---
->>>>>>  include/dt-bindings/pinctrl/dm816x.h | 20 ++++++++++++++++++++
->>>>>>  1 file changed, 20 insertions(+)
->>>>>>
->>>>>> diff --git a/include/dt-bindings/pinctrl/dm816x.h b/include/dt-bindi=
-ngs/pinctrl/dm816x.h
->>>>>> new file mode 100644
->>>>>> index 000000000000..15aa15bca9bd
->>>>>> --- /dev/null
->>>>>> +++ b/include/dt-bindings/pinctrl/dm816x.h
->>>>>> @@ -0,0 +1,20 @@
->>>>>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>>>>> +/*
->>>>>> + * This header provides constants specific to DM816X pinctrl bindin=
-gs.
->>>>>> + */
->>>>>> +
->>>>>> +#ifndef _DT_BINDINGS_PINCTRL_DM816X_H
->>>>>> +#define _DT_BINDINGS_PINCTRL_DM816X_H
->>>>>> +
->>>>>> +#include <dt-bindings/pinctrl/omap.h>
->>>>>
->>>>> I do not see this being used here, IWYU.
->>>>>
->>>>>> +
->>>>>> +#undef PULL_UP
->>>>>> +#undef PULL_ENA
->>>>>
->>>>> Why are you undefining other macros? That's not a easy to follow code=
-.
->>>>
->>>> Do you prefer to duplicate `omap.h` defines? Only the defines above do=
- not
->>>> apply to DM816x.
+On 16/10/2026 16:11, Shah, Tanmay wrote:
+> 
+> 
+> On 10/16/2026 8:59 AM, Krzysztof Kozlowski wrote:
+>> On 15/10/2026 17:31, Shah, Tanmay wrote:
+>>> We use 'amd' vendor prefix for all new drivers & bindings. Also, there
+>>> is dedicated IPI hardware which can be used as mailbox too, and we
+>>> should distinguish it with this PL mailbox. So I that is included in the
+>>> compatible string. (pl-mbox).
 >>>
->>> Not sure what you need to duplicate, but if you add header with binding=
-s
->>> for this device, then you should not include headers for other devices.
->>=20
->> I basically used dm814x.h as a template which does that, is that not
->> correct?
->>=20
+>>> If we are also to include SOC name as well (per compatible property
+>>> guideline), then we should include one of the SOC name as well:
 >>>
->>>>
->>>>>
->>>>>
->>>>>> +
->>>>>> +/* DM81xx mux bit defines */
->>>>>> +#define PULL_ENA		(0 << 3)  /* Pullup enabled  =3D> 0 */
->>>>>> +#define PULL_DIS		(1 << 3)  /* Pullup disabled =3D> 1 */
->>>>>> +#define PULL_DN			(0 << 4)
->>>>>> +#define PULL_UP			(1 << 4)
->>>>>
->>>>> I do not see this used by drivers, so why do we need one more header?
->>>>> What part of SW are you binding here?
->>>>>
->>>>
->>>> I added those (DN/UP) because they are not defined in `omap.h`. It may=
- be
->>>> convenient for future board upstreaming. I can drop those if undesired=
-.
+>>> So, I think 'amd,zynqmp-pl-mbox-2.1' is good.
 >>>
->>> Just add the header to proper place - DTS. These are just not looking a=
-s
->>> bindings.
->>=20
->> Sorry, does dm814x.h not look as bindings? I'm a bit confused.
->
-> I asked  which part of SW are you binding. There was no answer, but
-> question. So if you cannot point which part of software you bind, then
-> we can assume it is not a binding. I did not do any extensive look,
-> because I assume that contributor will bring the argument in favor of
-> their patch, not me.
->
+>>> Krzysztof, are you okay with above name? The 2.1 is FPGA IP design
+>>> version number and not the SOC version number. So in future let's say
+>>> that FPGA IP design is improved then the name (pl-mbox) will remain
+>>> same, but only version number will be updated i.e. (from 2.1 to 3.0). Is
+>>> it okay if we explicitly mention this in the binding description?
+>>
+>> So you will release the same SoC with different versions of the block?
+>>
+> 
+> Yes correct.
 
-Thanks for the clarification, that makes sense. These macros are only
-used by the DTS files and not by driver C code, I got confused by an old
-header (2015). I will drop the dt-bindings patch and move the
-definitions locally into arch/arm/boot/dts/ti/omap/ for v2.
+Well, then this does not look like SoC block at all.
 
->
->> FWIW, dm8148-evm.dts is not including the header, dm814x.dtsi is.
->> Following=20
->>=20
->> Basically PULL_ENA define in omap.h is wrong for DM8168 SoCs.=20
->>=20
->> For a better solution, you would prefer:
->> - Keep omap.h in dm816x.dtsi
->> - Add a variant like DM816X_PULL_{ENA,DIS} in dm816x.h
->> - Replace defines in dm8168-evm.dts
->> - Add the header in dm8168-evm.dts
->>=20
->> or:
->>=20
->> - Keep omap.h in dm816x.dtsi
->> - Add a variant like DM816X_PULL_{ENA,DIS} in omap.h
->> - Replace defines in dm8168-evm.dts
->
-> I gave you one idea, but feel free to implement it in other ways aligned
-> with that platform maintainer.
->
-
-I'll do.=20
-
-Thanks for the review,
-Ettore
->
-> Best regards,
-> Krzysztof
-
-
-
+Best regards,
+Krzysztof
 
