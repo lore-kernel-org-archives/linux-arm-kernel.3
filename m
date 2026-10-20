@@ -2,73 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E493D606A31C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:42:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91449606A31F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:44:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4lU+M+fv;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=EYeg19Yk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=43c2y8NE;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=aUVw8jMy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=; b=4lU+M+fv1QbQPHiq/qtUdZrEIn
-	cAPL58Tm87OHil8bcc1Dy6hWccf/2Vp1wrbKGTANLqpvQsv6VNmO7yjBIDSRbwf8B7HVXCiM/kcGs
-	3uHyhxMdKTPOSf4ZG5nOvuM80xFzhTNd5B5uRgXcCmL0cM3Suj5o0Q0hMbZCQ4rb0b3wGVAPe+WB2
-	P+MObdcwT7o+uFTj68QKU9H9JXzcwniT1Op5YZMFHrD+r+yjlKgVoiW8WBc7dlHtMGrzUDpyR86Ut
-	kCIhI3+d8/PiYBsduwzasaV/AueeGG9EpOojTlip36yuY4z/xjCosOYB3MmQk1QVnfG5FsF0FzNqZ
-	oCWdvuTA==;
+	bh=erN66TjR/0pf7tS1JYwxo++1dYUqF4lntP5Gin4HQDk=; b=43c2y8NEtJwDY3cTaJRNCnMjM4
+	m+85gMgqq+/6t1pn9Td+7Ungg4qEzLJrD6UetZQYTLhv0wk1qAyN56iAr6Hw5nMXk3lla25nOcign
+	tQeVv5m/sjW1mRTpGa1cKyVqR+cqSKdWAo6LNhcUMbtZYFA+nKjcVSzaG1hKdCslvhU41qN99MW63
+	lN24iZywc6u45wAM53DiBlsO7ji2BI3GTWJM0r8RjS9xRhOeEwGIqme5I/E1hPCEl71lW5RKMvdb0
+	YUGtYUlqf/WNzEYqQ34UDdp3B7iBKa24z2x3rl2ETTIRjPuhJSRPtAnC2zQwkRQfuHPWWpXIXb/+V
+	lbqcHWcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuS-0000000A4Lz-3fZG;
-	Tue, 20 Oct 2026 15:37:52 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1xJBuh-0000000A4Qk-1Xnc;
+	Tue, 20 Oct 2026 15:38:07 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBuK-0000000A4Hy-17Ru
+	id 1xJBuS-0000000A4L3-0PqG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:37:49 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-366421dc8ebso1152992eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:43 -0700 (PDT)
+	Tue, 20 Oct 2026 15:37:57 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-35c76e9614aso6228882eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 08:37:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1792510663; x=1793115463; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1792510671; x=1793115471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=;
-        b=EYeg19YkXQgOXct1R26ddKre6JIVYSz2guhpod6EiwDI9bLY02yCPa4QkBNqIe6Zbt
-         SSQH8W2XctnkalWaZgqSDRRhb4idyLUlsYWYwlNj0J3QClecCvuWYrWDk5PwigcNdQIT
-         bB9hzo6YNNoHjwfLb1ELX6wqXvXLpFctXysKM=
+        bh=erN66TjR/0pf7tS1JYwxo++1dYUqF4lntP5Gin4HQDk=;
+        b=aUVw8jMyihrD1SD4TOKPx++fcwU6L0Wn+cL8pXY3XBx4OKax3neO1ge7vL6Xeg8dBd
+         YYqva3J6Dx74IuJ7IJf3wQCserwnmuqJxY/ss9uN05Rq5eno20fytw5H9/xIUGCqSPaM
+         ZCj59SKkQV040ULXgIECAu0bBFGMao+UuS2Ic=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792510663; x=1793115463;
+        d=1e100.net; s=20260707; t=1792510671; x=1793115471;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gf3+S05VHu9WM8VhO/IFJLzS95PZV+LAb8RqT/X+Ms4=;
-        b=WblZSJ7JvXG4xnb4hZfI1/CHtFeGE9tI5gDZDu/toDVhchgnngJn2h7GeCfHMrPIem
-         6UyPuS5uFF7eeobgKHVXy4Kg1DQRceH+ZjdMWcr/x2Gs8u0M+Wwa8LON4UwFlthS34hJ
-         8wd+TgWRN5qOAAfwKs2Yy21Z/2peZaR1RKlPZZShDOhB3QzpCkVUEkUjvvMRxy3qp3Y6
-         VQi3a97o39mOnxgCDf/KJ5MSD0wyfpFdR3aIjnWQ7G4nGQEDuZ1RrClHaTiixLqMrS5V
-         dZ/sHmnazR7dQ8A8jcXwEESsiAt6XcfNyEAh9MUq6G8pXg/wA8BoSlzVS63cQOWTeGVX
-         cWOQ==
-X-Forwarded-Encrypted: i=1; AKwUvByxJYd933arDEGVE9Yzxja+oIjbPIPHSJeu/IsWapLY7YVHwPjfhl+xpip+Fd9PnFE2f1BOcqrDQ5PDLgvoM1iG@lists.infradead.org
-X-Gm-Message-State: AFq9FYI0Y1Aw92y1CXqcS/oFVKAtClbH7gxhHzGQa0XRmcV/Jkb7c4NS
-	Bme8EeP/OjWiFFf3PZx6owfvP72+iMJCaBOM/qkRBT9c1P+pnEwrb8cKRfDxeaRkuQ==
-X-Gm-Gg: AYBFou2VpQ1uy0DaY3j69ArmW9p4Z1+6L3XaAss4Ka+y/4X2tjlGbyH+M2rIRkT2ni1
-	JAs+segq6LuI90TN6XyEHqX/wAg8NttkPAhsUvyk9POac1fSE32qj6zQwN+6Q+CvXXuPxWhAvOF
-	E0WYB3xHfTEvm6BB0RIvNkMUBA6zI0jkZiGcFYmzbap+tH75mGjWSOHA/Q7pqyMmRIJ6NVNvo9/
-	TRRY4jKVHvNjgRnfCp7BBmcxGDTjQkkNqm3caKPvN2TjV/U751nqsCQDR8GFR0bS9rG/qUBGVJR
-	Sia8bmVRcvpZ2xzQH6M8ergDIMmgih1cAMJbsAckA9RZEctmC4LEo5LH5acKDNdrzPzN00O34IG
-	eApUOU2MvQOYYMQqySdLtGVr4IcEPyhGLPZ2g19KsrUXNXOrhja/FanP1+xW2aRzSkQN2XFlR2U
-	IyaQ02DPSpGPoX0r1RNHNkqyeHQSQY7xbYMTEiQbZeo6tyiWlg8dFbHJgvbAjJtwbjp9vtcQn0m
-	YrLUW+zGBCJ1ej+Jv8Ws1HQRXH2yyFiCq7Xy8sgMX3x+MgucylOvgyIBdRZS7PQXB76Eh2qM8/w
-	C7Y0cdVF5Gpf4ZST8yDqmIAryljrVNH1JVFF+vg/
-X-Received: by 2002:a05:7301:619b:10b0:361:2a55:b94e with SMTP id 5a478bee46e88-365fb17e9d4mr2922006eec.15.1792510663086;
-        Tue, 20 Oct 2026 08:37:43 -0700 (PDT)
+        bh=erN66TjR/0pf7tS1JYwxo++1dYUqF4lntP5Gin4HQDk=;
+        b=Z6MtOrgH4leDHQC1l/JTKe78g78MyTjOdxtZNth7Hg8YIGBQkIq93ej7JQ68rd47rW
+         Iv2OVkQlxq0wbwsyDuZRezosHTF7pe60Kix7rOGZrNCEtKPNz+4hQavUUFiLLDFR53XC
+         mp19IYAcSQkbFeNBjn7KHBC+y78stYrsrIuozfVS3j4nkP28cvpcT4S6K9Y7T2etLiTN
+         aQAMJV+Y0Vj/ocRNtqhRc8ptpZY5H3KKguuD1vpxJjUWH0UYOCI9dGj+AsObBcVvyeDO
+         ISAgRD4ev6mo2FgWPWRBVB4BL2KJOu3f74HIr5zhz3bF/WO+pSfBg2zZ14wqiu2TixZ1
+         adag==
+X-Forwarded-Encrypted: i=1; AKwUvBy1zR6SdOn6KNFOwhpVn2z1hpxIXAWT/1qE0e4oMPV8hJlhCmo60OJF/9F9y8JBoLFjNrl2SJzttmhR46K/9j/6@lists.infradead.org
+X-Gm-Message-State: AFq9FYIhxOpzEnx9RXA+Ww9f6d6+5uEIN285EqTcCuxb0jYS7swxy7EI
+	sH4VIGIvUC4MeOTCMW/Hj1L/2ospciPFt335SPdHK/hVqAZISKU4z7/7wUmuuE08lQ==
+X-Gm-Gg: AYBFou2+GG4WT+Wa/Ks7/Iefhnu/FgsVYCoATLforz52nwgbUeren5WQUocmAd2z3b+
+	7Pkot8S9aWrB8ghFQcISy4qzT+/2tuSww+aOE4tx9mGKHHIPwVD8bS/r0HyQN8Sw1x+WY8wE2t8
+	mpp0A85nV/1qrHEMZtv+LjJQJEvHUd5rW+3pG6v2zTpcXPgLPHJ+3irZmOtwtpcnZ9nVIPA4UMd
+	yfl5A6eX+VxikR+JGyJ1cp0WNsxM1bowypMUYdC5GZefNOfY+hJs4NZFbZQTAG5jV4yVHF0CWay
+	6dCH93ImctjjcD/xo2f65POffKkX7TBaqiOohOQK2tdC6Su+v7lOwjHFyCEnqJwUKYGd6292U6L
+	XIxL8xsoNh4aZov8BYfDnSCQZv/k8An4A5GmmMf+r4gWwtqX7ibOQ2VBop67l/YVDEHocWAt9Va
+	Q5QcgogJlIPrrqysk7YIwBLAp0nduaGZXtBWJdVuqy+Q0iNv+J7GFRIhHIrXoeey68IYl5O71a9
+	Ry4OYviSh1rsoCJRrOlsmxkdNt5DU+TS2q2dOIWIa3+pYzM0r4eMjpoZxU=
+X-Received: by 2002:a05:693c:8353:b0:35a:22a4:132 with SMTP id 5a478bee46e88-361a284641fmr14607802eec.34.1792510669987;
+        Tue, 20 Oct 2026 08:37:49 -0700 (PDT)
 Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:1eb1:e432:2cc7:349c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.40
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3607ee0cab0sm51324714eec.3.2026.10.20.08.37.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Oct 2026 08:37:41 -0700 (PDT)
+        Tue, 20 Oct 2026 08:37:49 -0700 (PDT)
 From: Douglas Anderson <dianders@chromium.org>
 To: Devicetree-compiler@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
@@ -94,15 +93,12 @@ Cc: linux-kbuild@vger.kernel.org,
 	Michal Simek <michal.simek@amd.com>,
 	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
 	Douglas Anderson <dianders@chromium.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Marco Elver <elver@google.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Rong Xu <xur@google.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org,
 	devicetree@vger.kernel.org
-Subject: [RFC PATCH 5/7] kbuild: fit: Add opt-in FIT_FACTOR_DTBS support using fdtfactor
-Date: Tue, 20 Oct 2026 08:35:23 -0700
-Message-ID: <20261020083501.RFC.5.I4a691041bb6d31e5ab2fde8cd4139ca72ee72c5b@changeid>
+Subject: [RFC PATCH 7/7] arm64: dts: qcom: sc7180: Add sc7180-trogdor.its FIT image script
+Date: Tue, 20 Oct 2026 08:35:25 -0700
+Message-ID: <20261020083501.RFC.7.I1683fb18dd1cb29680af5efb2c2d3c3f539af0f4@changeid>
 X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
 In-Reply-To: <20261020153652.2907186-1-dianders@chromium.org>
 References: <20261020153652.2907186-1-dianders@chromium.org>
@@ -110,8 +106,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_083744_310836_246B920F 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20261020_083752_159743_0420F77A 
+X-CRM114-Status: GOOD (  18.18  )
 X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,108 +122,774 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add opt-in support for factoring the DTBs inside a compiled FIT image
-into shared base DTBs and per-board overlays using `fdtfactor` when
-`FIT_FACTOR_DTBS=1` is passed to make:
+Add an Image Tree Source (`sc7180-trogdor.its`) describing the FIT
+image for SC7180 Trogdor family boards using `Image-framed.lz4` and
+LZ4-compressed board DTBs (`*.dtb.lz4`), allowing the Trogdor FIT image
+to be built with:
 
-- When `FIT_FACTOR_DTBS` is set, pass `-@ -L` to `dtc` for the DTBs
-  included in the FIT image so they retain `/__symbols__` and
-  `/__local_fixups__` metadata needed for factoring.
-- Run `$(FDTFACTOR) $(FDTFACTOR_ARGS) -f $@` (with `FDTFACTOR_ARGS`
-  defaulting to `--strip-local-fixups`) at the end of `cmd_fit` and
-  `cmd_fit_its` when `FIT_FACTOR_DTBS` is set.
+  make FIT_ITS=qcom/sc7180-trogdor.its image.fit
 
 Assisted-by: Gemini:gemini-pro-prerelease
 Signed-off-by: Douglas Anderson <dianders@chromium.org>
 ---
-You can see the fdtfactor post at:
- http://lore.kernel.org/r/20261015182221.2931742-1-dianders@chromium.org
+As mentioned in the cover letter, there is no desperate need to land
+this. The FIT image created here is pretty much the same as what the
+downstream build scripts for ChromeOS programmatically
+produce. Switching over to this would have a few benefits:
+* It makes it easy to use fdtfactor on the trogdor kernel image.
+* It would set the path for future Chromebooks, and on those
+  Chromebooks maybe we could use the "description" of the
+  configurations to help the bootloader so we didn't need the awkward
+  piles of "compatible" strings that we have.
+* It could potentially be useful to people in the community putting
+  upstream kernels on sc7180-trogdor devices.
 
-This patch obviously could only land if some form of that series
-lands. Presumably we'd also want to import fdtfactor into the local
-kernel copy of the devicetree compiler before this patch.
+This all being said, there's nothing terribly critical here, so if
+it's controversial or people hate it then it's fine not to land it.
 
-If people hate this patch, we could certainly just run `fdtfactor`
-after the kernel build finishes.
+ arch/arm64/boot/dts/qcom/sc7180-trogdor.its | 728 ++++++++++++++++++++
+ 1 file changed, 728 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/sc7180-trogdor.its
 
- scripts/Makefile.dtbs |  8 ++++++++
- scripts/Makefile.lib  | 18 ++++++++++++------
- 2 files changed, 20 insertions(+), 6 deletions(-)
-
-diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
-index 1bc42b30cc52..4b8d7039e45d 100644
---- a/scripts/Makefile.dtbs
-+++ b/scripts/Makefile.dtbs
-@@ -137,6 +137,14 @@ DTC_FLAGS += -Wnode_name_chars_strict \
-              -Wunique_unit_address
- endif
- 
-+# When FIT_FACTOR_DTBS is set, pass -@ -L to dtc so the built DTBs retain the
-+# /__symbols__ and /__local_fixups__ nodes required by fdtfactor.
-+ifneq ($(FIT_FACTOR_DTBS),)
-+ifneq ($(filter arch/$(SRCARCH)/boot/dts%, $(obj)),)
-+DTC_FLAGS += -@ -L
-+endif
-+endif
+diff --git a/arch/arm64/boot/dts/qcom/sc7180-trogdor.its b/arch/arm64/boot/dts/qcom/sc7180-trogdor.its
+new file mode 100644
+index 000000000000..310c286706f1
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/sc7180-trogdor.its
+@@ -0,0 +1,728 @@
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
++/dts-v1/;
 +
- DTC_FLAGS += $(DTC_FLAGS_$(target-stem))
- 
- # Set -@ if the target is a base DTB that overlay is applied onto
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 91880648fe21..bcb2b0e749a3 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -425,6 +425,8 @@ quiet_cmd_uimage = UIMAGE  $@
- # ---------------------------------------------------------------------------
- 
- MAKE_FIT := $(srctree)/scripts/make_fit.py
-+FDTFACTOR ?= fdtfactor
-+FDTFACTOR_ARGS ?= --strip-local-fixups
- 
- # Use this to override the compression algorithm
- FIT_COMPRESSION ?= gzip
-@@ -434,7 +436,9 @@ quiet_cmd_fit = FIT     $@
- 		--name '$(UIMAGE_NAME)' $(FIT_EXTRA_ARGS) \
- 		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
- 		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
--		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
-+		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^) \
-+		$(if $(FIT_FACTOR_DTBS),&& $(FDTFACTOR) $(FDTFACTOR_ARGS) \
-+			$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) -f $@)
- 
- # If FIT_ITS is specified on the command line (either relative to $(srctree)
- # or relative to arch/$(SRCARCH)/boot/dts/), locate that .its script and
-@@ -465,10 +469,10 @@ $(obj)/image.fit: $(FIT_ITS_IMAGES) $(FIT_ITS_DTBS) $(FIT_ITS_FILE)
- endif
- endif
- 
--# Build the FIT image from the .its script with mkimage and populate any
--# missing 'compatible' property on /configurations/conf-* nodes from the
--# corresponding uncompressed .dtb's root '/compatible' property using
--# fdtget/fdtput.
-+# Build the FIT image from the .its script with mkimage, populate any missing
-+# 'compatible' property on /configurations/conf-* nodes from the corresponding
-+# uncompressed .dtb's root '/compatible' property using fdtget/fdtput, and
-+# optionally factor the DTBs with fdtfactor when FIT_FACTOR_DTBS is set.
- quiet_cmd_fit_its = FIT     $@
-       cmd_fit_its = \
- 		PATH="$(abspath $(objtree))/scripts/dtc:$(PATH)"; \
-@@ -486,7 +490,9 @@ quiet_cmd_fit_its = FIT     $@
- 			dtb="$(objtree)/$${inc%.dtb*}.dtb"; \
- 			compat=$$(fdtget -ts "$$dtb" / compatible); \
- 			fdtput -ts $@ $$conf compatible $$compat; \
--		done
-+		done \
-+		$(if $(FIT_FACTOR_DTBS),; $(FDTFACTOR) $(FDTFACTOR_ARGS) \
-+			$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) -f $@)
- 
- # XZ
- # ---------------------------------------------------------------------------
++/ {
++	description = "Chrome OS kernel image with one or more FDT blobs";
++	#address-cells = <1>;
++
++	images {
++		kernel-1 {
++			description = "Linux kernel";
++			data = /incbin/("arch/arm64/boot/Image-framed.lz4");
++			type = "kernel_noload";
++			arch = "arm64";
++			os = "linux";
++			compression = "lz4";
++			load = <0>;
++			entry = <0>;
++		};
++		fdt-1 {
++			description = "sc7180-trogdor-coachz-r1-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-coachz-r1-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-2 {
++			description = "sc7180-trogdor-coachz-r1.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-coachz-r1.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-3 {
++			description = "sc7180-trogdor-coachz-r3-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-coachz-r3-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-4 {
++			description = "sc7180-trogdor-coachz-r3.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-coachz-r3.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-5 {
++			description = "sc7180-trogdor-homestar-r2.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-homestar-r2.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-6 {
++			description = "sc7180-trogdor-homestar-r3.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-homestar-r3.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-7 {
++			description = "sc7180-trogdor-homestar-r4.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-homestar-r4.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-8 {
++			description = "sc7180-trogdor-kingoftown.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-kingoftown.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-9 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r10.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-nots-r10.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-10 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r4.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-nots-r4.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-11 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r5.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-nots-r5.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-12 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r9.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-nots-r9.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-13 {
++			description = "sc7180-trogdor-lazor-limozeen-r10.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-r10.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-14 {
++			description = "sc7180-trogdor-lazor-limozeen-r4.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-r4.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-15 {
++			description = "sc7180-trogdor-lazor-limozeen-r9.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-limozeen-r9.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-16 {
++			description = "sc7180-trogdor-lazor-r1-kb.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r1-kb.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-17 {
++			description = "sc7180-trogdor-lazor-r1-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r1-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-18 {
++			description = "sc7180-trogdor-lazor-r1.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r1.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-19 {
++			description = "sc7180-trogdor-lazor-r10-kb.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r10-kb.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-20 {
++			description = "sc7180-trogdor-lazor-r10-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r10-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-21 {
++			description = "sc7180-trogdor-lazor-r10.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r10.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-22 {
++			description = "sc7180-trogdor-lazor-r3-kb.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r3-kb.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-23 {
++			description = "sc7180-trogdor-lazor-r3-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r3-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-24 {
++			description = "sc7180-trogdor-lazor-r3.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r3.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-25 {
++			description = "sc7180-trogdor-lazor-r9-kb.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r9-kb.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-26 {
++			description = "sc7180-trogdor-lazor-r9-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r9-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-27 {
++			description = "sc7180-trogdor-lazor-r9.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-lazor-r9.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-28 {
++			description = "sc7180-trogdor-pazquel-lte-parade.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel-lte-parade.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-29 {
++			description = "sc7180-trogdor-pazquel-lte-ti.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel-lte-ti.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-30 {
++			description = "sc7180-trogdor-pazquel-parade.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel-parade.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-31 {
++			description = "sc7180-trogdor-pazquel-ti.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel-ti.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-32 {
++			description = "sc7180-trogdor-pazquel360-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel360-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-33 {
++			description = "sc7180-trogdor-pazquel360-wifi.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pazquel360-wifi.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-34 {
++			description = "sc7180-trogdor-pompom-r1-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r1-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-35 {
++			description = "sc7180-trogdor-pompom-r1.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r1.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-36 {
++			description = "sc7180-trogdor-pompom-r2-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r2-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-37 {
++			description = "sc7180-trogdor-pompom-r2.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r2.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-38 {
++			description = "sc7180-trogdor-pompom-r3-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r3-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-39 {
++			description = "sc7180-trogdor-pompom-r3.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-pompom-r3.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-40 {
++			description = "sc7180-trogdor-quackingstick-r0-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-quackingstick-r0-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-41 {
++			description = "sc7180-trogdor-quackingstick-r0.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-quackingstick-r0.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-42 {
++			description = "sc7180-trogdor-r1-lte.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-r1-lte.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-43 {
++			description = "sc7180-trogdor-r1.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-r1.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-44 {
++			description = "sc7180-trogdor-wormdingler-rev1-boe-rt5682s.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-wormdingler-rev1-boe-rt5682s.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-45 {
++			description = "sc7180-trogdor-wormdingler-rev1-boe.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-wormdingler-rev1-boe.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-46 {
++			description = "sc7180-trogdor-wormdingler-rev1-inx-rt5682s.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-wormdingler-rev1-inx-rt5682s.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++		fdt-47 {
++			description = "sc7180-trogdor-wormdingler-rev1-inx.dtb.lz4";
++			data = /incbin/("arch/arm64/boot/dts/qcom/sc7180-trogdor-wormdingler-rev1-inx.dtb.lz4");
++			type = "flat_dt";
++			arch = "arm64";
++			compression = "lz4";
++			hash-1 {
++				algo = "sha1";
++			};
++		};
++	};
++
++	configurations {
++		conf-1 {
++			description = "sc7180-trogdor-coachz-r1-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-1";
++		};
++		conf-2 {
++			description = "sc7180-trogdor-coachz-r1";
++			kernel = "kernel-1";
++			fdt = "fdt-2";
++		};
++		conf-3 {
++			description = "sc7180-trogdor-coachz-r3-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-3";
++		};
++		conf-4 {
++			description = "sc7180-trogdor-coachz-r3";
++			kernel = "kernel-1";
++			fdt = "fdt-4";
++		};
++		conf-5 {
++			description = "sc7180-trogdor-homestar-r2";
++			kernel = "kernel-1";
++			fdt = "fdt-5";
++		};
++		conf-6 {
++			description = "sc7180-trogdor-homestar-r3";
++			kernel = "kernel-1";
++			fdt = "fdt-6";
++		};
++		conf-7 {
++			description = "sc7180-trogdor-homestar-r4";
++			kernel = "kernel-1";
++			fdt = "fdt-7";
++		};
++		conf-8 {
++			description = "sc7180-trogdor-kingoftown";
++			kernel = "kernel-1";
++			fdt = "fdt-8";
++		};
++		conf-9 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r10";
++			kernel = "kernel-1";
++			fdt = "fdt-9";
++		};
++		conf-10 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r4";
++			kernel = "kernel-1";
++			fdt = "fdt-10";
++		};
++		conf-11 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r5";
++			kernel = "kernel-1";
++			fdt = "fdt-11";
++		};
++		conf-12 {
++			description = "sc7180-trogdor-lazor-limozeen-nots-r9";
++			kernel = "kernel-1";
++			fdt = "fdt-12";
++		};
++		conf-13 {
++			description = "sc7180-trogdor-lazor-limozeen-r10";
++			kernel = "kernel-1";
++			fdt = "fdt-13";
++		};
++		conf-14 {
++			description = "sc7180-trogdor-lazor-limozeen-r4";
++			kernel = "kernel-1";
++			fdt = "fdt-14";
++		};
++		conf-15 {
++			description = "sc7180-trogdor-lazor-limozeen-r9";
++			kernel = "kernel-1";
++			fdt = "fdt-15";
++		};
++		conf-16 {
++			description = "sc7180-trogdor-lazor-r1-kb";
++			kernel = "kernel-1";
++			fdt = "fdt-16";
++		};
++		conf-17 {
++			description = "sc7180-trogdor-lazor-r1-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-17";
++		};
++		conf-18 {
++			description = "sc7180-trogdor-lazor-r1";
++			kernel = "kernel-1";
++			fdt = "fdt-18";
++		};
++		conf-19 {
++			description = "sc7180-trogdor-lazor-r10-kb";
++			kernel = "kernel-1";
++			fdt = "fdt-19";
++		};
++		conf-20 {
++			description = "sc7180-trogdor-lazor-r10-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-20";
++		};
++		conf-21 {
++			description = "sc7180-trogdor-lazor-r10";
++			kernel = "kernel-1";
++			fdt = "fdt-21";
++		};
++		conf-22 {
++			description = "sc7180-trogdor-lazor-r3-kb";
++			kernel = "kernel-1";
++			fdt = "fdt-22";
++		};
++		conf-23 {
++			description = "sc7180-trogdor-lazor-r3-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-23";
++		};
++		conf-24 {
++			description = "sc7180-trogdor-lazor-r3";
++			kernel = "kernel-1";
++			fdt = "fdt-24";
++		};
++		conf-25 {
++			description = "sc7180-trogdor-lazor-r9-kb";
++			kernel = "kernel-1";
++			fdt = "fdt-25";
++		};
++		conf-26 {
++			description = "sc7180-trogdor-lazor-r9-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-26";
++		};
++		conf-27 {
++			description = "sc7180-trogdor-lazor-r9";
++			kernel = "kernel-1";
++			fdt = "fdt-27";
++		};
++		conf-28 {
++			description = "sc7180-trogdor-pazquel-lte-parade";
++			kernel = "kernel-1";
++			fdt = "fdt-28";
++		};
++		conf-29 {
++			description = "sc7180-trogdor-pazquel-lte-ti";
++			kernel = "kernel-1";
++			fdt = "fdt-29";
++		};
++		conf-30 {
++			description = "sc7180-trogdor-pazquel-parade";
++			kernel = "kernel-1";
++			fdt = "fdt-30";
++		};
++		conf-31 {
++			description = "sc7180-trogdor-pazquel-ti";
++			kernel = "kernel-1";
++			fdt = "fdt-31";
++		};
++		conf-32 {
++			description = "sc7180-trogdor-pazquel360-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-32";
++		};
++		conf-33 {
++			description = "sc7180-trogdor-pazquel360-wifi";
++			kernel = "kernel-1";
++			fdt = "fdt-33";
++		};
++		conf-34 {
++			description = "sc7180-trogdor-pompom-r1-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-34";
++		};
++		conf-35 {
++			description = "sc7180-trogdor-pompom-r1";
++			kernel = "kernel-1";
++			fdt = "fdt-35";
++		};
++		conf-36 {
++			description = "sc7180-trogdor-pompom-r2-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-36";
++		};
++		conf-37 {
++			description = "sc7180-trogdor-pompom-r2";
++			kernel = "kernel-1";
++			fdt = "fdt-37";
++		};
++		conf-38 {
++			description = "sc7180-trogdor-pompom-r3-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-38";
++		};
++		conf-39 {
++			description = "sc7180-trogdor-pompom-r3";
++			kernel = "kernel-1";
++			fdt = "fdt-39";
++		};
++		conf-40 {
++			description = "sc7180-trogdor-quackingstick-r0-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-40";
++		};
++		conf-41 {
++			description = "sc7180-trogdor-quackingstick-r0";
++			kernel = "kernel-1";
++			fdt = "fdt-41";
++		};
++		conf-42 {
++			description = "sc7180-trogdor-r1-lte";
++			kernel = "kernel-1";
++			fdt = "fdt-42";
++		};
++		conf-43 {
++			description = "sc7180-trogdor-r1";
++			kernel = "kernel-1";
++			fdt = "fdt-43";
++		};
++		conf-44 {
++			description = "sc7180-trogdor-wormdingler-rev1-boe-rt5682s";
++			kernel = "kernel-1";
++			fdt = "fdt-44";
++		};
++		conf-45 {
++			description = "sc7180-trogdor-wormdingler-rev1-boe";
++			kernel = "kernel-1";
++			fdt = "fdt-45";
++		};
++		conf-46 {
++			description = "sc7180-trogdor-wormdingler-rev1-inx-rt5682s";
++			kernel = "kernel-1";
++			fdt = "fdt-46";
++		};
++		conf-47 {
++			description = "sc7180-trogdor-wormdingler-rev1-inx";
++			kernel = "kernel-1";
++			fdt = "fdt-47";
++		};
++	};
++};
 -- 
 2.56.0.212.g129ede20d9-goog
 
