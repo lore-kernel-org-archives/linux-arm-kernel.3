@@ -2,65 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E22606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:21:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1FD5606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 17:30:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G1OnnA9n;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KAny9+RY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4i4Tgv5X;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EOrluGdR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WWk7zExmFICqSLgFYRdnOfnAX1UA+1LzUHxktArr0A=; b=G1OnnA9n3ZUISznQt5Q4unWojJ
-	JRZdOkZTnvplc76sWEqRykCs3wh/3irWaIcUEa4NyzB4q3JdakpVZLzfYdUcp2tW4kALv4O+hE3xo
-	UcqaQAEYIHcvNcoEa2FO7rjJUf6bJFrZcGhSs9xd82bPYJGCaxY8TwcVjWxR+EMZfEosztM9y3fAo
-	YpgEK8S1gBUHyM2G0nk1DHXpCekh4EfcU/t1BulDjDn9lwGgKMuUoK4tonihZxf7mIcOwr12Ov02x
-	S4TP8WktRTc40/SN8TJMe/iJ2wVfbseVReajNryddjd0cDvYkRDeDQaVPfELh75wLjf7v4x1ozbFX
-	CtSKEIrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rqO/CKqWZdrB+rJyWI0tCLcDKt2oC8zbgVmrKbIOvd4=; b=4i4Tgv5X2Me/fw
+	CicH1RzYpsZRnGFmDiifP115mnak5FFOXzLNTjCZ9vVzsIEymjcoMo00OSDQFeVZyX/Y2rl/yUKAd
+	1V+COQGfSZm/3RFVTkbeMsn6zV73BTDzcbyXFb0f0+5DeqRHZ80asIBg6njyOMkCm9Ekl/d7UBrv9
+	oyxFiBTtIKJ/4E9Xa2N71KUdt5OPERTSKHxiC7mU+pqY+Y2eFTGZLl9b2wiJYRoN1K7SpFhKThL9b
+	ihbrUUiz+2y+o4Kwgm+U0FH1qoaynYM1rpczJfvwrcQr+vRazVsDpj0jevXSGpBm/4tVFM6UU+1JF
+	+R56zLAhyOFfHwvRjpfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDW2-0000000AKen-394V;
-	Tue, 20 Oct 2026 17:20:46 +0000
+	id 1xJDfB-0000000ALLJ-2dxg;
+	Tue, 20 Oct 2026 17:30:15 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJDW1-0000000AKeQ-2aZf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 17:20:45 +0000
+	id 1xJDf7-0000000ALKd-3jW1;
+	Tue, 20 Oct 2026 17:30:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B00006022C;
-	Tue, 20 Oct 2026 17:20:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2D51F000C9;
-	Tue, 20 Oct 2026 17:20:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1F8E60DEE;
+	Tue, 20 Oct 2026 17:30:08 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1792517408;
+	b=oD5s2Dvb+icY3Zgha9l7m5o2iUonODX8UgGmzHx1iglBp0OhdJfG9PDqv66FbyL2g7Mr
+	 WGkb1meOOYSQ9gyvrIEjMyglhtPGt4WiC+2uKCq3oCzeMkuOBDcqNI0J6TMJp/N7e7f8t
+	 cOueVzOQzCUuL7mHwTHsr/P2q7DmUF3/lTHQqAbpFLhbB5fbnEe/MY7m8k7z6TJm8K7AM
+	 r5yOkqM1uFn6t3Wj4TNMQXnzTWffgwtAifSINx+kjcVkWOVPuwhDjqO2F4nB9AxXlZ+P5
+	 dExBvHpSkqtstewqZyLbfTk05OiZ52kEtjYyYhQMNFDw7tVo9A51nAla9lXrlUxs9TQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1792517408;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=rqO/CKqWZdrB+rJyWI0tCLcDKt2oC8zbgVmrKbIOvd4=;
+	b=uIdYUBNni3nGm72thlnmwhL5fE3+q03yTG8YQHZebf0Bbaorv3zOefePghn/3e21ddSR
+	 ABFFw+QOIjm0ZSgpvoQxE+dAXZJS9NRV62uOyUhN00447eOTeSEGA5064XpvhgpHwq9kM
+	 /46jsFC7Am+N4Mq4iS9eOatnB2rQUmAMN0mOrCqKexyMFDba0QWVzhlgKarZ90+7aK15O
+	 OyIcvxgUlCa1w2SUwEmXlvqQ/cr7CZewsrhVwK063jjdHwm7dzWvViHxaZyznvZSXTa6/
+	 ee/6h3mN3eJGQi2bKLuWdl9dkjZRjqWaPiXipzYHyFm0SdFWk0lTtxtSZ6A2A9dVaSA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 350631F000C9;
+	Tue, 20 Oct 2026 17:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792516844;
-	bh=6WWk7zExmFICqSLgFYRdnOfnAX1UA+1LzUHxktArr0A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KAny9+RYL3Bjeb2mO44a1DmHjw5+oGJtZavst+KtM/yvA1XeMdgFf3bk6UL5KVh+P
-	 1I8S6GaqWuXL8Un8uzuTijsxfTPN2YhPmtDXJNFntGZsRaXLO6wtVyd41QOtYOGfE3
-	 DPTZSKa9l5SlKTfbLLVmDokn5amCYcHczoUjzfGt2L3Uyy37nkRW3J/FhkwA3HpxpG
-	 aGmdXDp18uRFtMDOMDDhO12qmoLrthj/KgtRm3RlSyU6VmZBQP9KXQYj2NKwGS1cL5
-	 p11g45R+3sO/Aeb4+glyJU+LCXXl9ZLUNj23hri92cY95iFyeu7QdrrZJpBX2srtW+
-	 +6cYTtWtGJAOA==
-Date: Tue, 20 Oct 2026 18:20:29 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-	catalin.marinas@arm.com, james.clark@linaro.org, Sudeep Holla <sudeep.holla@arm.com>
-Subject: Re: [RFC PATCH v7 12/28] KVM: arm64: Add SPE VCPU device attribute
- to set the interrupt number
-Message-ID: <ateEKZC3pjL6Sjrq@gremlin>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
- <20260903160623.315525-13-alexandru.elisei@arm.com>
+	s=k20260515; t=1792517408;
+	bh=rqO/CKqWZdrB+rJyWI0tCLcDKt2oC8zbgVmrKbIOvd4=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=EOrluGdR/v719VpZIfUV74WpULIASUIPdoXL/tHyymzHUgei6uJ2jEEUSrYgyicpP
+	 dFjK2qAS0dEKXKEK2f3fa6o3dBygcZ16Mz2gghMBxgUKFU5K54IZEer0il37psDMqi
+	 26Q8yHC/PO6oyDblOCTNVnTXex3ONmBU/4XpLY3Q24uC/7EeUfqhKAs2k14ZzZM6Ys
+	 DJtlKsezM+zvfKwph6kxY1l/eXWAwrvl7VOPi8+U9AINEie1wz7VvrbVyU705GRVKA
+	 VTCWuHhBHUrGMXdWOxDDZRsInybbdw21oVW9yB4qodHx2OCp5oF6cCgnJu3xeySC7a
+	 Yml4KSVWqBAjg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A1E3943181;
+	Tue, 20 Oct 2026 17:30:07 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Tue, 20 Oct 2026 20:28:37 +0300
+Subject: [PATCH] watchdog: meson_gxbb_wdt: fix suspend/resume handling of
+ HW_RUNNING watchdog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-13-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261020-meson-gxbb-wdt-suspend-v1-1-d5abe4340008@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAMSk12oC/x3MPQ6AIAxA4auYzjZBBlCvYhxQqnYQDfWHxHh3i
+ eM3vPeAUGQSaIsHIl0svIWMqixgXFyYCdlng1baVEorXEm2gHMaBrz9gXLKTsGj89ZOjTXKuBp
+ yvEeaOP3jrn/fD3NgT0FoAAAA
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Philippe Boos <pboos@baylibre.com>, linux-watchdog@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2222; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=sRv9WsAiYhuKwPOnpeKTfGsN/HKl13MoG+1oyJNF3pA=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFnXl8oFK5/3KmUNFvRYWPXuus1sB4G68vNb+rIWO/n82
+ 33zHldARykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZhIjS4jw/40D7UdWeeS+W5E
+ vV3I/WNR9qIzLkabjQPjXi7ZnPHtszMjw75lBx9c6Li346oIh0Gi+p2SOFUOyR4Db82VksfSHHN
+ /8gAA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,302 +112,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Sep 03, 2026 at 05:06:07PM +0100, Alexandru Elisei wrote:
-> From: Sudeep Holla <sudeep.holla@arm.com>
->
-> Add KVM_ARM_VCPU_SPE_CTRL(KVM_ARM_VCPU_SPE_IRQ) to allow the user to set
-> the interrupt number for the buffer management interrupt.
+From: Igor Velkov <iav@iav.lv>
 
-I know this is a bit of a theme of the review :P but feels a little short.
+meson_gxbb_wdt_suspend() and meson_gxbb_wdt_resume() only check
+watchdog_active(). Since commit 6adbfbab0f03 ("watchdog: meson: keep
+running if already active"), probe keeps a watchdog left running by the
+bootloader and sets WDOG_HW_RUNNING. If userspace never opens the
+device, WDOG_ACTIVE stays clear and the timer is not stopped for system
+suspend.
 
-Be good to see why you want to do this, broadly what you are changing
-(shouldn't duplicate stuff you can see from the diff but something like '
+On an ODROID-HC4 (S905X3) whose U-Boot starts the watchdog, with no
+userspace owner, the board does not wake from deep suspend
+(rtcwake -m mem -s 60) in 2 of 2 attempts and needs a power cycle.
 
->
-> [ Alexandru E: Split from "KVM: arm64: Add a new VCPU device control group
->                for SPE" ]
->
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+Stop the timer on suspend and restart it on resume also when it is only
+running in hardware, as sp805_wdt does. With this change the board
+wakes from deep suspend in 4 of 4 attempts, and the kernel pings the
+watchdog again after resume.
 
-I guess similar comment to before - is this a significant change? If so
-then probably best to go Co-developed-by route, otherwise not a big deal.
+Fixes: 6adbfbab0f03 ("watchdog: meson: keep running if already active")
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+The same change as commit 1c81d4a5cda2 ("watchdog: sp805_wdt: fix
+suspend/resume handling of HW_RUNNING watchdog") in watchdog-next.
+---
+ drivers/watchdog/meson_gxbb_wdt.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-> ---
->  Documentation/virt/kvm/devices/vcpu.rst | 22 +++++++
->  arch/arm64/include/asm/kvm_host.h       |  2 +
->  arch/arm64/include/asm/kvm_spe.h        | 11 ++++
->  arch/arm64/include/uapi/asm/kvm.h       |  1 +
->  arch/arm64/kvm/guest.c                  |  2 +
->  arch/arm64/kvm/spe.c                    | 82 +++++++++++++++++++++++++
->  6 files changed, 120 insertions(+)
->
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index e0a7fa35dfd2..d30b2f7fec9a 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -307,3 +307,25 @@ From the destination VMM process:
->  ===============================
->
->  :Architectures: ARM64
-> +
-> +5.1 ATTRIBUTE: KVM_ARM_VCPU_SPE_IRQ
-> +-----------------------------------
-> +
-> +:Parameters: in kvm_device_attr.addr the address for the Profiling Buffer
-> +             management interrupt number as a pointer to an int
-> +
-> +Returns:
+diff --git a/drivers/watchdog/meson_gxbb_wdt.c b/drivers/watchdog/meson_gxbb_wdt.c
+index fb276060e831..fa6953d106ac 100644
+--- a/drivers/watchdog/meson_gxbb_wdt.c
++++ b/drivers/watchdog/meson_gxbb_wdt.c
+@@ -124,7 +124,8 @@ static int __maybe_unused meson_gxbb_wdt_resume(struct device *dev)
+ {
+ 	struct meson_gxbb_wdt *data = dev_get_drvdata(dev);
+ 
+-	if (watchdog_active(&data->wdt_dev))
++	if (watchdog_active(&data->wdt_dev) ||
++	    watchdog_hw_running(&data->wdt_dev))
+ 		meson_gxbb_wdt_start(&data->wdt_dev);
+ 
+ 	return 0;
+@@ -134,7 +135,8 @@ static int __maybe_unused meson_gxbb_wdt_suspend(struct device *dev)
+ {
+ 	struct meson_gxbb_wdt *data = dev_get_drvdata(dev);
+ 
+-	if (watchdog_active(&data->wdt_dev))
++	if (watchdog_active(&data->wdt_dev) ||
++	    watchdog_hw_running(&data->wdt_dev))
+ 		meson_gxbb_wdt_stop(&data->wdt_dev);
+ 
+ 	return 0;
 
-Was going to say maybe it should be ':Returns:' but actually the doc seems
-super inconsistent on this... :P so it doesn't really matter.
+---
+base-commit: 6276c8195e598361942082423114877265c17692
+change-id: 20261020-meson-gxbb-wdt-suspend-ad77f97606a8
 
-> +
-> +	 =======  ==========================================================
-> +	 -EFAULT  Error accessing the buffer management interrupt number
-> +	 -EINVAL  Invalid interrupt number or not using an in-kernel irqchip
-> +	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature not set
-
-Seems like a typo, should be KVM_ARM_VCPU_SPE_IRQ right?
-
-> +	 -ENXIO   SPE not supported or not properly configured
-> +	 =======  ==========================================================
-> +
-> +Required.
-> +
-> +Specifies the Profiling Buffer management interrupt number. The interrupt number
-> +must be a PPI and the interrupt number must be the same for each VCPU. Arm
-> +recommends 21 as the interrupt number. SPE virtualization requires an in-kernel
-> +vGIC implementation.
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7..e7332bd82bf3 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -27,6 +27,7 @@
->  #include <asm/fpsimd.h>
->  #include <asm/kvm.h>
->  #include <asm/kvm_asm.h>
-> +#include <asm/kvm_spe.h>
->  #include <asm/vncr_mapping.h>
->
->  #define __KVM_HAVE_ARCH_INTC_INITIALIZED
-> @@ -918,6 +919,7 @@ struct kvm_vcpu_arch {
->  	struct vgic_cpu vgic_cpu;
->  	struct arch_timer_cpu timer_cpu;
->  	struct kvm_pmu pmu;
-> +	struct kvm_vcpu_spe vcpu_spe;
->
->  	/* vcpu power state */
->  	struct kvm_mp_state mp_state;
-> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> index 1327064d0984..8ded2d821bff 100644
-> --- a/arch/arm64/include/asm/kvm_spe.h
-> +++ b/arch/arm64/include/asm/kvm_spe.h
-> @@ -6,7 +6,15 @@
->  #ifndef __ARM64_KVM_SPE_H__
->  #define __ARM64_KVM_SPE_H__
->
-> +struct kvm;
-> +struct kvm_vcpu;
-> +struct kvm_device_attr;
-> +
->  #ifdef CONFIG_KVM_ARM_SPE
-> +struct kvm_vcpu_spe {
-> +	int irq_num;		/* Buffer management interrupt number */
-> +};
-
-I guess this struct will be expanded over time?
-
-> +
->  bool kvm_supports_spe(void);
->
->  #define vcpu_has_spe(vcpu)					\
-> @@ -16,6 +24,9 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  #else
-
-NIT, and probably applicable to a previous patch, but useful to put /*
-CONFIG_KVM_ARM_SPE */ there, certainly useful as things grow.
-
-> +struct kvm_vcpu_spe {
-> +};
-> +
-
-OK good this covers off the !CONFIG_KVM_ARM_SPE case.
-
->  static __always_inline bool kvm_supports_spe(void)
->  {
->  	return false;
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index e8a68e34be63..b9e5019181eb 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -447,6 +447,7 @@ enum {
->  #define KVM_ARM_VCPU_PVTIME_CTRL	2
->  #define   KVM_ARM_VCPU_PVTIME_IPA	0
->  #define KVM_ARM_VCPU_SPE_CTRL		3
-> +#define   KVM_ARM_VCPU_SPE_IRQ		0
->
->  /* KVM_IRQ_LINE irq field index values */
->  #define KVM_ARM_IRQ_VCPU2_SHIFT		28
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 56c5f937fcdb..f953b235b458 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -920,7 +920,9 @@ int kvm_arm_vcpu_arch_set_attr(struct kvm_vcpu *vcpu,
->  		ret = kvm_arm_pvtime_set_attr(vcpu, attr);
->  		break;
->  	case KVM_ARM_VCPU_SPE_CTRL:
-> +		mutex_lock(&vcpu->kvm->arch.config_lock);
->  		ret = kvm_spe_set_attr(vcpu, attr);
-> +		mutex_unlock(&vcpu->kvm->arch.config_lock);
->  		break;
->  	default:
->  		ret = -ENXIO;
-> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> index fe45ad4c703a..dd5f80318ba4 100644
-> --- a/arch/arm64/kvm/spe.c
-> +++ b/arch/arm64/kvm/spe.c
-> @@ -59,17 +59,99 @@ bool kvm_supports_spe(void)
->  	return !list_empty(&spe_pmus);
->  }
->
-> +static bool kvm_spe_irq_is_valid(struct kvm *kvm, int irq)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vcpu_spe *vcpu_spe;
-> +	unsigned long i;
-> +
-
-Maybe worth a small comment:
-
-	/* Every vCPU must have either the same or no IRQ set. */
-
-> +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> +		vcpu_spe = &vcpu->arch.vcpu_spe;
-> +
-> +		if (!vcpu_spe->irq_num)
-> +			continue;
-> +
-> +		if (vcpu_spe->irq_num != irq)
-> +			return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-
->  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
-> +	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-> +	struct kvm *kvm = vcpu->kvm;
-> +
-> +	lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +	if (!vcpu_has_spe(vcpu))
-> +		return -ENODEV;
-> +
-> +	switch (attr->attr) {
-> +	case KVM_ARM_VCPU_SPE_IRQ: {
-> +		int __user *uaddr = (int __user *)(long)attr->addr;
-> +		int irq;
-> +
-> +		if (!irqchip_in_kernel(kvm))
-> +			return -EINVAL;
-> +
-> +		if (get_user(irq, uaddr))
-> +			return -EFAULT;
-> +
-> +		if (!irq_is_ppi(kvm, irq))
-> +			return -EINVAL;
-> +
-> +		if (!kvm_spe_irq_is_valid(kvm, irq))
-> +			return -EINVAL;
-
-What about changing the IRQ for vcpu? kvm_spe_irq_is_valid() will abort
-even if only the current vCPU has an IRQ set.
-
-Also what about the case of setting the current vCPU's IRQ to the same
-value? Should that be -EBUSY?
-
-PMU seems to do something like that, so maybe worth doing that for
-consistency? Not exactly a huge thing, that though!
-
-Also looking at PMU there's:
-
-	/* On GICv5, the PMUIRQ is architecturally mandated to be PPI 23 */
-	if (vgic_is_v5(kvm) && irq != KVM_ARMV8_PMU_GICV5_IRQ)
-		return false;
-
-Is that something you have to worry about for SPE?
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
 
 
-> +
-> +		vcpu_spe->irq_num = irq;
-> +		return 0;
-> +	}
-> +	}
-> +
->  	return -ENXIO;
->  }
->
->  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
-> +	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-> +	struct kvm *kvm = vcpu->kvm;
-> +
-> +	if (!vcpu_has_spe(vcpu))
-> +		return -ENODEV;
-> +
-> +	switch (attr->attr) {
-> +	case KVM_ARM_VCPU_SPE_IRQ: {
-> +		int __user *uaddr = (int __user *)(long)attr->addr;
-> +		int irq;
-> +
-> +		if (!irqchip_in_kernel(kvm))
-> +			return -EINVAL;
-> +
-> +		if (!vcpu_spe->irq_num)
-> +			return -ENXIO;
-> +
-> +		irq = vcpu_spe->irq_num;
-> +		if (put_user(irq, uaddr))
-> +			return -EFAULT;
-> +
-> +		return 0;
-> +	}
-> +	}
-> +
->  	return -ENXIO;
->  }
->
->  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
-> +	if (!vcpu_has_spe(vcpu))
-> +		return -ENODEV;
-> +
-> +	switch(attr->attr) {
-> +	case KVM_ARM_VCPU_SPE_IRQ:
-> +		return 0;
-> +	}
-> +
->  	return -ENXIO;
->  }
-> --
-> 2.43.0
->
->
-
---
-Cheers, Lorenzo
 
