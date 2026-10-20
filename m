@@ -2,68 +2,135 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D07B4606A31E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:29:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4A2D606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 16:30:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rXHKVfYE;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a8foUJMU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rw/WKH18;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JDKd6S0Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jdyq0Zfmu33A//X/4Q8SrSfQyWMMoDDtV5zWpBiENk=; b=rXHKVfYEKmm8oKPBeIQaWsPR87
-	N4y7vI/jQ2ig3BIBsi7Sr/dpIBn345yU6yuHGmSSXC7kOCSNkvlOiRPr6TnO3iwIhe37RI+4LZ3/E
-	UvDefqmDGG+xGBlSfTB4kKmb5InBRkwpPw05bOzlonV/+XiAVgOYB44G5GpC1fvH/wUInZkZsYPpO
-	9kvmLa9QZfm7Oze2aMnSbKO8jVMDKE1GTjjt/fbE6B6POUPa27OhaOzoWbYa+BR0Zj/MamZ7TUGwr
-	cdjzntQVjl6Bf5cLskfY2hVI4wODwQEX1XrTK3JA+viU7nQ2Gz9Cm7+LbWHn1XCSt2+JxbpBqc3jH
-	Ri8BPIgw==;
+	bh=jzHxeokEJaVo1IDFXsDAbwiREVTzVQvjrk64uj9lGnE=; b=Rw/WKH18tpTAHgo8xAz27z/y6x
+	4R3fdCseYE4x6bsCjSE4dUctZ4hftKGO7DOr5P7Bjkf7/6aLICq6pIOTI3x8B4g1G64bWfhQlABfT
+	oPBVQVuLDyNFHpF8X2mMfX+gMEa3vhcCB7w23OiO1vFnQU0LA69VOPwWyOKz8cZeqVPtI+fJJ1yAt
+	oV5iIFnsBoSWHr7BioyTIfTeKB7ES7MazEO/86ju6GvniCXl31JOmnOFLPPo1LA094LSyz1EDnIfP
+	rfTakuIApVXwF2Lvi+/QnOeaRs2PJEDyFEkRRE6wMpeRiArceEKks8X5SxZYgW21U8qmmyQiH0MJ9
+	fqdiUNhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCiB-0000000AB32-2RYS;
-	Tue, 20 Oct 2026 16:29:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xJAnU-00000009w3p-0TDf;
+	Tue, 20 Oct 2026 14:26:36 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJCiA-0000000AB2U-0NaQ;
-	Tue, 20 Oct 2026 16:29:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 19F2E601F9;
-	Tue, 20 Oct 2026 16:29:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B7161F000C4;
-	Tue, 20 Oct 2026 16:29:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792513752;
-	bh=+jdyq0Zfmu33A//X/4Q8SrSfQyWMMoDDtV5zWpBiENk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a8foUJMUqu5P8nKNaWlNLtBvXMXfnCOSwrfbCydwXzOCOwyOLWOebj+1l10GTer8h
-	 zsAEyQyGQeia0G4wyPi8tP1/HOz3S1r6tDqL0O0E+QAaxHrxPasJbjvusut16walxr
-	 2LyYRwbJnG68aDBb+FHDuG2OVSWQfJkotjPte4vOcuw+eISVmy0eBtTPL2Mz4eLmKk
-	 aidzs3wwJ0pkxCpHds+sahsI6kBunz76pRCaGuflKNYQ/kkZ5XJlFS2UGfO7rcRBKR
-	 d5Dd+DhMu5yPj6Lhbah+g+UMaR3fghb9giemCvasfEds9TP68TCT0zTjQU5q2mkom1
-	 GaGDfgsY9luRA==
-Date: Tue, 20 Oct 2026 11:29:10 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, linux-aspeed@lists.ozlabs.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org, Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v10 1/3] dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
-Message-ID: <179251375007.3988760.929772865298588176.robh@kernel.org>
-References: <20261020-upstream_pcie_rc-v10-0-fba209af8656@aspeedtech.com>
- <20261020-upstream_pcie_rc-v10-1-fba209af8656@aspeedtech.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	id 1xJAnR-00000009w38-0ssy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Oct 2026 14:26:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DbKEfJglbLe51r6iJma0v8S82lJFh6revG6K7jCGrsjRqBl7Ga7Mr5g1K+qJlGLFZHeRFL0+Rd8Yyg/cFQekowdAkddebDfBZYaDJ2rsv35B7i2WqytfLoCEmnrlJu4qup9iF86CPD6nRNxkD9Wm+IvFb5N+RcjXgMsd0GkN/KNaJ7BN3uo3qS07/3TrFKg+LRwYSXIclNY7ginwsWViruZoPtPmQrt9lq/HH6zdm0eU8abjKHt2YrCiAOkDdSnn+pc7rziwt+Vj/tEW9bLpncPw347lGOuiYgMnxf0v/rQglNKFdzborjitMUmguHxFCq0+lmjA40j4CY2wCTwidQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jzHxeokEJaVo1IDFXsDAbwiREVTzVQvjrk64uj9lGnE=;
+ b=YoepurER8vekODd7pDTIg2oBvNTp01AH3Rx3lPpEEPQcSstemWRZp/Vn1WqlVmv+Z31A0NawZs/p6RmOlsj/P7GRzhnBHBtcGCIW3/cOyjTrDuXlnRUz9+gHz/C0FNfNA+6VvRA6fB/EGrz5fz2E41INNsYuVn5V67FXgwNanZrnDzWtaUjg0VpHch0pgmivzFkA4cXfJDf3x8RL6nS8XjTAe9w+8DhnOTgrzSFEdLgn8NnbCOzoQGspiW6bbm9ZcbxLGc0rMp5p0Xmc17IhO4z2+qwAxVLx++RpS6y1mfOKBPeD1Xy4yNMcnUOPrQi7sTWviY625jcWgkuC5kzEGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jzHxeokEJaVo1IDFXsDAbwiREVTzVQvjrk64uj9lGnE=;
+ b=JDKd6S0ZYN1GSPAAbChBT2On5P+bxH7vphCZJcCDaOOvJTEtW8DV/SPC2vENfQRJo3rLxquowNDVKeN3z2hmkYyX/0fjX7kiz5D03qoVfnR1qQUVZXKqOHopW9FLHNSb26b7cfhJvqPowyP+e19z/62vWXj9+4aF7fPed1UWRAja5HCrD0bBr4dG3ieCTaDnLu/KIeFdPm7on8ttbtsxyOGkW/NqIAEToNmkk/z6AzLXrm1A2eM4kcMH+O2UHGTj7RreLq6lOqH88+p8kUt/9icKixeuaoBwoTthihTDHKd8w3z6rAOSBwWz6K2SrmgLfzelnl0yl/aAJOBVSGMZeA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by IA1PR12MB9500.namprd12.prod.outlook.com
+ (2603:10b6:208:596::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.23; Tue, 20 Oct
+ 2026 14:26:26 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0546.012; Tue, 20 Oct 2026
+ 14:26:23 +0000
+Date: Tue, 20 Oct 2026 11:26:22 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	praan@google.com, kevin.tian@intel.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
+	Cristian Prundeanu <cpru@amazon.com>,
+	Breno Leitao <leitao@kernel.org>
+Subject: Re: [PATCH v11 03/11] iommu/arm-smmu-v3: Swap EVTQ_MSI_INDEX and
+ GERROR_MSI_INDEX
+Message-ID: <20261020142622.GD3008132@nvidia.com>
+References: <cover.1791226953.git.nicolinc@nvidia.com>
+ <630e70ba13639e5bd86fca0b574dd47dddb7fb92.1791226953.git.nicolinc@nvidia.com>
+ <179190297652.2261874.5664965715184131627.b4-review@b4>
+ <as5tVAzw2TAX5bEq@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261020-upstream_pcie_rc-v10-1-fba209af8656@aspeedtech.com>
+In-Reply-To: <as5tVAzw2TAX5bEq@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0424.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10b::24) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB9500:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96a394d5-179e-42ed-2e58-08df2eb61e23
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|23010399003|4143699003|56012099006|11063799006|10067099003|18002099003|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info: VXsP+1yK+U5v+uBDqo8LC/6L7Y0plt8zDYFvlF67XOV5DMNmjlnFrO69O1e2h1aKX3EezDCLDFoyEVkMVhdzWf8QaaHkqiME5qk4mKWn6mgEO0UJffqO5NKN5MZS1wZ9wWKjVvd038yZBeTJNinr5N9xDsvJDG9NcKOXWOhFZHCJ95CrbtTy7UH0qwca0OMjasbLhmYA7l2qhc0jIK3cYG8Er0bAp0V68a+PRnDBRYOMMZa7l0x5ydF4V+6Jff8isvKAWQIV+NWJ0GDhwPI4Bbun+421LSKGeBleiwFUxJs2zS4eONhD28PmBHekWgewfIuiypUtzcU3K/ZO+XcLqGv76qWzJunwk25IJ66sKRHCq8A5Fq/ylWLqx6vdpuB0qwleEco45FXYHBrlcW808mLbvgyNMzHa1SDYQTe6Ni00BJB53+IBBNGVyoe9UbtHX8EpP+qkdv27LZt81obmtJrYAnyCOLfnRgvUmhn7kUu2uL2lDRLe6gmD6qby05y6Voy1Ex1gdp06Fs56WNKk2evFa6J6bGNZZ3LGk0JmxaRfAdwvg5eQFR41vtg75pIn4YM2xSg2wuMnAc46BB7m3djSRMO0IrQZ1c8ml0qD/U8Gk02O3wTt+wF28cJFIN4Jxo+CalB0zC+je3eZ4CwhCuk6hBN8w6LzBFc56U9Kg9k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(23010399003)(4143699003)(56012099006)(11063799006)(10067099003)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?n6QF6li6izjzg6iRLFBxNgAv0xfUks8mBUNTvQ++CzJD8hg0EWx7wI7BVlMN?=
+ =?us-ascii?Q?be7uOWu7aVBuxc4VWIe7A+Vpu/8GhG32bdX61j8F1P4pZ/4I7n2f4eMbFo/P?=
+ =?us-ascii?Q?IiA1ygsciXjKpHWlGQUcqXlVdiN9jIaGFp6n1ikaV33xuV3lURi7IXO4IVUF?=
+ =?us-ascii?Q?zV07Rps0K2hi/ezCJfcQfWl/Vg1ZSbrRlcAtnODrgGRQcdmgHo6dMg6vgFDn?=
+ =?us-ascii?Q?8db/uUVh7kd6F4QEOxuDwJ0IuCpBCEJq43fhOw6XLJWUQqEuIKJfPZDRsCae?=
+ =?us-ascii?Q?g5Y6kOLzyQtWqZcE7H5r3c36F6G3txMGcTGMqBo5+gGUQxw3wFLL2fG9juN2?=
+ =?us-ascii?Q?5sy+4XPVDgVtlDpn6vkGWuIyxA/Z9rrTfALuIbtGaJ1ilhaBsmvXpEjIWcgv?=
+ =?us-ascii?Q?KI3dWJhwXVzm8mDvOI7ZAMFwnAQWj3w1KN3hUrVsoL0y32MtDnvfheUfqATW?=
+ =?us-ascii?Q?bxzu7tprUPVbv4wWu5+DmIkID+ovD3sikbWuy0kJJ/klbHzwqhAgYyequhSr?=
+ =?us-ascii?Q?dnOP2cFPzvDMEiqxo3UTLMBBGPuHNyHDO2M4RiZjYjnXGUgk7+oM2DHgoosj?=
+ =?us-ascii?Q?bXzQ7V5zyETDEdAu0fHqA504yMJ20LayZ4CmzdPTuTu/2Z1XvBf2rMliYtvX?=
+ =?us-ascii?Q?uRwgq929sZX+8X5Hidk4ICagtsayIRl/EFg/+YcoomeQg1Sqaw/vh4Rq8q/W?=
+ =?us-ascii?Q?zpyq2oe/lsZDOAKVfhdE7awtCT102QJ+n/XHzNpUfV/898Sqr3akXC7UGn1y?=
+ =?us-ascii?Q?fAk2gLUQ9XmHgB2m/tQGxM3S50J8MrHeDvP65XrbIVm/diYX70SDtPucTC0A?=
+ =?us-ascii?Q?jqEpEUFiZANBJAuW/I7lWO7JU5DmxR9+netucMQjuxyNDyBgAo6Dy1RpeGLX?=
+ =?us-ascii?Q?kPLJjdSfWMcwWywgdVtA9M+85peHKObAseZJBkD2l4gSbsfrmi04uzZ8J4mP?=
+ =?us-ascii?Q?jdP8Smh1w5KbToXgXLh8ixQvwDNzA0qn3Zal+DjThkSRhzfdfYCXl0t8zT96?=
+ =?us-ascii?Q?AKZe+AcEYsRsdBSDapkcijxb4sCm2PDR7jsAoTt+lz74stJu5xdIOZJO9Lio?=
+ =?us-ascii?Q?jrIWUixiyAGjcDEtrfJP2xzEh7i56B9EQeZsb7o7aa5Cr7PSwFgs1Y0sjUs7?=
+ =?us-ascii?Q?4QBo4oZFkW0Kq7MMMuV4Oj1+5KZBXE0G3KHsSSV9tRvvcVbnqGSSB9q8y411?=
+ =?us-ascii?Q?eXaRXiCrfRU0R56pTrM+SDpZqp1zMo1esVsjQ/sOuK6uyYBWvVcJ4ffN1rhi?=
+ =?us-ascii?Q?9vvmkmEfhgL6AjYy7pqOYCoN+6UK60CWaQ+k1PjxnzskksVGeod6ohxgiHBV?=
+ =?us-ascii?Q?U5xhFA79dOwaMY+EZjgTUmUWzWjkEojLXn0lNykW54p/cdoSF1H38TYrIm3h?=
+ =?us-ascii?Q?C1CACYMAxA7Mwroj+TnrXgS+GklZQJmyb+j6XUhVQgzAGD/h5Bncvs4hb6Y+?=
+ =?us-ascii?Q?z3mv/bWUjPpdLHll/mOJ8C+L58rTTCL6B4rA7dECOuz0L0ZVvxTBc0pGircH?=
+ =?us-ascii?Q?gUu2ps+sID5tphd+3rK6ESR0iVJ3cjS5T0BfwIRJByrhIgSgPM6Q9WwUOEZp?=
+ =?us-ascii?Q?C11VqhnYxqxdGUoxk3SnOYqsblqTFGuA3YtvgqwbgfEf2Y5Tyqeqk+QVrlLe?=
+ =?us-ascii?Q?0lq28xbN22dp6Jp+Rz6ErTcOEnznxpHvyHrsK/C7J7vPPR/U2k8c1WUW5B2M?=
+ =?us-ascii?Q?72KAKokUfwPkdTTX18v4lntSqWFEwYH2tNhQu9joICh8HhFG?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96a394d5-179e-42ed-2e58-08df2eb61e23
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 14:26:23.5262
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fzn7CdXWk5lDjprnMvj3sCkdcSgTLGlXrpG2vpN//dFo5JcX3SxLlyfZHoWXJp2q
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9500
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261020_072633_247750_E07B8304 
+X-CRM114-Status: GOOD (  16.77  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +141,46 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-On Tue, 20 Oct 2026 19:59:49 +0800, Jacky Chou wrote:
-> Introduce device-binding for ASPEED AST2600/2700 PCIe PHY.
-> The PHY provides the physical layer used by the PCIe
-> controller when operating in root complex mode.
+On Tue, Oct 13, 2026 at 10:41:40AM -0700, Nicolin Chen wrote:
+> On Tue, Oct 13, 2026 at 11:49:36AM -0300, Jason Gunthorpe wrote:
+> > I think if you want to compress the nvec's array it should be done
+> > directly.
+> > 
+> > The smmu should have a small array
+> >    u8 msi_map[]
+> > 
+> > Which holds the xx_MSI_INDEX value. Then arm_smmu_write_msi_msg()
+> > would indirect to get the config:
+> > 
+> > 	phys_addr_t *cfg = arm_smmu_msi_cfg[smmu->msi_map[desc->msi_index]];
+> > 
+> > And we just compress msi_map as we go through the normal flow
+> > 
+> >    index_msi[EVTQ_MSI_INDEX] = nvec;
+> >    smmu->msi_map[nvec++] = EVTQ_MSI_INDEX
+> > 
+> > Then it isn't fragile at all.
 > 
-> Describe the compatible strings, register range, clocks and
-> phy-cells value required by the PHY provider.
+> Thanks. I replaced this patch with:
 > 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  .../bindings/phy/aspeed,ast2600-pcie-phy.yaml      | 49 ++++++++++++++++++++++
->  1 file changed, 49 insertions(+)
+> Subject: [PATCH] iommu/arm-smmu-v3: Pack the MSI vectors of the used sources
 > 
+> arm_smmu_setup_msis() skips the PRIQ vector by decreasing nvec, which only
+> works since PRIQ_MSI_INDEX is the last index. A subsequent change will make
+> the EVTQ optional for kdump, whose index is 0, so that trick won't work.
+> 
+> Pack the vectors of the used sources instead, and record the source of each
+> vector in a new msi_map, for arm_smmu_write_msi_msg() to find the register
+> set, regardless of the sources in use.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Yeah that looks pretty easy to understand
 
+Jason
 
