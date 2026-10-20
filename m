@@ -2,76 +2,157 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B00AB606A319
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 03:29:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B05606A319
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 03:56:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J7Qb2IV/;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XSKQrgUG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NzBbTNd/;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jy/7Gz8m
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eYhpFhCV1vkP+5Z5Z8wHRbiIDOGVJbobZIYMKB9tLZY=; b=J7Qb2IV/8OyY4eLoguOH/FHt2N
-	4KxiJo31hdNGQhUAYR6Hd13FHayBFmPQM4khx3n8y7IZQrj4O6hwZUgpMZ6vlEKAKSq1audhpWhgr
-	SvLYcRSTdIfQOlOSfr4JKhSLXI/ZkxhjAjH1Y8A9Lbh3wX6MbPrqMBGJ92uw14PnwoHHQyg5HJDks
-	NF/cZ27dumHWftUuTxCUkzo7b9U2ZjOteD1PxPU187FhwSd1bKC67uOFgAhCat1FQ1TtWoDwK1Rwc
-	5wBqIQmUyvuTHi6d0s1ngpnbqgMXF/9tFHw1PmuimK9L/hbmYP27mpOGxTt/CMhPCT9ARLPoQmPEH
-	/7MsLZcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=; b=NzBbTNd/7mK8j9wd5OBi0CsbqO
+	aCTonPVkn4nqh7HzbNqF5lvzgVUTy3DkZTKefO2lrd2OUYMyHmgczCQ8BmPjZGpJszT1ib9cbswjv
+	V0x4nTBQb3AEm0hDSgRZ6+vauk+F7sZi8UXCt9WlKv2gjseWBPGpZ/4apbRtaOaPWVCCUpbC3i7ZB
+	Xt7Y8fPm3ol1ko09hj4Sj5Mml6hiJMi1A5TMNqhn2ICi91hpwrJ8W+ozMsWq96rfqSGzHblxHNX/C
+	/ajCtJnbbaSADm9KC9WZ309rXDdvz4KhKIQYz9ZDXvRuEeY4ep00rF9HZrhHk1j4Os1RrYPaDLSfk
+	2tEhXyKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0X8-00000008n8Y-1H4g;
-	Tue, 20 Oct 2026 03:29:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xJ0x3-00000008ofP-1XYG;
+	Tue, 20 Oct 2026 03:55:49 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ0X6-00000008n8I-1COf
+	id 1xJ0x0-00000008oei-03jl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 03:29:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 927374019A;
-	Tue, 20 Oct 2026 03:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 877581F000C5;
-	Tue, 20 Oct 2026 03:28:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1792466939;
-	bh=eYhpFhCV1vkP+5Z5Z8wHRbiIDOGVJbobZIYMKB9tLZY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XSKQrgUGH/vud0NN4jnQ5CZIK6KTjKqy0BRlpbRhVKNnj4v0bVWBb+Avzcb2qEBUW
-	 m45bzOoiGv+wH2OjTiwNBlCPLIjGVEMJNSpEXeF5RKgG6cOC3PXF3S3d3LdlXlhjXJ
-	 Wlnro1p4sJH927Cl1e3sLhEJLgj4cnxBui5nQlVE9LCrUX3Ikc1fmPYcY/gHtDCP4x
-	 X9Tu5NDX+qQmkegmfLtEwJmUY/iOlhQXa7aXruy0J/Fn1VNKdREfGXCLELl+dr4uoC
-	 xmwItsj5+5HNstG6De1zlVCD26TutAkE5EW/8+xqPkS8s9HqXJamhjmxL5HpyQxKT0
-	 IVb8uS6oufAxg==
-Date: Tue, 20 Oct 2026 11:08:54 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: disable TX checksum offload
- for jumbo frames on bugged cores
-Message-ID: <atbbRqSJIJ_glwuf@xhacker>
-References: <20261012-stmmac-xdp-tx-pre-fixes-v1-0-05fd0c90f7e1@oss.qualcomm.com>
- <20261012-stmmac-xdp-tx-pre-fixes-v1-2-05fd0c90f7e1@oss.qualcomm.com>
- <6d1d99b5-1c3c-4e59-a0b2-e4d671e594ce@bootlin.com>
- <ata8k2EVDCDTmeE6@xhacker>
+	Tue, 20 Oct 2026 03:55:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qMmt7TLH215xsbRnvZNqG6xjfdLTMzkQfOlFK26K8Ws+0auu4PKuFdgq2PQv+HIcIpJCCbU8/2wmXG9hsF9gsDXA/Zn04F7E7z9hDIDcyfuhgOs5mxwxmZMM8wLXOSmY0ntFczR31VrWv0y2zBAshHVdu6UZhNt5VzD96pcKyvIjvX8huBrQP7bcTpla8G256yGVAoHZElzwK4Etx97zHkvA3BXrvb+FZnUw40paSDAj1teivHRtV5yOqcHeb28D/CN75ONswJB+yX/fHunOfP41BG6X+alYVxfnjMlLnVGGMgNPCIUYZZ4YnrSO0LuhcVuQdF9KaJ95wgnPk6yicQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=;
+ b=ZKXEwW2IBspS7t53k7p2UvQJ2FDp0R23di3HfsfWZMFKgiPTPQ/m8BjRXzhYtB7v9jybC/8W5GGDjVTxwCb4JALrBGpWPPzzrOT0+Df8lqCii3NeLLO13H/XG0vwfuKAS3hc4wb9kS34h3OvmA4yUKhpWcPQxitl8vaP4XL0VV454CZpyCzkApJ11/H/Fzgy6a5aQm5RjYUF0/T34tShk5gSPHRQllBdeTXUNeEDeOsqwUQaajyoJ2PD7CFaRxP0gR1gvbPsWOdRw3UDPfaZhIzoSFQHWBlTA7lmxw8FQD8FJp2CslHdHNadi5BgLy0ZOs6t0NRAn//qc5ncPgCULg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sB3EMeCLT6tUp6/1r4igHRDKO9JLOX6M799+v8giSI8=;
+ b=jy/7Gz8my3qMgIso+OD1Ntns728wnFuZ5yICXvZMivl8TmSJaGtuAraxDwvEOemm3ETX4s60bLPl5YoR1bcrLl35cc12HjeKZAJQZ2MlidIV75UxHhdQxyDxFRk5LIl/ZBuu+gb7i1DOA7VAFurJNuhNWLhrzazer87BfA3Za8Lrof4DaiPl1dV8CEVcmOzbUn51sgenSSD2ZvyA89v9gn2SFxo0+p+V0KO0jn3nRi4jrkuoxRIuGDG02K1bJryOfhYz3WYo2X2rQ65KOhbVUSfOOq9qm2GOpTYnMGDQPBtmJlg20eBdA/KXRRJaTCI7ncYrczk9s/SeT6zFx36Rzg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by DM4PR12MB9071.namprd12.prod.outlook.com (2603:10b6:8:bd::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Tue, 20 Oct
+ 2026 03:55:33 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0522.017; Tue, 20 Oct 2026
+ 03:55:33 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, linux-tegra@vger.kernel.org
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
+ Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH v2 06/11] ARM: dma-mapping: Handle foreign buffers in
+ arm_iommu_get_sgtable
+Date: Tue, 20 Oct 2026 12:55:19 +0900
+Message-ID: <lJdkrMxST1imtqkbsWFTHw@nvidia.com>
+In-Reply-To: <52c9bad4-39f4-46cf-87c2-9e57e8beeb5c@arm.com>
+References: <20261016-b4-arm32-iommu-dma-cookie-v2-0-b06842a01938@nvidia.com>
+ <20261016-b4-arm32-iommu-dma-cookie-v2-6-b06842a01938@nvidia.com>
+ <52c9bad4-39f4-46cf-87c2-9e57e8beeb5c@arm.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TY4P286CA0110.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:380::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ata8k2EVDCDTmeE6@xhacker>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|DM4PR12MB9071:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6be499c2-cea7-4e80-4dc2-08df2e5dfdb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|10070799003|23010399003|7416014|18002099003|10067099003|22082099003|4143699003|261009223027099003|11063799006|921020|56012099006;
+X-Microsoft-Antispam-Message-Info: nePAV7UVQp1RZna1LlatTSCgX51kICon8SatyM88NA0fh5gHEHWV5+Pp1b+Ga7r9Y4219TEKWMK2y7E8viJCn3yWCRc34VZFm4UEr4WxmE22CRdqMRqFIWhPUKO2SJ0uaHaxmFG1vyyqUxnMUBiQ+VqDRYrZsIV8iQidz9uqvPGf2Hb0E4BNvMLw0n0NKzEouIeglaBpVbTij5qdVjIx7cLMfPTC62kpseLoATQ0TEVtNm6pkW75nvSWDRkW9/cXrgFEAnGaw1btxqnb91gzkbIWgbsF/wgNCJ7JCLBbYwnfCpGXvjrvWX83TIxNMonWkRn1+HAuBaFJIHKN0N6b6Fuaj4s8muN3A2q8C1c35UFZiZRNGNsqeFtr74pa4GsUegIDOCS2hnGSOJR1ETJ3FdlQDzvenmLf4Gm/PTnBssQ2RZAcktaEtqCb90sTibGD/Af3EiIgLtChxXyyix2vykZTOPQtoVvDBAZj0Lf1KCWx+02RKgG+4oR7HUY9Qy0kTpbwIARDQINoJEn98qgOS23XChAyhzhaJ5+44X7eZxt1Q76XadQIR1Rh03YJL5tXK+3ytjdxMywXm0Xmf9kcYwydR/3Fu/OKzT3eq+t2jdDvagixIn41hM8FGPGzfnoiA4otWA+fazNY49cG2QZoZsbgyVut672jMg/skUv5xrJWSQB4TwFl9a6TjnVDY/U1udWCe9QY0eEiP+FHxmcgVw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(10070799003)(23010399003)(7416014)(18002099003)(10067099003)(22082099003)(4143699003)(261009223027099003)(11063799006)(921020)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGR4RlF3QUZNc1JqUTVmeWc5VHBOU044aWZ1Q1BsMUNOV01BVk5QK0dlLzBU?=
+ =?utf-8?B?bU1qMWpvWng0MitUcGNSSkUzaVM4eTlKTElUQWVmS1lLdVptQ2hLYnZIZHBH?=
+ =?utf-8?B?RkpCLzRuQ0FtdDE2K3V6RGNMNXZUWFV3VC94QVk5emR5a0t0RlZCYU5LVmdH?=
+ =?utf-8?B?VG1kYW0xZ0M3ekVJUDhHNTdRSUp5T2l6V2kxdVJBdTNjODBnRjh2TnBQQ01W?=
+ =?utf-8?B?MmFvSWhETUo1RmhUeGZzYWR0ZUZhaGJwN1pMNHNEZXNjc29LU2hLblRLbGtI?=
+ =?utf-8?B?RWNYWGJLUm9XRTRqYWVxbjEvVVphbjFZcHdVOFc3dEJ6Qm9YRFlWYVJPWktC?=
+ =?utf-8?B?aGxWa2RNNVVZNlJTd05ZemFKWFhabE85MUMzR0l5aVRZeit5diszUWVyVzY0?=
+ =?utf-8?B?MCtvRGh1K2syOWNzWkVaUm1MQXZaY2pFK0RUQ3UvWURqOHhORWVSUXhlNDM2?=
+ =?utf-8?B?YVVkVWk2K2ZvaXdjL1BQdHVHMDB6OWw3QTQyTG9wTEVjUlZIeTBzT3JybnJX?=
+ =?utf-8?B?dlRETnpZMnVtUTNEUlBZdnJaS3RkcTQ4TmZLVndTSlBHNUpLbmt5TSswL2d2?=
+ =?utf-8?B?dlhpaG5vbXRBVzFXaEpmbXB5OGFZazJ5L0VxcjF4MUYxKzJKNERtR3ZDNVp4?=
+ =?utf-8?B?K1JqQ2JRVDk4L0cyNkVVZDJsdHNmVmgzYnZzaXdZMmN6NXBPWGRPM3B5bmNy?=
+ =?utf-8?B?MnlwSlBrd2UrR04ra2JNNWFOQjlwcWhsNGJ0ZWpOczJNSml4RDBObVJ1Qmxt?=
+ =?utf-8?B?UzY4NThQVUtkTjBaT1F1RHMrdVNBQUFQY29heUdBbWNNUnVITzZXM0hXaGw3?=
+ =?utf-8?B?ZDQxVWpBb2tiNGtDSVhIUnM1b3BwVlJLRS9mNldDcGxWR0pxcW9nNTYvTXVN?=
+ =?utf-8?B?RHRpVEtYdUhNQ0k1ODdQTVh0Z0FuSHZyaHRrczJmSjJKTDVKd2J3SlZ3cnNK?=
+ =?utf-8?B?S1FTclhEQXNSK1FxVlRjdHk3SGtGVmZPeTJNTWlhNmZzZWxSR1U0Q2Vzbzdv?=
+ =?utf-8?B?aU9ZZ0FWbXNTMHFxV0lTNHV3a01hcE9qZk56SGZ5blFucXlkTzhlanQzT3hR?=
+ =?utf-8?B?SGNtV1BPK1dDbTdReFJVN3IzTkcrVjdFMFFSUE9Eakl4SURoWm13T1lUWGJy?=
+ =?utf-8?B?OFZKYVRVV3JRS3AvdUNGYjE2Nm90M2l4YWtyU3dpUmdlVkVCdjhiWXRqZnRw?=
+ =?utf-8?B?SVZoYlIwNkJyQUNMNzlKeWJaMFpHTnU3RC9ySG1hODcvMDZsdVZBRWlqRnhh?=
+ =?utf-8?B?citJSTJHZGFCVWNQSzYrR3QwenlTSk56Zlg5c2g3bzlzWHBwNFl0bjFvSEtk?=
+ =?utf-8?B?RG5KdVRiMUpraVp3YUQ0TDBDdFVXbEQwRkZBOEJpZCtNT21rKzEweDNoYXZy?=
+ =?utf-8?B?VnFsaTYvQ1RlbjJKQWs0dU1DZ0Fod3ozZUIreGFqN2NYd3N2SUtKSnE4RGZK?=
+ =?utf-8?B?RzZwZWpUcy9VM3dZR3p1K201QWl2dDRSbVo4WlR5SnNXMlZmUE9aN2x0dlFE?=
+ =?utf-8?B?RGlTZGg4YmhjVXQ5ell5aWFzRkhSYnA3Y2pNS283S2t4cnRoaXM5VG9ZTnpZ?=
+ =?utf-8?B?Um9aUVhuV0NkVjc0djA4YlMycUZIVXIrMFVDRENpMzdGSVpudFVtVHZIbDZV?=
+ =?utf-8?B?V3ZDWjA0dldPdW5ONUUyMFhDZnNyeGRtUUFYTEZUclFPNDE2OERISk9GRExz?=
+ =?utf-8?B?a29nQzM2dFVwdm5MVWZoNzVwbWQrQmpQRWRzMWpRNldZMmVhVitaeGJzcUJP?=
+ =?utf-8?B?T1pjTWMzblF5YTk4dmhDbmZGM0E3bzlRN1ZUSmYyYkw0c2JrZy9GUGJxSStj?=
+ =?utf-8?B?QmdlRUk1V1RtMHp0UjRwMjhtVXRWY1lXTno5c1hXYUVraHhBblRlVXBqV2RC?=
+ =?utf-8?B?dEhrOWRsRGwxRHhPeHQ3K0RHYVV4eUt1THZtMHVIRCtoUjJHMW1DWVpXOTF4?=
+ =?utf-8?B?cHdQcmJackJ5K0xRRDhuanB3UjEzZjE4YU5UNFR2VFRaOEFVanZybEg4RjhD?=
+ =?utf-8?B?MnZrMXFKU3BEc0UzUUlMU080WXpqWTFPRTdjVFZwMHJWMWUyN0FCS3p3ZTRj?=
+ =?utf-8?B?MWI3RlQ5eWhoeG83ODNQQ2NwVjhqZVRCUmk2WDdsS1gzNm5pWUs4OHQxMktI?=
+ =?utf-8?B?U252M010bG4vQU1ubXJCblMycmhKNE05YVFxSWsxZjJPdElXbWtsNUNTcEdX?=
+ =?utf-8?B?MXNiUVRVN1dlcEFwY1JxemhtS2VMSTBRTFl4RjlyV2lySi9lZzk5aTdLRXpm?=
+ =?utf-8?B?U0JUTXRIQU5RUXh4U1hhTkRZR1dCdnZvSjluRTJYNVE3WVBHczZSS3pnNVNN?=
+ =?utf-8?B?VE9pN3dMaWM3YnBSdXhwVTlQYTR6SGppbURUMXc3d2I4SDFsS215S1dJSlh3?=
+ =?utf-8?Q?CvgHndWuLL3fr4q+WOrJKXfoZa/ejz8eEeHW1uMfOPQ55?=
+X-MS-Exchange-AntiSpam-MessageData-1: X0aWJxPhDNV3dA==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6be499c2-cea7-4e80-4dc2-08df2e5dfdb3
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2026 03:55:33.5313
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eEvpIkQAYFOgs3V3ayXyhOpaWUb3q+e5uQQazGMuTTeiknlj5Fh0TRixI3HW0Ty/JoBhC+Rxq2uww1NhABrkxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB9071
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261019_205546_068593_1B5B53FB 
+X-CRM114-Status: GOOD (  31.40  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +171,95 @@ X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 08:57:55AM +0800, Jisheng Zhang wrote:
-> On Fri, Oct 16, 2026 at 04:18:06PM +0200, Maxime Chevallier wrote:
-> > Hi Lorenzo,
-> > 
-> > On 10/12/26 17:24, Lorenzo Bianconi wrote:
-> > > stmmac_xdp_xmit_xdpf() decides TX checksum insertion from the queue COE
-> > > capability only:
-> > > 
-> > > 	csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
-> > > 
-> > > and lets the enhanced descriptor set TX_CIC_FULL accordingly. On the
-> > > bugged_jumbo cores (snps,dwmac-3.40a, snps,dwmac-3.610 and
-> > > snps,dwmac-3.710) hardware checksum insertion is broken for jumbo
-> > > frames; the skb path works around it by clearing NETIF_F_CSUM_MASK in
-> > > stmmac_fix_features() when the MTU exceeds ETH_DATA_LEN, so skbs are
-> > > never marked CHECKSUM_PARTIAL and no checksum is inserted. The XDP TX
-> > > path bypasses that workaround, so once XDP is allowed at MTU >
-> > > ETH_DATA_LEN, jumbo frames sent via XDP_TX or redirected into the
-> > > device would leave the interface with a full checksum insertion enabled
-> > > on those cores - exactly what the workaround is meant to avoid.
-> > > 
-> > > Disable checksum insertion for oversized frames on bugged_jumbo cores in
-> > > the XDP TX path too.
-> 
-> Here I want to query a generic rule from netdev maintainers:
-> can XDP frame enable HW checksum on dwmac IP? Per my understanding, the
-> dwmac can only do HW checksum for normal particular packets layouts, such as
-> TCP, UDP. What about if XDP transmits a non-IP frame?
+On Tuesday, October 20, 2026 12:47=E2=80=AFAM Robin Murphy wrote:
+> On 16/10/2026 7:46 am, Mikko Perttunen wrote:
+> > arm_iommu_get_sgtable can only describe buffers which came from
+> > arm_iommu_alloc_attrs, and returns -ENXIO for anything else. This is
+> > stricter than iommu_dma_get_sgtable(), which falls back to describing
+> > the buffer as a single chunk.
+> >=20
+> > The difference shows up when a buffer is allocated for one device and
+> > mapped for another, as TegraDRM does. Buffers are allocated on the
+> > host1x logical device, which has no dma_configure and therefore uses
+> > direct DMA ops, and are then mapped for a display controller behind the
+> > SMMU.
+> >=20
+> > Add the same fallback as iommu_dma_get_sgtable().
+>=20
+> Hmm, that's not actually what it's for... :(
+>=20
+> The "fallback" is only for the case when iommu_dma_alloc() has hit the=20
+> dma_alloc_from_pool() path, see a98d9ae937d2 ("arm64/iommu: handle=20
+> non-remapped addresses in ->mmap and ->get_sgtable"). It was never meant=
+=20
+> for dipping into *other* DMA ops because the caller has erroneously=20
+> passed the wrong device. Just like dma_mmap_attrs() and=20
+> dma_free_attrs(), dma_get_sgtable_attrs() must match the original=20
+> dma_alloc_attrs() call - that's a bug in TegraDRM.
 
-or a generic XDP guide from netdev maintainers:
-Since XDP can tranmist arbitrary Eth frames, so how does the eth driver cope
-with HW checksum if the HW checksum is intended for supported IP packet
-layouts rather than arbitrary layer2 frames?
+Ah, indeed. That's easy to fix in TegraDRM. I think this happened=20
+because TegraDRM has this (a bit unsavoury) use of DMA API on both the=20
+drm device and the actual platform devices side by side.
 
-choices:
-c1. Simply disabled HW checksum by default. Then XDP prog must provide
-checksums themselves, lost the HW offload cap for IP packets.
+Thanks,
+Mikko
 
-c2. detect the frame in eth driver's xdp code path, then enable/disable
-HW checksum accordingly. Then how? Any example in exisiting eth drivers
-is appreciated.
+>=20
+> Thanks,
+> Robin.
+>=20
+> > Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
+> > ---
+> >   arch/arm/mm/dma-mapping.c | 25 +++++++++++++++++++++----
+> >   1 file changed, 21 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
+> > index d6315baeddb9..c2ec4f107808 100644
+> > --- a/arch/arm/mm/dma-mapping.c
+> > +++ b/arch/arm/mm/dma-mapping.c
+> > @@ -1169,12 +1169,29 @@ static int arm_iommu_get_sgtable(struct device =
+*dev, struct sg_table *sgt,
+> >   {
+> >   	unsigned int count =3D PAGE_ALIGN(size) >> PAGE_SHIFT;
+> >   	struct page **pages =3D __iommu_get_pages(cpu_addr, attrs);
+> > +	struct page *page;
+> > +	int ret;
+> >  =20
+> > -	if (!pages)
+> > -		return -ENXIO;
+> > +	if (pages)
+> > +		return sg_alloc_table_from_pages(sgt, pages, count, 0, size,
+> > +						 GFP_KERNEL);
+> >  =20
+> > -	return sg_alloc_table_from_pages(sgt, pages, count, 0, size,
+> > -					 GFP_KERNEL);
+> > +	/*
+> > +	 * The buffer was not allocated through these DMA ops. It may belong =
+to
+> > +	 * a device which is not behind an IOMMU at all, which can happen whe=
+n a
+> > +	 * buffer is allocated on one device and mapped for another. Describe=
+ it
+> > +	 * as a single chunk, as iommu_dma_get_sgtable() does.
+> > +	 */
+> > +	if (is_vmalloc_addr(cpu_addr))
+> > +		page =3D vmalloc_to_page(cpu_addr);
+> > +	else
+> > +		page =3D virt_to_page(cpu_addr);
+> > +
+> > +	ret =3D sg_alloc_table(sgt, 1, GFP_KERNEL);
+> > +	if (!ret)
+> > +		sg_set_page(sgt->sgl, page, PAGE_ALIGN(size), 0);
+> > +
+> > +	return ret;
+> >   }
+> >  =20
+> >   /*
+> >=20
+>=20
+>=20
 
-Thanks in advance
 
-> 
-> Correct me if I misunderstood something.
-> 
-> Thanks
-> > > 
-> > > Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
-> > > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> > 
-> > Looks cleaner to me than the alternative patch from Jisheng :
-> > 
-> > https://lore.kernel.org/netdev/20260929121025.20821-1-jszhang@kernel.org/
-> > 
-> > It sure seems there're a lot of people interested in getting XDP/XSK
-> > working properly on stmmac :)
-> > 
-> > Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > 
-> > Maxime
-> > 
-> > > ---
-> > >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++++++
-> > >  1 file changed, 8 insertions(+)
-> > > 
-> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > index ca61ab449e32..0e29c5d04714 100644
-> > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > > @@ -5276,6 +5276,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
-> > >  		return STMMAC_XDP_CONSUMED;
-> > >  	}
-> > >  
-> > > +	/* Disable TX checksum offload for jumbo frames on cores where
-> > > +	 * checksum insertion is broken for oversized frames, matching the
-> > > +	 * stmmac_fix_features() workaround used by the skb path.
-> > > +	 */
-> > > +	if (priv->plat->bugged_jumbo &&
-> > > +	    xdp_get_frame_len(xdpf) > ETH_FRAME_LEN)
-> > > +		csum = false;
-> > > +
-> > >  	while (true) {
-> > >  		skb_frag_t *frag = i ? &sinfo->frags[i - 1] : NULL;
-> > >  		int len = frag ? skb_frag_size(frag) : xdpf->len;
-> > > 
-> > 
+
+
 
