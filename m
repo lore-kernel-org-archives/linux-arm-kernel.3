@@ -2,70 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CD79606A31A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 09:38:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94262606A31A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 09:38:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pJ7iVgqw;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mS31Dw1N
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WShuHo3+;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=J6QUpRF1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpU4pmX+9zma9b0HMHe9OtZavzpqVSsVuDamqHfqBOM=; b=pJ7iVgqwz+lwNDhG4nAbSe6ZK4
-	Tsd/7Rb2earnuq8TLq8Y6y8fk7d8mjUEb1bbGCwlDQ7WcDiWR6n0C2F2b8HHDMZ7mynY3c5QrHzsr
-	ljKv+4wcem0fN6zlXgNtNYBrVGCaAIsRb7GN5klmqrK8e7Mo/RiPW75YbgvIkDwxRuJzZjv+tLLGN
-	09AaHrbbz70GtiQbJfVZfIJvRI/oecUV/9xnVThqDq6e48m7MTA56R3WxQ/UnxDfc4I2D1gAfdz6T
-	0sXqt2zgVU9o2TcuhAYVvtj4KLLRQdVdSn+Ctx/vjKrdGs2kecYBDB0cYSIKBn868MAvfgABb0oDI
-	Slyn29jQ==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TksXlMVZXRpHlnAwSWhbl1BTy5EqD5EPHWFrlK+U+co=; b=WShuHo3+YyEY3TxDXmhx3zqamd
+	RaGzigNdegrMC9ID2Y15ebt0eNXf1Z/P1KzrutOuVAdyOoufN7KLoEpjp5VFTtpQ9jWIcyJBA8zv5
+	/PkHHJMddoIDfcKZO0w+RqHAdWd/PrzicUYsC6iTy60OrBYZ3r/2YZ3Mw4n7mqPJhZ23feX97dGlD
+	aY2lEBr4iiSTCcyYiao8VykuiOotky85jWT36l7KE1NHvSOZIjNCUuJU5TJVoFoWOjKN7RVi86pt+
+	FY6vwFRiJLCxKQXCbcbST9LqprlJxO97EPOnlfXudsU2LkGchIUrnt2JvAYerIWxBRdG9kmJ1DhgE
+	IARHvwfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6I6-00000009Igw-30qK;
-	Tue, 20 Oct 2026 09:37:54 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1xJ6IB-00000009Ij6-474p;
+	Tue, 20 Oct 2026 09:37:59 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJ6I4-00000009Ig3-0rvC
+	id 1xJ6I6-00000009IgL-3d91
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 09:37:53 +0000
+	Tue, 20 Oct 2026 09:37:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bp
-	U4pmX+9zma9b0HMHe9OtZavzpqVSsVuDamqHfqBOM=; b=mS31Dw1N3PrN7zkDWi
-	XwyomNptkrkBuly/amAqP+WmRRjI0TWr6DiJCqezSo/4vO5krC5Hr14I+iaRjKZK
-	8QUVvFId3VA5yksxyZaF7ownrnZOx5VlX3RQovkSrw7Dr3GEqQFTWeF31QyQJ63m
-	tFyyo8v6sP8oRkT6BduT0JPvY=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Tk
+	sXlMVZXRpHlnAwSWhbl1BTy5EqD5EPHWFrlK+U+co=; b=J6QUpRF1SX7f4nS5et
+	3F66bvy2i9ahCAslj/onOhZXSJPxpDCBYObeEA6AQ9aRR49DsMY2RdxpTk1kMd6m
+	Qnj0TyC5AcBlgd74YY5+fapPLNMqKdsu4Qz8vCRFTnWs1ALbyVStQYxNAvuGDfNW
+	fyldoJGGpPTz9s+rOAzgpKTNc=
 Received: from pc.localdomain (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgD3_4ImNtdqupV5Aw--.29320S4;
-	Tue, 20 Oct 2026 17:36:42 +0800 (CST)
+	by gzsmtp1 (Coremail) with SMTP id PCgvCgD3_4ImNtdqupV5Aw--.29320S2;
+	Tue, 20 Oct 2026 17:36:40 +0800 (CST)
 From: Jiale Yao <yaojiale02@163.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawn.guo@linaro.org>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
 	Huang Shijie <b32955@freescale.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 2/3] bus: imx-weim: reject devices without match data
-Date: Tue, 20 Oct 2026 17:36:34 +0800
-Message-Id: <20261020093637.1654161-3-yaojiale02@163.com>
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 0/3] bus: reject devices without platform match data
+Date: Tue, 20 Oct 2026 17:36:32 +0800
+Message-Id: <20261020093637.1654161-1-yaojiale02@163.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261020093637.1654161-1-yaojiale02@163.com>
-References: <20261020093637.1654161-1-yaojiale02@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgD3_4ImNtdqupV5Aw--.29320S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zw13XryrKw4DWF43GFWUXFb_yoW8JFy8pF
-	40gFy3tryUWw47Gw1UAr4UZFy5uFs2k3yDKFy8uwnY9r95tFyDXryFq345u3WFkrZY9a13
-	tF4ktFy8Wa4UWrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jzmhrUUUUU=
-X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC8AsoYmrXNis04wAA3G
+X-CM-TRANSID: PCgvCgD3_4ImNtdqupV5Aw--.29320S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Xw47Cw1fXFWxWr47Cry7GFg_yoW3tFc_uF
+	Z3XrnrX34IgryUG3WrArsFyrW3CFWxWrykZr47t3yfX3yUZr15Jr4qq3yrC39rWFWqqFn8
+	Grn8Zr4Yvwn7ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU80tC3UUUUU==
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzggoYmrXNiil+gAA3w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_023752_590462_AD1E2005 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20261020_023755_306826_0CD8AD82 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,51 +81,34 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Platform driver_override can bind a device to this driver without a
-matching OF entry. In that case, device_get_match_data() returns NULL
-and weim_parse_dt() dereferences it while configuring the controller.
+Platform driver_override can bind a device to a platform driver without
+matching its OF table. The match-data helpers then return NULL.
 
-Reject devices without match data before parsing the device tree.
+The i.MX AIPSTZ and WEIM drivers dereference the missing data during
+probe. The STM32 RIFSC driver stores it for later dereference through
+its debugfs configuration dump. Add checks before each first use so
+these drivers reject unsupported devices instead of dereferencing NULL.
 
-Fixes: 85bf6d4e4b10 ("drivers: bus: add a new driver for WEIM")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiale Yao <yaojiale02@163.com>
----
- drivers/bus/imx-weim.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Each change is independent and can be applied separately.
 
-diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-index 87070155b057..3ecad0e453cc 100644
---- a/drivers/bus/imx-weim.c
-+++ b/drivers/bus/imx-weim.c
-@@ -205,13 +205,17 @@ static int weim_timing_setup(struct device *dev, struct device_node *np,
- 
- static int weim_parse_dt(struct platform_device *pdev)
- {
--	const struct imx_weim_devtype *devtype = device_get_match_data(&pdev->dev);
-+	const struct imx_weim_devtype *devtype;
- 	int ret = 0, have_child = 0;
- 	struct device_node *child;
- 	struct weim_priv *priv;
- 	void __iomem *base;
- 	u32 reg;
- 
-+	devtype = device_get_match_data(&pdev->dev);
-+	if (!devtype)
-+		return -ENODATA;
-+
- 	if (devtype == &imx50_weim_devtype) {
- 		ret = imx_weim_gpr_setup(pdev);
- 		if (ret)
+Jiale Yao (3):
+  bus: imx-aipstz: reject devices without match data
+  bus: imx-weim: reject devices without match data
+  bus: stm32-rifsc: reject debugfs setup without match data
+
+ drivers/bus/imx-aipstz.c  | 2 ++
+ drivers/bus/imx-weim.c    | 6 +++++-
+ drivers/bus/stm32_rifsc.c | 2 ++
+ 3 files changed, 9 insertions(+), 1 deletion(-)
+
 -- 
 2.34.1
 
