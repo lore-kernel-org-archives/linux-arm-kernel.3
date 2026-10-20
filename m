@@ -2,136 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A32606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:14:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D030D606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Oct 2026 15:17:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s6mTOBS8;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm1 header.b=M9tHlslt;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=Ha+Oa72J
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sYmUuFNN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEC5wGdX89Z82HsqXlE8mmJxfZaarGVbOVnr3hOAm0w=; b=s6mTOBS8/Z20RSXQhUpY8DklOc
-	Bz+1oEbZghbIN3nSDa11O0zj6dZuIyJWECS2SBkv+b9VYoKO/ByHQk758l2sxZdbyht8r21/P+qkZ
-	u8D15N729q4HiEU6xaLRJ88m9ytFY4bBBjBaXW7EzLrLwSi79V2yFlyX3PRBB2Rzl9TTaazGXW6FE
-	IqFCUoFGbN8yPn45wFkEPjJz5slimtUU7u00gNdWYcqggYM99tyfDcUzrFqjIrspL3NBl2gav9y2M
-	0S9G8OqE4GH5JPA0zU4EuJeyGu/eJpC9pQlt0NzVCqDjR1OHOtuNp+DSp5raXp1/wZdj+mQqCVnMo
-	KWm1aNkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwYbDAFnC+zU5jtpYjRFHdXQCyjjQIHBJfyMdgShgcQ=; b=sYmUuFNNRi2XGYr1NZ3+A20W/6
+	eSGrgE4FTyEGsHPCWiX/a5sAR0CS1loLaPYpNTlNYL+XhdHXJpq1qoYE3xyCA1H70m3xv0Vg5qoQn
+	rLSusIBXa/ig3qb9/aV1ior8dNV5Jwb2PS0p3kA6tT/+NG6hnj87MS9FrTxZabo5Kn3LVm44LIcDS
+	QqzaZuzKTVk8rOSOx32A9Ct2yv/jWfxq/Z+ouR26xZWZvaigME0hQzaRX19xBSG2VzaiPZG9y8w8v
+	06IFeFTfp/5NpRbvVa+RlUYxOM/Oah4xVP9dPpJaywUNEhlIhNqIrOTcTUM2F4hHsqZMJS59OniOR
+	JFWEIf+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBXA-0000000A2SA-3vuz;
-	Tue, 20 Oct 2026 15:13:48 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1xJBaA-0000000A2fm-1Lud;
+	Tue, 20 Oct 2026 15:16:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xJBWz-0000000A2Qd-3Wr6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Oct 2026 15:13:48 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 9D8947A010E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Oct 2026 11:13:33 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Tue, 20 Oct 2026 11:13:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1792509210;
-	 x=1792595610; bh=ZEC5wGdX89Z82HsqXlE8mmJxfZaarGVbOVnr3hOAm0w=; b=
-	M9tHlsltLlgw8brJIvmPNECIIqpgNSnV9Aufv+9Q/YQR5XCQxNS74hm7X+uiWKf+
-	r2RQNVFAkLu2UCbxuGYFHDOF9/v6jUpjNfYZ0uFnXRW1ErREow//PtDs1a2LgszU
-	pmrS6MQ70VSK5S5/sDWERsbWHCE48RDZz3xOQyhFs/nwOfBji48iH3bcHi+FloAu
-	0m3UNrWCg/A2ZVa9fhdLU1ivMoup6KWo0gqQeHZe+1OEw78Vl9fZrN8S68hcb3PC
-	I2No/U/KESQz8ffh4/L/YHalR6jT4wNDjnFtymJh42yuFhoaON06Zjz4mcqk5zfG
-	2zGSRmcFt/DGqQbYdvmz7Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1792509210; x=
-	1792595610; bh=ZEC5wGdX89Z82HsqXlE8mmJxfZaarGVbOVnr3hOAm0w=; b=H
-	a+Oa72JoYaPNulergz8Vd5ZAv5El0DBJBfPwrT+W9h87CrR4EofXeAGQX3E0G8kC
-	NiQcCMrK71JtdrEhr0WY4qf3HSwYX7eC4NCAGq6YnNndrUH60nBjsCdZbgbLXLMe
-	XkKDuk2l6F3U5vDa7KX2xhn6V+kOvkCFnIFY3DYzCOMHOEw4Jgw4BsWVTwX0vK+Q
-	dILdWkR7Orx4djHrH7CnxQQewKfc7HBcxmu+hLFijP6CBsAAFecryEnzMJ7ZA9iN
-	Gu9qeRobLTJhRFK/WJNfy6uC58RIu3x2u8nt1voGG0wbZo1Iiqdvtr1P8qImJcoU
-	sPwUkVGgGaJ0TiTA/4uRg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1792509210; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:D0yBdhFTqwY+MzpTTMV1epQcGXnvFqZ7044J3khik5imwQO
-	8aBJhdMnOoBsPK0ZR70WT50uZJsX6ciZEvsvUuuhKljCpnazgyU6eeq+9YG1/1PP
-	b4jCG/ImSE2cBnppInNCOL+lgVqsGvXbN/MEwkOtvK1PvchQ+z7loYaIxZbg9Xk0
-	GObvFtbgXeiZNMmu2i/sOE5vI9yMEPlNTVgg3JQeTtfpX0TTV/9v+pRbruRr89ZW
-	sCulNEdZjjhqHrLljc215YTpAMljEJB2jtdxDZnMiHQCd9XIzI27S4i1tc/g5ZDZ
-	g6dl9t1pGXajdlKDECKL8uU4WhaBeQT/3QMtPyA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
-	repo=github.com/dkim2wg/interop; date=2026-10-08; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:x6UoH16gURO7uNaEzSVSnnyT7fiCt2A6Q/EVxz0TqeY=:k2n1M8WM0uQ8ddJeYsWll/h/e8ny+5RBdyAfFdbkmOk=;
-X-ME-Sender: <xms:GoXXauZvwpfFcLL-YMIeiPXMeN17TKhhuiTr3CMrjX7NypTaKMea2g>
-    <xme:GoXXalWQhLgflFFbB6B7VSrcgA4XQG8sa5_CxEqQ6lkAYxvJGNydThokHEt0Kd6YI
-    3G9IaxbzymGYWRvC-4yTRh9IeFWnvcfeoS0FzTMQ4iNMehmAeOm3N8>
-X-ME-Received: <xmr:GoXXahcSN7dhSBTrJ5jB2YSaOXAisCe78Y6qrQbHkTU03YAv7z1vz_-sSE28gg>
-X-ME-Proxy-Cause: dmFkZTF781+OrsKyKgKiRJR6hUf4rOKz6QH6MhRz/dGUsBKW8dVXANdVTYJvd9I2M1Em0J
-    ntb8Q/VPXfsQlOyOmgO7UlmKg5nlLjY5MLTCPVBXDZzwpfNXtJQBRqG+uqKNvnimFs8omX
-    NbYKPofjgmmrHKRQ0PEt5abTXCvDu4QqG+70LRFtPhbTp/bF4uSYRUEpL0dX/M2KtG2fIe
-    6TzxzRRfwdRjIOo/0ePJqF7Ghyyo3cSRbJQTfr3gxXCMrDRnX+ycEDsPYiNgVbs7+WvPTM
-    X3rwBiFzgyUOnVb2VpybTiXuIO0AhiWs4CBKeRku1xbRknd0b7OrWBGur3xBRANIiI1oq9
-    l/fGSakfL3BFWEPT7znvBQdywUSL/kPWJgL3lbAMFwNSqYatJdrVV3l5JbF7Lhtz06Ad3e
-    PQojYG/WZYeJlGLA/mztvHnREAEblQOxi8hx/ZXtN3QTOk35uDKc7Bjsy4Xraxy8NVzccu
-    uFOc3MsykYs6+Lip7NFlaWELQAfel3Iv2V5Mt4HvmsuiQFiak5Z4tgGYunGaaMsOauzlX4
-    854Y9f0jyIQ2v0k0CG0IXcMgVYstJbrVFWOIihDISbxvK9r6wvQl63OQYlndnzK3cowV+G
-    DmtRKn9F6h4n+7wWgrswuN+oGLDoc8QFjojckSCCgUatKs1k4QjBf3FH64PQ
-X-ME-Proxy: <xmx:GoXXaqNuw42NB2jAicJhqF5QvCRhyjKy-GoGfoI8Fxe025FPzU6Pgg>
-    <xmx:GoXXahLgqBhkSScTPmFipkJPPQHMlew9D4bDAKoS_AXcNQ515lqG3Q>
-    <xmx:GoXXaomlGGWPhmXIZAXwmKp_Uvy-t_uQxGt-apbJ9OtpEuQlV1ae5g>
-    <xmx:GoXXaoa3dOjnfc5WG1PvG4M_BAUlXRn_sl-SvPAVK_HO4xI25lEZaQ>
-    <xmx:GoXXag0N2CAD-RSrji3mMAh0jPzDb8JkTsDaC3weXSh2ayhT8aeibPXS>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 20 Oct 2026 11:13:28 -0400 (EDT)
-Date: Tue, 20 Oct 2026 09:13:23 -0600
-From: Alex Williamson <alex@shazbot.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oupton@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jean-Philippe
- Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- alex@shazbot.org
-Subject: Re: [RFC PATCH v2 12/15] vfio: Support VFIO devices that access the
- CPU MMU
-Message-ID: <20261020091323.3c51258e@shazbot.org>
-In-Reply-To: <c367caf3-d462-42ea-b482-bf9c51c47a63@arm.com>
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
-	<20261015142552.4128028-13-ryan.roberts@arm.com>
-	<20261015164421.GD13920@nvidia.com>
-	<95e0f9bd-0203-4c7a-9d09-622593bb3d4c@arm.com>
-	<20261020140944.GA3008132@nvidia.com>
-	<c367caf3-d462-42ea-b482-bf9c51c47a63@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1xJBa9-0000000A2fa-1JEW;
+	Tue, 20 Oct 2026 15:16:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B319740AA8;
+	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 727BF1F000C4;
+	Tue, 20 Oct 2026 15:16:52 +0000 (UTC)
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id D00DE1CB0C67; Tue, 20 Oct 2026 16:16:26 +0100 (BST)
+Date: Tue, 20 Oct 2026 16:16:26 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?Q?Iv=E1n?= Ezequiel Rodriguez <ivanrwcm25@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Deepak Gupta <debug@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yury Khrustalev <yury.khrustalev@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>
+Subject: Re: [PATCH 3/4] selftests/arm64: GCS must not leak on a failed clone3
+Message-ID: <ateFyuJkEgL94Rvc@sirena.org.uk>
+References: <cover.1792179433.git.ivanrwcm25@gmail.com>
+ <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261020_081342_904632_5E55D9E4 
-X-CRM114-Status: GOOD (  23.05  )
-X-Spam-Score: -2.1 (--)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fQdpgUNys5IVa7P7"
+Content-Disposition: inline
+In-Reply-To: <ed22ebf64ed00a56d5e1eff31ac639fef00dcae6.1792179433.git.ivanrwcm25@gmail.com>
+X-Cookie: Whoever dies with the most toys wins.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,45 +76,165 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 20 Oct 2026 16:06:37 +0100
-Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-> On 20/10/2026 15:09, Jason Gunthorpe wrote:
-> > On Tue, Oct 20, 2026 at 12:51:26PM +0100, Ryan Roberts wrote:  
-> >>> However.. you still have to affirm which single mm is the mm that the
-> >>> device is going to be doing DMA against. The process the opens the fd
-> >>> should not be forced to be the mm that it gets linked to.  
-> >>
-> >> What is the mm representing here? Ultimately we want to install the KVM
-> >> instance's stage2 pgtables and (pinned) VMID. We currently get that via the
-> >> bound KVM instance (which looks like it still works using the cdev interface?)
-> >>
-> >> The guest will then install the stage1 pgtables and (pinned) ASID associated
-> >> with the relevant (guest) mm_struct.
-> >>
-> >> Do we _need_ an mm association in the host?  
-> > 
-> > Ah.. I see, I didn't quite follow that. OK.. Ah everyone else doing
-> > this is using iommufd with a viommu to establish their connection
-> > between device an KVM. eg Jacob Pan's series. That's a probably a
-> > better idea to stay aligned with the common path. Though your reasons
-> > are a little different..  
-> 
-> Just to check, you're referring to [1]?
-> 
-> I was under the impression that I could open the VFIO device through the cdev
-> interface, then bind it to the KVM instance via KVM_DEV_VFIO_FILE_ADD... Why do
-> I need an iommufd at all?
+--fQdpgUNys5IVa7P7
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The cdev is not unlocked to actually access the device until it's bound
-to iommufd.  Thanks,
+On Fri, Oct 16, 2026 at 04:46:02PM -0300, Iv=E1n Ezequiel Rodriguez wrote:
 
-Alex
+> clone3(CLONE_VM|CLONE_PIDFD) with an unwritable pidfd pointer fails
+> in put_user() after copy_thread() has mapped a GCS. copy_process()
+> then calls exit_thread(). Without HAVE_EXIT_THREAD that free is a
+> no-op and the VMA stays in the parent's mm.
+
+> Assisted-by: LLM
+
+This is pretty hard to follow, there's a lot of open coding, duplication
+and strange structures or tests.  It makes it hard to follow what's
+actually being tested and why which is going to be a maintainability
+issue.
+
+> +/* Same value as KSFT_SKIP in kselftest.h. */
+> +#define KSFT_SKIP		4
+
+Why are we not just including kselftest.h?  It doesn't have the fun
+interactions with libc headers that some of the other things have.
+If we are going to cut'n'paste values why only KSFT_SKIP and not any of
+the other exit codes we use?
+
+> +/* Same wrapper as gcs-locking.c: extra prctl args must be zero. */
+> +#define my_syscall2(num, arg1, arg2)					\
+> +({									\
+> +	register long _num  __asm__ ("x8") =3D (num);			\
+> +	register long _arg1 __asm__ ("x0") =3D (long)(arg1);		\
+> +	register long _arg2 __asm__ ("x1") =3D (long)(arg2);		\
+> +	register long _arg3 __asm__ ("x2") =3D 0;				\
+> +	register long _arg4 __asm__ ("x3") =3D 0;				\
+> +	register long _arg5 __asm__ ("x4") =3D 0;				\
+> +									\
+> +	__asm__ volatile (						\
+> +		"svc #0\n"						\
+> +		: "=3Dr"(_arg1)						\
+> +		: "r"(_arg1), "r"(_arg2),				\
+> +		  "r"(_arg3), "r"(_arg4),				\
+> +		  "r"(_arg5), "r"(_num)					\
+> +		: "memory", "cc"					\
+> +	);								\
+> +	_arg1;								\
+> +})
+
+Factor this out.
+
+> +static void on_fault(int sig)
+> +{
+> +	static const char msg[] =3D "[FAIL]\tparent guarded control stack fault=
+ed\n";
+
+This isn't KTAP format.
+
+> +		/*
+> +		 * An empty GCS leaves GCSPR at the exclusive end. If
+> +		 * the next VMA is contiguous that address is also the
+> +		 * start of the next range; prefer the mapping that
+> +		 * ends here.
+> +		 */
+
+I'm not clear what you mean by exclusive end here?
+
+> +static int skip_enable(long rc)
+> +{
+> +	if (rc =3D=3D -EOPNOTSUPP) {
+> +		printf("[SKIP]\tkernel has no GCS\n");
+> +	} else if (rc =3D=3D -EINVAL) {
+> +		printf("[SKIP]\tkernel built without GCS\n");
+> +	} else if (rc =3D=3D -EBUSY) {
+> +		printf("[SKIP]\tGCS is locked\n");
+> +	} else {
+> +		printf("[FAIL]\tPR_SET_SHADOW_STACK_STATUS returned %ld\n", rc);
+> +		return 1;
+> +	}
+> +	return KSFT_SKIP;
+> +}
+
+This feels rather contorted, and ends up returning a raw 1 from main()
+rather than a KSFT_ exit code.
+
+> +int main(void)
+> +{
+> +	struct sigaction sa;
+> +	struct ss_span parent;
+> +	void *stack;
+> +	void *bad_pidfd;
+> +	unsigned long gcspr, gcspr_mid;
+> +	unsigned long gcs_mode;
+> +	long rc;
+> +	int pidfd;
+> +	int vmas0, kb0, vmas1, kb1;
+> +	int i, kept, d, cret;
+> +
+> +	setbuf(stdout, NULL);
+
+There's also setvbuf().  Using kselftest.h and it's helpers would
+probably be better, it takes care of disabling buffering.  I can't see
+any reason to avoid that.
+
+> +	gcspr =3D (unsigned long)get_gcspr();
+> +	if (!gcspr) {
+> +		printf("[FAIL]\tenable left GCSPR_EL0 at 0\n");
+> +		_exit(1);
+> +	}
+
+Why are we using _exit(), and more of these raw 1s?
+
+> +	gcspr =3D (unsigned long)get_gcspr();
+> +	ss_scan(&vmas0, &kb0, gcspr, &parent, NULL, NULL);
+> +	if (!parent.start) {
+> +		printf("[FAIL]\tGCSPR %lx matches no shadow-stack VMA\n", gcspr);
+> +		_exit(1);
+> +	}
+
+Why is this something we're validating, and how do we expect to be able
+to do function calls if it is the case?
+
+> +	if (vmas1 !=3D vmas0 || kb1 !=3D kb0) {
+> +		printf("[FAIL]\tleaked %d shadow-stack VMA(s), %d kB\n",
+> +		       vmas1 - vmas0, kb1 - kb0);
+> +		_exit(1);
+> +	}
+> +	if (!kept) {
+> +		printf("[FAIL]\tparent GCS %lx-%lx was unmapped\n",
+> +		       parent.start, parent.end);
+> +		_exit(2);
+> +	}
+
+Why are some failures exiting with a different exit code?
+
+> +	if (d !=3D 17) {
+> +		printf("[FAIL]\tparent call/return returned %d, want 17\n", d);
+> +		_exit(2);
+> +	}
+
+=2E..because?
+
+--fQdpgUNys5IVa7P7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQReagvpf3TrrA7BoYYv73Ows9A4iQUCateFxwAKCRAv73Ows9A4
+iV7CAQCkMVFZ4IBfyU74fiWba6+YvlaiDdY46+hou1OQsUgQ0wD+OKvp47h6ILRv
+YrtzWYolE5nx/q9ILHnbj4r5mQW6eQk=
+=Buc7
+-----END PGP SIGNATURE-----
+
+--fQdpgUNys5IVa7P7--
 
